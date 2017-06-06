@@ -13,6 +13,9 @@ use PMA\libraries\plugins\AuthenticationPlugin;
 use PMA\libraries\Message;
 use PMA\libraries\Response;
 use PMA\libraries\Config;
+use PMA\libraries\Core;
+
+require_once './libraries/core.lib.php';
 
 /**
  * Handles the HTTP authentication methods
@@ -110,35 +113,35 @@ class AuthenticationHttp extends AuthenticationPlugin
 
         // Grabs the $PHP_AUTH_USER variable
         if (empty($PHP_AUTH_USER)) {
-            if (PMA_getenv('PHP_AUTH_USER')) {
-                $PHP_AUTH_USER = PMA_getenv('PHP_AUTH_USER');
-            } elseif (PMA_getenv('REMOTE_USER')) {
+            if (Core::getenv('PHP_AUTH_USER')) {
+                $PHP_AUTH_USER = Core::getenv('PHP_AUTH_USER');
+            } elseif (Core::getenv('REMOTE_USER')) {
                 // CGI, might be encoded, see below
-                $PHP_AUTH_USER = PMA_getenv('REMOTE_USER');
-            } elseif (PMA_getenv('REDIRECT_REMOTE_USER')) {
+                $PHP_AUTH_USER = Core::getenv('REMOTE_USER');
+            } elseif (Core::getenv('REDIRECT_REMOTE_USER')) {
                 // CGI, might be encoded, see below
-                $PHP_AUTH_USER = PMA_getenv('REDIRECT_REMOTE_USER');
-            } elseif (PMA_getenv('AUTH_USER')) {
+                $PHP_AUTH_USER = Core::getenv('REDIRECT_REMOTE_USER');
+            } elseif (Core::getenv('AUTH_USER')) {
                 // WebSite Professional
-                $PHP_AUTH_USER = PMA_getenv('AUTH_USER');
-            } elseif (PMA_getenv('HTTP_AUTHORIZATION')) {
+                $PHP_AUTH_USER = Core::getenv('AUTH_USER');
+            } elseif (Core::getenv('HTTP_AUTHORIZATION')) {
                 // IIS, might be encoded, see below
-                $PHP_AUTH_USER = PMA_getenv('HTTP_AUTHORIZATION');
-            } elseif (PMA_getenv('Authorization')) {
+                $PHP_AUTH_USER = Core::getenv('HTTP_AUTHORIZATION');
+            } elseif (Core::getenv('Authorization')) {
                 // FastCGI, might be encoded, see below
-                $PHP_AUTH_USER = PMA_getenv('Authorization');
+                $PHP_AUTH_USER = Core::getenv('Authorization');
             }
         }
         // Grabs the $PHP_AUTH_PW variable
         if (empty($PHP_AUTH_PW)) {
-            if (PMA_getenv('PHP_AUTH_PW')) {
-                $PHP_AUTH_PW = PMA_getenv('PHP_AUTH_PW');
-            } elseif (PMA_getenv('REMOTE_PASSWORD')) {
+            if (Core::getenv('PHP_AUTH_PW')) {
+                $PHP_AUTH_PW = Core::getenv('PHP_AUTH_PW');
+            } elseif (Core::getenv('REMOTE_PASSWORD')) {
                 // Apache/CGI
-                $PHP_AUTH_PW = PMA_getenv('REMOTE_PASSWORD');
-            } elseif (PMA_getenv('AUTH_PASSWORD')) {
+                $PHP_AUTH_PW = Core::getenv('REMOTE_PASSWORD');
+            } elseif (Core::getenv('AUTH_PASSWORD')) {
                 // WebSite Professional
-                $PHP_AUTH_PW = PMA_getenv('AUTH_PASSWORD');
+                $PHP_AUTH_PW = Core::getenv('AUTH_PASSWORD');
             }
         }
         // Sanitize empty password login
@@ -162,7 +165,7 @@ class AuthenticationHttp extends AuthenticationPlugin
         }
 
         // sanitize username
-        $PHP_AUTH_USER = PMA_sanitizeMySQLUser($PHP_AUTH_USER);
+        $PHP_AUTH_USER = Core::sanitizeMySQLUser($PHP_AUTH_USER);
 
         // User logged out -> ensure the new username is not the same
         $old_usr = isset($_REQUEST['old_usr']) ? $_REQUEST['old_usr'] : '';
@@ -216,7 +219,7 @@ class AuthenticationHttp extends AuthenticationPlugin
     {
         $error = $GLOBALS['dbi']->getError();
         if ($error && $GLOBALS['errno'] != 1045) {
-            PMA_fatalError($error);
+            Core::fatalError($error);
 
             return true;
         }

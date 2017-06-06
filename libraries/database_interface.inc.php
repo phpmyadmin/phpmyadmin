@@ -6,6 +6,8 @@
  *
  * @package PhpMyAdmin-DBI
  */
+
+use PMA\libraries\Core;
 use PMA\libraries\dbi\DBIDummy;
 use PMA\libraries\di\Container;
 use PMA\libraries\DatabaseInterface;
@@ -42,7 +44,7 @@ if (defined('TESTSUITE')) {
             $extension = 'mysql';
             if (! PMA\libraries\DatabaseInterface::checkDbExtension($extension)) {
                 // warn about both extensions missing and exit
-                PMA_warnMissingExtension(
+                Core::warnMissingExtension(
                     'mysqli',
                     true,
                     $doclink
@@ -61,7 +63,7 @@ if (defined('TESTSUITE')) {
             }
         } else {
             // mysql extension is not part of PHP 7+, so warn and exit
-            PMA_warnMissingExtension(
+            Core::warnMissingExtension(
                 'mysqli',
                 true,
                 $doclink

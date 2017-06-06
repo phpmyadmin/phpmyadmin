@@ -6,6 +6,8 @@
  *
  * @package PhpMyAdmin
  */
+
+use PMA\libraries\Core;
 use PMA\libraries\Encoding;
 use PMA\libraries\Message;
 use PMA\libraries\plugins\ExportPlugin;
@@ -573,7 +575,7 @@ function PMA_getHtmlForExportOptionsOutputFormat($export_type)
         )
     );
     $msg->addParamHtml(
-        '<a href="' . PMA_linkURL(PMA_getPHPDocLink('function.strftime.php'))
+        '<a href="' . Core::linkURL(Core::getPHPDocLink('function.strftime.php'))
         . '" target="documentation" title="' . __('Documentation') . '">'
     );
     $msg->addParamHtml('</a>');
@@ -773,7 +775,7 @@ function PMA_getHtmlForExportOptionsOutput($export_type)
     $html .= '<ul id="ul_output">';
     $html .= '<li><input type="checkbox" id="btn_alias_config" ';
     if (isset($_SESSION['tmpval']['aliases'])
-        && !PMA_emptyRecursive($_SESSION['tmpval']['aliases'])
+        && !Core::emptyRecursive($_SESSION['tmpval']['aliases'])
     ) {
         $html .= 'checked="checked"';
     }

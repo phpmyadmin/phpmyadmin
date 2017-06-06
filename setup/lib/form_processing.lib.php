@@ -6,6 +6,7 @@
  * @package PhpMyAdmin-Setup
  */
 use PMA\libraries\config\FormDisplay;
+use PMA\libraries\Core;
 use PMA\libraries\URL;
 use PMA\libraries\Response;
 
@@ -41,7 +42,7 @@ function PMA_Process_formset(FormDisplay $form_display)
     // form has errors, show warning
     $page = isset($_GET['page']) ? $_GET['page'] : '';
     $formset = isset($_GET['formset']) ? $_GET['formset'] : '';
-    $formId = PMA_isValid($_GET['id'], 'numeric') ? $_GET['id'] : '';
+    $formId = Core::isValid($_GET['id'], 'numeric') ? $_GET['id'] : '';
     if ($formId === null && $page == 'servers') {
         // we've just added a new server, get its id
         $formId = $form_display->getConfigFile()->getServerCount();

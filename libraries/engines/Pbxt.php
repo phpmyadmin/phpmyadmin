@@ -8,6 +8,7 @@
 namespace PMA\libraries\engines;
 
 use PMA;
+use PMA\libraries\Core;
 use PMA\libraries\StorageEngine;
 
 /**
@@ -181,7 +182,7 @@ class Pbxt extends StorageEngine
                 'Documentation and further information about PBXT'
                 . ' can be found on the %sPrimeBase XT Home Page%s.'
             ),
-            '<a href="' . PMA_linkURL('https://mariadb.com/kb/en/mariadb/about-pbxt/')
+            '<a href="' . Core::linkURL('https://mariadb.com/kb/en/mariadb/about-pbxt/')
             . '" rel="noopener noreferrer" target="_blank">',
             '</a>'
         )
@@ -190,4 +191,3 @@ class Pbxt extends StorageEngine
         return $output;
     }
 }
-

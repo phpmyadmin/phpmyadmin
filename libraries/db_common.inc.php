@@ -5,6 +5,8 @@
  *
  * @package PhpMyAdmin
  */
+
+use PMA\libraries\Core;
 use PMA\libraries\Message;
 use PMA\libraries\Response;
 use PMA\libraries\URL;
@@ -69,7 +71,7 @@ if (! isset($is_db) || ! $is_db) {
                 Message::error(__('No databases selected.'))
             );
         } else {
-            PMA_sendHeaderLocation($uri);
+            Core::sendHeaderLocation($uri);
         }
         exit;
     }
@@ -106,4 +108,3 @@ if (isset($_REQUEST['submitcollation'])
  * Set parameters for links
  */
 $url_query = URL::getCommon(array('db' => $db));
-

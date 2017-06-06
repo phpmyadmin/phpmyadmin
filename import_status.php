@@ -6,6 +6,8 @@
  * @package PhpMyAdmin
  */
 
+use PMA\libraries\Core;
+
 /* PHP 5.4 stores upload progress data only in the default session.
  * After calling session_name(), we won't find the progress data anymore.
  *
@@ -81,7 +83,7 @@ if (defined('SESSIONUPLOAD')) {
 if (isset($_GET["message"]) && $_GET["message"]) {
 
     // AJAX requests can't be cached!
-    PMA_noCacheHeader();
+    Core::noCacheHeader();
 
     header('Content-type: text/html');
 

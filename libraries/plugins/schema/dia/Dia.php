@@ -8,6 +8,7 @@
 namespace PMA\libraries\plugins\schema\dia;
 
 use PMA;
+use PMA\libraries\Core;
 use PMA\libraries\Response;
 use XMLWriter;
 
@@ -178,7 +179,7 @@ class Dia extends XMLWriter
         }
         $output = $this->flush();
         Response::getInstance()->disable();
-        PMA_downloadHeader(
+        Core::downloadHeader(
             $fileName,
             'application/x-dia-diagram',
             strlen($output)

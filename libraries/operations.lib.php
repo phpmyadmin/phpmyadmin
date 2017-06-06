@@ -7,6 +7,7 @@
  */
 use PMA\libraries\engines\Innodb;
 use PMA\libraries\Charsets;
+use PMA\libraries\Core;
 use PMA\libraries\Message;
 use PMA\libraries\Partition;
 use PMA\libraries\plugins\export\ExportSql;
@@ -2026,7 +2027,7 @@ function PMA_moveOrCopyTable($db, $table)
     /**
      * A target table name has been sent to this script -> do the work
      */
-    if (PMA_isValid($_REQUEST['new_name'])) {
+    if (Core::isValid($_REQUEST['new_name'])) {
         if ($db == $_REQUEST['target_db'] && $table == $_REQUEST['new_name']) {
             if (isset($_REQUEST['submit_move'])) {
                 $message = Message::error(__('Can\'t move table to same one!'));
@@ -2095,7 +2096,7 @@ function PMA_moveOrCopyTable($db, $table)
 
             /* Check: Work on new table or on old table? */
             if (isset($_REQUEST['submit_move'])
-                || PMA_isValid($_REQUEST['switch_to_new'])
+                || Core::isValid($_REQUEST['switch_to_new'])
             ) {
             }
         }

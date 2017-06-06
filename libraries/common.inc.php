@@ -30,7 +30,9 @@
  *
  * @package PhpMyAdmin
  */
+
 use PMA\libraries\Config;
+use PMA\libraries\Core;
 use PMA\libraries\DatabaseInterface;
 use PMA\libraries\ErrorHandler;
 use PMA\libraries\Message;
@@ -52,7 +54,7 @@ if (getcwd() == dirname(__FILE__)) {
 }
 
 /**
- * Minimum PHP version; can't call PMA_fatalError() which uses a
+ * Minimum PHP version; can't call Core::fatalError() which uses a
  * PHP 5 function, so cannot easily localize this message.
  */
 if (version_compare(PHP_VERSION, '5.5.0', 'lt')) {
@@ -95,14 +97,9 @@ PhpMyAdmin\MoTranslator\Loader::loadFunctions();
 $GLOBALS['error_handler'] = new ErrorHandler();
 
 /**
- * core functions
- */
-require './libraries/core.lib.php';
-
-/**
  * Warning about missing PHP extensions.
  */
-PMA_checkExtensions();
+Core::checkExtensions();
 
 /**
  * Set utf-8 encoding for PHP
@@ -126,7 +123,7 @@ require './libraries/relation.lib.php';
 /******************************************************************************/
 /* start procedural code                       label_start_procedural         */
 
-PMA_cleanupPathInfo();
+Core::cleanupPathInfo();
 
 /**
  * just to be sure there was no import (registering) before here
@@ -326,7 +323,7 @@ $goto_whitelist = array(
 /**
  * check $__redirect against whitelist
  */
-if (! PMA_checkPageValidity($__redirect, $goto_whitelist)) {
+if (! Core::checkPageValidity($__redirect, $goto_whitelist)) {
     $__redirect = null;
 }
 
@@ -336,7 +333,7 @@ if (! PMA_checkPageValidity($__redirect, $goto_whitelist)) {
  */
 $GLOBALS['goto'] = '';
 // Security fix: disallow accessing serious server files via "?goto="
-if (PMA_checkPageValidity($_REQUEST['goto'], $goto_whitelist)) {
+if (Core::checkPageValidity($_REQUEST['goto'], $goto_whitelist)) {
     $GLOBALS['goto'] = $_REQUEST['goto'];
     $GLOBALS['url_params']['goto'] = $_REQUEST['goto'];
 } else {
@@ -347,7 +344,7 @@ if (PMA_checkPageValidity($_REQUEST['goto'], $goto_whitelist)) {
  * returning page
  * @global string $GLOBALS['back']
  */
-if (PMA_checkPageValidity($_REQUEST['back'], $goto_whitelist)) {
+if (Core::checkPageValidity($_REQUEST['back'], $goto_whitelist)) {
     $GLOBALS['back'] = $_REQUEST['back'];
 } else {
     unset($_REQUEST['back'], $_GET['back'], $_POST['back'], $_COOKIE['back']);
@@ -368,12 +365,13 @@ if (PMA_checkPageValidity($_REQUEST['back'], $goto_whitelist)) {
  * @todo variables should be handled by their respective owners (objects)
  * f.e. lang, server, collation_connection in PMA\libraries\Config
  */
+require_once './libraries/core.lib.php';
 
 $token_mismatch = true;
 $token_provided = false;
 
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-    if (PMA_isValid($_POST['token'])) {
+    if (Core::isValid($_POST['token'])) {
         $token_provided = true;
         $token_mismatch = ! hash_equals($_SESSION[' PMA_token '], $_POST['token']);
     }
@@ -393,19 +391,19 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
  * current selected database
  * @global string $GLOBALS['db']
  */
-PMA_setGlobalDbOrTable('db');
+Core::setGlobalDbOrTable('db');
 
 /**
  * current selected table
  * @global string $GLOBALS['table']
  */
-PMA_setGlobalDbOrTable('table');
+Core::setGlobalDbOrTable('table');
 
 /**
  * Store currently selected recent table.
  * Affect $GLOBALS['db'] and $GLOBALS['table']
  */
-if (PMA_isValid($_REQUEST['selected_recent_table'])) {
+if (Core::isValid($_REQUEST['selected_recent_table'])) {
     $recent_table = json_decode($_REQUEST['selected_recent_table'], true);
 
     $GLOBALS['db']
@@ -424,7 +422,7 @@ if (PMA_isValid($_REQUEST['selected_recent_table'])) {
  * @global string $GLOBALS['sql_query']
  */
 $GLOBALS['sql_query'] = '';
-if (PMA_isValid($_REQUEST['sql_query'])) {
+if (Core::isValid($_REQUEST['sql_query'])) {
     $GLOBALS['sql_query'] = $_REQUEST['sql_query'];
 }
 
@@ -465,7 +463,7 @@ $GLOBALS['PMA_Config']->checkErrors();
  * empty value or 0.
  */
 if (@extension_loaded('mbstring') && !empty(@ini_get('mbstring.func_overload'))) {
-    PMA_fatalError(
+    Core::fatalError(
         __(
             'You have enabled mbstring.func_overload in your PHP '
             . 'configuration. This option is incompatible with phpMyAdmin '
@@ -637,7 +635,7 @@ if (! defined('PMA_MINIMUM_COMMON')) {
             './libraries/plugins/auth/'
             . $auth_class . '.php'
         )) {
-            PMA_fatalError(
+            Core::fatalError(
                 __('Invalid authentication method set in configuration:')
                 . ' ' . $cfg['Server']['auth_type']
             );
@@ -784,7 +782,7 @@ if (! defined('PMA_MINIMUM_COMMON')) {
         Logging::logUser($cfg['Server']['user']);
 
         if (PMA_MYSQL_INT_VERSION < $cfg['MysqlMinVersion']['internal']) {
-            PMA_fatalError(
+            Core::fatalError(
                 __('You should upgrade to %s %s or later.'),
                 array('MySQL', $cfg['MysqlMinVersion']['human'])
             );
@@ -889,14 +887,14 @@ $GLOBALS['PMA_Config']->set('default_server', '');
 Tracker::enable();
 
 if (isset($_REQUEST['GLOBALS']) || isset($_FILES['GLOBALS'])) {
-    PMA_fatalError(__("GLOBALS overwrite attempt"));
+    Core::fatalError(__("GLOBALS overwrite attempt"));
 }
 
 /**
  * protect against possible exploits - there is no need to have so much variables
  */
 if (count($_REQUEST) > 1000) {
-    PMA_fatalError(__('possible exploit'));
+    Core::fatalError(__('possible exploit'));
 }
 
 // here, the function does not exist with this configuration:

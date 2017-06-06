@@ -8,6 +8,7 @@
 
 use PMA\libraries\config\ConfigFile;
 use PMA\libraries\config\FormDisplay;
+use PMA\libraries\Core;
 use PMA\libraries\URL;
 
 if (!defined('PHPMYADMIN')) {
@@ -22,7 +23,7 @@ require_once './setup/lib/form_processing.lib.php';
 require './libraries/config/setup.forms.php';
 
 $mode = isset($_GET['mode']) ? $_GET['mode'] : null;
-$id = PMA_isValid($_GET['id'], 'numeric') ? intval($_GET['id']) : null;
+$id = Core::isValid($_GET['id'], 'numeric') ? intval($_GET['id']) : null;
 
 /** @var ConfigFile $cf */
 $cf = $GLOBALS['ConfigFile'];

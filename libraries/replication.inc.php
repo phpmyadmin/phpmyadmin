@@ -6,7 +6,8 @@
  * @package PhpMyAdmin
  */
 
- use PMA\libraries\DatabaseInterface;
+use PMA\libraries\Core;
+use PMA\libraries\DatabaseInterface;
 
 if (! defined('PHPMYADMIN')) {
     exit;
@@ -297,7 +298,7 @@ function PMA_Replication_connectToMaster(
     $server = array();
     $server['user'] = $user;
     $server['password'] = $password;
-    $server["host"] = PMA_sanitizeMySQLHost($host);
+    $server["host"] = Core::sanitizeMySQLHost($host);
     $server["port"] = $port;
     $server["socket"] = $socket;
 

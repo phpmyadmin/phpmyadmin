@@ -6,12 +6,9 @@
  * @package PhpMyAdmin-test
  */
 
-/*
- * Include to test.
- */
+use PMA\libraries\Core;
 
 require_once 'libraries/database_interface.inc.php';
-
 require_once 'libraries/ip_allow_deny.lib.php';
 
 /**
@@ -47,7 +44,7 @@ class PMA_Ip_Allow_Deny_Test extends PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test for PMA_getIp
+     * Test for Core::getIp
      *
      * @return void
      *
@@ -73,7 +70,7 @@ class PMA_Ip_Allow_Deny_Test extends PHPUnit_Framework_TestCase
 
         $this->assertEquals(
             $expected,
-            PMA_getIp()
+            Core::getIp()
         );
 
         unset($_SERVER['REMOTE_ADDR']);
@@ -82,7 +79,7 @@ class PMA_Ip_Allow_Deny_Test extends PHPUnit_Framework_TestCase
     }
 
     /**
-     * Data provider for PMA_getIp tests
+     * Data provider for Core::getIp tests
      *
      * @return array
      */

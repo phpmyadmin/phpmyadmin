@@ -7,6 +7,7 @@
  */
 
 use PMA\libraries\Bookmark;
+use PMA\libraries\Core;
 use PMA\libraries\Encoding;
 use PMA\libraries\File;
 use PMA\libraries\plugins\ImportPlugin;
@@ -235,7 +236,7 @@ if (! in_array(
 ) {
     // this should not happen for a normal user
     // but only during an attack
-    PMA_fatalError('Incorrect format parameter');
+    Core::fatalError('Incorrect format parameter');
 }
 
 $post_patterns = array(
@@ -243,13 +244,13 @@ $post_patterns = array(
     '/^' . $format . '_/'
 );
 
-PMA_setPostAsGlobal($post_patterns);
+Core::setPostAsGlobal($post_patterns);
 
 // Check needed parameters
 PMA\libraries\Util::checkParameters(array('import_type', 'format'));
 
 // We don't want anything special in format
-$format = PMA_securePath($format);
+$format = Core::securePath($format);
 
 // Create error and goto url
 if ($import_type == 'table') {
@@ -447,7 +448,7 @@ if (isset($_FILES['import_file'])) {
 if (! empty($local_import_file) && ! empty($cfg['UploadDir'])) {
 
     // sanitize $local_import_file as it comes from a POST
-    $local_import_file = PMA_securePath($local_import_file);
+    $local_import_file = Core::securePath($local_import_file);
 
     $import_file = PMA\libraries\Util::userDir($cfg['UploadDir'])
         . $local_import_file;

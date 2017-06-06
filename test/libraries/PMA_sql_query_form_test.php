@@ -6,6 +6,7 @@
  * @package PhpMyAdmin-test
  */
 
+use PMA\libraries\Core;
 use PMA\libraries\Encoding;
 use PMA\libraries\Theme;
 use PMA\libraries\URL;
@@ -39,7 +40,7 @@ class PMA_SqlQueryForm_Test extends PHPUnit_Framework_TestCase
     {
         //$GLOBALS
         $GLOBALS['max_upload_size'] = 100;
-        $GLOBALS['PMA_PHP_SELF'] = PMA_getenv('PHP_SELF');
+        $GLOBALS['PMA_PHP_SELF'] = Core::getenv('PHP_SELF');
         $GLOBALS['db'] = "PMA_db";
         $GLOBALS['table'] = "PMA_table";
         $GLOBALS['text_dir'] = "text_dir";

@@ -7,6 +7,8 @@
  */
 namespace PMA\libraries;
 
+use PMA\libraries\Core;
+
 /**
  * Singleton class used to manage the rendering of pages in PMA
  *
@@ -351,8 +353,8 @@ class Response
                 $this->addJSON(
                     '_reloadQuerywindow',
                     array(
-                        'db' => PMA_ifSetOr($GLOBALS['db'], ''),
-                        'table' => PMA_ifSetOr($GLOBALS['table'], ''),
+                        'db' => Core::ifSetOr($GLOBALS['db'], ''),
+                        'table' => Core::ifSetOr($GLOBALS['table'], ''),
                         'sql_query' => $query
                     )
                 );
@@ -368,7 +370,7 @@ class Response
 
         // Set the Content-Type header to JSON so that jQuery parses the
         // response correctly.
-        PMA_headerJSON();
+        Core::headerJSON();
 
         $result = json_encode($this->_JSON);
         if ($result === false) {

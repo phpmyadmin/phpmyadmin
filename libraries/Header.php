@@ -11,7 +11,7 @@ use PMA\libraries\navigation\Navigation;
 use PMA\libraries\URL;
 use PMA\libraries\Sanitize;
 use PMA\libraries\Config;
-
+use PMA\libraries\Core;
 
 /**
  * Class used to output the HTTP and HTML headers
@@ -610,7 +610,7 @@ class Header
         header(
             'X-Robots-Tag: noindex, nofollow'
         );
-        PMA_noCacheHeader();
+        Core::noCacheHeader();
         if (! defined('IS_TRANSFORMATION_WRAPPER')) {
             // Define the charset to be used
             header('Content-Type: text/html; charset=utf-8');
@@ -809,4 +809,3 @@ class Header
         return "v=" . urlencode(PMA_VERSION);
     }
 }
-

@@ -5,14 +5,16 @@
  *
  * @package PhpMyAdmin
  */
-use PMA\libraries\Message;
-use PMA\libraries\Response;
-use PMA\libraries\RecentFavoriteTable;
-use PMA\libraries\URL;
-use PMA\libraries\Sanitize;
+
 use PMA\libraries\Charsets;
-use PMA\libraries\ThemeManager;
+use PMA\libraries\Core;
 use PMA\libraries\LanguageManager;
+use PMA\libraries\Message;
+use PMA\libraries\RecentFavoriteTable;
+use PMA\libraries\Response;
+use PMA\libraries\Sanitize;
+use PMA\libraries\ThemeManager;
+use PMA\libraries\URL;
 
 /**
  * Gets some core libraries and displays a top message if required
@@ -412,21 +414,21 @@ PMA_printListItem(
 PMA_printListItem(
     __('Official Homepage'),
     'li_pma_homepage',
-    PMA_linkURL('https://www.phpmyadmin.net/'),
+    Core::linkURL('https://www.phpmyadmin.net/'),
     null,
     '_blank'
 );
 PMA_printListItem(
     __('Contribute'),
     'li_pma_contribute',
-    PMA_linkURL('https://www.phpmyadmin.net/contribute/'),
+    Core::linkURL('https://www.phpmyadmin.net/contribute/'),
     null,
     '_blank'
 );
 PMA_printListItem(
     __('Get support'),
     'li_pma_support',
-    PMA_linkURL('https://www.phpmyadmin.net/support/'),
+    Core::linkURL('https://www.phpmyadmin.net/support/'),
     null,
     '_blank'
 );

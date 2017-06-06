@@ -12,6 +12,7 @@ use PhpMyAdmin\SqlParser\Statements\DropStatement;
 use PhpMyAdmin\SqlParser\Statements\SelectStatement;
 use PhpMyAdmin\SqlParser\Utils\Query;
 use PMA\libraries\Bookmark;
+use PMA\libraries\Core;
 use PMA\libraries\DatabaseInterface;
 use PMA\libraries\DisplayResults;
 use PMA\libraries\Index;
@@ -814,7 +815,7 @@ EOT;
             /**
              * @todo In which scenario does this happen?
              */
-            PMA_sendHeaderLocation(
+            Core::sendHeaderLocation(
                 './' . $goto
                 . '&label=' . $_POST['bkm_fields']['bkm_label']
             );

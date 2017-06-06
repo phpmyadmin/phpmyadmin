@@ -14,6 +14,7 @@ use PhpMyAdmin\SqlParser\Statements\CreateStatement;
 use PhpMyAdmin\SqlParser\Utils\Table as SqlTable;
 use PMA\libraries\config\PageSettings;
 use PMA\libraries\controllers\TableController;
+use PMA\libraries\Core;
 use PMA\libraries\Index;
 use PMA\libraries\Message;
 use PMA\libraries\Sql;
@@ -907,7 +908,7 @@ class TableStructureController extends TableController
 
             // If there is a request for SQL previewing.
             if (isset($_REQUEST['preview_sql'])) {
-                PMA_previewSQL(count($changes) > 0 ? $sql_query : '');
+                Core::previewSQL(count($changes) > 0 ? $sql_query : '');
             }
 
             $columns_with_index = $this->dbi

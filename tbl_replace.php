@@ -11,6 +11,8 @@
  *
  * @package PhpMyAdmin
  */
+
+use PMA\libraries\Core;
 use PMA\libraries\plugins\IOTransformationsPlugin;
 use PMA\libraries\Response;
 use PMA\libraries\Table;
@@ -317,14 +319,14 @@ if ($is_insert && count($value_sets) > 0) {
         $goto_include = 'tbl_change.php';
     }
     $active_page = $goto_include;
-    include '' . PMA_securePath($goto_include);
+    include '' . Core::securePath($goto_include);
     exit;
 }
 unset($multi_edit_columns, $is_insertignore);
 
 // If there is a request for SQL previewing.
 if (isset($_REQUEST['preview_sql'])) {
-    PMA_previewSQL($query);
+    Core::previewSQL($query);
 }
 
 /**
@@ -421,7 +423,7 @@ if ($response->isAjax() && ! isset($_POST['ajax_page_request'])) {
         foreach ($mime_map as $transformation) {
             $column_name = $transformation['column_name'];
             foreach ($transformation_types as $type) {
-                $file = PMA_securePath($transformation[$type]);
+                $file = Core::securePath($transformation[$type]);
                 $extra_data = PMA_transformEditedValues(
                     $db, $table, $transformation, $edited_values, $file,
                     $column_name, $extra_data, $type
@@ -474,5 +476,5 @@ if (isset($_REQUEST['after_insert']) && 'new_insert' == $_REQUEST['after_insert'
 /**
  * Load target page.
  */
-require '' . PMA_securePath($goto_include);
+require '' . Core::securePath($goto_include);
 exit;

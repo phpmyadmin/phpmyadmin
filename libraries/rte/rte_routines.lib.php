@@ -6,6 +6,7 @@
  * @package PhpMyAdmin
  */
 use PMA\libraries\Charsets;
+use PMA\libraries\Core;
 use PMA\libraries\Message;
 use PMA\libraries\Response;
 use PMA\libraries\Util;
@@ -60,7 +61,7 @@ function PMA_RTN_main($type)
     /**
      * Display a list of available routines
      */
-    if (! PMA_isValid($type, array('FUNCTION','PROCEDURE'))) {
+    if (! Core::isValid($type, array('FUNCTION','PROCEDURE'))) {
         $type = null;
     }
     $items = $GLOBALS['dbi']->getRoutines($db, $type);

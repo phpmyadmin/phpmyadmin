@@ -5,6 +5,8 @@
  *
  * @package PhpMyAdmin
  */
+
+use PMA\libraries\Core;
 use PMA\libraries\Encoding;
 use PMA\libraries\plugins\ExportPlugin;
 use PMA\libraries\URL;
@@ -173,7 +175,7 @@ $table = $GLOBALS['table'];
 PMA\libraries\Util::checkParameters(array('what', 'export_type'));
 
 // sanitize this parameter which will be used below in a file inclusion
-$what = PMA_securePath($_POST['what']);
+$what = Core::securePath($_POST['what']);
 
 // export class instance, not array of properties, as before
 /* @var $export_plugin ExportPlugin */
@@ -189,7 +191,7 @@ $export_plugin = PMA_getPlugin(
 
 // Check export type
 if (empty($export_plugin)) {
-    PMA_fatalError(__('Bad type!'));
+    Core::fatalError(__('Bad type!'));
 }
 
 /**
@@ -272,7 +274,7 @@ if ($export_type == 'server') {
         )
     );
 } else {
-    PMA_fatalError(__('Bad parameters!'));
+    Core::fatalError(__('Bad parameters!'));
 }
 
 // Merge SQL Query aliases with Export aliases from
@@ -365,7 +367,7 @@ if ($save_on_server) {
         @ini_set('url_rewriter.tags', '');
         $filename = Sanitize::sanitizeFilename($filename);
 
-        PMA_downloadHeader($filename, $mime_type);
+        Core::downloadHeader($filename, $mime_type);
     } else {
         // HTML
         if ($export_type == 'database') {

@@ -5,6 +5,8 @@
  *
  * @package PhpMyAdmin
  */
+
+use PMA\libraries\Core;
 use PMA\libraries\Message;
 use PMA\libraries\Table;
 use PMA\libraries\RecentFavoriteTable;
@@ -1292,15 +1294,15 @@ function PMA_foreignDropdown($disp_row, $foreign_field, $foreign_display, $data,
     $top = array();
     $bottom = array();
     if ($foreign_display) {
-        if (PMA_isValid($GLOBALS['cfg']['ForeignKeyDropdownOrder'], 'array')) {
-            if (PMA_isValid($GLOBALS['cfg']['ForeignKeyDropdownOrder'][0])) {
+        if (Core::isValid($GLOBALS['cfg']['ForeignKeyDropdownOrder'], 'array')) {
+            if (Core::isValid($GLOBALS['cfg']['ForeignKeyDropdownOrder'][0])) {
                 $top = PMA_buildForeignDropdown(
                     $foreign,
                     $data,
                     $GLOBALS['cfg']['ForeignKeyDropdownOrder'][0]
                 );
             }
-            if (PMA_isValid($GLOBALS['cfg']['ForeignKeyDropdownOrder'][1])) {
+            if (Core::isValid($GLOBALS['cfg']['ForeignKeyDropdownOrder'][1])) {
                 $bottom = PMA_buildForeignDropdown(
                     $foreign,
                     $data,

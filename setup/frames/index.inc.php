@@ -9,6 +9,7 @@
 use PMA\libraries\config\ConfigFile;
 use PMA\libraries\config\FormDisplay;
 use PMA\libraries\config\ServerConfigChecks;
+use PMA\libraries\Core;
 use PMA\libraries\LanguageManager;
 use PMA\libraries\URL;
 use PMA\libraries\Sanitize;
@@ -243,7 +244,7 @@ $opts = array(
         'unix' => 'UNIX / Linux (\n)',
         'win' => 'Windows (\r\n)'),
     'values_escaped' => true);
-$eol = PMA_ifSetOr($_SESSION['eol'], (PMA_IS_WINDOWS ? 'win' : 'unix'));
+$eol = Core::ifSetOr($_SESSION['eol'], (PMA_IS_WINDOWS ? 'win' : 'unix'));
 echo PMA_displayInput(
     'eol', __('End of line'), 'select',
     $eol, '', true, $opts

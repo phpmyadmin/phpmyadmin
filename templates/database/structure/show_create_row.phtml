@@ -1,3 +1,4 @@
+<?php use PMA\libraries\Core; ?>
 <fieldset>
     <legend><?= $title; ?></legend>
     <table class="show_create">
@@ -10,8 +11,8 @@
         <tbody>
         <?php foreach ($db_objects as $object): ?>
             <tr>
-                <td><strong><?= PMA_mimeDefaultFunction($object); ?></strong></td>
-                <td><?= PMA_mimeDefaultFunction($GLOBALS['dbi']->getTable($db, $object)->showCreate()); ?></td>
+                <td><strong><?= Core::mimeDefaultFunction($object); ?></strong></td>
+                <td><?= Core::mimeDefaultFunction($GLOBALS['dbi']->getTable($db, $object)->showCreate()); ?></td>
             </tr>
         <?php endforeach; ?>
         </tbody>

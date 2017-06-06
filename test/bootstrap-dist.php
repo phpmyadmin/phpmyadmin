@@ -60,7 +60,6 @@ if (PHP_SAPI == 'cli') {
 
 require_once 'libraries/vendor_config.php';
 require_once AUTOLOAD_FILE;
-require_once 'libraries/core.lib.php';
 PhpMyAdmin\MoTranslator\Loader::loadFunctions();
 $CFG = new PMA\libraries\Config();
 // Initialize PMA_VERSION variable

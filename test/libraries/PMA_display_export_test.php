@@ -6,15 +6,11 @@
  * @package PhpMyAdmin-test
  */
 
-/*
- * Include to test.
- */
+use PMA\libraries\Core;
 use PMA\libraries\Theme;
 use PMA\libraries\URL;
 
-
 require_once 'libraries/display_export.lib.php';
-
 require_once 'libraries/database_interface.inc.php';
 require_once 'libraries/plugin_interface.lib.php';
 require_once 'libraries/relation.lib.php';
@@ -52,7 +48,7 @@ class PMA_DisplayExport_Test extends PHPUnit_Framework_TestCase
         $GLOBALS['cfg']['BZipDump'] = false;
         $GLOBALS['cfg']['Export']['asfile'] = true;
         $GLOBALS['cfg']['Export']['file_template_server'] = "file_template_server";
-        $GLOBALS['PMA_PHP_SELF'] = PMA_getenv('PHP_SELF');
+        $GLOBALS['PMA_PHP_SELF'] = Core::getenv('PHP_SELF');
         $GLOBALS['PMA_recoding_engine'] = "InnerDB";
         $GLOBALS['server'] = 0;
 

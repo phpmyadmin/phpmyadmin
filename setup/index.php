@@ -7,30 +7,32 @@
  * @license https://www.gnu.org/licenses/gpl.html GNU GPL 2.0
  */
 
+use PMA\libraries\Core;
+
 /**
  * Core libraries.
  */
 require './lib/common.inc.php';
 
 if (file_exists(CONFIG_FILE) && ! $cfg['DBG']['demo']) {
-    PMA_fatalError(__('Configuration already exists, setup is disabled!'));
+    Core::fatalError(__('Configuration already exists, setup is disabled!'));
 }
 
-$page = PMA_isValid($_GET['page'], 'scalar') ? $_GET['page'] : null;
+$page = Core::isValid($_GET['page'], 'scalar') ? $_GET['page'] : null;
 $page = preg_replace('/[^a-z]/', '', $page);
 if ($page === '') {
     $page = 'index';
 }
 if (!file_exists("./setup/frames/$page.inc.php")) {
     // it will happen only when entering URL by hand, we don't care for these cases
-    PMA_fatalError(__('Wrong GET file attribute value'));
+    Core::fatalError(__('Wrong GET file attribute value'));
 }
 
 // Handle done action info
-$action_done = PMA_isValid($_GET['action_done'], 'scalar') ? $_GET['action_done'] : null;
+$action_done = Core::isValid($_GET['action_done'], 'scalar') ? $_GET['action_done'] : null;
 $action_done = preg_replace('/[^a-z_]/', '', $action_done);
 
-PMA_noCacheHeader();
+Core::noCacheHeader();
 
 ?>
 <!DOCTYPE HTML>

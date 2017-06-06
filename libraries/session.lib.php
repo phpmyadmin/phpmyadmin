@@ -5,6 +5,8 @@
  *
  * @package PhpMyAdmin
  */
+
+use PMA\libraries\Core;
 use PMA\libraries\Util;
 
 /**
@@ -38,7 +40,7 @@ function PMA_generateToken()
      * due to missing /dev/random for openssl).
      */
     if (empty($_SESSION[' PMA_token '])) {
-        PMA_fatalError(
+        Core::fatalError(
             'Failed to generate random CSRF token!'
         );
     }

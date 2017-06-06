@@ -6,18 +6,19 @@
  * @package PhpMyAdmin-test
  */
 
+use PMA\libraries\controllers\server\ServerCollationsController;
+use PMA\libraries\Core;
+use PMA\libraries\Theme;
+
 /*
  * Include to test.
  */
 //$GLOBALS
-use PMA\libraries\Theme;
-use PMA\libraries\controllers\server\ServerCollationsController;
-
 $GLOBALS['server'] = 1;
 $GLOBALS['is_superuser'] = false;
 $GLOBALS['cfg']['ServerDefault'] = 1;
 $GLOBALS['url_query'] = "url_query";
-$GLOBALS['PMA_PHP_SELF'] = PMA_getenv('PHP_SELF');
+$GLOBALS['PMA_PHP_SELF'] = Core::getenv('PHP_SELF');
 $GLOBALS['lang'] = "en";
 $GLOBALS['text_dir'] = "text_dir";
 $GLOBALS['cfg']['Server'] = array(

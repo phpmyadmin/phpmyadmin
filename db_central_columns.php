@@ -6,6 +6,8 @@
  *
  * @package PhpMyAdmin
  */
+
+use PMA\libraries\Core;
 use PMA\libraries\URL;
 use PMA\libraries\Response;
 
@@ -95,7 +97,7 @@ if (isset($_REQUEST['total_rows']) && $_REQUEST['total_rows']) {
 } else {
     $total_rows = PMA_getCentralColumnsCount($db);
 }
-if (PMA_isValid($_REQUEST['pos'], 'integer')) {
+if (Core::isValid($_REQUEST['pos'], 'integer')) {
     $pos = intval($_REQUEST['pos']);
 } else {
     $pos = 0;

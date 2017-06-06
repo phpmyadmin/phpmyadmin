@@ -7,6 +7,7 @@
  */
 namespace PMA\libraries;
 
+use PMA\libraries\Core;
 use TCPDF;
 use TCPDF_FONTS;
 
@@ -140,7 +141,7 @@ class PDF extends TCPDF
     {
         $pdfData = $this->getPDFData();
         Response::getInstance()->disable();
-        PMA_downloadHeader(
+        Core::downloadHeader(
             $filename,
             'application/pdf',
             strlen($pdfData)

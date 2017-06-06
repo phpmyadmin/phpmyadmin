@@ -7,6 +7,7 @@
  */
 
 use PMA\setup\lib\ConfigGenerator;
+use PMA\libraries\Core;
 
 if (!defined('PHPMYADMIN')) {
     exit;
@@ -22,7 +23,7 @@ echo '<h2>' , __('Configuration file') , '</h2>';
 
 echo PMA_displayFormTop('config.php');
 echo '<input type="hidden" name="eol" value="'
-    , htmlspecialchars(PMA_ifSetOr($_GET['eol'], 'unix')) , '" />';
+    , htmlspecialchars(Core::ifSetOr($_GET['eol'], 'unix')) , '" />';
 echo PMA_displayFieldsetTop('config.inc.php', '', null, array('class' => 'simple'));
 echo '<tr>';
 echo '<td>';

@@ -7,6 +7,7 @@
  */
 namespace PMA\libraries\config;
 
+use PMA\libraries\Core;
 use PMA\libraries\URL;
 use PMA\libraries\Util;
 
@@ -429,7 +430,7 @@ class ServerConfigChecks
             '[a@?page=form' . URL::getCommon(array(), '&')
             . '&amp;formset=Features#tab_Security]',
             '[/a]',
-            '[a@' . PMA_getPHPDocLink(
+            '[a@' . Core::getPHPDocLink(
                 'session.configuration.php#ini.session.gc-maxlifetime'
             ) . ']',
             '[/a]',

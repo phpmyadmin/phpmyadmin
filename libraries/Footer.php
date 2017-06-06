@@ -11,6 +11,7 @@ use Traversable;
 use PMA\libraries\URL;
 use PMA\libraries\Sanitize;
 use PMA\libraries\Config;
+use PMA\libraries\Core;
 
 /**
  * Class used to output the footer
@@ -177,7 +178,7 @@ class Footer
         ) {
             $params['single_table'] = $_REQUEST['single_table'];
         }
-        return basename(PMA_getenv('SCRIPT_NAME')) . URL::getCommonRaw($params);
+        return basename(Core::getenv('SCRIPT_NAME')) . URL::getCommonRaw($params);
     }
 
     /**
@@ -233,7 +234,7 @@ class Footer
      */
     private function _setHistory()
     {
-        if (! PMA_isValid($_REQUEST['no_history'])
+        if (! Core::isValid($_REQUEST['no_history'])
             && empty($GLOBALS['error_message'])
             && ! empty($GLOBALS['sql_query'])
             && (isset($GLOBALS['dbi'])
@@ -242,8 +243,8 @@ class Footer
             && $GLOBALS['controllink']))
         ) {
             PMA_setHistory(
-                PMA_ifSetOr($GLOBALS['db'], ''),
-                PMA_ifSetOr($GLOBALS['table'], ''),
+                Core::ifSetOr($GLOBALS['db'], ''),
+                Core::ifSetOr($GLOBALS['table'], ''),
                 $GLOBALS['cfg']['Server']['user'],
                 $GLOBALS['sql_query']
             );
@@ -307,7 +308,7 @@ class Footer
                 $retval .= "</div>";
             }
             if (! $this->_isAjax && ! $this->_isMinimal) {
-                if (PMA_getenv('SCRIPT_NAME')
+                if (Core::getenv('SCRIPT_NAME')
                     && empty($_POST)
                     && empty($GLOBALS['checked_special'])
                     && ! $this->_isAjax
@@ -331,7 +332,7 @@ class Footer
                         )
                     );
                 }
-                if (PMA_getenv('SCRIPT_NAME')
+                if (Core::getenv('SCRIPT_NAME')
                     && ! $this->_isAjax
                 ) {
                     $url = $this->getSelfUrl();

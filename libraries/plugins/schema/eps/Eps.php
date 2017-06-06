@@ -7,6 +7,7 @@
  */
 namespace PMA\libraries\plugins\schema\eps;
 
+use PMA\libraries\Core;
 use PMA\libraries\Response;
 
 /**
@@ -267,7 +268,7 @@ class Eps
         $output = $this->stringCommands;
         Response::getInstance()
             ->disable();
-        PMA_downloadHeader(
+        Core::downloadHeader(
             $fileName,
             'image/x-eps',
             strlen($output)

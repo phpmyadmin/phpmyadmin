@@ -9,6 +9,7 @@ namespace PMA\libraries;
 
 use PMA\libraries\config\ConfigFile;
 use PMA\libraries\ZipExtension;
+use PMA\libraries\Core;
 
 /**
  * File wrapper class
@@ -440,7 +441,7 @@ class File
         }
 
         $this->setName(
-            Util::userDir($GLOBALS['cfg']['UploadDir']) . PMA_securePath($name)
+            Util::userDir($GLOBALS['cfg']['UploadDir']) . Core::securePath($name)
         );
         if (@is_link($this->getName())) {
             $this->_error_message = __('File is a symbolic link');

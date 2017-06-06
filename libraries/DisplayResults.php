@@ -8,6 +8,7 @@
 namespace PMA\libraries;
 
 use PhpMyAdmin\SqlParser\Utils\Query;
+use PMA\libraries\Core;
 use PMA\libraries\plugins\transformations\Text_Plain_Link;
 use PMA\libraries\Sanitize;
 use PMA\libraries\Sql;
@@ -2599,7 +2600,7 @@ class DisplayResults
      * @param bool          $is_field_truncated    is field truncated (display ...)
      * @param object|string $transformation_plugin transformation plugin.
      *                                             Can also be the default function:
-     *                                             PMA_mimeDefaultFunction
+     *                                             Core::mimeDefaultFunction
      * @param string        $default_function      default transformation function
      *
      * @return string  the list of classes
@@ -3042,7 +3043,7 @@ class DisplayResults
                 : false;
 
             // Wrap MIME-transformations. [MIME]
-            $default_function = 'PMA_mimeDefaultFunction'; // default_function
+            $default_function = [Core::class, 'mimeDefaultFunction']; // default_function
             $transformation_plugin = $default_function;
             $transform_options = array();
 
@@ -4095,8 +4096,8 @@ class DisplayResults
         }
 
         // as this is a form value, the type is always string so we cannot
-        // use PMA_isValid($_REQUEST['session_max_rows'], 'integer')
-        if (PMA_isValid($_REQUEST['session_max_rows'], 'numeric')) {
+        // use Core::isValid($_REQUEST['session_max_rows'], 'integer')
+        if (Core::isValid($_REQUEST['session_max_rows'], 'numeric')) {
             $query['max_rows'] = (int)$_REQUEST['session_max_rows'];
             unset($_REQUEST['session_max_rows']);
         } elseif ($_REQUEST['session_max_rows'] == self::ALL_ROWS) {
@@ -4106,14 +4107,14 @@ class DisplayResults
             $query['max_rows'] = intval($GLOBALS['cfg']['MaxRows']);
         }
 
-        if (PMA_isValid($_REQUEST['pos'], 'numeric')) {
+        if (Core::isValid($_REQUEST['pos'], 'numeric')) {
             $query['pos'] = $_REQUEST['pos'];
             unset($_REQUEST['pos']);
         } elseif (empty($query['pos'])) {
             $query['pos'] = 0;
         }
 
-        if (PMA_isValid(
+        if (Core::isValid(
             $_REQUEST['pftext'],
             array(
                 self::DISPLAY_PARTIAL_TEXT, self::DISPLAY_FULL_TEXT
@@ -4126,7 +4127,7 @@ class DisplayResults
             $query['pftext'] = self::DISPLAY_PARTIAL_TEXT;
         }
 
-        if (PMA_isValid(
+        if (Core::isValid(
             $_REQUEST['relational_display'],
             array(
                 self::RELATIONAL_KEY, self::RELATIONAL_DISPLAY_COLUMN
@@ -4142,7 +4143,7 @@ class DisplayResults
             $query['relational_display'] = $GLOBALS['cfg']['RelationalDisplay'];
         }
 
-        if (PMA_isValid(
+        if (Core::isValid(
             $_REQUEST['geoOption'],
             array(
                 self::GEOMETRY_DISP_WKT, self::GEOMETRY_DISP_WKB,
@@ -4568,7 +4569,7 @@ class DisplayResults
         $row = $GLOBALS['dbi']->fetchRow($dt_result);
 
         // initializing default arguments
-        $default_function = 'PMA_mimeDefaultFunction';
+        $default_function = [Core::class, 'mimeDefaultFunction'];
         $transformation_plugin = $default_function;
         $transform_options = array();
 
@@ -5228,7 +5229,7 @@ class DisplayResults
      * @param string  $content               the binary content
      * @param mixed   $transformation_plugin transformation plugin.
      *                                       Can also be the default function:
-     *                                       PMA_mimeDefaultFunction
+     *                                       Core::mimeDefaultFunction
      * @param string  $transform_options     transformation parameters
      * @param string  $default_function      default transformation function
      * @param object  $meta                  the meta-information about the field
@@ -5391,7 +5392,7 @@ class DisplayResults
      * @param string        $data                  data
      * @param object|string $transformation_plugin transformation plugin.
      *                                             Can also be the default function:
-     *                                             PMA_mimeDefaultFunction
+     *                                             Core::mimeDefaultFunction
      * @param string        $default_function      default function
      * @param string        $nowrap                'nowrap' if the content should
      *                                             not be wrapped

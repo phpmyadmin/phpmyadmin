@@ -9,6 +9,8 @@
  */
 namespace PMA\libraries;
 
+use PMA\libraries\Core;
+
 /**
  * Misc logging functions
  *
@@ -35,7 +37,7 @@ class Logging
             @syslog(
                 LOG_WARNING,
                 'user denied: ' . $user . ' (' . $status . ') from ' .
-                PMA_getIp()
+                Core::getIp()
             );
             closelog();
         }

@@ -6,6 +6,8 @@
  * @package PhpMyAdmin
  */
 
+use PMA\libraries\Core;
+
 /**
  * Common functions.
  */
@@ -49,7 +51,7 @@ if ($result === false) {
 /* Avoid corrupting data */
 @ini_set('url_rewriter.tags', '');
 
-PMA_downloadHeader(
+Core::downloadHeader(
     $table . '-' .  $_GET['transform_key'] . '.bin',
     PMA_detectMIME($result),
     strlen($result)

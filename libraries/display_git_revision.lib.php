@@ -5,6 +5,8 @@
  *
  * @package PhpMyAdmin
  */
+
+use PMA\libraries\Core;
 use PMA\libraries\Response;
 
 /**
@@ -34,7 +36,7 @@ function PMA_printGitRevision()
         . '">' . $commit_hash . '</strong>';
     if ($GLOBALS['PMA_Config']->get('PMA_VERSION_GIT_ISREMOTECOMMIT')) {
         $commit_hash = '<a href="'
-            . PMA_linkURL(
+            . Core::linkURL(
                 'https://github.com/phpmyadmin/phpmyadmin/commit/'
                 . $GLOBALS['PMA_Config']->get('PMA_VERSION_GIT_COMMITHASH')
             )
@@ -44,7 +46,7 @@ function PMA_printGitRevision()
     $branch = $GLOBALS['PMA_Config']->get('PMA_VERSION_GIT_BRANCH');
     if ($GLOBALS['PMA_Config']->get('PMA_VERSION_GIT_ISREMOTEBRANCH')) {
         $branch = '<a href="'
-            . PMA_linkURL(
+            . Core::linkURL(
                 'https://github.com/phpmyadmin/phpmyadmin/tree/'
                 . $GLOBALS['PMA_Config']->get('PMA_VERSION_GIT_BRANCH')
             )
@@ -64,7 +66,7 @@ function PMA_printGitRevision()
         . sprintf(
             __('committed on %1$s by %2$s'),
             PMA\libraries\Util::localisedDate(strtotime($committer['date'])),
-            '<a href="' . PMA_linkURL(
+            '<a href="' . Core::linkURL(
                 'mailto:' . htmlspecialchars($committer['email'])
             ) . '">'
             . htmlspecialchars($committer['name']) . '</a>'
@@ -74,7 +76,7 @@ function PMA_printGitRevision()
             . sprintf(
                 __('authored on %1$s by %2$s'),
                 PMA\libraries\Util::localisedDate(strtotime($author['date'])),
-                '<a href="' . PMA_linkURL(
+                '<a href="' . Core::linkURL(
                     'mailto:' . htmlspecialchars($author['email'])
                 ) . '">'
                 . htmlspecialchars($author['name']) . '</a>'
