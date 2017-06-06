@@ -39,7 +39,7 @@ function PMA_selectServer($not_only_options, $omit_fieldset)
             $retval .= '<fieldset>';
         }
 
-        $retval .= '<input type="hidden" name="token" value="' . $_SESSION[" PMA_token "] . '" >';
+        $retval .= URL::getHiddenFields(array());
         $retval .= '<label for="select_server">'
             . __('Current server:') . '</label> ';
 

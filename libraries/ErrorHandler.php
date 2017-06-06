@@ -349,13 +349,12 @@ class ErrorHandler
                 // in case of 'always', generate 'invisible' form.
                 $retval .= ' class="hide"';
             }
-            $retval .=  '>'
-                    . '<input type="hidden" name="token" value="'
-                    . $_SESSION[' PMA_token ']
-                    . '"/>'
-                    . '<input type="hidden" name="exception_type" value="php"/>'
-                    . '<input type="hidden" name="send_error_report" value="1" />'
-                    . '<input type="submit" value="'
+            $retval .=  '>';
+            $retval .= URL::getHiddenFields(array(
+                'exception_type' => 'php',
+                'send_error_report' => '1',
+            ));
+            $retval .= '<input type="submit" value="'
                     . __('Report')
                     . '" id="pma_report_errors" class="floatright">'
                     . '<input type="checkbox" name="always_send"'
