@@ -869,7 +869,7 @@ Server connection settings
     .. note::
 
         For auto-upgrade functionality to work, your
-        ``$cfg['Servers'][$i]['controluser']`` must have ALTER privilege on
+        :config:option:`$cfg['Servers'][$i]['controluser']` must have ALTER privilege on
         ``phpmyadmin`` database. See the `MySQL documentation for GRANT
         <https://dev.mysql.com/doc/refman/5.7/en/grant.html>`_ on how to
         ``GRANT`` privileges to a user.
