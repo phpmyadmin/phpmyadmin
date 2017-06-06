@@ -238,7 +238,6 @@ class Sql
     public static function getHtmlForProfilingChart($url_query, $db, $profiling_results)
     {
         if (! empty($profiling_results)) {
-            $pma_token = $_SESSION[' PMA_token '];
             $url_query = isset($url_query)
                 ? $url_query
                 : URL::getCommon(array('db' => $db));
@@ -287,7 +286,6 @@ class Sql
 
             $profiling_table .= <<<EOT
 <script type="text/javascript">
-    pma_token = '$pma_token';
     url_query = '$url_query';
 </script>
 EOT;
