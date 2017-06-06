@@ -327,7 +327,7 @@ class DatabaseInterface
             self::QUERY_STORE
         );
         if ($GLOBALS['cfg']['NaturalOrder']) {
-            uksort($tables, 'strnatcasecmp');
+            natsort($tables);
         }
         return $tables;
     }

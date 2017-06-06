@@ -307,7 +307,7 @@ class TableRelationController extends TableController
             $columns[] = htmlspecialchars($column);
         }
         if ($GLOBALS['cfg']['NaturalOrder']) {
-            uksort($columns, 'strnatcasecmp');
+            natsort($columns);
         }
         $this->response->addJSON('columns', $columns);
 
@@ -360,7 +360,7 @@ class TableRelationController extends TableController
             }
         }
         if ($GLOBALS['cfg']['NaturalOrder']) {
-            uksort($tables, 'strnatcasecmp');
+            natsort($tables);
         }
         $this->response->addJSON('tables', $tables);
     }
