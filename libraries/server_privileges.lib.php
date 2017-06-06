@@ -3616,6 +3616,12 @@ function PMA_getHtmlTableBodyForUserRights($db_rights)
                 break;
             } // end switch
 
+            if (! isset($host['Select_priv'])) {
+                $html_output .= Util::showHint(
+                    __('The selected user was not found in the privilege table.')
+                );
+            }
+
             $html_output .= '</td>' . "\n";
 
             $html_output .= '<td><code>' . "\n"
