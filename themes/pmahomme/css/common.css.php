@@ -335,7 +335,7 @@ fieldset, .preview_sql {
     -moz-border-radius: 4px 4px 0 0;
     -webkit-border-radius: 4px 4px 0 0;
     border: #aaa solid 1px;
-    padding: 1.5em;
+    padding: 0.5em;
     background: #eee;
     text-shadow: <?php echo $GLOBALS['text_dir'] === 'rtl' ? '-' : ''; ?>1px 1px 2px #fff inset;
     -moz-box-shadow: <?php echo $GLOBALS['text_dir'] === 'rtl' ? '-' : ''; ?>1px 1px 2px #fff inset;
@@ -542,7 +542,7 @@ button.mult_submit {
 table tbody:first-of-type tr:nth-child(odd),
 table tbody:first-of-type tr:nth-child(odd) th {
     background: #fff;
-} 
+}
 
 /* even items 2,4,6,8,... */
 table tbody:first-of-type tr:nth-child(even),
@@ -1757,8 +1757,7 @@ li.no_bullets {
     width: 40%;
 }
 .operations_half_width ul {
-    list-style-type: none;
-    padding: 0;
+    padding: 0 0 0 1.5em;
 }
 .operations_full_width {
     width: 100%;

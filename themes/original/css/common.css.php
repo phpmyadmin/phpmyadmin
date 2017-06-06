@@ -259,7 +259,7 @@ button.mult_submit {
 
 /* odd items 1,3,5,7,... */
 table tr:nth-child(odd) {
-        background: <?php echo $GLOBALS['cfg']['BgOne']; ?>; 
+        background: <?php echo $GLOBALS['cfg']['BgOne']; ?>;
 }
 
 /* even items 2,4,6,8,... */
@@ -1325,8 +1325,7 @@ li.no_bullets {
     width: 40%;
 }
 .operations_half_width ul {
-    list-style-type: none;
-    padding: 0;
+    padding: 0 0 0 1.5em;
 }
 .operations_full_width {
     width: 100%;
