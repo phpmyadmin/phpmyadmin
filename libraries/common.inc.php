@@ -460,8 +460,11 @@ $GLOBALS['PMA_Config']->checkErrors();
 /**
  * As we try to handle charsets by ourself, mbstring overloads just
  * break it, see bug 1063821.
+ *
+ * We specifically use empty here as we are looking for anything else than
+ * empty value or 0.
  */
-if (@extension_loaded('mbstring') && @ini_get('mbstring.func_overload') != '0') {
+if (@extension_loaded('mbstring') && !empty(@ini_get('mbstring.func_overload'))) {
     PMA_fatalError(
         __(
             'You have enabled mbstring.func_overload in your PHP '
