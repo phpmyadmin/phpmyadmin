@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.8.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2017-05-17 09:24+0200\n"
-"PO-Revision-Date: 2017-06-04 07:52+0000\n"
+"PO-Revision-Date: 2017-06-06 07:08+0000\n"
 "Last-Translator: Володимир Бриняк <bardvv@gmail.com>\n"
 "Language-Team: Ukrainian "
 "<https://hosted.weblate.org/projects/phpmyadmin/master/uk/>\n"
@@ -3769,7 +3769,7 @@ msgstr "Запит виконувався %01.4f секунди."
 #: templates/database/structure/check_all_tables.phtml:9
 #: templates/select_all.twig:26 templates/select_all.twig:44
 msgid "With selected:"
-msgstr "З відміченими:"
+msgstr "Вибрані:"
 
 #: libraries/DisplayResults.php:4847 libraries/DisplayResults.php:4849
 #: libraries/server_privileges.lib.php:1164
