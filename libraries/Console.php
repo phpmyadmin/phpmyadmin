@@ -96,7 +96,7 @@ class Console
             return Template::get('console/bookmark_content')
                 ->render(
                     array(
-                        'welcomeMessage'    => $welcomeMessage,
+                        'welcome_message'    => $welcomeMessage,
                         'bookmarks'         => $bookmarks,
                     )
                 );
@@ -132,10 +132,10 @@ class Console
             return Template::get('console/display')
                 ->render(
                     array(
-                        'cfgBookmark'       => $cfgBookmark,
-                        'image'             => $image,
-                        '_sql_history'      => $_sql_history,
-                        'bookmarkContent'   => $bookmarkContent,
+                        'cfg_bookmark' => $cfgBookmark,
+                        'image' => $image,
+                        'sql_history' => $_sql_history,
+                        'bookmark_content' => $bookmarkContent,
                     )
                 );
         }
