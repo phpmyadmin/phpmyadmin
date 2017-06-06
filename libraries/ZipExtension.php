@@ -178,19 +178,19 @@ class ZipExtension
     {
         // I don't think this needs translation
         switch ($code) {
-        case ZIPARCHIVE::ER_MULTIDISK:
+        case ZipArchive::ER_MULTIDISK:
             $message = 'Multi-disk zip archives not supported';
             break;
-        case ZIPARCHIVE::ER_READ:
+        case ZipArchive::ER_READ:
             $message = 'Read error';
             break;
-        case ZIPARCHIVE::ER_CRC:
+        case ZipArchive::ER_CRC:
             $message = 'CRC error';
             break;
-        case ZIPARCHIVE::ER_NOZIP:
+        case ZipArchive::ER_NOZIP:
             $message = 'Not a zip archive';
             break;
-        case ZIPARCHIVE::ER_INCONS:
+        case ZipArchive::ER_INCONS:
             $message = 'Zip archive inconsistent';
             break;
         default:
