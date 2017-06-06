@@ -716,6 +716,8 @@ in your own database, or in a central database for a multi-user installation
 (this database would then be accessed by the controluser, so no other user
 should have rights to it).
 
+.. _zeroconf:
+
 Zero configuration
 ------------------
 
