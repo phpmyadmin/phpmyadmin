@@ -5,18 +5,16 @@
  * @package PhpMyAdmin-test
  */
 
-/*
- * Include to test.
- */
+use PMA\libraries\ZipExtension;
 
-require_once 'libraries/zip_extension.lib.php';
+require_once 'test/PMATestCase.php';
 
 /**
  * Tests zip extension usage.
  *
  * @package PhpMyAdmin-test
  */
-class PMA_ZipExtension_Test extends PHPUnit_Framework_TestCase
+class ZipExtensionTest extends PMATestCase
 {
     /**
      * Test zip file content
@@ -25,13 +23,13 @@ class PMA_ZipExtension_Test extends PHPUnit_Framework_TestCase
      * @param string $specific_entry regular expression to match a file
      * @param mixed  $output         expected output
      *
-     * @dataProvider providerForTestGetZipContents
+     * @dataProvider provideTestGetContents
      * @return void
      */
-    public function testGetZipContents($file, $specific_entry, $output)
+    public function testGetContents($file, $specific_entry, $output)
     {
         $this->assertEquals(
-            PMA_getZipContents($file, $specific_entry),
+            ZipExtension::getContents($file, $specific_entry),
             $output
         );
     }
@@ -41,7 +39,7 @@ class PMA_ZipExtension_Test extends PHPUnit_Framework_TestCase
      *
      * @return array
      */
-    public function providerForTestGetZipContents()
+    public function provideTestGetContents()
     {
         return array(
             array(
@@ -70,13 +68,13 @@ class PMA_ZipExtension_Test extends PHPUnit_Framework_TestCase
      * @param string $file        zip archive
      * @param mixed  $output      expected output
      *
-     * @dataProvider providerForTestFindFileFromZipArchive
+     * @dataProvider provideTestFindFile
      * @return void
      */
-    public function testFindFileFromZipArchive($file_regexp, $file, $output)
+    public function testFindFile($file_regexp, $file, $output)
     {
         $this->assertEquals(
-            PMA_findFileFromZipArchive($file_regexp, $file),
+            ZipExtension::findFile($file_regexp, $file),
             $output
         );
     }
@@ -86,7 +84,7 @@ class PMA_ZipExtension_Test extends PHPUnit_Framework_TestCase
      *
      * @return array Test data
      */
-    public function providerForTestFindFileFromZipArchive()
+    public function provideTestFindFile()
     {
         return array(
             array(
@@ -98,52 +96,52 @@ class PMA_ZipExtension_Test extends PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test for PMA_getNoOfFilesInZip
+     * Test for ZipExtension::getNumberOfFiles
      *
      * @return void
      */
-    public function testGetNoOfFilesInZip()
+    public function testGetNumberOfFiles()
     {
         $this->assertEquals(
-            PMA_getNoOfFilesInZip('./test/test_data/test.zip'),
+            ZipExtension::getNumberOfFiles('./test/test_data/test.zip'),
             1
         );
     }
 
     /**
-     * Test for PMA_zipExtract
+     * Test for ZipExtension::extract
      *
      * @return void
      */
-    public function testZipExtract()
+    public function testExtract()
     {
         $this->assertEquals(
             false,
-            PMA_zipExtract(
+            ZipExtension::extract(
                 './test/test_data/test.zip', 'wrongName'
             )
         );
         $this->assertEquals(
             "TEST FILE\n",
-            PMA_zipExtract(
+            ZipExtension::extract(
                 './test/test_data/test.zip', 'test.file'
             )
         );
     }
 
     /**
-     * Test for PMA_getZipError
+     * Test for ZipExtension::getError
      *
      * @param int   $code   error code
      * @param mixed $output expected output
      *
-     * @dataProvider providerForTestGetZipError
+     * @dataProvider provideTestGetError
      * @return void
      */
-    public function testGetZipError($code, $output)
+    public function testGetError($code, $output)
     {
         $this->assertEquals(
-            PMA_getZipError($code),
+            ZipExtension::getError($code),
             $output
         );
     }
@@ -153,7 +151,7 @@ class PMA_ZipExtension_Test extends PHPUnit_Framework_TestCase
      *
      * @return array
      */
-    public function providerForTestGetZipError()
+    public function provideTestGetError()
     {
         return array(
             array(
@@ -183,4 +181,3 @@ class PMA_ZipExtension_Test extends PHPUnit_Framework_TestCase
         );
     }
 }
-

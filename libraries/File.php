@@ -8,6 +8,7 @@
 namespace PMA\libraries;
 
 use PMA\libraries\config\ConfigFile;
+use PMA\libraries\ZipExtension;
 
 /**
  * File wrapper class
@@ -671,8 +672,7 @@ class File
      */
     public function openZip($specific_entry = null)
     {
-        include_once './libraries/zip_extension.lib.php';
-        $result = PMA_getZipContents($this->getName(), $specific_entry);
+        $result = ZipExtension::getContents($this->getName(), $specific_entry);
         if (! empty($result['error'])) {
             $this->_error_message = Message::rawError($result['error']);
             return false;

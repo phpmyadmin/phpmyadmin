@@ -16,6 +16,7 @@ use PMA\libraries\gis\GISMultilinestring;
 use PMA\libraries\gis\GISMultipoint;
 use PMA\libraries\gis\GISPoint;
 use PMA\libraries\gis\GISPolygon;
+use PMA\libraries\ZipExtension;
 
 /**
  * Handles the import for ESRI Shape files
@@ -70,7 +71,7 @@ class ImportShp extends ImportPlugin
         // If the zip archive has more than one file,
         // get the correct content to the buffer from .shp file.
         if ($compression == 'application/zip'
-            && PMA_getNoOfFilesInZip($import_file) > 1
+            && ZipExtension::getNumberOfFiles($import_file) > 1
         ) {
             if ($GLOBALS['import_handle']->openZip('/^.*\.shp$/i') === false) {
                 $message = PMA\libraries\Message::error(
@@ -89,14 +90,14 @@ class ImportShp extends ImportPlugin
             // If we can extract the zip archive to 'TempDir'
             // and use the files in it for import
             if ($compression == 'application/zip' && ! is_null($temp)) {
-                $dbf_file_name = PMA_findFileFromZipArchive(
+                $dbf_file_name = ZipExtension::findFile(
                     '/^.*\.dbf$/i',
                     $import_file
                 );
                 // If the corresponding .dbf file is in the zip archive
                 if ($dbf_file_name) {
                     // Extract the .dbf file and point to it.
-                    $extracted = PMA_zipExtract(
+                    $extracted = ZipExtension::extract(
                         $import_file,
                         $dbf_file_name
                     );
