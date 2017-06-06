@@ -1,4 +1,5 @@
 <?php
+use PMA\libraries\Index;
 use PMA\libraries\Partition;
 use PMA\libraries\Template;
 use PMA\libraries\Tracker;
@@ -167,7 +168,7 @@ $rownum = 0; ?>
 <!--Displays indexes-->
 <?php if (! $tbl_is_view
     && ! $db_is_system_schema && 'ARCHIVE' !=  $tbl_storage_engine): ?>
-    <?= PMA_getHtmlForDisplayIndexes(); ?>
+    <?= Index::getHtmlForDisplayIndexes(); ?>
 <?php endif; ?>
 
 <!--Display partition details-->
