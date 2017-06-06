@@ -23,6 +23,7 @@ phpMyAdmin - ChangeLog
 - issue #13323 Fixed wrong encoding of table at triggers
 - issue #12976 Fixed natural sorting in several places
 - issue #12718 Show warning for users removed from mysql.user table
+- issue #13362 Fixed loading additional javascripts
 
 4.7.1 (2017-05-25)
 - issue #13132 Always execute tracking queries as controluser
