@@ -214,8 +214,6 @@ function PMA_handleRedirectAndReload(data) {
         }
         window.location.reload();
     } else if (parseInt(data.reload_flag) == 1) {
-        // remove the token param and reload
-        window.location.href = window.location.href.replace(/&?token=[^&#]*/g, "");
         window.location.reload();
     }
 }
