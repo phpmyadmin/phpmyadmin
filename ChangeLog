@@ -19,6 +19,7 @@ phpMyAdmin - ChangeLog
 4.7.2 (not yet released)
 - issue #13314 Make theme selection keep current server
 - issue #13311 Fixed direct login for accounts without password
+- issue #13316 Fixed check for mbstring.func_overload
 
 4.7.1 (2017-05-25)
 - issue #13132 Always execute tracking queries as controluser
