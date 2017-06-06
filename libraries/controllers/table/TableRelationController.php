@@ -8,8 +8,6 @@
 
 namespace PMA\libraries\controllers\table;
 
-require_once 'libraries/index.lib.php';
-
 use PMA\libraries\controllers\TableController;
 use PMA\libraries\DatabaseInterface;
 use PMA\libraries\Index;
@@ -191,7 +189,7 @@ class TableRelationController extends TableController
         );
 
         if (Util::isForeignKeySupported($this->tbl_storage_engine)) {
-            $this->response->addHTML(PMA_getHtmlForDisplayIndexes());
+            $this->response->addHTML(Index::getHtmlForDisplayIndexes());
         }
         $this->response->addHTML('</div>');
     }
