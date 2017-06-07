@@ -195,7 +195,7 @@ class TableSearchController extends TableController
                         'sql.js',
                         'tbl_select.js',
                         'tbl_change.js',
-                        'jquery/jquery-ui-timepicker-addon.js',
+                        'vendor/jquery/jquery-ui-timepicker-addon.min.js',
                         'jquery/jquery.uitablefilter.js',
                         'gis_data_editor.js',
                     )
@@ -232,7 +232,7 @@ class TableSearchController extends TableController
                         'jqplot/plugins/jqplot.dateAxisRenderer.js',
                         'jqplot/plugins/jqplot.highlighter.js',
                         'jqplot/plugins/jqplot.cursor.js',
-                        'jquery/jquery-ui-timepicker-addon.js',
+                        'vendor/jquery/jquery-ui-timepicker-addon.min.js',
                         'tbl_zoom_plot_jqplot.js',
                         'tbl_change.js',
                     )

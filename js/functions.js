@@ -159,7 +159,7 @@ function PMA_addDatepicker($this_element, type, options)
 
 /**
  * Add a date/time picker to each element that needs it
- * (only when jquery-ui-timepicker-addon.js is loaded)
+ * (only when jquery-ui-timepicker-addon.min.js is loaded)
  */
 function addDateTimePicker() {
     if ($.timepicker !== undefined) {

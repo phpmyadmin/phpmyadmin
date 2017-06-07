@@ -26,7 +26,7 @@ PageSettings::showGroup('Browse');
 $response = Response::getInstance();
 $header   = $response->getHeader();
 $scripts  = $header->getScripts();
-$scripts->addFile('jquery/jquery-ui-timepicker-addon.js');
+$scripts->addFile('vendor/jquery/jquery-ui-timepicker-addon.min.js');
 $scripts->addFile('jquery/jquery.uitablefilter.js');
 $scripts->addFile('tbl_change.js');
 $scripts->addFile('indexes.js');

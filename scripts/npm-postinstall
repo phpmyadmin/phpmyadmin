@@ -1,0 +1,32 @@
+#!/bin/sh
+
+mkdir -p js/vendor/codemirror/addon/hint
+cp node_modules/codemirror/addon/hint/show-hint.css js/vendor/codemirror/addon/hint
+cp node_modules/codemirror/addon/hint/show-hint.js js/vendor/codemirror/addon/hint
+cp node_modules/codemirror/addon/hint/sql-hint.js js/vendor/codemirror/addon/hint
+
+mkdir -p js/vendor/codemirror/addon/lint
+cp node_modules/codemirror/addon/lint/lint.css js/vendor/codemirror/addon/lint
+cp node_modules/codemirror/addon/lint/lint.js js/vendor/codemirror/addon/lint
+
+mkdir -p js/vendor/codemirror/addon/runmode
+cp node_modules/codemirror/addon/runmode/runmode.js js/vendor/codemirror/addon/runmode
+
+mkdir -p js/vendor/codemirror/mode
+cp -r node_modules/codemirror/lib js/vendor/codemirror
+cp -r node_modules/codemirror/mode/javascript js/vendor/codemirror/mode
+cp -r node_modules/codemirror/mode/sql js/vendor/codemirror/mode
+cp -r node_modules/codemirror/mode/xml js/vendor/codemirror/mode
+
+mkdir -p js/vendor/jquery
+cp node_modules/jquery/dist/jquery.min.js js/vendor/jquery
+cp node_modules/jquery-migrate/dist/jquery-migrate.min.js js/vendor/jquery
+cp node_modules/jquery-mousewheel/jquery.mousewheel.js js/vendor/jquery
+cp node_modules/jquery-ui-dist/jquery-ui.min.js js/vendor/jquery
+cp node_modules/jquery-ui-timepicker-addon/dist/jquery-ui-timepicker-addon.min.js js/vendor/jquery
+cp node_modules/jquery-validation/dist/additional-methods.js js/vendor/jquery
+cp node_modules/jquery-validation/dist/jquery.validate.min.js js/vendor/jquery
+
+cp node_modules/tracekit/tracekit.js js/vendor
+cp node_modules/zxcvbn/dist/zxcvbn.js js/vendor
+cp node_modules/zxcvbn/dist/zxcvbn.js.map js/vendor
