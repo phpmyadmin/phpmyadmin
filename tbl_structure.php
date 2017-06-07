@@ -49,7 +49,6 @@ $table_info_num_rows = $table_class_object->getNumRows();
 $dependency_definitions = array(
     'db' => $db,
     'table' => $table,
-    'url_query' => &$GLOBALS['url_query'],
     'db_is_system_schema' => $db_is_system_schema,
     'tbl_is_view' => $tbl_is_view,
     'tbl_storage_engine' => $tbl_storage_engine,

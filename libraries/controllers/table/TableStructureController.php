@@ -76,7 +76,6 @@ class TableStructureController extends TableController
      * @param string $type                Indicate the db_structure or tbl_structure
      * @param string $db                  DB name
      * @param string $table               Table name
-     * @param string $url_query           URL query
      * @param int    $num_tables          Number of tables
      * @param int    $pos                 Current position in the list
      * @param bool   $db_is_system_schema DB is information_schema
@@ -90,14 +89,14 @@ class TableStructureController extends TableController
      * @param array  $showtable           Show table info
      */
     public function __construct(
-        $type, $db, $table, $url_query, $num_tables, $pos, $db_is_system_schema,
+        $type, $db, $table, $num_tables, $pos, $db_is_system_schema,
         $total_num_tables, $tables, $is_show_stats, $tbl_is_view,
         $tbl_storage_engine, $table_info_num_rows, $tbl_collation, $showtable
     ) {
         parent::__construct();
 
         $this->_db_is_system_schema = $db_is_system_schema;
-        $this->_url_query = $url_query;
+        $this->_url_query = URL::getCommonRaw(array('db' => $db, 'table' => $table));
         $this->_tbl_is_view = $tbl_is_view;
         $this->_tbl_storage_engine = $tbl_storage_engine;
         $this->_table_info_num_rows = $table_info_num_rows;
@@ -320,8 +319,12 @@ class TableStructureController extends TableController
         $url_params = array();
         include_once 'libraries/tbl_common.inc.php';
         $this->_db_is_system_schema = $db_is_system_schema;
-        $this->_url_query = $url_query
-            . '&amp;goto=tbl_structure.php&amp;back=tbl_structure.php';
+        $this->_url_query = URL::getCommonRaw(array(
+            'db' => $db,
+            'table' => $table,
+            'goto' => 'tbl_structure.php',
+            'back' => 'tbl_structure.php',
+        ));
         /* The url_params array is initialized in above include */
         $url_params['goto'] = 'tbl_structure.php';
         $url_params['back'] = 'tbl_structure.php';
