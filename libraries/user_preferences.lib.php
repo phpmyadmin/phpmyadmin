@@ -278,9 +278,7 @@ function PMA_userprefsAutoloadGetHeader()
     }
 
     $script_name = basename(basename($GLOBALS['PMA_PHP_SELF']));
-    $return_url = htmlspecialchars(
-        $script_name . '?' . http_build_query($_GET, '', '&')
-    );
+    $return_url = $script_name . '?' . http_build_query($_GET, '', '&');
 
     return PMA\libraries\Template::get('prefs_autoload')
         ->render(
