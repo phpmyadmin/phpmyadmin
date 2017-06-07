@@ -43,12 +43,12 @@
 {% if not tbl_is_view and not db_is_system_schema %}
     <td class="edit center print_ignore">
         <a class="change_column_anchor ajax" href="tbl_structure.php
-            {{- url_query }}&amp;field={{ row['Field']|url_encode }}&amp;change_column=1">
+            {{- url_query|raw }}&amp;field={{ row['Field']|url_encode }}&amp;change_column=1">
             {{ titles['Change']|raw }}
         </a>
     </td>
     <td class="drop center print_ignore">
-        <a class="drop_column_anchor ajax" href="sql.php{{ url_query }}&amp;sql_query=
+        <a class="drop_column_anchor ajax" href="sql.php{{ url_query|raw }}&amp;sql_query=
             {{- ('ALTER TABLE ' ~ Util_backquote(table)
                 ~ ' DROP ' ~ Util_backquote(row['Field']) ~ ';')|url_encode -}}
             &amp;dropped_column={{ row['Field']|url_encode }}&amp;purge=1&amp;message_to_show=

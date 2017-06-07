@@ -3,7 +3,7 @@
         {{ hidden_inputs|raw }}
         <input type="hidden" name="json" value="" />
         <input type="hidden" name="submit_import" value="1" />
-        <input type="hidden" name="return_url" value="{{ return_url }}" />
+        <input type="hidden" name="return_url" value="{{ return_url|raw }}" />
         {% trans %}
             Your browser has phpMyAdmin configuration for this domain. Would you like to import it for current session?
         {% endtrans %}
