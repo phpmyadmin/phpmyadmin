@@ -739,8 +739,8 @@ class DatabaseStructureController extends DatabaseController
                 )
                 ->render(
                     array(
-                        'url_query' => $this->_url_query,
-                        'truename' => $table,
+                        'db' => $this->db,
+                        'table' => $table,
                         'is_tracked' => $is_tracked,
                     )
                 );
