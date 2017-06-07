@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.7.1-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2017-05-17 09:06+0200\n"
-"PO-Revision-Date: 2017-06-05 21:25+0000\n"
+"PO-Revision-Date: 2017-06-07 16:56+0000\n"
 "Last-Translator: Viktar Vauchkevich <victorenator@gmail.com>\n"
 "Language-Team: Belarusian "
 "<https://hosted.weblate.org/projects/phpmyadmin/4-7/be/>\n"
@@ -14598,30 +14598,24 @@ msgid "Parser:"
 msgstr "Аналізатар:"
 
 #: templates/table/index_form.phtml:102
-#, fuzzy
-#| msgid "Comment"
 msgid "Comment:"
-msgstr "Камэнтар"
+msgstr "Каментар:"
 
 #: templates/table/index_form.phtml:149 templates/table/index_form.phtml:194
 msgid "Drag to reorder"
 msgstr ""
 
 #: templates/table/relation/common_form.phtml:6
-#, fuzzy
-#| msgid "Disable foreign key checks"
 msgid "Foreign key constraints"
-msgstr "Адключыць праверку зьнешніх ключоў"
+msgstr "Абмежаванні знешняга ключа"
 
 #: templates/table/relation/common_form.phtml:9
 msgid "Actions"
 msgstr "Дзеяньні"
 
 #: templates/table/relation/common_form.phtml:10
-#, fuzzy
-#| msgid "Constraints for table"
 msgid "Constraint properties"
-msgstr "Абмежаваньні для табліцы"
+msgstr "Уласцівасці абмежавання"
 
 #: templates/table/relation/common_form.phtml:13
 msgid ""
@@ -14640,23 +14634,17 @@ msgid "Foreign key constraint"
 msgstr ""
 
 #: templates/table/relation/common_form.phtml:66
-#, fuzzy
-#| msgid "Add constraints"
 msgid "+ Add constraint"
-msgstr "Дадаць абмежаваньні"
+msgstr "+ Дадаць абмежаванне"
 
 #: templates/table/relation/common_form.phtml:76
 #: templates/table/relation/common_form.phtml:82
-#, fuzzy
-#| msgid "Internal relations"
 msgid "Internal relationships"
 msgstr "Унутраныя сувязі"
 
 #: templates/table/relation/common_form.phtml:86
-#, fuzzy
-#| msgid "Internal relations"
 msgid "Internal relation"
-msgstr "Унутраныя сувязі"
+msgstr "Унутраная сувязь"
 
 #: templates/table/relation/common_form.phtml:89
 msgid ""
@@ -14667,28 +14655,21 @@ msgstr ""
 "FOREIGN KEY."
 
 #: templates/table/relation/common_form.phtml:115
-#, fuzzy
-#| msgid "Choose field to display"
 msgid "Choose column to display:"
-msgstr "Выберыце поле для адлюстраваньня"
+msgstr "Выберыце слупок для адлюстравання:"
 
 #: templates/table/relation/foreign_key_row.phtml:19
-#, fuzzy, php-format
-#| msgid "Disable foreign key checks"
+#, php-format
 msgid "Foreign key constraint %s has been dropped"
-msgstr "Адключыць праверку зьнешніх ключоў"
+msgstr "Абмежаванне знешняга ключа %s выдаленае"
 
 #: templates/table/relation/foreign_key_row.phtml:96
-#, fuzzy
-#| msgid "Constraints for table"
 msgid "Constraint name"
-msgstr "Абмежаваньні для табліцы"
+msgstr "Назва абмежавання"
 
 #: templates/table/relation/foreign_key_row.phtml:151
-#, fuzzy
-#| msgid "Add %s field(s)"
 msgid "+ Add column"
-msgstr "Дадаць %s новыя палі"
+msgstr "+ Дадаць слупок"
 
 #: templates/table/search/options.phtml:8
 #, fuzzy
