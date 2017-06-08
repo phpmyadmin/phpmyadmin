@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.8.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2017-05-17 09:24+0200\n"
-"PO-Revision-Date: 2017-06-08 17:48+0000\n"
+"PO-Revision-Date: 2017-06-08 17:57+0000\n"
 "Last-Translator: Gustavo de Oliveira Silva <diguser@gmail.com>\n"
 "Language-Team: Portuguese (Brazil) "
 "<https://hosted.weblate.org/projects/phpmyadmin/master/pt_BR/>\n"
@@ -835,6 +835,8 @@ msgid ""
 "The $cfg['TempDir'] (%s) is not accessible. phpMyAdmin is not able to cache "
 "templates and will be slow because of this."
 msgstr ""
+"O $cfg['TempDir'](%s) não está acessível. phpMyAdmin não será capaz de "
+"cachear os modelos e deve ficar mais lento por causa disso."
 
 #: js/messages.php:43
 msgid "Confirm"
@@ -3409,7 +3411,7 @@ msgstr "O servidor não está respondendo."
 
 #: libraries/DatabaseInterface.php:2043
 msgid "Logout and try as another user."
-msgstr ""
+msgstr "Efetue logout e tente com outro usuário."
 
 #: libraries/DatabaseInterface.php:2049
 msgid "Please check privileges of directory containing database."
@@ -10126,6 +10128,9 @@ msgid ""
 "lead to non working phpMyAdmin or a security risk. Please fix your server "
 "configuration to indicate HTTPS properly."
 msgstr ""
+"Há incompatibilidade no HTTPS indicado no servidor e no cliente. Isso poderá "
+"fazer o phpMyAdmin não funcionar ou correr risco de segurança. Por favor, "
+"corrija a configuração do servidor para indicar HTTPS da forma correta."
 
 #: libraries/plugins/auth/AuthenticationCookie.php:177
 msgid "Log in"
@@ -10266,7 +10271,7 @@ msgstr "Exibir JSON bem formatado (Usar formatação para leitura humana)"
 
 #: libraries/plugins/export/ExportJson.php:94
 msgid "Output unicode characters unescaped"
-msgstr ""
+msgstr "Saída com caracteres unicode não escapados"
 
 #: libraries/plugins/export/ExportLatex.php:48
 msgid "Content of table @TABLE@"
@@ -15554,7 +15559,7 @@ msgstr "Propor estrutura de tabela"
 
 #: templates/table/structure/optional_action_links.phtml:28
 msgid "Normalize"
-msgstr ""
+msgstr "Normalizar"
 
 #: templates/table/structure/optional_action_links.phtml:34
 msgid "Track view"
