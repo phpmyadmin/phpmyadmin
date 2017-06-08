@@ -75,6 +75,11 @@ define('PHPMYADMIN', true);
 require_once './libraries/vendor_config.php';
 
 /**
+ * Load hash polyfill.
+ */
+require_once './libraries/hash.lib.php';
+
+/**
  * Activate autoloader
  */
 if (! @is_readable(AUTOLOAD_FILE)) {
@@ -365,7 +370,6 @@ if (Core::checkPageValidity($_REQUEST['back'], $goto_whitelist)) {
  * @todo variables should be handled by their respective owners (objects)
  * f.e. lang, server, collation_connection in PMA\libraries\Config
  */
-require_once './libraries/core.lib.php';
 
 $token_mismatch = true;
 $token_provided = false;

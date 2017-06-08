@@ -9,8 +9,6 @@
 
 use PMA\libraries\Core;
 
-require_once './libraries/core.lib.php';
-
 /**
  * Matches for IPv4 or IPv6 addresses
  *

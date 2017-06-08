@@ -19,7 +19,6 @@ use PMA\libraries\Core;
 use ReCaptcha;
 use PMA\libraries\URL;
 
-require_once './libraries/core.lib.php';
 require_once './libraries/session.lib.php';
 
 /**

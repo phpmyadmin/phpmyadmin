@@ -15,8 +15,6 @@ use PMA\libraries\Response;
 use PMA\libraries\Config;
 use PMA\libraries\Core;
 
-require_once './libraries/core.lib.php';
-
 /**
  * Handles the HTTP authentication methods
  *
