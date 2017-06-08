@@ -24,59 +24,63 @@
         var self = this;
         self.$container = $container;
         self.widthCalculator = widthCalculator;
-        // Sets the image for the left and right scroll indicator
-        $(PMA_getImage('b_right.png').toString()).prependTo($('.scrollindicator--right'));
-        $(PMA_getImage('b_left.png').toString()).prependTo($('.scrollindicator--left'));
+        var windowWidth = $(window).width();
 
-        // Set the width of the navigation bar without scroll indicator
-        $('.navigationbar').css({'width': widthCalculator.call($container) - 58});
+        if (windowWidth < 768) {
+            // Sets the image for the left and right scroll indicator
+            $(PMA_getImage('b_right.png').toString()).prependTo($('.scrollindicator--right'));
+            $(PMA_getImage('b_left.png').toString()).prependTo($('.scrollindicator--left'));
 
-        // Scroll the navigation bar on click
-        $('.scrollindicator--right')
-            .click(function () {
-                $('.navigationbar').scrollLeft($('.navigationbar').scrollLeft() + 10);
-            });
-        $('.scrollindicator--left')
-            .click(function () {
-                $('.navigationbar').scrollLeft($('.navigationbar').scrollLeft() - 10);
-            });
-        // create submenu container
-        var link = $('<a />', {href: '#', 'class': 'tab nowrap'})
-            .text(PMA_messages.strMore)
-            .on('click', false); // same as event.preventDefault()
-        var img = $container.find('li img');
-        if (img.length) {
-            $(PMA_getImage('b_more.png').toString()).prependTo(link);
+            // Set the width of the navigation bar without scroll indicator
+            $('.navigationbar').css({'width': widthCalculator.call($container) - 58});
+
+            // Scroll the navigation bar on click
+            $('.scrollindicator--right')
+                .click(function () {
+                    $('.navigationbar').scrollLeft($('.navigationbar').scrollLeft() + 70);
+                });
+            $('.scrollindicator--left')
+                .click(function () {
+                    $('.navigationbar').scrollLeft($('.navigationbar').scrollLeft() - 70);
+                });
+        } else {
+            // create submenu container
+            var link = $('<a />', {href: '#', 'class': 'tab nowrap'})
+                .text(PMA_messages.strMore)
+                .on('click', false); // same as event.preventDefault()
+            var img = $container.find('li img');
+            if (img.length) {
+                $(PMA_getImage('b_more.png').toString()).prependTo(link);
+            }
+            var $submenu = $('<li />', {'class': 'submenu'})
+                .append(link)
+                .append($('<ul />'))
+                .mouseenter(function() {
+                    if ($(this).find('ul .tabactive').length === 0) {
+                        $(this)
+                            .addClass('submenuhover')
+                            .find('> a')
+                            .addClass('tabactive');
+                    }
+                })
+                .mouseleave(function() {
+                    if ($(this).find('ul .tabactive').length === 0) {
+                        $(this)
+                            .removeClass('submenuhover')
+                            .find('> a')
+                            .removeClass('tabactive');
+                    }
+                });
+            $container.children('.clearfloat').remove();
+            $container.append($submenu).append("<div class='clearfloat'></div>");
         }
-        //$('.navigation').css({'width': $('#topmenucontainer').width() - 50});
-        /*var $submenu = $('<li />', {'class': 'submenu'})
-            .append(link)
-            .append($('<ul />'))
-            .mouseenter(function() {
-                if ($(this).find('ul .tabactive').length === 0) {
-                    $(this)
-                    .addClass('submenuhover')
-                    .find('> a')
-                    .addClass('tabactive');
-                }
-            })
-            .mouseleave(function() {
-                if ($(this).find('ul .tabactive').length === 0) {
-                    $(this)
-                    .removeClass('submenuhover')
-                    .find('> a')
-                    .removeClass('tabactive');
-                }
-            });*/
-        //$container.children('.clearfloat').remove();
-        //$container.append($submenu).append("<div class='clearfloat'></div>");
         setTimeout(function () {
             self.resize();
         }, 4);
     }
     MenuResizer.prototype.resize = function () {
         var wmax = this.widthCalculator.call(this.$container);
-        $('.navigationbar').css({'width': wmax - 58});
+        var windowWidth = $(window).width();
         var $submenu = this.$container.find('.submenu:last');
         var submenu_w = $submenu.outerWidth(true);
         var $submenu_ul = $submenu.find('ul');
@@ -125,7 +129,10 @@
             }
         }
         // Show/hide the "More" tab as needed
-        if ($submenu_ul.find('li').length > 0) {
+        if (windowWidth < 768) {
+            $('.navigationbar').css({'width': wmax - 58});
+        }
+        else if ($submenu_ul.find('li').length > 0) {
             $submenu.addClass('shown');
         } else {
             $submenu.removeClass('shown');

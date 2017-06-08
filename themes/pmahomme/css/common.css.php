@@ -915,7 +915,6 @@ ul.tabs {
     list-style-type: none;
     margin: 0;
     padding: 0;
-    display: flex;
 }
 
 ul#topmenu2 {
@@ -942,16 +941,8 @@ ul#topmenu2 li {
     border-top: 1px solid #aaa;
 }
 
-.navigationbar {
-    display: inline-flex;
-    margin: 0 !important;
-    border-radius: 0 !important;
-    overflow: hidden;
-}
-
 .scrollindicator {
-    padding: 7px;
-    cursor: pointer;
+    display: none;
 }
 
 /* default tab styles */
@@ -3515,5 +3506,24 @@ body .ui-dialog .ui-dialog-buttonpane .ui-dialog-buttonset {
         padding-top: 0;
         padding-<?php echo $left; ?>: 1px;
         padding-<?php echo $right; ?>: 1px;
+    }
+
+    ul#topmenu,
+    ul#topmenu2,
+    ul.tabs {
+        display: flex;
+    }
+
+    .navigationbar {
+        display: inline-flex;
+        margin: 0 !important;
+        border-radius: 0 !important;
+        overflow: hidden;
+    }
+
+    .scrollindicator {
+        padding: 7px;
+        cursor: pointer;
+        display: inline;
     }
 }
