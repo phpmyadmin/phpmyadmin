@@ -1186,8 +1186,18 @@ function PMA_handleSimulateQueryButton()
   */
 function insertQuery(queryType)
 {
+    var query = "";
     if (queryType == "clear") {
-        setQuery('');
+        setQuery(query);
+        return;
+    }
+    else if (queryType == "removegrave") {
+	    if (codemirror_editor) {
+    		query = codemirror_editor.getValue().replace(/`/g,'');
+	    } else {
+	    	query = document.sqlform.sql_query.value.replace(/`/g,'');
+	    }
+        setQuery(query);
         return;
     } else if (queryType == "format") {
         if (codemirror_editor) {
@@ -1224,7 +1234,6 @@ function insertQuery(queryType)
         return;
     }
 
-    var query = "";
     var myListBox = document.sqlform.dummy;
     var table = document.sqlform.table.value;
 
@@ -1239,11 +1248,12 @@ function insertQuery(queryType)
             if (NbSelect > 1) {
                 columnsList += ", ";
                 valDis += ",";
-                editDis += ",";
+                editDis += ", ";
             }
-            columnsList += myListBox.options[i].value;
-            valDis += "[value-" + NbSelect + "]";
-            editDis += myListBox.options[i].value + "=[value-" + NbSelect + "]";
+            ColumnsName = myListBox.options[i].value.replace(/`/g,'');
+            columnsList += "`" + ColumnsName + "`";
+            valDis += ":"+ColumnsName;
+            editDis += "`" + ColumnsName + "`" + " = :"+ColumnsName;
         }
         if (queryType == "selectall") {
             query = "SELECT * FROM `" + table + "` WHERE 1";
