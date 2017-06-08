@@ -1876,12 +1876,14 @@ class Util
                     . ']=1';
             }
 
+            $query_parts[] = 'token=' . $_SESSION[' PMA_token '];
+
             foreach ($query_parts as $query_pair) {
                 list($eachvar, $eachval) = explode('=', $query_pair);
                 $ret .= '<input type="hidden" name="' . $subname_open . $eachvar
                     . $subname_close . '" value="'
                     . htmlspecialchars(urldecode($eachval)) . '" />';
-            } // end while
+            } // end foreach
 
             if (empty($tag_params['class'])) {
                 $tag_params['class'] = 'formLinkSubmit';
