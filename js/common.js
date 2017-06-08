@@ -1,6 +1,22 @@
 /* vim: set expandtab sw=4 ts=4 sts=4: */
 
 $(function () {
+    var url = 'querywindow.php' + PMA_commonParams.getUrlQuery();
+    $('#pma_open_querywindow').click(function (event) {
+        event.preventDefault();
+        window.name = 'parentwindow';
+        var querywindow = window.open(
+            url,
+            '',
+            'toolbar=0,location=0,directories=0,status=1,' +
+            'menubar=0,scrollbars=yes,resizable=yes,' +
+            'width=600,' +
+            'height=400'
+            );
+        if(window.focus){
+            querywindow.focus();
+        }
+    });
     checkNumberOfFields();
 });
 
