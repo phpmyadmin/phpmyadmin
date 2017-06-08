@@ -381,7 +381,7 @@ table th,
 table td {
     padding: .1em .3em;
     margin: .1em;
-    vertical-align: middle;
+    vertical-align: top;
     text-shadow: 0 1px 0 #fff;
 }
 
