@@ -8,6 +8,7 @@
  */
 
 use PMA\libraries\Core;
+require_once './libraries/hash.lib.php';
 
 /**
  * Matches for IPv4 or IPv6 addresses

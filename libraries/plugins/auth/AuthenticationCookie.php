@@ -20,6 +20,7 @@ use ReCaptcha;
 use PMA\libraries\URL;
 
 require_once './libraries/session.lib.php';
+require_once './libraries/hash.lib.php';
 
 /**
  * Remember where to redirect the user
