@@ -33,7 +33,7 @@ function PMA_secureSession()
  */
 function PMA_generateToken()
 {
-    $_SESSION[' PMA_token '] = Util::generateRandom(16);
+    $_SESSION[' PMA_token '] = bin2hex(Util::generateRandom(16));
 
     /**
      * Check if token is properly generated (the generation can fail, for example
