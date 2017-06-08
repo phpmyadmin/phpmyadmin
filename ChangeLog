@@ -26,6 +26,7 @@ phpMyAdmin - ChangeLog
 - issue #13362 Fixed loading additional javascripts
 - issue #13343 Fixed editing QBE
 - issue #13193 Improved documentation on user settings
+- issue #13092 Gracefully handle early fatal errors in AJAX requests
 
 4.7.1 (2017-05-25)
 - issue #13132 Always execute tracking queries as controluser

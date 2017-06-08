@@ -224,17 +224,18 @@ class Core
         }
 
         /*
-         * Avoid using Response if Config is not yet loaded
+         * Avoid using Response class as config does not have to be loaded yet
          * (this can happen on early fatal error)
          */
-        if (isset($GLOBALS['Config'])) {
-            $response = Response::getInstance();
-        } else {
-            $response = null;
-        }
-        if (! is_null($response) && $response->isAjax()) {
-            $response->setRequestStatus(false);
-            $response->addJSON('message', Message::error($error_message));
+        if (! empty($_REQUEST['ajax_request'])) {
+            // Generate JSON manually
+            PMA_headerJSON();
+            echo json_encode(
+                array(
+                    'success' => false,
+                    'error' => Message::error($error_message)->getDisplay(),
+                )
+            );
         } else {
             $error_message = strtr($error_message, array('<br />' => '[br]'));
             $error_header = __('Error');
