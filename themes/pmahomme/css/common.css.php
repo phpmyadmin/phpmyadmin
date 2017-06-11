@@ -3526,4 +3526,8 @@ body .ui-dialog .ui-dialog-buttonpane .ui-dialog-buttonset {
         cursor: pointer;
         display: inline;
     }
+
+    body#loginform div.container {
+        width: 100%;
+    }
 }
