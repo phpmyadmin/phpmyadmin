@@ -4,16 +4,16 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.8.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2017-06-08 19:47+0200\n"
-"PO-Revision-Date: 2017-06-07 16:56+0000\n"
+"PO-Revision-Date: 2017-06-11 21:06+0000\n"
 "Last-Translator: Viktar Vauchkevich <victorenator@gmail.com>\n"
-"Language-Team: Belarusian <https://hosted.weblate.org/projects/phpmyadmin/"
-"master/be/>\n"
+"Language-Team: Belarusian "
+"<https://hosted.weblate.org/projects/phpmyadmin/master/be/>\n"
 "Language: be\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=3; plural=n%10==1 && n%100!=11 ? 0 : n%10>=2 && n"
-"%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
+"Plural-Forms: nplurals=3; plural=n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%10<="
+"4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
 "X-Generator: Weblate 2.15-dev\n"
 
 #: changelog.php:39 license.php:34
@@ -14348,10 +14348,8 @@ msgid "+ Add column"
 msgstr "+ Дадаць слупок"
 
 #: templates/table/search/options.phtml:8
-#, fuzzy
-#| msgid "Select fields (at least one):"
 msgid "Select columns (at least one):"
-msgstr "Выбраць палі (прынамсі адно):"
+msgstr "Выбраць слупкі (прынамсі адзін):"
 
 #: templates/table/search/options.phtml:37
 msgid "Add search conditions (body of the \"where\" clause):"
@@ -14374,27 +14372,22 @@ msgid "Maximum rows to plot"
 msgstr ""
 
 #: templates/table/search/rows_zoom.phtml:15
-#, fuzzy
 msgid "Additional search criteria"
-msgstr "SQL-запыт"
+msgstr "Дадатковыя крытэрыі пошуку"
 
 #: templates/table/search/search_and_replace.phtml:3
-#, fuzzy
-#| msgid "Replace NULL by"
 msgid "Replace with:"
-msgstr "Замяняць NULL на"
+msgstr "Замяняць на:"
 
 #: templates/table/search/search_and_replace.phtml:24
-#, fuzzy
-#| msgid "as regular expression"
 msgid "Use regular expression"
-msgstr "рэгулярны выраз"
+msgstr "Выкарыстаць рэгулярны выраз"
 
 #: templates/table/search/selection_form.phtml:31
-#, fuzzy
-#| msgid "Do a \"query by example\" (wildcard: \"%\")"
 msgid "Do a \"query by example\" (wildcard: \"%\") for two different columns"
-msgstr "Выканаць \"запыт згодна прыклада\" (сымбаль падстаноўкі: \"%\")"
+msgstr ""
+"Выканаць \"запыт згодна прыклада\" (сімвал падстаноўкі: \"%\") для двух "
+"розных слупкоў"
 
 #: templates/table/search/selection_form.phtml:54
 msgid "Do a \"query by example\" (wildcard: \"%\")"
@@ -14405,42 +14398,31 @@ msgid "Browse/Edit the points"
 msgstr ""
 
 #: templates/table/search/zoom_result_form.phtml:15
-#, fuzzy
 msgid "How to use"
-msgstr "Пашырэньне PHP"
+msgstr "Як выкарыстоўваць"
 
 #: templates/table/search/zoom_result_form.phtml:23
-#, fuzzy
-#| msgid "Reset"
 msgid "Reset zoom"
-msgstr "Скінуць"
+msgstr "Скінуць маштабаванне"
 
 #: templates/table/structure/display_structure.phtml:146 view_create.php:208
-#, fuzzy
-#| msgid "Print view"
 msgid "Edit view"
-msgstr "Вэрсія для друку"
+msgstr "Рэдагаваць прадстаўленне"
 
 #: templates/table/structure/display_structure.phtml:206
 #: templates/table/structure/display_partitions.twig:24
-#, fuzzy
-#| msgid "Partition %s"
 msgid "Partitions"
-msgstr "Падзел %s"
+msgstr "Падзелы"
 
 #: templates/table/structure/partition_definition_form.phtml:6
 #: templates/table/structure/display_partitions.twig:348
-#, fuzzy
-#| msgid "Remove partitioning"
 msgid "Edit partitioning"
-msgstr "Скасаваць падзел на часткі"
+msgstr "Рэдагаваць падзяленне"
 
 #: templates/test/gettext/pgettext.phtml:1
-#, fuzzy
-#| msgid "Next"
 msgctxt "Text context"
 msgid "Text"
-msgstr "Наступная старонка"
+msgstr "Тэкст"
 
 #: themes.php:22 themes.php:27
 msgid "Theme"
@@ -14455,23 +14437,17 @@ msgid "Available MIME types"
 msgstr "Даступныя MIME-тыпы"
 
 #: transformation_overview.php:39
-#, fuzzy
-#| msgid "Available transformations"
 msgid "Available browser display transformations"
-msgstr "Даступныя пераўтварэньні"
+msgstr "Даступныя пераўтварэнні адльстравання браўзера"
 
 #: transformation_overview.php:40
-#, fuzzy
-#| msgid "Available transformations"
 msgid "Available input transformations"
-msgstr "Даступныя пераўтварэньні"
+msgstr "Даступныя пераўтварэнні ўводу"
 
 #: transformation_overview.php:55
-#, fuzzy
-#| msgid "Description"
 msgctxt "for MIME transformation"
 msgid "Description"
-msgstr "Апісаньне"
+msgstr "Апісанне"
 
 #: templates/table/index_form.twig:38
 msgid "Index name:"
@@ -14508,10 +14484,8 @@ msgid "Drag to reorder"
 msgstr ""
 
 #: templates/table/structure/row_stats_table.twig:22
-#, fuzzy
-#| msgid "Row Statistics"
 msgid "Row statistics"
-msgstr "Статыстыка радку"
+msgstr "Статыстыка радка"
 
 #: templates/table/structure/row_stats_table.twig:39
 msgid "static"
@@ -14548,16 +14522,12 @@ msgid "Operator"
 msgstr "Апэратар"
 
 #: templates/database/create_table.twig:47
-#, fuzzy
-#| msgid "Number of fields"
 msgid "Number of columns"
-msgstr "Колькасьць палёў"
+msgstr "Колькасць слупкоў"
 
 #: templates/privileges/add_privileges_database.twig:20
-#, fuzzy
-#| msgid "Add privileges on the following database"
 msgid "Add privileges on the following database(s):"
-msgstr "Дадаць прывілеі на наступную базу"
+msgstr "Дадаць прывілеі на наступную базу(ы):"
 
 #: templates/privileges/add_privileges_database.twig:53
 msgid "Wildcards % and _ should be escaped with a \\ to use them literally."
@@ -14567,35 +14537,27 @@ msgstr ""
 
 #: templates/table/structure/check_all_table_column.twig:86
 #: templates/table/structure/actions_in_table_structure.twig:171
-#, fuzzy
-#| msgid "Add %s field(s)"
 msgid "Add to central columns"
-msgstr "Дадаць %s новыя палі"
+msgstr "Дадаць да цэнтральных слупкоў"
 
 #: templates/table/structure/check_all_table_column.twig:91
 #: templates/table/structure/actions_in_table_structure.twig:157
-#, fuzzy
-#| msgid "Rename database to"
 msgid "Remove from central columns"
-msgstr "Перайменаваць базу дадзеных у"
+msgstr "Выдаліць з цэнтральных слупкоў"
 
 #: templates/database/designer/where_query_panel.twig:82
 #: templates/database/designer/options_panel.twig:86
 #: templates/database/designer/options_panel.twig:282
 #: templates/database/designer/having_query_panel.twig:116
-#, fuzzy
-#| msgid "Export"
 msgid "Except"
-msgstr "Экспарт"
+msgstr "Акрамя"
 
 #: templates/database/designer/where_query_panel.twig:100
 #: templates/database/designer/options_panel.twig:104
 #: templates/database/designer/options_panel.twig:300
 #: templates/database/designer/having_query_panel.twig:134
-#, fuzzy
-#| msgid "in query"
 msgid "subquery"
-msgstr "па запыту"
+msgstr "падзапыт"
 
 #: templates/server/variables/session_variable_row.twig:25
 #: templates/server/variables/variable_table_head.twig:31
@@ -14603,8 +14565,6 @@ msgid "Session value"
 msgstr "Значэньне сэсіі"
 
 #: templates/database/designer/delete_relation_panel.twig:41
-#, fuzzy
-#| msgid "Delete relation"
 msgid "Delete relationship"
 msgstr "Выдаліць сувязь"
 
@@ -14632,30 +14592,22 @@ msgid "Requery"
 msgstr "Паўтарыць запыт"
 
 #: templates/privileges/add_privileges_table.twig:25
-#, fuzzy
-#| msgid "Add privileges on the following table"
 msgid "Add privileges on the following table:"
-msgstr "Дадаць прывілеі на наступную табліцу"
+msgstr "Дадаць прывілеі на наступную табліцу:"
 
 #: templates/privileges/add_privileges_routine.twig:25
-#, fuzzy
-#| msgid "Add privileges on the following table"
 msgid "Add privileges on the following routine:"
-msgstr "Дадаць прывілеі на наступную табліцу"
+msgstr "Дадаць прывілеі на наступную працэдуру:"
 
 #: templates/privileges/column_privileges.twig:89
 #: templates/privileges/column_privileges.twig:93
-#, fuzzy
-#| msgid "None"
 msgctxt "None privileges"
 msgid "None"
 msgstr "Няма"
 
 #: templates/table/secondary_tabs.twig:29
-#, fuzzy
-#| msgid "Relation view"
 msgid "Relation view"
-msgstr "Прагляд залежнасьцяў"
+msgstr "Прагляд сувязяў"
 
 #: templates/console/display.twig:24
 msgid "Console"
@@ -14785,45 +14737,34 @@ msgid "Switch to dark theme"
 msgstr "Пераключыць на цёмную тэму"
 
 #: templates/table/structure/table_structure_row.twig:162
-#, fuzzy, php-format
-#| msgid "Table %s has been dropped."
+#, php-format
 msgid "Column %s has been dropped."
-msgstr "Табліца %s была выдаленая"
+msgstr "Слупок %s быў знішчаны."
 
 #: templates/start_and_number_of_rows_panel.twig:23
-#, fuzzy
-#| msgid "Start"
 msgid "Start row:"
-msgstr "Суб"
+msgstr "Пачатковы радок:"
 
 #: templates/database/designer/aggregate_query_panel.twig:42
 #: templates/database/designer/options_panel.twig:138
-#, fuzzy
-#| msgid "Create"
 msgid "Aggregate"
-msgstr "Стварыць"
+msgstr "Сукупнасць"
 
 #: templates/table/search/replace_preview.twig:48
 msgid "Find and replace - preview"
 msgstr ""
 
 #: templates/table/search/replace_preview.twig:59
-#, fuzzy
-#| msgid "Original position"
 msgid "Original string"
-msgstr "Першапачатковая пазыцыя"
+msgstr "Першапачатковы радок"
 
 #: templates/table/search/replace_preview.twig:63
-#, fuzzy
-#| msgid "Relations"
 msgid "Replaced string"
-msgstr "Сувязі"
+msgstr "Радок замены"
 
 #: templates/table/search/replace_preview.twig:108
-#, fuzzy
-#| msgid "Replication"
 msgid "Replace"
-msgstr "Рэплікацыя"
+msgstr "Замяніць"
 
 #: templates/server/variables/variable_table_head.twig:33
 msgid "Global value"
@@ -14847,10 +14788,8 @@ msgid "You may examine the data in the error report:"
 msgstr ""
 
 #: templates/privileges/delete_user_fieldset.twig:24
-#, fuzzy
-#| msgid "Remove selected users"
 msgid "Remove selected user accounts"
-msgstr "Выдаліць выбраных карыстальнікаў"
+msgstr "Выдаліць абраныя конты карыстальнікаў"
 
 #: templates/privileges/delete_user_fieldset.twig:30
 msgid "Revoke all active privileges from the users and delete them afterwards."
@@ -14869,30 +14808,23 @@ msgid ""
 msgstr ""
 
 #: templates/prefs_autoload.twig:46
-#, fuzzy
-#| msgid "Allows inserting and replacing data."
 msgid "Delete settings"
-msgstr "Дазваляе ўстаўляць і замяняць дадзеныя."
+msgstr "Выдаліць налады"
 
 #: templates/database/designer/options_panel.twig:54
 #: templates/database/designer/options_panel.twig:250
-#, fuzzy
-#| msgid "Relation deleted"
 msgid "Relationship operator"
-msgstr "Сувязь выдаленая"
+msgstr "Аператар сувязей"
 
 #: templates/database/designer/options_panel.twig:117
 #: templates/database/designer/rename_to_panel.twig:42
-#, fuzzy
 msgid "Rename to"
-msgstr "Перайменаваць табліцу ў"
+msgstr "Перайменаваць у"
 
 #: templates/database/designer/options_panel.twig:126
 #: templates/database/designer/rename_to_panel.twig:53
-#, fuzzy
-#| msgid "User name"
 msgid "New name"
-msgstr "Імя карыстальніка"
+msgstr "Новая назва"
 
 #: templates/table/structure/actions_in_table_structure.twig:28
 #, php-format
@@ -14909,32 +14841,24 @@ msgstr "Быў дададзены індэкс для %s."
 
 #: templates/table/structure/move_columns_dialog.twig:20
 #: templates/table/structure/optional_action_links.twig:61
-#, fuzzy
-#| msgid "Add %s field(s)"
 msgid "Move columns"
-msgstr "Дадаць %s новыя палі"
+msgstr "Перамясціць слупкі"
 
 #: templates/table/structure/move_columns_dialog.twig:24
 msgid "Move the columns by dragging them up and down."
 msgstr ""
 
 #: templates/table/structure/display_partitions.twig:35
-#, fuzzy
-#| msgid "No index defined!"
 msgid "No partitioning defined!"
-msgstr "Індэкс ня вызначаны!"
+msgstr "Раздзяленне не вызначанае!"
 
 #: templates/table/structure/display_partitions.twig:43
-#, fuzzy
-#| msgid "partitioned"
 msgid "Partitioned by:"
-msgstr "падзеленая на сэкцыі"
+msgstr "Раздзяленне па:"
 
 #: templates/table/structure/display_partitions.twig:58
-#, fuzzy
-#| msgid "partitioned"
 msgid "Sub partitioned by:"
-msgstr "падзеленая на сэкцыі"
+msgstr "Падраздзяленне па:"
 
 #: templates/table/structure/display_partitions.twig:92
 #, fuzzy
