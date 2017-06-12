@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.8.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2017-06-08 19:47+0200\n"
-"PO-Revision-Date: 2017-06-11 21:06+0000\n"
+"PO-Revision-Date: 2017-06-12 22:07+0000\n"
 "Last-Translator: Viktar Vauchkevich <victorenator@gmail.com>\n"
 "Language-Team: Belarusian "
 "<https://hosted.weblate.org/projects/phpmyadmin/master/be/>\n"
@@ -14861,22 +14861,16 @@ msgid "Sub partitioned by:"
 msgstr "Падраздзяленне па:"
 
 #: templates/table/structure/display_partitions.twig:92
-#, fuzzy
-#| msgid "Row length"
 msgid "Data length"
-msgstr "Даўжыня радка"
+msgstr "Даўжыня даных"
 
 #: templates/table/structure/display_partitions.twig:96
-#, fuzzy
-#| msgid "Row length"
 msgid "Index length"
-msgstr "Даўжыня радка"
+msgstr "Даўжыня індэкса"
 
 #: templates/table/structure/display_partitions.twig:337
-#, fuzzy
-#| msgid "partitioned"
 msgid "Partition table"
-msgstr "падзеленая на сэкцыі"
+msgstr "Падзяліць табліцу"
 
 #: templates/table/structure/display_table_stats.twig:51
 msgid "Space usage"
@@ -14900,16 +14894,13 @@ msgid "New"
 msgstr ""
 
 #: templates/table/structure/add_column.twig:38
-#, fuzzy, php-format
-#| msgid "Add %s field(s)"
+#, php-format
 msgid "Add %s column(s)"
-msgstr "Дадаць %s новыя палі"
+msgstr "Дадаць %s слупок(і)"
 
 #: templates/table/structure/add_column.twig:47
-#, fuzzy
-#| msgid "At Beginning of Table"
 msgid "at beginning of table"
-msgstr "У пачатку табліцы"
+msgstr "у пачатку табліцы"
 
 #: templates/table/structure/optional_action_links.twig:35
 msgid "Propose table structure"
@@ -14920,9 +14911,8 @@ msgid "Normalize"
 msgstr ""
 
 #: templates/table/structure/optional_action_links.twig:86
-#, fuzzy
 msgid "Track view"
-msgstr "Праверыць табліцу"
+msgstr "Адсочваць прадстаўленне"
 
 #: url.php:41
 #, fuzzy
@@ -14939,10 +14929,8 @@ msgid "The profile has been updated."
 msgstr "Профіль быў адноўлены."
 
 #: user_password.php:129
-#, fuzzy
-#| msgid "Password Hashing"
 msgid "Password is too long!"
-msgstr "Хэшаваньне паролю"
+msgstr "Пароль занадта доўгі!"
 
 #: view_create.php:50
 msgid "View name can not be empty!"
@@ -14957,14 +14945,12 @@ msgid "Column names"
 msgstr "Назвы калёнак"
 
 #: view_operations.php:105
-#, fuzzy
 msgid "Rename view to"
-msgstr "Перайменаваць табліцу ў"
+msgstr "Перайменаваць прадстаўленне ў"
 
 #: view_operations.php:144
-#, fuzzy
 msgid "Delete the view (DROP)"
-msgstr "Базы дадзеных адсутнічаюць"
+msgstr "Выдаліць прадстаўленне (DROP)"
 
 #: libraries/advisory_rules.txt:49
 msgid "Uptime below one day"
@@ -14986,9 +14972,8 @@ msgid "The uptime is only %s"
 msgstr ""
 
 #: libraries/advisory_rules.txt:56
-#, fuzzy
 msgid "Questions below 1,000"
-msgstr "Пэрсыдзкая"
+msgstr "Запытаў менш 1000"
 
 #: libraries/advisory_rules.txt:59
 msgid ""
@@ -15003,15 +14988,13 @@ msgid ""
 msgstr ""
 
 #: libraries/advisory_rules.txt:61
-#, fuzzy, php-format
-#| msgid "max. concurrent connections"
+#, php-format
 msgid "Current amount of Questions: %s"
-msgstr "максымум адначасовых злучэньняў"
+msgstr "Колькасць запытаў у дадзены момант: %s"
 
 #: libraries/advisory_rules.txt:63
-#, fuzzy
 msgid "Percentage of slow queries"
-msgstr "Паказаць поўныя запыты"
+msgstr "Адсотак павольных запытаў"
 
 #: libraries/advisory_rules.txt:66
 msgid ""
@@ -15030,10 +15013,8 @@ msgid "The slow query rate should be below 5%%, your value is %s%%."
 msgstr ""
 
 #: libraries/advisory_rules.txt:70
-#, fuzzy
-#| msgid "Flush query cache"
 msgid "Slow query rate"
-msgstr "Скінуць кэш запытаў"
+msgstr "Тэмп павольных запытаў"
 
 #: libraries/advisory_rules.txt:73
 msgid ""
@@ -15048,9 +15029,8 @@ msgid ""
 msgstr ""
 
 #: libraries/advisory_rules.txt:77
-#, fuzzy
 msgid "Long query time"
-msgstr "SQL-запыт"
+msgstr "Час доўгіх запытаў"
 
 #: libraries/advisory_rules.txt:80
 msgid ""
@@ -15070,15 +15050,12 @@ msgid "long_query_time is currently set to %ds."
 msgstr ""
 
 #: libraries/advisory_rules.txt:84 libraries/advisory_rules.txt:91
-#, fuzzy
 msgid "Slow query logging"
-msgstr "SQL-запыт"
+msgstr "Журналяванне павольных запытаў"
 
 #: libraries/advisory_rules.txt:87 libraries/advisory_rules.txt:94
-#, fuzzy
-#| msgid "The server is not responding"
 msgid "The slow query log is disabled."
-msgstr "Сэрвэр не адказвае"
+msgstr "Журнал павольных запытаў адключаны."
 
 #: libraries/advisory_rules.txt:88
 msgid ""
@@ -15101,10 +15078,8 @@ msgid "slow_query_log is set to 'OFF'"
 msgstr ""
 
 #: libraries/advisory_rules.txt:100
-#, fuzzy
-#| msgid "Select Tables"
 msgid "Release Series"
-msgstr "Выберыце табліцу(ы)"
+msgstr "Серыя выпуску"
 
 #: libraries/advisory_rules.txt:103
 msgid "The MySQL server version less than 5.1."
@@ -15118,14 +15093,13 @@ msgstr ""
 
 #: libraries/advisory_rules.txt:105 libraries/advisory_rules.txt:112
 #: libraries/advisory_rules.txt:119
-#, fuzzy, php-format
+#, php-format
 msgid "Current version: %s"
-msgstr "Стварыць сувязь"
+msgstr "Цяперашняя версія: %s"
 
 #: libraries/advisory_rules.txt:107 libraries/advisory_rules.txt:114
-#, fuzzy
 msgid "Minor Version"
-msgstr "Пэрсыдзкая"
+msgstr "Прамежкавая версія"
 
 #: libraries/advisory_rules.txt:110
 msgid "Version less than 5.1.30 (the first GA release of 5.1)."
