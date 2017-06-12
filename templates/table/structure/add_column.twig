@@ -9,7 +9,7 @@
     {{ 'Add %s column(s)'|trans|format(num_fields)|raw }}
     <input type="hidden" name="field_where" value="after"/>&nbsp;
     {# I tried displaying the drop-down inside the label but with Firefox the drop-down was blinking #}
-    <select name="after_field" onchange="checkFirst()">
+    <select name="after_field">
         <option value="first" data-pos="first">
             {% trans 'at beginning of table' %}
         </option>

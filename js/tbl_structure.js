@@ -503,6 +503,10 @@ AJAX.registerOnload('tbl_structure.js', function () {
             $.post(url, params, AJAX.responseHandler);
         });
     });
+
+    $(document).on('change', 'select[name=after_field]', function () {
+        checkFirst();
+    });
 });
 
 /** Handler for "More" dropdown in structure table rows */
