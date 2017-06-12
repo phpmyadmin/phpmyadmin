@@ -691,8 +691,7 @@ clear error regardless of the fact that the key is trusted or not:
 
 .. _Validating other keys on your public keyring: https://www.gnupg.org/gph/en/manual.html#AEN335
 
-.. _Isaac's key links to Linus's key: https://pgp.cs.uu.nl/mk_path.cgi?FROM=ABAF11C65A2970B130ABE3C479BE3E4300411886&TO=3D06A59ECE730EB71B511C17CE752F178259BD92
-
+.. _Isaac's key links to Linus's key: https://pgp.cs.uu.nl/paths/79be3e4300411886/to/ce752f178259bd92.html
 
 .. index::
     single: Configuration storage
