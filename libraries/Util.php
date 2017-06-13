@@ -1988,28 +1988,15 @@ class Util
      *
      * @return void
      *
-     * @global boolean $checked_special flag whether any special variable
-     *                                       was required
-     *
      * @access public
      */
     public static function checkParameters($params, $request = true)
     {
-        global $checked_special;
-
-        if (! isset($checked_special)) {
-            $checked_special = false;
-        }
-
         $reported_script_name = basename($GLOBALS['PMA_PHP_SELF']);
         $found_error = false;
         $error_message = '';
 
         foreach ($params as $param) {
-            if ($request && ($param != 'db') && ($param != 'table')) {
-                $checked_special = true;
-            }
-
             if (! isset($GLOBALS[$param])) {
                 $error_message .= $reported_script_name
                     . ': ' . __('Missing parameter:') . ' '
