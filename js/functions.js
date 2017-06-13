@@ -4670,7 +4670,7 @@ AJAX.registerOnload('functions.js', function () {
     $('.logout').click(function() {
         var form = $(
             '<form method="POST" action="' + $(this).attr('href') + '" class="disableAjax">' +
-            '<input type="hidden" name="token" value="' + PMA_commonParams.get('token') + '"/>' +
+            '<input type="hidden" name="token" value="' + escapeHtml(PMA_commonParams.get('token')) + '"/>' +
             '</form>'
         );
         $('body').append(form);
