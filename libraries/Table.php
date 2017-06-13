@@ -351,7 +351,7 @@ class Table
      * @return string Return blank if collation is empty else return the collation info from table info.
      */
     public function getCollation() {
-        $table_collation = $this->getStatusInfo('COLLATION', false, true);
+        $table_collation = $this->getStatusInfo('TABLE_COLLATION', false, true);
         if ($table_collation === false) {
             return '';
         }
