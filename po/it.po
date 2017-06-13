@@ -4,16 +4,16 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.8.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2017-06-13 17:05+0200\n"
-"PO-Revision-Date: 2017-05-17 08:51+0000\n"
+"PO-Revision-Date: 2017-06-13 16:07+0000\n"
 "Last-Translator: Stefano Martinelli <stefano.ste.martinelli@gmail.com>\n"
-"Language-Team: Italian <https://hosted.weblate.org/projects/phpmyadmin/"
-"master/it/>\n"
+"Language-Team: Italian "
+"<https://hosted.weblate.org/projects/phpmyadmin/master/it/>\n"
 "Language: it\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 2.14-dev\n"
+"X-Generator: Weblate 2.15-dev\n"
 
 #: ajax.php:16 ajax.php:33 export.php:194 schema_export.php:66
 msgid "Bad type!"
@@ -1551,25 +1551,19 @@ msgid "Chart"
 msgstr "Grafico"
 
 #: js/messages.php:295 libraries/display_export.lib.php:905
-#, fuzzy
-#| msgid "Database"
 msgctxt "Alias"
 msgid "Database"
 msgstr "Base di dati"
 
 #: js/messages.php:296 libraries/display_export.lib.php:917
-#, fuzzy
-#| msgid "Table"
 msgctxt "Alias"
 msgid "Table"
 msgstr "Tabella"
 
 #: js/messages.php:297 libraries/display_export.lib.php:928
-#, fuzzy
-#| msgid "Column"
 msgctxt "Alias"
 msgid "Column"
-msgstr "Colonna"
+msgstr "Campo"
 
 #. l10n: A collection of available filters
 #: js/messages.php:300
@@ -8732,7 +8726,7 @@ msgstr "Salta le tabelle più grandi di"
 
 #: libraries/display_export.lib.php:897
 msgid "Defined aliases"
-msgstr ""
+msgstr "Alias definiti"
 
 #: libraries/display_export.lib.php:1013
 msgid "Could not load export plugins, please check your installation!"
@@ -15012,43 +15006,35 @@ msgstr "Ultimo controllo"
 
 #: templates/export/alias_add.phtml:5
 msgid "Define new aliases"
-msgstr ""
+msgstr "Definisci nuovi alias"
 
 #: templates/export/alias_add.phtml:11
-#, fuzzy
-#| msgid "Select database"
 msgid "Select database:"
-msgstr "Seleziona database"
+msgstr "Seleziona database:"
 
 #: templates/export/alias_add.phtml:17
 msgid "New database name"
 msgstr "Nome del nuovo database"
 
 #: templates/export/alias_add.phtml:26
-#, fuzzy
-#| msgid "Select table"
 msgid "Select table:"
-msgstr "Seleziona tabella"
+msgstr "Seleziona tabella:"
 
 #: templates/export/alias_add.phtml:32
 msgid "New table name"
 msgstr "Nome nuova tabella"
 
 #: templates/export/alias_add.phtml:41
-#, fuzzy
-#| msgid "Select a column."
 msgid "Select column:"
-msgstr "Seleziona una colonna."
+msgstr "Seleziona il campo:"
 
 #: templates/export/alias_add.phtml:47
 msgid "New column name"
 msgstr "Nuovo nome campo"
 
 #: templates/export/alias_item.phtml:8
-#, fuzzy
-#| msgid "Remote server"
 msgid "Remove"
-msgstr "Server remoto"
+msgstr "Rimuovi"
 
 #: templates/privileges/privileges_summary.phtml:21
 msgid "Column-specific privileges"
