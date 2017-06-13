@@ -24,6 +24,11 @@ class Tracker
     static protected $enabled = false;
 
     /**
+     * Cache to avoid quering tracking status multiple times.
+     */
+    static protected $_tracking_cache = array();
+
+    /**
      * Actually enables tracking. This needs to be done after all
      * underlaying code is initialized.
      *
@@ -111,6 +116,10 @@ class Tracker
         if (! self::$enabled) {
             return false;
         }
+
+        if (isset(self::$_tracking_cache[$dbname][$tablename])) {
+            return self::$_tracking_cache[$dbname][$tablename];
+        }
         /* We need to avoid attempt to track any queries
          * from PMA_getRelationsParam
          */
@@ -127,9 +136,11 @@ class Tracker
         " AND table_name = '" . $GLOBALS['dbi']->escapeString($tablename) . "' " .
         " ORDER BY version DESC LIMIT 1";
 
-        $result = $GLOBALS['dbi']->fetchValue($sql_query, 0, 0, $GLOBALS['controllink']);
+        $result = $GLOBALS['dbi']->fetchValue($sql_query, 0, 0, $GLOBALS['controllink']) == 1;
 
-        return ($result == 1);
+        self::$_tracking_cache[$dbname][$tablename] = $result;
+
+        return $result;
     }
 
     /**
@@ -779,13 +790,16 @@ class Tracker
 
         // If we found a valid statement
         if (isset($result['identifier'])) {
+            if (! self::isTracked($dbname, $result['tablename'])) {
+                return;
+            }
+
             $version = self::getVersion(
                 $dbname, $result['tablename'], $result['identifier']
             );
 
             // If version not exists and auto-creation is enabled
             if ($GLOBALS['cfg']['Server']['tracking_version_auto_create'] == true
-                && self::isTracked($dbname, $result['tablename']) == false
                 && $version == -1
             ) {
                 // Create the version
@@ -806,7 +820,7 @@ class Tracker
             }
 
             // If version exists
-            if (self::isTracked($dbname, $result['tablename']) && $version != -1) {
+            if ($version != -1) {
                 if ($result['type'] == 'DDL') {
                     $save_to = 'schema_sql';
                 } elseif ($result['type'] == 'DML') {

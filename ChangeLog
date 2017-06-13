@@ -29,6 +29,7 @@ phpMyAdmin - ChangeLog
 - issue #13092 Gracefully handle early fatal errors in AJAX requests
 - issue #13327 Fixed Incorrect NavigationTreeEnableExpansion default value in the documentation
 - issue #13008 Fixed export of database with a lot of tables
+- issue #13318 Improved performance when importing with enabled tracking
 
 4.7.1 (2017-05-25)
 - issue #13132 Always execute tracking queries as controluser
