@@ -420,7 +420,7 @@ class DatabaseStructureController extends DatabaseController
             $table_is_view = false;
             // Sets parameters for links
             $tbl_url_query = $this->_url_query
-                . '&amp;table=' . htmlspecialchars($current_table['TABLE_NAME']);
+                . '&amp;table=' . rawurlencode($current_table['TABLE_NAME']);
             // do not list the previous table's size info for a view
 
             list($current_table, $formatted_size, $unit, $formatted_overhead,
