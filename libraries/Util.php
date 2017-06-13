@@ -1983,14 +1983,12 @@ class Util
      *
      * @param string[] $params  The names of the parameters needed by the calling
      *                          script
-     * @param bool     $request Whether to include this list in checking for
-     *                          special params
      *
      * @return void
      *
      * @access public
      */
-    public static function checkParameters($params, $request = true)
+    public static function checkParameters($params)
     {
         $reported_script_name = basename($GLOBALS['PMA_PHP_SELF']);
         $found_error = false;
