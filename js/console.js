@@ -64,11 +64,11 @@ var PMA_console = {
         PMA_console.isEnabled = true;
 
         // Cookie var checks and init
-        if (! $.cookie('pma_console_height')) {
-            $.cookie('pma_console_height', 92);
+        if (! Cookies.get('pma_console_height')) {
+            Cookies.set('pma_console_height', 92);
         }
-        if (! $.cookie('pma_console_mode')) {
-            $.cookie('pma_console_mode', 'info');
+        if (! Cookies.get('pma_console_mode')) {
+            Cookies.set('pma_console_mode', 'info');
         }
 
         // Vars init
@@ -85,18 +85,17 @@ var PMA_console = {
             '<input name="server" value="">' +
             '<input name="db" value="">' +
             '<input name="table" value="">' +
-            '<input name="token" value="' +
-            PMA_commonParams.get('token') +
-            '">' +
+            '<input name="token" value="">' +
             '</form>'
         );
+        PMA_console.$requestForm.children('[name=token]').val(PMA_commonParams.get('token'));
         PMA_console.$requestForm.on('submit', AJAX.requestHandler);
 
         // Event binds shouldn't run again
         if (PMA_console.isInitialized === false) {
 
             // Load config first
-            var tempConfig = JSON.parse($.cookie('pma_console_config'));
+            var tempConfig = Cookies.getJSON('pma_console_config');
             if (tempConfig) {
                 if (tempConfig.alwaysExpand === true) {
                     $('#pma_console_options input[name=always_expand]').prop('checked', true);
@@ -205,13 +204,13 @@ var PMA_console = {
         }
 
         // Change console mode from cookie
-        switch($.cookie('pma_console_mode')) {
+        switch(Cookies.get('pma_console_mode')) {
             case 'collapse':
                 PMA_console.collapse();
                 break;
             /* jshint -W086 */// no break needed in default section
             default:
-                $.cookie('pma_console_mode', 'info');
+                Cookies.set('pma_console_mode', 'info');
             case 'info':
             /* jshint +W086 */
                 PMA_console.info();
@@ -274,11 +273,11 @@ var PMA_console = {
      * @return void
      */
     collapse: function() {
-        $.cookie('pma_console_mode', 'collapse');
-        var pmaConsoleHeight = $.cookie('pma_console_height');
+        Cookies.set('pma_console_mode', 'collapse');
+        var pmaConsoleHeight = Cookies.get('pma_console_height');
 
         if (pmaConsoleHeight < 32) {
-            $.cookie('pma_console_height', 92);
+            Cookies.set('pma_console_height', 92);
         }
         PMA_console.$consoleToolbar.addClass('collapsed');
         PMA_console.$consoleAllContents.height(pmaConsoleHeight);
@@ -297,12 +296,12 @@ var PMA_console = {
      * @return void
      */
     show: function(inputFocus) {
-        $.cookie('pma_console_mode', 'show');
+        Cookies.set('pma_console_mode', 'show');
 
-        var pmaConsoleHeight = $.cookie('pma_console_height');
+        var pmaConsoleHeight = Cookies.get('pma_console_height');
 
         if (pmaConsoleHeight < 32) {
-            $.cookie('pma_console_height', 32);
+            Cookies.set('pma_console_height', 32);
             PMA_console.collapse();
             return;
         }
@@ -338,7 +337,7 @@ var PMA_console = {
      * @return void
      */
     toggle: function() {
-        switch($.cookie('pma_console_mode')) {
+        switch(Cookies.get('pma_console_mode')) {
             case 'collapse':
             case 'info':
                 PMA_console.show(true);
@@ -416,7 +415,7 @@ var PMA_console = {
             enterExecutes: $('#pma_console_options').find('input[name=enter_executes]').prop('checked'),
             darkTheme: $('#pma_console_options').find('input[name=dark_theme]').prop('checked')
         };
-        $.cookie('pma_console_config', JSON.stringify(PMA_console.config));
+        Cookies.set('pma_console_config', PMA_console.config);
         /*Setting the dark theme of the console*/
         if (PMA_console.config.darkTheme) {
             $('#pma_console').find('>.content').addClass('console_dark_theme');
@@ -445,7 +444,7 @@ var PMA_consoleResizer = {
      * @return void
      */
     _mousedown: function(event) {
-        if ($.cookie('pma_console_mode') !== 'show') {
+        if (Cookies.get('pma_console_mode') !== 'show') {
             return;
         }
         PMA_consoleResizer._posY = event.pageY;
@@ -487,7 +486,7 @@ var PMA_consoleResizer = {
      * @return void
      */
     _mouseup: function() {
-        $.cookie('pma_console_height', PMA_consoleResizer._resultHeight);
+        Cookies.set('pma_console_height', PMA_consoleResizer._resultHeight);
         PMA_console.show();
         $(document).off('mousemove');
         $(document).off('mouseup');
@@ -924,7 +923,7 @@ var PMA_consoleMessages = {
             var $message = $(this).closest('.message');
             if (confirm(PMA_messages.strConsoleDeleteBookmarkConfirm + '\n' + $message.find('.bookmark_label').text())) {
                 $.post('import.php',
-                    {token: PMA_commonParams.get('token'),
+                    {
                     server: PMA_commonParams.get('server'),
                     action_bookmark: 2,
                     ajax_request: true,
@@ -1060,7 +1059,6 @@ var PMA_consoleBookmarks = {
     refresh: function () {
         $.get('import.php',
             {ajax_request: true,
-            token: PMA_commonParams.get('token'),
             server: PMA_commonParams.get('server'),
             console_bookmark_refresh: 'refresh'},
             function(data) {
@@ -1095,7 +1093,7 @@ var PMA_consoleBookmarks = {
             }
             $(this).prop('disabled', true);
             $.post('import.php',
-                {token: PMA_commonParams.get('token'),
+                {
                 ajax_request: true,
                 console_bookmark_add: 'true',
                 label: $('#pma_bookmarks').find('.card.add [name=label]').val(),
@@ -1204,7 +1202,7 @@ PMA_consoleDebug = {
         PMA_consoleDebug.showLog(debugSQLInfo);
     },
     _initConfig: function () {
-        var config = JSON.parse($.cookie('pma_console_dbg_config'));
+        var config = Cookies.getJSON('pma_console_dbg_config');
         if (config) {
             for (var name in config) {
                 if (config.hasOwnProperty(name)) {
@@ -1218,7 +1216,7 @@ PMA_consoleDebug = {
             return this._config[name];
         }
         this._config[name] = value;
-        $.cookie('pma_console_dbg_config', JSON.stringify(this._config));
+        Cookies.set('pma_console_dbg_config', this._config);
         return value;
     },
     _formatFunctionCall: function (dbgStep) {

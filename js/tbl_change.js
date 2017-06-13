@@ -404,14 +404,12 @@ AJAX.registerOnload('tbl_change.js', function () {
         var type = $span.parents('tr').find('span.column_type').text();
         // Names of input field and null checkbox
         var input_name = $span.parent('td').children("input[type='text']").attr('name');
-        //Token
-        var token = $("input[name='token']").val();
 
         openGISEditor();
         if (!gisEditorLoaded) {
-            loadJSAndGISEditor(value, field, type, input_name, token);
+            loadJSAndGISEditor(value, field, type, input_name);
         } else {
-            loadGISEditor(value, field, type, input_name, token);
+            loadGISEditor(value, field, type, input_name);
         }
     });
 

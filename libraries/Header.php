@@ -155,7 +155,7 @@ class Header
         $this->_scripts->addFile('ajax.js');
         $this->_scripts->addFile('keyhandler.js');
         $this->_scripts->addFile('jquery/jquery-ui.min.js');
-        $this->_scripts->addFile('jquery/jquery.cookie.js');
+        $this->_scripts->addFile('js.cookie.js');
         $this->_scripts->addFile('jquery/jquery.mousewheel.js');
         $this->_scripts->addFile('jquery/jquery.event.drag-2.2.js');
         $this->_scripts->addFile('jquery/jquery-ui-timepicker-addon.js');
@@ -247,6 +247,7 @@ class Header
             'session_gc_maxlifetime' => (int)@ini_get('session.gc_maxlifetime'),
             'logged_in' => isset($GLOBALS['userlink']) ? true : false,
             'is_https' => $GLOBALS['PMA_Config']->isHttps(),
+            'rootPath' => $GLOBALS['PMA_Config']->getRootPath(),
             'PMA_VERSION' => PMA_VERSION
         );
         if (isset($GLOBALS['cfg']['Server'])

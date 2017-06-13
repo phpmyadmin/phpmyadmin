@@ -19,7 +19,6 @@ function appendHtmlColumnsList()
     $.get(
         "normalization.php",
         {
-            "token": PMA_commonParams.get('token'),
             "ajax_request": true,
             "db": PMA_commonParams.get('db'),
             "table": PMA_commonParams.get('table'),
@@ -40,7 +39,6 @@ function goTo3NFStep1(newTables)
     $.post(
         "normalization.php",
         {
-            "token": PMA_commonParams.get('token'),
             "ajax_request": true,
             "db": PMA_commonParams.get('db'),
             "tables": newTables,
@@ -69,7 +67,6 @@ function goTo2NFStep1() {
     $.post(
         "normalization.php",
         {
-            "token": PMA_commonParams.get('token'),
             "ajax_request": true,
             "db": PMA_commonParams.get('db'),
             "table": PMA_commonParams.get('table'),
@@ -115,7 +112,6 @@ function goToStep4()
     $.post(
         "normalization.php",
         {
-            "token": PMA_commonParams.get('token'),
             "ajax_request": true,
             "db": PMA_commonParams.get('db'),
             "table": PMA_commonParams.get('table'),
@@ -139,7 +135,6 @@ function goToStep3()
     $.post(
         "normalization.php",
         {
-            "token": PMA_commonParams.get('token'),
             "ajax_request": true,
             "db": PMA_commonParams.get('db'),
             "table": PMA_commonParams.get('table'),
@@ -164,7 +159,6 @@ function goToStep2(extra)
     $.post(
         "normalization.php",
         {
-            "token": PMA_commonParams.get('token'),
             "ajax_request": true,
             "db": PMA_commonParams.get('db'),
             "table": PMA_commonParams.get('table'),
@@ -201,7 +195,7 @@ function goTo2NFFinish(pd)
     for (var dependson in pd) {
         tables[dependson] = $('#extra input[name="' + dependson + '"]').val();
     }
-    datastring = {"token": PMA_commonParams.get('token'),
+    datastring = {
             "ajax_request": true,
             "db": PMA_commonParams.get('db'),
             "table": PMA_commonParams.get('table'),
@@ -248,7 +242,7 @@ function goTo3NFFinish(newTables)
             }
         }
     }
-    datastring = {"token": PMA_commonParams.get('token'),
+    datastring = {
             "ajax_request": true,
             "db": PMA_commonParams.get('db'),
             "newTables":JSON.stringify(newTables),
@@ -296,7 +290,7 @@ function goTo2NFStep2(pd, primary_key)
         extra += '</div>';
     } else {
         extra += '</div>';
-        datastring = {"token": PMA_commonParams.get('token'),
+        datastring = {
             "ajax_request": true,
             "db": PMA_commonParams.get('db'),
             "table": PMA_commonParams.get('table'),
@@ -345,7 +339,7 @@ function goTo3NFStep2(pd, tablesTds)
         extra += '</div>';
     } else {
         extra += '</div>';
-        datastring = {"token": PMA_commonParams.get('token'),
+        datastring = {
             "ajax_request": true,
             "db": PMA_commonParams.get('db'),
             "tables": JSON.stringify(tablesTds),
@@ -437,7 +431,7 @@ function moveRepeatingGroup(repeatingCols) {
         $("input[name=repeatGroupColumn]").focus();
         return false;
     }
-    datastring = {"token": PMA_commonParams.get('token'),
+    datastring = {
         "ajax_request": true,
         "db": PMA_commonParams.get('db'),
         "table": PMA_commonParams.get('table'),
@@ -496,7 +490,6 @@ AJAX.registerOnload('normalization.js', function() {
         $.get(
             "normalization.php",
             {
-                "token": PMA_commonParams.get('token'),
                 "ajax_request": true,
                 "db": PMA_commonParams.get('db'),
                 "table": PMA_commonParams.get('table'),
@@ -529,7 +522,6 @@ AJAX.registerOnload('normalization.js', function() {
                 $.post(
                     "sql.php",
                     {
-                        "token": PMA_commonParams.get('token'),
                         "ajax_request": true,
                         "db": PMA_commonParams.get('db'),
                         "table": PMA_commonParams.get('table'),
@@ -559,7 +551,6 @@ AJAX.registerOnload('normalization.js', function() {
         $.get(
             "normalization.php",
             {
-                "token": PMA_commonParams.get('token'),
                 "ajax_request": true,
                 "db": PMA_commonParams.get('db'),
                 "table": PMA_commonParams.get('table'),
@@ -607,7 +598,6 @@ AJAX.registerOnload('normalization.js', function() {
         $.post(
             "sql.php",
             {
-                "token": PMA_commonParams.get('token'),
                 "ajax_request": true,
                 "db": PMA_commonParams.get('db'),
                 "table": PMA_commonParams.get('table'),
@@ -647,7 +637,6 @@ AJAX.registerOnload('normalization.js', function() {
             server:  PMA_commonParams.get('server'),
             db: PMA_commonParams.get('db'),
             table: PMA_commonParams.get('table'),
-            token: PMA_commonParams.get('token'),
             added_fields: 1,
             add_fields:1,
             index: {Key_name:'PRIMARY'},
@@ -684,7 +673,6 @@ AJAX.registerOnload('normalization.js', function() {
         $.post(
         "normalization.php",
         {
-            "token": PMA_commonParams.get('token'),
             "ajax_request": true,
             "db": PMA_commonParams.get('db'),
             "table": PMA_commonParams.get('table'),

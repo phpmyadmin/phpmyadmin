@@ -95,14 +95,16 @@ class Menu
      */
     private function _getMenu()
     {
-        $url_params = array('db' => $this->_db);
+        $url_params = array();
 
         if (strlen($this->_table) > 0) {
             $tabs = $this->_getTableTabs();
+            $url_params['db'] = $this->_db;
             $url_params['table'] = $this->_table;
             $level = 'table';
         } else if (strlen($this->_db) > 0) {
             $tabs = $this->_getDbTabs();
+            $url_params['db'] = $this->_db;
             $level = 'db';
         } else {
             $tabs = $this->_getServerTabs();

@@ -81,9 +81,9 @@ var spatial_indexes = [];
 $.ajaxPrefilter(function (options, originalOptions, jqXHR) {
     var nocache = new Date().getTime() + "" + Math.floor(Math.random() * 1000000);
     if (typeof options.data == "string") {
-        options.data += "&_nocache=" + nocache;
+        options.data += "&_nocache=" + nocache + "&token=" + encodeURIComponent(PMA_commonParams.get('token'));
     } else if (typeof options.data == "object") {
-        options.data = $.extend(originalOptions.data, {'_nocache' : nocache});
+        options.data = $.extend(originalOptions.data, {'_nocache' : nocache, 'token': PMA_commonParams.get('token')});
     }
 });
 
@@ -575,7 +575,6 @@ function PMA_display_git_revision()
         "index.php",
         {
             "server": PMA_commonParams.get('server'),
-            "token": PMA_commonParams.get('token'),
             "git_revision": true,
             "ajax_request": true,
             "no_debug": true
@@ -935,7 +934,6 @@ AJAX.registerOnload('functions.js', function () {
         }
         var params = {
                 'ajax_request' : true,
-                'token' : PMA_commonParams.get('token'),
                 'server' : PMA_commonParams.get('server'),
                 'db' : PMA_commonParams.get('db'),
                 'guid': guid,
@@ -1197,7 +1195,6 @@ function insertQuery(queryType)
             var href = 'db_sql_format.php';
             var params = {
                 'ajax_request': true,
-                'token': PMA_commonParams.get('token'),
                 'sql': codemirror_editor.getValue()
             };
             $.ajax({
@@ -1216,8 +1213,8 @@ function insertQuery(queryType)
     } else if (queryType == "saved") {
         if (isStorageSupported('localStorage') && typeof window.localStorage.auto_saved_sql != 'undefined') {
             setQuery(window.localStorage.auto_saved_sql);
-        } else if ($.cookie('auto_saved_sql')) {
-            setQuery($.cookie('auto_saved_sql'));
+        } else if (Cookies.get('auto_saved_sql')) {
+            setQuery(Cookies.get('auto_saved_sql'));
         } else {
             PMA_ajaxShowMessage(PMA_messages.strNoAutoSavedQuery);
         }
@@ -1821,7 +1818,6 @@ function loadForeignKeyCheckbox() {
     // Load default foreign key check value
     var params = {
         'ajax_request': true,
-        'token': PMA_commonParams.get('token'),
         'server': PMA_commonParams.get('server'),
         'get_default_fk_check_value': true
     };
@@ -1973,7 +1969,6 @@ function codemirrorAutocompleteOnInputRead(instance) {
             var href = 'db_sql_autocomplete.php';
             var params = {
                 'ajax_request': true,
-                'token': PMA_commonParams.get('token'),
                 'server': PMA_commonParams.get('server'),
                 'db': PMA_commonParams.get('db'),
                 'no_debug': true
@@ -3542,7 +3537,6 @@ AJAX.registerOnload('functions.js', function () {
         }
         var params = {
             'ajax_request' : true,
-            'token' : PMA_commonParams.get('token'),
             'server' : PMA_commonParams.get('server'),
             'db' : PMA_commonParams.get('db'),
             'cur_table' : PMA_commonParams.get('table'),
@@ -4087,7 +4081,7 @@ var toggleButton = function ($obj) {
             addClass = 'on';
         }
 
-        var params = {'ajax_request': true, 'token': PMA_commonParams.get('token')};
+        var params = {'ajax_request': true};
         $.post(url, params, function (data) {
             if (typeof data !== 'undefined' && data.success === true) {
                 PMA_ajaxRemoveMessage($msg);
@@ -4166,8 +4160,7 @@ AJAX.registerOnload('functions.js', function () {
             url: 'version_check.php',
             method: "POST",
             data: {
-                "server": PMA_commonParams.get('server'),
-                "token": PMA_commonParams.get('token'),
+                "server": PMA_commonParams.get('server')
             },
             success: PMA_current_version
         });
@@ -4215,7 +4208,6 @@ AJAX.registerOnload('functions.js', function () {
                 favorite_tables: (isStorageSupported('localStorage') && typeof window.localStorage.favorite_tables !== 'undefined')
                     ? window.localStorage.favorite_tables
                     : '',
-                token: PMA_commonParams.get('token'),
                 server: PMA_commonParams.get('server'),
                 no_debug: true
             },
@@ -4670,7 +4662,7 @@ AJAX.registerOnload('functions.js', function () {
     $('.logout').click(function() {
         var form = $(
             '<form method="POST" action="' + $(this).attr('href') + '" class="disableAjax">' +
-            '<input type="hidden" name="token" value="' + PMA_commonParams.get('token') + '"/>' +
+            '<input type="hidden" name="token" value="' + escapeHtml(PMA_commonParams.get('token')) + '"/>' +
             '</form>'
         );
         $('body').append(form);
@@ -5083,4 +5075,6 @@ AJAX.registerOnload('functions.js', function(){
             $('#ssl_reqd_warning_cp').hide();
         }
     });
+
+    Cookies.defaults.path = PMA_commonParams.get('rootPath');
 });

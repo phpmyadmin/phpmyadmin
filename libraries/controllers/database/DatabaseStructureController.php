@@ -35,10 +35,6 @@ require_once 'libraries/config/page_settings.forms.php';
 class DatabaseStructureController extends DatabaseController
 {
     /**
-     * @var string  The URL query string
-     */
-    protected $_url_query;
-    /**
      * @var int Number of tables
      */
     protected $_num_tables;
@@ -62,17 +58,6 @@ class DatabaseStructureController extends DatabaseController
      * @var bool whether stats show or not
      */
     protected $_is_show_stats;
-
-    /**
-     * DatabaseStructureController constructor
-     *
-     * @param string $url_query URL query
-     */
-    public function __construct($url_query) {
-        parent::__construct();
-
-        $this->_url_query = $url_query;
-    }
 
     /**
      * Retrieves databse information for further use
@@ -141,8 +126,6 @@ class DatabaseStructureController extends DatabaseController
                 'jquery/jquery-ui-timepicker-addon.js'
             )
         );
-
-        $this->_url_query .= '&amp;goto=db_structure.php';
 
         // Gets the database structure
         $this->_getDbInfo('_structure');
@@ -220,7 +203,12 @@ class DatabaseStructureController extends DatabaseController
         /* Printable view of a table */
         $this->response->addHTML(
             Template::get('database/structure/print_view_data_dictionary_link')
-                ->render(array('url_query' => $this->_url_query))
+                ->render(array('url_query' => URL::getCommon(
+                    array(
+                        'db' => $this->db,
+                        'goto' => 'db_structure.php',
+                    )
+                )))
         );
 
         if (empty($this->_db_is_system_schema)) {
@@ -419,8 +407,9 @@ class DatabaseStructureController extends DatabaseController
 
             $table_is_view = false;
             // Sets parameters for links
-            $tbl_url_query = $this->_url_query
-                . '&amp;table=' . htmlspecialchars($current_table['TABLE_NAME']);
+            $tbl_url_query = URL::getCommon(
+                array('db' => $this->db, 'table' => $current_table['TABLE_NAME'])
+            );
             // do not list the previous table's size info for a view
 
             list($current_table, $formatted_size, $unit, $formatted_overhead,

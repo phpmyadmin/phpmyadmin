@@ -140,7 +140,12 @@
     if (options.async || getAnnotations.async) {
       lintAsync(cm, getAnnotations, passOptions)
     } else {
-      updateLinting(cm, getAnnotations(cm.getValue(), passOptions, cm));
+      var annotations = getAnnotations(cm.getValue(), passOptions, cm);
+      if (!annotations) return;
+      if (annotations.then) annotations.then(function(issues) {
+        updateLinting(cm, issues);
+      });
+      else updateLinting(cm, annotations);
     }
   }
 

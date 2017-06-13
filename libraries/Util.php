@@ -1644,22 +1644,14 @@ class Util
             }
         }
 
-        // If there are any tab specific URL parameters, merge those with
-        // the general URL parameters
-        if (! empty($tab['url_params']) && is_array($tab['url_params'])) {
-            $url_params = array_merge($url_params, $tab['url_params']);
-        }
-
         // build the link
         if (! empty($tab['link'])) {
-            $tab['link'] = htmlentities($tab['link']);
-            $tab['link'] = $tab['link'] . URL::getCommon($url_params);
-            if (! empty($tab['args'])) {
-                foreach ($tab['args'] as $param => $value) {
-                    $tab['link'] .= URL::getArgSeparator('html')
-                        . urlencode($param) . '=' . urlencode($value);
-                }
+            // If there are any tab specific URL parameters, merge those with
+            // the general URL parameters
+            if (! empty($tab['args']) && is_array($tab['args'])) {
+                $url_params = array_merge($url_params, $tab['args']);
             }
+            $tab['link'] = htmlentities($tab['link']) . URL::getCommon($url_params);
         }
 
         if (! empty($tab['fragment'])) {
@@ -1983,33 +1975,18 @@ class Util
      *
      * @param string[] $params  The names of the parameters needed by the calling
      *                          script
-     * @param bool     $request Whether to include this list in checking for
-     *                          special params
      *
      * @return void
      *
-     * @global boolean $checked_special flag whether any special variable
-     *                                       was required
-     *
      * @access public
      */
-    public static function checkParameters($params, $request = true)
+    public static function checkParameters($params)
     {
-        global $checked_special;
-
-        if (! isset($checked_special)) {
-            $checked_special = false;
-        }
-
         $reported_script_name = basename($GLOBALS['PMA_PHP_SELF']);
         $found_error = false;
         $error_message = '';
 
         foreach ($params as $param) {
-            if ($request && ($param != 'db') && ($param != 'table')) {
-                $checked_special = true;
-            }
-
             if (! isset($GLOBALS[$param])) {
                 $error_message .= $reported_script_name
                     . ': ' . __('Missing parameter:') . ' '

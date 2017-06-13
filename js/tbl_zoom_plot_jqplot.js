@@ -158,8 +158,7 @@ AJAX.registerOnload('tbl_zoom_plot_jqplot.js', function () {
             'db' : PMA_commonParams.get('db'),
             'table' : PMA_commonParams.get('table'),
             'field' : $('#tableid_0').val(),
-            'it' : 0,
-            'token' : PMA_commonParams.get('token')
+            'it' : 0
         }, function (data) {
             $('#tableFieldsId').find('tr:eq(1) td:eq(0)').html(data.field_type);
             $('#tableFieldsId').find('tr:eq(1) td:eq(1)').html(data.field_collation);
@@ -183,8 +182,7 @@ AJAX.registerOnload('tbl_zoom_plot_jqplot.js', function () {
             'db' : PMA_commonParams.get('db'),
             'table' : PMA_commonParams.get('table'),
             'field' : $('#tableid_1').val(),
-            'it' : 1,
-            'token' : PMA_commonParams.get('token')
+            'it' : 1
         }, function (data) {
             $('#tableFieldsId').find('tr:eq(3) td:eq(0)').html(data.field_type);
             $('#tableFieldsId').find('tr:eq(3) td:eq(1)').html(data.field_collation);
@@ -207,8 +205,7 @@ AJAX.registerOnload('tbl_zoom_plot_jqplot.js', function () {
             'db' : PMA_commonParams.get('db'),
             'table' : PMA_commonParams.get('table'),
             'field' : $('#tableid_2').val(),
-            'it' : 2,
-            'token' : PMA_commonParams.get('token')
+            'it' : 2
         }, function (data) {
             $('#tableFieldsId').find('tr:eq(6) td:eq(0)').html(data.field_type);
             $('#tableFieldsId').find('tr:eq(6) td:eq(1)').html(data.field_collation);
@@ -229,8 +226,7 @@ AJAX.registerOnload('tbl_zoom_plot_jqplot.js', function () {
             'db' : PMA_commonParams.get('db'),
             'table' : PMA_commonParams.get('table'),
             'field' : $('#tableid_3').val(),
-            'it' : 3,
-            'token' : PMA_commonParams.get('token')
+            'it' : 3
         }, function (data) {
             $('#tableFieldsId').find('tr:eq(8) td:eq(0)').html(data.field_type);
             $('#tableFieldsId').find('tr:eq(8) td:eq(1)').html(data.field_collation);
@@ -397,7 +393,6 @@ AJAX.registerOnload('tbl_zoom_plot_jqplot.js', function () {
 
             //Post SQL query to sql.php
             $.post('sql.php', {
-                    'token' : PMA_commonParams.get('token'),
                     'server' : PMA_commonParams.get('server'),
                     'db' : PMA_commonParams.get('db'),
                     'ajax_request' : true,
@@ -598,8 +593,7 @@ AJAX.registerOnload('tbl_zoom_plot_jqplot.js', function () {
                     'server' : PMA_commonParams.get('server'),
                     'db' : PMA_commonParams.get('db'),
                     'table' : PMA_commonParams.get('table'),
-                    'where_clause' : data[3],
-                    'token' : PMA_commonParams.get('token')
+                    'where_clause' : data[3]
                 };
 
                 $.post('tbl_zoom_select.php', post_params, function (data) {

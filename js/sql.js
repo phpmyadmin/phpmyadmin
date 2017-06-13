@@ -48,7 +48,7 @@ function PMA_autosaveSQL(query)
         if (isStorageSupported('localStorage')) {
             window.localStorage.auto_saved_sql = query;
         } else {
-            $.cookie('auto_saved_sql', query);
+            Cookies.set('auto_saved_sql', query);
         }
     }
 }
@@ -173,8 +173,7 @@ AJAX.registerOnload('sql.js', function () {
             } else {
                 var params = {
                     'ajax_request': true,
-                    'is_js_confirmed': true,
-                    'token': PMA_commonParams.get('token')
+                    'is_js_confirmed': true
                 };
                 $.post(url, params, function (data) {
                     if (data.success) {
@@ -585,7 +584,6 @@ AJAX.registerOnload('sql.js', function () {
             type: 'POST',
             url: $form.attr('action'),
             data: {
-                token: PMA_commonParams.get('token'),
                 server: PMA_commonParams.get('server'),
                 db: db_name,
                 ajax_request: '1',

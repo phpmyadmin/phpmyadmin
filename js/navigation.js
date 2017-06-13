@@ -524,7 +524,6 @@ $(function () {
             type: 'POST',
             data: {
                 server: PMA_commonParams.get('server'),
-                token: PMA_commonParams.get('token')
             },
             url: $(this).attr('href') + '&ajax_request=true',
             success: function (data) {
@@ -576,7 +575,6 @@ $(function () {
             type: 'POST',
             data: {
                 server: PMA_commonParams.get('server'),
-                token: PMA_commonParams.get('token')
             },
             url: $(this).attr('href') + '&ajax_request=true',
             success: function (data) {
@@ -613,7 +611,6 @@ $(function () {
                     ? window.localStorage.favorite_tables
                     : '',
                 server: PMA_commonParams.get('server'),
-                token: PMA_commonParams.get('token')
             },
             success: function (data) {
                 if (data.changes) {
@@ -946,7 +943,6 @@ function PMA_ensureNaviSettings(selflink) {
         var params = {
             getNaviSettings: true,
             server: PMA_commonParams.get('server'),
-            token: PMA_commonParams.get('token')
         };
         var url = $('#pma_navigation').find('a.navigation_url').attr('href');
         $.post(url, params, function (data) {
@@ -978,7 +974,6 @@ function PMA_reloadNavigation(callback, paths) {
         reload: true,
         no_debug: true,
         server: PMA_commonParams.get('server'),
-        token: PMA_commonParams.get('token')
     };
     paths = paths || traverseNavigationForPaths();
     $.extend(params, paths);
@@ -1042,7 +1037,7 @@ function PMA_navigationTreePagination($this) {
     var url, params;
     if ($this[0].tagName == 'A') {
         url = $this.attr('href');
-        params = 'ajax_request=true&token=' + PMA_commonParams.get('token');
+        params = 'ajax_request=true';
     } else { // tagName == 'SELECT'
         url = 'navigation.php';
         params = $this.closest("form").serialize() + '&ajax_request=true';
@@ -1216,7 +1211,7 @@ var ResizeHandler = function () {
      */
     this.mouseup = function (event) {
         $('body').css('cursor', '');
-        $.cookie('pma_navi_width', event.data.resize_handler.getPos(event));
+        Cookies.set('pma_navi_width', event.data.resize_handler.getPos(event));
         $('#topmenu').menuResizer('resize');
         $(document)
             .off('mousemove')
@@ -1277,9 +1272,9 @@ var ResizeHandler = function () {
         $('body').css('margin-bottom', $('#pma_console').height() + 'px');
     };
     /* Initialisation section begins here */
-    if ($.cookie('pma_navi_width')) {
+    if (Cookies.get('pma_navi_width')) {
         // If we have a cookie, set the width of the panel to its value
-        var pos = Math.abs(parseInt($.cookie('pma_navi_width'), 10) || 0);
+        var pos = Math.abs(parseInt(Cookies.get('pma_navi_width'), 10) || 0);
         this.setWidth(pos);
         $('#topmenu').menuResizer('resize');
     }

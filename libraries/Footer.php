@@ -310,7 +310,6 @@ class Footer
             if (! $this->_isAjax && ! $this->_isMinimal) {
                 if (Core::getenv('SCRIPT_NAME')
                     && empty($_POST)
-                    && empty($GLOBALS['checked_special'])
                     && ! $this->_isAjax
                 ) {
                     $url = $this->getSelfUrl();
