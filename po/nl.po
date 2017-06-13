@@ -4,16 +4,16 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.7.2-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2017-06-13 17:05+0200\n"
-"PO-Revision-Date: 2017-05-18 18:01+0000\n"
+"PO-Revision-Date: 2017-06-13 16:13+0000\n"
 "Last-Translator: dingo thirteen <dingo13@gmail.com>\n"
-"Language-Team: Dutch <https://hosted.weblate.org/projects/phpmyadmin/4-7/nl/"
-">\n"
+"Language-Team: Dutch <https://hosted.weblate.org/projects/phpmyadmin/4-7/nl/>"
+"\n"
 "Language: nl\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 2.14\n"
+"X-Generator: Weblate 2.15-dev\n"
 
 #: ajax.php:16 ajax.php:33 export.php:191 schema_export.php:64
 msgid "Bad type!"
@@ -1532,22 +1532,16 @@ msgid "Chart"
 msgstr "Grafiek"
 
 #: js/messages.php:298 libraries/display_export.lib.php:903
-#, fuzzy
-#| msgid "Database"
 msgctxt "Alias"
 msgid "Database"
 msgstr "Database"
 
 #: js/messages.php:299 libraries/display_export.lib.php:915
-#, fuzzy
-#| msgid "Table"
 msgctxt "Alias"
 msgid "Table"
 msgstr "Tabel"
 
 #: js/messages.php:300 libraries/display_export.lib.php:926
-#, fuzzy
-#| msgid "Column"
 msgctxt "Alias"
 msgid "Column"
 msgstr "Kolom"
@@ -8551,7 +8545,7 @@ msgstr "Sla tabellen over groter dan"
 
 #: libraries/display_export.lib.php:895
 msgid "Defined aliases"
-msgstr ""
+msgstr "Gedefinieerde aliassen"
 
 #: libraries/display_export.lib.php:1011
 msgid "Could not load export plugins, please check your installation!"
@@ -15150,33 +15144,27 @@ msgstr "U kan de gegevens in het foutmeldingsverslag bekijken:"
 
 #: templates/export/alias_add.phtml:5
 msgid "Define new aliases"
-msgstr ""
+msgstr "Definieer nieuwe aliassen"
 
 #: templates/export/alias_add.phtml:11
-#, fuzzy
-#| msgid "Select database"
 msgid "Select database:"
-msgstr "Selecteer een database"
+msgstr "Selecteer database:"
 
 #: templates/export/alias_add.phtml:17
 msgid "New database name"
 msgstr "Nieuwe databasenaam"
 
 #: templates/export/alias_add.phtml:26
-#, fuzzy
-#| msgid "Select table"
 msgid "Select table:"
-msgstr "Selecteer een tabel"
+msgstr "Selecteer tabel:"
 
 #: templates/export/alias_add.phtml:32
 msgid "New table name"
 msgstr "Nieuwe tabelnaam"
 
 #: templates/export/alias_add.phtml:41
-#, fuzzy
-#| msgid "Select a column."
 msgid "Select column:"
-msgstr "Selecteer een kolom."
+msgstr "Selecteer kolom:"
 
 #: templates/export/alias_add.phtml:47
 msgid "New column name"
@@ -15184,7 +15172,7 @@ msgstr "Nieuwe kolomnaam"
 
 #: templates/export/alias_item.phtml:8
 msgid "Remove"
-msgstr ""
+msgstr "Verwijder"
 
 #: templates/prefs_autoload.phtml:8
 msgid ""
