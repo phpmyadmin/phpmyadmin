@@ -64,7 +64,7 @@ AJAX.registerOnload('db_central_columns.js', function () {
             PMA_ajaxShowMessage(PMA_messages.strRadioUnchecked);
             return false;
         }
-        var editColumnData = editColumnList+ '&edit_central_columns_page=true&ajax_request=true&ajax_page_request=true&token='+PMA_commonParams.get('token')+'&db='+PMA_commonParams.get('db');
+        var editColumnData = editColumnList+ '&edit_central_columns_page=true&ajax_request=true&ajax_page_request=true&db='+PMA_commonParams.get('db');
         PMA_ajaxShowMessage();
         AJAX.source = $(this);
         $.get('db_central_columns.php', editColumnData, AJAX.responseHandler);
