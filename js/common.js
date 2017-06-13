@@ -482,7 +482,6 @@ PMA_DROP_IMPORT = {
                     fd.append('noplugin', Math.random().toString(36).substring(2, 12));
                     fd.append('db', dbname);
                     fd.append('server', server);
-                    fd.append('token', PMA_commonParams.get('token'));
                     fd.append('import_type', 'database');
                     // todo: method to find the value below
                     fd.append('MAX_FILE_SIZE', '4194304');
