@@ -4,16 +4,16 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.8.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2017-06-13 17:05+0200\n"
-"PO-Revision-Date: 2017-05-17 08:29+0000\n"
+"PO-Revision-Date: 2017-06-13 16:32+0000\n"
 "Last-Translator: Burak Yavuz <hitowerdigit@hotmail.com>\n"
-"Language-Team: Turkish <https://hosted.weblate.org/projects/phpmyadmin/"
-"master/tr/>\n"
+"Language-Team: Turkish "
+"<https://hosted.weblate.org/projects/phpmyadmin/master/tr/>\n"
 "Language: tr\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n > 1;\n"
-"X-Generator: Weblate 2.14-dev\n"
+"X-Generator: Weblate 2.15-dev\n"
 
 #: ajax.php:16 ajax.php:33 export.php:194 schema_export.php:66
 msgid "Bad type!"
@@ -1534,22 +1534,16 @@ msgid "Chart"
 msgstr "Çizelge"
 
 #: js/messages.php:295 libraries/display_export.lib.php:905
-#, fuzzy
-#| msgid "Database"
 msgctxt "Alias"
 msgid "Database"
 msgstr "Veritabanı"
 
 #: js/messages.php:296 libraries/display_export.lib.php:917
-#, fuzzy
-#| msgid "Table"
 msgctxt "Alias"
 msgid "Table"
 msgstr "Tablo"
 
 #: js/messages.php:297 libraries/display_export.lib.php:928
-#, fuzzy
-#| msgid "Column"
 msgctxt "Alias"
 msgid "Column"
 msgstr "Sütun"
@@ -8628,7 +8622,7 @@ msgstr "Şundan büyük tabloları atla"
 
 #: libraries/display_export.lib.php:897
 msgid "Defined aliases"
-msgstr ""
+msgstr "Tanımlı kod adları"
 
 #: libraries/display_export.lib.php:1013
 msgid "Could not load export plugins, please check your installation!"
@@ -14824,43 +14818,35 @@ msgstr "Son kontrol"
 
 #: templates/export/alias_add.phtml:5
 msgid "Define new aliases"
-msgstr ""
+msgstr "Yeni kod adları tanımla"
 
 #: templates/export/alias_add.phtml:11
-#, fuzzy
-#| msgid "Select database"
 msgid "Select database:"
-msgstr "Veritabanı seç"
+msgstr "Veritabanı seç:"
 
 #: templates/export/alias_add.phtml:17
 msgid "New database name"
 msgstr "Yeni veritabanı adı"
 
 #: templates/export/alias_add.phtml:26
-#, fuzzy
-#| msgid "Select table"
 msgid "Select table:"
-msgstr "Tablo seç"
+msgstr "Tablo seç:"
 
 #: templates/export/alias_add.phtml:32
 msgid "New table name"
 msgstr "Yeni tablo adı"
 
 #: templates/export/alias_add.phtml:41
-#, fuzzy
-#| msgid "Select a column."
 msgid "Select column:"
-msgstr "Bir sütun seçin."
+msgstr "Sütun seç:"
 
 #: templates/export/alias_add.phtml:47
 msgid "New column name"
 msgstr "Yeni sütun adı"
 
 #: templates/export/alias_item.phtml:8
-#, fuzzy
-#| msgid "Remote server"
 msgid "Remove"
-msgstr "Uzak sunucu"
+msgstr "Kaldır"
 
 #: templates/privileges/privileges_summary.phtml:21
 msgid "Column-specific privileges"
