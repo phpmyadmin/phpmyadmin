@@ -4,16 +4,16 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.8.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2017-06-13 17:05+0200\n"
-"PO-Revision-Date: 2017-06-12 22:07+0000\n"
+"PO-Revision-Date: 2017-06-13 21:06+0000\n"
 "Last-Translator: Viktar Vauchkevich <victorenator@gmail.com>\n"
-"Language-Team: Belarusian <https://hosted.weblate.org/projects/phpmyadmin/"
-"master/be/>\n"
+"Language-Team: Belarusian "
+"<https://hosted.weblate.org/projects/phpmyadmin/master/be/>\n"
 "Language: be\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=3; plural=n%10==1 && n%100!=11 ? 0 : n%10>=2 && n"
-"%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
+"Plural-Forms: nplurals=3; plural=n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%10<="
+"4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
 "X-Generator: Weblate 2.15-dev\n"
 
 #: ajax.php:16 ajax.php:33 export.php:194 schema_export.php:66
@@ -1470,25 +1470,19 @@ msgid "Chart"
 msgstr "Графік"
 
 #: js/messages.php:295 libraries/display_export.lib.php:905
-#, fuzzy
-#| msgid "Database"
 msgctxt "Alias"
 msgid "Database"
-msgstr "База дадзеных"
+msgstr "База даных"
 
 #: js/messages.php:296 libraries/display_export.lib.php:917
-#, fuzzy
-#| msgid "Table"
 msgctxt "Alias"
 msgid "Table"
 msgstr "Табліца"
 
 #: js/messages.php:297 libraries/display_export.lib.php:928
-#, fuzzy
-#| msgid "Column"
 msgctxt "Alias"
 msgid "Column"
-msgstr "Калонка"
+msgstr "Слупок"
 
 #. l10n: A collection of available filters
 #: js/messages.php:300
@@ -14135,39 +14129,32 @@ msgid "Define new aliases"
 msgstr ""
 
 #: templates/export/alias_add.phtml:11
-#, fuzzy
-#| msgid "Select database"
 msgid "Select database:"
-msgstr "Выберыце базу даных"
+msgstr "Выберыце базу даных:"
 
 #: templates/export/alias_add.phtml:17
 msgid "New database name"
 msgstr "Назва новай базы даных"
 
 #: templates/export/alias_add.phtml:26
-#, fuzzy
-#| msgid "Select table"
 msgid "Select table:"
-msgstr "Выберыце табліцу"
+msgstr "Выберыце табліцу:"
 
 #: templates/export/alias_add.phtml:32
 msgid "New table name"
 msgstr "Назва новай табліцы"
 
 #: templates/export/alias_add.phtml:41
-#, fuzzy
-#| msgid "Select a column."
 msgid "Select column:"
-msgstr "Выберыце слупок."
+msgstr "Выберыце слупок:"
 
 #: templates/export/alias_add.phtml:47
 msgid "New column name"
 msgstr "Навая назва слупка"
 
 #: templates/export/alias_item.phtml:8
-#, fuzzy
 msgid "Remove"
-msgstr "Вэб-сэрвэр"
+msgstr "Выдаліць"
 
 #: templates/privileges/privileges_summary.phtml:21
 msgid "Column-specific privileges"
@@ -14957,10 +14944,8 @@ msgid "Click to toggle"
 msgstr ""
 
 #: url.php:41
-#, fuzzy
-#| msgid "Change"
 msgid "Taking you to the target site."
-msgstr "Зьмяніць"
+msgstr "Прымаючы вас на мэтавы сайт."
 
 #: user_password.php:39
 msgid "You don't have sufficient privileges to be here right now!"
@@ -15158,16 +15143,12 @@ msgid "Version less than 5.5.8 (the first GA release of 5.5)."
 msgstr ""
 
 #: libraries/advisory_rules.txt:118
-#, fuzzy
-#| msgid "You should upgrade to %s %s or later."
 msgid "You should upgrade, to a stable version of MySQL 5.5."
-msgstr "Вам трэба абнавіць %s да вэрсіі %s ці пазьнейшай."
+msgstr "Вам трэба абнавіць MySQL да стабільнай версіі 5.5."
 
 #: libraries/advisory_rules.txt:121 libraries/advisory_rules.txt:128
-#, fuzzy
-#| msgid "Description"
 msgid "Distribution"
-msgstr "Апісаньне"
+msgstr "Дыстрыбутыў"
 
 #: libraries/advisory_rules.txt:124
 msgid "Version is compiled from source, not a MySQL official binary."
@@ -15199,10 +15180,8 @@ msgid "'percona' found in version_comment"
 msgstr ""
 
 #: libraries/advisory_rules.txt:135
-#, fuzzy
-#| msgid "MySQL charset"
 msgid "MySQL Architecture"
-msgstr "Кадыроўка MySQL"
+msgstr "Архітэктура MySQL"
 
 #: libraries/advisory_rules.txt:138
 msgid "MySQL is not compiled as a 64-bit package."
@@ -15221,16 +15200,12 @@ msgid "Available memory on this host: %s"
 msgstr ""
 
 #: libraries/advisory_rules.txt:146
-#, fuzzy
-#| msgid "Query cache"
 msgid "Query cache disabled"
-msgstr "Кэш запытаў"
+msgstr "Кэш запытаў адключаны"
 
 #: libraries/advisory_rules.txt:149
-#, fuzzy
-#| msgid "The server is not responding"
 msgid "The query cache is not enabled."
-msgstr "Сэрвэр не адказвае"
+msgstr "Кэш запытаў не ўключаны."
 
 #: libraries/advisory_rules.txt:150
 msgid ""
@@ -15245,16 +15220,12 @@ msgid "query_cache_size is set to 0 or query_cache_type is set to 'OFF'"
 msgstr ""
 
 #: libraries/advisory_rules.txt:153
-#, fuzzy
-#| msgid "Query cache"
 msgid "Query caching method"
-msgstr "Кэш запытаў"
+msgstr "Метад кэшавання запытаў"
 
 #: libraries/advisory_rules.txt:156
-#, fuzzy
-#| msgid "Query cache"
 msgid "Suboptimal caching method."
-msgstr "Кэш запытаў"
+msgstr "Субаптымальны метад кэшавання."
 
 #: libraries/advisory_rules.txt:157
 msgid ""
@@ -15272,10 +15243,9 @@ msgid ""
 msgstr ""
 
 #: libraries/advisory_rules.txt:160
-#, fuzzy, php-format
-#| msgid "Query cache"
+#, php-format
 msgid "Query cache efficiency (%%)"
-msgstr "Кэш запытаў"
+msgstr "Эфектыўнасць кэшу запытаў (%%)"
 
 #: libraries/advisory_rules.txt:163
 msgid "Query cache not running efficiently, it has a low hit rate."
@@ -15286,15 +15256,13 @@ msgid "Consider increasing {query_cache_limit}."
 msgstr ""
 
 #: libraries/advisory_rules.txt:165
-#, fuzzy, php-format
-#| msgid "Sort buffer size"
+#, php-format
 msgid "The current query cache hit rate of %s%% is below 20%%"
-msgstr "Памер буфэру сартаваньня"
+msgstr "Цяперашні тэмп пападання ў кэш запытаў на %s %% менш 20 %%"
 
 #: libraries/advisory_rules.txt:167
-#, fuzzy
 msgid "Query Cache usage"
-msgstr "Кэш запытаў"
+msgstr "Выкарыстанне кэшу запытаў"
 
 #: libraries/advisory_rules.txt:170
 #, php-format
@@ -15315,16 +15283,12 @@ msgid ""
 msgstr ""
 
 #: libraries/advisory_rules.txt:174
-#, fuzzy
-#| msgid "Query cache"
 msgid "Query cache fragmentation"
-msgstr "Кэш запытаў"
+msgstr "Фрагментацыя кэшу запытаў"
 
 #: libraries/advisory_rules.txt:177
-#, fuzzy
-#| msgid "The server is not responding"
 msgid "The query cache is considerably fragmented."
-msgstr "Сэрвэр не адказвае"
+msgstr "Кэш запытаў значна фрагментаваны."
 
 #: libraries/advisory_rules.txt:178
 msgid ""
@@ -15347,18 +15311,14 @@ msgid ""
 msgstr ""
 
 #: libraries/advisory_rules.txt:181
-#, fuzzy
-#| msgid "Query cache"
 msgid "Query cache low memory prunes"
-msgstr "Кэш запытаў"
+msgstr "Ачыстка пры недахопе памяці кэшу запытаў"
 
 #: libraries/advisory_rules.txt:184
-#, fuzzy
-#| msgid "The amount of free memory for query cache."
 msgid ""
 "Cached queries are removed due to low query cache memory from the query "
 "cache."
-msgstr "Колькасьць вольнай памяці для кэшу запытаў."
+msgstr "Кэшаваныя запыты выдалены праз недахоп памяці кэшу запытаў."
 
 #: libraries/advisory_rules.txt:185
 msgid ""
@@ -15375,10 +15335,8 @@ msgid ""
 msgstr ""
 
 #: libraries/advisory_rules.txt:188
-#, fuzzy
-#| msgid "Query cache"
 msgid "Query cache max size"
-msgstr "Кэш запытаў"
+msgstr "Максімальны памер кэшу запытаў"
 
 #: libraries/advisory_rules.txt:191
 msgid ""
@@ -15393,14 +15351,13 @@ msgid ""
 msgstr ""
 
 #: libraries/advisory_rules.txt:193
-#, fuzzy, php-format
+#, php-format
 msgid "Current query cache size: %s"
-msgstr "Стварыць сувязь"
+msgstr "Цяперашні памер кэшу запытаў: %s"
 
 #: libraries/advisory_rules.txt:195
-#, fuzzy
 msgid "Query cache min result size"
-msgstr "Дзеяньні з вынікамі запытаў"
+msgstr "Мінімальны памер рэзультату кэшу запытаў"
 
 #: libraries/advisory_rules.txt:198
 msgid ""
@@ -15424,16 +15381,12 @@ msgid "query_cache_limit is set to 1 MiB"
 msgstr ""
 
 #: libraries/advisory_rules.txt:204
-#, fuzzy
-#| msgid "Allows creating temporary tables."
 msgid "Percentage of sorts that cause temporary tables"
-msgstr "Дазваляе ствараць часовыя табліцы."
+msgstr "Адсотак сартаванняў, які прывядзе да стварэння часовых табліц"
 
 #: libraries/advisory_rules.txt:207 libraries/advisory_rules.txt:214
-#, fuzzy
-#| msgid "Allows creating temporary tables."
 msgid "Too many sorts are causing temporary tables."
-msgstr "Дазваляе ствараць часовыя табліцы."
+msgstr "Занадта шмат сартаванняў прывядуць да стварэння часовых табліц."
 
 #: libraries/advisory_rules.txt:208 libraries/advisory_rules.txt:215
 msgid ""
@@ -15449,23 +15402,19 @@ msgid ""
 msgstr ""
 
 #: libraries/advisory_rules.txt:211
-#, fuzzy
-#| msgid "Allows creating temporary tables."
 msgid "Rate of sorts that cause temporary tables"
-msgstr "Дазваляе ствараць часовыя табліцы."
+msgstr "Тэмп сартавання, які прывядзе да стварэння часовых табліц"
 
 #: libraries/advisory_rules.txt:216
-#, fuzzy, php-format
-#| msgid "Sort buffer size"
+#, php-format
 msgid ""
 "Temporary tables average: %s, this value should be less than 1 per hour."
-msgstr "Памер буфэру сартаваньня"
+msgstr ""
+"Сярэдняе часовых табліц: %s, гэтае значэнне павінна быць менш 1 у гадзіну."
 
 #: libraries/advisory_rules.txt:218
-#, fuzzy
-#| msgid "Start"
 msgid "Sort rows"
-msgstr "Суб"
+msgstr "Сартаваць радкі"
 
 #: libraries/advisory_rules.txt:221
 msgid "There are lots of rows being sorted."
@@ -15485,14 +15434,12 @@ msgid "Sorted rows average: %s"
 msgstr ""
 
 #: libraries/advisory_rules.txt:226
-#, fuzzy
 msgid "Rate of joins without indexes"
-msgstr "Праверыць табліцу"
+msgstr "Тэмп злучэнняў без індэксаў"
 
 #: libraries/advisory_rules.txt:229
-#, fuzzy
 msgid "There are too many joins without indexes."
-msgstr "Праверыць табліцу"
+msgstr "Занадта шмат злучэнняў без індэксаў."
 
 #: libraries/advisory_rules.txt:230
 msgid ""
@@ -15501,21 +15448,18 @@ msgid ""
 msgstr ""
 
 #: libraries/advisory_rules.txt:231
-#, fuzzy, php-format
-#| msgid "Sort buffer size"
+#, php-format
 msgid "Table joins average: %s, this value should be less than 1 per hour"
-msgstr "Памер буфэру сартаваньня"
+msgstr ""
+"Сярэдняе злучэнняў табліц: %s, гэта значэнне павінна быць менш 1 у гадзіну"
 
 #: libraries/advisory_rules.txt:233
-#, fuzzy
 msgid "Rate of reading first index entry"
-msgstr "Праверыць табліцу"
+msgstr "Тэмп чытання першага элемента індэкса"
 
 #: libraries/advisory_rules.txt:236
-#, fuzzy
-#| msgid "The number of pending log file fsyncs."
 msgid "The rate of reading the first index entry is high."
-msgstr "Колькасьць сынхранізаваньняў лог-файла, якія чакаюць выкананьня."
+msgstr "Тэмп чытання першага элемента індэкса завялікі."
 
 #: libraries/advisory_rules.txt:237
 msgid ""
@@ -15528,22 +15472,18 @@ msgid ""
 msgstr ""
 
 #: libraries/advisory_rules.txt:238
-#, fuzzy, php-format
-#| msgid "Sort buffer size"
+#, php-format
 msgid "Index scans average: %s, this value should be less than 1 per hour"
-msgstr "Памер буфэру сартаваньня"
+msgstr ""
+"Сярэдняе сканавання індэкса: %s, гэта значэнне павінна баць менш 1 у гадзіну"
 
 #: libraries/advisory_rules.txt:240
-#, fuzzy
-#| msgid "Format of imported file"
 msgid "Rate of reading fixed position"
-msgstr "Фармат імпартаванага файла"
+msgstr "Тэмп чытання фіксаванай пазіцыі"
 
 #: libraries/advisory_rules.txt:243
-#, fuzzy
-#| msgid "The number of pending log file fsyncs."
 msgid "The rate of reading data from a fixed position is high."
-msgstr "Колькасьць сынхранізаваньняў лог-файла, якія чакаюць выкананьня."
+msgstr "Тэмп чытання даных з фіксаванай пазіцыі завялікі."
 
 #: libraries/advisory_rules.txt:244
 msgid ""
@@ -15560,16 +15500,12 @@ msgid ""
 msgstr ""
 
 #: libraries/advisory_rules.txt:247
-#, fuzzy
-#| msgid "Create table"
 msgid "Rate of reading next table row"
-msgstr "Стварыць табліцу"
+msgstr "Тэмп чытання наступнага радка табліцы"
 
 #: libraries/advisory_rules.txt:250
-#, fuzzy
-#| msgid "The current number of pending writes."
 msgid "The rate of reading the next table row is high."
-msgstr "Бягучая колькасьць запісаў, якія чакаюць выкананьня."
+msgstr "Тэмп чытання наступнага радка табліцы завялікі."
 
 #: libraries/advisory_rules.txt:251
 msgid ""
@@ -15578,11 +15514,12 @@ msgid ""
 msgstr ""
 
 #: libraries/advisory_rules.txt:252
-#, fuzzy, php-format
-#| msgid "Sort buffer size"
+#, php-format
 msgid ""
 "Rate of reading next table row: %s, this value should be less than 1 per hour"
-msgstr "Памер буфэру сартаваньня"
+msgstr ""
+"Тэмп чытання наступнага радка табліцы: %s, гэта значэнне павінна быць менш 1 "
+"у гадзіну"
 
 #: libraries/advisory_rules.txt:255
 msgid "Different tmp_table_size and max_heap_table_size"
@@ -15606,10 +15543,8 @@ msgid "Current values are tmp_table_size: %s, max_heap_table_size: %s"
 msgstr ""
 
 #: libraries/advisory_rules.txt:262
-#, fuzzy
-#| msgid "Format of imported file"
 msgid "Percentage of temp tables on disk"
-msgstr "Фармат імпартаванага файла"
+msgstr "Адсотак часовых табліц на дыску"
 
 #: libraries/advisory_rules.txt:265 libraries/advisory_rules.txt:272
 msgid ""
@@ -15636,10 +15571,8 @@ msgid ""
 msgstr ""
 
 #: libraries/advisory_rules.txt:269
-#, fuzzy
-#| msgid "%s table(s)"
 msgid "Temp disk rate"
-msgstr "%s табліц(ы)"
+msgstr "Тэмр часовага дыску"
 
 #: libraries/advisory_rules.txt:273
 msgid ""
@@ -15660,10 +15593,8 @@ msgid ""
 msgstr ""
 
 #: libraries/advisory_rules.txt:278
-#, fuzzy
-#| msgid "Sort buffer size"
 msgid "MyISAM key buffer size"
-msgstr "Памер буфэру сартаваньня"
+msgstr "Памер буфера ключоў MyISAM"
 
 #: libraries/advisory_rules.txt:281
 msgid "Key buffer is not initialized. No MyISAM indexes will be cached."
