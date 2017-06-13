@@ -1644,22 +1644,17 @@ class Util
             }
         }
 
-        // If there are any tab specific URL parameters, merge those with
-        // the general URL parameters
-        if (! empty($tab['url_params']) && is_array($tab['url_params'])) {
-            $url_params = array_merge($url_params, $tab['url_params']);
-        }
-
         // build the link
         if (! empty($tab['link'])) {
-            $tab['link'] = htmlentities($tab['link']);
-            $tab['link'] = $tab['link'] . URL::getCommon($url_params);
-            if (! empty($tab['args'])) {
-                foreach ($tab['args'] as $param => $value) {
-                    $tab['link'] .= URL::getArgSeparator('html')
-                        . urlencode($param) . '=' . urlencode($value);
-                }
+            // If there are any tab specific URL parameters, merge those with
+            // the general URL parameters
+            if (! empty($tab['url_params']) && is_array($tab['url_params'])) {
+                $url_params = array_merge($url_params, $tab['url_params']);
             }
+            if (! empty($tab['args']) && is_array($tab['args'])) {
+                $url_params = array_merge($url_params, $tab['args']);
+            }
+            $tab['link'] = htmlentities($tab['link']) . URL::getCommon($url_params);
         }
 
         if (! empty($tab['fragment'])) {
