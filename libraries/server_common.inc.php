@@ -24,7 +24,7 @@ if (empty($viewing_mode)) {
 /**
  * Set parameters for links
  */
-$GLOBALS['url_query'] = URL::getCommon(array('db' => $db));
+$GLOBALS['url_query'] = URL::getCommon();
 
 /**
  * Defines the urls to return to in case of error in a sql statement
