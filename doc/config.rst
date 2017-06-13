@@ -1995,7 +1995,7 @@ Navigation panel setup
 .. config:option:: $cfg['NavigationTreeEnableExpansion']
 
     :type: boolean
-    :default: false
+    :default: true
 
     Whether to offer the possibility of tree expansion in the navigation panel.
 
