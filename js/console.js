@@ -85,11 +85,10 @@ var PMA_console = {
             '<input name="server" value="">' +
             '<input name="db" value="">' +
             '<input name="table" value="">' +
-            '<input name="token" value="' +
-            PMA_commonParams.get('token') +
-            '">' +
+            '<input name="token" value="">' +
             '</form>'
         );
+        PMA_console.$requestForm.children('[name=token]').val(PMA_commonParams.get('token'));
         PMA_console.$requestForm.on('submit', AJAX.requestHandler);
 
         // Event binds shouldn't run again
