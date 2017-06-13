@@ -105,7 +105,6 @@ AJAX.registerOnload('server_privileges.js', function () {
             var href = $("form[name='usersForm']").attr('action');
             var params = {
                 'ajax_request' : true,
-                'token' : PMA_commonParams.get('token'),
                 'server' : PMA_commonParams.get('server'),
                 'validate_username' : true,
                 'username' : username
@@ -218,14 +217,12 @@ AJAX.registerOnload('server_privileges.js', function () {
     $(document).on('click', "a.edit_user_group_anchor.ajax", function (event) {
         event.preventDefault();
         $(this).parents('tr').addClass('current_row');
-        var token = $(this).parents('form').find('input[name="token"]').val();
         var $msg = PMA_ajaxShowMessage();
         $.get(
             $(this).attr('href'),
             {
                 'ajax_request': true,
-                'edit_user_group_dialog': true,
-                'token': token
+                'edit_user_group_dialog': true
             },
             function (data) {
                 if (typeof data !== 'undefined' && data.success === true) {

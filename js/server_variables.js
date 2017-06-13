@@ -86,8 +86,7 @@ AJAX.registerOnload('server_variables.js', function () {
                     ajax_request: true,
                     type: 'setval',
                     varName: varName,
-                    varValue: $valueCell.find('input').val(),
-                    token: PMA_commonParams.get('token')
+                    varValue: $valueCell.find('input').val()
                 }, function (data) {
                     if (data.success) {
                         $valueCell

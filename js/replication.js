@@ -86,7 +86,6 @@ AJAX.registerOnload('replication.js', function () {
             var params = {
                 'ajax_page_request': true,
                 'ajax_request': true,
-                'token': PMA_commonParams.get('tokens')
             };
             $.post(url, params, AJAX.responseHandler);
         });

@@ -862,7 +862,6 @@ function PMA_makegrid(t, enableResize, enableReorder, enableVisib, enableGridEdi
                         'db' : g.db,
                         'table' : g.table,
                         'column' : field_name,
-                        'token' : g.token,
                         'curr_value' : relation_curr_value,
                         'relation_key_or_display_column' : relation_key_or_display_column
                     };
@@ -910,7 +909,6 @@ function PMA_makegrid(t, enableResize, enableReorder, enableVisib, enableGridEdi
                         'db' : g.db,
                         'table' : g.table,
                         'column' : field_name,
-                        'token' : g.token,
                         'curr_value' : curr_value
                     };
                     g.lastXHR = $.post('sql.php', post_params, function (data) {
@@ -939,7 +937,6 @@ function PMA_makegrid(t, enableResize, enableReorder, enableVisib, enableGridEdi
                         'db' : g.db,
                         'table' : g.table,
                         'column' : field_name,
-                        'token' : g.token,
                         'curr_value' : curr_value
                     };
 
@@ -990,7 +987,6 @@ function PMA_makegrid(t, enableResize, enableReorder, enableVisib, enableGridEdi
 
                         // Make the Ajax call and get the data, wrap it and insert it
                         g.lastXHR = $.post('sql.php', {
-                            'token' : g.token,
                             'server' : g.server,
                             'db' : g.db,
                             'ajax_request' : true,
@@ -1270,7 +1266,6 @@ function PMA_makegrid(t, enableResize, enableReorder, enableVisib, enableGridEdi
              */
             var post_params = {'ajax_request' : true,
                             'sql_query' : full_sql_query,
-                            'token' : g.token,
                             'server' : g.server,
                             'db' : g.db,
                             'table' : g.table,
@@ -2166,7 +2161,6 @@ function PMA_makegrid(t, enableResize, enableReorder, enableVisib, enableGridEdi
 
     // assign common hidden inputs
     var $common_hidden_inputs = $(g.o).find('div.common_hidden_inputs');
-    g.token = $common_hidden_inputs.find('input[name=token]').val();
     g.server = $common_hidden_inputs.find('input[name=server]').val();
     g.db = $common_hidden_inputs.find('input[name=db]').val();
     g.table = $common_hidden_inputs.find('input[name=table]').val();

@@ -156,7 +156,6 @@ AJAX.registerOnload('tbl_select.js', function () {
         } else {
             values.displayAllColumns = true;
         }
-        values.token = PMA_commonParams.get('token');
 
         $.post($search_form.attr('action'), values, function (data) {
             PMA_ajaxRemoveMessage($msgbox);
@@ -269,13 +268,12 @@ AJAX.registerOnload('tbl_select.js', function () {
         // Names of input field and null checkbox
         var input_name = $span.parent('td').children("input[type='text']").attr('name');
         //Token
-        var token = $("input[name='token']").val();
 
         openGISEditor();
         if (!gisEditorLoaded) {
-            loadJSAndGISEditor(value, field, type, input_name, token);
+            loadJSAndGISEditor(value, field, type, input_name);
         } else {
-            loadGISEditor(value, field, type, input_name, token);
+            loadGISEditor(value, field, type, input_name);
         }
     });
 
@@ -309,7 +307,6 @@ AJAX.registerOnload('tbl_select.js', function () {
                 type: 'POST',
                 data: {
                     server: PMA_commonParams.get('server'),
-                    token: PMA_commonParams.get('token'),
                     ajax_request: 1,
                     db: $('input[name="db"]').val(),
                     table: $('input[name="table"]').val(),

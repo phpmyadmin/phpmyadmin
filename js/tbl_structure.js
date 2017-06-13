@@ -216,8 +216,7 @@ AJAX.registerOnload('tbl_structure.js', function () {
             var params = {
                 'is_js_confirmed' : 1,
                 'ajax_request' : true,
-                'ajax_page_request' : true,
-                'token': PMA_commonParams.get('token')
+                'ajax_page_request' : true
             };
             $.post(url, params, function (data) {
                 if (typeof data !== 'undefined' && data.success === true) {
@@ -302,8 +301,7 @@ AJAX.registerOnload('tbl_structure.js', function () {
             AJAX.source = $this;
             var params = {
                 'ajax_request' : true,
-                'ajax_page_request' : true,
-                'token': PMA_commonParams.get('token')
+                'ajax_page_request' : true
             };
             $.post(url, params, AJAX.responseHandler);
         }); // end $.PMA_confirm()
@@ -462,8 +460,7 @@ AJAX.registerOnload('tbl_structure.js', function () {
         function submitPartitionAction(url) {
             var params = {
                 'ajax_request' : true,
-                'ajax_page_request' : true,
-                'token': PMA_commonParams.get('token')
+                'ajax_page_request' : true
             };
             PMA_ajaxShowMessage();
             AJAX.source = $link;
@@ -495,8 +492,7 @@ AJAX.registerOnload('tbl_structure.js', function () {
         $link.PMA_confirm(question, $link.attr('href'), function (url) {
             var params = {
                 'ajax_request' : true,
-                'ajax_page_request' : true,
-                'token': PMA_commonParams.get('token')
+                'ajax_page_request' : true
             };
             PMA_ajaxShowMessage();
             AJAX.source = $link;

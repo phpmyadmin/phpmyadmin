@@ -85,8 +85,7 @@ AJAX.registerOnload('db_tracking.js', function () {
             AJAX.source = $anchor;
             var params = {
                 'ajax_page_request': true,
-                'ajax_request': true,
-                'token': PMA_commonParams.get('token')
+                'ajax_request': true
             };
             $.post(url, params, AJAX.responseHandler);
         });
