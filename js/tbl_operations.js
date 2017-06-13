@@ -137,8 +137,7 @@ AJAX.registerOnload('tbl_operations.js', function () {
         //variables which stores the common attributes
         var params = {
             ajax_request: 1,
-            server: PMA_commonParams.get('server'),
-            token: PMA_commonParams.get('token')
+            server: PMA_commonParams.get('server')
         };
         $.post($(this).attr('href'), params, function (data) {
             function scrollToTop() {
@@ -217,7 +216,6 @@ AJAX.registerOnload('tbl_operations.js', function () {
             var $msgbox = PMA_ajaxShowMessage(PMA_messages.strProcessingRequest);
 
             var params = getJSConfirmCommonParam(this);
-            params.token = PMA_commonParams.get('token');
 
             $.post(url, params, function (data) {
                 if (typeof data !== 'undefined' && data.success === true) {
@@ -254,8 +252,7 @@ AJAX.registerOnload('tbl_operations.js', function () {
             var $msgbox = PMA_ajaxShowMessage(PMA_messages.strProcessingRequest);
             var params = {
                 'is_js_confirmed': '1',
-                'ajax_request': true,
-                'token': PMA_commonParams.get('token')
+                'ajax_request': true
             };
             $.post(url, params, function (data) {
                 if (typeof data !== 'undefined' && data.success === true) {
@@ -290,7 +287,6 @@ AJAX.registerOnload('tbl_operations.js', function () {
             PMA_ajaxShowMessage(PMA_messages.strProcessingRequest);
 
             var params = getJSConfirmCommonParam(this);
-            params.token = PMA_commonParams.get('token');
 
             $.post(url, params, function (data) {
                 if ($(".sqlqueryresults").length !== 0) {

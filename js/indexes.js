@@ -319,7 +319,6 @@ function PMA_showAddIndexDialog(source_array, array_index, target_columns, col_i
     var table = $table.length > 0 ? $table.val() : '';
     var post_data = {
         server: PMA_commonParams.get('server'),
-        token: PMA_commonParams.get('token'),
         db: $('input[name="db"]').val(),
         table: table,
         ajax_request: 1,
@@ -611,8 +610,7 @@ AJAX.registerOnload('indexes.js', function () {
             var $msg = PMA_ajaxShowMessage(PMA_messages.strDroppingPrimaryKeyIndex, false);
             var params = {
                 'is_js_confirmed': 1,
-                'ajax_request': true,
-                'token' : PMA_commonParams.get('token')
+                'ajax_request': true
             };
             $.post(url, params, function (data) {
                 if (typeof data !== 'undefined' && data.success === true) {

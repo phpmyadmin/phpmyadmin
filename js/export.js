@@ -77,7 +77,6 @@ function createTemplate(name)
 
     var params = {
         ajax_request : true,
-        token : PMA_commonParams.get('token'),
         server : PMA_commonParams.get('server'),
         db : PMA_commonParams.get('db'),
         table : PMA_commonParams.get('table'),
@@ -113,7 +112,6 @@ function loadTemplate(id)
 {
     var params = {
         ajax_request : true,
-        token : PMA_commonParams.get('token'),
         server : PMA_commonParams.get('server'),
         db : PMA_commonParams.get('db'),
         table : PMA_commonParams.get('table'),
@@ -164,7 +162,6 @@ function updateTemplate(id)
 
     var params = {
         ajax_request : true,
-        token : PMA_commonParams.get('token'),
         server : PMA_commonParams.get('server'),
         db : PMA_commonParams.get('db'),
         table : PMA_commonParams.get('table'),
@@ -193,7 +190,6 @@ function deleteTemplate(id)
 {
     var params = {
         ajax_request : true,
-        token : PMA_commonParams.get('token'),
         server : PMA_commonParams.get('server'),
         db : PMA_commonParams.get('db'),
         table : PMA_commonParams.get('table'),
@@ -699,7 +695,6 @@ function check_time_out(time_limit)
     var href = "export.php";
     var params = {
         'ajax_request' : true,
-        'token' : PMA_commonParams.get('token'),
         'check_time_out' : true
     };
     clearTimeout(time_out);

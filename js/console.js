@@ -923,7 +923,7 @@ var PMA_consoleMessages = {
             var $message = $(this).closest('.message');
             if (confirm(PMA_messages.strConsoleDeleteBookmarkConfirm + '\n' + $message.find('.bookmark_label').text())) {
                 $.post('import.php',
-                    {token: PMA_commonParams.get('token'),
+                    {
                     server: PMA_commonParams.get('server'),
                     action_bookmark: 2,
                     ajax_request: true,
@@ -1059,7 +1059,6 @@ var PMA_consoleBookmarks = {
     refresh: function () {
         $.get('import.php',
             {ajax_request: true,
-            token: PMA_commonParams.get('token'),
             server: PMA_commonParams.get('server'),
             console_bookmark_refresh: 'refresh'},
             function(data) {
@@ -1094,7 +1093,7 @@ var PMA_consoleBookmarks = {
             }
             $(this).prop('disabled', true);
             $.post('import.php',
-                {token: PMA_commonParams.get('token'),
+                {
                 ajax_request: true,
                 console_bookmark_add: 'true',
                 label: $('#pma_bookmarks').find('.card.add [name=label]').val(),
