@@ -1648,9 +1648,6 @@ class Util
         if (! empty($tab['link'])) {
             // If there are any tab specific URL parameters, merge those with
             // the general URL parameters
-            if (! empty($tab['url_params']) && is_array($tab['url_params'])) {
-                $url_params = array_merge($url_params, $tab['url_params']);
-            }
             if (! empty($tab['args']) && is_array($tab['args'])) {
                 $url_params = array_merge($url_params, $tab['args']);
             }
