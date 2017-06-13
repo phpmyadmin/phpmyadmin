@@ -528,7 +528,7 @@ AJAX.registerTeardown('indexes.js', function () {
     $(document).off('click', '#preview_index_frm');
     $(document).off('change', '#select_index_choice');
     $(document).off('click', 'a.drop_primary_key_index_anchor.ajax');
-    $(document).off('click', "#table_index tbody tr td.edit_index.ajax, #indexes .add_index.ajax");
+    $(document).off('click', "#table_index tbody tr td.edit_index.ajax, #index_div .add_index.ajax");
     $(document).off('click', '#index_frm input[type=submit]');
     $('body').off('change', 'select[name*="field_key"]');
     $(document).off('click', '.show_index_dialog');
@@ -652,7 +652,7 @@ AJAX.registerOnload('indexes.js', function () {
     /**
      *Ajax event handler for index edit
     **/
-    $(document).on('click', "#table_index tbody tr td.edit_index.ajax, #indexes .add_index.ajax", function (event) {
+    $(document).on('click', "#table_index tbody tr td.edit_index.ajax, #index_div .add_index.ajax", function (event) {
         event.preventDefault();
         var url, title;
         if ($(this).find("a").length === 0) {
