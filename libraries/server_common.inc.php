@@ -43,10 +43,6 @@ if ($GLOBALS['is_superuser']) {
     $GLOBALS['dbi']->selectDb('mysql', $GLOBALS['userlink']);
 }
 
-PMA\libraries\Util::checkParameters(
-    array('is_superuser', 'url_query'), false
-);
-
 /**
  * shared functions for server page
  */
