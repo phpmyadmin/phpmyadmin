@@ -72,7 +72,7 @@ AJAX.registerOnload('db_central_columns.js', function () {
     $('#multi_edit_central_columns').submit(function(event){
         event.preventDefault();
         event.stopPropagation();
-        var multi_column_edit_data = $("#multi_edit_central_columns").serialize()+'&multi_edit_central_column_save=true&ajax_request=true&ajax_page_request=true&token='+PMA_commonParams.get('token')+'&db='+PMA_commonParams.get('db');
+        var multi_column_edit_data = $("#multi_edit_central_columns").serialize()+'&multi_edit_central_column_save=true&ajax_request=true&ajax_page_request=true&token='+PMA_commonParams.get('token')+'&db='+encodeURIComponent(PMA_commonParams.get('db'));
         PMA_ajaxShowMessage();
         AJAX.source = $(this);
         $.post('db_central_columns.php', multi_column_edit_data, AJAX.responseHandler);
