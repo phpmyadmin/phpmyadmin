@@ -29,7 +29,6 @@ $container->alias('response', 'PMA\libraries\Response');
 /* Define dependencies for the concerned controller */
 $dependency_definitions = array(
     'db' => $db,
-    'url_query' => &$GLOBALS['url_query'],
 );
 
 /** @var DatabaseStructureController $controller */
