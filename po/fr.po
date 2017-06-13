@@ -4,16 +4,16 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin-docs 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2017-06-08 19:47+0200\n"
-"PO-Revision-Date: 2017-05-06 21:11+0000\n"
+"PO-Revision-Date: 2017-06-12 21:55+0000\n"
 "Last-Translator: Cindy Dallaire <c.dallaire93@gmail.com>\n"
-"Language-Team: French <https://hosted.weblate.org/projects/phpmyadmin/master/"
-"fr/>\n"
+"Language-Team: French "
+"<https://hosted.weblate.org/projects/phpmyadmin/master/fr/>\n"
 "Language: fr\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n > 1;\n"
-"X-Generator: Weblate 2.14-dev\n"
+"X-Generator: Weblate 2.15-dev\n"
 
 #: changelog.php:39 license.php:34
 #, php-format
@@ -4642,7 +4642,7 @@ msgstr "Affichage de la requête SQL"
 #: libraries/insert_edit.lib.php:126 libraries/rte/rte_routines.lib.php:1466
 #: tbl_get_field.php:47
 msgid "MySQL returned an empty result set (i.e. zero rows)."
-msgstr "MySQL a retourné un résultat vide (aucune ligne)"
+msgstr "MySQL a retourné un résultat vide (c'est-à-dire aucune ligne)."
 
 #: libraries/Sql.php:1403 libraries/import.lib.php:258
 msgid "[ROLLBACK occurred.]"

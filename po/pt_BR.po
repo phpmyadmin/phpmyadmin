@@ -4,10 +4,10 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.8.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2017-06-08 19:47+0200\n"
-"PO-Revision-Date: 2017-06-08 17:57+0000\n"
-"Last-Translator: Gustavo de Oliveira Silva <diguser@gmail.com>\n"
-"Language-Team: Portuguese (Brazil) <https://hosted.weblate.org/projects/"
-"phpmyadmin/master/pt_BR/>\n"
+"PO-Revision-Date: 2017-06-13 00:12+0000\n"
+"Last-Translator: João Medeiros <medeiros.joaquim@gmail.com>\n"
+"Language-Team: Portuguese (Brazil) "
+"<https://hosted.weblate.org/projects/phpmyadmin/master/pt_BR/>\n"
 "Language: pt_BR\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -3081,10 +3081,9 @@ msgid "West European"
 msgstr "Oeste Europeu"
 
 #: libraries/Charsets.php:307
-#, fuzzy
 msgctxt "Collation"
 msgid "Central European"
-msgstr "Europeu Central"
+msgstr "Centro-Europeu"
 
 #: libraries/Charsets.php:312
 msgctxt "Collation"
@@ -3217,10 +3216,9 @@ msgid "Estonian"
 msgstr "Estoniano"
 
 #: libraries/Charsets.php:422 libraries/Charsets.php:539
-#, fuzzy
 msgctxt "Collation"
 msgid "German (dictionary order)"
-msgstr "Alemão (dicionário de ordem)"
+msgstr "Alemão (ordem alfabética)"
 
 #: libraries/Charsets.php:425 libraries/Charsets.php:536
 #, fuzzy
@@ -8457,7 +8455,6 @@ msgid "Password:"
 msgstr "Senha:"
 
 #: libraries/display_change_password.lib.php:68
-#, fuzzy
 msgid "Enter:"
 msgstr "Entrar:"
 
@@ -9995,7 +9992,6 @@ msgstr "Verificar tabela"
 
 #: libraries/operations.lib.php:1396
 #: templates/database/structure/check_all_tables.phtml:22
-#, fuzzy
 msgid "Checksum table"
 msgstr "Checksum da tabela"
 
@@ -10068,9 +10064,8 @@ msgid "Truncate"
 msgstr "Truncar"
 
 #: libraries/operations.lib.php:1578
-#, fuzzy
 msgid "Coalesce"
-msgstr "Coalescer"
+msgstr "Buscar valor NOTNULL"
 
 #: libraries/operations.lib.php:1587
 msgid "Partition maintenance"
@@ -10448,9 +10443,8 @@ msgid "Dumping data"
 msgstr "Fazendo dump de dados"
 
 #: libraries/plugins/export/ExportPdf.php:286
-#, fuzzy
 msgid "View structure"
-msgstr "Visualizar a estrutura"
+msgstr "Visualizar estrutura"
 
 #: libraries/plugins/export/ExportPdf.php:289
 #, fuzzy
