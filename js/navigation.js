@@ -1119,6 +1119,7 @@ var ResizeHandler = function () {
         var $resizer = $('#pma_navigation_resizer');
         var resizer_width = $resizer.width();
         var $collapser = $('#pma_navigation_collapser');
+        var windowWidth = $(window).width();
         $('#pma_navigation').width(pos);
         $('body').css('margin-' + this.left, pos + 'px');
         $("#floating_menubar, #pma_console")
@@ -1129,6 +1130,12 @@ var ResizeHandler = function () {
                 .css(this.left, pos + resizer_width)
                 .html(this.getSymbol(pos))
                 .prop('title', PMA_messages.strShowPanel);
+        } else if (windowWidth < 768) {
+            $collapser
+                .css(this.left, windowWidth - 22)
+                .html(this.getSymbol(100))
+                .prop('title', PMA_messages.strHidePanel);
+            $('#pma_navigation').width(windowWidth);
         } else {
             $collapser
                 .css(this.left, pos)
@@ -1271,8 +1278,11 @@ var ResizeHandler = function () {
         // Set content bottom space beacuse of console
         $('body').css('margin-bottom', $('#pma_console').height() + 'px');
     };
-    /* Initialisation section begins here */
-    if (Cookies.get('pma_navi_width')) {
+    // Hide the pma_navigation initially when loaded on mobile
+    if ($(window).width() < 768) {
+        this.setWidth(0);
+    }
+    else if (Cookies.get('pma_navi_width')) {
         // If we have a cookie, set the width of the panel to its value
         var pos = Math.abs(parseInt(Cookies.get('pma_navi_width'), 10) || 0);
         this.setWidth(pos);
