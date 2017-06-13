@@ -1216,8 +1216,8 @@ function insertQuery(queryType)
     } else if (queryType == "saved") {
         if (isStorageSupported('localStorage') && typeof window.localStorage.auto_saved_sql != 'undefined') {
             setQuery(window.localStorage.auto_saved_sql);
-        } else if ($.cookie('auto_saved_sql')) {
-            setQuery($.cookie('auto_saved_sql'));
+        } else if (Cookies.get('auto_saved_sql')) {
+            setQuery(Cookies.get('auto_saved_sql'));
         } else {
             PMA_ajaxShowMessage(PMA_messages.strNoAutoSavedQuery);
         }
@@ -5083,4 +5083,6 @@ AJAX.registerOnload('functions.js', function(){
             $('#ssl_reqd_warning_cp').hide();
         }
     });
+
+    Cookies.defaults.path = PMA_commonParams.get('rootPath');
 });

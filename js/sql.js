@@ -48,7 +48,7 @@ function PMA_autosaveSQL(query)
         if (isStorageSupported('localStorage')) {
             window.localStorage.auto_saved_sql = query;
         } else {
-            $.cookie('auto_saved_sql', query);
+            Cookies.set('auto_saved_sql', query);
         }
     }
 }

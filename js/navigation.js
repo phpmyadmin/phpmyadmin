@@ -1216,7 +1216,7 @@ var ResizeHandler = function () {
      */
     this.mouseup = function (event) {
         $('body').css('cursor', '');
-        $.cookie('pma_navi_width', event.data.resize_handler.getPos(event));
+        Cookies.set('pma_navi_width', event.data.resize_handler.getPos(event));
         $('#topmenu').menuResizer('resize');
         $(document)
             .off('mousemove')
@@ -1277,9 +1277,9 @@ var ResizeHandler = function () {
         $('body').css('margin-bottom', $('#pma_console').height() + 'px');
     };
     /* Initialisation section begins here */
-    if ($.cookie('pma_navi_width')) {
+    if (Cookies.get('pma_navi_width')) {
         // If we have a cookie, set the width of the panel to its value
-        var pos = Math.abs(parseInt($.cookie('pma_navi_width'), 10) || 0);
+        var pos = Math.abs(parseInt(Cookies.get('pma_navi_width'), 10) || 0);
         this.setWidth(pos);
         $('#topmenu').menuResizer('resize');
     }
