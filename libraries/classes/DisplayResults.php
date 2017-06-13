@@ -960,7 +960,7 @@ class DisplayResults
         $table_navigation_html .= '</form>'
             . '</td>'
             . '<td class="navigation_separator"></td>'
-            . '<td>'
+            . '<td class="largescreenonly">'
             . '<span>' . __('Filter rows') . ':</span>'
             . '<input type="text" class="filter_rows"'
             . ' placeholder="' . __('Search this table') . '"'
@@ -1899,7 +1899,7 @@ class DisplayResults
                 . '<input type="hidden" name="goto" value="sql.php" />';
         }
 
-        $form_html .= '<table class="table_results data ajax"';
+        $form_html .= '<div class="responsivetable"><table class="table_results data ajax"';
         $form_html .= ' data-uniqueId="' . $this->__get('unique_id') . '"';
         $form_html .= '>';
 
@@ -4437,7 +4437,7 @@ class DisplayResults
 
         $this->__set('display_params', null);
 
-        $table_html .= '</tbody>' . "\n" . '</table>';
+        $table_html .= '</tbody>' . "\n" . '</table></div>';
 
         // 4. ----- Prepares the link for multi-fields edit and delete
 

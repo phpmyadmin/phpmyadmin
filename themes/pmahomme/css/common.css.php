@@ -1124,7 +1124,7 @@ div#tablestatistics table {
     padding: .3em .9em;
     padding-<?php echo $left; ?>: 2.2em;
     text-shadow: 0 1px 0 #000;
-    width: 10000px;
+    width: 100%;
     overflow: hidden;
 }
 
@@ -3527,7 +3527,15 @@ body .ui-dialog .ui-dialog-buttonpane .ui-dialog-buttonset {
         display: inline;
     }
 
+    .responsivetable {
+        overflow-x: scroll;
+    }
+
     body#loginform div.container {
         width: 100%;
+    }
+
+    .largescreenonly {
+        display: none;
     }
 }

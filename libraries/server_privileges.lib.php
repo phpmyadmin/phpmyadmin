@@ -3484,6 +3484,7 @@ function PMA_getUsersOverview($result, $db_rights, $pmaThemeImage, $text_dir)
         = '<form name="usersForm" id="usersForm" action="server_privileges.php" '
         . 'method="post">' . "\n"
         . Url::getHiddenInputs('', '')
+        . '<div class="responsivetable">'
         . '<table id="tableuserrights" class="data">' . "\n"
         . '<thead>' . "\n"
         . '<tr><th></th>' . "\n"
@@ -3507,7 +3508,7 @@ function PMA_getUsersOverview($result, $db_rights, $pmaThemeImage, $text_dir)
     $html_output .= '<tbody>' . "\n";
     $html_output .= PMA_getHtmlTableBodyForUserRights($db_rights);
     $html_output .= '</tbody>'
-        . '</table>' . "\n";
+        . '</table></div>' . "\n";
 
     $html_output .= '<div class="floatleft">'
         . Template::get('select_all')

@@ -304,13 +304,13 @@ class ServerDatabasesController extends Controller
         }
 
         // database table
-        $html .= '<table id="tabledatabases" class="data">' . "\n";
+        $html .= '<div class="responsivetable"><table id="tabledatabases" class="data">' . "\n";
         $html .= $this->_getHtmlForTableHeader(
             $_url_params, $column_order, $first_database
         );
         $html .= $this->_getHtmlForTableBody($column_order, $replication_types);
         $html .= $this->_getHtmlForTableFooter($column_order, $first_database);
-        $html .= '</table>' . "\n";
+        $html .= '</table></div>' . "\n";
 
         $html .= $this->_getHtmlForTableFooterButtons();
 

@@ -12,6 +12,7 @@ if ($GLOBALS['cfg']['NumFavoriteTables'] > 0) {
 ?>
 <form method="post" action="db_structure.php" name="tablesForm" id="tablesForm">
 <?= PhpMyAdmin\Url::getHiddenInputs($db); ?>
+<div class="responsivetable">
 <table id="structureTable" class="data">
     <thead>
         <tr>
