@@ -1,20 +1,24 @@
 # Automatically generated <>, 2010.
 msgid ""
 msgstr ""
-"Project-Id-Version: phpMyAdmin 4.7.1-dev\n"
+"Project-Id-Version: phpMyAdmin 4.7.2-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
-"POT-Creation-Date: 2017-05-17 09:06+0200\n"
+"POT-Creation-Date: 2017-06-13 17:05+0200\n"
 "PO-Revision-Date: 2017-06-03 12:48+0000\n"
 "Last-Translator: Dovydas <dovy.buz@gmail.com>\n"
-"Language-Team: Lithuanian "
-"<https://hosted.weblate.org/projects/phpmyadmin/4-7/lt/>\n"
+"Language-Team: Lithuanian <https://hosted.weblate.org/projects/"
+"phpmyadmin/4-7/lt/>\n"
 "Language: lt\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=3; plural=n%10==1 && n%100!=11 ? 0 : n%10>=2 && "
-"(n%100<10 || n%100>=20) ? 1 : 2;\n"
+"Plural-Forms: nplurals=3; plural=n%10==1 && n%100!=11 ? 0 : n%10>=2 && (n"
+"%100<10 || n%100>=20) ? 1 : 2;\n"
 "X-Generator: Weblate 2.15-dev\n"
+
+#: ajax.php:16 ajax.php:33 export.php:191 schema_export.php:64
+msgid "Bad type!"
+msgstr "Blogas tipas!"
 
 #: changelog.php:39 license.php:34
 #, php-format
@@ -175,7 +179,7 @@ msgstr "Komentarai"
 msgid "Primary"
 msgstr "Pirminis"
 
-#: db_datadict.php:164 js/messages.php:374 libraries/Index.php:565
+#: db_datadict.php:164 js/messages.php:378 libraries/Index.php:565
 #: libraries/Index.php:593 libraries/IndexColumn.php:141
 #: libraries/central_columns.lib.php:963
 #: libraries/config/FormDisplay.tpl.php:282 libraries/mult_submits.lib.php:450
@@ -189,7 +193,7 @@ msgstr "Pirminis"
 #: libraries/server_privileges.lib.php:2926
 #: libraries/server_privileges.lib.php:2946
 #: libraries/server_privileges.lib.php:3608
-#: libraries/server_privileges.lib.php:3631 libraries/tracking.lib.php:936
+#: libraries/server_privileges.lib.php:3637 libraries/tracking.lib.php:936
 #: libraries/tracking.lib.php:1008 libraries/tracking.lib.php:1013
 #: prefs_manage.php:150 templates/prefs_autoload.phtml:13
 #: templates/privileges/privileges_summary_row.phtml:4
@@ -199,7 +203,7 @@ msgstr "Pirminis"
 msgid "No"
 msgstr "Ne"
 
-#: db_datadict.php:164 js/messages.php:522 libraries/Index.php:592
+#: db_datadict.php:164 js/messages.php:526 libraries/Index.php:592
 #: libraries/IndexColumn.php:143 libraries/central_columns.lib.php:963
 #: libraries/config/FormDisplay.tpl.php:282
 #: libraries/controllers/server/ServerDatabasesController.php:200
@@ -222,7 +226,7 @@ msgstr "Ne"
 #: libraries/server_privileges.lib.php:2923
 #: libraries/server_privileges.lib.php:2944
 #: libraries/server_privileges.lib.php:3605
-#: libraries/server_privileges.lib.php:3631 libraries/tracking.lib.php:936
+#: libraries/server_privileges.lib.php:3637 libraries/tracking.lib.php:936
 #: libraries/tracking.lib.php:1006 libraries/tracking.lib.php:1011
 #: prefs_manage.php:148 templates/prefs_autoload.phtml:12
 #: templates/privileges/privileges_summary_row.phtml:4
@@ -285,7 +289,7 @@ msgid "Data"
 msgstr "Duomenys"
 
 #: db_export.php:70 libraries/DbSearch.php:434
-#: libraries/display_export.lib.php:45 libraries/replication_gui.lib.php:379
+#: libraries/display_export.lib.php:46 libraries/replication_gui.lib.php:379
 msgid "Select all"
 msgstr "Pažymėti visas(-us)"
 
@@ -373,10 +377,6 @@ msgstr ""
 msgid "You may want to refresh the page."
 msgstr "Galite norėti atnaujinti puslapį."
 
-#: export.php:191 schema_export.php:64
-msgid "Bad type!"
-msgstr "Blogas tipas!"
-
 #: export.php:274
 msgid "Bad parameters!"
 msgstr "Blogi parametrai!"
@@ -406,23 +406,23 @@ msgid "Point:"
 msgstr "Taškas:"
 
 #: gis_data_editor.php:218 gis_data_editor.php:245 gis_data_editor.php:301
-#: gis_data_editor.php:374 js/messages.php:511
+#: gis_data_editor.php:374 js/messages.php:515
 msgid "X"
 msgstr "X"
 
 #: gis_data_editor.php:221 gis_data_editor.php:249 gis_data_editor.php:305
-#: gis_data_editor.php:380 js/messages.php:512
+#: gis_data_editor.php:380 js/messages.php:516
 msgid "Y"
 msgstr "Y"
 
 #: gis_data_editor.php:243 gis_data_editor.php:299 gis_data_editor.php:372
-#: js/messages.php:514
+#: js/messages.php:518
 #, php-format
 msgid "Point %d"
 msgstr "Taškas %d"
 
 #: gis_data_editor.php:256 gis_data_editor.php:312 gis_data_editor.php:390
-#: js/messages.php:520
+#: js/messages.php:524
 msgid "Add a point"
 msgstr "Pridėti tašką"
 
@@ -444,7 +444,7 @@ msgstr "Vidinis žiedas %d:"
 msgid "Add a linestring"
 msgstr "Sukurti atkarpų seką"
 
-#: gis_data_editor.php:316 gis_data_editor.php:395 js/messages.php:521
+#: gis_data_editor.php:316 gis_data_editor.php:395 js/messages.php:525
 msgid "Add an inner ring"
 msgstr "Sukurti vidinį žiedą"
 
@@ -461,10 +461,10 @@ msgstr "Pridėti daugiakampį"
 msgid "Add geometry"
 msgstr "Pridėti geometriją"
 
-#: gis_data_editor.php:413 js/messages.php:349 libraries/DbSearch.php:455
+#: gis_data_editor.php:413 js/messages.php:353 libraries/DbSearch.php:455
 #: libraries/DisplayResults.php:1811 libraries/browse_foreigners.lib.php:137
 #: libraries/display_change_password.lib.php:148
-#: libraries/display_export.lib.php:402 libraries/display_export.lib.php:408
+#: libraries/display_export.lib.php:403 libraries/display_export.lib.php:409
 #: libraries/display_import.lib.php:399 libraries/index.lib.php:34
 #: libraries/insert_edit.lib.php:1615 libraries/insert_edit.lib.php:1652
 #: libraries/normalization.lib.php:163 libraries/normalization.lib.php:820
@@ -515,7 +515,7 @@ msgstr ""
 msgid "Succeeded"
 msgstr "Pavyko"
 
-#: import.php:68 js/messages.php:607
+#: import.php:68 js/messages.php:611
 msgid "Failed"
 msgstr "Nepavyko"
 
@@ -593,7 +593,7 @@ msgstr "„DROP DATABASE“ komandos įvykdyti negalima."
 msgid "Could not load the progress of the import."
 msgstr ""
 
-#: import_status.php:114 js/messages.php:451 js/messages.php:615
+#: import_status.php:114 js/messages.php:455 js/messages.php:619
 #: libraries/Util.php:689 libraries/export.lib.php:518
 #: libraries/plugins/schema/ExportRelationSchema.php:298 user_password.php:299
 msgid "Back"
@@ -625,7 +625,7 @@ msgstr ""
 msgid "General settings"
 msgstr "Pagrindiniai nustatymai"
 
-#: index.php:204 js/messages.php:640
+#: index.php:204 js/messages.php:644
 #: libraries/display_change_password.lib.php:47
 #: libraries/display_change_password.lib.php:50 user_password.php:293
 msgid "Change password"
@@ -717,7 +717,7 @@ msgstr "Versijos informacija:"
 
 #: index.php:404 libraries/Sanitize.php:189 libraries/Util.php:336
 #: libraries/Util.php:403 libraries/config/FormDisplay.tpl.php:165
-#: libraries/display_export.lib.php:577 libraries/engines/Pbxt.php:166
+#: libraries/display_export.lib.php:578 libraries/engines/Pbxt.php:166
 #: libraries/navigation/NavigationHeader.php:200
 #: templates/server/variables/link_template.phtml:9
 msgid "Documentation"
@@ -1290,7 +1290,7 @@ msgstr "KiB"
 
 #. l10n: shortcuts for Megabyte
 #: js/messages.php:204 libraries/Util.php:1313
-#: libraries/display_export.lib.php:842
+#: libraries/display_export.lib.php:843
 #: libraries/server_status_monitor.lib.php:214
 msgid "MiB"
 msgstr "MiB"
@@ -1347,7 +1347,7 @@ msgid "Please add at least one variable to the series!"
 msgstr "Prašome pridėti bent vieną kintamąjį į eilę"
 
 #: js/messages.php:219 libraries/DisplayResults.php:1490
-#: libraries/config.values.php:68 libraries/display_export.lib.php:691
+#: libraries/config.values.php:68 libraries/display_export.lib.php:692
 #: libraries/plugins/export/ExportSql.php:2185
 #: libraries/plugins/schema/SchemaPdf.php:103
 #: libraries/server_status_monitor.lib.php:232
@@ -1550,7 +1550,7 @@ msgstr "Paaiškinti išvestį"
 msgid "Status"
 msgstr "Būsena"
 
-#: js/messages.php:292 js/messages.php:892
+#: js/messages.php:292 js/messages.php:896
 #: libraries/plugins/export/ExportHtmlword.php:486
 #: libraries/plugins/export/ExportOdt.php:605
 #: libraries/plugins/export/ExportTexytext.php:447
@@ -1577,71 +1577,92 @@ msgstr "Lentelė"
 msgid "Chart"
 msgstr "Diagrama"
 
+#: js/messages.php:298 libraries/display_export.lib.php:903
+#, fuzzy
+#| msgid "Database"
+msgctxt "Alias"
+msgid "Database"
+msgstr "Duomenų bazė"
+
+#: js/messages.php:299 libraries/display_export.lib.php:915
+#, fuzzy
+#| msgid "Table"
+msgctxt "Alias"
+msgid "Table"
+msgstr "Lentelė"
+
+#: js/messages.php:300 libraries/display_export.lib.php:926
+#, fuzzy
+#| msgid "Column"
+msgctxt "Alias"
+msgid "Column"
+msgstr "Stulpelis"
+
 #. l10n: A collection of available filters
-#: js/messages.php:299
+#: js/messages.php:303
 #, fuzzy
 #| msgid "Tables display options"
 msgid "Log table filter options"
 msgstr "Lentelių rodymo nustatymai"
 
 #. l10n: Filter as in "Start Filtering"
-#: js/messages.php:301
+#: js/messages.php:305
 msgid "Filter"
 msgstr "Filtras"
 
-#: js/messages.php:302
+#: js/messages.php:306
 msgid "Filter queries by word/regexp:"
 msgstr "Filtro užklausa pagal žodį/regexp:"
 
-#: js/messages.php:304
+#: js/messages.php:308
 msgid "Group queries, ignoring variable data in WHERE clauses"
 msgstr "Sugrupuoti užklausas, nepaisant kintamųjų duomenų WHERE dalyje"
 
-#: js/messages.php:305
+#: js/messages.php:309
 msgid "Sum of grouped rows:"
 msgstr "Sugrupuotų eilučių suma:"
 
-#: js/messages.php:306
+#: js/messages.php:310
 msgid "Total:"
 msgstr "Iš viso:"
 
-#: js/messages.php:308
+#: js/messages.php:312
 msgid "Loading logs"
 msgstr "Įkeliami žurnalai"
 
-#: js/messages.php:309
+#: js/messages.php:313
 msgid "Monitor refresh failed"
 msgstr ""
 
-#: js/messages.php:311
+#: js/messages.php:315
 msgid ""
 "While requesting new chart data the server returned an invalid response. "
 "This is most likely because your session expired. Reloading the page and "
 "reentering your credentials should help."
 msgstr ""
 
-#: js/messages.php:315
+#: js/messages.php:319
 msgid "Reload page"
 msgstr "Puslapį įkelti iš naujo"
 
-#: js/messages.php:317
+#: js/messages.php:321
 msgid "Affected rows:"
 msgstr "Paveiktos eilutės:"
 
-#: js/messages.php:320
+#: js/messages.php:324
 msgid "Failed parsing config file. It doesn't seem to be valid JSON code."
 msgstr ""
 "Nepavyko išnagrinėti konfigūracinio failo. Atrodo, kad tai nėra teisingas "
 "JSON kodas."
 
-#: js/messages.php:323
+#: js/messages.php:327
 msgid ""
 "Failed building chart grid with imported config. Resetting to default config…"
 msgstr ""
 "Nepavyko sudaryti diagramos tinklelio su importuota konfigūracija. Nustatoma "
 "į numatytąją konfigūraciją…"
 
-#: js/messages.php:325 libraries/Menu.php:365 libraries/Menu.php:467
+#: js/messages.php:329 libraries/Menu.php:365 libraries/Menu.php:467
 #: libraries/Menu.php:588 libraries/Util.php:4100 libraries/Util.php:4115
 #: libraries/Util.php:4132 libraries/config/messages.inc.php:257
 #: libraries/display_import.lib.php:107
@@ -1650,73 +1671,73 @@ msgstr ""
 msgid "Import"
 msgstr "Importuoti"
 
-#: js/messages.php:326
+#: js/messages.php:330
 #, fuzzy
 #| msgid "Could not import configuration"
 msgid "Import monitor configuration"
 msgstr "Nepavyko importuoti konfigūracijos"
 
-#: js/messages.php:328
+#: js/messages.php:332
 #, fuzzy
 #| msgid "Please select the primary key or a unique key"
 msgid "Please select the file you want to import."
 msgstr "Prašome pasirinkti pirminį raktą arba unikalųjį raktą"
 
-#: js/messages.php:329
+#: js/messages.php:333
 msgid "No files available on server for import!"
 msgstr ""
 
-#: js/messages.php:331
+#: js/messages.php:335
 #, fuzzy
 #| msgid "Update Query"
 msgid "Analyse query"
 msgstr "Atnaujinti užklausą"
 
-#: js/messages.php:335
+#: js/messages.php:339
 msgid "Advisor system"
 msgstr ""
 
-#: js/messages.php:336
+#: js/messages.php:340
 msgid "Possible performance issues"
 msgstr "Galimos našumo bėdos"
 
-#: js/messages.php:337
+#: js/messages.php:341
 msgid "Issue"
 msgstr "Bėda"
 
-#: js/messages.php:338
+#: js/messages.php:342
 msgid "Recommendation"
 msgstr "Rekomendacija"
 
-#: js/messages.php:339
+#: js/messages.php:343
 msgid "Rule details"
 msgstr "Taisyklės detalės"
 
-#: js/messages.php:340
+#: js/messages.php:344
 #, fuzzy
 #| msgid "Authentication"
 msgid "Justification"
 msgstr "Atpažinimas"
 
-#: js/messages.php:341
+#: js/messages.php:345
 msgid "Used variable / formula"
 msgstr "Naudojamas kintamasis / formulė"
 
-#: js/messages.php:342
+#: js/messages.php:346
 msgid "Test"
 msgstr "Išbandyti"
 
-#: js/messages.php:345
+#: js/messages.php:349
 msgid "Formatting SQL…"
 msgstr ""
 
-#: js/messages.php:346
+#: js/messages.php:350
 #, fuzzy
 #| msgid "Bad parameters!"
 msgid "No parameters found!"
 msgstr "Blogi parametrai!"
 
-#: js/messages.php:350
+#: js/messages.php:354
 #: templates/database/designer/aggregate_query_panel.phtml:63
 #: templates/database/designer/delete_relation_panel.phtml:28
 #: templates/database/designer/having_query_panel.phtml:117
@@ -1728,72 +1749,72 @@ msgstr "Blogi parametrai!"
 msgid "Cancel"
 msgstr "Atšaukti"
 
-#: js/messages.php:353 libraries/Header.php:455
+#: js/messages.php:357 libraries/Header.php:447
 #, fuzzy
 #| msgid "Change settings"
 msgid "Page-related settings"
 msgstr "Keisti nustatymus"
 
-#: js/messages.php:354 libraries/config/FormDisplay.tpl.php:424
+#: js/messages.php:358 libraries/config/FormDisplay.tpl.php:424
 msgid "Apply"
 msgstr ""
 
-#: js/messages.php:357 libraries/navigation/NavigationHeader.php:60
+#: js/messages.php:361 libraries/navigation/NavigationHeader.php:60
 #: libraries/server_status_monitor.lib.php:119
 msgid "Loading…"
 msgstr "Įkeliama…"
 
-#: js/messages.php:358
+#: js/messages.php:362
 msgid "Request aborted!!"
 msgstr ""
 
-#: js/messages.php:359
+#: js/messages.php:363
 #, fuzzy
 #| msgid "Processing Request"
 msgid "Processing request"
 msgstr "Vykdoma užklausa"
 
-#: js/messages.php:360
+#: js/messages.php:364
 #, fuzzy
 #| msgid "Query cache"
 msgid "Request failed!!"
 msgstr "Užklausų saugykla"
 
-#: js/messages.php:361
+#: js/messages.php:365
 #, fuzzy
 #| msgid "Error in processing request"
 msgid "Error in processing request"
 msgstr "Klaida vykdant užklausą"
 
-#: js/messages.php:362
+#: js/messages.php:366
 #, php-format
 msgid "Error code: %s"
 msgstr ""
 
-#: js/messages.php:363
+#: js/messages.php:367
 #, php-format
 msgid "Error text: %s"
 msgstr ""
 
-#: js/messages.php:364
+#: js/messages.php:368
 #: libraries/controllers/server/ServerDatabasesController.php:194
 #: libraries/db_common.inc.php:69 libraries/db_table_exists.inc.php:32
 msgid "No databases selected."
 msgstr "Nepažymėjote duomenų bazės."
 
-#: js/messages.php:365
+#: js/messages.php:369
 #, fuzzy
 #| msgid "Dropping Column"
 msgid "Dropping column"
 msgstr "Šalinamas stulpelis"
 
-#: js/messages.php:366
+#: js/messages.php:370
 #, fuzzy
 #| msgid "Add primary key"
 msgid "Adding primary key"
 msgstr "Pridėti pirminį raktą"
 
-#: js/messages.php:367
+#: js/messages.php:371
 #: templates/database/designer/aggregate_query_panel.phtml:59
 #: templates/database/designer/having_query_panel.phtml:113
 #: templates/database/designer/new_relation_panel.phtml:87
@@ -1803,77 +1824,77 @@ msgstr "Pridėti pirminį raktą"
 msgid "OK"
 msgstr "Gerai"
 
-#: js/messages.php:368
+#: js/messages.php:372
 msgid "Click to dismiss this notification"
 msgstr "Paspauskite, kad praleistumėte šį perspėjimą"
 
-#: js/messages.php:371
+#: js/messages.php:375
 #, fuzzy
 #| msgid "Renaming Databases"
 msgid "Renaming databases"
 msgstr "Keičiamas duomenų bazės pavadinimas"
 
-#: js/messages.php:372
+#: js/messages.php:376
 #, fuzzy
 #| msgid "Copying Database"
 msgid "Copying database"
 msgstr "Kopijuojama duomenų bazė"
 
-#: js/messages.php:373
+#: js/messages.php:377
 #, fuzzy
 #| msgid "Changing Charset"
 msgid "Changing charset"
 msgstr "Keičiama koduotė"
 
-#: js/messages.php:377 libraries/Util.php:3080
+#: js/messages.php:381 libraries/Util.php:3080
 #, fuzzy
 #| msgid "Disable foreign key checks"
 msgid "Enable foreign key checks"
 msgstr "Atsisakyti išorinių raktų tikrinimo"
 
-#: js/messages.php:380
+#: js/messages.php:384
 #, fuzzy
 #| msgid "Failed to fetch headers"
 msgid "Failed to get real row count."
 msgstr "Nepavyko gauti/priimti antraščių"
 
-#: js/messages.php:383
+#: js/messages.php:387
 msgid "Searching"
 msgstr "Ieškoma"
 
-#: js/messages.php:384
+#: js/messages.php:388
 msgid "Hide search results"
 msgstr "Slėpti paieškos rezultatus"
 
-#: js/messages.php:385
+#: js/messages.php:389
 msgid "Show search results"
 msgstr "Rodyti paieškos rezultatas"
 
-#: js/messages.php:386
+#: js/messages.php:390
 #, fuzzy
 #| msgid "Browse"
 msgid "Browsing"
 msgstr "Peržiūrėti"
 
-#: js/messages.php:387
+#: js/messages.php:391
 msgid "Deleting"
 msgstr "Šaliname"
 
-#: js/messages.php:388
+#: js/messages.php:392
 #, php-format
 msgid "Delete the matches for the %s table?"
 msgstr "Ištrinti sutapimus %s lentelėje(ei)?"
 
-#: js/messages.php:392
+#: js/messages.php:396
 msgid "The definition of a stored function must contain a RETURN statement!"
 msgstr "Apibrėžimas „stored“ funkcijos turi turėti RETURN teiginį!"
 
-#: js/messages.php:393 libraries/DisplayResults.php:4868
+#: js/messages.php:397 libraries/DisplayResults.php:4868
 #: libraries/DisplayResults.php:5151 libraries/Menu.php:357
 #: libraries/Menu.php:458 libraries/Menu.php:584 libraries/Util.php:3484
 #: libraries/Util.php:3485 libraries/Util.php:4099 libraries/Util.php:4114
 #: libraries/Util.php:4131 libraries/config/messages.inc.php:251
-#: libraries/display_export.lib.php:171 libraries/rte/rte_list.lib.php:159
+#: libraries/display_export.lib.php:172 libraries/rte/rte_list.lib.php:159
 #: libraries/server_privileges.lib.php:2366
 #: libraries/server_privileges.lib.php:2450
 #: libraries/server_privileges.lib.php:2794
@@ -1884,49 +1905,49 @@ msgstr "Apibrėžimas „stored“ funkcijos turi turėti RETURN teiginį!"
 msgid "Export"
 msgstr "Eksportuoti"
 
-#: js/messages.php:395
+#: js/messages.php:399
 msgid "No routine is exportable. Required privileges may be lacking."
 msgstr ""
 
-#: js/messages.php:398 libraries/rte/rte_routines.lib.php:747
+#: js/messages.php:402 libraries/rte/rte_routines.lib.php:747
 msgid "ENUM/SET editor"
 msgstr "ENUM/SET redaktorius"
 
-#: js/messages.php:399
+#: js/messages.php:403
 #, php-format
 msgid "Values for column %s"
 msgstr "Stulpelio „%s“ reikšmės"
 
-#: js/messages.php:400
+#: js/messages.php:404
 msgid "Values for a new column"
 msgstr "Reikšmės naujajam stulpeliui"
 
-#: js/messages.php:401
+#: js/messages.php:405
 #, fuzzy
 #| msgid "Enter each value in a separate field"
 msgid "Enter each value in a separate field."
 msgstr "Įveskite kiekvieną reikšmę atskirame laukelyje"
 
-#: js/messages.php:402
+#: js/messages.php:406
 #, php-format
 msgid "Add %d value(s)"
 msgstr "Pridėti %d reikšmę(-es)"
 
-#: js/messages.php:406
+#: js/messages.php:410
 msgid ""
 "Note: If the file contains multiple tables, they will be combined into one."
 msgstr ""
 "Pastaba: Jei failas turi keletą lentelių jos bus sukombinuotos į vieną."
 
-#: js/messages.php:410
+#: js/messages.php:414
 msgid "Hide query box"
 msgstr "Slėpti užklausos laukelį"
 
-#: js/messages.php:411
+#: js/messages.php:415
 msgid "Show query box"
 msgstr "Rodyti užklausos laukelį"
 
-#: js/messages.php:412 libraries/DisplayResults.php:3489
+#: js/messages.php:416 libraries/DisplayResults.php:3489
 #: libraries/DisplayResults.php:4852 libraries/Index.php:709
 #: libraries/Util.php:619 libraries/Util.php:1106 libraries/Util.php:3482
 #: libraries/Util.php:3483 libraries/central_columns.lib.php:848
@@ -1939,10 +1960,10 @@ msgstr "Rodyti užklausos laukelį"
 msgid "Edit"
 msgstr "Redaguoti"
 
-#: js/messages.php:413 libraries/DbSearch.php:353
+#: js/messages.php:417 libraries/DbSearch.php:353
 #: libraries/DisplayResults.php:3558 libraries/DisplayResults.php:4836
 #: libraries/central_columns.lib.php:850 libraries/central_columns.lib.php:1199
-#: libraries/display_export.lib.php:226
+#: libraries/display_export.lib.php:227
 #: libraries/server_user_groups.lib.php:127
 #: libraries/sql_query_form.lib.php:422 libraries/tracking.lib.php:488
 #: setup/frames/index.inc.php:163 templates/console/bookmark_content.phtml:18
@@ -1950,96 +1971,96 @@ msgstr "Redaguoti"
 msgid "Delete"
 msgstr "Trinti"
 
-#: js/messages.php:414 libraries/DisplayResults.php:925
+#: js/messages.php:418 libraries/DisplayResults.php:925
 #: libraries/DisplayResults.php:933
 #, php-format
 msgid "%d is not valid row number."
 msgstr "%d nėra galimas eilutės numeris."
 
-#: js/messages.php:415
+#: js/messages.php:419
 #: libraries/controllers/table/TableSearchController.php:357
 #: libraries/controllers/table/TableSearchController.php:844
 #: libraries/sql.lib.php:195 tbl_change.php:151
 msgid "Browse foreign values"
 msgstr "Naršyti išorines reikšmes"
 
-#: js/messages.php:416
+#: js/messages.php:420
 msgid "No auto-saved query"
 msgstr ""
 
-#: js/messages.php:417
+#: js/messages.php:421
 #, fuzzy, php-format
 #| msgid "Variable"
 msgid "Variable %d:"
 msgstr "Kintamasis"
 
-#: js/messages.php:420 libraries/normalization.lib.php:884
+#: js/messages.php:424 libraries/normalization.lib.php:884
 msgid "Pick"
 msgstr ""
 
-#: js/messages.php:421
+#: js/messages.php:425
 #, fuzzy
 #| msgid "No rows selected"
 msgid "Column selector"
 msgstr "Nepasirinkti įrašai"
 
-#: js/messages.php:422
+#: js/messages.php:426
 #, fuzzy
 #| msgid "Search in database"
 msgid "Search this list"
 msgstr "Paieška duomenų bazėje"
 
-#: js/messages.php:424
+#: js/messages.php:428
 #, php-format
 msgid ""
 "No columns in the central list. Make sure the Central columns list for "
 "database %s has columns that are not present in the current table."
 msgstr ""
 
-#: js/messages.php:427
+#: js/messages.php:431
 #, fuzzy
 #| msgid "Free memory"
 msgid "See more"
 msgstr "Laisva atmintis"
 
-#: js/messages.php:428
+#: js/messages.php:432
 msgid "Are you sure?"
 msgstr ""
 
-#: js/messages.php:430
+#: js/messages.php:434
 msgid ""
 "This action may change some of the columns definition.<br/>Are you sure you "
 "want to continue?"
 msgstr ""
 
-#: js/messages.php:433
+#: js/messages.php:437
 #, fuzzy
 #| msgid "Contribute"
 msgid "Continue"
 msgstr "Prisidėti"
 
-#: js/messages.php:436
+#: js/messages.php:440
 msgid "Add primary key"
 msgstr "Pridėti pirminį raktą"
 
-#: js/messages.php:437
+#: js/messages.php:441
 #, fuzzy
 #| msgid "A primary key has been added on %s."
 msgid "Primary key added."
 msgstr "Stulpeliui %s sukurtas PIRMINIS raktas."
 
-#: js/messages.php:438 libraries/normalization.lib.php:189
+#: js/messages.php:442 libraries/normalization.lib.php:189
 #, fuzzy
 #| msgid "Tracking report"
 msgid "Taking you to next step…"
 msgstr "Sekimo ataskaita"
 
-#: js/messages.php:440
+#: js/messages.php:444
 #, php-format
 msgid "The first step of normalization is complete for table '%s'."
 msgstr ""
 
-#: js/messages.php:441 libraries/normalization.lib.php:450
+#: js/messages.php:445 libraries/normalization.lib.php:450
 #: libraries/normalization.lib.php:497 libraries/normalization.lib.php:582
 #: libraries/normalization.lib.php:642
 #, fuzzy
@@ -2047,89 +2068,89 @@ msgstr ""
 msgid "End of step"
 msgstr "Eilutės galas"
 
-#: js/messages.php:442
+#: js/messages.php:446
 msgid "Second step of normalization (2NF)"
 msgstr ""
 
 #. l10n: Display text for calendar close link
-#: js/messages.php:443 js/messages.php:761 libraries/normalization.lib.php:286
+#: js/messages.php:447 js/messages.php:765 libraries/normalization.lib.php:286
 msgid "Done"
 msgstr "Atlikta"
 
-#: js/messages.php:444
+#: js/messages.php:448
 msgid "Confirm partial dependencies"
 msgstr ""
 
-#: js/messages.php:445
+#: js/messages.php:449
 msgid "Selected partial dependencies are as follows:"
 msgstr ""
 
-#: js/messages.php:447
+#: js/messages.php:451
 msgid ""
 "Note: a, b -> d,f implies values of columns a and b combined together can "
 "determine values of column d and column f."
 msgstr ""
 
-#: js/messages.php:450
+#: js/messages.php:454
 #, fuzzy
 #| msgid "No databases selected."
 msgid "No partial dependencies selected!"
 msgstr "Nepažymėjote duomenų bazės."
 
-#: js/messages.php:453
+#: js/messages.php:457
 msgid "Show me the possible partial dependencies based on data in the table"
 msgstr ""
 
-#: js/messages.php:454
+#: js/messages.php:458
 msgid "Hide partial dependencies list"
 msgstr ""
 
-#: js/messages.php:456
+#: js/messages.php:460
 msgid ""
 "Sit tight! It may take few seconds depending on data size and column count "
 "of the table."
 msgstr ""
 
-#: js/messages.php:459
+#: js/messages.php:463
 msgid "Step"
 msgstr ""
 
-#: js/messages.php:461
+#: js/messages.php:465
 #, fuzzy
 #| msgid "The following queries have been executed:"
 msgid "The following actions will be performed:"
 msgstr "Sekančios užklausos buvo įvykdytos:"
 
-#: js/messages.php:462
+#: js/messages.php:466
 #, php-format
 msgid "DROP columns %s from the table %s"
 msgstr ""
 
-#: js/messages.php:463
+#: js/messages.php:467
 #, fuzzy
 #| msgid "Add privileges on the following table"
 msgid "Create the following table"
 msgstr "Sukurti privilegijas šiai lentelei"
 
-#: js/messages.php:466
+#: js/messages.php:470
 msgid "Third step of normalization (3NF)"
 msgstr ""
 
-#: js/messages.php:467
+#: js/messages.php:471
 msgid "Confirm transitive dependencies"
 msgstr ""
 
-#: js/messages.php:468
+#: js/messages.php:472
 msgid "Selected dependencies are as follows:"
 msgstr ""
 
-#: js/messages.php:469
+#: js/messages.php:473
 #, fuzzy
 #| msgid "No databases selected."
 msgid "No dependencies selected!"
 msgstr "Nepažymėjote duomenų bazės."
 
-#: js/messages.php:472 libraries/central_columns.lib.php:1215
+#: js/messages.php:476 libraries/central_columns.lib.php:1215
 #: libraries/insert_edit.lib.php:1527
 #: templates/columns_definitions/column_definitions_form.phtml:166
 #: templates/server/variables/link_template.phtml:2
@@ -2139,451 +2160,451 @@ msgstr "Nepažymėjote duomenų bazės."
 msgid "Save"
 msgstr "Išsaugoti"
 
-#: js/messages.php:475
+#: js/messages.php:479
 msgid "Hide search criteria"
 msgstr "Slėpti paieškos kriterijų"
 
-#: js/messages.php:476
+#: js/messages.php:480
 msgid "Show search criteria"
 msgstr "Rodyti paieškos kriterijų"
 
-#: js/messages.php:477
+#: js/messages.php:481
 #, fuzzy
 #| msgid "Search"
 msgid "Range search"
 msgstr "Paieška"
 
-#: js/messages.php:478
+#: js/messages.php:482
 #, fuzzy
 #| msgid "Column names: "
 msgid "Column maximum:"
 msgstr "Stulpelių vardai: "
 
-#: js/messages.php:479
+#: js/messages.php:483
 #, fuzzy
 #| msgid "Column names: "
 msgid "Column minimum:"
 msgstr "Stulpelių vardai: "
 
-#: js/messages.php:480
+#: js/messages.php:484
 #, fuzzy
 #| msgid "Maximum tables"
 msgid "Minimum value:"
 msgstr "Didžiausias skaičius lentelių"
 
-#: js/messages.php:481
+#: js/messages.php:485
 #, fuzzy
 #| msgid "Maximum tables"
 msgid "Maximum value:"
 msgstr "Didžiausias skaičius lentelių"
 
-#: js/messages.php:484
+#: js/messages.php:488
 #, fuzzy
 #| msgid "Hide search criteria"
 msgid "Hide find and replace criteria"
 msgstr "Slėpti paieškos kriterijų"
 
-#: js/messages.php:485
+#: js/messages.php:489
 #, fuzzy
 #| msgid "Show search criteria"
 msgid "Show find and replace criteria"
 msgstr "Rodyti paieškos kriterijų"
 
-#: js/messages.php:489
+#: js/messages.php:493
 msgid "Each point represents a data row."
 msgstr ""
 
-#: js/messages.php:491
+#: js/messages.php:495
 msgid "Hovering over a point will show its label."
 msgstr ""
 
-#: js/messages.php:493
+#: js/messages.php:497
 msgid "To zoom in, select a section of the plot with the mouse."
 msgstr ""
 
-#: js/messages.php:495
+#: js/messages.php:499
 msgid "Click reset zoom button to come back to original state."
 msgstr ""
 
-#: js/messages.php:497
+#: js/messages.php:501
 msgid "Click a data point to view and possibly edit the data row."
 msgstr ""
 
-#: js/messages.php:499
+#: js/messages.php:503
 msgid "The plot can be resized by dragging it along the bottom right corner."
 msgstr ""
 
-#: js/messages.php:502
+#: js/messages.php:506
 msgid "Select two columns"
 msgstr "Pasirinkite du stulpelius"
 
-#: js/messages.php:504
+#: js/messages.php:508
 msgid "Select two different columns"
 msgstr "Pasirinkite du skirtingus stulpelius"
 
-#: js/messages.php:506
+#: js/messages.php:510
 #, fuzzy
 #| msgid "Data pointer size"
 msgid "Data point content"
 msgstr "Duomenų rodyklės dydis"
 
-#: js/messages.php:509 js/messages.php:675 js/messages.php:692
+#: js/messages.php:513 js/messages.php:679 js/messages.php:696
 #: libraries/ErrorHandler.php:370 libraries/insert_edit.lib.php:2644
 #: templates/table/index_form.phtml:154 templates/table/index_form.phtml:198
 msgid "Ignore"
 msgstr "Ignoruoti"
 
-#: js/messages.php:510 libraries/DisplayResults.php:3492
+#: js/messages.php:514 libraries/DisplayResults.php:3492
 #: libraries/DisplayResults.php:4857
 msgid "Copy"
 msgstr "Kopijuoti"
 
-#: js/messages.php:513
+#: js/messages.php:517
 msgid "Point"
 msgstr "Taškas"
 
-#: js/messages.php:515
+#: js/messages.php:519
 msgid "Linestring"
 msgstr "Atkarpų seka"
 
-#: js/messages.php:516
+#: js/messages.php:520
 msgid "Polygon"
 msgstr "Daugiakampis"
 
-#: js/messages.php:517 libraries/DisplayResults.php:1795
+#: js/messages.php:521 libraries/DisplayResults.php:1795
 msgid "Geometry"
 msgstr "Geometrija"
 
-#: js/messages.php:518
+#: js/messages.php:522
 #, fuzzy
 #| msgid "Inner Ring"
 msgid "Inner ring"
 msgstr "Vidinis žiedas"
 
-#: js/messages.php:519
+#: js/messages.php:523
 #, fuzzy
 #| msgid "Outer ring:"
 msgid "Outer ring"
 msgstr "Išorinis žiedas:"
 
-#: js/messages.php:523
+#: js/messages.php:527
 msgid "Do you want to copy encryption key?"
 msgstr ""
 
-#: js/messages.php:524
+#: js/messages.php:528
 msgid "Encryption key"
 msgstr ""
 
-#: js/messages.php:528
+#: js/messages.php:532
 msgid ""
 "MySQL accepts additional values not selectable by the slider; key in those "
 "values directly if desired"
 msgstr ""
 
-#: js/messages.php:534
+#: js/messages.php:538
 msgid ""
 "MySQL accepts additional values not selectable by the datepicker; key in "
 "those values directly if desired"
 msgstr ""
 
-#: js/messages.php:540
+#: js/messages.php:544
 msgid ""
 "Indicates that you have made changes to this page; you will be prompted for "
 "confirmation before abandoning changes"
 msgstr ""
 
-#: js/messages.php:545
+#: js/messages.php:549
 msgid "Select referenced key"
 msgstr "Pasirinkite siejamą raktą"
 
-#: js/messages.php:546
+#: js/messages.php:550
 msgid "Select Foreign Key"
 msgstr "Pasirinkti Foreign Key"
 
-#: js/messages.php:548
+#: js/messages.php:552
 #, fuzzy
 #| msgid "Please select the primary key or a unique key"
 msgid "Please select the primary key or a unique key!"
 msgstr "Prašome pasirinkti pirminį raktą arba unikalųjį raktą"
 
-#: js/messages.php:549 templates/database/designer/side_menu.phtml:91
+#: js/messages.php:553 templates/database/designer/side_menu.phtml:91
 #: templates/database/designer/side_menu.phtml:94
 msgid "Choose column to display"
 msgstr "Pasirinkite laukus peržiūrai"
 
-#: js/messages.php:551
+#: js/messages.php:555
 msgid ""
 "You haven't saved the changes in the layout. They will be lost if you don't "
 "save them. Do you want to continue?"
 msgstr ""
 
-#: js/messages.php:554
+#: js/messages.php:558
 msgid "Page name"
 msgstr "Puslapio vardas"
 
-#: js/messages.php:555 templates/database/designer/side_menu.phtml:56
+#: js/messages.php:559 templates/database/designer/side_menu.phtml:56
 #: templates/database/designer/side_menu.phtml:59
 #, fuzzy
 #| msgid "Select page"
 msgid "Save page"
 msgstr "Pasirinkite puslapį"
 
-#: js/messages.php:556 templates/database/designer/side_menu.phtml:63
+#: js/messages.php:560 templates/database/designer/side_menu.phtml:63
 #: templates/database/designer/side_menu.phtml:66
 #, fuzzy
 #| msgid "Select page"
 msgid "Save page as"
 msgstr "Pasirinkite puslapį"
 
-#: js/messages.php:557 templates/database/designer/side_menu.phtml:49
+#: js/messages.php:561 templates/database/designer/side_menu.phtml:49
 #: templates/database/designer/side_menu.phtml:52
 #, fuzzy
 #| msgid "Free pages"
 msgid "Open page"
 msgstr "Tušti puslapiai"
 
-#: js/messages.php:558
+#: js/messages.php:562
 #, fuzzy
 #| msgid "Select page"
 msgid "Delete page"
 msgstr "Pasirinkite puslapį"
 
-#: js/messages.php:559 templates/database/designer/side_menu.phtml:10
+#: js/messages.php:563 templates/database/designer/side_menu.phtml:10
 #, fuzzy
 #| msgid "Unit"
 msgid "Untitled"
 msgstr "Vienetas"
 
-#: js/messages.php:560
+#: js/messages.php:564
 #, fuzzy
 #| msgid "Please choose a page to edit"
 msgid "Please select a page to continue"
 msgstr "Pasirinkite puslapį redagavimui"
 
-#: js/messages.php:561
+#: js/messages.php:565
 #, fuzzy
 #| msgid "Not a valid port number"
 msgid "Please enter a valid page name"
 msgstr "Neteisingas jungties skaičius"
 
-#: js/messages.php:563
+#: js/messages.php:567
 msgid "Do you want to save the changes to the current page?"
 msgstr ""
 
-#: js/messages.php:564
+#: js/messages.php:568
 msgid "Successfully deleted the page"
 msgstr ""
 
-#: js/messages.php:565
+#: js/messages.php:569
 #, fuzzy
 #| msgid "Edit or export relational schema"
 msgid "Export relational schema"
 msgstr "Keisti arba eksportuoti ryšių schemą"
 
-#: js/messages.php:566
+#: js/messages.php:570
 msgid "Modifications have been saved"
 msgstr "Pakeitimai išsaugoti"
 
-#: js/messages.php:569
+#: js/messages.php:573
 #, fuzzy, php-format
 #| msgid "Add an option for column "
 msgid "Add an option for column \"%s\"."
 msgstr "Pridėti parinktį stulpeliui/skilčiai "
 
-#: js/messages.php:570
+#: js/messages.php:574
 #, php-format
 msgid "%d object(s) created."
 msgstr ""
 
-#: js/messages.php:571 libraries/sql_query_form.lib.php:414
+#: js/messages.php:575 libraries/sql_query_form.lib.php:414
 msgid "Submit"
 msgstr "Siųsti"
 
-#: js/messages.php:574
+#: js/messages.php:578
 #, fuzzy
 #| msgid "Press escape to cancel editing"
 msgid "Press escape to cancel editing."
 msgstr "Paspausti escape (klavišas Esc), kad išeiti iš redagavimo"
 
-#: js/messages.php:576
+#: js/messages.php:580
 msgid ""
 "You have edited some data and they have not been saved. Are you sure you "
 "want to leave this page before saving the data?"
 msgstr ""
 
-#: js/messages.php:579
+#: js/messages.php:583
 #, fuzzy
 #| msgid "Drag to reorder"
 msgid "Drag to reorder."
 msgstr "Vilkite, kad pertvarkytumėte"
 
-#: js/messages.php:580
+#: js/messages.php:584
 msgid "Click to sort results by this column."
 msgstr ""
 
-#: js/messages.php:582
+#: js/messages.php:586
 msgid ""
 "Shift+Click to add this column to ORDER BY clause or to toggle ASC/DESC.<br /"
 ">- Ctrl+Click or Alt+Click (Mac: Shift+Option+Click) to remove column from "
 "ORDER BY clause"
 msgstr ""
 
-#: js/messages.php:586
+#: js/messages.php:590
 #, fuzzy
 #| msgid "Click to mark/unmark"
 msgid "Click to mark/unmark."
 msgstr "Paspauskite, kad (at)pažymėti"
 
-#: js/messages.php:587
+#: js/messages.php:591
 #, fuzzy
 #| msgid "Column names"
 msgid "Double-click to copy column name."
 msgstr "Stulpelių vardai"
 
-#: js/messages.php:589
+#: js/messages.php:593
 msgid "Click the drop-down arrow<br />to toggle column's visibility."
 msgstr ""
 
-#: js/messages.php:591 libraries/DisplayResults.php:1032
+#: js/messages.php:595 libraries/DisplayResults.php:1032
 #: libraries/browse_foreigners.lib.php:283
 #: libraries/browse_foreigners.lib.php:336
 #: templates/privileges/initials_row.phtml:24
 msgid "Show all"
 msgstr "Rodyti viską"
 
-#: js/messages.php:593
+#: js/messages.php:597
 msgid ""
 "This table does not contain a unique column. Features related to the grid "
 "edit, checkbox, Edit, Copy and Delete links may not work after saving."
 msgstr ""
 
-#: js/messages.php:597
+#: js/messages.php:601
 msgid "Please enter a valid hexadecimal string. Valid characters are 0-9, A-F."
 msgstr ""
 
-#: js/messages.php:599
+#: js/messages.php:603
 msgid ""
 "Do you really want to see all of the rows? For a big table this could crash "
 "the browser."
 msgstr ""
 
-#: js/messages.php:602
+#: js/messages.php:606
 #, fuzzy
 #| msgid "Original position"
 msgid "Original length"
 msgstr "Pirminė padėtis"
 
-#: js/messages.php:605
+#: js/messages.php:609
 #, fuzzy
 #| msgid "Cancel"
 msgid "cancel"
 msgstr "Atšaukti"
 
-#: js/messages.php:606 libraries/server_status.lib.php:277
+#: js/messages.php:610 libraries/server_status.lib.php:277
 msgid "Aborted"
 msgstr "Nutraukta"
 
-#: js/messages.php:608
+#: js/messages.php:612
 msgid "Success"
 msgstr ""
 
-#: js/messages.php:609
+#: js/messages.php:613
 #, fuzzy
 #| msgid "Import defaults"
 msgid "Import status"
 msgstr "Importuoti numatytąsias reikšmes"
 
-#: js/messages.php:610 libraries/navigation/Navigation.php:113
+#: js/messages.php:614 libraries/navigation/Navigation.php:113
 msgid "Drop files here"
 msgstr ""
 
-#: js/messages.php:611
+#: js/messages.php:615
 #, fuzzy
 #| msgid "Select Tables"
 msgid "Select database first"
 msgstr "Pasirinkite lenteles"
 
-#: js/messages.php:614 libraries/DisplayResults.php:5043
+#: js/messages.php:618 libraries/DisplayResults.php:5043
 #: libraries/Util.php:3992
 #: templates/database/structure/print_view_data_dictionary_link.phtml:3
 #: templates/table/structure/optional_action_links.phtml:6
 msgid "Print"
 msgstr "Spausdinti"
 
-#: js/messages.php:621
+#: js/messages.php:625
 msgid "You can also edit most values<br />by double-clicking directly on them."
 msgstr ""
 
-#: js/messages.php:626
+#: js/messages.php:630
 msgid "You can also edit most values<br />by clicking directly on them."
 msgstr ""
 
-#: js/messages.php:632
+#: js/messages.php:636
 #, fuzzy
 #| msgid "Go to link"
 msgid "Go to link:"
 msgstr "Eiti pagal nuorodą"
 
-#: js/messages.php:633
+#: js/messages.php:637
 #, fuzzy
 #| msgid "Column names"
 msgid "Copy column name."
 msgstr "Stulpelių vardai"
 
-#: js/messages.php:635
+#: js/messages.php:639
 msgid "Right-click the column name to copy it to your clipboard."
 msgstr ""
 
-#: js/messages.php:638
+#: js/messages.php:642
 msgid "Generate password"
 msgstr "Generuoti slaptažodį"
 
-#: js/messages.php:639 libraries/replication_gui.lib.php:877
+#: js/messages.php:643 libraries/replication_gui.lib.php:877
 msgid "Generate"
 msgstr "Generuoti"
 
-#: js/messages.php:643
+#: js/messages.php:647
 msgid "More"
 msgstr "Daugiau"
 
-#: js/messages.php:646
+#: js/messages.php:650
 #, fuzzy
 #| msgid "Show all"
 msgid "Show panel"
 msgstr "Rodyti viską"
 
-#: js/messages.php:647
+#: js/messages.php:651
 #, fuzzy
 #| msgid "Hide indexes"
 msgid "Hide panel"
 msgstr "Nerodyti indeksų"
 
-#: js/messages.php:648
+#: js/messages.php:652
 #, fuzzy
 #| msgid "Show logo in left frame"
 msgid "Show hidden navigation tree items."
 msgstr "Logotipą rodyti kairiame rėmelyje"
 
-#: js/messages.php:649 libraries/config/messages.inc.php:473
+#: js/messages.php:653 libraries/config/messages.inc.php:473
 #: libraries/navigation/NavigationTree.php:1431
 #, fuzzy
 #| msgid "Customize main frame"
 msgid "Link with main panel"
 msgstr "Adaptuoti pagrindinė rėmelį"
 
-#: js/messages.php:650 libraries/navigation/NavigationTree.php:1434
+#: js/messages.php:654 libraries/navigation/NavigationTree.php:1434
 #, fuzzy
 #| msgid "Customize main frame"
 msgid "Unlink from main panel"
 msgstr "Adaptuoti pagrindinė rėmelį"
 
-#: js/messages.php:654
+#: js/messages.php:658
 #, fuzzy
 #| msgid "The selected user was not found in the privilege table."
 msgid "The requested page was not found in the history, it may have expired."
 msgstr "Privilegijų lentelėje pasirinktas vartotojas nerastas."
 
-#: js/messages.php:658 setup/lib/index.lib.php:165
+#: js/messages.php:662 setup/lib/index.lib.php:165
 #, php-format
 msgid ""
 "A newer version of phpMyAdmin is available and you should consider "
@@ -2593,124 +2614,124 @@ msgstr ""
 "atnaujinimą. Naujausia versija yra %s, išleista %s."
 
 #. l10n: Latest available phpMyAdmin version
-#: js/messages.php:662
+#: js/messages.php:666
 msgid ", latest stable version:"
 msgstr ", naujausia stabili versija:"
 
-#: js/messages.php:663
+#: js/messages.php:667
 msgid "up to date"
 msgstr "naujausias"
 
-#: js/messages.php:665 libraries/DisplayResults.php:4974 view_create.php:206
+#: js/messages.php:669 libraries/DisplayResults.php:4974 view_create.php:206
 msgid "Create view"
 msgstr "Sukurti rodinį"
 
-#: js/messages.php:668
+#: js/messages.php:672
 #, fuzzy
 #| msgid "Server port"
 msgid "Send error report"
 msgstr "Serverio jungtis"
 
-#: js/messages.php:669
+#: js/messages.php:673
 #, fuzzy
 #| msgid "Server port"
 msgid "Submit error report"
 msgstr "Serverio jungtis"
 
-#: js/messages.php:671
+#: js/messages.php:675
 msgid ""
 "A fatal JavaScript error has occurred. Would you like to send an error "
 "report?"
 msgstr ""
 
-#: js/messages.php:673
+#: js/messages.php:677
 #, fuzzy
 #| msgid "Change settings"
 msgid "Change report settings"
 msgstr "Keisti nustatymus"
 
-#: js/messages.php:674
+#: js/messages.php:678
 #, fuzzy
 #| msgid "Show open tables"
 msgid "Show report details"
 msgstr "Rodyti atidarytas lenteles"
 
-#: js/messages.php:677
+#: js/messages.php:681
 msgid ""
 "Your export is incomplete, due to a low execution time limit at the PHP "
 "level!"
 msgstr ""
 
-#: js/messages.php:681
+#: js/messages.php:685
 #, php-format
 msgid ""
 "Warning: a form on this page has more than %d fields. On submission, some of "
 "the fields might be ignored, due to PHP's max_input_vars configuration."
 msgstr ""
 
-#: js/messages.php:687 js/messages.php:700
+#: js/messages.php:691 js/messages.php:704
 msgid "Some errors have been detected on the server!"
 msgstr ""
 
-#: js/messages.php:689
+#: js/messages.php:693
 msgid "Please look at the bottom of this window."
 msgstr ""
 
-#: js/messages.php:695 libraries/ErrorHandler.php:374
+#: js/messages.php:699 libraries/ErrorHandler.php:374
 #, fuzzy
 #| msgid "Ignore"
 msgid "Ignore All"
 msgstr "Ignoruoti"
 
-#: js/messages.php:703
+#: js/messages.php:707
 msgid ""
 "As per your settings, they are being submitted currently, please be patient."
 msgstr ""
 
-#: js/messages.php:713
+#: js/messages.php:717
 #, fuzzy
 #| msgid "Show this query here again"
 msgid "Execute this query again?"
 msgstr "Rodyti šią užklausą vėl"
 
-#: js/messages.php:715
+#: js/messages.php:719
 #, fuzzy
 #| msgid "Do you really want to execute \"%s\"?"
 msgid "Do you really want to delete this bookmark?"
 msgstr "Ar tikrai norite vykdyti „%s“?"
 
-#: js/messages.php:717
+#: js/messages.php:721
 msgid "Some error occurred while getting SQL debug info."
 msgstr ""
 
-#: js/messages.php:719
+#: js/messages.php:723
 #, fuzzy, php-format
 #| msgid "Executed queries"
 msgid "%s queries executed %s times in %s seconds."
 msgstr "Įvykdytos užklausos"
 
-#: js/messages.php:720
+#: js/messages.php:724
 #, php-format
 msgid "%s argument(s) passed"
 msgstr ""
 
-#: js/messages.php:721
+#: js/messages.php:725
 #, fuzzy
 #| msgid "Table comments"
 msgid "Show arguments"
 msgstr "Lentelės komentarai"
 
-#: js/messages.php:722
+#: js/messages.php:726
 #, fuzzy
 #| msgid "Hide search results"
 msgid "Hide arguments"
 msgstr "Slėpti paieškos rezultatus"
 
-#: js/messages.php:723
+#: js/messages.php:727
 msgid "Time taken:"
 msgstr ""
 
-#: js/messages.php:724
+#: js/messages.php:728
 msgid ""
 "There was a problem accessing your browser storage, some features may not "
 "work properly for you. It is likely that the browser doesn't support storage "
@@ -2719,56 +2740,56 @@ msgid ""
 "Safari, such problem is commonly caused by \"Private Mode Browsing\"."
 msgstr ""
 
-#: js/messages.php:726
+#: js/messages.php:730
 #, fuzzy
 #| msgid "Copy database to"
 msgid "Copy tables to"
 msgstr "Kopijuoti duomenų bazę į"
 
-#: js/messages.php:727
+#: js/messages.php:731
 #, fuzzy
 #| msgid "Add table prefix"
 msgid "Add table prefix"
 msgstr "Pridėti lentelės priešdėlį"
 
-#: js/messages.php:728
+#: js/messages.php:732
 #, fuzzy
 #| msgid "Replace table prefix"
 msgid "Replace table with prefix"
 msgstr "Pakeisti lentelės pavadinimo priešdėlį"
 
-#: js/messages.php:729 templates/database/structure/check_all_tables.phtml:29
+#: js/messages.php:733 templates/database/structure/check_all_tables.phtml:29
 msgid "Copy table with prefix"
 msgstr "Kopijuoti lentelę su pavadinimo priešdėliu"
 
-#: js/messages.php:732
+#: js/messages.php:736
 msgid "Extremely weak"
 msgstr ""
 
-#: js/messages.php:733
+#: js/messages.php:737
 msgid "Very weak"
 msgstr ""
 
-#: js/messages.php:734
+#: js/messages.php:738
 msgid "Weak"
 msgstr ""
 
-#: js/messages.php:735
+#: js/messages.php:739
 msgid "Good"
 msgstr ""
 
-#: js/messages.php:736
+#: js/messages.php:740
 msgid "Strong"
 msgstr ""
 
-#: js/messages.php:765
+#: js/messages.php:769
 #, fuzzy
 #| msgid "Prev"
 msgctxt "Previous month"
 msgid "Prev"
 msgstr "Ankstesnis"
 
-#: js/messages.php:770
+#: js/messages.php:774
 #, fuzzy
 #| msgid "Next"
 msgctxt "Next month"
@@ -2776,149 +2797,149 @@ msgid "Next"
 msgstr "Kitas"
 
 #. l10n: Display text for current month link in calendar
-#: js/messages.php:773
+#: js/messages.php:777
 msgid "Today"
 msgstr "Šiandien"
 
-#: js/messages.php:777
+#: js/messages.php:781
 msgid "January"
 msgstr "sausio"
 
-#: js/messages.php:778
+#: js/messages.php:782
 msgid "February"
 msgstr "vasario"
 
-#: js/messages.php:779
+#: js/messages.php:783
 msgid "March"
 msgstr "kovo"
 
-#: js/messages.php:780
+#: js/messages.php:784
 msgid "April"
 msgstr "balandžio"
 
-#: js/messages.php:781
+#: js/messages.php:785
 msgid "May"
 msgstr "Geg"
 
-#: js/messages.php:782
+#: js/messages.php:786
 msgid "June"
 msgstr "birželio"
 
-#: js/messages.php:783
+#: js/messages.php:787
 msgid "July"
 msgstr "liepos"
 
-#: js/messages.php:784
+#: js/messages.php:788
 msgid "August"
 msgstr "rugpjūčio"
 
-#: js/messages.php:785
+#: js/messages.php:789
 msgid "September"
 msgstr "rugsėjo"
 
-#: js/messages.php:786
+#: js/messages.php:790
 msgid "October"
 msgstr "spalio"
 
-#: js/messages.php:787
+#: js/messages.php:791
 msgid "November"
 msgstr "lapkričio"
 
-#: js/messages.php:788
+#: js/messages.php:792
 msgid "December"
 msgstr "gruodžio"
 
 #. l10n: Short month name
-#: js/messages.php:795 libraries/Util.php:1526
+#: js/messages.php:799 libraries/Util.php:1526
 msgid "Jan"
 msgstr "Sau"
 
 #. l10n: Short month name
-#: js/messages.php:797 libraries/Util.php:1528
+#: js/messages.php:801 libraries/Util.php:1528
 msgid "Feb"
 msgstr "Vas"
 
 #. l10n: Short month name
-#: js/messages.php:799 libraries/Util.php:1530
+#: js/messages.php:803 libraries/Util.php:1530
 msgid "Mar"
 msgstr "Kov"
 
 #. l10n: Short month name
-#: js/messages.php:801 libraries/Util.php:1532
+#: js/messages.php:805 libraries/Util.php:1532
 msgid "Apr"
 msgstr "Bal"
 
 #. l10n: Short month name
-#: js/messages.php:803 libraries/Util.php:1534
+#: js/messages.php:807 libraries/Util.php:1534
 msgctxt "Short month name"
 msgid "May"
 msgstr "Geg"
 
 #. l10n: Short month name
-#: js/messages.php:805 libraries/Util.php:1536
+#: js/messages.php:809 libraries/Util.php:1536
 msgid "Jun"
 msgstr "Bir"
 
 #. l10n: Short month name
-#: js/messages.php:807 libraries/Util.php:1538
+#: js/messages.php:811 libraries/Util.php:1538
 msgid "Jul"
 msgstr "Lie"
 
 #. l10n: Short month name
-#: js/messages.php:809 libraries/Util.php:1540
+#: js/messages.php:813 libraries/Util.php:1540
 msgid "Aug"
 msgstr "Rgp"
 
 #. l10n: Short month name
-#: js/messages.php:811 libraries/Util.php:1542
+#: js/messages.php:815 libraries/Util.php:1542
 msgid "Sep"
 msgstr "Rgs"
 
 #. l10n: Short month name
-#: js/messages.php:813 libraries/Util.php:1544
+#: js/messages.php:817 libraries/Util.php:1544
 msgid "Oct"
 msgstr "Spa"
 
 #. l10n: Short month name
-#: js/messages.php:815 libraries/Util.php:1546
+#: js/messages.php:819 libraries/Util.php:1546
 msgid "Nov"
 msgstr "Lap"
 
 #. l10n: Short month name
-#: js/messages.php:817 libraries/Util.php:1548
+#: js/messages.php:821 libraries/Util.php:1548
 msgid "Dec"
 msgstr "Grd"
 
-#: js/messages.php:823
+#: js/messages.php:827
 msgid "Sunday"
 msgstr "Sekmadienis"
 
-#: js/messages.php:824
+#: js/messages.php:828
 msgid "Monday"
 msgstr "Pirmadienis"
 
-#: js/messages.php:825
+#: js/messages.php:829
 msgid "Tuesday"
 msgstr "Antradienis"
 
-#: js/messages.php:826
+#: js/messages.php:830
 msgid "Wednesday"
 msgstr "Trečiadienis"
 
-#: js/messages.php:827
+#: js/messages.php:831
 msgid "Thursday"
 msgstr "Ketvirtadienis"
 
-#: js/messages.php:828
+#: js/messages.php:832
 msgid "Friday"
 msgstr "Penktadienis"
 
-#: js/messages.php:829
+#: js/messages.php:833
 msgid "Saturday"
 msgstr "Šeštadienis"
 
 #. l10n: Short week day name
-#: js/messages.php:836
+#: js/messages.php:840
 #, fuzzy
 #| msgctxt "Short week day name"
 #| msgid "Sun"
@@ -2926,206 +2947,206 @@ msgid "Sun"
 msgstr "Sek"
 
 #. l10n: Short week day name
-#: js/messages.php:838 libraries/Util.php:1553
+#: js/messages.php:842 libraries/Util.php:1553
 msgid "Mon"
 msgstr "Pir"
 
 #. l10n: Short week day name
-#: js/messages.php:840 libraries/Util.php:1555
+#: js/messages.php:844 libraries/Util.php:1555
 msgid "Tue"
 msgstr "Ant"
 
 #. l10n: Short week day name
-#: js/messages.php:842 libraries/Util.php:1557
+#: js/messages.php:846 libraries/Util.php:1557
 msgid "Wed"
 msgstr "Tre"
 
 #. l10n: Short week day name
-#: js/messages.php:844 libraries/Util.php:1559
+#: js/messages.php:848 libraries/Util.php:1559
 msgid "Thu"
 msgstr "Ket"
 
 #. l10n: Short week day name
-#: js/messages.php:846 libraries/Util.php:1561
+#: js/messages.php:850 libraries/Util.php:1561
 msgid "Fri"
 msgstr "Pen"
 
 #. l10n: Short week day name
-#: js/messages.php:848 libraries/Util.php:1563
+#: js/messages.php:852 libraries/Util.php:1563
 msgid "Sat"
 msgstr "Šeš"
 
 #. l10n: Minimal week day name
-#: js/messages.php:855
+#: js/messages.php:859
 msgid "Su"
 msgstr "Sk"
 
 #. l10n: Minimal week day name
-#: js/messages.php:857
+#: js/messages.php:861
 msgid "Mo"
 msgstr "Pr"
 
 #. l10n: Minimal week day name
-#: js/messages.php:859
+#: js/messages.php:863
 msgid "Tu"
 msgstr "An"
 
 #. l10n: Minimal week day name
-#: js/messages.php:861
+#: js/messages.php:865
 msgid "We"
 msgstr "Tr"
 
 #. l10n: Minimal week day name
-#: js/messages.php:863
+#: js/messages.php:867
 msgid "Th"
 msgstr "Kt"
 
 #. l10n: Minimal week day name
-#: js/messages.php:865
+#: js/messages.php:869
 msgid "Fr"
 msgstr "Pn"
 
 #. l10n: Minimal week day name
-#: js/messages.php:867
+#: js/messages.php:871
 msgid "Sa"
 msgstr "Št"
 
 #. l10n: Column header for week of the year in calendar
-#: js/messages.php:871
+#: js/messages.php:875
 msgid "Wk"
 msgstr "Sav."
 
 #. l10n: Month-year order for calendar, use either "calendar-month-year"
 #. * or "calendar-year-month".
 #.
-#: js/messages.php:878
+#: js/messages.php:882
 msgid "calendar-month-year"
 msgstr ""
 
 #. l10n: Year suffix for calendar, "none" is empty.
-#: js/messages.php:881
+#: js/messages.php:885
 #, fuzzy
 #| msgid "None"
 msgctxt "Year suffix"
 msgid "none"
 msgstr "Ne"
 
-#: js/messages.php:893
+#: js/messages.php:897
 msgid "Hour"
 msgstr "Valanda"
 
-#: js/messages.php:894
+#: js/messages.php:898
 msgid "Minute"
 msgstr "Minutė"
 
-#: js/messages.php:895
+#: js/messages.php:899
 msgid "Second"
 msgstr "Sekundės"
 
-#: js/messages.php:906
+#: js/messages.php:910
 msgid "This field is required"
 msgstr ""
 
-#: js/messages.php:907
+#: js/messages.php:911
 #, fuzzy
 #| msgid "Use text field"
 msgid "Please fix this field"
 msgstr "Naudokite teksto įvedimo lauką"
 
-#: js/messages.php:908
+#: js/messages.php:912
 #, fuzzy
 #| msgid "Not a valid port number"
 msgid "Please enter a valid email address"
 msgstr "Neteisingas jungties skaičius"
 
-#: js/messages.php:909
+#: js/messages.php:913
 #, fuzzy
 #| msgid "Not a valid port number"
 msgid "Please enter a valid URL"
 msgstr "Neteisingas jungties skaičius"
 
-#: js/messages.php:910
+#: js/messages.php:914
 #, fuzzy
 #| msgid "Not a valid port number"
 msgid "Please enter a valid date"
 msgstr "Neteisingas jungties skaičius"
 
-#: js/messages.php:913
+#: js/messages.php:917
 #, fuzzy
 #| msgid "Not a valid port number"
 msgid "Please enter a valid date ( ISO )"
 msgstr "Neteisingas jungties skaičius"
 
-#: js/messages.php:915
+#: js/messages.php:919
 #, fuzzy
 #| msgid "Not a valid port number"
 msgid "Please enter a valid number"
 msgstr "Neteisingas jungties skaičius"
 
-#: js/messages.php:918
+#: js/messages.php:922
 #, fuzzy
 #| msgid "Not a valid port number"
 msgid "Please enter a valid credit card number"
 msgstr "Neteisingas jungties skaičius"
 
-#: js/messages.php:920
+#: js/messages.php:924
 #, fuzzy
 #| msgid "Not a valid port number"
 msgid "Please enter only digits"
 msgstr "Neteisingas jungties skaičius"
 
-#: js/messages.php:923
+#: js/messages.php:927
 #, fuzzy
 #| msgid "Not a valid port number"
 msgid "Please enter the same value again"
 msgstr "Neteisingas jungties skaičius"
 
-#: js/messages.php:927
+#: js/messages.php:931
 msgid "Please enter no more than {0} characters"
 msgstr ""
 
-#: js/messages.php:932
+#: js/messages.php:936
 #, fuzzy
 #| msgid "Not a valid port number"
 msgid "Please enter at least {0} characters"
 msgstr "Neteisingas jungties skaičius"
 
-#: js/messages.php:937
+#: js/messages.php:941
 msgid "Please enter a value between {0} and {1} characters long"
 msgstr ""
 
-#: js/messages.php:942
+#: js/messages.php:946
 #, fuzzy
 #| msgid "Not a valid port number"
 msgid "Please enter a value between {0} and {1}"
 msgstr "Neteisingas jungties skaičius"
 
-#: js/messages.php:947
+#: js/messages.php:951
 #, fuzzy
 #| msgid "Not a valid port number"
 msgid "Please enter a value less than or equal to {0}"
 msgstr "Neteisingas jungties skaičius"
 
-#: js/messages.php:952
+#: js/messages.php:956
 #, fuzzy
 #| msgid "Not a valid port number"
 msgid "Please enter a value greater than or equal to {0}"
 msgstr "Neteisingas jungties skaičius"
 
-#: js/messages.php:958
+#: js/messages.php:962
 #, fuzzy
 #| msgid "Not a valid port number"
 msgid "Please enter a valid date or time"
 msgstr "Neteisingas jungties skaičius"
 
-#: js/messages.php:963
+#: js/messages.php:967
 #, fuzzy
 #| msgid "Not a valid port number"
 msgid "Please enter a valid HEX input"
 msgstr "Neteisingas jungties skaičius"
 
-#: js/messages.php:968 libraries/Message.php:190 libraries/Util.php:566
-#: libraries/core.lib.php:243 libraries/import.lib.php:80
+#: js/messages.php:972 libraries/Message.php:190 libraries/Util.php:566
+#: libraries/core.lib.php:244 libraries/import.lib.php:80
 #: libraries/insert_edit.lib.php:1232 view_operations.php:78
 msgid "Error"
 msgstr "Klaida"
@@ -3877,7 +3898,7 @@ msgstr "Žodžiai atskirti tarpo simboliu („ “)."
 msgid "Inside tables:"
 msgstr "Viduje lentelių:"
 
-#: libraries/DbSearch.php:438 libraries/display_export.lib.php:51
+#: libraries/DbSearch.php:438 libraries/display_export.lib.php:52
 #: libraries/replication_gui.lib.php:381
 #, fuzzy
 #| msgid "Unselect All"
@@ -3950,7 +3971,7 @@ msgstr "Pabaiga"
 msgid "All"
 msgstr "Viską"
 
-#: libraries/DisplayResults.php:1141 libraries/display_export.lib.php:437
+#: libraries/DisplayResults.php:1141 libraries/display_export.lib.php:438
 #: templates/startAndNumberOfRowsPanel.phtml:10
 msgid "Number of rows:"
 msgstr "Eilučių skaičius:"
@@ -4245,15 +4266,15 @@ msgstr "Versija"
 msgid "Open new phpMyAdmin window"
 msgstr "Atverti naują phpMyAdmin langą"
 
-#: libraries/Header.php:383
+#: libraries/Header.php:375
 msgid "Print view"
 msgstr "Spausdinti struktūrą"
 
-#: libraries/Header.php:462
+#: libraries/Header.php:454
 msgid "Click on the bar to scroll to top of page"
 msgstr ""
 
-#: libraries/Header.php:764 libraries/plugins/auth/AuthenticationCookie.php:152
+#: libraries/Header.php:756 libraries/plugins/auth/AuthenticationCookie.php:152
 #, fuzzy
 #| msgid "Cookies must be enabled past this point."
 msgid "Javascript must be enabled past this point!"
@@ -4387,7 +4408,7 @@ msgstr "Serveris"
 #: libraries/server_privileges.lib.php:3094
 #: libraries/server_privileges.lib.php:3289
 #: libraries/server_privileges.lib.php:3291
-#: libraries/server_privileges.lib.php:4483
+#: libraries/server_privileges.lib.php:4489
 #: libraries/server_status_processes.lib.php:80
 #: templates/console/bookmark_content.phtml:19
 #: templates/console/display.phtml:57 templates/console/display.phtml:219
@@ -4413,7 +4434,7 @@ msgstr "Rodinys"
 #: libraries/server_privileges.lib.php:3112
 #: libraries/server_privileges.lib.php:3295
 #: libraries/server_privileges.lib.php:3297
-#: libraries/server_privileges.lib.php:4497 libraries/tracking.lib.php:1458
+#: libraries/server_privileges.lib.php:4503 libraries/tracking.lib.php:1458
 #: libraries/tracking.lib.php:1595
 #: templates/database/structure/table_header.phtml:21
 #: templates/table/relation/common_form.phtml:34
@@ -4452,7 +4473,7 @@ msgstr "Įterpti"
 #: libraries/Menu.php:375 libraries/Menu.php:479 libraries/Util.php:4117
 #: libraries/Util.php:4133 libraries/config.values.php:106
 #: libraries/server_common.lib.php:48 libraries/server_privileges.lib.php:2530
-#: libraries/server_privileges.lib.php:4371
+#: libraries/server_privileges.lib.php:4377
 #: templates/privileges/privileges_summary.phtml:16
 msgid "Privileges"
 msgstr "Privilegijos"
@@ -4518,7 +4539,7 @@ msgstr "Textarea stulpeliai"
 #: libraries/config.values.php:103 libraries/config/messages.inc.php:265
 #: libraries/config/messages.inc.php:340
 #: libraries/navigation/NavigationTree.php:1274
-#: libraries/server_common.lib.php:45 libraries/server_privileges.lib.php:4483
+#: libraries/server_common.lib.php:45 libraries/server_privileges.lib.php:4489
 msgid "Databases"
 msgstr "Duomenų bazės"
 
@@ -4915,7 +4936,7 @@ msgstr "Tema %s nerasta!"
 msgid "Theme path not found for theme %s!"
 msgstr "Kelias iki temos nerastas temai %s!"
 
-#: libraries/ThemeManager.php:377
+#: libraries/ThemeManager.php:378
 #, fuzzy
 #| msgid "Theme"
 msgid "Theme:"
@@ -5454,7 +5475,7 @@ msgstr "Pridėti stulpelį"
 msgid "Attributes"
 msgstr "Atributai"
 
-#: libraries/common.inc.php:467
+#: libraries/common.inc.php:470
 msgid ""
 "You have enabled mbstring.func_overload in your PHP configuration. This "
 "option is incompatible with phpMyAdmin and might cause some data to be "
@@ -5463,22 +5484,22 @@ msgstr ""
 "Savo PHP konfigūracijoje Jūs įjungėte mbstring.func_overload. Šis nustatymas "
 "nėra suderinamas su phpMyAdmin ir gali pažeisti Jūsų duomenis!"
 
-#: libraries/common.inc.php:501
+#: libraries/common.inc.php:504
 #, php-format
 msgid "Invalid server index: %s"
 msgstr "Blogas serverio indeksas: %s"
 
-#: libraries/common.inc.php:514
+#: libraries/common.inc.php:517
 #, fuzzy, php-format
 #| msgid "Server"
 msgid "Server %d"
 msgstr "Serveris"
 
-#: libraries/common.inc.php:638
+#: libraries/common.inc.php:641
 msgid "Invalid authentication method set in configuration:"
 msgstr "Blogai nustatytas identifikavimo metodas nustatymuose:"
 
-#: libraries/common.inc.php:742
+#: libraries/common.inc.php:745
 #, php-format
 msgid ""
 "Unable to use timezone %1$s for server %2$d. Please check your configuration "
@@ -5486,20 +5507,20 @@ msgid ""
 "currently using the default time zone of the database server."
 msgstr ""
 
-#: libraries/common.inc.php:780
+#: libraries/common.inc.php:783
 #, php-format
 msgid "You should upgrade to %s %s or later."
 msgstr "Rekomenduojame atnaujint %s iki %s ar vėlesnės versijos."
 
-#: libraries/common.inc.php:866
+#: libraries/common.inc.php:869
 msgid "Error: Token mismatch"
 msgstr ""
 
-#: libraries/common.inc.php:884
+#: libraries/common.inc.php:887
 msgid "GLOBALS overwrite attempt"
 msgstr ""
 
-#: libraries/common.inc.php:891
+#: libraries/common.inc.php:894
 msgid "possible exploit"
 msgstr "galimas pažeidžiamumas"
 
@@ -6290,7 +6311,7 @@ msgstr ""
 msgid "Maximum execution time"
 msgstr "Ilgiausias vykdymo laikas"
 
-#: libraries/config/messages.inc.php:135 libraries/display_export.lib.php:796
+#: libraries/config/messages.inc.php:135 libraries/display_export.lib.php:797
 #, fuzzy, php-format
 #| msgid "Add %s statement"
 msgid "Use %s statement"
@@ -6441,7 +6462,7 @@ msgid "Save on server"
 msgstr "Išsaugoti serveryje"
 
 #: libraries/config/messages.inc.php:183 libraries/config/messages.inc.php:187
-#: libraries/display_export.lib.php:503 libraries/display_export.lib.php:538
+#: libraries/display_export.lib.php:504 libraries/display_export.lib.php:539
 msgid "Overwrite existing file(s)"
 msgstr "Perrašyti esamus failus"
 
@@ -6465,7 +6486,7 @@ msgid "Enclose table and column names with backquotes"
 msgstr "Įdėti lentelių ir laukų pavadinimus į kabutes"
 
 #: libraries/config/messages.inc.php:192 libraries/config/messages.inc.php:397
-#: libraries/display_export.lib.php:398
+#: libraries/display_export.lib.php:399
 msgid "SQL compatibility mode"
 msgstr "SQL suderinamumo režimas"
 
@@ -9061,12 +9082,12 @@ msgstr "Fulltext"
 msgid "Distinct values"
 msgstr "Peržiūrėti skirtingas reikšmes"
 
-#: libraries/core.lib.php:296
+#: libraries/core.lib.php:297
 #, php-format
 msgid "The %s extension is missing. Please check your PHP configuration."
 msgstr "%s plėtinys nerastas. Prašome patikrinti PHP nustatymus."
 
-#: libraries/core.lib.php:788 libraries/mult_submits.inc.php:329
+#: libraries/core.lib.php:789 libraries/mult_submits.inc.php:329
 #: tbl_operations.php:201 tbl_replace.php:314 templates/preview_sql.phtml:3
 msgid "No change"
 msgstr "Nėra pakeitimų"
@@ -9128,155 +9149,155 @@ msgid ""
 "the server."
 msgstr ""
 
-#: libraries/display_export.lib.php:173
+#: libraries/display_export.lib.php:174
 msgid "Exporting databases from the current server"
 msgstr "Eksportuojamos šio serverio duomenų bazės"
 
-#: libraries/display_export.lib.php:176
+#: libraries/display_export.lib.php:177
 #, php-format
 msgid "Exporting tables from \"%s\" database"
 msgstr "Eksportuojamos duomenų bazės „%s“ lentelės"
 
-#: libraries/display_export.lib.php:181
+#: libraries/display_export.lib.php:182
 #, php-format
 msgid "Exporting rows from \"%s\" table"
 msgstr "Eksportuojamos eilutės iš „%s“ lentelės"
 
-#: libraries/display_export.lib.php:201
+#: libraries/display_export.lib.php:202
 #, fuzzy
 #| msgid "Export type"
 msgid "Export templates:"
 msgstr "Eksportavimo tipas"
 
-#: libraries/display_export.lib.php:206
+#: libraries/display_export.lib.php:207
 #, fuzzy
 #| msgid "File name template:"
 msgid "New template:"
 msgstr "Failo pavadinimo šablonas:"
 
-#: libraries/display_export.lib.php:209
+#: libraries/display_export.lib.php:210
 #, fuzzy
 #| msgid "Table name"
 msgid "Template name"
 msgstr "Lentelės vardas"
 
-#: libraries/display_export.lib.php:211
+#: libraries/display_export.lib.php:212
 #: templates/server/databases/create.phtml:22
 msgid "Create"
 msgstr "Sukurti"
 
-#: libraries/display_export.lib.php:218
+#: libraries/display_export.lib.php:219
 #, fuzzy
 #| msgid "File name template:"
 msgid "Existing templates:"
 msgstr "Failo pavadinimo šablonas:"
 
-#: libraries/display_export.lib.php:219
+#: libraries/display_export.lib.php:220
 #, fuzzy
 #| msgid "%s table"
 #| msgid_plural "%s tables"
 msgid "Template:"
 msgstr "%s lentelė"
 
-#: libraries/display_export.lib.php:224
+#: libraries/display_export.lib.php:225
 #, fuzzy
 #| msgid "Updated"
 msgid "Update"
 msgstr "Atnaujinta"
 
-#: libraries/display_export.lib.php:246
+#: libraries/display_export.lib.php:247
 #, fuzzy
 #| msgid "Select Tables"
 msgid "Select a template"
 msgstr "Pasirinkite lenteles"
 
-#: libraries/display_export.lib.php:295
+#: libraries/display_export.lib.php:296
 #, fuzzy
 #| msgid "Export method"
 msgid "Export method:"
 msgstr "Eksporto metodas"
 
-#: libraries/display_export.lib.php:305
+#: libraries/display_export.lib.php:306
 msgid "Quick - display only the minimal options"
 msgstr "Trumpas - rodomi tik minimalūs nustatymai"
 
-#: libraries/display_export.lib.php:317
+#: libraries/display_export.lib.php:318
 msgid "Custom - display all possible options"
 msgstr "Pritaikytas - rodyti visus nustatymus"
 
-#: libraries/display_export.lib.php:339
+#: libraries/display_export.lib.php:340
 #, fuzzy
 #| msgid "Databases"
 msgid "Databases:"
 msgstr "Duomenų bazės"
 
-#: libraries/display_export.lib.php:341 libraries/navigation/Navigation.php:197
+#: libraries/display_export.lib.php:342 libraries/navigation/Navigation.php:197
 #, fuzzy
 #| msgid "Tables"
 msgid "Tables:"
 msgstr "Lentelės"
 
-#: libraries/display_export.lib.php:361 libraries/display_import.lib.php:364
+#: libraries/display_export.lib.php:362 libraries/display_import.lib.php:364
 #: libraries/plugins/export/ExportCodegen.php:100
 msgid "Format:"
 msgstr "Formatas:"
 
-#: libraries/display_export.lib.php:377 libraries/display_import.lib.php:370
+#: libraries/display_export.lib.php:378 libraries/display_import.lib.php:370
 msgid "Format-specific options:"
 msgstr "Formato specifiniai nustatymai:"
 
-#: libraries/display_export.lib.php:380
+#: libraries/display_export.lib.php:381
 msgid ""
 "Scroll down to fill in the options for the selected format and ignore the "
 "options for other formats."
 msgstr ""
 
-#: libraries/display_export.lib.php:390 libraries/display_import.lib.php:381
+#: libraries/display_export.lib.php:391 libraries/display_import.lib.php:381
 msgid "Encoding Conversion:"
 msgstr "Koduotės konvertavimas:"
 
-#: libraries/display_export.lib.php:426
+#: libraries/display_export.lib.php:427
 msgid "Rows:"
 msgstr "Eilutės:"
 
-#: libraries/display_export.lib.php:434
+#: libraries/display_export.lib.php:435
 msgid "Dump some row(s)"
 msgstr "Parodyti keletą eilučių(tes)"
 
-#: libraries/display_export.lib.php:450
+#: libraries/display_export.lib.php:451
 msgid "Row to begin at:"
 msgstr "Eilutės prasideda nuo:"
 
-#: libraries/display_export.lib.php:467
+#: libraries/display_export.lib.php:468
 msgid "Dump all rows"
 msgstr "Išvesti visas eilutes"
 
-#: libraries/display_export.lib.php:483 libraries/display_export.lib.php:772
+#: libraries/display_export.lib.php:484 libraries/display_export.lib.php:773
 msgid "Output:"
 msgstr "Išvestis:"
 
-#: libraries/display_export.lib.php:492 libraries/display_export.lib.php:527
+#: libraries/display_export.lib.php:493 libraries/display_export.lib.php:528
 #, php-format
 msgid "Save on server in the directory <b>%s</b>"
 msgstr "Išsaugoti serverio kataloge pavadinimu <b>%s</b>"
 
-#: libraries/display_export.lib.php:557
+#: libraries/display_export.lib.php:558
 msgid "File name template:"
 msgstr "Failo pavadinimo šablonas:"
 
-#: libraries/display_export.lib.php:559
+#: libraries/display_export.lib.php:560
 msgid "@SERVER@ will become the server name"
 msgstr "@SERVER@ taps serverio pavadinimu"
 
-#: libraries/display_export.lib.php:561
+#: libraries/display_export.lib.php:562
 msgid ", @DATABASE@ will become the database name"
 msgstr ", @DATABASE@ taps duomenų bazės pavadinimu"
 
-#: libraries/display_export.lib.php:563
+#: libraries/display_export.lib.php:564
 msgid ", @TABLE@ will become the table name"
 msgstr ", @TABLE@ taps lentelės pavadinimu"
 
-#: libraries/display_export.lib.php:569
+#: libraries/display_export.lib.php:570
 #, php-format
 msgid ""
 "This value is interpreted using %1$sstrftime%2$s, so you can use time "
@@ -9287,92 +9308,60 @@ msgstr ""
 "keisti laiko formatavimą. Taip pat pakeičiamos šios eilutės: %3$s. Kitas "
 "tekstas bus paliktas kaip yra. Žiūrėti %4$sDUK%5$s smulkesnei informacijai."
 
-#: libraries/display_export.lib.php:624
+#: libraries/display_export.lib.php:625
 msgid "use this for future exports"
 msgstr "naudoti šitai ateities eksportams"
 
-#: libraries/display_export.lib.php:639 libraries/display_import.lib.php:181
+#: libraries/display_export.lib.php:640 libraries/display_import.lib.php:181
 #: libraries/display_import.lib.php:195
 msgid "Character set of the file:"
 msgstr "Simbolių koduotė faile:"
 
-#: libraries/display_export.lib.php:689
+#: libraries/display_export.lib.php:690
 msgid "Compression:"
 msgstr "Glaudinti:"
 
-#: libraries/display_export.lib.php:697
+#: libraries/display_export.lib.php:698
 msgid "zipped"
 msgstr "zip"
 
-#: libraries/display_export.lib.php:704
+#: libraries/display_export.lib.php:705
 msgid "gzipped"
 msgstr "gzip"
 
-#: libraries/display_export.lib.php:731
+#: libraries/display_export.lib.php:732
 msgid "View output as text"
 msgstr "Rodyti išvedimą kaip tekstą"
 
-#: libraries/display_export.lib.php:751
+#: libraries/display_export.lib.php:752
 #, fuzzy
 #| msgid "Exporting rows from \"%s\" table"
 msgid "Export databases as separate files"
 msgstr "Eksportuojamos eilutės iš „%s“ lentelės"
 
-#: libraries/display_export.lib.php:753
+#: libraries/display_export.lib.php:754
 #, fuzzy
 #| msgid "horizontal (rotated headers)"
 msgid "Export tables as separate files"
 msgstr "horizontalūs (pasukti pavadinimai)"
 
-#: libraries/display_export.lib.php:783 libraries/display_export.lib.php:908
+#: libraries/display_export.lib.php:784 libraries/display_export.lib.php:960
 msgid "Rename exported databases/tables/columns"
 msgstr ""
 
-#: libraries/display_export.lib.php:808
+#: libraries/display_export.lib.php:809
 msgid "Save output to a file"
 msgstr "Išsaugoti į failą"
 
-#: libraries/display_export.lib.php:841
+#: libraries/display_export.lib.php:842
 msgid "Skip tables larger than"
 msgstr ""
 
-#: libraries/display_export.lib.php:935
-#, fuzzy
-#| msgid "Select Tables"
-msgid "Select database"
-msgstr "Pasirinkite lenteles"
+#: libraries/display_export.lib.php:895
+msgid "Defined aliases"
+msgstr ""
 
-#: libraries/display_export.lib.php:937
-#, fuzzy
-#| msgid "Select Tables"
-msgid "Select table"
-msgstr "Pasirinkite lenteles"
-
-#: libraries/display_export.lib.php:953
-#, fuzzy
-#| msgid "Database name"
-msgid "New database name"
-msgstr "Duomenų bazės vardas"
-
-#: libraries/display_export.lib.php:977
-#, fuzzy
-#| msgid "New page name: "
-msgid "New table name"
-msgstr "Naujas puslapio vardas: "
-
-#: libraries/display_export.lib.php:987
-#, fuzzy
-#| msgid "Column names"
-msgid "Old column name"
-msgstr "Stulpelių vardai"
-
-#: libraries/display_export.lib.php:988
-#, fuzzy
-#| msgid "Column names"
-msgid "New column name"
-msgstr "Stulpelių vardai"
-
-#: libraries/display_export.lib.php:1063
+#: libraries/display_export.lib.php:1011
 msgid "Could not load export plugins, please check your installation!"
 msgstr "Nepavyko įkelti eksportuojamų plėtinių, prašome patikrinti įdiegtį!"
 
@@ -13228,7 +13217,7 @@ msgstr "Riboti skaičių lygiagrečių prisijungimų kurį naudotojai gali turė
 #: libraries/server_privileges.lib.php:895
 #: libraries/server_privileges.lib.php:3301
 #: libraries/server_privileges.lib.php:3303
-#: libraries/server_privileges.lib.php:4512
+#: libraries/server_privileges.lib.php:4518
 #: templates/privileges/edit_routine_privileges.phtml:11
 #, fuzzy
 #| msgid "Column names"
@@ -13431,7 +13420,7 @@ msgid "Not enough privilege to view users."
 msgstr ""
 
 #: libraries/server_privileges.lib.php:2565
-#: libraries/server_privileges.lib.php:3914
+#: libraries/server_privileges.lib.php:3920
 msgid "No user found."
 msgstr "Nerasta jokių naudotojų."
 
@@ -13523,81 +13512,86 @@ msgstr "Specifinės stulpelių privilegijos"
 msgid "User group"
 msgstr ""
 
-#: libraries/server_privileges.lib.php:3790
+#: libraries/server_privileges.lib.php:3619
+#: libraries/server_privileges.lib.php:4741
+msgid "The selected user was not found in the privilege table."
+msgstr "Privilegijų lentelėje pasirinktas vartotojas nerastas."
+
+#: libraries/server_privileges.lib.php:3796
 msgid "No users selected for deleting!"
 msgstr "Nepasirinta vartotojų trynimui!"
 
-#: libraries/server_privileges.lib.php:3793
+#: libraries/server_privileges.lib.php:3799
 msgid "Reloading the privileges"
 msgstr "Perkraunamos privilegijos"
 
-#: libraries/server_privileges.lib.php:3812
+#: libraries/server_privileges.lib.php:3818
 msgid "The selected users have been deleted successfully."
 msgstr "Pažymėti vartotojai sėkmingai pašalinti."
 
-#: libraries/server_privileges.lib.php:3887
+#: libraries/server_privileges.lib.php:3893
 #, php-format
 msgid "You have updated the privileges for %s."
 msgstr "Jūs pakeitėte privilegijas %s."
 
-#: libraries/server_privileges.lib.php:3991
+#: libraries/server_privileges.lib.php:3997
 #, php-format
 msgid "Deleting %s"
 msgstr "Šaliname: %s"
 
-#: libraries/server_privileges.lib.php:4021
+#: libraries/server_privileges.lib.php:4027
 msgid "The privileges were reloaded successfully."
 msgstr "Teisės sėkmingai perkrautos."
 
-#: libraries/server_privileges.lib.php:4112
+#: libraries/server_privileges.lib.php:4118
 #, php-format
 msgid "The user %s already exists!"
 msgstr "Vartotojas %s jau yra!"
 
-#: libraries/server_privileges.lib.php:4385
+#: libraries/server_privileges.lib.php:4391
 #, fuzzy, php-format
 #| msgid "Privileges"
 msgid "Privileges for %s"
 msgstr "Privilegijos"
 
-#: libraries/server_privileges.lib.php:4394
+#: libraries/server_privileges.lib.php:4400
 #: libraries/server_status_processes.lib.php:72
 #: libraries/server_user_groups.lib.php:37
 msgid "User"
 msgstr "Naudotojas"
 
-#: libraries/server_privileges.lib.php:4462
+#: libraries/server_privileges.lib.php:4468
 #, fuzzy
 #| msgid "Edit Privileges"
 msgid "Edit privileges:"
 msgstr "Redaguoti privilegijas"
 
-#: libraries/server_privileges.lib.php:4463
+#: libraries/server_privileges.lib.php:4469
 #, fuzzy
 #| msgid "Users"
 msgid "User account"
 msgstr "Naudotojai"
 
-#: libraries/server_privileges.lib.php:4537
+#: libraries/server_privileges.lib.php:4543
 msgid ""
 "Note: You are attempting to edit privileges of the user with which you are "
 "currently logged in."
 msgstr ""
 
-#: libraries/server_privileges.lib.php:4557 libraries/server_users.lib.php:21
+#: libraries/server_privileges.lib.php:4563 libraries/server_users.lib.php:21
 #, fuzzy
 #| msgid "Users overview"
 msgid "User accounts overview"
 msgstr "Naudotojų apžvalga"
 
-#: libraries/server_privileges.lib.php:4625
+#: libraries/server_privileges.lib.php:4631
 msgid ""
 "A user account allowing any user from localhost to connect is present. This "
 "will prevent other users from connecting if the host part of their account "
 "allows a connection from any (%) host."
 msgstr ""
 
-#: libraries/server_privileges.lib.php:4667
+#: libraries/server_privileges.lib.php:4673
 #, php-format
 msgid ""
 "Note: phpMyAdmin gets the users' privileges directly from MySQL's privilege "
@@ -13609,7 +13603,7 @@ msgstr ""
 "lentelės. Šiose lentelėse nurodytos teisės gali skirtis nuo nustatymų "
 "failuose nurodytų teisių. Todėl %sperkraukite teises%s, jeigu norite tęsti."
 
-#: libraries/server_privileges.lib.php:4684
+#: libraries/server_privileges.lib.php:4690
 #, fuzzy
 #| msgid ""
 #| "Note: phpMyAdmin gets the users' privileges directly from MySQL's "
@@ -13627,11 +13621,7 @@ msgstr ""
 "lentelės. Šiose lentelėse nurodytos teisės gali skirtis nuo nustatymų "
 "failuose nurodytų teisių. Todėl %sperkraukite teises%s, jeigu norite tęsti."
 
-#: libraries/server_privileges.lib.php:4735
-msgid "The selected user was not found in the privilege table."
-msgstr "Privilegijų lentelėje pasirinktas vartotojas nerastas."
-
-#: libraries/server_privileges.lib.php:4955
+#: libraries/server_privileges.lib.php:4961
 msgid "You have added a new user."
 msgstr "Jūs sukūrėte naują vartotoją."
 
@@ -15432,7 +15422,8 @@ msgid "Table name"
 msgstr "Lentelės vardas"
 
 #: templates/columns_definitions/column_definitions_form.phtml:58
-#: templates/console/display.phtml:126
+#: templates/console/display.phtml:126 templates/export/alias_add.phtml:20
+#: templates/export/alias_add.phtml:35 templates/export/alias_add.phtml:50
 #, fuzzy
 #| msgid "And"
 msgid "Add"
@@ -16243,6 +16234,50 @@ msgstr ""
 
 #: templates/error/report_form.phtml:21
 msgid "You may examine the data in the error report:"
+msgstr ""
+
+#: templates/export/alias_add.phtml:5
+msgid "Define new aliases"
+msgstr ""
+
+#: templates/export/alias_add.phtml:11
+#, fuzzy
+#| msgid "Select Tables"
+msgid "Select database:"
+msgstr "Pasirinkite lenteles"
+
+#: templates/export/alias_add.phtml:17
+#, fuzzy
+#| msgid "Database name"
+msgid "New database name"
+msgstr "Duomenų bazės vardas"
+
+#: templates/export/alias_add.phtml:26
+#, fuzzy
+#| msgid "Select Tables"
+msgid "Select table:"
+msgstr "Pasirinkite lenteles"
+
+#: templates/export/alias_add.phtml:32
+#, fuzzy
+#| msgid "New page name: "
+msgid "New table name"
+msgstr "Naujas puslapio vardas: "
+
+#: templates/export/alias_add.phtml:41
+#, fuzzy
+#| msgid "Select two columns"
+msgid "Select column:"
+msgstr "Pasirinkite du stulpelius"
+
+#: templates/export/alias_add.phtml:47
+#, fuzzy
+#| msgid "Column names"
+msgid "New column name"
+msgstr "Stulpelių vardai"
+
+#: templates/export/alias_item.phtml:8
+msgid "Remove"
 msgstr ""
 
 #: templates/prefs_autoload.phtml:8
@@ -18146,6 +18181,11 @@ msgstr ""
 #| msgid "MyISAM concurrent inserts"
 msgid "concurrent_insert is set to 0"
 msgstr "MyISAM concurrent įterpimai"
+
+#, fuzzy
+#~| msgid "Column names"
+#~ msgid "Old column name"
+#~ msgstr "Stulpelių vardai"
 
 #~ msgid "German"
 #~ msgstr "Vokiečių"
