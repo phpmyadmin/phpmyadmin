@@ -779,13 +779,16 @@ class Tracker
 
         // If we found a valid statement
         if (isset($result['identifier'])) {
+            if (! self::isTracked($dbname, $result['tablename'])) {
+                return;
+            }
+
             $version = self::getVersion(
                 $dbname, $result['tablename'], $result['identifier']
             );
 
             // If version not exists and auto-creation is enabled
             if ($GLOBALS['cfg']['Server']['tracking_version_auto_create'] == true
-                && self::isTracked($dbname, $result['tablename']) == false
                 && $version == -1
             ) {
                 // Create the version
@@ -806,7 +809,7 @@ class Tracker
             }
 
             // If version exists
-            if (self::isTracked($dbname, $result['tablename']) && $version != -1) {
+            if ($version != -1) {
                 if ($result['type'] == 'DDL') {
                     $save_to = 'schema_sql';
                 } elseif ($result['type'] == 'DML') {
