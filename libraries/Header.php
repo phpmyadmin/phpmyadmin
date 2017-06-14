@@ -397,13 +397,13 @@ class Header
                 // The user preferences have been merged at this point
                 // so we can conditionally add CodeMirror
                 if ($GLOBALS['cfg']['CodemirrorEnable']) {
-                    $this->_scripts->addFile('codemirror/lib/codemirror.js');
-                    $this->_scripts->addFile('codemirror/mode/sql/sql.js');
-                    $this->_scripts->addFile('codemirror/addon/runmode/runmode.js');
-                    $this->_scripts->addFile('codemirror/addon/hint/show-hint.js');
-                    $this->_scripts->addFile('codemirror/addon/hint/sql-hint.js');
+                    $this->_scripts->addFile('vendor/codemirror/lib/codemirror.js');
+                    $this->_scripts->addFile('vendor/codemirror/mode/sql/sql.js');
+                    $this->_scripts->addFile('vendor/codemirror/addon/runmode/runmode.js');
+                    $this->_scripts->addFile('vendor/codemirror/addon/hint/show-hint.js');
+                    $this->_scripts->addFile('vendor/codemirror/addon/hint/sql-hint.js');
                     if ($GLOBALS['cfg']['LintEnable']) {
-                        $this->_scripts->addFile('codemirror/addon/lint/lint.js');
+                        $this->_scripts->addFile('vendor/codemirror/addon/lint/lint.js');
                         $this->_scripts->addFile(
                             'codemirror/addon/lint/sql-lint.js'
                         );
@@ -671,11 +671,11 @@ class Header
             $retval .= '<link rel="stylesheet" type="text/css" href="'
                 . $theme_path . '/jquery/jquery-ui.css" />';
             $retval .= '<link rel="stylesheet" type="text/css" href="'
-                . $basedir . 'js/codemirror/lib/codemirror.css?' . $v . '" />';
+                . $basedir . 'js/vendor/codemirror/lib/codemirror.css?' . $v . '" />';
             $retval .= '<link rel="stylesheet" type="text/css" href="'
-                . $basedir . 'js/codemirror/addon/hint/show-hint.css?' . $v . '" />';
+                . $basedir . 'js/vendor/codemirror/addon/hint/show-hint.css?' . $v . '" />';
             $retval .= '<link rel="stylesheet" type="text/css" href="'
-                . $basedir . 'js/codemirror/addon/lint/lint.css?' . $v . '" />';
+                . $basedir . 'js/vendor/codemirror/addon/lint/lint.css?' . $v . '" />';
             $retval .= '<link rel="stylesheet" type="text/css" href="'
                 . $basedir . 'phpmyadmin.css.php?'
                 . 'nocache=' . $theme_id . $GLOBALS['text_dir'] . '" />';
