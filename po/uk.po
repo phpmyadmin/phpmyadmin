@@ -4,16 +4,16 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.7.2-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2017-06-13 17:05+0200\n"
-"PO-Revision-Date: 2017-06-06 07:08+0000\n"
+"PO-Revision-Date: 2017-06-14 18:12+0000\n"
 "Last-Translator: Володимир Бриняк <bardvv@gmail.com>\n"
-"Language-Team: Ukrainian <https://hosted.weblate.org/projects/phpmyadmin/4-7/"
-"uk/>\n"
+"Language-Team: Ukrainian "
+"<https://hosted.weblate.org/projects/phpmyadmin/4-7/uk/>\n"
 "Language: uk\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=3; plural=n%10==1 && n%100!=11 ? 0 : n%10>=2 && n"
-"%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
+"Plural-Forms: nplurals=3; plural=n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%10<="
+"4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
 "X-Generator: Weblate 2.15-dev\n"
 
 #: ajax.php:16 ajax.php:33 export.php:191 schema_export.php:64
@@ -1519,22 +1519,16 @@ msgid "Chart"
 msgstr "Діаграма"
 
 #: js/messages.php:298 libraries/display_export.lib.php:903
-#, fuzzy
-#| msgid "Database"
 msgctxt "Alias"
 msgid "Database"
 msgstr "База даних"
 
 #: js/messages.php:299 libraries/display_export.lib.php:915
-#, fuzzy
-#| msgid "Table"
 msgctxt "Alias"
 msgid "Table"
 msgstr "Таблиця"
 
 #: js/messages.php:300 libraries/display_export.lib.php:926
-#, fuzzy
-#| msgid "Column"
 msgctxt "Alias"
 msgid "Column"
 msgstr "Стовпець"
@@ -8486,7 +8480,7 @@ msgstr "Ігнорувати таблиці більші за"
 
 #: libraries/display_export.lib.php:895
 msgid "Defined aliases"
-msgstr ""
+msgstr "Визначені псевдоніми"
 
 #: libraries/display_export.lib.php:1011
 msgid "Could not load export plugins, please check your installation!"
@@ -15019,33 +15013,27 @@ msgstr "Ви можете перевірити дані в звіті про п�
 
 #: templates/export/alias_add.phtml:5
 msgid "Define new aliases"
-msgstr ""
+msgstr "Визначення нових псевдонімів"
 
 #: templates/export/alias_add.phtml:11
-#, fuzzy
-#| msgid "Select database"
 msgid "Select database:"
-msgstr "Обрати базу даних"
+msgstr "Вибрати базу даних:"
 
 #: templates/export/alias_add.phtml:17
 msgid "New database name"
 msgstr "Ім'я нової бази даних"
 
 #: templates/export/alias_add.phtml:26
-#, fuzzy
-#| msgid "Select table"
 msgid "Select table:"
-msgstr "Обрати таблицю"
+msgstr "Вибрати таблицю:"
 
 #: templates/export/alias_add.phtml:32
 msgid "New table name"
 msgstr "Ім'я нової таблиці"
 
 #: templates/export/alias_add.phtml:41
-#, fuzzy
-#| msgid "Select a column."
 msgid "Select column:"
-msgstr "Вибрати стовпець."
+msgstr "Вибрати стовпець:"
 
 #: templates/export/alias_add.phtml:47
 msgid "New column name"
@@ -15053,7 +15041,7 @@ msgstr "Нове ім'я стовпця"
 
 #: templates/export/alias_item.phtml:8
 msgid "Remove"
-msgstr ""
+msgstr "Видалити"
 
 #: templates/prefs_autoload.phtml:8
 msgid ""
