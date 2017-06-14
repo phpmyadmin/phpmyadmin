@@ -170,7 +170,7 @@ class Header
 
         $this->_scripts->addFile('rte.js');
         if ($GLOBALS['cfg']['SendErrorReports'] !== 'never') {
-            $this->_scripts->addFile('tracekit/tracekit.js');
+            $this->_scripts->addFile('vendor/tracekit.js');
             $this->_scripts->addFile('error_report.js');
         }
 
