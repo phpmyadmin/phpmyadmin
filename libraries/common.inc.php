@@ -859,9 +859,9 @@ if (! defined('PMA_MINIMUM_COMMON')) {
         $header   = $response->getHeader();
         $scripts  = $header->getScripts();
         $scripts->addFile('chart.js');
-        $scripts->addFile('jqplot/jquery.jqplot.js');
-        $scripts->addFile('jqplot/plugins/jqplot.pieRenderer.js');
-        $scripts->addFile('jqplot/plugins/jqplot.highlighter.js');
+        $scripts->addFile('vendor/jqplot/jquery.jqplot.js');
+        $scripts->addFile('vendor/jqplot/plugins/jqplot.pieRenderer.js');
+        $scripts->addFile('vendor/jqplot/plugins/jqplot.highlighter.js');
         $scripts->addFile('vendor/jquery/jquery.tablesorter.js');
     }
 
