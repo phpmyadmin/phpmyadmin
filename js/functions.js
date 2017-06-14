@@ -352,7 +352,7 @@ function escapeJsString(unsafe) {
     if (typeof(unsafe) != 'undefined') {
         return unsafe
             .toString()
-            .replace("\000", '')
+            .replace("\x00", '')
             .replace('\\', '\\\\')
             .replace('\'', '\\\'')
             .replace("&#039;", "\\\&#039;")
