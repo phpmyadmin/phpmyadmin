@@ -123,7 +123,7 @@ function loadJSAndGISEditor(value, field, type, input_name) {
         loadGISEditor(value, field, type, input_name);
     }
 
-    script.src = 'js/openlayers/OpenLayers.js';
+    script.src = 'js/vendor/openlayers/OpenLayers.js';
     head.appendChild(script);
 
     gisEditorLoaded = true;

@@ -150,7 +150,7 @@ function initGISVisualization() {
     resizeGISVisualization();
     if (typeof OpenLayers !== 'undefined') {
         // Configure OpenLayers
-        OpenLayers._getScriptLocation = function() {return './js/openlayers/';};
+        OpenLayers._getScriptLocation = function() {return './js/vendor/openlayers/';};
         // Adds necessary styles to the div that coontains the openStreetMap
         styleOSM();
         // Draws openStreetMap with openLayers

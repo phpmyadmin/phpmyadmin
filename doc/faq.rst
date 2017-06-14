@@ -691,7 +691,7 @@ A list of files and corresponding functionality which degrade gracefully when re
 * :file:`./setup/` (setup script)
 * :file:`./examples/`
 * :file:`./sql/` (SQL scripts to configure advanced functionality)
-* :file:`./js/openlayers/` (GIS visualization)
+* :file:`./js/vendor/openlayers/` (GIS visualization)
 
 .. _faqconfig:
 
