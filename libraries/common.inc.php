@@ -862,7 +862,7 @@ if (! defined('PMA_MINIMUM_COMMON')) {
         $scripts->addFile('jqplot/jquery.jqplot.js');
         $scripts->addFile('jqplot/plugins/jqplot.pieRenderer.js');
         $scripts->addFile('jqplot/plugins/jqplot.highlighter.js');
-        $scripts->addFile('jquery/jquery.tablesorter.js');
+        $scripts->addFile('vendor/jquery/jquery.tablesorter.js');
     }
 
     /*

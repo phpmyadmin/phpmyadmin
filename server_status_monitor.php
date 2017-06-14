@@ -70,9 +70,9 @@ if ($response->isAjax()) {
  */
 $header   = $response->getHeader();
 $scripts  = $header->getScripts();
-$scripts->addFile('jquery/jquery.tablesorter.js');
-$scripts->addFile('jquery/jquery.sortableTable.js');
-$scripts->addFile('jquery/jquery-ui-timepicker-addon.js');
+$scripts->addFile('vendor/jquery/jquery.tablesorter.js');
+$scripts->addFile('vendor/jquery/jquery.sortableTable.js');
+$scripts->addFile('vendor/jquery/jquery-ui-timepicker-addon.js');
 // for charting
 $scripts->addFile('jqplot/jquery.jqplot.js');
 $scripts->addFile('jqplot/plugins/jqplot.pieRenderer.js');
