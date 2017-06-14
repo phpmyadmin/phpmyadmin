@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.8.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2017-06-13 17:05+0200\n"
-"PO-Revision-Date: 2017-06-13 21:06+0000\n"
+"PO-Revision-Date: 2017-06-14 22:10+0000\n"
 "Last-Translator: Viktar Vauchkevich <victorenator@gmail.com>\n"
 "Language-Team: Belarusian "
 "<https://hosted.weblate.org/projects/phpmyadmin/master/be/>\n"
@@ -15607,22 +15607,18 @@ msgid ""
 msgstr ""
 
 #: libraries/advisory_rules.txt:283
-#, fuzzy
-#| msgid "Sort buffer size"
 msgid "key_buffer_size is 0"
-msgstr "Памер буфэру сартаваньня"
+msgstr "key_buffer_size роўны 0"
 
 #: libraries/advisory_rules.txt:285
-#, fuzzy, php-format
-#| msgid "Sort buffer size"
+#, php-format
 msgid "Max %% MyISAM key buffer ever used"
-msgstr "Памер буфэру сартаваньня"
+msgstr "Максімальны выкарыстаны %% буфера ключоў MyISAM"
 
 #: libraries/advisory_rules.txt:288 libraries/advisory_rules.txt:296
-#, fuzzy, php-format
-#| msgid "Sort buffer size"
+#, php-format
 msgid "MyISAM key buffer (index cache) %% used is low."
-msgstr "Памер буфэру сартаваньня"
+msgstr "Нізкі %% выкарыстання буфера ключоў MyISAM (кэш індэксу)."
 
 #: libraries/advisory_rules.txt:289 libraries/advisory_rules.txt:297
 msgid ""
@@ -15632,28 +15628,27 @@ msgid ""
 msgstr ""
 
 #: libraries/advisory_rules.txt:290
-#, fuzzy, php-format
-#| msgid "Sort buffer size"
+#, php-format
 msgid ""
 "max %% MyISAM key buffer ever used: %s%%, this value should be above 95%%"
-msgstr "Памер буфэру сартаваньня"
+msgstr ""
+"Максімальны выкарыстаны %% буфера ключоў MyISAM: %s %%, гэта значэнне "
+"павінна быць больш 95 %%"
 
 #: libraries/advisory_rules.txt:293
-#, fuzzy
-#| msgid "Sort buffer size"
 msgid "Percentage of MyISAM key buffer used"
-msgstr "Памер буфэру сартаваньня"
+msgstr "Адсотак выкарыстанага буфера ключоў MyISAM"
 
 #: libraries/advisory_rules.txt:298
-#, fuzzy, php-format
-#| msgid "Sort buffer size"
+#, php-format
 msgid "%% MyISAM key buffer used: %s%%, this value should be above 95%%"
-msgstr "Памер буфэру сартаваньня"
+msgstr ""
+"%% выкарыстанага буфера ключоў MyISAM: %s %%, гэта значэнне павінна быць "
+"вышэй 95 %%"
 
 #: libraries/advisory_rules.txt:300
-#, fuzzy
 msgid "Percentage of index reads from memory"
-msgstr "Паказаць поўныя запыты"
+msgstr "Адсотак чытання індэксаў з памяці"
 
 #: libraries/advisory_rules.txt:303
 #, php-format
@@ -15665,22 +15660,17 @@ msgid "You may need to increase {key_buffer_size}."
 msgstr ""
 
 #: libraries/advisory_rules.txt:305
-#, fuzzy, php-format
-#| msgid "Sort buffer size"
+#, php-format
 msgid "Index reads from memory: %s%%, this value should be above 95%%"
-msgstr "Памер буфэру сартаваньня"
+msgstr "Чытанне індэксу з памяці: %s %%, мае быць вышэй 95 %%"
 
 #: libraries/advisory_rules.txt:309
-#, fuzzy
-#| msgid "Create table"
 msgid "Rate of table open"
-msgstr "Стварыць табліцу"
+msgstr "Тэмп адкрыцця табліц"
 
 #: libraries/advisory_rules.txt:312
-#, fuzzy
-#| msgid "The current number of pending writes."
 msgid "The rate of opening tables is high."
-msgstr "Бягучая колькасьць запісаў, якія чакаюць выкананьня."
+msgstr "Тэмп адкрыцця табліц занадта вялікі."
 
 #: libraries/advisory_rules.txt:313
 msgid ""
@@ -15689,16 +15679,13 @@ msgid ""
 msgstr ""
 
 #: libraries/advisory_rules.txt:314
-#, fuzzy, php-format
-#| msgid "Sort buffer size"
+#, php-format
 msgid "Opened table rate: %s, this value should be less than 10 per hour"
-msgstr "Памер буфэру сартаваньня"
+msgstr "Тэпм адкрытых табліц: %s, гэта значэнне мае быць менш 10 у гадзіну"
 
 #: libraries/advisory_rules.txt:316
-#, fuzzy
-#| msgid "Format of imported file"
 msgid "Percentage of used open files limit"
-msgstr "Фармат імпартаванага файла"
+msgstr "Адсотак выкарыстаных файлавых дэскрыптараў"
 
 #: libraries/advisory_rules.txt:319
 msgid ""
@@ -15719,22 +15706,17 @@ msgid ""
 msgstr ""
 
 #: libraries/advisory_rules.txt:323
-#, fuzzy
-#| msgid "Format of imported file"
 msgid "Rate of open files"
-msgstr "Фармат імпартаванага файла"
+msgstr "Тэмп адкрыцця файлаў"
 
 #: libraries/advisory_rules.txt:326
-#, fuzzy
-#| msgid "The number of pending log file fsyncs."
 msgid "The rate of opening files is high."
-msgstr "Колькасьць сынхранізаваньняў лог-файла, якія чакаюць выкананьня."
+msgstr "Тэпм адкрыцця файлаў занадта вялікі."
 
 #: libraries/advisory_rules.txt:328
-#, fuzzy, php-format
-#| msgid "Sort buffer size"
+#, php-format
 msgid "Opened files rate: %s, this value should be less than 5 per hour"
-msgstr "Памер буфэру сартаваньня"
+msgstr "Тэмп адкрыцця файлаў: %s, гэта значэнне мае быць ніжэй 5 у гадзіну"
 
 #: libraries/advisory_rules.txt:330
 #, fuzzy, php-format
