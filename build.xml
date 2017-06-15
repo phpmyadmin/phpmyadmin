@@ -89,7 +89,7 @@
  <target name="phpcs" description="Generate checkstyle.xml using PHP_CodeSniffer excluding third party libraries" depends="phpcs-config">
   <exec executable="phpcs">
    <arg line="
-              --ignore=*/vendor/*,*/canvg/*,*/codemirror/*,*/openlayers/*,*/jquery/*,*/jqplot/*,*/build/*
+              --ignore=*/vendor/*,*/build/*
               --report=checkstyle
               --extensions=php
               --report-file='${basedir}/build/logs/checkstyle.xml'

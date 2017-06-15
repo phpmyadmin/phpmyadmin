@@ -159,8 +159,8 @@ class TableGisVisualizationController extends TableController
 
         $this->response->getHeader()->getScripts()->addFiles(
             array(
-                'openlayers/OpenLayers.js',
-                'jquery/jquery.svg.js',
+                'vendor/openlayers/OpenLayers.js',
+                'vendor/jquery/jquery.svg.js',
                 'tbl_gis_visualization.js',
             )
         );

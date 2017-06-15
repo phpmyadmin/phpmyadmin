@@ -41,8 +41,8 @@ class Text_Plain_JsonEditor extends CodeMirrorEditorTransformationPlugin
     {
         $scripts = array();
         if ($GLOBALS['cfg']['CodemirrorEnable']) {
-            $scripts[] = 'codemirror/lib/codemirror.js';
-            $scripts[] = 'codemirror/mode/javascript/javascript.js';
+            $scripts[] = 'vendor/codemirror/lib/codemirror.js';
+            $scripts[] = 'vendor/codemirror/mode/javascript/javascript.js';
             $scripts[] = 'transformations/json_editor.js';
         }
 

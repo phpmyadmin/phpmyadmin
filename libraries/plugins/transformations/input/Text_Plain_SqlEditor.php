@@ -41,8 +41,8 @@ class Text_Plain_SqlEditor extends CodeMirrorEditorTransformationPlugin
     {
         $scripts = array();
         if ($GLOBALS['cfg']['CodemirrorEnable']) {
-            $scripts[] = 'codemirror/lib/codemirror.js';
-            $scripts[] = 'codemirror/mode/sql/sql.js';
+            $scripts[] = 'vendor/codemirror/lib/codemirror.js';
+            $scripts[] = 'vendor/codemirror/mode/sql/sql.js';
             $scripts[] = 'transformations/sql_editor.js';
         }
 

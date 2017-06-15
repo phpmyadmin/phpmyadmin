@@ -3,9 +3,9 @@
  * @fileoverview    functions used for visualizing GIS data
  *
  * @requires    jquery
- * @requires    jquery/jquery.svg.js
- * @requires    jquery/jquery.mousewheel.js
- * @requires    jquery/jquery.event.drag-2.2.js
+ * @requires    vendor/jquery/jquery.svg.js
+ * @requires    vendor/jquery/jquery.mousewheel.js
+ * @requires    vendor/jquery/jquery.event.drag-2.2.js
  */
 
 // Constants
@@ -150,7 +150,7 @@ function initGISVisualization() {
     resizeGISVisualization();
     if (typeof OpenLayers !== 'undefined') {
         // Configure OpenLayers
-        OpenLayers._getScriptLocation = function() {return './js/openlayers/';};
+        OpenLayers._getScriptLocation = function() {return './js/vendor/openlayers/';};
         // Adds necessary styles to the div that coontains the openStreetMap
         styleOSM();
         // Draws openStreetMap with openLayers

@@ -685,13 +685,13 @@ A list of files and corresponding functionality which degrade gracefully when re
 * :file:`./vendor/tecnickcom/tcpdf` folder (exporting to PDF)
 * :file:`./locale/` folder, or unused subfolders (interface translations)
 * Any unused themes in :file:`./themes/`
-* :file:`./js/jquery/src/` (included for licensing reasons)
+* :file:`./js/vendor/jquery/src/` (included for licensing reasons)
 * :file:`./js/line_counts.php`
 * :file:`./doc/` (documentation)
 * :file:`./setup/` (setup script)
 * :file:`./examples/`
 * :file:`./sql/` (SQL scripts to configure advanced functionality)
-* :file:`./js/openlayers/` (GIS visualization)
+* :file:`./js/vendor/openlayers/` (GIS visualization)
 
 .. _faqconfig:
 

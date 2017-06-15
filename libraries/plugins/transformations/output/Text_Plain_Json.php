@@ -30,9 +30,9 @@ class Text_Plain_Json extends TransformationsPlugin
             $response = Response::getInstance();
             $scripts = $response->getHeader()
                 ->getScripts();
-            $scripts->addFile('codemirror/lib/codemirror.js');
-            $scripts->addFile('codemirror/mode/javascript/javascript.js');
-            $scripts->addFile('codemirror/addon/runmode/runmode.js');
+            $scripts->addFile('vendor/codemirror/lib/codemirror.js');
+            $scripts->addFile('vendor/codemirror/mode/javascript/javascript.js');
+            $scripts->addFile('vendor/codemirror/addon/runmode/runmode.js');
             $scripts->addFile('transformations/json.js');
         }
     }
