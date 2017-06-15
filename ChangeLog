@@ -15,6 +15,7 @@ phpMyAdmin - ChangeLog
 - issue #6363  phpMyAdmin no longer requires eval() in PHP
 - issue #12386 The mbstring dependency is now optional
 - issue #13269 Small refactoring in preparation to CSP
+- issue #13384 Database link broken in Databases Page
 
 4.7.2 (not yet released)
 - issue #13314 Make theme selection keep current server
