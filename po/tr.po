@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.8.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2017-06-13 17:05+0200\n"
-"PO-Revision-Date: 2017-06-13 16:32+0000\n"
+"PO-Revision-Date: 2017-06-15 06:32+0000\n"
 "Last-Translator: Burak Yavuz <hitowerdigit@hotmail.com>\n"
 "Language-Team: Turkish "
 "<https://hosted.weblate.org/projects/phpmyadmin/master/tr/>\n"
@@ -6298,7 +6298,7 @@ msgstr "Genel"
 
 #: libraries/config/messages.inc.php:256
 msgid "Set some commonly used options."
-msgstr "Bazı çoğunlukla kullanılmış seçenekleri ayarla."
+msgstr "Bazı çoğunlukla kullanılan seçenekleri ayarlar."
 
 #: libraries/config/messages.inc.php:258
 msgid "Import defaults"
@@ -7019,7 +7019,7 @@ msgstr "Kısayol tuşlarını etkisizleştir"
 
 #: libraries/config/messages.inc.php:549
 msgid "Use natural order for sorting table and database names."
-msgstr "Tablo ve veritabanı adlarını sıralamak için doğal sıra kullan."
+msgstr "Tablo ve veritabanı adlarını sıralamak için doğal sıra kullanır."
 
 #: libraries/config/messages.inc.php:550
 msgid "Natural order"
@@ -7037,7 +7037,7 @@ msgstr "Tablo gezinti çubuğu"
 #: libraries/config/messages.inc.php:554
 msgid "Use GZip output buffering for increased speed in HTTP transfers."
 msgstr ""
-"HTTP aktarımlarındaki arttırılmış hız için GZip çıktı arabellekleme kullan."
+"HTTP aktarımlarındaki arttırılmış hız için GZip çıktı arabellekleme kullanır."
 
 #: libraries/config/messages.inc.php:555
 msgid "GZip output buffering"
@@ -7057,7 +7057,7 @@ msgstr "Varsayılan sıralama düzeni"
 
 #: libraries/config/messages.inc.php:562
 msgid "Use persistent connections to MySQL databases."
-msgstr "MySQL veritabanlarına sürekli bağlantı kullan."
+msgstr "MySQL veritabanlarına sürekli bağlantı kullanır."
 
 #: libraries/config/messages.inc.php:563
 msgid "Persistent connections"
@@ -7864,7 +7864,7 @@ msgid ""
 "Mark used tables and make it possible to show databases with locked tables."
 msgstr ""
 "Kullanılan tabloları işaretleyin ve veritabanlarını kilitli tablolarla "
-"birlikte gösterilmesini mümkün yapın."
+"birlikte gösterilmesini mümkün yapar."
 
 #: libraries/config/messages.inc.php:878
 msgid "Skip locked tables"
@@ -7890,7 +7890,7 @@ msgid ""
 msgstr ""
 "Eğer PHP ayarı session.gc_maxlifetime değeri `LoginCookieValidity` "
 "değerinden az ise, ana sayfada görüntülenen varsayılan uyarıyı "
-"etkisizleştirin."
+"etkisizleştirir."
 
 #: libraries/config/messages.inc.php:894
 msgid "Login cookie validity warning"
@@ -8064,7 +8064,7 @@ msgstr "ReCaptcha için özel anahtar"
 
 #: libraries/config/messages.inc.php:975
 msgid "Choose the default action when sending error reports."
-msgstr "Hata raporlarını gönderirken varsayılan eylemi seçin."
+msgstr "Hata raporlarını gönderirken varsayılan eylemi seçer."
 
 #: libraries/config/messages.inc.php:977
 msgid "Send error reports"
@@ -8080,7 +8080,7 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:983
 msgid "Enter executes queries in console"
-msgstr "Enter konsolda sorguları çalıştırır"
+msgstr "Enter konsolda sorguları çalıştırsın"
 
 #: libraries/config/messages.inc.php:986
 msgid ""
