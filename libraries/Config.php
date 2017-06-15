@@ -1135,7 +1135,7 @@ class Config
     public function checkPermissions()
     {
         // Check for permissions (on platforms that support it):
-        if ($this->get('CheckConfigurationPermissions')) {
+        if ($this->get('CheckConfigurationPermissions') && @file_exists($this->getSource())) {
             $perms = @fileperms($this->getSource());
             if (!($perms === false) && ($perms & 2)) {
                 // This check is normally done after loading configuration

@@ -199,4 +199,10 @@ class EncodingTest extends PHPUnit_Framework_TestCase
             $actual
         );
     }
+
+    public function testListEncodings()
+    {
+        $result = Encoding::listEncodings();
+        $this->assertContains('utf-8', $result);
+    }
 }
