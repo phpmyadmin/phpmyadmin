@@ -4,16 +4,16 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.7.2-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2017-06-13 17:05+0200\n"
-"PO-Revision-Date: 2017-05-17 08:24+0000\n"
+"PO-Revision-Date: 2017-06-15 07:26+0000\n"
 "Last-Translator: Burak Yavuz <hitowerdigit@hotmail.com>\n"
-"Language-Team: Turkish <https://hosted.weblate.org/projects/phpmyadmin/4-7/"
-"tr/>\n"
+"Language-Team: Turkish "
+"<https://hosted.weblate.org/projects/phpmyadmin/4-7/tr/>\n"
 "Language: tr\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n > 1;\n"
-"X-Generator: Weblate 2.14-dev\n"
+"X-Generator: Weblate 2.15-dev\n"
 
 #: ajax.php:16 ajax.php:33 export.php:191 schema_export.php:64
 msgid "Bad type!"
@@ -1524,22 +1524,16 @@ msgid "Chart"
 msgstr "Çizelge"
 
 #: js/messages.php:298 libraries/display_export.lib.php:903
-#, fuzzy
-#| msgid "Database"
 msgctxt "Alias"
 msgid "Database"
 msgstr "Veritabanı"
 
 #: js/messages.php:299 libraries/display_export.lib.php:915
-#, fuzzy
-#| msgid "Table"
 msgctxt "Alias"
 msgid "Table"
 msgstr "Tablo"
 
 #: js/messages.php:300 libraries/display_export.lib.php:926
-#, fuzzy
-#| msgid "Column"
 msgctxt "Alias"
 msgid "Column"
 msgstr "Sütun"
@@ -4915,7 +4909,7 @@ msgstr "%s gün, %s saat, %s dakika ve %s saniye"
 
 #: libraries/Util.php:2014
 msgid "Missing parameter:"
-msgstr "Eksik parametreler:"
+msgstr "Eksik parametre:"
 
 #: libraries/Util.php:2551
 #, php-format
@@ -6156,7 +6150,7 @@ msgstr "Genel"
 
 #: libraries/config/messages.inc.php:256
 msgid "Set some commonly used options."
-msgstr "Bazı çoğunlukla kullanılmış seçenekleri ayarla."
+msgstr "Bazı çoğunlukla kullanılan seçenekleri ayarlar."
 
 #: libraries/config/messages.inc.php:258
 msgid "Import defaults"
@@ -6480,7 +6474,7 @@ msgstr "YEREL anahtar kelime kullan"
 
 #: libraries/config/messages.inc.php:389
 msgid "Column names in first row"
-msgstr "İlk satır içindeki sütun adları"
+msgstr "Sütun adları ilk satırda"
 
 #: libraries/config/messages.inc.php:390
 #: libraries/plugins/import/ImportOds.php:71
@@ -6877,7 +6871,7 @@ msgstr "Kısayol tuşlarını etkisizleştir"
 
 #: libraries/config/messages.inc.php:549
 msgid "Use natural order for sorting table and database names."
-msgstr "Tablo ve veritabanı adlarını sıralamak için doğal sıra kullan."
+msgstr "Tablo ve veritabanı adlarını sıralamak için doğal sıra kullanır."
 
 #: libraries/config/messages.inc.php:550
 msgid "Natural order"
@@ -6895,7 +6889,7 @@ msgstr "Tablo gezinti çubuğu"
 #: libraries/config/messages.inc.php:554
 msgid "Use GZip output buffering for increased speed in HTTP transfers."
 msgstr ""
-"HTTP aktarımlarındaki arttırılmış hız için GZip çıktı arabellekleme kullan."
+"HTTP aktarımlarındaki arttırılmış hız için GZip çıktı arabellekleme kullanır."
 
 #: libraries/config/messages.inc.php:555
 msgid "GZip output buffering"
@@ -6915,7 +6909,7 @@ msgstr "Varsayılan sıralama düzeni"
 
 #: libraries/config/messages.inc.php:562
 msgid "Use persistent connections to MySQL databases."
-msgstr "MySQL veritabanlarına sürekli bağlantı kullan."
+msgstr "MySQL veritabanlarına sürekli bağlantı kullanır."
 
 #: libraries/config/messages.inc.php:563
 msgid "Persistent connections"
@@ -7722,7 +7716,7 @@ msgid ""
 "Mark used tables and make it possible to show databases with locked tables."
 msgstr ""
 "Kullanılan tabloları işaretleyin ve veritabanlarını kilitli tablolarla "
-"birlikte gösterilmesini mümkün yapın."
+"birlikte gösterilmesini mümkün yapar."
 
 #: libraries/config/messages.inc.php:878
 msgid "Skip locked tables"
@@ -7748,7 +7742,7 @@ msgid ""
 msgstr ""
 "Eğer PHP ayarı session.gc_maxlifetime değeri `LoginCookieValidity` "
 "değerinden az ise, ana sayfada görüntülenen varsayılan uyarıyı "
-"etkisizleştirin."
+"etkisizleştirir."
 
 #: libraries/config/messages.inc.php:894
 msgid "Login cookie validity warning"
@@ -7922,7 +7916,7 @@ msgstr "ReCaptcha için özel anahtar"
 
 #: libraries/config/messages.inc.php:975
 msgid "Choose the default action when sending error reports."
-msgstr "Hata raporlarını gönderirken varsayılan eylemi seçin."
+msgstr "Hata raporlarını gönderirken varsayılan eylemi seçer."
 
 #: libraries/config/messages.inc.php:977
 msgid "Send error reports"
@@ -7938,7 +7932,7 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:983
 msgid "Enter executes queries in console"
-msgstr "Enter konsolda sorguları çalıştırır"
+msgstr "Enter konsolda sorguları çalıştırsın"
 
 #: libraries/config/messages.inc.php:986
 msgid ""
@@ -8490,7 +8484,7 @@ msgstr "Şundan büyük tabloları atla"
 
 #: libraries/display_export.lib.php:895
 msgid "Defined aliases"
-msgstr ""
+msgstr "Tanımlı kod adları"
 
 #: libraries/display_export.lib.php:1011
 msgid "Could not load export plugins, please check your installation!"
@@ -10193,7 +10187,7 @@ msgstr "MIME türlerini göster"
 
 #: libraries/plugins/export/ExportLatex.php:165
 msgid "Put columns names in the first row:"
-msgstr "İlk satır içine sütun adlarını koy:"
+msgstr "Sütun adlarını ilk satır içine koy:"
 
 #: libraries/plugins/export/ExportLatex.php:213
 #: libraries/plugins/export/ExportSql.php:691
@@ -15018,33 +15012,27 @@ msgstr "Hata raporundaki verileri inceleyebilirsiniz:"
 
 #: templates/export/alias_add.phtml:5
 msgid "Define new aliases"
-msgstr ""
+msgstr "Yeni kod adları tanımla"
 
 #: templates/export/alias_add.phtml:11
-#, fuzzy
-#| msgid "Select database"
 msgid "Select database:"
-msgstr "Veritabanı seç"
+msgstr "Veritabanı seç:"
 
 #: templates/export/alias_add.phtml:17
 msgid "New database name"
 msgstr "Yeni veritabanı adı"
 
 #: templates/export/alias_add.phtml:26
-#, fuzzy
-#| msgid "Select table"
 msgid "Select table:"
-msgstr "Tablo seç"
+msgstr "Tablo seç:"
 
 #: templates/export/alias_add.phtml:32
 msgid "New table name"
 msgstr "Yeni tablo adı"
 
 #: templates/export/alias_add.phtml:41
-#, fuzzy
-#| msgid "Select a column."
 msgid "Select column:"
-msgstr "Bir sütun seçin."
+msgstr "Sütun seç:"
 
 #: templates/export/alias_add.phtml:47
 msgid "New column name"
@@ -15052,7 +15040,7 @@ msgstr "Yeni sütun adı"
 
 #: templates/export/alias_item.phtml:8
 msgid "Remove"
-msgstr ""
+msgstr "Kaldır"
 
 #: templates/prefs_autoload.phtml:8
 msgid ""
