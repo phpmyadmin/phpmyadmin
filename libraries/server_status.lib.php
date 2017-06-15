@@ -133,7 +133,7 @@ function PMA_getHtmlForReplicationInfo()
 function PMA_getHtmlForServerStateTraffic($ServerStatusData)
 {
     $hour_factor    = 3600 / $ServerStatusData->status['Uptime'];
-    $retval  = '<table id="serverstatustraffic" class="data noclick">';
+    $retval  = '<table id="serverstatustraffic" class="width100 data noclick">';
     $retval .= '<thead>';
     $retval .= '<tr>';
     $retval .= '<th>';
@@ -226,7 +226,7 @@ function PMA_getHtmlForServerStateTraffic($ServerStatusData)
 function PMA_getHtmlForServerStateConnections($ServerStatusData)
 {
     $hour_factor    = 3600 / $ServerStatusData->status['Uptime'];
-    $retval  = '<table id="serverstatusconnections" class="data noclick">';
+    $retval  = '<table id="serverstatusconnections" class="width100 data noclick">';
     $retval .= '<thead>';
     $retval .= '<tr>';
     $retval .= '<th>' . __('Connections') . '</th>';

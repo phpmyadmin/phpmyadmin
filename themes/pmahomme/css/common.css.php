@@ -3510,7 +3510,6 @@ body .ui-dialog .ui-dialog-buttonpane .ui-dialog-buttonset {
     }
 
     ul#topmenu,
-    ul#topmenu2,
     ul.tabs {
         display: flex;
     }
@@ -3546,5 +3545,9 @@ body .ui-dialog .ui-dialog-buttonpane .ui-dialog-buttonset {
 
     #page_nav_icons {
         display: none;
+    }
+
+    table#serverstatusconnections {
+        margin-left: 0;
     }
 }
