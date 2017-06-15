@@ -16,8 +16,8 @@ Code status
     :alt: Translation status
     :target: https://hosted.weblate.org/engage/phpmyadmin/?utm_source=widget
 
-.. image:: https://coveralls.io/repos/phpmyadmin/phpmyadmin/badge.svg?branch=master
-    :target: https://coveralls.io/r/phpmyadmin/phpmyadmin?branch=master
+.. image:: https://codecov.io/gh/phpmyadmin/phpmyadmin/branch/master/graph/badge.svg
+    :target: https://codecov.io/gh/phpmyadmin/phpmyadmin
 
 .. image:: https://scrutinizer-ci.com/g/phpmyadmin/phpmyadmin/badges/quality-score.png?s=93dfde29ffa5771d9c254b7ffb11c4e673315035
     :target: https://scrutinizer-ci.com/g/phpmyadmin/phpmyadmin/
