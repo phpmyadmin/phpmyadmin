@@ -709,6 +709,7 @@ class Index
                 return $r;
             }
         }
+        $r .= '<div class="responsivetable">';
         $r .= '<table id="table_index">';
         $r .= '<thead>';
         $r .= '<tr>';
@@ -823,6 +824,7 @@ class Index
         } // end while
         $r .= '</tbody>';
         $r .= '</table>';
+        $r .= '</div>';
         if (! $print_mode) {
             $r .= '</fieldset>';
         }

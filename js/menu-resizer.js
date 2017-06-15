@@ -28,11 +28,11 @@
 
         if (windowWidth < 768) {
             // Sets the image for the left and right scroll indicator
-            $(PMA_getImage('b_right.png').toString()).prependTo($('.scrollindicator--right'));
-            $(PMA_getImage('b_left.png').toString()).prependTo($('.scrollindicator--left'));
+            $('.scrollindicator--right').html($(PMA_getImage('b_right.png').toString()));
+            $('.scrollindicator--left').html($(PMA_getImage('b_left.png').toString()));
 
             // Set the width of the navigation bar without scroll indicator
-            $('.navigationbar').css({'width': widthCalculator.call($container) - 58});
+            $('.navigationbar').css({'width': widthCalculator.call($container) - 59});
 
             // Scroll the navigation bar on click
             $('.scrollindicator--right')
@@ -130,7 +130,7 @@
         }
         // Show/hide the "More" tab as needed
         if (windowWidth < 768) {
-            $('.navigationbar').css({'width': wmax - 58});
+            $('.navigationbar').css({'width': wmax - 59});
         }
         else if ($submenu_ul.find('li').length > 0) {
             $submenu.addClass('shown');

@@ -35,7 +35,7 @@
  * @return int
  */
 function PMA_tbl_structure_menu_resizer_callback() {
-    var pagewidth = $('body').width();
+    /*var pagewidth = $('body').width();
     var $page = $('#page_content');
     pagewidth -= $page.outerWidth(true) - $page.outerWidth();
     var columnsWidth = 0;
@@ -47,7 +47,7 @@ function PMA_tbl_structure_menu_resizer_callback() {
     $columns.each(function () {
         totalCellSpacing -= $(this).outerWidth(true);
     });
-    return pagewidth - columnsWidth - totalCellSpacing - 15; // 15px extra margin
+    return pagewidth - columnsWidth - totalCellSpacing - 15; // 15px extra margin*/
 }
 
 /**

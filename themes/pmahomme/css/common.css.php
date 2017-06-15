@@ -3529,7 +3529,7 @@ body .ui-dialog .ui-dialog-buttonpane .ui-dialog-buttonset {
     }
 
     .responsivetable {
-        overflow-x: scroll;
+        overflow-x: auto;
     }
 
     body#loginform div.container {
@@ -3538,6 +3538,10 @@ body .ui-dialog .ui-dialog-buttonpane .ui-dialog-buttonset {
 
     .largescreenonly {
         display: none;
+    }
+
+    .width100 {
+        width: 100%;
     }
 
     #page_nav_icons {

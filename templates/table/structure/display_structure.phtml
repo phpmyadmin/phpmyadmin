@@ -17,6 +17,7 @@ $rownum = 0; ?>
     <?php else: ?>
         "table" />
     <?php endif; ?>
+    <div class="responsivetable">
     <table id="tablestructure" class="data topmargin">
         <!-- table header -->
         <?= PhpMyAdmin\Template::get('table/structure/table_structure_header')->render(
@@ -122,6 +123,7 @@ $rownum = 0; ?>
         <?php endforeach; ?>
         </tbody>
     </table>
+    </div>
     <?= Template::get('table/structure/check_all_table_column')->render(
         array(
             'pma_theme_image' => $GLOBALS['pmaThemeImage'],
