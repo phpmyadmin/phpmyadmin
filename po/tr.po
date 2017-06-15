@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.8.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2017-06-13 17:05+0200\n"
-"PO-Revision-Date: 2017-06-15 06:32+0000\n"
+"PO-Revision-Date: 2017-06-15 07:26+0000\n"
 "Last-Translator: Burak Yavuz <hitowerdigit@hotmail.com>\n"
 "Language-Team: Turkish "
 "<https://hosted.weblate.org/projects/phpmyadmin/master/tr/>\n"
@@ -5068,7 +5068,7 @@ msgstr "%s gün, %s saat, %s dakika ve %s saniye"
 
 #: libraries/Util.php:1992
 msgid "Missing parameter:"
-msgstr "Eksik parametreler:"
+msgstr "Eksik parametre:"
 
 #: libraries/Util.php:2529
 #, php-format
@@ -6622,7 +6622,7 @@ msgstr "YEREL anahtar kelime kullan"
 
 #: libraries/config/messages.inc.php:389
 msgid "Column names in first row"
-msgstr "İlk satır içindeki sütun adları"
+msgstr "Sütun adları ilk satırda"
 
 #: libraries/config/messages.inc.php:390
 #: libraries/plugins/import/ImportOds.php:71
@@ -10314,7 +10314,7 @@ msgstr "MIME türlerini göster"
 
 #: libraries/plugins/export/ExportLatex.php:166
 msgid "Put columns names in the first row:"
-msgstr "İlk satır içine sütun adlarını koy:"
+msgstr "Sütun adlarını ilk satır içine koy:"
 
 #: libraries/plugins/export/ExportLatex.php:214
 #: libraries/plugins/export/ExportSql.php:692
