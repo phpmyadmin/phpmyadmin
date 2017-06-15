@@ -639,7 +639,7 @@ function PMA_getHtmlForExportOptionsOutputCharset()
     $html = '        <li><label for="select_charset" class="desc">'
         . __('Character set of the file:') . '</label>' . "\n";
     $html .= '<select id="select_charset" name="charset" size="1">';
-    foreach ($cfg['AvailableCharsets'] as $temp_charset) {
+    foreach (Encoding::listEncodings() as $temp_charset) {
         $html .= '<option value="' . $temp_charset . '"';
         if (isset($_GET['charset'])
             && ($_GET['charset'] != $temp_charset)
