@@ -408,7 +408,7 @@ unset($form_params);
 $response = Response::getInstance();
 $response->getHeader()->getScripts()->addFiles(
     array(
-        'jquery/jquery.uitablefilter.js',
+        'vendor/jquery/jquery.uitablefilter.js',
         'indexes.js'
     )
 );

@@ -149,12 +149,12 @@ $(function() {});
     public function testGetFiles()
     {
         // codemirror's onload event is blacklisted
-        $this->object->addFile('codemirror/lib/codemirror.js');
+        $this->object->addFile('vendor/codemirror/lib/codemirror.js');
 
         $this->object->addFile('common.js');
         $this->assertEquals(
             array(
-                array('name' => 'codemirror/lib/codemirror.js', 'fire' => 0),
+                array('name' => 'vendor/codemirror/lib/codemirror.js', 'fire' => 0),
                 array('name' => 'common.js', 'fire' => 1)
             ),
             $this->object->getFiles()

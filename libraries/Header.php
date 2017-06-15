@@ -148,19 +148,19 @@ class Header
     private function _addDefaultScripts()
     {
         // Localised strings
-        $this->_scripts->addFile('jquery/jquery.min.js');
-        $this->_scripts->addFile('jquery/jquery-migrate-3.0.0.js');
+        $this->_scripts->addFile('vendor/jquery/jquery.min.js');
+        $this->_scripts->addFile('vendor/jquery/jquery-migrate-3.0.0.js');
         $this->_scripts->addFile('whitelist.php');
-        $this->_scripts->addFile('sprintf.js');
+        $this->_scripts->addFile('vendor/sprintf.js');
         $this->_scripts->addFile('ajax.js');
         $this->_scripts->addFile('keyhandler.js');
-        $this->_scripts->addFile('jquery/jquery-ui.min.js');
-        $this->_scripts->addFile('js.cookie.js');
-        $this->_scripts->addFile('jquery/jquery.mousewheel.js');
-        $this->_scripts->addFile('jquery/jquery.event.drag-2.2.js');
-        $this->_scripts->addFile('jquery/jquery-ui-timepicker-addon.js');
-        $this->_scripts->addFile('jquery/jquery.ba-hashchange-1.3.js');
-        $this->_scripts->addFile('jquery/jquery.debounce-1.0.5.js');
+        $this->_scripts->addFile('vendor/jquery/jquery-ui.min.js');
+        $this->_scripts->addFile('vendor/js.cookie.js');
+        $this->_scripts->addFile('vendor/jquery/jquery.mousewheel.js');
+        $this->_scripts->addFile('vendor/jquery/jquery.event.drag-2.2.js');
+        $this->_scripts->addFile('vendor/jquery/jquery-ui-timepicker-addon.js');
+        $this->_scripts->addFile('vendor/jquery/jquery.ba-hashchange-1.3.js');
+        $this->_scripts->addFile('vendor/jquery/jquery.debounce-1.0.5.js');
         $this->_scripts->addFile('menu-resizer.js');
 
         // Cross-framing protection
@@ -170,7 +170,7 @@ class Header
 
         $this->_scripts->addFile('rte.js');
         if ($GLOBALS['cfg']['SendErrorReports'] !== 'never') {
-            $this->_scripts->addFile('tracekit/tracekit.js');
+            $this->_scripts->addFile('vendor/tracekit.js');
             $this->_scripts->addFile('error_report.js');
         }
 
@@ -397,13 +397,13 @@ class Header
                 // The user preferences have been merged at this point
                 // so we can conditionally add CodeMirror
                 if ($GLOBALS['cfg']['CodemirrorEnable']) {
-                    $this->_scripts->addFile('codemirror/lib/codemirror.js');
-                    $this->_scripts->addFile('codemirror/mode/sql/sql.js');
-                    $this->_scripts->addFile('codemirror/addon/runmode/runmode.js');
-                    $this->_scripts->addFile('codemirror/addon/hint/show-hint.js');
-                    $this->_scripts->addFile('codemirror/addon/hint/sql-hint.js');
+                    $this->_scripts->addFile('vendor/codemirror/lib/codemirror.js');
+                    $this->_scripts->addFile('vendor/codemirror/mode/sql/sql.js');
+                    $this->_scripts->addFile('vendor/codemirror/addon/runmode/runmode.js');
+                    $this->_scripts->addFile('vendor/codemirror/addon/hint/show-hint.js');
+                    $this->_scripts->addFile('vendor/codemirror/addon/hint/sql-hint.js');
                     if ($GLOBALS['cfg']['LintEnable']) {
-                        $this->_scripts->addFile('codemirror/addon/lint/lint.js');
+                        $this->_scripts->addFile('vendor/codemirror/addon/lint/lint.js');
                         $this->_scripts->addFile(
                             'codemirror/addon/lint/sql-lint.js'
                         );
@@ -671,11 +671,11 @@ class Header
             $retval .= '<link rel="stylesheet" type="text/css" href="'
                 . $theme_path . '/jquery/jquery-ui.css" />';
             $retval .= '<link rel="stylesheet" type="text/css" href="'
-                . $basedir . 'js/codemirror/lib/codemirror.css?' . $v . '" />';
+                . $basedir . 'js/vendor/codemirror/lib/codemirror.css?' . $v . '" />';
             $retval .= '<link rel="stylesheet" type="text/css" href="'
-                . $basedir . 'js/codemirror/addon/hint/show-hint.css?' . $v . '" />';
+                . $basedir . 'js/vendor/codemirror/addon/hint/show-hint.css?' . $v . '" />';
             $retval .= '<link rel="stylesheet" type="text/css" href="'
-                . $basedir . 'js/codemirror/addon/lint/lint.css?' . $v . '" />';
+                . $basedir . 'js/vendor/codemirror/addon/lint/lint.css?' . $v . '" />';
             $retval .= '<link rel="stylesheet" type="text/css" href="'
                 . $basedir . 'phpmyadmin.css.php?'
                 . 'nocache=' . $theme_id . $GLOBALS['text_dir'] . '" />';

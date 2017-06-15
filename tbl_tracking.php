@@ -18,7 +18,7 @@ require_once './libraries/tracking.lib.php';
 $response = Response::getInstance();
 $header   = $response->getHeader();
 $scripts  = $header->getScripts();
-$scripts->addFile('jquery/jquery.tablesorter.js');
+$scripts->addFile('vendor/jquery/jquery.tablesorter.js');
 $scripts->addFile('tbl_tracking.js');
 
 define('TABLE_MAY_BE_ABSENT', true);

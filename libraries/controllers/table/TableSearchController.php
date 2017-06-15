@@ -195,8 +195,8 @@ class TableSearchController extends TableController
                         'sql.js',
                         'tbl_select.js',
                         'tbl_change.js',
-                        'jquery/jquery-ui-timepicker-addon.js',
-                        'jquery/jquery.uitablefilter.js',
+                        'vendor/jquery/jquery-ui-timepicker-addon.js',
+                        'vendor/jquery/jquery.uitablefilter.js',
                         'gis_data_editor.js',
                     )
                 );
@@ -226,13 +226,13 @@ class TableSearchController extends TableController
                     array(
                         'makegrid.js',
                         'sql.js',
-                        'jqplot/jquery.jqplot.js',
-                        'jqplot/plugins/jqplot.canvasTextRenderer.js',
-                        'jqplot/plugins/jqplot.canvasAxisLabelRenderer.js',
-                        'jqplot/plugins/jqplot.dateAxisRenderer.js',
-                        'jqplot/plugins/jqplot.highlighter.js',
-                        'jqplot/plugins/jqplot.cursor.js',
-                        'jquery/jquery-ui-timepicker-addon.js',
+                        'vendor/jqplot/jquery.jqplot.js',
+                        'vendor/jqplot/plugins/jqplot.canvasTextRenderer.js',
+                        'vendor/jqplot/plugins/jqplot.canvasAxisLabelRenderer.js',
+                        'vendor/jqplot/plugins/jqplot.dateAxisRenderer.js',
+                        'vendor/jqplot/plugins/jqplot.highlighter.js',
+                        'vendor/jqplot/plugins/jqplot.cursor.js',
+                        'vendor/jquery/jquery-ui-timepicker-addon.js',
                         'tbl_zoom_plot_jqplot.js',
                         'tbl_change.js',
                     )

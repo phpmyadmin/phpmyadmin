@@ -25,7 +25,7 @@ $response = Response::getInstance();
 $header   = $response->getHeader();
 $scripts  = $header->getScripts();
 $scripts->addFile('server_privileges.js');
-$scripts->addFile('zxcvbn.js');
+$scripts->addFile('vendor/zxcvbn.js');
 
 /**
  * Displays an error message and exits if the user isn't allowed to use this

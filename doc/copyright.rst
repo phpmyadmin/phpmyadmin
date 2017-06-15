@@ -34,9 +34,9 @@ Third party licenses
 phpMyAdmin includes several third party libraries which come under their
 respective licenses.
 
-jQuery's license, which is where we got the files under js/jquery/ is
+jQuery's license, which is where we got the files under js/vendor/jquery/ is
 (MIT|GPL), a copy of each license is available in this repository (GPL
-is available as LICENSE, MIT as js/jquery/MIT-LICENSE.txt).
+is available as LICENSE, MIT as js/vendor/jquery/MIT-LICENSE.txt).
 
 The download kit additionally includes several composer libraries. See their
 licensing information in the vendor/ directory.

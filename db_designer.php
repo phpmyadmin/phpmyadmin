@@ -120,7 +120,7 @@ $header   = $response->getHeader();
 $header->setBodyId('pmd_body');
 
 $scripts  = $header->getScripts();
-$scripts->addFile('jquery/jquery.fullscreen.js');
+$scripts->addFile('vendor/jquery/jquery.fullscreen.js');
 $scripts->addFile('pmd/designer_db.js');
 $scripts->addFile('pmd/designer_objects.js');
 $scripts->addFile('pmd/designer_page.js');

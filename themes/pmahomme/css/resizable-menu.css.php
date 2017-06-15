@@ -3,7 +3,7 @@
 /**
  * Styles for the resizable menus
  *
- * used by js/jquery/jquery.menuResizer-1.0.js
+ * used by js/vendor/jquery/jquery.menuResizer-1.0.js
  *
  * @package    PhpMyAdmin-theme
  * @subpackage PMAHomme
