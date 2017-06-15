@@ -377,7 +377,7 @@ $token_provided = false;
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     if (Core::isValid($_POST['token'])) {
         $token_provided = true;
-        $token_mismatch = ! hash_equals($_SESSION[' PMA_token '], $_POST['token']);
+        $token_mismatch = ! @hash_equals($_SESSION[' PMA_token '], $_POST['token']);
     }
 
     if ($token_mismatch) {
