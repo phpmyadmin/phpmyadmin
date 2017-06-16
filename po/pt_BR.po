@@ -4,10 +4,10 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.8.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2017-06-13 17:05+0200\n"
-"PO-Revision-Date: 2017-06-13 00:12+0000\n"
-"Last-Translator: João Medeiros <medeiros.joaquim@gmail.com>\n"
-"Language-Team: Portuguese (Brazil) <https://hosted.weblate.org/projects/"
-"phpmyadmin/master/pt_BR/>\n"
+"PO-Revision-Date: 2017-06-16 17:25+0000\n"
+"Last-Translator: Christiano Parra Consentino <chris.parra@gmail.com>\n"
+"Language-Team: Portuguese (Brazil) "
+"<https://hosted.weblate.org/projects/phpmyadmin/master/pt_BR/>\n"
 "Language: pt_BR\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -297,11 +297,10 @@ msgid "The database name is empty!"
 msgstr "O nome do banco de dados está em branco!"
 
 #: db_operations.php:53
-#, fuzzy
 msgid "Cannot copy database to the same name. Change the name and try again."
 msgstr ""
 "Não é possível renomear o banco de dados para o mesmo nome. Escolha outro "
-"nome e tente novamente"
+"nome e tente novamente."
 
 #: db_operations.php:142
 #, php-format
@@ -1552,22 +1551,16 @@ msgid "Chart"
 msgstr "Grafico"
 
 #: js/messages.php:295 libraries/display_export.lib.php:905
-#, fuzzy
-#| msgid "Database"
 msgctxt "Alias"
 msgid "Database"
 msgstr "Banco de dados"
 
 #: js/messages.php:296 libraries/display_export.lib.php:917
-#, fuzzy
-#| msgid "Table"
 msgctxt "Alias"
 msgid "Table"
 msgstr "Tabela"
 
 #: js/messages.php:297 libraries/display_export.lib.php:928
-#, fuzzy
-#| msgid "Column"
 msgctxt "Alias"
 msgid "Column"
 msgstr "Coluna"
@@ -2992,7 +2985,7 @@ msgstr "Erro"
 #: libraries/Advisor.php:242
 #, fuzzy, php-format
 msgid "Error when evaluating: %s"
-msgstr "Erro ao criar o PDF:"
+msgstr "Erro ao criar arquivo: %s"
 
 #: libraries/Advisor.php:273
 #, php-format
@@ -3243,7 +3236,6 @@ msgid "German (dictionary order)"
 msgstr "Alemão (ordem alfabética)"
 
 #: libraries/Charsets.php:425 libraries/Charsets.php:536
-#, fuzzy
 msgctxt "Collation"
 msgid "German (phone book order)"
 msgstr "Alemão (ordem da agenda telefônica)"
@@ -3581,15 +3573,13 @@ msgstr "pelo menos uma das palavras"
 #: libraries/DbSearch.php:87
 #, fuzzy
 msgid "all of the words"
-msgstr "pelo menos uma das palavras"
+msgstr "todas as palavras"
 
 #: libraries/DbSearch.php:88
-#, fuzzy
 msgid "the exact phrase as substring"
 msgstr "a frase exata"
 
 #: libraries/DbSearch.php:89
-#, fuzzy
 msgid "the exact phrase as whole field"
 msgstr "a frase exata"
 
