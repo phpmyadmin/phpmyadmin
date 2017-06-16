@@ -4,6 +4,8 @@ imports:
     - php
 filter:
     excluded_paths: [js/vendor/*]
+checks:
+    javascript: true
 build:
     dependencies:
         before:
