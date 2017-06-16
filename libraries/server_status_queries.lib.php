@@ -81,7 +81,7 @@ function PMA_getHtmlForServerStatusQueriesDetails($ServerStatusData)
     $perc_factor    = 100 / $total_queries;
 
     $retval = '<table id="serverstatusqueriesdetails" '
-        . 'class="data sortable noclick">';
+        . 'class="width100 data sortable noclick">';
     $retval .= '<col class="namecol" />';
     $retval .= '<col class="valuecol" span="3" />';
     $retval .= '<thead>';
@@ -134,7 +134,7 @@ function PMA_getHtmlForServerStatusQueriesDetails($ServerStatusData)
     $retval .= '</tbody>';
     $retval .= '</table>';
 
-    $retval .= '<div id="serverstatusquerieschart" data-chart="';
+    $retval .= '<div id="serverstatusquerieschart" class="width100" data-chart="';
     if ($other_sum > 0) {
         $chart_json[__('Other')] = $other_sum;
     }
