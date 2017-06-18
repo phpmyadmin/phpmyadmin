@@ -518,6 +518,9 @@ AJAX.registerOnload('tbl_structure.js', function () {
             return width;
         });
     }
+
+    var windowwidth = $(window).width();
+    $('#responsivetable').css('max-width', (windowwidth - 35 ) + 'px');
 });
 AJAX.registerTeardown('tbl_structure.js', function () {
     if ($('#fieldsForm').hasClass('HideStructureActions')) {

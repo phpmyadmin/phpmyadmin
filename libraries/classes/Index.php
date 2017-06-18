@@ -644,7 +644,7 @@ class Index
      */
     public static function getHtmlForDisplayIndexes()
     {
-        $html_output = '<div id="index_div" class="ajax" >';
+        $html_output = '<div id="index_div" class="width100 ajax" >';
         $html_output .= self::getHtmlForIndexes(
             $GLOBALS['table'],
             $GLOBALS['db']
@@ -709,7 +709,7 @@ class Index
                 return $r;
             }
         }
-        $r .= '<div class="responsivetable">';
+        $r .= '<div id="responsivetable" class="responsivetable">';
         $r .= '<table id="table_index">';
         $r .= '<thead>';
         $r .= '<tr>';
