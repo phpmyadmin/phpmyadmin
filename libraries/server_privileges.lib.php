@@ -2332,6 +2332,7 @@ function PMA_getHtmlForSpecificDbPrivileges($db)
         // check the privileges for a particular database.
         $html_output  = '<form id="usersForm" action="server_privileges.php">';
         $html_output .= Url::getHiddenInputs($db);
+        $html_output .= '<div class="width100">';
         $html_output .= '<fieldset>';
         $html_output .= '<legend>' . "\n"
             . Util::getIcon('b_usrcheck.png')
@@ -2348,11 +2349,13 @@ function PMA_getHtmlForSpecificDbPrivileges($db)
             . "\n"
             . '</legend>' . "\n";
 
+        $html_output .= '<div id="responsivetable" class="responsivetable">';
         $html_output .= '<table id="dbspecificuserrights" class="data">';
         $html_output .= PMA_getHtmlForPrivsTableHead();
         $privMap = PMA_getPrivMap($db);
         $html_output .= PMA_getHtmlTableBodyForSpecificDbOrTablePrivs($privMap, $db);
         $html_output .= '</table>';
+        $html_output .= '</div>';
 
         $html_output .= '<div class="floatleft">';
         $html_output .= Template::get('select_all')
@@ -2369,6 +2372,7 @@ function PMA_getHtmlForSpecificDbPrivileges($db)
         );
 
         $html_output .= '</fieldset>';
+        $html_output .= '</div>';
         $html_output .= '</form>';
     } else {
         $html_output .= PMA_getHtmlForViewUsersError();
