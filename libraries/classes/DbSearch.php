@@ -375,13 +375,13 @@ class DbSearch
         $html_output .= '<fieldset>';
         // set legend caption
         $html_output .= '<legend>' . __('Search in database') . '</legend>';
-        $html_output .= '<table class="formlayout">';
+        $html_output .= '<table class="formlayout all100">';
         // inputbox for search phrase
         $html_output .= '<tr>';
-        $html_output .= '<td>' . __('Words or values to search for (wildcard: "%"):')
+        $html_output .= '<td class="right">' . __('Words or values to search for (wildcard: "%"):')
             . '</td>';
         $html_output .= '<td><input type="text"'
-            . ' name="criteriaSearchString" size="60"'
+            . ' name="criteriaSearchString" class="all85"'
             . ' value="' . htmlspecialchars($this->_criteriaSearchString) . '" />';
         $html_output .= '</td>';
         $html_output .= '</tr>';
@@ -414,7 +414,7 @@ class DbSearch
         $html_output .= '<tr>';
         $html_output .= '<td class="right vtop">' . __('Inside tables:') . '</td>';
         $html_output .= '<td rowspan="2">';
-        $html_output .= '<select name="criteriaTables[]" size="6"'
+        $html_output .= '<select name="criteriaTables[]" class="all85"'
             . ' multiple="multiple">';
         foreach ($this->_tables_names_only as $each_table) {
             if (in_array($each_table, $this->_criteriaTables)) {
@@ -443,7 +443,7 @@ class DbSearch
         // Inputbox for column name entry
         $html_output .= '<tr>';
         $html_output .= '<td class="right">' . __('Inside column:') . '</td>';
-        $html_output .= '<td><input type="text" name="criteriaColumnName" size="60"'
+        $html_output .= '<td><input type="text" name="criteriaColumnName" class="all85"'
             . 'value="'
             . (! empty($this->_criteriaColumnName)
                 ? htmlspecialchars($this->_criteriaColumnName)

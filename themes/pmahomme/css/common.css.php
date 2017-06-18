@@ -45,6 +45,14 @@ body#loginform {
     margin: 0 .5em;
 }
 
+.all100 {
+    width: 100%;
+}
+
+.all85{
+    width: 85%;
+}
+
 <?php if (! empty($GLOBALS['cfg']['FontFamilyFixed'])) : ?>
     textarea,
     tt,
