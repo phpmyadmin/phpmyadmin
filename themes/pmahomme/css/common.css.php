@@ -1445,16 +1445,27 @@ div#queryAnalyzerDialog table.queryNums {
 }
 #serverVariables .var-row {
     padding: 0.5em;
+    min-height: 18px;
+}
+#serverVariables .var-action {
+    width: 15%;
 }
 #serverVariables .var-name {
     font-weight: bold;
+    width: 65%;
 }
 #serverVariables .var-name.session {
     font-weight: normal;
     font-style: italic;
 }
 #serverVariables .var-value {
-    text-align: <?php echo $left; ?>;
+    width: 20%;
+    float: <?php echo $right; ?>;
+    text-align: <?php echo $right; ?>;
+}
+#serverVariables .var-doc {
+    overflow:visible;
+    float: <?php echo $right; ?>;
 }
 
 /* server variables editor */
