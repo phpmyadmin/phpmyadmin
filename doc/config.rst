@@ -3234,6 +3234,58 @@ MySQL settings
     FUNC\_SPATIAL, FUNC\_UUID) and for ``first_timestamp``, which is used
     for first timestamp column in table.
 
+Default options for Transformations
+-----------------------------------
+
+.. config:option:: $cfg['DefaultTransformations']
+
+    :type: array
+    :default: An array with below listed key-values
+
+.. config:option:: $cfg['DefaultTransformations']['Substring']
+
+    :type: array
+    :default: array(0, 'all', '…')
+
+.. config:option:: $cfg['DefaultTransformations']['Bool2Text']
+
+    :type: array
+    :default: array('T', 'F')
+
+.. config:option:: $cfg['DefaultTransformations']['External']
+
+    :type: array
+    :default: array(0, '-f /dev/null -i -wrap -q', 1, 1)
+
+.. config:option:: $cfg['DefaultTransformations']['PreApPend']
+
+    :type: array
+    :default: array('', '')
+
+.. config:option:: $cfg['DefaultTransformations']['Hex']
+
+    :type: array
+    :default: array('2')
+
+.. config:option:: $cfg['DefaultTransformations']['DateFormat']
+
+    :type: array
+    :default: array(0, '', 'local')
+
+.. config:option:: $cfg['DefaultTransformations']['Inline']
+
+    :type: array
+    :default: array('100', 100)
+
+.. config:option:: $cfg['DefaultTransformations']['TextImageLink']
+
+    :type: array
+    :default: array('', 100, 50)
+
+.. config:option:: $cfg['DefaultTransformations']['TextLink']
+
+    :type: array
+    :default: array('', '', '')
 
 Developer
 ---------

@@ -96,9 +96,10 @@ abstract class ExternalTransformationsPlugin extends TransformationsPlugin
             return $buffer;
         }
 
+        $cfg = $GLOBALS['cfg'];
         $options = $this->getOptions(
             $options,
-            array(0, '-f /dev/null -i -wrap -q', 1, 1)
+            $cfg['DefaultTransformations']['External']
         );
 
         if (isset($allowed_programs[$options[0]])) {

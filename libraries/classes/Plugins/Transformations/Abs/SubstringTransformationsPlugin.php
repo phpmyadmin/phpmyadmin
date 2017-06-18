@@ -47,7 +47,8 @@ abstract class SubstringTransformationsPlugin extends TransformationsPlugin
         // possibly use a global transform and feed it with special options
 
         // further operations on $buffer using the $options[] array.
-        $options = $this->getOptions($options, array(0, 'all', '…'));
+        $cfg = $GLOBALS['cfg'];
+        $options = $this->getOptions($options, $cfg['DefaultTransformations']['Substring']);
 
         if ($options[1] != 'all') {
             $newtext = mb_substr(
