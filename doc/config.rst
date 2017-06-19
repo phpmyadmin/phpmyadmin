@@ -111,7 +111,7 @@ Basic settings
 
     .. note::
 
-        When logging to a file, make sure it's permissions are correctly set
+        When logging to a file, make sure its permissions are correctly set
         for a web server user, the setup should closely match instructions
         described in :config:option:`$cfg['TempDir']`:
 
