@@ -98,7 +98,7 @@ Basic settings
     logged according to this directive:
 
     ``auto``
-        Let phpMyAdmin automatically choose between ``syslog` and `php``.
+        Let phpMyAdmin automatically choose between ``syslog`` and ``php``.
     ``syslog``
         Log using syslog, using AUTH facility, on most systems this ends up
         in :file:`/var/log/auth.log`.
