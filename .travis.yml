@@ -70,7 +70,7 @@ matrix:
       before_install:
         - brew tap homebrew/php
         - brew update
-        - brew install gettext php70 mariadb
+        - brew install gettext php71 mariadb
         - brew link --force gettext
         - sed -i -e 's/^memory_limit = .*/memory_limit = -1/' /usr/local/etc/php/7.0/php.ini
         - curl https://getcomposer.org/installer | php
