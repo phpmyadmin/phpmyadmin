@@ -66,7 +66,7 @@ function PMA_displayTabsTop($tabs)
 
     $htmlOutput = Template::get('list/unordered')->render(
         array(
-            'class' => 'tabs',
+            'class' => 'tabs responsivetable',
             'items' => $items,
         )
     );
@@ -245,11 +245,11 @@ function PMA_displayInput($path, $name, $type, $value, $description = '',
 
     switch ($type) {
     case 'text':
-        $htmlOutput .= '<input type="text" size="40" ' . $name_id . $field_class
+        $htmlOutput .= '<input type="text" class="all85" ' . $name_id . $field_class
             . ' value="' . htmlspecialchars($value) . '" />';
         break;
     case 'password':
-        $htmlOutput .= '<input type="password" size="40" ' . $name_id . $field_class
+        $htmlOutput .= '<input type="password" class="all85" ' . $name_id . $field_class
             . ' value="' . htmlspecialchars($value) . '" />';
         break;
     case 'short_text':
@@ -271,7 +271,7 @@ function PMA_displayInput($path, $name, $type, $value, $description = '',
           . ($value ? ' checked="checked"' : '') . ' /></span>';
         break;
     case 'select':
-        $htmlOutput .= '<select ' . $name_id . $field_class . '>';
+        $htmlOutput .= '<select class="all85" ' . $name_id . $field_class . '>';
         $escape = !(isset($opts['values_escaped']) && $opts['values_escaped']);
         $values_disabled = isset($opts['values_disabled'])
             ? array_flip($opts['values_disabled']) : array();
@@ -307,7 +307,7 @@ function PMA_displayInput($path, $name, $type, $value, $description = '',
         $htmlOutput .= '</select>';
         break;
     case 'list':
-        $htmlOutput .= '<textarea cols="40" rows="5" ' . $name_id . $field_class
+        $htmlOutput .= '<textarea cols="35" rows="5" ' . $name_id . $field_class
             . '>' . htmlspecialchars(implode("\n", $value)) . '</textarea>';
         break;
     }
