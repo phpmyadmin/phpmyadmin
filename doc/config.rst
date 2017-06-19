@@ -84,6 +84,41 @@ Basic settings
     If you do not want to use those features set this variable to ``true`` to
     stop this message from appearing.
 
+.. config:option:: $cfg['AuthLog']
+
+    :type: string
+    :default: ``'auto'``
+
+    Configure authentication logging destination. Failed (or all, depending on
+    :config:option:`$cfg['AuthLogSuccess']`) authentication attempts will be
+    logged according to this directive:
+
+    ``auto``
+        Let phpMyAdmin automatically choose between ``syslog` and `php``.
+    ``syslog``
+        Log using syslog, using AUTH facility, on most systems this ends up
+        in :file:`/var/log/auth.log`.
+    ``php``
+        Log into PHP error log.
+    ``sapi``
+        Log into PHP SAPI logging.
+    ``/path/to/file``
+        Any other value is treated as a filename and log entries are written there.
+
+    .. note::
+
+        When logging to a file, make sure it's permissions are correctly set
+        for a web server user, the setup should closely match instructions
+        described in :config:option:`$cfg['TempDir']`:
+
+.. config:option:: $cfg['AuthLogSuccess']
+
+    :type: boolean
+    :default: false
+
+    Whether to log successful authentication attempts into
+    :config:option:`$cfg['AuthLog']`.
+
 .. config:option:: $cfg['SuhosinDisableWarning']
 
     :type: boolean

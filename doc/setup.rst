@@ -1052,9 +1052,10 @@ are always ways to make your installation more secure:
 * If you are afraid of automated attacks, enabling Captcha by
   :config:option:`$cfg['CaptchaLoginPublicKey']` and
   :config:option:`$cfg['CaptchaLoginPrivateKey']` might be an option.
-* Failed login attemps are logged to syslog (if available). This can allow using a tool such as
-  fail2ban to block brute-force attempts. Note that the log file used by syslog is not the same
-  as the Apache error or access log files.
+* Failed login attemps are logged to syslog (if available, see
+  :config:option:`$cfg['AuthLog']`). This can allow using a tool such as
+  fail2ban to block brute-force attempts. Note that the log file used by syslog
+  is not the same as the Apache error or access log files.
 
 Known issues
 ++++++++++++

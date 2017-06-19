@@ -19,6 +19,44 @@ use PMA\libraries\Core;
 class Logging
 {
     /**
+     * Get authentication logging destination
+     *
+     * @return string
+     */
+    public static function getLogDestination()
+    {
+        $log_file = $GLOBALS['PMA_Config']->get('AuthLog');
+
+        /* Autodetect */
+        if ($log_file == 'auto') {
+            if (function_exists('syslog')) {
+                $log_file = 'syslog';
+            } elseif (function_exists('error_log')) {
+                $log_file = 'php';
+            } else {
+                $log_file = '';
+            }
+        }
+        return $log_file;
+    }
+
+    /**
+     * Generate log message for authentication logging
+     *
+     * @param string $user   user name
+     * @param string $status status message
+     *
+     * @return void
+     */
+    public static function getLogMessage($user, $status)
+    {
+        if ($status == 'ok') {
+            return 'user authenticated: ' . $user . ' from ' .  Core::getIp();
+        }
+        return 'user denied: ' . $user . ' (' . $status . ') from ' .  Core::getIp();
+    }
+
+    /**
      * Logs user information to webserver logs.
      *
      * @param string $user   user name
@@ -32,14 +70,30 @@ class Logging
             apache_note('userID', $user);
             apache_note('userStatus', $status);
         }
-        if (function_exists('syslog') && $status != 'ok') {
-            @openlog('phpMyAdmin', LOG_NDELAY | LOG_PID, LOG_AUTHPRIV);
-            @syslog(
-                LOG_WARNING,
-                'user denied: ' . $user . ' (' . $status . ') from ' .
-                Core::getIp()
+        /* Do not log successful authentications */
+        if (! $GLOBALS['PMA_Config']->get('AuthLogSuccess') && $status == 'ok') {
+            return;
+        }
+        $log_file = self::getLogDestination();
+        if (empty($log_file)) {
+            return;
+        }
+        $message = self::getLogMessage($user, $status);
+        if ($log_file == 'syslog') {
+            if (function_exists('syslog') && $status != 'ok') {
+                @openlog('phpMyAdmin', LOG_NDELAY | LOG_PID, LOG_AUTHPRIV);
+                @syslog(LOG_WARNING, $message);
+                closelog();
+            }
+        } elseif ($log_file == 'php') {
+            @error_log($message);
+        } elseif ($log_file == 'sapi') {
+            @error_log($message, 4);
+        } else {
+            @error_log(
+                date('M d H:i:s') . ' phpmyadmin: ' . $message . "\n",
+                3, $log_file
             );
-            closelog();
         }
     }
 }
