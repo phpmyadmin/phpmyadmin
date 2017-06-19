@@ -74,4 +74,7 @@ AJAX.registerOnload('db_qbe.js', function () {
 
         $('#action').val('delete');
     });
+
+    var windowwidth = $(window).width();
+    $('#responsivetable').css('max-width', (windowwidth - 35 ) + 'px');
 });

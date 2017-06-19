@@ -45,6 +45,10 @@ body#loginform {
     margin: 0 .5em;
 }
 
+.desktop50 {
+    width: 50%;
+}
+
 .all100 {
     width: 100%;
 }
@@ -3558,7 +3562,7 @@ body .ui-dialog .ui-dialog-buttonpane .ui-dialog-buttonset {
         display: none;
     }
 
-    .width100 {
+    .width100, .desktop50 {
         width: 100%;
     }
 

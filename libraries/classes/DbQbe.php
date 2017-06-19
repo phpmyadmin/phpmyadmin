@@ -836,7 +836,7 @@ class DbQbe
      */
     private function _getTablesList()
     {
-        $html_output = '<div class="floatleft">';
+        $html_output = '<div class="floatleft width100">';
         $html_output .= '<fieldset>';
         $html_output .= '<legend>' . __('Use Tables') . '</legend>';
         // Build the options list for each table name
@@ -1809,12 +1809,14 @@ class DbQbe
     {
         $html_output = '<form action="db_qbe.php" method="post" id="formQBE" '
             . 'class="lock-page">';
+        $html_output .= '<div class="width100">';
         $html_output .= '<fieldset>';
 
         if ($GLOBALS['cfgRelation']['savedsearcheswork']) {
             $html_output .= $this->_getSavedSearchesField();
         }
 
+        $html_output .= '<div id="responsivetable" class="responsivetable">';
         $html_output .= '<table class="data" style="width: 100%;">';
         // Get table's <tr> elements
         $html_output .= $this->_getColumnNamesRow();
@@ -1832,7 +1834,9 @@ class DbQbe
         $url_params['criteriaColumnCount'] = $this->_new_column_count;
         $url_params['rows'] = $this->_new_row_count;
         $html_output .= Url::getHiddenInputs($url_params);
+        $html_output .= '</div>';
         $html_output .= '</fieldset>';
+        $html_output .= '</div>';
         // get footers
         $html_output .= $this->_getTableFooters();
         // get tables select list
@@ -1841,7 +1845,7 @@ class DbQbe
         $html_output .= '<form action="db_qbe.php" method="post" class="lock-page">';
         $html_output .= Url::getHiddenInputs(array('db' => $this->_db));
         // get SQL query
-        $html_output .= '<div class="floatleft" style="width:50%">';
+        $html_output .= '<div class="floatleft desktop50">';
         $html_output .= '<fieldset>';
         $html_output .= '<legend>'
             . sprintf(
