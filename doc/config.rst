@@ -89,6 +89,10 @@ Basic settings
     :type: string
     :default: ``'auto'``
 
+    .. versionadded:: 4.8.0
+
+        This is supported since phpMyAdmin 4.8.0.
+
     Configure authentication logging destination. Failed (or all, depending on
     :config:option:`$cfg['AuthLogSuccess']`) authentication attempts will be
     logged according to this directive:
@@ -115,6 +119,10 @@ Basic settings
 
     :type: boolean
     :default: false
+
+    .. versionadded:: 4.8.0
+
+        This is supported since phpMyAdmin 4.8.0.
 
     Whether to log successful authentication attempts into
     :config:option:`$cfg['AuthLog']`.
