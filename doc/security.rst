@@ -73,7 +73,7 @@ through DatabaseInterface::escapeSring().
 Brute force attack
 ++++++++++++++++++
 
-phpMyAdmin on it's own does not rate limit authentication attempts in any way.
+phpMyAdmin on its own does not rate limit authentication attempts in any way.
 This is caused by need to work in stateless environment, where there is no way
 to protect against such kind of things.
 
