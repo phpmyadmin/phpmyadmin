@@ -967,7 +967,7 @@ class DisplayResults
             . ' data-for="' . $this->__get('unique_id') . '" />'
             . '</td>';
 
-        $table_navigation_html .= '<td>' . $sort_by_key_html . '</td>';
+        $table_navigation_html .= '<td class="largescreenonly">' . $sort_by_key_html . '</td>';
 
         $table_navigation_html .= '<td class="navigation_separator"></td>'
             . '</tr>'
