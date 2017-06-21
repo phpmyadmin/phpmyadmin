@@ -1025,7 +1025,8 @@ class Util
                     $query_base
                 );
                 $query_base = '<code class="php"><pre>' . "\n"
-                    . '$sql = "' . $query_base;
+                    . '$sql = "' . $query_base . '";' . "\n"
+                    . '</pre></code>';
             } elseif ($query_too_big) {
                 $query_base = htmlspecialchars($query_base);
             } else {
@@ -1166,12 +1167,6 @@ class Util
 
             $retval .= '<div class="sqlOuter">';
             $retval .= $query_base;
-
-            //Clean up the end of the PHP
-            if (! empty($GLOBALS['show_as_php'])) {
-                $retval .= '";' . "\n"
-                    . '</pre></code>';
-            }
             $retval .= '</div>';
 
             $retval .= '<div class="tools print_ignore">';
