@@ -1018,15 +1018,14 @@ class Util
 
             if (! empty($GLOBALS['show_as_php'])) {
                 $new_line = '\\n"<br />' . "\n" . '&nbsp;&nbsp;&nbsp;&nbsp;. "';
-                $query_base = '$sql  = \'' . $query_base;
-                $query_base = '<code class="php"><pre>' . "\n"
-                    . htmlspecialchars(addslashes($query_base));
+                $query_base = htmlspecialchars(addslashes($query_base));
                 $query_base = preg_replace(
                     '/((\015\012)|(\015)|(\012))/',
                     $new_line,
                     $query_base
                 );
-                $query_base = '$sql  = \'' . $query_base . '"';
+                $query_base = '<code class="php"><pre>' . "\n"
+                    . '$sql = "' . $query_base;
             } elseif ($query_too_big) {
                 $query_base = htmlspecialchars($query_base);
             } else {
@@ -1170,7 +1169,7 @@ class Util
 
             //Clean up the end of the PHP
             if (! empty($GLOBALS['show_as_php'])) {
-                $retval .= '\';' . "\n"
+                $retval .= '";' . "\n"
                     . '</pre></code>';
             }
             $retval .= '</div>';
