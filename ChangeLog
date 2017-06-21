@@ -18,6 +18,7 @@ phpMyAdmin - ChangeLog
 - issue #13386 Avoid PHP errors with non existing configuration on OS X
 - issue #13388 Show only supported charsets for conversion
 - issue #13392 Fixed operation with session.auto_start enabled
+- issue #13383 "Create PHP code" is broken
 
 4.7.1 (2017-05-25)
 - issue #13132 Always execute tracking queries as controluser
