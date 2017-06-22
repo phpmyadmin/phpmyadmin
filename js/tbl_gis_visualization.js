@@ -7,6 +7,8 @@
  * @requires    vendor/jquery/jquery.mousewheel.js
  * @requires    vendor/jquery/jquery.event.drag-2.2.js
  */
+import { AJAX } from './ajax.js';
+import { escapeHtml } from './functions.js';
 
 // Constants
 var zoomFactor = 1.5;

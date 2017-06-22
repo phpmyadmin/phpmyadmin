@@ -7,6 +7,14 @@
  * @requires    jQueryUI
  * @required    js/functions.js
  */
+import { AJAX } from './ajax.js';
+import {
+    escapeHtml,
+    PMA_sprintf,
+    PMA_prepareForAjaxRequest,
+    getJSConfirmCommonParam,
+    PMA_ajaxShowMessage
+} from './functions.js';
 
 /**
  * Unbind all event handlers before tearing down a page

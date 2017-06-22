@@ -5,6 +5,8 @@
  * @requires    jQuery
  *
  */
+import { AJAX } from './ajax.js';
+import { PMA_sprintf, PMA_ajaxShowMessage } from './functions.js';
 
 var gisEditorLoaded = false;
 

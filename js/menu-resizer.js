@@ -1,4 +1,8 @@
 /* vim: set expandtab sw=4 ts=4 sts=4: */
+
+import { PMA_getImage } from './get_image.js';
+import { PMA_messages } from './messages.js';
+
 /**
  * Handles the resizing of a menu according to the available screen width
  *

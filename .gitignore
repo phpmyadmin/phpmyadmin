@@ -53,3 +53,6 @@ cache.properties
 # Composer
 composer.lock
 /vendor/
+# Yarn
+/node_modules/
+/js/dist/

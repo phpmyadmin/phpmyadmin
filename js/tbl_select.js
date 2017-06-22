@@ -1,4 +1,14 @@
 /* vim: set expandtab sw=4 ts=4 sts=4: */
+import { AJAX } from './ajax.js';
+import {
+    PMA_addDatepicker,
+    PMA_prepareForAjaxRequest,
+    PMA_highlightSQL,
+    PMA_ajaxShowMessage,
+    PMA_ajaxRemoveMessage,
+    PMA_init_slider
+} from './functions.js';
+
 /**
  * @fileoverview JavaScript functions used on tbl_select.php
  *

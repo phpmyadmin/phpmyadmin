@@ -1,3 +1,6 @@
+import { AJAX } from './ajax.js';
+import { escapeHtml, PMA_sprintf } from './functions.js';
+
 /**
  * Unbind all event handlers before tearing down a page
  */

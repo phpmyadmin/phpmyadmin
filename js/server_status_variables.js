@@ -4,7 +4,7 @@
  *
  * @package PhpMyAdmin
  */
-
+import { AJAX } from './ajax.js';
 /**
  * Unbind all event handlers before tearing down a page
  */

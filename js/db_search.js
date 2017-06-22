@@ -7,6 +7,14 @@
  *
  * @package PhpMyAdmin
  */
+import { AJAX } from './ajax.js';
+import {
+    PMA_sprintf,
+    PMA_prepareForAjaxRequest,
+    PMA_highlightSQL,
+    PMA_ajaxShowMessage,
+    PMA_ajaxRemoveMessage
+} from './functions.js';
 
 /**
  * AJAX script for the Database Search page.

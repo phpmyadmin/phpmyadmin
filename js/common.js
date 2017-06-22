@@ -1,5 +1,9 @@
 /* vim: set expandtab sw=4 ts=4 sts=4: */
 
+import { AJAX } from './ajax.js';
+import { PMA_messages } from './messages.js';
+import { escapeHtml, PMA_sprintf, checkNumberOfFields } from './functions.js';
+
 $(function () {
     checkNumberOfFields();
 });
@@ -10,7 +14,7 @@ $(function () {
  * The content for this is normally loaded from Header.php or
  * Response.php and executed by ajax.js
  */
-var PMA_commonParams = (function () {
+export var PMA_commonParams = (function () {
     /**
      * @var hash params An associative array of key value pairs
      * @access private
@@ -162,7 +166,7 @@ var PMA_commonActions = {
  * Class to handle PMA Drag and Drop Import
  *      feature
  */
-PMA_DROP_IMPORT = {
+var PMA_DROP_IMPORT = {
     /**
      * @var int, count of total uploads in this view
      */

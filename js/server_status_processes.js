@@ -4,6 +4,8 @@
  *
  * @package PhpMyAdmin
  */
+import { AJAX } from './ajax.js';
+import { escapeHtml, PMA_highlightSQL, PMA_ajaxShowMessage } from './functions.js';
 
 // object to store process list state information
 var processList = {

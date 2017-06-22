@@ -6,7 +6,8 @@
  ** @requires    jQuery
  ** @requires    js/functions.js
  **/
-
+import { AJAX } from './ajax.js';
+import { addDateTimePicker, PMA_highlightSQL, PMA_ajaxShowMessage } from './functions.js';
 
 /**
  **  Display Help/Info

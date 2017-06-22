@@ -6,6 +6,8 @@
   * @requires    moves.js
   * @version $Id$
   */
+import { AJAX } from './../ajax.js';
+import { PMA_getSQLEditor, setQuery } from './../functions.js';
 
 var history_array = []; // Global array to store history objects
 var select_field = [];  // Global array to store informaation for columns which are used in select clause

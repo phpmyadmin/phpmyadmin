@@ -1,4 +1,13 @@
 /* vim: set expandtab sw=4 ts=4 sts=4: */
+
+import {
+    PMA_addDatepicker,
+    PMA_getSQLEditor,
+    PMA_ajaxShowMessage,
+    PMA_ajaxRemoveMessage,
+    PMA_slidingMessage
+} from './functions.js';
+
 /**
  * JavaScript functionality for Routines, Triggers and Events.
  *

@@ -5,6 +5,16 @@
  * @package phpMyAdmin-Console
  */
 
+import { AJAX } from './ajax.js';
+import Cookies from 'js-cookie';
+import { PMA_commonParams } from './common.js';
+import {
+    escapeHtml,
+    PMA_sprintf,
+    confirmQuery,
+    codemirrorAutocompleteOnInputRead
+} from './functions.js';
+
 /**
  * Console object
  */

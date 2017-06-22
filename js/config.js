@@ -3,6 +3,9 @@
  * Functions used in configuration forms and on user preferences pages
  */
 
+import { AJAX } from './ajax.js';
+import { PMA_sprintf, PMA_ajaxShowMessage, PMA_formatDateTime } from './functions.js';
+
 /**
  * checks whether browser supports web storage
  *
@@ -10,7 +13,7 @@
  *
  * @returns bool
  */
-function isStorageSupported(type, warn)
+export function isStorageSupported(type, warn)
 {
     try {
         window[type].setItem('PMATest', 'test');

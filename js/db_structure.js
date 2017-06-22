@@ -7,6 +7,18 @@
  * @requires    jQueryUI
  * @required    js/functions.js
  */
+import { AJAX } from './ajax.js';
+import {
+    PMA_tooltip,
+    escapeHtml,
+    PMA_sprintf,
+    getForeignKeyCheckboxLoader,
+    loadForeignKeyCheckbox,
+    getJSConfirmCommonParam,
+    PMA_ajaxShowMessage,
+    PMA_ajaxRemoveMessage,
+    printPreview
+} from './functions.js';
 
 /**
  * AJAX scripts for db_structure.php

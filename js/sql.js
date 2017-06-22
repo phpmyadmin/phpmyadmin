@@ -6,6 +6,23 @@
  * @requires    js/functions.js
  *
  */
+import { AJAX } from './ajax.js';
+import {
+    escapeHtml,
+    PMA_sprintf,
+    PMA_prepareForAjaxRequest,
+    checkSqlQuery,
+    setQuery,
+    PMA_handleSimulateQueryButton,
+    PMA_highlightSQL,
+    PMA_ajaxShowMessage,
+    PMA_ajaxRemoveMessage,
+    PMA_createProfilingChart,
+    submitFormLink,
+    PMA_init_slider,
+    printPreview,
+    copyToClipboard
+} from './functions.js';
 
 var $data_a;
 var prevScrollX = 0;

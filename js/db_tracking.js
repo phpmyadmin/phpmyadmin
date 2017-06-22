@@ -1,3 +1,6 @@
+import { AJAX } from './ajax.js';
+import { PMA_ajaxShowMessage } from './functions.js';
+
 /**
  * Unbind all event handlers before tearing down the page
  */

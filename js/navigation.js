@@ -1,4 +1,17 @@
 /* vim: set expandtab sw=4 ts=4 sts=4: */
+
+import Cookies from 'js-cookie';
+import { isStorageSupported } from './config.js';
+import { PMA_commonParams } from './common.js';
+import {
+    PMA_handleRedirectAndReload,
+    PMA_tooltip,
+    PMA_ajaxShowMessage,
+    PMA_ajaxRemoveMessage,
+    indexEditorDialog,
+    PMA_createViewDialog
+} from './functions.js';
+
 /**
  * function used in or for navigation panel
  *

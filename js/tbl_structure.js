@@ -7,6 +7,19 @@
  * @requires    jQueryUI
  * @required    js/functions.js
  */
+import { AJAX } from './ajax.js';
+import {
+    escapeHtml,
+    PMA_sprintf,
+    PMA_prepareForAjaxRequest,
+    checkTableEditForm,
+    PMA_highlightSQL,
+    PMA_ajaxShowMessage,
+    PMA_ajaxRemoveMessage,
+    PMA_checkReservedWordColumns,
+    PMA_init_slider,
+    printPreview
+} from './functions.js';
 
 /**
  * AJAX scripts for tbl_structure.php

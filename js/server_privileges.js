@@ -8,6 +8,15 @@
  * @requires    js/functions.js
  *
  */
+import { AJAX } from './ajax.js';
+import {
+    PMA_getSQLEditor,
+    PMA_sprintf,
+    displayPasswordGenerateButton,
+    PMA_ajaxShowMessage,
+    PMA_ajaxRemoveMessage,
+    PMA_checkPassword
+} from './functions.js';
 
 /**
  * Validates the "add a user" form

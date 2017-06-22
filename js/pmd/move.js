@@ -2,6 +2,13 @@
 /**
  * @package PhpMyAdmin-Designer
  */
+import { AJAX } from './../ajax.js';
+import {
+    PMA_sprintf,
+    PMA_prepareForAjaxRequest,
+    PMA_ajaxShowMessage,
+    PMA_ajaxRemoveMessage
+} from './../functions.js';
 
 /**
  * init

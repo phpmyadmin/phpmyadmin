@@ -5,6 +5,14 @@
  *
  * @requires    jQuery
  */
+import { AJAX } from './ajax.js';
+import {
+    escapeHtml,
+    escapeJsString,
+    PMA_sprintf,
+    PMA_ajaxShowMessage,
+    indexEditorDialog
+} from './functions.js';
 
 /**
  * AJAX scripts for normalization.php

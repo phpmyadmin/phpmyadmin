@@ -1,3 +1,5 @@
+import { escapeHtml } from './../functions.js';
+
 function Show_tables_in_landing_page(db)
 {
     Load_first_page(db, function (page) {

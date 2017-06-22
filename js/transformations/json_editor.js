@@ -4,6 +4,8 @@
  *
  * @package PhpMyAdmin
  */
+import { AJAX } from './../ajax.js';
+
 AJAX.registerOnload('transformations/json_editor.js', function() {
     $('textarea.transform_json_editor').each(function () {
         CodeMirror.fromTextArea(this, {

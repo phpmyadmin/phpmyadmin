@@ -1,4 +1,14 @@
 /* vim: set expandtab sw=4 ts=4 sts=4: */
+import { AJAX } from './ajax.js';
+import {
+    PMA_addDatepicker,
+    PMA_tooltip,
+    escapeHtml,
+    PMA_sprintf,
+    PMA_createProfilingChart,
+    PMA_prettyProfilingNum
+} from './functions.js';
+
 var runtime = {},
     server_time_diff,
     server_os,

@@ -8,6 +8,22 @@
  * @required    js/functions.js
  */
 
+import { AJAX } from './ajax.js';
+import {
+    escapeHtml,
+    checkFormElementInRange,
+    PMA_highlightSQL,
+    PMA_ajaxShowMessage,
+    PMA_ajaxRemoveMessage,
+    PMA_previewSQL,
+    PMA_hideShowConnection,
+    checkIndexName,
+    indexEditorDialog,
+    showIndexEditDialog,
+    PMA_showHints,
+    PMA_init_slider
+} from './functions.js';
+
 /**
  * Returns the array of indexes based on the index choice
  *

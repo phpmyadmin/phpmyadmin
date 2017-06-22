@@ -1,4 +1,5 @@
 /* vim: set expandtab sw=4 ts=4 sts=4: */
+import { AJAX } from './ajax.js';
 /**
  * Functions used in server plugins pages
  */

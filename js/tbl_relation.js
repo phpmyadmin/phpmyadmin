@@ -1,4 +1,12 @@
 /* vim: set expandtab sw=4 ts=4 sts=4: */
+import { AJAX } from './ajax.js';
+import {
+    escapeHtml,
+    PMA_sprintf,
+    PMA_ajaxShowMessage,
+    PMA_ajaxRemoveMessage
+} from './functions.js';
+
 /**
  * for tbl_relation.php
  *

@@ -1,3 +1,10 @@
+import { AJAX } from './ajax.js';
+import {
+    PMA_prepareForAjaxRequest,
+    PMA_ajaxShowMessage,
+    PMA_ajaxRemoveMessage
+} from './functions.js';
+
 /**
  * Unbind all event handlers before tearing down a page
  */
