@@ -31,19 +31,19 @@
  * @package PhpMyAdmin
  */
 
-use PMA\libraries\Config;
-use PMA\libraries\Core;
-use PMA\libraries\DatabaseInterface;
-use PMA\libraries\ErrorHandler;
+use PhpMyAdmin\Config;
+use PhpMyAdmin\Core;
+use PhpMyAdmin\DatabaseInterface;
+use PhpMyAdmin\ErrorHandler;
 use PMA\libraries\Message;
 use PMA\libraries\plugins\AuthenticationPlugin;
-use PMA\libraries\DbList;
+use PhpMyAdmin\DbList;
 use PMA\libraries\ThemeManager;
 use PMA\libraries\Tracker;
 use PMA\libraries\Response;
 use PMA\libraries\TypesMySQL;
 use PMA\libraries\Util;
-use PMA\libraries\LanguageManager;
+use PhpMyAdmin\LanguageManager;
 use PMA\libraries\Logging;
 
 /**
@@ -361,14 +361,14 @@ if (Core::checkPageValidity($_REQUEST['back'], $goto_whitelist)) {
  *
  * remember that some objects in the session with session_start and __wakeup()
  * could access this variables before we reach this point
- * f.e. PMA\libraries\Config: fontsize
+ * f.e. PhpMyAdmin\Config: fontsize
  *
  * Check for token mismatch only if the Request method is POST
  * GET Requests would never have token and therefore checking
  * mis-match does not make sense
  *
  * @todo variables should be handled by their respective owners (objects)
- * f.e. lang, server, collation_connection in PMA\libraries\Config
+ * f.e. lang, server, collation_connection in PhpMyAdmin\Config
  */
 
 $token_mismatch = true;
@@ -487,8 +487,8 @@ $GLOBALS['server'] = 0;
 
 /**
  * Servers array fixups.
- * $default_server comes from PMA\libraries\Config::enableBc()
- * @todo merge into PMA\libraries\Config
+ * $default_server comes from PhpMyAdmin\Config::enableBc()
+ * @todo merge into PhpMyAdmin\Config
  */
 // Do we have some server?
 if (! isset($cfg['Servers']) || count($cfg['Servers']) == 0) {
@@ -590,7 +590,7 @@ if (! defined('PMA_MINIMUM_COMMON')) {
 
     /**
      * save some settings in cookies
-     * @todo should be done in PMA\libraries\Config
+     * @todo should be done in PhpMyAdmin\Config
      */
     $GLOBALS['PMA_Config']->setCookie('pma_lang', $GLOBALS['lang']);
     if (isset($GLOBALS['collation_connection'])) {
@@ -612,7 +612,7 @@ if (! defined('PMA_MINIMUM_COMMON')) {
         // get LoginCookieValidity from preferences cache
         // no generic solution for loading preferences from cache as some settings
         // need to be kept for processing in
-        // PMA\libraries\Config::loadUserPreferences()
+        // PhpMyAdmin\Config::loadUserPreferences()
         $cache_key = 'server_' . $GLOBALS['server'];
         if (isset($_SESSION['cache'][$cache_key]['userprefs']['LoginCookieValidity'])
         ) {

@@ -6,10 +6,10 @@
  * @package PhpMyAdmin
  */
 
-use PMA\libraries\Bookmark;
-use PMA\libraries\Core;
-use PMA\libraries\Encoding;
-use PMA\libraries\File;
+use PhpMyAdmin\Bookmark;
+use PhpMyAdmin\Core;
+use PhpMyAdmin\Encoding;
+use PhpMyAdmin\File;
 use PMA\libraries\plugins\ImportPlugin;
 use PMA\libraries\Response;
 use PMA\libraries\Sql;
@@ -43,7 +43,7 @@ $response = Response::getInstance();
 // If it's a refresh console bookmarks request
 if (isset($_REQUEST['console_bookmark_refresh'])) {
     $response->addJSON(
-        'console_message_bookmark', PMA\libraries\Console::getBookmarkContent()
+        'console_message_bookmark', PhpMyAdmin\Console::getBookmarkContent()
     );
     exit;
 }

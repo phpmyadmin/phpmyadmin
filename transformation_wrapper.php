@@ -6,7 +6,7 @@
  * @package PhpMyAdmin
  */
 
-use PMA\libraries\Core;
+use PhpMyAdmin\Core;
 use PMA\libraries\Response;
 use PMA\libraries\Transformations;
 
@@ -65,14 +65,14 @@ if (isset($where_clause)) {
         'SELECT * FROM ' . PMA\libraries\Util::backquote($table)
         . ' WHERE ' . $where_clause . ';',
         null,
-        PMA\libraries\DatabaseInterface::QUERY_STORE
+        PhpMyAdmin\DatabaseInterface::QUERY_STORE
     );
     $row = $GLOBALS['dbi']->fetchAssoc($result);
 } else {
     $result = $GLOBALS['dbi']->query(
         'SELECT * FROM ' . PMA\libraries\Util::backquote($table) . ' LIMIT 1;',
         null,
-        PMA\libraries\DatabaseInterface::QUERY_STORE
+        PhpMyAdmin\DatabaseInterface::QUERY_STORE
     );
     $row = $GLOBALS['dbi']->fetchAssoc($result);
 }

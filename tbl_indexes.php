@@ -9,7 +9,7 @@
 namespace PMA;
 
 use PMA\libraries\controllers\table\TableIndexesController;
-use PMA\libraries\Index;
+use PhpMyAdmin\Index;
 use PMA\libraries\Response;
 
 require_once 'libraries/common.inc.php';

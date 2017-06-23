@@ -8,7 +8,8 @@
 /*
  * Include to test.
  */
-use PMA\libraries\Core;
+use PhpMyAdmin\Core;
+use PhpMyAdmin\DisplayResults;
 use PMA\libraries\plugins\transformations\Text_Plain_Link;
 
 require_once 'libraries/relation.lib.php';
@@ -36,13 +37,13 @@ class DisplayResultsTest extends PMATestCase
     protected function setUp()
     {
         $GLOBALS['server'] = 0;
-        $this->object = new PMA\libraries\DisplayResults('as', '', '', '');
-        $GLOBALS['PMA_Config'] = new PMA\libraries\Config();
+        $this->object = new DisplayResults('as', '', '', '');
+        $GLOBALS['PMA_Config'] = new PhpMyAdmin\Config();
         $GLOBALS['PMA_Config']->enableBc();
         $GLOBALS['text_dir'] = 'ltr';
         $GLOBALS['collation_connection'] = 'utf-8';
 
-        $dbi = $this->getMockBuilder('PMA\libraries\DatabaseInterface')
+        $dbi = $this->getMockBuilder('PhpMyAdmin\DatabaseInterface')
             ->disableOriginalConstructor()
             ->getMock();
 
@@ -74,7 +75,7 @@ class DisplayResultsTest extends PMATestCase
      */
     private function _callPrivateFunction($name, $params)
     {
-        $class = new ReflectionClass('PMA\libraries\DisplayResults');
+        $class = new ReflectionClass(DisplayResults::class);
         $method = $class->getMethod($name);
         $method->setAccessible(true);
         return $method->invokeArgs($this->object, $params);
@@ -277,7 +278,7 @@ class DisplayResultsTest extends PMATestCase
             'datetimefield',
             $this->_callPrivateFunction(
                 '_getClassForDateTimeRelatedFields',
-                array(PMA\libraries\DisplayResults::DATETIME_FIELD)
+                array(DisplayResults::DATETIME_FIELD)
             )
         );
     }
@@ -293,7 +294,7 @@ class DisplayResultsTest extends PMATestCase
             'datefield',
             $this->_callPrivateFunction(
                 '_getClassForDateTimeRelatedFields',
-                array(PMA\libraries\DisplayResults::DATE_FIELD)
+                array(DisplayResults::DATE_FIELD)
             )
         );
     }
@@ -309,7 +310,7 @@ class DisplayResultsTest extends PMATestCase
             'text',
             $this->_callPrivateFunction(
                 '_getClassForDateTimeRelatedFields',
-                array(PMA\libraries\DisplayResults::STRING_FIELD)
+                array(DisplayResults::STRING_FIELD)
             )
         );
     }
@@ -321,7 +322,7 @@ class DisplayResultsTest extends PMATestCase
      */
     public function testGetOffsetsCase1()
     {
-        $_SESSION['tmpval']['max_rows'] = PMA\libraries\DisplayResults::ALL_ROWS;
+        $_SESSION['tmpval']['max_rows'] = DisplayResults::ALL_ROWS;
         $this->assertEquals(
             array(0, 0),
             $this->_callPrivateFunction('_getOffsets', array())
@@ -615,7 +616,7 @@ class DisplayResultsTest extends PMATestCase
     {
         return array(
             array(
-                PMA\libraries\DisplayResults::POSITION_LEFT,
+                DisplayResults::POSITION_LEFT,
                 'sql.php?db=data&amp;table=new&amp;sql_query=DELETE+FROM+%60data'
                 . '%60.%60new%60+WHERE+%60new%60.%60id%60+%3D+1&amp;message_to_show='
                 . 'The+row+has+been+deleted&amp;goto=sql.php%3Fdb%3Ddata%26table%3D'
@@ -687,7 +688,7 @@ class DisplayResultsTest extends PMATestCase
                 . '</div></td>'
             ),
             array(
-                PMA\libraries\DisplayResults::POSITION_RIGHT,
+                DisplayResults::POSITION_RIGHT,
                 'sql.php?db=data&amp;table=new&amp;sql_query=DELETE+FROM+%60data%60'
                 . '.%60new%60+WHERE+%60new%60.%60id%60+%3D+1&amp;message_to_show='
                 . 'The+row+has+been+deleted&amp;goto=sql.php%3Fdb%3Ddata%26table%3D'
@@ -757,7 +758,7 @@ class DisplayResultsTest extends PMATestCase
                 . '{&quot;`new`.`id`&quot;:&quot;= 1&quot;}" />    </td>'
             ),
             array(
-                PMA\libraries\DisplayResults::POSITION_NONE,
+                DisplayResults::POSITION_NONE,
                 'sql.php?db=data&amp;table=new&amp;sql_query=DELETE+FROM+%60data%60.'
                 . '%60new%60+WHERE+%60new%60.%60id%60+%3D+1&amp;message_to_show=The+'
                 . 'row+has+been+deleted&amp;goto=sql.php%3Fdb%3Ddata%26table%3Dnew'
@@ -854,7 +855,7 @@ class DisplayResultsTest extends PMATestCase
     {
         return array(
             array(
-                PMA\libraries\DisplayResults::POSITION_NONE,
+                DisplayResults::POSITION_NONE,
                 'sql.php?db=data&amp;table=new&amp;sql_query=DELETE+FROM+%60data%60.'
                 . '%60new%60+WHERE+%60new%60.%60id%60+%3D+1&amp;message_to_show=The+'
                 . 'row+has+been+deleted&amp;goto=sql.php%3Fdb%3Ddata%26table%3Dnew'
@@ -1391,7 +1392,7 @@ class DisplayResultsTest extends PMATestCase
      * @param string  $content               the binary content
      * @param string  $transformation_plugin transformation plugin.
      *                                       Can also be the default function:
-     *                                       PMA\libraries\Core::mimeDefaultFunction
+     *                                       PhpMyAdmin\Core::mimeDefaultFunction
      * @param string  $transform_options     transformation parameters
      * @param string  $default_function      default transformation function
      * @param object  $meta                  the meta-information about the field

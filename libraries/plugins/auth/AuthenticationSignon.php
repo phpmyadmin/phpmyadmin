@@ -8,7 +8,7 @@
  */
 namespace PMA\libraries\plugins\auth;
 
-use PMA\libraries\Core;
+use PhpMyAdmin\Core;
 use PMA\libraries\plugins\AuthenticationPlugin;
 use PMA;
 

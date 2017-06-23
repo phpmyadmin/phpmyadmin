@@ -6,7 +6,7 @@
  *
  * @package PhpMyAdmin
  */
-use PMA\libraries\Encoding;
+use PhpMyAdmin\Encoding;
 use PMA\libraries\Message;
 use PMA\libraries\plugins\ExportPlugin;
 use PMA\libraries\Table;

@@ -7,8 +7,8 @@
  */
 use PMA\libraries\config\ConfigFile;
 use PMA\libraries\config\FormDisplay;
-use PMA\libraries\Core;
-use PMA\libraries\File;
+use PhpMyAdmin\Core;
+use PhpMyAdmin\File;
 use PMA\libraries\Message;
 use PMA\libraries\Response;
 use PMA\libraries\Util;

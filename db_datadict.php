@@ -201,8 +201,8 @@ foreach ($tables as $table) {
     $count++;
     echo '</table>';
     // display indexes information
-    if (count(PMA\libraries\Index::getFromTable($table, $db)) > 0) {
-        echo PMA\libraries\Index::getHtmlForIndexes($table, $db, true);
+    if (count(PhpMyAdmin\Index::getFromTable($table, $db)) > 0) {
+        echo PhpMyAdmin\Index::getHtmlForIndexes($table, $db, true);
     }
     echo '</div>';
 } //ends main while

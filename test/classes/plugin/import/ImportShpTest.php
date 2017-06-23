@@ -10,7 +10,7 @@
  * since 'check_user_privileges.lib.php' will use it globally
  */
 use PMA\libraries\plugins\import\ImportShp;
-use PMA\libraries\File;
+use PhpMyAdmin\File;
 
 $GLOBALS['server'] = 0;
 
@@ -48,7 +48,7 @@ class ImportShpTest extends PMATestCase
         $GLOBALS['cfg']['Server']['DisableIS'] = false;
 
         //Mock DBI
-        $dbi = $this->getMockBuilder('PMA\libraries\DatabaseInterface')
+        $dbi = $this->getMockBuilder('PhpMyAdmin\DatabaseInterface')
             ->disableOriginalConstructor()
             ->getMock();
         $GLOBALS['dbi'] = $dbi;

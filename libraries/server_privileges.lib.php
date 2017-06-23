@@ -6,8 +6,8 @@
  * @package PhpMyAdmin
  */
 
-use PMA\libraries\Core;
-use PMA\libraries\DatabaseInterface;
+use PhpMyAdmin\Core;
+use PhpMyAdmin\DatabaseInterface;
 use PMA\libraries\Message;
 use PMA\libraries\Response;
 use PMA\libraries\Template;
@@ -3709,7 +3709,7 @@ function PMA_getHtmlForInitials($array_initials)
         'SELECT DISTINCT UPPER(LEFT(`User`,1)) FROM `user`'
         . ' ORDER BY UPPER(LEFT(`User`,1)) ASC',
         null,
-        PMA\libraries\DatabaseInterface::QUERY_STORE
+        PhpMyAdmin\DatabaseInterface::QUERY_STORE
     );
     if ($initials) {
         while (list($tmp_initial) = $GLOBALS['dbi']->fetchRow($initials)) {
@@ -4587,10 +4587,10 @@ function PMA_getHtmlForUserOverview($pmaThemeImage, $text_dir)
     $sql_query_all .= ' ;';
 
     $res = $GLOBALS['dbi']->tryQuery(
-        $sql_query, null, PMA\libraries\DatabaseInterface::QUERY_STORE
+        $sql_query, null, PhpMyAdmin\DatabaseInterface::QUERY_STORE
     );
     $res_all = $GLOBALS['dbi']->tryQuery(
-        $sql_query_all, null, PMA\libraries\DatabaseInterface::QUERY_STORE
+        $sql_query_all, null, PhpMyAdmin\DatabaseInterface::QUERY_STORE
     );
 
     if (! $res) {
@@ -4603,7 +4603,7 @@ function PMA_getHtmlForUserOverview($pmaThemeImage, $text_dir)
         $GLOBALS['dbi']->freeResult($res_all);
         $sql_query = 'SELECT * FROM `mysql`.`user`';
         $res = $GLOBALS['dbi']->tryQuery(
-            $sql_query, null, PMA\libraries\DatabaseInterface::QUERY_STORE
+            $sql_query, null, PhpMyAdmin\DatabaseInterface::QUERY_STORE
         );
 
         if (! $res) {
@@ -4829,7 +4829,7 @@ function PMA_getTablePrivsQueriesForChangeOrCopyUser($user_host_condition,
         'SELECT `Db`, `Table_name`, `Table_priv` FROM `mysql`.`tables_priv`'
         . $user_host_condition,
         $GLOBALS['userlink'],
-        PMA\libraries\DatabaseInterface::QUERY_STORE
+        PhpMyAdmin\DatabaseInterface::QUERY_STORE
     );
     while ($row = $GLOBALS['dbi']->fetchAssoc($res)) {
 
@@ -4846,7 +4846,7 @@ function PMA_getTablePrivsQueriesForChangeOrCopyUser($user_host_condition,
             . ' = \'' . $GLOBALS['dbi']->escapeString($row['Table_name']) . "'"
             . ';',
             null,
-            PMA\libraries\DatabaseInterface::QUERY_STORE
+            PhpMyAdmin\DatabaseInterface::QUERY_STORE
         );
 
         $tmp_privs1 = PMA_extractPrivInfo($row);

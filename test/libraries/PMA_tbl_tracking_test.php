@@ -58,7 +58,7 @@ class PMA_TblTrackingTest extends PHPUnit_Framework_TestCase
 
         $GLOBALS['cfg']['Server']['tracking_default_statements'] = 'DELETE';
 
-        $dbi = $this->getMockBuilder('PMA\libraries\DatabaseInterface')
+        $dbi = $this->getMockBuilder('PhpMyAdmin\DatabaseInterface')
             ->disableOriginalConstructor()
             ->getMock();
 
@@ -437,7 +437,7 @@ class PMA_TblTrackingTest extends PHPUnit_Framework_TestCase
         $text_dir = "ltr";
 
         $dbi_old = $GLOBALS['dbi'];
-        $dbi = $this->getMockBuilder('PMA\libraries\DatabaseInterface')
+        $dbi = $this->getMockBuilder('PhpMyAdmin\DatabaseInterface')
             ->disableOriginalConstructor()
             ->getMock();
 
@@ -535,7 +535,7 @@ class PMA_TblTrackingTest extends PHPUnit_Framework_TestCase
         $url_query = "select * from PMA";
 
         $dbi_old = $GLOBALS['dbi'];
-        $dbi = $this->getMockBuilder('PMA\libraries\DatabaseInterface')
+        $dbi = $this->getMockBuilder('PhpMyAdmin\DatabaseInterface')
             ->disableOriginalConstructor()
             ->getMock();
 

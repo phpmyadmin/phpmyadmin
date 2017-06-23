@@ -10,7 +10,7 @@
  * Include to test.
  */
 
-use PMA\libraries\Core;
+use PhpMyAdmin\Core;
 use PMA\libraries\engines\Pbxt;
 
 require_once 'libraries/database_interface.inc.php';

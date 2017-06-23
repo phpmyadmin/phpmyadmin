@@ -7,7 +7,7 @@
  */
 namespace PMA\libraries\controllers;
 
-use PMA\libraries\DatabaseInterface;
+use PhpMyAdmin\DatabaseInterface;
 use PMA\libraries\di\Container;
 use PMA\libraries\Response;
 

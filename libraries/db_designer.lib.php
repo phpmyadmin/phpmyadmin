@@ -85,7 +85,7 @@ function PMA_getPageIdsAndNames($db)
         . " WHERE db_name = '" . $GLOBALS['dbi']->escapeString($db) . "'"
         . " ORDER BY `page_descr`";
     $page_rs = PMA_queryAsControlUser(
-        $page_query, false, PMA\libraries\DatabaseInterface::QUERY_STORE
+        $page_query, false, PhpMyAdmin\DatabaseInterface::QUERY_STORE
     );
 
     $result = array();

@@ -48,7 +48,7 @@ class PMA_Normalization_Test extends PHPUnit_Framework_TestCase
         //$_SESSION
 
         //mock DBI
-        $dbi = $this->getMockBuilder('PMA\libraries\DatabaseInterface')
+        $dbi = $this->getMockBuilder('PhpMyAdmin\DatabaseInterface')
             ->disableOriginalConstructor()
             ->getMock();
         $GLOBALS['dbi'] = $dbi;

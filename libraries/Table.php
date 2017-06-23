@@ -7,6 +7,8 @@
  */
 namespace PMA\libraries;
 
+use PhpMyAdmin\DatabaseInterface;
+use PhpMyAdmin\Index;
 use PMA\libraries\plugins\export\ExportSql;
 use PhpMyAdmin\SqlParser\Components\Expression;
 use PhpMyAdmin\SqlParser\Components\OptionsArray;

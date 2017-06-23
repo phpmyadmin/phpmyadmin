@@ -103,7 +103,7 @@ class ServerEnginesControllerTest extends PMATestCase
         $_REQUEST['engine'] = "Pbxt";
         $_REQUEST['page'] = "page";
         //Mock DBI
-        $dbi = $this->getMockBuilder('PMA\libraries\DatabaseInterface')
+        $dbi = $this->getMockBuilder('PhpMyAdmin\DatabaseInterface')
             ->disableOriginalConstructor()
             ->getMock();
         $GLOBALS['dbi'] = $dbi;

@@ -30,7 +30,7 @@ class AuthenticationHttpTest extends PMATestCase
      */
     function setup()
     {
-        $GLOBALS['PMA_Config'] = new PMA\libraries\Config;
+        $GLOBALS['PMA_Config'] = new PhpMyAdmin\Config;
         $GLOBALS['PMA_Config']->enableBc();
         $GLOBALS['cfg']['Servers'] = array();
         $GLOBALS['server'] = 0;
@@ -55,7 +55,7 @@ class AuthenticationHttpTest extends PMATestCase
     public function doMockResponse($set_minimal, $body_id, $set_title)
     {
         // mock footer
-        $mockFooter = $this->getMockBuilder('PMA\libraries\Footer')
+        $mockFooter = $this->getMockBuilder('PhpMyAdmin\Footer')
             ->disableOriginalConstructor()
             ->setMethods(array('setMinimal'))
             ->getMock();
@@ -66,7 +66,7 @@ class AuthenticationHttpTest extends PMATestCase
 
         // mock header
 
-        $mockHeader = $this->getMockBuilder('PMA\libraries\Header')
+        $mockHeader = $this->getMockBuilder('PhpMyAdmin\Header')
             ->disableOriginalConstructor()
             ->setMethods(
                 array('setBodyId', 'setTitle', 'disableMenuAndConsole', 'addHTML')
@@ -387,7 +387,7 @@ class AuthenticationHttpTest extends PMATestCase
     public function testAuthFails()
     {
 
-        $dbi = $this->getMockBuilder('PMA\libraries\DatabaseInterface')
+        $dbi = $this->getMockBuilder('PhpMyAdmin\DatabaseInterface')
             ->disableOriginalConstructor()
             ->getMock();
 

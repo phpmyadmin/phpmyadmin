@@ -27,7 +27,7 @@ class CharsetsExtension extends Twig_Extension
         return array(
             new Twig_SimpleFunction(
                 'Charsets_getCollationDescr',
-                'PMA\libraries\Charsets::getCollationDescr'
+                'PhpMyAdmin\Charsets::getCollationDescr'
             ),
         );
     }

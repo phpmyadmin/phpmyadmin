@@ -214,7 +214,7 @@ class TransformationsTest extends PHPUnit_Framework_TestCase
     public function testClear()
     {
         // Mock dbi
-        $dbi = $this->getMockBuilder('PMA\libraries\DatabaseInterface')
+        $dbi = $this->getMockBuilder('PhpMyAdmin\DatabaseInterface')
             ->disableOriginalConstructor()
             ->getMock();
         $dbi->expects($this->any())

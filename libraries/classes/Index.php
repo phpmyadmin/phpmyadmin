@@ -5,10 +5,13 @@
  *
  * @package PhpMyAdmin
  */
-namespace PMA\libraries;
+namespace PhpMyAdmin;
 
-use PMA\libraries\URL;
+use PhpMyAdmin\IndexColumn;
+use PMA\libraries\Message;
 use PMA\libraries\Sanitize;
+use PMA\libraries\URL;
+use PMA\libraries\Util;
 
 /**
  * Index manipulation class

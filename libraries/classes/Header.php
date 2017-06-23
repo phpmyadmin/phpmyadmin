@@ -5,13 +5,19 @@
  *
  * @package PhpMyAdmin
  */
-namespace PMA\libraries;
+namespace PhpMyAdmin;
 
+use PhpMyAdmin\Config;
+use PhpMyAdmin\Console;
+use PhpMyAdmin\Core;
+use PMA\libraries\Menu;
+use PMA\libraries\Message;
 use PMA\libraries\navigation\Navigation;
-use PMA\libraries\URL;
+use PMA\libraries\RecentFavoriteTable;
 use PMA\libraries\Sanitize;
-use PMA\libraries\Config;
-use PMA\libraries\Core;
+use PMA\libraries\Scripts;
+use PMA\libraries\URL;
+use PMA\libraries\Util;
 
 /**
  * Class used to output the HTTP and HTML headers
@@ -28,7 +34,7 @@ class Header
      */
     private $_scripts;
     /**
-     * PMA\libraries\Console instance
+     * PhpMyAdmin\Console instance
      *
      * @access private
      * @var Console
@@ -126,7 +132,7 @@ class Header
         $this->_menuEnabled = true;
         $this->_warningsEnabled = true;
         $this->_isPrintView = false;
-        $this->_scripts     = new Scripts();
+        $this->_scripts = new Scripts();
         $this->_addDefaultScripts();
         $this->_headerIsSent = false;
         // if database storage for user preferences is transient,

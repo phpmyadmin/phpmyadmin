@@ -12,7 +12,7 @@
  * @package PhpMyAdmin
  */
 
-use PMA\libraries\Core;
+use PhpMyAdmin\Core;
 use PMA\libraries\plugins\IOTransformationsPlugin;
 use PMA\libraries\Response;
 use PMA\libraries\Table;
@@ -206,7 +206,7 @@ foreach ($loop_array as $rownumber => $where_clause) {
         // Note: $key is an md5 of the fieldname. The actual fieldname is
         // available in $multi_edit_columns_name[$key]
 
-        $file_to_insert = new PMA\libraries\File();
+        $file_to_insert = new PhpMyAdmin\File();
         $file_to_insert->checkTblChangeForm($key, $rownumber);
 
         $possibly_uploaded_val = $file_to_insert->getContent();

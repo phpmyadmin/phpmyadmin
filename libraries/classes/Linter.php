@@ -5,7 +5,7 @@
  *
  * @package PhpMyAdmin
  */
-namespace PMA\libraries;
+namespace PhpMyAdmin;
 
 use PhpMyAdmin\SqlParser\Lexer;
 use PhpMyAdmin\SqlParser\Parser;
@@ -19,7 +19,6 @@ use PhpMyAdmin\SqlParser\Utils\Error as ParserError;
  */
 class Linter
 {
-
     /**
      * Gets the starting position of each line.
      *

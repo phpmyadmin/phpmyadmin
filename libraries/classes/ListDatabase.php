@@ -5,7 +5,10 @@
  *
  * @package PhpMyAdmin
  */
-namespace PMA\libraries;
+namespace PhpMyAdmin;
+
+use PhpMyAdmin\ListAbstract;
+use PMA\libraries\Util;
 
 require_once './libraries/check_user_privileges.lib.php';
 

@@ -10,7 +10,7 @@
  * since 'check_user_privileges.lib.php' will use it globally
  */
 use PMA\libraries\plugins\import\ImportSql;
-use PMA\libraries\File;
+use PhpMyAdmin\File;
 
 $GLOBALS['server'] = 0;
 
@@ -85,7 +85,7 @@ class ImportSqlTest extends PMATestCase
         $sql_query_disabled = false;
 
         //Mock DBI
-        $dbi = $this->getMockBuilder('PMA\libraries\DatabaseInterface')
+        $dbi = $this->getMockBuilder('PhpMyAdmin\DatabaseInterface')
             ->disableOriginalConstructor()
             ->getMock();
         $GLOBALS['dbi'] = $dbi;

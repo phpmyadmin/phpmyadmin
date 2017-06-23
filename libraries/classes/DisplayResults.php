@@ -1,19 +1,26 @@
 <?php
 /* vim: set expandtab sw=4 ts=4 sts=4: */
 /**
- * Hold the PMA\libraries\DisplayResults class
+ * Hold the PhpMyAdmin\DisplayResults class
  *
  * @package PhpMyAdmin
  */
-namespace PMA\libraries;
+namespace PhpMyAdmin;
 
 use PhpMyAdmin\SqlParser\Utils\Query;
-use PMA\libraries\Core;
+use PhpMyAdmin\Core;
+use PhpMyAdmin\DatabaseInterface;
+use PhpMyAdmin\Index;
+use PMA\libraries\Message;
 use PMA\libraries\plugins\transformations\Text_Plain_Link;
+use PMA\libraries\Response;
 use PMA\libraries\Sanitize;
 use PMA\libraries\Sql;
+use PMA\libraries\Table;
+use PMA\libraries\Template;
 use PMA\libraries\Transformations;
 use PMA\libraries\URL;
+use PMA\libraries\Util;
 
 /**
  * Handle all the functionalities related to displaying results
@@ -3055,7 +3062,7 @@ class DisplayResults
                             $plugin_manager
                         );
 
-                        $transform_options  = Transformations::getOptions(
+                        $transform_options = Transformations::getOptions(
                             isset(
                                 $mime_map[$orgFullColName]
                                 ['transformation_options']
@@ -3088,7 +3095,7 @@ class DisplayResults
                 $transformation_plugin = new $this->transformation_info
                     [$dbLower][$tblLower][$nameLower][1](null);
 
-                $transform_options  = Transformations::getOptions(
+                $transform_options = Transformations::getOptions(
                     isset($mime_map[$orgFullColName]['transformation_options'])
                     ? $mime_map[$orgFullColName]['transformation_options']
                     : ''

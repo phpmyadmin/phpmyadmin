@@ -5,10 +5,10 @@
  *
  * @package PhpMyAdmin
  */
-namespace PMA\libraries;
+namespace PhpMyAdmin;
 
 use PMA\libraries\Util;
-use PMA\libraries\DatabaseInterface;
+use PhpMyAdmin\DatabaseInterface;
 
 /**
  * Handles bookmarking SQL queries

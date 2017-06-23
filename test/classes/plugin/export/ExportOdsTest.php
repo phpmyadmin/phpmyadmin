@@ -264,7 +264,7 @@ class ExportOdsTest extends PMATestCase
      */
     public function testExportData()
     {
-        $dbi = $this->getMockBuilder('PMA\libraries\DatabaseInterface')
+        $dbi = $this->getMockBuilder('PhpMyAdmin\DatabaseInterface')
             ->disableOriginalConstructor()
             ->getMock();
 
@@ -329,7 +329,7 @@ class ExportOdsTest extends PMATestCase
 
         $dbi->expects($this->once())
             ->method('query')
-            ->with('SELECT', null, PMA\libraries\DatabaseInterface::QUERY_UNBUFFERED)
+            ->with('SELECT', null, PhpMyAdmin\DatabaseInterface::QUERY_UNBUFFERED)
             ->will($this->returnValue(true));
 
         $dbi->expects($this->once())
@@ -389,7 +389,7 @@ class ExportOdsTest extends PMATestCase
      */
     public function testExportDataWithFieldNames()
     {
-        $dbi = $this->getMockBuilder('PMA\libraries\DatabaseInterface')
+        $dbi = $this->getMockBuilder('PhpMyAdmin\DatabaseInterface')
             ->disableOriginalConstructor()
             ->getMock();
 
@@ -406,7 +406,7 @@ class ExportOdsTest extends PMATestCase
 
         $dbi->expects($this->once())
             ->method('query')
-            ->with('SELECT', null, PMA\libraries\DatabaseInterface::QUERY_UNBUFFERED)
+            ->with('SELECT', null, PhpMyAdmin\DatabaseInterface::QUERY_UNBUFFERED)
             ->will($this->returnValue(true));
 
         $dbi->expects($this->once())
@@ -454,7 +454,7 @@ class ExportOdsTest extends PMATestCase
         );
 
         // with no row count
-        $dbi = $this->getMockBuilder('PMA\libraries\DatabaseInterface')
+        $dbi = $this->getMockBuilder('PhpMyAdmin\DatabaseInterface')
             ->disableOriginalConstructor()
             ->getMock();
 
@@ -467,7 +467,7 @@ class ExportOdsTest extends PMATestCase
 
         $dbi->expects($this->once())
             ->method('query')
-            ->with('SELECT', null, PMA\libraries\DatabaseInterface::QUERY_UNBUFFERED)
+            ->with('SELECT', null, PhpMyAdmin\DatabaseInterface::QUERY_UNBUFFERED)
             ->will($this->returnValue(true));
 
         $dbi->expects($this->once())

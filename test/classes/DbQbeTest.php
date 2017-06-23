@@ -13,10 +13,10 @@ require_once 'libraries/database_interface.inc.php';
 require_once 'libraries/relation.lib.php';
 require_once 'test/PMATestCase.php';
 
-use PMA\libraries\DbQbe;
+use PhpMyAdmin\DbQbe;
 
 /**
- * Tests for PMA\libraries\DbQbe class
+ * Tests for PhpMyAdmin\DbQbe class
  *
  *  @package PhpMyAdmin-test
  */
@@ -40,7 +40,7 @@ class DbQbeTest extends PMATestCase
         $GLOBALS['server'] = 0;
         $GLOBALS['db'] = 'pma_test';
         //mock DBI
-        $dbi = $this->getMockBuilder('PMA\libraries\DatabaseInterface')
+        $dbi = $this->getMockBuilder('PhpMyAdmin\DatabaseInterface')
             ->disableOriginalConstructor()
             ->getMock();
 
@@ -86,7 +86,7 @@ class DbQbeTest extends PMATestCase
      */
     private function _callProtectedFunction($name, $params)
     {
-        $class = new ReflectionClass('PMA\libraries\DbQbe');
+        $class = new ReflectionClass(DbQbe::class);
         $method = $class->getMethod($name);
         $method->setAccessible(true);
         return $method->invokeArgs($this->object, $params);

@@ -9,7 +9,7 @@
 /*
  * Include to test
  */
-use PMA\libraries\Config;
+use PhpMyAdmin\Config;
 use PMA\libraries\config\ConfigFile;
 use PMA\setup\lib\ConfigGenerator;
 

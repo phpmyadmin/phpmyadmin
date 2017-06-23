@@ -6,7 +6,7 @@
  * @package PhpMyAdmin
  */
 
-use PMA\libraries\Core;
+use PhpMyAdmin\Core;
 use PMA\libraries\Message;
 use PMA\libraries\Response;
 use PMA\libraries\Tracker;

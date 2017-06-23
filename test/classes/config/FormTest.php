@@ -6,7 +6,7 @@
  * @package PhpMyAdmin-test
  */
 
-use PMA\libraries\Config;
+use PhpMyAdmin\Config;
 use PMA\libraries\config\ConfigFile;
 use PMA\libraries\config\Form;
 use PMA\libraries\Theme;

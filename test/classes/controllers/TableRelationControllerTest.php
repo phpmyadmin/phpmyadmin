@@ -45,7 +45,7 @@ class TableRelationControllerTest extends PMATestCase
         $GLOBALS['dblist'] = new DataBasePMAMockForTblRelation();
         $GLOBALS['dblist']->databases = new DataBaseMockForTblRelation();
 
-        $dbi = $this->getMockBuilder('PMA\libraries\DatabaseInterface')
+        $dbi = $this->getMockBuilder('PhpMyAdmin\DatabaseInterface')
             ->disableOriginalConstructor()
             ->getMock();
 

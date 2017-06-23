@@ -27,7 +27,7 @@ class PDFTest extends PMATestCase
      */
     public function setup()
     {
-        $GLOBALS['PMA_Config'] = new PMA\libraries\Config();
+        $GLOBALS['PMA_Config'] = new PhpMyAdmin\Config();
         $GLOBALS['PMA_Config']->enableBc();
     }
 

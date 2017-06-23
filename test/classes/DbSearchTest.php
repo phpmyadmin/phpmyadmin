@@ -12,7 +12,7 @@
 require_once 'libraries/database_interface.inc.php';
 require_once 'test/PMATestCase.php';
 
-use PMA\libraries\DbSearch;
+use PhpMyAdmin\DbSearch;
 use PMA\libraries\Theme;
 
 /**
@@ -42,7 +42,7 @@ class DbSearchTest extends PMATestCase
         $GLOBALS['collation_connection'] = 'utf-8';
 
         //mock DBI
-        $dbi = $this->getMockBuilder('PMA\libraries\DatabaseInterface')
+        $dbi = $this->getMockBuilder('PhpMyAdmin\DatabaseInterface')
             ->disableOriginalConstructor()
             ->getMock();
 
@@ -83,7 +83,7 @@ class DbSearchTest extends PMATestCase
      */
     private function _callProtectedFunction($name, $params)
     {
-        $class = new ReflectionClass('PMA\libraries\DbSearch');
+        $class = new ReflectionClass(DbSearch::class);
         $method = $class->getMethod($name);
         $method->setAccessible(true);
         return $method->invokeArgs($this->object, $params);

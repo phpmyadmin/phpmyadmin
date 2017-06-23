@@ -10,7 +10,7 @@
 namespace PMA\libraries\controllers\server;
 
 use PMA\libraries\controllers\Controller;
-use PMA\libraries\Charsets;
+use PhpMyAdmin\Charsets;
 use PMA\libraries\Message;
 use PMA\libraries\Response;
 use PMA\libraries\Template;
@@ -336,7 +336,7 @@ class ServerDatabasesController extends Controller
         $column_order = array();
         $column_order['DEFAULT_COLLATION_NAME'] = array(
             'disp_name' => __('Collation'),
-            'description_function' => array('\PMA\libraries\Charsets', 'getCollationDescr'),
+            'description_function' => array(Charsets::class, 'getCollationDescr'),
             'format'    => 'string',
             'footer'    => $this->dbi->getServerCollation(),
         );

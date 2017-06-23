@@ -66,7 +66,7 @@ class DatabaseStructureControllerTest extends PMATestCase
         $table->expects($this->any())->method('countRecords')
             ->will($this->returnValue(6));
 
-        $dbi = $this->getMockBuilder('PMA\libraries\DatabaseInterface')
+        $dbi = $this->getMockBuilder('PhpMyAdmin\DatabaseInterface')
             ->disableOriginalConstructor()
             ->getMock();
         $dbi->expects($this->any())->method('getTable')

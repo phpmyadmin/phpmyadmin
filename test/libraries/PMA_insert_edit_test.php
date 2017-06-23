@@ -61,7 +61,7 @@ class PMA_InsertEditTest extends PHPUnit_Framework_TestCase
         $GLOBALS['cfg']['NavigationTreeDefaultTabTable2'] = '';
         $GLOBALS['cfg']['Confirm'] = true;
         $GLOBALS['cfg']['LoginCookieValidity'] = 1440;
-        $GLOBALS['PMA_Config'] = new PMA\libraries\Config();
+        $GLOBALS['PMA_Config'] = new PhpMyAdmin\Config();
     }
 
     /**
@@ -127,7 +127,7 @@ class PMA_InsertEditTest extends PHPUnit_Framework_TestCase
     {
         $clauses = array('a=1', 'b="fo\o"');
 
-        $dbi = $this->getMockBuilder('PMA\libraries\DatabaseInterface')
+        $dbi = $this->getMockBuilder('PhpMyAdmin\DatabaseInterface')
             ->disableOriginalConstructor()
             ->getMock();
 
@@ -176,7 +176,7 @@ class PMA_InsertEditTest extends PHPUnit_Framework_TestCase
         $temp->primary_key = 1;
         $meta_arr = array($temp);
 
-        $dbi = $this->getMockBuilder('PMA\libraries\DatabaseInterface')
+        $dbi = $this->getMockBuilder('PhpMyAdmin\DatabaseInterface')
             ->disableOriginalConstructor()
             ->getMock();
 
@@ -225,7 +225,7 @@ class PMA_InsertEditTest extends PHPUnit_Framework_TestCase
     {
         $GLOBALS['cfg']['InsertRows'] = 2;
 
-        $dbi = $this->getMockBuilder('PMA\libraries\DatabaseInterface')
+        $dbi = $this->getMockBuilder('PhpMyAdmin\DatabaseInterface')
             ->disableOriginalConstructor()
             ->getMock();
 
@@ -234,7 +234,7 @@ class PMA_InsertEditTest extends PHPUnit_Framework_TestCase
             ->with(
                 'SELECT * FROM `db`.`table` LIMIT 1;',
                 null,
-                PMA\libraries\DatabaseInterface::QUERY_STORE
+                PhpMyAdmin\DatabaseInterface::QUERY_STORE
             )
             ->will($this->returnValue('result1'));
 
@@ -1671,7 +1671,7 @@ class PMA_InsertEditTest extends PHPUnit_Framework_TestCase
         );
 
         // Case 3 (bit)
-        $dbi = $this->getMockBuilder('PMA\libraries\DatabaseInterface')
+        $dbi = $this->getMockBuilder('PhpMyAdmin\DatabaseInterface')
             ->disableOriginalConstructor()
             ->getMock();
 
@@ -1843,7 +1843,7 @@ class PMA_InsertEditTest extends PHPUnit_Framework_TestCase
         $scriptsMock->expects($this->once())
             ->method('addFile');
 
-        $headerMock = $this->getMockBuilder('PMA\libraries\Header')
+        $headerMock = $this->getMockBuilder('PhpMyAdmin\Header')
             ->disableOriginalConstructor()
             ->setMethods(array('getScripts'))
             ->getMock();
@@ -1890,7 +1890,7 @@ class PMA_InsertEditTest extends PHPUnit_Framework_TestCase
         $row = array('1' => 1);
         $res = 'foobar';
 
-        $dbi = $this->getMockBuilder('PMA\libraries\DatabaseInterface')
+        $dbi = $this->getMockBuilder('PhpMyAdmin\DatabaseInterface')
             ->disableOriginalConstructor()
             ->getMock();
 
@@ -2015,7 +2015,7 @@ class PMA_InsertEditTest extends PHPUnit_Framework_TestCase
         $GLOBALS['cfg']['IgnoreMultiSubmitErrors'] = false;
         $_REQUEST['submit_type'] = '';
 
-        $dbi = $this->getMockBuilder('PMA\libraries\DatabaseInterface')
+        $dbi = $this->getMockBuilder('PhpMyAdmin\DatabaseInterface')
             ->disableOriginalConstructor()
             ->getMock();
 
@@ -2101,7 +2101,7 @@ class PMA_InsertEditTest extends PHPUnit_Framework_TestCase
         $GLOBALS['cfg']['IgnoreMultiSubmitErrors'] = true;
         $_REQUEST['submit_type'] = '';
 
-        $dbi = $this->getMockBuilder('PMA\libraries\DatabaseInterface')
+        $dbi = $this->getMockBuilder('PhpMyAdmin\DatabaseInterface')
             ->disableOriginalConstructor()
             ->getMock();
 
@@ -2187,7 +2187,7 @@ class PMA_InsertEditTest extends PHPUnit_Framework_TestCase
             array('Level' => 2, 'Code' => 43, 'Message' => 'msg2'),
         );
 
-        $dbi = $this->getMockBuilder('PMA\libraries\DatabaseInterface')
+        $dbi = $this->getMockBuilder('PhpMyAdmin\DatabaseInterface')
             ->disableOriginalConstructor()
             ->getMock();
 
@@ -2220,7 +2220,7 @@ class PMA_InsertEditTest extends PHPUnit_Framework_TestCase
         $map['f']['foreign_table'] = 'TABLES';
         $map['f']['foreign_field'] = 'f';
 
-        $dbi = $this->getMockBuilder('PMA\libraries\DatabaseInterface')
+        $dbi = $this->getMockBuilder('PhpMyAdmin\DatabaseInterface')
             ->disableOriginalConstructor()
             ->getMock();
 
@@ -2230,7 +2230,7 @@ class PMA_InsertEditTest extends PHPUnit_Framework_TestCase
                 'SELECT `TABLE_COMMENT` FROM `information_schema`.`TABLES` WHERE '
                 . '`f`=1',
                 null,
-                PMA\libraries\DatabaseInterface::QUERY_STORE
+                PhpMyAdmin\DatabaseInterface::QUERY_STORE
             )
             ->will($this->returnValue('r1'));
 
@@ -2391,7 +2391,7 @@ class PMA_InsertEditTest extends PHPUnit_Framework_TestCase
         // case 2
         $multi_edit_funcs = array('UUID');
 
-        $dbi = $this->getMockBuilder('PMA\libraries\DatabaseInterface')
+        $dbi = $this->getMockBuilder('PhpMyAdmin\DatabaseInterface')
             ->disableOriginalConstructor()
             ->getMock();
 
@@ -2445,7 +2445,7 @@ class PMA_InsertEditTest extends PHPUnit_Framework_TestCase
         $prow = array();
         $prow['a'] = b'101';
 
-        $dbi = $this->getMockBuilder('PMA\libraries\DatabaseInterface')
+        $dbi = $this->getMockBuilder('PhpMyAdmin\DatabaseInterface')
             ->disableOriginalConstructor()
             ->getMock();
 
@@ -2585,7 +2585,7 @@ class PMA_InsertEditTest extends PHPUnit_Framework_TestCase
         $meta = new stdClass();
         $_REQUEST['where_clause'][0] = 1;
 
-        $dbi = $this->getMockBuilder('PMA\libraries\DatabaseInterface')
+        $dbi = $this->getMockBuilder('PhpMyAdmin\DatabaseInterface')
             ->disableOriginalConstructor()
             ->getMock();
 
@@ -2669,7 +2669,7 @@ class PMA_InsertEditTest extends PHPUnit_Framework_TestCase
      */
     public function testGetTableColumns()
     {
-        $dbi = $this->getMockBuilder('PMA\libraries\DatabaseInterface')
+        $dbi = $this->getMockBuilder('PhpMyAdmin\DatabaseInterface')
             ->disableOriginalConstructor()
             ->getMock();
 
@@ -2699,7 +2699,7 @@ class PMA_InsertEditTest extends PHPUnit_Framework_TestCase
      */
     public function testDetermineInsertOrEdit()
     {
-        $dbi = $this->getMockBuilder('PMA\libraries\DatabaseInterface')
+        $dbi = $this->getMockBuilder('PhpMyAdmin\DatabaseInterface')
             ->disableOriginalConstructor()
             ->getMock();
 
@@ -2772,7 +2772,7 @@ class PMA_InsertEditTest extends PHPUnit_Framework_TestCase
     {
         $GLOBALS['cfg']['ShowPropertyComments'] = false;
 
-        $dbi = $this->getMockBuilder('PMA\libraries\DatabaseInterface')
+        $dbi = $this->getMockBuilder('PhpMyAdmin\DatabaseInterface')
             ->disableOriginalConstructor()
             ->getMock();
 

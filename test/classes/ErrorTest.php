@@ -10,6 +10,7 @@
  * Include to test.
  */
 
+use PhpMyAdmin\Error;
 use PMA\libraries\Theme;
 
 require_once 'test/PMATestCase.php';
@@ -35,8 +36,7 @@ class ErrorTest extends PMATestCase
      */
     protected function setUp()
     {
-        $this->object = new PMA\libraries\Error('2', 'Compile Error', 'error.txt', 15);
-
+        $this->object = new Error('2', 'Compile Error', 'error.txt', 15);
     }
 
     /**

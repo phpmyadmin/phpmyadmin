@@ -5,7 +5,7 @@
  *
  * @package PhpMyAdmin
  */
-use PMA\libraries\Charsets;
+use PhpMyAdmin\Charsets;
 use PMA\libraries\Message;
 use PMA\libraries\Util;
 use PMA\libraries\URL;

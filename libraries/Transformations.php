@@ -17,7 +17,7 @@
  */
 namespace PMA\libraries;
 
-use PMA\libraries\DatabaseInterface;
+use PhpMyAdmin\DatabaseInterface;
 use PMA\libraries\Util;
 
 /**

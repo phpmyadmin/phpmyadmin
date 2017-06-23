@@ -6,7 +6,7 @@
  * @package PhpMyAdmin
  */
 
-use PMA\libraries\Core;
+use PhpMyAdmin\Core;
 use PMA\libraries\Table;
 use PMA\libraries\Util;
 
@@ -176,7 +176,7 @@ function PMA_buildIndexStatements($index, $index_choice,
     $type = $index['Index_type'];
     if ($index['Index_choice'] != 'SPATIAL'
         && $index['Index_choice'] != 'FULLTEXT'
-        && in_array($type, PMA\libraries\Index::getIndexTypes())
+        && in_array($type, PhpMyAdmin\Index::getIndexTypes())
     ) {
         $sql_query .= ' USING ' . $type;
     }

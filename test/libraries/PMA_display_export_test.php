@@ -6,7 +6,7 @@
  * @package PhpMyAdmin-test
  */
 
-use PMA\libraries\Core;
+use PhpMyAdmin\Core;
 use PMA\libraries\Theme;
 use PMA\libraries\URL;
 
@@ -58,7 +58,7 @@ class PMA_DisplayExport_Test extends PHPUnit_Framework_TestCase
         //$_SESSION
         $_SESSION['relation'][$GLOBALS['server']] = "";
 
-        $pmaconfig = $this->getMockBuilder('PMA\libraries\Config')
+        $pmaconfig = $this->getMockBuilder('PhpMyAdmin\Config')
             ->disableOriginalConstructor()
             ->getMock();
 
@@ -136,7 +136,7 @@ class PMA_DisplayExport_Test extends PHPUnit_Framework_TestCase
                 'COLUMN_NAME' => 'test_column2'
             )
         );
-        $dbi = $this->getMockBuilder('PMA\libraries\DatabaseInterface')
+        $dbi = $this->getMockBuilder('PhpMyAdmin\DatabaseInterface')
             ->disableOriginalConstructor()
             ->getMock();
 
@@ -273,7 +273,7 @@ class PMA_DisplayExport_Test extends PHPUnit_Framework_TestCase
             )
         );
 
-        $dbi = $this->getMockBuilder('PMA\libraries\DatabaseInterface')
+        $dbi = $this->getMockBuilder('PhpMyAdmin\DatabaseInterface')
             ->disableOriginalConstructor()
             ->getMock();
 

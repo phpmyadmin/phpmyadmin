@@ -131,7 +131,7 @@ if ($message_to_display) {
 unset($message_to_display);
 
 // create new qbe search instance
-$db_qbe = new PMA\libraries\DbQbe($GLOBALS['db'], $savedSearchList, $savedSearch);
+$db_qbe = new PhpMyAdmin\DbQbe($GLOBALS['db'], $savedSearchList, $savedSearch);
 
 $url = 'db_designer.php' . URL::getCommon(
     array_merge(

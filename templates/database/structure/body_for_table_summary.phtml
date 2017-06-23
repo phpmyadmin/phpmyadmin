@@ -52,7 +52,7 @@ $cell_text = ($approx_rows)
     </th>
     <th>
         <?php if (! empty($db_collation)): ?>
-            <dfn title="<?= PMA\libraries\Charsets::getCollationDescr($db_collation) , ' (' , __('Default') , ')'; ?>">
+            <dfn title="<?= PhpMyAdmin\Charsets::getCollationDescr($db_collation) , ' (' , __('Default') , ')'; ?>">
                 <?= $db_collation; ?>
             </dfn>
         <?php endif; ?>

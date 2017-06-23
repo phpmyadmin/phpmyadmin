@@ -181,7 +181,7 @@ function PMA_getHtmlContentsFor1NFStep2($db, $table)
 {
     $step = 2;
     $stepTxt = __('Have a primary key');
-    $primary = PMA\libraries\Index::getPrimary($table, $db);
+    $primary = PhpMyAdmin\Index::getPrimary($table, $db);
     $hasPrimaryKey = "0";
     $legendText = __('Step 1.') . $step . " " . $stepTxt;
     $extra = '';
@@ -288,7 +288,7 @@ function PMA_getHtmlContentsFor1NFStep3($db, $table)
         . '<input type="submit" value="' . __('No repeating group')
         . '" onclick="goToStep4();"'
         . '/>';
-    $primary = PMA\libraries\Index::getPrimary($table, $db);
+    $primary = PhpMyAdmin\Index::getPrimary($table, $db);
     $primarycols = $primary->getColumns();
     $pk = array();
     foreach ($primarycols as $col) {
@@ -315,7 +315,7 @@ function PMA_getHtmlContentsFor1NFStep3($db, $table)
 function PMA_getHtmlFor2NFstep1($db, $table)
 {
     $legendText = __('Step 2.') . "1 " . __('Find partial dependencies');
-    $primary = PMA\libraries\Index::getPrimary($table, $db);
+    $primary = PhpMyAdmin\Index::getPrimary($table, $db);
     $primarycols = $primary->getColumns();
     $pk = array();
     $subText = '';
@@ -521,7 +521,7 @@ function PMA_getHtmlForNewTables3NF($dependencies, $tables, $db)
         if (count(array_unique($arrDependson)) == 1) {
             continue;
         }
-        $primary = PMA\libraries\Index::getPrimary($table, $db);
+        $primary = PhpMyAdmin\Index::getPrimary($table, $db);
         $primarycols = $primary->getColumns();
         $pk = array();
         foreach ($primarycols as $col) {
@@ -735,7 +735,7 @@ function PMA_getHtmlFor3NFstep1($db, $tables)
     );
     $cnt = 0;
     foreach ($tables as $table) {
-        $primary = PMA\libraries\Index::getPrimary($table, $db);
+        $primary = PhpMyAdmin\Index::getPrimary($table, $db);
         $primarycols = $primary->getColumns();
         $selectTdForm = "";
         $pk = array();
@@ -847,7 +847,7 @@ function PMA_findPartialDependencies($table, $db)
         . Util::backquote($table) . ' LIMIT 500) as dt;'
     );
     $totalRows = $totalRowsRes[0];
-    $primary = PMA\libraries\Index::getPrimary($table, $db);
+    $primary = PhpMyAdmin\Index::getPrimary($table, $db);
     $primarycols = $primary->getColumns();
     $pk = array();
     foreach ($primarycols as $col) {

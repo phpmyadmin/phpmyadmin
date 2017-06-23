@@ -229,7 +229,7 @@ class ExportXmlTest extends PMATestCase
             ),
             'table' => array(null, '"tbl"')
         );
-        $dbi = $this->getMockBuilder('PMA\libraries\DatabaseInterface')
+        $dbi = $this->getMockBuilder('PhpMyAdmin\DatabaseInterface')
             ->disableOriginalConstructor()
             ->getMock();
 
@@ -326,7 +326,7 @@ class ExportXmlTest extends PMATestCase
         unset($GLOBALS['xml_export_procedures']);
         $GLOBALS['output_charset_conversion'] = 0;
 
-        $dbi = $this->getMockBuilder('PMA\libraries\DatabaseInterface')
+        $dbi = $this->getMockBuilder('PhpMyAdmin\DatabaseInterface')
             ->disableOriginalConstructor()
             ->getMock();
 
@@ -472,7 +472,7 @@ class ExportXmlTest extends PMATestCase
         $GLOBALS['asfile'] = true;
         $GLOBALS['output_charset_conversion'] = false;
 
-        $dbi = $this->getMockBuilder('PMA\libraries\DatabaseInterface')
+        $dbi = $this->getMockBuilder('PhpMyAdmin\DatabaseInterface')
             ->disableOriginalConstructor()
             ->getMock();
 
@@ -493,7 +493,7 @@ class ExportXmlTest extends PMATestCase
 
         $dbi->expects($this->once())
             ->method('query')
-            ->with('SELECT', null, PMA\libraries\DatabaseInterface::QUERY_UNBUFFERED)
+            ->with('SELECT', null, PhpMyAdmin\DatabaseInterface::QUERY_UNBUFFERED)
             ->will($this->returnValue(true));
 
         $dbi->expects($this->once())

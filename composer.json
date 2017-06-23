@@ -22,7 +22,8 @@
     "non-feature-branches": ["RELEASE_.*"],
     "autoload": {
         "psr-4": {
-            "PMA\\": "./"
+            "PMA\\": "./",
+            "PhpMyAdmin\\": "libraries/classes"
         }
     },
     "repositories": [

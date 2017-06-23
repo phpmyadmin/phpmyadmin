@@ -7,7 +7,7 @@
  */
 namespace PMA\libraries;
 
-use PMA\libraries\Core;
+use PhpMyAdmin\Core;
 use PMA\libraries\Util;
 
 /**

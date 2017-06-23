@@ -7,7 +7,9 @@
  */
 namespace PMA\libraries;
 
-use PMA\libraries\Core;
+use PhpMyAdmin\Core;
+use PhpMyAdmin\Footer;
+use PhpMyAdmin\Header;
 
 /**
  * Singleton class used to manage the rendering of pages in PMA
@@ -47,7 +49,7 @@ class Response
      */
     private $_JSON;
     /**
-     * PMA\libraries\Footer instance
+     * PhpMyAdmin\Footer instance
      *
      * @access private
      * @var Footer
@@ -182,7 +184,7 @@ class Response
     }
 
     /**
-     * Returns a PMA\libraries\Header object
+     * Returns a PhpMyAdmin\Header object
      *
      * @return Header
      */
@@ -192,7 +194,7 @@ class Response
     }
 
     /**
-     * Returns a PMA\libraries\Footer object
+     * Returns a PhpMyAdmin\Footer object
      *
      * @return Footer
      */

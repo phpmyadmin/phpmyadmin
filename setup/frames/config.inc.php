@@ -7,7 +7,7 @@
  */
 
 use PMA\setup\lib\ConfigGenerator;
-use PMA\libraries\Core;
+use PhpMyAdmin\Core;
 
 if (!defined('PHPMYADMIN')) {
     exit;

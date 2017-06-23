@@ -3,13 +3,15 @@
 /**
  * file upload functions
  *
- * @package PMA\libraries
+ * @package PhpMyAdmin
  */
-namespace PMA\libraries;
+namespace PhpMyAdmin;
 
 use PMA\libraries\config\ConfigFile;
+use PhpMyAdmin\Core;
+use PMA\libraries\Message;
+use PMA\libraries\Util;
 use PMA\libraries\ZipExtension;
-use PMA\libraries\Core;
 
 /**
  * File wrapper class
@@ -17,7 +19,7 @@ use PMA\libraries\Core;
  * @todo when uploading a file into a blob field, should we also consider using
  *       chunks like in import? UPDATE `table` SET `field` = `field` + [chunk]
  *
- * @package PMA\libraries
+ * @package PhpMyAdmin
  */
 class File
 {

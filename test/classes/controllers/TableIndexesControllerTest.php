@@ -46,7 +46,7 @@ class TableIndexesControllerTest extends PMATestCase
             'server' => 1
         );
 
-        $dbi = $this->getMockBuilder('PMA\libraries\DatabaseInterface')
+        $dbi = $this->getMockBuilder('PhpMyAdmin\DatabaseInterface')
             ->disableOriginalConstructor()
             ->getMock();
 
@@ -154,7 +154,7 @@ class TableIndexesControllerTest extends PMATestCase
         $response = new \PMA\Test\Stubs\Response();
         $container->set('PMA\libraries\Response', $response);
         $container->alias('response', 'PMA\libraries\Response');
-        $index = new PMA\libraries\Index();
+        $index = new PhpMyAdmin\Index();
 
         $ctrl = new TableIndexesController($index);
 

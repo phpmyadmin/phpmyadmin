@@ -8,7 +8,7 @@
 
 use PMA\libraries\config\ConfigFile;
 use PMA\libraries\config\FormDisplay;
-use PMA\libraries\Core;
+use PhpMyAdmin\Core;
 use PMA\libraries\URL;
 
 if (!defined('PHPMYADMIN')) {

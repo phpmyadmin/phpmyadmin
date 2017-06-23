@@ -10,9 +10,9 @@
  * @usedby  tbl_tracking.php
  * @package PhpMyAdmin
  */
-use PMA\libraries\Encoding;
+use PhpMyAdmin\Encoding;
 use PMA\libraries\URL;
-use PMA\libraries\Bookmark;
+use PhpMyAdmin\Bookmark;
 
 if (! defined('PHPMYADMIN')) {
     exit;

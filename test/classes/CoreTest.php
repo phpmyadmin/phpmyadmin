@@ -1,7 +1,7 @@
 <?php
 /* vim: set expandtab sw=4 ts=4 sts=4: */
 /**
- * Tests for PMA\libraries\Core class
+ * Tests for PhpMyAdmin\Core class
  *
  * @package PhpMyAdmin-test
  */
@@ -11,12 +11,12 @@
  */
 require_once 'test/PMATestCase.php';
 
-use PMA\libraries\Config;
-use PMA\libraries\Core;
+use PhpMyAdmin\Config;
+use PhpMyAdmin\Core;
 use PMA\libraries\Sanitize;
 
 /**
- * Tests for PMA\libraries\Core class
+ * Tests for PhpMyAdmin\Core class
  *
  * @package PhpMyAdmin-test
  */

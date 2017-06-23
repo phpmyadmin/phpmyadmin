@@ -51,7 +51,7 @@ class PMA_PMD_CommonTest extends PHPUnit_Framework_TestCase
     {
         $pg = 1;
 
-        $dbi = $this->getMockBuilder('PMA\libraries\DatabaseInterface')
+        $dbi = $this->getMockBuilder('PhpMyAdmin\DatabaseInterface')
             ->disableOriginalConstructor()
             ->getMock();
         $dbi->expects($this->any())->method('escapeString')
@@ -71,7 +71,7 @@ class PMA_PMD_CommonTest extends PHPUnit_Framework_TestCase
                 'name',
                 null,
                 2,
-                PMA\libraries\DatabaseInterface::QUERY_STORE
+                PhpMyAdmin\DatabaseInterface::QUERY_STORE
             );
         $GLOBALS['dbi'] = $dbi;
 
@@ -88,7 +88,7 @@ class PMA_PMD_CommonTest extends PHPUnit_Framework_TestCase
         $pg = 1;
         $pageName = 'pageName';
 
-        $dbi = $this->getMockBuilder('PMA\libraries\DatabaseInterface')
+        $dbi = $this->getMockBuilder('PhpMyAdmin\DatabaseInterface')
             ->disableOriginalConstructor()
             ->getMock();
         $dbi->expects($this->any())->method('escapeString')
@@ -102,7 +102,7 @@ class PMA_PMD_CommonTest extends PHPUnit_Framework_TestCase
                 null,
                 null,
                 2,
-                PMA\libraries\DatabaseInterface::QUERY_STORE
+                PhpMyAdmin\DatabaseInterface::QUERY_STORE
             )
             ->will($this->returnValue(array($pageName)));
         $GLOBALS['dbi'] = $dbi;
@@ -121,7 +121,7 @@ class PMA_PMD_CommonTest extends PHPUnit_Framework_TestCase
     {
         $pg = 1;
 
-        $dbi = $this->getMockBuilder('PMA\libraries\DatabaseInterface')
+        $dbi = $this->getMockBuilder('PhpMyAdmin\DatabaseInterface')
             ->disableOriginalConstructor()
             ->getMock();
 
@@ -151,7 +151,7 @@ class PMA_PMD_CommonTest extends PHPUnit_Framework_TestCase
         $db = 'db';
         $default_pg = '2';
 
-        $dbi = $this->getMockBuilder('PMA\libraries\DatabaseInterface')
+        $dbi = $this->getMockBuilder('PhpMyAdmin\DatabaseInterface')
             ->disableOriginalConstructor()
             ->getMock();
 
@@ -164,7 +164,7 @@ class PMA_PMD_CommonTest extends PHPUnit_Framework_TestCase
                 null,
                 null,
                 2,
-                PMA\libraries\DatabaseInterface::QUERY_STORE
+                PhpMyAdmin\DatabaseInterface::QUERY_STORE
             )
             ->will($this->returnValue(array($default_pg)));
         $dbi->expects($this->any())->method('escapeString')
@@ -185,7 +185,7 @@ class PMA_PMD_CommonTest extends PHPUnit_Framework_TestCase
     {
         $db = 'db';
 
-        $dbi = $this->getMockBuilder('PMA\libraries\DatabaseInterface')
+        $dbi = $this->getMockBuilder('PhpMyAdmin\DatabaseInterface')
             ->disableOriginalConstructor()
             ->getMock();
 
@@ -198,7 +198,7 @@ class PMA_PMD_CommonTest extends PHPUnit_Framework_TestCase
                 null,
                 null,
                 2,
-                PMA\libraries\DatabaseInterface::QUERY_STORE
+                PhpMyAdmin\DatabaseInterface::QUERY_STORE
             )
             ->will($this->returnValue(array()));
         $dbi->expects($this->any())->method('escapeString')
@@ -220,7 +220,7 @@ class PMA_PMD_CommonTest extends PHPUnit_Framework_TestCase
         $db = 'db';
         $default_pg = '2';
 
-        $dbi = $this->getMockBuilder('PMA\libraries\DatabaseInterface')
+        $dbi = $this->getMockBuilder('PhpMyAdmin\DatabaseInterface')
             ->disableOriginalConstructor()
             ->getMock();
 
@@ -233,7 +233,7 @@ class PMA_PMD_CommonTest extends PHPUnit_Framework_TestCase
                 null,
                 null,
                 2,
-                PMA\libraries\DatabaseInterface::QUERY_STORE
+                PhpMyAdmin\DatabaseInterface::QUERY_STORE
             )
             ->will($this->returnValue(array($default_pg)));
         $dbi->expects($this->any())->method('escapeString')
@@ -255,7 +255,7 @@ class PMA_PMD_CommonTest extends PHPUnit_Framework_TestCase
         $db = 'db';
         $first_pg = '1';
 
-        $dbi = $this->getMockBuilder('PMA\libraries\DatabaseInterface')
+        $dbi = $this->getMockBuilder('PhpMyAdmin\DatabaseInterface')
             ->disableOriginalConstructor()
             ->getMock();
 
