@@ -234,4 +234,7 @@ AJAX.registerOnload('tbl_relation.js', function () {
             }); // end $.post()
         }); // end $.PMA_confirm()
     }); //end Drop Foreign key
+
+    var windowwidth = $(window).width();
+    $('.jsresponsive').css('max-width', (windowwidth - 35 ) + 'px');
 });

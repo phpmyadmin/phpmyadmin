@@ -709,7 +709,7 @@ class Index
                 return $r;
             }
         }
-        $r .= '<div id="responsivetable" class="responsivetable">';
+        $r .= '<div class="responsivetable jsresponsive">';
         $r .= '<table id="table_index">';
         $r .= '<thead>';
         $r .= '<tr>';
