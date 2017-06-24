@@ -474,5 +474,5 @@ AJAX.registerOnload('server_privileges.js', function () {
     }
 
     var windowwidth = $(window).width();
-    $('#responsivetable').css('max-width', (windowwidth - 35 ) + 'px');
+    $('.jsresponsive').css('max-width', (windowwidth - 35 ) + 'px');
 });

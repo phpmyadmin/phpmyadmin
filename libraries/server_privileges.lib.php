@@ -2349,7 +2349,7 @@ function PMA_getHtmlForSpecificDbPrivileges($db)
             . "\n"
             . '</legend>' . "\n";
 
-        $html_output .= '<div id="responsivetable" class="responsivetable">';
+        $html_output .= '<div class="responsivetable jsresponsive">';
         $html_output .= '<table id="dbspecificuserrights" class="data">';
         $html_output .= PMA_getHtmlForPrivsTableHead();
         $privMap = PMA_getPrivMap($db);

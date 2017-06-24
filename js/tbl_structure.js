@@ -520,7 +520,7 @@ AJAX.registerOnload('tbl_structure.js', function () {
     }
 
     var windowwidth = $(window).width();
-    $('#responsivetable').css('max-width', (windowwidth - 35 ) + 'px');
+    $('.jsresponsive').css('max-width', (windowwidth - 35 ) + 'px');
 });
 AJAX.registerTeardown('tbl_structure.js', function () {
     if ($('#fieldsForm').hasClass('HideStructureActions')) {

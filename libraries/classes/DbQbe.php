@@ -1816,7 +1816,7 @@ class DbQbe
             $html_output .= $this->_getSavedSearchesField();
         }
 
-        $html_output .= '<div id="responsivetable" class="responsivetable">';
+        $html_output .= '<div class="responsivetable jsresponsive">';
         $html_output .= '<table class="data" style="width: 100%;">';
         // Get table's <tr> elements
         $html_output .= $this->_getColumnNamesRow();
