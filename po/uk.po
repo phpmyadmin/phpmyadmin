@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.8.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2017-06-13 17:05+0200\n"
-"PO-Revision-Date: 2017-06-14 18:12+0000\n"
+"PO-Revision-Date: 2017-06-25 06:47+0000\n"
 "Last-Translator: Володимир Бриняк <bardvv@gmail.com>\n"
 "Language-Team: Ukrainian "
 "<https://hosted.weblate.org/projects/phpmyadmin/master/uk/>\n"
@@ -504,7 +504,7 @@ msgstr "Додати геометрію"
 #: templates/database/create_table.twig:56 view_create.php:302
 #: view_operations.php:115
 msgid "Go"
-msgstr "Вперед"
+msgstr "Виконати"
 
 #: gis_data_editor.php:418
 msgid "Output"
