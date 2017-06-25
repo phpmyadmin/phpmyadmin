@@ -3573,4 +3573,16 @@ body .ui-dialog .ui-dialog-buttonpane .ui-dialog-buttonset {
     table#serverstatusconnections {
         margin-left: 0;
     }
+
+    #table_name_col_no {
+        top: 62px
+    }
+
+    .tdblock tr td {
+        display: block;
+    }
+
+    #table_columns {
+        margin-top: 60px;
+    }
 }
