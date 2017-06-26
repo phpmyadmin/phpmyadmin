@@ -4,10 +4,10 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin-docs 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2017-06-13 17:05+0200\n"
-"PO-Revision-Date: 2017-06-12 21:55+0000\n"
-"Last-Translator: Cindy Dallaire <c.dallaire93@gmail.com>\n"
-"Language-Team: French <https://hosted.weblate.org/projects/phpmyadmin/master/"
-"fr/>\n"
+"PO-Revision-Date: 2017-06-26 19:07+0000\n"
+"Last-Translator: tmtisfree <tmtisfree@free.fr>\n"
+"Language-Team: French "
+"<https://hosted.weblate.org/projects/phpmyadmin/master/fr/>\n"
 "Language: fr\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -298,12 +298,9 @@ msgid "The database name is empty!"
 msgstr "Le nom de la base de données est vide !"
 
 #: db_operations.php:53
-#, fuzzy
-#| msgid ""
-#| "Cannot rename database to the same name. Change the name and try again"
 msgid "Cannot copy database to the same name. Change the name and try again."
 msgstr ""
-"Impossible de donner le même nom à la base de données. Modifier le nom et "
+"Impossible de copier la base de données avec le même nom. Modifier le nom et "
 "réessayer"
 
 #: db_operations.php:142
@@ -620,6 +617,8 @@ msgid ""
 "You were logged out from one server, to logout completely from phpMyAdmin, "
 "you need to logout from all servers."
 msgstr ""
+"Vous avez été déconnecté d'un serveur ; pour se déconnecter complètement de "
+"phpMyAdmin, il faut se déconnecter de tous les serveurs."
 
 #: index.php:162 libraries/Footer.php:70
 msgid "phpMyAdmin Demo Server"
@@ -839,6 +838,8 @@ msgid ""
 "The $cfg['TempDir'] (%s) is not accessible. phpMyAdmin is not able to cache "
 "templates and will be slow because of this."
 msgstr ""
+"$cfg['TempDir'] (%s) n'est pas accessible. phpMyAdmin est incapable de "
+"mettre en cache les modèles et de ce fait sera lent."
 
 #: js/messages.php:43
 msgid "Confirm"
@@ -1553,22 +1554,16 @@ msgid "Chart"
 msgstr "Graphique"
 
 #: js/messages.php:295 libraries/display_export.lib.php:905
-#, fuzzy
-#| msgid "Database"
 msgctxt "Alias"
 msgid "Database"
 msgstr "Base de données"
 
 #: js/messages.php:296 libraries/display_export.lib.php:917
-#, fuzzy
-#| msgid "Table"
 msgctxt "Alias"
 msgid "Table"
 msgstr "Table"
 
 #: js/messages.php:297 libraries/display_export.lib.php:928
-#, fuzzy
-#| msgid "Column"
 msgctxt "Alias"
 msgid "Column"
 msgstr "Colonne"
@@ -2996,10 +2991,9 @@ msgid "Error"
 msgstr "Erreur"
 
 #: libraries/Advisor.php:242
-#, fuzzy, php-format
-#| msgid "Error while creating PDF:"
+#, php-format
 msgid "Error when evaluating: %s"
-msgstr "Erreur pendant la création du PDF : "
+msgstr "Erreur en évaluant : %s"
 
 #: libraries/Advisor.php:273
 #, php-format
@@ -3091,168 +3085,120 @@ msgid "Collation"
 msgstr "Interclassement"
 
 #: libraries/Charsets.php:264
-#, fuzzy
-#| msgid "unknown"
 msgid "Unknonwn"
 msgstr "inconnu"
 
 #: libraries/Charsets.php:278
-#, fuzzy
-#| msgid "Binary"
 msgctxt "Collation"
 msgid "Binary"
 msgstr "Binaire"
 
 #: libraries/Charsets.php:290 libraries/Charsets.php:520
-#, fuzzy
-#| msgid "Unicode"
 msgctxt "Collation"
 msgid "Unicode"
 msgstr "Unicode"
 
 #: libraries/Charsets.php:300 libraries/Charsets.php:471
-#, fuzzy
-#| msgid "West European"
 msgctxt "Collation"
 msgid "West European"
 msgstr "Europe de l'ouest"
 
 #: libraries/Charsets.php:307
-#, fuzzy
-#| msgid "Central European"
 msgctxt "Collation"
 msgid "Central European"
 msgstr "Europe centrale"
 
 #: libraries/Charsets.php:312
-#, fuzzy
-#| msgid "Russian"
 msgctxt "Collation"
 msgid "Russian"
 msgstr "Russe"
 
 #: libraries/Charsets.php:317
-#, fuzzy
-#| msgid "Simplified Chinese"
 msgctxt "Collation"
 msgid "Simplified Chinese"
 msgstr "Chinois simplifié"
 
 #: libraries/Charsets.php:324 libraries/Charsets.php:442
-#, fuzzy
-#| msgid "Japanese"
 msgctxt "Collation"
 msgid "Japanese"
 msgstr "Japonais"
 
 #: libraries/Charsets.php:329
-#, fuzzy
-#| msgid "Baltic"
 msgctxt "Collation"
 msgid "Baltic"
 msgstr "Baltique"
 
 #: libraries/Charsets.php:334
-#, fuzzy
-#| msgid "Armenian"
 msgctxt "Collation"
 msgid "Armenian"
 msgstr "Arménien"
 
 #: libraries/Charsets.php:337
-#, fuzzy
-#| msgid "Traditional Chinese"
 msgctxt "Collation"
 msgid "Traditional Chinese"
 msgstr "Chinois traditionnel"
 
 #: libraries/Charsets.php:340
-#, fuzzy
-#| msgid "Cyrillic"
 msgctxt "Collation"
 msgid "Cyrillic"
 msgstr "Cyrillique"
 
 #: libraries/Charsets.php:343
-#, fuzzy
-#| msgid "Arabic"
 msgctxt "Collation"
 msgid "Arabic"
 msgstr "Arabe"
 
 #: libraries/Charsets.php:346 libraries/Charsets.php:457
-#, fuzzy
-#| msgid "Korean"
 msgctxt "Collation"
 msgid "Korean"
 msgstr "Coréen"
 
 #: libraries/Charsets.php:349
-#, fuzzy
-#| msgid "Hebrew"
 msgctxt "Collation"
 msgid "Hebrew"
 msgstr "Hébreu"
 
 #: libraries/Charsets.php:352
-#, fuzzy
-#| msgid "Georgian"
 msgctxt "Collation"
 msgid "Georgian"
 msgstr "Géorgien"
 
 #: libraries/Charsets.php:355
-#, fuzzy
-#| msgid "Greek"
 msgctxt "Collation"
 msgid "Greek"
 msgstr "Grec"
 
 #: libraries/Charsets.php:358
-#, fuzzy
-#| msgid "Czech-Slovak"
 msgctxt "Collation"
 msgid "Czech-Slovak"
 msgstr "Tchèque-slovaque"
 
 #: libraries/Charsets.php:361 libraries/Charsets.php:512
-#, fuzzy
-#| msgid "Ukrainian"
 msgctxt "Collation"
 msgid "Ukrainian"
 msgstr "Ukrainien"
 
 #: libraries/Charsets.php:364 libraries/Charsets.php:508
-#, fuzzy
-#| msgid "Turkish"
 msgctxt "Collation"
 msgid "Turkish"
 msgstr "Turc"
 
 #: libraries/Charsets.php:367 libraries/Charsets.php:500
-#, fuzzy
-#| msgid "Swedish"
 msgctxt "Collation"
 msgid "Swedish"
 msgstr "Suédois"
 
 #: libraries/Charsets.php:370 libraries/Charsets.php:504
-#, fuzzy
-#| msgid "Thai"
 msgctxt "Collation"
 msgid "Thai"
 msgstr "Tha&iuml;"
 
 #: libraries/Charsets.php:373
-#, fuzzy
-#| msgid "unknown"
 msgctxt "Collation"
 msgid "Unknown"
 msgstr "inconnu"
 
 #: libraries/Charsets.php:389
-#, fuzzy
-#| msgid "Bulgarian"
 msgctxt "Collation"
 msgid "Bulgarian"
 msgstr "Bulgare"
@@ -3260,72 +3206,54 @@ msgstr "Bulgare"
 #: libraries/Charsets.php:394
 msgctxt "Collation"
 msgid "Chinese"
-msgstr ""
+msgstr "Chinois"
 
 #: libraries/Charsets.php:399
-#, fuzzy
-#| msgid "Croatian"
 msgctxt "Collation"
 msgid "Croatian"
 msgstr "Croate"
 
 #: libraries/Charsets.php:403
-#, fuzzy
-#| msgid "Czech"
 msgctxt "Collation"
 msgid "Czech"
 msgstr "Tchèque"
 
 #: libraries/Charsets.php:407
-#, fuzzy
-#| msgid "Danish"
 msgctxt "Collation"
 msgid "Danish"
 msgstr "Danois"
 
 #: libraries/Charsets.php:411
-#, fuzzy
-#| msgid "English"
 msgctxt "Collation"
 msgid "English"
 msgstr "Anglais"
 
 #: libraries/Charsets.php:415
-#, fuzzy
-#| msgid "Esperanto"
 msgctxt "Collation"
 msgid "Esperanto"
 msgstr "Espéranto"
 
 #: libraries/Charsets.php:419
-#, fuzzy
-#| msgid "Estonian"
 msgctxt "Collation"
 msgid "Estonian"
 msgstr "Estonien"
 
 #: libraries/Charsets.php:422 libraries/Charsets.php:539
-#, fuzzy
-#| msgid "Data dictionary"
 msgctxt "Collation"
 msgid "German (dictionary order)"
-msgstr "Dictionnaire de données"
+msgstr "Allemand (ordre dictionnaire)"
 
 #: libraries/Charsets.php:425 libraries/Charsets.php:536
 msgctxt "Collation"
 msgid "German (phone book order)"
-msgstr ""
+msgstr "Allemand (tri par annuaire)"
 
 #: libraries/Charsets.php:434
-#, fuzzy
-#| msgid "Hungarian"
 msgctxt "Collation"
 msgid "Hungarian"
 msgstr "Hongrois"
 
 #: libraries/Charsets.php:438
-#, fuzzy
-#| msgid "Icelandic"
 msgctxt "Collation"
 msgid "Icelandic"
 msgstr "Islandais"
@@ -3333,74 +3261,54 @@ msgstr "Islandais"
 #: libraries/Charsets.php:445
 msgctxt "Collation"
 msgid "Classical Latin"
-msgstr ""
+msgstr "Latin classique"
 
 #: libraries/Charsets.php:449
-#, fuzzy
-#| msgid "Latvian"
 msgctxt "Collation"
 msgid "Latvian"
 msgstr "Letton"
 
 #: libraries/Charsets.php:453
-#, fuzzy
-#| msgid "Lithuanian"
 msgctxt "Collation"
 msgid "Lithuanian"
 msgstr "Lituanien"
 
 #: libraries/Charsets.php:461
-#, fuzzy
-#| msgid "Burmese"
 msgctxt "Collation"
 msgid "Burmese"
 msgstr "Birman"
 
 #: libraries/Charsets.php:464
-#, fuzzy
-#| msgid "Persian"
 msgctxt "Collation"
 msgid "Persian"
 msgstr "Farsi"
 
 #: libraries/Charsets.php:468
-#, fuzzy
-#| msgid "Polish"
 msgctxt "Collation"
 msgid "Polish"
 msgstr "Polonais"
 
 #: libraries/Charsets.php:475
-#, fuzzy
-#| msgid "Romanian"
 msgctxt "Collation"
 msgid "Romanian"
 msgstr "Roumain"
 
 #: libraries/Charsets.php:479
-#, fuzzy
-#| msgid "Sinhalese"
 msgctxt "Collation"
 msgid "Sinhalese"
 msgstr "Cinghalais"
 
 #: libraries/Charsets.php:483
-#, fuzzy
-#| msgid "Slovak"
 msgctxt "Collation"
 msgid "Slovak"
 msgstr "Slovaque"
 
 #: libraries/Charsets.php:487
-#, fuzzy
-#| msgid "Slovenian"
 msgctxt "Collation"
 msgid "Slovenian"
 msgstr "Slovène"
 
 #: libraries/Charsets.php:490 libraries/Charsets.php:550
-#, fuzzy
-#| msgid "Spanish"
 msgctxt "Collation"
 msgid "Spanish (modern)"
 msgstr "Espagnol"
@@ -3408,61 +3316,47 @@ msgstr "Espagnol"
 #: libraries/Charsets.php:497 libraries/Charsets.php:547
 msgctxt "Collation"
 msgid "Spanish (traditional)"
-msgstr ""
+msgstr "Espagnol (traditionnel)"
 
 #: libraries/Charsets.php:516
-#, fuzzy
-#| msgid "Vietnamese"
 msgctxt "Collation"
 msgid "Vietnamese"
 msgstr "Vietnamien"
 
 #: libraries/Charsets.php:583
-#, fuzzy
-#| msgid "case-insensitive"
 msgctxt "Collation variant"
 msgid "case-insensitive"
 msgstr "insensible à la casse"
 
 #: libraries/Charsets.php:586
-#, fuzzy
-#| msgid "case-sensitive"
 msgctxt "Collation variant"
 msgid "case-sensitive"
 msgstr "sensible à la casse"
 
 #: libraries/Charsets.php:589
-#, fuzzy
-#| msgid "case-insensitive"
 msgctxt "Collation variant"
 msgid "accent-insensitive"
-msgstr "insensible à la casse"
+msgstr "insensible aux signes diacritiques"
 
 #: libraries/Charsets.php:592
-#, fuzzy
-#| msgid "case-sensitive"
 msgctxt "Collation variant"
 msgid "accent-sensitive"
-msgstr "sensible à la casse"
+msgstr "sensible aux signes diacritiques"
 
 #: libraries/Charsets.php:595
-#, fuzzy
-#| msgid "Height"
 msgctxt "Collation variant"
 msgid "weight=2"
-msgstr "Hauteur"
+msgstr "hauteur=2"
 
 #: libraries/Charsets.php:598
 msgctxt "Collation variant"
 msgid "level=2"
-msgstr ""
+msgstr "niveau=2"
 
 #: libraries/Charsets.php:601
-#, fuzzy
-#| msgid "Binary"
 msgctxt "Collation variant"
 msgid "binary"
-msgstr "Binaire"
+msgstr "binaire"
 
 #: libraries/Config.php:1117
 #, php-format
@@ -4799,10 +4693,9 @@ msgstr ""
 "des données)"
 
 #: libraries/Template.php:199
-#, fuzzy, php-format
-#| msgid "Error while loading the search."
+#, php-format
 msgid "Error while working with template cache: %s"
-msgstr "Erreur lors du chargement de la recherche."
+msgstr "Erreur en travaillant sur le cache des modèles : %s"
 
 #: libraries/Theme.php:183
 #, php-format
@@ -8819,7 +8712,7 @@ msgstr "Ignorer les tables de taille plus grande que"
 
 #: libraries/display_export.lib.php:897
 msgid "Defined aliases"
-msgstr ""
+msgstr "Alias définis"
 
 #: libraries/display_export.lib.php:1013
 msgid "Could not load export plugins, please check your installation!"
@@ -15109,43 +15002,35 @@ msgstr "Dernière vérification"
 
 #: templates/export/alias_add.phtml:5
 msgid "Define new aliases"
-msgstr ""
+msgstr "Définir de nouveaux alias"
 
 #: templates/export/alias_add.phtml:11
-#, fuzzy
-#| msgid "Select database"
 msgid "Select database:"
-msgstr "Sélectionner une base de données"
+msgstr "Sélectionner une base de données :"
 
 #: templates/export/alias_add.phtml:17
 msgid "New database name"
 msgstr "Nouveau nom pour la base de données"
 
 #: templates/export/alias_add.phtml:26
-#, fuzzy
-#| msgid "Select table"
 msgid "Select table:"
-msgstr "Sélectionner une table"
+msgstr "Sélectionner une table :"
 
 #: templates/export/alias_add.phtml:32
 msgid "New table name"
 msgstr "Nouveau nom de table"
 
 #: templates/export/alias_add.phtml:41
-#, fuzzy
-#| msgid "Select a column."
 msgid "Select column:"
-msgstr "Sélectionner une colonne."
+msgstr "Sélectionner une colonne :"
 
 #: templates/export/alias_add.phtml:47
 msgid "New column name"
 msgstr "Nouveau nom de colonne"
 
 #: templates/export/alias_item.phtml:8
-#, fuzzy
-#| msgid "Remote server"
 msgid "Remove"
-msgstr "Serveur distant"
+msgstr "Retirer"
 
 #: templates/privileges/privileges_summary.phtml:21
 msgid "Column-specific privileges"
@@ -15722,10 +15607,8 @@ msgstr ""
 "l'importer dans la session courante ?"
 
 #: templates/prefs_autoload.twig:46
-#, fuzzy
-#| msgid "Delete settings "
 msgid "Delete settings"
-msgstr "Supprimer les paramètres "
+msgstr "Supprimer les paramètres"
 
 #: templates/privileges/delete_user_fieldset.twig:24
 msgid "Remove selected user accounts"
