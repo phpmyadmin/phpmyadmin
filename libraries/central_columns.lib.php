@@ -796,7 +796,7 @@ function PMA_getHTMLforAddCentralColumn($total_rows, $pos, $db)
     $columnAdd = '<table style="display:inline-block;margin-left:1%;max-width:50%" '
         . 'class="navigation nospacing nopadding">'
         . '<tr>'
-        . '<td class="navigation_separator"></td>'
+        . '<td class="navigation_separator largescreenonly"></td>'
         . '<td style="padding:1.5% 0em">'
         . Util::getIcon(
             'centralColumns_add.png',
@@ -815,7 +815,7 @@ function PMA_getHTMLforAddCentralColumn($total_rows, $pos, $db)
         . __('Select a column.') . '</option>'
         . '</select></form>'
         . '</td>'
-        . '<td class="navigation_separator"></td>'
+        . '<td class="navigation_separator largescreenonly"></td>'
         . '</tr>'
         . '</table>';
 
@@ -1267,6 +1267,7 @@ function PMA_getHTMLforAddNewColumn($db, $total_rows)
             $db
         )
         . '<input type="hidden" name="add_new_column" value="add_new_column">'
+        . '<div class="responsivetable">'
         . '<table>';
     $addNewColumn .= PMA_getCentralColumnsTableHeader();
     $addNewColumn .= '<tr>'
@@ -1364,7 +1365,7 @@ function PMA_getHTMLforAddNewColumn($db, $total_rows)
         . '<input id="add_column_save" type="submit" '
         . ' value="Save"/></td>'
         . '</tr>';
-    $addNewColumn .= '</table></form></div>';
+    $addNewColumn .= '</table></div></form></div>';
     return $addNewColumn;
 }
 
