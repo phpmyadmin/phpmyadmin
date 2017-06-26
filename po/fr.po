@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin-docs 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2017-06-13 17:05+0200\n"
-"PO-Revision-Date: 2017-06-26 19:07+0000\n"
+"PO-Revision-Date: 2017-06-26 19:08+0000\n"
 "Last-Translator: tmtisfree <tmtisfree@free.fr>\n"
 "Language-Team: French "
 "<https://hosted.weblate.org/projects/phpmyadmin/4-7/fr/>\n"
@@ -3162,7 +3162,7 @@ msgstr "Suédois"
 #: libraries/Charsets.php:350 libraries/Charsets.php:484
 msgctxt "Collation"
 msgid "Thai"
-msgstr "Tha&iuml;"
+msgstr "Thaï"
 
 #: libraries/Charsets.php:353
 msgctxt "Collation"
