@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin-docs 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2017-06-13 17:05+0200\n"
-"PO-Revision-Date: 2017-06-26 19:07+0000\n"
+"PO-Revision-Date: 2017-06-26 19:08+0000\n"
 "Last-Translator: tmtisfree <tmtisfree@free.fr>\n"
 "Language-Team: French "
 "<https://hosted.weblate.org/projects/phpmyadmin/master/fr/>\n"
@@ -301,7 +301,7 @@ msgstr "Le nom de la base de données est vide !"
 msgid "Cannot copy database to the same name. Change the name and try again."
 msgstr ""
 "Impossible de copier la base de données avec le même nom. Modifier le nom et "
-"réessayer"
+"réessayer."
 
 #: db_operations.php:142
 #, php-format
@@ -3191,7 +3191,7 @@ msgstr "Suédois"
 #: libraries/Charsets.php:370 libraries/Charsets.php:504
 msgctxt "Collation"
 msgid "Thai"
-msgstr "Tha&iuml;"
+msgstr "Thaï"
 
 #: libraries/Charsets.php:373
 msgctxt "Collation"
