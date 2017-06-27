@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.7.2-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2017-06-13 17:05+0200\n"
-"PO-Revision-Date: 2017-06-27 11:56+0000\n"
-"Last-Translator: anonymous <>\n"
+"PO-Revision-Date: 2017-06-27 12:06+0000\n"
+"Last-Translator: Franco <fulanodetal.github1@openaliasbox.org>\n"
 "Language-Team: Spanish "
 "<https://hosted.weblate.org/projects/phpmyadmin/4-7/es/>\n"
 "Language: es\n"
@@ -607,8 +607,8 @@ msgid ""
 "You were logged out from one server, to logout completely from phpMyAdmin, "
 "you need to logout from all servers."
 msgstr ""
-"Fuiste desconectado de un servidor, para desconectarte de phpMyAdmin, tu "
-"necesitas desconectarte de todos los servidores."
+"Fuiste desconectado de un servidor, para desconectarte completamente de "
+"phpMyAdmin, necesitas desconectarte de todos los servidores."
 
 #: index.php:160 libraries/Footer.php:69
 msgid "phpMyAdmin Demo Server"
@@ -1536,15 +1536,11 @@ msgid "Chart"
 msgstr "Gráfico"
 
 #: js/messages.php:298 libraries/display_export.lib.php:903
-#, fuzzy
-#| msgid "Database"
 msgctxt "Alias"
 msgid "Database"
 msgstr "Base de datos"
 
 #: js/messages.php:299 libraries/display_export.lib.php:915
-#, fuzzy
-#| msgid "Table"
 msgctxt "Alias"
 msgid "Table"
 msgstr "Tabla"
@@ -3219,7 +3215,7 @@ msgstr "Búlgaro"
 #: libraries/Charsets.php:374
 msgctxt "Collation"
 msgid "Chinese"
-msgstr ""
+msgstr "Chino"
 
 #: libraries/Charsets.php:379
 #, fuzzy
@@ -3273,7 +3269,7 @@ msgstr "Diccionario de datos"
 #: libraries/Charsets.php:405 libraries/Charsets.php:516
 msgctxt "Collation"
 msgid "German (phone book order)"
-msgstr ""
+msgstr "Alemán (ordenado según libreta telefónica)"
 
 #: libraries/Charsets.php:414
 #, fuzzy
@@ -3292,7 +3288,7 @@ msgstr "Islandés"
 #: libraries/Charsets.php:425
 msgctxt "Collation"
 msgid "Classical Latin"
-msgstr ""
+msgstr "Latín clásico"
 
 #: libraries/Charsets.php:429
 #, fuzzy
@@ -3367,7 +3363,7 @@ msgstr "Español"
 #: libraries/Charsets.php:477 libraries/Charsets.php:527
 msgctxt "Collation"
 msgid "Spanish (traditional)"
-msgstr ""
+msgstr "Español (tradicional)"
 
 #: libraries/Charsets.php:496
 #, fuzzy
@@ -8687,7 +8683,7 @@ msgstr "Omitir tablas mayores a"
 
 #: libraries/display_export.lib.php:895
 msgid "Defined aliases"
-msgstr ""
+msgstr "Alias definidos"
 
 #: libraries/display_export.lib.php:1011
 msgid "Could not load export plugins, please check your installation!"
@@ -15318,7 +15314,7 @@ msgstr "Puede examinar los datos en el reporte de error:"
 
 #: templates/export/alias_add.phtml:5
 msgid "Define new aliases"
-msgstr ""
+msgstr "Definir nuevos alias"
 
 #: templates/export/alias_add.phtml:11
 #, fuzzy
@@ -15351,8 +15347,9 @@ msgid "New column name"
 msgstr "Nombre de la nueva columna"
 
 #: templates/export/alias_item.phtml:8
+#, fuzzy
 msgid "Remove"
-msgstr ""
+msgstr "Borrar"
 
 #: templates/prefs_autoload.phtml:8
 msgid ""
