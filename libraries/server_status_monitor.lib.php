@@ -29,7 +29,7 @@ function PMA_getHtmlForMonitor($ServerStatusData)
 
     $retval .= PMA_getHtmlForAnalyseDialog();
 
-    $retval .= '<table class="clearfloat" id="chartGrid"></table>';
+    $retval .= '<table class="clearfloat tdblock" id="chartGrid"></table>';
     $retval .= '<div id="logTable">';
     $retval .= '<br/>';
     $retval .= '</div>';
