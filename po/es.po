@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.8.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2017-06-13 17:05+0200\n"
-"PO-Revision-Date: 2017-06-27 12:15+0000\n"
-"Last-Translator: Franco <fulanodetal.github1@openaliasbox.org>\n"
+"PO-Revision-Date: 2017-06-27 12:29+0000\n"
+"Last-Translator: anonymous <>\n"
 "Language-Team: Spanish "
 "<https://hosted.weblate.org/projects/phpmyadmin/master/es/>\n"
 "Language: es\n"
@@ -2982,10 +2982,9 @@ msgid "Error"
 msgstr "Error"
 
 #: libraries/Advisor.php:242
-#, fuzzy, php-format
-#| msgid "Error while creating PDF:"
+#, php-format
 msgid "Error when evaluating: %s"
-msgstr "Error al crear PDF:"
+msgstr "Error al evaluar: %s"
 
 #: libraries/Advisor.php:273
 #, php-format
