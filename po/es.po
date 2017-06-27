@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.8.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2017-06-13 17:05+0200\n"
-"PO-Revision-Date: 2017-06-27 12:13+0000\n"
-"Last-Translator: Franco <fulanodetal.github1@openaliasbox.org>\n"
+"PO-Revision-Date: 2017-06-27 12:15+0000\n"
+"Last-Translator: anonymous <>\n"
 "Language-Team: Spanish "
 "<https://hosted.weblate.org/projects/phpmyadmin/master/es/>\n"
 "Language: es\n"
@@ -297,12 +297,9 @@ msgid "The database name is empty!"
 msgstr "¡El nombre de la base de datos está vacío!"
 
 #: db_operations.php:53
-#, fuzzy
-#| msgid ""
-#| "Cannot rename database to the same name. Change the name and try again"
 msgid "Cannot copy database to the same name. Change the name and try again."
 msgstr ""
-"No puede renombrar la base de datos con el mismo nombre. Cambie el nombre e "
+"No puede copiar la base de datos con el mismo nombre. Cambie el nombre e "
 "inténtelo de nuevo"
 
 #: db_operations.php:142
