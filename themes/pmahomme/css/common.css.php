@@ -3589,4 +3589,9 @@ body .ui-dialog .ui-dialog-buttonpane .ui-dialog-buttonset {
     .doubleFieldset fieldset {
         width: 98%;
     }
+
+    div#serverstatusquerieschart {
+        width: 100%;
+        height: 450px;
+    }
 }

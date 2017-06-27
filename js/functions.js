@@ -2537,6 +2537,12 @@ function PMA_createProfilingChart(target, data)
     dataTable.addColumn(ColumnType.NUMBER, '');
     dataTable.setData(data);
 
+    var windowWidth = $(window).width();
+    var location = 's';
+    if (windowWidth > 768) {
+        var location = 'se';
+    }
+
     // draw the chart and return the chart object
     chart.draw(dataTable, {
         seriesDefaults: {
@@ -2552,7 +2558,7 @@ function PMA_createProfilingChart(target, data)
         },
         legend: {
             show: true,
-            location: 'se',
+            location: location,
             rendererOptions: {
                 numberColumns: 2
             }
