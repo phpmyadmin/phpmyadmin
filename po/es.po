@@ -4,16 +4,16 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.8.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2017-06-13 17:05+0200\n"
-"PO-Revision-Date: 2017-05-04 18:57+0000\n"
+"PO-Revision-Date: 2017-06-27 12:13+0000\n"
 "Last-Translator: Franco <fulanodetal.github1@openaliasbox.org>\n"
-"Language-Team: Spanish <https://hosted.weblate.org/projects/phpmyadmin/"
-"master/es/>\n"
+"Language-Team: Spanish "
+"<https://hosted.weblate.org/projects/phpmyadmin/master/es/>\n"
 "Language: es\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 2.14-dev\n"
+"X-Generator: Weblate 2.15-dev\n"
 
 #: ajax.php:16 ajax.php:33 export.php:194 schema_export.php:66
 msgid "Bad type!"
@@ -617,6 +617,8 @@ msgid ""
 "You were logged out from one server, to logout completely from phpMyAdmin, "
 "you need to logout from all servers."
 msgstr ""
+"Fuiste desconectado de un servidor, para desconectarte completamente de "
+"phpMyAdmin, necesitas desconectarte de todos los servidores."
 
 #: index.php:162 libraries/Footer.php:70
 msgid "phpMyAdmin Demo Server"
@@ -833,6 +835,8 @@ msgid ""
 "The $cfg['TempDir'] (%s) is not accessible. phpMyAdmin is not able to cache "
 "templates and will be slow because of this."
 msgstr ""
+"El $cfg['TempDir'] (%s) es inaccesible. phpMyAdmin es incapaz de almacenar "
+"plantillas y será algo lento debido a esto."
 
 #: js/messages.php:43
 msgid "Confirm"
@@ -1547,15 +1551,11 @@ msgid "Chart"
 msgstr "Gráfico"
 
 #: js/messages.php:295 libraries/display_export.lib.php:905
-#, fuzzy
-#| msgid "Database"
 msgctxt "Alias"
 msgid "Database"
 msgstr "Base de datos"
 
 #: js/messages.php:296 libraries/display_export.lib.php:917
-#, fuzzy
-#| msgid "Table"
 msgctxt "Alias"
 msgid "Table"
 msgstr "Tabla"
@@ -3248,7 +3248,7 @@ msgstr "Búlgaro"
 #: libraries/Charsets.php:394
 msgctxt "Collation"
 msgid "Chinese"
-msgstr ""
+msgstr "Chino"
 
 #: libraries/Charsets.php:399
 #, fuzzy
@@ -3302,7 +3302,7 @@ msgstr "Diccionario de datos"
 #: libraries/Charsets.php:425 libraries/Charsets.php:536
 msgctxt "Collation"
 msgid "German (phone book order)"
-msgstr ""
+msgstr "Alemán (ordenado según libreta telefónica)"
 
 #: libraries/Charsets.php:434
 #, fuzzy
@@ -3321,7 +3321,7 @@ msgstr "Islandés"
 #: libraries/Charsets.php:445
 msgctxt "Collation"
 msgid "Classical Latin"
-msgstr ""
+msgstr "Latín clásico"
 
 #: libraries/Charsets.php:449
 #, fuzzy
@@ -3396,7 +3396,7 @@ msgstr "Español"
 #: libraries/Charsets.php:497 libraries/Charsets.php:547
 msgctxt "Collation"
 msgid "Spanish (traditional)"
-msgstr ""
+msgstr "Español (tradicional)"
 
 #: libraries/Charsets.php:516
 #, fuzzy
@@ -8831,7 +8831,7 @@ msgstr "Omitir tablas mayores a"
 
 #: libraries/display_export.lib.php:897
 msgid "Defined aliases"
-msgstr ""
+msgstr "Alias definidos"
 
 #: libraries/display_export.lib.php:1013
 msgid "Could not load export plugins, please check your installation!"
@@ -15126,7 +15126,7 @@ msgstr "Última revisión"
 
 #: templates/export/alias_add.phtml:5
 msgid "Define new aliases"
-msgstr ""
+msgstr "Definir nuevos alias"
 
 #: templates/export/alias_add.phtml:11
 #, fuzzy
@@ -15160,7 +15160,7 @@ msgstr "Nombre de la nueva columna"
 
 #: templates/export/alias_item.phtml:8
 msgid "Remove"
-msgstr ""
+msgstr "Borrar"
 
 #: templates/privileges/privileges_summary.phtml:21
 msgid "Column-specific privileges"
