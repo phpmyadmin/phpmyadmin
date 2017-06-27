@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.8.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2017-06-13 17:05+0200\n"
-"PO-Revision-Date: 2017-06-16 17:25+0000\n"
-"Last-Translator: Christiano Parra Consentino <chris.parra@gmail.com>\n"
+"PO-Revision-Date: 2017-06-27 14:43+0000\n"
+"Last-Translator: George Bezerra <georgelione@gmail.com>\n"
 "Language-Team: Portuguese (Brazil) "
 "<https://hosted.weblate.org/projects/phpmyadmin/master/pt_BR/>\n"
 "Language: pt_BR\n"
@@ -25,7 +25,7 @@ msgid ""
 "The %s file is not available on this system, please visit %s for more "
 "information."
 msgstr ""
-"O arquivo %s não está disponível neste sistema, por favor, visite %s 2 para "
+"O arquivo %s não está disponível neste sistema, por favor, visite %s para "
 "maiores informações."
 
 #: db_central_columns.php:110
@@ -2983,9 +2983,9 @@ msgid "Error"
 msgstr "Erro"
 
 #: libraries/Advisor.php:242
-#, fuzzy, php-format
+#, php-format
 msgid "Error when evaluating: %s"
-msgstr "Erro ao criar arquivo: %s"
+msgstr "Erro ao avaliar: %s"
 
 #: libraries/Advisor.php:273
 #, php-format
@@ -3571,7 +3571,6 @@ msgid "at least one of the words"
 msgstr "pelo menos uma das palavras"
 
 #: libraries/DbSearch.php:87
-#, fuzzy
 msgid "all of the words"
 msgstr "todas as palavras"
 
@@ -4147,7 +4146,7 @@ msgstr "Tabela"
 #: libraries/Menu.php:286 libraries/Menu.php:305
 #, php-format
 msgid "“%s”"
-msgstr ""
+msgstr "\"%s\""
 
 #: libraries/Menu.php:354 libraries/Menu.php:457 libraries/Menu.php:570
 #: libraries/Util.php:3140 libraries/Util.php:3150 libraries/Util.php:3156
@@ -4323,7 +4322,7 @@ msgstr "Não foi possível salvar a tabela favorita!"
 #: libraries/RecentFavoriteTable.php:209
 #: templates/database/structure/favorite_anchor.phtml:12
 msgid "Remove from Favorites"
-msgstr "Remover dos Favorites"
+msgstr "Remover dos Favoritos"
 
 #: libraries/RecentFavoriteTable.php:231
 msgid "There are no recent tables."
@@ -4683,9 +4682,9 @@ msgid "Error creating foreign key on %1$s (check data types)"
 msgstr "Erro ao criar chave externa no %1$s (check data types)"
 
 #: libraries/Template.php:199
-#, fuzzy, php-format
+#, php-format
 msgid "Error while working with template cache: %s"
-msgstr "Erro ao carregar a pesquisa."
+msgstr "Erro ao trabalhar com o cache do modelo: %s"
 
 #: libraries/Theme.php:183
 #, php-format
@@ -5118,9 +5117,9 @@ msgid "Missing parameter:"
 msgstr "Parâmetro ausente:"
 
 #: libraries/Util.php:2529
-#, fuzzy, php-format
+#, php-format
 msgid "Jump to database “%s”."
-msgstr "Ir para o banco de dados '%s'."
+msgstr "Ir para o banco de dados “%s”."
 
 #: libraries/Util.php:2554
 #, php-format
@@ -8680,7 +8679,7 @@ msgstr "Pular tabelas maiores que"
 
 #: libraries/display_export.lib.php:897
 msgid "Defined aliases"
-msgstr ""
+msgstr "Apelidos definidos"
 
 #: libraries/display_export.lib.php:1013
 msgid "Could not load export plugins, please check your installation!"
@@ -10439,9 +10438,8 @@ msgid "View structure"
 msgstr "Visualizar estrutura"
 
 #: libraries/plugins/export/ExportPdf.php:289
-#, fuzzy
 msgid "Stand in"
-msgstr "Fica em"
+msgstr "Substituir"
 
 #: libraries/plugins/export/ExportSql.php:100
 msgid ""
@@ -10596,7 +10594,7 @@ msgstr "Parece que seu banco de dados utiliza rotinas;"
 #: libraries/plugins/export/ExportSql.php:1546
 #: libraries/plugins/export/ExportSql.php:2063
 msgid "alias export may not work reliably in all cases."
-msgstr "exportar alias pode não funcionar confiantemente em todos os casos."
+msgstr "exportar apelidos pode não funcionar confiavelmente em todos os casos."
 
 #: libraries/plugins/export/ExportSql.php:1007
 msgid "Metadata"
@@ -11314,12 +11312,12 @@ msgstr ""
 "qualquer base de dados."
 
 #: libraries/relation.lib.php:2001
-#, fuzzy, php-format
+#, php-format
 msgid ""
 "%sCreate%s a database named 'phpmyadmin' and setup the phpMyAdmin "
 "configuration storage there."
 msgstr ""
-"%sCreate%s o banco de dados chamado 'phpmyadmin' e instala as configurações "
+"%sCria%s um banco de dados chamado 'phpmyadmin' e instala as configurações "
 "do phpMyAdmin nele."
 
 #: libraries/relation.lib.php:2009
@@ -12446,9 +12444,8 @@ msgid "Do not change the password"
 msgstr "Não mudar a senha"
 
 #: libraries/server_privileges.lib.php:1711
-#, fuzzy
 msgid "Authentication Plugin"
-msgstr "Autenticação por Plugin"
+msgstr "Plugin de autenticação"
 
 #: libraries/server_privileges.lib.php:1718
 msgid "Password Hashing Method"
@@ -12653,31 +12650,29 @@ msgid "User accounts overview"
 msgstr "Visão geral das contas de usuário"
 
 #: libraries/server_privileges.lib.php:4633
-#, fuzzy
 msgid ""
 "A user account allowing any user from localhost to connect is present. This "
 "will prevent other users from connecting if the host part of their account "
 "allows a connection from any (%) host."
 msgstr ""
-"Uma conta de usuário que permite que qualquer usuário de localhost se "
-"conecte está presente. Isso impedirá que outros usuários se conectem se a "
-"parte do host dessas contas permitir uma conexão de qualquer host (%)."
+"Existe uma conta de usuário que permite que qualquer usuário do localhost se "
+"conecte. Isso impedirá que outros usuários se conectem se a parte do host "
+"dessas contas permitir uma conexão de qualquer host (%)."
 
 #: libraries/server_privileges.lib.php:4675
-#, fuzzy, php-format
+#, php-format
 msgid ""
 "Note: phpMyAdmin gets the users’ privileges directly from MySQL’s privilege "
 "tables. The content of these tables may differ from the privileges the "
 "server uses, if they have been changed manually. In this case, you should "
 "%sreload the privileges%s before you continue."
 msgstr ""
-"Nota: O phpMyAdmin recebe os privilégios dos usuário diretamente da tabela "
-"de privilégios do MySQL. O conteúdo destas tabelas pode divergir dos "
-"privilégios que o servidor usa se eles foram mudados manualmente. Neste "
-"caso, você deve usar %sAtualizar privilégios%s antes de continuar."
+"Nota: o phpMyAdmin obtém os privilégios dos usuários diretamente das tabelas "
+"de privilégios do MySQL. O conteúdo dessas tabelas pode divergir dos "
+"privilégios que o servidor usa, se eles foram modificados manualmente. Neste "
+"caso, você deve %srecarregar os privilégios%s antes de continuar."
 
 #: libraries/server_privileges.lib.php:4692
-#, fuzzy
 msgid ""
 "Note: phpMyAdmin gets the users’ privileges directly from MySQL’s privilege "
 "tables. The content of these tables may differ from the privileges the "
@@ -12685,10 +12680,11 @@ msgid ""
 "privileges have to be reloaded but currently, you don't have the RELOAD "
 "privilege."
 msgstr ""
-"Nota: O phpMyAdmin recebe os privilégios dos usuário diretamente da tabela "
-"de privilégios do MySQL. O conteúdo destas tabelas pode divergir dos "
-"privilégios que o servidor usa se eles foram mudados manualmente. Neste "
-"caso, você deve usar %sAtualizar privilégios%s antes de continuar."
+"Nota: o phpMyAdmin obtém os privilégios dos usuários diretamente das tabelas "
+"de privilégios do MySQL. O conteúdo dessas tabelas pode divergir dos "
+"privilégios que o servidor usa, se eles foram modificados manualmente. Neste "
+"caso, os privilégios devem ser recarregados, mas atualmente você não tem o "
+"privilégio RELOAD."
 
 #: libraries/server_privileges.lib.php:4963
 msgid "You have added a new user."
@@ -13819,9 +13815,9 @@ msgid "Table-level tabs"
 msgstr "Guias de Tabelas"
 
 #: libraries/sql_query_form.lib.php:139
-#, fuzzy, php-format
+#, php-format
 msgid "Run SQL query/queries on server “%s”"
-msgstr "Rodar consulta(s) SQL no servidor %s"
+msgstr "Rodar consulta(s) SQL no servidor “%s”"
 
 #: libraries/sql_query_form.lib.php:156
 #, php-format
@@ -14221,9 +14217,8 @@ msgid "Not enough privilege to view server status."
 msgstr "Privilégio insuficiente para exibir o status do servidor."
 
 #: server_status_advisor.php:34
-#, fuzzy
 msgid "Not enough privilege to view the advisor."
-msgstr "Privilégio insuficiente para exibir o(s) usuário(s)."
+msgstr "Privilégio insuficiente para exibir o assessor."
 
 #: server_status_processes.php:34
 #, php-format
@@ -14543,7 +14538,6 @@ msgstr "Partição por:"
 
 #: templates/columns_definitions/partitions.phtml:25
 #: templates/columns_definitions/partitions.phtml:54
-#, fuzzy
 msgid "Expression or column list"
 msgstr "Expressão ou lista de colunas"
 
@@ -14552,12 +14546,10 @@ msgid "Partitions:"
 msgstr "Partições:"
 
 #: templates/columns_definitions/partitions.phtml:38
-#, fuzzy
 msgid "Subpartition by:"
-msgstr "Subparticionado por:"
+msgstr "Subpartição por:"
 
 #: templates/columns_definitions/partitions.phtml:59
-#, fuzzy
 msgid "Subpartitions:"
 msgstr "Subpartições:"
 
@@ -14571,7 +14563,6 @@ msgid "Values"
 msgstr "Valores"
 
 #: templates/columns_definitions/partitions.phtml:76
-#, fuzzy
 msgid "Subpartition"
 msgstr "Subpartição"
 
@@ -14596,14 +14587,12 @@ msgid "Min rows"
 msgstr "Mínimo de linhas"
 
 #: templates/columns_definitions/partitions.phtml:84
-#, fuzzy
 msgid "Table space"
-msgstr "pesquisar tabela"
+msgstr "Espaço da tabela"
 
 #: templates/columns_definitions/partitions.phtml:85
-#, fuzzy
 msgid "Node group"
-msgstr "Grupo de usuários"
+msgstr "Grupo de nós"
 
 #: templates/columns_definitions/table_fields_definitions.phtml:16
 msgid ""
@@ -14626,7 +14615,6 @@ msgstr ""
 "ou citações, usando este formato: a"
 
 #: templates/columns_definitions/table_fields_definitions.phtml:70
-#, fuzzy
 msgid "Virtuality"
 msgstr "Virtualidade"
 
@@ -14671,14 +14659,12 @@ msgid "Input transformation options"
 msgstr "Opções de transformação de dado"
 
 #: templates/database/designer/database_tables.phtml:29
-#, fuzzy
 msgid "Show/hide columns"
-msgstr "Mover campo(s)"
+msgstr "Mostrar/ocultar campo(s)"
 
 #: templates/database/designer/database_tables.phtml:37
-#, fuzzy
 msgid "See table structure"
-msgstr "Estrutura da tabela"
+msgstr "Ver estrutura da tabela"
 
 #: templates/database/designer/edit_delete_pages.phtml:7
 msgid "Page to open"
@@ -14746,7 +14732,6 @@ msgstr "Criar tabela"
 #: templates/database/designer/side_menu.phtml:84
 #: templates/database/designer/side_menu.phtml:87
 #: templates/database/designer/new_relation_panel.twig:42
-#, fuzzy
 msgid "Create relationship"
 msgstr "Criar relacionamento"
 
@@ -14787,7 +14772,6 @@ msgstr "Mudar para pequeno/grande"
 
 #: templates/database/designer/side_menu.phtml:145
 #: templates/database/designer/side_menu.phtml:148
-#, fuzzy
 msgid "Toggle relationship lines"
 msgstr "Alternar linhas de relação"
 
@@ -14816,7 +14800,6 @@ msgid "Hide/Show all"
 msgstr "Ocultar/Exibir tudo"
 
 #: templates/database/designer/table_list.phtml:14
-#, fuzzy
 msgid "Hide/Show Tables with no relationship"
 msgstr "Ocultar/Exibir tabelas sem relacionamento"
 
@@ -14840,18 +14823,16 @@ msgid "Check tables having overhead"
 msgstr "Verificar tabelas com sobrecarga"
 
 #: templates/database/structure/check_all_tables.phtml:10
-#, fuzzy
 msgid "Copy table"
-msgstr "Copiar"
+msgstr "Copiar tabela"
 
 #: templates/database/structure/check_all_tables.phtml:11
 msgid "Show create"
 msgstr "Mostrar create"
 
 #: templates/database/structure/check_all_tables.phtml:26
-#, fuzzy
 msgid "Prefix"
-msgstr "Adicionar índice"
+msgstr "Prefixo"
 
 #: templates/database/structure/check_all_tables.phtml:27
 msgid "Add prefix to table"
@@ -14919,43 +14900,35 @@ msgstr "Última verificação"
 
 #: templates/export/alias_add.phtml:5
 msgid "Define new aliases"
-msgstr ""
+msgstr "Definir novos apelidos"
 
 #: templates/export/alias_add.phtml:11
-#, fuzzy
-#| msgid "Select database"
 msgid "Select database:"
-msgstr "Selecionar base de dados"
+msgstr "Selecionar base de dados:"
 
 #: templates/export/alias_add.phtml:17
 msgid "New database name"
 msgstr "Nome da nova base de dados"
 
 #: templates/export/alias_add.phtml:26
-#, fuzzy
-#| msgid "Select table"
 msgid "Select table:"
-msgstr "Selecionar tabela"
+msgstr "Selecionar tabela:"
 
 #: templates/export/alias_add.phtml:32
 msgid "New table name"
 msgstr "Nome da nova tabela"
 
 #: templates/export/alias_add.phtml:41
-#, fuzzy
-#| msgid "Select a column."
 msgid "Select column:"
-msgstr "Selecionar coluna."
+msgstr "Selecionar campo:"
 
 #: templates/export/alias_add.phtml:47
 msgid "New column name"
 msgstr "Novo nome da coluna"
 
 #: templates/export/alias_item.phtml:8
-#, fuzzy
-#| msgid "Remote server"
 msgid "Remove"
-msgstr "Servidor remoto"
+msgstr "Remover"
 
 #: templates/privileges/privileges_summary.phtml:21
 msgid "Column-specific privileges"
@@ -14988,7 +14961,6 @@ msgid "Check privileges for database \"%s\"."
 msgstr "Verificar privilégios para o banco de dados '%s'."
 
 #: templates/server/databases/table_row.phtml:62
-#, fuzzy
 msgid "Check privileges"
 msgstr "Verificar privilégios"
 
@@ -15053,9 +15025,8 @@ msgid "Stacked"
 msgstr "Empilhado"
 
 #: templates/table/chart/tbl_chart.phtml:51
-#, fuzzy
 msgid "Chart title:"
-msgstr "Título do gráfico"
+msgstr "Título do gráfico:"
 
 #: templates/table/chart/tbl_chart.phtml:56
 msgid "X-Axis:"
@@ -15090,7 +15061,6 @@ msgid "Series column:"
 msgstr "Coluna de série:"
 
 #: templates/table/chart/tbl_chart.phtml:132
-#, fuzzy
 msgid "Value Column:"
 msgstr "Coluna de valor:"
 
@@ -15104,7 +15074,7 @@ msgstr "Mostrar visualização GIS"
 
 #: templates/table/gis_visualization/gis_visualization.phtml:8
 msgid "Label column"
-msgstr "Rótulo da coluna"
+msgstr "Coluna de rótulo"
 
 #: templates/table/gis_visualization/gis_visualization.phtml:11
 msgid "-- None --"
@@ -15153,9 +15123,8 @@ msgstr "+ Adicionar restrição"
 
 #: templates/table/relation/common_form.phtml:76
 #: templates/table/relation/common_form.phtml:82
-#, fuzzy
 msgid "Internal relationships"
-msgstr "Relações internas"
+msgstr "Relacionamentos internos"
 
 #: templates/table/relation/common_form.phtml:86
 msgid "Internal relation"
@@ -15250,18 +15219,15 @@ msgstr "Tela de edição"
 
 #: templates/table/structure/display_structure.phtml:206
 #: templates/table/structure/display_partitions.twig:24
-#, fuzzy
 msgid "Partitions"
-msgstr "Partição %s"
+msgstr "Partições"
 
 #: templates/table/structure/partition_definition_form.phtml:6
 #: templates/table/structure/display_partitions.twig:348
-#, fuzzy
 msgid "Edit partitioning"
-msgstr "Remover particionamento"
+msgstr "Editar particionamento"
 
 #: templates/test/gettext/pgettext.phtml:1
-#, fuzzy
 msgctxt "Text context"
 msgid "Text"
 msgstr "Texto"
@@ -15311,20 +15277,18 @@ msgid "Move the columns by dragging them up and down."
 msgstr "Mover o(s) campo(s) arrastando ele(s) para cima e para baixo."
 
 #: templates/database/designer/delete_relation_panel.twig:41
-#, fuzzy
 msgid "Delete relationship"
 msgstr "Apagar relacionamento"
 
 #: templates/error/report_form.twig:26
-#, fuzzy
 msgid ""
 "This report automatically includes data about the error and information "
 "about relevant configuration settings. It will be sent to the phpMyAdmin "
 "team for debugging the error."
 msgstr ""
-"O phpMyAdmin encontrou um erro. Coletamos dados sobre este erro assim como "
-"informações relevantes sobre configurações para enviar à equipe do "
-"phpMyAdmin para nos ajudar a depurar o problema."
+"Este relatório automaticamente inclui dados sobre o erro e informações sobre "
+"configurações relevantes. Ele será enviado à equipe do phpMyAdmin para que "
+"ela possa depurar o erro."
 
 #: templates/error/report_form.twig:33
 msgid ""
@@ -15431,7 +15395,6 @@ msgstr "Remover da(s) coluna(s) central(is)"
 
 #: templates/database/designer/options_panel.twig:54
 #: templates/database/designer/options_panel.twig:250
-#, fuzzy
 msgid "Relationship operator"
 msgstr "Operador de relacionamento"
 
@@ -15451,9 +15414,8 @@ msgid "Aggregate"
 msgstr "Agregar"
 
 #: templates/privileges/add_privileges_routine.twig:25
-#, fuzzy
 msgid "Add privileges on the following routine:"
-msgstr "Adicionar privilégios na seguinte tabela:"
+msgstr "Adicionar privilégios à seguinte rotina:"
 
 #: templates/server/variables/variable_table_head.twig:31
 #: templates/server/variables/session_variable_row.twig:25
@@ -15544,14 +15506,12 @@ msgstr ""
 "importá-lo para a sessão atual?"
 
 #: templates/prefs_autoload.twig:46
-#, fuzzy
 msgid "Delete settings"
-msgstr "Excluir os dados de monitoramento"
+msgstr "Excluir configurações"
 
 #: templates/privileges/delete_user_fieldset.twig:24
-#, fuzzy
 msgid "Remove selected user accounts"
-msgstr "Remover os usuários selecionados"
+msgstr "Remover as contas de usuário selecionadas"
 
 #: templates/privileges/delete_user_fieldset.twig:30
 msgid "Revoke all active privileges from the users and delete them afterwards."
@@ -15607,34 +15567,28 @@ msgid "Number of columns"
 msgstr "Número de colunas"
 
 #: templates/table/structure/display_partitions.twig:35
-#, fuzzy
 msgid "No partitioning defined!"
-msgstr "Nenhum índice definido!"
+msgstr "Nenhum particionamento definido!"
 
 #: templates/table/structure/display_partitions.twig:43
-#, fuzzy
 msgid "Partitioned by:"
-msgstr "particionado"
+msgstr "Particionado por:"
 
 #: templates/table/structure/display_partitions.twig:58
-#, fuzzy
 msgid "Sub partitioned by:"
-msgstr "particionado"
+msgstr "Subparticionado por:"
 
 #: templates/table/structure/display_partitions.twig:92
-#, fuzzy
 msgid "Data length"
-msgstr "Comprimento do registro"
+msgstr "Comprimento dos dados"
 
 #: templates/table/structure/display_partitions.twig:96
-#, fuzzy
 msgid "Index length"
-msgstr "Comprimento do registro"
+msgstr "Comprimento do índice"
 
 #: templates/table/structure/display_partitions.twig:337
-#, fuzzy
 msgid "Partition table"
-msgstr "particionado"
+msgstr "Tabela de partições"
 
 #: templates/console/display.twig:24
 msgid "Console"
@@ -15745,7 +15699,6 @@ msgid "Show query history at start"
 msgstr "Mostrar histórico de consulta ao iniciar"
 
 #: templates/console/display.twig:192
-#, fuzzy
 msgid "Show current browsing query"
 msgstr "Mostrar consulta de navegação atual"
 
@@ -15779,9 +15732,8 @@ msgid "Click to toggle"
 msgstr "Clique para alternar"
 
 #: url.php:41
-#, fuzzy
 msgid "Taking you to the target site."
-msgstr "Indo para a próxima etapa…"
+msgstr "Indo para o site alvo."
 
 #: user_password.php:39
 msgid "You don't have sufficient privileges to be here right now!"
@@ -15792,9 +15744,8 @@ msgid "The profile has been updated."
 msgstr "O perfil foi atualizado."
 
 #: user_password.php:129
-#, fuzzy
 msgid "Password is too long!"
-msgstr "Hashing de senha:"
+msgstr "Senha muito longa!"
 
 #: view_create.php:50
 msgid "View name can not be empty!"
@@ -16009,9 +15960,8 @@ msgstr ""
 "Versão inferior a 5.5.8 (a primeira versão de disponibilidade geral do 5.5)."
 
 #: libraries/advisory_rules.txt:118
-#, fuzzy
 msgid "You should upgrade, to a stable version of MySQL 5.5."
-msgstr "Você deveria atualizar para uma versão estável do MySQL 5.5"
+msgstr "Você deveria atualizar para uma versão estável do MySQL 5.5."
 
 #: libraries/advisory_rules.txt:121 libraries/advisory_rules.txt:128
 msgid "Distribution"
@@ -16320,13 +16270,12 @@ msgid "Too many sorts are causing temporary tables."
 msgstr "Muitas ordenações estão criando tabelas temporárias."
 
 #: libraries/advisory_rules.txt:208 libraries/advisory_rules.txt:215
-#, fuzzy
 msgid ""
 "Consider increasing {sort_buffer_size} and/or {read_rnd_buffer_size}, "
 "depending on your system memory limits."
 msgstr ""
 "Considere aumentar o {sort_buffer_size} e/ou {read_rnd_buffer_size}, "
-"dependendo do limite de memória do seu sistema"
+"dependendo do limite de memória do seu sistema."
 
 #: libraries/advisory_rules.txt:209
 #, php-format
@@ -16358,17 +16307,16 @@ msgid "There are lots of rows being sorted."
 msgstr "Muitos campos estão sendo ordenados."
 
 #: libraries/advisory_rules.txt:222
-#, fuzzy
 msgid ""
 "While there is nothing wrong with a high amount of row sorting, you might "
 "want to make sure that the queries which require a lot of sorting use "
 "indexed columns in the ORDER BY clause, as this will result in much faster "
 "sorting."
 msgstr ""
-"Enquanto não houver nada errado com uma grande quantidade de ordenação de "
-"campos, você pode querer garantir que as queries que exigem muita ordenação "
-"usem colunas indexadas na cláusula ORDER BY, já que isso resultará em "
-"ordenação muito mais rápida"
+"Apesar de não haver nada errado em uma grande quantidade de ordenação de "
+"campos, você pode querer garantir que as consultas que exigem muita "
+"ordenação usem colunas indexadas na cláusula ORDER BY, pois isso resultará "
+"em uma ordenação muito mais rápida."
 
 #: libraries/advisory_rules.txt:223
 #, php-format
@@ -16384,14 +16332,13 @@ msgid "There are too many joins without indexes."
 msgstr "Existem joins demais sem índices."
 
 #: libraries/advisory_rules.txt:230
-#, fuzzy
 msgid ""
 "This means that joins are doing full table scans. Adding indexes for the "
 "columns being used in the join conditions will greatly speed up table joins."
 msgstr ""
 "Isso significa que JOINs estão fazendo leituras completas de tabela. "
 "Adicionar índices aos campos sendo usados nas condições JOIN irá acelerar "
-"bastante a união das tabelas"
+"bastante a união das tabelas."
 
 #: libraries/advisory_rules.txt:231
 #, php-format
@@ -16821,18 +16768,16 @@ msgid "Slow launch time"
 msgstr "Tempo de inícios lentos"
 
 #: libraries/advisory_rules.txt:368
-#, fuzzy
 msgid "Slow_launch_time is above 2s."
-msgstr "Slow_launch_time está acima de 2s"
+msgstr "Slow_launch_time está acima de 2s."
 
 #: libraries/advisory_rules.txt:369
-#, fuzzy
 msgid ""
 "Set {slow_launch_time} to 1s or 2s to correctly count threads that are slow "
 "to launch."
 msgstr ""
 "Defina {slow_launch_time} para 1s ou 2s para contar corretamente threads que "
-"estão lentas para iniciar"
+"estão lentas para iniciar."
 
 #: libraries/advisory_rules.txt:370
 #, php-format
