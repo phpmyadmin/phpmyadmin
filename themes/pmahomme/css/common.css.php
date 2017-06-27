@@ -3585,4 +3585,8 @@ body .ui-dialog .ui-dialog-buttonpane .ui-dialog-buttonset {
     #table_columns {
         margin-top: 60px;
     }
+
+    .doubleFieldset fieldset {
+        width: 98%;
+    }
 }
