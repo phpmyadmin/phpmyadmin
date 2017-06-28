@@ -17,6 +17,7 @@ phpMyAdmin - ChangeLog
 - issue #13269 Small refactoring in preparation to CSP
 - issue #13384 Database link broken in Databases Page
 - issue #13391 Configurable authentication logging using $cfg['AuthLog']
+- issue #13086 Add support for Goole Invisible Captcha
 
 4.7.2 (not yet released)
 - issue #13314 Make theme selection keep current server
