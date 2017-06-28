@@ -2890,6 +2890,10 @@ fieldset .disabled-field td {
     padding-<?php echo $left; ?>: 20px;
 }
 
+.relationalTable td {
+    vertical-align: top;
+}
+
 .relationalTable select {
     width: 125px;
     margin-right: 5px;

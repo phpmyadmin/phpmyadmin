@@ -2628,6 +2628,10 @@ div.jqplot-noData-container {
     background-color: rgba(96%, 96%, 96%, 0.3);
 }
 
+.relationalTable td {
+    vertical-align: top;
+}
+
 .relationalTable select {
     width: 125px;
     margin-right: 5px;
