@@ -1721,10 +1721,6 @@ li.no_bullets {
     width: 35%;
 }
 
-.operations_half_width {
-    width: 48%;
-    float: <?php echo $left; ?>;
-}
 .operations_half_width input[type=text],
 .operations_half_width input[type=password],
 .operations_half_width input[type=number],

@@ -4928,8 +4928,6 @@ AJAX.registerOnload('functions.js', function () {
             .each(function () {
                 if (viewport < minWidth) {
                     $(this).width(minWidth);
-                } else {
-                    $(this).css('width', ((1 /  slots) * 100) + "%");
                 }
             })
             .removeClass('clearfloat')
