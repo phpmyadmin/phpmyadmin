@@ -144,7 +144,7 @@ function PMA_getHtmlForServerProcesslist()
 
         $retval .= '<th>';
         $columnUrl = URL::getCommon($column);
-        $retval .= '<a href="server_status_processes.php' . $columnUrl . '">';
+        $retval .= '<a href="server_status_processes.php' . $columnUrl . '" class="sortlink">';
 
         $retval .= $column['column_name'];
 

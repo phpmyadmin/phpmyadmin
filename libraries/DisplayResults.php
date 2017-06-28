@@ -2024,8 +2024,7 @@ class DisplayResults
         // Displays the sorting URL
         // enable sort order swapping for image
         $order_link = $this->_getSortOrderLink(
-            $order_img, $column_index,
-            $fields_meta, $single_order_url, $multi_order_url
+            $order_img, $fields_meta, $single_order_url, $multi_order_url
         );
 
         $sorted_header_html .= $this->_getDraggableClassForSortableColumns(
@@ -2139,8 +2138,7 @@ class DisplayResults
                 if ($is_in_sort) {
                     list($single_sort_order, $order_img)
                         = $this->_getSortingUrlParams(
-                            $sort_direction, $single_sort_order,
-                            $column_index, $index
+                            $sort_direction, $single_sort_order, $index
                         );
                 } else {
                     $single_sort_order .= strtoupper($sort_direction[$index]);
@@ -2149,7 +2147,7 @@ class DisplayResults
             if ($current_name == $name_to_use_in_sort && $is_in_sort) {
                 // We need to generate the arrow button and related html
                 list($sort_order, $order_img) = $this->_getSortingUrlParams(
-                    $sort_direction, $sort_order, $column_index, $index
+                    $sort_direction, $sort_order, $index
                 );
                 $order_img .= " <small>" . ($index + 1) . "</small>";
             } else {
@@ -2256,7 +2254,6 @@ class DisplayResults
      *
      * @param array   $sort_direction the sort direction
      * @param string  $sort_order     the sorting order
-     * @param integer $column_index   the index of the column
      * @param integer $index          the index of sort direction array.
      *
      * @return  array                       2 element array - $sort_order, $order_img
@@ -2265,28 +2262,27 @@ class DisplayResults
      *
      * @see     _getSingleAndMultiSortUrls()
      */
-    private function _getSortingUrlParams(
-        $sort_direction, $sort_order, $column_index, $index
-    ) {
+    private function _getSortingUrlParams($sort_direction, $sort_order, $index)
+    {
         if (strtoupper(trim($sort_direction[$index])) == self::DESCENDING_SORT_DIR) {
             $sort_order .= ' ASC';
             $order_img   = ' ' . Util::getImage(
                 's_desc.png', __('Descending'),
-                array('class' => "soimg$column_index", 'title' => '')
+                array('class' => "soimg", 'title' => '')
             );
             $order_img  .= ' ' . Util::getImage(
                 's_asc.png', __('Ascending'),
-                array('class' => "soimg$column_index hide", 'title' => '')
+                array('class' => "soimg hide", 'title' => '')
             );
         } else {
             $sort_order .= ' DESC';
             $order_img   = ' ' . Util::getImage(
                 's_asc.png', __('Ascending'),
-                array('class' => "soimg$column_index", 'title' => '')
+                array('class' => "soimg", 'title' => '')
             );
             $order_img  .=  ' ' . Util::getImage(
                 's_desc.png', __('Descending'),
-                array('class' => "soimg$column_index hide", 'title' => '')
+                array('class' => "soimg hide", 'title' => '')
             );
         }
         return array($sort_order, $order_img);
@@ -2297,7 +2293,6 @@ class DisplayResults
      * Get sort order link
      *
      * @param string  $order_img       the sort order image
-     * @param integer $col_index       the index of the column
      * @param array   $fields_meta     set of field properties
      * @param string  $order_url       the url for sort
      * @param string  $multi_order_url the url for sort
@@ -2309,19 +2304,11 @@ class DisplayResults
      * @see     _getTableHeaders()
      */
     private function _getSortOrderLink(
-        $order_img, $col_index,
-        $fields_meta, $order_url, $multi_order_url
+        $order_img, $fields_meta, $order_url, $multi_order_url
     ) {
-        $order_link_params = array();
-        if (isset($order_img) && ($order_img != '')) {
-            if (mb_strstr($order_img, 'asc')) {
-                $order_link_params['onmouseover'] = "$('.soimg$col_index').toggle()";
-                $order_link_params['onmouseout']  = "$('.soimg$col_index').toggle()";
-            } elseif (mb_strstr($order_img, 'desc')) {
-                $order_link_params['onmouseover'] = "$('.soimg$col_index').toggle()";
-                $order_link_params['onmouseout']  = "$('.soimg$col_index').toggle()";
-            }
-        }
+        $order_link_params = array(
+            'class' => 'sortlink'
+        );
 
         $order_link_content = htmlspecialchars($fields_meta->name);
         $inner_link_content = $order_link_content . $order_img

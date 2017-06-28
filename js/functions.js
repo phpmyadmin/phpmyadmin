@@ -5073,6 +5073,8 @@ AJAX.registerOnload('functions.js', function () {
  */
 AJAX.registerTeardown('functions.js', function(){
     $(document).off('change', 'input[type=radio][name="pw_hash"]');
+    $(document).off('mouseover', '.sortlink');
+    $(document).off('mouseout', '.sortlink');
 });
 
 AJAX.registerOnload('functions.js', function(){
@@ -5090,4 +5092,12 @@ AJAX.registerOnload('functions.js', function(){
     });
 
     Cookies.defaults.path = PMA_commonParams.get('rootPath');
+
+    // Bind event handlers for toggling sort icons
+    $(document).on('mouseover', '.sortlink', function() {
+        $(this).find('.soimg').toggle();
+    });
+    $(document).on('mouseout', '.sortlink', function() {
+        $(this).find('.soimg').toggle();
+    });
 });
