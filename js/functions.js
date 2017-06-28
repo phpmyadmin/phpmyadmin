@@ -599,8 +599,31 @@ function PMA_display_git_revision()
 
 function displayPasswordGenerateButton()
 {
-    $('#tr_element_before_generate_password').parent().append('<tr class="vmiddle"><td>' + PMA_messages.strGeneratePassword + '</td><td><input type="button" class="button" id="button_generate_password" value="' + PMA_messages.strGenerate + '" onclick="suggestPassword(this.form)" /><input type="text" name="generated_pw" id="generated_pw" /></td></tr>');
-    $('#div_element_before_generate_password').parent().append('<div class="item"><label for="button_generate_password">' + PMA_messages.strGeneratePassword + ':</label><span class="options"><input type="button" class="button" id="button_generate_password" value="' + PMA_messages.strGenerate + '" onclick="suggestPassword(this.form)" /></span><input type="text" name="generated_pw" id="generated_pw" /></div>');
+    var generatePwdRow = $('<tr />').addClass('vmiddle');
+    var titleCell = $('<td />').html(PMA_messages.strGeneratePassword).appendTo(generatePwdRow);
+    var pwdCell = $('<td />').appendTo(generatePwdRow);
+    var pwdButton = $('<input />')
+        .attr({type: 'button', id: 'button_generate_password', value: PMA_messages.strGenerate})
+        .addClass('button')
+        .on('click', function() {
+            suggestPassword(this.form);
+        });
+    var pwdTextbox = $('<input />')
+        .attr({type: 'text', name: 'generated_pw', id: 'generated_pw'});
+    pwdCell.append(pwdButton).append(pwdTextbox);
+
+    $('#tr_element_before_generate_password').parent().append(generatePwdRow);
+
+    var generatePwdDiv = $('<div />').addClass('item');
+    var titleLabel = $('<label />').attr({for: 'button_generate_password'})
+        .html(PMA_messages.strGeneratePassword + ':')
+        .appendTo(generatePwdDiv);
+    var optionsSpan = $('<span/>').addClass('options')
+        .appendTo(generatePwdDiv);
+    pwdButton.clone(true).appendTo(optionsSpan);
+    pwdTextbox.clone(true).appendTo(generatePwdDiv);
+
+    $('#div_element_before_generate_password').parent().append(generatePwdDiv);
 }
 
 /**
