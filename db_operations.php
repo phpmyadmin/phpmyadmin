@@ -234,8 +234,6 @@ if (isset($message)) {
 $_REQUEST['db_collation'] = $GLOBALS['dbi']->getDbCollation($GLOBALS['db']);
 $is_information_schema = $GLOBALS['dbi']->isSystemSchema($GLOBALS['db']);
 
-$response->addHTML('<div id="boxContainer" data-box-width="300">');
-
 if (!$is_information_schema) {
     if ($cfgRelation['commwork']) {
         /**
@@ -244,7 +242,7 @@ if (!$is_information_schema) {
         $response->addHTML(PMA_getHtmlForDatabaseComment($GLOBALS['db']));
     }
 
-    $response->addHTML('<div class="operations_half_width">');
+    $response->addHTML('<div>');
     $response->addHTML(PMA_getHtmlForCreateTable($db));
     $response->addHTML('</div>');
 
@@ -292,8 +290,6 @@ if (!$is_information_schema) {
         }
     } // end if
 } // end if (!$is_information_schema)
-
-$response->addHTML('</div>');
 
 // not sure about displaying the PDF dialog in case db is information_schema
 if ($cfgRelation['pdfwork'] && $num_tables > 0) {

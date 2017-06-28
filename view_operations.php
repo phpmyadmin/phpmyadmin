@@ -93,7 +93,7 @@ $url_params['back'] = 'view_operations.php';
  */
 ?>
 <!-- Table operations -->
-<div class="operations_half_width">
+<div>
 <form method="post" action="view_operations.php">
 <?php echo URL::getHiddenInputs($GLOBALS['db'], $GLOBALS['table']); ?>
 <input type="hidden" name="reload" value="1" />
@@ -133,7 +133,7 @@ $drop_view_url_params = array_merge(
         'table' => $GLOBALS['table']
     )
 );
-echo '<div class="operations_half_width">';
+echo '<div>';
 echo '<fieldset class="caution">';
 echo '<legend>' , __('Delete data or table') , '</legend>';
 

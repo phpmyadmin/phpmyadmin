@@ -1721,30 +1721,6 @@ li.no_bullets {
     width: 35%;
 }
 
-.operations_half_width {
-    width: 48%;
-    float: <?php echo $left; ?>;
-}
-.operations_half_width input[type=text],
-.operations_half_width input[type=password],
-.operations_half_width input[type=number],
-.operations_half_width select {
-    width: 95%;
-}
-.operations_half_width input[type=text].halfWidth,
-.operations_half_width input[type=password].halfWidth,
-.operations_half_width input[type=number].halfWidth,
-.operations_half_width select.halfWidth {
-    width: 40%;
-}
-.operations_half_width ul {
-    padding: 0 0 0 1.5em;
-}
-.operations_full_width {
-    width: 100%;
-    clear: both;
-}
-
 #qbe_div_table_list {
     float: <?php echo $left; ?>;
 }
