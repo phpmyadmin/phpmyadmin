@@ -5039,13 +5039,6 @@ AJAX.registerOnload('functions.js', function () {
             }
         }
     });
-
-    /*
-     * Setting the 'Go' login button to disable if captcha is enabled.
-     */
-    if ($('.g-recaptcha').attr('captcha') == 'enabled'){
-        loginButtonDisable();
-    }
 });
 
 /**
