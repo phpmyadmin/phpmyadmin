@@ -20,6 +20,7 @@ phpMyAdmin - ChangeLog
 - issue #13086 Add support for Goole Invisible Captcha
 - issue #13058 Improved error reporting for reCAPTCHA
 - issue #12899 Improved rendering of server variables table
+- issue #12948 Fixed javascript editor for TIME values
 
 4.7.2 (not yet released)
 - issue #13314 Make theme selection keep current server
