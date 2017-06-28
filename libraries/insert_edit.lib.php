@@ -1486,7 +1486,7 @@ function PMA_getActionsPanel($where_clause, $after_insert, $tabindex,
     $tabindex_for_value, $found_unique_key
 ) {
     $html_output = '<fieldset id="actions_panel">'
-        . '<table cellpadding="5" cellspacing="0">'
+        . '<table cellpadding="5" cellspacing="0" class="tdblock width100">'
         . '<tr>'
         . '<td class="nowrap vmiddle">'
         . PMA_getSubmitTypeDropDown($where_clause, $tabindex, $tabindex_for_value)
@@ -1631,7 +1631,8 @@ function PMA_getSubmitAndResetButtonForActionsPanel($tabindex, $tabindex_for_val
  */
 function PMA_getHeadAndFootOfInsertRowTable($url_params)
 {
-    $html_output = '<table class="insertRowTable topmargin">'
+    $html_output = '<div class="responsivetable">'
+        . '<table class="insertRowTable topmargin">'
         . '<thead>'
         . '<tr>'
         . '<th>' . __('Column') . '</th>';
@@ -3000,7 +3001,7 @@ function PMA_getHtmlForInsertEditRow($url_params, $table_columns,
     } // end for
     $o_rows++;
     $html_output .= '  </tbody>'
-        . '</table><br />'
+        . '</table></div><br />'
         . '<div class="clearfloat"></div>';
 
     return $html_output;
