@@ -173,6 +173,14 @@ AJAX.registerOnload('server_status_processes.js', function() {
     $('#tableprocesslist').on('click', 'thead a', function() {
         processList.refreshUrl = $(this).attr('href');
     });
+
+    // Bind event handlers for toggling sort icons
+    $('#tableprocesslist').on('mouseover', 'thead a', function() {
+        $(this).find('.soimg').toggle();
+    });
+    $('#tableprocesslist').on('mouseout', 'thead a', function() {
+        $(this).find('.soimg').toggle();
+    });
 });
 
 /**
@@ -183,6 +191,8 @@ AJAX.registerTeardown('server_status_processes.js', function() {
     $('a#toggleRefresh').off('click');
     $('#id_refreshRate').off('change');
     $('#tableprocesslist').off('click', 'thead a');
+    $('#tableprocesslist').off('mouseover', 'thead a');
+    $('#tableprocesslist').off('mouseout', 'thead a');
     // stop refreshing further
     processList.abortRefresh();
 });
