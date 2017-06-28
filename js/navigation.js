@@ -1136,6 +1136,7 @@ var ResizeHandler = function () {
                 .html(this.getSymbol(100))
                 .prop('title', PMA_messages.strHidePanel);
             $('#pma_navigation').width(windowWidth);
+            $('body').css('margin-' + this.left, '0px');
         } else {
             $collapser
                 .css(this.left, pos)
