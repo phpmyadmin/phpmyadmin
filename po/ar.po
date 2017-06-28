@@ -4,10 +4,10 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.8.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2017-06-28 09:58+0200\n"
-"PO-Revision-Date: 2017-06-28 01:11+0000\n"
-"Last-Translator: yagoub fadel <yagoub76@gmail.com>\n"
-"Language-Team: Arabic <https://hosted.weblate.org/projects/phpmyadmin/master/"
-"ar/>\n"
+"PO-Revision-Date: 2017-06-28 08:20+0000\n"
+"Last-Translator: Michal Čihař <michal@cihar.com>\n"
+"Language-Team: Arabic "
+"<https://hosted.weblate.org/projects/phpmyadmin/master/ar/>\n"
 "Language: ar\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -1030,7 +1030,7 @@ msgstr "حرّر الفهرس"
 #: js/messages.php:122 templates/table/index_form.twig:374
 #, php-format
 msgid "Add %s column(s) to index"
-msgstr "أضف s% عمود/ اعمدة إلى الفهرس"
+msgstr "أضف %s عمود/ اعمدة إلى الفهرس"
 
 #: js/messages.php:123
 msgid "Create single-column index"
@@ -1151,9 +1151,9 @@ msgid ""
 "your configuration to default in the <i>Settings</i> menu."
 msgstr ""
 "اعدادات ترتيب المخطط في المتصفحات المحلية غير متوافق بعد الآن إلى الإصدار "
-"الأحدث من مراقب الشاشة.من المرجح جدا ان لاتعمل اعداداتك الحالية بعد الان ."
-"الرجاء إعادة تعيين التهيئة إلى الإعدادات الافتراضية في قائمة     </i>  "
-"اعدادات <i> ."
+"الأحدث من مراقب الشاشة.من المرجح جدا ان لاتعمل اعداداتك الحالية بعد الان "
+".الرجاء إعادة تعيين التهيئة إلى الإعدادات الافتراضية في قائمة     <i>  "
+"اعدادات </i> ."
 
 #: js/messages.php:173
 msgid "Query cache efficiency"
@@ -1372,7 +1372,7 @@ msgid ""
 "depending on your system."
 msgstr ""
 "تم تمكين سجل الاستعلام البطيء, ولكن يسجل الخادم طلبات البحث التي تستغرق وقتا "
-"أطول من٪ d من الثواني . فقط. من المستحسن تعيين هذه المدة الزمنية الطويلة 0-2 "
+"أطول من%d من الثواني . فقط. من المستحسن تعيين هذه المدة الزمنية الطويلة 0-2 "
 "ثانية، اعتمادا على النظام الخاص بك."
 
 #: js/messages.php:233
@@ -1390,7 +1390,7 @@ msgstr "الإعدادات التالية سوف تفعل عند إعادة تش
 #: js/messages.php:239
 #, php-format
 msgid "Set log_output to %s"
-msgstr "تعيين إخراج السجل إلى٪ s"
+msgstr "تعيين إخراج السجل إلى %s"
 
 #. l10n: Enable in this context means setting a status variable to ON
 #: js/messages.php:241
@@ -1408,7 +1408,7 @@ msgstr "تعطيل %s"
 #: js/messages.php:245
 #, php-format
 msgid "Set long_query_time to %d seconds."
-msgstr "تعيين وقت الاستعلام الطويل إلى٪ d ثانية."
+msgstr "تعيين وقت الاستعلام الطويل إلى %d ثانية."
 
 #: js/messages.php:247
 msgid ""
@@ -1756,7 +1756,7 @@ msgstr ""
 #: js/messages.php:364
 #, php-format
 msgid "Error text: %s"
-msgstr "رمز الخطأ:٪ s"
+msgstr "رمز الخطأ: %s"
 
 #: js/messages.php:365
 #: libraries/controllers/server/ServerDatabasesController.php:194
