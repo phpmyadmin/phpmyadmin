@@ -513,6 +513,9 @@ fieldset.tblFooters {
     -moz-border-radius: 0 0 4px 4px;
     border-radius: 0 0 4px 5px;
 }
+fieldset.tblFooters.narrow {
+    padding: 5px;
+}
 
 div.null_div {
     height: 20px;
@@ -1719,6 +1722,12 @@ li.no_bullets {
 
 #div_mysql_charset_collations table th#collationHeader {
     width: 35%;
+}
+
+.operations_container {
+    min-width: 450px;
+    max-width: 450px;
+    margin: 20px;
 }
 
 .operations_half_width {

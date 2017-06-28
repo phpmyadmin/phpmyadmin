@@ -232,6 +232,9 @@ fieldset.tblFooters {
     float:              none;
     clear:              both;
 }
+fieldset.tblFooters.narrow {
+    padding: 5px;
+}
 
 div.null_div {
     height: 20px;

@@ -299,7 +299,7 @@ $columns = $GLOBALS['dbi']->getColumns($GLOBALS['db'], $GLOBALS['table']);
 /**
  * Displays the page
  */
-$response->addHTML('<div id="boxContainer" data-box-width="300">');
+$response->addHTML('<div class="operations_container">');
 
 /**
  * Order the table
