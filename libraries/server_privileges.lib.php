@@ -2427,6 +2427,7 @@ function PMA_getHtmlForSpecificTablePrivileges($db, $table)
             )
             . '</legend>';
 
+        $html_output .= '<div class="responsivetable jsresponsive">';
         $html_output .= '<table id="tablespecificuserrights" class="data">';
         $html_output .= PMA_getHtmlForPrivsTableHead();
         $privMap = PMA_getPrivMap($db);
@@ -2440,7 +2441,7 @@ function PMA_getHtmlForSpecificTablePrivileges($db, $table)
         $res = $GLOBALS['dbi']->query($sql_query);
         PMA_mergePrivMapFromResult($privMap, $res);
         $html_output .= PMA_getHtmlTableBodyForSpecificDbOrTablePrivs($privMap, $db);
-        $html_output .= '</table>';
+        $html_output .= '</table></div>';
 
         $html_output .= '<div class="floatleft">';
         $html_output .= Template::get('select_all')
