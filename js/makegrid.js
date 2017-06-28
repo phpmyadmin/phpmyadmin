@@ -785,7 +785,7 @@ function PMA_makegrid(t, enableResize, enableReorder, enableVisib, enableGridEdi
                 g.wasEditedCellNull = false;
                 if ($td.is(':not(.not_null)')) {
                     // append a null checkbox
-                    $editArea.append('<div class="null_div">Null:<input type="checkbox"></div>');
+                    $editArea.append('<div class="null_div"><label>Null:<input type="checkbox"></label></div>');
 
                     var $checkbox = $editArea.find('.null_div input');
                     // check if current <td> is NULL
