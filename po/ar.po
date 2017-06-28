@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.8.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2017-06-28 09:58+0200\n"
-"PO-Revision-Date: 2017-06-28 08:20+0000\n"
-"Last-Translator: Michal Čihař <michal@cihar.com>\n"
+"PO-Revision-Date: 2017-06-28 22:48+0000\n"
+"Last-Translator: yagoub fadel <yagoub76@gmail.com>\n"
 "Language-Team: Arabic "
 "<https://hosted.weblate.org/projects/phpmyadmin/master/ar/>\n"
 "Language: ar\n"
@@ -342,11 +342,11 @@ msgstr "تم مسح بيانات تتبع التغيرات بنجاح ."
 #, php-format
 msgid ""
 "Version %1$s was created for selected tables, tracking is active for them."
-msgstr "الإصدار %1$s  تم إنشاءه للجداول المحددة، التتبع نشط للجداول."
+msgstr "تم إنشاء الإصدار %1$s للجداول المحددة، التتبع نشط بالنسبة لهم."
 
 #: db_tracking.php:93
 msgid "No tables selected."
-msgstr "لم يتم تحديد أى جداول."
+msgstr "لم يتم تحديد جداول."
 
 #: db_tracking.php:150
 msgid "Database Log"
@@ -1358,7 +1358,7 @@ msgstr "تم تعطيل سجل الاستعلام البطيء والسجل ال
 
 #: js/messages.php:226
 msgid "log_output is not set to TABLE."
-msgstr ""
+msgstr "لم يتم تعيين إخراج السجل إلى الجدول."
 
 #: js/messages.php:227
 msgid "log_output is set to TABLE."
@@ -1650,7 +1650,7 @@ msgstr "﻿الرجاء تحديد الملف الذي تريد استيراده
 
 #: js/messages.php:330
 msgid "No files available on server for import!"
-msgstr ""
+msgstr "لا توجد ملفات متوفرة على الخادم للاستيراد!"
 
 #: js/messages.php:332
 #, fuzzy
@@ -1751,7 +1751,7 @@ msgstr "خطأ في معالجة الطلب"
 #: js/messages.php:363
 #, php-format
 msgid "Error code: %s"
-msgstr ""
+msgstr "رمز الخطأ s%:"
 
 #: js/messages.php:364
 #, php-format
@@ -1867,7 +1867,7 @@ msgstr "تصدير"
 
 #: js/messages.php:396
 msgid "No routine is exportable. Required privileges may be lacking."
-msgstr ""
+msgstr "لا توجد روتينات قابلة للتصدير.الامتيازات المطلوبة ناقصة."
 
 #: js/messages.php:399 libraries/rte/rte_routines.lib.php:747
 msgid "ENUM/SET editor"
@@ -1976,6 +1976,8 @@ msgid ""
 "No columns in the central list. Make sure the Central columns list for "
 "database %s has columns that are not present in the current table."
 msgstr ""
+"لا توجد أعمدة في القائمة المركزية. تأكد من أن قائمة الأعمدة المركزية لقاعدة "
+"البيانات s% يحتوي على أعمدة غير موجودة في الجدول الحالي ."
 
 #: js/messages.php:428
 #, fuzzy
@@ -1992,6 +1994,8 @@ msgid ""
 "This action may change some of the columns definition.<br/>Are you sure you "
 "want to continue?"
 msgstr ""
+"هذا الإجراء قي يغيير بعض معرفات الأعمدة .</br> هل انت متاكد انك تريد "
+"المتابعة؟"
 
 #: js/messages.php:434
 #, fuzzy
@@ -2018,7 +2022,7 @@ msgstr "تقرير التتبع"
 #: js/messages.php:441
 #, php-format
 msgid "The first step of normalization is complete for table '%s'."
-msgstr ""
+msgstr "الخطوة الاولي في التطبيع هي اكمال الجدول s%'."
 
 #: js/messages.php:442 libraries/normalization.lib.php:451
 #: libraries/normalization.lib.php:498 libraries/normalization.lib.php:583
@@ -2030,7 +2034,7 @@ msgstr "في نهاية الجدول"
 
 #: js/messages.php:443
 msgid "Second step of normalization (2NF)"
-msgstr ""
+msgstr "الخطوة الثانية في التطبيع (2NF)"
 
 #. l10n: Display text for calendar close link
 #: js/messages.php:444 js/messages.php:762 libraries/normalization.lib.php:287
@@ -2043,7 +2047,7 @@ msgstr "تأكيد تبعيات جزئية"
 
 #: js/messages.php:446
 msgid "Selected partial dependencies are as follows:"
-msgstr ""
+msgstr "اخترالتبعيات الجزئية كما يلي:"
 
 #: js/messages.php:448
 msgid ""
@@ -2059,7 +2063,7 @@ msgstr "لا قواعد بيانات محددة."
 
 #: js/messages.php:454
 msgid "Show me the possible partial dependencies based on data in the table"
-msgstr ""
+msgstr "اظهر لي التبعيات الجزئية المحتملة استنادا إلى البيانات في الجدول"
 
 #: js/messages.php:455
 msgid "Hide partial dependencies list"
@@ -2085,14 +2089,12 @@ msgid "DROP columns %s from the table %s"
 msgstr ""
 
 #: js/messages.php:464
-#, fuzzy
-#| msgid "Add privileges on the following table"
 msgid "Create the following table"
-msgstr "إضافة الصلاحيات على الجدول التالي"
+msgstr "قم بإنشاء الجدول التالي"
 
 #: js/messages.php:467
 msgid "Third step of normalization (3NF)"
-msgstr ""
+msgstr "خطوة التطبيع الثالثة (3NF)"
 
 #: js/messages.php:468
 msgid "Confirm transitive dependencies"
@@ -2100,13 +2102,11 @@ msgstr ""
 
 #: js/messages.php:469
 msgid "Selected dependencies are as follows:"
-msgstr ""
+msgstr "التبعيات المحددة كما يلي:"
 
 #: js/messages.php:470
-#, fuzzy
-#| msgid "No databases selected."
 msgid "No dependencies selected!"
-msgstr "لا قواعد بيانات محددة."
+msgstr "لم يتم تحديد أي تبعيات!"
 
 #: js/messages.php:473 libraries/central_columns.lib.php:1213
 #: libraries/insert_edit.lib.php:1528
@@ -2127,40 +2127,28 @@ msgid "Show search criteria"
 msgstr "إظهار معايير البحث"
 
 #: js/messages.php:478
-#, fuzzy
-#| msgid "Table Search"
 msgid "Range search"
-msgstr "بحث في الجدول"
+msgstr "مدي البحث"
 
 #: js/messages.php:479
-#, fuzzy
-#| msgid "Column names"
 msgid "Column maximum:"
-msgstr "اسم العمود"
+msgstr "اكبر قيمة للعمود :"
 
 #: js/messages.php:480
-#, fuzzy
-#| msgid "Column names"
 msgid "Column minimum:"
-msgstr "اسم العمود"
+msgstr "اقل قيمة للعمود:"
 
 #: js/messages.php:481
-#, fuzzy
-#| msgid "Maximum tables"
 msgid "Minimum value:"
-msgstr "جداول أكبر"
+msgstr "اقل قيمة:"
 
 #: js/messages.php:482
-#, fuzzy
-#| msgid "Maximum tables"
 msgid "Maximum value:"
-msgstr "جداول أكبر"
+msgstr "اكبر قيمة:"
 
 #: js/messages.php:485
-#, fuzzy
-#| msgid "Hide search criteria"
 msgid "Hide find and replace criteria"
-msgstr "إخفاء معايير البحث"
+msgstr "إخفاء البحث عن المعايير واستبدالها"
 
 #: js/messages.php:486
 #, fuzzy
