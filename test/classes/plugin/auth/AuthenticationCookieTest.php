@@ -395,7 +395,7 @@ class AuthenticationCookieTest extends PMATestCase
         );
 
         $this->assertEquals(
-            'Please enter correct captcha!',
+            'Missing reCAPTCHA verification, maybe it has been blocked by adblock?',
             $GLOBALS['conn_error']
         );
     }
