@@ -3594,4 +3594,9 @@ body .ui-dialog .ui-dialog-buttonpane .ui-dialog-buttonset {
         width: 100%;
         height: 450px;
     }
+
+    .ui-dialog {
+        margin: 1%;
+        width: 95% !important;
+    }
 }
