@@ -36,6 +36,7 @@ phpMyAdmin - ChangeLog
 - issue #13388 Show only supported charsets for conversion
 - issue #13392 Fixed operation with session.auto_start enabled
 - issue #13383 "Create PHP code" is broken
+- issue #13189 Fixed links to resume timeouted import
 
 4.7.1 (2017-05-25)
 - issue #13132 Always execute tracking queries as controluser
