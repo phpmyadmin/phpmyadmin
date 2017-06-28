@@ -1387,6 +1387,8 @@ Server connection settings
     :type: string
     :default: ``''``
 
+    .. versionadded:: 3.5.0
+
     Name of PHP script to be sourced and executed to obtain login
     credentials. This is alternative approach to session based single
     signon. The script has to provide a function called
