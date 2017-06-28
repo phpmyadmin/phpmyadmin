@@ -1088,13 +1088,9 @@ div#logTable table {
 
 /* server variables */
 #serverVariables {
-    table-layout: fixed;
     width: 100%;
 }
 #serverVariables .var-row > tr {
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
     line-height: 2em;
 }
 
@@ -1102,19 +1098,12 @@ div#logTable table {
     font-weight:        bold;
     color:              <?php echo $GLOBALS['cfg']['ThColor']; ?>;
     background:         <?php echo $GLOBALS['cfg']['ThBackground']; ?>;
-}
-#serverVariables .var-header {
     text-align: <?php echo $left; ?>;
 }
 #serverVariables .var-row {
     padding: 0.5em;
-    min-height: 18px;
-}
-#serverVariables .var-action {
-    width: 120px;
 }
 #serverVariables .var-name {
-    float: <?php echo $left; ?>;
     font-weight: bold;
 }
 #serverVariables .var-name.session {
@@ -1122,15 +1111,12 @@ div#logTable table {
     font-style: italic;
 }
 #serverVariables .var-value {
-    width: 50%;
-    float: <?php echo $right; ?>;
-    text-align: <?php echo $right; ?>;
+    text-align: <?php echo $left; ?>;
 }
 
 /* server variables editor */
 #serverVariables .editLink {
     padding-<?php echo $right; ?>: 1em;
-    float: <?php echo $left; ?>;
     font-family: sans-serif;
 }
 #serverVariables .serverVariableEditor {
@@ -1152,7 +1138,6 @@ div#logTable table {
     padding-<?php echo $right; ?>: 1em;
 }
 #serverVariables .serverVariableEditor a {
-    float: <?php echo $right; ?>;
     margin: 0 0.5em;
     line-height: 2em;
 }

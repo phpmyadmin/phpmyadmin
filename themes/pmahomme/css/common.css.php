@@ -1427,13 +1427,9 @@ div#queryAnalyzerDialog table.queryNums {
 
 /* server variables */
 #serverVariables {
-    table-layout: fixed;
     width: 100%;
 }
 #serverVariables .var-row > td {
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
     line-height: 2em;
 }
 #serverVariables .var-header {
@@ -1441,19 +1437,12 @@ div#queryAnalyzerDialog table.queryNums {
     background: #f3f3f3;
     <?php echo $_SESSION['PMA_Theme']->getCssGradient('ffffff', 'cccccc'); ?>
     font-weight: bold;
-}
-#serverVariables .var-header {
     text-align: <?php echo $left; ?>;
 }
 #serverVariables .var-row {
     padding: 0.5em;
-    min-height: 18px;
-}
-#serverVariables .var-action {
-    width: 120px;
 }
 #serverVariables .var-name {
-    float: <?php echo $left; ?>;
     font-weight: bold;
 }
 #serverVariables .var-name.session {
@@ -1461,19 +1450,12 @@ div#queryAnalyzerDialog table.queryNums {
     font-style: italic;
 }
 #serverVariables .var-value {
-    width: 50%;
-    float: <?php echo $right; ?>;
-    text-align: <?php echo $right; ?>;
-}
-#serverVariables .var-doc {
-    overflow:visible;
-    float: <?php echo $right; ?>;
+    text-align: <?php echo $left; ?>;
 }
 
 /* server variables editor */
 #serverVariables .editLink {
     padding-<?php echo $right; ?>: 1em;
-    float: <?php echo $left; ?>;
     font-family: sans-serif;
 }
 #serverVariables .serverVariableEditor {
@@ -1495,7 +1477,6 @@ div#queryAnalyzerDialog table.queryNums {
     padding-<?php echo $right; ?>: 1em;
 }
 #serverVariables .serverVariableEditor a {
-    float: <?php echo $right; ?>;
     margin: 0 0.5em;
     line-height: 2em;
 }
