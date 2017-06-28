@@ -335,11 +335,17 @@ class AuthenticationCookie extends AuthenticationPlugin
 
                     // Check if the captcha entered is valid, if not stop the login.
                     if ($resp == null || ! $resp->isSuccess()) {
-                        $conn_error = __('Entered captcha is wrong, try again!');
+                        $codes = $resp->getErrorCodes();
+
+                        if (in_array('invalid-json', $codes)) {
+                            $conn_error = __('Failed to connect to the reCAPTCHA service!');
+                        } else {
+                            $conn_error = __('Entered captcha is wrong, try again!');
+                        }
                         return false;
                     }
                 } else {
-                    $conn_error = __('Please enter correct captcha!');
+                    $conn_error = __('Missing reCAPTCHA verification, maybe it has been blocked by adblock?');
                     return false;
                 }
             }
