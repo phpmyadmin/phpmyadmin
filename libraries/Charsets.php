@@ -572,10 +572,8 @@ class Charsets
                         $suffixes[] = _pgettext('Collation variant', 'accent-sensitive');
                         break;
                     case 'w2':
-                        $suffixes[] = _pgettext('Collation variant', 'weight=2');
-                        break;
                     case 'l2':
-                        $suffixes[] = _pgettext('Collation variant', 'level=2');
+                        $suffixes[] = _pgettext('Collation variant', 'multi-level');
                         break;
                     case 'bin':
                         $suffixes[] = _pgettext('Collation variant', 'binary');

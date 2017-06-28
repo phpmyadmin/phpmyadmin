@@ -121,7 +121,7 @@ class CharsetsTest extends PHPUnit_Framework_TestCase
             array('utf8mb4_unicode_ci', 'Unicode (UCA 4.0.0), case-insensitive'),
             array('utf8mb4_tr_0900_ai_ci', 'Turkish (UCA 9.0.0), accent-insensitive, case-insensitive'),
             array('utf8mb4_turkish_ci', 'Turkish (UCA 4.0.0), case-insensitive'),
-            array('utf32_thai_520_w2', 'Thai (UCA 5.2.0), weight=2'),
+            array('utf32_thai_520_w2', 'Thai (UCA 5.2.0), multi-level'),
             array('utf8mb4_czech_ci', 'Czech (UCA 4.0.0), case-insensitive'),
             array('cp1250_czech_cs', 'Czech, case-sensitive'),
             array('latin1_general_ci', 'West European, case-insensitive'),
