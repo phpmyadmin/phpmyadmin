@@ -21,6 +21,7 @@ phpMyAdmin - ChangeLog
 - issue #13058 Improved error reporting for reCAPTCHA
 - issue #12899 Improved rendering of server variables table
 - issue #12948 Fixed javascript editor for TIME values
+- issue #13095 Fixed alignmnet of foreign keys editing
 
 4.7.2 (not yet released)
 - issue #13314 Make theme selection keep current server
