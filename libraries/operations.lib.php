@@ -37,7 +37,7 @@ function PMA_getHtmlForDatabaseComment($db)
     $html_output .=  __('Database comment');
     $html_output .= '</legend>';
     $html_output .= '<input type="text" name="comment" '
-        . 'class="textfield" size="30"'
+        . 'class="textfield"'
         . 'value="' . htmlspecialchars(PMA_getDBComment($db)) . '" />'
         . '</fieldset>';
     $html_output .= '<fieldset class="tblFooters">'
@@ -81,7 +81,7 @@ function PMA_getHtmlForRenameDatabase($db)
         . '</legend>';
 
     $html_output .= '<input id="new_db_name" type="text" name="newname" '
-        . 'maxlength="64" size="30" class="textfield" required="required"/>';
+        . 'maxlength="64" class="textfield" required="required"/>';
 
     if ($GLOBALS['db_priv'] && $GLOBALS['table_priv']
         && $GLOBALS['col_priv'] && $GLOBALS['proc_priv']
@@ -200,7 +200,7 @@ function PMA_getHtmlForCopyDatabase($db)
     }
     $html_output .= __('Copy database to')
         . '</legend>'
-        . '<input type="text" maxlength="64" name="newname" size="30" '
+        . '<input type="text" maxlength="64" name="newname" '
         . 'class="textfield" required="required" /><br />'
         . Util::getRadioFields(
             'what', $choices, 'data', true
@@ -819,7 +819,7 @@ function PMA_getHtmlForMoveTable()
         . '</legend>';
 
     if (count($GLOBALS['dblist']->databases) > $GLOBALS['cfg']['MaxDbList']) {
-        $html_output .= '<input type="text" maxlength="100" size="30" '
+        $html_output .= '<input type="text" maxlength="100" '
             . 'name="target_db" value="' . htmlspecialchars($GLOBALS['db'])
             . '"/>';
     } else {
@@ -828,7 +828,7 @@ function PMA_getHtmlForMoveTable()
             . '</select>';
     }
     $html_output .= '&nbsp;<strong>.</strong>&nbsp;';
-    $html_output .= '<input class="halfWidth" type="text" size="20" name="new_name"'
+    $html_output .= '<input class="halfWidth" type="text" name="new_name"'
         . ' maxlength="64" required="required" '
         . 'value="' . htmlspecialchars($GLOBALS['table']) . '" /><br />';
 
@@ -922,7 +922,7 @@ function PMA_getHtmlForRenameTable()
 {
     $html_output = '<tr><td class="vmiddle">' . __('Rename table to') . '</td>'
         . '<td>'
-        . '<input type="text" size="20" name="new_name" maxlength="64" '
+        . '<input type="text" name="new_name" maxlength="64" '
         . 'value="' . htmlspecialchars($GLOBALS['table'])
         . '" required="required" />'
         . '</td></tr>'
@@ -962,7 +962,7 @@ function PMA_getHtmlForTableComments($current_value)
     $commentLength = PMA_MYSQL_INT_VERSION >= 50503 ? 2048 : 60;
     $html_output = '<tr><td class="vmiddle">' . __('Table comments') . '</td>'
         . '<td><input type="text" name="comment" '
-        . 'maxlength="' . $commentLength . '" size="30"'
+        . 'maxlength="' . $commentLength . '"'
         . 'value="' . htmlspecialchars($current_value) . '" />'
         . '<input type="hidden" name="prev_comment" value="'
         . htmlspecialchars($current_value) . '" />'
@@ -1235,7 +1235,7 @@ function PMA_getHtmlForCopytable()
 
     if (count($GLOBALS['dblist']->databases) > $GLOBALS['cfg']['MaxDbList']) {
         $html_output .= '<input class="halfWidth" type="text" maxlength="100" '
-            . 'size="30" name="target_db" '
+            . 'name="target_db" '
             . 'value="' . htmlspecialchars($GLOBALS['db']) . '"/>';
     } else {
         $html_output .= '<select class="halfWidth" name="target_db">'
@@ -1244,7 +1244,7 @@ function PMA_getHtmlForCopytable()
     }
     $html_output .= '&nbsp;<strong>.</strong>&nbsp;';
     $html_output .= '<input class="halfWidth" type="text" required="required" '
-        . 'size="20" name="new_name" maxlength="64" '
+        . 'name="new_name" maxlength="64" '
         . 'value="' . htmlspecialchars($GLOBALS['table']) . '"/><br />';
 
     $choices = array(

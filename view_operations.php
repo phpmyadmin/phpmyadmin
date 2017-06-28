@@ -103,7 +103,7 @@ $url_params['back'] = 'view_operations.php';
     <table>
     <!-- Change view name -->
     <tr><td><?php echo __('Rename view to'); ?></td>
-        <td><input type="text" size="20" name="new_name" onfocus="this.select()"
+        <td><input type="text" name="new_name" onfocus="this.select()"
                 value="<?php echo htmlspecialchars($GLOBALS['table']); ?>"
                 required />
         </td>
