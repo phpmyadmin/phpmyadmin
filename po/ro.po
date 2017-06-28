@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 4.8.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
-"POT-Creation-Date: 2017-06-13 17:05+0200\n"
+"POT-Creation-Date: 2017-06-28 09:58+0200\n"
 "PO-Revision-Date: 2017-05-08 04:53+0000\n"
 "Last-Translator: Codrin <codrin@logicindustry.com>\n"
 "Language-Team: Romanian <https://hosted.weblate.org/projects/phpmyadmin/"
@@ -260,8 +260,8 @@ msgid "Tables"
 msgstr "Tabele"
 
 #: db_export.php:66 libraries/Menu.php:346 libraries/Menu.php:453
-#: libraries/Util.php:3139 libraries/Util.php:3149 libraries/Util.php:3155
-#: libraries/Util.php:3435 libraries/Util.php:4069 libraries/Util.php:4086
+#: libraries/Util.php:3133 libraries/Util.php:3143 libraries/Util.php:3149
+#: libraries/Util.php:3429 libraries/Util.php:4063 libraries/Util.php:4080
 #: libraries/central_columns.lib.php:727 libraries/config.values.php:38
 #: libraries/config.values.php:46 libraries/config.values.php:109
 #: libraries/config.values.php:115 libraries/config/setup.forms.php:316
@@ -1143,14 +1143,14 @@ msgid "Other"
 msgstr "Altele"
 
 #. l10n: Thousands separator
-#: js/messages.php:157 libraries/Util.php:1399 libraries/Util.php:1467
-#: libraries/Util.php:1481
+#: js/messages.php:157 libraries/Util.php:1393 libraries/Util.php:1461
+#: libraries/Util.php:1475
 msgid ","
 msgstr ","
 
 #. l10n: Decimal separator
-#: js/messages.php:159 libraries/Util.php:1397 libraries/Util.php:1465
-#: libraries/Util.php:1479
+#: js/messages.php:159 libraries/Util.php:1391 libraries/Util.php:1459
+#: libraries/Util.php:1473
 msgid "."
 msgstr "."
 
@@ -1262,40 +1262,40 @@ msgid "Processes"
 msgstr "Procese"
 
 #. l10n: shortcuts for Byte
-#: js/messages.php:199 libraries/Util.php:1310
+#: js/messages.php:199 libraries/Util.php:1304
 msgid "B"
 msgstr "O"
 
 #. l10n: shortcuts for Kilobyte
-#: js/messages.php:200 libraries/Util.php:1312
+#: js/messages.php:200 libraries/Util.php:1306
 #: libraries/server_status_monitor.lib.php:213
 msgid "KiB"
 msgstr "KiO"
 
 #. l10n: shortcuts for Megabyte
-#: js/messages.php:201 libraries/Util.php:1314
+#: js/messages.php:201 libraries/Util.php:1308
 #: libraries/display_export.lib.php:845
 #: libraries/server_status_monitor.lib.php:214
 msgid "MiB"
 msgstr "MiO"
 
 #. l10n: shortcuts for Gigabyte
-#: js/messages.php:202 libraries/Util.php:1316
+#: js/messages.php:202 libraries/Util.php:1310
 msgid "GiB"
 msgstr "GiO"
 
 #. l10n: shortcuts for Terabyte
-#: js/messages.php:203 libraries/Util.php:1318
+#: js/messages.php:203 libraries/Util.php:1312
 msgid "TiB"
 msgstr "TiO"
 
 #. l10n: shortcuts for Petabyte
-#: js/messages.php:204 libraries/Util.php:1320
+#: js/messages.php:204 libraries/Util.php:1314
 msgid "PiB"
 msgstr "PiO"
 
 #. l10n: shortcuts for Exabyte
-#: js/messages.php:205 libraries/Util.php:1322
+#: js/messages.php:205 libraries/Util.php:1316
 msgid "EiB"
 msgstr "EiO"
 
@@ -1313,7 +1313,7 @@ msgstr "Întrebări"
 msgid "Traffic"
 msgstr "Trafic"
 
-#: js/messages.php:211 libraries/Menu.php:608 libraries/Util.php:4060
+#: js/messages.php:211 libraries/Menu.php:608 libraries/Util.php:4054
 #: libraries/server_status_monitor.lib.php:253
 msgid "Settings"
 msgstr "Configurări"
@@ -1535,7 +1535,7 @@ msgstr "Se analizează…"
 msgid "Explain output"
 msgstr "Explică rezultatul"
 
-#: js/messages.php:288 libraries/Menu.php:574 libraries/Util.php:4056
+#: js/messages.php:288 libraries/Menu.php:574 libraries/Util.php:4050
 #: libraries/config.values.php:104 libraries/rte/rte_events.lib.php:399
 #: libraries/rte/rte_list.lib.php:107
 #: libraries/server_status_processes.lib.php:92 libraries/tracking.lib.php:289
@@ -1659,8 +1659,8 @@ msgstr ""
 "configuraţia iniţială…"
 
 #: js/messages.php:326 libraries/Menu.php:381 libraries/Menu.php:483
-#: libraries/Menu.php:604 libraries/Util.php:4059 libraries/Util.php:4074
-#: libraries/Util.php:4091 libraries/config/messages.inc.php:257
+#: libraries/Menu.php:604 libraries/Util.php:4053 libraries/Util.php:4068
+#: libraries/Util.php:4085 libraries/config/messages.inc.php:257
 #: libraries/display_import.lib.php:109
 #: libraries/server_status_monitor.lib.php:313 prefs_manage.php:247
 #: setup/frames/menu.inc.php:26
@@ -1837,7 +1837,7 @@ msgstr "Se copiază baza de date"
 msgid "Changing charset"
 msgstr "Se schimbă setul de caractere"
 
-#: js/messages.php:378 libraries/Util.php:3038
+#: js/messages.php:378 libraries/Util.php:3032
 #, fuzzy
 #| msgid "Disable foreign key checks"
 msgid "Enable foreign key checks"
@@ -1878,9 +1878,9 @@ msgstr "Definiția unei funcții stocate trebuie să conțină o declarație RET
 
 #: js/messages.php:394 libraries/DisplayResults.php:4866
 #: libraries/DisplayResults.php:5149 libraries/Menu.php:373
-#: libraries/Menu.php:474 libraries/Menu.php:600 libraries/Util.php:3442
-#: libraries/Util.php:3443 libraries/Util.php:4058 libraries/Util.php:4073
-#: libraries/Util.php:4090 libraries/config/messages.inc.php:251
+#: libraries/Menu.php:474 libraries/Menu.php:600 libraries/Util.php:3436
+#: libraries/Util.php:3437 libraries/Util.php:4052 libraries/Util.php:4067
+#: libraries/Util.php:4084 libraries/config/messages.inc.php:251
 #: libraries/display_export.lib.php:174 libraries/rte/rte_list.lib.php:159
 #: libraries/server_privileges.lib.php:2368
 #: libraries/server_privileges.lib.php:2452
@@ -1935,8 +1935,8 @@ msgstr "Arată caseta de interogare"
 
 #: js/messages.php:413 libraries/DisplayResults.php:3492
 #: libraries/DisplayResults.php:4850 libraries/Index.php:742
-#: libraries/Util.php:620 libraries/Util.php:1107 libraries/Util.php:3440
-#: libraries/Util.php:3441 libraries/central_columns.lib.php:847
+#: libraries/Util.php:620 libraries/Util.php:1107 libraries/Util.php:3434
+#: libraries/Util.php:3435 libraries/central_columns.lib.php:847
 #: libraries/central_columns.lib.php:1193 libraries/config/messages.inc.php:879
 #: libraries/server_user_groups.lib.php:117 setup/frames/index.inc.php:161
 #: templates/server/variables/variable_row.phtml:4
@@ -2480,7 +2480,7 @@ msgid "Select database first"
 msgstr "Selectaţi mai întâi baza de date"
 
 #: js/messages.php:615 libraries/DisplayResults.php:5041
-#: libraries/Util.php:3951
+#: libraries/Util.php:3945
 #: templates/database/structure/print_view_data_dictionary_link.twig:23
 #: templates/table/structure/optional_action_links.twig:20
 msgid "Print"
@@ -2796,63 +2796,63 @@ msgid "December"
 msgstr "Decembrie"
 
 #. l10n: Short month name
-#: js/messages.php:796 libraries/Util.php:1527
+#: js/messages.php:796 libraries/Util.php:1521
 msgid "Jan"
 msgstr "Ian"
 
 #. l10n: Short month name
-#: js/messages.php:798 libraries/Util.php:1529
+#: js/messages.php:798 libraries/Util.php:1523
 msgid "Feb"
 msgstr "Feb"
 
 #. l10n: Short month name
-#: js/messages.php:800 libraries/Util.php:1531
+#: js/messages.php:800 libraries/Util.php:1525
 msgid "Mar"
 msgstr "Mar"
 
 #. l10n: Short month name
-#: js/messages.php:802 libraries/Util.php:1533
+#: js/messages.php:802 libraries/Util.php:1527
 msgid "Apr"
 msgstr "Apr"
 
 #. l10n: Short month name
-#: js/messages.php:804 libraries/Util.php:1535
+#: js/messages.php:804 libraries/Util.php:1529
 msgctxt "Short month name"
 msgid "May"
 msgstr "Mai"
 
 #. l10n: Short month name
-#: js/messages.php:806 libraries/Util.php:1537
+#: js/messages.php:806 libraries/Util.php:1531
 msgid "Jun"
 msgstr "Iun"
 
 #. l10n: Short month name
-#: js/messages.php:808 libraries/Util.php:1539
+#: js/messages.php:808 libraries/Util.php:1533
 msgid "Jul"
 msgstr "Iul"
 
 #. l10n: Short month name
-#: js/messages.php:810 libraries/Util.php:1541
+#: js/messages.php:810 libraries/Util.php:1535
 msgid "Aug"
 msgstr "Aug"
 
 #. l10n: Short month name
-#: js/messages.php:812 libraries/Util.php:1543
+#: js/messages.php:812 libraries/Util.php:1537
 msgid "Sep"
 msgstr "Sep"
 
 #. l10n: Short month name
-#: js/messages.php:814 libraries/Util.php:1545
+#: js/messages.php:814 libraries/Util.php:1539
 msgid "Oct"
 msgstr "Oct"
 
 #. l10n: Short month name
-#: js/messages.php:816 libraries/Util.php:1547
+#: js/messages.php:816 libraries/Util.php:1541
 msgid "Nov"
 msgstr "Noi"
 
 #. l10n: Short month name
-#: js/messages.php:818 libraries/Util.php:1549
+#: js/messages.php:818 libraries/Util.php:1543
 msgid "Dec"
 msgstr "Dec"
 
@@ -2890,32 +2890,32 @@ msgid "Sun"
 msgstr "Dum"
 
 #. l10n: Short week day name
-#: js/messages.php:839 libraries/Util.php:1554
+#: js/messages.php:839 libraries/Util.php:1548
 msgid "Mon"
 msgstr "Lun"
 
 #. l10n: Short week day name
-#: js/messages.php:841 libraries/Util.php:1556
+#: js/messages.php:841 libraries/Util.php:1550
 msgid "Tue"
 msgstr "Mar"
 
 #. l10n: Short week day name
-#: js/messages.php:843 libraries/Util.php:1558
+#: js/messages.php:843 libraries/Util.php:1552
 msgid "Wed"
 msgstr "Mie"
 
 #. l10n: Short week day name
-#: js/messages.php:845 libraries/Util.php:1560
+#: js/messages.php:845 libraries/Util.php:1554
 msgid "Thu"
 msgstr "Joi"
 
 #. l10n: Short week day name
-#: js/messages.php:847 libraries/Util.php:1562
+#: js/messages.php:847 libraries/Util.php:1556
 msgid "Fri"
 msgstr "Vin"
 
 #. l10n: Short week day name
-#: js/messages.php:849 libraries/Util.php:1564
+#: js/messages.php:849 libraries/Util.php:1558
 msgid "Sat"
 msgstr "Sâm"
 
@@ -3536,19 +3536,14 @@ msgctxt "Collation variant"
 msgid "accent-sensitive"
 msgstr "sensibil la registru"
 
-#: libraries/Charsets.php:595
+#: libraries/Charsets.php:596
 #, fuzzy
-#| msgid "Height"
+#| msgid "multilingual"
 msgctxt "Collation variant"
-msgid "weight=2"
-msgstr "Înălțime"
+msgid "multi-level"
+msgstr "Poliglot"
 
-#: libraries/Charsets.php:598
-msgctxt "Collation variant"
-msgid "level=2"
-msgstr ""
-
-#: libraries/Charsets.php:601
+#: libraries/Charsets.php:599
 #, fuzzy
 #| msgid "Binary"
 msgctxt "Collation variant"
@@ -3825,9 +3820,9 @@ msgstr[0] "%s rezultat(e) în interiorul tabelului <i>%s</i>"
 msgstr[1] "%s rezultat(e) în interiorul tabelului <i>%s</i>"
 msgstr[2] "%s rezultat(e) în interiorul tabelului <i>%s</i>"
 
-#: libraries/DbSearch.php:346 libraries/Menu.php:340 libraries/Util.php:3143
-#: libraries/Util.php:3153 libraries/Util.php:3429 libraries/Util.php:3430
-#: libraries/Util.php:4085 libraries/config.values.php:42
+#: libraries/DbSearch.php:346 libraries/Menu.php:340 libraries/Util.php:3137
+#: libraries/Util.php:3147 libraries/Util.php:3423 libraries/Util.php:3424
+#: libraries/Util.php:4079 libraries/config.values.php:42
 #: libraries/config.values.php:50 libraries/config.values.php:119
 #: libraries/navigation/nodes/NodeTable.php:311
 #: templates/table/structure/check_all_table_column.twig:29
@@ -3881,30 +3876,30 @@ msgstr "Filtrare înregistrări"
 msgid "Search this table"
 msgstr "Caută în tabelă"
 
-#: libraries/DisplayResults.php:990 libraries/Util.php:2416
-#: libraries/Util.php:2419
+#: libraries/DisplayResults.php:990 libraries/Util.php:2410
+#: libraries/Util.php:2413
 msgctxt "First page"
 msgid "Begin"
 msgstr "Început"
 
-#: libraries/DisplayResults.php:993 libraries/Util.php:2417
-#: libraries/Util.php:2420
+#: libraries/DisplayResults.php:993 libraries/Util.php:2411
+#: libraries/Util.php:2414
 #: libraries/controllers/server/ServerBinlogController.php:194
 #: libraries/controllers/server/ServerBinlogController.php:196
 msgctxt "Previous page"
 msgid "Previous"
 msgstr "Anterior"
 
-#: libraries/DisplayResults.php:1059 libraries/Util.php:2448
-#: libraries/Util.php:2458
+#: libraries/DisplayResults.php:1059 libraries/Util.php:2442
+#: libraries/Util.php:2452
 #: libraries/controllers/server/ServerBinlogController.php:228
 #: libraries/controllers/server/ServerBinlogController.php:230
 msgctxt "Next page"
 msgid "Next"
 msgstr "Următoarea"
 
-#: libraries/DisplayResults.php:1089 libraries/Util.php:2449
-#: libraries/Util.php:2459
+#: libraries/DisplayResults.php:1089 libraries/Util.php:2443
+#: libraries/Util.php:2453
 msgctxt "Last page"
 msgid "End"
 msgstr "Sfârșit"
@@ -4274,7 +4269,7 @@ msgstr "Cheia primară a fost aruncată."
 msgid "Index %s has been dropped."
 msgstr "Indexul %s a fost aruncat."
 
-#: libraries/Index.php:769 libraries/Util.php:3436 libraries/Util.php:3437
+#: libraries/Index.php:769 libraries/Util.php:3430 libraries/Util.php:3431
 #: libraries/controllers/server/ServerDatabasesController.php:402
 #: libraries/controllers/table/TableStructureController.php:1179
 #: libraries/controllers/table/TableStructureController.php:1180
@@ -4293,7 +4288,7 @@ msgid ""
 "removed."
 msgstr "Indecșii %1$s și %2$s par a fi egali și unul din ei poate fi șters."
 
-#: libraries/Language.php:194 libraries/PDF.php:71 libraries/Util.php:2405
+#: libraries/Language.php:194 libraries/PDF.php:71 libraries/Util.php:2399
 #: libraries/browse_foreigners.lib.php:320
 #: libraries/plugins/schema/pdf/PdfRelationSchema.php:494
 #: libraries/plugins/schema/pdf/PdfRelationSchema.php:519
@@ -4376,8 +4371,8 @@ msgid "“%s”"
 msgstr ""
 
 #: libraries/Menu.php:354 libraries/Menu.php:457 libraries/Menu.php:570
-#: libraries/Util.php:3140 libraries/Util.php:3150 libraries/Util.php:3156
-#: libraries/Util.php:4055 libraries/Util.php:4070 libraries/Util.php:4087
+#: libraries/Util.php:3134 libraries/Util.php:3144 libraries/Util.php:3150
+#: libraries/Util.php:4049 libraries/Util.php:4064 libraries/Util.php:4081
 #: libraries/config.values.php:39 libraries/config.values.php:47
 #: libraries/config.values.php:110 libraries/config.values.php:116
 #: libraries/config/messages.inc.php:320
@@ -4385,25 +4380,25 @@ msgstr ""
 msgid "SQL"
 msgstr "SQL"
 
-#: libraries/Menu.php:357 libraries/Menu.php:460 libraries/Util.php:3141
-#: libraries/Util.php:3151 libraries/Util.php:3157 libraries/Util.php:3431
-#: libraries/Util.php:3432 libraries/Util.php:4071 libraries/Util.php:4088
+#: libraries/Menu.php:357 libraries/Menu.php:460 libraries/Util.php:3135
+#: libraries/Util.php:3145 libraries/Util.php:3151 libraries/Util.php:3425
+#: libraries/Util.php:3426 libraries/Util.php:4065 libraries/Util.php:4082
 #: libraries/config.values.php:40 libraries/config.values.php:48
 #: libraries/config.values.php:111 libraries/config.values.php:117
 #: libraries/navigation/nodes/NodeTable.php:296
 msgid "Search"
 msgstr "Caută"
 
-#: libraries/Menu.php:367 libraries/Util.php:3142 libraries/Util.php:3152
-#: libraries/Util.php:3433 libraries/Util.php:3434 libraries/Util.php:4089
+#: libraries/Menu.php:367 libraries/Util.php:3136 libraries/Util.php:3146
+#: libraries/Util.php:3427 libraries/Util.php:3428 libraries/Util.php:4083
 #: libraries/config.values.php:41 libraries/config.values.php:49
 #: libraries/config.values.php:118 libraries/navigation/nodes/NodeTable.php:302
 #: libraries/sql_query_form.lib.php:289 libraries/sql_query_form.lib.php:292
 msgid "Insert"
 msgstr "Inserare"
 
-#: libraries/Menu.php:391 libraries/Menu.php:495 libraries/Util.php:4076
-#: libraries/Util.php:4092 libraries/config.values.php:106
+#: libraries/Menu.php:391 libraries/Menu.php:495 libraries/Util.php:4070
+#: libraries/Util.php:4086 libraries/config.values.php:106
 #: libraries/server_common.lib.php:48 libraries/server_privileges.lib.php:2532
 #: libraries/server_privileges.lib.php:4379
 #: templates/privileges/privileges_summary.phtml:16
@@ -4411,19 +4406,19 @@ msgid "Privileges"
 msgstr "Drepturi de acces"
 
 #: libraries/Menu.php:400 libraries/Menu.php:408 libraries/Menu.php:487
-#: libraries/Util.php:3144 libraries/Util.php:3158 libraries/Util.php:4075
-#: libraries/Util.php:4093 libraries/config.values.php:112
+#: libraries/Util.php:3138 libraries/Util.php:3152 libraries/Util.php:4069
+#: libraries/Util.php:4087 libraries/config.values.php:112
 #: view_operations.php:101
 msgid "Operations"
 msgstr "Operații"
 
-#: libraries/Menu.php:413 libraries/Menu.php:517 libraries/Util.php:4080
-#: libraries/Util.php:4094 libraries/relation.lib.php:266
+#: libraries/Menu.php:413 libraries/Menu.php:517 libraries/Util.php:4074
+#: libraries/Util.php:4088 libraries/relation.lib.php:266
 msgid "Tracking"
 msgstr "Urmărire"
 
-#: libraries/Menu.php:425 libraries/Menu.php:511 libraries/Util.php:4079
-#: libraries/Util.php:4095
+#: libraries/Menu.php:425 libraries/Menu.php:511 libraries/Util.php:4073
+#: libraries/Util.php:4089
 #: libraries/navigation/nodes/NodeTriggerContainer.php:25
 #: libraries/plugins/export/ExportHtmlword.php:579
 #: libraries/plugins/export/ExportOdt.php:714
@@ -4439,16 +4434,16 @@ msgstr "Declanșatori"
 msgid "Database seems to be empty!"
 msgstr "Baza de date pare a fi goală!"
 
-#: libraries/Menu.php:467 libraries/Util.php:4072
+#: libraries/Menu.php:467 libraries/Util.php:4066
 msgid "Query"
 msgstr "Interogare prin exemplu"
 
-#: libraries/Menu.php:500 libraries/Util.php:4077
+#: libraries/Menu.php:500 libraries/Util.php:4071
 #: libraries/rte/rte_words.lib.php:44
 msgid "Routines"
 msgstr "Rutine"
 
-#: libraries/Menu.php:505 libraries/Util.php:4078
+#: libraries/Menu.php:505 libraries/Util.php:4072
 #: libraries/navigation/nodes/NodeEventContainer.php:25
 #: libraries/plugins/export/ExportSql.php:962
 #: libraries/plugins/export/ExportXml.php:103
@@ -4456,16 +4451,16 @@ msgstr "Rutine"
 msgid "Events"
 msgstr "Evenimente"
 
-#: libraries/Menu.php:523 libraries/Util.php:4081
+#: libraries/Menu.php:523 libraries/Util.php:4075
 msgid "Designer"
 msgstr "Designer"
 
-#: libraries/Menu.php:532 libraries/Util.php:4082
+#: libraries/Menu.php:532 libraries/Util.php:4076
 #: templates/database/structure/check_all_tables.phtml:34
 msgid "Central columns"
 msgstr "Coloane centrale"
 
-#: libraries/Menu.php:566 libraries/Util.php:4054
+#: libraries/Menu.php:566 libraries/Util.php:4048
 #: libraries/config.values.php:103 libraries/config/messages.inc.php:265
 #: libraries/config/messages.inc.php:340
 #: libraries/navigation/NavigationTree.php:1274
@@ -4480,34 +4475,34 @@ msgid "User accounts"
 msgstr "Utilizatori"
 
 #: libraries/Menu.php:617 libraries/ServerStatusData.php:121
-#: libraries/Util.php:4061 libraries/server_common.lib.php:33
+#: libraries/Util.php:4055 libraries/server_common.lib.php:33
 msgid "Binary log"
 msgstr "Jurnal binar"
 
 #: libraries/Menu.php:623 libraries/ServerStatusData.php:126
-#: libraries/Util.php:4062 libraries/server_common.lib.php:39
+#: libraries/Util.php:4056 libraries/server_common.lib.php:39
 #: templates/database/structure/body_for_table_summary.phtml:10
 #: templates/database/structure/table_header.phtml:27
 msgid "Replication"
 msgstr "Replicare"
 
 #: libraries/Menu.php:628 libraries/ServerStatusData.php:193
-#: libraries/Util.php:4063 libraries/config.values.php:105
+#: libraries/Util.php:4057 libraries/config.values.php:105
 #: libraries/sql_query_form.lib.php:427
 #: templates/server/engines/engine.phtml:15
 #: templates/server/engines/engine.phtml:18
 msgid "Variables"
 msgstr "Variabile"
 
-#: libraries/Menu.php:632 libraries/Util.php:4064
+#: libraries/Menu.php:632 libraries/Util.php:4058
 msgid "Charsets"
 msgstr "Seturi de caractere"
 
-#: libraries/Menu.php:636 libraries/Util.php:4066
+#: libraries/Menu.php:636 libraries/Util.php:4060
 msgid "Engines"
 msgstr "Motoare"
 
-#: libraries/Menu.php:640 libraries/Util.php:4065
+#: libraries/Menu.php:640 libraries/Util.php:4059
 #: libraries/server_common.lib.php:30
 msgid "Plugins"
 msgstr "Extensii"
@@ -4709,7 +4704,7 @@ msgstr[0] "%d minut"
 msgstr[1] "%d minute"
 msgstr[2] "%d minute"
 
-#: libraries/Sql.php:247 libraries/Util.php:1192
+#: libraries/Sql.php:247 libraries/Util.php:1186
 #: templates/console/display.twig:67 templates/console/display.twig:217
 msgid "Profiling"
 msgstr "Creare profil"
@@ -5323,7 +5318,7 @@ msgstr "Creează cod PHP"
 msgid "Refresh"
 msgstr "Reîncarcă"
 
-#: libraries/Util.php:1211
+#: libraries/Util.php:1205
 #, fuzzy
 #| msgid "Edit index"
 msgctxt "Inline edit query"
@@ -5331,74 +5326,74 @@ msgid "Edit inline"
 msgstr "Modifică index"
 
 #. l10n: Short week day name
-#: libraries/Util.php:1552
+#: libraries/Util.php:1546
 msgctxt "Short week day name"
 msgid "Sun"
 msgstr "Dum"
 
 #. l10n: See https://secure.php.net/manual/en/function.strftime.php
-#: libraries/Util.php:1568
+#: libraries/Util.php:1562
 #: libraries/plugins/transformations/abs/DateFormatTransformationsPlugin.php:68
 msgid "%B %d, %Y at %I:%M %p"
 msgstr "%d %B %Y la %H:%M"
 
-#: libraries/Util.php:1589
+#: libraries/Util.php:1583
 msgctxt "AM/PM indication in time"
 msgid "PM"
 msgstr ""
 
-#: libraries/Util.php:1591
+#: libraries/Util.php:1585
 msgctxt "AM/PM indication in time"
 msgid "AM"
 msgstr ""
 
-#: libraries/Util.php:1960
+#: libraries/Util.php:1954
 #, php-format
 msgid "%s days, %s hours, %s minutes and %s seconds"
 msgstr "%s zile, %s ore, %s minute și %s secunde"
 
-#: libraries/Util.php:1992
+#: libraries/Util.php:1986
 msgid "Missing parameter:"
 msgstr "Parametru lipsă:"
 
-#: libraries/Util.php:2529
+#: libraries/Util.php:2523
 #, fuzzy, php-format
 #| msgid "Jump to database \"%s\"."
 msgid "Jump to database “%s”."
 msgstr "Sari la baza de date \"%s\"."
 
-#: libraries/Util.php:2554
+#: libraries/Util.php:2548
 #, php-format
 msgid "The %s functionality is affected by a known bug, see %s"
 msgstr "Funcționalitatea %s este afectată de o eroare cunoscută, vedeți %s"
 
-#: libraries/Util.php:3348 prefs_manage.php:257
+#: libraries/Util.php:3342 prefs_manage.php:257
 msgid "Browse your computer:"
 msgstr "Caută în calculatorul tău:"
 
-#: libraries/Util.php:3373
+#: libraries/Util.php:3367
 #, php-format
 msgid "Select from the web server upload directory <b>%s</b>:"
 msgstr "Selectați de pe serverul web un director <b>%s</b>: pentru încărcări:"
 
-#: libraries/Util.php:3402 libraries/insert_edit.lib.php:1234
+#: libraries/Util.php:3396 libraries/insert_edit.lib.php:1234
 msgid "The directory you set for upload work cannot be reached."
 msgstr "Directorul stabilit pentru încărcare nu poate fi găsit."
 
-#: libraries/Util.php:3413
+#: libraries/Util.php:3407
 msgid "There are no files to upload!"
 msgstr "Nu sunt fișiere pentru încărcare!"
 
-#: libraries/Util.php:3438 libraries/Util.php:3439
+#: libraries/Util.php:3432 libraries/Util.php:3433
 #: templates/database/structure/check_all_tables.phtml:16
 msgid "Empty"
 msgstr "Golește"
 
-#: libraries/Util.php:3444 libraries/Util.php:3445
+#: libraries/Util.php:3438 libraries/Util.php:3439
 msgid "Execute"
 msgstr "Execută"
 
-#: libraries/Util.php:4057
+#: libraries/Util.php:4051
 msgid "Users"
 msgstr "Utilizatori"
 
@@ -18230,6 +18225,12 @@ msgid "concurrent_insert is set to 0"
 msgstr "concurrent_insert este setat cu 0"
 
 #, fuzzy
+#~| msgid "Height"
+#~ msgctxt "Collation variant"
+#~ msgid "weight=2"
+#~ msgstr "Înălțime"
+
+#, fuzzy
 #~| msgid "Column names"
 #~ msgid "Old column name"
 #~ msgstr "Denumirile coloanelor"
@@ -18253,9 +18254,6 @@ msgstr "concurrent_insert este setat cu 0"
 
 #~ msgid "Traditional Spanish"
 #~ msgstr "Spaniola traditionala"
-
-#~ msgid "multilingual"
-#~ msgstr "Poliglot"
 
 #, fuzzy
 #~| msgid "Collation"
