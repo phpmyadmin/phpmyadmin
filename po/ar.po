@@ -4,17 +4,17 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.7.2-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2017-06-13 17:05+0200\n"
-"PO-Revision-Date: 2017-05-09 07:42+0000\n"
-"Last-Translator: Michal Čihař <michal@cihar.com>\n"
-"Language-Team: Arabic <https://hosted.weblate.org/projects/phpmyadmin/4-7/ar/"
-">\n"
+"PO-Revision-Date: 2017-06-28 01:11+0000\n"
+"Last-Translator: yagoub fadel <yagoub76@gmail.com>\n"
+"Language-Team: Arabic "
+"<https://hosted.weblate.org/projects/phpmyadmin/4-7/ar/>\n"
 "Language: ar\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=6; plural=n==0 ? 0 : n==1 ? 1 : n==2 ? 2 : n%100>=3 "
 "&& n%100<=10 ? 3 : n%100>=11 ? 4 : 5;\n"
-"X-Generator: Weblate 2.14-dev\n"
+"X-Generator: Weblate 2.15-dev\n"
 
 #: ajax.php:16 ajax.php:33 export.php:191 schema_export.php:64
 msgid "Bad type!"
@@ -38,7 +38,7 @@ msgstr "اضغط للترتيب."
 #: db_central_columns.php:150
 #, php-format
 msgid "Showing rows %1$s - %2$s."
-msgstr "عرض الصفوف %1$s - %2$s."
+msgstr "اعرض الصفوف  %1$s - %2$s."
 
 #: db_datadict.php:59 libraries/operations.lib.php:36
 msgid "Database comment"
@@ -288,8 +288,6 @@ msgstr "بيانات"
 
 #: db_export.php:70 libraries/DbSearch.php:434
 #: libraries/display_export.lib.php:46 libraries/replication_gui.lib.php:379
-#, fuzzy
-#| msgid "Select All"
 msgid "Select all"
 msgstr "تحديد الكل"
 
@@ -602,6 +600,7 @@ msgid ""
 "You were logged out from one server, to logout completely from phpMyAdmin, "
 "you need to logout from all servers."
 msgstr ""
+"انت خرجت من سيرفر واحد للخروج من phpMyAdmin تحتاج للخروج من كل السيرفرات"
 
 #: index.php:160 libraries/Footer.php:69
 msgid "phpMyAdmin Demo Server"
@@ -852,10 +851,8 @@ msgid "Delete tracking data for these versions?"
 msgstr "حذف بيانات التتبع لهذا الجدول"
 
 #: js/messages.php:60
-#, fuzzy
-#| msgid "Allows inserting and replacing data."
 msgid "Delete entry from tracking report?"
-msgstr "يسمح بإضافة واستبدال البيانات."
+msgstr "هل تريد حذف الإدخال من تقرير التتبع؟"
 
 #: js/messages.php:61
 msgid "Deleting tracking data"
@@ -920,6 +917,8 @@ msgid ""
 "Do you really want to DROP the selected partition(s)? This will also DELETE "
 "the data related to the selected partition(s)!"
 msgstr ""
+"هل تريد حقا الغاء الاجزاء المحددة ؟ هذا الاجراء سيقوم بالغاء كل البيانات "
+"المرتبطة بهذه الاجزاء !"
 
 #: js/messages.php:83
 #, fuzzy
@@ -950,11 +949,11 @@ msgstr ""
 
 #: js/messages.php:94
 msgid "Garbled Data"
-msgstr ""
+msgstr "بيانات مشوشة"
 
 #: js/messages.php:96
 msgid "Are you sure you wish to change the collation and convert the data?"
-msgstr ""
+msgstr "هل تريد بالتأكيد تغيير التصنيف وتحويل البيانات؟"
 
 #: js/messages.php:98
 msgid ""
@@ -970,13 +969,11 @@ msgstr ""
 msgid ""
 "Are you sure you wish to change all the column collations and convert the "
 "data?"
-msgstr ""
+msgstr "هل تريد بالتأكيد تغيير جميع عمليات تصنيف الأعمدة وتحويل البيانات؟"
 
 #: js/messages.php:111
-#, fuzzy
-#| msgid "Save as file"
 msgid "Save & close"
-msgstr "حفظ كملف"
+msgstr "حفظ واغلاق ."
 
 #: js/messages.php:112 libraries/config/FormDisplay.tpl.php:426
 #: libraries/insert_edit.lib.php:1619 prefs_manage.php:375 prefs_manage.php:386
@@ -994,22 +991,16 @@ msgid "Missing value in the form!"
 msgstr "يوجد قيمة مفقودة بالنموذج !"
 
 #: js/messages.php:117
-#, fuzzy
-#| msgid "at least one of the words"
 msgid "Select at least one of the options!"
-msgstr "على الأقل أحد الكلمات"
+msgstr "اختر على الأقل أحد الخيارات !"
 
 #: js/messages.php:118
-#, fuzzy
-#| msgid "Not a valid port number"
 msgid "Please enter a valid number!"
-msgstr "رقم منفذ غير صحيح"
+msgstr "رجاء ادخل رقم صحيح !"
 
 #: js/messages.php:119
-#, fuzzy
-#| msgid "Not a valid port number"
 msgid "Please enter a valid length!"
-msgstr "رقم منفذ غير صحيح"
+msgstr "من فضلك ادخل طول صالح !"
 
 #: js/messages.php:120
 msgid "Add index"
@@ -1022,72 +1013,55 @@ msgid "Edit index"
 msgstr "حرّر الفهرس"
 
 #: js/messages.php:122 templates/table/index_form.phtml:235
-#, fuzzy, php-format
-#| msgid "Add %d column(s) to index"
+#, php-format
 msgid "Add %s column(s) to index"
-msgstr "أضف %d عمود/عواميد إلى الفهرس"
+msgstr "أضف s% عمود/ اعمدة إلى الفهرس"
 
 #: js/messages.php:123
-#, fuzzy
-#| msgid "Create routine"
 msgid "Create single-column index"
-msgstr "إنشاء إجراء"
+msgstr "إنشاء فهرس من عمود مفرد"
 
 #: js/messages.php:124
 #, fuzzy
 #| msgid "Create routine"
 msgid "Create composite index"
-msgstr "إنشاء إجراء"
+msgstr "إنشئ فهرس مركب"
 
 #: js/messages.php:125
-#, fuzzy
-#| msgid "Columns enclosed with:"
 msgid "Composite with:"
-msgstr "حقل محاط بـ"
+msgstr "مركب مع:"
 
 #: js/messages.php:126
-#, fuzzy
-#| msgid "Add %d column(s) to index"
 msgid "Please select column(s) for the index."
-msgstr "أضف %d عمود/عواميد إلى الفهرس"
+msgstr "أضف s% عمود/ اعمدة إلى الفهرس ."
 
 #: js/messages.php:129 templates/table/structure/add_column.phtml:1
-#, fuzzy
-#| msgid "You have to choose at least one column to display"
 msgid "You have to add at least one column."
-msgstr "عليك اختيار عمود واحد على الأقل للعرض"
+msgstr "يجب اضافة عمود واحد علي الاقل ."
 
 #: js/messages.php:132 libraries/insert_edit.lib.php:1617
 #: templates/columns_definitions/column_definitions_form.phtml:163
 #: templates/table/index_form.phtml:240
 #: templates/table/relation/common_form.phtml:131
 msgid "Preview SQL"
-msgstr ""
+msgstr "استعراض SQL"
 
 #: js/messages.php:135
-#, fuzzy
-#| msgid "in query"
 msgid "Simulate query"
-msgstr "في الإستعلام"
+msgstr "محاكاة الإستعلام"
 
 #: js/messages.php:136
-#, fuzzy
-#| msgid "Affected rows:"
 msgid "Matched rows:"
-msgstr "الصفوف المتأثرة:"
+msgstr "الصفوف المتطابقة:"
 
 #: js/messages.php:137 libraries/Util.php:590
-#, fuzzy
-#| msgid "SQL query"
 msgid "SQL query:"
-msgstr "استعلام SQL"
+msgstr "استعلام SQL:"
 
 #. l10n: Default label for the y-Axis of Charts
 #: js/messages.php:141
-#, fuzzy
-#| msgid "Value"
 msgid "Y values"
-msgstr "القيمة"
+msgstr "كل قيم Y"
 
 #: js/messages.php:144
 msgid "The host name is empty!"
@@ -1100,12 +1074,12 @@ msgstr "إسم المستخدم فارغ!"
 #: js/messages.php:146 libraries/server_privileges.lib.php:1868
 #: user_password.php:119
 msgid "The password is empty!"
-msgstr "كلمة المرور فارغة !"
+msgstr "كلمة المرور فارغة!"
 
 #: js/messages.php:147 libraries/server_privileges.lib.php:1866
 #: user_password.php:123
 msgid "The passwords aren't the same!"
-msgstr "كلمتا المرور غير متشابهتان !"
+msgstr "كلمتا المرور مختلفتان!"
 
 #: js/messages.php:148
 msgid "Removing Selected Users"
@@ -1114,30 +1088,23 @@ msgstr "حذف المستخدمين المحددين"
 #: js/messages.php:149 js/messages.php:216 libraries/tracking.lib.php:469
 #: libraries/tracking.lib.php:835
 msgid "Close"
-msgstr "أغلاق"
+msgstr "إغلاق"
 
 #: js/messages.php:152
-#, fuzzy
-#| msgid "%s table"
-#| msgid_plural "%s tables"
 msgid "Template was created."
-msgstr "%s  جدول (جداول)"
+msgstr "تم انشاء القالب ."
 
 #: js/messages.php:153
 msgid "Template was loaded."
-msgstr ""
+msgstr "تم تحميل القالب."
 
 #: js/messages.php:154
-#, fuzzy
-#| msgid "The profile has been updated."
 msgid "Template was updated."
-msgstr "لقد تم تجديد الملف الشخصي."
+msgstr "تم تحديث القالب ."
 
 #: js/messages.php:155
-#, fuzzy
-#| msgid "The row has been deleted."
 msgid "Template was deleted."
-msgstr "لقد تمّ حذف الصّف"
+msgstr "تمّ حذف القالب ."
 
 #. l10n: Other, small valued, queries
 #: js/messages.php:158 libraries/ServerStatusData.php:132
@@ -1162,10 +1129,8 @@ msgid "Connections / Processes"
 msgstr "اتصالات / عمليات"
 
 #: js/messages.php:168
-#, fuzzy
-#| msgid "Local monitor configuration incompatible"
 msgid "Local monitor configuration incompatible!"
-msgstr "فشل قراءة ملف الإعدادات"
+msgstr "اعدادات المراقب المحلي غير متوافقة!"
 
 #: js/messages.php:170
 msgid ""
@@ -1174,24 +1139,26 @@ msgid ""
 "likely that your current configuration will not work anymore. Please reset "
 "your configuration to default in the <i>Settings</i> menu."
 msgstr ""
+"اعدادات ترتيب المخطط في المتصفحات المحلية غير متوافق بعد الآن إلى الإصدار "
+"الأحدث من مراقب الشاشة.من المرجح جدا ان لاتعمل اعداداتك الحالية بعد الان "
+".الرجاء إعادة تعيين التهيئة إلى الإعدادات الافتراضية في قائمة     </i>  "
+"اعدادات <i> ."
 
 #: js/messages.php:176
 msgid "Query cache efficiency"
-msgstr "فعالية خابية المسائلة"
+msgstr "كفاءة ذاكرة التخزين المؤقت لطلب البحث"
 
 #: js/messages.php:177
 msgid "Query cache usage"
-msgstr "إستعمال خابية المسائلة"
+msgstr "استخدام ذاكرة التخزين المؤقت لطلب البحث"
 
 #: js/messages.php:178
 msgid "Query cache used"
-msgstr "خابية المسائلة المستعملة"
+msgstr "تم استخدام ذاكرة التخزين المؤقت لطلب البحث"
 
 #: js/messages.php:180
-#, fuzzy
-#| msgid "System CPU Usage"
 msgid "System CPU usage"
-msgstr "إستخدام النظام للمعالج (CPU)"
+msgstr "استخدام وحدة المعالجة المركزية للنظام"
 
 #: js/messages.php:181
 msgid "System memory"
@@ -1199,7 +1166,7 @@ msgstr "ذاكرة النظام"
 
 #: js/messages.php:182
 msgid "System swap"
-msgstr "المقايدة النظامية"
+msgstr "مبادلة النظام"
 
 #: js/messages.php:184
 msgid "Average load"
@@ -1207,11 +1174,11 @@ msgstr "متوسط التحميل"
 
 #: js/messages.php:185
 msgid "Total memory"
-msgstr "إجمالي الذاكرة"
+msgstr "الذاكرة الاجمالية"
 
 #: js/messages.php:186
 msgid "Cached memory"
-msgstr "الذاكرة المؤقتة"
+msgstr "ذاكرة التخزين المؤقت"
 
 #: js/messages.php:187
 msgid "Buffered memory"
@@ -1245,17 +1212,16 @@ msgstr "المقايدة المستخدمة"
 
 #: js/messages.php:194
 #, fuzzy
-#| msgid "Free Swap"
 msgid "Free swap"
-msgstr "المقايدة الحرّة"
+msgstr "تبادل مجاني"
 
 #: js/messages.php:196
 msgid "Bytes sent"
-msgstr "بايتات أُرسلت"
+msgstr "تم إرسال وحدات البايت"
 
 #: js/messages.php:197
 msgid "Bytes received"
-msgstr "بايتات أُستلمت"
+msgstr "تم استلام وحدات البايت"
 
 #: js/messages.php:198 libraries/server_status.lib.php:232
 msgid "Connections"
@@ -1287,17 +1253,17 @@ msgstr "ميجابايت"
 #. l10n: shortcuts for Gigabyte
 #: js/messages.php:205 libraries/Util.php:1315
 msgid "GiB"
-msgstr "جيجابايت"
+msgstr "جيجا بايت"
 
 #. l10n: shortcuts for Terabyte
 #: js/messages.php:206 libraries/Util.php:1317
 msgid "TiB"
-msgstr "تيرابايت"
+msgstr "تيرا بايت"
 
 #. l10n: shortcuts for Petabyte
 #: js/messages.php:207 libraries/Util.php:1319
 msgid "PiB"
-msgstr "بيتابايت"
+msgstr "بيتا بايت"
 
 #. l10n: shortcuts for Exabyte
 #: js/messages.php:208 libraries/Util.php:1321
@@ -1353,7 +1319,7 @@ msgstr "إستئناف المراقبة"
 
 #: js/messages.php:221
 msgid "Pause monitor"
-msgstr "إيقاف المراقبة"
+msgstr "إيقاف المراقبة مؤقتا"
 
 #: js/messages.php:222 libraries/server_status_processes.lib.php:37
 msgid "Start auto refresh"
@@ -1365,19 +1331,19 @@ msgstr "وقف التحديث التلقائي"
 
 #: js/messages.php:225
 msgid "general_log and slow_query_log are enabled."
-msgstr "(general_log و slow_query_log) مفعلة."
+msgstr "تم تمكين السجل العام وسجل الاستعلام البطيء"
 
 #: js/messages.php:226
 msgid "general_log is enabled."
-msgstr "general_log مفعل."
+msgstr "تم تمكين السجل العام ."
 
 #: js/messages.php:227
 msgid "slow_query_log is enabled."
-msgstr "slow_query_log مفعل."
+msgstr "تم تمكين سجل الاستعلام البطيء."
 
 #: js/messages.php:228
 msgid "slow_query_log and general_log are disabled."
-msgstr "(general_log و slow_query_log) معطلة."
+msgstr "تم تعطيل سجل الاستعلام البطيء والسجل العام."
 
 #: js/messages.php:229
 msgid "log_output is not set to TABLE."
@@ -1385,7 +1351,7 @@ msgstr ""
 
 #: js/messages.php:230
 msgid "log_output is set to TABLE."
-msgstr ""
+msgstr "يتم تعيين إخراج السجل إلى الجدول."
 
 #: js/messages.php:232
 #, php-format
@@ -1394,6 +1360,9 @@ msgid ""
 "than %d seconds. It is advisable to set this long_query_time 0-2 seconds, "
 "depending on your system."
 msgstr ""
+"تم تمكين سجل الاستعلام البطيء, ولكن يسجل الخادم طلبات البحث التي تستغرق وقتا "
+"أطول من٪ d من الثواني . فقط. من المستحسن تعيين هذه المدة الزمنية الطويلة 0-2 "
+"ثانية، اعتمادا على النظام الخاص بك."
 
 #: js/messages.php:236
 #, php-format
@@ -1410,7 +1379,7 @@ msgstr "الإعدادات التالية سوف تفعل عند إعادة تش
 #: js/messages.php:242
 #, php-format
 msgid "Set log_output to %s"
-msgstr "تعيين log_output  بـ %s"
+msgstr "تعيين إخراج السجل إلى٪ s"
 
 #. l10n: Enable in this context means setting a status variable to ON
 #: js/messages.php:244
@@ -1426,10 +1395,9 @@ msgstr "تعطيل %s"
 
 #. l10n: %d seconds
 #: js/messages.php:248
-#, fuzzy, php-format
-#| msgid "Set long_query_time to %ds"
+#, php-format
 msgid "Set long_query_time to %d seconds."
-msgstr "تعيين long_query_time بـ %ds"
+msgstr "تعيين وقت الاستعلام الطويل إلى٪ d ثانية."
 
 #: js/messages.php:250
 msgid ""
@@ -1465,7 +1433,7 @@ msgstr "مقسوم على %s"
 
 #: js/messages.php:260
 msgid "Unit"
-msgstr "سعرة"
+msgstr "وحدة"
 
 #: js/messages.php:262
 msgid "From slow log"
@@ -1477,7 +1445,7 @@ msgstr "من السجل العام"
 
 #: js/messages.php:265
 msgid "The database name is not known for this query in the server's logs."
-msgstr ""
+msgstr "اسم قاعدة البيانات غير معروف لهذا الاستعلام في سجلات الملقم."
 
 #: js/messages.php:267
 msgid "Analysing logs"
@@ -1497,6 +1465,9 @@ msgid ""
 "However only the SQL query itself has been used as a grouping criteria, so "
 "the other attributes of queries, such as start time, may differ."
 msgstr ""
+"يعرض هذا العمود كمية طلبات البحث المتطابقة التي تم تجميعها معا. ومع ذلك، تم "
+"استخدام الاستعلام SQL نفسه فقط كمعايير تجميع، لذلك قد تختلف سمات الاستعلامات "
+"الأخرى، مثل وقت البدء."
 
 #: js/messages.php:277
 msgid ""
@@ -1504,6 +1475,8 @@ msgid ""
 "same table are also being grouped together, disregarding of the inserted "
 "data."
 msgstr ""
+"وبما أنه تم اختيار مجموعة من الاستفسارات الداخلية، يتم أيضا تجميع "
+"الاستعلامات الداخلية في نفس الجدول معا، بغض النظر عن البيانات المدرجة."
 
 #: js/messages.php:282
 msgid "Log data loaded. Queries executed in this time span:"
@@ -1554,7 +1527,7 @@ msgstr "مجموع الوقت:"
 
 #: js/messages.php:294
 msgid "Profiling results"
-msgstr ""
+msgstr "نتائج التنميط"
 
 #: js/messages.php:295
 msgctxt "Display format"
@@ -1573,15 +1546,12 @@ msgid "Database"
 msgstr "قاعدة البيانات"
 
 #: js/messages.php:299 libraries/display_export.lib.php:915
-#, fuzzy
-#| msgid "Table"
 msgctxt "Alias"
 msgid "Table"
-msgstr "الجدول"
+msgstr "جدول"
 
 #: js/messages.php:300 libraries/display_export.lib.php:926
 #, fuzzy
-#| msgid "Column"
 msgctxt "Alias"
 msgid "Column"
 msgstr "عمود"
@@ -1626,6 +1596,8 @@ msgid ""
 "This is most likely because your session expired. Reloading the page and "
 "reentering your credentials should help."
 msgstr ""
+"أثناء طلب بيانات المخطط الجديد، عرض الخادم استجابة غير صالحة. بسبب انتهاء "
+"الجلسة.اعد تحميل الصفحة وإعد إدخال بيانات الاعتماد الخاصة بك."
 
 #: js/messages.php:319
 msgid "Reload page"
@@ -1637,12 +1609,14 @@ msgstr "الصفوف المتأثرة:"
 
 #: js/messages.php:324
 msgid "Failed parsing config file. It doesn't seem to be valid JSON code."
-msgstr ""
+msgstr "أخفق تحليل ملف التهيئة. يبدو أن كود JSON غير صالح."
 
 #: js/messages.php:327
 msgid ""
 "Failed building chart grid with imported config. Resetting to default config…"
 msgstr ""
+"أخفق إنشاء شبكة المخطط باستخدام التهيئة المستوردة. جار إعادة التعيين إلى "
+"التهيئة الافتراضية …"
 
 #: js/messages.php:329 libraries/Menu.php:365 libraries/Menu.php:467
 #: libraries/Menu.php:588 libraries/Util.php:4100 libraries/Util.php:4115
@@ -1699,7 +1673,7 @@ msgstr "المصادقة"
 
 #: js/messages.php:345
 msgid "Used variable / formula"
-msgstr "المتغيرات المستعملة"
+msgstr "المتغير / الصيغة المستخدمة"
 
 #: js/messages.php:346
 msgid "Test"
@@ -1707,7 +1681,7 @@ msgstr "إختبار"
 
 #: js/messages.php:349
 msgid "Formatting SQL…"
-msgstr ""
+msgstr "جار تنسيق SQL …"
 
 #: js/messages.php:350
 #, fuzzy
@@ -1728,14 +1702,12 @@ msgid "Cancel"
 msgstr "ألغاء"
 
 #: js/messages.php:357 libraries/Header.php:447
-#, fuzzy
-#| msgid "Change settings"
 msgid "Page-related settings"
-msgstr "تغيير الإعدادات"
+msgstr "الإعدادات المتعلقة بالصفحة"
 
 #: js/messages.php:358 libraries/config/FormDisplay.tpl.php:424
 msgid "Apply"
-msgstr ""
+msgstr "تطبيق"
 
 #: js/messages.php:361 libraries/navigation/NavigationHeader.php:60
 #: libraries/server_status_monitor.lib.php:119
@@ -1746,7 +1718,7 @@ msgstr "تحميل"
 
 #: js/messages.php:362
 msgid "Request aborted!!"
-msgstr ""
+msgstr "طلب إحباط !!"
 
 #: js/messages.php:363
 #, fuzzy
@@ -1774,7 +1746,7 @@ msgstr ""
 #: js/messages.php:367
 #, php-format
 msgid "Error text: %s"
-msgstr ""
+msgstr "رمز الخطأ:٪ s"
 
 #: js/messages.php:368
 #: libraries/controllers/server/ServerDatabasesController.php:194
