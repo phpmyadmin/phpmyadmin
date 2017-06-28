@@ -4787,7 +4787,7 @@ class Util
         if ($ssl == CURLOPT_CAPATH) {
             $curl_status &= curl_setopt($curl_handle, CURLOPT_CAPATH, $certs_dir);
         } elseif ($ssl == CURLOPT_CAINFO) {
-            $curl_status &= curl_setopt($curl_handle, CURLOPT_CAINFO, $certs_dir . 'isrgrootx1.pem');
+            $curl_status &= curl_setopt($curl_handle, CURLOPT_CAINFO, $certs_dir . 'cacert.pem');
         }
 
         $curl_status &= curl_setopt($curl_handle, CURLOPT_RETURNTRANSFER,true);
