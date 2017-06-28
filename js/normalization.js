@@ -84,12 +84,11 @@ function goTo2NFStep1() {
             $("#mainContent p").html(data.subText);
             $("#mainContent #extra").html(data.extra);
             $("#mainContent #newCols").html('');
-            
             if (data.subText !== '') {
                 var doneButton = $('<input />')
                     .attr({type: 'submit', value: PMA_messages.strDone, })
                     .on('click', function() {
-                        processDependencies('\'' + escapeJsString(escapeHtml(data.primary_key)) + '\'');
+                        processDependencies(data.primary_key);
                     })
                     .appendTo('.tblFooters');
             } else {
@@ -667,7 +666,7 @@ AJAX.registerOnload('normalization.js', function() {
             $('<input />')
                 .attr({type: 'submit', value: PMA_messages.strGo})
                 .on('click', function() {
-                    moveRepeatingGroup('\'' + escapeJsString(escapeHtml(repeatingCols)) + '\'');
+                    moveRepeatingGroup(repeatingCols);
                 })
                 .appendTo('.tblFooters');
         }
