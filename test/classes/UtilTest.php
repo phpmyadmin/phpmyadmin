@@ -168,7 +168,7 @@ class UtilTest extends PMATestCase
              * https://curl.haxx.se/docs/ssl-compared.html
              */
             if (stripos($curl['ssl_version'], 'WinSSL') !== false
-                || stripos($curl['ssl_version'], 'DarwinSSLL') !== false
+                || stripos($curl['ssl_version'], 'SecureTransport') !== false
             ) {
                 $this->markTestSkipped('Not supported in CURL SSL backend: ' . $curl['ssl_version']);
             }
