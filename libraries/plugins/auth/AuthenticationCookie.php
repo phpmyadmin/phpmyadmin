@@ -227,19 +227,36 @@ class AuthenticationCookie extends AuthenticationPlugin
             echo '    <input type="hidden" name="server" value="'
                 , $GLOBALS['server'] , '" />';
         } // end if (server choice)
-
         // Add captcha input field if reCaptcha is enabled
         if (!empty($GLOBALS['cfg']['CaptchaLoginPrivateKey'])
             && !empty($GLOBALS['cfg']['CaptchaLoginPublicKey'])
         ) {
             // If enabled show captcha to the user on the login screen.
-            echo '<script src="https://www.google.com/recaptcha/api.js?hl='
-                , $GLOBALS['lang'] , '" async defer></script>';
-            echo '<div class="g-recaptcha" data-sitekey="'
-                , htmlspecialchars($GLOBALS['cfg']['CaptchaLoginPublicKey']) ,
-                '" data-callback="loginButtonEnable" data-expired-callback="loginButtonDisable" captcha="enabled"></div>';
+            $connected = @fsockopen("www.google.com",80, $errno, $errstr, 30); 
+            if(!$connected){
+                Message::error(
+                        __("ReCaptcha service is unavailable!!! Please check your network connection or try again later.")
+                        )->display();
+                echo '<div class="g-recaptcha" captcha="enabled"></div>';           }
+            else
+            {
+                stream_set_timeout($connected, 30);
+                $info = stream_get_meta_data($connected);
+                if($info['timed_out']){
+                    Message::error(
+                        __("ReCaptcha service is unavailable!!! Please check your network connection or try again later.")
+                        )->display();
+                    echo '<div class="g-recaptcha" captcha="enabled"></div>';                
+                }
+                else{
+                     echo '<script src="https://www.google.com/recaptcha/api.js?hl='
+                         , $GLOBALS['lang'] , '" async defer></script>';
+                    echo '<div class="g-recaptcha" data-sitekey="'
+                         , htmlspecialchars($GLOBALS['cfg']['CaptchaLoginPublicKey']) ,
+                        '" data-callback="loginButtonEnable" data-expired-callback="loginButtonDisable" captcha="enabled"></div>';
+                    }
+            }
         }
-
         echo '</fieldset>
         <fieldset class="tblFooters">
             <input value="' , __('Go') , '" type="submit" id="input_go" />';
@@ -272,7 +289,6 @@ class AuthenticationCookie extends AuthenticationPlugin
             return true;
         }
     }
-
     /**
      * Gets advanced authentication settings
      *
