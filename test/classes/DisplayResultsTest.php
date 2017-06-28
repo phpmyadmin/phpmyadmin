@@ -434,13 +434,13 @@ class DisplayResultsTest extends PMATestCase
                 '`customer`.`id` = 1',
                 '%60customer%60.%60id%60+%3D+1',
                 '<td class="klass edit_row_anchor center print_ignore"  >'
-                . '<span class="nowrap">' . "\n"
+                . '<span class="nowrap">&nbsp;'
                 . '<a href="tbl_change.php?db=Data&amp;table=customer&amp;where_'
                 . 'clause=%60customer%60.%60id%60+%3D+1&amp;clause_is_unique=1&amp;'
                 . 'sql_query=SELECT+%2A+FROM+%60customer%60&amp;goto=sql.php&amp;'
                 . 'default_action=update"'
                 . ' ><span class="nowrap"><img src="themes/dot.gif" title="Edit" '
-                . 'alt="Edit" class="icon ic_b_edit" /> Edit</span></a>' . "\n"
+                . 'alt="Edit" class="icon ic_b_edit" /> Edit</span></a>&nbsp;'
                 . '<input type="hidden" class="where_clause" value ="%60customer'
                 . '%60.%60id%60+%3D+1" /></span></td>'
             )
@@ -497,13 +497,13 @@ class DisplayResultsTest extends PMATestCase
                 '%60customer%60.%60id%60+%3D+1',
                 'klass',
                 '<td class="klass center print_ignore"  ><span class='
-                . '"nowrap">' . "\n"
+                . '"nowrap">&nbsp;'
                 . '<a href="tbl_change.php?db=Data&amp;table=customer&amp;where_'
                 . 'clause=%60customer%60.%60id%60+%3D+1&amp;clause_is_unique=1&amp;'
                 . 'sql_query=SELECT+%2A+FROM+%60customer%60&amp;goto=sql.php&amp;'
                 . 'default_action=insert"'
                 . ' ><span class="nowrap"><img src="themes/dot.gif" title="Copy" '
-                . 'alt="Copy" class="icon ic_b_insrow" /> Copy</span></a>' . "\n"
+                . 'alt="Copy" class="icon ic_b_insrow" /> Copy</span></a>&nbsp;'
                 . '<input type="hidden" class="where_clause" value="%60customer%60'
                 . '.%60id%60+%3D+1" /></span></td>'
             )
@@ -560,7 +560,7 @@ class DisplayResultsTest extends PMATestCase
                 . 'alt="Delete" class="icon ic_b_drop" /> Delete</span>',
                 'DELETE FROM `Data`.`customer` WHERE `customer`.`id` = 1',
                 'klass',
-                '<td class="klass center print_ignore"  >' . "\n"
+                '<td class="klass center print_ignore"  >&nbsp;'
                 . '<a href="sql.php?db=Data&amp;table=customer&amp;sql_query=DELETE'
                 . '+FROM+%60Data%60.%60customer%60+WHERE+%60customer%60.%60id%60+%3D'
                 . '+1&amp;message_to_show=The+row+has+been+deleted&amp;goto=sql.php'
@@ -569,7 +569,7 @@ class DisplayResultsTest extends PMATestCase
                 . 'been%2Bdeleted%26goto%3Dtbl_structure.php" '
                 . 'class="delete_row requireConfirm"><span class="nowrap"><img src="themes/dot.'
                 . 'gif" title="Delete" alt="Delete" class="icon ic_b_drop" /> '
-                . 'Delete</span></a>' . "\n"
+                . 'Delete</span></a>&nbsp;'
                 . '<div class="hide">DELETE FROM `Data`.`customer` WHERE '
                 . '`customer`.`id` = 1</div></td>'
             )
@@ -656,24 +656,24 @@ class DisplayResultsTest extends PMATestCase
                 . 'value="%60new%60.%60id%60+%3D+1"  /><input type="hidden" class='
                 . '"condition_array" value="{&quot;`new`.`id`&quot;:&quot;= 1&quot;'
                 . '}" />    </td><td class="edit_row_anchor center print_ignore"  ><span class='
-                . '"nowrap">' . "\n"
+                . '"nowrap">&nbsp;'
                 . '<a href="tbl_change.php?db=data&amp;table=new&amp;where_'
                 . 'clause=%60new%60.%60id%60+%3D+1&amp;clause_is_unique=1&amp;'
                 . 'sql_query=SELECT+%2A+FROM+%60new%60&amp;goto=sql.php&amp;default'
                 . '_action=update" >'
                 . '<span class="nowrap"><img src="themes/dot.gif" title="Edit" '
-                . 'alt="Edit" class="icon ic_b_edit" /> Edit</span></a>' . "\n"
+                . 'alt="Edit" class="icon ic_b_edit" /> Edit</span></a>&nbsp;'
                 . '<input type="hidden" class="where_clause" value ="%60new%60.%60'
                 . 'id%60+%3D+1" /></span></td><td class="center print_ignore"  ><span class'
-                . '="nowrap">' . "\n"
+                . '="nowrap">&nbsp;'
                 . '<a href="tbl_change.php?db=data&amp;table=new&amp;where_clause'
                 . '=%60new%60.%60id%60+%3D+1&amp;clause_is_unique=1&amp;sql_query='
                 . 'SELECT+%2A+FROM+%60new%60&amp;goto=sql.php&amp;default_action='
                 . 'insert" ><span class'
                 . '="nowrap"><img src="themes/dot.gif" title="Copy" alt="Copy" '
-                . 'class="icon ic_b_insrow" /> Copy</span></a>' . "\n"
+                . 'class="icon ic_b_insrow" /> Copy</span></a>&nbsp;'
                 . '<input type="hidden" class="where_clause" value="%60new%60.%60id'
-                . '%60+%3D+1" /></span></td><td class="center print_ignore"  >' . "\n"
+                . '%60+%3D+1" /></span></td><td class="center print_ignore"  >&nbsp;'
                 . '<a href="sql.php?db=data&amp;table=new&amp;sql_query=DELETE+'
                 . 'FROM+%60data%60.%60new%60+WHERE+%60new%60.%60id%60+%3D+1&amp;'
                 . 'message_to_show=The+row+has+been+deleted&amp;goto=sql.php%3F'
@@ -682,7 +682,7 @@ class DisplayResultsTest extends PMATestCase
                 . 'deleted%26goto%3Dtbl_structure.php" '
                 . 'class="delete_row requireConfirm"><span class="nowrap"><img src="themes/dot.'
                 . 'gif" title="Delete" alt="Delete" class="icon ic_b_drop" /> '
-                . 'Delete</span></a>' . "\n"
+                . 'Delete</span></a>&nbsp;'
                 . '<div class="hide">DELETE FROM `data`.`new` WHERE `new`.`id` = 1'
                 . '</div></td>'
             ),
@@ -723,7 +723,7 @@ class DisplayResultsTest extends PMATestCase
                 '<span class="nowrap"><img src="themes/dot.gif" title="Delete" '
                 . 'alt="Delete" class="icon ic_b_drop" /> Delete</span>',
                 'DELETE FROM `data`.`new` WHERE `new`.`id` = 1',
-                '<td class="center print_ignore"  >' . "\n"
+                '<td class="center print_ignore"  >&nbsp;'
                 . '<a href="sql.php?db=data&amp;table=new&amp;sql_query=DELETE+'
                 . 'FROM+%60data%60.%60new%60+WHERE+%60new%60.%60id%60+%3D+1&amp;'
                 . 'message_to_show=The+row+has+been+deleted&amp;goto=sql.php%3Fdb'
@@ -732,23 +732,23 @@ class DisplayResultsTest extends PMATestCase
                 . '%26goto%3Dtbl_structure.php" class="delete'
                 . '_row requireConfirm"><span class="nowrap"><img src="themes/dot.gif" title='
                 . '"Delete" alt="Delete" class="icon ic_b_drop" /> Delete</span></a>'
-                . "\n" . '<div class="hide">DELETE FROM `data`.`new` WHERE `new`.'
+                . '&nbsp;<div class="hide">DELETE FROM `data`.`new` WHERE `new`.'
                 . '`id` = 1</div></td><td class="center print_ignore"  ><span class="nowrap">'
-                . "\n" . '<a href="tbl_change.php?db=data&amp;table=new&amp;where_'
+                . '&nbsp;<a href="tbl_change.php?db=data&amp;table=new&amp;where_'
                 . 'clause=%60new%60.%60id%60+%3D+1&amp;clause_is_unique=1&amp;sql_'
                 . 'query=SELECT+%2A+FROM+%60new%60&amp;goto=sql.php&amp;default_'
                 . 'action=insert" ><span '
                 . 'class="nowrap"><img src="themes/dot.gif" title="Copy" alt="Copy" '
-                . 'class="icon ic_b_insrow" /> Copy</span></a>' . "\n"
+                . 'class="icon ic_b_insrow" /> Copy</span></a>&nbsp;'
                 . '<input type="hidden" class="where_clause" value="%60new%60.%60id'
                 . '%60+%3D+1" /></span></td><td class="edit_row_anchor center print_ignore"  >'
-                . '<span class="nowrap">' . "\n"
+                . '<span class="nowrap">&nbsp;'
                 . '<a href="tbl_change.php?db=data&amp;table=new&amp;where_clause'
                 . '=%60new%60.%60id%60+%3D+1&amp;clause_is_unique=1&amp;sql_query='
                 . 'SELECT+%2A+FROM+%60new%60&amp;goto=sql.php&amp;default_action='
                 . 'update" ><span class='
                 . '"nowrap"><img src="themes/dot.gif" title="Edit" alt="Edit" class'
-                . '="icon ic_b_edit" /> Edit</span></a>' . "\n"
+                . '="icon ic_b_edit" /> Edit</span></a>&nbsp;'
                 . '<input type="hidden" class="where_clause" value ="%60new%60.%60'
                 . 'id%60+%3D+1" /></span></td><td  class="center print_ignore"><input type='
                 . '"checkbox" id="id_rows_to_delete0_right" name="rows_to_delete'

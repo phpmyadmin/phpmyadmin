@@ -1826,9 +1826,9 @@ class Util
             }
 
             // no whitespace within an <a> else Safari will make it part of the link
-            $ret = "\n" . '<a href="' . $url . '" '
+            $ret = '&nbsp;<a href="' . $url . '" '
                 . implode(' ', $tag_params_strings) . '>'
-                . $message . $displayed_message . '</a>' . "\n";
+                . $message . $displayed_message . '</a>&nbsp;';
         } else {
             // no spaces (line breaks) at all
             // or after the hidden fields
