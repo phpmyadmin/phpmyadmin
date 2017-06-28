@@ -82,6 +82,7 @@ function PMA_getHtmlForRenameDatabase($db)
 
     $html_output .= '<input id="new_db_name" type="text" name="newname" '
         . 'maxlength="64" class="textfield" required="required"/>';
+    $html_output .= '<br />';
 
     if ($GLOBALS['db_priv'] && $GLOBALS['table_priv']
         && $GLOBALS['col_priv'] && $GLOBALS['proc_priv']
