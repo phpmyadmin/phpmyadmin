@@ -169,6 +169,46 @@ class UtilTest extends PMATestCase
     }
 
     /**
+     * Test for http request using Curl with CURLOPT_CAPATH
+     *
+     * @group medium
+     *
+     * @return void
+     *
+     * @dataProvider httpRequests
+     *
+     * @group network
+     */
+    public function testHttpRequestCurlCAPath($url, $method, $return_only_status, $expected)
+    {
+        if (! function_exists('curl_init')) {
+            $this->markTestSkipped('curl not supported');
+        }
+        $result = PMA\libraries\Util::httpRequestCurl($url, $method, $return_only_status, null, '', CURLOPT_CAPATH);
+        $this->validateHttp($result, $expected);
+    }
+
+    /**
+     * Test for http request using Curl with CURLOPT_CAINFO
+     *
+     * @group medium
+     *
+     * @return void
+     *
+     * @dataProvider httpRequests
+     *
+     * @group network
+     */
+    public function testHttpRequestCurlCAInfo($url, $method, $return_only_status, $expected)
+    {
+        if (! function_exists('curl_init')) {
+            $this->markTestSkipped('curl not supported');
+        }
+        $result = PMA\libraries\Util::httpRequestCurl($url, $method, $return_only_status, null, '', CURLOPT_CAINFO);
+        $this->validateHttp($result, $expected);
+    }
+
+    /**
      * Test for http request using fopen
      *
      * @group medium
