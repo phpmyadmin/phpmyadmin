@@ -318,7 +318,7 @@ function PMA_lookForUse($buffer, $db, $reload)
 function PMA_importGetNextChunk($size = 32768)
 {
     global $compression, $import_handle, $charset_conversion, $charset_of_file,
-        $read_multiply;
+        $read_multiply, $reset_charset;
 
     // Add some progression while reading large amount of data
     if ($read_multiply <= 8) {
@@ -357,6 +357,11 @@ function PMA_importGetNextChunk($size = 32768)
     $result = $import_handle->read($size);
     $GLOBALS['finished'] = $import_handle->eof();
     $GLOBALS['offset'] += $size;
+
+    if (strpos($result, 'SET NAMES') !== false) {
+        $charset_conversion = false;
+        $reset_charset = true;
+    }
 
     if ($charset_conversion) {
         return Encoding::convertString($charset_of_file, 'utf-8', $result);
