@@ -578,7 +578,8 @@ function PMA_makegrid(t, enableResize, enableReorder, enableVisib, enableGridEdi
                     var $cell = $(cell);
 
                     if ('string' === $cell.attr('data-type') ||
-                        'blob' === $cell.attr('data-type')
+                        'blob' === $cell.attr('data-type') ||
+                        'json' === $cell.attr('data-type')
                     ) {
                         g.cEdit = g.cEditTextarea;
                     } else {
@@ -600,6 +601,9 @@ function PMA_makegrid(t, enableResize, enableReorder, enableVisib, enableGridEdi
                         });
                     // fill the cell edit with text from <td>
                     var value = PMA_getCellValue(cell);
+                    if($cell.attr('data-type') == 'json'){
+                        value = JSON.stringify(JSON.parse(value), null, 4);
+                    }
                     $(g.cEdit).find('.edit_box').val(value);
 
                     g.currentEditCell = cell;
