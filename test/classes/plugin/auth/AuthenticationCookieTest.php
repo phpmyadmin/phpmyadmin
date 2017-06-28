@@ -209,7 +209,7 @@ class AuthenticationCookieTest extends PMATestCase
         );
 
         $this->assertContains(
-            '<form method="post" action="index.php" name="login_form" ' .
+            '<form method="post" id="login_form" action="index.php" name="login_form" ' .
             'class="disableAjax login hide js-show">',
             $result
         );
@@ -317,7 +317,7 @@ class AuthenticationCookieTest extends PMATestCase
         }
 
         $this->assertContains(
-            '<form method="post" action="index.php" name="login_form" ' .
+            '<form method="post" id="login_form" action="index.php" name="login_form" ' .
             'autocomplete="off" class="disableAjax login hide js-show">',
             $result
         );
@@ -334,7 +334,8 @@ class AuthenticationCookieTest extends PMATestCase
         );
 
         $this->assertContains(
-            '<div class="g-recaptcha" data-sitekey="testpubkey" data-callback="loginButtonEnable" data-expired-callback="loginButtonDisable" captcha="enabled">',
+            '<input class="g-recaptcha" data-sitekey="testpubkey"'
+            . ' data-callback="recaptchaCallback" value="Go" type="submit" id="input_go" />',
             $result
         );
     }

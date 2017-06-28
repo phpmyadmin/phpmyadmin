@@ -172,7 +172,7 @@ class AuthenticationCookie extends AuthenticationPlugin
         echo '
     <br />
     <!-- Login form -->
-    <form method="post" action="index.php" name="login_form"' , $autocomplete ,
+    <form method="post" id="login_form" action="index.php" name="login_form"' , $autocomplete ,
             ' class="disableAjax login hide js-show">
         <fieldset>
         <legend>';
@@ -228,21 +228,21 @@ class AuthenticationCookie extends AuthenticationPlugin
                 , $GLOBALS['server'] , '" />';
         } // end if (server choice)
 
-        // Add captcha input field if reCaptcha is enabled
-        if (!empty($GLOBALS['cfg']['CaptchaLoginPrivateKey'])
-            && !empty($GLOBALS['cfg']['CaptchaLoginPublicKey'])
-        ) {
-            // If enabled show captcha to the user on the login screen.
-            echo '<script src="https://www.google.com/recaptcha/api.js?hl='
-                , $GLOBALS['lang'] , '" async defer></script>';
-            echo '<div class="g-recaptcha" data-sitekey="'
-                , htmlspecialchars($GLOBALS['cfg']['CaptchaLoginPublicKey']) ,
-                '" data-callback="loginButtonEnable" data-expired-callback="loginButtonDisable" captcha="enabled"></div>';
-        }
+        echo '</fieldset><fieldset class="tblFooters">';
 
-        echo '</fieldset>
-        <fieldset class="tblFooters">
-            <input value="' , __('Go') , '" type="submit" id="input_go" />';
+        // binds input field with invisible reCaptcha if enabled
+        if (empty($GLOBALS['cfg']['CaptchaLoginPrivateKey'])
+            && empty($GLOBALS['cfg']['CaptchaLoginPublicKey'])
+        ) {
+            echo '<input value="' , __('Go') , '" type="submit" id="input_go" />';
+        }
+        else {
+            echo '<script src="https://www.google.com/recaptcha/api.js?hl='
+            , $GLOBALS['lang'] , '" async defer></script>';
+            echo '<input class="g-recaptcha" data-sitekey="'
+            , htmlspecialchars($GLOBALS['cfg']['CaptchaLoginPublicKey']),'"'
+                .' data-callback="recaptchaCallback" value="' , __('Go') , '" type="submit" id="input_go" />';
+        }
         $_form_params = array();
         if (! empty($GLOBALS['target'])) {
             $_form_params['target'] = $GLOBALS['target'];
