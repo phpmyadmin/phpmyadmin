@@ -3541,7 +3541,7 @@ body .ui-dialog .ui-dialog-buttonpane .ui-dialog-buttonset {
         display: inline-flex;
         margin: 0 !important;
         border-radius: 0 !important;
-        overflow: hidden;
+        overflow: auto;
     }
 
     .scrollindicator {
