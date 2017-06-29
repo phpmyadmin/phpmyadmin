@@ -32,7 +32,7 @@
             $(PMA_getImage('b_right.png').toString()).prependTo($('.scrollindicator--right'));
 
             // Set the width of the navigation bar without scroll indicator
-            $('.navigationbar').css({'width': widthCalculator.call($container) - 65});
+            $('.navigationbar').css({'width': widthCalculator.call($container) - 60});
 
             // Scroll the navigation bar on click
             $('.scrollindicator--right')
@@ -130,7 +130,7 @@
         }
         // Show/hide the "More" tab as needed
         if (windowWidth < 768) {
-            $('.navigationbar').css({'width': wmax - 65});
+            $('.navigationbar').css({'width': wmax - 60});
         }
         else if ($submenu_ul.find('li').length > 0) {
             $submenu.addClass('shown');

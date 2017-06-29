@@ -3545,7 +3545,7 @@ body .ui-dialog .ui-dialog-buttonpane .ui-dialog-buttonset {
     }
 
     .scrollindicator {
-        padding: 7px;
+        padding: 5px;
         cursor: pointer;
         display: inline;
     }
