@@ -15,9 +15,8 @@ php:
   - "7.0"
   - "5.6"
   - "5.5"
-  - hhvm-3.3
-  - hhvm-3.12
-  - hhvm-3.18
+  - "hhvm-3.12"
+  - "hhvm-3.18"
 
 sudo: required
 
@@ -46,7 +45,6 @@ script:
   - ./test/ci-$CI_MODE
 
 after_script:
-  - if [ -f vendor/bin/coveralls ] ; then php vendor/bin/coveralls -v || true ; fi
   - if [ -f vendor/bin/codacycoverage ] ; then php vendor/bin/codacycoverage clover || true ; fi
   - if [ -f php.log ] ; then cat php.log ; fi
   - if [ -f build/logs/phpunit.json ] ; then ./scripts/phpunit-top-tests build/logs/phpunit.json ; fi
@@ -74,6 +72,7 @@ matrix:
         - brew update
         - brew install gettext php70 mariadb
         - brew link --force gettext
+        - sed -i -e 's/^memory_limit = .*/memory_limit = -1/' /usr/local/etc/php/7.0/php.ini
         - curl https://getcomposer.org/installer | php
         - ln -s "`pwd`/composer.phar" /usr/local/bin/composer
         - mysql.server start

@@ -38,7 +38,7 @@
         "ext-xml": "*",
         "ext-pcre": "*",
         "ext-json": "*",
-        "phpmyadmin/sql-parser": "^4.1.2",
+        "phpmyadmin/sql-parser": "^4.1.7",
         "phpmyadmin/motranslator": "^3.0",
         "phpmyadmin/shapefile": "^2.0",
         "tecnickcom/tcpdf": "^6.2",
@@ -56,7 +56,6 @@
         "tecnickcom/tcpdf": "For PDF support"
     },
     "require-dev": {
-        "satooshi/php-coveralls": "^1.0",
         "phpunit/phpunit": "~4.1",
         "codacy/coverage": "dev-master",
         "phpunit/phpunit-selenium": "~1.2",

@@ -1,6 +1,26 @@
 phpMyAdmin - ChangeLog
 ======================
 
+4.7.2 (2017-06-29)
+- issue #13314 Make theme selection keep current server
+- issue #13311 Fixed direct login for accounts without password
+- issue #13316 Fixed check for mbstring.func_overload
+- issue #13323 Fixed wrong encoding of table at triggers
+- issue #12976 Fixed natural sorting in several places
+- issue #12718 Show warning for users removed from mysql.user table
+- issue #13362 Fixed loading additional javascripts
+- issue #13343 Fixed editing QBE
+- issue #13193 Improved documentation on user settings
+- issue #13092 Gracefully handle early fatal errors in AJAX requests
+- issue #13327 Fixed Incorrect NavigationTreeEnableExpansion default value in the documentation
+- issue #13008 Fixed export of database with a lot of tables
+- issue #13318 Improved performance when importing with enabled tracking
+- issue #13386 Avoid PHP errors with non existing configuration on OS X
+- issue #13388 Show only supported charsets for conversion
+- issue #13392 Fixed operation with session.auto_start enabled
+- issue #13383 "Create PHP code" is broken
+- issue #13189 Fixed links to resume timeouted import
+
 4.7.1 (2017-05-25)
 - issue #13132 Always execute tracking queries as controluser
 - issue #13125 Focus on SQL editor after inserting field name

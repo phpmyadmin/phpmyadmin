@@ -148,15 +148,9 @@ class Header
     private function _addDefaultScripts()
     {
         // Localised strings
-        $params = array('lang' => $GLOBALS['lang']);
-        if (isset($GLOBALS['db'])) {
-            $params['db'] = $GLOBALS['db'];
-        }
         $this->_scripts->addFile('jquery/jquery.min.js');
         $this->_scripts->addFile('jquery/jquery-migrate-3.0.0.js');
-        $this->_scripts->addFile(
-            'whitelist.php' . URL::getCommon($params), false, true
-        );
+        $this->_scripts->addFile('whitelist.php');
         $this->_scripts->addFile('sprintf.js');
         $this->_scripts->addFile('ajax.js');
         $this->_scripts->addFile('keyhandler.js');
@@ -183,7 +177,7 @@ class Header
         // Here would not be a good place to add CodeMirror because
         // the user preferences have not been merged at this point
 
-        $this->_scripts->addFile('messages.php' . URL::getCommon($params));
+        $this->_scripts->addFile('messages.php');
         // Append the theme id to this url to invalidate
         // the cache on a theme change. Though this might be
         // unavailable for fatal errors.
@@ -192,9 +186,7 @@ class Header
         } else {
             $theme_id = 'default';
         }
-        $this->_scripts->addFile(
-            'get_image.js.php?theme=' . $theme_id
-        );
+        $this->_scripts->addFile('get_image.js.php', false, array('theme' => $theme_id));
         $this->_scripts->addFile('config.js');
         $this->_scripts->addFile('doclinks.js');
         $this->_scripts->addFile('functions.js');

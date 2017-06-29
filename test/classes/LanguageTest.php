@@ -35,6 +35,12 @@ class LanguageTest extends PMATestCase
         $this->manager = new LanguageManager();
     }
 
+    public function tearDown()
+    {
+        // Ensure we have English locale after tests
+        $this->manager->getLanguage('en')->activate();
+    }
+
     /**
      * Test language filtering
      *
@@ -42,11 +48,11 @@ class LanguageTest extends PMATestCase
      */
     public function testAvailable()
     {
-        $GLOBALS['cfg']['FilterLanguages'] = 'cs';
+        $GLOBALS['cfg']['FilterLanguages'] = 'cs|en$';
 
         $langs = $this->manager->availableLocales();
 
-        $this->assertEquals(1, count($langs));
+        $this->assertEquals(2, count($langs));
         $this->assertContains('cs', $langs);
         $GLOBALS['cfg']['FilterLanguages'] = '';
     }

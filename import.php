@@ -251,22 +251,20 @@ PMA\libraries\Util::checkParameters(array('import_type', 'format'));
 // We don't want anything special in format
 $format = PMA_securePath($format);
 
+if (strlen($table) > 0 && strlen($db) > 0) {
+    $urlparams = array('db' => $db, 'table' => $table);
+} elseif (strlen($db) > 0) {
+    $urlparams = array('db' => $db);
+} else {
+    $urlparams = array();
+}
+
 // Create error and goto url
 if ($import_type == 'table') {
-    $err_url = 'tbl_import.php' . URL::getCommon(
-        array(
-            'db' => $db, 'table' => $table
-        )
-    );
-    $_SESSION['Import_message']['go_back_url'] = $err_url;
     $goto = 'tbl_import.php';
 } elseif ($import_type == 'database') {
-    $err_url = 'db_import.php' . URL::getCommon(array('db' => $db));
-    $_SESSION['Import_message']['go_back_url'] = $err_url;
     $goto = 'db_import.php';
 } elseif ($import_type == 'server') {
-    $err_url = 'server_import.php' . URL::getCommon();
-    $_SESSION['Import_message']['go_back_url'] = $err_url;
     $goto = 'server_import.php';
 } else {
     if (empty($goto) || !preg_match('@^(server|db|tbl)(_[a-z]*)*\.php$@i', $goto)) {
@@ -278,19 +276,9 @@ if ($import_type == 'table') {
             $goto = 'server_sql.php';
         }
     }
-    if (strlen($table) > 0 && strlen($db) > 0) {
-        $common = URL::getCommon(array('db' => $db, 'table' => $table));
-    } elseif (strlen($db) > 0) {
-        $common = URL::getCommon(array('db' => $db));
-    } else {
-        $common = URL::getCommon();
-    }
-    $err_url  = $goto . $common
-        . (preg_match('@^tbl_[a-z]*\.php$@', $goto)
-            ? '&amp;table=' . htmlspecialchars($table)
-            : '');
-    $_SESSION['Import_message']['go_back_url'] = $err_url;
 }
+$err_url = $goto . URL::getCommon($urlparams);
+$_SESSION['Import_message']['go_back_url'] = $err_url;
 // Avoid setting selflink to 'import.php'
 // problem similar to bug 4276
 if (basename($_SERVER['SCRIPT_NAME']) === 'import.php') {
@@ -610,12 +598,14 @@ if (! empty($id_bookmark) && $_REQUEST['action_bookmark'] == 2) {
 
 // Did we hit timeout? Tell it user.
 if ($timeout_passed) {
-    $importUrl = $err_url .= '&timeout_passed=1&offset=' . urlencode(
-        $GLOBALS['offset']
-    );
+    $urlparams['timeout_passed'] = '1';
+    $urlparams['offset'] = $GLOBALS['offset'];
     if (isset($local_import_file)) {
-        $importUrl .= '&local_import_file=' . urlencode($local_import_file);
+        $urlparams['local_import_file'] = $local_import_file;
     }
+
+    $importUrl = $err_url = $goto . URL::getCommon($urlparams);
+
     $message = PMA\libraries\Message::error(
         __(
             'Script timeout passed, if you want to finish import,'

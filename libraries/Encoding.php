@@ -325,4 +325,20 @@ class Encoding
             . '</label><br />'
             . '</li></ul>';
     }
+
+    public static function listEncodings()
+    {
+        if (is_null(self::$_engine)) {
+            self::initEngine();
+        }
+        /* Most engines do not support listing */
+        if (self::$_engine != self::ENGINE_MB) {
+            return $GLOBALS['cfg']['AvailableCharsets'];
+        }
+
+        return array_intersect(
+            array_map('strtolower', mb_list_encodings()),
+            $GLOBALS['cfg']['AvailableCharsets']
+        );
+    }
 }

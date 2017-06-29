@@ -149,6 +149,33 @@ class UtilTest extends PMATestCase
     }
 
     /**
+     * Skip test if CURL extension is not installed
+     *
+     * @param boolean $ssl_flags Whether to check support for SSL flags
+     *
+     * @return void
+     */
+    public function checkCurl($ssl_flags = false)
+    {
+        if (! function_exists('curl_init')) {
+            $this->markTestSkipped('curl not supported');
+        }
+        if ($ssl_flags) {
+            $curl = curl_version();
+            /*
+             * Some SSL engines in CURL do not support CURLOPT_CAPATH
+             * and CURLOPT_CAINFO flags, see
+             * https://curl.haxx.se/docs/ssl-compared.html
+             */
+            if (stripos($curl['ssl_version'], 'WinSSL') !== false
+                || stripos($curl['ssl_version'], 'SecureTransport') !== false
+            ) {
+                $this->markTestSkipped('Not supported in CURL SSL backend: ' . $curl['ssl_version']);
+            }
+        }
+    }
+
+    /**
      * Test for http request using Curl
      *
      * @group medium
@@ -161,10 +188,44 @@ class UtilTest extends PMATestCase
      */
     public function testHttpRequestCurl($url, $method, $return_only_status, $expected)
     {
-        if (! function_exists('curl_init')) {
-            $this->markTestSkipped('curl not supported');
-        }
+        $this->checkCurl();
         $result = PMA\libraries\Util::httpRequestCurl($url, $method, $return_only_status);
+        $this->validateHttp($result, $expected);
+    }
+
+    /**
+     * Test for http request using Curl with CURLOPT_CAPATH
+     *
+     * @group medium
+     *
+     * @return void
+     *
+     * @dataProvider httpRequests
+     *
+     * @group network
+     */
+    public function testHttpRequestCurlCAPath($url, $method, $return_only_status, $expected)
+    {
+        $this->checkCurl(true);
+        $result = PMA\libraries\Util::httpRequestCurl($url, $method, $return_only_status, null, '', CURLOPT_CAPATH);
+        $this->validateHttp($result, $expected);
+    }
+
+    /**
+     * Test for http request using Curl with CURLOPT_CAINFO
+     *
+     * @group medium
+     *
+     * @return void
+     *
+     * @dataProvider httpRequests
+     *
+     * @group network
+     */
+    public function testHttpRequestCurlCAInfo($url, $method, $return_only_status, $expected)
+    {
+        $this->checkCurl(true);
+        $result = PMA\libraries\Util::httpRequestCurl($url, $method, $return_only_status, null, '', CURLOPT_CAINFO);
         $this->validateHttp($result, $expected);
     }
 

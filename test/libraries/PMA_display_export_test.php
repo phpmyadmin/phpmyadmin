@@ -235,10 +235,6 @@ class PMA_DisplayExport_Test extends PHPUnit_Framework_TestCase
             'New table name',
             $html
         );
-        $this->assertContains(
-            'test_column',
-            $html
-        );
 
         //validate 6: PMA_getHtmlForExportOptionsOutput
         $this->assertContains(
@@ -297,35 +293,7 @@ class PMA_DisplayExport_Test extends PHPUnit_Framework_TestCase
             . 'Rename exported databases/tables/columns">',
             $html
         );
-        $this->assertContains(
-            'test\'_db',
-            $html
-        );
-        $this->assertContains(
-            'test_&lt;b&gt;table',
-            $html
-        );
-        $this->assertContains(
-            'col&lt;2',
-            $html
-        );
-        $this->assertContains(
-            'co&quot;l1',
-            $html
-        );
-        $this->assertContains(
-            '<hr/>',
-            $html
-        );
 
-        $name_attr =  'aliases[test\'_db][tables][test_&lt;b&gt;table][alias]';
-        $id_attr = mb_substr(md5($name_attr), 0, 12);
-
-        $this->assertContains(
-            '<input type="text" value="" name="' . $name_attr . '" '
-            . 'id="' . $id_attr . '" placeholder="'
-            . 'test_&lt;b&gt;table alias" class="" disabled="disabled"/>',
-            $html
-        );
+        $this->assertContains('<button class="alias_remove', $html);
     }
 }

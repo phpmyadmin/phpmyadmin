@@ -18,10 +18,18 @@ require_once 'libraries/session.lib.php';
 
 if (!@function_exists('session_name')) {
     PMA_warnMissingExtension('session', true);
-} elseif (ini_get('session.auto_start') !== '' && session_name() != 'phpMyAdmin') {
-    // Do not delete the existing session, it might be used by other
+} elseif (! empty(ini_get('session.auto_start')) && session_name() != 'phpMyAdmin' && !empty(session_id())) {
+    // Do not delete the existing non empty session, it might be used by other
     // applications; instead just close it.
-    session_write_close();
+    if (empty($_SESSION)) {
+        /* Ignore errors as this might have been destroyed in other request meanwhile */
+        @session_destroy();
+    } elseif (function_exists('session_abort')) {
+        /* PHP 5.6 and newer */
+        session_abort();
+    } else {
+        session_write_close();
+    }
 }
 
 // disable starting of sessions before all settings are done
@@ -113,6 +121,11 @@ function PMA_sessionFailed($errors)
 
 $session_name = 'phpMyAdmin';
 @session_name($session_name);
+
+// Restore correct sesion ID (it might have been reset by auto started session
+if (isset($_COOKIE['phpMyAdmin'])) {
+    session_id($_COOKIE['phpMyAdmin']);
+}
 
 // on first start of session we check for errors
 // f.e. session dir cannot be accessed - session file not created

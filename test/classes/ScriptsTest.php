@@ -183,7 +183,8 @@ $(function() {});
             $hash => array(
                 'has_onload' => 1,
                 'filename' => 'common.js',
-                'before_statics' => false
+                'before_statics' => false,
+                'params' => array(),
             )
         );
         $this->object->addFile($file);
@@ -211,12 +212,14 @@ $(function() {});
             'd7716810d825f4b55d18727c3ccb24e6' => array(
                 'has_onload' => 1,
                 'filename' => 'common.js',
-                'before_statics' => false
+                'before_statics' => false,
+                'params' => array(),
             ),
             '347a57484fcd6ea6d8a125e6e1d31f78' => array(
                 'has_onload' => 1,
                 'filename' => 'sql.js',
-                'before_statics' => false
+                'before_statics' => false,
+                'params' => array(),
             ),
         );
         $this->object->addFiles($filenames);

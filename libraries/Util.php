@@ -1017,15 +1017,14 @@ class Util
 
             if (! empty($GLOBALS['show_as_php'])) {
                 $new_line = '\\n"<br />' . "\n" . '&nbsp;&nbsp;&nbsp;&nbsp;. "';
-                $query_base = '$sql  = \'' . $query_base;
-                $query_base = '<code class="php"><pre>' . "\n"
-                    . htmlspecialchars(addslashes($query_base));
+                $query_base = htmlspecialchars(addslashes($query_base));
                 $query_base = preg_replace(
                     '/((\015\012)|(\015)|(\012))/',
                     $new_line,
                     $query_base
                 );
-                $query_base = '$sql  = \'' . $query_base . '"';
+                $query_base = '<code class="php"><pre>' . "\n"
+                    . '$sql = "' . $query_base;
             } elseif ($query_too_big) {
                 $query_base = htmlspecialchars($query_base);
             } else {
@@ -1169,7 +1168,7 @@ class Util
 
             //Clean up the end of the PHP
             if (! empty($GLOBALS['show_as_php'])) {
-                $retval .= '\';' . "\n"
+                $retval .= '";' . "\n"
                     . '</pre></code>';
             }
             $retval .= '</div>';
@@ -1839,9 +1838,9 @@ class Util
             }
 
             // no whitespace within an <a> else Safari will make it part of the link
-            $ret = "\n" . '<a href="' . $url . '" '
+            $ret = '&nbsp;<a href="' . $url . '" '
                 . implode(' ', $tag_params_strings) . '>'
-                . $message . $displayed_message . '</a>' . "\n";
+                . $message . $displayed_message . '</a>&nbsp;';
         } else {
             // no spaces (line breaks) at all
             // or after the hidden fields
@@ -4744,7 +4743,7 @@ class Util
      *
      * @return mixed
      */
-    public static function httprequestcurl($url, $method, $return_only_status = false, $content = null, $header = "", $ssl = 0)
+    public static function httpRequestCurl($url, $method, $return_only_status = false, $content = null, $header = "", $ssl = 0)
     {
         $curl_handle = curl_init($url);
         if ($curl_handle === false) {
@@ -4788,7 +4787,7 @@ class Util
         if ($ssl == CURLOPT_CAPATH) {
             $curl_status &= curl_setopt($curl_handle, CURLOPT_CAPATH, $certs_dir);
         } elseif ($ssl == CURLOPT_CAINFO) {
-            $curl_status &= curl_setopt($curl_handle, CURLOPT_CAINFO, $certs_dir . 'isrgrootx1.pem');
+            $curl_status &= curl_setopt($curl_handle, CURLOPT_CAINFO, $certs_dir . 'cacert.pem');
         }
 
         $curl_status &= curl_setopt($curl_handle, CURLOPT_RETURNTRANSFER,true);

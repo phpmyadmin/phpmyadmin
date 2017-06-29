@@ -354,7 +354,7 @@ function PMA_TRI_getRowForList($trigger, $rowclass = '')
         $retval .= "            <td>\n";
         $retval .= "<a href='db_triggers.php{$url_query}"
             . "&amp;table=" . urlencode($trigger['table']) . "'>"
-            . urlencode($trigger['table']) . "</a>";
+            . htmlspecialchars($trigger['table']) . "</a>";
         $retval .= "            </td>\n";
     }
     $retval .= "            <td>\n";
