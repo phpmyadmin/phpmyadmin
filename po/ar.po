@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.8.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2017-06-28 09:58+0200\n"
-"PO-Revision-Date: 2017-06-28 22:48+0000\n"
-"Last-Translator: yagoub fadel <yagoub76@gmail.com>\n"
+"PO-Revision-Date: 2017-06-29 06:18+0000\n"
+"Last-Translator: Michal Čihař <michal@cihar.com>\n"
 "Language-Team: Arabic "
 "<https://hosted.weblate.org/projects/phpmyadmin/master/ar/>\n"
 "Language: ar\n"
@@ -1751,7 +1751,7 @@ msgstr "خطأ في معالجة الطلب"
 #: js/messages.php:363
 #, php-format
 msgid "Error code: %s"
-msgstr "رمز الخطأ s%:"
+msgstr "رمز الخطأ :%s"
 
 #: js/messages.php:364
 #, php-format
@@ -1977,7 +1977,7 @@ msgid ""
 "database %s has columns that are not present in the current table."
 msgstr ""
 "لا توجد أعمدة في القائمة المركزية. تأكد من أن قائمة الأعمدة المركزية لقاعدة "
-"البيانات s% يحتوي على أعمدة غير موجودة في الجدول الحالي ."
+"البيانات %s يحتوي على أعمدة غير موجودة في الجدول الحالي ."
 
 #: js/messages.php:428
 #, fuzzy
@@ -2022,7 +2022,7 @@ msgstr "تقرير التتبع"
 #: js/messages.php:441
 #, php-format
 msgid "The first step of normalization is complete for table '%s'."
-msgstr "الخطوة الاولي في التطبيع هي اكمال الجدول s%'."
+msgstr "الخطوة الاولي في التطبيع هي اكمال الجدول '%s'."
 
 #: js/messages.php:442 libraries/normalization.lib.php:451
 #: libraries/normalization.lib.php:498 libraries/normalization.lib.php:583
