@@ -2,8 +2,9 @@ phpMyAdmin SSL certificates
 ===========================
 
 This directory contains copy of root certificates used to sign phpmyadmin.net
-website. It is used to allow operation on systems where the certificates are
-missing or wrongly configured (happens on Windows with wrongly compiled CURL).
+and reports.phpmyadmin.net websites. It is used to allow operation on systems
+where the certificates are missing or wrongly configured (happens on Windows
+with wrongly compiled CURL).
 
 Currently included SSL certificates:
 
