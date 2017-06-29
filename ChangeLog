@@ -1,6 +1,8 @@
 phpMyAdmin - ChangeLog
 ======================
 
+4.7.3 (not yet released)
+
 4.7.2 (2017-06-29)
 - issue #13314 Make theme selection keep current server
 - issue #13311 Fixed direct login for accounts without password
