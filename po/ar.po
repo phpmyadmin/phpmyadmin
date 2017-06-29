@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.7.2-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2017-06-28 09:56+0200\n"
-"PO-Revision-Date: 2017-06-29 10:18+0000\n"
+"PO-Revision-Date: 2017-06-29 22:48+0000\n"
 "Last-Translator: yagoub fadel <yagoub76@gmail.com>\n"
 "Language-Team: Arabic "
 "<https://hosted.weblate.org/projects/phpmyadmin/4-7/ar/>\n"
@@ -617,8 +617,6 @@ msgstr ""
 "المسؤولين، مستخدمو debian-sys-maint و pma. مزيد من المعلومات متوفرة هنا %s."
 
 #: index.php:174
-#, fuzzy
-#| msgid "General Settings"
 msgid "General settings"
 msgstr "الإعدادات العامة"
 
@@ -633,8 +631,6 @@ msgid "Server connection collation"
 msgstr "إعدادات الأتصال بالخادم"
 
 #: index.php:242
-#, fuzzy
-#| msgid "Appearance Settings"
 msgid "Appearance settings"
 msgstr "إعدادات المظهر"
 
@@ -845,10 +841,8 @@ msgid "Delete tracking data for this version?"
 msgstr "حذف بيانات التتبع لهذه النسخة؟"
 
 #: js/messages.php:59
-#, fuzzy
-#| msgid "Delete tracking data for this table"
 msgid "Delete tracking data for these versions?"
-msgstr "حذف بيانات التتبع لهذا الجدول"
+msgstr "حذف بيانات التتبع لهذه النسخة ؟"
 
 #: js/messages.php:60
 msgid "Delete entry from tracking report?"
@@ -863,54 +857,38 @@ msgid "Dropping Primary Key/Index"
 msgstr "حذف المفتاح الرئيسي مفتاح/فهرس"
 
 #: js/messages.php:63
-#, fuzzy
-#| msgid "Select Foreign Key"
 msgid "Dropping Foreign key."
-msgstr "إختيار المفتاح الغريب"
+msgstr "الغاء المفتاح الاجنبي ."
 
 #: js/messages.php:65
 msgid "This operation could take a long time. Proceed anyway?"
 msgstr "هذه العملية قد تأخذ وقت طويل , متابعة على أي حال ؟"
 
 #: js/messages.php:67
-#, fuzzy, php-format
-#| msgid "Do you really want to execute \"%s\"?"
+#, php-format
 msgid "Do you really want to delete user group \"%s\"?"
-msgstr "هل تريد فعلاً تنفيذ  \"%s\"؟"
+msgstr "هل تريد حقا حذف مجموعة المستخدمين s%\"؟"
 
 #: js/messages.php:69
-#, fuzzy, php-format
-#| msgid "Do you really want to execute \"%s\"?"
+#, php-format
 msgid "Do you really want to delete the search \"%s\"?"
-msgstr "هل تريد فعلاً تنفيذ  \"%s\"؟"
+msgstr "هل تريد حقا حذف البحث\"s%\"؟"
 
 #: js/messages.php:71
-#, fuzzy
-#| msgid ""
-#| "You have edited some data and they have not been saved. Are you sure you "
-#| "want to leave this page before saving the data?"
 msgid "You have unsaved changes; are you sure you want to leave this page?"
-msgstr ""
-"لقد تم التعديل على بعض البيانات ولم يتم حفظها. هل تريد ترك هذه الصفحة بدون "
-"حفظ البيانات الجديدة؟"
+msgstr "لم تحفظ التغييرات؛ هل تريد بالتأكيد مغادرة هذه الصفحة؟"
 
 #: js/messages.php:73
-#, fuzzy
-#| msgid "Do you really want to execute \"%s\"?"
 msgid "Do you really want to revoke the selected user(s) ?"
-msgstr "هل تريد فعلاً تنفيذ  \"%s\"؟"
+msgstr "هل تريد حقا إلغاء المستخدم /المستخدمين المحدد /المحددين؟"
 
 #: js/messages.php:75
-#, fuzzy
-#| msgid "Do you really want to execute \"%s\"?"
 msgid "Do you really want to delete this central column?"
-msgstr "هل تريد فعلاً تنفيذ  \"%s\"؟"
+msgstr "هل تريد حقا حذف هذا العمود المركزي؟"
 
 #: js/messages.php:77
-#, fuzzy
-#| msgid "Do you really want to execute \"%s\"?"
 msgid "Do you really want to delete the selected items?"
-msgstr "هل تريد فعلاً تنفيذ  \"%s\"؟"
+msgstr "هل تريد حقا حذف العناصر المحددة؟"
 
 #: js/messages.php:79
 msgid ""
@@ -921,22 +899,16 @@ msgstr ""
 "المرتبطة بهذه الاجزاء !"
 
 #: js/messages.php:83
-#, fuzzy
-#| msgid "Do you really want to execute \"%s\"?"
 msgid "Do you really want to TRUNCATE the selected partition(s)?"
-msgstr "هل تريد فعلاً تنفيذ  \"%s\"؟"
+msgstr "هل تريد حقا اقتطاع القسم (الأقسام) المحدده؟"
 
 #: js/messages.php:85
-#, fuzzy
-#| msgid "Do you really want to execute \"%s\"?"
 msgid "Do you really want to remove partitioning?"
-msgstr "هل تريد فعلاً تنفيذ  \"%s\"؟"
+msgstr "هل تريد حقا إزالة التقسيم؟"
 
 #: js/messages.php:86
-#, fuzzy
-#| msgid "Do you really want to execute \"%s\"?"
 msgid "Do you really want to RESET SLAVE?"
-msgstr "هل تريد فعلاً تنفيذ  \"%s\"؟"
+msgstr "هل تريد حقا إعادة تعيين التابع؟"
 
 #: js/messages.php:88
 msgid ""
@@ -981,10 +953,8 @@ msgid "Reset"
 msgstr "إعادة تعيين"
 
 #: js/messages.php:113
-#, fuzzy
-#| msgid "Select All"
 msgid "Reset all"
-msgstr "تحديد الكل"
+msgstr "إعادة ضبط الكل"
 
 #: js/messages.php:116
 msgid "Missing value in the form!"
@@ -1007,10 +977,8 @@ msgid "Add index"
 msgstr "إضافة فهرس"
 
 #: js/messages.php:121
-#, fuzzy
-#| msgid "Edit Index"
 msgid "Edit index"
-msgstr "حرّر الفهرس"
+msgstr "تحرير الفهرس"
 
 #: js/messages.php:122 templates/table/index_form.phtml:235
 #, php-format
@@ -1022,8 +990,6 @@ msgid "Create single-column index"
 msgstr "إنشاء فهرس من عمود مفرد"
 
 #: js/messages.php:124
-#, fuzzy
-#| msgid "Create routine"
 msgid "Create composite index"
 msgstr "إنشئ فهرس مركب"
 
@@ -1193,16 +1159,12 @@ msgid "Used memory"
 msgstr "الذاكرة المستخدمة"
 
 #: js/messages.php:191
-#, fuzzy
-#| msgid "Total Swap"
 msgid "Total swap"
-msgstr "مجموع المقايدة"
+msgstr "إجمالي المبادلة"
 
 #: js/messages.php:192
-#, fuzzy
-#| msgid "Cached Swap"
 msgid "Cached swap"
-msgstr "المقايدة في الخابية"
+msgstr "تبادل مؤقت"
 
 #: js/messages.php:193
 #, fuzzy
@@ -1211,7 +1173,6 @@ msgid "Used swap"
 msgstr "المقايدة المستخدمة"
 
 #: js/messages.php:194
-#, fuzzy
 msgid "Free swap"
 msgstr "تبادل مجاني"
 
@@ -1294,10 +1255,8 @@ msgid "Add chart to grid"
 msgstr "أضف تخطيط إلى المشبكة"
 
 #: js/messages.php:218
-#, fuzzy
-#| msgid "Please add at least one variable to the series"
 msgid "Please add at least one variable to the series!"
-msgstr "فضلا , أضف متغير واحد على الأقل للسلسلة"
+msgstr "الرجاء إضافة متغير واحد على الأقل إلى السلسلة!"
 
 #: js/messages.php:219 libraries/DisplayResults.php:1490
 #: libraries/config.values.php:68 libraries/display_export.lib.php:692
@@ -1416,10 +1375,8 @@ msgid "Current settings"
 msgstr "الإعدادات الحالية"
 
 #: js/messages.php:256
-#, fuzzy
-#| msgid "Import files"
 msgid "Chart title"
-msgstr "استورد الملفات"
+msgstr "عنوان التخطيط"
 
 #. l10n: As in differential values
 #: js/messages.php:258
@@ -1539,8 +1496,6 @@ msgid "Chart"
 msgstr "الرسم البياني"
 
 #: js/messages.php:298 libraries/display_export.lib.php:903
-#, fuzzy
-#| msgid "Database"
 msgctxt "Alias"
 msgid "Database"
 msgstr "قاعدة البيانات"
@@ -1551,7 +1506,6 @@ msgid "Table"
 msgstr "جدول"
 
 #: js/messages.php:300 libraries/display_export.lib.php:926
-#, fuzzy
 msgctxt "Alias"
 msgid "Column"
 msgstr "عمود"
@@ -1632,18 +1586,14 @@ msgid "Import monitor configuration"
 msgstr "تشكيل مراقب الواردات"
 
 #: js/messages.php:332
-#, fuzzy
-#| msgid "Please select the file you want to import"
 msgid "Please select the file you want to import."
-msgstr "﻿الرجاء تحديد الملف الذي تريد استيراده"
+msgstr "﻿الرجاء تحديد الملف الذي تريد استيراده ."
 
 #: js/messages.php:333
 msgid "No files available on server for import!"
 msgstr "لا توجد ملفات متوفرة على الخادم للاستيراد!"
 
 #: js/messages.php:335
-#, fuzzy
-#| msgid "Analyse Query"
 msgid "Analyse query"
 msgstr "تحليل الإستعلام"
 
@@ -1684,10 +1634,8 @@ msgid "Formatting SQL…"
 msgstr "جار تنسيق SQL …"
 
 #: js/messages.php:350
-#, fuzzy
-#| msgid "Bad parameters!"
 msgid "No parameters found!"
-msgstr "عوامل متغيرة غير جيدة!"
+msgstr "لم يتم العثور على معلمات!"
 
 #: js/messages.php:354
 #: templates/database/designer/aggregate_query_panel.phtml:63
@@ -1711,32 +1659,24 @@ msgstr "تطبيق"
 
 #: js/messages.php:361 libraries/navigation/NavigationHeader.php:60
 #: libraries/server_status_monitor.lib.php:119
-#, fuzzy
-#| msgid "Loading"
 msgid "Loading…"
-msgstr "تحميل"
+msgstr "جار التحميل…"
 
 #: js/messages.php:362
 msgid "Request aborted!!"
 msgstr "طلب إحباط !!"
 
 #: js/messages.php:363
-#, fuzzy
-#| msgid "Processing Request"
 msgid "Processing request"
 msgstr "معالجة الطلب"
 
 #: js/messages.php:364
-#, fuzzy
-#| msgid "Query type"
 msgid "Request failed!!"
-msgstr "نوع الاستعلام"
+msgstr "الطلب فشل!!"
 
 #: js/messages.php:365
-#, fuzzy
-#| msgid "Error in processing request"
 msgid "Error in processing request"
-msgstr "خطأ في معالجة الطلب"
+msgstr "حدث خطأ أثناء معالجة الطلب"
 
 #: js/messages.php:366
 #, php-format
@@ -1755,16 +1695,12 @@ msgid "No databases selected."
 msgstr "لا قواعد بيانات محددة."
 
 #: js/messages.php:369
-#, fuzzy
-#| msgid "Dropping Column"
 msgid "Dropping column"
 msgstr "إزالة العمود"
 
 #: js/messages.php:370
-#, fuzzy
-#| msgid "Add primary key"
 msgid "Adding primary key"
-msgstr "إضافة مفتاح رئيسي"
+msgstr "إضافة المفتاح الأساسي"
 
 #: js/messages.php:371
 #: templates/database/designer/aggregate_query_panel.phtml:59
@@ -1781,34 +1717,24 @@ msgid "Click to dismiss this notification"
 msgstr "إضغط لإغلاق هذا الإشعار"
 
 #: js/messages.php:375
-#, fuzzy
-#| msgid "Renaming Databases"
 msgid "Renaming databases"
-msgstr "أعادة تسمية قاعدة البيانات"
+msgstr "إعادة تسمية قواعد البيانات"
 
 #: js/messages.php:376
-#, fuzzy
-#| msgid "Copying Database"
 msgid "Copying database"
 msgstr "نسخ قاعدة البيانات"
 
 #: js/messages.php:377
-#, fuzzy
-#| msgid "Changing Charset"
 msgid "Changing charset"
-msgstr "تغيير مجموعة المحارف"
+msgstr "تغيير مجموعة الأحرف"
 
 #: js/messages.php:381 libraries/Util.php:3079
-#, fuzzy
-#| msgid "Disable foreign key checks"
 msgid "Enable foreign key checks"
-msgstr "تعطيل التحقق من المفتاح الغريب"
+msgstr "تمكين عمليات التحقق من المفتاح الخارجي"
 
 #: js/messages.php:384
-#, fuzzy
-#| msgid "Failed to fetch headers"
 msgid "Failed to get real row count."
-msgstr "فشل إحضار الترويسة"
+msgstr "أخفق الحصول على عدد الصفوف الحقيقية."
 
 #: js/messages.php:387
 msgid "Searching"
@@ -1873,10 +1799,8 @@ msgid "Values for a new column"
 msgstr "﻿القيم لعمود جديد"
 
 #: js/messages.php:405
-#, fuzzy
-#| msgid "Enter each value in a separate field"
 msgid "Enter each value in a separate field."
-msgstr "أدخل كل قيمة بحقل منفصل"
+msgstr "أدخل كل قيمة في حقل منفصل"
 
 #: js/messages.php:406
 #, php-format
@@ -1939,26 +1863,21 @@ msgid "No auto-saved query"
 msgstr ""
 
 #: js/messages.php:421
-#, fuzzy, php-format
-#| msgid "Variable"
+#, php-format
 msgid "Variable %d:"
-msgstr "متغير"
+msgstr "المتغير d%:"
 
 #: js/messages.php:424 libraries/normalization.lib.php:884
 msgid "Pick"
 msgstr "اختيار"
 
 #: js/messages.php:425
-#, fuzzy
-#| msgid "No rows selected"
 msgid "Column selector"
-msgstr "لايوجد صفوف مختارة"
+msgstr "محدد العمود"
 
 #: js/messages.php:426
-#, fuzzy
-#| msgid "Search in database"
 msgid "Search this list"
-msgstr "بحث في قاعدة البيانات"
+msgstr "ابحث في هذه القائمة"
 
 #: js/messages.php:428
 #, php-format
@@ -1970,10 +1889,8 @@ msgstr ""
 "البيانات %s يحتوي على أعمدة غير موجودة في الجدول الحالي ."
 
 #: js/messages.php:431
-#, fuzzy
-#| msgid "Free memory"
 msgid "See more"
-msgstr "الذاكرة الحرة"
+msgstr "شاهد المزيد"
 
 #: js/messages.php:432
 msgid "Are you sure?"
@@ -1988,26 +1905,20 @@ msgstr ""
 "المتابعة؟"
 
 #: js/messages.php:437
-#, fuzzy
-#| msgid "Contribute"
 msgid "Continue"
-msgstr "مشاركه"
+msgstr "استمر"
 
 #: js/messages.php:440
 msgid "Add primary key"
 msgstr "إضافة مفتاح رئيسي"
 
 #: js/messages.php:441
-#, fuzzy
-#| msgid "A primary key has been added on %s."
 msgid "Primary key added."
-msgstr "تم إضافة المفتاح الأساسي في %s"
+msgstr "تم إضافة المفتاح الأساسي ."
 
 #: js/messages.php:442 libraries/normalization.lib.php:189
-#, fuzzy
-#| msgid "Tracking report"
 msgid "Taking you to next step…"
-msgstr "تقرير التتبع"
+msgstr "نقلك إلى الخطوة التالية …"
 
 #: js/messages.php:444
 #, php-format
@@ -2017,10 +1928,8 @@ msgstr "الخطوة الاولي في التطبيع هي اكمال الجدو
 #: js/messages.php:445 libraries/normalization.lib.php:450
 #: libraries/normalization.lib.php:497 libraries/normalization.lib.php:582
 #: libraries/normalization.lib.php:642
-#, fuzzy
-#| msgid "At End of Table"
 msgid "End of step"
-msgstr "في نهاية الجدول"
+msgstr "نهاية الخطوة"
 
 #: js/messages.php:446
 msgid "Second step of normalization (2NF)"
@@ -2046,10 +1955,8 @@ msgid ""
 msgstr ""
 
 #: js/messages.php:454
-#, fuzzy
-#| msgid "No databases selected."
 msgid "No partial dependencies selected!"
-msgstr "لا قواعد بيانات محددة."
+msgstr "لم يتم تحديد أي تبعيات جزئية!"
 
 #: js/messages.php:457
 msgid "Show me the possible partial dependencies based on data in the table"
@@ -2141,10 +2048,8 @@ msgid "Hide find and replace criteria"
 msgstr "إخفاء البحث عن المعايير واستبدالها"
 
 #: js/messages.php:489
-#, fuzzy
-#| msgid "Show search criteria"
 msgid "Show find and replace criteria"
-msgstr "إظهار معايير البحث"
+msgstr "إظهار إيجاد واستبدال المعايير"
 
 #: js/messages.php:493
 msgid "Each point represents a data row."
@@ -2211,16 +2116,12 @@ msgid "Geometry"
 msgstr "هندسة"
 
 #: js/messages.php:522
-#, fuzzy
-#| msgid "Inner Ring"
 msgid "Inner ring"
 msgstr "الحلقة الداخلية"
 
 #: js/messages.php:523
-#, fuzzy
-#| msgid "Outer ring:"
 msgid "Outer ring"
-msgstr "الحلقة الخارجية :"
+msgstr "الحلقة الخارجية"
 
 #: js/messages.php:527
 msgid "Do you want to copy encryption key?"
@@ -2257,10 +2158,8 @@ msgid "Select Foreign Key"
 msgstr "إختيار المفتاح الغريب"
 
 #: js/messages.php:552
-#, fuzzy
-#| msgid "Please select the primary key or a unique key"
 msgid "Please select the primary key or a unique key!"
-msgstr "فضلاً أختر المفتاح الرئيسي أو المفتاح الفريد"
+msgstr "فضلاً أختر المفتاح الرئيسي أو المفتاح الفريد !"
 
 #: js/messages.php:553 templates/database/designer/side_menu.phtml:91
 #: templates/database/designer/side_menu.phtml:94
@@ -2274,55 +2173,39 @@ msgid ""
 msgstr ""
 
 #: js/messages.php:558
-#, fuzzy
-#| msgid "Page number:"
 msgid "Page name"
-msgstr "صفحة رقم:"
+msgstr "اسم الصفحة"
 
 #: js/messages.php:559 templates/database/designer/side_menu.phtml:56
 #: templates/database/designer/side_menu.phtml:59
-#, fuzzy
-#| msgid "Select Tables"
 msgid "Save page"
-msgstr "اختر الجداول"
+msgstr "احفظ الصفحة"
 
 #: js/messages.php:560 templates/database/designer/side_menu.phtml:63
 #: templates/database/designer/side_menu.phtml:66
-#, fuzzy
-#| msgid "Select Tables"
 msgid "Save page as"
-msgstr "اختر الجداول"
+msgstr "حفظ الصفحة في صيغة"
 
 #: js/messages.php:561 templates/database/designer/side_menu.phtml:49
 #: templates/database/designer/side_menu.phtml:52
-#, fuzzy
-#| msgid "Free pages"
 msgid "Open page"
-msgstr "صفحات حرة"
+msgstr "فتح الصفحة"
 
 #: js/messages.php:562
-#, fuzzy
-#| msgid "Select Tables"
 msgid "Delete page"
-msgstr "اختر الجداول"
+msgstr "حذف الصفحة"
 
 #: js/messages.php:563 templates/database/designer/side_menu.phtml:10
-#, fuzzy
-#| msgid "Unit"
 msgid "Untitled"
-msgstr "سعرة"
+msgstr "بدون عنوان"
 
 #: js/messages.php:564
-#, fuzzy
-#| msgid "Please choose a page to edit"
 msgid "Please select a page to continue"
-msgstr "رجاء اختر صفحة لتعديلها"
+msgstr "يرجى تحديد صفحة للمتابعة"
 
 #: js/messages.php:565
-#, fuzzy
-#| msgid "Not a valid port number"
 msgid "Please enter a valid page name"
-msgstr "رقم منفذ غير صحيح"
+msgstr "الرجاء إدخال اسم صفحة صالح"
 
 #: js/messages.php:567
 msgid "Do you want to save the changes to the current page?"
@@ -2333,20 +2216,17 @@ msgid "Successfully deleted the page"
 msgstr ""
 
 #: js/messages.php:569
-#, fuzzy
-#| msgid "Edit or export relational schema"
 msgid "Export relational schema"
-msgstr "بناء الارتباطات"
+msgstr "تصدير المخطط العلائقي"
 
 #: js/messages.php:570
 msgid "Modifications have been saved"
 msgstr "تمت التعديلات"
 
 #: js/messages.php:573
-#, fuzzy, php-format
-#| msgid "Add an option for column "
+#, php-format
 msgid "Add an option for column \"%s\"."
-msgstr "إضافة خيار للعمود "
+msgstr "إضافة خيار للعمود‘s%‘ ."
 
 #: js/messages.php:574
 #, php-format
@@ -2358,10 +2238,8 @@ msgid "Submit"
 msgstr "إرسال"
 
 #: js/messages.php:578
-#, fuzzy
-#| msgid "Press escape to cancel editing"
 msgid "Press escape to cancel editing."
-msgstr "إضغط escape  لإلغاء التعديل"
+msgstr "إضغط escape  لإلغاء التعديل ."
 
 #: js/messages.php:580
 msgid ""
@@ -2395,10 +2273,8 @@ msgid "Click to mark/unmark."
 msgstr "إضغط لوضع علامة / إزالة علامة"
 
 #: js/messages.php:591
-#, fuzzy
-#| msgid "Double-click to copy column name"
 msgid "Double-click to copy column name."
-msgstr "أنقر مرتين لنسخ اسم العمود"
+msgstr "أنقر مرتين لنسخ اسم العمود ."
 
 #: js/messages.php:593
 msgid "Click the drop-down arrow<br />to toggle column's visibility."
@@ -2428,14 +2304,10 @@ msgid ""
 msgstr ""
 
 #: js/messages.php:606
-#, fuzzy
-#| msgid "Linestring"
 msgid "Original length"
-msgstr "منحنى"
+msgstr "طول الأصلي"
 
 #: js/messages.php:609
-#, fuzzy
-#| msgid "Cancel"
 msgid "cancel"
 msgstr "ألغاء"
 
@@ -2448,20 +2320,16 @@ msgid "Success"
 msgstr "نجاح"
 
 #: js/messages.php:613
-#, fuzzy
-#| msgid "Import defaults"
 msgid "Import status"
-msgstr "إفتراضيات الإستيراد"
+msgstr "حالة الاستيراد"
 
 #: js/messages.php:614 libraries/navigation/Navigation.php:113
 msgid "Drop files here"
 msgstr "إسقاط الملفات هنا"
 
 #: js/messages.php:615
-#, fuzzy
-#| msgid "Select Tables"
 msgid "Select database first"
-msgstr "اختر الجداول"
+msgstr "حدد قاعدة البيانات أولا"
 
 #: js/messages.php:618 libraries/DisplayResults.php:5043
 #: libraries/Util.php:3991
@@ -2471,30 +2339,20 @@ msgid "Print"
 msgstr "طباعة"
 
 #: js/messages.php:625
-#, fuzzy
-#| msgid ""
-#| "You can also edit most columns<br />by clicking directly on their content."
 msgid "You can also edit most values<br />by double-clicking directly on them."
-msgstr "تستطيع تعديل أغلب الأعمدة <br /> بالضغط مباشرة على المحتوى."
+msgstr "يمكنك أيضا تعديل معظم القيم <br /> بالنقر المزدوج عليها مباشرة."
 
 #: js/messages.php:630
-#, fuzzy
-#| msgid ""
-#| "You can also edit most columns<br />by clicking directly on their content."
 msgid "You can also edit most values<br />by clicking directly on them."
-msgstr "تستطيع تعديل أغلب الأعمدة <br /> بالضغط مباشرة على المحتوى."
+msgstr "يمكنك أيضا تعديل معظم القيم <br /> بالنقر عليها مباشرة."
 
 #: js/messages.php:636
-#, fuzzy
-#| msgid "Go to link"
 msgid "Go to link:"
-msgstr "ذهاب للرابط"
+msgstr "الانتقال إلى الرابط:"
 
 #: js/messages.php:637
-#, fuzzy
-#| msgid "Copy column name"
 msgid "Copy column name."
-msgstr "أنسخ اسم العمود"
+msgstr "أنسخ اسم العمود ."
 
 #: js/messages.php:639
 msgid "Right-click the column name to copy it to your clipboard."
@@ -2513,41 +2371,29 @@ msgid "More"
 msgstr "أكثر"
 
 #: js/messages.php:650
-#, fuzzy
-#| msgid "Show all"
 msgid "Show panel"
-msgstr "عرض الكل"
+msgstr "إظهار اللوحة"
 
 #: js/messages.php:651
-#, fuzzy
-#| msgid "Hide indexes"
 msgid "Hide panel"
-msgstr "إخفاء الفهارس"
+msgstr "إخفاء اللوحة"
 
 #: js/messages.php:652
-#, fuzzy
-#| msgid "Show logo in left frame"
 msgid "Show hidden navigation tree items."
-msgstr "عرض الشعار في الإطار الأيسر"
+msgstr "إظهار عناصر شجرة التنقل المخفية."
 
 #: js/messages.php:653 libraries/config/messages.inc.php:473
 #: libraries/navigation/NavigationTree.php:1431
-#, fuzzy
-#| msgid "Customize main frame"
 msgid "Link with main panel"
-msgstr "تخصيص الإطار الرئيسي"
+msgstr "ربط مع اللوحة الرئيسية"
 
 #: js/messages.php:654 libraries/navigation/NavigationTree.php:1434
-#, fuzzy
-#| msgid "Customize main frame"
 msgid "Unlink from main panel"
-msgstr "تخصيص الإطار الرئيسي"
+msgstr "إلغاء الربط من اللوحة الرئيسية"
 
 #: js/messages.php:658
-#, fuzzy
-#| msgid "The selected user was not found in the privilege table."
 msgid "The requested page was not found in the history, it may have expired."
-msgstr "المستخدم المحدد غير موجود في جدول الصلاحيات."
+msgstr "لم يتم العثور على الصفحة المطلوبة في السجل، فقد تكون قد انتهت صلاحيتها."
 
 #: js/messages.php:662 setup/lib/index.lib.php:165
 #, php-format
@@ -2586,16 +2432,12 @@ msgid ""
 msgstr ""
 
 #: js/messages.php:677
-#, fuzzy
-#| msgid "Change settings"
 msgid "Change report settings"
-msgstr "تغيير الإعدادات"
+msgstr "تغيير إعدادات التقرير"
 
 #: js/messages.php:678
-#, fuzzy
-#| msgid "Import files"
 msgid "Show report details"
-msgstr "استورد الملفات"
+msgstr "عرض تفاصيل التقرير"
 
 #: js/messages.php:681
 msgid ""
@@ -2619,10 +2461,8 @@ msgid "Please look at the bottom of this window."
 msgstr ""
 
 #: js/messages.php:699 libraries/ErrorHandler.php:374
-#, fuzzy
-#| msgid "Ignore"
 msgid "Ignore All"
-msgstr "تجاهل"
+msgstr "تجاهل الكل"
 
 #: js/messages.php:707
 msgid ""
@@ -2630,26 +2470,21 @@ msgid ""
 msgstr ""
 
 #: js/messages.php:717
-#, fuzzy
-#| msgid "Show this query here again"
 msgid "Execute this query again?"
-msgstr "أعرض هذا الاستعلام هنا مرة أخرى"
+msgstr "هل تريد تنفيذ هذا الاستعلام مرة أخرى؟"
 
 #: js/messages.php:719
-#, fuzzy
-#| msgid "Do you really want to execute \"%s\"?"
 msgid "Do you really want to delete this bookmark?"
-msgstr "هل تريد فعلاً تنفيذ  \"%s\"؟"
+msgstr "هل تريد حقا حذف هذه الإشارة المرجعية؟"
 
 #: js/messages.php:721
 msgid "Some error occurred while getting SQL debug info."
 msgstr ""
 
 #: js/messages.php:723
-#, fuzzy, php-format
-#| msgid "Issued queries"
+#, php-format
 msgid "%s queries executed %s times in %s seconds."
-msgstr "إستعلامات صادرة"
+msgstr "نفذت s% من طلبات البحثs%  من المرات في s% من الثواني."
 
 #: js/messages.php:724
 #, php-format
@@ -2682,22 +2517,16 @@ msgid ""
 msgstr ""
 
 #: js/messages.php:730
-#, fuzzy
-#| msgid "Copy database to"
 msgid "Copy tables to"
-msgstr "نسخ قاعدة البيانات إلى"
+msgstr "نسخ الجداول إلى"
 
 #: js/messages.php:731
-#, fuzzy
-#| msgid "Add new field"
 msgid "Add table prefix"
-msgstr "إضافة حقل جديد"
+msgstr "إضافة بادئة الجدول"
 
 #: js/messages.php:732
-#, fuzzy
-#| msgid "Replace table prefix"
 msgid "Replace table with prefix"
-msgstr "استبدال بادئة الجدول"
+msgstr "استبدال الجدول مع البادئة"
 
 #: js/messages.php:733 templates/database/structure/check_all_tables.phtml:29
 msgid "Copy table with prefix"
@@ -2980,102 +2809,72 @@ msgid "This field is required"
 msgstr ""
 
 #: js/messages.php:911
-#, fuzzy
-#| msgid "Use text field"
 msgid "Please fix this field"
-msgstr "استخدم حقل نص"
+msgstr "الرجاء إصلاح هذا الحقل"
 
 #: js/messages.php:912
-#, fuzzy
-#| msgid "Not a valid port number"
 msgid "Please enter a valid email address"
-msgstr "رقم منفذ غير صحيح"
+msgstr "رجاء قم بإدخال بريد الكتروني صحيح"
 
 #: js/messages.php:913
-#, fuzzy
-#| msgid "Not a valid port number"
 msgid "Please enter a valid URL"
-msgstr "رقم منفذ غير صحيح"
+msgstr "أدخل رابط صحيح من فضلك"
 
 #: js/messages.php:914
-#, fuzzy
-#| msgid "Not a valid port number"
 msgid "Please enter a valid date"
-msgstr "رقم منفذ غير صحيح"
+msgstr "ارجوك ادخل تاريخ صحيح"
 
 #: js/messages.php:917
-#, fuzzy
-#| msgid "Not a valid port number"
 msgid "Please enter a valid date ( ISO )"
-msgstr "رقم منفذ غير صحيح"
+msgstr "الرجاء إدخال تاريخ صالح ( ISO )"
 
 #: js/messages.php:919
-#, fuzzy
-#| msgid "Not a valid port number"
 msgid "Please enter a valid number"
-msgstr "رقم منفذ غير صحيح"
+msgstr "الرجاء إدخال رقم صحيح"
 
 #: js/messages.php:922
-#, fuzzy
-#| msgid "Not a valid port number"
 msgid "Please enter a valid credit card number"
-msgstr "رقم منفذ غير صحيح"
+msgstr "الرجاء إدخال رقم بطاقة ائتمان صالحة"
 
 #: js/messages.php:924
-#, fuzzy
-#| msgid "Not a valid port number"
 msgid "Please enter only digits"
-msgstr "رقم منفذ غير صحيح"
+msgstr "الرجاء إدخال أرقام فقط"
 
 #: js/messages.php:927
-#, fuzzy
-#| msgid "Not a valid port number"
 msgid "Please enter the same value again"
-msgstr "رقم منفذ غير صحيح"
+msgstr "من فظلك ادخل نفس القيمة مرة أخرى"
 
 #: js/messages.php:931
 msgid "Please enter no more than {0} characters"
 msgstr ""
 
 #: js/messages.php:936
-#, fuzzy
-#| msgid "Not a valid port number"
 msgid "Please enter at least {0} characters"
-msgstr "رقم منفذ غير صحيح"
+msgstr "الرجاء إدخال {0} حرفا على الأقل"
 
 #: js/messages.php:941
 msgid "Please enter a value between {0} and {1} characters long"
 msgstr ""
 
 #: js/messages.php:946
-#, fuzzy
-#| msgid "Not a valid port number"
 msgid "Please enter a value between {0} and {1}"
-msgstr "رقم منفذ غير صحيح"
+msgstr "يرجى إدخال قيمة بين {0} و {1}"
 
 #: js/messages.php:951
-#, fuzzy
-#| msgid "Not a valid port number"
 msgid "Please enter a value less than or equal to {0}"
-msgstr "رقم منفذ غير صحيح"
+msgstr "يرجى إدخال قيمة أقل من أو تساوي {0}"
 
 #: js/messages.php:956
-#, fuzzy
-#| msgid "Not a valid port number"
 msgid "Please enter a value greater than or equal to {0}"
-msgstr "رقم منفذ غير صحيح"
+msgstr "يرجى إدخال قيمة أكبر من أو تساوي {0}"
 
 #: js/messages.php:962
-#, fuzzy
-#| msgid "Not a valid port number"
 msgid "Please enter a valid date or time"
-msgstr "رقم منفذ غير صحيح"
+msgstr "الرجاء إدخال تاريخ أو وقت صالح"
 
 #: js/messages.php:967
-#, fuzzy
-#| msgid "Not a valid port number"
 msgid "Please enter a valid HEX input"
-msgstr "رقم منفذ غير صحيح"
+msgstr "الرجاء إدخال إدخال  HEX  صالح"
 
 #: js/messages.php:972 libraries/Message.php:190 libraries/Util.php:566
 #: libraries/core.lib.php:244 libraries/import.lib.php:80
@@ -3240,85 +3039,61 @@ msgid "Cyrillic"
 msgstr "السيريلية"
 
 #: libraries/Charsets.php:323
-#, fuzzy
-#| msgid "Arabic"
 msgctxt "Collation"
 msgid "Arabic"
 msgstr "العربية"
 
 #: libraries/Charsets.php:326 libraries/Charsets.php:437
-#, fuzzy
-#| msgid "Korean"
 msgctxt "Collation"
 msgid "Korean"
 msgstr "الكورية"
 
 #: libraries/Charsets.php:329
-#, fuzzy
-#| msgid "Hebrew"
 msgctxt "Collation"
 msgid "Hebrew"
 msgstr "العبرية"
 
 #: libraries/Charsets.php:332
-#, fuzzy
-#| msgid "Georgian"
 msgctxt "Collation"
 msgid "Georgian"
 msgstr "الجورجية"
 
 #: libraries/Charsets.php:335
-#, fuzzy
-#| msgid "Greek"
 msgctxt "Collation"
 msgid "Greek"
 msgstr "اليونانية"
 
 #: libraries/Charsets.php:338
-#, fuzzy
-#| msgid "Slovak"
 msgctxt "Collation"
 msgid "Czech-Slovak"
 msgstr "السلوفاكية"
 
 #: libraries/Charsets.php:341 libraries/Charsets.php:492
-#, fuzzy
-#| msgid "Ukrainian"
 msgctxt "Collation"
 msgid "Ukrainian"
 msgstr "الأكرانية"
 
 #: libraries/Charsets.php:344 libraries/Charsets.php:488
-#, fuzzy
-#| msgid "Turkish"
 msgctxt "Collation"
 msgid "Turkish"
 msgstr "التركية"
 
 #: libraries/Charsets.php:347 libraries/Charsets.php:480
-#, fuzzy
-#| msgid "Swedish"
 msgctxt "Collation"
 msgid "Swedish"
 msgstr "السويدية"
 
 #: libraries/Charsets.php:350 libraries/Charsets.php:484
-#, fuzzy
-#| msgid "Thai"
 msgctxt "Collation"
 msgid "Thai"
 msgstr "التايلندية"
 
 #: libraries/Charsets.php:353
-#, fuzzy
-#| msgid "unknown"
 msgctxt "Collation"
 msgid "Unknown"
-msgstr "غير معروفة"
+msgstr "غير معروف"
 
 #: libraries/Charsets.php:369
-#, fuzzy
-#| msgid "Bulgarian"
 msgctxt "Collation"
 msgid "Bulgarian"
 msgstr "البلغارية"
@@ -3329,8 +3104,6 @@ msgid "Chinese"
 msgstr ""
 
 #: libraries/Charsets.php:379
-#, fuzzy
-#| msgid "Croatian"
 msgctxt "Collation"
 msgid "Croatian"
 msgstr "الكرواتية"
@@ -3343,15 +3116,11 @@ msgid "Czech"
 msgstr "التشيكية"
 
 #: libraries/Charsets.php:387
-#, fuzzy
-#| msgid "Danish"
 msgctxt "Collation"
 msgid "Danish"
 msgstr "الدنمركية"
 
 #: libraries/Charsets.php:391
-#, fuzzy
-#| msgid "English"
 msgctxt "Collation"
 msgid "English"
 msgstr "الإنجليزية"
@@ -3364,18 +3133,14 @@ msgid "Esperanto"
 msgstr "إسبرانتو"
 
 #: libraries/Charsets.php:399
-#, fuzzy
-#| msgid "Estonian"
 msgctxt "Collation"
 msgid "Estonian"
 msgstr "الإستونية"
 
 #: libraries/Charsets.php:402 libraries/Charsets.php:519
-#, fuzzy
-#| msgid "Data Dictionary"
 msgctxt "Collation"
 msgid "German (dictionary order)"
-msgstr "قاموس البيانات"
+msgstr "الألمانية (ترتيب القاموس)"
 
 #: libraries/Charsets.php:405 libraries/Charsets.php:516
 msgctxt "Collation"
@@ -3383,8 +3148,6 @@ msgid "German (phone book order)"
 msgstr ""
 
 #: libraries/Charsets.php:414
-#, fuzzy
-#| msgid "Hungarian"
 msgctxt "Collation"
 msgid "Hungarian"
 msgstr "الهنجارية"
@@ -3402,8 +3165,6 @@ msgid "Classical Latin"
 msgstr ""
 
 #: libraries/Charsets.php:429
-#, fuzzy
-#| msgid "Latvian"
 msgctxt "Collation"
 msgid "Latvian"
 msgstr "اللاتفية"
@@ -3421,22 +3182,16 @@ msgid "Burmese"
 msgstr ""
 
 #: libraries/Charsets.php:444
-#, fuzzy
-#| msgid "Persian"
 msgctxt "Collation"
 msgid "Persian"
 msgstr "فارسية"
 
 #: libraries/Charsets.php:448
-#, fuzzy
-#| msgid "Polish"
 msgctxt "Collation"
 msgid "Polish"
 msgstr "البولندية"
 
 #: libraries/Charsets.php:455
-#, fuzzy
-#| msgid "Romanian"
 msgctxt "Collation"
 msgid "Romanian"
 msgstr "الرومانية"
@@ -3461,11 +3216,9 @@ msgid "Slovenian"
 msgstr "السلوفينية"
 
 #: libraries/Charsets.php:470 libraries/Charsets.php:530
-#, fuzzy
-#| msgid "Spanish"
 msgctxt "Collation"
 msgid "Spanish (modern)"
-msgstr "أسبانية"
+msgstr "الإسبانية (الحديثة)"
 
 #: libraries/Charsets.php:477 libraries/Charsets.php:527
 msgctxt "Collation"
@@ -3473,11 +3226,9 @@ msgid "Spanish (traditional)"
 msgstr ""
 
 #: libraries/Charsets.php:496
-#, fuzzy
-#| msgid "Table name"
 msgctxt "Collation"
 msgid "Vietnamese"
-msgstr "اسم الجدول"
+msgstr "الفيتنامية"
 
 #: libraries/Charsets.php:563
 #, fuzzy
@@ -3508,15 +3259,11 @@ msgid "accent-sensitive"
 msgstr "حساس لحالة الأحرف"
 
 #: libraries/Charsets.php:576
-#, fuzzy
-#| msgid "multilingual"
 msgctxt "Collation variant"
 msgid "multi-level"
-msgstr "متعدد اللغات"
+msgstr "متعدد المستويات"
 
 #: libraries/Charsets.php:579
-#, fuzzy
-#| msgid "Binary"
 msgctxt "Collation variant"
 msgid "binary"
 msgstr "ثنائي"
@@ -3536,10 +3283,8 @@ msgid "Could not load default configuration from: %1$s"
 msgstr "لا يمكن تحميل الإعدادات الإفتراضية من : %1$s"
 
 #: libraries/Config.php:1176
-#, fuzzy
-#| msgid "Failed to read configuration file"
 msgid "Failed to read configuration file!"
-msgstr "فشل قراءة ملف الإعدادات"
+msgstr "أخفق قراءة ملف التهيئة!"
 
 #: libraries/Config.php:1179
 msgid ""
@@ -3563,10 +3308,8 @@ msgstr[4] ""
 msgstr[5] ""
 
 #: libraries/Console.php:93
-#, fuzzy
-#| msgid "Table Search"
 msgid "No bookmarks"
-msgstr "بحث في الجدول"
+msgstr "لا توجد إشارات مرجعية"
 
 #: libraries/Console.php:128
 #, fuzzy
@@ -3599,10 +3342,8 @@ msgid "Details…"
 msgstr "التفاصيل…"
 
 #: libraries/DatabaseInterface.php:2354
-#, fuzzy
-#| msgid "Missing parameter:"
 msgid "Missing connection parameters!"
-msgstr "مدخلات مفقودة:"
+msgstr "معلمات اتصال مفقودة!"
 
 #: libraries/DatabaseInterface.php:2378
 msgid "Connection for controluser as defined in your configuration failed."
@@ -3631,20 +3372,16 @@ msgid "Descending"
 msgstr "تنازليا"
 
 #: libraries/DbQbe.php:468 templates/table/search/search_and_replace.phtml:6
-#, fuzzy
-#| msgid "Column"
 msgid "Column:"
-msgstr "عمود"
+msgstr "عمود :"
 
 #: libraries/DbQbe.php:514
 msgid "Alias:"
 msgstr ""
 
 #: libraries/DbQbe.php:567
-#, fuzzy
-#| msgid "Sort"
 msgid "Sort:"
-msgstr "ترتيب"
+msgstr "ترتيب :"
 
 #: libraries/DbQbe.php:631
 #, fuzzy
@@ -3653,16 +3390,12 @@ msgid "Sort order:"
 msgstr "ترتيب"
 
 #: libraries/DbQbe.php:680
-#, fuzzy
-#| msgid "Show"
 msgid "Show:"
-msgstr "عرض"
+msgstr "عرض :"
 
 #: libraries/DbQbe.php:729
-#, fuzzy
-#| msgid "Criteria"
 msgid "Criteria:"
-msgstr "المعايير"
+msgstr "المعايير :"
 
 #: libraries/DbQbe.php:798
 msgid "Add/Delete criteria rows"
@@ -3681,10 +3414,8 @@ msgid "Use Tables"
 msgstr "إستخدم الجداول"
 
 #: libraries/DbQbe.php:878 libraries/DbQbe.php:989
-#, fuzzy
-#| msgid "Or"
 msgid "Or:"
-msgstr "أو"
+msgstr "أو :"
 
 #: libraries/DbQbe.php:882 libraries/DbQbe.php:974
 msgid "And:"
@@ -3699,10 +3430,8 @@ msgid "Del"
 msgstr "حذف"
 
 #: libraries/DbQbe.php:906
-#, fuzzy
-#| msgid "Modify"
 msgid "Modify:"
-msgstr "تعديل"
+msgstr "تعديل :"
 
 #: libraries/DbQbe.php:969
 msgid "Ins:"
@@ -3722,34 +3451,24 @@ msgid "Submit Query"
 msgstr "إرسال الإستعلام"
 
 #: libraries/DbQbe.php:1880
-#, fuzzy
-#| msgid "Search"
 msgid "Saved bookmarked search:"
-msgstr "إبحث"
+msgstr "البحث المحفوظ الذي تم وضع إشارة مرجعية له:"
 
 #: libraries/DbQbe.php:1882
-#, fuzzy
-#| msgid "Table Search"
 msgid "New bookmark"
-msgstr "بحث في الجدول"
+msgstr "إشارة جديدة"
 
 #: libraries/DbQbe.php:1908
-#, fuzzy
-#| msgid "Table Search"
 msgid "Create bookmark"
-msgstr "بحث في الجدول"
+msgstr "إنشاء إشارة مرجعية"
 
 #: libraries/DbQbe.php:1911
-#, fuzzy
-#| msgid "Showing bookmark"
 msgid "Update bookmark"
 msgstr "عرض العلامة المرجعية"
 
 #: libraries/DbQbe.php:1913
-#, fuzzy
-#| msgid "Table Search"
 msgid "Delete bookmark"
-msgstr "بحث في الجدول"
+msgstr "حذف الإشارة المرجعية"
 
 #: libraries/DbSearch.php:99 libraries/DbSearch.php:392
 msgid "at least one of the words"
@@ -3827,10 +3546,8 @@ msgstr "داخل الجداول:"
 
 #: libraries/DbSearch.php:438 libraries/display_export.lib.php:52
 #: libraries/replication_gui.lib.php:381
-#, fuzzy
-#| msgid "Unselect All"
 msgid "Unselect all"
-msgstr "عدم تحديد الكل"
+msgstr "إلغاء تحديد الكل"
 
 #: libraries/DbSearch.php:443
 msgid "Inside column:"
@@ -3845,10 +3562,8 @@ msgid "Restore column order"
 msgstr "استعادة ترتيب الأعمدة"
 
 #: libraries/DisplayResults.php:956 libraries/central_columns.lib.php:661
-#, fuzzy
-#| msgid "Filter"
 msgid "Filter rows"
-msgstr "مرشح"
+msgstr "تصفية الصفوف"
 
 #: libraries/DisplayResults.php:958 libraries/central_columns.lib.php:663
 #, fuzzy
@@ -3940,10 +3655,8 @@ msgid "Relational key"
 msgstr "مفتاح العلائقيّة"
 
 #: libraries/DisplayResults.php:1741
-#, fuzzy
-#| msgid "Displaying Column Comments"
 msgid "Display column for relationships"
-msgstr "إظهار تعليقات العمود"
+msgstr "عرض عمود للعلاقات"
 
 #: libraries/DisplayResults.php:1757
 msgid "Show binary contents"
@@ -3966,10 +3679,8 @@ msgid "Well Known Binary"
 msgstr "ثنائي معروف جيّداً"
 
 #: libraries/DisplayResults.php:3534 libraries/DisplayResults.php:3549
-#, fuzzy
-#| msgid "The row has been deleted."
 msgid "The row has been deleted."
-msgstr "لقد تمّ حذف الصّف"
+msgstr "تم حذف الصف."
 
 #: libraries/DisplayResults.php:3582 libraries/DisplayResults.php:4836
 #: libraries/server_status_processes.lib.php:279
@@ -3987,10 +3698,8 @@ msgstr "ممكن أن يكون تقريبي. أنظر إلى [doc@faq3-11]الأ
 #: libraries/controllers/table/TableSearchController.php:570
 #: libraries/rte/rte_routines.lib.php:1445 libraries/sql_query_form.lib.php:92
 #: tbl_row_action.php:141 view_operations.php:75
-#, fuzzy
-#| msgid "Your SQL query has been executed successfully."
 msgid "Your SQL query has been executed successfully."
-msgstr "تم تنفيذ إستعلام SQL  بنجاح"
+msgstr "تم تنفيذ استعلام SQL الخاص بك بنجاح."
 
 #: libraries/DisplayResults.php:4694
 #: libraries/controllers/database/DatabaseStructureController.php:785
@@ -4041,10 +3750,8 @@ msgstr "مع المحدد:"
 #: templates/database/structure/check_all_tables.phtml:4
 #: templates/privileges/global_priv_table.phtml:5 templates/select_all.phtml:4
 #: templates/select_all.phtml:5
-#, fuzzy
-#| msgid "Check All"
 msgid "Check all"
-msgstr "تحديد الكل"
+msgstr "تحقق من الكل"
 
 #: libraries/DisplayResults.php:5020
 msgid "Copy to clipboard"
@@ -4063,15 +3770,11 @@ msgid "Visualize GIS data"
 msgstr "إبداء بيانات نظام المعلومات الجغرافية للعيان"
 
 #: libraries/DisplayResults.php:5375
-#, fuzzy
-#| msgid "Link not found"
 msgid "Link not found!"
-msgstr "لم يمكن إيجاد الوصلة"
+msgstr "لم يتم العثور على الرابط!"
 
 #. l10n: This is currently used only in Japanese locales
 #: libraries/Encoding.php:313
-#, fuzzy
-#| msgid "None"
 msgctxt "None encoding conversion"
 msgid "None"
 msgstr "لا شيء"
@@ -4086,16 +3789,12 @@ msgid "Too many error messages, some are not displayed."
 msgstr "كثيراً من رسائل الخطأ، لن تعرض كلها."
 
 #: libraries/ErrorHandler.php:359
-#, fuzzy
-#| msgid "Import"
 msgid "Report"
-msgstr "استيراد"
+msgstr "أبلغ عن"
 
 #: libraries/ErrorHandler.php:364 templates/error/report_form.phtml:27
-#, fuzzy
-#| msgid "Automatic layout"
 msgid "Automatically send report next time"
-msgstr "مظهر تلقائي"
+msgstr "إرسال التقرير تلقائيا في المرة القادمة"
 
 #: libraries/File.php:244
 msgid "File was not an uploaded file."
