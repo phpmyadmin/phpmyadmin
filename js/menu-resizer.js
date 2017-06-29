@@ -28,11 +28,11 @@
 
         if (windowWidth < 768) {
             // Sets the image for the left and right scroll indicator
-            $('.scrollindicator--right').html($(PMA_getImage('b_right.png').toString()));
-            $('.scrollindicator--left').html($(PMA_getImage('b_left.png').toString()));
+            $(PMA_getImage('b_left.png').toString()).prependTo($('.scrollindicator--left'));
+            $(PMA_getImage('b_right.png').toString()).prependTo($('.scrollindicator--right'));
 
             // Set the width of the navigation bar without scroll indicator
-            $('.navigationbar').css({'width': widthCalculator.call($container) - 59});
+            $('.navigationbar').css({'width': widthCalculator.call($container) - 65});
 
             // Scroll the navigation bar on click
             $('.scrollindicator--right')
@@ -94,7 +94,7 @@
         for (i = 0; i < l; i++) {
             total_len += $($li[i]).outerWidth(true);
         }
-        //console.log(wmax);
+
         // Now hide menu elements that don't fit into the menubar
         var hidden = false; // Whether we have hidden any tabs
         while (total_len >= wmax && --l >= 0) { // Process the tabs backwards
@@ -130,7 +130,7 @@
         }
         // Show/hide the "More" tab as needed
         if (windowWidth < 768) {
-            $('.navigationbar').css({'width': wmax - 59});
+            $('.navigationbar').css({'width': wmax - 65});
         }
         else if ($submenu_ul.find('li').length > 0) {
             $submenu.addClass('shown');
