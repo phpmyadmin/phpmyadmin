@@ -365,7 +365,7 @@ function PMA_getHtmlForReplicationDbMultibox()
 {
     $multi_values = '';
     $multi_values .= '<select name="db_select[]" '
-        . 'size="6" multiple="multiple" id="db_select">';
+        . 'size="6" multiple="multiple" id="db_select" class="width96">';
 
     foreach ($GLOBALS['dblist']->databases as $current_db) {
         if ($GLOBALS['dbi']->isSystemSchema($current_db)) {

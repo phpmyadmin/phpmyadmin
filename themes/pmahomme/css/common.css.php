@@ -3566,6 +3566,10 @@ body .ui-dialog .ui-dialog-buttonpane .ui-dialog-buttonset {
         width: 100%;
     }
 
+    .width96 {
+        width: 96% !important;
+    }
+
     #page_nav_icons {
         display: none;
     }
