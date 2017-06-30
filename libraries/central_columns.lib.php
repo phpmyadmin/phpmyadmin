@@ -6,7 +6,7 @@
  * @package PhpMyAdmin
  */
 use PhpMyAdmin\Charsets;
-use PMA\libraries\Message;
+use PhpMyAdmin\Message;
 use PMA\libraries\Util;
 use PMA\libraries\URL;
 
@@ -211,7 +211,7 @@ function PMA_getInsertQuery($column, $def, $db, $central_list_table)
  * @param string $table        if $isTable is false,
  * then table name to which columns belong
  *
- * @return true|PMA\libraries\Message
+ * @return true|PhpMyAdmin\Message
  */
 function PMA_syncUniqueColumns($field_select, $isTable=true, $table=null)
 {
@@ -316,7 +316,7 @@ function PMA_syncUniqueColumns($field_select, $isTable=true, $table=null)
  * selected list of columns to remove from central list
  * @param bool  $isTable      if passed array is of tables or columns
  *
- * @return true|PMA\libraries\Message
+ * @return true|PhpMyAdmin\Message
  */
 function PMA_deleteColumnsFromList($field_select, $isTable=true)
 {
@@ -399,7 +399,7 @@ function PMA_deleteColumnsFromList($field_select, $isTable=true)
  * @param string $db              current database
  * @param array  $selected_tables list of selected tables.
  *
- * @return true|PMA\libraries\Message
+ * @return true|PhpMyAdmin\Message
  */
 function PMA_makeConsistentWithList($db, $selected_tables)
 {
@@ -508,7 +508,7 @@ function PMA_getCentralColumnsFromTable($db, $table, $allFields=false)
  * @param string $col_extra     new column extra property
  * @param string $col_default   new column default value
  *
- * @return true|PMA\libraries\Message
+ * @return true|PhpMyAdmin\Message
  */
 function PMA_updateOneColumn($db, $orig_col_name, $col_name, $col_type,
     $col_attribute,$col_length, $col_isNull, $collation, $col_extra, $col_default
@@ -556,7 +556,7 @@ function PMA_updateOneColumn($db, $orig_col_name, $col_name, $col_type,
 /**
  * Update Multiple column in central columns list if a chnage is requested
  *
- * @return true|PMA\libraries\Message
+ * @return true|PhpMyAdmin\Message
  */
 function PMA_updateMultipleColumn()
 {

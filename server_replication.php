@@ -31,7 +31,7 @@ $scripts->addFile('vendor/zxcvbn.js');
  */
 if (! $is_superuser) {
     $html  = PMA_getHtmlForSubPageHeader('replication');
-    $html .= PMA\libraries\Message::error(__('No Privileges'))->getDisplay();
+    $html .= PhpMyAdmin\Message::error(__('No Privileges'))->getDisplay();
     $response->addHTML($html);
     exit;
 }

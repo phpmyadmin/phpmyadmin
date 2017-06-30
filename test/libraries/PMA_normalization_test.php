@@ -430,7 +430,7 @@ class PMA_Normalization_Test extends PHPUnit_Framework_TestCase
         $this->assertArrayHasKey('queryError', $result);
         $this->assertArrayHasKey('message', $result);
         $this->assertInstanceOf(
-            'PMA\libraries\Message', $result['message']
+            'PhpMyAdmin\Message', $result['message']
         );
     }
 

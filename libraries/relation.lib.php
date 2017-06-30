@@ -7,7 +7,7 @@
  */
 
 use PhpMyAdmin\Core;
-use PMA\libraries\Message;
+use PhpMyAdmin\Message;
 use PMA\libraries\Table;
 use PMA\libraries\RecentFavoriteTable;
 use PMA\libraries\URL;

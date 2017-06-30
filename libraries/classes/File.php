@@ -9,7 +9,7 @@ namespace PhpMyAdmin;
 
 use PMA\libraries\config\ConfigFile;
 use PhpMyAdmin\Core;
-use PMA\libraries\Message;
+use PhpMyAdmin\Message;
 use PMA\libraries\Util;
 use PMA\libraries\ZipExtension;
 

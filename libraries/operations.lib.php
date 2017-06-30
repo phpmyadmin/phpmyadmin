@@ -8,7 +8,7 @@
 use PMA\libraries\engines\Innodb;
 use PhpMyAdmin\Charsets;
 use PhpMyAdmin\Core;
-use PMA\libraries\Message;
+use PhpMyAdmin\Message;
 use PMA\libraries\Partition;
 use PMA\libraries\plugins\export\ExportSql;
 use PMA\libraries\Response;

@@ -30,12 +30,12 @@ if ($response->isAjax() && !empty($_REQUEST['kill'])) {
     $kill = intval($_REQUEST['kill']);
     $query = $GLOBALS['dbi']->getKillQuery($kill);
     if ($GLOBALS['dbi']->tryQuery($query)) {
-        $message = PMA\libraries\Message::success(
+        $message = PhpMyAdmin\Message::success(
             __('Thread %s was successfully killed.')
         );
         $response->setRequestStatus(true);
     } else {
-        $message = PMA\libraries\Message::error(
+        $message = PhpMyAdmin\Message::error(
             __(
                 'phpMyAdmin was unable to kill thread %s.'
                 . ' It probably has already been closed.'

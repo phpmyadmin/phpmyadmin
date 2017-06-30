@@ -10,7 +10,7 @@
  * Include to test.
  */
 use PhpMyAdmin\Core;
-use PMA\libraries\Menu;
+use PhpMyAdmin\Menu;
 use PMA\libraries\Theme;
 
 require_once 'libraries/database_interface.inc.php';

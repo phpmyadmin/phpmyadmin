@@ -146,7 +146,7 @@ class ImportOds extends ImportPlugin
 
         if ($xml === false) {
             $sheets = array();
-            $GLOBALS['message'] = PMA\libraries\Message::error(
+            $GLOBALS['message'] = PhpMyAdmin\Message::error(
                 __(
                     'The XML file specified was either malformed or incomplete.'
                     . ' Please correct the issue and try again.'
@@ -158,7 +158,7 @@ class ImportOds extends ImportPlugin
             $root = $xml->children('office', true)->{'body'}->{'spreadsheet'};
             if (empty($root)) {
                 $sheets = array();
-                $GLOBALS['message'] = PMA\libraries\Message::error(
+                $GLOBALS['message'] = PhpMyAdmin\Message::error(
                     __('Could not parse OpenDocument Spreadsheet!')
                 );
                 $GLOBALS['error'] = true;

@@ -10,7 +10,7 @@ namespace PMA\libraries\plugins\auth;
 
 use phpseclib\Crypt;
 use PhpMyAdmin\LanguageManager;
-use PMA\libraries\Message;
+use PhpMyAdmin\Message;
 use PMA\libraries\plugins\AuthenticationPlugin;
 use PMA\libraries\Response;
 use PMA\libraries\Util;

@@ -47,7 +47,7 @@ if (empty($sql_query)) {
 if (isset($_REQUEST['view']['name'])
     && empty($_REQUEST['view']['name'])
 ) {
-    $message = PMA\libraries\Message::error(__('View name can not be empty!'));
+    $message = PhpMyAdmin\Message::error(__('View name can not be empty!'));
     $response->addJSON(
         'message',
         $message
@@ -111,13 +111,13 @@ if (isset($_REQUEST['createview']) || isset($_REQUEST['alterview'])) {
 
     if (!$GLOBALS['dbi']->tryQuery($sql_query)) {
         if (! isset($_REQUEST['ajax_dialog'])) {
-            $message = PMA\libraries\Message::rawError($GLOBALS['dbi']->getError());
+            $message = PhpMyAdmin\Message::rawError($GLOBALS['dbi']->getError());
             return;
         }
 
         $response->addJSON(
             'message',
-            PMA\libraries\Message::error(
+            PhpMyAdmin\Message::error(
                 "<i>" . htmlspecialchars($sql_query) . "</i><br /><br />"
                 . $GLOBALS['dbi']->getError()
             )
@@ -158,13 +158,13 @@ if (isset($_REQUEST['createview']) || isset($_REQUEST['alterview'])) {
     unset($pma_transformation_data);
 
     if (! isset($_REQUEST['ajax_dialog'])) {
-        $message = PMA\libraries\Message::success();
+        $message = PhpMyAdmin\Message::success();
         include 'tbl_structure.php';
     } else {
         $response->addJSON(
             'message',
             PMA\libraries\Util::getMessage(
-                PMA\libraries\Message::success(),
+                PhpMyAdmin\Message::success(),
                 $sql_query
             )
         );

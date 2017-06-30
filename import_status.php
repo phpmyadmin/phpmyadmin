@@ -103,7 +103,7 @@ if (isset($_GET["message"]) && $_GET["message"]) {
         session_start();
 
         if ((time() - $timestamp) > $maximumTime) {
-            $_SESSION['Import_message']['message'] = PMA\libraries\Message::error(
+            $_SESSION['Import_message']['message'] = PhpMyAdmin\Message::error(
                 __('Could not load the progress of the import.')
             )->getDisplay();
             break;

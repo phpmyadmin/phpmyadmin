@@ -192,7 +192,7 @@ if (! empty($sql_query)) {
 // If we didn't get any parameters, either user called this directly, or
 // upload limit has been reached, let's assume the second possibility.
 if ($_POST == array() && $_GET == array()) {
-    $message = PMA\libraries\Message::error(
+    $message = PhpMyAdmin\Message::error(
         __(
             'You probably tried to upload a file that is too large. Please refer ' .
             'to %sdocumentation%s for a workaround for this limit.'
@@ -364,7 +364,7 @@ if (! empty($_REQUEST['id_bookmark'])) {
         $bookmark = Bookmark::get($db, $id_bookmark);
         $import_text = $bookmark->getQuery();
         if ($response->isAjax()) {
-            $message = PMA\libraries\Message::success(__('Showing bookmark'));
+            $message = PhpMyAdmin\Message::success(__('Showing bookmark'));
             $response->setRequestStatus($message->isSuccess());
             $response->addJSON('message', $message);
             $response->addJSON('sql_query', $import_text);
@@ -379,7 +379,7 @@ if (! empty($_REQUEST['id_bookmark'])) {
         if (! empty($bookmark)) {
             $bookmark->delete();
             if ($response->isAjax()) {
-                $message = PMA\libraries\Message::success(
+                $message = PhpMyAdmin\Message::success(
                     __('The bookmark has been deleted.')
                 );
                 $response->setRequestStatus($message->isSuccess());
@@ -472,7 +472,7 @@ if ($import_file != 'none' && ! $error) {
     }
 } elseif (! $error) {
     if (! isset($import_text) || empty($import_text)) {
-        $message = PMA\libraries\Message::error(
+        $message = PhpMyAdmin\Message::error(
             __(
                 'No data was received to import. Either no file name was ' .
                 'submitted, or the file size exceeded the maximum size permitted ' .
@@ -525,7 +525,7 @@ if (! $error) {
         $import_type
     );
     if ($import_plugin == null) {
-        $message = PMA\libraries\Message::error(
+        $message = PhpMyAdmin\Message::error(
             __('Could not load import plugins, please check your installation!')
         );
         PMA_stopImport($message);
@@ -561,11 +561,11 @@ if ($reset_charset) {
 
 // Show correct message
 if (! empty($id_bookmark) && $_REQUEST['action_bookmark'] == 2) {
-    $message = PMA\libraries\Message::success(__('The bookmark has been deleted.'));
+    $message = PhpMyAdmin\Message::success(__('The bookmark has been deleted.'));
     $display_query = $import_text;
     $error = false; // unset error marker, it was used just to skip processing
 } elseif (! empty($id_bookmark) && $_REQUEST['action_bookmark'] == 1) {
-    $message = PMA\libraries\Message::notice(__('Showing bookmark'));
+    $message = PhpMyAdmin\Message::notice(__('Showing bookmark'));
 } elseif ($bookmark_created) {
     $special_message = '[br]'  . sprintf(
         __('Bookmark %s has been created.'),
@@ -575,7 +575,7 @@ if (! empty($id_bookmark) && $_REQUEST['action_bookmark'] == 2) {
     // Do not display the query with message, we do it separately
     $display_query = ';';
     if ($import_type != 'query') {
-        $message = PMA\libraries\Message::success(
+        $message = PhpMyAdmin\Message::success(
             '<em>'
             . _ngettext(
                 'Import has been successfully finished, %d query executed.',
@@ -607,7 +607,7 @@ if ($timeout_passed) {
 
     $importUrl = $err_url = $goto . URL::getCommon($urlparams);
 
-    $message = PMA\libraries\Message::error(
+    $message = PhpMyAdmin\Message::error(
         __(
             'Script timeout passed, if you want to finish import,'
             . ' please %sresubmit the same file%s and import will resume.'
@@ -752,14 +752,14 @@ if ($go_sql) {
     }
 
     $response->setRequestStatus(true);
-    $response->addJSON('message', PMA\libraries\Message::success($msg));
+    $response->addJSON('message', PhpMyAdmin\Message::success($msg));
     $response->addJSON(
         'sql_query',
         PMA\libraries\Util::getMessage($msg, $sql_query, 'success')
     );
 } else if ($result == false) {
     $response->setRequestStatus(false);
-    $response->addJSON('message', PMA\libraries\Message::error($msg));
+    $response->addJSON('message', PhpMyAdmin\Message::error($msg));
 } else {
     $active_page = $goto;
     include '' . $goto;

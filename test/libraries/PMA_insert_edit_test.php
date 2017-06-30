@@ -2060,12 +2060,12 @@ class PMA_InsertEditTest extends PHPUnit_Framework_TestCase
         );
 
         $this->assertInstanceOf(
-            'PMA\libraries\Message',
+            'PhpMyAdmin\Message',
             $result[2][0]
         );
 
         $msg = $result[2][0];
-        $reflectionMsg = new ReflectionProperty('PMA\libraries\Message', 'params');
+        $reflectionMsg = new ReflectionProperty('PhpMyAdmin\Message', 'params');
         $reflectionMsg->setAccessible(true);
 
         $this->assertEquals(
@@ -2146,12 +2146,12 @@ class PMA_InsertEditTest extends PHPUnit_Framework_TestCase
         );
 
         $this->assertInstanceOf(
-            'PMA\libraries\Message',
+            'PhpMyAdmin\Message',
             $result[2][0]
         );
 
         $msg = $result[2][0];
-        $reflectionMsg = new ReflectionProperty('PMA\libraries\Message', 'params');
+        $reflectionMsg = new ReflectionProperty('PhpMyAdmin\Message', 'params');
         $reflectionMsg->setAccessible(true);
 
         $this->assertEquals(

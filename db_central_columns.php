@@ -148,7 +148,7 @@ $response->addHTML('</table>');
 $tablefooter = PMA_getCentralColumnsTableFooter($pmaThemeImage, $text_dir);
 $response->addHTML($tablefooter);
 $response->addHTML('</form></div>');
-$message = PMA\libraries\Message::success(
+$message = PhpMyAdmin\Message::success(
     sprintf(__('Showing rows %1$s - %2$s.'), ($pos + 1), ($pos + count($result)))
 );
 if (isset($tmp_msg) && $tmp_msg !== true) {

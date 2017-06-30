@@ -9,7 +9,7 @@
 
 use PhpMyAdmin\Core;
 use PhpMyAdmin\Encoding;
-use PMA\libraries\Message;
+use PhpMyAdmin\Message;
 use PMA\libraries\plugins\ExportPlugin;
 use PMA\libraries\Response;
 use PMA\libraries\Table;

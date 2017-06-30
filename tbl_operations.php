@@ -235,11 +235,11 @@ unset($reread_info);
 if (isset($result) && empty($message_to_show)) {
     if (empty($_message)) {
         if (empty($sql_query)) {
-            $_message = PMA\libraries\Message::success(__('No change'));
+            $_message = PhpMyAdmin\Message::success(__('No change'));
         } else {
             $_message = $result
-                ? PMA\libraries\Message::success()
-                : PMA\libraries\Message::error();
+                ? PhpMyAdmin\Message::success()
+                : PhpMyAdmin\Message::error();
         }
 
         if ($response->isAjax()) {
@@ -254,12 +254,12 @@ if (isset($result) && empty($message_to_show)) {
         }
     } else {
         $_message = $result
-            ? PMA\libraries\Message::success($_message)
-            : PMA\libraries\Message::error($_message);
+            ? PhpMyAdmin\Message::success($_message)
+            : PhpMyAdmin\Message::error($_message);
     }
 
     if (! empty($warning_messages)) {
-        $_message = new PMA\libraries\Message;
+        $_message = new PhpMyAdmin\Message;
         $_message->addMessagesString($warning_messages);
         $_message->isError(true);
         if ($response->isAjax()) {

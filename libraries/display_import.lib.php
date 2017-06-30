@@ -12,7 +12,7 @@
 use PhpMyAdmin\Charsets;
 use PhpMyAdmin\Core;
 use PhpMyAdmin\Encoding;
-use PMA\libraries\Message;
+use PhpMyAdmin\Message;
 use PMA\libraries\plugins\ImportPlugin;
 use PMA\libraries\URL;
 use PMA\libraries\Sanitize;
