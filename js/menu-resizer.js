@@ -93,6 +93,10 @@
             total_len += $($li[i]).outerWidth(true);
         }
 
+        var hasVScroll = document.body.scrollHeight > document.body.clientHeight;
+        if (hasVScroll) {
+            windowWidth += 15;
+        }
         var navigationwidth = wmax;
         if (windowWidth < 768){
             wmax = 2000;
