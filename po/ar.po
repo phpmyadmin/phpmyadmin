@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 4.8.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
-"POT-Creation-Date: 2017-06-28 09:58+0200\n"
+"POT-Creation-Date: 2017-06-28 09:56+0200\n"
 "PO-Revision-Date: 2017-06-30 09:19+0000\n"
 "Last-Translator: Michal Čihař <michal@cihar.com>\n"
 "Language-Team: Arabic "
@@ -882,7 +882,7 @@ msgstr "هذه العملية قد تستغرق وقتا طويلا، متابع
 #: js/messages.php:67
 #, php-format
 msgid "Do you really want to delete user group \"%s\"?"
-msgstr "هل تريد حقا حذف مجموعة المستخدمين ”%“s؟"
+msgstr "هل تريد حقا حذف مجموعة المستخدمين ”%s“؟"
 
 #: js/messages.php:69
 #, php-format
