@@ -11,7 +11,7 @@ namespace PMA\libraries\controllers\table;
 
 use PMA\libraries\controllers\TableController;
 use PhpMyAdmin\Core;
-use PMA\libraries\Message;
+use PhpMyAdmin\Message;
 use PMA\libraries\Template;
 use PMA\libraries\gis\GISVisualization;
 use PMA\libraries\URL;

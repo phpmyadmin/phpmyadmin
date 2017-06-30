@@ -8,7 +8,7 @@
 namespace PhpMyAdmin;
 
 use PhpMyAdmin\IndexColumn;
-use PMA\libraries\Message;
+use PhpMyAdmin\Message;
 use PMA\libraries\Sanitize;
 use PMA\libraries\URL;
 use PMA\libraries\Util;

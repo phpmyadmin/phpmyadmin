@@ -18,7 +18,7 @@ $response = Response::getInstance();
 $navigation = new Navigation();
 if (! $response->isAjax()) {
     $response->addHTML(
-        PMA\libraries\Message::error(
+        PhpMyAdmin\Message::error(
             __('Fatal error: The navigation can only be accessed via AJAX')
         )
     );

@@ -5,9 +5,10 @@
  *
  * @package PhpMyAdmin
  */
-namespace PMA\libraries;
+namespace PhpMyAdmin;
 
 use PMA\libraries\Sanitize;
+use PMA\libraries\Util;
 
 /**
  * a single message
@@ -812,6 +813,5 @@ class Message
         }
         $message = Message::notice(Util::getImage($image)) . " " . $message;
         return $message;
-
     }
 }

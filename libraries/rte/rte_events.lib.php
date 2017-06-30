@@ -133,7 +133,7 @@ function PMA_EVN_handleEditor()
                             $errors
                         );
                     } else {
-                        $message = PMA\libraries\Message::success(
+                        $message = PhpMyAdmin\Message::success(
                             __('Event %1$s has been modified.')
                         );
                         $message->addParam(
@@ -153,7 +153,7 @@ function PMA_EVN_handleEditor()
                     . '<br /><br />'
                     . __('MySQL said: ') . $GLOBALS['dbi']->getError(null);
                 } else {
-                    $message = PMA\libraries\Message::success(
+                    $message = PhpMyAdmin\Message::success(
                         __('Event %1$s has been created.')
                     );
                     $message->addParam(
@@ -165,7 +165,7 @@ function PMA_EVN_handleEditor()
         }
 
         if (count($errors)) {
-            $message = PMA\libraries\Message::error(
+            $message = PhpMyAdmin\Message::error(
                 '<b>'
                 . __(
                     'One or more errors have occurred while processing your request:'

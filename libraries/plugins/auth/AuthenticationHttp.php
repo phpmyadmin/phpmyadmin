@@ -10,7 +10,7 @@
 namespace PMA\libraries\plugins\auth;
 
 use PMA\libraries\plugins\AuthenticationPlugin;
-use PMA\libraries\Message;
+use PhpMyAdmin\Message;
 use PMA\libraries\Response;
 use PhpMyAdmin\Config;
 use PhpMyAdmin\Core;

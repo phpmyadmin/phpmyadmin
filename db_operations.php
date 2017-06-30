@@ -47,9 +47,9 @@ if (strlen($GLOBALS['db']) > 0
     }
 
     if (! isset($_REQUEST['newname']) || strlen($_REQUEST['newname']) === 0) {
-        $message = PMA\libraries\Message::error(__('The database name is empty!'));
+        $message = PhpMyAdmin\Message::error(__('The database name is empty!'));
     } else if($_REQUEST['newname'] === $_REQUEST['db']) {
-        $message = PMA\libraries\Message::error(
+        $message = PhpMyAdmin\Message::error(
             __('Cannot copy database to the same name. Change the name and try again.')
         );
     } else {
@@ -138,7 +138,7 @@ if (strlen($GLOBALS['db']) > 0
             $sql_query .= "\n" . $local_query;
             $GLOBALS['dbi']->query($local_query);
 
-            $message = PMA\libraries\Message::success(
+            $message = PhpMyAdmin\Message::success(
                 __('Database %1$s has been renamed to %2$s.')
             );
             $message->addParam($GLOBALS['db']);
@@ -150,13 +150,13 @@ if (strlen($GLOBALS['db']) > 0
                 PMA_AdjustPrivileges_copyDB($GLOBALS['db'], $_REQUEST['newname']);
             }
 
-            $message = PMA\libraries\Message::success(
+            $message = PhpMyAdmin\Message::success(
                 __('Database %1$s has been copied to %2$s.')
             );
             $message->addParam($GLOBALS['db']);
             $message->addParam($_REQUEST['newname']);
         } else {
-            $message = PMA\libraries\Message::error();
+            $message = PhpMyAdmin\Message::error();
         }
         $reload     = true;
 
@@ -276,7 +276,7 @@ if (!$is_information_schema) {
     if (! $cfgRelation['allworks']
         && $cfg['PmaNoRelation_DisableWarning'] == false
     ) {
-        $message = PMA\libraries\Message::notice(
+        $message = PhpMyAdmin\Message::notice(
             __(
                 'The phpMyAdmin configuration storage has been deactivated. ' .
                 '%sFind out why%s.'

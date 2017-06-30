@@ -49,14 +49,14 @@ list(
 if (isset($_REQUEST['delete_tracking']) && isset($_REQUEST['table'])) {
 
     Tracker::deleteTracking($GLOBALS['db'], $_REQUEST['table']);
-    PMA\libraries\Message::success(
+    PhpMyAdmin\Message::success(
         __('Tracking data deleted successfully.')
     )->display();
 
 } elseif (isset($_REQUEST['submit_create_version'])) {
 
     PMA_createTrackingForMultipleTables($_REQUEST['selected']);
-    PMA\libraries\Message::success(
+    PhpMyAdmin\Message::success(
         sprintf(
             __(
                 'Version %1$s was created for selected tables,'
@@ -74,7 +74,7 @@ if (isset($_REQUEST['delete_tracking']) && isset($_REQUEST['table'])) {
             foreach ($_REQUEST['selected_tbl'] as $table) {
                 Tracker::deleteTracking($GLOBALS['db'], $table);
             }
-            PMA\libraries\Message::success(
+            PhpMyAdmin\Message::success(
                 __('Tracking data deleted successfully.')
             )->display();
 
@@ -89,7 +89,7 @@ if (isset($_REQUEST['delete_tracking']) && isset($_REQUEST['table'])) {
             exit;
         }
     } else {
-        PMA\libraries\Message::notice(
+        PhpMyAdmin\Message::notice(
             __('No tables selected.')
         )->display();
     }

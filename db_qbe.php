@@ -123,7 +123,7 @@ list(
 ) = PMA\libraries\Util::getDbInfo($db, isset($sub_part) ? $sub_part : '');
 
 if ($message_to_display) {
-    PMA\libraries\Message::error(
+    PhpMyAdmin\Message::error(
         __('You have to choose at least one column to display!')
     )
         ->display();
@@ -140,7 +140,7 @@ $url = 'db_designer.php' . URL::getCommon(
     )
 );
 $response->addHTML(
-    PMA\libraries\Message::notice(
+    PhpMyAdmin\Message::notice(
         sprintf(
             __('Switch to %svisual builder%s'),
             '<a href="' . $url . '">',

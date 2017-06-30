@@ -35,7 +35,7 @@ use PhpMyAdmin\Config;
 use PhpMyAdmin\Core;
 use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\ErrorHandler;
-use PMA\libraries\Message;
+use PhpMyAdmin\Message;
 use PMA\libraries\plugins\AuthenticationPlugin;
 use PhpMyAdmin\DbList;
 use PMA\libraries\ThemeManager;
@@ -44,7 +44,7 @@ use PMA\libraries\Response;
 use PMA\libraries\TypesMySQL;
 use PMA\libraries\Util;
 use PhpMyAdmin\LanguageManager;
-use PMA\libraries\Logging;
+use PhpMyAdmin\Logging;
 
 /**
  * block attempts to directly run this script

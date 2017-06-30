@@ -35,7 +35,7 @@ if (! $GLOBALS['cfg']['ShowChgPassword']) {
     $GLOBALS['cfg']['ShowChgPassword'] = $GLOBALS['dbi']->selectDb('mysql');
 }
 if ($cfg['Server']['auth_type'] == 'config' || ! $cfg['ShowChgPassword']) {
-    PMA\libraries\Message::error(
+    PhpMyAdmin\Message::error(
         __('You don\'t have sufficient privileges to be here right now!')
     )->display();
     exit;
@@ -114,14 +114,14 @@ function PMA_getChangePassMessage($change_password_message, $sql_query = '')
 function PMA_setChangePasswordMsg()
 {
     $error = false;
-    $message = PMA\libraries\Message::success(__('The profile has been updated.'));
+    $message = PhpMyAdmin\Message::success(__('The profile has been updated.'));
 
     if (($_REQUEST['nopass'] != '1')) {
         if (strlen($_REQUEST['pma_pw']) === 0 || strlen($_REQUEST['pma_pw2']) === 0) {
-            $message = PMA\libraries\Message::error(__('The password is empty!'));
+            $message = PhpMyAdmin\Message::error(__('The password is empty!'));
             $error = true;
         } elseif ($_REQUEST['pma_pw'] !== $_REQUEST['pma_pw2']) {
-            $message = PMA\libraries\Message::error(
+            $message = PhpMyAdmin\Message::error(
                 __('The passwords aren\'t the same!')
             );
             $error = true;

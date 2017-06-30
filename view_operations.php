@@ -39,7 +39,7 @@ $url_params['goto'] = $url_params['back'] = 'view_operations.php';
 /**
  * Updates if required
  */
-$_message = new PMA\libraries\Message;
+$_message = new PhpMyAdmin\Message;
 $_type = 'success';
 if (isset($_REQUEST['submitoptions'])) {
 

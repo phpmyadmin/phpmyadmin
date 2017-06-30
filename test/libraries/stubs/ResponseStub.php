@@ -13,7 +13,7 @@
 namespace PMA\Test\Stubs;
 
 use PhpMyAdmin\Header;
-use PMA\libraries\Message;
+use PhpMyAdmin\Message;
 
 
 

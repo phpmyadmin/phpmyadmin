@@ -5,10 +5,12 @@
  *
  * @package PhpMyAdmin
  */
-namespace PMA\libraries;
+namespace PhpMyAdmin;
 
 use PhpMyAdmin\DatabaseInterface;
+use PMA\libraries\Tracker;
 use PMA\libraries\URL;
+use PMA\libraries\Util;
 
 /**
  * Class for generating the top menu

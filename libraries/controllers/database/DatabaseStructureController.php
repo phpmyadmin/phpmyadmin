@@ -13,7 +13,7 @@ use PMA\libraries\config\PageSettings;
 use PMA\libraries\controllers\DatabaseController;
 use PhpMyAdmin\Charsets;
 use PhpMyAdmin\Core;
-use PMA\libraries\Message;
+use PhpMyAdmin\Message;
 use PMA\libraries\RecentFavoriteTable;
 use PMA\libraries\Response;
 use PMA\libraries\Template;

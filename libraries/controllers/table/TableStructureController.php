@@ -16,7 +16,7 @@ use PMA\libraries\config\PageSettings;
 use PMA\libraries\controllers\TableController;
 use PhpMyAdmin\Core;
 use PhpMyAdmin\Index;
-use PMA\libraries\Message;
+use PhpMyAdmin\Message;
 use PMA\libraries\Sql;
 use PMA\libraries\Table;
 use PMA\libraries\Template;

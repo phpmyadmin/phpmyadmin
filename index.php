@@ -9,7 +9,7 @@
 use PhpMyAdmin\Charsets;
 use PhpMyAdmin\Core;
 use PhpMyAdmin\LanguageManager;
-use PMA\libraries\Message;
+use PhpMyAdmin\Message;
 use PMA\libraries\RecentFavoriteTable;
 use PMA\libraries\Response;
 use PMA\libraries\Sanitize;
@@ -572,7 +572,7 @@ if ($server > 0) {
                     . 'to set it up there.'
                 );
         }
-        $msg = PMA\libraries\Message::notice($msg_text);
+        $msg = PhpMyAdmin\Message::notice($msg_text);
         $msg->addParamHtml('<a href="./chk_rel.php' . $common_url_query . '">');
         $msg->addParamHtml('</a>');
         /* Show error if user has configured something, notice elsewhere */

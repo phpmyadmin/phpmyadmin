@@ -74,7 +74,7 @@ class ImportShp extends ImportPlugin
             && ZipExtension::getNumberOfFiles($import_file) > 1
         ) {
             if ($GLOBALS['import_handle']->openZip('/^.*\.shp$/i') === false) {
-                $message = PMA\libraries\Message::error(
+                $message = PhpMyAdmin\Message::error(
                     __('There was an error importing the ESRI shape file: "%s".')
                 );
                 $message->addParam($GLOBALS['import_handle']->getError());
@@ -147,7 +147,7 @@ class ImportShp extends ImportPlugin
         $shp->loadFromFile('');
         if ($shp->lastError != "") {
             $error = true;
-            $message = PMA\libraries\Message::error(
+            $message = PhpMyAdmin\Message::error(
                 __('There was an error importing the ESRI shape file: "%s".')
             );
             $message->addParam($shp->lastError);
@@ -177,7 +177,7 @@ class ImportShp extends ImportPlugin
             break;
         default:
             $error = true;
-            $message = PMA\libraries\Message::error(
+            $message = PhpMyAdmin\Message::error(
                 __('MySQL Spatial Extension does not support ESRI type "%s".')
             );
             $message->addParam($shp->getShapeName());
@@ -224,7 +224,7 @@ class ImportShp extends ImportPlugin
 
         if (count($rows) == 0) {
             $error = true;
-            $message = PMA\libraries\Message::error(
+            $message = PhpMyAdmin\Message::error(
                 __('The imported file does not contain any data!')
             );
 

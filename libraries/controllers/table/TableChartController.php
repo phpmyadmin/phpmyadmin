@@ -10,7 +10,7 @@
 namespace PMA\libraries\controllers\table;
 
 use PMA\libraries\controllers\TableController;
-use PMA\libraries\Message;
+use PhpMyAdmin\Message;
 use PMA\libraries\Response;
 use PMA\libraries\Template;
 use PMA\libraries\Util;
