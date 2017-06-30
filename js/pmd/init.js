@@ -1,4 +1,5 @@
 /* vim: set expandtab sw=4 ts=4 sts=4: */
+import { AJAX } from './../ajax.js';
 /**
  * Initialises the data required to run PMD, then fires it up.
  */

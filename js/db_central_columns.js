@@ -5,6 +5,8 @@
  *
  * @requires    jQuery
  */
+import { AJAX } from './ajax.js';
+import { PMA_ajaxShowMessage } from './functions.js';
 
 /**
  * AJAX scripts for db_central_columns.php

@@ -1,4 +1,7 @@
 /* vim: set expandtab sw=4 ts=4 sts=4: */
+import { AJAX } from './ajax.js';
+import { PMA_ajaxShowMessage, PMA_mainMenuResizerCallback } from './functions.js';
+
 /**
  * An implementation of a client-side page cache.
  * This object also uses the cache to provide a simple microhistory,

@@ -4,6 +4,8 @@
  *
  * @package PhpMyAdmin
  */
+import { AJAX } from './../ajax.js';
+
 AJAX.registerOnload('transformations/xml_editor.js', function() {
     $('textarea.transform_xml_editor').each( function () {
         CodeMirror.fromTextArea(this, {

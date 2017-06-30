@@ -1,3 +1,17 @@
+import { AJAX } from './ajax.js';
+import {
+    escapeHtml,
+    PMA_sprintf,
+    PMA_prepareForAjaxRequest,
+    getForeignKeyCheckboxLoader,
+    loadForeignKeyCheckbox,
+    getJSConfirmCommonParam,
+    PMA_highlightSQL,
+    PMA_ajaxShowMessage,
+    PMA_ajaxRemoveMessage,
+    PMA_init_slider
+} from './functions.js';
+
 /**
  * Unbind all event handlers before tearing down a page
  */

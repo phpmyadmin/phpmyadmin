@@ -1,4 +1,17 @@
 /* vim: set expandtab sw=4 ts=4 sts=4: */
+import { AJAX } from './ajax.js';
+import {
+    PMA_addDatepicker,
+    PMA_tooltip,
+    escapeHtml,
+    confirmLink,
+    PMA_highlightSQL,
+    PMA_updateCode,
+    PMA_ajaxShowMessage,
+    PMA_getCellValue,
+    toggleDatepickerIfInvalid
+} from './functions.js';
+
 /**
  * Create advanced table (resize, reorder, and show/hide columns; and also grid editing).
  * This function is designed mainly for table DOM generated from browsing a table in the database.

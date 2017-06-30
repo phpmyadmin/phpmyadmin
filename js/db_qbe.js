@@ -8,6 +8,8 @@
  * @requires    js/functions.js
  *
  */
+import { AJAX } from './ajax.js';
+import { PMA_getSQLEditor, PMA_sprintf } from './functions.js';
 
 /**
  * Ajax event handlers here for db_qbe.php

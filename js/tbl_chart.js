@@ -1,4 +1,12 @@
 /* vim: set expandtab sw=4 ts=4 sts=4: */
+import { AJAX } from './ajax.js';
+import {
+    escapeHtml,
+    PMA_prepareForAjaxRequest,
+    checkSqlQuery,
+    PMA_ajaxShowMessage,
+    PMA_ajaxRemoveMessage
+} from './functions.js';
 
 var chart_data = {};
 var temp_chart_title;

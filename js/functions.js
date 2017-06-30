@@ -4,6 +4,11 @@
  *
  */
 
+import { AJAX } from './ajax.js';
+import { PMA_getImage } from './get_image.js';
+import { PMA_messages } from './messages.js';
+import { PMA_commonParams } from './common.js';
+
 /**
  * @var sql_box_locked lock for the sqlbox textarea in the querybox
  */
@@ -92,7 +97,7 @@ $.ajaxPrefilter(function (options, originalOptions, jqXHR) {
  *
  * @param object  $this_element   a jQuery object pointing to the element
  */
-function PMA_addDatepicker($this_element, type, options)
+export function PMA_addDatepicker($this_element, type, options)
 {
     var showTimepicker = true;
     if (type=="date") {
@@ -161,7 +166,7 @@ function PMA_addDatepicker($this_element, type, options)
  * Add a date/time picker to each element that needs it
  * (only when jquery-ui-timepicker-addon.js is loaded)
  */
-function addDateTimePicker() {
+export function addDateTimePicker() {
     if ($.timepicker !== undefined) {
         $('input.timefield, input.datefield, input.datetimefield').each(function () {
 
@@ -208,7 +213,7 @@ function addDateTimePicker() {
  *
  * @param data ajax response data
  */
-function PMA_handleRedirectAndReload(data) {
+export function PMA_handleRedirectAndReload(data) {
     if (parseInt(data.redirect_flag) == 1) {
         // add one more GET param to display session expiry msg
         if (window.location.href.indexOf('?') === -1) {
@@ -230,7 +235,7 @@ function PMA_handleRedirectAndReload(data) {
  * @param resize      optional resizing ('vertical', 'horizontal', 'both')
  * @param lintOptions additional options for lint
  */
-function PMA_getSQLEditor($textarea, options, resize, lintOptions) {
+export function PMA_getSQLEditor($textarea, options, resize, lintOptions) {
     if ($textarea.length > 0 && typeof CodeMirror !== 'undefined') {
 
         // merge options for CodeMirror
@@ -316,7 +321,7 @@ function PMA_clearSelection() {
  * @param additionalOptions to override the default options
  *
  */
-function PMA_tooltip($elements, item, myContent, additionalOptions)
+export function PMA_tooltip($elements, item, myContent, additionalOptions)
 {
     if ($('#no_hint').length > 0) {
         return;
@@ -338,7 +343,7 @@ function PMA_tooltip($elements, item, myContent, additionalOptions)
  * HTML escaping
  */
 
-function escapeHtml(unsafe) {
+export function escapeHtml(unsafe) {
     if (typeof(unsafe) != 'undefined') {
         return unsafe
             .toString()
@@ -352,7 +357,7 @@ function escapeHtml(unsafe) {
     }
 }
 
-function escapeJsString(unsafe) {
+export function escapeJsString(unsafe) {
     if (typeof(unsafe) != 'undefined') {
         return unsafe
             .toString()
@@ -370,7 +375,7 @@ function escapeJsString(unsafe) {
     }
 }
 
-function PMA_sprintf() {
+export function PMA_sprintf() {
     return sprintf.apply(this, arguments);
 }
 
@@ -429,7 +434,7 @@ function PMA_verifyColumnsProperties()
  *
  * @param $form object   the form
  */
-function PMA_prepareForAjaxRequest($form)
+export function PMA_prepareForAjaxRequest($form)
 {
     if (! $form.find('input:hidden').is('#ajax_request_hidden')) {
         $form.append('<input type="hidden" id="ajax_request_hidden" name="ajax_request" value="true" />');
@@ -597,7 +602,7 @@ function PMA_display_git_revision()
  *
  */
 
-function displayPasswordGenerateButton()
+export function displayPasswordGenerateButton()
 {
     var generatePwdRow = $('<tr />').addClass('vmiddle');
     var titleCell = $('<td />').html(PMA_messages.strGeneratePassword).appendTo(generatePwdRow);
@@ -659,7 +664,7 @@ function selectContent(element, lock, only_once)
  *
  * @return boolean  whether to run the query or not
  */
-function confirmLink(theLink, theSqlQuery)
+export function confirmLink(theLink, theSqlQuery)
 {
     // Confirmation is not required in the configuration file
     // or browser is Opera (crappy js implementation)
@@ -702,7 +707,7 @@ function confirmLink(theLink, theSqlQuery)
  *
  * @see     checkSqlQuery()
  */
-function confirmQuery(theForm1, sqlQuery1)
+export function confirmQuery(theForm1, sqlQuery1)
 {
     // Confirmation is not required in the configuration file
     if (PMA_messages.strDoYouReally === '') {
@@ -759,7 +764,7 @@ function confirmQuery(theForm1, sqlQuery1)
  *
  * @see     confirmQuery()
  */
-function checkSqlQuery(theForm)
+export function checkSqlQuery(theForm)
 {
     // get the textarea element containing the query
     var sqlQuery;
@@ -821,7 +826,7 @@ function emptyCheckTheField(theForm, theFieldName)
  *
  * @return boolean  whether a valid number has been submitted or not
  */
-function checkFormElementInRange(theForm, theFieldName, message, min, max)
+export function checkFormElementInRange(theForm, theFieldName, message, min, max)
 {
     var theField         = theForm.elements[theFieldName];
     var val              = parseInt(theField.value, 10);
@@ -856,7 +861,7 @@ function checkFormElementInRange(theForm, theFieldName, message, min, max)
 } // end of the 'checkFormElementInRange()' function
 
 
-function checkTableEditForm(theForm, fieldsCnt)
+export function checkTableEditForm(theForm, fieldsCnt)
 {
     // TODO: avoid sending a message if user just wants to add a line
     // on the form but has not completed at least one field name
@@ -1161,7 +1166,7 @@ function setSelectOptions(the_form, the_select, do_check)
 /**
  * Sets current value for query box.
  */
-function setQuery(query)
+export function setQuery(query)
 {
     if (codemirror_editor) {
         codemirror_editor.setValue(query);
@@ -1177,7 +1182,7 @@ function setQuery(query)
  *
  * @return void
  */
-function PMA_handleSimulateQueryButton()
+export function PMA_handleSimulateQueryButton()
 {
     var update_re = new RegExp('^\\s*UPDATE\\s+((`[^`]+`)|([A-Za-z0-9_$]+))\\s+SET\\s', 'i');
     var delete_re = new RegExp('^\\s*DELETE\\s+FROM\\s', 'i');
@@ -1831,7 +1836,7 @@ function pdfPaperSize(format, axis)
  *
  * @return string
  */
-function getForeignKeyCheckboxLoader() {
+export function getForeignKeyCheckboxLoader() {
     var html = '';
     html    += '<div>';
     html    += '<div class="load-default-fk-check-value">';
@@ -1841,7 +1846,7 @@ function getForeignKeyCheckboxLoader() {
     return html;
 }
 
-function loadForeignKeyCheckbox() {
+export function loadForeignKeyCheckbox() {
     // Load default foreign key check value
     var params = {
         'ajax_request': true,
@@ -1857,7 +1862,7 @@ function loadForeignKeyCheckbox() {
     });
 }
 
-function getJSConfirmCommonParam(elem) {
+export function getJSConfirmCommonParam(elem) {
     return {
         'is_js_confirmed' : 1,
         'ajax_request' : true,
@@ -1982,7 +1987,7 @@ AJAX.registerOnload('functions.js', function () {
 /**
  * "inputRead" event handler for CodeMirror SQL query editors for autocompletion
  */
-function codemirrorAutocompleteOnInputRead(instance) {
+export function codemirrorAutocompleteOnInputRead(instance) {
     if (!sql_autocomplete_in_progress
         && (!instance.options.hintOptions.tables || !sql_autocomplete)) {
 
@@ -2185,7 +2190,7 @@ function PMA_doc_builtin(idx, elm)
 /**
  * Higlights SQL using CodeMirror.
  */
-function PMA_highlightSQL($base)
+export function PMA_highlightSQL($base)
 {
     var $elm = $base.find('code.sql');
     $elm.each(function () {
@@ -2218,7 +2223,7 @@ function PMA_highlightSQL($base)
  *
  * @return bool               whether content was updated or not
  */
-function PMA_updateCode($base, htmlValue, rawValue)
+export function PMA_updateCode($base, htmlValue, rawValue)
 {
     var $code = $base.find('code');
     if ($code.length === 0) {
@@ -2294,7 +2299,7 @@ function PMA_updateCode($base, htmlValue, rawValue)
  *                              this object can be passed to PMA_ajaxRemoveMessage()
  *                              to remove the notification
  */
-function PMA_ajaxShowMessage(message, timeout, type)
+export function PMA_ajaxShowMessage(message, timeout, type)
 {
     /**
      * @var self_closing Whether the notification will automatically disappear
@@ -2412,7 +2417,7 @@ function PMA_ajaxRemoveMessage($this_msgbox)
  *
  * @return void
  */
-function PMA_previewSQL($form)
+export function PMA_previewSQL($form)
 {
     var form_url = $form.attr('action');
     var form_data = $form.serialize() +
@@ -2525,7 +2530,7 @@ function PMA_showNoticeForEnum(selectElement)
  * Creates a Profiling Chart. Used in sql.js
  * and in server_status_monitor.js
  */
-function PMA_createProfilingChart(target, data)
+export function PMA_createProfilingChart(target, data)
 {
     // create the chart
     var factory = new JQPlotChartFactory();
@@ -2589,7 +2594,7 @@ function PMA_createProfilingChart(target, data)
  * @param  integer    Accuracy, how many numbers right to the comma should be
  * @return string     The formatted number
  */
-function PMA_prettyProfilingNum(num, acc)
+export function PMA_prettyProfilingNum(num, acc)
 {
     if (!acc) {
         acc = 2;
@@ -3069,7 +3074,7 @@ AJAX.registerOnload('functions.js', function () {
  * @param  object $the_form The form to be validated
  * @return bool
  */
-function PMA_checkPassword($the_form)
+export function PMA_checkPassword($the_form)
 {
     // Did the user select 'no password'?
     if ($the_form.find('#nopass_1').is(':checked')) {
@@ -3306,7 +3311,7 @@ AJAX.registerOnload('functions.js', function () {
  *
  * @param $engine_selector storage engine selector
  */
-function PMA_hideShowConnection($engine_selector)
+export function PMA_hideShowConnection($engine_selector)
 {
     var $connection = $('.create_table_form input[name=connection]');
     var index = $connection.parent('td').index() + 1;
@@ -3724,7 +3729,7 @@ AJAX.registerOnload('functions.js', function () {
  *                            the input
  * @return boolean  false    if there is no index form, true else
  */
-function checkIndexName(form_id)
+export function checkIndexName(form_id)
 {
     if ($("#" + form_id).length === 0) {
         return false;
@@ -3791,7 +3796,7 @@ AJAX.registerOnload('functions.js', function () {
     });
 });
 
-function indexEditorDialog(url, title, callback_success, callback_failure)
+export function indexEditorDialog(url, title, callback_success, callback_failure)
 {
     /*Remove the hidden dialogs if there are*/
     var $editIndexDialog = $('#edit_index_dialog');
@@ -3897,7 +3902,7 @@ function indexEditorDialog(url, title, callback_success, callback_failure)
     }); // end $.get()
 }
 
-function showIndexEditDialog($outer)
+export function showIndexEditDialog($outer)
 {
     checkIndexType();
     checkIndexName("index_frm");
@@ -3950,7 +3955,7 @@ function showIndexEditDialog($outer)
  *                    omit this parameter the function searches
  *                    in the whole body
  **/
-function PMA_showHints($div)
+export function PMA_showHints($div)
 {
     if ($div === undefined || ! $div instanceof jQuery || $div.length === 0) {
         $div = $("body");
@@ -3968,7 +3973,7 @@ AJAX.registerOnload('functions.js', function () {
     PMA_showHints();
 });
 
-function PMA_mainMenuResizerCallback() {
+export function PMA_mainMenuResizerCallback() {
     // 5 px margin for jumping menu in Chrome
     return $(document.body).width() - 5;
 }
@@ -4255,7 +4260,7 @@ AJAX.registerOnload('functions.js', function () {
  * @param $link anchor
  * @returns {Boolean}
  */
-function submitFormLink($link)
+export function submitFormLink($link)
 {
     if ($link.attr('href').indexOf('=') != -1) {
         var data = $link.attr('href').substr($link.attr('href').indexOf('#') + 1).split('=', 2);
@@ -4267,7 +4272,7 @@ function submitFormLink($link)
 /**
  * Initializes slider effect.
  */
-function PMA_init_slider()
+export function PMA_init_slider()
 {
     $('div.pma_auto_slider').each(function () {
         var $this = $(this);
@@ -4469,7 +4474,7 @@ AJAX.registerOnload('functions.js', function () {
 /**
  * Return value of a cell in a table.
  */
-function PMA_getCellValue(td) {
+export function PMA_getCellValue(td) {
     var $td = $(td);
     if ($td.is('.null')) {
         return '';
@@ -4535,7 +4540,7 @@ AJAX.registerOnload('functions.js', function () {
 /**
  * Produce print preview
  */
-function printPreview()
+export function printPreview()
 {
     $('#printcss').attr('media','all');
     createPrintAndBackButtons();
@@ -4583,7 +4588,7 @@ function printPage(){
 /**
  * Print button
  */
-function copyToClipboard()
+export function copyToClipboard()
 {
     var textArea = document.createElement("textarea");
 
@@ -4725,7 +4730,7 @@ AJAX.registerOnload('functions.js', function () {
 
 });
 
-function PMA_createViewDialog($this)
+export function PMA_createViewDialog($this)
 {
     var $msg = PMA_ajaxShowMessage();
     var syntaxHighlighter = null;
@@ -4934,7 +4939,7 @@ function PMA_formatDateTime(date, seconds) {
 /**
  * Check than forms have less fields than max allowed by PHP.
  */
-function checkNumberOfFields() {
+export function checkNumberOfFields() {
     if (typeof maxInputVars === 'undefined') {
         return false;
     }
@@ -4962,7 +4967,7 @@ function checkNumberOfFields() {
  *             in $_SESSION['prev_errors'] at server
  *
  */
-function PMA_ignorePhpErrors(clearPrevErrors){
+export function PMA_ignorePhpErrors(clearPrevErrors){
     if (typeof(clearPrevErrors) === "undefined" ||
         clearPrevErrors === null
     ) {
@@ -4987,7 +4992,7 @@ function PMA_ignorePhpErrors(clearPrevErrors){
  * by the user in the 'text box' is not going to be accepted
  * by the Datetimepicker plugin (but is accepted by MySQL)
  */
-function toggleDatepickerIfInvalid($td, $input_field) {
+export function toggleDatepickerIfInvalid($td, $input_field) {
     // Regex allowed by the Datetimepicker UI
     var dtexpDate = new RegExp(['^([0-9]{4})',
         '-(((01|03|05|07|08|10|12)-((0[1-9])|([1-2][0-9])|(3[0-1])))|((02|04|06|09|11)',

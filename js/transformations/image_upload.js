@@ -4,6 +4,7 @@
  *
  * @package PhpMyAdmin
  */
+import { AJAX } from './../ajax.js';
 
 AJAX.registerOnload('transformations/image_upload.js', function() {
     // Change thumbnail when image file is selected

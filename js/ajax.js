@@ -1,9 +1,22 @@
 /* vim: set expandtab sw=4 ts=4 sts=4: */
+
+import {
+    PMA_handleRedirectAndReload,
+    escapeHtml,
+    PMA_sprintf,
+    PMA_highlightSQL,
+    PMA_ajaxShowMessage,
+    PMA_ajaxRemoveMessage,
+    PMA_mainMenuResizerCallback,
+    checkNumberOfFields,
+    PMA_ignorePhpErrors
+} from './functions.js';
+
 /**
  * This object handles ajax requests for pages. It also
  * handles the reloading of the main menu and scripts.
  */
-var AJAX = {
+export var AJAX = {
     /**
      * @var bool active Whether we are busy
      */

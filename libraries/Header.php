@@ -148,9 +148,10 @@ class Header
     private function _addDefaultScripts()
     {
         // Localised strings
+        $this->_scripts->addFile('commons.js');
         $this->_scripts->addFile('vendor/jquery/jquery.min.js');
         $this->_scripts->addFile('vendor/jquery/jquery-migrate-3.0.0.js');
-        $this->_scripts->addFile('whitelist.php');
+        $this->_scripts->addFile('whitelist.js');
         $this->_scripts->addFile('vendor/sprintf.js');
         $this->_scripts->addFile('ajax.js');
         $this->_scripts->addFile('keyhandler.js');
@@ -177,7 +178,7 @@ class Header
         // Here would not be a good place to add CodeMirror because
         // the user preferences have not been merged at this point
 
-        $this->_scripts->addFile('messages.php');
+        $this->_scripts->addFile('messages.js');
         // Append the theme id to this url to invalidate
         // the cache on a theme change. Though this might be
         // unavailable for fatal errors.
@@ -186,7 +187,7 @@ class Header
         } else {
             $theme_id = 'default';
         }
-        $this->_scripts->addFile('get_image.js.php', false, array('theme' => $theme_id));
+        $this->_scripts->addFile('get_image.js');
         $this->_scripts->addFile('config.js');
         $this->_scripts->addFile('doclinks.js');
         $this->_scripts->addFile('functions.js');
@@ -197,7 +198,8 @@ class Header
         if(!$GLOBALS['cfg']['DisableShortcutKeys']) {
             $this->_scripts->addFile('shortcuts_handler.js');
         }
-        $this->_scripts->addCode($this->getJsParamsCode());
+        //$this->_scripts->addCode($this->getJsParamsCode());
+        $this->_scripts->addFile('common_set.js');
     }
 
     /**

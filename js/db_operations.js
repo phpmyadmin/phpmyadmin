@@ -8,6 +8,13 @@
  * @requires    js/functions.js
  *
  */
+import { AJAX } from './ajax.js';
+import {
+    escapeHtml,
+    PMA_sprintf,
+    PMA_prepareForAjaxRequest,
+    PMA_ajaxShowMessage
+} from './functions.js';
 
 /**
  * Ajax event handlers here for db_operations.php

@@ -1,5 +1,7 @@
 /* vim: set expandtab sw=4 ts=4 sts=4: */
 
+import { AJAX } from './ajax.js';
+
 // global var that holds: 0- if ctrl key is not pressed 1- if ctrl key is pressed
 var ctrlKeyHistory = 0;
 

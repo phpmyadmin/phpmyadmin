@@ -53,24 +53,24 @@ class Scripts
                 if ($value['before_statics'] === true) {
                     $first_dynamic_scripts
                         .= "<script data-cfasync='false' type='text/javascript' "
-                        . "src='js/" . $file_name . "'></script>";
+                        . "src='js/dist/" . $file_name . "'></script>";
                 } else {
                     $dynamic_scripts .= "<script data-cfasync='false' "
-                        . "type='text/javascript' src='js/" . $file_name
+                        . "type='text/javascript' src='js/dist/" . $file_name
                         . "'></script>";
                 }
                 continue;
             }
             $include = true;
             if ($include) {
-                $scripts[] = "scripts%5B%5D=" . $value['filename'];
+                $scripts[] = "scripts%5B%5D=dist/" . $value['filename'];
             }
         }
         $separator = URL::getArgSeparator();
         $static_scripts = '';
         // Using chunks of 10 files to avoid too long URLs
         // as some servers are set to 512 bytes URL limit
-        $script_chunks = array_chunk($scripts, 10);
+        $script_chunks = array_chunk($scripts, 1);
         foreach ($script_chunks as $script_chunk) {
             $url = 'js/get_scripts.js.php?'
                 . implode($separator, $script_chunk)
@@ -220,7 +220,7 @@ class Scripts
             );
         }
         $code .= ';';
-        $this->addCode($code);
+        //$this->addCode($code);
 
         $code = '$(function() {';
         foreach ($this->_files as $file) {
@@ -231,7 +231,7 @@ class Scripts
             }
         }
         $code .= '});';
-        $this->addCode($code);
+        //$this->addCode($code);
 
         $retval .= '<script data-cfasync="false" type="text/javascript">';
         $retval .= "// <![CDATA[\n";

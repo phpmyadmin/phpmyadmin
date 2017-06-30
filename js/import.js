@@ -1,4 +1,7 @@
 /* vim: set expandtab sw=4 ts=4 sts=4: */
+import { AJAX } from './ajax.js';
+import { PMA_ajaxShowMessage } from './functions.js';
+
 /**
  * Functions used in the import tab
  *
