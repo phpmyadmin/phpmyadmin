@@ -214,7 +214,7 @@ class ExportJsonTest extends PMATestCase
      */
     public function testExportData()
     {
-        $dbi = $this->getMockBuilder('PMA\libraries\DatabaseInterface')
+        $dbi = $this->getMockBuilder('PhpMyAdmin\DatabaseInterface')
             ->disableOriginalConstructor()
             ->getMock();
 

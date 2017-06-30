@@ -13,8 +13,8 @@ use PhpMyAdmin\SqlParser\Context;
 use PhpMyAdmin\SqlParser\Parser;
 use PhpMyAdmin\SqlParser\Statements\SelectStatement;
 use PhpMyAdmin\SqlParser\Token;
-use PMA\libraries\Charsets;
-use PMA\libraries\DatabaseInterface;
+use PhpMyAdmin\Charsets;
+use PhpMyAdmin\DatabaseInterface;
 use PMA\libraries\plugins\ExportPlugin;
 use PMA\libraries\properties\plugins\ExportPluginProperties;
 use PMA\libraries\properties\options\groups\OptionsPropertyMainGroup;
@@ -1386,7 +1386,7 @@ class ExportSql extends ExportPlugin
             $compat = 'NONE';
         }
 
-        // need to use PMA\libraries\DatabaseInterface::QUERY_STORE
+        // need to use PhpMyAdmin\DatabaseInterface::QUERY_STORE
         // with $GLOBALS['dbi']->numRows() in mysqli
         $result = $GLOBALS['dbi']->query(
             'SHOW TABLE STATUS FROM ' . Util::backquote($db)

@@ -6,7 +6,7 @@
  * @package PhpMyAdmin-test
  */
 
-use PMA\libraries\Encoding;
+use PhpMyAdmin\Encoding;
 
 /**
  * Tests for Charset Conversions

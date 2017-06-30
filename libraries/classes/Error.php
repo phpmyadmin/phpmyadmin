@@ -1,13 +1,14 @@
 <?php
 /* vim: set expandtab sw=4 ts=4 sts=4: */
 /**
- * Holds class PMA\libraries\Error
+ * Holds class PhpMyAdmin\Error
  *
  * @package PhpMyAdmin
  */
-namespace PMA\libraries;
+namespace PhpMyAdmin;
 
 use Exception;
+use PMA\libraries\Message;
 
 /**
  * a single error
@@ -164,7 +165,7 @@ class Error extends Message
     }
 
     /**
-     * sets PMA\libraries\Error::$_backtrace
+     * sets PhpMyAdmin\Error::$_backtrace
      *
      * We don't store full arguments to avoid wakeup or memory problems.
      *
@@ -178,7 +179,7 @@ class Error extends Message
     }
 
     /**
-     * sets PMA\libraries\Error::$_line
+     * sets PhpMyAdmin\Error::$_line
      *
      * @param integer $line the line
      *
@@ -190,7 +191,7 @@ class Error extends Message
     }
 
     /**
-     * sets PMA\libraries\Error::$_file
+     * sets PhpMyAdmin\Error::$_file
      *
      * @param string $file the file
      *
@@ -203,9 +204,9 @@ class Error extends Message
 
 
     /**
-     * returns unique PMA\libraries\Error::$hash, if not exists it will be created
+     * returns unique PhpMyAdmin\Error::$hash, if not exists it will be created
      *
-     * @return string PMA\libraries\Error::$hash
+     * @return string PhpMyAdmin\Error::$hash
      */
     public function getHash()
     {
@@ -228,13 +229,13 @@ class Error extends Message
     }
 
     /**
-     * returns PMA\libraries\Error::$_backtrace for first $count frames
+     * returns PhpMyAdmin\Error::$_backtrace for first $count frames
      * pass $count = -1 to get full backtrace.
      * The same can be done by not passing $count at all.
      *
      * @param integer $count Number of stack frames.
      *
-     * @return array PMA\libraries\Error::$_backtrace
+     * @return array PhpMyAdmin\Error::$_backtrace
      */
     public function getBacktrace($count = -1)
     {
@@ -245,9 +246,9 @@ class Error extends Message
     }
 
     /**
-     * returns PMA\libraries\Error::$file
+     * returns PhpMyAdmin\Error::$file
      *
-     * @return string PMA\libraries\Error::$file
+     * @return string PhpMyAdmin\Error::$file
      */
     public function getFile()
     {
@@ -255,9 +256,9 @@ class Error extends Message
     }
 
     /**
-     * returns PMA\libraries\Error::$line
+     * returns PhpMyAdmin\Error::$line
      *
-     * @return integer PMA\libraries\Error::$line
+     * @return integer PhpMyAdmin\Error::$line
      */
     public function getLine()
     {
@@ -483,7 +484,7 @@ class Error extends Message
 
         $Ahere = explode(
             DIRECTORY_SEPARATOR,
-            realpath(__DIR__ . DIRECTORY_SEPARATOR . '..')
+            realpath(__DIR__ . DIRECTORY_SEPARATOR . '..' . DIRECTORY_SEPARATOR . '..')
         );
         $Adest = explode(DIRECTORY_SEPARATOR, $dest);
 
@@ -492,7 +493,7 @@ class Error extends Message
         while (implode(DIRECTORY_SEPARATOR, $Adest) != implode(DIRECTORY_SEPARATOR, $Ahere)) {
             if (count($Ahere) > count($Adest)) {
                 array_pop($Ahere);
-                $result .= DIRECTORY_SEPARATOR . '..';
+                $result .= DIRECTORY_SEPARATOR . '..' . DIRECTORY_SEPARATOR . '..';
             } else {
                 array_pop($Adest);
             }

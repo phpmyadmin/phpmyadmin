@@ -7,6 +7,7 @@
  */
 namespace PMA\libraries;
 
+use PhpMyAdmin\DatabaseInterface;
 use PMA\libraries\URL;
 
 /**
@@ -655,4 +656,3 @@ class Menu
         return $this;
     }
 }
-

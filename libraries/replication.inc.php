@@ -6,8 +6,8 @@
  * @package PhpMyAdmin
  */
 
-use PMA\libraries\Core;
-use PMA\libraries\DatabaseInterface;
+use PhpMyAdmin\Core;
+use PhpMyAdmin\DatabaseInterface;
 
 if (! defined('PHPMYADMIN')) {
     exit;

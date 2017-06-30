@@ -95,7 +95,7 @@ class PMA_Central_Columns_Test extends PHPUnit_Framework_TestCase
         );
 
         // mock DBI
-        $dbi = $this->getMockBuilder('PMA\libraries\DatabaseInterface')
+        $dbi = $this->getMockBuilder('PhpMyAdmin\DatabaseInterface')
             ->disableOriginalConstructor()
             ->getMock();
         $GLOBALS['dbi'] = $dbi;

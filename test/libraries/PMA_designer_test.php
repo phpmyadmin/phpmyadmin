@@ -56,7 +56,7 @@ class PMA_DesignerTest extends PHPUnit_Framework_TestCase
      */
     private function _mockDatabaseInteraction($db)
     {
-        $dbi = $this->getMockBuilder('PMA\libraries\DatabaseInterface')
+        $dbi = $this->getMockBuilder('PhpMyAdmin\DatabaseInterface')
             ->disableOriginalConstructor()
             ->getMock();
 
@@ -66,7 +66,7 @@ class PMA_DesignerTest extends PHPUnit_Framework_TestCase
                 "SELECT `page_nr`, `page_descr` FROM `pmadb`.`pdf_pages`"
                 . " WHERE db_name = '" . $db . "' ORDER BY `page_descr`",
                 2,
-                PMA\libraries\DatabaseInterface::QUERY_STORE,
+                PhpMyAdmin\DatabaseInterface::QUERY_STORE,
                 false
             )
             ->will($this->returnValue('dummyRS'));

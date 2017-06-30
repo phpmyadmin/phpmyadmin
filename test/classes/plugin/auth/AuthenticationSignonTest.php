@@ -27,7 +27,7 @@ class AuthenticationSignonTest extends PMATestCase
      */
     function setup()
     {
-        $GLOBALS['PMA_Config'] = new PMA\libraries\Config;
+        $GLOBALS['PMA_Config'] = new PhpMyAdmin\Config;
         $GLOBALS['PMA_Config']->enableBc();
         $GLOBALS['server'] = 0;
         $this->object = new AuthenticationSignon();
@@ -370,7 +370,7 @@ class AuthenticationSignonTest extends PMATestCase
         $this->object->expects($this->exactly(1))
             ->method('auth');
 
-        $dbi = $this->getMockBuilder('PMA\libraries\DatabaseInterface')
+        $dbi = $this->getMockBuilder('PhpMyAdmin\DatabaseInterface')
             ->disableOriginalConstructor()
             ->getMock();
 
@@ -407,7 +407,7 @@ class AuthenticationSignonTest extends PMATestCase
         $this->object->expects($this->exactly(1))
             ->method('auth');
 
-        $dbi = $this->getMockBuilder('PMA\libraries\DatabaseInterface')
+        $dbi = $this->getMockBuilder('PhpMyAdmin\DatabaseInterface')
             ->disableOriginalConstructor()
             ->getMock();
 

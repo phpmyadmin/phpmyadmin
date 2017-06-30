@@ -5,7 +5,7 @@
  *
  * @package PhpMyAdmin-Import
  */
-use PMA\libraries\Encoding;
+use PhpMyAdmin\Encoding;
 use PMA\libraries\Message;
 use PMA\libraries\Response;
 use PMA\libraries\Table;

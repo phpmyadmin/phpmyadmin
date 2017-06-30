@@ -10,7 +10,7 @@
 /*
  * Include to test.
  */
-use PMA\libraries\Core;
+use PhpMyAdmin\Core;
 use PMA\libraries\Theme;
 
 /**
@@ -28,7 +28,7 @@ class PMA_CheckParameters_Test extends PHPUnit_Framework_TestCase
      */
     function setup()
     {
-        $GLOBALS['PMA_Config'] = new PMA\libraries\Config();
+        $GLOBALS['PMA_Config'] = new PhpMyAdmin\Config();
         $GLOBALS['cfg'] = array('ServerDefault' => 1);
         $GLOBALS['text_dir'] = 'ltr';
     }

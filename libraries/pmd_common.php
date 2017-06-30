@@ -92,7 +92,7 @@ function PMA_getColumnsInfo()
                 true
             ),
             null,
-            PMA\libraries\DatabaseInterface::QUERY_STORE
+            PhpMyAdmin\DatabaseInterface::QUERY_STORE
         );
         $tbl_name_i = $GLOBALS['PMD']['TABLE_NAME'][$i];
         $j = 0;
@@ -121,7 +121,7 @@ function PMA_getScriptContr()
     $alltab_rs = $GLOBALS['dbi']->query(
         'SHOW TABLES FROM ' . PMA\libraries\Util::backquote($GLOBALS['db']),
         null,
-        PMA\libraries\DatabaseInterface::QUERY_STORE
+        PhpMyAdmin\DatabaseInterface::QUERY_STORE
     );
     while ($val = @$GLOBALS['dbi']->fetchRow($alltab_rs)) {
         $row = PMA_getForeigners($GLOBALS['db'], $val[0], '', 'internal');
@@ -203,7 +203,7 @@ function PMA_getAllKeys($unique_only = false)
     foreach ($GLOBALS['PMD']['TABLE_NAME_SMALL'] as $I => $table) {
         $schema = $GLOBALS['PMD']['OWNER'][$I];
         // for now, take into account only the first index segment
-        foreach (PMA\libraries\Index::getFromTable($table, $schema) as $index) {
+        foreach (PhpMyAdmin\Index::getFromTable($table, $schema) as $index) {
             if ($unique_only && ! $index->isUnique()) {
                 continue;
             }
@@ -268,7 +268,7 @@ function PMA_getTablePositions($pg)
         'name',
         null,
         $GLOBALS['controllink'],
-        PMA\libraries\DatabaseInterface::QUERY_STORE
+        PhpMyAdmin\DatabaseInterface::QUERY_STORE
     );
     return $tab_pos;
 }
@@ -296,7 +296,7 @@ function PMA_getPageName($pg)
         null,
         null,
         $GLOBALS['controllink'],
-        PMA\libraries\DatabaseInterface::QUERY_STORE
+        PhpMyAdmin\DatabaseInterface::QUERY_STORE
     );
     return count($page_name) ? $page_name[0] : null;
 }
@@ -319,7 +319,7 @@ function PMA_deletePage($pg)
         . "." . PMA\libraries\Util::backquote($cfgRelation['table_coords'])
         . " WHERE " . PMA\libraries\Util::backquote('pdf_page_number') . " = " . intval($pg);
     $success = PMA_queryAsControlUser(
-        $query, true, PMA\libraries\DatabaseInterface::QUERY_STORE
+        $query, true, PhpMyAdmin\DatabaseInterface::QUERY_STORE
     );
 
     if ($success) {
@@ -327,7 +327,7 @@ function PMA_deletePage($pg)
             . "." . PMA\libraries\Util::backquote($cfgRelation['pdf_pages'])
             . " WHERE " . PMA\libraries\Util::backquote('page_nr') . " = " . intval($pg);
         $success = PMA_queryAsControlUser(
-            $query, true, PMA\libraries\DatabaseInterface::QUERY_STORE
+            $query, true, PhpMyAdmin\DatabaseInterface::QUERY_STORE
         );
     }
 
@@ -360,7 +360,7 @@ function PMA_getDefaultPage($db)
         null,
         null,
         $GLOBALS['controllink'],
-        PMA\libraries\DatabaseInterface::QUERY_STORE
+        PhpMyAdmin\DatabaseInterface::QUERY_STORE
     );
 
     if (count($default_page_no)) {
@@ -400,7 +400,7 @@ function PMA_getLoadingPage($db)
             null,
             null,
             $GLOBALS['controllink'],
-            PMA\libraries\DatabaseInterface::QUERY_STORE
+            PhpMyAdmin\DatabaseInterface::QUERY_STORE
         );
         if (count($min_page_no[0])) {
             $page_no = $min_page_no[0];
@@ -458,7 +458,7 @@ function PMA_saveTablePositions($pg)
     $res = PMA_queryAsControlUser(
         $query,
         true,
-        PMA\libraries\DatabaseInterface::QUERY_STORE
+        PhpMyAdmin\DatabaseInterface::QUERY_STORE
     );
 
     if (!$res) {
@@ -483,7 +483,7 @@ function PMA_saveTablePositions($pg)
             . "'" . $GLOBALS['dbi']->escapeString($_REQUEST['t_y'][$key]) . "')";
 
         $res = PMA_queryAsControlUser(
-            $query,  true, PMA\libraries\DatabaseInterface::QUERY_STORE
+            $query,  true, PhpMyAdmin\DatabaseInterface::QUERY_STORE
         );
     }
 
@@ -630,7 +630,7 @@ function PMA_addNewRelation($db, $T1, $F1, $T2, $F2, $on_delete, $on_update)
         . "'" . $GLOBALS['dbi']->escapeString($T1) . "', "
         . "'" . $GLOBALS['dbi']->escapeString($F1) . "')";
 
-    if (PMA_queryAsControlUser($q, false, PMA\libraries\DatabaseInterface::QUERY_STORE)
+    if (PMA_queryAsControlUser($q, false, PhpMyAdmin\DatabaseInterface::QUERY_STORE)
     ) {
         return array(true, __('Internal relationship has been added.'));
     }
@@ -702,7 +702,7 @@ function PMA_removeRelation($T1, $F1, $T2, $F2)
     $result = PMA_queryAsControlUser(
         $delete_query,
         false,
-        PMA\libraries\DatabaseInterface::QUERY_STORE
+        PhpMyAdmin\DatabaseInterface::QUERY_STORE
     );
 
     if (!$result) {

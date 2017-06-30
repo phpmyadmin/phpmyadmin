@@ -8,7 +8,7 @@
 
 use PMA\libraries\di\Container;
 use PMA\libraries\Theme;
-use PMA\libraries\Charsets;
+use PhpMyAdmin\Charsets;
 
 require_once 'libraries/database_interface.inc.php';
 
@@ -35,7 +35,7 @@ class ServerDatabasesControllerTest extends PMATestCase
         $_REQUEST['pos'] = 3;
 
         //$GLOBALS
-        $GLOBALS['PMA_Config'] = new PMA\libraries\Config();
+        $GLOBALS['PMA_Config'] = new PhpMyAdmin\Config();
         $GLOBALS['PMA_Config']->enableBc();
         $GLOBALS['is_superuser'] = true;
 
@@ -277,7 +277,7 @@ class ServerDatabasesControllerTest extends PMATestCase
                 'DEFAULT_COLLATION_NAME' => array(
                     'disp_name' => __('Collation'),
                     'description_function' => array(
-                        '\PMA\libraries\Charsets',
+                        Charsets::class,
                         'getCollationDescr'
                     ),
                     'format'    => 'string',

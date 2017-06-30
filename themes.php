@@ -6,7 +6,7 @@
  * @package PhpMyAdmin
  */
 
-use PMA\libraries\Core;
+use PhpMyAdmin\Core;
 use PMA\libraries\ThemeManager;
 use PMA\libraries\Response;
 

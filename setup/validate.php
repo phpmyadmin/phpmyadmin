@@ -6,7 +6,7 @@
  * @package PhpMyAdmin-Setup
  */
 
-use PMA\libraries\Core;
+use PhpMyAdmin\Core;
 
 /**
  * Core libraries.

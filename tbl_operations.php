@@ -308,7 +308,7 @@ $hideOrderTable = false;
 // a user-defined clustered index (PRIMARY KEY or NOT NULL UNIQUE index).
 // InnoDB always orders table rows according to such an index if one is present.
 if ($tbl_storage_engine == 'INNODB') {
-    $indexes = PMA\libraries\Index::getFromTable($GLOBALS['table'], $GLOBALS['db']);
+    $indexes = PhpMyAdmin\Index::getFromTable($GLOBALS['table'], $GLOBALS['db']);
     foreach ($indexes as $name => $idx) {
         if ($name == 'PRIMARY') {
             $hideOrderTable = true;

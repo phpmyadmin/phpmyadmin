@@ -5,13 +5,17 @@
  *
  * @package PhpMyAdmin
  */
-namespace PMA\libraries;
+namespace PhpMyAdmin;
 
-use Traversable;
-use PMA\libraries\URL;
+use PhpMyAdmin\Config;
+use PhpMyAdmin\Core;
+use PMA\libraries\Message;
+use PMA\libraries\Response;
 use PMA\libraries\Sanitize;
-use PMA\libraries\Config;
-use PMA\libraries\Core;
+use PMA\libraries\Scripts;
+use PMA\libraries\URL;
+use PMA\libraries\Util;
+use Traversable;
 
 /**
  * Class used to output the footer

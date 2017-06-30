@@ -61,14 +61,14 @@ if (PHP_SAPI == 'cli') {
 require_once 'libraries/vendor_config.php';
 require_once AUTOLOAD_FILE;
 PhpMyAdmin\MoTranslator\Loader::loadFunctions();
-$CFG = new PMA\libraries\Config();
+$CFG = new PhpMyAdmin\Config();
 // Initialize PMA_VERSION variable
 define('PMA_VERSION', $CFG->get('PMA_VERSION'));
 define('PMA_MAJOR_VERSION', $CFG->get('PMA_MAJOR_VERSION'));
 unset($CFG);
 
 /* Ensure default langauge is active */
-PMA\libraries\LanguageManager::getInstance()->getLanguage('en')->activate();
+PhpMyAdmin\LanguageManager::getInstance()->getLanguage('en')->activate();
 
 // Set proxy information from env, if available
 $http_proxy = getenv('http_proxy');

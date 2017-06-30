@@ -7,8 +7,8 @@
  */
 namespace PMA\libraries\config;
 
-use PMA\libraries\Config;
-use PMA\libraries\Core;
+use PhpMyAdmin\Config;
+use PhpMyAdmin\Core;
 
 /**
  * Config file management class.
@@ -78,7 +78,7 @@ class ConfigFile
      * Constructor
      *
      * @param array $base_config base configuration read from
-     *                           {@link PMA\libraries\Config::$base_config},
+     *                           {@link PhpMyAdmin\Config::$base_config},
      *                           use only when not in PMA Setup
      */
     public function __construct(array $base_config = null)

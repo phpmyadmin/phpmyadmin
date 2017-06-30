@@ -5,10 +5,11 @@
  *
  * @package PhpMyAdmin
  */
-namespace PMA\libraries;
+namespace PhpMyAdmin;
 
+use PhpMyAdmin\Bookmark;
 use PMA\libraries\Template;
-use PMA\libraries\Bookmark;
+use PMA\libraries\Util;
 
 if (! defined('PHPMYADMIN')) {
     exit;

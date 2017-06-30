@@ -6,8 +6,8 @@
  * @package PhpMyAdmin
  */
 
-use PMA\libraries\Core;
-use PMA\libraries\Encoding;
+use PhpMyAdmin\Core;
+use PhpMyAdmin\Encoding;
 use PMA\libraries\plugins\ExportPlugin;
 use PMA\libraries\URL;
 use PMA\libraries\Sanitize;

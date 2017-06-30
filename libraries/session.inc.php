@@ -9,7 +9,7 @@
  * @see     https://secure.php.net/session
  */
 
-use PMA\libraries\Core;
+use PhpMyAdmin\Core;
 
 if (! defined('PHPMYADMIN')) {
     exit;
@@ -84,7 +84,7 @@ session_cache_limiter('private');
 /**
  * Session failed function
  *
- * @param array $errors PMA\libraries\ErrorHandler array
+ * @param array $errors PhpMyAdmin\ErrorHandler array
  *
  * @return void
  */

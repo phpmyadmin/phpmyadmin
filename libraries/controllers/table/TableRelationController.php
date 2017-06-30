@@ -9,9 +9,9 @@
 namespace PMA\libraries\controllers\table;
 
 use PMA\libraries\controllers\TableController;
-use PMA\libraries\Core;
-use PMA\libraries\DatabaseInterface;
-use PMA\libraries\Index;
+use PhpMyAdmin\Core;
+use PhpMyAdmin\DatabaseInterface;
+use PhpMyAdmin\Index;
 use PMA\libraries\Table;
 use PMA\libraries\Template;
 use PMA\libraries\Util;

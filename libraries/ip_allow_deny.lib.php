@@ -7,7 +7,7 @@
  * @package PhpMyAdmin
  */
 
-use PMA\libraries\Core;
+use PhpMyAdmin\Core;
 require_once './libraries/hash.lib.php';
 
 /**

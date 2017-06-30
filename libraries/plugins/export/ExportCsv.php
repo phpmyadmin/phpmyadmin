@@ -9,6 +9,7 @@
 
 namespace PMA\libraries\plugins\export;
 
+use PhpMyAdmin\DatabaseInterface;
 use PMA\libraries\properties\options\items\BoolPropertyItem;
 use PMA\libraries\plugins\ExportPlugin;
 use PMA\libraries\properties\plugins\ExportPluginProperties;
@@ -228,7 +229,7 @@ class ExportCsv extends ExportPlugin
         $result = $GLOBALS['dbi']->query(
             $sql_query,
             null,
-            PMA\libraries\DatabaseInterface::QUERY_UNBUFFERED
+            DatabaseInterface::QUERY_UNBUFFERED
         );
         $fields_cnt = $GLOBALS['dbi']->numFields($result);
 

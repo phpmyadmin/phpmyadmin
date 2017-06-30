@@ -11,7 +11,7 @@
  */
 require_once 'test/PMATestCase.php';
 
-use PMA\libraries\Advisor;
+use PhpMyAdmin\Advisor;
 use PMA\libraries\Theme;
 
 /**

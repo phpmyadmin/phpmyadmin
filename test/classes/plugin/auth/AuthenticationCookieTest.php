@@ -9,7 +9,7 @@
 use PMA\libraries\plugins\auth\AuthenticationCookie;
 use PMA\libraries\Theme;
 
-$GLOBALS['PMA_Config'] = new PMA\libraries\Config();
+$GLOBALS['PMA_Config'] = new PhpMyAdmin\Config();
 
 require_once 'libraries/config.default.php';
 require_once 'libraries/database_interface.inc.php';
@@ -110,7 +110,7 @@ class AuthenticationCookieTest extends PMATestCase
         $GLOBALS['pma_auth_server'] = 'localhost';
 
         // mock footer
-        $mockFooter = $this->getMockBuilder('PMA\libraries\Footer')
+        $mockFooter = $this->getMockBuilder('PhpMyAdmin\Footer')
             ->disableOriginalConstructor()
             ->setMethods(array('setMinimal'))
             ->getMock();
@@ -121,7 +121,7 @@ class AuthenticationCookieTest extends PMATestCase
 
         // mock header
 
-        $mockHeader = $this->getMockBuilder('PMA\libraries\Header')
+        $mockHeader = $this->getMockBuilder('PhpMyAdmin\Header')
             ->disableOriginalConstructor()
             ->setMethods(
                 array(
@@ -176,7 +176,7 @@ class AuthenticationCookieTest extends PMATestCase
 
         // mock error handler
 
-        $mockErrorHandler = $this->getMockBuilder('PMA\libraries\ErrorHandler')
+        $mockErrorHandler = $this->getMockBuilder('PhpMyAdmin\ErrorHandler')
             ->disableOriginalConstructor()
             ->setMethods(array('hasDisplayErrors', 'dispErrors'))
             ->getMock();
@@ -275,12 +275,12 @@ class AuthenticationCookieTest extends PMATestCase
         $mockResponse->expects($this->once())
             ->method('getFooter')
             ->with()
-            ->will($this->returnValue(new PMA\libraries\Footer()));
+            ->will($this->returnValue(new PhpMyAdmin\Footer()));
 
         $mockResponse->expects($this->once())
             ->method('getHeader')
             ->with()
-            ->will($this->returnValue(new PMA\libraries\Header()));
+            ->will($this->returnValue(new PhpMyAdmin\Header()));
 
         $_REQUEST['old_usr'] = '';
         $GLOBALS['cfg']['LoginCookieRecall'] = false;
@@ -293,7 +293,7 @@ class AuthenticationCookieTest extends PMATestCase
         $GLOBALS['cfg']['CaptchaLoginPublicKey'] = 'testpubkey';
         $GLOBALS['server'] = 0;
 
-        $GLOBALS['error_handler'] = new PMA\libraries\ErrorHandler;
+        $GLOBALS['error_handler'] = new PhpMyAdmin\ErrorHandler;
 
         ob_start();
         $this->object->auth();
@@ -834,7 +834,7 @@ class AuthenticationCookieTest extends PMATestCase
         $GLOBALS['server'] = 2;
         $_COOKIE['pmaAuth-2'] = 'pass';
 
-        $dbi = $this->getMockBuilder('PMA\libraries\DatabaseInterface')
+        $dbi = $this->getMockBuilder('PhpMyAdmin\DatabaseInterface')
             ->disableOriginalConstructor()
             ->getMock();
 
@@ -865,7 +865,7 @@ class AuthenticationCookieTest extends PMATestCase
             ->setMethods(array('auth'))
             ->getMock();
 
-        $dbi = $this->getMockBuilder('PMA\libraries\DatabaseInterface')
+        $dbi = $this->getMockBuilder('PhpMyAdmin\DatabaseInterface')
             ->disableOriginalConstructor()
             ->getMock();
 

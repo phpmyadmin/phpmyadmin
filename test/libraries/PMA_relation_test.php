@@ -56,7 +56,7 @@ class PMA_Relation_Test extends PHPUnit_Framework_TestCase
      */
     public function testPMAQueryAsControlUser()
     {
-        $dbi = $this->getMockBuilder('PMA\libraries\DatabaseInterface')
+        $dbi = $this->getMockBuilder('PhpMyAdmin\DatabaseInterface')
             ->disableOriginalConstructor()
             ->getMock();
 
@@ -212,7 +212,7 @@ class PMA_Relation_Test extends PHPUnit_Framework_TestCase
         $GLOBALS['cfg']['ServerDefault'] = 0;
         $_SESSION['relation'] = array();
 
-        $dbi = $this->getMockBuilder('PMA\libraries\DatabaseInterface')
+        $dbi = $this->getMockBuilder('PhpMyAdmin\DatabaseInterface')
             ->disableOriginalConstructor()
             ->getMock();
 
@@ -257,7 +257,7 @@ class PMA_Relation_Test extends PHPUnit_Framework_TestCase
      */
     public function testPMATryUpgradeTransformations()
     {
-        $dbi = $this->getMockBuilder('PMA\libraries\DatabaseInterface')
+        $dbi = $this->getMockBuilder('PhpMyAdmin\DatabaseInterface')
             ->disableOriginalConstructor()
             ->getMock();
         $dbi->expects($this->any())

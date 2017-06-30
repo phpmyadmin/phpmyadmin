@@ -6,7 +6,7 @@
  * @package PhpMyAdmin-test
  */
 
-use PMA\libraries\Core;
+use PhpMyAdmin\Core;
 use PMA\libraries\Theme;
 use PMA\libraries\URL;
 
@@ -90,14 +90,14 @@ class PMA_ServerPrivileges_Test extends PHPUnit_Framework_TestCase
             'menuswork' => true
         );
 
-        $pmaconfig = $this->getMockBuilder('PMA\libraries\Config')
+        $pmaconfig = $this->getMockBuilder('PhpMyAdmin\Config')
             ->disableOriginalConstructor()
             ->getMock();
 
         $GLOBALS['PMA_Config'] = $pmaconfig;
 
         //Mock DBI
-        $dbi = $this->getMockBuilder('PMA\libraries\DatabaseInterface')
+        $dbi = $this->getMockBuilder('PhpMyAdmin\DatabaseInterface')
             ->disableOriginalConstructor()
             ->getMock();
 
@@ -538,7 +538,7 @@ class PMA_ServerPrivileges_Test extends PHPUnit_Framework_TestCase
         /* Assertion 2 */
         $oldDbi = $GLOBALS['dbi'];
         //Mock DBI
-        $dbi = $this->getMockBuilder('PMA\libraries\DatabaseInterface')
+        $dbi = $this->getMockBuilder('PhpMyAdmin\DatabaseInterface')
             ->disableOriginalConstructor()
             ->getMock();
 
@@ -1021,7 +1021,7 @@ class PMA_ServerPrivileges_Test extends PHPUnit_Framework_TestCase
         $GLOBALS['username'] = "username";
 
         //Mock DBI
-        $dbi = $this->getMockBuilder('PMA\libraries\DatabaseInterface')
+        $dbi = $this->getMockBuilder('PhpMyAdmin\DatabaseInterface')
             ->disableOriginalConstructor()
             ->getMock();
 
@@ -1304,7 +1304,7 @@ class PMA_ServerPrivileges_Test extends PHPUnit_Framework_TestCase
         $GLOBALS['username'] = 'pma_username';
 
         $dbi_old = $GLOBALS['dbi'];
-        $dbi = $this->getMockBuilder('PMA\libraries\DatabaseInterface')
+        $dbi = $this->getMockBuilder('PhpMyAdmin\DatabaseInterface')
             ->disableOriginalConstructor()
             ->getMock();
         $fields_info = array(
@@ -1412,7 +1412,7 @@ class PMA_ServerPrivileges_Test extends PHPUnit_Framework_TestCase
     public function testPMAGetHtmlForAddUser()
     {
         $dbi_old = $GLOBALS['dbi'];
-        $dbi = $this->getMockBuilder('PMA\libraries\DatabaseInterface')
+        $dbi = $this->getMockBuilder('PhpMyAdmin\DatabaseInterface')
             ->disableOriginalConstructor()
             ->getMock();
         $fields_info = array(
@@ -1487,7 +1487,7 @@ class PMA_ServerPrivileges_Test extends PHPUnit_Framework_TestCase
     public function testPMAGetHtmlForSpecificDbPrivileges()
     {
         $dbi_old = $GLOBALS['dbi'];
-        $dbi = $this->getMockBuilder('PMA\libraries\DatabaseInterface')
+        $dbi = $this->getMockBuilder('PhpMyAdmin\DatabaseInterface')
             ->disableOriginalConstructor()
             ->getMock();
         $fields_info = array(
@@ -1565,7 +1565,7 @@ class PMA_ServerPrivileges_Test extends PHPUnit_Framework_TestCase
     public function testPMAGetHtmlForSpecificTablePrivileges()
     {
         $dbi_old = $GLOBALS['dbi'];
-        $dbi = $this->getMockBuilder('PMA\libraries\DatabaseInterface')
+        $dbi = $this->getMockBuilder('PhpMyAdmin\DatabaseInterface')
             ->disableOriginalConstructor()
             ->getMock();
         $fields_info = array(
@@ -1874,7 +1874,7 @@ class PMA_ServerPrivileges_Test extends PHPUnit_Framework_TestCase
         $GLOBALS['cfgRelation']['menuswork'] = true;
 
         $dbi_old = $GLOBALS['dbi'];
-        $dbi = $this->getMockBuilder('PMA\libraries\DatabaseInterface')
+        $dbi = $this->getMockBuilder('PhpMyAdmin\DatabaseInterface')
             ->disableOriginalConstructor()
             ->getMock();
         $fields_info = array(
@@ -1946,7 +1946,7 @@ class PMA_ServerPrivileges_Test extends PHPUnit_Framework_TestCase
         $GLOBALS['cfgRelation']['menuswork'] = true;
 
         $dbi_old = $GLOBALS['dbi'];
-        $dbi = $this->getMockBuilder('PMA\libraries\DatabaseInterface')
+        $dbi = $this->getMockBuilder('PhpMyAdmin\DatabaseInterface')
             ->disableOriginalConstructor()
             ->getMock();
         $expected_userGroup = "pma_usergroup";
@@ -2443,7 +2443,7 @@ class PMA_ServerPrivileges_Test extends PHPUnit_Framework_TestCase
     function testPMAGetDbRightsForUserOverview()
     {
         //Mock DBI
-        $dbi = $this->getMockBuilder('PMA\libraries\DatabaseInterface')
+        $dbi = $this->getMockBuilder('PhpMyAdmin\DatabaseInterface')
             ->disableOriginalConstructor()
             ->getMock();
         $dbi->expects($this->any())
@@ -2491,7 +2491,7 @@ class PMA_ServerPrivileges_Test extends PHPUnit_Framework_TestCase
         $oldDbi = $GLOBALS['dbi'];
 
         //Mock DBI
-        $dbi = $this->getMockBuilder('PMA\libraries\DatabaseInterface')
+        $dbi = $this->getMockBuilder('PhpMyAdmin\DatabaseInterface')
             ->disableOriginalConstructor()
             ->getMock();
         $dbi->expects($this->any())
@@ -2599,7 +2599,7 @@ class PMA_ServerPrivileges_Test extends PHPUnit_Framework_TestCase
     function testPMADeleteUser()
     {
         //Mock DBI
-        $dbi = $this->getMockBuilder('PMA\libraries\DatabaseInterface')
+        $dbi = $this->getMockBuilder('PhpMyAdmin\DatabaseInterface')
             ->disableOriginalConstructor()
             ->getMock();
         $dbi->expects($this->any())

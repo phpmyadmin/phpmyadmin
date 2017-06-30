@@ -7,8 +7,8 @@
  */
 namespace PMA\libraries\config;
 
-use PMA\libraries\Core;
-use PMA\libraries\DatabaseInterface;
+use PhpMyAdmin\Core;
+use PhpMyAdmin\DatabaseInterface;
 use PMA\libraries\Util;
 
 /**
@@ -49,7 +49,7 @@ class Validator
 
         // not in setup script: load additional validators for user
         // preferences we need original config values not overwritten
-        // by user preferences, creating a new PMA\libraries\Config instance is a
+        // by user preferences, creating a new PhpMyAdmin\Config instance is a
         // better idea than hacking into its code
         $uvs = $cf->getDbEntry('_userValidators', array());
         foreach ($uvs as $field => $uv_list) {

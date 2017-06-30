@@ -60,7 +60,7 @@ class ServerPluginsControllerTest extends PMATestCase
         $row["is_active"] = true;
 
         //Mock DBI
-        $dbi = $this->getMockBuilder('PMA\libraries\DatabaseInterface')
+        $dbi = $this->getMockBuilder('PhpMyAdmin\DatabaseInterface')
             ->disableOriginalConstructor()
             ->getMock();
 

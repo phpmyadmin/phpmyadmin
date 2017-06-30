@@ -80,7 +80,7 @@ class ExportSqlTest extends PMATestCase
         );
 
         // test with hide structure and hide sql as false
-        $dbi = $this->getMockBuilder('PMA\libraries\DatabaseInterface')
+        $dbi = $this->getMockBuilder('PhpMyAdmin\DatabaseInterface')
             ->disableOriginalConstructor()
             ->getMock();
 
@@ -325,7 +325,7 @@ class ExportSqlTest extends PMATestCase
         $GLOBALS['crlf'] = '##';
         $GLOBALS['sql_drop_table'] = true;
 
-        $dbi = $this->getMockBuilder('PMA\libraries\DatabaseInterface')
+        $dbi = $this->getMockBuilder('PhpMyAdmin\DatabaseInterface')
             ->disableOriginalConstructor()
             ->getMock();
 
@@ -456,7 +456,7 @@ class ExportSqlTest extends PMATestCase
         $GLOBALS['asfile'] = 'yes';
         $GLOBALS['output_charset_conversion'] = 'utf-8';
 
-        $dbi = $this->getMockBuilder('PMA\libraries\DatabaseInterface')
+        $dbi = $this->getMockBuilder('PhpMyAdmin\DatabaseInterface')
             ->disableOriginalConstructor()
             ->getMock();
 
@@ -501,7 +501,7 @@ class ExportSqlTest extends PMATestCase
         $GLOBALS['sql_include_comments'] = true;
         $GLOBALS['charset'] = 'utf-8';
 
-        $dbi = $this->getMockBuilder('PMA\libraries\DatabaseInterface')
+        $dbi = $this->getMockBuilder('PhpMyAdmin\DatabaseInterface')
             ->disableOriginalConstructor()
             ->getMock();
 
@@ -571,7 +571,7 @@ class ExportSqlTest extends PMATestCase
         $GLOBALS['sql_create_view'] = true;
         $GLOBALS['crlf'] = "\n";
 
-        $dbi = $this->getMockBuilder('PMA\libraries\DatabaseInterface')
+        $dbi = $this->getMockBuilder('PhpMyAdmin\DatabaseInterface')
             ->disableOriginalConstructor()
             ->getMock();
         $dbi->expects($this->any())->method('escapeString')
@@ -611,7 +611,7 @@ class ExportSqlTest extends PMATestCase
         $GLOBALS['cfg']['Server']['DisableIS'] = true;
         unset($GLOBALS['sql_backquotes']);
 
-        $dbi = $this->getMockBuilder('PMA\libraries\DatabaseInterface')
+        $dbi = $this->getMockBuilder('PhpMyAdmin\DatabaseInterface')
             ->disableOriginalConstructor()
             ->getMock();
         $dbi->expects($this->any())->method('escapeString')
@@ -697,7 +697,7 @@ class ExportSqlTest extends PMATestCase
         $GLOBALS['sql_structure_or_data'] = 'structure';
         $GLOBALS['sql_procedure_function'] = true;
 
-        $dbi = $this->getMockBuilder('PMA\libraries\DatabaseInterface')
+        $dbi = $this->getMockBuilder('PhpMyAdmin\DatabaseInterface')
             ->disableOriginalConstructor()
             ->getMock();
 
@@ -763,7 +763,7 @@ class ExportSqlTest extends PMATestCase
         $GLOBALS['sql_structure_or_data'] = 'structure';
         $GLOBALS['sql_procedure_function'] = true;
 
-        $dbi = $this->getMockBuilder('PMA\libraries\DatabaseInterface')
+        $dbi = $this->getMockBuilder('PhpMyAdmin\DatabaseInterface')
             ->disableOriginalConstructor()
             ->getMock();
         $dbi->expects($this->any())->method('escapeString')
@@ -793,7 +793,7 @@ class ExportSqlTest extends PMATestCase
         $GLOBALS['sql_drop_table'] = true;
         $GLOBALS['sql_if_not_exists'] = true;
 
-        $dbi = $this->getMockBuilder('PMA\libraries\DatabaseInterface')
+        $dbi = $this->getMockBuilder('PhpMyAdmin\DatabaseInterface')
             ->disableOriginalConstructor()
             ->getMock();
         $dbi->expects($this->any())->method('escapeString')
@@ -833,7 +833,7 @@ class ExportSqlTest extends PMATestCase
         $GLOBALS['sql_drop_table'] = true;
         $GLOBALS['sql_if_not_exists'] = true;
 
-        $dbi = $this->getMockBuilder('PMA\libraries\DatabaseInterface')
+        $dbi = $this->getMockBuilder('PhpMyAdmin\DatabaseInterface')
             ->disableOriginalConstructor()
             ->getMock();
         $dbi->expects($this->any())->method('escapeString')
@@ -876,7 +876,7 @@ class ExportSqlTest extends PMATestCase
         // case 2
         unset($GLOBALS['sql_compatibility']);
 
-        $dbi = $this->getMockBuilder('PMA\libraries\DatabaseInterface')
+        $dbi = $this->getMockBuilder('PhpMyAdmin\DatabaseInterface')
             ->disableOriginalConstructor()
             ->getMock();
         $dbi->expects($this->any())->method('escapeString')
@@ -936,7 +936,7 @@ class ExportSqlTest extends PMATestCase
             unset($GLOBALS['no_constraints_comments']);
         }
 
-        $dbi = $this->getMockBuilder('PMA\libraries\DatabaseInterface')
+        $dbi = $this->getMockBuilder('PhpMyAdmin\DatabaseInterface')
             ->disableOriginalConstructor()
             ->getMock();
 
@@ -1104,7 +1104,7 @@ class ExportSqlTest extends PMATestCase
             unset($GLOBALS['no_constraints_comments']);
         }
 
-        $dbi = $this->getMockBuilder('PMA\libraries\DatabaseInterface')
+        $dbi = $this->getMockBuilder('PhpMyAdmin\DatabaseInterface')
             ->disableOriginalConstructor()
             ->getMock();
 
@@ -1184,7 +1184,7 @@ class ExportSqlTest extends PMATestCase
         $GLOBALS['sql_include_comments'] = true;
         $GLOBALS['crlf'] = "\n";
 
-        $dbi = $this->getMockBuilder('PMA\libraries\DatabaseInterface')
+        $dbi = $this->getMockBuilder('PhpMyAdmin\DatabaseInterface')
             ->disableOriginalConstructor()
             ->getMock();
 
@@ -1241,7 +1241,7 @@ class ExportSqlTest extends PMATestCase
     public function testExportStructure()
     {
 
-        $dbi = $this->getMockBuilder('PMA\libraries\DatabaseInterface')
+        $dbi = $this->getMockBuilder('PhpMyAdmin\DatabaseInterface')
             ->disableOriginalConstructor()
             ->getMock();
         $dbi->expects($this->any())->method('escapeString')
@@ -1355,7 +1355,7 @@ class ExportSqlTest extends PMATestCase
         );
 
         // case 4
-        $dbi = $this->getMockBuilder('PMA\libraries\DatabaseInterface')
+        $dbi = $this->getMockBuilder('PhpMyAdmin\DatabaseInterface')
             ->disableOriginalConstructor()
             ->getMock();
         $dbi->expects($this->any())->method('escapeString')
@@ -1413,7 +1413,7 @@ class ExportSqlTest extends PMATestCase
      */
     public function testExportData()
     {
-        $dbi = $this->getMockBuilder('PMA\libraries\DatabaseInterface')
+        $dbi = $this->getMockBuilder('PhpMyAdmin\DatabaseInterface')
             ->disableOriginalConstructor()
             ->getMock();
 
@@ -1472,7 +1472,7 @@ class ExportSqlTest extends PMATestCase
             ->with(
                 "SELECT a FROM b WHERE 1",
                 null,
-                PMA\libraries\DatabaseInterface::QUERY_UNBUFFERED
+                PhpMyAdmin\DatabaseInterface::QUERY_UNBUFFERED
             )
             ->will($this->returnValue('res'));
 
@@ -1561,7 +1561,7 @@ class ExportSqlTest extends PMATestCase
      */
     public function testExportDataWithUpdate()
     {
-        $dbi = $this->getMockBuilder('PMA\libraries\DatabaseInterface')
+        $dbi = $this->getMockBuilder('PhpMyAdmin\DatabaseInterface')
             ->disableOriginalConstructor()
             ->getMock();
 
@@ -1603,7 +1603,7 @@ class ExportSqlTest extends PMATestCase
             ->with(
                 "SELECT a FROM b WHERE 1",
                 null,
-                PMA\libraries\DatabaseInterface::QUERY_UNBUFFERED
+                PhpMyAdmin\DatabaseInterface::QUERY_UNBUFFERED
             )
             ->will($this->returnValue('res'));
 
@@ -1669,7 +1669,7 @@ class ExportSqlTest extends PMATestCase
     */
     public function testExportDataWithIsView()
     {
-        $dbi = $this->getMockBuilder('PMA\libraries\DatabaseInterface')
+        $dbi = $this->getMockBuilder('PhpMyAdmin\DatabaseInterface')
             ->disableOriginalConstructor()
             ->getMock();
 
@@ -1725,7 +1725,7 @@ class ExportSqlTest extends PMATestCase
     */
     public function testExportDataWithError()
     {
-        $dbi = $this->getMockBuilder('PMA\libraries\DatabaseInterface')
+        $dbi = $this->getMockBuilder('PhpMyAdmin\DatabaseInterface')
             ->disableOriginalConstructor()
             ->getMock();
 

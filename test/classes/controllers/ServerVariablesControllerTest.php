@@ -6,7 +6,7 @@
  * @package PhpMyAdmin-test
  */
 
-use PMA\libraries\Core;
+use PhpMyAdmin\Core;
 use PMA\libraries\di\Container;
 use PMA\libraries\Theme;
 use PMA\libraries\URL;
@@ -46,7 +46,7 @@ class ServerVariablesControllerTest extends PMATestCase
         //$_SESSION
 
         //Mock DBI
-        $dbi = $this->getMockBuilder('PMA\libraries\DatabaseInterface')
+        $dbi = $this->getMockBuilder('PhpMyAdmin\DatabaseInterface')
             ->disableOriginalConstructor()
             ->getMock();
 

@@ -49,7 +49,7 @@ class PMA_RTN_GetQueryFromRequest_Test extends PHPUnit_Framework_TestCase
         PMA_RTN_setGlobals();
 
         $old_dbi = isset($GLOBALS['dbi']) ? $GLOBALS['dbi'] : null;
-        $dbi = $this->getMockBuilder('PMA\libraries\DatabaseInterface')
+        $dbi = $this->getMockBuilder('PhpMyAdmin\DatabaseInterface')
             ->disableOriginalConstructor()
             ->getMock();
         $dbi->expects($this->any())

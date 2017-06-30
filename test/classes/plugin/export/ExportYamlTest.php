@@ -197,13 +197,13 @@ class ExportYamlTest extends PMATestCase
      */
     public function testExportData()
     {
-        $dbi = $this->getMockBuilder('PMA\libraries\DatabaseInterface')
+        $dbi = $this->getMockBuilder('PhpMyAdmin\DatabaseInterface')
             ->disableOriginalConstructor()
             ->getMock();
 
         $dbi->expects($this->once())
             ->method('query')
-            ->with('SELECT', null, PMA\libraries\DatabaseInterface::QUERY_UNBUFFERED)
+            ->with('SELECT', null, PhpMyAdmin\DatabaseInterface::QUERY_UNBUFFERED)
             ->will($this->returnValue(true));
 
         $dbi->expects($this->once())

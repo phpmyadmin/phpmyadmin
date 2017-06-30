@@ -10,7 +10,7 @@
 namespace PMA\libraries\controllers\table;
 
 use PMA\libraries\controllers\TableController;
-use PMA\libraries\Core;
+use PhpMyAdmin\Core;
 use PMA\libraries\Message;
 use PMA\libraries\Template;
 use PMA\libraries\gis\GISVisualization;

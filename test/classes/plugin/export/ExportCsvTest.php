@@ -475,7 +475,7 @@ class ExportCsvTest extends PMATestCase
     public function testExportData()
     {
         // case 1
-        $dbi = $this->getMockBuilder('PMA\libraries\DatabaseInterface')
+        $dbi = $this->getMockBuilder('PhpMyAdmin\DatabaseInterface')
             ->disableOriginalConstructor()
             ->getMock();
         $GLOBALS['dbi'] = $dbi;
@@ -499,13 +499,13 @@ class ExportCsvTest extends PMATestCase
         $result = ob_get_clean();
 
         // case 2
-        $dbi = $this->getMockBuilder('PMA\libraries\DatabaseInterface')
+        $dbi = $this->getMockBuilder('PhpMyAdmin\DatabaseInterface')
             ->disableOriginalConstructor()
             ->getMock();
 
         $dbi->expects($this->once())
             ->method('query')
-            ->with('test', null, PMA\libraries\DatabaseInterface::QUERY_UNBUFFERED)
+            ->with('test', null, PhpMyAdmin\DatabaseInterface::QUERY_UNBUFFERED)
             ->will($this->returnValue(true));
 
         $dbi->expects($this->once())
@@ -552,13 +552,13 @@ class ExportCsvTest extends PMATestCase
 
         // case 3
 
-        $dbi = $this->getMockBuilder('PMA\libraries\DatabaseInterface')
+        $dbi = $this->getMockBuilder('PhpMyAdmin\DatabaseInterface')
             ->disableOriginalConstructor()
             ->getMock();
 
         $dbi->expects($this->once())
             ->method('query')
-            ->with('test', null, PMA\libraries\DatabaseInterface::QUERY_UNBUFFERED)
+            ->with('test', null, PhpMyAdmin\DatabaseInterface::QUERY_UNBUFFERED)
             ->will($this->returnValue(true));
 
         $dbi->expects($this->once())
@@ -599,13 +599,13 @@ class ExportCsvTest extends PMATestCase
 
         // case 4
 
-        $dbi = $this->getMockBuilder('PMA\libraries\DatabaseInterface')
+        $dbi = $this->getMockBuilder('PhpMyAdmin\DatabaseInterface')
             ->disableOriginalConstructor()
             ->getMock();
 
         $dbi->expects($this->once())
             ->method('query')
-            ->with('test', null, PMA\libraries\DatabaseInterface::QUERY_UNBUFFERED)
+            ->with('test', null, PhpMyAdmin\DatabaseInterface::QUERY_UNBUFFERED)
             ->will($this->returnValue(true));
 
         $dbi->expects($this->once())
@@ -649,13 +649,13 @@ class ExportCsvTest extends PMATestCase
 
         // case 5
 
-        $dbi = $this->getMockBuilder('PMA\libraries\DatabaseInterface')
+        $dbi = $this->getMockBuilder('PhpMyAdmin\DatabaseInterface')
             ->disableOriginalConstructor()
             ->getMock();
 
         $dbi->expects($this->once())
             ->method('query')
-            ->with('test', null, PMA\libraries\DatabaseInterface::QUERY_UNBUFFERED)
+            ->with('test', null, PhpMyAdmin\DatabaseInterface::QUERY_UNBUFFERED)
             ->will($this->returnValue(true));
 
         $dbi->expects($this->once())
@@ -698,13 +698,13 @@ class ExportCsvTest extends PMATestCase
 
         // case 6
 
-        $dbi = $this->getMockBuilder('PMA\libraries\DatabaseInterface')
+        $dbi = $this->getMockBuilder('PhpMyAdmin\DatabaseInterface')
             ->disableOriginalConstructor()
             ->getMock();
 
         $dbi->expects($this->once())
             ->method('query')
-            ->with('test', null, PMA\libraries\DatabaseInterface::QUERY_UNBUFFERED)
+            ->with('test', null, PhpMyAdmin\DatabaseInterface::QUERY_UNBUFFERED)
             ->will($this->returnValue(true));
 
         $dbi->expects($this->once())

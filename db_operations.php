@@ -303,6 +303,6 @@ if ($cfgRelation['pdfwork'] && $num_tables > 0) {
     $test_rs = PMA_queryAsControlUser(
         $test_query,
         false,
-        PMA\libraries\DatabaseInterface::QUERY_STORE
+        PhpMyAdmin\DatabaseInterface::QUERY_STORE
     );
 } // end if

@@ -5,7 +5,7 @@
  *
  * @package PhpMyAdmin
  */
-namespace PMA\libraries;
+namespace PhpMyAdmin;
 
 /**
  * Index column wrapper

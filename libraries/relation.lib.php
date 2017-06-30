@@ -6,7 +6,7 @@
  * @package PhpMyAdmin
  */
 
-use PMA\libraries\Core;
+use PhpMyAdmin\Core;
 use PMA\libraries\Message;
 use PMA\libraries\Table;
 use PMA\libraries\RecentFavoriteTable;
@@ -510,7 +510,7 @@ function PMA_checkRelationsParam()
             $GLOBALS['cfg']['Server']['pmadb']
         );
     $tab_rs    = PMA_queryAsControlUser(
-        $tab_query, false, PMA\libraries\DatabaseInterface::QUERY_STORE
+        $tab_query, false, PhpMyAdmin\DatabaseInterface::QUERY_STORE
     );
 
     if (! $tab_rs) {
@@ -688,7 +688,7 @@ function PMA_tryUpgradeTransformations()
         )
         . ' WHERE Field IN (\'' . implode('\', \'', $new_cols) . '\')';
     $result = PMA_queryAsControlUser(
-        $query, false, PMA\libraries\DatabaseInterface::QUERY_STORE
+        $query, false, PhpMyAdmin\DatabaseInterface::QUERY_STORE
     );
     if ($result) {
         $rows = $GLOBALS['dbi']->numRows($result);
@@ -936,7 +936,7 @@ function PMA_getDbComment($db)
                 AND table_name  = ''
                 AND column_name = '(db_comment)'";
         $com_rs = PMA_queryAsControlUser(
-            $com_qry, true, PMA\libraries\DatabaseInterface::QUERY_STORE
+            $com_qry, true, PhpMyAdmin\DatabaseInterface::QUERY_STORE
         );
 
         if ($com_rs && $GLOBALS['dbi']->numRows($com_rs) > 0) {
@@ -970,7 +970,7 @@ function PMA_getDbComments()
                 . "
             WHERE `column_name` = '(db_comment)'";
         $com_rs = PMA_queryAsControlUser(
-            $com_qry, true, PMA\libraries\DatabaseInterface::QUERY_STORE
+            $com_qry, true, PhpMyAdmin\DatabaseInterface::QUERY_STORE
         );
 
         if ($com_rs && $GLOBALS['dbi']->numRows($com_rs) > 0) {

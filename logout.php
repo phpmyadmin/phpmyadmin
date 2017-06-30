@@ -6,7 +6,7 @@
  * @package PhpMyAdmin
  */
 
-use PMA\libraries\Core;
+use PhpMyAdmin\Core;
 
 require_once 'libraries/common.inc.php';
 

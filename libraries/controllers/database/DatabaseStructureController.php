@@ -11,8 +11,8 @@ namespace PMA\libraries\controllers\database;
 
 use PMA\libraries\config\PageSettings;
 use PMA\libraries\controllers\DatabaseController;
-use PMA\libraries\Charsets;
-use PMA\libraries\Core;
+use PhpMyAdmin\Charsets;
+use PhpMyAdmin\Core;
 use PMA\libraries\Message;
 use PMA\libraries\RecentFavoriteTable;
 use PMA\libraries\Response;

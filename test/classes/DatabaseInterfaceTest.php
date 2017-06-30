@@ -6,7 +6,7 @@
  * @package PhpMyAdmin-test
  */
 
-use PMA\libraries\DatabaseInterface;
+use PhpMyAdmin\DatabaseInterface;
 use PMA\libraries\Util;
 
 require_once 'test/PMATestCase.php';
@@ -29,7 +29,7 @@ class DatabaseInterfaceTest extends PMATestCase
     function setup()
     {
         $extension = new PMA\libraries\dbi\DBIDummy();
-        $this->_dbi = new PMA\libraries\DatabaseInterface($extension);
+        $this->_dbi = new DatabaseInterface($extension);
     }
 
     /**
@@ -46,7 +46,7 @@ class DatabaseInterfaceTest extends PMATestCase
         $extension = new PMA\libraries\dbi\DBIDummy();
         $extension->setResult('SELECT CURRENT_USER();', $value);
 
-        $dbi = new PMA\libraries\DatabaseInterface($extension);
+        $dbi = new DatabaseInterface($extension);
 
         $this->assertEquals(
             $expected,
@@ -107,7 +107,7 @@ class DatabaseInterfaceTest extends PMATestCase
                 )
             );
 
-        $dbi = new PMA\libraries\DatabaseInterface($extension);
+        $dbi = new DatabaseInterface($extension);
 
         $sql_query = "PMA_sql_query";
         $view_columns = array(
@@ -390,7 +390,7 @@ class DatabaseInterfaceTest extends PMATestCase
         $extension = new PMA\libraries\dbi\DBIDummy();
         $extension->setResult('SELECT @@basedir', $value);
 
-        $dbi = new PMA\libraries\DatabaseInterface($extension);
+        $dbi = new DatabaseInterface($extension);
 
         $this->assertEquals(
             $expected,

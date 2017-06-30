@@ -55,7 +55,7 @@ class ServerBinlogControllerTest extends PMATestCase
         $binary_log_file_names[] = array("Log_name"=>"index2", "File_size"=>200);
 
         //Mock DBI
-        $dbi = $this->getMockBuilder('PMA\libraries\DatabaseInterface')
+        $dbi = $this->getMockBuilder('PhpMyAdmin\DatabaseInterface')
             ->disableOriginalConstructor()
             ->getMock();
         $dbi->expects($this->once())->method('fetchResult')

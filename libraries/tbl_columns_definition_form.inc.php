@@ -90,7 +90,7 @@ $comments_map = PMA_getComments($db, $table);
 
 $move_columns = array();
 if (isset($fields_meta)) {
-    /** @var PMA\libraries\DatabaseInterface $dbi */
+    /** @var PhpMyAdmin\DatabaseInterface $dbi */
     $dbi = \PMA\libraries\di\Container::getDefaultContainer()->get('dbi');
     $move_columns = $dbi->getTable($db, $table)->getColumnsMeta();
 }

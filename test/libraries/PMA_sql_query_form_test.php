@@ -6,8 +6,8 @@
  * @package PhpMyAdmin-test
  */
 
-use PMA\libraries\Core;
-use PMA\libraries\Encoding;
+use PhpMyAdmin\Core;
+use PhpMyAdmin\Encoding;
 use PMA\libraries\Theme;
 use PMA\libraries\URL;
 
@@ -78,7 +78,7 @@ class PMA_SqlQueryForm_Test extends PHPUnit_Framework_TestCase
         //$_SESSION
 
         //Mock DBI
-        $dbi = $this->getMockBuilder('PMA\libraries\DatabaseInterface')
+        $dbi = $this->getMockBuilder('PhpMyAdmin\DatabaseInterface')
             ->disableOriginalConstructor()
             ->getMock();
 

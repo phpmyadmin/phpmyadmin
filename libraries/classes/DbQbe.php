@@ -5,9 +5,11 @@
  *
  * @package PhpMyAdmin
  */
-namespace PMA\libraries;
+namespace PhpMyAdmin;
 
-use PMA\libraries\Core;
+use PhpMyAdmin\Core;
+use PhpMyAdmin\DatabaseInterface;
+use PMA\libraries\Table;
 use PMA\libraries\URL;
 use PMA\libraries\Util;
 

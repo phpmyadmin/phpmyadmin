@@ -7,7 +7,7 @@
  */
 
 use PMA\libraries\config\FormDisplay;
-use PMA\libraries\Core;
+use PhpMyAdmin\Core;
 
 if (!defined('PHPMYADMIN')) {
     exit;

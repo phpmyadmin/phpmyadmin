@@ -5,9 +5,10 @@
  *
  * @package PhpMyAdmin
  */
-namespace PMA\libraries;
+namespace PhpMyAdmin;
 
 use PMA\libraries\URL;
+use PMA\libraries\Util;
 use PMA\libraries\Sanitize;
 
 /**

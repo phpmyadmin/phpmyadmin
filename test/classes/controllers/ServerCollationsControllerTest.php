@@ -7,7 +7,7 @@
  */
 
 use PMA\libraries\controllers\server\ServerCollationsController;
-use PMA\libraries\Core;
+use PhpMyAdmin\Core;
 use PMA\libraries\Theme;
 
 /*

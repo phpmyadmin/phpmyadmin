@@ -9,7 +9,7 @@
  */
 namespace PMA\libraries;
 
-use PMA\libraries\Core;
+use PhpMyAdmin\Core;
 
 /**
  * Misc logging functions
