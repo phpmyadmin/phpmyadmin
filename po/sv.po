@@ -4,32 +4,28 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.7.2-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2017-06-28 09:56+0200\n"
-"PO-Revision-Date: 2016-11-18 10:33+0000\n"
-"Last-Translator: Michal Čihař <michal@cihar.com>\n"
-"Language-Team: Swedish <https://hosted.weblate.org/projects/phpmyadmin/"
-"master/sv/>\n"
+"PO-Revision-Date: 2017-06-30 17:23+0000\n"
+"Last-Translator: Aron Bergman <bathingrad@gmail.com>\n"
+"Language-Team: Swedish "
+"<https://hosted.weblate.org/projects/phpmyadmin/4-7/sv/>\n"
 "Language: sv\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 2.10-dev\n"
+"X-Generator: Weblate 2.15\n"
 
 #: ajax.php:16 ajax.php:33 export.php:191 schema_export.php:64
 msgid "Bad type!"
 msgstr "Dålig typ!"
 
 #: changelog.php:39 license.php:34
-#, fuzzy, php-format
-#| msgid ""
-#| "The %s file is not available on this system, please visit www.phpmyadmin."
-#| "net for more information."
+#, php-format
 msgid ""
 "The %s file is not available on this system, please visit %s for more "
 "information."
 msgstr ""
-"Filen %s är inte tillgänglig i detta system, gå till www.phpmyadmin.net för "
-"mer information."
+"Filen %s är inte tillgänglig i detta system, gå till %s för mer information."
 
 #: db_central_columns.php:108
 msgid "The central list of columns for the current database is empty."
@@ -605,6 +601,8 @@ msgid ""
 "You were logged out from one server, to logout completely from phpMyAdmin, "
 "you need to logout from all servers."
 msgstr ""
+"Du blev utloggad från en av servrarna, för att logga ut fullständigt from "
+"phpMyAdmin så måste du logga ut från alla servrar."
 
 #: index.php:160 libraries/Footer.php:69
 msgid "phpMyAdmin Demo Server"
@@ -824,7 +822,7 @@ msgstr "Du är på väg att RADERA en hel databas!"
 
 #: js/messages.php:48
 msgid "Cannot rename database to the same name. Change the name and try again"
-msgstr ""
+msgstr "Kan inte döpa om databasen till samma namn. Byt namn och testa igen"
 
 #: js/messages.php:50
 msgid "You are about to DESTROY a complete table!"
@@ -2168,6 +2166,8 @@ msgid ""
 "MySQL accepts additional values not selectable by the slider; key in those "
 "values directly if desired"
 msgstr ""
+"MySQL accepterar ytterligare värden som inte går att välja med skjutreglaget;"
+" tryck in de värdena manuellt om du önskar"
 
 #: js/messages.php:538
 msgid ""
@@ -2583,23 +2583,23 @@ msgstr "Kopiera tabell med prefix"
 
 #: js/messages.php:736
 msgid "Extremely weak"
-msgstr ""
+msgstr "Extremt svag"
 
 #: js/messages.php:737
 msgid "Very weak"
-msgstr ""
+msgstr "Väldigt svag"
 
 #: js/messages.php:738
 msgid "Weak"
-msgstr ""
+msgstr "Svag"
 
 #: js/messages.php:739
 msgid "Good"
-msgstr ""
+msgstr "Bra"
 
 #: js/messages.php:740
 msgid "Strong"
-msgstr ""
+msgstr "Stark"
 
 #: js/messages.php:769
 msgctxt "Previous month"
@@ -3004,10 +3004,8 @@ msgid "Collation"
 msgstr "Kollationering"
 
 #: libraries/Charsets.php:244
-#, fuzzy
-#| msgid "unknown"
 msgid "Unknonwn"
-msgstr "okänd"
+msgstr "Okänd"
 
 #: libraries/Charsets.php:258
 #, fuzzy
@@ -3157,11 +3155,9 @@ msgid "Thai"
 msgstr "Thailändsk"
 
 #: libraries/Charsets.php:353
-#, fuzzy
-#| msgid "unknown"
 msgctxt "Collation"
 msgid "Unknown"
-msgstr "okänd"
+msgstr "Okänd"
 
 #: libraries/Charsets.php:369
 #, fuzzy
@@ -3173,7 +3169,7 @@ msgstr "Bulgarisk"
 #: libraries/Charsets.php:374
 msgctxt "Collation"
 msgid "Chinese"
-msgstr ""
+msgstr "Kinesisk"
 
 #: libraries/Charsets.php:379
 #, fuzzy
@@ -3246,7 +3242,7 @@ msgstr "Isländska"
 #: libraries/Charsets.php:425
 msgctxt "Collation"
 msgid "Classical Latin"
-msgstr ""
+msgstr "Klassisk latin"
 
 #: libraries/Charsets.php:429
 #, fuzzy
@@ -3265,7 +3261,7 @@ msgstr "Litauisk"
 #: libraries/Charsets.php:441
 msgctxt "Collation"
 msgid "Burmese"
-msgstr ""
+msgstr "Burmesisk"
 
 #: libraries/Charsets.php:444
 #, fuzzy
