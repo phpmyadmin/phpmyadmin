@@ -28,6 +28,9 @@ do_tag=0
 do_stable=0
 do_test=0
 do_ci=0
+do_sign=1
+do_pull=0
+do_daily=0
 
 while [ $# -gt 0 ] ; do
     case "$1" in
@@ -38,6 +41,12 @@ while [ $# -gt 0 ] ; do
             do_stable=1
             ;;
         --test)
+            do_test=1
+            ;;
+        --daily)
+            do_sign=0
+            do_pull=1
+            do_daily=1
             do_test=1
             ;;
         --ci)
@@ -65,7 +74,7 @@ while [ $# -gt 0 ] ; do
             ;;
         *)
             if [ -z "$version" ] ; then
-                version=`echo $1 | tr -d -c '0-9a-z.-'`
+                version=`echo $1 | tr -d -c '0-9a-z.+-'`
                 if [ "x$version" != "x$1" ] ; then
                     echo "Invalid version: $1"
                     exit 1
@@ -118,7 +127,7 @@ else
     CONFIG_LIB=libraries/Config.class.php
 fi
 
-if [ $do_ci -eq 0 ] ; then
+if [ $do_ci -eq 0 -a -$do_daily -eq 0 ] ; then
     cat <<END
 
 Please ensure you have incremented rc count or version in the repository :
@@ -150,9 +159,15 @@ fi
 # Add worktree with chosen branch
 git worktree add --force $workdir $branch
 cd $workdir
+if [ $do_pull -eq 1 ] ; then
+    git pull -q
+fi
+if [ $do_daily -eq 1 ] ; then
+    git_head=`git log -n 1 --format=%H`
+fi
 
 # Check release version
-if [ $do_ci -eq 0 ] ; then
+if [ $do_ci -eq 0 -a -$do_daily -eq 0 ] ; then
     if ! grep -q "'PMA_VERSION', '$version'" $CONFIG_LIB ; then
         echo "There seems to be wrong version in $CONFIG_LIB!"
         exit 2
@@ -226,6 +241,7 @@ if [ ! -d libraries/tcpdf ] ; then
         vendor/phpseclib/phpseclib/phpseclib/Math/ \
         vendor/phpseclib/phpseclib/phpseclib/Net/ \
         vendor/phpseclib/phpseclib/phpseclib/System/ \
+        vendor/symfony/cache/Tests/ \
         vendor/symfony/expression-language/Tests/ \
         vendor/symfony/expression-language/Resources/ \
         vendor/tecnickcom/tcpdf/examples/ \
@@ -234,15 +250,17 @@ if [ ! -d libraries/tcpdf ] ; then
         vendor/tecnickcom/tcpdf/fonts/dejavu-fonts-ttf-2.33/ \
         vendor/tecnickcom/tcpdf/fonts/freefont-*/ \
         vendor/tecnickcom/tcpdf/include/sRGB.icc \
+        vendor/twig/extensions/doc \
+        vendor/twig/extensions/test \
+        vendor/twig/twig/doc \
+        vendor/twig/twig/test \
         vendor/google/recaptcha/examples/ \
         vendor/google/recaptcha/tests/
     find vendor/phpseclib/phpseclib/phpseclib/Crypt/ -maxdepth 1 -type f -not -name AES.php -not -name Base.php -not -name Random.php -not -name Rijndael.php -print0 | xargs -0 rm
     find vendor/tecnickcom/tcpdf/fonts/ -maxdepth 1 -type f -not -name 'dejavusans.*' -not -name 'dejavusansb.*' -not -name 'helvetica.php' -print0 | xargs -0 rm
     if [ $do_tag -eq 1 ] ; then
         echo "* Commiting composer.lock"
-        sed -i '/composer.lock/D' .gitignore
-        git add .gitignore
-        git add composer.lock
+        git add --force composer.lock
         git commit -s -m "Adding composer lock for $version"
     fi
 fi
@@ -250,10 +268,11 @@ fi
 # Remove git metadata
 rm .git
 find . -name .gitignore -print0 | xargs -0 -r rm -f
+find . -name .gitattributes -print0 | xargs -0 -r rm -f
 
 if [ $do_test -eq 1 ] ; then
     composer update
-    ant phpunit-nocoverage
+    ./vendor/bin/phpunit --configuration phpunit.xml.nocoverage --exclude-group selenium
     test_ret=$?
     if [ $do_ci -eq 1 ] ; then
         cd ../..
@@ -268,6 +287,7 @@ if [ $do_test -eq 1 ] ; then
         exit $test_ret
     fi
     # Remove libs installed for testing
+    rm -rf build
     if [ ! -d libraries/tcpdf ] ; then
         composer update --no-dev
     fi
@@ -301,7 +321,7 @@ for kit in $KITS ; do
         mv htmldoc doc/html
         rm doc/html/.buildinfo doc/html/objects.inv
         # Javascript sources
-        rm -rf js/jquery/src/ js/openlayers/src/
+        rm -rf js/vendor/jquery/src/ js/vendor/openlayers/src/
     fi
 
     # Remove developer scripts
@@ -353,10 +373,22 @@ git worktree prune
 # Signing of files with default GPG key
 echo "* Signing files"
 for file in *.gz *.zip *.xz ; do
-    gpg --detach-sign --armor $file
+    if [ $do_sign -eq 1 ] ; then
+        gpg --detach-sign --armor $file
+    fi
     sha1sum $file > $file.sha1
     sha256sum $file > $file.sha256
 done
+
+if [ $do_daily -eq 1 ] ; then
+    cat > phpMyAdmin-${version}.json << EOT
+{
+    "date": "`date --iso-8601=seconds`",
+    "commit": "$git_head"
+}
+EOT
+    exit 0
+fi
 
 
 echo ""
@@ -377,6 +409,8 @@ if [ $do_tag -eq 1 ] ; then
     echo "* Tagging release as $tagname"
     git tag -s -a -m "Released $version" $tagname $branch
     echo "   Dont forget to push tags using: git push --tags"
+    git rm --force composer.lock
+    git commit -s -m "Removing composer.lock"
 fi
 
 # Mark as stable release
@@ -424,6 +458,6 @@ Todo now:
 
  9. in case of a new major release ('y' in x.y.0), update the pmaweb/settings.py in website repository to include the new major releases
 
-10. the end :-)
+10. update the Dockerfile in the docker repository to reflect the new version
 
 END
