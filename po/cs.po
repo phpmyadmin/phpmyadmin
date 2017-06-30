@@ -6,16 +6,16 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.7.2-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2017-06-28 09:56+0200\n"
-"PO-Revision-Date: 2017-03-05 08:10+0000\n"
+"PO-Revision-Date: 2017-06-30 10:15+0000\n"
 "Last-Translator: Michal Čihař <michal@cihar.com>\n"
-"Language-Team: Czech <https://hosted.weblate.org/projects/phpmyadmin/4-7/cs/"
-">\n"
+"Language-Team: Czech <https://hosted.weblate.org/projects/phpmyadmin/4-7/cs/>"
+"\n"
 "Language: cs\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=(n==1) ? 0 : (n>=2 && n<=4) ? 1 : 2;\n"
-"X-Generator: Weblate 2.12\n"
+"X-Generator: Weblate 2.15\n"
 
 #: ajax.php:16 ajax.php:33 export.php:191 schema_export.php:64
 msgid "Bad type!"
@@ -2572,23 +2572,23 @@ msgstr "Zkopírovat tabulku s předponou"
 
 #: js/messages.php:736
 msgid "Extremely weak"
-msgstr ""
+msgstr "Extrémně slabé"
 
 #: js/messages.php:737
 msgid "Very weak"
-msgstr ""
+msgstr "Velmi slabé"
 
 #: js/messages.php:738
 msgid "Weak"
-msgstr ""
+msgstr "Slabé"
 
 #: js/messages.php:739
 msgid "Good"
-msgstr ""
+msgstr "Dobré"
 
 #: js/messages.php:740
 msgid "Strong"
-msgstr ""
+msgstr "Silné"
 
 #: js/messages.php:769
 msgctxt "Previous month"
