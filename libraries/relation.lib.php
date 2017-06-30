@@ -9,7 +9,7 @@
 use PhpMyAdmin\Core;
 use PhpMyAdmin\Message;
 use PMA\libraries\Table;
-use PMA\libraries\RecentFavoriteTable;
+use PhpMyAdmin\RecentFavoriteTable;
 use PMA\libraries\URL;
 
 /**

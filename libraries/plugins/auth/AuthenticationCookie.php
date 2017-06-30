@@ -12,7 +12,7 @@ use phpseclib\Crypt;
 use PhpMyAdmin\LanguageManager;
 use PhpMyAdmin\Message;
 use PMA\libraries\plugins\AuthenticationPlugin;
-use PMA\libraries\Response;
+use PhpMyAdmin\Response;
 use PMA\libraries\Util;
 use PhpMyAdmin\Config;
 use PhpMyAdmin\Core;

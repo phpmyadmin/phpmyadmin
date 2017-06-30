@@ -6,7 +6,7 @@
  * @package PhpMyAdmin
  */
 use PMA\libraries\URL;
-use PMA\libraries\Response;
+use PhpMyAdmin\Response;
 
 if (! defined('PHPMYADMIN')) {
     exit;

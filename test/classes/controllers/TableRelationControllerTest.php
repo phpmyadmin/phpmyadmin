@@ -56,8 +56,8 @@ class TableRelationControllerTest extends PMATestCase
         $container->set('table', 'table');
         $container->set('dbi', $GLOBALS['dbi']);
         $this->_response = new \PMA\Test\Stubs\Response();
-        $container->set('PMA\libraries\Response', $this->_response);
-        $container->alias('response', 'PMA\libraries\Response');
+        $container->set('PhpMyAdmin\Response', $this->_response);
+        $container->alias('response', 'PhpMyAdmin\Response');
     }
 
     /**

@@ -9,7 +9,7 @@
 use PhpMyAdmin\Core;
 use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Message;
-use PMA\libraries\Response;
+use PhpMyAdmin\Response;
 use PMA\libraries\Template;
 use PMA\libraries\Util;
 use PMA\libraries\URL;

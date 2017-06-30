@@ -17,7 +17,7 @@ use PMA\libraries\Sanitize;
  */
 /**
  * If we are sending the export file (as opposed to just displaying it
- * as text), we have to bypass the usual PMA\libraries\Response mechanism
+ * as text), we have to bypass the usual PhpMyAdmin\Response mechanism
  */
 if (isset($_POST['output_format']) && $_POST['output_format'] == 'sendit') {
     define('PMA_BYPASS_GET_INSTANCE', 1);

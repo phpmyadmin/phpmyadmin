@@ -10,7 +10,7 @@ use PMA\libraries\config\FormDisplay;
 use PhpMyAdmin\Core;
 use PhpMyAdmin\File;
 use PhpMyAdmin\Message;
-use PMA\libraries\Response;
+use PhpMyAdmin\Response;
 use PMA\libraries\Util;
 use PMA\libraries\URL;
 use PMA\libraries\Sanitize;

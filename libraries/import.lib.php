@@ -7,7 +7,7 @@
  */
 use PhpMyAdmin\Encoding;
 use PhpMyAdmin\Message;
-use PMA\libraries\Response;
+use PhpMyAdmin\Response;
 use PMA\libraries\Table;
 use PMA\libraries\Util;
 use PMA\libraries\URL;

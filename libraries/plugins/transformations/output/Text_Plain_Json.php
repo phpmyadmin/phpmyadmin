@@ -10,7 +10,7 @@ namespace PMA\libraries\plugins\transformations\output;
 
 use PMA;
 use PMA\libraries\plugins\TransformationsPlugin;
-use PMA\libraries\Response;
+use PhpMyAdmin\Response;
 
 /**
  * Handles the json transformation for text plain

@@ -8,7 +8,7 @@
  *
  * @package PhpMyAdmin
  */
-use PMA\libraries\Response;
+use PhpMyAdmin\Response;
 
 /**
  * Gets core libraries and defines some variables

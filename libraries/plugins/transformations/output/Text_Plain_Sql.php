@@ -8,7 +8,7 @@
  */
 namespace PMA\libraries\plugins\transformations\output;
 
-use PMA\libraries\Response;
+use PhpMyAdmin\Response;
 use PMA\libraries\plugins\transformations\abs\SQLTransformationsPlugin;
 
 /**

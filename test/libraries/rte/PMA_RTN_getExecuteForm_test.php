@@ -7,7 +7,7 @@
  */
 
 use PMA\libraries\TypesMySQL;
-use PMA\libraries\Response;
+use PhpMyAdmin\Response;
 
 $GLOBALS['server'] = 0;
 

@@ -5,7 +5,7 @@
  *
  * @package PhpMyAdmin
  */
-use PMA\libraries\OutputBuffering;
+use PhpMyAdmin\OutputBuffering;
 use PMA\libraries\ThemeManager;
 
 /**

@@ -7,8 +7,8 @@
  */
 namespace PhpMyAdmin;
 
-use PhpMyAdmin\Core;
 use PMA\libraries\config\ConfigFile;
+use PhpMyAdmin\Core;
 
 /**
  * Encoding conversion helper class

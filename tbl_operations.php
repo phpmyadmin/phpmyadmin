@@ -5,9 +5,9 @@
  *
  * @package PhpMyAdmin
  */
-use PMA\libraries\Partition;
+use PhpMyAdmin\Partition;
 use PMA\libraries\Table;
-use PMA\libraries\Response;
+use PhpMyAdmin\Response;
 
 /**
  *

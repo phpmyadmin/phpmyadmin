@@ -5,9 +5,11 @@
  *
  * @package PhpMyAdmin
  */
-namespace PMA\libraries;
+namespace PhpMyAdmin;
 
+use PhpMyAdmin\Message;
 use PMA\libraries\URL;
+use PMA\libraries\Util;
 
 /**
  * Handles the recently used and favorite tables.

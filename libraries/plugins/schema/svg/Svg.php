@@ -9,7 +9,7 @@ namespace PMA\libraries\plugins\schema\svg;
 
 use PMA;
 use PhpMyAdmin\Core;
-use PMA\libraries\Response;
+use PhpMyAdmin\Response;
 use XMLWriter;
 
 /**

@@ -9,7 +9,7 @@
 
 use PhpMyAdmin\Core;
 use PhpMyAdmin\Message;
-use PMA\libraries\Response;
+use PhpMyAdmin\Response;
 use PMA\libraries\URL;
 
 if (! defined('PHPMYADMIN')) {

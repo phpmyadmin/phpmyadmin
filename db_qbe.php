@@ -6,7 +6,7 @@
  * @package PhpMyAdmin
  */
 
-use PMA\libraries\Response;
+use PhpMyAdmin\Response;
 use PMA\libraries\SavedSearches;
 use PMA\libraries\Sql;
 use PMA\libraries\URL;

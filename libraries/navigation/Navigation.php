@@ -10,7 +10,7 @@ namespace PMA\libraries\navigation;
 
 use PMA\libraries\config\PageSettings;
 use PhpMyAdmin\Message;
-use PMA\libraries\Response;
+use PhpMyAdmin\Response;
 use PMA\libraries\Util;
 use PMA\libraries\URL;
 

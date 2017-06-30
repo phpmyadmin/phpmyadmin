@@ -9,7 +9,7 @@
 use PhpMyAdmin\Core;
 use PMA\libraries\gis\GISFactory;
 use PMA\libraries\gis\GISVisualization;
-use PMA\libraries\Response;
+use PhpMyAdmin\Response;
 use PMA\libraries\URL;
 
 /**

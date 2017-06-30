@@ -7,7 +7,7 @@
  */
 
 // Include common functionalities
-use PMA\libraries\Response;
+use PhpMyAdmin\Response;
 use PMA\libraries\config\PageSettings;
 use PMA\libraries\navigation\Navigation;
 

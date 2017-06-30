@@ -5,7 +5,7 @@
  *
  * @package PhpMyAdmin-Designer
  */
-use PMA\libraries\Response;
+use PhpMyAdmin\Response;
 
 require_once 'libraries/common.inc.php';
 require_once 'libraries/pmd_common.php';

@@ -29,9 +29,9 @@ class PMATestCase extends PHPUnit_Framework_TestCase
      */
     public function mockResponse()
     {
-        $this->restoreInstance = PMA\libraries\Response::getInstance();
+        $this->restoreInstance = PhpMyAdmin\Response::getInstance();
 
-        $mockResponse = $this->getMockBuilder('PMA\libraries\Response')
+        $mockResponse = $this->getMockBuilder('PhpMyAdmin\Response')
             ->disableOriginalConstructor()
             ->setMethods(array(
                 'header', 'headersSent', 'disable', 'isAjax',
@@ -72,7 +72,7 @@ class PMATestCase extends PHPUnit_Framework_TestCase
             }
         }
 
-        $this->attrInstance = new ReflectionProperty('PMA\libraries\Response', '_instance');
+        $this->attrInstance = new ReflectionProperty('PhpMyAdmin\Response', '_instance');
         $this->attrInstance->setAccessible(true);
         $this->attrInstance->setValue($mockResponse);
 

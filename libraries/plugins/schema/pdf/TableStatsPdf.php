@@ -9,7 +9,7 @@ namespace PMA\libraries\plugins\schema\pdf;
 
 use PMA\libraries\plugins\schema\ExportRelationSchema;
 use PMA\libraries\plugins\schema\TableStats;
-use PMA\libraries\PDF as PDF_lib;
+use PhpMyAdmin\Pdf as PdfLib;
 
 /**
  * Table preferences/statistics
@@ -28,7 +28,7 @@ class TableStatsPdf extends TableStats
      */
     public $nb_fiels;
     public $height;
-    private $_ff = PDF_lib::PMA_PDF_FONT;
+    private $_ff = PdfLib::PMA_PDF_FONT;
 
     /**
      * The "PMA\libraries\plugins\schema\pdf\TableStatsPdf" constructor
@@ -229,4 +229,3 @@ class TableStatsPdf extends TableStats
         }
     }
 }
-

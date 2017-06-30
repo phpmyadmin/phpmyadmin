@@ -5,11 +5,13 @@
  *
  * @package PhpMyAdmin
  */
-namespace PMA\libraries;
+namespace PhpMyAdmin;
 
 use PhpMyAdmin\Core;
 use PhpMyAdmin\Footer;
 use PhpMyAdmin\Header;
+use PhpMyAdmin\Message;
+use PhpMyAdmin\OutputBuffering;
 
 /**
  * Singleton class used to manage the rendering of pages in PMA

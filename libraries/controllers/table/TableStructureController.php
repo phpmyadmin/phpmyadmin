@@ -1465,7 +1465,7 @@ class TableStructureController extends TableController
             break;
         case 'change':
             $this->displayHtmlForColumnChange($selected, $action);
-            // execution stops here but PMA\libraries\Response correctly finishes
+            // execution stops here but PhpMyAdmin\Response correctly finishes
             // the rendering
             exit;
         case 'browse':

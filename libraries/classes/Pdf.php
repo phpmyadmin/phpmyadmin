@@ -5,9 +5,12 @@
  *
  * @package PhpMyAdmin
  */
-namespace PMA\libraries;
+namespace PhpMyAdmin;
 
 use PhpMyAdmin\Core;
+use PhpMyAdmin\Message;
+use PhpMyAdmin\Response;
+use PMA\libraries\Util;
 use TCPDF;
 use TCPDF_FONTS;
 
@@ -16,7 +19,7 @@ use TCPDF_FONTS;
  *
  * @package PhpMyAdmin
  */
-class PDF extends TCPDF
+class Pdf extends TCPDF
 {
     var $footerset;
     var $Alias = array();
@@ -50,8 +53,8 @@ class PDF extends TCPDF
         $this->SetAuthor('phpMyAdmin ' . PMA_VERSION);
         $this->AddFont('DejaVuSans', '', 'dejavusans.php');
         $this->AddFont('DejaVuSans', 'B', 'dejavusansb.php');
-        $this->SetFont(PDF::PMA_PDF_FONT, '', 14);
-        $this->setFooterFont(array(PDF::PMA_PDF_FONT, '', 14));
+        $this->SetFont(Pdf::PMA_PDF_FONT, '', 14);
+        $this->setFooterFont(array(Pdf::PMA_PDF_FONT, '', 14));
     }
 
     /**
@@ -65,7 +68,7 @@ class PDF extends TCPDF
         // Check if footer for this page already exists
         if (!isset($this->footerset[$this->page])) {
             $this->SetY(-15);
-            $this->SetFont(PDF::PMA_PDF_FONT, '', 14);
+            $this->SetFont(Pdf::PMA_PDF_FONT, '', 14);
             $this->Cell(
                 0, 6,
                 __('Page number:') . ' '

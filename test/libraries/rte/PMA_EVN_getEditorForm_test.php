@@ -5,7 +5,7 @@
  *
  * @package PhpMyAdmin-test
  */
-use PMA\libraries\Response;
+use PhpMyAdmin\Response;
 
 /*
  * Include to test.

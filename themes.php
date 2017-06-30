@@ -8,7 +8,7 @@
 
 use PhpMyAdmin\Core;
 use PMA\libraries\ThemeManager;
-use PMA\libraries\Response;
+use PhpMyAdmin\Response;
 
 /**
  * get some globals

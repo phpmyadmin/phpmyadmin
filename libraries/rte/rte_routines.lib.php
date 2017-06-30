@@ -8,7 +8,7 @@
 use PhpMyAdmin\Charsets;
 use PhpMyAdmin\Core;
 use PhpMyAdmin\Message;
-use PMA\libraries\Response;
+use PhpMyAdmin\Response;
 use PMA\libraries\Util;
 use PMA\libraries\URL;
 use PhpMyAdmin\SqlParser\Statements\CreateStatement;
