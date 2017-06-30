@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.8.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2017-06-28 09:58+0200\n"
-"PO-Revision-Date: 2017-06-29 22:48+0000\n"
-"Last-Translator: yagoub fadel <yagoub76@gmail.com>\n"
+"PO-Revision-Date: 2017-06-30 09:19+0000\n"
+"Last-Translator: Michal Čihař <michal@cihar.com>\n"
 "Language-Team: Arabic "
 "<https://hosted.weblate.org/projects/phpmyadmin/master/ar/>\n"
 "Language: ar\n"
@@ -14,7 +14,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=6; plural=n==0 ? 0 : n==1 ? 1 : n==2 ? 2 : n%100>=3 "
 "&& n%100<=10 ? 3 : n%100>=11 ? 4 : 5;\n"
-"X-Generator: Weblate 2.15-dev\n"
+"X-Generator: Weblate 2.15\n"
 
 #: ajax.php:16 ajax.php:33 export.php:194 schema_export.php:66
 msgid "Bad type!"
@@ -882,12 +882,12 @@ msgstr "هذه العملية قد تستغرق وقتا طويلا، متابع
 #: js/messages.php:67
 #, php-format
 msgid "Do you really want to delete user group \"%s\"?"
-msgstr "هل تريد حقا حذف مجموعة المستخدمين s%\"؟"
+msgstr "هل تريد حقا حذف مجموعة المستخدمين ”%“s؟"
 
 #: js/messages.php:69
 #, php-format
 msgid "Do you really want to delete the search \"%s\"?"
-msgstr "هل تريد حقا حذف البحث\"s%\"؟"
+msgstr "هل تريد حقا حذف البحث\"%s\"؟"
 
 #: js/messages.php:71
 msgid "You have unsaved changes; are you sure you want to leave this page?"
@@ -1875,7 +1875,7 @@ msgstr ""
 #: js/messages.php:418
 #, php-format
 msgid "Variable %d:"
-msgstr "المتغير d%:"
+msgstr "المتغير %d:"
 
 #: js/messages.php:421 libraries/normalization.lib.php:885
 msgid "Pick"
@@ -1911,7 +1911,7 @@ msgid ""
 "This action may change some of the columns definition.<br/>Are you sure you "
 "want to continue?"
 msgstr ""
-"هذا الإجراء قي يغيير بعض معرفات الأعمدة .</br> هل انت متاكد انك تريد "
+"هذا الإجراء قي يغيير بعض معرفات الأعمدة .<br/> هل انت متاكد انك تريد "
 "المتابعة؟"
 
 #: js/messages.php:434
@@ -2236,7 +2236,7 @@ msgstr "تمت التعديلات"
 #: js/messages.php:570
 #, php-format
 msgid "Add an option for column \"%s\"."
-msgstr "إضافة خيار للعمود‘s%‘ ."
+msgstr "إضافة خيار للعمود‘%s‘ ."
 
 #: js/messages.php:571
 #, php-format
@@ -2495,7 +2495,7 @@ msgstr ""
 #: js/messages.php:720
 #, php-format
 msgid "%s queries executed %s times in %s seconds."
-msgstr "نفذت s% من طلبات البحثs%  من المرات في s% من الثواني."
+msgstr "نفذت %s من طلبات البحث%s  من المرات في %s من الثواني."
 
 #: js/messages.php:721
 #, php-format
