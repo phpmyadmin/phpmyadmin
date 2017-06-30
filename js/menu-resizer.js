@@ -26,54 +26,52 @@
         self.widthCalculator = widthCalculator;
         var windowWidth = $(window).width();
 
-        if (windowWidth < 768) {
-            // Sets the image for the left and right scroll indicator
-            $(PMA_getImage('b_left.png').toString()).prependTo($('.scrollindicator--left'));
-            $(PMA_getImage('b_right.png').toString()).prependTo($('.scrollindicator--right'));
+        // Sets the image for the left and right scroll indicator
+        $(PMA_getImage('b_left.png').toString()).prependTo($('.scrollindicator--left'));
+        $(PMA_getImage('b_right.png').toString()).prependTo($('.scrollindicator--right'));
 
-            // Set the width of the navigation bar without scroll indicator
-            $('.navigationbar').css({'width': widthCalculator.call($container) - 60});
+        // Set the width of the navigation bar without scroll indicator
+        $('.navigationbar').css({'width': widthCalculator.call($container) - 60});
 
-            // Scroll the navigation bar on click
-            $('.scrollindicator--right')
-                .click(function () {
-                    $('.navigationbar').scrollLeft($('.navigationbar').scrollLeft() + 70);
-                });
-            $('.scrollindicator--left')
-                .click(function () {
-                    $('.navigationbar').scrollLeft($('.navigationbar').scrollLeft() - 70);
-                });
-        } else {
-            // create submenu container
-            var link = $('<a />', {href: '#', 'class': 'tab nowrap'})
-                .text(PMA_messages.strMore)
-                .on('click', false); // same as event.preventDefault()
-            var img = $container.find('li img');
-            if (img.length) {
-                $(PMA_getImage('b_more.png').toString()).prependTo(link);
-            }
-            var $submenu = $('<li />', {'class': 'submenu'})
-                .append(link)
-                .append($('<ul />'))
-                .mouseenter(function() {
-                    if ($(this).find('ul .tabactive').length === 0) {
-                        $(this)
-                            .addClass('submenuhover')
-                            .find('> a')
-                            .addClass('tabactive');
-                    }
-                })
-                .mouseleave(function() {
-                    if ($(this).find('ul .tabactive').length === 0) {
-                        $(this)
-                            .removeClass('submenuhover')
-                            .find('> a')
-                            .removeClass('tabactive');
-                    }
-                });
-            $container.children('.clearfloat').remove();
-            $container.append($submenu).append("<div class='clearfloat'></div>");
+        // Scroll the navigation bar on click
+        $('.scrollindicator--right')
+            .click(function () {
+                $('.navigationbar').scrollLeft($('.navigationbar').scrollLeft() + 70);
+            });
+        $('.scrollindicator--left')
+            .click(function () {
+                $('.navigationbar').scrollLeft($('.navigationbar').scrollLeft() - 70);
+            });
+
+        // create submenu container
+        var link = $('<a />', {href: '#', 'class': 'tab nowrap'})
+            .text(PMA_messages.strMore)
+            .on('click', false); // same as event.preventDefault()
+        var img = $container.find('li img');
+        if (img.length) {
+            $(PMA_getImage('b_more.png').toString()).prependTo(link);
         }
+        var $submenu = $('<li />', {'class': 'submenu'})
+            .append(link)
+            .append($('<ul />'))
+            .mouseenter(function() {
+                if ($(this).find('ul .tabactive').length === 0) {
+                    $(this)
+                        .addClass('submenuhover')
+                        .find('> a')
+                        .addClass('tabactive');
+                }
+            })
+            .mouseleave(function() {
+                if ($(this).find('ul .tabactive').length === 0) {
+                    $(this)
+                        .removeClass('submenuhover')
+                        .find('> a')
+                        .removeClass('tabactive');
+                }
+            });
+        $container.children('.clearfloat').remove();
+        $container.append($submenu).append("<div class='clearfloat'></div>");
         setTimeout(function () {
             self.resize();
         }, 4);
@@ -95,6 +93,15 @@
             total_len += $($li[i]).outerWidth(true);
         }
 
+        var navigationwidth = wmax;
+        if (windowWidth < 768){
+            wmax = 2000;
+        }
+
+        // Overwrite resizer width on resize
+        $('#pma_navigation_resizer').css({'width': '3px'});
+
+        $('.navigationbar').css({'overflow': 'hidden'});
         // Now hide menu elements that don't fit into the menubar
         var hidden = false; // Whether we have hidden any tabs
         while (total_len >= wmax && --l >= 0) { // Process the tabs backwards
@@ -130,12 +137,15 @@
         }
         // Show/hide the "More" tab as needed
         if (windowWidth < 768) {
-            $('.navigationbar').css({'width': wmax - 60});
+            $('.navigationbar').css({'width': navigationwidth - 60});
+            $submenu.removeClass('shown');
         }
         else if ($submenu_ul.find('li').length > 0) {
             $submenu.addClass('shown');
+            $('.navigationbar').css({'width': 'auto'});
         } else {
             $submenu.removeClass('shown');
+            $('.navigationbar').css({'width': 'auto'});
         }
         if (this.$container.find('> li').length == 1) {
             // If there is only the "More" tab left, then we need
