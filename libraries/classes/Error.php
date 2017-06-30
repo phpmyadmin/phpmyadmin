@@ -8,7 +8,7 @@
 namespace PhpMyAdmin;
 
 use Exception;
-use PMA\libraries\Message;
+use PhpMyAdmin\Message;
 
 /**
  * a single error

@@ -5,7 +5,7 @@
  *
  * @package PhpMyAdmin
  */
-use PMA\libraries\Message;
+use PhpMyAdmin\Message;
 use PMA\libraries\Transformations;
 use PMA\libraries\URL;
 use PMA\libraries\Util;

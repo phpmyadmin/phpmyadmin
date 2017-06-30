@@ -373,7 +373,7 @@ if ($save_on_server) {
         if ($export_type == 'database') {
             $num_tables = count($tables);
             if ($num_tables == 0) {
-                $message = PMA\libraries\Message::error(
+                $message = PhpMyAdmin\Message::error(
                     __('No tables found in database.')
                 );
                 $active_page = 'db_export.php';

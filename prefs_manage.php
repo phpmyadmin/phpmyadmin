@@ -9,7 +9,7 @@ use PMA\libraries\config\ConfigFile;
 use PMA\libraries\config\FormDisplay;
 use PhpMyAdmin\Core;
 use PhpMyAdmin\File;
-use PMA\libraries\Message;
+use PhpMyAdmin\Message;
 use PMA\libraries\Response;
 use PMA\libraries\Util;
 use PMA\libraries\URL;

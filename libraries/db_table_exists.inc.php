@@ -8,7 +8,7 @@
  */
 
 use PhpMyAdmin\Core;
-use PMA\libraries\Message;
+use PhpMyAdmin\Message;
 use PMA\libraries\Response;
 use PMA\libraries\URL;
 

@@ -7,7 +7,7 @@
  */
 use PMA\libraries\config\ConfigFile;
 use PhpMyAdmin\Core;
-use PMA\libraries\Message;
+use PhpMyAdmin\Message;
 use PMA\libraries\URL;
 
 if (! defined('PHPMYADMIN')) {
@@ -81,7 +81,7 @@ function PMA_loadUserprefs()
  *
  * @param array $config_array configuration array
  *
- * @return true|PMA\libraries\Message
+ * @return true|PhpMyAdmin\Message
  */
 function PMA_saveUserprefs(array $config_array)
 {

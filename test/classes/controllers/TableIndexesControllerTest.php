@@ -176,7 +176,7 @@ class TableIndexesControllerTest extends PMATestCase
         );
 
         $doc_html = PMA\libraries\Util::showHint(
-            PMA\libraries\Message::notice(
+            PhpMyAdmin\Message::notice(
                 __(
                     '"PRIMARY" <b>must</b> be the name of'
                     . ' and <b>only of</b> a primary key!'

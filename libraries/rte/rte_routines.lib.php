@@ -7,7 +7,7 @@
  */
 use PhpMyAdmin\Charsets;
 use PhpMyAdmin\Core;
-use PMA\libraries\Message;
+use PhpMyAdmin\Message;
 use PMA\libraries\Response;
 use PMA\libraries\Util;
 use PMA\libraries\URL;
@@ -257,7 +257,7 @@ function PMA_RTN_handleRequestCreateOrEdit($errors, $db)
                 . '<br /><br />'
                 . __('MySQL said: ') . $GLOBALS['dbi']->getError(null);
             } else {
-                $message = PMA\libraries\Message::success(
+                $message = PhpMyAdmin\Message::success(
                     __('Routine %1$s has been created.')
                 );
                 $message->addParam(
@@ -269,7 +269,7 @@ function PMA_RTN_handleRequestCreateOrEdit($errors, $db)
     }
 
     if (count($errors)) {
-        $message = PMA\libraries\Message::error(
+        $message = PhpMyAdmin\Message::error(
             __(
                 'One or more errors have occurred while'
                 . ' processing your request:'
@@ -422,7 +422,7 @@ function PMA_RTN_createRoutine(
  *
  * @param bool $flushPrivileges Flush privileges
  *
- * @return PMA\libraries\Message
+ * @return PhpMyAdmin\Message
  */
 function PMA_RTN_flushPrivileges($flushPrivileges)
 {
@@ -431,13 +431,13 @@ function PMA_RTN_flushPrivileges($flushPrivileges)
         $flushPrivQuery = 'FLUSH PRIVILEGES;';
         $GLOBALS['dbi']->query($flushPrivQuery);
 
-        $message = PMA\libraries\Message::success(
+        $message = PhpMyAdmin\Message::success(
             __(
                 'Routine %1$s has been modified. Privileges have been adjusted.'
             )
         );
     } else {
-        $message = PMA\libraries\Message::success(
+        $message = PhpMyAdmin\Message::success(
             __('Routine %1$s has been modified.')
         );
     }

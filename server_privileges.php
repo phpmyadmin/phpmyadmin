@@ -132,7 +132,7 @@ if (!$GLOBALS['is_superuser'] && !$GLOBALS['is_grantuser']
 ) {
     $response->addHTML(PMA_getHtmlForSubPageHeader('privileges', '', false));
     $response->addHTML(
-        PMA\libraries\Message::error(__('No Privileges'))
+        PhpMyAdmin\Message::error(__('No Privileges'))
             ->getDisplay()
     );
     exit;
@@ -146,7 +146,7 @@ if (isset($_REQUEST['change_copy']) && $username == $_REQUEST['old_username']
     && $hostname == $_REQUEST['old_hostname']
 ) {
     $response->addHTML(
-        PMA\libraries\Message::error(
+        PhpMyAdmin\Message::error(
             __(
                 "Username and hostname didn't change. "
                 . "If you only want to change the password, "
@@ -237,7 +237,7 @@ if (! empty($_REQUEST['changeUserGroup']) && $cfgRelation['menuswork']
     && $GLOBALS['is_superuser'] && $GLOBALS['is_createuser']
 ) {
     PMA_setUserGroup($username, $_REQUEST['userGroup']);
-    $message = PMA\libraries\Message::success();
+    $message = PhpMyAdmin\Message::success();
 }
 
 /**
@@ -283,7 +283,7 @@ if (isset($_REQUEST['delete'])
  */
 if (isset($_REQUEST['change_copy'])) {
     $queries = PMA_getDataForQueries($queries, $queries_for_display);
-    $message = PMA\libraries\Message::success();
+    $message = PhpMyAdmin\Message::success();
     $sql_query = join("\n", $queries);
 }
 
@@ -318,7 +318,7 @@ if ($response->isAjax()
         (isset($username) ? $username : '')
     );
 
-    if (! empty($message) && $message instanceof PMA\libraries\Message) {
+    if (! empty($message) && $message instanceof PhpMyAdmin\Message) {
         $response->setRequestStatus($message->isSuccess());
         $response->addJSON('message', $message);
         $response->addJSON($extra_data);

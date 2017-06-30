@@ -6,7 +6,7 @@
  * @package PhpMyAdmin-Import
  */
 use PhpMyAdmin\Encoding;
-use PMA\libraries\Message;
+use PhpMyAdmin\Message;
 use PMA\libraries\Response;
 use PMA\libraries\Table;
 use PMA\libraries\Util;
@@ -1299,7 +1299,7 @@ function PMA_buildSQL($db_name, &$tables, &$analyses = null,
 /**
  * Stops the import on (mostly upload/file related) error
  *
- * @param PMA\libraries\Message $error_message The error message
+ * @param PhpMyAdmin\Message $error_message The error message
  *
  * @return void
  * @access  public
@@ -1323,7 +1323,7 @@ function PMA_stopImport( Message $error_message )
 
     $response = Response::getInstance();
     $response->setRequestStatus(false);
-    $response->addJSON('message', PMA\libraries\Message::error($msg));
+    $response->addJSON('message', PhpMyAdmin\Message::error($msg));
 
     exit;
 }

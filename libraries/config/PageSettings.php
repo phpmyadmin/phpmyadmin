@@ -8,7 +8,7 @@
 namespace PMA\libraries\config;
 
 use PhpMyAdmin\Core;
-use PMA\libraries\Message;
+use PhpMyAdmin\Message;
 use PMA\libraries\Response;
 
 require_once 'libraries/user_preferences.lib.php';

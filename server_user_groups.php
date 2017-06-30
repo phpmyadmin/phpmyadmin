@@ -26,7 +26,7 @@ $scripts->addFile('server_user_groups.js');
  */
 if (! $GLOBALS['is_superuser']) {
     $response->addHTML(
-        PMA\libraries\Message::error(__('No Privileges'))
+        PhpMyAdmin\Message::error(__('No Privileges'))
             ->getDisplay()
     );
     exit;

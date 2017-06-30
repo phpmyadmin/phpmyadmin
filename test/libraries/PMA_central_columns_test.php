@@ -250,11 +250,11 @@ class PMA_Central_Columns_Test extends PHPUnit_Framework_TestCase
 
         // when column does not exist in the central column list
         $this->assertInstanceOf(
-            'PMA\libraries\Message', PMA_deleteColumnsFromList(array('column1'), false)
+            'PhpMyAdmin\Message', PMA_deleteColumnsFromList(array('column1'), false)
         );
 
         $this->assertInstanceOf(
-            'PMA\libraries\Message', PMA_deleteColumnsFromList(array('PMA_table'))
+            'PhpMyAdmin\Message', PMA_deleteColumnsFromList(array('PMA_table'))
         );
     }
 
@@ -559,7 +559,7 @@ class PMA_Central_Columns_Test extends PHPUnit_Framework_TestCase
     public function testPMAConfigErrorMessage()
     {
         $this->assertInstanceOf(
-            'PMA\libraries\Message',
+            'PhpMyAdmin\Message',
             PMA_configErrorMessage()
         );
     }

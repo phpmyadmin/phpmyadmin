@@ -313,7 +313,7 @@ if ($is_insert && count($value_sets) > 0) {
     // No change -> move back to the calling script
     //
     // Note: logic passes here for inline edit
-    $message = PMA\libraries\Message::success(__('No change'));
+    $message = PhpMyAdmin\Message::success(__('No change'));
     // Avoid infinite recursion
     if ($goto_include == 'tbl_replace.php') {
         $goto_include = 'tbl_change.php';
@@ -338,12 +338,12 @@ list ($url_params, $total_affected_rows, $last_messages, $warning_messages,
         = PMA_executeSqlQuery($url_params, $query);
 
 if ($is_insert && (count($value_sets) > 0 || $row_skipped)) {
-    $message = PMA\libraries\Message::getMessageForInsertedRows(
+    $message = PhpMyAdmin\Message::getMessageForInsertedRows(
         $total_affected_rows
     );
     $unsaved_values = array_values($unsaved_values);
 } else {
-    $message = PMA\libraries\Message::getMessageForAffectedRows(
+    $message = PhpMyAdmin\Message::getMessageForAffectedRows(
         $total_affected_rows
     );
 }

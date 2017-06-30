@@ -5,7 +5,7 @@
  *
  * @package PhpMyAdmin
  */
-use PMA\libraries\Message;
+use PhpMyAdmin\Message;
 use PMA\libraries\Sanitize;
 
 if (!defined('PHPMYADMIN')) {

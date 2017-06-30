@@ -9,7 +9,7 @@ namespace PMA\libraries\twig;
 
 use Twig_Extension;
 use Twig_SimpleFunction;
-use PMA\libraries\Message;
+use PhpMyAdmin\Message;
 
 /**
  * Class MessageExtension

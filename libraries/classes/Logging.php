@@ -7,7 +7,7 @@
  *
  * @package PhpMyAdmin
  */
-namespace PMA\libraries;
+namespace PhpMyAdmin;
 
 use PhpMyAdmin\Core;
 
