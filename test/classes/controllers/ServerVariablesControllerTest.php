@@ -241,7 +241,7 @@ class ServerVariablesControllerTest extends PMATestCase
 
         //validate 2: Server Variables
         $this->assertContains(
-            '<table id="serverVariables" class="data filteredData noclick">',
+            '<table id="serverVariables" class="width100 data filteredData noclick">',
             $html
         );
         $this->assertContains(
@@ -249,7 +249,7 @@ class ServerVariablesControllerTest extends PMATestCase
             $html
         );
         $this->assertContains(
-            __('Global value'),
+            __('Value'),
             $html
         );
     }
