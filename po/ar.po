@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.8.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2017-06-28 09:56+0200\n"
-"PO-Revision-Date: 2017-06-30 09:19+0000\n"
-"Last-Translator: Michal Čihař <michal@cihar.com>\n"
+"PO-Revision-Date: 2017-06-30 23:55+0000\n"
+"Last-Translator: yagoub fadel <yagoub76@gmail.com>\n"
 "Language-Team: Arabic "
 "<https://hosted.weblate.org/projects/phpmyadmin/master/ar/>\n"
 "Language: ar\n"
@@ -14,7 +14,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=6; plural=n==0 ? 0 : n==1 ? 1 : n==2 ? 2 : n%100>=3 "
 "&& n%100<=10 ? 3 : n%100>=11 ? 4 : 5;\n"
-"X-Generator: Weblate 2.15\n"
+"X-Generator: Weblate 2.16-dev\n"
 
 #: ajax.php:16 ajax.php:33 export.php:194 schema_export.php:66
 msgid "Bad type!"
@@ -608,7 +608,8 @@ msgid ""
 "You were logged out from one server, to logout completely from phpMyAdmin, "
 "you need to logout from all servers."
 msgstr ""
-"انت خرجت من سيرفر واحد للخروج من phpMyAdmin تحتاج للخروج من كل السيرفرات"
+"تم تسجيل الخروج من خادم واحد، لتسجيل الخروج تماما من phpMyAdmin، تحتاج إلى "
+"تسجيل الخروج من كافة الملقمات."
 
 #: index.php:162 libraries/Footer.php:70
 msgid "phpMyAdmin Demo Server"
@@ -933,6 +934,10 @@ msgid ""
 "collation; in this case we suggest you revert to the original collation and "
 "refer to the tips at "
 msgstr ""
+"ستحاول هذه العملية تحويل بياناتك إلى التصنيف الجديد. في حالات نادرة، خاصة "
+"عندما لا يوجد حرف في الترتيب الجديد، قد تؤدي هذه العملية إلى ظهور البيانات "
+"بشكل غير صحيح تحت التصنيف الجديد؛ في هذه الحالة نقترح عليك العودة إلى "
+"الترتيب الأصلي والرجوع إلى النصائح في "
 
 #: js/messages.php:94
 msgid "Garbled Data"
@@ -960,7 +965,7 @@ msgstr "هل تريد بالتأكيد تغيير جميع عمليات تصني
 
 #: js/messages.php:111
 msgid "Save & close"
-msgstr "حفظ واغلاق ."
+msgstr "حفظ واغلاق"
 
 #: js/messages.php:112 libraries/config/FormDisplay.tpl.php:425
 #: libraries/insert_edit.lib.php:1620 prefs_manage.php:376 prefs_manage.php:387
@@ -1301,7 +1306,7 @@ msgstr "وقف التحديث التلقائي"
 
 #: js/messages.php:222
 msgid "general_log and slow_query_log are enabled."
-msgstr "تم تمكين السجل العام وسجل الاستعلام البطيء"
+msgstr "تم تمكين السجل العام وسجل الاستعلام البطيء ."
 
 #: js/messages.php:223
 msgid "general_log is enabled."
@@ -1810,7 +1815,7 @@ msgstr "﻿القيم لعمود جديد"
 
 #: js/messages.php:402
 msgid "Enter each value in a separate field."
-msgstr "أدخل كل قيمة في حقل منفصل"
+msgstr "أدخل كل قيمة في حقل منفصل ."
 
 #: js/messages.php:403
 #, php-format
@@ -1870,7 +1875,7 @@ msgstr "استعرض القيم الغريبة"
 
 #: js/messages.php:417
 msgid "No auto-saved query"
-msgstr ""
+msgstr "لا يوجد طلب بحث تم حفظه تلقائيا"
 
 #: js/messages.php:418
 #, php-format
@@ -1974,13 +1979,15 @@ msgstr "اظهر لي التبعيات الجزئية المحتملة استن�
 
 #: js/messages.php:455
 msgid "Hide partial dependencies list"
-msgstr ""
+msgstr "إخفاء قائمة التبعيات الجزئية"
 
 #: js/messages.php:457
 msgid ""
 "Sit tight! It may take few seconds depending on data size and column count "
 "of the table."
 msgstr ""
+"اجلس بثبات! قد يستغرق بضع ثوان اعتمادا على حجم البيانات وعدد الأعمدة من "
+"الجدول."
 
 #: js/messages.php:460
 msgid "Step"
@@ -1988,7 +1995,7 @@ msgstr "خطوة"
 
 #: js/messages.php:462
 msgid "The following actions will be performed:"
-msgstr ""
+msgstr "سيتم تنفيذ الإجراءات التالية:"
 
 #: js/messages.php:463
 #, php-format
@@ -2005,7 +2012,7 @@ msgstr "خطوة التطبيع الثالثة (3NF)"
 
 #: js/messages.php:468
 msgid "Confirm transitive dependencies"
-msgstr ""
+msgstr "تأكيد التبعيات المتعدية"
 
 #: js/messages.php:469
 msgid "Selected dependencies are as follows:"
@@ -2135,7 +2142,7 @@ msgstr "الحلقة الخارجية"
 
 #: js/messages.php:524
 msgid "Do you want to copy encryption key?"
-msgstr ""
+msgstr "هل تريد نسخ مفتاح التشفير؟"
 
 #: js/messages.php:525
 msgid "Encryption key"
@@ -2146,18 +2153,24 @@ msgid ""
 "MySQL accepts additional values not selectable by the slider; key in those "
 "values directly if desired"
 msgstr ""
+"قبول MySQL قيم إضافية لا يمكن تحديدها بواسطة شريط التمرير؛ المفتاح في تلك "
+"القيم مباشرة إذا رغبت في ذلك"
 
 #: js/messages.php:535
 msgid ""
 "MySQL accepts additional values not selectable by the datepicker; key in "
 "those values directly if desired"
 msgstr ""
+"قبول MySQL القيم الإضافية لا يمكن اختيارها من قبل منتقي التاريخ. المفتاح في "
+"تلك القيم مباشرة إذا رغبت في ذلك"
 
 #: js/messages.php:541
 msgid ""
 "Indicates that you have made changes to this page; you will be prompted for "
 "confirmation before abandoning changes"
 msgstr ""
+"اشارة إلى أنك أجريت تغييرات على هذه الصفحة؛ ستتم مطالبتك بالتأكيد قبل التخلي "
+"عن تلك التغييرات"
 
 #: js/messages.php:546
 msgid "Select referenced key"
@@ -2181,6 +2194,7 @@ msgid ""
 "You haven't saved the changes in the layout. They will be lost if you don't "
 "save them. Do you want to continue?"
 msgstr ""
+"لم تحفظ التغييرات في التخطيط. وسوف تضيع إذا كنت لم تحفظها. هل تريد الاستمرار؟"
 
 #: js/messages.php:555
 msgid "Page name"
@@ -2219,11 +2233,11 @@ msgstr "الرجاء إدخال اسم صفحة صالح"
 
 #: js/messages.php:564
 msgid "Do you want to save the changes to the current page?"
-msgstr ""
+msgstr "هل تريد حفظ التغييرات في الصفحة الحالية؟"
 
 #: js/messages.php:565
 msgid "Successfully deleted the page"
-msgstr ""
+msgstr "تم حذف الصفحة بنجاح"
 
 #: js/messages.php:566
 msgid "Export relational schema"
@@ -2260,14 +2274,12 @@ msgstr ""
 "حفظ البيانات الجديدة؟"
 
 #: js/messages.php:580
-#, fuzzy
-#| msgid "Drag to reorder"
 msgid "Drag to reorder."
-msgstr "إسحب لإعادة الترتيب"
+msgstr "إسحب لإعادة الترتيب ."
 
 #: js/messages.php:581
 msgid "Click to sort results by this column."
-msgstr ""
+msgstr "انقر لترتيب النتائج حسب هذا العمود."
 
 #: js/messages.php:583
 msgid ""
@@ -2277,10 +2289,8 @@ msgid ""
 msgstr ""
 
 #: js/messages.php:587
-#, fuzzy
-#| msgid "Click to mark/unmark"
 msgid "Click to mark/unmark."
-msgstr "إضغط لوضع علامة / إزالة علامة"
+msgstr "إضغط لوضع علامة / إزالة علامة ."
 
 #: js/messages.php:588
 msgid "Double-click to copy column name."
@@ -2312,6 +2322,8 @@ msgid ""
 "Do you really want to see all of the rows? For a big table this could crash "
 "the browser."
 msgstr ""
+"هل تريد حقا أن ترى كل الصفوف؟ لجدول كبير مثل هذا يمكن أن تحطم او يغلق "
+"المتصفح."
 
 #: js/messages.php:603
 msgid "Original length"
@@ -2430,11 +2442,11 @@ msgstr "إنشاء عرض"
 
 #: js/messages.php:669
 msgid "Send error report"
-msgstr ""
+msgstr "إرسال تقرير عن الخطأ"
 
 #: js/messages.php:670
 msgid "Submit error report"
-msgstr ""
+msgstr "إرسال تقرير الخطأ"
 
 #: js/messages.php:672
 msgid ""
@@ -2454,7 +2466,7 @@ msgstr "عرض تفاصيل التقرير"
 msgid ""
 "Your export is incomplete, due to a low execution time limit at the PHP "
 "level!"
-msgstr ""
+msgstr "التصدير الخاص بك غير مكتمل، بسبب انخفاض وقت التنفيذ على مستوى PHP!"
 
 #: js/messages.php:682
 #, php-format
@@ -2465,11 +2477,11 @@ msgstr ""
 
 #: js/messages.php:688 js/messages.php:701
 msgid "Some errors have been detected on the server!"
-msgstr ""
+msgstr "تم اكتشاف بعض الأخطاء على الخادم!"
 
 #: js/messages.php:690
 msgid "Please look at the bottom of this window."
-msgstr ""
+msgstr "يرجى النظر في الجزء السفلي من هذه النافذة."
 
 #: js/messages.php:696 libraries/ErrorHandler.php:373
 msgid "Ignore All"
@@ -2478,7 +2490,7 @@ msgstr "تجاهل الكل"
 #: js/messages.php:704
 msgid ""
 "As per your settings, they are being submitted currently, please be patient."
-msgstr ""
+msgstr "وفقا للإعدادات الخاصة بك، يتم تقديمها حاليا، يرجى التحلي بالصبر."
 
 #: js/messages.php:714
 msgid "Execute this query again?"
@@ -2561,7 +2573,7 @@ msgstr ""
 
 #: js/messages.php:737
 msgid "Strong"
-msgstr ""
+msgstr "قوي"
 
 #: js/messages.php:766
 msgctxt "Previous month"
@@ -2817,7 +2829,7 @@ msgstr "الثانية"
 
 #: js/messages.php:907
 msgid "This field is required"
-msgstr ""
+msgstr "هذا الحقل مطلوب"
 
 #: js/messages.php:908
 msgid "Please fix this field"
@@ -2999,64 +3011,46 @@ msgid "Binary"
 msgstr "ثنائي"
 
 #: libraries/Charsets.php:290 libraries/Charsets.php:520
-#, fuzzy
-#| msgid "Unicode"
 msgctxt "Collation"
 msgid "Unicode"
 msgstr "يونيكود"
 
 #: libraries/Charsets.php:300 libraries/Charsets.php:471
-#, fuzzy
-#| msgid "West European"
 msgctxt "Collation"
 msgid "West European"
 msgstr "أوروبا الغربية"
 
 #: libraries/Charsets.php:307
-#, fuzzy
-#| msgid "Central European"
 msgctxt "Collation"
 msgid "Central European"
 msgstr "أوروبا الوسطى"
 
 #: libraries/Charsets.php:312
-#, fuzzy
-#| msgid "Russian"
 msgctxt "Collation"
 msgid "Russian"
 msgstr "الروسية"
 
 #: libraries/Charsets.php:317
-#, fuzzy
-#| msgid "Simplified Chinese"
 msgctxt "Collation"
 msgid "Simplified Chinese"
 msgstr "الصينية المبسطة"
 
 #: libraries/Charsets.php:324 libraries/Charsets.php:442
-#, fuzzy
-#| msgid "Japanese"
 msgctxt "Collation"
 msgid "Japanese"
 msgstr "اليابانية"
 
 #: libraries/Charsets.php:329
-#, fuzzy
-#| msgid "Baltic"
 msgctxt "Collation"
 msgid "Baltic"
 msgstr "البلطيق"
 
 #: libraries/Charsets.php:334
-#, fuzzy
-#| msgid "Armenian"
 msgctxt "Collation"
 msgid "Armenian"
 msgstr "الأرمنية"
 
 #: libraries/Charsets.php:337
-#, fuzzy
-#| msgid "Traditional Chinese"
 msgctxt "Collation"
 msgid "Traditional Chinese"
 msgstr "الصينية التقليدية"
@@ -3139,8 +3133,6 @@ msgid "Croatian"
 msgstr "الكرواتية"
 
 #: libraries/Charsets.php:403
-#, fuzzy
-#| msgid "Czech"
 msgctxt "Collation"
 msgid "Czech"
 msgstr "التشيكية"
@@ -3156,8 +3148,6 @@ msgid "English"
 msgstr "الإنجليزية"
 
 #: libraries/Charsets.php:415
-#, fuzzy
-#| msgid "Esperanto"
 msgctxt "Collation"
 msgid "Esperanto"
 msgstr "إسبرانتو"
@@ -3183,8 +3173,6 @@ msgid "Hungarian"
 msgstr "الهنجارية"
 
 #: libraries/Charsets.php:438
-#, fuzzy
-#| msgid "Icelandic"
 msgctxt "Collation"
 msgid "Icelandic"
 msgstr "الأيسلندية"
@@ -3192,7 +3180,7 @@ msgstr "الأيسلندية"
 #: libraries/Charsets.php:445
 msgctxt "Collation"
 msgid "Classical Latin"
-msgstr ""
+msgstr "اللاتينية الكلاسيكية"
 
 #: libraries/Charsets.php:449
 msgctxt "Collation"
@@ -3200,8 +3188,6 @@ msgid "Latvian"
 msgstr "اللاتفية"
 
 #: libraries/Charsets.php:453
-#, fuzzy
-#| msgid "Lithuanian"
 msgctxt "Collation"
 msgid "Lithuanian"
 msgstr "الليتوانية"
@@ -3229,18 +3215,14 @@ msgstr "الرومانية"
 #: libraries/Charsets.php:479
 msgctxt "Collation"
 msgid "Sinhalese"
-msgstr ""
+msgstr "السنهالية"
 
 #: libraries/Charsets.php:483
-#, fuzzy
-#| msgid "Slovak"
 msgctxt "Collation"
 msgid "Slovak"
 msgstr "السلوفاكية"
 
 #: libraries/Charsets.php:487
-#, fuzzy
-#| msgid "Slovenian"
 msgctxt "Collation"
 msgid "Slovenian"
 msgstr "السلوفينية"
@@ -3253,7 +3235,7 @@ msgstr "الإسبانية (الحديثة)"
 #: libraries/Charsets.php:497 libraries/Charsets.php:547
 msgctxt "Collation"
 msgid "Spanish (traditional)"
-msgstr ""
+msgstr "الإسبانية (التقليدية)"
 
 #: libraries/Charsets.php:516
 msgctxt "Collation"
@@ -3342,8 +3324,6 @@ msgid "No bookmarks"
 msgstr "لا توجد إشارات مرجعية"
 
 #: libraries/Console.php:128
-#, fuzzy
-#| msgid "SQL Query box"
 msgid "SQL Query Console"
 msgstr "صندوق إستعلام SQL"
 
@@ -3371,7 +3351,7 @@ msgstr ""
 
 #: libraries/DatabaseInterface.php:2040
 msgid "The server is not responding."
-msgstr ""
+msgstr "الخادم لا يستجيب."
 
 #: libraries/DatabaseInterface.php:2044
 msgid "Logout and try as another user."
@@ -3379,7 +3359,7 @@ msgstr ""
 
 #: libraries/DatabaseInterface.php:2050
 msgid "Please check privileges of directory containing database."
-msgstr ""
+msgstr "يرجى التحقق من امتيازات الدليل الذي يحتوي على قاعدة البيانات."
 
 #: libraries/DatabaseInterface.php:2061
 msgid "Details…"
@@ -3391,7 +3371,7 @@ msgstr "معلمات اتصال مفقودة!"
 
 #: libraries/DatabaseInterface.php:2383
 msgid "Connection for controluser as defined in your configuration failed."
-msgstr ""
+msgstr "أخفق الاتصال بمستخدم التحكم كما هو معرف في التهيئة."
 
 #: libraries/DbQbe.php:407 libraries/DisplayResults.php:2278
 #: libraries/DisplayResults.php:2284 libraries/config.values.php:69
@@ -3421,17 +3401,15 @@ msgstr "عمود :"
 
 #: libraries/DbQbe.php:515
 msgid "Alias:"
-msgstr ""
+msgstr "الاسم المستعار:"
 
 #: libraries/DbQbe.php:567
 msgid "Sort:"
 msgstr "ترتيب :"
 
 #: libraries/DbQbe.php:631
-#, fuzzy
-#| msgid "Sort"
 msgid "Sort order:"
-msgstr "ترتيب"
+msgstr "امر ترتيب:"
 
 #: libraries/DbQbe.php:680
 msgid "Show:"
@@ -3463,7 +3441,7 @@ msgstr "أو :"
 
 #: libraries/DbQbe.php:881 libraries/DbQbe.php:973
 msgid "And:"
-msgstr ""
+msgstr "و:"
 
 #: libraries/DbQbe.php:886
 msgid "Ins"
@@ -3620,10 +3598,8 @@ msgid "Filter rows"
 msgstr "تصفية الصفوف"
 
 #: libraries/DisplayResults.php:959 libraries/central_columns.lib.php:663
-#, fuzzy
-#| msgid "Search in database"
 msgid "Search this table"
-msgstr "بحث في قاعدة البيانات"
+msgstr "ابحث في هذا الجدول"
 
 #: libraries/DisplayResults.php:990 libraries/Util.php:2410
 #: libraries/Util.php:2413
@@ -3905,10 +3881,8 @@ msgid "Error while moving uploaded file."
 msgstr "خطأ عند نقل الملف المرفوع."
 
 #: libraries/File.php:519
-#, fuzzy
-#| msgid "Cannot read (moved) upload file."
 msgid "Cannot read uploaded file."
-msgstr "لايمكن قراءة الملف المرفوع."
+msgstr "يتعذر قراءة الملف الذي تم تحميله."
 
 #: libraries/File.php:611
 #, php-format
@@ -3936,7 +3910,7 @@ msgstr "عرض نسخة للطباعة"
 
 #: libraries/Header.php:456
 msgid "Click on the bar to scroll to top of page"
-msgstr ""
+msgstr "انقر على الشريط للتمرير إلى أعلى الصفحة"
 
 #: libraries/Header.php:760 libraries/plugins/auth/AuthenticationCookie.php:154
 #, fuzzy
@@ -4045,7 +4019,7 @@ msgstr "رقم الصفحة:"
 
 #: libraries/LanguageManager.php:899
 msgid "Ignoring unsupported language code."
-msgstr ""
+msgstr "تجاهل رمز اللغة غير المدعوم ."
 
 #: libraries/LanguageManager.php:926 libraries/LanguageManager.php:927
 #: setup/frames/index.inc.php:67
@@ -5501,7 +5475,7 @@ msgstr "القيمة يجب أن تساوي أو أقل من %s"
 #: libraries/config/FormDisplay.php:619
 #, php-format
 msgid "Missing data for %s"
-msgstr "بيانات مفقودة لـ %s"
+msgstr "بيانات مفقودة لـ s%"
 
 #: libraries/config/FormDisplay.php:809 libraries/config/FormDisplay.php:815
 msgid "unavailable"
@@ -12677,7 +12651,7 @@ msgstr "اسم السجل"
 
 #: libraries/server_privileges.lib.php:1662
 msgid "Do not change the password"
-msgstr "لاتغير كلمة السر"
+msgstr "لا تغير كلمة السر"
 
 #: libraries/server_privileges.lib.php:1711
 #, fuzzy
