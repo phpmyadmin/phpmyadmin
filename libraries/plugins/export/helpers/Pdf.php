@@ -8,7 +8,7 @@
  */
 namespace PMA\libraries\plugins\export\helpers;
 
-use PMA\libraries\DatabaseInterface;
+use PhpMyAdmin\DatabaseInterface;
 use PMA\libraries\PDF as PdfLib;
 use PMA\libraries\Transformations;
 use PMA\libraries\Util;

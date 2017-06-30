@@ -5,8 +5,8 @@
  *
  * @package PhpMyAdmin
  */
-use PMA\libraries\Charsets;
-use PMA\libraries\Core;
+use PhpMyAdmin\Charsets;
+use PhpMyAdmin\Core;
 use PMA\libraries\Message;
 use PMA\libraries\Response;
 use PMA\libraries\Util;
@@ -73,7 +73,7 @@ function PMA_RTN_main($type)
     /**
      * Display a warning for users with PHP's old "mysql" extension.
      */
-    if (! PMA\libraries\DatabaseInterface::checkDbExtension('mysqli')) {
+    if (! PhpMyAdmin\DatabaseInterface::checkDbExtension('mysqli')) {
         trigger_error(
             __(
                 'You are using PHP\'s deprecated \'mysql\' extension, '

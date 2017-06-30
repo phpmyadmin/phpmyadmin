@@ -6,11 +6,12 @@
  *
  * @package PhpMyAdmin
  */
-namespace PMA\libraries;
+namespace PhpMyAdmin;
 
 use Exception;
-use PMA\libraries\Core;
+use PhpMyAdmin\Core;
 use PMA\libraries\URL;
+use PMA\libraries\Util;
 use Symfony\Component\ExpressionLanguage\ExpressionLanguage;
 
 /**

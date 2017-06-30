@@ -28,7 +28,7 @@ class PMA_ExpandUserString_Test extends PHPUnit_Framework_TestCase
      */
     public function setup()
     {
-        $GLOBALS['PMA_Config'] = new PMA\libraries\Config();
+        $GLOBALS['PMA_Config'] = new PhpMyAdmin\Config();
         $GLOBALS['PMA_Config']->enableBc();
         $GLOBALS['cfg'] = array(
             'Server' => array(

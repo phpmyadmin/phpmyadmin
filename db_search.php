@@ -14,7 +14,7 @@
 require_once 'libraries/common.inc.php';
 
 use PMA\libraries\Response;
-use PMA\libraries\DbSearch;
+use PhpMyAdmin\DbSearch;
 
 $response = Response::getInstance();
 $header   = $response->getHeader();

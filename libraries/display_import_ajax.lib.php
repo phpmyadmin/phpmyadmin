@@ -6,7 +6,7 @@
 * @package PhpMyAdmin
 */
 
-use PMA\libraries\Core;
+use PhpMyAdmin\Core;
 
 /**
  * Sets up some variables for upload progress

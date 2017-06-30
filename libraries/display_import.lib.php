@@ -9,9 +9,9 @@
  * @package PhpMyAdmin
  */
 
-use PMA\libraries\Charsets;
-use PMA\libraries\Core;
-use PMA\libraries\Encoding;
+use PhpMyAdmin\Charsets;
+use PhpMyAdmin\Core;
+use PhpMyAdmin\Encoding;
 use PMA\libraries\Message;
 use PMA\libraries\plugins\ImportPlugin;
 use PMA\libraries\URL;

@@ -1,13 +1,15 @@
 <?php
 /* vim: set expandtab sw=4 ts=4 sts=4: */
 /**
- * Holds class PMA\libraries\ErrorHandler
+ * Holds class PhpMyAdmin\ErrorHandler
  *
  * @package PhpMyAdmin
  */
-namespace PMA\libraries;
+namespace PhpMyAdmin;
 
-use PMA\libraries\Error;
+use PhpMyAdmin\Error;
+use PMA\libraries\Response;
+use PMA\libraries\URL;
 
 /**
  * handling errors

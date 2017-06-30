@@ -9,8 +9,8 @@
 use PMA\libraries\config\ConfigFile;
 use PMA\libraries\config\FormDisplay;
 use PMA\libraries\config\ServerConfigChecks;
-use PMA\libraries\Core;
-use PMA\libraries\LanguageManager;
+use PhpMyAdmin\Core;
+use PhpMyAdmin\LanguageManager;
 use PMA\libraries\URL;
 use PMA\libraries\Sanitize;
 

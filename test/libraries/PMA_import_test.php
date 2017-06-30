@@ -336,7 +336,7 @@ class PMA_Import_Test extends PHPUnit_Framework_TestCase
     {
         $GLOBALS['db'] = 'PMA';
         //mock DBI
-        $dbi = $this->getMockBuilder('PMA\libraries\DatabaseInterface')
+        $dbi = $this->getMockBuilder('PhpMyAdmin\DatabaseInterface')
             ->disableOriginalConstructor()
             ->getMock();
 
@@ -422,7 +422,7 @@ class PMA_Import_Test extends PHPUnit_Framework_TestCase
     {
         $GLOBALS['db'] = 'PMA';
         //mock DBI
-        $dbi = $this->getMockBuilder('PMA\libraries\DatabaseInterface')
+        $dbi = $this->getMockBuilder('PhpMyAdmin\DatabaseInterface')
             ->disableOriginalConstructor()
             ->getMock();
 

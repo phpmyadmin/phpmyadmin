@@ -7,7 +7,7 @@
  */
 namespace PMA\libraries\config;
 
-use PMA\libraries\Core;
+use PhpMyAdmin\Core;
 use PMA\libraries\Message;
 use PMA\libraries\Response;
 

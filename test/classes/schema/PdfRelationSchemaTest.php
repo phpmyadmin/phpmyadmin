@@ -74,7 +74,7 @@ class PdfRelationSchemaTest extends PMATestCase
         );
         PMA_getRelationsParam();
 
-        $dbi = $this->getMockBuilder('PMA\libraries\DatabaseInterface')
+        $dbi = $this->getMockBuilder('PhpMyAdmin\DatabaseInterface')
             ->disableOriginalConstructor()
             ->getMock();
 

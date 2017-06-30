@@ -1,14 +1,13 @@
 <?php
 /* vim: set expandtab sw=4 ts=4 sts=4: */
 /**
- * Hold the PMA\libraries\LanguageManager class
+ * Hold the PhpMyAdmin\Language class
  *
  * @package PhpMyAdmin
  */
-namespace PMA\libraries;
+namespace PhpMyAdmin;
 
-use PMA\libraries\LanguageManager;
-
+use PhpMyAdmin\LanguageManager;
 
 /**
  * Language object

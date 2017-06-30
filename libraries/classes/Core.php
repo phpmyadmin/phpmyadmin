@@ -7,9 +7,9 @@
  *
  * @package PhpMyAdmin
  */
-namespace PMA\libraries;
+namespace PhpMyAdmin;
 
-use PMA\libraries\DatabaseInterface;
+use PhpMyAdmin\DatabaseInterface;
 use PMA\libraries\Message;
 use PMA\libraries\Response;
 use PMA\libraries\Sanitize;

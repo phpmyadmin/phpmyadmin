@@ -8,7 +8,7 @@
  */
 namespace PMA\libraries\dbi;
 
-use PMA\libraries\DatabaseInterface;
+use PhpMyAdmin\DatabaseInterface;
 
 if (! defined('PHPMYADMIN')) {
     exit;

@@ -10,7 +10,7 @@
  * since 'check_user_privileges.lib.php' will use it globally
  */
 use PMA\libraries\plugins\import\ImportXml;
-use PMA\libraries\File;
+use PhpMyAdmin\File;
 
 $GLOBALS['server'] = 0;
 
@@ -118,7 +118,7 @@ class ImportXmlTest extends PMATestCase
         global $import_notice;
 
         //Mock DBI
-        $dbi = $this->getMockBuilder('PMA\libraries\DatabaseInterface')
+        $dbi = $this->getMockBuilder('PhpMyAdmin\DatabaseInterface')
             ->disableOriginalConstructor()
             ->getMock();
         $GLOBALS['dbi'] = $dbi;

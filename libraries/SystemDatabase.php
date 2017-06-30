@@ -7,6 +7,8 @@
  */
 namespace PMA\libraries;
 
+use PhpMyAdmin\DatabaseInterface;
+
 require_once 'libraries/database_interface.inc.php';
 
 /**

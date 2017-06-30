@@ -7,6 +7,7 @@
  */
 namespace PMA\libraries;
 
+use PhpMyAdmin\Header;
 use PMA\libraries\URL;
 use PMA\libraries\Sanitize;
 

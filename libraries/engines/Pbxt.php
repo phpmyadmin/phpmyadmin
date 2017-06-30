@@ -8,7 +8,7 @@
 namespace PMA\libraries\engines;
 
 use PMA;
-use PMA\libraries\Core;
+use PhpMyAdmin\Core;
 use PMA\libraries\StorageEngine;
 
 /**

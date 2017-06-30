@@ -7,7 +7,7 @@
  */
 namespace PMA\libraries\plugins\schema\eps;
 
-use PMA\libraries\Core;
+use PhpMyAdmin\Core;
 use PMA\libraries\Response;
 
 /**

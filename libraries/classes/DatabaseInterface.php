@@ -5,12 +5,18 @@
  *
  * @package PhpMyAdmin-DBI
  */
-namespace PMA\libraries;
+namespace PhpMyAdmin;
 
-use PMA\libraries\Core;
+use PhpMyAdmin\Core;
 use PMA\libraries\dbi\DBIExtension;
-use PMA\libraries\LanguageManager;
+use PhpMyAdmin\Error;
+use PhpMyAdmin\Index;
+use PhpMyAdmin\LanguageManager;
+use PMA\libraries\SystemDatabase;
+use PMA\libraries\Table;
+use PMA\libraries\Tracker;
 use PMA\libraries\URL;
+use PMA\libraries\Util;
 
 require_once './libraries/util.lib.php';
 
@@ -917,7 +923,7 @@ class DatabaseInterface
             $GLOBALS['callback_sort_by'] = $sort_by;
             usort(
                 $databases,
-                array('PMA\libraries\DatabaseInterface', '_usortComparisonCallback')
+                array(self::class, '_usortComparisonCallback')
             );
             unset($GLOBALS['callback_sort_order'], $GLOBALS['callback_sort_by']);
 
@@ -1391,7 +1397,7 @@ class DatabaseInterface
             }
         }
 
-        if (PMA_MYSQL_INT_VERSION >  50503) {
+        if (PMA_MYSQL_INT_VERSION > 50503) {
             $default_charset = 'utf8mb4';
             $default_collation = 'utf8mb4_general_ci';
         } else {

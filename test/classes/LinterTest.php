@@ -9,12 +9,12 @@
 /*
  * Include to test.
  */
-use PMA\libraries\Linter;
+use PhpMyAdmin\Linter;
 
 require_once 'test/PMATestCase.php';
 
 /**
- * Tests for PMA\libraries\Linter
+ * Tests for PhpMyAdmin\Linter
  *
  * @package PhpMyAdmin-test
  */

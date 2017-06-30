@@ -5,7 +5,8 @@
  *
  * @package PhpMyAdmin
  */
-namespace PMA\libraries;
+namespace PhpMyAdmin;
+
 use PMA\libraries\Util;
 
 /**

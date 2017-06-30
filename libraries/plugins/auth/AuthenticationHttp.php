@@ -12,8 +12,8 @@ namespace PMA\libraries\plugins\auth;
 use PMA\libraries\plugins\AuthenticationPlugin;
 use PMA\libraries\Message;
 use PMA\libraries\Response;
-use PMA\libraries\Config;
-use PMA\libraries\Core;
+use PhpMyAdmin\Config;
+use PhpMyAdmin\Core;
 
 require_once './libraries/hash.lib.php';
 

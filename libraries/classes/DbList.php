@@ -6,7 +6,9 @@
  * @package PhpMyAdmin
  *
  */
-namespace PMA\libraries;
+namespace PhpMyAdmin;
+
+use PhpMyAdmin\ListDatabase;
 
 /**
  * holds the DbList class

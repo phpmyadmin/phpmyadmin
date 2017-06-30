@@ -87,7 +87,7 @@ function PMA_analyzeWhereClauses(
             . PMA\libraries\Util::backquote($table)
             . ' WHERE ' . $where_clause . ';';
         $result[$key_id] = $GLOBALS['dbi']->query(
-            $local_query, null, PMA\libraries\DatabaseInterface::QUERY_STORE
+            $local_query, null, PhpMyAdmin\DatabaseInterface::QUERY_STORE
         );
         $rows[$key_id]   = $GLOBALS['dbi']->fetchAssoc($result[$key_id]);
 
@@ -167,7 +167,7 @@ function PMA_loadFirstRow($table, $db)
         'SELECT * FROM ' . PMA\libraries\Util::backquote($db)
         . '.' . PMA\libraries\Util::backquote($table) . ' LIMIT 1;',
         null,
-        PMA\libraries\DatabaseInterface::QUERY_STORE
+        PhpMyAdmin\DatabaseInterface::QUERY_STORE
     );
     $rows = array_fill(0, $GLOBALS['cfg']['InsertRows'], false);
     return array($result, $rows);
@@ -2091,7 +2091,7 @@ function PMA_getDisplayValueForForeignTableColumn($where_comparison,
             . ' WHERE ' . PMA\libraries\Util::backquote($foreigner['foreign_field'])
             . $where_comparison;
         $dispresult  = $GLOBALS['dbi']->tryQuery(
-            $dispsql, null, PMA\libraries\DatabaseInterface::QUERY_STORE
+            $dispsql, null, PhpMyAdmin\DatabaseInterface::QUERY_STORE
         );
         if ($dispresult && $GLOBALS['dbi']->numRows($dispresult) > 0) {
             list($dispval) = $GLOBALS['dbi']->fetchRow($dispresult, 0);

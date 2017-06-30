@@ -10,7 +10,7 @@
 namespace PMA\libraries\controllers\server;
 
 use PMA\libraries\controllers\Controller;
-use PMA\libraries\Charsets;
+use PhpMyAdmin\Charsets;
 use PMA\libraries\Template;
 
 /**

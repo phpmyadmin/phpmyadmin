@@ -7,13 +7,14 @@
  */
 namespace PMA\libraries;
 
+use PhpMyAdmin\DatabaseInterface;
 use PMA\libraries\plugins\ImportPlugin;
 use PhpMyAdmin\SqlParser\Context;
 use PhpMyAdmin\SqlParser\Lexer;
 use PhpMyAdmin\SqlParser\Parser;
 use PhpMyAdmin\SqlParser\Token;
 use stdClass;
-use PMA\libraries\Core;
+use PhpMyAdmin\Core;
 use PMA\libraries\URL;
 use PMA\libraries\Sanitize;
 use PMA\libraries\Template;

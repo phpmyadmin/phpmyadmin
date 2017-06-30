@@ -6,9 +6,9 @@
  * @package PhpMyAdmin
  */
 
-use PMA\libraries\Charsets;
-use PMA\libraries\Core;
-use PMA\libraries\LanguageManager;
+use PhpMyAdmin\Charsets;
+use PhpMyAdmin\Core;
+use PhpMyAdmin\LanguageManager;
 use PMA\libraries\Message;
 use PMA\libraries\RecentFavoriteTable;
 use PMA\libraries\Response;
@@ -263,7 +263,7 @@ if ($GLOBALS['cfg']['ThemeManager']) {
     echo '</li>';
 }
 echo '<li id="li_select_fontsize">';
-echo PMA\libraries\Config::getFontsizeForm();
+echo PhpMyAdmin\Config::getFontsizeForm();
 echo '</li>';
 
 echo '</ul>';

@@ -202,7 +202,7 @@ class TableTest extends PMATestCase
             ),
         );
 
-        $dbi = $this->getMockBuilder('PMA\libraries\DatabaseInterface')
+        $dbi = $this->getMockBuilder('PhpMyAdmin\DatabaseInterface')
             ->disableOriginalConstructor()
             ->getMock();
 
@@ -857,7 +857,7 @@ class TableTest extends PMATestCase
      */
     public function testGetColumnsMeta()
     {
-        $dbi = $this->getMockBuilder('PMA\libraries\DatabaseInterface')
+        $dbi = $this->getMockBuilder('PhpMyAdmin\DatabaseInterface')
             ->disableOriginalConstructor()
             ->getMock();
 
@@ -946,7 +946,7 @@ class TableTest extends PMATestCase
     {
         $db = "pma_db";
         $table = "pma_table";
-        $index = new PMA\libraries\Index();
+        $index = new PhpMyAdmin\Index();
         $error = false;
 
         $_REQUEST['old_index'] = "PRIMARY";
@@ -1005,7 +1005,7 @@ class TableTest extends PMATestCase
     public function testCheckIfMinRecordsExist()
     {
         $old_dbi = $GLOBALS['dbi'];
-        $dbi = $this->getMockBuilder('PMA\libraries\DatabaseInterface')
+        $dbi = $this->getMockBuilder('PhpMyAdmin\DatabaseInterface')
             ->disableOriginalConstructor()
             ->getMock();
         $dbi->expects($this->any())
@@ -1213,7 +1213,7 @@ class TableTest extends PMATestCase
         $tbl_object = new Table($target_db, $target_table);
         $tbl_object->getStatusInfo(null, true);
         $extension = new PMA\libraries\dbi\DBIDummy();
-        $dbi = new PMA\libraries\DatabaseInterface($extension);
+        $dbi = new PhpMyAdmin\DatabaseInterface($extension);
         $expect = '';
         $tbl_storage_engine = $dbi->getTable(
             $target_db,
@@ -1236,7 +1236,7 @@ class TableTest extends PMATestCase
         $tbl_object = new Table($target_db, $target_table);
         $tbl_object->getStatusInfo(null, true);
         $extension = new PMA\libraries\dbi\DBIDummy();
-        $dbi = new PMA\libraries\DatabaseInterface($extension);
+        $dbi = new PhpMyAdmin\DatabaseInterface($extension);
         $expect = '';
         $show_comment = $dbi->getTable(
             $target_db,
@@ -1259,7 +1259,7 @@ class TableTest extends PMATestCase
         $tbl_object = new Table($target_db, $target_table);
         $tbl_object->getStatusInfo(null, true);
         $extension = new PMA\libraries\dbi\DBIDummy();
-        $dbi = new PMA\libraries\DatabaseInterface($extension);
+        $dbi = new PhpMyAdmin\DatabaseInterface($extension);
         $expect = '';
         $tbl_collation = $dbi->getTable(
             $target_db,
@@ -1282,7 +1282,7 @@ class TableTest extends PMATestCase
         $tbl_object = new Table($target_db, $target_table);
         $tbl_object->getStatusInfo(null, true);
         $extension = new PMA\libraries\dbi\DBIDummy();
-        $dbi = new PMA\libraries\DatabaseInterface($extension);
+        $dbi = new PhpMyAdmin\DatabaseInterface($extension);
         $expect = '';
         $row_format = $dbi->getTable(
             $target_db,
@@ -1305,7 +1305,7 @@ class TableTest extends PMATestCase
         $tbl_object = new Table($target_db, $target_table);
         $tbl_object->getStatusInfo(null, true);
         $extension = new PMA\libraries\dbi\DBIDummy();
-        $dbi = new PMA\libraries\DatabaseInterface($extension);
+        $dbi = new PhpMyAdmin\DatabaseInterface($extension);
         $expect = '';
         $auto_increment = $dbi->getTable(
             $target_db,
@@ -1328,7 +1328,7 @@ class TableTest extends PMATestCase
         $tbl_object = new Table($target_db, $target_table);
         $tbl_object->getStatusInfo(null, true);
         $extension = new PMA\libraries\dbi\DBIDummy();
-        $dbi = new PMA\libraries\DatabaseInterface($extension);
+        $dbi = new PhpMyAdmin\DatabaseInterface($extension);
         $expect = array('pack_keys' => 'DEFAULT');
         $create_options = $dbi->getTable(
             $target_db,

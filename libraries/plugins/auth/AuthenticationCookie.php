@@ -9,13 +9,13 @@
 namespace PMA\libraries\plugins\auth;
 
 use phpseclib\Crypt;
-use PMA\libraries\LanguageManager;
+use PhpMyAdmin\LanguageManager;
 use PMA\libraries\Message;
 use PMA\libraries\plugins\AuthenticationPlugin;
 use PMA\libraries\Response;
 use PMA\libraries\Util;
-use PMA\libraries\Config;
-use PMA\libraries\Core;
+use PhpMyAdmin\Config;
+use PhpMyAdmin\Core;
 use ReCaptcha;
 use PMA\libraries\URL;
 

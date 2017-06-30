@@ -10,7 +10,7 @@
  * Include to test.
  */
 
-use PMA\libraries\LanguageManager;
+use PhpMyAdmin\LanguageManager;
 
 /**
  * Tests behaviour of PMA_Advisor class

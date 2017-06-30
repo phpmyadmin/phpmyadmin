@@ -7,7 +7,7 @@
  */
 use PMA\libraries\config\FormDisplay;
 use PMA\setup\lib\ConfigGenerator;
-use PMA\libraries\Core;
+use PhpMyAdmin\Core;
 use PMA\libraries\URL;
 use PMA\libraries\Response;
 

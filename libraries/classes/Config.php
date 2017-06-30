@@ -5,12 +5,15 @@
  *
  * @package PhpMyAdmin
  */
-namespace PMA\libraries;
+namespace PhpMyAdmin;
 
 use DirectoryIterator;
-use PMA\libraries\Core;
-use PMA\libraries\URL;
+use PhpMyAdmin\Core;
+use PhpMyAdmin\Error;
+use PhpMyAdmin\LanguageManager;
 use PMA\libraries\ThemeManager;
+use PMA\libraries\URL;
+use PMA\libraries\Util;
 
 /**
  * Indication for error handler (see end of this file).
@@ -88,7 +91,7 @@ class Config
         $this->settings = array();
 
         // functions need to refresh in case of config file changed goes in
-        // PMA\libraries\Config::load()
+        // PhpMyAdmin\Config::load()
         $this->load($source);
 
         // other settings, independent from config file, comes in
@@ -1794,5 +1797,5 @@ class Config
 }
 
 if (!defined('TESTSUITE')) {
-    register_shutdown_function(array('PMA\libraries\Config', 'fatalErrorHandler'));
+    register_shutdown_function(array('PhpMyAdmin\Config', 'fatalErrorHandler'));
 }

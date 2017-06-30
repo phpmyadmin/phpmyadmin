@@ -6,8 +6,8 @@
  * @package PhpMyAdmin
  */
 use PMA\libraries\engines\Innodb;
-use PMA\libraries\Charsets;
-use PMA\libraries\Core;
+use PhpMyAdmin\Charsets;
+use PhpMyAdmin\Core;
 use PMA\libraries\Message;
 use PMA\libraries\Partition;
 use PMA\libraries\plugins\export\ExportSql;

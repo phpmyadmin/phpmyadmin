@@ -6,7 +6,7 @@
  * @package PhpMyAdmin-test
  */
 
-use PMA\libraries\ListDatabase;
+use PhpMyAdmin\ListDatabase;
 
 $GLOBALS['server'] = 1;
 $GLOBALS['cfg']['Server']['DisableIS'] = false;
@@ -44,7 +44,7 @@ class ListDatabaseTest extends PMATestCase
      */
     private function _callProtectedFunction($name, $params)
     {
-        $class = new ReflectionClass('PMA\libraries\ListDatabase');
+        $class = new ReflectionClass(ListDatabase::class);
         $method = $class->getMethod($name);
         $method->setAccessible(true);
         return $method->invokeArgs($this->object, $params);

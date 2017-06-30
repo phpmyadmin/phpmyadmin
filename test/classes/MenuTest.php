@@ -9,7 +9,7 @@
 /*
  * Include to test.
  */
-use PMA\libraries\Core;
+use PhpMyAdmin\Core;
 use PMA\libraries\Menu;
 use PMA\libraries\Theme;
 
