@@ -25,6 +25,8 @@ phpMyAdmin - ChangeLog
 - issue #12944 Improved inline editor for JSON
 - issue #13145 Improved layout of operations pages
 
+4.7.3 (not yet released)
+
 4.7.2 (2017-06-29)
 - issue #13314 Make theme selection keep current server
 - issue #13311 Fixed direct login for accounts without password
