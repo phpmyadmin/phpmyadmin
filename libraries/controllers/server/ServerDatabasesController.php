@@ -171,14 +171,12 @@ class ServerDatabasesController extends Controller
                 'sql_query', Util::getMessage(null, $sql_query, 'success')
             );
 
-            $url_query = URL::getCommon(array('db' => $_POST['new_db']));
             $this->response->addJSON(
                 'url_query',
                 Util::getScriptNameForOption(
                     $GLOBALS['cfg']['DefaultTabDatabase'], 'database'
                 )
-                . $url_query . '&amp;db='
-                . urlencode($_POST['new_db'])
+                . URL::getCommon(array('db' => $_POST['new_db']))
             );
         }
     }
@@ -581,7 +579,7 @@ class ServerDatabasesController extends Controller
             'class' => 'li_switch_dbstats',
             'url' => array(
                 'href' => 'server_databases.php'
-                    . $GLOBALS['url_query'] . '&amp;dbstats=1',
+                    . URL::getCommon(array('dbstats' => '1')),
                 'title' => __('Enable statistics')
             ),
         );
