@@ -11,7 +11,7 @@ namespace PMA\libraries\controllers\server;
 
 use PMA\libraries\controllers\Controller;
 use PhpMyAdmin\Message;
-use PMA\libraries\Response;
+use PhpMyAdmin\Response;
 use PMA\libraries\Template;
 use PMA\libraries\Util;
 use PMA\libraries\URL;

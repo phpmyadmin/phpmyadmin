@@ -6,7 +6,7 @@
  * @package PhpMyAdmin
  */
 use PMA\libraries\Table;
-use PMA\libraries\Response;
+use PhpMyAdmin\Response;
 use PMA\libraries\URL;
 
 /**

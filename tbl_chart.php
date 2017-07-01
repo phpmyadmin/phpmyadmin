@@ -9,7 +9,7 @@
 namespace PMA;
 
 use PMA\libraries\controllers\table\TableChartController;
-use PMA\libraries\Response;
+use PhpMyAdmin\Response;
 
 require_once 'libraries/common.inc.php';
 
@@ -18,8 +18,8 @@ $container->factory('PMA\libraries\controllers\table\TableChartController');
 $container->alias(
     'TableChartController', 'PMA\libraries\controllers\table\TableChartController'
 );
-$container->set('PMA\libraries\Response', Response::getInstance());
-$container->alias('response', 'PMA\libraries\Response');
+$container->set('PhpMyAdmin\Response', Response::getInstance());
+$container->alias('response', 'PhpMyAdmin\Response');
 
 /* Define dependencies for the concerned controller */
 $dependency_definitions = array(

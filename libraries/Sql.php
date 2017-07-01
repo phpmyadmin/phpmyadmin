@@ -17,7 +17,7 @@ use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\DisplayResults;
 use PhpMyAdmin\Index;
 use PhpMyAdmin\Message;
-use PMA\libraries\Response;
+use PhpMyAdmin\Response;
 use PMA\libraries\Table;
 use PMA\libraries\Transformations;
 use PMA\libraries\URL;

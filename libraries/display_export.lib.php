@@ -11,7 +11,7 @@ use PhpMyAdmin\Core;
 use PhpMyAdmin\Encoding;
 use PhpMyAdmin\Message;
 use PMA\libraries\plugins\ExportPlugin;
-use PMA\libraries\Response;
+use PhpMyAdmin\Response;
 use PMA\libraries\Table;
 use PMA\libraries\Template;
 use PMA\libraries\URL;

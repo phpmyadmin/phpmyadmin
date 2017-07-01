@@ -8,7 +8,7 @@
 
 use PhpMyAdmin\Core;
 use PMA\libraries\Sanitize;
-use PMA\libraries\Response;
+use PhpMyAdmin\Response;
 
 /**
  * Gets core libraries and defines some variables

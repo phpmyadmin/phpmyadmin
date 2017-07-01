@@ -12,8 +12,8 @@ use PMA\libraries\navigation\nodes\NodeDatabase;
 use PMA\libraries\navigation\nodes\NodeTable;
 use PMA\libraries\navigation\nodes\NodeTableContainer;
 use PMA\libraries\navigation\nodes\NodeViewContainer;
-use PMA\libraries\RecentFavoriteTable;
-use PMA\libraries\Response;
+use PhpMyAdmin\RecentFavoriteTable;
+use PhpMyAdmin\Response;
 use PMA\libraries\Util;
 use PMA\libraries\URL;
 

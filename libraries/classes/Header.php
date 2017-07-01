@@ -13,7 +13,7 @@ use PhpMyAdmin\Core;
 use PhpMyAdmin\Menu;
 use PhpMyAdmin\Message;
 use PMA\libraries\navigation\Navigation;
-use PMA\libraries\RecentFavoriteTable;
+use PhpMyAdmin\RecentFavoriteTable;
 use PMA\libraries\Sanitize;
 use PMA\libraries\Scripts;
 use PMA\libraries\URL;

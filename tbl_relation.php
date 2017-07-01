@@ -20,7 +20,7 @@
 namespace PMA;
 
 use PMA\libraries\controllers\table\TableRelationController;
-use PMA\libraries\Response;
+use PhpMyAdmin\Response;
 use PMA\libraries\Table;
 use PMA\libraries\Util;
 
@@ -32,8 +32,8 @@ $container->alias(
     'TableRelationController',
     'PMA\libraries\controllers\table\TableRelationController'
 );
-$container->set('PMA\libraries\Response', Response::getInstance());
-$container->alias('response', 'PMA\libraries\Response');
+$container->set('PhpMyAdmin\Response', Response::getInstance());
+$container->alias('response', 'PhpMyAdmin\Response');
 
 /* Define dependencies for the concerned controller */
 $db = $container->get('db');

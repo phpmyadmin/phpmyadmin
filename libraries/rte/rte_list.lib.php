@@ -5,7 +5,7 @@
  *
  * @package PhpMyAdmin
  */
-use PMA\libraries\Response;
+use PhpMyAdmin\Response;
 use PMA\libraries\URL;
 use PMA\libraries\Template;
 use PhpMyAdmin\SqlParser\Statements\CreateStatement;

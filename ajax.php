@@ -6,7 +6,7 @@
  * @package PhpMyAdmin
  */
 
-use PMA\libraries\Response;
+use PhpMyAdmin\Response;
 use PMA\libraries\Util;
 require_once 'libraries/common.inc.php';
 

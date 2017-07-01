@@ -9,7 +9,7 @@ namespace PMA\libraries\config;
 
 use PhpMyAdmin\Core;
 use PhpMyAdmin\Message;
-use PMA\libraries\Response;
+use PhpMyAdmin\Response;
 
 require_once 'libraries/user_preferences.lib.php';
 require_once 'libraries/config/config_functions.lib.php';

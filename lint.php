@@ -8,7 +8,7 @@
 
 use PhpMyAdmin\Core;
 use PhpMyAdmin\Linter;
-use PMA\libraries\Response;
+use PhpMyAdmin\Response;
 
 $_GET['ajax_request'] = 'true';
 

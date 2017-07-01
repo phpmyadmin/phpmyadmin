@@ -1,24 +1,22 @@
 <?php
 /* vim: set expandtab sw=4 ts=4 sts=4: */
 /**
- * tests for PDF class
+ * tests for Pdf class
  *
  * @package PhpMyAdmin-test
  */
 
-/*
- * Include to test.
- */
-use PMA\libraries\PDF;
+use PhpMyAdmin\Config;
+use PhpMyAdmin\Pdf;
 
 require_once 'test/PMATestCase.php';
 
 /**
- * tests for PDF class
+ * tests for Pdf class
  *
  * @package PhpMyAdmin-test
  */
-class PDFTest extends PMATestCase
+class PdfTest extends PMATestCase
 {
     /**
      * SetUp for test cases
@@ -27,49 +25,49 @@ class PDFTest extends PMATestCase
      */
     public function setup()
     {
-        $GLOBALS['PMA_Config'] = new PhpMyAdmin\Config();
+        $GLOBALS['PMA_Config'] = new Config();
         $GLOBALS['PMA_Config']->enableBc();
     }
 
     /**
-     * Test for PDF::getPDFData
+     * Test for Pdf::getPDFData
      *
      * @group large
      * @return void
      */
     public function testBasic()
     {
-        $arr = new PDF();
+        $arr = new Pdf();
         $this->assertContains('PDF', $arr->getPDFData());
     }
 
     /**
-     * Test for PDF::getPDFData
+     * Test for Pdf::getPDFData
      *
      * @group large
      * @return void
      */
     public function testAlias()
     {
-        $arr = new PDF();
+        $arr = new Pdf();
         $arr->setAlias('{00}', '32');
         $this->assertContains('PDF', $arr->getPDFData());
     }
 
     /**
-     * Test for PDF::getPDFData
+     * Test for Pdf::getPDFData
      *
      * @group large
      * @return void
      */
     public function testDocument()
     {
-        $pdf = new PDF();
+        $pdf = new Pdf();
         $pdf->SetTitle('Title');
         $pdf->Open();
         $pdf->SetAutoPageBreak('auto');
         $pdf->Addpage();
-        $pdf->SetFont(PDF::PMA_PDF_FONT, 'B', 14);
+        $pdf->SetFont(Pdf::PMA_PDF_FONT, 'B', 14);
         $pdf->Cell(0, 6, 'Cell', 'B', 1, 'C');
         $pdf->Ln();
         $pdf->Addpage();

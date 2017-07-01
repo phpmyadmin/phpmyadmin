@@ -7,7 +7,7 @@
  */
 
 use PMA\libraries\ServerStatusData;
-use PMA\libraries\Response;
+use PhpMyAdmin\Response;
 
 require_once 'libraries/common.inc.php';
 require_once 'libraries/server_common.inc.php';

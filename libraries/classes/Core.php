@@ -11,7 +11,7 @@ namespace PhpMyAdmin;
 
 use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Message;
-use PMA\libraries\Response;
+use PhpMyAdmin\Response;
 use PMA\libraries\Sanitize;
 use PMA\libraries\Template;
 use PMA\libraries\URL;

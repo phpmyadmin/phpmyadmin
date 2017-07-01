@@ -7,9 +7,9 @@
  */
 namespace PhpMyAdmin;
 
+use PMA\libraries\Sanitize;
 use PMA\libraries\URL;
 use PMA\libraries\Util;
-use PMA\libraries\Sanitize;
 
 /**
  * Class to handle database search

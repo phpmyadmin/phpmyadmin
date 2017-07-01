@@ -10,7 +10,7 @@ namespace PMA\libraries\plugins\auth;
 
 use PMA\libraries\plugins\AuthenticationPlugin;
 use PMA;
-use PMA\libraries\Response;
+use PhpMyAdmin\Response;
 use PMA\libraries\URL;
 
 /**

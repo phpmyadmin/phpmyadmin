@@ -11,7 +11,7 @@ use PhpMyAdmin\Core;
 /**
  * Common functions.
  */
-// we don't want the usual PMA\libraries\Response-generated HTML above the column's
+// we don't want the usual PhpMyAdmin\Response-generated HTML above the column's
 // data
 define('PMA_BYPASS_GET_INSTANCE', 1);
 require_once 'libraries/common.inc.php';

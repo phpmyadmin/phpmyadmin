@@ -14,7 +14,7 @@ use PhpMyAdmin\Index;
 use PhpMyAdmin\Message;
 use PMA\libraries\Template;
 use PMA\libraries\Util;
-use PMA\libraries\Response;
+use PhpMyAdmin\Response;
 
 
 /**

@@ -10,7 +10,7 @@ namespace PhpMyAdmin;
 use PhpMyAdmin\Config;
 use PhpMyAdmin\Core;
 use PhpMyAdmin\Message;
-use PMA\libraries\Response;
+use PhpMyAdmin\Response;
 use PMA\libraries\Sanitize;
 use PMA\libraries\Scripts;
 use PMA\libraries\URL;

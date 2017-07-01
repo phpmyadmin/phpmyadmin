@@ -7,7 +7,7 @@
  */
 
 use PhpMyAdmin\Core;
-use PMA\libraries\Response;
+use PhpMyAdmin\Response;
 
 /**
  * include common file

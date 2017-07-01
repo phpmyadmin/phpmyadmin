@@ -7,8 +7,8 @@
  */
 namespace PhpMyAdmin;
 
-use PMA\libraries\Util;
 use PhpMyAdmin\DatabaseInterface;
+use PMA\libraries\Util;
 
 /**
  * Handles bookmarking SQL queries

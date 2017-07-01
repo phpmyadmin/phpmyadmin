@@ -4,7 +4,7 @@
  *
  * @package PhpMyAdmin
  */
-namespace PMA\libraries;
+namespace PhpMyAdmin;
 
 /**
  * Output buffering wrapper class
@@ -88,7 +88,7 @@ class OutputBuffering
                 header('X-ob_mode: ' . $this->_mode);
             }
             register_shutdown_function(
-                array('PMA\libraries\OutputBuffering', 'stop')
+                array(OutputBuffering::class, 'stop')
             );
             $this->_on = true;
         }
@@ -135,4 +135,3 @@ class OutputBuffering
         }
     }
 }
-

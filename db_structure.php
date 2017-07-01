@@ -9,7 +9,7 @@
 namespace PMA;
 
 use PMA\libraries\controllers\database\DatabaseStructureController;
-use PMA\libraries\Response;
+use PhpMyAdmin\Response;
 use PMA\libraries\Util;
 
 require_once 'libraries/common.inc.php';
@@ -23,8 +23,8 @@ $container->alias(
     'DatabaseStructureController',
     'PMA\libraries\controllers\database\DatabaseStructureController'
 );
-$container->set('PMA\libraries\Response', Response::getInstance());
-$container->alias('response', 'PMA\libraries\Response');
+$container->set('PhpMyAdmin\Response', Response::getInstance());
+$container->alias('response', 'PhpMyAdmin\Response');
 
 /* Define dependencies for the concerned controller */
 $dependency_definitions = array(

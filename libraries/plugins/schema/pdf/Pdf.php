@@ -7,7 +7,7 @@
  */
 namespace PMA\libraries\plugins\schema\pdf;
 
-use PMA\libraries\PDF as PDF_lib;
+use PhpMyAdmin\Pdf as PdfLib;
 use PMA\libraries\Util;
 
 /**
@@ -33,7 +33,7 @@ if (getcwd() == dirname(__FILE__)) {
  * @package PhpMyAdmin
  * @see     TCPDF
  */
-class Pdf extends PDF_lib
+class Pdf extends PdfLib
 {
     /**
      * Defines properties
@@ -47,7 +47,7 @@ class Pdf extends PDF_lib
     var $Outlines = array();
     var $def_outlines;
     var $widths;
-    private $_ff = PDF_lib::PMA_PDF_FONT;
+    private $_ff = PdfLib::PMA_PDF_FONT;
     private $_offline;
     private $_pageNumber;
     private $_withDoc;

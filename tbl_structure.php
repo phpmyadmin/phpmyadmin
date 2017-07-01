@@ -11,7 +11,7 @@ namespace PMA;
 
 use PMA\libraries\controllers\table\TableStructureController;
 use PMA\libraries\controllers\Table;
-use PMA\libraries\Response;
+use PhpMyAdmin\Response;
 
 require_once 'libraries/common.inc.php';
 require_once 'libraries/config/messages.inc.php';
@@ -24,8 +24,8 @@ $container->alias(
     'TableStructureController',
     'PMA\libraries\controllers\table\TableStructureController'
 );
-$container->set('PMA\libraries\Response', Response::getInstance());
-$container->alias('response', 'PMA\libraries\Response');
+$container->set('PhpMyAdmin\Response', Response::getInstance());
+$container->alias('response', 'PhpMyAdmin\Response');
 
 global $db, $table, $db_is_system_schema, $tbl_is_view, $tbl_storage_engine,
     $table_info_num_rows, $tbl_collation, $showtable;

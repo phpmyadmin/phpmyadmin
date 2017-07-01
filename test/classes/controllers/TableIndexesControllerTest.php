@@ -10,7 +10,7 @@ use PMA\libraries\controllers\table\TableIndexesController;
 use PMA\libraries\di\Container;
 use PMA\libraries\Theme;
 use PMA\libraries\URL;
-use PMA\libraries\Response;
+use PhpMyAdmin\Response;
 
 /*
  * Include to test.
@@ -100,8 +100,8 @@ class TableIndexesControllerTest extends PMATestCase
         $container->set('table', 'table');
         $container->set('dbi', $GLOBALS['dbi']);
         $response = new \PMA\Test\Stubs\Response();
-        $container->set('PMA\libraries\Response', $response);
-        $container->alias('response', 'PMA\libraries\Response');
+        $container->set('PhpMyAdmin\Response', $response);
+        $container->alias('response', 'PhpMyAdmin\Response');
 
         $ctrl = new TableIndexesController(null);
 
@@ -152,8 +152,8 @@ class TableIndexesControllerTest extends PMATestCase
         $container->set('table', 'table');
         $container->set('dbi', $GLOBALS['dbi']);
         $response = new \PMA\Test\Stubs\Response();
-        $container->set('PMA\libraries\Response', $response);
-        $container->alias('response', 'PMA\libraries\Response');
+        $container->set('PhpMyAdmin\Response', $response);
+        $container->alias('response', 'PhpMyAdmin\Response');
         $index = new PhpMyAdmin\Index();
 
         $ctrl = new TableIndexesController($index);

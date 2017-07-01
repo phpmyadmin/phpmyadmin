@@ -16,7 +16,7 @@ use PMA\libraries\properties\options\groups\OptionsPropertyMainGroup;
 use PMA\libraries\properties\options\groups\OptionsPropertyRootGroup;
 use PhpMyAdmin\DatabaseInterface;
 use PMA\libraries\properties\options\items\TextPropertyItem;
-use PMA\libraries\OpenDocument;
+use PhpMyAdmin\OpenDocument;
 
 $GLOBALS['ods_buffer'] = '';
 
