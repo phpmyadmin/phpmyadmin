@@ -10,7 +10,7 @@ use PhpMyAdmin\Encoding;
 use PhpMyAdmin\Message;
 use PMA\libraries\plugins\ExportPlugin;
 use PMA\libraries\Table;
-use PMA\libraries\ZipFile;
+use PhpMyAdmin\ZipFile;
 use PMA\libraries\URL;
 use PMA\libraries\Sanitize;
 

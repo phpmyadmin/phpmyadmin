@@ -7,7 +7,7 @@
  */
 namespace PhpMyAdmin;
 
-use PMA\libraries\ZipFile;
+use PhpMyAdmin\ZipFile;
 
 /**
  * Simplfied OpenDocument creator class

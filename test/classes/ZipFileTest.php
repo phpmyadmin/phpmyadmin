@@ -1,16 +1,16 @@
 <?php
 /**
- * Tests PMA\libraries\ZipFile
+ * Tests PhpMyAdmin\ZipFile
  *
  * @package PhpMyAdmin-test
  */
 
-use PMA\libraries\ZipFile;
+use PhpMyAdmin\ZipFile;
 
 require_once 'test/PMATestCase.php';
 
 /**
- * Tests for PMA\libraries\ZipFile
+ * Tests for PhpMyAdmin\ZipFile
  *
  * @package PhpMyAdmin-test
  */
