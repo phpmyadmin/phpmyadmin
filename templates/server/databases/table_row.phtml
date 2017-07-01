@@ -11,7 +11,7 @@
         </td>
     <?php endif; ?>
     <td class="name">
-        <a href="<?= \PMA\libraries\Util::getScriptNameForOption($GLOBALS['cfg']['DefaultTabDatabase'], 'database') , $url_query , \PMA\libraries\URL::getCommon(array('db' => $current['SCHEMA_NAME'])); ?>"
+        <a href="<?= \PMA\libraries\Util::getScriptNameForOption($GLOBALS['cfg']['DefaultTabDatabase'], 'database') , \PMA\libraries\URL::getCommon(array('db' => $current['SCHEMA_NAME'])); ?>"
            title="<?= sprintf(__('Jump to database'), htmlspecialchars($current['SCHEMA_NAME'])); ?>">
             <?= htmlspecialchars($current['SCHEMA_NAME']); ?>
         </a>
@@ -57,7 +57,7 @@
 
     <td class="tool">
         <a onclick="PMA_commonActions.setDb('<?= PMA\libraries\Sanitize::jsFormat($current['SCHEMA_NAME']) ?>');"
-           href="server_privileges.php<?= $url_query; ?>&amp;db=<?= urlencode($current['SCHEMA_NAME']); ?>&amp;checkprivsdb=<?= urlencode($current['SCHEMA_NAME']); ?>"
+           href="server_privileges.php<?= \PMA\libraries\URL::getCommon(array('db' => $current['SCHEMA_NAME'], 'checkprivsdb' => $current['SCHEMA_NAME'])); ?>"
            title="<?= htmlspecialchars(sprintf(__('Check privileges for database "%s".'), $current['SCHEMA_NAME'])); ?>">
            <?= \PMA\libraries\Util::getIcon('s_rights.png', __('Check privileges')); ?>
         </a>

@@ -446,7 +446,6 @@ class ServerDatabasesController extends Controller
 
             $generated_html = $this->_buildHtmlForDb(
                 $current,
-                $GLOBALS['url_query'],
                 $column_order,
                 $replication_types,
                 $GLOBALS['replication_info'],
@@ -464,7 +463,6 @@ class ServerDatabasesController extends Controller
      * of databases from server_databases.php
      *
      * @param array  $current           current database
-     * @param string $url_query         url query
      * @param array  $column_order      column order
      * @param array  $replication_types replication types
      * @param array  $replication_info  replication info
@@ -473,7 +471,7 @@ class ServerDatabasesController extends Controller
      * @return array $column_order, $out
      */
     function _buildHtmlForDb(
-        $current, $url_query, $column_order,
+        $current, $column_order,
         $replication_types, $replication_info, $tr_class = ''
     ) {
         $master_replication = $slave_replication = '';
@@ -517,7 +515,6 @@ class ServerDatabasesController extends Controller
             array(
                 'current' => $current,
                 'tr_class' => $tr_class,
-                'url_query' => $url_query,
                 'column_order' => $column_order,
                 'master_replication_status'
                     => $GLOBALS['replication_info']['master']['status'],
