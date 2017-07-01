@@ -30,8 +30,10 @@
             $('#pma_navigation_resizer').css({'width': '0px'});
         }
         // Sets the image for the left and right scroll indicator
-        $(PMA_getImage('b_left.png').toString()).prependTo($('.scrollindicator--left'));
-        $(PMA_getImage('b_right.png').toString()).prependTo($('.scrollindicator--right'));
+        $('.scrollindicator--left').html($(PMA_getImage('b_left.png').toString()));
+        $('.scrollindicator--right').html($(PMA_getImage('b_right.png').toString()));
+        //$(PMA_getImage('b_left.png').toString()).prependTo($('.scrollindicator--left'));
+        //$(PMA_getImage('b_right.png').toString()).prependTo($('.scrollindicator--right'));
 
         // Set the width of the navigation bar without scroll indicator
         $('.navigationbar').css({'width': widthCalculator.call($container) - 60});
@@ -105,9 +107,6 @@
             wmax = 2000;
         }
 
-        // Overwrite resizer width on resize
-
-
         // Now hide menu elements that don't fit into the menubar
         var hidden = false; // Whether we have hidden any tabs
         while (total_len >= wmax && --l >= 0) { // Process the tabs backwards
@@ -143,7 +142,7 @@
         }
         // Show/hide the "More" tab as needed
         if (windowWidth < 768) {
-            $('.navigationbar').css({'width': navigationwidth - 60});
+            $('.navigationbar').css({'width': windowWidth - 80 - $('#pma_navigation').width()});
             $submenu.removeClass('shown');
             $('.navigationbar').css({'overflow': 'hidden'});
         }
