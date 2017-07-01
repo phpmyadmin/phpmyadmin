@@ -16,7 +16,7 @@ use PMA\libraries\gis\GISMultilinestring;
 use PMA\libraries\gis\GISMultipoint;
 use PMA\libraries\gis\GISPoint;
 use PMA\libraries\gis\GISPolygon;
-use PMA\libraries\ZipExtension;
+use PhpMyAdmin\ZipExtension;
 
 /**
  * Handles the import for ESRI Shape files

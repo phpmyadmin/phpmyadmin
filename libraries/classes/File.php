@@ -11,7 +11,7 @@ use PMA\libraries\config\ConfigFile;
 use PhpMyAdmin\Core;
 use PhpMyAdmin\Message;
 use PMA\libraries\Util;
-use PMA\libraries\ZipExtension;
+use PhpMyAdmin\ZipExtension;
 
 /**
  * File wrapper class

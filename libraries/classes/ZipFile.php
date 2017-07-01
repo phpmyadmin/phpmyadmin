@@ -5,11 +5,7 @@
  *
  * @package PhpMyAdmin
  */
-namespace PMA\libraries;
-
-if (!defined('PHPMYADMIN')) {
-    exit;
-}
+namespace PhpMyAdmin;
 
 /**
  * Zip file creation class.
@@ -203,4 +199,4 @@ class ZipFile
             return $data . $header;
         }
     } // end of the 'file()' method
-} // end of the 'PMA\libraries\ZipFile' class
+} // end of the 'PhpMyAdmin\ZipFile' class

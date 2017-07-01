@@ -5,7 +5,7 @@
  * @package PhpMyAdmin-test
  */
 
-use PMA\libraries\ZipExtension;
+use PhpMyAdmin\ZipExtension;
 
 require_once 'test/PMATestCase.php';
 
