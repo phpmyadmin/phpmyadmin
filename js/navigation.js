@@ -1120,6 +1120,9 @@ var ResizeHandler = function () {
         var resizer_width = $resizer.width();
         var $collapser = $('#pma_navigation_collapser');
         var windowWidth = $(window).width();
+        if (pos > 240 && windowWidth > 768) {
+            pos = 241;
+        }
         $('#pma_navigation').width(pos);
         $('body').css('margin-' + this.left, pos + 'px');
         $("#floating_menubar, #pma_console")
@@ -1130,18 +1133,20 @@ var ResizeHandler = function () {
                 .css(this.left, pos + resizer_width)
                 .html(this.getSymbol(pos))
                 .prop('title', PMA_messages.strShowPanel);
-        } else if (windowWidth < 768) {
+        } else if (windowWidth > 768) {
+            $collapser
+                .css(this.left, pos)
+                .html(this.getSymbol(pos))
+                .prop('title', PMA_messages.strHidePanel);
+            $('#pma_navigation_resizer').css({'width': '3px'});
+        } else {
             $collapser
                 .css(this.left, windowWidth - 22)
                 .html(this.getSymbol(100))
                 .prop('title', PMA_messages.strHidePanel);
             $('#pma_navigation').width(windowWidth);
             $('body').css('margin-' + this.left, '0px');
-        } else {
-            $collapser
-                .css(this.left, pos)
-                .html(this.getSymbol(pos))
-                .prop('title', PMA_messages.strHidePanel);
+            $('#pma_navigation_resizer').css({'width': '0px'});
         }
         setTimeout(function () {
             $(window).trigger('resize');

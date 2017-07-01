@@ -430,10 +430,10 @@ li.fast_filter.db_fast_filter {
 @media only screen and (max-width: 768px) {
     /* For mobile phones: */
     #pma_navigation {
-        width: 100%;
+        /*width: 100%;*/
     }
 
-    #pma_navigation_resizer {
+    /*#pma_navigation_resizer {
         width: 0;
-    }
+    }*/
 }

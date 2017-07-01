@@ -26,6 +26,9 @@
         self.widthCalculator = widthCalculator;
         var windowWidth = $(window).width();
 
+        if (windowWidth < 768) {
+            $('#pma_navigation_resizer').css({'width': '0px'});
+        }
         // Sets the image for the left and right scroll indicator
         $(PMA_getImage('b_left.png').toString()).prependTo($('.scrollindicator--left'));
         $(PMA_getImage('b_right.png').toString()).prependTo($('.scrollindicator--right'));
@@ -103,9 +106,8 @@
         }
 
         // Overwrite resizer width on resize
-        $('#pma_navigation_resizer').css({'width': '3px'});
 
-        $('.navigationbar').css({'overflow': 'hidden'});
+
         // Now hide menu elements that don't fit into the menubar
         var hidden = false; // Whether we have hidden any tabs
         while (total_len >= wmax && --l >= 0) { // Process the tabs backwards
@@ -143,13 +145,16 @@
         if (windowWidth < 768) {
             $('.navigationbar').css({'width': navigationwidth - 60});
             $submenu.removeClass('shown');
+            $('.navigationbar').css({'overflow': 'hidden'});
         }
-        else if ($submenu_ul.find('li').length > 0) {
-            $submenu.addClass('shown');
+        else {
             $('.navigationbar').css({'width': 'auto'});
-        } else {
-            $submenu.removeClass('shown');
-            $('.navigationbar').css({'width': 'auto'});
+            $('.navigationbar').css({'overflow': 'visible'});
+            if ($submenu_ul.find('li').length > 0) {
+                $submenu.addClass('shown');
+            } else {
+                $submenu.removeClass('shown');
+            }
         }
         if (this.$container.find('> li').length == 1) {
             // If there is only the "More" tab left, then we need
