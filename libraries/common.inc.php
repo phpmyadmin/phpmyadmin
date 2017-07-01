@@ -40,7 +40,7 @@ use PMA\libraries\plugins\AuthenticationPlugin;
 use PhpMyAdmin\DbList;
 use PMA\libraries\ThemeManager;
 use PMA\libraries\Tracker;
-use PMA\libraries\Response;
+use PhpMyAdmin\Response;
 use PMA\libraries\TypesMySQL;
 use PMA\libraries\Util;
 use PhpMyAdmin\LanguageManager;

@@ -11,7 +11,7 @@
  *
  * @package PhpMyAdmin
  */
-use PMA\libraries\Response;
+use PhpMyAdmin\Response;
 use PMA\libraries\plugins\export\ExportSql;
 
 /**
@@ -177,7 +177,7 @@ if (strlen($GLOBALS['db']) > 0
 
     /**
      * Database has been successfully renamed/moved.  If in an Ajax request,
-     * generate the output with {@link PMA\libraries\Response} and exit
+     * generate the output with {@link PhpMyAdmin\Response} and exit
      */
     if ($response->isAjax()) {
         $response->setRequestStatus($message->isSuccess());

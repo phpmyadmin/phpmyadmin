@@ -11,7 +11,7 @@ namespace PMA\libraries\plugins\auth;
 
 use PMA\libraries\plugins\AuthenticationPlugin;
 use PhpMyAdmin\Message;
-use PMA\libraries\Response;
+use PhpMyAdmin\Response;
 use PhpMyAdmin\Config;
 use PhpMyAdmin\Core;
 

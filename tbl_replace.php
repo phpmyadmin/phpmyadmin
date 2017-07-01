@@ -14,7 +14,7 @@
 
 use PhpMyAdmin\Core;
 use PMA\libraries\plugins\IOTransformationsPlugin;
-use PMA\libraries\Response;
+use PhpMyAdmin\Response;
 use PMA\libraries\Table;
 use PMA\libraries\Transformations;
 

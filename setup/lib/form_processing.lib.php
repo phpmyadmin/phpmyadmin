@@ -8,7 +8,7 @@
 use PMA\libraries\config\FormDisplay;
 use PhpMyAdmin\Core;
 use PMA\libraries\URL;
-use PMA\libraries\Response;
+use PhpMyAdmin\Response;
 
 /**
  * Processes forms registered in $form_display, handles error correction

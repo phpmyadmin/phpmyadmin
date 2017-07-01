@@ -7,7 +7,7 @@
  * @package PhpMyAdmin
  */
 
-use PMA\libraries\Response;
+use PhpMyAdmin\Response;
 use PhpMyAdmin\Message;
 use PMA\libraries\ServerStatusData;
 

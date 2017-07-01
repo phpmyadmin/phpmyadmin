@@ -10,7 +10,7 @@
 namespace PMA;
 
 use PMA\libraries\controllers\server\ServerDatabasesController;
-use PMA\libraries\Response;
+use PhpMyAdmin\Response;
 
 require_once 'libraries/common.inc.php';
 
@@ -22,8 +22,8 @@ $container->alias(
     'ServerDatabasesController',
     'PMA\libraries\controllers\server\ServerDatabasesController'
 );
-$container->set('PMA\libraries\Response', Response::getInstance());
-$container->alias('response', 'PMA\libraries\Response');
+$container->set('PhpMyAdmin\Response', Response::getInstance());
+$container->alias('response', 'PhpMyAdmin\Response');
 
 /** @var ServerDatabasesController $controller */
 $controller = $container->get(

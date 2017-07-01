@@ -79,8 +79,8 @@ class DatabaseStructureControllerTest extends PMATestCase
         $container->set('table', 'table');
         $container->set('dbi', $GLOBALS['dbi']);
         $this->_response = new \PMA\Test\Stubs\Response();
-        $container->set('PMA\libraries\Response', $this->_response);
-        $container->alias('response', 'PMA\libraries\Response');
+        $container->set('PhpMyAdmin\Response', $this->_response);
+        $container->alias('response', 'PhpMyAdmin\Response');
     }
 
     /**
@@ -96,8 +96,8 @@ class DatabaseStructureControllerTest extends PMATestCase
         $container->set('table', 'table');
         $container->set('dbi', $GLOBALS['dbi']);
         $response = new \PMA\Test\Stubs\Response();
-        $container->set('PMA\libraries\Response', $response);
-        $container->alias('response', 'PMA\libraries\Response');
+        $container->set('PhpMyAdmin\Response', $response);
+        $container->alias('response', 'PhpMyAdmin\Response');
 
         $class = new ReflectionClass('PMA\libraries\controllers\database\DatabaseStructureController');
         $method = $class->getMethod('getValuesForInnodbTable');
@@ -323,7 +323,7 @@ class DatabaseStructureControllerTest extends PMATestCase
      */
     public function testSynchronizeFavoriteTables()
     {
-        $fav_instance = $this->getMockBuilder('PMA\libraries\RecentFavoriteTable')
+        $fav_instance = $this->getMockBuilder('PhpMyAdmin\RecentFavoriteTable')
             ->disableOriginalConstructor()
             ->getMock();
         $fav_instance->expects($this->at(1))->method('getTables')

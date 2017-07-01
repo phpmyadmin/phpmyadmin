@@ -197,13 +197,13 @@ class PMA_InsertEditTest extends PHPUnit_Framework_TestCase
         // case 2
         $GLOBALS['cfg']['ShowSQL'] = false;
 
-        $responseMock = $this->getMockBuilder('PMA\libraries\Response')
+        $responseMock = $this->getMockBuilder('PhpMyAdmin\Response')
             ->disableOriginalConstructor()
             ->setMethods(array('addHtml'))
             ->getMock();
 
-        $restoreInstance = PMA\libraries\Response::getInstance();
-        $response = new ReflectionProperty('PMA\libraries\Response', '_instance');
+        $restoreInstance = PhpMyAdmin\Response::getInstance();
+        $response = new ReflectionProperty('PhpMyAdmin\Response', '_instance');
         $response->setAccessible(true);
         $response->setValue($responseMock);
 
@@ -1852,7 +1852,7 @@ class PMA_InsertEditTest extends PHPUnit_Framework_TestCase
             ->method('getScripts')
             ->will($this->returnValue($scriptsMock));
 
-        $responseMock = $this->getMockBuilder('PMA\libraries\Response')
+        $responseMock = $this->getMockBuilder('PhpMyAdmin\Response')
             ->disableOriginalConstructor()
             ->setMethods(array('getHeader'))
             ->getMock();
@@ -1861,8 +1861,8 @@ class PMA_InsertEditTest extends PHPUnit_Framework_TestCase
             ->method('getHeader')
             ->will($this->returnValue($headerMock));
 
-        $restoreInstance = PMA\libraries\Response::getInstance();
-        $response = new ReflectionProperty('PMA\libraries\Response', '_instance');
+        $restoreInstance = PhpMyAdmin\Response::getInstance();
+        $response = new ReflectionProperty('PhpMyAdmin\Response', '_instance');
         $response->setAccessible(true);
         $response->setValue($responseMock);
 
@@ -2713,13 +2713,13 @@ class PMA_InsertEditTest extends PHPUnit_Framework_TestCase
         $GLOBALS['cfg']['ShowSQL'] = false;
         $_REQUEST['default_action'] = 'insert';
 
-        $responseMock = $this->getMockBuilder('PMA\libraries\Response')
+        $responseMock = $this->getMockBuilder('PhpMyAdmin\Response')
             ->disableOriginalConstructor()
             ->setMethods(array('addHtml'))
             ->getMock();
 
-        $restoreInstance = PMA\libraries\Response::getInstance();
-        $response = new ReflectionProperty('PMA\libraries\Response', '_instance');
+        $restoreInstance = PhpMyAdmin\Response::getInstance();
+        $response = new ReflectionProperty('PhpMyAdmin\Response', '_instance');
         $response->setAccessible(true);
         $response->setValue($responseMock);
 

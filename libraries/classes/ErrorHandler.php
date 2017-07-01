@@ -8,7 +8,7 @@
 namespace PhpMyAdmin;
 
 use PhpMyAdmin\Error;
-use PMA\libraries\Response;
+use PhpMyAdmin\Response;
 use PMA\libraries\URL;
 
 /**

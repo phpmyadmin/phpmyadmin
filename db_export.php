@@ -6,7 +6,7 @@
  * @package PhpMyAdmin
  */
 use PMA\libraries\config\PageSettings;
-use PMA\libraries\Response;
+use PhpMyAdmin\Response;
 
 /**
  * Gets some core libraries

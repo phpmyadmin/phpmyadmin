@@ -8,7 +8,7 @@
  * @package PhpMyAdmin
  */
 use PMA\libraries\config\PageSettings;
-use PMA\libraries\Response;
+use PhpMyAdmin\Response;
 use PMA\libraries\Sql;
 use PMA\libraries\URL;
 use PMA\libraries\Util;

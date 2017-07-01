@@ -11,7 +11,7 @@ use PhpMyAdmin\Core;
 use PhpMyAdmin\Encoding;
 use PhpMyAdmin\File;
 use PMA\libraries\plugins\ImportPlugin;
-use PMA\libraries\Response;
+use PhpMyAdmin\Response;
 use PMA\libraries\Sql;
 use PMA\libraries\URL;
 

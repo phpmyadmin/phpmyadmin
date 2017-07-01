@@ -13,7 +13,7 @@
  */
 require_once 'libraries/common.inc.php';
 
-use PMA\libraries\Response;
+use PhpMyAdmin\Response;
 use PhpMyAdmin\DbSearch;
 
 $response = Response::getInstance();

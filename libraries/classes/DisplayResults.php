@@ -7,15 +7,15 @@
  */
 namespace PhpMyAdmin;
 
-use PhpMyAdmin\SqlParser\Utils\Query;
 use PhpMyAdmin\Core;
 use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Index;
 use PhpMyAdmin\Message;
 use PMA\libraries\plugins\transformations\Text_Plain_Link;
-use PMA\libraries\Response;
+use PhpMyAdmin\Response;
 use PMA\libraries\Sanitize;
 use PMA\libraries\Sql;
+use PhpMyAdmin\SqlParser\Utils\Query;
 use PMA\libraries\Table;
 use PMA\libraries\Template;
 use PMA\libraries\Transformations;

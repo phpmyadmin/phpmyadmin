@@ -9,7 +9,7 @@
 namespace PMA\libraries\plugins\export\helpers;
 
 use PhpMyAdmin\DatabaseInterface;
-use PMA\libraries\PDF as PdfLib;
+use PhpMyAdmin\Pdf as PdfLib;
 use PMA\libraries\Transformations;
 use PMA\libraries\Util;
 use TCPDF_STATIC;

@@ -10,7 +10,7 @@ namespace PMA;
 
 use PMA\libraries\controllers\table\TableIndexesController;
 use PhpMyAdmin\Index;
-use PMA\libraries\Response;
+use PhpMyAdmin\Response;
 
 require_once 'libraries/common.inc.php';
 
@@ -20,8 +20,8 @@ $container->alias(
     'TableIndexesController',
     'PMA\libraries\controllers\table\TableIndexesController'
 );
-$container->set('PMA\libraries\Response', Response::getInstance());
-$container->alias('response', 'PMA\libraries\Response');
+$container->set('PhpMyAdmin\Response', Response::getInstance());
+$container->alias('response', 'PhpMyAdmin\Response');
 
 /* Define dependencies for the concerned controller */
 $db = $container->get('db');

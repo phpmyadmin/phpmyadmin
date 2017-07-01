@@ -9,7 +9,7 @@ namespace PMA\libraries\controllers;
 
 use PhpMyAdmin\DatabaseInterface;
 use PMA\libraries\di\Container;
-use PMA\libraries\Response;
+use PhpMyAdmin\Response;
 
 require_once 'libraries/database_interface.inc.php';
 

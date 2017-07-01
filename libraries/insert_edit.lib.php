@@ -7,7 +7,7 @@
  */
 use PhpMyAdmin\Message;
 use PMA\libraries\plugins\TransformationsPlugin;
-use PMA\libraries\Response;
+use PhpMyAdmin\Response;
 use PMA\libraries\Sanitize;
 use PMA\libraries\Transformations;
 use PMA\libraries\URL;
