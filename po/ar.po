@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.8.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2017-06-28 09:56+0200\n"
-"PO-Revision-Date: 2017-06-30 23:55+0000\n"
-"Last-Translator: yagoub fadel <yagoub76@gmail.com>\n"
+"PO-Revision-Date: 2017-07-01 07:21+0000\n"
+"Last-Translator: Michal Čihař <michal@cihar.com>\n"
 "Language-Team: Arabic "
 "<https://hosted.weblate.org/projects/phpmyadmin/master/ar/>\n"
 "Language: ar\n"
@@ -5475,7 +5475,7 @@ msgstr "القيمة يجب أن تساوي أو أقل من %s"
 #: libraries/config/FormDisplay.php:619
 #, php-format
 msgid "Missing data for %s"
-msgstr "بيانات مفقودة لـ s%"
+msgstr "بيانات مفقودة لـ %s"
 
 #: libraries/config/FormDisplay.php:809 libraries/config/FormDisplay.php:815
 msgid "unavailable"
