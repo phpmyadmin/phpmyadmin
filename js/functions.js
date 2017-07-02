@@ -5013,6 +5013,18 @@ function recaptchaCallback() {
     $('#login_form').submit();
 }
 
+/*
+ * Function to check if string is in format or not
+ */
+function isJsonString(str) {
+    try {
+        JSON.parse(str);
+    } catch (e) {
+        return false;
+    }
+    return true;
+}
+
 /**
  * Unbind all event handlers before tearing down a page
  */
