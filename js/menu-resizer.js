@@ -32,8 +32,6 @@
         // Sets the image for the left and right scroll indicator
         $('.scrollindicator--left').html($(PMA_getImage('b_left.png').toString()));
         $('.scrollindicator--right').html($(PMA_getImage('b_right.png').toString()));
-        //$(PMA_getImage('b_left.png').toString()).prependTo($('.scrollindicator--left'));
-        //$(PMA_getImage('b_right.png').toString()).prependTo($('.scrollindicator--right'));
 
         // Set the width of the navigation bar without scroll indicator
         $('.navigationbar').css({'width': widthCalculator.call($container) - 60});
@@ -62,17 +60,17 @@
             .mouseenter(function() {
                 if ($(this).find('ul .tabactive').length === 0) {
                     $(this)
-                        .addClass('submenuhover')
-                        .find('> a')
-                        .addClass('tabactive');
+                    .addClass('submenuhover')
+                    .find('> a')
+                    .addClass('tabactive');
                 }
             })
             .mouseleave(function() {
                 if ($(this).find('ul .tabactive').length === 0) {
                     $(this)
-                        .removeClass('submenuhover')
-                        .find('> a')
-                        .removeClass('tabactive');
+                    .removeClass('submenuhover')
+                    .find('> a')
+                    .removeClass('tabactive');
                 }
             });
         $container.children('.clearfloat').remove();

@@ -1727,7 +1727,6 @@ class Util
             . '<i class="scrollindicator scrollindicator--left"><a href="#" class="tab"></a></i>'
             . '<div class="navigationbar"><ul id="' . htmlentities($menu_id) . '" ' . $class . '>';
 
-        //$tab_navigation .= '<span class="scrollindicator--left" style="padding: 0;position: absolute;"><a href="#" class="tab"><img src="themes/pmahomme/img/b_left.png" title="Databases" alt="Databases"></a></span>';
         foreach ($tabs as $tab) {
             $tab_navigation .= self::getHtmlTab($tab, $url_params);
         }
