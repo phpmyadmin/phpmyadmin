@@ -7,18 +7,20 @@
  */
 namespace PMA\libraries;
 
+use PhpMyAdmin\Core;
 use PhpMyAdmin\DatabaseInterface;
+use PhpMyAdmin\Message;
 use PMA\libraries\plugins\ImportPlugin;
+use PhpMyAdmin\Response;
+use PMA\libraries\Sanitize;
 use PhpMyAdmin\SqlParser\Context;
 use PhpMyAdmin\SqlParser\Lexer;
 use PhpMyAdmin\SqlParser\Parser;
 use PhpMyAdmin\SqlParser\Token;
-use stdClass;
-use PhpMyAdmin\Core;
-use PMA\libraries\URL;
-use PMA\libraries\Sanitize;
-use PMA\libraries\Template;
 use PhpMyAdmin\SqlParser\Utils\Error as ParserError;
+use PMA\libraries\Template;
+use PMA\libraries\URL;
+use stdClass;
 
 if (! defined('PHPMYADMIN')) {
     exit;
@@ -2515,7 +2517,7 @@ class Util
         }
 
         return '<a href="'
-            . Util::getScriptNameForOption(
+            . self::getScriptNameForOption(
                 $GLOBALS['cfg']['DefaultTabDatabase'], 'database'
             )
             . URL::getCommon(array('db' => $database)) . '" title="'
@@ -4220,7 +4222,7 @@ class Util
         }
         $retval .= ' title="' . $text . '">';
         if ($showIcon) {
-            $retval .= Util::getImage(
+            $retval .= self::getImage(
                 $icon,
                 $text
             );
@@ -4420,7 +4422,7 @@ class Util
         // Special speedup for newer MySQL Versions (in 4.0 format changed)
         if (true === $cfg['SkipLockedTables']) {
             $db_info_result = $GLOBALS['dbi']->query(
-                'SHOW OPEN TABLES FROM ' . Util::backquote($db) . ' WHERE In_use > 0;'
+                'SHOW OPEN TABLES FROM ' . self::backquote($db) . ' WHERE In_use > 0;'
             );
 
             // Blending out tables in use
@@ -4563,16 +4565,16 @@ class Util
             $tblGroupSql = "";
             $whereAdded = false;
             if (Core::isValid($_REQUEST['tbl_group'])) {
-                $group = Util::escapeMysqlWildcards($_REQUEST['tbl_group']);
-                $groupWithSeparator = Util::escapeMysqlWildcards(
+                $group = self::escapeMysqlWildcards($_REQUEST['tbl_group']);
+                $groupWithSeparator = self::escapeMysqlWildcards(
                     $_REQUEST['tbl_group']
                     . $GLOBALS['cfg']['NavigationTreeTableSeparator']
                 );
                 $tblGroupSql .= " WHERE ("
-                    . Util::backquote('Tables_in_' . $db)
+                    . self::backquote('Tables_in_' . $db)
                     . " LIKE '" . $groupWithSeparator . "%'"
                     . " OR "
-                    . Util::backquote('Tables_in_' . $db)
+                    . self::backquote('Tables_in_' . $db)
                     . " LIKE '" . $group . "')";
                 $whereAdded = true;
             }
@@ -4585,7 +4587,7 @@ class Util
                 }
             }
             $db_info_result = $GLOBALS['dbi']->query(
-                'SHOW FULL TABLES FROM ' . Util::backquote($db) . $tblGroupSql,
+                'SHOW FULL TABLES FROM ' . self::backquote($db) . $tblGroupSql,
                 null, DatabaseInterface::QUERY_STORE
             );
             unset($tblGroupSql, $whereAdded);
@@ -4778,7 +4780,7 @@ class Util
             return null;
         }
         $http_status = curl_getinfo($curl_handle, CURLINFO_HTTP_CODE);
-        return Util::httpRequestReturn($response, $http_status, $return_only_status);
+        return self::httpRequestReturn($response, $http_status, $return_only_status);
     }
 
     /**
@@ -4810,7 +4812,7 @@ class Util
             $context['http']['content'] = $content;
         }
 
-        $context = Util::handleContext($context);
+        $context = self::handleContext($context);
         $response = @file_get_contents(
             $url,
             false,
@@ -4821,7 +4823,7 @@ class Util
         }
         preg_match("#HTTP/[0-9\.]+\s+([0-9]+)#", $http_response_header[0], $out );
         $http_status = intval($out[1]);
-        return Util::httpRequestReturn($response, $http_status, $return_only_status);
+        return self::httpRequestReturn($response, $http_status, $return_only_status);
     }
 
     /**
@@ -4838,9 +4840,9 @@ class Util
     public static function httpRequest($url, $method, $return_only_status = false, $content = null, $header = "")
     {
         if (function_exists('curl_init')) {
-            return Util::httpRequestCurl($url, $method, $return_only_status, $content, $header);
+            return self::httpRequestCurl($url, $method, $return_only_status, $content, $header);
         } else if (ini_get('allow_url_fopen')) {
-            return Util::httpRequestFopen($url, $method, $return_only_status, $content, $header);
+            return self::httpRequestFopen($url, $method, $return_only_status, $content, $header);
         }
         return null;
     }
