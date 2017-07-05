@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.8.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2017-06-28 09:56+0200\n"
-"PO-Revision-Date: 2017-07-04 21:44+0000\n"
-"Last-Translator: yagoub fadel <yagoub76@gmail.com>\n"
+"PO-Revision-Date: 2017-07-05 06:21+0000\n"
+"Last-Translator: Michal Čihař <michal@cihar.com>\n"
 "Language-Team: Arabic "
 "<https://hosted.weblate.org/projects/phpmyadmin/master/ar/>\n"
 "Language: ar\n"
@@ -1997,7 +1997,7 @@ msgstr "سيتم تنفيذ الإجراءات التالية:"
 #: js/messages.php:463
 #, php-format
 msgid "DROP columns %s from the table %s"
-msgstr "الغي الاعمدة %s من جدول"
+msgstr "الغي الاعمدة %s من جدول %s"
 
 #: js/messages.php:464
 msgid "Create the following table"
@@ -2932,7 +2932,7 @@ msgstr "فشل تنسيق النص لـ '%s'."
 #: libraries/Advisor.php:477
 #, php-format
 msgid "Error in reading file: The file '%s' does not exist or is not readable!"
-msgstr "خطأ في قراءة الملف: الملف 's%' غير موجود أو غير قابل للقراءة!"
+msgstr "خطأ في قراءة الملف: الملف '%s' غير موجود أو غير قابل للقراءة!"
 
 #: libraries/Advisor.php:502
 #, php-format
@@ -3530,10 +3530,10 @@ msgid "%1$s match in <strong>%2$s</strong>"
 msgid_plural "%1$s matches in <strong>%2$s</strong>"
 msgstr[0] "%1$s مطابق في <strong>%2$s</strong>"
 msgstr[1] "%1$s مطابق في <strong>%2$s</strong>"
-msgstr[2] "%1$sمطابق في"
-msgstr[3] "%s مطابقة في الجدول <i>%s</i>"
-msgstr[4] "%s مطابقة في الجدول <i>%s</i>"
-msgstr[5] "%s مطابقة في الجدول <i>%s</i>"
+msgstr[2] "%1$sمطابق في <strong>%2$s</strong>"
+msgstr[3] "%1$s مطابقة في الجدول <strong>%2$s</strong>"
+msgstr[4] "%1$s مطابقة في الجدول <strong>%2$s</strong>"
+msgstr[5] "%1$s مطابقة في الجدول <strong>%2$s</strong>"
 
 #: libraries/DbSearch.php:346 libraries/Menu.php:340 libraries/Util.php:3137
 #: libraries/Util.php:3147 libraries/Util.php:3423 libraries/Util.php:3424
@@ -3742,7 +3742,7 @@ msgstr "%1$d جملة %2$d طلب بحث"
 #: libraries/DisplayResults.php:4725
 #, php-format
 msgid "%d total"
-msgstr "المجموع"
+msgstr "المجموع %d"
 
 #: libraries/DisplayResults.php:4737 libraries/Sql.php:1395
 #, php-format
@@ -4411,12 +4411,12 @@ msgstr[5] "%d ثانية"
 #, php-format
 msgid "%d minute"
 msgid_plural "%d minutes"
-msgstr[0] "d% دقيقة"
-msgstr[1] "d% دقيقة"
-msgstr[2] "d% دقيقتان"
-msgstr[3] "d% دقائق"
-msgstr[4] "d% دقيقة"
-msgstr[5] "d% دقيقة"
+msgstr[0] "%d دقيقة"
+msgstr[1] "%d دقيقة"
+msgstr[2] "%d دقيقتان"
+msgstr[3] "%d دقائق"
+msgstr[4] "%d دقيقة"
+msgstr[5] "%d دقيقة"
 
 #: libraries/Sql.php:247 libraries/Util.php:1186
 #: templates/console/display.twig:67 templates/console/display.twig:217
@@ -5364,7 +5364,7 @@ msgstr "قيمة غير صحيحة!"
 #: libraries/config/FormDisplay.php:103 libraries/config/Validator.php:580
 #, php-format
 msgid "Value must be equal or lower than %s!"
-msgstr "القيمة يجب أن تساوي أو أقل من %!s"
+msgstr "القيمة يجب أن تساوي أو أقل من %s"
 
 #: libraries/config/FormDisplay.php:619
 #, php-format
