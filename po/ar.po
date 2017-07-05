@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.8.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2017-06-28 09:56+0200\n"
-"PO-Revision-Date: 2017-07-05 06:21+0000\n"
-"Last-Translator: Michal Čihař <michal@cihar.com>\n"
+"PO-Revision-Date: 2017-07-05 23:37+0000\n"
+"Last-Translator: yagoub fadel <yagoub76@gmail.com>\n"
 "Language-Team: Arabic "
 "<https://hosted.weblate.org/projects/phpmyadmin/master/ar/>\n"
 "Language: ar\n"
@@ -8144,10 +8144,8 @@ msgid "Table search"
 msgstr "بحث في الجدول"
 
 #: libraries/controllers/table/TableSearchController.php:771
-#, fuzzy
-#| msgid "Zoom Search"
 msgid "Zoom search"
-msgstr "بحث"
+msgstr "تكبير البحث"
 
 #: libraries/controllers/table/TableSearchController.php:776
 #: templates/table/search/selection_form.phtml:79
