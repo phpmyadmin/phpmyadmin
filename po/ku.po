@@ -8,14 +8,16 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.8.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2017-06-28 09:58+0200\n"
-"PO-Revision-Date: 2017-06-28 09:58+0200\n"
-"Last-Translator: Automatically generated\n"
-"Language-Team: none\n"
+"PO-Revision-Date: 2017-07-05 18:06+0000\n"
+"Last-Translator: Michal Čihař <michal@cihar.com>\n"
+"Language-Team: Kurdish "
+"<https://hosted.weblate.org/projects/phpmyadmin/master/ku/>\n"
 "Language: ku\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=INTEGER; plural=EXPRESSION;\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Weblate 2.16-dev\n"
 
 #: ajax.php:16 ajax.php:33 export.php:194 schema_export.php:66
 msgid "Bad type!"
@@ -2712,7 +2714,7 @@ msgstr ""
 #.
 #: js/messages.php:879
 msgid "calendar-month-year"
-msgstr ""
+msgstr "calendar-month-year"
 
 #. l10n: Year suffix for calendar, "none" is empty.
 #: js/messages.php:882
