@@ -47,6 +47,18 @@ body#loginform {
     margin: 0 .5em;
 }
 
+.desktop50 {
+    width: 50%;
+}
+
+.all100 {
+    width: 100%;
+}
+
+.all85{
+    width: 85%;
+}
+
 <?php if (! empty($GLOBALS['cfg']['FontFamilyFixed'])) { ?>
     textarea, tt, pre, code {
     font-family:        <?php echo $GLOBALS['cfg']['FontFamilyFixed']; ?>;
@@ -1102,16 +1114,23 @@ div#logTable table {
 }
 #serverVariables .var-row {
     padding: 0.5em;
+    min-height: 18px;
+}
+#serverVariables .var-action {
+    width: 15%;
 }
 #serverVariables .var-name {
     font-weight: bold;
+    width: 65%;
 }
 #serverVariables .var-name.session {
     font-weight: normal;
     font-style: italic;
 }
 #serverVariables .var-value {
-    text-align: <?php echo $left; ?>;
+    text-align: <?php echo $right; ?>;
+    width: 20%;
+    float: <?php echo $right; ?>;
 }
 
 /* server variables editor */
@@ -3234,4 +3253,97 @@ body .ui-dialog .ui-dialog-buttonpane button {
 }
 body .ui-dialog .ui-button-text-only .ui-button-text {
     padding: .2em .6em;
+}
+
+.scrollindicator {
+    display: none;
+}
+
+@media only screen and (max-width: 768px) {
+    /* For mobile phones: */
+    #main_pane_left {
+        width: 100%;
+    }
+
+    #main_pane_right {
+        padding-top: 0;
+        padding-<?php echo $left; ?>: 1px;
+        padding-<?php echo $right; ?>: 1px;
+    }
+
+    ul#topmenu,
+    ul.tabs {
+        display: flex;
+    }
+
+    .navigationbar {
+        display: inline-flex;
+        margin: 0 !important;
+        border-radius: 0 !important;
+        overflow: auto;
+    }
+
+    .scrollindicator {
+        padding: 5px;
+        cursor: pointer;
+        display: inline;
+    }
+
+    .responsivetable {
+        overflow-x: auto;
+    }
+
+    body#loginform div.container {
+        width: 100%;
+    }
+
+    .largescreenonly {
+        display: none;
+    }
+
+    .width100, .desktop50 {
+        width: 100%;
+    }
+
+    .width96 {
+        width: 96% !important;
+    }
+
+    #page_nav_icons {
+        display: none;
+    }
+
+    table#serverstatusconnections {
+        margin-left: 0;
+    }
+
+    #table_name_col_no {
+        top: 62px
+    }
+
+    .tdblock tr td {
+        display: block;
+    }
+
+    #table_columns {
+        margin-top: 60px;
+    }
+
+    .doubleFieldset fieldset {
+        width: 98%;
+    }
+
+    div#serverstatusquerieschart {
+        width: 100%;
+        height: 450px;
+    }
+
+    .ui-dialog {
+        margin: 1%;
+        width: 95% !important;
+    }
+
+    #serverinfo .item {
+        margin: 4px;
+    }
 }
