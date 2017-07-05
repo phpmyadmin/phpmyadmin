@@ -360,6 +360,13 @@ class LanguageManager
             'ksh|colognian',
             '',
         ),
+        'ku' => array(
+            'ku',
+            'Kurdish',
+            'کوردی',
+            'ku|kurdish',
+            '',
+        ),
         'ky' => array(
             'ky',
             'Kyrgyz',
