@@ -4,16 +4,16 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.8.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2017-06-28 09:58+0200\n"
-"PO-Revision-Date: 2017-05-25 10:45+0000\n"
-"Last-Translator: Tobby Guo <tobbyguo@gmail.com>\n"
-"Language-Team: Chinese (Simplified) <https://hosted.weblate.org/projects/"
-"phpmyadmin/master/zh_Hans/>\n"
+"PO-Revision-Date: 2017-07-06 23:56+0000\n"
+"Last-Translator: zhangmiao <myzhm@163.com>\n"
+"Language-Team: Chinese (Simplified) "
+"<https://hosted.weblate.org/projects/phpmyadmin/master/zh_Hans/>\n"
 "Language: zh_CN\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Weblate 2.14.1\n"
+"X-Generator: Weblate 2.16-dev\n"
 
 #: ajax.php:16 ajax.php:33 export.php:194 schema_export.php:66
 msgid "Bad type!"
@@ -3125,7 +3125,7 @@ msgstr "保加利亚语"
 #: libraries/Charsets.php:394
 msgctxt "Collation"
 msgid "Chinese"
-msgstr ""
+msgstr "中文"
 
 #: libraries/Charsets.php:399
 #, fuzzy
@@ -3198,7 +3198,7 @@ msgstr "冰岛语"
 #: libraries/Charsets.php:445
 msgctxt "Collation"
 msgid "Classical Latin"
-msgstr ""
+msgstr "古典拉丁语"
 
 #: libraries/Charsets.php:449
 #, fuzzy
@@ -5035,12 +5035,12 @@ msgstr "%Y-%m-%d %H:%M:%S"
 #: libraries/Util.php:1583
 msgctxt "AM/PM indication in time"
 msgid "PM"
-msgstr ""
+msgstr "下午"
 
 #: libraries/Util.php:1585
 msgctxt "AM/PM indication in time"
 msgid "AM"
-msgstr ""
+msgstr "上午"
 
 #: libraries/Util.php:1954
 #, php-format
