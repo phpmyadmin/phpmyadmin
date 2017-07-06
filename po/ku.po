@@ -8,8 +8,8 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.8.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2017-06-28 09:58+0200\n"
-"PO-Revision-Date: 2017-07-05 18:25+0000\n"
-"Last-Translator: Paul Polidoro <leedshs@gmail.com>\n"
+"PO-Revision-Date: 2017-07-06 19:45+0000\n"
+"Last-Translator: Rokar Ali <rokara10@gmail.com>\n"
 "Language-Team: Kurdish "
 "<https://hosted.weblate.org/projects/phpmyadmin/master/ku/>\n"
 "Language: ku\n"
@@ -21,7 +21,7 @@ msgstr ""
 
 #: ajax.php:16 ajax.php:33 export.php:194 schema_export.php:66
 msgid "Bad type!"
-msgstr ""
+msgstr "Model Betalê!"
 
 #: changelog.php:39 license.php:34
 #, php-format
@@ -29,8 +29,6 @@ msgid ""
 "The %s file is not available on this system, please visit %s for more "
 "information."
 msgstr ""
-"O arquivo %s não está disponível neste sistema, por favor, visite %s para "
-"mais informações‪."
 
 #: db_central_columns.php:110
 msgid "The central list of columns for the current database is empty."
@@ -47,7 +45,7 @@ msgstr ""
 
 #: db_datadict.php:59 libraries/operations.lib.php:37
 msgid "Database comment"
-msgstr ""
+msgstr "Şîrove Databas"
 
 #: db_datadict.php:106 libraries/plugins/schema/pdf/PdfRelationSchema.php:595
 #: templates/columns_definitions/column_definitions_form.phtml:89
@@ -81,7 +79,7 @@ msgstr ""
 #: templates/table/index_form.twig:183
 #: templates/table/search/table_header.twig:32
 msgid "Column"
-msgstr ""
+msgstr "Derz"
 
 #: db_datadict.php:116 libraries/Index.php:716
 #: libraries/central_columns.lib.php:696 libraries/central_columns.lib.php:1383
@@ -107,7 +105,7 @@ msgstr ""
 #: templates/table/structure/table_structure_header.twig:29
 #: templates/table/search/table_header.twig:36
 msgid "Type"
-msgstr ""
+msgstr "Cûre"
 
 #: db_datadict.php:117 libraries/Index.php:722
 #: libraries/central_columns.lib.php:707 libraries/central_columns.lib.php:1384
@@ -127,7 +125,7 @@ msgstr ""
 #: templates/table/search/zoom_result_form.phtml:34
 #: templates/table/structure/table_structure_header.twig:41
 msgid "Null"
-msgstr ""
+msgstr "Sifir"
 
 #: db_datadict.php:118 libraries/central_columns.lib.php:700
 #: libraries/central_columns.lib.php:1383
@@ -146,7 +144,7 @@ msgstr ""
 #: templates/database/structure/body_for_table_summary.phtml:55
 #: templates/table/structure/table_structure_header.twig:45
 msgid "Default"
-msgstr ""
+msgstr "Yekkirî"
 
 #: db_datadict.php:120 libraries/plugins/export/ExportHtmlword.php:400
 #: libraries/plugins/export/ExportLatex.php:529
@@ -170,7 +168,7 @@ msgstr ""
 #: templates/columns_definitions/table_fields_definitions.phtml:65
 #: templates/table/structure/table_structure_header.twig:52
 msgid "Comments"
-msgstr ""
+msgstr "Çawan"
 
 #: db_datadict.php:154
 #: libraries/controllers/table/TableStructureController.php:1181
@@ -180,7 +178,7 @@ msgstr ""
 #: templates/columns_definitions/column_indexes.twig:36
 #: templates/table/structure/check_all_table_column.twig:52
 msgid "Primary"
-msgstr ""
+msgstr "Kilîde Sereke"
 
 #: db_datadict.php:164 js/messages.php:375 libraries/Index.php:565
 #: libraries/Index.php:593 libraries/IndexColumn.php:141
@@ -204,7 +202,7 @@ msgstr ""
 #: templates/table/structure/table_structure_row.twig:84
 #: templates/prefs_autoload.twig:42
 msgid "No"
-msgstr ""
+msgstr "Na"
 
 #: db_datadict.php:164 js/messages.php:523 libraries/Index.php:592
 #: libraries/IndexColumn.php:143 libraries/central_columns.lib.php:962
@@ -237,7 +235,7 @@ msgstr ""
 #: templates/table/structure/table_structure_row.twig:84
 #: templates/prefs_autoload.twig:38
 msgid "Yes"
-msgstr ""
+msgstr "Erê"
 
 #: db_export.php:47
 msgid "View dump (schema) of database"
@@ -276,7 +274,7 @@ msgstr ""
 #: templates/columns_definitions/table_fields_definitions.phtml:3
 #: templates/database/designer/table_list.phtml:28
 msgid "Structure"
-msgstr ""
+msgstr "Dêsman"
 
 #: db_export.php:67 libraries/config/setup.forms.php:329
 #: libraries/config/setup.forms.php:365 libraries/config/setup.forms.php:388
@@ -404,28 +402,28 @@ msgstr ""
 
 #: gis_data_editor.php:219
 msgid "Point:"
-msgstr ""
+msgstr "Nuqte:"
 
 #: gis_data_editor.php:220 gis_data_editor.php:247 gis_data_editor.php:303
 #: gis_data_editor.php:376 js/messages.php:512
 msgid "X"
-msgstr ""
+msgstr "X"
 
 #: gis_data_editor.php:223 gis_data_editor.php:251 gis_data_editor.php:307
 #: gis_data_editor.php:382 js/messages.php:513
 msgid "Y"
-msgstr ""
+msgstr "Y"
 
 #: gis_data_editor.php:245 gis_data_editor.php:301 gis_data_editor.php:374
 #: js/messages.php:515
 #, php-format
 msgid "Point %d"
-msgstr ""
+msgstr "Nuqte %d"
 
 #: gis_data_editor.php:258 gis_data_editor.php:314 gis_data_editor.php:392
 #: js/messages.php:521
 msgid "Add a point"
-msgstr ""
+msgstr "Nuqte tê xe"
 
 #: gis_data_editor.php:275
 #, php-format
@@ -501,7 +499,7 @@ msgstr ""
 #: templates/database/create_table.twig:56 view_create.php:302
 #: view_operations.php:115
 msgid "Go"
-msgstr ""
+msgstr "Baş"
 
 #: gis_data_editor.php:418
 msgid "Output"
@@ -519,7 +517,7 @@ msgstr ""
 
 #: import.php:69 js/messages.php:608
 msgid "Failed"
-msgstr ""
+msgstr "Ketî"
 
 #: import.php:73
 msgid "Incomplete params"
