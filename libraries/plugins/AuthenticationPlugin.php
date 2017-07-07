@@ -8,7 +8,7 @@
 namespace PMA\libraries\plugins;
 
 use PhpMyAdmin\Core;
-use PMA\libraries\Sanitize;
+use PhpMyAdmin\Sanitize;
 use PMA\libraries\URL;
 
 /**

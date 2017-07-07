@@ -5,7 +5,7 @@
  * @package PhpMyAdmin-test
  */
 
-use PMA\libraries\StorageEngine;
+use PhpMyAdmin\StorageEngine;
 
 require_once 'test/PMATestCase.php';
 /*
@@ -37,7 +37,7 @@ class StorageEngineTest extends PMATestCase
     {
         $GLOBALS['server'] = 1;
         $this->object = $this->getMockForAbstractClass(
-            'PMA\libraries\StorageEngine', array('dummy')
+            'PhpMyAdmin\StorageEngine', array('dummy')
         );
     }
 
@@ -125,7 +125,7 @@ class StorageEngineTest extends PMATestCase
     public function providerGetEngine()
     {
         return array(
-            array('PMA\libraries\StorageEngine', 'unknown engine'),
+            array('PhpMyAdmin\StorageEngine', 'unknown engine'),
             array('PMA\libraries\engines\Bdb', 'Bdb'),
             array('PMA\libraries\engines\Berkeleydb', 'Berkeleydb'),
             array('PMA\libraries\engines\Binlog', 'Binlog'),

@@ -10,7 +10,7 @@ namespace PMA\libraries\controllers\table;
 
 use PMA\libraries\controllers\TableController;
 use PhpMyAdmin\DatabaseInterface;
-use PMA\libraries\Sql;
+use PhpMyAdmin\Sql;
 use PMA\libraries\Template;
 use PMA\libraries\Util;
 

@@ -13,7 +13,7 @@ require_once 'test/PMATestCase.php';
 
 use PhpMyAdmin\Config;
 use PhpMyAdmin\Core;
-use PMA\libraries\Sanitize;
+use PhpMyAdmin\Sanitize;
 
 /**
  * Tests for PhpMyAdmin\Core class

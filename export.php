@@ -10,7 +10,7 @@ use PhpMyAdmin\Core;
 use PhpMyAdmin\Encoding;
 use PMA\libraries\plugins\ExportPlugin;
 use PMA\libraries\URL;
-use PMA\libraries\Sanitize;
+use PhpMyAdmin\Sanitize;
 
 /**
  * Get the variables sent or posted to this script and a core script

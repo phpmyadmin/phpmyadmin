@@ -7,7 +7,7 @@
  *
  * @package PhpMyAdmin
  */
-use PMA\libraries\ServerStatusData;
+use PhpMyAdmin\ServerStatusData;
 
 /**
  * Returns the html content for the query statistics

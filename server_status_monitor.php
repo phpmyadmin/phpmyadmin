@@ -6,7 +6,7 @@
  * @package PhpMyAdmin
  */
 
-use PMA\libraries\ServerStatusData;
+use PhpMyAdmin\ServerStatusData;
 use PhpMyAdmin\Response;
 
 require_once 'libraries/common.inc.php';

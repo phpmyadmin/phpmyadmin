@@ -8,7 +8,7 @@
 use PhpMyAdmin\Message;
 use PMA\libraries\plugins\TransformationsPlugin;
 use PhpMyAdmin\Response;
-use PMA\libraries\Sanitize;
+use PhpMyAdmin\Sanitize;
 use PMA\libraries\Transformations;
 use PMA\libraries\URL;
 

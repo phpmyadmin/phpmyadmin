@@ -11,7 +11,7 @@ namespace PMA\libraries\gis;
 use PhpMyAdmin\Core;
 use PMA\libraries\Util;
 use \TCPDF;
-use PMA\libraries\Sanitize;
+use PhpMyAdmin\Sanitize;
 
 /**
  * Handles visualization of GIS data

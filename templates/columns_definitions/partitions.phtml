@@ -129,7 +129,7 @@ $valueTypeOptions = array('', 'LESS THAN', 'LESS THAN MAXVALUE', 'IN');
                         </td>
                     <?php endif; ?>
                     <td>
-                        <?= PMA\libraries\StorageEngine::getHtmlSelect(
+                        <?= PhpMyAdmin\StorageEngine::getHtmlSelect(
                             $subpartition['prefix'] . '[engine]',
                             null,
                             $subpartition['engine'],

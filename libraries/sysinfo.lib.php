@@ -13,6 +13,8 @@ if (! defined('PHPMYADMIN')) {
     exit;
 }
 
+use PhpMyAdmin\SysInfo;
+
 define(
     'MEMORY_REGEXP',
     '/^(MemTotal|MemFree|Cached|Buffers|SwapCached|SwapTotal|SwapFree):'
@@ -41,7 +43,7 @@ function PMA_getSysInfoOs($php_os = PHP_OS)
 /**
  * Gets sysinfo class mathing current OS
  *
- * @return \PMA\libraries\SysInfo|mixed sysinfo class
+ * @return \PhpMyAdmin\SysInfo|mixed sysinfo class
  */
 function PMA_getSysInfo()
 {
@@ -49,13 +51,13 @@ function PMA_getSysInfo()
     $supported = array('Linux', 'WINNT', 'SunOS');
 
     if (in_array($php_os, $supported)) {
-        $class_name = 'PMA\libraries\SysInfo' . $php_os;
-        /** @var \PMA\libraries\SysInfo $ret */
+        $class_name = 'PhpMyAdmin\SysInfo' . $php_os;
+        /** @var PhpMyAdmin\SysInfo $ret */
         $ret = new $class_name();
         if ($ret->supported()) {
             return $ret;
         }
     }
 
-    return new \PMA\libraries\SysInfo();
+    return new SysInfo();
 }

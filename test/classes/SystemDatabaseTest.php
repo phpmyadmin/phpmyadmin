@@ -66,7 +66,7 @@ class SystemDatabaseTest extends PMATestCase
                 )
             );
 
-        $this->sysDb = new PMA\libraries\SystemDatabase($dbi);
+        $this->sysDb = new PhpMyAdmin\SystemDatabase($dbi);
     }
 
     /**

@@ -7,7 +7,7 @@
  */
 
 use PhpMyAdmin\Core;
-use PMA\libraries\Sanitize;
+use PhpMyAdmin\Sanitize;
 use PhpMyAdmin\Response;
 
 /**

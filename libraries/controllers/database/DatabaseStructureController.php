@@ -20,7 +20,7 @@ use PMA\libraries\Template;
 use PMA\libraries\Tracker;
 use PMA\libraries\Util;
 use PMA\libraries\URL;
-use PMA\libraries\Sanitize;
+use PhpMyAdmin\Sanitize;
 
 require_once 'libraries/display_create_table.lib.php';
 require_once 'libraries/config/messages.inc.php';

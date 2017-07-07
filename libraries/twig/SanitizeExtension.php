@@ -27,7 +27,7 @@ class SanitizeExtension extends Twig_Extension
         return array(
             new Twig_SimpleFunction(
                 'Sanitize_escapeJsString',
-                'PMA\libraries\Sanitize::escapeJsString',
+                'PhpMyAdmin\Sanitize::escapeJsString',
                 array('is_safe' => array('html'))
             ),
         );

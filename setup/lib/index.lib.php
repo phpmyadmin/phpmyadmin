@@ -7,7 +7,7 @@
  */
 
 use PMA\libraries\VersionInformation;
-use PMA\libraries\Sanitize;
+use PhpMyAdmin\Sanitize;
 
 if (!defined('PHPMYADMIN')) {
     exit;

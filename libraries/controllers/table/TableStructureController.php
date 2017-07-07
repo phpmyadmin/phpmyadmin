@@ -17,7 +17,7 @@ use PMA\libraries\controllers\TableController;
 use PhpMyAdmin\Core;
 use PhpMyAdmin\Index;
 use PhpMyAdmin\Message;
-use PMA\libraries\Sql;
+use PhpMyAdmin\Sql;
 use PMA\libraries\Table;
 use PMA\libraries\Template;
 use PMA\libraries\Transformations;

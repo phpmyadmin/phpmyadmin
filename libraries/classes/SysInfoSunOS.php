@@ -1,18 +1,20 @@
 <?php
 /* vim: set expandtab sw=4 ts=4 sts=4: */
 /**
- * Hold PMA\libraries\SysInfoSunOS class
+ * Hold PhpMyAdmin\SysInfoSunOS class
  *
- * @package PMA
+ * @package PhpMyAdmin
  */
-namespace PMA\libraries;
+namespace PhpMyAdmin;
+
+use PhpMyAdmin\SysInfo;
 
 /**
  * SunOS based SysInfo class
  *
- * @package PhpMyAdmin-sysinfo
+ * @package PhpMyAdmin
  */
-class SysInfoSunOS extends \PMA\libraries\SysInfo
+class SysInfoSunOS extends SysInfo
 {
     public $os = 'SunOS';
 

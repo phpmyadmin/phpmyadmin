@@ -13,7 +13,7 @@ use PhpMyAdmin\Message;
 use PhpMyAdmin\Response;
 use PMA\libraries\Util;
 use PMA\libraries\URL;
-use PMA\libraries\Sanitize;
+use PhpMyAdmin\Sanitize;
 use PMA\libraries\ThemeManager;
 
 /**
