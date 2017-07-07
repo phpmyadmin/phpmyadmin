@@ -7,7 +7,7 @@
  */
 
 use PhpMyAdmin\Core;
-use PMA\libraries\VersionInformation;
+use PhpMyAdmin\VersionInformation;
 use PhpMyAdmin\Response;
 
 $_GET['ajax_request'] = 'true';

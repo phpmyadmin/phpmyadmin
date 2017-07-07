@@ -1,10 +1,10 @@
 <form action="tbl_structure.php" method="post">
-    <?= PMA\libraries\URL::getHiddenInputs($db, $table); ?>
+    <?= PhpMyAdmin\Url::getHiddenInputs($db, $table); ?>
     <input type="hidden" name="edit_partitioning" value="true" />
 
     <fieldset>
         <legend><?= __('Edit partitioning'); ?></legend>
-        <?= PMA\libraries\Template::get('columns_definitions/partitions')
+        <?= PhpMyAdmin\Template::get('columns_definitions/partitions')
             ->render(array('partitionDetails' => $partitionDetails)); ?>
     </fieldset>
     <fieldset class="tblFooters">

@@ -9,8 +9,8 @@
  */
 use PhpMyAdmin\Message;
 use PhpMyAdmin\ServerStatusData;
-use PMA\libraries\Util;
-use PMA\libraries\URL;
+use PhpMyAdmin\Util;
+use PhpMyAdmin\Url;
 
 /**
  * Prints html for auto refreshing processes list
@@ -52,11 +52,11 @@ function PMA_getHtmlForServerProcesslist()
     $show_full_sql = ! empty($_REQUEST['full']);
     if ($show_full_sql) {
         $url_params['full'] = 1;
-        $full_text_link = 'server_status_processes.php' . URL::getCommon(
+        $full_text_link = 'server_status_processes.php' . Url::getCommon(
             array(), '?'
         );
     } else {
-        $full_text_link = 'server_status_processes.php' . URL::getCommon(
+        $full_text_link = 'server_status_processes.php' . Url::getCommon(
             array('full' => 1)
         );
     }
@@ -143,7 +143,7 @@ function PMA_getHtmlForServerProcesslist()
         }
 
         $retval .= '<th>';
-        $columnUrl = URL::getCommon($column);
+        $columnUrl = Url::getCommon($column);
         $retval .= '<a href="server_status_processes.php' . $columnUrl . '" class="sortlink">';
 
         $retval .= $column['column_name'];
@@ -224,7 +224,7 @@ function PMA_getHtmlForProcessListFilter()
     $retval .= '<fieldset id="tableFilter">';
     $retval .= '<legend>' . __('Filters') . '</legend>';
     $retval .= '<form action="server_status_processes.php">';
-    $retval .= URL::getHiddenInputs($url_params);
+    $retval .= Url::getHiddenInputs($url_params);
     $retval .= '<input type="submit" value="' . __('Refresh') . '" />';
     $retval .= '<div class="formelement">';
     $retval .= '<input' . $showExecuting . ' type="checkbox" name="showExecuting"'
@@ -267,7 +267,7 @@ function PMA_getHtmlForServerProcessItem($process, $show_full_sql)
         'kill' => $process['Id'],
         'ajax_request' => true
     );
-    $kill_process = 'server_status_processes.php' . URL::getCommon($url_params);
+    $kill_process = 'server_status_processes.php' . Url::getCommon($url_params);
 
     $retval  = '<tr>';
     $retval .= '<td><a class="ajax kill_process" href="' . $kill_process . '">'

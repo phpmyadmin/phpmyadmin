@@ -9,7 +9,7 @@ namespace PhpMyAdmin;
 
 use PhpMyAdmin\Header;
 use PhpMyAdmin\Sanitize;
-use PMA\libraries\URL;
+use PhpMyAdmin\Url;
 
 /**
  * Collects information about which JavaScript
@@ -47,10 +47,10 @@ class Scripts
         $first_dynamic_scripts = "";
         $dynamic_scripts = "";
         $scripts = array();
-        $separator = URL::getArgSeparator();
+        $separator = Url::getArgSeparator();
         foreach ($files as $value) {
             if (mb_strpos($value['filename'], ".php") !== false) {
-                $file_name = $value['filename'] . URL::getCommon($value['params'] + array('v' => PMA_VERSION));
+                $file_name = $value['filename'] . Url::getCommon($value['params'] + array('v' => PMA_VERSION));
                 if ($value['before_statics'] === true) {
                     $first_dynamic_scripts
                         .= "<script data-cfasync='false' type='text/javascript' "
@@ -67,7 +67,7 @@ class Scripts
                 $scripts[] = "scripts%5B%5D=" . $value['filename'];
             }
         }
-        $separator = URL::getArgSeparator();
+        $separator = Url::getArgSeparator();
         $static_scripts = '';
         // Using chunks of 10 files to avoid too long URLs
         // as some servers are set to 512 bytes URL limit

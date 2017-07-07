@@ -748,7 +748,7 @@ echo "var themeCalendarImage = '" , $GLOBALS['pmaThemeImage']
 /* Image path */
 echo "var pmaThemeImage = '" , $GLOBALS['pmaThemeImage'] , "';\n";
 
-echo "var mysql_doc_template = '" , PMA\libraries\Util::getMySQLDocuURL('%s')
+echo "var mysql_doc_template = '" , PhpMyAdmin\Util::getMySQLDocuURL('%s')
     , "';\n";
 
 //Max input vars allowed by PHP.

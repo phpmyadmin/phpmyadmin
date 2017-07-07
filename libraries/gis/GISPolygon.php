@@ -7,7 +7,7 @@
  */
 namespace PMA\libraries\gis;
 
-use PMA\libraries\Util;
+use PhpMyAdmin\Util;
 use \TCPDF;
 
 /**

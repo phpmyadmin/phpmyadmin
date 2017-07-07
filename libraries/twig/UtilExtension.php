@@ -27,85 +27,85 @@ class UtilExtension extends Twig_Extension
         return array(
             new Twig_SimpleFunction(
                 'Util_backquote',
-                'PMA\libraries\Util::backquote'
+                'PhpMyAdmin\Util::backquote'
             ),
             new Twig_SimpleFunction(
                 'Util_convertBitDefaultValue',
-                'PMA\libraries\Util::convertBitDefaultValue'
+                'PhpMyAdmin\Util::convertBitDefaultValue'
             ),
             new Twig_SimpleFunction(
                 'Util_escapeMysqlWildcards',
-                'PMA\libraries\Util::escapeMysqlWildcards'
+                'PhpMyAdmin\Util::escapeMysqlWildcards'
             ),
             new Twig_SimpleFunction(
                 'Util_formatByteDown',
-                'PMA\libraries\Util::formatByteDown'
+                'PhpMyAdmin\Util::formatByteDown'
             ),
             new Twig_SimpleFunction(
                 'Util_formatNumber',
-                'PMA\libraries\Util::formatNumber'
+                'PhpMyAdmin\Util::formatNumber'
             ),
             new Twig_SimpleFunction(
                 'Util_formatSql',
-                'PMA\libraries\Util::formatSql',
+                'PhpMyAdmin\Util::formatSql',
                 array('is_safe' => array('html'))
             ),
             new Twig_SimpleFunction(
                 'Util_getButtonOrImage',
-                'PMA\libraries\Util::getButtonOrImage',
+                'PhpMyAdmin\Util::getButtonOrImage',
                 array('is_safe' => array('html'))
             ),
             new Twig_SimpleFunction(
                 'Util_getDivForSliderEffect',
-                'PMA\libraries\Util::getDivForSliderEffect',
+                'PhpMyAdmin\Util::getDivForSliderEffect',
                 array('is_safe' => array('html'))
             ),
             new Twig_SimpleFunction(
                 'Util_getDropdown',
-                'PMA\libraries\Util::getDropdown',
+                'PhpMyAdmin\Util::getDropdown',
                 array('is_safe' => array('html'))
             ),
             new Twig_SimpleFunction(
                 'Util_getHtmlTab',
-                'PMA\libraries\Util::getHtmlTab',
+                'PhpMyAdmin\Util::getHtmlTab',
                 array('is_safe' => array('html'))
             ),
             new Twig_SimpleFunction(
                 'Util_getIcon',
-                'PMA\libraries\Util::getIcon',
+                'PhpMyAdmin\Util::getIcon',
                 array('is_safe' => array('html'))
             ),
             new Twig_SimpleFunction(
                 'Util_getImage',
-                'PMA\libraries\Util::getImage',
+                'PhpMyAdmin\Util::getImage',
                 array('is_safe' => array('html'))
             ),
             new Twig_SimpleFunction(
                 'Util_getSupportedDatatypes',
-                'PMA\libraries\Util::getSupportedDatatypes',
+                'PhpMyAdmin\Util::getSupportedDatatypes',
                 array('is_safe' => array('html'))
             ),
             new Twig_SimpleFunction(
                 'Util_linkOrButton',
-                'PMA\libraries\Util::linkOrButton',
+                'PhpMyAdmin\Util::linkOrButton',
                 array('is_safe' => array('html'))
             ),
             new Twig_SimpleFunction(
                 'Util_localisedDate',
-                'PMA\libraries\Util::localisedDate'
+                'PhpMyAdmin\Util::localisedDate'
             ),
             new Twig_SimpleFunction(
                 'Util_showHint',
-                'PMA\libraries\Util::showHint',
+                'PhpMyAdmin\Util::showHint',
                 array('is_safe' => array('html'))
             ),
             new Twig_SimpleFunction(
                 'Util_showIcons',
-                'PMA\libraries\Util::showIcons'
+                'PhpMyAdmin\Util::showIcons'
             ),
             new Twig_SimpleFunction(
                 'Util_showMySQLDocu',
-                'PMA\libraries\Util::showMySQLDocu',
+                'PhpMyAdmin\Util::showMySQLDocu',
                 array('is_safe' => array('html'))
             ),
         );

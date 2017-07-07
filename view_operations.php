@@ -5,9 +5,9 @@
  *
  * @package PhpMyAdmin
  */
-use PMA\libraries\Table;
+use PhpMyAdmin\Table;
 use PhpMyAdmin\Response;
-use PMA\libraries\URL;
+use PhpMyAdmin\Url;
 
 /**
  *
@@ -79,7 +79,7 @@ if (isset($result)) {
         $_message->isError(true);
         unset($warning_messages);
     }
-    echo PMA\libraries\Util::getMessage(
+    echo PhpMyAdmin\Util::getMessage(
         $_message, $sql_query, $_type
     );
 }
@@ -95,7 +95,7 @@ $url_params['back'] = 'view_operations.php';
 <!-- Table operations -->
 <div>
 <form method="post" action="view_operations.php">
-<?php echo URL::getHiddenInputs($GLOBALS['db'], $GLOBALS['table']); ?>
+<?php echo Url::getHiddenInputs($GLOBALS['db'], $GLOBALS['table']); ?>
 <input type="hidden" name="reload" value="1" />
 <fieldset>
     <legend><?php echo __('Operations'); ?></legend>
@@ -120,7 +120,7 @@ $url_params['back'] = 'view_operations.php';
 $drop_view_url_params = array_merge(
     $url_params,
     array(
-        'sql_query' => 'DROP VIEW ' . PMA\libraries\Util::backquote(
+        'sql_query' => 'DROP VIEW ' . PhpMyAdmin\Util::backquote(
             $GLOBALS['table']
         ),
         'goto' => 'tbl_structure.php',

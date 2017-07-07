@@ -7,7 +7,7 @@
  */
 
 use PhpMyAdmin\Response;
-use PMA\libraries\Transformations;
+use PhpMyAdmin\Transformations;
 
 /**
  * Gets some core libraries and displays a top message if required

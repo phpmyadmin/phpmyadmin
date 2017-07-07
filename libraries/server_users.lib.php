@@ -5,7 +5,7 @@
  *
  * @package PhpMyAdmin
  */
-use PMA\libraries\URL;
+use PhpMyAdmin\Url;
 
 /**
  * Get HTML for secondary level menu tabs on 'Users' page
@@ -20,7 +20,7 @@ function PMA_getHtmlForSubMenusOnUsersPage($selfUrl)
         array(
             'name' => __('User accounts overview'),
             'url' => 'server_privileges.php',
-            'params' => URL::getCommon(array('viewing_mode' => 'server')),
+            'params' => Url::getCommon(array('viewing_mode' => 'server')),
         )
     );
 
@@ -28,7 +28,7 @@ function PMA_getHtmlForSubMenusOnUsersPage($selfUrl)
         $items[] = array(
             'name' => __('User groups'),
             'url' => 'server_user_groups.php',
-            'params' => URL::getCommon(),
+            'params' => Url::getCommon(),
         );
     }
 

@@ -8,7 +8,7 @@
 namespace PhpMyAdmin;
 
 use PhpMyAdmin\DatabaseInterface;
-use PMA\libraries\Util;
+use PhpMyAdmin\Util;
 
 require_once 'libraries/database_interface.inc.php';
 

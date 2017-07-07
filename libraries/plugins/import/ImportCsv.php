@@ -12,7 +12,7 @@ namespace PMA\libraries\plugins\import;
 use PhpMyAdmin\Message;
 use PMA\libraries\properties\options\items\BoolPropertyItem;
 use PMA\libraries\properties\options\items\TextPropertyItem;
-use PMA\libraries\Util;
+use PhpMyAdmin\Util;
 
 /**
  * Handles the import for the CSV format

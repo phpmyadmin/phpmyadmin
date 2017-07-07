@@ -12,8 +12,8 @@ namespace PMA\libraries\controllers\table;
 use PMA\libraries\controllers\TableController;
 use PhpMyAdmin\Index;
 use PhpMyAdmin\Message;
-use PMA\libraries\Template;
-use PMA\libraries\Util;
+use PhpMyAdmin\Template;
+use PhpMyAdmin\Util;
 use PhpMyAdmin\Response;
 
 

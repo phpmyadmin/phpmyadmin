@@ -8,11 +8,6 @@
  */
 namespace PMA\libraries\plugins\export;
 
-use PhpMyAdmin\SqlParser\Components\CreateDefinition;
-use PhpMyAdmin\SqlParser\Context;
-use PhpMyAdmin\SqlParser\Parser;
-use PhpMyAdmin\SqlParser\Statements\SelectStatement;
-use PhpMyAdmin\SqlParser\Token;
 use PhpMyAdmin\Charsets;
 use PhpMyAdmin\DatabaseInterface;
 use PMA\libraries\plugins\ExportPlugin;
@@ -26,8 +21,13 @@ use PMA\libraries\properties\options\items\NumberPropertyItem;
 use PMA\libraries\properties\options\items\RadioPropertyItem;
 use PMA\libraries\properties\options\items\SelectPropertyItem;
 use PMA\libraries\properties\options\items\TextPropertyItem;
-use PMA\libraries\Transformations;
-use PMA\libraries\Util;
+use PhpMyAdmin\SqlParser\Components\CreateDefinition;
+use PhpMyAdmin\SqlParser\Context;
+use PhpMyAdmin\SqlParser\Parser;
+use PhpMyAdmin\SqlParser\Statements\SelectStatement;
+use PhpMyAdmin\SqlParser\Token;
+use PhpMyAdmin\Transformations;
+use PhpMyAdmin\Util;
 
 /**
  * Handles the export for the SQL class

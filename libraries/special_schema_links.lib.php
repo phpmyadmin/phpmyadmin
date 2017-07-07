@@ -65,7 +65,7 @@ $GLOBALS['special_schema_links'] = array(
                         'column_name' => 'Db'
                     ),
                 ),
-                'default_page' => './' . PMA\libraries\Util::getScriptNameForOption(
+                'default_page' => './' . PhpMyAdmin\Util::getScriptNameForOption(
                     $GLOBALS['cfg']['DefaultTabTable'], 'table'
                 )
             ),
@@ -118,7 +118,7 @@ $GLOBALS['special_schema_links'] = array(
                         'column_name' => 'database_name'
                     ),
                 ),
-                'default_page' => './' . PMA\libraries\Util::getScriptNameForOption(
+                'default_page' => './' . PhpMyAdmin\Util::getScriptNameForOption(
                     $GLOBALS['cfg']['DefaultTabTable'], 'table'
                 )
             ),
@@ -146,7 +146,7 @@ $GLOBALS['special_schema_links'] = array(
                         'column_name' => 'database_name'
                     ),
                 ),
-                'default_page' => './' . PMA\libraries\Util::getScriptNameForOption(
+                'default_page' => './' . PhpMyAdmin\Util::getScriptNameForOption(
                     $GLOBALS['cfg']['DefaultTabTable'], 'table'
                 )
             ),
@@ -238,7 +238,7 @@ $GLOBALS['special_schema_links'] = array(
                         'column_name' => 'Db'
                     ),
                 ),
-                'default_page' => './' . PMA\libraries\Util::getScriptNameForOption(
+                'default_page' => './' . PhpMyAdmin\Util::getScriptNameForOption(
                     $GLOBALS['cfg']['DefaultTabTable'], 'table'
                 )
             ),
@@ -266,7 +266,7 @@ $GLOBALS['special_schema_links'] = array(
                         'column_name' => 'table_schema'
                     )
                 ),
-                'default_page' => './' . PMA\libraries\Util::getScriptNameForOption(
+                'default_page' => './' . PhpMyAdmin\Util::getScriptNameForOption(
                     $GLOBALS['cfg']['DefaultTabTable'], 'table'
                 )
             ),
@@ -294,7 +294,7 @@ $GLOBALS['special_schema_links'] = array(
                         'column_name' => 'constraint_schema'
                     )
                 ),
-                'default_page' => './' . PMA\libraries\Util::getScriptNameForOption(
+                'default_page' => './' . PhpMyAdmin\Util::getScriptNameForOption(
                     $GLOBALS['cfg']['DefaultTabTable'], 'table'
                 )
             ),
@@ -320,7 +320,7 @@ $GLOBALS['special_schema_links'] = array(
                         'column_name' => 'referenced_table_schema'
                     )
                 ),
-                'default_page' => './' . PMA\libraries\Util::getScriptNameForOption(
+                'default_page' => './' . PhpMyAdmin\Util::getScriptNameForOption(
                     $GLOBALS['cfg']['DefaultTabTable'], 'table'
                 )
             ),
@@ -348,7 +348,7 @@ $GLOBALS['special_schema_links'] = array(
                         'column_name' => 'table_schema'
                     )
                 ),
-                'default_page' => './' . PMA\libraries\Util::getScriptNameForOption(
+                'default_page' => './' . PhpMyAdmin\Util::getScriptNameForOption(
                     $GLOBALS['cfg']['DefaultTabTable'], 'table'
                 )
             )
@@ -374,7 +374,7 @@ $GLOBALS['special_schema_links'] = array(
                         'column_name' => 'constraint_schema'
                     )
                 ),
-                'default_page' => './' . PMA\libraries\Util::getScriptNameForOption(
+                'default_page' => './' . PhpMyAdmin\Util::getScriptNameForOption(
                     $GLOBALS['cfg']['DefaultTabTable'], 'table'
                 )
             ),
@@ -386,7 +386,7 @@ $GLOBALS['special_schema_links'] = array(
                         'column_name' => 'constraint_schema'
                     )
                 ),
-                'default_page' => './' . PMA\libraries\Util::getScriptNameForOption(
+                'default_page' => './' . PhpMyAdmin\Util::getScriptNameForOption(
                     $GLOBALS['cfg']['DefaultTabTable'], 'table'
                 )
             )
@@ -410,7 +410,7 @@ $GLOBALS['special_schema_links'] = array(
         'schemata' => array(
             'schema_name' => array(
                 'link_param' => 'db',
-                'default_page' => './' . PMA\libraries\Util::getScriptNameForOption(
+                'default_page' => './' . PhpMyAdmin\Util::getScriptNameForOption(
                     $GLOBALS['cfg']['DefaultTabTable'], 'table'
                 )
             )
@@ -424,7 +424,7 @@ $GLOBALS['special_schema_links'] = array(
                         'column_name' => 'table_schema'
                     )
                 ),
-                'default_page' => './' . PMA\libraries\Util::getScriptNameForOption(
+                'default_page' => './' . PhpMyAdmin\Util::getScriptNameForOption(
                     $GLOBALS['cfg']['DefaultTabTable'], 'table'
                 )
             ),
@@ -452,7 +452,7 @@ $GLOBALS['special_schema_links'] = array(
                         'column_name' => 'table_schema'
                     )
                 ),
-                'default_page' => './' . PMA\libraries\Util::getScriptNameForOption(
+                'default_page' => './' . PhpMyAdmin\Util::getScriptNameForOption(
                     $GLOBALS['cfg']['DefaultTabTable'], 'table'
                 )
             ),
@@ -466,7 +466,7 @@ $GLOBALS['special_schema_links'] = array(
                         'column_name' => 'table_schema'
                     )
                 ),
-                'default_page' => './' . PMA\libraries\Util::getScriptNameForOption(
+                'default_page' => './' . PhpMyAdmin\Util::getScriptNameForOption(
                     $GLOBALS['cfg']['DefaultTabTable'], 'table'
                 )
             ),
@@ -480,7 +480,7 @@ $GLOBALS['special_schema_links'] = array(
                         'column_name' => 'table_schema'
                     )
                 ),
-                'default_page' => './' . PMA\libraries\Util::getScriptNameForOption(
+                'default_page' => './' . PhpMyAdmin\Util::getScriptNameForOption(
                     $GLOBALS['cfg']['DefaultTabTable'], 'table'
                 )
             ),

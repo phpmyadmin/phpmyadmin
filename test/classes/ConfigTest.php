@@ -10,7 +10,7 @@
 /*
  * Include to test.
  */
-use PMA\libraries\Theme;
+use PhpMyAdmin\Theme;
 
 require_once 'libraries/relation.lib.php';
 require_once 'test/PMATestCase.php';

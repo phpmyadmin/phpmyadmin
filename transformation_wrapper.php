@@ -8,7 +8,7 @@
 
 use PhpMyAdmin\Core;
 use PhpMyAdmin\Response;
-use PMA\libraries\Transformations;
+use PhpMyAdmin\Transformations;
 
 /**
  *
@@ -62,7 +62,7 @@ foreach ($request_params as $one_request_param) {
 $GLOBALS['dbi']->selectDb($db);
 if (isset($where_clause)) {
     $result = $GLOBALS['dbi']->query(
-        'SELECT * FROM ' . PMA\libraries\Util::backquote($table)
+        'SELECT * FROM ' . PhpMyAdmin\Util::backquote($table)
         . ' WHERE ' . $where_clause . ';',
         null,
         PhpMyAdmin\DatabaseInterface::QUERY_STORE
@@ -70,7 +70,7 @@ if (isset($where_clause)) {
     $row = $GLOBALS['dbi']->fetchAssoc($result);
 } else {
     $result = $GLOBALS['dbi']->query(
-        'SELECT * FROM ' . PMA\libraries\Util::backquote($table) . ' LIMIT 1;',
+        'SELECT * FROM ' . PhpMyAdmin\Util::backquote($table) . ' LIMIT 1;',
         null,
         PhpMyAdmin\DatabaseInterface::QUERY_STORE
     );

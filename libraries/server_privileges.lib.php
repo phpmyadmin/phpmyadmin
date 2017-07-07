@@ -10,9 +10,9 @@ use PhpMyAdmin\Core;
 use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Message;
 use PhpMyAdmin\Response;
-use PMA\libraries\Template;
-use PMA\libraries\Util;
-use PMA\libraries\URL;
+use PhpMyAdmin\Template;
+use PhpMyAdmin\Util;
+use PhpMyAdmin\Url;
 
 /**
  * Get Html for User Group Dialog
@@ -2141,7 +2141,7 @@ function PMA_getHtmlForAddUser($dbname)
        . '<form name="usersForm" id="addUsersForm"'
        . ' onsubmit="return checkAddUser(this);"'
        . ' action="server_privileges.php" method="post" autocomplete="off" >' . "\n"
-       . URL::getHiddenInputs('', '')
+       . Url::getHiddenInputs('', '')
        . PMA_getHtmlForLoginInformationFields('new');
 
     $html_output .= '<fieldset id="fieldset_add_user_database">' . "\n"
@@ -2331,7 +2331,7 @@ function PMA_getHtmlForSpecificDbPrivileges($db)
     if ($GLOBALS['is_superuser']) {
         // check the privileges for a particular database.
         $html_output  = '<form id="usersForm" action="server_privileges.php">';
-        $html_output .= URL::getHiddenInputs($db);
+        $html_output .= Url::getHiddenInputs($db);
         $html_output .= '<fieldset>';
         $html_output .= '<legend>' . "\n"
             . Util::getIcon('b_usrcheck.png')
@@ -2341,7 +2341,7 @@ function PMA_getHtmlForSpecificDbPrivileges($db)
                 '<a href="' . Util::getScriptNameForOption(
                     $GLOBALS['cfg']['DefaultTabDatabase'], 'database'
                 )
-                . URL::getCommon(array('db' => $db)) . '">'
+                . Url::getCommon(array('db' => $db)) . '">'
                 .  htmlspecialchars($db)
                 . '</a>'
             )
@@ -2403,7 +2403,7 @@ function PMA_getHtmlForSpecificTablePrivileges($db, $table)
     if ($GLOBALS['is_superuser']) {
         // check the privileges for a particular table.
         $html_output  = '<form id="usersForm" action="server_privileges.php">';
-        $html_output .= URL::getHiddenInputs($db, $table);
+        $html_output .= Url::getHiddenInputs($db, $table);
         $html_output .= '<fieldset>';
         $html_output .= '<legend>'
             . Util::getIcon('b_usrcheck.png')
@@ -2412,7 +2412,7 @@ function PMA_getHtmlForSpecificTablePrivileges($db, $table)
                 '<a href="' . Util::getScriptNameForOption(
                     $GLOBALS['cfg']['DefaultTabTable'], 'table'
                 )
-                . URL::getCommon(
+                . Url::getCommon(
                     array(
                         'db' => $db,
                         'table' => $table,
@@ -2782,7 +2782,7 @@ function PMA_getUserLink(
     }
 
     $html .= ' href="server_privileges.php'
-        . URL::getCommon($params)
+        . Url::getCommon($params)
         . '">';
 
     switch($linktype) {
@@ -2812,7 +2812,7 @@ function PMA_getUserGroupEditLink($username)
 {
      return '<a class="edit_user_group_anchor ajax"'
         . ' href="server_privileges.php'
-        . URL::getCommon(array('username' => $username))
+        . Url::getCommon(array('username' => $username))
         . '">'
         . Util::getIcon('b_usrlist.png', __('Edit user group'))
         . '</a>';
@@ -2985,7 +2985,7 @@ function PMA_getExtraDataForAjaxBehavior(
             mb_substr($username, 0, 1)
         );
         $newUserInitialString = '<a href="server_privileges.php'
-            . URL::getCommon(array('initial' => $new_user_initial)) . '">'
+            . Url::getCommon(array('initial' => $new_user_initial)) . '">'
             . $new_user_initial . '</a>';
         $extra_data['new_user_initial'] = $new_user_initial;
         $extra_data['new_user_initial_string'] = $newUserInitialString;
@@ -3044,7 +3044,7 @@ function PMA_getChangeLoginInformationHtmlForm($username, $hostname)
     $html_output = '<form action="server_privileges.php" '
         . 'onsubmit="return checkAddUser(this);" '
         . 'method="post" class="copyUserForm submenu-item">' . "\n"
-        . URL::getHiddenInputs('', '')
+        . Url::getHiddenInputs('', '')
         . '<input type="hidden" name="old_username" '
         . 'value="' . htmlspecialchars($username) . '" />' . "\n"
         . '<input type="hidden" name="old_hostname" '
@@ -3097,7 +3097,7 @@ function PMA_getLinkToDbAndTable($url_dbname, $dbname, $tablename)
         . ' <a href="' . Util::getScriptNameForOption(
             $GLOBALS['cfg']['DefaultTabDatabase'], 'database'
         )
-        . URL::getCommon(
+        . Url::getCommon(
             array(
                 'db' => $url_dbname,
                 'reload' => 1
@@ -3115,7 +3115,7 @@ function PMA_getLinkToDbAndTable($url_dbname, $dbname, $tablename)
             . Util::getScriptNameForOption(
                 $GLOBALS['cfg']['DefaultTabTable'], 'table'
             )
-            . URL::getCommon(
+            . Url::getCommon(
                 array(
                     'db' => $url_dbname,
                     'table' => $tablename,
@@ -3483,7 +3483,7 @@ function PMA_getUsersOverview($result, $db_rights, $pmaThemeImage, $text_dir)
     $html_output
         = '<form name="usersForm" id="usersForm" action="server_privileges.php" '
         . 'method="post">' . "\n"
-        . URL::getHiddenInputs('', '')
+        . Url::getHiddenInputs('', '')
         . '<table id="tableuserrights" class="data">' . "\n"
         . '<thead>' . "\n"
         . '<tr><th></th>' . "\n"
@@ -4473,7 +4473,7 @@ function PMA_getHtmlHeaderForUserProperties(
     if (! empty($dbname)) {
         $html_output .= ' <i><a class="edit_user_anchor"'
             . ' href="server_privileges.php'
-            . URL::getCommon(
+            . Url::getCommon(
                 array(
                     'username' => $username,
                     'hostname' => $hostname,
@@ -4491,7 +4491,7 @@ function PMA_getHtmlHeaderForUserProperties(
             ? __('Databases') : __('Database');
         if (! empty($entity_name) && $entity_type === 'table') {
             $html_output .= ' <i><a href="server_privileges.php'
-                . URL::getCommon(
+                . Url::getCommon(
                     array(
                         'username' => $username,
                         'hostname' => $hostname,
@@ -4506,7 +4506,7 @@ function PMA_getHtmlHeaderForUserProperties(
                 . ' <i>' . htmlspecialchars($entity_name) . '</i>';
         } elseif (! empty($entity_name)) {
             $html_output .= ' <i><a href="server_privileges.php'
-                . URL::getCommon(
+                . Url::getCommon(
                     array(
                         'username' => $username,
                         'hostname' => $hostname,
@@ -4682,7 +4682,7 @@ function PMA_getHtmlForUserOverview($pmaThemeImage, $text_dir)
                 );
                 $flushnote->addParamHtml(
                     '<a href="server_privileges.php'
-                    . URL::getCommon(array('flush_privileges' => 1))
+                    . Url::getCommon(array('flush_privileges' => 1))
                     . '" id="reload_privileges_anchor">'
                 );
                 $flushnote->addParamHtml('</a>');
@@ -4760,7 +4760,7 @@ function PMA_getHtmlForUserProperties($dbname_is_wildcard,$url_dbname,
 
     $html_output .= '<form class="submenu-item" name="usersForm" '
         . 'id="addUsersForm" action="server_privileges.php" method="post">' . "\n";
-    $html_output .= URL::getHiddenInputs($_params);
+    $html_output .= Url::getHiddenInputs($_params);
     $html_output .= PMA_getHtmlToDisplayPrivilegesTable(
         // If $dbname is an array, pass any one db as all have same privs.
         Core::ifSetOr($dbname, (is_array($dbname)) ? $dbname[0] : '*', 'length'),

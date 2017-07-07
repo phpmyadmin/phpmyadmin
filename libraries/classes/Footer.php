@@ -13,8 +13,8 @@ use PhpMyAdmin\Message;
 use PhpMyAdmin\Response;
 use PhpMyAdmin\Sanitize;
 use PhpMyAdmin\Scripts;
-use PMA\libraries\URL;
-use PMA\libraries\Util;
+use PhpMyAdmin\Url;
+use PhpMyAdmin\Util;
 use Traversable;
 
 /**
@@ -182,7 +182,7 @@ class Footer
         ) {
             $params['single_table'] = $_REQUEST['single_table'];
         }
-        return basename(Core::getenv('SCRIPT_NAME')) . URL::getCommonRaw($params);
+        return basename(Core::getenv('SCRIPT_NAME')) . Url::getCommonRaw($params);
     }
 
     /**

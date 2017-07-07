@@ -16,11 +16,11 @@ use PhpMyAdmin\Response;
 use PhpMyAdmin\Sanitize;
 use PhpMyAdmin\Sql;
 use PhpMyAdmin\SqlParser\Utils\Query;
-use PMA\libraries\Table;
-use PMA\libraries\Template;
-use PMA\libraries\Transformations;
-use PMA\libraries\URL;
-use PMA\libraries\Util;
+use PhpMyAdmin\Table;
+use PhpMyAdmin\Template;
+use PhpMyAdmin\Transformations;
+use PhpMyAdmin\Url;
+use PhpMyAdmin\Util;
 
 /**
  * Handle all the functionalities related to displaying results
@@ -747,7 +747,7 @@ class DisplayResults
 
         return '<td>'
             . '<form action="sql.php" method="post" ' . $onsubmit . '>'
-            . URL::getHiddenInputs(
+            . Url::getHiddenInputs(
                 $this->__get('db'), $this->__get('table')
             )
             . '<input type="hidden" name="sql_query" value="'
@@ -802,7 +802,7 @@ class DisplayResults
             //<form> to keep the form alignment of button < and <<
             // and also to know what to execute when the selector changes
             $table_navigation_html .= '<form action="sql.php" method="post">';
-            $table_navigation_html .= URL::getHiddenInputs($_url_params);
+            $table_navigation_html .= Url::getHiddenInputs($_url_params);
 
             $table_navigation_html .= Util::pageselector(
                 'pos',
@@ -949,7 +949,7 @@ class DisplayResults
                 . ')'
             . '">';
 
-        $table_navigation_html .= URL::getHiddenInputs(
+        $table_navigation_html .= Url::getHiddenInputs(
             $this->__get('db'), $this->__get('table')
         );
 
@@ -1021,7 +1021,7 @@ class DisplayResults
         return "\n"
             . '<td>'
             . '<form action="sql.php" method="post">'
-            . URL::getHiddenInputs(
+            . Url::getHiddenInputs(
                 $this->__get('db'), $this->__get('table')
             )
             . '<input type="hidden" name="sql_query" value="'
@@ -1300,7 +1300,7 @@ class DisplayResults
         $table_headers_html .= '<input class="save_cells_at_once" type="hidden"'
             . ' value="' . $GLOBALS['cfg']['SaveCellsAtOnce'] . '" />'
             . '<div class="common_hidden_inputs">'
-            . URL::getHiddenInputs(
+            . Url::getHiddenInputs(
                 $this->__get('db'), $this->__get('table')
             )
             . '</div>';
@@ -1434,11 +1434,11 @@ class DisplayResults
 
         $drop_down_html .= '<form action="sql.php" method="post" ' .
             'class="print_ignore">' . "\n"
-            . URL::getHiddenInputs(
+            . Url::getHiddenInputs(
                 $this->__get('db'), $this->__get('table')
             )
             // to avoid calling Sql::handleSortOrder() later
-            . URL::getHiddenFields(array('sort_by_key' => '1'))
+            . Url::getHiddenFields(array('sort_by_key' => '1'))
             . __('Sort by key')
             . ': <select name="sql_query" class="autosubmit">' . "\n";
 
@@ -1719,7 +1719,7 @@ class DisplayResults
             'display_options_form' => 1
         );
 
-        $options_html .= URL::getHiddenInputs($url_params)
+        $options_html .= Url::getHiddenInputs($url_params)
             . '<br />'
             . Util::getDivForSliderEffect(
                 '', __('Options')
@@ -1859,7 +1859,7 @@ class DisplayResults
 
         $tmp_image = '<img class="fulltext" src="' . $tmp_image_file . '" alt="'
                      . $tmp_txt . '" title="' . $tmp_txt . '" />';
-        $tmp_url = 'sql.php' . URL::getCommon($url_params_full_text);
+        $tmp_url = 'sql.php' . Url::getCommon($url_params_full_text);
 
         return Util::linkOrButton(
             $tmp_url, $tmp_image, array(), false
@@ -1893,7 +1893,7 @@ class DisplayResults
             $form_html .= ' class="ajax" ';
 
             $form_html .= '>'
-                . URL::getHiddenInputs(
+                . Url::getHiddenInputs(
                     $this->__get('db'), $this->__get('table'), 1
                 )
                 . '<input type="hidden" name="goto" value="sql.php" />';
@@ -2025,8 +2025,8 @@ class DisplayResults
             'session_max_rows'   => $session_max_rows,
             'is_browse_distinct' => $this->__get('is_browse_distinct'),
         );
-        $single_order_url  = 'sql.php' . URL::getCommon($_single_url_params);
-        $multi_order_url = 'sql.php' . URL::getCommon($_multi_url_params);
+        $single_order_url  = 'sql.php' . Url::getCommon($_single_url_params);
+        $multi_order_url = 'sql.php' . Url::getCommon($_multi_url_params);
 
         // Displays the sorting URL
         // enable sort order swapping for image
@@ -2299,10 +2299,10 @@ class DisplayResults
     /**
      * Get sort order link
      *
-     * @param string  $order_img       the sort order image
-     * @param array   $fields_meta     set of field properties
-     * @param string  $order_url       the url for sort
-     * @param string  $multi_order_url the url for sort
+     * @param string $order_img       the sort order image
+     * @param array  $fields_meta     set of field properties
+     * @param string $order_url       the url for sort
+     * @param string $multi_order_url the url for sort
      *
      * @return  string                      the sort order link
      *
@@ -3165,7 +3165,7 @@ class DisplayResults
                 $_url_params['sql_query'] = $url_sql_query;
             }
 
-            $transform_options['wrapper_link'] = URL::getCommon($_url_params);
+            $transform_options['wrapper_link'] = Url::getCommon($_url_params);
 
             $display_params = $this->__get('display_params');
 
@@ -3284,7 +3284,7 @@ class DisplayResults
         $divider = strpos($link_relations['default_page'], '?') ? '&' : '?';
         if (empty($link_relations['link_dependancy_params'])) {
             return $link_relations['default_page']
-                . URL::getCommonRaw($linking_url_params, $divider);
+                . Url::getCommonRaw($linking_url_params, $divider);
         }
 
         foreach ($link_relations['link_dependancy_params'] as $new_param) {
@@ -3308,7 +3308,7 @@ class DisplayResults
         }
 
         return $link_relations['default_page']
-            . URL::getCommonRaw($linking_url_params, $divider);
+            . Url::getCommonRaw($linking_url_params, $divider);
     }
 
 
@@ -3473,12 +3473,12 @@ class DisplayResults
             );
 
         $edit_url = 'tbl_change.php'
-            . URL::getCommon(
+            . Url::getCommon(
                 $_url_params + array('default_action' => 'update')
             );
 
         $copy_url = 'tbl_change.php'
-            . URL::getCommon(
+            . Url::getCommon(
                 $_url_params + array('default_action' => 'insert')
             );
 
@@ -3532,7 +3532,7 @@ class DisplayResults
                 'goto'      => (empty($goto) ? 'tbl_sql.php' : $goto),
             );
 
-            $lnk_goto = 'sql.php' . URL::getCommonRaw($_url_params);
+            $lnk_goto = 'sql.php' . Url::getCommonRaw($_url_params);
 
             $del_query = 'DELETE FROM '
                 . Util::backquote($this->__get('table'))
@@ -3546,7 +3546,7 @@ class DisplayResults
                     'message_to_show' => __('The row has been deleted.'),
                     'goto'      => $lnk_goto,
                 );
-            $del_url  = 'sql.php' . URL::getCommon($_url_params);
+            $del_url  = 'sql.php' . Url::getCommon($_url_params);
 
             $js_conf  = 'DELETE FROM ' . Sanitize::jsFormat($this->__get('table'))
                 . ' WHERE ' . Sanitize::jsFormat($where_clause, false)
@@ -3563,7 +3563,7 @@ class DisplayResults
                     'goto'      => 'index.php',
                 );
 
-            $lnk_goto = 'sql.php' . URL::getCommonRaw($_url_params);
+            $lnk_goto = 'sql.php' . Url::getCommonRaw($_url_params);
 
             $kill = $GLOBALS['dbi']->getKillQuery($row[0]);
 
@@ -3573,7 +3573,7 @@ class DisplayResults
                     'goto'      => $lnk_goto,
                 );
 
-            $del_url  = 'sql.php' . URL::getCommon($_url_params);
+            $del_url  = 'sql.php' . Url::getCommon($_url_params);
             $js_conf  = $kill;
             $del_str = Util::getIcon(
                 'b_drop.png', __('Kill')
@@ -5073,7 +5073,7 @@ class DisplayResults
                     'printview' => '1',
                     'sql_query' => $this->__get('sql_query'),
                 );
-        $url_query = URL::getCommon($_url_params);
+        $url_query = Url::getCommon($_url_params);
 
         if (!$header_shown) {
             $results_operations_html .= $header;
@@ -5138,7 +5138,7 @@ class DisplayResults
             }
 
             $results_operations_html .= Util::linkOrButton(
-                'tbl_export.php' . URL::getCommon($_url_params),
+                'tbl_export.php' . Url::getCommon($_url_params),
                 Util::getIcon(
                     'b_tblexport.png', __('Export'), true
                 ),
@@ -5151,7 +5151,7 @@ class DisplayResults
 
             // prepare chart
             $results_operations_html .= Util::linkOrButton(
-                'tbl_chart.php' . URL::getCommon($_url_params),
+                'tbl_chart.php' . Url::getCommon($_url_params),
                 Util::getIcon(
                     'b_chart.png', __('Display chart'), true
                 ),
@@ -5176,7 +5176,7 @@ class DisplayResults
                 $results_operations_html
                     .= Util::linkOrButton(
                         'tbl_gis_visualization.php'
-                        . URL::getCommon($_url_params),
+                        . Url::getCommon($_url_params),
                         Util::getIcon(
                             'b_globe.gif', __('Visualize GIS data'), true
                         ),
@@ -5321,7 +5321,7 @@ class DisplayResults
             && (!empty($tmpdb) && !empty($meta->orgtable))
         ) {
             $result = '<a href="tbl_get_field.php'
-                . URL::getCommon($url_params)
+                . Url::getCommon($url_params)
                 . '" class="disableAjax">'
                 . $result . '</a>';
         }
@@ -5489,7 +5489,7 @@ class DisplayResults
                 );
 
                 $result .= '<a class="ajax" href="sql.php'
-                    . URL::getCommon($_url_params)
+                    . Url::getCommon($_url_params)
                     . '"' . $title . '>';
 
                 if ($transformation_plugin != $default_function) {

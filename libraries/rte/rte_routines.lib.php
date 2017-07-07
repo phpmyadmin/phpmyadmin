@@ -9,8 +9,8 @@ use PhpMyAdmin\Charsets;
 use PhpMyAdmin\Core;
 use PhpMyAdmin\Message;
 use PhpMyAdmin\Response;
-use PMA\libraries\Util;
-use PMA\libraries\URL;
+use PhpMyAdmin\Util;
+use PhpMyAdmin\Url;
 use PhpMyAdmin\SqlParser\Statements\CreateStatement;
 
 if (! defined('PHPMYADMIN')) {
@@ -160,9 +160,9 @@ function PMA_RTN_handleEditor()
             $message .= sprintf(
                 PMA_RTE_getWord('no_edit'),
                 htmlspecialchars(
-                    PMA\libraries\Util::backquote($_REQUEST['item_name'])
+                    PhpMyAdmin\Util::backquote($_REQUEST['item_name'])
                 ),
-                htmlspecialchars(PMA\libraries\Util::backquote($db))
+                htmlspecialchars(PhpMyAdmin\Util::backquote($db))
             );
 
             $message = Message::error($message);
@@ -219,7 +219,7 @@ function PMA_RTN_handleRequestCreateOrEdit($errors, $db)
                 $privilegesBackup = PMA_RTN_backupPrivileges();
 
                 $drop_routine = "DROP {$_REQUEST['item_original_type']} "
-                    . PMA\libraries\Util::backquote($_REQUEST['item_original_name'])
+                    . PhpMyAdmin\Util::backquote($_REQUEST['item_original_name'])
                     . ";\n";
                 $result = $GLOBALS['dbi']->tryQuery($drop_routine);
                 if (!$result) {
@@ -261,7 +261,7 @@ function PMA_RTN_handleRequestCreateOrEdit($errors, $db)
                     __('Routine %1$s has been created.')
                 );
                 $message->addParam(
-                    PMA\libraries\Util::backquote($_REQUEST['item_name'])
+                    PhpMyAdmin\Util::backquote($_REQUEST['item_name'])
                 );
                 $sql_query = $routine_query;
             }
@@ -282,7 +282,7 @@ function PMA_RTN_handleRequestCreateOrEdit($errors, $db)
         $message->addHtml('</ul>');
     }
 
-    $output = PMA\libraries\Util::getMessage($message, $sql_query);
+    $output = PhpMyAdmin\Util::getMessage($message, $sql_query);
     $response = Response::getInstance();
     if (!$response->isAjax()) {
         return $errors;
@@ -331,10 +331,10 @@ function PMA_RTN_backupPrivileges()
         return array();
     }
 
-    $privilegesBackupQuery = 'SELECT * FROM ' . PMA\libraries\Util::backquote(
+    $privilegesBackupQuery = 'SELECT * FROM ' . PhpMyAdmin\Util::backquote(
         'mysql'
     )
-    . '.' . PMA\libraries\Util::backquote('procs_priv')
+    . '.' . PhpMyAdmin\Util::backquote('procs_priv')
     . ' where Routine_name = "' . $_REQUEST['item_original_name']
     . '" AND Routine_type = "' . $_REQUEST['item_original_type']
     . '";';
@@ -442,7 +442,7 @@ function PMA_RTN_flushPrivileges($flushPrivileges)
         );
     }
     $message->addParam(
-        PMA\libraries\Util::backquote($_REQUEST['item_name'])
+        PhpMyAdmin\Util::backquote($_REQUEST['item_name'])
     );
 
     return $message;
@@ -514,7 +514,7 @@ function PMA_RTN_getDataFromRequest()
         $retval['item_param_name'] = $_REQUEST['item_param_name'];
         $retval['item_param_type'] = $_REQUEST['item_param_type'];
         foreach ($retval['item_param_type'] as $key => $value) {
-            if (! in_array($value, PMA\libraries\Util::getSupportedDatatypes(), true)) {
+            if (! in_array($value, PhpMyAdmin\Util::getSupportedDatatypes(), true)) {
                 $retval['item_param_type'][$key] = '';
             }
         }
@@ -531,7 +531,7 @@ function PMA_RTN_getDataFromRequest()
     }
     $retval['item_returntype'] = '';
     if (isset($_REQUEST['item_returntype'])
-        && in_array($_REQUEST['item_returntype'], PMA\libraries\Util::getSupportedDatatypes())
+        && in_array($_REQUEST['item_returntype'], PhpMyAdmin\Util::getSupportedDatatypes())
     ) {
         $retval['item_returntype'] = $_REQUEST['item_returntype'];
     }
@@ -581,7 +581,7 @@ function PMA_RTN_getDataFromName($name, $type, $all = true)
     $fields  = "SPECIFIC_NAME, ROUTINE_TYPE, DTD_IDENTIFIER, "
              . "ROUTINE_DEFINITION, IS_DETERMINISTIC, SQL_DATA_ACCESS, "
              . "ROUTINE_COMMENT, SECURITY_TYPE";
-    $where   = "ROUTINE_SCHEMA " . PMA\libraries\Util::getCollateForIS() . "="
+    $where   = "ROUTINE_SCHEMA " . PhpMyAdmin\Util::getCollateForIS() . "="
              . "'" . $GLOBALS['dbi']->escapeString($db) . "' "
              . "AND SPECIFIC_NAME='" . $GLOBALS['dbi']->escapeString($name) . "'"
              . "AND ROUTINE_TYPE='" . $GLOBALS['dbi']->escapeString($type) . "'";
@@ -733,7 +733,7 @@ function PMA_RTN_getParameterRow($routine = array(), $index = null, $class = '')
     $retval .= "            <td><input name='item_param_name[$index]' type='text'\n"
         . " value='{$routine['item_param_name'][$i]}' /></td>\n";
     $retval .= "            <td><select name='item_param_type[$index]'>";
-    $retval .= PMA\libraries\Util::getSupportedDatatypes(
+    $retval .= PhpMyAdmin\Util::getSupportedDatatypes(
         true, $routine['item_param_type'][$i]
     ) . "\n";
     $retval .= "            </select></td>\n";
@@ -744,7 +744,7 @@ function PMA_RTN_getParameterRow($routine = array(), $index = null, $class = '')
     $retval .= "                <div class='enum_hint'>\n";
     $retval .= "                    <a href='#' class='open_enum_editor'>\n";
     $retval .= "                        "
-        . PMA\libraries\Util::getImage('b_edit', '', array('title'=>__('ENUM/SET editor')))
+        . PhpMyAdmin\Util::getImage('b_edit', '', array('title'=>__('ENUM/SET editor')))
         . "\n";
     $retval .= "                    </a>\n";
     $retval .= "                </div>\n";
@@ -885,7 +885,7 @@ function PMA_RTN_getEditorForm($mode, $operation, $routine)
     $retval .= "<form class='rte_form' action='db_routines.php' method='post'>\n";
     $retval .= "<input name='{$mode}_item' type='hidden' value='1' />\n";
     $retval .= $original_routine;
-    $retval .= URL::getHiddenInputs($db) . "\n";
+    $retval .= Url::getHiddenInputs($db) . "\n";
     $retval .= "<fieldset>\n";
     $retval .= "<legend>" . __('Details') . "</legend>\n";
     $retval .= "<table class='rte_table' style='width: 100%'>\n";
@@ -956,7 +956,7 @@ function PMA_RTN_getEditorForm($mode, $operation, $routine)
     $retval .= "<tr class='routine_return_row" . $isfunction_class . "'>";
     $retval .= "    <td>" . __('Return type') . "</td>";
     $retval .= "    <td><select name='item_returntype'>";
-    $retval .= PMA\libraries\Util::getSupportedDatatypes(true, $routine['item_returntype']);
+    $retval .= PhpMyAdmin\Util::getSupportedDatatypes(true, $routine['item_returntype']);
     $retval .= "    </select></td>";
     $retval .= "</tr>";
     $retval .= "<tr class='routine_return_row" . $isfunction_class . "'>";
@@ -1005,7 +1005,7 @@ function PMA_RTN_getEditorForm($mode, $operation, $routine)
     ) {
         $retval .= "<tr>";
         $retval .= "    <td>" . __('Adjust privileges');
-        $retval .= PMA\libraries\Util::showDocu('faq', 'faq6-39');
+        $retval .= PhpMyAdmin\Util::showDocu('faq', 'faq6-39');
         $retval .= "</td>";
         if ($GLOBALS['proc_priv']
             && $GLOBALS['is_reload_priv']
@@ -1096,7 +1096,7 @@ function PMA_RTN_getQueryFromRequest()
             ) {
                 $do_backquote = false;
             }
-            $query .= 'DEFINER=' . PMA\libraries\Util::backquote($arr[0], $do_backquote);
+            $query .= 'DEFINER=' . PhpMyAdmin\Util::backquote($arr[0], $do_backquote);
 
             $do_backquote = true;
             if (substr($arr[1], 0, 1) === "`"
@@ -1104,7 +1104,7 @@ function PMA_RTN_getQueryFromRequest()
             ) {
                 $do_backquote = false;
             }
-            $query .= '@' . PMA\libraries\Util::backquote($arr[1], $do_backquote) . ' ';
+            $query .= '@' . PhpMyAdmin\Util::backquote($arr[1], $do_backquote) . ' ';
         } else {
             $errors[] = __('The definer must be in the "username@hostname" format!');
         }
@@ -1120,7 +1120,7 @@ function PMA_RTN_getQueryFromRequest()
         );
     }
     if (! empty($_REQUEST['item_name'])) {
-        $query .= PMA\libraries\Util::backquote($_REQUEST['item_name']);
+        $query .= PhpMyAdmin\Util::backquote($_REQUEST['item_name']);
     } else {
         $errors[] = __('You must provide a routine name!');
     }
@@ -1148,10 +1148,10 @@ function PMA_RTN_getQueryFromRequest()
                     && in_array($_REQUEST['item_param_dir'][$i], $param_directions)
                 ) {
                     $params .= $_REQUEST['item_param_dir'][$i] . " "
-                        . PMA\libraries\Util::backquote($item_param_name[$i])
+                        . PhpMyAdmin\Util::backquote($item_param_name[$i])
                         . " " . $item_param_type[$i];
                 } else if ($_REQUEST['item_type'] == 'FUNCTION') {
-                    $params .= PMA\libraries\Util::backquote($item_param_name[$i])
+                    $params .= PhpMyAdmin\Util::backquote($item_param_name[$i])
                         . " " . $item_param_type[$i];
                 } else if (! $warned_about_dir) {
                     $warned_about_dir = true;
@@ -1218,7 +1218,7 @@ function PMA_RTN_getQueryFromRequest()
 
         if (! empty($item_returntype)
             && in_array(
-                $item_returntype, PMA\libraries\Util::getSupportedDatatypes()
+                $item_returntype, PhpMyAdmin\Util::getSupportedDatatypes()
             )
         ) {
             $query .= "RETURNS " . $item_returntype;
@@ -1312,8 +1312,8 @@ function PMA_RTN_handleExecute()
             $message  = __('Error in processing request:') . ' ';
             $message .= sprintf(
                 PMA_RTE_getWord('not_found'),
-                htmlspecialchars(PMA\libraries\Util::backquote($_REQUEST['item_name'])),
-                htmlspecialchars(PMA\libraries\Util::backquote($db))
+                htmlspecialchars(PhpMyAdmin\Util::backquote($_REQUEST['item_name'])),
+                htmlspecialchars(PhpMyAdmin\Util::backquote($db))
             );
             $message = Message::error($message);
             if ($response->isAjax()) {
@@ -1358,20 +1358,20 @@ function PMA_RTN_handleExecute()
                     || $routine['item_param_dir'][$i] == 'INOUT'
                 ) {
                     $end_query[] = "@p$i AS "
-                        . PMA\libraries\Util::backquote($routine['item_param_name'][$i]);
+                        . PhpMyAdmin\Util::backquote($routine['item_param_name'][$i]);
                 }
             }
         }
         if ($routine['item_type'] == 'PROCEDURE') {
-            $queries[] = "CALL " . PMA\libraries\Util::backquote($routine['item_name'])
+            $queries[] = "CALL " . PhpMyAdmin\Util::backquote($routine['item_name'])
                        . "(" . implode(', ', $args) . ");\n";
             if (count($end_query)) {
                 $queries[] = "SELECT " . implode(', ', $end_query) . ";\n";
             }
         } else {
-            $queries[] = "SELECT " . PMA\libraries\Util::backquote($routine['item_name'])
+            $queries[] = "SELECT " . PhpMyAdmin\Util::backquote($routine['item_name'])
                        . "(" . implode(', ', $args) . ") "
-                       . "AS " . PMA\libraries\Util::backquote($routine['item_name'])
+                       . "AS " . PhpMyAdmin\Util::backquote($routine['item_name'])
                         . ";\n";
         }
 
@@ -1390,13 +1390,13 @@ function PMA_RTN_handleExecute()
         if ($outcome) {
 
             // Pass the SQL queries through the "pretty printer"
-            $output  = PMA\libraries\Util::formatSql(implode($queries, "\n"));
+            $output  = PhpMyAdmin\Util::formatSql(implode($queries, "\n"));
 
             // Display results
             $output .= "<fieldset><legend>";
             $output .= sprintf(
                 __('Execution results of routine %s'),
-                PMA\libraries\Util::backquote(htmlspecialchars($routine['item_name']))
+                PhpMyAdmin\Util::backquote(htmlspecialchars($routine['item_name']))
             );
             $output .= "</legend>";
 
@@ -1507,7 +1507,7 @@ function PMA_RTN_handleExecute()
         if ($routine !== false) {
             $form = PMA_RTN_getExecuteForm($routine);
             if ($response->isAjax()) {
-                $title = __("Execute routine") . " " . PMA\libraries\Util::backquote(
+                $title = __("Execute routine") . " " . PhpMyAdmin\Util::backquote(
                     htmlentities($_GET['item_name'], ENT_QUOTES)
                 );
                 $response->addJSON('message', $form);
@@ -1522,8 +1522,8 @@ function PMA_RTN_handleExecute()
             $message  = __('Error in processing request:') . ' ';
             $message .= sprintf(
                 PMA_RTE_getWord('not_found'),
-                htmlspecialchars(PMA\libraries\Util::backquote($_REQUEST['item_name'])),
-                htmlspecialchars(PMA\libraries\Util::backquote($db))
+                htmlspecialchars(PhpMyAdmin\Util::backquote($_REQUEST['item_name'])),
+                htmlspecialchars(PhpMyAdmin\Util::backquote($db))
             );
             $message = Message::error($message);
 
@@ -1587,7 +1587,7 @@ function PMA_RTN_getExecuteForm($routine)
     $retval .= "       value='{$routine['item_name']}' />\n";
     $retval .= "<input type='hidden' name='item_type'\n";
     $retval .= "       value='{$routine['item_type']}' />\n";
-    $retval .= URL::getHiddenInputs($db) . "\n";
+    $retval .= Url::getHiddenInputs($db) . "\n";
     $retval .= "<fieldset>\n";
     if (! $response->isAjax()) {
         $retval .= "<legend>{$routine['item_name']}</legend>\n";
@@ -1608,7 +1608,7 @@ function PMA_RTN_getExecuteForm($routine)
     $retval .= "<th>" . __('Value')    . "</th>\n";
     $retval .= "</tr>\n";
     // Get a list of data types that are not yet supported.
-    $no_support_types = PMA\libraries\Util::unsupportedDatatypes();
+    $no_support_types = PhpMyAdmin\Util::unsupportedDatatypes();
     for ($i = 0; $i < $routine['item_num_params']; $i++) { // Each parameter
         if ($routine['item_type'] == 'PROCEDURE'
             && $routine['item_param_dir'][$i] == 'OUT'
@@ -1641,7 +1641,7 @@ function PMA_RTN_getExecuteForm($routine)
                 );
                 $retval .= "<select name='funcs["
                     . $routine['item_param_name'][$i] . "]'>";
-                $retval .= PMA\libraries\Util::getFunctionsForField($field, false, array());
+                $retval .= PhpMyAdmin\Util::getFunctionsForField($field, false, array());
                 $retval .= "</select>";
             }
             $retval .= "</td>\n";
@@ -1664,7 +1664,7 @@ function PMA_RTN_getExecuteForm($routine)
                 $input_type = 'checkbox';
             }
             foreach ($routine['item_param_length_arr'][$i] as $value) {
-                $value = htmlentities(PMA\libraries\Util::unquote($value), ENT_QUOTES);
+                $value = htmlentities(PhpMyAdmin\Util::unquote($value), ENT_QUOTES);
                 $retval .= "<input name='params["
                     . $routine['item_param_name'][$i] . "][]' "
                     . "value='" . $value . "' type='"

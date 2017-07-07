@@ -64,7 +64,7 @@
                     $GLOBALS['PMD_URL']["TABLE_NAME_SMALL"][$i],
                     urlencode($tab_column[$t_n]["COLUMN_NAME"][$j])
                 );
-                if (!PMA\libraries\Util::isForeignKeySupported($GLOBALS['PMD']['TABLE_TYPE'][$i])) {
+                if (!PhpMyAdmin\Util::isForeignKeySupported($GLOBALS['PMD']['TABLE_TYPE'][$i])) {
                     $click_field_param[] = isset($tables_pk_or_unique_keys[$tmpColumn]) ? 1 : 0;
                 } else {
                     // if foreign keys are supported, it's not necessary that the

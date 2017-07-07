@@ -12,9 +12,9 @@ use PhpMyAdmin\Encoding;
 use PhpMyAdmin\Message;
 use PMA\libraries\plugins\ExportPlugin;
 use PhpMyAdmin\Response;
-use PMA\libraries\Table;
-use PMA\libraries\Template;
-use PMA\libraries\URL;
+use PhpMyAdmin\Table;
+use PhpMyAdmin\Template;
+use PhpMyAdmin\Url;
 
 /**
  * Outputs appropriate checked statement for checkbox.
@@ -113,11 +113,11 @@ function PMA_getHtmlForHiddenInput(
     global $cfg;
     $html = "";
     if ($export_type == 'server') {
-        $html .= URL::getHiddenInputs('', '', 1);
+        $html .= Url::getHiddenInputs('', '', 1);
     } elseif ($export_type == 'database') {
-        $html .= URL::getHiddenInputs($db, '', 1);
+        $html .= Url::getHiddenInputs($db, '', 1);
     } else {
-        $html .= URL::getHiddenInputs($db, $table, 1);
+        $html .= Url::getHiddenInputs($db, $table, 1);
     }
 
     // just to keep this value for possible next display of this form after saving
@@ -171,7 +171,7 @@ function PMA_getHtmlForExportOptionHeader($export_type, $db, $table)
 {
     $html  = '<div class="exportoptions" id="header">';
     $html .= '<h2>';
-    $html .= PMA\libraries\Util::getImage('b_export.png', __('Export'));
+    $html .= PhpMyAdmin\Util::getImage('b_export.png', __('Export'));
     if ($export_type == 'server') {
         $html .= __('Exporting databases from the current server');
     } elseif ($export_type == 'database') {
@@ -252,8 +252,8 @@ function PMA_getOptionsForExportTemplates($export_type)
     $cfgRelation = PMA_getRelationsParam();
 
     $query = "SELECT `id`, `template_name` FROM "
-       . PMA\libraries\Util::backquote($cfgRelation['db']) . '.'
-       . PMA\libraries\Util::backquote($cfgRelation['export_templates'])
+       . PhpMyAdmin\Util::backquote($cfgRelation['db']) . '.'
+       . PhpMyAdmin\Util::backquote($cfgRelation['export_templates'])
        . " WHERE `username` = "
        . "'" . $GLOBALS['dbi']->escapeString($GLOBALS['cfg']['Server']['user'])
         . "' AND `export_type` = '" . $GLOBALS['dbi']->escapeString($export_type) . "'"
@@ -397,7 +397,7 @@ function PMA_getHtmlForExportOptionsFormat($export_list)
 
     $html .= '<div class="exportoptions" id="submit">';
 
-    $html .= PMA\libraries\Util::getExternalBug(
+    $html .= PhpMyAdmin\Util::getExternalBug(
         __('SQL compatibility mode'), 'mysql', '50027', '14515'
     );
     global $cfg;
@@ -493,7 +493,7 @@ function PMA_getHtmlForExportOptionsQuickExport()
     $html .= '<label for="checkbox_quick_dump_onserver">';
     $html .= sprintf(
         __('Save on server in the directory <b>%s</b>'),
-        htmlspecialchars(PMA\libraries\Util::userDir($cfg['SaveDir']))
+        htmlspecialchars(PhpMyAdmin\Util::userDir($cfg['SaveDir']))
     );
     $html .= '</label>';
     $html .= '</li>';
@@ -528,7 +528,7 @@ function PMA_getHtmlForExportOptionsOutputSaveDir()
     $html .= '<label for="checkbox_dump_onserver">';
     $html .= sprintf(
         __('Save on server in the directory <b>%s</b>'),
-        htmlspecialchars(PMA\libraries\Util::userDir($cfg['SaveDir']))
+        htmlspecialchars(PhpMyAdmin\Util::userDir($cfg['SaveDir']))
     );
     $html .= '</label>';
     $html .= '</li>';
@@ -581,13 +581,13 @@ function PMA_getHtmlForExportOptionsOutputFormat($export_type)
     );
     $msg->addParamHtml('</a>');
     $msg->addParam($trans);
-    $doc_url = PMA\libraries\Util::getDocuLink('faq', 'faq6-27');
+    $doc_url = PhpMyAdmin\Util::getDocuLink('faq', 'faq6-27');
     $msg->addParamHtml(
         '<a href="' . $doc_url . '" target="documentation">'
     );
     $msg->addParamHtml('</a>');
 
-    $html .= PMA\libraries\Util::showHint($msg);
+    $html .= PhpMyAdmin\Util::showHint($msg);
     $html .= '</label>';
     $html .= '<input type="text" name="filename_template" id="filename_template" ';
     $html .= ' value="';
@@ -1065,8 +1065,8 @@ function PMA_handleExportTemplateActions($cfgRelation)
         $id = '';
     }
 
-    $templateTable = PMA\libraries\Util::backquote($cfgRelation['db']) . '.'
-       . PMA\libraries\Util::backquote($cfgRelation['export_templates']);
+    $templateTable = PhpMyAdmin\Util::backquote($cfgRelation['db']) . '.'
+       . PhpMyAdmin\Util::backquote($cfgRelation['export_templates']);
     $user = $GLOBALS['dbi']->escapeString($GLOBALS['cfg']['Server']['user']);
 
     switch ($_REQUEST['templateAction']) {

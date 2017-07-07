@@ -10,7 +10,7 @@
                 ?  'checked="checked"' : ''); ?>
             <?php $formatted_priv = PMA_formatPrivilege($priv, true);?>
             <?=
-                PMA\libraries\Template::get('privileges/global_priv_tbl_item')->render(
+                PhpMyAdmin\Template::get('privileges/global_priv_tbl_item')->render(
                     array(
                         'checked'        => $checked,
                         'formatted_priv' => $formatted_priv,

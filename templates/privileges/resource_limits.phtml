@@ -7,7 +7,7 @@
     </p>
     <?php foreach ($limits as $limit) : ?>
         <?=
-            PMA\libraries\Template::get('privileges/resource_limit_item')->render(
+            PhpMyAdmin\Template::get('privileges/resource_limit_item')->render(
                 array('limit' => $limit)
             );
         ?>

@@ -9,7 +9,7 @@ namespace PMA\libraries\plugins;
 
 use PhpMyAdmin\Core;
 use PhpMyAdmin\Sanitize;
-use PMA\libraries\URL;
+use PhpMyAdmin\Url;
 
 /**
  * Provides a common interface that will have to be implemented by all of the
@@ -103,7 +103,7 @@ abstract class AuthenticationPlugin
             /* Redirect to other autenticated server */
             $_SESSION['partial_logout'] = true;
             Core::sendHeaderLocation(
-                './index.php' . URL::getCommonRaw(array('server' => $server))
+                './index.php' . Url::getCommonRaw(array('server' => $server))
             );
         }
     }

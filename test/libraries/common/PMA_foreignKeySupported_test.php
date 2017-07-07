@@ -47,7 +47,7 @@ class PMA_IsForeignKeySupportedTest extends PHPUnit_Framework_TestCase
     public function testForeignkeySupported($a, $e)
     {
         $this->assertEquals(
-            $e, PMA\libraries\Util::isForeignKeySupported($a)
+            $e, PhpMyAdmin\Util::isForeignKeySupported($a)
         );
     }
 }

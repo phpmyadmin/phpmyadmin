@@ -7,7 +7,7 @@
  */
 
 use PhpMyAdmin\Core;
-use PMA\libraries\ThemeManager;
+use PhpMyAdmin\ThemeManager;
 use PhpMyAdmin\Response;
 
 /**

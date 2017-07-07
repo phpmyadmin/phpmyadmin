@@ -10,7 +10,7 @@
  * since 'check_user_privileges.lib.php' will use it globally
  */
 use PMA\libraries\plugins\import\ImportCsv;
-use PMA\libraries\Theme;
+use PhpMyAdmin\Theme;
 use PhpMyAdmin\File;
 
 $GLOBALS['server'] = 0;

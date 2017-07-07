@@ -16,8 +16,8 @@ use PMA\libraries\navigation\Navigation;
 use PhpMyAdmin\RecentFavoriteTable;
 use PhpMyAdmin\Sanitize;
 use PhpMyAdmin\Scripts;
-use PMA\libraries\URL;
-use PMA\libraries\Util;
+use PhpMyAdmin\Url;
+use PhpMyAdmin\Util;
 
 /**
  * Class used to output the HTTP and HTML headers
@@ -225,7 +225,7 @@ class Header
         }
 
         $params = array(
-            'common_query' => URL::getCommonRaw(),
+            'common_query' => Url::getCommonRaw(),
             'opendb_url' => Util::getScriptNameForOption(
                 $GLOBALS['cfg']['DefaultTabDatabase'], 'database'
             ),

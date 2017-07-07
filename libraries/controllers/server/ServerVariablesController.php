@@ -12,9 +12,9 @@ namespace PMA\libraries\controllers\server;
 use PMA\libraries\controllers\Controller;
 use PhpMyAdmin\Message;
 use PhpMyAdmin\Response;
-use PMA\libraries\Template;
-use PMA\libraries\Util;
-use PMA\libraries\URL;
+use PhpMyAdmin\Template;
+use PhpMyAdmin\Util;
+use PhpMyAdmin\Url;
 
 /**
  * Handles viewing and editing server variables
@@ -275,7 +275,7 @@ class ServerVariablesController extends Controller
      */
     private function _getHtmlForLinkTemplates()
     {
-        $url = 'server_variables.php' . URL::getCommon();
+        $url = 'server_variables.php' . Url::getCommon();
         return Template::get('server/variables/link_template')
             ->render(array('url' => $url));
     }

@@ -1,27 +1,27 @@
 <?php
 /* vim: set expandtab sw=4 ts=4 sts=4: */
 /**
- * hold PMA\libraries\Template class
+ * hold PhpMyAdmin\Template class
  *
- * @package PMA\libraries
+ * @package PhpMyAdmin
  */
-namespace PMA\libraries;
+namespace PhpMyAdmin;
 
-use Twig_Environment;
-use Twig_Loader_Filesystem;
 use PMA\libraries\twig\CharsetsExtension;
 use PMA\libraries\twig\I18nExtension;
 use PMA\libraries\twig\MessageExtension;
 use PMA\libraries\twig\SanitizeExtension;
 use PMA\libraries\twig\UrlExtension;
 use PMA\libraries\twig\UtilExtension;
+use Twig_Environment;
+use Twig_Loader_Filesystem;
 
 /**
  * Class Template
  *
  * Handle front end templating
  *
- * @package PMA\libraries
+ * @package PhpMyAdmin
  */
 class Template
 {

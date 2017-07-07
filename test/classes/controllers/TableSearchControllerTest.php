@@ -11,8 +11,8 @@
  */
 use PMA\libraries\controllers\table\TableSearchController;
 use PMA\libraries\di\Container;
-use PMA\libraries\Theme;
-use PMA\libraries\TypesMySQL;
+use PhpMyAdmin\Theme;
+use PhpMyAdmin\TypesMySQL;
 
 require_once 'test/libraries/stubs/ResponseStub.php';
 require_once 'test/PMATestCase.php';
@@ -265,7 +265,7 @@ class TableSearchControllerTest extends PMATestCase
      */
     public function testGenerateWhereClause()
     {
-        $types = $this->getMockBuilder('PMA\libraries\Types')
+        $types = $this->getMockBuilder('PhpMyAdmin\Types')
             ->disableOriginalConstructor()
             ->getMock();
         $types->expects($this->any())->method('isUnaryOperator')

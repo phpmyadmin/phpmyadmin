@@ -9,7 +9,7 @@
 use PMA\libraries\config\ConfigFile;
 use PMA\libraries\config\FormDisplay;
 use PhpMyAdmin\Core;
-use PMA\libraries\URL;
+use PhpMyAdmin\Url;
 
 if (!defined('PHPMYADMIN')) {
     exit;
@@ -35,7 +35,7 @@ if ($mode == 'edit' && $server_exists) {
         . ' <small>(' . htmlspecialchars($cf->getServerDSN($id)) . ')</small>';
 } elseif ($mode == 'remove' && $server_exists) {
     $cf->removeServer($id);
-    header('Location: index.php' . URL::getCommonRaw());
+    header('Location: index.php' . Url::getCommonRaw());
     exit;
 } elseif ($mode == 'revert' && $server_exists) {
     // handled by process_formset()

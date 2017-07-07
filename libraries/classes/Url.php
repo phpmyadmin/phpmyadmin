@@ -5,14 +5,14 @@
  *
  * @package PhpMyAdmin
  */
-namespace PMA\libraries;
+namespace PhpMyAdmin;
 
 /**
  * Static methods for URL/hidden inputs generating
  *
  * @package PhpMyAdmin
  */
-class URL
+class Url
 {
     /**
      * Generates text with hidden inputs.
@@ -24,7 +24,7 @@ class URL
      * @param string|array $skip   do not generate a hidden field for this parameter
      *                             (can be an array of strings)
      *
-     * @see URL::getCommon()
+     * @see Url::getCommon()
      *
      * @return string   string with input fields
      *
@@ -75,7 +75,7 @@ class URL
             }
         }
 
-        return URL::getHiddenFields($params);
+        return Url::getHiddenFields($params);
     }
 
     /**
@@ -93,7 +93,7 @@ class URL
      *          'b' => 'ccc_b',
      *     ),
      * );
-     * echo URL::getHiddenFields($values);
+     * echo Url::getHiddenFields($values);
      *
      * // produces:
      * <input type="hidden" name="aaa" Value="aaa" />
@@ -123,10 +123,10 @@ class URL
             }
 
             if (is_array($value)) {
-                $fields .= URL::getHiddenFields($value, $name);
+                $fields .= Url::getHiddenFields($value, $name);
             } else {
                 // do not generate an ending "\n" because
-                // URL::getHiddenInputs() is sometimes called
+                // Url::getHiddenInputs() is sometimes called
                 // from a JS document.write()
                 $fields .= '<input type="hidden" name="' . htmlspecialchars($name)
                     . '" value="' . htmlspecialchars($value) . '" />';
@@ -144,7 +144,7 @@ class URL
      * $params['db']      = 'mysql';
      * $params['table']   = 'rights';
      * // note the missing ?
-     * echo 'script.php' . URL::getCommon($params);
+     * echo 'script.php' . Url::getCommon($params);
      * // produces with cookies enabled:
      * // script.php?myparam=myvalue&amp;db=mysql&amp;table=rights
      * // with cookies disabled:
@@ -152,7 +152,7 @@ class URL
      * // &amp;table=rights
      *
      * // note the missing ?
-     * echo 'script.php' . URL::getCommon();
+     * echo 'script.php' . Url::getCommon();
      * // produces with cookies enabled:
      * // script.php
      * // with cookies disabled:
@@ -168,7 +168,7 @@ class URL
     public static function getCommon($params = array(), $divider = '?')
     {
         return htmlspecialchars(
-            URL::getCommonRaw($params, $divider)
+            Url::getCommonRaw($params, $divider)
         );
     }
 
@@ -180,7 +180,7 @@ class URL
      * $params['db']      = 'mysql';
      * $params['table']   = 'rights';
      * // note the missing ?
-     * echo 'script.php' . URL::getCommon($params);
+     * echo 'script.php' . Url::getCommon($params);
      * // produces with cookies enabled:
      * // script.php?myparam=myvalue&amp;db=mysql&amp;table=rights
      * // with cookies disabled:
@@ -188,7 +188,7 @@ class URL
      * // &amp;table=rights
      *
      * // note the missing ?
-     * echo 'script.php' . URL::getCommon();
+     * echo 'script.php' . Url::getCommon();
      * // produces with cookies enabled:
      * // script.php
      * // with cookies disabled:
@@ -203,7 +203,7 @@ class URL
      */
     public static function getCommonRaw($params = array(), $divider = '?')
     {
-        $separator = URL::getArgSeparator();
+        $separator = Url::getArgSeparator();
 
         // avoid overwriting when creating navi panel links to servers
         if (isset($GLOBALS['server'])
@@ -275,6 +275,3 @@ class URL
         }
     }
 }
-
-
-

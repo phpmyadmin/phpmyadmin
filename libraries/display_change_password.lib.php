@@ -6,7 +6,7 @@
  * @package PhpMyAdmin
  */
 use PhpMyAdmin\Message;
-use PMA\libraries\URL;
+use PhpMyAdmin\Url;
 
 /**
   * Get HTML for the Change password dialog
@@ -33,7 +33,7 @@ function PMA_getHtmlForChangePassword($mode, $username, $hostname)
         . 'name="chgPassword" '
         . 'class="' . ($is_privileges ? 'submenu-item' : '') . '">';
 
-    $html .= URL::getHiddenInputs();
+    $html .= Url::getHiddenInputs();
 
     if (strpos($GLOBALS['PMA_PHP_SELF'], 'server_privileges') !== false) {
         $html .= '<input type="hidden" name="username" '
@@ -79,7 +79,7 @@ function PMA_getHtmlForChangePassword($mode, $username, $hostname)
         . '</td>'
         . '</tr>';
 
-    $serverType = PMA\libraries\Util::getServerType();
+    $serverType = PhpMyAdmin\Util::getServerType();
     $orig_auth_plugin = PMA_getCurrentAuthenticationPlugin(
         'change',
         $username,
@@ -120,7 +120,7 @@ function PMA_getHtmlForChangePassword($mode, $username, $hostname)
                         . 'or an \'<i>unencrypted connection that encrypts the '
                         . 'password using RSA</i>\'; while connecting to the server.'
                     )
-                    . PMA\libraries\Util::showMySQLDocu(
+                    . PhpMyAdmin\Util::showMySQLDocu(
                         'sha256-authentication-plugin'
                     )
                 )

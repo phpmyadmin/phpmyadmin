@@ -9,8 +9,8 @@
 /*
  * Include to test.
  */
-use PMA\libraries\Theme;
-use PMA\libraries\URL;
+use PhpMyAdmin\Theme;
+use PhpMyAdmin\Url;
 
 require_once 'libraries/tracking.lib.php';
 
@@ -179,7 +179,7 @@ class PMA_TblTrackingTest extends PHPUnit_Framework_TestCase
         );
 
         $this->assertContains(
-            URL::getHiddenInputs($GLOBALS['db']),
+            Url::getHiddenInputs($GLOBALS['db']),
             $html
         );
 
@@ -631,7 +631,7 @@ class PMA_TblTrackingTest extends PHPUnit_Framework_TestCase
         );
 
         $version = '<form method="post" action="tbl_tracking.php'
-            . URL::getCommon(
+            . Url::getCommon(
                 $url_params + array(
                     'report' => 'true', 'version' => $_REQUEST['version']
                 )

@@ -7,7 +7,7 @@
  */
 
 use PMA\libraries\plugins\auth\AuthenticationCookie;
-use PMA\libraries\Theme;
+use PhpMyAdmin\Theme;
 
 $GLOBALS['PMA_Config'] = new PhpMyAdmin\Config();
 

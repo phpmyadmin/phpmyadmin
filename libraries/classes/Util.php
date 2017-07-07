@@ -1,11 +1,11 @@
 <?php
 /* vim: set expandtab sw=4 ts=4 sts=4: */
 /**
- * Hold the PMA\libraries\Util class
+ * Hold the PhpMyAdmin\Util class
  *
  * @package PhpMyAdmin
  */
-namespace PMA\libraries;
+namespace PhpMyAdmin;
 
 use PhpMyAdmin\Core;
 use PhpMyAdmin\DatabaseInterface;
@@ -18,8 +18,8 @@ use PhpMyAdmin\SqlParser\Lexer;
 use PhpMyAdmin\SqlParser\Parser;
 use PhpMyAdmin\SqlParser\Token;
 use PhpMyAdmin\SqlParser\Utils\Error as ParserError;
-use PMA\libraries\Template;
-use PMA\libraries\URL;
+use PhpMyAdmin\Template;
+use PhpMyAdmin\Url;
 use stdClass;
 
 if (! defined('PHPMYADMIN')) {
@@ -609,14 +609,14 @@ class Util
                     $_url_params['db'] = $db;
                     $_url_params['table'] = $table;
                     $doedit_goto = '<a href="tbl_sql.php'
-                        . URL::getCommon($_url_params) . '">';
+                        . Url::getCommon($_url_params) . '">';
                 } elseif (strlen($db) > 0) {
                     $_url_params['db'] = $db;
                     $doedit_goto = '<a href="db_sql.php'
-                        . URL::getCommon($_url_params) . '">';
+                        . Url::getCommon($_url_params) . '">';
                 } else {
                     $doedit_goto = '<a href="server_sql.php'
-                        . URL::getCommon($_url_params) . '">';
+                        . Url::getCommon($_url_params) . '">';
                 }
 
                 $error_msg .= $doedit_goto
@@ -1068,7 +1068,7 @@ class Util
                     $explain_params['sql_query'] = 'EXPLAIN ' . $sql_query;
                     $explain_link = ' ['
                         . self::linkOrButton(
-                            'import.php' . URL::getCommon($explain_params),
+                            'import.php' . Url::getCommon($explain_params),
                             __('Explain SQL')
                         ) . ']';
                 } elseif (preg_match(
@@ -1079,7 +1079,7 @@ class Util
                         = mb_substr($sql_query, 8);
                     $explain_link = ' ['
                         . self::linkOrButton(
-                            'import.php' . URL::getCommon($explain_params),
+                            'import.php' . Url::getCommon($explain_params),
                             __('Skip Explain SQL')
                         ) . ']';
                     $url = 'https://mariadb.org/explain_analyzer/analyze/'
@@ -1105,7 +1105,7 @@ class Util
             if (! empty($cfg['SQLQuery']['Edit'])
                 && empty($GLOBALS['show_as_php'])
             ) {
-                $edit_link .= URL::getCommon($url_params) . '#querybox';
+                $edit_link .= Url::getCommon($url_params) . '#querybox';
                 $edit_link = ' ['
                     . self::linkOrButton($edit_link, __('Edit'))
                     . ']';
@@ -1120,7 +1120,7 @@ class Util
                 if (! empty($GLOBALS['show_as_php'])) {
                     $php_link = ' ['
                         . self::linkOrButton(
-                            'import.php' . URL::getCommon($url_params),
+                            'import.php' . Url::getCommon($url_params),
                             __('Without PHP code'),
                             array(),
                             true,
@@ -1132,7 +1132,7 @@ class Util
 
                     $php_link .= ' ['
                         . self::linkOrButton(
-                            'import.php' . URL::getCommon($url_params),
+                            'import.php' . Url::getCommon($url_params),
                             __('Submit query'),
                             array(),
                             true,
@@ -1147,7 +1147,7 @@ class Util
                     $_message = __('Create PHP code');
                     $php_link = ' ['
                         . self::linkOrButton(
-                            'import.php' . URL::getCommon($php_params),
+                            'import.php' . Url::getCommon($php_params),
                             $_message
                         )
                         . ']';
@@ -1161,7 +1161,7 @@ class Util
                 && ! isset($GLOBALS['show_as_php']) // 'Submit query' does the same
                 && preg_match('@^(SELECT|SHOW)[[:space:]]+@i', $sql_query)
             ) {
-                $refresh_link = 'import.php' . URL::getCommon($url_params);
+                $refresh_link = 'import.php' . Url::getCommon($url_params);
                 $refresh_link = ' ['
                     . self::linkOrButton($refresh_link, __('Refresh')) . ']';
             } else {
@@ -1174,7 +1174,7 @@ class Util
 
             $retval .= '<div class="tools print_ignore">';
             $retval .= '<form action="sql.php" method="post">';
-            $retval .= URL::getHiddenInputs($GLOBALS['db'], $GLOBALS['table']);
+            $retval .= Url::getHiddenInputs($GLOBALS['db'], $GLOBALS['table']);
             $retval .= '<input type="hidden" name="sql_query" value="'
                 . htmlspecialchars($sql_query) . '" />';
 
@@ -1648,7 +1648,7 @@ class Util
             if (! empty($tab['args']) && is_array($tab['args'])) {
                 $url_params = array_merge($url_params, $tab['args']);
             }
-            $tab['link'] = htmlentities($tab['link']) . URL::getCommon($url_params);
+            $tab['link'] = htmlentities($tab['link']) . Url::getCommon($url_params);
         }
 
         if (! empty($tab['fragment'])) {
@@ -1843,7 +1843,7 @@ class Util
                 }
                 $ret = '<form action="' . $url_parts['path'] . '" class="link"'
                      . ' method="post"' . $target . ' style="display: inline;">';
-                $ret .= URL::getHiddenInputs();
+                $ret .= Url::getHiddenInputs();
                 $subname_open   = '';
                 $subname_close  = '';
                 $submit_link    = '#';
@@ -1904,7 +1904,7 @@ class Util
     public static function splitURLQuery($url)
     {
         // decode encoded url separators
-        $separator = URL::getArgSeparator();
+        $separator = Url::getArgSeparator();
         // on most places separator is still hard coded ...
         if ($separator !== '&') {
             // ... so always replace & with $separator
@@ -2413,19 +2413,19 @@ class Util
 
                 $_url_params[$name] = 0;
                 $list_navigator_html .= '<a' . $class . $title1 . ' href="' . $script
-                    . URL::getCommon($_url_params) . '">' . $caption1
+                    . Url::getCommon($_url_params) . '">' . $caption1
                     . '</a>';
 
                 $_url_params[$name] = $pos - $max_count;
                 $list_navigator_html .= ' <a' . $class . $title2
-                    . ' href="' . $script . URL::getCommon($_url_params) . '">'
+                    . ' href="' . $script . Url::getCommon($_url_params) . '">'
                     . $caption2 . '</a>';
             }
 
             $list_navigator_html .= '<form action="' . basename($script)
                 . '" method="post">';
 
-            $list_navigator_html .= URL::getHiddenInputs($_url_params);
+            $list_navigator_html .= Url::getHiddenInputs($_url_params);
             $list_navigator_html .= self::pageselector(
                 $name,
                 $max_count,
@@ -2452,7 +2452,7 @@ class Util
 
                 $_url_params[$name] = $pos + $max_count;
                 $list_navigator_html .= '<a' . $class . $title3 . ' href="' . $script
-                    . URL::getCommon($_url_params) . '" >' . $caption3
+                    . Url::getCommon($_url_params) . '" >' . $caption3
                     . '</a>';
 
                 $_url_params[$name] = floor($count / $max_count) * $max_count;
@@ -2461,7 +2461,7 @@ class Util
                 }
 
                 $list_navigator_html .= ' <a' . $class . $title4
-                    . ' href="' . $script . URL::getCommon($_url_params) . '" >'
+                    . ' href="' . $script . Url::getCommon($_url_params) . '" >'
                     . $caption4 . '</a>';
             }
             $list_navigator_html .= '</div>' . "\n";
@@ -2515,7 +2515,7 @@ class Util
             . self::getScriptNameForOption(
                 $GLOBALS['cfg']['DefaultTabDatabase'], 'database'
             )
-            . URL::getCommon(array('db' => $database)) . '" title="'
+            . Url::getCommon(array('db' => $database)) . '" title="'
             . htmlspecialchars(
                 sprintf(
                     __('Jump to database “%s”.'),
@@ -4734,7 +4734,7 @@ class Util
          *
          * See https://letsencrypt.org/certificates/
          */
-        $certs_dir = dirname(__file__) . '/certs/';
+        $certs_dir = dirname(__file__) . '/../certs/';
         /* See code below for logic */
         if ($ssl == CURLOPT_CAPATH) {
             $curl_status &= curl_setopt($curl_handle, CURLOPT_CAPATH, $certs_dir);

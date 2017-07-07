@@ -8,7 +8,7 @@
 namespace PMA\libraries\engines;
 
 use PhpMyAdmin\StorageEngine;
-use PMA\libraries\Util;
+use PhpMyAdmin\Util;
 
 /**
  * The InnoDB storage engine

@@ -15,8 +15,8 @@
 use PhpMyAdmin\Core;
 use PMA\libraries\plugins\IOTransformationsPlugin;
 use PhpMyAdmin\Response;
-use PMA\libraries\Table;
-use PMA\libraries\Transformations;
+use PhpMyAdmin\Table;
+use PhpMyAdmin\Transformations;
 
 /**
  * Gets some core libraries
@@ -29,7 +29,7 @@ require_once 'libraries/common.inc.php';
 require_once 'libraries/insert_edit.lib.php';
 
 // Check parameters
-PMA\libraries\Util::checkParameters(array('db', 'table', 'goto'));
+PhpMyAdmin\Util::checkParameters(array('db', 'table', 'goto'));
 
 $GLOBALS['dbi']->selectDb($GLOBALS['db']);
 
@@ -291,7 +291,7 @@ foreach ($loop_array as $rownumber => $where_clause) {
             $value_sets[] = implode(', ', $query_values);
         } else {
             // build update query
-            $query[] = 'UPDATE ' . PMA\libraries\Util::backquote($GLOBALS['table'])
+            $query[] = 'UPDATE ' . PhpMyAdmin\Util::backquote($GLOBALS['table'])
                 . ' SET ' . implode(', ', $query_values)
                 . ' WHERE ' . $where_clause
                 . ($_REQUEST['clause_is_unique'] ? '' : ' LIMIT 1');
@@ -445,7 +445,7 @@ if ($response->isAjax() && ! isset($_POST['ajax_page_request'])) {
     $extra_data['row_count'] = $_table->countRecords();
 
     $extra_data['sql_query']
-        = PMA\libraries\Util::getMessage($message, $GLOBALS['display_query']);
+        = PhpMyAdmin\Util::getMessage($message, $GLOBALS['display_query']);
 
     $response->setRequestStatus($message->isSuccess());
     $response->addJSON('message', $message);

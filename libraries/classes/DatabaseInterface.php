@@ -13,10 +13,10 @@ use PhpMyAdmin\Error;
 use PhpMyAdmin\Index;
 use PhpMyAdmin\LanguageManager;
 use PhpMyAdmin\SystemDatabase;
-use PMA\libraries\Table;
-use PMA\libraries\Tracker;
-use PMA\libraries\URL;
-use PMA\libraries\Util;
+use PhpMyAdmin\Table;
+use PhpMyAdmin\Tracker;
+use PhpMyAdmin\Url;
+use PhpMyAdmin\Util;
 
 require_once './libraries/util.lib.php';
 
@@ -2046,7 +2046,7 @@ class DatabaseInterface
             $error .= $separator . __('The server is not responding.');
         } elseif ($error_number == 1698 ) {
             $error .= ' - ' . $error_message;
-            $error .= $separator . '<a href="logout.php' . URL::getCommon() . '">';
+            $error .= $separator . '<a href="logout.php' . Url::getCommon() . '">';
             $error .= __('Logout and try as another user.') . '</a>';
         } elseif ($error_number == 1005) {
             if (strpos($error_message, 'errno: 13') !== false) {
@@ -2062,7 +2062,7 @@ class DatabaseInterface
                  */
                 $error .= ' - ' . $error_message .
                     ' (<a href="server_engines.php' .
-                    URL::getCommon(
+                    Url::getCommon(
                         array('engine' => 'InnoDB', 'page' => 'Status')
                     ) . '">' . __('Details…') . '</a>)';
             }

@@ -1,7 +1,7 @@
 <?php
 /* vim: set expandtab sw=4 ts=4 sts=4: */
 /**
- ** Test for PMA\libraries\Util::containsNonPrintableAscii from common.lib
+ ** Test for PhpMyAdmin\Util::containsNonPrintableAscii from common.lib
  *
  * @package PhpMyAdmin-test
  * @group common.lib-tests
@@ -13,7 +13,7 @@
 
 
 /**
- ** Test for PMA\libraries\Util::containsNonPrintableAscii from common.lib
+ ** Test for PhpMyAdmin\Util::containsNonPrintableAscii from common.lib
  *
  * @package PhpMyAdmin-test
  * @group common.lib-tests
@@ -49,7 +49,7 @@ class PMA_ContainsNonPrintableAsciiTest extends PHPUnit_Framework_TestCase
     public function testContainsNonPrintableAscii($str, $res)
     {
         $this->assertEquals(
-            $res, PMA\libraries\Util::containsNonPrintableAscii($str)
+            $res, PhpMyAdmin\Util::containsNonPrintableAscii($str)
         );
     }
 

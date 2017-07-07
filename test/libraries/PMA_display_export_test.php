@@ -7,8 +7,8 @@
  */
 
 use PhpMyAdmin\Core;
-use PMA\libraries\Theme;
-use PMA\libraries\URL;
+use PhpMyAdmin\Theme;
+use PhpMyAdmin\Url;
 
 require_once 'libraries/display_export.lib.php';
 require_once 'libraries/database_interface.inc.php';
@@ -91,7 +91,7 @@ class PMA_DisplayExport_Test extends PHPUnit_Framework_TestCase
             $sql_query_str
         );
 
-        //validate 1: URL::getHiddenInputs
+        //validate 1: Url::getHiddenInputs
         //$single_table
         $this->assertContains(
             '<input type="hidden" name="single_table" value="TRUE"',
@@ -203,7 +203,7 @@ class PMA_DisplayExport_Test extends PHPUnit_Framework_TestCase
             '<input type="checkbox" name="onserver" value="saveit" ',
             $html
         );
-        $dir = htmlspecialchars(PMA\libraries\Util::userDir($cfg['SaveDir']));
+        $dir = htmlspecialchars(PhpMyAdmin\Util::userDir($cfg['SaveDir']));
         $this->assertContains(
             'Save on server in the directory <b>' . $dir . '</b>',
             $html

@@ -12,9 +12,9 @@ namespace PMA\libraries\controllers\table;
 use PMA\libraries\controllers\TableController;
 use PhpMyAdmin\Core;
 use PhpMyAdmin\Message;
-use PMA\libraries\Template;
+use PhpMyAdmin\Template;
 use PMA\libraries\gis\GISVisualization;
-use PMA\libraries\URL;
+use PhpMyAdmin\Url;
 
 require_once 'libraries/common.inc.php';
 require_once 'libraries/db_common.inc.php';
@@ -187,7 +187,7 @@ class TableGisVisualizationController extends TableController
          * Displays the page
          */
         $this->url_params['sql_query'] = $this->sql_query;
-        $downloadUrl = 'tbl_gis_visualization.php' . URL::getCommon(
+        $downloadUrl = 'tbl_gis_visualization.php' . Url::getCommon(
             array_merge(
                 $this->url_params,
                 array(

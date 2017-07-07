@@ -11,8 +11,8 @@ namespace PMA\libraries\controllers\table;
 use PMA\libraries\controllers\TableController;
 use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Sql;
-use PMA\libraries\Template;
-use PMA\libraries\Util;
+use PhpMyAdmin\Template;
+use PhpMyAdmin\Util;
 
 /**
  * Class TableSearchController

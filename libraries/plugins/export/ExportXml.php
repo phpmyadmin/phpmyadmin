@@ -8,14 +8,14 @@
  */
 namespace PMA\libraries\plugins\export;
 
-use PMA\libraries\properties\options\items\BoolPropertyItem;
-use PMA\libraries\properties\plugins\ExportPluginProperties;
-use PMA\libraries\properties\options\items\HiddenPropertyItem;
-use PMA\libraries\properties\options\groups\OptionsPropertyMainGroup;
-use PMA\libraries\properties\options\groups\OptionsPropertyRootGroup;
 use PhpMyAdmin\DatabaseInterface;
 use PMA\libraries\plugins\ExportPlugin;
-use PMA\libraries\Util;
+use PMA\libraries\properties\plugins\ExportPluginProperties;
+use PMA\libraries\properties\options\groups\OptionsPropertyMainGroup;
+use PMA\libraries\properties\options\groups\OptionsPropertyRootGroup;
+use PMA\libraries\properties\options\items\BoolPropertyItem;
+use PMA\libraries\properties\options\items\HiddenPropertyItem;
+use PhpMyAdmin\Util;
 
 if (strlen($GLOBALS['db']) === 0) { /* Can't do server export */
     $GLOBALS['skip_import'] = true;

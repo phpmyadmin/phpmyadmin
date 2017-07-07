@@ -8,7 +8,6 @@
  */
 namespace PMA\libraries\plugins\transformations\output;
 
-use PMA;
 use PMA\libraries\plugins\TransformationsPlugin;
 use PhpMyAdmin\Response;
 

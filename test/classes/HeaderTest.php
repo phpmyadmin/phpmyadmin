@@ -9,7 +9,7 @@
 use PhpMyAdmin\Config;
 use PhpMyAdmin\Core;
 use PhpMyAdmin\Header;
-use PMA\libraries\Theme;
+use PhpMyAdmin\Theme;
 
 require_once 'libraries/database_interface.inc.php';
 require_once 'libraries/relation.lib.php';

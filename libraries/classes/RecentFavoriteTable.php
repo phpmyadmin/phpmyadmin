@@ -8,8 +8,8 @@
 namespace PhpMyAdmin;
 
 use PhpMyAdmin\Message;
-use PMA\libraries\URL;
-use PMA\libraries\Util;
+use PhpMyAdmin\Url;
+use PhpMyAdmin\Util;
 
 /**
  * Handles the recently used and favorite tables.
@@ -188,7 +188,7 @@ class RecentFavoriteTable
                         'table' => $table['table']
                     );
                     $recent_url = 'tbl_recent_favorite.php'
-                        . URL::getCommon($recent_params);
+                        . Url::getCommon($recent_params);
                     $html .= '<a href="' . $recent_url . '">`'
                           . htmlspecialchars($table['db']) . '`.`'
                           . htmlspecialchars($table['table']) . '`</a>';
@@ -206,7 +206,7 @@ class RecentFavoriteTable
                         'remove_favorite' => true
                     );
                     $fav_rm_url = 'db_structure.php'
-                        . URL::getCommon($fav_params);
+                        . Url::getCommon($fav_params);
                     $html .= 'href="' . $fav_rm_url
                         . '" title="' . __("Remove from Favorites")
                         . '" data-favtargetn="'
@@ -220,7 +220,7 @@ class RecentFavoriteTable
                         'table' => $table['table']
                     );
                     $table_url = 'tbl_recent_favorite.php'
-                        . URL::getCommon($fav_params);
+                        . Url::getCommon($fav_params);
                     $html .= '<a href="' . $table_url . '">`'
                         . htmlspecialchars($table['db']) . '`.`'
                         . htmlspecialchars($table['table']) . '`</a>';
@@ -353,7 +353,7 @@ class RecentFavoriteTable
         if ($cfgRelation['favoritework'] && ! isset($_SESSION['tmpval']['favorites_synced'][$server_id])) {
             $params  = array('ajax_request' => true, 'favorite_table' => true,
                 'sync_favorite_tables' => true);
-            $url     = 'db_structure.php' . URL::getCommon($params);
+            $url     = 'db_structure.php' . Url::getCommon($params);
             $retval  = '<a class="hide" id="sync_favorite_tables"';
             $retval .= ' href="' . $url . '"></a>';
         }
@@ -368,7 +368,7 @@ class RecentFavoriteTable
     public static function getHtmlUpdateRecentTables()
     {
         $params  = array('ajax_request' => true, 'recent_table' => true);
-        $url     = 'index.php' . URL::getCommon($params);
+        $url     = 'index.php' . Url::getCommon($params);
         $retval  = '<a class="hide" id="update_recent_tables"';
         $retval .= ' href="' . $url . '"></a>';
         return $retval;

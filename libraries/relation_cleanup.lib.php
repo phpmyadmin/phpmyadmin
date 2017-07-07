@@ -21,8 +21,8 @@ function PMA_relationsCleanupColumn($db, $table, $column)
 
     if ($cfgRelation['commwork']) {
         $remove_query = 'DELETE FROM '
-            . PMA\libraries\Util::backquote($cfgRelation['db'])
-            . '.' . PMA\libraries\Util::backquote($cfgRelation['column_info'])
+            . PhpMyAdmin\Util::backquote($cfgRelation['db'])
+            . '.' . PhpMyAdmin\Util::backquote($cfgRelation['column_info'])
             . ' WHERE db_name  = \'' . $GLOBALS['dbi']->escapeString($db) . '\''
             . ' AND table_name = \'' . $GLOBALS['dbi']->escapeString($table)
             . '\''
@@ -33,8 +33,8 @@ function PMA_relationsCleanupColumn($db, $table, $column)
 
     if ($cfgRelation['displaywork']) {
         $remove_query = 'DELETE FROM '
-            . PMA\libraries\Util::backquote($cfgRelation['db'])
-            . '.' . PMA\libraries\Util::backquote($cfgRelation['table_info'])
+            . PhpMyAdmin\Util::backquote($cfgRelation['db'])
+            . '.' . PhpMyAdmin\Util::backquote($cfgRelation['table_info'])
             . ' WHERE db_name  = \'' . $GLOBALS['dbi']->escapeString($db) . '\''
             . ' AND table_name = \'' . $GLOBALS['dbi']->escapeString($table)
             . '\''
@@ -45,8 +45,8 @@ function PMA_relationsCleanupColumn($db, $table, $column)
 
     if ($cfgRelation['relwork']) {
         $remove_query = 'DELETE FROM '
-            . PMA\libraries\Util::backquote($cfgRelation['db'])
-            . '.' . PMA\libraries\Util::backquote($cfgRelation['relation'])
+            . PhpMyAdmin\Util::backquote($cfgRelation['db'])
+            . '.' . PhpMyAdmin\Util::backquote($cfgRelation['relation'])
             . ' WHERE master_db  = \'' . $GLOBALS['dbi']->escapeString($db)
             . '\''
             . ' AND master_table = \'' . $GLOBALS['dbi']->escapeString($table)
@@ -56,8 +56,8 @@ function PMA_relationsCleanupColumn($db, $table, $column)
         PMA_queryAsControlUser($remove_query);
 
         $remove_query = 'DELETE FROM '
-            . PMA\libraries\Util::backquote($cfgRelation['db'])
-            . '.' . PMA\libraries\Util::backquote($cfgRelation['relation'])
+            . PhpMyAdmin\Util::backquote($cfgRelation['db'])
+            . '.' . PhpMyAdmin\Util::backquote($cfgRelation['relation'])
             . ' WHERE foreign_db  = \'' . $GLOBALS['dbi']->escapeString($db)
             . '\''
             . ' AND foreign_table = \'' . $GLOBALS['dbi']->escapeString($table)
@@ -82,8 +82,8 @@ function PMA_relationsCleanupTable($db, $table)
 
     if ($cfgRelation['commwork']) {
         $remove_query = 'DELETE FROM '
-            . PMA\libraries\Util::backquote($cfgRelation['db'])
-            . '.' . PMA\libraries\Util::backquote($cfgRelation['column_info'])
+            . PhpMyAdmin\Util::backquote($cfgRelation['db'])
+            . '.' . PhpMyAdmin\Util::backquote($cfgRelation['column_info'])
             . ' WHERE db_name  = \'' . $GLOBALS['dbi']->escapeString($db) . '\''
             . ' AND table_name = \'' . $GLOBALS['dbi']->escapeString($table)
             . '\'';
@@ -92,8 +92,8 @@ function PMA_relationsCleanupTable($db, $table)
 
     if ($cfgRelation['displaywork']) {
         $remove_query = 'DELETE FROM '
-            . PMA\libraries\Util::backquote($cfgRelation['db'])
-            . '.' . PMA\libraries\Util::backquote($cfgRelation['table_info'])
+            . PhpMyAdmin\Util::backquote($cfgRelation['db'])
+            . '.' . PhpMyAdmin\Util::backquote($cfgRelation['table_info'])
             . ' WHERE db_name  = \'' . $GLOBALS['dbi']->escapeString($db) . '\''
             . ' AND table_name = \'' . $GLOBALS['dbi']->escapeString($table)
             . '\'';
@@ -102,8 +102,8 @@ function PMA_relationsCleanupTable($db, $table)
 
     if ($cfgRelation['pdfwork']) {
         $remove_query = 'DELETE FROM '
-            . PMA\libraries\Util::backquote($cfgRelation['db'])
-            . '.' . PMA\libraries\Util::backquote($cfgRelation['table_coords'])
+            . PhpMyAdmin\Util::backquote($cfgRelation['db'])
+            . '.' . PhpMyAdmin\Util::backquote($cfgRelation['table_coords'])
             . ' WHERE db_name  = \'' . $GLOBALS['dbi']->escapeString($db) . '\''
             . ' AND table_name = \'' . $GLOBALS['dbi']->escapeString($table)
             . '\'';
@@ -112,8 +112,8 @@ function PMA_relationsCleanupTable($db, $table)
 
     if ($cfgRelation['relwork']) {
         $remove_query = 'DELETE FROM '
-            . PMA\libraries\Util::backquote($cfgRelation['db'])
-            . '.' . PMA\libraries\Util::backquote($cfgRelation['relation'])
+            . PhpMyAdmin\Util::backquote($cfgRelation['db'])
+            . '.' . PhpMyAdmin\Util::backquote($cfgRelation['relation'])
             . ' WHERE master_db  = \'' . $GLOBALS['dbi']->escapeString($db)
             . '\''
             . ' AND master_table = \'' . $GLOBALS['dbi']->escapeString($table)
@@ -121,8 +121,8 @@ function PMA_relationsCleanupTable($db, $table)
         PMA_queryAsControlUser($remove_query);
 
         $remove_query = 'DELETE FROM '
-            . PMA\libraries\Util::backquote($cfgRelation['db'])
-            . '.' . PMA\libraries\Util::backquote($cfgRelation['relation'])
+            . PhpMyAdmin\Util::backquote($cfgRelation['db'])
+            . '.' . PhpMyAdmin\Util::backquote($cfgRelation['relation'])
             . ' WHERE foreign_db  = \'' . $GLOBALS['dbi']->escapeString($db)
             . '\''
             . ' AND foreign_table = \'' . $GLOBALS['dbi']->escapeString($table)
@@ -132,8 +132,8 @@ function PMA_relationsCleanupTable($db, $table)
 
     if ($cfgRelation['uiprefswork']) {
         $remove_query = 'DELETE FROM '
-            . PMA\libraries\Util::backquote($cfgRelation['db'])
-            . '.' . PMA\libraries\Util::backquote($cfgRelation['table_uiprefs'])
+            . PhpMyAdmin\Util::backquote($cfgRelation['db'])
+            . '.' . PhpMyAdmin\Util::backquote($cfgRelation['table_uiprefs'])
             . ' WHERE db_name  = \'' . $GLOBALS['dbi']->escapeString($db) . '\''
             . ' AND table_name = \'' . $GLOBALS['dbi']->escapeString($table)
             . '\'';
@@ -142,8 +142,8 @@ function PMA_relationsCleanupTable($db, $table)
 
     if ($cfgRelation['navwork']) {
         $remove_query = 'DELETE FROM '
-            . PMA\libraries\Util::backquote($cfgRelation['db'])
-            . '.' . PMA\libraries\Util::backquote($cfgRelation['navigationhiding'])
+            . PhpMyAdmin\Util::backquote($cfgRelation['db'])
+            . '.' . PhpMyAdmin\Util::backquote($cfgRelation['navigationhiding'])
             . ' WHERE db_name  = \'' . $GLOBALS['dbi']->escapeString($db) . '\''
             . ' AND (table_name = \'' . $GLOBALS['dbi']->escapeString($table)
             . '\''
@@ -167,53 +167,53 @@ function PMA_relationsCleanupDatabase($db)
 
     if ($cfgRelation['commwork']) {
         $remove_query = 'DELETE FROM '
-            . PMA\libraries\Util::backquote($cfgRelation['db'])
-            . '.' . PMA\libraries\Util::backquote($cfgRelation['column_info'])
+            . PhpMyAdmin\Util::backquote($cfgRelation['db'])
+            . '.' . PhpMyAdmin\Util::backquote($cfgRelation['column_info'])
             . ' WHERE db_name  = \'' . $GLOBALS['dbi']->escapeString($db) . '\'';
         PMA_queryAsControlUser($remove_query);
     }
 
     if ($cfgRelation['bookmarkwork']) {
         $remove_query = 'DELETE FROM '
-            . PMA\libraries\Util::backquote($cfgRelation['db'])
-            . '.' . PMA\libraries\Util::backquote($cfgRelation['bookmark'])
+            . PhpMyAdmin\Util::backquote($cfgRelation['db'])
+            . '.' . PhpMyAdmin\Util::backquote($cfgRelation['bookmark'])
             . ' WHERE dbase  = \'' . $GLOBALS['dbi']->escapeString($db) . '\'';
         PMA_queryAsControlUser($remove_query);
     }
 
     if ($cfgRelation['displaywork']) {
         $remove_query = 'DELETE FROM '
-            . PMA\libraries\Util::backquote($cfgRelation['db'])
-            . '.' . PMA\libraries\Util::backquote($cfgRelation['table_info'])
+            . PhpMyAdmin\Util::backquote($cfgRelation['db'])
+            . '.' . PhpMyAdmin\Util::backquote($cfgRelation['table_info'])
             . ' WHERE db_name  = \'' . $GLOBALS['dbi']->escapeString($db) . '\'';
         PMA_queryAsControlUser($remove_query);
     }
 
     if ($cfgRelation['pdfwork']) {
         $remove_query = 'DELETE FROM '
-            . PMA\libraries\Util::backquote($cfgRelation['db'])
-            . '.' . PMA\libraries\Util::backquote($cfgRelation['pdf_pages'])
+            . PhpMyAdmin\Util::backquote($cfgRelation['db'])
+            . '.' . PhpMyAdmin\Util::backquote($cfgRelation['pdf_pages'])
             . ' WHERE db_name  = \'' . $GLOBALS['dbi']->escapeString($db) . '\'';
         PMA_queryAsControlUser($remove_query);
 
         $remove_query = 'DELETE FROM '
-            . PMA\libraries\Util::backquote($cfgRelation['db'])
-            . '.' . PMA\libraries\Util::backquote($cfgRelation['table_coords'])
+            . PhpMyAdmin\Util::backquote($cfgRelation['db'])
+            . '.' . PhpMyAdmin\Util::backquote($cfgRelation['table_coords'])
             . ' WHERE db_name  = \'' . $GLOBALS['dbi']->escapeString($db) . '\'';
         PMA_queryAsControlUser($remove_query);
     }
 
     if ($cfgRelation['relwork']) {
         $remove_query = 'DELETE FROM '
-            . PMA\libraries\Util::backquote($cfgRelation['db'])
-            . '.' . PMA\libraries\Util::backquote($cfgRelation['relation'])
+            . PhpMyAdmin\Util::backquote($cfgRelation['db'])
+            . '.' . PhpMyAdmin\Util::backquote($cfgRelation['relation'])
             . ' WHERE master_db  = \''
             . $GLOBALS['dbi']->escapeString($db) . '\'';
         PMA_queryAsControlUser($remove_query);
 
         $remove_query = 'DELETE FROM '
-            . PMA\libraries\Util::backquote($cfgRelation['db'])
-            . '.' . PMA\libraries\Util::backquote($cfgRelation['relation'])
+            . PhpMyAdmin\Util::backquote($cfgRelation['db'])
+            . '.' . PhpMyAdmin\Util::backquote($cfgRelation['relation'])
             . ' WHERE foreign_db  = \'' . $GLOBALS['dbi']->escapeString($db)
             . '\'';
         PMA_queryAsControlUser($remove_query);
@@ -221,32 +221,32 @@ function PMA_relationsCleanupDatabase($db)
 
     if ($cfgRelation['uiprefswork']) {
         $remove_query = 'DELETE FROM '
-            . PMA\libraries\Util::backquote($cfgRelation['db'])
-            . '.' . PMA\libraries\Util::backquote($cfgRelation['table_uiprefs'])
+            . PhpMyAdmin\Util::backquote($cfgRelation['db'])
+            . '.' . PhpMyAdmin\Util::backquote($cfgRelation['table_uiprefs'])
             . ' WHERE db_name  = \'' . $GLOBALS['dbi']->escapeString($db) . '\'';
         PMA_queryAsControlUser($remove_query);
     }
 
     if ($cfgRelation['navwork']) {
         $remove_query = 'DELETE FROM '
-            . PMA\libraries\Util::backquote($cfgRelation['db'])
-            . '.' . PMA\libraries\Util::backquote($cfgRelation['navigationhiding'])
+            . PhpMyAdmin\Util::backquote($cfgRelation['db'])
+            . '.' . PhpMyAdmin\Util::backquote($cfgRelation['navigationhiding'])
             . ' WHERE db_name  = \'' . $GLOBALS['dbi']->escapeString($db) . '\'';
         PMA_queryAsControlUser($remove_query);
     }
 
     if ($cfgRelation['savedsearcheswork']) {
         $remove_query = 'DELETE FROM '
-            . PMA\libraries\Util::backquote($cfgRelation['db'])
-            . '.' . PMA\libraries\Util::backquote($cfgRelation['savedsearches'])
+            . PhpMyAdmin\Util::backquote($cfgRelation['db'])
+            . '.' . PhpMyAdmin\Util::backquote($cfgRelation['savedsearches'])
             . ' WHERE db_name  = \'' . $GLOBALS['dbi']->escapeString($db) . '\'';
         PMA_queryAsControlUser($remove_query);
     }
 
     if ($cfgRelation['centralcolumnswork']) {
         $remove_query = 'DELETE FROM '
-            . PMA\libraries\Util::backquote($cfgRelation['db'])
-            . '.' . PMA\libraries\Util::backquote($cfgRelation['central_columns'])
+            . PhpMyAdmin\Util::backquote($cfgRelation['db'])
+            . '.' . PhpMyAdmin\Util::backquote($cfgRelation['central_columns'])
             . ' WHERE db_name  = \'' . $GLOBALS['dbi']->escapeString($db) . '\'';
         PMA_queryAsControlUser($remove_query);
     }
@@ -265,8 +265,8 @@ function PMA_relationsCleanupUser($username)
 
     if ($cfgRelation['bookmarkwork']) {
         $remove_query = "DELETE FROM "
-            . PMA\libraries\Util::backquote($cfgRelation['db'])
-            . "." . PMA\libraries\Util::backquote($cfgRelation['bookmark'])
+            . PhpMyAdmin\Util::backquote($cfgRelation['db'])
+            . "." . PhpMyAdmin\Util::backquote($cfgRelation['bookmark'])
             . " WHERE `user`  = '" . $GLOBALS['dbi']->escapeString($username)
             . "'";
         PMA_queryAsControlUser($remove_query);
@@ -274,8 +274,8 @@ function PMA_relationsCleanupUser($username)
 
     if ($cfgRelation['historywork']) {
         $remove_query = "DELETE FROM "
-            . PMA\libraries\Util::backquote($cfgRelation['db'])
-            . "." . PMA\libraries\Util::backquote($cfgRelation['history'])
+            . PhpMyAdmin\Util::backquote($cfgRelation['db'])
+            . "." . PhpMyAdmin\Util::backquote($cfgRelation['history'])
             . " WHERE `username`  = '" . $GLOBALS['dbi']->escapeString($username)
             . "'";
         PMA_queryAsControlUser($remove_query);
@@ -283,8 +283,8 @@ function PMA_relationsCleanupUser($username)
 
     if ($cfgRelation['recentwork']) {
         $remove_query = "DELETE FROM "
-            . PMA\libraries\Util::backquote($cfgRelation['db'])
-            . "." . PMA\libraries\Util::backquote($cfgRelation['recent'])
+            . PhpMyAdmin\Util::backquote($cfgRelation['db'])
+            . "." . PhpMyAdmin\Util::backquote($cfgRelation['recent'])
             . " WHERE `username`  = '" . $GLOBALS['dbi']->escapeString($username)
             . "'";
         PMA_queryAsControlUser($remove_query);
@@ -292,8 +292,8 @@ function PMA_relationsCleanupUser($username)
 
     if ($cfgRelation['favoritework']) {
         $remove_query = "DELETE FROM "
-            . PMA\libraries\Util::backquote($cfgRelation['db'])
-            . "." . PMA\libraries\Util::backquote($cfgRelation['favorite'])
+            . PhpMyAdmin\Util::backquote($cfgRelation['db'])
+            . "." . PhpMyAdmin\Util::backquote($cfgRelation['favorite'])
             . " WHERE `username`  = '" . $GLOBALS['dbi']->escapeString($username)
             . "'";
         PMA_queryAsControlUser($remove_query);
@@ -301,8 +301,8 @@ function PMA_relationsCleanupUser($username)
 
     if ($cfgRelation['uiprefswork']) {
         $remove_query = "DELETE FROM "
-            . PMA\libraries\Util::backquote($cfgRelation['db'])
-            . "." . PMA\libraries\Util::backquote($cfgRelation['table_uiprefs'])
+            . PhpMyAdmin\Util::backquote($cfgRelation['db'])
+            . "." . PhpMyAdmin\Util::backquote($cfgRelation['table_uiprefs'])
             . " WHERE `username`  = '" . $GLOBALS['dbi']->escapeString($username)
             . "'";
         PMA_queryAsControlUser($remove_query);
@@ -310,8 +310,8 @@ function PMA_relationsCleanupUser($username)
 
     if ($cfgRelation['userconfigwork']) {
         $remove_query = "DELETE FROM "
-            . PMA\libraries\Util::backquote($cfgRelation['db'])
-            . "." . PMA\libraries\Util::backquote($cfgRelation['userconfig'])
+            . PhpMyAdmin\Util::backquote($cfgRelation['db'])
+            . "." . PhpMyAdmin\Util::backquote($cfgRelation['userconfig'])
             . " WHERE `username`  = '" . $GLOBALS['dbi']->escapeString($username)
             . "'";
         PMA_queryAsControlUser($remove_query);
@@ -319,8 +319,8 @@ function PMA_relationsCleanupUser($username)
 
     if ($cfgRelation['menuswork']) {
         $remove_query = "DELETE FROM "
-            . PMA\libraries\Util::backquote($cfgRelation['db'])
-            . "." . PMA\libraries\Util::backquote($cfgRelation['users'])
+            . PhpMyAdmin\Util::backquote($cfgRelation['db'])
+            . "." . PhpMyAdmin\Util::backquote($cfgRelation['users'])
             . " WHERE `username`  = '" . $GLOBALS['dbi']->escapeString($username)
             . "'";
         PMA_queryAsControlUser($remove_query);
@@ -328,8 +328,8 @@ function PMA_relationsCleanupUser($username)
 
     if ($cfgRelation['navwork']) {
         $remove_query = "DELETE FROM "
-            . PMA\libraries\Util::backquote($cfgRelation['db'])
-            . "." . PMA\libraries\Util::backquote($cfgRelation['navigationhiding'])
+            . PhpMyAdmin\Util::backquote($cfgRelation['db'])
+            . "." . PhpMyAdmin\Util::backquote($cfgRelation['navigationhiding'])
             . " WHERE `username`  = '" . $GLOBALS['dbi']->escapeString($username)
             . "'";
         PMA_queryAsControlUser($remove_query);
@@ -337,8 +337,8 @@ function PMA_relationsCleanupUser($username)
 
     if ($cfgRelation['savedsearcheswork']) {
         $remove_query = "DELETE FROM "
-            . PMA\libraries\Util::backquote($cfgRelation['db'])
-            . "." . PMA\libraries\Util::backquote($cfgRelation['savedsearches'])
+            . PhpMyAdmin\Util::backquote($cfgRelation['db'])
+            . "." . PhpMyAdmin\Util::backquote($cfgRelation['savedsearches'])
             . " WHERE `username`  = '" . $GLOBALS['dbi']->escapeString($username)
             . "'";
         PMA_queryAsControlUser($remove_query);
@@ -346,8 +346,8 @@ function PMA_relationsCleanupUser($username)
 
     if ($cfgRelation['designersettingswork']) {
         $remove_query = "DELETE FROM "
-            . PMA\libraries\Util::backquote($cfgRelation['db'])
-            . "." . PMA\libraries\Util::backquote($cfgRelation['designer_settings'])
+            . PhpMyAdmin\Util::backquote($cfgRelation['db'])
+            . "." . PhpMyAdmin\Util::backquote($cfgRelation['designer_settings'])
             . " WHERE `username`  = '" . $GLOBALS['dbi']->escapeString($username)
             . "'";
         PMA_queryAsControlUser($remove_query);

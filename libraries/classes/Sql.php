@@ -18,10 +18,10 @@ use PhpMyAdmin\SqlParser\Statements\AlterStatement;
 use PhpMyAdmin\SqlParser\Statements\DropStatement;
 use PhpMyAdmin\SqlParser\Statements\SelectStatement;
 use PhpMyAdmin\SqlParser\Utils\Query;
-use PMA\libraries\Table;
-use PMA\libraries\Transformations;
-use PMA\libraries\URL;
-use PMA\libraries\Util;
+use PhpMyAdmin\Table;
+use PhpMyAdmin\Transformations;
+use PhpMyAdmin\Url;
+use PhpMyAdmin\Util;
 
 /**
  * Sql class
@@ -208,7 +208,7 @@ class Sql
                 . htmlspecialchars($_REQUEST['curr_value'])
                 . '</span>'
                 . '<a href="browse_foreigners.php'
-                . URL::getCommon($_url_params) . '"'
+                . Url::getCommon($_url_params) . '"'
                 . 'class="ajax browse_foreign" ' . '>'
                 . __('Browse foreign values')
                 . '</a>';
@@ -241,7 +241,7 @@ class Sql
         if (! empty($profiling_results)) {
             $url_query = isset($url_query)
                 ? $url_query
-                : URL::getCommon(array('db' => $db));
+                : Url::getCommon(array('db' => $db));
 
             $profiling_table = '';
             $profiling_table .= '<fieldset><legend>' . __('Profiling')
@@ -554,7 +554,7 @@ EOT;
             && ! empty($sql_query)
         ) {
             $goto = 'sql.php'
-                . URL::getCommon(
+                . Url::getCommon(
                     array(
                         'db' => $db,
                         'table' => $table,
@@ -567,7 +567,7 @@ EOT;
                 . ' onsubmit="return ! emptyCheckTheField(this,'
                 . '\'bkm_fields[bkm_label]\');"'
                 . ' class="bookmarkQueryForm print_ignore">';
-            $html .= URL::getHiddenInputs();
+            $html .= Url::getHiddenInputs();
             $html .= '<input type="hidden" name="db"'
                 . ' value="' . htmlspecialchars($db) . '" />';
             $html .= '<input type="hidden" name="goto" value="' . $goto . '" />';

@@ -1,7 +1,7 @@
 <?php
 /* vim: set expandtab sw=4 ts=4 sts=4: */
 /**
- * Tests for methods in PMA\libraries\VersionInformation class
+ * Tests for methods in PhpMyAdmin\VersionInformation class
 *
 * @package PhpMyAdmin-test
 */
@@ -9,12 +9,12 @@
 /*
  * Include to test.
  */
-use PMA\libraries\VersionInformation;
+use PhpMyAdmin\VersionInformation;
 
 require_once 'test/PMATestCase.php';
 
 /**
- * Tests for methods in PMA\libraries\VersionInformation class
+ * Tests for methods in PhpMyAdmin\VersionInformation class
  *
  * @package PhpMyAdmin-test
  */
@@ -135,7 +135,7 @@ class VersionInformationTest extends PMATestCase
             array()
         );
 
-        $mockVersionInfo = $this->getMockBuilder('PMA\libraries\VersionInformation')
+        $mockVersionInfo = $this->getMockBuilder('PhpMyAdmin\VersionInformation')
             ->setMethods(array('evaluateVersionCondition'))
             ->getMock();
 
@@ -172,7 +172,7 @@ class VersionInformationTest extends PMATestCase
             array()
         );
 
-        $mockVersionInfo = $this->getMockBuilder('PMA\libraries\VersionInformation')
+        $mockVersionInfo = $this->getMockBuilder('PhpMyAdmin\VersionInformation')
             ->setMethods(array('evaluateVersionCondition'))
             ->getMock();
 
@@ -203,7 +203,7 @@ class VersionInformationTest extends PMATestCase
             array()
         );
 
-        $mockVersionInfo = $this->getMockBuilder('PMA\libraries\VersionInformation')
+        $mockVersionInfo = $this->getMockBuilder('PhpMyAdmin\VersionInformation')
             ->setMethods(array('evaluateVersionCondition'))
             ->getMock();
 
@@ -239,7 +239,7 @@ class VersionInformationTest extends PMATestCase
      */
     public function testEvaluateVersionCondition()
     {
-        $mockVersionInfo = $this->getMockBuilder('PMA\libraries\VersionInformation')
+        $mockVersionInfo = $this->getMockBuilder('PhpMyAdmin\VersionInformation')
             ->setMethods(array('getPHPVersion'))
             ->getMock();
 

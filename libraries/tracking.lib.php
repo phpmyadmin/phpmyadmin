@@ -9,8 +9,8 @@
 use PhpMyAdmin\Core;
 use PhpMyAdmin\Message;
 use PhpMyAdmin\Response;
-use PMA\libraries\Tracker;
-use PMA\libraries\URL;
+use PhpMyAdmin\Tracker;
+use PhpMyAdmin\Url;
 use PhpMyAdmin\Sanitize;
 
 /**
@@ -63,7 +63,7 @@ function PMA_getHtmlForDataDefinitionAndManipulationStatements($url_query,
 ) {
     $html  = '<div id="div_create_version">';
     $html .= '<form method="post" action="' . $url_query . '">';
-    $html .= URL::getHiddenInputs($db);
+    $html .= Url::getHiddenInputs($db);
     foreach ($selected as $selected_table) {
         $html .= '<input type="hidden" name="selected[]"'
             . ' value="' . htmlspecialchars($selected_table) . '" />';
@@ -201,7 +201,7 @@ function PMA_getHtmlForActivateDeactivateTracking(
 ) {
     $html = '<div>';
     $html .= '<form method="post" action="tbl_tracking.php' . $url_query . '">';
-    $html .= URL::getHiddenInputs($GLOBALS['db'], $GLOBALS['table']);
+    $html .= Url::getHiddenInputs($GLOBALS['db'], $GLOBALS['table']);
     $html .= '<fieldset>';
     $html .= '<legend>';
 
@@ -247,8 +247,8 @@ function PMA_getListOfVersionsOfTable()
 {
     $cfgRelation = PMA_getRelationsParam();
     $sql_query = " SELECT * FROM " .
-        PMA\libraries\Util::backquote($cfgRelation['db']) . "." .
-        PMA\libraries\Util::backquote($cfgRelation['tracking']) .
+        PhpMyAdmin\Util::backquote($cfgRelation['db']) . "." .
+        PhpMyAdmin\Util::backquote($cfgRelation['tracking']) .
         " WHERE db_name = '" . $GLOBALS['dbi']->escapeString($_REQUEST['db']) .
         "' " .
         " AND table_name = '" .
@@ -278,7 +278,7 @@ function PMA_getHtmlForTableVersionDetails(
 
     $html  = '<form method="post" action="tbl_tracking.php" name="versionsForm"'
         . ' id="versionsForm" class="ajax">';
-    $html .= URL::getHiddenInputs($GLOBALS['db'], $GLOBALS['table']);
+    $html .= Url::getHiddenInputs($GLOBALS['db'], $GLOBALS['table']);
     $html .= '<table id="versions" class="data">';
     $html .= '<thead>';
     $html .= '<tr>';
@@ -294,9 +294,9 @@ function PMA_getHtmlForTableVersionDetails(
     $html .= '<tbody>';
 
     $GLOBALS['dbi']->dataSeek($sql_result, 0);
-    $delete = PMA\libraries\Util::getIcon('b_drop.png', __('Delete version'));
-    $report = PMA\libraries\Util::getIcon('b_report.png', __('Tracking report'));
-    $structure = PMA\libraries\Util::getIcon(
+    $delete = PhpMyAdmin\Util::getIcon('b_drop.png', __('Delete version'));
+    $report = PhpMyAdmin\Util::getIcon('b_report.png', __('Tracking report'));
+    $structure = PhpMyAdmin\Util::getIcon(
         'b_props.png',
         __('Structure snapshot')
     );
@@ -330,7 +330,7 @@ function PMA_getHtmlForTableVersionDetails(
         $html .= '<td><a class="delete_version_anchor ajax"'
             . ' href="' . $delete_link . '" >' . $delete . '</a></td>';
         $html .= '<td><a href="tbl_tracking.php';
-        $html .= URL::getCommon(
+        $html .= Url::getCommon(
             $url_params + array(
                 'report' => 'true', 'version' => $version['version']
             )
@@ -338,7 +338,7 @@ function PMA_getHtmlForTableVersionDetails(
         $html .= '">' . $report . '</a>';
         $html .= '&nbsp;&nbsp;';
         $html .= '<a href="tbl_tracking.php';
-        $html .= URL::getCommon(
+        $html .= Url::getCommon(
             $url_params + array(
                 'snapshot' => 'true', 'version' => $version['version']
             )
@@ -351,7 +351,7 @@ function PMA_getHtmlForTableVersionDetails(
     $html .= '</tbody>';
     $html .= '</table>';
 
-    $html .= PMA\libraries\Template::get('select_all')
+    $html .= PhpMyAdmin\Template::get('select_all')
         ->render(
             array(
                 'pma_theme_image' => $pmaThemeImage,
@@ -359,7 +359,7 @@ function PMA_getHtmlForTableVersionDetails(
                 'form_name'       => 'versionsForm',
             )
         );
-    $html .= PMA\libraries\Util::getButtonOrImage(
+    $html .= PhpMyAdmin\Util::getButtonOrImage(
         'submit_mult', 'mult_submit',
         __('Delete version'), 'b_drop.png', 'delete_version'
     );
@@ -403,8 +403,8 @@ function PMA_getSQLResultForSelectableTables()
     $cfgRelation = PMA_getRelationsParam();
 
     $sql_query = " SELECT DISTINCT db_name, table_name FROM " .
-        PMA\libraries\Util::backquote($cfgRelation['db']) . "." .
-        PMA\libraries\Util::backquote($cfgRelation['tracking']) .
+        PhpMyAdmin\Util::backquote($cfgRelation['db']) . "." .
+        PhpMyAdmin\Util::backquote($cfgRelation['tracking']) .
         " WHERE db_name = '" . $GLOBALS['dbi']->escapeString($GLOBALS['db']) .
         "' " .
         " ORDER BY db_name, table_name";
@@ -423,7 +423,7 @@ function PMA_getSQLResultForSelectableTables()
 function PMA_getHtmlForSelectableTables($selectable_tables_sql_result, $url_query)
 {
     $html = '<form method="post" action="tbl_tracking.php' . $url_query . '">';
-    $html .= URL::getHiddenInputs($GLOBALS['db'], $GLOBALS['table']);
+    $html .= Url::getHiddenInputs($GLOBALS['db'], $GLOBALS['table']);
     $html .= '<select name="table" class="autosubmit">';
     while ($entries = $GLOBALS['dbi']->fetchArray($selectable_tables_sql_result)) {
         if (Tracker::isTracked($entries['db_name'], $entries['table_name'])) {
@@ -481,12 +481,12 @@ function PMA_getHtmlForTrackingReport($url_query, $data, $url_params,
 
     // Prepare delete link content here
     $drop_image_or_text = '';
-    if (PMA\libraries\Util::showIcons('ActionLinksMode')) {
-        $drop_image_or_text .= PMA\libraries\Util::getImage(
+    if (PhpMyAdmin\Util::showIcons('ActionLinksMode')) {
+        $drop_image_or_text .= PhpMyAdmin\Util::getImage(
             'b_drop.png', __('Delete tracking data row from report')
         );
     }
-    if (PMA\libraries\Util::showText('ActionLinksMode')) {
+    if (PhpMyAdmin\Util::showText('ActionLinksMode')) {
         $drop_image_or_text .= __('Delete');
     }
 
@@ -575,13 +575,13 @@ function PMA_getHtmlForTrackingReportExportForm1(
     $ddlog_count = 0;
 
     $html = '<form method="post" action="tbl_tracking.php'
-        . URL::getCommon(
+        . Url::getCommon(
             $url_params + array(
                 'report' => 'true', 'version' => $_REQUEST['version']
             )
         )
         . '">';
-    $html .= URL::getHiddenInputs();
+    $html .= Url::getHiddenInputs();
 
     $html .= sprintf(
         __('Show %1$s with dates from %2$s to %3$s by user %4$s %5$s'),
@@ -626,13 +626,13 @@ function PMA_getHtmlForTrackingReportExportForm2(
     $url_params, $str1, $str2, $str3, $str4, $str5
 ) {
     $html = '<form method="post" action="tbl_tracking.php'
-        . URL::getCommon(
+        . Url::getCommon(
             $url_params + array(
                 'report' => 'true', 'version' => $_REQUEST['version']
             )
         )
         . '">';
-    $html .= URL::getHiddenInputs();
+    $html .= Url::getHiddenInputs();
     $html .= sprintf(
         __('Show %1$s with dates from %2$s to %3$s by user %4$s %5$s'),
         $str1, $str2, $str3, $str4, $str5
@@ -640,12 +640,12 @@ function PMA_getHtmlForTrackingReportExportForm2(
     $html .= '</form>';
 
     $html .= '<form class="disableAjax" method="post" action="tbl_tracking.php'
-        . URL::getCommon(
+        . Url::getCommon(
             $url_params
             + array('report' => 'true', 'version' => $_REQUEST['version'])
         )
         . '">';
-    $html .= URL::getHiddenInputs();
+    $html .= Url::getHiddenInputs();
     $html .= '<input type="hidden" name="logtype" value="'
         . htmlspecialchars($_REQUEST['logtype']) . '" />';
     $html .= '<input type="hidden" name="date_from" value="'
@@ -720,7 +720,7 @@ function PMA_getHtmlForOneStatement($entry, $filter_users,
     $filter_ts_from, $filter_ts_to, $line_number, $url_params, $offset,
     $drop_image_or_text, $delete_param
 ) {
-    $statement  = PMA\libraries\Util::formatSql($entry['statement'], true);
+    $statement  = PhpMyAdmin\Util::formatSql($entry['statement'], true);
     $timestamp = strtotime($entry['date']);
     $filtered_user = in_array($entry['username'], $filter_users);
     $html = null;
@@ -738,7 +738,7 @@ function PMA_getHtmlForOneStatement($entry, $filter_users,
         $html .= '<td>' . $statement . '</td>';
         $html .= '<td class="nowrap"><a  class="delete_entry_anchor ajax"'
             . ' href="tbl_tracking.php'
-            . URL::getCommon(
+            . Url::getCommon(
                 $url_params + array(
                     'report' => 'true',
                     'version' => $_REQUEST['version'],
@@ -849,7 +849,7 @@ function PMA_getHtmlForSchemaSnapshot($url_query)
         $drop_create_statements .= $data['ddlog'][1]['statement'];
     }
     // Print SQL code
-    $html .= PMA\libraries\Util::getMessage(
+    $html .= PhpMyAdmin\Util::getMessage(
         sprintf(
             __('Version %s snapshot (SQL code)'),
             htmlspecialchars($_REQUEST['version'])
@@ -923,11 +923,11 @@ function PMA_getHtmlForField($index, $field)
     $html .= '<td>' . $index . '</td>';
     $html .= '<td><b>' . htmlspecialchars($field['Field']);
     if ($field['Key'] == 'PRI') {
-        $html .= ' ' . PMA\libraries\Util::getImage(
+        $html .= ' ' . PhpMyAdmin\Util::getImage(
             'b_primary.png', __('Primary')
         );
     } elseif (! empty($field['Key'])) {
-        $html .= ' ' . PMA\libraries\Util::getImage(
+        $html .= ' ' . PhpMyAdmin\Util::getImage(
             'bd_primary.png', __('Index')
         );
     }
@@ -938,12 +938,12 @@ function PMA_getHtmlForField($index, $field)
     $html .= '<td>' . (($field['Null'] == 'YES') ? __('Yes') : __('No')) . '</td>';
     $html .= '<td>';
     if (isset($field['Default'])) {
-        $extracted_columnspec = PMA\libraries\Util::extractColumnSpec(
+        $extracted_columnspec = PhpMyAdmin\Util::extractColumnSpec(
             $field['Type']
         );
         if ($extracted_columnspec['type'] == 'bit') {
             // here, $field['Default'] contains something like b'010'
-            $html .= PMA\libraries\Util::convertBitDefaultValue($field['Default']);
+            $html .= PhpMyAdmin\Util::convertBitDefaultValue($field['Default']);
         } else {
             $html .= htmlspecialchars($field['Default']);
         }
@@ -1451,7 +1451,7 @@ function PMA_displayUntrackedTables(
     <form method="post" action="db_tracking.php" name="untrackedForm"
         id="untrackedForm" class="ajax">
     <?php
-    echo URL::getHiddenInputs($db)
+    echo Url::getHiddenInputs($db)
     ?>
     <table id="noversions" class="data">
     <thead>
@@ -1472,7 +1472,7 @@ function PMA_displayUntrackedTables(
     </tbody>
     </table>
     <?php
-    echo PMA\libraries\Template::get('select_all')
+    echo PhpMyAdmin\Template::get('select_all')
         ->render(
             array(
                 'pma_theme_image' => $pmaThemeImage,
@@ -1480,7 +1480,7 @@ function PMA_displayUntrackedTables(
                 'form_name'       => 'untrackedForm',
             )
         );
-    echo PMA\libraries\Util::getButtonOrImage(
+    echo PhpMyAdmin\Util::getButtonOrImage(
         'submit_mult', 'mult_submit',
         __('Track table'), 'eye.png', 'track'
     );
@@ -1505,7 +1505,7 @@ function PMA_displayOneUntrackedTable($db, $tablename, $url_query)
     if (Tracker::getVersion($db, $tablename) == -1) {
         $my_link = '<a href="tbl_tracking.php' . $url_query
             . '&amp;table=' . htmlspecialchars($tablename) . '">';
-        $my_link .= PMA\libraries\Util::getIcon('eye.png', __('Track table'));
+        $my_link .= PhpMyAdmin\Util::getIcon('eye.png', __('Track table'));
         $my_link .= '</a>';
         ?>
         <tr>
@@ -1563,7 +1563,7 @@ function PMA_extractTableNames($table_list, $db, $testing = false) {
  */
 function PMA_getUntrackedTables($db)
 {
-    $table_list = PMA\libraries\Util::getTableList($db);
+    $table_list = PhpMyAdmin\Util::getTableList($db);
     $untracked_tables = PMA_extractTableNames($table_list, $db);  //Use helper function to get table list recursively.
     return $untracked_tables;
 }
@@ -1590,7 +1590,7 @@ function PMA_displayTrackedTables(
     <form method="post" action="db_tracking.php" name="trackedForm"
         id="trackedForm" class="ajax">
     <?php
-    echo URL::getHiddenInputs($db)
+    echo Url::getHiddenInputs($db)
     ?>
     <table id="versions" class="data">
     <thead>
@@ -1610,10 +1610,10 @@ function PMA_displayTrackedTables(
 
     // Print out information about versions
 
-    $delete = PMA\libraries\Util::getIcon('b_drop.png', __('Delete tracking'));
-    $versions = PMA\libraries\Util::getIcon('b_versions.png', __('Versions'));
-    $report = PMA\libraries\Util::getIcon('b_report.png', __('Tracking report'));
-    $structure = PMA\libraries\Util::getIcon(
+    $delete = PhpMyAdmin\Util::getIcon('b_drop.png', __('Delete tracking'));
+    $versions = PhpMyAdmin\Util::getIcon('b_versions.png', __('Versions'));
+    $report = PhpMyAdmin\Util::getIcon('b_report.png', __('Tracking report'));
+    $structure = PhpMyAdmin\Util::getIcon(
         'b_props.png',
         __('Structure snapshot')
     );
@@ -1621,8 +1621,8 @@ function PMA_displayTrackedTables(
     while ($one_result = $GLOBALS['dbi']->fetchArray($all_tables_result)) {
         list($table_name, $version_number) = $one_result;
         $table_query = ' SELECT * FROM ' .
-             PMA\libraries\Util::backquote($cfgRelation['db']) . '.' .
-             PMA\libraries\Util::backquote($cfgRelation['tracking']) .
+             PhpMyAdmin\Util::backquote($cfgRelation['db']) . '.' .
+             PhpMyAdmin\Util::backquote($cfgRelation['tracking']) .
              ' WHERE `db_name` = \''
              . $GLOBALS['dbi']->escapeString($_REQUEST['db'])
              . '\' AND `table_name`  = \''
@@ -1680,7 +1680,7 @@ function PMA_displayTrackedTables(
     </tbody>
     </table>
     <?php
-    echo PMA\libraries\Template::get('select_all')
+    echo PhpMyAdmin\Template::get('select_all')
         ->render(
             array(
                 'pma_theme_image' => $pmaThemeImage,
@@ -1688,7 +1688,7 @@ function PMA_displayTrackedTables(
                 'form_name'       => 'trackedForm',
             )
         );
-    echo PMA\libraries\Util::getButtonOrImage(
+    echo PhpMyAdmin\Util::getButtonOrImage(
         'submit_mult', 'mult_submit',
         __('Delete tracking'), 'b_drop.png', 'delete_tracking'
     );
@@ -1721,7 +1721,7 @@ function PMA_displayStatusButton($version_data, $tbl_link)
             'selected' => ($state == 'active')
         )
     );
-    echo PMA\libraries\Util::toggleButton(
+    echo PhpMyAdmin\Util::toggleButton(
         $tbl_link . '&amp;version=' . $version_data['version'],
         'toggle_activation',
         $options,

@@ -6,8 +6,8 @@
  * @package PhpMyAdmin-test
  */
 
-use PMA\libraries\Theme;
-use PMA\libraries\TypesMySQL;
+use PhpMyAdmin\Theme;
+use PhpMyAdmin\TypesMySQL;
 use PhpMyAdmin\Response;
 
 $GLOBALS['server'] = 0;

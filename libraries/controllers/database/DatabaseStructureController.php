@@ -16,10 +16,10 @@ use PhpMyAdmin\Core;
 use PhpMyAdmin\Message;
 use PhpMyAdmin\RecentFavoriteTable;
 use PhpMyAdmin\Response;
-use PMA\libraries\Template;
-use PMA\libraries\Tracker;
-use PMA\libraries\Util;
-use PMA\libraries\URL;
+use PhpMyAdmin\Template;
+use PhpMyAdmin\Tracker;
+use PhpMyAdmin\Util;
+use PhpMyAdmin\Url;
 use PhpMyAdmin\Sanitize;
 
 require_once 'libraries/display_create_table.lib.php';
@@ -134,7 +134,7 @@ class DatabaseStructureController extends DatabaseController
         // If there are no tables, the user is redirected to the last page
         // having any.
         if ($this->_total_num_tables > 0 && $this->_pos > $this->_total_num_tables) {
-            $uri = './db_structure.php' . URL::getCommonRaw(array(
+            $uri = './db_structure.php' . Url::getCommonRaw(array(
                 'db' => $this->db,
                 'pos' => max(0, $this->_total_num_tables - $GLOBALS['cfg']['MaxTableList']),
                 'reload' => 1
@@ -203,7 +203,7 @@ class DatabaseStructureController extends DatabaseController
         /* Printable view of a table */
         $this->response->addHTML(
             Template::get('database/structure/print_view_data_dictionary_link')
-                ->render(array('url_query' => URL::getCommon(
+                ->render(array('url_query' => Url::getCommon(
                     array(
                         'db' => $this->db,
                         'goto' => 'db_structure.php',
@@ -345,7 +345,7 @@ class DatabaseStructureController extends DatabaseController
     public function multiSubmitAction()
     {
         $action = 'db_structure.php';
-        $err_url = 'db_structure.php' . URL::getCommon(
+        $err_url = 'db_structure.php' . Url::getCommon(
             array('db' => $this->db)
         );
 
@@ -407,7 +407,7 @@ class DatabaseStructureController extends DatabaseController
 
             $table_is_view = false;
             // Sets parameters for links
-            $tbl_url_query = URL::getCommon(
+            $tbl_url_query = Url::getCommon(
                 array('db' => $this->db, 'table' => $current_table['TABLE_NAME'])
             );
             // do not list the previous table's size info for a view

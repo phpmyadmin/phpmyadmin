@@ -11,7 +11,7 @@ namespace PMA\libraries\controllers\server;
 
 use PMA\libraries\controllers\Controller;
 use PhpMyAdmin\Charsets;
-use PMA\libraries\Template;
+use PhpMyAdmin\Template;
 
 /**
  * Handles viewing character sets and collations

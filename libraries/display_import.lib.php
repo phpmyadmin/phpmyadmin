@@ -14,7 +14,7 @@ use PhpMyAdmin\Core;
 use PhpMyAdmin\Encoding;
 use PhpMyAdmin\Message;
 use PMA\libraries\plugins\ImportPlugin;
-use PMA\libraries\URL;
+use PhpMyAdmin\Url;
 use PhpMyAdmin\Sanitize;
 
 /**
@@ -30,11 +30,11 @@ function PMA_getHtmlForHiddenInputs($import_type, $db, $table)
 {
     $html  = '';
     if ($import_type == 'server') {
-        $html .= URL::getHiddenInputs('', '', 1);
+        $html .= Url::getHiddenInputs('', '', 1);
     } elseif ($import_type == 'database') {
-        $html .= URL::getHiddenInputs($db, '', 1);
+        $html .= Url::getHiddenInputs($db, '', 1);
     } else {
-        $html .= URL::getHiddenInputs($db, $table, 1);
+        $html .= Url::getHiddenInputs($db, $table, 1);
     }
     $html .= '    <input type="hidden" name="import_type" value="'
         . $import_type . '" />' . "\n";
@@ -76,7 +76,7 @@ function PMA_getHtmlForImportJS($upload_id)
                     . 'Details about the upload are not available.'
                 ),
                 false
-            ) . PMA\libraries\Util::showDocu('faq', 'faq2-9');
+            ) . PhpMyAdmin\Util::showDocu('faq', 'faq2-9');
         $html .= "   $('#upload_form_status_info').html('" . $image_tag . "');";
         $html .= '   $("#upload_form_status").css("display", "none");';
     } // else
@@ -106,7 +106,7 @@ function PMA_getHtmlForImportOptions($import_type, $db, $table)
 {
     $html  = '    <div class="exportoptions" id="header">';
     $html .= '        <h2>';
-    $html .= PMA\libraries\Util::getImage('b_import.png', __('Import'));
+    $html .= PhpMyAdmin\Util::getImage('b_import.png', __('Import'));
 
     if ($import_type == 'server') {
         $html .= __('Importing into the current server');
@@ -232,7 +232,7 @@ function PMA_getHtmlForImportOptionsFile(
         $html .= '            <li>';
         $html .= '                <input type="radio" name="file_location" '
             . 'id="radio_import_file" required="required" />';
-        $html .= PMA\libraries\Util::getBrowseUploadFileBlock($max_upload_size);
+        $html .= PhpMyAdmin\Util::getBrowseUploadFileBlock($max_upload_size);
         $html .= '<br />' . __('You may also drag and drop a file on any page.');
         $html .= '            </li>';
         $html .= '            <li>';
@@ -244,7 +244,7 @@ function PMA_getHtmlForImportOptionsFile(
             $html .= ' checked="checked"';
         }
         $html .= ' />';
-        $html .= PMA\libraries\Util::getSelectUploadFileBlock(
+        $html .= PhpMyAdmin\Util::getSelectUploadFileBlock(
             $import_list,
             $cfg['UploadDir']
         );
@@ -252,14 +252,14 @@ function PMA_getHtmlForImportOptionsFile(
         $html .= '            </ul>';
 
     } elseif ($GLOBALS['is_upload']) {
-        $html .= PMA\libraries\Util::getBrowseUploadFileBlock($max_upload_size);
+        $html .= PhpMyAdmin\Util::getBrowseUploadFileBlock($max_upload_size);
         $html .= '<br />' . __('You may also drag and drop a file on any page.');
     } elseif (!$GLOBALS['is_upload']) {
         $html .= Message::notice(
             __('File uploads are not allowed on this server.')
         )->getDisplay();
     } elseif (!empty($cfg['UploadDir'])) {
-        $html .= PMA\libraries\Util::getSelectUploadFileBlock(
+        $html .= PhpMyAdmin\Util::getSelectUploadFileBlock(
             $import_list,
             $cfg['UploadDir']
         );
@@ -346,7 +346,7 @@ function PMA_getHtmlForImportOptionsOther()
     $html  = '   <div class="importoptions">';
     $html .= '       <h3>' . __('Other options:') . '</h3>';
     $html .= '       <div class="formelementrow">';
-    $html .= PMA\libraries\Util::getFKCheckbox();
+    $html .= PhpMyAdmin\Util::getFKCheckbox();
     $html .= '       </div>';
     $html .= '   </div>';
 
@@ -479,7 +479,7 @@ function PMA_getHtmlForImportWithPlugin($upload_id)
 {
     //some variable for javascript
     $ajax_url = "import_status.php?id=" . $upload_id . "&"
-        . URL::getCommonRaw(array('import_status'=>1));
+        . Url::getCommonRaw(array('import_status'=>1));
     $promot_str = Sanitize::jsFormat(
         __(
             'The file being uploaded is probably larger than '
@@ -497,7 +497,7 @@ function PMA_getHtmlForImportWithPlugin($upload_id)
         __('The file is being processed, please be patient.'),
         false
     );
-    $import_url = URL::getCommonRaw(array('import_status'=>1));
+    $import_url = Url::getCommonRaw(array('import_status'=>1));
 
     //start output
     $html  = 'var finished = false; ';

@@ -8,8 +8,8 @@
 namespace PhpMyAdmin;
 
 use PhpMyAdmin\Sanitize;
-use PMA\libraries\URL;
-use PMA\libraries\Util;
+use PhpMyAdmin\Url;
+use PhpMyAdmin\Util;
 
 /**
  * Class to handle database search
@@ -337,7 +337,7 @@ class DbSearch
         if ($res_cnt > 0) {
             $this_url_params['db'] = htmlspecialchars($GLOBALS['db']);
             $this_url_params['table'] = htmlspecialchars($each_table);
-            $browse_result_path = 'sql.php' . URL::getCommon($this_url_params);
+            $browse_result_path = 'sql.php' . Url::getCommon($this_url_params);
             $html_output .= '<td><a name="browse_search" '
                 . ' class="ajax browse_results" href="'
                 . $browse_result_path . '" '
@@ -371,7 +371,7 @@ class DbSearch
         $html_output .= '<form id="db_search_form"'
             . ' class="ajax lock-page"'
             . ' method="post" action="db_search.php" name="db_search">';
-        $html_output .= URL::getHiddenInputs($GLOBALS['db']);
+        $html_output .= Url::getHiddenInputs($GLOBALS['db']);
         $html_output .= '<fieldset>';
         // set legend caption
         $html_output .= '<legend>' . __('Search in database') . '</legend>';

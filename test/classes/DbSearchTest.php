@@ -13,7 +13,7 @@ require_once 'libraries/database_interface.inc.php';
 require_once 'test/PMATestCase.php';
 
 use PhpMyAdmin\DbSearch;
-use PMA\libraries\Theme;
+use PhpMyAdmin\Theme;
 
 /**
  * Tests for database search.

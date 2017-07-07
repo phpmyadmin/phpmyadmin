@@ -49,12 +49,12 @@ function PMA_getHtmlForSubPageHeader($type, $link='', $is_image=true)
 
     if ($is_image) {
         $html = '<h2>' . "\n"
-            . PMA\libraries\Util::getImage($header[$type]['image'])
+            . PhpMyAdmin\Util::getImage($header[$type]['image'])
             . '    ' . $header[$type]['text'] . "\n"
             . $link . '</h2>' . "\n";
     } else {
         $html = '<h2>' . "\n"
-            . PMA\libraries\Util::getIcon($header[$type]['image'])
+            . PhpMyAdmin\Util::getIcon($header[$type]['image'])
             . '    ' . $header[$type]['text'] . "\n"
             . $link . '</h2>' . "\n";
     }

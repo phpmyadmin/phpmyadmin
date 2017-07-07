@@ -6,7 +6,7 @@ $choices = array(
 );
 ?>
 <form action="db_designer.php" method="post" name="save_as_pages" id="save_as_pages" class="ajax">
-    <?= PMA\libraries\URL::getHiddenInputs($db); ?>
+    <?= PhpMyAdmin\Url::getHiddenInputs($db); ?>
     <fieldset id="page_save_as_options">
         <table>
             <tbody>
@@ -18,7 +18,7 @@ $choices = array(
                 </tr>
                 <tr>
                     <td>
-                        <?= PMA\libraries\Util::getRadioFields('save_page', $choices, 'same', true); ?>
+                        <?= PhpMyAdmin\Util::getRadioFields('save_page', $choices, 'same', true); ?>
                     </td>
                 </tr>
                 <tr>

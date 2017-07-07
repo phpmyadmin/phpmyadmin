@@ -12,7 +12,7 @@ use PhpMyAdmin\Message;
 use PMA\libraries\plugins\import\AbstractImportCsv;
 use PMA\libraries\properties\options\items\BoolPropertyItem;
 use PMA\libraries\properties\options\items\TextPropertyItem;
-use PMA\libraries\Util;
+use PhpMyAdmin\Util;
 
 if (!defined('PHPMYADMIN')) {
     exit;

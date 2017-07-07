@@ -9,7 +9,7 @@ namespace PMA\libraries\config;
 
 use PhpMyAdmin\Core;
 use PhpMyAdmin\DatabaseInterface;
-use PMA\libraries\Util;
+use PhpMyAdmin\Util;
 
 /**
  * Validation class for various validation functions

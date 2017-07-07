@@ -6,7 +6,7 @@
  * @package PhpMyAdmin
  */
 use PhpMyAdmin\Response;
-use PMA\libraries\Tracker;
+use PhpMyAdmin\Tracker;
 
 /**
  * Run common work
@@ -42,7 +42,7 @@ list(
     $tooltip_truename,
     $tooltip_aliasname,
     $pos
-) = PMA\libraries\Util::getDbInfo($db, isset($sub_part) ? $sub_part : '');
+) = PhpMyAdmin\Util::getDbInfo($db, isset($sub_part) ? $sub_part : '');
 
 // Work to do?
 //  (here, do not use $_REQUEST['db] as it can be crafted)
@@ -113,8 +113,8 @@ $cfgRelation = PMA_getRelationsParam();
 
 // Prepare statement to get HEAD version
 $all_tables_query = ' SELECT table_name, MAX(version) as version FROM ' .
-    PMA\libraries\Util::backquote($cfgRelation['db']) . '.' .
-    PMA\libraries\Util::backquote($cfgRelation['tracking']) .
+    PhpMyAdmin\Util::backquote($cfgRelation['db']) . '.' .
+    PhpMyAdmin\Util::backquote($cfgRelation['tracking']) .
     ' WHERE db_name = \'' . $GLOBALS['dbi']->escapeString($_REQUEST['db']) .
     '\' ' .
     ' GROUP BY table_name' .
@@ -147,5 +147,5 @@ if (count($data['ddlog']) > 0) {
         $log .= '# ' . $entry['date'] . ' ' . $entry['username'] . "\n"
             . $entry['statement'] . "\n";
     }
-    echo PMA\libraries\Util::getMessage(__('Database Log'), $log);
+    echo PhpMyAdmin\Util::getMessage(__('Database Log'), $log);
 }

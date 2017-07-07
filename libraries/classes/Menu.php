@@ -8,9 +8,9 @@
 namespace PhpMyAdmin;
 
 use PhpMyAdmin\DatabaseInterface;
-use PMA\libraries\Tracker;
-use PMA\libraries\URL;
-use PMA\libraries\Util;
+use PhpMyAdmin\Tracker;
+use PhpMyAdmin\Url;
+use PhpMyAdmin\Util;
 
 /**
  * Class for generating the top menu
@@ -208,7 +208,7 @@ class Menu
             Util::getScriptNameForOption(
                 $GLOBALS['cfg']['DefaultTabServer'], 'server'
             ),
-            URL::getCommon(),
+            Url::getCommon(),
             htmlspecialchars($server_info),
             __('Server')
         );
@@ -227,7 +227,7 @@ class Menu
                 Util::getScriptNameForOption(
                     $GLOBALS['cfg']['DefaultTabDatabase'], 'database'
                 ),
-                URL::getCommon(array('db' => $this->_db)),
+                Url::getCommon(array('db' => $this->_db)),
                 htmlspecialchars($this->_db),
                 __('Database')
             );
@@ -261,7 +261,7 @@ class Menu
                     Util::getScriptNameForOption(
                         $GLOBALS['cfg']['DefaultTabTable'], 'table'
                     ),
-                    URL::getCommon(
+                    Url::getCommon(
                         array(
                             'db' => $this->_db, 'table' => $this->_table
                         )

@@ -9,9 +9,9 @@
 /*
  * Include to test.
  */
-use PMA\libraries\Table;
-use PMA\libraries\Theme;
-use PMA\libraries\Util;
+use PhpMyAdmin\Table;
+use PhpMyAdmin\Theme;
+use PhpMyAdmin\Util;
 
 require_once 'libraries/database_interface.inc.php';
 require_once 'libraries/relation.lib.php';
@@ -292,7 +292,7 @@ class TableTest extends PMATestCase
     public function testCreate()
     {
         $table = new Table('table1', 'pma_test');
-        $this->assertInstanceOf('PMA\libraries\Table', $table);
+        $this->assertInstanceOf('PhpMyAdmin\Table', $table);
     }
 
     /**
@@ -895,7 +895,7 @@ class TableTest extends PMATestCase
         $foreignTable = "foreignTable";
         $foreignField = array("foreignField1", "foreignField2");
 
-        $class = new ReflectionClass('PMA\libraries\Table');
+        $class = new ReflectionClass(Table::class);
         $method = $class->getMethod('_getSQLToCreateForeignKey');
         $method->setAccessible(true);
         $tableObj = new Table('PMA_table', 'db');

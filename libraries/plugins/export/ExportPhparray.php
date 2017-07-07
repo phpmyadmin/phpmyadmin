@@ -15,7 +15,7 @@ use PMA\libraries\properties\plugins\ExportPluginProperties;
 use PMA\libraries\properties\options\items\HiddenPropertyItem;
 use PMA\libraries\properties\options\groups\OptionsPropertyMainGroup;
 use PMA\libraries\properties\options\groups\OptionsPropertyRootGroup;
-use PMA;
+use PhpMyAdmin\Util;
 
 /**
  * Handles the export for the PHP Array class
@@ -122,7 +122,7 @@ class ExportPhparray extends ExportPlugin
         }
         PMA_exportOutputHandler(
             '/**' . $GLOBALS['crlf']
-            . ' * Database ' . $this->commentString(PMA\libraries\Util::backquote($db_alias))
+            . ' * Database ' . $this->commentString(Util::backquote($db_alias))
             . $GLOBALS['crlf'] . ' */' . $GLOBALS['crlf']
         );
 
@@ -222,8 +222,8 @@ class ExportPhparray extends ExportPlugin
         $record_cnt = 0;
         // Output table name as comment
         $buffer .= $crlf . '/* '
-            . $this->commentString(PMA\libraries\Util::backquote($db_alias)) . '.'
-            . $this->commentString(PMA\libraries\Util::backquote($table_alias)) . ' */' . $crlf;
+            . $this->commentString(Util::backquote($db_alias)) . '.'
+            . $this->commentString(Util::backquote($table_alias)) . ' */' . $crlf;
         $buffer .= '$' . $tablefixed . ' = array(';
 
         while ($record = $GLOBALS['dbi']->fetchRow($result)) {

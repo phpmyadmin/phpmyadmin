@@ -12,9 +12,9 @@ use PMA\libraries\controllers\TableController;
 use PhpMyAdmin\Core;
 use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Index;
-use PMA\libraries\Table;
-use PMA\libraries\Template;
-use PMA\libraries\Util;
+use PhpMyAdmin\Table;
+use PhpMyAdmin\Template;
+use PhpMyAdmin\Util;
 
 /**
  * Handles table relation logic

@@ -1,7 +1,7 @@
 <?php
 /* vim: set expandtab sw=4 ts=4 sts=4: */
 /**
- * Tests for PMA\libraries\Tracker
+ * Tests for PhpMyAdmin\Tracker
  *
  * @package PhpMyAdmin-test
  */
@@ -9,14 +9,14 @@
 /*
  * Include to test.
  */
-use PMA\libraries\Tracker;
+use PhpMyAdmin\Tracker;
 
 require_once 'libraries/database_interface.inc.php';
 require_once 'libraries/relation.lib.php';
 require_once 'test/PMATestCase.php';
 
 /**
- * Tests for PMA\libraries\Tracker
+ * Tests for PhpMyAdmin\Tracker
  *
  * @package PhpMyAdmin-test
  */
@@ -66,7 +66,7 @@ class TrackerTest extends PMATestCase
     {
         Tracker::enable();
         $this->assertTrue(
-            PHPUnit_Framework_Assert::readAttribute('PMA\libraries\Tracker', 'enabled')
+            PHPUnit_Framework_Assert::readAttribute('PhpMyAdmin\Tracker', 'enabled')
         );
     }
 
@@ -78,7 +78,7 @@ class TrackerTest extends PMATestCase
      */
     public function testIsActive()
     {
-        $attr = new \ReflectionProperty('PMA\libraries\Tracker', 'enabled');
+        $attr = new \ReflectionProperty('PhpMyAdmin\Tracker', 'enabled');
         $attr->setAccessible(true);
         $attr->setValue(false);
 
@@ -121,7 +121,7 @@ class TrackerTest extends PMATestCase
      */
     public function testGetTableName($string, $expected)
     {
-        $reflection = new \ReflectionClass('PMA\libraries\Tracker');
+        $reflection = new \ReflectionClass('PhpMyAdmin\Tracker');
         $method = $reflection->getMethod("getTableName");
         $method->setAccessible(true);
 
@@ -154,7 +154,7 @@ class TrackerTest extends PMATestCase
      */
     public function testIsTracked()
     {
-        $attr = new \ReflectionProperty('PMA\libraries\Tracker', 'enabled');
+        $attr = new \ReflectionProperty('PhpMyAdmin\Tracker', 'enabled');
         $attr->setAccessible(true);
         $attr->setValue(false);
 
@@ -466,7 +466,7 @@ class TrackerTest extends PMATestCase
         $GLOBALS['dbi'] = $dbi;
 
         if ($type == null) {
-            $method = new \ReflectionMethod('PMA\libraries\Tracker', '_changeTracking');
+            $method = new \ReflectionMethod('PhpMyAdmin\Tracker', '_changeTracking');
             $method->setAccessible(true);
             $result = $method->invoke(
                 null,

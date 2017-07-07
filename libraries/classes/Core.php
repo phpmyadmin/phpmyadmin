@@ -13,9 +13,9 @@ use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Message;
 use PhpMyAdmin\Response;
 use PhpMyAdmin\Sanitize;
-use PMA\libraries\Template;
-use PMA\libraries\URL;
-use PMA\libraries\Util;
+use PhpMyAdmin\Template;
+use PhpMyAdmin\Url;
+use PhpMyAdmin\Util;
 
 /**
  * Core class
@@ -682,7 +682,7 @@ class Core
         $params = array();
         $params['url'] = $url;
 
-        $url = URL::getCommon($params);
+        $url = Url::getCommon($params);
         //strip off token and such sensitive information. Just keep url.
         $arr = parse_url($url);
         parse_str($arr["query"], $vars);

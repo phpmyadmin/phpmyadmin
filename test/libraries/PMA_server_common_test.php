@@ -9,7 +9,7 @@
 /*
  * Include to test.
  */
-use PMA\libraries\Theme;
+use PhpMyAdmin\Theme;
 
 
 require_once 'libraries/server_common.lib.php';

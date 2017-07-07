@@ -11,7 +11,7 @@
  */
 use PhpMyAdmin\Core;
 use PhpMyAdmin\Menu;
-use PMA\libraries\Theme;
+use PhpMyAdmin\Theme;
 
 require_once 'libraries/database_interface.inc.php';
 require_once 'libraries/relation.lib.php';

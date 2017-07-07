@@ -12,9 +12,9 @@ namespace PMA\libraries\controllers\table;
 use PMA\libraries\controllers\TableController;
 use PhpMyAdmin\Message;
 use PhpMyAdmin\Response;
-use PMA\libraries\Template;
-use PMA\libraries\Util;
-use PMA\libraries\Table;
+use PhpMyAdmin\Template;
+use PhpMyAdmin\Util;
+use PhpMyAdmin\Table;
 
 
 /**

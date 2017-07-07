@@ -6,7 +6,7 @@
  * @package PhpMyAdmin-test
  */
 use PMA\libraries\plugins\export\ExportXml;
-use PMA\libraries\Table;
+use PhpMyAdmin\Table;
 
 $GLOBALS['db'] = 'db';
 
@@ -476,7 +476,7 @@ class ExportXmlTest extends PMATestCase
             ->disableOriginalConstructor()
             ->getMock();
 
-        $_table = $this->getMockBuilder('PMA\libraries\Table')
+        $_table = $this->getMockBuilder('PhpMyAdmin\Table')
             ->disableOriginalConstructor()
             ->getMock();
         $_table->expects($this->once())

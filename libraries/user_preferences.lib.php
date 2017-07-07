@@ -8,7 +8,7 @@
 use PMA\libraries\config\ConfigFile;
 use PhpMyAdmin\Core;
 use PhpMyAdmin\Message;
-use PMA\libraries\URL;
+use PhpMyAdmin\Url;
 
 if (! defined('PHPMYADMIN')) {
     exit;
@@ -61,8 +61,8 @@ function PMA_loadUserprefs()
             'type' => 'session');
     }
     // load configuration from pmadb
-    $query_table = PMA\libraries\Util::backquote($cfgRelation['db']) . '.'
-        . PMA\libraries\Util::backquote($cfgRelation['userconfig']);
+    $query_table = PhpMyAdmin\Util::backquote($cfgRelation['db']) . '.'
+        . PhpMyAdmin\Util::backquote($cfgRelation['userconfig']);
     $query = 'SELECT `config_data`, UNIX_TIMESTAMP(`timevalue`) ts'
         . ' FROM ' . $query_table
         . ' WHERE `username` = \''
@@ -102,8 +102,8 @@ function PMA_saveUserprefs(array $config_array)
     }
 
     // save configuration to pmadb
-    $query_table = PMA\libraries\Util::backquote($cfgRelation['db']) . '.'
-        . PMA\libraries\Util::backquote($cfgRelation['userconfig']);
+    $query_table = PhpMyAdmin\Util::backquote($cfgRelation['db']) . '.'
+        . PhpMyAdmin\Util::backquote($cfgRelation['userconfig']);
     $query = 'SELECT `username` FROM ' . $query_table
         . ' WHERE `username` = \''
         . $GLOBALS['dbi']->escapeString($cfgRelation['user'])
@@ -258,7 +258,7 @@ function PMA_userprefsRedirect($file_name,
         $hash = '#' . urlencode($hash);
     }
     Core::sendHeaderLocation('./' . $file_name
-        . URL::getCommonRaw($url_params) . $hash
+        . Url::getCommonRaw($url_params) . $hash
     );
 }
 
@@ -280,10 +280,10 @@ function PMA_userprefsAutoloadGetHeader()
     $script_name = basename(basename($GLOBALS['PMA_PHP_SELF']));
     $return_url = $script_name . '?' . http_build_query($_GET, '', '&');
 
-    return PMA\libraries\Template::get('prefs_autoload')
+    return PhpMyAdmin\Template::get('prefs_autoload')
         ->render(
             array(
-                'hidden_inputs' => URL::getHiddenInputs(),
+                'hidden_inputs' => Url::getHiddenInputs(),
                 'return_url' => $return_url,
             )
         );

@@ -7,7 +7,7 @@
  */
 
 // Run common work
-use PMA\libraries\Tracker;
+use PhpMyAdmin\Tracker;
 use PhpMyAdmin\Response;
 
 require_once './libraries/common.inc.php';

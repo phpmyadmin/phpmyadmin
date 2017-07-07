@@ -8,8 +8,8 @@
 
 use PhpMyAdmin\Core;
 use PhpMyAdmin\Response;
-use PMA\libraries\Transformations;
-use PMA\libraries\URL;
+use PhpMyAdmin\Transformations;
+use PhpMyAdmin\Url;
 
 /**
  * Get some core libraries
@@ -18,11 +18,11 @@ require_once 'libraries/common.inc.php';
 require_once 'libraries/create_addfield.lib.php';
 
 // Check parameters
-PMA\libraries\Util::checkParameters(array('db'));
+PhpMyAdmin\Util::checkParameters(array('db'));
 
 /* Check if database name is empty */
 if (strlen($db) === 0) {
-    PMA\libraries\Util::mysqlDie(
+    PhpMyAdmin\Util::mysqlDie(
         __('The database name is empty!'), '', false, 'index.php'
     );
 }
@@ -31,7 +31,7 @@ if (strlen($db) === 0) {
  * Selects the database to work with
  */
 if (!$GLOBALS['dbi']->selectDb($db)) {
-    PMA\libraries\Util::mysqlDie(
+    PhpMyAdmin\Util::mysqlDie(
         sprintf(__('\'%s\' database does not exist.'), htmlspecialchars($db)),
         '',
         false,
@@ -41,11 +41,11 @@ if (!$GLOBALS['dbi']->selectDb($db)) {
 
 if ($GLOBALS['dbi']->getColumns($db, $table)) {
     // table exists already
-    PMA\libraries\Util::mysqlDie(
+    PhpMyAdmin\Util::mysqlDie(
         sprintf(__('Table %s already exists!'), htmlspecialchars($table)),
         '',
         false,
-        'db_structure.php' . URL::getCommon(array('db' => $db))
+        'db_structure.php' . Url::getCommon(array('db' => $db))
     );
 }
 

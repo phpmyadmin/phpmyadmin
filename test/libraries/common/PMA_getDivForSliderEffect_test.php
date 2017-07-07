@@ -1,7 +1,7 @@
 <?php
 /* vim: set expandtab sw=4 ts=4 sts=4: */
 /**
- ** Test for PMA\libraries\Util::getDivForSliderEffect from Util.php
+ ** Test for PhpMyAdmin\Util::getDivForSliderEffect from Util.php
  *
  * @package PhpMyAdmin-test
  * @group common.lib-tests
@@ -13,7 +13,7 @@
 
 
 /**
- ** Test for PMA\libraries\Util::getDivForSliderEffect from Util.php
+ ** Test for PhpMyAdmin\Util::getDivForSliderEffect from Util.php
  *
  * @package PhpMyAdmin-test
  * @group common.lib-tests
@@ -34,7 +34,7 @@ class PMA_GetDivForSliderEffectTest extends PHPUnit_Framework_TestCase
         $message = "test_message";
 
         $this->assertXmlStringEqualsXmlString(
-            "<root>" . PMA\libraries\Util::getDivForSliderEffect($id, $message) . "</div></root>",
+            "<root>" . PhpMyAdmin\Util::getDivForSliderEffect($id, $message) . "</div></root>",
             "<root><div id=\"$id\" class=\"pma_auto_slider\"\ntitle=\"" . htmlspecialchars($message) . "\" >\n</div></root>"
         );
     }
@@ -53,7 +53,7 @@ class PMA_GetDivForSliderEffectTest extends PHPUnit_Framework_TestCase
         $message = "test_message";
 
         $this->assertXmlStringEqualsXmlString(
-            "<root>" . PMA\libraries\Util::getDivForSliderEffect($id, $message) . "</div></root>",
+            "<root>" . PhpMyAdmin\Util::getDivForSliderEffect($id, $message) . "</div></root>",
             "<root><div id=\"$id\" style=\"display: none; overflow:auto;\" class=\"pma_auto_slider\"\ntitle=\"" . htmlspecialchars($message) . "\" >\n</div></root>"
         );
 
@@ -73,7 +73,7 @@ class PMA_GetDivForSliderEffectTest extends PHPUnit_Framework_TestCase
         $message = "test_message";
 
         $this->assertXmlStringEqualsXmlString(
-            "<root>" . PMA\libraries\Util::getDivForSliderEffect($id, $message) . "</div></root>",
+            "<root>" . PhpMyAdmin\Util::getDivForSliderEffect($id, $message) . "</div></root>",
              "<root><div id=\"$id\">\n</div></root>"
         );
     }

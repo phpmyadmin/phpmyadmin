@@ -1,7 +1,7 @@
 <?php
 /* vim: set expandtab sw=4 ts=4 sts=4: */
 /**
- ** Test for PMA\libraries\Util::getRadioFields from Util.php
+ ** Test for PhpMyAdmin\Util::getRadioFields from Util.php
  *
  * @package PhpMyAdmin-test
  * @group common.lib-tests
@@ -13,7 +13,7 @@
 
 
 /**
- ** Test for PMA\libraries\Util::getRadioFields from Util.php
+ ** Test for PhpMyAdmin\Util::getRadioFields from Util.php
  *
  * @package PhpMyAdmin-test
  * @group common.lib-tests
@@ -31,7 +31,7 @@ class PMA_GetRadioFieldsTest extends PHPUnit_Framework_TestCase
         $choices = array();
 
         $this->assertEquals(
-            PMA\libraries\Util::getRadioFields($name, $choices),
+            PhpMyAdmin\Util::getRadioFields($name, $choices),
             ""
         );
     }
@@ -60,7 +60,7 @@ class PMA_GetRadioFieldsTest extends PHPUnit_Framework_TestCase
         }
 
         $this->assertEquals(
-            PMA\libraries\Util::getRadioFields($name, $choices),
+            PhpMyAdmin\Util::getRadioFields($name, $choices),
             $out
         );
     }
@@ -93,7 +93,7 @@ class PMA_GetRadioFieldsTest extends PHPUnit_Framework_TestCase
         }
 
         $this->assertEquals(
-            PMA\libraries\Util::getRadioFields(
+            PhpMyAdmin\Util::getRadioFields(
                 $name, $choices, $checked_choice
             ),
             $out
@@ -133,7 +133,7 @@ class PMA_GetRadioFieldsTest extends PHPUnit_Framework_TestCase
         }
 
         $this->assertEquals(
-            PMA\libraries\Util::getRadioFields(
+            PhpMyAdmin\Util::getRadioFields(
                 $name, $choices, $checked_choice, true, false, $class
             ),
             $out
@@ -166,7 +166,7 @@ class PMA_GetRadioFieldsTest extends PHPUnit_Framework_TestCase
         }
 
         $this->assertEquals(
-            PMA\libraries\Util::getRadioFields(
+            PhpMyAdmin\Util::getRadioFields(
                 $name, $choices, $checked_choice, false
             ),
             $out
@@ -201,7 +201,7 @@ class PMA_GetRadioFieldsTest extends PHPUnit_Framework_TestCase
         }
 
         $this->assertEquals(
-            PMA\libraries\Util::getRadioFields(
+            PhpMyAdmin\Util::getRadioFields(
                 $name, $choices, $checked_choice, true, true
             ),
             $out
@@ -236,7 +236,7 @@ class PMA_GetRadioFieldsTest extends PHPUnit_Framework_TestCase
         }
 
         $this->assertEquals(
-            PMA\libraries\Util::getRadioFields(
+            PhpMyAdmin\Util::getRadioFields(
                 $name, $choices, $checked_choice, true, false
             ),
             $out
@@ -276,7 +276,7 @@ class PMA_GetRadioFieldsTest extends PHPUnit_Framework_TestCase
         }
 
         $this->assertEquals(
-            PMA\libraries\Util::getRadioFields(
+            PhpMyAdmin\Util::getRadioFields(
                 $name, $choices, $checked_choice, true, true, $class
             ),
             $out

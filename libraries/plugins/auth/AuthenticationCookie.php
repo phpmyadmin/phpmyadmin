@@ -13,11 +13,11 @@ use PhpMyAdmin\LanguageManager;
 use PhpMyAdmin\Message;
 use PMA\libraries\plugins\AuthenticationPlugin;
 use PhpMyAdmin\Response;
-use PMA\libraries\Util;
+use PhpMyAdmin\Util;
 use PhpMyAdmin\Config;
 use PhpMyAdmin\Core;
 use ReCaptcha;
-use PMA\libraries\URL;
+use PhpMyAdmin\Url;
 
 require_once './libraries/session.lib.php';
 require_once './libraries/hash.lib.php';
@@ -255,7 +255,7 @@ class AuthenticationCookie extends AuthenticationPlugin
         }
         // do not generate a "server" hidden field as we want the "server"
         // drop-down to have priority
-        echo URL::getHiddenInputs($_form_params, '', 0, 'server');
+        echo Url::getHiddenInputs($_form_params, '', 0, 'server');
         echo '</fieldset>
     </form>';
 
@@ -540,7 +540,7 @@ class AuthenticationCookie extends AuthenticationPlugin
                 ->disable();
 
             Core::sendHeaderLocation(
-                $redirect_url . URL::getCommonRaw($url_params),
+                $redirect_url . Url::getCommonRaw($url_params),
                 true
             );
             if (! defined('TESTSUITE')) {

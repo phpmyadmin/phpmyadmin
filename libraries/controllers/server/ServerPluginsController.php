@@ -10,7 +10,7 @@
 namespace PMA\libraries\controllers\server;
 
 use PMA\libraries\controllers\Controller;
-use PMA\libraries\Template;
+use PhpMyAdmin\Template;
 
 /**
  * Handles viewing server plugin details

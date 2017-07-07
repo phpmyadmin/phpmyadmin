@@ -37,7 +37,7 @@ class PMA_GetDbLink_Test extends PHPUnit_Framework_TestCase
     function testGetDbLinkEmpty()
     {
         $GLOBALS['db'] = null;
-        $this->assertEmpty(PMA\libraries\Util::getDbLink());
+        $this->assertEmpty(PhpMyAdmin\Util::getDbLink());
     }
 
     /**
@@ -54,7 +54,7 @@ class PMA_GetDbLink_Test extends PHPUnit_Framework_TestCase
         $database = $GLOBALS['db'];
         $this->assertEquals(
             '<a href="'
-            . PMA\libraries\Util::getScriptNameForOption(
+            . PhpMyAdmin\Util::getScriptNameForOption(
                 $GLOBALS['cfg']['DefaultTabDatabase'], 'database'
             )
             . '?db=' . $database
@@ -62,7 +62,7 @@ class PMA_GetDbLink_Test extends PHPUnit_Framework_TestCase
             . 'title="Jump to database “'
             . htmlspecialchars($database) . '”.">'
             . htmlspecialchars($database) . '</a>',
-            PMA\libraries\Util::getDbLink()
+            PhpMyAdmin\Util::getDbLink()
         );
     }
 
@@ -76,14 +76,14 @@ class PMA_GetDbLink_Test extends PHPUnit_Framework_TestCase
         global $cfg;
         $database = 'test_database';
         $this->assertEquals(
-            '<a href="' . PMA\libraries\Util::getScriptNameForOption(
+            '<a href="' . PhpMyAdmin\Util::getScriptNameForOption(
                 $GLOBALS['cfg']['DefaultTabDatabase'], 'database'
             )
             . '?db=' . $database
             . '&amp;server=99&amp;lang=en" title="Jump to database “'
             . htmlspecialchars($database) . '”.">'
             . htmlspecialchars($database) . '</a>',
-            PMA\libraries\Util::getDbLink($database)
+            PhpMyAdmin\Util::getDbLink($database)
         );
     }
 
@@ -98,7 +98,7 @@ class PMA_GetDbLink_Test extends PHPUnit_Framework_TestCase
         $database = 'test&data\'base';
         $this->assertEquals(
             '<a href="'
-            . PMA\libraries\Util::getScriptNameForOption(
+            . PhpMyAdmin\Util::getScriptNameForOption(
                 $GLOBALS['cfg']['DefaultTabDatabase'], 'database'
             )
             . '?db='
@@ -106,7 +106,7 @@ class PMA_GetDbLink_Test extends PHPUnit_Framework_TestCase
             . '&amp;server=99&amp;lang=en" title="Jump to database “'
             . htmlspecialchars($database) . '”.">'
             . htmlspecialchars($database) . '</a>',
-            PMA\libraries\Util::getDbLink($database)
+            PhpMyAdmin\Util::getDbLink($database)
         );
     }
 }

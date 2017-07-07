@@ -1,13 +1,13 @@
 <?php
 use PhpMyAdmin\Partition;
 use PhpMyAdmin\StorageEngine;
-use PMA\libraries\URL;
+use PhpMyAdmin\Url;
 
 ?>
 <form method="post"
       action="<?= $action; ?>"
       class="<?= ($action == 'tbl_create.php' ? 'create_table' : 'append_fields'); ?>_form ajax lock-page">
-    <?= URL::getHiddenInputs($form_params); ?>
+    <?= Url::getHiddenInputs($form_params); ?>
    <!-- happens when an index has been set on a column -->
    <!-- and a column is added to the table creation dialog -->
    <!-- This contains a JSON-encoded string -->
@@ -73,7 +73,7 @@ use PMA\libraries\URL;
         </div>
     <?php endif; ?>
     <?php if (is_array($content_cells)): ?>
-        <?= PMA\libraries\Template::get(
+        <?= PhpMyAdmin\Template::get(
             'columns_definitions/table_fields_definitions'
         )->render(array(
             'is_backup' => $is_backup,
@@ -95,12 +95,12 @@ use PMA\libraries\URL;
                 <td width="25">&nbsp;</td>
                 <th>
                     <?= __('Storage Engine:'); ?>
-                    <?= PMA\libraries\Util::showMySQLDocu('Storage_engines'); ?>
+                    <?= PhpMyAdmin\Util::showMySQLDocu('Storage_engines'); ?>
                 </th>
                 <td width="25">&nbsp;</td>
                 <th>
                     <?= __('Connection:'); ?>
-                    <?= PMA\libraries\Util::showMySQLDocu('federated-create-connection'); ?>
+                    <?= PhpMyAdmin\Util::showMySQLDocu('federated-create-connection'); ?>
                 </th>
             </tr>
             <tr>
@@ -145,12 +145,12 @@ use PMA\libraries\URL;
                     <th colspan="5">
                         <?= __('PARTITION definition:'); ?>
                         &nbsp;
-                        <?= PMA\libraries\Util::showMySQLDocu('Partitioning'); ?>
+                        <?= PhpMyAdmin\Util::showMySQLDocu('Partitioning'); ?>
                     </th>
                 </tr>
                 <tr>
                     <td colspan="5">
-                        <?= PMA\libraries\Template::get('columns_definitions/partitions')
+                        <?= PhpMyAdmin\Template::get('columns_definitions/partitions')
                             ->render(array('partitionDetails' => $partitionDetails)); ?>
                     </td>
                 </tr>

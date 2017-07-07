@@ -9,7 +9,7 @@
  */
 
 use PhpMyAdmin\Core;
-use PMA\libraries\URL;
+use PhpMyAdmin\Url;
 use PhpMyAdmin\Response;
 
 require_once './libraries/common.inc.php';
@@ -78,11 +78,11 @@ if (isset($_REQUEST['createview']) || isset($_REQUEST['alterview'])) {
     if (! empty($_REQUEST['view']['definer'])) {
         if (strpos($_REQUEST['view']['definer'], '@') === FALSE) {
             $sql_query .= $sep . 'DEFINER='
-                . PMA\libraries\Util::backquote($_REQUEST['view']['definer']);
+                . PhpMyAdmin\Util::backquote($_REQUEST['view']['definer']);
         } else {
             $arr = explode('@', $_REQUEST['view']['definer']);
-            $sql_query .= $sep . 'DEFINER=' . PMA\libraries\Util::backquote($arr[0]);
-            $sql_query .= '@' . PMA\libraries\Util::backquote($arr[1]) . ' ';
+            $sql_query .= $sep . 'DEFINER=' . PhpMyAdmin\Util::backquote($arr[0]);
+            $sql_query .= '@' . PhpMyAdmin\Util::backquote($arr[1]) . ' ';
         }
     }
 
@@ -94,7 +94,7 @@ if (isset($_REQUEST['createview']) || isset($_REQUEST['alterview'])) {
     }
 
     $sql_query .= $sep . ' VIEW '
-        . PMA\libraries\Util::backquote($_REQUEST['view']['name']);
+        . PhpMyAdmin\Util::backquote($_REQUEST['view']['name']);
 
     if (! empty($_REQUEST['view']['column_names'])) {
         $sql_query .= $sep . ' (' . $_REQUEST['view']['column_names'] . ')';
@@ -163,7 +163,7 @@ if (isset($_REQUEST['createview']) || isset($_REQUEST['alterview'])) {
     } else {
         $response->addJSON(
             'message',
-            PMA\libraries\Util::getMessage(
+            PhpMyAdmin\Util::getMessage(
                 PhpMyAdmin\Message::success(),
                 $sql_query
             )
@@ -200,7 +200,7 @@ $url_params['reload'] = 1;
 $htmlString = '<!-- CREATE VIEW options -->'
     . '<div id="div_view_options">'
     . '<form method="post" action="view_create.php">'
-    . URL::getHiddenInputs($url_params)
+    . Url::getHiddenInputs($url_params)
     . '<fieldset>'
     . '<legend>'
     . (isset($_REQUEST['ajax_dialog']) ?

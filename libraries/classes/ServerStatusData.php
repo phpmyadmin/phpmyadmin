@@ -8,7 +8,7 @@
  */
 namespace PhpMyAdmin;
 
-use PMA\libraries\URL;
+use PhpMyAdmin\Url;
 
 /**
  * This class provides data about the server status
@@ -144,13 +144,13 @@ class ServerStatusData
         // variable or section name => (name => url)
 
         $links['table'][__('Flush (close) all tables')] = $this->selfUrl
-            . URL::getCommon(
+            . Url::getCommon(
                 array(
                     'flush' => 'TABLES'
                 )
             );
         $links['table'][__('Show open tables')]
-            = 'sql.php' . URL::getCommon(
+            = 'sql.php' . Url::getCommon(
                 array(
                     'sql_query' => 'SHOW OPEN TABLES',
                     'goto' => $this->selfUrl,
@@ -159,7 +159,7 @@ class ServerStatusData
 
         if ($GLOBALS['replication_info']['master']['status']) {
             $links['repl'][__('Show slave hosts')]
-                = 'sql.php' . URL::getCommon(
+                = 'sql.php' . Url::getCommon(
                     array(
                         'sql_query' => 'SHOW SLAVE HOSTS',
                         'goto' => $this->selfUrl,
@@ -175,7 +175,7 @@ class ServerStatusData
 
         $links['qcache'][__('Flush query cache')]
             = $this->selfUrl
-            . URL::getCommon(
+            . Url::getCommon(
                 array(
                     'flush' => 'QUERY CACHE'
                 )
@@ -191,10 +191,10 @@ class ServerStatusData
         $links['Slow_queries']['doc'] = 'slow_query_log';
 
         $links['innodb'][__('Variables')]
-            = 'server_engines.php?' . URL::getCommon(array('engine' => 'InnoDB'));
+            = 'server_engines.php?' . Url::getCommon(array('engine' => 'InnoDB'));
         $links['innodb'][__('InnoDB Status')]
             = 'server_engines.php'
-            . URL::getCommon(
+            . Url::getCommon(
                 array(
                     'engine' => 'InnoDB',
                     'page' => 'Status'
@@ -419,7 +419,7 @@ class ServerStatusData
      */
     public function getMenuHtml()
     {
-        $url_params = URL::getCommon();
+        $url_params = Url::getCommon();
         $items = array(
             array(
                 'name' => __('Server'),

@@ -18,11 +18,11 @@ use PhpMyAdmin\Core;
 use PhpMyAdmin\Index;
 use PhpMyAdmin\Message;
 use PhpMyAdmin\Sql;
-use PMA\libraries\Table;
-use PMA\libraries\Template;
-use PMA\libraries\Transformations;
-use PMA\libraries\URL;
-use PMA\libraries\Util;
+use PhpMyAdmin\Table;
+use PhpMyAdmin\Template;
+use PhpMyAdmin\Transformations;
+use PhpMyAdmin\Url;
+use PhpMyAdmin\Util;
 use PMA\Util as Util_lib;
 
 require_once 'libraries/util.lib.php';
@@ -96,7 +96,7 @@ class TableStructureController extends TableController
         parent::__construct();
 
         $this->_db_is_system_schema = $db_is_system_schema;
-        $this->_url_query = URL::getCommonRaw(array('db' => $db, 'table' => $table));
+        $this->_url_query = Url::getCommonRaw(array('db' => $db, 'table' => $table));
         $this->_tbl_is_view = $tbl_is_view;
         $this->_tbl_storage_engine = $tbl_storage_engine;
         $this->_table_info_num_rows = $table_info_num_rows;
@@ -319,7 +319,7 @@ class TableStructureController extends TableController
         $url_params = array();
         include_once 'libraries/tbl_common.inc.php';
         $this->_db_is_system_schema = $db_is_system_schema;
-        $this->_url_query = URL::getCommonRaw(array(
+        $this->_url_query = Url::getCommonRaw(array(
             'db' => $db,
             'table' => $table,
             'goto' => 'tbl_structure.php',
@@ -829,7 +829,7 @@ class TableStructureController extends TableController
      */
     protected function updateColumns()
     {
-        $err_url = 'tbl_structure.php' . URL::getCommon(
+        $err_url = 'tbl_structure.php' . Url::getCommon(
             array(
                 'db' => $this->db, 'table' => $this->table
             )
@@ -1228,7 +1228,7 @@ class TableStructureController extends TableController
             );
 
             $edit_view_url = 'view_create.php'
-                . URL::getCommon($url_params) . '&amp;'
+                . Url::getCommon($url_params) . '&amp;'
                 . implode(
                     '&amp;',
                     array_map(

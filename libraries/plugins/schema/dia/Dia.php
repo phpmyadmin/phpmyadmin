@@ -7,7 +7,6 @@
  */
 namespace PMA\libraries\plugins\schema\dia;
 
-use PMA;
 use PhpMyAdmin\Core;
 use PhpMyAdmin\Response;
 use XMLWriter;

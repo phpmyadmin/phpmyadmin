@@ -6,7 +6,7 @@
                 <div id="specified_div" style="padding-left:20px;">
             <?php endif; ?>
             <?=
-                PMA\libraries\Template::get('privileges/require_options_item')->render(
+                PhpMyAdmin\Template::get('privileges/require_options_item')->render(
                     array('require_option' => $require_option)
                 );
             ?>

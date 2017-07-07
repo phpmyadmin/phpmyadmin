@@ -6,7 +6,7 @@
  * @package PhpMyAdmin-test
  */
 
-use PMA\libraries\Theme;
+use PhpMyAdmin\Theme;
 
 require_once 'libraries/config/FormDisplay.tpl.php';
 require_once 'libraries/user_preferences.lib.php';

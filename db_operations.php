@@ -134,7 +134,7 @@ if (strlen($GLOBALS['db']) > 0
 
             // if someday the RENAME DATABASE reappears, do not DROP
             $local_query = 'DROP DATABASE '
-                . PMA\libraries\Util::backquote($GLOBALS['db']) . ';';
+                . PhpMyAdmin\Util::backquote($GLOBALS['db']) . ';';
             $sql_query .= "\n" . $local_query;
             $GLOBALS['dbi']->query($local_query);
 
@@ -185,7 +185,7 @@ if (strlen($GLOBALS['db']) > 0
         $response->addJSON('newname', $_REQUEST['newname']);
         $response->addJSON(
             'sql_query',
-            PMA\libraries\Util::getMessage(null, $sql_query)
+            PhpMyAdmin\Util::getMessage(null, $sql_query)
         );
         $response->addJSON('db', $GLOBALS['db']);
         exit;
@@ -222,12 +222,12 @@ list(
     $tooltip_truename,
     $tooltip_aliasname,
     $pos
-) = PMA\libraries\Util::getDbInfo($db, isset($sub_part) ? $sub_part : '');
+) = PhpMyAdmin\Util::getDbInfo($db, isset($sub_part) ? $sub_part : '');
 
 echo "\n";
 
 if (isset($message)) {
-    echo PMA\libraries\Util::getMessage($message, $sql_query);
+    echo PhpMyAdmin\Util::getMessage($message, $sql_query);
     unset($message);
 }
 
@@ -296,8 +296,8 @@ if ($cfgRelation['pdfwork'] && $num_tables > 0) {
     // We only show this if we find something in the new pdf_pages table
     $test_query = '
         SELECT *
-        FROM ' . PMA\libraries\Util::backquote($GLOBALS['cfgRelation']['db'])
-        . '.' . PMA\libraries\Util::backquote($cfgRelation['pdf_pages']) . '
+        FROM ' . PhpMyAdmin\Util::backquote($GLOBALS['cfgRelation']['db'])
+        . '.' . PhpMyAdmin\Util::backquote($cfgRelation['pdf_pages']) . '
         WHERE db_name = \'' . $GLOBALS['dbi']->escapeString($GLOBALS['db'])
         . '\'';
     $test_rs = PMA_queryAsControlUser(

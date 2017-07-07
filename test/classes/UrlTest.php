@@ -8,14 +8,14 @@
 /*
  * Include to text.
  */
-use PMA\libraries\URL;
+use PhpMyAdmin\Url;
 
 /**
  * Tests for methods in URL class
  *
  * @package PhpMyAdmin-test
  */
-class URLTest extends PHPUnit_Framework_TestCase
+class UrlTest extends PHPUnit_Framework_TestCase
 {
 
     /**
@@ -31,7 +31,7 @@ class URLTest extends PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test for URL::getCommon for DB only
+     * Test for Url::getCommon for DB only
      *
      * @return void
      */
@@ -41,7 +41,7 @@ class URLTest extends PHPUnit_Framework_TestCase
         $GLOBALS['collation_connection'] = 'x';
         $GLOBALS['cfg']['ServerDefault'] = 'y';
 
-        $separator = URL::getArgSeparator();
+        $separator = Url::getArgSeparator();
         $expected = 'server=x' . htmlentities($separator)
             . 'lang=en' . htmlentities($separator)
             . 'collation_connection=x'
@@ -50,11 +50,11 @@ class URLTest extends PHPUnit_Framework_TestCase
         $expected = '?db=db'
             . htmlentities($separator) . $expected;
 
-        $this->assertEquals($expected, URL::getCommon(array('db' => 'db')));
+        $this->assertEquals($expected, Url::getCommon(array('db' => 'db')));
     }
 
     /**
-     * Test for URL::getCommon with new style
+     * Test for Url::getCommon with new style
      *
      * @return void
      */
@@ -64,7 +64,7 @@ class URLTest extends PHPUnit_Framework_TestCase
         $GLOBALS['collation_connection'] = 'x';
         $GLOBALS['cfg']['ServerDefault'] = 'y';
 
-        $separator = URL::getArgSeparator();
+        $separator = Url::getArgSeparator();
         $expected = 'server=x' . htmlentities($separator)
             . 'lang=en' . htmlentities($separator)
             . 'collation_connection=x'
@@ -74,11 +74,11 @@ class URLTest extends PHPUnit_Framework_TestCase
             . htmlentities($separator) . 'table=table'
             . htmlentities($separator) . $expected;
         $params = array('db' => 'db', 'table' => 'table');
-        $this->assertEquals($expected, URL::getCommon($params));
+        $this->assertEquals($expected, Url::getCommon($params));
     }
 
     /**
-     * Test for URL::getCommon with alternate divider
+     * Test for Url::getCommon with alternate divider
      *
      * @return void
      */
@@ -88,7 +88,7 @@ class URLTest extends PHPUnit_Framework_TestCase
         $GLOBALS['collation_connection'] = 'x';
         $GLOBALS['cfg']['ServerDefault'] = 'y';
 
-        $separator = URL::getArgSeparator();
+        $separator = Url::getArgSeparator();
         $expected = 'server=x' . $separator
             . 'lang=en' . $separator
             . 'collation_connection=x'
@@ -98,14 +98,14 @@ class URLTest extends PHPUnit_Framework_TestCase
             . $expected;
         $this->assertEquals(
             $expected,
-            URL::getCommonRaw(
+            Url::getCommonRaw(
                 array('db' => 'db', 'table' => 'table'), '#ABC#'
             )
         );
     }
 
     /**
-     * Test for URL::getCommon
+     * Test for Url::getCommon
      *
      * @return void
      */
@@ -115,11 +115,11 @@ class URLTest extends PHPUnit_Framework_TestCase
         $GLOBALS['collation_connection'] = 'x';
         $GLOBALS['cfg']['ServerDefault'] = 'y';
 
-        $separator = URL::getArgSeparator();
+        $separator = Url::getArgSeparator();
         $expected = '?server=x' . htmlentities($separator)
             . 'lang=en' . htmlentities($separator)
             . 'collation_connection=x'
             ;
-        $this->assertEquals($expected, URL::getCommon());
+        $this->assertEquals($expected, Url::getCommon());
     }
 }

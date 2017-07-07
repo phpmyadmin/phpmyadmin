@@ -9,7 +9,7 @@ namespace PhpMyAdmin;
 
 use PhpMyAdmin\Message;
 use PhpMyAdmin\Response;
-use PMA\libraries\Util;
+use PhpMyAdmin\Util;
 
 /**
  * Saved searches managing

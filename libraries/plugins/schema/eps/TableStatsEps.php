@@ -8,7 +8,6 @@
 namespace PMA\libraries\plugins\schema\eps;
 
 use PhpMyAdmin\Font;
-use PMA;
 use PMA\libraries\plugins\schema\ExportRelationSchema;
 use PMA\libraries\plugins\schema\TableStats;
 

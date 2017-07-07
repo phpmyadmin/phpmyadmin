@@ -9,7 +9,7 @@
 use PhpMyAdmin\Response;
 use PhpMyAdmin\SavedSearches;
 use PhpMyAdmin\Sql;
-use PMA\libraries\URL;
+use PhpMyAdmin\Url;
 
 /**
  * requirements
@@ -120,7 +120,7 @@ list(
     $tooltip_truename,
     $tooltip_aliasname,
     $pos
-) = PMA\libraries\Util::getDbInfo($db, isset($sub_part) ? $sub_part : '');
+) = PhpMyAdmin\Util::getDbInfo($db, isset($sub_part) ? $sub_part : '');
 
 if ($message_to_display) {
     PhpMyAdmin\Message::error(
@@ -133,7 +133,7 @@ unset($message_to_display);
 // create new qbe search instance
 $db_qbe = new PhpMyAdmin\DbQbe($GLOBALS['db'], $savedSearchList, $savedSearch);
 
-$url = 'db_designer.php' . URL::getCommon(
+$url = 'db_designer.php' . Url::getCommon(
     array_merge(
         $url_params,
         array('query' => 1)

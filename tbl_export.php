@@ -118,7 +118,7 @@ if (! empty($sql_query)) {
         $sql_query = PhpMyAdmin\SqlParser\TokensList::build($tokens);
     }
 
-    echo PMA\libraries\Util::getMessage(PhpMyAdmin\Message::success());
+    echo PhpMyAdmin\Util::getMessage(PhpMyAdmin\Message::success());
 }
 
 require_once 'libraries/display_export.lib.php';

@@ -7,7 +7,7 @@
  */
 
 use PhpMyAdmin\Core;
-use PMA\libraries\Util;
+use PhpMyAdmin\Util;
 
 /**
  * tries to secure session from hijacking and fixation

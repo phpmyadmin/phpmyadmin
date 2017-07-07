@@ -1,19 +1,19 @@
 <table class="data" <?php if ($searchType == 'zoom'): ?>
                         id="tableFieldsId"
                    <?php endif; ?>>
-    <?= PMA\libraries\Template::get('table/search/table_header')
+    <?= PhpMyAdmin\Template::get('table/search/table_header')
         ->render(array(
             'geom_column_flag' => $geomColumnFlag
         )); ?>
     <tbody>
     <?php if ($searchType == 'zoom'): ?>
-        <?= PMA\libraries\Template::get('table/search/rows_zoom')
+        <?= PhpMyAdmin\Template::get('table/search/rows_zoom')
             ->render(array(
                 'self' => $self,
                 'columnNames' => $columnNames
         )) ?>
     <?php else: ?>
-        <?= PMA\libraries\Template::get('table/search/rows_normal')
+        <?= PhpMyAdmin\Template::get('table/search/rows_normal')
             ->render(array(
                 'self' => $self,
                 'geomColumnFlag' => $geomColumnFlag,

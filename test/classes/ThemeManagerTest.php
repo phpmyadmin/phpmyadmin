@@ -9,7 +9,7 @@
 /*
  * Include to test.
  */
-use PMA\libraries\ThemeManager;
+use PhpMyAdmin\ThemeManager;
 
 require_once 'test/PMATestCase.php';
 
@@ -148,7 +148,7 @@ class ThemeManagerTest extends PMATestCase
     {
         $tm = new ThemeManager();
         $this->assertInstanceOf(
-            'PMA\libraries\Theme',
+            'PhpMyAdmin\Theme',
             $tm->getFallBackTheme()
         );
     }

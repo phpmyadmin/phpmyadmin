@@ -7,7 +7,7 @@
  */
 
 use PhpMyAdmin\Message;
-use PMA\libraries\Theme;
+use PhpMyAdmin\Theme;
 
 require_once 'test/PMATestCase.php';
 

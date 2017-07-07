@@ -6,7 +6,7 @@
  * @package PhpMyAdmin-test
  */
 
-use PMA\libraries\TypesMySQL;
+use PhpMyAdmin\TypesMySQL;
 
 
 

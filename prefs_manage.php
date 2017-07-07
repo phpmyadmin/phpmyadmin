@@ -11,10 +11,10 @@ use PhpMyAdmin\Core;
 use PhpMyAdmin\File;
 use PhpMyAdmin\Message;
 use PhpMyAdmin\Response;
-use PMA\libraries\Util;
-use PMA\libraries\URL;
+use PhpMyAdmin\Util;
+use PhpMyAdmin\Url;
 use PhpMyAdmin\Sanitize;
-use PMA\libraries\ThemeManager;
+use PhpMyAdmin\ThemeManager;
 
 /**
  * Gets some core libraries and displays a top message if required
@@ -131,7 +131,7 @@ if (isset($_POST['submit_export'])
             echo $form_display->displayErrors();
             echo '</div>';
             echo '<form action="prefs_manage.php" method="post">';
-            echo URL::getHiddenInputs() , "\n";
+            echo Url::getHiddenInputs() , "\n";
             echo '<input type="hidden" name="json" value="'
                 , htmlspecialchars($json) , '" />';
             echo '<input type="hidden" name="fix_errors" value="1" />';
@@ -183,7 +183,7 @@ if (isset($_POST['submit_export'])
         $result = PMA_saveUserprefs($cf->getConfigArray());
         if ($result === true) {
             if ($return_url) {
-                $query =  PMA\libraries\Util::splitURLQuery($return_url);
+                $query =  PhpMyAdmin\Util::splitURLQuery($return_url);
                 $return_url = parse_url($return_url, PHP_URL_PATH);
 
                 foreach ($query as $q) {
@@ -248,7 +248,7 @@ echo '<h2>' , __('Import') , '</h2>'
     , '<form class="group-cnt prefs-form disableAjax" name="prefs_import"'
     , ' action="prefs_manage.php" method="post" enctype="multipart/form-data">'
     , Util::generateHiddenMaxFileSize($GLOBALS['max_upload_size'])
-    , URL::getHiddenInputs()
+    , Url::getHiddenInputs()
     , '<input type="hidden" name="json" value="" />'
     , '<input type="radio" id="import_text_file" name="import_type"'
     , ' value="text_file" checked="checked" />'
@@ -300,7 +300,7 @@ if (file_exists('setup/index.php') && ! file_exists(CONFIG_FILE)) {
                         'You can set more settings by modifying config.inc.php, eg. '
                         . 'by using %sSetup script%s.'
                     ), '<a href="setup/index.php" target="_blank">', '</a>'
-                ) , PMA\libraries\Util::showDocu('setup', 'setup-script');
+                ) , PhpMyAdmin\Util::showDocu('setup', 'setup-script');
                 ?>
             </div>
             </div>
@@ -320,7 +320,7 @@ if (file_exists('setup/index.php') && ! file_exists(CONFIG_FILE)) {
             </div>
             <form class="group-cnt prefs-form disableAjax" name="prefs_export"
                   action="prefs_manage.php" method="post">
-                <?php echo URL::getHiddenInputs(); ?>
+                <?php echo Url::getHiddenInputs(); ?>
                 <div style="padding-bottom:0.5em">
                     <input type="radio" id="export_text_file" name="export_type"
                            value="text_file" checked="checked" />
@@ -377,7 +377,7 @@ if (file_exists('setup/index.php') && ! file_exists(CONFIG_FILE)) {
             <form class="group-cnt prefs-form disableAjax" name="prefs_reset"
                   action="prefs_manage.php" method="post">
                 <?php
-                echo URL::getHiddenInputs() , __(
+                echo Url::getHiddenInputs() , __(
                     'You can reset all your settings and restore them to default '
                     . 'values.'
                 );
