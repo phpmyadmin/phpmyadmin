@@ -9,7 +9,7 @@
  */
 use PMA\libraries\config\PageSettings;
 use PhpMyAdmin\Response;
-use PMA\libraries\Sql;
+use PhpMyAdmin\Sql;
 use PMA\libraries\URL;
 use PMA\libraries\Util;
 

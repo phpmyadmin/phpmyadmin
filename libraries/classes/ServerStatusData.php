@@ -6,7 +6,7 @@
  *
  * @package PhpMyAdmin
  */
-namespace PMA\libraries;
+namespace PhpMyAdmin;
 
 use PMA\libraries\URL;
 
@@ -477,7 +477,7 @@ class ServerStatusData
      */
     public static function getHtmlForRefreshList($name,
         $defaultRate = 5,
-        $refreshRates = Array(1, 2, 5, 10, 20, 40, 60, 120, 300, 600)
+        $refreshRates = array(1, 2, 5, 10, 20, 40, 60, 120, 300, 600)
     ) {
         $return = '<select name="' . $name . '" id="id_' . $name
             . '" class="refreshRate">';
@@ -500,4 +500,3 @@ class ServerStatusData
         return $return;
     }
 }
-

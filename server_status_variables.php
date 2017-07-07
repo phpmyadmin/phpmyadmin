@@ -8,7 +8,7 @@
 
 use PhpMyAdmin\Response;
 use PhpMyAdmin\Message;
-use PMA\libraries\ServerStatusData;
+use PhpMyAdmin\ServerStatusData;
 
 require_once 'libraries/common.inc.php';
 require_once 'libraries/server_common.inc.php';

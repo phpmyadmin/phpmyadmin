@@ -12,7 +12,7 @@ use PhpMyAdmin\Message;
 use PhpMyAdmin\Partition;
 use PMA\libraries\plugins\export\ExportSql;
 use PhpMyAdmin\Response;
-use PMA\libraries\StorageEngine;
+use PhpMyAdmin\StorageEngine;
 use PMA\libraries\Table;
 use PMA\libraries\Util;
 use PMA\libraries\URL;

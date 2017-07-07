@@ -8,7 +8,7 @@
 
 use PhpMyAdmin\Message;
 use PhpMyAdmin\Response;
-use PMA\libraries\Sql;
+use PhpMyAdmin\Sql;
 
 if (! defined('PHPMYADMIN')) {
     exit;

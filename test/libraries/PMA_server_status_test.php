@@ -7,7 +7,7 @@
  */
 
 use PhpMyAdmin\Core;
-use PMA\libraries\ServerStatusData;
+use PhpMyAdmin\ServerStatusData;
 use PMA\libraries\Theme;
 
 require_once 'libraries/server_status.lib.php';

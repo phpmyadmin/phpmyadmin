@@ -14,8 +14,8 @@ use PhpMyAdmin\Menu;
 use PhpMyAdmin\Message;
 use PMA\libraries\navigation\Navigation;
 use PhpMyAdmin\RecentFavoriteTable;
-use PMA\libraries\Sanitize;
-use PMA\libraries\Scripts;
+use PhpMyAdmin\Sanitize;
+use PhpMyAdmin\Scripts;
 use PMA\libraries\URL;
 use PMA\libraries\Util;
 

@@ -1,18 +1,20 @@
 <?php
 /* vim: set expandtab sw=4 ts=4 sts=4: */
 /**
- * Hold PMA\libraries\SysInfoLinux class
+ * Hold PhpMyAdmin\SysInfoLinux class
  *
- * @package PMA
+ * @package PhpMyAdmin
  */
-namespace PMA\libraries;
+namespace PhpMyAdmin;
+
+use PhpMyAdmin\SysInfo;
 
 /**
  * Linux based SysInfo class
  *
- * @package PhpMyAdmin-sysinfo
+ * @package PhpMyAdmin
  */
-class SysInfoLinux extends \PMA\libraries\SysInfo
+class SysInfoLinux extends SysInfo
 {
     public $os = 'Linux';
 

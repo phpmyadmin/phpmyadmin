@@ -5,11 +5,11 @@
  *
  * @package PhpMyAdmin
  */
-namespace PMA\libraries;
+namespace PhpMyAdmin;
 
 use PhpMyAdmin\Header;
+use PhpMyAdmin\Sanitize;
 use PMA\libraries\URL;
-use PMA\libraries\Sanitize;
 
 /**
  * Collects information about which JavaScript

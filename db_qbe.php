@@ -7,8 +7,8 @@
  */
 
 use PhpMyAdmin\Response;
-use PMA\libraries\SavedSearches;
-use PMA\libraries\Sql;
+use PhpMyAdmin\SavedSearches;
+use PhpMyAdmin\Sql;
 use PMA\libraries\URL;
 
 /**

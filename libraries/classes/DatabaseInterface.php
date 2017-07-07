@@ -12,7 +12,7 @@ use PMA\libraries\dbi\DBIExtension;
 use PhpMyAdmin\Error;
 use PhpMyAdmin\Index;
 use PhpMyAdmin\LanguageManager;
-use PMA\libraries\SystemDatabase;
+use PhpMyAdmin\SystemDatabase;
 use PMA\libraries\Table;
 use PMA\libraries\Tracker;
 use PMA\libraries\URL;

@@ -5,7 +5,11 @@
  *
  * @package PhpMyAdmin
  */
-namespace PMA\libraries;
+namespace PhpMyAdmin;
+
+use PhpMyAdmin\Message;
+use PhpMyAdmin\Response;
+use PMA\libraries\Util;
 
 /**
  * Saved searches managing

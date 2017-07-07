@@ -10,7 +10,7 @@ namespace PMA\libraries\plugins\transformations\abs;
 
 use PMA;
 use PMA\libraries\plugins\TransformationsPlugin;
-use PMA\libraries\Sanitize;
+use PhpMyAdmin\Sanitize;
 
 /**
  * Provides common methods for all of the date format transformations plugins.

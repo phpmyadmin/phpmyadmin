@@ -12,7 +12,7 @@ use PMA\libraries\plugins\ExportPlugin;
 use PMA\libraries\Table;
 use PhpMyAdmin\ZipFile;
 use PMA\libraries\URL;
-use PMA\libraries\Sanitize;
+use PhpMyAdmin\Sanitize;
 
 
 /**

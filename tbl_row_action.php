@@ -7,7 +7,7 @@
  */
 
 use PhpMyAdmin\Response;
-use PMA\libraries\Sql;
+use PhpMyAdmin\Sql;
 use PMA\libraries\URL;
 
 /**

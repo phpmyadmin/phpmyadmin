@@ -12,7 +12,7 @@ use PhpMyAdmin\Encoding;
 use PhpMyAdmin\File;
 use PMA\libraries\plugins\ImportPlugin;
 use PhpMyAdmin\Response;
-use PMA\libraries\Sql;
+use PhpMyAdmin\Sql;
 use PMA\libraries\URL;
 
 /* Enable LOAD DATA LOCAL INFILE for LDI plugin */

@@ -5,12 +5,8 @@
  *
  * @package PhpMyAdmin
  */
-namespace PMA\libraries;
+namespace PhpMyAdmin;
 
-use PhpMyAdmin\SqlParser\Statements\AlterStatement;
-use PhpMyAdmin\SqlParser\Statements\DropStatement;
-use PhpMyAdmin\SqlParser\Statements\SelectStatement;
-use PhpMyAdmin\SqlParser\Utils\Query;
 use PhpMyAdmin\Bookmark;
 use PhpMyAdmin\Core;
 use PhpMyAdmin\DatabaseInterface;
@@ -18,6 +14,10 @@ use PhpMyAdmin\DisplayResults;
 use PhpMyAdmin\Index;
 use PhpMyAdmin\Message;
 use PhpMyAdmin\Response;
+use PhpMyAdmin\SqlParser\Statements\AlterStatement;
+use PhpMyAdmin\SqlParser\Statements\DropStatement;
+use PhpMyAdmin\SqlParser\Statements\SelectStatement;
+use PhpMyAdmin\SqlParser\Utils\Query;
 use PMA\libraries\Table;
 use PMA\libraries\Transformations;
 use PMA\libraries\URL;

@@ -7,7 +7,7 @@
  *
  * @package PhpMyAdmin
  */
-use PMA\libraries\ServerStatusData;
+use PhpMyAdmin\ServerStatusData;
 use PMA\libraries\URL;
 
 /**

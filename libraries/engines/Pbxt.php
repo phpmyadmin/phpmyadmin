@@ -9,7 +9,7 @@ namespace PMA\libraries\engines;
 
 use PMA;
 use PhpMyAdmin\Core;
-use PMA\libraries\StorageEngine;
+use PhpMyAdmin\StorageEngine;
 
 /**
  * The PBXT storage engine

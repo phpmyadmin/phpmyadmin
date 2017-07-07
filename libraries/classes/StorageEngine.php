@@ -5,11 +5,8 @@
  *
  * @package PhpMyAdmin
  */
-namespace PMA\libraries;
+namespace PhpMyAdmin;
 
-/**
- * defines
- */
 use PMA\libraries\engines\Bdb;
 use PMA\libraries\engines\Berkeleydb;
 use PMA\libraries\engines\Binlog;
@@ -22,7 +19,11 @@ use PMA\libraries\engines\Myisam;
 use PMA\libraries\engines\Ndbcluster;
 use PMA\libraries\engines\Pbxt;
 use PMA\libraries\engines\PerformanceSchema;
+use PMA\libraries\Util;
 
+/**
+* defines
+*/
 define('PMA_ENGINE_SUPPORT_NO', 0);
 define('PMA_ENGINE_SUPPORT_DISABLED', 1);
 define('PMA_ENGINE_SUPPORT_YES', 2);
@@ -68,7 +69,7 @@ class StorageEngine
      */
     public function __construct($engine)
     {
-        $storage_engines = StorageEngine::getStorageEngines();
+        $storage_engines = self::getStorageEngines();
         if (! empty($storage_engines[$engine])) {
             $this->engine  = $engine;
             $this->title   = $storage_engines[$engine]['Engine'];
@@ -153,7 +154,7 @@ class StorageEngine
             $output .= '<option value=""></option>';
         }
 
-        foreach (StorageEngine::getStorageEngines() as $key => $details) {
+        foreach (self::getStorageEngines() as $key => $details) {
             // Don't show PERFORMANCE_SCHEMA engine (MySQL 5.5)
             if (! $offerUnavailableEngines
                 && ($details['Support'] == 'NO'
@@ -230,7 +231,7 @@ class StorageEngine
         if ($engine == "PBMS") {
             return true;
         }
-        $storage_engines = StorageEngine::getStorageEngines();
+        $storage_engines = self::getStorageEngines();
         return isset($storage_engines[$engine]);
     }
 
