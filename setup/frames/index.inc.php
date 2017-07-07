@@ -12,7 +12,7 @@ use PMA\libraries\config\ServerConfigChecks;
 use PhpMyAdmin\Core;
 use PhpMyAdmin\LanguageManager;
 use PMA\libraries\URL;
-use PMA\libraries\Sanitize;
+use PhpMyAdmin\Sanitize;
 
 if (!defined('PHPMYADMIN')) {
     exit;

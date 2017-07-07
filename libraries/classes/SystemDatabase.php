@@ -1,20 +1,21 @@
 <?php
 /* vim: set expandtab sw=4 ts=4 sts=4: */
 /**
- * hold PMA\libraries\SystemDatabase class
+ * hold PhpMyAdmin\SystemDatabase class
  *
- * @package PMA
+ * @package PhpMyAdmin
  */
-namespace PMA\libraries;
+namespace PhpMyAdmin;
 
 use PhpMyAdmin\DatabaseInterface;
+use PMA\libraries\Util;
 
 require_once 'libraries/database_interface.inc.php';
 
 /**
  * Class SystemDatabase
  *
- * @package PMA
+ * @package PhpMyAdmin
  */
 class SystemDatabase
 {

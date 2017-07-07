@@ -7,7 +7,7 @@
  */
 namespace PhpMyAdmin;
 
-use PMA\libraries\Sanitize;
+use PhpMyAdmin\Sanitize;
 use PMA\libraries\Util;
 
 /**

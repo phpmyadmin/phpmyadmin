@@ -8,7 +8,7 @@
  * @package PhpMyAdmin
  */
 
-use PMA\libraries\Sql;
+use PhpMyAdmin\Sql;
 use PMA\libraries\Table;
 use PMA\libraries\Transformations;
 use PMA\libraries\URL;

@@ -6,7 +6,7 @@
  * @package PhpMyAdmin-test
  */
 
-use PMA\libraries\StorageEngine;
+use PhpMyAdmin\StorageEngine;
 use PMA\libraries\Theme;
 use PMA\libraries\controllers\server\ServerEnginesController;
 use PMA\libraries\URL;

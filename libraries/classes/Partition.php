@@ -7,7 +7,7 @@
  */
 namespace PhpMyAdmin;
 
-use PMA\libraries\SubPartition;
+use PhpMyAdmin\SubPartition;
 
 /**
  * base Partition Class

@@ -15,7 +15,7 @@ use PhpMyAdmin\Encoding;
 use PhpMyAdmin\Message;
 use PMA\libraries\plugins\ImportPlugin;
 use PMA\libraries\URL;
-use PMA\libraries\Sanitize;
+use PhpMyAdmin\Sanitize;
 
 /**
  * Prints Html For Display Import Hidden Input

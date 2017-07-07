@@ -10,7 +10,7 @@
 namespace PMA\libraries\controllers\server;
 
 use PMA\libraries\controllers\Controller;
-use PMA\libraries\StorageEngine;
+use PhpMyAdmin\StorageEngine;
 use PMA\libraries\Template;
 use PMA\libraries\Util;
 

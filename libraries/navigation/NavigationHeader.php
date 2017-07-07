@@ -10,7 +10,7 @@ namespace PMA\libraries\navigation;
 use PMA;
 use PMA\libraries\Template;
 use PMA\libraries\URL;
-use PMA\libraries\Sanitize;
+use PhpMyAdmin\Sanitize;
 
 /**
  * This class renders the logo, links, server selection,

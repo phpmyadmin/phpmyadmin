@@ -7,7 +7,7 @@
  *
  * @package PhpMyAdmin
  */
-use PMA\libraries\ServerStatusData;
+use PhpMyAdmin\ServerStatusData;
 
 /**
  * Prints server status information: processes, connections and traffic

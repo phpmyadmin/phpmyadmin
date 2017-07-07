@@ -5,7 +5,7 @@
  *
  * @package PhpMyAdmin
  */
-namespace PMA\libraries;
+namespace PhpMyAdmin;
 
 use PhpMyAdmin\Core;
 use PMA\libraries\Util;
@@ -91,7 +91,7 @@ class Sanitize
     public static function replaceBBLink($found)
     {
         /* Check for valid link */
-        if (! Sanitize::checkLink($found[1])) {
+        if (! self::checkLink($found[1])) {
             return $found[0];
         }
         /* a-z and _ allowed in target */
@@ -197,14 +197,14 @@ class Sanitize
 
         /* Find and replace all links */
         $message = preg_replace_callback($pattern, function($match){
-            return Sanitize::replaceBBLink($match);
+            return self::replaceBBLink($match);
         }, $message);
 
         /* Replace documentation links */
         $message = preg_replace_callback(
             '/\[doc@([a-zA-Z0-9_-]+)(@([a-zA-Z0-9_-]*))?\]/',
             function($match){
-                return Sanitize::replaceDocLink($match);
+                return self::replaceDocLink($match);
             },
                 $message
             );
@@ -262,7 +262,7 @@ class Sanitize
     public static function jsFormat($a_string = '', $add_backquotes = true)
     {
         $a_string = htmlspecialchars($a_string);
-        $a_string = Sanitize::escapeJsString($a_string);
+        $a_string = self::escapeJsString($a_string);
         // Needed for inline javascript to prevent some browsers
         // treating it as a anchor
         $a_string = str_replace('#', '\\#', $a_string);
@@ -270,7 +270,7 @@ class Sanitize
         return $add_backquotes
             ? Util::backquote($a_string)
             : $a_string;
-    } // end of the 'Sanitize::jsFormat()' function
+    } // end of the 'jsFormat' function
 
     /**
      * escapes a string to be inserted as string a JavaScript block
@@ -323,7 +323,7 @@ class Sanitize
             return (int)$value;
         }
 
-        return '"' . Sanitize::escapeJsString($value) . '"';
+        return '"' . self::escapeJsString($value) . '"';
     }
 
     /**
@@ -345,11 +345,11 @@ class Sanitize
         } elseif (is_array($value)) {
             $result .= '[';
             foreach ($value as $val) {
-                $result .= Sanitize::formatJsVal($val) . ",";
+                $result .= self::formatJsVal($val) . ",";
             }
             $result .= "];\n";
         } else {
-            $result .= Sanitize::formatJsVal($value) . ";\n";
+            $result .= self::formatJsVal($value) . ";\n";
         }
         return $result;
     }
@@ -365,7 +365,7 @@ class Sanitize
      */
     public static function printJsValue($key, $value)
     {
-        echo Sanitize::getJsValue($key, $value);
+        echo self::getJsValue($key, $value);
     }
 
     /**
@@ -385,7 +385,7 @@ class Sanitize
         if ($addOn) {
             $result .= '$.validator.format(';
         }
-        $result .= Sanitize::formatJsVal($value);
+        $result .= self::formatJsVal($value);
         if ($addOn) {
             $result .= ')';
         }
@@ -408,7 +408,7 @@ class Sanitize
      */
     public static function printJsValueForFormValidation($key, $value, $addOn=false, $comma=true)
     {
-        echo Sanitize::getJsValueForFormValidation($key, $value, $addOn, $comma);
+        echo self::getJsValueForFormValidation($key, $value, $addOn, $comma);
     }
 
     /**

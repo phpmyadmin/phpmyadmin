@@ -386,7 +386,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
          * or is not provided
          */
         $whitelist = array('ajax_request');
-        PMA\libraries\Sanitize::removeRequestVars($whitelist);
+        PhpMyAdmin\Sanitize::removeRequestVars($whitelist);
     }
 }
 

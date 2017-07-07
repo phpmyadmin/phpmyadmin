@@ -5,7 +5,7 @@
  *
  * @package PhpMyAdmin
  */
-namespace PMA\libraries;
+namespace PhpMyAdmin;
 
 /**
  * Represents a sub partition of a table

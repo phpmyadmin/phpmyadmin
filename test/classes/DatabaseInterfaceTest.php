@@ -145,7 +145,7 @@ class DatabaseInterfaceTest extends PMATestCase
     public function testGetSystemDatabase()
     {
         $sd = $this->_dbi->getSystemDatabase();
-        $this->assertInstanceOf('PMA\libraries\SystemDatabase', $sd);
+        $this->assertInstanceOf('PhpMyAdmin\SystemDatabase', $sd);
     }
 
     /**

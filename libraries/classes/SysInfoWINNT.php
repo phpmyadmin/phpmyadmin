@@ -1,20 +1,21 @@
 <?php
 /* vim: set expandtab sw=4 ts=4 sts=4: */
 /**
- * Hold PMA\libraries\SysInfoWINNT class
+ * Hold PhpMyAdmin\SysInfoWINNT class
  *
- * @package PMA
+ * @package PhpMyAdmin
  */
-namespace PMA\libraries;
+namespace PhpMyAdmin;
 
 use COM;
+use PhpMyAdmin\SysInfo;
 
 /**
  * Windows NT based SysInfo class
  *
- * @package PhpMyAdmin-sysinfo
+ * @package PhpMyAdmin
  */
-class SysInfoWINNT extends \PMA\libraries\SysInfo
+class SysInfoWINNT extends SysInfo
 {
     private $_wmi;
     public $os = 'WINNT';

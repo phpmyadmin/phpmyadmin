@@ -1,15 +1,15 @@
 <?php
 /* vim: set expandtab sw=4 ts=4 sts=4: */
 /**
- * Tests for PMA\libraries\Sql
+ * Tests for PhpMyAdmin\Sql
  *
  * @package PhpMyAdmin-test
  */
 
-use PMA\libraries\Sql;
+use PhpMyAdmin\Sql;
 
 /**
- * Tests for PMA\libraries\Sql
+ * Tests for PhpMyAdmin\Sql
  *
  * @package PhpMyAdmin-test
  */

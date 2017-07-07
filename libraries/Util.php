@@ -12,7 +12,7 @@ use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Message;
 use PMA\libraries\plugins\ImportPlugin;
 use PhpMyAdmin\Response;
-use PMA\libraries\Sanitize;
+use PhpMyAdmin\Sanitize;
 use PhpMyAdmin\SqlParser\Context;
 use PhpMyAdmin\SqlParser\Lexer;
 use PhpMyAdmin\SqlParser\Parser;

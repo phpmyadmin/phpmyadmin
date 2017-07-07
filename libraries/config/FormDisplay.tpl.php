@@ -8,7 +8,7 @@
 use PMA\libraries\Template;
 use PMA\libraries\Util;
 use PMA\libraries\URL;
-use PMA\libraries\Sanitize;
+use PhpMyAdmin\Sanitize;
 
 /**
  * Displays top part of the form

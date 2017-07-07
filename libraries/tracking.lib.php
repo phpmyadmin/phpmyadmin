@@ -11,7 +11,7 @@ use PhpMyAdmin\Message;
 use PhpMyAdmin\Response;
 use PMA\libraries\Tracker;
 use PMA\libraries\URL;
-use PMA\libraries\Sanitize;
+use PhpMyAdmin\Sanitize;
 
 /**
  * Filters tracking entries

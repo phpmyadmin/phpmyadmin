@@ -8,7 +8,7 @@
 /*
  * Include to test
  */
-use PMA\libraries\Sanitize;
+use PhpMyAdmin\Sanitize;
 
 /**
  * Tests for methods in Sanitize class

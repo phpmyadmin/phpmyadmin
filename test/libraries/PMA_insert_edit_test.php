@@ -1835,7 +1835,7 @@ class PMA_InsertEditTest extends PHPUnit_Framework_TestCase
         $_REQUEST['insert_rows'] = 5;
         $GLOBALS['cfg']['InsertRows'] = 2;
 
-        $scriptsMock = $this->getMockBuilder('PMA\libraries\Scripts')
+        $scriptsMock = $this->getMockBuilder('PhpMyAdmin\Scripts')
             ->disableOriginalConstructor()
             ->setMethods(array('addFile'))
             ->getMock();

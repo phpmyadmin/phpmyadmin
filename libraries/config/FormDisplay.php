@@ -14,7 +14,7 @@
  */
 namespace PMA\libraries\config;
 
-use PMA\libraries\Sanitize;
+use PhpMyAdmin\Sanitize;
 
 /**
  * Core libraries.

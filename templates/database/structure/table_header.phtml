@@ -38,7 +38,7 @@ if ($GLOBALS['cfg']['NumFavoriteTables'] > 0) {
                         'initial_sort_order' => 'DESC'
                     )
                 ); ?>
-                <?= PMA\libraries\Util::showHint(PMA\libraries\Sanitize::sanitize(
+                <?= PMA\libraries\Util::showHint(PhpMyAdmin\Sanitize::sanitize(
                     __('May be approximate. Click on the number to get the exact'
                         . ' count. See [doc@faq3-11]FAQ 3.11[/doc].'))); ?>
             </th>

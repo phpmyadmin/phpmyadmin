@@ -1,16 +1,16 @@
 <?php
 /* vim: set expandtab sw=4 ts=4 sts=4: */
 /**
- * Hold PMA\libraries\SysInfo class
+ * Hold PhpMyAdmin\SysInfo class
  *
- * @package PMA
+ * @package PhpMyAdmin
  */
-namespace PMA\libraries;
+namespace PhpMyAdmin;
 
 /**
  * Basic sysinfo class not providing any real data.
  *
- * @package PhpMyAdmin-sysinfo
+ * @package PhpMyAdmin
  */
 class SysInfo
 {
