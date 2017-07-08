@@ -6,7 +6,7 @@
  * @package PhpMyAdmin
  */
 
-use PMA\libraries\URL;
+use PhpMyAdmin\Url;
 
 /**
  * Renders the server selection in list or selectbox form, or option tags only
@@ -30,7 +30,7 @@ function PMA_selectServer($not_only_options, $omit_fieldset)
 
     if ($not_only_options) {
         $retval .= '<form method="post" action="'
-            . PMA\libraries\Util::getScriptNameForOption(
+            . PhpMyAdmin\Util::getScriptNameForOption(
                 $GLOBALS['cfg']['DefaultTabServer'], 'server'
             )
             . '" class="disableAjax">';
@@ -39,7 +39,7 @@ function PMA_selectServer($not_only_options, $omit_fieldset)
             $retval .= '<fieldset>';
         }
 
-        $retval .= URL::getHiddenFields(array());
+        $retval .= Url::getHiddenFields(array());
         $retval .= '<label for="select_server">'
             . __('Current server:') . '</label> ';
 
@@ -87,10 +87,10 @@ function PMA_selectServer($not_only_options, $omit_fieldset)
             } else {
 
                 $retval .= '<a class="disableAjax item" href="'
-                    . PMA\libraries\Util::getScriptNameForOption(
+                    . PhpMyAdmin\Util::getScriptNameForOption(
                         $GLOBALS['cfg']['DefaultTabServer'], 'server'
                     )
-                    . URL::getCommon(array('server' => $key))
+                    . Url::getCommon(array('server' => $key))
                     . '" >' . htmlspecialchars($label) . '</a>';
             }
             $retval .= '</li>';

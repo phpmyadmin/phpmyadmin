@@ -6,9 +6,9 @@
  * @package PhpMyAdmin
  */
 use PhpMyAdmin\Message;
-use PMA\libraries\Transformations;
-use PMA\libraries\URL;
-use PMA\libraries\Util;
+use PhpMyAdmin\Transformations;
+use PhpMyAdmin\Url;
+use PhpMyAdmin\Util;
 
 /**
  * build the html for columns of $colTypeCategory category
@@ -102,7 +102,7 @@ function PMA_getHtmlForCreateNewColumn(
         );
     }
 
-    return PMA\libraries\Template::get(
+    return PhpMyAdmin\Template::get(
         'columns_definitions/table_fields_definitions'
     )
         ->render(
@@ -798,7 +798,7 @@ function PMA_getHtmlForNormalizetable()
         . 'name="normalize" '
         . 'id="normalizeTable" '
         . '>'
-        . URL::getHiddenInputs($GLOBALS['db'], $GLOBALS['table'])
+        . Url::getHiddenInputs($GLOBALS['db'], $GLOBALS['table'])
         . '<input type="hidden" name="step1" value="1">';
     $html_output .= '<fieldset>';
     $html_output .= '<legend>'

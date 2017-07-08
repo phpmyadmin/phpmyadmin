@@ -8,7 +8,7 @@
 
 use PMA\libraries\navigation\NodeFactory;
 use PMA\libraries\navigation\nodes\Node;
-use PMA\libraries\Theme;
+use PhpMyAdmin\Theme;
 
 require_once 'libraries/navigation/NodeFactory.php';
 require_once 'test/PMATestCase.php';

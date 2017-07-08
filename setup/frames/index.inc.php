@@ -11,7 +11,7 @@ use PMA\libraries\config\FormDisplay;
 use PMA\libraries\config\ServerConfigChecks;
 use PhpMyAdmin\Core;
 use PhpMyAdmin\LanguageManager;
-use PMA\libraries\URL;
+use PhpMyAdmin\Url;
 use PhpMyAdmin\Sanitize;
 
 if (!defined('PHPMYADMIN')) {
@@ -62,7 +62,7 @@ $text .= '</a>';
 PMA_messagesSet('notice', 'no_https', __('Insecure connection'), $text);
 
 echo '<form id="select_lang" method="post">';
-echo URL::getHiddenInputs();
+echo Url::getHiddenInputs();
 echo '<bdo lang="en" dir="ltr"><label for="lang">';
 echo __('Language') , (__('Language') != 'Language' ? ' - Language' : '');
 echo '</label></bdo><br />';
@@ -157,10 +157,10 @@ if ($cf->getServerCount() > 0) {
         echo '<td>' , htmlspecialchars($cf->getServerDSN($id)) , '</td>';
         echo '<td style="white-space: nowrap">';
         echo '<small>';
-        echo '<a href="' , URL::getCommon(array('page' => 'servers', 'mode' => 'edit', 'id' => $id)), '">'
+        echo '<a href="' , Url::getCommon(array('page' => 'servers', 'mode' => 'edit', 'id' => $id)), '">'
             , __('Edit') , '</a>';
         echo ' | ';
-        echo '<a href="' , URL::getCommon(array('page' => 'servers', 'mode' => 'remove', 'id' => $id)), '">'
+        echo '<a href="' , Url::getCommon(array('page' => 'servers', 'mode' => 'remove', 'id' => $id)), '">'
             , __('Delete') , '</a>';
         echo '</small>';
         echo '</td>';
@@ -268,6 +268,6 @@ echo '<div id="footer">';
 echo '<a href="../url.php?url=https://www.phpmyadmin.net/">' , __('phpMyAdmin homepage') , '</a>';
 echo '<a href="../url.php?url=https://www.phpmyadmin.net/donate/">'
     ,  __('Donate') , '</a>';
-echo '<a href="' ,  URL::getCommon(array('version_check' => '1')), '">'
+echo '<a href="' ,  Url::getCommon(array('version_check' => '1')), '">'
     , __('Check for latest version') , '</a>';
 echo '</div>';

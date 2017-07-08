@@ -45,7 +45,7 @@ class PMA_StringOperations_Test extends PHPUnit_Framework_TestCase
     }
 
     /**
-     * data provider for PMA\libraries\Util::userDir test
+     * data provider for PhpMyAdmin\Util::userDir test
      *
      * @return array
      */
@@ -71,7 +71,7 @@ class PMA_StringOperations_Test extends PHPUnit_Framework_TestCase
     {
         $GLOBALS['cfg']['Server']['user'] = 'root';
 
-        $this->assertEquals($e, PMA\libraries\Util::userDir($a));
+        $this->assertEquals($e, PhpMyAdmin\Util::userDir($a));
     }
 
     /**
@@ -102,7 +102,7 @@ class PMA_StringOperations_Test extends PHPUnit_Framework_TestCase
     public function testDuplicateFirstNewline($a, $e)
     {
         $this->assertEquals(
-            $e, PMA\libraries\Util::duplicateFirstNewline($a)
+            $e, PhpMyAdmin\Util::duplicateFirstNewline($a)
         );
     }
 

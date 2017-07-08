@@ -7,7 +7,7 @@
  */
 namespace PMA\libraries\navigation\nodes;
 
-use PMA\libraries\Util;
+use PhpMyAdmin\Util;
 
 /**
  * The Node is the building block for the collapsible navigation tree

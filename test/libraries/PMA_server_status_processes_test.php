@@ -7,8 +7,8 @@
  */
 
 use PhpMyAdmin\Core;
-use PMA\libraries\Theme;
-use PMA\libraries\URL;
+use PhpMyAdmin\Theme;
+use PhpMyAdmin\Url;
 
 
 require_once 'libraries/server_status_processes.lib.php';
@@ -201,7 +201,7 @@ class PMA_ServerStatusProcesses_Test extends PHPUnit_Framework_TestCase
             'ajax_request' => true
         );
         $kill_process = 'server_status_processes.php'
-            . URL::getCommon($url_params);
+            . Url::getCommon($url_params);
         $this->assertContains(
             $kill_process,
             $html

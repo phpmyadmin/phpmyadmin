@@ -13,8 +13,8 @@ use PhpMyAdmin\Message;
 use PhpMyAdmin\RecentFavoriteTable;
 use PhpMyAdmin\Response;
 use PhpMyAdmin\Sanitize;
-use PMA\libraries\ThemeManager;
-use PMA\libraries\URL;
+use PhpMyAdmin\ThemeManager;
+use PhpMyAdmin\Url;
 
 /**
  * Gets some core libraries and displays a top message if required
@@ -71,11 +71,11 @@ if (isset($_REQUEST['ajax_request']) && ! empty($_REQUEST['access_time'])) {
 if (! empty($_REQUEST['db'])) {
     $page = null;
     if (! empty($_REQUEST['table'])) {
-        $page = PMA\libraries\Util::getScriptNameForOption(
+        $page = PhpMyAdmin\Util::getScriptNameForOption(
             $GLOBALS['cfg']['DefaultTabTable'], 'table'
         );
     } else {
-        $page = PMA\libraries\Util::getScriptNameForOption(
+        $page = PhpMyAdmin\Util::getScriptNameForOption(
             $GLOBALS['cfg']['DefaultTabDatabase'], 'database'
         );
     }
@@ -110,7 +110,7 @@ $show_query = '1';
 
 // Any message to display?
 if (! empty($message)) {
-    echo PMA\libraries\Util::getMessage($message);
+    echo PhpMyAdmin\Util::getMessage($message);
     unset($message);
 }
 if (isset($_SESSION['partial_logout'])) {
@@ -120,7 +120,7 @@ if (isset($_SESSION['partial_logout'])) {
     unset($_SESSION['partial_logout']);
 }
 
-$common_url_query =  URL::getCommon();
+$common_url_query =  Url::getCommon();
 $mysql_cur_user_and_host = '';
 
 // when $server > 0, a server has been chosen so we can display
@@ -186,7 +186,7 @@ if ($server > 0 || count($cfg['Servers']) > 1
     ) {
         echo '<li id="li_select_server" class="no_bullets" >';
         include_once 'libraries/select_server.lib.php';
-        echo PMA\libraries\Util::getImage('s_host.png') , " "
+        echo PhpMyAdmin\Util::getImage('s_host.png') , " "
             , PMA_selectServer(true, true);
         echo '</li>';
     }
@@ -202,7 +202,7 @@ if ($server > 0 || count($cfg['Servers']) > 1
             if ($cfg['ShowChgPassword']) {
                 $conditional_class = 'ajax';
                 PMA_printListItem(
-                    PMA\libraries\Util::getImage('s_passwd.png') . "&nbsp;" . __(
+                    PhpMyAdmin\Util::getImage('s_passwd.png') . "&nbsp;" . __(
                         'Change password'
                     ),
                     'li_change_password',
@@ -217,12 +217,12 @@ if ($server > 0 || count($cfg['Servers']) > 1
         } // end if
         echo '    <li id="li_select_mysql_collation" class="no_bullets" >';
         echo '        <form method="post" action="index.php">' , "\n"
-           . URL::getHiddenInputs(null, null, 4, 'collation_connection')
+           . Url::getHiddenInputs(null, null, 4, 'collation_connection')
            . '            <label for="select_collation_connection">' . "\n"
-           . '                ' . PMA\libraries\Util::getImage('s_asci.png')
+           . '                ' . PhpMyAdmin\Util::getImage('s_asci.png')
             . "&nbsp;" . __('Server connection collation') . "\n"
            // put the doc link in the form so that it appears on the same line
-           . PMA\libraries\Util::showMySQLDocu('Charset-connection')
+           . PhpMyAdmin\Util::showMySQLDocu('Charset-connection')
            . ': ' .  "\n"
            . '            </label>' . "\n"
 
@@ -249,7 +249,7 @@ $language_manager = LanguageManager::getInstance();
 if (empty($cfg['Lang']) && $language_manager->hasChoice()) {
     echo '<li id="li_select_lang" class="no_bullets">';
 
-    echo PMA\libraries\Util::getImage('s_lang.png') , " "
+    echo PhpMyAdmin\Util::getImage('s_lang.png') , " "
         , $language_manager->getSelectorDisplay();
     echo '</li>';
 }
@@ -258,7 +258,7 @@ if (empty($cfg['Lang']) && $language_manager->hasChoice()) {
 
 if ($GLOBALS['cfg']['ThemeManager']) {
     echo '<li id="li_select_theme" class="no_bullets">';
-    echo PMA\libraries\Util::getImage('s_theme.png') , " "
+    echo PhpMyAdmin\Util::getImage('s_theme.png') , " "
             ,  ThemeManager::getInstance()->getHtmlSelectBox();
     echo '</li>';
 }
@@ -273,7 +273,7 @@ echo '</ul>';
 if ($server > 0) {
     echo '<ul>';
     PMA_printListItem(
-        PMA\libraries\Util::getImage('b_tblops.png') . "&nbsp;" . __(
+        PhpMyAdmin\Util::getImage('b_tblops.png') . "&nbsp;" . __(
             'More settings'
         ),
         'li_user_preferences',
@@ -303,7 +303,7 @@ if ($server > 0 && $GLOBALS['cfg']['ShowServerInfo']) {
         'li_server_info'
     );
     PMA_printListItem(
-        __('Server type:') . ' ' . PMA\libraries\Util::getServerType(),
+        __('Server type:') . ' ' . PhpMyAdmin\Util::getServerType(),
         'li_server_type'
     );
     PMA_printListItem(
@@ -352,11 +352,11 @@ if ($GLOBALS['cfg']['ShowServerInfo'] || $GLOBALS['cfg']['ShowPhpInfo']) {
 
             $php_ext_string = __('PHP extension:') . ' ';
 
-            $extensions = PMA\libraries\Util::listPHPExtensions();
+            $extensions = PhpMyAdmin\Util::listPHPExtensions();
 
             foreach ($extensions as $extension) {
                 $php_ext_string  .= '  ' . $extension
-                    . PMA\libraries\Util::showPHPDocu('book.' . $extension . '.php');
+                    . PhpMyAdmin\Util::showPHPDocu('book.' . $extension . '.php');
             }
 
             PMA_printListItem(
@@ -405,7 +405,7 @@ PMA_printListItem(
 PMA_printListItem(
     __('Documentation'),
     'li_pma_docs',
-    PMA\libraries\Util::getDocuLink('index'),
+    PhpMyAdmin\Util::getDocuLink('index'),
     null,
     '_blank'
 );
@@ -435,14 +435,14 @@ PMA_printListItem(
 PMA_printListItem(
     __('List of changes'),
     'li_pma_changes',
-    'changelog.php' . URL::getCommon(),
+    'changelog.php' . Url::getCommon(),
     null,
     '_blank'
 );
 PMA_printListItem(
     __('License'),
     'li_pma_license',
-    'license.php' . URL::getCommon(),
+    'license.php' . Url::getCommon(),
     null,
     '_blank'
 );
@@ -657,7 +657,7 @@ function PMA_printListItem($name, $listId = null, $url = null,
     $mysql_help_page = null, $target = null, $a_id = null, $class = null,
     $a_class = null
 ) {
-    echo PMA\libraries\Template::get('list/item')
+    echo PhpMyAdmin\Template::get('list/item')
         ->render(
             array(
                 'content' => $name,

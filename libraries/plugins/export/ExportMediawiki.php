@@ -9,14 +9,14 @@
 namespace PMA\libraries\plugins\export;
 
 use PhpMyAdmin\DatabaseInterface;
-use PMA\libraries\properties\options\items\BoolPropertyItem;
 use PMA\libraries\plugins\ExportPlugin;
 use PMA\libraries\properties\plugins\ExportPluginProperties;
 use PMA\libraries\properties\options\groups\OptionsPropertyMainGroup;
 use PMA\libraries\properties\options\groups\OptionsPropertyRootGroup;
 use PMA\libraries\properties\options\groups\OptionsPropertySubgroup;
-use PMA;
+use PMA\libraries\properties\options\items\BoolPropertyItem;
 use PMA\libraries\properties\options\items\RadioPropertyItem;
+use PhpMyAdmin\Util;
 
 /**
  * Handles the export for the MediaWiki class
@@ -204,7 +204,7 @@ class ExportMediawiki extends ExportPlugin
             // Print structure comment
             $output = $this->_exportComment(
                 "Table structure for "
-                . PMA\libraries\Util::backquote($table_alias)
+                . Util::backquote($table_alias)
             );
 
             // Begin the table construction
@@ -290,7 +290,7 @@ class ExportMediawiki extends ExportPlugin
 
         // Print data comment
         $output = $this->_exportComment(
-            "Table data for " . PMA\libraries\Util::backquote($table_alias)
+            "Table data for " . Util::backquote($table_alias)
         );
 
         // Begin the table construction

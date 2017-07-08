@@ -7,7 +7,7 @@
  */
 
 use PhpMyAdmin\DatabaseInterface;
-use PMA\libraries\Util;
+use PhpMyAdmin\Util;
 
 require_once 'test/PMATestCase.php';
 

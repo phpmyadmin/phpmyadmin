@@ -24,7 +24,7 @@ foreach ($request_params as $one_request_param) {
     }
 }
 
-PMA\libraries\Util::checkParameters(array('db', 'table', 'field'));
+PhpMyAdmin\Util::checkParameters(array('db', 'table', 'field'));
 
 $response = Response::getInstance();
 $response->getFooter()->setMinimal();

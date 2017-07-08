@@ -1,4 +1,4 @@
-<?= PMA\libraries\Util::getDivForSliderEffect(
+<?= PhpMyAdmin\Util::getDivForSliderEffect(
     'searchoptions', __('Options')
 ); ?>
 
@@ -36,7 +36,7 @@
         <em><?= __('Or'); ?></em>
         <?= __('Add search conditions (body of the "where" clause):'); ?>
     </legend>
-    <?= PMA\libraries\Util::showMySQLDocu('Functions'); ?>
+    <?= PhpMyAdmin\Util::showMySQLDocu('Functions'); ?>
     <input type="text" name="customWhereClause" class="textfield" size="64" />
 </fieldset>
 
@@ -62,7 +62,7 @@
         <?php endforeach; ?>
     </select>
 
-    <?= PMA\libraries\Util::getRadioFields(
+    <?= PhpMyAdmin\Util::getRadioFields(
         'order',
         array(
             'ASC' => __('Ascending'),

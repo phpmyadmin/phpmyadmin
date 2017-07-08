@@ -40,7 +40,7 @@ class PMA_EscapeMySqlWildcardsTest extends PHPUnit_Framework_TestCase
     }
 
     /**
-     * PMA\libraries\Util::escapeMysqlWildcards tests
+     * PhpMyAdmin\Util::escapeMysqlWildcards tests
      *
      * @param string $a String to escape
      * @param string $b Expected value
@@ -52,12 +52,12 @@ class PMA_EscapeMySqlWildcardsTest extends PHPUnit_Framework_TestCase
     public function testEscape($a, $b)
     {
         $this->assertEquals(
-            $a, PMA\libraries\Util::escapeMysqlWildcards($b)
+            $a, PhpMyAdmin\Util::escapeMysqlWildcards($b)
         );
     }
 
     /**
-     * PMA\libraries\Util::unescapeMysqlWildcards tests
+     * PhpMyAdmin\Util::unescapeMysqlWildcards tests
      *
      * @param string $a String to escape
      * @param string $b Expected value
@@ -69,7 +69,7 @@ class PMA_EscapeMySqlWildcardsTest extends PHPUnit_Framework_TestCase
     public function testUnEscape($a, $b)
     {
         $this->assertEquals(
-            $b, PMA\libraries\Util::unescapeMysqlWildcards($a)
+            $b, PhpMyAdmin\Util::unescapeMysqlWildcards($a)
         );
     }
 }

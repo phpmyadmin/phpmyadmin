@@ -19,7 +19,7 @@ use PMA\libraries\engines\Myisam;
 use PMA\libraries\engines\Ndbcluster;
 use PMA\libraries\engines\Pbxt;
 use PMA\libraries\engines\PerformanceSchema;
-use PMA\libraries\Util;
+use PhpMyAdmin\Util;
 
 /**
 * defines

@@ -75,8 +75,8 @@ function PMA_RTE_sendEditor($type, $mode, $item, $title, $db, $operation = null)
         $message  = __('Error in processing request:') . ' ';
         $message .= sprintf(
             PMA_RTE_getWord('not_found'),
-            htmlspecialchars(PMA\libraries\Util::backquote($_REQUEST['item_name'])),
-            htmlspecialchars(PMA\libraries\Util::backquote($db))
+            htmlspecialchars(PhpMyAdmin\Util::backquote($_REQUEST['item_name'])),
+            htmlspecialchars(PhpMyAdmin\Util::backquote($db))
         );
         $message = Message::error($message);
         if ($response->isAjax()) {

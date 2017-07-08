@@ -38,11 +38,11 @@ use PhpMyAdmin\ErrorHandler;
 use PhpMyAdmin\Message;
 use PMA\libraries\plugins\AuthenticationPlugin;
 use PhpMyAdmin\DbList;
-use PMA\libraries\ThemeManager;
-use PMA\libraries\Tracker;
+use PhpMyAdmin\ThemeManager;
+use PhpMyAdmin\Tracker;
 use PhpMyAdmin\Response;
-use PMA\libraries\TypesMySQL;
-use PMA\libraries\Util;
+use PhpMyAdmin\TypesMySQL;
+use PhpMyAdmin\Util;
 use PhpMyAdmin\LanguageManager;
 use PhpMyAdmin\Logging;
 

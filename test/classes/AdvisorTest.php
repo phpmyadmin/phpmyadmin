@@ -12,7 +12,7 @@
 require_once 'test/PMATestCase.php';
 
 use PhpMyAdmin\Advisor;
-use PMA\libraries\Theme;
+use PhpMyAdmin\Theme;
 
 /**
  * Tests behaviour of PMA_Advisor class

@@ -11,8 +11,8 @@ namespace PMA\libraries\controllers\server;
 
 use PMA\libraries\controllers\Controller;
 use PhpMyAdmin\StorageEngine;
-use PMA\libraries\Template;
-use PMA\libraries\Util;
+use PhpMyAdmin\Template;
+use PhpMyAdmin\Util;
 
 /**
  * Handles viewing storage engine details

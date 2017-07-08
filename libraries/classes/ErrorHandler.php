@@ -9,7 +9,7 @@ namespace PhpMyAdmin;
 
 use PhpMyAdmin\Error;
 use PhpMyAdmin\Response;
-use PMA\libraries\URL;
+use PhpMyAdmin\Url;
 
 /**
  * handling errors
@@ -352,7 +352,7 @@ class ErrorHandler
                 $retval .= ' class="hide"';
             }
             $retval .=  '>';
-            $retval .= URL::getHiddenFields(array(
+            $retval .= Url::getHiddenFields(array(
                 'exception_type' => 'php',
                 'send_error_report' => '1',
             ));

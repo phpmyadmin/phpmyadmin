@@ -9,14 +9,14 @@
 use PhpMyAdmin\Core;
 use PhpMyAdmin\Message;
 use PhpMyAdmin\Response;
-use PMA\libraries\URL;
-use PMA\libraries\Util;
+use PhpMyAdmin\Url;
+use PhpMyAdmin\Util;
 
 if (! defined('PHPMYADMIN')) {
     exit;
 }
 
-PMA\libraries\Util::checkParameters(array('db'));
+PhpMyAdmin\Util::checkParameters(array('db'));
 
 global $cfg;
 global $db;
@@ -32,12 +32,12 @@ if ($db_is_system_schema) {
 /**
  * Defines the urls to return to in case of error in a sql statement
  */
-$err_url_0 = 'index.php' . URL::getCommon();
+$err_url_0 = 'index.php' . Url::getCommon();
 
-$err_url = PMA\libraries\Util::getScriptNameForOption(
+$err_url = PhpMyAdmin\Util::getScriptNameForOption(
     $GLOBALS['cfg']['DefaultTabDatabase'], 'database'
 )
-    . URL::getCommon(array('db' => $db));
+    . Url::getCommon(array('db' => $db));
 
 /**
  * Ensures the database exists (else move to the "parent" script) and displays
@@ -61,7 +61,7 @@ if (! isset($is_db) || ! $is_db) {
     if (isset($message)) {
         $params['message'] = $message;
     }
-    $uri = './index.php' . URL::getCommonRaw($params);
+    $uri = './index.php' . Url::getCommonRaw($params);
     if (strlen($db) === 0 || ! $is_db) {
         $response = Response::getInstance();
         if ($response->isAjax()) {
@@ -86,7 +86,7 @@ if (isset($_REQUEST['submitcollation'])
 ) {
     list($db_charset) = explode('_', $_REQUEST['db_collation']);
     $sql_query        = 'ALTER DATABASE '
-        . PMA\libraries\Util::backquote($db)
+        . PhpMyAdmin\Util::backquote($db)
         . ' DEFAULT' . Util::getCharsetQueryPart($_REQUEST['db_collation']);
     $result           = $GLOBALS['dbi']->query($sql_query);
     $message          = Message::success();
@@ -107,4 +107,4 @@ if (isset($_REQUEST['submitcollation'])
 /**
  * Set parameters for links
  */
-$url_query = URL::getCommon(array('db' => $db));
+$url_query = Url::getCommon(array('db' => $db));

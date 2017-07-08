@@ -16,7 +16,7 @@
 function PMA_getHtmlForAdvisor()
 {
     $output  = '<a href="#openAdvisorInstructions">';
-    $output .= PMA\libraries\Util::getIcon('b_help.png', __('Instructions'));
+    $output .= PhpMyAdmin\Util::getIcon('b_help.png', __('Instructions'));
     $output .= '</a>';
     $output .= '<div id="statustabs_advisor"></div>';
     $output .= '<div id="advisorInstructionsDialog" class="hide">';

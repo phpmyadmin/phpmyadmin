@@ -9,8 +9,8 @@
 /*
  * Include to test.
  */
-use PMA\libraries\Theme;
-use PMA\libraries\URL;
+use PhpMyAdmin\Theme;
+use PhpMyAdmin\Url;
 
 
 require_once 'libraries/display_change_password.lib.php';
@@ -74,9 +74,9 @@ class PMA_DisplayChangePassword_Test extends PHPUnit_Framework_TestCase
             $html
         );
 
-        //URL::getHiddenInputs
+        //Url::getHiddenInputs
         $this->assertContains(
-            URL::getHiddenInputs(),
+            Url::getHiddenInputs(),
             $html
         );
 

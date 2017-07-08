@@ -5,9 +5,19 @@
  *
  * @package PhpMyAdmin
  */
-namespace PMA\libraries;
+namespace PhpMyAdmin;
 
 use PMA\libraries\plugins\export\ExportSql;
+use PhpMyAdmin\SqlParser\Parser;
+use PhpMyAdmin\SqlParser\Statements\AlterStatement;
+use PhpMyAdmin\SqlParser\Statements\CreateStatement;
+use PhpMyAdmin\SqlParser\Statements\DeleteStatement;
+use PhpMyAdmin\SqlParser\Statements\DropStatement;
+use PhpMyAdmin\SqlParser\Statements\InsertStatement;
+use PhpMyAdmin\SqlParser\Statements\RenameStatement;
+use PhpMyAdmin\SqlParser\Statements\TruncateStatement;
+use PhpMyAdmin\SqlParser\Statements\UpdateStatement;
+use PhpMyAdmin\Util;
 
 /**
  * This class tracks changes on databases, tables and views.
@@ -628,7 +638,7 @@ class Tracker
         // $parsed_sql = PMA_SQP_parse($query);
         // $sql_info = PMA_SQP_analyze($parsed_sql);
 
-        $parser = new \PhpMyAdmin\SqlParser\Parser($query);
+        $parser = new Parser($query);
 
         $tokens = $parser->list->tokens;
 
@@ -649,7 +659,7 @@ class Tracker
             $result['type'] = 'DDL';
 
             // Parse CREATE statement
-            if ($statement instanceof \PhpMyAdmin\SqlParser\Statements\CreateStatement) {
+            if ($statement instanceof CreateStatement) {
                 if (empty($options) || !isset($options[6])) {
                     return $result;
                 }
@@ -677,7 +687,7 @@ class Tracker
             }
 
             // Parse ALTER statement
-            elseif ($statement instanceof \PhpMyAdmin\SqlParser\Statements\AlterStatement) {
+            elseif ($statement instanceof AlterStatement) {
                 if (empty($options) || !isset($options[3])) {
                     return $result;
                 }
@@ -694,7 +704,7 @@ class Tracker
             }
 
             // Parse DROP statement
-            elseif ($statement instanceof \PhpMyAdmin\SqlParser\Statements\DropStatement) {
+            elseif ($statement instanceof DropStatement) {
                 if (empty($options) || !isset($options[1])) {
                     return $result;
                 }
@@ -714,7 +724,7 @@ class Tracker
             }
 
             // Prase RENAME statement
-            elseif ($statement instanceof \PhpMyAdmin\SqlParser\Statements\RenameStatement) {
+            elseif ($statement instanceof RenameStatement) {
                 $result['identifier']               = 'RENAME TABLE';
                 $result['tablename']                = $statement->renames[0]->old->table;
                 $result['tablename_after_rename']   = $statement->renames[0]->new->table;
@@ -730,25 +740,25 @@ class Tracker
             $result['type'] = 'DML';
 
             // Parse UPDATE statement
-            if ($statement instanceof \PhpMyAdmin\SqlParser\Statements\UpdateStatement) {
+            if ($statement instanceof UpdateStatement) {
                 $result['identifier']   = 'UPDATE';
                 $result['tablename']    = $statement->tables[0]->table;
             }
 
             // Parse INSERT INTO statement
-            if ($statement instanceof \PhpMyAdmin\SqlParser\Statements\InsertStatement) {
+            if ($statement instanceof InsertStatement) {
                 $result['identifier']   = 'INSERT';
                 $result['tablename']    = $statement->into->dest->table;
             }
 
             // Parse DELETE statement
-            if ($statement instanceof \PhpMyAdmin\SqlParser\Statements\DeleteStatement) {
+            if ($statement instanceof DeleteStatement) {
                 $result['identifier']   = 'DELETE';
                 $result['tablename']    = $statement->from[0]->table;
             }
 
             // Parse TRUNCATE statement
-            if ($statement instanceof \PhpMyAdmin\SqlParser\Statements\TruncateStatement) {
+            if ($statement instanceof TruncateStatement) {
                 $result['identifier']   = 'TRUNCATE' ;
                 $result['tablename']    = $statement->table->table;
             }

@@ -21,8 +21,8 @@ namespace PMA;
 
 use PMA\libraries\controllers\table\TableRelationController;
 use PhpMyAdmin\Response;
-use PMA\libraries\Table;
-use PMA\libraries\Util;
+use PhpMyAdmin\Table;
+use PhpMyAdmin\Util;
 
 require_once 'libraries/common.inc.php';
 

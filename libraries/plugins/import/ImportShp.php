@@ -8,14 +8,15 @@
  */
 namespace PMA\libraries\plugins\import;
 
-use PMA\libraries\properties\plugins\ImportPluginProperties;
-use PMA;
-use PMA\libraries\plugins\ImportPlugin;
 use PMA\libraries\gis\GISFactory;
 use PMA\libraries\gis\GISMultilinestring;
 use PMA\libraries\gis\GISMultipoint;
 use PMA\libraries\gis\GISPoint;
 use PMA\libraries\gis\GISPolygon;
+use PhpMyAdmin\Message;
+use PMA\libraries\plugins\ImportPlugin;
+use PMA\libraries\properties\plugins\ImportPluginProperties;
+use PhpMyAdmin\Sanitize;
 use PhpMyAdmin\ZipExtension;
 
 /**
@@ -74,7 +75,7 @@ class ImportShp extends ImportPlugin
             && ZipExtension::getNumberOfFiles($import_file) > 1
         ) {
             if ($GLOBALS['import_handle']->openZip('/^.*\.shp$/i') === false) {
-                $message = PhpMyAdmin\Message::error(
+                $message = Message::error(
                     __('There was an error importing the ESRI shape file: "%s".')
                 );
                 $message->addParam($GLOBALS['import_handle']->getError());
@@ -147,7 +148,7 @@ class ImportShp extends ImportPlugin
         $shp->loadFromFile('');
         if ($shp->lastError != "") {
             $error = true;
-            $message = PhpMyAdmin\Message::error(
+            $message = Message::error(
                 __('There was an error importing the ESRI shape file: "%s".')
             );
             $message->addParam($shp->lastError);
@@ -177,7 +178,7 @@ class ImportShp extends ImportPlugin
             break;
         default:
             $error = true;
-            $message = PhpMyAdmin\Message::error(
+            $message = Message::error(
                 __('MySQL Spatial Extension does not support ESRI type "%s".')
             );
             $message->addParam($shp->getShapeName());
@@ -224,7 +225,7 @@ class ImportShp extends ImportPlugin
 
         if (count($rows) == 0) {
             $error = true;
-            $message = PhpMyAdmin\Message::error(
+            $message = Message::error(
                 __('The imported file does not contain any data!')
             );
 

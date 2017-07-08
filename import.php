@@ -13,7 +13,7 @@ use PhpMyAdmin\File;
 use PMA\libraries\plugins\ImportPlugin;
 use PhpMyAdmin\Response;
 use PhpMyAdmin\Sql;
-use PMA\libraries\URL;
+use PhpMyAdmin\Url;
 
 /* Enable LOAD DATA LOCAL INFILE for LDI plugin */
 if (isset($_POST['format']) && $_POST['format'] == 'ldi') {
@@ -171,7 +171,7 @@ if (! empty($sql_query)) {
         $rename_table_names
     )) {
         $ajax_reload['reload'] = true;
-        $ajax_reload['table_name'] = PMA\libraries\Util::unQuote(
+        $ajax_reload['table_name'] = PhpMyAdmin\Util::unQuote(
             $rename_table_names[2]
         );
     }
@@ -247,7 +247,7 @@ $post_patterns = array(
 Core::setPostAsGlobal($post_patterns);
 
 // Check needed parameters
-PMA\libraries\Util::checkParameters(array('import_type', 'format'));
+PhpMyAdmin\Util::checkParameters(array('import_type', 'format'));
 
 // We don't want anything special in format
 $format = Core::securePath($format);
@@ -278,7 +278,7 @@ if ($import_type == 'table') {
         }
     }
 }
-$err_url = $goto . URL::getCommon($urlparams);
+$err_url = $goto . Url::getCommon($urlparams);
 $_SESSION['Import_message']['go_back_url'] = $err_url;
 // Avoid setting selflink to 'import.php'
 // problem similar to bug 4276
@@ -438,7 +438,7 @@ if (! empty($local_import_file) && ! empty($cfg['UploadDir'])) {
     // sanitize $local_import_file as it comes from a POST
     $local_import_file = Core::securePath($local_import_file);
 
-    $import_file = PMA\libraries\Util::userDir($cfg['UploadDir'])
+    $import_file = PhpMyAdmin\Util::userDir($cfg['UploadDir'])
         . $local_import_file;
 
     /*
@@ -532,11 +532,11 @@ if (! $error) {
     } else {
         // Do the real import
         try {
-            $default_fk_check = PMA\libraries\Util::handleDisableFKCheckInit();
+            $default_fk_check = PhpMyAdmin\Util::handleDisableFKCheckInit();
             $import_plugin->doImport($sql_data);
-            PMA\libraries\Util::handleDisableFKCheckCleanup($default_fk_check);
+            PhpMyAdmin\Util::handleDisableFKCheckCleanup($default_fk_check);
         } catch (Exception $e) {
-            PMA\libraries\Util::handleDisableFKCheckCleanup($default_fk_check);
+            PhpMyAdmin\Util::handleDisableFKCheckCleanup($default_fk_check);
             throw $e;
         }
     }
@@ -605,7 +605,7 @@ if ($timeout_passed) {
         $urlparams['local_import_file'] = $local_import_file;
     }
 
-    $importUrl = $err_url = $goto . URL::getCommon($urlparams);
+    $importUrl = $err_url = $goto . Url::getCommon($urlparams);
 
     $message = PhpMyAdmin\Message::error(
         __(
@@ -656,7 +656,7 @@ if ($sqlLength <= $GLOBALS['cfg']['MaxCharactersInDisplayedSQL']) {
 // There was an error?
 if (isset($my_die)) {
     foreach ($my_die as $key => $die) {
-        PMA\libraries\Util::mysqlDie(
+        PhpMyAdmin\Util::mysqlDie(
             $die['error'], $die['sql'], false, $err_url, $error
         );
     }
@@ -689,7 +689,7 @@ if ($go_sql) {
         if (Sql::hasNoRightsToDropDatabase(
             $analyzed_sql_results, $cfg['AllowUserDropDatabase'], $GLOBALS['is_superuser']
         )) {
-            PMA\libraries\Util::mysqlDie(
+            PhpMyAdmin\Util::mysqlDie(
                 __('"DROP DATABASE" statements are disabled.'),
                 '',
                 false,
@@ -755,7 +755,7 @@ if ($go_sql) {
     $response->addJSON('message', PhpMyAdmin\Message::success($msg));
     $response->addJSON(
         'sql_query',
-        PMA\libraries\Util::getMessage($msg, $sql_query, 'success')
+        PhpMyAdmin\Util::getMessage($msg, $sql_query, 'success')
     );
 } else if ($result == false) {
     $response->setRequestStatus(false);

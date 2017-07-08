@@ -9,7 +9,7 @@
 use PhpMyAdmin\Config;
 use PMA\libraries\config\ConfigFile;
 use PMA\libraries\config\FormDisplay;
-use PMA\libraries\Theme;
+use PhpMyAdmin\Theme;
 
 require_once 'test/PMATestCase.php';
 require_once 'libraries/config/config_functions.lib.php';

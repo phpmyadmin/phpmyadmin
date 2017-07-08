@@ -10,7 +10,7 @@ use PhpMyAdmin\Core;
 use PMA\libraries\gis\GISFactory;
 use PMA\libraries\gis\GISVisualization;
 use PhpMyAdmin\Response;
-use PMA\libraries\URL;
+use PhpMyAdmin\Url;
 
 /**
  * Escapes special characters if the variable is set.
@@ -28,7 +28,7 @@ function escape($variable)
 require_once 'libraries/common.inc.php';
 
 if (! isset($_REQUEST['field'])) {
-    PMA\libraries\Util::checkParameters(array('field'));
+    PhpMyAdmin\Util::checkParameters(array('field'));
 }
 
 // Get data if any posted
@@ -131,7 +131,7 @@ if (isset($_REQUEST['input_name'])) {
     echo '<input type="hidden" name="input_name" value="'
         , htmlspecialchars($_REQUEST['input_name']) , '" />';
 }
-echo URL::getHiddenInputs();
+echo Url::getHiddenInputs();
 
 echo '<!-- Visualization section -->';
 echo '<div id="placeholder" style="width:450px;height:300px;'

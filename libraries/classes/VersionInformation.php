@@ -5,14 +5,10 @@
  *
  * @package PhpMyAdmin
  */
-namespace PMA\libraries;
+namespace PhpMyAdmin;
 
-use PMA\libraries\Util;
+use PhpMyAdmin\Util;
 use stdClass;
-
-if (!defined('PHPMYADMIN')) {
-    exit;
-}
 
 /**
  * Responsible for retrieving version information and notifiying about latest version

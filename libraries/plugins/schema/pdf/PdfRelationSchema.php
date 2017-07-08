@@ -9,8 +9,8 @@ namespace PMA\libraries\plugins\schema\pdf;
 
 use PhpMyAdmin\Pdf as PdfLib;
 use PMA\libraries\plugins\schema\ExportRelationSchema;
-use PMA\libraries\Transformations;
-use PMA\libraries\Util;
+use PhpMyAdmin\Transformations;
+use PhpMyAdmin\Util;
 
 /**
  * Skip the plugin if TCPDF is not available.

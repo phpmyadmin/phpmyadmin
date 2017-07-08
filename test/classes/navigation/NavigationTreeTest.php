@@ -11,7 +11,7 @@
  * since 'check_user_privileges.lib.php' will use it globally
  */
 use PMA\libraries\navigation\NavigationTree;
-use PMA\libraries\Theme;
+use PhpMyAdmin\Theme;
 
 $GLOBALS['server'] = 0;
 $GLOBALS['cfg']['Server']['DisableIS'] = false;

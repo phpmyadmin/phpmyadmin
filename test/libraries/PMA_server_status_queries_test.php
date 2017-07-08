@@ -8,7 +8,7 @@
 
 use PhpMyAdmin\Core;
 use PhpMyAdmin\ServerStatusData;
-use PMA\libraries\Theme;
+use PhpMyAdmin\Theme;
 
 require_once 'libraries/server_status_queries.lib.php';
 require_once 'libraries/database_interface.inc.php';
@@ -128,7 +128,7 @@ class PMA_ServerStatusQueries_Test extends PHPUnit_Framework_TestCase
 
         $questions_from_start = sprintf(
             __('Questions since startup: %s'),
-            PMA\libraries\Util::formatNumber($total_queries, 0)
+            PhpMyAdmin\Util::formatNumber($total_queries, 0)
         );
 
         //validate 1: PMA_getHtmlForQueryStatistics
@@ -147,12 +147,12 @@ class PMA_ServerStatusQueries_Test extends PHPUnit_Framework_TestCase
             $html
         );
         $this->assertContains(
-            PMA\libraries\Util::formatNumber($total_queries * $hour_factor, 0),
+            PhpMyAdmin\Util::formatNumber($total_queries * $hour_factor, 0),
             $html
         );
 
         //validate 3:per minute
-        $value_per_minute = PMA\libraries\Util::formatNumber(
+        $value_per_minute = PhpMyAdmin\Util::formatNumber(
             $total_queries * 60 / $this->ServerStatusData->status['Uptime'],
             0
         );

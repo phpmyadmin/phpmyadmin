@@ -9,10 +9,10 @@
 namespace PMA\libraries\plugins\export;
 
 use PMA\libraries\plugins\ExportPlugin;
+use PMA\libraries\plugins\export\helpers\Pdf;
 use PMA\libraries\properties\plugins\ExportPluginProperties;
 use PMA\libraries\properties\options\groups\OptionsPropertyMainGroup;
 use PMA\libraries\properties\options\groups\OptionsPropertyRootGroup;
-use PMA\libraries\plugins\export\helpers\Pdf;
 use PMA\libraries\properties\options\items\RadioPropertyItem;
 use PMA\libraries\properties\options\items\TextPropertyItem;
 

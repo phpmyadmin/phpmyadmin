@@ -5,7 +5,10 @@
  *
  * @package PhpMyAdmin
  */
-namespace PMA\libraries;
+namespace PhpMyAdmin;
+
+use PhpMyAdmin\Types;
+use PhpMyAdmin\Util;
 
 /**
  * Class holding type definitions for MySQL.
@@ -536,7 +539,7 @@ class TypesMySQL extends Types
         );
 
         if (PMA_MYSQL_INT_VERSION >= 50708
-            && \PMA\libraries\Util::getServerType() != 'MariaDB'
+            && Util::getServerType() != 'MariaDB'
         ) {
           $ret['JSON'] = array(
               'JSON',

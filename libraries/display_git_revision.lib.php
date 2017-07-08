@@ -65,7 +65,7 @@ function PMA_printGitRevision()
         . $branch . ',<br /> '
         . sprintf(
             __('committed on %1$s by %2$s'),
-            PMA\libraries\Util::localisedDate(strtotime($committer['date'])),
+            PhpMyAdmin\Util::localisedDate(strtotime($committer['date'])),
             '<a href="' . Core::linkURL(
                 'mailto:' . htmlspecialchars($committer['email'])
             ) . '">'
@@ -75,7 +75,7 @@ function PMA_printGitRevision()
             ? ', <br />'
             . sprintf(
                 __('authored on %1$s by %2$s'),
-                PMA\libraries\Util::localisedDate(strtotime($author['date'])),
+                PhpMyAdmin\Util::localisedDate(strtotime($author['date'])),
                 '<a href="' . Core::linkURL(
                     'mailto:' . htmlspecialchars($author['email'])
                 ) . '">'

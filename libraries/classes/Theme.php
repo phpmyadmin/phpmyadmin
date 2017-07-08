@@ -5,9 +5,10 @@
  *
  * @package PhpMyAdmin
  */
-namespace PMA\libraries;
+namespace PhpMyAdmin;
 
-use PMA\libraries\URL;
+use PhpMyAdmin\ThemeManager;
+use PhpMyAdmin\Url;
 
 /**
  * handles theme
@@ -456,7 +457,7 @@ class Theme
     public function getPrintPreview()
     {
         $url_params = array('set_theme' => $this->getId());
-        $url = 'index.php' . URL::getCommon($url_params);
+        $url = 'index.php' . Url::getCommon($url_params);
 
         $retval  = '<div class="theme_preview">';
         $retval .= '<h2>';

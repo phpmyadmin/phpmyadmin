@@ -7,7 +7,7 @@
  */
 namespace PhpMyAdmin;
 
-use PMA\libraries\Util;
+use PhpMyAdmin\Util;
 
 /**
  * Class used to manage MySQL charsets

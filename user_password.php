@@ -8,7 +8,7 @@
  */
 
 use PhpMyAdmin\Core;
-use PMA\libraries\URL;
+use PhpMyAdmin\Url;
 use PhpMyAdmin\Response;
 
 /**
@@ -95,7 +95,7 @@ function PMA_getChangePassMessage($change_password_message, $sql_query = '')
             $response->addJSON('message', $change_password_message['msg']);
             $response->setRequestStatus(false);
         } else {
-            $sql_query = PMA\libraries\Util::getMessage(
+            $sql_query = PhpMyAdmin\Util::getMessage(
                 $change_password_message['msg'],
                 $sql_query,
                 'success'
@@ -150,7 +150,7 @@ function PMA_changePassword($password, $message, $change_password_message)
 
     list($username, $hostname) = $GLOBALS['dbi']->getCurrentUserAndHost();
 
-    $serverType = PMA\libraries\Util::getServerType();
+    $serverType = PhpMyAdmin\Util::getServerType();
 
     if (isset($_REQUEST['authentication_plugin'])
         && ! empty($_REQUEST['authentication_plugin'])
@@ -230,9 +230,9 @@ function PMA_changePassHashingFunction()
 function PMA_changePassUrlParamsAndSubmitQuery(
     $username, $hostname, $password, $sql_query, $hashing_function, $orig_auth_plugin
 ) {
-    $err_url = 'user_password.php' . URL::getCommon();
+    $err_url = 'user_password.php' . Url::getCommon();
 
-    $serverType = PMA\libraries\Util::getServerType();
+    $serverType = PhpMyAdmin\Util::getServerType();
 
     if ($serverType == 'MySQL' && PMA_MYSQL_INT_VERSION >= 50706) {
         $local_query = 'ALTER USER \'' . $username . '\'@\'' . $hostname . '\''
@@ -270,7 +270,7 @@ function PMA_changePassUrlParamsAndSubmitQuery(
                 . $GLOBALS['dbi']->escapeString($password) . '\')');
     }
     if (! @$GLOBALS['dbi']->tryQuery($local_query)) {
-        PMA\libraries\Util::mysqlDie(
+        PhpMyAdmin\Util::mysqlDie(
             $GLOBALS['dbi']->getError(),
             $sql_query,
             false,
@@ -293,10 +293,10 @@ function PMA_changePassUrlParamsAndSubmitQuery(
 function PMA_changePassDisplayPage($message, $sql_query)
 {
     echo '<h1>' , __('Change password') , '</h1>' , "\n\n";
-    echo PMA\libraries\Util::getMessage(
+    echo PhpMyAdmin\Util::getMessage(
         $message, $sql_query, 'success'
     );
-    echo '<a href="index.php' , URL::getCommon()
+    echo '<a href="index.php' , Url::getCommon()
         , ' target="_parent">' , "\n"
         , '<strong>' , __('Back') , '</strong></a>';
     exit;

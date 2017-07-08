@@ -7,8 +7,8 @@
  * @package PhpMyAdmin
  */
 use PhpMyAdmin\Response;
-use PMA\libraries\Table;
-use PMA\libraries\Transformations;
+use PhpMyAdmin\Table;
+use PhpMyAdmin\Transformations;
 use PMA\Util;
 
 if (!defined('PHPMYADMIN')) {
@@ -20,7 +20,7 @@ if (!defined('PHPMYADMIN')) {
  */
 require_once 'libraries/util.lib.php';
 
-PMA\libraries\Util::checkParameters(
+PhpMyAdmin\Util::checkParameters(
     array('server', 'db', 'table', 'action', 'num_fields')
 );
 
@@ -262,12 +262,12 @@ for ($columnNumber = 0; $columnNumber < $num_fields; $columnNumber++) {
     }
 
     if (isset($columnMeta['Type'])) {
-        $extracted_columnspec = PMA\libraries\Util::extractColumnSpec(
+        $extracted_columnspec = PhpMyAdmin\Util::extractColumnSpec(
             $columnMeta['Type']
         );
         if ($extracted_columnspec['type'] == 'bit') {
             $columnMeta['Default']
-                = PMA\libraries\Util::convertBitDefaultValue($columnMeta['Default']);
+                = PhpMyAdmin\Util::convertBitDefaultValue($columnMeta['Default']);
         }
         $type = $extracted_columnspec['type'];
         if ($length == '') {
@@ -390,7 +390,7 @@ for ($columnNumber = 0; $columnNumber < $num_fields; $columnNumber++) {
 } // end for
 
 include 'libraries/tbl_partition_definition.inc.php';
-$html = PMA\libraries\Template::get('columns_definitions/column_definitions_form')
+$html = PhpMyAdmin\Template::get('columns_definitions/column_definitions_form')
     ->render(
         array(
             'is_backup'        => $is_backup,

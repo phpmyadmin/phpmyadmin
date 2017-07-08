@@ -10,7 +10,7 @@
  * Needed for backquote() and PMA_RTN_getQueryFromRequest()
  */
 
-use PMA\libraries\TypesMySQL;
+use PhpMyAdmin\TypesMySQL;
 
 
 

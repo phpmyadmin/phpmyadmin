@@ -1,5 +1,5 @@
 <form method="post" action="tbl_zoom_select.php" name="displayResultForm" id="zoom_display_form" class="ajax">
-    <?= \PMA\libraries\URL::getHiddenInputs($_db, $_table); ?>
+    <?= \PhpMyAdmin\Url::getHiddenInputs($_db, $_table); ?>
     <input type="hidden" name="goto" value="<?= $goto; ?>" />
     <input type="hidden" name="back" value="tbl_zoom_select.php" />
 
@@ -71,7 +71,7 @@
                         </th>
 <!-- Column's Input box-->
                         <th>
-                            <?= PMA\libraries\Template::get('table/search/input_box')->render(array(
+                            <?= PhpMyAdmin\Template::get('table/search/input_box')->render(array(
                                     'str' => '',
                                     'column_type' => $_columnTypes[$column_index],
                                     'column_id' => ($_columnTypes[$column_index]) ? 'edit_fieldID_' : 'fieldID_',

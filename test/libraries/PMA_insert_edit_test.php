@@ -9,11 +9,11 @@
 /*
  * Include to test.
  */
-use PMA\libraries\Table;
-use PMA\libraries\Theme;
-use PMA\libraries\Tracker;
-use PMA\libraries\Types;
-use PMA\libraries\TypesMySQL;
+use PhpMyAdmin\Table;
+use PhpMyAdmin\Theme;
+use PhpMyAdmin\Tracker;
+use PhpMyAdmin\Types;
+use PhpMyAdmin\TypesMySQL;
 
 require_once 'libraries/insert_edit.lib.php';
 require_once 'libraries/database_interface.inc.php';

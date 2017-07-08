@@ -10,7 +10,7 @@
  * Include to test.
  */
 use PMA\libraries\di\Container;
-use PMA\libraries\Theme;
+use PhpMyAdmin\Theme;
 
 require_once 'libraries/database_interface.inc.php';
 require_once 'libraries/relation.lib.php';
@@ -74,7 +74,7 @@ class TableRelationControllerTest extends PMATestCase
         $viewColumns = array(
             'viewCol', 'viewCol2', 'viewCol3'
         );
-        $tableMock = $this->getMockBuilder('PMA\libraries\Table')
+        $tableMock = $this->getMockBuilder('PhpMyAdmin\Table')
             ->disableOriginalConstructor()
             ->getMock();
         // Test the situation when the table is a view
@@ -120,7 +120,7 @@ class TableRelationControllerTest extends PMATestCase
         $indexedColumns = array(
             'primaryTableCol'
         );
-        $tableMock = $this->getMockBuilder('PMA\libraries\Table')
+        $tableMock = $this->getMockBuilder('PhpMyAdmin\Table')
             ->disableOriginalConstructor()
             ->getMock();
         // Test the situation when the table is a view

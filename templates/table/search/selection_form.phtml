@@ -16,7 +16,7 @@ switch ($searchType) {
         break;
 }
 ?>
-<?= PMA\libraries\Template::get('table/search/form_tag')
+<?= PhpMyAdmin\Template::get('table/search/form_tag')
     ->render(array(
         'script_name' => $scriptName,
         'form_id' => $formId,
@@ -30,7 +30,7 @@ switch ($searchType) {
             <legend>
                 <?= __('Do a "query by example" (wildcard: "%") for two different columns'); ?>
             </legend>
-            <?= PMA\libraries\Template::get('table/search/fields_table')
+            <?= PhpMyAdmin\Template::get('table/search/fields_table')
                 ->render(array(
                     'self' => $self,
                     'searchType' => $searchType,
@@ -40,7 +40,7 @@ switch ($searchType) {
                     'columnCollations' => $columnCollations
                 ))
             ?>
-            <?= PMA\libraries\Template::get('table/search/options_zoom')
+            <?= PhpMyAdmin\Template::get('table/search/options_zoom')
                 ->render(array(
                     'dataLabel' => $dataLabel,
                     'columnNames' => $columnNames
@@ -53,7 +53,7 @@ switch ($searchType) {
             <legend>
                 <?= __('Do a "query by example" (wildcard: "%")'); ?>
             </legend>
-            <?= PMA\libraries\Template::get('table/search/fields_table')
+            <?= PhpMyAdmin\Template::get('table/search/fields_table')
                 ->render(array(
                     'self' => $self,
                     'searchType' => $searchType,
@@ -67,7 +67,7 @@ switch ($searchType) {
             <div id="popup_background">
             </div>
         </fieldset>
-        <?= PMA\libraries\Template::get('table/search/options')
+        <?= PhpMyAdmin\Template::get('table/search/options')
             ->render(array(
                 'columnNames' => $columnNames
             )); ?>
@@ -78,7 +78,7 @@ switch ($searchType) {
             <legend>
                 <?= __('Find and replace'); ?>
             </legend>
-            <?= PMA\libraries\Template::get('table/search/search_and_replace')
+            <?= PhpMyAdmin\Template::get('table/search/search_and_replace')
                 ->render(array(
                     'columnNames' => $columnNames,
                     'columnTypes' => $columnTypes

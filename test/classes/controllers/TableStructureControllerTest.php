@@ -12,7 +12,7 @@
  * Include to test.
  */
 use PMA\libraries\di\Container;
-use PMA\libraries\Theme;
+use PhpMyAdmin\Theme;
 
 require_once 'libraries/database_interface.inc.php';
 require_once 'test/libraries/stubs/ResponseStub.php';
@@ -51,7 +51,7 @@ class TableStructureControllerTest extends PMATestCase
 
         //$_SESSION
 
-        $table = $this->getMockBuilder('PMA\libraries\Table')
+        $table = $this->getMockBuilder('PhpMyAdmin\Table')
             ->disableOriginalConstructor()
             ->getMock();
 

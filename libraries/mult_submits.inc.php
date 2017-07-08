@@ -105,7 +105,7 @@ if (! empty($submit_mult)
             );
             exit;
         case 'show_create':
-            $show_create = PMA\libraries\Template::get(
+            $show_create = PhpMyAdmin\Template::get(
                 'database/structure/show_create'
             )
                 ->render(
@@ -174,7 +174,7 @@ if (!empty($submit_mult) && !empty($what)) {
             $tooltip_truename,
             $tooltip_aliasname,
             $pos
-        ) = PMA\libraries\Util::getDbInfo($db, isset($sub_part) ? $sub_part : '');
+        ) = PhpMyAdmin\Util::getDbInfo($db, isset($sub_part) ? $sub_part : '');
 
     } else {
         include_once './libraries/server_common.inc.php';
@@ -224,7 +224,7 @@ if (!empty($submit_mult) && !empty($what)) {
         // Gets table primary key
         $GLOBALS['dbi']->selectDb($db);
         $result = $GLOBALS['dbi']->query(
-            'SHOW KEYS FROM ' . PMA\libraries\Util::backquote($table) . ';'
+            'SHOW KEYS FROM ' . PhpMyAdmin\Util::backquote($table) . ';'
         );
         $primary = '';
         while ($row = $GLOBALS['dbi']->fetchAssoc($result)) {
@@ -240,7 +240,7 @@ if (!empty($submit_mult) && !empty($what)) {
         || $query_type == 'empty_tbl'
         || $query_type == 'row_delete'
     ) {
-        $default_fk_check_value = PMA\libraries\Util::handleDisableFKCheckInit();
+        $default_fk_check_value = PhpMyAdmin\Util::handleDisableFKCheckInit();
     }
 
     list(
@@ -304,7 +304,7 @@ if (!empty($submit_mult) && !empty($what)) {
         || $query_type == 'empty_tbl'
         || $query_type == 'row_delete'
     ) {
-        PMA\libraries\Util::handleDisableFKCheckCleanup($default_fk_check_value);
+        PhpMyAdmin\Util::handleDisableFKCheckCleanup($default_fk_check_value);
     }
     if ($rebuild_database_list) {
         // avoid a problem with the database list navigator

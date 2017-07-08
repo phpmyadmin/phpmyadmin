@@ -13,8 +13,8 @@
  */
 use PMA\libraries\controllers\database\DatabaseStructureController;
 use PMA\libraries\di\Container;
-use PMA\libraries\Table;
-use PMA\libraries\Theme;
+use PhpMyAdmin\Table;
+use PhpMyAdmin\Theme;
 
 require_once 'test/PMATestCase.php';
 require_once 'libraries/database_interface.inc.php';
@@ -57,7 +57,7 @@ class DatabaseStructureControllerTest extends PMATestCase
             define('PMA_USR_BROWSER_AGENT', 'Other');
         }
 
-        $table = $this->getMockBuilder('PMA\libraries\Table')
+        $table = $this->getMockBuilder('PhpMyAdmin\Table')
             ->disableOriginalConstructor()
             ->getMock();
         // Expect the table will have 6 rows

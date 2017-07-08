@@ -9,7 +9,7 @@ namespace PMA\libraries\plugins\schema;
 
 use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Index;
-use PMA\libraries\Util;
+use PhpMyAdmin\Util;
 
 /**
  * Table preferences/statistics

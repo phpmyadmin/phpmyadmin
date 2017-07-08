@@ -16,7 +16,7 @@ if (isset($columnMeta['DefaultValue'])) {
     $defaultValue = $columnMeta['DefaultValue'];
 }
 if ($type_upper == 'BIT') {
-    $defaultValue = PMA\libraries\Util::convertBitDefaultValue($columnMeta['DefaultValue']);
+    $defaultValue = PhpMyAdmin\Util::convertBitDefaultValue($columnMeta['DefaultValue']);
 } elseif ($type_upper == 'BINARY' || $type_upper == 'VARBINARY') {
     $defaultValue = bin2hex($columnMeta['DefaultValue']);
 }

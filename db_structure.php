@@ -10,7 +10,7 @@ namespace PMA;
 
 use PMA\libraries\controllers\database\DatabaseStructureController;
 use PhpMyAdmin\Response;
-use PMA\libraries\Util;
+use PhpMyAdmin\Util;
 
 require_once 'libraries/common.inc.php';
 require_once 'libraries/db_common.inc.php';

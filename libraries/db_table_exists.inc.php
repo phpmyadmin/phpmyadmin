@@ -10,7 +10,7 @@
 use PhpMyAdmin\Core;
 use PhpMyAdmin\Message;
 use PhpMyAdmin\Response;
-use PMA\libraries\URL;
+use PhpMyAdmin\Url;
 
 if (! defined('PHPMYADMIN')) {
     exit;
@@ -46,7 +46,7 @@ if (empty($is_db)) {
                 }
                 Core::sendHeaderLocation(
                     './index.php'
-                    . URL::getCommonRaw($url_params)
+                    . Url::getCommonRaw($url_params)
                 );
             }
             exit;
@@ -88,7 +88,7 @@ if (empty($is_table)
                  * only happen if IS_TRANSFORMATION_WRAPPER?
                  */
                 $_result = $GLOBALS['dbi']->tryQuery(
-                    'SELECT COUNT(*) FROM ' . PMA\libraries\Util::backquote($table)
+                    'SELECT COUNT(*) FROM ' . PhpMyAdmin\Util::backquote($table)
                     . ';',
                     null,
                     PhpMyAdmin\DatabaseInterface::QUERY_STORE

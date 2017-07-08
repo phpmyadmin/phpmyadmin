@@ -8,7 +8,7 @@
 use PMA\libraries\config\FormDisplay;
 use PMA\setup\lib\ConfigGenerator;
 use PhpMyAdmin\Core;
-use PMA\libraries\URL;
+use PhpMyAdmin\Url;
 use PhpMyAdmin\Response;
 
 /**
@@ -34,7 +34,7 @@ if (Core::ifSetOr($_POST['submit_clear'], '')) {
     //
     $GLOBALS['ConfigFile']->resetConfigData();
     // drop post data
-    $response->generateHeader303('index.php' . URL::getCommonRaw());
+    $response->generateHeader303('index.php' . Url::getCommonRaw());
     exit;
 } elseif (Core::ifSetOr($_POST['submit_download'], '')) {
     //
@@ -47,6 +47,6 @@ if (Core::ifSetOr($_POST['submit_clear'], '')) {
     //
     // Show generated config file in a <textarea>
     //
-    $response->generateHeader303('index.php' . URL::getCommonRaw(array('page' => 'config')));
+    $response->generateHeader303('index.php' . Url::getCommonRaw(array('page' => 'config')));
     exit;
 }

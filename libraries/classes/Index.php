@@ -10,8 +10,8 @@ namespace PhpMyAdmin;
 use PhpMyAdmin\IndexColumn;
 use PhpMyAdmin\Message;
 use PhpMyAdmin\Sanitize;
-use PMA\libraries\URL;
-use PMA\libraries\Util;
+use PhpMyAdmin\Url;
+use PhpMyAdmin\Util;
 
 /**
  * Index manipulation class
@@ -651,7 +651,7 @@ class Index
         );
         $html_output .= '<fieldset class="tblFooters print_ignore" style="text-align: '
             . 'left;"><form action="tbl_indexes.php" method="post">';
-        $html_output .= URL::getHiddenInputs(
+        $html_output .= Url::getHiddenInputs(
             $GLOBALS['db'], $GLOBALS['table']
         );
         $html_output .= sprintf(
@@ -741,7 +741,7 @@ class Index
                 $r .= '" ' . $row_span . '>'
                    . '    <a class="';
                 $r .= 'ajax';
-                $r .= '" href="tbl_indexes.php' . URL::getCommon($this_params)
+                $r .= '" href="tbl_indexes.php' . Url::getCommon($this_params)
                    . '">' . Util::getIcon('b_edit.png', __('Edit')) . '</a>'
                    . '</td>' . "\n";
                 $this_params = $GLOBALS['url_params'];
@@ -767,7 +767,7 @@ class Index
                     . ' value="' . $js_msg . '" />';
                 $r .= '    <a class="drop_primary_key_index_anchor';
                 $r .= ' ajax';
-                $r .= '" href="sql.php' . URL::getCommon($this_params)
+                $r .= '" href="sql.php' . Url::getCommon($this_params)
                    . '" >'
                    . Util::getIcon('b_drop.png', __('Drop'))  . '</a>'
                    . '</td>' . "\n";

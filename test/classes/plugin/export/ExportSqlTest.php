@@ -6,7 +6,7 @@
  * @package PhpMyAdmin-test
  */
 use PMA\libraries\plugins\export\ExportSql;
-use PMA\libraries\Table;
+use PhpMyAdmin\Table;
 
 require_once 'libraries/export.lib.php';
 require_once 'libraries/config.default.php';
@@ -1490,7 +1490,7 @@ class ExportSqlTest extends PMATestCase
         $dbi->expects($this->any())->method('escapeString')
             ->will($this->returnArgument(0));
 
-        $_table = $this->getMockBuilder('PMA\libraries\Table')
+        $_table = $this->getMockBuilder('PhpMyAdmin\Table')
             ->disableOriginalConstructor()
             ->getMock();
         $_table->expects($this->once())
@@ -1619,7 +1619,7 @@ class ExportSqlTest extends PMATestCase
                 null
             );
 
-        $_table = $this->getMockBuilder('PMA\libraries\Table')
+        $_table = $this->getMockBuilder('PhpMyAdmin\Table')
             ->disableOriginalConstructor()
             ->getMock();
         $_table->expects($this->once())
@@ -1673,7 +1673,7 @@ class ExportSqlTest extends PMATestCase
             ->disableOriginalConstructor()
             ->getMock();
 
-        $_table = $this->getMockBuilder('PMA\libraries\Table')
+        $_table = $this->getMockBuilder('PhpMyAdmin\Table')
             ->disableOriginalConstructor()
             ->getMock();
         $_table->expects($this->once())
@@ -1733,7 +1733,7 @@ class ExportSqlTest extends PMATestCase
             ->method('getError')
             ->will($this->returnValue('err'));
 
-        $_table = $this->getMockBuilder('PMA\libraries\Table')
+        $_table = $this->getMockBuilder('PhpMyAdmin\Table')
             ->disableOriginalConstructor()
             ->getMock();
         $_table->expects($this->once())

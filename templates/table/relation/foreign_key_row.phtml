@@ -1,16 +1,16 @@
 <?php
 use PhpMyAdmin\DatabaseInterface;
-use PMA\libraries\Table;
-use PMA\libraries\Util;
-use PMA\libraries\URL;
+use PhpMyAdmin\Table;
+use PhpMyAdmin\Util;
+use PhpMyAdmin\Url;
 use PhpMyAdmin\Sanitize;
 
 $js_msg = '';
 $this_params = null;
 if (isset($one_key['constraint'])) {
-    $drop_fk_query = 'ALTER TABLE ' . PMA\libraries\Util::backquote($GLOBALS['table'])
+    $drop_fk_query = 'ALTER TABLE ' . PhpMyAdmin\Util::backquote($GLOBALS['table'])
         . ' DROP FOREIGN KEY '
-        . PMA\libraries\Util::backquote($one_key['constraint']) . ';';
+        . PhpMyAdmin\Util::backquote($one_key['constraint']) . ';';
     $this_params = $GLOBALS['url_params'];
     $this_params['goto'] = 'tbl_relation.php';
     $this_params['back'] = 'tbl_relation.php';
@@ -81,8 +81,8 @@ if ($foreign_db) {
                    class="drop_foreign_key_msg"
                    value="<?= $js_msg; ?>" />
             <a class="drop_foreign_key_anchor ajax"
-               href="sql.php<?= URL::getCommon($this_params); ?>" >
-                <?= PMA\libraries\Util::getIcon('b_drop.png', __('Drop')); ?>
+               href="sql.php<?= Url::getCommon($this_params); ?>" >
+                <?= PhpMyAdmin\Util::getIcon('b_drop.png', __('Drop')); ?>
             </a>
         <?php endif; ?>
     </td>
@@ -98,7 +98,7 @@ if ($foreign_db) {
         </span>
         <div class="floatleft">
             <span class="formelement">
-                <?= PMA\libraries\Template::get('table/relation/dropdown_generate')->render(
+                <?= PhpMyAdmin\Template::get('table/relation/dropdown_generate')->render(
                     array(
                         'dropdown_question' => 'ON DELETE',
                         'select_name' => 'on_delete[' . $i . ']',
@@ -108,7 +108,7 @@ if ($foreign_db) {
                 ); ?>
             </span>
             <span class="formelement">
-                <?= PMA\libraries\Template::get('table/relation/dropdown_generate')->render(
+                <?= PhpMyAdmin\Template::get('table/relation/dropdown_generate')->render(
                     array(
                         'dropdown_question' => 'ON UPDATE',
                         'select_name' => 'on_update[' . $i . ']',
@@ -123,7 +123,7 @@ if ($foreign_db) {
         <?php if (isset($one_key['index_list'])): ?>
             <?php foreach ($one_key['index_list'] as $key => $column): ?>
                 <span class="formelement clearfloat">
-                    <?= PMA\libraries\Template::get('table/relation/dropdown_generate')->render(
+                    <?= PhpMyAdmin\Template::get('table/relation/dropdown_generate')->render(
                         array(
                             'dropdown_question' => '',
                             'select_name' => 'foreign_key_fields_name[' . $i . '][]',
@@ -135,7 +135,7 @@ if ($foreign_db) {
             <?php endforeach; ?>
         <?php else: ?>
             <span class="formelement clearfloat">
-                <?= PMA\libraries\Template::get('table/relation/dropdown_generate')->render(
+                <?= PhpMyAdmin\Template::get('table/relation/dropdown_generate')->render(
                     array(
                         'dropdown_question' => '',
                         'select_name' => 'foreign_key_fields_name[' . $i . '][]',
@@ -153,7 +153,7 @@ if ($foreign_db) {
     </td>
     <td>
         <span class="formelement clearfloat">
-            <?= PMA\libraries\Template::get('table/relation/relational_dropdown')->render(
+            <?= PhpMyAdmin\Template::get('table/relation/relational_dropdown')->render(
                 array(
                     'name' => 'destination_foreign_db[' . $i . ']',
                     'title' => __('Database'),
@@ -164,7 +164,7 @@ if ($foreign_db) {
     </td>
     <td>
         <span class="formelement clearfloat">
-            <?= PMA\libraries\Template::get('table/relation/relational_dropdown')->render(
+            <?= PhpMyAdmin\Template::get('table/relation/relational_dropdown')->render(
                 array(
                     'name' => 'destination_foreign_table[' . $i . ']',
                     'title' => __('Table'),
@@ -182,7 +182,7 @@ if ($foreign_db) {
                 $columns = $table_obj->getUniqueColumns(false, false);
                 ?>
                 <span class="formelement clearfloat">
-                    <?= PMA\libraries\Template::get('table/relation/relational_dropdown')->render(
+                    <?= PhpMyAdmin\Template::get('table/relation/relational_dropdown')->render(
                         array(
                             'name' => 'destination_foreign_column[' . $i . '][]',
                             'title' => __('Column'),
@@ -194,7 +194,7 @@ if ($foreign_db) {
             <?php endforeach; ?>
         <?php else: ?>
             <span class="formelement clearfloat">
-                <?= PMA\libraries\Template::get('table/relation/relational_dropdown')->render(
+                <?= PhpMyAdmin\Template::get('table/relation/relational_dropdown')->render(
                     array(
                         'name' => 'destination_foreign_column[' . $i . '][]',
                         'title' => __('Column'),

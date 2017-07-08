@@ -6,10 +6,10 @@
  * @package PhpMyAdmin-test
  */
 
-use PMA\libraries\Theme;
+use PhpMyAdmin\Theme;
 use PMA\libraries\controllers\server\ServerBinlogController;
 use PMA\libraries\di\Container;
-use PMA\libraries\Util;
+use PhpMyAdmin\Util;
 
 require_once 'test/PMATestCase.php';
 require_once 'libraries/database_interface.inc.php';

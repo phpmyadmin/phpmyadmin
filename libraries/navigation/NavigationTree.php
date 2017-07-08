@@ -14,8 +14,8 @@ use PMA\libraries\navigation\nodes\NodeTableContainer;
 use PMA\libraries\navigation\nodes\NodeViewContainer;
 use PhpMyAdmin\RecentFavoriteTable;
 use PhpMyAdmin\Response;
-use PMA\libraries\Util;
-use PMA\libraries\URL;
+use PhpMyAdmin\Util;
+use PhpMyAdmin\Url;
 
 require_once 'libraries/check_user_privileges.lib.php';
 
@@ -1268,7 +1268,7 @@ class NavigationTree
         );
         $retval .= '<div id="pma_navigation_db_select">';
         $retval .= '<form action="index.php">';
-        $retval .= URL::getHiddenFields($url_params);
+        $retval .= Url::getHiddenFields($url_params);
         $retval .= '<select name="db" class="hide" id="navi_db_select">'
             . '<option value="" dir="' . $GLOBALS['text_dir'] . '">'
             . '(' . __('Databases') . ') ...</option>' . "\n";
@@ -1359,7 +1359,7 @@ class NavigationTree
             );
             $retval .= '<li class="fast_filter db_fast_filter">';
             $retval .= '<form class="ajax fast_filter">';
-            $retval .= URL::getHiddenInputs($url_params);
+            $retval .= Url::getHiddenInputs($url_params);
             $retval .= '<input class="searchClause" type="text"';
             $retval .= ' name="searchClause" accesskey="q"';
             $retval .= " placeholder='"
@@ -1391,7 +1391,7 @@ class NavigationTree
             );
             $retval .= "<li class='fast_filter'>";
             $retval .= "<form class='ajax fast_filter'>";
-            $retval .= URL::getHiddenFields($url_params);
+            $retval .= Url::getHiddenFields($url_params);
             $retval .= "<input class='searchClause' type='text'";
             $retval .= " name='searchClause2'";
             $retval .= " placeholder='"

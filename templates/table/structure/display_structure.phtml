@@ -1,14 +1,14 @@
 <?php
 use PhpMyAdmin\Index;
 use PhpMyAdmin\Partition;
-use PMA\libraries\Template;
-use PMA\libraries\Tracker;
-use PMA\libraries\Util;
-use PMA\libraries\URL;
+use PhpMyAdmin\Template;
+use PhpMyAdmin\Tracker;
+use PhpMyAdmin\Util;
+use PhpMyAdmin\Url;
 
 $rownum = 0; ?>
 <form method="post" action="tbl_structure.php" name="fieldsForm" id="fieldsForm" class="ajax<?= $HideStructureActions; ?>">
-    <?= URL::getHiddenInputs($db, $table); ?>
+    <?= Url::getHiddenInputs($db, $table); ?>
     <input type="hidden" name="table_type" value=
     <?php if ($db_is_system_schema): ?>
         "information_schema" />
@@ -19,7 +19,7 @@ $rownum = 0; ?>
     <?php endif; ?>
     <table id="tablestructure" class="data topmargin">
         <!-- table header -->
-        <?= PMA\libraries\Template::get('table/structure/table_structure_header')->render(
+        <?= PhpMyAdmin\Template::get('table/structure/table_structure_header')->render(
             array(
                 'db_is_system_schema' => $db_is_system_schema,
                 'tbl_is_view' => $tbl_is_view,
@@ -72,7 +72,7 @@ $rownum = 0; ?>
                 }
             ?>
         <tr>
-            <?= PMA\libraries\Template::get('table/structure/table_structure_row')->render(
+            <?= PhpMyAdmin\Template::get('table/structure/table_structure_row')->render(
                 array(
                     'row' => $row,
                     'rownum' => $rownum,

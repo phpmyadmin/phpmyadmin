@@ -29,7 +29,7 @@ function PMA_getItemsFromShowGrantsRow($row)
         mb_strpos($row, '.', $db_name_offset) - $db_name_offset
     );
 
-    $show_grants_dbname = PMA\libraries\Util::unQuote($show_grants_dbname, '`');
+    $show_grants_dbname = PhpMyAdmin\Util::unQuote($show_grants_dbname, '`');
 
     $show_grants_str    = mb_substr(
         $row,
@@ -45,7 +45,7 @@ function PMA_getItemsFromShowGrantsRow($row)
         $row, $tblname_start_offset,
         $tblname_end_offset - $tblname_start_offset
     );
-    $show_grants_tblname = PMA\libraries\Util::unQuote($show_grants_tblname, '`');
+    $show_grants_tblname = PhpMyAdmin\Util::unQuote($show_grants_tblname, '`');
 
     return array(
         $show_grants_str,
@@ -141,33 +141,33 @@ function PMA_checkRequiredPrivilegesForAdjust(
  */
 function PMA_analyseShowGrant()
 {
-    if (PMA\libraries\Util::cacheExists('is_create_db_priv')) {
-        $GLOBALS['is_create_db_priv'] = PMA\libraries\Util::cacheGet(
+    if (PhpMyAdmin\Util::cacheExists('is_create_db_priv')) {
+        $GLOBALS['is_create_db_priv'] = PhpMyAdmin\Util::cacheGet(
             'is_create_db_priv'
         );
-        $GLOBALS['is_reload_priv'] = PMA\libraries\Util::cacheGet(
+        $GLOBALS['is_reload_priv'] = PhpMyAdmin\Util::cacheGet(
             'is_reload_priv'
         );
-        $GLOBALS['db_to_create'] = PMA\libraries\Util::cacheGet(
+        $GLOBALS['db_to_create'] = PhpMyAdmin\Util::cacheGet(
             'db_to_create'
         );
-        $GLOBALS['dbs_where_create_table_allowed'] = PMA\libraries\Util::cacheGet(
+        $GLOBALS['dbs_where_create_table_allowed'] = PhpMyAdmin\Util::cacheGet(
             'dbs_where_create_table_allowed'
         );
-        $GLOBALS['dbs_to_test'] = PMA\libraries\Util::cacheGet(
+        $GLOBALS['dbs_to_test'] = PhpMyAdmin\Util::cacheGet(
             'dbs_to_test'
         );
 
-        $GLOBALS['db_priv'] = PMA\libraries\Util::cacheGet(
+        $GLOBALS['db_priv'] = PhpMyAdmin\Util::cacheGet(
             'db_priv'
         );
-        $GLOBALS['col_priv'] = PMA\libraries\Util::cacheGet(
+        $GLOBALS['col_priv'] = PhpMyAdmin\Util::cacheGet(
             'col_priv'
         );
-        $GLOBALS['table_priv'] = PMA\libraries\Util::cacheGet(
+        $GLOBALS['table_priv'] = PhpMyAdmin\Util::cacheGet(
             'table_priv'
         );
-        $GLOBALS['proc_priv'] = PMA\libraries\Util::cacheGet(
+        $GLOBALS['proc_priv'] = PhpMyAdmin\Util::cacheGet(
             'proc_priv'
         );
 
@@ -244,7 +244,7 @@ function PMA_analyseShowGrant()
                 // this array may contain wildcards
                 $GLOBALS['dbs_where_create_table_allowed'][] = $show_grants_dbname;
 
-                $dbname_to_test = PMA\libraries\Util::backquote($show_grants_dbname);
+                $dbname_to_test = PhpMyAdmin\Util::backquote($show_grants_dbname);
 
                 if ($GLOBALS['is_create_db_priv']) {
                     // no need for any more tests if we already know this
@@ -291,19 +291,19 @@ function PMA_analyseShowGrant()
 
     // must also cacheUnset() them in
     // libraries/plugins/auth/AuthenticationCookie.php
-    PMA\libraries\Util::cacheSet('is_create_db_priv', $GLOBALS['is_create_db_priv']);
-    PMA\libraries\Util::cacheSet('is_reload_priv', $GLOBALS['is_reload_priv']);
-    PMA\libraries\Util::cacheSet('db_to_create', $GLOBALS['db_to_create']);
-    PMA\libraries\Util::cacheSet(
+    PhpMyAdmin\Util::cacheSet('is_create_db_priv', $GLOBALS['is_create_db_priv']);
+    PhpMyAdmin\Util::cacheSet('is_reload_priv', $GLOBALS['is_reload_priv']);
+    PhpMyAdmin\Util::cacheSet('db_to_create', $GLOBALS['db_to_create']);
+    PhpMyAdmin\Util::cacheSet(
         'dbs_where_create_table_allowed',
         $GLOBALS['dbs_where_create_table_allowed']
     );
-    PMA\libraries\Util::cacheSet('dbs_to_test', $GLOBALS['dbs_to_test']);
+    PhpMyAdmin\Util::cacheSet('dbs_to_test', $GLOBALS['dbs_to_test']);
 
-    PMA\libraries\Util::cacheSet('proc_priv', $GLOBALS['proc_priv']);
-    PMA\libraries\Util::cacheSet('table_priv', $GLOBALS['table_priv']);
-    PMA\libraries\Util::cacheSet('col_priv', $GLOBALS['col_priv']);
-    PMA\libraries\Util::cacheSet('db_priv', $GLOBALS['db_priv']);
+    PhpMyAdmin\Util::cacheSet('proc_priv', $GLOBALS['proc_priv']);
+    PhpMyAdmin\Util::cacheSet('table_priv', $GLOBALS['table_priv']);
+    PhpMyAdmin\Util::cacheSet('col_priv', $GLOBALS['col_priv']);
+    PhpMyAdmin\Util::cacheSet('db_priv', $GLOBALS['db_priv']);
 } // end function
 
 list($username, $hostname) = $GLOBALS['dbi']->getCurrentUserAndHost();

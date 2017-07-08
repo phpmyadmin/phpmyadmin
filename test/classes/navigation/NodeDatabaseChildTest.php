@@ -8,8 +8,8 @@
 
 use PMA\libraries\navigation\NodeFactory;
 use PMA\libraries\navigation\nodes\NodeDatabaseChild;
-use PMA\libraries\Theme;
-use PMA\libraries\URL;
+use PhpMyAdmin\Theme;
+use PhpMyAdmin\Url;
 
 require_once 'libraries/relation.lib.php';
 require_once 'test/PMATestCase.php';

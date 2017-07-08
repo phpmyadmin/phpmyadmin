@@ -33,7 +33,7 @@ if (defined('TESTSUITE')) {
     $extension = 'mysqli';
     if (!DatabaseInterface::checkDbExtension($extension)) {
 
-        $docurl = PMA\libraries\Util::getDocuLink('faq', 'faqmysql');
+        $docurl = PhpMyAdmin\Util::getDocuLink('faq', 'faqmysql');
         $doclink = sprintf(
             __('See %sour documentation%s for more information.'),
             '[a@' . $docurl  . '@documentation]',

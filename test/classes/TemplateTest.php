@@ -1,17 +1,17 @@
 <?php
 /* vim: set expandtab sw=4 ts=4 sts=4: */
 /**
- * Test for PMA\libraries\Template class
+ * Test for PhpMyAdmin\Template class
  *
  * @package PhpMyAdmin-test
  */
 
 require_once 'test/PMATestCase.php';
 
-use PMA\libraries\Template;
+use PhpMyAdmin\Template;
 
 /**
- * Test for PMA\libraries\Template class
+ * Test for PhpMyAdmin\Template class
  *
  * @package PhpMyAdmin-test
  */

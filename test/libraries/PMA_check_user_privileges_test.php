@@ -12,8 +12,6 @@
 
 $GLOBALS['server'] = 1;
 $GLOBALS['cfg']['Server']['DisableIS'] = false;
-require_once 'libraries/Util.php';
-require_once 'libraries/Tracker.php';
 require_once 'libraries/database_interface.inc.php';
 require_once 'libraries/check_user_privileges.lib.php';
 

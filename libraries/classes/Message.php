@@ -8,7 +8,7 @@
 namespace PhpMyAdmin;
 
 use PhpMyAdmin\Sanitize;
-use PMA\libraries\Util;
+use PhpMyAdmin\Util;
 
 /**
  * a single message

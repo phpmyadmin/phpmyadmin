@@ -19,7 +19,7 @@ use PhpMyAdmin\Sanitize;
 /**
  * Core libraries.
  */
-use PMA\libraries\Util;
+use PhpMyAdmin\Util;
 
 require_once './libraries/config/FormDisplay.tpl.php';
 

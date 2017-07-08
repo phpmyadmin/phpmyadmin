@@ -28,7 +28,7 @@ require 'libraries/db_common.inc.php';
 
 // If config variable $GLOBALS['cfg']['UseDbSearch'] is on false : exit.
 if (! $GLOBALS['cfg']['UseDbSearch']) {
-    PMA\libraries\Util::mysqlDie(
+    PhpMyAdmin\Util::mysqlDie(
         __('Access denied!'), '', false, $err_url
     );
 } // end if
@@ -50,7 +50,7 @@ if (! $response->isAjax()) {
         $tooltip_truename,
         $tooltip_aliasname,
         $pos
-    ) = PMA\libraries\Util::getDbInfo($db, isset($sub_part) ? $sub_part : '');
+    ) = PhpMyAdmin\Util::getDbInfo($db, isset($sub_part) ? $sub_part : '');
 }
 
 // Main search form has been submitted, get results

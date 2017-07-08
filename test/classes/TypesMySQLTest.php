@@ -9,7 +9,7 @@
  * Include to test.
  */
 
-use PMA\libraries\TypesMySQL;
+use PhpMyAdmin\TypesMySQL;
 
 require_once 'test/PMATestCase.php';
 
@@ -21,7 +21,7 @@ require_once 'test/PMATestCase.php';
 class TypesMySQLTest extends PMATestCase
 {
     /**
-     * @var PMA\libraries\Types
+     * @var PhpMyAdmin\Types
      */
     protected $object;
 

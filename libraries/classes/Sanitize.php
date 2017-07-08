@@ -8,7 +8,7 @@
 namespace PhpMyAdmin;
 
 use PhpMyAdmin\Core;
-use PMA\libraries\Util;
+use PhpMyAdmin\Util;
 
 /**
  * This class includes various sanitization methods that can be called statically

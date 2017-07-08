@@ -10,8 +10,8 @@ namespace PhpMyAdmin;
 
 use Exception;
 use PhpMyAdmin\Core;
-use PMA\libraries\URL;
-use PMA\libraries\Util;
+use PhpMyAdmin\Url;
+use PhpMyAdmin\Util;
 use Symfony\Component\ExpressionLanguage\ExpressionLanguage;
 
 /**
@@ -407,7 +407,7 @@ class Advisor
             // linking to server_variables.php
             $rule['recommendation'] = preg_replace(
                 '/\{([a-z_0-9]+)\}/Ui',
-                '<a href="server_variables.php' . URL::getCommon()
+                '<a href="server_variables.php' . Url::getCommon()
                 . '&filter=\1">\1</a>',
                 $this->translate($rule['recommendation'])
             );
@@ -599,7 +599,7 @@ class Advisor
     }
 
     /**
-     * Wrapper for PMA\libraries\Util::timespanFormat
+     * Wrapper for PhpMyAdmin\Util::timespanFormat
      *
      * This function is used when evaluating advisory_rules.txt
      *
@@ -613,7 +613,7 @@ class Advisor
     }
 
     /**
-     * Wrapper around PMA\libraries\Util::formatByteDown
+     * Wrapper around PhpMyAdmin\Util::formatByteDown
      *
      * This function is used when evaluating advisory_rules.txt
      *

@@ -11,9 +11,9 @@ use DirectoryIterator;
 use PhpMyAdmin\Core;
 use PhpMyAdmin\Error;
 use PhpMyAdmin\LanguageManager;
-use PMA\libraries\ThemeManager;
-use PMA\libraries\URL;
-use PMA\libraries\Util;
+use PhpMyAdmin\ThemeManager;
+use PhpMyAdmin\Url;
+use PhpMyAdmin\Util;
 
 /**
  * Indication for error handler (see end of this file).
@@ -1582,7 +1582,7 @@ class Config
     {
         return '<form name="form_fontsize_selection" id="form_fontsize_selection"'
             . ' method="get" action="index.php" class="disableAjax">' . "\n"
-            . URL::getHiddenInputs() . "\n"
+            . Url::getHiddenInputs() . "\n"
             . Config::getFontsizeSelection() . "\n"
             . '</form>';
     }

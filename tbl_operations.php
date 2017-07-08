@@ -6,7 +6,7 @@
  * @package PhpMyAdmin
  */
 use PhpMyAdmin\Partition;
-use PMA\libraries\Table;
+use PhpMyAdmin\Table;
 use PhpMyAdmin\Response;
 
 /**
@@ -174,7 +174,7 @@ if (isset($_REQUEST['submitoptions'])) {
 
     if (count($table_alters) > 0) {
         $sql_query      = 'ALTER TABLE '
-            . PMA\libraries\Util::backquote($GLOBALS['table']);
+            . PhpMyAdmin\Util::backquote($GLOBALS['table']);
         $sql_query     .= "\r\n" . implode("\r\n", $table_alters);
         $sql_query     .= ';';
         $result        .= $GLOBALS['dbi']->query($sql_query) ? true : false;
@@ -247,7 +247,7 @@ if (isset($result) && empty($message_to_show)) {
             $response->addJSON('message', $_message);
             if (!empty($sql_query)) {
                 $response->addJSON(
-                    'sql_query', PMA\libraries\Util::getMessage(null, $sql_query)
+                    'sql_query', PhpMyAdmin\Util::getMessage(null, $sql_query)
                 );
             }
             exit;
@@ -267,7 +267,7 @@ if (isset($result) && empty($message_to_show)) {
             $response->addJSON('message', $_message);
             if (!empty($sql_query)) {
                 $response->addJSON(
-                    'sql_query', PMA\libraries\Util::getMessage(null, $sql_query)
+                    'sql_query', PhpMyAdmin\Util::getMessage(null, $sql_query)
                 );
             }
             exit;
@@ -281,7 +281,7 @@ if (isset($result) && empty($message_to_show)) {
         );
     } else {
         $response->addHTML(
-            PMA\libraries\Util::getMessage($_message, $sql_query)
+            PhpMyAdmin\Util::getMessage($_message, $sql_query)
         );
     }
     unset($_message);
@@ -390,7 +390,7 @@ if (! (isset($db_is_system_schema) && $db_is_system_schema)) {
         && ! (isset($db_is_system_schema) && $db_is_system_schema)
     ) {
         $this_sql_query = 'TRUNCATE TABLE '
-            . PMA\libraries\Util::backquote($GLOBALS['table']);
+            . PhpMyAdmin\Util::backquote($GLOBALS['table']);
         $truncate_table_url_params = array_merge(
             $url_params,
             array(
@@ -406,7 +406,7 @@ if (! (isset($db_is_system_schema) && $db_is_system_schema)) {
     }
     if (! (isset($db_is_system_schema) && $db_is_system_schema)) {
         $this_sql_query = 'DROP TABLE '
-            . PMA\libraries\Util::backquote($GLOBALS['table']);
+            . PhpMyAdmin\Util::backquote($GLOBALS['table']);
         $drop_table_url_params = array_merge(
             $url_params,
             array(

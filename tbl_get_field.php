@@ -18,13 +18,13 @@ require_once 'libraries/common.inc.php';
 require_once 'libraries/mime.lib.php';
 
 /* Check parameters */
-PMA\libraries\Util::checkParameters(
+PhpMyAdmin\Util::checkParameters(
     array('db', 'table')
 );
 
 /* Select database */
 if (!$GLOBALS['dbi']->selectDb($db)) {
-    PMA\libraries\Util::mysqlDie(
+    PhpMyAdmin\Util::mysqlDie(
         sprintf(__('\'%s\' database does not exist.'), htmlspecialchars($db)),
         '', false
     );
@@ -32,18 +32,18 @@ if (!$GLOBALS['dbi']->selectDb($db)) {
 
 /* Check if table exists */
 if (!$GLOBALS['dbi']->getColumns($db, $table)) {
-    PMA\libraries\Util::mysqlDie(__('Invalid table name'));
+    PhpMyAdmin\Util::mysqlDie(__('Invalid table name'));
 }
 
 /* Grab data */
-$sql = 'SELECT ' . PMA\libraries\Util::backquote($_GET['transform_key'])
-    . ' FROM ' . PMA\libraries\Util::backquote($table)
+$sql = 'SELECT ' . PhpMyAdmin\Util::backquote($_GET['transform_key'])
+    . ' FROM ' . PhpMyAdmin\Util::backquote($table)
     . ' WHERE ' . $_GET['where_clause'] . ';';
 $result = $GLOBALS['dbi']->fetchValue($sql);
 
 /* Check return code */
 if ($result === false) {
-    PMA\libraries\Util::mysqlDie(
+    PhpMyAdmin\Util::mysqlDie(
         __('MySQL returned an empty result set (i.e. zero rows).'), $sql
     );
 }

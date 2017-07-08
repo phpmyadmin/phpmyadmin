@@ -7,7 +7,7 @@
  */
 
 use PMA\libraries\di\Container;
-use PMA\libraries\Theme;
+use PhpMyAdmin\Theme;
 use PhpMyAdmin\Charsets;
 
 require_once 'libraries/database_interface.inc.php';

@@ -8,8 +8,8 @@
 
 use PMA\libraries\controllers\table\TableIndexesController;
 use PMA\libraries\di\Container;
-use PMA\libraries\Theme;
-use PMA\libraries\URL;
+use PhpMyAdmin\Theme;
+use PhpMyAdmin\Url;
 use PhpMyAdmin\Response;
 
 /*
@@ -86,7 +86,7 @@ class TableIndexesControllerTest extends PMATestCase
     {
         $sql_query = 'ALTER TABLE `db`.`table` DROP PRIMARY KEY, ADD UNIQUE ;';
 
-        $table = $this->getMockBuilder('PMA\libraries\Table')
+        $table = $this->getMockBuilder('PhpMyAdmin\Table')
             ->disableOriginalConstructor()
             ->getMock();
         $table->expects($this->any())->method('getSqlQueryForIndexCreateOrEdit')
@@ -134,7 +134,7 @@ class TableIndexesControllerTest extends PMATestCase
      */
     public function testDisplayFormAction()
     {
-        $table = $this->getMockBuilder('PMA\libraries\Table')
+        $table = $this->getMockBuilder('PhpMyAdmin\Table')
             ->disableOriginalConstructor()
             ->getMock();
         $table->expects($this->any())->method('getStatusInfo')
@@ -163,9 +163,9 @@ class TableIndexesControllerTest extends PMATestCase
         $ctrl->displayFormAction();
         $html = $response->getHTMLResult();
 
-        //URL::getHiddenInputs
+        //Url::getHiddenInputs
         $this->assertContains(
-            URL::getHiddenInputs(
+            Url::getHiddenInputs(
                 array(
                     'db' => 'db',
                     'table' => 'table',
@@ -175,7 +175,7 @@ class TableIndexesControllerTest extends PMATestCase
             $html
         );
 
-        $doc_html = PMA\libraries\Util::showHint(
+        $doc_html = PhpMyAdmin\Util::showHint(
             PhpMyAdmin\Message::notice(
                 __(
                     '"PRIMARY" <b>must</b> be the name of'
@@ -189,7 +189,7 @@ class TableIndexesControllerTest extends PMATestCase
         );
 
         $this->assertContains(
-            PMA\libraries\Util::showMySQLDocu('ALTER_TABLE'),
+            PhpMyAdmin\Util::showMySQLDocu('ALTER_TABLE'),
             $html
         );
 

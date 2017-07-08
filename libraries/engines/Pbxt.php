@@ -7,9 +7,9 @@
  */
 namespace PMA\libraries\engines;
 
-use PMA;
 use PhpMyAdmin\Core;
 use PhpMyAdmin\StorageEngine;
+use PhpMyAdmin\Util;
 
 /**
  * The PBXT storage engine
@@ -145,14 +145,14 @@ class Pbxt extends StorageEngine
     public function resolveTypeSize($formatted_size)
     {
         if (preg_match('/^[0-9]+[a-zA-Z]+$/', $formatted_size)) {
-            $value = PMA\libraries\Util::extractValueFromFormattedSize(
+            $value = Util::extractValueFromFormattedSize(
                 $formatted_size
             );
         } else {
             $value = $formatted_size;
         }
 
-        return PMA\libraries\Util::formatByteDown($value);
+        return Util::formatByteDown($value);
     }
 
     //--------------------

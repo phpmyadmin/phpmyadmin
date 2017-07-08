@@ -6,8 +6,8 @@
  * @package PhpMyAdmin-test
  */
 
-use PMA\libraries\Theme;
-use PMA\libraries\Transformations;
+use PhpMyAdmin\Theme;
+use PhpMyAdmin\Transformations;
 
 /*
  * Include to test.

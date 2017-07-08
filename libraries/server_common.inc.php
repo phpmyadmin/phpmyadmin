@@ -5,7 +5,7 @@
  *
  * @package PhpMyAdmin
  */
-use PMA\libraries\URL;
+use PhpMyAdmin\Url;
 
 if (! defined('PHPMYADMIN')) {
     exit;
@@ -24,7 +24,7 @@ if (empty($viewing_mode)) {
 /**
  * Set parameters for links
  */
-$GLOBALS['url_query'] = URL::getCommon();
+$GLOBALS['url_query'] = Url::getCommon();
 
 /**
  * Defines the urls to return to in case of error in a sql statement

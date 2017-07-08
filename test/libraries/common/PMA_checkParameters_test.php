@@ -1,7 +1,7 @@
 <?php
 /* vim: set expandtab sw=4 ts=4 sts=4: */
 /**
- ** Test for PMA\libraries\Util::checkParameters from Util.php
+ ** Test for PhpMyAdmin\Util::checkParameters from Util.php
  *
  * @package PhpMyAdmin-test
  * @group common.lib-tests
@@ -11,10 +11,10 @@
  * Include to test.
  */
 use PhpMyAdmin\Core;
-use PMA\libraries\Theme;
+use PhpMyAdmin\Theme;
 
 /**
- ** Test for PMA\libraries\Util::checkParameters from Util.php
+ ** Test for PhpMyAdmin\Util::checkParameters from Util.php
  *
  * @package PhpMyAdmin-test
  * @group common.lib-tests
@@ -45,7 +45,7 @@ class PMA_CheckParameters_Test extends PHPUnit_Framework_TestCase
 
         $this->expectOutputRegex("/Missing parameter: field/");
 
-        PMA\libraries\Util::checkParameters(
+        PhpMyAdmin\Util::checkParameters(
             array('db', 'table', 'field')
         );
     }
@@ -65,7 +65,7 @@ class PMA_CheckParameters_Test extends PHPUnit_Framework_TestCase
         $GLOBALS['sql_query'] = "SELECT * FROM tblTable;";
 
         $this->expectOutputString("");
-        PMA\libraries\Util::checkParameters(
+        PhpMyAdmin\Util::checkParameters(
             array('db', 'table', 'field', 'sql_query')
         );
     }

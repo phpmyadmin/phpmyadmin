@@ -24,7 +24,7 @@ require_once 'libraries/pmd_common.php';
 require_once 'libraries/plugin_interface.lib.php';
 
 if (! isset($_REQUEST['export_type'])) {
-    PMA\libraries\Util::checkParameters(array('export_type'));
+    PhpMyAdmin\Util::checkParameters(array('export_type'));
 }
 
 /**

@@ -28,20 +28,20 @@ function PMA_RTE_getFooterLinks($docu, $priv, $name)
     $retval .= "<fieldset class='left'>\n";
     $retval .= "<legend>" . _pgettext('Create new procedure', 'New') . "</legend>\n";
     $retval .= "        <div class='wrap'>\n";
-    if (PMA\libraries\Util::currentUserHasPrivilege($priv, $db, $table)) {
+    if (PhpMyAdmin\Util::currentUserHasPrivilege($priv, $db, $table)) {
         $retval .= "            <a {$ajax_class['add']} ";
         $retval .= "href='db_" . mb_strtolower($name) . "s.php";
         $retval .= "$url_query&amp;add_item=1' ";
         $retval .= "onclick='$.datepicker.initialized = false;'>";
         $icon = 'b_' . $icon;
-        $retval .= PMA\libraries\Util::getIcon($icon);
+        $retval .= PhpMyAdmin\Util::getIcon($icon);
         $retval .= PMA_RTE_getWord('add') . "</a>\n";
     } else {
         $icon = 'bd_' . $icon;
-        $retval .= PMA\libraries\Util::getIcon($icon);
+        $retval .= PhpMyAdmin\Util::getIcon($icon);
         $retval .= PMA_RTE_getWord('add') . "\n";
     }
-    $retval .= "            " . PMA\libraries\Util::showMySQLDocu($docu) . "\n";
+    $retval .= "            " . PhpMyAdmin\Util::showMySQLDocu($docu) . "\n";
     $retval .= "        </div>\n";
     $retval .= "</fieldset>\n";
     $retval .= "<!-- ADD " . $name . " FORM END -->\n\n";
@@ -112,7 +112,7 @@ function PMA_EVN_getFooterLinks()
     $retval .= "        </legend>\n";
     $retval .= "        <div class='wrap'>\n";
     // show the toggle button
-    $retval .= PMA\libraries\Util::toggleButton(
+    $retval .= PhpMyAdmin\Util::toggleButton(
         "sql.php$url_query&amp;goto=db_events.php" . urlencode("?db=$db"),
         'sql_query',
         $options,

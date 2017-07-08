@@ -9,7 +9,7 @@
 /*
  * Include to test.
  */
-use PMA\libraries\Theme;
+use PhpMyAdmin\Theme;
 use PMA\libraries\controllers\server\ServerPluginsController;
 use PMA\libraries\di\Container;
 

@@ -9,7 +9,7 @@
 namespace PMA\libraries\gis;
 
 use PhpMyAdmin\Core;
-use PMA\libraries\Util;
+use PhpMyAdmin\Util;
 use \TCPDF;
 use PhpMyAdmin\Sanitize;
 

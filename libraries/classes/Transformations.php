@@ -15,10 +15,10 @@
  *
  * @package PhpMyAdmin
  */
-namespace PMA\libraries;
+namespace PhpMyAdmin;
 
 use PhpMyAdmin\DatabaseInterface;
-use PMA\libraries\Util;
+use PhpMyAdmin\Util;
 
 /**
  * Transformations class

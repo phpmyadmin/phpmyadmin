@@ -8,8 +8,8 @@
 namespace PhpMyAdmin;
 
 use PhpMyAdmin\Bookmark;
-use PMA\libraries\Template;
-use PMA\libraries\Util;
+use PhpMyAdmin\Template;
+use PhpMyAdmin\Util;
 
 if (! defined('PHPMYADMIN')) {
     exit;

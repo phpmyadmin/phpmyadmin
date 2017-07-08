@@ -12,7 +12,7 @@
         }
     ?>
     <?php if (! empty($tables)): ?>
-        <?= PMA\libraries\Template::get('database/structure/show_create_row')->render(
+        <?= PhpMyAdmin\Template::get('database/structure/show_create_row')->render(
             array(
               'db' => $db,
               'title' => __('Tables'),
@@ -23,7 +23,7 @@
     <?php endif; ?>
 
     <?php if (! empty($views)): ?>
-        <?= PMA\libraries\Template::get('database/structure/show_create_row')->render(
+        <?= PhpMyAdmin\Template::get('database/structure/show_create_row')->render(
             array(
                 'db' => $db,
                 'title' => __('Views'),

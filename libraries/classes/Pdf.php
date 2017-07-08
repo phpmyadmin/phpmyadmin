@@ -10,7 +10,7 @@ namespace PhpMyAdmin;
 use PhpMyAdmin\Core;
 use PhpMyAdmin\Message;
 use PhpMyAdmin\Response;
-use PMA\libraries\Util;
+use PhpMyAdmin\Util;
 use TCPDF;
 use TCPDF_FONTS;
 

@@ -7,9 +7,9 @@
  */
 
 use PhpMyAdmin\StorageEngine;
-use PMA\libraries\Theme;
+use PhpMyAdmin\Theme;
 use PMA\libraries\controllers\server\ServerEnginesController;
-use PMA\libraries\URL;
+use PhpMyAdmin\Url;
 
 require_once 'libraries/database_interface.inc.php';
 
@@ -124,7 +124,7 @@ class ServerEnginesControllerTest extends PMATestCase
 
         //validate 2: Engine Mysql Help Page
         $this->assertContains(
-            PMA\libraries\Util::showMySQLDocu($engine_plugin->getMysqlHelpPage()),
+            PhpMyAdmin\Util::showMySQLDocu($engine_plugin->getMysqlHelpPage()),
             $html
         );
 
@@ -140,7 +140,7 @@ class ServerEnginesControllerTest extends PMATestCase
             $html
         );
         $this->assertContains(
-            URL::getCommon(
+            Url::getCommon(
                 array('engine' => $_REQUEST['engine'], 'page' => "Documentation")
             ),
             $html
@@ -148,7 +148,7 @@ class ServerEnginesControllerTest extends PMATestCase
 
         //validate 5: other items
         $this->assertContains(
-            URL::getCommon(array('engine' => $_REQUEST['engine'])),
+            Url::getCommon(array('engine' => $_REQUEST['engine'])),
             $html
         );
         $this->assertContains(

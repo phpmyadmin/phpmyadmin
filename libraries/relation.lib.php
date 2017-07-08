@@ -8,9 +8,9 @@
 
 use PhpMyAdmin\Core;
 use PhpMyAdmin\Message;
-use PMA\libraries\Table;
+use PhpMyAdmin\Table;
 use PhpMyAdmin\RecentFavoriteTable;
-use PMA\libraries\URL;
+use PhpMyAdmin\Url;
 
 /**
  * Executes a query as controluser if possible, otherwise as normal user
@@ -102,7 +102,7 @@ function PMA_getRelationsParamDiagnostic($cfgRelation)
     if (empty($cfgRelation['db'])) {
         $retval .= __('Configuration of pmadb…') . ' '
              . $messages['error']
-             . PMA\libraries\Util::showDocu('setup', 'linked-tables')
+             . PhpMyAdmin\Util::showDocu('setup', 'linked-tables')
              . '<br />' . "\n"
              . __('General relation features')
              . ' <font color="green">' . __('Disabled')
@@ -195,7 +195,7 @@ function PMA_getRelationsParamDiagnostic($cfgRelation)
                 'Please see the documentation on how to'
                 . ' update your column_info table.'
             );
-            $retval .= PMA\libraries\Util::showDocu(
+            $retval .= PhpMyAdmin\Util::showDocu(
                 'config',
                 'cfg_Servers_column_info'
             );
@@ -364,19 +364,19 @@ function PMA_getRelationsParamDiagnostic($cfgRelation)
                     . '<code>%screate_tables.sql</code>.'
                 ),
                 htmlspecialchars(SQL_DIR)
-            ) . ' ' . PMA\libraries\Util::showDocu('setup', 'linked-tables');
+            ) . ' ' . PhpMyAdmin\Util::showDocu('setup', 'linked-tables');
             $items[] = __('Create a pma user and give access to these tables.') . ' '
-                . PMA\libraries\Util::showDocu('config', 'cfg_Servers_controluser');
+                . PhpMyAdmin\Util::showDocu('config', 'cfg_Servers_controluser');
             $items[] = __(
                 'Enable advanced features in configuration file '
                 . '(<code>config.inc.php</code>), for example by '
                 . 'starting from <code>config.sample.inc.php</code>.'
-            ) . ' ' . PMA\libraries\Util::showDocu('setup', 'quick-install');
+            ) . ' ' . PhpMyAdmin\Util::showDocu('setup', 'quick-install');
             $items[] = __(
                 'Re-login to phpMyAdmin to load the updated configuration file.'
             );
 
-            $retval .= PMA\libraries\Template::get('list/unordered')->render(
+            $retval .= PhpMyAdmin\Template::get('list/unordered')->render(
                 array('items' => $items,)
             );
         }
@@ -434,7 +434,7 @@ function PMA_getDiagMessageForParameter($parameter,
     } else {
         $retval .= sprintf(
             $messages['error'],
-            PMA\libraries\Util::getDocuLink('config', 'cfg_Servers_' . $docAnchor)
+            PhpMyAdmin\Util::getDocuLink('config', 'cfg_Servers_' . $docAnchor)
         );
     }
     $retval .= '</td></tr>' . "\n";
@@ -506,7 +506,7 @@ function PMA_checkRelationsParam()
     //  fear it might be too slow
 
     $tab_query = 'SHOW TABLES FROM '
-        . PMA\libraries\Util::backquote(
+        . PhpMyAdmin\Util::backquote(
             $GLOBALS['cfg']['Server']['pmadb']
         );
     $tab_rs    = PMA_queryAsControlUser(
@@ -682,8 +682,8 @@ function PMA_tryUpgradeTransformations()
         "input_transformation_options"
     );
     $query = 'SHOW COLUMNS FROM '
-        . PMA\libraries\Util::backquote($GLOBALS['cfg']['Server']['pmadb'])
-        . '.' . PMA\libraries\Util::backquote(
+        . PhpMyAdmin\Util::backquote($GLOBALS['cfg']['Server']['pmadb'])
+        . '.' . PhpMyAdmin\Util::backquote(
             $GLOBALS['cfg']['Server']['column_info']
         )
         . ' WHERE Field IN (\'' . implode('\', \'', $new_cols) . '\')';
@@ -704,14 +704,14 @@ function PMA_tryUpgradeTransformations()
             // replace database name from query to with set in config.inc.php
             $query = str_replace(
                 '`phpmyadmin`',
-                PMA\libraries\Util::backquote($GLOBALS['cfg']['Server']['pmadb']),
+                PhpMyAdmin\Util::backquote($GLOBALS['cfg']['Server']['pmadb']),
                 $query
             );
             // replace pma__column_info table name from query
             // to with set in config.inc.php
             $query = str_replace(
                 '`pma__column_info`',
-                PMA\libraries\Util::backquote(
+                PhpMyAdmin\Util::backquote(
                     $GLOBALS['cfg']['Server']['column_info']
                 ),
                 $query
@@ -756,8 +756,8 @@ function PMA_getForeigners($db, $table, $column = '', $source = 'both')
                 `foreign_db`,
                 `foreign_table`,
                 `foreign_field`
-            FROM ' . PMA\libraries\Util::backquote($cfgRelation['db'])
-                . '.' . PMA\libraries\Util::backquote($cfgRelation['relation']) . '
+            FROM ' . PhpMyAdmin\Util::backquote($cfgRelation['db'])
+                . '.' . PhpMyAdmin\Util::backquote($cfgRelation['relation']) . '
             WHERE `master_db`    = \'' . $GLOBALS['dbi']->escapeString($db) . '\'
                 AND `master_table` = \'' . $GLOBALS['dbi']->escapeString($table)
             . '\' ';
@@ -835,8 +835,8 @@ function PMA_getDisplayField($db, $table)
     if ($cfgRelation['displaywork']) {
         $disp_query = '
             SELECT `display_field`
-            FROM ' . PMA\libraries\Util::backquote($cfgRelation['db'])
-                . '.' . PMA\libraries\Util::backquote($cfgRelation['table_info']) . '
+            FROM ' . PhpMyAdmin\Util::backquote($cfgRelation['db'])
+                . '.' . PhpMyAdmin\Util::backquote($cfgRelation['table_info']) . '
             WHERE `db_name`    = \'' . $GLOBALS['dbi']->escapeString($db) . '\'
                 AND `table_name` = \'' . $GLOBALS['dbi']->escapeString($table)
             . '\'';
@@ -929,8 +929,8 @@ function PMA_getDbComment($db)
         // pmadb internal db comment
         $com_qry = "
             SELECT `comment`
-            FROM " . PMA\libraries\Util::backquote($cfgRelation['db'])
-                . "." . PMA\libraries\Util::backquote($cfgRelation['column_info'])
+            FROM " . PhpMyAdmin\Util::backquote($cfgRelation['db'])
+                . "." . PhpMyAdmin\Util::backquote($cfgRelation['column_info'])
                 . "
             WHERE db_name     = '" . $GLOBALS['dbi']->escapeString($db) . "'
                 AND table_name  = ''
@@ -965,8 +965,8 @@ function PMA_getDbComments()
         // pmadb internal db comment
         $com_qry = "
             SELECT `db_name`, `comment`
-            FROM " . PMA\libraries\Util::backquote($cfgRelation['db'])
-                . "." . PMA\libraries\Util::backquote($cfgRelation['column_info'])
+            FROM " . PhpMyAdmin\Util::backquote($cfgRelation['db'])
+                . "." . PhpMyAdmin\Util::backquote($cfgRelation['column_info'])
                 . "
             WHERE `column_name` = '(db_comment)'";
         $com_rs = PMA_queryAsControlUser(
@@ -1004,8 +1004,8 @@ function PMA_setDbComment($db, $comment = '')
 
     if (strlen($comment) > 0) {
         $upd_query = 'INSERT INTO '
-            . PMA\libraries\Util::backquote($cfgRelation['db']) . '.'
-            . PMA\libraries\Util::backquote($cfgRelation['column_info'])
+            . PhpMyAdmin\Util::backquote($cfgRelation['db']) . '.'
+            . PhpMyAdmin\Util::backquote($cfgRelation['column_info'])
             . ' (`db_name`, `table_name`, `column_name`, `comment`)'
             . ' VALUES (\''
             . $GLOBALS['dbi']->escapeString($db)
@@ -1016,8 +1016,8 @@ function PMA_setDbComment($db, $comment = '')
             . "`comment` = '" . $GLOBALS['dbi']->escapeString($comment) . "'";
     } else {
         $upd_query = 'DELETE FROM '
-            . PMA\libraries\Util::backquote($cfgRelation['db']) . '.'
-            . PMA\libraries\Util::backquote($cfgRelation['column_info'])
+            . PhpMyAdmin\Util::backquote($cfgRelation['db']) . '.'
+            . PhpMyAdmin\Util::backquote($cfgRelation['column_info'])
             . ' WHERE `db_name`     = \'' . $GLOBALS['dbi']->escapeString($db)
             . '\'
                 AND `table_name`  = \'\'
@@ -1076,8 +1076,8 @@ function PMA_setHistory($db, $table, $username, $sqlquery)
 
     PMA_queryAsControlUser(
         'INSERT INTO '
-        . PMA\libraries\Util::backquote($cfgRelation['db']) . '.'
-        . PMA\libraries\Util::backquote($cfgRelation['history']) . '
+        . PhpMyAdmin\Util::backquote($cfgRelation['db']) . '.'
+        . PhpMyAdmin\Util::backquote($cfgRelation['history']) . '
               (`username`,
                 `db`,
                 `table`,
@@ -1128,8 +1128,8 @@ function PMA_getHistory($username)
                 `table`,
                 `sqlquery`,
                 `timevalue`
-           FROM ' . PMA\libraries\Util::backquote($cfgRelation['db'])
-            . '.' . PMA\libraries\Util::backquote($cfgRelation['history']) . '
+           FROM ' . PhpMyAdmin\Util::backquote($cfgRelation['db'])
+            . '.' . PhpMyAdmin\Util::backquote($cfgRelation['history']) . '
           WHERE `username` = \'' . $GLOBALS['dbi']->escapeString($username) . '\'
        ORDER BY `id` DESC';
 
@@ -1163,8 +1163,8 @@ function PMA_purgeHistory($username)
 
     $search_query = '
         SELECT `timevalue`
-        FROM ' . PMA\libraries\Util::backquote($cfgRelation['db'])
-            . '.' . PMA\libraries\Util::backquote($cfgRelation['history']) . '
+        FROM ' . PhpMyAdmin\Util::backquote($cfgRelation['db'])
+            . '.' . PhpMyAdmin\Util::backquote($cfgRelation['history']) . '
         WHERE `username` = \'' . $GLOBALS['dbi']->escapeString($username) . '\'
         ORDER BY `timevalue` DESC
         LIMIT ' . $GLOBALS['cfg']['QueryHistoryMax'] . ', 1';
@@ -1174,8 +1174,8 @@ function PMA_purgeHistory($username)
     )) {
         PMA_queryAsControlUser(
             'DELETE FROM '
-            . PMA\libraries\Util::backquote($cfgRelation['db']) . '.'
-            . PMA\libraries\Util::backquote($cfgRelation['history']) . '
+            . PhpMyAdmin\Util::backquote($cfgRelation['db']) . '.'
+            . PhpMyAdmin\Util::backquote($cfgRelation['history']) . '
               WHERE `username` = \'' . $GLOBALS['dbi']->escapeString($username)
             . '\'
                 AND `timevalue` <= \'' . $max_time . '\''
@@ -1390,27 +1390,27 @@ function PMA_getForeignData(
             // foreign_display can be false if no display field defined:
             $foreign_display = PMA_getDisplayField($foreign_db, $foreign_table);
 
-            $f_query_main = 'SELECT ' . PMA\libraries\Util::backquote($foreign_field)
+            $f_query_main = 'SELECT ' . PhpMyAdmin\Util::backquote($foreign_field)
                 . (
                     ($foreign_display == false)
                         ? ''
-                        : ', ' . PMA\libraries\Util::backquote($foreign_display)
+                        : ', ' . PhpMyAdmin\Util::backquote($foreign_display)
                 );
-            $f_query_from = ' FROM ' . PMA\libraries\Util::backquote($foreign_db)
-                . '.' . PMA\libraries\Util::backquote($foreign_table);
+            $f_query_from = ' FROM ' . PhpMyAdmin\Util::backquote($foreign_db)
+                . '.' . PhpMyAdmin\Util::backquote($foreign_table);
             $f_query_filter = empty($foreign_filter) ? '' : ' WHERE '
-                . PMA\libraries\Util::backquote($foreign_field)
+                . PhpMyAdmin\Util::backquote($foreign_field)
                 . ' LIKE "%' . $GLOBALS['dbi']->escapeString($foreign_filter) . '%"'
                 . (
                 ($foreign_display == false)
                     ? ''
-                    : ' OR ' . PMA\libraries\Util::backquote($foreign_display)
+                    : ' OR ' . PhpMyAdmin\Util::backquote($foreign_display)
                     . ' LIKE "%' . $GLOBALS['dbi']->escapeString($foreign_filter)
                     . '%"'
                 );
             $f_query_order = ($foreign_display == false) ? '' :' ORDER BY '
-                . PMA\libraries\Util::backquote($foreign_table) . '.'
-                . PMA\libraries\Util::backquote($foreign_display);
+                . PhpMyAdmin\Util::backquote($foreign_table) . '.'
+                . PhpMyAdmin\Util::backquote($foreign_display);
 
             $f_query_limit = ! empty($foreign_limit) ? ($foreign_limit) : '';
 
@@ -1485,8 +1485,8 @@ function PMA_REL_renameField($db, $table, $field, $new_name)
 
     if ($cfgRelation['displaywork']) {
         $table_query = 'UPDATE '
-            . PMA\libraries\Util::backquote($cfgRelation['db']) . '.'
-            . PMA\libraries\Util::backquote($cfgRelation['table_info'])
+            . PhpMyAdmin\Util::backquote($cfgRelation['db']) . '.'
+            . PhpMyAdmin\Util::backquote($cfgRelation['table_info'])
             . '   SET display_field = \'' . $GLOBALS['dbi']->escapeString(
                 $new_name
             ) . '\''
@@ -1501,8 +1501,8 @@ function PMA_REL_renameField($db, $table, $field, $new_name)
 
     if ($cfgRelation['relwork']) {
         $table_query = 'UPDATE '
-            . PMA\libraries\Util::backquote($cfgRelation['db']) . '.'
-            . PMA\libraries\Util::backquote($cfgRelation['relation'])
+            . PhpMyAdmin\Util::backquote($cfgRelation['db']) . '.'
+            . PhpMyAdmin\Util::backquote($cfgRelation['relation'])
             . '   SET master_field = \'' . $GLOBALS['dbi']->escapeString(
                 $new_name
             ) . '\''
@@ -1515,8 +1515,8 @@ function PMA_REL_renameField($db, $table, $field, $new_name)
         PMA_queryAsControlUser($table_query);
 
         $table_query = 'UPDATE '
-            . PMA\libraries\Util::backquote($cfgRelation['db']) . '.'
-            . PMA\libraries\Util::backquote($cfgRelation['relation'])
+            . PhpMyAdmin\Util::backquote($cfgRelation['db']) . '.'
+            . PhpMyAdmin\Util::backquote($cfgRelation['relation'])
             . '   SET foreign_field = \'' . $GLOBALS['dbi']->escapeString(
                 $new_name
             ) . '\''
@@ -1551,8 +1551,8 @@ function PMA_REL_renameSingleTable($table,
     $db_field, $table_field
 ) {
     $query = 'UPDATE '
-        . PMA\libraries\Util::backquote($GLOBALS['cfgRelation']['db']) . '.'
-        . PMA\libraries\Util::backquote($GLOBALS['cfgRelation'][$table])
+        . PhpMyAdmin\Util::backquote($GLOBALS['cfgRelation']['db']) . '.'
+        . PhpMyAdmin\Util::backquote($GLOBALS['cfgRelation'][$table])
         . ' SET '
         . $db_field . ' = \'' . $GLOBALS['dbi']->escapeString($target_db)
         . '\', '
@@ -1632,8 +1632,8 @@ function PMA_REL_renameTable($source_db, $target_db, $source_table, $target_tabl
             // if the table is moved out of the database we can no loger keep the
             // record for table coordinate
             $remove_query = "DELETE FROM "
-                . PMA\libraries\Util::backquote($GLOBALS['cfgRelation']['db']) . "."
-                . PMA\libraries\Util::backquote($GLOBALS['cfgRelation']['table_coords'])
+                . PhpMyAdmin\Util::backquote($GLOBALS['cfgRelation']['db']) . "."
+                . PhpMyAdmin\Util::backquote($GLOBALS['cfgRelation']['table_coords'])
                 . " WHERE db_name  = '" . $GLOBALS['dbi']->escapeString($source_db) . "'"
                 . " AND table_name = '" . $GLOBALS['dbi']->escapeString($source_table)
                 . "'";
@@ -1661,8 +1661,8 @@ function PMA_REL_renameTable($source_db, $target_db, $source_table, $target_tabl
 
         // update data for hidden table
         $query = "UPDATE "
-            . PMA\libraries\Util::backquote($GLOBALS['cfgRelation']['db']) . "."
-            . PMA\libraries\Util::backquote(
+            . PhpMyAdmin\Util::backquote($GLOBALS['cfgRelation']['db']) . "."
+            . PhpMyAdmin\Util::backquote(
                 $GLOBALS['cfgRelation']['navigationhiding']
             )
             . " SET db_name = '" . $GLOBALS['dbi']->escapeString($target_db)
@@ -1693,8 +1693,8 @@ function PMA_REL_createPage($newpage, $cfgRelation, $db)
         $newpage = __('no description');
     }
     $ins_query   = 'INSERT INTO '
-        . PMA\libraries\Util::backquote($GLOBALS['cfgRelation']['db']) . '.'
-        . PMA\libraries\Util::backquote($cfgRelation['pdf_pages'])
+        . PhpMyAdmin\Util::backquote($GLOBALS['cfgRelation']['db']) . '.'
+        . PhpMyAdmin\Util::backquote($cfgRelation['pdf_pages'])
         . ' (db_name, page_descr)'
         . ' VALUES (\''
         . $GLOBALS['dbi']->escapeString($db) . '\', \''
@@ -1789,8 +1789,8 @@ function PMA_checkChildForeignReferences(
             foreach ($child_references as $columns) {
                 array_push(
                     $column_status['references'],
-                    PMA\libraries\Util::backquote($columns['table_schema'])
-                    . '.' . PMA\libraries\Util::backquote($columns['table_name'])
+                    PhpMyAdmin\Util::backquote($columns['table_schema'])
+                    . '.' . PhpMyAdmin\Util::backquote($columns['table_name'])
                 );
             }
         }
@@ -1992,7 +1992,7 @@ function PMA_getHtmlFixPMATables($allTables, $createDb = false)
 {
     $retval = '';
 
-    $url_query = URL::getCommon(array('db' => $GLOBALS['db']));
+    $url_query = Url::getCommon(array('db' => $GLOBALS['db']));
     if ($allTables) {
         if ($createDb) {
             $url_query .= '&amp;goto=db_operations.php&amp;create_pmadb=1';

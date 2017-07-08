@@ -7,7 +7,7 @@
  */
 namespace PMA\libraries\navigation\nodes;
 
-use PMA;
+use PhpMyAdmin\Util;
 
 /**
  * Represents a procedure node in the navigation tree
@@ -27,7 +27,7 @@ class NodeProcedure extends NodeDatabaseChild
     public function __construct($name, $type = Node::OBJECT, $is_group = false)
     {
         parent::__construct($name, $type, $is_group);
-        $this->icon = PMA\libraries\Util::getImage(
+        $this->icon = Util::getImage(
             'b_routines.png',
             __('Procedure')
         );
@@ -52,4 +52,3 @@ class NodeProcedure extends NodeDatabaseChild
         return 'procedure';
     }
 }
-

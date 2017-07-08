@@ -13,9 +13,9 @@ use PMA\libraries\controllers\Controller;
 use PhpMyAdmin\Charsets;
 use PhpMyAdmin\Message;
 use PhpMyAdmin\Response;
-use PMA\libraries\Template;
-use PMA\libraries\Util;
-use PMA\libraries\URL;
+use PhpMyAdmin\Template;
+use PhpMyAdmin\Util;
+use PhpMyAdmin\Url;
 
 /**
  * Handles viewing and creating and deleting databases
@@ -176,7 +176,7 @@ class ServerDatabasesController extends Controller
                 Util::getScriptNameForOption(
                     $GLOBALS['cfg']['DefaultTabDatabase'], 'database'
                 )
-                . URL::getCommon(array('db' => $_POST['new_db']))
+                . Url::getCommon(array('db' => $_POST['new_db']))
             );
         }
     }
@@ -192,7 +192,7 @@ class ServerDatabasesController extends Controller
             $message = Message::error(__('No databases selected.'));
         } else {
             $action = 'server_databases.php';
-            $err_url = $action . URL::getCommon();
+            $err_url = $action . Url::getCommon();
 
             $GLOBALS['submit_mult'] = 'drop_db';
             $GLOBALS['mult_btn'] = __('Yes');
@@ -285,7 +285,7 @@ class ServerDatabasesController extends Controller
 
         $html .= '<form class="ajax" action="server_databases.php" ';
         $html .= 'method="post" name="dbStatsForm" id="dbStatsForm">' . "\n";
-        $html .= URL::getHiddenInputs($_url_params);
+        $html .= Url::getHiddenInputs($_url_params);
 
         $_url_params['sort_by'] = 'SCHEMA_NAME';
         $_url_params['sort_order']
@@ -579,7 +579,7 @@ class ServerDatabasesController extends Controller
             'class' => 'li_switch_dbstats',
             'url' => array(
                 'href' => 'server_databases.php'
-                    . URL::getCommon(array('dbstats' => '1')),
+                    . Url::getCommon(array('dbstats' => '1')),
                 'title' => __('Enable statistics')
             ),
         );

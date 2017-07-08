@@ -8,7 +8,7 @@
 
 use PhpMyAdmin\Core;
 use PhpMyAdmin\ServerStatusData;
-use PMA\libraries\Theme;
+use PhpMyAdmin\Theme;
 
 require_once 'libraries/server_status_monitor.lib.php';
 require_once 'libraries/database_interface.inc.php';

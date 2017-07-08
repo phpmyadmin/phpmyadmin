@@ -4,7 +4,7 @@
 <!-- Display Chart options -->
 <div id="div_view_options">
     <form method="post" id="tblchartform" action="tbl_chart.php" class="ajax">
-        <?= \PMA\libraries\URL::getHiddenInputs($url_params); ?>
+        <?= \PhpMyAdmin\Url::getHiddenInputs($url_params); ?>
         <fieldset>
             <legend>
                 <?= __('Display chart'); ?>
@@ -144,12 +144,12 @@
                     <?php endforeach; ?>
                 </select>
             </div>
-            <?= PMA\libraries\Util::getStartAndNumberOfRowsPanel($sql_query); ?>
+            <?= PhpMyAdmin\Util::getStartAndNumberOfRowsPanel($sql_query); ?>
             <div class="clearfloat"></div>
             <div id="resizer" style="width:600px; height:400px;">
                 <div style="position: absolute; right: 10px; top: 10px; cursor: pointer; z-index: 1000;">
                     <a class="disableAjax" id="saveChart" href="#" download="chart.png">
-                        <?= PMA\libraries\Util::getImage('b_saveimage', __('Save chart as image')); ?>
+                        <?= PhpMyAdmin\Util::getImage('b_saveimage', __('Save chart as image')); ?>
                     </a>
                 </div>
                 <div id="querychart" dir="ltr">

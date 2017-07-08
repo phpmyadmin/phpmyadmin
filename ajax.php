@@ -7,7 +7,7 @@
  */
 
 use PhpMyAdmin\Response;
-use PMA\libraries\Util;
+use PhpMyAdmin\Util;
 require_once 'libraries/common.inc.php';
 
 $response = Response::getInstance();

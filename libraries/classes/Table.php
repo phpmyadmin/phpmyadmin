@@ -5,7 +5,7 @@
  *
  * @package PhpMyAdmin
  */
-namespace PMA\libraries;
+namespace PhpMyAdmin;
 
 use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Index;
@@ -16,6 +16,8 @@ use PhpMyAdmin\SqlParser\Components\OptionsArray;
 use PhpMyAdmin\SqlParser\Context;
 use PhpMyAdmin\SqlParser\Parser;
 use PhpMyAdmin\SqlParser\Statements\DropStatement;
+use PhpMyAdmin\SqlParser\Utils\Table as TableUtils;
+use PhpMyAdmin\Util;
 
 /**
  * Handles everything related to tables
@@ -733,7 +735,7 @@ class Table
         $extra, $comment, $virtuality, $expression, $move_to
     ) {
         return Util::backquote($oldcol) . ' '
-        . Table::generateFieldSpec(
+        . self::generateFieldSpec(
             $newcol, $type, $length, $attribute,
             $collation, $null, $default_type, $default_value, $extra,
             $comment, $virtuality, $expression, $move_to
@@ -1261,7 +1263,7 @@ class Table
             'db_name' => $target_db,
             'table_name' => $target_table
         );
-        Table::duplicateInfo(
+        self::duplicateInfo(
             'displaywork',
             'table_info',
             $get_fields,
@@ -1286,7 +1288,7 @@ class Table
             'foreign_db' => $target_db,
             'master_table' => $target_table
         );
-        Table::duplicateInfo(
+        self::duplicateInfo(
             'relwork',
             'relation',
             $get_fields,
@@ -1308,7 +1310,7 @@ class Table
             'foreign_db' => $target_db,
             'foreign_table' => $target_table
         );
-        Table::duplicateInfo(
+        self::duplicateInfo(
             'relwork',
             'relation',
             $get_fields,
@@ -1326,7 +1328,7 @@ class Table
         $get_fields = array('page_descr');
         $where_fields = array('db_name' => $source_db);
         $new_fields = array('db_name' => $target_db);
-        $last_id = Table::duplicateInfo(
+        $last_id = self::duplicateInfo(
             'pdfwork',
             'pdf_pages',
             $get_fields,
@@ -1345,7 +1347,7 @@ class Table
                 'table_name' => $target_table,
                 'pdf_page_number' => $last_id
             );
-            Table::duplicateInfo(
+            self::duplicateInfo(
                 'pdfwork',
                 'table_coords',
                 $get_fields,
@@ -1433,7 +1435,7 @@ class Table
         // Allow whitespaces (not trailing) in $new_name,
         // since we are using $backquoted in getting the fullName of table
         // below to be used in the query
-        if (! Table::isValidName($new_name, true)) {
+        if (! self::isValidName($new_name, true)) {
             $this->errors[] = __('Invalid table name:') . ' '
                 . $new_table->getFullName();
             return false;
@@ -2540,7 +2542,7 @@ class Table
          * @var \PhpMyAdmin\SqlParser\Statements\CreateStatement $stmt
         */
         $stmt = $parser->statements[0];
-        $fields = \PhpMyAdmin\SqlParser\Utils\Table::getFields($stmt);
+        $fields = TableUtils::getFields($stmt);
         if ($column != null) {
             $expression = isset($fields[$column]['expr']) ?
                 substr($fields[$column]['expr'], 1, -1) : '';

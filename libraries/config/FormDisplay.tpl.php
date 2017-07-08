@@ -5,9 +5,9 @@
  *
  * @package PhpMyAdmin
  */
-use PMA\libraries\Template;
-use PMA\libraries\Util;
-use PMA\libraries\URL;
+use PhpMyAdmin\Template;
+use PhpMyAdmin\Util;
+use PhpMyAdmin\Url;
 use PhpMyAdmin\Sanitize;
 
 /**
@@ -39,8 +39,8 @@ function PMA_displayFormTop($action = null, $method = 'post', $hidden_fields = n
         $htmlOutput .= '<input type="hidden" name="check_page_refresh" '
             . ' id="check_page_refresh" value="" />' . "\n";
     }
-    $htmlOutput .= URL::getHiddenInputs('', '', 0, 'server') . "\n";
-    $htmlOutput .= URL::getHiddenFields((array)$hidden_fields);
+    $htmlOutput .= Url::getHiddenInputs('', '', 0, 'server') . "\n";
+    $htmlOutput .= Url::getHiddenFields((array)$hidden_fields);
     return $htmlOutput;
 }
 

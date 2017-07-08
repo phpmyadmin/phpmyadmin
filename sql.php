@@ -10,8 +10,8 @@
 use PMA\libraries\config\PageSettings;
 use PhpMyAdmin\Response;
 use PhpMyAdmin\Sql;
-use PMA\libraries\URL;
-use PMA\libraries\Util;
+use PhpMyAdmin\Url;
+use PhpMyAdmin\Util;
 
 /**
  * Gets some core libraries
@@ -58,7 +58,7 @@ if (empty($goto)) {
 
 if (! isset($err_url)) {
     $err_url = (! empty($back) ? $back : $goto)
-        . '?' . URL::getCommon(array('db' => $GLOBALS['db']))
+        . '?' . Url::getCommon(array('db' => $GLOBALS['db']))
         . ((mb_strpos(' ' . $goto, 'db_') != 1
             && strlen($table) > 0)
             ? '&amp;table=' . urlencode($table)
@@ -186,7 +186,7 @@ if (isset($_POST['store_bkm'])) {
  */
 if ($goto == 'sql.php') {
     $is_gotofile = false;
-    $goto = 'sql.php' . URL::getCommon(
+    $goto = 'sql.php' . Url::getCommon(
         array(
             'db' => $db,
             'table' => $table,

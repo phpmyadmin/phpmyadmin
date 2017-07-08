@@ -7,9 +7,8 @@
  */
 namespace PMA\libraries\navigation\nodes;
 
-use PMA;
 use PMA\libraries\navigation\NodeFactory;
-use PMA\libraries\Util;
+use PhpMyAdmin\Util;
 
 /**
  * Represents a container for column nodes in the navigation tree
@@ -52,4 +51,3 @@ class NodeColumnContainer extends Node
         $this->addChild($new);
     }
 }
-

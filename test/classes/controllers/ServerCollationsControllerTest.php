@@ -8,7 +8,7 @@
 
 use PMA\libraries\controllers\server\ServerCollationsController;
 use PhpMyAdmin\Core;
-use PMA\libraries\Theme;
+use PhpMyAdmin\Theme;
 
 /*
  * Include to test.

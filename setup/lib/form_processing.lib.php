@@ -7,7 +7,7 @@
  */
 use PMA\libraries\config\FormDisplay;
 use PhpMyAdmin\Core;
-use PMA\libraries\URL;
+use PhpMyAdmin\Url;
 use PhpMyAdmin\Response;
 
 /**
@@ -23,7 +23,7 @@ function PMA_Process_formset(FormDisplay $form_display)
         // revert erroneous fields to their default values
         $form_display->fixErrors();
         $response = Response::getInstance();
-        $response->generateHeader303('index.php' . URL::getCommonRaw());
+        $response->generateHeader303('index.php' . Url::getCommonRaw());
     }
 
     if (!$form_display->process(false)) {
@@ -35,7 +35,7 @@ function PMA_Process_formset(FormDisplay $form_display)
     // check for form errors
     if (!$form_display->hasErrors()) {
         $response = Response::getInstance();
-        $response->generateHeader303('index.php' . URL::getCommonRaw());
+        $response->generateHeader303('index.php' . Url::getCommonRaw());
         return;
     }
 
@@ -51,16 +51,16 @@ function PMA_Process_formset(FormDisplay $form_display)
     <div class="error">
         <h4><?php echo __('Warning') ?></h4>
         <?php echo __('Submitted form contains errors') ?><br />
-        <a href="<?php echo URL::getCommon(array('page' => $page, 'formset' => $formset, 'id' => $formId, 'mode' => 'revert')) ?>">
+        <a href="<?php echo Url::getCommon(array('page' => $page, 'formset' => $formset, 'id' => $formId, 'mode' => 'revert')) ?>">
             <?php echo __('Try to revert erroneous fields to their default values') ?>
         </a>
     </div>
     <?php echo $form_display->displayErrors() ?>
-    <a class="btn" href="index.php<?php echo URL::getCommon() ?>">
+    <a class="btn" href="index.php<?php echo Url::getCommon() ?>">
         <?php echo __('Ignore errors') ?>
     </a>
     &nbsp;
-    <a class="btn" href="<?php echo URL::getCommon(array('page' => $page, 'formset' => $formset, 'id' => $formId, 'mode' => 'edit')) ?>">
+    <a class="btn" href="<?php echo Url::getCommon(array('page' => $page, 'formset' => $formset, 'id' => $formId, 'mode' => 'edit')) ?>">
         <?php echo __('Show form') ?>
     </a>
     <?php

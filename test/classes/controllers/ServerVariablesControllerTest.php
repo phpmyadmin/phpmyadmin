@@ -8,8 +8,8 @@
 
 use PhpMyAdmin\Core;
 use PMA\libraries\di\Container;
-use PMA\libraries\Theme;
-use PMA\libraries\URL;
+use PhpMyAdmin\Theme;
+use PhpMyAdmin\Url;
 
 require_once 'libraries/database_interface.inc.php';
 require_once 'test/libraries/stubs/ResponseStub.php';
@@ -176,7 +176,7 @@ class ServerVariablesControllerTest extends PMATestCase
 
         //Call the test function
         $html = $method->invoke($ctrl);
-        $url = 'server_variables.php' . URL::getCommon();
+        $url = 'server_variables.php' . Url::getCommon();
 
         //validate 1: URL
         $this->assertContains(
@@ -185,11 +185,11 @@ class ServerVariablesControllerTest extends PMATestCase
         );
         //validate 2: images
         $this->assertContains(
-            PMA\libraries\Util::getIcon('b_save.png', __('Save')),
+            PhpMyAdmin\Util::getIcon('b_save.png', __('Save')),
             $html
         );
         $this->assertContains(
-            PMA\libraries\Util::getIcon('b_close.png', __('Cancel')),
+            PhpMyAdmin\Util::getIcon('b_close.png', __('Cancel')),
             $html
         );
     }
