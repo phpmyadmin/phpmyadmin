@@ -5,8 +5,9 @@
  *
  * @package PhpMyAdmin
  */
-namespace PMA\libraries\config;
+namespace PhpMyAdmin\Config;
 
+use PhpMyAdmin\Config\ConfigFile;
 use PhpMyAdmin\Core;
 use PhpMyAdmin\Url;
 use PhpMyAdmin\Util;

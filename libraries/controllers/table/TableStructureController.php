@@ -12,7 +12,7 @@ namespace PMA\libraries\controllers\table;
 use PhpMyAdmin\SqlParser;
 use PhpMyAdmin\SqlParser\Statements\CreateStatement;
 use PhpMyAdmin\SqlParser\Utils\Table as SqlTable;
-use PMA\libraries\config\PageSettings;
+use PhpMyAdmin\Config\PageSettings;
 use PMA\libraries\controllers\TableController;
 use PhpMyAdmin\Core;
 use PhpMyAdmin\Index;

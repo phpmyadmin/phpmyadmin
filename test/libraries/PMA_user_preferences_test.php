@@ -9,7 +9,7 @@
 /*
  * Include to test
  */
-use PMA\libraries\config\ConfigFile;
+use PhpMyAdmin\Config\ConfigFile;
 
 require_once 'libraries/user_preferences.lib.php';
 require_once 'libraries/relation.lib.php';

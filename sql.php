@@ -7,7 +7,7 @@
  *          that returns 0 rows - to prevent cyclic redirects or includes
  * @package PhpMyAdmin
  */
-use PMA\libraries\config\PageSettings;
+use PhpMyAdmin\Config\PageSettings;
 use PhpMyAdmin\Response;
 use PhpMyAdmin\Sql;
 use PhpMyAdmin\Url;

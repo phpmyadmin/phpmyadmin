@@ -5,7 +5,7 @@
  *
  * @package PhpMyAdmin
  */
-use PMA\libraries\config\PageSettings;
+use PhpMyAdmin\Config\PageSettings;
 use PhpMyAdmin\Response;
 
 /**

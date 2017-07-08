@@ -9,7 +9,7 @@
 
 namespace PMA\libraries\controllers\database;
 
-use PMA\libraries\config\PageSettings;
+use PhpMyAdmin\Config\PageSettings;
 use PMA\libraries\controllers\DatabaseController;
 use PhpMyAdmin\Charsets;
 use PhpMyAdmin\Core;

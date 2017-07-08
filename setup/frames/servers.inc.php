@@ -6,8 +6,8 @@
  * @package PhpMyAdmin-Setup
  */
 
-use PMA\libraries\config\ConfigFile;
-use PMA\libraries\config\FormDisplay;
+use PhpMyAdmin\Config\ConfigFile;
+use PhpMyAdmin\Config\FormDisplay;
 use PhpMyAdmin\Core;
 use PhpMyAdmin\Url;
 

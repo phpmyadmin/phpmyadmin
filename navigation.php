@@ -8,7 +8,7 @@
 
 // Include common functionalities
 use PhpMyAdmin\Response;
-use PMA\libraries\config\PageSettings;
+use PhpMyAdmin\Config\PageSettings;
 use PMA\libraries\navigation\Navigation;
 
 require_once './libraries/common.inc.php';
