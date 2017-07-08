@@ -26,6 +26,7 @@ phpMyAdmin - ChangeLog
 - issue #13145 Improved layout of operations pages
 
 4.7.3 (not yet released)
+- issue #13447 Large multi-line query removes Export operation and blanks query box options
 
 4.7.2 (2017-06-29)
 - issue #13314 Make theme selection keep current server

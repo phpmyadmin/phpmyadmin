@@ -1759,11 +1759,6 @@ class Util
         $new_form = true, $strip_img = false, $target = '', $force_button = false
     ) {
         $url_length = mb_strlen($url);
-        // with this we should be able to catch case of image upload
-        // into a (MEDIUM) BLOB; not worth generating even a form for these
-        if ($url_length > $GLOBALS['cfg']['LinkLengthLimit'] * 100) {
-            return '';
-        }
 
         if (! is_array($tag_params)) {
             $tmp = $tag_params;
