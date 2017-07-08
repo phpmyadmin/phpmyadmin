@@ -275,7 +275,9 @@ $htmlString .= '<tr><td class="nowrap">AS</td>'
 if ($GLOBALS['cfg']['TextareaAutoSelect'] || true) {
     $htmlString .= ' onclick="selectContent(this, sql_box_locked, true)"';
 }
-$htmlString .= '>' . htmlspecialchars($view['as']) . '</textarea>'
+$htmlString .= '>' . htmlspecialchars($view['as']) . '</textarea><br/>'
+    . '<input type="button" value="Format" id="format" class="button sqlbutton">'
+    . '<span id="querymessage"></span>'
     . '</td></tr>';
 
 $htmlString .= '<tr><td class="nowrap">WITH CHECK OPTION</td>'
