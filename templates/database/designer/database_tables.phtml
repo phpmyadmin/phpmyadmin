@@ -71,6 +71,7 @@
                     // index is a primary key
                     $click_field_param[] = isset($tables_all_keys[$tmpColumn]) ? 1 : 0;
                 }
+                $click_field_param[] = $GLOBALS['db']
                 ?>
                 <tr id="id_tr_<?= htmlspecialchars($GLOBALS['PMD_URL']["TABLE_NAME_SMALL"][$i]); ?>.<?= htmlspecialchars($tab_column[$t_n]["COLUMN_NAME"][$j]); ?>"
                     <?= ($display_field == $tab_column[$t_n]["COLUMN_NAME"][$j]) ? 'class="tab_field_3"' : 'class="tab_field"'; ?>

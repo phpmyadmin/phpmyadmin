@@ -605,6 +605,93 @@ function Toggle_fullscreen()
     }
     saveValueInConfig('full_screen', value_sent);
 }
+
+function Add_Other_db_tables()
+{
+    var button_options = {};
+    button_options[PMA_messages.strGo] = function () {
+        //var $form = $("#save_page");
+        var db = $('#add_table_from').val();
+        var table = $('#add_table').val();
+        $.post('db_designer.php', {
+            'ajax_request' : true,
+            'dialog' : 'add_table',
+            'db' : db,
+            'table' : table
+        }, function (data) {
+            $new_table_dom = $(data.message.substring(98));
+            $new_table_dom.find('a').first().remove();
+            $('#container-form').append($new_table_dom);
+            $('.pmd_tab').on('click','.tab_field_2,.tab_field_3,.tab_field', function() {
+                var params = ($(this).attr('click_field_param')).split(",");
+                Click_field(params[3], params[0], params[1], params[2]);
+            });
+            $('.pmd_tab').on('click', '.select_all_store_col', function() {
+                var params = ($(this).attr('store_column_param')).split(",");
+                store_column(params[0], params[1], params[2]);
+            });
+            $('.pmd_tab').on('click', '.small_tab_pref_click_opt', function() {
+                var params = ($(this).attr('Click_option_param')).split(",");
+                Click_option(params[0], params[1], params[2]);
+            });
+        });
+        $(this).dialog('close');
+    }
+    button_options[PMA_messages.strCancel] = function () {
+        $(this).dialog('close');
+    };
+
+    var $select_db = $('<select id="add_table_from"></select>');
+    $select_db.append('<option value="">None</option>');
+
+    var $select_table = $('<select id="add_table"></select>');
+    $select_table.append('<option value="">None</option>');
+
+    $.post('sql.php', {
+        'ajax_request' : true,
+        'sql_query' : 'SHOW databases;'
+    }, function (data) {
+        $(data.message).find('table.table_results.data.ajax').find('td.data').each(function() {
+            var val = $(this)[0].innerHTML;
+            $select_db.append('<option value="' + val + '">' + val + '</option>');
+        });
+    });
+
+    var $form = $('<form action="" class="ajax"></form>')
+        .append($select_db).append($select_table);
+    $('<div id="page_add_tables_dialog"></div>')
+        .append($form)
+        .dialog({
+            appendTo: '#page_content',
+            title: PMA_messages.strAddTables,
+            width: 500,
+            modal: true,
+            buttons: button_options,
+            close: function () {
+                $(this).remove();
+            }
+        });
+
+    $('#add_table_from').change(function() {
+        if ($(this).val()) {
+            var db_name = $(this).val();
+            var sql_query = 'SHOW tables;';
+            $.post('sql.php', {
+                'ajax_request' : true,
+                'sql_query': sql_query,
+                'db' : db_name
+            }, function (data) {
+                $select_table.html('');
+                $(data.message).find('table.table_results.data.ajax').find('td.data').each(function() {
+                    var val = $(this)[0].innerHTML;
+                    $select_table.append('<option value="' + val + '">' + val + '</option>');
+                });
+            });
+        }
+    });
+}
+
+
 // ------------------------------ NEW ------------------------------------------
 
 function New()
@@ -1168,7 +1255,7 @@ function Start_relation()
     }
 }
 
-function Click_field(T, f, PK) // table field
+function Click_field(db, T, f, PK) // table field
 {
     PK = parseInt(PK);
     if (ON_relation) {
@@ -1182,7 +1269,7 @@ function Click_field(T, f, PK) // table field
                 document.getElementById('foreign_relation').style.display = 'none';
             }
             click_field = 1;
-            link_relation = "T1=" + T + "&F1=" + f;
+            link_relation = "DB1=" + db + "&T1=" + T + "&F1=" + f;
             document.getElementById('pmd_hint').innerHTML = PMA_messages.strSelectForeignKey;
         } else {
             Start_relation(); // hidden hint...
@@ -1194,7 +1281,7 @@ function Click_field(T, f, PK) // table field
             var top = Glob_Y - document.getElementById('layer_new_relation').offsetHeight;
             document.getElementById('layer_new_relation').style.top  = top + 'px';
             document.getElementById('layer_new_relation').style.display = 'block';
-            link_relation += '&T2=' + T + '&F2=' + f;
+            link_relation += '&DB2=' + db + '&T2=' + T + '&F2=' + f;
         }
     }
 
@@ -1233,7 +1320,7 @@ function Click_field(T, f, PK) // table field
 function New_relation()
 {
     document.getElementById('layer_new_relation').style.display = 'none';
-    link_relation += '&server=' + server + '&db=' + db;
+    link_relation += '&server=' + server + '&db=' + db + '&db2=p';
     link_relation += '&on_delete=' + document.getElementById('on_delete').value + '&on_update=' + document.getElementById('on_update').value;
     link_relation += '&operation=addNewRelation&ajax_request=true';
 
@@ -1950,6 +2037,10 @@ AJAX.registerOnload('pmd/move.js', function () {
         Toggle_fullscreen();
         return false;
     });
+    $("#addOtherDbTables").click(function() {
+        Add_Other_db_tables();
+        return false;
+    });
     $("#newPage").click(function() {
         New();
         return false;
@@ -2070,7 +2161,7 @@ AJAX.registerOnload('pmd/move.js', function () {
     });
     $('.pmd_tab').on('click','.tab_field_2,.tab_field_3,.tab_field', function() {
         var params = ($(this).attr('click_field_param')).split(",");
-        Click_field(params[0], params[1], params[2]);
+        Click_field(params[3], params[0], params[1], params[2]);
     });
     $('.pmd_tab').on('click', '.select_all_store_col', function() {
         var params = ($(this).attr('store_column_param')).split(",");

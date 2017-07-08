@@ -36,6 +36,13 @@ function getImg($path)
             <?= __('View in fullscreen'); ?>
         </span>
     </a>
+    <a href="#" id="addOtherDbTables" class="M_butt">
+        <img title="<?= __('Add tables from other databases'); ?>"
+             src="<?= getImg('pmd/viewInFullscreen.png'); ?>"/>
+        <span class="hide hidable">
+            <?= __('Add tables from other databases'); ?>
+        </span>
+    </a>
     <?php if (! $visualBuilder) : ?>
         <a id="newPage" href="#" class="M_butt">
             <img title="<?= __('New page'); ?>"
