@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.7.2-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2017-06-28 09:56+0200\n"
-"PO-Revision-Date: 2017-07-05 06:21+0000\n"
-"Last-Translator: Michal Čihař <michal@cihar.com>\n"
+"PO-Revision-Date: 2017-07-08 01:10+0000\n"
+"Last-Translator: yagoub fadel <yagoub76@gmail.com>\n"
 "Language-Team: Arabic "
 "<https://hosted.weblate.org/projects/phpmyadmin/4-7/ar/>\n"
 "Language: ar\n"
@@ -6005,10 +6005,8 @@ msgid "Developer"
 msgstr "مطور"
 
 #: libraries/config/messages.inc.php:248
-#, fuzzy
-#| msgid "Settings for phpMyAdmin developers"
 msgid "Settings for phpMyAdmin developers."
-msgstr "إعدادات لمطوري phpMyAdmin"
+msgstr "إعدادات لمطوري phpMyAdmin."
 
 #: libraries/config/messages.inc.php:249
 msgid "Edit mode"
@@ -6200,8 +6198,6 @@ msgid "Customize navigation panel"
 msgstr "تخصيص اطار التصفح"
 
 #: libraries/config/messages.inc.php:318
-#, fuzzy
-#| msgid "Customize main frame"
 msgid "Customize main panel"
 msgstr "تخصيص الإطار الرئيسي"
 
@@ -6221,10 +6217,8 @@ msgid "Customize links shown in SQL Query boxes."
 msgstr "تخصيص الروابط الموجودة في صندوق إستعلام SQL"
 
 #: libraries/config/messages.inc.php:325
-#, fuzzy
-#| msgid "SQL queries settings"
 msgid "SQL queries settings."
-msgstr "إعدادات إستعلامات SQL"
+msgstr "إعدادات إستعلامات SQL."
 
 #: libraries/config/messages.inc.php:326
 msgid "Startup"
@@ -6294,10 +6288,8 @@ msgid "Warnings"
 msgstr "تحذيرات"
 
 #: libraries/config/messages.inc.php:347
-#, fuzzy
-#| msgid "Disable some of the warnings shown by phpMyAdmin"
 msgid "Disable some of the warnings shown by phpMyAdmin."
-msgstr "إلغاء عرض بعض التحذيرات في phpMyAdmin"
+msgstr "تعطيل عرض بعض التحذيرات في phpMyAdmin ."
 
 #: libraries/config/messages.inc.php:349
 msgid "Enable gzip compression for import and export operations."
@@ -7108,10 +7100,8 @@ msgid ""
 msgstr ""
 
 #: libraries/config/messages.inc.php:683
-#, fuzzy
-#| msgid "Exporting rows from \"%s\" table"
 msgid "Export templates table"
-msgstr "تصدير الأسطر من الجدول \"%s\""
+msgstr "تصدير جدول القوالب"
 
 #: libraries/config/messages.inc.php:685
 msgid ""
@@ -7414,10 +7404,8 @@ msgid "Show or hide a column displaying the comments for all tables."
 msgstr ""
 
 #: libraries/config/messages.inc.php:829
-#, fuzzy
-#| msgid "Table comments"
 msgid "Show table comments"
-msgstr "تعليقات الجدول"
+msgstr "اظهر تعليقات الجدول"
 
 #: libraries/config/messages.inc.php:831
 msgid "Show or hide a column displaying the Creation timestamp for all tables."
@@ -7698,14 +7686,8 @@ msgid "Proxy password"
 msgstr "كلمة السر"
 
 #: libraries/config/messages.inc.php:961
-#, fuzzy
-#| msgid ""
-#| "Enable [a@https://en.wikipedia.org/wiki/Gzip]gzip[/a] compression for "
-#| "import and export operations"
 msgid "Enable ZIP compression for import and export operations."
-msgstr ""
-"تفعيل ضغط [a@https://en.wikipedia.org/wiki/Gzip]gzip[/a] لعمليات التصدير "
-"والإستيراد"
+msgstr "تفعيل ضغط  ZIP لعمليات التصدير والإستيراد ."
 
 #: libraries/config/messages.inc.php:964
 msgid "ZIP"
@@ -7940,8 +7922,6 @@ msgstr ""
 
 #: libraries/controllers/server/ServerDatabasesController.php:582
 #: libraries/controllers/server/ServerDatabasesController.php:588
-#, fuzzy
-#| msgid "Enable Statistics"
 msgid "Enable statistics"
 msgstr "مكن الإحصائيات"
 
@@ -7965,10 +7945,8 @@ msgid "No numeric columns present in the table to plot."
 msgstr ""
 
 #: libraries/controllers/table/TableChartController.php:211
-#, fuzzy
-#| msgid "No data found"
 msgid "No data to display"
-msgstr "لايوجد بيانات"
+msgstr "لايوجد بيانات لعرضها"
 
 #: libraries/controllers/table/TableIndexesController.php:155
 #: libraries/controllers/table/TableStructureController.php:718
@@ -7985,10 +7963,8 @@ msgid "Display column was successfully updated."
 msgstr "تم إيقاف العمليّة %s بنجاح."
 
 #: libraries/controllers/table/TableRelationController.php:282
-#, fuzzy
-#| msgid "Internal relations"
 msgid "Internal relationships were successfully updated."
-msgstr "العلاقات الداخلية"
+msgstr "العلاقات الداخلية تم تحديثها بنجاح ."
 
 #: libraries/controllers/table/TableSearchController.php:768
 #, fuzzy
@@ -7997,10 +7973,8 @@ msgid "Table search"
 msgstr "بحث في الجدول"
 
 #: libraries/controllers/table/TableSearchController.php:775
-#, fuzzy
-#| msgid "Zoom Search"
 msgid "Zoom search"
-msgstr "بحث"
+msgstr "تكبير البحث"
 
 #: libraries/controllers/table/TableSearchController.php:780
 #: templates/table/search/selection_form.phtml:60
@@ -8021,16 +7995,12 @@ msgstr[4] ""
 msgstr[5] ""
 
 #: libraries/controllers/table/TableStructureController.php:250
-#, fuzzy
-#| msgid "No rows selected"
 msgid "No column selected."
 msgstr "لايوجد صفوف مختارة"
 
 #: libraries/controllers/table/TableStructureController.php:465
-#, fuzzy
-#| msgid "The selected users have been deleted successfully."
 msgid "The columns have been moved successfully."
-msgstr "تم حذف المستخدمين المحددين بنجاح."
+msgstr "تم حذف الاعمده بنجاح."
 
 #: libraries/controllers/table/TableStructureController.php:729
 #: libraries/controllers/table/TableStructureController.php:1016
@@ -8168,16 +8138,12 @@ msgid "Export templates:"
 msgstr "نوع التصدير"
 
 #: libraries/display_export.lib.php:207
-#, fuzzy
-#| msgid "File name template:"
 msgid "New template:"
-msgstr "قالب اسم الملف:"
+msgstr "قالب جديد:"
 
 #: libraries/display_export.lib.php:210
-#, fuzzy
-#| msgid "Table name"
 msgid "Template name"
-msgstr "اسم الجدول"
+msgstr "اسم القالب"
 
 #: libraries/display_export.lib.php:212
 #: templates/server/databases/create.phtml:22
@@ -8185,35 +8151,24 @@ msgid "Create"
 msgstr "تكوين"
 
 #: libraries/display_export.lib.php:219
-#, fuzzy
-#| msgid "File name template:"
 msgid "Existing templates:"
-msgstr "قالب اسم الملف:"
+msgstr "قالب موجود مسبقا:"
 
 #: libraries/display_export.lib.php:220
-#, fuzzy
-#| msgid "%s table"
-#| msgid_plural "%s tables"
 msgid "Template:"
-msgstr "%s  جدول (جداول)"
+msgstr "قالب:"
 
 #: libraries/display_export.lib.php:225
-#, fuzzy
-#| msgid "Updated"
 msgid "Update"
-msgstr "محدث"
+msgstr "تحديث / ترقيه"
 
 #: libraries/display_export.lib.php:247
-#, fuzzy
-#| msgid "Select Tables"
 msgid "Select a template"
-msgstr "اختر الجداول"
+msgstr "اختر قالب"
 
 #: libraries/display_export.lib.php:296
-#, fuzzy
-#| msgid "Export method"
 msgid "Export method:"
-msgstr "نوع التصدير"
+msgstr "طريقة التصدير:"
 
 #: libraries/display_export.lib.php:306
 msgid "Quick - display only the minimal options"
@@ -8224,16 +8179,12 @@ msgid "Custom - display all possible options"
 msgstr ""
 
 #: libraries/display_export.lib.php:340
-#, fuzzy
-#| msgid "Databases"
 msgid "Databases:"
-msgstr "قاعدة بيانات"
+msgstr "قواعد البيانات :"
 
 #: libraries/display_export.lib.php:342 libraries/navigation/Navigation.php:197
-#, fuzzy
-#| msgid "Tables"
 msgid "Tables:"
-msgstr "جداول"
+msgstr "جداول :"
 
 #: libraries/display_export.lib.php:362 libraries/display_import.lib.php:364
 #: libraries/plugins/export/ExportCodegen.php:100
@@ -8330,16 +8281,12 @@ msgid "View output as text"
 msgstr "عرض الخرج كنص"
 
 #: libraries/display_export.lib.php:752
-#, fuzzy
-#| msgid "Exporting rows from \"%s\" table"
 msgid "Export databases as separate files"
-msgstr "تصدير الأسطر من الجدول \"%s\""
+msgstr "صدر قواعد البيانات في ملفات منفصلة"
 
 #: libraries/display_export.lib.php:754
-#, fuzzy
-#| msgid "horizontal (rotated headers)"
 msgid "Export tables as separate files"
-msgstr ")عناوين ملتفة( أفقيا"
+msgstr "صدر الجداول في ملفات منفصلة"
 
 #: libraries/display_export.lib.php:784 libraries/display_export.lib.php:960
 msgid "Rename exported databases/tables/columns"
@@ -8420,8 +8367,6 @@ msgstr ""
 "<b>.sql.zip</b>"
 
 #: libraries/display_import.lib.php:224
-#, fuzzy
-#| msgid "File to Import:"
 msgid "File to import:"
 msgstr "ملف للاستيراد:"
 
@@ -8464,10 +8409,8 @@ msgid "Skip this number of queries (for SQL) starting from the first one:"
 msgstr "عدد الصّفوف الّتي يجب تجاوزها, ابتداءًا من الصّف الأوّل :"
 
 #: libraries/display_import.lib.php:345
-#, fuzzy
-#| msgid "Options"
 msgid "Other options:"
-msgstr "خيارات"
+msgstr "خيارات اخري :"
 
 #: libraries/display_import.lib.php:483
 msgid ""
@@ -9070,28 +9013,20 @@ msgid "Groups:"
 msgstr "اسم العمود"
 
 #: libraries/navigation/Navigation.php:194
-#, fuzzy
-#| msgid "Events"
 msgid "Events:"
-msgstr "أحداث"
+msgstr "أحداث :"
 
 #: libraries/navigation/Navigation.php:195
-#, fuzzy
-#| msgid "Function"
 msgid "Functions:"
-msgstr "دالة"
+msgstr "دوال :"
 
 #: libraries/navigation/Navigation.php:196
-#, fuzzy
-#| msgid "Processes"
 msgid "Procedures:"
-msgstr "عمليات"
+msgstr "الاجراءات :"
 
 #: libraries/navigation/Navigation.php:198
-#, fuzzy
-#| msgid "View"
 msgid "Views:"
-msgstr "عرض"
+msgstr "عرض :"
 
 #: libraries/navigation/Navigation.php:222 libraries/tracking.lib.php:289
 #: libraries/tracking.lib.php:1601 tbl_change.php:156
@@ -9180,10 +9115,8 @@ msgstr ""
 #: libraries/navigation/nodes/NodeColumnContainer.php:26
 #: libraries/navigation/nodes/NodeColumnContainer.php:27
 #: libraries/sql_query_form.lib.php:268
-#, fuzzy
-#| msgid "Column names"
 msgid "Columns"
-msgstr "اسم العمود"
+msgstr "اعمدة :"
 
 #: libraries/navigation/nodes/NodeColumnContainer.php:36
 msgctxt "Create new column"
@@ -9191,10 +9124,8 @@ msgid "New"
 msgstr ""
 
 #: libraries/navigation/nodes/NodeDatabase.php:40
-#, fuzzy
-#| msgid "Database export options"
 msgid "Database operations"
-msgstr "خيارات تصدير قاعدة بيانات"
+msgstr "عمليات قاعدة البيانات :"
 
 #: libraries/navigation/nodes/NodeDatabase.php:684
 #, fuzzy
@@ -9230,10 +9161,8 @@ msgid "New"
 msgstr ""
 
 #: libraries/navigation/nodes/NodeProcedure.php:32
-#, fuzzy
-#| msgid "Processes"
 msgid "Procedure"
-msgstr "عمليات"
+msgstr "اجراء"
 
 #: libraries/navigation/nodes/NodeProcedureContainer.php:25
 #: libraries/navigation/nodes/NodeProcedureContainer.php:28
