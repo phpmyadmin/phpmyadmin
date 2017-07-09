@@ -4,17 +4,17 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.8.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2017-06-28 09:58+0200\n"
-"PO-Revision-Date: 2015-10-15 11:24+0200\n"
-"Last-Translator: Michal Čihař <michal@cihar.com>\n"
-"Language-Team: Croatian <https://hosted.weblate.org/projects/phpmyadmin/"
-"master/hr/>\n"
+"PO-Revision-Date: 2017-07-09 14:27+0000\n"
+"Last-Translator: test <ebe37302@tqosi.com>\n"
+"Language-Team: Croatian "
+"<https://hosted.weblate.org/projects/phpmyadmin/master/hr/>\n"
 "Language: hr\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=3; plural=n%10==1 && n%100!=11 ? 0 : n%10>=2 && n"
-"%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
-"X-Generator: Weblate 2.5-dev\n"
+"Plural-Forms: nplurals=3; plural=n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%10<="
+"4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
+"X-Generator: Weblate 2.16-dev\n"
 
 #: ajax.php:16 ajax.php:33 export.php:194 schema_export.php:66
 msgid "Bad type!"
@@ -806,6 +806,9 @@ msgid ""
 "The curl extension was not found and allow_url_fopen is disabled. Due to "
 "this some features such as error reporting or version check are disabled."
 msgstr ""
+"Dodatak curl nije pronađen i allow_url_fopen je onemogućen. Zbog toga, neke "
+"mogućnosti kao što su izvještaji o greškama ili provjera verzije su "
+"onemogućeni."
 
 #: index.php:493
 msgid ""
@@ -823,11 +826,11 @@ msgstr ""
 
 #: index.php:527
 msgid "The configuration file now needs a secret passphrase (blowfish_secret)."
-msgstr "Konfiguracijska datoteka potražuje tajnu lozinku (blowfish_secret)."
+msgstr "Konfiguracijska datoteka sada treba tajnu lozinku (blowfish_secret)."
 
 #: index.php:534
 msgid "The secret passphrase in configuration (blowfish_secret) is too short."
-msgstr ""
+msgstr "Tajna šifra u konfiguraciji (blowfish_secret) je prekratka."
 
 #: index.php:548
 msgid ""
@@ -872,21 +875,22 @@ msgstr ""
 
 #: js/messages.php:43
 msgid "Confirm"
-msgstr ""
+msgstr "Potvrdi"
 
 #: js/messages.php:44
-#, fuzzy, php-format
-#| msgid "Do you really want to "
+#, php-format
 msgid "Do you really want to execute \"%s\"?"
-msgstr "Želite li zaista  "
+msgstr "Želite li zaista izvršiti \"%s\"?"
 
 #: js/messages.php:46 libraries/mult_submits.lib.php:447
 msgid "You are about to DESTROY a complete database!"
-msgstr "UNIŠTIT ĆETE CJELOKUPNU BAZU PODATAKA!"
+msgstr "UNIŠTIT ćeš cijelu bazu podataka!"
 
 #: js/messages.php:48
 msgid "Cannot rename database to the same name. Change the name and try again"
 msgstr ""
+"Nije moguće preimenovati bazu podataka u isto ime. Promijeni ime i pokušaj "
+"ponovno"
 
 #: js/messages.php:50
 msgid "You are about to DESTROY a complete table!"
@@ -894,37 +898,27 @@ msgstr "Vi ćete OBRISATI kompletnu tablicu!"
 
 #: js/messages.php:52
 msgid "You are about to TRUNCATE a complete table!"
-msgstr "ISPRAZNITI ĆETE CJELOKUPNU TABLICU!"
+msgstr "Upravo ćete ISPRAZNITI cijelu tablicu!"
 
 #: js/messages.php:53
-#, fuzzy
-#| msgid "Delete tracking data for this table"
 msgid "Delete tracking data for this table?"
-msgstr "Obriši podatke o praćenju za ovu tablicu"
+msgstr "Obriši podatke o praćenju za ovu tablicu?"
 
 #: js/messages.php:55
-#, fuzzy
-#| msgid "Delete tracking data for this table"
 msgid "Delete tracking data for these tables?"
-msgstr "Obriši podatke o praćenju za ovu tablicu"
+msgstr "Obriši podatke o praćenju za ove tablice?"
 
 #: js/messages.php:57
-#, fuzzy
-#| msgid "Delete tracking data for this table"
 msgid "Delete tracking data for this version?"
-msgstr "Obriši podatke o praćenju za ovu tablicu"
+msgstr "Obriši podatke o praćenju za ovu verziju?"
 
 #: js/messages.php:59
-#, fuzzy
-#| msgid "Delete tracking data for this table"
 msgid "Delete tracking data for these versions?"
-msgstr "Obriši podatke o praćenju za ovu tablicu"
+msgstr "Obriši podatke o praćenju za ove verzije?"
 
 #: js/messages.php:60
-#, fuzzy
-#| msgid "Allows inserting and replacing data."
 msgid "Delete entry from tracking report?"
-msgstr "Dopušta umetanje i zamjenu podataka."
+msgstr "Želite li obrisati unos iz izvješća o praćenju?"
 
 #: js/messages.php:61
 msgid "Deleting tracking data"
@@ -932,33 +926,31 @@ msgstr "Brisanje podataka o praćenju"
 
 #: js/messages.php:62
 msgid "Dropping Primary Key/Index"
-msgstr "Brišam primarno ključ/index"
+msgstr "Brišem primarni ključ/index"
 
 #: js/messages.php:63
-#, fuzzy
-#| msgid "Select Foreign Key"
 msgid "Dropping Foreign key."
-msgstr "Odaberite strani ključ"
+msgstr "Brišem strani ključ."
 
 #: js/messages.php:65
 msgid "This operation could take a long time. Proceed anyway?"
 msgstr "Ovaj postupak može potrajati dulje vrijeme. Ipak nastaviti?"
 
 #: js/messages.php:67
-#, fuzzy, php-format
-#| msgid "Do you really want to "
+#, php-format
 msgid "Do you really want to delete user group \"%s\"?"
-msgstr "Želite li zaista  "
+msgstr "Želite li zaista obrisati korisničku grupu \"%s\"?"
 
 #: js/messages.php:69
-#, fuzzy, php-format
-#| msgid "Do you really want to "
+#, php-format
 msgid "Do you really want to delete the search \"%s\"?"
-msgstr "Želite li zaista  "
+msgstr "Želite li zaista obrisati traženje \"%s\"?"
 
 #: js/messages.php:71
 msgid "You have unsaved changes; are you sure you want to leave this page?"
 msgstr ""
+"Imate promjene koje niste spremili; jeste li sigurni da želite zatvoriti ovu "
+"stranicu?"
 
 #: js/messages.php:73
 #, fuzzy
