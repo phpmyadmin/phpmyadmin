@@ -5,8 +5,10 @@
  *
  * @package PhpMyAdmin
  */
-namespace PMA\libraries\config;
+namespace PhpMyAdmin\Config;
 
+use PhpMyAdmin\Config\ConfigFile;
+use PhpMyAdmin\Config\FormDisplay;
 use PhpMyAdmin\Core;
 use PhpMyAdmin\Message;
 use PhpMyAdmin\Response;

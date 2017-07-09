@@ -46,7 +46,7 @@ class PMA_Form_Processing_Test extends PMATestCase
             );
 
         // case 1
-        $formDisplay = $this->getMockBuilder('PMA\libraries\config\FormDisplay')
+        $formDisplay = $this->getMockBuilder('PhpMyAdmin\Config\FormDisplay')
             ->disableOriginalConstructor()
             ->setMethods(array('process', 'getDisplay'))
             ->getMock();
@@ -63,7 +63,7 @@ class PMA_Form_Processing_Test extends PMATestCase
         PMA_Process_formset($formDisplay);
 
         // case 2
-        $formDisplay = $this->getMockBuilder('PMA\libraries\config\FormDisplay')
+        $formDisplay = $this->getMockBuilder('PhpMyAdmin\Config\FormDisplay')
             ->disableOriginalConstructor()
             ->setMethods(array('process', 'hasErrors', 'displayErrors'))
             ->getMock();
@@ -103,7 +103,7 @@ class PMA_Form_Processing_Test extends PMATestCase
         );
 
         // case 3
-        $formDisplay = $this->getMockBuilder('PMA\libraries\config\FormDisplay')
+        $formDisplay = $this->getMockBuilder('PhpMyAdmin\Config\FormDisplay')
             ->disableOriginalConstructor()
             ->setMethods(array('process', 'hasErrors'))
             ->getMock();

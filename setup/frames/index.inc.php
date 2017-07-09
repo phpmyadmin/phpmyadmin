@@ -6,9 +6,9 @@
  * @package PhpMyAdmin-Setup
  */
 
-use PMA\libraries\config\ConfigFile;
-use PMA\libraries\config\FormDisplay;
-use PMA\libraries\config\ServerConfigChecks;
+use PhpMyAdmin\Config\ConfigFile;
+use PhpMyAdmin\Config\FormDisplay;
+use PhpMyAdmin\Config\ServerConfigChecks;
 use PhpMyAdmin\Core;
 use PhpMyAdmin\LanguageManager;
 use PhpMyAdmin\Url;

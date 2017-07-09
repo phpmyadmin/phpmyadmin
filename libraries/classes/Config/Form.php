@@ -5,7 +5,9 @@
  *
  * @package PhpMyAdmin
  */
-namespace PMA\libraries\config;
+namespace PhpMyAdmin\Config;
+
+use PhpMyAdmin\Config\ConfigFile;
 
 /**
  * Base class for forms, loads default configuration options, checks allowed

@@ -10,7 +10,7 @@
  * Include to test
  */
 use PhpMyAdmin\Config;
-use PMA\libraries\config\ConfigFile;
+use PhpMyAdmin\Config\ConfigFile;
 use PMA\setup\lib\ConfigGenerator;
 
 require_once 'test/PMATestCase.php';

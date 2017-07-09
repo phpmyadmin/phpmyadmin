@@ -12,13 +12,12 @@
  *
  * @package PhpMyAdmin
  */
-namespace PMA\libraries\config;
+namespace PhpMyAdmin\Config;
 
+use PhpMyAdmin\Config\ConfigFile;
+use PhpMyAdmin\Config\Form;
+use PhpMyAdmin\Config\Validator;
 use PhpMyAdmin\Sanitize;
-
-/**
- * Core libraries.
- */
 use PhpMyAdmin\Util;
 
 require_once './libraries/config/FormDisplay.tpl.php';

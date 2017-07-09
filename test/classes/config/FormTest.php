@@ -7,8 +7,8 @@
  */
 
 use PhpMyAdmin\Config;
-use PMA\libraries\config\ConfigFile;
-use PMA\libraries\config\Form;
+use PhpMyAdmin\Config\ConfigFile;
+use PhpMyAdmin\Config\Form;
 use PhpMyAdmin\Theme;
 
 require_once 'test/PMATestCase.php';
@@ -80,7 +80,7 @@ class FormTest extends PMATestCase
      */
     public function testGetOptionType()
     {
-        $attrFieldsTypes = new \ReflectionProperty('PMA\libraries\config\Form', '_fieldsTypes');
+        $attrFieldsTypes = new \ReflectionProperty('PhpMyAdmin\Config\Form', '_fieldsTypes');
         $attrFieldsTypes->setAccessible(true);
         $attrFieldsTypes->setValue(
             $this->object,
@@ -136,7 +136,7 @@ class FormTest extends PMATestCase
      */
     public function testReadFormPathsCallBack()
     {
-        $reflection = new \ReflectionClass('PMA\libraries\config\Form');
+        $reflection = new \ReflectionClass('PhpMyAdmin\Config\Form');
         $method = $reflection->getMethod('_readFormPathsCallback');
         $method->setAccessible(true);
 
@@ -188,7 +188,7 @@ class FormTest extends PMATestCase
      */
     public function testReadFormPaths()
     {
-        $reflection = new \ReflectionClass('PMA\libraries\config\Form');
+        $reflection = new \ReflectionClass('PhpMyAdmin\Config\Form');
         $method = $reflection->getMethod('readFormPaths');
         $method->setAccessible(true);
 
@@ -243,7 +243,7 @@ class FormTest extends PMATestCase
      */
     public function testReadTypes()
     {
-        $reflection = new \ReflectionClass('PMA\libraries\config\Form');
+        $reflection = new \ReflectionClass('PhpMyAdmin\Config\Form');
         $method = $reflection->getMethod('readTypes');
         $method->setAccessible(true);
 
@@ -277,7 +277,7 @@ class FormTest extends PMATestCase
      */
     public function testLoadForm()
     {
-        $this->object = $this->getMockBuilder('PMA\libraries\config\Form')
+        $this->object = $this->getMockBuilder('PhpMyAdmin\Config\Form')
             ->disableOriginalConstructor()
             ->setMethods(array('readFormPaths', 'readTypes'))
             ->getMock();

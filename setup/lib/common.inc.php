@@ -5,7 +5,7 @@
  *
  * @package PhpMyAdmin-Setup
  */
-use PMA\libraries\config\ConfigFile;
+use PhpMyAdmin\Config\ConfigFile;
 
 /**
  * Do not include full common.
