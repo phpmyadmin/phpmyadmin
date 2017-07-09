@@ -27,6 +27,7 @@ phpMyAdmin - ChangeLog
 
 4.7.3 (not yet released)
 - issue #13447 Large multi-line query removes Export operation and blanks query box options
+- issue #13445 Fixed rendering of query results
 
 4.7.2 (2017-06-29)
 - issue #13314 Make theme selection keep current server
