@@ -868,7 +868,7 @@ msgstr "هذه العملية قد تستغرق وقتا طويلا، متابع
 #: js/messages.php:67
 #, php-format
 msgid "Do you really want to delete user group \"%s\"?"
-msgstr "هل تريد حقا حذف مجموعة المستخدمين ”%“s؟"
+msgstr "هل تريد حقا حذف مجموعة المستخدمين ”%s“؟"
 
 #: js/messages.php:69
 #, php-format
