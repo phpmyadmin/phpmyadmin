@@ -31,11 +31,11 @@
                 <td>
                     <select name="view[algorithm]" id="algorithm">
                         {% for option in view_algorithm_options %}
-                            <option value="{{ option|e }}"
+                            <option value="{{ option }}"
                                 {% if view['algorithm'] == option %}
                                     selected="selected"
                                 {% endif %}
-                            >{{ option|e }}</option>
+                            >{{ option }}</option>
                         {% endfor %}
                     </select>
                 </td>
@@ -43,7 +43,7 @@
 
             <tr>
                 <td class="nowrap">{% trans 'Definer' %}</td>
-                <td><input type="text" maxlength="100" size="50" name="view[definer]" value="{{ view['definer']|e }}" /></td>
+                <td><input type="text" maxlength="100" size="50" name="view[definer]" value="{{ view['definer'] }}" /></td>
             </tr>
 
             <tr>
@@ -52,9 +52,9 @@
                     <select name="view[sql_security]">
                         <option value=""></option>
                         {% for option in view_security_options %}
-                            <option value="{{ option|e }}"
+                            <option value="{{ option }}"
                                 {% if option == view['sql_security'] %} selected="selected" {% endif %}
-                            >{{ option|e }}</option>
+                            >{{ option }}</option>
                         {% endfor %}
                     </select>
                 </td>
@@ -64,13 +64,13 @@
                 <tr>
                     <td class="nowrap">{% trans 'VIEW name' %}</td>
                     <td>
-                        <input type="text" size="20" name="view[name]" onfocus="this.select()" maxlength="64" value="{{ view['name']|e }}" />
+                        <input type="text" size="20" name="view[name]" onfocus="this.select()" maxlength="64" value="{{ view['name'] }}" />
                     </td>
                 </tr>
             {% else %}
                 <tr>
                     <td>
-                        <input type="hidden" name="view[name]" value="{{ view['name']|e }}" />
+                        <input type="hidden" name="view[name]" value="{{ view['name'] }}" />
                     </td>
                 </tr>
             {% endif %}
@@ -78,14 +78,14 @@
             <tr>
                 <td class="nowrap">{% trans 'Column names' %}</td>
                 <td>
-                    <input type="text" maxlength="100" size="50" name="view[column_names]" onfocus="this.select()"  value="{{ view['column_names']|e }}" />
+                    <input type="text" maxlength="100" size="50" name="view[column_names]" onfocus="this.select()"  value="{{ view['column_names'] }}" />
                 </td>
             </tr>
 
             <tr>
                 <td class="nowrap">AS</td>
                 <td>
-                    <textarea name="view[as]" rows="15" cols="40" dir="{{ text_dir }}" onclick="selectContent(this, sql_box_locked, true)">{{ view['as']|e }}</textarea><br/>
+                    <textarea name="view[as]" rows="15" cols="40" dir="{{ text_dir }}" onclick="selectContent(this, sql_box_locked, true)">{{ view['as'] }}</textarea><br/>
                     <input type="button" value="Format" id="format" class="button sqlbutton">
                     <span id="querymessage"></span>
                 </td>
@@ -97,9 +97,9 @@
                     <select name="view[with]">
                         <option value=""></option>
                         {% for option in view_with_options %}
-                            <option value="{{ option|e }}"
+                            <option value="{{ option }}"
                                 {% if option == view['with'] %} selected="selected" {% endif %}
-                            >{{ option|e }}</option>
+                            >{{ option }}</option>
                         {% endfor %}
                     </select>
                 </td>
