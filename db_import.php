@@ -7,7 +7,7 @@
  */
 
 use PhpMyAdmin\Response;
-use PMA\libraries\config\PageSettings;
+use PhpMyAdmin\Config\PageSettings;
 
 require_once 'libraries/common.inc.php';
 require_once 'libraries/config/user_preferences.forms.php';

@@ -9,7 +9,7 @@
 /*
  * Include to test.
  */
-use PMA\libraries\config\ConfigFile;
+use PhpMyAdmin\Config\ConfigFile;
 
 require_once 'test/PMATestCase.php';
 

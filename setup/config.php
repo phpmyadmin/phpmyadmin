@@ -5,7 +5,7 @@
  *
  * @package PhpMyAdmin-Setup
  */
-use PMA\libraries\config\FormDisplay;
+use PhpMyAdmin\Config\FormDisplay;
 use PMA\setup\lib\ConfigGenerator;
 use PhpMyAdmin\Core;
 use PhpMyAdmin\Url;

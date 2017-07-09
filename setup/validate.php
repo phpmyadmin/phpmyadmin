@@ -26,7 +26,7 @@ if (!($values instanceof stdClass)) {
     Core::fatalError(__('Wrong data'));
 }
 $values = (array)$values;
-$result = PMA\libraries\config\Validator::validate($GLOBALS['ConfigFile'], $vids, $values, true);
+$result = PhpMyAdmin\Config\Validator::validate($GLOBALS['ConfigFile'], $vids, $values, true);
 if ($result === false) {
     $result = sprintf(
         __('Wrong data or no validation for %s'),

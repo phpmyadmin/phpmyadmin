@@ -5,8 +5,9 @@
  *
  * @package PhpMyAdmin
  */
-namespace PMA\libraries\config;
+namespace PhpMyAdmin\Config;
 
+use PhpMyAdmin\Config\ConfigFile;
 use PhpMyAdmin\Core;
 use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Util;
@@ -127,7 +128,7 @@ class Validator
             foreach ((array)$validators[$vid] as $validator) {
                 $vdef = (array) $validator;
                 $vname = array_shift($vdef);
-                $vname = 'PMA\libraries\config\Validator::' . $vname;
+                $vname = 'PhpMyAdmin\Config\Validator::' . $vname;
                 $args = array_merge(array($vid, &$arguments), $vdef);
                 $r = call_user_func_array($vname, $args);
 

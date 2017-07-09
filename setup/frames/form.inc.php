@@ -6,7 +6,7 @@
  * @package PhpMyAdmin-Setup
  */
 
-use PMA\libraries\config\FormDisplay;
+use PhpMyAdmin\Config\FormDisplay;
 use PhpMyAdmin\Core;
 
 if (!defined('PHPMYADMIN')) {
