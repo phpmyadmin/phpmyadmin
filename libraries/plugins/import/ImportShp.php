@@ -92,8 +92,8 @@ class ImportShp extends ImportPlugin
             // and use the files in it for import
             if ($compression == 'application/zip' && ! is_null($temp)) {
                 $dbf_file_name = ZipExtension::findFile(
-                    '/^.*\.dbf$/i',
-                    $import_file
+                    $import_file,
+                    '/^.*\.dbf$/i'
                 );
                 // If the corresponding .dbf file is in the zip archive
                 if ($dbf_file_name) {

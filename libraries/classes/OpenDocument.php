@@ -7,7 +7,7 @@
  */
 namespace PhpMyAdmin;
 
-use PhpMyAdmin\ZipFile;
+use PhpMyAdmin\ZipExtension;
 
 /**
  * Simplfied OpenDocument creator class
@@ -38,10 +38,9 @@ EOT;
      */
     public static function create($mime, $data)
     {
-        $zipfile = new ZipFile();
-        $zipfile -> addFile($mime, 'mimetype');
-        $zipfile -> addFile($data, 'content.xml');
-        $zipfile -> addFile(
+        $data = array(
+            $mime,
+            $data,
             '<?xml version="1.0" encoding="UTF-8"?' . '>'
             . '<office:document-meta '
             . 'xmlns:office="urn:oasis:names:tc:opendocument:xmlns:office:1.0" '
@@ -55,9 +54,6 @@ EOT;
             . '</meta:creation-date>'
             . '</office:meta>'
             . '</office:document-meta>',
-            'meta.xml'
-        );
-        $zipfile -> addFile(
             '<?xml version="1.0" encoding="UTF-8"?' . '>'
             . '<office:document-styles ' . OpenDocument::NS
             . ' office:version="1.0">'
@@ -153,9 +149,6 @@ EOT;
             . '<style:master-page style:name="Standard" style:page-layout-name="pm1"/>'
             . '</office:master-styles>'
             . '</office:document-styles>',
-            'styles.xml'
-        );
-        $zipfile -> addFile(
             '<?xml version="1.0" encoding="UTF-8"?' . '>'
             . '<manifest:manifest'
             . ' xmlns:manifest="urn:oasis:names:tc:opendocument:xmlns:manifest:1.0">'
@@ -167,9 +160,17 @@ EOT;
             . ' manifest:full-path="meta.xml"/>'
             . '<manifest:file-entry manifest:media-type="text/xml"'
             . ' manifest:full-path="styles.xml"/>'
-            . '</manifest:manifest>',
+            . '</manifest:manifest>'
+        );
+
+        $name = array(
+            'mimetype',
+            'content.xml',
+            'meta.xml',
+            'styles.xml',
             'META-INF/manifest.xml'
         );
-        return $zipfile -> file();
+
+        return ZipExtension::createFile($data, $name);
     }
 }
