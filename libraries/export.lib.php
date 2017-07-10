@@ -10,7 +10,7 @@ use PhpMyAdmin\Encoding;
 use PhpMyAdmin\Message;
 use PMA\libraries\plugins\ExportPlugin;
 use PhpMyAdmin\Table;
-use PhpMyAdmin\ZipFile;
+use PhpMyAdmin\ZipExtension;
 use PhpMyAdmin\Url;
 use PhpMyAdmin\Sanitize;
 
@@ -405,24 +405,7 @@ function PMA_compressExport($dump_buffer, $compression, $filename)
 {
     if ($compression == 'zip' && @function_exists('gzcompress')) {
         $filename = substr($filename, 0, -4); // remove extension (.zip)
-        $zipfile = new ZipFile();
-        if (is_array($dump_buffer)) {
-            foreach ($dump_buffer as $table => $dump) {
-                $ext_pos = strpos($filename, '.');
-                $extension = substr($filename, $ext_pos);
-                $zipfile->addFile(
-                    $dump,
-                    str_replace(
-                        $extension,
-                        '_' . $table . $extension,
-                        $filename
-                    )
-                );
-            }
-        } else {
-            $zipfile->addFile($dump_buffer, $filename);
-        }
-        $dump_buffer = $zipfile->file();
+        $dump_buffer = ZipExtension::createFile($dump_buffer, $filename);
     } elseif ($compression == 'gzip' && PMA_gzencodeNeeded()) {
         // without the optional parameter level because it bugs
         $dump_buffer = gzencode($dump_buffer);

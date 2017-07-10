@@ -17,9 +17,9 @@ require_once 'test/PMATestCase.php';
 class ZipExtensionTest extends PMATestCase
 {
     /**
-     * Test zip file content
+     * Test for ZipExtension::getContents
      *
-     * @param string $file           zip file
+     * @param string $file           path to zip file
      * @param string $specific_entry regular expression to match a file
      * @param mixed  $output         expected output
      *
@@ -62,19 +62,19 @@ class ZipExtensionTest extends PMATestCase
     }
 
     /**
-     * Test Find file in Zip Archive
+     * Test for ZipExtension::findFile
      *
+     * @param string $file        path to zip file
      * @param string $file_regexp regular expression for the file name to match
-     * @param string $file        zip archive
      * @param mixed  $output      expected output
      *
      * @dataProvider provideTestFindFile
      * @return void
      */
-    public function testFindFile($file_regexp, $file, $output)
+    public function testFindFile($file, $file_regexp, $output)
     {
         $this->assertEquals(
-            ZipExtension::findFile($file_regexp, $file),
+            ZipExtension::findFile($file, $file_regexp),
             $output
         );
     }
@@ -88,8 +88,8 @@ class ZipExtensionTest extends PMATestCase
     {
         return array(
             array(
-                '/test/',
                 './test/test_data/test.zip',
+                '/test/',
                 'test.file'
             )
         );
@@ -130,54 +130,20 @@ class ZipExtensionTest extends PMATestCase
     }
 
     /**
-     * Test for ZipExtension::getError
+     * Test for ZipExtension::createFile
      *
-     * @param int   $code   error code
-     * @param mixed $output expected output
-     *
-     * @dataProvider provideTestGetError
      * @return void
      */
-    public function testGetError($code, $output)
+    public function testCreateFile()
     {
-        $this->assertEquals(
-            ZipExtension::getError($code),
-            $output
-        );
-    }
+        $file = ZipExtension::createFile("Test content", "test.txt");
+        $this->assertTrue(!empty($file));
 
-    /**
-     * Provider for testGetZipError
-     *
-     * @return array
-     */
-    public function provideTestGetError()
-    {
-        return array(
-            array(
-                1,
-                'Multi-disk zip archives not supported'
-            ),
-            array(
-                5,
-                'Read error'
-            ),
-            array(
-                7,
-                'CRC error'
-            ),
-            array(
-                19,
-                'Not a zip archive'
-            ),
-            array(
-                21,
-                'Zip archive inconsistent'
-            ),
-            array(
-                404,
-                404
-            )
+        $this->assertEquals(
+            false,
+            ZipExtension::createFile(
+                "Content",
+                array("name1.txt", "name2.txt"))
         );
     }
 }
