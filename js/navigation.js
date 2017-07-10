@@ -1248,6 +1248,7 @@ var ResizeHandler = function () {
         }
         event.data.resize_handler.setWidth(panel_width);
         event.data.resize_handler.panel_width = width;
+        Cookies.set('pma_navi_collapsed', panel_width == 0);
     };
     /**
      * Event handler for resizing the navigation tree height on window resize
@@ -1281,7 +1282,6 @@ var ResizeHandler = function () {
     // Register the events for the resizer and the collapser
     $(document).on('mousedown', '#pma_navigation_resizer', {'resize_handler': this}, this.mousedown);
     $(document).on('click', '#pma_navigation_collapser', {'resize_handler': this}, this.collapse);
-
     // Add the correct arrow symbol to the collapser
     $('#pma_navigation_collapser').html(this.getSymbol($('#pma_navigation').width()));
     // Fix navigation tree height
@@ -1290,6 +1290,10 @@ var ResizeHandler = function () {
     // to show/hide horizontal scrollbars depending on page content width
     setInterval(this.treeResize, 2000);
     this.treeResize();
+    // Restore collapsed status.
+    if (Cookies.get('pma_navi_collapsed') == 'true') {
+        $('#pma_navigation_collapser').click();
+    }
 }; // End of ResizeHandler
 
 /**
