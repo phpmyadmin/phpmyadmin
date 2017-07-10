@@ -2408,6 +2408,13 @@ class Util
         $classes = array()
     ) {
 
+        // This is often coming from $cfg['MaxTableList'] and
+        // people sometimes set it to empty string
+        $max_count = intval($max_count);
+        if ($max_count <= 0) {
+            $max_count = 250;
+        }
+
         $class = $frame == 'frame_navigation' ? ' class="ajax"' : '';
 
         $list_navigator_html = '';
