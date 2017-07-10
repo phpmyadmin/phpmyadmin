@@ -53,11 +53,16 @@ class PMA_SeleniumDbTriggersTest extends PMA_SeleniumBase
      */
     public function setUpPage()
     {
+        parent::setUpPage();
+
         $this->login();
-        $this->waitForElement('byLinkText', $this->database_name)->click();
+        $this->waitForElement('byPartialLinkText','Databases')->click();
+        $this->waitForElementNotPresent('byCssSelector', 'div#loading_parent');
+        $this->waitForElement('byPartialLinkText', $this->database_name)->click();
         $this->waitForElement(
             "byXPath", "//a[contains(., 'test_table')]"
         );
+        $this->waitForElementNotPresent('byCssSelector', 'div#loading_parent');
         $this->expandMore();
     }
 
@@ -85,10 +90,11 @@ class PMA_SeleniumDbTriggersTest extends PMA_SeleniumBase
      */
     public function testAddTrigger()
     {
+        $this->expandMore();
         $ele = $this->waitForElement("byPartialLinkText", "Triggers");
         $ele->click();
 
-        $ele = $this->waitForElement("byLinkText", "Add trigger");
+        $ele = $this->waitForElement("byPartialLinkText", "Add trigger");
         $ele->click();
 
         $this->waitForElement("byClassName", "rte_form");
@@ -105,7 +111,7 @@ class PMA_SeleniumDbTriggersTest extends PMA_SeleniumBase
             ->selectOptionByLabel("INSERT");
 
         $proc = "UPDATE " . $this->database_name . ".`test_table2` SET val=val+1";
-        $this->typeInTextArea($proc);
+        $this->typeInTextArea($proc, 2);
 
         $this->byXPath("//button[contains(., 'Go')]")->click();
 
@@ -143,6 +149,8 @@ class PMA_SeleniumDbTriggersTest extends PMA_SeleniumBase
      */
     public function testEditTriggers()
     {
+        $this->expandMore();
+
         $this->_triggerSQL();
         $ele = $this->waitForElement("byPartialLinkText", "Triggers");
         $ele->click();
@@ -152,10 +160,11 @@ class PMA_SeleniumDbTriggersTest extends PMA_SeleniumBase
             "//legend[contains(., 'Triggers')]"
         );
 
-        $this->byLinkText("Edit")->click();
+        $this->byPartialLinkText("Edit")->click();
 
         $this->waitForElement("byClassName", "rte_form");
-        $this->typeInTextArea("0");
+        $proc = "UPDATE " . $this->database_name . ".`test_table2` SET val=val+10";
+        $this->typeInTextArea($proc, 2);
 
         $this->byXPath("//button[contains(., 'Go')]")->click();
 
@@ -181,6 +190,8 @@ class PMA_SeleniumDbTriggersTest extends PMA_SeleniumBase
      */
     public function testDropTrigger()
     {
+        $this->expandMore();
+
         $this->_triggerSQL();
         $ele = $this->waitForElement("byPartialLinkText", "Triggers");
         $ele->click();
@@ -190,12 +201,20 @@ class PMA_SeleniumDbTriggersTest extends PMA_SeleniumBase
             "//legend[contains(., 'Triggers')]"
         );
 
-        $this->byLinkText("Drop")->click();
+        $this->byPartialLinkText("Drop")->click();
         $this->waitForElement(
-            "byXPath", "//button[contains(., 'OK')]"
+            "byCssSelector", "button.submitOK"
         )->click();
 
         $this->waitForElement("byId", "nothing2display");
+
+        usleep(1000000);
+
+        // test trigger
+        $this->dbQuery("INSERT INTO `test_table` (val) VALUES (1);");
+        $result = $this->dbQuery("SELECT val FROM `test_table2`;");
+        $row = $result->fetch_assoc();
+        $this->assertEquals(2, $row['val']);
 
         $result = $this->dbQuery(
             "SHOW TRIGGERS FROM `" . $this->database_name . "`;"

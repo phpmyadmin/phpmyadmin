@@ -199,6 +199,17 @@ abstract class PMA_SeleniumBase extends PHPUnit_Extensions_Selenium2TestCase
     }
 
     /**
+     * Configures the browser window.
+     *
+     * @return void
+     *
+     */
+    public function setUpPage()
+    {
+        $this->currentWindow()->maximize();
+    }
+
+    /**
      * Checks whether user is a superuser.
      *
      * @return boolean
@@ -233,7 +244,8 @@ abstract class PMA_SeleniumBase extends PHPUnit_Extensions_Selenium2TestCase
     protected function skipIfNotPMADB()
     {
         $this->url('chk_rel.php');
-        if ($this->isElementPresent("byXPath", "//*[@color=\"red\"]")) {
+        $this->waitForElement('byId', 'page_content');
+        if ($this->isElementPresent('byXPath', '//span[contains(@style, \'color:red\')]')) {
             $this->markTestSkipped(
                 'The phpMyAdmin configuration storage is not working.'
             );
@@ -542,20 +554,6 @@ abstract class PMA_SeleniumBase extends PHPUnit_Extensions_Selenium2TestCase
      */
     public function typeInTextArea($text, $index=0)
     {
-        /**
-         * Firefox needs some escaping of a text, see
-         * https://github.com/seleniumhq/selenium-google-code-issue-archive/issues/1723
-         */
-        if (mb_strtolower($this->getBrowser()) == 'firefox') {
-            $text = str_replace(
-                "(",
-                PHPUnit_Extensions_Selenium2TestCase_Keys::SHIFT
-                . PHPUnit_Extensions_Selenium2TestCase_Keys::NUMPAD9
-                . PHPUnit_Extensions_Selenium2TestCase_Keys::NULL,
-                $text
-            );
-        }
-
         $this->execute(
             array(
                 'script' => "var cm = $('.CodeMirror')[" . $index . "].CodeMirror;"

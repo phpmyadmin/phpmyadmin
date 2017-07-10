@@ -52,8 +52,12 @@ class PMA_SeleniumDbStructureTest extends PMA_SeleniumBase
      */
     public function setUpPage()
     {
+        parent::setUpPage();
+
         $this->login();
-        $this->waitForElement('byLinkText', $this->database_name)->click();
+        $this->waitForElement('byPartialLinkText','Databases')->click();
+        $this->waitForElementNotPresent('byCssSelector', 'div#loading_parent');
+        $this->waitForElement('byPartialLinkText', $this->database_name)->click();
         $this->waitForElement(
             'byCssSelector',
             'li.last.table'
@@ -61,6 +65,10 @@ class PMA_SeleniumDbStructureTest extends PMA_SeleniumBase
         $this->waitForElement(
             "byXPath", "//a[contains(., 'test_table')]"
         );
+
+        // Let the Database page load
+        $this->waitForElementNotPresent('byId', 'ajax_message_num_1');
+        $this->expandMore();
     }
 
     /**
@@ -75,8 +83,8 @@ class PMA_SeleniumDbStructureTest extends PMA_SeleniumBase
         $this->byXPath("(//a[contains(., 'Empty')])[1]")->click();
 
         $this->waitForElement(
-            "byXPath",
-            "//button[contains(., 'OK')]"
+            "byCssSelector",
+            "button.submitOK"
         )->click();
 
         $this->assertNotNull(
@@ -109,7 +117,7 @@ class PMA_SeleniumDbStructureTest extends PMA_SeleniumBase
 
         $this->waitForElement(
             "byXPath",
-            "//p[contains(., 'No tables found in database')]"
+            "//*[contains(., 'No tables found in database')]"
         );
 
         $result = $this->dbQuery("SHOW TABLES;");
