@@ -26,13 +26,19 @@ class PMA_SeleniumDbOperationsTest extends PMA_SeleniumBase
      */
     public function setUpPage()
     {
+        parent::setUpPage();
         $this->login();
+    }
+
+    private function _getToDBOperations()
+    {
+        $this->gotoHomepage();
         $this->waitForElement('byLinkText', $this->database_name)->click();
-        $this->waitForElement("byLinkText", "Structure");
+        $this->waitForElement('byPartialLinkText', 'Structure');
         $this->expandMore();
-        $this->waitForElement("byLinkText", "Operations")->click();
+        $this->waitForElement('byPartialLinkText', 'Operations')->click();
         $this->waitForElement(
-            "byXPath", "//legend[contains(., 'Rename database to')]"
+            'byXPath', '//legend[contains(., \'Rename database to\')]'
         );
     }
 
@@ -46,6 +52,8 @@ class PMA_SeleniumDbOperationsTest extends PMA_SeleniumBase
     public function testDbComment()
     {
         $this->skipIfNotPMADB();
+
+        $this->_getToDBOperations();
         $this->byName("comment")->value("comment_foobar");
         $this->byCssSelector(
             "form#formDatabaseComment input[type='submit']"
@@ -68,14 +76,18 @@ class PMA_SeleniumDbOperationsTest extends PMA_SeleniumBase
      */
     public function testRenameDB()
     {
+        $this->_getToDBOperations();
+
         $new_db_name = $this->database_name . 'rename';
+
+        $this->scrollIntoView('create_table_form_minimal');
         $this->byCssSelector("form#rename_db_form input[name=newname]")
             ->value($new_db_name);
 
         $this->byCssSelector("form#rename_db_form input[type='submit']")->click();
 
         $this->waitForElement(
-            "byXPath", "//button[contains(., 'OK')]"
+            "byCssSelector", "button.submitOK"
         )->click();
 
         $this->waitForElement(
@@ -105,6 +117,8 @@ class PMA_SeleniumDbOperationsTest extends PMA_SeleniumBase
      */
     public function testCopyDb()
     {
+        $this->_getToDBOperations();
+
         $new_db_name = $this->database_name . 'copy';
         $this->byCssSelector("form#copy_db_form input[name=newname]")
             ->value($new_db_name);

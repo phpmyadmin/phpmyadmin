@@ -44,11 +44,19 @@ class PMA_SeleniumDbProceduresTest extends PMA_SeleniumBase
      */
     public function setUpPage()
     {
+        parent::setUpPage();
+
         $this->login();
-        $this->waitForElement('byLinkText', $this->database_name)->click();
+
+        $this->waitForElement('byPartialLinkText','Databases')->click();
+        $this->waitForElementNotPresent('byCssSelector', 'div#loading_parent');
+        $this->waitForElement('byPartialLinkText', $this->database_name)->click();
         $this->waitForElement(
             "byXPath", "//a[contains(., 'test_table')]"
         );
+
+        // Let the Database page load
+        $this->waitForElementNotPresent('byId', 'ajax_message_num_1');
         $this->expandMore();
     }
 
@@ -78,7 +86,7 @@ class PMA_SeleniumDbProceduresTest extends PMA_SeleniumBase
         $ele = $this->waitForElement("byPartialLinkText", "Routines");
         $ele->click();
 
-        $ele = $this->waitForElement("byLinkText", "Add routine");
+        $ele = $this->waitForElement("byPartialLinkText", "Add routine");
         $ele->click();
 
         $this->waitForElement("byClassName", "rte_form");
@@ -100,7 +108,7 @@ class PMA_SeleniumDbProceduresTest extends PMA_SeleniumBase
         $ele->value("outp");
 
         $proc = "SELECT char_length(inp) + count(*) FROM test_table INTO outp";
-        $this->typeInTextArea($proc);
+        $this->typeInTextArea($proc, 2);
 
         $this->select(
             $this->byName("item_sqldataaccess")
@@ -119,7 +127,7 @@ class PMA_SeleniumDbProceduresTest extends PMA_SeleniumBase
         );
 
         $this->assertEquals(1, $result->num_rows);
-        $this->_executeProcedure("abcabcabcabcabcabcabc", 10);
+        $this->_executeProcedure("test_procedure", 10);
     }
 
     /**
@@ -140,7 +148,7 @@ class PMA_SeleniumDbProceduresTest extends PMA_SeleniumBase
             "//legend[contains(., 'Routines')]"
         );
 
-        $this->byLinkText("Edit")->click();
+        $this->byPartialLinkText("Edit")->click();
         $this->waitForElement("byClassName", "rte_form");
         $this->byName("item_param_length[0]")->clear();
         $this->byName("item_param_length[0]")->value("12");
@@ -153,7 +161,7 @@ class PMA_SeleniumDbProceduresTest extends PMA_SeleniumBase
             . "'Routine `test_procedure` has been modified')]"
         );
 
-        $this->_executeProcedure("abcabcabcabcabcabcabc", 12);
+        $this->_executeProcedure("test_procedure", 12);
     }
 
     /**
@@ -174,9 +182,9 @@ class PMA_SeleniumDbProceduresTest extends PMA_SeleniumBase
             "//legend[contains(., 'Routines')]"
         );
 
-        $this->byLinkText("Drop")->click();
+        $this->byPartialLinkText("Drop")->click();
         $this->waitForElement(
-            "byXPath", "//button[contains(., 'OK')]"
+            "byCssSelector", "button.submitOK"
         )->click();
 
         $this->waitForElement("byId", "nothing2display");
@@ -198,7 +206,7 @@ class PMA_SeleniumDbProceduresTest extends PMA_SeleniumBase
      */
     private function _executeProcedure($text, $length)
     {
-        $this->waitForElement("byLinkText", "Execute")->click();
+        $this->waitForElement("byPartialLinkText", "Execute")->click();
         $this->waitForElement("byName", "params[inp]")->value($text);
         $this->byCssSelector("div.ui-dialog-buttonset button:nth-child(1)")->click();
         $this->waitForElement(

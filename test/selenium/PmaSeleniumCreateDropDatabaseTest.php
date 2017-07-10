@@ -30,6 +30,12 @@ class PMA_SeleniumCreateDropDatabaseTest extends PMA_SeleniumBase
         $this->skipIfNotSuperUser();
     }
 
+    public function setUpPage()
+    {
+        parent::setUpPage();
+        $this->login();
+    }
+
     /**
      * Creates a database and drops it
      *
@@ -39,9 +45,10 @@ class PMA_SeleniumCreateDropDatabaseTest extends PMA_SeleniumBase
      */
     public function testCreateDropDatabase()
     {
-        $this->login();
-
-        $this->_dropDatabase();
+        // Drop database if it exists
+        $this->dbQuery(
+            'DROP DATABASE IF EXISTS ' . $this->database_name . ';'
+        );
 
         $this->waitForElement('byPartialLinkText','Databases')->click();
         $this->waitForElementNotPresent('byCssSelector', 'div#loading_parent');
@@ -53,6 +60,11 @@ class PMA_SeleniumCreateDropDatabaseTest extends PMA_SeleniumBase
         $this->byId("buttonGo")->click();
 
         $element = $this->waitForElement('byLinkText', 'Database: ' . $this->database_name);
+
+        $result = $this->dbQuery(
+            'SHOW DATABASES LIKE \'' . $this->database_name . '\';'
+        );
+        $this->assertEquals(1, $result->num_rows);
 
         $this->_dropDatabase();
     }
@@ -85,5 +97,10 @@ class PMA_SeleniumCreateDropDatabaseTest extends PMA_SeleniumBase
         $this->waitForElement(
             "byCssSelector", "span.ajax_notification div.success"
         );
+
+        $result = $this->dbQuery(
+            'SHOW DATABASES LIKE \'' . $this->database_name . '\';'
+        );
+        $this->assertEquals(0, $result->num_rows);
     }
 }

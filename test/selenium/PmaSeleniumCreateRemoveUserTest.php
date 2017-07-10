@@ -47,6 +47,12 @@ class PMA_SeleniumCreateRemoveUserTest extends PMA_SeleniumBase
         $this->_txtPassword = 'abc_123';
     }
 
+    public function setUpPage()
+    {
+        parent::setUpPage();
+        $this->login();
+    }
+
     /**
      * Creates and removes a user
      *
@@ -56,16 +62,18 @@ class PMA_SeleniumCreateRemoveUserTest extends PMA_SeleniumBase
      */
     public function testCreateRemoveUser()
     {
-        $this->login();
         $this->waitForElement('byPartialLinkText', "User accounts")->click();
 
         // Let the User Accounts page load
         $this->waitForElementNotPresent('byId', 'ajax_message_num_1');
 
         $this->scrollIntoView('add_user_anchor');
-        $link = $this->waitForElement("byId", "add_user_anchor");
-        $link->click();
+        $this->waitForElement('byId', 'usersForm');
+        usleep(1000000);
+        $this->waitForElement("byId", "add_user_anchor")->click();
+        usleep(1000000);
 
+        $this->waitForElementNotPresent('byId', 'ajax_message_num_1');
         $userField = $this->waitForElement("byName", "username");
         $userField->value($this->_txtUsername);
 
@@ -107,6 +115,8 @@ class PMA_SeleniumCreateRemoveUserTest extends PMA_SeleniumBase
         )->click();
 
         $this->byId("checkbox_drop_users_db")->click();
+        $this->scrollIntoView('fieldset_delete_user_footer');
+
         $this->byId("buttonGo")->click();
         $this->waitForElement("byCssSelector", "button.submitOK")->click();
         $this->acceptAlert();

@@ -48,6 +48,8 @@ class PMA_SeleniumDbEventsTest extends PMA_SeleniumBase
      */
     public function setUpPage()
     {
+        parent::setUpPage();
+
         $this->login();
         $this->waitForElement('byPartialLinkText','Databases')->click();
         $this->waitForElementNotPresent('byCssSelector', 'div#loading_parent');
