@@ -14,7 +14,7 @@ use PhpMyAdmin\Core;
  */
 require './lib/common.inc.php';
 
-if (file_exists(CONFIG_FILE) && ! $cfg['DBG']['demo']) {
+if (@file_exists(CONFIG_FILE) && ! $cfg['DBG']['demo']) {
     Core::fatalError(__('Configuration already exists, setup is disabled!'));
 }
 
@@ -23,7 +23,7 @@ $page = preg_replace('/[^a-z]/', '', $page);
 if ($page === '') {
     $page = 'index';
 }
-if (!file_exists("./setup/frames/$page.inc.php")) {
+if (!@file_exists("./setup/frames/$page.inc.php")) {
     // it will happen only when entering URL by hand, we don't care for these cases
     Core::fatalError(__('Wrong GET file attribute value'));
 }

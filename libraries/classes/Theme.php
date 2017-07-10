@@ -90,7 +90,7 @@ class Theme
     function loadInfo()
     {
         $infofile = $this->getPath() . '/theme.json';
-        if (! file_exists($infofile)) {
+        if (! @file_exists($infofile)) {
             return false;
         }
 
