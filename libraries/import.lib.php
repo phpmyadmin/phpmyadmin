@@ -11,6 +11,8 @@ use PhpMyAdmin\Response;
 use PhpMyAdmin\Table;
 use PhpMyAdmin\Util;
 use PhpMyAdmin\Url;
+use PhpMyAdmin\SqlParser\Parser;
+use PhpMyAdmin\SqlParser\Utils\Query;
 
 if (! defined('PHPMYADMIN')) {
     exit;
@@ -58,8 +60,22 @@ function PMA_executeQuery($sql, $full, &$sql_data)
 {
     global $go_sql,
         $sql_query, $my_die, $error, $reload,
-        $result, $msg,
-        $cfg, $sql_query_disabled, $db;
+        $result, $msg, $reset_charset, $charset_of_file,
+        $cfg, $sql_query_disabled, $db, $charset_check, $charset_conversion;
+
+    if ($charset_check === false) {
+        $sql = Encoding::convertString($charset_of_file, 'utf-8', $sql);
+    }
+
+    if ($charset_check && strpos($sql, 'SET NAMES') !== false) {
+        $parser = new Parser($sql);
+        $flags = Query::getFlags($parser->statements[0]);
+        if ($flags['querytype'] == 'SET') {
+            $reset_charset = true;
+            $charset_conversion = false;
+        }
+        $charset_check = false;
+    }
 
     $result = $GLOBALS['dbi']->tryQuery($sql);
 
@@ -309,16 +325,18 @@ function PMA_lookForUse($buffer, $db, $reload)
 /**
  * Returns next part of imported file/buffer
  *
+ * @param string $import_type which type of import is used
+ *               (optional only used for sql imports)
  * @param int $size size of buffer to read
  *                  (this is maximal size function will return)
  *
  * @return string part of file/buffer
  * @access public
  */
-function PMA_importGetNextChunk($size = 32768)
+function PMA_importGetNextChunk($import_type = '', $size = 32768)
 {
     global $compression, $import_handle, $charset_conversion, $charset_of_file,
-        $read_multiply;
+        $read_multiply, $charset_check;
 
     // Add some progression while reading large amount of data
     if ($read_multiply <= 8) {
@@ -327,6 +345,7 @@ function PMA_importGetNextChunk($size = 32768)
         $size *= 8;
     }
     $read_multiply++;
+    $charset_check = null;
 
     // We can not read too much
     if ($size > $GLOBALS['read_limit']) {
@@ -358,7 +377,11 @@ function PMA_importGetNextChunk($size = 32768)
     $GLOBALS['finished'] = $import_handle->eof();
     $GLOBALS['offset'] += $size;
 
-    if ($charset_conversion) {
+    if (strpos($result, 'SET NAMES') !== false && $import_type == 'sql') {
+        $charset_check = true;
+    }
+
+    if ($charset_conversion && !$charset_check) {
         return Encoding::convertString($charset_of_file, 'utf-8', $result);
     }
 
