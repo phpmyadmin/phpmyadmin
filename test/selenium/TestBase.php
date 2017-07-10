@@ -593,8 +593,12 @@ abstract class PMA_SeleniumBase extends PHPUnit_Extensions_Selenium2TestCase
      */
     public function navigateTable($table)
     {
-        // go to database page
-        $this->waitForElement("byLinkText", $this->database_name)->click();
+        // Go to server databases
+        $this->waitForElement('byPartialLinkText','Databases')->click();
+        $this->waitForElementNotPresent('byCssSelector', 'div#loading_parent');
+
+        // go to specific database page
+        $this->waitForElement("byPartialLinkText", $this->database_name)->click();
 
         /* Wait for loading and expanding tree */
         $this->waitForElement(
@@ -608,7 +612,7 @@ abstract class PMA_SeleniumBase extends PHPUnit_Extensions_Selenium2TestCase
         // go to table page
         $this->waitForElement(
             "byXPath",
-            "//*[@id='pma_navigation_tree_content']//a[contains(., '$table')]"
+            "//th//a[contains(., '$table')]"
         )->click();
 
         // Wait for it to load
@@ -637,6 +641,22 @@ abstract class PMA_SeleniumBase extends PHPUnit_Extensions_Selenium2TestCase
                             . 'var y = position.top;'
                             . 'window.scrollTo(x, y-70);',
                 'args'   => array()
+            )
+        );
+        usleep(10000);
+    }
+
+    /**
+     * Scroll to the bottom of page
+     *
+     * @return void
+     */
+    public function scrollToBottom()
+    {
+        $this->execute(
+            array(
+                'script' => 'window.scrollTo(0,document.body.scrollHeight);',
+                'args' => array()
             )
         );
         usleep(10000);
