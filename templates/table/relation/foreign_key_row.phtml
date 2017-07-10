@@ -69,7 +69,7 @@ if ($foreign_db) {
         }
     }
     if ($GLOBALS['cfg']['NaturalOrder']) {
-        natsort($tables);
+        usort($tables, 'strnatcasecmp');
     }
 }
 ?>
