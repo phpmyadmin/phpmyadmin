@@ -4721,21 +4721,21 @@ AJAX.registerOnload('functions.js', function () {
         }); // end $(document).on()
     }
 
-    syntaxHighlighter = PMA_getSQLEditor($('textarea[name="view[as]"]'));
+    codemirror_editor = PMA_getSQLEditor($('textarea[name="view[as]"]'));
 
 });
 
 function PMA_createViewDialog($this)
 {
     var $msg = PMA_ajaxShowMessage();
-    var syntaxHighlighter = null;
+    var codemirror_editor = null;
     $.get($this.attr('href') + '&ajax_request=1&ajax_dialog=1', function (data) {
         if (typeof data !== 'undefined' && data.success === true) {
             PMA_ajaxRemoveMessage($msg);
             var buttonOptions = {};
             buttonOptions[PMA_messages.strGo] = function () {
                 if (typeof CodeMirror !== 'undefined') {
-                    syntaxHighlighter.save();
+                    codemirror_editor.save();
                 }
                 $msg = PMA_ajaxShowMessage();
                 $.post('view_create.php', $('#createViewDialog').find('form').serialize(), function (data) {
@@ -4763,7 +4763,7 @@ function PMA_createViewDialog($this)
                 }
             });
             // Attach syntax highlighted editor
-            syntaxHighlighter = PMA_getSQLEditor($dialog.find('textarea'));
+            codemirror_editor = PMA_getSQLEditor($dialog.find('textarea'));
             $('input:visible[type=text]', $dialog).first().focus();
         } else {
             PMA_ajaxShowMessage(data.error);
