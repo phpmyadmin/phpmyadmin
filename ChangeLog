@@ -25,6 +25,7 @@ phpMyAdmin - ChangeLog
 - issue #12944 Improved inline editor for JSON
 - issue #13145 Improved layout of operations pages
 - issue #13448 Add "format" query button in edit view form
+- issue #6241  Implement Responsive Design/mobile interface
 
 4.7.3 (not yet released)
 - issue #13447 Large multi-line query removes Export operation and blanks query box options
