@@ -6,6 +6,7 @@ phpMyAdmin - ChangeLog
 - issue #13445 Fixed rendering of query results
 - issue #13437 Fixed version check when not connected to a database
 - issue #13465 Fixed creating relation
+- issue #13475 Fixed export without backquotes
 
 4.7.2 (2017-06-29)
 - issue #13314 Make theme selection keep current server
