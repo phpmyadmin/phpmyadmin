@@ -599,7 +599,7 @@ class DatabaseStructureController extends DatabaseController
                 $row_count = 1;
 
                 $this->response->addHTML(
-                    '</tr></tbody></table></form>'
+                    '</tr></tbody></table></div></form>'
                 );
 
                 $this->response->addHTML(

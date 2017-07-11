@@ -181,7 +181,7 @@ class PMA_ServerStatus_Test extends PHPUnit_Framework_TestCase
         );
 
         //validate 2: PMA_getHtmlForServerStateTraffic
-        $traffic_html = '<table id="serverstatustraffic" class="data noclick">';
+        $traffic_html = '<table id="serverstatustraffic" class="width100 data noclick">';
         $this->assertContains(
             $traffic_html,
             $html
@@ -213,7 +213,7 @@ class PMA_ServerStatus_Test extends PHPUnit_Framework_TestCase
             $html
         );
         $this->assertContains(
-            '<table id="serverstatusconnections" class="data noclick">',
+            '<table id="serverstatusconnections" class="width100 data noclick">',
             $html
         );
         $this->assertContains(

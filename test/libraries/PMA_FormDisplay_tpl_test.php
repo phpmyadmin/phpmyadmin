@@ -66,7 +66,7 @@ class PMA_FormDisplay_Tpl_Test extends PHPUnit_Framework_TestCase
         $result = PMA_displayTabsTop(array('one', 'two'));
 
         $this->assertContains(
-            '<ul class="tabs"',
+            '<ul class="tabs responsivetable"',
             $result
         );
 

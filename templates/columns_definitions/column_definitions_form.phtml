@@ -44,7 +44,7 @@ use PhpMyAdmin\Url;
 
     <?php if ($action == 'tbl_create.php'): ?>
         <div id="table_name_col_no_outer">
-            <table id="table_name_col_no">
+            <table id="table_name_col_no" class="tdblock">
                 <tr class="vmiddle floatleft">
                     <td><?= __('Table name'); ?>:&nbsp;
                     <input type="text"
@@ -83,6 +83,7 @@ use PhpMyAdmin\Url;
         )); ?>
     <?php endif; ?>
     <?php if ($action == 'tbl_create.php'): ?>
+        <div class="responsivetable">
         <table>
             <tr class="vtop">
                 <th>
@@ -156,6 +157,7 @@ use PhpMyAdmin\Url;
                 </tr>
             <?php endif; ?>
         </table>
+        </div>
         <br />
     <?php endif; ?>
     <fieldset class="tblFooters">

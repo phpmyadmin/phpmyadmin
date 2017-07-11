@@ -472,4 +472,7 @@ AJAX.registerOnload('server_privileges.js', function () {
     if ($("#edit_user_dialog").length > 0) {
         addOrUpdateSubmenu();
     }
+
+    var windowwidth = $(window).width();
+    $('.jsresponsive').css('max-width', (windowwidth - 35 ) + 'px');
 });

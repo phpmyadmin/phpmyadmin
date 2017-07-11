@@ -53,7 +53,8 @@ switch ($searchType) {
             <legend>
                 <?= __('Do a "query by example" (wildcard: "%")'); ?>
             </legend>
-            <?= PhpMyAdmin\Template::get('table/search/fields_table')
+            <div class="responsivetable jsresponsive">
+                <?= PhpMyAdmin\Template::get('table/search/fields_table')
                 ->render(array(
                     'self' => $self,
                     'searchType' => $searchType,
@@ -62,6 +63,7 @@ switch ($searchType) {
                     'columnTypes' => $columnTypes,
                     'columnCollations' => $columnCollations
                 )); ?>
+            </div>
             <div id="gis_editor">
             </div>
             <div id="popup_background">

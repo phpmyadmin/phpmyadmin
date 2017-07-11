@@ -410,4 +410,6 @@ AJAX.registerOnload('tbl_select.js', function () {
             });
         }
     });
+    var windowwidth = $(window).width();
+    $('.jsresponsive').css('max-width', (windowwidth - 69 ) + 'px');
 });

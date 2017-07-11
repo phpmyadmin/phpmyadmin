@@ -123,7 +123,8 @@ function PMA_getHtmlForServerProcesslist()
 
     $result = $GLOBALS['dbi']->query($sql_query);
 
-    $retval = '<table id="tableprocesslist" '
+    $retval = '<div class="responsivetable">';
+    $retval .= '<table id="tableprocesslist" '
         . 'class="data clearfloat noclick sortable">';
     $retval .= '<thead>';
     $retval .= '<tr>';
@@ -195,6 +196,7 @@ function PMA_getHtmlForServerProcesslist()
     }
     $retval .= '</tbody>';
     $retval .= '</table>';
+    $retval .= '</div>';
 
     return $retval;
 }

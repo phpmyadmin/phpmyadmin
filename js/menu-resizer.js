@@ -24,6 +24,28 @@
         var self = this;
         self.$container = $container;
         self.widthCalculator = widthCalculator;
+        var windowWidth = $(window).width();
+
+        if (windowWidth < 768) {
+            $('#pma_navigation_resizer').css({'width': '0px'});
+        }
+        // Sets the image for the left and right scroll indicator
+        $('.scrollindicator--left').html($(PMA_getImage('b_left.png').toString()));
+        $('.scrollindicator--right').html($(PMA_getImage('b_right.png').toString()));
+
+        // Set the width of the navigation bar without scroll indicator
+        $('.navigationbar').css({'width': widthCalculator.call($container) - 60});
+
+        // Scroll the navigation bar on click
+        $('.scrollindicator--right')
+            .click(function () {
+                $('.navigationbar').scrollLeft($('.navigationbar').scrollLeft() + 70);
+            });
+        $('.scrollindicator--left')
+            .click(function () {
+                $('.navigationbar').scrollLeft($('.navigationbar').scrollLeft() - 70);
+            });
+
         // create submenu container
         var link = $('<a />', {href: '#', 'class': 'tab nowrap'})
             .text(PMA_messages.strMore)
@@ -59,6 +81,7 @@
     }
     MenuResizer.prototype.resize = function () {
         var wmax = this.widthCalculator.call(this.$container);
+        var windowWidth = $(window).width();
         var $submenu = this.$container.find('.submenu:last');
         var submenu_w = $submenu.outerWidth(true);
         var $submenu_ul = $submenu.find('ul');
@@ -72,6 +95,16 @@
         for (i = 0; i < l; i++) {
             total_len += $($li[i]).outerWidth(true);
         }
+
+        var hasVScroll = document.body.scrollHeight > document.body.clientHeight;
+        if (hasVScroll) {
+            windowWidth += 15;
+        }
+        var navigationwidth = wmax;
+        if (windowWidth < 768){
+            wmax = 2000;
+        }
+
         // Now hide menu elements that don't fit into the menubar
         var hidden = false; // Whether we have hidden any tabs
         while (total_len >= wmax && --l >= 0) { // Process the tabs backwards
@@ -106,10 +139,19 @@
             }
         }
         // Show/hide the "More" tab as needed
-        if ($submenu_ul.find('li').length > 0) {
-            $submenu.addClass('shown');
-        } else {
+        if (windowWidth < 768) {
+            $('.navigationbar').css({'width': windowWidth - 80 - $('#pma_navigation').width()});
             $submenu.removeClass('shown');
+            $('.navigationbar').css({'overflow': 'hidden'});
+        }
+        else {
+            $('.navigationbar').css({'width': 'auto'});
+            $('.navigationbar').css({'overflow': 'visible'});
+            if ($submenu_ul.find('li').length > 0) {
+                $submenu.addClass('shown');
+            } else {
+                $submenu.removeClass('shown');
+            }
         }
         if (this.$container.find('> li').length == 1) {
             // If there is only the "More" tab left, then we need

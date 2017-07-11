@@ -207,7 +207,8 @@ function PMA_getHtmlForVariablesList($ServerStatusData)
  */
 function PMA_getHtmlForRenderVariables($ServerStatusData, $alerts, $strShowStatus)
 {
-    $retval  = '<table class="data noclick" id="serverstatusvariables">';
+    $retval = '<div class="responsivetable">';
+    $retval  .= '<table class="data noclick" id="serverstatusvariables">';
     $retval .= '<col class="namecol" />';
     $retval .= '<col class="valuecol" />';
     $retval .= '<col class="descrcol" />';
@@ -308,6 +309,7 @@ function PMA_getHtmlForRenderVariables($ServerStatusData, $alerts, $strShowStatu
     }
     $retval .= '</tbody>';
     $retval .= '</table>';
+    $retval .= '</div>';
 
     return $retval;
 }

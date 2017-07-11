@@ -1036,7 +1036,13 @@ AJAX.registerOnload('server_status_monitor.js', function () {
             panelWidth = $('#logTable').innerWidth() - 10; // leave some space for vertical scroll bar
         }
 
-        var wdt = (panelWidth - monitorSettings.columns * chartSpacing.width) / monitorSettings.columns;
+        var wdt = panelWidth;
+        var windowWidth = $(window).width();
+
+        if (windowWidth > 768) {
+            wdt = (panelWidth - monitorSettings.columns * chartSpacing.width) / monitorSettings.columns;
+        }
+
         chartSize = {
             width: Math.floor(wdt),
             height: Math.floor(0.75 * wdt)

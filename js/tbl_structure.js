@@ -61,8 +61,11 @@ function reloadFieldForm() {
         $('#move_columns_dialog').find('ul').replaceWith($temp_div.find("#move_columns_dialog ul"));
         $("#moveColumns").removeClass("move-active");
         /* reinitialise the more options in table */
-        if ($('#fieldsForm').hasClass('HideStructureActions')) {
-            $('#fieldsForm').find('ul.table-structure-actions').menuResizer(PMA_tbl_structure_menu_resizer_callback);
+        var windowWidth = $(window).width();
+        if (windowWidth > 768) {
+            if ($('#fieldsForm').hasClass('HideStructureActions')) {
+                $('#fieldsForm').find('ul.table-structure-actions').menuResizer(PMA_tbl_structure_menu_resizer_callback);
+            }
         }
     });
     $('#page_content').show();
@@ -379,8 +382,11 @@ AJAX.registerOnload('tbl_structure.js', function () {
                     }
                     PMA_ajaxShowMessage(data.message);
                     $this.dialog('close');
-                    if ($('#fieldsForm').hasClass('HideStructureActions')) {
-                        $('#fieldsForm').find('ul.table-structure-actions').menuResizer(PMA_tbl_structure_menu_resizer_callback);
+                    var windowWidth = $(window).width();
+                    if (windowWidth > 768) {
+                        if ($('#fieldsForm').hasClass('HideStructureActions')) {
+                            $('#fieldsForm').find('ul.table-structure-actions').menuResizer(PMA_tbl_structure_menu_resizer_callback);
+                        }
                     }
                 }
             });
@@ -507,17 +513,22 @@ AJAX.registerOnload('tbl_structure.js', function () {
 
 /** Handler for "More" dropdown in structure table rows */
 AJAX.registerOnload('tbl_structure.js', function () {
-    if ($('#fieldsForm').hasClass('HideStructureActions')) {
-        $('#fieldsForm').find('ul.table-structure-actions').menuResizer(PMA_tbl_structure_menu_resizer_callback);
-    } else {
-        $('.table-structure-actions').width(function () {
-            var width = 5;
-            $(this).find('li').each(function () {
-                width += $(this).outerWidth(true);
+    var windowwidth = $(window).width();
+    if (windowwidth > 768){
+        if ($('#fieldsForm').hasClass('HideStructureActions')) {
+            $('#fieldsForm').find('ul.table-structure-actions').menuResizer(PMA_tbl_structure_menu_resizer_callback);
+        } else {
+            $('.table-structure-actions').width(function () {
+                var width = 5;
+                $(this).find('li').each(function () {
+                    width += $(this).outerWidth(true);
+                });
+                return width;
             });
-            return width;
-        });
+        }
     }
+
+    $('.jsresponsive').css('max-width', (windowwidth - 35 ) + 'px');
 });
 AJAX.registerTeardown('tbl_structure.js', function () {
     if ($('#fieldsForm').hasClass('HideStructureActions')) {

@@ -4,6 +4,7 @@
     <?php if (PhpMyAdmin\Util::isForeignKeySupported($tbl_storage_engine)): ?>
         <fieldset>
             <legend><?= __('Foreign key constraints'); ?></legend>
+            <div class="responsivetable jsresponsive">
             <table id="foreign_keys" class="relationalTable">
                 <thead><tr>
                     <th><?= __('Actions'); ?></th>
@@ -67,6 +68,7 @@
                     </td>
                 </tr>
             </table>
+            </div>
         </fieldset>
     <?php endif; ?>
 

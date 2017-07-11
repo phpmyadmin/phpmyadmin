@@ -2332,6 +2332,7 @@ function PMA_getHtmlForSpecificDbPrivileges($db)
         // check the privileges for a particular database.
         $html_output  = '<form id="usersForm" action="server_privileges.php">';
         $html_output .= Url::getHiddenInputs($db);
+        $html_output .= '<div class="width100">';
         $html_output .= '<fieldset>';
         $html_output .= '<legend>' . "\n"
             . Util::getIcon('b_usrcheck.png')
@@ -2348,11 +2349,13 @@ function PMA_getHtmlForSpecificDbPrivileges($db)
             . "\n"
             . '</legend>' . "\n";
 
+        $html_output .= '<div class="responsivetable jsresponsive">';
         $html_output .= '<table id="dbspecificuserrights" class="data">';
         $html_output .= PMA_getHtmlForPrivsTableHead();
         $privMap = PMA_getPrivMap($db);
         $html_output .= PMA_getHtmlTableBodyForSpecificDbOrTablePrivs($privMap, $db);
         $html_output .= '</table>';
+        $html_output .= '</div>';
 
         $html_output .= '<div class="floatleft">';
         $html_output .= Template::get('select_all')
@@ -2369,6 +2372,7 @@ function PMA_getHtmlForSpecificDbPrivileges($db)
         );
 
         $html_output .= '</fieldset>';
+        $html_output .= '</div>';
         $html_output .= '</form>';
     } else {
         $html_output .= PMA_getHtmlForViewUsersError();
@@ -2423,6 +2427,7 @@ function PMA_getHtmlForSpecificTablePrivileges($db, $table)
             )
             . '</legend>';
 
+        $html_output .= '<div class="responsivetable jsresponsive">';
         $html_output .= '<table id="tablespecificuserrights" class="data">';
         $html_output .= PMA_getHtmlForPrivsTableHead();
         $privMap = PMA_getPrivMap($db);
@@ -2436,7 +2441,7 @@ function PMA_getHtmlForSpecificTablePrivileges($db, $table)
         $res = $GLOBALS['dbi']->query($sql_query);
         PMA_mergePrivMapFromResult($privMap, $res);
         $html_output .= PMA_getHtmlTableBodyForSpecificDbOrTablePrivs($privMap, $db);
-        $html_output .= '</table>';
+        $html_output .= '</table></div>';
 
         $html_output .= '<div class="floatleft">';
         $html_output .= Template::get('select_all')
@@ -3484,6 +3489,7 @@ function PMA_getUsersOverview($result, $db_rights, $pmaThemeImage, $text_dir)
         = '<form name="usersForm" id="usersForm" action="server_privileges.php" '
         . 'method="post">' . "\n"
         . Url::getHiddenInputs('', '')
+        . '<div class="responsivetable">'
         . '<table id="tableuserrights" class="data">' . "\n"
         . '<thead>' . "\n"
         . '<tr><th></th>' . "\n"
@@ -3507,7 +3513,7 @@ function PMA_getUsersOverview($result, $db_rights, $pmaThemeImage, $text_dir)
     $html_output .= '<tbody>' . "\n";
     $html_output .= PMA_getHtmlTableBodyForUserRights($db_rights);
     $html_output .= '</tbody>'
-        . '</table>' . "\n";
+        . '</table></div>' . "\n";
 
     $html_output .= '<div class="floatleft">'
         . Template::get('select_all')
