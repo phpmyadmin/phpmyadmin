@@ -18,6 +18,11 @@ require_once 'TestBase.php';
  */
 class PMA_SeleniumLoginTest extends PMA_SeleniumBase
 {
+    public function setUpPage()
+    {
+        parent::setUpPage();
+        $this->logOutIfLoggedIn();
+    }
     /**
      * Test for successful login
      *
@@ -27,7 +32,6 @@ class PMA_SeleniumLoginTest extends PMA_SeleniumBase
      */
     public function testSuccessfulLogin()
     {
-        $this->logOutIfLoggedIn();
         $this->login();
         $this->waitForElement("byXPath", "//*[@id=\"serverinfo\"]");
         $this->assertTrue($this->isSuccessLogin());
@@ -43,7 +47,6 @@ class PMA_SeleniumLoginTest extends PMA_SeleniumBase
      */
     public function testLoginWithWrongPassword()
     {
-        $this->logOutIfLoggedIn();
         $this->login("Admin", "Admin");
         $this->waitForElement("byCssSelector", "div.error");
         $this->assertTrue($this->isUnsuccessLogin());

@@ -43,14 +43,19 @@ class PMA_SeleniumNormalizationTest extends PMA_SeleniumBase
      */
     public function setUpPage()
     {
+        parent::setUpPage();
+
         $this->login();
         $this->navigateTable('test_table');
         $this->waitForElement(
             "byXPath",
             "(//a[contains(., 'Structure')])"
         )->click();
+
+        $this->waitForElementNotPresent('byCssSelector', 'div#loading_parent');
+
         $this->waitForElement("byId", "tablestructure");
-        $this->byLinkText('Improve table structure')->click();
+        $this->byPartialLinkText('Normalize')->click();
         $this->waitForElement("byId", "normalizeTable");
     }
 

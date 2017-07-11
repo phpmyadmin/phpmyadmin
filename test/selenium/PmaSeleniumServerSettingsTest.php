@@ -25,9 +25,13 @@ class PMA_SeleniumSettingsTest extends PMA_SeleniumBase
      */
     public function setUpPage()
     {
+        parent::setUpPage();
+
         $this->login();
         $this->expandMore();
-        $this->waitForElement("byLinkText", "Settings")->click();
+        $this->waitForElement("byPartialLinkText", "Settings")->click();
+        $this->waitForElementNotPresent('byCssSelector', 'ajax_message_num_1');
+
         $this->waitForElement(
             "byXPath", "//a[@class='tabactive' and contains(., 'Settings')]"
         );
@@ -41,8 +45,16 @@ class PMA_SeleniumSettingsTest extends PMA_SeleniumBase
      */
     private function _saveConfig()
     {
-        $this->byName("submit_save")->click();
-        $this->sleep();
+        // Submit the form
+        $ele = $this->waitForElement(
+            'byXPath',
+            "//fieldset[not(contains(@style,'display: none;'))]//input[@value='Apply']"
+        );
+        $this->scrollToBottom();
+        $this->moveto($ele);
+        $ele->click();
+
+        usleep(1000000);
         $this->waitForElement(
             "byXPath",
             "//div[@class='success' and contains(., 'Configuration has been saved')]"
@@ -58,13 +70,15 @@ class PMA_SeleniumSettingsTest extends PMA_SeleniumBase
      */
     public function testHideDatabase()
     {
-        /* FIXME: This test fails even though it is same as testHideLogo */
-        $this->markTestIncomplete('Currently broken');
+        $this->byPartialLinkText("Features")->click();
+        $this->waitForElementNotPresent('byCssSelector', 'ajax_message_num_1');
 
-        $this->byLinkText("Features")->click();
+        $this->waitForElement('byXPath', "//a[contains(@href, '#Databases')]")->click();
 
-        $this->waitForElement("byName", "Servers-1-hide_db")
-            ->value($this->database_name);
+        $ele = $this->waitForElement("byName", "Servers-1-hide_db");
+        $this->moveto($ele);
+        $ele->value($this->database_name);
+
         $this->_saveConfig();
         $this->assertFalse(
             $this->isElementPresent("byLinkText", $this->database_name)
@@ -86,10 +100,12 @@ class PMA_SeleniumSettingsTest extends PMA_SeleniumBase
      */
     public function testSettingsTabsAreDisplayed()
     {
-        $this->byLinkText("SQL queries")->click();
+        $this->byPartialLinkText("SQL queries")->click();
+        $this->waitForElementNotPresent('byCssSelector', 'ajax_message_num_1');
+
         $this->waitForElement('byClassName', 'tabs');
 
-        $this->byLinkText("SQL Query box")->click();
+        $this->byPartialLinkText("SQL Query box")->click();
         $this->assertTrue(
             $this->byId("Sql_box")->displayed()
         );
@@ -115,7 +131,8 @@ class PMA_SeleniumSettingsTest extends PMA_SeleniumBase
      */
     public function testHideLogo()
     {
-        $this->byLinkText("Navigation panel")->click();
+        $this->byPartialLinkText("Navigation panel")->click();
+        $this->waitForElementNotPresent('byCssSelector', 'ajax_message_num_1');
 
         $this->waitForElement("byName", "NavigationDisplayLogo")
             ->click();
@@ -126,6 +143,7 @@ class PMA_SeleniumSettingsTest extends PMA_SeleniumBase
 
         $this->byCssSelector("a[href='#NavigationDisplayLogo']")->click();
         $this->_saveConfig();
+        $this->sleep();
         $this->assertTrue(
             $this->isElementPresent("byId", "imgpmalogo")
         );
