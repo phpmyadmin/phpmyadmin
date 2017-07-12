@@ -10,6 +10,7 @@
  * Include to test.
  */
 use PhpMyAdmin\Tracker;
+use PhpMyAdmin\Util;
 
 require_once 'libraries/database_interface.inc.php';
 require_once 'libraries/relation.lib.php';
@@ -190,19 +191,13 @@ class TrackerTest extends PMATestCase
      */
     public function testGetLogComment()
     {
-        if (!setupForTestsUsingDate()) {
-            $this->markTestSkipped("Cannot override internal function date()");
-        }
-
-        $date = date('Y-m-d H:i:s');
+        $date = Util::date('Y-m-d H:i:s');
         $GLOBALS['cfg']['Server']['user'] = "pma_test_user";
 
         $this->assertEquals(
             "# log $date pma_test_user\n",
             Tracker::getLogComment()
         );
-
-        tearDownForTestsUsingDate();
     }
 
     /**
@@ -213,10 +208,6 @@ class TrackerTest extends PMATestCase
      */
     public function testCreateVersion()
     {
-        if (!setupForTestsUsingDate()) {
-            $this->markTestSkipped("Cannot override internal function date()");
-        }
-
         $GLOBALS['cfg']['Server']['tracking_add_drop_table'] = true;
         $GLOBALS['cfg']['Server']['tracking_add_drop_view'] = true;
         $GLOBALS['cfg']['Server']['user'] = "pma_test_user";
@@ -277,7 +268,7 @@ class TrackerTest extends PMATestCase
                 )
             );
 
-        $date = date('Y-m-d H:i:s');
+        $date = Util::date('Y-m-d H:i:s');
 
         $expectedMainQuery = "/*NOTRACK*/" .
         "\nINSERT INTO `pmadb`.`tracking` (db_name, table_name, version, date_created, date_updated," .
@@ -334,8 +325,6 @@ class TrackerTest extends PMATestCase
             'executed',
             Tracker::createVersion('pma_test', 'pma_tbl', '1', '11', true)
         );
-
-        tearDownForTestsUsingDate();
     }
 
     /**
@@ -377,10 +366,6 @@ class TrackerTest extends PMATestCase
      */
     public function testCreateDatabaseVersion()
     {
-        if (!setupForTestsUsingDate()) {
-            $this->markTestSkipped("Cannot override internal function date()");
-        }
-
         $GLOBALS['cfg']['Server']['tracking_add_drop_table'] = true;
         $GLOBALS['cfg']['Server']['tracking_add_drop_view'] = true;
         $GLOBALS['cfg']['Server']['user'] = "pma_test_user";
@@ -389,7 +374,7 @@ class TrackerTest extends PMATestCase
             ->disableOriginalConstructor()
             ->getMock();
 
-        $date = date('Y-m-d H:i:s');
+        $date = Util::date('Y-m-d H:i:s');
 
         $expectedMainQuery = "/*NOTRACK*/" .
         "\nINSERT INTO `pmadb`.`tracking` (db_name, table_name, version, date_created, date_updated," .
@@ -421,8 +406,6 @@ class TrackerTest extends PMATestCase
             'executed',
             Tracker::createDatabaseVersion('pma_test', '1', 'SHOW DATABASES')
         );
-
-        tearDownForTestsUsingDate();
     }
 
     /**
@@ -495,10 +478,6 @@ class TrackerTest extends PMATestCase
      */
     public function testChangeTrackingData()
     {
-        if (!setupForTestsUsingDate()) {
-            $this->markTestSkipped("Cannot override internal function date()");
-        }
-
         $this->assertFalse(
             Tracker::changeTrackingData("", "", "", "", "")
         );
@@ -515,7 +494,7 @@ class TrackerTest extends PMATestCase
         " AND `table_name` = 'pma_table' " .
         " AND `version` = '1.0' ";
 
-        $date  = date('Y-m-d H:i:s');
+        $date  = Util::date('Y-m-d H:i:s');
 
         $new_data = array(
             array(
@@ -571,8 +550,6 @@ class TrackerTest extends PMATestCase
                 $new_data
             )
         );
-
-        tearDownForTestsUsingDate();
     }
 
     /**

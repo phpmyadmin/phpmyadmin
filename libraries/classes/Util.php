@@ -4878,4 +4878,19 @@ class Util
         }
         return $result;
     }
+
+    /**
+     * Wraper around PHP date function
+     *
+     * @param string $format Date format string
+     *
+     * @return string
+     */
+    public static function date($format)
+    {
+        if (defined('TESTSUITE')) {
+            return '0000-00-00 00:00:00';
+        }
+        return date($format);
+    }
 }

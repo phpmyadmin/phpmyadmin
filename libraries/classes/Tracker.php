@@ -160,7 +160,7 @@ class Tracker
      */
     static public function getLogComment()
     {
-        $date = date('Y-m-d H:i:s');
+        $date = Util::date('Y-m-d H:i:s');
         $user = preg_replace('/\s+/', ' ', $GLOBALS['cfg']['Server']['user']);
 
         return "# log " . $date . " " . $user . "\n";
@@ -205,7 +205,7 @@ class Tracker
 
         $sql_backquotes = true;
 
-        $date = date('Y-m-d H:i:s');
+        $date = Util::date('Y-m-d H:i:s');
 
         // Get data definition snapshot of table
 
@@ -326,7 +326,7 @@ class Tracker
     static public function createDatabaseVersion($dbname, $version, $query,
         $tracking_set = 'CREATE DATABASE,ALTER DATABASE,DROP DATABASE'
     ) {
-        $date = date('Y-m-d H:i:s');
+        $date = Util::date('Y-m-d H:i:s');
 
         if ($tracking_set == '') {
             $tracking_set
@@ -424,7 +424,7 @@ class Tracker
         } else {
             return false;
         }
-        $date  = date('Y-m-d H:i:s');
+        $date  = Util::date('Y-m-d H:i:s');
 
         $new_data_processed = '';
         if (is_array($new_data)) {
@@ -539,7 +539,7 @@ class Tracker
         $log_schema_entries = explode('# log ',  $mixed['schema_sql']);
         $log_data_entries   = explode('# log ',  $mixed['data_sql']);
 
-        $ddl_date_from = $date = date('Y-m-d H:i:s');
+        $ddl_date_from = $date = Util::date('Y-m-d H:i:s');
 
         $ddlog = array();
         $first_iteration = true;
@@ -838,7 +838,7 @@ class Tracker
                 } else {
                     $save_to = '';
                 }
-                $date  = date('Y-m-d H:i:s');
+                $date  = Util::date('Y-m-d H:i:s');
 
                 // Cut off `dbname`. from query
                 $query = preg_replace(
