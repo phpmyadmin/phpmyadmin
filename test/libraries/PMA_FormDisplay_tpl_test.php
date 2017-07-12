@@ -186,7 +186,7 @@ class PMA_FormDisplay_Tpl_Test extends PHPUnit_Framework_TestCase
         );
 
         $this->assertContains(
-            '<input type="text" size="40" name="test/path" id="test/path" ' .
+            '<input type="text" class="all85" name="test/path" id="test/path" ' .
             'class="custom field-error" value="val" />',
             $result
         );
@@ -293,7 +293,7 @@ class PMA_FormDisplay_Tpl_Test extends PHPUnit_Framework_TestCase
             '', true, $opts
         );
         $this->assertContains(
-            '<select name="test/path" id="test/path">',
+            '<select class="all85" name="test/path" id="test/path">',
             $result
         );
 
@@ -326,7 +326,7 @@ class PMA_FormDisplay_Tpl_Test extends PHPUnit_Framework_TestCase
         );
 
         $this->assertContains(
-            '<select name="test/path" id="test/path">',
+            '<select class="all85" name="test/path" id="test/path">',
             $result
         );
 
@@ -343,7 +343,7 @@ class PMA_FormDisplay_Tpl_Test extends PHPUnit_Framework_TestCase
         );
 
         $this->assertContains(
-            '<textarea cols="40" rows="5" name="test/path" id="test/path">',
+            '<textarea cols="35" rows="5" name="test/path" id="test/path">',
             $result
         );
         runkit_constant_remove('PMA_SETUP');
