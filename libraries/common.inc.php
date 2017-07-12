@@ -248,9 +248,9 @@ if (isset($_COOKIE)) {
             if (strncmp('pma', $cookie_name, 3) != 0) {
                 continue;
             }
+            unset($_COOKIE[$cookie_name]);
             $GLOBALS['PMA_Config']->removeCookie($cookie_name);
         }
-        $_COOKIE = array();
         $GLOBALS['PMA_Config']->setCookie('pmaCookieVer', $pma_cookie_version);
     }
 }
