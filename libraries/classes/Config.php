@@ -1780,19 +1780,20 @@ class Config
     public function getUploadTempDir()
     {
         // First try configured temp dir
-        $path = $this->getTempDir('upload');
-
         // Fallback to PHP upload_tmp_dir
-        if (is_null($path)) {
-            $path = ini_get('upload_tmp_dir');
+        $dirs = array(
+            $this->getTempDir('upload'),
+            ini_get('upload_tmp_dir'),
+            sys_get_temp_dir(),
+        );
+
+        foreach ($dirs as $dir) {
+            if (! empty($dir) && @is_writable($dir)) {
+                return realpath($dir);
+            }
         }
 
-        // Last resort is systemp temporary directory
-        if (empty($path)) {
-            $path = sys_get_temp_dir();
-        }
-
-        return rtrim($path, DIRECTORY_SEPARATOR);
+        return null;
     }
 }
 
