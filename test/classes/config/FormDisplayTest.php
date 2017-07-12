@@ -400,10 +400,6 @@ class FormDisplayTest extends PMATestCase
      */
     public function testSetComments()
     {
-        if (! PMA_HAS_RUNKIT) {
-            $this->markTestSkipped('Cannot redefine constant');
-        }
-
         $method = new \ReflectionMethod('PhpMyAdmin\Config\FormDisplay', '_setComments');
         $method->setAccessible(true);
 
@@ -510,9 +506,7 @@ class FormDisplayTest extends PMATestCase
             $opts['comment_warning']
         );
 
-        if (defined('PMA_SETUP')) {
-            runkit_constant_remove('PMA_SETUP');
-        }
+        $GLOBALS['PMA_Config']->set('is_setup', false);
 
         $GLOBALS['cfg']['MaxDbList'] = 10;
         $GLOBALS['cfg']['MaxTableList'] = 10;

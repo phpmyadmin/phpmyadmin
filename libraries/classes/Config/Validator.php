@@ -44,7 +44,7 @@ class Validator
         }
 
         $validators = $cf->getDbEntry('_validators', array());
-        if (defined('PMA_SETUP')) {
+        if ($GLOBALS['PMA_Config']->get('is_setup')) {
             return $validators;
         }
 

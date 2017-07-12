@@ -153,7 +153,7 @@ function PMA_displayInput($path, $name, $type, $value, $description = '',
         $icons = null;
     }
 
-    $is_setup_script = defined('PMA_SETUP');
+    $is_setup_script = $GLOBALS['PMA_Config']->get('is_setup');
     if ($icons === null) { // if the static variables have not been initialised
         $icons = array();
         // Icon definitions:
@@ -378,7 +378,7 @@ function PMA_displayGroupHeader($header_text)
     if (! $header_text) {
         return null;
     }
-    $colspan = defined('PMA_SETUP')
+    $colspan = $GLOBALS['PMA_Config']->get('is_setup')
         ? 3
         : 2;
     $htmlOutput = '<tr class="group-header group-header-' . $_FormDisplayGroup
@@ -412,7 +412,7 @@ function PMA_displayGroupFooter()
 function PMA_displayFieldsetBottom($show_buttons = true)
 {
     $colspan = 2;
-    if (defined('PMA_SETUP')) {
+    if ($GLOBALS['PMA_Config']->get('is_setup')) {
         $colspan++;
     }
     $htmlOutput = '';

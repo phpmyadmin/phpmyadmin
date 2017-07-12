@@ -209,7 +209,7 @@ class Url
         if (isset($GLOBALS['server'])
             && $GLOBALS['server'] != $GLOBALS['cfg']['ServerDefault']
             && ! isset($params['server'])
-            && ! defined('PMA_SETUP')
+            && ! $GLOBALS['PMA_Config']->get('is_setup')
         ) {
             $params['server'] = $GLOBALS['server'];
         }

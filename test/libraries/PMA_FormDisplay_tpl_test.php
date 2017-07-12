@@ -136,10 +136,6 @@ class PMA_FormDisplay_Tpl_Test extends PHPUnit_Framework_TestCase
      */
     public function testDisplayInput()
     {
-        if (! PMA_HAS_RUNKIT) {
-            $this->markTestSkipped('Cannot modify constant');
-        }
-
         $GLOBALS['_FormDislayGroup'] = 1;
         $opts = array();
         $opts['errors'] = array('e1');
@@ -209,7 +205,7 @@ class PMA_FormDisplay_Tpl_Test extends PHPUnit_Framework_TestCase
 
         // second case
 
-        define('PMA_SETUP', true);
+        $GLOBALS['PMA_Config']->set('is_setup', true);
         $GLOBALS['_FormDislayGroup'] = 0;
         $opts = array();
         $opts['errors'] = array();
@@ -346,7 +342,6 @@ class PMA_FormDisplay_Tpl_Test extends PHPUnit_Framework_TestCase
             '<textarea cols="35" rows="5" name="test/path" id="test/path">',
             $result
         );
-        runkit_constant_remove('PMA_SETUP');
     }
 
     /**
@@ -356,19 +351,13 @@ class PMA_FormDisplay_Tpl_Test extends PHPUnit_Framework_TestCase
      */
     public function testDisplayGroupHeader()
     {
-        if (! PMA_HAS_RUNKIT) {
-            $this->markTestSkipped('Cannot modify constant');
-        }
-
         $this->assertNull(
             PMA_displayGroupHeader('')
         );
 
         $GLOBALS['_FormDisplayGroup'] = 3;
 
-        if (!defined('PMA_SETUP')) {
-            define('PMA_SETUP', true);
-        }
+        $GLOBALS['PMA_Config']->set('is_setup', true);
 
         $result = PMA_displayGroupHeader('headerText');
 
@@ -378,8 +367,8 @@ class PMA_FormDisplay_Tpl_Test extends PHPUnit_Framework_TestCase
         );
 
         // without PMA_SETUP
+        $GLOBALS['PMA_Config']->set('is_setup', false);
 
-        runkit_constant_remove('PMA_SETUP');
         $GLOBALS['_FormDisplayGroup'] = 3;
 
         $result = PMA_displayGroupHeader('headerText');
@@ -413,15 +402,8 @@ class PMA_FormDisplay_Tpl_Test extends PHPUnit_Framework_TestCase
      */
     public function testDisplayFieldsetBottom()
     {
-        if (! PMA_HAS_RUNKIT) {
-            $this->markTestSkipped('Cannot modify constant');
-        }
-
         // with PMA_SETUP
-
-        if (!defined('PMA_SETUP')) {
-            define('PMA_SETUP', true);
-        }
+        $GLOBALS['PMA_Config']->set('is_setup', true);
 
         $result = PMA_displayFieldsetBottom();
 
@@ -446,8 +428,7 @@ class PMA_FormDisplay_Tpl_Test extends PHPUnit_Framework_TestCase
         );
 
         // without PMA_SETUP
-
-        runkit_constant_remove('PMA_SETUP');
+        $GLOBALS['PMA_Config']->set('is_setup', false);
 
         $result = PMA_displayFieldsetBottom();
 

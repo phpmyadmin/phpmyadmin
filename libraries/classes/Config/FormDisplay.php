@@ -580,7 +580,7 @@ class FormDisplay
 
         $values = array();
         $to_save = array();
-        $is_setup_script = defined('PMA_SETUP');
+        $is_setup_script = $GLOBALS['PMA_Config']->get('is_setup');
         if ($is_setup_script) {
             $this->_loadUserprefsInfo();
         }
@@ -785,7 +785,7 @@ class FormDisplay
 
         $this->_userprefsKeys = array_flip(PMA_readUserprefsFieldNames());
         // read real config for user preferences display
-        $userprefs_disallow = defined('PMA_SETUP')
+        $userprefs_disallow = $GLOBALS['PMA_Config']->get('is_setup')
             ? $this->_configFile->get('UserprefsDisallow', array())
             : $GLOBALS['cfg']['UserprefsDisallow'];
         $this->_userprefsDisallow = array_flip($userprefs_disallow);
@@ -850,7 +850,7 @@ class FormDisplay
             $opts['comment'] = $comment;
             $opts['comment_warning'] = true;
         }
-        if (!defined('PMA_SETUP')) {
+        if (! $GLOBALS['PMA_Config']->get('is_setup')) {
             if (($system_path == 'MaxDbList' || $system_path == 'MaxTableList'
                 || $system_path == 'QueryHistoryMax')
             ) {

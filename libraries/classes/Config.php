@@ -88,7 +88,7 @@ class Config
      */
     public function __construct($source = null)
     {
-        $this->settings = array();
+        $this->settings = array('is_setup' => false);
 
         // functions need to refresh in case of config file changed goes in
         // PhpMyAdmin\Config::load()

@@ -431,7 +431,7 @@ class Util
             /* Provide consistent URL for testsuite */
             return Core::linkURL('https://docs.phpmyadmin.net/en/latest/' . $url);
         } elseif (@file_exists('doc/html/index.html')) {
-            if (defined('PMA_SETUP')) {
+            if ($GLOBALS['PMA_Config']->get('is_setup')) {
                 return '../doc/html/' . $url;
             } else {
                 return './doc/html/' . $url;
