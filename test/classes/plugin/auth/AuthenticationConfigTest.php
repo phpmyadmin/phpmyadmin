@@ -93,15 +93,6 @@ class AuthenticationConfigTest extends PMATestCase
         $GLOBALS['cfg']['Servers'] = array(1);
         $GLOBALS['allowDeny_forbidden'] = false;
         $GLOBALS['collation_connection'] = 'utf-8';
-        if (!defined('PMA_USR_BROWSER_AGENT')) {
-            define('PMA_USR_BROWSER_AGENT', 'chrome');
-
-            $removeConstant = true;
-
-            if (! PMA_HAS_RUNKIT) {
-                $this->markTestSkipped('Cannot remove constant');
-            }
-        }
 
         $dbi = $this->getMockBuilder('PhpMyAdmin\DatabaseInterface')
             ->disableOriginalConstructor()
@@ -142,8 +133,5 @@ class AuthenticationConfigTest extends PMATestCase
             . 'class="button disableAjax">Retry to connect</a>',
             $html
         );
-        if ($removeConstant) {
-            runkit_constant_remove('PMA_USR_BROWSER_AGENT');
-        }
     }
 }
