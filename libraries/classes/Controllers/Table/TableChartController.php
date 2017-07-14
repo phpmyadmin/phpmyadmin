@@ -1,30 +1,26 @@
 <?php
 /* vim: set expandtab sw=4 ts=4 sts=4: */
-
 /**
- * Holds the PMA\TableChartController
+ * Holds the PhpMyAdmin\Controllers\Table\TableChartController
  *
- * @package PMA
+ * @package PhpMyAdmin\Controllers
  */
+namespace PhpMyAdmin\Controllers\Table;
 
-namespace PMA\libraries\controllers\table;
-
-use PMA\libraries\controllers\TableController;
+use PhpMyAdmin\Controllers\TableController;
 use PhpMyAdmin\Message;
 use PhpMyAdmin\Response;
+use PhpMyAdmin\Table;
 use PhpMyAdmin\Template;
 use PhpMyAdmin\Util;
-use PhpMyAdmin\Table;
-
 
 /**
  * Handles table related logic
  *
- * @package PhpMyAdmin
+ * @package PhpMyAdmin\Controllers
  */
 class TableChartController extends TableController
 {
-
     /**
      * @var string $sql_query
      */

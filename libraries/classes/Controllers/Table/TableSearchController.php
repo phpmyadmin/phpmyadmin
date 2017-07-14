@@ -1,14 +1,13 @@
 <?php
 /* vim: set expandtab sw=4 ts=4 sts=4: */
 /**
- * Holds the PMA\libraries\controllers\table\TableSearchController
+ * Holds the PhpMyAdmin\Controllers\Table\TableSearchController
  *
- * @package PMA\libraries\controllers\table
+ * @package PhpMyAdmin\Controllers
  */
+namespace PhpMyAdmin\Controllers\Table;
 
-namespace PMA\libraries\controllers\table;
-
-use PMA\libraries\controllers\TableController;
+use PhpMyAdmin\Controllers\TableController;
 use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Sql;
 use PhpMyAdmin\Template;
@@ -17,7 +16,7 @@ use PhpMyAdmin\Util;
 /**
  * Class TableSearchController
  *
- * @package PhpMyAdmin
+ * @package PhpMyAdmin\Controllers
  */
 class TableSearchController extends TableController
 {

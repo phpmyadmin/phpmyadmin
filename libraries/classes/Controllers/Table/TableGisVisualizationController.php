@@ -1,19 +1,17 @@
 <?php
 /* vim: set expandtab sw=4 ts=4 sts=4: */
-
 /**
- * Holds the PMA\TableIndexesController
+ * Holds the PhpMyAdmin\Controllers\Table\TableIndexesController
  *
- * @package PMA
+ * @package PhpMyAdmin\Controllers
  */
+namespace PhpMyAdmin\Controllers\Table;
 
-namespace PMA\libraries\controllers\table;
-
-use PMA\libraries\controllers\TableController;
+use PhpMyAdmin\Controllers\TableController;
 use PhpMyAdmin\Core;
+use PMA\libraries\gis\GISVisualization;
 use PhpMyAdmin\Message;
 use PhpMyAdmin\Template;
-use PMA\libraries\gis\GISVisualization;
 use PhpMyAdmin\Url;
 
 require_once 'libraries/common.inc.php';
@@ -22,7 +20,7 @@ require_once 'libraries/db_common.inc.php';
 /**
  * Class TableGisVisualizationController
  *
- * @package PMA\libraries\controllers\table
+ * @package PhpMyAdmin\Controllers
  */
 class TableGisVisualizationController extends TableController
 {

@@ -1968,8 +1968,8 @@ class Util
      * Not sure we could use a strMissingParameter message here,
      * would have to check if the error message file is always available
      *
-     * @param string[] $params  The names of the parameters needed by the calling
-     *                          script
+     * @param string[] $params The names of the parameters needed by the calling
+     *                         script
      *
      * @return void
      *

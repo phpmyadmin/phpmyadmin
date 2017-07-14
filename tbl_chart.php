@@ -8,15 +8,15 @@
 
 namespace PMA;
 
-use PMA\libraries\controllers\table\TableChartController;
+use PhpMyAdmin\Controllers\Table\TableChartController;
 use PhpMyAdmin\Response;
 
 require_once 'libraries/common.inc.php';
 
 $container = libraries\di\Container::getDefaultContainer();
-$container->factory('PMA\libraries\controllers\table\TableChartController');
+$container->factory('PhpMyAdmin\Controllers\Table\TableChartController');
 $container->alias(
-    'TableChartController', 'PMA\libraries\controllers\table\TableChartController'
+    'TableChartController', 'PhpMyAdmin\Controllers\Table\TableChartController'
 );
 $container->set('PhpMyAdmin\Response', Response::getInstance());
 $container->alias('response', 'PhpMyAdmin\Response');

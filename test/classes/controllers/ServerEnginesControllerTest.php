@@ -8,7 +8,7 @@
 
 use PhpMyAdmin\StorageEngine;
 use PhpMyAdmin\Theme;
-use PMA\libraries\controllers\server\ServerEnginesController;
+use PhpMyAdmin\Controllers\Server\ServerEnginesController;
 use PhpMyAdmin\Url;
 
 require_once 'libraries/database_interface.inc.php';
@@ -47,7 +47,7 @@ class ServerEnginesControllerTest extends PMATestCase
      */
     public function testGetHtmlForAllServerEngines()
     {
-        $class = new ReflectionClass('\PMA\libraries\controllers\server\ServerEnginesController');
+        $class = new ReflectionClass('\PhpMyAdmin\Controllers\Server\ServerEnginesController');
         $method = $class->getMethod('_getHtmlForAllServerEngines');
         $method->setAccessible(true);
 
@@ -108,7 +108,7 @@ class ServerEnginesControllerTest extends PMATestCase
             ->getMock();
         $GLOBALS['dbi'] = $dbi;
 
-        $class = new ReflectionClass('\PMA\libraries\controllers\server\ServerEnginesController');
+        $class = new ReflectionClass('\PhpMyAdmin\Controllers\Server\ServerEnginesController');
         $method = $class->getMethod('_getHtmlForServerEngine');
         $method->setAccessible(true);
 

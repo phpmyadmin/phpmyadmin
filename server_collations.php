@@ -9,18 +9,18 @@
 
 namespace PMA;
 
-use PMA\libraries\controllers\server\ServerCollationsController;
+use PhpMyAdmin\Controllers\Server\ServerCollationsController;
 use PhpMyAdmin\Response;
 
 require_once 'libraries/common.inc.php';
 
 $container = libraries\di\Container::getDefaultContainer();
 $container->factory(
-    'PMA\libraries\controllers\server\ServerCollationsController'
+    'PhpMyAdmin\Controllers\Server\ServerCollationsController'
 );
 $container->alias(
     'ServerCollationsController',
-    'PMA\libraries\controllers\server\ServerCollationsController'
+    'PhpMyAdmin\Controllers\Server\ServerCollationsController'
 );
 $container->set('PhpMyAdmin\Response', Response::getInstance());
 $container->alias('response', 'PhpMyAdmin\Response');

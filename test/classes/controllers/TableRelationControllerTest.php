@@ -88,13 +88,13 @@ class TableRelationControllerTest extends PMATestCase
 
         $container = Container::getDefaultContainer();
         $container->set('dbi', $GLOBALS['dbi']);
-        $container->factory('PMA\libraries\controllers\table\TableRelationController');
+        $container->factory('PhpMyAdmin\Controllers\Table\TableRelationController');
         $container->alias(
             'TableRelationController',
-            'PMA\libraries\controllers\table\TableRelationController'
+            'PhpMyAdmin\Controllers\Table\TableRelationController'
         );
         /**
-         * @var PMA\libraries\controllers\table\TableRelationController
+         * @var PhpMyAdmin\Controllers\Table\TableRelationController
          */
         $ctrl = $container->get('TableRelationController');
 
@@ -134,10 +134,10 @@ class TableRelationControllerTest extends PMATestCase
 
         $container = Container::getDefaultContainer();
         $container->set('dbi', $GLOBALS['dbi']);
-        $container->factory('PMA\libraries\controllers\table\TableRelationController');
+        $container->factory('PhpMyAdmin\Controllers\Table\TableRelationController');
         $container->alias(
             'TableRelationController',
-            'PMA\libraries\controllers\table\TableRelationController'
+            'PhpMyAdmin\Controllers\Table\TableRelationController'
         );
         $ctrl = $container->get('TableRelationController');
 
@@ -176,10 +176,10 @@ class TableRelationControllerTest extends PMATestCase
 
         $container = Container::getDefaultContainer();
         $container->set('dbi', $GLOBALS['dbi']);
-        $container->factory('PMA\libraries\controllers\table\TableRelationController');
+        $container->factory('PhpMyAdmin\Controllers\Table\TableRelationController');
         $container->alias(
             'TableRelationController',
-            'PMA\libraries\controllers\table\TableRelationController'
+            'PhpMyAdmin\Controllers\Table\TableRelationController'
         );
         $ctrl = $container->get(
             'TableRelationController',
@@ -222,10 +222,10 @@ class TableRelationControllerTest extends PMATestCase
 
         $container = Container::getDefaultContainer();
         $container->set('dbi', $GLOBALS['dbi']);
-        $container->factory('PMA\libraries\controllers\table\TableRelationController');
+        $container->factory('PhpMyAdmin\Controllers\Table\TableRelationController');
         $container->alias(
             'TableRelationController',
-            'PMA\libraries\controllers\table\TableRelationController'
+            'PhpMyAdmin\Controllers\Table\TableRelationController'
         );
         $ctrl = $container->get(
             'TableRelationController',

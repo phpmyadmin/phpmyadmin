@@ -2,14 +2,14 @@
 /* vim: set expandtab sw=4 ts=4 sts=4: */
 
 /**
- * Holds the PMA\libraries\controllers\server\ServerVariablesController
+ * Holds the PhpMyAdmin\Controllers\Server\ServerVariablesController
  *
- * @package PMA\libraries\controllers\server
+ * @package PhpMyAdmin\Controllers
  */
 
-namespace PMA\libraries\controllers\server;
+namespace PhpMyAdmin\Controllers\Server;
 
-use PMA\libraries\controllers\Controller;
+use PhpMyAdmin\Controllers\Controller;
 use PhpMyAdmin\Message;
 use PhpMyAdmin\Response;
 use PhpMyAdmin\Template;
@@ -19,7 +19,7 @@ use PhpMyAdmin\Url;
 /**
  * Handles viewing and editing server variables
  *
- * @package PMA\libraries\controllers\server
+ * @package PhpMyAdmin\Controllers
  */
 class ServerVariablesController extends Controller
 {

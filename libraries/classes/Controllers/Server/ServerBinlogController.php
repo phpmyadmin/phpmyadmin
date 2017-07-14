@@ -2,14 +2,14 @@
 /* vim: set expandtab sw=4 ts=4 sts=4: */
 
 /**
- * Holds the PMA\libraries\controllers\server\ServerBinlogController
+ * Holds the PhpMyAdmin\Controllers\Server\ServerBinlogController
  *
- * @package PMA\libraries\controllers\server
+ * @package PhpMyAdmin\Controllers
  */
 
-namespace PMA\libraries\controllers\server;
+namespace PhpMyAdmin\Controllers\Server;
 
-use PMA\libraries\controllers\Controller;
+use PhpMyAdmin\Controllers\Controller;
 use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Message;
 use PhpMyAdmin\Util;
@@ -19,7 +19,7 @@ use PhpMyAdmin\Url;
 /**
  * Handles viewing binary logs
  *
- * @package PMA\libraries\controllers\server
+ * @package PhpMyAdmin\Controllers
  */
 class ServerBinlogController extends Controller
 {

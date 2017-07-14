@@ -2,25 +2,25 @@
 /* vim: set expandtab sw=4 ts=4 sts=4: */
 
 /**
- * Holds the PMA\libraries\controllers\database\DatabaseStructureController
+ * Holds the PhpMyAdmin\Controllers\Database\DatabaseStructureController
  *
- * @package PMA
+ * @package PhpMyAdmin\Controllers
  */
 
-namespace PMA\libraries\controllers\database;
+namespace PhpMyAdmin\Controllers\Database;
 
-use PhpMyAdmin\Config\PageSettings;
-use PMA\libraries\controllers\DatabaseController;
 use PhpMyAdmin\Charsets;
+use PhpMyAdmin\Config\PageSettings;
+use PhpMyAdmin\Controllers\DatabaseController;
 use PhpMyAdmin\Core;
 use PhpMyAdmin\Message;
 use PhpMyAdmin\RecentFavoriteTable;
 use PhpMyAdmin\Response;
+use PhpMyAdmin\Sanitize;
 use PhpMyAdmin\Template;
 use PhpMyAdmin\Tracker;
 use PhpMyAdmin\Util;
 use PhpMyAdmin\Url;
-use PhpMyAdmin\Sanitize;
 
 require_once 'libraries/display_create_table.lib.php';
 require_once 'libraries/config/messages.inc.php';
@@ -30,7 +30,7 @@ require_once 'libraries/config/page_settings.forms.php';
 /**
  * Handles database structure logic
  *
- * @package PhpMyAdmin
+ * @package PhpMyAdmin\Controllers
  */
 class DatabaseStructureController extends DatabaseController
 {

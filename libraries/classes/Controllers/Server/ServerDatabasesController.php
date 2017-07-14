@@ -2,14 +2,14 @@
 /* vim: set expandtab sw=4 ts=4 sts=4: */
 
 /**
- * Holds the PMA\libraries\controllers\server\ServerDatabasesController
+ * Holds the PhpMyAdmin\Controllers\Server\ServerDatabasesController
  *
- * @package PMA\libraries\controllers\server
+ * @package PhpMyAdmin\Controllers
  */
 
-namespace PMA\libraries\controllers\server;
+namespace PhpMyAdmin\Controllers\Server;
 
-use PMA\libraries\controllers\Controller;
+use PhpMyAdmin\Controllers\Controller;
 use PhpMyAdmin\Charsets;
 use PhpMyAdmin\Message;
 use PhpMyAdmin\Response;
@@ -20,7 +20,7 @@ use PhpMyAdmin\Url;
 /**
  * Handles viewing and creating and deleting databases
  *
- * @package PMA\libraries\controllers\server
+ * @package PhpMyAdmin\Controllers
  */
 class ServerDatabasesController extends Controller
 {

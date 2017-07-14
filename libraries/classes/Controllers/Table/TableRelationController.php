@@ -1,14 +1,13 @@
 <?php
 /* vim: set expandtab sw=4 ts=4 sts=4: */
 /**
- * Holds the PMA\TableRelationController
+ * Holds the PhpMyAdmin\Controllers\Table\TableRelationController
  *
- * @package PMA
+ * @package PhpMyAdmin\Controllers
  */
+namespace PhpMyAdmin\Controllers\Table;
 
-namespace PMA\libraries\controllers\table;
-
-use PMA\libraries\controllers\TableController;
+use PhpMyAdmin\Controllers\TableController;
 use PhpMyAdmin\Core;
 use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Index;
@@ -19,7 +18,7 @@ use PhpMyAdmin\Util;
 /**
  * Handles table relation logic
  *
- * @package PhpMyAdmin
+ * @package PhpMyAdmin\Controllers
  */
 class TableRelationController extends TableController
 {

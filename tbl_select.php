@@ -16,12 +16,12 @@ use PhpMyAdmin\Response;
 require_once 'libraries/common.inc.php';
 require_once 'libraries/tbl_common.inc.php';
 
-use PMA\libraries\controllers\table\TableSearchController;
+use PhpMyAdmin\Controllers\Table\TableSearchController;
 
 $container = \PMA\libraries\di\Container::getDefaultContainer();
-$container->factory('PMA\libraries\controllers\table\TableSearchController');
+$container->factory('PhpMyAdmin\Controllers\Table\TableSearchController');
 $container->alias(
-    'TableSearchController', 'PMA\libraries\controllers\table\TableSearchController'
+    'TableSearchController', 'PhpMyAdmin\Controllers\Table\TableSearchController'
 );
 $container->set('PhpMyAdmin\Response', Response::getInstance());
 $container->alias('response', 'PhpMyAdmin\Response');

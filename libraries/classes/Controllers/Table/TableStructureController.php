@@ -1,28 +1,27 @@
 <?php
 /* vim: set expandtab sw=4 ts=4 sts=4: */
-
 /**
- * Holds the PMA\TableStructureController
+ * Holds the PhpMyAdmin\Controllers\Table\TableStructureController
  *
- * @package PMA
+ * @package PhpMyAdmin\Controllers
  */
+namespace PhpMyAdmin\Controllers\Table;
 
-namespace PMA\libraries\controllers\table;
-
-use PhpMyAdmin\SqlParser;
-use PhpMyAdmin\SqlParser\Statements\CreateStatement;
-use PhpMyAdmin\SqlParser\Utils\Table as SqlTable;
 use PhpMyAdmin\Config\PageSettings;
-use PMA\libraries\controllers\TableController;
+use PhpMyAdmin\Controllers\TableController;
 use PhpMyAdmin\Core;
 use PhpMyAdmin\Index;
 use PhpMyAdmin\Message;
 use PhpMyAdmin\Sql;
+use PhpMyAdmin\SqlParser\Context;
+use PhpMyAdmin\SqlParser\Parser;
+use PhpMyAdmin\SqlParser\Statements\CreateStatement;
+use PhpMyAdmin\SqlParser\Utils\Table as SqlTable;
 use PhpMyAdmin\Table;
 use PhpMyAdmin\Template;
 use PhpMyAdmin\Transformations;
-use PhpMyAdmin\Url;
 use PhpMyAdmin\Util;
+use PhpMyAdmin\Url;
 use PMA\Util as Util_lib;
 
 require_once 'libraries/util.lib.php';
@@ -33,7 +32,7 @@ require_once 'libraries/config/page_settings.forms.php';
 /**
  * Handles table structure logic
  *
- * @package PhpMyAdmin
+ * @package PhpMyAdmin\Controllers
  */
 class TableStructureController extends TableController
 {
@@ -145,11 +144,11 @@ class TableStructureController extends TableController
                 $columns_names = $_REQUEST['field_name'];
                 $reserved_keywords_names = array();
                 foreach ($columns_names as $column) {
-                    if (\PhpMyAdmin\SqlParser\Context::isKeyword(trim($column), true)) {
+                    if (Context::isKeyword(trim($column), true)) {
                         $reserved_keywords_names[] = trim($column);
                     }
                 }
-                if (\PhpMyAdmin\SqlParser\Context::isKeyword(trim($this->table), true)) {
+                if (Context::isKeyword(trim($this->table), true)) {
                     $reserved_keywords_names[] = trim($this->table);
                 }
                 if (count($reserved_keywords_names) == 0) {
@@ -549,7 +548,7 @@ class TableStructureController extends TableController
             return null;
         }
 
-        $parser = new \PhpMyAdmin\SqlParser\Parser($createTable);
+        $parser = new Parser($createTable);
         /**
          * @var $stmt PhpMyAdmin\SqlParser\Statements\CreateStatement
          */

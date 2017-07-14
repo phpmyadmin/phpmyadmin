@@ -2,20 +2,20 @@
 /* vim: set expandtab sw=4 ts=4 sts=4: */
 
 /**
- * Holds the PMA\libraries\controllers\server\ServerPluginsController
+ * Holds the PhpMyAdmin\Controllers\Server\ServerPluginsController
 *
-* @package PMA\libraries\controllers\server
+* @package PhpMyAdmin\Controllers
 */
 
-namespace PMA\libraries\controllers\server;
+namespace PhpMyAdmin\Controllers\Server;
 
-use PMA\libraries\controllers\Controller;
+use PhpMyAdmin\Controllers\Controller;
 use PhpMyAdmin\Template;
 
 /**
  * Handles viewing server plugin details
  *
- * @package PMA\libraries\controllers\server
+ * @package PhpMyAdmin\Controllers
  */
 class ServerPluginsController extends Controller
 {
