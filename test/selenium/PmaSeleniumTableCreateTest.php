@@ -18,6 +18,19 @@ require_once 'TestBase.php';
  */
 class PMA_SeleniumTableCreateTest extends PMA_SeleniumBase
 {
+
+    public function setUpPage()
+    {
+        parent::setUpPage();
+
+        $this->login();
+        $this->waitForElement('byPartialLinkText','Databases')->click();
+        $this->waitForElementNotPresent('byCssSelector', 'div#loading_parent');
+
+        // go to specific database page
+        $this->waitForElement("byPartialLinkText", $this->database_name)->click();
+    }
+
     /**
      * Creates a table
      *
@@ -27,51 +40,78 @@ class PMA_SeleniumTableCreateTest extends PMA_SeleniumBase
      */
     public function testCreateTable()
     {
-        $this->login();
-        $this->waitForElement('byLinkText', $this->database_name)->click();
+        $this->waitForElementNotPresent('byCssSelector', 'div#loading_parent');
+        $this->waitForElementNotPresent('byId', 'ajax_message_num_1');
 
         $this->waitForElement('byId', 'create_table_form_minimal');
         $this->byCssSelector(
             "form#create_table_form_minimal input[name=table]"
         )->value("test_table");
+        $this->byName("num_fields")->clear();
         $this->byName("num_fields")->value("4");
         $this->byCssSelector('input[value=Go]')->click();
+
+        $this->waitForElementNotPresent('byId', 'ajax_message_num_1');
         $this->waitForElement('byName', 'do_save_data');
 
         // column details
         $column_text_details = array(
             "field_0_1" => "test_id",
             "field_0_3" => "14",
-            "field_0_10" => "comm1",
+            "field_0_9" => "comm1",
             "field_1_1" => "test_column",
             "field_1_3" => "10",
-            "field_1_10" => "comm2",
+            "field_1_9" => "comm2",
         );
 
         foreach ($column_text_details as $field => $val) {
             $this->byId($field)->value($val);
         }
 
+        $this->byId("field_0_8")->click(); // auto increment
+        $this->byId("field_1_6")->click(); // null
+
+        $this->sleep();
+
         $column_dropdown_details = array(
-            "field_0_6" => "UNSIGNED",
-            "field_0_8" => "PRIMARY",
+            "field_0_5" => "UNSIGNED",
             "field_1_2" => "VARCHAR",
             "field_1_5" => "utf8_general_ci",
             "field_1_4" => "As defined:"
         );
 
         foreach ($column_dropdown_details as $selector => $value) {
-            $sel = $this->select($this->byId($selector));
-            $sel->selectOptionByLabel($value);
+            $this->waitForElement(
+                'byXPath',
+                '//select[@id=\'' . $selector . '\']//option[contains(text(), \'' . $value . '\')]'
+            )->click();
         }
 
-        $this->byName("field_default_value[1]")->value("def");
-        $this->byId("field_0_9")->click(); // auto increment
-        $this->byId("field_1_7")->click(); // null
+        // Do this separately since this opens a dialog
+        $this->waitForElement(
+            'byXPath',
+            '//select[@id=\'field_0_7\']//option[contains(text(), \'PRIMARY\')]'
+        )->click();
+        $this->waitForElementNotPresent('byId', 'ajax_message_num_1');
+        $this->waitForElement('byXPath', '//button[contains(text(), \'Go\')]')->click();
 
+        $this->sleep();
+        $this->byName("field_default_value[1]")->value("def");
+
+        $this->scrollToBottom();
+        $ele = $this->waitForElement('byName', "do_save_data");
+        $this->moveto($ele);
         // post
-        $this->byName("do_save_data")->click();
-        $this->waitForElement("byLinkText", "test_table");
+        $ele->click();
+        $this->waitForElement(
+            'byCssSelector',
+            'li.last.table'
+        );
+
+        $this->waitForElementNotPresent('byId', 'ajax_message_num_1');
+        $this->waitForElementNotPresent('byId', 'loading_parent');
+
+        $this->waitForElement("byPartialLinkText", "test_table");
 
         $this->_tableStructureAssertions();
     }
@@ -83,9 +123,18 @@ class PMA_SeleniumTableCreateTest extends PMA_SeleniumBase
      */
     private function _tableStructureAssertions()
     {
+        $this->gotoHomepage();
+        $this->waitForElementNotPresent('byId', 'loading_parent');
+
+        $this->navigateTable('test_table');
+
+        $this->waitForElementNotPresent('byId', 'loading_parent');
+
         // go to structure page
-        $this->byLinkText("Structure")->click();
+        $this->waitForElement('byPartialLinkText', "Structure")->click();
+
         $this->waitForElement("byId", "tablestructure");
+        $this->waitForElement('byId', 'table_strucuture_id');
 
         // make assertions for first row
         $this->assertContains(
@@ -109,13 +158,17 @@ class PMA_SeleniumTableCreateTest extends PMA_SeleniumBase
         );
 
         $this->assertEquals(
-            "None",
+            "",
             $this->getCellByTableId('tablestructure', 1, 8)
+        );
+        $this->assertEquals(
+            "comm1",
+            $this->getCellByTableId('tablestructure', 1, 9)
         );
 
         $this->assertEquals(
             "AUTO_INCREMENT",
-            $this->getCellByTableId('tablestructure', 1, 9)
+            $this->getCellByTableId('tablestructure', 1, 10)
         );
 
         $this->assertFalse(

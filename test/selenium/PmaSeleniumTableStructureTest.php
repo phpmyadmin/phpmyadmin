@@ -43,9 +43,9 @@ class PMA_SeleniumTableStructureTest extends PMA_SeleniumBase
      */
     public function setUpPage()
     {
-        $this->login();
-        $this->waitForElement('byLinkText', $this->database_name)->click();
+        parent::setUpPage();
 
+        $this->login();
         $this->navigateTable('test_table');
 
         $this->waitForElement(
@@ -65,31 +65,36 @@ class PMA_SeleniumTableStructureTest extends PMA_SeleniumBase
      */
     public function testAddColumn()
     {
-        $this->byCssSelector("label[for='field_where_after']")->click();
-        $this->byCssSelector("input[value='Go']")->click();
+        $this->waitForElement(
+            'byCssSelector',
+            "#addColumns > input[value='Go']"
+        )->click();
+        $this->waitForElementNotPresent('byId', 'loading_parent');
 
         $this->waitForElement("byClassName", "append_fields_form");
 
         $this->byId("field_0_1")->value('val3');
         $this->byCssSelector("input[name='do_save_data']")->click();
 
+        $this->waitForElementNotPresent('byId', 'ajax_message_num_1');
         $this->waitForElement(
             "byXPath",
             "//div[@class='success' and contains(., "
             . "'Table test_table has been altered successfully')]"
         );
 
-        $this->byLinkText("Structure")->click();
+        $this->byPartialLinkText("Structure")->click();
+        $this->waitForElementNotPresent('byId', 'ajax_message_num_1');
         $this->waitForElement("byId", "tablestructure");
 
         $this->assertEquals(
             "val3",
-            $this->byCssSelector('label[for=checkbox_row_2]')->text()
+            $this->byCssSelector('label[for=checkbox_row_4]')->text()
         );
 
         $this->assertEquals(
             "int(11)",
-            $this->getCellByTableId('tablestructure', 2, 4)
+            $this->getCellByTableId('tablestructure', 4, 4)
         );
     }
 
@@ -102,7 +107,10 @@ class PMA_SeleniumTableStructureTest extends PMA_SeleniumBase
      */
     public function testChangeColumn()
     {
-        $this->byXPath("(//a[contains(., 'Change')])[2]")->click();
+        $this->byCssSelector(
+            "#tablestructure tbody tr:nth-child(2) td:nth-child(11)"
+        )->click();
+        $this->waitForElementNotPresent('byId', 'loading_parent');
 
         $this->waitForElement("byClassName", "append_fields_form");
 
@@ -117,9 +125,12 @@ class PMA_SeleniumTableStructureTest extends PMA_SeleniumBase
             . "'Table test_table has been altered successfully')]"
         );
 
-        $this->byLinkText("Structure")->click();
+        $this->byPartialLinkText("Structure")->click();
+        $this->waitForElementNotPresent('byId', 'ajax_message_num_1');
+
         $this->waitForElement("byId", "tablestructure");
 
+        var_dump($this->byCssSelector('label[for=checkbox_row_2]')->text());
         $this->assertEquals(
             "val3",
             $this->byCssSelector('label[for=checkbox_row_2]')->text()

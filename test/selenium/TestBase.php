@@ -57,11 +57,12 @@ abstract class PMA_SeleniumBase extends PHPUnit_Extensions_Selenium2TestCase
             self::$_selenium_enabled = true;
 
             $strategy = 'shared';
-            $build_local = false;
+            $build_local = true;
             $build_id = 'Manual';
             $project_name = 'phpMyAdmin';
             if (getenv('BUILD_TAG')) {
                 $build_id = getenv('BUILD_TAG');
+                $build_local = false;
                 $strategy = 'isolated';
                 $project_name = 'phpMyAdmin (Jenkins)';
             } elseif (getenv('TRAVIS_JOB_NUMBER')) {
@@ -464,7 +465,9 @@ abstract class PMA_SeleniumBase extends PHPUnit_Extensions_Selenium2TestCase
         $element = $this->byCssSelector(
             $sel
         );
-        return $element->text();
+        $text = $element->attribute('innerText');
+
+        return ($text && is_string($text)) ? trim($text) : '';
     }
 
     /**
@@ -483,7 +486,9 @@ abstract class PMA_SeleniumBase extends PHPUnit_Extensions_Selenium2TestCase
         $element = $this->byCssSelector(
             $sel
         );
-        return $element->text();
+        $text = $element->attribute('innerText');
+
+        return ($text && is_string($text)) ? trim($text) : '';
     }
 
     /**
@@ -626,12 +631,13 @@ abstract class PMA_SeleniumBase extends PHPUnit_Extensions_Selenium2TestCase
      * Scrolls to a coordinate such that the element with given id is visible
      *
      * @param string $element_id Id of the element
+     * @param int    $offset     Offset from Y-coordinate of element
      *
      * @return void
      */
-    public function scrollIntoView($element_id)
+    public function scrollIntoView($element_id, $offset = 70)
     {
-        // 70pt offset so that the topmenu does not cover the element
+        // 70pt offset by-default so that the topmenu does not cover the element
         $this->execute(
             array(
                 'script' => 'var element = document.getElementById("'
@@ -639,11 +645,11 @@ abstract class PMA_SeleniumBase extends PHPUnit_Extensions_Selenium2TestCase
                             . 'var position = element.getBoundingClientRect();'
                             . 'var x = position.left;'
                             . 'var y = position.top;'
-                            . 'window.scrollTo(x, y-70);',
+                            . 'window.scrollTo(x, y-(' . $offset . '));',
                 'args'   => array()
             )
         );
-        usleep(10000);
+        usleep(1000000);
     }
 
     /**
@@ -659,6 +665,6 @@ abstract class PMA_SeleniumBase extends PHPUnit_Extensions_Selenium2TestCase
                 'args' => array()
             )
         );
-        usleep(10000);
+        usleep(1000000);
     }
 }
