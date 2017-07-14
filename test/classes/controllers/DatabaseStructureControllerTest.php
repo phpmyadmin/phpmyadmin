@@ -11,7 +11,7 @@
 /*
  * Include to test.
  */
-use PMA\libraries\controllers\database\DatabaseStructureController;
+use PhpMyAdmin\Controllers\Database\DatabaseStructureController;
 use PMA\libraries\di\Container;
 use PhpMyAdmin\Table;
 use PhpMyAdmin\Theme;
@@ -99,7 +99,7 @@ class DatabaseStructureControllerTest extends PMATestCase
         $container->set('PhpMyAdmin\Response', $response);
         $container->alias('response', 'PhpMyAdmin\Response');
 
-        $class = new ReflectionClass('PMA\libraries\controllers\database\DatabaseStructureController');
+        $class = new ReflectionClass('PhpMyAdmin\Controllers\Database\DatabaseStructureController');
         $method = $class->getMethod('getValuesForInnodbTable');
         $method->setAccessible(true);
         $ctrl = new DatabaseStructureController(
@@ -185,7 +185,7 @@ class DatabaseStructureControllerTest extends PMATestCase
      */
     public function testGetValuesForAriaTable()
     {
-        $class = new ReflectionClass('PMA\libraries\controllers\database\DatabaseStructureController');
+        $class = new ReflectionClass('PhpMyAdmin\Controllers\Database\DatabaseStructureController');
         $method = $class->getMethod('getValuesForAriaTable');
         $method->setAccessible(true);
 
@@ -251,7 +251,7 @@ class DatabaseStructureControllerTest extends PMATestCase
      */
     public function testHasTable()
     {
-        $class = new ReflectionClass('PMA\libraries\controllers\database\DatabaseStructureController');
+        $class = new ReflectionClass('PhpMyAdmin\Controllers\Database\DatabaseStructureController');
         $method = $class->getMethod('hasTable');
         $method->setAccessible(true);
 
@@ -292,7 +292,7 @@ class DatabaseStructureControllerTest extends PMATestCase
      */
     public function testCheckFavoriteTable()
     {
-        $class = new ReflectionClass('PMA\libraries\controllers\database\DatabaseStructureController');
+        $class = new ReflectionClass('PhpMyAdmin\Controllers\Database\DatabaseStructureController');
         $method = $class->getMethod('checkFavoriteTable');
         $method->setAccessible(true);
 
@@ -338,7 +338,7 @@ class DatabaseStructureControllerTest extends PMATestCase
                 )
             );
 
-        $class = new ReflectionClass('PMA\libraries\controllers\database\DatabaseStructureController');
+        $class = new ReflectionClass('PhpMyAdmin\Controllers\Database\DatabaseStructureController');
         $method = $class->getMethod('synchronizeFavoriteTables');
         $method->setAccessible(true);
 
@@ -375,7 +375,7 @@ class DatabaseStructureControllerTest extends PMATestCase
             $GLOBALS['db'], null
         );
         // Showing statistics
-        $class = new ReflectionClass('PMA\libraries\controllers\database\DatabaseStructureController');
+        $class = new ReflectionClass('PhpMyAdmin\Controllers\Database\DatabaseStructureController');
         $property = $class->getProperty('_tables');
         $property->setAccessible(true);
 

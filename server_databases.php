@@ -9,18 +9,18 @@
 
 namespace PMA;
 
-use PMA\libraries\controllers\server\ServerDatabasesController;
+use PhpMyAdmin\Controllers\Server\ServerDatabasesController;
 use PhpMyAdmin\Response;
 
 require_once 'libraries/common.inc.php';
 
 $container = libraries\di\Container::getDefaultContainer();
 $container->factory(
-    'PMA\libraries\controllers\server\ServerDatabasesController'
+    'PhpMyAdmin\Controllers\Server\ServerDatabasesController'
 );
 $container->alias(
     'ServerDatabasesController',
-    'PMA\libraries\controllers\server\ServerDatabasesController'
+    'PhpMyAdmin\Controllers\Server\ServerDatabasesController'
 );
 $container->set('PhpMyAdmin\Response', Response::getInstance());
 $container->alias('response', 'PhpMyAdmin\Response');

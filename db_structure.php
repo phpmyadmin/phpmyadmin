@@ -8,7 +8,7 @@
 
 namespace PMA;
 
-use PMA\libraries\controllers\database\DatabaseStructureController;
+use PhpMyAdmin\Controllers\Database\DatabaseStructureController;
 use PhpMyAdmin\Response;
 use PhpMyAdmin\Util;
 
@@ -17,11 +17,11 @@ require_once 'libraries/db_common.inc.php';
 
 $container = libraries\di\Container::getDefaultContainer();
 $container->factory(
-    'PMA\libraries\controllers\database\DatabaseStructureController'
+    'PhpMyAdmin\Controllers\Database\DatabaseStructureController'
 );
 $container->alias(
     'DatabaseStructureController',
-    'PMA\libraries\controllers\database\DatabaseStructureController'
+    'PhpMyAdmin\Controllers\Database\DatabaseStructureController'
 );
 $container->set('PhpMyAdmin\Response', Response::getInstance());
 $container->alias('response', 'PhpMyAdmin\Response');

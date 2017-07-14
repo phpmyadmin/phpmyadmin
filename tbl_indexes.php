@@ -8,17 +8,17 @@
 
 namespace PMA;
 
-use PMA\libraries\controllers\table\TableIndexesController;
+use PhpMyAdmin\Controllers\Table\TableIndexesController;
 use PhpMyAdmin\Index;
 use PhpMyAdmin\Response;
 
 require_once 'libraries/common.inc.php';
 
 $container = libraries\di\Container::getDefaultContainer();
-$container->factory('PMA\libraries\controllers\table\TableIndexesController');
+$container->factory('PhpMyAdmin\Controllers\Table\TableIndexesController');
 $container->alias(
     'TableIndexesController',
-    'PMA\libraries\controllers\table\TableIndexesController'
+    'PhpMyAdmin\Controllers\Table\TableIndexesController'
 );
 $container->set('PhpMyAdmin\Response', Response::getInstance());
 $container->alias('response', 'PhpMyAdmin\Response');

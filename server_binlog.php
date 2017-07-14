@@ -9,18 +9,18 @@
 
 namespace PMA;
 
-use PMA\libraries\controllers\server\ServerCollationsController;
+use PhpMyAdmin\Controllers\Server\ServerCollationsController;
 use PhpMyAdmin\Response;
 
 require_once 'libraries/common.inc.php';
 
 $container = libraries\di\Container::getDefaultContainer();
 $container->factory(
-    'PMA\libraries\controllers\server\ServerBinlogController'
+    'PhpMyAdmin\Controllers\Server\ServerBinlogController'
 );
 $container->alias(
     'ServerBinlogController',
-    'PMA\libraries\controllers\server\ServerBinlogController'
+    'PhpMyAdmin\Controllers\Server\ServerBinlogController'
 );
 $container->set('PhpMyAdmin\Response', Response::getInstance());
 $container->alias('response', 'PhpMyAdmin\Response');

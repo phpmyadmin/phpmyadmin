@@ -6,7 +6,7 @@
  * @package PhpMyAdmin-test
  */
 
-use PMA\libraries\controllers\server\ServerCollationsController;
+use PhpMyAdmin\Controllers\Server\ServerCollationsController;
 use PhpMyAdmin\Core;
 use PhpMyAdmin\Theme;
 
@@ -87,7 +87,7 @@ class ServerCollationsControllerTest extends PMATestCase
             "binary" => true,
         );
 
-        $class = new ReflectionClass('\PMA\libraries\controllers\server\ServerCollationsController');
+        $class = new ReflectionClass('\PhpMyAdmin\Controllers\Server\ServerCollationsController');
         $method = $class->getMethod('_getHtmlForCharsets');
         $method->setAccessible(true);
 

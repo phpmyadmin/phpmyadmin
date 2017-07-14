@@ -2,21 +2,21 @@
 /* vim: set expandtab sw=4 ts=4 sts=4: */
 
 /**
- * Holds the PMA\libraries\controllers\server\ServerCollationsController
+ * Holds the PhpMyAdmin\Controllers\Server\ServerCollationsController
  *
- * @package PMA\libraries\controllers\server
+ * @package PhpMyAdmin\Controllers
  */
 
-namespace PMA\libraries\controllers\server;
+namespace PhpMyAdmin\Controllers\Server;
 
-use PMA\libraries\controllers\Controller;
+use PhpMyAdmin\Controllers\Controller;
 use PhpMyAdmin\Charsets;
 use PhpMyAdmin\Template;
 
 /**
  * Handles viewing character sets and collations
  *
- * @package PMA\libraries\controllers\server
+ * @package PhpMyAdmin\Controllers
  */
 class ServerCollationsController extends Controller
 {

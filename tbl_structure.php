@@ -9,7 +9,7 @@
 
 namespace PMA;
 
-use PMA\libraries\controllers\table\TableStructureController;
+use PhpMyAdmin\Controllers\Table\TableStructureController;
 use PMA\libraries\controllers\Table;
 use PhpMyAdmin\Response;
 
@@ -19,10 +19,10 @@ require_once 'libraries/config/user_preferences.forms.php';
 require_once 'libraries/config/page_settings.forms.php';
 
 $container = libraries\di\Container::getDefaultContainer();
-$container->factory('PMA\libraries\controllers\table\TableStructureController');
+$container->factory('PhpMyAdmin\Controllers\Table\TableStructureController');
 $container->alias(
     'TableStructureController',
-    'PMA\libraries\controllers\table\TableStructureController'
+    'PhpMyAdmin\Controllers\Table\TableStructureController'
 );
 $container->set('PhpMyAdmin\Response', Response::getInstance());
 $container->alias('response', 'PhpMyAdmin\Response');

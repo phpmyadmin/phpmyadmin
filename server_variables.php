@@ -9,18 +9,18 @@
 
 namespace PMA;
 
-use PMA\libraries\controllers\server\ServerVariablesController;
+use PhpMyAdmin\Controllers\Server\ServerVariablesController;
 use PhpMyAdmin\Response;
 
 require_once 'libraries/common.inc.php';
 
 $container = libraries\di\Container::getDefaultContainer();
 $container->factory(
-    'PMA\libraries\controllers\server\ServerVariablesController'
+    'PhpMyAdmin\Controllers\Server\ServerVariablesController'
 );
 $container->alias(
     'ServerVariablesController',
-    'PMA\libraries\controllers\server\ServerVariablesController'
+    'PhpMyAdmin\Controllers\Server\ServerVariablesController'
 );
 $container->set('PhpMyAdmin\Response', Response::getInstance());
 $container->alias('response', 'PhpMyAdmin\Response');

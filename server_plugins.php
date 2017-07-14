@@ -9,18 +9,18 @@
 
 namespace PMA;
 
-use PMA\libraries\controllers\server\ServerPluginsController;
+use PhpMyAdmin\Controllers\Server\ServerPluginsController;
 use PhpMyAdmin\Response;
 
 require_once 'libraries/common.inc.php';
 
 $container = \PMA\libraries\di\Container::getDefaultContainer();
 $container->factory(
-    'PMA\libraries\controllers\server\ServerPluginsController'
+    'PhpMyAdmin\Controllers\Server\ServerPluginsController'
 );
 $container->alias(
     'ServerPluginsController',
-    'PMA\libraries\controllers\server\ServerPluginsController'
+    'PhpMyAdmin\Controllers\Server\ServerPluginsController'
 );
 $container->set('PhpMyAdmin\Response', Response::getInstance());
 $container->alias('response', 'PhpMyAdmin\Response');

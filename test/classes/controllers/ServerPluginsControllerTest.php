@@ -10,7 +10,7 @@
  * Include to test.
  */
 use PhpMyAdmin\Theme;
-use PMA\libraries\controllers\server\ServerPluginsController;
+use PhpMyAdmin\Controllers\Server\ServerPluginsController;
 use PMA\libraries\di\Container;
 
 require_once 'libraries/database_interface.inc.php';
@@ -80,7 +80,7 @@ class ServerPluginsControllerTest extends PMATestCase
         $container = Container::getDefaultContainer();
         $container->set('dbi', $dbi);
 
-        $class = new ReflectionClass('\PMA\libraries\controllers\server\ServerPluginsController');
+        $class = new ReflectionClass('\PhpMyAdmin\Controllers\Server\ServerPluginsController');
         $method = $class->getMethod('_getPluginsHtml');
         $method->setAccessible(true);
 

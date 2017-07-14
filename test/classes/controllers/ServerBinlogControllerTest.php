@@ -7,7 +7,7 @@
  */
 
 use PhpMyAdmin\Theme;
-use PMA\libraries\controllers\server\ServerBinlogController;
+use PhpMyAdmin\Controllers\Server\ServerBinlogController;
 use PMA\libraries\di\Container;
 use PhpMyAdmin\Util;
 
@@ -75,7 +75,7 @@ class ServerBinlogControllerTest extends PMATestCase
         $url_params['log'] = "log";
         $url_params['dontlimitchars'] = 1;
 
-        $class = new ReflectionClass('\PMA\libraries\controllers\server\ServerBinlogController');
+        $class = new ReflectionClass('\PhpMyAdmin\Controllers\Server\ServerBinlogController');
         $method = $class->getMethod('_getLogSelector');
         $method->setAccessible(true);
 
@@ -107,13 +107,13 @@ class ServerBinlogControllerTest extends PMATestCase
      */
     public function testGetLogInfo()
     {
-    	$class = new ReflectionClass('\PMA\libraries\controllers\server\ServerBinlogController');
-    	$method = $class->getMethod('_getLogInfo');
-    	$method->setAccessible(true);
-    	$ctrl = new ServerBinlogController();
+        $class = new ReflectionClass('\PhpMyAdmin\Controllers\Server\ServerBinlogController');
+        $method = $class->getMethod('_getLogInfo');
+        $method->setAccessible(true);
+        $ctrl = new ServerBinlogController();
 
         //Mock DBI
-    	$container = Container::getDefaultContainer();
+        $container = Container::getDefaultContainer();
         $dbi = $container->get('dbi');
 
         //expects return value
@@ -220,13 +220,13 @@ class ServerBinlogControllerTest extends PMATestCase
      */
     public function testGetAllLogItemInfo()
     {
-    	$class = new ReflectionClass('\PMA\libraries\controllers\server\ServerBinlogController');
-    	$method = $class->getMethod('_getAllLogItemInfo');
-    	$method->setAccessible(true);
-    	$ctrl = new ServerBinlogController();
+        $class = new ReflectionClass('\PhpMyAdmin\Controllers\Server\ServerBinlogController');
+        $method = $class->getMethod('_getAllLogItemInfo');
+        $method->setAccessible(true);
+        $ctrl = new ServerBinlogController();
 
         //Mock DBI
-    	$container = Container::getDefaultContainer();
+        $container = Container::getDefaultContainer();
         $dbi = $container->get('dbi');
 
         $fetchAssoc = array(

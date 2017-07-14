@@ -1,26 +1,23 @@
 <?php
 /* vim: set expandtab sw=4 ts=4 sts=4: */
-
 /**
- * Holds the PMA\TableIndexesController
+ * Holds the PhpMyAdmin\Controllers\Table\TableIndexesController
  *
- * @package PMA
+ * @package PhpMyAdmin\Controllers
  */
+namespace PhpMyAdmin\Controllers\Table;
 
-namespace PMA\libraries\controllers\table;
-
-use PMA\libraries\controllers\TableController;
+use PhpMyAdmin\Controllers\TableController;
 use PhpMyAdmin\Index;
 use PhpMyAdmin\Message;
+use PhpMyAdmin\Response;
 use PhpMyAdmin\Template;
 use PhpMyAdmin\Util;
-use PhpMyAdmin\Response;
-
 
 /**
  * Class TableIndexesController
  *
- * @package PMA\libraries\controllers\table
+ * @package PhpMyAdmin\Controllers
  */
 class TableIndexesController extends TableController
 {

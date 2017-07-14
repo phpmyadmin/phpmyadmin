@@ -6,7 +6,7 @@
  * @package PhpMyAdmin-test
  */
 
-use PMA\libraries\controllers\table\TableIndexesController;
+use PhpMyAdmin\Controllers\Table\TableIndexesController;
 use PMA\libraries\di\Container;
 use PhpMyAdmin\Theme;
 use PhpMyAdmin\Url;
