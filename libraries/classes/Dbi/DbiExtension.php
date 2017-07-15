@@ -6,7 +6,7 @@
  */
 namespace PhpMyAdmin\Dbi;
 
-require_once 'libraries/dbi/DBIExtension.lib.php';
+require_once 'libraries/dbi/dbi_extension.lib.php';
 
 /**
  * Contract for every database extension supported by phpMyAdmin

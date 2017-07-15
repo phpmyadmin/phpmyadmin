@@ -14,7 +14,7 @@ if (! defined('PHPMYADMIN')) {
     exit;
 }
 
-require_once 'libraries/dbi/DBIExtension.lib.php';
+require_once 'libraries/dbi/dbi_extension.lib.php';
 
 /**
  * MySQL client API
