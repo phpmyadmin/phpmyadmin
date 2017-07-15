@@ -28,7 +28,7 @@ class DatabaseInterfaceTest extends PMATestCase
      */
     function setup()
     {
-        $extension = new PMA\libraries\dbi\DBIDummy();
+        $extension = new PhpMyAdmin\Dbi\DbiDummy();
         $this->_dbi = new DatabaseInterface($extension);
     }
 
@@ -43,7 +43,7 @@ class DatabaseInterfaceTest extends PMATestCase
     {
         Util::cacheUnset('mysql_cur_user');
 
-        $extension = new PMA\libraries\dbi\DBIDummy();
+        $extension = new PhpMyAdmin\Dbi\DbiDummy();
         $extension->setResult('SELECT CURRENT_USER();', $value);
 
         $dbi = new DatabaseInterface($extension);
@@ -81,7 +81,7 @@ class DatabaseInterfaceTest extends PMATestCase
      */
     public function testPMAGetColumnMap()
     {
-        $extension = $this->getMockBuilder('PMA\libraries\dbi\DBIDummy')
+        $extension = $this->getMockBuilder('PhpMyAdmin\Dbi\DbiDummy')
             ->disableOriginalConstructor()
             ->getMock();
 
@@ -387,7 +387,7 @@ class DatabaseInterfaceTest extends PMATestCase
     {
         Util::cacheUnset('is_amazon_rds');
 
-        $extension = new PMA\libraries\dbi\DBIDummy();
+        $extension = new PhpMyAdmin\Dbi\DbiDummy();
         $extension->setResult('SELECT @@basedir', $value);
 
         $dbi = new DatabaseInterface($extension);

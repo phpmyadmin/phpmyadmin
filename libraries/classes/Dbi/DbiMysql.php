@@ -6,7 +6,7 @@
  * @package    PhpMyAdmin-DBI
  * @subpackage MySQL
  */
-namespace PMA\libraries\dbi;
+namespace PhpMyAdmin\Dbi;
 
 use PhpMyAdmin\DatabaseInterface;
 
@@ -34,7 +34,7 @@ PMA_defineClientAPI(mysql_get_client_info());
  * @package    PhpMyAdmin-DBI
  * @subpackage MySQL
  */
-class DBIMysql implements DBIExtension
+class DbiMysql implements DbiExtension
 {
     /**
      * Helper function for connecting to the database server

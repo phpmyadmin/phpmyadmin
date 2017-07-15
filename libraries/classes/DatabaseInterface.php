@@ -8,7 +8,7 @@
 namespace PhpMyAdmin;
 
 use PhpMyAdmin\Core;
-use PMA\libraries\dbi\DBIExtension;
+use PhpMyAdmin\Dbi\DbiExtension;
 use PhpMyAdmin\Error;
 use PhpMyAdmin\Index;
 use PhpMyAdmin\LanguageManager;
@@ -60,7 +60,7 @@ class DatabaseInterface
     const CONNECT_AUXILIARY = 0x102;
 
     /**
-     * @var DBIExtension
+     * @var DbiExtension
      */
     private $_extension;
 
@@ -82,7 +82,7 @@ class DatabaseInterface
     /**
      * Constructor
      *
-     * @param DBIExtension $ext Object to be used for database queries
+     * @param DbiExtension $ext Object to be used for database queries
      */
     public function __construct($ext)
     {

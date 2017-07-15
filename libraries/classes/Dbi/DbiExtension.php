@@ -4,7 +4,7 @@
  *
  * @package PhpMyAdmin-DBI
  */
-namespace PMA\libraries\dbi;
+namespace PhpMyAdmin\Dbi;
 
 require_once 'libraries/dbi/DBIExtension.lib.php';
 
@@ -13,7 +13,7 @@ require_once 'libraries/dbi/DBIExtension.lib.php';
  *
  * @package PhpMyAdmin-DBI
  */
-interface DBIExtension
+interface DbiExtension
 {
     /**
      * connects to the database server

@@ -10,7 +10,7 @@
  * @package    PhpMyAdmin-DBI
  * @subpackage Dummy
  */
-namespace PMA\libraries\dbi;
+namespace PhpMyAdmin\Dbi;
 
 if (!defined('PHPMYADMIN')) {
     exit;
@@ -894,7 +894,7 @@ if (!defined('PMA_MARIADB')) {
  * @package    PhpMyAdmin-DBI
  * @subpackage Dummy
  */
-class DBIDummy implements DBIExtension
+class DbiDummy implements DbiExtension
 {
     private $_queries = array();
     const OFFSET_GLOBAL = 1000;

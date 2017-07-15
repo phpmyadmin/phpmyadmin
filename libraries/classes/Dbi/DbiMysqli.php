@@ -6,7 +6,7 @@
  * @package    PhpMyAdmin-DBI
  * @subpackage MySQLi
  */
-namespace PMA\libraries\dbi;
+namespace PhpMyAdmin\Dbi;
 
 use PhpMyAdmin\DatabaseInterface;
 
@@ -55,7 +55,7 @@ if (! defined('MYSQLI_TYPE_JSON')) {
  * @package    PhpMyAdmin-DBI
  * @subpackage MySQLi
  */
-class DBIMysqli implements DBIExtension
+class DbiMysqli implements DbiExtension
 {
     /**
      * connects to the database server
