@@ -8,11 +8,11 @@
  */
 
 use PhpMyAdmin\Core;
-use PMA\libraries\dbi\DBIDummy;
+use PhpMyAdmin\Dbi\DbiDummy;
 use PMA\libraries\di\Container;
 use PhpMyAdmin\DatabaseInterface;
-use PMA\libraries\dbi\DBIMysql;
-use PMA\libraries\dbi\DBIMysqli;
+use PhpMyAdmin\Dbi\DbiMysql;
+use PhpMyAdmin\Dbi\DbiMysqli;
 
 if (! defined('PHPMYADMIN')) {
     exit;
@@ -22,7 +22,7 @@ if (defined('TESTSUITE')) {
     /**
      * For testsuite we use dummy driver which can fake some queries.
      */
-    $extension = new DBIDummy();
+    $extension = new DbiDummy();
 } else {
 
     /**
@@ -76,11 +76,11 @@ if (defined('TESTSUITE')) {
      */
     switch($extension) {
     case 'mysql' :
-        $extension = new DBIMysql();
+        $extension = new DbiMysql();
         break;
     case 'mysqli' :
-        include_once 'libraries/dbi/DBIMysqli.lib.php';
-        $extension = new DBIMysqli();
+        include_once 'libraries/dbi/dbi_mysqli.inc.php';
+        $extension = new DbiMysqli();
         break;
     }
 }

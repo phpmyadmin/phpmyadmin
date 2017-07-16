@@ -1,6 +1,6 @@
 <?php
 /**
- * Tests for PMA\libraries\dbi\DBIMysqli class
+ * Tests for PhpMyAdmin\Dbi\DbiMysqli class
  *
  * @package PhpMyAdmin-test
  */
@@ -8,7 +8,7 @@
 /*
  * Include to test.
  */
-use PMA\libraries\dbi\DBIMysqli;
+use PhpMyAdmin\Dbi\DbiMysqli;
 use PhpMyAdmin\Theme;
 
 require_once 'libraries/relation.lib.php';
@@ -16,11 +16,11 @@ require_once 'libraries/database_interface.inc.php';
 require_once 'test/PMATestCase.php';
 
 /**
- * Tests for PMA\libraries\dbi\DBIMysqli class
+ * Tests for PhpMyAdmin\Dbi\DbiMysqli class
  *
  * @package PhpMyAdmin-test
  */
-class DBIMysqliTest extends PMATestCase
+class DbiMysqliTest extends PMATestCase
 {
     /**
      * @access protected
@@ -40,7 +40,7 @@ class DBIMysqliTest extends PMATestCase
         $GLOBALS['cfg']['Server']['compress'] = true;
 
         //$_SESSION
-        $this->object = new DBIMysqli();
+        $this->object = new DbiMysqli();
     }
 
     /**
