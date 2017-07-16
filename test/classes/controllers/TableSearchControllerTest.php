@@ -10,7 +10,7 @@
  * Include to test.
  */
 use PhpMyAdmin\Controllers\Table\TableSearchController;
-use PMA\libraries\di\Container;
+use PhpMyAdmin\Di\Container;
 use PhpMyAdmin\Theme;
 use PhpMyAdmin\TypesMySQL;
 

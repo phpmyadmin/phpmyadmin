@@ -7,7 +7,7 @@
  */
 
 use PhpMyAdmin\Controllers\Table\TableIndexesController;
-use PMA\libraries\di\Container;
+use PhpMyAdmin\Di\Container;
 use PhpMyAdmin\Theme;
 use PhpMyAdmin\Url;
 use PhpMyAdmin\Response;

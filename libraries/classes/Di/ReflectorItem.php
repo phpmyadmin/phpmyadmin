@@ -1,16 +1,16 @@
 <?php
 /* vim: set expandtab sw=4 ts=4 sts=4: */
 /**
- * Holds the PMA\libraries\di\ReflectorItem class
+ * Holds the PhpMyAdmin\Di\ReflectorItem class
  *
- * @package PMA
+ * @package PhpMyAdmin\Di
  */
-namespace PMA\libraries\di;
+namespace PhpMyAdmin\Di;
 
 /**
  * Reflector manager
  *
- * @package PMA\libraries\di
+ * @package PhpMyAdmin\Di
  */
 abstract class ReflectorItem implements Item
 {

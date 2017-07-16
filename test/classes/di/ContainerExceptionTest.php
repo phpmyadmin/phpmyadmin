@@ -1,7 +1,7 @@
 <?php
 /* vim: set expandtab sw=4 ts=4 sts=4: */
 /**
- * Tests for PMA\libraries\di\ContainerException class
+ * Tests for PhpMyAdmin\Di\ContainerException class
  *
  * @package PhpMyAdmin-test
  */
@@ -11,10 +11,10 @@
  */
 require_once 'test/PMATestCase.php';
 
-use PMA\libraries\di\ContainerException;
+use PhpMyAdmin\Di\ContainerException;
 
 /**
- * Tests for PMA\libraries\di\ContainerException class
+ * Tests for PhpMyAdmin\Di\ContainerException class
  *
  * @package PhpMyAdmin-test
  */

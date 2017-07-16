@@ -6,6 +6,8 @@
  *
  * @package PhpMyAdmin
  */
+
+use PhpMyAdmin\Di\Container;
 use PhpMyAdmin\Response;
 use PhpMyAdmin\Table;
 use PhpMyAdmin\Transformations;
@@ -91,7 +93,7 @@ $comments_map = PMA_getComments($db, $table);
 $move_columns = array();
 if (isset($fields_meta)) {
     /** @var PhpMyAdmin\DatabaseInterface $dbi */
-    $dbi = \PMA\libraries\di\Container::getDefaultContainer()->get('dbi');
+    $dbi = Container::getDefaultContainer()->get('dbi');
     $move_columns = $dbi->getTable($db, $table)->getColumnsMeta();
 }
 

@@ -1,11 +1,11 @@
 <?php
 /* vim: set expandtab sw=4 ts=4 sts=4: */
 /**
- * Holds the PMA\libraries\di\ContainerException class
+ * Holds the PhpMyAdmin\Di\ContainerException class
  *
- * @package PMA
+ * @package PhpMyAdmin\Di
  */
-namespace PMA\libraries\di;
+namespace PhpMyAdmin\Di;
 
 use Exception;
 use Psr\Container\ContainerExceptionInterface;
@@ -13,7 +13,7 @@ use Psr\Container\ContainerExceptionInterface;
 /**
  * Class ContainerException
  *
- * @package PMA\libraries\di
+ * @package PhpMyAdmin\Di
  */
 class ContainerException extends Exception implements ContainerExceptionInterface
 {
