@@ -6,15 +6,14 @@
  * @package PhpMyAdmin
  */
 
-namespace PMA;
-
 use PhpMyAdmin\Controllers\Table\TableGisVisualizationController;
+use PhpMyAdmin\Di\Container;
 use PhpMyAdmin\Response;
 use PhpMyAdmin\Util;
 
 require_once 'libraries/common.inc.php';
 
-$container = libraries\di\Container::getDefaultContainer();
+$container = Container::getDefaultContainer();
 $container->factory(
     'PhpMyAdmin\Controllers\Table\TableGisVisualizationController'
 );

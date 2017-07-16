@@ -1,16 +1,16 @@
 <?php
 /* vim: set expandtab sw=4 ts=4 sts=4: */
 /**
- * Holds the PMA\libraries\di\FactoryItem class
+ * Holds the PhpMyAdmin\Di\FactoryItem class
  *
- * @package PMA
+ * @package PhpMyAdmin\Di
  */
-namespace PMA\libraries\di;
+namespace PhpMyAdmin\Di;
 
 /**
  * Factory manager
  *
- * @package PMA\libraries\di
+ * @package PhpMyAdmin\Di
  */
 class FactoryItem extends ReflectorItem
 {

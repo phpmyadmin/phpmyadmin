@@ -14,19 +14,15 @@
  * @package PhpMyAdmin
  */
 
-/**
- * Get the TableRelationController
- */
-namespace PMA;
-
 use PhpMyAdmin\Controllers\Table\TableRelationController;
+use PhpMyAdmin\Di\Container;
 use PhpMyAdmin\Response;
 use PhpMyAdmin\Table;
 use PhpMyAdmin\Util;
 
 require_once 'libraries/common.inc.php';
 
-$container = libraries\di\Container::getDefaultContainer();
+$container = Container::getDefaultContainer();
 $container->factory('PhpMyAdmin\Controllers\Table\TableRelationController');
 $container->alias(
     'TableRelationController',

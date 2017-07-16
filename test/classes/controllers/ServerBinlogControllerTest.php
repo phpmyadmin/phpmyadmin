@@ -8,7 +8,7 @@
 
 use PhpMyAdmin\Theme;
 use PhpMyAdmin\Controllers\Server\ServerBinlogController;
-use PMA\libraries\di\Container;
+use PhpMyAdmin\Di\Container;
 use PhpMyAdmin\Util;
 
 require_once 'test/PMATestCase.php';

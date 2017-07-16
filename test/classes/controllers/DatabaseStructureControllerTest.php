@@ -12,7 +12,7 @@
  * Include to test.
  */
 use PhpMyAdmin\Controllers\Database\DatabaseStructureController;
-use PMA\libraries\di\Container;
+use PhpMyAdmin\Di\Container;
 use PhpMyAdmin\Table;
 use PhpMyAdmin\Theme;
 

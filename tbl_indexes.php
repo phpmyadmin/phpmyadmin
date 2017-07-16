@@ -6,15 +6,14 @@
  * @package PhpMyAdmin
  */
 
-namespace PMA;
-
 use PhpMyAdmin\Controllers\Table\TableIndexesController;
+use PhpMyAdmin\Di\Container;
 use PhpMyAdmin\Index;
 use PhpMyAdmin\Response;
 
 require_once 'libraries/common.inc.php';
 
-$container = libraries\di\Container::getDefaultContainer();
+$container = Container::getDefaultContainer();
 $container->factory('PhpMyAdmin\Controllers\Table\TableIndexesController');
 $container->alias(
     'TableIndexesController',

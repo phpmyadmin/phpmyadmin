@@ -1,7 +1,7 @@
 <?php
 /* vim: set expandtab sw=4 ts=4 sts=4: */
 /**
- * Tests for PMA\libraries\di\NotFoundException class
+ * Tests for PhpMyAdmin\Di\NotFoundException class
  *
  * @package PhpMyAdmin-test
  */
@@ -11,10 +11,10 @@
  */
 require_once 'test/PMATestCase.php';
 
-use PMA\libraries\di\NotFoundException;
+use PhpMyAdmin\Di\NotFoundException;
 
 /**
- * Tests for PMA\libraries\di\NotFoundException class
+ * Tests for PhpMyAdmin\Di\NotFoundException class
  *
  * @package PhpMyAdmin-test
  */

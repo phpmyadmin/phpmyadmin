@@ -1,16 +1,16 @@
 <?php
 /* vim: set expandtab sw=4 ts=4 sts=4: */
 /**
- * Holds the PMA\libraries\di\ValueItem class
+ * Holds the PhpMyAdmin\Di\ValueItem class
  *
- * @package PMA
+ * @package PhpMyAdmin\Di
  */
-namespace PMA\libraries\di;
+namespace PhpMyAdmin\Di;
 
 /**
  * Value manager
  *
- * @package PMA\libraries\di
+ * @package PhpMyAdmin\Di
  */
 class ValueItem implements Item
 {

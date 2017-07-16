@@ -7,10 +7,8 @@
  * @package PhpMyAdmin
  */
 
-namespace PMA;
-
 use PhpMyAdmin\Controllers\Table\TableStructureController;
-use PMA\libraries\controllers\Table;
+use PhpMyAdmin\Di\Container;
 use PhpMyAdmin\Response;
 
 require_once 'libraries/common.inc.php';
@@ -18,7 +16,7 @@ require_once 'libraries/config/messages.inc.php';
 require_once 'libraries/config/user_preferences.forms.php';
 require_once 'libraries/config/page_settings.forms.php';
 
-$container = libraries\di\Container::getDefaultContainer();
+$container = Container::getDefaultContainer();
 $container->factory('PhpMyAdmin\Controllers\Table\TableStructureController');
 $container->alias(
     'TableStructureController',

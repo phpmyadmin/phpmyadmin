@@ -9,7 +9,7 @@
 
 use PhpMyAdmin\Core;
 use PhpMyAdmin\Dbi\DbiDummy;
-use PMA\libraries\di\Container;
+use PhpMyAdmin\Di\Container;
 use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Dbi\DbiMysql;
 use PhpMyAdmin\Dbi\DbiMysqli;

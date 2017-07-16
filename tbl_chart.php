@@ -6,14 +6,13 @@
  * @package PhpMyAdmin
  */
 
-namespace PMA;
-
 use PhpMyAdmin\Controllers\Table\TableChartController;
+use PhpMyAdmin\Di\Container;
 use PhpMyAdmin\Response;
 
 require_once 'libraries/common.inc.php';
 
-$container = libraries\di\Container::getDefaultContainer();
+$container = Container::getDefaultContainer();
 $container->factory('PhpMyAdmin\Controllers\Table\TableChartController');
 $container->alias(
     'TableChartController', 'PhpMyAdmin\Controllers\Table\TableChartController'

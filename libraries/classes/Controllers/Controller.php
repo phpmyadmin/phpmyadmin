@@ -8,7 +8,7 @@
 namespace PhpMyAdmin\Controllers;
 
 use PhpMyAdmin\DatabaseInterface;
-use PMA\libraries\di\Container;
+use PhpMyAdmin\Di\Container;
 use PhpMyAdmin\Response;
 
 require_once 'libraries/database_interface.inc.php';
@@ -32,7 +32,7 @@ abstract class Controller
     protected $dbi;
 
     /**
-     * @var \PMA\libraries\di\Container
+     * @var \PhpMyAdmin\Di\Container
      */
     protected $container;
 

@@ -7,6 +7,8 @@
  *
  * @package PhpMyAdmin
  */
+
+use PhpMyAdmin\Di\Container;
 use PhpMyAdmin\Response;
 
 /**
@@ -15,7 +17,7 @@ use PhpMyAdmin\Response;
 require_once 'libraries/common.inc.php';
 require_once 'libraries/tbl_common.inc.php';
 
-$container = \PMA\libraries\di\Container::getDefaultContainer();
+$container = Container::getDefaultContainer();
 $container->factory('PhpMyAdmin\Controllers\Table\TableSearchController');
 $container->alias(
     'TableSearchController', 'PhpMyAdmin\Controllers\Table\TableSearchController'

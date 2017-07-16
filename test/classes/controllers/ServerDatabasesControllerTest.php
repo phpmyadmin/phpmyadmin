@@ -6,7 +6,7 @@
  * @package PhpMyAdmin-test
  */
 
-use PMA\libraries\di\Container;
+use PhpMyAdmin\Di\Container;
 use PhpMyAdmin\Theme;
 use PhpMyAdmin\Charsets;
 
