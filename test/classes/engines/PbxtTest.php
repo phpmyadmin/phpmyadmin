@@ -11,13 +11,13 @@
  */
 
 use PhpMyAdmin\Core;
-use PMA\libraries\engines\Pbxt;
+use PhpMyAdmin\Engines\Pbxt;
 
 require_once 'libraries/database_interface.inc.php';
 require_once 'test/PMATestCase.php';
 
 /**
- * Tests for PMA\libraries\engines\Pbxt;
+ * Tests for PhpMyAdmin\Engines\Pbxt;
  *
  * @package PhpMyAdmin-test
  */

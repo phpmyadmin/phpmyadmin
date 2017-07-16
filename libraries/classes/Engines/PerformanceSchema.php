@@ -1,27 +1,29 @@
 <?php
 /* vim: set expandtab sw=4 ts=4 sts=4: */
 /**
- * The MERGE storage engine
+ * The performance schema storage engine
  *
  * @package PhpMyAdmin-Engines
  */
-namespace PMA\libraries\engines;
+namespace PhpMyAdmin\Engines;
+
+use PhpMyAdmin\StorageEngine;
 
 /**
- * The MERGE storage engine
+ * The performance schema storage engine
  *
  * @package PhpMyAdmin-Engines
  */
-class MrgMyisam extends Merge
+class PerformanceSchema extends StorageEngine
 {
     /**
-     * returns string with filename for the MySQL helppage
+     * Returns string with filename for the MySQL helppage
      * about this storage engine
      *
      * @return string  mysql helppage filename
      */
     public function getMysqlHelpPage()
     {
-        return 'merge-storage-engine';
+        return 'performance-schema';
     }
 }

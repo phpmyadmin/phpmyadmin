@@ -7,18 +7,18 @@
  */
 namespace PhpMyAdmin;
 
-use PMA\libraries\engines\Bdb;
-use PMA\libraries\engines\Berkeleydb;
-use PMA\libraries\engines\Binlog;
-use PMA\libraries\engines\Innobase;
-use PMA\libraries\engines\Innodb;
-use PMA\libraries\engines\Memory;
-use PMA\libraries\engines\Merge;
-use PMA\libraries\engines\MrgMyisam;
-use PMA\libraries\engines\Myisam;
-use PMA\libraries\engines\Ndbcluster;
-use PMA\libraries\engines\Pbxt;
-use PMA\libraries\engines\PerformanceSchema;
+use PhpMyAdmin\Engines\Bdb;
+use PhpMyAdmin\Engines\Berkeleydb;
+use PhpMyAdmin\Engines\Binlog;
+use PhpMyAdmin\Engines\Innobase;
+use PhpMyAdmin\Engines\Innodb;
+use PhpMyAdmin\Engines\Memory;
+use PhpMyAdmin\Engines\Merge;
+use PhpMyAdmin\Engines\MrgMyisam;
+use PhpMyAdmin\Engines\Myisam;
+use PhpMyAdmin\Engines\Ndbcluster;
+use PhpMyAdmin\Engines\Pbxt;
+use PhpMyAdmin\Engines\PerformanceSchema;
 use PhpMyAdmin\Util;
 
 /**

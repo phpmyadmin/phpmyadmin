@@ -1,17 +1,18 @@
 <?php
 /* vim: set expandtab sw=4 ts=4 sts=4: */
 /**
- * The Innobase storage engine
+ * The BerkeleyDB storage engine
  *
  * @package PhpMyAdmin-Engines
  */
-namespace PMA\libraries\engines;
+namespace PhpMyAdmin\Engines;
 
 /**
- * The Innobase storage engine
+ * This is same as BDB
  *
  * @package PhpMyAdmin-Engines
  */
-class Innobase extends Innodb
+class Berkeleydb extends Bdb
 {
 }
+

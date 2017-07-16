@@ -126,18 +126,18 @@ class StorageEngineTest extends PMATestCase
     {
         return array(
             array('PhpMyAdmin\StorageEngine', 'unknown engine'),
-            array('PMA\libraries\engines\Bdb', 'Bdb'),
-            array('PMA\libraries\engines\Berkeleydb', 'Berkeleydb'),
-            array('PMA\libraries\engines\Binlog', 'Binlog'),
-            array('PMA\libraries\engines\Innobase', 'Innobase'),
-            array('PMA\libraries\engines\Innodb', 'Innodb'),
-            array('PMA\libraries\engines\Memory', 'Memory'),
-            array('PMA\libraries\engines\Merge', 'Merge'),
-            array('PMA\libraries\engines\MrgMyisam', 'Mrg_Myisam'),
-            array('PMA\libraries\engines\Myisam', 'Myisam'),
-            array('PMA\libraries\engines\Ndbcluster', 'Ndbcluster'),
-            array('PMA\libraries\engines\Pbxt', 'Pbxt'),
-            array('PMA\libraries\engines\PerformanceSchema', 'Performance_Schema'),
+            array('PhpMyAdmin\Engines\Bdb', 'Bdb'),
+            array('PhpMyAdmin\Engines\Berkeleydb', 'Berkeleydb'),
+            array('PhpMyAdmin\Engines\Binlog', 'Binlog'),
+            array('PhpMyAdmin\Engines\Innobase', 'Innobase'),
+            array('PhpMyAdmin\Engines\Innodb', 'Innodb'),
+            array('PhpMyAdmin\Engines\Memory', 'Memory'),
+            array('PhpMyAdmin\Engines\Merge', 'Merge'),
+            array('PhpMyAdmin\Engines\MrgMyisam', 'Mrg_Myisam'),
+            array('PhpMyAdmin\Engines\Myisam', 'Myisam'),
+            array('PhpMyAdmin\Engines\Ndbcluster', 'Ndbcluster'),
+            array('PhpMyAdmin\Engines\Pbxt', 'Pbxt'),
+            array('PhpMyAdmin\Engines\PerformanceSchema', 'Performance_Schema'),
         );
     }
 

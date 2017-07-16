@@ -1,30 +1,27 @@
 <?php
 /* vim: set expandtab sw=4 ts=4 sts=4: */
 /**
- * The binary log storage engine
+ * The MERGE storage engine
  *
  * @package PhpMyAdmin-Engines
  */
-namespace PMA\libraries\engines;
-
-use PhpMyAdmin\StorageEngine;
+namespace PhpMyAdmin\Engines;
 
 /**
- * The binary log storage engine
+ * The MERGE storage engine
  *
  * @package PhpMyAdmin-Engines
  */
-class Binlog extends StorageEngine
+class MrgMyisam extends Merge
 {
     /**
-     * Returns string with filename for the MySQL helppage
+     * returns string with filename for the MySQL helppage
      * about this storage engine
      *
      * @return string  mysql helppage filename
      */
     public function getMysqlHelpPage()
     {
-        return 'binary-log';
+        return 'merge-storage-engine';
     }
 }
-

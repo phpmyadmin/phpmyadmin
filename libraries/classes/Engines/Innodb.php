@@ -5,7 +5,7 @@
  *
  * @package PhpMyAdmin-Engines
  */
-namespace PMA\libraries\engines;
+namespace PhpMyAdmin\Engines;
 
 use PhpMyAdmin\StorageEngine;
 use PhpMyAdmin\Util;
