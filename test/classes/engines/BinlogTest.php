@@ -9,13 +9,13 @@
  * Include to test.
  */
 
-use PMA\libraries\engines\Binlog;
+use PhpMyAdmin\Engines\Binlog;
 
 require_once 'libraries/database_interface.inc.php';
 require_once 'test/PMATestCase.php';
 
 /**
- * Tests for PMA\libraries\engines\Binlog
+ * Tests for PhpMyAdmin\Engines\Binlog
  *
  * @package PhpMyAdmin-test
  */

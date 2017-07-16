@@ -5,7 +5,7 @@
  *
  * @package PhpMyAdmin
  */
-use PMA\libraries\engines\Innodb;
+use PhpMyAdmin\Engines\Innodb;
 use PhpMyAdmin\Charsets;
 use PhpMyAdmin\Core;
 use PhpMyAdmin\Message;
