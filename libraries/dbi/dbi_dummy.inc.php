@@ -879,6 +879,3 @@ $GLOBALS['dummy_db'] = '';
 $GLOBALS['userlink'] = 1;
 $GLOBALS['controllink'] = 2;
 $GLOBALS['cfg']['DBG']['sql'] = false;
-if (!defined('PMA_MARIADB')) {
-    define('PMA_MARIADB', 0);
-}
