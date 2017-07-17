@@ -37,9 +37,6 @@ class PMA_ServerPrivileges_Test extends PHPUnit_Framework_TestCase
         if (!defined("PMA_USR_BROWSER_AGENT")) {
             define("PMA_USR_BROWSER_AGENT", "other");
         }
-        if (!defined("PMA_MYSQL_VERSION_COMMENT")) {
-            define("PMA_MYSQL_VERSION_COMMENT", "MySQL");
-        }
 
         //$_REQUEST
         $_REQUEST['log'] = "index1";
