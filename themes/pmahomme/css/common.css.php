@@ -16,7 +16,7 @@ if (! defined('PMA_MINIMUM_COMMON') && ! defined('TESTSUITE')) {
 
 /* general tags */
 html {
-    font-size: <?php echo $_SESSION['PMA_Theme']->getFontSize(); ?>
+    font-size: <?php echo $theme->getFontSize(); ?>
 }
 
 input,
@@ -144,13 +144,13 @@ button.mult_submit:focus,
     -moz-border-radius: 5px;
     -webkit-border-radius: 5px;
     border-radius: 5px;
-    <?php echo $_SESSION['PMA_Theme']->getCssGradient('ffffff', 'e0e0e0'); ?>
+    <?php echo $theme->getCssGradient('ffffff', 'e0e0e0'); ?>
 }
 
 #initials_table a.active {
     border: 1px solid #666;
     box-shadow: 0 0 2px #999;
-    <?php echo $_SESSION['PMA_Theme']->getCssGradient('bbbbbb', 'ffffff'); ?>
+    <?php echo $theme->getCssGradient('bbbbbb', 'ffffff'); ?>
 }
 
 dfn {
@@ -166,7 +166,7 @@ th {
     font-weight: bold;
     color: <?php echo $GLOBALS['cfg']['ThColor']; ?>;
     background: #f3f3f3;
-    <?php echo $_SESSION['PMA_Theme']->getCssGradient('ffffff', 'cccccc'); ?>
+    <?php echo $theme->getCssGradient('ffffff', 'cccccc'); ?>
 }
 
 a img {
@@ -295,7 +295,7 @@ input.button {
 
     text-shadow: 0 1px 0 #fff;
 
-    <?php echo $_SESSION['PMA_Theme']->getCssGradient('f8f8f8', 'd8d8d8'); ?>
+    <?php echo $theme->getCssGradient('f8f8f8', 'd8d8d8'); ?>
 }
 
 input[type=submit]:hover,
@@ -305,7 +305,7 @@ input[type=reset]:hover,
 input[name=submit_reset]:hover,
 input.button:hover {
     position: relative;
-    <?php echo $_SESSION['PMA_Theme']->getCssGradient('fff', 'ddd'); ?>
+    <?php echo $theme->getCssGradient('fff', 'ddd'); ?>
     cursor: pointer;
 }
 
@@ -316,7 +316,7 @@ input[type=reset]:active,
 input[name=submit_reset]:active,
 input.button:active {
     position: relative;
-    <?php echo $_SESSION['PMA_Theme']->getCssGradient('eee', 'ddd'); ?>
+    <?php echo $theme->getCssGradient('eee', 'ddd'); ?>
     box-shadow: 0 1px 6px -2px #333 inset;
     text-shadow: none;
 }
@@ -435,7 +435,7 @@ select {
 }
 
 select[multiple] {
-    <?php echo $_SESSION['PMA_Theme']->getCssGradient('ffffff', 'f2f2f2'); ?>
+    <?php echo $theme->getCssGradient('ffffff', 'f2f2f2'); ?>
 }
 
 /******************************************************************************/
@@ -572,7 +572,7 @@ td.marked:not(.nomarker),
 table tr.marked:not(.nomarker) td,
 table tbody:first-of-type tr.marked:not(.nomarker) th,
 table tr.marked:not(.nomarker) {
-    <?php echo $_SESSION['PMA_Theme']->getCssGradient('ced6df', 'b6c6d7'); ?>
+    <?php echo $theme->getCssGradient('ced6df', 'b6c6d7'); ?>
     color: <?php echo $GLOBALS['cfg']['BrowseMarkerColor']; ?>;
 }
 
@@ -580,13 +580,13 @@ table tr.marked:not(.nomarker) {
 table tbody:first-of-type tr:not(.nopointer):hover,
 table tbody:first-of-type tr:not(.nopointer):hover th,
 .hover:not(.nopointer) {
-    <?php echo $_SESSION['PMA_Theme']->getCssGradient('ced6df', 'b6c6d7'); ?>
+    <?php echo $theme->getCssGradient('ced6df', 'b6c6d7'); ?>
     color: <?php echo $GLOBALS['cfg']['BrowsePointerColor']; ?>;
 }
 
 /* hovered table rows */
 table tr.hover:not(.nopointer) th {
-    <?php echo $_SESSION['PMA_Theme']->getCssGradient('ced6df', 'b6c6d7'); ?>
+    <?php echo $theme->getCssGradient('ced6df', 'b6c6d7'); ?>
     color: <?php echo $GLOBALS['cfg']['BrowsePointerColor']; ?>;
 }
 
@@ -949,7 +949,7 @@ ul#topmenu2 li {
 }
 
 .menucontainer {
-    <?php echo $_SESSION['PMA_Theme']->getCssGradient('ffffff', 'dcdcdc'); ?>
+    <?php echo $theme->getCssGradient('ffffff', 'dcdcdc'); ?>
     border-top: 1px solid #aaa;
 }
 
@@ -1451,7 +1451,7 @@ div#queryAnalyzerDialog table.queryNums {
 #serverVariables .var-header {
     color: <?php echo $GLOBALS['cfg']['ThColor']; ?>;
     background: #f3f3f3;
-    <?php echo $_SESSION['PMA_Theme']->getCssGradient('ffffff', 'cccccc'); ?>
+    <?php echo $theme->getCssGradient('ffffff', 'cccccc'); ?>
     font-weight: bold;
     text-align: <?php echo $left; ?>;
 }
@@ -1604,12 +1604,12 @@ a.button {
     border-radius: 20px;
     -webkit-border-radius: 20px;
     -moz-border-radius: 20px;
-    <?php echo $_SESSION['PMA_Theme']->getCssGradient('f8f8f8', 'd8d8d8'); ?>
+    <?php echo $theme->getCssGradient('f8f8f8', 'd8d8d8'); ?>
 }
 #sectionlinks a:hover,
 .buttonlinks a:hover,
 a.button:hover {
-    <?php echo $_SESSION['PMA_Theme']->getCssGradient('ffffff', 'dddddd'); ?>
+    <?php echo $theme->getCssGradient('ffffff', 'dddddd'); ?>
 }
 
 div#sqlquerycontainer {
@@ -1653,7 +1653,7 @@ div#queryboxcontainer div#bookmarkoptions {
 
 /* main page */
 #maincontainer {
-    /* background-image: url(<?php echo $_SESSION['PMA_Theme']->getImgPath('logo_right.png');?>); */
+    /* background-image: url(<?php echo $theme->getImgPath('logo_right.png');?>); */
     /* background-position: <?php echo $right; ?> bottom; */
     /* background-repeat: no-repeat; */
 }
@@ -1951,7 +1951,7 @@ select.invalid_value,
     display: inline;
     left: 0;
     right: 0;
-    background-image: url(<?php echo $_SESSION['PMA_Theme']->getImgPath('ajax_clock_small.gif');?>);
+    background-image: url(<?php echo $theme->getImgPath('ajax_clock_small.gif');?>);
     background-repeat: no-repeat;
     background-position: 2%;
     border: 1px solid #e2b709;
@@ -2056,7 +2056,7 @@ select.invalid_value,
 
     text-shadow: 0 1px 0 #fff;
 
-    <?php echo $_SESSION['PMA_Theme']->getCssGradient('ffffff', 'cccccc'); ?>
+    <?php echo $theme->getCssGradient('ffffff', 'cccccc'); ?>
     cursor: pointer;
 }
 
@@ -2691,7 +2691,7 @@ fieldset .disabled-field td {
 }
 
 .cPointer {
-    background: url(<?php echo $_SESSION['PMA_Theme']->getImgPath('col_pointer.png');?>);
+    background: url(<?php echo $theme->getImgPath('col_pointer.png');?>);
     height: 20px;
     margin-<?php echo $left; ?>: -5px;  /* must be minus half of its width */
     margin-top: -10px;
@@ -2724,7 +2724,7 @@ fieldset .disabled-field td {
 }
 
 .coldrop {
-    background: url(<?php echo $_SESSION['PMA_Theme']->getImgPath('col_drop.png');?>);
+    background: url(<?php echo $theme->getImgPath('col_drop.png');?>);
     cursor: pointer;
     height: 16px;
     margin-<?php echo $left; ?>: .3em;
@@ -2789,7 +2789,7 @@ fieldset .disabled-field td {
     -webkit-border-radius: 5px;
     -moz-border-radius: 5px;
 
-    <?php echo $_SESSION['PMA_Theme']->getCssGradient('eeeeee', 'cccccc'); ?>
+    <?php echo $theme->getCssGradient('eeeeee', 'cccccc'); ?>
 }
 
 .navigation td {
@@ -2827,7 +2827,7 @@ fieldset .disabled-field td {
     cursor: pointer;
     text-shadow: none;
 
-    <?php echo $_SESSION['PMA_Theme']->getCssGradient('333333', '555555'); ?>
+    <?php echo $theme->getCssGradient('333333', '555555'); ?>
 }
 
 .navigation select {
@@ -2873,12 +2873,12 @@ fieldset .disabled-field td {
 }
 
 .cEdit .edit_box_posting {
-    background: #FFF url(<?php echo $_SESSION['PMA_Theme']->getImgPath('ajax_clock_small.gif');?>) no-repeat right center;
+    background: #FFF url(<?php echo $theme->getImgPath('ajax_clock_small.gif');?>) no-repeat right center;
     padding-<?php echo $right; ?>: 1.5em;
 }
 
 .cEdit .edit_area_loading {
-    background: #FFF url(<?php echo $_SESSION['PMA_Theme']->getImgPath('ajax_clock_small.gif');?>) no-repeat center;
+    background: #FFF url(<?php echo $theme->getImgPath('ajax_clock_small.gif');?>) no-repeat center;
     height: 10em;
 }
 
@@ -2889,7 +2889,7 @@ fieldset .disabled-field td {
 }
 
 .saving_edited_data {
-    background: url(<?php echo $_SESSION['PMA_Theme']->getImgPath('ajax_clock_small.gif');?>) no-repeat left;
+    background: url(<?php echo $theme->getImgPath('ajax_clock_small.gif');?>) no-repeat left;
     padding-<?php echo $left; ?>: 20px;
 }
 
@@ -3454,7 +3454,7 @@ html.ie7 #pma_console .query_input {
 
 span.drag_icon {
     display: inline-block;
-    background-image: url('<?php echo $_SESSION['PMA_Theme']->getImgPath('s_sortable.png');?>');
+    background-image: url('<?php echo $theme->getImgPath('s_sortable.png');?>');
     background-position: center center;
     background-repeat: no-repeat;
     width: 1em;
@@ -3497,11 +3497,11 @@ th.header .sorticon {
 }
 
 th.headerSortUp .sorticon, th.headerSortDown:hover .sorticon {
-    background-image: url(<?php echo $_SESSION['PMA_Theme']->getImgPath('s_desc.png');?>);
+    background-image: url(<?php echo $theme->getImgPath('s_desc.png');?>);
 }
 
 th.headerSortDown .sorticon, th.headerSortUp:hover .sorticon {
-    background-image: url(<?php echo $_SESSION['PMA_Theme']->getImgPath('s_asc.png');?>);
+    background-image: url(<?php echo $theme->getImgPath('s_asc.png');?>);
 }
 /* end of styles of sortable tables */
 

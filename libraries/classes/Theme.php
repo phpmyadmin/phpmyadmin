@@ -356,6 +356,8 @@ class Theme
     {
         $success = true;
 
+        /* Variables to be used by the themes: */
+        $theme = $this;
         if ($GLOBALS['text_dir'] === 'ltr') {
             $right = 'right';
             $left = 'left';
