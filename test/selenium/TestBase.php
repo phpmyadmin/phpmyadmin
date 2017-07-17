@@ -57,11 +57,12 @@ abstract class PMA_SeleniumBase extends PHPUnit_Extensions_Selenium2TestCase
             self::$_selenium_enabled = true;
 
             $strategy = 'shared';
-            $build_local = false;
+            $build_local = true;
             $build_id = 'Manual';
             $project_name = 'phpMyAdmin';
             if (getenv('BUILD_TAG')) {
                 $build_id = getenv('BUILD_TAG');
+                $build_local = false;
                 $strategy = 'isolated';
                 $project_name = 'phpMyAdmin (Jenkins)';
             } elseif (getenv('TRAVIS_JOB_NUMBER')) {
