@@ -80,6 +80,27 @@ class DatabaseInterface
     private $_lower_case_table_names = null;
 
     /**
+     * @var boolean Whether connection is MariaDB
+     */
+    private $_is_mariadb = false;
+    /**
+     * @var boolean Whether connection is Percona
+     */
+    private $_is_percona = false;
+    /**
+     * @var integer Server version as number
+     */
+    private $_version_int = 50501;
+    /**
+     * @var string Server version
+     */
+    private $_version_str = '5.05.01';
+    /**
+     * @var string Server version comment
+     */
+    private $_version_comment = '';
+
+    /**
      * Constructor
      *
      * @param DbiExtension $ext Object to be used for database queries
@@ -1370,32 +1391,33 @@ class DatabaseInterface
      */
     public function postConnect($link)
     {
-        if (! defined('PMA_MYSQL_INT_VERSION')) {
-            $version = $this->fetchSingleRow(
-                'SELECT @@version, @@version_comment',
-                'ASSOC',
-                $link
-            );
+        $version = $this->fetchSingleRow(
+            'SELECT @@version, @@version_comment',
+            'ASSOC',
+            $link
+        );
 
-            if ($version) {
-                $ver_int = self::versionToInt($version['@@version']);
-                define('PMA_MYSQL_INT_VERSION', $ver_int);
-                define('PMA_MYSQL_STR_VERSION', $version['@@version']);
-                define('PMA_MYSQL_VERSION_COMMENT', $version['@@version_comment']);
-            } else {
-                define('PMA_MYSQL_INT_VERSION', 50501);
-                define('PMA_MYSQL_STR_VERSION', '5.05.01');
-                define('PMA_MYSQL_VERSION_COMMENT', '');
+        if ($version) {
+            $this->_version_int = self::versionToInt($version['@@version']);
+            $this->_version_str = $version['@@version'];
+            $this->_version_comment = $version['@@version_comment'];
+            if (stripos($version['@@version'], 'mariadb') !== false) {
+                $this->_is_mariadb = true;
             }
-            /* Detect MariaDB */
-            if (mb_strpos(PMA_MYSQL_STR_VERSION, 'MariaDB') !== false) {
-                define('PMA_MARIADB', true);
-            } else {
-                define('PMA_MARIADB', false);
+            if (stripos($version['@@version_comment'], 'percona') !== false) {
+                $this->_is_percona = true;
             }
         }
 
-        if (PMA_MYSQL_INT_VERSION > 50503) {
+        if (! defined('PMA_MYSQL_INT_VERSION')) {
+            define('PMA_MYSQL_INT_VERSION', $this->_version_int);
+            define('PMA_MYSQL_STR_VERSION', $this->_version_str);
+            define('PMA_MYSQL_VERSION_COMMENT', $this->_version_comment);
+            /* Detect MariaDB */
+            define('PMA_MARIADB', $this->_is_mariadb);
+        }
+
+        if ($this->_version_int > 50503) {
             $default_charset = 'utf8mb4';
             $default_collation = 'utf8mb4_general_ci';
         } else {
@@ -2857,5 +2879,55 @@ class DatabaseInterface
     function getServerCollation()
     {
         return $this->fetchValue('SELECT @@collation_server');
+    }
+
+    /**
+     * Server version as number
+     *
+     * @return integer
+     */
+    public function getVersion()
+    {
+        return $this->_version_int;
+    }
+
+    /**
+     * Server version
+     *
+     * @return string
+     */
+    public function getVersionString()
+    {
+        return $this->_version_str;
+    }
+
+    /**
+     * Server version comment
+     *
+     * @return string
+     */
+    public function getVersionComment()
+    {
+        return $this->_version_comment;
+    }
+
+    /**
+     * Whether connection is MariaDB
+     *
+     * @return boolean
+     */
+    public function isMariaDB()
+    {
+        return $this->_is_mariadb;
+    }
+
+    /**
+     * Whether connection is Percona
+     *
+     * @return boolean
+     */
+    public function isPercona()
+    {
+        return $this->$_is_percona;
     }
 }
