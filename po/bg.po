@@ -4,16 +4,16 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.7.2-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2017-06-28 09:56+0200\n"
-"PO-Revision-Date: 2016-05-23 19:20+0000\n"
-"Last-Translator: Yordan Nedelchev <yordan.nedelchev@hotmail.com>\n"
-"Language-Team: Bulgarian <https://hosted.weblate.org/projects/phpmyadmin/"
-"master/bg/>\n"
+"PO-Revision-Date: 2017-07-17 20:00+0000\n"
+"Last-Translator: NMilchev <nmilchev@gmail.com>\n"
+"Language-Team: Bulgarian "
+"<https://hosted.weblate.org/projects/phpmyadmin/4-7/bg/>\n"
 "Language: bg\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 2.7-dev\n"
+"X-Generator: Weblate 2.16-dev\n"
 
 #: ajax.php:16 ajax.php:33 export.php:191 schema_export.php:64
 msgid "Bad type!"
@@ -776,7 +776,7 @@ msgstr "Конфигурационният файл има нужда от та�
 
 #: index.php:532
 msgid "The secret passphrase in configuration (blowfish_secret) is too short."
-msgstr ""
+msgstr "Тайният passphrase в настройките (blowfish_secret) е прекалено къс."
 
 #: index.php:546
 msgid ""
@@ -831,7 +831,7 @@ msgstr "Вие ще УНИЩОЖИТЕ цяла БД!"
 
 #: js/messages.php:48
 msgid "Cannot rename database to the same name. Change the name and try again"
-msgstr ""
+msgstr "Не може да зададете същото име. Променете името и опитайте отново"
 
 #: js/messages.php:50
 msgid "You are about to DESTROY a complete table!"
