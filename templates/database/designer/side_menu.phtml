@@ -1,7 +1,7 @@
 <?php
 function getImg($path)
 {
-    return $_SESSION['PMA_Theme']->getImgPath($path);
+    return $GLOBALS['PMA_Theme']->getImgPath($path);
 }
 ?>
 <?php if (!$visualBuilder) : ?>

@@ -43,7 +43,7 @@ class PMA_Relation_Test extends PHPUnit_Framework_TestCase
         $_SESSION['relation'][$GLOBALS['server']] = "PMA_relation";
         $_SESSION['relation'] = array();
 
-        $GLOBALS['pmaThemePath'] = $_SESSION['PMA_Theme']->getPath();
+        $GLOBALS['pmaThemePath'] = $GLOBALS['PMA_Theme']->getPath();
         $GLOBALS['cfg']['ServerDefault'] = 0;
 
         include_once 'libraries/relation.lib.php';

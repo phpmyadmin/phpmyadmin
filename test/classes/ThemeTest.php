@@ -35,8 +35,8 @@ class ThemeTest extends PMATestCase
     protected function setUp()
     {
         $this->object = new Theme();
-        $this->backup = $_SESSION['PMA_Theme'];
-        $_SESSION['PMA_Theme'] = $this->object;
+        $this->backup = $GLOBALS['PMA_Theme'];
+        $GLOBALS['PMA_Theme'] = $this->object;
         $GLOBALS['PMA_Config'] = new PhpMyAdmin\Config();
         $GLOBALS['PMA_Config']->enableBc();
         $GLOBALS['text_dir'] = 'ltr';
@@ -53,7 +53,7 @@ class ThemeTest extends PMATestCase
      */
     protected function tearDown()
     {
-        $_SESSION['PMA_Theme'] = $this->backup;
+        $GLOBALS['PMA_Theme'] = $this->backup;
     }
 
     /**

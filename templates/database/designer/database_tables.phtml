@@ -33,7 +33,7 @@
                 </td>
                 <td class="small_tab_pref small_tab_pref_1"
                     table_name_small="<?= htmlspecialchars($GLOBALS['PMD_URL']["TABLE_NAME_SMALL"][$i]); ?>">
-                    <img src="<?= $_SESSION['PMA_Theme']->getImgPath('pmd/exec_small.png'); ?>"
+                    <img src="<?= $GLOBALS['PMA_Theme']->getImgPath('pmd/exec_small.png'); ?>"
                          title="<?= __('See table structure'); ?>" />
                 </td>
                 <td id="id_zag_<?= htmlspecialchars($t_n_url); ?>"
@@ -89,7 +89,7 @@
                     <td width="10px" colspan="3" id="<?= $t_n_url; ?>.<?= urlencode($tab_column[$t_n]["COLUMN_NAME"][$j]); ?>">
                         <div class="nowrap">
                             <?php if (isset($tables_pk_or_unique_keys[$t_n . "." . $tab_column[$t_n]["COLUMN_NAME"][$j]])) : ?>
-                                <img src="<?= $_SESSION['PMA_Theme']->getImgPath('pmd/FieldKey_small.png'); ?>" alt="*" />
+                                <img src="<?= $GLOBALS['PMA_Theme']->getImgPath('pmd/FieldKey_small.png'); ?>" alt="*" />
                             <?php else :
                                 $type = 'pmd/Field_small';
                                 if (strstr($tab_column[$t_n]["TYPE"][$j], 'char')
@@ -109,7 +109,7 @@
                                     $type .= '_date';
                                 }
                                 ?>
-                                <img src="<?= $_SESSION['PMA_Theme']->getImgPath($type); ?>.png" alt="*" />
+                                <img src="<?= $GLOBALS['PMA_Theme']->getImgPath($type); ?>.png" alt="*" />
                             <?php endif; ?>
                             <?= htmlspecialchars(
                                 $tab_column[$t_n]["COLUMN_NAME"][$j] . " : "
@@ -121,7 +121,7 @@
                     <?php if (isset($_REQUEST['query'])) : ?>
                         <td class="small_tab_pref small_tab_pref_click_opt"
                             Click_option_param="pmd_optionse,<?= urlencode($tab_column[$t_n]['COLUMN_NAME'][$j]); ?>,<?= $GLOBALS['PMD_OUT']['TABLE_NAME_SMALL'][$i]; ?>" >
-                            <img src="<?= $_SESSION['PMA_Theme']->getImgPath('pmd/exec_small.png'); ?>" title="options" />
+                            <img src="<?= $GLOBALS['PMA_Theme']->getImgPath('pmd/exec_small.png'); ?>" title="options" />
                         </td>
                     <?php endif; ?>
                 </tr>
