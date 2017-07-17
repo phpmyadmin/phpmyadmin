@@ -1411,7 +1411,6 @@ class DatabaseInterface
 
         if (! defined('PMA_MYSQL_INT_VERSION')) {
             define('PMA_MYSQL_INT_VERSION', $this->_version_int);
-            define('PMA_MYSQL_STR_VERSION', $this->_version_str);
         }
 
         if ($this->_version_int > 50503) {

@@ -482,10 +482,6 @@ class ExportSqlTest extends PMATestCase
      */
     public function testExportHeader()
     {
-        if (!defined("PMA_MYSQL_STR_VERSION")) {
-            define("PMA_MYSQL_STR_VERSION", "5.0.0");
-        }
-
         $GLOBALS['crlf'] = "\n";
         $GLOBALS['sql_compatibility'] = 'NONE';
         $GLOBALS['cfg']['Server']['host'] = 'localhost';

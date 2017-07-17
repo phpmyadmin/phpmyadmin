@@ -219,10 +219,9 @@ class VersionInformation
      */
     protected function getMySQLVersion()
     {
-        if (defined('PMA_MYSQL_STR_VERSION')) {
-            return PMA_MYSQL_STR_VERSION;
-        } else {
-            return null;
+        if (isset($GLOBALS['dbi'])) {
+            return $GLOBALS['dbi']->getVersionString();
         }
+        return null;
     }
 }

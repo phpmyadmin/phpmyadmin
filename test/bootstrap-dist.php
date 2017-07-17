@@ -28,7 +28,6 @@ set_include_path(
 define('PHPMYADMIN', 1);
 define('TESTSUITE', 1);
 define('PMA_MYSQL_INT_VERSION', 55000);
-define('PMA_MYSQL_STR_VERSION', '5.50.00');
 
 // Selenium tests setup
 $test_defaults = array(

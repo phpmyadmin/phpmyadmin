@@ -203,10 +203,6 @@ class ExportXmlTest extends PMATestCase
      */
     public function testExportHeader()
     {
-        if (!defined("PMA_MYSQL_STR_VERSION")) {
-            define("PMA_MYSQL_STR_VERSION", "5.0.0");
-        }
-
         $GLOBALS['xml_export_functions'] = 1;
         $GLOBALS['xml_export_contents'] = 1;
         $GLOBALS['output_charset_conversion'] = 1;

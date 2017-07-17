@@ -699,7 +699,7 @@ class ExportSql extends ExportPlugin
             . Util::localisedDate()
         )
         . $this->_exportComment(
-            __('Server version:') . ' ' . PMA_MYSQL_STR_VERSION
+            __('Server version:') . ' ' . $GLOBALS['dbi']->getVersionString()
         )
         . $this->_exportComment(__('PHP Version:') . ' ' . phpversion())
         . $this->_possibleCRLF();

@@ -218,7 +218,7 @@ class ExportLatex extends ExportPlugin
         $head .= $crlf
             . '% ' . __('Generation Time:') . ' '
             . Util::localisedDate() . $crlf
-            . '% ' . __('Server version:') . ' ' . PMA_MYSQL_STR_VERSION . $crlf
+            . '% ' . __('Server version:') . ' ' . $GLOBALS['dbi']->getVersionString() . $crlf
             . '% ' . __('PHP Version:') . ' ' . phpversion() . $crlf;
 
         return PMA_exportOutputHandler($head);

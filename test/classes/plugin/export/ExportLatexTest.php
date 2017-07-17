@@ -470,10 +470,6 @@ class ExportLatexTest extends PMATestCase
      */
     public function testExportHeader()
     {
-        if (!defined("PMA_MYSQL_STR_VERSION")) {
-            define("PMA_MYSQL_STR_VERSION", "5.0.0");
-        }
-
         $GLOBALS['crlf'] = "\n";
         $GLOBALS['cfg']['Server']['port'] = 80;
         $GLOBALS['cfg']['Server']['host'] = 'localhost';
