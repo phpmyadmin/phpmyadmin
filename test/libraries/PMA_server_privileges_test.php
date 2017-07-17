@@ -821,15 +821,8 @@ class PMA_ServerPrivileges_Test extends PHPUnit_Framework_TestCase
     public function testPMAAddUser()
     {
         // Case 1 : Test with Newer version
-        $restoreMySQLVersion = "PMANORESTORE";
-        if (! PMA_HAS_RUNKIT) {
-            $this->markTestSkipped(
-                'Cannot redefine constant. Missing runkit extension'
-            );
-        } else {
-            $restoreMySQLVersion = PMA_MYSQL_INT_VERSION;
-            runkit_constant_redefine('PMA_MYSQL_INT_VERSION', 50706);
-        }
+        $GLOBALS['dbi']->expects($this->any())->method('getVersion')
+            ->will($this->returnValue(50706));
 
         $dbname = 'pma_dbname';
         $username = 'pma_username';
@@ -866,21 +859,28 @@ class PMA_ServerPrivileges_Test extends PHPUnit_Framework_TestCase
             false,
             $_add_user_error
         );
+    }
 
-        if ($restoreMySQLVersion !== "PMANORESTORE") {
-            runkit_constant_redefine('PMA_MYSQL_INT_VERSION', $restoreMySQLVersion);
-        }
+    /**
+     * Test for PMA_addUser
+     *
+     * @return void
+     */
+    public function testPMAAddUserOld()
+    {
+        $GLOBALS['dbi']->expects($this->any())->method('getVersion')
+            ->will($this->returnValue(50506));
 
-        // Case 2 : Test with older versions
-        $restoreMySQLVersion = "PMANORESTORE";
-        if (! PMA_HAS_RUNKIT) {
-            $this->markTestSkipped(
-                'Cannot redefine constant. Missing runkit extension'
-            );
-        } else {
-            $restoreMySQLVersion = PMA_MYSQL_INT_VERSION;
-            runkit_constant_redefine('PMA_MYSQL_INT_VERSION', 50506);
-        }
+        $dbname = 'pma_dbname';
+        $username = 'pma_username';
+        $hostname = 'pma_hostname';
+        $_REQUEST['adduser_submit'] = true;
+        $_POST['pred_username'] = 'any';
+        $_POST['pred_hostname'] = 'localhost';
+        $_POST['pred_password'] = 'keep';
+        $_REQUEST['createdb-3'] = true;
+        $_REQUEST['userGroup'] = "username";
+        $_REQUEST['authentication_plugin'] = 'mysql_native_password';
 
         list(
             $ret_message,,, $sql_query,
@@ -908,10 +908,6 @@ class PMA_ServerPrivileges_Test extends PHPUnit_Framework_TestCase
             false,
             $_add_user_error
         );
-
-        if ($restoreMySQLVersion !== "PMANORESTORE") {
-            runkit_constant_redefine('PMA_MYSQL_INT_VERSION', $restoreMySQLVersion);
-        }
     }
 
     /**
@@ -1152,14 +1148,8 @@ class PMA_ServerPrivileges_Test extends PHPUnit_Framework_TestCase
     {
         $restoreMySQLVersion = "PMANORESTORE";
 
-        if (! PMA_HAS_RUNKIT) {
-            $this->markTestSkipped(
-                'Cannot redefine constant. Missing runkit extension'
-            );
-        } else {
-            $restoreMySQLVersion = PMA_MYSQL_INT_VERSION;
-            runkit_constant_redefine('PMA_MYSQL_INT_VERSION', 50706);
-        }
+        $GLOBALS['dbi']->expects($this->any())->method('getVersion')
+            ->will($this->returnValue(50706));
 
         $username = "PMA_username";
         $hostname = "PMA_hostname";
@@ -1213,10 +1203,6 @@ class PMA_ServerPrivileges_Test extends PHPUnit_Framework_TestCase
             "You have added a new user.",
             $message->getMessage()
         );
-
-        if ($restoreMySQLVersion !== "PMANORESTORE") {
-            runkit_constant_redefine('PMA_MYSQL_INT_VERSION', $restoreMySQLVersion);
-        }
     }
 
     /**

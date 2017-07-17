@@ -1697,6 +1697,7 @@ function PMA_getHtmlForLoginInformationFields(
         . '<label for="select_authentication_plugin" >';
 
     $serverType = Util::getServerType();
+    $serverVersion = $GLOBALS['dbi']->getVersion();
     $orig_auth_plugin = PMA_getCurrentAuthenticationPlugin(
         $mode,
         $username,
@@ -1704,9 +1705,9 @@ function PMA_getHtmlForLoginInformationFields(
     );
 
     if (($serverType == 'MySQL'
-        && PMA_MYSQL_INT_VERSION >= 50507)
+        && $serverVersion >= 50507)
         || ($serverType == 'MariaDB'
-        && PMA_MYSQL_INT_VERSION >= 50200)
+        && $serverVersion >= 50200)
     ) {
         $html_output .= __('Authentication Plugin')
         . '</label><span class="options">&nbsp;</span>' . "\n";
@@ -1789,6 +1790,7 @@ function PMA_getCurrentAuthenticationPlugin(
 ) {
     /* Fallback (standard) value */
     $authentication_plugin = 'mysql_native_password';
+    $serverVersion = $GLOBALS['dbi']->getVersion();
 
     if (isset($username) && isset($hostname)
         && $mode == 'change'
@@ -1812,7 +1814,7 @@ function PMA_getCurrentAuthenticationPlugin(
         if (isset($row) && $row && ! empty($row['plugin'])) {
             $authentication_plugin = $row['plugin'];
         }
-    } elseif (PMA_MYSQL_INT_VERSION >= 50702) {
+    } elseif ($serverVersion >= 50702) {
         $row = $GLOBALS['dbi']->fetchSingleRow(
             'SELECT @@default_authentication_plugin'
         );
@@ -1875,6 +1877,7 @@ function PMA_updatePassword($err_url, $username, $hostname)
     if (empty($message)) {
         $hashing_function = 'PASSWORD';
         $serverType = Util::getServerType();
+        $serverVersion = $GLOBALS['dbi']->getVersion();
         $authentication_plugin
             = (isset($_REQUEST['authentication_plugin'])
             ? $_REQUEST['authentication_plugin']
@@ -1886,7 +1889,7 @@ function PMA_updatePassword($err_url, $username, $hostname)
 
         // Use 'ALTER USER ...' syntax for MySQL 5.7.6+
         if ($serverType == 'MySQL'
-            && PMA_MYSQL_INT_VERSION >= 50706
+            && $serverVersion >= 50706
         ) {
             if ($authentication_plugin != 'mysql_old_password') {
                 $query_prefix = "ALTER USER '"
@@ -1908,7 +1911,7 @@ function PMA_updatePassword($err_url, $username, $hostname)
             $local_query = $query_prefix
                 . $GLOBALS['dbi']->escapeString($_POST['pma_pw']) . "'";
         } else if ($serverType == 'MariaDB'
-            && PMA_MYSQL_INT_VERSION >= 50200
+            && $serverVersion >= 50200
             && $is_superuser
         ) {
             // Use 'UPDATE `mysql`.`user` ...' Syntax for MariaDB 5.2+
@@ -3933,6 +3936,7 @@ function PMA_getDataForChangeOrCopyUser()
             foreach ($row as $key => $value) {
                 $GLOBALS[$key] = $value;
             }
+            $serverVersion = $GLOBALS['dbi']->getVersion();
             // Recent MySQL versions have the field "Password" in mysql.user,
             // so the previous extract creates $Password but this script
             // uses $password
@@ -3940,8 +3944,8 @@ function PMA_getDataForChangeOrCopyUser()
                 $password = $Password;
             }
             if (Util::getServerType() == 'MySQL'
-                && PMA_MYSQL_INT_VERSION >= 50606
-                && PMA_MYSQL_INT_VERSION < 50706
+                && $serverVersion >= 50606
+                && $serverVersion < 50706
                 && ((isset($authentication_string)
                 && empty($password))
                 || (isset($plugin)
@@ -3951,7 +3955,7 @@ function PMA_getDataForChangeOrCopyUser()
             }
 
             if (Util::getServerType() == 'MariaDB'
-                && PMA_MYSQL_INT_VERSION >= 50500
+                && $serverVersion >= 50500
                 && isset($authentication_string)
                 && empty($password)
             ) {
@@ -3962,7 +3966,7 @@ function PMA_getDataForChangeOrCopyUser()
             // for MySQL 5.7.6+ since it does not have
             // the 'password' column at all
             if (Util::getServerType() == 'MySQL'
-                && PMA_MYSQL_INT_VERSION >= 50706
+                && $serverVersion >= 50706
                 && isset($authentication_string)
             ) {
                 $password = $authentication_string;
@@ -4573,8 +4577,9 @@ function PMA_getHtmlForUserOverview($pmaThemeImage, $text_dir)
 
     $password_column = 'Password';
     $server_type = Util::getServerType();
+    $serverVersion = $GLOBALS['dbi']->getVersion();
     if (($server_type == 'MySQL' || $server_type == 'Percona Server')
-        && PMA_MYSQL_INT_VERSION >= 50706
+        && $serverVersion >= 50706
     ) {
         $password_column = 'authentication_string';
     }
@@ -5058,7 +5063,7 @@ function PMA_getHashedPassword($password)
  */
 function PMA_checkIfMariaDBPwdCheckPluginActive()
 {
-    if (!(Util::getServerType() == 'MariaDB' && PMA_MYSQL_INT_VERSION >= 100002)) {
+    if (!(Util::getServerType() == 'MariaDB' && $serverVersion >= 100002)) {
         return false;
     }
 
@@ -5097,6 +5102,7 @@ function PMA_getSqlQueriesForDisplayAndAddUser($username, $hostname, $password)
     $slashedHostname = $GLOBALS['dbi']->escapeString($hostname);
     $slashedPassword = $GLOBALS['dbi']->escapeString($password);
     $serverType = Util::getServerType();
+    $serverVersion = $GLOBALS['dbi']->getVersion();
 
     $create_user_stmt = sprintf(
         'CREATE USER \'%s\'@\'%s\'',
@@ -5111,7 +5117,7 @@ function PMA_getSqlQueriesForDisplayAndAddUser($username, $hostname, $password)
     // 'IDENTIFIED WITH auth_plugin'
     // is supported by MySQL 5.5.7+
     if (($serverType == 'MySQL' || $serverType == 'Percona Server')
-        && PMA_MYSQL_INT_VERSION >= 50507
+        && $serverVersion >= 50507
         && isset($_REQUEST['authentication_plugin'])
     ) {
         $create_user_stmt .= ' IDENTIFIED WITH '
@@ -5121,7 +5127,7 @@ function PMA_getSqlQueriesForDisplayAndAddUser($username, $hostname, $password)
     // 'IDENTIFIED VIA auth_plugin'
     // is supported by MariaDB 5.2+
     if ($serverType == 'MariaDB'
-        && PMA_MYSQL_INT_VERSION >= 50200
+        && $serverVersion >= 50200
         && isset($_REQUEST['authentication_plugin'])
         && ! $isMariaDBPwdPluginActive
     ) {
@@ -5159,9 +5165,9 @@ function PMA_getSqlQueriesForDisplayAndAddUser($username, $hostname, $password)
     // and 'CREATE USER ... VIA .. USING ..' syntax for
     // newer MariaDB versions
     if ((($serverType == 'MySQL' || $serverType == 'Percona Server')
-        && PMA_MYSQL_INT_VERSION >= 50706)
+        && $serverVersion >= 50706)
         || ($serverType == 'MariaDB'
-        && PMA_MYSQL_INT_VERSION >= 50200)
+        && $serverVersion >= 50200)
     ) {
         $password_set_real = null;
 
@@ -5270,9 +5276,9 @@ function PMA_getSqlQueriesForDisplayAndAddUser($username, $hostname, $password)
     // Use 'SET PASSWORD' for pre-5.7.6 MySQL versions
     // and pre-5.2.0 MariaDB
     if (($serverType == 'MySQL'
-        && PMA_MYSQL_INT_VERSION >= 50706)
+        && $serverVersion >= 50706)
         || ($serverType == 'MariaDB'
-        && PMA_MYSQL_INT_VERSION >= 50200)
+        && $serverVersion >= 50200)
     ) {
         $password_set_real = null;
         $password_set_show = null;

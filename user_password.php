@@ -151,6 +151,7 @@ function PMA_changePassword($password, $message, $change_password_message)
     list($username, $hostname) = $GLOBALS['dbi']->getCurrentUserAndHost();
 
     $serverType = PhpMyAdmin\Util::getServerType();
+    $serverVersion = $GLOBALS['dbi']->getVersion();
 
     if (isset($_REQUEST['authentication_plugin'])
         && ! empty($_REQUEST['authentication_plugin'])
@@ -166,15 +167,15 @@ function PMA_changePassword($password, $message, $change_password_message)
         . (($password == '') ? '\'\'' : $hashing_function . '(\'***\')');
 
     if ($serverType == 'MySQL'
-        && PMA_MYSQL_INT_VERSION >= 50706
+        && $serverVersion >= 50706
     ) {
         $sql_query = 'ALTER USER \'' . $username . '\'@\'' . $hostname
             . '\' IDENTIFIED WITH ' . $orig_auth_plugin . ' BY '
             . (($password == '') ? '\'\'' : '\'***\'');
     } else if (($serverType == 'MySQL'
-        && PMA_MYSQL_INT_VERSION >= 50507)
+        && $serverVersion >= 50507)
         || ($serverType == 'MariaDB'
-        && PMA_MYSQL_INT_VERSION >= 50200)
+        && $serverVersion >= 50200)
     ) {
         // For MySQL versions 5.5.7+ and MariaDB versions 5.2+,
         // explicitly set value of `old_passwords` so that
@@ -233,16 +234,17 @@ function PMA_changePassUrlParamsAndSubmitQuery(
     $err_url = 'user_password.php' . Url::getCommon();
 
     $serverType = PhpMyAdmin\Util::getServerType();
+    $serverVersion = $GLOBALS['dbi']->getVersion();
 
-    if ($serverType == 'MySQL' && PMA_MYSQL_INT_VERSION >= 50706) {
+    if ($serverType == 'MySQL' && $serverVersion >= 50706) {
         $local_query = 'ALTER USER \'' . $username . '\'@\'' . $hostname . '\''
             . ' IDENTIFIED with ' . $orig_auth_plugin . ' BY '
             . (($password == '')
             ? '\'\''
             : '\'' . $GLOBALS['dbi']->escapeString($password) . '\'');
     } else if ($serverType == 'MariaDB'
-        && PMA_MYSQL_INT_VERSION >= 50200
-        && PMA_MYSQL_INT_VERSION < 100100
+        && $serverVersion >= 50200
+        && $serverVersion < 100100
         && $orig_auth_plugin !== ''
     ) {
         if ($orig_auth_plugin == 'mysql_native_password') {
