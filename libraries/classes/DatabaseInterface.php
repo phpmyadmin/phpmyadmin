@@ -90,11 +90,11 @@ class DatabaseInterface
     /**
      * @var integer Server version as number
      */
-    private $_version_int = 50501;
+    private $_version_int = 55000;
     /**
      * @var string Server version
      */
-    private $_version_str = '5.05.01';
+    private $_version_str = '5.50.0';
     /**
      * @var string Server version comment
      */
