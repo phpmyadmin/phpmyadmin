@@ -2419,7 +2419,9 @@ function PMA_getCurrentValueForDifferentTypes($possibly_uploaded_val, $key,
                 $current_value = '';
             }
         } elseif ($type === 'hex') {
-            $current_value = '0x' . $current_value;
+            if (substr($current_value, 0, 2) != '0x') {
+                $current_value = '0x' . $current_value;
+            }
         } elseif ($type == 'bit') {
             $current_value = preg_replace('/[^01]/', '0', $current_value);
             $current_value = "b'" . $GLOBALS['dbi']->escapeString($current_value)
