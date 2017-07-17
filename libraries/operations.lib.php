@@ -960,7 +960,7 @@ function PMA_getHtmlForRenameTable()
  */
 function PMA_getHtmlForTableComments($current_value)
 {
-    $commentLength = PMA_MYSQL_INT_VERSION >= 50503 ? 2048 : 60;
+    $commentLength = $GLOBALS['dbi']->getVersion() >= 50503 ? 2048 : 60;
     $html_output = '<tr><td class="vmiddle">' . __('Table comments') . '</td>'
         . '<td><input type="text" name="comment" '
         . 'maxlength="' . $commentLength . '"'

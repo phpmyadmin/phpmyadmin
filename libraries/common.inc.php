@@ -785,7 +785,7 @@ if (! defined('PMA_MINIMUM_COMMON')) {
         /* Log success */
         Logging::logUser($cfg['Server']['user']);
 
-        if (PMA_MYSQL_INT_VERSION < $cfg['MysqlMinVersion']['internal']) {
+        if ($GLOBALS['dbi']->getVersion() < $cfg['MysqlMinVersion']['internal']) {
             Core::fatalError(
                 __('You should upgrade to %s %s or later.'),
                 array('MySQL', $cfg['MysqlMinVersion']['human'])
@@ -798,7 +798,7 @@ if (! defined('PMA_MINIMUM_COMMON')) {
         $GLOBALS['PMA_Types'] = new TypesMySQL();
 
         // Loads closest context to this version.
-        PhpMyAdmin\SqlParser\Context::loadClosest('MySql' . PMA_MYSQL_INT_VERSION);
+        PhpMyAdmin\SqlParser\Context::loadClosest('MySql' . $GLOBALS['dbi']->getVersion());
 
         // Sets the default delimiter (if specified).
         if (!empty($_REQUEST['sql_delimiter'])) {

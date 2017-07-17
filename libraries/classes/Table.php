@@ -2512,7 +2512,7 @@ class Table
     {
         $serverType = Util::getServerType();
         if ($serverType == 'MySQL'
-            && PMA_MYSQL_INT_VERSION > 50705
+            && $GLOBALS['dbi']->getVersion() > 50705
             && ! $GLOBALS['cfg']['Server']['DisableIS']
         ) {
             $sql

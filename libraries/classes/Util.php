@@ -362,12 +362,13 @@ class Util
         }
         $mysql = '5.5';
         $lang = 'en';
-        if (defined('PMA_MYSQL_INT_VERSION')) {
-            if (PMA_MYSQL_INT_VERSION >= 50700) {
+        if (isset($GLOBALS['dbi'])) {
+            $serverVersion = $GLOBALS['dbi']->getVersion();
+            if ($serverVersion >= 50700) {
                 $mysql = '5.7';
-            } elseif (PMA_MYSQL_INT_VERSION >= 50600) {
+            } elseif ($serverVersion >= 50600) {
                 $mysql = '5.6';
-            } elseif (PMA_MYSQL_INT_VERSION >= 50500) {
+            } elseif ($serverVersion >= 50500) {
                 $mysql = '5.5';
             }
         }
@@ -1273,8 +1274,7 @@ class Util
             // 5.0.37 has profiling but for example, 5.1.20 does not
             // (avoid a trip to the server for MySQL before 5.0.37)
             // and do not set a constant as we might be switching servers
-            if (defined('PMA_MYSQL_INT_VERSION')
-                && $GLOBALS['dbi']->fetchValue("SELECT @@have_profiling")
+            if ($GLOBALS['dbi']->fetchValue("SELECT @@have_profiling")
             ) {
                 self::cacheSet('profiling_supported', true);
             } else {
@@ -2550,7 +2550,7 @@ class Util
         $functionality, $component, $minimum_version, $bugref
     ) {
         $ext_but_html = '';
-        if (($component == 'mysql') && (PMA_MYSQL_INT_VERSION < $minimum_version)) {
+        if (($component == 'mysql') && ($GLOBALS['dbi']->getVersion() < $minimum_version)) {
             $ext_but_html .= self::showHint(
                 sprintf(
                     __('The %s functionality is affected by a known bug, see %s'),
@@ -3666,7 +3666,7 @@ class Util
                 $funcs[] = array('display' => '--------');
             }
 
-            if (PMA_MYSQL_INT_VERSION < 50601) {
+            if ($GLOBALS['dbi']->getVersion() < 50601) {
                 $funcs['Crosses']    = array('params' => 2, 'type' => 'int');
                 $funcs['Contains']   = array('params' => 2, 'type' => 'int');
                 $funcs['Disjoint']   = array('params' => 2, 'type' => 'int');
@@ -4346,8 +4346,9 @@ class Util
     public static function isVirtualColumnsSupported()
     {
         $serverType = self::getServerType();
-        return $serverType == 'MySQL' && PMA_MYSQL_INT_VERSION >= 50705
-             || ($serverType == 'MariaDB' && PMA_MYSQL_INT_VERSION >= 50200);
+        $serverVersion = $GLOBALS['dbi']->getVersion();
+        return $serverType == 'MySQL' && $serverVersion >= 50705
+             || ($serverType == 'MariaDB' && $serverVersion >= 50200);
     }
 
     /**

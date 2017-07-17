@@ -80,6 +80,7 @@ function PMA_getHtmlForChangePassword($mode, $username, $hostname)
         . '</tr>';
 
     $serverType = PhpMyAdmin\Util::getServerType();
+    $serverVersion = $GLOBALS['dbi']->getVersion();
     $orig_auth_plugin = PMA_getCurrentAuthenticationPlugin(
         'change',
         $username,
@@ -88,14 +89,14 @@ function PMA_getHtmlForChangePassword($mode, $username, $hostname)
     $is_superuser = $GLOBALS['dbi']->isSuperuser();
 
     if (($serverType == 'MySQL'
-        && PMA_MYSQL_INT_VERSION >= 50507)
+        && $serverVersion >= 50507)
         || ($serverType == 'MariaDB'
-        && PMA_MYSQL_INT_VERSION >= 50200)
+        && $serverVersion >= 50200)
     ) {
         // Provide this option only for 5.7.6+
         // OR for privileged users in 5.5.7+
         if (($serverType == 'MySQL'
-            && PMA_MYSQL_INT_VERSION >= 50706)
+            && $serverVersion >= 50706)
             || ($is_superuser && $mode == 'edit_other')
         ) {
             $auth_plugin_dropdown = PMA_getHtmlForAuthPluginsDropdown(

@@ -99,7 +99,7 @@ class Advisor
         );
         /* Some global variables for advisor */
         $this->globals = array(
-            'PMA_MYSQL_INT_VERSION' => PMA_MYSQL_INT_VERSION,
+            'PMA_MYSQL_INT_VERSION' => $GLOBALS['dbi']->getVersion(),
         );
 
     }

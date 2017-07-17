@@ -243,7 +243,7 @@ class Partition extends SubPartition
         static $already_checked = false;
 
         if (! $already_checked) {
-            if (PMA_MYSQL_INT_VERSION < 50600) {
+            if ($GLOBALS['dbi']->getVersion() < 50600) {
                 if ($GLOBALS['dbi']->fetchValue(
                     "SELECT @@have_partitioning;"
                 )) {

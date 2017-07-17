@@ -106,7 +106,7 @@ if (strlen($GLOBALS['db']) > 0
         }
         unset($sqlConstratints);
 
-        if (PMA_MYSQL_INT_VERSION >= 50100) {
+        if ($GLOBALS['dbi']->getVersion() >= 50100) {
             // here DELIMITER is not used because it's not part of the
             // language; each statement is sent one by one
 

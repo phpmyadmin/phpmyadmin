@@ -1409,10 +1409,6 @@ class DatabaseInterface
             }
         }
 
-        if (! defined('PMA_MYSQL_INT_VERSION')) {
-            define('PMA_MYSQL_INT_VERSION', $this->_version_int);
-        }
-
         if ($this->_version_int > 50503) {
             $default_charset = 'utf8mb4';
             $default_collation = 'utf8mb4_general_ci';

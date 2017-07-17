@@ -122,7 +122,7 @@ $foreigners = PMA_getForeigners($db, $table, '', 'foreign');
 $child_references = null;
 // From MySQL 5.6.6 onwards columns with foreign keys can be renamed.
 // Hence, no need to get child references
-if (PMA_MYSQL_INT_VERSION < 50606) {
+if ($GLOBALS['dbi']->getVersion() < 50606) {
     $child_references = PMA_getChildReferences($db, $table);
 }
 
@@ -284,7 +284,7 @@ for ($columnNumber = 0; $columnNumber < $num_fields; $columnNumber++) {
     // MySQL version from 5.6.6 allow renaming columns with foreign keys
     if (isset($columnMeta['Field'])
         && isset($form_params['table'])
-        && PMA_MYSQL_INT_VERSION < 50606
+        && $GLOBALS['dbi']->getVersion() < 50606
     ) {
         $columnMeta['column_status'] = PMA_checkChildForeignReferences(
             $form_params['db'],

@@ -115,7 +115,7 @@ $rownum = 0; ?>
                         'is_in_central_columns' => in_array($row['Field'], $central_list) ? true : false,
                         'central_columns_work' => $GLOBALS['cfgRelation']['centralcolumnswork'],
                         'table' => $GLOBALS['table'],
-                        'mysql_int_version' => PMA_MYSQL_INT_VERSION
+                        'mysql_int_version' => $GLOBALS['dbi']->getVersion()
                     )
                 ); ?>
             <?php endif; ?>

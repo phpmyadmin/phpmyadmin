@@ -108,7 +108,7 @@ class StorageEngine
         if (null == $storage_engines) {
             $storage_engines
                 = $GLOBALS['dbi']->fetchResult('SHOW STORAGE ENGINES', 'Engine');
-            if (PMA_MYSQL_INT_VERSION >= 50708) {
+            if ($GLOBALS['dbi']->getVersion() >= 50708) {
                 $disabled = Util::cacheGet(
                     'disabled_storage_engines',
                     function () {
