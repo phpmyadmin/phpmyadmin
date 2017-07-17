@@ -2487,6 +2487,8 @@ function PMA_verifyWhetherValueCanBeTruncatedAndAppendExtraData(
             || ($meta->type == 'time')
         ) {
             $new_value = PMA\libraries\Util::addMicroseconds($new_value);
+        } elseif (mb_strpos($meta->flags, 'binary') !== false) {
+            $new_value = '0x' . bin2hex($new_value);
         }
         $extra_data['isNeedToRecheck'] = true;
         $extra_data['truncatableFieldValue'] = $new_value;
