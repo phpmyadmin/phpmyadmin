@@ -309,7 +309,7 @@ if ($server > 0 && $GLOBALS['cfg']['ShowServerInfo']) {
     PMA_printListItem(
         __('Server version:')
         . ' '
-        . PMA_MYSQL_STR_VERSION . ' - ' . PMA_MYSQL_VERSION_COMMENT,
+        . $GLOBALS['dbi']->getVersionString() . ' - ' . $GLOBALS['dbi']->getVersionComment(),
         'li_server_version'
     );
     PMA_printListItem(
