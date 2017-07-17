@@ -3920,25 +3920,21 @@ class Util
     /**
      * Returns server type for current connection
      *
-     * Known types are: MariaDB and MySQL (default)
+     * Known types are: MariaDB, Percona and MySQL (default)
      *
      * @return string
      */
     public static function getServerType()
     {
-        $server_type = 'MySQL';
-
-        if (mb_stripos(PMA_MYSQL_STR_VERSION, 'mariadb') !== false) {
-            $server_type = 'MariaDB';
-            return $server_type;
+        if ($GLOBALS['dbi']->isMariaDB()) {
+            return 'MariaDB';
         }
 
-        if (mb_stripos(PMA_MYSQL_VERSION_COMMENT, 'percona') !== false) {
-            $server_type = 'Percona Server';
-            return $server_type;
+        if ($GLOBALS['dbi']->isPercona()) {
+            return 'Percona Server';
         }
 
-        return $server_type;
+        return 'MySQL';
     }
 
     /**

@@ -2928,6 +2928,6 @@ class DatabaseInterface
      */
     public function isPercona()
     {
-        return $this->$_is_percona;
+        return $this->_is_percona;
     }
 }
