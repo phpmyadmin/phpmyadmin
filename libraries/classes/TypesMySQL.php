@@ -8,7 +8,6 @@
 namespace PhpMyAdmin;
 
 use PhpMyAdmin\Types;
-use PhpMyAdmin\Util;
 
 /**
  * Class holding type definitions for MySQL.
@@ -296,6 +295,9 @@ class TypesMySQL extends Types
      */
     public function getFunctionsClass($class)
     {
+        $isMariaDB = $GLOBALS['dbi']->isMariaDB();
+        $serverVersion = $GLOBALS['dbi']->getVersion();
+
         switch ($class) {
         case 'CHAR':
             $ret = array(
@@ -335,8 +337,8 @@ class TypesMySQL extends Types
                 'VERSION',
             );
 
-            if ((PMA_MARIADB && PMA_MYSQL_INT_VERSION < 100012)
-                || PMA_MYSQL_INT_VERSION < 50603
+            if (($isMariaDB && $serverVersion < 100012)
+                || $serverVersion < 50603
             ) {
                 $ret = array_diff($ret, array('INET6_NTOA'));
             }
@@ -416,8 +418,8 @@ class TypesMySQL extends Types
                 'WEEKOFYEAR',
                 'YEARWEEK',
             );
-            if ((PMA_MARIADB && PMA_MYSQL_INT_VERSION < 100012)
-                || PMA_MYSQL_INT_VERSION < 50603
+            if (($isMariaDB && $serverVersion < 100012)
+                || $serverVersion < 50603
             ) {
                 $ret = array_diff($ret, array('INET6_ATON'));
             }
@@ -538,8 +540,8 @@ class TypesMySQL extends Types
             'GEOMETRYCOLLECTION',
         );
 
-        if (PMA_MYSQL_INT_VERSION >= 50708
-            && Util::getServerType() != 'MariaDB'
+        if ($GLOBALS['dbi']->getVersion() >= 50708
+            && ! $GLOBALS['dbi']->isMariaDB()
         ) {
           $ret['JSON'] = array(
               'JSON',
