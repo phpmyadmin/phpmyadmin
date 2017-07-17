@@ -3888,8 +3888,7 @@ function indexEditorDialog(url, title, callback_success, callback_failure)
             .append(data.message)
             .dialog({
                 title: title,
-                width: 450,
-                height: 350,
+                width: 'auto',
                 open: PMA_verifyColumnsProperties,
                 modal: true,
                 buttons: button_options,
