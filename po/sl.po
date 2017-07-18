@@ -4,17 +4,17 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.7.3-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2017-07-18 13:29+0200\n"
-"PO-Revision-Date: 2017-06-28 15:31+0000\n"
+"PO-Revision-Date: 2017-07-18 19:30+0000\n"
 "Last-Translator: Domen <mitenem@outlook.com>\n"
-"Language-Team: Slovenian <https://hosted.weblate.org/projects/phpmyadmin/4-7/"
-"sl/>\n"
+"Language-Team: Slovenian "
+"<https://hosted.weblate.org/projects/phpmyadmin/4-7/sl/>\n"
 "Language: sl\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=4; plural=n%100==1 ? 0 : n%100==2 ? 1 : n%100==3 || n"
-"%100==4 ? 2 : 3;\n"
-"X-Generator: Weblate 2.15-dev\n"
+"Plural-Forms: nplurals=4; plural=n%100==1 ? 0 : n%100==2 ? 1 : n%100==3 || "
+"n%100==4 ? 2 : 3;\n"
+"X-Generator: Weblate 2.16-dev\n"
 
 #: ajax.php:16 ajax.php:33 export.php:192 schema_export.php:64
 msgid "Bad type!"
@@ -5097,17 +5097,12 @@ msgstr ""
 "združljiva s phpMyAdminom in lahko pokvari nekatere podatke!"
 
 #: libraries/common.inc.php:484
-#, fuzzy
-#| msgid ""
-#| "You have enabled mbstring.func_overload in your PHP configuration. This "
-#| "option is incompatible with phpMyAdmin and might cause some data to be "
-#| "corrupted!"
 msgid ""
 "You have disabled ini_get and/or ini_set in php.ini. This option is "
 "incompatible with phpMyAdmin!"
 msgstr ""
-"V vaši konfiguraciji PHP ste omogočili mbstring.func_overload. Možnost ni "
-"združljiva s phpMyAdminom in lahko pokvari nekatere podatke!"
+"V php.ini ste onemogočili ini_get in/ali ini_set. Ta možnost ni združljiva s "
+"phpMyAdminom!"
 
 #: libraries/common.inc.php:517
 #, php-format
@@ -8264,7 +8259,7 @@ msgstr "Ne morem naložiti vtičnikov sheme, prosimo, preverite vašo namestitev
 
 #: libraries/dbi/DBIMysqli.php:158
 msgid "SSL connection enforced by server, automatically enabling it."
-msgstr ""
+msgstr "Povezavo SSL je vsilil strežnik; samodejno sem jo omogočil."
 
 #: libraries/display_change_password.lib.php:57
 #: libraries/replication_gui.lib.php:854
