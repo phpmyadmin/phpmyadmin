@@ -10,6 +10,7 @@ use PhpMyAdmin\Core;
 use PhpMyAdmin\Encoding;
 use PMA\libraries\plugins\ExportPlugin;
 use PhpMyAdmin\Url;
+use PhpMyAdmin\Util;
 use PhpMyAdmin\Sanitize;
 
 /**
@@ -295,7 +296,7 @@ if (!empty($_REQUEST['aliases'])) {
 /**
  * Increase time limit for script execution and initializes some variables
  */
-@set_time_limit($cfg['ExecTimeLimit']);
+Util::setTimeLimit();
 if (! empty($cfg['MemoryLimit'])) {
     @ini_set('memory_limit', $cfg['MemoryLimit']);
 }

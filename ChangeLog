@@ -37,6 +37,7 @@ phpMyAdmin - ChangeLog
 - issue #13387 Fixed inline editing of hex values
 - issue #13382 Fixed size of index edit dialog
 - issue #13489 Fixed rendering SQL lint errors
+- issue #13468 Avoid breakage if set_time_limit is disabled
 
 4.7.2 (2017-06-29)
 - issue #13314 Make theme selection keep current server

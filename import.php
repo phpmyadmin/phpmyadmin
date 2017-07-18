@@ -14,6 +14,7 @@ use PMA\libraries\plugins\ImportPlugin;
 use PhpMyAdmin\Response;
 use PhpMyAdmin\Sql;
 use PhpMyAdmin\Url;
+use PhpMyAdmin\Util;
 
 /* Enable LOAD DATA LOCAL INFILE for LDI plugin */
 if (isset($_POST['format']) && $_POST['format'] == 'ldi') {
@@ -291,7 +292,7 @@ if (strlen($db) > 0) {
     $GLOBALS['dbi']->selectDb($db);
 }
 
-@set_time_limit($cfg['ExecTimeLimit']);
+Util::setTimeLimit();
 if (! empty($cfg['MemoryLimit'])) {
     @ini_set('memory_limit', $cfg['MemoryLimit']);
 }
