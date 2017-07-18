@@ -123,9 +123,11 @@ class PMA_SeleniumDbEventsTest extends PMA_SeleniumBase
 
         $this->byName("item_starts")
             ->value(date('Y-m-d H:i:s', strtotime('-1 day')));
+        usleep(1000000);
 
         $this->byName("item_ends")
             ->value(date('Y-m-d H:i:s', strtotime('+1 day')));
+        usleep(1000000);
 
         $proc = "UPDATE " . $this->database_name . ".`test_table` SET val=val+1";
         $this->typeInTextArea($proc, 2);
@@ -136,6 +138,10 @@ class PMA_SeleniumDbEventsTest extends PMA_SeleniumBase
             "byXPath",
             "//div[@class='success' and contains(., "
             . "'Event `test_event` has been created')]"
+        );
+        $this->waitForElementNotPresent(
+            'byXPath',
+            '//div[@id=\'alertLabel\' and not(contains(@style,\'display: none;\'))]'
         );
 
         $this->assertTrue(

@@ -65,6 +65,7 @@ class PMA_SeleniumTableBrowseTest extends PMA_SeleniumBase
     public function testSortRecords()
     {
         $this->waitForElementNotPresent('byId', 'ajax_message_num_1');
+        usleep(1000000); // let the page load
 
         // case 1
         $this->byPartialLinkText("name")->click();
@@ -286,12 +287,13 @@ class PMA_SeleniumTableBrowseTest extends PMA_SeleniumBase
             $this->byId("field_3_3")->value()
         );
 
-        $this->byId("field_2_3")->clear();
-        $this->byId("field_2_3")->value("ABCDEFG");
         $this->byId("field_3_3")->clear();
+        $this->byId("field_2_3")->clear();
         $this->byId("field_3_3")->value("2012-01-20 02:05:02");
+        $this->byId("field_2_3")->value("ABCDEFG");
+        usleep(1000000); // longer string takes longer to type
 
-        $this->byId("buttonYes")->click();
+        $this->waitForElement('byId', "buttonYes")->click();
 
         $this->waitForElementNotPresent('byId', 'ajax_message_num_1');
         $success = $this->waitForElement("byClassName", "success");
@@ -357,6 +359,7 @@ class PMA_SeleniumTableBrowseTest extends PMA_SeleniumBase
     public function testDeleteRecords()
     {
         $this->waitForElementNotPresent('byId', 'ajax_message_num_1');
+        usleep(1000000);
 
         $this->byId("id_rows_to_delete1_left")->click();
         $this->byId("id_rows_to_delete2_left")->click();

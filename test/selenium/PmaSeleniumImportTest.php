@@ -25,6 +25,7 @@ class PMA_SeleniumImportTest extends PMA_SeleniumBase
      */
     public function setUpPage()
     {
+        parent::setUpPage();
         $this->login();
     }
 
@@ -55,8 +56,14 @@ class PMA_SeleniumImportTest extends PMA_SeleniumBase
      */
     public function testDbImport()
     {
+        // Go to server databases
+        $this->waitForElement('byPartialLinkText','Databases')->click();
+        $this->waitForElementNotPresent('byId', 'ajax_message_num_1');
+
         $this->dbQuery("CREATE DATABASE " . $this->database_name);
-        $this->waitForElement("byLinkText", $this->database_name)->click();
+        $this->waitForElement("byPartialLinkText", $this->database_name)->click();
+
+        $this->waitForElementNotPresent('byId', 'ajax_message_num_1');
         $this->waitForElement(
             "byXPath",
             "//a[@class='item' and contains(., 'Database: "

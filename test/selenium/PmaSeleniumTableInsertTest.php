@@ -68,40 +68,54 @@ class PMA_SeleniumTableInsertTest extends PMA_SeleniumBase
         $this->expandMore();
 
         $this->byPartialLinkText("Insert")->click();
+        $this->waitForElementNotPresent('byId', 'ajax_message_num_1');
         $this->waitForElement("byId", "insertForm");
+        usleep(1000000);
 
+        $this->byId("field_3_3")->value("2011-01-20 02:00:02");
         $this->byId("field_1_3")->value("1");
         $this->byId("field_2_3")->value("abcd");
-        $this->byId("field_3_3")->value("2011-01-20 02:00:02");
-        $this->sleep();
+        usleep(1000000);
 
-        $this->byId("field_5_3")->value("foo");
         $this->byId("field_6_3")->value("2010-01-20 02:00:02");
-        $this->sleep();
+        $this->byId("field_5_3")->value("foo");
+        usleep(1000000);
 
         $select = $this->select($this->byName("after_insert"));
         $select->selectOptionByLabel("Insert another new row");
-        $this->sleep();
-
+        usleep(1000000);
         // post
         $this->byId("buttonYes")->click();
+        $this->waitForElementNotPresent("byId", "ajax_message_num_1");
+
         $ele = $this->waitForElement("byClassName", "success");
         $this->assertContains("2 rows inserted", $ele->text());
+        usleep(1000000);
 
-        $this->byId("field_2_3")->value("Abcd");
         $this->byId("field_3_3")->value("2012-01-20 02:00:02");
-        $this->sleep();
+        $this->byId("field_2_3")->value("Abcd");
+        usleep(1000000);
 
         // post
         $this->byCssSelector(
             "input[value=Go]"
         )->click();
 
-        $this->waitForElementNotPresent("byId", "loading_parent");
-        $ele = $this->waitForElement("byClassName", "success");
+        $this->waitForElementNotPresent("byId", "ajax_message_num_1");
+        // Old success message should not be present
+        $this->waitForElementNotPresent(
+            'byXPath',
+            "//div[not(contains(., '2 rows inserted')) and contains(@class, 'success') and not(contains(@class, 'message'))]"
+        );
+        usleep(1000000);
+
+        // New message
+        $ele = $this->waitForElement(
+            'byXPath',
+            "//div[contains(@class, 'success') and not(contains(@class, 'message'))]"
+        );
         $this->assertContains("1 row inserted", $ele->text());
 
-        $this->sleep();
         $this->_assertDataPresent();
     }
 

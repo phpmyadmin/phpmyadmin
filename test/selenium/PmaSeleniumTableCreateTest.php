@@ -54,6 +54,14 @@ class PMA_SeleniumTableCreateTest extends PMA_SeleniumBase
         $this->waitForElementNotPresent('byId', 'ajax_message_num_1');
         $this->waitForElement('byName', 'do_save_data');
 
+        $this->waitForElement('byId', "field_1_6")->click(); // null
+        $this->waitForElement('byId', "field_0_8")->click(); // auto increment
+
+        // Do this separately since this opens a dialog
+        // Since auto-increment auto sets a PRIMARY key since no key present
+        $this->waitForElementNotPresent('byId', 'ajax_message_num_1');
+        $this->waitForElement('byXPath', '//button[contains(text(), \'Go\')]')->click();
+
         // column details
         $column_text_details = array(
             "field_0_1" => "test_id",
@@ -67,11 +75,6 @@ class PMA_SeleniumTableCreateTest extends PMA_SeleniumBase
         foreach ($column_text_details as $field => $val) {
             $this->byId($field)->value($val);
         }
-
-        $this->byId("field_0_8")->click(); // auto increment
-        $this->byId("field_1_6")->click(); // null
-
-        $this->sleep();
 
         $column_dropdown_details = array(
             "field_0_5" => "UNSIGNED",
@@ -87,14 +90,6 @@ class PMA_SeleniumTableCreateTest extends PMA_SeleniumBase
             )->click();
         }
 
-        // Do this separately since this opens a dialog
-        $this->waitForElement(
-            'byXPath',
-            '//select[@id=\'field_0_7\']//option[contains(text(), \'PRIMARY\')]'
-        )->click();
-        $this->waitForElementNotPresent('byId', 'ajax_message_num_1');
-        $this->waitForElement('byXPath', '//button[contains(text(), \'Go\')]')->click();
-
         $this->sleep();
         $this->byName("field_default_value[1]")->value("def");
 
@@ -109,7 +104,6 @@ class PMA_SeleniumTableCreateTest extends PMA_SeleniumBase
         );
 
         $this->waitForElementNotPresent('byId', 'ajax_message_num_1');
-        $this->waitForElementNotPresent('byId', 'loading_parent');
 
         $this->waitForElement("byPartialLinkText", "test_table");
 

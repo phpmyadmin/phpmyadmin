@@ -53,7 +53,9 @@ class PMA_SeleniumTableStructureTest extends PMA_SeleniumBase
             "(//a[contains(., 'Structure')])"
         )->click();
 
+        $this->waitForElementNotPresent('byId', 'ajax_message_num_1');
         $this->waitForElement("byId", "tablestructure");
+        usleep(1000000);
     }
 
     /**
@@ -110,7 +112,7 @@ class PMA_SeleniumTableStructureTest extends PMA_SeleniumBase
         $this->byCssSelector(
             "#tablestructure tbody tr:nth-child(2) td:nth-child(11)"
         )->click();
-        $this->waitForElementNotPresent('byId', 'loading_parent');
+        $this->waitForElementNotPresent('byId', 'ajax_message_num_1');
 
         $this->waitForElement("byClassName", "append_fields_form");
 
@@ -130,10 +132,9 @@ class PMA_SeleniumTableStructureTest extends PMA_SeleniumBase
 
         $this->waitForElement("byId", "tablestructure");
 
-        var_dump($this->byCssSelector('label[for=checkbox_row_2]')->text());
         $this->assertEquals(
             "val3",
-            $this->byCssSelector('label[for=checkbox_row_2]')->text()
+            $this->waitForElement('byCssSelector', 'label[for=checkbox_row_2]')->text()
         );
     }
 
@@ -146,8 +147,8 @@ class PMA_SeleniumTableStructureTest extends PMA_SeleniumBase
      */
     public function testDropColumns()
     {
-        $this->byCssSelector('label[for=checkbox_row_2]')->click();
-        $this->byCssSelector('label[for=checkbox_row_3]')->click();
+        $this->waitForElement('byCssSelector', 'label[for=checkbox_row_2]')->click();
+        $this->waitForElement('byCssSelector', 'label[for=checkbox_row_3]')->click();
         $this->byXPath(
             "//button[@class='mult_submit' and contains(., 'Drop')]"
         )->click();
@@ -161,6 +162,7 @@ class PMA_SeleniumTableStructureTest extends PMA_SeleniumBase
             "//div[@class='success' and contains(., "
             . "'Your SQL query has been executed successfully')]"
         );
+        $this->waitForElementNotPresent('byId', 'ajax_message_num_1');
 
         $this->assertFalse(
             $this->isElementPresent(

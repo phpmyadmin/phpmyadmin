@@ -63,13 +63,17 @@ class PMA_SeleniumTrackingTest extends PMA_SeleniumBase
             "//a[@class='item' and contains(., 'Database: "
             . $this->database_name . "')]"
         );
-        $this->waitForElementNotPresent('byId', 'loading_parent');
+        $this->waitForElementNotPresent('byId', 'ajax_message_num_1');
         $this->expandMore();
 
         $this->waitForElement('byPartialLinkText', "Tracking")->click();
+        $this->waitForElementNotPresent('byId', 'ajax_message_num_1');
+
+        usleep(1000000);
         $this->waitForElement("byPartialLinkText", "Track table");
         $this->byXPath("(//a[contains(., 'Track table')])[1]")->click();
 
+        $this->waitForElementNotPresent('byId', 'ajax_message_num_1');
         $this->waitForElement("byName", "delete")->click();
         $this->byCssSelector("input[value='Create version']")->click();
         $this->waitForElement("byId", "versions");
@@ -134,11 +138,12 @@ class PMA_SeleniumTrackingTest extends PMA_SeleniumBase
         );
 
         // only data
-        $this->select($this->byName("logtype"))
+        $this->select($this->waitForElement('byName', "logtype"))
             ->selectOptionByLabel("Data only");
         $this->byCssSelector("input[value='Go']")->click();
 
         $this->waitForElementNotPresent("byId", "ajax_message_num_1");
+        usleep(1000000);
 
         $this->assertFalse(
             $this->isElementPresent("byId", "ddl_versions")
@@ -183,11 +188,16 @@ class PMA_SeleniumTrackingTest extends PMA_SeleniumBase
      */
     public function testDropTracking()
     {
-        $this->byPartialLinkText("Database: " . $this->database_name)->click();
-        $this->waitForElement("byCssSelector", "table.data");
-
+        $this->waitForElement(
+            'byPartialLinkText',
+            "Database: " . $this->database_name
+        )->click();
         $this->waitForElementNotPresent('byId', 'ajax_message_num_1');
+        $this->waitForElement("byId", "structureTable");
+
         $this->expandMore();
+        usleep(1000000);
+
         $this->byPartialLinkText("Tracking")->click();
 
         $this->waitForElementNotPresent('byId', 'loading_parent');
@@ -273,6 +283,9 @@ class PMA_SeleniumTrackingTest extends PMA_SeleniumBase
     private function _executeSqlAndReturnToTableTracking()
     {
         $this->byPartialLinkText("SQL")->click();
+        $this->waitForElementNotPresent('byId', 'ajax_message_num_1');
+
+        usleep(1000000);
         $this->waitForElement("byId", "queryfieldscontainer");
         $this->typeInTextArea(
             ";UPDATE test_table SET val = val + 1; "
@@ -280,10 +293,12 @@ class PMA_SeleniumTrackingTest extends PMA_SeleniumBase
             2
         );
         $this->byCssSelector("input[value='Go']")->click();
+        $this->waitForElementNotPresent('byId', 'ajax_message_num_1');
         $this->waitForElement("byClassName", "success");
 
         $this->expandMore();
         $this->byPartialLinkText("Tracking")->click();
+        $this->waitForElementNotPresent('byId', 'ajax_message_num_1');
         $this->waitForElement("byId", "versions");
     }
 }
