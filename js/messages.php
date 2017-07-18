@@ -706,7 +706,7 @@ $js_messages['phpErrorsBeingSubmitted'] = '<div class="error">'
     )
     . '<br/>'
     . '<img src="'
-    . ($_SESSION['PMA_Theme']->getImgPath('ajax_clock_small.gif'))
+    . ($GLOBALS['PMA_Theme']->getImgPath('ajax_clock_small.gif'))
     . '" width="16" height="16" alt="ajax clock"/>'
     . '</div>';
 

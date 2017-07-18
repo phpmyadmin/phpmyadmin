@@ -4,17 +4,17 @@
             <img title="<?= __('Hide/Show all'); ?>"
                  alt="v"
                  id="key_HS_all"
-                 src="<?= $_SESSION['PMA_Theme']->getImgPath('pmd/downarrow1.png'); ?>"
-                 data-down="<?= $_SESSION['PMA_Theme']->getImgPath('pmd/downarrow1.png'); ?>"
-                 data-right="<?= $_SESSION['PMA_Theme']->getImgPath('pmd/rightarrow1.png'); ?>" />
+                 src="<?= $GLOBALS['PMA_Theme']->getImgPath('pmd/downarrow1.png'); ?>"
+                 data-down="<?= $GLOBALS['PMA_Theme']->getImgPath('pmd/downarrow1.png'); ?>"
+                 data-right="<?= $GLOBALS['PMA_Theme']->getImgPath('pmd/rightarrow1.png'); ?>" />
         </a>
         <a href="#" class="M_butt" target="_self" >
             <img alt="v"
                  id="key_HS"
                  title="<?= __('Hide/Show Tables with no relationship'); ?>"
-                 src="<?= $_SESSION['PMA_Theme']->getImgPath('pmd/downarrow2.png'); ?>"
-                 data-down="<?= $_SESSION['PMA_Theme']->getImgPath('pmd/downarrow2.png'); ?>"
-                 data-right="<?= $_SESSION['PMA_Theme']->getImgPath('pmd/rightarrow2.png'); ?>" />
+                 src="<?= $GLOBALS['PMA_Theme']->getImgPath('pmd/downarrow2.png'); ?>"
+                 data-down="<?= $GLOBALS['PMA_Theme']->getImgPath('pmd/downarrow2.png'); ?>"
+                 data-right="<?= $GLOBALS['PMA_Theme']->getImgPath('pmd/rightarrow2.png'); ?>" />
         </a>
     </div>
     <div id="id_scroll_tab" class="scroll_tab">
@@ -31,7 +31,7 @@
                         <img alt=""
                              table_name="<?= htmlspecialchars($GLOBALS['PMD_URL']['TABLE_NAME_SMALL'][$i]); ?>"
                              class="scroll_tab_struct"
-                             src="<?= $_SESSION['PMA_Theme']->getImgPath('pmd/exec.png'); ?>"/>
+                             src="<?= $GLOBALS['PMA_Theme']->getImgPath('pmd/exec.png'); ?>"/>
                     </td>
                     <td width="1px">
                         <input class="scroll_tab_checkbox"
@@ -57,8 +57,8 @@
     <div id="layer_menu_sizer">
         <div class="floatleft">
             <img class="icon"
-                 data-right="<?= $_SESSION['PMA_Theme']->getImgPath('pmd/resizeright.png'); ?>"
-                 src="<?= $_SESSION['PMA_Theme']->getImgPath('pmd/resize.png'); ?>"/>
+                 data-right="<?= $GLOBALS['PMA_Theme']->getImgPath('pmd/resizeright.png'); ?>"
+                 src="<?= $GLOBALS['PMA_Theme']->getImgPath('pmd/resize.png'); ?>"/>
         </div>
     </div>
 </div>

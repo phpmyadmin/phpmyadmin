@@ -84,7 +84,7 @@ session_start();
 
 // Standard environment for tests
 $_SESSION[' PMA_token '] = 'token';
-$_SESSION['PMA_Theme'] = PhpMyAdmin\Theme::load('./themes/pmahomme');
+$GLOBALS['PMA_Theme'] = PhpMyAdmin\Theme::load('./themes/pmahomme');
 $_SESSION['tmpval']['pftext'] = 'F';
 $GLOBALS['lang'] = 'en';
 $GLOBALS['cell_align_left'] = 'left';

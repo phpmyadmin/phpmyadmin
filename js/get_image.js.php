@@ -32,7 +32,7 @@ if (!defined('TESTSUITE')) {
 }
 
 // Get the data for the sprites, if it's available
-$sprites = $_SESSION['PMA_Theme']->getSpriteData();
+$sprites = $GLOBALS['PMA_Theme']->getSpriteData();
 
 // We only need the keys from the array of sprites data,
 // since they contain the (partial) class names
@@ -130,7 +130,7 @@ function PMA_getImage(image, alternate, attributes) {
         retval.isSprite = false;
         retval.attr(
             'src',
-            "<?php echo $_SESSION['PMA_Theme']->getImgPath(); ?>" + image
+            "<?php echo $GLOBALS['PMA_Theme']->getImgPath(); ?>" + image
         );
     }
     // set all other attrubutes

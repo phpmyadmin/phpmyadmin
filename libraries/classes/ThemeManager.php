@@ -498,32 +498,32 @@ class ThemeManager
         /**
          * the theme object
          *
-         * @global Theme $_SESSION['PMA_Theme']
+         * @global Theme $GLOBALS['PMA_Theme']
          */
-        $_SESSION['PMA_Theme'] = $tmanager->theme;
+        $GLOBALS['PMA_Theme'] = $tmanager->theme;
 
         // BC
         /**
          * the active theme
          * @global string $GLOBALS['theme']
          */
-        $GLOBALS['theme']           = $_SESSION['PMA_Theme']->getName();
+        $GLOBALS['theme']           = $GLOBALS['PMA_Theme']->getName();
         /**
          * the theme path
          * @global string $GLOBALS['pmaThemePath']
          */
-        $GLOBALS['pmaThemePath']    = $_SESSION['PMA_Theme']->getPath();
+        $GLOBALS['pmaThemePath']    = $GLOBALS['PMA_Theme']->getPath();
         /**
          * the theme image path
          * @global string $GLOBALS['pmaThemeImage']
          */
-        $GLOBALS['pmaThemeImage']   = $_SESSION['PMA_Theme']->getImgPath();
+        $GLOBALS['pmaThemeImage']   = $GLOBALS['PMA_Theme']->getImgPath();
 
         /**
          * load layout file if exists
          */
-        if (@file_exists($_SESSION['PMA_Theme']->getLayoutFile())) {
-            include $_SESSION['PMA_Theme']->getLayoutFile();
+        if (@file_exists($GLOBALS['PMA_Theme']->getLayoutFile())) {
+            include $GLOBALS['PMA_Theme']->getLayoutFile();
         }
     }
 }

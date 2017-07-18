@@ -839,8 +839,8 @@ class ConfigTest extends PMATestCase
                 'default_source_mtime'
             ) +
             $this->object->get('user_preferences_mtime') +
-            $_SESSION['PMA_Theme']->mtime_info +
-            $_SESSION['PMA_Theme']->filesize_info
+            $GLOBALS['PMA_Theme']->mtime_info +
+            $GLOBALS['PMA_Theme']->filesize_info
         );
 
         $this->object->set('fontsize', 10);
