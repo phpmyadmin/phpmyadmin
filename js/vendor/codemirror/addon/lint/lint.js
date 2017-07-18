@@ -112,10 +112,6 @@
     if (!severity) severity = "error";
     var tip = document.createElement("div");
     tip.className = "CodeMirror-lint-message-" + severity;
-    /*
-     * The HTML support is patched, submitted upstream at
-     * https://github.com/codemirror/CodeMirror/pull/4861
-     */
     if (typeof ann.messageHTML != 'undefined') {
         tip.innerHTML = ann.messageHTML;
     } else {
