@@ -87,7 +87,7 @@ AJAX.registerTeardown('server_privileges.js', function () {
     $(document).off('click', "button.mult_submit[value=export]");
     $(document).off('click', "a.export_user_anchor.ajax");
     $(document).off('click',  "#initials_table a.ajax");
-    $('#checkbox_drop_users_db').unbind('click');
+    $('#checkbox_drop_users_db').off('click');
     $(document).off("click", ".checkall_box");
     $(document).off('change', '#checkbox_SSL_priv');
     $(document).off('change', 'input[name="ssl_type"]');
@@ -105,7 +105,6 @@ AJAX.registerOnload('server_privileges.js', function () {
             var href = $("form[name='usersForm']").attr('action');
             var params = {
                 'ajax_request' : true,
-                'token' : PMA_commonParams.get('token'),
                 'server' : PMA_commonParams.get('server'),
                 'validate_username' : true,
                 'username' : username
@@ -218,14 +217,12 @@ AJAX.registerOnload('server_privileges.js', function () {
     $(document).on('click', "a.edit_user_group_anchor.ajax", function (event) {
         event.preventDefault();
         $(this).parents('tr').addClass('current_row');
-        var token = $(this).parents('form').find('input[name="token"]').val();
         var $msg = PMA_ajaxShowMessage();
         $.get(
             $(this).attr('href'),
             {
                 'ajax_request': true,
-                'edit_user_group_dialog': true,
-                'token': token
+                'edit_user_group_dialog': true
             },
             function (data) {
                 if (typeof data !== 'undefined' && data.success === true) {
@@ -475,4 +472,7 @@ AJAX.registerOnload('server_privileges.js', function () {
     if ($("#edit_user_dialog").length > 0) {
         addOrUpdateSubmenu();
     }
+
+    var windowwidth = $(window).width();
+    $('.jsresponsive').css('max-width', (windowwidth - 35 ) + 'px');
 });

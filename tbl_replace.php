@@ -11,9 +11,12 @@
  *
  * @package PhpMyAdmin
  */
+
+use PhpMyAdmin\Core;
 use PMA\libraries\plugins\IOTransformationsPlugin;
-use PMA\libraries\Response;
-use PMA\libraries\Table;
+use PhpMyAdmin\Response;
+use PhpMyAdmin\Table;
+use PhpMyAdmin\Transformations;
 
 /**
  * Gets some core libraries
@@ -24,10 +27,9 @@ require_once 'libraries/common.inc.php';
  * functions implementation for this script
  */
 require_once 'libraries/insert_edit.lib.php';
-require_once 'libraries/transformations.lib.php';
 
 // Check parameters
-PMA\libraries\Util::checkParameters(array('db', 'table', 'goto'));
+PhpMyAdmin\Util::checkParameters(array('db', 'table', 'goto'));
 
 $GLOBALS['dbi']->selectDb($GLOBALS['db']);
 
@@ -127,7 +129,7 @@ $gis_from_wkb_functions = array(
 );
 
 //if some posted fields need to be transformed.
-$mime_map = PMA_getMIME($GLOBALS['db'], $GLOBALS['table']);
+$mime_map = Transformations::getMIME($GLOBALS['db'], $GLOBALS['table']);
 if ($mime_map === false) {
     $mime_map = array();
 }
@@ -204,7 +206,7 @@ foreach ($loop_array as $rownumber => $where_clause) {
         // Note: $key is an md5 of the fieldname. The actual fieldname is
         // available in $multi_edit_columns_name[$key]
 
-        $file_to_insert = new PMA\libraries\File();
+        $file_to_insert = new PhpMyAdmin\File();
         $file_to_insert->checkTblChangeForm($key, $rownumber);
 
         $possibly_uploaded_val = $file_to_insert->getContent();
@@ -219,10 +221,10 @@ foreach ($loop_array as $rownumber => $where_clause) {
                 . $mime_map[$column_name]['input_transformation'];
             if (is_file($filename)) {
                 include_once $filename;
-                $classname = PMA_getTransformationClassName($filename);
+                $classname = Transformations::getClassName($filename);
                 /** @var IOTransformationsPlugin $transformation_plugin */
                 $transformation_plugin = new $classname();
-                $transformation_options = PMA_Transformation_getOptions(
+                $transformation_options = Transformations::getOptions(
                     $mime_map[$column_name]['input_transformation_options']
                 );
                 $current_value = $transformation_plugin->applyTransformation(
@@ -289,7 +291,7 @@ foreach ($loop_array as $rownumber => $where_clause) {
             $value_sets[] = implode(', ', $query_values);
         } else {
             // build update query
-            $query[] = 'UPDATE ' . PMA\libraries\Util::backquote($GLOBALS['table'])
+            $query[] = 'UPDATE ' . PhpMyAdmin\Util::backquote($GLOBALS['table'])
                 . ' SET ' . implode(', ', $query_values)
                 . ' WHERE ' . $where_clause
                 . ($_REQUEST['clause_is_unique'] ? '' : ' LIMIT 1');
@@ -311,20 +313,20 @@ if ($is_insert && count($value_sets) > 0) {
     // No change -> move back to the calling script
     //
     // Note: logic passes here for inline edit
-    $message = PMA\libraries\Message::success(__('No change'));
+    $message = PhpMyAdmin\Message::success(__('No change'));
     // Avoid infinite recursion
     if ($goto_include == 'tbl_replace.php') {
         $goto_include = 'tbl_change.php';
     }
     $active_page = $goto_include;
-    include '' . PMA_securePath($goto_include);
+    include '' . Core::securePath($goto_include);
     exit;
 }
 unset($multi_edit_columns, $is_insertignore);
 
 // If there is a request for SQL previewing.
 if (isset($_REQUEST['preview_sql'])) {
-    PMA_previewSQL($query);
+    Core::previewSQL($query);
 }
 
 /**
@@ -336,12 +338,12 @@ list ($url_params, $total_affected_rows, $last_messages, $warning_messages,
         = PMA_executeSqlQuery($url_params, $query);
 
 if ($is_insert && (count($value_sets) > 0 || $row_skipped)) {
-    $message = PMA\libraries\Message::getMessageForInsertedRows(
+    $message = PhpMyAdmin\Message::getMessageForInsertedRows(
         $total_affected_rows
     );
     $unsaved_values = array_values($unsaved_values);
 } else {
-    $message = PMA\libraries\Message::getMessageForAffectedRows(
+    $message = PhpMyAdmin\Message::getMessageForAffectedRows(
         $total_affected_rows
     );
 }
@@ -421,7 +423,7 @@ if ($response->isAjax() && ! isset($_POST['ajax_page_request'])) {
         foreach ($mime_map as $transformation) {
             $column_name = $transformation['column_name'];
             foreach ($transformation_types as $type) {
-                $file = PMA_securePath($transformation[$type]);
+                $file = Core::securePath($transformation[$type]);
                 $extra_data = PMA_transformEditedValues(
                     $db, $table, $transformation, $edited_values, $file,
                     $column_name, $extra_data, $type
@@ -443,7 +445,7 @@ if ($response->isAjax() && ! isset($_POST['ajax_page_request'])) {
     $extra_data['row_count'] = $_table->countRecords();
 
     $extra_data['sql_query']
-        = PMA\libraries\Util::getMessage($message, $GLOBALS['display_query']);
+        = PhpMyAdmin\Util::getMessage($message, $GLOBALS['display_query']);
 
     $response->setRequestStatus($message->isSuccess());
     $response->addJSON('message', $message);
@@ -474,5 +476,5 @@ if (isset($_REQUEST['after_insert']) && 'new_insert' == $_REQUEST['after_insert'
 /**
  * Load target page.
  */
-require '' . PMA_securePath($goto_include);
+require '' . Core::securePath($goto_include);
 exit;

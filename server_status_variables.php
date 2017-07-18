@@ -6,9 +6,9 @@
  * @package PhpMyAdmin
  */
 
-use PMA\libraries\Response;
-use PMA\libraries\Message;
-use PMA\libraries\ServerStatusData;
+use PhpMyAdmin\Response;
+use PhpMyAdmin\Message;
+use PhpMyAdmin\ServerStatusData;
 
 require_once 'libraries/common.inc.php';
 require_once 'libraries/server_common.inc.php';
@@ -38,7 +38,7 @@ $response = Response::getInstance();
 $header   = $response->getHeader();
 $scripts  = $header->getScripts();
 $scripts->addFile('server_status_variables.js');
-$scripts->addFile('jquery/jquery.tablesorter.js');
+$scripts->addFile('vendor/jquery/jquery.tablesorter.js');
 $scripts->addFile('server_status_sorter.js');
 
 $response->addHTML('<div>');

@@ -46,7 +46,10 @@ function PMA_queryChart(data, columnNames, settings) {
         legend : {
             show : true,
             placement : 'outsideGrid',
-            location : 'e'
+            location : 'e',
+            rendererOptions: {
+                numberColumns: 2
+            }
         },
         axes : {
             xaxis : {
@@ -226,24 +229,24 @@ function onDataSeriesChange() {
  * Unbind all event handlers before tearing down a page
  */
 AJAX.registerTeardown('tbl_chart.js', function () {
-    $('input[name="chartType"]').unbind('click');
-    $('input[name="barStacked"]').unbind('click');
-    $('input[name="chkAlternative"]').unbind('click');
-    $('input[name="chartTitle"]').unbind('focus').unbind('keyup').unbind('blur');
-    $('select[name="chartXAxis"]').unbind('change');
-    $('select[name="chartSeries"]').unbind('change');
-    $('select[name="chartSeriesColumn"]').unbind('change');
-    $('select[name="chartValueColumn"]').unbind('change');
-    $('input[name="xaxis_label"]').unbind('keyup');
-    $('input[name="yaxis_label"]').unbind('keyup');
-    $('#resizer').unbind('resizestop');
-    $('#tblchartform').unbind('submit');
+    $('input[name="chartType"]').off('click');
+    $('input[name="barStacked"]').off('click');
+    $('input[name="chkAlternative"]').off('click');
+    $('input[name="chartTitle"]').off('focus').off('keyup').off('blur');
+    $('select[name="chartXAxis"]').off('change');
+    $('select[name="chartSeries"]').off('change');
+    $('select[name="chartSeriesColumn"]').off('change');
+    $('select[name="chartValueColumn"]').off('change');
+    $('input[name="xaxis_label"]').off('keyup');
+    $('input[name="yaxis_label"]').off('keyup');
+    $('#resizer').off('resizestop');
+    $('#tblchartform').off('submit');
 });
 
 AJAX.registerOnload('tbl_chart.js', function () {
 
     // handle manual resize
-    $('#resizer').bind('resizestop', function (event, ui) {
+    $('#resizer').on('resizestop', function (event, ui) {
         // make room so that the handle will still appear
         $('#querychart').height($('#resizer').height() * 0.96);
         $('#querychart').width($('#resizer').width() * 0.96);

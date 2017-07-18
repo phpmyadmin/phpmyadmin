@@ -16,6 +16,7 @@ use PMA\libraries\plugins\transformations\abs\InlineTransformationsPlugin;
  * @package    PhpMyAdmin-Transformations
  * @subpackage Inline
  */
+// @codingStandardsIgnoreLine
 class Image_JPEG_Inline extends InlineTransformationsPlugin
 {
     /**

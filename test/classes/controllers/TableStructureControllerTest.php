@@ -11,8 +11,8 @@
 /*
  * Include to test.
  */
-use PMA\libraries\di\Container;
-use PMA\libraries\Theme;
+use PhpMyAdmin\Di\Container;
+use PhpMyAdmin\Theme;
 
 require_once 'libraries/database_interface.inc.php';
 require_once 'test/libraries/stubs/ResponseStub.php';
@@ -51,11 +51,11 @@ class TableStructureControllerTest extends PMATestCase
 
         //$_SESSION
 
-        $table = $this->getMockBuilder('PMA\libraries\Table')
+        $table = $this->getMockBuilder('PhpMyAdmin\Table')
             ->disableOriginalConstructor()
             ->getMock();
 
-        $dbi = $this->getMockBuilder('PMA\libraries\DatabaseInterface')
+        $dbi = $this->getMockBuilder('PhpMyAdmin\DatabaseInterface')
             ->disableOriginalConstructor()
             ->getMock();
         $dbi->expects($this->any())->method('getTable')
@@ -68,8 +68,8 @@ class TableStructureControllerTest extends PMATestCase
         $container->set('table', 'table');
         $container->set('dbi', $GLOBALS['dbi']);
         $this->_response = new \PMA\Test\Stubs\Response();
-        $container->set('PMA\libraries\Response', $this->_response);
-        $container->alias('response', 'PMA\libraries\Response');
+        $container->set('PhpMyAdmin\Response', $this->_response);
+        $container->alias('response', 'PhpMyAdmin\Response');
     }
 
     /**
@@ -85,15 +85,15 @@ class TableStructureControllerTest extends PMATestCase
         $GLOBALS['dbi']->expects($this->any())->method('fetchAssoc')
             ->will($this->returnValue(null));
 
-        $class = new ReflectionClass('\PMA\libraries\controllers\table\TableStructureController');
+        $class = new ReflectionClass('\PhpMyAdmin\Controllers\Table\TableStructureController');
         $method = $class->getMethod('getKeyForTablePrimary');
         $method->setAccessible(true);
 
         $container = Container::getDefaultContainer();
         $container->set('dbi', $GLOBALS['dbi']);
-        $container->factory('PMA\libraries\controllers\table\TableStructureController');
+        $container->factory('PhpMyAdmin\Controllers\Table\TableStructureController');
         $container->alias(
-            'TableStructureController', 'PMA\libraries\controllers\table\TableStructureController'
+            'TableStructureController', 'PhpMyAdmin\Controllers\Table\TableStructureController'
         );
         $ctrl = $container->get('TableStructureController');
         // No primary key in db.table2
@@ -133,15 +133,15 @@ class TableStructureControllerTest extends PMATestCase
                 )
             );
 
-        $class = new ReflectionClass('\PMA\libraries\controllers\table\TableStructureController');
+        $class = new ReflectionClass('\PhpMyAdmin\Controllers\Table\TableStructureController');
         $method = $class->getMethod('getKeyForTablePrimary');
         $method->setAccessible(true);
 
         $container = Container::getDefaultContainer();
         $container->set('dbi', $GLOBALS['dbi']);
-        $container->factory('PMA\libraries\controllers\table\TableStructureController');
+        $container->factory('PhpMyAdmin\Controllers\Table\TableStructureController');
         $container->alias(
-            'TableStructureController', 'PMA\libraries\controllers\table\TableStructureController'
+            'TableStructureController', 'PhpMyAdmin\Controllers\Table\TableStructureController'
         );
         $ctrl = $container->get('TableStructureController');
         // With db.table, it has a primary key `column`
@@ -159,15 +159,15 @@ class TableStructureControllerTest extends PMATestCase
      */
     public function testAdjustColumnPrivileges()
     {
-        $class = new ReflectionClass('\PMA\libraries\controllers\table\TableStructureController');
+        $class = new ReflectionClass('\PhpMyAdmin\Controllers\Table\TableStructureController');
         $method = $class->getMethod('adjustColumnPrivileges');
         $method->setAccessible(true);
 
         $container = Container::getDefaultContainer();
         $container->set('dbi', $GLOBALS['dbi']);
-        $container->factory('PMA\libraries\controllers\table\TableStructureController');
+        $container->factory('PhpMyAdmin\Controllers\Table\TableStructureController');
         $container->alias(
-            'TableStructureController', 'PMA\libraries\controllers\table\TableStructureController'
+            'TableStructureController', 'PhpMyAdmin\Controllers\Table\TableStructureController'
         );
         $ctrl = $container->get('TableStructureController');
 
@@ -185,15 +185,15 @@ class TableStructureControllerTest extends PMATestCase
      */
     public function testGetMultipleFieldCommandType()
     {
-        $class = new ReflectionClass('\PMA\libraries\controllers\table\TableStructureController');
+        $class = new ReflectionClass('\PhpMyAdmin\Controllers\Table\TableStructureController');
         $method = $class->getMethod('getMultipleFieldCommandType');
         $method->setAccessible(true);
 
         $container = Container::getDefaultContainer();
         $container->set('dbi', $GLOBALS['dbi']);
-        $container->factory('PMA\libraries\controllers\table\TableStructureController');
+        $container->factory('PhpMyAdmin\Controllers\Table\TableStructureController');
         $container->alias(
-            'TableStructureController', 'PMA\libraries\controllers\table\TableStructureController'
+            'TableStructureController', 'PhpMyAdmin\Controllers\Table\TableStructureController'
         );
         $ctrl = $container->get('TableStructureController');
 
@@ -238,22 +238,22 @@ class TableStructureControllerTest extends PMATestCase
      */
     public function testPMAGetDataForSubmitMult()
     {
-        $dbi = $this->getMockBuilder('PMA\libraries\DatabaseInterface')
+        $dbi = $this->getMockBuilder('PhpMyAdmin\DatabaseInterface')
             ->disableOriginalConstructor()
             ->getMock();
         $dbi->expects($this->any())
             ->method('query')
             ->will($this->returnValue(true));
 
-        $class = new ReflectionClass('PMA\libraries\controllers\table\TableStructureController');
+        $class = new ReflectionClass('PhpMyAdmin\Controllers\Table\TableStructureController');
         $method = $class->getMethod('getDataForSubmitMult');
         $method->setAccessible(true);
 
         $container = Container::getDefaultContainer();
         $container->set('dbi', $dbi);
-        $container->factory('PMA\libraries\controllers\table\TableStructureController');
+        $container->factory('PhpMyAdmin\Controllers\Table\TableStructureController');
         $container->alias(
-            'TableStructureController', 'PMA\libraries\controllers\table\TableStructureController'
+            'TableStructureController', 'PhpMyAdmin\Controllers\Table\TableStructureController'
         );
         $ctrl = $container->get('TableStructureController');
 

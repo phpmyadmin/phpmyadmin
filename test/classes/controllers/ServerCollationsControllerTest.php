@@ -6,18 +6,19 @@
  * @package PhpMyAdmin-test
  */
 
+use PhpMyAdmin\Controllers\Server\ServerCollationsController;
+use PhpMyAdmin\Core;
+use PhpMyAdmin\Theme;
+
 /*
  * Include to test.
  */
 //$GLOBALS
-use PMA\libraries\Theme;
-use PMA\libraries\controllers\server\ServerCollationsController;
-
 $GLOBALS['server'] = 1;
 $GLOBALS['is_superuser'] = false;
 $GLOBALS['cfg']['ServerDefault'] = 1;
 $GLOBALS['url_query'] = "url_query";
-$GLOBALS['PMA_PHP_SELF'] = PMA_getenv('PHP_SELF');
+$GLOBALS['PMA_PHP_SELF'] = Core::getenv('PHP_SELF');
 $GLOBALS['lang'] = "en";
 $GLOBALS['text_dir'] = "text_dir";
 $GLOBALS['cfg']['Server'] = array(
@@ -86,7 +87,7 @@ class ServerCollationsControllerTest extends PMATestCase
             "binary" => true,
         );
 
-        $class = new ReflectionClass('\PMA\libraries\controllers\server\ServerCollationsController');
+        $class = new ReflectionClass('\PhpMyAdmin\Controllers\Server\ServerCollationsController');
         $method = $class->getMethod('_getHtmlForCharsets');
         $method->setAccessible(true);
 
@@ -115,7 +116,7 @@ class ServerCollationsControllerTest extends PMATestCase
         );
         //validate 2: Charset Item
         $this->assertContains(
-            '<i>PMA_armscii8_general_ci</i>',
+            '<em>PMA_armscii8_general_ci</em>',
             $html
         );
         $this->assertContains(
@@ -123,7 +124,7 @@ class ServerCollationsControllerTest extends PMATestCase
             $html
         );
         $this->assertContains(
-            '<i>PMA_ascii_general_ci</i>',
+            '<em>PMA_ascii_general_ci</em>',
             $html
         );
         $this->assertContains(
@@ -131,7 +132,7 @@ class ServerCollationsControllerTest extends PMATestCase
             $html
         );
         $this->assertContains(
-            '<i>PMA_big5_general_ci</i>',
+            '<em>PMA_big5_general_ci</em>',
             $html
         );
         $this->assertContains(

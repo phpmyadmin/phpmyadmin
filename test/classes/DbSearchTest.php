@@ -12,8 +12,8 @@
 require_once 'libraries/database_interface.inc.php';
 require_once 'test/PMATestCase.php';
 
-use PMA\libraries\DbSearch;
-use PMA\libraries\Theme;
+use PhpMyAdmin\DbSearch;
+use PhpMyAdmin\Theme;
 
 /**
  * Tests for database search.
@@ -42,14 +42,17 @@ class DbSearchTest extends PMATestCase
         $GLOBALS['collation_connection'] = 'utf-8';
 
         //mock DBI
-        $dbi = $this->getMockBuilder('PMA\libraries\DatabaseInterface')
+        $dbi = $this->getMockBuilder('PhpMyAdmin\DatabaseInterface')
             ->disableOriginalConstructor()
             ->getMock();
 
         $dbi->expects($this->any())
             ->method('getColumns')
             ->with('pma', 'table1')
-            ->will($this->returnValue(array()));
+            ->will($this->returnValue(array(
+                array('Field' => 'column1'),
+                array('Field' => 'column2'),
+            )));
 
         $dbi->expects($this->any())
             ->method('escapeString')
@@ -80,10 +83,61 @@ class DbSearchTest extends PMATestCase
      */
     private function _callProtectedFunction($name, $params)
     {
-        $class = new ReflectionClass('PMA\libraries\DbSearch');
+        $class = new ReflectionClass(DbSearch::class);
         $method = $class->getMethod($name);
         $method->setAccessible(true);
         return $method->invokeArgs($this->object, $params);
+    }
+
+    /**
+     * Test for generating where clause for different search types
+     *
+     * @dataProvider searchTypes
+     */
+    public function testGetWhereClause($type, $expected)
+    {
+        $_REQUEST['criteriaSearchType'] = $type;
+        $_REQUEST['criteriaSearchString'] = 'search string';
+
+        $this->object = new DbSearch('pma_test');
+        $this->assertEquals(
+            $expected,
+            $this->_callProtectedFunction(
+                '_getWhereClause',
+                array('table1')
+            )
+        );
+    }
+
+    /**
+     * Data provider for testGetWhereClause
+     *
+     * @return array
+     */
+    public function searchTypes()
+    {
+        return array(
+            array(
+                '1',
+                " WHERE (CONVERT(`column1` USING utf8) LIKE '%search%' OR CONVERT(`column2` USING utf8) LIKE '%search%')  OR  (CONVERT(`column1` USING utf8) LIKE '%string%' OR CONVERT(`column2` USING utf8) LIKE '%string%')"
+            ),
+            array(
+                '2',
+                " WHERE (CONVERT(`column1` USING utf8) LIKE '%search%' OR CONVERT(`column2` USING utf8) LIKE '%search%')  AND  (CONVERT(`column1` USING utf8) LIKE '%string%' OR CONVERT(`column2` USING utf8) LIKE '%string%')"
+            ),
+            array(
+                '3',
+                " WHERE (CONVERT(`column1` USING utf8) LIKE '%search string%' OR CONVERT(`column2` USING utf8) LIKE '%search string%')"
+            ),
+            array(
+                '4',
+                " WHERE (CONVERT(`column1` USING utf8) LIKE 'search string' OR CONVERT(`column2` USING utf8) LIKE 'search string')"
+            ),
+            array(
+                '5',
+                " WHERE (CONVERT(`column1` USING utf8) REGEXP 'search string' OR CONVERT(`column2` USING utf8) REGEXP 'search string')"
+            ),
+        );
     }
 
     /**
@@ -188,55 +242,10 @@ class DbSearchTest extends PMATestCase
      */
     public function testGetSelectionForm()
     {
-        $this->assertEquals(
-            '<a id="db_search"></a><form id="db_search_form" class="ajax lock-page" '
-            . 'method="post" action="db_search.php" name="db_search">'
-            . '<input type="hidden" name="db" value="pma" />'
-            . '<input type="hidden" name="lang" value="en" />'
-            . '<input type="hidden" name="collation_connection" value="utf-8" />'
-            . '<input type="hidden" name="token" value="token" />'
-            . '<fieldset><legend>Search in database</legend><table class='
-            . '"formlayout"><tr><td>Words or values to search for (wildcard: "%"):'
-            . '</td><td><input type="text" name="criteriaSearchString" size="60" '
-            . 'value="" /></td></tr><tr><td class="right vtop">Find:</td><td><input '
-            . 'type="radio" name="criteriaSearchType" id="criteriaSearchType_1" '
-            . 'value="1" checked="checked" />' . "\n"
-            . '<label for="criteriaSearchType_1">at least one of the words<span '
-            . 'class="pma_hint"><img src="themes/dot.gif" title="" alt="" class="icon ic_b_help" '
-            . '/><span class="hide">Words are separated by a space character (" ").'
-            . '</span></span></label><br />' . "\n"
-            . '<input type="radio" name="criteriaSearchType" id="criteriaSearchType'
-            . '_2" value="2" />' . "\n"
-            . '<label for="criteriaSearchType_2">all words<span class="pma_hint">'
-            . '<img src="themes/dot.gif" title="" alt="" class="icon ic_b_help" /><span class'
-            . '="hide">Words are separated by a space character (" ").</span></span>'
-            . '</label><br />' . "\n"
-            . '<input type="radio" name="criteriaSearchType" id="criteriaSearchType'
-            . '_3" value="3" />' . "\n"
-            . '<label for="criteriaSearchType_3">the exact phrase</label><br />'
-            . "\n" . '<input type="radio" name="criteriaSearchType" id="criteria'
-            . 'SearchType_4" value="4" />' . "\n"
-            . '<label for="criteriaSearchType_4">as regular expression <a href='
-            . '"./url.php?url=https%3A%2F%2Fdev.mysql.com%2Fdoc%2Frefman%2F5.7%2Fen'
-            . '%2Fregexp.html" target='
-            . '"mysql_doc"><img src="themes/dot.gif" title="Documentation"'
-            . ' alt="Documentation" class="icon ic_b_help" /></a></label><br />' . "\n"
-            . '</td></tr><tr><td class="right vtop">Inside tables:</td>'
-            . '<td rowspan="2"><select name="criteriaTables[]" size="6" '
-            . 'multiple="multiple"><option value="table1">table1</option>'
-            . '<option value="table2">table2</option></select></td></tr><tr>'
-            . '<td class="right vbottom"><a href="#" onclick="setSelectOptions'
-            . '(\'db_search\', \'criteriaTables[]\', true); return false;">Select '
-            . 'all</a> &nbsp;/&nbsp;<a href="#" onclick="setSelectOptions'
-            . '(\'db_search\', \'criteriaTables[]\', false); return false;">Unselect'
-            . ' all</a></td></tr><tr><td class="right">Inside column:</td><td>'
-            . '<input type="text" name="criteriaColumnName" size="60"value="" />'
-            . '</td></tr></table></fieldset><fieldset class="tblFooters"><input '
-            . 'type="submit" name="submit_search" value="Go" id="buttonGo" />'
-            . '</fieldset></form><div id="togglesearchformdiv">'
-            . '<a id="togglesearchformlink"></a></div>',
-            $this->object->getSelectionForm()
-        );
+        $form = $this->object->getSelectionForm();
+        $this->assertContains('<form', $form);
+        $this->assertContains('<a id="togglesearchformlink">', $form);
+        $this->assertContains('criteriaSearchType', $form);
     }
 
     /**

@@ -6,10 +6,10 @@
  * @package PhpMyAdmin-test
  */
 
-use PMA\libraries\di\Container;
-use PMA\libraries\Theme;
-use PMA\libraries\URL;
-
+use PhpMyAdmin\Core;
+use PhpMyAdmin\Di\Container;
+use PhpMyAdmin\Theme;
+use PhpMyAdmin\Url;
 
 require_once 'libraries/database_interface.inc.php';
 require_once 'test/libraries/stubs/ResponseStub.php';
@@ -39,14 +39,14 @@ class ServerVariablesControllerTest extends PMATestCase
         $_REQUEST['pos'] = 3;
 
         //$GLOBALS
-        $GLOBALS['PMA_PHP_SELF'] = PMA_getenv('PHP_SELF');
+        $GLOBALS['PMA_PHP_SELF'] = Core::getenv('PHP_SELF');
         $GLOBALS['server'] = 1;
         $GLOBALS['table'] = "table";
 
         //$_SESSION
 
         //Mock DBI
-        $dbi = $this->getMockBuilder('PMA\libraries\DatabaseInterface')
+        $dbi = $this->getMockBuilder('PhpMyAdmin\DatabaseInterface')
             ->disableOriginalConstructor()
             ->getMock();
 
@@ -91,8 +91,8 @@ class ServerVariablesControllerTest extends PMATestCase
         $container = Container::getDefaultContainer();
         $container->set('dbi', $GLOBALS['dbi']);
         $this->_response = new \PMA\Test\Stubs\Response();
-        $container->set('PMA\libraries\Response', $this->_response);
-        $container->alias('response', 'PMA\libraries\Response');
+        $container->set('PhpMyAdmin\Response', $this->_response);
+        $container->alias('response', 'PhpMyAdmin\Response');
     }
 
     /**
@@ -103,18 +103,18 @@ class ServerVariablesControllerTest extends PMATestCase
     public function testFormatVariable()
     {
         $class = new ReflectionClass(
-            '\PMA\libraries\controllers\server\ServerVariablesController'
+            '\PhpMyAdmin\Controllers\Server\ServerVariablesController'
         );
         $method = $class->getMethod('_formatVariable');
         $method->setAccessible(true);
 
         $container = Container::getDefaultContainer();
         $container->factory(
-            'PMA\libraries\controllers\server\ServerVariablesController'
+            'PhpMyAdmin\Controllers\Server\ServerVariablesController'
         );
         $container->alias(
             'ServerVariablesController',
-            'PMA\libraries\controllers\server\ServerVariablesController'
+            'PhpMyAdmin\Controllers\Server\ServerVariablesController'
         );
         $ctrl = $container->get('ServerVariablesController');
 
@@ -159,24 +159,24 @@ class ServerVariablesControllerTest extends PMATestCase
     public function testGetHtmlForLinkTemplates()
     {
         $class = new ReflectionClass(
-            '\PMA\libraries\controllers\server\ServerVariablesController'
+            '\PhpMyAdmin\Controllers\Server\ServerVariablesController'
         );
         $method = $class->getMethod('_getHtmlForLinkTemplates');
         $method->setAccessible(true);
 
         $container = Container::getDefaultContainer();
         $container->factory(
-            'PMA\libraries\controllers\server\ServerVariablesController'
+            'PhpMyAdmin\Controllers\Server\ServerVariablesController'
         );
         $container->alias(
             'ServerVariablesController',
-            'PMA\libraries\controllers\server\ServerVariablesController'
+            'PhpMyAdmin\Controllers\Server\ServerVariablesController'
         );
         $ctrl = $container->get('ServerVariablesController');
 
         //Call the test function
         $html = $method->invoke($ctrl);
-        $url = 'server_variables.php' . URL::getCommon();
+        $url = 'server_variables.php' . Url::getCommon();
 
         //validate 1: URL
         $this->assertContains(
@@ -185,11 +185,11 @@ class ServerVariablesControllerTest extends PMATestCase
         );
         //validate 2: images
         $this->assertContains(
-            PMA\libraries\Util::getIcon('b_save.png', __('Save')),
+            PhpMyAdmin\Util::getIcon('b_save.png', __('Save')),
             $html
         );
         $this->assertContains(
-            PMA\libraries\Util::getIcon('b_close.png', __('Cancel')),
+            PhpMyAdmin\Util::getIcon('b_close.png', __('Cancel')),
             $html
         );
     }
@@ -203,18 +203,18 @@ class ServerVariablesControllerTest extends PMATestCase
     {
 
         $class = new ReflectionClass(
-            '\PMA\libraries\controllers\server\ServerVariablesController'
+            '\PhpMyAdmin\Controllers\Server\ServerVariablesController'
         );
         $method = $class->getMethod('_getHtmlForServerVariables');
         $method->setAccessible(true);
 
         $container = Container::getDefaultContainer();
         $container->factory(
-            'PMA\libraries\controllers\server\ServerVariablesController'
+            'PhpMyAdmin\Controllers\Server\ServerVariablesController'
         );
         $container->alias(
             'ServerVariablesController',
-            'PMA\libraries\controllers\server\ServerVariablesController'
+            'PhpMyAdmin\Controllers\Server\ServerVariablesController'
         );
         $ctrl = $container->get('ServerVariablesController');
 
@@ -241,7 +241,7 @@ class ServerVariablesControllerTest extends PMATestCase
 
         //validate 2: Server Variables
         $this->assertContains(
-            '<table id="serverVariables" class="data filteredData noclick">',
+            '<table id="serverVariables" class="width100 data filteredData noclick">',
             $html
         );
         $this->assertContains(
@@ -249,7 +249,7 @@ class ServerVariablesControllerTest extends PMATestCase
             $html
         );
         $this->assertContains(
-            __('Global value'),
+            __('Value'),
             $html
         );
     }
@@ -262,18 +262,18 @@ class ServerVariablesControllerTest extends PMATestCase
     public function testGetHtmlForServerVariablesItems()
     {
         $class = new ReflectionClass(
-            '\PMA\libraries\controllers\server\ServerVariablesController'
+            '\PhpMyAdmin\Controllers\Server\ServerVariablesController'
         );
         $method = $class->getMethod('_getHtmlForServerVariablesItems');
         $method->setAccessible(true);
 
         $container = Container::getDefaultContainer();
         $container->factory(
-            'PMA\libraries\controllers\server\ServerVariablesController'
+            'PhpMyAdmin\Controllers\Server\ServerVariablesController'
         );
         $container->alias(
             'ServerVariablesController',
-            'PMA\libraries\controllers\server\ServerVariablesController'
+            'PhpMyAdmin\Controllers\Server\ServerVariablesController'
         );
         $ctrl = $container->get('ServerVariablesController');
 

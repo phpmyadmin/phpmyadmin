@@ -5,10 +5,7 @@
  *
  * @package PhpMyAdmin-GIS
  */
-
 namespace PMA\libraries\gis;
-
-use PMA;
 
 /**
  * Factory class that handles the creation of geometric objects.

@@ -5,7 +5,7 @@
  *
  * @package PhpMyAdmin
  */
-use PMA\libraries\URL;
+use PhpMyAdmin\Url;
 
 /**
  * Function to get html for one relational key
@@ -114,7 +114,7 @@ function PMA_getHtmlForRelationalFieldSelection($db, $table, $field, $foreignDat
         . 'id="browse_foreign_form" name="browse_foreign_from" '
         . 'action="browse_foreigners.php" method="post">'
         . '<fieldset>'
-        . URL::getHiddenInputs($db, $table)
+        . Url::getHiddenInputs($db, $table)
         . '<input type="hidden" name="field" value="' . htmlspecialchars($field)
         . '" />'
         . '<input type="hidden" name="fieldkey" value="'
@@ -307,7 +307,7 @@ function PMA_getHtmlForGotoPage($foreignData)
     $nbTotalPage = @ceil($foreignData['the_total'] / $session_max_rows);
 
     if ($foreignData['the_total'] > $GLOBALS['cfg']['MaxRows']) {
-        $gotopage = PMA\libraries\Util::pageselector(
+        $gotopage = PhpMyAdmin\Util::pageselector(
             'pos',
             $session_max_rows,
             $pageNow,

@@ -4,7 +4,7 @@
  * Unbind all event handlers before tearing down a page
  */
 AJAX.registerTeardown('server_variables.js', function () {
-    $('#filterText').unbind('keyup');
+    $('#filterText').off('keyup');
     $(document).off('click', 'a.editLink');
     $('#serverVariables').find('.var-name').find('a img').remove();
 });
@@ -86,8 +86,7 @@ AJAX.registerOnload('server_variables.js', function () {
                     ajax_request: true,
                     type: 'setval',
                     varName: varName,
-                    varValue: $valueCell.find('input').val(),
-                    token: PMA_commonParams.get('token')
+                    varValue: $valueCell.find('input').val()
                 }, function (data) {
                     if (data.success) {
                         $valueCell

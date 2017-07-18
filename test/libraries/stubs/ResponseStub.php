@@ -12,8 +12,8 @@
  */
 namespace PMA\Test\Stubs;
 
-use PMA\libraries\Header;
-use PMA\libraries\Message;
+use PhpMyAdmin\Header;
+use PhpMyAdmin\Message;
 
 
 
@@ -26,7 +26,7 @@ use PMA\libraries\Message;
 class Response
 {
     /**
-     * PMA\libraries\Header instance
+     * PhpMyAdmin\Header instance
      *
      * @access private
      * @var Header
@@ -148,8 +148,8 @@ class Response
     }
 
     /**
-     * Current I choose to return PMA\libraries\Header object directly because
-     * our test has nothing about the Scripts and PMA\libraries\Header class.
+     * Current I choose to return PhpMyAdmin\Header object directly because
+     * our test has nothing about the Scripts and PhpMyAdmin\Header class.
      *
      * @return Header
      */

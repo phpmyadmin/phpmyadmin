@@ -1,22 +1,23 @@
 <form method="post" action="tbl_relation.php">
-    <?= PMA\libraries\URL::getHiddenInputs($db, $table); ?>
+    <?= PhpMyAdmin\Url::getHiddenInputs($db, $table); ?>
     <!-- InnoDB  -->
-    <?php if (PMA\libraries\Util::isForeignKeySupported($tbl_storage_engine)): ?>
+    <?php if (PhpMyAdmin\Util::isForeignKeySupported($tbl_storage_engine)): ?>
         <fieldset>
             <legend><?= __('Foreign key constraints'); ?></legend>
+            <div class="responsivetable jsresponsive">
             <table id="foreign_keys" class="relationalTable">
-                <tr>
+                <thead><tr>
                     <th><?= __('Actions'); ?></th>
                     <th><?= __('Constraint properties'); ?></th>
                     <?php if (strtoupper($tbl_storage_engine) == 'INNODB'): ?>
-                        <th><?= __('Column') , PMA\libraries\Util::showHint(__(
+                        <th><?= __('Column') , PhpMyAdmin\Util::showHint(__(
                                 'Creating a foreign key over a non-indexed column would automatically create'
                                 . ' an index on it. Alternatively, you can define an index below, before creating'
                                 . ' the foreign key.'
                             )) ?>
                         </th>
                     <?php else: ?>
-                        <th><?= __('Column') , PMA\libraries\Util::showHint(__(
+                        <th><?= __('Column') , PhpMyAdmin\Util::showHint(__(
                                 'Only columns with index will be displayed. You can define an'
                                 . ' index below.'
                             )) ?>
@@ -33,11 +34,11 @@
                     <th><?= __('Database'); ?></th>
                     <th><?= __('Table'); ?></th>
                     <th><?= __('Column'); ?></th>
-                </tr>
+                </tr></thead>
                 <?php $i = 0; ?>
                 <?php if (! empty($existrel_foreign)): ?>
                     <?php foreach ($existrel_foreign as $key => $one_key): ?>
-                        <?= PMA\libraries\Template::get('table/relation/foreign_key_row')->render(
+                        <?= PhpMyAdmin\Template::get('table/relation/foreign_key_row')->render(
                             array(
                                 'one_key' => $one_key,
                                 'columns' => $columns,
@@ -50,7 +51,7 @@
                         ?>
                     <?php endforeach; ?>
                 <?php endif; ?>
-                <?= PMA\libraries\Template::get('table/relation/foreign_key_row')->render(
+                <?= PhpMyAdmin\Template::get('table/relation/foreign_key_row')->render(
                     array(
                         'one_key' => array(),
                         'columns' => $columns,
@@ -61,37 +62,38 @@
                     )
                 ); ?>
                 <tr>
-                    <td colspan="5">
+                    <th colspan="6">
                         <a class="formelement clearfloat add_foreign_key" href="">
                             <?= __('+ Add constraint'); ?>
                     </td>
                 </tr>
             </table>
+            </div>
         </fieldset>
     <?php endif; ?>
 
     <?php if ($cfgRelation['relwork']): ?>
-        <?php if (PMA\libraries\Util::isForeignKeySupported($tbl_storage_engine)): ?>
+        <?php if (PhpMyAdmin\Util::isForeignKeySupported($tbl_storage_engine)): ?>
             <br/>
-            <?= PMA\libraries\Util::getDivForSliderEffect('ir_div', __('Internal relationships')) ?>
+            <?= PhpMyAdmin\Util::getDivForSliderEffect('ir_div', __('Internal relationships')) ?>
         <?php endif; ?>
 
         <?php $save_row = array_values($columns);
         $saved_row_cnt  = count($save_row);?>
         <fieldset>
-            <legend><?= __('Internal relationships') , PMA\libraries\Util::showDocu('config', 'cfg_Servers_relation'); ?></legend>
+            <legend><?= __('Internal relationships') , PhpMyAdmin\Util::showDocu('config', 'cfg_Servers_relation'); ?></legend>
             <table id="internal_relations" class="relationalTable">
                 <tr>
                     <th><?= __('Column'); ?></th>
                     <th><?= __('Internal relation'); ?>
-                        <?php if (PMA\libraries\Util::isForeignKeySupported($tbl_storage_engine)): ?>
-                            <?= PMA\libraries\Util::showHint(__(
+                        <?php if (PhpMyAdmin\Util::isForeignKeySupported($tbl_storage_engine)): ?>
+                            <?= PhpMyAdmin\Util::showHint(__(
                                 'An internal relation is not necessary when a corresponding'
                                 . ' FOREIGN KEY relation exists.')); ?>
                         <?php endif; ?>
                     </th>
                     <?php for ($i = 0; $i < $saved_row_cnt; $i++): ?>
-                        <?= PMA\libraries\Template::get('table/relation/internal_relational_row')->render(
+                        <?= PhpMyAdmin\Template::get('table/relation/internal_relational_row')->render(
                             array(
                                 'save_row' => $save_row,
                                 'i' => $i,
@@ -103,7 +105,7 @@
                     <?php endfor; ?>
             </table>
         </fieldset>
-        <?php if (PMA\libraries\Util::isForeignKeySupported($tbl_storage_engine)): ?>
+        <?php if (PhpMyAdmin\Util::isForeignKeySupported($tbl_storage_engine)): ?>
             </div>
         <?php endif; ?>
     <?php endif; ?>

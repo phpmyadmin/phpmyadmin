@@ -9,9 +9,9 @@
 /*
  * Include to test.
  */
-use PMA\libraries\Theme;
-use PMA\libraries\TypesMySQL;
-use PMA\libraries\URL;
+use PhpMyAdmin\Theme;
+use PhpMyAdmin\TypesMySQL;
+use PhpMyAdmin\Url;
 
 $GLOBALS['server'] = 1;
 
@@ -95,7 +95,7 @@ class PMA_Central_Columns_Test extends PHPUnit_Framework_TestCase
         );
 
         // mock DBI
-        $dbi = $this->getMockBuilder('PMA\libraries\DatabaseInterface')
+        $dbi = $this->getMockBuilder('PhpMyAdmin\DatabaseInterface')
             ->disableOriginalConstructor()
             ->getMock();
         $GLOBALS['dbi'] = $dbi;
@@ -250,11 +250,11 @@ class PMA_Central_Columns_Test extends PHPUnit_Framework_TestCase
 
         // when column does not exist in the central column list
         $this->assertInstanceOf(
-            'PMA\libraries\Message', PMA_deleteColumnsFromList(array('column1'), false)
+            'PhpMyAdmin\Message', PMA_deleteColumnsFromList(array('column1'), false)
         );
 
         $this->assertInstanceOf(
-            'PMA\libraries\Message', PMA_deleteColumnsFromList(array('PMA_table'))
+            'PhpMyAdmin\Message', PMA_deleteColumnsFromList(array('PMA_table'))
         );
     }
 
@@ -437,7 +437,7 @@ class PMA_Central_Columns_Test extends PHPUnit_Framework_TestCase
         $result_1 = PMA_getHTMLforTableNavigation(25, 10, 'phpmyadmin');
         $this->assertContains(
             '<form action="db_central_columns.php" method="post">'
-            . URL::getHiddenInputs(
+            . Url::getHiddenInputs(
                 'phpmyadmin'
             ),
             $result_1
@@ -449,7 +449,7 @@ class PMA_Central_Columns_Test extends PHPUnit_Framework_TestCase
             $result_1
         );
         $this->assertContains(
-            PMA\libraries\Util::pageselector(
+            PhpMyAdmin\Util::pageselector(
                 'pos', 10, 2, 3
             ),
             $result_1
@@ -546,7 +546,7 @@ class PMA_Central_Columns_Test extends PHPUnit_Framework_TestCase
             $result
         );
         $this->assertContains(
-            URL::getHiddenInputs('phpmyadmin'),
+            Url::getHiddenInputs('phpmyadmin'),
             $result
         );
     }
@@ -559,7 +559,7 @@ class PMA_Central_Columns_Test extends PHPUnit_Framework_TestCase
     public function testPMAConfigErrorMessage()
     {
         $this->assertInstanceOf(
-            'PMA\libraries\Message',
+            'PhpMyAdmin\Message',
             PMA_configErrorMessage()
         );
     }
@@ -640,7 +640,7 @@ class PMA_Central_Columns_Test extends PHPUnit_Framework_TestCase
             $result
         );
         $this->assertContains(
-            URL::getHiddenInputs('phpmyadmin')
+            Url::getHiddenInputs('phpmyadmin')
             . '<input type="hidden" name="add_column" value="add">'
             . '<input type="hidden" name="pos" value="0" />'
             . '<input type="hidden" name="total_rows" value="20"/>',

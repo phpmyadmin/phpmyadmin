@@ -9,8 +9,8 @@
 /*
  * Include to test.
  */
-use PMA\libraries\Theme;
-use PMA\libraries\URL;
+use PhpMyAdmin\Theme;
+use PhpMyAdmin\Url;
 
 require_once 'libraries/tracking.lib.php';
 
@@ -47,6 +47,7 @@ class PMA_TblTrackingTest extends PHPUnit_Framework_TestCase
         $GLOBALS['cfg']['ServerDefault'] = "server";
         $GLOBALS['cfg']['ActionLinksMode'] = 'both';
         $GLOBALS['cfg']['MaxCharactersInDisplayedSQL'] = 1000;
+        $GLOBALS['cfg']['NavigationTreeTableSeparator'] = "_";
 
         $_SESSION['relation'][$GLOBALS['server']] = array(
             'PMA_VERSION' => PMA_VERSION,
@@ -57,7 +58,7 @@ class PMA_TblTrackingTest extends PHPUnit_Framework_TestCase
 
         $GLOBALS['cfg']['Server']['tracking_default_statements'] = 'DELETE';
 
-        $dbi = $this->getMockBuilder('PMA\libraries\DatabaseInterface')
+        $dbi = $this->getMockBuilder('PhpMyAdmin\DatabaseInterface')
             ->disableOriginalConstructor()
             ->getMock();
 
@@ -114,6 +115,46 @@ class PMA_TblTrackingTest extends PHPUnit_Framework_TestCase
     }
 
     /**
+     * Tests for PMA_extractTableNames() method from nested table_list.
+     *
+     * @return void
+     * @test
+     */
+    public function testPMAextractTableNames()
+    {
+        $table_list = array(
+            "hello_"=>array(
+                "is_group"=>1,
+                "lovely_"=>array(
+                    "is_group"=>1,
+                    "hello_lovely_world"=>array(
+                        "Name"=>"hello_lovely_world"
+                    ),
+                    "hello_lovely_world2"=>array(
+                        "Name"=>"hello_lovely_world2"
+                    )
+                ),
+                "hello_world"=>array(
+                    "Name"=>"hello_world"
+                )
+            )
+        );
+        $untracked_tables = PMA_extractTableNames($table_list, 'db', true);
+        $this->assertContains(
+            "hello_world",
+            $untracked_tables
+        );
+        $this->assertContains(
+            "hello_lovely_world",
+            $untracked_tables
+        );
+        $this->assertContains(
+            "hello_lovely_world2",
+            $untracked_tables
+        );
+    }
+
+    /**
      * Tests for PMA_getHtmlForDataDefinitionAndManipulationStatements() method.
      *
      * @return void
@@ -138,7 +179,7 @@ class PMA_TblTrackingTest extends PHPUnit_Framework_TestCase
         );
 
         $this->assertContains(
-            URL::getHiddenInputs($GLOBALS['db']),
+            Url::getHiddenInputs($GLOBALS['db']),
             $html
         );
 
@@ -396,7 +437,7 @@ class PMA_TblTrackingTest extends PHPUnit_Framework_TestCase
         $text_dir = "ltr";
 
         $dbi_old = $GLOBALS['dbi'];
-        $dbi = $this->getMockBuilder('PMA\libraries\DatabaseInterface')
+        $dbi = $this->getMockBuilder('PhpMyAdmin\DatabaseInterface')
             ->disableOriginalConstructor()
             ->getMock();
 
@@ -494,7 +535,7 @@ class PMA_TblTrackingTest extends PHPUnit_Framework_TestCase
         $url_query = "select * from PMA";
 
         $dbi_old = $GLOBALS['dbi'];
-        $dbi = $this->getMockBuilder('PMA\libraries\DatabaseInterface')
+        $dbi = $this->getMockBuilder('PhpMyAdmin\DatabaseInterface')
             ->disableOriginalConstructor()
             ->getMock();
 
@@ -590,7 +631,7 @@ class PMA_TblTrackingTest extends PHPUnit_Framework_TestCase
         );
 
         $version = '<form method="post" action="tbl_tracking.php'
-            . URL::getCommon(
+            . Url::getCommon(
                 $url_params + array(
                     'report' => 'true', 'version' => $_REQUEST['version']
                 )

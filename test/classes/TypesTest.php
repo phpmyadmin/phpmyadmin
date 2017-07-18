@@ -4,7 +4,7 @@
  *
  * @package PhpMyAdmin-test
  */
-use PMA\libraries\Types;
+use PhpMyAdmin\Types;
 
 require_once 'test/PMATestCase.php';
 

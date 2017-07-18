@@ -12,7 +12,6 @@ use PMA\libraries\plugins\schema\pdf\PdfRelationSchema;
 
 require_once 'libraries/relation.lib.php';
 require_once 'libraries/database_interface.inc.php';
-require_once 'libraries/transformations.lib.php';
 require_once 'test/PMATestCase.php';
 
 /**
@@ -75,7 +74,7 @@ class PdfRelationSchemaTest extends PMATestCase
         );
         PMA_getRelationsParam();
 
-        $dbi = $this->getMockBuilder('PMA\libraries\DatabaseInterface')
+        $dbi = $this->getMockBuilder('PhpMyAdmin\DatabaseInterface')
             ->disableOriginalConstructor()
             ->getMock();
 

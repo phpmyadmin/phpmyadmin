@@ -9,9 +9,9 @@
 namespace PMA\libraries\plugins\auth;
 
 use PMA\libraries\plugins\AuthenticationPlugin;
-use PMA;
-use PMA\libraries\Response;
-use PMA\libraries\URL;
+use PhpMyAdmin\Response;
+use PhpMyAdmin\Url;
+use PhpMyAdmin\Util;
 
 /**
  * Handles the config authentication method
@@ -136,7 +136,7 @@ class AuthenticationConfig extends AuthenticationPlugin
                     E_USER_WARNING
                 );
             }
-            echo PMA\libraries\Util::mysqlDie(
+            echo Util::mysqlDie(
                 $conn_error,
                 '',
                 true,
@@ -150,11 +150,11 @@ class AuthenticationConfig extends AuthenticationPlugin
         <tr>
             <td>' , "\n";
         echo '<a href="'
-            , PMA\libraries\Util::getScriptNameForOption(
+            , Util::getScriptNameForOption(
                 $GLOBALS['cfg']['DefaultTabServer'],
                 'server'
             )
-            , URL::getCommon() , '" class="button disableAjax">'
+            , Url::getCommon() , '" class="button disableAjax">'
             , __('Retry to connect')
             , '</a>' , "\n";
         echo '</td>

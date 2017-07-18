@@ -8,13 +8,13 @@
  */
 namespace PMA\libraries\plugins\import;
 
-use PMA\libraries\properties\options\items\BoolPropertyItem;
+use PMA\libraries\plugins\ImportPlugin;
 use PMA\libraries\properties\plugins\ImportPluginProperties;
 use PMA\libraries\properties\options\groups\OptionsPropertyMainGroup;
 use PMA\libraries\properties\options\groups\OptionsPropertyRootGroup;
-use PMA;
-use PMA\libraries\plugins\ImportPlugin;
+use PMA\libraries\properties\options\items\BoolPropertyItem;
 use PMA\libraries\properties\options\items\SelectPropertyItem;
+use PhpMyAdmin\SqlParser\Utils\BufferedQuery;
 
 /**
  * Handles the import for the SQL format
@@ -110,7 +110,7 @@ class ImportSql extends ImportPlugin
         // Handle compatibility options.
         $this->_setSQLMode($GLOBALS['dbi'], $_REQUEST);
 
-        $bq = new \PhpMyAdmin\SqlParser\Utils\BufferedQuery();
+        $bq = new BufferedQuery();
         if (isset($_POST['sql_delimiter'])) {
             $bq->setDelimiter($_POST['sql_delimiter']);
         }
@@ -172,7 +172,7 @@ class ImportSql extends ImportPlugin
     /**
      * Handle compatibility options
      *
-     * @param PMA\libraries\DatabaseInterface $dbi     Database interface
+     * @param PhpMyAdmin\DatabaseInterface $dbi     Database interface
      * @param array                           $request Request array
      *
      * @return void

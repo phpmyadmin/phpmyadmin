@@ -7,8 +7,8 @@
  */
 namespace PMA\libraries\navigation\nodes;
 
-use PMA;
 use PMA\libraries\navigation\NodeFactory;
+use PhpMyAdmin\Util;
 
 require_once './libraries/check_user_privileges.lib.php';
 
@@ -36,7 +36,7 @@ class NodeDatabaseContainer extends Node
                 _pgettext('Create new database', 'New')
             );
             $new->isNew = true;
-            $new->icon = PMA\libraries\Util::getImage('b_newdb.png', '');
+            $new->icon = Util::getImage('b_newdb.png', '');
             $new->links = array(
                 'text' => 'server_databases.php?server=' . $GLOBALS['server'],
                 'icon' => 'server_databases.php?server=' . $GLOBALS['server'],

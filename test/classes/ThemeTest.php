@@ -5,7 +5,7 @@
  *
  * @package PhpMyAdmin-test
  */
-use PMA\libraries\Theme;
+use PhpMyAdmin\Theme;
 
 require_once 'test/PMATestCase.php';
 
@@ -35,9 +35,9 @@ class ThemeTest extends PMATestCase
     protected function setUp()
     {
         $this->object = new Theme();
-        $this->backup = $_SESSION['PMA_Theme'];
-        $_SESSION['PMA_Theme'] = $this->object;
-        $GLOBALS['PMA_Config'] = new PMA\libraries\Config();
+        $this->backup = $GLOBALS['PMA_Theme'];
+        $GLOBALS['PMA_Theme'] = $this->object;
+        $GLOBALS['PMA_Config'] = new PhpMyAdmin\Config();
         $GLOBALS['PMA_Config']->enableBc();
         $GLOBALS['text_dir'] = 'ltr';
         include 'themes/pmahomme/layout.inc.php';
@@ -53,7 +53,7 @@ class ThemeTest extends PMATestCase
      */
     protected function tearDown()
     {
-        $_SESSION['PMA_Theme'] = $this->backup;
+        $GLOBALS['PMA_Theme'] = $this->backup;
     }
 
     /**
@@ -92,7 +92,7 @@ class ThemeTest extends PMATestCase
         $this->object->setPath('./test/classes/_data/gen_version_info');
         $this->assertTrue($this->object->loadInfo());
         $this->assertEquals('Test Theme', $this->object->getName());
-        $this->assertEquals('2.0.3', $this->object->getVersion());
+        $this->assertEquals('4.8', $this->object->getVersion());
     }
 
     /**
@@ -103,7 +103,7 @@ class ThemeTest extends PMATestCase
     public function testLoadInfo()
     {
         $this->object->setPath('./themes/original');
-        $infofile = $this->object->getPath() . '/info.inc.php';
+        $infofile = $this->object->getPath() . '/theme.json';
         $this->assertTrue($this->object->loadInfo());
 
         $this->assertEquals(

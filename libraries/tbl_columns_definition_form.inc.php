@@ -6,8 +6,11 @@
  *
  * @package PhpMyAdmin
  */
-use PMA\libraries\Response;
-use PMA\libraries\Table;
+
+use PhpMyAdmin\Di\Container;
+use PhpMyAdmin\Response;
+use PhpMyAdmin\Table;
+use PhpMyAdmin\Transformations;
 use PMA\Util;
 
 if (!defined('PHPMYADMIN')) {
@@ -19,7 +22,7 @@ if (!defined('PHPMYADMIN')) {
  */
 require_once 'libraries/util.lib.php';
 
-PMA\libraries\Util::checkParameters(
+PhpMyAdmin\Util::checkParameters(
     array('server', 'db', 'table', 'action', 'num_fields')
 );
 
@@ -83,22 +86,21 @@ if (isset($selected) && is_array($selected)) {
 
 $is_backup = ($action != 'tbl_create.php' && $action != 'tbl_addfield.php');
 
-require_once './libraries/transformations.lib.php';
 $cfgRelation = PMA_getRelationsParam();
 
 $comments_map = PMA_getComments($db, $table);
 
 $move_columns = array();
 if (isset($fields_meta)) {
-    /** @var PMA\libraries\DatabaseInterface $dbi */
-    $dbi = \PMA\libraries\di\Container::getDefaultContainer()->get('dbi');
+    /** @var PhpMyAdmin\DatabaseInterface $dbi */
+    $dbi = Container::getDefaultContainer()->get('dbi');
     $move_columns = $dbi->getTable($db, $table)->getColumnsMeta();
 }
 
 $available_mime = array();
 if ($cfgRelation['mimework'] && $GLOBALS['cfg']['BrowseMIME']) {
-    $mime_map = PMA_getMIME($db, $table);
-    $available_mime = PMA_getAvailableMIMEtypes();
+    $mime_map = Transformations::getMIME($db, $table);
+    $available_mime = Transformations::getAvailableMIMEtypes();
 }
 
 //  workaround for field_fulltext, because its submitted indices contain
@@ -120,7 +122,7 @@ $foreigners = PMA_getForeigners($db, $table, '', 'foreign');
 $child_references = null;
 // From MySQL 5.6.6 onwards columns with foreign keys can be renamed.
 // Hence, no need to get child references
-if (PMA_MYSQL_INT_VERSION < 50606) {
+if ($GLOBALS['dbi']->getVersion() < 50606) {
     $child_references = PMA_getChildReferences($db, $table);
 }
 
@@ -262,12 +264,12 @@ for ($columnNumber = 0; $columnNumber < $num_fields; $columnNumber++) {
     }
 
     if (isset($columnMeta['Type'])) {
-        $extracted_columnspec = PMA\libraries\Util::extractColumnSpec(
+        $extracted_columnspec = PhpMyAdmin\Util::extractColumnSpec(
             $columnMeta['Type']
         );
         if ($extracted_columnspec['type'] == 'bit') {
             $columnMeta['Default']
-                = PMA\libraries\Util::convertBitDefaultValue($columnMeta['Default']);
+                = PhpMyAdmin\Util::convertBitDefaultValue($columnMeta['Default']);
         }
         $type = $extracted_columnspec['type'];
         if ($length == '') {
@@ -282,7 +284,7 @@ for ($columnNumber = 0; $columnNumber < $num_fields; $columnNumber++) {
     // MySQL version from 5.6.6 allow renaming columns with foreign keys
     if (isset($columnMeta['Field'])
         && isset($form_params['table'])
-        && PMA_MYSQL_INT_VERSION < 50606
+        && $GLOBALS['dbi']->getVersion() < 50606
     ) {
         $columnMeta['column_status'] = PMA_checkChildForeignReferences(
             $form_params['db'],
@@ -389,15 +391,17 @@ for ($columnNumber = 0; $columnNumber < $num_fields; $columnNumber++) {
     );
 } // end for
 
-$html = PMA\libraries\Template::get('columns_definitions/column_definitions_form')
+include 'libraries/tbl_partition_definition.inc.php';
+$html = PhpMyAdmin\Template::get('columns_definitions/column_definitions_form')
     ->render(
         array(
-            'is_backup'     => $is_backup,
-            'fields_meta'   => isset($fields_meta) ? $fields_meta : null,
-            'mimework'      => $cfgRelation['mimework'],
-            'action'        => $action,
-            'form_params'   => $form_params,
-            'content_cells' => $content_cells,
+            'is_backup'        => $is_backup,
+            'fields_meta'      => isset($fields_meta) ? $fields_meta : null,
+            'mimework'         => $cfgRelation['mimework'],
+            'action'           => $action,
+            'form_params'      => $form_params,
+            'content_cells'    => $content_cells,
+            'partitionDetails' => $partitionDetails
         )
     );
 
@@ -406,7 +410,7 @@ unset($form_params);
 $response = Response::getInstance();
 $response->getHeader()->getScripts()->addFiles(
     array(
-        'jquery/jquery.uitablefilter.js',
+        'vendor/jquery/jquery.uitablefilter.js',
         'indexes.js'
     )
 );

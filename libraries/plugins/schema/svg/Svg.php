@@ -7,8 +7,8 @@
  */
 namespace PMA\libraries\plugins\schema\svg;
 
-use PMA;
-use PMA\libraries\Response;
+use PhpMyAdmin\Core;
+use PhpMyAdmin\Response;
 use XMLWriter;
 
 /**
@@ -190,7 +190,7 @@ class Svg extends XMLWriter
         //ob_get_clean();
         $output = $this->flush();
         Response::getInstance()->disable();
-        PMA_downloadHeader(
+        Core::downloadHeader(
             $fileName,
             'image/svg+xml',
             strlen($output)

@@ -6,7 +6,7 @@
  * @package PhpMyAdmin-test
  */
 
-use PMA\libraries\Encoding;
+use PhpMyAdmin\Encoding;
 
 /**
  * Tests for Charset Conversions
@@ -84,10 +84,6 @@ class EncodingTest extends PHPUnit_Framework_TestCase
 
     public function testMbstring()
     {
-        if (! @function_exists('mb_convert_encoding')) {
-            $this->markTestSkipped('mbstring extension missing');
-        }
-
         Encoding::setEngine(Encoding::ENGINE_MB);
         $this->assertEquals(
             "This is the Euro symbol '?'.",
@@ -202,5 +198,11 @@ class EncodingTest extends PHPUnit_Framework_TestCase
             '<input type="checkbox" name="xkana" value="kana" id="kj-kana" />',
             $actual
         );
+    }
+
+    public function testListEncodings()
+    {
+        $result = Encoding::listEncodings();
+        $this->assertContains('utf-8', $result);
     }
 }

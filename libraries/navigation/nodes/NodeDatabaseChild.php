@@ -7,8 +7,8 @@
  */
 namespace PMA\libraries\navigation\nodes;
 
-use PMA;
-use PMA\libraries\URL;
+use PhpMyAdmin\Url;
+use PhpMyAdmin\Util;
 
 /**
  * Represents a node that is a child of a database node
@@ -48,9 +48,9 @@ abstract class NodeDatabaseChild extends Node
 
             $ret = '<span class="navItemControls">'
                 . '<a href="navigation.php'
-                . URL::getCommon($params) . '"'
+                . Url::getCommon($params) . '"'
                 . ' class="hideNavItem ajax">'
-                . PMA\libraries\Util::getImage('hide.png', __('Hide'))
+                . Util::getImage('hide.png', __('Hide'))
                 . '</a></span>';
         }
 

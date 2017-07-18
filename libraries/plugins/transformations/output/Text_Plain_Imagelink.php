@@ -16,6 +16,7 @@ use PMA\libraries\plugins\transformations\abs\TextImageLinkTransformationsPlugin
  * @package    PhpMyAdmin-Transformations
  * @subpackage ImageLink
  */
+// @codingStandardsIgnoreLine
 class Text_Plain_Imagelink extends TextImageLinkTransformationsPlugin
 {
     /**

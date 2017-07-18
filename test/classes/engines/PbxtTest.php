@@ -10,13 +10,14 @@
  * Include to test.
  */
 
-use PMA\libraries\engines\Pbxt;
+use PhpMyAdmin\Core;
+use PhpMyAdmin\Engines\Pbxt;
 
 require_once 'libraries/database_interface.inc.php';
 require_once 'test/PMATestCase.php';
 
 /**
- * Tests for PMA\libraries\engines\Pbxt;
+ * Tests for PhpMyAdmin\Engines\Pbxt;
  *
  * @package PhpMyAdmin-test
  */
@@ -251,7 +252,7 @@ class PbxtTest extends PMATestCase
                     'Documentation and further information about PBXT'
                     . ' can be found on the %sPrimeBase XT Home Page%s.'
                 ),
-                '<a href="' . PMA_linkURL('https://mariadb.com/kb/en/mariadb/about-pbxt/')
+                '<a href="' . Core::linkURL('https://mariadb.com/kb/en/mariadb/about-pbxt/')
                 . '" rel="noopener noreferrer" target="_blank">',
                 '</a>'
             )

@@ -9,16 +9,18 @@
 namespace PMA\libraries\plugins\auth;
 
 use phpseclib\Crypt;
-use PMA\libraries\LanguageManager;
-use PMA\libraries\Message;
+use PhpMyAdmin\LanguageManager;
+use PhpMyAdmin\Message;
 use PMA\libraries\plugins\AuthenticationPlugin;
-use PMA\libraries\Response;
-use PMA\libraries\Util;
-use PMA\libraries\Config;
+use PhpMyAdmin\Response;
+use PhpMyAdmin\Util;
+use PhpMyAdmin\Config;
+use PhpMyAdmin\Core;
 use ReCaptcha;
-use PMA\libraries\URL;
+use PhpMyAdmin\Url;
 
 require_once './libraries/session.lib.php';
+require_once './libraries/hash.lib.php';
 
 /**
  * Remember where to redirect the user
@@ -26,8 +28,8 @@ require_once './libraries/session.lib.php';
  */
 if (! empty($_REQUEST['target'])) {
     $GLOBALS['target'] = $_REQUEST['target'];
-} else if (PMA_getenv('SCRIPT_NAME')) {
-    $GLOBALS['target'] = basename(PMA_getenv('SCRIPT_NAME'));
+} else if (Core::getenv('SCRIPT_NAME')) {
+    $GLOBALS['target'] = basename(Core::getenv('SCRIPT_NAME'));
 }
 
 /**
@@ -117,7 +119,7 @@ class AuthenticationCookie extends AuthenticationPlugin
         echo '
     <div class="container">
     <a href="';
-        echo PMA_linkURL('https://www.phpmyadmin.net/');
+        echo Core::linkURL('https://www.phpmyadmin.net/');
         echo '" target="_blank" rel="noopener noreferrer" class="logo">';
         $logo_image = $GLOBALS['pmaThemeImage'] . 'logo_right.png';
         if (@file_exists($logo_image)) {
@@ -153,6 +155,12 @@ class AuthenticationCookie extends AuthenticationPlugin
         )->display();
         echo "</noscript>\n";
 
+        echo '<div class="hide" id="js-https-mismatch">';
+        Message::error(
+            __("There is mismatch between HTTPS indicated on the server and client. This can lead to non working phpMyAdmin or a security risk. Please fix your server configuration to indicate HTTPS properly.")
+        )->display();
+        echo '</div>';
+
         // Displays the languages form
         $language_manager = LanguageManager::getInstance();
         if (empty($GLOBALS['cfg']['Lang']) && $language_manager->hasChoice()) {
@@ -164,7 +172,7 @@ class AuthenticationCookie extends AuthenticationPlugin
         echo '
     <br />
     <!-- Login form -->
-    <form method="post" action="index.php" name="login_form"' , $autocomplete ,
+    <form method="post" id="login_form" action="index.php" name="login_form"' , $autocomplete ,
             ' class="disableAjax login hide js-show">
         <fieldset>
         <legend>';
@@ -220,20 +228,21 @@ class AuthenticationCookie extends AuthenticationPlugin
                 , $GLOBALS['server'] , '" />';
         } // end if (server choice)
 
-        // Add captcha input field if reCaptcha is enabled
-        if (!empty($GLOBALS['cfg']['CaptchaLoginPrivateKey'])
-            && !empty($GLOBALS['cfg']['CaptchaLoginPublicKey'])
-        ) {
-            // If enabled show captcha to the user on the login screen.
-            echo '<script src="https://www.google.com/recaptcha/api.js?hl='
-                , $GLOBALS['lang'] , '" async defer></script>';
-            echo '<div class="g-recaptcha" data-sitekey="'
-                , htmlspecialchars($GLOBALS['cfg']['CaptchaLoginPublicKey']) , '"></div>';
-        }
+        echo '</fieldset><fieldset class="tblFooters">';
 
-        echo '</fieldset>
-        <fieldset class="tblFooters">
-            <input value="' , __('Go') , '" type="submit" id="input_go" />';
+        // binds input field with invisible reCaptcha if enabled
+        if (empty($GLOBALS['cfg']['CaptchaLoginPrivateKey'])
+            && empty($GLOBALS['cfg']['CaptchaLoginPublicKey'])
+        ) {
+            echo '<input value="' , __('Go') , '" type="submit" id="input_go" />';
+        }
+        else {
+            echo '<script src="https://www.google.com/recaptcha/api.js?hl='
+            , $GLOBALS['lang'] , '" async defer></script>';
+            echo '<input class="g-recaptcha" data-sitekey="'
+            , htmlspecialchars($GLOBALS['cfg']['CaptchaLoginPublicKey']),'"'
+                .' data-callback="recaptchaCallback" value="' , __('Go') , '" type="submit" id="input_go" />';
+        }
         $_form_params = array();
         if (! empty($GLOBALS['target'])) {
             $_form_params['target'] = $GLOBALS['target'];
@@ -246,7 +255,7 @@ class AuthenticationCookie extends AuthenticationPlugin
         }
         // do not generate a "server" hidden field as we want the "server"
         // drop-down to have priority
-        echo URL::getHiddenInputs($_form_params, '', 0, 'server');
+        echo Url::getHiddenInputs($_form_params, '', 0, 'server');
         echo '</fieldset>
     </form>';
 
@@ -294,7 +303,7 @@ class AuthenticationCookie extends AuthenticationPlugin
         $GLOBALS['PHP_AUTH_USER'] = $GLOBALS['PHP_AUTH_PW'] = '';
         $GLOBALS['from_cookie'] = false;
 
-        if (! empty($_REQUEST['pma_username'])) {
+        if (isset($_REQUEST['pma_username']) && strlen($_REQUEST['pma_username']) > 0) {
 
             // Verify Captcha if it is required.
             if (! empty($GLOBALS['cfg']['CaptchaLoginPrivateKey'])
@@ -321,23 +330,29 @@ class AuthenticationCookie extends AuthenticationPlugin
                     // verify captcha status.
                     $resp = $reCaptcha->verify(
                         $_POST["g-recaptcha-response"],
-                        PMA_getIp()
+                        Core::getIp()
                     );
 
                     // Check if the captcha entered is valid, if not stop the login.
                     if ($resp == null || ! $resp->isSuccess()) {
-                        $conn_error = __('Entered captcha is wrong, try again!');
+                        $codes = $resp->getErrorCodes();
+
+                        if (in_array('invalid-json', $codes)) {
+                            $conn_error = __('Failed to connect to the reCAPTCHA service!');
+                        } else {
+                            $conn_error = __('Entered captcha is wrong, try again!');
+                        }
                         return false;
                     }
                 } else {
-                    $conn_error = __('Please enter correct captcha!');
+                    $conn_error = __('Missing reCAPTCHA verification, maybe it has been blocked by adblock?');
                     return false;
                 }
             }
 
             // The user just logged in
-            $GLOBALS['PHP_AUTH_USER'] = PMA_sanitizeMySQLUser($_REQUEST['pma_username']);
-            $GLOBALS['PHP_AUTH_PW']   = $_REQUEST['pma_password'];
+            $GLOBALS['PHP_AUTH_USER'] = Core::sanitizeMySQLUser($_REQUEST['pma_username']);
+            $GLOBALS['PHP_AUTH_PW'] = isset($_REQUEST['pma_password']) ? $_REQUEST['pma_password'] : '';
             if ($GLOBALS['cfg']['AllowArbitraryServer']
                 && isset($_REQUEST['pma_servername'])
             ) {
@@ -359,7 +374,7 @@ class AuthenticationCookie extends AuthenticationPlugin
                         return false;
                     }
                 }
-                $GLOBALS['pma_auth_server'] = PMA_sanitizeMySQLHost($_REQUEST['pma_servername']);
+                $GLOBALS['pma_auth_server'] = Core::sanitizeMySQLHost($_REQUEST['pma_servername']);
             }
             PMA_secureSession();
             return true;
@@ -446,23 +461,6 @@ class AuthenticationCookie extends AuthenticationPlugin
     {
         global $cfg;
 
-        // Ensures valid authentication mode, 'only_db', bookmark database and
-        // table names and relation table name are used
-        if (! hash_equals($cfg['Server']['user'], $GLOBALS['PHP_AUTH_USER'])) {
-            foreach ($cfg['Servers'] as $idx => $current) {
-                if ($current['host'] == $cfg['Server']['host']
-                    && $current['port'] == $cfg['Server']['port']
-                    && $current['socket'] == $cfg['Server']['socket']
-                    && $current['ssl'] == $cfg['Server']['ssl']
-                    && hash_equals($current['user'], $GLOBALS['PHP_AUTH_USER'])
-                ) {
-                    $GLOBALS['server'] = $idx;
-                    $cfg['Server']     = $current;
-                    break;
-                }
-            } // end foreach
-        } // end if
-
         if ($GLOBALS['cfg']['AllowArbitraryServer']
             && ! empty($GLOBALS['pma_auth_server'])
         ) {
@@ -541,8 +539,8 @@ class AuthenticationCookie extends AuthenticationPlugin
             Response::getInstance()
                 ->disable();
 
-            PMA_sendHeaderLocation(
-                $redirect_url . URL::getCommonRaw($url_params),
+            Core::sendHeaderLocation(
+                $redirect_url . Url::getCommonRaw($url_params),
                 true
             );
             if (! defined('TESTSUITE')) {

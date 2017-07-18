@@ -46,7 +46,7 @@ class PMA_Form_Processing_Test extends PMATestCase
             );
 
         // case 1
-        $formDisplay = $this->getMockBuilder('PMA\libraries\config\FormDisplay')
+        $formDisplay = $this->getMockBuilder('PhpMyAdmin\Config\FormDisplay')
             ->disableOriginalConstructor()
             ->setMethods(array('process', 'getDisplay'))
             ->getMock();
@@ -63,7 +63,7 @@ class PMA_Form_Processing_Test extends PMATestCase
         PMA_Process_formset($formDisplay);
 
         // case 2
-        $formDisplay = $this->getMockBuilder('PMA\libraries\config\FormDisplay')
+        $formDisplay = $this->getMockBuilder('PhpMyAdmin\Config\FormDisplay')
             ->disableOriginalConstructor()
             ->setMethods(array('process', 'hasErrors', 'displayErrors'))
             ->getMock();
@@ -88,22 +88,22 @@ class PMA_Form_Processing_Test extends PMATestCase
         );
 
         $this->assertContains(
-            '<a href="?lang=en&amp;page=&amp;mode=revert">',
+            'mode=revert',
             $result
         );
 
         $this->assertContains(
-            '<a class="btn" href="index.php?lang=en">',
+            '<a class="btn" href="index.php?',
             $result
         );
 
         $this->assertContains(
-            '<a class="btn" href="?lang=en&amp;page=&amp;mode=edit">',
+            'mode=edit',
             $result
         );
 
         // case 3
-        $formDisplay = $this->getMockBuilder('PMA\libraries\config\FormDisplay')
+        $formDisplay = $this->getMockBuilder('PhpMyAdmin\Config\FormDisplay')
             ->disableOriginalConstructor()
             ->setMethods(array('process', 'hasErrors'))
             ->getMock();

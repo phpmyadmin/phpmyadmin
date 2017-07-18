@@ -27,7 +27,7 @@ class AuthenticationConfigTest extends PMATestCase
      */
     function setup()
     {
-        $GLOBALS['PMA_Config'] = new PMA\libraries\Config();
+        $GLOBALS['PMA_Config'] = new PhpMyAdmin\Config();
         $GLOBALS['PMA_Config']->enableBc();
         $GLOBALS['server'] = 0;
         $GLOBALS['token_provided'] = true;
@@ -89,21 +89,12 @@ class AuthenticationConfigTest extends PMATestCase
     public function testAuthFails()
     {
         $removeConstant = false;
-        $GLOBALS['error_handler'] = new PMA\libraries\ErrorHandler;
+        $GLOBALS['error_handler'] = new PhpMyAdmin\ErrorHandler;
         $GLOBALS['cfg']['Servers'] = array(1);
         $GLOBALS['allowDeny_forbidden'] = false;
         $GLOBALS['collation_connection'] = 'utf-8';
-        if (!defined('PMA_USR_BROWSER_AGENT')) {
-            define('PMA_USR_BROWSER_AGENT', 'chrome');
 
-            $removeConstant = true;
-
-            if (! PMA_HAS_RUNKIT) {
-                $this->markTestSkipped('Cannot remove constant');
-            }
-        }
-
-        $dbi = $this->getMockBuilder('PMA\libraries\DatabaseInterface')
+        $dbi = $this->getMockBuilder('PhpMyAdmin\DatabaseInterface')
             ->disableOriginalConstructor()
             ->getMock();
         $GLOBALS['dbi'] = $dbi;
@@ -124,7 +115,7 @@ class AuthenticationConfigTest extends PMATestCase
 
         $this->assertContains(
             '<strong>MySQL said: </strong><a href="./url.php?url=https%3A%2F%2F' .
-            'dev.mysql.com%2Fdoc%2Frefman%2F5.7%2Fen%2Ferror-messages-server.html"' .
+            'dev.mysql.com%2Fdoc%2Frefman%2F5.5%2Fen%2Ferror-messages-server.html"' .
             ' target="mysql_doc">' .
             '<img src="themes/dot.gif" title="Documentation" alt="Documentation" ' .
             'class="icon ic_b_help" /></a>',
@@ -142,8 +133,5 @@ class AuthenticationConfigTest extends PMATestCase
             . 'class="button disableAjax">Retry to connect</a>',
             $html
         );
-        if ($removeConstant) {
-            runkit_constant_remove('PMA_USR_BROWSER_AGENT');
-        }
     }
 }

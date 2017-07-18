@@ -137,8 +137,7 @@ AJAX.registerOnload('db_operations.js', function () {
         );
         var params = {
             'is_js_confirmed': '1',
-            'ajax_request': true,
-            'token': PMA_commonParams.get('token')
+            'ajax_request': true
         };
         $(this).PMA_confirm(question, $(this).attr('href'), function (url) {
             PMA_ajaxShowMessage(PMA_messages.strProcessingRequest);

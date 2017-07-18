@@ -89,14 +89,14 @@ function initGISEditorVisualization() {
  * @param input_name name of the input field
  * @param token      token
  */
-function loadJSAndGISEditor(value, field, type, input_name, token) {
+function loadJSAndGISEditor(value, field, type, input_name) {
     var head = document.getElementsByTagName('head')[0];
     var script;
 
     // Loads a set of small JS file needed for the GIS editor
-    var smallScripts = [ 'js/jquery/jquery.svg.js',
-                     'js/jquery/jquery.mousewheel.js',
-                     'js/jquery/jquery.event.drag-2.2.js',
+    var smallScripts = [ 'js/vendor/jquery/jquery.svg.js',
+                     'js/vendor/jquery/jquery.mousewheel.js',
+                     'js/vendor/jquery/jquery.event.drag-2.2.js',
                      'js/tbl_gis_visualization.js' ];
 
     for (var i = 0; i < smallScripts.length; i++) {
@@ -113,17 +113,17 @@ function loadJSAndGISEditor(value, field, type, input_name, token) {
 
     script.onreadystatechange = function () {
         if (this.readyState == 'complete') {
-            loadGISEditor(value, field, type, input_name, token);
+            loadGISEditor(value, field, type, input_name);
         }
     };
     script.onload = function () {
-        loadGISEditor(value, field, type, input_name, token);
+        loadGISEditor(value, field, type, input_name);
     };
     script.onerror = function() {
-        loadGISEditor(value, field, type, input_name, token);
+        loadGISEditor(value, field, type, input_name);
     }
 
-    script.src = 'js/openlayers/OpenLayers.js';
+    script.src = 'js/vendor/openlayers/OpenLayers.js';
     head.appendChild(script);
 
     gisEditorLoaded = true;
@@ -136,9 +136,8 @@ function loadJSAndGISEditor(value, field, type, input_name, token) {
  * @param field      field name
  * @param type       geometry type
  * @param input_name name of the input field
- * @param token      token
  */
-function loadGISEditor(value, field, type, input_name, token) {
+function loadGISEditor(value, field, type, input_name) {
 
     var $gis_editor = $("#gis_editor");
     $.post('gis_data_editor.php', {
@@ -147,7 +146,6 @@ function loadGISEditor(value, field, type, input_name, token) {
         'type' : type,
         'input_name' : input_name,
         'get_gis_editor' : true,
-        'token' : token,
         'ajax_request': true
     }, function (data) {
         if (typeof data !== 'undefined' && data.success === true) {

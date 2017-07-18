@@ -16,6 +16,7 @@ use PMA\libraries\plugins\transformations\abs\ImageLinkTransformationsPlugin;
  * @package    PhpMyAdmin-Transformations
  * @subpackage Link
  */
+// @codingStandardsIgnoreLine
 class Image_JPEG_Link extends ImageLinkTransformationsPlugin
 {
     /**

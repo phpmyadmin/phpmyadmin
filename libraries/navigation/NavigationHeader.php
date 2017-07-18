@@ -7,10 +7,10 @@
  */
 namespace PMA\libraries\navigation;
 
-use PMA;
-use PMA\libraries\Template;
-use PMA\libraries\URL;
-use PMA\libraries\Sanitize;
+use PhpMyAdmin\Sanitize;
+use PhpMyAdmin\Template;
+use PhpMyAdmin\Url;
+use PhpMyAdmin\Util;
 
 /**
  * This class renders the logo, links, server selection,
@@ -28,9 +28,9 @@ class NavigationHeader
     public function getDisplay()
     {
         if (empty($GLOBALS['url_query'])) {
-            $GLOBALS['url_query'] = URL::getCommon();
+            $GLOBALS['url_query'] = Url::getCommon();
         }
-        $link_url = URL::getCommon(
+        $link_url = Url::getCommon(
             array(
                 'ajax_request' => true,
             )
@@ -55,7 +55,7 @@ class NavigationHeader
         $buffer .= $this->_logo();
         $buffer .= $this->_links();
         $buffer .= $this->_serverChoice();
-        $buffer .= PMA\libraries\Util::getImage(
+        $buffer .= Util::getImage(
             'ajax_clock_small.gif',
             __('Loading…'),
             array(
@@ -124,7 +124,7 @@ class NavigationHeader
                 PHP_URL_HOST
             );
             if (empty($host)) {
-                $logoLink .= URL::getCommon();
+                $logoLink .= Url::getCommon();
             } else {
                 $linkAttriks = 'target="_blank" rel="noopener noreferrer"';
             }
@@ -156,8 +156,8 @@ class NavigationHeader
 
         $retval = '<!-- LINKS START -->';
         $retval .= '<div id="navipanellinks">';
-        $retval .= PMA\libraries\Util::getNavigationLink(
-            'index.php' . URL::getCommon(),
+        $retval .= Util::getNavigationLink(
+            'index.php' . Url::getCommon(),
             $showText,
             __('Home'),
             $showIcon,
@@ -172,7 +172,7 @@ class NavigationHeader
                 $text = __('Empty session data');
             }
             $link = 'logout.php' . $GLOBALS['url_query'];
-            $retval .= PMA\libraries\Util::getNavigationLink(
+            $retval .= Util::getNavigationLink(
                 $link,
                 $showText,
                 $text,
@@ -184,8 +184,8 @@ class NavigationHeader
                 array('logout')
             );
         }
-        $retval .= PMA\libraries\Util::getNavigationLink(
-            PMA\libraries\Util::getDocuLink('index'),
+        $retval .= Util::getNavigationLink(
+            Util::getDocuLink('index'),
             $showText,
             __('phpMyAdmin documentation'),
             $showIcon,
@@ -194,8 +194,8 @@ class NavigationHeader
             false,
             'documentation'
         );
-        $retval .= PMA\libraries\Util::getNavigationLink(
-            PMA\libraries\Util::getMySQLDocuURL('', ''),
+        $retval .= Util::getNavigationLink(
+            Util::getMySQLDocuURL('', ''),
             $showText,
             __('Documentation'),
             $showIcon,
@@ -204,7 +204,7 @@ class NavigationHeader
             false,
             'mysql_doc'
         );
-        $retval .= PMA\libraries\Util::getNavigationLink(
+        $retval .= Util::getNavigationLink(
             '#',
             $showText,
             __('Navigation panel settings'),
@@ -215,7 +215,7 @@ class NavigationHeader
             '',
             defined('PMA_DISABLE_NAVI_SETTINGS') ? array('hide') : array()
         );
-        $retval .= PMA\libraries\Util::getNavigationLink(
+        $retval .= Util::getNavigationLink(
             '#',
             $showText,
             __('Reload navigation panel'),

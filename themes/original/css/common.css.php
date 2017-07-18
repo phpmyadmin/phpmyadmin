@@ -16,7 +16,7 @@ if (! defined('PMA_MINIMUM_COMMON') && ! defined('TESTSUITE')) {
 
 /* general tags */
 html {
-    font-size: <?php echo $_SESSION['PMA_Theme']->getFontSize(); ?>
+    font-size: <?php echo $theme->getFontSize(); ?>
 }
 
 input,
@@ -45,6 +45,18 @@ body#loginform {
 
 #page_content {
     margin: 0 .5em;
+}
+
+.desktop50 {
+    width: 50%;
+}
+
+.all100 {
+    width: 100%;
+}
+
+.all85{
+    width: 85%;
 }
 
 <?php if (! empty($GLOBALS['cfg']['FontFamilyFixed'])) { ?>
@@ -259,7 +271,7 @@ button.mult_submit {
 
 /* odd items 1,3,5,7,... */
 table tr:nth-child(odd) {
-        background: <?php echo $GLOBALS['cfg']['BgOne']; ?>; 
+        background: <?php echo $GLOBALS['cfg']['BgOne']; ?>;
 }
 
 /* even items 2,4,6,8,... */
@@ -307,7 +319,6 @@ th.condition {
  */
 td.null {
     font-style: italic;
-    text-align: <?php echo $right; ?>;
     color: #7d7d7d;
 }
 
@@ -479,7 +490,7 @@ fieldset.confirmation legend {
     border-left:        0.1em solid #FF0000;
     border-right:       0.1em solid #FF0000;
     font-weight:        bold;
-    background-image:   url(<?php echo $_SESSION['PMA_Theme']->getImgPath('s_really.png');?>);
+    background-image:   url(<?php echo $theme->getImgPath('s_really.png');?>);
     background-repeat:  no-repeat;
     <?php
     if ($GLOBALS['text_dir'] === 'ltr') { ?>
@@ -977,10 +988,10 @@ caption a.top {
 }
 
 div#serverstatusquerieschart {
-    float:<?php echo $left; ?>;
-    width:500px;
-    height:350px;
-    padding-<?php echo $left; ?>: 30px;
+    float: <?php echo $left; ?>;
+    width: 500px;
+    height: 350px;
+    margin-<?php echo $right;?>: 50px;
 }
 
 div#serverstatus table#serverstatusqueriesdetails {
@@ -1089,13 +1100,9 @@ div#logTable table {
 
 /* server variables */
 #serverVariables {
-    table-layout: fixed;
     width: 100%;
 }
 #serverVariables .var-row > tr {
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
     line-height: 2em;
 }
 
@@ -1103,8 +1110,6 @@ div#logTable table {
     font-weight:        bold;
     color:              <?php echo $GLOBALS['cfg']['ThColor']; ?>;
     background:         <?php echo $GLOBALS['cfg']['ThBackground']; ?>;
-}
-#serverVariables .var-header {
     text-align: <?php echo $left; ?>;
 }
 #serverVariables .var-row {
@@ -1112,26 +1117,25 @@ div#logTable table {
     min-height: 18px;
 }
 #serverVariables .var-action {
-    width: 120px;
+    width: 15%;
 }
 #serverVariables .var-name {
-    float: <?php echo $left; ?>;
     font-weight: bold;
+    width: 65%;
 }
 #serverVariables .var-name.session {
     font-weight: normal;
     font-style: italic;
 }
 #serverVariables .var-value {
-    width: 50%;
-    float: <?php echo $right; ?>;
     text-align: <?php echo $right; ?>;
+    width: 20%;
+    float: <?php echo $right; ?>;
 }
 
 /* server variables editor */
 #serverVariables .editLink {
     padding-<?php echo $right; ?>: 1em;
-    float: <?php echo $left; ?>;
     font-family: sans-serif;
 }
 #serverVariables .serverVariableEditor {
@@ -1153,7 +1157,6 @@ div#logTable table {
     padding-<?php echo $right; ?>: 1em;
 }
 #serverVariables .serverVariableEditor a {
-    float: <?php echo $right; ?>;
     margin: 0 0.5em;
     line-height: 2em;
 }
@@ -1216,7 +1219,7 @@ div#queryboxcontainer div#bookmarkoptions {
 
 /* main page */
 #maincontainer {
-    background-image: url(<?php echo $_SESSION['PMA_Theme']->getImgPath('logo_right.png');?>);
+    background-image: url(<?php echo $theme->getImgPath('logo_right.png');?>);
     background-position: <?php echo $right; ?> bottom;
     background-repeat: no-repeat;
 }
@@ -1307,31 +1310,6 @@ li.no_bullets {
 
 #div_mysql_charset_collations table th#collationHeader {
     width: 35%;
-}
-
-.operations_half_width {
-    width: 48%;
-    float: <?php echo $left; ?>;
-}
-.operations_half_width input[type=text],
-.operations_half_width input[type=password],
-.operations_half_width input[type=number],
-.operations_half_width select {
-    width: 95%;
-}
-.operations_half_width input[type=text].halfWidth,
-.operations_half_width input[type=password].halfWidth,
-.operations_half_width input[type=number].halfWidth,
-.operations_half_width select.halfWidth {
-    width: 40%;
-}
-.operations_half_width ul {
-    list-style-type: none;
-    padding: 0;
-}
-.operations_full_width {
-    width: 100%;
-    clear: both;
 }
 
 #qbe_div_table_list {
@@ -1516,7 +1494,7 @@ select.invalid_value,
     display: block;
     left: 0;
     right: 0;
-    background-image: url(<?php echo $_SESSION['PMA_Theme']->getImgPath('ajax_clock_small.gif');?>);
+    background-image: url(<?php echo $theme->getImgPath('ajax_clock_small.gif');?>);
     background-repeat: no-repeat;
     background-position: 2%;
  }
@@ -2172,7 +2150,7 @@ fieldset .disabled-field td {
 }
 
 .cPointer {
-    background: url(<?php echo $_SESSION['PMA_Theme']->getImgPath('col_pointer.png');?>);
+    background: url(<?php echo $theme->getImgPath('col_pointer.png');?>);
     height: 20px;
     margin-left: -5px;  /* must be minus half of its width */
     margin-top: -10px;
@@ -2210,7 +2188,7 @@ fieldset .disabled-field td {
 }
 
 .coldrop {
-    background: url(<?php echo $_SESSION['PMA_Theme']->getImgPath('col_drop.png');?>);
+    background: url(<?php echo $theme->getImgPath('col_drop.png');?>);
     cursor: pointer;
     height: 16px;
     margin-left: 0.5em;
@@ -2337,12 +2315,12 @@ fieldset .disabled-field td {
 }
 
 .cEdit .edit_box_posting {
-    background: #FFF url(<?php echo $_SESSION['PMA_Theme']->getImgPath('ajax_clock_small.gif');?>) no-repeat right center;
+    background: #FFF url(<?php echo $theme->getImgPath('ajax_clock_small.gif');?>) no-repeat right center;
     padding-right: 1.5em;
 }
 
 .cEdit .edit_area_loading {
-    background: #FFF url(<?php echo $_SESSION['PMA_Theme']->getImgPath('ajax_clock_small.gif');?>) no-repeat center;
+    background: #FFF url(<?php echo $theme->getImgPath('ajax_clock_small.gif');?>) no-repeat center;
     height: 10em;
 }
 
@@ -2353,7 +2331,7 @@ fieldset .disabled-field td {
 }
 
 .saving_edited_data {
-    background: url(<?php echo $_SESSION['PMA_Theme']->getImgPath('ajax_clock_small.gif');?>) no-repeat left;
+    background: url(<?php echo $theme->getImgPath('ajax_clock_small.gif');?>) no-repeat left;
     padding-left: 20px;
 }
 
@@ -2645,6 +2623,10 @@ div.jqplot-noData-container {
     background-color: rgba(96%, 96%, 96%, 0.3);
 }
 
+.relationalTable td {
+    vertical-align: top;
+}
+
 .relationalTable select {
     width: 125px;
     margin-right: 5px;
@@ -2680,19 +2662,8 @@ table.show_create td {
     border-right: 1px solid #bbb;
 }
 
-#alias_modal table th {
-    vertical-align: middle;
-    padding-left: 1em;
-}
-
-#alias_modal label.col-2 {
-    min-width: 20%;
-    display: inline-block;
-}
-
-#alias_modal select {
-    width: 25%;
-    margin-right: 2em;
+#alias_modal table {
+    width: 100%;
 }
 
 #alias_modal label {
@@ -3174,7 +3145,7 @@ html.ie7 #pma_console .query_input {
 
 span.drag_icon {
     display: inline-block;
-    background-image: url('<?php echo $_SESSION['PMA_Theme']->getImgPath('s_sortable.png');?>');
+    background-image: url('<?php echo $theme->getImgPath('s_sortable.png');?>');
     background-position: center center;
     background-repeat: no-repeat;
     width: 1em;
@@ -3207,11 +3178,11 @@ th.header .sorticon {
 }
 
 th.headerSortUp .sorticon, th.headerSortDown:hover .sorticon {
-    background-image: url(<?php echo $_SESSION['PMA_Theme']->getImgPath('s_desc.png');?>);
+    background-image: url(<?php echo $theme->getImgPath('s_desc.png');?>);
 }
 
 th.headerSortDown .sorticon, th.headerSortUp:hover .sorticon {
-    background-image: url(<?php echo $_SESSION['PMA_Theme']->getImgPath('s_asc.png');?>);
+    background-image: url(<?php echo $theme->getImgPath('s_asc.png');?>);
 }
 /* end of styles of sortable tables */
 
@@ -3282,4 +3253,97 @@ body .ui-dialog .ui-dialog-buttonpane button {
 }
 body .ui-dialog .ui-button-text-only .ui-button-text {
     padding: .2em .6em;
+}
+
+.scrollindicator {
+    display: none;
+}
+
+@media only screen and (max-width: 768px) {
+    /* For mobile phones: */
+    #main_pane_left {
+        width: 100%;
+    }
+
+    #main_pane_right {
+        padding-top: 0;
+        padding-<?php echo $left; ?>: 1px;
+        padding-<?php echo $right; ?>: 1px;
+    }
+
+    ul#topmenu,
+    ul.tabs {
+        display: flex;
+    }
+
+    .navigationbar {
+        display: inline-flex;
+        margin: 0 !important;
+        border-radius: 0 !important;
+        overflow: auto;
+    }
+
+    .scrollindicator {
+        padding: 5px;
+        cursor: pointer;
+        display: inline;
+    }
+
+    .responsivetable {
+        overflow-x: auto;
+    }
+
+    body#loginform div.container {
+        width: 100%;
+    }
+
+    .largescreenonly {
+        display: none;
+    }
+
+    .width100, .desktop50 {
+        width: 100%;
+    }
+
+    .width96 {
+        width: 96% !important;
+    }
+
+    #page_nav_icons {
+        display: none;
+    }
+
+    table#serverstatusconnections {
+        margin-left: 0;
+    }
+
+    #table_name_col_no {
+        top: 62px
+    }
+
+    .tdblock tr td {
+        display: block;
+    }
+
+    #table_columns {
+        margin-top: 60px;
+    }
+
+    .doubleFieldset fieldset {
+        width: 98%;
+    }
+
+    div#serverstatusquerieschart {
+        width: 100%;
+        height: 450px;
+    }
+
+    .ui-dialog {
+        margin: 1%;
+        width: 95% !important;
+    }
+
+    #serverinfo .item {
+        margin: 4px;
+    }
 }

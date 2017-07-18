@@ -1,22 +1,22 @@
 <?php
 /* vim: set expandtab sw=4 ts=4 sts=4: */
 /**
- * Test for PMA\libraries\Header class
+ * Test for PhpMyAdmin\Header class
  *
  * @package PhpMyAdmin-test
  */
 
-/*
- * Include to test.
- */
-use PMA\libraries\Theme;
+use PhpMyAdmin\Config;
+use PhpMyAdmin\Core;
+use PhpMyAdmin\Header;
+use PhpMyAdmin\Theme;
 
 require_once 'libraries/database_interface.inc.php';
 require_once 'libraries/relation.lib.php';
 require_once 'test/PMATestCase.php';
 
 /**
- * Test for PMA\libraries\Header class
+ * Test for PhpMyAdmin\Header class
  *
  * @package PhpMyAdmin-test
  * @group medium
@@ -35,12 +35,12 @@ class HeaderTest extends PMATestCase
         }
         $GLOBALS['server'] = 0;
         $GLOBALS['message'] = 'phpmyadminmessage';
-        $GLOBALS['pmaThemePath'] = $_SESSION['PMA_Theme']->getPath();
-        $GLOBALS['PMA_PHP_SELF'] = PMA_getenv('PHP_SELF');
+        $GLOBALS['pmaThemePath'] = $GLOBALS['PMA_Theme']->getPath();
+        $GLOBALS['PMA_PHP_SELF'] = Core::getenv('PHP_SELF');
         $GLOBALS['server'] = 'server';
         $GLOBALS['db'] = 'pma_test';
         $GLOBALS['table'] = 'table1';
-        $GLOBALS['PMA_Config'] = new PMA\libraries\Config();
+        $GLOBALS['PMA_Config'] = new Config();
         $GLOBALS['PMA_Config']->enableBc();
         $GLOBALS['cfg']['Server']['DisableIS'] = false;
         $GLOBALS['cfg']['Server']['verbose'] = 'verbose host';
@@ -55,7 +55,7 @@ class HeaderTest extends PMATestCase
      */
     public function testDisable()
     {
-        $header = new PMA\libraries\Header();
+        $header = new Header();
         $header->disable();
         $this->assertEquals(
             '',
@@ -70,7 +70,7 @@ class HeaderTest extends PMATestCase
      */
     public function testSetBodyId()
     {
-        $header = new PMA\libraries\Header();
+        $header = new Header();
         $header->setBodyId('PMA_header_id');
         $this->assertContains(
             'PMA_header_id',
@@ -85,7 +85,7 @@ class HeaderTest extends PMATestCase
      */
     public function testPrintView()
     {
-        $header = new PMA\libraries\Header();
+        $header = new Header();
         $header->enablePrintView();
         $this->assertContains(
             'Print view',
@@ -100,7 +100,7 @@ class HeaderTest extends PMATestCase
      */
     public function testGetJsParams()
     {
-        $header = new PMA\libraries\Header();
+        $header = new Header();
         $this->assertArrayHasKey(
             'common_query',
             $header->getJsParams()
@@ -114,7 +114,7 @@ class HeaderTest extends PMATestCase
      */
     public function testGetJsParamsCode()
     {
-        $header = new PMA\libraries\Header();
+        $header = new Header();
         $this->assertContains(
             'PMA_commonParams.setAll',
             $header->getJsParamsCode()
@@ -128,7 +128,7 @@ class HeaderTest extends PMATestCase
      */
     public function testGetMessage()
     {
-        $header = new PMA\libraries\Header();
+        $header = new Header();
         $this->assertContains(
             'phpmyadminmessage',
             $header->getMessage()
@@ -143,7 +143,7 @@ class HeaderTest extends PMATestCase
      */
     public function testDisableWarnings()
     {
-        $header = new PMA\libraries\Header();
+        $header = new Header();
         $header->disableWarnings();
         $this->assertAttributeEquals(
             false,
@@ -160,12 +160,10 @@ class HeaderTest extends PMATestCase
      */
     public function testGetWarningsWithWarningsDisabled()
     {
-        $method = new ReflectionMethod(
-            'PMA\libraries\Header', '_getWarnings'
-        );
+        $method = new ReflectionMethod(Header::class, '_getWarnings');
         $method->setAccessible(true);
 
-        $header = new PMA\libraries\Header();
+        $header = new Header();
         $header->disableWarnings();
         $this->assertEmpty($method->invoke($header));
     }

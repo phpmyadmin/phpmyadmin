@@ -5,7 +5,7 @@
  *
  * @package PhpMyAdmin
  */
-use PMA\libraries\Response;
+use PhpMyAdmin\Response;
 
 /**
  * Gets core libraries and defines some variables
@@ -135,7 +135,7 @@ $replaces = array(
     => '\\1<b>\\2</b>',
 
     // Links target and rel
-    '/a href="/' => 'a target="_blank" rel="noopener noreferrer" href="/'
+    '/a href="/' => 'a target="_blank" rel="noopener noreferrer" href="'
 
 );
 

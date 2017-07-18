@@ -6,9 +6,9 @@
  * @package PhpMyAdmin
  */
 
-// Sets up the session
-use PMA\libraries\VersionInformation;
-use PMA\libraries\Response;
+use PhpMyAdmin\Core;
+use PhpMyAdmin\VersionInformation;
+use PhpMyAdmin\Response;
 
 $_GET['ajax_request'] = 'true';
 
@@ -18,7 +18,7 @@ require_once 'libraries/common.inc.php';
 Response::getInstance()->disable();
 
 // Always send the correct headers
-PMA_headerJSON();
+Core::headerJSON();
 
 $versionInformation = new VersionInformation();
 $versionDetails = $versionInformation->getLatestVersion();

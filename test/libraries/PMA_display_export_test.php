@@ -6,15 +6,11 @@
  * @package PhpMyAdmin-test
  */
 
-/*
- * Include to test.
- */
-use PMA\libraries\Theme;
-use PMA\libraries\URL;
-
+use PhpMyAdmin\Core;
+use PhpMyAdmin\Theme;
+use PhpMyAdmin\Url;
 
 require_once 'libraries/display_export.lib.php';
-
 require_once 'libraries/database_interface.inc.php';
 require_once 'libraries/plugin_interface.lib.php';
 require_once 'libraries/relation.lib.php';
@@ -52,7 +48,7 @@ class PMA_DisplayExport_Test extends PHPUnit_Framework_TestCase
         $GLOBALS['cfg']['BZipDump'] = false;
         $GLOBALS['cfg']['Export']['asfile'] = true;
         $GLOBALS['cfg']['Export']['file_template_server'] = "file_template_server";
-        $GLOBALS['PMA_PHP_SELF'] = PMA_getenv('PHP_SELF');
+        $GLOBALS['PMA_PHP_SELF'] = Core::getenv('PHP_SELF');
         $GLOBALS['PMA_recoding_engine'] = "InnerDB";
         $GLOBALS['server'] = 0;
 
@@ -62,7 +58,7 @@ class PMA_DisplayExport_Test extends PHPUnit_Framework_TestCase
         //$_SESSION
         $_SESSION['relation'][$GLOBALS['server']] = "";
 
-        $pmaconfig = $this->getMockBuilder('PMA\libraries\Config')
+        $pmaconfig = $this->getMockBuilder('PhpMyAdmin\Config')
             ->disableOriginalConstructor()
             ->getMock();
 
@@ -95,7 +91,7 @@ class PMA_DisplayExport_Test extends PHPUnit_Framework_TestCase
             $sql_query_str
         );
 
-        //validate 1: URL::getHiddenInputs
+        //validate 1: Url::getHiddenInputs
         //$single_table
         $this->assertContains(
             '<input type="hidden" name="single_table" value="TRUE"',
@@ -140,7 +136,7 @@ class PMA_DisplayExport_Test extends PHPUnit_Framework_TestCase
                 'COLUMN_NAME' => 'test_column2'
             )
         );
-        $dbi = $this->getMockBuilder('PMA\libraries\DatabaseInterface')
+        $dbi = $this->getMockBuilder('PhpMyAdmin\DatabaseInterface')
             ->disableOriginalConstructor()
             ->getMock();
 
@@ -207,7 +203,7 @@ class PMA_DisplayExport_Test extends PHPUnit_Framework_TestCase
             '<input type="checkbox" name="onserver" value="saveit" ',
             $html
         );
-        $dir = htmlspecialchars(PMA\libraries\Util::userDir($cfg['SaveDir']));
+        $dir = htmlspecialchars(PhpMyAdmin\Util::userDir($cfg['SaveDir']));
         $this->assertContains(
             'Save on server in the directory <b>' . $dir . '</b>',
             $html
@@ -233,10 +229,6 @@ class PMA_DisplayExport_Test extends PHPUnit_Framework_TestCase
         );
         $this->assertContains(
             'New table name',
-            $html
-        );
-        $this->assertContains(
-            'test_column',
             $html
         );
 
@@ -281,7 +273,7 @@ class PMA_DisplayExport_Test extends PHPUnit_Framework_TestCase
             )
         );
 
-        $dbi = $this->getMockBuilder('PMA\libraries\DatabaseInterface')
+        $dbi = $this->getMockBuilder('PhpMyAdmin\DatabaseInterface')
             ->disableOriginalConstructor()
             ->getMock();
 
@@ -297,35 +289,7 @@ class PMA_DisplayExport_Test extends PHPUnit_Framework_TestCase
             . 'Rename exported databases/tables/columns">',
             $html
         );
-        $this->assertContains(
-            'test\'_db',
-            $html
-        );
-        $this->assertContains(
-            'test_&lt;b&gt;table',
-            $html
-        );
-        $this->assertContains(
-            'col&lt;2',
-            $html
-        );
-        $this->assertContains(
-            'co&quot;l1',
-            $html
-        );
-        $this->assertContains(
-            '<hr/>',
-            $html
-        );
 
-        $name_attr =  'aliases[test\'_db][tables][test_&lt;b&gt;table][alias]';
-        $id_attr = mb_substr(md5($name_attr), 0, 12);
-
-        $this->assertContains(
-            '<input type="text" value="" name="' . $name_attr . '" '
-            . 'id="' . $id_attr . '" placeholder="'
-            . 'test_&lt;b&gt;table alias" class="" disabled="disabled"/>',
-            $html
-        );
+        $this->assertContains('<button class="alias_remove', $html);
     }
 }

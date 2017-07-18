@@ -8,11 +8,11 @@
  */
 namespace PMA\libraries\plugins\export;
 
-use PMA\libraries\properties\options\items\BoolPropertyItem;
 use PMA\libraries\properties\plugins\ExportPluginProperties;
-use PMA\libraries\properties\options\items\HiddenPropertyItem;
 use PMA\libraries\properties\options\groups\OptionsPropertyMainGroup;
 use PMA\libraries\properties\options\groups\OptionsPropertyRootGroup;
+use PMA\libraries\properties\options\items\BoolPropertyItem;
+use PMA\libraries\properties\options\items\HiddenPropertyItem;
 use PMA\libraries\properties\options\items\SelectPropertyItem;
 use PMA\libraries\properties\options\items\TextPropertyItem;
 

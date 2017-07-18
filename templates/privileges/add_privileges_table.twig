@@ -1,0 +1,14 @@
+<input type="hidden" name="dbname" value="{{ database }}"/>
+
+<label for="text_tablename">{% trans 'Add privileges on the following table:' %}</label>
+
+{%- if tables is not empty %}
+    <select name="pred_tablename" class="autosubmit">
+        <option value="" selected="selected">{% trans 'Use text field' %}:</option>
+        {% for table in tables %}
+            <option value="{{ table }}">{{ table }}</option>
+        {% endfor %}
+    </select>
+{% endif -%}
+
+<input type="text" id="text_tablename" name="tablename" />

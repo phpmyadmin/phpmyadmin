@@ -9,13 +9,13 @@
  * Include to test.
  */
 
-use PMA\libraries\engines\Myisam;
+use PhpMyAdmin\Engines\Myisam;
 
 require_once 'libraries/database_interface.inc.php';
 require_once 'test/PMATestCase.php';
 
 /**
- * Tests for PMA\libraries\engines\Myisam
+ * Tests for PhpMyAdmin\Engines\Myisam
  *
  * @package PhpMyAdmin-test
  */

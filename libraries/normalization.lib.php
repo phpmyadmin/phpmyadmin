@@ -5,9 +5,10 @@
  *
  * @package PhpMyAdmin
  */
-use PMA\libraries\Message;
-use PMA\libraries\Util;
-use PMA\libraries\URL;
+use PhpMyAdmin\Message;
+use PhpMyAdmin\Transformations;
+use PhpMyAdmin\Url;
+use PhpMyAdmin\Util;
 
 /**
  * build the html for columns of $colTypeCategory category
@@ -78,8 +79,8 @@ function PMA_getHtmlForCreateNewColumn(
     $available_mime = array();
     $mime_map = array();
     if ($cfgRelation['mimework'] && $GLOBALS['cfg']['BrowseMIME']) {
-        $mime_map = PMA_getMIME($db, $table);
-        $available_mime = PMA_getAvailableMIMEtypes();
+        $mime_map = Transformations::getMIME($db, $table);
+        $available_mime = Transformations::getAvailableMIMEtypes();
     }
     $comments_map = PMA_getComments($db, $table);
     for ($columnNumber = 0; $columnNumber < $num_fields; $columnNumber++) {
@@ -101,7 +102,7 @@ function PMA_getHtmlForCreateNewColumn(
         );
     }
 
-    return PMA\libraries\Template::get(
+    return PhpMyAdmin\Template::get(
         'columns_definitions/table_fields_definitions'
     )
         ->render(
@@ -180,7 +181,7 @@ function PMA_getHtmlContentsFor1NFStep2($db, $table)
 {
     $step = 2;
     $stepTxt = __('Have a primary key');
-    $primary = PMA\libraries\Index::getPrimary($table, $db);
+    $primary = PhpMyAdmin\Index::getPrimary($table, $db);
     $hasPrimaryKey = "0";
     $legendText = __('Step 1.') . $step . " " . $stepTxt;
     $extra = '';
@@ -287,7 +288,7 @@ function PMA_getHtmlContentsFor1NFStep3($db, $table)
         . '<input type="submit" value="' . __('No repeating group')
         . '" onclick="goToStep4();"'
         . '/>';
-    $primary = PMA\libraries\Index::getPrimary($table, $db);
+    $primary = PhpMyAdmin\Index::getPrimary($table, $db);
     $primarycols = $primary->getColumns();
     $pk = array();
     foreach ($primarycols as $col) {
@@ -314,7 +315,7 @@ function PMA_getHtmlContentsFor1NFStep3($db, $table)
 function PMA_getHtmlFor2NFstep1($db, $table)
 {
     $legendText = __('Step 2.') . "1 " . __('Find partial dependencies');
-    $primary = PMA\libraries\Index::getPrimary($table, $db);
+    $primary = PhpMyAdmin\Index::getPrimary($table, $db);
     $primarycols = $primary->getColumns();
     $pk = array();
     $subText = '';
@@ -520,7 +521,7 @@ function PMA_getHtmlForNewTables3NF($dependencies, $tables, $db)
         if (count(array_unique($arrDependson)) == 1) {
             continue;
         }
-        $primary = PMA\libraries\Index::getPrimary($table, $db);
+        $primary = PhpMyAdmin\Index::getPrimary($table, $db);
         $primarycols = $primary->getColumns();
         $pk = array();
         foreach ($primarycols as $col) {
@@ -734,7 +735,7 @@ function PMA_getHtmlFor3NFstep1($db, $tables)
     );
     $cnt = 0;
     foreach ($tables as $table) {
-        $primary = PMA\libraries\Index::getPrimary($table, $db);
+        $primary = PhpMyAdmin\Index::getPrimary($table, $db);
         $primarycols = $primary->getColumns();
         $selectTdForm = "";
         $pk = array();
@@ -797,7 +798,7 @@ function PMA_getHtmlForNormalizetable()
         . 'name="normalize" '
         . 'id="normalizeTable" '
         . '>'
-        . URL::getHiddenInputs($GLOBALS['db'], $GLOBALS['table'])
+        . Url::getHiddenInputs($GLOBALS['db'], $GLOBALS['table'])
         . '<input type="hidden" name="step1" value="1">';
     $html_output .= '<fieldset>';
     $html_output .= '<legend>'
@@ -846,7 +847,7 @@ function PMA_findPartialDependencies($table, $db)
         . Util::backquote($table) . ' LIMIT 500) as dt;'
     );
     $totalRows = $totalRowsRes[0];
-    $primary = PMA\libraries\Index::getPrimary($table, $db);
+    $primary = PhpMyAdmin\Index::getPrimary($table, $db);
     $primarycols = $primary->getColumns();
     $pk = array();
     foreach ($primarycols as $col) {

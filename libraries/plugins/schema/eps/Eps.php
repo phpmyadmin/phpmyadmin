@@ -7,7 +7,8 @@
  */
 namespace PMA\libraries\plugins\schema\eps;
 
-use PMA\libraries\Response;
+use PhpMyAdmin\Core;
+use PhpMyAdmin\Response;
 
 /**
  * This Class is EPS Library and
@@ -267,7 +268,7 @@ class Eps
         $output = $this->stringCommands;
         Response::getInstance()
             ->disable();
-        PMA_downloadHeader(
+        Core::downloadHeader(
             $fileName,
             'image/x-eps',
             strlen($output)

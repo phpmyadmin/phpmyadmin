@@ -5,8 +5,8 @@
  *
  * @package PhpMyAdmin
  */
-use PMA\libraries\Response;
-use PMA\libraries\URL;
+use PhpMyAdmin\Response;
+use PhpMyAdmin\Url;
 
 if (! defined('PHPMYADMIN')) {
     exit;
@@ -109,11 +109,11 @@ function PMA_TRI_handleEditor()
                             $errors
                         );
                     } else {
-                        $message = PMA\libraries\Message::success(
+                        $message = PhpMyAdmin\Message::success(
                             __('Trigger %1$s has been modified.')
                         );
                         $message->addParam(
-                            PMA\libraries\Util::backquote($_REQUEST['item_name'])
+                            PhpMyAdmin\Util::backquote($_REQUEST['item_name'])
                         );
                         $sql_query = $drop_item . $item_query;
                     }
@@ -129,11 +129,11 @@ function PMA_TRI_handleEditor()
                     . '<br /><br />'
                     . __('MySQL said: ') . $GLOBALS['dbi']->getError(null);
                 } else {
-                    $message = PMA\libraries\Message::success(
+                    $message = PhpMyAdmin\Message::success(
                         __('Trigger %1$s has been created.')
                     );
                     $message->addParam(
-                        PMA\libraries\Util::backquote($_REQUEST['item_name'])
+                        PhpMyAdmin\Util::backquote($_REQUEST['item_name'])
                     );
                     $sql_query = $item_query;
                 }
@@ -141,7 +141,7 @@ function PMA_TRI_handleEditor()
         }
 
         if (count($errors)) {
-            $message = PMA\libraries\Message::error(
+            $message = PhpMyAdmin\Message::error(
                 '<b>'
                 . __(
                     'One or more errors have occurred while processing your request:'
@@ -155,7 +155,7 @@ function PMA_TRI_handleEditor()
             $message->addHtml('</ul>');
         }
 
-        $output = PMA\libraries\Util::getMessage($message, $sql_query);
+        $output = PhpMyAdmin\Util::getMessage($message, $sql_query);
         $response = Response::getInstance();
         if ($response->isAjax()) {
             if ($message->isSuccess()) {
@@ -322,7 +322,7 @@ function PMA_TRI_getEditorForm($mode, $item)
     $retval .= "<form class='rte_form' action='db_triggers.php' method='post'>\n";
     $retval .= "<input name='{$mode}_item' type='hidden' value='1' />\n";
     $retval .= $original_data;
-    $retval .= URL::getHiddenInputs($db, $table) . "\n";
+    $retval .= Url::getHiddenInputs($db, $table) . "\n";
     $retval .= "<fieldset>\n";
     $retval .= "<legend>" . __('Details') . "</legend>\n";
     $retval .= "<table class='rte_table' style='width: 100%'>\n";
@@ -420,15 +420,15 @@ function PMA_TRI_getQueryFromRequest()
         if (mb_strpos($_REQUEST['item_definer'], '@') !== false
         ) {
             $arr = explode('@', $_REQUEST['item_definer']);
-            $query .= 'DEFINER=' . PMA\libraries\Util::backquote($arr[0]);
-            $query .= '@' . PMA\libraries\Util::backquote($arr[1]) . ' ';
+            $query .= 'DEFINER=' . PhpMyAdmin\Util::backquote($arr[0]);
+            $query .= '@' . PhpMyAdmin\Util::backquote($arr[1]) . ' ';
         } else {
             $errors[] = __('The definer must be in the "username@hostname" format!');
         }
     }
     $query .= 'TRIGGER ';
     if (! empty($_REQUEST['item_name'])) {
-        $query .= PMA\libraries\Util::backquote($_REQUEST['item_name']) . ' ';
+        $query .= PhpMyAdmin\Util::backquote($_REQUEST['item_name']) . ' ';
     } else {
         $errors[] = __('You must provide a trigger name!');
     }
@@ -450,7 +450,7 @@ function PMA_TRI_getQueryFromRequest()
     if (! empty($_REQUEST['item_table'])
         && in_array($_REQUEST['item_table'], $GLOBALS['dbi']->getTables($db))
     ) {
-        $query .= PMA\libraries\Util::backquote($_REQUEST['item_table']);
+        $query .= PhpMyAdmin\Util::backquote($_REQUEST['item_table']);
     } else {
         $errors[] = __('You must provide a valid table name!');
     }

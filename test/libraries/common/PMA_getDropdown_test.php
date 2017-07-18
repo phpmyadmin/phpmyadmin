@@ -1,7 +1,7 @@
 <?php
 /* vim: set expandtab sw=4 ts=4 sts=4: */
 /**
- ** Test for PMA\libraries\Util::getDropdown from Util.php
+ ** Test for PhpMyAdmin\Util::getDropdown from Util.php
  *
  * @package PhpMyAdmin-test
  * @group common.lib-tests
@@ -13,7 +13,7 @@
 
 
 /**
- ** Test for PMA\libraries\Util::getDropdown from Util.php
+ ** Test for PhpMyAdmin\Util::getDropdown from Util.php
  *
  * @package PhpMyAdmin-test
  * @group common.lib-tests
@@ -33,11 +33,11 @@ class PMA_GetDropdownTest extends PHPUnit_Framework_TestCase
         $id = "test_&lt;dropdown&gt;_name";
 
         $result = '<select name="' . htmlspecialchars($name) . '" id="'
-            . htmlspecialchars($id) . '"></select>';
+            . htmlspecialchars($id) . '">' . "\n" . '</select>' . "\n";
 
         $this->assertEquals(
             $result,
-            PMA\libraries\Util::getDropdown(
+            PhpMyAdmin\Util::getDropdown(
                 $name, $choices, $active_choice, $id
             )
         );
@@ -58,17 +58,17 @@ class PMA_GetDropdownTest extends PHPUnit_Framework_TestCase
         $result = '<select name="' . htmlspecialchars($name) . '" id="'
             . htmlspecialchars($id) . '">';
         foreach ($choices as $one_choice_value => $one_choice_label) {
-            $result .= '<option value="' . htmlspecialchars($one_choice_value) . '"';
+            $result .= "\n" . '<option value="' . htmlspecialchars($one_choice_value) . '"';
             if ($one_choice_value == $active_choice) {
                 $result .= ' selected="selected"';
             }
             $result .= '>' . htmlspecialchars($one_choice_label) . '</option>';
         }
-        $result .= '</select>';
+        $result .= "\n" . '</select>' . "\n";
 
         $this->assertEquals(
             $result,
-            PMA\libraries\Util::getDropdown(
+            PhpMyAdmin\Util::getDropdown(
                 $name, $choices, $active_choice, $id
             )
         );
@@ -89,17 +89,19 @@ class PMA_GetDropdownTest extends PHPUnit_Framework_TestCase
         $result = '<select name="' . htmlspecialchars($name) . '" id="'
             . htmlspecialchars($id) . '">';
         foreach ($choices as $one_choice_value => $one_choice_label) {
+            $result .= "\n";
             $result .= '<option value="' . htmlspecialchars($one_choice_value) . '"';
             if ($one_choice_value == $active_choice) {
                 $result .= ' selected="selected"';
             }
             $result .= '>' . htmlspecialchars($one_choice_label) . '</option>';
         }
-        $result .= '</select>';
+        $result .= "\n";
+        $result .= '</select>' . "\n";
 
         $this->assertEquals(
             $result,
-            PMA\libraries\Util::getDropdown(
+            PhpMyAdmin\Util::getDropdown(
                 $name, $choices, $active_choice, $id
             )
         );

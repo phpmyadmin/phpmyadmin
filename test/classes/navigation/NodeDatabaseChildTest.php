@@ -8,8 +8,8 @@
 
 use PMA\libraries\navigation\NodeFactory;
 use PMA\libraries\navigation\nodes\NodeDatabaseChild;
-use PMA\libraries\Theme;
-use PMA\libraries\URL;
+use PhpMyAdmin\Theme;
+use PhpMyAdmin\Url;
 
 require_once 'libraries/relation.lib.php';
 require_once 'test/PMATestCase.php';
@@ -34,7 +34,7 @@ class NodeDatabaseChildTest extends PMATestCase
      */
     protected function setUp()
     {
-        $GLOBALS['pmaThemePath'] = $_SESSION['PMA_Theme']->getPath();
+        $GLOBALS['pmaThemePath'] = $GLOBALS['PMA_Theme']->getPath();
         $GLOBALS['cfg']['DefaultTabDatabase'] = 'structure';
         $GLOBALS['server'] = 1;
         $GLOBALS['cfg']['ServerDefault'] = 1;

@@ -5,8 +5,8 @@
  *
  * @package PhpMyAdmin
  */
-use PMA\libraries\URL;
-use PMA\libraries\Response;
+use PhpMyAdmin\Url;
+use PhpMyAdmin\Response;
 
 if (! defined('PHPMYADMIN')) {
     exit;
@@ -44,7 +44,7 @@ if (! $response->isAjax()) {
             $tooltip_truename,
             $tooltip_aliasname,
             $pos
-        ) = PMA\libraries\Util::getDbInfo($db, isset($sub_part) ? $sub_part : '');
+        ) = PhpMyAdmin\Util::getDbInfo($db, isset($sub_part) ? $sub_part : '');
     }
 } else {
     /**
@@ -55,7 +55,7 @@ if (! $response->isAjax()) {
     if (strlen($db) > 0) {
         $GLOBALS['dbi']->selectDb($db);
         if (! isset($url_query)) {
-            $url_query = URL::getCommon(
+            $url_query = Url::getCommon(
                 array(
                     'db' => $db, 'table' => $table
                 )
@@ -79,7 +79,7 @@ $ajax_class = array(
 /**
  * Create labels for the list
  */
-$titles = PMA\libraries\Util::buildActionTitles();
+$titles = PhpMyAdmin\Util::buildActionTitles();
 
 /**
  * Keep a list of errors that occurred while

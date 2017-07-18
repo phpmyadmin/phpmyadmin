@@ -1,6 +1,6 @@
 <?php
 /**
- * Tests for PMA\libraries\engines\Bdb
+ * Tests for PhpMyAdmin\Engines\Bdb
  *
  * @package PhpMyAdmin-test
  */
@@ -9,13 +9,13 @@
  * Include to test.
  */
 
-use PMA\libraries\engines\Bdb;
+use PhpMyAdmin\Engines\Bdb;
 
 require_once 'libraries/database_interface.inc.php';
 require_once 'test/PMATestCase.php';
 
 /**
- * Tests for PMA\libraries\engines\Bdb
+ * Tests for PhpMyAdmin\Engines\Bdb
  *
  * @package PhpMyAdmin-test
  */

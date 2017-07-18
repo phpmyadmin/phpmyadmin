@@ -5,8 +5,10 @@
  *
  * @package PhpMyAdmin
  */
-use PMA\libraries\URL;
-use PMA\libraries\Response;
+
+use PhpMyAdmin\Response;
+use PhpMyAdmin\Transformations;
+use PhpMyAdmin\Url;
 
 /**
  * Get some core libraries
@@ -19,13 +21,13 @@ $scripts  = $header->getScripts();
 $scripts->addFile('tbl_structure.js');
 
 // Check parameters
-PMA\libraries\Util::checkParameters(array('db', 'table'));
+PhpMyAdmin\Util::checkParameters(array('db', 'table'));
 
 
 /**
  * Defines the url to return to in case of error in a sql statement
  */
-$err_url = 'tbl_sql.php' . URL::getCommon(
+$err_url = 'tbl_sql.php' . Url::getCommon(
     array(
         'db' => $db, 'table' => $table
     )
@@ -65,9 +67,6 @@ if (isset($_REQUEST['do_save_data'])) {
     list($result, $sql_query) = PMA_tryColumnCreationQuery($db, $table, $err_url);
 
     if ($result === true) {
-        // If comments were sent, enable relation stuff
-        include_once 'libraries/transformations.lib.php';
-
         // Update comment table for mime types [MIME]
         if (isset($_REQUEST['field_mimetype'])
             && is_array($_REQUEST['field_mimetype'])
@@ -77,7 +76,7 @@ if (isset($_REQUEST['do_save_data'])) {
                 if (isset($_REQUEST['field_name'][$fieldindex])
                     && strlen($_REQUEST['field_name'][$fieldindex]) > 0
                 ) {
-                    PMA_setMIME(
+                    Transformations::setMIME(
                         $db, $table,
                         $_REQUEST['field_name'][$fieldindex],
                         $mimetype,
@@ -91,17 +90,17 @@ if (isset($_REQUEST['do_save_data'])) {
         }
 
         // Go back to the structure sub-page
-        $message = PMA\libraries\Message::success(
+        $message = PhpMyAdmin\Message::success(
             __('Table %1$s has been altered successfully.')
         );
         $message->addParam($table);
         $response->addJSON(
             'message',
-            PMA\libraries\Util::getMessage($message, $sql_query, 'success')
+            PhpMyAdmin\Util::getMessage($message, $sql_query, 'success')
         );
         exit;
     } else {
-        $error_message_html = PMA\libraries\Util::mysqlDie(
+        $error_message_html = PhpMyAdmin\Util::mysqlDie(
             '',
             '',
             false,
@@ -122,7 +121,6 @@ if ($abort == false) {
      * Gets tables information
      */
     include_once 'libraries/tbl_common.inc.php';
-    include_once 'libraries/tbl_info.inc.php';
 
     $active_page = 'tbl_structure.php';
     /**

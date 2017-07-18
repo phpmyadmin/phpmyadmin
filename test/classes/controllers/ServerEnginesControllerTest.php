@@ -6,10 +6,10 @@
  * @package PhpMyAdmin-test
  */
 
-use PMA\libraries\StorageEngine;
-use PMA\libraries\Theme;
-use PMA\libraries\controllers\server\ServerEnginesController;
-use PMA\libraries\URL;
+use PhpMyAdmin\StorageEngine;
+use PhpMyAdmin\Theme;
+use PhpMyAdmin\Controllers\Server\ServerEnginesController;
+use PhpMyAdmin\Url;
 
 require_once 'libraries/database_interface.inc.php';
 
@@ -47,7 +47,7 @@ class ServerEnginesControllerTest extends PMATestCase
      */
     public function testGetHtmlForAllServerEngines()
     {
-        $class = new ReflectionClass('\PMA\libraries\controllers\server\ServerEnginesController');
+        $class = new ReflectionClass('\PhpMyAdmin\Controllers\Server\ServerEnginesController');
         $method = $class->getMethod('_getHtmlForAllServerEngines');
         $method->setAccessible(true);
 
@@ -103,12 +103,12 @@ class ServerEnginesControllerTest extends PMATestCase
         $_REQUEST['engine'] = "Pbxt";
         $_REQUEST['page'] = "page";
         //Mock DBI
-        $dbi = $this->getMockBuilder('PMA\libraries\DatabaseInterface')
+        $dbi = $this->getMockBuilder('PhpMyAdmin\DatabaseInterface')
             ->disableOriginalConstructor()
             ->getMock();
         $GLOBALS['dbi'] = $dbi;
 
-        $class = new ReflectionClass('\PMA\libraries\controllers\server\ServerEnginesController');
+        $class = new ReflectionClass('\PhpMyAdmin\Controllers\Server\ServerEnginesController');
         $method = $class->getMethod('_getHtmlForServerEngine');
         $method->setAccessible(true);
 
@@ -124,7 +124,7 @@ class ServerEnginesControllerTest extends PMATestCase
 
         //validate 2: Engine Mysql Help Page
         $this->assertContains(
-            PMA\libraries\Util::showMySQLDocu($engine_plugin->getMysqlHelpPage()),
+            PhpMyAdmin\Util::showMySQLDocu($engine_plugin->getMysqlHelpPage()),
             $html
         );
 
@@ -140,7 +140,7 @@ class ServerEnginesControllerTest extends PMATestCase
             $html
         );
         $this->assertContains(
-            URL::getCommon(
+            Url::getCommon(
                 array('engine' => $_REQUEST['engine'], 'page' => "Documentation")
             ),
             $html
@@ -148,7 +148,7 @@ class ServerEnginesControllerTest extends PMATestCase
 
         //validate 5: other items
         $this->assertContains(
-            URL::getCommon(array('engine' => $_REQUEST['engine'])),
+            Url::getCommon(array('engine' => $_REQUEST['engine'])),
             $html
         );
         $this->assertContains(

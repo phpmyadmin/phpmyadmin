@@ -5,9 +5,10 @@
  *
  * @package PhpMyAdmin-Setup
  */
-use PMA\libraries\config\FormDisplay;
-use PMA\libraries\URL;
-use PMA\libraries\Response;
+use PhpMyAdmin\Config\FormDisplay;
+use PhpMyAdmin\Core;
+use PhpMyAdmin\Url;
+use PhpMyAdmin\Response;
 
 /**
  * Processes forms registered in $form_display, handles error correction
@@ -22,7 +23,7 @@ function PMA_Process_formset(FormDisplay $form_display)
         // revert erroneous fields to their default values
         $form_display->fixErrors();
         $response = Response::getInstance();
-        $response->generateHeader303('index.php' . URL::getCommonRaw());
+        $response->generateHeader303('index.php' . Url::getCommonRaw());
     }
 
     if (!$form_display->process(false)) {
@@ -34,35 +35,32 @@ function PMA_Process_formset(FormDisplay $form_display)
     // check for form errors
     if (!$form_display->hasErrors()) {
         $response = Response::getInstance();
-        $response->generateHeader303('index.php' . URL::getCommonRaw());
+        $response->generateHeader303('index.php' . Url::getCommonRaw());
         return;
     }
 
     // form has errors, show warning
-    $separator = URL::getArgSeparator('html');
-    $page = isset($_GET['page']) ? htmlspecialchars($_GET['page']) : null;
-    $formset = isset($_GET['formset']) ? htmlspecialchars($_GET['formset']) : null;
-    $formset = $formset ? "{$separator}formset=$formset" : '';
-    $formId = PMA_isValid($_GET['id'], 'numeric') ? $_GET['id'] : null;
+    $page = isset($_GET['page']) ? $_GET['page'] : '';
+    $formset = isset($_GET['formset']) ? $_GET['formset'] : '';
+    $formId = Core::isValid($_GET['id'], 'numeric') ? $_GET['id'] : '';
     if ($formId === null && $page == 'servers') {
         // we've just added a new server, get its id
         $formId = $form_display->getConfigFile()->getServerCount();
     }
-    $formId = $formId ? "{$separator}id=$formId" : '';
     ?>
     <div class="error">
         <h4><?php echo __('Warning') ?></h4>
         <?php echo __('Submitted form contains errors') ?><br />
-        <a href="<?php echo URL::getCommon() , $separator ?>page=<?php echo $page , $formset , $formId , $separator ?>mode=revert">
+        <a href="<?php echo Url::getCommon(array('page' => $page, 'formset' => $formset, 'id' => $formId, 'mode' => 'revert')) ?>">
             <?php echo __('Try to revert erroneous fields to their default values') ?>
         </a>
     </div>
     <?php echo $form_display->displayErrors() ?>
-    <a class="btn" href="index.php<?php echo URL::getCommon() ?>">
+    <a class="btn" href="index.php<?php echo Url::getCommon() ?>">
         <?php echo __('Ignore errors') ?>
     </a>
     &nbsp;
-    <a class="btn" href="<?php echo URL::getCommon() , $separator ?>page=<?php echo $page , $formset , $formId , $separator ?>mode=edit">
+    <a class="btn" href="<?php echo Url::getCommon(array('page' => $page, 'formset' => $formset, 'id' => $formId, 'mode' => 'edit')) ?>">
         <?php echo __('Show form') ?>
     </a>
     <?php

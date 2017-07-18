@@ -14,26 +14,22 @@
  * @package PhpMyAdmin
  */
 
-/**
- * Get the TableRelationController
- */
-namespace PMA;
-
-use PMA\libraries\controllers\table\TableRelationController;
-use PMA\libraries\Response;
-use PMA\libraries\Table;
-use PMA\libraries\Util;
+use PhpMyAdmin\Controllers\Table\TableRelationController;
+use PhpMyAdmin\Di\Container;
+use PhpMyAdmin\Response;
+use PhpMyAdmin\Table;
+use PhpMyAdmin\Util;
 
 require_once 'libraries/common.inc.php';
 
-$container = libraries\di\Container::getDefaultContainer();
-$container->factory('PMA\libraries\controllers\table\TableRelationController');
+$container = Container::getDefaultContainer();
+$container->factory('PhpMyAdmin\Controllers\Table\TableRelationController');
 $container->alias(
     'TableRelationController',
-    'PMA\libraries\controllers\table\TableRelationController'
+    'PhpMyAdmin\Controllers\Table\TableRelationController'
 );
-$container->set('PMA\libraries\Response', Response::getInstance());
-$container->alias('response', 'PMA\libraries\Response');
+$container->set('PhpMyAdmin\Response', Response::getInstance());
+$container->alias('response', 'PhpMyAdmin\Response');
 
 /* Define dependencies for the concerned controller */
 $db = $container->get('db');

@@ -6,11 +6,11 @@
  * @package PhpMyAdmin-test
  */
 
-use PMA\libraries\controllers\table\TableIndexesController;
-use PMA\libraries\di\Container;
-use PMA\libraries\Theme;
-use PMA\libraries\URL;
-use PMA\libraries\Response;
+use PhpMyAdmin\Controllers\Table\TableIndexesController;
+use PhpMyAdmin\Di\Container;
+use PhpMyAdmin\Theme;
+use PhpMyAdmin\Url;
+use PhpMyAdmin\Response;
 
 /*
  * Include to test.
@@ -46,7 +46,7 @@ class TableIndexesControllerTest extends PMATestCase
             'server' => 1
         );
 
-        $dbi = $this->getMockBuilder('PMA\libraries\DatabaseInterface')
+        $dbi = $this->getMockBuilder('PhpMyAdmin\DatabaseInterface')
             ->disableOriginalConstructor()
             ->getMock();
 
@@ -86,7 +86,7 @@ class TableIndexesControllerTest extends PMATestCase
     {
         $sql_query = 'ALTER TABLE `db`.`table` DROP PRIMARY KEY, ADD UNIQUE ;';
 
-        $table = $this->getMockBuilder('PMA\libraries\Table')
+        $table = $this->getMockBuilder('PhpMyAdmin\Table')
             ->disableOriginalConstructor()
             ->getMock();
         $table->expects($this->any())->method('getSqlQueryForIndexCreateOrEdit')
@@ -100,8 +100,8 @@ class TableIndexesControllerTest extends PMATestCase
         $container->set('table', 'table');
         $container->set('dbi', $GLOBALS['dbi']);
         $response = new \PMA\Test\Stubs\Response();
-        $container->set('PMA\libraries\Response', $response);
-        $container->alias('response', 'PMA\libraries\Response');
+        $container->set('PhpMyAdmin\Response', $response);
+        $container->alias('response', 'PhpMyAdmin\Response');
 
         $ctrl = new TableIndexesController(null);
 
@@ -134,7 +134,7 @@ class TableIndexesControllerTest extends PMATestCase
      */
     public function testDisplayFormAction()
     {
-        $table = $this->getMockBuilder('PMA\libraries\Table')
+        $table = $this->getMockBuilder('PhpMyAdmin\Table')
             ->disableOriginalConstructor()
             ->getMock();
         $table->expects($this->any())->method('getStatusInfo')
@@ -152,9 +152,9 @@ class TableIndexesControllerTest extends PMATestCase
         $container->set('table', 'table');
         $container->set('dbi', $GLOBALS['dbi']);
         $response = new \PMA\Test\Stubs\Response();
-        $container->set('PMA\libraries\Response', $response);
-        $container->alias('response', 'PMA\libraries\Response');
-        $index = new PMA\libraries\Index();
+        $container->set('PhpMyAdmin\Response', $response);
+        $container->alias('response', 'PhpMyAdmin\Response');
+        $index = new PhpMyAdmin\Index();
 
         $ctrl = new TableIndexesController($index);
 
@@ -163,9 +163,9 @@ class TableIndexesControllerTest extends PMATestCase
         $ctrl->displayFormAction();
         $html = $response->getHTMLResult();
 
-        //URL::getHiddenInputs
+        //Url::getHiddenInputs
         $this->assertContains(
-            URL::getHiddenInputs(
+            Url::getHiddenInputs(
                 array(
                     'db' => 'db',
                     'table' => 'table',
@@ -175,8 +175,8 @@ class TableIndexesControllerTest extends PMATestCase
             $html
         );
 
-        $doc_html = PMA\libraries\Util::showHint(
-            PMA\libraries\Message::notice(
+        $doc_html = PhpMyAdmin\Util::showHint(
+            PhpMyAdmin\Message::notice(
                 __(
                     '"PRIMARY" <b>must</b> be the name of'
                     . ' and <b>only of</b> a primary key!'
@@ -189,7 +189,7 @@ class TableIndexesControllerTest extends PMATestCase
         );
 
         $this->assertContains(
-            PMA\libraries\Util::showMySQLDocu('ALTER_TABLE'),
+            PhpMyAdmin\Util::showMySQLDocu('ALTER_TABLE'),
             $html
         );
 

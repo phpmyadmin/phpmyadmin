@@ -9,7 +9,10 @@
  * Include to test.
  */
 
-use PMA\libraries\Theme;
+use PhpMyAdmin\Config;
+use PhpMyAdmin\ErrorHandler;
+use PhpMyAdmin\Footer;
+use PhpMyAdmin\Theme;
 
 require_once 'libraries/relation.lib.php';
 require_once 'test/PMATestCase.php';
@@ -23,7 +26,7 @@ class FooterTest extends PMATestCase
 {
 
     /**
-     * @var array store private attributes of PMA\libraries\Footer
+     * @var array store private attributes of PhpMyAdmin\Footer
      */
     public $privates = array();
 
@@ -46,17 +49,17 @@ class FooterTest extends PMATestCase
         $GLOBALS['db'] = '';
         $GLOBALS['table'] = '';
         $GLOBALS['text_dir'] = 'ltr';
-        $GLOBALS['PMA_Config'] = new PMA\libraries\Config();
+        $GLOBALS['PMA_Config'] = new Config();
         $GLOBALS['PMA_Config']->enableBc();
         $GLOBALS['collation_connection'] = 'utf8_general_ci';
         $GLOBALS['cfg']['Server']['verbose'] = 'verbose host';
         $GLOBALS['server'] = '1';
         $_GET['reload_left_frame'] = '1';
         $GLOBALS['focus_querywindow'] = 'main_pane_left';
-        $this->object = new PMA\libraries\Footer();
+        $this->object = new Footer();
         unset($GLOBALS['error_message']);
         unset($GLOBALS['sql_query']);
-        $GLOBALS['error_handler'] = new PMA\libraries\ErrorHandler();
+        $GLOBALS['error_handler'] = new ErrorHandler();
         unset($_POST);
 
     }
@@ -83,7 +86,7 @@ class FooterTest extends PMATestCase
      */
     private function _callPrivateFunction($name, $params)
     {
-        $class = new ReflectionClass('PMA\libraries\Footer');
+        $class = new ReflectionClass(Footer::class);
         $method = $class->getMethod($name);
         $method->setAccessible(true);
         return $method->invokeArgs($this->object, $params);
@@ -202,7 +205,7 @@ class FooterTest extends PMATestCase
      */
     public function testDisable()
     {
-        $footer = new PMA\libraries\Footer();
+        $footer = new Footer();
         $footer->disable();
         $this->assertEquals(
             '',
@@ -217,7 +220,7 @@ class FooterTest extends PMATestCase
      */
     public function testAjax()
     {
-        $footer = new PMA\libraries\Footer();
+        $footer = new Footer();
         $footer->setAjax(true);
         $this->assertEquals(
             '',
@@ -232,7 +235,7 @@ class FooterTest extends PMATestCase
      */
     public function testGetScripts()
     {
-        $footer = new PMA\libraries\Footer();
+        $footer = new Footer();
         $this->assertContains(
             '<script data-cfasync="false" type="text/javascript">',
             $footer->getScripts()->getDisplay()
@@ -247,7 +250,7 @@ class FooterTest extends PMATestCase
      */
     public function testDisplay()
     {
-        $footer = new PMA\libraries\Footer();
+        $footer = new Footer();
         $this->assertContains(
             'Open new phpMyAdmin window',
             $footer->getDisplay()
@@ -261,7 +264,7 @@ class FooterTest extends PMATestCase
      */
     public function testMinimal()
     {
-        $footer = new PMA\libraries\Footer();
+        $footer = new Footer();
         $footer->setMinimal();
         $this->assertEquals(
             '</div></body></html>',

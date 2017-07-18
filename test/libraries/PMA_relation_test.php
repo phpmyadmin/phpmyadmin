@@ -9,7 +9,7 @@
 /*
  * Include to test.
  */
-use PMA\libraries\Theme;
+use PhpMyAdmin\Theme;
 
 
 
@@ -38,11 +38,12 @@ class PMA_Relation_Test extends PHPUnit_Framework_TestCase
         $GLOBALS['db'] = 'db';
         $GLOBALS['cfg']['Server']['user'] = 'root';
         $GLOBALS['cfg']['Server']['pmadb'] = 'phpmyadmin';
+        $GLOBALS['cfg']['Server']['DisableIS'] = false;
         $GLOBALS['cfg']['ZeroConf'] = true;
         $_SESSION['relation'][$GLOBALS['server']] = "PMA_relation";
         $_SESSION['relation'] = array();
 
-        $GLOBALS['pmaThemePath'] = $_SESSION['PMA_Theme']->getPath();
+        $GLOBALS['pmaThemePath'] = $GLOBALS['PMA_Theme']->getPath();
         $GLOBALS['cfg']['ServerDefault'] = 0;
 
         include_once 'libraries/relation.lib.php';
@@ -55,7 +56,7 @@ class PMA_Relation_Test extends PHPUnit_Framework_TestCase
      */
     public function testPMAQueryAsControlUser()
     {
-        $dbi = $this->getMockBuilder('PMA\libraries\DatabaseInterface')
+        $dbi = $this->getMockBuilder('PhpMyAdmin\DatabaseInterface')
             ->disableOriginalConstructor()
             ->getMock();
 
@@ -211,7 +212,7 @@ class PMA_Relation_Test extends PHPUnit_Framework_TestCase
         $GLOBALS['cfg']['ServerDefault'] = 0;
         $_SESSION['relation'] = array();
 
-        $dbi = $this->getMockBuilder('PMA\libraries\DatabaseInterface')
+        $dbi = $this->getMockBuilder('PhpMyAdmin\DatabaseInterface')
             ->disableOriginalConstructor()
             ->getMock();
 
@@ -256,7 +257,7 @@ class PMA_Relation_Test extends PHPUnit_Framework_TestCase
      */
     public function testPMATryUpgradeTransformations()
     {
-        $dbi = $this->getMockBuilder('PMA\libraries\DatabaseInterface')
+        $dbi = $this->getMockBuilder('PhpMyAdmin\DatabaseInterface')
             ->disableOriginalConstructor()
             ->getMock();
         $dbi->expects($this->any())

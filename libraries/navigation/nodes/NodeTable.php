@@ -7,7 +7,7 @@
  */
 namespace PMA\libraries\navigation\nodes;
 
-use PMA\libraries\Util;
+use PhpMyAdmin\Util;
 
 /**
  * Represents a columns node in the navigation tree

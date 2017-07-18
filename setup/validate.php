@@ -6,6 +6,8 @@
  * @package PhpMyAdmin-Setup
  */
 
+use PhpMyAdmin\Core;
+
 /**
  * Core libraries.
  */
@@ -14,17 +16,17 @@ require './lib/common.inc.php';
 $validators = array();
 require './libraries/config/Validator.php';
 
-PMA_headerJSON();
+Core::headerJSON();
 
-$ids = PMA_isValid($_POST['id'], 'scalar') ? $_POST['id'] : null;
+$ids = Core::isValid($_POST['id'], 'scalar') ? $_POST['id'] : null;
 $vids = explode(',', $ids);
-$vals = PMA_isValid($_POST['values'], 'scalar') ? $_POST['values'] : null;
+$vals = Core::isValid($_POST['values'], 'scalar') ? $_POST['values'] : null;
 $values = json_decode($vals);
 if (!($values instanceof stdClass)) {
-    PMA_fatalError(__('Wrong data'));
+    Core::fatalError(__('Wrong data'));
 }
 $values = (array)$values;
-$result = PMA\libraries\config\Validator::validate($GLOBALS['ConfigFile'], $vids, $values, true);
+$result = PhpMyAdmin\Config\Validator::validate($GLOBALS['ConfigFile'], $vids, $values, true);
 if ($result === false) {
     $result = sprintf(
         __('Wrong data or no validation for %s'),

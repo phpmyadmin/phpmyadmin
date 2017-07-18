@@ -84,6 +84,49 @@ Basic settings
     If you do not want to use those features set this variable to ``true`` to
     stop this message from appearing.
 
+.. config:option:: $cfg['AuthLog']
+
+    :type: string
+    :default: ``'auto'``
+
+    .. versionadded:: 4.8.0
+
+        This is supported since phpMyAdmin 4.8.0.
+
+    Configure authentication logging destination. Failed (or all, depending on
+    :config:option:`$cfg['AuthLogSuccess']`) authentication attempts will be
+    logged according to this directive:
+
+    ``auto``
+        Let phpMyAdmin automatically choose between ``syslog`` and ``php``.
+    ``syslog``
+        Log using syslog, using AUTH facility, on most systems this ends up
+        in :file:`/var/log/auth.log`.
+    ``php``
+        Log into PHP error log.
+    ``sapi``
+        Log into PHP SAPI logging.
+    ``/path/to/file``
+        Any other value is treated as a filename and log entries are written there.
+
+    .. note::
+
+        When logging to a file, make sure its permissions are correctly set
+        for a web server user, the setup should closely match instructions
+        described in :config:option:`$cfg['TempDir']`:
+
+.. config:option:: $cfg['AuthLogSuccess']
+
+    :type: boolean
+    :default: false
+
+    .. versionadded:: 4.8.0
+
+        This is supported since phpMyAdmin 4.8.0.
+
+    Whether to log successful authentication attempts into
+    :config:option:`$cfg['AuthLog']`.
+
 .. config:option:: $cfg['SuhosinDisableWarning']
 
     :type: boolean
@@ -107,6 +150,10 @@ Basic settings
 
     :type: boolean
     :default: false
+
+    .. deprecated:: 4.7.0
+
+        This setting was removed as the warning has been removed as well.
 
     A warning is displayed on the main page if there is a difference
     between the MySQL library and server version.
@@ -397,7 +444,7 @@ Server connection settings
     there is a chance your SSL connection will fail due to validation.
     Setting this to ``false`` will disable the validation check.
 
-    Since PHP 5.6.0 it also verifies whether server name matches CN of it's
+    Since PHP 5.6.0 it also verifies whether server name matches CN of its
     certificate. There is currently no way to disable just this check without
     disabling complete SSL verification.
     
@@ -865,7 +912,7 @@ Server connection settings
     .. note::
 
         For auto-upgrade functionality to work, your
-        ``$cfg['Servers'][$i]['controluser']`` must have ALTER privilege on
+        :config:option:`$cfg['Servers'][$i]['controluser']` must have ALTER privilege on
         ``phpmyadmin`` database. See the `MySQL documentation for GRANT
         <https://dev.mysql.com/doc/refman/5.7/en/grant.html>`_ on how to
         ``GRANT`` privileges to a user.
@@ -1339,6 +1386,8 @@ Server connection settings
 
     :type: string
     :default: ``''``
+
+    .. versionadded:: 3.5.0
 
     Name of PHP script to be sourced and executed to obtain login
     credentials. This is alternative approach to session based single
@@ -1991,7 +2040,7 @@ Navigation panel setup
 .. config:option:: $cfg['NavigationTreeEnableExpansion']
 
     :type: boolean
-    :default: false
+    :default: true
 
     Whether to offer the possibility of tree expansion in the navigation panel.
 
@@ -2058,20 +2107,8 @@ Main panel
     :type: boolean
     :default: false
 
-.. config:option:: $cfg['ShowChgPassword']
-
-    :type: boolean
-    :default: true
-
-.. config:option:: $cfg['ShowCreateDb']
-
-    :type: boolean
-    :default: true
-
-    Defines whether to display the :guilabel:`PHP information` and
-    :guilabel:`Change password` links and form for creating database or not at
-    the starting main (right) frame. This setting does not check MySQL commands
-    entered directly.
+    Defines whether to display the :guilabel:`PHP information` or not at
+    the starting main (right) frame.
 
     Please note that to block the usage of ``phpinfo()`` in scripts, you have to
     put this in your :file:`php.ini`:
@@ -2088,10 +2125,28 @@ Main panel
         This might also make easier some remote attacks on your installations,
         so enable this only when needed.
 
-    Also note that enabling the :guilabel:`Change password` link has no effect
+.. config:option:: $cfg['ShowChgPassword']
+
+    :type: boolean
+    :default: true
+
+    Defines whether to display the :guilabel:`Change password` link or not at
+    the starting main (right) frame. This setting does not check MySQL commands
+    entered directly.
+
+    Please note that enabling the :guilabel:`Change password` link has no effect
     with config authentication mode: because of the hard coded password value
     in the configuration file, end users can't be allowed to change their
     passwords.
+
+.. config:option:: $cfg['ShowCreateDb']
+
+    :type: boolean
+    :default: true
+
+    Defines whether to display the form for creating database or not at the
+    starting main (right) frame. This setting does not check MySQL commands
+    entered directly.
 
 .. config:option:: $cfg['ShowGitRevision']
 
@@ -2945,13 +3000,15 @@ the files.
 .. config:option:: $cfg['TempDir']
 
     :type: string
-    :default: ``''``
+    :default: ``'./tmp/'``
 
-    The name of the directory where temporary files can be stored.
+    The name of the directory where temporary files can be stored. It is used
+    for several purposes, currently:
 
-    This is needed for importing ESRI Shapefiles, see :ref:`faq6_30` and to
-    work around limitations of ``open_basedir`` for uploaded files, see
-    :ref:`faq1_11`.
+    * The templates cache which speeds up page loading.
+    * ESRI Shapefiles import, see :ref:`faq6_30`.
+    * To work around limitations of ``open_basedir`` for uploaded files, see
+      :ref:`faq1_11`.
 
     This directory should have as strict permissions as possible as the only
     user required to access this directory is the one who runs the webserver.
@@ -3203,6 +3260,13 @@ Developer
 
     Enable to let server present itself as demo server.
     This is used for `phpMyAdmin demo server <https://www.phpmyadmin.net/try/>`_.
+
+    It currently changes following behavior:
+
+    * There is welcome message on the main page.
+    * There is footer information about demo server and used git revision.
+    * The setup script is enabled even with existing configuration.
+    * The setup does not try to connect to the MySQL server.
 
 .. _config-examples:
 

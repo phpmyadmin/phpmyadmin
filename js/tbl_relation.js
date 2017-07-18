@@ -70,7 +70,6 @@ function getDropdownValues($dropdown) {
     var $msgbox = PMA_ajaxShowMessage();
     var $form = $dropdown.parents('form');
     var url = 'tbl_relation.php?getDropdownValues=true&ajax_request=true' +
-        '&token=' + $form.find('input[name="token"]').val() +
         '&db=' + $form.find('input[name="db"]').val() +
         '&table=' + $form.find('input[name="table"]').val() +
         '&foreign=' + (foreign !== '') +
@@ -221,8 +220,7 @@ AJAX.registerOnload('tbl_relation.js', function () {
             var $msg = PMA_ajaxShowMessage(PMA_messages.strDroppingForeignKey, false);
             var params = {
                 'is_js_confirmed': 1,
-                'ajax_request': true,
-                'token': PMA_commonParams.get('token')
+                'ajax_request': true
             };
             $.post(url, params, function (data) {
                 if (data.success === true) {
@@ -236,4 +234,7 @@ AJAX.registerOnload('tbl_relation.js', function () {
             }); // end $.post()
         }); // end $.PMA_confirm()
     }); //end Drop Foreign key
+
+    var windowwidth = $(window).width();
+    $('.jsresponsive').css('max-width', (windowwidth - 35 ) + 'px');
 });

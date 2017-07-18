@@ -1,17 +1,18 @@
+<div class="responsivetable">
 <table id="table_columns" class="noclick">
     <caption class="tblHeaders">
         <?= __('Structure'); ?>
-        <?= PMA\libraries\Util::showMySQLDocu('CREATE_TABLE'); ?>
+        <?= PhpMyAdmin\Util::showMySQLDocu('CREATE_TABLE'); ?>
     </caption>
     <tr>
         <th>
             <?= __('Name'); ?>
         </th>
         <th>
-            <?= __('Type') , PMA\libraries\Util::showMySQLDocu('data-types'); ?>
+            <?= __('Type') , PhpMyAdmin\Util::showMySQLDocu('data-types'); ?>
         </th>
         <th>
-            <?= __('Length/Values') , PMA\libraries\Util::showHint(
+            <?= __('Length/Values') , PhpMyAdmin\Util::showHint(
                     __(
                         'If column type is "enum" or "set", please enter the values using'
                         . ' this format: \'a\',\'b\',\'c\'…<br />If you ever need to put'
@@ -22,7 +23,7 @@
                 ); ?>
         </th>
         <th>
-            <?= __('Default') , PMA\libraries\Util::showHint(
+            <?= __('Default') , PhpMyAdmin\Util::showHint(
                     __(
                         'For default values, please enter just a single value,'
                         . ' without backslash escaping or quotes, using this format: a'
@@ -44,7 +45,7 @@
             && ! empty($_REQUEST['change_column'])
         ): ?>
             <th>
-                <?= __('Adjust privileges') , PMA\libraries\Util::showDocu('faq', 'faq6-39'); ?>
+                <?= __('Adjust privileges') , PhpMyAdmin\Util::showDocu('faq', 'faq6-39'); ?>
             </th>
         <?php endif; ?>
 
@@ -65,7 +66,7 @@
             <?= __('Comments'); ?>
         </th>
 
-        <?php if (PMA\libraries\Util::isVirtualColumnsSupported()): ?>
+        <?php if (PhpMyAdmin\Util::isVirtualColumnsSupported()): ?>
             <th>
                 <?= __('Virtuality'); ?>
             </th>
@@ -82,7 +83,7 @@
                 <?= __('MIME type'); ?>
             </th>
             <th>
-                <a href="transformation_overview.php<?= PMA\libraries\URL::getCommon(); ?>#transformation"
+                <a href="transformation_overview.php<?= PhpMyAdmin\Url::getCommon(); ?>#transformation"
                    title="<?= __('List of available transformations and their options'); ?>"
                    target="_blank">
                     <?= __('Browser display transformation'); ?>
@@ -90,7 +91,7 @@
             </th>
             <th>
                 <?= __('Browser display transformation options'); ?>
-                <?= PMA\libraries\Util::showHint(
+                <?= PhpMyAdmin\Util::showHint(
                     __(
                         'Please enter the values for transformation options using this'
                         . ' format: \'a\', 100, b,\'c\'…<br />If you ever need to put'
@@ -101,7 +102,7 @@
                 ); ?>
             </th>
             <th>
-                <a href="transformation_overview.php<?= PMA\libraries\URL::getCommon(); ?>#input_transformation"
+                <a href="transformation_overview.php<?= PhpMyAdmin\Url::getCommon(); ?>#input_transformation"
                    title="<?= __('List of available transformations and their options'); ?>"
                    target="_blank">
                     <?= __('Input transformation'); ?>
@@ -109,7 +110,7 @@
             </th>
             <th>
                 <?= __('Input transformation options'); ?>
-                <?= PMA\libraries\Util::showHint(
+                <?= PhpMyAdmin\Util::showHint(
                     __(
                         'Please enter the values for transformation options using this'
                         . ' format: \'a\', 100, b,\'c\'…<br />If you ever need to put'
@@ -123,9 +124,10 @@
     </tr>
     <?php foreach($content_cells as $content_row): ?>
         <tr>
-            <?= PMA\libraries\Template::get('columns_definitions/column_attributes')
+            <?= PhpMyAdmin\Template::get('columns_definitions/column_attributes')
                 ->render($content_row); ?>
         </tr>
     <?php endforeach; ?>
 </table>
+</div>
 <br />

@@ -9,12 +9,13 @@
  * Include to test.
  */
 
-use PMA\libraries\Theme;
+use PhpMyAdmin\ErrorHandler;
+use PhpMyAdmin\Theme;
 
 require_once 'test/PMATestCase.php';
 
 /**
- * Test for PMA\libraries\ErrorHandler class.
+ * Test for PhpMyAdmin\ErrorHandler class.
  *
  * @package PhpMyAdmin-test
  */
@@ -34,7 +35,7 @@ class ErrorHandlerTest extends PMATestCase
      */
     protected function setUp()
     {
-        $this->object = new PMA\libraries\ErrorHandler();
+        $this->object = new ErrorHandler();
 
     }
 
@@ -60,7 +61,7 @@ class ErrorHandlerTest extends PMATestCase
      */
     private function _callProtectedFunction($name, $params)
     {
-        $class = new ReflectionClass('PMA\libraries\ErrorHandler');
+        $class = new ReflectionClass(ErrorHandler::class);
         $method = $class->getMethod($name);
         $method->setAccessible(true);
         return $method->invokeArgs($this->object, $params);

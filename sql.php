@@ -7,28 +7,27 @@
  *          that returns 0 rows - to prevent cyclic redirects or includes
  * @package PhpMyAdmin
  */
-use PMA\libraries\config\PageSettings;
-use PMA\libraries\Response;
-use PMA\libraries\Util;
-use PMA\libraries\URL;
+use PhpMyAdmin\Config\PageSettings;
+use PhpMyAdmin\Response;
+use PhpMyAdmin\Sql;
+use PhpMyAdmin\Url;
+use PhpMyAdmin\Util;
 
 /**
  * Gets some core libraries
  */
 require_once 'libraries/common.inc.php';
 require_once 'libraries/check_user_privileges.lib.php';
-require_once 'libraries/sql.lib.php';
 require_once 'libraries/config/user_preferences.forms.php';
 require_once 'libraries/config/page_settings.forms.php';
 
 PageSettings::showGroup('Browse');
 
-
 $response = Response::getInstance();
 $header   = $response->getHeader();
 $scripts  = $header->getScripts();
-$scripts->addFile('jquery/jquery-ui-timepicker-addon.js');
-$scripts->addFile('jquery/jquery.uitablefilter.js');
+$scripts->addFile('vendor/jquery/jquery-ui-timepicker-addon.js');
+$scripts->addFile('vendor/jquery/jquery.uitablefilter.js');
 $scripts->addFile('tbl_change.js');
 $scripts->addFile('indexes.js');
 $scripts->addFile('gis_data_editor.js');
@@ -40,7 +39,6 @@ $scripts->addFile('multi_column_sort.js');
 if (isset($ajax_reload) && $ajax_reload['reload'] === true) {
     $response->addJSON('ajax_reload', $ajax_reload);
 }
-
 
 /**
  * Defines the url to return to in case of error in a sql statement
@@ -60,7 +58,7 @@ if (empty($goto)) {
 
 if (! isset($err_url)) {
     $err_url = (! empty($back) ? $back : $goto)
-        . '?' . URL::getCommon(array('db' => $GLOBALS['db']))
+        . '?' . Url::getCommon(array('db' => $GLOBALS['db']))
         . ((mb_strpos(' ' . $goto, 'db_') != 1
             && strlen($table) > 0)
             ? '&amp;table=' . urlencode($table)
@@ -80,25 +78,24 @@ if (isset($_POST['bkm_fields']['bkm_database'])) {
     $db = $_POST['bkm_fields']['bkm_database'];
 }
 
-
 // During grid edit, if we have a relational field, show the dropdown for it.
 if (isset($_REQUEST['get_relational_values'])
     && $_REQUEST['get_relational_values'] == true
 ) {
-    PMA_getRelationalValues($db, $table);
+    Sql::getRelationalValues($db, $table);
     // script has exited at this point
 }
 
 // Just like above, find possible values for enum fields during grid edit.
 if (isset($_REQUEST['get_enum_values']) && $_REQUEST['get_enum_values'] == true) {
-    PMA_getEnumOrSetValues($db, $table, "enum");
+    Sql::getEnumOrSetValues($db, $table, "enum");
     // script has exited at this point
 }
 
 
 // Find possible values for set fields during grid edit.
 if (isset($_REQUEST['get_set_values']) && $_REQUEST['get_set_values'] == true) {
-    PMA_getEnumOrSetValues($db, $table, "set");
+    Sql::getEnumOrSetValues($db, $table, "set");
     // script has exited at this point
 }
 
@@ -116,14 +113,14 @@ if (isset($_REQUEST['get_default_fk_check_value'])
  * Check ajax request to set the column order and visibility
  */
 if (isset($_REQUEST['set_col_prefs']) && $_REQUEST['set_col_prefs'] == true) {
-    PMA_setColumnOrderOrVisibility($table, $db);
+    Sql::setColumnOrderOrVisibility($table, $db);
     // script has exited at this point
 }
 
 // Default to browse if no query set and we have table
 // (needed for browsing from DefaultTabTable)
 if (empty($sql_query) && strlen($table) > 0 && strlen($db) > 0) {
-    $sql_query = PMA_getDefaultSqlQueryForBrowse($db, $table);
+    $sql_query = Sql::getDefaultSqlQueryForBrowse($db, $table);
 
     // set $goto to what will be displayed if query returns 0 rows
     $goto = '';
@@ -156,7 +153,7 @@ if ($table != $table_from_sql && !empty($table_from_sql)) {
  * but since a malicious user may pass this variable by url/form, we don't take
  * into account this case.
  */
-if (PMA_hasNoRightsToDropDatabase(
+if (Sql::hasNoRightsToDropDatabase(
     $analyzed_sql_results, $cfg['AllowUserDropDatabase'], $is_superuser
 )) {
     Util::mysqlDie(
@@ -171,7 +168,7 @@ if (PMA_hasNoRightsToDropDatabase(
  * Need to find the real end of rows?
  */
 if (isset($find_real_end) && $find_real_end) {
-    $unlim_num_rows = PMA_findRealEndOfRows($db, $table);
+    $unlim_num_rows = Sql::findRealEndOfRows($db, $table);
 }
 
 
@@ -179,7 +176,7 @@ if (isset($find_real_end) && $find_real_end) {
  * Bookmark add
  */
 if (isset($_POST['store_bkm'])) {
-    PMA_addBookmark($goto);
+    Sql::addBookmark($goto);
     // script has exited at this point
 } // end if
 
@@ -189,7 +186,7 @@ if (isset($_POST['store_bkm'])) {
  */
 if ($goto == 'sql.php') {
     $is_gotofile = false;
-    $goto = 'sql.php' . URL::getCommon(
+    $goto = 'sql.php' . Url::getCommon(
         array(
             'db' => $db,
             'table' => $table,
@@ -198,7 +195,7 @@ if ($goto == 'sql.php') {
     );
 } // end if
 
-PMA_executeQueryAndSendQueryResponse(
+Sql::executeQueryAndSendQueryResponse(
     $analyzed_sql_results, // analyzed_sql_results
     $is_gotofile, // is_gotofile
     $db, // db

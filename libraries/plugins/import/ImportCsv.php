@@ -9,9 +9,10 @@
  */
 namespace PMA\libraries\plugins\import;
 
+use PhpMyAdmin\Message;
 use PMA\libraries\properties\options\items\BoolPropertyItem;
-use PMA;
 use PMA\libraries\properties\options\items\TextPropertyItem;
+use PhpMyAdmin\Util;
 
 /**
  * Handles the import for the CSV format
@@ -65,7 +66,7 @@ class ImportCsv extends AbstractImportCsv
             );
             $generalOptions->addProperty($leaf);
         } else {
-            $hint = new PMA\libraries\Message(
+            $hint = new Message(
                 __(
                     'If the data in each row of the file is not'
                     . ' in the same order as in the database, list the corresponding'
@@ -75,7 +76,7 @@ class ImportCsv extends AbstractImportCsv
             );
             $leaf = new TextPropertyItem(
                 "columns",
-                __('Column names: ') . PMA\libraries\Util::showHint($hint)
+                __('Column names: ') . Util::showHint($hint)
             );
             $generalOptions->addProperty($leaf);
         }
@@ -114,7 +115,7 @@ class ImportCsv extends AbstractImportCsv
 
         $param_error = false;
         if (strlen($csv_terminated) === 0) {
-            $message = PMA\libraries\Message::error(
+            $message = Message::error(
                 __('Invalid parameter for CSV import: %s')
             );
             $message->addParam(__('Columns terminated with'));
@@ -129,7 +130,7 @@ class ImportCsv extends AbstractImportCsv
             // But the parser won't work correctly with strings so we allow just
             // one character.
         } elseif (mb_strlen($csv_enclosed) > 1) {
-            $message = PMA\libraries\Message::error(
+            $message = Message::error(
                 __('Invalid parameter for CSV import: %s')
             );
             $message->addParam(__('Columns enclosed with'));
@@ -140,7 +141,7 @@ class ImportCsv extends AbstractImportCsv
             // But the parser won't work correctly with strings so we allow just
             // one character.
         } elseif (mb_strlen($csv_escaped) > 1) {
-            $message = PMA\libraries\Message::error(
+            $message = Message::error(
                 __('Invalid parameter for CSV import: %s')
             );
             $message->addParam(__('Columns escaped with'));
@@ -149,7 +150,7 @@ class ImportCsv extends AbstractImportCsv
         } elseif (mb_strlen($csv_new_line) != 1
             && $csv_new_line != 'auto'
         ) {
-            $message = PMA\libraries\Message::error(
+            $message = Message::error(
                 __('Invalid parameter for CSV import: %s')
             );
             $message->addParam(__('Lines terminated with'));
@@ -160,7 +161,7 @@ class ImportCsv extends AbstractImportCsv
         // If there is an error in the parameters entered,
         // indicate that immediately.
         if ($param_error) {
-            PMA\libraries\Util::mysqlDie(
+            Util::mysqlDie(
                 $message->getMessage(),
                 '',
                 false,
@@ -176,7 +177,7 @@ class ImportCsv extends AbstractImportCsv
             if (isset($_POST['csv_ignore'])) {
                 $sql_template .= ' IGNORE';
             }
-            $sql_template .= ' INTO ' . PMA\libraries\Util::backquote($table);
+            $sql_template .= ' INTO ' . Util::backquote($table);
 
             $tmp_fields = $GLOBALS['dbi']->getColumns($db, $table);
 
@@ -200,7 +201,7 @@ class ImportCsv extends AbstractImportCsv
                         }
                     }
                     if (!$found) {
-                        $message = PMA\libraries\Message::error(
+                        $message = Message::error(
                             __(
                                 'Invalid column (%s) specified! Ensure that columns'
                                 . ' names are spelled correctly, separated by commas'
@@ -212,7 +213,7 @@ class ImportCsv extends AbstractImportCsv
                         break;
                     }
                     $fields[] = $field;
-                    $sql_template .= PMA\libraries\Util::backquote($val);
+                    $sql_template .= Util::backquote($val);
                 }
                 $sql_template .= ') ';
             }
@@ -296,7 +297,7 @@ class ImportCsv extends AbstractImportCsv
             while ($i < $len) {
                 // Deadlock protection
                 if ($lasti == $i && $lastlen == $len) {
-                    $message = PMA\libraries\Message::error(
+                    $message = Message::error(
                         __('Invalid format of CSV input on line %d.')
                     );
                     $message->addParam($line);
@@ -526,7 +527,7 @@ class ImportCsv extends AbstractImportCsv
                             if ($values[count($values) - 1] == ';') {
                                 unset($values[count($values) - 1]);
                             } else {
-                                $message = PMA\libraries\Message::error(
+                                $message = Message::error(
                                     __(
                                         'Invalid column count in CSV input'
                                         . ' on line %d.'
@@ -558,7 +559,7 @@ class ImportCsv extends AbstractImportCsv
                         if (isset($_POST['csv_replace'])) {
                             $sql .= " ON DUPLICATE KEY UPDATE ";
                             foreach ($fields as $field) {
-                                $fieldName = PMA\libraries\Util::backquote(
+                                $fieldName = Util::backquote(
                                     $field['Field']
                                 );
                                 $sql .= $fieldName . " = VALUES(" . $fieldName
@@ -657,7 +658,7 @@ class ImportCsv extends AbstractImportCsv
         PMA_importRunQuery('', '', $sql_data);
 
         if (count($values) != 0 && !$error) {
-            $message = PMA\libraries\Message::error(
+            $message = Message::error(
                 __('Invalid format of CSV input on line %d.')
             );
             $message->addParam($line);

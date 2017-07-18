@@ -318,8 +318,7 @@ function PMA_showAddIndexDialog(source_array, array_index, target_columns, col_i
     var $table = $('input[name="table"]');
     var table = $table.length > 0 ? $table.val() : '';
     var post_data = {
-        token: $('input[name="token"]').val(),
-        server:  $('input[name="server"]').val(),
+        server: PMA_commonParams.get('server'),
         db: $('input[name="db"]').val(),
         table: table,
         ajax_request: 1,
@@ -529,7 +528,7 @@ AJAX.registerTeardown('indexes.js', function () {
     $(document).off('click', '#preview_index_frm');
     $(document).off('change', '#select_index_choice');
     $(document).off('click', 'a.drop_primary_key_index_anchor.ajax');
-    $(document).off('click', "#table_index tbody tr td.edit_index.ajax, #indexes .add_index.ajax");
+    $(document).off('click', "#table_index tbody tr td.edit_index.ajax, #index_div .add_index.ajax");
     $(document).off('click', '#index_frm input[type=submit]');
     $('body').off('change', 'select[name*="field_key"]');
     $(document).off('click', '.show_index_dialog');
@@ -611,8 +610,7 @@ AJAX.registerOnload('indexes.js', function () {
             var $msg = PMA_ajaxShowMessage(PMA_messages.strDroppingPrimaryKeyIndex, false);
             var params = {
                 'is_js_confirmed': 1,
-                'ajax_request': true,
-                'token' : PMA_commonParams.get('token')
+                'ajax_request': true
             };
             $.post(url, params, function (data) {
                 if (typeof data !== 'undefined' && data.success === true) {
@@ -654,7 +652,7 @@ AJAX.registerOnload('indexes.js', function () {
     /**
      *Ajax event handler for index edit
     **/
-    $(document).on('click', "#table_index tbody tr td.edit_index.ajax, #indexes .add_index.ajax", function (event) {
+    $(document).on('click', "#table_index tbody tr td.edit_index.ajax, #index_div .add_index.ajax", function (event) {
         event.preventDefault();
         var url, title;
         if ($(this).find("a").length === 0) {
@@ -756,5 +754,10 @@ AJAX.registerOnload('indexes.js', function () {
         }
 
         PMA_showAddIndexDialog(source_array, array_index, target_columns, -1, source_array[array_index]);
-    })
+    });
+
+    $('#index_frm').on('submit', function () {
+        if (typeof(this.elements['index[Key_name]'].disabled) != 'undefined')
+            this.elements['index[Key_name]'].disabled = false;
+    });
 });

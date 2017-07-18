@@ -48,12 +48,12 @@ function matchFile(fname)
  * Unbind all event handlers before tearing down a page
  */
 AJAX.registerTeardown('import.js', function () {
-    $("#plugins").unbind('change');
-    $("#input_import_file").unbind('change');
-    $("#select_local_import_file").unbind('change');
-    $("#input_import_file").unbind('change').unbind('focus');
-    $("#select_local_import_file").unbind('focus');
-    $("#text_csv_enclosed").add("#text_csv_escaped").unbind('keyup');
+    $("#plugins").off('change');
+    $("#input_import_file").off('change');
+    $("#select_local_import_file").off('change');
+    $("#input_import_file").off('change').off('focus');
+    $("#select_local_import_file").off('focus');
+    $("#text_csv_enclosed").add("#text_csv_escaped").off('keyup');
 });
 
 AJAX.registerOnload('import.js', function () {
@@ -118,7 +118,7 @@ AJAX.registerOnload('import.js', function () {
      * When the "Browse the server" form is clicked or the "Select from the web server upload directory"
      * form is clicked, the radio button beside it becomes selected and the other form becomes disabled.
      */
-    $("#input_import_file").bind("focus change", function () {
+    $("#input_import_file").on("focus change", function () {
         $("#radio_import_file").prop('checked', true);
         $("#radio_local_import_file").prop('checked', false);
     });
@@ -147,7 +147,7 @@ AJAX.registerOnload('import.js', function () {
      * as mysql allows just one character for these fields,
      * if first character is escape then allow two including escape character.
      */
-    $("#text_csv_enclosed").add("#text_csv_escaped").bind('keyup', function() {
+    $("#text_csv_enclosed").add("#text_csv_escaped").on('keyup', function() {
         if($(this).val().length === 2 && $(this).val().charAt(0) !== "\\") {
             $(this).val($(this).val().substring(0, 1));
             return false;

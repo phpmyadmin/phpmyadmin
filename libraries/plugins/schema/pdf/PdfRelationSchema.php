@@ -7,9 +7,10 @@
  */
 namespace PMA\libraries\plugins\schema\pdf;
 
+use PhpMyAdmin\Pdf as PdfLib;
 use PMA\libraries\plugins\schema\ExportRelationSchema;
-use PMA\libraries\Util;
-use PMA\libraries\PDF as PDF_lib;
+use PhpMyAdmin\Transformations;
+use PhpMyAdmin\Util;
 
 /**
  * Skip the plugin if TCPDF is not available.
@@ -25,8 +26,6 @@ if (! class_exists('TCPDF')) {
 if (getcwd() == dirname(__FILE__)) {
     die('Attack stopped');
 }
-
-require_once 'libraries/transformations.lib.php';
 
 /**
  * Pdf Relation Schema Class
@@ -53,7 +52,7 @@ class PdfRelationSchema extends ExportRelationSchema
      * @var TableStatsPdf[]
      */
     private $_tables = array();
-    private $_ff = PDF_lib::PMA_PDF_FONT;
+    private $_ff = PdfLib::PMA_PDF_FONT;
     private $_xMax = 0;
     private $_yMax = 0;
     private $_scale;
@@ -128,7 +127,7 @@ class PdfRelationSchema extends ExportRelationSchema
         if ($this->_withDoc) {
             $this->diagram->SetLink($this->diagram->PMA_links['RT']['-'], -1);
             $this->diagram->Bookmark(__('Relational schema'));
-            $this->diagram->SetAlias('{00}', $this->diagram->PageNo());
+            $this->diagram->setAlias('{00}', $this->diagram->PageNo());
             $this->_topMargin = 28;
             $this->_bottomMargin = 28;
         }
@@ -307,7 +306,7 @@ class PdfRelationSchema extends ExportRelationSchema
      */
     public function showOutput()
     {
-        $this->diagram->Download($this->getFileName('.pdf'));
+        $this->diagram->download($this->getFileName('.pdf'));
     }
 
     /**
@@ -531,7 +530,7 @@ class PdfRelationSchema extends ExportRelationSchema
             $this->diagram->SetAutoPageBreak(true, 15);
             $this->diagram->addpage($this->orientation);
             $this->diagram->Bookmark($table);
-            $this->diagram->SetAlias(
+            $this->diagram->setAlias(
                 '{' . sprintf("%02d", $z) . '}', $this->diagram->PageNo()
             );
             $this->diagram->PMA_links['RT'][$table]['-']
@@ -550,7 +549,7 @@ class PdfRelationSchema extends ExportRelationSchema
             $cfgRelation = PMA_getRelationsParam();
             $comments = PMA_getComments($this->db, $table);
             if ($cfgRelation['mimework']) {
-                $mime_map = PMA_getMIME($this->db, $table, true);
+                $mime_map = Transformations::getMIME($this->db, $table, true);
             }
 
             /**
@@ -645,7 +644,7 @@ class PdfRelationSchema extends ExportRelationSchema
                 }
                 $this->diagram->Cell($comments_width, 8, __('Comments'), 1, 0, 'C');
                 $this->diagram->Cell(45, 8, 'MIME', 1, 1, 'C');
-                $this->diagram->SetWidths(
+                $this->diagram->setWidths(
                     array(25, 20, 20, 10, 20, 25, 45, $comments_width, 45)
                 );
             } else {
@@ -658,7 +657,7 @@ class PdfRelationSchema extends ExportRelationSchema
                 $this->diagram->Cell(30, 8, __('Links to'), 1, 0, 'C');
                 $this->diagram->Cell(30, 8, __('Comments'), 1, 0, 'C');
                 $this->diagram->Cell(30, 8, 'MIME', 1, 1, 'C');
-                $this->diagram->SetWidths(array(20, 20, 20, 10, 15, 15, 30, 30, 30));
+                $this->diagram->setWidths(array(20, 20, 20, 10, 15, 15, 30, 30, 30));
             }
             $this->diagram->SetFont($this->_ff, '');
 
@@ -724,7 +723,7 @@ class PdfRelationSchema extends ExportRelationSchema
                 } else {
                     unset($links[6]);
                 }
-                $this->diagram->Row($this->diagram_row, $links);
+                $this->diagram->row($this->diagram_row, $links);
             } // end foreach
             $this->diagram->SetFont($this->_ff, '', 14);
         } //end each

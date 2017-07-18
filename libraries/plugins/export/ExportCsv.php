@@ -9,13 +9,13 @@
 
 namespace PMA\libraries\plugins\export;
 
-use PMA\libraries\properties\options\items\BoolPropertyItem;
+use PhpMyAdmin\DatabaseInterface;
 use PMA\libraries\plugins\ExportPlugin;
 use PMA\libraries\properties\plugins\ExportPluginProperties;
-use PMA\libraries\properties\options\items\HiddenPropertyItem;
 use PMA\libraries\properties\options\groups\OptionsPropertyMainGroup;
 use PMA\libraries\properties\options\groups\OptionsPropertyRootGroup;
-use PMA;
+use PMA\libraries\properties\options\items\BoolPropertyItem;
+use PMA\libraries\properties\options\items\HiddenPropertyItem;
 use PMA\libraries\properties\options\items\TextPropertyItem;
 
 /**
@@ -228,7 +228,7 @@ class ExportCsv extends ExportPlugin
         $result = $GLOBALS['dbi']->query(
             $sql_query,
             null,
-            PMA\libraries\DatabaseInterface::QUERY_UNBUFFERED
+            DatabaseInterface::QUERY_UNBUFFERED
         );
         $fields_cnt = $GLOBALS['dbi']->numFields($result);
 

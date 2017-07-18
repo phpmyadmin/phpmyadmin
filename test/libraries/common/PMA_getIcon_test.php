@@ -1,7 +1,7 @@
 <?php
 /* vim: set expandtab sw=4 ts=4 sts=4: */
 /**
- ** Test for PMA\libraries\Util::getIcon() from Util.php
+ ** Test for PhpMyAdmin\Util::getIcon() from Util.php
  *
  * @package PhpMyAdmin-test
  * @group common.lib-tests
@@ -10,13 +10,13 @@
 /*
  * Include to test.
  */
-use PMA\libraries\Theme;
+use PhpMyAdmin\Theme;
 
 
 
 
 /**
- ** Test for PMA\libraries\Util::getIcon() from Util.php
+ ** Test for PhpMyAdmin\Util::getIcon() from Util.php
  *
  * @package PhpMyAdmin-test
  * @group common.lib-tests
@@ -43,7 +43,7 @@ class PMA_GetIcon_Test extends PHPUnit_Framework_TestCase
 
         $this->assertEquals(
             '<span class="nowrap"></span>',
-            PMA\libraries\Util::getIcon('b_comment.png')
+            PhpMyAdmin\Util::getIcon('b_comment.png')
         );
     }
 
@@ -58,7 +58,7 @@ class PMA_GetIcon_Test extends PHPUnit_Framework_TestCase
 
         $this->assertEquals(
             '<span class="nowrap"><img src="themes/dot.gif" title="" alt="" class="icon ic_b_comment" /></span>',
-            PMA\libraries\Util::getIcon('b_comment.png')
+            PhpMyAdmin\Util::getIcon('b_comment.png')
         );
     }
 
@@ -76,7 +76,7 @@ class PMA_GetIcon_Test extends PHPUnit_Framework_TestCase
             '<span class="nowrap"><img src="themes/dot.gif" title="'
             . $alternate_text . '" alt="' . $alternate_text
             . '" class="icon ic_b_comment" /></span>',
-            PMA\libraries\Util::getIcon('b_comment.png', $alternate_text)
+            PhpMyAdmin\Util::getIcon('b_comment.png', $alternate_text)
         );
     }
 
@@ -96,7 +96,7 @@ class PMA_GetIcon_Test extends PHPUnit_Framework_TestCase
             '<span class="nowrap"><img src="themes/dot.gif" title="'
             . $alternate_text . '" alt="' . $alternate_text
             . '" class="icon ic_b_comment" />&nbsp;' . $alternate_text . '</span>',
-            PMA\libraries\Util::getIcon('b_comment.png', $alternate_text, true, false)
+            PhpMyAdmin\Util::getIcon('b_comment.png', $alternate_text, true, false)
         );
 
     }

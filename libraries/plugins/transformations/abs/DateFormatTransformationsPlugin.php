@@ -8,9 +8,9 @@
  */
 namespace PMA\libraries\plugins\transformations\abs;
 
-use PMA;
 use PMA\libraries\plugins\TransformationsPlugin;
-use PMA\libraries\Sanitize;
+use PhpMyAdmin\Sanitize;
+use PhpMyAdmin\Util;
 
 /**
  * Provides common methods for all of the date format transformations plugins.
@@ -137,7 +137,7 @@ abstract class DateFormatTransformationsPlugin extends TransformationsPlugin
             $timestamp -= $options[0] * 60 * 60;
             $source = $buffer;
             if ($options[2] == 'local') {
-                $text = PMA\libraries\Util::localisedDate(
+                $text = Util::localisedDate(
                     $timestamp,
                     $options[1]
                 );

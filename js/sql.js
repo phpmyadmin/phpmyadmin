@@ -48,7 +48,7 @@ function PMA_autosaveSQL(query)
         if (isStorageSupported('localStorage')) {
             window.localStorage.auto_saved_sql = query;
         } else {
-            $.cookie('auto_saved_sql', query);
+            Cookies.set('auto_saved_sql', query);
         }
     }
 }
@@ -103,20 +103,20 @@ function getFieldName($table_results, $this_field)
 AJAX.registerTeardown('sql.js', function () {
     $(document).off('click', 'a.delete_row.ajax');
     $(document).off('submit', '.bookmarkQueryForm');
-    $('input#bkm_label').unbind('keyup');
+    $('input#bkm_label').off('keyup');
     $(document).off('makegrid', ".sqlqueryresults");
     $(document).off('stickycolumns', ".sqlqueryresults");
-    $("#togglequerybox").unbind('click');
+    $("#togglequerybox").off('click');
     $(document).off('click', "#button_submit_query");
     $(document).off('change', '#id_bookmark');
-    $("input[name=bookmark_variable]").unbind("keypress");
+    $("input[name='bookmark_variable']").off("keypress");
     $(document).off('submit', "#sqlqueryform.ajax");
     $(document).off('click', "input[name=navig].ajax");
     $(document).off('submit', "form[name='displayOptionsForm'].ajax");
     $(document).off('mouseenter', 'th.column_heading.pointer');
     $(document).off('mouseleave', 'th.column_heading.pointer');
     $(document).off('click', 'th.column_heading.marker');
-    $(window).unbind('scroll');
+    $(window).off('scroll');
     $(document).off("keyup", ".filter_rows");
     $(document).off('click', "#printView");
     if (codemirror_editor) {
@@ -125,7 +125,7 @@ AJAX.registerTeardown('sql.js', function () {
         $('#sqlquery').off('input propertychange');
     }
     $('body').off('click', '.navigation .showAllRows');
-    $('body').off('click','a.browse_foreign');
+    $('body').off('click', 'a.browse_foreign');
     $('body').off('click', '#simulate_dml');
     $('body').off('keyup', '#sqlqueryform');
     $('body').off('click', 'form[name="resultsForm"].ajax button[name="submit_mult"], form[name="resultsForm"].ajax input[name="submit_mult"]');
@@ -173,8 +173,7 @@ AJAX.registerOnload('sql.js', function () {
             } else {
                 var params = {
                     'ajax_request': true,
-                    'is_js_confirmed': true,
-                    'token': PMA_commonParams.get('token')
+                    'is_js_confirmed': true
                 };
                 $.post(url, params, function (data) {
                     if (data.success) {
@@ -252,7 +251,7 @@ AJAX.registerOnload('sql.js', function () {
             var $stick_columns = initStickyColumns($table_results);
             rearrangeStickyColumns($stick_columns, $table_results);
             //adjust sticky columns on scroll
-            $(window).bind('scroll', function() {
+            $(window).on('scroll', function() {
                 handleStickyColumns($stick_columns, $table_results);
             });
         });
@@ -324,7 +323,7 @@ AJAX.registerOnload('sql.js', function () {
         $varDiv.empty();
         for (var i = 1; i <= varCount; i++) {
             $varDiv.append($('<label for="bookmark_variable_' + i + '">' + PMA_sprintf(PMA_messages.strBookmarkVariable, i) + '</label>'));
-            $varDiv.append($('<input type="text" size="10" name="bookmark_variable[' + i + ']" id="bookmark_variable_' + i + '"></input>'));
+            $varDiv.append($('<input type="text" size="10" name="bookmark_variable[' + i + ']" id="bookmark_variable_' + i + '"/>'));
         }
 
         if (varCount == 0) {
@@ -340,7 +339,7 @@ AJAX.registerOnload('sql.js', function () {
      *
      * @memberOf    jQuery
      */
-    $("input[name=bookmark_variable]").bind("keypress", function (event) {
+    $("input[name=bookmark_variable]").on("keypress", function (event) {
         // force the 'Enter Key' to implicitly click the #button_submit_bookmark
         var keycode = (event.keyCode ? event.keyCode : (event.which ? event.which : event.charCode));
         if (keycode == 13) { // keycode for enter key
@@ -585,7 +584,7 @@ AJAX.registerOnload('sql.js', function () {
             type: 'POST',
             url: $form.attr('action'),
             data: {
-                token: $form.find('input[name="token"]').val(),
+                server: PMA_commonParams.get('server'),
                 db: db_name,
                 ajax_request: '1',
                 simulate_dml: '1',

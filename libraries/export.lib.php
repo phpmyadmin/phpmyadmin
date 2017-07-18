@@ -6,13 +6,13 @@
  *
  * @package PhpMyAdmin
  */
-use PMA\libraries\Encoding;
-use PMA\libraries\Message;
+use PhpMyAdmin\Encoding;
+use PhpMyAdmin\Message;
 use PMA\libraries\plugins\ExportPlugin;
-use PMA\libraries\Table;
-use PMA\libraries\ZipFile;
-use PMA\libraries\URL;
-use PMA\libraries\Sanitize;
+use PhpMyAdmin\Table;
+use PhpMyAdmin\ZipExtension;
+use PhpMyAdmin\Url;
+use PhpMyAdmin\Sanitize;
 
 
 /**
@@ -279,7 +279,7 @@ function PMA_getExportFilenameAndMimetype(
             );
         }
     }
-    $filename = PMA\libraries\Util::expandUserString($filename_template);
+    $filename = PhpMyAdmin\Util::expandUserString($filename_template);
     // remove dots in filename (coming from either the template or already
     // part of the filename) to avoid a remote code execution vulnerability
     $filename = Sanitize::sanitizeFilename($filename, $replaceDots = true);
@@ -324,10 +324,10 @@ function PMA_openExportFile($filename, $quick_export)
     $file_handle = null;
     $message = '';
 
-    $save_filename = PMA\libraries\Util::userDir($GLOBALS['cfg']['SaveDir'])
+    $save_filename = PhpMyAdmin\Util::userDir($GLOBALS['cfg']['SaveDir'])
         . preg_replace('@[/\\\\]@', '_', $filename);
 
-    if (file_exists($save_filename)
+    if (@file_exists($save_filename)
         && ((! $quick_export && empty($_REQUEST['onserver_overwrite']))
         || ($quick_export
         && $_REQUEST['quick_export_onserver_overwrite'] != 'saveitover'))
@@ -405,24 +405,7 @@ function PMA_compressExport($dump_buffer, $compression, $filename)
 {
     if ($compression == 'zip' && @function_exists('gzcompress')) {
         $filename = substr($filename, 0, -4); // remove extension (.zip)
-        $zipfile = new ZipFile();
-        if (is_array($dump_buffer)) {
-            foreach ($dump_buffer as $table => $dump) {
-                $ext_pos = strpos($filename, '.');
-                $extension = substr($filename, $ext_pos);
-                $zipfile->addFile(
-                    $dump,
-                    str_replace(
-                        $extension,
-                        '_' . $table . $extension,
-                        $filename
-                    )
-                );
-            }
-        } else {
-            $zipfile->addFile($dump_buffer, $filename);
-        }
-        $dump_buffer = $zipfile->file();
+        $dump_buffer = ZipExtension::createFile($dump_buffer, $filename);
     } elseif ($compression == 'gzip' && PMA_gzencodeNeeded()) {
         // without the optional parameter level because it bugs
         $dump_buffer = gzencode($dump_buffer);
@@ -477,11 +460,11 @@ function PMA_getHtmlForDisplayedExportHeader($export_type, $db, $table)
      */
     $back_button = '<p>[ <a href="';
     if ($export_type == 'server') {
-        $back_button .= 'server_export.php' . URL::getCommon();
+        $back_button .= 'server_export.php' . Url::getCommon();
     } elseif ($export_type == 'database') {
-        $back_button .= 'db_export.php' . URL::getCommon(array('db' => $db));
+        $back_button .= 'db_export.php' . Url::getCommon(array('db' => $db));
     } else {
-        $back_button .= 'tbl_export.php' . URL::getCommon(
+        $back_button .= 'tbl_export.php' . Url::getCommon(
             array(
                 'db' => $db, 'table' => $table
             )
@@ -684,12 +667,12 @@ function PMA_exportDatabase(
             && in_array($table, $table_data)
             && ! ($is_view)
         ) {
-            $tableObj = new PMA\libraries\Table($table, $db);
+            $tableObj = new PhpMyAdmin\Table($table, $db);
             $nonGeneratedCols = $tableObj->getNonGeneratedColumns(true);
 
             $local_query  = 'SELECT ' . implode(', ', $nonGeneratedCols)
-                .  ' FROM ' . PMA\libraries\Util::backquote($db)
-                . '.' . PMA\libraries\Util::backquote($table);
+                .  ' FROM ' . PhpMyAdmin\Util::backquote($db)
+                . '.' . PhpMyAdmin\Util::backquote($table);
 
             if (! $export_plugin->exportData(
                 $db, $table, $crlf, $err_url, $local_query, $aliases
@@ -870,12 +853,12 @@ function PMA_exportTable(
             $GLOBALS['dbi']->selectDb($db);
         } else {
             // Data is exported only for Non-generated columns
-            $tableObj = new PMA\libraries\Table($table, $db);
+            $tableObj = new PhpMyAdmin\Table($table, $db);
             $nonGeneratedCols = $tableObj->getNonGeneratedColumns(true);
 
             $local_query  = 'SELECT ' . implode(', ', $nonGeneratedCols)
-                .  ' FROM ' . PMA\libraries\Util::backquote($db)
-                . '.' . PMA\libraries\Util::backquote($table) . $add_query;
+                .  ' FROM ' . PhpMyAdmin\Util::backquote($db)
+                . '.' . PhpMyAdmin\Util::backquote($table) . $add_query;
         }
         if (! $export_plugin->exportData(
             $db, $table, $crlf, $err_url, $local_query, $aliases
@@ -1000,8 +983,8 @@ function PMA_lockTables($db, $tables, $lockType = "WRITE")
 {
     $locks = array();
     foreach ($tables as $table) {
-        $locks[] = PMA\libraries\Util::backquote($db) . "."
-            . PMA\libraries\Util::backquote($table) . " " . $lockType;
+        $locks[] = PhpMyAdmin\Util::backquote($db) . "."
+            . PhpMyAdmin\Util::backquote($table) . " " . $lockType;
     }
 
     $sql = "LOCK TABLES " . implode(", ", $locks);

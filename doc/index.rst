@@ -18,6 +18,7 @@ Contents:
     user
     faq
     developers
+    security
     vendors
     copyright
     credits

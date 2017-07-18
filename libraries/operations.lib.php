@@ -5,16 +5,17 @@
  *
  * @package PhpMyAdmin
  */
-use PMA\libraries\engines\Innodb;
-use PMA\libraries\Charsets;
-use PMA\libraries\Message;
-use PMA\libraries\Partition;
+use PhpMyAdmin\Engines\Innodb;
+use PhpMyAdmin\Charsets;
+use PhpMyAdmin\Core;
+use PhpMyAdmin\Message;
+use PhpMyAdmin\Partition;
 use PMA\libraries\plugins\export\ExportSql;
-use PMA\libraries\Response;
-use PMA\libraries\StorageEngine;
-use PMA\libraries\Table;
-use PMA\libraries\Util;
-use PMA\libraries\URL;
+use PhpMyAdmin\Response;
+use PhpMyAdmin\StorageEngine;
+use PhpMyAdmin\Table;
+use PhpMyAdmin\Util;
+use PhpMyAdmin\Url;
 
 /**
  * Get HTML output for database comment
@@ -25,9 +26,9 @@ use PMA\libraries\URL;
  */
 function PMA_getHtmlForDatabaseComment($db)
 {
-    $html_output = '<div class="operations_half_width">'
+    $html_output = '<div>'
         . '<form method="post" action="db_operations.php" id="formDatabaseComment">'
-        . URL::getHiddenInputs($db)
+        . Url::getHiddenInputs($db)
         . '<fieldset>'
         . '<legend>';
     if (Util::showIcons('ActionLinksMode')) {
@@ -36,7 +37,7 @@ function PMA_getHtmlForDatabaseComment($db)
     $html_output .=  __('Database comment');
     $html_output .= '</legend>';
     $html_output .= '<input type="text" name="comment" '
-        . 'class="textfield" size="30"'
+        . 'class="textfield"'
         . 'value="' . htmlspecialchars(PMA_getDBComment($db)) . '" />'
         . '</fieldset>';
     $html_output .= '<fieldset class="tblFooters">'
@@ -57,7 +58,7 @@ function PMA_getHtmlForDatabaseComment($db)
  */
 function PMA_getHtmlForRenameDatabase($db)
 {
-    $html_output = '<div class="operations_half_width">'
+    $html_output = '<div>'
         . '<form id="rename_db_form" '
         . 'class="ajax" '
         . 'method="post" action="db_operations.php" '
@@ -69,7 +70,7 @@ function PMA_getHtmlForRenameDatabase($db)
     }
     $html_output .= '<input type="hidden" name="what" value="data" />'
         . '<input type="hidden" name="db_rename" value="true" />'
-        . URL::getHiddenInputs($db)
+        . Url::getHiddenInputs($db)
         . '<fieldset>'
         . '<legend>';
 
@@ -80,8 +81,8 @@ function PMA_getHtmlForRenameDatabase($db)
         . '</legend>';
 
     $html_output .= '<input id="new_db_name" type="text" name="newname" '
-        . 'maxlength="64" size="30" class="textfield" required="required" '
-        . 'value="' . htmlspecialchars($db) . '"/>';
+        . 'maxlength="64" class="textfield" required="required"/>';
+    $html_output .= '<br />';
 
     if ($GLOBALS['db_priv'] && $GLOBALS['table_priv']
         && $GLOBALS['col_priv'] && $GLOBALS['proc_priv']
@@ -136,7 +137,7 @@ function PMA_getHtmlForDropDatabaseLink($db)
         'db' => null,
     );
 
-    $html_output = '<div class="operations_half_width">'
+    $html_output = '<div>'
         . '<fieldset class="caution">';
     $html_output .= '<legend>';
     if (Util::showIcons('ActionLinksMode')) {
@@ -180,7 +181,7 @@ function PMA_getHtmlForCopyDatabase($db)
         $pma_switch_to_new = 'true';
     }
 
-    $html_output = '<div class="operations_half_width clearfloat">';
+    $html_output = '<div>';
     $html_output .= '<form id="copy_db_form" '
         . 'class="ajax" '
         . 'method="post" action="db_operations.php" '
@@ -191,7 +192,7 @@ function PMA_getHtmlForCopyDatabase($db)
         . 'value="' . $_REQUEST['db_collation'] . '" />' . "\n";
     }
     $html_output .= '<input type="hidden" name="db_copy" value="true" />' . "\n"
-        . URL::getHiddenInputs($db);
+        . Url::getHiddenInputs($db);
     $html_output .= '<fieldset>'
         . '<legend>';
 
@@ -200,9 +201,8 @@ function PMA_getHtmlForCopyDatabase($db)
     }
     $html_output .= __('Copy database to')
         . '</legend>'
-        . '<input type="text" maxlength="64" name="newname" size="30" '
-        . 'class="textfield" value="' . htmlspecialchars($db) . '" '
-        . 'required="required" /><br />'
+        . '<input type="text" maxlength="64" name="newname" '
+        . 'class="textfield" required="required" /><br />'
         . Util::getRadioFields(
             'what', $choices, 'data', true
         );
@@ -273,12 +273,12 @@ function PMA_getHtmlForCopyDatabase($db)
  */
 function PMA_getHtmlForChangeDatabaseCharset($db, $table)
 {
-    $html_output = '<div class="operations_half_width">'
+    $html_output = '<div>'
         . '<form id="change_db_charset_form" ';
     $html_output .= 'class="ajax" ';
     $html_output .= 'method="post" action="db_operations.php">';
 
-    $html_output .= URL::getHiddenInputs($db, $table);
+    $html_output .= Url::getHiddenInputs($db, $table);
 
     $html_output .= '<fieldset>' . "\n"
        . '    <legend>';
@@ -765,10 +765,10 @@ function PMA_duplicateBookmarks($_error, $db)
  */
 function PMA_getHtmlForOrderTheTable($columns)
 {
-    $html_output = '<div class="operations_half_width">';
+    $html_output = '<div>';
     $html_output .= '<form method="post" id="alterTableOrderby" '
         . 'action="tbl_operations.php">';
-    $html_output .= URL::getHiddenInputs(
+    $html_output .= Url::getHiddenInputs(
         $GLOBALS['db'], $GLOBALS['table']
     );
     $html_output .= '<fieldset id="fieldset_table_order">'
@@ -806,11 +806,11 @@ function PMA_getHtmlForOrderTheTable($columns)
  */
 function PMA_getHtmlForMoveTable()
 {
-    $html_output = '<div class="operations_half_width">';
+    $html_output = '<div>';
     $html_output .= '<form method="post" action="tbl_operations.php"'
         . ' id="moveTableForm" class="ajax"'
         . ' onsubmit="return emptyCheckTheField(this, \'new_name\')">'
-        . URL::getHiddenInputs($GLOBALS['db'], $GLOBALS['table']);
+        . Url::getHiddenInputs($GLOBALS['db'], $GLOBALS['table']);
 
     $html_output .= '<input type="hidden" name="reload" value="1" />'
         . '<input type="hidden" name="what" value="data" />'
@@ -820,7 +820,7 @@ function PMA_getHtmlForMoveTable()
         . '</legend>';
 
     if (count($GLOBALS['dblist']->databases) > $GLOBALS['cfg']['MaxDbList']) {
-        $html_output .= '<input type="text" maxlength="100" size="30" '
+        $html_output .= '<input type="text" maxlength="100" '
             . 'name="target_db" value="' . htmlspecialchars($GLOBALS['db'])
             . '"/>';
     } else {
@@ -829,7 +829,7 @@ function PMA_getHtmlForMoveTable()
             . '</select>';
     }
     $html_output .= '&nbsp;<strong>.</strong>&nbsp;';
-    $html_output .= '<input class="halfWidth" type="text" size="20" name="new_name"'
+    $html_output .= '<input class="halfWidth" type="text" name="new_name"'
         . ' maxlength="64" required="required" '
         . 'value="' . htmlspecialchars($GLOBALS['table']) . '" /><br />';
 
@@ -872,16 +872,16 @@ function PMA_getHtmlForMoveTable()
 /**
  * Get the HTML div for Table option
  *
- * @param Table   $pma_table          Table object
- * @param string  $comment            Comment
- * @param array   $tbl_collation      table collation
- * @param string  $tbl_storage_engine table storage engine
- * @param string  $pack_keys          pack keys
- * @param string  $auto_increment     value of auto increment
- * @param string  $delay_key_write    delay key write
- * @param string  $transactional      value of transactional
- * @param string  $page_checksum      value of page checksum
- * @param string  $checksum           the checksum
+ * @param Table  $pma_table          Table object
+ * @param string $comment            Comment
+ * @param array  $tbl_collation      table collation
+ * @param string $tbl_storage_engine table storage engine
+ * @param string $pack_keys          pack keys
+ * @param string $auto_increment     value of auto increment
+ * @param string $delay_key_write    delay key write
+ * @param string $transactional      value of transactional
+ * @param string $page_checksum      value of page checksum
+ * @param string $checksum           the checksum
  *
  * @return string $html_output
  */
@@ -889,10 +889,10 @@ function PMA_getTableOptionDiv($pma_table, $comment, $tbl_collation, $tbl_storag
     $pack_keys, $auto_increment, $delay_key_write,
     $transactional, $page_checksum, $checksum
 ) {
-    $html_output = '<div class="operations_half_width clearfloat">';
+    $html_output = '<div>';
     $html_output .= '<form method="post" action="tbl_operations.php"';
     $html_output .= ' id="tableOptionsForm" class="ajax">';
-    $html_output .= URL::getHiddenInputs(
+    $html_output .= Url::getHiddenInputs(
         $GLOBALS['db'], $GLOBALS['table']
     );
     $html_output .= '<input type="hidden" name="reload" value="1" />';
@@ -923,7 +923,7 @@ function PMA_getHtmlForRenameTable()
 {
     $html_output = '<tr><td class="vmiddle">' . __('Rename table to') . '</td>'
         . '<td>'
-        . '<input type="text" size="20" name="new_name" maxlength="64" '
+        . '<input type="text" name="new_name" maxlength="64" '
         . 'value="' . htmlspecialchars($GLOBALS['table'])
         . '" required="required" />'
         . '</td></tr>'
@@ -960,10 +960,10 @@ function PMA_getHtmlForRenameTable()
  */
 function PMA_getHtmlForTableComments($current_value)
 {
-    $commentLength = PMA_MYSQL_INT_VERSION >= 50503 ? 2048 : 60;
+    $commentLength = $GLOBALS['dbi']->getVersion() >= 50503 ? 2048 : 60;
     $html_output = '<tr><td class="vmiddle">' . __('Table comments') . '</td>'
         . '<td><input type="text" name="comment" '
-        . 'maxlength="' . $commentLength . '" size="30"'
+        . 'maxlength="' . $commentLength . '"'
         . 'value="' . htmlspecialchars($current_value) . '" />'
         . '<input type="hidden" name="prev_comment" value="'
         . htmlspecialchars($current_value) . '" />'
@@ -1011,16 +1011,16 @@ function PMA_getHtmlForPackKeys($current_value)
 /**
  * Get HTML fieldset for Table option, it contains HTML table for options
  *
- * @param Table   $pma_table          Table object
- * @param string  $comment            Comment
- * @param array   $tbl_collation      table collation
- * @param string  $tbl_storage_engine table storage engine
- * @param string  $pack_keys          pack keys
- * @param string  $delay_key_write    delay key write
- * @param string  $auto_increment     value of auto increment
- * @param string  $transactional      value of transactional
- * @param string  $page_checksum      value of page checksum
- * @param string  $checksum           the checksum
+ * @param Table  $pma_table          Table object
+ * @param string $comment            Comment
+ * @param array  $tbl_collation      table collation
+ * @param string $tbl_storage_engine table storage engine
+ * @param string $pack_keys          pack keys
+ * @param string $delay_key_write    delay key write
+ * @param string $auto_increment     value of auto increment
+ * @param string $transactional      value of transactional
+ * @param string $page_checksum      value of page checksum
+ * @param string $checksum           the checksum
  *
  * @return string $html_output
  */
@@ -1221,13 +1221,13 @@ function PMA_getPossibleRowFormat()
  */
 function PMA_getHtmlForCopytable()
 {
-    $html_output = '<div class="operations_half_width">';
+    $html_output = '<div>';
     $html_output .= '<form method="post" action="tbl_operations.php" '
         . 'name="copyTable" '
         . 'id="copyTable" '
         . ' class="ajax" '
         . 'onsubmit="return emptyCheckTheField(this, \'new_name\')">'
-        . URL::getHiddenInputs($GLOBALS['db'], $GLOBALS['table'])
+        . Url::getHiddenInputs($GLOBALS['db'], $GLOBALS['table'])
         . '<input type="hidden" name="reload" value="1" />';
 
     $html_output .= '<fieldset>';
@@ -1236,7 +1236,7 @@ function PMA_getHtmlForCopytable()
 
     if (count($GLOBALS['dblist']->databases) > $GLOBALS['cfg']['MaxDbList']) {
         $html_output .= '<input class="halfWidth" type="text" maxlength="100" '
-            . 'size="30" name="target_db" '
+            . 'name="target_db" '
             . 'value="' . htmlspecialchars($GLOBALS['db']) . '"/>';
     } else {
         $html_output .= '<select class="halfWidth" name="target_db">'
@@ -1245,7 +1245,7 @@ function PMA_getHtmlForCopytable()
     }
     $html_output .= '&nbsp;<strong>.</strong>&nbsp;';
     $html_output .= '<input class="halfWidth" type="text" required="required" '
-        . 'size="20" name="new_name" maxlength="64" '
+        . 'name="new_name" maxlength="64" '
         . 'value="' . htmlspecialchars($GLOBALS['table']) . '"/><br />';
 
     $choices = array(
@@ -1323,14 +1323,14 @@ function PMA_getHtmlForCopytable()
 /**
  * Get HTML snippet for table maintenance
  *
- * @param Table   $pma_table  Table object
- * @param array   $url_params array of URL parameters
+ * @param Table $pma_table  Table object
+ * @param array $url_params array of URL parameters
  *
  * @return string $html_output
  */
 function PMA_getHtmlForTableMaintenance($pma_table, $url_params)
 {
-    $html_output = '<div class="operations_half_width">';
+    $html_output = '<div>';
     $html_output .= '<fieldset>'
         . '<legend>' . __('Table maintenance') . '</legend>';
     $html_output .= '<ul id="tbl_maintenance">';
@@ -1348,8 +1348,8 @@ function PMA_getHtmlForTableMaintenance($pma_table, $url_params)
 /**
  * Get HTML 'li' having a link of maintain action
  *
- * @param Table   $pma_table  Table object
- * @param array   $url_params Array of URL parameters
+ * @param Table $pma_table  Table object
+ * @param array $url_params Array of URL parameters
  *
  * @return string $html_output
  */
@@ -1480,7 +1480,7 @@ function PMA_getMaintainActionlink($action_message, $params, $url_params, $link)
     return '<li>'
         . '<a class="maintain_action ajax" '
         . 'href="sql.php'
-        . URL::getCommon(array_merge($url_params, $params)) . '">'
+        . Url::getCommon(array_merge($url_params, $params)) . '">'
         . $action_message
         . '</a>'
         . Util::showMySQLDocu($link)
@@ -1499,7 +1499,7 @@ function PMA_getHtmlForDeleteDataOrTable(
     $truncate_table_url_params,
     $dropTableUrlParams
 ) {
-    $html_output = '<div class="operations_half_width">'
+    $html_output = '<div>'
         . '<fieldset class="caution">'
         . '<legend>' . __('Delete data or table') . '</legend>';
 
@@ -1539,7 +1539,7 @@ function PMA_getHtmlForDeleteDataOrTable(
 function PMA_getDeleteDataOrTablelink($url_params, $syntax, $link, $htmlId)
 {
     return  '<li><a '
-        . 'href="sql.php' . URL::getCommon($url_params) . '"'
+        . 'href="sql.php' . Url::getCommon($url_params) . '"'
         . ' id="' . $htmlId . '" class="ajax">'
         . $link . '</a>'
         . Util::showMySQLDocu($syntax)
@@ -1579,10 +1579,10 @@ function PMA_getHtmlForPartitionMaintenance($partition_names, $url_params)
         $choices['COALESCE'] = __('Coalesce');
     }
 
-    $html_output = '<div class="operations_half_width">'
+    $html_output = '<div>'
         . '<form id="partitionsForm" class="ajax" '
         . 'method="post" action="tbl_operations.php" >'
-        . URL::getHiddenInputs($GLOBALS['db'], $GLOBALS['table'])
+        . Url::getHiddenInputs($GLOBALS['db'], $GLOBALS['table'])
         . '<fieldset>'
         . '<legend>'
         . __('Partition maintenance')
@@ -1619,7 +1619,7 @@ function PMA_getHtmlForPartitionMaintenance($partition_names, $url_params)
     $html_output .= '<div class="clearfloat" /><br />';
 
     $html_output .= '<a href="sql.php'
-        . URL::getCommon($this_url_params) . '">'
+        . Url::getCommon($this_url_params) . '">'
         . __('Remove partitioning') . '</a>';
 
     $html_output .= '</fieldset>'
@@ -1644,7 +1644,7 @@ function PMA_getHtmlForPartitionMaintenance($partition_names, $url_params)
  */
 function PMA_getHtmlForReferentialIntegrityCheck($foreign, $url_params)
 {
-    $html_output = '<div class="operations_half_width">'
+    $html_output = '<div>'
         . '<fieldset>'
         . '<legend>' . __('Check referential integrity:') . '</legend>';
 
@@ -1688,7 +1688,7 @@ function PMA_getHtmlForReferentialIntegrityCheck($foreign, $url_params)
 
         $html_output .= '<li>'
             . '<a href="sql.php'
-            . URL::getCommon($this_url_params)
+            . Url::getCommon($this_url_params)
             . '">'
             . $master . '&nbsp;->&nbsp;' . $arr['foreign_db'] . '.'
             . $arr['foreign_table'] . '.' . $arr['foreign_field']
@@ -1726,15 +1726,15 @@ function PMA_getQueryAndResultForReorderingTable()
 /**
  * Get table alters array
  *
- * @param Table   $pma_table           The Table object
- * @param string  $pack_keys           pack keys
- * @param string  $checksum            value of checksum
- * @param string  $page_checksum       value of page checksum
- * @param string  $delay_key_write     delay key write
- * @param string  $row_format          row format
- * @param string  $newTblStorageEngine table storage engine
- * @param string  $transactional       value of transactional
- * @param string  $tbl_collation       collation of the table
+ * @param Table  $pma_table           The Table object
+ * @param string $pack_keys           pack keys
+ * @param string $checksum            value of checksum
+ * @param string $page_checksum       value of page checksum
+ * @param string $delay_key_write     delay key write
+ * @param string $row_format          row format
+ * @param string $newTblStorageEngine table storage engine
+ * @param string $transactional       value of transactional
+ * @param string $tbl_collation       collation of the table
  *
  * @return array  $table_alters
  */
@@ -2028,7 +2028,7 @@ function PMA_moveOrCopyTable($db, $table)
     /**
      * A target table name has been sent to this script -> do the work
      */
-    if (PMA_isValid($_REQUEST['new_name'])) {
+    if (Core::isValid($_REQUEST['new_name'])) {
         if ($db == $_REQUEST['target_db'] && $table == $_REQUEST['new_name']) {
             if (isset($_REQUEST['submit_move'])) {
                 $message = Message::error(__('Can\'t move table to same one!'));
@@ -2086,7 +2086,6 @@ function PMA_moveOrCopyTable($db, $table)
                 . Util::backquote($table);
             $message->addParam($old);
 
-
             $new_name = $_REQUEST['new_name'];
             if ($GLOBALS['dbi']->getLowerCaseNames() === '1') {
                 $new_name = strtolower($new_name);
@@ -2098,7 +2097,7 @@ function PMA_moveOrCopyTable($db, $table)
 
             /* Check: Work on new table or on old table? */
             if (isset($_REQUEST['submit_move'])
-                || PMA_isValid($_REQUEST['switch_to_new'])
+                || Core::isValid($_REQUEST['switch_to_new'])
             ) {
             }
         }

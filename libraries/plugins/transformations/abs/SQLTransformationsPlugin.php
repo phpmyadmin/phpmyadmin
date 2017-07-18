@@ -8,8 +8,8 @@
  */
 namespace PMA\libraries\plugins\transformations\abs;
 
-use PMA;
 use PMA\libraries\plugins\TransformationsPlugin;
+use PhpMyAdmin\Util;
 
 /**
  * Provides common methods for all of the SQL transformations plugins.
@@ -42,7 +42,7 @@ abstract class SQLTransformationsPlugin extends TransformationsPlugin
     public function applyTransformation($buffer, $options = array(), $meta = '')
     {
         // see PMA_highlightSQL()
-        $result = PMA\libraries\Util::formatSql($buffer);
+        $result = Util::formatSql($buffer);
 
         return $result;
     }

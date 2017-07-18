@@ -50,9 +50,9 @@ function PMA_checkIfDataTypeNumericOrDate(data_type)
  * Unbind all event handlers before tearing down a page
  */
 AJAX.registerTeardown('tbl_select.js', function () {
-    $('#togglesearchformlink').unbind('click');
+    $('#togglesearchformlink').off('click');
     $(document).off('submit', "#tbl_search_form.ajax");
-    $('select.geom_func').unbind('change');
+    $('select.geom_func').off('change');
     $(document).off('click', 'span.open_search_gis_editor');
     $('body').off('click', 'select[name*="criteriaColumnOperators"]');
 });
@@ -69,7 +69,7 @@ AJAX.registerOnload('tbl_select.js', function () {
 
     $('#togglesearchformlink')
         .html(PMA_messages.strShowSearchCriteria)
-        .bind('click', function () {
+        .on('click', function () {
             var $link = $(this);
             $('#tbl_search_form').slideToggle();
             if ($link.text() == PMA_messages.strHideSearchCriteria) {
@@ -80,6 +80,13 @@ AJAX.registerOnload('tbl_select.js', function () {
             // avoid default click action
             return false;
         });
+
+    var tableRows = $('#fieldset_table_qbe select');
+    $.each(tableRows, function(index, item){
+        $(item).on("change", function() {
+            changeValueFieldType(this, index);
+        });
+    });
 
     /**
      * Ajax event handler for Table search
@@ -149,7 +156,6 @@ AJAX.registerOnload('tbl_select.js', function () {
         } else {
             values.displayAllColumns = true;
         }
-        values.token = PMA_commonParams.get('token');
 
         $.post($search_form.attr('action'), values, function (data) {
             PMA_ajaxRemoveMessage($msgbox);
@@ -262,13 +268,12 @@ AJAX.registerOnload('tbl_select.js', function () {
         // Names of input field and null checkbox
         var input_name = $span.parent('td').children("input[type='text']").attr('name');
         //Token
-        var token = $("input[name='token']").val();
 
         openGISEditor();
         if (!gisEditorLoaded) {
-            loadJSAndGISEditor(value, field, type, input_name, token);
+            loadJSAndGISEditor(value, field, type, input_name);
         } else {
-            loadGISEditor(value, field, type, input_name, token);
+            loadGISEditor(value, field, type, input_name);
         }
     });
 
@@ -301,7 +306,7 @@ AJAX.registerOnload('tbl_select.js', function () {
                 url: 'tbl_select.php',
                 type: 'POST',
                 data: {
-                    token: $('input[name="token"]').val(),
+                    server: PMA_commonParams.get('server'),
                     ajax_request: 1,
                     db: $('input[name="db"]').val(),
                     table: $('input[name="table"]').val(),
@@ -405,4 +410,6 @@ AJAX.registerOnload('tbl_select.js', function () {
             });
         }
     });
+    var windowwidth = $(window).width();
+    $('.jsresponsive').css('max-width', (windowwidth - 69 ) + 'px');
 });

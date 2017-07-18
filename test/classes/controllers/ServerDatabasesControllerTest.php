@@ -6,9 +6,9 @@
  * @package PhpMyAdmin-test
  */
 
-use PMA\libraries\di\Container;
-use PMA\libraries\Theme;
-use PMA\libraries\Charsets;
+use PhpMyAdmin\Di\Container;
+use PhpMyAdmin\Theme;
+use PhpMyAdmin\Charsets;
 
 require_once 'libraries/database_interface.inc.php';
 
@@ -35,7 +35,7 @@ class ServerDatabasesControllerTest extends PMATestCase
         $_REQUEST['pos'] = 3;
 
         //$GLOBALS
-        $GLOBALS['PMA_Config'] = new PMA\libraries\Config();
+        $GLOBALS['PMA_Config'] = new PhpMyAdmin\Config();
         $GLOBALS['PMA_Config']->enableBc();
         $GLOBALS['is_superuser'] = true;
 
@@ -51,8 +51,8 @@ class ServerDatabasesControllerTest extends PMATestCase
         $container = Container::getDefaultContainer();
         $container->set('dbi', $GLOBALS['dbi']);
         $this->response = new \PMA\Test\Stubs\Response();
-        $container->set('PMA\libraries\Response', $this->response);
-        $container->alias('response', 'PMA\libraries\Response');
+        $container->set('PhpMyAdmin\Response', $this->response);
+        $container->alias('response', 'PhpMyAdmin\Response');
     }
 
     /**
@@ -63,14 +63,14 @@ class ServerDatabasesControllerTest extends PMATestCase
      */
     public function testGetHtmlForDatabase()
     {
-        $class = new ReflectionClass('\PMA\libraries\controllers\server\ServerDatabasesController');
+        $class = new ReflectionClass('\PhpMyAdmin\Controllers\Server\ServerDatabasesController');
         $method = $class->getMethod('_getHtmlForDatabases');
         $method->setAccessible(true);
 
         $container = Container::getDefaultContainer();
-        $container->factory('PMA\libraries\controllers\server\ServerDatabasesController');
+        $container->factory('PhpMyAdmin\Controllers\Server\ServerDatabasesController');
         $container->alias(
-            'ServerDatabasesController', 'PMA\libraries\controllers\server\ServerDatabasesController'
+            'ServerDatabasesController', 'PhpMyAdmin\Controllers\Server\ServerDatabasesController'
         );
         $ctrl = $container->get('ServerDatabasesController');
 
@@ -185,7 +185,7 @@ class ServerDatabasesControllerTest extends PMATestCase
      */
     public function testSetSortDetails()
     {
-        $class = new ReflectionClass('\PMA\libraries\controllers\server\ServerDatabasesController');
+        $class = new ReflectionClass('\PhpMyAdmin\Controllers\Server\ServerDatabasesController');
         $method = $class->getMethod('_setSortDetails');
         $method->setAccessible(true);
         $propertySortBy = $class->getProperty('_sort_by');
@@ -194,9 +194,9 @@ class ServerDatabasesControllerTest extends PMATestCase
         $propertySortOrder->setAccessible(true);
 
         $container = Container::getDefaultContainer();
-        $container->factory('PMA\libraries\controllers\server\ServerDatabasesController');
+        $container->factory('PhpMyAdmin\Controllers\Server\ServerDatabasesController');
         $container->alias(
-            'ServerDatabasesController', 'PMA\libraries\controllers\server\ServerDatabasesController'
+            'ServerDatabasesController', 'PhpMyAdmin\Controllers\Server\ServerDatabasesController'
         );
         $ctrl = $container->get('ServerDatabasesController');
 
@@ -212,9 +212,9 @@ class ServerDatabasesControllerTest extends PMATestCase
         );
 
         $container = Container::getDefaultContainer();
-        $container->factory('PMA\libraries\controllers\server\ServerDatabasesController');
+        $container->factory('PhpMyAdmin\Controllers\Server\ServerDatabasesController');
         $container->alias(
-            'ServerDatabasesController', 'PMA\libraries\controllers\server\ServerDatabasesController'
+            'ServerDatabasesController', 'PhpMyAdmin\Controllers\Server\ServerDatabasesController'
         );
         $ctrl = $container->get('ServerDatabasesController');
 
@@ -233,9 +233,9 @@ class ServerDatabasesControllerTest extends PMATestCase
         );
 
         $container = Container::getDefaultContainer();
-        $container->factory('PMA\libraries\controllers\server\ServerDatabasesController');
+        $container->factory('PhpMyAdmin\Controllers\Server\ServerDatabasesController');
         $container->alias(
-            'ServerDatabasesController', 'PMA\libraries\controllers\server\ServerDatabasesController'
+            'ServerDatabasesController', 'PhpMyAdmin\Controllers\Server\ServerDatabasesController'
         );
         $ctrl = $container->get('ServerDatabasesController');
 
@@ -261,14 +261,14 @@ class ServerDatabasesControllerTest extends PMATestCase
      */
     public function testGetColumnOrder()
     {
-        $class = new ReflectionClass('\PMA\libraries\controllers\server\ServerDatabasesController');
+        $class = new ReflectionClass('\PhpMyAdmin\Controllers\Server\ServerDatabasesController');
         $method = $class->getMethod('_getColumnOrder');
         $method->setAccessible(true);
 
         $container = Container::getDefaultContainer();
-        $container->factory('PMA\libraries\controllers\server\ServerDatabasesController');
+        $container->factory('PhpMyAdmin\Controllers\Server\ServerDatabasesController');
         $container->alias(
-            'ServerDatabasesController', 'PMA\libraries\controllers\server\ServerDatabasesController'
+            'ServerDatabasesController', 'PhpMyAdmin\Controllers\Server\ServerDatabasesController'
         );
         $ctrl = $container->get('ServerDatabasesController');
 
@@ -277,7 +277,7 @@ class ServerDatabasesControllerTest extends PMATestCase
                 'DEFAULT_COLLATION_NAME' => array(
                     'disp_name' => __('Collation'),
                     'description_function' => array(
-                        '\PMA\libraries\Charsets',
+                        Charsets::class,
                         'getCollationDescr'
                     ),
                     'format'    => 'string',

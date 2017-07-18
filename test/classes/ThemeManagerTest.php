@@ -9,7 +9,7 @@
 /*
  * Include to test.
  */
-use PMA\libraries\ThemeManager;
+use PhpMyAdmin\ThemeManager;
 
 require_once 'test/PMATestCase.php';
 
@@ -31,10 +31,10 @@ class ThemeManagerTest extends PMATestCase
         $GLOBALS['cfg']['ThemeDefault'] = 'pmahomme';
         $GLOBALS['cfg']['ServerDefault'] = 0;
         $GLOBALS['server'] = 99;
-        $GLOBALS['PMA_Config'] = new PMA\libraries\Config();
+        $GLOBALS['PMA_Config'] = new PhpMyAdmin\Config();
         $GLOBALS['collation_connection'] = 'utf8_general_ci';
 
-        $dbi = $this->getMockBuilder('PMA\libraries\DatabaseInterface')
+        $dbi = $this->getMockBuilder('PhpMyAdmin\DatabaseInterface')
             ->disableOriginalConstructor()
             ->getMock();
         $dbi->expects($this->any())->method('escapeString')
@@ -133,9 +133,9 @@ class ThemeManagerTest extends PMATestCase
         $tm = new ThemeManager();
         $preview = $tm->getPrintPreviews();
         $this->assertContains('<div class="theme_preview"', $preview);
-        $this->assertContains('Original (2.9)', $preview);
+        $this->assertContains('Original', $preview);
         $this->assertContains('set_theme=original', $preview);
-        $this->assertContains('pmahomme (1.1)', $preview);
+        $this->assertContains('pmahomme', $preview);
         $this->assertContains('set_theme=pmahomme', $preview);
     }
 
@@ -148,7 +148,7 @@ class ThemeManagerTest extends PMATestCase
     {
         $tm = new ThemeManager();
         $this->assertInstanceOf(
-            'PMA\libraries\Theme',
+            'PhpMyAdmin\Theme',
             $tm->getFallBackTheme()
         );
     }

@@ -6,8 +6,10 @@
  *
  * @package PhpMyAdmin
  */
-use PMA\libraries\URL;
-use PMA\libraries\Response;
+
+use PhpMyAdmin\Core;
+use PhpMyAdmin\Url;
+use PhpMyAdmin\Response;
 
 /**
  * Gets some core libraries
@@ -23,7 +25,7 @@ $response = Response::getInstance();
 $header   = $response->getHeader();
 $scripts  = $header->getScripts();
 $scripts->addFile('server_privileges.js');
-$scripts->addFile('zxcvbn.js');
+$scripts->addFile('vendor/zxcvbn.js');
 
 /**
  * Displays an error message and exits if the user isn't allowed to use this
@@ -33,7 +35,7 @@ if (! $GLOBALS['cfg']['ShowChgPassword']) {
     $GLOBALS['cfg']['ShowChgPassword'] = $GLOBALS['dbi']->selectDb('mysql');
 }
 if ($cfg['Server']['auth_type'] == 'config' || ! $cfg['ShowChgPassword']) {
-    PMA\libraries\Message::error(
+    PhpMyAdmin\Message::error(
         __('You don\'t have sufficient privileges to be here right now!')
     )->display();
     exit;
@@ -84,16 +86,16 @@ exit;
  */
 function PMA_getChangePassMessage($change_password_message, $sql_query = '')
 {
+    $response = Response::getInstance();
     if ($response->isAjax()) {
         /**
          * If in an Ajax request, we don't need to show the rest of the page
          */
-        $response = Response::getInstance();
         if ($change_password_message['error']) {
             $response->addJSON('message', $change_password_message['msg']);
             $response->setRequestStatus(false);
         } else {
-            $sql_query = PMA\libraries\Util::getMessage(
+            $sql_query = PhpMyAdmin\Util::getMessage(
                 $change_password_message['msg'],
                 $sql_query,
                 'success'
@@ -112,14 +114,14 @@ function PMA_getChangePassMessage($change_password_message, $sql_query = '')
 function PMA_setChangePasswordMsg()
 {
     $error = false;
-    $message = PMA\libraries\Message::success(__('The profile has been updated.'));
+    $message = PhpMyAdmin\Message::success(__('The profile has been updated.'));
 
     if (($_REQUEST['nopass'] != '1')) {
         if (strlen($_REQUEST['pma_pw']) === 0 || strlen($_REQUEST['pma_pw2']) === 0) {
-            $message = PMA\libraries\Message::error(__('The password is empty!'));
+            $message = PhpMyAdmin\Message::error(__('The password is empty!'));
             $error = true;
         } elseif ($_REQUEST['pma_pw'] !== $_REQUEST['pma_pw2']) {
-            $message = PMA\libraries\Message::error(
+            $message = PhpMyAdmin\Message::error(
                 __('The passwords aren\'t the same!')
             );
             $error = true;
@@ -148,7 +150,8 @@ function PMA_changePassword($password, $message, $change_password_message)
 
     list($username, $hostname) = $GLOBALS['dbi']->getCurrentUserAndHost();
 
-    $serverType = PMA\libraries\Util::getServerType();
+    $serverType = PhpMyAdmin\Util::getServerType();
+    $serverVersion = $GLOBALS['dbi']->getVersion();
 
     if (isset($_REQUEST['authentication_plugin'])
         && ! empty($_REQUEST['authentication_plugin'])
@@ -164,15 +167,15 @@ function PMA_changePassword($password, $message, $change_password_message)
         . (($password == '') ? '\'\'' : $hashing_function . '(\'***\')');
 
     if ($serverType == 'MySQL'
-        && PMA_MYSQL_INT_VERSION >= 50706
+        && $serverVersion >= 50706
     ) {
         $sql_query = 'ALTER USER \'' . $username . '\'@\'' . $hostname
             . '\' IDENTIFIED WITH ' . $orig_auth_plugin . ' BY '
             . (($password == '') ? '\'\'' : '\'***\'');
     } else if (($serverType == 'MySQL'
-        && PMA_MYSQL_INT_VERSION >= 50507)
+        && $serverVersion >= 50507)
         || ($serverType == 'MariaDB'
-        && PMA_MYSQL_INT_VERSION >= 50200)
+        && $serverVersion >= 50200)
     ) {
         // For MySQL versions 5.5.7+ and MariaDB versions 5.2+,
         // explicitly set value of `old_passwords` so that
@@ -203,7 +206,7 @@ function PMA_changePassword($password, $message, $change_password_message)
  */
 function PMA_changePassHashingFunction()
 {
-    if (PMA_isValid(
+    if (Core::isValid(
         $_REQUEST['authentication_plugin'], 'identical', 'mysql_old_password'
     )) {
         $hashing_function = 'OLD_PASSWORD';
@@ -228,19 +231,20 @@ function PMA_changePassHashingFunction()
 function PMA_changePassUrlParamsAndSubmitQuery(
     $username, $hostname, $password, $sql_query, $hashing_function, $orig_auth_plugin
 ) {
-    $err_url = 'user_password.php' . URL::getCommon();
+    $err_url = 'user_password.php' . Url::getCommon();
 
-    $serverType = PMA\libraries\Util::getServerType();
+    $serverType = PhpMyAdmin\Util::getServerType();
+    $serverVersion = $GLOBALS['dbi']->getVersion();
 
-    if ($serverType == 'MySQL' && PMA_MYSQL_INT_VERSION >= 50706) {
+    if ($serverType == 'MySQL' && $serverVersion >= 50706) {
         $local_query = 'ALTER USER \'' . $username . '\'@\'' . $hostname . '\''
             . ' IDENTIFIED with ' . $orig_auth_plugin . ' BY '
             . (($password == '')
             ? '\'\''
             : '\'' . $GLOBALS['dbi']->escapeString($password) . '\'');
     } else if ($serverType == 'MariaDB'
-        && PMA_MYSQL_INT_VERSION >= 50200
-        && PMA_MYSQL_INT_VERSION < 100100
+        && $serverVersion >= 50200
+        && $serverVersion < 100100
         && $orig_auth_plugin !== ''
     ) {
         if ($orig_auth_plugin == 'mysql_native_password') {
@@ -268,7 +272,7 @@ function PMA_changePassUrlParamsAndSubmitQuery(
                 . $GLOBALS['dbi']->escapeString($password) . '\')');
     }
     if (! @$GLOBALS['dbi']->tryQuery($local_query)) {
-        PMA\libraries\Util::mysqlDie(
+        PhpMyAdmin\Util::mysqlDie(
             $GLOBALS['dbi']->getError(),
             $sql_query,
             false,
@@ -291,10 +295,10 @@ function PMA_changePassUrlParamsAndSubmitQuery(
 function PMA_changePassDisplayPage($message, $sql_query)
 {
     echo '<h1>' , __('Change password') , '</h1>' , "\n\n";
-    echo PMA\libraries\Util::getMessage(
+    echo PhpMyAdmin\Util::getMessage(
         $message, $sql_query, 'success'
     );
-    echo '<a href="index.php' , URL::getCommon()
+    echo '<a href="index.php' , Url::getCommon()
         , ' target="_parent">' , "\n"
         , '<strong>' , __('Back') , '</strong></a>';
     exit;

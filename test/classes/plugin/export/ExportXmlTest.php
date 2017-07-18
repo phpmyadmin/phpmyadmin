@@ -6,7 +6,7 @@
  * @package PhpMyAdmin-test
  */
 use PMA\libraries\plugins\export\ExportXml;
-use PMA\libraries\Table;
+use PhpMyAdmin\Table;
 
 $GLOBALS['db'] = 'db';
 
@@ -203,10 +203,6 @@ class ExportXmlTest extends PMATestCase
      */
     public function testExportHeader()
     {
-        if (!defined("PMA_MYSQL_STR_VERSION")) {
-            define("PMA_MYSQL_STR_VERSION", "5.0.0");
-        }
-
         $GLOBALS['xml_export_functions'] = 1;
         $GLOBALS['xml_export_contents'] = 1;
         $GLOBALS['output_charset_conversion'] = 1;
@@ -229,7 +225,7 @@ class ExportXmlTest extends PMATestCase
             ),
             'table' => array(null, '"tbl"')
         );
-        $dbi = $this->getMockBuilder('PMA\libraries\DatabaseInterface')
+        $dbi = $this->getMockBuilder('PhpMyAdmin\DatabaseInterface')
             ->disableOriginalConstructor()
             ->getMock();
 
@@ -326,7 +322,7 @@ class ExportXmlTest extends PMATestCase
         unset($GLOBALS['xml_export_procedures']);
         $GLOBALS['output_charset_conversion'] = 0;
 
-        $dbi = $this->getMockBuilder('PMA\libraries\DatabaseInterface')
+        $dbi = $this->getMockBuilder('PhpMyAdmin\DatabaseInterface')
             ->disableOriginalConstructor()
             ->getMock();
 
@@ -344,7 +340,6 @@ class ExportXmlTest extends PMATestCase
         $result_3 = array(
             't2' => array(null, '"tbl"')
         );
-
 
         $dbi->expects($this->exactly(5))
             ->method('fetchResult')
@@ -473,11 +468,11 @@ class ExportXmlTest extends PMATestCase
         $GLOBALS['asfile'] = true;
         $GLOBALS['output_charset_conversion'] = false;
 
-        $dbi = $this->getMockBuilder('PMA\libraries\DatabaseInterface')
+        $dbi = $this->getMockBuilder('PhpMyAdmin\DatabaseInterface')
             ->disableOriginalConstructor()
             ->getMock();
 
-        $_table = $this->getMockBuilder('PMA\libraries\Table')
+        $_table = $this->getMockBuilder('PhpMyAdmin\Table')
             ->disableOriginalConstructor()
             ->getMock();
         $_table->expects($this->once())
@@ -494,7 +489,7 @@ class ExportXmlTest extends PMATestCase
 
         $dbi->expects($this->once())
             ->method('query')
-            ->with('SELECT', null, PMA\libraries\DatabaseInterface::QUERY_UNBUFFERED)
+            ->with('SELECT', null, PhpMyAdmin\DatabaseInterface::QUERY_UNBUFFERED)
             ->will($this->returnValue(true));
 
         $dbi->expects($this->once())

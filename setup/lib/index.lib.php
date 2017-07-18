@@ -6,8 +6,8 @@
  * @package PhpMyAdmin-Setup
  */
 
-use PMA\libraries\VersionInformation;
-use PMA\libraries\Sanitize;
+use PhpMyAdmin\VersionInformation;
+use PhpMyAdmin\Sanitize;
 
 if (!defined('PHPMYADMIN')) {
     exit;

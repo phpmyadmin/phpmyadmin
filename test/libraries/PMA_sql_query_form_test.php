@@ -6,9 +6,10 @@
  * @package PhpMyAdmin-test
  */
 
-use PMA\libraries\Encoding;
-use PMA\libraries\Theme;
-use PMA\libraries\URL;
+use PhpMyAdmin\Core;
+use PhpMyAdmin\Encoding;
+use PhpMyAdmin\Theme;
+use PhpMyAdmin\Url;
 
 //the following definition should be used globally
 $GLOBALS['server'] = 0;
@@ -39,7 +40,7 @@ class PMA_SqlQueryForm_Test extends PHPUnit_Framework_TestCase
     {
         //$GLOBALS
         $GLOBALS['max_upload_size'] = 100;
-        $GLOBALS['PMA_PHP_SELF'] = PMA_getenv('PHP_SELF');
+        $GLOBALS['PMA_PHP_SELF'] = Core::getenv('PHP_SELF');
         $GLOBALS['db'] = "PMA_db";
         $GLOBALS['table'] = "PMA_table";
         $GLOBALS['text_dir'] = "text_dir";
@@ -77,7 +78,7 @@ class PMA_SqlQueryForm_Test extends PHPUnit_Framework_TestCase
         //$_SESSION
 
         //Mock DBI
-        $dbi = $this->getMockBuilder('PMA\libraries\DatabaseInterface')
+        $dbi = $this->getMockBuilder('PhpMyAdmin\DatabaseInterface')
             ->disableOriginalConstructor()
             ->getMock();
 
@@ -125,7 +126,7 @@ class PMA_SqlQueryForm_Test extends PHPUnit_Framework_TestCase
 
         //validate 3: showMySQLDocu
         $this->assertContains(
-            PMA\libraries\Util::showMySQLDocu('SELECT'),
+            PhpMyAdmin\Util::showMySQLDocu('SELECT'),
             $html
         );
 
@@ -198,7 +199,7 @@ class PMA_SqlQueryForm_Test extends PHPUnit_Framework_TestCase
         $table  = $GLOBALS['table'];
         $db     = $GLOBALS['db'];
         $this->assertContains(
-            URL::getHiddenInputs($db, $table),
+            Url::getHiddenInputs($db, $table),
             $html
         );
 

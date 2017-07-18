@@ -5,10 +5,10 @@
  *
  * @package PhpMyAdmin
  */
-use PMA\libraries\Template;
-use PMA\libraries\Util;
-use PMA\libraries\URL;
-use PMA\libraries\Sanitize;
+use PhpMyAdmin\Template;
+use PhpMyAdmin\Util;
+use PhpMyAdmin\Url;
+use PhpMyAdmin\Sanitize;
 
 /**
  * Displays top part of the form
@@ -39,8 +39,8 @@ function PMA_displayFormTop($action = null, $method = 'post', $hidden_fields = n
         $htmlOutput .= '<input type="hidden" name="check_page_refresh" '
             . ' id="check_page_refresh" value="" />' . "\n";
     }
-    $htmlOutput .= URL::getHiddenInputs('', '', 0, 'server') . "\n";
-    $htmlOutput .= URL::getHiddenFields((array)$hidden_fields);
+    $htmlOutput .= Url::getHiddenInputs('', '', 0, 'server') . "\n";
+    $htmlOutput .= Url::getHiddenFields((array)$hidden_fields);
     return $htmlOutput;
 }
 
@@ -66,7 +66,7 @@ function PMA_displayTabsTop($tabs)
 
     $htmlOutput = Template::get('list/unordered')->render(
         array(
-            'class' => 'tabs',
+            'class' => 'tabs responsivetable',
             'items' => $items,
         )
     );
@@ -153,7 +153,7 @@ function PMA_displayInput($path, $name, $type, $value, $description = '',
         $icons = null;
     }
 
-    $is_setup_script = defined('PMA_SETUP');
+    $is_setup_script = $GLOBALS['PMA_Config']->get('is_setup');
     if ($icons === null) { // if the static variables have not been initialised
         $icons = array();
         // Icon definitions:
@@ -245,11 +245,11 @@ function PMA_displayInput($path, $name, $type, $value, $description = '',
 
     switch ($type) {
     case 'text':
-        $htmlOutput .= '<input type="text" size="40" ' . $name_id . $field_class
+        $htmlOutput .= '<input type="text" class="all85" ' . $name_id . $field_class
             . ' value="' . htmlspecialchars($value) . '" />';
         break;
     case 'password':
-        $htmlOutput .= '<input type="password" size="40" ' . $name_id . $field_class
+        $htmlOutput .= '<input type="password" class="all85" ' . $name_id . $field_class
             . ' value="' . htmlspecialchars($value) . '" />';
         break;
     case 'short_text':
@@ -271,7 +271,7 @@ function PMA_displayInput($path, $name, $type, $value, $description = '',
           . ($value ? ' checked="checked"' : '') . ' /></span>';
         break;
     case 'select':
-        $htmlOutput .= '<select ' . $name_id . $field_class . '>';
+        $htmlOutput .= '<select class="all85" ' . $name_id . $field_class . '>';
         $escape = !(isset($opts['values_escaped']) && $opts['values_escaped']);
         $values_disabled = isset($opts['values_disabled'])
             ? array_flip($opts['values_disabled']) : array();
@@ -307,7 +307,7 @@ function PMA_displayInput($path, $name, $type, $value, $description = '',
         $htmlOutput .= '</select>';
         break;
     case 'list':
-        $htmlOutput .= '<textarea cols="40" rows="5" ' . $name_id . $field_class
+        $htmlOutput .= '<textarea cols="35" rows="5" ' . $name_id . $field_class
             . '>' . htmlspecialchars(implode("\n", $value)) . '</textarea>';
         break;
     }
@@ -328,15 +328,14 @@ function PMA_displayInput($path, $name, $type, $value, $description = '',
             . $icons['tblops'] . '</a>';
     }
     if (isset($opts['setvalue']) && $opts['setvalue']) {
-        $htmlOutput .= '<a class="set-value" href="#'
+        $htmlOutput .= '<a class="set-value hide" href="#'
             . htmlspecialchars("$path={$opts['setvalue']}") . '" title="'
             . sprintf(__('Set value: %s'), htmlspecialchars($opts['setvalue']))
-            . '" style="display:none">' . $icons['edit'] . '</a>';
+            . '">' . $icons['edit'] . '</a>';
     }
     if (isset($opts['show_restore_default']) && $opts['show_restore_default']) {
-        $htmlOutput .= '<a class="restore-default" href="#' . $path . '" title="'
-            .  __('Restore default value') . '" style="display:none">'
-            . $icons['reload'] . '</a>';
+        $htmlOutput .= '<a class="restore-default hide" href="#' . $path . '" title="'
+            .  __('Restore default value') . '">' . $icons['reload'] . '</a>';
     }
     // this must match with displayErrors() in scripts/config.js
     if ($has_errors) {
@@ -379,7 +378,7 @@ function PMA_displayGroupHeader($header_text)
     if (! $header_text) {
         return null;
     }
-    $colspan = defined('PMA_SETUP')
+    $colspan = $GLOBALS['PMA_Config']->get('is_setup')
         ? 3
         : 2;
     $htmlOutput = '<tr class="group-header group-header-' . $_FormDisplayGroup
@@ -413,7 +412,7 @@ function PMA_displayGroupFooter()
 function PMA_displayFieldsetBottom($show_buttons = true)
 {
     $colspan = 2;
-    if (defined('PMA_SETUP')) {
+    if ($GLOBALS['PMA_Config']->get('is_setup')) {
         $colspan++;
     }
     $htmlOutput = '';

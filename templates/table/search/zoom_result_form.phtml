@@ -1,5 +1,5 @@
 <form method="post" action="tbl_zoom_select.php" name="displayResultForm" id="zoom_display_form" class="ajax">
-    <?= \PMA\libraries\URL::getHiddenInputs($_db, $_table); ?>
+    <?= \PhpMyAdmin\Url::getHiddenInputs($_db, $_table); ?>
     <input type="hidden" name="goto" value="<?= $goto; ?>" />
     <input type="hidden" name="back" value="tbl_zoom_select.php" />
 
@@ -15,7 +15,7 @@
                             <?= __('How to use'); ?>
                         </a>
                     </center>
-                    <div id="querydata" style="display:none">
+                    <div id="querydata" class="hide">
                         <?= htmlspecialchars(json_encode($data)); ?>
                     </div>
                     <div id="querychart"></div>
@@ -26,7 +26,7 @@
         </center>
 
     <!-- Displays rows in point edit form -->
-        <div id="dataDisplay" style="display:none">
+        <div id="dataDisplay" class="hide">
             <table>
                 <thead>
                 <tr>
@@ -71,7 +71,7 @@
                         </th>
 <!-- Column's Input box-->
                         <th>
-                            <?= PMA\libraries\Template::get('table/search/input_box')->render(array(
+                            <?= PhpMyAdmin\Template::get('table/search/input_box')->render(array(
                                     'str' => '',
                                     'column_type' => $_columnTypes[$column_index],
                                     'column_id' => ($_columnTypes[$column_index]) ? 'edit_fieldID_' : 'fieldID_',

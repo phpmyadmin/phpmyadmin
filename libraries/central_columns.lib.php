@@ -5,10 +5,10 @@
  *
  * @package PhpMyAdmin
  */
-use PMA\libraries\Charsets;
-use PMA\libraries\Message;
-use PMA\libraries\Util;
-use PMA\libraries\URL;
+use PhpMyAdmin\Charsets;
+use PhpMyAdmin\Message;
+use PhpMyAdmin\Util;
+use PhpMyAdmin\Url;
 
 /**
  * Defines the central_columns parameters for the current user
@@ -211,7 +211,7 @@ function PMA_getInsertQuery($column, $def, $db, $central_list_table)
  * @param string $table        if $isTable is false,
  * then table name to which columns belong
  *
- * @return true|PMA\libraries\Message
+ * @return true|PhpMyAdmin\Message
  */
 function PMA_syncUniqueColumns($field_select, $isTable=true, $table=null)
 {
@@ -316,7 +316,7 @@ function PMA_syncUniqueColumns($field_select, $isTable=true, $table=null)
  * selected list of columns to remove from central list
  * @param bool  $isTable      if passed array is of tables or columns
  *
- * @return true|PMA\libraries\Message
+ * @return true|PhpMyAdmin\Message
  */
 function PMA_deleteColumnsFromList($field_select, $isTable=true)
 {
@@ -399,7 +399,7 @@ function PMA_deleteColumnsFromList($field_select, $isTable=true)
  * @param string $db              current database
  * @param array  $selected_tables list of selected tables.
  *
- * @return true|PMA\libraries\Message
+ * @return true|PhpMyAdmin\Message
  */
 function PMA_makeConsistentWithList($db, $selected_tables)
 {
@@ -508,7 +508,7 @@ function PMA_getCentralColumnsFromTable($db, $table, $allFields=false)
  * @param string $col_extra     new column extra property
  * @param string $col_default   new column default value
  *
- * @return true|PMA\libraries\Message
+ * @return true|PhpMyAdmin\Message
  */
 function PMA_updateOneColumn($db, $orig_col_name, $col_name, $col_type,
     $col_attribute,$col_length, $col_isNull, $collation, $col_extra, $col_default
@@ -556,7 +556,7 @@ function PMA_updateOneColumn($db, $orig_col_name, $col_name, $col_type,
 /**
  * Update Multiple column in central columns list if a chnage is requested
  *
- * @return true|PMA\libraries\Message
+ * @return true|PhpMyAdmin\Message
  */
 function PMA_updateMultipleColumn()
 {
@@ -615,7 +615,7 @@ function PMA_getHTMLforTableNavigation($total_rows, $pos, $db)
     if ($pos - $max_rows >= 0) {
         $table_navigation_html .= '<td>'
             . '<form action="db_central_columns.php" method="post">'
-            . URL::getHiddenInputs(
+            . Url::getHiddenInputs(
                 $db
             )
             . '<input type="hidden" name="pos" value="' . ($pos - $max_rows) . '" />'
@@ -630,7 +630,7 @@ function PMA_getHTMLforTableNavigation($total_rows, $pos, $db)
         $table_navigation_html .= '<td>';
         $table_navigation_html .= '<form action="db_central_columns.php'
             . '" method="post">'
-            . URL::getHiddenInputs(
+            . Url::getHiddenInputs(
                 $db
             )
             . '<input type="hidden" name="total_rows" value="' . $total_rows . '"/>';
@@ -643,7 +643,7 @@ function PMA_getHTMLforTableNavigation($total_rows, $pos, $db)
     if ($pos + $max_rows < $total_rows) {
         $table_navigation_html .= '<td>'
             . '<form action="db_central_columns.php" method="post">'
-            . URL::getHiddenInputs(
+            . Url::getHiddenInputs(
                 $db
             )
             . '<input type="hidden" name="pos" value="' . ($pos + $max_rows) . '" />'
@@ -688,7 +688,7 @@ function PMA_getCentralColumnsTableHeader($class='', $title='', $actionCount=0)
     $tableheader = '<thead>';
     $tableheader .= '<tr>'
         . '<th class="' . $class . '"></th>'
-        . '<th class="" style="display:none"></th>'
+        . '<th class="hide"></th>'
         . $action
         . '<th class="' . $class . '" title="' . $title . '" data-column="name">'
         . __('Name') . '<div class="sorticon"></div></th>'
@@ -796,14 +796,14 @@ function PMA_getHTMLforAddCentralColumn($total_rows, $pos, $db)
     $columnAdd = '<table style="display:inline-block;margin-left:1%;max-width:50%" '
         . 'class="navigation nospacing nopadding">'
         . '<tr>'
-        . '<td class="navigation_separator"></td>'
+        . '<td class="navigation_separator largescreenonly"></td>'
         . '<td style="padding:1.5% 0em">'
         . Util::getIcon(
             'centralColumns_add.png',
             __('Add column')
         )
         . '<form id="add_column" action="db_central_columns.php" method="post">'
-        . URL::getHiddenInputs(
+        . Url::getHiddenInputs(
             $db
         )
         . '<input type="hidden" name="add_column" value="add">'
@@ -815,7 +815,7 @@ function PMA_getHTMLforAddCentralColumn($total_rows, $pos, $db)
         . __('Select a column.') . '</option>'
         . '</select></form>'
         . '</td>'
-        . '<td class="navigation_separator"></td>'
+        . '<td class="navigation_separator largescreenonly"></td>'
         . '</tr>'
         . '</table>';
 
@@ -825,17 +825,16 @@ function PMA_getHTMLforAddCentralColumn($total_rows, $pos, $db)
 /**
  * build html for a row in central columns table
  *
- * @param array   $row     array contains complete information of
- * a particular row of central list table
- * @param int     $row_num position the row in the table
- * @param string  $db      current database
+ * @param array  $row     array contains complete information of a particular row of central list table
+ * @param int    $row_num position the row in the table
+ * @param string $db      current database
  *
  * @return string html of a particular row in the central columns table.
  */
 function PMA_getHTMLforCentralColumnsTableRow($row, $row_num, $db)
 {
     $tableHtml = '<tr data-rownum="' . $row_num . '" id="f_' . $row_num . '">'
-        . URL::getHiddenInputs(
+        . Url::getHiddenInputs(
             $db
         )
         . '<input type="hidden" name="edit_save" value="save">'
@@ -850,7 +849,7 @@ function PMA_getHTMLforCentralColumnsTableRow($row, $row_num, $db)
         . '<a hrf="#">' . Util::getIcon('b_drop.png', __('Delete')) . '</a>'
         . '<input type="submit" data-rownum = "' . $row_num . '"'
         . ' class="edit_cancel_form" value="Cancel"></td>'
-        . '<td id="save_' . $row_num . '" style="display:none">'
+        . '<td id="save_' . $row_num . '" class="hide">'
         . '<input type="submit" data-rownum = "' . $row_num . '"'
         . ' class="edit_save_form" value="Save"></td>';
 
@@ -859,7 +858,7 @@ function PMA_getHTMLforCentralColumnsTableRow($row, $row_num, $db)
         . '<span>' . htmlspecialchars($row['col_name']) . '</span>'
         . '<input name="orig_col_name" type="hidden" '
         . 'value="' . htmlspecialchars($row['col_name']) . '">'
-        . PMA\libraries\Template::get('columns_definitions/column_name')
+        . PhpMyAdmin\Template::get('columns_definitions/column_name')
             ->render(
                 array(
                 'columnNumber' => $row_num,
@@ -877,14 +876,14 @@ function PMA_getHTMLforCentralColumnsTableRow($row, $row_num, $db)
     $tableHtml .=
         '<td name = "col_type" class="nowrap"><span>'
         . htmlspecialchars($row['col_type']) . '</span>'
-        . PMA\libraries\Template::get('columns_definitions/column_type')
+        . PhpMyAdmin\Template::get('columns_definitions/column_type')
             ->render(
                 array(
-                'columnNumber' => $row_num,
+                'column_number' => $row_num,
                 'ci' => 1,
                 'ci_offset' => 0,
                 'type_upper' => mb_strtoupper($row['col_type']),
-                'columnMeta' => array()
+                'column_meta' => array()
                 )
             )
         . '</td>';
@@ -892,9 +891,9 @@ function PMA_getHTMLforCentralColumnsTableRow($row, $row_num, $db)
         '<td class="nowrap" name="col_length">'
         . '<span>' . ($row['col_length']?htmlspecialchars($row['col_length']):"")
         . '</span>'
-        . PMA\libraries\Template::get('columns_definitions/column_length')->render(
+        . PhpMyAdmin\Template::get('columns_definitions/column_length')->render(
             array(
-                'columnNumber' => $row_num,
+                'column_number' => $row_num,
                 'ci' => 2,
                 'ci_offset' => 0,
                 'length_values_input_size' => 8,
@@ -920,7 +919,7 @@ function PMA_getHTMLforCentralColumnsTableRow($row, $row_num, $db)
         '<td class="nowrap" name="col_default"><span>' . (isset($row['col_default'])
             ? htmlspecialchars($row['col_default']) : 'None')
         . '</span>'
-        . PMA\libraries\Template::get('columns_definitions/column_default')
+        . PhpMyAdmin\Template::get('columns_definitions/column_default')
             ->render(
                 array(
                 'columnNumber' => $row_num,
@@ -946,7 +945,7 @@ function PMA_getHTMLforCentralColumnsTableRow($row, $row_num, $db)
         ($row['col_attribute']
             ? htmlspecialchars($row['col_attribute']) : "" )
         . '</span>'
-        . PMA\libraries\Template::get('columns_definitions/column_attribute')
+        . PhpMyAdmin\Template::get('columns_definitions/column_attribute')
             ->render(
                 array(
                 'columnNumber' => $row_num,
@@ -962,13 +961,13 @@ function PMA_getHTMLforCentralColumnsTableRow($row, $row_num, $db)
         '<td class="nowrap" name="col_isNull">'
         . '<span>' . ($row['col_isNull'] ? __('Yes') : __('No'))
         . '</span>'
-        . PMA\libraries\Template::get('columns_definitions/column_null')
+        . PhpMyAdmin\Template::get('columns_definitions/column_null')
             ->render(
                 array(
-                'columnNumber' => $row_num,
+                'column_number' => $row_num,
                 'ci' => 6,
                 'ci_offset' => 0,
-                'columnMeta' => array(
+                'column_meta' => array(
                     'Null' => $row['col_isNull']
                 )
                 )
@@ -978,12 +977,12 @@ function PMA_getHTMLforCentralColumnsTableRow($row, $row_num, $db)
     $tableHtml .=
         '<td class="nowrap" name="col_extra"><span>'
         . htmlspecialchars($row['col_extra']) . '</span>'
-        . PMA\libraries\Template::get('columns_definitions/column_extra')->render(
+        . PhpMyAdmin\Template::get('columns_definitions/column_extra')->render(
             array(
-                'columnNumber' => $row_num,
+                'column_number' => $row_num,
                 'ci' => 7,
                 'ci_offset' => 0,
-                'columnMeta' => array('Extra'=>$row['col_extra'])
+                'column_meta' => array('Extra'=>$row['col_extra'])
             )
         )
         . '</td>';
@@ -996,9 +995,8 @@ function PMA_getHTMLforCentralColumnsTableRow($row, $row_num, $db)
 /**
  * build html for editing a row in central columns table
  *
- * @param array   $row     array contains complete information of
- * a particular row of central list table
- * @param int     $row_num position the row in the table
+ * @param array $row     array contains complete information of a particular row of central list table
+ * @param int   $row_num position the row in the table
  *
  * @return string html of a particular row in the central columns table.
  */
@@ -1008,7 +1006,7 @@ function PMA_getHTMLforCentralColumnsEditTableRow($row, $row_num)
         . '<input name="orig_col_name[' . $row_num . ']" type="hidden" '
         . 'value="' . htmlspecialchars($row['col_name']) . '">'
         . '<td name="col_name" class="nowrap">'
-        . PMA\libraries\Template::get('columns_definitions/column_name')
+        . PhpMyAdmin\Template::get('columns_definitions/column_name')
             ->render(
                 array(
                 'columnNumber' => $row_num,
@@ -1025,22 +1023,22 @@ function PMA_getHTMLforCentralColumnsEditTableRow($row, $row_num)
         . '</td>';
     $tableHtml .=
         '<td name = "col_type" class="nowrap">'
-        . PMA\libraries\Template::get('columns_definitions/column_type')
+        . PhpMyAdmin\Template::get('columns_definitions/column_type')
             ->render(
                 array(
-                'columnNumber' => $row_num,
+                'column_number' => $row_num,
                 'ci' => 1,
                 'ci_offset' => 0,
                 'type_upper' => mb_strtoupper($row['col_type']),
-                'columnMeta' => array()
+                'column_meta' => array()
                 )
             )
         . '</td>';
     $tableHtml .=
         '<td class="nowrap" name="col_length">'
-        . PMA\libraries\Template::get('columns_definitions/column_length')->render(
+        . PhpMyAdmin\Template::get('columns_definitions/column_length')->render(
             array(
-                'columnNumber' => $row_num,
+                'column_number' => $row_num,
                 'ci' => 2,
                 'ci_offset' => 0,
                 'length_values_input_size' => 8,
@@ -1063,7 +1061,7 @@ function PMA_getHTMLforCentralColumnsEditTableRow($row, $row_num)
     }
     $tableHtml .=
         '<td class="nowrap" name="col_default">'
-        . PMA\libraries\Template::get('columns_definitions/column_default')
+        . PhpMyAdmin\Template::get('columns_definitions/column_default')
             ->render(
                 array(
                 'columnNumber' => $row_num,
@@ -1083,7 +1081,7 @@ function PMA_getHTMLforCentralColumnsEditTableRow($row, $row_num)
         . '</td>';
     $tableHtml .=
         '<td class="nowrap" name="col_attribute">'
-        . PMA\libraries\Template::get('columns_definitions/column_attribute')
+        . PhpMyAdmin\Template::get('columns_definitions/column_attribute')
             ->render(
                 array(
                 'columnNumber' => $row_num,
@@ -1099,13 +1097,13 @@ function PMA_getHTMLforCentralColumnsEditTableRow($row, $row_num)
         . '</td>';
     $tableHtml .=
         '<td class="nowrap" name="col_isNull">'
-        . PMA\libraries\Template::get('columns_definitions/column_null')
+        . PhpMyAdmin\Template::get('columns_definitions/column_null')
             ->render(
                 array(
-                'columnNumber' => $row_num,
+                'column_number' => $row_num,
                 'ci' => 6,
                 'ci_offset' => 0,
-                'columnMeta' => array(
+                'column_meta' => array(
                     'Null' => $row['col_isNull']
                 )
                 )
@@ -1114,12 +1112,12 @@ function PMA_getHTMLforCentralColumnsEditTableRow($row, $row_num)
 
     $tableHtml .=
         '<td class="nowrap" name="col_extra">'
-        . PMA\libraries\Template::get('columns_definitions/column_extra')->render(
+        . PhpMyAdmin\Template::get('columns_definitions/column_extra')->render(
             array(
-                'columnNumber' => $row_num,
+                'column_number' => $row_num,
                 'ci' => 7,
                 'ci_offset' => 0,
-                'columnMeta' => array('Extra' => $row['col_extra'])
+                'column_meta' => array('Extra' => $row['col_extra'])
             )
         )
         . '</td>';
@@ -1182,12 +1180,12 @@ function PMA_getCentralColumnsListRaw($db, $table)
  */
 function PMA_getCentralColumnsTableFooter($pmaThemeImage, $text_dir)
 {
-    $html_output = PMA\libraries\Template::get('select_all')
+    $html_output = PhpMyAdmin\Template::get('select_all')
         ->render(
             array(
-                'pmaThemeImage' => $pmaThemeImage,
-                'text_dir'      => $text_dir,
-                'formName'      => 'tableslistcontainer',
+                'pma_theme_image' => $pmaThemeImage,
+                'text_dir'        => $text_dir,
+                'form_name'       => 'tableslistcontainer',
             )
         );
     $html_output .= Util::getButtonOrImage(
@@ -1265,16 +1263,17 @@ function PMA_getHTMLforAddNewColumn($db, $total_rows)
         . '<form id="add_new" class="new_central_col '
         . ($total_rows != 0 ? 'hide"' : '"')
         . 'method="post" action="db_central_columns.php">'
-        . URL::getHiddenInputs(
+        . Url::getHiddenInputs(
             $db
         )
         . '<input type="hidden" name="add_new_column" value="add_new_column">'
+        . '<div class="responsivetable">'
         . '<table>';
     $addNewColumn .= PMA_getCentralColumnsTableHeader();
     $addNewColumn .= '<tr>'
         . '<td></td>'
         . '<td name="col_name" class="nowrap">'
-        . PMA\libraries\Template::get('columns_definitions/column_name')
+        . PhpMyAdmin\Template::get('columns_definitions/column_name')
             ->render(
                 array(
                 'columnNumber' => 0,
@@ -1288,21 +1287,21 @@ function PMA_getHTMLforAddNewColumn($db, $total_rows)
             )
         . '</td>'
         . '<td name = "col_type" class="nowrap">'
-        . PMA\libraries\Template::get('columns_definitions/column_type')
+        . PhpMyAdmin\Template::get('columns_definitions/column_type')
             ->render(
                 array(
-                'columnNumber' => 0,
+                'column_number' => 0,
                 'ci' => 1,
                 'ci_offset' => 0,
                 'type_upper' => '',
-                'columnMeta' => array()
+                'column_meta' => array()
                 )
             )
         . '</td>'
         . '<td class="nowrap" name="col_length">'
-        . PMA\libraries\Template::get('columns_definitions/column_length')->render(
+        . PhpMyAdmin\Template::get('columns_definitions/column_length')->render(
             array(
-                'columnNumber' => 0,
+                'column_number' => 0,
                 'ci' => 2,
                 'ci_offset' => 0,
                 'length_values_input_size' => 8,
@@ -1311,7 +1310,7 @@ function PMA_getHTMLforAddNewColumn($db, $total_rows)
         )
         . '</td>'
         . '<td class="nowrap" name="col_default">'
-        . PMA\libraries\Template::get('columns_definitions/column_default')
+        . PhpMyAdmin\Template::get('columns_definitions/column_default')
             ->render(
                 array(
                 'columnNumber' => 0,
@@ -1329,7 +1328,7 @@ function PMA_getHTMLforAddNewColumn($db, $total_rows)
         )
         . '</td>'
         . '<td class="nowrap" name="col_attribute">'
-        . PMA\libraries\Template::get('columns_definitions/column_attribute')
+        . PhpMyAdmin\Template::get('columns_definitions/column_attribute')
             ->render(
                 array(
                 'columnNumber' => 0,
@@ -1342,23 +1341,23 @@ function PMA_getHTMLforAddNewColumn($db, $total_rows)
             )
         . '</td>'
         . '<td class="nowrap" name="col_isNull">'
-        . PMA\libraries\Template::get('columns_definitions/column_null')
+        . PhpMyAdmin\Template::get('columns_definitions/column_null')
             ->render(
                 array(
-                'columnNumber' => 0,
+                'column_number' => 0,
                 'ci' => 6,
                 'ci_offset' => 0,
-                'columnMeta' => array()
+                'column_meta' => array()
                 )
             )
         . '</td>'
         . '<td class="nowrap" name="col_extra">'
-        . PMA\libraries\Template::get('columns_definitions/column_extra')->render(
+        . PhpMyAdmin\Template::get('columns_definitions/column_extra')->render(
             array(
-                'columnNumber' => 0,
+                'column_number' => 0,
                 'ci' => 7,
                 'ci_offset' => 0,
-                'columnMeta' => array()
+                'column_meta' => array()
             )
         )
         . '</td>'
@@ -1366,7 +1365,7 @@ function PMA_getHTMLforAddNewColumn($db, $total_rows)
         . '<input id="add_column_save" type="submit" '
         . ' value="Save"/></td>'
         . '</tr>';
-    $addNewColumn .= '</table></form></div>';
+    $addNewColumn .= '</table></div></form></div>';
     return $addNewColumn;
 }
 

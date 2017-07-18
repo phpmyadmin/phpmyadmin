@@ -9,10 +9,10 @@
 namespace PMA\libraries\plugins\export;
 
 use PMA\libraries\plugins\ExportPlugin;
+use PMA\libraries\plugins\export\helpers\Pdf;
 use PMA\libraries\properties\plugins\ExportPluginProperties;
 use PMA\libraries\properties\options\groups\OptionsPropertyMainGroup;
 use PMA\libraries\properties\options\groups\OptionsPropertyRootGroup;
-use PMA\libraries\plugins\export\PMA_ExportPdf;
 use PMA\libraries\properties\options\items\RadioPropertyItem;
 use PMA\libraries\properties\options\items\TextPropertyItem;
 
@@ -24,8 +24,6 @@ if (! class_exists('TCPDF')) {
     return;
 }
 
-require_once 'libraries/transformations.lib.php';
-
 /**
  * Handles the export for the PDF class
  *
@@ -35,9 +33,9 @@ require_once 'libraries/transformations.lib.php';
 class ExportPdf extends ExportPlugin
 {
     /**
-     * PMA\libraries\plugins\export\PMA_ExportPdf instance
+     * PMA\libraries\plugins\export\helpers\Pdf instance
      *
-     * @var PMA_ExportPdf
+     * @var Pdf
      */
     private $_pdf;
     /**
@@ -68,7 +66,7 @@ class ExportPdf extends ExportPlugin
         if (!empty($_POST['pdf_report_title'])) {
             $this->_setPdfReportTitle($_POST['pdf_report_title']);
         }
-        $this->_setPdf(new PMA_ExportPdf('L', 'pt', 'A3'));
+        $this->_setPdf(new Pdf('L', 'pt', 'A3'));
     }
 
     /**
@@ -345,9 +343,9 @@ class ExportPdf extends ExportPlugin
     /* ~~~~~~~~~~~~~~~~~~~~ Getters and Setters ~~~~~~~~~~~~~~~~~~~~ */
 
     /**
-     * Gets the PMA\libraries\plugins\export\PMA_ExportPdf instance
+     * Gets the PMA\libraries\plugins\export\helpers\Pdf instance
      *
-     * @return PMA_ExportPdf
+     * @return Pdf
      */
     private function _getPdf()
     {
@@ -355,9 +353,9 @@ class ExportPdf extends ExportPlugin
     }
 
     /**
-     * Instantiates the PMA\libraries\plugins\export\PMA_ExportPdf class
+     * Instantiates the PMA\libraries\plugins\export\helpers\Pdf class
      *
-     * @param PMA_ExportPdf $pdf The instance
+     * @param Pdf $pdf The instance
      *
      * @return void
      */

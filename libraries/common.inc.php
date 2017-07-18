@@ -30,19 +30,21 @@
  *
  * @package PhpMyAdmin
  */
-use PMA\libraries\Config;
-use PMA\libraries\DatabaseInterface;
-use PMA\libraries\ErrorHandler;
-use PMA\libraries\Message;
+
+use PhpMyAdmin\Config;
+use PhpMyAdmin\Core;
+use PhpMyAdmin\DatabaseInterface;
+use PhpMyAdmin\ErrorHandler;
+use PhpMyAdmin\Message;
 use PMA\libraries\plugins\AuthenticationPlugin;
-use PMA\libraries\DbList;
-use PMA\libraries\ThemeManager;
-use PMA\libraries\Tracker;
-use PMA\libraries\Response;
-use PMA\libraries\TypesMySQL;
-use PMA\libraries\Util;
-use PMA\libraries\LanguageManager;
-use PMA\libraries\Logging;
+use PhpMyAdmin\DbList;
+use PhpMyAdmin\ThemeManager;
+use PhpMyAdmin\Tracker;
+use PhpMyAdmin\Response;
+use PhpMyAdmin\TypesMySQL;
+use PhpMyAdmin\Util;
+use PhpMyAdmin\LanguageManager;
+use PhpMyAdmin\Logging;
 
 /**
  * block attempts to directly run this script
@@ -52,7 +54,7 @@ if (getcwd() == dirname(__FILE__)) {
 }
 
 /**
- * Minimum PHP version; can't call PMA_fatalError() which uses a
+ * Minimum PHP version; can't call Core::fatalError() which uses a
  * PHP 5 function, so cannot easily localize this message.
  */
 if (version_compare(PHP_VERSION, '5.5.0', 'lt')) {
@@ -73,16 +75,21 @@ define('PHPMYADMIN', true);
 require_once './libraries/vendor_config.php';
 
 /**
+ * Load hash polyfill.
+ */
+require_once './libraries/hash.lib.php';
+
+/**
  * Activate autoloader
  */
-if (! @is_readable('./vendor/autoload.php')) {
+if (! @is_readable(AUTOLOAD_FILE)) {
     die(
-        'File <tt>./vendor/autoload.php</tt> missing or not readable. <br />'
+        'File <tt>' . AUTOLOAD_FILE . '</tt> missing or not readable. <br />'
         . 'Most likely you did not run Composer to '
         . '<a href="https://docs.phpmyadmin.net/en/latest/setup.html#installing-from-git">install library files</a>.'
     );
 }
-require_once './vendor/autoload.php';
+require_once AUTOLOAD_FILE;
 
 /**
  * Load gettext functions.
@@ -95,14 +102,9 @@ PhpMyAdmin\MoTranslator\Loader::loadFunctions();
 $GLOBALS['error_handler'] = new ErrorHandler();
 
 /**
- * core functions
- */
-require './libraries/core.lib.php';
-
-/**
  * Warning about missing PHP extensions.
  */
-PMA_checkExtensions();
+Core::checkExtensions();
 
 /**
  * Set utf-8 encoding for PHP
@@ -126,7 +128,7 @@ require './libraries/relation.lib.php';
 /******************************************************************************/
 /* start procedural code                       label_start_procedural         */
 
-PMA_cleanupPathInfo();
+Core::cleanupPathInfo();
 
 /**
  * just to be sure there was no import (registering) before here
@@ -242,6 +244,10 @@ if (isset($_COOKIE)) {
     ) {
         // delete all cookies
         foreach ($_COOKIE as $cookie_name => $tmp) {
+            // We ignore cookies not with pma prefix
+            if (strncmp('pma', $cookie_name, 3) != 0) {
+                continue;
+            }
             $GLOBALS['PMA_Config']->removeCookie($cookie_name);
         }
         $_COOKIE = array();
@@ -322,7 +328,7 @@ $goto_whitelist = array(
 /**
  * check $__redirect against whitelist
  */
-if (! PMA_checkPageValidity($__redirect, $goto_whitelist)) {
+if (! Core::checkPageValidity($__redirect, $goto_whitelist)) {
     $__redirect = null;
 }
 
@@ -332,7 +338,7 @@ if (! PMA_checkPageValidity($__redirect, $goto_whitelist)) {
  */
 $GLOBALS['goto'] = '';
 // Security fix: disallow accessing serious server files via "?goto="
-if (PMA_checkPageValidity($_REQUEST['goto'], $goto_whitelist)) {
+if (Core::checkPageValidity($_REQUEST['goto'], $goto_whitelist)) {
     $GLOBALS['goto'] = $_REQUEST['goto'];
     $GLOBALS['url_params']['goto'] = $_REQUEST['goto'];
 } else {
@@ -343,7 +349,7 @@ if (PMA_checkPageValidity($_REQUEST['goto'], $goto_whitelist)) {
  * returning page
  * @global string $GLOBALS['back']
  */
-if (PMA_checkPageValidity($_REQUEST['back'], $goto_whitelist)) {
+if (Core::checkPageValidity($_REQUEST['back'], $goto_whitelist)) {
     $GLOBALS['back'] = $_REQUEST['back'];
 } else {
     unset($_REQUEST['back'], $_GET['back'], $_POST['back'], $_COOKIE['back']);
@@ -355,33 +361,32 @@ if (PMA_checkPageValidity($_REQUEST['back'], $goto_whitelist)) {
  *
  * remember that some objects in the session with session_start and __wakeup()
  * could access this variables before we reach this point
- * f.e. PMA\libraries\Config: fontsize
+ * f.e. PhpMyAdmin\Config: fontsize
  *
  * Check for token mismatch only if the Request method is POST
  * GET Requests would never have token and therefore checking
  * mis-match does not make sense
  *
  * @todo variables should be handled by their respective owners (objects)
- * f.e. lang, server, collation_connection in PMA\libraries\Config
+ * f.e. lang, server, collation_connection in PhpMyAdmin\Config
  */
 
 $token_mismatch = true;
 $token_provided = false;
 
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-    if (PMA_isValid($_POST['token'])) {
+    if (Core::isValid($_POST['token'])) {
         $token_provided = true;
-        $token_mismatch = ! hash_equals($_SESSION[' PMA_token '], $_POST['token']);
+        $token_mismatch = ! @hash_equals($_SESSION[' PMA_token '], $_POST['token']);
     }
 
     if ($token_mismatch) {
         /**
          * We don't allow any POST operation parameters if the token is mismatched
          * or is not provided
-         *
          */
-        $whitelist = array();
-        PMA\libraries\Sanitize::removeRequestVars($whitelist);
+        $whitelist = array('ajax_request');
+        PhpMyAdmin\Sanitize::removeRequestVars($whitelist);
     }
 }
 
@@ -390,19 +395,19 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
  * current selected database
  * @global string $GLOBALS['db']
  */
-PMA_setGlobalDbOrTable('db');
+Core::setGlobalDbOrTable('db');
 
 /**
  * current selected table
  * @global string $GLOBALS['table']
  */
-PMA_setGlobalDbOrTable('table');
+Core::setGlobalDbOrTable('table');
 
 /**
  * Store currently selected recent table.
  * Affect $GLOBALS['db'] and $GLOBALS['table']
  */
-if (PMA_isValid($_REQUEST['selected_recent_table'])) {
+if (Core::isValid($_REQUEST['selected_recent_table'])) {
     $recent_table = json_decode($_REQUEST['selected_recent_table'], true);
 
     $GLOBALS['db']
@@ -421,7 +426,7 @@ if (PMA_isValid($_REQUEST['selected_recent_table'])) {
  * @global string $GLOBALS['sql_query']
  */
 $GLOBALS['sql_query'] = '';
-if (PMA_isValid($_REQUEST['sql_query'])) {
+if (Core::isValid($_REQUEST['sql_query'])) {
     $GLOBALS['sql_query'] = $_REQUEST['sql_query'];
 }
 
@@ -457,13 +462,29 @@ $GLOBALS['PMA_Config']->checkErrors();
 /**
  * As we try to handle charsets by ourself, mbstring overloads just
  * break it, see bug 1063821.
+ *
+ * We specifically use empty here as we are looking for anything else than
+ * empty value or 0.
  */
-if (@extension_loaded('mbstring') && @ini_get('mbstring.func_overload') != '0') {
-    PMA_fatalError(
+if (@extension_loaded('mbstring') && !empty(@ini_get('mbstring.func_overload'))) {
+    Core::fatalError(
         __(
             'You have enabled mbstring.func_overload in your PHP '
             . 'configuration. This option is incompatible with phpMyAdmin '
             . 'and might cause some data to be corrupted!'
+        )
+    );
+}
+
+/**
+ * The ini_set and ini_get functions can be disabled using
+ * disable_functions but we're relying quite a lot of them.
+ */
+if (! function_exists('ini_get') || ! function_exists('ini_set')) {
+    Core::fatalError(
+        __(
+            'You have disabled ini_get and/or ini_set in php.ini. '
+            . 'This option is incompatible with phpMyAdmin!'
         )
     );
 }
@@ -479,8 +500,8 @@ $GLOBALS['server'] = 0;
 
 /**
  * Servers array fixups.
- * $default_server comes from PMA\libraries\Config::enableBc()
- * @todo merge into PMA\libraries\Config
+ * $default_server comes from PhpMyAdmin\Config::enableBc()
+ * @todo merge into PhpMyAdmin\Config
  */
 // Do we have some server?
 if (! isset($cfg['Servers']) || count($cfg['Servers']) == 0) {
@@ -582,7 +603,7 @@ if (! defined('PMA_MINIMUM_COMMON')) {
 
     /**
      * save some settings in cookies
-     * @todo should be done in PMA\libraries\Config
+     * @todo should be done in PhpMyAdmin\Config
      */
     $GLOBALS['PMA_Config']->setCookie('pma_lang', $GLOBALS['lang']);
     if (isset($GLOBALS['collation_connection'])) {
@@ -604,7 +625,7 @@ if (! defined('PMA_MINIMUM_COMMON')) {
         // get LoginCookieValidity from preferences cache
         // no generic solution for loading preferences from cache as some settings
         // need to be kept for processing in
-        // PMA\libraries\Config::loadUserPreferences()
+        // PhpMyAdmin\Config::loadUserPreferences()
         $cache_key = 'server_' . $GLOBALS['server'];
         if (isset($_SESSION['cache'][$cache_key]['userprefs']['LoginCookieValidity'])
         ) {
@@ -627,16 +648,16 @@ if (! defined('PMA_MINIMUM_COMMON')) {
          * the required auth type plugin
          */
         $auth_class = "Authentication" . ucfirst($cfg['Server']['auth_type']);
-        if (! file_exists(
+        if (! @file_exists(
             './libraries/plugins/auth/'
             . $auth_class . '.php'
         )) {
-            PMA_fatalError(
+            Core::fatalError(
                 __('Invalid authentication method set in configuration:')
                 . ' ' . $cfg['Server']['auth_type']
             );
         }
-        if (isset($_REQUEST['pma_password'])) {
+        if (isset($_REQUEST['pma_password']) && strlen($_REQUEST['pma_password']) > 256) {
             $_REQUEST['pma_password'] = substr($_REQUEST['pma_password'], 0, 256);
         }
         $fqnAuthClass = 'PMA\libraries\plugins\auth\\' . $auth_class;
@@ -726,6 +747,11 @@ if (! defined('PMA_MINIMUM_COMMON')) {
         /** @var DatabaseInterface $userlink */
         $userlink = $GLOBALS['dbi']->connect(DatabaseInterface::CONNECT_USER);
 
+        if ($userlink === false) {
+            Logging::logUser($cfg['Server']['user'], 'mysql-denied');
+            $GLOBALS['auth_plugin']->authFails();
+        }
+
         // Set timestamp for the session, if required.
         if ($cfg['Server']['SessionTimeZone'] != '') {
             $sql_query_tz = 'SET ' . Util::backquote('time_zone') . ' = '
@@ -772,8 +798,8 @@ if (! defined('PMA_MINIMUM_COMMON')) {
         /* Log success */
         Logging::logUser($cfg['Server']['user']);
 
-        if (PMA_MYSQL_INT_VERSION < $cfg['MysqlMinVersion']['internal']) {
-            PMA_fatalError(
+        if ($GLOBALS['dbi']->getVersion() < $cfg['MysqlMinVersion']['internal']) {
+            Core::fatalError(
                 __('You should upgrade to %s %s or later.'),
                 array('MySQL', $cfg['MysqlMinVersion']['human'])
             );
@@ -785,7 +811,7 @@ if (! defined('PMA_MINIMUM_COMMON')) {
         $GLOBALS['PMA_Types'] = new TypesMySQL();
 
         // Loads closest context to this version.
-        PhpMyAdmin\SqlParser\Context::loadClosest('MySql' . PMA_MYSQL_INT_VERSION);
+        PhpMyAdmin\SqlParser\Context::loadClosest('MySql' . $GLOBALS['dbi']->getVersion());
 
         // Sets the default delimiter (if specified).
         if (!empty($_REQUEST['sql_delimiter'])) {
@@ -846,10 +872,10 @@ if (! defined('PMA_MINIMUM_COMMON')) {
         $header   = $response->getHeader();
         $scripts  = $header->getScripts();
         $scripts->addFile('chart.js');
-        $scripts->addFile('jqplot/jquery.jqplot.js');
-        $scripts->addFile('jqplot/plugins/jqplot.pieRenderer.js');
-        $scripts->addFile('jqplot/plugins/jqplot.highlighter.js');
-        $scripts->addFile('jquery/jquery.tablesorter.js');
+        $scripts->addFile('vendor/jqplot/jquery.jqplot.js');
+        $scripts->addFile('vendor/jqplot/plugins/jqplot.pieRenderer.js');
+        $scripts->addFile('vendor/jqplot/plugins/jqplot.highlighter.js');
+        $scripts->addFile('vendor/jquery/jquery.tablesorter.js');
     }
 
     /*
@@ -878,14 +904,14 @@ $GLOBALS['PMA_Config']->set('default_server', '');
 Tracker::enable();
 
 if (isset($_REQUEST['GLOBALS']) || isset($_FILES['GLOBALS'])) {
-    PMA_fatalError(__("GLOBALS overwrite attempt"));
+    Core::fatalError(__("GLOBALS overwrite attempt"));
 }
 
 /**
  * protect against possible exploits - there is no need to have so much variables
  */
 if (count($_REQUEST) > 1000) {
-    PMA_fatalError(__('possible exploit'));
+    Core::fatalError(__('possible exploit'));
 }
 
 // here, the function does not exist with this configuration:

@@ -6,7 +6,7 @@
  * @package PhpMyAdmin-test
  */
 
-use PMA\libraries\Theme;
+use PhpMyAdmin\Theme;
 
 require_once 'libraries/config/FormDisplay.tpl.php';
 require_once 'libraries/user_preferences.lib.php';
@@ -66,7 +66,7 @@ class PMA_FormDisplay_Tpl_Test extends PHPUnit_Framework_TestCase
         $result = PMA_displayTabsTop(array('one', 'two'));
 
         $this->assertContains(
-            '<ul class="tabs"',
+            '<ul class="tabs responsivetable"',
             $result
         );
 
@@ -136,10 +136,6 @@ class PMA_FormDisplay_Tpl_Test extends PHPUnit_Framework_TestCase
      */
     public function testDisplayInput()
     {
-        if (! PMA_HAS_RUNKIT) {
-            $this->markTestSkipped('Cannot modify constant');
-        }
-
         $GLOBALS['_FormDislayGroup'] = 1;
         $opts = array();
         $opts['errors'] = array('e1');
@@ -186,7 +182,7 @@ class PMA_FormDisplay_Tpl_Test extends PHPUnit_Framework_TestCase
         );
 
         $this->assertContains(
-            '<input type="text" size="40" name="test/path" id="test/path" ' .
+            '<input type="text" class="all85" name="test/path" id="test/path" ' .
             'class="custom field-error" value="val" />',
             $result
         );
@@ -198,7 +194,7 @@ class PMA_FormDisplay_Tpl_Test extends PHPUnit_Framework_TestCase
         );
 
         $this->assertContains(
-            '<a class="restore-default" href="#test/path"',
+            '<a class="restore-default hide" href="#test/path"',
             $result
         );
 
@@ -209,7 +205,7 @@ class PMA_FormDisplay_Tpl_Test extends PHPUnit_Framework_TestCase
 
         // second case
 
-        define('PMA_SETUP', true);
+        $GLOBALS['PMA_Config']->set('is_setup', true);
         $GLOBALS['_FormDislayGroup'] = 0;
         $opts = array();
         $opts['errors'] = array();
@@ -247,8 +243,8 @@ class PMA_FormDisplay_Tpl_Test extends PHPUnit_Framework_TestCase
         );
 
         $this->assertContains(
-            '<a class="set-value" href="#test/path=setVal" ' .
-            'title="Set value: setVal" style="display:none">',
+            '<a class="set-value hide" href="#test/path=setVal" ' .
+            'title="Set value: setVal">',
             $result
         );
 
@@ -293,7 +289,7 @@ class PMA_FormDisplay_Tpl_Test extends PHPUnit_Framework_TestCase
             '', true, $opts
         );
         $this->assertContains(
-            '<select name="test/path" id="test/path">',
+            '<select class="all85" name="test/path" id="test/path">',
             $result
         );
 
@@ -326,7 +322,7 @@ class PMA_FormDisplay_Tpl_Test extends PHPUnit_Framework_TestCase
         );
 
         $this->assertContains(
-            '<select name="test/path" id="test/path">',
+            '<select class="all85" name="test/path" id="test/path">',
             $result
         );
 
@@ -343,10 +339,9 @@ class PMA_FormDisplay_Tpl_Test extends PHPUnit_Framework_TestCase
         );
 
         $this->assertContains(
-            '<textarea cols="40" rows="5" name="test/path" id="test/path">',
+            '<textarea cols="35" rows="5" name="test/path" id="test/path">',
             $result
         );
-        runkit_constant_remove('PMA_SETUP');
     }
 
     /**
@@ -356,19 +351,13 @@ class PMA_FormDisplay_Tpl_Test extends PHPUnit_Framework_TestCase
      */
     public function testDisplayGroupHeader()
     {
-        if (! PMA_HAS_RUNKIT) {
-            $this->markTestSkipped('Cannot modify constant');
-        }
-
         $this->assertNull(
             PMA_displayGroupHeader('')
         );
 
         $GLOBALS['_FormDisplayGroup'] = 3;
 
-        if (!defined('PMA_SETUP')) {
-            define('PMA_SETUP', true);
-        }
+        $GLOBALS['PMA_Config']->set('is_setup', true);
 
         $result = PMA_displayGroupHeader('headerText');
 
@@ -378,8 +367,8 @@ class PMA_FormDisplay_Tpl_Test extends PHPUnit_Framework_TestCase
         );
 
         // without PMA_SETUP
+        $GLOBALS['PMA_Config']->set('is_setup', false);
 
-        runkit_constant_remove('PMA_SETUP');
         $GLOBALS['_FormDisplayGroup'] = 3;
 
         $result = PMA_displayGroupHeader('headerText');
@@ -413,15 +402,8 @@ class PMA_FormDisplay_Tpl_Test extends PHPUnit_Framework_TestCase
      */
     public function testDisplayFieldsetBottom()
     {
-        if (! PMA_HAS_RUNKIT) {
-            $this->markTestSkipped('Cannot modify constant');
-        }
-
         // with PMA_SETUP
-
-        if (!defined('PMA_SETUP')) {
-            define('PMA_SETUP', true);
-        }
+        $GLOBALS['PMA_Config']->set('is_setup', true);
 
         $result = PMA_displayFieldsetBottom();
 
@@ -446,8 +428,7 @@ class PMA_FormDisplay_Tpl_Test extends PHPUnit_Framework_TestCase
         );
 
         // without PMA_SETUP
-
-        runkit_constant_remove('PMA_SETUP');
+        $GLOBALS['PMA_Config']->set('is_setup', false);
 
         $result = PMA_displayFieldsetBottom();
 
@@ -550,7 +531,7 @@ class PMA_FormDisplay_Tpl_Test extends PHPUnit_Framework_TestCase
             . '});' . "\n"
             . 'if (typeof configScriptLoaded !== "undefined"'
             . ' && configInlineParams) loadInlineConfig();'
-            . "\n" . '</script>',
+            . "\n" . '</script>'. "\n",
             $result
         );
     }

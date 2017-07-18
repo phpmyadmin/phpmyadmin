@@ -8,6 +8,9 @@
  * @package PhpMyAdmin
  * @see     https://secure.php.net/session
  */
+
+use PhpMyAdmin\Core;
+
 if (! defined('PHPMYADMIN')) {
     exit;
 }
@@ -17,11 +20,19 @@ require_once 'libraries/session.lib.php';
 // verify if PHP supports session, die if it does not
 
 if (!@function_exists('session_name')) {
-    PMA_warnMissingExtension('session', true);
-} elseif (ini_get('session.auto_start') !== '' && session_name() != 'phpMyAdmin') {
-    // Do not delete the existing session, it might be used by other
+    Core::warnMissingExtension('session', true);
+} elseif (! empty(ini_get('session.auto_start')) && session_name() != 'phpMyAdmin' && !empty(session_id())) {
+    // Do not delete the existing non empty session, it might be used by other
     // applications; instead just close it.
-    session_write_close();
+    if (empty($_SESSION)) {
+        /* Ignore errors as this might have been destroyed in other request meanwhile */
+        @session_destroy();
+    } elseif (function_exists('session_abort')) {
+        /* PHP 5.6 and newer */
+        session_abort();
+    } else {
+        session_write_close();
+    }
 }
 
 // disable starting of sessions before all settings are done
@@ -70,7 +81,13 @@ session_cache_limiter('private');
 // on some servers (for example, sourceforge.net), we get a permission error
 // on the session data directory, so I add some "@"
 
-
+/**
+ * Session failed function
+ *
+ * @param array $errors PhpMyAdmin\ErrorHandler array
+ *
+ * @return void
+ */
 function PMA_sessionFailed($errors)
 {
     $messages = array();
@@ -98,7 +115,7 @@ function PMA_sessionFailed($errors)
      * Session initialization is done before selecting language, so we
      * can not use translations here.
      */
-    PMA_fatalError(
+    Core::fatalError(
         'Error during session start; please check your PHP and/or '
         . 'webserver log file and configure your PHP '
         . 'installation properly. Also ensure that cookies are enabled '
@@ -113,6 +130,11 @@ function PMA_sessionFailed($errors)
 
 $session_name = 'phpMyAdmin';
 @session_name($session_name);
+
+// Restore correct sesion ID (it might have been reset by auto started session
+if (isset($_COOKIE['phpMyAdmin'])) {
+    session_id($_COOKIE['phpMyAdmin']);
+}
 
 // on first start of session we check for errors
 // f.e. session dir cannot be accessed - session file not created
@@ -138,7 +160,7 @@ unset($orig_error_count, $session_result);
  * Token which is used for authenticating access queries.
  * (we use "space PMA_token space" to prevent overwriting)
  */
-if (! isset($_SESSION[' PMA_token '])) {
+if (empty($_SESSION[' PMA_token '])) {
     PMA_generateToken();
 
     /**
@@ -154,4 +176,10 @@ if (! isset($_SESSION[' PMA_token '])) {
         PMA_sessionFailed($errors);
     }
     session_start();
+    if (empty($_SESSION[' PMA_token '])) {
+        Core::fatalError(
+            'Failed to store CSRF token in session! ' .
+            'Probably sessions are not working properly.'
+        );
+    }
 }

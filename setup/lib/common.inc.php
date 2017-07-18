@@ -5,14 +5,13 @@
  *
  * @package PhpMyAdmin-Setup
  */
-use PMA\libraries\config\ConfigFile;
+use PhpMyAdmin\Config\ConfigFile;
 
 /**
  * Do not include full common.
  * @ignore
  */
 define('PMA_MINIMUM_COMMON', true);
-define('PMA_SETUP', true);
 chdir('..');
 
 if (!file_exists('./libraries/common.inc.php')) {
@@ -29,6 +28,7 @@ restore_error_handler();
 
 // Save current language in a cookie, required since we use PMA_MINIMUM_COMMON
 $GLOBALS['PMA_Config']->setCookie('pma_lang', $GLOBALS['lang']);
+$GLOBALS['PMA_Config']->set('is_setup', true);
 
 $GLOBALS['ConfigFile'] = new ConfigFile();
 $GLOBALS['ConfigFile']->setPersistKeys(

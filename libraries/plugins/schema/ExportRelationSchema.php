@@ -8,8 +8,8 @@
  */
 namespace PMA\libraries\plugins\schema;
 
-use PMA;
-use PMA\libraries\URL;
+use PhpMyAdmin\Url;
+use PhpMyAdmin\Util;
 
 /**
  * This class is inherited by all schema classes
@@ -262,8 +262,8 @@ class ExportRelationSchema
         // Get the name of this page to use as filename
         if ($this->pageNumber != -1 && !$this->offline) {
             $_name_sql = 'SELECT page_descr FROM '
-                . PMA\libraries\Util::backquote($GLOBALS['cfgRelation']['db']) . '.'
-                . PMA\libraries\Util::backquote($GLOBALS['cfgRelation']['pdf_pages'])
+                . Util::backquote($GLOBALS['cfgRelation']['db']) . '.'
+                . Util::backquote($GLOBALS['cfgRelation']['pdf_pages'])
                 . ' WHERE page_nr = ' . $this->pageNumber;
             $_name_rs = PMA_queryAsControlUser($_name_sql);
             $_name_row = $GLOBALS['dbi']->fetchRow($_name_rs);
@@ -294,7 +294,7 @@ class ExportRelationSchema
         echo '    ' , $error_message , "\n";
         echo '</p>' , "\n";
         echo '<a href="db_designer.php'
-            , URL::getCommon(array('db' => $GLOBALS['db']))
+            , Url::getCommon(array('db' => $GLOBALS['db']))
             , '&page=' . htmlspecialchars($pageNumber) , '">' , __('Back') , '</a>';
         echo "\n";
         exit;

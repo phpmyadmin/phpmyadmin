@@ -66,7 +66,7 @@ var AJAX = {
      */
     registerOnload: function (file, func) {
         var eventName = 'onload_' + AJAX.hash(file);
-        $(document).bind(eventName, func);
+        $(document).on(eventName, func);
         if (this._debug) {
             console.log(
                 // no need to translate
@@ -87,7 +87,7 @@ var AJAX = {
      */
     registerTeardown: function (file, func) {
         var eventName = 'teardown_' + AJAX.hash(file);
-        $(document).bind(eventName, func);
+        $(document).on(eventName, func);
         if (this._debug) {
             console.log(
                 // no need to translate
@@ -446,11 +446,11 @@ var AJAX = {
                         .insertAfter('#selflink')
                         .append(data._errors);
                     // bind for php error reporting forms (bottom)
-                    $("#pma_ignore_errors_bottom").bind("click", function(e) {
+                    $("#pma_ignore_errors_bottom").on("click", function(e) {
                         e.preventDefault();
                         PMA_ignorePhpErrors();
                     });
-                    $("#pma_ignore_all_errors_bottom").bind("click", function(e) {
+                    $("#pma_ignore_all_errors_bottom").on("click", function(e) {
                         e.preventDefault();
                         PMA_ignorePhpErrors(false);
                     });
@@ -471,10 +471,10 @@ var AJAX = {
                 }
                 PMA_ajaxShowMessage(msg, false);
                 // bind for php error reporting forms (popup)
-                $("#pma_ignore_errors_popup").bind("click", function() {
+                $("#pma_ignore_errors_popup").on("click", function() {
                     PMA_ignorePhpErrors();
                 });
-                $("#pma_ignore_all_errors_popup").bind("click", function() {
+                $("#pma_ignore_all_errors_popup").on("click", function() {
                     PMA_ignorePhpErrors(false);
                 });
 
@@ -573,13 +573,19 @@ var AJAX = {
                     needRequest = true;
                     this.add(script);
                     request.push("scripts%5B%5D=" + script);
+                    if (request.length >= 10) {
+                        // Download scripts in chunks
+                        this.appendScript(request);
+                        request = [];
+                        needRequest = false;
+                    }
                 }
             }
             request.push("call_done=1");
             request.push("v=" + encodeURIComponent(PMA_commonParams.get('PMA_VERSION')));
             // Download the composite js file, if necessary
             if (needRequest) {
-                this.appendScript("js/get_scripts.js.php?" + request.join("&"));
+                this.appendScript(request);
             } else {
                 self.done(callback);
             }
@@ -606,11 +612,14 @@ var AJAX = {
          *
          * @return void
          */
-        appendScript: function (url) {
+        appendScript: function (request) {
             var head = document.head || document.getElementsByTagName('head')[0];
             var script = document.createElement('script');
+
+            request.push("call_done=1");
+            request.push("v=" + encodeURIComponent(PMA_commonParams.get('PMA_VERSION')));
             script.type = 'text/javascript';
-            script.src = url;
+            script.src = "js/get_scripts.js.php?" + request.join("&");
             script.async = false;
             head.appendChild(script);
         },
@@ -781,7 +790,11 @@ $(document).on('submit', 'form', AJAX.requestHandler);
  * (e.g: 500 - Internal server error)
  */
 $(document).ajaxError(function (event, request, settings) {
-    if (request.status !== 0) { // Don't handle aborted requests
+    if (AJAX._debug) {
+        console.log('AJAX error: status=' + request.status + ', text=' + request.statusText);
+    }
+    // Don't handle aborted requests
+    if (request.status !== 0 || request.statusText !== 'abort') {
         var errorCode = PMA_sprintf(PMA_messages.strErrorCode, request.status);
         var errorText = PMA_sprintf(PMA_messages.strErrorText, request.statusText);
         PMA_ajaxShowMessage(
@@ -793,5 +806,6 @@ $(document).ajaxError(function (event, request, settings) {
             false
         );
         AJAX.active = false;
+        AJAX.xhr = null;
     }
 });

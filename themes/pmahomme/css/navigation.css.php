@@ -21,7 +21,7 @@ if (! defined('PMA_MINIMUM_COMMON') && ! defined('TESTSUITE')) {
     position: fixed;
     top: 0;
     <?php echo $left; ?>: 0;
-    height: 100%;
+    height: 100vh;
     background: url(./themes/pmahomme/img/left_nav_bg.png) repeat-y right 0 <?php echo $GLOBALS['cfg']['NaviBackground']; ?>;
     color: <?php echo $GLOBALS['cfg']['NaviColor']; ?>;
     z-index: 800;

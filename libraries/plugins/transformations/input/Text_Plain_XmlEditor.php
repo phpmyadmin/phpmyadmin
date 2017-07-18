@@ -16,6 +16,7 @@ use PMA\libraries\plugins\transformations\abs\CodeMirrorEditorTransformationPlug
  * @package    PhpMyAdmin-Transformations
  * @subpackage XML
  */
+// @codingStandardsIgnoreLine
 class Text_Plain_XmlEditor extends CodeMirrorEditorTransformationPlugin
 {
     /**
@@ -40,8 +41,8 @@ class Text_Plain_XmlEditor extends CodeMirrorEditorTransformationPlugin
     {
         $scripts = array();
         if ($GLOBALS['cfg']['CodemirrorEnable']) {
-            $scripts[] = 'codemirror/lib/codemirror.js';
-            $scripts[] = 'codemirror/mode/xml/xml.js';
+            $scripts[] = 'vendor/codemirror/lib/codemirror.js';
+            $scripts[] = 'vendor/codemirror/mode/xml/xml.js';
             $scripts[] = 'transformations/xml_editor.js';
         }
 

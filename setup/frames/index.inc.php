@@ -6,12 +6,13 @@
  * @package PhpMyAdmin-Setup
  */
 
-use PMA\libraries\config\ConfigFile;
-use PMA\libraries\config\FormDisplay;
-use PMA\libraries\config\ServerConfigChecks;
-use PMA\libraries\LanguageManager;
-use PMA\libraries\URL;
-use PMA\libraries\Sanitize;
+use PhpMyAdmin\Config\ConfigFile;
+use PhpMyAdmin\Config\FormDisplay;
+use PhpMyAdmin\Config\ServerConfigChecks;
+use PhpMyAdmin\Core;
+use PhpMyAdmin\LanguageManager;
+use PhpMyAdmin\Url;
+use PhpMyAdmin\Sanitize;
 
 if (!defined('PHPMYADMIN')) {
     exit;
@@ -28,7 +29,6 @@ $all_languages = LanguageManager::getInstance()->sortedLanguages();
 
 /** @var ConfigFile $cf */
 $cf = $GLOBALS['ConfigFile'];
-$separator = URL::getArgSeparator('html');
 
 // message handling
 PMA_messagesBegin();
@@ -62,7 +62,7 @@ $text .= '</a>';
 PMA_messagesSet('notice', 'no_https', __('Insecure connection'), $text);
 
 echo '<form id="select_lang" method="post">';
-echo URL::getHiddenInputs();
+echo Url::getHiddenInputs();
 echo '<bdo lang="en" dir="ltr"><label for="lang">';
 echo __('Language') , (__('Language') != 'Language' ? ' - Language' : '');
 echo '</label></bdo><br />';
@@ -119,7 +119,7 @@ echo '<h2>' , __('Overview') , '</h2>';
 PMA_messagesEnd();
 PMA_messagesShowHtml();
 
-echo '<a href="#" id="show_hidden_messages" style="display:none">';
+echo '<a href="#" id="show_hidden_messages" class="hide">';
 echo __('Show hidden messages (#MSG_COUNT)');
 echo '</a>';
 
@@ -157,12 +157,10 @@ if ($cf->getServerCount() > 0) {
         echo '<td>' , htmlspecialchars($cf->getServerDSN($id)) , '</td>';
         echo '<td style="white-space: nowrap">';
         echo '<small>';
-        echo '<a href="' , URL::getCommon() , $separator , 'page=servers'
-            , $separator , 'mode=edit' , $separator , 'id=' , $id , '">'
+        echo '<a href="' , Url::getCommon(array('page' => 'servers', 'mode' => 'edit', 'id' => $id)), '">'
             , __('Edit') , '</a>';
         echo ' | ';
-        echo '<a href="' , URL::getCommon() , $separator , 'page=servers'
-            , $separator , 'mode=remove' , $separator , 'id=' , $id , '">'
+        echo '<a href="' , Url::getCommon(array('page' => 'servers', 'mode' => 'remove', 'id' => $id)), '">'
             , __('Delete') , '</a>';
         echo '</small>';
         echo '</td>';
@@ -246,7 +244,7 @@ $opts = array(
         'unix' => 'UNIX / Linux (\n)',
         'win' => 'Windows (\r\n)'),
     'values_escaped' => true);
-$eol = PMA_ifSetOr($_SESSION['eol'], (PMA_IS_WINDOWS ? 'win' : 'unix'));
+$eol = Core::ifSetOr($_SESSION['eol'], (PMA_IS_WINDOWS ? 'win' : 'unix'));
 echo PMA_displayInput(
     'eol', __('End of line'), 'select',
     $eol, '', true, $opts
@@ -270,6 +268,6 @@ echo '<div id="footer">';
 echo '<a href="../url.php?url=https://www.phpmyadmin.net/">' , __('phpMyAdmin homepage') , '</a>';
 echo '<a href="../url.php?url=https://www.phpmyadmin.net/donate/">'
     ,  __('Donate') , '</a>';
-echo '<a href="' ,  URL::getCommon() , $separator , 'version_check=1">'
+echo '<a href="' ,  Url::getCommon(array('version_check' => '1')), '">'
     , __('Check for latest version') , '</a>';
 echo '</div>';

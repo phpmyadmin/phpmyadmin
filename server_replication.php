@@ -5,7 +5,7 @@
  *
  * @package PhpMyAdmin
  */
-use PMA\libraries\Response;
+use PhpMyAdmin\Response;
 
 /**
  * include files
@@ -24,13 +24,14 @@ $header   = $response->getHeader();
 $scripts  = $header->getScripts();
 $scripts->addFile('server_privileges.js');
 $scripts->addFile('replication.js');
+$scripts->addFile('vendor/zxcvbn.js');
 
 /**
  * Checks if the user is allowed to do what he tries to...
  */
 if (! $is_superuser) {
     $html  = PMA_getHtmlForSubPageHeader('replication');
-    $html .= PMA\libraries\Message::error(__('No Privileges'))->getDisplay();
+    $html .= PhpMyAdmin\Message::error(__('No Privileges'))->getDisplay();
     $response->addHTML($html);
     exit;
 }

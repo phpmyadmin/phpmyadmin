@@ -1,0 +1,16 @@
+{% if initial_sliders_state == 'disabled' %}
+    <div{% if id is defined %} id="{{ id }}"{% endif %}>
+{% else %}
+    {#
+    Bad hack on the next line. document.write() conflicts with jQuery,
+    hence, opening the <div> with PHP itself instead of JavaScript.
+
+    @todo find a better solution that uses $.append(), the recommended
+    method maybe by using an additional param, the id of the div to
+    append to
+    #}
+    <div{% if id is defined %} id="{{ id }}"
+        {%- endif %} {% if initial_sliders_state == 'closed' -%}
+        style="display: none; overflow:auto;"{% endif %} class="pma_auto_slider"
+        {%- if message is defined %} title="{{ message }}"{% endif %}>
+{% endif %}

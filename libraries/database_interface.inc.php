@@ -6,11 +6,13 @@
  *
  * @package PhpMyAdmin-DBI
  */
-use PMA\libraries\dbi\DBIDummy;
-use PMA\libraries\di\Container;
-use PMA\libraries\DatabaseInterface;
-use PMA\libraries\dbi\DBIMysql;
-use PMA\libraries\dbi\DBIMysqli;
+
+use PhpMyAdmin\Core;
+use PhpMyAdmin\Dbi\DbiDummy;
+use PhpMyAdmin\Di\Container;
+use PhpMyAdmin\DatabaseInterface;
+use PhpMyAdmin\Dbi\DbiMysql;
+use PhpMyAdmin\Dbi\DbiMysqli;
 
 if (! defined('PHPMYADMIN')) {
     exit;
@@ -20,7 +22,7 @@ if (defined('TESTSUITE')) {
     /**
      * For testsuite we use dummy driver which can fake some queries.
      */
-    $extension = new DBIDummy();
+    $extension = new DbiDummy();
 } else {
 
     /**
@@ -31,7 +33,7 @@ if (defined('TESTSUITE')) {
     $extension = 'mysqli';
     if (!DatabaseInterface::checkDbExtension($extension)) {
 
-        $docurl = PMA\libraries\Util::getDocuLink('faq', 'faqmysql');
+        $docurl = PhpMyAdmin\Util::getDocuLink('faq', 'faqmysql');
         $doclink = sprintf(
             __('See %sour documentation%s for more information.'),
             '[a@' . $docurl  . '@documentation]',
@@ -40,9 +42,9 @@ if (defined('TESTSUITE')) {
 
         if (PHP_VERSION_ID < 70000) {
             $extension = 'mysql';
-            if (! PMA\libraries\DatabaseInterface::checkDbExtension($extension)) {
+            if (! PhpMyAdmin\DatabaseInterface::checkDbExtension($extension)) {
                 // warn about both extensions missing and exit
-                PMA_warnMissingExtension(
+                Core::warnMissingExtension(
                     'mysqli',
                     true,
                     $doclink
@@ -61,7 +63,7 @@ if (defined('TESTSUITE')) {
             }
         } else {
             // mysql extension is not part of PHP 7+, so warn and exit
-            PMA_warnMissingExtension(
+            Core::warnMissingExtension(
                 'mysqli',
                 true,
                 $doclink
@@ -74,11 +76,11 @@ if (defined('TESTSUITE')) {
      */
     switch($extension) {
     case 'mysql' :
-        $extension = new DBIMysql();
+        $extension = new DbiMysql();
         break;
     case 'mysqli' :
-        include_once 'libraries/dbi/DBIMysqli.lib.php';
-        $extension = new DBIMysqli();
+        include_once 'libraries/dbi/dbi_mysqli.inc.php';
+        $extension = new DbiMysqli();
         break;
     }
 }

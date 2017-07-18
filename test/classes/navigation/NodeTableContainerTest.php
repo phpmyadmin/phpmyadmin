@@ -7,7 +7,7 @@
  */
 
 use PMA\libraries\navigation\NodeFactory;
-use PMA\libraries\Theme;
+use PhpMyAdmin\Theme;
 
 require_once 'libraries/navigation/NodeFactory.php';
 require_once 'test/PMATestCase.php';

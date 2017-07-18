@@ -1,0 +1,43 @@
+<?php
+/* vim: set expandtab sw=4 ts=4 sts=4 ft=php: */
+define('PHPMYADMIN', 1);
+require_once 'libraries/vendor_config.php';
+require_once AUTOLOAD_FILE;
+
+use PMA\libraries\twig\CharsetsExtension;
+use PMA\libraries\twig\I18nExtension;
+use PMA\libraries\twig\MessageExtension;
+use PMA\libraries\twig\SanitizeExtension;
+use PMA\libraries\twig\UrlExtension;
+use PMA\libraries\twig\UtilExtension;
+
+$tplDir = dirname(__FILE__) . '/../templates';
+$tmpDir = dirname(__FILE__) . '/../twig-templates';
+$loader = new Twig_Loader_Filesystem($tplDir);
+
+// force auto-reload to always have the latest version of the template
+$twig = new Twig_Environment($loader, array(
+    'cache' => $tmpDir,
+    'auto_reload' => true
+));
+$twig->addExtension(new CharsetsExtension());
+$twig->addExtension(new I18nExtension());
+$twig->addExtension(new MessageExtension());
+$twig->addExtension(new SanitizeExtension());
+$twig->addExtension(new UrlExtension());
+$twig->addExtension(new UtilExtension());
+
+// iterate over all templates
+foreach (new RecursiveIteratorIterator(
+    new RecursiveDirectoryIterator($tplDir),
+    RecursiveIteratorIterator::LEAVES_ONLY
+) as $file) {
+    // Skip test files
+    if (strpos($file, '/test/') !== false) {
+        continue;
+    }
+    // force compilation
+    if ($file->isFile() && $file->getExtension() == 'twig') {
+        $twig->loadTemplate(str_replace($tplDir.'/', '', $file));
+    }
+}

@@ -5,7 +5,7 @@
  *
  * @package PhpMyAdmin
  */
-use PMA\libraries\Response;
+use PhpMyAdmin\Response;
 
 require_once 'libraries/common.inc.php';
 require_once 'libraries/server_users.lib.php';
@@ -26,7 +26,7 @@ $scripts->addFile('server_user_groups.js');
  */
 if (! $GLOBALS['is_superuser']) {
     $response->addHTML(
-        PMA\libraries\Message::error(__('No Privileges'))
+        PhpMyAdmin\Message::error(__('No Privileges'))
             ->getDisplay()
     );
     exit;

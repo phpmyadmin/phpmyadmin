@@ -9,7 +9,7 @@
     <?php for ($mi = 0, $cols = count($move_columns); $mi < $cols; $mi++): ?>
         <option value="<?= htmlspecialchars($move_columns[$mi]->name); ?>"
                 <?= (($current_index == $mi || $current_index == $mi + 1) ? ' disabled="disabled"' : '');?>>
-            <?= sprintf(__('after %s'), PMA\libraries\Util::backquote(htmlspecialchars($move_columns[$mi]->name))); ?>
+            <?= sprintf(__('after %s'), PhpMyAdmin\Util::backquote(htmlspecialchars($move_columns[$mi]->name))); ?>
         </option>
     <?php endfor; ?>
 </select>

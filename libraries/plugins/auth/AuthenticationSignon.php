@@ -8,8 +8,9 @@
  */
 namespace PMA\libraries\plugins\auth;
 
+use PhpMyAdmin\Core;
 use PMA\libraries\plugins\AuthenticationPlugin;
-use PMA;
+use PhpMyAdmin\Util;
 
 /**
  * Handles the SignOn authentication method
@@ -27,9 +28,9 @@ class AuthenticationSignon extends AuthenticationPlugin
     {
         unset($_SESSION['LAST_SIGNON_URL']);
         if (empty($GLOBALS['cfg']['Server']['SignonURL'])) {
-            PMA_fatalError('You must set SignonURL!');
+            Core::fatalError('You must set SignonURL!');
         } else {
-            PMA_sendHeaderLocation($GLOBALS['cfg']['Server']['SignonURL']);
+            Core::sendHeaderLocation($GLOBALS['cfg']['Server']['SignonURL']);
         }
 
         if (!defined('TESTSUITE')) {
@@ -82,8 +83,8 @@ class AuthenticationSignon extends AuthenticationPlugin
 
         /* Handle script based auth */
         if (!empty($script_name)) {
-            if (!file_exists($script_name)) {
-                PMA_fatalError(
+            if (!@file_exists($script_name)) {
+                Core::fatalError(
                     __('Can not find signon authentication script:')
                     . ' ' . $script_name
                 );
@@ -188,7 +189,7 @@ class AuthenticationSignon extends AuthenticationPlugin
             /**
              * Clear user cache.
              */
-            PMA\libraries\Util::clearUserCache();
+            Util::clearUserCache();
         }
 
         // Returns whether we get authentication settings or not

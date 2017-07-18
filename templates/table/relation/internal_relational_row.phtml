@@ -1,5 +1,5 @@
 <?php
-use PMA\libraries\Table;
+use PhpMyAdmin\Table;
 
 $myfield = $save_row[$i]['Field'];
 // Use an md5 as array index to avoid having special characters
@@ -44,7 +44,7 @@ if ($foreign_db && $foreign_table) {
     </td>
 
     <td>
-        <?= PMA\libraries\Template::get('table/relation/relational_dropdown')->render(
+        <?= PhpMyAdmin\Template::get('table/relation/relational_dropdown')->render(
             array(
                 'name' => 'destination_db[' . $myfield_md5 . ']',
                 'title' => __('Database'),
@@ -52,7 +52,7 @@ if ($foreign_db && $foreign_table) {
                 'foreign' => $foreign_db
             )
         ); ?>
-        <?= PMA\libraries\Template::get('table/relation/relational_dropdown')->render(
+        <?= PhpMyAdmin\Template::get('table/relation/relational_dropdown')->render(
             array(
                 'name' => 'destination_table[' . $myfield_md5 . ']',
                 'title' => __('Table'),
@@ -60,7 +60,7 @@ if ($foreign_db && $foreign_table) {
                 'foreign' => $foreign_table
             )
         ); ?>
-        <?= PMA\libraries\Template::get('table/relation/relational_dropdown')->render(
+        <?= PhpMyAdmin\Template::get('table/relation/relational_dropdown')->render(
             array(
                 'name' => 'destination_column[' . $myfield_md5 . ']',
                 'title' => __('Column'),

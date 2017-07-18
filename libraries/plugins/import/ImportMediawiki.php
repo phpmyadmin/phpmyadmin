@@ -8,9 +8,9 @@
  */
 namespace PMA\libraries\plugins\import;
 
-use PMA\libraries\properties\plugins\ImportPluginProperties;
-use PMA;
+use PhpMyAdmin\Message;
 use PMA\libraries\plugins\ImportPlugin;
+use PMA\libraries\properties\plugins\ImportPluginProperties;
 
 /**
  * Handles the import for the MediaWiki format
@@ -271,7 +271,7 @@ class ImportMediawiki extends ImportPlugin
                 } else {
                     // If it's none of the above, then the current line has a bad
                     // format
-                    $message = PMA\libraries\Message::error(
+                    $message = Message::error(
                         __('Invalid format of mediawiki input on line: <br />%s.')
                     );
                     $message->addParam($cur_buffer_line);

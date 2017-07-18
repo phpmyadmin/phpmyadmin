@@ -7,7 +7,7 @@
  */
 namespace PMA\libraries\plugins\schema\eps;
 
-use PMA;
+use PhpMyAdmin\Font;
 use PMA\libraries\plugins\schema\ExportRelationSchema;
 use PMA\libraries\plugins\schema\TableStats;
 
@@ -108,10 +108,10 @@ class TableStatsEps extends TableStats
         foreach ($this->fields as $field) {
             $this->width = max(
                 $this->width,
-                PMA\libraries\Font::getStringWidth($field, $font, $fontSize)
+                Font::getStringWidth($field, $font, $fontSize)
             );
         }
-        $this->width += PMA\libraries\Font::getStringWidth(
+        $this->width += Font::getStringWidth(
             '      ',
             $font,
             $fontSize
@@ -121,7 +121,7 @@ class TableStatsEps extends TableStats
         * table title is affected by the table width value
         */
         while ($this->width
-            < PMA\libraries\Font::getStringWidth(
+            < Font::getStringWidth(
                 $this->getTitle(),
                 $font,
                 $fontSize

@@ -19,11 +19,9 @@ Credits, in chronological order
 
   * various fixes and improvements
 
-  * :term:`SQL` analyser (most of it)
+  * first version of the :term:`SQL` analyser (most of it)
 
-  * current project maintainer
-
-  * maintains content on our website
+  * maintainer from 2001 to 2015
 
 * Olivier Müller <om\_at\_omnis.ch>
 
@@ -506,7 +504,6 @@ Following people have contributed to translation of phpMyAdmin:
 
     * Albert Song <albb0920\_at\_gmail.com>
     * Chien Wei Lin <cwlin0416\_at\_gmail.com>
-    * LNDDYL <lnddyl\_at\_outlook.com>
     * Peter Dave Hello <xs910203\_at\_gmail.com>
 
 

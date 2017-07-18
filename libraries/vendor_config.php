@@ -14,6 +14,17 @@ if (! defined('PHPMYADMIN')) {
 }
 
 /**
+ * Path to vendor autoload file. Useful when you want to
+ * have have vendor dependencies somewhere else.
+ */
+define('AUTOLOAD_FILE', './vendor/autoload.php');
+
+/**
+ * Directory where cache files are stored.
+ */
+define('TEMP_DIR', './tmp/');
+
+/**
  * Path to changelog file, can be gzip compressed. Useful when you want to
  * have documentation somewhere else, eg. /usr/share/doc.
  */

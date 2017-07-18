@@ -8,15 +8,15 @@
  */
 namespace PMA\libraries\plugins\export;
 
-use PMA\libraries\properties\options\items\BoolPropertyItem;
+use PhpMyAdmin\DatabaseInterface;
+use PhpMyAdmin\OpenDocument;
 use PMA\libraries\plugins\ExportPlugin;
 use PMA\libraries\properties\plugins\ExportPluginProperties;
-use PMA\libraries\properties\options\items\HiddenPropertyItem;
 use PMA\libraries\properties\options\groups\OptionsPropertyMainGroup;
 use PMA\libraries\properties\options\groups\OptionsPropertyRootGroup;
-use PMA\libraries\DatabaseInterface;
+use PMA\libraries\properties\options\items\BoolPropertyItem;
+use PMA\libraries\properties\options\items\HiddenPropertyItem;
 use PMA\libraries\properties\options\items\TextPropertyItem;
-use PMA\libraries\OpenDocument;
 
 $GLOBALS['ods_buffer'] = '';
 
@@ -91,7 +91,7 @@ class ExportOds extends ExportPlugin
     {
         $GLOBALS['ods_buffer'] .= '<?xml version="1.0" encoding="utf-8"?' . '>'
             . '<office:document-content '
-            . OpenDocument::NS . 'office:version="1.0">'
+            . OpenDocument::NS . ' office:version="1.0">'
             . '<office:automatic-styles>'
             . '<number:date-style style:name="N37"'
             . ' number:automatic-order="true">'

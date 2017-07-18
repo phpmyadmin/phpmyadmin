@@ -5,10 +5,11 @@
  *
  * @package PhpMyAdmin-Setup
  */
-use PMA\libraries\config\FormDisplay;
+use PhpMyAdmin\Config\FormDisplay;
 use PMA\setup\lib\ConfigGenerator;
-use PMA\libraries\URL;
-use PMA\libraries\Response;
+use PhpMyAdmin\Core;
+use PhpMyAdmin\Url;
+use PhpMyAdmin\Response;
 
 /**
  * Core libraries.
@@ -27,25 +28,25 @@ if (isset($_POST['eol'])) {
     $_SESSION['eol'] = ($_POST['eol'] == 'unix') ? 'unix' : 'win';
 }
 
-if (PMA_ifSetOr($_POST['submit_clear'], '')) {
+if (Core::ifSetOr($_POST['submit_clear'], '')) {
     //
     // Clear current config and return to main page
     //
     $GLOBALS['ConfigFile']->resetConfigData();
     // drop post data
-    $response->generateHeader303('index.php' . URL::getCommonRaw());
+    $response->generateHeader303('index.php' . Url::getCommonRaw());
     exit;
-} elseif (PMA_ifSetOr($_POST['submit_download'], '')) {
+} elseif (Core::ifSetOr($_POST['submit_download'], '')) {
     //
     // Output generated config file
     //
-    PMA_downloadHeader('config.inc.php', 'text/plain');
+    Core::downloadHeader('config.inc.php', 'text/plain');
     echo ConfigGenerator::getConfigFile($GLOBALS['ConfigFile']);
     exit;
 } else {
     //
     // Show generated config file in a <textarea>
     //
-    $response->generateHeader303('index.php' . URL::getCommonRaw() . '&page=config');
+    $response->generateHeader303('index.php' . Url::getCommonRaw(array('page' => 'config')));
     exit;
 }

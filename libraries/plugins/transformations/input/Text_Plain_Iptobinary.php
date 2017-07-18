@@ -16,6 +16,7 @@ use PMA\libraries\plugins\IOTransformationsPlugin;
  * @package    PhpMyAdmin-Transformations
  * @subpackage IPToBinary
  */
+// @codingStandardsIgnoreLine
 class Text_Plain_Iptobinary extends IOTransformationsPlugin
 {
     /**
@@ -98,8 +99,7 @@ class Text_Plain_Iptobinary extends IOTransformationsPlugin
             . ' dir="' . $text_dir . '"'
             . ' class="' . $class . '"'
             . ' id="field_' . ($idindex) . '_3"'
-            . ' tabindex="' . ($tabindex + $tabindex_for_value) . '">'
-            . '</input>';
+            . ' tabindex="' . ($tabindex + $tabindex_for_value) . '" />';
 
         return $html;
     }

@@ -7,8 +7,8 @@
  */
 namespace PMA\libraries\navigation\nodes;
 
-use PMA;
 use PMA\libraries\navigation\NodeFactory;
+use PhpMyAdmin\Util;
 
 /**
  * Represents a container for view nodes in the navigation tree
@@ -23,7 +23,7 @@ class NodeViewContainer extends NodeDatabaseChildContainer
     public function __construct()
     {
         parent::__construct(__('Views'), Node::CONTAINER);
-        $this->icon = PMA\libraries\Util::getImage('b_views.png', __('Views'));
+        $this->icon = Util::getImage('b_views.png', __('Views'));
         $this->links = array(
             'text' => 'db_structure.php?server=' . $GLOBALS['server']
                 . '&amp;db=%1$s&amp;tbl_type=view',
@@ -39,7 +39,7 @@ class NodeViewContainer extends NodeDatabaseChildContainer
             $new_label
         );
         $new->isNew = true;
-        $new->icon = PMA\libraries\Util::getImage('b_view_add.png', $new_label);
+        $new->icon = Util::getImage('b_view_add.png', $new_label);
         $new->links = array(
             'text' => 'view_create.php?server=' . $GLOBALS['server']
                 . '&amp;db=%2$s',
@@ -50,4 +50,3 @@ class NodeViewContainer extends NodeDatabaseChildContainer
         $this->addChild($new);
     }
 }
-

@@ -5,8 +5,10 @@
  *
  * @package PhpMyAdmin
  */
-use PMA\libraries\Table;
-use PMA\libraries\Util;
+
+use PhpMyAdmin\Core;
+use PhpMyAdmin\Table;
+use PhpMyAdmin\Util;
 
 /**
  * Transforms the radio button field_key into 4 arrays
@@ -114,11 +116,11 @@ function PMA_setColumnCreationStatementSuffix($current_field_num,
             $sql_suffix .= ' FIRST';
         } else {
             $sql_suffix .= ' AFTER '
-                    . PMA\libraries\Util::backquote($_REQUEST['after_field']);
+                    . PhpMyAdmin\Util::backquote($_REQUEST['after_field']);
         }
     } else {
         $sql_suffix .= ' AFTER '
-                . PMA\libraries\Util::backquote(
+                . PhpMyAdmin\Util::backquote(
                     $_REQUEST['field_name'][$current_field_num - 1]
                 );
     }
@@ -149,12 +151,12 @@ function PMA_buildIndexStatements($index, $index_choice,
         . ' ' . $index_choice;
 
     if (! empty($index['Key_name']) && $index['Key_name'] != 'PRIMARY') {
-        $sql_query .= ' ' . PMA\libraries\Util::backquote($index['Key_name']);
+        $sql_query .= ' ' . PhpMyAdmin\Util::backquote($index['Key_name']);
     }
 
     $index_fields = array();
     foreach ($index['columns'] as $key => $column) {
-        $index_fields[$key] = PMA\libraries\Util::backquote(
+        $index_fields[$key] = PhpMyAdmin\Util::backquote(
             $_REQUEST['field_name'][$column['col_index']]
         );
         if ($column['size']) {
@@ -174,7 +176,7 @@ function PMA_buildIndexStatements($index, $index_choice,
     $type = $index['Index_type'];
     if ($index['Index_choice'] != 'SPATIAL'
         && $index['Index_choice'] != 'FULLTEXT'
-        && in_array($type, PMA\libraries\Index::getIndexTypes())
+        && in_array($type, PhpMyAdmin\Index::getIndexTypes())
     ) {
         $sql_query .= ' USING ' . $type;
     }
@@ -408,8 +410,8 @@ function PMA_getTableCreationQuery($db, $table)
     $sql_statement = PMA_getColumnCreationStatements(true);
 
     // Builds the 'create table' statement
-    $sql_query = 'CREATE TABLE ' . PMA\libraries\Util::backquote($db) . '.'
-        . PMA\libraries\Util::backquote(trim($table)) . ' (' . $sql_statement . ')';
+    $sql_query = 'CREATE TABLE ' . PhpMyAdmin\Util::backquote($db) . '.'
+        . PhpMyAdmin\Util::backquote(trim($table)) . ' (' . $sql_statement . ')';
 
     // Adds table type, character set, comments and partition definition
     if (!empty($_REQUEST['tbl_storage_engine'])
@@ -477,17 +479,17 @@ function PMA_tryColumnCreationQuery($db, $table, $err_url)
     // To allow replication, we first select the db to use and then run queries
     // on this db.
     if (!($GLOBALS['dbi']->selectDb($db))) {
-        PMA\libraries\Util::mysqlDie(
+        PhpMyAdmin\Util::mysqlDie(
             $GLOBALS['dbi']->getError(),
-            'USE ' . PMA\libraries\Util::backquote($db), false,
+            'USE ' . PhpMyAdmin\Util::backquote($db), false,
             $err_url
         );
     }
     $sql_query    = 'ALTER TABLE ' .
-        PMA\libraries\Util::backquote($table) . ' ' . $sql_statement . ';';
+        PhpMyAdmin\Util::backquote($table) . ' ' . $sql_statement . ';';
     // If there is a request for SQL previewing.
     if (isset($_REQUEST['preview_sql'])) {
-        PMA_previewSQL($sql_query);
+        Core::previewSQL($sql_query);
     }
     return array($GLOBALS['dbi']->tryQuery($sql_query) , $sql_query);
 }

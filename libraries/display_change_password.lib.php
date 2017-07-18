@@ -5,8 +5,8 @@
  *
  * @package PhpMyAdmin
  */
-use PMA\libraries\Message;
-use PMA\libraries\URL;
+use PhpMyAdmin\Message;
+use PhpMyAdmin\Url;
 
 /**
   * Get HTML for the Change password dialog
@@ -33,7 +33,7 @@ function PMA_getHtmlForChangePassword($mode, $username, $hostname)
         . 'name="chgPassword" '
         . 'class="' . ($is_privileges ? 'submenu-item' : '') . '">';
 
-    $html .= URL::getHiddenInputs();
+    $html .= Url::getHiddenInputs();
 
     if (strpos($GLOBALS['PMA_PHP_SELF'], 'server_privileges') !== false) {
         $html .= '<input type="hidden" name="username" '
@@ -79,7 +79,8 @@ function PMA_getHtmlForChangePassword($mode, $username, $hostname)
         . '</td>'
         . '</tr>';
 
-    $serverType = PMA\libraries\Util::getServerType();
+    $serverType = PhpMyAdmin\Util::getServerType();
+    $serverVersion = $GLOBALS['dbi']->getVersion();
     $orig_auth_plugin = PMA_getCurrentAuthenticationPlugin(
         'change',
         $username,
@@ -88,14 +89,14 @@ function PMA_getHtmlForChangePassword($mode, $username, $hostname)
     $is_superuser = $GLOBALS['dbi']->isSuperuser();
 
     if (($serverType == 'MySQL'
-        && PMA_MYSQL_INT_VERSION >= 50507)
+        && $serverVersion >= 50507)
         || ($serverType == 'MariaDB'
-        && PMA_MYSQL_INT_VERSION >= 50200)
+        && $serverVersion >= 50200)
     ) {
         // Provide this option only for 5.7.6+
         // OR for privileged users in 5.5.7+
         if (($serverType == 'MySQL'
-            && PMA_MYSQL_INT_VERSION >= 50706)
+            && $serverVersion >= 50706)
             || ($is_superuser && $mode == 'edit_other')
         ) {
             $auth_plugin_dropdown = PMA_getHtmlForAuthPluginsDropdown(
@@ -109,9 +110,9 @@ function PMA_getHtmlForChangePassword($mode, $username, $hostname)
                 . '<tr id="tr_element_before_generate_password"></tr>'
                 . '</table>';
 
-            $html .= '<div '
+            $html .= '<div'
                 . ($orig_auth_plugin != 'sha256_password'
-                    ? 'style="display:none"'
+                    ? ' class="hide"'
                     : '')
                 . ' id="ssl_reqd_warning_cp">'
                 . Message::notice(
@@ -120,7 +121,7 @@ function PMA_getHtmlForChangePassword($mode, $username, $hostname)
                         . 'or an \'<i>unencrypted connection that encrypts the '
                         . 'password using RSA</i>\'; while connecting to the server.'
                     )
-                    . PMA\libraries\Util::showMySQLDocu(
+                    . PhpMyAdmin\Util::showMySQLDocu(
                         'sha256-authentication-plugin'
                     )
                 )

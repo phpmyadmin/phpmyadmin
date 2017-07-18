@@ -10,8 +10,8 @@
  * since 'check_user_privileges.lib.php' will use it globally
  */
 use PMA\libraries\plugins\import\ImportCsv;
-use PMA\libraries\Theme;
-use PMA\libraries\File;
+use PhpMyAdmin\Theme;
+use PhpMyAdmin\File;
 
 $GLOBALS['server'] = 0;
 
@@ -72,7 +72,7 @@ class ImportCsvTest extends PMATestCase
         //$_SESSION
 
         //Mock DBI
-        $dbi = $this->getMockBuilder('PMA\libraries\DatabaseInterface')
+        $dbi = $this->getMockBuilder('PhpMyAdmin\DatabaseInterface')
             ->disableOriginalConstructor()
             ->getMock();
         $GLOBALS['dbi'] = $dbi;

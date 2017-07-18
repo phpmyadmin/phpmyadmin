@@ -21,7 +21,7 @@
 class PMA_QuotingSlashing_Test extends PHPUnit_Framework_TestCase
 {
     /**
-     * data provider for PMA\libraries\Util::unQuote test
+     * data provider for PhpMyAdmin\Util::unQuote test
      *
      * @return array
      */
@@ -36,7 +36,7 @@ class PMA_QuotingSlashing_Test extends PHPUnit_Framework_TestCase
     }
 
     /**
-     * PMA\libraries\Util::unQuote test
+     * PhpMyAdmin\Util::unQuote test
      *
      * @param string $param    String
      * @param string $expected Expected output
@@ -48,12 +48,12 @@ class PMA_QuotingSlashing_Test extends PHPUnit_Framework_TestCase
     public function testUnQuote($param, $expected)
     {
         $this->assertEquals(
-            $expected, PMA\libraries\Util::unQuote($param)
+            $expected, PhpMyAdmin\Util::unQuote($param)
         );
     }
 
     /**
-     * data provider for PMA\libraries\Util::unQuote test with chosen quote
+     * data provider for PhpMyAdmin\Util::unQuote test with chosen quote
      *
      * @return array
      */
@@ -68,7 +68,7 @@ class PMA_QuotingSlashing_Test extends PHPUnit_Framework_TestCase
     }
 
     /**
-     * PMA\libraries\Util::unQuote test with chosen quote
+     * PhpMyAdmin\Util::unQuote test with chosen quote
      *
      * @param string $param    String
      * @param string $expected Expected output
@@ -80,7 +80,7 @@ class PMA_QuotingSlashing_Test extends PHPUnit_Framework_TestCase
     public function testUnQuoteSelectedChar($param, $expected)
     {
         $this->assertEquals(
-            $expected, PMA\libraries\Util::unQuote($param, '"')
+            $expected, PhpMyAdmin\Util::unQuote($param, '"')
         );
     }
 
@@ -115,10 +115,10 @@ class PMA_QuotingSlashing_Test extends PHPUnit_Framework_TestCase
     public function testBackquote($a, $b)
     {
         // Test bypass quoting (used by dump functions)
-        $this->assertEquals($a, PMA\libraries\Util::backquote($a, false));
+        $this->assertEquals($a, PhpMyAdmin\Util::backquote($a, false));
 
         // Test backquote
-        $this->assertEquals($b, PMA\libraries\Util::backquote($a));
+        $this->assertEquals($b, PhpMyAdmin\Util::backquote($a));
     }
 
     /**
@@ -152,14 +152,14 @@ class PMA_QuotingSlashing_Test extends PHPUnit_Framework_TestCase
     public function testbackquoteCompat($a, $b)
     {
         // Test bypass quoting (used by dump functions)
-        $this->assertEquals($a, PMA\libraries\Util::backquoteCompat($a, 'NONE', false));
+        $this->assertEquals($a, PhpMyAdmin\Util::backquoteCompat($a, 'NONE', false));
 
         // Run tests in MSSQL compatibility mode
         // Test bypass quoting (used by dump functions)
-        $this->assertEquals($a, PMA\libraries\Util::backquoteCompat($a, 'MSSQL', false));
+        $this->assertEquals($a, PhpMyAdmin\Util::backquoteCompat($a, 'MSSQL', false));
 
         // Test backquote
-        $this->assertEquals($b, PMA\libraries\Util::backquoteCompat($a, 'MSSQL'));
+        $this->assertEquals($b, PhpMyAdmin\Util::backquoteCompat($a, 'MSSQL'));
     }
 
     /**
@@ -173,12 +173,12 @@ class PMA_QuotingSlashing_Test extends PHPUnit_Framework_TestCase
             if ($type & PhpMyAdmin\SqlParser\Token::FLAG_KEYWORD_RESERVED) {
                 $this->assertEquals(
                     "`" . $keyword . "`",
-                    PMA\libraries\Util::backquote($keyword, false)
+                    PhpMyAdmin\Util::backquote($keyword, false)
                 );
             } else {
                 $this->assertEquals(
                     $keyword,
-                    PMA\libraries\Util::backquote($keyword, false)
+                    PhpMyAdmin\Util::backquote($keyword, false)
                 );
             }
         }

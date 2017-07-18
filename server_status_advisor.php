@@ -6,9 +6,9 @@
  * @package PhpMyAdmin
  */
 
-use PMA\libraries\Message;
-use PMA\libraries\Response;
-use PMA\libraries\ServerStatusData;
+use PhpMyAdmin\Message;
+use PhpMyAdmin\Response;
+use PhpMyAdmin\ServerStatusData;
 
 require_once 'libraries/common.inc.php';
 require_once 'libraries/server_status_advisor.lib.php';

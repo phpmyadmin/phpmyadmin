@@ -7,9 +7,9 @@
  * @package PhpMyAdmin
  */
 
-use PMA\libraries\Response;
-use PMA\libraries\Message;
-use PMA\libraries\ServerStatusData;
+use PhpMyAdmin\Response;
+use PhpMyAdmin\Message;
+use PhpMyAdmin\ServerStatusData;
 
 require_once 'libraries/common.inc.php';
 require_once 'libraries/server_common.inc.php';
@@ -25,10 +25,11 @@ $scripts  = $header->getScripts();
 
 // for charting
 $scripts->addFile('chart.js');
-$scripts->addFile('jqplot/jquery.jqplot.js');
-$scripts->addFile('jqplot/plugins/jqplot.pieRenderer.js');
-$scripts->addFile('jqplot/plugins/jqplot.highlighter.js');
-$scripts->addFile('jquery/jquery.tablesorter.js');
+$scripts->addFile('vendor/jqplot/jquery.jqplot.js');
+$scripts->addFile('vendor/jqplot/plugins/jqplot.pieRenderer.js');
+$scripts->addFile('vendor/jqplot/plugins/jqplot.highlighter.js');
+$scripts->addFile('vendor/jqplot/plugins/jqplot.enhancedPieLegendRenderer.js');
+$scripts->addFile('vendor/jquery/jquery.tablesorter.js');
 $scripts->addFile('server_status_sorter.js');
 $scripts->addFile('server_status_queries.js');
 

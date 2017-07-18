@@ -9,10 +9,10 @@
 /*
  * Include to test.
  */
-use PMA\libraries\controllers\table\TableSearchController;
-use PMA\libraries\di\Container;
-use PMA\libraries\Theme;
-use PMA\libraries\TypesMySQL;
+use PhpMyAdmin\Controllers\Table\TableSearchController;
+use PhpMyAdmin\Di\Container;
+use PhpMyAdmin\Theme;
+use PhpMyAdmin\TypesMySQL;
 
 require_once 'test/libraries/stubs/ResponseStub.php';
 require_once 'test/PMATestCase.php';
@@ -48,7 +48,7 @@ class TableSearchControllerTest extends PMATestCase
         $GLOBALS['PMA_Types'] = new TypesMySQL();
         $GLOBALS['cfg']['Server']['DisableIS'] = false;
 
-        $dbi = $this->getMockBuilder('PMA\libraries\DatabaseInterface')
+        $dbi = $this->getMockBuilder('PhpMyAdmin\DatabaseInterface')
             ->disableOriginalConstructor()
             ->getMock();
 
@@ -149,7 +149,7 @@ class TableSearchControllerTest extends PMATestCase
         $_POST['order'] = "asc";
         $_POST['customWhereClause'] = "name='pma'";
 
-        $class = new ReflectionClass('PMA\libraries\controllers\table\TableSearchController');
+        $class = new ReflectionClass('PhpMyAdmin\Controllers\Table\TableSearchController');
         $method = $class->getMethod('_buildSqlQuery');
         $method->setAccessible(true);
         $tableSearch = new TableSearchController("zoom", null);
@@ -241,9 +241,9 @@ class TableSearchControllerTest extends PMATestCase
 
         $container = Container::getDefaultContainer();
         $container->set('dbi', $GLOBALS['dbi']);
-        $container->factory('PMA\libraries\controllers\table\TableSearchController');
+        $container->factory('PhpMyAdmin\Controllers\Table\TableSearchController');
         $container->alias(
-            'TableSearchController', 'PMA\libraries\controllers\table\TableSearchController'
+            'TableSearchController', 'PhpMyAdmin\Controllers\Table\TableSearchController'
         );
         $ctrl = $container->get('TableSearchController');
 
@@ -265,21 +265,21 @@ class TableSearchControllerTest extends PMATestCase
      */
     public function testGenerateWhereClause()
     {
-        $types = $this->getMockBuilder('PMA\libraries\Types')
+        $types = $this->getMockBuilder('PhpMyAdmin\Types')
             ->disableOriginalConstructor()
             ->getMock();
         $types->expects($this->any())->method('isUnaryOperator')
             ->will($this->returnValue(false));
         $GLOBALS['PMA_Types'] = $types;
 
-        $class = new ReflectionClass('\PMA\libraries\controllers\Table\TableSearchController');
+        $class = new ReflectionClass('\PhpMyAdmin\Controllers\Table\TableSearchController');
         $method = $class->getMethod('_generateWhereClause');
         $method->setAccessible(true);
 
         $container = Container::getDefaultContainer();
-        $container->factory('\PMA\libraries\controllers\Table\TableSearchController');
+        $container->factory('\PhpMyAdmin\Controllers\Table\TableSearchController');
         $container->alias(
-            'TableSearchController', 'PMA\libraries\controllers\table\TableSearchController'
+            'TableSearchController', 'PhpMyAdmin\Controllers\Table\TableSearchController'
         );
         $ctrl = $container->get('TableSearchController');
 
@@ -356,9 +356,9 @@ class TableSearchControllerTest extends PMATestCase
 
         $container = Container::getDefaultContainer();
         $container->set('dbi', $GLOBALS['dbi']);
-        $container->factory('\PMA\libraries\controllers\Table\TableSearchController');
+        $container->factory('\PhpMyAdmin\Controllers\Table\TableSearchController');
         $container->alias(
-            'TableSearchController', 'PMA\libraries\controllers\table\TableSearchController'
+            'TableSearchController', 'PhpMyAdmin\Controllers\Table\TableSearchController'
         );
         $ctrl = $container->get('TableSearchController');
 

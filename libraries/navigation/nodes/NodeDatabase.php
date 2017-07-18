@@ -7,8 +7,8 @@
  */
 namespace PMA\libraries\navigation\nodes;
 
-use PMA\libraries\Util;
-use PMA\libraries\URL;
+use PhpMyAdmin\Url;
+use PhpMyAdmin\Util;
 
 /**
  * Represents a database node in the navigation tree
@@ -677,7 +677,7 @@ class NodeDatabase extends Node
                 );
                 $ret = '<span class="dbItemControls">'
                     . '<a href="navigation.php'
-                    . URL::getCommon($params) . '"'
+                    . Url::getCommon($params) . '"'
                     . ' class="showUnhide ajax">'
                     . Util::getImage(
                         'show.png',
@@ -712,4 +712,3 @@ class NodeDatabase extends Node
         return $this->hiddenCount;
     }
 }
-

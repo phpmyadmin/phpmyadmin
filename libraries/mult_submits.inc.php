@@ -5,15 +5,15 @@
  *
  * @package PhpMyAdmin
  */
-use PMA\libraries\Message;
-use PMA\libraries\Response;
+
+use PhpMyAdmin\Message;
+use PhpMyAdmin\Response;
+use PhpMyAdmin\Sql;
 
 if (! defined('PHPMYADMIN')) {
     exit;
 }
 
-require_once 'libraries/transformations.lib.php';
-require_once 'libraries/sql.lib.php';
 require_once 'libraries/mult_submits.lib.php';
 
 $request_params = array(
@@ -105,7 +105,7 @@ if (! empty($submit_mult)
             );
             exit;
         case 'show_create':
-            $show_create = PMA\libraries\Template::get(
+            $show_create = PhpMyAdmin\Template::get(
                 'database/structure/show_create'
             )
                 ->render(
@@ -161,7 +161,6 @@ if (!empty($submit_mult) && !empty($what)) {
     if (strlen($table) > 0) {
         include './libraries/tbl_common.inc.php';
         $url_query .= '&amp;goto=tbl_sql.php&amp;back=tbl_sql.php';
-        include './libraries/tbl_info.inc.php';
     } elseif (strlen($db) > 0) {
         include './libraries/db_common.inc.php';
 
@@ -175,7 +174,7 @@ if (!empty($submit_mult) && !empty($what)) {
             $tooltip_truename,
             $tooltip_aliasname,
             $pos
-        ) = PMA\libraries\Util::getDbInfo($db, isset($sub_part) ? $sub_part : '');
+        ) = PhpMyAdmin\Util::getDbInfo($db, isset($sub_part) ? $sub_part : '');
 
     } else {
         include_once './libraries/server_common.inc.php';
@@ -225,7 +224,7 @@ if (!empty($submit_mult) && !empty($what)) {
         // Gets table primary key
         $GLOBALS['dbi']->selectDb($db);
         $result = $GLOBALS['dbi']->query(
-            'SHOW KEYS FROM ' . PMA\libraries\Util::backquote($table) . ';'
+            'SHOW KEYS FROM ' . PhpMyAdmin\Util::backquote($table) . ';'
         );
         $primary = '';
         while ($row = $GLOBALS['dbi']->fetchAssoc($result)) {
@@ -241,7 +240,7 @@ if (!empty($submit_mult) && !empty($what)) {
         || $query_type == 'empty_tbl'
         || $query_type == 'row_delete'
     ) {
-        $default_fk_check_value = PMA\libraries\Util::handleDisableFKCheckInit();
+        $default_fk_check_value = PhpMyAdmin\Util::handleDisableFKCheckInit();
     }
 
     list(
@@ -268,7 +267,7 @@ if (!empty($submit_mult) && !empty($what)) {
     }
 
     if ($execute_query_later) {
-        PMA_executeQueryAndSendQueryResponse(
+        Sql::executeQueryAndSendQueryResponse(
             null, // analyzed_sql_results
             false, // is_gotofile
             $db, // db
@@ -305,7 +304,7 @@ if (!empty($submit_mult) && !empty($what)) {
         || $query_type == 'empty_tbl'
         || $query_type == 'row_delete'
     ) {
-        PMA\libraries\Util::handleDisableFKCheckCleanup($default_fk_check_value);
+        PhpMyAdmin\Util::handleDisableFKCheckCleanup($default_fk_check_value);
     }
     if ($rebuild_database_list) {
         // avoid a problem with the database list navigator

@@ -1,6 +1,25 @@
-<?= PMA\libraries\Template::get('table/search/form_tag')
+<?php
+$scriptName = '';
+$formId = '';
+switch ($searchType) {
+    case 'normal' :
+        $scriptName = 'tbl_select.php';
+        $formId = 'tbl_search_form';
+        break;
+    case 'zoom' :
+        $scriptName = 'tbl_zoom_select.php';
+        $formId = 'zoom_search_form';
+        break;
+    case 'replace' :
+        $scriptName = 'tbl_find_replace.php';
+        $formId = 'find_replace_form';
+        break;
+}
+?>
+<?= PhpMyAdmin\Template::get('table/search/form_tag')
     ->render(array(
-        'searchType' => $searchType,
+        'script_name' => $scriptName,
+        'form_id' => $formId,
         'db' => $db,
         'table' => $table,
         'goto' => $goto
@@ -11,7 +30,7 @@
             <legend>
                 <?= __('Do a "query by example" (wildcard: "%") for two different columns'); ?>
             </legend>
-            <?= PMA\libraries\Template::get('table/search/fields_table')
+            <?= PhpMyAdmin\Template::get('table/search/fields_table')
                 ->render(array(
                     'self' => $self,
                     'searchType' => $searchType,
@@ -21,7 +40,7 @@
                     'columnCollations' => $columnCollations
                 ))
             ?>
-            <?= PMA\libraries\Template::get('table/search/options_zoom')
+            <?= PhpMyAdmin\Template::get('table/search/options_zoom')
                 ->render(array(
                     'dataLabel' => $dataLabel,
                     'columnNames' => $columnNames
@@ -34,7 +53,8 @@
             <legend>
                 <?= __('Do a "query by example" (wildcard: "%")'); ?>
             </legend>
-            <?= PMA\libraries\Template::get('table/search/fields_table')
+            <div class="responsivetable jsresponsive">
+                <?= PhpMyAdmin\Template::get('table/search/fields_table')
                 ->render(array(
                     'self' => $self,
                     'searchType' => $searchType,
@@ -43,12 +63,13 @@
                     'columnTypes' => $columnTypes,
                     'columnCollations' => $columnCollations
                 )); ?>
+            </div>
             <div id="gis_editor">
             </div>
             <div id="popup_background">
             </div>
         </fieldset>
-        <?= PMA\libraries\Template::get('table/search/options')
+        <?= PhpMyAdmin\Template::get('table/search/options')
             ->render(array(
                 'columnNames' => $columnNames
             )); ?>
@@ -59,7 +80,7 @@
             <legend>
                 <?= __('Find and replace'); ?>
             </legend>
-            <?= PMA\libraries\Template::get('table/search/search_and_replace')
+            <?= PhpMyAdmin\Template::get('table/search/search_and_replace')
                 ->render(array(
                     'columnNames' => $columnNames,
                     'columnTypes' => $columnTypes

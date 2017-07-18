@@ -5,8 +5,8 @@
  *
  * @package PhpMyAdmin
  */
-use PMA\libraries\Message;
-use PMA\libraries\Response;
+use PhpMyAdmin\Message;
+use PhpMyAdmin\Response;
 
 if (! defined('PHPMYADMIN')) {
     exit;
@@ -26,7 +26,7 @@ function PMA_RTE_handleExport($export_data)
 
     $response = Response::getInstance();
 
-    $item_name = htmlspecialchars(PMA\libraries\Util::backquote($_GET['item_name']));
+    $item_name = htmlspecialchars(PhpMyAdmin\Util::backquote($_GET['item_name']));
     if ($export_data !== false) {
         $export_data = htmlspecialchars(trim($export_data));
         $title = sprintf(PMA_RTE_getWord('export'), $item_name);
@@ -43,7 +43,7 @@ function PMA_RTE_handleExport($export_data)
                , "</fieldset>\n";
         }
     } else {
-        $_db = htmlspecialchars(PMA\libraries\Util::backquote($db));
+        $_db = htmlspecialchars(PhpMyAdmin\Util::backquote($db));
         $message  = __('Error in processing request:') . ' '
                   . sprintf(PMA_RTE_getWord('no_view'), $item_name, $_db);
         $message = Message::error($message);

@@ -3,9 +3,9 @@
  * @fileoverview    functions used for visualizing GIS data
  *
  * @requires    jquery
- * @requires    jquery/jquery.svg.js
- * @requires    jquery/jquery.mousewheel.js
- * @requires    jquery/jquery.event.drag-2.2.js
+ * @requires    vendor/jquery/jquery.svg.js
+ * @requires    vendor/jquery/jquery.mousewheel.js
+ * @requires    vendor/jquery/jquery.event.drag-2.2.js
  */
 
 // Constants
@@ -150,7 +150,7 @@ function initGISVisualization() {
     resizeGISVisualization();
     if (typeof OpenLayers !== 'undefined') {
         // Configure OpenLayers
-        OpenLayers._getScriptLocation = function() {return './js/openlayers/';};
+        OpenLayers._getScriptLocation = function() {return './js/vendor/openlayers/';};
         // Adds necessary styles to the div that coontains the openStreetMap
         styleOSM();
         // Draws openStreetMap with openLayers
@@ -201,7 +201,7 @@ AJAX.registerTeardown('tbl_gis_visualization.js', function () {
     $(document).off('click', '#right_arrow');
     $(document).off('click', '#up_arrow');
     $(document).off('click', '#down_arrow');
-    $('.vector').unbind('mousemove').unbind('mouseout');
+    $('.vector').off('mousemove').off('mouseout');
 });
 
 AJAX.registerOnload('tbl_gis_visualization.js', function () {
@@ -340,7 +340,7 @@ AJAX.registerOnload('tbl_gis_visualization.js', function () {
     /**
      * Detect the mousemove event and show tooltips.
      */
-    $('.vector').bind('mousemove', function (event) {
+    $('.vector').on('mousemove', function (event) {
         var contents = $.trim(escapeHtml($(this).attr('name')));
         $("#tooltip").remove();
         if (contents !== '') {
@@ -359,7 +359,7 @@ AJAX.registerOnload('tbl_gis_visualization.js', function () {
     /**
      * Detect the mouseout event and hide tooltips.
      */
-    $('.vector').bind('mouseout', function (event) {
+    $('.vector').on('mouseout', function (event) {
         $("#tooltip").remove();
     });
 });

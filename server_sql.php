@@ -5,8 +5,8 @@
  *
  * @package PhpMyAdmin
  */
-use PMA\libraries\config\PageSettings;
-use PMA\libraries\Response;
+use PhpMyAdmin\Config\PageSettings;
+use PhpMyAdmin\Response;
 
 /**
  *
@@ -24,7 +24,7 @@ $response = Response::getInstance();
 $header   = $response->getHeader();
 $scripts  = $header->getScripts();
 $scripts->addFile('makegrid.js');
-$scripts->addFile('jquery/jquery.uitablefilter.js');
+$scripts->addFile('vendor/jquery/jquery.uitablefilter.js');
 $scripts->addFile('sql.js');
 
 require_once 'libraries/server_common.inc.php';

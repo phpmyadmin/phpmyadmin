@@ -5,14 +5,15 @@
  *
  * @package PhpMyAdmin
  */
-use PMA\libraries\URL;
-use PMA\libraries\Response;
+
+use PhpMyAdmin\Core;
+use PhpMyAdmin\Url;
+use PhpMyAdmin\Response;
 
 /**
  *
  */
 require_once 'libraries/common.inc.php';
-require_once 'libraries/transformations.lib.php';
 require_once 'libraries/normalization.lib.php';
 
 if (isset($_REQUEST['getColumns'])) {
@@ -30,7 +31,7 @@ if (isset($_REQUEST['getColumns'])) {
 if (isset($_REQUEST['splitColumn'])) {
     $num_fields = min(4096, intval($_REQUEST['numFields']));
     $html = PMA_getHtmlForCreateNewColumn($num_fields, $db, $table);
-    $html .= URL::getHiddenInputs($db, $table);
+    $html .= Url::getHiddenInputs($db, $table);
     echo $html;
     exit;
 }
@@ -40,7 +41,7 @@ if (isset($_REQUEST['addNewPrimary'])) {
     $html = PMA_getHtmlForCreateNewColumn(
         $num_fields, $db, $table, $columnMeta
     );
-    $html .= URL::getHiddenInputs($db, $table);
+    $html .= Url::getHiddenInputs($db, $table);
     echo $html;
     exit;
 }
@@ -64,7 +65,7 @@ if (isset($_REQUEST['getNewTables3NF'])) {
     $tables = json_decode($_REQUEST['tables']);
     $newTables = PMA_getHtmlForNewTables3NF($dependencies, $tables, $db);
     $response->disable();
-    PMA_headerJSON();
+    Core::headerJSON();
     echo json_encode($newTables);
     exit;
 }
@@ -72,9 +73,9 @@ if (isset($_REQUEST['getNewTables3NF'])) {
 $header = $response->getHeader();
 $scripts = $header->getScripts();
 $scripts->addFile('normalization.js');
-$scripts->addFile('jquery/jquery.uitablefilter.js');
+$scripts->addFile('vendor/jquery/jquery.uitablefilter.js');
 $normalForm = '1nf';
-if (PMA_isValid($_REQUEST['normalizeTo'], array('1nf', '2nf', '3nf'))) {
+if (Core::isValid($_REQUEST['normalizeTo'], array('1nf', '2nf', '3nf'))) {
     $normalForm = $_REQUEST['normalizeTo'];
 }
 if (isset($_REQUEST['createNewTables2NF'])) {

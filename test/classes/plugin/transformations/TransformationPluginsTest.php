@@ -51,7 +51,7 @@ class TransformationPluginsTest extends PMATestCase
         $row = array("pma"=>"aaa", "pca"=>"bbb");
 
         // For Image_*_Inline plugin
-        $GLOBALS['PMA_Config'] = new PMA\libraries\Config();
+        $GLOBALS['PMA_Config'] = new PhpMyAdmin\Config();
         $GLOBALS['PMA_Config']->enableBc();
 
         // For Date Format plugin

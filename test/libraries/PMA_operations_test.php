@@ -10,7 +10,7 @@
  * Include to test.
  */
 
-use PMA\libraries\Theme;
+use PhpMyAdmin\Theme;
 
 $GLOBALS['server'] = 1;
 require_once 'libraries/operations.lib.php';

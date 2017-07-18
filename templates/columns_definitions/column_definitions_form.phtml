@@ -1,13 +1,13 @@
 <?php
-use PMA\libraries\Partition;
-use PMA\libraries\StorageEngine;
-use PMA\libraries\URL;
+use PhpMyAdmin\Partition;
+use PhpMyAdmin\StorageEngine;
+use PhpMyAdmin\Url;
 
 ?>
 <form method="post"
       action="<?= $action; ?>"
       class="<?= ($action == 'tbl_create.php' ? 'create_table' : 'append_fields'); ?>_form ajax lock-page">
-    <?= URL::getHiddenInputs($form_params); ?>
+    <?= Url::getHiddenInputs($form_params); ?>
    <!-- happens when an index has been set on a column -->
    <!-- and a column is added to the table creation dialog -->
    <!-- This contains a JSON-encoded string -->
@@ -44,7 +44,7 @@ use PMA\libraries\URL;
 
     <?php if ($action == 'tbl_create.php'): ?>
         <div id="table_name_col_no_outer">
-            <table id="table_name_col_no">
+            <table id="table_name_col_no" class="tdblock">
                 <tr class="vmiddle floatleft">
                     <td><?= __('Table name'); ?>:&nbsp;
                     <input type="text"
@@ -73,7 +73,7 @@ use PMA\libraries\URL;
         </div>
     <?php endif; ?>
     <?php if (is_array($content_cells)): ?>
-        <?= PMA\libraries\Template::get(
+        <?= PhpMyAdmin\Template::get(
             'columns_definitions/table_fields_definitions'
         )->render(array(
             'is_backup' => $is_backup,
@@ -83,6 +83,7 @@ use PMA\libraries\URL;
         )); ?>
     <?php endif; ?>
     <?php if ($action == 'tbl_create.php'): ?>
+        <div class="responsivetable">
         <table>
             <tr class="vtop">
                 <th>
@@ -95,12 +96,12 @@ use PMA\libraries\URL;
                 <td width="25">&nbsp;</td>
                 <th>
                     <?= __('Storage Engine:'); ?>
-                    <?= PMA\libraries\Util::showMySQLDocu('Storage_engines'); ?>
+                    <?= PhpMyAdmin\Util::showMySQLDocu('Storage_engines'); ?>
                 </th>
                 <td width="25">&nbsp;</td>
                 <th>
                     <?= __('Connection:'); ?>
-                    <?= PMA\libraries\Util::showMySQLDocu('federated-create-connection'); ?>
+                    <?= PhpMyAdmin\Util::showMySQLDocu('federated-create-connection'); ?>
                 </th>
             </tr>
             <tr>
@@ -114,7 +115,7 @@ use PMA\libraries\URL;
                 </td>
                 <td width="25">&nbsp;</td>
                 <td>
-                    <?= PMA\libraries\Charsets::getCollationDropdownBox(
+                    <?= PhpMyAdmin\Charsets::getCollationDropdownBox(
                         'tbl_collation',
                         null,
                         isset($_REQUEST['tbl_collation']) ? $_REQUEST['tbl_collation'] : null,
@@ -145,16 +146,18 @@ use PMA\libraries\URL;
                     <th colspan="5">
                         <?= __('PARTITION definition:'); ?>
                         &nbsp;
-                        <?= PMA\libraries\Util::showMySQLDocu('Partitioning'); ?>
+                        <?= PhpMyAdmin\Util::showMySQLDocu('Partitioning'); ?>
                     </th>
                 </tr>
                 <tr>
                     <td colspan="5">
-                        <?php include 'libraries/tbl_partition_definition.inc.php'; ?>
+                        <?= PhpMyAdmin\Template::get('columns_definitions/partitions')
+                            ->render(array('partitionDetails' => $partitionDetails)); ?>
                     </td>
                 </tr>
             <?php endif; ?>
         </table>
+        </div>
         <br />
     <?php endif; ?>
     <fieldset class="tblFooters">

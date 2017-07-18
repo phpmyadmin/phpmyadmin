@@ -5,7 +5,7 @@
  *
  * @package PhpMyAdmin-Designer
  */
-use PMA\libraries\Response;
+use PhpMyAdmin\Response;
 
 require_once 'libraries/common.inc.php';
 require_once 'libraries/pmd_common.php';
@@ -120,7 +120,7 @@ $header   = $response->getHeader();
 $header->setBodyId('pmd_body');
 
 $scripts  = $header->getScripts();
-$scripts->addFile('jquery/jquery.fullscreen.js');
+$scripts->addFile('vendor/jquery/jquery.fullscreen.js');
 $scripts->addFile('pmd/designer_db.js');
 $scripts->addFile('pmd/designer_objects.js');
 $scripts->addFile('pmd/designer_page.js');
@@ -138,7 +138,7 @@ list(
     $tooltip_truename,
     $tooltip_aliasname,
     $pos
-) = PMA\libraries\Util::getDbInfo($db, isset($sub_part) ? $sub_part : '');
+) = PhpMyAdmin\Util::getDbInfo($db, isset($sub_part) ? $sub_part : '');
 
 // Embed some data into HTML, later it will be read
 // by pmd/init.js and converted to JS variables.

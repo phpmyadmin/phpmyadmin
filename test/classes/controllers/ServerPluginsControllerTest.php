@@ -9,9 +9,9 @@
 /*
  * Include to test.
  */
-use PMA\libraries\Theme;
-use PMA\libraries\controllers\server\ServerPluginsController;
-use PMA\libraries\di\Container;
+use PhpMyAdmin\Theme;
+use PhpMyAdmin\Controllers\Server\ServerPluginsController;
+use PhpMyAdmin\Di\Container;
 
 require_once 'libraries/database_interface.inc.php';
 require_once 'test/PMATestCase.php';
@@ -60,7 +60,7 @@ class ServerPluginsControllerTest extends PMATestCase
         $row["is_active"] = true;
 
         //Mock DBI
-        $dbi = $this->getMockBuilder('PMA\libraries\DatabaseInterface')
+        $dbi = $this->getMockBuilder('PhpMyAdmin\DatabaseInterface')
             ->disableOriginalConstructor()
             ->getMock();
 
@@ -80,7 +80,7 @@ class ServerPluginsControllerTest extends PMATestCase
         $container = Container::getDefaultContainer();
         $container->set('dbi', $dbi);
 
-        $class = new ReflectionClass('\PMA\libraries\controllers\server\ServerPluginsController');
+        $class = new ReflectionClass('\PhpMyAdmin\Controllers\Server\ServerPluginsController');
         $method = $class->getMethod('_getPluginsHtml');
         $method->setAccessible(true);
 

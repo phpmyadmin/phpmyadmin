@@ -9,8 +9,8 @@
 /*
  * Include to test.
  */
-use PMA\libraries\Theme;
-use PMA\libraries\TypesMySQL;
+use PhpMyAdmin\Theme;
+use PhpMyAdmin\TypesMySQL;
 
 $GLOBALS['server'] = 1;
 
@@ -48,7 +48,7 @@ class PMA_Normalization_Test extends PHPUnit_Framework_TestCase
         //$_SESSION
 
         //mock DBI
-        $dbi = $this->getMockBuilder('PMA\libraries\DatabaseInterface')
+        $dbi = $this->getMockBuilder('PhpMyAdmin\DatabaseInterface')
             ->disableOriginalConstructor()
             ->getMock();
         $GLOBALS['dbi'] = $dbi;
@@ -430,7 +430,7 @@ class PMA_Normalization_Test extends PHPUnit_Framework_TestCase
         $this->assertArrayHasKey('queryError', $result);
         $this->assertArrayHasKey('message', $result);
         $this->assertInstanceOf(
-            'PMA\libraries\Message', $result['message']
+            'PhpMyAdmin\Message', $result['message']
         );
     }
 
@@ -485,7 +485,7 @@ class PMA_Normalization_Test extends PHPUnit_Framework_TestCase
             '2nf'      => __('Second step of normalization (1NF+2NF)'),
             '3nf'  => __('Third step of normalization (1NF+2NF+3NF)'));
 
-        $html_tmp = PMA\libraries\Util::getRadioFields(
+        $html_tmp = PhpMyAdmin\Util::getRadioFields(
             'normalizeTo', $choices, '1nf', true
         );
         $this->assertContains($html_tmp, $result);

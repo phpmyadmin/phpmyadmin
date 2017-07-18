@@ -7,8 +7,8 @@
  */
 
 // Include common functionalities
-use PMA\libraries\Response;
-use PMA\libraries\config\PageSettings;
+use PhpMyAdmin\Response;
+use PhpMyAdmin\Config\PageSettings;
 use PMA\libraries\navigation\Navigation;
 
 require_once './libraries/common.inc.php';
@@ -18,7 +18,7 @@ $response = Response::getInstance();
 $navigation = new Navigation();
 if (! $response->isAjax()) {
     $response->addHTML(
-        PMA\libraries\Message::error(
+        PhpMyAdmin\Message::error(
             __('Fatal error: The navigation can only be accessed via AJAX')
         )
     );

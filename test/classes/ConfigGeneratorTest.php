@@ -9,8 +9,8 @@
 /*
  * Include to test
  */
-use PMA\libraries\Config;
-use PMA\libraries\config\ConfigFile;
+use PhpMyAdmin\Config;
+use PhpMyAdmin\Config\ConfigFile;
 use PMA\setup\lib\ConfigGenerator;
 
 require_once 'test/PMATestCase.php';

@@ -7,8 +7,8 @@
  */
 
 // Run common work
-use PMA\libraries\Tracker;
-use PMA\libraries\Response;
+use PhpMyAdmin\Tracker;
+use PhpMyAdmin\Response;
 
 require_once './libraries/common.inc.php';
 
@@ -18,7 +18,7 @@ require_once './libraries/tracking.lib.php';
 $response = Response::getInstance();
 $header   = $response->getHeader();
 $scripts  = $header->getScripts();
-$scripts->addFile('jquery/jquery.tablesorter.js');
+$scripts->addFile('vendor/jquery/jquery.tablesorter.js');
 $scripts->addFile('tbl_tracking.js');
 
 define('TABLE_MAY_BE_ABSENT', true);
@@ -31,7 +31,7 @@ if (Tracker::isActive()
     && ! (isset($_REQUEST['report_export'])
     && $_REQUEST['export_type'] == 'sqldumpfile')
 ) {
-    $msg = PMA\libraries\Message::notice(
+    $msg = PhpMyAdmin\Message::notice(
         sprintf(
             __('Tracking of %s is activated.'),
             htmlspecialchars($GLOBALS["db"] . '.' . $GLOBALS["table"])
@@ -101,12 +101,12 @@ if (isset($_REQUEST['submit_mult'])) {
             foreach ($_REQUEST['selected_versions'] as $version) {
                 PMA_deleteTrackingVersion($version);
             }
-            $html .= PMA\libraries\Message::success(
+            $html .= PhpMyAdmin\Message::success(
                 __('Tracking versions deleted successfully.')
             )->getDisplay();
         }
     } else {
-        $html .= PMA\libraries\Message::notice(
+        $html .= PhpMyAdmin\Message::notice(
             __('No versions selected.')
         )->getDisplay();
     }
@@ -138,7 +138,7 @@ if (isset($_REQUEST['toggle_activation'])
 // Export as SQL execution
 if (isset($_REQUEST['report_export']) && $_REQUEST['export_type'] == 'execution') {
     $sql_result = PMA_exportAsSQLExecution($entries);
-    $msg = PMA\libraries\Message::success(__('SQL statements executed.'));
+    $msg = PhpMyAdmin\Message::success(__('SQL statements executed.'));
     $html .= $msg->getDisplay();
 }
 

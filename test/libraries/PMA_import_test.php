@@ -6,7 +6,7 @@
  *
  * @package PhpMyAdmin-test
  */
-use PMA\libraries\URL;
+use PhpMyAdmin\Url;
 
 /*
  * Include to test.
@@ -336,7 +336,7 @@ class PMA_Import_Test extends PHPUnit_Framework_TestCase
     {
         $GLOBALS['db'] = 'PMA';
         //mock DBI
-        $dbi = $this->getMockBuilder('PMA\libraries\DatabaseInterface')
+        $dbi = $this->getMockBuilder('PhpMyAdmin\DatabaseInterface')
             ->disableOriginalConstructor()
             ->getMock();
 
@@ -399,11 +399,11 @@ class PMA_Import_Test extends PHPUnit_Framework_TestCase
             'db'        => 'PMA',
             'sql_query' => $simulated_query
         );
-        $matched_rows_url  = 'sql.php' . URL::getCommon($_url_params);
+        $matched_rows_url  = 'sql.php' . Url::getCommon($_url_params);
 
         $this->assertEquals(
             array(
-                'sql_query' => PMA\libraries\Util::formatSql(
+                'sql_query' => PhpMyAdmin\Util::formatSql(
                     $analyzed_sql_results['query']
                 ),
                 'matched_rows' => 2,
@@ -422,7 +422,7 @@ class PMA_Import_Test extends PHPUnit_Framework_TestCase
     {
         $GLOBALS['db'] = 'PMA';
         //mock DBI
-        $dbi = $this->getMockBuilder('PMA\libraries\DatabaseInterface')
+        $dbi = $this->getMockBuilder('PhpMyAdmin\DatabaseInterface')
             ->disableOriginalConstructor()
             ->getMock();
 

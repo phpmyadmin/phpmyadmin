@@ -5,12 +5,16 @@
  *
  * @package PhpMyAdmin
  */
-use PMA\libraries\Response;
-use PMA\libraries\Encoding;
+
+use PhpMyAdmin\Bookmark;
+use PhpMyAdmin\Core;
+use PhpMyAdmin\Encoding;
+use PhpMyAdmin\File;
 use PMA\libraries\plugins\ImportPlugin;
-use PMA\libraries\File;
-use PMA\libraries\URL;
-use PMA\libraries\Bookmark;
+use PhpMyAdmin\Response;
+use PhpMyAdmin\Sql;
+use PhpMyAdmin\Url;
+use PhpMyAdmin\Util;
 
 /* Enable LOAD DATA LOCAL INFILE for LDI plugin */
 if (isset($_POST['format']) && $_POST['format'] == 'ldi') {
@@ -21,8 +25,6 @@ if (isset($_POST['format']) && $_POST['format'] == 'ldi') {
  * Get the variables sent or posted to this script and a core script
  */
 require_once 'libraries/common.inc.php';
-require_once 'libraries/sql.lib.php';
-//require_once 'libraries/display_import_functions.lib.php';
 
 if (isset($_REQUEST['show_as_php'])) {
     $GLOBALS['show_as_php'] = $_REQUEST['show_as_php'];
@@ -42,7 +44,7 @@ $response = Response::getInstance();
 // If it's a refresh console bookmarks request
 if (isset($_REQUEST['console_bookmark_refresh'])) {
     $response->addJSON(
-        'console_message_bookmark', PMA\libraries\Console::getBookmarkContent()
+        'console_message_bookmark', PhpMyAdmin\Console::getBookmarkContent()
     );
     exit;
 }
@@ -170,7 +172,7 @@ if (! empty($sql_query)) {
         $rename_table_names
     )) {
         $ajax_reload['reload'] = true;
-        $ajax_reload['table_name'] = PMA\libraries\Util::unQuote(
+        $ajax_reload['table_name'] = PhpMyAdmin\Util::unQuote(
             $rename_table_names[2]
         );
     }
@@ -191,7 +193,7 @@ if (! empty($sql_query)) {
 // If we didn't get any parameters, either user called this directly, or
 // upload limit has been reached, let's assume the second possibility.
 if ($_POST == array() && $_GET == array()) {
-    $message = PMA\libraries\Message::error(
+    $message = PhpMyAdmin\Message::error(
         __(
             'You probably tried to upload a file that is too large. Please refer ' .
             'to %sdocumentation%s for a workaround for this limit.'
@@ -235,7 +237,7 @@ if (! in_array(
 ) {
     // this should not happen for a normal user
     // but only during an attack
-    PMA_fatalError('Incorrect format parameter');
+    Core::fatalError('Incorrect format parameter');
 }
 
 $post_patterns = array(
@@ -243,30 +245,28 @@ $post_patterns = array(
     '/^' . $format . '_/'
 );
 
-PMA_setPostAsGlobal($post_patterns);
+Core::setPostAsGlobal($post_patterns);
 
 // Check needed parameters
-PMA\libraries\Util::checkParameters(array('import_type', 'format'));
+PhpMyAdmin\Util::checkParameters(array('import_type', 'format'));
 
 // We don't want anything special in format
-$format = PMA_securePath($format);
+$format = Core::securePath($format);
+
+if (strlen($table) > 0 && strlen($db) > 0) {
+    $urlparams = array('db' => $db, 'table' => $table);
+} elseif (strlen($db) > 0) {
+    $urlparams = array('db' => $db);
+} else {
+    $urlparams = array();
+}
 
 // Create error and goto url
 if ($import_type == 'table') {
-    $err_url = 'tbl_import.php' . URL::getCommon(
-        array(
-            'db' => $db, 'table' => $table
-        )
-    );
-    $_SESSION['Import_message']['go_back_url'] = $err_url;
     $goto = 'tbl_import.php';
 } elseif ($import_type == 'database') {
-    $err_url = 'db_import.php' . URL::getCommon(array('db' => $db));
-    $_SESSION['Import_message']['go_back_url'] = $err_url;
     $goto = 'db_import.php';
 } elseif ($import_type == 'server') {
-    $err_url = 'server_import.php' . URL::getCommon();
-    $_SESSION['Import_message']['go_back_url'] = $err_url;
     $goto = 'server_import.php';
 } else {
     if (empty($goto) || !preg_match('@^(server|db|tbl)(_[a-z]*)*\.php$@i', $goto)) {
@@ -278,19 +278,9 @@ if ($import_type == 'table') {
             $goto = 'server_sql.php';
         }
     }
-    if (strlen($table) > 0 && strlen($db) > 0) {
-        $common = URL::getCommon(array('db' => $db, 'table' => $table));
-    } elseif (strlen($db) > 0) {
-        $common = URL::getCommon(array('db' => $db));
-    } else {
-        $common = URL::getCommon();
-    }
-    $err_url  = $goto . $common
-        . (preg_match('@^tbl_[a-z]*\.php$@', $goto)
-            ? '&amp;table=' . htmlspecialchars($table)
-            : '');
-    $_SESSION['Import_message']['go_back_url'] = $err_url;
 }
+$err_url = $goto . Url::getCommon($urlparams);
+$_SESSION['Import_message']['go_back_url'] = $err_url;
 // Avoid setting selflink to 'import.php'
 // problem similar to bug 4276
 if (basename($_SERVER['SCRIPT_NAME']) === 'import.php') {
@@ -302,7 +292,7 @@ if (strlen($db) > 0) {
     $GLOBALS['dbi']->selectDb($db);
 }
 
-@set_time_limit($cfg['ExecTimeLimit']);
+Util::setTimeLimit();
 if (! empty($cfg['MemoryLimit'])) {
     @ini_set('memory_limit', $cfg['MemoryLimit']);
 }
@@ -330,6 +320,8 @@ $run_query = true;
 $charset_conversion = false;
 $reset_charset = false;
 $bookmark_created = false;
+$result = false;
+$msg = 'Sorry an unexpected error happened!';
 
 // Bookmark Support: get a query back from bookmark if required
 if (! empty($_REQUEST['id_bookmark'])) {
@@ -373,7 +365,7 @@ if (! empty($_REQUEST['id_bookmark'])) {
         $bookmark = Bookmark::get($db, $id_bookmark);
         $import_text = $bookmark->getQuery();
         if ($response->isAjax()) {
-            $message = PMA\libraries\Message::success(__('Showing bookmark'));
+            $message = PhpMyAdmin\Message::success(__('Showing bookmark'));
             $response->setRequestStatus($message->isSuccess());
             $response->addJSON('message', $message);
             $response->addJSON('sql_query', $import_text);
@@ -388,7 +380,7 @@ if (! empty($_REQUEST['id_bookmark'])) {
         if (! empty($bookmark)) {
             $bookmark->delete();
             if ($response->isAjax()) {
-                $message = PMA\libraries\Message::success(
+                $message = PhpMyAdmin\Message::success(
                     __('The bookmark has been deleted.')
                 );
                 $response->setRequestStatus($message->isSuccess());
@@ -445,9 +437,9 @@ if (isset($_FILES['import_file'])) {
 if (! empty($local_import_file) && ! empty($cfg['UploadDir'])) {
 
     // sanitize $local_import_file as it comes from a POST
-    $local_import_file = PMA_securePath($local_import_file);
+    $local_import_file = Core::securePath($local_import_file);
 
-    $import_file = PMA\libraries\Util::userDir($cfg['UploadDir'])
+    $import_file = PhpMyAdmin\Util::userDir($cfg['UploadDir'])
         . $local_import_file;
 
     /*
@@ -481,7 +473,7 @@ if ($import_file != 'none' && ! $error) {
     }
 } elseif (! $error) {
     if (! isset($import_text) || empty($import_text)) {
-        $message = PMA\libraries\Message::error(
+        $message = PhpMyAdmin\Message::error(
             __(
                 'No data was received to import. Either no file name was ' .
                 'submitted, or the file size exceeded the maximum size permitted ' .
@@ -534,18 +526,18 @@ if (! $error) {
         $import_type
     );
     if ($import_plugin == null) {
-        $message = PMA\libraries\Message::error(
+        $message = PhpMyAdmin\Message::error(
             __('Could not load import plugins, please check your installation!')
         );
         PMA_stopImport($message);
     } else {
         // Do the real import
         try {
-            $default_fk_check = PMA\libraries\Util::handleDisableFKCheckInit();
+            $default_fk_check = PhpMyAdmin\Util::handleDisableFKCheckInit();
             $import_plugin->doImport($sql_data);
-            PMA\libraries\Util::handleDisableFKCheckCleanup($default_fk_check);
+            PhpMyAdmin\Util::handleDisableFKCheckCleanup($default_fk_check);
         } catch (Exception $e) {
-            PMA\libraries\Util::handleDisableFKCheckCleanup($default_fk_check);
+            PhpMyAdmin\Util::handleDisableFKCheckCleanup($default_fk_check);
             throw $e;
         }
     }
@@ -570,11 +562,11 @@ if ($reset_charset) {
 
 // Show correct message
 if (! empty($id_bookmark) && $_REQUEST['action_bookmark'] == 2) {
-    $message = PMA\libraries\Message::success(__('The bookmark has been deleted.'));
+    $message = PhpMyAdmin\Message::success(__('The bookmark has been deleted.'));
     $display_query = $import_text;
     $error = false; // unset error marker, it was used just to skip processing
 } elseif (! empty($id_bookmark) && $_REQUEST['action_bookmark'] == 1) {
-    $message = PMA\libraries\Message::notice(__('Showing bookmark'));
+    $message = PhpMyAdmin\Message::notice(__('Showing bookmark'));
 } elseif ($bookmark_created) {
     $special_message = '[br]'  . sprintf(
         __('Bookmark %s has been created.'),
@@ -584,7 +576,7 @@ if (! empty($id_bookmark) && $_REQUEST['action_bookmark'] == 2) {
     // Do not display the query with message, we do it separately
     $display_query = ';';
     if ($import_type != 'query') {
-        $message = PMA\libraries\Message::success(
+        $message = PhpMyAdmin\Message::success(
             '<em>'
             . _ngettext(
                 'Import has been successfully finished, %d query executed.',
@@ -608,13 +600,15 @@ if (! empty($id_bookmark) && $_REQUEST['action_bookmark'] == 2) {
 
 // Did we hit timeout? Tell it user.
 if ($timeout_passed) {
-    $importUrl = $err_url .= '&timeout_passed=1&offset=' . urlencode(
-        $GLOBALS['offset']
-    );
+    $urlparams['timeout_passed'] = '1';
+    $urlparams['offset'] = $GLOBALS['offset'];
     if (isset($local_import_file)) {
-        $importUrl .= '&local_import_file=' . urlencode($local_import_file);
+        $urlparams['local_import_file'] = $local_import_file;
     }
-    $message = PMA\libraries\Message::error(
+
+    $importUrl = $err_url = $goto . Url::getCommon($urlparams);
+
+    $message = PhpMyAdmin\Message::error(
         __(
             'Script timeout passed, if you want to finish import,'
             . ' please %sresubmit the same file%s and import will resume.'
@@ -663,7 +657,7 @@ if ($sqlLength <= $GLOBALS['cfg']['MaxCharactersInDisplayedSQL']) {
 // There was an error?
 if (isset($my_die)) {
     foreach ($my_die as $key => $die) {
-        PMA\libraries\Util::mysqlDie(
+        PhpMyAdmin\Util::mysqlDie(
             $die['error'], $die['sql'], false, $err_url, $error
         );
     }
@@ -693,10 +687,10 @@ if ($go_sql) {
         extract($analyzed_sql_results);
 
         // Check if User is allowed to issue a 'DROP DATABASE' Statement
-        if (PMA_hasNoRightsToDropDatabase(
+        if (Sql::hasNoRightsToDropDatabase(
             $analyzed_sql_results, $cfg['AllowUserDropDatabase'], $GLOBALS['is_superuser']
         )) {
-            PMA\libraries\Util::mysqlDie(
+            PhpMyAdmin\Util::mysqlDie(
                 __('"DROP DATABASE" statements are disabled.'),
                 '',
                 false,
@@ -709,7 +703,7 @@ if ($go_sql) {
             $table = $table_from_sql;
         }
 
-        $html_output .= PMA_executeQueryAndGetQueryResponse(
+        $html_output .= Sql::executeQueryAndGetQueryResponse(
             $analyzed_sql_results, // analyzed_sql_results
             false, // is_gotofile
             $db, // db
@@ -731,12 +725,12 @@ if ($go_sql) {
         );
     }
 
-    // sql_query_for_bookmark is not included in PMA_executeQueryAndGetQueryResponse
+    // sql_query_for_bookmark is not included in Sql::executeQueryAndGetQueryResponse
     // since only one bookmark has to be added for all the queries submitted through
     // the SQL tab
     if (! empty($_POST['bkm_label']) && ! empty($import_text)) {
         $cfgBookmark = Bookmark::getParams();
-        PMA_storeTheQueryAsBookmark(
+        Sql::storeTheQueryAsBookmark(
             $db, $cfgBookmark['user'],
             $_REQUEST['sql_query'], $_POST['bkm_label'],
             isset($_POST['bkm_replace']) ? $_POST['bkm_replace'] : null
@@ -751,7 +745,7 @@ if ($go_sql) {
     // Save a Bookmark with more than one queries (if Bookmark label given).
     if (! empty($_POST['bkm_label']) && ! empty($import_text)) {
         $cfgBookmark = Bookmark::getParams();
-        PMA_storeTheQueryAsBookmark(
+        Sql::storeTheQueryAsBookmark(
             $db, $cfgBookmark['user'],
             $_REQUEST['sql_query'], $_POST['bkm_label'],
             isset($_POST['bkm_replace']) ? $_POST['bkm_replace'] : null
@@ -759,14 +753,14 @@ if ($go_sql) {
     }
 
     $response->setRequestStatus(true);
-    $response->addJSON('message', PMA\libraries\Message::success($msg));
+    $response->addJSON('message', PhpMyAdmin\Message::success($msg));
     $response->addJSON(
         'sql_query',
-        PMA\libraries\Util::getMessage($msg, $sql_query, 'success')
+        PhpMyAdmin\Util::getMessage($msg, $sql_query, 'success')
     );
 } else if ($result == false) {
     $response->setRequestStatus(false);
-    $response->addJSON('message', PMA\libraries\Message::error($msg));
+    $response->addJSON('message', PhpMyAdmin\Message::error($msg));
 } else {
     $active_page = $goto;
     include '' . $goto;

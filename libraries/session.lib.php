@@ -6,6 +6,9 @@
  * @package PhpMyAdmin
  */
 
+use PhpMyAdmin\Core;
+use PhpMyAdmin\Util;
+
 /**
  * tries to secure session from hijacking and fixation
  * should be called before login and after successful login
@@ -30,18 +33,14 @@ function PMA_secureSession()
  */
 function PMA_generateToken()
 {
-    if (class_exists('phpseclib\Crypt\Random')) {
-        $_SESSION[' PMA_token '] = bin2hex(phpseclib\Crypt\Random::string(16));
-    } else {
-        $_SESSION[' PMA_token '] = bin2hex(openssl_random_pseudo_bytes(16));
-    }
+    $_SESSION[' PMA_token '] = Util::generateRandom(16);
 
     /**
-     * Check if token is properly generated (the genration can fail, for example
+     * Check if token is properly generated (the generation can fail, for example
      * due to missing /dev/random for openssl).
      */
     if (empty($_SESSION[' PMA_token '])) {
-        PMA_fatalError(
+        Core::fatalError(
             'Failed to generate random CSRF token!'
         );
     }

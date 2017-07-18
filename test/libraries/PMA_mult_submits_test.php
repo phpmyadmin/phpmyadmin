@@ -9,18 +9,13 @@
 /*
  * Include to test.
  */
-use PMA\libraries\Theme;
-use PMA\libraries\URL;
-
+use PhpMyAdmin\Theme;
+use PhpMyAdmin\Url;
 
 require_once 'libraries/mult_submits.lib.php';
-
 require_once 'libraries/database_interface.inc.php';
-
 require_once 'libraries/relation_cleanup.lib.php';
 require_once 'libraries/relation.lib.php';
-require_once 'libraries/sql.lib.php';
-
 
 /**
  * class PMA_MultSubmits_Test
@@ -68,7 +63,7 @@ class PMA_MultSubmits_Test extends PHPUnit_Framework_TestCase
         //$_SESSION
 
         //Mock DBI
-        $dbi = $this->getMockBuilder('PMA\libraries\DatabaseInterface')
+        $dbi = $this->getMockBuilder('PhpMyAdmin\DatabaseInterface')
             ->disableOriginalConstructor()
             ->getMock();
 
@@ -97,9 +92,9 @@ class PMA_MultSubmits_Test extends PHPUnit_Framework_TestCase
             '<form id="ajax_form" action="delete_row" method="post">',
             $html
         );
-        //$URL::getHiddenInputs
+        //$Url::getHiddenInputs
         $this->assertContains(
-            URL::getHiddenInputs($_url_params),
+            Url::getHiddenInputs($_url_params),
             $html
         );
         //from_prefix
@@ -129,7 +124,7 @@ class PMA_MultSubmits_Test extends PHPUnit_Framework_TestCase
         );
         //$_url_params
         $this->assertContains(
-            URL::getHiddenInputs($_url_params),
+            Url::getHiddenInputs($_url_params),
             $html
         );
         //from_prefix
@@ -163,7 +158,7 @@ class PMA_MultSubmits_Test extends PHPUnit_Framework_TestCase
         );
         //validate 2: $_url_params
         $this->assertContains(
-            URL::getHiddenInputs($_url_params),
+            Url::getHiddenInputs($_url_params),
             $html
         );
         //validate 3: conform

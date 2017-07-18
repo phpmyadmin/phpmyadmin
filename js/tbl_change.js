@@ -323,7 +323,7 @@ AJAX.registerTeardown('tbl_change.js', function () {
     $(document).off('click', "input[name^='insert_ignore_']");
     $(document).off('click', "input[name='gis_data[save]']");
     $(document).off('click', 'input.checkbox_null');
-    $('select[name="submit_type"]').unbind('change');
+    $('select[name="submit_type"]').off('change');
     $(document).off('change', "#insert_rows");
 });
 
@@ -404,14 +404,12 @@ AJAX.registerOnload('tbl_change.js', function () {
         var type = $span.parents('tr').find('span.column_type').text();
         // Names of input field and null checkbox
         var input_name = $span.parent('td').children("input[type='text']").attr('name');
-        //Token
-        var token = $("input[name='token']").val();
 
         openGISEditor();
         if (!gisEditorLoaded) {
-            loadJSAndGISEditor(value, field, type, input_name, token);
+            loadJSAndGISEditor(value, field, type, input_name);
         } else {
-            loadGISEditor(value, field, type, input_name, token);
+            loadGISEditor(value, field, type, input_name);
         }
     });
 
@@ -453,7 +451,7 @@ AJAX.registerOnload('tbl_change.js', function () {
      * when we are in edit-mode, and not in insert-mode(no previous value
      * available).
      */
-    $('select[name="submit_type"]').bind('change', function () {
+    $('select[name="submit_type"]').on('change', function () {
         var thisElemSubmitTypeVal = $(this).val();
         var $table = $('table.insertRowTable');
         var auto_increment_column = $table.find('input[name^="auto_increment"]');
@@ -558,7 +556,7 @@ AJAX.registerOnload('tbl_change.js', function () {
                         $this_element.val($this_element.closest('tr').find('span.default_value').html());
                     }
                     $this_element
-                        .unbind('change')
+                        .off('change')
                         // Remove onchange attribute that was placed
                         // by tbl_change.php; it refers to the wrong row index
                         .attr('onchange', null)
@@ -566,7 +564,7 @@ AJAX.registerOnload('tbl_change.js', function () {
                         // will change
                         .data('hashed_field', hashed_field)
                         .data('new_row_index', new_row_index)
-                        .bind('change', function () {
+                        .on('change', function () {
                             var $changed_element = $(this);
                             verificationsAfterFieldChange(
                                 $changed_element.data('hashed_field'),
@@ -580,12 +578,12 @@ AJAX.registerOnload('tbl_change.js', function () {
                     $this_element
                         // this event was bound earlier by jQuery but
                         // to the original row, not the cloned one, so unbind()
-                        .unbind('click')
+                        .off('click')
                         // Keep these values to be used when the element
                         // will be clicked
                         .data('hashed_field', hashed_field)
                         .data('new_row_index', new_row_index)
-                        .bind('click', function () {
+                        .on('click', function () {
                             var $changed_element = $(this);
                             nullify(
                                 $changed_element.siblings('.nullify_code').val(),

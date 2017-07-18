@@ -7,8 +7,8 @@
  *
  * @package PhpMyAdmin
  */
-use PMA\libraries\ServerStatusData;
-use PMA\libraries\Util;
+use PhpMyAdmin\ServerStatusData;
+use PhpMyAdmin\Util;
 
 /**
  * Prints html with monitor
@@ -29,7 +29,7 @@ function PMA_getHtmlForMonitor($ServerStatusData)
 
     $retval .= PMA_getHtmlForAnalyseDialog();
 
-    $retval .= '<table class="clearfloat" id="chartGrid"></table>';
+    $retval .= '<table class="clearfloat tdblock" id="chartGrid"></table>';
     $retval .= '<div id="logTable">';
     $retval .= '<br/>';
     $retval .= '</div>';
@@ -59,7 +59,7 @@ function PMA_getHtmlForMonitor($ServerStatusData)
 function PMA_getHtmlForAnalyseDialog()
 {
     $retval  = '<div id="logAnalyseDialog" title="';
-    $retval .= __('Log statistics') . '" style="display:none;">';
+    $retval .= __('Log statistics') . '" class="hide">';
     $retval .= '<p>' . __('Selected time range:');
     $retval .= '<input type="text" name="dateStart"'
         . ' class="datetimefield" value="" /> - ';
@@ -86,7 +86,7 @@ function PMA_getHtmlForAnalyseDialog()
     $retval .= '</p>';
     $retval .= '</div>';
     $retval .= '<div id="queryAnalyzerDialog" title="';
-    $retval .= __('Query analyzer') . '" style="display:none;">';
+    $retval .= __('Query analyzer') . '" class="hide">';
     $retval .= '<textarea id="sqlquery"> </textarea>';
     $retval .= '<p></p>';
     $retval .= '<div class="placeHolder"></div>';
@@ -103,7 +103,7 @@ function PMA_getHtmlForAnalyseDialog()
 function PMA_getHtmlForInstructionsDialog()
 {
     $retval  = '<div id="monitorInstructionsDialog" title="';
-    $retval .= __('Monitor Instructions') . '" style="display:none;">';
+    $retval .= __('Monitor Instructions') . '" class="hide">';
     $retval .= __(
         'The phpMyAdmin Monitor can assist you in optimizing the server'
         . ' configuration and track down time intensive queries. For the latter you'
@@ -118,7 +118,7 @@ function PMA_getHtmlForInstructionsDialog()
     $retval .= $GLOBALS['pmaThemeImage'] . 'ajax_clock_small.gif"';
     $retval .= ' alt="' . __('Loading…') . '" />';
     $retval .= '<div class="ajaxContent"></div>';
-    $retval .= '<div class="monitorUse" style="display:none;">';
+    $retval .= '<div class="monitorUse hide">';
     $retval .= '<p></p>';
     $retval .= '<strong>';
     $retval .= __('Using the monitor:');
@@ -138,7 +138,7 @@ function PMA_getHtmlForInstructionsDialog()
     );
     $retval .= '</p>';
     $retval .= '<p>';
-    $retval .= PMA\libraries\Util::getImage('s_attention.png');
+    $retval .= PhpMyAdmin\Util::getImage('s_attention.png');
     $retval .= '<strong>';
     $retval .= __('Please note:');
     $retval .= '</strong><br />';
@@ -164,7 +164,7 @@ function PMA_getHtmlForInstructionsDialog()
 function PMA_getHtmlForAddChartDialog()
 {
     $retval  = '<div id="addChartDialog" title="'
-        . __('Add chart') . '" style="display:none;">';
+        . __('Add chart') . '" class="hide">';
     $retval .= '<div id="tabGridVariables">';
     $retval .= '<p><input type="text" name="chartTitle" value="'
         . __('Chart Title') . '" /></p>';
@@ -208,7 +208,7 @@ function PMA_getHtmlForAddChartDialog()
     $retval .= '<input type="checkbox" id="useDivisor"'
         . ' name="useDivisor" value="1" />';
     $retval .= '<label for="useDivisor">' . __('Apply a divisor') . '</label>';
-    $retval .= '<span class="divisorInput" style="display:none;">';
+    $retval .= '<span class="divisorInput hide">';
     $retval .= '<input type="text" name="valueDivisor" size="4" value="1" />';
     $retval .= '(<a href="#kibDivisor">' . __('KiB') . '</a>, ';
     $retval .= '<a href="#mibDivisor">' . __('MiB') . '</a>)';
@@ -217,12 +217,12 @@ function PMA_getHtmlForAddChartDialog()
     $retval .= '<label for="useUnit">';
     $retval .= __('Append unit to data values');
     $retval .= '</label>';
-    $retval .= '<span class="unitInput" style="display:none;">';
+    $retval .= '<span class="unitInput hide">';
     $retval .= '<input type="text" name="valueUnit" size="4" value="" />';
     $retval .= '</span>';
     $retval .= '<p>';
     $retval .= '<a href="#submitAddSeries"><b>' . __('Add this series') . '</b></a>';
-    $retval .= '<span id="clearSeriesLink" style="display:none;">';
+    $retval .= '<span id="clearSeriesLink" class="hide">';
     $retval .= ' | <a href="#submitClearSeries">' . __('Clear series') . '</a>';
     $retval .= '</span>';
     $retval .= '</p>';
@@ -247,14 +247,14 @@ function PMA_getHtmlForTabLinks()
 {
     $retval  = '<div class="tabLinks">';
     $retval .= '<a href="#pauseCharts">';
-    $retval .= PMA\libraries\Util::getImage('play.png') . __('Start Monitor');
+    $retval .= PhpMyAdmin\Util::getImage('play.png') . __('Start Monitor');
     $retval .= '</a>';
     $retval .= '<a href="#settingsPopup" class="popupLink">';
-    $retval .= PMA\libraries\Util::getImage('s_cog.png') .  __('Settings');
+    $retval .= PhpMyAdmin\Util::getImage('s_cog.png') .  __('Settings');
     $retval .= '</a>';
     $retval .= '<a href="#monitorInstructionsDialog">';
     $retval .= Util::getImage('b_help.png') . __('Instructions/Setup');
-    $retval .= '<a href="#endChartEditMode" style="display:none;">';
+    $retval .= '<a href="#endChartEditMode" class="hide">';
     $retval .= Util::getImage('s_okay.png');
     $retval .= __('Done dragging (rearranging) charts');
     $retval .= '</a>';
@@ -272,10 +272,10 @@ function PMA_getHtmlForSettingsDialog()
 {
     $retval  = '<div class="popupContent settingsPopup">';
     $retval .= '<a href="#addNewChart">';
-    $retval .= PMA\libraries\Util::getImage('b_chart.png') . __('Add chart');
+    $retval .= PhpMyAdmin\Util::getImage('b_chart.png') . __('Add chart');
     $retval .= '</a>';
     $retval .= '<a href="#rearrangeCharts">';
-    $retval .= PMA\libraries\Util::getImage('b_tblops.png')
+    $retval .= PhpMyAdmin\Util::getImage('b_tblops.png')
         . __('Enable charts dragging');
     $retval .= '</a>';
     $retval .= '<div class="clearfloat paddingtop"></div>';
@@ -302,7 +302,7 @@ function PMA_getHtmlForSettingsDialog()
     $retval .= '</div>';
     $retval .= '<div class="clearfloat paddingtop">';
     $retval .= '<b>' . __('Chart arrangement') . '</b> ';
-    $retval .= PMA\libraries\Util::showHint(
+    $retval .= PhpMyAdmin\Util::showHint(
         __(
             'The arrangement of the charts is stored to the browsers local storage. '
             . 'You may want to export it if you have a complicated set up.'
@@ -350,10 +350,10 @@ function PMA_getHtmlForClientSideDataAndLinks($ServerStatusData)
      * Define some links used on client side
      */
     $links  = '<div id="profiling_docu" class="hide">';
-    $links .= PMA\libraries\Util::showMySQLDocu('general-thread-states');
+    $links .= PhpMyAdmin\Util::showMySQLDocu('general-thread-states');
     $links .= '</div>';
     $links .= '<div id="explain_docu" class="hide">';
-    $links .= PMA\libraries\Util::showMySQLDocu('explain-output');
+    $links .= PhpMyAdmin\Util::showMySQLDocu('explain-output');
     $links .= '</div>';
 
     return $form . $links;
@@ -587,7 +587,7 @@ function PMA_getJsonForLogDataTypeSlow($start, $end)
             if (mb_strlen($row['sql_text']) > 220) {
                 $implode_sql_text = implode(
                     ' ',
-                    PMA\libraries\Util::formatByteDown(
+                    PhpMyAdmin\Util::formatByteDown(
                         mb_strlen($row['sql_text']), 2, 2
                     )
                 );
@@ -695,7 +695,7 @@ function PMA_getJsonForLogDataTypeGeneral($start, $end)
                     . '... ['
                     .  implode(
                         ' ',
-                        PMA\libraries\Util::formatByteDown(
+                        PhpMyAdmin\Util::formatByteDown(
                             mb_strlen($row['argument']),
                             2,
                             2
@@ -779,7 +779,7 @@ function PMA_getJsonForQueryAnalyzer()
         $GLOBALS['dbi']->selectDb($_REQUEST['database']);
     }
 
-    if ($profiling = PMA\libraries\Util::profilingSupported()) {
+    if ($profiling = PhpMyAdmin\Util::profilingSupported()) {
         $GLOBALS['dbi']->query('SET PROFILING=1;');
     }
 
@@ -816,4 +816,3 @@ function PMA_getJsonForQueryAnalyzer()
     }
     return $return;
 }
-

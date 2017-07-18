@@ -9,8 +9,8 @@
 /*
  * Include to test.
  */
-use PMA\libraries\di\Container;
-use PMA\libraries\Theme;
+use PhpMyAdmin\Di\Container;
+use PhpMyAdmin\Theme;
 
 require_once 'libraries/database_interface.inc.php';
 require_once 'libraries/relation.lib.php';
@@ -45,7 +45,7 @@ class TableRelationControllerTest extends PMATestCase
         $GLOBALS['dblist'] = new DataBasePMAMockForTblRelation();
         $GLOBALS['dblist']->databases = new DataBaseMockForTblRelation();
 
-        $dbi = $this->getMockBuilder('PMA\libraries\DatabaseInterface')
+        $dbi = $this->getMockBuilder('PhpMyAdmin\DatabaseInterface')
             ->disableOriginalConstructor()
             ->getMock();
 
@@ -56,8 +56,8 @@ class TableRelationControllerTest extends PMATestCase
         $container->set('table', 'table');
         $container->set('dbi', $GLOBALS['dbi']);
         $this->_response = new \PMA\Test\Stubs\Response();
-        $container->set('PMA\libraries\Response', $this->_response);
-        $container->alias('response', 'PMA\libraries\Response');
+        $container->set('PhpMyAdmin\Response', $this->_response);
+        $container->alias('response', 'PhpMyAdmin\Response');
     }
 
     /**
@@ -74,7 +74,7 @@ class TableRelationControllerTest extends PMATestCase
         $viewColumns = array(
             'viewCol', 'viewCol2', 'viewCol3'
         );
-        $tableMock = $this->getMockBuilder('PMA\libraries\Table')
+        $tableMock = $this->getMockBuilder('PhpMyAdmin\Table')
             ->disableOriginalConstructor()
             ->getMock();
         // Test the situation when the table is a view
@@ -88,13 +88,13 @@ class TableRelationControllerTest extends PMATestCase
 
         $container = Container::getDefaultContainer();
         $container->set('dbi', $GLOBALS['dbi']);
-        $container->factory('PMA\libraries\controllers\table\TableRelationController');
+        $container->factory('PhpMyAdmin\Controllers\Table\TableRelationController');
         $container->alias(
             'TableRelationController',
-            'PMA\libraries\controllers\table\TableRelationController'
+            'PhpMyAdmin\Controllers\Table\TableRelationController'
         );
         /**
-         * @var PMA\libraries\controllers\table\TableRelationController
+         * @var PhpMyAdmin\Controllers\Table\TableRelationController
          */
         $ctrl = $container->get('TableRelationController');
 
@@ -120,7 +120,7 @@ class TableRelationControllerTest extends PMATestCase
         $indexedColumns = array(
             'primaryTableCol'
         );
-        $tableMock = $this->getMockBuilder('PMA\libraries\Table')
+        $tableMock = $this->getMockBuilder('PhpMyAdmin\Table')
             ->disableOriginalConstructor()
             ->getMock();
         // Test the situation when the table is a view
@@ -134,10 +134,10 @@ class TableRelationControllerTest extends PMATestCase
 
         $container = Container::getDefaultContainer();
         $container->set('dbi', $GLOBALS['dbi']);
-        $container->factory('PMA\libraries\controllers\table\TableRelationController');
+        $container->factory('PhpMyAdmin\Controllers\Table\TableRelationController');
         $container->alias(
             'TableRelationController',
-            'PMA\libraries\controllers\table\TableRelationController'
+            'PhpMyAdmin\Controllers\Table\TableRelationController'
         );
         $ctrl = $container->get('TableRelationController');
 
@@ -176,10 +176,10 @@ class TableRelationControllerTest extends PMATestCase
 
         $container = Container::getDefaultContainer();
         $container->set('dbi', $GLOBALS['dbi']);
-        $container->factory('PMA\libraries\controllers\table\TableRelationController');
+        $container->factory('PhpMyAdmin\Controllers\Table\TableRelationController');
         $container->alias(
             'TableRelationController',
-            'PMA\libraries\controllers\table\TableRelationController'
+            'PhpMyAdmin\Controllers\Table\TableRelationController'
         );
         $ctrl = $container->get(
             'TableRelationController',
@@ -222,10 +222,10 @@ class TableRelationControllerTest extends PMATestCase
 
         $container = Container::getDefaultContainer();
         $container->set('dbi', $GLOBALS['dbi']);
-        $container->factory('PMA\libraries\controllers\table\TableRelationController');
+        $container->factory('PhpMyAdmin\Controllers\Table\TableRelationController');
         $container->alias(
             'TableRelationController',
-            'PMA\libraries\controllers\table\TableRelationController'
+            'PhpMyAdmin\Controllers\Table\TableRelationController'
         );
         $ctrl = $container->get(
             'TableRelationController',

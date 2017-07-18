@@ -8,10 +8,11 @@
 /*
  * Include to test.
  */
+use PhpMyAdmin\Core;
+use PhpMyAdmin\DisplayResults;
 use PMA\libraries\plugins\transformations\Text_Plain_Link;
 
 require_once 'libraries/relation.lib.php';
-require_once 'libraries/string.lib.php';
 require_once 'test/PMATestCase.php';
 
 /**
@@ -36,13 +37,13 @@ class DisplayResultsTest extends PMATestCase
     protected function setUp()
     {
         $GLOBALS['server'] = 0;
-        $this->object = new PMA\libraries\DisplayResults('as', '', '', '');
-        $GLOBALS['PMA_Config'] = new PMA\libraries\Config();
+        $this->object = new DisplayResults('as', '', '', '');
+        $GLOBALS['PMA_Config'] = new PhpMyAdmin\Config();
         $GLOBALS['PMA_Config']->enableBc();
         $GLOBALS['text_dir'] = 'ltr';
         $GLOBALS['collation_connection'] = 'utf-8';
 
-        $dbi = $this->getMockBuilder('PMA\libraries\DatabaseInterface')
+        $dbi = $this->getMockBuilder('PhpMyAdmin\DatabaseInterface')
             ->disableOriginalConstructor()
             ->getMock();
 
@@ -74,7 +75,7 @@ class DisplayResultsTest extends PMATestCase
      */
     private function _callPrivateFunction($name, $params)
     {
-        $class = new ReflectionClass('PMA\libraries\DisplayResults');
+        $class = new ReflectionClass(DisplayResults::class);
         $method = $class->getMethod($name);
         $method->setAccessible(true);
         return $method->invokeArgs($this->object, $params);
@@ -277,7 +278,7 @@ class DisplayResultsTest extends PMATestCase
             'datetimefield',
             $this->_callPrivateFunction(
                 '_getClassForDateTimeRelatedFields',
-                array(PMA\libraries\DisplayResults::DATETIME_FIELD)
+                array(DisplayResults::DATETIME_FIELD)
             )
         );
     }
@@ -293,7 +294,7 @@ class DisplayResultsTest extends PMATestCase
             'datefield',
             $this->_callPrivateFunction(
                 '_getClassForDateTimeRelatedFields',
-                array(PMA\libraries\DisplayResults::DATE_FIELD)
+                array(DisplayResults::DATE_FIELD)
             )
         );
     }
@@ -309,7 +310,7 @@ class DisplayResultsTest extends PMATestCase
             'text',
             $this->_callPrivateFunction(
                 '_getClassForDateTimeRelatedFields',
-                array(PMA\libraries\DisplayResults::STRING_FIELD)
+                array(DisplayResults::STRING_FIELD)
             )
         );
     }
@@ -321,7 +322,7 @@ class DisplayResultsTest extends PMATestCase
      */
     public function testGetOffsetsCase1()
     {
-        $_SESSION['tmpval']['max_rows'] = PMA\libraries\DisplayResults::ALL_ROWS;
+        $_SESSION['tmpval']['max_rows'] = DisplayResults::ALL_ROWS;
         $this->assertEquals(
             array(0, 0),
             $this->_callPrivateFunction('_getOffsets', array())
@@ -434,13 +435,13 @@ class DisplayResultsTest extends PMATestCase
                 '`customer`.`id` = 1',
                 '%60customer%60.%60id%60+%3D+1',
                 '<td class="klass edit_row_anchor center print_ignore"  >'
-                . '<span class="nowrap">' . "\n"
+                . '<span class="nowrap">'
                 . '<a href="tbl_change.php?db=Data&amp;table=customer&amp;where_'
                 . 'clause=%60customer%60.%60id%60+%3D+1&amp;clause_is_unique=1&amp;'
                 . 'sql_query=SELECT+%2A+FROM+%60customer%60&amp;goto=sql.php&amp;'
                 . 'default_action=update"'
                 . ' ><span class="nowrap"><img src="themes/dot.gif" title="Edit" '
-                . 'alt="Edit" class="icon ic_b_edit" /> Edit</span></a>' . "\n"
+                . 'alt="Edit" class="icon ic_b_edit" /> Edit</span></a>'
                 . '<input type="hidden" class="where_clause" value ="%60customer'
                 . '%60.%60id%60+%3D+1" /></span></td>'
             )
@@ -497,13 +498,13 @@ class DisplayResultsTest extends PMATestCase
                 '%60customer%60.%60id%60+%3D+1',
                 'klass',
                 '<td class="klass center print_ignore"  ><span class='
-                . '"nowrap">' . "\n"
+                . '"nowrap">'
                 . '<a href="tbl_change.php?db=Data&amp;table=customer&amp;where_'
                 . 'clause=%60customer%60.%60id%60+%3D+1&amp;clause_is_unique=1&amp;'
                 . 'sql_query=SELECT+%2A+FROM+%60customer%60&amp;goto=sql.php&amp;'
                 . 'default_action=insert"'
                 . ' ><span class="nowrap"><img src="themes/dot.gif" title="Copy" '
-                . 'alt="Copy" class="icon ic_b_insrow" /> Copy</span></a>' . "\n"
+                . 'alt="Copy" class="icon ic_b_insrow" /> Copy</span></a>'
                 . '<input type="hidden" class="where_clause" value="%60customer%60'
                 . '.%60id%60+%3D+1" /></span></td>'
             )
@@ -560,7 +561,7 @@ class DisplayResultsTest extends PMATestCase
                 . 'alt="Delete" class="icon ic_b_drop" /> Delete</span>',
                 'DELETE FROM `Data`.`customer` WHERE `customer`.`id` = 1',
                 'klass',
-                '<td class="klass center print_ignore"  >' . "\n"
+                '<td class="klass center print_ignore"  >'
                 . '<a href="sql.php?db=Data&amp;table=customer&amp;sql_query=DELETE'
                 . '+FROM+%60Data%60.%60customer%60+WHERE+%60customer%60.%60id%60+%3D'
                 . '+1&amp;message_to_show=The+row+has+been+deleted&amp;goto=sql.php'
@@ -569,7 +570,7 @@ class DisplayResultsTest extends PMATestCase
                 . 'been%2Bdeleted%26goto%3Dtbl_structure.php" '
                 . 'class="delete_row requireConfirm"><span class="nowrap"><img src="themes/dot.'
                 . 'gif" title="Delete" alt="Delete" class="icon ic_b_drop" /> '
-                . 'Delete</span></a>' . "\n"
+                . 'Delete</span></a>'
                 . '<div class="hide">DELETE FROM `Data`.`customer` WHERE '
                 . '`customer`.`id` = 1</div></td>'
             )
@@ -615,7 +616,7 @@ class DisplayResultsTest extends PMATestCase
     {
         return array(
             array(
-                PMA\libraries\DisplayResults::POSITION_LEFT,
+                DisplayResults::POSITION_LEFT,
                 'sql.php?db=data&amp;table=new&amp;sql_query=DELETE+FROM+%60data'
                 . '%60.%60new%60+WHERE+%60new%60.%60id%60+%3D+1&amp;message_to_show='
                 . 'The+row+has+been+deleted&amp;goto=sql.php%3Fdb%3Ddata%26table%3D'
@@ -656,24 +657,24 @@ class DisplayResultsTest extends PMATestCase
                 . 'value="%60new%60.%60id%60+%3D+1"  /><input type="hidden" class='
                 . '"condition_array" value="{&quot;`new`.`id`&quot;:&quot;= 1&quot;'
                 . '}" />    </td><td class="edit_row_anchor center print_ignore"  ><span class='
-                . '"nowrap">' . "\n"
+                . '"nowrap">'
                 . '<a href="tbl_change.php?db=data&amp;table=new&amp;where_'
                 . 'clause=%60new%60.%60id%60+%3D+1&amp;clause_is_unique=1&amp;'
                 . 'sql_query=SELECT+%2A+FROM+%60new%60&amp;goto=sql.php&amp;default'
                 . '_action=update" >'
                 . '<span class="nowrap"><img src="themes/dot.gif" title="Edit" '
-                . 'alt="Edit" class="icon ic_b_edit" /> Edit</span></a>' . "\n"
+                . 'alt="Edit" class="icon ic_b_edit" /> Edit</span></a>'
                 . '<input type="hidden" class="where_clause" value ="%60new%60.%60'
                 . 'id%60+%3D+1" /></span></td><td class="center print_ignore"  ><span class'
-                . '="nowrap">' . "\n"
+                . '="nowrap">'
                 . '<a href="tbl_change.php?db=data&amp;table=new&amp;where_clause'
                 . '=%60new%60.%60id%60+%3D+1&amp;clause_is_unique=1&amp;sql_query='
                 . 'SELECT+%2A+FROM+%60new%60&amp;goto=sql.php&amp;default_action='
                 . 'insert" ><span class'
                 . '="nowrap"><img src="themes/dot.gif" title="Copy" alt="Copy" '
-                . 'class="icon ic_b_insrow" /> Copy</span></a>' . "\n"
+                . 'class="icon ic_b_insrow" /> Copy</span></a>'
                 . '<input type="hidden" class="where_clause" value="%60new%60.%60id'
-                . '%60+%3D+1" /></span></td><td class="center print_ignore"  >' . "\n"
+                . '%60+%3D+1" /></span></td><td class="center print_ignore"  >'
                 . '<a href="sql.php?db=data&amp;table=new&amp;sql_query=DELETE+'
                 . 'FROM+%60data%60.%60new%60+WHERE+%60new%60.%60id%60+%3D+1&amp;'
                 . 'message_to_show=The+row+has+been+deleted&amp;goto=sql.php%3F'
@@ -682,12 +683,12 @@ class DisplayResultsTest extends PMATestCase
                 . 'deleted%26goto%3Dtbl_structure.php" '
                 . 'class="delete_row requireConfirm"><span class="nowrap"><img src="themes/dot.'
                 . 'gif" title="Delete" alt="Delete" class="icon ic_b_drop" /> '
-                . 'Delete</span></a>' . "\n"
+                . 'Delete</span></a>'
                 . '<div class="hide">DELETE FROM `data`.`new` WHERE `new`.`id` = 1'
                 . '</div></td>'
             ),
             array(
-                PMA\libraries\DisplayResults::POSITION_RIGHT,
+                DisplayResults::POSITION_RIGHT,
                 'sql.php?db=data&amp;table=new&amp;sql_query=DELETE+FROM+%60data%60'
                 . '.%60new%60+WHERE+%60new%60.%60id%60+%3D+1&amp;message_to_show='
                 . 'The+row+has+been+deleted&amp;goto=sql.php%3Fdb%3Ddata%26table%3D'
@@ -723,7 +724,7 @@ class DisplayResultsTest extends PMATestCase
                 '<span class="nowrap"><img src="themes/dot.gif" title="Delete" '
                 . 'alt="Delete" class="icon ic_b_drop" /> Delete</span>',
                 'DELETE FROM `data`.`new` WHERE `new`.`id` = 1',
-                '<td class="center print_ignore"  >' . "\n"
+                '<td class="center print_ignore"  >'
                 . '<a href="sql.php?db=data&amp;table=new&amp;sql_query=DELETE+'
                 . 'FROM+%60data%60.%60new%60+WHERE+%60new%60.%60id%60+%3D+1&amp;'
                 . 'message_to_show=The+row+has+been+deleted&amp;goto=sql.php%3Fdb'
@@ -732,23 +733,23 @@ class DisplayResultsTest extends PMATestCase
                 . '%26goto%3Dtbl_structure.php" class="delete'
                 . '_row requireConfirm"><span class="nowrap"><img src="themes/dot.gif" title='
                 . '"Delete" alt="Delete" class="icon ic_b_drop" /> Delete</span></a>'
-                . "\n" . '<div class="hide">DELETE FROM `data`.`new` WHERE `new`.'
+                . '<div class="hide">DELETE FROM `data`.`new` WHERE `new`.'
                 . '`id` = 1</div></td><td class="center print_ignore"  ><span class="nowrap">'
-                . "\n" . '<a href="tbl_change.php?db=data&amp;table=new&amp;where_'
+                . '<a href="tbl_change.php?db=data&amp;table=new&amp;where_'
                 . 'clause=%60new%60.%60id%60+%3D+1&amp;clause_is_unique=1&amp;sql_'
                 . 'query=SELECT+%2A+FROM+%60new%60&amp;goto=sql.php&amp;default_'
                 . 'action=insert" ><span '
                 . 'class="nowrap"><img src="themes/dot.gif" title="Copy" alt="Copy" '
-                . 'class="icon ic_b_insrow" /> Copy</span></a>' . "\n"
+                . 'class="icon ic_b_insrow" /> Copy</span></a>'
                 . '<input type="hidden" class="where_clause" value="%60new%60.%60id'
                 . '%60+%3D+1" /></span></td><td class="edit_row_anchor center print_ignore"  >'
-                . '<span class="nowrap">' . "\n"
+                . '<span class="nowrap">'
                 . '<a href="tbl_change.php?db=data&amp;table=new&amp;where_clause'
                 . '=%60new%60.%60id%60+%3D+1&amp;clause_is_unique=1&amp;sql_query='
                 . 'SELECT+%2A+FROM+%60new%60&amp;goto=sql.php&amp;default_action='
                 . 'update" ><span class='
                 . '"nowrap"><img src="themes/dot.gif" title="Edit" alt="Edit" class'
-                . '="icon ic_b_edit" /> Edit</span></a>' . "\n"
+                . '="icon ic_b_edit" /> Edit</span></a>'
                 . '<input type="hidden" class="where_clause" value ="%60new%60.%60'
                 . 'id%60+%3D+1" /></span></td><td  class="center print_ignore"><input type='
                 . '"checkbox" id="id_rows_to_delete0_right" name="rows_to_delete'
@@ -757,7 +758,7 @@ class DisplayResultsTest extends PMATestCase
                 . '{&quot;`new`.`id`&quot;:&quot;= 1&quot;}" />    </td>'
             ),
             array(
-                PMA\libraries\DisplayResults::POSITION_NONE,
+                DisplayResults::POSITION_NONE,
                 'sql.php?db=data&amp;table=new&amp;sql_query=DELETE+FROM+%60data%60.'
                 . '%60new%60+WHERE+%60new%60.%60id%60+%3D+1&amp;message_to_show=The+'
                 . 'row+has+been+deleted&amp;goto=sql.php%3Fdb%3Ddata%26table%3Dnew'
@@ -854,7 +855,7 @@ class DisplayResultsTest extends PMATestCase
     {
         return array(
             array(
-                PMA\libraries\DisplayResults::POSITION_NONE,
+                DisplayResults::POSITION_NONE,
                 'sql.php?db=data&amp;table=new&amp;sql_query=DELETE+FROM+%60data%60.'
                 . '%60new%60+WHERE+%60new%60.%60id%60+%3D+1&amp;message_to_show=The+'
                 . 'row+has+been+deleted&amp;goto=sql.php%3Fdb%3Ddata%26table%3Dnew'
@@ -1312,9 +1313,9 @@ class DisplayResultsTest extends PMATestCase
                 true,
                 'BLOB',
                 '1001',
-                'PMA_mimeDefaultFunction',
+                [Core::class, 'mimeDefaultFunction'],
                 '',
-                'PMA_mimeDefaultFunction',
+                [Core::class, 'mimeDefaultFunction'],
                 $meta,
                 $url_params,
                 null,
@@ -1327,9 +1328,9 @@ class DisplayResultsTest extends PMATestCase
                 true,
                 'BLOB',
                 hex2bin('123456'),
-                'PMA_mimeDefaultFunction',
+                [Core::class, 'mimeDefaultFunction'],
                 '',
-                'PMA_mimeDefaultFunction',
+                [Core::class, 'mimeDefaultFunction'],
                 $meta,
                 $url_params,
                 null,
@@ -1342,9 +1343,9 @@ class DisplayResultsTest extends PMATestCase
                 false,
                 'BLOB',
                 '1001',
-                'PMA_mimeDefaultFunction',
+                [Core::class, 'mimeDefaultFunction'],
                 '',
-                'PMA_mimeDefaultFunction',
+                [Core::class, 'mimeDefaultFunction'],
                 $meta,
                 $url_params,
                 null,
@@ -1359,7 +1360,7 @@ class DisplayResultsTest extends PMATestCase
                 '1001',
                 $transformation_plugin,
                 '',
-                'PMA_mimeDefaultFunction',
+                [Core::class, 'mimeDefaultFunction'],
                 $meta,
                 $url_params,
                 null,
@@ -1372,7 +1373,7 @@ class DisplayResultsTest extends PMATestCase
                 null,
                 '',
                 '',
-                'PMA_mimeDefaultFunction',
+                [Core::class, 'mimeDefaultFunction'],
                 $meta,
                 $url_params,
                 null,
@@ -1391,7 +1392,7 @@ class DisplayResultsTest extends PMATestCase
      * @param string  $content               the binary content
      * @param string  $transformation_plugin transformation plugin.
      *                                       Can also be the default function:
-     *                                       PMA_mimeDefaultFunction
+     *                                       PhpMyAdmin\Core::mimeDefaultFunction
      * @param string  $transform_options     transformation parameters
      * @param string  $default_function      default transformation function
      * @param object  $meta                  the meta-information about the field
@@ -1463,8 +1464,8 @@ class DisplayResultsTest extends PMATestCase
                 array(),
                 $url_params,
                 false,
-                'PMA_mimeDefaultFunction',
-                'PMA_mimeDefaultFunction',
+                [Core::class, 'mimeDefaultFunction'],
+                [Core::class, 'mimeDefaultFunction'],
                 array('https://www.example.com/'),
                 false,
                 array(),
@@ -1485,7 +1486,7 @@ class DisplayResultsTest extends PMATestCase
                 $url_params,
                 false,
                 $transformation_plugin,
-                'PMA_mimeDefaultFunction',
+                [Core::class, 'mimeDefaultFunction'],
                 '',
                 false,
                 array(),
@@ -1503,7 +1504,7 @@ class DisplayResultsTest extends PMATestCase
                 $url_params,
                 false,
                 $transformation_plugin,
-                'PMA_mimeDefaultFunction',
+                [Core::class, 'mimeDefaultFunction'],
                 '',
                 false,
                 array(),
@@ -1520,8 +1521,8 @@ class DisplayResultsTest extends PMATestCase
                 array(),
                 $url_params,
                 false,
-                'PMA_mimeDefaultFunction',
-                'PMA_mimeDefaultFunction',
+                [Core::class, 'mimeDefaultFunction'],
+                [Core::class, 'mimeDefaultFunction'],
                 '',
                 false,
                 array(),

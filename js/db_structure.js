@@ -29,8 +29,8 @@ AJAX.registerTeardown('db_structure.js', function () {
     $(document).off('click', '#printView');
     $('a.real_row_count').off('click');
     $('a.row_count_sum').off('click');
-    $('select[name=submit_mult]').unbind('change');
-    $("#filterText").unbind('keyup');
+    $('select[name=submit_mult]').off('change');
+    $("#filterText").off('keyup');
 });
 
 /**
@@ -192,7 +192,7 @@ AJAX.registerOnload('db_structure.js', function () {
  *
  */
     var jqConfirm = function(msg, success) {
-        var dialogObj = $("<div style='display:none'>"+msg+"</div>");
+        var dialogObj = $("<div class='hide'>"+msg+"</div>");
         $('body').append(dialogObj);
         var buttonOptions = {};
         buttonOptions[PMA_messages.strContinue] = function () {
@@ -273,7 +273,7 @@ AJAX.registerOnload('db_structure.js', function () {
 
             }).done(function(data) {
 
-                var dialogObj = $("<div style='display:none'>"+data+"</div>");
+                var dialogObj = $("<div class='hide'>"+data+"</div>");
                 $('body').append(dialogObj);
                 var buttonOptions = {};
                 buttonOptions[PMA_messages.strContinue] = function () {
@@ -326,7 +326,6 @@ AJAX.registerOnload('db_structure.js', function () {
             PMA_ajaxShowMessage(PMA_messages.strProcessingRequest);
 
             var params = getJSConfirmCommonParam(this);
-            params.token = PMA_commonParams.get('token');
 
             $.post(url, params, function (data) {
                 if (typeof data !== 'undefined' && data.success === true) {
@@ -390,7 +389,6 @@ AJAX.registerOnload('db_structure.js', function () {
             var $msg = PMA_ajaxShowMessage(PMA_messages.strProcessingRequest);
 
             var params = getJSConfirmCommonParam(this);
-            params.token = PMA_commonParams.get('token');
 
             $.post(url, params, function (data) {
                 if (typeof data !== 'undefined' && data.success === true) {

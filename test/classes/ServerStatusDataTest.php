@@ -9,7 +9,8 @@
 /*
  * Include to test.
  */
-use PMA\libraries\ServerStatusData;
+use PhpMyAdmin\Core;
+use PhpMyAdmin\ServerStatusData;
 
 require_once 'libraries/database_interface.inc.php';
 require_once 'test/PMATestCase.php';
@@ -33,14 +34,14 @@ class ServerStatusDataTest extends PMATestCase
      */
     function setup()
     {
-        $GLOBALS['PMA_PHP_SELF'] = PMA_getenv('PHP_SELF');
+        $GLOBALS['PMA_PHP_SELF'] = Core::getenv('PHP_SELF');
         $GLOBALS['cfg']['Server']['host'] = "::1";
         $GLOBALS['replication_info']['master']['status'] = true;
         $GLOBALS['replication_info']['slave']['status'] = true;
         $GLOBALS['replication_types'] = array();
 
         //Mock DBI
-        $dbi = $this->getMockBuilder('PMA\libraries\DatabaseInterface')
+        $dbi = $this->getMockBuilder('PhpMyAdmin\DatabaseInterface')
             ->disableOriginalConstructor()
             ->getMock();
 

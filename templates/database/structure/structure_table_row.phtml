@@ -12,8 +12,8 @@
     </th>
     <?php if ($server_slave_status): ?>
         <td class="center">
-            <?= ($ignored ? PMA\libraries\Util::getImage('s_cancel.png', __('Not replicated')) : ''); ?>
-            <?= ($do ? PMA\libraries\Util::getImage('s_success.png', __('Replicated')) : ''); ?>
+            <?= ($ignored ? PhpMyAdmin\Util::getImage('s_cancel.png', __('Not replicated')) : ''); ?>
+            <?= ($do ? PhpMyAdmin\Util::getImage('s_success.png', __('Replicated')) : ''); ?>
         </td>
     <?php endif; ?>
 
@@ -22,7 +22,7 @@
     ?>
     <?php if ($GLOBALS['cfg']['NumFavoriteTables'] > 0): ?>
         <td class="center print_ignore">
-            <?= PMA\libraries\Template::get('database/structure/favorite_anchor')->render(
+            <?= PhpMyAdmin\Template::get('database/structure/favorite_anchor')->render(
                 array(
                     'db' => $db,
                     'current_table' => $current_table,
@@ -63,7 +63,7 @@
 
         <?php
         // Get the row count.
-        $row_count = PMA\libraries\Util::formatNumber($current_table['TABLE_ROWS'], 0);
+        $row_count = PhpMyAdmin\Util::formatNumber($current_table['TABLE_ROWS'], 0);
 
         // Content to be appended into 'tbl_rows' cell.
         // If row count is approximate, display it as an anchor to get real count.
@@ -71,7 +71,7 @@
         <td class="value tbl_rows"
             data-table="<?= htmlspecialchars($current_table['TABLE_NAME']); ?>">
             <?php if ($approx_rows): ?>
-                <a href="db_structure.php<?= PMA\libraries\URL::getCommon(
+                <a href="db_structure.php<?= PhpMyAdmin\Url::getCommon(
                     array(
                         'ajax_request'   => true,
                         'db'             => $GLOBALS['db'],
@@ -144,19 +144,19 @@
 
         <?php if ($GLOBALS['cfg']['ShowDbStructureCreation']): ?>
             <td class="value tbl_creation">
-                <?= $create_time ? PMA\libraries\Util::localisedDate(strtotime($create_time)) : '-'; ?>
+                <?= $create_time ? PhpMyAdmin\Util::localisedDate(strtotime($create_time)) : '-'; ?>
             </td>
         <?php endif; ?>
 
         <?php if ($GLOBALS['cfg']['ShowDbStructureLastUpdate']): ?>
             <td class="value tbl_last_update">
-                <?= $update_time ? PMA\libraries\Util::localisedDate(strtotime($update_time)) : '-'; ?>
+                <?= $update_time ? PhpMyAdmin\Util::localisedDate(strtotime($update_time)) : '-'; ?>
             </td>
         <?php endif; ?>
 
         <?php if ($GLOBALS['cfg']['ShowDbStructureLastCheck']): ?>
             <td class="value tbl_last_check">
-                <?= $check_time ? PMA\libraries\Util::localisedDate(strtotime($check_time)) : '-'; ?>
+                <?= $check_time ? PhpMyAdmin\Util::localisedDate(strtotime($check_time)) : '-'; ?>
             </td>
         <?php endif; ?>
 

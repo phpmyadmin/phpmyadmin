@@ -5,8 +5,8 @@
  *
  * @package PhpMyAdmin
  */
-use PMA\libraries\Response;
-use PMA\libraries\URL;
+use PhpMyAdmin\Response;
+use PhpMyAdmin\Url;
 
 if (! defined('PHPMYADMIN')) {
     exit;
@@ -102,7 +102,7 @@ function PMA_EVN_handleEditor()
                     $_REQUEST['item_original_name']
                 );
                 $drop_item = "DROP EVENT "
-                    . PMA\libraries\Util::backquote($_REQUEST['item_original_name'])
+                    . PhpMyAdmin\Util::backquote($_REQUEST['item_original_name'])
                     . ";\n";
                 $result = $GLOBALS['dbi']->tryQuery($drop_item);
                 if (! $result) {
@@ -133,11 +133,11 @@ function PMA_EVN_handleEditor()
                             $errors
                         );
                     } else {
-                        $message = PMA\libraries\Message::success(
+                        $message = PhpMyAdmin\Message::success(
                             __('Event %1$s has been modified.')
                         );
                         $message->addParam(
-                            PMA\libraries\Util::backquote($_REQUEST['item_name'])
+                            PhpMyAdmin\Util::backquote($_REQUEST['item_name'])
                         );
                         $sql_query = $drop_item . $item_query;
                     }
@@ -153,11 +153,11 @@ function PMA_EVN_handleEditor()
                     . '<br /><br />'
                     . __('MySQL said: ') . $GLOBALS['dbi']->getError(null);
                 } else {
-                    $message = PMA\libraries\Message::success(
+                    $message = PhpMyAdmin\Message::success(
                         __('Event %1$s has been created.')
                     );
                     $message->addParam(
-                        PMA\libraries\Util::backquote($_REQUEST['item_name'])
+                        PhpMyAdmin\Util::backquote($_REQUEST['item_name'])
                     );
                     $sql_query = $item_query;
                 }
@@ -165,7 +165,7 @@ function PMA_EVN_handleEditor()
         }
 
         if (count($errors)) {
-            $message = PMA\libraries\Message::error(
+            $message = PhpMyAdmin\Message::error(
                 '<b>'
                 . __(
                     'One or more errors have occurred while processing your request:'
@@ -179,7 +179,7 @@ function PMA_EVN_handleEditor()
             $message->addHtml('</ul>');
         }
 
-        $output = PMA\libraries\Util::getMessage($message, $sql_query);
+        $output = PhpMyAdmin\Util::getMessage($message, $sql_query);
         $response = Response::getInstance();
         if ($response->isAjax()) {
             if ($message->isSuccess()) {
@@ -287,7 +287,7 @@ function PMA_EVN_getDataFromName($name)
     $columns = "`EVENT_NAME`, `STATUS`, `EVENT_TYPE`, `EXECUTE_AT`, "
              . "`INTERVAL_VALUE`, `INTERVAL_FIELD`, `STARTS`, `ENDS`, "
              . "`EVENT_DEFINITION`, `ON_COMPLETION`, `DEFINER`, `EVENT_COMMENT`";
-    $where   = "EVENT_SCHEMA " . PMA\libraries\Util::getCollateForIS() . "="
+    $where   = "EVENT_SCHEMA " . PhpMyAdmin\Util::getCollateForIS() . "="
              . "'" . $GLOBALS['dbi']->escapeString($db) . "' "
              . "AND EVENT_NAME='" . $GLOBALS['dbi']->escapeString($name) . "'";
     $query   = "SELECT $columns FROM `INFORMATION_SCHEMA`.`EVENTS` WHERE $where;";
@@ -385,7 +385,7 @@ function PMA_EVN_getEditorForm($mode, $operation, $item)
     $retval .= "<form class='rte_form' action='db_events.php' method='post'>\n";
     $retval .= "<input name='{$mode}_item' type='hidden' value='1' />\n";
     $retval .= $original_data;
-    $retval .= URL::getHiddenInputs($db, $table) . "\n";
+    $retval .= Url::getHiddenInputs($db, $table) . "\n";
     $retval .= "<fieldset>\n";
     $retval .= "<legend>" . __('Details') . "</legend>\n";
     $retval .= "<table class='rte_table' style='width: 100%'>\n";
@@ -535,15 +535,15 @@ function PMA_EVN_getQueryFromRequest()
         if (mb_strpos($_REQUEST['item_definer'], '@') !== false
         ) {
             $arr = explode('@', $_REQUEST['item_definer']);
-            $query .= 'DEFINER=' . PMA\libraries\Util::backquote($arr[0]);
-            $query .= '@' . PMA\libraries\Util::backquote($arr[1]) . ' ';
+            $query .= 'DEFINER=' . PhpMyAdmin\Util::backquote($arr[0]);
+            $query .= '@' . PhpMyAdmin\Util::backquote($arr[1]) . ' ';
         } else {
             $errors[] = __('The definer must be in the "username@hostname" format!');
         }
     }
     $query .= 'EVENT ';
     if (! empty($_REQUEST['item_name'])) {
-        $query .= PMA\libraries\Util::backquote($_REQUEST['item_name']) . ' ';
+        $query .= PhpMyAdmin\Util::backquote($_REQUEST['item_name']) . ' ';
     } else {
         $errors[] = __('You must provide an event name!');
     }

@@ -7,8 +7,11 @@
  *
  * @package PhpMyAdmin
  */
-use PMA\libraries\Table;
-use PMA\libraries\URL;
+
+use PhpMyAdmin\Sql;
+use PhpMyAdmin\Table;
+use PhpMyAdmin\Transformations;
+use PhpMyAdmin\Url;
 
 /**
  * Gets url params
@@ -44,7 +47,7 @@ function PMA_getUrlParams(
     foreach ($selected as $sval) {
         if ($what == 'row_delete') {
             $_url_params['selected'][] = 'DELETE FROM '
-                . PMA\libraries\Util::backquote($table)
+                . PhpMyAdmin\Util::backquote($table)
                 . ' WHERE ' . $sval . ' LIMIT 1;';
         } else {
             $_url_params['selected'][] = $sval;
@@ -113,7 +116,7 @@ function PMA_buildOrExecuteQueryForMulti(
         case 'drop_db':
             PMA_relationsCleanupDatabase($selected[$i]);
             $a_query   = 'DROP DATABASE '
-                       . PMA\libraries\Util::backquote($selected[$i]);
+                       . PhpMyAdmin\Util::backquote($selected[$i]);
             $reload    = 1;
             $run_parts = true;
             $rebuild_database_list = true;
@@ -124,104 +127,104 @@ function PMA_buildOrExecuteQueryForMulti(
             $current = $selected[$i];
             if (!empty($views) && in_array($current, $views)) {
                 $sql_query_views .= (empty($sql_query_views) ? 'DROP VIEW ' : ', ')
-                          . PMA\libraries\Util::backquote($current);
+                          . PhpMyAdmin\Util::backquote($current);
             } else {
                 $sql_query .= (empty($sql_query) ? 'DROP TABLE ' : ', ')
-                           . PMA\libraries\Util::backquote($current);
+                           . PhpMyAdmin\Util::backquote($current);
             }
             $reload    = 1;
             break;
 
         case 'check_tbl':
             $sql_query .= (empty($sql_query) ? 'CHECK TABLE ' : ', ')
-                       . PMA\libraries\Util::backquote($selected[$i]);
+                       . PhpMyAdmin\Util::backquote($selected[$i]);
             $execute_query_later = true;
             break;
 
         case 'optimize_tbl':
             $sql_query .= (empty($sql_query) ? 'OPTIMIZE TABLE ' : ', ')
-                       . PMA\libraries\Util::backquote($selected[$i]);
+                       . PhpMyAdmin\Util::backquote($selected[$i]);
             $execute_query_later = true;
             break;
 
         case 'analyze_tbl':
             $sql_query .= (empty($sql_query) ? 'ANALYZE TABLE ' : ', ')
-                       . PMA\libraries\Util::backquote($selected[$i]);
+                       . PhpMyAdmin\Util::backquote($selected[$i]);
             $execute_query_later = true;
             break;
 
         case 'checksum_tbl':
             $sql_query .= (empty($sql_query) ? 'CHECKSUM TABLE ' : ', ')
-                       . PMA\libraries\Util::backquote($selected[$i]);
+                       . PhpMyAdmin\Util::backquote($selected[$i]);
             $execute_query_later = true;
             break;
 
         case 'repair_tbl':
             $sql_query .= (empty($sql_query) ? 'REPAIR TABLE ' : ', ')
-                       . PMA\libraries\Util::backquote($selected[$i]);
+                       . PhpMyAdmin\Util::backquote($selected[$i]);
             $execute_query_later = true;
             break;
 
         case 'empty_tbl':
             $deletes = true;
             $a_query = 'TRUNCATE ';
-            $a_query .= PMA\libraries\Util::backquote($selected[$i]);
+            $a_query .= PhpMyAdmin\Util::backquote($selected[$i]);
             $run_parts = true;
             break;
 
         case 'drop_fld':
             PMA_relationsCleanupColumn($db, $table, $selected[$i]);
             $sql_query .= (empty($sql_query)
-                ? 'ALTER TABLE ' . PMA\libraries\Util::backquote($table)
+                ? 'ALTER TABLE ' . PhpMyAdmin\Util::backquote($table)
                 : ',')
-                       . ' DROP ' . PMA\libraries\Util::backquote($selected[$i])
+                       . ' DROP ' . PhpMyAdmin\Util::backquote($selected[$i])
                        . (($i == $selected_cnt-1) ? ';' : '');
             break;
 
         case 'primary_fld':
             $sql_query .= (empty($sql_query)
-                ? 'ALTER TABLE ' . PMA\libraries\Util::backquote($table)
+                ? 'ALTER TABLE ' . PhpMyAdmin\Util::backquote($table)
                     . (empty($primary)
                     ? ''
                     : ' DROP PRIMARY KEY,') . ' ADD PRIMARY KEY( '
                 : ', ')
-                       . PMA\libraries\Util::backquote($selected[$i])
+                       . PhpMyAdmin\Util::backquote($selected[$i])
                        . (($i == $selected_cnt-1) ? ');' : '');
             break;
 
         case 'index_fld':
             $sql_query .= (empty($sql_query)
-                ? 'ALTER TABLE ' . PMA\libraries\Util::backquote($table)
+                ? 'ALTER TABLE ' . PhpMyAdmin\Util::backquote($table)
                     . ' ADD INDEX( '
                 : ', ')
-                       . PMA\libraries\Util::backquote($selected[$i])
+                       . PhpMyAdmin\Util::backquote($selected[$i])
                        . (($i == $selected_cnt-1) ? ');' : '');
             break;
 
         case 'unique_fld':
             $sql_query .= (empty($sql_query)
-                ? 'ALTER TABLE ' . PMA\libraries\Util::backquote($table)
+                ? 'ALTER TABLE ' . PhpMyAdmin\Util::backquote($table)
                     . ' ADD UNIQUE( '
                 : ', ')
-                       . PMA\libraries\Util::backquote($selected[$i])
+                       . PhpMyAdmin\Util::backquote($selected[$i])
                        . (($i == $selected_cnt-1) ? ');' : '');
             break;
 
         case 'spatial_fld':
             $sql_query .= (empty($sql_query)
-                ? 'ALTER TABLE ' . PMA\libraries\Util::backquote($table)
+                ? 'ALTER TABLE ' . PhpMyAdmin\Util::backquote($table)
                     . ' ADD SPATIAL( '
                 : ', ')
-                       . PMA\libraries\Util::backquote($selected[$i])
+                       . PhpMyAdmin\Util::backquote($selected[$i])
                        . (($i == $selected_cnt-1) ? ');' : '');
             break;
 
         case 'fulltext_fld':
             $sql_query .= (empty($sql_query)
-                ? 'ALTER TABLE ' . PMA\libraries\Util::backquote($table)
+                ? 'ALTER TABLE ' . PhpMyAdmin\Util::backquote($table)
                     . ' ADD FULLTEXT( '
                 : ', ')
-                       . PMA\libraries\Util::backquote($selected[$i])
+                       . PhpMyAdmin\Util::backquote($selected[$i])
                        . (($i == $selected_cnt-1) ? ');' : '');
             break;
 
@@ -229,9 +232,9 @@ function PMA_buildOrExecuteQueryForMulti(
             $newtablename = $_POST['add_prefix'] . $selected[$i];
             // ADD PREFIX TO TABLE NAME
             $a_query = 'ALTER TABLE '
-                . PMA\libraries\Util::backquote($selected[$i])
+                . PhpMyAdmin\Util::backquote($selected[$i])
                 . ' RENAME '
-                . PMA\libraries\Util::backquote($newtablename);
+                . PhpMyAdmin\Util::backquote($newtablename);
             $run_parts = true;
             break;
 
@@ -253,9 +256,9 @@ function PMA_buildOrExecuteQueryForMulti(
             }
             // CHANGE PREFIX PATTERN
             $a_query = 'ALTER TABLE '
-                . PMA\libraries\Util::backquote($selected[$i])
+                . PhpMyAdmin\Util::backquote($selected[$i])
                 . ' RENAME '
-                . PMA\libraries\Util::backquote($newtablename);
+                . PhpMyAdmin\Util::backquote($newtablename);
             $run_parts = true;
             break;
 
@@ -295,17 +298,17 @@ function PMA_buildOrExecuteQueryForMulti(
             $result = $GLOBALS['dbi']->query($a_query);
 
             if ($query_type == 'drop_db') {
-                PMA_clearTransformations($selected[$i]);
+                Transformations::clear($selected[$i]);
             } elseif ($query_type == 'drop_tbl') {
-                PMA_clearTransformations($db, $selected[$i]);
+                Transformations::clear($db, $selected[$i]);
             } else if ($query_type == 'drop_fld') {
-                PMA_clearTransformations($db, $table, $selected[$i]);
+                Transformations::clear($db, $table, $selected[$i]);
             }
         } // end if
     } // end for
 
     if ($deletes && ! empty($_REQUEST['pos'])) {
-        $_REQUEST['pos'] = PMA_calculatePosForLastPage(
+        $_REQUEST['pos'] = Sql::calculatePosForLastPage(
             $db, $table, isset($_REQUEST['pos']) ? $_REQUEST['pos'] : null
         );
     }
@@ -327,7 +330,7 @@ function PMA_buildOrExecuteQueryForMulti(
 function PMA_getHtmlForCopyMultipleTables($action, $_url_params)
 {
     $html = '<form id="ajax_form" action="' . $action . '" method="post">';
-    $html .= URL::getHiddenInputs($_url_params);
+    $html .= Url::getHiddenInputs($_url_params);
     $html .= '<fieldset class = "input">';
     $databases_list = $GLOBALS['dblist']->databases;
     foreach ($databases_list as $key => $db_name)
@@ -341,19 +344,19 @@ function PMA_getHtmlForCopyMultipleTables($action, $_url_params)
         . '</select>';
     $html .= '<br><br>';
     $html .= '<strong><label>' . __('Options') . ':</label></strong><br>';
-    $html .= '<input type="radio" id ="what_structure" value="structure" name="what"></input>';
+    $html .= '<input type="radio" id ="what_structure" value="structure" name="what"/>';
     $html .= '<label for="what_structure">' . __('Structure only') . '</label><br>';
-    $html .= '<input type="radio" id ="what_data" value="data" name="what" checked="checked"></input>';
+    $html .= '<input type="radio" id ="what_data" value="data" name="what" checked="checked"/>';
     $html .= '<label for="what_data">' . __('Structure and data') . '</label><br>';
-    $html .= '<input type="radio" id ="what_dataonly" value="dataonly" name="what"></input>';
+    $html .= '<input type="radio" id ="what_dataonly" value="dataonly" name="what"/>';
     $html .= '<label for="what_dataonly">' . __('Data only') . '</label><br><br>';
-    $html .= '<input type="checkbox" id="checkbox_drop" value="1" name="drop_if_exists"></input>';
+    $html .= '<input type="checkbox" id="checkbox_drop" value="1" name="drop_if_exists"/>';
     $html .= '<label for="checkbox_drop">' . __('Add DROP TABLE') . '</label><br>';
-    $html .= '<input type="checkbox" id="checkbox_auto_increment_cp" value="1" name="sql_auto_increment"></input>';
+    $html .= '<input type="checkbox" id="checkbox_auto_increment_cp" value="1" name="sql_auto_increment"/>';
     $html .= '<label for="checkbox_auto_increment_cp">' . __('Add AUTO INCREMENT value') . '</label><br>';
-    $html .= '<input type="checkbox" id="checkbox_constraints" value="1" name="sql_auto_increment" checked="checked"></input>';
+    $html .= '<input type="checkbox" id="checkbox_constraints" value="1" name="sql_auto_increment" checked="checked"/>';
     $html .= '<label for="checkbox_constraints">' . __('Add constraints') . '</label><br><br>';
-    $html .= '<input name="adjust_privileges" value="1" id="checkbox_adjust_privileges" checked="checked" type="checkbox"></input>';
+    $html .= '<input name="adjust_privileges" value="1" id="checkbox_adjust_privileges" checked="checked" type="checkbox"/>';
     $html .= '<label for="checkbox_adjust_privileges">' . __('Adjust privileges') . '<a href="./doc/html/faq.html#faq6-39" target="documentation"><img src="themes/dot.gif" title="Documentation" alt="Documentation" class="icon ic_b_help"></a></label>';
     $html .= '</fieldset>';
     $html .= '<input type="hidden" name="mult_btn" value="' . __('Yes') . '" />';
@@ -372,7 +375,7 @@ function PMA_getHtmlForCopyMultipleTables($action, $_url_params)
 function PMA_getHtmlForReplacePrefixTable($action, $_url_params)
 {
     $html  = '<form id="ajax_form" action="' . $action . '" method="post">';
-    $html .= URL::getHiddenInputs($_url_params);
+    $html .= Url::getHiddenInputs($_url_params);
     $html .= '<fieldset class = "input">';
     $html .= '<table>';
     $html .= '<tr>';
@@ -406,7 +409,7 @@ function PMA_getHtmlForReplacePrefixTable($action, $_url_params)
 function PMA_getHtmlForAddPrefixTable($action, $_url_params)
 {
     $html  = '<form id="ajax_form" action="' . $action . '" method="post">';
-    $html .= URL::getHiddenInputs($_url_params);
+    $html .= Url::getHiddenInputs($_url_params);
     $html .= '<fieldset class = "input">';
     $html .= '<table>';
     $html .= '<tr>';
@@ -437,7 +440,7 @@ function PMA_getHtmlForAddPrefixTable($action, $_url_params)
 function PMA_getHtmlForOtherActions($what, $action, $_url_params, $full_query)
 {
     $html = '<form action="' . $action . '" method="post">';
-    $html .= URL::getHiddenInputs($_url_params);
+    $html .= Url::getHiddenInputs($_url_params);
     $html .= '<fieldset class="confirmation">';
     $html .= '<legend>';
     if ($what == 'drop_db') {
@@ -455,7 +458,7 @@ function PMA_getHtmlForOtherActions($what, $action, $_url_params, $full_query)
     // Display option to disable foreign key checks while dropping tables
     if ($what === 'drop_tbl' || $what === 'empty_tbl' || $what === 'row_delete') {
         $html .= '<div id="foreignkeychk">';
-        $html .= PMA\libraries\Util::getFKCheckbox();
+        $html .= PhpMyAdmin\Util::getFKCheckbox();
         $html .= '</div>';
     }
     $html .= '<input id="buttonYes" type="submit" name="mult_btn" value="'
@@ -494,7 +497,7 @@ function PMA_getQueryFromSelected($what, $table, $selected, $views)
         switch ($what) {
         case 'row_delete':
             $full_query .= 'DELETE FROM '
-                . PMA\libraries\Util::backquote(htmlspecialchars($table))
+                . PhpMyAdmin\Util::backquote(htmlspecialchars($table))
                 // Do not append a "LIMIT 1" clause here
                 // (it's not binlog friendly).
                 // We don't need the clause because the calling panel permits
@@ -504,7 +507,7 @@ function PMA_getQueryFromSelected($what, $table, $selected, $views)
             break;
         case 'drop_db':
             $full_query .= 'DROP DATABASE '
-                . PMA\libraries\Util::backquote(htmlspecialchars($sval))
+                . PhpMyAdmin\Util::backquote(htmlspecialchars($sval))
                 . ';<br />';
             $reload = true;
             break;
@@ -513,31 +516,31 @@ function PMA_getQueryFromSelected($what, $table, $selected, $views)
             $current = $sval;
             if (!empty($views) && in_array($current, $views)) {
                 $full_query_views .= (empty($full_query_views) ? 'DROP VIEW ' : ', ')
-                    . PMA\libraries\Util::backquote(htmlspecialchars($current));
+                    . PhpMyAdmin\Util::backquote(htmlspecialchars($current));
             } else {
                 $full_query .= (empty($full_query) ? 'DROP TABLE ' : ', ')
-                    . PMA\libraries\Util::backquote(htmlspecialchars($current));
+                    . PhpMyAdmin\Util::backquote(htmlspecialchars($current));
             }
             break;
 
         case 'empty_tbl':
             $full_query .= 'TRUNCATE ';
-            $full_query .= PMA\libraries\Util::backquote(htmlspecialchars($sval))
+            $full_query .= PhpMyAdmin\Util::backquote(htmlspecialchars($sval))
                         . ';<br />';
             break;
 
         case 'primary_fld':
             if ($full_query == '') {
                 $full_query .= 'ALTER TABLE '
-                    . PMA\libraries\Util::backquote(htmlspecialchars($table))
+                    . PhpMyAdmin\Util::backquote(htmlspecialchars($table))
                     . '<br />&nbsp;&nbsp;DROP PRIMARY KEY,'
                     . '<br />&nbsp;&nbsp; ADD PRIMARY KEY('
                     . '<br />&nbsp;&nbsp;&nbsp;&nbsp; '
-                    . PMA\libraries\Util::backquote(htmlspecialchars($sval))
+                    . PhpMyAdmin\Util::backquote(htmlspecialchars($sval))
                     . ',';
             } else {
                 $full_query .= '<br />&nbsp;&nbsp;&nbsp;&nbsp; '
-                    . PMA\libraries\Util::backquote(htmlspecialchars($sval))
+                    . PhpMyAdmin\Util::backquote(htmlspecialchars($sval))
                     . ',';
             }
             if ($i == $selected_cnt-1) {
@@ -548,10 +551,10 @@ function PMA_getQueryFromSelected($what, $table, $selected, $views)
         case 'drop_fld':
             if ($full_query == '') {
                 $full_query .= 'ALTER TABLE '
-                    . PMA\libraries\Util::backquote(htmlspecialchars($table));
+                    . PhpMyAdmin\Util::backquote(htmlspecialchars($table));
             }
             $full_query .= '<br />&nbsp;&nbsp;DROP '
-                . PMA\libraries\Util::backquote(htmlspecialchars($sval))
+                . PhpMyAdmin\Util::backquote(htmlspecialchars($sval))
                 . ',';
             if ($i == $selected_cnt - 1) {
                 $full_query = preg_replace('@,$@', ';<br />', $full_query);
@@ -575,4 +578,3 @@ function PMA_getQueryFromSelected($what, $table, $selected, $views)
 
     return array($full_query, $reload, $full_query_views);
 }
-

@@ -9,13 +9,13 @@
  * Include to test.
  */
 
-use PMA\libraries\engines\Memory;
+use PhpMyAdmin\Engines\Memory;
 
 require_once 'libraries/database_interface.inc.php';
 require_once 'test/PMATestCase.php';
 
 /**
- * Tests for PMA\libraries\engines\Memory
+ * Tests for PhpMyAdmin\Engines\Memory
  *
  * @package PhpMyAdmin-test
  */

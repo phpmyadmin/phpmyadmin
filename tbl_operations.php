@@ -5,9 +5,9 @@
  *
  * @package PhpMyAdmin
  */
-use PMA\libraries\Partition;
-use PMA\libraries\Table;
-use PMA\libraries\Response;
+use PhpMyAdmin\Partition;
+use PhpMyAdmin\Table;
+use PhpMyAdmin\Response;
 
 /**
  *
@@ -49,14 +49,33 @@ $GLOBALS['dbi']->selectDb($GLOBALS['db']);
 /**
  * Gets tables information
  */
-require 'libraries/tbl_info.inc.php';
+$pma_table = $GLOBALS['dbi']->getTable(
+    $GLOBALS['db'],
+    $GLOBALS['table']
+);
+$reread_info = $pma_table->getStatusInfo(null, false);
+$GLOBALS['showtable'] = $pma_table->getStatusInfo(null, (isset($reread_info) && $reread_info ? true : false));
+if ($pma_table->isView()) {
+    $tbl_is_view = true;
+    $tbl_storage_engine = __('View');
+    $show_comment = null;
+} else {
+    $tbl_is_view = false;
+    $tbl_storage_engine = $pma_table->getStorageEngine();
+    $show_comment = $pma_table->getComment();
+}
+$tbl_collation = $pma_table->getCollation();
+$table_info_num_rows = $pma_table->getNumRows();
+$row_format = $pma_table->getRowFormat();
+$auto_increment = $pma_table->getAutoIncrement();
+$create_options = $pma_table->getCreateOptions();
 
 // set initial value of these variables, based on the current table engine
 if ($pma_table->isEngine('ARIA')) {
     // the value for transactional can be implicit
     // (no create option found, in this case it means 1)
     // or explicit (option found with a value of 0 or 1)
-    // ($create_options['transactional'] may have been set by libraries/tbl_info.inc.php,
+    // ($create_options['transactional'] may have been set by Table class,
     // from the $create_options)
     $create_options['transactional'] = (isset($create_options['transactional']) && $create_options['transactional'] == '0')
         ? '0'
@@ -64,6 +83,10 @@ if ($pma_table->isEngine('ARIA')) {
     $create_options['page_checksum'] = (isset($create_options['page_checksum'])) ? $create_options['page_checksum'] : '';
 }
 
+$pma_table = $GLOBALS['dbi']->getTable(
+    $GLOBALS['db'],
+    $GLOBALS['table']
+);
 $reread_info = false;
 $table_alters = array();
 
@@ -107,7 +130,6 @@ if (isset($_REQUEST['submitoptions'])) {
             // Reselect the original DB
             $GLOBALS['db'] = $oldDb;
             $GLOBALS['dbi']->selectDb($oldDb);
-
             $_message .= $pma_table->getLastMessage();
             $result = true;
             $GLOBALS['table'] = $pma_table->getName();
@@ -136,7 +158,7 @@ if (isset($_REQUEST['submitoptions'])) {
 
     $row_format = (isset($create_options['row_format']))
         ? $create_options['row_format']
-        : $pma_table->getStatusInfo('ROW_FORMAT');
+        : $pma_table->getRowFormat();
 
     $table_alters = PMA_getTableAltersArray(
         $pma_table,
@@ -152,7 +174,7 @@ if (isset($_REQUEST['submitoptions'])) {
 
     if (count($table_alters) > 0) {
         $sql_query      = 'ALTER TABLE '
-            . PMA\libraries\Util::backquote($GLOBALS['table']);
+            . PhpMyAdmin\Util::backquote($GLOBALS['table']);
         $sql_query     .= "\r\n" . implode("\r\n", $table_alters);
         $sql_query     .= ';';
         $result        .= $GLOBALS['dbi']->query($sql_query) ? true : false;
@@ -191,18 +213,33 @@ if ($reread_info) {
     // to avoid showing the old value (for example the AUTO_INCREMENT) after
     // a change, clear the cache
     $GLOBALS['dbi']->clearTableCache();
-    include 'libraries/tbl_info.inc.php';
+    $GLOBALS['dbi']->selectDb($GLOBALS['db']);
+    $GLOBALS['showtable'] = $pma_table->getStatusInfo(null, true);
+    if ($pma_table->isView()) {
+        $tbl_is_view = true;
+        $tbl_storage_engine = __('View');
+        $show_comment = null;
+    } else {
+        $tbl_is_view = false;
+        $tbl_storage_engine = $pma_table->getStorageEngine();
+        $show_comment = $pma_table->getComment();
+    }
+    $tbl_collation = $pma_table->getCollation();
+    $table_info_num_rows = $pma_table->getNumRows();
+    $row_format = $pma_table->getRowFormat();
+    $auto_increment = $pma_table->getAutoIncrement();
+    $create_options = $pma_table->getCreateOptions();
 }
 unset($reread_info);
 
 if (isset($result) && empty($message_to_show)) {
     if (empty($_message)) {
         if (empty($sql_query)) {
-            $_message = PMA\libraries\Message::success(__('No change'));
+            $_message = PhpMyAdmin\Message::success(__('No change'));
         } else {
             $_message = $result
-                ? PMA\libraries\Message::success()
-                : PMA\libraries\Message::error();
+                ? PhpMyAdmin\Message::success()
+                : PhpMyAdmin\Message::error();
         }
 
         if ($response->isAjax()) {
@@ -210,19 +247,19 @@ if (isset($result) && empty($message_to_show)) {
             $response->addJSON('message', $_message);
             if (!empty($sql_query)) {
                 $response->addJSON(
-                    'sql_query', PMA\libraries\Util::getMessage(null, $sql_query)
+                    'sql_query', PhpMyAdmin\Util::getMessage(null, $sql_query)
                 );
             }
             exit;
         }
     } else {
         $_message = $result
-            ? PMA\libraries\Message::success($_message)
-            : PMA\libraries\Message::error($_message);
+            ? PhpMyAdmin\Message::success($_message)
+            : PhpMyAdmin\Message::error($_message);
     }
 
     if (! empty($warning_messages)) {
-        $_message = new PMA\libraries\Message;
+        $_message = new PhpMyAdmin\Message;
         $_message->addMessagesString($warning_messages);
         $_message->isError(true);
         if ($response->isAjax()) {
@@ -230,7 +267,7 @@ if (isset($result) && empty($message_to_show)) {
             $response->addJSON('message', $_message);
             if (!empty($sql_query)) {
                 $response->addJSON(
-                    'sql_query', PMA\libraries\Util::getMessage(null, $sql_query)
+                    'sql_query', PhpMyAdmin\Util::getMessage(null, $sql_query)
                 );
             }
             exit;
@@ -244,7 +281,7 @@ if (isset($result) && empty($message_to_show)) {
         );
     } else {
         $response->addHTML(
-            PMA\libraries\Util::getMessage($_message, $sql_query)
+            PhpMyAdmin\Util::getMessage($_message, $sql_query)
         );
     }
     unset($_message);
@@ -262,7 +299,6 @@ $columns = $GLOBALS['dbi']->getColumns($GLOBALS['db'], $GLOBALS['table']);
 /**
  * Displays the page
  */
-$response->addHTML('<div id="boxContainer" data-box-width="300">');
 
 /**
  * Order the table
@@ -272,7 +308,7 @@ $hideOrderTable = false;
 // a user-defined clustered index (PRIMARY KEY or NOT NULL UNIQUE index).
 // InnoDB always orders table rows according to such an index if one is present.
 if ($tbl_storage_engine == 'INNODB') {
-    $indexes = PMA\libraries\Index::getFromTable($GLOBALS['table'], $GLOBALS['db']);
+    $indexes = PhpMyAdmin\Index::getFromTable($GLOBALS['table'], $GLOBALS['db']);
     foreach ($indexes as $name => $idx) {
         if ($name == 'PRIMARY') {
             $hideOrderTable = true;
@@ -354,7 +390,7 @@ if (! (isset($db_is_system_schema) && $db_is_system_schema)) {
         && ! (isset($db_is_system_schema) && $db_is_system_schema)
     ) {
         $this_sql_query = 'TRUNCATE TABLE '
-            . PMA\libraries\Util::backquote($GLOBALS['table']);
+            . PhpMyAdmin\Util::backquote($GLOBALS['table']);
         $truncate_table_url_params = array_merge(
             $url_params,
             array(
@@ -370,7 +406,7 @@ if (! (isset($db_is_system_schema) && $db_is_system_schema)) {
     }
     if (! (isset($db_is_system_schema) && $db_is_system_schema)) {
         $this_sql_query = 'DROP TABLE '
-            . PMA\libraries\Util::backquote($GLOBALS['table']);
+            . PhpMyAdmin\Util::backquote($GLOBALS['table']);
         $drop_table_url_params = array_merge(
             $url_params,
             array(
@@ -427,5 +463,3 @@ if ($cfgRelation['relwork'] && ! $pma_table->isEngine("INNODB")) {
     } // end if ($foreign)
 
 } // end  if (!empty($cfg['Server']['relation']))
-
-$response->addHTML('</div>');

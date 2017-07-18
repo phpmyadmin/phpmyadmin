@@ -5,8 +5,8 @@
  *
  * @package PhpMyAdmin
  */
-use PMA\libraries\config\PageSettings;
-use PMA\libraries\Response;
+use PhpMyAdmin\Config\PageSettings;
+use PhpMyAdmin\Response;
 
 /**
  *
@@ -27,8 +27,6 @@ $scripts->addFile('import.js');
  */
 require_once 'libraries/tbl_common.inc.php';
 $url_query .= '&amp;goto=tbl_import.php&amp;back=tbl_import.php';
-
-require_once 'libraries/tbl_info.inc.php';
 
 require 'libraries/display_import.lib.php';
 $response->addHTML(

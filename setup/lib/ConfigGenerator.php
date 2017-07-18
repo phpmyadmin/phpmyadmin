@@ -7,7 +7,7 @@
  */
 namespace PMA\setup\lib;
 
-use PMA\libraries\config\ConfigFile;
+use PhpMyAdmin\Config\ConfigFile;
 
 /**
  * Config file generation class

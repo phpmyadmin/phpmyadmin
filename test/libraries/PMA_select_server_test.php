@@ -9,7 +9,7 @@
 /*
  * Include to test.
  */
-use PMA\libraries\Theme;
+use PhpMyAdmin\Theme;
 
 
 require_once 'libraries/select_server.lib.php';
@@ -112,7 +112,7 @@ class PMA_SelectServer_Test extends PHPUnit_Framework_TestCase
 
         //$GLOBALS['cfg']['DefaultTabServer']
         $this->assertContains(
-            PMA\libraries\Util::getScriptNameForOption(
+            PhpMyAdmin\Util::getScriptNameForOption(
                 $GLOBALS['cfg']['DefaultTabServer'], 'server'
             ),
             $html

@@ -10,9 +10,9 @@
  * @usedby  tbl_tracking.php
  * @package PhpMyAdmin
  */
-use PMA\libraries\Encoding;
-use PMA\libraries\URL;
-use PMA\libraries\Bookmark;
+use PhpMyAdmin\Encoding;
+use PhpMyAdmin\Url;
+use PhpMyAdmin\Bookmark;
 
 if (! defined('PHPMYADMIN')) {
     exit;
@@ -84,7 +84,7 @@ function PMA_getHtmlForSqlQueryForm(
     $html .= ' id="sqlqueryform" name="sqlform">' . "\n";
 
     $html .= '<input type="hidden" name="is_js_confirmed" value="0" />'
-        . "\n" . URL::getHiddenInputs($db, $table) . "\n"
+        . "\n" . Url::getHiddenInputs($db, $table) . "\n"
         . '<input type="hidden" name="pos" value="0" />' . "\n"
         . '<input type="hidden" name="goto" value="'
         . htmlspecialchars($goto) . '" />' . "\n"
@@ -136,26 +136,26 @@ function PMA_initQueryForm($query)
     if (strlen($GLOBALS['db']) === 0) {
         // prepare for server related
         $legend = sprintf(
-            __('Run SQL query/queries on server %s'),
-            '&quot;' . htmlspecialchars(
+            __('Run SQL query/queries on server “%s”'),
+            htmlspecialchars(
                 ! empty($GLOBALS['cfg']['Servers'][$GLOBALS['server']]['verbose'])
                 ? $GLOBALS['cfg']['Servers'][$GLOBALS['server']]['verbose']
                 : $GLOBALS['cfg']['Servers'][$GLOBALS['server']]['host']
-            ) . '&quot;'
+            )
         );
     } elseif (strlen($GLOBALS['table']) === 0) {
         // prepare for db related
         $db     = $GLOBALS['db'];
         // if you want navigation:
-        $tmp_db_link = '<a href="' . PMA\libraries\Util::getScriptNameForOption(
+        $tmp_db_link = '<a href="' . PhpMyAdmin\Util::getScriptNameForOption(
             $GLOBALS['cfg']['DefaultTabDatabase'], 'database'
         )
-            . URL::getCommon(array('db' => $db)) . '"';
+            . Url::getCommon(array('db' => $db)) . '"';
         $tmp_db_link .= '>'
             . htmlspecialchars($db) . '</a>';
         $legend = sprintf(__('Run SQL query/queries on database %s'), $tmp_db_link);
         if (empty($query)) {
-            $query = PMA\libraries\Util::expandUserString(
+            $query = PhpMyAdmin\Util::expandUserString(
                 $GLOBALS['cfg']['DefaultQueryDatabase'], 'backquote'
             );
         }
@@ -169,19 +169,19 @@ function PMA_initQueryForm($query)
             $db, $GLOBALS['table'], null, true
         );
 
-        $tmp_tbl_link = '<a href="' . PMA\libraries\Util::getScriptNameForOption(
+        $tmp_tbl_link = '<a href="' . PhpMyAdmin\Util::getScriptNameForOption(
             $GLOBALS['cfg']['DefaultTabTable'], 'table'
-        ) . URL::getCommon(array('db' => $db, 'table' => $table)) . '" >';
+        ) . Url::getCommon(array('db' => $db, 'table' => $table)) . '" >';
         $tmp_tbl_link .= htmlspecialchars($db)
             . '.' . htmlspecialchars($table) . '</a>';
         $legend = sprintf(__('Run SQL query/queries on table %s'), $tmp_tbl_link);
         if (empty($query)) {
-            $query = PMA\libraries\Util::expandUserString(
+            $query = PhpMyAdmin\Util::expandUserString(
                 $GLOBALS['cfg']['DefaultQueryTable'], 'backquote'
             );
         }
     }
-    $legend .= ': ' . PMA\libraries\Util::showMySQLDocu('SELECT');
+    $legend .= ': ' . PhpMyAdmin\Util::showMySQLDocu('SELECT');
 
     return array($legend, $query, $columns_list);
 }
@@ -257,7 +257,7 @@ function PMA_getHtmlForSqlQueryFormInsert(
     $html .= '<div>';
     $html .= '<input type="checkbox" name="parameterized" id="parameterized" />';
     $html .= '<label for="parameterized">' . __('Bind parameters') . '</label>';
-    $html .= PMA\libraries\Util::showDocu('faq', 'faq6-40');
+    $html .= PhpMyAdmin\Util::showDocu('faq', 'faq6-40');
     $html .= '<div id="parametersDiv"></div>';
     $html .= '</div>';
 
@@ -271,7 +271,7 @@ function PMA_getHtmlForSqlQueryFormInsert(
             . 'multiple="multiple" ondblclick="insertValueQuery()">';
         foreach ($columns_list as $field) {
             $html .= '<option value="'
-                . PMA\libraries\Util::backquote(htmlspecialchars($field['Field']))
+                . PhpMyAdmin\Util::backquote(htmlspecialchars($field['Field']))
                 . '"';
             if (isset($field['Field'])
                 && strlen($field['Field']) > 0
@@ -283,7 +283,7 @@ function PMA_getHtmlForSqlQueryFormInsert(
         }
         $html .= '</select>'
             . '<div id="tablefieldinsertbuttoncontainer">';
-        if (PMA\libraries\Util::showIcons('ActionLinksMode')) {
+        if (PhpMyAdmin\Util::showIcons('ActionLinksMode')) {
             $html .= '<input type="button" class="button" name="insert"'
                 . ' value="&lt;&lt;" onclick="insertValueQuery()"'
                 . ' title="' . __('Insert') . '" />';
@@ -365,7 +365,7 @@ function PMA_getHtmlForSqlQueryFormInsert(
 
     // Disable/Enable foreign key checks
     $html .= '<div class="formelement">';
-    $html .= PMA\libraries\Util::getFKCheckbox();
+    $html .= PhpMyAdmin\Util::getFKCheckbox();
     $html .= '</div>';
 
     $html .= '<input type="submit" id="button_submit_query" name="SQL"';
@@ -425,7 +425,7 @@ function PMA_getHtmlForSqlQueryFormBookmark()
     $html .= '<div class="clearfloat"></div>' . "\n";
     $html .= '<div class="formelement hide">' . "\n";
     $html .= __('Variables');
-    $html .= PMA\libraries\Util::showDocu('faq', 'faqbookmark');
+    $html .= PhpMyAdmin\Util::showDocu('faq', 'faqbookmark');
     $html .= '<div id="bookmark_variables"></div>';
     $html .= '</div>' . "\n";
     $html .= '</fieldset>' . "\n";

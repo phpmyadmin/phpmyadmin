@@ -5,8 +5,8 @@
  *
  * @package PhpMyAdmin
  */
-use PMA\libraries\config\PageSettings;
-use PMA\libraries\Response;
+use PhpMyAdmin\Config\PageSettings;
+use PhpMyAdmin\Response;
 
 /**
  *
@@ -24,7 +24,7 @@ $response = Response::getInstance();
 $header   = $response->getHeader();
 $scripts  = $header->getScripts();
 $scripts->addFile('makegrid.js');
-$scripts->addFile('jquery/jquery.uitablefilter.js');
+$scripts->addFile('vendor/jquery/jquery.uitablefilter.js');
 $scripts->addFile('sql.js');
 
 require 'libraries/tbl_common.inc.php';
@@ -37,11 +37,6 @@ $err_url   = 'tbl_sql.php' . $err_url;
 // with the typed query in the textarea.
 $goto = 'tbl_sql.php';
 $back = 'tbl_sql.php';
-
-/**
- * Get table information
- */
-require_once 'libraries/tbl_info.inc.php';
 
 /**
  * Query box, bookmark, insert data from textfile

@@ -8,25 +8,26 @@
  */
 namespace PMA\libraries\plugins\export;
 
-use PMA\libraries\properties\options\items\BoolPropertyItem;
+use PhpMyAdmin\Charsets;
+use PhpMyAdmin\DatabaseInterface;
+use PMA\libraries\plugins\ExportPlugin;
 use PMA\libraries\properties\plugins\ExportPluginProperties;
-use PMA\libraries\properties\options\items\MessageOnlyPropertyItem;
-use PMA\libraries\properties\options\items\NumberPropertyItem;
 use PMA\libraries\properties\options\groups\OptionsPropertyMainGroup;
 use PMA\libraries\properties\options\groups\OptionsPropertyRootGroup;
 use PMA\libraries\properties\options\groups\OptionsPropertySubgroup;
-use PMA\libraries\Charsets;
-use PMA\libraries\DatabaseInterface;
-use PMA\libraries\plugins\ExportPlugin;
-use PMA\libraries\Util;
+use PMA\libraries\properties\options\items\BoolPropertyItem;
+use PMA\libraries\properties\options\items\MessageOnlyPropertyItem;
+use PMA\libraries\properties\options\items\NumberPropertyItem;
 use PMA\libraries\properties\options\items\RadioPropertyItem;
 use PMA\libraries\properties\options\items\SelectPropertyItem;
+use PMA\libraries\properties\options\items\TextPropertyItem;
 use PhpMyAdmin\SqlParser\Components\CreateDefinition;
 use PhpMyAdmin\SqlParser\Context;
 use PhpMyAdmin\SqlParser\Parser;
 use PhpMyAdmin\SqlParser\Statements\SelectStatement;
 use PhpMyAdmin\SqlParser\Token;
-use PMA\libraries\properties\options\items\TextPropertyItem;
+use PhpMyAdmin\Transformations;
+use PhpMyAdmin\Util;
 
 /**
  * Handles the export for the SQL class
@@ -698,7 +699,7 @@ class ExportSql extends ExportPlugin
             . Util::localisedDate()
         )
         . $this->_exportComment(
-            __('Server version:') . ' ' . PMA_MYSQL_STR_VERSION
+            __('Server version:') . ' ' . $GLOBALS['dbi']->getVersionString()
         )
         . $this->_exportComment(__('PHP Version:') . ' ' . phpversion())
         . $this->_possibleCRLF();
@@ -756,7 +757,7 @@ class ExportSql extends ExportPlugin
                 // by default we use the connection charset
                 $set_names = Charsets::$mysql_charset_map['utf-8'];
             }
-            if ($set_names == 'utf8' && PMA_MYSQL_INT_VERSION > 50503) {
+            if ($set_names == 'utf8' && $GLOBALS['dbi']->getVersion() > 50503) {
                 $set_names = 'utf8mb4';
             }
             $head .= $crlf
@@ -1385,7 +1386,7 @@ class ExportSql extends ExportPlugin
             $compat = 'NONE';
         }
 
-        // need to use PMA\libraries\DatabaseInterface::QUERY_STORE
+        // need to use PhpMyAdmin\DatabaseInterface::QUERY_STORE
         // with $GLOBALS['dbi']->numRows() in mysqli
         $result = $GLOBALS['dbi']->query(
             'SHOW TABLE STATUS FROM ' . Util::backquote($db)
@@ -1570,12 +1571,12 @@ class ExportSql extends ExportPlugin
                 if (empty($sql_backquotes)) {
                     // Option "Enclose table and column names with backquotes"
                     // was checked.
-                    Context::$MODE |= Context::NO_ENCLOSING_QUOTES;
+                    Context::$MODE |= Context::SQL_MODE_NO_ENCLOSING_QUOTES;
                 }
 
                 // Using appropriate quotes.
                 if (($compat === 'MSSQL') || ($sql_backquotes === '"')) {
-                    Context::$MODE |= Context::ANSI_QUOTES;
+                    Context::$MODE |= Context::SQL_MODE_ANSI_QUOTES;
                 }
             }
 
@@ -1843,7 +1844,7 @@ class ExportSql extends ExportPlugin
         );
 
         if ($do_mime && $cfgRelation['mimework']) {
-            if (!($mime_map = PMA_getMIME($db, $table, true))) {
+            if (!($mime_map = Transformations::getMIME($db, $table, true))) {
                 unset($mime_map);
             }
         }

@@ -22,7 +22,6 @@ var ErrorReport = {
         $.get("error_report.php", {
             ajax_request: true,
             server: PMA_commonParams.get('server'),
-            token: PMA_commonParams.get('token'),
             get_settings: true,
             exception_type: 'js'
         }, function (data) {
@@ -195,7 +194,7 @@ var ErrorReport = {
      * @return void
      */
     _redirect_to_settings: function () {
-        window.location.href = "prefs_forms.php?token=" + PMA_commonParams.get('token');
+        window.location.href = "prefs_forms.php";
     },
     /**
      * Returns the report data to send to the server
@@ -207,7 +206,6 @@ var ErrorReport = {
     _get_report_data: function (exception) {
         var report_data = {
             "ajax_request": true,
-            "token": PMA_commonParams.get('token'),
             "exception": exception,
             "current_url": window.location.href,
             "exception_type": 'js'
@@ -304,8 +302,8 @@ var ErrorReport = {
 
 };
 
-TraceKit.report.subscribe(ErrorReport.error_handler);
-ErrorReport.set_up_error_reporting();
-$(function () {
+AJAX.registerOnload('error_report.js', function(){
+    TraceKit.report.subscribe(ErrorReport.error_handler);
+    ErrorReport.set_up_error_reporting();
     ErrorReport.wrap_global_functions();
 });

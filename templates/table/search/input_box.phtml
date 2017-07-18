@@ -23,7 +23,7 @@ if ($_foreigners
                    value="<?= htmlspecialchars($criteriaValues[$column_index]); ?>"
                <?php endif; ?> />
         <a class="ajax browse_foreign"
-           href="<?= ('browse_foreigners.php') , PMA\libraries\URL::getCommon(array('db' => $db, 'table' => $table))
+           href="<?= ('browse_foreigners.php') , PhpMyAdmin\Url::getCommon(array('db' => $db, 'table' => $table))
                     , ('&amp;field=') , urlencode($column_name)
                     , ('&amp;fieldkey=') , $column_index
                     , ('&amp;fromsearch=1')
@@ -33,7 +33,7 @@ if ($_foreigners
         </a>
     <?php endif; ?>
 
-<?php elseif (in_array($column_type, PMA\libraries\Util::getGISDatatypes())): ?>
+<?php elseif (in_array($column_type, PhpMyAdmin\Util::getGISDatatypes())): ?>
     <input type="text"
            name="criteriaValues[<?= $column_index; ?>]"
            size="40"
@@ -42,12 +42,12 @@ if ($_foreigners
     <?php if ($in_fbs): ?>
 
         <?php
-        $edit_url = 'gis_data_editor.php' . PMA\libraries\URL::getCommon();
-        $edit_str = PMA\libraries\Util::getIcon('b_edit.png', __('Edit/Insert'));
+        $edit_url = 'gis_data_editor.php' . PhpMyAdmin\Url::getCommon();
+        $edit_str = PhpMyAdmin\Util::getIcon('b_edit.png', __('Edit/Insert'));
         ?>
 
         <span class="open_search_gis_editor">
-            <?= PMA\libraries\Util::linkOrButton(
+            <?= PhpMyAdmin\Util::linkOrButton(
                 $edit_url, $edit_str, array(), false, false, '_blank'
             ); ?>
         </span>

@@ -16,7 +16,7 @@ require_once 'libraries/database_interface.inc.php';
 require_once 'libraries/relation.lib.php';
 require_once 'libraries/relation_cleanup.lib.php';
 
-use PMA\libraries\DatabaseInterface;
+use PhpMyAdmin\DatabaseInterface;
 
 /**
  * PMA_Relation_Cleanup_Test class

@@ -6,11 +6,9 @@
  * @package PhpMyAdmin-test
  */
 
-/*
- * Include to test.
- */
-use PMA\libraries\Theme;
-use PMA\libraries\URL;
+use PhpMyAdmin\Core;
+use PhpMyAdmin\Theme;
+use PhpMyAdmin\Url;
 
 
 require_once 'libraries/server_status_processes.lib.php';
@@ -33,7 +31,7 @@ class PMA_ServerStatusProcesses_Test extends PHPUnit_Framework_TestCase
     public function setUp()
     {
         $GLOBALS['cfg']['Server']['host'] = "localhost";
-        $GLOBALS['PMA_PHP_SELF'] = PMA_getenv('PHP_SELF');
+        $GLOBALS['PMA_PHP_SELF'] = Core::getenv('PHP_SELF');
         $GLOBALS['replication_info']['master']['status'] = true;
         $GLOBALS['replication_info']['slave']['status'] = false;
         $GLOBALS['replication_types'] = array();
@@ -43,7 +41,7 @@ class PMA_ServerStatusProcesses_Test extends PHPUnit_Framework_TestCase
         //$_SESSION
 
         //Mock DBI
-        $dbi = $this->getMockBuilder('PMA\libraries\DatabaseInterface')
+        $dbi = $this->getMockBuilder('PhpMyAdmin\DatabaseInterface')
             ->disableOriginalConstructor()
             ->getMock();
 
@@ -203,7 +201,7 @@ class PMA_ServerStatusProcesses_Test extends PHPUnit_Framework_TestCase
             'ajax_request' => true
         );
         $kill_process = 'server_status_processes.php'
-            . URL::getCommon($url_params);
+            . Url::getCommon($url_params);
         $this->assertContains(
             $kill_process,
             $html

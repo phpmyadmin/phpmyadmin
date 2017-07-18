@@ -39,6 +39,20 @@
 $cfg['PmaAbsoluteUri'] = '';
 
 /**
+ * Configure authentication logging destination
+ *
+ * @global string $cfg['AuthLog']
+ */
+$cfg['AuthLog'] = 'auto';
+
+/**
+ * Whether to log successful authentication attempts
+ *
+ * @global boolean $cfg['AuthLogSuccess']
+ */
+$cfg['AuthLogSuccess'] = false;
+
+/**
  * Disable the default warning that is displayed on the DB Details Structure page if
  * any of the required Tables for the configuration storage could not be found
  *
@@ -60,14 +74,6 @@ $cfg['SuhosinDisableWarning'] = false;
  * @global boolean $cfg['LoginCookieValidityDisableWarning']
  */
 $cfg['LoginCookieValidityDisableWarning'] = false;
-
-/**
- * Disable the default warning that is displayed if a difference between
- * the MySQL library and server is detected.
- *
- * @global boolean $cfg['['ServerLibraryDifference_DisableWarning']']
- */
-$cfg['ServerLibraryDifference_DisableWarning'] = false;
 
 /**
  * Disable the default warning about MySQL reserved words in column names
@@ -1670,7 +1676,7 @@ $cfg['Export']['csv_removeCRLF'] = false;
  *
  * @global boolean $cfg['Export']['excel_columns']
  */
-$cfg['Export']['excel_columns'] = false;
+$cfg['Export']['excel_columns'] = true;
 
 /**
  *
@@ -2942,7 +2948,11 @@ $cfg['SaveDir'] = '';
  *
  * @global string $cfg['TempDir']
  */
-$cfg['TempDir'] = '';
+if (defined('TEMP_DIR')) {
+    $cfg['TempDir'] = TEMP_DIR;
+} else {
+    $cfg['TempDir'] = './tmp/';
+}
 
 
 /**

@@ -7,7 +7,7 @@
  */
 namespace PMA\libraries\plugins\schema\svg;
 
-use PMA;
+use PhpMyAdmin\Font;
 use PMA\libraries\plugins\schema\ExportRelationSchema;
 use PMA\libraries\plugins\schema\TableStats;
 
@@ -109,17 +109,17 @@ class TableStatsSvg extends TableStats
         foreach ($this->fields as $field) {
             $this->width = max(
                 $this->width,
-                PMA\libraries\Font::getStringWidth($field, $font, $fontSize)
+                Font::getStringWidth($field, $font, $fontSize)
             );
         }
-        $this->width += PMA\libraries\Font::getStringWidth('  ', $font, $fontSize);
+        $this->width += Font::getStringWidth('  ', $font, $fontSize);
 
         /*
          * it is unknown what value must be added, because
          * table title is affected by the table width value
          */
         while ($this->width
-            < PMA\libraries\Font::getStringWidth($this->getTitle(), $font, $fontSize)
+            < Font::getStringWidth($this->getTitle(), $font, $fontSize)
         ) {
             $this->width += 7;
         }

@@ -6,8 +6,8 @@
  * @package PhpMyAdmin
  */
 
-use PMA\libraries\ServerStatusData;
-use PMA\libraries\Response;
+use PhpMyAdmin\ServerStatusData;
+use PhpMyAdmin\Response;
 
 require_once 'libraries/common.inc.php';
 require_once 'libraries/server_common.inc.php';
@@ -70,17 +70,18 @@ if ($response->isAjax()) {
  */
 $header   = $response->getHeader();
 $scripts  = $header->getScripts();
-$scripts->addFile('jquery/jquery.tablesorter.js');
-$scripts->addFile('jquery/jquery.sortableTable.js');
-$scripts->addFile('jquery/jquery-ui-timepicker-addon.js');
+$scripts->addFile('vendor/jquery/jquery.tablesorter.js');
+$scripts->addFile('vendor/jquery/jquery.sortableTable.js');
+$scripts->addFile('vendor/jquery/jquery-ui-timepicker-addon.js');
 // for charting
-$scripts->addFile('jqplot/jquery.jqplot.js');
-$scripts->addFile('jqplot/plugins/jqplot.pieRenderer.js');
-$scripts->addFile('jqplot/plugins/jqplot.canvasTextRenderer.js');
-$scripts->addFile('jqplot/plugins/jqplot.canvasAxisLabelRenderer.js');
-$scripts->addFile('jqplot/plugins/jqplot.dateAxisRenderer.js');
-$scripts->addFile('jqplot/plugins/jqplot.highlighter.js');
-$scripts->addFile('jqplot/plugins/jqplot.cursor.js');
+$scripts->addFile('vendor/jqplot/jquery.jqplot.js');
+$scripts->addFile('vendor/jqplot/plugins/jqplot.pieRenderer.js');
+$scripts->addFile('vendor/jqplot/plugins/jqplot.enhancedPieLegendRenderer.js');
+$scripts->addFile('vendor/jqplot/plugins/jqplot.canvasTextRenderer.js');
+$scripts->addFile('vendor/jqplot/plugins/jqplot.canvasAxisLabelRenderer.js');
+$scripts->addFile('vendor/jqplot/plugins/jqplot.dateAxisRenderer.js');
+$scripts->addFile('vendor/jqplot/plugins/jqplot.highlighter.js');
+$scripts->addFile('vendor/jqplot/plugins/jqplot.cursor.js');
 $scripts->addFile('jqplot/plugins/jqplot.byteFormatter.js');
 
 $scripts->addFile('server_status_monitor.js');

@@ -10,7 +10,6 @@ use PMA\libraries\plugins\export\ExportLatex;
 require_once 'libraries/export.lib.php';
 require_once 'libraries/config.default.php';
 require_once 'libraries/relation.lib.php';
-require_once 'libraries/transformations.lib.php';
 require_once 'test/PMATestCase.php';
 
 /**
@@ -471,10 +470,6 @@ class ExportLatexTest extends PMATestCase
      */
     public function testExportHeader()
     {
-        if (!defined("PMA_MYSQL_STR_VERSION")) {
-            define("PMA_MYSQL_STR_VERSION", "5.0.0");
-        }
-
         $GLOBALS['crlf'] = "\n";
         $GLOBALS['cfg']['Server']['port'] = 80;
         $GLOBALS['cfg']['Server']['host'] = 'localhost';
@@ -560,7 +555,7 @@ class ExportLatexTest extends PMATestCase
         $GLOBALS['latex_null'] = 'null';
         $GLOBALS['cfg']['Server']['host'] = 'localhost';
         $GLOBALS['cfg']['Server']['verbose'] = 'verb';
-        $dbi = $this->getMockBuilder('PMA\libraries\DatabaseInterface')
+        $dbi = $this->getMockBuilder('PhpMyAdmin\DatabaseInterface')
             ->disableOriginalConstructor()
             ->getMock();
 
@@ -616,7 +611,7 @@ class ExportLatexTest extends PMATestCase
 
         // case 2
         unset($GLOBALS['latex_columns']);
-        $dbi = $this->getMockBuilder('PMA\libraries\DatabaseInterface')
+        $dbi = $this->getMockBuilder('PhpMyAdmin\DatabaseInterface')
             ->disableOriginalConstructor()
             ->getMock();
 
@@ -683,7 +678,7 @@ class ExportLatexTest extends PMATestCase
 
         // case 1
 
-        $dbi = $this->getMockBuilder('PMA\libraries\DatabaseInterface')
+        $dbi = $this->getMockBuilder('PhpMyAdmin\DatabaseInterface')
             ->disableOriginalConstructor()
             ->getMock();
 
@@ -801,7 +796,7 @@ class ExportLatexTest extends PMATestCase
 
         // case 2
 
-        $dbi = $this->getMockBuilder('PMA\libraries\DatabaseInterface')
+        $dbi = $this->getMockBuilder('PhpMyAdmin\DatabaseInterface')
             ->disableOriginalConstructor()
             ->getMock();
 
@@ -889,7 +884,7 @@ class ExportLatexTest extends PMATestCase
 
         // case 3
 
-        $dbi = $this->getMockBuilder('PMA\libraries\DatabaseInterface')
+        $dbi = $this->getMockBuilder('PhpMyAdmin\DatabaseInterface')
             ->disableOriginalConstructor()
             ->getMock();
 

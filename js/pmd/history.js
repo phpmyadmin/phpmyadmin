@@ -97,12 +97,12 @@ function display(init, finit)
             if (history_array[i].get_type() == "GroupBy" || history_array[i].get_type() == "OrderBy") {
                 str += '<td class="center">' + PMA_getImage('s_info.png', detail(i)) + '</td>' +
                     '<td title="' + detail(i) + '">' + history_array[i].get_type() + '</td>' +
-                    '<td onmouseover="this.className=\'history_table\';" onmouseout="this.className=\'history_table2\'" onclick=history_delete(' + i + ')>' + PMA_getImage('b_drop.png', PMA_messages.strDelete) + '</td>';
+                    '<td onclick=history_delete(' + i + ')>' + PMA_getImage('b_drop.png', PMA_messages.strDelete) + '</td>';
             } else {
                 str += '<td class="center">' + PMA_getImage('s_info.png', detail(i)) + '</td>' +
                     '<td title="' + detail(i) + '">' + history_array[i].get_type() + '</td>' +
-                    '<td onmouseover="this.className=\'history_table\';" onmouseout="this.className=\'history_table2\'" onclick=history_edit(' + i + ')>' + PMA_getImage('b_edit.png', PMA_messages.strEdit) + '</td>' +
-                    '<td onmouseover="this.className=\'history_table\';" onmouseout="this.className=\'history_table2\'" onclick=history_delete(' + i + ')>' + PMA_getImage('b_drop.png', PMA_messages.strDelete) + '</td>';
+                    '<td onclick=history_edit(' + i + ')>' + PMA_getImage('b_edit.png', PMA_messages.strEdit) + '</td>' +
+                    '<td onclick=history_delete(' + i + ')>' + PMA_getImage('b_drop.png', PMA_messages.strDelete) + '</td>';
             }
             str += '</tr></thead>';
             i++;
@@ -846,10 +846,10 @@ AJAX.registerTeardown('pmd/history.js', function () {
     vqb_editor = null;
     history_array = [];
     select_field = [];
-    $("#ok_edit_rename").unbind('click');
-    $("#ok_edit_having").unbind('click');
-    $("#ok_edit_Aggr").unbind('click');
-    $("#ok_edit_where").unbind('click');
+    $("#ok_edit_rename").off('click');
+    $("#ok_edit_having").off('click');
+    $("#ok_edit_Aggr").off('click');
+    $("#ok_edit_where").off('click');
 });
 
 AJAX.registerOnload('pmd/history.js', function () {

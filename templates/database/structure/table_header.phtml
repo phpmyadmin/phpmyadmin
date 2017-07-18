@@ -11,12 +11,13 @@ if ($GLOBALS['cfg']['NumFavoriteTables'] > 0) {
 }
 ?>
 <form method="post" action="db_structure.php" name="tablesForm" id="tablesForm">
-<?= PMA\libraries\URL::getHiddenInputs($db); ?>
+<?= PhpMyAdmin\Url::getHiddenInputs($db); ?>
+<div class="responsivetable">
 <table id="structureTable" class="data">
     <thead>
         <tr>
             <th class="print_ignore"></th>
-            <th><?= PMA\libraries\Template::get('database/structure/sortable_header')->render(
+            <th><?= PhpMyAdmin\Template::get('database/structure/sortable_header')->render(
                    array(
                        'title' => __('Table'),
                        'sort' => 'table',
@@ -31,26 +32,26 @@ if ($GLOBALS['cfg']['NumFavoriteTables'] > 0) {
             </th>
             <!-- larger values are more interesting so default sort order is DESC-->
             <th>
-                <?= PMA\libraries\Template::get('database/structure/sortable_header')->render(
+                <?= PhpMyAdmin\Template::get('database/structure/sortable_header')->render(
                     array(
                         'title' => __('Rows'),
                         'sort' => 'records',
                         'initial_sort_order' => 'DESC'
                     )
                 ); ?>
-                <?= PMA\libraries\Util::showHint(PMA\libraries\Sanitize::sanitize(
+                <?= PhpMyAdmin\Util::showHint(PhpMyAdmin\Sanitize::sanitize(
                     __('May be approximate. Click on the number to get the exact'
                         . ' count. See [doc@faq3-11]FAQ 3.11[/doc].'))); ?>
             </th>
             <?php if (!($GLOBALS['cfg']['PropertiesNumColumns'] > 1)): ?>
-                <th><?= PMA\libraries\Template::get('database/structure/sortable_header')->render(
+                <th><?= PhpMyAdmin\Template::get('database/structure/sortable_header')->render(
                         array(
                             'title' => __('Type'),
                             'sort' => 'type',
                             'initial_sort_order' => 'ASC'
                         )
                     ); $cnt++; ?></th>
-                <th><?= PMA\libraries\Template::get('database/structure/sortable_header')->render(
+                <th><?= PhpMyAdmin\Template::get('database/structure/sortable_header')->render(
                         array(
                             'title' => __('Collation'),
                             'sort' => 'collation',
@@ -61,7 +62,7 @@ if ($GLOBALS['cfg']['NumFavoriteTables'] > 0) {
 
             <?php if ($GLOBALS['is_show_stats']): ?>
                 <!-- larger values are more interesting so default sort order is DESC -->
-                <th><?= PMA\libraries\Template::get('database/structure/sortable_header')->render(
+                <th><?= PhpMyAdmin\Template::get('database/structure/sortable_header')->render(
                         array(
                             'title' => __('Size'),
                             'sort' => 'size',
@@ -69,7 +70,7 @@ if ($GLOBALS['cfg']['NumFavoriteTables'] > 0) {
                         )
                     ); $cnt++; ?></th>
                 <!-- larger values are more interesting so default sort order is DESC -->
-                <th><?= PMA\libraries\Template::get('database/structure/sortable_header')->render(
+                <th><?= PhpMyAdmin\Template::get('database/structure/sortable_header')->render(
                         array(
                             'title' => __('Overhead'),
                             'sort' => 'overhead',
@@ -79,7 +80,7 @@ if ($GLOBALS['cfg']['NumFavoriteTables'] > 0) {
             <?php endif; ?>
 
             <?php if ($GLOBALS['cfg']['ShowDbStructureCharset']): ?>
-                <th><?= PMA\libraries\Template::get('database/structure/sortable_header')->render(
+                <th><?= PhpMyAdmin\Template::get('database/structure/sortable_header')->render(
                         array(
                             'title' => __('Charset'),
                             'sort' => 'charset',
@@ -89,7 +90,7 @@ if ($GLOBALS['cfg']['NumFavoriteTables'] > 0) {
             <?php endif; ?>
 
             <?php if ($GLOBALS['cfg']['ShowDbStructureComment']): ?>
-                <th><?= PMA\libraries\Template::get('database/structure/sortable_header')->render(
+                <th><?= PhpMyAdmin\Template::get('database/structure/sortable_header')->render(
                         array(
                             'title' => __('Comment'),
                             'sort' => 'comment',
@@ -100,7 +101,7 @@ if ($GLOBALS['cfg']['NumFavoriteTables'] > 0) {
 
             <?php if ($GLOBALS['cfg']['ShowDbStructureCreation']): ?>
                 <!-- newer values are more interesting so default sort order is DESC -->
-                <th><?= PMA\libraries\Template::get('database/structure/sortable_header')->render(
+                <th><?= PhpMyAdmin\Template::get('database/structure/sortable_header')->render(
                         array(
                             'title' => __('Creation'),
                             'sort' => 'creation',
@@ -111,7 +112,7 @@ if ($GLOBALS['cfg']['NumFavoriteTables'] > 0) {
 
             <?php if ($GLOBALS['cfg']['ShowDbStructureLastUpdate']): ?>
                 <!-- newer values are more interesting so default sort order is DESC -->
-                <th><?= PMA\libraries\Template::get('database/structure/sortable_header')->render(
+                <th><?= PhpMyAdmin\Template::get('database/structure/sortable_header')->render(
                         array(
                             'title' => __('Last update'),
                             'sort' => 'last_update',
@@ -122,7 +123,7 @@ if ($GLOBALS['cfg']['NumFavoriteTables'] > 0) {
 
             <?php if ($GLOBALS['cfg']['ShowDbStructureLastCheck']): ?>
                 <!-- newer values are more interesting so default sort order is DESC -->
-                <th><?= PMA\libraries\Template::get('database/structure/sortable_header')->render(
+                <th><?= PhpMyAdmin\Template::get('database/structure/sortable_header')->render(
                         array(
                             'title' => __('Last check'),
                             'sort' => 'last_check',

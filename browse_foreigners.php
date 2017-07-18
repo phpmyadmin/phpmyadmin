@@ -5,10 +5,9 @@
  *
  * @package PhpMyAdmin
  */
-use PMA\libraries\Response;
+use PhpMyAdmin\Response;
 
 require_once 'libraries/common.inc.php';
-require_once 'libraries/transformations.lib.php';
 require_once 'libraries/browse_foreigners.lib.php';
 
 /**
@@ -25,7 +24,7 @@ foreach ($request_params as $one_request_param) {
     }
 }
 
-PMA\libraries\Util::checkParameters(array('db', 'table', 'field'));
+PhpMyAdmin\Util::checkParameters(array('db', 'table', 'field'));
 
 $response = Response::getInstance();
 $response->getFooter()->setMinimal();
@@ -37,8 +36,7 @@ $header->setBodyId('body_browse_foreigners');
  * Displays the frame
  */
 
-$cfgRelation = PMA_getRelationsParam();
-$foreigners  = ($cfgRelation['relwork'] ? PMA_getForeigners($db, $table) : false);
+$foreigners  = PMA_getForeigners($db, $table);
 $foreign_limit = PMA_getForeignLimit(
     isset($_REQUEST['foreign_showAll']) ? $_REQUEST['foreign_showAll'] : null
 );

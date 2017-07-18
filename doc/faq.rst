@@ -426,12 +426,16 @@ MMCache but upgrading MMCache to version 2.3.21 solves the problem.
 
 .. _faq1_31:
 
-1.31 Does phpMyAdmin support PHP 5?
------------------------------------
+1.31 Which PHP versions does phpMyAdmin support?
+------------------------------------------------
 
-Yes.
+Since release 4.5, phpMyAdmin supports only PHP 5.5 and newer. Since release
+4.1 phpMyAdmin supports only PHP 5.3 and newer. For PHP 5.2 you can use 4.0.x
+releases.
 
-Since release 4.5, phpMyAdmin supports only PHP 5.5 and newer. Since release 4.1 phpMyAdmin supports only PHP 5.3 and newer. For PHP 5.2 you can use 4.0.x releases.
+PHP 7 is supported since phpMyAdmin 4.6, PHP 7.1 is supported since 4.6.5.
+
+phpMyAdmin also works fine with HHVM.
 
 .. _faq1_32:
 
@@ -681,13 +685,13 @@ A list of files and corresponding functionality which degrade gracefully when re
 * :file:`./vendor/tecnickcom/tcpdf` folder (exporting to PDF)
 * :file:`./locale/` folder, or unused subfolders (interface translations)
 * Any unused themes in :file:`./themes/`
-* :file:`./js/jquery/src/` (included for licensing reasons)
+* :file:`./js/vendor/jquery/src/` (included for licensing reasons)
 * :file:`./js/line_counts.php`
 * :file:`./doc/` (documentation)
 * :file:`./setup/` (setup script)
 * :file:`./examples/`
 * :file:`./sql/` (SQL scripts to configure advanced functionality)
-* :file:`./js/openlayers/` (GIS visualization)
+* :file:`./js/vendor/openlayers/` (GIS visualization)
 
 .. _faqconfig:
 
@@ -701,10 +705,7 @@ Configuration
 
 Edit your :file:`config.inc.php` file and ensure there is nothing (I.E. no
 blank lines, no spaces, no characters...) neither before the ``<?php`` tag at
-the beginning, neither after the ``?>`` tag at the end. We also got a report
-from a user under :term:`IIS`, that used a zipped distribution kit: the file
-:file:`libraries/Config.php` contained an end-of-line character (hex 0A)
-at the end; removing this character cleared his errors.
+the beginning, neither after the ``?>`` tag at the end.
 
 .. _faq2_2:
 
@@ -797,38 +798,8 @@ doesn't work in this configuration with port forwarding. If you enter
 2.7 Using and creating themes
 -----------------------------
 
-Themes are configured with :config:option:`$cfg['ThemeManager']` and
-:config:option:`$cfg['ThemeDefault']`.  Under :file:`./themes/`, you should not
-delete the directory ``pmahomme`` or its underlying structure, because this is
-the system theme used by phpMyAdmin. ``pmahomme`` contains all images and
-styles, for backwards compatibility and for all themes that would not include
-images or css-files.  If :config:option:`$cfg['ThemeManager']` is enabled, you
-can select your favorite theme on the main page. Your selected theme will be
-stored in a cookie.
+See :ref:`themes`.
 
-To create a theme:
-
-* make a new subdirectory (for example "your\_theme\_name") under :file:`./themes/`.
-* copy the files and directories from ``pmahomme`` to "your\_theme\_name"
-* edit the css-files in "your\_theme\_name/css"
-* put your new images in "your\_theme\_name/img"
-* edit :file:`layout.inc.php` in "your\_theme\_name"
-* edit :file:`info.inc.php` in "your\_theme\_name" to contain your chosen
-  theme name, that will be visible in user interface
-* make a new screenshot of your theme and save it under
-  "your\_theme\_name/screen.png"
-
-In theme directory there is file :file:`info.inc.php` which contains theme
-verbose name, theme generation and theme version. These versions and
-generations are enumerated from 1 and do not have any direct
-dependence on phpMyAdmin version. Themes within same generation should
-be backwards compatible - theme with version 2 should work in
-phpMyAdmin requiring version 1. Themes with different generation are
-incompatible.
-
-If you do not want to use your own symbols and buttons, remove the
-directory "img" in "your\_theme\_name". phpMyAdmin will use the
-default icons and buttons (from the system-theme ``pmahomme``).
 
 .. _faqmissingparameters:
 

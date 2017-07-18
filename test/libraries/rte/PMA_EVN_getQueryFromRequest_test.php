@@ -48,7 +48,7 @@ class PMA_EVN_GetQueryFromRequest_Test extends PHPUnit_Framework_TestCase
         unset($_REQUEST);
         $_REQUEST = $request;
 
-        $dbi = $this->getMockBuilder('PMA\libraries\DatabaseInterface')
+        $dbi = $this->getMockBuilder('PhpMyAdmin\DatabaseInterface')
             ->disableOriginalConstructor()
             ->getMock();
         $dbi->expects($this->any())

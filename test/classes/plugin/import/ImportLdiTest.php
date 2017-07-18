@@ -10,7 +10,7 @@
  * since 'check_user_privileges.lib.php' will use it globally
  */
 use PMA\libraries\plugins\import\ImportLdi;
-use PMA\libraries\File;
+use PhpMyAdmin\File;
 
 $GLOBALS['server'] = 0;
 $GLOBALS['plugin_param'] = "table";
@@ -68,7 +68,7 @@ class ImportLdiTest extends PMATestCase
         $GLOBALS['table'] = "phpmyadmintest";
 
         //Mock DBI
-        $dbi = $this->getMockBuilder('PMA\libraries\DatabaseInterface')
+        $dbi = $this->getMockBuilder('PhpMyAdmin\DatabaseInterface')
             ->disableOriginalConstructor()
             ->getMock();
 

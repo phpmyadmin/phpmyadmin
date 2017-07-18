@@ -4,7 +4,7 @@
 <th class="tbl_num nowrap">
     <?php
     printf(_ngettext('%s table', '%s tables', $num_tables),
-        PMA\libraries\Util::formatNumber($num_tables, 0)); ?>
+        PhpMyAdmin\Util::formatNumber($num_tables, 0)); ?>
 </th>
 <?php if ($server_slave_status): ?>
     <th> <?= __('Replication'); ?> </th>
@@ -16,7 +16,7 @@ if ($GLOBALS['cfg']['NumFavoriteTables'] == 0) {
 } ?>
 <th colspan="<?= $sum_colspan; ?>" class="print_ignore" ><?= __('Sum'); ?></th>
 <?php
-$row_count_sum = PMA\libraries\Util::formatNumber($sum_entries, 0);
+$row_count_sum = PhpMyAdmin\Util::formatNumber($sum_entries, 0);
 // If a table shows approximate rows count, display update-all-real-count anchor.
 $row_sum_url = array();
 if (isset($approx_rows)) {
@@ -28,7 +28,7 @@ if (isset($approx_rows)) {
     );
 }
 $cell_text = ($approx_rows)
-        ? '<a href="db_structure.php' . PMA\libraries\URL::getCommon($row_sum_url)
+        ? '<a href="db_structure.php' . PhpMyAdmin\Url::getCommon($row_sum_url)
         . '" class="ajax row_count_sum">' . '~' . $row_count_sum . '</a>'
         : $row_count_sum;
 ?>
@@ -52,7 +52,7 @@ $cell_text = ($approx_rows)
     </th>
     <th>
         <?php if (! empty($db_collation)): ?>
-            <dfn title="<?= PMA\libraries\Charsets::getCollationDescr($db_collation) , ' (' , __('Default') , ')'; ?>">
+            <dfn title="<?= PhpMyAdmin\Charsets::getCollationDescr($db_collation) , ' (' , __('Default') , ')'; ?>">
                 <?= $db_collation; ?>
             </dfn>
         <?php endif; ?>
@@ -61,11 +61,11 @@ $cell_text = ($approx_rows)
 
 <?php if ($is_show_stats): ?>
     <?php
-        list($sum_formatted, $unit) = PMA\libraries\Util::formatByteDown(
+        list($sum_formatted, $unit) = PhpMyAdmin\Util::formatByteDown(
             $sum_size, 3, 1
         );
         list($overhead_formatted, $overhead_unit)
-            = PMA\libraries\Util::formatByteDown($overhead_size, 3, 1);
+            = PhpMyAdmin\Util::formatByteDown($overhead_size, 3, 1);
     ?>
     <th class="value tbl_size"><?= $sum_formatted , ' ' , $unit; ?></th>
     <th class="value tbl_overhead"><?= $overhead_formatted , ' ' , $overhead_unit; ?></th>
@@ -82,18 +82,18 @@ $cell_text = ($approx_rows)
 <?php if ($GLOBALS['cfg']['ShowDbStructureCreation']): ?>
     <th class="value tbl_creation">
         <?= ($create_time_all
-                ? PMA\libraries\Util::localisedDate(strtotime($create_time_all))
+                ? PhpMyAdmin\Util::localisedDate(strtotime($create_time_all))
                 : '-'); ?>
     </th>
 <?php endif; ?>
 <?php if ($GLOBALS['cfg']['ShowDbStructureLastUpdate']): ?>
     <th class="value tbl_last_update"><?= ($update_time_all
-                ? PMA\libraries\Util::localisedDate(strtotime($update_time_all))
+                ? PhpMyAdmin\Util::localisedDate(strtotime($update_time_all))
                 : '-'); ?></th>
 <?php endif; ?>
 <?php if ($GLOBALS['cfg']['ShowDbStructureLastCheck']): ?>
     <th class="value tbl_last_check"><?= ($check_time_all
-                ? PMA\libraries\Util::localisedDate(strtotime($check_time_all))
+                ? PhpMyAdmin\Util::localisedDate(strtotime($check_time_all))
                 : '-');?></th>
 <?php endif; ?>
 </tr>

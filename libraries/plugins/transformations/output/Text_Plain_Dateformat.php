@@ -16,6 +16,7 @@ use PMA\libraries\plugins\transformations\abs\DateFormatTransformationsPlugin;
  * @package    PhpMyAdmin-Transformations
  * @subpackage DateFormat
  */
+// @codingStandardsIgnoreLine
 class Text_Plain_Dateformat extends DateFormatTransformationsPlugin
 {
     /**

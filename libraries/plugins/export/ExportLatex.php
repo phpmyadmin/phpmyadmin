@@ -8,15 +8,16 @@
  */
 namespace PMA\libraries\plugins\export;
 
-use PMA\libraries\properties\options\items\BoolPropertyItem;
+use PhpMyAdmin\DatabaseInterface;
+use PMA\libraries\plugins\ExportPlugin;
 use PMA\libraries\properties\plugins\ExportPluginProperties;
 use PMA\libraries\properties\options\groups\OptionsPropertyMainGroup;
 use PMA\libraries\properties\options\groups\OptionsPropertyRootGroup;
-use PMA\libraries\plugins\ExportPlugin;
-use PMA\libraries\DatabaseInterface;
-use PMA\libraries\Util;
+use PMA\libraries\properties\options\items\BoolPropertyItem;
 use PMA\libraries\properties\options\items\RadioPropertyItem;
 use PMA\libraries\properties\options\items\TextPropertyItem;
+use PhpMyAdmin\Transformations;
+use PhpMyAdmin\Util;
 
 /**
  * Handles the export for the Latex format
@@ -217,7 +218,7 @@ class ExportLatex extends ExportPlugin
         $head .= $crlf
             . '% ' . __('Generation Time:') . ' '
             . Util::localisedDate() . $crlf
-            . '% ' . __('Server version:') . ' ' . PMA_MYSQL_STR_VERSION . $crlf
+            . '% ' . __('Server version:') . ' ' . $GLOBALS['dbi']->getVersionString() . $crlf
             . '% ' . __('PHP Version:') . ' ' . phpversion() . $crlf;
 
         return PMA_exportOutputHandler($head);
@@ -533,7 +534,7 @@ class ExportLatex extends ExportPlugin
         }
         if ($do_mime && $cfgRelation['mimework']) {
             $header .= ' & \\multicolumn{1}{|c|}{\\textbf{MIME}}';
-            $mime_map = PMA_getMIME($db, $table, true);
+            $mime_map = Transformations::getMIME($db, $table, true);
         }
 
         // Table caption for first page and label

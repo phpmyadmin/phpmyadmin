@@ -523,7 +523,7 @@ $(function () {
         $.ajax({
             type: 'POST',
             data: {
-                token: PMA_commonParams.get('token')
+                server: PMA_commonParams.get('server'),
             },
             url: $(this).attr('href') + '&ajax_request=true',
             success: function (data) {
@@ -574,7 +574,7 @@ $(function () {
         $.ajax({
             type: 'POST',
             data: {
-                token: PMA_commonParams.get('token')
+                server: PMA_commonParams.get('server'),
             },
             url: $(this).attr('href') + '&ajax_request=true',
             success: function (data) {
@@ -610,7 +610,7 @@ $(function () {
                 favorite_tables: (isStorageSupported('localStorage') && typeof window.localStorage.favorite_tables !== 'undefined')
                     ? window.localStorage.favorite_tables
                     : '',
-                token: PMA_commonParams.get('token')
+                server: PMA_commonParams.get('server'),
             },
             success: function (data) {
                 if (data.changes) {
@@ -942,7 +942,7 @@ function PMA_ensureNaviSettings(selflink) {
     if (!$('#pma_navigation_settings').length) {
         var params = {
             getNaviSettings: true,
-            token: PMA_commonParams.get('token')
+            server: PMA_commonParams.get('server'),
         };
         var url = $('#pma_navigation').find('a.navigation_url').attr('href');
         $.post(url, params, function (data) {
@@ -973,7 +973,7 @@ function PMA_reloadNavigation(callback, paths) {
     var params = {
         reload: true,
         no_debug: true,
-        token: PMA_commonParams.get('token')
+        server: PMA_commonParams.get('server'),
     };
     paths = paths || traverseNavigationForPaths();
     $.extend(params, paths);
@@ -1037,7 +1037,7 @@ function PMA_navigationTreePagination($this) {
     var url, params;
     if ($this[0].tagName == 'A') {
         url = $this.attr('href');
-        params = 'ajax_request=true&token=' + PMA_commonParams.get('token');
+        params = 'ajax_request=true';
     } else { // tagName == 'SELECT'
         url = 'navigation.php';
         params = $this.closest("form").serialize() + '&ajax_request=true';
@@ -1119,6 +1119,10 @@ var ResizeHandler = function () {
         var $resizer = $('#pma_navigation_resizer');
         var resizer_width = $resizer.width();
         var $collapser = $('#pma_navigation_collapser');
+        var windowWidth = $(window).width();
+        if (pos > 240 && windowWidth > 768) {
+            pos = 241;
+        }
         $('#pma_navigation').width(pos);
         $('body').css('margin-' + this.left, pos + 'px');
         $("#floating_menubar, #pma_console")
@@ -1129,11 +1133,20 @@ var ResizeHandler = function () {
                 .css(this.left, pos + resizer_width)
                 .html(this.getSymbol(pos))
                 .prop('title', PMA_messages.strShowPanel);
-        } else {
+        } else if (windowWidth > 768) {
             $collapser
                 .css(this.left, pos)
                 .html(this.getSymbol(pos))
                 .prop('title', PMA_messages.strHidePanel);
+            $('#pma_navigation_resizer').css({'width': '3px'});
+        } else {
+            $collapser
+                .css(this.left, windowWidth - 22)
+                .html(this.getSymbol(100))
+                .prop('title', PMA_messages.strHidePanel);
+            $('#pma_navigation').width(windowWidth);
+            $('body').css('margin-' + this.left, '0px');
+            $('#pma_navigation_resizer').css({'width': '0px'});
         }
         setTimeout(function () {
             $(window).trigger('resize');
@@ -1196,9 +1209,9 @@ var ResizeHandler = function () {
     this.mousedown = function (event) {
         event.preventDefault();
         $(document)
-            .bind('mousemove', {'resize_handler': event.data.resize_handler},
+            .on('mousemove', {'resize_handler': event.data.resize_handler},
                 $.throttle(event.data.resize_handler.mousemove, 4))
-            .bind('mouseup', {'resize_handler': event.data.resize_handler},
+            .on('mouseup', {'resize_handler': event.data.resize_handler},
                 event.data.resize_handler.mouseup);
         $('body').css('cursor', 'col-resize');
     };
@@ -1211,11 +1224,11 @@ var ResizeHandler = function () {
      */
     this.mouseup = function (event) {
         $('body').css('cursor', '');
-        $.cookie('pma_navi_width', event.data.resize_handler.getPos(event));
+        Cookies.set('pma_navi_width', event.data.resize_handler.getPos(event));
         $('#topmenu').menuResizer('resize');
         $(document)
-            .unbind('mousemove')
-            .unbind('mouseup');
+            .off('mousemove')
+            .off('mouseup');
     };
     /**
      * Event handler for updating the panel during a resize operation
@@ -1271,10 +1284,13 @@ var ResizeHandler = function () {
         // Set content bottom space beacuse of console
         $('body').css('margin-bottom', $('#pma_console').height() + 'px');
     };
-    /* Initialisation section begins here */
-    if ($.cookie('pma_navi_width')) {
+    // Hide the pma_navigation initially when loaded on mobile
+    if ($(window).width() < 768) {
+        this.setWidth(0);
+    }
+    else if (Cookies.get('pma_navi_width')) {
         // If we have a cookie, set the width of the panel to its value
-        var pos = Math.abs(parseInt($.cookie('pma_navi_width'), 10) || 0);
+        var pos = Math.abs(parseInt(Cookies.get('pma_navi_width'), 10) || 0);
         this.setWidth(pos);
         $('#topmenu').menuResizer('resize');
     }

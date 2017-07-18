@@ -5,10 +5,12 @@
  *
  * @package PhpMyAdmin
  */
-use PMA\libraries\Response;
+
+use PhpMyAdmin\Core;
 use PMA\libraries\gis\GISFactory;
 use PMA\libraries\gis\GISVisualization;
-use PMA\libraries\URL;
+use PhpMyAdmin\Response;
+use PhpMyAdmin\Url;
 
 /**
  * Escapes special characters if the variable is set.
@@ -26,12 +28,12 @@ function escape($variable)
 require_once 'libraries/common.inc.php';
 
 if (! isset($_REQUEST['field'])) {
-    PMA\libraries\Util::checkParameters(array('field'));
+    PhpMyAdmin\Util::checkParameters(array('field'));
 }
 
 // Get data if any posted
 $gis_data = array();
-if (PMA_isValid($_REQUEST['gis_data'], 'array')) {
+if (Core::isValid($_REQUEST['gis_data'], 'array')) {
     $gis_data = $_REQUEST['gis_data'];
 }
 
@@ -129,7 +131,7 @@ if (isset($_REQUEST['input_name'])) {
     echo '<input type="hidden" name="input_name" value="'
         , htmlspecialchars($_REQUEST['input_name']) , '" />';
 }
-echo URL::getHiddenInputs();
+echo Url::getHiddenInputs();
 
 echo '<!-- Visualization section -->';
 echo '<div id="placeholder" style="width:450px;height:300px;'
@@ -141,7 +143,7 @@ echo '<div id="openlayersmap" style="width:450px;height:300px;'
     , ($srid == 0 ? 'display:none;' : '') , '">';
 echo '</div>';
 
-echo '<div class="choice" style="float:right;clear:right;">';
+echo '<div class="choice floatright" style="clear:right;">';
 echo '<input type="checkbox" id="choice" value="useBaseLayer"'
     , ($srid != 0 ? ' checked="checked"' : '') , '/>';
 echo '<label for="choice">' ,  __("Use OpenStreetMaps as Base Layer") , '</label>';

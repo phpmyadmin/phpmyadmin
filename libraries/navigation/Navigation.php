@@ -8,11 +8,11 @@
  */
 namespace PMA\libraries\navigation;
 
-use PMA\libraries\config\PageSettings;
-use PMA\libraries\Message;
-use PMA\libraries\Response;
-use PMA\libraries\Util;
-use PMA\libraries\URL;
+use PhpMyAdmin\Config\PageSettings;
+use PhpMyAdmin\Message;
+use PhpMyAdmin\Response;
+use PhpMyAdmin\Util;
+use PhpMyAdmin\Url;
 
 /**
  * The navigation panel - displays server, db and table selection tree
@@ -165,7 +165,7 @@ class Navigation
     {
         $html  = '<form method="post" action="navigation.php" class="ajax">';
         $html .= '<fieldset>';
-        $html .= URL::getHiddenInputs($dbName, $tableName);
+        $html .= Url::getHiddenInputs($dbName, $tableName);
 
         $navTable = Util::backquote($GLOBALS['cfgRelation']['db'])
             . "." . Util::backquote($GLOBALS['cfgRelation']['navigationhiding']);
@@ -217,7 +217,7 @@ class Navigation
                         $html .= '<tr>';
                         $html .= '<td>' . htmlspecialchars($hiddenItem) . '</td>';
                         $html .= '<td style="width:80px"><a href="navigation.php'
-                            . URL::getCommon($params) . '"'
+                            . Url::getCommon($params) . '"'
                             . ' class="unhideNavItem ajax">'
                             . Util::getIcon('show.png', __('Show'))
                             .  '</a></td>';

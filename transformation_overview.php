@@ -5,19 +5,20 @@
  *
  * @package PhpMyAdmin
  */
-use PMA\libraries\Response;
+
+use PhpMyAdmin\Response;
+use PhpMyAdmin\Transformations;
 
 /**
  * Gets some core libraries and displays a top message if required
  */
 require_once './libraries/common.inc.php';
-require_once './libraries/transformations.lib.php';
 
 $response = Response::getInstance();
 $header   = $response->getHeader();
 $header->disableMenuAndConsole();
 
-$types = PMA_getAvailableMIMEtypes();
+$types = Transformations::getAvailableMIMEtypes();
 ?>
 
 <h2><?php echo __('Available MIME types'); ?></h2>
@@ -25,9 +26,9 @@ $types = PMA_getAvailableMIMEtypes();
 foreach ($types['mimetype'] as $key => $mimetype) {
 
     if (isset($types['empty_mimetype'][$mimetype])) {
-        echo '<i>' , $mimetype , '</i><br />';
+        echo '<i>' , htmlspecialchars($mimetype) , '</i><br />';
     } else {
-        echo $mimetype , '<br />';
+        echo htmlspecialchars($mimetype) , '<br />';
     }
 
 }
@@ -57,11 +58,11 @@ $th = array(
     <tbody>
     <?php
     foreach ($types[$ttype] as $key => $transform) {
-        $desc = PMA_getTransformationDescription($types[$ttype . '_file'][$key]);
+        $desc = Transformations::getDescription($types[$ttype . '_file'][$key]);
         ?>
         <tr>
-            <td><?php echo $transform; ?></td>
-            <td><?php echo $desc; ?></td>
+            <td><?php echo htmlspecialchars($transform); ?></td>
+            <td><?php echo htmlspecialchars($desc); ?></td>
         </tr>
         <?php
     }

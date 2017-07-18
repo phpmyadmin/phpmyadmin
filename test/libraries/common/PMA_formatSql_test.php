@@ -1,7 +1,7 @@
 <?php
 /* vim: set expandtab sw=4 ts=4 sts=4: */
 /**
- ** Test for PMA\libraries\Util::formatSql from Util.php
+ ** Test for PhpMyAdmin\Util::formatSql from Util.php
  *
  * @package PhpMyAdmin-test
  * @group common.lib-tests
@@ -13,7 +13,7 @@
 
 
 /**
- ** Test for PMA\libraries\Util::formatSql from Util.php
+ ** Test for PhpMyAdmin\Util::formatSql from Util.php
  *
  * @package PhpMyAdmin-test
  * @group common.lib-tests
@@ -32,7 +32,7 @@ class PMA_FormatSql_Test extends PHPUnit_Framework_TestCase
             '<code class="sql"><pre>' . "\n"
             . 'SELECT 1 &lt; 2' . "\n"
             . '</pre></code>',
-            PMA\libraries\Util::formatSql('SELECT 1 < 2')
+            PhpMyAdmin\Util::formatSql('SELECT 1 < 2')
         );
     }
 
@@ -49,7 +49,7 @@ class PMA_FormatSql_Test extends PHPUnit_Framework_TestCase
             '<code class="sql"><pre>' . "\n"
             . 'SELECT[...]' . "\n"
             . '</pre></code>',
-            PMA\libraries\Util::formatSql('SELECT 1 < 2', true)
+            PhpMyAdmin\Util::formatSql('SELECT 1 < 2', true)
         );
     }
 }

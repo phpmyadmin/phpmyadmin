@@ -5,8 +5,8 @@
  *
  * @package PhpMyAdmin
  */
-use PMA\libraries\Message;
-use PMA\libraries\Sanitize;
+use PhpMyAdmin\Message;
+use PhpMyAdmin\Sanitize;
 
 if (!defined('PHPMYADMIN')) {
     exit;
@@ -26,7 +26,7 @@ $tabs_icons = array(
     'Import'      => 'b_import.png',
     'Export'      => 'b_export.png');
 
-$content = PMA\libraries\Util::getHtmlTab(
+$content = PhpMyAdmin\Util::getHtmlTab(
     array(
         'link' => 'prefs_manage.php',
         'text' => __('Manage your settings')
@@ -39,10 +39,10 @@ foreach (array_keys($forms) as $formset) {
         'text' => PMA_lang('Form_' . $formset),
         'icon' => $tabs_icons[$formset],
         'active' => ($script_name == 'prefs_forms.php' && $formset == $form_param));
-    $content .= PMA\libraries\Util::getHtmlTab($tab, array('form' => $formset))
+    $content .= PhpMyAdmin\Util::getHtmlTab($tab, array('form' => $formset))
         . "\n";
 }
-echo PMA\libraries\Template::get('list/unordered')->render(
+echo PhpMyAdmin\Template::get('list/unordered')->render(
     array(
         'id' => 'topmenu2',
         'class' => 'user_prefs_tabs',

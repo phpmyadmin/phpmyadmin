@@ -9,13 +9,13 @@
  * Include to test.
  */
 
-use PMA\libraries\engines\Ndbcluster;
+use PhpMyAdmin\Engines\Ndbcluster;
 
 require_once 'libraries/database_interface.inc.php';
 require_once 'test/PMATestCase.php';
 
 /**
- * Tests for PMA\libraries\engines\Ndbcluster
+ * Tests for PhpMyAdmin\Engines\Ndbcluster
  *
  * @package PhpMyAdmin-test
  */

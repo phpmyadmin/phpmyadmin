@@ -29,7 +29,7 @@ class SystemDatabaseTest extends PMATestCase
         $GLOBALS['server'] = 1;
         $GLOBALS['cfg']['Server']['pmadb'] = '';
 
-        $dbi = $this->getMockBuilder('PMA\libraries\DatabaseInterface')
+        $dbi = $this->getMockBuilder('PhpMyAdmin\DatabaseInterface')
             ->disableOriginalConstructor()
             ->getMock();
 
@@ -66,7 +66,7 @@ class SystemDatabaseTest extends PMATestCase
                 )
             );
 
-        $this->sysDb = new PMA\libraries\SystemDatabase($dbi);
+        $this->sysDb = new PhpMyAdmin\SystemDatabase($dbi);
     }
 
     /**

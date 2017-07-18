@@ -6,10 +6,10 @@
  * @package PhpMyAdmin-test
  */
 
-use PMA\libraries\Theme;
-use PMA\libraries\controllers\server\ServerBinlogController;
-use PMA\libraries\di\Container;
-use PMA\libraries\Util;
+use PhpMyAdmin\Theme;
+use PhpMyAdmin\Controllers\Server\ServerBinlogController;
+use PhpMyAdmin\Di\Container;
+use PhpMyAdmin\Util;
 
 require_once 'test/PMATestCase.php';
 require_once 'libraries/database_interface.inc.php';
@@ -55,7 +55,7 @@ class ServerBinlogControllerTest extends PMATestCase
         $binary_log_file_names[] = array("Log_name"=>"index2", "File_size"=>200);
 
         //Mock DBI
-        $dbi = $this->getMockBuilder('PMA\libraries\DatabaseInterface')
+        $dbi = $this->getMockBuilder('PhpMyAdmin\DatabaseInterface')
             ->disableOriginalConstructor()
             ->getMock();
         $dbi->expects($this->once())->method('fetchResult')
@@ -75,7 +75,7 @@ class ServerBinlogControllerTest extends PMATestCase
         $url_params['log'] = "log";
         $url_params['dontlimitchars'] = 1;
 
-        $class = new ReflectionClass('\PMA\libraries\controllers\server\ServerBinlogController');
+        $class = new ReflectionClass('\PhpMyAdmin\Controllers\Server\ServerBinlogController');
         $method = $class->getMethod('_getLogSelector');
         $method->setAccessible(true);
 
@@ -107,13 +107,13 @@ class ServerBinlogControllerTest extends PMATestCase
      */
     public function testGetLogInfo()
     {
-    	$class = new ReflectionClass('\PMA\libraries\controllers\server\ServerBinlogController');
-    	$method = $class->getMethod('_getLogInfo');
-    	$method->setAccessible(true);
-    	$ctrl = new ServerBinlogController();
+        $class = new ReflectionClass('\PhpMyAdmin\Controllers\Server\ServerBinlogController');
+        $method = $class->getMethod('_getLogInfo');
+        $method->setAccessible(true);
+        $ctrl = new ServerBinlogController();
 
         //Mock DBI
-    	$container = Container::getDefaultContainer();
+        $container = Container::getDefaultContainer();
         $dbi = $container->get('dbi');
 
         //expects return value
@@ -220,13 +220,13 @@ class ServerBinlogControllerTest extends PMATestCase
      */
     public function testGetAllLogItemInfo()
     {
-    	$class = new ReflectionClass('\PMA\libraries\controllers\server\ServerBinlogController');
-    	$method = $class->getMethod('_getAllLogItemInfo');
-    	$method->setAccessible(true);
-    	$ctrl = new ServerBinlogController();
+        $class = new ReflectionClass('\PhpMyAdmin\Controllers\Server\ServerBinlogController');
+        $method = $class->getMethod('_getAllLogItemInfo');
+        $method->setAccessible(true);
+        $ctrl = new ServerBinlogController();
 
         //Mock DBI
-    	$container = Container::getDefaultContainer();
+        $container = Container::getDefaultContainer();
         $dbi = $container->get('dbi');
 
         $fetchAssoc = array(

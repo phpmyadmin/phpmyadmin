@@ -11,7 +11,7 @@
  * since 'check_user_privileges.lib.php' will use it globally
  */
 use PMA\libraries\navigation\NavigationTree;
-use PMA\libraries\Theme;
+use PhpMyAdmin\Theme;
 
 $GLOBALS['server'] = 0;
 $GLOBALS['cfg']['Server']['DisableIS'] = false;
@@ -42,7 +42,7 @@ class NavigationTreeTest extends PMATestCase
     protected function setUp()
     {
         $GLOBALS['server'] = 1;
-        $GLOBALS['PMA_Config'] = new PMA\libraries\Config();
+        $GLOBALS['PMA_Config'] = new PhpMyAdmin\Config();
         $GLOBALS['PMA_Config']->enableBc();
         $GLOBALS['cfg']['Server']['host'] = 'localhost';
         $GLOBALS['cfg']['Server']['user'] = 'root';

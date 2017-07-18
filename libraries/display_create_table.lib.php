@@ -42,7 +42,7 @@ require_once './libraries/check_user_privileges.lib.php';
  */
 function PMA_getHtmlForCreateTable($db)
 {
-    return PMA\libraries\Template::get('database/create_table')->render(
+    return PhpMyAdmin\Template::get('database/create_table')->render(
         array('db' => $db)
     );
 }

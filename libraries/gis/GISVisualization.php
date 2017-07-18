@@ -8,11 +8,10 @@
 
 namespace PMA\libraries\gis;
 
-use PMA\libraries\Util;
+use PhpMyAdmin\Core;
+use PhpMyAdmin\Util;
 use \TCPDF;
-use PMA\libraries\Sanitize;
-
-require_once 'libraries/sql.lib.php';
+use PhpMyAdmin\Sanitize;
 
 /**
  * Handles visualization of GIS data
@@ -282,7 +281,7 @@ class GISVisualization
     private function _toFile($file_name, $type, $ext)
     {
         $file_name = $this->_sanitizeName($file_name, $ext);
-        PMA_downloadHeader($file_name, $type);
+        Core::downloadHeader($file_name, $type);
     }
 
     /**

@@ -3,7 +3,7 @@
 /**
  * Styles for the resizable menus
  *
- * used by js/jquery/jquery.menuResizer-1.0.js
+ * used by js/vendor/jquery/jquery.menuResizer-1.0.js
  *
  * @package    PhpMyAdmin-theme
  * @subpackage PMAHomme
@@ -43,7 +43,7 @@ ul.resizable-menu ul {
 }
 
 ul.resizable-menu li:hover {
-    <?php echo $_SESSION['PMA_Theme']->getCssGradient('ffffff', 'e5e5e5'); ?>
+    <?php echo $theme->getCssGradient('ffffff', 'e5e5e5'); ?>
 }
 
 ul.resizable-menu li:hover ul,

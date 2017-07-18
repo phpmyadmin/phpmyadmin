@@ -9,8 +9,8 @@
 /*
  * Include to test
  */
-use PMA\libraries\config\ConfigFile;
-use PMA\libraries\config\ServerConfigChecks;
+use PhpMyAdmin\Config\ConfigFile;
+use PhpMyAdmin\Config\ServerConfigChecks;
 
 require_once 'libraries/config/config_functions.lib.php';
 require_once 'setup/lib/index.lib.php';
@@ -174,7 +174,7 @@ class PMA_SetupIndex_Test extends PHPUnit_Framework_TestCase
         $cf = new ConfigFile();
         $GLOBALS['ConfigFile'] = $cf;
 
-        $reflection = new \ReflectionProperty('PMA\libraries\config\ConfigFile', '_id');
+        $reflection = new \ReflectionProperty('PhpMyAdmin\Config\ConfigFile', '_id');
         $reflection->setAccessible(true);
         $sessionID = $reflection->getValue($cf);
 

@@ -8,10 +8,11 @@
  */
 namespace PMA\libraries\plugins\import;
 
-use PMA\libraries\properties\options\items\BoolPropertyItem;
-use PMA;
+use PhpMyAdmin\Message;
 use PMA\libraries\plugins\import\AbstractImportCsv;
+use PMA\libraries\properties\options\items\BoolPropertyItem;
 use PMA\libraries\properties\options\items\TextPropertyItem;
+use PhpMyAdmin\Util;
 
 if (!defined('PHPMYADMIN')) {
     exit;
@@ -107,7 +108,7 @@ class ImportLdi extends AbstractImportCsv
             || $charset_conversion
         ) {
             // We handle only some kind of data!
-            $GLOBALS['message'] = PMA\libraries\Message::error(
+            $GLOBALS['message'] = Message::error(
                 __('This plugin does not support compressed imports!')
             );
             $GLOBALS['error'] = true;
@@ -126,7 +127,7 @@ class ImportLdi extends AbstractImportCsv
         } elseif (isset($ldi_ignore)) {
             $sql .= ' IGNORE';
         }
-        $sql .= ' INTO TABLE ' . PMA\libraries\Util::backquote($table);
+        $sql .= ' INTO TABLE ' . Util::backquote($table);
 
         if (strlen($ldi_terminated) > 0) {
             $sql .= ' FIELDS TERMINATED BY \'' . $ldi_terminated . '\'';
@@ -161,7 +162,7 @@ class ImportLdi extends AbstractImportCsv
                     $sql .= ', ';
                 }
                 /* Trim also `, if user already included backquoted fields */
-                $sql .= PMA\libraries\Util::backquote(
+                $sql .= Util::backquote(
                     trim($tmp[$i], " \t\r\n\0\x0B`")
                 );
             } // end for

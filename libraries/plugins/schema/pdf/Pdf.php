@@ -7,8 +7,8 @@
  */
 namespace PMA\libraries\plugins\schema\pdf;
 
-use PMA\libraries\PDF as PDF_lib;
-use PMA\libraries\Util;
+use PhpMyAdmin\Pdf as PdfLib;
+use PhpMyAdmin\Util;
 
 /**
  * Skip the plugin if TCPDF is not available.
@@ -25,8 +25,6 @@ if (getcwd() == dirname(__FILE__)) {
     die('Attack stopped');
 }
 
-require_once 'libraries/transformations.lib.php';
-
 /**
  * Extends the "TCPDF" class and helps
  * in developing the structure of PDF Schema Export
@@ -35,7 +33,7 @@ require_once 'libraries/transformations.lib.php';
  * @package PhpMyAdmin
  * @see     TCPDF
  */
-class Pdf extends PDF_lib
+class Pdf extends PdfLib
 {
     /**
      * Defines properties
@@ -49,7 +47,7 @@ class Pdf extends PDF_lib
     var $Outlines = array();
     var $def_outlines;
     var $widths;
-    private $_ff = PDF_lib::PMA_PDF_FONT;
+    private $_ff = PdfLib::PMA_PDF_FONT;
     private $_offline;
     private $_pageNumber;
     private $_withDoc;
@@ -228,6 +226,7 @@ class Pdf extends PDF_lib
      *
      * @see TCPDF::Header()
      */
+    // @codingStandardsIgnoreLine
     public function Header()
     {
         // We only show this if we find something in the new pdf_pages table
@@ -261,6 +260,7 @@ class Pdf extends PDF_lib
      *
      * @see PDF::Footer()
      */
+    // @codingStandardsIgnoreLine
     public function Footer()
     {
         if ($this->_withDoc) {
@@ -275,7 +275,7 @@ class Pdf extends PDF_lib
      *
      * @return void
      */
-    public function SetWidths($w)
+    public function setWidths($w)
     {
         // column widths
         $this->widths = $w;
@@ -289,13 +289,13 @@ class Pdf extends PDF_lib
      *
      * @return void
      */
-    public function Row($data, $links)
+    public function row($data, $links)
     {
         // line height
         $nb = 0;
         $data_cnt = count($data);
         for ($i = 0;$i < $data_cnt;$i++) {
-            $nb = max($nb, $this->NbLines($this->widths[$i], $data[$i]));
+            $nb = max($nb, $this->numLines($this->widths[$i], $data[$i]));
         }
         $il = $this->FontSize;
         $h = ($il + 1) * $nb;
@@ -330,7 +330,7 @@ class Pdf extends PDF_lib
      *
      * @return int
      */
-    public function NbLines($w, $txt)
+    public function numLines($w, $txt)
     {
         $cw = &$this->CurrentFont['cw'];
         if ($w == 0) {

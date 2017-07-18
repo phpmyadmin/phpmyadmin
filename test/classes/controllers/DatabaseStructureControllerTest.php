@@ -11,10 +11,10 @@
 /*
  * Include to test.
  */
-use PMA\libraries\controllers\database\DatabaseStructureController;
-use PMA\libraries\di\Container;
-use PMA\libraries\Table;
-use PMA\libraries\Theme;
+use PhpMyAdmin\Controllers\Database\DatabaseStructureController;
+use PhpMyAdmin\Di\Container;
+use PhpMyAdmin\Table;
+use PhpMyAdmin\Theme;
 
 require_once 'test/PMATestCase.php';
 require_once 'libraries/database_interface.inc.php';
@@ -57,7 +57,7 @@ class DatabaseStructureControllerTest extends PMATestCase
             define('PMA_USR_BROWSER_AGENT', 'Other');
         }
 
-        $table = $this->getMockBuilder('PMA\libraries\Table')
+        $table = $this->getMockBuilder('PhpMyAdmin\Table')
             ->disableOriginalConstructor()
             ->getMock();
         // Expect the table will have 6 rows
@@ -66,7 +66,7 @@ class DatabaseStructureControllerTest extends PMATestCase
         $table->expects($this->any())->method('countRecords')
             ->will($this->returnValue(6));
 
-        $dbi = $this->getMockBuilder('PMA\libraries\DatabaseInterface')
+        $dbi = $this->getMockBuilder('PhpMyAdmin\DatabaseInterface')
             ->disableOriginalConstructor()
             ->getMock();
         $dbi->expects($this->any())->method('getTable')
@@ -79,8 +79,8 @@ class DatabaseStructureControllerTest extends PMATestCase
         $container->set('table', 'table');
         $container->set('dbi', $GLOBALS['dbi']);
         $this->_response = new \PMA\Test\Stubs\Response();
-        $container->set('PMA\libraries\Response', $this->_response);
-        $container->alias('response', 'PMA\libraries\Response');
+        $container->set('PhpMyAdmin\Response', $this->_response);
+        $container->alias('response', 'PhpMyAdmin\Response');
     }
 
     /**
@@ -96,10 +96,10 @@ class DatabaseStructureControllerTest extends PMATestCase
         $container->set('table', 'table');
         $container->set('dbi', $GLOBALS['dbi']);
         $response = new \PMA\Test\Stubs\Response();
-        $container->set('PMA\libraries\Response', $response);
-        $container->alias('response', 'PMA\libraries\Response');
+        $container->set('PhpMyAdmin\Response', $response);
+        $container->alias('response', 'PhpMyAdmin\Response');
 
-        $class = new ReflectionClass('PMA\libraries\controllers\database\DatabaseStructureController');
+        $class = new ReflectionClass('PhpMyAdmin\Controllers\Database\DatabaseStructureController');
         $method = $class->getMethod('getValuesForInnodbTable');
         $method->setAccessible(true);
         $ctrl = new DatabaseStructureController(
@@ -185,7 +185,7 @@ class DatabaseStructureControllerTest extends PMATestCase
      */
     public function testGetValuesForAriaTable()
     {
-        $class = new ReflectionClass('PMA\libraries\controllers\database\DatabaseStructureController');
+        $class = new ReflectionClass('PhpMyAdmin\Controllers\Database\DatabaseStructureController');
         $method = $class->getMethod('getValuesForAriaTable');
         $method->setAccessible(true);
 
@@ -251,7 +251,7 @@ class DatabaseStructureControllerTest extends PMATestCase
      */
     public function testHasTable()
     {
-        $class = new ReflectionClass('PMA\libraries\controllers\database\DatabaseStructureController');
+        $class = new ReflectionClass('PhpMyAdmin\Controllers\Database\DatabaseStructureController');
         $method = $class->getMethod('hasTable');
         $method->setAccessible(true);
 
@@ -292,7 +292,7 @@ class DatabaseStructureControllerTest extends PMATestCase
      */
     public function testCheckFavoriteTable()
     {
-        $class = new ReflectionClass('PMA\libraries\controllers\database\DatabaseStructureController');
+        $class = new ReflectionClass('PhpMyAdmin\Controllers\Database\DatabaseStructureController');
         $method = $class->getMethod('checkFavoriteTable');
         $method->setAccessible(true);
 
@@ -323,7 +323,7 @@ class DatabaseStructureControllerTest extends PMATestCase
      */
     public function testSynchronizeFavoriteTables()
     {
-        $fav_instance = $this->getMockBuilder('PMA\libraries\RecentFavoriteTable')
+        $fav_instance = $this->getMockBuilder('PhpMyAdmin\RecentFavoriteTable')
             ->disableOriginalConstructor()
             ->getMock();
         $fav_instance->expects($this->at(1))->method('getTables')
@@ -338,7 +338,7 @@ class DatabaseStructureControllerTest extends PMATestCase
                 )
             );
 
-        $class = new ReflectionClass('PMA\libraries\controllers\database\DatabaseStructureController');
+        $class = new ReflectionClass('PhpMyAdmin\Controllers\Database\DatabaseStructureController');
         $method = $class->getMethod('synchronizeFavoriteTables');
         $method->setAccessible(true);
 
@@ -375,7 +375,7 @@ class DatabaseStructureControllerTest extends PMATestCase
             $GLOBALS['db'], null
         );
         // Showing statistics
-        $class = new ReflectionClass('PMA\libraries\controllers\database\DatabaseStructureController');
+        $class = new ReflectionClass('PhpMyAdmin\Controllers\Database\DatabaseStructureController');
         $property = $class->getProperty('_tables');
         $property->setAccessible(true);
 

@@ -5,7 +5,9 @@
  *
  * @package PhpMyAdmin
  */
-use PMA\libraries\Response;
+
+use PhpMyAdmin\Core;
+use PhpMyAdmin\Response;
 
 /**
  * include common file
@@ -28,7 +30,7 @@ $response = Response::getInstance();
 $header   = $response->getHeader();
 $scripts  = $header->getScripts();
 $scripts->addFile('server_privileges.js');
-$scripts->addFile('zxcvbn.js');
+$scripts->addFile('vendor/zxcvbn.js');
 
 if ((isset($_REQUEST['viewing_mode'])
     && $_REQUEST['viewing_mode'] == 'server')
@@ -48,7 +50,7 @@ $post_patterns = array(
     '/^max_/i'
 );
 
-PMA_setPostAsGlobal($post_patterns);
+Core::setPostAsGlobal($post_patterns);
 
 require 'libraries/server_common.inc.php';
 
@@ -130,7 +132,7 @@ if (!$GLOBALS['is_superuser'] && !$GLOBALS['is_grantuser']
 ) {
     $response->addHTML(PMA_getHtmlForSubPageHeader('privileges', '', false));
     $response->addHTML(
-        PMA\libraries\Message::error(__('No Privileges'))
+        PhpMyAdmin\Message::error(__('No Privileges'))
             ->getDisplay()
     );
     exit;
@@ -144,7 +146,7 @@ if (isset($_REQUEST['change_copy']) && $username == $_REQUEST['old_username']
     && $hostname == $_REQUEST['old_hostname']
 ) {
     $response->addHTML(
-        PMA\libraries\Message::error(
+        PhpMyAdmin\Message::error(
             __(
                 "Username and hostname didn't change. "
                 . "If you only want to change the password, "
@@ -235,7 +237,7 @@ if (! empty($_REQUEST['changeUserGroup']) && $cfgRelation['menuswork']
     && $GLOBALS['is_superuser'] && $GLOBALS['is_createuser']
 ) {
     PMA_setUserGroup($username, $_REQUEST['userGroup']);
-    $message = PMA\libraries\Message::success();
+    $message = PhpMyAdmin\Message::success();
 }
 
 /**
@@ -281,7 +283,7 @@ if (isset($_REQUEST['delete'])
  */
 if (isset($_REQUEST['change_copy'])) {
     $queries = PMA_getDataForQueries($queries, $queries_for_display);
-    $message = PMA\libraries\Message::success();
+    $message = PhpMyAdmin\Message::success();
     $sql_query = join("\n", $queries);
 }
 
@@ -316,7 +318,7 @@ if ($response->isAjax()
         (isset($username) ? $username : '')
     );
 
-    if (! empty($message) && $message instanceof PMA\libraries\Message) {
+    if (! empty($message) && $message instanceof PhpMyAdmin\Message) {
         $response->setRequestStatus($message->isSuccess());
         $response->addJSON('message', $message);
         $response->addJSON($extra_data);
@@ -346,14 +348,14 @@ if (isset($_REQUEST['viewing_mode']) && $_REQUEST['viewing_mode'] == 'db') {
         $tooltip_truename,
         $tooltip_aliasname,
         $pos
-    ) = PMA\libraries\Util::getDbInfo($db, isset($sub_part) ? $sub_part : '');
+    ) = PhpMyAdmin\Util::getDbInfo($db, isset($sub_part) ? $sub_part : '');
 
     $content = ob_get_contents();
     ob_end_clean();
     $response->addHTML($content . "\n");
 } else {
     if (! empty($GLOBALS['message'])) {
-        $response->addHTML(PMA\libraries\Util::getMessage($GLOBALS['message']));
+        $response->addHTML(PhpMyAdmin\Util::getMessage($GLOBALS['message']));
         unset($GLOBALS['message']);
     }
 }

@@ -26,15 +26,15 @@ if (!defined('TESTSUITE')) {
 }
 
 // But this one is needed for Sanitize::escapeJsString()
-use PMA\libraries\Sanitize;
+use PhpMyAdmin\Sanitize;
 
 
-$buffer = PMA\libraries\OutputBuffering::getInstance();
+$buffer = PhpMyAdmin\OutputBuffering::getInstance();
 $buffer->start();
 if (!defined('TESTSUITE')) {
     register_shutdown_function(
         function () {
-            echo PMA\libraries\OutputBuffering::getInstance()->getContents();
+            echo PhpMyAdmin\OutputBuffering::getInstance()->getContents();
         }
     );
 }
@@ -124,9 +124,6 @@ $js_messages['strCreateSingleColumnIndex'] = __('Create single-column index');
 $js_messages['strCreateCompositeIndex'] = __('Create composite index');
 $js_messages['strCompositeWith'] = __('Composite with:');
 $js_messages['strMissingColumn'] = __('Please select column(s) for the index.');
-
-/* For Create Table */
-$js_messages['strLeastColumnError'] = __('You have to add at least one column.');
 
 /* For Preview SQL*/
 $js_messages['strPreviewSQL'] = __('Preview SQL');
@@ -294,6 +291,10 @@ $js_messages['strTotalTime'] = __('Total time:');
 $js_messages['strProfilingResults'] = __('Profiling results');
 $js_messages['strTable'] = _pgettext('Display format', 'Table');
 $js_messages['strChart'] = __('Chart');
+
+$js_messages['strAliasDatabase'] = _pgettext('Alias', 'Database');
+$js_messages['strAliasTable'] = _pgettext('Alias', 'Table');
+$js_messages['strAliasColumn'] = _pgettext('Alias', 'Column');
 
 /* l10n: A collection of available filters */
 $js_messages['strFiltersForLogTable'] = __('Log table filter options');
@@ -705,7 +706,7 @@ $js_messages['phpErrorsBeingSubmitted'] = '<div class="error">'
     )
     . '<br/>'
     . '<img src="'
-    . ($_SESSION['PMA_Theme']->getImgPath('ajax_clock_small.gif'))
+    . ($GLOBALS['PMA_Theme']->getImgPath('ajax_clock_small.gif'))
     . '" width="16" height="16" alt="ajax clock"/>'
     . '</div>';
 
@@ -747,7 +748,7 @@ echo "var themeCalendarImage = '" , $GLOBALS['pmaThemeImage']
 /* Image path */
 echo "var pmaThemeImage = '" , $GLOBALS['pmaThemeImage'] , "';\n";
 
-echo "var mysql_doc_template = '" , PMA\libraries\Util::getMySQLDocuURL('%s')
+echo "var mysql_doc_template = '" , PhpMyAdmin\Util::getMySQLDocuURL('%s')
     , "';\n";
 
 //Max input vars allowed by PHP.

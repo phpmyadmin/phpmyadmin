@@ -6,8 +6,8 @@
  * @package PhpMyAdmin-test
  */
 
-use PMA\libraries\Theme;
-use PMA\libraries\URL;
+use PhpMyAdmin\Theme;
+use PhpMyAdmin\Url;
 
 $GLOBALS['server'] = 0;
 $GLOBALS['cfg']['Server']['DisableIS'] = false;
@@ -66,7 +66,7 @@ class PMA_DisplayCreateTable_Test extends PHPUnit_Framework_TestCase
 
         //getImage
         $this->assertContains(
-            PMA\libraries\Util::getImage('b_table_add.png'),
+            PhpMyAdmin\Util::getImage('b_table_add.png'),
             $html
         );
 
@@ -76,9 +76,9 @@ class PMA_DisplayCreateTable_Test extends PHPUnit_Framework_TestCase
             $html
         );
 
-        //URL::getHiddenInputs
+        //Url::getHiddenInputs
         $this->assertContains(
-            URL::getHiddenInputs($db),
+            Url::getHiddenInputs($db),
             $html
         );
         //label

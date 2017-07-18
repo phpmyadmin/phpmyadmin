@@ -14,7 +14,7 @@
 AJAX.registerTeardown('server_databases.js', function () {
     $(document).off('submit', "#dbStatsForm");
     $(document).off('submit', '#create_database_form.ajax');
-    $('#filterText').unbind('keyup');
+    $('#filterText').off('keyup');
 });
 
 /**
@@ -65,7 +65,6 @@ AJAX.registerOnload('server_databases.js', function () {
                 PMA_ajaxShowMessage(PMA_messages.strProcessingRequest, false);
 
                 var params = getJSConfirmCommonParam(this);
-                params.token = PMA_commonParams.get('token');
 
                 $.post(url, params, function (data) {
                     if (typeof data !== 'undefined' && data.success === true) {

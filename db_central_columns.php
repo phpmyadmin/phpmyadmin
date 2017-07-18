@@ -6,8 +6,10 @@
  *
  * @package PhpMyAdmin
  */
-use PMA\libraries\URL;
-use PMA\libraries\Response;
+
+use PhpMyAdmin\Core;
+use PhpMyAdmin\Url;
+use PhpMyAdmin\Response;
 
 /**
  * Gets some core libraries
@@ -61,8 +63,8 @@ if (isset($_POST['add_column'])) {
 $response = Response::getInstance();
 $header = $response->getHeader();
 $scripts = $header->getScripts();
-$scripts->addFile('jquery/jquery.uitablefilter.js');
-$scripts->addFile('jquery/jquery.tablesorter.js');
+$scripts->addFile('vendor/jquery/jquery.uitablefilter.js');
+$scripts->addFile('vendor/jquery/jquery.tablesorter.js');
 $scripts->addFile('db_central_columns.js');
 $cfgCentralColumns = PMA_centralColumnsGetParams();
 $pmadb = $cfgCentralColumns['db'];
@@ -95,7 +97,7 @@ if (isset($_REQUEST['total_rows']) && $_REQUEST['total_rows']) {
 } else {
     $total_rows = PMA_getCentralColumnsCount($db);
 }
-if (PMA_isValid($_REQUEST['pos'], 'integer')) {
+if (Core::isValid($_REQUEST['pos'], 'integer')) {
     $pos = intval($_REQUEST['pos']);
 } else {
     $pos = 0;
@@ -117,7 +119,7 @@ $response->addHTML($table_navigation_html);
 $columnAdd = PMA_getHTMLforAddCentralColumn($total_rows, $pos, $db);
 $response->addHTML($columnAdd);
 $deleteRowForm = '<form method="post" id="del_form" action="db_central_columns.php">'
-        . URL::getHiddenInputs(
+        . Url::getHiddenInputs(
             $db
         )
         . '<input id="del_col_name" type="hidden" name="col_name" value="">'
@@ -146,7 +148,7 @@ $response->addHTML('</table>');
 $tablefooter = PMA_getCentralColumnsTableFooter($pmaThemeImage, $text_dir);
 $response->addHTML($tablefooter);
 $response->addHTML('</form></div>');
-$message = PMA\libraries\Message::success(
+$message = PhpMyAdmin\Message::success(
     sprintf(__('Showing rows %1$s - %2$s.'), ($pos + 1), ($pos + count($result)))
 );
 if (isset($tmp_msg) && $tmp_msg !== true) {

@@ -9,17 +9,17 @@
  */
 
 /**
- * Returns html with PMA\libraries\Advisor
+ * Returns html with PhpMyAdmin\Advisor
  *
  * @return string
  */
 function PMA_getHtmlForAdvisor()
 {
     $output  = '<a href="#openAdvisorInstructions">';
-    $output .= PMA\libraries\Util::getIcon('b_help.png', __('Instructions'));
+    $output .= PhpMyAdmin\Util::getIcon('b_help.png', __('Instructions'));
     $output .= '</a>';
     $output .= '<div id="statustabs_advisor"></div>';
-    $output .= '<div id="advisorInstructionsDialog" style="display:none;">';
+    $output .= '<div id="advisorInstructionsDialog" class="hide">';
     $output .= '<p>';
     $output .= __(
         'The Advisor system can provide recommendations '
@@ -49,8 +49,8 @@ function PMA_getHtmlForAdvisor()
     );
     $output .= '</p>';
     $output .= '</div>';
-    $output .= '<div id="advisorData" style="display:none;">';
-    $advisor = new PMA\libraries\Advisor();
+    $output .= '<div id="advisorData" class="hide">';
+    $advisor = new PhpMyAdmin\Advisor();
     $output .= htmlspecialchars(
         json_encode(
             $advisor->run()
@@ -60,4 +60,3 @@ function PMA_getHtmlForAdvisor()
 
     return $output;
 }
-

@@ -22,7 +22,7 @@ abstract class PMA_SeleniumBase extends PHPUnit_Extensions_Selenium2TestCase
      * @access private
      * @var mysqli
      */
-    private $_mysqli;
+    protected $_mysqli;
 
     /**
      * Name of database for the test
@@ -57,11 +57,12 @@ abstract class PMA_SeleniumBase extends PHPUnit_Extensions_Selenium2TestCase
             self::$_selenium_enabled = true;
 
             $strategy = 'shared';
-            $build_local = false;
+            $build_local = true;
             $build_id = 'Manual';
             $project_name = 'phpMyAdmin';
             if (getenv('BUILD_TAG')) {
                 $build_id = getenv('BUILD_TAG');
+                $build_local = false;
                 $strategy = 'isolated';
                 $project_name = 'phpMyAdmin (Jenkins)';
             } elseif (getenv('TRAVIS_JOB_NUMBER')) {
@@ -199,6 +200,17 @@ abstract class PMA_SeleniumBase extends PHPUnit_Extensions_Selenium2TestCase
     }
 
     /**
+     * Configures the browser window.
+     *
+     * @return void
+     *
+     */
+    public function setUpPage()
+    {
+        $this->currentWindow()->maximize();
+    }
+
+    /**
      * Checks whether user is a superuser.
      *
      * @return boolean
@@ -233,7 +245,8 @@ abstract class PMA_SeleniumBase extends PHPUnit_Extensions_Selenium2TestCase
     protected function skipIfNotPMADB()
     {
         $this->url('chk_rel.php');
-        if ($this->isElementPresent("byXPath", "//*[@color=\"red\"]")) {
+        $this->waitForElement('byId', 'page_content');
+        if ($this->isElementPresent('byXPath', '//span[contains(@style, \'color:red\')]')) {
             $this->markTestSkipped(
                 'The phpMyAdmin configuration storage is not working.'
             );
@@ -542,20 +555,6 @@ abstract class PMA_SeleniumBase extends PHPUnit_Extensions_Selenium2TestCase
      */
     public function typeInTextArea($text, $index=0)
     {
-        /**
-         * Firefox needs some escaping of a text, see
-         * https://github.com/seleniumhq/selenium-google-code-issue-archive/issues/1723
-         */
-        if (mb_strtolower($this->getBrowser()) == 'firefox') {
-            $text = str_replace(
-                "(",
-                PHPUnit_Extensions_Selenium2TestCase_Keys::SHIFT
-                . PHPUnit_Extensions_Selenium2TestCase_Keys::NUMPAD9
-                . PHPUnit_Extensions_Selenium2TestCase_Keys::NULL,
-                $text
-            );
-        }
-
         $this->execute(
             array(
                 'script' => "var cm = $('.CodeMirror')[" . $index . "].CodeMirror;"
@@ -595,8 +594,12 @@ abstract class PMA_SeleniumBase extends PHPUnit_Extensions_Selenium2TestCase
      */
     public function navigateTable($table)
     {
-        // go to database page
-        $this->waitForElement("byLinkText", $this->database_name)->click();
+        // Go to server databases
+        $this->waitForElement('byPartialLinkText','Databases')->click();
+        $this->waitForElementNotPresent('byCssSelector', 'div#loading_parent');
+
+        // go to specific database page
+        $this->waitForElement("byPartialLinkText", $this->database_name)->click();
 
         /* Wait for loading and expanding tree */
         $this->waitForElement(
@@ -610,7 +613,7 @@ abstract class PMA_SeleniumBase extends PHPUnit_Extensions_Selenium2TestCase
         // go to table page
         $this->waitForElement(
             "byXPath",
-            "//*[@id='pma_navigation_tree_content']//a[contains(., '$table')]"
+            "//th//a[contains(., '$table')]"
         )->click();
 
         // Wait for it to load
@@ -639,6 +642,22 @@ abstract class PMA_SeleniumBase extends PHPUnit_Extensions_Selenium2TestCase
                             . 'var y = position.top;'
                             . 'window.scrollTo(x, y-70);',
                 'args'   => array()
+            )
+        );
+        usleep(10000);
+    }
+
+    /**
+     * Scroll to the bottom of page
+     *
+     * @return void
+     */
+    public function scrollToBottom()
+    {
+        $this->execute(
+            array(
+                'script' => 'window.scrollTo(0,document.body.scrollHeight);',
+                'args' => array()
             )
         );
         usleep(10000);

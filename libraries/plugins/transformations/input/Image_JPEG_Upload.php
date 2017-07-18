@@ -17,6 +17,7 @@ use PMA\libraries\plugins\transformations\abs\ImageUploadTransformationsPlugin;
  * @package    PhpMyAdmin-Transformations
  * @subpackage ImageUpload
  */
+// @codingStandardsIgnoreLine
 class Image_JPEG_Upload extends ImageUploadTransformationsPlugin
 {
     /**

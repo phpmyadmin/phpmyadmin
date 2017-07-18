@@ -5,7 +5,7 @@
  *
  * @package PhpMyAdmin
  */
-use PMA\libraries\Response;
+use PhpMyAdmin\Response;
 require_once 'libraries/common.inc.php';
 require_once 'libraries/error_report.lib.php';
 require_once 'libraries/user_preferences.lib.php';
@@ -86,9 +86,9 @@ if (isset($_REQUEST['send_error_report'])
 
         /* Create message object */
         if ($success) {
-            $msg = PMA\libraries\Message::notice($msg);
+            $msg = PhpMyAdmin\Message::notice($msg);
         } else {
-            $msg = PMA\libraries\Message::error($msg);
+            $msg = PhpMyAdmin\Message::error($msg);
         }
 
         /* Add message to response */

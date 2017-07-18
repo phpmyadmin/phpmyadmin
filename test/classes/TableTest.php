@@ -9,9 +9,9 @@
 /*
  * Include to test.
  */
-use PMA\libraries\Table;
-use PMA\libraries\Theme;
-use PMA\libraries\Util;
+use PhpMyAdmin\Table;
+use PhpMyAdmin\Theme;
+use PhpMyAdmin\Util;
 
 require_once 'libraries/database_interface.inc.php';
 require_once 'libraries/relation.lib.php';
@@ -202,7 +202,7 @@ class TableTest extends PMATestCase
             ),
         );
 
-        $dbi = $this->getMockBuilder('PMA\libraries\DatabaseInterface')
+        $dbi = $this->getMockBuilder('PhpMyAdmin\DatabaseInterface')
             ->disableOriginalConstructor()
             ->getMock();
 
@@ -292,7 +292,7 @@ class TableTest extends PMATestCase
     public function testCreate()
     {
         $table = new Table('table1', 'pma_test');
-        $this->assertInstanceOf('PMA\libraries\Table', $table);
+        $this->assertInstanceOf('PhpMyAdmin\Table', $table);
     }
 
     /**
@@ -857,7 +857,7 @@ class TableTest extends PMATestCase
      */
     public function testGetColumnsMeta()
     {
-        $dbi = $this->getMockBuilder('PMA\libraries\DatabaseInterface')
+        $dbi = $this->getMockBuilder('PhpMyAdmin\DatabaseInterface')
             ->disableOriginalConstructor()
             ->getMock();
 
@@ -895,7 +895,7 @@ class TableTest extends PMATestCase
         $foreignTable = "foreignTable";
         $foreignField = array("foreignField1", "foreignField2");
 
-        $class = new ReflectionClass('PMA\libraries\Table');
+        $class = new ReflectionClass(Table::class);
         $method = $class->getMethod('_getSQLToCreateForeignKey');
         $method->setAccessible(true);
         $tableObj = new Table('PMA_table', 'db');
@@ -946,7 +946,7 @@ class TableTest extends PMATestCase
     {
         $db = "pma_db";
         $table = "pma_table";
-        $index = new PMA\libraries\Index();
+        $index = new PhpMyAdmin\Index();
         $error = false;
 
         $_REQUEST['old_index'] = "PRIMARY";
@@ -1005,7 +1005,7 @@ class TableTest extends PMATestCase
     public function testCheckIfMinRecordsExist()
     {
         $old_dbi = $GLOBALS['dbi'];
-        $dbi = $this->getMockBuilder('PMA\libraries\DatabaseInterface')
+        $dbi = $this->getMockBuilder('PhpMyAdmin\DatabaseInterface')
             ->disableOriginalConstructor()
             ->getMock();
         $dbi->expects($this->any())
@@ -1201,6 +1201,145 @@ class TableTest extends PMATestCase
             $GLOBALS['sql_query']
         );
     }
+
+    /**
+     * Test for getStorageEngine
+     *
+     * @return void
+     */
+    public function testGetStorageEngine(){
+        $target_table = 'table1';
+        $target_db = 'pma_test';
+        $tbl_object = new Table($target_db, $target_table);
+        $tbl_object->getStatusInfo(null, true);
+        $extension = new PhpMyAdmin\Dbi\DbiDummy();
+        $dbi = new PhpMyAdmin\DatabaseInterface($extension);
+        $expect = '';
+        $tbl_storage_engine = $dbi->getTable(
+            $target_db,
+            $target_table
+        )->getStorageEngine();
+        $this->assertEquals(
+            $expect,
+            $tbl_storage_engine
+        );
+    }
+
+    /**
+     * Test for getComment
+     *
+     * @return void
+     */
+    public function testGetComment(){
+        $target_table = 'table1';
+        $target_db = 'pma_test';
+        $tbl_object = new Table($target_db, $target_table);
+        $tbl_object->getStatusInfo(null, true);
+        $extension = new PhpMyAdmin\Dbi\DbiDummy();
+        $dbi = new PhpMyAdmin\DatabaseInterface($extension);
+        $expect = '';
+        $show_comment = $dbi->getTable(
+            $target_db,
+            $target_table
+        )->getComment();
+        $this->assertEquals(
+            $expect,
+            $show_comment
+        );
+    }
+
+     /**
+     * Test for getCollation
+     *
+     * @return void
+     */
+    public function testGetCollation(){
+        $target_table = 'table1';
+        $target_db = 'pma_test';
+        $tbl_object = new Table($target_db, $target_table);
+        $tbl_object->getStatusInfo(null, true);
+        $extension = new PhpMyAdmin\Dbi\DbiDummy();
+        $dbi = new PhpMyAdmin\DatabaseInterface($extension);
+        $expect = '';
+        $tbl_collation = $dbi->getTable(
+            $target_db,
+            $target_table
+        )->getCollation();
+        $this->assertEquals(
+            $expect,
+            $tbl_collation
+        );
+    }
+
+    /**
+     * Test for getRowFormat
+     *
+     * @return void
+     */
+    public function testGetRowFormat(){
+        $target_table = 'table1';
+        $target_db = 'pma_test';
+        $tbl_object = new Table($target_db, $target_table);
+        $tbl_object->getStatusInfo(null, true);
+        $extension = new PhpMyAdmin\Dbi\DbiDummy();
+        $dbi = new PhpMyAdmin\DatabaseInterface($extension);
+        $expect = '';
+        $row_format = $dbi->getTable(
+            $target_db,
+            $target_table
+        )->getRowFormat();
+        $this->assertEquals(
+            $expect,
+            $row_format
+        );
+    }
+
+    /**
+     * Test for getAutoIncrement
+     *
+     * @return void
+     */
+    public function testGetAutoIncrement(){
+        $target_table = 'table1';
+        $target_db = 'pma_test';
+        $tbl_object = new Table($target_db, $target_table);
+        $tbl_object->getStatusInfo(null, true);
+        $extension = new PhpMyAdmin\Dbi\DbiDummy();
+        $dbi = new PhpMyAdmin\DatabaseInterface($extension);
+        $expect = '';
+        $auto_increment = $dbi->getTable(
+            $target_db,
+            $target_table
+        )->getAutoIncrement();
+        $this->assertEquals(
+            $expect,
+            $auto_increment
+        );
+    }
+
+    /**
+     * Test for getCreateOptions
+     *
+     * @return void
+     */
+    public function testGetCreateOptions(){
+        $target_table = 'table1';
+        $target_db = 'pma_test';
+        $tbl_object = new Table($target_db, $target_table);
+        $tbl_object->getStatusInfo(null, true);
+        $extension = new PhpMyAdmin\Dbi\DbiDummy();
+        $dbi = new PhpMyAdmin\DatabaseInterface($extension);
+        $expect = array('pack_keys' => 'DEFAULT');
+        $create_options = $dbi->getTable(
+            $target_db,
+            $target_table
+        )->getCreateOptions();
+        $this->assertEquals(
+            $expect,
+            $create_options
+        );
+    }
+
 }
 
 /**

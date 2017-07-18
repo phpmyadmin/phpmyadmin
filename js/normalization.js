@@ -19,7 +19,6 @@ function appendHtmlColumnsList()
     $.get(
         "normalization.php",
         {
-            "token": PMA_commonParams.get('token'),
             "ajax_request": true,
             "db": PMA_commonParams.get('db'),
             "table": PMA_commonParams.get('table'),
@@ -40,7 +39,6 @@ function goTo3NFStep1(newTables)
     $.post(
         "normalization.php",
         {
-            "token": PMA_commonParams.get('token'),
             "ajax_request": true,
             "db": PMA_commonParams.get('db'),
             "tables": newTables,
@@ -59,8 +57,14 @@ function goTo3NFStep1(newTables)
             });
             $("#mainContent").find("#newCols").html('');
             $('.tblFooters').html('');
+
             if (data.subText !== "") {
-                $('.tblFooters').html('<input type="button" onClick="processDependencies(\'\', true);" value="' + PMA_messages.strDone + '"/>');
+                $('<input/>')
+                    .attr({type: 'button', value: PMA_messages.strDone})
+                    .on('click', function() {
+                        processDependencies('', true);
+                    })
+                    .appendTo('.tblFooters');
             }
         }
     );
@@ -69,7 +73,6 @@ function goTo2NFStep1() {
     $.post(
         "normalization.php",
         {
-            "token": PMA_commonParams.get('token'),
             "ajax_request": true,
             "db": PMA_commonParams.get('db'),
             "table": PMA_commonParams.get('table'),
@@ -82,7 +85,12 @@ function goTo2NFStep1() {
             $("#mainContent #extra").html(data.extra);
             $("#mainContent #newCols").html('');
             if (data.subText !== '') {
-                $('.tblFooters').html('<input type="submit" value="' + PMA_messages.strDone + '" onclick="processDependencies(\'' + escapeJsString(escapeHtml(data.primary_key)) + '\');">');
+                var doneButton = $('<input />')
+                    .attr({type: 'submit', value: PMA_messages.strDone, })
+                    .on('click', function() {
+                        processDependencies(data.primary_key);
+                    })
+                    .appendTo('.tblFooters');
             } else {
                 if (normalizeto === '3nf') {
                     $("#mainContent #newCols").html(PMA_messages.strToNextStep);
@@ -115,7 +123,6 @@ function goToStep4()
     $.post(
         "normalization.php",
         {
-            "token": PMA_commonParams.get('token'),
             "ajax_request": true,
             "db": PMA_commonParams.get('db'),
             "table": PMA_commonParams.get('table'),
@@ -139,7 +146,6 @@ function goToStep3()
     $.post(
         "normalization.php",
         {
-            "token": PMA_commonParams.get('token'),
             "ajax_request": true,
             "db": PMA_commonParams.get('db'),
             "table": PMA_commonParams.get('table'),
@@ -164,7 +170,6 @@ function goToStep2(extra)
     $.post(
         "normalization.php",
         {
-            "token": PMA_commonParams.get('token'),
             "ajax_request": true,
             "db": PMA_commonParams.get('db'),
             "table": PMA_commonParams.get('table'),
@@ -201,7 +206,7 @@ function goTo2NFFinish(pd)
     for (var dependson in pd) {
         tables[dependson] = $('#extra input[name="' + dependson + '"]').val();
     }
-    datastring = {"token": PMA_commonParams.get('token'),
+    datastring = {
             "ajax_request": true,
             "db": PMA_commonParams.get('db'),
             "table": PMA_commonParams.get('table'),
@@ -248,7 +253,7 @@ function goTo3NFFinish(newTables)
             }
         }
     }
-    datastring = {"token": PMA_commonParams.get('token'),
+    datastring = {
             "ajax_request": true,
             "db": PMA_commonParams.get('db'),
             "newTables":JSON.stringify(newTables),
@@ -296,7 +301,7 @@ function goTo2NFStep2(pd, primary_key)
         extra += '</div>';
     } else {
         extra += '</div>';
-        datastring = {"token": PMA_commonParams.get('token'),
+        datastring = {
             "ajax_request": true,
             "db": PMA_commonParams.get('db'),
             "table": PMA_commonParams.get('table'),
@@ -345,7 +350,7 @@ function goTo3NFStep2(pd, tablesTds)
         extra += '</div>';
     } else {
         extra += '</div>';
-        datastring = {"token": PMA_commonParams.get('token'),
+        datastring = {
             "ajax_request": true,
             "db": PMA_commonParams.get('db'),
             "tables": JSON.stringify(tablesTds),
@@ -437,7 +442,7 @@ function moveRepeatingGroup(repeatingCols) {
         $("input[name=repeatGroupColumn]").focus();
         return false;
     }
-    datastring = {"token": PMA_commonParams.get('token'),
+    datastring = {
         "ajax_request": true,
         "db": PMA_commonParams.get('db'),
         "table": PMA_commonParams.get('table'),
@@ -466,7 +471,7 @@ function moveRepeatingGroup(repeatingCols) {
 }
 AJAX.registerTeardown('normalization.js', function () {
     $("#extra").off("click", "#selectNonAtomicCol");
-    $("#splitGo").unbind('click');
+    $("#splitGo").off('click');
     $('.tblFooters').off("click", "#saveSplit");
     $("#extra").off("click", "#addNewPrimary");
     $(".tblFooters").off("click", "#saveNewPrimary");
@@ -496,7 +501,6 @@ AJAX.registerOnload('normalization.js', function() {
         $.get(
             "normalization.php",
             {
-                "token": PMA_commonParams.get('token'),
                 "ajax_request": true,
                 "db": PMA_commonParams.get('db'),
                 "table": PMA_commonParams.get('table'),
@@ -508,9 +512,18 @@ AJAX.registerOnload('normalization.js', function() {
                     $('#newCols').html(data.message);
                     $('.default_value').hide();
                     $('.enum_notice').hide();
-                    $('.tblFooters').html("<input type='submit' id='saveSplit' value='" + PMA_messages.strSave + "'/>" +
-                        "<input type='submit' id='cancelSplit' value='" + PMA_messages.strCancel + "' " +
-                        "onclick=\"$('#newCols').html('');$(this).parent().html('')\"/>");
+
+                    $('<input />')
+                        .attr({type: 'submit', id: 'saveSplit', value: PMA_messages.strSave})
+                        .appendTo('.tblFooters');
+
+                    var cancelSplitButton = $('<input />')
+                        .attr({type: 'submit', id: 'cancelSplit', value: PMA_messages.strCancel})
+                        .on('click', function() {
+                            $('#newCols').html('');
+                            $(this).parent().html('');
+                        })
+                        .appendTo('.tblFooters');
                 }
             }
         );
@@ -529,7 +542,6 @@ AJAX.registerOnload('normalization.js', function() {
                 $.post(
                     "sql.php",
                     {
-                        "token": PMA_commonParams.get('token'),
                         "ajax_request": true,
                         "db": PMA_commonParams.get('db'),
                         "table": PMA_commonParams.get('table'),
@@ -559,7 +571,6 @@ AJAX.registerOnload('normalization.js', function() {
         $.get(
             "normalization.php",
             {
-                "token": PMA_commonParams.get('token'),
                 "ajax_request": true,
                 "db": PMA_commonParams.get('db'),
                 "table": PMA_commonParams.get('table'),
@@ -570,9 +581,17 @@ AJAX.registerOnload('normalization.js', function() {
                     $('#newCols').html(data.message);
                     $('.default_value').hide();
                     $('.enum_notice').hide();
-                    $('.tblFooters').html("<input type='submit' id='saveNewPrimary' value='" + PMA_messages.strSave + "'/>" +
-                        "<input type='submit' id='cancelSplit' value='" + PMA_messages.strCancel + "' " +
-                        "onclick=\"$('#newCols').html('');$(this).parent().html('')\"/>");
+
+                    $('<input />')
+                        .attr({type: 'submit', id: 'saveNewPrimary', value: PMA_messages.strSave})
+                        .appendTo('.tblFooters');
+                    $('<input />')
+                        .attr({type: 'submit', id: 'cancelSplit', value: PMA_messages.strCancel})
+                        .on('click', function() {
+                            $('#newCols').html('');
+                            $(this).parent().html('');
+                        })
+                        .appendTo('.tblFooters');
                 } else {
                     PMA_ajaxShowMessage(data.error, false);
                 }
@@ -607,7 +626,6 @@ AJAX.registerOnload('normalization.js', function() {
         $.post(
             "sql.php",
             {
-                "token": PMA_commonParams.get('token'),
                 "ajax_request": true,
                 "db": PMA_commonParams.get('db'),
                 "table": PMA_commonParams.get('table'),
@@ -637,8 +655,20 @@ AJAX.registerOnload('normalization.js', function() {
                 '( ' + escapeHtml(primary_key.toString()) + ', <input type="text" name="repeatGroupColumn" placeholder="' + PMA_messages.strNewColumnPlaceholder + '" value="' + escapeHtml(newColName) + '">)' +
                 '</ol>';
             $("#newCols").html(confirmStr);
-            $('.tblFooters').html('<input type="submit" value="' + PMA_messages.strCancel + '" onclick="$(\'#newCols\').html(\'\');$(\'#extra input[type=checkbox]\').prop(\'checked\', false)"/>' +
-                '<input type="submit" value="' + PMA_messages.strGo + '" onclick="moveRepeatingGroup(\'' + escapeJsString(escapeHtml(repeatingCols)) + '\')"/>');
+
+            $('<input />')
+                .attr({type: 'submit', value: PMA_messages.strCancel})
+                .on('click', function() {
+                    $('#newCols').html('');
+                    $('#extra input[type=checkbox]').prop('checked', false);
+                })
+                .appendTo('.tblFooters');
+            $('<input />')
+                .attr({type: 'submit', value: PMA_messages.strGo})
+                .on('click', function() {
+                    moveRepeatingGroup(repeatingCols);
+                })
+                .appendTo('.tblFooters');
         }
     });
     $("#mainContent p").on("click", "#createPrimaryKey", function(event) {
@@ -647,7 +677,6 @@ AJAX.registerOnload('normalization.js', function() {
             server:  PMA_commonParams.get('server'),
             db: PMA_commonParams.get('db'),
             table: PMA_commonParams.get('table'),
-            token: PMA_commonParams.get('token'),
             added_fields: 1,
             add_fields:1,
             index: {Key_name:'PRIMARY'},
@@ -684,7 +713,6 @@ AJAX.registerOnload('normalization.js', function() {
         $.post(
         "normalization.php",
         {
-            "token": PMA_commonParams.get('token'),
             "ajax_request": true,
             "db": PMA_commonParams.get('db'),
             "table": PMA_commonParams.get('table'),

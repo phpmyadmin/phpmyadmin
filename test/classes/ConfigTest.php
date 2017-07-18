@@ -1,7 +1,7 @@
 <?php
 /* vim: set expandtab sw=4 ts=4 sts=4: */
 /**
- * Test for PMA\libraries\Config class
+ * Test for PhpMyAdmin\Config class
  *
  * @package PhpMyAdmin-test
  * @group current
@@ -10,13 +10,13 @@
 /*
  * Include to test.
  */
-use PMA\libraries\Theme;
+use PhpMyAdmin\Theme;
 
 require_once 'libraries/relation.lib.php';
 require_once 'test/PMATestCase.php';
 
 /**
- * Tests behaviour of PMA\libraries\Config class
+ * Tests behaviour of PhpMyAdmin\Config class
  *
  * @package PhpMyAdmin-test
  */
@@ -28,7 +28,7 @@ class ConfigTest extends PMATestCase
     protected $backupGlobals = false;
 
     /**
-     * @var PMA\libraries\Config
+     * @var PhpMyAdmin\Config
      */
     protected $object;
 
@@ -45,14 +45,14 @@ class ConfigTest extends PMATestCase
      */
     protected function setUp()
     {
-        $this->object = new PMA\libraries\Config;
+        $this->object = new PhpMyAdmin\Config;
         $GLOBALS['server'] = 0;
         $_SESSION['is_git_revision'] = true;
-        $GLOBALS['PMA_Config'] = new PMA\libraries\Config(CONFIG_FILE);
+        $GLOBALS['PMA_Config'] = new PhpMyAdmin\Config(CONFIG_FILE);
         $GLOBALS['cfg']['ProxyUrl'] = '';
 
         //for testing file permissions
-        $this->permTestObj = new PMA\libraries\Config("./config.sample.inc.php");
+        $this->permTestObj = new PhpMyAdmin\Config("./config.sample.inc.php");
     }
 
     /**
@@ -78,9 +78,8 @@ class ConfigTest extends PMATestCase
     {
         $this->object->checkSystem();
 
-        $this->assertNotNull($this->object->get('PMA_VERSION'));
-        $this->assertNotEmpty($this->object->get('PMA_THEME_VERSION'));
-        $this->assertNotEmpty($this->object->get('PMA_THEME_GENERATION'));
+        $this->assertNotEmpty($this->object->get('PMA_VERSION'));
+        $this->assertNotEmpty($this->object->get('PMA_MAJOR_VERSION'));
     }
 
     /**
@@ -92,12 +91,12 @@ class ConfigTest extends PMATestCase
     {
         $this->assertContains(
             '<form name="form_fontsize_selection" id="form_fontsize_selection"',
-            PMA\libraries\Config::getFontsizeForm()
+            PhpMyAdmin\Config::getFontsizeForm()
         );
 
         $this->assertContains(
             '<label for="select_fontsize">',
-            PMA\libraries\Config::getFontsizeForm()
+            PhpMyAdmin\Config::getFontsizeForm()
         );
 
         //test getFontsizeOptions for "em" unit
@@ -106,44 +105,44 @@ class ConfigTest extends PMATestCase
         $_COOKIE['pma_fontsize'] = "10em";
         $this->assertContains(
             '<option value="7em"',
-            PMA\libraries\Config::getFontsizeForm()
+            PhpMyAdmin\Config::getFontsizeForm()
         );
         $this->assertContains(
             '<option value="8em"',
-            PMA\libraries\Config::getFontsizeForm()
+            PhpMyAdmin\Config::getFontsizeForm()
         );
 
         //test getFontsizeOptions for "pt" unit
         $_COOKIE['pma_fontsize'] = "10pt";
         $this->assertContains(
             '<option value="2pt"',
-            PMA\libraries\Config::getFontsizeForm()
+            PhpMyAdmin\Config::getFontsizeForm()
         );
         $this->assertContains(
             '<option value="4pt"',
-            PMA\libraries\Config::getFontsizeForm()
+            PhpMyAdmin\Config::getFontsizeForm()
         );
 
         //test getFontsizeOptions for "px" unit
         $_COOKIE['pma_fontsize'] = "10px";
         $this->assertContains(
             '<option value="5px"',
-            PMA\libraries\Config::getFontsizeForm()
+            PhpMyAdmin\Config::getFontsizeForm()
         );
         $this->assertContains(
             '<option value="6px"',
-            PMA\libraries\Config::getFontsizeForm()
+            PhpMyAdmin\Config::getFontsizeForm()
         );
 
         //test getFontsizeOptions for unknown unit
         $_COOKIE['pma_fontsize'] = "10abc";
         $this->assertContains(
             '<option value="7abc"',
-            PMA\libraries\Config::getFontsizeForm()
+            PhpMyAdmin\Config::getFontsizeForm()
         );
         $this->assertContains(
             '<option value="8abc"',
-            PMA\libraries\Config::getFontsizeForm()
+            PhpMyAdmin\Config::getFontsizeForm()
         );
         unset($_COOKIE['pma_fontsize']);
         //rollback the fontsize setting
@@ -624,8 +623,7 @@ class ConfigTest extends PMATestCase
 
         $defines = array(
             'PMA_VERSION',
-            'PMA_THEME_VERSION',
-            'PMA_THEME_GENERATION',
+            'PMA_MAJOR_VERSION',
             'PMA_IS_WINDOWS',
             'PMA_IS_GD2',
             'PMA_USR_OS',
@@ -834,7 +832,6 @@ class ConfigTest extends PMATestCase
     public function testGetThemeUniqueValue()
     {
 
-
         $partial_sum = (
             PHPUnit_Framework_Assert::readAttribute($this->object, 'source_mtime') +
             PHPUnit_Framework_Assert::readAttribute(
@@ -842,8 +839,8 @@ class ConfigTest extends PMATestCase
                 'default_source_mtime'
             ) +
             $this->object->get('user_preferences_mtime') +
-            $_SESSION['PMA_Theme']->mtime_info +
-            $_SESSION['PMA_Theme']->filesize_info
+            $GLOBALS['PMA_Theme']->mtime_info +
+            $GLOBALS['PMA_Theme']->filesize_info
         );
 
         $this->object->set('fontsize', 10);

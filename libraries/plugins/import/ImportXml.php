@@ -10,9 +10,10 @@
 
 namespace PMA\libraries\plugins\import;
 
-use PMA\libraries\properties\plugins\ImportPluginProperties;
-use PMA;
+use PhpMyAdmin\Message;
 use PMA\libraries\plugins\ImportPlugin;
+use PMA\libraries\properties\plugins\ImportPluginProperties;
+use PhpMyAdmin\Util;
 use SimpleXMLElement;
 
 /**
@@ -105,7 +106,7 @@ class ImportXml extends ImportPlugin
          * The XML was malformed
          */
         if ($xml === false) {
-            PMA\libraries\Message::error(
+            Message::error(
                 __(
                     'The XML file specified was either malformed or incomplete.'
                     . ' Please correct the issue and try again.'
@@ -170,7 +171,7 @@ class ImportXml extends ImportPlugin
          * The XML was malformed
          */
         if ($db_name === null) {
-            PMA\libraries\Message::error(
+            Message::error(
                 __(
                     'The XML file specified was either malformed or incomplete.'
                     . ' Please correct the issue and try again.'
@@ -208,7 +209,7 @@ class ImportXml extends ImportPlugin
                      */
                     $attrs = $val2->attributes();
                     $create[] = "USE "
-                        . PMA\libraries\Util::backquote(
+                        . Util::backquote(
                             $attrs["name"]
                         );
 

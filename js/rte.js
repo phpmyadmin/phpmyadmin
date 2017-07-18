@@ -404,8 +404,7 @@ RTE.COMMON = {
             var $msg = PMA_ajaxShowMessage(PMA_messages.strProcessingRequest);
             var params = {
                 'is_js_confirmed': 1,
-                'ajax_request': true,
-                'token': PMA_commonParams.get('token')
+                'ajax_request': true
             };
             $.post(url, params, function (data) {
                 if (data.success === true) {
@@ -483,8 +482,7 @@ RTE.COMMON = {
                 var $curr_row = $anchor.parents('tr');
                 var params = {
                     'is_js_confirmed': 1,
-                    'ajax_request': true,
-                    'token': PMA_commonParams.get('token')
+                    'ajax_request': true
                 };
                 $.post($anchor.attr('href'), params, function (data) {
                     returnCount++;
@@ -833,8 +831,7 @@ RTE.ROUTINE = {
          */
         var $msg = PMA_ajaxShowMessage();
         var params = {
-            'ajax_request': true,
-            'token': PMA_commonParams.get('token')
+            'ajax_request': true
         };
         $.post($this.attr('href'), params, function (data) {
             if (data.success === true) {

@@ -578,7 +578,8 @@ function PMA_makegrid(t, enableResize, enableReorder, enableVisib, enableGridEdi
                     var $cell = $(cell);
 
                     if ('string' === $cell.attr('data-type') ||
-                        'blob' === $cell.attr('data-type')
+                        'blob' === $cell.attr('data-type') ||
+                        'json' === $cell.attr('data-type')
                     ) {
                         g.cEdit = g.cEditTextarea;
                     } else {
@@ -600,6 +601,9 @@ function PMA_makegrid(t, enableResize, enableReorder, enableVisib, enableGridEdi
                         });
                     // fill the cell edit with text from <td>
                     var value = PMA_getCellValue(cell);
+                    if($cell.attr('data-type') == 'json'){
+                        value = JSON.stringify(JSON.parse(value), null, 4);
+                    }
                     $(g.cEdit).find('.edit_box').val(value);
 
                     g.currentEditCell = cell;
@@ -785,7 +789,7 @@ function PMA_makegrid(t, enableResize, enableReorder, enableVisib, enableGridEdi
                 g.wasEditedCellNull = false;
                 if ($td.is(':not(.not_null)')) {
                     // append a null checkbox
-                    $editArea.append('<div class="null_div">Null:<input type="checkbox"></div>');
+                    $editArea.append('<div class="null_div"><label>Null:<input type="checkbox"></label></div>');
 
                     var $checkbox = $editArea.find('.null_div input');
                     // check if current <td> is NULL
@@ -862,7 +866,6 @@ function PMA_makegrid(t, enableResize, enableReorder, enableVisib, enableGridEdi
                         'db' : g.db,
                         'table' : g.table,
                         'column' : field_name,
-                        'token' : g.token,
                         'curr_value' : relation_curr_value,
                         'relation_key_or_display_column' : relation_key_or_display_column
                     };
@@ -910,7 +913,6 @@ function PMA_makegrid(t, enableResize, enableReorder, enableVisib, enableGridEdi
                         'db' : g.db,
                         'table' : g.table,
                         'column' : field_name,
-                        'token' : g.token,
                         'curr_value' : curr_value
                     };
                     g.lastXHR = $.post('sql.php', post_params, function (data) {
@@ -939,14 +941,13 @@ function PMA_makegrid(t, enableResize, enableReorder, enableVisib, enableGridEdi
                         'db' : g.db,
                         'table' : g.table,
                         'column' : field_name,
-                        'token' : g.token,
                         'curr_value' : curr_value
                     };
 
                     // if the data is truncated, get the full data
                     if ($td.is('.truncated')) {
                         post_params.get_full_values = true;
-                        post_params.where_clause = PMA_urldecode(where_clause);
+                        post_params.where_clause = where_clause;
                     }
 
                     g.lastXHR = $.post('sql.php', post_params, function (data) {
@@ -986,11 +987,10 @@ function PMA_makegrid(t, enableResize, enableReorder, enableVisib, enableGridEdi
                         /**
                          * @var sql_query   String containing the SQL query used to retrieve value of truncated/transformed data
                          */
-                        var sql_query = 'SELECT `' + field_name + '` FROM `' + g.table + '` WHERE ' + PMA_urldecode(where_clause);
+                        var sql_query = 'SELECT `' + field_name + '` FROM `' + g.table + '` WHERE ' + where_clause;
 
                         // Make the Ajax call and get the data, wrap it and insert it
                         g.lastXHR = $.post('sql.php', {
-                            'token' : g.token,
                             'server' : g.server,
                             'db' : g.db,
                             'ajax_request' : true,
@@ -1069,7 +1069,7 @@ function PMA_makegrid(t, enableResize, enableReorder, enableVisib, enableGridEdi
                     // unbind the mousedown event to prevent the problem of
                     // datepicker getting closed, needs to be checked for any
                     // change in names when updating
-                    $(document).unbind('mousedown', $.datepicker._checkExternalClick);
+                    $(document).off('mousedown', $.datepicker._checkExternalClick);
 
                     //move ui-datepicker-div inside cEdit div
                     var datepicker_div = $('#ui-datepicker-div');
@@ -1162,7 +1162,7 @@ function PMA_makegrid(t, enableResize, enableReorder, enableVisib, enableGridEdi
                 if (typeof where_clause === 'undefined') {
                     where_clause = '';
                 }
-                full_where_clause.push(PMA_urldecode(where_clause));
+                full_where_clause.push(where_clause);
                 var condition_array = JSON.parse($tr.find('.condition_array').val());
 
                 /**
@@ -1250,7 +1250,6 @@ function PMA_makegrid(t, enableResize, enableReorder, enableVisib, enableGridEdi
                     new_clause += field + ' ' + condition_array[field] + ' AND ';
                 }
                 new_clause = new_clause.substring(0, new_clause.length - 5); // remove the last AND
-                new_clause = PMA_urlencode(new_clause);
                 $tr.data('new_clause', new_clause);
                 // save condition_array
                 $tr.find('.condition_array').val(JSON.stringify(condition_array));
@@ -1271,7 +1270,6 @@ function PMA_makegrid(t, enableResize, enableReorder, enableVisib, enableGridEdi
              */
             var post_params = {'ajax_request' : true,
                             'sql_query' : full_sql_query,
-                            'token' : g.token,
                             'server' : g.server,
                             'db' : g.db,
                             'table' : g.table,
@@ -1321,8 +1319,8 @@ function PMA_makegrid(t, enableResize, enableReorder, enableVisib, enableGridEdi
                                 var new_clause = $(this).data('new_clause');
                                 var $where_clause = $(this).find('.where_clause');
                                 var old_clause = $where_clause.val();
-                                var decoded_old_clause = PMA_urldecode(old_clause);
-                                var decoded_new_clause = PMA_urldecode(new_clause);
+                                var decoded_old_clause = old_clause;
+                                var decoded_new_clause = new_clause;
 
                                 $where_clause.val(new_clause);
                                 // update Edit, Copy, and Delete links also
@@ -1331,8 +1329,8 @@ function PMA_makegrid(t, enableResize, enableReorder, enableVisib, enableGridEdi
                                     // update delete confirmation in Delete link
                                     if ($(this).attr('href').indexOf('DELETE') > -1) {
                                         $(this).removeAttr('onclick')
-                                            .unbind('click')
-                                            .bind('click', function () {
+                                            .off('click')
+                                            .on('click', function () {
                                                 return confirmLink(this, 'DELETE FROM `' + g.db + '`.`' + g.table + '` WHERE ' +
                                                        decoded_new_clause + (is_unique ? '' : ' LIMIT 1'));
                                             });
@@ -1446,7 +1444,7 @@ function PMA_makegrid(t, enableResize, enableReorder, enableVisib, enableGridEdi
                     // selection list will always be updated to the edit box
                     this_field_params[field_name] = $(g.cEdit).find('.edit_box').val();
                 } else if ($this_field.hasClass('hex')) {
-                    if ($(g.cEdit).find('.edit_box').val().match(/^[a-f0-9]*$/i) !== null) {
+                    if ($(g.cEdit).find('.edit_box').val().match(/^(0x)?[a-f0-9]*$/i) !== null) {
                         this_field_params[field_name] = $(g.cEdit).find('.edit_box').val();
                     } else {
                         var hexError = '<div class="error">' + PMA_messages.strEnterValidHex + '</div>';
@@ -1640,7 +1638,7 @@ function PMA_makegrid(t, enableResize, enableReorder, enableVisib, enableGridEdi
             $(g.gDiv).append(g.cCpy);
 
             // prevent default "dragstart" event when dragging a link
-            $(g.t).find('th a').bind('dragstart', function () {
+            $(g.t).find('th a').on('dragstart', function () {
                 return false;
             });
 
@@ -1770,14 +1768,13 @@ function PMA_makegrid(t, enableResize, enableReorder, enableVisib, enableGridEdi
             if (typeof where_clause === 'undefined') {
                 where_clause = '';
             }
-            where_clause = PMA_urldecode(where_clause);
             var found = false;
             var $found_row;
             var $prev_row;
             var j = 0;
 
             $this_field.parents('tr').first().parents('tbody').children().each(function(){
-                if (PMA_urldecode($(this).find('.where_clause').val()) == where_clause) {
+                if ($(this).find('.where_clause').val() == where_clause) {
                     found = true;
                     $found_row = $(this);
                 }
@@ -1814,14 +1811,13 @@ function PMA_makegrid(t, enableResize, enableReorder, enableVisib, enableGridEdi
             if (typeof where_clause === 'undefined') {
                 where_clause = '';
             }
-            where_clause = PMA_urldecode(where_clause);
             var found = false;
             var $found_row;
             var $next_row;
             var j = 0;
             var next_row_found = false;
             $this_field.parents('tr').first().parents('tbody').children().each(function(){
-                if (PMA_urldecode($(this).find('.where_clause').val()) == where_clause) {
+                if ($(this).find('.where_clause').val() == where_clause) {
                     found = true;
                     $found_row = $(this);
                 }
@@ -1862,12 +1858,11 @@ function PMA_makegrid(t, enableResize, enableReorder, enableVisib, enableGridEdi
             if (typeof where_clause === 'undefined') {
                 where_clause = '';
             }
-            where_clause = PMA_urldecode(where_clause);
             var found = false;
             var $found_row;
             var j = 0;
             $this_field.parents('tr').first().parents('tbody').children().each(function(){
-                if (PMA_urldecode($(this).find('.where_clause').val()) == where_clause) {
+                if ($(this).find('.where_clause').val() == where_clause) {
                     found = true;
                     $found_row = $(this);
                 }
@@ -1904,12 +1899,11 @@ function PMA_makegrid(t, enableResize, enableReorder, enableVisib, enableGridEdi
             if (typeof where_clause === 'undefined') {
                 where_clause = '';
             }
-            where_clause = PMA_urldecode(where_clause);
             var found = false;
             var $found_row;
             var j = 0;
             $this_field.parents('tr').first().parents('tbody').children().each(function(){
-                if (PMA_urldecode($(this).find('.where_clause').val()) == where_clause) {
+                if ($(this).find('.where_clause').val() == where_clause) {
                     found = true;
                     $found_row = $(this);
                 }
@@ -1972,7 +1966,7 @@ function PMA_makegrid(t, enableResize, enableReorder, enableVisib, enableGridEdi
 
             // adjust g.cEditStd
             g.cEditStd.className = 'cEdit';
-            $(g.cEditStd).html('<input class="edit_box" rows="1" ></input><div class="edit_area" />');
+            $(g.cEditStd).html('<input class="edit_box" rows="1" /><div class="edit_area" />');
             $(g.cEditStd).hide();
 
             // adjust g.cEdit
@@ -2084,7 +2078,8 @@ function PMA_makegrid(t, enableResize, enableReorder, enableVisib, enableGridEdi
                 // hide edit cell if the click is not fromDat edit area
                 if ($(e.target).parents().index($(g.cEdit)) == -1 &&
                     !$(e.target).parents('.ui-datepicker-header').length &&
-                    !$('.browse_foreign_modal.ui-dialog:visible').length
+                    !$('.browse_foreign_modal.ui-dialog:visible').length &&
+                    !$(e.target).hasClass('error')
                 ) {
                     g.hideEditCell();
                 }
@@ -2099,7 +2094,7 @@ function PMA_makegrid(t, enableResize, enableReorder, enableVisib, enableGridEdi
                 g.hideEditCell();
                 g.postEditedCell();
             });
-            $(window).bind('beforeunload', function () {
+            $(window).on('beforeunload', function () {
                 if (g.isCellEdited) {
                     return g.saveCellWarning;
                 }
@@ -2170,7 +2165,6 @@ function PMA_makegrid(t, enableResize, enableReorder, enableVisib, enableGridEdi
 
     // assign common hidden inputs
     var $common_hidden_inputs = $(g.o).find('div.common_hidden_inputs');
-    g.token = $common_hidden_inputs.find('input[name=token]').val();
     g.server = $common_hidden_inputs.find('input[name=server]').val();
     g.db = $common_hidden_inputs.find('input[name=db]').val();
     g.table = $common_hidden_inputs.find('input[name=table]').val();
@@ -2260,16 +2254,12 @@ function PMA_makegrid(t, enableResize, enableReorder, enableVisib, enableGridEdi
         if (prevent) {
             return this.each(function () {
                 if (is_msie || is_safari) {
-                    $(this).bind('selectstart', function () {
-                        return false;
-                    });
+                    $(this).on('selectstart', false);
                 } else if (is_firefox) {
                     $(this).css('MozUserSelect', 'none');
                     $('body').trigger('focus');
                 } else if (is_opera) {
-                    $(this).bind('mousedown', function () {
-                        return false;
-                    });
+                    $(this).on('mousedown', false);
                 } else {
                     $(this).attr('unselectable', 'on');
                 }
@@ -2277,11 +2267,11 @@ function PMA_makegrid(t, enableResize, enableReorder, enableVisib, enableGridEdi
         } else {
             return this.each(function () {
                 if (is_msie || is_safari) {
-                    $(this).unbind('selectstart');
+                    $(this).off('selectstart');
                 } else if (is_firefox) {
                     $(this).css('MozUserSelect', 'inherit');
                 } else if (is_opera) {
-                    $(this).unbind('mousedown');
+                    $(this).off('mousedown');
                 } else {
                     $(this).removeAttr('unselectable');
                 }

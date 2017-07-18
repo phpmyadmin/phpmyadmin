@@ -16,7 +16,7 @@ CodeMirror.sqlLint = function(text, updateLinting, options, cm) {
                 to: CodeMirror.Pos(
                     response[idx].toLine, response[idx].toColumn
                 ),
-                message: response[idx].message,
+                messageHTML: response[idx].message,
                 severity : response[idx].severity
             });
         }
@@ -30,7 +30,6 @@ CodeMirror.sqlLint = function(text, updateLinting, options, cm) {
         dataType: 'json',
         data: {
             sql_query: text,
-            token: PMA_commonParams.get('token'),
             server: PMA_commonParams.get('server'),
             options: options.lintOptions,
             no_history: true,

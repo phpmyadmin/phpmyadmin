@@ -5,9 +5,10 @@
  *
  * @package PhpMyAdmin
  */
-use PMA\libraries\config\ConfigFile;
-use PMA\libraries\Message;
-use PMA\libraries\URL;
+use PhpMyAdmin\Config\ConfigFile;
+use PhpMyAdmin\Core;
+use PhpMyAdmin\Message;
+use PhpMyAdmin\Url;
 
 if (! defined('PHPMYADMIN')) {
     exit;
@@ -60,8 +61,8 @@ function PMA_loadUserprefs()
             'type' => 'session');
     }
     // load configuration from pmadb
-    $query_table = PMA\libraries\Util::backquote($cfgRelation['db']) . '.'
-        . PMA\libraries\Util::backquote($cfgRelation['userconfig']);
+    $query_table = PhpMyAdmin\Util::backquote($cfgRelation['db']) . '.'
+        . PhpMyAdmin\Util::backquote($cfgRelation['userconfig']);
     $query = 'SELECT `config_data`, UNIX_TIMESTAMP(`timevalue`) ts'
         . ' FROM ' . $query_table
         . ' WHERE `username` = \''
@@ -80,7 +81,7 @@ function PMA_loadUserprefs()
  *
  * @param array $config_array configuration array
  *
- * @return true|PMA\libraries\Message
+ * @return true|PhpMyAdmin\Message
  */
 function PMA_saveUserprefs(array $config_array)
 {
@@ -101,8 +102,8 @@ function PMA_saveUserprefs(array $config_array)
     }
 
     // save configuration to pmadb
-    $query_table = PMA\libraries\Util::backquote($cfgRelation['db']) . '.'
-        . PMA\libraries\Util::backquote($cfgRelation['userconfig']);
+    $query_table = PhpMyAdmin\Util::backquote($cfgRelation['db']) . '.'
+        . PhpMyAdmin\Util::backquote($cfgRelation['userconfig']);
     $query = 'SELECT `username` FROM ' . $query_table
         . ' WHERE `username` = \''
         . $GLOBALS['dbi']->escapeString($cfgRelation['user'])
@@ -171,7 +172,7 @@ function PMA_applyUserprefs(array $config_data)
         if (! isset($whitelist[$path]) || isset($blacklist[$path])) {
             continue;
         }
-        PMA_arrayWrite($path, $cfg, $value);
+        Core::arrayWrite($path, $cfg, $value);
     }
     return $cfg;
 }
@@ -256,8 +257,8 @@ function PMA_userprefsRedirect($file_name,
     if ($hash) {
         $hash = '#' . urlencode($hash);
     }
-    PMA_sendHeaderLocation('./' . $file_name
-        . URL::getCommonRaw($url_params) . $hash
+    Core::sendHeaderLocation('./' . $file_name
+        . Url::getCommonRaw($url_params) . $hash
     );
 }
 
@@ -277,14 +278,12 @@ function PMA_userprefsAutoloadGetHeader()
     }
 
     $script_name = basename(basename($GLOBALS['PMA_PHP_SELF']));
-    $return_url = htmlspecialchars(
-        $script_name . '?' . http_build_query($_GET, '', '&')
-    );
+    $return_url = $script_name . '?' . http_build_query($_GET, '', '&');
 
-    return PMA\libraries\Template::get('prefs_autoload')
+    return PhpMyAdmin\Template::get('prefs_autoload')
         ->render(
             array(
-                'hiddenInputs' => URL::getHiddenInputs(),
+                'hidden_inputs' => Url::getHiddenInputs(),
                 'return_url' => $return_url,
             )
         );

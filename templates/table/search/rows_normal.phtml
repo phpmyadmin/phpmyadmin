@@ -8,7 +8,7 @@ for (
     <tr class="noclick">
         <!-- If 'Function' column is present trying to change comment -->
         <?php if ($geomColumnFlag): ?>
-            <?= PMA\libraries\Template::get('table/search/geom_func')
+            <?= PhpMyAdmin\Template::get('table/search/geom_func')
                 ->render(array(
                     'column_index' => $column_index,
                     'columnTypes' => $columnTypes,

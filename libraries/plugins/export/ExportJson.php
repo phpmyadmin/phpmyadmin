@@ -8,13 +8,13 @@
  */
 namespace PMA\libraries\plugins\export;
 
-use PMA\libraries\properties\options\items\BoolPropertyItem;
+use PhpMyAdmin\DatabaseInterface;
 use PMA\libraries\plugins\ExportPlugin;
 use PMA\libraries\properties\plugins\ExportPluginProperties;
-use PMA\libraries\properties\options\items\HiddenPropertyItem;
 use PMA\libraries\properties\options\groups\OptionsPropertyMainGroup;
 use PMA\libraries\properties\options\groups\OptionsPropertyRootGroup;
-use PMA;
+use PMA\libraries\properties\options\items\BoolPropertyItem;
+use PMA\libraries\properties\options\items\HiddenPropertyItem;
 
 /**
  * Handles the export for the JSON format
@@ -236,7 +236,7 @@ class ExportJson extends ExportPlugin
         $result = $GLOBALS['dbi']->query(
             $sql_query,
             null,
-            PMA\libraries\DatabaseInterface::QUERY_UNBUFFERED
+            DatabaseInterface::QUERY_UNBUFFERED
         );
         $columns_cnt = $GLOBALS['dbi']->numFields($result);
 

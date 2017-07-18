@@ -1,7 +1,7 @@
 <?php
 /* vim: set expandtab sw=4 ts=4 sts=4: */
 /**
- ** Test for PMA\libraries\Util::expandUserString from Util.php
+ ** Test for PhpMyAdmin\Util::expandUserString from Util.php
  *
  * @package PhpMyAdmin-test
  * @group common.lib-tests
@@ -14,7 +14,7 @@
 
 
 /**
- ** Test for PMA\libraries\Util::expandUserString function.
+ ** Test for PhpMyAdmin\Util::expandUserString function.
  *
  * @package PhpMyAdmin-test
  */
@@ -28,7 +28,7 @@ class PMA_ExpandUserString_Test extends PHPUnit_Framework_TestCase
      */
     public function setup()
     {
-        $GLOBALS['PMA_Config'] = new PMA\libraries\Config();
+        $GLOBALS['PMA_Config'] = new PhpMyAdmin\Config();
         $GLOBALS['PMA_Config']->enableBc();
         $GLOBALS['cfg'] = array(
             'Server' => array(
@@ -54,7 +54,7 @@ class PMA_ExpandUserString_Test extends PHPUnit_Framework_TestCase
     {
         $out = str_replace('PMA_VERSION', PMA_VERSION, $out);
         $this->assertEquals(
-            $out, PMA\libraries\Util::expandUserString($in)
+            $out, PhpMyAdmin\Util::expandUserString($in)
         );
     }
 
@@ -73,7 +73,7 @@ class PMA_ExpandUserString_Test extends PHPUnit_Framework_TestCase
         $out = str_replace('PMA_VERSION', PMA_VERSION, $out);
         $this->assertEquals(
             htmlspecialchars($out),
-            PMA\libraries\Util::expandUserString(
+            PhpMyAdmin\Util::expandUserString(
                 $in, 'htmlspecialchars'
             )
         );
