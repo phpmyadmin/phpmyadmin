@@ -116,8 +116,8 @@
      * The HTML support is patched, submitted upstream at
      * https://github.com/codemirror/CodeMirror/pull/4861
      */
-    if (typeof ann.message_html != 'undefined') {
-        tip.innerHTML = ann.message_html;
+    if (typeof ann.messageHTML != 'undefined') {
+        tip.innerHTML = ann.messageHTML;
     } else {
         tip.appendChild(document.createTextNode(ann.message));
     }
