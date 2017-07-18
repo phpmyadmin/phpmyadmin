@@ -474,6 +474,19 @@ if (@extension_loaded('mbstring') && !empty(@ini_get('mbstring.func_overload')))
     );
 }
 
+/**
+ * The ini_set and ini_get functions can be disabled using
+ * disable_functions but we're relying quite a lot of them.
+ */
+if (! function_exists('ini_get') || ! function_exists('ini_set')) {
+    PMA_fatalError(
+        __(
+            'You have disabled ini_get and/or ini_set in php.ini. '
+            . 'This option is incompatible with phpMyAdmin!'
+        )
+    );
+}
+
 /******************************************************************************/
 /* setup servers                                       LABEL_setup_servers    */
 
