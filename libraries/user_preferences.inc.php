@@ -33,6 +33,14 @@ $content = PhpMyAdmin\Util::getHtmlTab(
         'text' => __('Manage your settings')
     )
 ) . "\n";
+
+$content .= PhpMyAdmin\Util::getHtmlTab(
+    array(
+        'link' => 'setup2FA.php',
+        'text' => __('Setup 2-factor authentication')
+    )
+) . "\n";
+
 $script_name = basename($GLOBALS['PMA_PHP_SELF']);
 foreach (array_keys($forms) as $formset) {
     $tab = array(

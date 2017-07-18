@@ -255,6 +255,7 @@ if (isset($_COOKIE)) {
  * include session handling after the globals, to prevent overwriting
  */
 Session::setUp($GLOBALS['PMA_Config'], $GLOBALS['error_handler']);
+require_once './libraries/session.inc.php';
 
 /**
  * init some variables LABEL_variables_init
@@ -665,6 +666,12 @@ if (! defined('PMA_MINIMUM_COMMON')) {
         $auth_plugin = new $fqnAuthClass($plugin_manager);
 
         if (! $auth_plugin->authCheck()) {
+            if (isset($_SESSION['2FAEnabled'])
+                && $_SESSION['2FAEnabled']
+                && (!isset($_SESSION['2FAVerified']) || !$_SESSION['2FAVerified'])
+            ) {
+                $auth_plugin->auth2FA();
+            }
             /* Force generating of new session on login */
             Session::secure();
             $auth_plugin->auth();

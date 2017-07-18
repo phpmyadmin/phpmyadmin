@@ -49,4 +49,5 @@ foreach ($hosts as $host) {
     $cfg['Servers'][$i]['central_columns'] = 'pma__central_columns';
     $cfg['Servers'][$i]['designer_settings'] = 'pma__designer_settings';
     $cfg['Servers'][$i]['export_templates'] = 'pma__export_templates';
+    $cfg['Servers'][$i]['2fa_secrets'] = 'pma__2fa_secrets';
 }

@@ -12,4 +12,5 @@ User Guide
     charts
     import_export
     themes
+    2-factor-auth
     other

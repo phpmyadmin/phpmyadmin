@@ -503,6 +503,15 @@ $cfg['Servers'][$i]['designer_settings'] = '';
 $cfg['Servers'][$i]['export_templates'] = '';
 
 /**
+ * table to store 2-factor authentication secrets.
+ *   - leave blank to disable 2-factor authentication.
+ *     SUGGESTED: 'pma__2fa_secrets'
+ *
+ * @global string $cfg['Servers'][$i]['2fa_secrets']
+ */
+$cfg['Servers'][$i]['2fa_secrets'] = '';
+
+/**
  * Maximum number of records saved in $cfg['Servers'][$i]['table_uiprefs'] table.
  *
  * In case where tables in databases is modified (e.g. dropped or renamed),
