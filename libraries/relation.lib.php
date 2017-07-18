@@ -350,6 +350,17 @@ function PMA_getRelationsParamDiagnostic($cfgRelation)
             'exporttemplateswork',
             $messages
         );
+        $retval .= PMA_getDiagMessageForParameter(
+            'progress',
+            isset($cfgRelation['progress']),
+            $messages,
+            'progress'
+        );
+        $retval .= PMA_getDiagMessageForFeature(
+            __('Saving progress'),
+            'progresswork',
+            $messages
+        );
         $retval .= '</table>' . "\n";
 
         if (! $cfgRelation['allworks']) {
@@ -474,6 +485,7 @@ function PMA_checkRelationsParam()
         'centralcolumnswork' => 'central_columns',
         'designersettingswork' => 'designer_settings',
         'exporttemplateswork' => 'export_templates',
+        'progresswork' => 'progress',
     );
 
     foreach ($workToTable as $work => $table) {
@@ -558,6 +570,8 @@ function PMA_checkRelationsParam()
             $cfgRelation['designer_settings'] = $curr_table[0];
         } elseif ($curr_table[0] == $GLOBALS['cfg']['Server']['export_templates']) {
             $cfgRelation['export_templates']    = $curr_table[0];
+        } elseif ($curr_table[0] == $GLOBALS['cfg']['Server']['progress']) {
+            $cfgRelation['progress']    = $curr_table[0];
         }
     } // end while
     $GLOBALS['dbi']->freeResult($tab_rs);
@@ -631,6 +645,10 @@ function PMA_checkRelationsParam()
 
     if (isset($cfgRelation['export_templates'])) {
         $cfgRelation['exporttemplateswork']      = true;
+    }
+
+    if (isset($cfgRelation['progress'])) {
+        $cfgRelation['progresswork']      = true;
     }
 
     $allWorks = true;
@@ -1925,6 +1943,7 @@ function PMA_fixPMATables($db, $create = true)
         'pma__central_columns' => 'central_columns',
         'pma__designer_settings' => 'designer_settings',
         'pma__export_templates' => 'export_templates',
+        'pma__progress' => 'progress',
     );
 
     $existingTables = $GLOBALS['dbi']->getTables($db, $GLOBALS['controllink']);
@@ -2079,6 +2098,7 @@ function PMA_arePmadbTablesDefined()
         || empty($GLOBALS['cfg']['Server']['central_columns'])
         || empty($GLOBALS['cfg']['Server']['designer_settings'])
         || empty($GLOBALS['cfg']['Server']['export_templates'])
+        || empty($GLOBALS['cfg']['Server']['progress'])
     ) {
         return false;
     } else {

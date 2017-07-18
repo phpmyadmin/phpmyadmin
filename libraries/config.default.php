@@ -503,6 +503,15 @@ $cfg['Servers'][$i]['designer_settings'] = '';
 $cfg['Servers'][$i]['export_templates'] = '';
 
 /**
+ * table to store progress
+ *   - leave blank to check user has configured it or not
+ *     SUGGESTED: 'pma__export_progress'
+ *
+ * @global string $cfg['Servers'][$i]['progress']
+ */
+$cfg['Servers'][$i]['progress'] = '';
+
+/**
  * Maximum number of records saved in $cfg['Servers'][$i]['table_uiprefs'] table.
  *
  * In case where tables in databases is modified (e.g. dropped or renamed),

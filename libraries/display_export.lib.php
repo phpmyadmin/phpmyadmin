@@ -410,7 +410,8 @@ function PMA_getHtmlForExportOptionsFormat($export_list)
         // So no need to check for time out.
         $html .= '<input type="submit" value="' . __('Go') . '" id="buttonGo" />';
     }
-    $html .= '</div>';
+    $html .= '<input id="progressuuid" class="hide" type="text" name="progressuuid">';
+    $html .= '<div id="progressaction"></div></div>';
 
     return $html;
 }

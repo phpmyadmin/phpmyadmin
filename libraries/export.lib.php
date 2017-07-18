@@ -14,7 +14,6 @@ use PhpMyAdmin\ZipExtension;
 use PhpMyAdmin\Url;
 use PhpMyAdmin\Sanitize;
 
-
 /**
  * Sets a session variable upon a possible fatal error during export
  *
@@ -523,14 +522,16 @@ function PMA_getHtmlForDisplayedExportHeader($export_type, $db, $table)
  * @param bool         $do_dates        whether to add dates
  * @param array        $aliases         alias information for db/table/column
  * @param string       $separate_files  whether it is a separate-files export
+ * @param string       $uuid            unique id used to track export progress
  *
  * @return void
  */
 function PMA_exportServer(
     $db_select, $whatStrucOrData, $export_plugin, $crlf, $err_url,
     $export_type, $do_relation, $do_comments, $do_mime, $do_dates,
-    $aliases, $separate_files
+    $aliases, $separate_files, $uuid
 ) {
+    global $total;
     if (! empty($db_select)) {
         $tmp_select = implode($db_select, '|');
         $tmp_select = '|' . $tmp_select . '|';
@@ -541,11 +542,13 @@ function PMA_exportServer(
             && mb_strpos(' ' . $tmp_select, '|' . $current_db . '|')
         ) {
             $tables = $GLOBALS['dbi']->getTables($current_db);
+            $total++;
             PMA_exportDatabase(
                 $current_db, $tables, $whatStrucOrData, $tables, $tables,
                 $export_plugin, $crlf, $err_url, $export_type, $do_relation,
                 $do_comments, $do_mime, $do_dates, $aliases,
-                $separate_files == 'database' ? $separate_files : ''
+                $separate_files == 'database' ? $separate_files : '',
+                $uuid
             );
             if ($separate_files == 'server') {
                 PMA_saveObjectInBuffer($current_db);
@@ -572,14 +575,17 @@ function PMA_exportServer(
  * @param bool         $do_dates        whether to add dates
  * @param array        $aliases         Alias information for db/table/column
  * @param string       $separate_files  whether it is a separate-files export
+ * @param string       $uuid            unique id used to track export progress
  *
  * @return void
  */
 function PMA_exportDatabase(
     $db, $tables, $whatStrucOrData, $table_structure, $table_data,
     $export_plugin, $crlf, $err_url, $export_type, $do_relation,
-    $do_comments, $do_mime, $do_dates, $aliases, $separate_files
+    $do_comments, $do_mime, $do_dates, $aliases, $separate_files,
+    $uuid
 ) {
+    global $data, $count, $total;
     $db_alias = !empty($aliases[$db]['alias'])
         ? $aliases[$db]['alias'] : '';
 
@@ -606,7 +612,27 @@ function PMA_exportDatabase(
 
     $views = array();
 
+    $cfgRelation = PMA_getRelationsParam();
+    $total += sizeof($tables);
+    $total--;
     foreach ($tables as $table) {
+        if (!empty($cfgRelation['progress']) && !empty($cfgRelation['db'])) {
+            $count++;
+            if (empty($data)) {
+                $data = array($table);
+            } else {
+                array_push($data, $table);
+            }
+            $sql_query = 'UPDATE ' .
+                PhpMyAdmin\Util::backquote($cfgRelation['db']) . '.' .
+                PhpMyAdmin\Util::backquote($cfgRelation['progress']) .
+                ' SET data = "' . $GLOBALS['dbi']->escapeString(implode(",", $data)) .
+                '", value = ' . $count .
+                ', total = ' . $total .
+                ' WHERE type = "export" AND uuid = "' .
+                $GLOBALS['dbi']->escapeString($uuid) . '"';
+            PMA_queryAsControlUser($sql_query);
+        }
         $_table = new Table($table, $db);
         // if this is a view, collect it for later;
         // views must be exported after the tables

@@ -7,8 +7,7 @@
 /**
  * Disables the "Dump some row(s)" sub-options
  */
-function disable_dump_some_rows_sub_options()
-{
+function disable_dump_some_rows_sub_options() {
     $("label[for='limit_to']").fadeTo('fast', 0.4);
     $("label[for='limit_from']").fadeTo('fast', 0.4);
     $("input[type='text'][name='limit_to']").prop('disabled', 'disabled');
@@ -18,8 +17,7 @@ function disable_dump_some_rows_sub_options()
 /**
  * Enables the "Dump some row(s)" sub-options
  */
-function enable_dump_some_rows_sub_options()
-{
+function enable_dump_some_rows_sub_options() {
     $("label[for='limit_to']").fadeTo('fast', 1);
     $("label[for='limit_from']").fadeTo('fast', 1);
     $("input[type='text'][name='limit_to']").prop('disabled', '');
@@ -31,8 +29,7 @@ function enable_dump_some_rows_sub_options()
  *
  * @returns template data
  */
-function getTemplateData()
-{
+function getTemplateData() {
     var $form = $('form[name="dump"]');
     var blacklist = ['token', 'server', 'db', 'table', 'single_table',
         'export_type', 'export_method', 'sql_query', 'template_id'];
@@ -41,7 +38,7 @@ function getTemplateData()
     $.each(arr, function () {
         if ($.inArray(this.name, blacklist) < 0) {
             if (obj[this.name] !== undefined) {
-                if (! obj[this.name].push) {
+                if (!obj[this.name].push) {
                     obj[this.name] = [obj[this.name]];
                 }
                 obj[this.name].push(this.value || '');
@@ -71,19 +68,18 @@ function getTemplateData()
  *
  * @param name name of the template
  */
-function createTemplate(name)
-{
+function createTemplate(name) {
     var templateData = getTemplateData();
 
     var params = {
-        ajax_request : true,
-        server : PMA_commonParams.get('server'),
-        db : PMA_commonParams.get('db'),
-        table : PMA_commonParams.get('table'),
-        exportType : $('input[name="export_type"]').val(),
-        templateAction : 'create',
-        templateName : name,
-        templateData : JSON.stringify(templateData)
+        ajax_request: true,
+        server: PMA_commonParams.get('server'),
+        db: PMA_commonParams.get('db'),
+        table: PMA_commonParams.get('table'),
+        exportType: $('input[name="export_type"]').val(),
+        templateAction: 'create',
+        templateName: name,
+        templateData: JSON.stringify(templateData)
     };
 
     PMA_ajaxShowMessage();
@@ -91,7 +87,7 @@ function createTemplate(name)
         if (response.success === true) {
             $('#templateName').val('');
             $('#template').html(response.data);
-            $("#template").find("option").each(function() {
+            $("#template").find("option").each(function () {
                 if ($(this).text() == name) {
                     $(this).prop('selected', true);
                 }
@@ -108,16 +104,15 @@ function createTemplate(name)
  *
  * @param id ID of the template to load
  */
-function loadTemplate(id)
-{
+function loadTemplate(id) {
     var params = {
-        ajax_request : true,
-        server : PMA_commonParams.get('server'),
-        db : PMA_commonParams.get('db'),
-        table : PMA_commonParams.get('table'),
-        exportType : $('input[name="export_type"]').val(),
-        templateAction : 'load',
-        templateId : id,
+        ajax_request: true,
+        server: PMA_commonParams.get('server'),
+        db: PMA_commonParams.get('db'),
+        table: PMA_commonParams.get('table'),
+        exportType: $('input[name="export_type"]').val(),
+        templateAction: 'load',
+        templateId: id,
     };
 
     PMA_ajaxShowMessage();
@@ -134,7 +129,7 @@ function loadTemplate(id)
                         if (($element.is('input') && $element.attr('type') == 'checkbox') ||
                             ($element.is('input') && $element.attr('type') == 'radio') ||
                             ($element.is('select') && $element.attr('multiple') == 'multiple')) {
-                            if (! value.push) {
+                            if (!value.push) {
                                 value = [value];
                             }
                         }
@@ -156,19 +151,18 @@ function loadTemplate(id)
  *
  * @param id ID of the template to update
  */
-function updateTemplate(id)
-{
+function updateTemplate(id) {
     var templateData = getTemplateData();
 
     var params = {
-        ajax_request : true,
-        server : PMA_commonParams.get('server'),
-        db : PMA_commonParams.get('db'),
-        table : PMA_commonParams.get('table'),
-        exportType : $('input[name="export_type"]').val(),
-        templateAction : 'update',
-        templateId : id,
-        templateData : JSON.stringify(templateData)
+        ajax_request: true,
+        server: PMA_commonParams.get('server'),
+        db: PMA_commonParams.get('db'),
+        table: PMA_commonParams.get('table'),
+        exportType: $('input[name="export_type"]').val(),
+        templateAction: 'update',
+        templateId: id,
+        templateData: JSON.stringify(templateData)
     };
 
     PMA_ajaxShowMessage();
@@ -186,16 +180,15 @@ function updateTemplate(id)
  *
  * @param id ID of the template to delete
  */
-function deleteTemplate(id)
-{
+function deleteTemplate(id) {
     var params = {
-        ajax_request : true,
-        server : PMA_commonParams.get('server'),
-        db : PMA_commonParams.get('db'),
-        table : PMA_commonParams.get('table'),
-        exportType : $('input[name="export_type"]').val(),
-        templateAction : 'delete',
-        templateId : id,
+        ajax_request: true,
+        server: PMA_commonParams.get('server'),
+        db: PMA_commonParams.get('db'),
+        table: PMA_commonParams.get('table'),
+        exportType: $('input[name="export_type"]').val(),
+        templateAction: 'delete',
+        templateId: id,
     };
 
     PMA_ajaxShowMessage();
@@ -317,13 +310,13 @@ AJAX.registerOnload('export.js', function () {
     });
 
     // For separate-file exports only ZIP compression is allowed
-    $('input[type="checkbox"][name="as_separate_files"]').change(function(){
+    $('input[type="checkbox"][name="as_separate_files"]').change(function () {
         if ($(this).is(':checked')) {
             $('#compression').val('zip');
         }
     });
 
-    $('#compression').change(function(){
+    $('#compression').change(function () {
         if ($('option:selected').val() !== 'zip') {
             $('input[type="checkbox"][name="as_separate_files"]').prop('checked', false);
         }
@@ -385,8 +378,7 @@ function setup_table_structure_or_data() {
  * Toggles the hiding and showing of plugin structure-specific and data-specific
  * options
  */
-function toggle_structure_data_opts()
-{
+function toggle_structure_data_opts() {
     var pluginName = $("select#plugins").val();
     var radioFormName = pluginName + "_structure_or_data";
     var dataDiv = "#" + pluginName + "_data";
@@ -408,8 +400,7 @@ function toggle_structure_data_opts()
 /**
  * Toggles the disabling of the "save to file" options
  */
-function toggle_save_to_file()
-{
+function toggle_save_to_file() {
     var $ulSaveAsfile = $("#ul_save_asfile");
     if (!$("#radio_dump_asfile").prop("checked")) {
         $ulSaveAsfile.find("> li").fadeTo('fast', 0.4);
@@ -430,8 +421,7 @@ AJAX.registerOnload('export.js', function () {
 /**
  * For SQL plugin, toggles the disabling of the "display comments" options
  */
-function toggle_sql_include_comments()
-{
+function toggle_sql_include_comments() {
     $("#checkbox_sql_include_comments").change(function () {
         var $ulIncludeComments = $("#ul_include_comments");
         if (!$("#checkbox_sql_include_comments").prop("checked")) {
@@ -504,7 +494,7 @@ function toggle_table_select_all_data() {
 }
 
 function check_selected_tables(argument) {
-    $('.export_table_select tbody tr').each(function() {
+    $('.export_table_select tbody tr').each(function () {
         check_table_selected(this);
     });
 }
@@ -589,31 +579,31 @@ AJAX.registerOnload('export.js', function () {
         toggle_structure_data_opts();
     });
 
-    $('input[name="table_select[]"]').on('change', function() {
+    $('input[name="table_select[]"]').on('change', function () {
         toggle_table_select($(this).closest('tr'));
         check_table_select_all();
         handleAddProcCheckbox();
     });
 
-    $('input[name="table_structure[]"]').on('change', function() {
+    $('input[name="table_structure[]"]').on('change', function () {
         check_table_selected($(this).closest('tr'));
         check_table_select_all();
         handleAddProcCheckbox();
     });
 
-    $('input[name="table_data[]"]').on('change', function() {
+    $('input[name="table_data[]"]').on('change', function () {
         check_table_selected($(this).closest('tr'));
         check_table_select_all();
         handleAddProcCheckbox();
     });
 
-    $('#table_structure_all').on('change', function() {
+    $('#table_structure_all').on('change', function () {
         toggle_table_select_all_str();
         check_selected_tables();
         handleAddProcCheckbox();
     });
 
-    $('#table_data_all').on('change', function() {
+    $('#table_data_all').on('change', function () {
         toggle_table_select_all_data();
         check_selected_tables();
         handleAddProcCheckbox();
@@ -621,7 +611,7 @@ AJAX.registerOnload('export.js', function () {
 
     if ($("input[name='export_type']").val() == 'database') {
         // Hide structure or data radio buttons
-        $("input[type='radio'][name$='_structure_or_data']").each(function() {
+        $("input[type='radio'][name$='_structure_or_data']").each(function () {
             var $this = $(this);
             var name = $this.prop('name');
             var val = $('input[name="' + name + '"]:checked').val();
@@ -666,8 +656,7 @@ AJAX.registerOnload('export.js', function () {
 /**
  * Toggles display of options when quick and custom export are selected
  */
-function toggle_quick_or_custom()
-{
+function toggle_quick_or_custom() {
     if ($("input[name='quick_or_custom']").length === 0 // custom_no_form option
         || $("#radio_custom_export").prop("checked") // custom
     ) {
@@ -687,8 +676,7 @@ function toggle_quick_or_custom()
     }
 }
 var time_out;
-function check_time_out(time_limit)
-{
+function check_time_out(time_limit) {
     if (typeof time_limit === 'undefined' || time_limit === 0) {
         return true;
     }
@@ -696,11 +684,11 @@ function check_time_out(time_limit)
     time_limit = time_limit + 1;
     var href = "export.php";
     var params = {
-        'ajax_request' : true,
-        'check_time_out' : true
+        'ajax_request': true,
+        'check_time_out': true
     };
     clearTimeout(time_out);
-    time_out = setTimeout(function(){
+    time_out = setTimeout(function () {
         $.get(href, params, function (data) {
             if (data.message === 'timeout') {
                 PMA_ajaxShowMessage(
@@ -761,7 +749,7 @@ function aliasSelectHandler(event) {
 function createAliasModal(event) {
     event.preventDefault();
     var dlgButtons = {};
-    dlgButtons[PMA_messages.strSaveAndClose] = function() {
+    dlgButtons[PMA_messages.strSaveAndClose] = function () {
         $(this).dialog("close");
         $('#alias_modal').parent().appendTo($('form[name="dump"]'));
     };
@@ -771,7 +759,7 @@ function createAliasModal(event) {
         modal: true,
         dialogClass: "alias-dialog",
         buttons: dlgButtons,
-        create: function() {
+        create: function () {
             $(this).css('maxHeight', $(window).height() - 150);
             var db = PMA_commonParams.get('db');
             if (db) {
@@ -781,8 +769,8 @@ function createAliasModal(event) {
                 $('#db_alias_select').append(option).val(db).change();
             } else {
                 var params = {
-                    ajax_request : true,
-                    server : PMA_commonParams.get('server'),
+                    ajax_request: true,
+                    server: PMA_commonParams.get('server'),
                     type: 'list-databases'
                 };
                 $.post('ajax.php', params, function (response) {
@@ -799,9 +787,9 @@ function createAliasModal(event) {
                 });
             }
         },
-        close: function() {
+        close: function () {
             var isEmpty = true;
-            $(this).find('input[type="text"]').each(function() {
+            $(this).find('input[type="text"]').each(function () {
                 // trim empty input fields on close
                 if ($(this).val()) {
                     isEmpty = false;
@@ -812,7 +800,7 @@ function createAliasModal(event) {
             // Toggle checkbox based on aliases
             $('input#btn_alias_config').prop('checked', !isEmpty);
         },
-        position: { my: "center top", at: "center top", of: window }
+        position: {my: "center top", at: "center top", of: window}
     });
 }
 
@@ -898,9 +886,9 @@ AJAX.registerOnload('export.js', function () {
             $('#table_alias_select').append(option).val(table).change();
         } else {
             var params = {
-                ajax_request : true,
-                server : PMA_commonParams.get('server'),
-                db : $(this).val(),
+                ajax_request: true,
+                server: PMA_commonParams.get('server'),
+                db: $(this).val(),
                 type: 'list-tables'
             };
             $.post('ajax.php', params, function (response) {
@@ -920,9 +908,9 @@ AJAX.registerOnload('export.js', function () {
     $('#table_alias_select').on('change', function () {
         aliasToggleRow($(this));
         var params = {
-            ajax_request : true,
-            server : PMA_commonParams.get('server'),
-            db : $('#db_alias_select').val(),
+            ajax_request: true,
+            server: PMA_commonParams.get('server'),
+            db: $('#db_alias_select').val(),
             table: $(this).val(),
             type: 'list-columns'
         };
@@ -977,5 +965,14 @@ AJAX.registerOnload('export.js', function () {
             $('#column_alias_name').val()
         );
         $('#column_alias_name').val('');
+    });
+
+    $('#buttonGo').click(function () {
+        var path = window.location.pathname;
+        var page = path.split("/").pop();
+        // Show progress only for server and database export
+        if (page != 'tbl_export.php') {
+            createProgress("export");
+        }
     });
 });

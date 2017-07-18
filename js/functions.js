@@ -5011,6 +5011,99 @@ function toggleDatepickerIfInvalid($td, $input_field) {
     }
 }
 
+/**
+ *
+ * function to generate uuid.
+ *
+ */
+function generateUUID () {
+    var d = new Date().getTime();
+    if (typeof performance !== 'undefined' && typeof performance.now === 'function'){
+        d += performance.now();
+    }
+    return 'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'.replace(/[xy]/g, function (c) {
+        var r = (d + Math.random() * 16) % 16 | 0;
+        d = Math.floor(d / 16);
+        return (c === 'x' ? r : (r & 0x3 | 0x8)).toString(16);
+    });
+}
+
+/**
+ * function to start tracking the status of progress.
+ *
+ *  @param type type of progress
+ *
+ */
+function createProgress(type) {
+    var  uuid = generateUUID();
+    $('#progressuuid').val(uuid);
+    var params = {
+        ajax_request : true,
+        uuid: uuid,
+        type : "create" + type + "progress"
+    };
+    $.post('progress.php', params, function (response) {
+        if (response.success === true) {
+            showAndUpdateProgress(type, uuid);
+        }
+    });
+}
+
+/**
+ * function to update the progress status.
+ *
+ *  @param type type of progress
+ *  @param uuid uuid of progress
+ *
+ */
+function showAndUpdateProgress(type, uuid) {
+    var params = {
+        ajax_request : true,
+        uuid: uuid,
+        type : "update" + type + "progress"
+    };
+    var progressInterval = setInterval(function () {
+        $.post('progress.php', params, function (response) {
+            if (response.success === true) {
+                if (response.message === "null") {
+                    clearInterval(progressInterval);
+                }
+                else {
+                    var data = JSON.parse(response.message);
+                    data[2] = data[2].split(',');
+                    $('#progressaction').html('<progress value="' + data[3] + '" max="' + data[4] + '"></progress><br>');
+                    for (i = 0; i < data[2].length; i++) {
+                        $('#progressaction').append(PMA_getImage('s_success.png').toString() + ' Processing table ' + data[2][i] + '<br>');
+                    }
+                    if(data[3] == data[4]){
+                        deleteProgress(type, uuid);
+                    }
+                }
+            }
+        });
+    }, 500);
+}
+
+/**
+ * function to delete the progress status.
+ *
+ *  @param type type of progress
+ *  @param uuid uuid of progress
+ *
+ */
+function deleteProgress(type, uuid) {
+    var params = {
+        ajax_request : true,
+        uuid : uuid,
+        type : "delete" + type + "progress"
+    };
+    $.post('progress.php', params, function (response) {
+        if (response.success === true) {
+            $('#progressaction').html('');
+        }
+    });
+}
+
 /*
  * Function to submit the login form after validation is done.
  */
