@@ -138,6 +138,11 @@ if (!$GLOBALS['is_superuser'] && !$GLOBALS['is_grantuser']
     );
     exit;
 }
+if (! $GLOBALS['is_grantuser'] && !$GLOBALS['is_createuser']) {
+    $response->addHTML(Message::notice(
+        __('You do not have privileges to manipulate with the users!')
+    )->getDisplay());
+}
 
 /**
  * Checks if the user is using "Change Login Information / Copy User" dialog
