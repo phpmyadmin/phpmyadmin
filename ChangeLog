@@ -14,6 +14,7 @@ phpMyAdmin - ChangeLog
 - issue #13468 Avoid breakage if set_time_limit is disabled
 - issue #13471 Fail if ini_set/ini_get are disabled
 - issue #13436 Automatically connect using SSL when server is configured so
+- issue #13478 Fixed usage of some browser transformations
 
 4.7.2 (2017-06-29)
 - issue #13314 Make theme selection keep current server

@@ -204,25 +204,25 @@ function PMA_getTransformationName($file)
 /**
  * Fixups old MIME or tranformation name to new one
  *
+ * - applies some hardcoded fixups
+ * - adds spaces after _ and numbers
+ * - capitalizes words
+ * - removes back spaces
+ *
  * @param string $value Value to fixup
  *
  * @return string
  */
 function PMA_fixupMIME($value)
 {
-    $delimiter_space = '- ';
-    $delimiter = "_";
-    $value = str_replace("jpeg", "JPEG", $value);
-    $value = str_replace("png", "PNG", $value);
+    $value = str_replace(
+        array("jpeg", "png"), array("JPEG", "PNG"), $value
+    );
     return str_replace(
-        $delimiter_space,
-        $delimiter,
+        ' ',
+        '',
         ucwords(
-            str_replace(
-                $delimiter,
-                $delimiter_space,
-                $value
-            )
+            preg_replace('/([0-9_]+)/', '$1 ', $value)
         )
     );
 }
