@@ -41,7 +41,7 @@ class PMA_CheckParameters_Test extends PHPUnit_Framework_TestCase
     function testCheckParameterMissing()
     {
         $GLOBALS['PMA_PHP_SELF'] = Core::getenv('PHP_SELF');
-        $GLOBALS['pmaThemePath'] = $_SESSION['PMA_Theme']->getPath();
+        $GLOBALS['pmaThemePath'] = $GLOBALS['PMA_Theme']->getPath();
 
         $this->expectOutputRegex("/Missing parameter: field/");
 
@@ -58,7 +58,7 @@ class PMA_CheckParameters_Test extends PHPUnit_Framework_TestCase
     function testCheckParameter()
     {
         $GLOBALS['PMA_PHP_SELF'] = Core::getenv('PHP_SELF');
-        $GLOBALS['pmaThemePath'] = $_SESSION['PMA_Theme']->getPath();
+        $GLOBALS['pmaThemePath'] = $GLOBALS['PMA_Theme']->getPath();
         $GLOBALS['db'] = "dbDatabase";
         $GLOBALS['table'] = "tblTable";
         $GLOBALS['field'] = "test_field";

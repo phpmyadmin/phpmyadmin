@@ -130,8 +130,8 @@ class Util
         if (! isset($sprites)) {
             $sprites = array();
             // Try to load the list of sprites
-            if (isset($_SESSION['PMA_Theme'])) {
-                $sprites = $_SESSION['PMA_Theme']->getSpriteData();
+            if (isset($GLOBALS['PMA_Theme'])) {
+                $sprites = $GLOBALS['PMA_Theme']->getSpriteData();
             }
         }
 
