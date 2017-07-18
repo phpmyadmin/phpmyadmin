@@ -5063,6 +5063,7 @@ function PMA_getHashedPassword($password)
  */
 function PMA_checkIfMariaDBPwdCheckPluginActive()
 {
+    $serverVersion = $GLOBALS['dbi']->getVersion();
     if (!(Util::getServerType() == 'MariaDB' && $serverVersion >= 100002)) {
         return false;
     }
