@@ -121,7 +121,9 @@ mark_as_release() {
 ensure_local_branch $branch
 
 # Check if we're releasing older
-if git cat-file -e $branch:libraries/Config.php 2> /dev/null ; then
+if git cat-file -e $branch:libraries/classes/Config.php 2> /dev/null ; then
+    CONFIG_LIB=libraries/classes/Config.php
+elif git cat-file -e $branch:libraries/Config.php 2> /dev/null ; then
     CONFIG_LIB=libraries/Config.php
 else
     CONFIG_LIB=libraries/Config.class.php
