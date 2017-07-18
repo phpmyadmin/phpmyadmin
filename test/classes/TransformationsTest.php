@@ -254,4 +254,37 @@ class TransformationsTest extends PHPUnit_Framework_TestCase
             $actual
         );
     }
+
+    /**
+     * @dataProvider fixupData
+     */
+    public function testFixup($value, $expected)
+    {
+        $this->assertEquals(
+            $expected,
+            Transformations::fixupMIME($value)
+        );
+    }
+
+    public function fixupData()
+    {
+        return array(
+            array(
+                'text_plain_bool2text.php',
+                'Text_Plain_Bool2Text.php'
+            ),
+            array(
+                'application_octetstream_download.php',
+                'Application_Octetstream_Download.php'
+            ),
+            array(
+                'text_plain_json.php',
+                'Text_Plain_Json.php'
+            ),
+            array(
+                'image_jpeg_link.php',
+                'Image_JPEG_Link.php'
+            ),
+        );
+    }
 }

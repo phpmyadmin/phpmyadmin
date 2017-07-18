@@ -210,6 +210,32 @@ class Transformations
     }
 
     /**
+     * Fixups old MIME or tranformation name to new one
+     *
+     * - applies some hardcoded fixups
+     * - adds spaces after _ and numbers
+     * - capitalizes words
+     * - removes back spaces
+     *
+     * @param string $value Value to fixup
+     *
+     * @return string
+     */
+    static function fixupMIME($value)
+    {
+        $value = str_replace(
+            array("jpeg", "png"), array("JPEG", "PNG"), $value
+        );
+        return str_replace(
+            ' ',
+            '',
+            ucwords(
+                preg_replace('/([0-9_]+)/', '$1 ', $value)
+            )
+        );
+    }
+
+    /**
      * Gets the mimetypes for all columns of a table
      *
      * @param string  $db       the name of the db to check for
@@ -256,24 +282,10 @@ class Transformations
         );
 
         foreach ($result as $column => $values) {
-            // replacements in mimetype and transformation
-            $values = str_replace("jpeg", "JPEG", $values);
-            $values = str_replace("png", "PNG", $values);
-
             // convert mimetype to new format (f.e. Text_Plain, etc)
             $delimiter_space = '- ';
             $delimiter = "_";
-            $values['mimetype'] = str_replace(
-                $delimiter_space,
-                $delimiter,
-                ucwords(
-                    str_replace(
-                        $delimiter,
-                        $delimiter_space,
-                        $values['mimetype']
-                    )
-                )
-            );
+            $values['mimetype'] = self::fixupMIME($values['mimetype']);
 
             // For transformation of form
             // output/image_jpeg__inline.inc.php
@@ -285,17 +297,7 @@ class Transformations
                 $values['transformation'] = $dir[1];
             }
 
-            $values['transformation'] = str_replace(
-                $delimiter_space,
-                $delimiter,
-                ucwords(
-                    str_replace(
-                        $delimiter,
-                        $delimiter_space,
-                        $values['transformation']
-                    )
-                )
-            );
+            $values['transformation'] = self::fixupMIME($values['transformation']);
             $values['transformation'] = $subdir . $values['transformation'];
             $result[$column] = $values;
         }
