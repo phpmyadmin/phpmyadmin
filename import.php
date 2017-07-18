@@ -10,6 +10,7 @@ use PMA\libraries\Encoding;
 use PMA\libraries\plugins\ImportPlugin;
 use PMA\libraries\File;
 use PMA\libraries\URL;
+use PMA\libraries\Util;
 use PMA\libraries\Bookmark;
 
 /* Enable LOAD DATA LOCAL INFILE for LDI plugin */
@@ -290,7 +291,7 @@ if (strlen($db) > 0) {
     $GLOBALS['dbi']->selectDb($db);
 }
 
-@set_time_limit($cfg['ExecTimeLimit']);
+Util::setTimeLimit();
 if (! empty($cfg['MemoryLimit'])) {
     @ini_set('memory_limit', $cfg['MemoryLimit']);
 }

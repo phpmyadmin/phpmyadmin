@@ -4891,4 +4891,17 @@ class Util
         }
         return null;
     }
+
+    /**
+     * Wrapper around php's set_time_limit
+     *
+     * @return void
+     */
+    public static function setTimeLimit()
+    {
+        // The function can be disabled in php.ini
+        if (function_exists('set_time_limit')) {
+            @set_time_limit($GLOBALS['cfg']['ExecTimeLimit']);
+        }
+    }
 }
