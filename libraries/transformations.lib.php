@@ -202,6 +202,32 @@ function PMA_getTransformationName($file)
 }
 
 /**
+ * Fixups old MIME or tranformation name to new one
+ *
+ * @param string $value Value to fixup
+ *
+ * @return string
+ */
+function PMA_fixupMIME($value)
+{
+    $delimiter_space = '- ';
+    $delimiter = "_";
+    $value = str_replace("jpeg", "JPEG", $value);
+    $value = str_replace("png", "PNG", $value);
+    return str_replace(
+        $delimiter_space,
+        $delimiter,
+        ucwords(
+            str_replace(
+                $delimiter,
+                $delimiter_space,
+                $value
+            )
+        )
+    );
+}
+
+/**
  * Gets the mimetypes for all columns of a table
  *
  * @param string  $db       the name of the db to check for
@@ -253,19 +279,7 @@ function PMA_getMIME($db, $table, $strict = false, $fullName = false)
         $values = str_replace("png", "PNG", $values);
 
         // convert mimetype to new format (f.e. Text_Plain, etc)
-        $delimiter_space = '- ';
-        $delimiter = "_";
-        $values['mimetype'] = str_replace(
-            $delimiter_space,
-            $delimiter,
-            ucwords(
-                str_replace(
-                    $delimiter,
-                    $delimiter_space,
-                    $values['mimetype']
-                )
-            )
-        );
+        $values['mimetype'] = PMA_fixupMIME($values['mimetype']);
 
         // For transformation of form
         // output/image_jpeg__inline.inc.php
@@ -277,17 +291,7 @@ function PMA_getMIME($db, $table, $strict = false, $fullName = false)
             $values['transformation'] = $dir[1];
         }
 
-        $values['transformation'] = str_replace(
-            $delimiter_space,
-            $delimiter,
-            ucwords(
-                str_replace(
-                    $delimiter,
-                    $delimiter_space,
-                    $values['transformation']
-                )
-            )
-        );
+        $values['transformation'] = PMA_fixupMIME($values['transformation']);
         $values['transformation'] = $subdir . $values['transformation'];
         $result[$column] = $values;
     }
