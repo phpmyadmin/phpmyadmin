@@ -112,10 +112,6 @@
     if (!severity) severity = "error";
     var tip = document.createElement("div");
     tip.className = "CodeMirror-lint-message-" + severity;
-    /*
-     * The HTML support is patched, submitted upstream at
-     * https://github.com/codemirror/CodeMirror/pull/4861
-     */
     if (typeof ann.messageHTML != 'undefined') {
         tip.innerHTML = ann.messageHTML;
     } else {
@@ -148,7 +144,12 @@
     if (options.async || getAnnotations.async) {
       lintAsync(cm, getAnnotations, passOptions)
     } else {
-      updateLinting(cm, getAnnotations(cm.getValue(), passOptions, cm));
+      var annotations = getAnnotations(cm.getValue(), passOptions, cm);
+      if (!annotations) return;
+      if (annotations.then) annotations.then(function(issues) {
+        updateLinting(cm, issues);
+      });
+      else updateLinting(cm, annotations);
     }
   }
 
