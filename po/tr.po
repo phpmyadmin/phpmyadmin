@@ -4,16 +4,16 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.7.3-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2017-07-18 13:29+0200\n"
-"PO-Revision-Date: 2017-06-28 09:43+0000\n"
+"PO-Revision-Date: 2017-07-18 17:37+0000\n"
 "Last-Translator: Burak Yavuz <hitowerdigit@hotmail.com>\n"
-"Language-Team: Turkish <https://hosted.weblate.org/projects/phpmyadmin/4-7/"
-"tr/>\n"
+"Language-Team: Turkish "
+"<https://hosted.weblate.org/projects/phpmyadmin/4-7/tr/>\n"
 "Language: tr\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n > 1;\n"
-"X-Generator: Weblate 2.15-dev\n"
+"X-Generator: Weblate 2.16-dev\n"
 
 #: ajax.php:16 ajax.php:33 export.php:192 schema_export.php:64
 msgid "Bad type!"
@@ -5077,22 +5077,15 @@ msgid ""
 "corrupted!"
 msgstr ""
 "PHP yapılandırmanızda mbstring.func_overload işlevini etkinleştirdiniz. Bu "
-"seçenek phpMyAdmin ile uyumlusuzdur ve bazı veri bozulmalarına sebep "
-"olabilir!"
+"seçenek phpMyAdmin ile uyumsuzdur ve bazı veri bozulmalarına sebep olabilir!"
 
 #: libraries/common.inc.php:484
-#, fuzzy
-#| msgid ""
-#| "You have enabled mbstring.func_overload in your PHP configuration. This "
-#| "option is incompatible with phpMyAdmin and might cause some data to be "
-#| "corrupted!"
 msgid ""
 "You have disabled ini_get and/or ini_set in php.ini. This option is "
 "incompatible with phpMyAdmin!"
 msgstr ""
-"PHP yapılandırmanızda mbstring.func_overload işlevini etkinleştirdiniz. Bu "
-"seçenek phpMyAdmin ile uyumlusuzdur ve bazı veri bozulmalarına sebep "
-"olabilir!"
+"Php.ini dosyasında ini_get ve/veya ini_set işlevini etkisizleştirdiniz. Bu "
+"seçenek phpMyAdmin ile uyumsuzdur!"
 
 #: libraries/common.inc.php:517
 #, php-format
@@ -8270,6 +8263,7 @@ msgstr "Şema eklentileri yüklenemedi, lütfen kurulumunuzu kontrol edin!"
 #: libraries/dbi/DBIMysqli.php:158
 msgid "SSL connection enforced by server, automatically enabling it."
 msgstr ""
+"SSL bağlantısı sunucu tarafından zorlandı, otomatik olarak etkinleştiriliyor."
 
 #: libraries/display_change_password.lib.php:57
 #: libraries/replication_gui.lib.php:854
