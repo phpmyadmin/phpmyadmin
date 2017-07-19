@@ -5,21 +5,21 @@
  *
  * @package PhpMyAdmin-GIS
  */
-namespace PMA\libraries\gis;
+namespace PhpMyAdmin\Gis;
 
 /**
  * Factory class that handles the creation of geometric objects.
  *
  * @package PhpMyAdmin-GIS
  */
-class GISFactory
+class GisFactory
 {
     /**
      * Returns the singleton instance of geometric class of the given type.
      *
      * @param string $type type of the geometric object
      *
-     * @return GISGeometry the singleton instance of geometric class
+     * @return GisGeometry the singleton instance of geometric class
      *                          of the given type
      *
      * @access public
@@ -29,19 +29,19 @@ class GISFactory
     {
         switch (strtoupper($type)) {
         case 'MULTIPOLYGON' :
-            return GISMultipolygon::singleton();
+            return GisMultiPolygon::singleton();
         case 'POLYGON' :
-            return GISPolygon::singleton();
+            return GisPolygon::singleton();
         case 'MULTIPOINT' :
-            return GISMultipoint::singleton();
+            return GisMultiPoint::singleton();
         case 'POINT' :
-            return GISPoint::singleton();
+            return GisPoint::singleton();
         case 'MULTILINESTRING' :
-            return GISMultilinestring::singleton();
+            return GisMultiLineString::singleton();
         case 'LINESTRING' :
-            return GISLinestring::singleton();
+            return GisLineString::singleton();
         case 'GEOMETRYCOLLECTION' :
-            return GISGeometrycollection::singleton();
+            return GisGeometryCollection::singleton();
         default :
             return false;
         }

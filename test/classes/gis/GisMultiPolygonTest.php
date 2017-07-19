@@ -1,24 +1,24 @@
 <?php
 /* vim: set expandtab sw=4 ts=4 sts=4: */
 /**
- * Test for PMA\libraries\gis\GISMultipolygon
+ * Test for PhpMyAdmin\Gis\GisMultiPolygon
  *
  * @package PhpMyAdmin-test
  */
 
-use PMA\libraries\gis\GISMultipolygon;
+use PhpMyAdmin\Gis\GisMultiPolygon;
 
-require_once 'GISGeomTest.php';
+require_once 'GisGeomTest.php';
 
 /**
- * Tests for PMA\libraries\gis\GISMultipolygon class
+ * Tests for PhpMyAdmin\Gis\GisMultiPolygon class
  *
  * @package PhpMyAdmin-test
  */
-class GISMultipolygonTest extends GISGeomTest
+class GisMultiPolygonTest extends GisGeomTest
 {
     /**
-     * @var    GISMultipolygon
+     * @var    GisMultiPolygon
      * @access protected
      */
     protected $object;
@@ -32,7 +32,7 @@ class GISMultipolygonTest extends GISGeomTest
      */
     protected function setUp()
     {
-        $this->object = GISMultipolygon::singleton();
+        $this->object = GisMultiPolygon::singleton();
     }
 
     /**

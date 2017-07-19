@@ -6,16 +6,16 @@
  * @package PhpMyAdmin-GIS
  */
 
-namespace PMA\libraries\gis;
+namespace PhpMyAdmin\Gis;
 
-use \TCPDF;
+use TCPDF;
 
 /**
  * Handles actions related to GIS GEOMETRYCOLLECTION objects
  *
  * @package PhpMyAdmin-GIS
  */
-class GISGeometrycollection extends GISGeometry
+class GisGeometryCollection extends GisGeometry
 {
     // Hold the singleton instance of the class
     private static $_instance;
@@ -32,7 +32,7 @@ class GISGeometrycollection extends GISGeometry
     /**
      * Returns the singleton.
      *
-     * @return GISGeometrycollection the singleton
+     * @return GisGeometryCollection the singleton
      * @access public
      */
     public static function singleton()
@@ -75,7 +75,7 @@ class GISGeometrycollection extends GISGeometry
             }
             $type = mb_substr($sub_part, 0, $type_pos);
 
-            $gis_obj = GISFactory::factory($type);
+            $gis_obj = GisFactory::factory($type);
             if (!$gis_obj) {
                 continue;
             }
@@ -137,7 +137,7 @@ class GISGeometrycollection extends GISGeometry
             }
             $type = mb_substr($sub_part, 0, $type_pos);
 
-            $gis_obj = GISFactory::factory($type);
+            $gis_obj = GisFactory::factory($type);
             if (!$gis_obj) {
                 continue;
             }
@@ -184,7 +184,7 @@ class GISGeometrycollection extends GISGeometry
             }
             $type = mb_substr($sub_part, 0, $type_pos);
 
-            $gis_obj = GISFactory::factory($type);
+            $gis_obj = GisFactory::factory($type);
             if (!$gis_obj) {
                 continue;
             }
@@ -232,7 +232,7 @@ class GISGeometrycollection extends GISGeometry
             }
             $type = mb_substr($sub_part, 0, $type_pos);
 
-            $gis_obj = GISFactory::factory($type);
+            $gis_obj = GisFactory::factory($type);
             if (!$gis_obj) {
                 continue;
             }
@@ -281,7 +281,7 @@ class GISGeometrycollection extends GISGeometry
             }
             $type = mb_substr($sub_part, 0, $type_pos);
 
-            $gis_obj = GISFactory::factory($type);
+            $gis_obj = GisFactory::factory($type);
             if (!$gis_obj) {
                 continue;
             }
@@ -350,7 +350,7 @@ class GISGeometrycollection extends GISGeometry
         for ($i = 0; $i < $geom_count; $i++) {
             if (isset($gis_data[$i]['gis_type'])) {
                 $type = $gis_data[$i]['gis_type'];
-                $gis_obj = GISFactory::factory($type);
+                $gis_obj = GisFactory::factory($type);
                 if (!$gis_obj) {
                     continue;
                 }
@@ -381,7 +381,7 @@ class GISGeometrycollection extends GISGeometry
     public function generateParams($value)
     {
         $params = array();
-        $data = GISGeometry::generateParams($value);
+        $data = GisGeometry::generateParams($value);
         $params['srid'] = $data['srid'];
         $wkt = $data['wkt'];
 
@@ -403,7 +403,7 @@ class GISGeometrycollection extends GISGeometry
                 continue;
             }
             $type = mb_substr($sub_part, 0, $type_pos);
-            $gis_obj = GISFactory::factory($type);
+            $gis_obj = GisFactory::factory($type);
             if (!$gis_obj) {
                 continue;
             }

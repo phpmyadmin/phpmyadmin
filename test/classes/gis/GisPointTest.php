@@ -1,24 +1,24 @@
 <?php
 /* vim: set expandtab sw=4 ts=4 sts=4: */
 /**
- * Test for PMA\libraries\gis\GISPoint
+ * Test for PhpMyAdmin\Gis\GisPoint
  *
  * @package PhpMyAdmin-test
  */
 
-use PMA\libraries\gis\GISPoint;
+use PhpMyAdmin\Gis\GisPoint;
 
-require_once 'GISGeomTest.php';
+require_once 'GisGeomTest.php';
 
 /**
- * Tests for PMA\libraries\gis\GISPoint class.
+ * Tests for PhpMyAdmin\Gis\GisPoint class.
  *
  * @package PhpMyAdmin-test
  */
-class GISPointTest extends GISGeomTest
+class GisPointTest extends GisGeomTest
 {
     /**
-     * @var    GISPoint
+     * @var    GisPoint
      * @access protected
      */
     protected $object;
@@ -32,7 +32,7 @@ class GISPointTest extends GISGeomTest
      */
     protected function setUp()
     {
-        $this->object = GISPoint::singleton();
+        $this->object = GisPoint::singleton();
     }
 
     /**

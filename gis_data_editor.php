@@ -7,8 +7,8 @@
  */
 
 use PhpMyAdmin\Core;
-use PMA\libraries\gis\GISFactory;
-use PMA\libraries\gis\GISVisualization;
+use PhpMyAdmin\Gis\GisFactory;
+use PhpMyAdmin\Gis\GisVisualization;
 use PhpMyAdmin\Response;
 use PhpMyAdmin\Url;
 
@@ -70,7 +70,7 @@ if (! isset($gis_data['gis_type'])) {
 $geom_type = htmlspecialchars($gis_data['gis_type']);
 
 // Generate parameters from value passed.
-$gis_obj = GISFactory::factory($geom_type);
+$gis_obj = GisFactory::factory($geom_type);
 if (isset($_REQUEST['value'])) {
     $gis_data = array_merge(
         $gis_data, $gis_obj->generateParams($_REQUEST['value'])
@@ -91,10 +91,10 @@ $visualizationSettings = array(
     'spatialColumn' => 'wkt'
 );
 $data = array(array('wkt' => $wkt_with_zero, 'srid' => $srid));
-$visualization = GISVisualization::getByData($data, $visualizationSettings)
+$visualization = GisVisualization::getByData($data, $visualizationSettings)
     ->toImage('svg');
 
-$open_layers = GISVisualization::getByData($data, $visualizationSettings)
+$open_layers = GisVisualization::getByData($data, $visualizationSettings)
     ->asOl();
 
 // If the call is to update the WKT and visualization make an AJAX response
