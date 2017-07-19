@@ -1,24 +1,24 @@
 <?php
 /* vim: set expandtab sw=4 ts=4 sts=4: */
 /**
- * Test for PMA\libraries\gis\GISLinestring
+ * Test for PhpMyAdmin\Gis\GisLineString
  *
  * @package PhpMyAdmin-test
  */
 
-use PMA\libraries\gis\GISLinestring;
+use PhpMyAdmin\Gis\GisLineString;
 
-require_once 'GISGeomTest.php';
+require_once 'GisGeomTest.php';
 
 /**
- * Tests for PMA\libraries\gis\GISLinestring class
+ * Tests for PhpMyAdmin\Gis\GisLineString class
  *
  * @package PhpMyAdmin-test
  */
-class GISLinestringTest extends GISGeomTest
+class GisLineStringTest extends GisGeomTest
 {
     /**
-     * @var    GISLinestring
+     * @var    GisLineString
      * @access protected
      */
     protected $object;
@@ -32,7 +32,7 @@ class GISLinestringTest extends GISGeomTest
      */
     protected function setUp()
     {
-        $this->object = GISLinestring::singleton();
+        $this->object = GisLineString::singleton();
     }
 
     /**

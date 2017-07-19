@@ -5,17 +5,17 @@
  *
  * @package PhpMyAdmin-GIS
  */
-namespace PMA\libraries\gis;
+namespace PhpMyAdmin\Gis;
 
 use PhpMyAdmin\Util;
-use \TCPDF;
+use TCPDF;
 
 /**
  * Handles actions related to GIS POLYGON objects
  *
  * @package PhpMyAdmin-GIS
  */
-class GISPolygon extends GISGeometry
+class GisPolygon extends GisGeometry
 {
     // Hold the singleton instance of the class
     private static $_instance;
@@ -32,7 +32,7 @@ class GISPolygon extends GISGeometry
     /**
      * Returns the singleton.
      *
-     * @return GISPolygon the singleton
+     * @return GisPolygon the singleton
      * @access public
      */
     public static function singleton()
@@ -437,7 +437,7 @@ class GISPolygon extends GISGeometry
     {
         // If area is negative then it's in clockwise orientation,
         // i.e. it's an outer ring
-        if (GISPolygon::area($ring) < 0) {
+        if (GisPolygon::area($ring) < 0) {
             return true;
         }
 
@@ -553,11 +553,11 @@ class GISPolygon extends GISGeometry
 
             // One of the points should be inside the polygon,
             // unless epsilon chosen is too large
-            if (GISPolygon::isPointInsidePolygon($pointA, $ring)) {
+            if (GisPolygon::isPointInsidePolygon($pointA, $ring)) {
                 return $pointA;
             }
 
-            if (GISPolygon::isPointInsidePolygon($pointB, $ring)) {
+            if (GisPolygon::isPointInsidePolygon($pointB, $ring)) {
                 return $pointB;
             }
 
@@ -583,7 +583,7 @@ class GISPolygon extends GISGeometry
         $params = array();
         if ($index == -1) {
             $index = 0;
-            $data = GISGeometry::generateParams($value);
+            $data = GisGeometry::generateParams($value);
             $params['srid'] = $data['srid'];
             $wkt = $data['wkt'];
         } else {

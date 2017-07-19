@@ -6,16 +6,16 @@
  * @package PhpMyAdmin-GIS
  */
 
-namespace PMA\libraries\gis;
+namespace PhpMyAdmin\Gis;
 
-use \TCPDF;
+use TCPDF;
 
 /**
  * Handles actions related to GIS MULTIPOLYGON objects
  *
  * @package PhpMyAdmin-GIS
  */
-class GISMultipolygon extends GISGeometry
+class GisMultiPolygon extends GisGeometry
 {
     // Hold the singleton instance of the class
     private static $_instance;
@@ -32,7 +32,7 @@ class GISMultipolygon extends GISGeometry
     /**
      * Returns the singleton.
      *
-     * @return GISMultipolygon the singleton
+     * @return GisMultiPolygon the singleton
      * @access public
      */
     public static function singleton()
@@ -448,14 +448,14 @@ class GISMultipolygon extends GISGeometry
         // correctly classify inner rings to their respective outer rings.
         foreach ($row_data['parts'] as $i => $ring) {
             $row_data['parts'][$i]['isOuter']
-                = GISPolygon::isOuterRing($ring['points']);
+                = GisPolygon::isOuterRing($ring['points']);
         }
 
         // Find points on surface for inner rings
         foreach ($row_data['parts'] as $i => $ring) {
             if (!$ring['isOuter']) {
                 $row_data['parts'][$i]['pointOnSurface']
-                    = GISPolygon::getPointOnSurface($ring['points']);
+                    = GisPolygon::getPointOnSurface($ring['points']);
             }
         }
 
@@ -471,7 +471,7 @@ class GISMultipolygon extends GISGeometry
 
                 // If the pointOnSurface of the inner ring
                 // is also inside the outer ring
-                if (GISPolygon::isPointInsidePolygon(
+                if (GisPolygon::isPointInsidePolygon(
                     $ring1['pointOnSurface'],
                     $ring2['points']
                 )
@@ -549,7 +549,7 @@ class GISMultipolygon extends GISGeometry
         $params = array();
         if ($index == -1) {
             $index = 0;
-            $data = GISGeometry::generateParams($value);
+            $data = GisGeometry::generateParams($value);
             $params['srid'] = $data['srid'];
             $wkt = $data['wkt'];
         } else {

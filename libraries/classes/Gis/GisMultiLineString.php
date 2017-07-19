@@ -6,16 +6,16 @@
  * @package PhpMyAdmin-GIS
  */
 
-namespace PMA\libraries\gis;
+namespace PhpMyAdmin\Gis;
 
-use \TCPDF;
+use TCPDF;
 
 /**
  * Handles actions related to GIS MULTILINESTRING objects
  *
  * @package PhpMyAdmin-GIS
  */
-class GISMultilinestring extends GISGeometry
+class GisMultiLineString extends GisGeometry
 {
     // Hold the singleton instance of the class
     private static $_instance;
@@ -32,7 +32,7 @@ class GISMultilinestring extends GISGeometry
     /**
      * Returns the singleton.
      *
-     * @return GISMultilinestring the singleton
+     * @return GisMultiLineString the singleton
      * @access public
      */
     public static function singleton()
@@ -405,7 +405,7 @@ class GISMultilinestring extends GISGeometry
         $params = array();
         if ($index == -1) {
             $index = 0;
-            $data = GISGeometry::generateParams($value);
+            $data = GisGeometry::generateParams($value);
             $params['srid'] = $data['srid'];
             $wkt = $data['wkt'];
         } else {

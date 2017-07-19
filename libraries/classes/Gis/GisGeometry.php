@@ -6,16 +6,16 @@
  * @package PhpMyAdmin-GIS
  */
 
-namespace PMA\libraries\gis;
+namespace PhpMyAdmin\Gis;
 
-use \TCPDF;
+use TCPDF;
 
 /**
  * Base class for all GIS data type classes.
  *
  * @package PhpMyAdmin-GIS
  */
-abstract class GISGeometry
+abstract class GisGeometry
 {
     /**
      * Prepares and returns the code related to a row in the GIS dataset as SVG.
