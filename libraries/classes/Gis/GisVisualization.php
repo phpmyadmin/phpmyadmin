@@ -6,19 +6,19 @@
  * @package PhpMyAdmin-GIS
  */
 
-namespace PMA\libraries\gis;
+namespace PhpMyAdmin\Gis;
 
 use PhpMyAdmin\Core;
-use PhpMyAdmin\Util;
-use \TCPDF;
 use PhpMyAdmin\Sanitize;
+use PhpMyAdmin\Util;
+use TCPDF;
 
 /**
  * Handles visualization of GIS data
  *
  * @package PhpMyAdmin-GIS
  */
-class GISVisualization
+class GisVisualization
 {
     /**
      * @var array   Raw data for the visualization
@@ -78,13 +78,13 @@ class GISVisualization
      * @param integer $row       number of rows
      * @param integer $pos       start position
      *
-     * @return GISVisualization
+     * @return GisVisualization
      *
      * @access public
      */
     public static function get($sql_query, $options, $row, $pos)
     {
-        return new GISVisualization($sql_query, $options, $row, $pos);
+        return new GisVisualization($sql_query, $options, $row, $pos);
     }
 
     /**
@@ -94,11 +94,11 @@ class GISVisualization
      *                       ignored
      * @param array $options Users specified options
      *
-     * @return GISVisualization
+     * @return GisVisualization
      */
     public static function getByData($data, $options)
     {
-        return new GISVisualization(null, $options, null, null, $data);
+        return new GisVisualization(null, $options, null, null, $data);
     }
 
     /**
@@ -558,7 +558,7 @@ class GISVisualization
             }
             $type = mb_substr($ref_data, 0, $type_pos);
 
-            $gis_obj = GISFactory::factory($type);
+            $gis_obj = GisFactory::factory($type);
             if (!$gis_obj) {
                 continue;
             }
@@ -647,7 +647,7 @@ class GISVisualization
             }
             $type = mb_substr($ref_data, 0, $type_pos);
 
-            $gis_obj = GISFactory::factory($type);
+            $gis_obj = GisFactory::factory($type);
             if (!$gis_obj) {
                 continue;
             }

@@ -6,16 +6,16 @@
  * @package PhpMyAdmin-GIS
  */
 
-namespace PMA\libraries\gis;
+namespace PhpMyAdmin\Gis;
 
-use \TCPDF;
+use TCPDF;
 
 /**
  * Handles actions related to GIS MULTIPOINT objects
  *
  * @package PhpMyAdmin-GIS
  */
-class GISMultipoint extends GISGeometry
+class GisMultiPoint extends GisGeometry
 {
     // Hold the singleton instance of the class
     private static $_instance;
@@ -32,7 +32,7 @@ class GISMultipoint extends GISGeometry
     /**
      * Returns the singleton.
      *
-     * @return GISMultipoint the singleton
+     * @return GisMultiPoint the singleton
      * @access public
      */
     public static function singleton()
@@ -352,7 +352,7 @@ class GISMultipoint extends GISGeometry
         $params = array();
         if ($index == -1) {
             $index = 0;
-            $data = GISGeometry::generateParams($value);
+            $data = GisGeometry::generateParams($value);
             $params['srid'] = $data['srid'];
             $wkt = $data['wkt'];
         } else {

@@ -1,17 +1,17 @@
 <?php
 /* vim: set expandtab sw=4 ts=4 sts=4: */
 /**
- * Test for PMA\libraries\gis\GISGeometry
+ * Test for PhpMyAdmin\Gis\GisGeometry
  *
  * @package PhpMyAdmin-test
  */
 
 /**
- * Tests for PMA\libraries\gis\GISGeometry class
+ * Tests for PhpMyAdmin\Gis\GisGeometry class
  *
  * @package PhpMyAdmin-test
  */
-class GISGeometryTest extends PHPUnit_Framework_TestCase
+class GisGeometryTest extends PHPUnit_Framework_TestCase
 {
     /**
      * @access protected
@@ -27,7 +27,7 @@ class GISGeometryTest extends PHPUnit_Framework_TestCase
      */
     protected function setUp()
     {
-        $this->object = $this->getMockForAbstractClass('PMA\libraries\gis\GISGeometry');
+        $this->object = $this->getMockForAbstractClass('PhpMyAdmin\Gis\GisGeometry');
     }
 
     /**
@@ -52,7 +52,7 @@ class GISGeometryTest extends PHPUnit_Framework_TestCase
      */
     private function _callProtectedFunction($name, $params)
     {
-        $class = new ReflectionClass('PMA\libraries\gis\GISGeometry');
+        $class = new ReflectionClass('PhpMyAdmin\Gis\GisGeometry');
         $method = $class->getMethod($name);
         $method->setAccessible(true);
         return $method->invokeArgs($this->object, $params);

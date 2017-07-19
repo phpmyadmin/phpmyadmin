@@ -1,18 +1,18 @@
 <?php
 /* vim: set expandtab sw=4 ts=4 sts=4: */
 /**
- * Test for PMA\libraries\gis\GISFactory
+ * Test for PhpMyAdmin\Gis\GisFactory
  *
  * @package PhpMyAdmin-test
  */
-use PMA\libraries\gis\GISFactory;
+use PhpMyAdmin\Gis\GisFactory;
 
 /**
- * Test class for PMA\libraries\gis\GISFactory
+ * Test class for PhpMyAdmin\Gis\GisFactory
  *
  * @package PhpMyAdmin-test
  */
-class GISFactoryTest extends PHPUnit_Framework_TestCase
+class GisFactoryTest extends PHPUnit_Framework_TestCase
 {
 
     /**
@@ -26,7 +26,7 @@ class GISFactoryTest extends PHPUnit_Framework_TestCase
      */
     public function testFactory($type, $geom)
     {
-        $this->assertInstanceOf($geom, GISFactory::factory($type));
+        $this->assertInstanceOf($geom, GisFactory::factory($type));
     }
 
     /**
@@ -39,31 +39,31 @@ class GISFactoryTest extends PHPUnit_Framework_TestCase
         return array(
             array(
                 'MULTIPOLYGON',
-                'PMA\libraries\gis\GISMultipolygon'
+                'PhpMyAdmin\Gis\GisMultiPolygon'
             ),
             array(
                 'POLYGON',
-                'PMA\libraries\gis\GISPolygon'
+                'PhpMyAdmin\Gis\GisPolygon'
             ),
             array(
                 'MULTILINESTRING',
-                'PMA\libraries\gis\GISMultilinestring'
+                'PhpMyAdmin\Gis\GisMultiLineString'
             ),
             array(
                 'LINESTRING',
-                'PMA\libraries\gis\GISLinestring'
+                'PhpMyAdmin\Gis\GisLineString'
             ),
             array(
                 'MULTIPOINT',
-                'PMA\libraries\gis\GISMultipoint'
+                'PhpMyAdmin\Gis\GisMultiPoint'
             ),
             array(
                 'POINT',
-                'PMA\libraries\gis\GISPoint'
+                'PhpMyAdmin\Gis\GisPoint'
             ),
             array(
                 'GEOMETRYCOLLECTION',
-                'PMA\libraries\gis\GISGeometrycollection'
+                'PhpMyAdmin\Gis\GisGeometryCollection'
             ),
         );
     }

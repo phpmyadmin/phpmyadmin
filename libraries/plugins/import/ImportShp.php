@@ -8,11 +8,11 @@
  */
 namespace PMA\libraries\plugins\import;
 
-use PMA\libraries\gis\GISFactory;
-use PMA\libraries\gis\GISMultilinestring;
-use PMA\libraries\gis\GISMultipoint;
-use PMA\libraries\gis\GISPoint;
-use PMA\libraries\gis\GISPolygon;
+use PhpMyAdmin\Gis\GisFactory;
+use PhpMyAdmin\Gis\GisMultiLineString;
+use PhpMyAdmin\Gis\GisMultiPoint;
+use PhpMyAdmin\Gis\GisPoint;
+use PhpMyAdmin\Gis\GisPolygon;
 use PhpMyAdmin\Message;
 use PMA\libraries\plugins\ImportPlugin;
 use PMA\libraries\properties\plugins\ImportPluginProperties;
@@ -186,8 +186,8 @@ class ImportShp extends ImportPlugin
         }
 
         if (isset($gis_type)) {
-            /** @var GISMultilinestring|\PMA\libraries\gis\GISMultipoint|\PMA\libraries\gis\GISPoint|GISPolygon $gis_obj */
-            $gis_obj = GISFactory::factory($gis_type);
+            /** @var GisMultiLineString|\PhpMyAdmin\Gis\GisMultiPoint|\PhpMyAdmin\Gis\GisPoint|GisPolygon $gis_obj */
+            $gis_obj = GisFactory::factory($gis_type);
         } else {
             $gis_obj = null;
         }

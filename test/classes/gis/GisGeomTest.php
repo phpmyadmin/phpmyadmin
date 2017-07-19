@@ -11,7 +11,7 @@
  *
  * @package PhpMyAdmin-test
  */
-abstract class GISGeomTest extends PHPUnit_Framework_TestCase
+abstract class GisGeomTest extends PHPUnit_Framework_TestCase
 {
 
     /**

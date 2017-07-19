@@ -9,7 +9,7 @@ namespace PhpMyAdmin\Controllers\Table;
 
 use PhpMyAdmin\Controllers\TableController;
 use PhpMyAdmin\Core;
-use PMA\libraries\gis\GISVisualization;
+use PhpMyAdmin\Gis\GisVisualization;
 use PhpMyAdmin\Message;
 use PhpMyAdmin\Template;
 use PhpMyAdmin\Url;
@@ -41,7 +41,7 @@ class TableGisVisualizationController extends TableController
     protected $visualizationSettings;
 
     /**
-     * @var \PMA\libraries\gis\GISVisualization $visualization
+     * @var \PhpMyAdmin\Gis\GisVisualization $visualization
      */
     protected $visualization;
 
@@ -143,7 +143,7 @@ class TableGisVisualizationController extends TableController
                 $rows = $GLOBALS['cfg']['MaxRows'];
             }
         }
-        $this->visualization = GISVisualization::get(
+        $this->visualization = GisVisualization::get(
             $this->sql_query,
             $this->visualizationSettings,
             $rows,
