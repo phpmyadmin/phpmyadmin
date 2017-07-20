@@ -148,7 +148,7 @@ class PMA_DisplayExport_Test extends PHPUnit_Framework_TestCase
         /* Scan for plugins */
         $export_list = PMA_getPlugins(
             "export",
-            'libraries/plugins/export/',
+            'libraries/classes/Plugins/Export/',
             array(
                 'export_type' => $export_type,
                 'single_table' => isset($single_table)

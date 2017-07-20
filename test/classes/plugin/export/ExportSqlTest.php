@@ -1,11 +1,11 @@
 <?php
 /* vim: set expandtab sw=4 ts=4 sts=4: */
 /**
- * tests for PMA\libraries\plugins\export\ExportSql class
+ * tests for PhpMyAdmin\Plugins\Export\ExportSql class
  *
  * @package PhpMyAdmin-test
  */
-use PMA\libraries\plugins\export\ExportSql;
+use PhpMyAdmin\Plugins\Export\ExportSql;
 use PhpMyAdmin\Table;
 
 require_once 'libraries/export.lib.php';
@@ -14,7 +14,7 @@ require_once 'libraries/relation.lib.php';
 require_once 'test/PMATestCase.php';
 
 /**
- * tests for PMA\libraries\plugins\export\ExportSql class
+ * tests for PhpMyAdmin\Plugins\Export\ExportSql class
  *
  * @package PhpMyAdmin-test
  * @group medium
@@ -55,7 +55,7 @@ class ExportSqlTest extends PMATestCase
     }
 
     /**
-     * Test for PMA\libraries\plugins\export\ExportSql::setProperties
+     * Test for PhpMyAdmin\Plugins\Export\ExportSql::setProperties
      *
      * @return void
      * @group medium
@@ -67,11 +67,11 @@ class ExportSqlTest extends PMATestCase
         $GLOBALS['plugin_param']['single_table'] = false;
         $GLOBALS['cfgRelation']['mimework'] = true;
 
-        $method = new ReflectionMethod('PMA\libraries\plugins\export\ExportSql', 'setProperties');
+        $method = new ReflectionMethod('PhpMyAdmin\Plugins\Export\ExportSql', 'setProperties');
         $method->setAccessible(true);
         $method->invoke($this->object, null);
 
-        $attrProperties = new ReflectionProperty('PMA\libraries\plugins\export\ExportSql', 'properties');
+        $attrProperties = new ReflectionProperty('PhpMyAdmin\Plugins\Export\ExportSql', 'properties');
         $attrProperties->setAccessible(true);
         $properties = $attrProperties->getValue($this->object);
 
@@ -101,7 +101,7 @@ class ExportSqlTest extends PMATestCase
         $properties = $attrProperties->getValue($this->object);
 
         $this->assertInstanceOf(
-            'PMA\libraries\properties\plugins\ExportPluginProperties',
+            'PhpMyAdmin\Properties\Plugins\ExportPluginProperties',
             $properties
         );
 
@@ -113,7 +113,7 @@ class ExportSqlTest extends PMATestCase
         $options = $properties->getOptions();
 
         $this->assertInstanceOf(
-            'PMA\libraries\properties\options\groups\OptionsPropertyRootGroup',
+            'PhpMyAdmin\Properties\Options\Groups\OptionsPropertyRootGroup',
             $options
         );
 
@@ -122,7 +122,7 @@ class ExportSqlTest extends PMATestCase
         $generalOptions = array_shift($generalOptionsArray);
 
         $this->assertInstanceOf(
-            'PMA\libraries\properties\options\groups\OptionsPropertyMainGroup',
+            'PhpMyAdmin\Properties\Options\Groups\OptionsPropertyMainGroup',
             $generalOptions
         );
 
@@ -131,12 +131,12 @@ class ExportSqlTest extends PMATestCase
         $property = array_shift($properties);
 
         $this->assertInstanceOf(
-            'PMA\libraries\properties\options\groups\OptionsPropertySubgroup',
+            'PhpMyAdmin\Properties\Options\Groups\OptionsPropertySubgroup',
             $property
         );
 
         $this->assertInstanceOf(
-            'PMA\libraries\properties\options\items\BoolPropertyItem',
+            'PhpMyAdmin\Properties\Options\Items\BoolPropertyItem',
             $property->getSubgroupHeader()
         );
 
@@ -144,55 +144,55 @@ class ExportSqlTest extends PMATestCase
 
         $leaf = array_shift($leaves);
         $this->assertInstanceOf(
-            'PMA\libraries\properties\options\items\TextPropertyItem',
+            'PhpMyAdmin\Properties\Options\Items\TextPropertyItem',
             $leaf
         );
 
         $leaf = array_shift($leaves);
         $this->assertInstanceOf(
-            'PMA\libraries\properties\options\items\BoolPropertyItem',
+            'PhpMyAdmin\Properties\Options\Items\BoolPropertyItem',
             $leaf
         );
 
         $leaf = array_shift($leaves);
         $this->assertInstanceOf(
-            'PMA\libraries\properties\options\items\BoolPropertyItem',
+            'PhpMyAdmin\Properties\Options\Items\BoolPropertyItem',
             $leaf
         );
 
         $leaf = array_shift($leaves);
         $this->assertInstanceOf(
-            'PMA\libraries\properties\options\items\BoolPropertyItem',
+            'PhpMyAdmin\Properties\Options\Items\BoolPropertyItem',
             $leaf
         );
 
         $property = array_shift($properties);
         $this->assertInstanceOf(
-            'PMA\libraries\properties\options\items\BoolPropertyItem',
+            'PhpMyAdmin\Properties\Options\Items\BoolPropertyItem',
             $property
         );
 
         $property = array_shift($properties);
         $this->assertInstanceOf(
-            'PMA\libraries\properties\options\items\BoolPropertyItem',
+            'PhpMyAdmin\Properties\Options\Items\BoolPropertyItem',
             $property
         );
 
         $property = array_shift($properties);
         $this->assertInstanceOf(
-            'PMA\libraries\properties\options\items\BoolPropertyItem',
+            'PhpMyAdmin\Properties\Options\Items\BoolPropertyItem',
             $property
         );
 
         $property = array_shift($properties);
         $this->assertInstanceOf(
-            'PMA\libraries\properties\options\items\BoolPropertyItem',
+            'PhpMyAdmin\Properties\Options\Items\BoolPropertyItem',
             $property
         );
 
         $property = array_shift($properties);
         $this->assertInstanceOf(
-            'PMA\libraries\properties\options\items\SelectPropertyItem',
+            'PhpMyAdmin\Properties\Options\Items\SelectPropertyItem',
             $property
         );
 
@@ -206,19 +206,19 @@ class ExportSqlTest extends PMATestCase
 
         $property = array_shift($properties);
         $this->assertInstanceOf(
-            'PMA\libraries\properties\options\groups\OptionsPropertySubgroup',
+            'PhpMyAdmin\Properties\Options\Groups\OptionsPropertySubgroup',
             $property
         );
 
         $this->assertInstanceOf(
-            'PMA\libraries\properties\options\items\RadioPropertyItem',
+            'PhpMyAdmin\Properties\Options\Items\RadioPropertyItem',
             $property->getSubgroupHeader()
         );
 
         $structureOptions = array_shift($generalOptionsArray);
 
         $this->assertInstanceOf(
-            'PMA\libraries\properties\options\groups\OptionsPropertyMainGroup',
+            'PhpMyAdmin\Properties\Options\Groups\OptionsPropertyMainGroup',
             $structureOptions
         );
 
@@ -227,12 +227,12 @@ class ExportSqlTest extends PMATestCase
         $property = array_shift($properties);
 
         $this->assertInstanceOf(
-            'PMA\libraries\properties\options\groups\OptionsPropertySubgroup',
+            'PhpMyAdmin\Properties\Options\Groups\OptionsPropertySubgroup',
             $property
         );
 
         $this->assertInstanceOf(
-            'PMA\libraries\properties\options\items\MessageOnlyPropertyItem',
+            'PhpMyAdmin\Properties\Options\Items\MessageOnlyPropertyItem',
             $property->getSubgroupHeader()
         );
 
@@ -240,13 +240,13 @@ class ExportSqlTest extends PMATestCase
 
         $leaf = array_shift($leaves);
         $this->assertInstanceOf(
-            'PMA\libraries\properties\options\items\BoolPropertyItem',
+            'PhpMyAdmin\Properties\Options\Items\BoolPropertyItem',
             $leaf
         );
 
         $leaf = array_shift($leaves);
         $this->assertInstanceOf(
-            'PMA\libraries\properties\options\items\BoolPropertyItem',
+            'PhpMyAdmin\Properties\Options\Items\BoolPropertyItem',
             $leaf
         );
 
@@ -258,7 +258,7 @@ class ExportSqlTest extends PMATestCase
 
         $leaf = array_shift($leaves);
         $this->assertInstanceOf(
-            'PMA\libraries\properties\options\groups\OptionsPropertySubgroup',
+            'PhpMyAdmin\Properties\Options\Groups\OptionsPropertySubgroup',
             $leaf
         );
 
@@ -268,37 +268,37 @@ class ExportSqlTest extends PMATestCase
         );
 
         $this->assertInstanceOf(
-            'PMA\libraries\properties\options\items\BoolPropertyItem',
+            'PhpMyAdmin\Properties\Options\Items\BoolPropertyItem',
             $leaf->getSubgroupHeader()
         );
 
         $leaf = array_shift($leaves);
         $this->assertInstanceOf(
-            'PMA\libraries\properties\options\items\BoolPropertyItem',
+            'PhpMyAdmin\Properties\Options\Items\BoolPropertyItem',
             $leaf
         );
 
         $leaf = array_shift($leaves);
         $this->assertInstanceOf(
-            'PMA\libraries\properties\options\items\BoolPropertyItem',
+            'PhpMyAdmin\Properties\Options\Items\BoolPropertyItem',
             $leaf
         );
 
         $leaf = array_shift($leaves);
         $this->assertInstanceOf(
-            'PMA\libraries\properties\options\items\BoolPropertyItem',
+            'PhpMyAdmin\Properties\Options\Items\BoolPropertyItem',
             $leaf
         );
 
         $property = array_shift($properties);
         $this->assertInstanceOf(
-            'PMA\libraries\properties\options\items\BoolPropertyItem',
+            'PhpMyAdmin\Properties\Options\Items\BoolPropertyItem',
             $property
         );
 
         $dataOptions = array_shift($generalOptionsArray);
         $this->assertInstanceOf(
-            'PMA\libraries\properties\options\groups\OptionsPropertyMainGroup',
+            'PhpMyAdmin\Properties\Options\Groups\OptionsPropertyMainGroup',
             $dataOptions
         );
 
@@ -316,7 +316,7 @@ class ExportSqlTest extends PMATestCase
     }
 
     /**
-     * Test for PMA\libraries\plugins\export\ExportSql::exportRoutines
+     * Test for PhpMyAdmin\Plugins\Export\ExportSql::exportRoutines
      *
      * @return void
      */
@@ -366,13 +366,13 @@ class ExportSqlTest extends PMATestCase
     }
 
     /**
-     * Test for PMA\libraries\plugins\export\ExportSql::_exportComment
+     * Test for PhpMyAdmin\Plugins\Export\ExportSql::_exportComment
      *
      * @return void
      */
     public function testExportComment()
     {
-        $method = new ReflectionMethod('PMA\libraries\plugins\export\ExportSql', '_exportComment');
+        $method = new ReflectionMethod('PhpMyAdmin\Plugins\Export\ExportSql', '_exportComment');
         $method->setAccessible(true);
 
         $GLOBALS['crlf'] = '##';
@@ -404,13 +404,13 @@ class ExportSqlTest extends PMATestCase
     }
 
     /**
-     * Test for PMA\libraries\plugins\export\ExportSql::_possibleCRLF
+     * Test for PhpMyAdmin\Plugins\Export\ExportSql::_possibleCRLF
      *
      * @return void
      */
     public function testPossibleCRLF()
     {
-        $method = new ReflectionMethod('PMA\libraries\plugins\export\ExportSql', '_possibleCRLF');
+        $method = new ReflectionMethod('PhpMyAdmin\Plugins\Export\ExportSql', '_possibleCRLF');
         $method->setAccessible(true);
 
         $GLOBALS['crlf'] = '##';
@@ -442,7 +442,7 @@ class ExportSqlTest extends PMATestCase
     }
 
     /**
-     * Test for PMA\libraries\plugins\export\ExportSql::exportFooter
+     * Test for PhpMyAdmin\Plugins\Export\ExportSql::exportFooter
      *
      * @return void
      */
@@ -476,7 +476,7 @@ class ExportSqlTest extends PMATestCase
     }
 
     /**
-     * Test for PMA\libraries\plugins\export\ExportSql::exportHeader
+     * Test for PhpMyAdmin\Plugins\Export\ExportSql::exportHeader
      *
      * @return void
      */
@@ -553,7 +553,7 @@ class ExportSqlTest extends PMATestCase
     }
 
     /**
-     * Test for PMA\libraries\plugins\export\ExportSql::exportDBCreate
+     * Test for PhpMyAdmin\Plugins\Export\ExportSql::exportDBCreate
      *
      * @return void
      */
@@ -643,7 +643,7 @@ class ExportSqlTest extends PMATestCase
     }
 
     /**
-     * Test for PMA\libraries\plugins\export\ExportSql::exportDBHeader
+     * Test for PhpMyAdmin\Plugins\Export\ExportSql::exportDBHeader
      *
      * @return void
      */
@@ -682,7 +682,7 @@ class ExportSqlTest extends PMATestCase
     }
 
     /**
-     * Test for PMA\libraries\plugins\export\ExportSql::exportEvents
+     * Test for PhpMyAdmin\Plugins\Export\ExportSql::exportEvents
      *
      * @return void
      */
@@ -748,7 +748,7 @@ class ExportSqlTest extends PMATestCase
     }
 
     /**
-     * Test for PMA\libraries\plugins\export\ExportSql::exportDBFooter
+     * Test for PhpMyAdmin\Plugins\Export\ExportSql::exportDBFooter
      *
      * @return void
      */
@@ -780,7 +780,7 @@ class ExportSqlTest extends PMATestCase
     }
 
     /**
-     * Test for PMA\libraries\plugins\export\ExportSql::getTableDefStandIn
+     * Test for PhpMyAdmin\Plugins\Export\ExportSql::getTableDefStandIn
      *
      * @return void
      */
@@ -820,7 +820,7 @@ class ExportSqlTest extends PMATestCase
     }
 
     /**
-     * Test for PMA\libraries\plugins\export\ExportSql::_getTableDefForView
+     * Test for PhpMyAdmin\Plugins\Export\ExportSql::_getTableDefForView
      *
      * @return void
      */
@@ -856,7 +856,7 @@ class ExportSqlTest extends PMATestCase
         $GLOBALS['dbi'] = $dbi;
         $GLOBALS['sql_compatibility'] = 'MSSQL';
 
-        $method = new ReflectionMethod('PMA\libraries\plugins\export\ExportSql', '_getTableDefForView');
+        $method = new ReflectionMethod('PhpMyAdmin\Plugins\Export\ExportSql', '_getTableDefForView');
         $method->setAccessible(true);
         $result = $method->invoke(
             $this->object, 'db', 'view', "\n"
@@ -910,7 +910,7 @@ class ExportSqlTest extends PMATestCase
 
 
     /**
-     * Test for PMA\libraries\plugins\export\ExportSql::getTableDef
+     * Test for PhpMyAdmin\Plugins\Export\ExportSql::getTableDef
      *
      * @return void
      * @group medium
@@ -1078,7 +1078,7 @@ class ExportSqlTest extends PMATestCase
     }
 
     /**
-     * Test for PMA\libraries\plugins\export\ExportSql::getTableDef
+     * Test for PhpMyAdmin\Plugins\Export\ExportSql::getTableDef
      *
      * @return void
      */
@@ -1162,7 +1162,7 @@ class ExportSqlTest extends PMATestCase
     }
 
     /**
-     * Test for PMA\libraries\plugins\export\ExportSql::_getTableComments
+     * Test for PhpMyAdmin\Plugins\Export\ExportSql::_getTableComments
      *
      * @return void
      */
@@ -1207,7 +1207,7 @@ class ExportSqlTest extends PMATestCase
 
         $GLOBALS['dbi'] = $dbi;
 
-        $method = new ReflectionMethod('PMA\libraries\plugins\export\ExportSql', '_getTableComments');
+        $method = new ReflectionMethod('PhpMyAdmin\Plugins\Export\ExportSql', '_getTableComments');
         $method->setAccessible(true);
         $result = $method->invoke(
             $this->object, 'db', '', "\n", true, true
@@ -1229,7 +1229,7 @@ class ExportSqlTest extends PMATestCase
     }
 
     /**
-     * Test for PMA\libraries\plugins\export\ExportSql::exportStructure
+     * Test for PhpMyAdmin\Plugins\Export\ExportSql::exportStructure
      *
      * @return void
      * @group medium
@@ -1254,7 +1254,7 @@ class ExportSqlTest extends PMATestCase
                 )
             );
 
-        $this->object = $this->getMockBuilder('PMA\libraries\plugins\export\ExportSql')
+        $this->object = $this->getMockBuilder('PhpMyAdmin\Plugins\Export\ExportSql')
             ->setMethods(array('getTableDef', 'getTriggers', 'getTableDefStandIn'))
             ->getMock();
 
@@ -1402,7 +1402,7 @@ class ExportSqlTest extends PMATestCase
     }
 
     /**
-     * Test for PMA\libraries\plugins\export\ExportSql::exportData
+     * Test for PhpMyAdmin\Plugins\Export\ExportSql::exportData
      *
      * @return void
      * @group medium
@@ -1550,7 +1550,7 @@ class ExportSqlTest extends PMATestCase
     }
 
     /**
-     * Test for PMA\libraries\plugins\export\ExportSql::exportData
+     * Test for PhpMyAdmin\Plugins\Export\ExportSql::exportData
      *
      * @return void
      * @group medium
@@ -1659,7 +1659,7 @@ class ExportSqlTest extends PMATestCase
     }
 
     /**
-     * Test for PMA\libraries\plugins\export\ExportSql::exportData
+     * Test for PhpMyAdmin\Plugins\Export\ExportSql::exportData
      *
      * @return void
     */
@@ -1715,7 +1715,7 @@ class ExportSqlTest extends PMATestCase
     }
 
     /**
-     * Test for PMA\libraries\plugins\export\ExportSql::exportData
+     * Test for PhpMyAdmin\Plugins\Export\ExportSql::exportData
      *
      * @return void
     */
@@ -1764,7 +1764,7 @@ class ExportSqlTest extends PMATestCase
     }
 
     /**
-     * Test for PMA\libraries\plugins\export\ExportSql::_makeCreateTableMSSQLCompatible
+     * Test for PhpMyAdmin\Plugins\Export\ExportSql::_makeCreateTableMSSQLCompatible
      *
      * @return void
      */
@@ -1789,7 +1789,7 @@ class ExportSqlTest extends PMATestCase
             " \" double NOT NULL DEFAULT '213'\n";
 
         $method = new ReflectionMethod(
-            'PMA\libraries\plugins\export\ExportSql', '_makeCreateTableMSSQLCompatible'
+            'PhpMyAdmin\Plugins\Export\ExportSql', '_makeCreateTableMSSQLCompatible'
         );
         $method->setAccessible(true);
         $result = $method->invoke(
@@ -1821,7 +1821,7 @@ class ExportSqlTest extends PMATestCase
     }
 
     /**
-     * Test for PMA\libraries\plugins\export\ExportSql::initAlias
+     * Test for PhpMyAdmin\Plugins\Export\ExportSql::initAlias
      *
      * @return void
     */
@@ -1863,7 +1863,7 @@ class ExportSqlTest extends PMATestCase
     }
 
     /**
-     * Test for PMA\libraries\plugins\export\ExportSql::getAlias
+     * Test for PhpMyAdmin\Plugins\Export\ExportSql::getAlias
      *
      * @return void
     */
@@ -1908,7 +1908,7 @@ class ExportSqlTest extends PMATestCase
     }
 
     /**
-     * Test for PMA\libraries\plugins\export\ExportSql::replaceWithAlias
+     * Test for PhpMyAdmin\Plugins\Export\ExportSql::replaceWithAlias
      *
      * @return void
     */

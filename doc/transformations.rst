@@ -3,7 +3,7 @@
 Transformations
 ===============
 
-.. note:: 
+.. note::
 
     You need to have configured the :ref:`linked-tables` for using transformations
     feature.
@@ -87,9 +87,9 @@ File structure
 ++++++++++++++
 
 All specific transformations for mimetypes are defined through class
-files in the directory 'libraries/plugins/transformations/'. Each of
+files in the directory 'libraries/classes/Plugins/Transformations/'. Each of
 them extends a certain transformation abstract class declared in
-libraries/plugins/transformations/abstract.
+libraries/classes/Plugins/Transformations/Abs.
 
 They are stored in files to ease up customization and easy adding of
 new transformations.
@@ -117,8 +117,8 @@ getInfo() returns the transformation's description and possible
 options it may receive and applyTransformation() is the method that
 does the actual work of the transformation plug-in.
 
-Please see the libraries/plugins/transformations/TEMPLATE and
-libraries/plugins/transformations/TEMPLATE\_ABSTRACT files for adding
+Please see the libraries/classes/Plugins/Transformations/TEMPLATE and
+libraries/classes/Plugins/Transformations/TEMPLATE\_ABSTRACT files for adding
 your own transformation plug-in. You can also generate a new
 transformation plug-in (with or without the abstract transformation
 class), by using
@@ -140,4 +140,3 @@ The applyTransformation() method always gets passed three variables:
    unsigned/zerofill/not\_null/... properties. The $meta->mimetype
    variable contains the original MIME-type of the column (i.e.
    'text/plain', 'image/jpeg' etc.)
-

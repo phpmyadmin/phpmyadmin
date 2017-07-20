@@ -1,11 +1,11 @@
 <?php
 /* vim: set expandtab sw=4 ts=4 sts=4: */
 /**
- * tests for PMA\libraries\plugins\export\ExportLatex class
+ * tests for PhpMyAdmin\Plugins\Export\ExportLatex class
  *
  * @package PhpMyAdmin-test
  */
-use PMA\libraries\plugins\export\ExportLatex;
+use PhpMyAdmin\Plugins\Export\ExportLatex;
 
 require_once 'libraries/export.lib.php';
 require_once 'libraries/config.default.php';
@@ -13,7 +13,7 @@ require_once 'libraries/relation.lib.php';
 require_once 'test/PMATestCase.php';
 
 /**
- * tests for PMA\libraries\plugins\export\ExportLatex class
+ * tests for PhpMyAdmin\Plugins\Export\ExportLatex class
  *
  * @package PhpMyAdmin-test
  * @group medium
@@ -53,7 +53,7 @@ class ExportLatexTest extends PMATestCase
     }
 
     /**
-     * Test for PMA\libraries\plugins\export\ExportLatex::setProperties
+     * Test for PhpMyAdmin\Plugins\Export\ExportLatex::setProperties
      *
      * @return void
      */
@@ -63,16 +63,16 @@ class ExportLatexTest extends PMATestCase
         $GLOBALS['plugin_param']['single_table'] = false;
         $GLOBALS['cfgRelation']['mimework'] = true;
 
-        $method = new ReflectionMethod('PMA\libraries\plugins\export\ExportLatex', 'setProperties');
+        $method = new ReflectionMethod('PhpMyAdmin\Plugins\Export\ExportLatex', 'setProperties');
         $method->setAccessible(true);
         $method->invoke($this->object, null);
 
-        $attrProperties = new ReflectionProperty('PMA\libraries\plugins\export\ExportLatex', 'properties');
+        $attrProperties = new ReflectionProperty('PhpMyAdmin\Plugins\Export\ExportLatex', 'properties');
         $attrProperties->setAccessible(true);
         $properties = $attrProperties->getValue($this->object);
 
         $this->assertInstanceOf(
-            'PMA\libraries\properties\plugins\ExportPluginProperties',
+            'PhpMyAdmin\Properties\Plugins\ExportPluginProperties',
             $properties
         );
 
@@ -99,7 +99,7 @@ class ExportLatexTest extends PMATestCase
         $options = $properties->getOptions();
 
         $this->assertInstanceOf(
-            'PMA\libraries\properties\options\groups\OptionsPropertyRootGroup',
+            'PhpMyAdmin\Properties\Options\Groups\OptionsPropertyRootGroup',
             $options
         );
 
@@ -113,7 +113,7 @@ class ExportLatexTest extends PMATestCase
         $generalOptions = array_shift($generalOptionsArray);
 
         $this->assertInstanceOf(
-            'PMA\libraries\properties\options\groups\OptionsPropertyMainGroup',
+            'PhpMyAdmin\Properties\Options\Groups\OptionsPropertyMainGroup',
             $generalOptions
         );
 
@@ -127,7 +127,7 @@ class ExportLatexTest extends PMATestCase
         $property = array_shift($generalProperties);
 
         $this->assertInstanceOf(
-            'PMA\libraries\properties\options\items\BoolPropertyItem',
+            'PhpMyAdmin\Properties\Options\Items\BoolPropertyItem',
             $property
         );
 
@@ -144,7 +144,7 @@ class ExportLatexTest extends PMATestCase
         $generalOptions = array_shift($generalOptionsArray);
 
         $this->assertInstanceOf(
-            'PMA\libraries\properties\options\groups\OptionsPropertyMainGroup',
+            'PhpMyAdmin\Properties\Options\Groups\OptionsPropertyMainGroup',
             $generalOptions
         );
 
@@ -163,7 +163,7 @@ class ExportLatexTest extends PMATestCase
         $property = array_shift($generalProperties);
 
         $this->assertInstanceOf(
-            'PMA\libraries\properties\options\items\RadioPropertyItem',
+            'PhpMyAdmin\Properties\Options\Items\RadioPropertyItem',
             $property
         );
 
@@ -185,7 +185,7 @@ class ExportLatexTest extends PMATestCase
         $generalOptions = array_shift($generalOptionsArray);
 
         $this->assertInstanceOf(
-            'PMA\libraries\properties\options\groups\OptionsPropertyMainGroup',
+            'PhpMyAdmin\Properties\Options\Groups\OptionsPropertyMainGroup',
             $generalOptions
         );
 
@@ -209,7 +209,7 @@ class ExportLatexTest extends PMATestCase
         $property = array_shift($generalProperties);
 
         $this->assertInstanceOf(
-            'PMA\libraries\properties\options\items\TextPropertyItem',
+            'PhpMyAdmin\Properties\Options\Items\TextPropertyItem',
             $property
         );
 
@@ -231,7 +231,7 @@ class ExportLatexTest extends PMATestCase
         $property = array_shift($generalProperties);
 
         $this->assertInstanceOf(
-            'PMA\libraries\properties\options\items\TextPropertyItem',
+            'PhpMyAdmin\Properties\Options\Items\TextPropertyItem',
             $property
         );
 
@@ -253,7 +253,7 @@ class ExportLatexTest extends PMATestCase
         $property = array_shift($generalProperties);
 
         $this->assertInstanceOf(
-            'PMA\libraries\properties\options\items\TextPropertyItem',
+            'PhpMyAdmin\Properties\Options\Items\TextPropertyItem',
             $property
         );
 
@@ -275,7 +275,7 @@ class ExportLatexTest extends PMATestCase
         $property = array_shift($generalProperties);
 
         $this->assertInstanceOf(
-            'PMA\libraries\properties\options\items\BoolPropertyItem',
+            'PhpMyAdmin\Properties\Options\Items\BoolPropertyItem',
             $property
         );
 
@@ -292,7 +292,7 @@ class ExportLatexTest extends PMATestCase
         $property = array_shift($generalProperties);
 
         $this->assertInstanceOf(
-            'PMA\libraries\properties\options\items\BoolPropertyItem',
+            'PhpMyAdmin\Properties\Options\Items\BoolPropertyItem',
             $property
         );
 
@@ -309,7 +309,7 @@ class ExportLatexTest extends PMATestCase
         $property = array_shift($generalProperties);
 
         $this->assertInstanceOf(
-            'PMA\libraries\properties\options\items\BoolPropertyItem',
+            'PhpMyAdmin\Properties\Options\Items\BoolPropertyItem',
             $property
         );
 
@@ -327,7 +327,7 @@ class ExportLatexTest extends PMATestCase
         $generalOptions = array_shift($generalOptionsArray);
 
         $this->assertInstanceOf(
-            'PMA\libraries\properties\options\groups\OptionsPropertyMainGroup',
+            'PhpMyAdmin\Properties\Options\Groups\OptionsPropertyMainGroup',
             $generalOptions
         );
 
@@ -351,7 +351,7 @@ class ExportLatexTest extends PMATestCase
         $property = array_shift($generalProperties);
 
         $this->assertInstanceOf(
-            'PMA\libraries\properties\options\items\BoolPropertyItem',
+            'PhpMyAdmin\Properties\Options\Items\BoolPropertyItem',
             $property
         );
 
@@ -368,7 +368,7 @@ class ExportLatexTest extends PMATestCase
         $property = array_shift($generalProperties);
 
         $this->assertInstanceOf(
-            'PMA\libraries\properties\options\items\TextPropertyItem',
+            'PhpMyAdmin\Properties\Options\Items\TextPropertyItem',
             $property
         );
 
@@ -390,7 +390,7 @@ class ExportLatexTest extends PMATestCase
         $property = array_shift($generalProperties);
 
         $this->assertInstanceOf(
-            'PMA\libraries\properties\options\items\TextPropertyItem',
+            'PhpMyAdmin\Properties\Options\Items\TextPropertyItem',
             $property
         );
 
@@ -412,7 +412,7 @@ class ExportLatexTest extends PMATestCase
         $property = array_shift($generalProperties);
 
         $this->assertInstanceOf(
-            'PMA\libraries\properties\options\items\TextPropertyItem',
+            'PhpMyAdmin\Properties\Options\Items\TextPropertyItem',
             $property
         );
 
@@ -434,7 +434,7 @@ class ExportLatexTest extends PMATestCase
         $property = array_shift($generalProperties);
 
         $this->assertInstanceOf(
-            'PMA\libraries\properties\options\items\TextPropertyItem',
+            'PhpMyAdmin\Properties\Options\Items\TextPropertyItem',
             $property
         );
 
@@ -464,7 +464,7 @@ class ExportLatexTest extends PMATestCase
     }
 
     /**
-     * Test for PMA\libraries\plugins\export\ExportLatex::exportHeader
+     * Test for PhpMyAdmin\Plugins\Export\ExportLatex::exportHeader
      *
      * @return void
      */
@@ -487,7 +487,7 @@ class ExportLatexTest extends PMATestCase
     }
 
     /**
-     * Test for PMA\libraries\plugins\export\ExportLatex::exportFooter
+     * Test for PhpMyAdmin\Plugins\Export\ExportLatex::exportFooter
      *
      * @return void
      */
@@ -499,7 +499,7 @@ class ExportLatexTest extends PMATestCase
     }
 
     /**
-     * Test for PMA\libraries\plugins\export\ExportLatex::exportDBHeader
+     * Test for PhpMyAdmin\Plugins\Export\ExportLatex::exportDBHeader
      *
      * @return void
      */
@@ -517,7 +517,7 @@ class ExportLatexTest extends PMATestCase
     }
 
     /**
-     * Test for PMA\libraries\plugins\export\ExportLatex::exportDBFooter
+     * Test for PhpMyAdmin\Plugins\Export\ExportLatex::exportDBFooter
      *
      * @return void
      */
@@ -529,7 +529,7 @@ class ExportLatexTest extends PMATestCase
     }
 
     /**
-     * Test for PMA\libraries\plugins\export\ExportLatex::exportDBCreate
+     * Test for PhpMyAdmin\Plugins\Export\ExportLatex::exportDBCreate
      *
      * @return void
      */
@@ -541,7 +541,7 @@ class ExportLatexTest extends PMATestCase
     }
 
     /**
-     * Test for PMA\libraries\plugins\export\ExportLatex::exportData
+     * Test for PhpMyAdmin\Plugins\Export\ExportLatex::exportData
      *
      * @return void
      */
@@ -655,13 +655,13 @@ class ExportLatexTest extends PMATestCase
     }
 
     /**
-     * Test for PMA\libraries\plugins\export\ExportLatex::exportStructure
+     * Test for PhpMyAdmin\Plugins\Export\ExportLatex::exportStructure
      *
      * @return void
      */
     public function testExportStructure()
     {
-        // $this->object = $this->getMockBuilder('PMA\libraries\plugins\export\ExportHtmlword')
+        // $this->object = $this->getMockBuilder('PhpMyAdmin\Plugins\Export\ExportHtmlword')
         //     ->setMethods(array('formatOneColumnDefinition'))
         //     ->getMock();
 
@@ -973,7 +973,7 @@ class ExportLatexTest extends PMATestCase
     }
 
     /**
-     * Test for PMA\libraries\plugins\export\ExportLatex::texEscape
+     * Test for PhpMyAdmin\Plugins\Export\ExportLatex::texEscape
      *
      * @return void
      */

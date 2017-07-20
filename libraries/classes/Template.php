@@ -7,12 +7,12 @@
  */
 namespace PhpMyAdmin;
 
-use PMA\libraries\twig\CharsetsExtension;
-use PMA\libraries\twig\I18nExtension;
-use PMA\libraries\twig\MessageExtension;
-use PMA\libraries\twig\SanitizeExtension;
-use PMA\libraries\twig\UrlExtension;
-use PMA\libraries\twig\UtilExtension;
+use PhpMyAdmin\Twig\CharsetsExtension;
+use PhpMyAdmin\Twig\I18nExtension;
+use PhpMyAdmin\Twig\MessageExtension;
+use PhpMyAdmin\Twig\SanitizeExtension;
+use PhpMyAdmin\Twig\UrlExtension;
+use PhpMyAdmin\Twig\UtilExtension;
 use Twig_Environment;
 use Twig_Loader_Filesystem;
 

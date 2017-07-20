@@ -1,11 +1,11 @@
 <?php
 /* vim: set expandtab sw=4 ts=4 sts=4: */
 /**
- * tests for PMA\libraries\plugins\export\ExportXml class
+ * tests for PhpMyAdmin\Plugins\Export\ExportXml class
  *
  * @package PhpMyAdmin-test
  */
-use PMA\libraries\plugins\export\ExportXml;
+use PhpMyAdmin\Plugins\Export\ExportXml;
 use PhpMyAdmin\Table;
 
 $GLOBALS['db'] = 'db';
@@ -15,7 +15,7 @@ require_once 'libraries/config.default.php';
 require_once 'test/PMATestCase.php';
 
 /**
- * tests for PMA\libraries\plugins\export\ExportXml class
+ * tests for PhpMyAdmin\Plugins\Export\ExportXml class
  *
  * @package PhpMyAdmin-test
  * @group medium
@@ -54,23 +54,23 @@ class ExportXmlTest extends PMATestCase
     }
 
     /**
-     * Test for PMA\libraries\plugins\export\ExportXml::setProperties
+     * Test for PhpMyAdmin\Plugins\Export\ExportXml::setProperties
      *
      * @return void
      * @group medium
      */
     public function testSetProperties()
     {
-        $method = new ReflectionMethod('PMA\libraries\plugins\export\ExportXml', 'setProperties');
+        $method = new ReflectionMethod('PhpMyAdmin\Plugins\Export\ExportXml', 'setProperties');
         $method->setAccessible(true);
         $method->invoke($this->object, null);
 
-        $attrProperties = new ReflectionProperty('PMA\libraries\plugins\export\ExportXml', 'properties');
+        $attrProperties = new ReflectionProperty('PhpMyAdmin\Plugins\Export\ExportXml', 'properties');
         $attrProperties->setAccessible(true);
         $properties = $attrProperties->getValue($this->object);
 
         $this->assertInstanceOf(
-            'PMA\libraries\properties\plugins\ExportPluginProperties',
+            'PhpMyAdmin\Properties\Plugins\ExportPluginProperties',
             $properties
         );
 
@@ -92,7 +92,7 @@ class ExportXmlTest extends PMATestCase
         $options = $properties->getOptions();
 
         $this->assertInstanceOf(
-            'PMA\libraries\properties\options\groups\OptionsPropertyRootGroup',
+            'PhpMyAdmin\Properties\Options\Groups\OptionsPropertyRootGroup',
             $options
         );
 
@@ -106,7 +106,7 @@ class ExportXmlTest extends PMATestCase
         $generalOptions = array_shift($generalOptionsArray);
 
         $this->assertInstanceOf(
-            'PMA\libraries\properties\options\groups\OptionsPropertyMainGroup',
+            'PhpMyAdmin\Properties\Options\Groups\OptionsPropertyMainGroup',
             $generalOptions
         );
 
@@ -120,14 +120,14 @@ class ExportXmlTest extends PMATestCase
         $property = array_shift($generalProperties);
 
         $this->assertInstanceOf(
-            'PMA\libraries\properties\options\items\HiddenPropertyItem',
+            'PhpMyAdmin\Properties\Options\Items\HiddenPropertyItem',
             $property
         );
 
         $generalOptions = array_shift($generalOptionsArray);
 
         $this->assertInstanceOf(
-            'PMA\libraries\properties\options\groups\OptionsPropertyMainGroup',
+            'PhpMyAdmin\Properties\Options\Groups\OptionsPropertyMainGroup',
             $generalOptions
         );
 
@@ -141,42 +141,42 @@ class ExportXmlTest extends PMATestCase
         $property = array_shift($generalProperties);
 
         $this->assertInstanceOf(
-            'PMA\libraries\properties\options\items\BoolPropertyItem',
+            'PhpMyAdmin\Properties\Options\Items\BoolPropertyItem',
             $property
         );
 
         $property = array_shift($generalProperties);
 
         $this->assertInstanceOf(
-            'PMA\libraries\properties\options\items\BoolPropertyItem',
+            'PhpMyAdmin\Properties\Options\Items\BoolPropertyItem',
             $property
         );
 
         $property = array_shift($generalProperties);
 
         $this->assertInstanceOf(
-            'PMA\libraries\properties\options\items\BoolPropertyItem',
+            'PhpMyAdmin\Properties\Options\Items\BoolPropertyItem',
             $property
         );
 
         $property = array_shift($generalProperties);
 
         $this->assertInstanceOf(
-            'PMA\libraries\properties\options\items\BoolPropertyItem',
+            'PhpMyAdmin\Properties\Options\Items\BoolPropertyItem',
             $property
         );
 
         $property = array_shift($generalProperties);
 
         $this->assertInstanceOf(
-            'PMA\libraries\properties\options\items\BoolPropertyItem',
+            'PhpMyAdmin\Properties\Options\Items\BoolPropertyItem',
             $property
         );
 
         $generalOptions = array_shift($generalOptionsArray);
 
         $this->assertInstanceOf(
-            'PMA\libraries\properties\options\groups\OptionsPropertyMainGroup',
+            'PhpMyAdmin\Properties\Options\Groups\OptionsPropertyMainGroup',
             $generalOptions
         );
 
@@ -190,13 +190,13 @@ class ExportXmlTest extends PMATestCase
         $property = array_shift($generalProperties);
 
         $this->assertInstanceOf(
-            'PMA\libraries\properties\options\items\BoolPropertyItem',
+            'PhpMyAdmin\Properties\Options\Items\BoolPropertyItem',
             $property
         );
     }
 
     /**
-     * Test for PMA\libraries\plugins\export\ExportXml::exportHeader
+     * Test for PhpMyAdmin\Plugins\Export\ExportXml::exportHeader
      *
      * @return void
      * @group medium
@@ -377,7 +377,7 @@ class ExportXmlTest extends PMATestCase
     }
 
     /**
-     * Test for PMA\libraries\plugins\export\ExportXml::exportFooter
+     * Test for PhpMyAdmin\Plugins\Export\ExportXml::exportFooter
      *
      * @return void
      */
@@ -392,7 +392,7 @@ class ExportXmlTest extends PMATestCase
     }
 
     /**
-     * Test for PMA\libraries\plugins\export\ExportXml::exportDBHeader
+     * Test for PhpMyAdmin\Plugins\Export\ExportXml::exportDBHeader
      *
      * @return void
      */
@@ -419,7 +419,7 @@ class ExportXmlTest extends PMATestCase
     }
 
     /**
-     * Test for PMA\libraries\plugins\export\ExportXml::exportDBFooter
+     * Test for PhpMyAdmin\Plugins\Export\ExportXml::exportDBFooter
      *
      * @return void
      */
@@ -446,7 +446,7 @@ class ExportXmlTest extends PMATestCase
     }
 
     /**
-     * Test for PMA\libraries\plugins\export\ExportXml::exportDBCreate
+     * Test for PhpMyAdmin\Plugins\Export\ExportXml::exportDBCreate
      *
      * @return void
      */
@@ -458,7 +458,7 @@ class ExportXmlTest extends PMATestCase
     }
 
     /**
-     * Test for PMA\libraries\plugins\export\ExportXml::exportData
+     * Test for PhpMyAdmin\Plugins\Export\ExportXml::exportData
      *
      * @return void
      */

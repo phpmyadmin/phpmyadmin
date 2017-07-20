@@ -1,15 +1,15 @@
 <?php
 /* vim: set expandtab sw=4 ts=4 sts=4: */
 /**
- * tests for PMA\libraries\properties\plugins\ImportPluginProperties class
+ * tests for PhpMyAdmin\Properties\Plugins\ImportPluginProperties class
  *
  * @package PhpMyAdmin-test
  */
 
-use PMA\libraries\properties\plugins\ImportPluginProperties;
+use PhpMyAdmin\Properties\Plugins\ImportPluginProperties;
 
 /**
- * tests for PMA\libraries\properties\plugins\ImportPluginProperties class
+ * tests for PhpMyAdmin\Properties\Plugins\ImportPluginProperties class
  *
  * @package PhpMyAdmin-test
  */
@@ -38,7 +38,7 @@ class ImportPluginPropertiesTest extends PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test for PMA\libraries\properties\plugins\ImportPluginProperties::getItemType
+     * Test for PhpMyAdmin\Properties\Plugins\ImportPluginProperties::getItemType
      *
      * @return void
      */
@@ -52,8 +52,8 @@ class ImportPluginPropertiesTest extends PHPUnit_Framework_TestCase
 
     /**
      * Test for
-     *     - PMA\libraries\properties\plugins\ImportPluginProperties::getOptionsText
-     *     - PMA\libraries\properties\plugins\ImportPluginProperties::setOptionsText
+     *     - PhpMyAdmin\Properties\Plugins\ImportPluginProperties::getOptionsText
+     *     - PhpMyAdmin\Properties\Plugins\ImportPluginProperties::setOptionsText
      *
      * @return void
      */
@@ -69,8 +69,8 @@ class ImportPluginPropertiesTest extends PHPUnit_Framework_TestCase
 
     /**
      * Test for
-     *     - PMA\libraries\properties\plugins\ImportPluginProperties::setMimeType
-     *     - PMA\libraries\properties\plugins\ImportPluginProperties::getMimeType
+     *     - PhpMyAdmin\Properties\Plugins\ImportPluginProperties::setMimeType
+     *     - PhpMyAdmin\Properties\Plugins\ImportPluginProperties::getMimeType
      *
      * @return void
      */

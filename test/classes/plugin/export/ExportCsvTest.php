@@ -1,18 +1,18 @@
 <?php
 /* vim: set expandtab sw=4 ts=4 sts=4: */
 /**
- * tests for PMA\libraries\plugins\export\ExportCsv class
+ * tests for PhpMyAdmin\Plugins\Export\ExportCsv class
  *
  * @package PhpMyAdmin-test
  */
-use PMA\libraries\plugins\export\ExportCsv;
+use PhpMyAdmin\Plugins\Export\ExportCsv;
 
 require_once 'libraries/export.lib.php';
 require_once 'libraries/config.default.php';
 require_once 'test/PMATestCase.php';
 
 /**
- * tests for PMA\libraries\plugins\export\ExportCsv class
+ * tests for PhpMyAdmin\Plugins\Export\ExportCsv class
  *
  * @package PhpMyAdmin-test
  * @group medium
@@ -43,22 +43,22 @@ class ExportCsvTest extends PMATestCase
     }
 
     /**
-     * Test for PMA\libraries\plugins\export\ExportCsv::setProperties
+     * Test for PhpMyAdmin\Plugins\Export\ExportCsv::setProperties
      *
      * @return void
      */
     public function testSetProperties()
     {
-        $method = new ReflectionMethod('PMA\libraries\plugins\export\ExportCsv', 'setProperties');
+        $method = new ReflectionMethod('PhpMyAdmin\Plugins\Export\ExportCsv', 'setProperties');
         $method->setAccessible(true);
         $method->invoke($this->object, null);
 
-        $attrProperties = new ReflectionProperty('PMA\libraries\plugins\export\ExportCsv', 'properties');
+        $attrProperties = new ReflectionProperty('PhpMyAdmin\Plugins\Export\ExportCsv', 'properties');
         $attrProperties->setAccessible(true);
         $properties = $attrProperties->getValue($this->object);
 
         $this->assertInstanceOf(
-            'PMA\libraries\properties\plugins\ExportPluginProperties',
+            'PhpMyAdmin\Properties\Plugins\ExportPluginProperties',
             $properties
         );
 
@@ -85,7 +85,7 @@ class ExportCsvTest extends PMATestCase
         $options = $properties->getOptions();
 
         $this->assertInstanceOf(
-            'PMA\libraries\properties\options\groups\OptionsPropertyRootGroup',
+            'PhpMyAdmin\Properties\Options\Groups\OptionsPropertyRootGroup',
             $options
         );
 
@@ -98,7 +98,7 @@ class ExportCsvTest extends PMATestCase
         $generalOptions = $generalOptionsArray[0];
 
         $this->assertInstanceOf(
-            'PMA\libraries\properties\options\groups\OptionsPropertyMainGroup',
+            'PhpMyAdmin\Properties\Options\Groups\OptionsPropertyMainGroup',
             $generalOptions
         );
 
@@ -112,7 +112,7 @@ class ExportCsvTest extends PMATestCase
         $property = array_shift($generalProperties);
 
         $this->assertInstanceOf(
-            'PMA\libraries\properties\options\items\TextPropertyItem',
+            'PhpMyAdmin\Properties\Options\Items\TextPropertyItem',
             $property
         );
 
@@ -129,7 +129,7 @@ class ExportCsvTest extends PMATestCase
         $property = array_shift($generalProperties);
 
         $this->assertInstanceOf(
-            'PMA\libraries\properties\options\items\TextPropertyItem',
+            'PhpMyAdmin\Properties\Options\Items\TextPropertyItem',
             $property
         );
 
@@ -146,7 +146,7 @@ class ExportCsvTest extends PMATestCase
         $property = array_shift($generalProperties);
 
         $this->assertInstanceOf(
-            'PMA\libraries\properties\options\items\TextPropertyItem',
+            'PhpMyAdmin\Properties\Options\Items\TextPropertyItem',
             $property
         );
 
@@ -163,7 +163,7 @@ class ExportCsvTest extends PMATestCase
         $property = array_shift($generalProperties);
 
         $this->assertInstanceOf(
-            'PMA\libraries\properties\options\items\TextPropertyItem',
+            'PhpMyAdmin\Properties\Options\Items\TextPropertyItem',
             $property
         );
 
@@ -180,7 +180,7 @@ class ExportCsvTest extends PMATestCase
         $property = array_shift($generalProperties);
 
         $this->assertInstanceOf(
-            'PMA\libraries\properties\options\items\TextPropertyItem',
+            'PhpMyAdmin\Properties\Options\Items\TextPropertyItem',
             $property
         );
 
@@ -197,7 +197,7 @@ class ExportCsvTest extends PMATestCase
         $property = array_shift($generalProperties);
 
         $this->assertInstanceOf(
-            'PMA\libraries\properties\options\items\BoolPropertyItem',
+            'PhpMyAdmin\Properties\Options\Items\BoolPropertyItem',
             $property
         );
 
@@ -214,7 +214,7 @@ class ExportCsvTest extends PMATestCase
         $property = array_shift($generalProperties);
 
         $this->assertInstanceOf(
-            'PMA\libraries\properties\options\items\BoolPropertyItem',
+            'PhpMyAdmin\Properties\Options\Items\BoolPropertyItem',
             $property
         );
 
@@ -231,7 +231,7 @@ class ExportCsvTest extends PMATestCase
         $property = array_shift($generalProperties);
 
         $this->assertInstanceOf(
-            'PMA\libraries\properties\options\items\HiddenPropertyItem',
+            'PhpMyAdmin\Properties\Options\Items\HiddenPropertyItem',
             $property
         );
 
@@ -243,7 +243,7 @@ class ExportCsvTest extends PMATestCase
     }
 
     /**
-     * Test for PMA\libraries\plugins\export\ExportCsv::exportHeader
+     * Test for PhpMyAdmin\Plugins\Export\ExportCsv::exportHeader
      *
      * @return void
      */
@@ -420,7 +420,7 @@ class ExportCsvTest extends PMATestCase
     }
 
     /**
-     * Test for PMA\libraries\plugins\export\ExportCsv::exportFooter
+     * Test for PhpMyAdmin\Plugins\Export\ExportCsv::exportFooter
      *
      * @return void
      */
@@ -432,7 +432,7 @@ class ExportCsvTest extends PMATestCase
     }
 
     /**
-     * Test for PMA\libraries\plugins\export\ExportCsv::exportDBHeader
+     * Test for PhpMyAdmin\Plugins\Export\ExportCsv::exportDBHeader
      *
      * @return void
      */
@@ -444,7 +444,7 @@ class ExportCsvTest extends PMATestCase
     }
 
     /**
-     * Test for PMA\libraries\plugins\export\ExportCsv::exportDBFooter
+     * Test for PhpMyAdmin\Plugins\Export\ExportCsv::exportDBFooter
      *
      * @return void
      */
@@ -456,7 +456,7 @@ class ExportCsvTest extends PMATestCase
     }
 
     /**
-     * Test for PMA\libraries\plugins\export\ExportCsv::exportDBCreate
+     * Test for PhpMyAdmin\Plugins\Export\ExportCsv::exportDBCreate
      *
      * @return void
      */
@@ -468,7 +468,7 @@ class ExportCsvTest extends PMATestCase
     }
 
     /**
-     * Test for PMA\libraries\plugins\export\ExportCsv::exportData
+     * Test for PhpMyAdmin\Plugins\Export\ExportCsv::exportData
      *
      * @return void
      */

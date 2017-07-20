@@ -10,7 +10,7 @@
 use PhpMyAdmin\Core;
 use PhpMyAdmin\Encoding;
 use PhpMyAdmin\Message;
-use PMA\libraries\plugins\ExportPlugin;
+use PhpMyAdmin\Plugins\ExportPlugin;
 use PhpMyAdmin\Response;
 use PhpMyAdmin\Table;
 use PhpMyAdmin\Template;
@@ -1000,7 +1000,7 @@ function PMA_getExportDisplay(
     /* @var $export_list ExportPlugin[] */
     $export_list = PMA_getPlugins(
         "export",
-        'libraries/plugins/export/',
+        'libraries/classes/Plugins/Export/',
         array(
             'export_type' => $export_type,
             'single_table' => isset($GLOBALS['single_table'])
