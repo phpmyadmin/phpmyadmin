@@ -5,16 +5,16 @@
  *
  * @package PhpMyAdmin-Navigation
  */
-namespace PMA\libraries\navigation\nodes;
+namespace PhpMyAdmin\Navigation\Nodes;
 
 use PhpMyAdmin\Util;
 
 /**
- * Represents a trigger node in the navigation tree
+ * Represents a index node in the navigation tree
  *
  * @package PhpMyAdmin-Navigation
  */
-class NodeTrigger extends Node
+class NodeIndex extends Node
 {
     /**
      * Initialises the class
@@ -27,13 +27,13 @@ class NodeTrigger extends Node
     public function __construct($name, $type = Node::OBJECT, $is_group = false)
     {
         parent::__construct($name, $type, $is_group);
-        $this->icon = Util::getImage('b_triggers.png');
+        $this->icon = Util::getImage('b_index.png', __('Index'));
         $this->links = array(
-            'text' => 'db_triggers.php?server=' . $GLOBALS['server']
-                . '&amp;db=%3$s&amp;item_name=%1$s&amp;edit_item=1',
-            'icon' => 'db_triggers.php?server=' . $GLOBALS['server']
-                . '&amp;db=%3$s&amp;item_name=%1$s&amp;export_item=1',
+            'text' => 'tbl_indexes.php?server=' . $GLOBALS['server']
+                . '&amp;db=%3$s&amp;table=%2$s&amp;index=%1$s',
+            'icon' => 'tbl_indexes.php?server=' . $GLOBALS['server']
+                . '&amp;db=%3$s&amp;table=%2$s&amp;index=%1$s',
         );
-        $this->classes = 'trigger';
+        $this->classes = 'index';
     }
 }

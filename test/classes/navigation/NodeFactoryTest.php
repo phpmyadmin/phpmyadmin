@@ -6,11 +6,10 @@
  * @package PhpMyAdmin-test
  */
 
-use PMA\libraries\navigation\NodeFactory;
-use PMA\libraries\navigation\nodes\Node;
+use PhpMyAdmin\Navigation\NodeFactory;
+use PhpMyAdmin\Navigation\Nodes\Node;
 use PhpMyAdmin\Theme;
 
-require_once 'libraries/navigation/NodeFactory.php';
 require_once 'test/PMATestCase.php';
 
 /**
@@ -31,7 +30,7 @@ class NodeFactoryTest extends PMATestCase
     }
 
     /**
-     * Test for PMA\libraries\navigation\NodeFactory::getInstance
+     * Test for PhpMyAdmin\Navigation\NodeFactory::getInstance
      *
      * @return void
      */
@@ -44,7 +43,7 @@ class NodeFactoryTest extends PMATestCase
     }
 
     /**
-     * Test for PMA\libraries\navigation\NodeFactory::getInstance
+     * Test for PhpMyAdmin\Navigation\NodeFactory::getInstance
      *
      * @return void
      */
@@ -61,7 +60,7 @@ class NodeFactoryTest extends PMATestCase
     }
 
     /**
-     * Test for PMA\libraries\navigation\NodeFactory::getInstance
+     * Test for PhpMyAdmin\Navigation\NodeFactory::getInstance
      *
      * @return void
      */
@@ -79,7 +78,7 @@ class NodeFactoryTest extends PMATestCase
     }
 
     /**
-     * Test for PMA\libraries\navigation\NodeFactory::getInstance
+     * Test for PhpMyAdmin\Navigation\NodeFactory::getInstance
      *
      * @return void
      */
@@ -90,7 +89,7 @@ class NodeFactoryTest extends PMATestCase
     }
 
     /**
-     * Test for PMA\libraries\navigation\NodeFactory::getInstance
+     * Test for PhpMyAdmin\Navigation\NodeFactory::getInstance
      *
      * @return void
      */

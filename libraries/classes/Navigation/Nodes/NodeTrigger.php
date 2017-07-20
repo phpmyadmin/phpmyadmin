@@ -5,16 +5,16 @@
  *
  * @package PhpMyAdmin-Navigation
  */
-namespace PMA\libraries\navigation\nodes;
+namespace PhpMyAdmin\Navigation\Nodes;
 
 use PhpMyAdmin\Util;
 
 /**
- * Represents a event node in the navigation tree
+ * Represents a trigger node in the navigation tree
  *
  * @package PhpMyAdmin-Navigation
  */
-class NodeEvent extends NodeDatabaseChild
+class NodeTrigger extends Node
 {
     /**
      * Initialises the class
@@ -27,23 +27,13 @@ class NodeEvent extends NodeDatabaseChild
     public function __construct($name, $type = Node::OBJECT, $is_group = false)
     {
         parent::__construct($name, $type, $is_group);
-        $this->icon = Util::getImage('b_events.png');
+        $this->icon = Util::getImage('b_triggers.png');
         $this->links = array(
-            'text' => 'db_events.php?server=' . $GLOBALS['server']
-                . '&amp;db=%2$s&amp;item_name=%1$s&amp;edit_item=1',
-            'icon' => 'db_events.php?server=' . $GLOBALS['server']
-                . '&amp;db=%2$s&amp;item_name=%1$s&amp;export_item=1',
+            'text' => 'db_triggers.php?server=' . $GLOBALS['server']
+                . '&amp;db=%3$s&amp;item_name=%1$s&amp;edit_item=1',
+            'icon' => 'db_triggers.php?server=' . $GLOBALS['server']
+                . '&amp;db=%3$s&amp;item_name=%1$s&amp;export_item=1',
         );
-        $this->classes = 'event';
-    }
-
-    /**
-     * Returns the type of the item represented by the node.
-     *
-     * @return string type of the item
-     */
-    protected function getItemType()
-    {
-        return 'event';
+        $this->classes = 'trigger';
     }
 }

@@ -5,13 +5,13 @@
  *
  * @package PhpMyAdmin-Navigation
  */
-namespace PMA\libraries\navigation;
+namespace PhpMyAdmin\Navigation;
 
-use PMA\libraries\navigation\nodes\Node;
-use PMA\libraries\navigation\nodes\NodeDatabase;
-use PMA\libraries\navigation\nodes\NodeTable;
-use PMA\libraries\navigation\nodes\NodeTableContainer;
-use PMA\libraries\navigation\nodes\NodeViewContainer;
+use PhpMyAdmin\Navigation\Nodes\Node;
+use PhpMyAdmin\Navigation\Nodes\NodeDatabase;
+use PhpMyAdmin\Navigation\Nodes\NodeTable;
+use PhpMyAdmin\Navigation\Nodes\NodeTableContainer;
+use PhpMyAdmin\Navigation\Nodes\NodeViewContainer;
 use PhpMyAdmin\RecentFavoriteTable;
 use PhpMyAdmin\Response;
 use PhpMyAdmin\Util;
@@ -860,7 +860,7 @@ class NavigationTree
         $children = $this->_tree->children;
         usort(
             $children,
-            array('PMA\\libraries\\navigation\\NavigationTree', 'sortNode')
+            array('PhpMyAdmin\\Navigation\\NavigationTree', 'sortNode')
         );
         $this->_setVisibility();
         for ($i = 0, $nbChildren = count($children); $i < $nbChildren; $i++) {
@@ -903,7 +903,7 @@ class NavigationTree
             $children = $node->children;
             usort(
                 $children,
-                array('PMA\\libraries\\navigation\\NavigationTree', 'sortNode')
+                array('PhpMyAdmin\\Navigation\\NavigationTree', 'sortNode')
             );
             for ($i = 0, $nbChildren = count($children); $i < $nbChildren; $i++) {
                 if ($i + 1 != $nbChildren) {
@@ -1299,7 +1299,7 @@ class NavigationTree
         $children = $this->_tree->children;
         usort(
             $children,
-            array('PMA\\libraries\\navigation\\NavigationTree', 'sortNode')
+            array('PhpMyAdmin\\Navigation\\NavigationTree', 'sortNode')
         );
         $this->_setVisibility();
         for ($i = 0, $nbChildren = count($children); $i < $nbChildren; $i++) {

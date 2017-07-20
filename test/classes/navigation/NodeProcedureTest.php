@@ -1,19 +1,18 @@
 <?php
 /* vim: set expandtab sw=4 ts=4 sts=4: */
 /**
- * Tests for PMA\libraries\navigation\nodes\NodeProcedure class
+ * Tests for PhpMyAdmin\Navigation\Nodes\NodeProcedure class
  *
  * @package PhpMyAdmin-test
  */
 
-use PMA\libraries\navigation\NodeFactory;
+use PhpMyAdmin\Navigation\NodeFactory;
 use PhpMyAdmin\Theme;
 
-require_once 'libraries/navigation/NodeFactory.php';
 require_once 'test/PMATestCase.php';
 
 /**
- * Tests for PMA\libraries\navigation\nodes\NodeProcedure class
+ * Tests for PhpMyAdmin\Navigation\Nodes\NodeProcedure class
  *
  * @package PhpMyAdmin-test
  */

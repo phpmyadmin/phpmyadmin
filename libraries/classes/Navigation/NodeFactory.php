@@ -5,9 +5,9 @@
  *
  * @package PhpMyAdmin-navigation
  */
-namespace PMA\libraries\navigation;
+namespace PhpMyAdmin\Navigation;
 
-use PMA\libraries\navigation\nodes\Node;
+use PhpMyAdmin\Navigation\Nodes\Node;
 
 /**
  * Node factory - instantiates Node objects or objects derived from the Node class
@@ -16,7 +16,7 @@ use PMA\libraries\navigation\nodes\Node;
  */
 class NodeFactory
 {
-    protected static $_namespace = 'PMA\\libraries\\navigation\\nodes\\%s';
+    protected static $_namespace = 'PhpMyAdmin\\Navigation\\Nodes\\%s';
     /**
      * Sanitizes the name of a Node class
      *
@@ -89,4 +89,3 @@ class NodeFactory
         return new $class($name, $type, $is_group);
     }
 }
-

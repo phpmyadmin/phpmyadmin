@@ -5,16 +5,16 @@
  *
  * @package PhpMyAdmin-Navigation
  */
-namespace PMA\libraries\navigation\nodes;
+namespace PhpMyAdmin\Navigation\Nodes;
 
 use PhpMyAdmin\Util;
 
 /**
- * Represents a function node in the navigation tree
+ * Represents a event node in the navigation tree
  *
  * @package PhpMyAdmin-Navigation
  */
-class NodeFunction extends NodeDatabaseChild
+class NodeEvent extends NodeDatabaseChild
 {
     /**
      * Initialises the class
@@ -27,16 +27,14 @@ class NodeFunction extends NodeDatabaseChild
     public function __construct($name, $type = Node::OBJECT, $is_group = false)
     {
         parent::__construct($name, $type, $is_group);
-        $this->icon = Util::getImage('b_routines.png', __('Function'));
+        $this->icon = Util::getImage('b_events.png');
         $this->links = array(
-            'text' => 'db_routines.php?server=' . $GLOBALS['server']
-                . '&amp;db=%2$s&amp;item_name=%1$s&amp;item_type=FUNCTION'
-                . '&amp;edit_item=1',
-            'icon' => 'db_routines.php?server=' . $GLOBALS['server']
-                . '&amp;db=%2$s&amp;item_name=%1$s&amp;item_type=FUNCTION'
-                . '&amp;execute_dialog=1',
+            'text' => 'db_events.php?server=' . $GLOBALS['server']
+                . '&amp;db=%2$s&amp;item_name=%1$s&amp;edit_item=1',
+            'icon' => 'db_events.php?server=' . $GLOBALS['server']
+                . '&amp;db=%2$s&amp;item_name=%1$s&amp;export_item=1',
         );
-        $this->classes = 'function';
+        $this->classes = 'event';
     }
 
     /**
@@ -46,6 +44,6 @@ class NodeFunction extends NodeDatabaseChild
      */
     protected function getItemType()
     {
-        return 'function';
+        return 'event';
     }
 }
