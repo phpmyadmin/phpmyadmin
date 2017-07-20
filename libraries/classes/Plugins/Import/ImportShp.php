@@ -15,7 +15,7 @@ use PhpMyAdmin\Gis\GisPoint;
 use PhpMyAdmin\Gis\GisPolygon;
 use PhpMyAdmin\Message;
 use PhpMyAdmin\Plugins\ImportPlugin;
-use PMA\libraries\properties\plugins\ImportPluginProperties;
+use PhpMyAdmin\Properties\Plugins\ImportPluginProperties;
 use PhpMyAdmin\Sanitize;
 use PhpMyAdmin\ZipExtension;
 

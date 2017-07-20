@@ -6,15 +6,15 @@
  *
  * @package PhpMyAdmin
  */
-namespace PMA\libraries\properties\plugins;
+namespace PhpMyAdmin\Properties\Plugins;
 
-use PMA\libraries\properties\options\groups\OptionsPropertyRootGroup;
-use PMA\libraries\properties\PropertyItem;
+use PhpMyAdmin\Properties\Options\Groups\OptionsPropertyRootGroup;
+use PhpMyAdmin\Properties\PropertyItem;
 
 /**
  * Superclass for
- *  - PMA\libraries\properties\plugins\ExportPluginProperties,
- *  - PMA\libraries\properties\plugins\ImportPluginProperties and
+ *  - PhpMyAdmin\Properties\Plugins\ExportPluginProperties,
+ *  - PhpMyAdmin\Properties\Plugins\ImportPluginProperties and
  *  - TransformationsPluginProperties
  *
  * @package PhpMyAdmin

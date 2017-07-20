@@ -5,7 +5,7 @@
  *
  * @package PhpMyAdmin
  */
-namespace PMA\libraries\properties\plugins;
+namespace PhpMyAdmin\Properties\Plugins;
 
 /**
  * Defines possible options and getters and setters for them.
@@ -16,11 +16,11 @@ class ImportPluginProperties extends PluginPropertyItem
 {
     /**
      * Returns the property item type of either an instance of
-     *  - PMA\libraries\properties\options\OptionsPropertyOneItem ( f.e. "bool",
+     *  - PhpMyAdmin\Properties\Options\OptionsPropertyOneItem ( f.e. "bool",
      *  "text", "radio", etc ) or
-     *  - PMA\libraries\properties\options\OptionsPropertyGroup   ( "root", "main"
+     *  - PhpMyAdmin\Properties\Options\OptionsPropertyGroup   ( "root", "main"
      *  or "subgroup" )
-     *  - PMA\libraries\properties\plugins\PluginPropertyItem     ( "export", "import", "transformations" )
+     *  - PhpMyAdmin\Properties\Plugins\PluginPropertyItem     ( "export", "import", "transformations" )
      *
      * @return string
      */

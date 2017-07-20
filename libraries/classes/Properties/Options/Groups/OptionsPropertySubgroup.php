@@ -1,13 +1,13 @@
 <?php
 /* vim: set expandtab sw=4 ts=4 sts=4: */
 /**
- * Holds the PMA\libraries\properties\options\groups\OptionsPropertySubgroup class
+ * Holds the PhpMyAdmin\Properties\Options\Groups\OptionsPropertySubgroup class
  *
  * @package PhpMyAdmin
  */
-namespace PMA\libraries\properties\options\groups;
+namespace PhpMyAdmin\Properties\Options\Groups;
 
-use PMA\libraries\properties\options\OptionsPropertyGroup;
+use PhpMyAdmin\Properties\Options\OptionsPropertyGroup;
 
 /**
  * Group property item class of type subgroup
@@ -26,11 +26,11 @@ class OptionsPropertySubgroup extends OptionsPropertyGroup
 
     /**
      * Returns the property item type of either an instance of
-     *  - PMA\libraries\properties\options\OptionsPropertyOneItem ( f.e. "bool",
+     *  - PhpMyAdmin\Properties\Options\OptionsPropertyOneItem ( f.e. "bool",
      *  "text", "radio", etc ) or
-     *  - PMA\libraries\properties\options\OptionsPropertyGroup   ( "root", "main"
+     *  - PhpMyAdmin\Properties\Options\OptionsPropertyGroup   ( "root", "main"
      *  or "subgroup" )
-     *  - PMA\libraries\properties\plugins\PluginPropertyItem     ( "export", "import", "transformations" )
+     *  - PhpMyAdmin\Properties\Plugins\PluginPropertyItem     ( "export", "import", "transformations" )
      *
      * @return string
      */
@@ -42,7 +42,7 @@ class OptionsPropertySubgroup extends OptionsPropertyGroup
     /**
      * Gets the subgroup header
      *
-     * @return \PMA\libraries\properties\PropertyItem
+     * @return \PhpMyAdmin\Properties\PropertyItem
      */
     public function getSubgroupHeader()
     {
@@ -52,7 +52,7 @@ class OptionsPropertySubgroup extends OptionsPropertyGroup
     /**
      * Sets the subgroup header
      *
-     * @param \PMA\libraries\properties\PropertyItem $subgroupHeader subgroup header
+     * @param \PhpMyAdmin\Properties\PropertyItem $subgroupHeader subgroup header
      *
      * @return void
      */

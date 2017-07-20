@@ -12,10 +12,10 @@ namespace PhpMyAdmin\Plugins\Import;
 
 use PhpMyAdmin\Message;
 use PhpMyAdmin\Plugins\ImportPlugin;
-use PMA\libraries\properties\plugins\ImportPluginProperties;
-use PMA\libraries\properties\options\groups\OptionsPropertyMainGroup;
-use PMA\libraries\properties\options\groups\OptionsPropertyRootGroup;
-use PMA\libraries\properties\options\items\BoolPropertyItem;
+use PhpMyAdmin\Properties\Plugins\ImportPluginProperties;
+use PhpMyAdmin\Properties\Options\Groups\OptionsPropertyMainGroup;
+use PhpMyAdmin\Properties\Options\Groups\OptionsPropertyRootGroup;
+use PhpMyAdmin\Properties\Options\Items\BoolPropertyItem;
 use SimpleXMLElement;
 
 /**

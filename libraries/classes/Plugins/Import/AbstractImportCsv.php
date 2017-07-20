@@ -8,12 +8,12 @@
  */
 namespace PhpMyAdmin\Plugins\Import;
 
-use PMA\libraries\properties\options\items\BoolPropertyItem;
-use PMA\libraries\properties\plugins\ImportPluginProperties;
-use PMA\libraries\properties\options\groups\OptionsPropertyMainGroup;
-use PMA\libraries\properties\options\groups\OptionsPropertyRootGroup;
+use PhpMyAdmin\Properties\Options\Items\BoolPropertyItem;
+use PhpMyAdmin\Properties\Plugins\ImportPluginProperties;
+use PhpMyAdmin\Properties\Options\Groups\OptionsPropertyMainGroup;
+use PhpMyAdmin\Properties\Options\Groups\OptionsPropertyRootGroup;
 use PhpMyAdmin\Plugins\ImportPlugin;
-use PMA\libraries\properties\options\items\TextPropertyItem;
+use PhpMyAdmin\Properties\Options\Items\TextPropertyItem;
 
 /**
  * Super class of the import plugins for the CSV format
@@ -27,7 +27,7 @@ abstract class AbstractImportCsv extends ImportPlugin
      * Sets the import plugin properties.
      * Called in the constructor.
      *
-     * @return \PMA\libraries\properties\options\groups\OptionsPropertyMainGroup PMA\libraries\properties\options\groups\OptionsPropertyMainGroup object of the plugin
+     * @return \PhpMyAdmin\Properties\Options\Groups\OptionsPropertyMainGroup PhpMyAdmin\Properties\Options\Groups\OptionsPropertyMainGroup object of the plugin
      */
     protected function setProperties()
     {

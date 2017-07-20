@@ -10,11 +10,11 @@ namespace PhpMyAdmin\Plugins\Export;
 
 use PhpMyAdmin\Plugins\ExportPlugin;
 use PhpMyAdmin\Plugins\Export\Helpers\TableProperty;
-use PMA\libraries\properties\plugins\ExportPluginProperties;
-use PMA\libraries\properties\options\groups\OptionsPropertyMainGroup;
-use PMA\libraries\properties\options\groups\OptionsPropertyRootGroup;
-use PMA\libraries\properties\options\items\HiddenPropertyItem;
-use PMA\libraries\properties\options\items\SelectPropertyItem;
+use PhpMyAdmin\Properties\Plugins\ExportPluginProperties;
+use PhpMyAdmin\Properties\Options\Groups\OptionsPropertyMainGroup;
+use PhpMyAdmin\Properties\Options\Groups\OptionsPropertyRootGroup;
+use PhpMyAdmin\Properties\Options\Items\HiddenPropertyItem;
+use PhpMyAdmin\Properties\Options\Items\SelectPropertyItem;
 use PhpMyAdmin\Util;
 
 /**

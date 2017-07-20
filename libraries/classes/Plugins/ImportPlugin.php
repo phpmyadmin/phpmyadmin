@@ -8,7 +8,7 @@
 
 namespace PhpMyAdmin\Plugins;
 
-use PMA\libraries\properties\plugins\ImportPluginProperties;
+use PhpMyAdmin\Properties\Plugins\ImportPluginProperties;
 
 /**
  * Provides a common interface that will have to be implemented by all of the
@@ -38,7 +38,7 @@ abstract class ImportPlugin
     /**
      * Gets the import specific format plugin properties
      *
-     * @return \PMA\libraries\properties\plugins\ImportPluginProperties
+     * @return \PhpMyAdmin\Properties\Plugins\ImportPluginProperties
      */
     public function getProperties()
     {

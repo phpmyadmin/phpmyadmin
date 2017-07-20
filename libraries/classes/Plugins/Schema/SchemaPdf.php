@@ -8,13 +8,13 @@
  */
 namespace PhpMyAdmin\Plugins\Schema;
 
-use PMA\libraries\properties\options\items\BoolPropertyItem;
-use PMA\libraries\properties\options\groups\OptionsPropertyMainGroup;
-use PMA\libraries\properties\options\groups\OptionsPropertyRootGroup;
+use PhpMyAdmin\Properties\Options\Items\BoolPropertyItem;
+use PhpMyAdmin\Properties\Options\Groups\OptionsPropertyMainGroup;
+use PhpMyAdmin\Properties\Options\Groups\OptionsPropertyRootGroup;
 use PhpMyAdmin\Plugins\Schema\Pdf\PdfRelationSchema;
 use PhpMyAdmin\Plugins\SchemaPlugin;
-use PMA\libraries\properties\plugins\SchemaPluginProperties;
-use PMA\libraries\properties\options\items\SelectPropertyItem;
+use PhpMyAdmin\Properties\Plugins\SchemaPluginProperties;
+use PhpMyAdmin\Properties\Options\Items\SelectPropertyItem;
 
 /**
  * Handles the schema export for the PDF format

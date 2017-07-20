@@ -8,9 +8,9 @@
 
 namespace PhpMyAdmin\Plugins;
 
-use PMA\libraries\properties\options\items\BoolPropertyItem;
-use PMA\libraries\properties\options\groups\OptionsPropertyMainGroup;
-use PMA\libraries\properties\plugins\SchemaPluginProperties;
+use PhpMyAdmin\Properties\Options\Items\BoolPropertyItem;
+use PhpMyAdmin\Properties\Options\Groups\OptionsPropertyMainGroup;
+use PhpMyAdmin\Properties\Plugins\SchemaPluginProperties;
 
 /**
  * Provides a common interface that will have to be implemented by all of the
@@ -23,7 +23,7 @@ use PMA\libraries\properties\plugins\SchemaPluginProperties;
 abstract class SchemaPlugin
 {
     /**
-     * PMA\libraries\properties\plugins\SchemaPluginProperties object containing
+     * PhpMyAdmin\Properties\Plugins\SchemaPluginProperties object containing
      * the specific schema export plugin type properties
      *
      * @var SchemaPluginProperties
@@ -60,7 +60,7 @@ abstract class SchemaPlugin
     /**
      * Adds export options common to all plugins.
      *
-     * @param \PMA\libraries\properties\options\groups\OptionsPropertyMainGroup $propertyGroup property group
+     * @param \PhpMyAdmin\Properties\Options\Groups\OptionsPropertyMainGroup $propertyGroup property group
      *
      * @return void
      */

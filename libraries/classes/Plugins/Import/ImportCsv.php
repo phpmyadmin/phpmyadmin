@@ -10,8 +10,8 @@
 namespace PhpMyAdmin\Plugins\Import;
 
 use PhpMyAdmin\Message;
-use PMA\libraries\properties\options\items\BoolPropertyItem;
-use PMA\libraries\properties\options\items\TextPropertyItem;
+use PhpMyAdmin\Properties\Options\Items\BoolPropertyItem;
+use PhpMyAdmin\Properties\Options\Items\TextPropertyItem;
 use PhpMyAdmin\Util;
 
 /**

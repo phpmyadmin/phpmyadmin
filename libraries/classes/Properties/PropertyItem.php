@@ -5,7 +5,7 @@
  *
  * @package PhpMyAdmin
  */
-namespace PMA\libraries\properties;
+namespace PhpMyAdmin\Properties;
 
 /**
  * Provides an interface for Property classes
@@ -23,19 +23,19 @@ abstract class PropertyItem
 
     /**
      * Returns the property item type of either an instance of
-     *  - PMA\libraries\properties\options\OptionsPropertyOneItem ( f.e. "bool", "text", "radio", etc ) or
-     *  - PMA\libraries\properties\options\OptionsPropertyGroup   ( "root", "main" or "subgroup" )
-     *  - PMA\libraries\properties\plugins\PluginPropertyItem     ( "export", "import", "transformations" )
+     *  - PhpMyAdmin\Properties\Options\OptionsPropertyOneItem ( f.e. "bool", "text", "radio", etc ) or
+     *  - PhpMyAdmin\Properties\Options\OptionsPropertyGroup   ( "root", "main" or "subgroup" )
+     *  - PhpMyAdmin\Properties\Plugins\PluginPropertyItem     ( "export", "import", "transformations" )
      *
      * @return string
      */
     public abstract function getItemType();
 
     /**
-     * Only overwritten in the PMA\libraries\properties\options\OptionsPropertyGroup class:
+     * Only overwritten in the PhpMyAdmin\Properties\Options\OptionsPropertyGroup class:
      * Used to tell whether we can use the current item as a group by calling
      * the addProperty() or removeProperty() methods, which are not available
-     * for simple PMA\libraries\properties\options\OptionsPropertyOneItem subclasses.
+     * for simple PhpMyAdmin\Properties\Options\OptionsPropertyOneItem subclasses.
      *
      * @return string
      */

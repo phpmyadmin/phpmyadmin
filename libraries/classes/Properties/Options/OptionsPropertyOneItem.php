@@ -5,7 +5,7 @@
  *
  * @package PhpMyAdmin
  */
-namespace PMA\libraries\properties\options;
+namespace PhpMyAdmin\Properties\Options;
 
 /**
  * Parents only single property items (not groups).

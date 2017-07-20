@@ -8,7 +8,7 @@
 
 namespace PhpMyAdmin\Plugins;
 
-use PMA\libraries\properties\plugins\ExportPluginProperties;
+use PhpMyAdmin\Properties\Plugins\ExportPluginProperties;
 
 /**
  * Provides a common interface that will have to be implemented by all of the
@@ -21,10 +21,10 @@ use PMA\libraries\properties\plugins\ExportPluginProperties;
 abstract class ExportPlugin
 {
     /**
-     * PMA\libraries\properties\plugins\ExportPluginProperties object containing
+     * PhpMyAdmin\Properties\Plugins\ExportPluginProperties object containing
      * the specific export plugin type properties
      *
-     * @var \PMA\libraries\properties\plugins\ExportPluginProperties
+     * @var \PhpMyAdmin\Properties\Plugins\ExportPluginProperties
      */
     protected $properties;
     /**

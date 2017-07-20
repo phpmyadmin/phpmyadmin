@@ -12,7 +12,7 @@ namespace PhpMyAdmin\Plugins\Import;
 
 use PhpMyAdmin\Message;
 use PhpMyAdmin\Plugins\ImportPlugin;
-use PMA\libraries\properties\plugins\ImportPluginProperties;
+use PhpMyAdmin\Properties\Plugins\ImportPluginProperties;
 use PhpMyAdmin\Util;
 use SimpleXMLElement;
 

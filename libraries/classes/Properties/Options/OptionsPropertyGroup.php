@@ -5,7 +5,7 @@
  *
  * @package PhpMyAdmin
  */
-namespace PMA\libraries\properties\options;
+namespace PhpMyAdmin\Properties\Options;
 
 /**
  * Parents group property items and provides methods to manage groups of
@@ -17,7 +17,7 @@ namespace PMA\libraries\properties\options;
 abstract class OptionsPropertyGroup extends OptionsPropertyItem
 {
     /**
-     * Holds a group of properties (PMA\libraries\properties\options\OptionsPropertyItem instances)
+     * Holds a group of properties (PhpMyAdmin\Properties\Options\OptionsPropertyItem instances)
      *
      * @var array
      */

@@ -6,13 +6,13 @@
  *
  * @package PhpMyAdmin
  */
-namespace PMA\libraries\properties\options;
+namespace PhpMyAdmin\Properties\Options;
 
-use PMA\libraries\properties\PropertyItem;
+use PhpMyAdmin\Properties\PropertyItem;
 
 /**
  * Superclass for
- *  - PMA\libraries\properties\options\OptionsPropertyOneItem and
+ *  - PhpMyAdmin\Properties\Options\OptionsPropertyOneItem and
  *  - OptionsProperty Group
  *
  * @package PhpMyAdmin

@@ -1,28 +1,28 @@
 <?php
 /* vim: set expandtab sw=4 ts=4 sts=4: */
 /**
- * tests for *PMA\libraries\properties\PropertyItem class
+ * tests for *PhpMyAdmin\Properties\PropertyItem class
  *
  * @package PhpMyAdmin-test
  */
 
-use PMA\libraries\properties\options\items\BoolPropertyItem;
-use PMA\libraries\properties\options\items\DocPropertyItem;
-use PMA\libraries\properties\options\items\HiddenPropertyItem;
-use PMA\libraries\properties\options\items\MessageOnlyPropertyItem;
-use PMA\libraries\properties\options\items\RadioPropertyItem;
-use PMA\libraries\properties\options\items\SelectPropertyItem;
-use PMA\libraries\properties\options\items\TextPropertyItem;
+use PhpMyAdmin\Properties\Options\Items\BoolPropertyItem;
+use PhpMyAdmin\Properties\Options\Items\DocPropertyItem;
+use PhpMyAdmin\Properties\Options\Items\HiddenPropertyItem;
+use PhpMyAdmin\Properties\Options\Items\MessageOnlyPropertyItem;
+use PhpMyAdmin\Properties\Options\Items\RadioPropertyItem;
+use PhpMyAdmin\Properties\Options\Items\SelectPropertyItem;
+use PhpMyAdmin\Properties\Options\Items\TextPropertyItem;
 
 /**
- * tests for *PMA\libraries\properties\PropertyItem class
+ * tests for *PhpMyAdmin\Properties\PropertyItem class
  *
  * @package PhpMyAdmin-test
  */
 class PropertyItemsTest extends PHPUnit_Framework_TestCase
 {
     /**
-     * Test for PMA\libraries\properties\options\items\BoolPropertyItem::getText
+     * Test for PhpMyAdmin\Properties\Options\Items\BoolPropertyItem::getText
      *
      * @return void
      */
@@ -44,7 +44,7 @@ class PropertyItemsTest extends PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test for PMA\libraries\properties\options\items\BoolPropertyItem::getName
+     * Test for PhpMyAdmin\Properties\Options\Items\BoolPropertyItem::getName
      *
      * @return void
      */
@@ -66,7 +66,7 @@ class PropertyItemsTest extends PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test for PMA\libraries\properties\options\items\BoolPropertyItem::getItemType
+     * Test for PhpMyAdmin\Properties\Options\Items\BoolPropertyItem::getItemType
      *
      * @return void
      */
@@ -81,7 +81,7 @@ class PropertyItemsTest extends PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test for PMA\libraries\properties\options\items\DocPropertyItem::getItemType
+     * Test for PhpMyAdmin\Properties\Options\Items\DocPropertyItem::getItemType
      *
      * @return void
      */
@@ -96,7 +96,7 @@ class PropertyItemsTest extends PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test for PMA\libraries\properties\options\items\HiddenPropertyItem::getItemType
+     * Test for PhpMyAdmin\Properties\Options\Items\HiddenPropertyItem::getItemType
      *
      * @return void
      */
@@ -111,7 +111,7 @@ class PropertyItemsTest extends PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test for PMA\libraries\properties\options\items\MessageOnlyPropertyItem::getItemType
+     * Test for PhpMyAdmin\Properties\Options\Items\MessageOnlyPropertyItem::getItemType
      *
      * @return void
      */
@@ -126,7 +126,7 @@ class PropertyItemsTest extends PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test for PMA\libraries\properties\options\items\RadioPropertyItem::getItemType
+     * Test for PhpMyAdmin\Properties\Options\Items\RadioPropertyItem::getItemType
      *
      * @return void
      */
@@ -141,7 +141,7 @@ class PropertyItemsTest extends PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test for PMA\libraries\properties\options\items\SelectPropertyItem::getItemType
+     * Test for PhpMyAdmin\Properties\Options\Items\SelectPropertyItem::getItemType
      *
      * @return void
      */
@@ -156,7 +156,7 @@ class PropertyItemsTest extends PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test for PMA\libraries\properties\options\items\TextPropertyItem::getItemType
+     * Test for PhpMyAdmin\Properties\Options\Items\TextPropertyItem::getItemType
      *
      * @return void
      */

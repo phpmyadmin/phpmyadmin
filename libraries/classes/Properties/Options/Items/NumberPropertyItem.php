@@ -1,13 +1,13 @@
 <?php
 /* vim: set expandtab sw=4 ts=4 sts=4: */
 /**
- * Holds the PMA\libraries\properties\options\items\TextPropertyItem class
+ * Holds the PhpMyAdmin\Properties\Options\Items\TextPropertyItem class
  *
  * @package PhpMyAdmin
  */
-namespace PMA\libraries\properties\options\items;
+namespace PhpMyAdmin\Properties\Options\Items;
 
-use PMA\libraries\properties\options\OptionsPropertyOneItem;
+use PhpMyAdmin\Properties\Options\OptionsPropertyOneItem;
 
 /**
  * Single property item class of type number
@@ -18,11 +18,11 @@ class NumberPropertyItem extends OptionsPropertyOneItem
 {
     /**
      * Returns the property item type of either an instance of
-     *  - PMA\libraries\properties\options\OptionsPropertyOneItem ( f.e. "bool",
+     *  - PhpMyAdmin\Properties\Options\OptionsPropertyOneItem ( f.e. "bool",
      *  "text", "radio", etc ) or
-     *  - PMA\libraries\properties\options\OptionsPropertyGroup   ( "root", "main"
+     *  - PhpMyAdmin\Properties\Options\OptionsPropertyGroup   ( "root", "main"
      *  or "subgroup" )
-     *  - PMA\libraries\properties\plugins\PluginPropertyItem     ( "export", "import", "transformations" )
+     *  - PhpMyAdmin\Properties\Plugins\PluginPropertyItem     ( "export", "import", "transformations" )
      *
      * @return string
      */

@@ -93,7 +93,7 @@ class ExportCodegenTest extends PMATestCase
         $properties = $attrProperties->getValue($this->object);
 
         $this->assertInstanceOf(
-            'PMA\libraries\properties\plugins\ExportPluginProperties',
+            'PhpMyAdmin\Properties\Plugins\ExportPluginProperties',
             $properties
         );
 
@@ -120,7 +120,7 @@ class ExportCodegenTest extends PMATestCase
         $options = $properties->getOptions();
 
         $this->assertInstanceOf(
-            'PMA\libraries\properties\options\groups\OptionsPropertyRootGroup',
+            'PhpMyAdmin\Properties\Options\Groups\OptionsPropertyRootGroup',
             $options
         );
 
@@ -133,7 +133,7 @@ class ExportCodegenTest extends PMATestCase
         $generalOptions = $generalOptionsArray[0];
 
         $this->assertInstanceOf(
-            'PMA\libraries\properties\options\groups\OptionsPropertyMainGroup',
+            'PhpMyAdmin\Properties\Options\Groups\OptionsPropertyMainGroup',
             $generalOptions
         );
 
@@ -147,7 +147,7 @@ class ExportCodegenTest extends PMATestCase
         $hidden = $generalProperties[0];
 
         $this->assertInstanceOf(
-            'PMA\libraries\properties\options\items\HiddenPropertyItem',
+            'PhpMyAdmin\Properties\Options\Items\HiddenPropertyItem',
             $hidden
         );
 
@@ -159,7 +159,7 @@ class ExportCodegenTest extends PMATestCase
         $select = $generalProperties[1];
 
         $this->assertInstanceOf(
-            'PMA\libraries\properties\options\items\SelectPropertyItem',
+            'PhpMyAdmin\Properties\Options\Items\SelectPropertyItem',
             $select
         );
 
