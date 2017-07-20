@@ -1207,7 +1207,7 @@ class NavigationTree
             $children = $node->children;
             usort(
                 $children,
-                array('PMA\\libraries\\navigation\\NavigationTree', 'sortNode')
+                array('PhpMyAdmin\\Navigation\\NavigationTree', 'sortNode')
             );
             $buffer = '';
             $extra_class = '';
