@@ -4,10 +4,10 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.8.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2017-07-18 13:31+0200\n"
-"PO-Revision-Date: 2017-07-06 23:56+0000\n"
+"PO-Revision-Date: 2017-07-20 13:40+0000\n"
 "Last-Translator: zhangmiao <myzhm@163.com>\n"
-"Language-Team: Chinese (Simplified) <https://hosted.weblate.org/projects/"
-"phpmyadmin/master/zh_Hans/>\n"
+"Language-Team: Chinese (Simplified) "
+"<https://hosted.weblate.org/projects/phpmyadmin/master/zh_Hans/>\n"
 "Language: zh_CN\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -2129,13 +2129,13 @@ msgstr "加密密匙"
 msgid ""
 "MySQL accepts additional values not selectable by the slider; key in those "
 "values directly if desired"
-msgstr ""
+msgstr "MySQL 可接受滑动条上不可选的其他值；如果需要直接键入这些值"
 
 #: js/messages.php:535
 msgid ""
 "MySQL accepts additional values not selectable by the datepicker; key in "
 "those values directly if desired"
-msgstr ""
+msgstr "MySQL 可接受日期选择器无法选取的其他值；如果需要直接键入这些值"
 
 #: js/messages.php:541
 msgid ""
@@ -2529,23 +2529,23 @@ msgstr "复制表为新前缀"
 
 #: js/messages.php:733
 msgid "Extremely weak"
-msgstr ""
+msgstr "极弱"
 
 #: js/messages.php:734
 msgid "Very weak"
-msgstr ""
+msgstr "很弱"
 
 #: js/messages.php:735
 msgid "Weak"
-msgstr ""
+msgstr "弱"
 
 #: js/messages.php:736
 msgid "Good"
-msgstr ""
+msgstr "优"
 
 #: js/messages.php:737
 msgid "Strong"
-msgstr ""
+msgstr "强"
 
 #: js/messages.php:766
 msgctxt "Previous month"
@@ -3334,7 +3334,7 @@ msgstr "数据字典"
 #: libraries/classes/Charsets.php:426 libraries/classes/Charsets.php:537
 msgctxt "Collation"
 msgid "German (phone book order)"
-msgstr ""
+msgstr "德语（电话簿排序）"
 
 #: libraries/classes/Charsets.php:435
 #, fuzzy
@@ -3428,7 +3428,7 @@ msgstr "西班牙语"
 #: libraries/classes/Charsets.php:498 libraries/classes/Charsets.php:548
 msgctxt "Collation"
 msgid "Spanish (traditional)"
-msgstr ""
+msgstr "西班牙语（传统）"
 
 #: libraries/classes/Charsets.php:517
 #, fuzzy
@@ -8619,7 +8619,7 @@ msgstr "密码："
 
 #: libraries/display_change_password.lib.php:68
 msgid "Enter:"
-msgstr ""
+msgstr "输入："
 
 #: libraries/display_change_password.lib.php:75
 #: libraries/replication_gui.lib.php:867
