@@ -1,21 +1,21 @@
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: phpMyAdmin 4.7.2-dev\n"
+"Project-Id-Version: phpMyAdmin 4.7.3-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
-"POT-Creation-Date: 2017-06-28 09:56+0200\n"
-"PO-Revision-Date: 2016-05-23 19:20+0000\n"
-"Last-Translator: Yordan Nedelchev <yordan.nedelchev@hotmail.com>\n"
-"Language-Team: Bulgarian <https://hosted.weblate.org/projects/phpmyadmin/"
-"master/bg/>\n"
+"POT-Creation-Date: 2017-07-18 13:29+0200\n"
+"PO-Revision-Date: 2017-07-17 20:00+0000\n"
+"Last-Translator: NMilchev <nmilchev@gmail.com>\n"
+"Language-Team: Bulgarian <https://hosted.weblate.org/projects/phpmyadmin/4-7/"
+"bg/>\n"
 "Language: bg\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 2.7-dev\n"
+"X-Generator: Weblate 2.16-dev\n"
 
-#: ajax.php:16 ajax.php:33 export.php:191 schema_export.php:64
+#: ajax.php:16 ajax.php:33 export.php:192 schema_export.php:64
 msgid "Bad type!"
 msgstr "Типът е неправилен!"
 
@@ -242,7 +242,7 @@ msgstr "Да"
 msgid "View dump (schema) of database"
 msgstr "Преглед на схема (дъмп) на БД"
 
-#: db_export.php:51 db_tracking.php:103 export.php:374 libraries/DbQbe.php:327
+#: db_export.php:51 db_tracking.php:103 export.php:375 libraries/DbQbe.php:327
 #: libraries/controllers/database/DatabaseStructureController.php:168
 #: libraries/navigation/NavigationTree.php:924
 msgid "No tables found in database."
@@ -259,8 +259,8 @@ msgid "Tables"
 msgstr "Таблици"
 
 #: db_export.php:66 libraries/Menu.php:330 libraries/Menu.php:437
-#: libraries/Util.php:3180 libraries/Util.php:3190 libraries/Util.php:3196
-#: libraries/Util.php:3476 libraries/Util.php:4109 libraries/Util.php:4126
+#: libraries/Util.php:3182 libraries/Util.php:3192 libraries/Util.php:3198
+#: libraries/Util.php:3478 libraries/Util.php:4111 libraries/Util.php:4128
 #: libraries/central_columns.lib.php:727 libraries/config.values.php:38
 #: libraries/config.values.php:46 libraries/config.values.php:109
 #: libraries/config.values.php:115 libraries/config/setup.forms.php:316
@@ -380,7 +380,7 @@ msgstr "Ако срещате каквито и да е проблеми, док
 msgid "You may want to refresh the page."
 msgstr "Препоръчва се да презаредите страницата."
 
-#: export.php:274
+#: export.php:275
 msgid "Bad parameters!"
 msgstr "Грешни параметри!"
 
@@ -516,19 +516,19 @@ msgstr ""
 "Изберете \"GeomFromText\" (ГеомОтТекст) от колона \"Function\" (Функция) и "
 "копирайте текста по-долу в полето \"Стойност\"."
 
-#: import.php:64
+#: import.php:65
 msgid "Succeeded"
 msgstr "Успешно"
 
-#: import.php:68 js/messages.php:611
+#: import.php:69 js/messages.php:611
 msgid "Failed"
 msgstr "Неуспешно"
 
-#: import.php:72
+#: import.php:73
 msgid "Incomplete params"
 msgstr "Непълни параметри"
 
-#: import.php:196
+#: import.php:197
 #, php-format
 msgid ""
 "You probably tried to upload a file that is too large. Please refer to "
@@ -537,15 +537,15 @@ msgstr ""
 "Вероятно сте направили опит да качите твърде голям файл. Моля, обърнете се "
 "към %sдокументацията%s за да намерите начин да избегнете това ограничение."
 
-#: import.php:378 import.php:579
+#: import.php:367 import.php:568
 msgid "Showing bookmark"
 msgstr "Показване на белязка"
 
-#: import.php:394 import.php:575
+#: import.php:383 import.php:564
 msgid "The bookmark has been deleted."
 msgstr "Белязката беше изтрита."
 
-#: import.php:488
+#: import.php:477
 msgid ""
 "No data was received to import. Either no file name was submitted, or the "
 "file size exceeded the maximum size permitted by your PHP configuration. See "
@@ -555,25 +555,25 @@ msgstr ""
 "по-голям от разрешеното в конфигурацията на PHP. Вижте [doc@faq1-16]ЧЗВ "
 "1.16[/doc]."
 
-#: import.php:540 libraries/display_import.lib.php:665
+#: import.php:529 libraries/display_import.lib.php:665
 msgid "Could not load import plugins, please check your installation!"
 msgstr ""
 "Не могат да бъдат заредени разширенията за импорт, моля проверете "
 "инсталацията!"
 
-#: import.php:582 libraries/sql.lib.php:788 libraries/sql.lib.php:1564
+#: import.php:571 libraries/sql.lib.php:788 libraries/sql.lib.php:1564
 #, php-format
 msgid "Bookmark %s has been created."
 msgstr "Отметката %s беше създадена."
 
-#: import.php:592
+#: import.php:581
 #, php-format
 msgid "Import has been successfully finished, %d query executed."
 msgid_plural "Import has been successfully finished, %d queries executed."
 msgstr[0] "Импортирането приключи успешно, беше изпълнена %d заявка."
 msgstr[1] "Импортирането приключи успешно, бяха изпълнени %d заявки."
 
-#: import.php:621
+#: import.php:612
 #, php-format
 msgid ""
 "Script timeout passed, if you want to finish import, please %sresubmit the "
@@ -582,7 +582,7 @@ msgstr ""
 "Времето за изчакване на скрипта изтече, ако искате да завършите импорта,моля "
 "пуснете (%s) отново същия файл (%s) и той ще си продължи."
 
-#: import.php:631
+#: import.php:622
 msgid ""
 "However on last run no data has been parsed, this usually means phpMyAdmin "
 "won't be able to finish this import unless you increase php time limits."
@@ -591,7 +591,7 @@ msgstr ""
 "обикновено означава, че phpMyAdmin няма да бъде в състояние да завърши този "
 "импорт, освен ако не бъдат увеличени времевите ограничения в PHP."
 
-#: import.php:702 sql.php:163
+#: import.php:693 sql.php:163
 msgid "\"DROP DATABASE\" statements are disabled."
 msgstr "\"DROP DATABASE\" заявката е забранена."
 
@@ -776,7 +776,7 @@ msgstr "Конфигурационният файл има нужда от та�
 
 #: index.php:532
 msgid "The secret passphrase in configuration (blowfish_secret) is too short."
-msgstr ""
+msgstr "Тайният passphrase в настройките (blowfish_secret) е прекалено къс."
 
 #: index.php:546
 msgid ""
@@ -831,7 +831,7 @@ msgstr "Вие ще УНИЩОЖИТЕ цяла БД!"
 
 #: js/messages.php:48
 msgid "Cannot rename database to the same name. Change the name and try again"
-msgstr ""
+msgstr "Не може да зададете същото име. Променете името и опитайте отново"
 
 #: js/messages.php:50
 msgid "You are about to DESTROY a complete table!"
@@ -1274,7 +1274,7 @@ msgstr "Запитвания"
 msgid "Traffic"
 msgstr "Трафик"
 
-#: js/messages.php:214 libraries/Menu.php:592 libraries/Util.php:4100
+#: js/messages.php:214 libraries/Menu.php:592 libraries/Util.php:4102
 #: libraries/server_status_monitor.lib.php:253
 msgid "Settings"
 msgstr "Настройки"
@@ -1491,7 +1491,7 @@ msgstr "Анализиране…"
 msgid "Explain output"
 msgstr "Обяснение на изхода"
 
-#: js/messages.php:291 libraries/Menu.php:558 libraries/Util.php:4096
+#: js/messages.php:291 libraries/Menu.php:558 libraries/Util.php:4098
 #: libraries/config.values.php:104 libraries/rte/rte_events.lib.php:399
 #: libraries/rte/rte_list.lib.php:107
 #: libraries/server_status_processes.lib.php:92 libraries/tracking.lib.php:287
@@ -1613,8 +1613,8 @@ msgstr ""
 "Пренастройка към кодирането по подразбиране…"
 
 #: js/messages.php:329 libraries/Menu.php:365 libraries/Menu.php:467
-#: libraries/Menu.php:588 libraries/Util.php:4099 libraries/Util.php:4114
-#: libraries/Util.php:4131 libraries/config/messages.inc.php:257
+#: libraries/Menu.php:588 libraries/Util.php:4101 libraries/Util.php:4116
+#: libraries/Util.php:4133 libraries/config/messages.inc.php:257
 #: libraries/display_import.lib.php:107
 #: libraries/server_status_monitor.lib.php:313 prefs_manage.php:246
 #: setup/frames/menu.inc.php:26
@@ -1768,7 +1768,7 @@ msgstr "Копиране БД"
 msgid "Changing charset"
 msgstr "Промяна знаков набор"
 
-#: js/messages.php:381 libraries/Util.php:3079
+#: js/messages.php:381 libraries/Util.php:3081
 msgid "Enable foreign key checks"
 msgstr "Включване на проверките за външен ключ"
 
@@ -1807,9 +1807,9 @@ msgstr "Дефиницията на съхранена процедура тря
 
 #: js/messages.php:397 libraries/DisplayResults.php:4868
 #: libraries/DisplayResults.php:5151 libraries/Menu.php:357
-#: libraries/Menu.php:458 libraries/Menu.php:584 libraries/Util.php:3483
-#: libraries/Util.php:3484 libraries/Util.php:4098 libraries/Util.php:4113
-#: libraries/Util.php:4130 libraries/config/messages.inc.php:251
+#: libraries/Menu.php:458 libraries/Menu.php:584 libraries/Util.php:3485
+#: libraries/Util.php:3486 libraries/Util.php:4100 libraries/Util.php:4115
+#: libraries/Util.php:4132 libraries/config/messages.inc.php:251
 #: libraries/display_export.lib.php:172 libraries/rte/rte_list.lib.php:159
 #: libraries/server_privileges.lib.php:2366
 #: libraries/server_privileges.lib.php:2450
@@ -1862,8 +1862,8 @@ msgstr "Показване формата за заявки"
 
 #: js/messages.php:416 libraries/DisplayResults.php:3489
 #: libraries/DisplayResults.php:4852 libraries/Index.php:709
-#: libraries/Util.php:619 libraries/Util.php:1105 libraries/Util.php:3481
-#: libraries/Util.php:3482 libraries/central_columns.lib.php:848
+#: libraries/Util.php:619 libraries/Util.php:1105 libraries/Util.php:3483
+#: libraries/Util.php:3484 libraries/central_columns.lib.php:848
 #: libraries/central_columns.lib.php:1195 libraries/config/messages.inc.php:879
 #: libraries/server_user_groups.lib.php:117 setup/frames/index.inc.php:160
 #: templates/console/bookmark_content.phtml:17
@@ -2137,7 +2137,7 @@ msgid "Data point content"
 msgstr "Съдържание на точката с данни"
 
 #: js/messages.php:513 js/messages.php:679 js/messages.php:696
-#: libraries/ErrorHandler.php:370 libraries/insert_edit.lib.php:2644
+#: libraries/ErrorHandler.php:370 libraries/insert_edit.lib.php:2648
 #: templates/table/index_form.phtml:154 templates/table/index_form.phtml:198
 msgid "Ignore"
 msgstr "Игнориране"
@@ -2388,7 +2388,7 @@ msgid "Select database first"
 msgstr "Първо избетере база данни"
 
 #: js/messages.php:618 libraries/DisplayResults.php:5043
-#: libraries/Util.php:3991
+#: libraries/Util.php:3993
 #: templates/database/structure/print_view_data_dictionary_link.phtml:3
 #: templates/table/structure/optional_action_links.phtml:6
 msgid "Print"
@@ -3633,9 +3633,9 @@ msgid_plural "%1$s matches in <strong>%2$s</strong>"
 msgstr[0] "%1$s съвпадение в таблица <strong>%2$s</strong>"
 msgstr[1] "%1$s съвпадения в таблица <strong>%2$s</strong>"
 
-#: libraries/DbSearch.php:346 libraries/Menu.php:324 libraries/Util.php:3184
-#: libraries/Util.php:3194 libraries/Util.php:3470 libraries/Util.php:3471
-#: libraries/Util.php:4125 libraries/config.values.php:42
+#: libraries/DbSearch.php:346 libraries/Menu.php:324 libraries/Util.php:3186
+#: libraries/Util.php:3196 libraries/Util.php:3472 libraries/Util.php:3473
+#: libraries/Util.php:4127 libraries/config.values.php:42
 #: libraries/config.values.php:50 libraries/config.values.php:119
 #: libraries/navigation/nodes/NodeTable.php:311
 #: templates/table/structure/check_all_table_column.phtml:12
@@ -3687,30 +3687,30 @@ msgstr "Филтриране на редове"
 msgid "Search this table"
 msgstr "Търсене в таблицата"
 
-#: libraries/DisplayResults.php:989 libraries/Util.php:2437
-#: libraries/Util.php:2440
+#: libraries/DisplayResults.php:989 libraries/Util.php:2439
+#: libraries/Util.php:2442
 msgctxt "First page"
 msgid "Begin"
 msgstr "Начало"
 
-#: libraries/DisplayResults.php:992 libraries/Util.php:2438
-#: libraries/Util.php:2441
+#: libraries/DisplayResults.php:992 libraries/Util.php:2440
+#: libraries/Util.php:2443
 #: libraries/controllers/server/ServerBinlogController.php:194
 #: libraries/controllers/server/ServerBinlogController.php:196
 msgctxt "Previous page"
 msgid "Previous"
 msgstr "Предна"
 
-#: libraries/DisplayResults.php:1058 libraries/Util.php:2469
-#: libraries/Util.php:2479
+#: libraries/DisplayResults.php:1058 libraries/Util.php:2471
+#: libraries/Util.php:2481
 #: libraries/controllers/server/ServerBinlogController.php:228
 #: libraries/controllers/server/ServerBinlogController.php:230
 msgctxt "Next page"
 msgid "Next"
 msgstr "Следваща"
 
-#: libraries/DisplayResults.php:1088 libraries/Util.php:2470
-#: libraries/Util.php:2480
+#: libraries/DisplayResults.php:1088 libraries/Util.php:2472
+#: libraries/Util.php:2482
 msgctxt "Last page"
 msgid "End"
 msgstr "Последна"
@@ -4065,7 +4065,7 @@ msgstr "Главният ключ беше изтрит."
 msgid "Index %s has been dropped."
 msgstr "Индекс %s беше изтрит."
 
-#: libraries/Index.php:736 libraries/Util.php:3477 libraries/Util.php:3478
+#: libraries/Index.php:736 libraries/Util.php:3479 libraries/Util.php:3480
 #: libraries/controllers/server/ServerDatabasesController.php:402
 #: libraries/controllers/table/TableStructureController.php:1182
 #: libraries/controllers/table/TableStructureController.php:1183
@@ -4086,7 +4086,7 @@ msgstr ""
 "Индексите %1$s и %2$s изглеждат равнозначни и един от двата вероятно може да "
 "бъде премахнат."
 
-#: libraries/Language.php:194 libraries/PDF.php:69 libraries/Util.php:2426
+#: libraries/Language.php:194 libraries/PDF.php:69 libraries/Util.php:2428
 #: libraries/browse_foreigners.lib.php:320
 #: libraries/plugins/schema/pdf/PdfRelationSchema.php:495
 #: libraries/plugins/schema/pdf/PdfRelationSchema.php:520
@@ -4162,8 +4162,8 @@ msgid "Table"
 msgstr "Таблица"
 
 #: libraries/Menu.php:338 libraries/Menu.php:441 libraries/Menu.php:554
-#: libraries/Util.php:3181 libraries/Util.php:3191 libraries/Util.php:3197
-#: libraries/Util.php:4095 libraries/Util.php:4110 libraries/Util.php:4127
+#: libraries/Util.php:3183 libraries/Util.php:3193 libraries/Util.php:3199
+#: libraries/Util.php:4097 libraries/Util.php:4112 libraries/Util.php:4129
 #: libraries/config.values.php:39 libraries/config.values.php:47
 #: libraries/config.values.php:110 libraries/config.values.php:116
 #: libraries/config/messages.inc.php:320
@@ -4171,25 +4171,25 @@ msgstr "Таблица"
 msgid "SQL"
 msgstr "SQL"
 
-#: libraries/Menu.php:341 libraries/Menu.php:444 libraries/Util.php:3182
-#: libraries/Util.php:3192 libraries/Util.php:3198 libraries/Util.php:3472
-#: libraries/Util.php:3473 libraries/Util.php:4111 libraries/Util.php:4128
+#: libraries/Menu.php:341 libraries/Menu.php:444 libraries/Util.php:3184
+#: libraries/Util.php:3194 libraries/Util.php:3200 libraries/Util.php:3474
+#: libraries/Util.php:3475 libraries/Util.php:4113 libraries/Util.php:4130
 #: libraries/config.values.php:40 libraries/config.values.php:48
 #: libraries/config.values.php:111 libraries/config.values.php:117
 #: libraries/navigation/nodes/NodeTable.php:296
 msgid "Search"
 msgstr "Търсене"
 
-#: libraries/Menu.php:351 libraries/Util.php:3183 libraries/Util.php:3193
-#: libraries/Util.php:3474 libraries/Util.php:3475 libraries/Util.php:4129
+#: libraries/Menu.php:351 libraries/Util.php:3185 libraries/Util.php:3195
+#: libraries/Util.php:3476 libraries/Util.php:3477 libraries/Util.php:4131
 #: libraries/config.values.php:41 libraries/config.values.php:49
 #: libraries/config.values.php:118 libraries/navigation/nodes/NodeTable.php:302
 #: libraries/sql_query_form.lib.php:289 libraries/sql_query_form.lib.php:292
 msgid "Insert"
 msgstr "Вмъкване"
 
-#: libraries/Menu.php:375 libraries/Menu.php:479 libraries/Util.php:4116
-#: libraries/Util.php:4132 libraries/config.values.php:106
+#: libraries/Menu.php:375 libraries/Menu.php:479 libraries/Util.php:4118
+#: libraries/Util.php:4134 libraries/config.values.php:106
 #: libraries/server_common.lib.php:48 libraries/server_privileges.lib.php:2530
 #: libraries/server_privileges.lib.php:4377
 #: templates/privileges/privileges_summary.phtml:16
@@ -4197,19 +4197,19 @@ msgid "Privileges"
 msgstr "Права"
 
 #: libraries/Menu.php:384 libraries/Menu.php:392 libraries/Menu.php:471
-#: libraries/Util.php:3185 libraries/Util.php:3199 libraries/Util.php:4115
-#: libraries/Util.php:4133 libraries/config.values.php:112
+#: libraries/Util.php:3187 libraries/Util.php:3201 libraries/Util.php:4117
+#: libraries/Util.php:4135 libraries/config.values.php:112
 #: view_operations.php:107
 msgid "Operations"
 msgstr "Операции"
 
-#: libraries/Menu.php:397 libraries/Menu.php:501 libraries/Util.php:4120
-#: libraries/Util.php:4134 libraries/relation.lib.php:264
+#: libraries/Menu.php:397 libraries/Menu.php:501 libraries/Util.php:4122
+#: libraries/Util.php:4136 libraries/relation.lib.php:264
 msgid "Tracking"
 msgstr "Проследяване"
 
-#: libraries/Menu.php:409 libraries/Menu.php:495 libraries/Util.php:4119
-#: libraries/Util.php:4135
+#: libraries/Menu.php:409 libraries/Menu.php:495 libraries/Util.php:4121
+#: libraries/Util.php:4137
 #: libraries/navigation/nodes/NodeTriggerContainer.php:25
 #: libraries/plugins/export/ExportHtmlword.php:578
 #: libraries/plugins/export/ExportOdt.php:713
@@ -4225,16 +4225,16 @@ msgstr "Тригери"
 msgid "Database seems to be empty!"
 msgstr "БД изглежда празна!"
 
-#: libraries/Menu.php:451 libraries/Util.php:4112
+#: libraries/Menu.php:451 libraries/Util.php:4114
 msgid "Query"
 msgstr "Заявка по пример"
 
-#: libraries/Menu.php:484 libraries/Util.php:4117
+#: libraries/Menu.php:484 libraries/Util.php:4119
 #: libraries/rte/rte_words.lib.php:44
 msgid "Routines"
 msgstr "Процедури"
 
-#: libraries/Menu.php:489 libraries/Util.php:4118
+#: libraries/Menu.php:489 libraries/Util.php:4120
 #: libraries/navigation/nodes/NodeEventContainer.php:25
 #: libraries/plugins/export/ExportSql.php:961
 #: libraries/plugins/export/ExportXml.php:103
@@ -4242,16 +4242,16 @@ msgstr "Процедури"
 msgid "Events"
 msgstr "Събития"
 
-#: libraries/Menu.php:507 libraries/Util.php:4121
+#: libraries/Menu.php:507 libraries/Util.php:4123
 msgid "Designer"
 msgstr "Строител"
 
-#: libraries/Menu.php:516 libraries/Util.php:4122
+#: libraries/Menu.php:516 libraries/Util.php:4124
 #: templates/database/structure/check_all_tables.phtml:34
 msgid "Central columns"
 msgstr "Централни колони"
 
-#: libraries/Menu.php:550 libraries/Util.php:4094
+#: libraries/Menu.php:550 libraries/Util.php:4096
 #: libraries/config.values.php:103 libraries/config/messages.inc.php:265
 #: libraries/config/messages.inc.php:340
 #: libraries/navigation/NavigationTree.php:1274
@@ -4264,34 +4264,34 @@ msgid "User accounts"
 msgstr "Потребители"
 
 #: libraries/Menu.php:601 libraries/ServerStatusData.php:121
-#: libraries/Util.php:4101 libraries/server_common.lib.php:33
+#: libraries/Util.php:4103 libraries/server_common.lib.php:33
 msgid "Binary log"
 msgstr "Двоичен дневник"
 
 #: libraries/Menu.php:607 libraries/ServerStatusData.php:126
-#: libraries/Util.php:4102 libraries/server_common.lib.php:39
+#: libraries/Util.php:4104 libraries/server_common.lib.php:39
 #: templates/database/structure/body_for_table_summary.phtml:10
 #: templates/database/structure/table_header.phtml:27
 msgid "Replication"
 msgstr "Репликация"
 
 #: libraries/Menu.php:612 libraries/ServerStatusData.php:193
-#: libraries/Util.php:4103 libraries/config.values.php:105
+#: libraries/Util.php:4105 libraries/config.values.php:105
 #: libraries/sql_query_form.lib.php:427
 #: templates/server/engines/engine.phtml:15
 #: templates/server/engines/engine.phtml:18
 msgid "Variables"
 msgstr "Променливи"
 
-#: libraries/Menu.php:616 libraries/Util.php:4104
+#: libraries/Menu.php:616 libraries/Util.php:4106
 msgid "Charsets"
 msgstr "Знакови набори"
 
-#: libraries/Menu.php:620 libraries/Util.php:4106
+#: libraries/Menu.php:620 libraries/Util.php:4108
 msgid "Engines"
 msgstr "Хранилища"
 
-#: libraries/Menu.php:624 libraries/Util.php:4105
+#: libraries/Menu.php:624 libraries/Util.php:4107
 #: libraries/server_common.lib.php:30
 msgid "Plugins"
 msgstr "Добавки"
@@ -4944,52 +4944,52 @@ msgctxt "AM/PM indication in time"
 msgid "AM"
 msgstr ""
 
-#: libraries/Util.php:1966
+#: libraries/Util.php:1961
 #, php-format
 msgid "%s days, %s hours, %s minutes and %s seconds"
 msgstr "%s дена, %s часа, %s минути и %s секунди"
 
-#: libraries/Util.php:2013
+#: libraries/Util.php:2008
 msgid "Missing parameter:"
 msgstr "Липсващ параметър:"
 
-#: libraries/Util.php:2550
+#: libraries/Util.php:2552
 #, php-format
 msgid "Jump to database \"%s\"."
 msgstr "Показване БД \"%s\"."
 
-#: libraries/Util.php:2575
+#: libraries/Util.php:2577
 #, php-format
 msgid "The %s functionality is affected by a known bug, see %s"
 msgstr "Функционалността %s се влияе от известен дефект, виж %s"
 
-#: libraries/Util.php:3389 prefs_manage.php:256
+#: libraries/Util.php:3391 prefs_manage.php:256
 msgid "Browse your computer:"
 msgstr "Разглеждане на компютъра:"
 
-#: libraries/Util.php:3414
+#: libraries/Util.php:3416
 #, php-format
 msgid "Select from the web server upload directory <b>%s</b>:"
 msgstr "Избор от директорията за качване <b>%s</b>:"
 
-#: libraries/Util.php:3443 libraries/insert_edit.lib.php:1233
+#: libraries/Util.php:3445 libraries/insert_edit.lib.php:1233
 msgid "The directory you set for upload work cannot be reached."
 msgstr "Папката, която сте указали за качване е недостъпна."
 
-#: libraries/Util.php:3454
+#: libraries/Util.php:3456
 msgid "There are no files to upload!"
 msgstr "Няма файлве за качване!"
 
-#: libraries/Util.php:3479 libraries/Util.php:3480
+#: libraries/Util.php:3481 libraries/Util.php:3482
 #: templates/database/structure/check_all_tables.phtml:16
 msgid "Empty"
 msgstr "Изчистване"
 
-#: libraries/Util.php:3485 libraries/Util.php:3486
+#: libraries/Util.php:3487 libraries/Util.php:3488
 msgid "Execute"
 msgstr "Изпълнение"
 
-#: libraries/Util.php:4097
+#: libraries/Util.php:4099
 msgid "Users"
 msgstr "Потребители"
 
@@ -5123,21 +5123,34 @@ msgstr ""
 "Имате включено mbstring.func_overload в настройките на PHP. Тази опция е "
 "несъвместима с phpMyAdmin и може да причини повреда на данни!"
 
-#: libraries/common.inc.php:504
+#: libraries/common.inc.php:484
+#, fuzzy
+#| msgid ""
+#| "You have enabled mbstring.func_overload in your PHP configuration. This "
+#| "option is incompatible with phpMyAdmin and might cause some data to be "
+#| "corrupted!"
+msgid ""
+"You have disabled ini_get and/or ini_set in php.ini. This option is "
+"incompatible with phpMyAdmin!"
+msgstr ""
+"Имате включено mbstring.func_overload в настройките на PHP. Тази опция е "
+"несъвместима с phpMyAdmin и може да причини повреда на данни!"
+
+#: libraries/common.inc.php:517
 #, php-format
 msgid "Invalid server index: %s"
 msgstr "Невалиден индекс на сървър: %s"
 
-#: libraries/common.inc.php:517
+#: libraries/common.inc.php:530
 #, php-format
 msgid "Server %d"
 msgstr "Сървър %d"
 
-#: libraries/common.inc.php:641
+#: libraries/common.inc.php:654
 msgid "Invalid authentication method set in configuration:"
 msgstr "Невалиден метод за удостоверяване в конфогурацията:"
 
-#: libraries/common.inc.php:745
+#: libraries/common.inc.php:758
 #, php-format
 msgid ""
 "Unable to use timezone %1$s for server %2$d. Please check your configuration "
@@ -5145,20 +5158,20 @@ msgid ""
 "currently using the default time zone of the database server."
 msgstr ""
 
-#: libraries/common.inc.php:783
+#: libraries/common.inc.php:796
 #, php-format
 msgid "You should upgrade to %s %s or later."
 msgstr "Осъвременете до %s %s или по-нова."
 
-#: libraries/common.inc.php:869
+#: libraries/common.inc.php:882
 msgid "Error: Token mismatch"
 msgstr ""
 
-#: libraries/common.inc.php:887
+#: libraries/common.inc.php:900
 msgid "GLOBALS overwrite attempt"
 msgstr ""
 
-#: libraries/common.inc.php:894
+#: libraries/common.inc.php:907
 msgid "possible exploit"
 msgstr "възможен пробив в сигурността"
 
@@ -8447,6 +8460,10 @@ msgid "Could not load schema plugins, please check your installation!"
 msgstr ""
 "Не могат да бъдат заредени разширенията за импорт, моля проверете "
 "инсталацията!"
+
+#: libraries/dbi/DBIMysqli.php:158
+msgid "SSL connection enforced by server, automatically enabling it."
+msgstr ""
 
 #: libraries/display_change_password.lib.php:57
 #: libraries/replication_gui.lib.php:854

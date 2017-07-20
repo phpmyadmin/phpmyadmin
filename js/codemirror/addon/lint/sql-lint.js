@@ -16,7 +16,7 @@ CodeMirror.sqlLint = function(text, updateLinting, options, cm) {
                 to: CodeMirror.Pos(
                     response[idx].toLine, response[idx].toColumn
                 ),
-                message: response[idx].message,
+                messageHTML: response[idx].message,
                 severity : response[idx].severity
             });
         }

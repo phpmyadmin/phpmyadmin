@@ -88,7 +88,7 @@ class Theme
      */
     function loadInfo()
     {
-        if (! file_exists($this->getPath() . '/info.inc.php')) {
+        if (! @file_exists($this->getPath() . '/info.inc.php')) {
             return false;
         }
 

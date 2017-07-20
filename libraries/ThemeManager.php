@@ -411,7 +411,7 @@ class ThemeManager
         /**
          * load layout file if exists
          */
-        if (file_exists($this->theme->getLayoutFile())) {
+        if (@file_exists($this->theme->getLayoutFile())) {
             include $this->theme->getLayoutFile();
         }
     }

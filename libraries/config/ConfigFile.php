@@ -535,16 +535,18 @@ class ConfigFile
      */
     public static function getDefaultTempDirectory()
     {
-        $tmp_subdir = null;
-        if (! empty($GLOBALS['cfg']['TempDir']) && @is_writable($GLOBALS['cfg']['TempDir'])) {
-            $tmp_subdir = $GLOBALS['cfg']['TempDir'];
-        } else {
-            $tmp_subdir = ini_get('upload_tmp_dir');
-            if (empty($tmp_subdir)) {
-                $tmp_subdir = sys_get_temp_dir();
+        $dirs = array(
+            $GLOBALS['cfg']['TempDir'],
+            ini_get('upload_tmp_dir'),
+            sys_get_temp_dir(),
+        );
+
+        foreach ($dirs as $dir) {
+            if (! empty($dir) && @is_writable($dir)) {
+                return realpath($dir);
             }
-            $tmp_subdir = rtrim($tmp_subdir, DIRECTORY_SEPARATOR);
         }
-        return $tmp_subdir;
+
+        return null;
     }
 }

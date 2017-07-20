@@ -1,6 +1,21 @@
 phpMyAdmin - ChangeLog
 ======================
 
+4.7.3 (2017-07-20)
+- issue #13447 Large multi-line query removes Export operation and blanks query box options
+- issue #13445 Fixed rendering of query results
+- issue #13437 Fixed version check when not connected to a database
+- issue #13465 Fixed creating relation
+- issue #13475 Fixed export without backquotes
+- issue #13482 Improved handling of uploaded files with open_basedir
+- issue #13387 Fixed inline editing of hex values
+- issue #13382 Fixed size of index edit dialog
+- issue #13489 Fixed rendering SQL lint errors
+- issue #13468 Avoid breakage if set_time_limit is disabled
+- issue #13471 Fail if ini_set/ini_get are disabled
+- issue #13436 Automatically connect using SSL when server is configured so
+- issue #13478 Fixed usage of some browser transformations
+
 4.7.2 (2017-06-29)
 - issue #13314 Make theme selection keep current server
 - issue #13311 Fixed direct login for accounts without password

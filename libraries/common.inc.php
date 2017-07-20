@@ -474,6 +474,19 @@ if (@extension_loaded('mbstring') && !empty(@ini_get('mbstring.func_overload')))
     );
 }
 
+/**
+ * The ini_set and ini_get functions can be disabled using
+ * disable_functions but we're relying quite a lot of them.
+ */
+if (! function_exists('ini_get') || ! function_exists('ini_set')) {
+    PMA_fatalError(
+        __(
+            'You have disabled ini_get and/or ini_set in php.ini. '
+            . 'This option is incompatible with phpMyAdmin!'
+        )
+    );
+}
+
 /******************************************************************************/
 /* setup servers                                       LABEL_setup_servers    */
 
@@ -633,7 +646,7 @@ if (! defined('PMA_MINIMUM_COMMON')) {
          * the required auth type plugin
          */
         $auth_class = "Authentication" . ucfirst($cfg['Server']['auth_type']);
-        if (! file_exists(
+        if (! @file_exists(
             './libraries/plugins/auth/'
             . $auth_class . '.php'
         )) {

@@ -103,7 +103,7 @@ class Config
      */
     public function checkSystem()
     {
-        $this->set('PMA_VERSION', '4.7.2');
+        $this->set('PMA_VERSION', '4.7.3');
         /**
          * @deprecated
          */
@@ -453,7 +453,7 @@ class Config
         } elseif (function_exists('gzuncompress')) {
             $git_file_name = $git_folder . '/objects/'
                 . substr($hash, 0, 2) . '/' . substr($hash, 2);
-            if (file_exists($git_file_name) ) {
+            if (@file_exists($git_file_name) ) {
                 if (! $commit = @file_get_contents($git_file_name)) {
                     return;
                 }
@@ -464,7 +464,7 @@ class Config
                 $pack_names = array();
                 // work with packed data
                 $packs_file = $git_folder . '/objects/info/packs';
-                if (file_exists($packs_file)
+                if (@file_exists($packs_file)
                     && $packs = @file_get_contents($packs_file)
                 ) {
                     // File exists. Read it, parse the file to get the names of the
@@ -1714,7 +1714,7 @@ class Config
     private static function _renderCustom($filename, $id)
     {
         $retval = '';
-        if (file_exists($filename)) {
+        if (@file_exists($filename)) {
             $retval .= '<div id="' . $id . '">';
             ob_start();
             include $filename;

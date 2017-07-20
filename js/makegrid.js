@@ -1445,7 +1445,7 @@ function PMA_makegrid(t, enableResize, enableReorder, enableVisib, enableGridEdi
                     // selection list will always be updated to the edit box
                     this_field_params[field_name] = $(g.cEdit).find('.edit_box').val();
                 } else if ($this_field.hasClass('hex')) {
-                    if ($(g.cEdit).find('.edit_box').val().match(/^[a-f0-9]*$/i) !== null) {
+                    if ($(g.cEdit).find('.edit_box').val().match(/^(0x)?[a-f0-9]*$/i) !== null) {
                         this_field_params[field_name] = $(g.cEdit).find('.edit_box').val();
                     } else {
                         var hexError = '<div class="error">' + PMA_messages.strEnterValidHex + '</div>';

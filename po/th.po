@@ -1,9 +1,9 @@
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: phpMyAdmin 4.7.2-dev\n"
+"Project-Id-Version: phpMyAdmin 4.7.3-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
-"POT-Creation-Date: 2017-06-28 09:56+0200\n"
+"POT-Creation-Date: 2017-07-18 13:29+0200\n"
 "PO-Revision-Date: 2016-07-07 16:12+0000\n"
 "Last-Translator: Phongphan A Bunlom <phongphan117@hotmail.co.th>\n"
 "Language-Team: Thai <https://hosted.weblate.org/projects/phpmyadmin/master/"
@@ -15,7 +15,7 @@ msgstr ""
 "Plural-Forms: nplurals=1; plural=0;\n"
 "X-Generator: Weblate 2.7-dev\n"
 
-#: ajax.php:16 ajax.php:33 export.php:191 schema_export.php:64
+#: ajax.php:16 ajax.php:33 export.php:192 schema_export.php:64
 msgid "Bad type!"
 msgstr "ประเภทไม่ถูกต้อง!"
 
@@ -241,7 +241,7 @@ msgstr "ใช่"
 msgid "View dump (schema) of database"
 msgstr "ดูโครงสร้างของฐานข้อมูล"
 
-#: db_export.php:51 db_tracking.php:103 export.php:374 libraries/DbQbe.php:327
+#: db_export.php:51 db_tracking.php:103 export.php:375 libraries/DbQbe.php:327
 #: libraries/controllers/database/DatabaseStructureController.php:168
 #: libraries/navigation/NavigationTree.php:924
 msgid "No tables found in database."
@@ -258,8 +258,8 @@ msgid "Tables"
 msgstr "ตาราง"
 
 #: db_export.php:66 libraries/Menu.php:330 libraries/Menu.php:437
-#: libraries/Util.php:3180 libraries/Util.php:3190 libraries/Util.php:3196
-#: libraries/Util.php:3476 libraries/Util.php:4109 libraries/Util.php:4126
+#: libraries/Util.php:3182 libraries/Util.php:3192 libraries/Util.php:3198
+#: libraries/Util.php:3478 libraries/Util.php:4111 libraries/Util.php:4128
 #: libraries/central_columns.lib.php:727 libraries/config.values.php:38
 #: libraries/config.values.php:46 libraries/config.values.php:109
 #: libraries/config.values.php:115 libraries/config/setup.forms.php:316
@@ -376,7 +376,7 @@ msgstr "หากคุณพบปัญหาในการใช้งาน
 msgid "You may want to refresh the page."
 msgstr "คุณอาจจะต้องการรีเฟรซหน้านี้"
 
-#: export.php:274
+#: export.php:275
 msgid "Bad parameters!"
 msgstr "พารามิเตอร์ไม่ถูกต้อง!"
 
@@ -524,23 +524,23 @@ msgid ""
 "below into the \"Value\" field."
 msgstr "เลือก \"GeomFromText\" จากแถวฟังก์ชัน และวางลงในข้อความช่อง \"ค่า\""
 
-#: import.php:64
+#: import.php:65
 #, fuzzy
 #| msgid "Access denied!"
 msgid "Succeeded"
 msgstr "ไม่อนุญาตให้ใช้งาน"
 
-#: import.php:68 js/messages.php:611
+#: import.php:69 js/messages.php:611
 msgid "Failed"
 msgstr "ผิดพลาด"
 
-#: import.php:72
+#: import.php:73
 #, fuzzy
 #| msgid "Complete inserts"
 msgid "Incomplete params"
 msgstr "คำสั่ง INSERT เต็มรูปแบบ"
 
-#: import.php:196
+#: import.php:197
 #, php-format
 msgid ""
 "You probably tried to upload a file that is too large. Please refer to "
@@ -549,15 +549,15 @@ msgstr ""
 "คุณพยายามที่จะอัพโหลดไฟล์ที่มีขนาดใหญ่เกินไป กรุณาดูที่ %sdocumentation%s เอกสารช่วยเหลือ "
 "เพื่อแก้ไขปัญหาดังกล่าวนี้"
 
-#: import.php:378 import.php:579
+#: import.php:367 import.php:568
 msgid "Showing bookmark"
 msgstr "แสดงบุ๊คมาร์ค"
 
-#: import.php:394 import.php:575
+#: import.php:383 import.php:564
 msgid "The bookmark has been deleted."
 msgstr "ลบคำค้นที่จดไว้เรียบร้อยแล้ว"
 
-#: import.php:488
+#: import.php:477
 msgid ""
 "No data was received to import. Either no file name was submitted, or the "
 "file size exceeded the maximum size permitted by your PHP configuration. See "
@@ -566,24 +566,24 @@ msgstr ""
 "ไม่มีข้อมูลสำหรับการนำเข้า อาจจะไม่ได้ใส่ชื่อไฟล์ หรือขนาดไฟล์เกินขนาดสูงสุดที่ระบบตั้งไว้ "
 "กรุณาแก้ไขไฟล์ตั้งค่าของ PHP ดูเอกสารเพิ่มเติมได้ที่ [doc@faq1-16]FAQ 1.16[/doc]"
 
-#: import.php:540 libraries/display_import.lib.php:665
+#: import.php:529 libraries/display_import.lib.php:665
 msgid "Could not load import plugins, please check your installation!"
 msgstr "ไม่สามารถโหลดนำเข้าปลั๊กอินได้ กรุณาตรวจสอบการติดตั้งของคุณ!"
 
-#: import.php:582 libraries/sql.lib.php:788 libraries/sql.lib.php:1564
+#: import.php:571 libraries/sql.lib.php:788 libraries/sql.lib.php:1564
 #, fuzzy, php-format
 #| msgid "Bookmark %s created"
 msgid "Bookmark %s has been created."
 msgstr "ที่คั่นหน้า %s ได้ถูกสร้างขึ้น"
 
-#: import.php:592
+#: import.php:581
 #, fuzzy, php-format
 #| msgid "Import has been successfully finished, %d queries executed."
 msgid "Import has been successfully finished, %d query executed."
 msgid_plural "Import has been successfully finished, %d queries executed."
 msgstr[0] "นำเข้าสำเร็จเรียบร้อย การสอบถาม %d รายการได้ถูกดำเนินการแล้ว"
 
-#: import.php:621
+#: import.php:612
 #, fuzzy, php-format
 #| msgid ""
 #| "Script timeout passed, if you want to finish import, please resubmit same "
@@ -593,7 +593,7 @@ msgid ""
 "same file%s and import will resume."
 msgstr "หมดเวลาการนำเข้าแล้ว หากคุณต้องการดำเนินการต่อให้เรียบร้อย กรุณานำเข้าไฟล์เดิมอีกรอบ"
 
-#: import.php:631
+#: import.php:622
 msgid ""
 "However on last run no data has been parsed, this usually means phpMyAdmin "
 "won't be able to finish this import unless you increase php time limits."
@@ -601,7 +601,7 @@ msgstr ""
 "ชุดข้อมูลที่นำเข้าล่าสุดไม่ได้สามารถนำเข้าได้ หมายความว่า phpMyAdmin ไม่สามารถนำเข้าได้ทัน "
 "ตามเวลารันสูงสุดที่กำหนดใน PHP"
 
-#: import.php:702 sql.php:163
+#: import.php:693 sql.php:163
 msgid "\"DROP DATABASE\" statements are disabled."
 msgstr "คำสั่ง \"DROP DATABASE\" ถูกปิดไว้"
 
@@ -1342,7 +1342,7 @@ msgstr "คำถาม"
 msgid "Traffic"
 msgstr "การจราจร"
 
-#: js/messages.php:214 libraries/Menu.php:592 libraries/Util.php:4100
+#: js/messages.php:214 libraries/Menu.php:592 libraries/Util.php:4102
 #: libraries/server_status_monitor.lib.php:253
 msgid "Settings"
 msgstr "การตั้งค่า"
@@ -1557,7 +1557,7 @@ msgstr "กำลังวิเคราะห์…"
 msgid "Explain output"
 msgstr "อธิบายผลคำสั่ง"
 
-#: js/messages.php:291 libraries/Menu.php:558 libraries/Util.php:4096
+#: js/messages.php:291 libraries/Menu.php:558 libraries/Util.php:4098
 #: libraries/config.values.php:104 libraries/rte/rte_events.lib.php:399
 #: libraries/rte/rte_list.lib.php:107
 #: libraries/server_status_processes.lib.php:92 libraries/tracking.lib.php:287
@@ -1675,8 +1675,8 @@ msgstr ""
 "การสร้างตารางแสดงผลล้มเหลว เป็นเพราะการตั้งค่า โปรดล้างค่ากลับไปเป็นการตั้งค่าแบบเริ่มแรก…"
 
 #: js/messages.php:329 libraries/Menu.php:365 libraries/Menu.php:467
-#: libraries/Menu.php:588 libraries/Util.php:4099 libraries/Util.php:4114
-#: libraries/Util.php:4131 libraries/config/messages.inc.php:257
+#: libraries/Menu.php:588 libraries/Util.php:4101 libraries/Util.php:4116
+#: libraries/Util.php:4133 libraries/config/messages.inc.php:257
 #: libraries/display_import.lib.php:107
 #: libraries/server_status_monitor.lib.php:313 prefs_manage.php:246
 #: setup/frames/menu.inc.php:26
@@ -1855,7 +1855,7 @@ msgstr "กำลังคัดลอกฐานข้อมูล"
 msgid "Changing charset"
 msgstr "กำลังเปลี่ยนชุดตัวอักษร"
 
-#: js/messages.php:381 libraries/Util.php:3079
+#: js/messages.php:381 libraries/Util.php:3081
 #, fuzzy
 #| msgid "Foreign key check:"
 msgid "Enable foreign key checks"
@@ -1898,9 +1898,9 @@ msgstr "ฟังก์ชั่นภายในจะต้องมีค่
 
 #: js/messages.php:397 libraries/DisplayResults.php:4868
 #: libraries/DisplayResults.php:5151 libraries/Menu.php:357
-#: libraries/Menu.php:458 libraries/Menu.php:584 libraries/Util.php:3483
-#: libraries/Util.php:3484 libraries/Util.php:4098 libraries/Util.php:4113
-#: libraries/Util.php:4130 libraries/config/messages.inc.php:251
+#: libraries/Menu.php:458 libraries/Menu.php:584 libraries/Util.php:3485
+#: libraries/Util.php:3486 libraries/Util.php:4100 libraries/Util.php:4115
+#: libraries/Util.php:4132 libraries/config/messages.inc.php:251
 #: libraries/display_export.lib.php:172 libraries/rte/rte_list.lib.php:159
 #: libraries/server_privileges.lib.php:2366
 #: libraries/server_privileges.lib.php:2450
@@ -1955,8 +1955,8 @@ msgstr "แสดงช่องคำค้น SQL"
 
 #: js/messages.php:416 libraries/DisplayResults.php:3489
 #: libraries/DisplayResults.php:4852 libraries/Index.php:709
-#: libraries/Util.php:619 libraries/Util.php:1105 libraries/Util.php:3481
-#: libraries/Util.php:3482 libraries/central_columns.lib.php:848
+#: libraries/Util.php:619 libraries/Util.php:1105 libraries/Util.php:3483
+#: libraries/Util.php:3484 libraries/central_columns.lib.php:848
 #: libraries/central_columns.lib.php:1195 libraries/config/messages.inc.php:879
 #: libraries/server_user_groups.lib.php:117 setup/frames/index.inc.php:160
 #: templates/console/bookmark_content.phtml:17
@@ -2254,7 +2254,7 @@ msgid "Data point content"
 msgstr "สารบัญ"
 
 #: js/messages.php:513 js/messages.php:679 js/messages.php:696
-#: libraries/ErrorHandler.php:370 libraries/insert_edit.lib.php:2644
+#: libraries/ErrorHandler.php:370 libraries/insert_edit.lib.php:2648
 #: templates/table/index_form.phtml:154 templates/table/index_form.phtml:198
 msgid "Ignore"
 msgstr "ข้าม"
@@ -2535,7 +2535,7 @@ msgid "Select database first"
 msgstr "เลือกตาราง"
 
 #: js/messages.php:618 libraries/DisplayResults.php:5043
-#: libraries/Util.php:3991
+#: libraries/Util.php:3993
 #: templates/database/structure/print_view_data_dictionary_link.phtml:3
 #: templates/table/structure/optional_action_links.phtml:6
 msgid "Print"
@@ -3849,9 +3849,9 @@ msgid "%1$s match in <strong>%2$s</strong>"
 msgid_plural "%1$s matches in <strong>%2$s</strong>"
 msgstr[0] "พบ %s ผลลัพธ์ที่ตรงในตาราง <i>%s</i>"
 
-#: libraries/DbSearch.php:346 libraries/Menu.php:324 libraries/Util.php:3184
-#: libraries/Util.php:3194 libraries/Util.php:3470 libraries/Util.php:3471
-#: libraries/Util.php:4125 libraries/config.values.php:42
+#: libraries/DbSearch.php:346 libraries/Menu.php:324 libraries/Util.php:3186
+#: libraries/Util.php:3196 libraries/Util.php:3472 libraries/Util.php:3473
+#: libraries/Util.php:4127 libraries/config.values.php:42
 #: libraries/config.values.php:50 libraries/config.values.php:119
 #: libraries/navigation/nodes/NodeTable.php:311
 #: templates/table/structure/check_all_table_column.phtml:12
@@ -3911,14 +3911,14 @@ msgstr "ตัวกรอง"
 msgid "Search this table"
 msgstr "ค้นหาในฐานข้อมูล"
 
-#: libraries/DisplayResults.php:989 libraries/Util.php:2437
-#: libraries/Util.php:2440
+#: libraries/DisplayResults.php:989 libraries/Util.php:2439
+#: libraries/Util.php:2442
 msgctxt "First page"
 msgid "Begin"
 msgstr "เริ่มต้น"
 
-#: libraries/DisplayResults.php:992 libraries/Util.php:2438
-#: libraries/Util.php:2441
+#: libraries/DisplayResults.php:992 libraries/Util.php:2440
+#: libraries/Util.php:2443
 #: libraries/controllers/server/ServerBinlogController.php:194
 #: libraries/controllers/server/ServerBinlogController.php:196
 #, fuzzy
@@ -3927,16 +3927,16 @@ msgctxt "Previous page"
 msgid "Previous"
 msgstr "ก่อนหน้า"
 
-#: libraries/DisplayResults.php:1058 libraries/Util.php:2469
-#: libraries/Util.php:2479
+#: libraries/DisplayResults.php:1058 libraries/Util.php:2471
+#: libraries/Util.php:2481
 #: libraries/controllers/server/ServerBinlogController.php:228
 #: libraries/controllers/server/ServerBinlogController.php:230
 msgctxt "Next page"
 msgid "Next"
 msgstr "ถัดไป"
 
-#: libraries/DisplayResults.php:1088 libraries/Util.php:2470
-#: libraries/Util.php:2480
+#: libraries/DisplayResults.php:1088 libraries/Util.php:2472
+#: libraries/Util.php:2482
 msgctxt "Last page"
 msgid "End"
 msgstr "สุดท้าย"
@@ -4324,7 +4324,7 @@ msgstr "โยนคีย์หลักทิ้งไปเรียบร้
 msgid "Index %s has been dropped."
 msgstr "โยนดัชนี %s ทิ้งไปเรียบร้อยแล้ว"
 
-#: libraries/Index.php:736 libraries/Util.php:3477 libraries/Util.php:3478
+#: libraries/Index.php:736 libraries/Util.php:3479 libraries/Util.php:3480
 #: libraries/controllers/server/ServerDatabasesController.php:402
 #: libraries/controllers/table/TableStructureController.php:1182
 #: libraries/controllers/table/TableStructureController.php:1183
@@ -4343,7 +4343,7 @@ msgid ""
 "removed."
 msgstr "ดัชนี %1$s และ %2$s น่าจะเป็นอันเดียวกัน ควรจะลบออกไปอันหนึ่ง"
 
-#: libraries/Language.php:194 libraries/PDF.php:69 libraries/Util.php:2426
+#: libraries/Language.php:194 libraries/PDF.php:69 libraries/Util.php:2428
 #: libraries/browse_foreigners.lib.php:320
 #: libraries/plugins/schema/pdf/PdfRelationSchema.php:495
 #: libraries/plugins/schema/pdf/PdfRelationSchema.php:520
@@ -4419,8 +4419,8 @@ msgid "Table"
 msgstr "ตาราง"
 
 #: libraries/Menu.php:338 libraries/Menu.php:441 libraries/Menu.php:554
-#: libraries/Util.php:3181 libraries/Util.php:3191 libraries/Util.php:3197
-#: libraries/Util.php:4095 libraries/Util.php:4110 libraries/Util.php:4127
+#: libraries/Util.php:3183 libraries/Util.php:3193 libraries/Util.php:3199
+#: libraries/Util.php:4097 libraries/Util.php:4112 libraries/Util.php:4129
 #: libraries/config.values.php:39 libraries/config.values.php:47
 #: libraries/config.values.php:110 libraries/config.values.php:116
 #: libraries/config/messages.inc.php:320
@@ -4428,25 +4428,25 @@ msgstr "ตาราง"
 msgid "SQL"
 msgstr "SQL"
 
-#: libraries/Menu.php:341 libraries/Menu.php:444 libraries/Util.php:3182
-#: libraries/Util.php:3192 libraries/Util.php:3198 libraries/Util.php:3472
-#: libraries/Util.php:3473 libraries/Util.php:4111 libraries/Util.php:4128
+#: libraries/Menu.php:341 libraries/Menu.php:444 libraries/Util.php:3184
+#: libraries/Util.php:3194 libraries/Util.php:3200 libraries/Util.php:3474
+#: libraries/Util.php:3475 libraries/Util.php:4113 libraries/Util.php:4130
 #: libraries/config.values.php:40 libraries/config.values.php:48
 #: libraries/config.values.php:111 libraries/config.values.php:117
 #: libraries/navigation/nodes/NodeTable.php:296
 msgid "Search"
 msgstr "ค้นหา"
 
-#: libraries/Menu.php:351 libraries/Util.php:3183 libraries/Util.php:3193
-#: libraries/Util.php:3474 libraries/Util.php:3475 libraries/Util.php:4129
+#: libraries/Menu.php:351 libraries/Util.php:3185 libraries/Util.php:3195
+#: libraries/Util.php:3476 libraries/Util.php:3477 libraries/Util.php:4131
 #: libraries/config.values.php:41 libraries/config.values.php:49
 #: libraries/config.values.php:118 libraries/navigation/nodes/NodeTable.php:302
 #: libraries/sql_query_form.lib.php:289 libraries/sql_query_form.lib.php:292
 msgid "Insert"
 msgstr "แทรก"
 
-#: libraries/Menu.php:375 libraries/Menu.php:479 libraries/Util.php:4116
-#: libraries/Util.php:4132 libraries/config.values.php:106
+#: libraries/Menu.php:375 libraries/Menu.php:479 libraries/Util.php:4118
+#: libraries/Util.php:4134 libraries/config.values.php:106
 #: libraries/server_common.lib.php:48 libraries/server_privileges.lib.php:2530
 #: libraries/server_privileges.lib.php:4377
 #: templates/privileges/privileges_summary.phtml:16
@@ -4454,19 +4454,19 @@ msgid "Privileges"
 msgstr "สิทธิ"
 
 #: libraries/Menu.php:384 libraries/Menu.php:392 libraries/Menu.php:471
-#: libraries/Util.php:3185 libraries/Util.php:3199 libraries/Util.php:4115
-#: libraries/Util.php:4133 libraries/config.values.php:112
+#: libraries/Util.php:3187 libraries/Util.php:3201 libraries/Util.php:4117
+#: libraries/Util.php:4135 libraries/config.values.php:112
 #: view_operations.php:107
 msgid "Operations"
 msgstr "กระบวนการ"
 
-#: libraries/Menu.php:397 libraries/Menu.php:501 libraries/Util.php:4120
-#: libraries/Util.php:4134 libraries/relation.lib.php:264
+#: libraries/Menu.php:397 libraries/Menu.php:501 libraries/Util.php:4122
+#: libraries/Util.php:4136 libraries/relation.lib.php:264
 msgid "Tracking"
 msgstr "การติดตาม"
 
-#: libraries/Menu.php:409 libraries/Menu.php:495 libraries/Util.php:4119
-#: libraries/Util.php:4135
+#: libraries/Menu.php:409 libraries/Menu.php:495 libraries/Util.php:4121
+#: libraries/Util.php:4137
 #: libraries/navigation/nodes/NodeTriggerContainer.php:25
 #: libraries/plugins/export/ExportHtmlword.php:578
 #: libraries/plugins/export/ExportOdt.php:713
@@ -4482,16 +4482,16 @@ msgstr "ทริกเกอร์"
 msgid "Database seems to be empty!"
 msgstr "ดูเหมือนว่าฐานข้อมูลจะว่างเปล่า!"
 
-#: libraries/Menu.php:451 libraries/Util.php:4112
+#: libraries/Menu.php:451 libraries/Util.php:4114
 msgid "Query"
 msgstr "คำค้นจากตัวอย่าง"
 
-#: libraries/Menu.php:484 libraries/Util.php:4117
+#: libraries/Menu.php:484 libraries/Util.php:4119
 #: libraries/rte/rte_words.lib.php:44
 msgid "Routines"
 msgstr ""
 
-#: libraries/Menu.php:489 libraries/Util.php:4118
+#: libraries/Menu.php:489 libraries/Util.php:4120
 #: libraries/navigation/nodes/NodeEventContainer.php:25
 #: libraries/plugins/export/ExportSql.php:961
 #: libraries/plugins/export/ExportXml.php:103
@@ -4499,18 +4499,18 @@ msgstr ""
 msgid "Events"
 msgstr "เหตุการณ์"
 
-#: libraries/Menu.php:507 libraries/Util.php:4121
+#: libraries/Menu.php:507 libraries/Util.php:4123
 msgid "Designer"
 msgstr "ผู้ออกแบบ"
 
-#: libraries/Menu.php:516 libraries/Util.php:4122
+#: libraries/Menu.php:516 libraries/Util.php:4124
 #: templates/database/structure/check_all_tables.phtml:34
 #, fuzzy
 #| msgid "Add/Delete Field Columns"
 msgid "Central columns"
 msgstr "เพิ่ม/ลบ คอลัมน์ (ฟิลด์)"
 
-#: libraries/Menu.php:550 libraries/Util.php:4094
+#: libraries/Menu.php:550 libraries/Util.php:4096
 #: libraries/config.values.php:103 libraries/config/messages.inc.php:265
 #: libraries/config/messages.inc.php:340
 #: libraries/navigation/NavigationTree.php:1274
@@ -4525,35 +4525,35 @@ msgid "User accounts"
 msgstr "ผู้ใช้"
 
 #: libraries/Menu.php:601 libraries/ServerStatusData.php:121
-#: libraries/Util.php:4101 libraries/server_common.lib.php:33
+#: libraries/Util.php:4103 libraries/server_common.lib.php:33
 #, fuzzy
 msgid "Binary log"
 msgstr "ข้อมูลไบนารี "
 
 #: libraries/Menu.php:607 libraries/ServerStatusData.php:126
-#: libraries/Util.php:4102 libraries/server_common.lib.php:39
+#: libraries/Util.php:4104 libraries/server_common.lib.php:39
 #: templates/database/structure/body_for_table_summary.phtml:10
 #: templates/database/structure/table_header.phtml:27
 msgid "Replication"
 msgstr "การจำลองแบบ"
 
 #: libraries/Menu.php:612 libraries/ServerStatusData.php:193
-#: libraries/Util.php:4103 libraries/config.values.php:105
+#: libraries/Util.php:4105 libraries/config.values.php:105
 #: libraries/sql_query_form.lib.php:427
 #: templates/server/engines/engine.phtml:15
 #: templates/server/engines/engine.phtml:18
 msgid "Variables"
 msgstr "ตัวแปร"
 
-#: libraries/Menu.php:616 libraries/Util.php:4104
+#: libraries/Menu.php:616 libraries/Util.php:4106
 msgid "Charsets"
 msgstr "ชุดอักขระ"
 
-#: libraries/Menu.php:620 libraries/Util.php:4106
+#: libraries/Menu.php:620 libraries/Util.php:4108
 msgid "Engines"
 msgstr "เครื่องมือ"
 
-#: libraries/Menu.php:624 libraries/Util.php:4105
+#: libraries/Menu.php:624 libraries/Util.php:4107
 #: libraries/server_common.lib.php:30
 msgid "Plugins"
 msgstr "ปลั๊กอิน"
@@ -5267,57 +5267,57 @@ msgctxt "AM/PM indication in time"
 msgid "AM"
 msgstr ""
 
-#: libraries/Util.php:1966
+#: libraries/Util.php:1961
 #, php-format
 msgid "%s days, %s hours, %s minutes and %s seconds"
 msgstr "%s วัน, %s ชั่วโมง, %s นาที, %s วินาที"
 
-#: libraries/Util.php:2013
+#: libraries/Util.php:2008
 #, fuzzy
 #| msgid "Add new field"
 msgid "Missing parameter:"
 msgstr "เพิ่มฟิลด์ใหม่"
 
-#: libraries/Util.php:2550
+#: libraries/Util.php:2552
 #, php-format
 msgid "Jump to database \"%s\"."
 msgstr "กระโดดไปที่ฐานข้อมูล \"%s\"."
 
-#: libraries/Util.php:2575
+#: libraries/Util.php:2577
 #, php-format
 msgid "The %s functionality is affected by a known bug, see %s"
 msgstr ""
 
-#: libraries/Util.php:3389 prefs_manage.php:256
+#: libraries/Util.php:3391 prefs_manage.php:256
 msgid "Browse your computer:"
 msgstr "เรียกดูคอมพิวเตอร์ของคุณ:"
 
-#: libraries/Util.php:3414
+#: libraries/Util.php:3416
 #, fuzzy, php-format
 #| msgid "web server upload directory"
 msgid "Select from the web server upload directory <b>%s</b>:"
 msgstr "ไดเรกทอรีสำหรับอัพโหลด ที่เว็บเซิร์ฟเวอร์"
 
-#: libraries/Util.php:3443 libraries/insert_edit.lib.php:1233
+#: libraries/Util.php:3445 libraries/insert_edit.lib.php:1233
 msgid "The directory you set for upload work cannot be reached."
 msgstr "ไม่สามารถใช้งาน ไดเรกทอรีที่ตั้งไว้สำหรับอัพโหลดได้"
 
-#: libraries/Util.php:3454
+#: libraries/Util.php:3456
 #, fuzzy
 #| msgid "There are no files to upload"
 msgid "There are no files to upload!"
 msgstr "ไม่มีไฟล์ที่จะอัพโหลด"
 
-#: libraries/Util.php:3479 libraries/Util.php:3480
+#: libraries/Util.php:3481 libraries/Util.php:3482
 #: templates/database/structure/check_all_tables.phtml:16
 msgid "Empty"
 msgstr "ลบข้อมูล"
 
-#: libraries/Util.php:3485 libraries/Util.php:3486
+#: libraries/Util.php:3487 libraries/Util.php:3488
 msgid "Execute"
 msgstr "ดำเนินการ"
 
-#: libraries/Util.php:4097
+#: libraries/Util.php:4099
 msgid "Users"
 msgstr "ผู้ใช้"
 
@@ -5465,22 +5465,35 @@ msgstr ""
 "คุณได้เปิดใช้งาน mbstring.func_overload ในการกำหนดค่าของ PHP ตัวเลือกนี้ไม่เข้ากันกับ "
 "phpMyAdmin และอาจทำให้ข้อมูลบางอย่างจะเสียหายได้"
 
-#: libraries/common.inc.php:504
+#: libraries/common.inc.php:484
+#, fuzzy
+#| msgid ""
+#| "You have enabled mbstring.func_overload in your PHP configuration. This "
+#| "option is incompatible with phpMyAdmin and might cause some data to be "
+#| "corrupted!"
+msgid ""
+"You have disabled ini_get and/or ini_set in php.ini. This option is "
+"incompatible with phpMyAdmin!"
+msgstr ""
+"คุณได้เปิดใช้งาน mbstring.func_overload ในการกำหนดค่าของ PHP ตัวเลือกนี้ไม่เข้ากันกับ "
+"phpMyAdmin และอาจทำให้ข้อมูลบางอย่างจะเสียหายได้"
+
+#: libraries/common.inc.php:517
 #, php-format
 msgid "Invalid server index: %s"
 msgstr "ลำดับเซิฟเวอร์ไม่ถูกต้อง: %s"
 
-#: libraries/common.inc.php:517
+#: libraries/common.inc.php:530
 #, fuzzy, php-format
 #| msgid "Server"
 msgid "Server %d"
 msgstr "เซิร์ฟเวอร์"
 
-#: libraries/common.inc.php:641
+#: libraries/common.inc.php:654
 msgid "Invalid authentication method set in configuration:"
 msgstr ""
 
-#: libraries/common.inc.php:745
+#: libraries/common.inc.php:758
 #, php-format
 msgid ""
 "Unable to use timezone %1$s for server %2$d. Please check your configuration "
@@ -5488,20 +5501,20 @@ msgid ""
 "currently using the default time zone of the database server."
 msgstr ""
 
-#: libraries/common.inc.php:783
+#: libraries/common.inc.php:796
 #, php-format
 msgid "You should upgrade to %s %s or later."
 msgstr ""
 
-#: libraries/common.inc.php:869
+#: libraries/common.inc.php:882
 msgid "Error: Token mismatch"
 msgstr "เกิดข้อผิดพลาด: โทเค็นไม่ตรงกัน"
 
-#: libraries/common.inc.php:887
+#: libraries/common.inc.php:900
 msgid "GLOBALS overwrite attempt"
 msgstr ""
 
-#: libraries/common.inc.php:894
+#: libraries/common.inc.php:907
 msgid "possible exploit"
 msgstr "﻿ใช้ประโยชน์ได้"
 
@@ -8661,6 +8674,10 @@ msgstr ""
 #| msgid "Could not load import plugins, please check your installation!"
 msgid "Could not load schema plugins, please check your installation!"
 msgstr "ไม่สามารถโหลดนำเข้าปลั๊กอินได้ กรุณาตรวจสอบการติดตั้งของคุณ"
+
+#: libraries/dbi/DBIMysqli.php:158
+msgid "SSL connection enforced by server, automatically enabling it."
+msgstr ""
 
 #: libraries/display_change_password.lib.php:57
 #: libraries/replication_gui.lib.php:854

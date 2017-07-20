@@ -163,7 +163,7 @@ class Linter
             $response[] = array(
                 'message' => sprintf(
                     __('%1$s (near <code>%2$s</code>)'),
-                    $error[0], $error[2]
+                    htmlspecialchars($error[0]), htmlspecialchars($error[2])
                 ),
                 'fromLine' => $fromLine,
                 'fromColumn' => $fromColumn,

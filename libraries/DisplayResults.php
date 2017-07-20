@@ -3057,7 +3057,7 @@ class DisplayResults
                     $file = $mime_map[$orgFullColName]['transformation'];
                     $include_file = 'libraries/plugins/transformations/' . $file;
 
-                    if (file_exists($include_file)) {
+                    if (@file_exists($include_file)) {
 
                         include_once $include_file;
                         $class_name = PMA_getTransformationClassName($include_file);

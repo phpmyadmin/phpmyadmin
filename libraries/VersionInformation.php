@@ -217,12 +217,16 @@ class VersionInformation
     }
 
     /**
-     * Returns the MySQL version
+     * Returns the MySQL version if connected to a database
      *
      * @return string MySQL version
      */
     protected function getMySQLVersion()
     {
-        return PMA_MYSQL_STR_VERSION;
+        if (defined('PMA_MYSQL_STR_VERSION')) {
+            return PMA_MYSQL_STR_VERSION;
+        } else {
+            return null;
+        }
     }
 }

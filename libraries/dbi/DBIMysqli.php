@@ -95,11 +95,11 @@ class DBIMysqli implements DBIExtension
         /* Optionally enable SSL */
         if ($server['ssl']) {
             $client_flags |= MYSQLI_CLIENT_SSL;
-            if (! is_null($server['ssl_key']) ||
-                ! is_null($server['ssl_cert']) ||
-                ! is_null($server['ssl_ca']) ||
-                ! is_null($server['ssl_ca_path']) ||
-                ! is_null($server['ssl_ciphers'])
+            if (! empty($server['ssl_key']) ||
+                ! empty($server['ssl_cert']) ||
+                ! empty($server['ssl_ca']) ||
+                ! empty($server['ssl_ca_path']) ||
+                ! empty($server['ssl_ciphers'])
             ) {
                 mysqli_ssl_set(
                     $link,
@@ -143,6 +143,24 @@ class DBIMysqli implements DBIExtension
         );
 
         if ($return_value === false || is_null($return_value)) {
+            /*
+             * Switch to SSL if server asked us to do so
+             *
+             * - MySQL 8.0 and newer should return error 3159
+             * - older use #2001 - SSL Connection is required. Please specify SSL options and retry.
+             */
+            $error_number = mysqli_connect_errno();
+            $error_message = mysqli_connect_error();
+            if (! $server['ssl'] && ($error_number == 3159 ||
+                ($error_number == 2001 && stripos($error_message, 'SSL Connection is required') !== false))
+            ) {
+                    trigger_error(
+                        _('SSL connection enforced by server, automatically enabling it.'),
+                        E_USER_WARNING
+                    );
+                    $server['ssl'] = true;
+                    return self::connect($user, $password, $server);
+            }
             return false;
         }
 
