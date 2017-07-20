@@ -1,13 +1,13 @@
 <?php
 /* vim: set expandtab sw=4 ts=4 sts=4: */
 /**
- * tests for PMA\libraries\properties\options\OptionsPropertyItem class
+ * tests for PhpMyAdmin\Properties\Options\OptionsPropertyItem class
  *
  * @package PhpMyAdmin-test
  */
 
 /**
- * Tests for PMA\libraries\properties\options\OptionsPropertyItem class
+ * Tests for PhpMyAdmin\Properties\Options\OptionsPropertyItem class
  *
  * @package PhpMyAdmin-test
  */
@@ -22,7 +22,7 @@ class OptionsPropertyItemTest extends PHPUnit_Framework_TestCase
      */
     protected function setup()
     {
-        $this->stub = $this->getMockForAbstractClass('PMA\libraries\properties\options\OptionsPropertyItem');
+        $this->stub = $this->getMockForAbstractClass('PhpMyAdmin\Properties\Options\OptionsPropertyItem');
     }
 
     /**
@@ -37,8 +37,8 @@ class OptionsPropertyItemTest extends PHPUnit_Framework_TestCase
 
     /**
      * Test for
-     *     - PMA\libraries\properties\options\OptionsPropertyItem::getName
-     *     - PMA\libraries\properties\options\OptionsPropertyItem::setName
+     *     - PhpMyAdmin\Properties\Options\OptionsPropertyItem::getName
+     *     - PhpMyAdmin\Properties\Options\OptionsPropertyItem::setName
      *
      * @return void
      */
@@ -54,8 +54,8 @@ class OptionsPropertyItemTest extends PHPUnit_Framework_TestCase
 
     /**
      * Test for
-     *     - PMA\libraries\properties\options\OptionsPropertyItem::getText
-     *     - PMA\libraries\properties\options\OptionsPropertyItem::setText
+     *     - PhpMyAdmin\Properties\Options\OptionsPropertyItem::getText
+     *     - PhpMyAdmin\Properties\Options\OptionsPropertyItem::setText
      *
      * @return void
      */
@@ -71,8 +71,8 @@ class OptionsPropertyItemTest extends PHPUnit_Framework_TestCase
 
     /**
      * Test for
-     *     - PMA\libraries\properties\options\OptionsPropertyItem::getForce
-     *     - PMA\libraries\properties\options\OptionsPropertyItem::setForce
+     *     - PhpMyAdmin\Properties\Options\OptionsPropertyItem::getForce
+     *     - PhpMyAdmin\Properties\Options\OptionsPropertyItem::setForce
      *
      * @return void
      */
@@ -87,7 +87,7 @@ class OptionsPropertyItemTest extends PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test for PMA\libraries\properties\options\OptionsPropertyItem::getPropertyType
+     * Test for PhpMyAdmin\Properties\Options\OptionsPropertyItem::getPropertyType
      *
      * @return void
      */

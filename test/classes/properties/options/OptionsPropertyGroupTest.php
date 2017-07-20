@@ -1,13 +1,13 @@
 <?php
 /* vim: set expandtab sw=4 ts=4 sts=4: */
 /**
- * tests for PMA\libraries\properties\options\OptionsPropertyGroup class
+ * tests for PhpMyAdmin\Properties\Options\OptionsPropertyGroup class
  *
  * @package PhpMyAdmin-test
  */
 
 /**
- * Tests for PMA\libraries\properties\options\OptionsPropertyGroup class
+ * Tests for PhpMyAdmin\Properties\Options\OptionsPropertyGroup class
  *
  * @package PhpMyAdmin-test
  */
@@ -22,7 +22,7 @@ class OptionsPropertyGroupTest extends PHPUnit_Framework_TestCase
      */
     protected function setup()
     {
-        $this->stub = $this->getMockForAbstractClass('PMA\libraries\properties\options\OptionsPropertyGroup');
+        $this->stub = $this->getMockForAbstractClass('PhpMyAdmin\Properties\Options\OptionsPropertyGroup');
     }
 
     /**
@@ -36,13 +36,13 @@ class OptionsPropertyGroupTest extends PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test for PMA\libraries\properties\options\OptionsPropertyGroup::addProperty
+     * Test for PhpMyAdmin\Properties\Options\OptionsPropertyGroup::addProperty
      *
      * @return void
      */
     public function testAddProperty()
     {
-        $properties = new \ReflectionProperty('PMA\libraries\properties\options\OptionsPropertyGroup', '_properties');
+        $properties = new \ReflectionProperty('PhpMyAdmin\Properties\Options\OptionsPropertyGroup', '_properties');
         $properties->setAccessible(true);
 
         $properties->setValue($this->stub, array(1, 2, 3));
@@ -60,13 +60,13 @@ class OptionsPropertyGroupTest extends PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test for PMA\libraries\properties\options\OptionsPropertyGroup::removeProperty
+     * Test for PhpMyAdmin\Properties\Options\OptionsPropertyGroup::removeProperty
      *
      * @return void
      */
     public function testRemoveProperty()
     {
-        $properties = new \ReflectionProperty('PMA\libraries\properties\options\OptionsPropertyGroup', '_properties');
+        $properties = new \ReflectionProperty('PhpMyAdmin\Properties\Options\OptionsPropertyGroup', '_properties');
         $properties->setAccessible(true);
 
         $properties->setValue($this->stub, array(1, 2, 'test', 3));
@@ -83,26 +83,26 @@ class OptionsPropertyGroupTest extends PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test for PMA\libraries\properties\options\OptionsPropertyGroup::getGroup
+     * Test for PhpMyAdmin\Properties\Options\OptionsPropertyGroup::getGroup
      *
      * @return void
      */
     public function testGetGroup()
     {
         $this->assertInstanceOf(
-            'PMA\libraries\properties\options\OptionsPropertyGroup',
+            'PhpMyAdmin\Properties\Options\OptionsPropertyGroup',
             $this->stub->getGroup()
         );
     }
 
     /**
-     * Test for PMA\libraries\properties\options\OptionsPropertyGroup::getProperties
+     * Test for PhpMyAdmin\Properties\Options\OptionsPropertyGroup::getProperties
      *
      * @return void
      */
     public function testGetProperties()
     {
-        $properties = new \ReflectionProperty('PMA\libraries\properties\options\OptionsPropertyGroup', '_properties');
+        $properties = new \ReflectionProperty('PhpMyAdmin\Properties\Options\OptionsPropertyGroup', '_properties');
         $properties->setAccessible(true);
         $properties->setValue($this->stub, array(1, 2, 3));
 
@@ -113,13 +113,13 @@ class OptionsPropertyGroupTest extends PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test for PMA\libraries\properties\options\OptionsPropertyGroup::getProperties
+     * Test for PhpMyAdmin\Properties\Options\OptionsPropertyGroup::getProperties
      *
      * @return void
      */
     public function testGetNrOfProperties()
     {
-        $properties = new \ReflectionProperty('PMA\libraries\properties\options\OptionsPropertyGroup', '_properties');
+        $properties = new \ReflectionProperty('PhpMyAdmin\Properties\Options\OptionsPropertyGroup', '_properties');
         $properties->setAccessible(true);
         $properties->setValue($this->stub, array(1, 2, 3));
 

@@ -10,7 +10,7 @@ namespace PhpMyAdmin;
 use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Index;
 use PhpMyAdmin\Message;
-use PMA\libraries\plugins\export\ExportSql;
+use PhpMyAdmin\Plugins\Export\ExportSql;
 use PhpMyAdmin\SqlParser\Components\Expression;
 use PhpMyAdmin\SqlParser\Components\OptionsArray;
 use PhpMyAdmin\SqlParser\Context;
@@ -913,12 +913,12 @@ class Table
             /**
              * Instance used for exporting the current structure of the table.
              *
-             * @var \PMA\libraries\plugins\export\ExportSql
+             * @var \PhpMyAdmin\Plugins\Export\ExportSql
              */
             $export_sql_plugin = PMA_getPlugin(
                 "export",
                 "sql",
-                'libraries/plugins/export/',
+                'libraries/classes/Plugins/Export/',
                 array(
                     'export_type' => 'table',
                     'single_table' => false,

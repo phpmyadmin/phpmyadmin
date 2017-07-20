@@ -1,18 +1,18 @@
 <?php
 /* vim: set expandtab sw=4 ts=4 sts=4: */
 /**
- * tests for PMA\libraries\plugins\export\ExportJson class
+ * tests for PhpMyAdmin\Plugins\Export\ExportJson class
  *
  * @package PhpMyAdmin-test
  */
-use PMA\libraries\plugins\export\ExportJson;
+use PhpMyAdmin\Plugins\Export\ExportJson;
 
 require_once 'libraries/export.lib.php';
 require_once 'libraries/config.default.php';
 require_once 'test/PMATestCase.php';
 
 /**
- * tests for PMA\libraries\plugins\export\ExportJson class
+ * tests for PhpMyAdmin\Plugins\Export\ExportJson class
  *
  * @package PhpMyAdmin-test
  * @group medium
@@ -48,22 +48,22 @@ class ExportJsonTest extends PMATestCase
     }
 
     /**
-     * Test for PMA\libraries\plugins\export\ExportJson::setProperties
+     * Test for PhpMyAdmin\Plugins\Export\ExportJson::setProperties
      *
      * @return void
      */
     public function testSetProperties()
     {
-        $method = new ReflectionMethod('PMA\libraries\plugins\export\ExportJson', 'setProperties');
+        $method = new ReflectionMethod('PhpMyAdmin\Plugins\Export\ExportJson', 'setProperties');
         $method->setAccessible(true);
         $method->invoke($this->object, null);
 
-        $attrProperties = new ReflectionProperty('PMA\libraries\plugins\export\ExportJson', 'properties');
+        $attrProperties = new ReflectionProperty('PhpMyAdmin\Plugins\Export\ExportJson', 'properties');
         $attrProperties->setAccessible(true);
         $properties = $attrProperties->getValue($this->object);
 
         $this->assertInstanceOf(
-            'PMA\libraries\properties\plugins\ExportPluginProperties',
+            'PhpMyAdmin\Properties\Plugins\ExportPluginProperties',
             $properties
         );
 
@@ -90,7 +90,7 @@ class ExportJsonTest extends PMATestCase
         $options = $properties->getOptions();
 
         $this->assertInstanceOf(
-            'PMA\libraries\properties\options\groups\OptionsPropertyRootGroup',
+            'PhpMyAdmin\Properties\Options\Groups\OptionsPropertyRootGroup',
             $options
         );
 
@@ -103,7 +103,7 @@ class ExportJsonTest extends PMATestCase
         $generalOptions = $generalOptionsArray[0];
 
         $this->assertInstanceOf(
-            'PMA\libraries\properties\options\groups\OptionsPropertyMainGroup',
+            'PhpMyAdmin\Properties\Options\Groups\OptionsPropertyMainGroup',
             $generalOptions
         );
 
@@ -117,7 +117,7 @@ class ExportJsonTest extends PMATestCase
         $property = array_shift($generalProperties);
 
         $this->assertInstanceOf(
-            'PMA\libraries\properties\options\items\HiddenPropertyItem',
+            'PhpMyAdmin\Properties\Options\Items\HiddenPropertyItem',
             $property
         );
 
@@ -129,7 +129,7 @@ class ExportJsonTest extends PMATestCase
     }
 
     /**
-     * Test for PMA\libraries\plugins\export\ExportJson::exportHeader
+     * Test for PhpMyAdmin\Plugins\Export\ExportJson::exportHeader
      *
      * @return void
      */
@@ -150,7 +150,7 @@ class ExportJsonTest extends PMATestCase
     }
 
     /**
-     * Test for PMA\libraries\plugins\export\ExportJson::exportFooter
+     * Test for PhpMyAdmin\Plugins\Export\ExportJson::exportFooter
      *
      * @return void
      */
@@ -166,7 +166,7 @@ class ExportJsonTest extends PMATestCase
     }
 
     /**
-     * Test for PMA\libraries\plugins\export\ExportJson::exportDBHeader
+     * Test for PhpMyAdmin\Plugins\Export\ExportJson::exportDBHeader
      *
      * @return void
      */
@@ -184,7 +184,7 @@ class ExportJsonTest extends PMATestCase
     }
 
     /**
-     * Test for PMA\libraries\plugins\export\ExportJson::exportDBFooter
+     * Test for PhpMyAdmin\Plugins\Export\ExportJson::exportDBFooter
      *
      * @return void
      */
@@ -196,7 +196,7 @@ class ExportJsonTest extends PMATestCase
     }
 
     /**
-     * Test for PMA\libraries\plugins\export\ExportJson::exportDBCreate
+     * Test for PhpMyAdmin\Plugins\Export\ExportJson::exportDBCreate
      *
      * @return void
      */
@@ -208,7 +208,7 @@ class ExportJsonTest extends PMATestCase
     }
 
     /**
-     * Test for PMA\libraries\plugins\export\ExportJson::exportData
+     * Test for PhpMyAdmin\Plugins\Export\ExportJson::exportData
      *
      * @return void
      */

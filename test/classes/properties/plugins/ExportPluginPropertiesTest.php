@@ -1,17 +1,17 @@
 <?php
 /* vim: set expandtab sw=4 ts=4 sts=4: */
 /**
- * tests for PMA\libraries\properties\plugins\ExportPluginProperties class
+ * tests for PhpMyAdmin\Properties\Plugins\ExportPluginProperties class
  *
  * @package PhpMyAdmin-test
  */
 
-use PMA\libraries\properties\plugins\ExportPluginProperties;
+use PhpMyAdmin\Properties\Plugins\ExportPluginProperties;
 
 require_once 'test/classes/properties/plugins/ImportPluginPropertiesTest.php';
 
 /**
- * Tests for PMA\libraries\properties\plugins\ExportPluginProperties class. Extends PMA_ImportPluginProperties_Tests
+ * Tests for PhpMyAdmin\Properties\Plugins\ExportPluginProperties class. Extends PMA_ImportPluginProperties_Tests
  * and adds tests for methods that are not common to both
  *
  * @package PhpMyAdmin-test
@@ -41,7 +41,7 @@ class ExportPluginPropertiesTest extends ImportPluginPropertiesTest
     }
 
     /**
-     * Test for PMA\libraries\properties\plugins\ExportPluginProperties::getItemType
+     * Test for PhpMyAdmin\Properties\Plugins\ExportPluginProperties::getItemType
      *
      * @return void
      */
@@ -55,8 +55,8 @@ class ExportPluginPropertiesTest extends ImportPluginPropertiesTest
 
     /**
      * Test for
-     *     - PMA\libraries\properties\plugins\ExportPluginProperties::getForceFile
-     *     - PMA\libraries\properties\plugins\ExportPluginProperties::setForceFile
+     *     - PhpMyAdmin\Properties\Plugins\ExportPluginProperties::getForceFile
+     *     - PhpMyAdmin\Properties\Plugins\ExportPluginProperties::setForceFile
      *
      * @return void
      */

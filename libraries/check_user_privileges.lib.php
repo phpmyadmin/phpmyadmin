@@ -290,7 +290,7 @@ function PMA_analyseShowGrant()
     $GLOBALS['dbi']->freeResult($rs_usr);
 
     // must also cacheUnset() them in
-    // libraries/plugins/auth/AuthenticationCookie.php
+    // PhpMyAdmin\Plugins\Auth\AuthenticationCookie
     PhpMyAdmin\Util::cacheSet('is_create_db_priv', $GLOBALS['is_create_db_priv']);
     PhpMyAdmin\Util::cacheSet('is_reload_priv', $GLOBALS['is_reload_priv']);
     PhpMyAdmin\Util::cacheSet('db_to_create', $GLOBALS['db_to_create']);

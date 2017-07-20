@@ -36,7 +36,7 @@ use PhpMyAdmin\Core;
 use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\ErrorHandler;
 use PhpMyAdmin\Message;
-use PMA\libraries\plugins\AuthenticationPlugin;
+use PhpMyAdmin\Plugins\AuthenticationPlugin;
 use PhpMyAdmin\DbList;
 use PhpMyAdmin\ThemeManager;
 use PhpMyAdmin\Tracker;
@@ -649,7 +649,7 @@ if (! defined('PMA_MINIMUM_COMMON')) {
          */
         $auth_class = "Authentication" . ucfirst($cfg['Server']['auth_type']);
         if (! @file_exists(
-            './libraries/plugins/auth/'
+            './libraries/classes/Plugins/Auth/'
             . $auth_class . '.php'
         )) {
             Core::fatalError(
@@ -660,7 +660,7 @@ if (! defined('PMA_MINIMUM_COMMON')) {
         if (isset($_REQUEST['pma_password']) && strlen($_REQUEST['pma_password']) > 256) {
             $_REQUEST['pma_password'] = substr($_REQUEST['pma_password'], 0, 256);
         }
-        $fqnAuthClass = 'PMA\libraries\plugins\auth\\' . $auth_class;
+        $fqnAuthClass = 'PhpMyAdmin\Plugins\Auth\\' . $auth_class;
         // todo: add plugin manager
         $plugin_manager = null;
         /** @var AuthenticationPlugin $auth_plugin */

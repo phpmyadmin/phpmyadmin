@@ -1,11 +1,11 @@
 <?php
 /* vim: set expandtab sw=4 ts=4 sts=4: */
 /**
- * tests for PMA\libraries\plugins\export\ExportYaml class
+ * tests for PhpMyAdmin\Plugins\Export\ExportYaml class
  *
  * @package PhpMyAdmin-test
  */
-use PMA\libraries\plugins\export\ExportYaml;
+use PhpMyAdmin\Plugins\Export\ExportYaml;
 
 require_once 'libraries/export.lib.php';
 require_once 'libraries/config.default.php';
@@ -13,7 +13,7 @@ require_once 'libraries/database_interface.inc.php';
 require_once 'test/PMATestCase.php';
 
 /**
- * tests for PMA\libraries\plugins\export\ExportYaml class
+ * tests for PhpMyAdmin\Plugins\Export\ExportYaml class
  *
  * @package PhpMyAdmin-test
  * @group medium
@@ -50,22 +50,22 @@ class ExportYamlTest extends PMATestCase
     }
 
     /**
-     * Test for PMA\libraries\plugins\export\ExportYaml::setProperties
+     * Test for PhpMyAdmin\Plugins\Export\ExportYaml::setProperties
      *
      * @return void
      */
     public function testSetProperties()
     {
-        $method = new ReflectionMethod('PMA\libraries\plugins\export\ExportYaml', 'setProperties');
+        $method = new ReflectionMethod('PhpMyAdmin\Plugins\Export\ExportYaml', 'setProperties');
         $method->setAccessible(true);
         $method->invoke($this->object, null);
 
-        $attrProperties = new ReflectionProperty('PMA\libraries\plugins\export\ExportYaml', 'properties');
+        $attrProperties = new ReflectionProperty('PhpMyAdmin\Plugins\Export\ExportYaml', 'properties');
         $attrProperties->setAccessible(true);
         $properties = $attrProperties->getValue($this->object);
 
         $this->assertInstanceOf(
-            'PMA\libraries\properties\plugins\ExportPluginProperties',
+            'PhpMyAdmin\Properties\Plugins\ExportPluginProperties',
             $properties
         );
 
@@ -87,7 +87,7 @@ class ExportYamlTest extends PMATestCase
         $options = $properties->getOptions();
 
         $this->assertInstanceOf(
-            'PMA\libraries\properties\options\groups\OptionsPropertyRootGroup',
+            'PhpMyAdmin\Properties\Options\Groups\OptionsPropertyRootGroup',
             $options
         );
 
@@ -101,7 +101,7 @@ class ExportYamlTest extends PMATestCase
         $generalOptions = array_shift($generalOptionsArray);
 
         $this->assertInstanceOf(
-            'PMA\libraries\properties\options\groups\OptionsPropertyMainGroup',
+            'PhpMyAdmin\Properties\Options\Groups\OptionsPropertyMainGroup',
             $generalOptions
         );
 
@@ -115,13 +115,13 @@ class ExportYamlTest extends PMATestCase
         $property = array_shift($generalProperties);
 
         $this->assertInstanceOf(
-            'PMA\libraries\properties\options\items\HiddenPropertyItem',
+            'PhpMyAdmin\Properties\Options\Items\HiddenPropertyItem',
             $property
         );
     }
 
     /**
-     * Test for PMA\libraries\plugins\export\ExportYaml::exportHeader
+     * Test for PhpMyAdmin\Plugins\Export\ExportYaml::exportHeader
      *
      * @return void
      */
@@ -140,7 +140,7 @@ class ExportYamlTest extends PMATestCase
     }
 
     /**
-     * Test for PMA\libraries\plugins\export\ExportYaml::exportFooter
+     * Test for PhpMyAdmin\Plugins\Export\ExportYaml::exportFooter
      *
      * @return void
      */
@@ -155,7 +155,7 @@ class ExportYamlTest extends PMATestCase
     }
 
     /**
-     * Test for PMA\libraries\plugins\export\ExportYaml::exportDBHeader
+     * Test for PhpMyAdmin\Plugins\Export\ExportYaml::exportDBHeader
      *
      * @return void
      */
@@ -167,7 +167,7 @@ class ExportYamlTest extends PMATestCase
     }
 
     /**
-     * Test for PMA\libraries\plugins\export\ExportYaml::exportDBFooter
+     * Test for PhpMyAdmin\Plugins\Export\ExportYaml::exportDBFooter
      *
      * @return void
      */
@@ -179,7 +179,7 @@ class ExportYamlTest extends PMATestCase
     }
 
     /**
-     * Test for PMA\libraries\plugins\export\ExportYaml::exportDBCreate
+     * Test for PhpMyAdmin\Plugins\Export\ExportYaml::exportDBCreate
      *
      * @return void
      */
@@ -191,7 +191,7 @@ class ExportYamlTest extends PMATestCase
     }
 
     /**
-     * Test for PMA\libraries\plugins\export\ExportYaml::exportData
+     * Test for PhpMyAdmin\Plugins\Export\ExportYaml::exportData
      *
      * @return void
      */

@@ -8,7 +8,7 @@
  */
 use PhpMyAdmin\Encoding;
 use PhpMyAdmin\Message;
-use PMA\libraries\plugins\ExportPlugin;
+use PhpMyAdmin\Plugins\ExportPlugin;
 use PhpMyAdmin\Table;
 use PhpMyAdmin\ZipExtension;
 use PhpMyAdmin\Url;

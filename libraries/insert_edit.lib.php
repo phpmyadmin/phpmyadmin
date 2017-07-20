@@ -6,7 +6,7 @@
  * @package PhpMyAdmin
  */
 use PhpMyAdmin\Message;
-use PMA\libraries\plugins\TransformationsPlugin;
+use PhpMyAdmin\Plugins\TransformationsPlugin;
 use PhpMyAdmin\Response;
 use PhpMyAdmin\Sanitize;
 use PhpMyAdmin\Transformations;
@@ -2175,7 +2175,7 @@ function PMA_getLinkForRelationalDisplayField($map, $relation_field,
 function PMA_transformEditedValues($db, $table,
     $transformation, &$edited_values, $file, $column_name, $extra_data, $type
 ) {
-    $include_file = 'libraries/plugins/transformations/' . $file;
+    $include_file = 'libraries/classes/Plugins/Transformations/' . $file;
     if (is_file($include_file)) {
         include_once $include_file;
         $_url_params = array(
@@ -2889,7 +2889,7 @@ function PMA_getHtmlForInsertEditFormColumn($table_columns, $column_number,
     $transformed_html = '';
     if (!empty($column_mime['input_transformation'])) {
         $file = $column_mime['input_transformation'];
-        $include_file = 'libraries/plugins/transformations/' . $file;
+        $include_file = 'libraries/classes/Plugins/Transformations/' . $file;
         if (is_file($include_file)) {
             include_once $include_file;
             $class_name = Transformations::getClassName($include_file);

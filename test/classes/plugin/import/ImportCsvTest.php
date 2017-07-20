@@ -1,6 +1,6 @@
 <?php
 /**
- * Tests for PMA\libraries\plugins\import\ImportCsv class
+ * Tests for PhpMyAdmin\Plugins\Import\ImportCsv class
  *
  * @package PhpMyAdmin-test
  */
@@ -9,7 +9,7 @@
  * we must set $GLOBALS['server'] here
  * since 'check_user_privileges.lib.php' will use it globally
  */
-use PMA\libraries\plugins\import\ImportCsv;
+use PhpMyAdmin\Plugins\Import\ImportCsv;
 use PhpMyAdmin\Theme;
 use PhpMyAdmin\File;
 
@@ -23,7 +23,7 @@ require_once 'libraries/import.lib.php';
 require_once 'test/PMATestCase.php';
 
 /**
- * Tests for PMA\libraries\plugins\import\ImportCsv class
+ * Tests for PhpMyAdmin\Plugins\Import\ImportCsv class
  *
  * @package PhpMyAdmin-test
  */

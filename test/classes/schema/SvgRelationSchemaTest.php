@@ -1,6 +1,6 @@
 <?php
 /**
- * Tests for PMA\libraries\plugins\schema\svg\SvgRelationSchema class
+ * Tests for PhpMyAdmin\Plugins\Schema\Svg\SvgRelationSchema class
  *
  * @package PhpMyAdmin-test
  */
@@ -8,14 +8,14 @@
 /*
  * Include to test.
  */
-use PMA\libraries\plugins\schema\svg\SvgRelationSchema;
+use PhpMyAdmin\Plugins\Schema\Svg\SvgRelationSchema;
 
 require_once 'libraries/relation.lib.php';
 require_once 'libraries/database_interface.inc.php';
 require_once 'test/PMATestCase.php';
 
 /**
- * Tests for PMA\libraries\plugins\schema\svg\SvgRelationSchema class
+ * Tests for PhpMyAdmin\Plugins\Schema\Svg\SvgRelationSchema class
  *
  * @package PhpMyAdmin-test
  */

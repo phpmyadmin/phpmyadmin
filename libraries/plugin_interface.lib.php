@@ -5,11 +5,11 @@
  *
  * @package PhpMyAdmin
  */
-use PMA\libraries\properties\options\groups\OptionsPropertySubgroup;
-use PMA\libraries\properties\options\OptionsPropertyItem;
-use PMA\libraries\properties\plugins\ExportPluginProperties;
-use PMA\libraries\properties\plugins\PluginPropertyItem;
-use PMA\libraries\properties\plugins\SchemaPluginProperties;
+use PhpMyAdmin\Properties\Options\Groups\OptionsPropertySubgroup;
+use PhpMyAdmin\Properties\Options\OptionsPropertyItem;
+use PhpMyAdmin\Properties\Plugins\ExportPluginProperties;
+use PhpMyAdmin\Properties\Plugins\PluginPropertyItem;
+use PhpMyAdmin\Properties\Plugins\SchemaPluginProperties;
 
 /**
  * Includes and instantiates the specified plugin type for a certain format
@@ -36,7 +36,7 @@ function PMA_getPlugin(
     $file = $class_name . ".php";
     if (is_file($plugins_dir . $file)) {
         //include_once $plugins_dir . $file;
-        $fqnClass = 'PMA\\' . str_replace('/', '\\', $plugins_dir) . $class_name;
+        $fqnClass = 'PhpMyAdmin\\' . str_replace('/', '\\', mb_substr($plugins_dir, 18)) . $class_name;
         // check if class exists, could be caused by skip_import
         if (class_exists($fqnClass)) {
             return new $fqnClass;
@@ -65,7 +65,7 @@ function PMA_getPlugins($plugin_type, $plugins_dir, $plugin_param)
         return $plugin_list;
     }
 
-    $namespace = 'PMA\\' . str_replace('/', '\\', $plugins_dir);
+    $namespace = 'PhpMyAdmin\\' . str_replace('/', '\\', mb_substr($plugins_dir, 18));
     $class_type = mb_strtoupper($plugin_type[0], 'UTF-8')
         . mb_strtolower(mb_substr($plugin_type, 1), 'UTF-8');
 
@@ -259,7 +259,7 @@ function PMA_pluginGetChoice($section, $name, &$list, $cfgname = null)
  *                                                                     for plugin
  * @param string                                       $plugin_name    unique plugin
  *                                                                     name
- * @param array|\PMA\libraries\properties\PropertyItem &$propertyGroup options
+ * @param array|\PhpMyAdmin\Properties\PropertyItem &$propertyGroup options
  *                                                                     property main
  *                                                                     group
  *                                                                     instance
@@ -375,10 +375,10 @@ function PMA_pluginGetOneOption(
 
     // Close the list element after $doc link is displayed
     if (isset($property_class)) {
-        if ($property_class == 'PMA\libraries\properties\options\items\BoolPropertyItem'
-            || $property_class == 'PMA\libraries\properties\options\items\MessageOnlyPropertyItem'
-            || $property_class == 'PMA\libraries\properties\options\items\SelectPropertyItem'
-            || $property_class == 'PMA\libraries\properties\options\items\TextPropertyItem'
+        if ($property_class == 'PhpMyAdmin\Properties\Options\Items\BoolPropertyItem'
+            || $property_class == 'PhpMyAdmin\Properties\Options\Items\MessageOnlyPropertyItem'
+            || $property_class == 'PhpMyAdmin\Properties\Options\Items\SelectPropertyItem'
+            || $property_class == 'PhpMyAdmin\Properties\Options\Items\TextPropertyItem'
         ) {
             $ret .= '</li>';
         }
@@ -403,7 +403,7 @@ function PMA_getHtmlForProperty(
     $ret = null;
     $property_class = get_class($propertyItem);
     switch ($property_class) {
-    case 'PMA\libraries\properties\options\items\BoolPropertyItem':
+    case 'PhpMyAdmin\Properties\Options\Items\BoolPropertyItem':
         $ret .= '<li>' . "\n";
         $ret .= '<input type="checkbox" name="' . $plugin_name . '_'
             . $propertyItem->getName() . '"'
@@ -430,10 +430,10 @@ function PMA_getHtmlForProperty(
             . $propertyItem->getName() . '">'
             . PMA_getString($propertyItem->getText()) . '</label>';
         break;
-    case 'PMA\libraries\properties\options\items\DocPropertyItem':
-        echo 'PMA\libraries\properties\options\items\DocPropertyItem';
+    case 'PhpMyAdmin\Properties\Options\Items\DocPropertyItem':
+        echo 'PhpMyAdmin\Properties\Options\Items\DocPropertyItem';
         break;
-    case 'PMA\libraries\properties\options\items\HiddenPropertyItem':
+    case 'PhpMyAdmin\Properties\Options\Items\HiddenPropertyItem':
         $ret .= '<li><input type="hidden" name="' . $plugin_name . '_'
             . $propertyItem->getName() . '"'
             . ' value="' . PMA_pluginGetDefault(
@@ -442,11 +442,11 @@ function PMA_getHtmlForProperty(
             )
             . '"' . ' /></li>';
         break;
-    case 'PMA\libraries\properties\options\items\MessageOnlyPropertyItem':
+    case 'PhpMyAdmin\Properties\Options\Items\MessageOnlyPropertyItem':
         $ret .= '<li>' . "\n";
         $ret .= '<p>' . PMA_getString($propertyItem->getText()) . '</p>';
         break;
-    case 'PMA\libraries\properties\options\items\RadioPropertyItem':
+    case 'PhpMyAdmin\Properties\Options\Items\RadioPropertyItem':
         $default = PMA_pluginGetDefault(
             $section,
             $plugin_name . '_' . $propertyItem->getName()
@@ -464,7 +464,7 @@ function PMA_getHtmlForProperty(
                 . PMA_getString($val) . '</label></li>';
         }
         break;
-    case 'PMA\libraries\properties\options\items\SelectPropertyItem':
+    case 'PhpMyAdmin\Properties\Options\Items\SelectPropertyItem':
         $ret .= '<li>' . "\n";
         $ret .= '<label for="select_' . $plugin_name . '_'
             . $propertyItem->getName() . '" class="desc">'
@@ -486,8 +486,8 @@ function PMA_getHtmlForProperty(
         }
         $ret .= '</select>';
         break;
-    case 'PMA\libraries\properties\options\items\TextPropertyItem':
-    case 'PMA\libraries\properties\options\items\NumberPropertyItem':
+    case 'PhpMyAdmin\Properties\Options\Items\TextPropertyItem':
+    case 'PhpMyAdmin\Properties\Options\Items\NumberPropertyItem':
         $ret .= '<li>' . "\n";
         $ret .= '<label for="text_' . $plugin_name . '_'
             . $propertyItem->getName() . '" class="desc">'
@@ -555,7 +555,7 @@ function PMA_pluginGetOptions($section, &$list)
                 // check for hidden properties
                 $no_options = true;
                 foreach ($propertyMainGroup->getProperties() as $propertyItem) {
-                    if (strcmp('PMA\libraries\properties\options\items\HiddenPropertyItem', get_class($propertyItem))) {
+                    if (strcmp('PhpMyAdmin\Properties\Options\Items\HiddenPropertyItem', get_class($propertyItem))) {
                         $no_options = false;
                         break;
                     }

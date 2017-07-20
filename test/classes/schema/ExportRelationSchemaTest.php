@@ -1,6 +1,6 @@
 <?php
 /**
- * Tests for PMA\libraries\plugins\schema\ExportRelationSchema class
+ * Tests for PhpMyAdmin\Plugins\Schema\ExportRelationSchema class
  *
  * @package PhpMyAdmin-test
  */
@@ -9,14 +9,14 @@
  * Include to test.
  */
 
-use PMA\libraries\plugins\schema\ExportRelationSchema;
+use PhpMyAdmin\Plugins\Schema\ExportRelationSchema;
 
 require_once 'libraries/relation.lib.php';
 require_once 'libraries/database_interface.inc.php';
 require_once 'test/PMATestCase.php';
 
 /**
- * Tests for PMA\libraries\plugins\schema\ExportRelationSchema class
+ * Tests for PhpMyAdmin\Plugins\Schema\ExportRelationSchema class
  *
  * @package PhpMyAdmin-test
  */

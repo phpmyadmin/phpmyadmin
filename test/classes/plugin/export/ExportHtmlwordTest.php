@@ -1,11 +1,11 @@
 <?php
 /* vim: set expandtab sw=4 ts=4 sts=4: */
 /**
- * tests for PMA\libraries\plugins\export\ExportHtmlword class
+ * tests for PhpMyAdmin\Plugins\Export\ExportHtmlword class
  *
  * @package PhpMyAdmin-test
  */
-use PMA\libraries\plugins\export\ExportHtmlword;
+use PhpMyAdmin\Plugins\Export\ExportHtmlword;
 
 require_once 'libraries/export.lib.php';
 require_once 'libraries/config.default.php';
@@ -13,7 +13,7 @@ require_once 'libraries/relation.lib.php';
 require_once 'test/PMATestCase.php';
 
 /**
- * tests for PMA\libraries\plugins\export\ExportHtmlword class
+ * tests for PhpMyAdmin\Plugins\Export\ExportHtmlword class
  *
  * @package PhpMyAdmin-test
  * @group medium
@@ -49,22 +49,22 @@ class ExportHtmlwordTest extends PMATestCase
     }
 
     /**
-     * Test for PMA\libraries\plugins\export\ExportHtmlword::setProperties
+     * Test for PhpMyAdmin\Plugins\Export\ExportHtmlword::setProperties
      *
      * @return void
      */
     public function testSetProperties()
     {
-        $method = new ReflectionMethod('PMA\libraries\plugins\export\ExportHtmlword', 'setProperties');
+        $method = new ReflectionMethod('PhpMyAdmin\Plugins\Export\ExportHtmlword', 'setProperties');
         $method->setAccessible(true);
         $method->invoke($this->object, null);
 
-        $attrProperties = new ReflectionProperty('PMA\libraries\plugins\export\ExportHtmlword', 'properties');
+        $attrProperties = new ReflectionProperty('PhpMyAdmin\Plugins\Export\ExportHtmlword', 'properties');
         $attrProperties->setAccessible(true);
         $properties = $attrProperties->getValue($this->object);
 
         $this->assertInstanceOf(
-            'PMA\libraries\properties\plugins\ExportPluginProperties',
+            'PhpMyAdmin\Properties\Plugins\ExportPluginProperties',
             $properties
         );
 
@@ -95,7 +95,7 @@ class ExportHtmlwordTest extends PMATestCase
         $options = $properties->getOptions();
 
         $this->assertInstanceOf(
-            'PMA\libraries\properties\options\groups\OptionsPropertyRootGroup',
+            'PhpMyAdmin\Properties\Options\Groups\OptionsPropertyRootGroup',
             $options
         );
 
@@ -108,7 +108,7 @@ class ExportHtmlwordTest extends PMATestCase
         $generalOptions = $generalOptionsArray[0];
 
         $this->assertInstanceOf(
-            'PMA\libraries\properties\options\groups\OptionsPropertyMainGroup',
+            'PhpMyAdmin\Properties\Options\Groups\OptionsPropertyMainGroup',
             $generalOptions
         );
 
@@ -127,7 +127,7 @@ class ExportHtmlwordTest extends PMATestCase
         $property = array_shift($generalProperties);
 
         $this->assertInstanceOf(
-            'PMA\libraries\properties\options\items\RadioPropertyItem',
+            'PhpMyAdmin\Properties\Options\Items\RadioPropertyItem',
             $property
         );
 
@@ -148,7 +148,7 @@ class ExportHtmlwordTest extends PMATestCase
         $generalOptions = $generalOptionsArray[1];
 
         $this->assertInstanceOf(
-            'PMA\libraries\properties\options\groups\OptionsPropertyMainGroup',
+            'PhpMyAdmin\Properties\Options\Groups\OptionsPropertyMainGroup',
             $generalOptions
         );
 
@@ -172,7 +172,7 @@ class ExportHtmlwordTest extends PMATestCase
         $property = array_shift($generalProperties);
 
         $this->assertInstanceOf(
-            'PMA\libraries\properties\options\items\TextPropertyItem',
+            'PhpMyAdmin\Properties\Options\Items\TextPropertyItem',
             $property
         );
 
@@ -189,7 +189,7 @@ class ExportHtmlwordTest extends PMATestCase
         $property = array_shift($generalProperties);
 
         $this->assertInstanceOf(
-            'PMA\libraries\properties\options\items\BoolPropertyItem',
+            'PhpMyAdmin\Properties\Options\Items\BoolPropertyItem',
             $property
         );
 
@@ -205,7 +205,7 @@ class ExportHtmlwordTest extends PMATestCase
     }
 
     /**
-     * Test for PMA\libraries\plugins\export\ExportHtmlword::exportHeader
+     * Test for PhpMyAdmin\Plugins\Export\ExportHtmlword::exportHeader
      *
      * @return void
      */
@@ -262,7 +262,7 @@ class ExportHtmlwordTest extends PMATestCase
     }
 
     /**
-     * Test for PMA\libraries\plugins\export\ExportHtmlword::exportFooter
+     * Test for PhpMyAdmin\Plugins\Export\ExportHtmlword::exportFooter
      *
      * @return void
      */
@@ -281,7 +281,7 @@ class ExportHtmlwordTest extends PMATestCase
     }
 
     /**
-     * Test for PMA\libraries\plugins\export\ExportHtmlword::exportDBHeader
+     * Test for PhpMyAdmin\Plugins\Export\ExportHtmlword::exportDBHeader
      *
      * @return void
      */
@@ -300,7 +300,7 @@ class ExportHtmlwordTest extends PMATestCase
     }
 
     /**
-     * Test for PMA\libraries\plugins\export\ExportHtmlword::exportDBFooter
+     * Test for PhpMyAdmin\Plugins\Export\ExportHtmlword::exportDBFooter
      *
      * @return void
      */
@@ -312,7 +312,7 @@ class ExportHtmlwordTest extends PMATestCase
     }
 
     /**
-     * Test for PMA\libraries\plugins\export\ExportHtmlword::exportDBCreate
+     * Test for PhpMyAdmin\Plugins\Export\ExportHtmlword::exportDBCreate
      *
      * @return void
      */
@@ -324,7 +324,7 @@ class ExportHtmlwordTest extends PMATestCase
     }
 
     /**
-     * Test for PMA\libraries\plugins\export\ExportHtmlword::exportData
+     * Test for PhpMyAdmin\Plugins\Export\ExportHtmlword::exportData
      *
      * @return void
      */
@@ -394,13 +394,13 @@ class ExportHtmlwordTest extends PMATestCase
     }
 
     /**
-     * Test for PMA\libraries\plugins\export\ExportHtmlword::getTableDefStandIn
+     * Test for PhpMyAdmin\Plugins\Export\ExportHtmlword::getTableDefStandIn
      *
      * @return void
      */
     public function testGetTableDefStandIn()
     {
-        $this->object = $this->getMockBuilder('PMA\libraries\plugins\export\ExportHtmlword')
+        $this->object = $this->getMockBuilder('PhpMyAdmin\Plugins\Export\ExportHtmlword')
             ->setMethods(array('formatOneColumnDefinition'))
             ->getMock();
 
@@ -450,13 +450,13 @@ class ExportHtmlwordTest extends PMATestCase
     }
 
     /**
-     * Test for PMA\libraries\plugins\export\ExportHtmlword::getTableDef
+     * Test for PhpMyAdmin\Plugins\Export\ExportHtmlword::getTableDef
      *
      * @return void
      */
     public function testGetTableDef()
     {
-        $this->object = $this->getMockBuilder('PMA\libraries\plugins\export\ExportHtmlword')
+        $this->object = $this->getMockBuilder('PhpMyAdmin\Plugins\Export\ExportHtmlword')
             ->setMethods(array('formatOneColumnDefinition'))
             ->getMock();
 
@@ -723,7 +723,7 @@ class ExportHtmlwordTest extends PMATestCase
     }
 
     /**
-     * Test for PMA\libraries\plugins\export\ExportHtmlword::getTriggers
+     * Test for PhpMyAdmin\Plugins\Export\ExportHtmlword::getTriggers
      *
      * @return void
      */
@@ -749,7 +749,7 @@ class ExportHtmlwordTest extends PMATestCase
 
         $GLOBALS['dbi'] = $dbi;
 
-        $method = new ReflectionMethod('PMA\libraries\plugins\export\ExportHtmlword', 'getTriggers');
+        $method = new ReflectionMethod('PhpMyAdmin\Plugins\Export\ExportHtmlword', 'getTriggers');
         $method->setAccessible(true);
         $result = $method->invoke($this->object, 'database', 'table');
 
@@ -763,7 +763,7 @@ class ExportHtmlwordTest extends PMATestCase
     }
 
     /**
-     * Test for PMA\libraries\plugins\export\ExportHtmlword::exportStructure
+     * Test for PhpMyAdmin\Plugins\Export\ExportHtmlword::exportStructure
      *
      * @return void
      */
@@ -779,7 +779,7 @@ class ExportHtmlwordTest extends PMATestCase
             ->with('db', 'tbl')
             ->will($this->returnValue(1));
 
-        $this->object = $this->getMockBuilder('PMA\libraries\plugins\export\ExportHtmlword')
+        $this->object = $this->getMockBuilder('PhpMyAdmin\Plugins\Export\ExportHtmlword')
             ->setMethods(array('getTableDef', 'getTriggers', 'getTableDefStandIn'))
             ->getMock();
 
@@ -859,14 +859,14 @@ class ExportHtmlwordTest extends PMATestCase
     }
 
     /**
-     * Test for PMA\libraries\plugins\export\ExportHtmlword::formatOneColumnDefinition
+     * Test for PhpMyAdmin\Plugins\Export\ExportHtmlword::formatOneColumnDefinition
      *
      * @return void
      */
     public function testFormatOneColumnDefinition()
     {
         $method = new ReflectionMethod(
-            'PMA\libraries\plugins\export\ExportHtmlword', 'formatOneColumnDefinition'
+            'PhpMyAdmin\Plugins\Export\ExportHtmlword', 'formatOneColumnDefinition'
         );
         $method->setAccessible(true);
 

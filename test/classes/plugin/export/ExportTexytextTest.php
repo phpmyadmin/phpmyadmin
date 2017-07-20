@@ -1,11 +1,11 @@
 <?php
 /* vim: set expandtab sw=4 ts=4 sts=4: */
 /**
- * tests for PMA\libraries\plugins\export\ExportTexytext class
+ * tests for PhpMyAdmin\Plugins\Export\ExportTexytext class
  *
  * @package PhpMyAdmin-test
  */
-use PMA\libraries\plugins\export\ExportTexytext;
+use PhpMyAdmin\Plugins\Export\ExportTexytext;
 
 require_once 'libraries/export.lib.php';
 require_once 'libraries/config.default.php';
@@ -13,7 +13,7 @@ require_once 'libraries/relation.lib.php';
 require_once 'test/PMATestCase.php';
 
 /**
- * tests for PMA\libraries\plugins\export\ExportTexytext class
+ * tests for PhpMyAdmin\Plugins\Export\ExportTexytext class
  *
  * @package PhpMyAdmin-test
  * @group medium
@@ -52,22 +52,22 @@ class ExportTexytextTest extends PMATestCase
     }
 
     /**
-     * Test for PMA\libraries\plugins\export\ExportTexytext::setProperties
+     * Test for PhpMyAdmin\Plugins\Export\ExportTexytext::setProperties
      *
      * @return void
      */
     public function testSetProperties()
     {
-        $method = new ReflectionMethod('PMA\libraries\plugins\export\ExportTexytext', 'setProperties');
+        $method = new ReflectionMethod('PhpMyAdmin\Plugins\Export\ExportTexytext', 'setProperties');
         $method->setAccessible(true);
         $method->invoke($this->object, null);
 
-        $attrProperties = new ReflectionProperty('PMA\libraries\plugins\export\ExportTexytext', 'properties');
+        $attrProperties = new ReflectionProperty('PhpMyAdmin\Plugins\Export\ExportTexytext', 'properties');
         $attrProperties->setAccessible(true);
         $properties = $attrProperties->getValue($this->object);
 
         $this->assertInstanceOf(
-            'PMA\libraries\properties\plugins\ExportPluginProperties',
+            'PhpMyAdmin\Properties\Plugins\ExportPluginProperties',
             $properties
         );
 
@@ -89,7 +89,7 @@ class ExportTexytextTest extends PMATestCase
         $options = $properties->getOptions();
 
         $this->assertInstanceOf(
-            'PMA\libraries\properties\options\groups\OptionsPropertyRootGroup',
+            'PhpMyAdmin\Properties\Options\Groups\OptionsPropertyRootGroup',
             $options
         );
 
@@ -103,7 +103,7 @@ class ExportTexytextTest extends PMATestCase
         $generalOptions = array_shift($generalOptionsArray);
 
         $this->assertInstanceOf(
-            'PMA\libraries\properties\options\groups\OptionsPropertyMainGroup',
+            'PhpMyAdmin\Properties\Options\Groups\OptionsPropertyMainGroup',
             $generalOptions
         );
 
@@ -122,14 +122,14 @@ class ExportTexytextTest extends PMATestCase
         $property = array_shift($generalProperties);
 
         $this->assertInstanceOf(
-            'PMA\libraries\properties\options\items\RadioPropertyItem',
+            'PhpMyAdmin\Properties\Options\Items\RadioPropertyItem',
             $property
         );
 
         $generalOptions = array_shift($generalOptionsArray);
 
         $this->assertInstanceOf(
-            'PMA\libraries\properties\options\groups\OptionsPropertyMainGroup',
+            'PhpMyAdmin\Properties\Options\Groups\OptionsPropertyMainGroup',
             $generalOptions
         );
 
@@ -143,7 +143,7 @@ class ExportTexytextTest extends PMATestCase
         $property = array_shift($generalProperties);
 
         $this->assertInstanceOf(
-            'PMA\libraries\properties\options\items\BoolPropertyItem',
+            'PhpMyAdmin\Properties\Options\Items\BoolPropertyItem',
             $property
         );
 
@@ -155,7 +155,7 @@ class ExportTexytextTest extends PMATestCase
         $property = array_shift($generalProperties);
 
         $this->assertInstanceOf(
-            'PMA\libraries\properties\options\items\TextPropertyItem',
+            'PhpMyAdmin\Properties\Options\Items\TextPropertyItem',
             $property
         );
 
@@ -166,7 +166,7 @@ class ExportTexytextTest extends PMATestCase
     }
 
     /**
-     * Test for PMA\libraries\plugins\export\ExportTexytext::exportHeader
+     * Test for PhpMyAdmin\Plugins\Export\ExportTexytext::exportHeader
      *
      * @return void
      */
@@ -178,7 +178,7 @@ class ExportTexytextTest extends PMATestCase
     }
 
     /**
-     * Test for PMA\libraries\plugins\export\ExportTexytext::exportFooter
+     * Test for PhpMyAdmin\Plugins\Export\ExportTexytext::exportFooter
      *
      * @return void
      */
@@ -190,7 +190,7 @@ class ExportTexytextTest extends PMATestCase
     }
 
     /**
-     * Test for PMA\libraries\plugins\export\ExportTexytext::exportDBHeader
+     * Test for PhpMyAdmin\Plugins\Export\ExportTexytext::exportDBHeader
      *
      * @return void
      */
@@ -205,7 +205,7 @@ class ExportTexytextTest extends PMATestCase
     }
 
     /**
-     * Test for PMA\libraries\plugins\export\ExportTexytext::exportDBFooter
+     * Test for PhpMyAdmin\Plugins\Export\ExportTexytext::exportDBFooter
      *
      * @return void
      */
@@ -217,7 +217,7 @@ class ExportTexytextTest extends PMATestCase
     }
 
     /**
-     * Test for PMA\libraries\plugins\export\ExportTexytext::exportDBCreate
+     * Test for PhpMyAdmin\Plugins\Export\ExportTexytext::exportDBCreate
      *
      * @return void
      */
@@ -229,7 +229,7 @@ class ExportTexytextTest extends PMATestCase
     }
 
     /**
-     * Test for PMA\libraries\plugins\export\ExportTexytext::exportData
+     * Test for PhpMyAdmin\Plugins\Export\ExportTexytext::exportData
      *
      * @return void
      */
@@ -292,7 +292,7 @@ class ExportTexytextTest extends PMATestCase
     }
 
     /**
-     * Test for PMA\libraries\plugins\export\ExportTexytext::getTableDefStandIn
+     * Test for PhpMyAdmin\Plugins\Export\ExportTexytext::getTableDefStandIn
      *
      * @return void
      */
@@ -329,7 +329,7 @@ class ExportTexytextTest extends PMATestCase
 
         $GLOBALS['dbi'] = $dbi;
 
-        $this->object = $this->getMockBuilder('PMA\libraries\plugins\export\ExportTexytext')
+        $this->object = $this->getMockBuilder('PhpMyAdmin\Plugins\Export\ExportTexytext')
             ->disableOriginalConstructor()
             ->setMethods(array('formatOneColumnDefinition'))
             ->getMock();
@@ -353,13 +353,13 @@ class ExportTexytextTest extends PMATestCase
     }
 
     /**
-     * Test for PMA\libraries\plugins\export\ExportTexytext::getTableDef
+     * Test for PhpMyAdmin\Plugins\Export\ExportTexytext::getTableDef
      *
      * @return void
      */
     public function testGetTableDef()
     {
-        $this->object = $this->getMockBuilder('PMA\libraries\plugins\export\ExportTexytext')
+        $this->object = $this->getMockBuilder('PhpMyAdmin\Plugins\Export\ExportTexytext')
             ->setMethods(array('formatOneColumnDefinition'))
             ->getMock();
         $GLOBALS['controllink'] = null;
@@ -457,7 +457,7 @@ class ExportTexytextTest extends PMATestCase
     }
 
      /**
-     * Test for PMA\libraries\plugins\export\ExportTexytext::getTriggers
+     * Test for PhpMyAdmin\Plugins\Export\ExportTexytext::getTriggers
      *
      * @return void
      */
@@ -498,7 +498,7 @@ class ExportTexytextTest extends PMATestCase
     }
 
     /**
-     * Test for PMA\libraries\plugins\export\ExportTexytext::exportStructure
+     * Test for PhpMyAdmin\Plugins\Export\ExportTexytext::exportStructure
      *
      * @return void
      */
@@ -514,7 +514,7 @@ class ExportTexytextTest extends PMATestCase
             ->with('db', 't&bl')
             ->will($this->returnValue(1));
 
-        $this->object = $this->getMockBuilder('PMA\libraries\plugins\export\ExportTexytext')
+        $this->object = $this->getMockBuilder('PhpMyAdmin\Plugins\Export\ExportTexytext')
             ->setMethods(array('getTableDef', 'getTriggers', 'getTableDefStandIn'))
             ->getMock();
 
@@ -601,7 +601,7 @@ class ExportTexytextTest extends PMATestCase
     }
 
     /**
-     * Test for PMA\libraries\plugins\export\ExportTexytext::formatOneColumnDefinition
+     * Test for PhpMyAdmin\Plugins\Export\ExportTexytext::formatOneColumnDefinition
      *
      * @return void
      */

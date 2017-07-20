@@ -6,7 +6,7 @@
  * @package PhpMyAdmin
  */
 use PhpMyAdmin\Message;
-use PMA\libraries\plugins\SchemaPlugin;
+use PhpMyAdmin\Plugins\SchemaPlugin;
 
 if (! defined('PHPMYADMIN')) {
     exit;
@@ -109,7 +109,7 @@ function PMA_getHtmlForSchemaExport($db, $page)
     /* @var $export_list SchemaPlugin[] */
     $export_list = PMA_getPlugins(
         "schema",
-        'libraries/plugins/schema/',
+        'libraries/classes/Plugins/Schema/',
         null
     );
 
