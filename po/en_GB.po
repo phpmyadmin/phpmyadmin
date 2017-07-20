@@ -6,16 +6,16 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.7.3-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2017-07-18 13:29+0200\n"
-"PO-Revision-Date: 2017-02-10 17:01+0000\n"
-"Last-Translator: hd hd <hd@cgsword.com>\n"
-"Language-Team: English (United Kingdom) <https://hosted.weblate.org/projects/"
-"phpmyadmin/4-7/en_GB/>\n"
+"PO-Revision-Date: 2017-07-20 20:37+0000\n"
+"Last-Translator: Bo Anderson <bo@toxicflames.co.uk>\n"
+"Language-Team: English (United Kingdom) "
+"<https://hosted.weblate.org/projects/phpmyadmin/4-7/en_GB/>\n"
 "Language: en_GB\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 2.12-dev\n"
+"X-Generator: Weblate 2.16-dev\n"
 
 #: ajax.php:16 ajax.php:33 export.php:192 schema_export.php:64
 msgid "Bad type!"
@@ -317,19 +317,19 @@ msgstr ""
 
 #: db_qbe.php:126
 msgid "You have to choose at least one column to display!"
-msgstr "Musíte vybrat nejméně jeden sloupec!"
+msgstr "You have to choose at least one column to display!"
 
 #: db_qbe.php:144
 #, php-format
 msgid "Switch to %svisual builder%s"
-msgstr "Přepnout na %svisual builder%s"
+msgstr "Switch to %svisual builder%s"
 
 #: db_search.php:32 libraries/plugins/AuthenticationPlugin.php:133
 #: libraries/plugins/auth/AuthenticationConfig.php:89
 #: libraries/plugins/auth/AuthenticationConfig.php:104
 #: libraries/plugins/auth/AuthenticationHttp.php:78
 msgid "Access denied!"
-msgstr "Přístup odepřen!"
+msgstr "Access denied!"
 
 #: db_tracking.php:53 db_tracking.php:78
 msgid "Tracking data deleted successfully."
@@ -344,7 +344,7 @@ msgstr ""
 
 #: db_tracking.php:93
 msgid "No tables selected."
-msgstr "Nenhuma base de dados escolhida."
+msgstr "No tables selected."
 
 #: db_tracking.php:150
 msgid "Database Log"
@@ -570,10 +570,7 @@ msgstr[0] "Import has been successfully finished, %d query executed."
 msgstr[1] "Import has been successfully finished, %d queries executed."
 
 #: import.php:612
-#, fuzzy, php-format
-#| msgid ""
-#| "Script timeout passed, if you want to finish import, please resubmit same "
-#| "file and import will resume."
+#, php-format
 msgid ""
 "Script timeout passed, if you want to finish import, please %sresubmit the "
 "same file%s and import will resume."
@@ -608,6 +605,8 @@ msgid ""
 "You were logged out from one server, to logout completely from phpMyAdmin, "
 "you need to logout from all servers."
 msgstr ""
+"You were logged out from one server, to logout completely from phpMyAdmin, "
+"you need to logout from all servers."
 
 #: index.php:160 libraries/Footer.php:69
 msgid "phpMyAdmin Demo Server"
@@ -747,23 +746,17 @@ msgstr ""
 "this some features such as error reporting or version check are disabled."
 
 #: index.php:491
-#, fuzzy
-#| msgid ""
-#| "Your PHP parameter [a@https://secure.php.net/manual/en/session."
-#| "configuration.php#ini.session.gc-maxlifetime@_blank]session."
-#| "gc_maxlifetime[/a] is lower than cookie validity configured in "
-#| "phpMyAdmin, because of this, your login will expire sooner than "
-#| "configured in phpMyAdmin."
 msgid ""
 "Your PHP parameter [a@https://secure.php.net/manual/en/session.configuration."
 "php#ini.session.gc-maxlifetime@_blank]session.gc_maxlifetime[/a] is lower "
 "than cookie validity configured in phpMyAdmin, because of this, your login "
 "might expire sooner than configured in phpMyAdmin."
 msgstr ""
-"Your PHP parameter [a@https://secure.php.net/manual/en/session.configuration."
-"php#ini.session.gc-maxlifetime@_blank]session.gc_maxlifetime[/a] is lower "
-"than cookie validity configured in phpMyAdmin, because of this, your login "
-"might expire sooner than configured in phpMyAdmin."
+"Your PHP parameter "
+"[a@https://secure.php.net/manual/en/session.configuration.php#ini.session.gc-"
+"maxlifetime@_blank]session.gc_maxlifetime[/a] is lower than cookie validity "
+"configured in phpMyAdmin, because of this, your login might expire sooner "
+"than configured in phpMyAdmin."
 
 #: index.php:510
 msgid ""
@@ -780,7 +773,7 @@ msgstr ""
 
 #: index.php:532
 msgid "The secret passphrase in configuration (blowfish_secret) is too short."
-msgstr ""
+msgstr "The secret passphrase in configuration (blowfish_secret) is too short."
 
 #: index.php:546
 msgid ""
@@ -795,21 +788,19 @@ msgstr ""
 "may be compromised by unauthorised people downloading your configuration."
 
 #: index.php:562
-#, fuzzy, php-format
-#| msgid ""
-#| "The phpMyAdmin configuration storage is not completely configured, some "
-#| "extended features have been deactivated. To find out why click %shere%s."
+#, php-format
 msgid ""
 "The phpMyAdmin configuration storage is not completely configured, some "
 "extended features have been deactivated. %sFind out why%s. "
 msgstr ""
 "The phpMyAdmin configuration storage is not completely configured, some "
-"extended features have been deactivated. To find out why click %shere%s."
+"extended features have been deactivated. %sFind out why%s. "
 
 #: index.php:569
 msgid ""
 "Or alternately go to 'Operations' tab of any database to set it up there."
 msgstr ""
+"Or alternatively go to 'Operations' tab of any database to set it up there."
 
 #: index.php:594
 #, php-format
@@ -835,7 +826,7 @@ msgstr "You are about to DESTROY a complete database!"
 
 #: js/messages.php:48
 msgid "Cannot rename database to the same name. Change the name and try again"
-msgstr ""
+msgstr "Cannot rename database to the same name. Change the name and try again"
 
 #: js/messages.php:50
 msgid "You are about to DESTROY a complete table!"
@@ -846,34 +837,24 @@ msgid "You are about to TRUNCATE a complete table!"
 msgstr "You are about to TRUNCATE a complete table!"
 
 #: js/messages.php:53
-#, fuzzy
-#| msgid "Delete tracking data for this table"
 msgid "Delete tracking data for this table?"
-msgstr "Delete tracking data for this table"
+msgstr "Delete tracking data for this table?"
 
 #: js/messages.php:55
-#, fuzzy
-#| msgid "Delete tracking data for this table"
 msgid "Delete tracking data for these tables?"
-msgstr "Delete tracking data for this table"
+msgstr "Delete tracking data for these tables?"
 
 #: js/messages.php:57
-#, fuzzy
-#| msgid "Delete tracking data for this table"
 msgid "Delete tracking data for this version?"
-msgstr "Delete tracking data for this table"
+msgstr "Delete tracking data for this version?"
 
 #: js/messages.php:59
-#, fuzzy
-#| msgid "Delete tracking data for this table"
 msgid "Delete tracking data for these versions?"
-msgstr "Delete tracking data for this table"
+msgstr "Delete tracking data for these versions?"
 
 #: js/messages.php:60
-#, fuzzy
-#| msgid "Delete tracking data row from report"
 msgid "Delete entry from tracking report?"
-msgstr "Delete tracking data row from report"
+msgstr "Delete entry from tracking report?"
 
 #: js/messages.php:61
 msgid "Deleting tracking data"
@@ -884,10 +865,8 @@ msgid "Dropping Primary Key/Index"
 msgstr "Dropping Primary Key/Index"
 
 #: js/messages.php:63
-#, fuzzy
-#| msgid "Select Foreign Key"
 msgid "Dropping Foreign key."
-msgstr "Select Foreign Key"
+msgstr "Dropping Foreign key."
 
 #: js/messages.php:65
 msgid "This operation could take a long time. Proceed anyway?"
@@ -904,56 +883,40 @@ msgid "Do you really want to delete the search \"%s\"?"
 msgstr "Do you really want to delete the search \"%s\"?"
 
 #: js/messages.php:71
-#, fuzzy
-#| msgid ""
-#| "You have edited some data and they have not been saved. Are you sure you "
-#| "want to leave this page before saving the data?"
 msgid "You have unsaved changes; are you sure you want to leave this page?"
-msgstr ""
-"You have edited some data and they have not been saved. Are you sure you "
-"want to leave this page before saving the data?"
+msgstr "You have unsaved changes; are you sure you want to leave this page?"
 
 #: js/messages.php:73
-#, fuzzy
-#| msgid "Do you really want to delete the search \"%s\"?"
 msgid "Do you really want to revoke the selected user(s) ?"
-msgstr "Do you really want to delete the search \"%s\"?"
+msgstr "Do you really want to revoke the selected user(s)?"
 
 #: js/messages.php:75
-#, fuzzy
-#| msgid "Do you really want to delete the search \"%s\"?"
 msgid "Do you really want to delete this central column?"
-msgstr "Do you really want to delete the search \"%s\"?"
+msgstr "Do you really want to delete this central column?"
 
 #: js/messages.php:77
-#, fuzzy
-#| msgid "Do you really want to delete the search \"%s\"?"
 msgid "Do you really want to delete the selected items?"
-msgstr "Do you really want to delete the search \"%s\"?"
+msgstr "Do you really want to delete the selected items?"
 
 #: js/messages.php:79
 msgid ""
 "Do you really want to DROP the selected partition(s)? This will also DELETE "
 "the data related to the selected partition(s)!"
 msgstr ""
+"Do you really want to DROP the selected partition(s)? This will also DELETE "
+"the data related to the selected partition(s)!"
 
 #: js/messages.php:83
-#, fuzzy
-#| msgid "Do you really want to delete the search \"%s\"?"
 msgid "Do you really want to TRUNCATE the selected partition(s)?"
-msgstr "Do you really want to delete the search \"%s\"?"
+msgstr "Do you really want to TRUNCATE the selected partition(s)?"
 
 #: js/messages.php:85
-#, fuzzy
-#| msgid "Do you really want to delete the search \"%s\"?"
 msgid "Do you really want to remove partitioning?"
-msgstr "Do you really want to delete the search \"%s\"?"
+msgstr "Do you really want to remove partitioning?"
 
 #: js/messages.php:86
-#, fuzzy
-#| msgid "Do you really want to execute \"%s\"?"
 msgid "Do you really want to RESET SLAVE?"
-msgstr "Do you really want to execute \"%s\"?"
+msgstr "Do you really want to RESET SLAVE?"
 
 #: js/messages.php:88
 msgid ""
@@ -963,14 +926,19 @@ msgid ""
 "collation; in this case we suggest you revert to the original collation and "
 "refer to the tips at "
 msgstr ""
+"This operation will attempt to convert your data to the new collation. In "
+"rare cases, especially where a character doesn't exist in the new collation, "
+"this process could cause the data to appear incorrectly under the new "
+"collation; in this case we suggest you revert to the original collation and "
+"refer to the tips at "
 
 #: js/messages.php:94
 msgid "Garbled Data"
-msgstr ""
+msgstr "Garbled Data"
 
 #: js/messages.php:96
 msgid "Are you sure you wish to change the collation and convert the data?"
-msgstr ""
+msgstr "Are you sure you wish to change the collation and convert the data?"
 
 #: js/messages.php:98
 msgid ""
@@ -981,18 +949,24 @@ msgid ""
 "column(s) editing feature (the \"Change\" Link) on the table structure page. "
 "</b>"
 msgstr ""
+"Through this operation, MySQL attempts to map the data values between "
+"collations. If the character sets are incompatible, there may be data loss "
+"and this lost data may <b>NOT</b> be recoverable simply by changing back the "
+"column collation(s). <b>To convert existing data, it is suggested to use the "
+"column(s) editing feature (the \"Change\" Link) on the table structure page. "
+"</b>"
 
 #: js/messages.php:107
 msgid ""
 "Are you sure you wish to change all the column collations and convert the "
 "data?"
 msgstr ""
+"Are you sure you wish to change all the column collations and convert the "
+"data?"
 
 #: js/messages.php:111
-#, fuzzy
-#| msgid "Save as file"
 msgid "Save & close"
-msgstr "Save as file"
+msgstr "Save & close"
 
 #: js/messages.php:112 libraries/config/FormDisplay.tpl.php:426
 #: libraries/insert_edit.lib.php:1619 prefs_manage.php:375 prefs_manage.php:386
@@ -1000,10 +974,8 @@ msgid "Reset"
 msgstr "Reset"
 
 #: js/messages.php:113
-#, fuzzy
-#| msgid "Select All"
 msgid "Reset all"
-msgstr "Select All"
+msgstr "Reset all"
 
 #: js/messages.php:116
 msgid "Missing value in the form!"
@@ -1069,13 +1041,11 @@ msgstr "You have to add at least one column."
 #: templates/table/index_form.phtml:240
 #: templates/table/relation/common_form.phtml:131
 msgid "Preview SQL"
-msgstr ""
+msgstr "Preview SQL"
 
 #: js/messages.php:135
-#, fuzzy
-#| msgid "in query"
 msgid "Simulate query"
-msgstr "in query"
+msgstr "Simulate query"
 
 #: js/messages.php:136
 #, fuzzy
@@ -1129,7 +1099,7 @@ msgstr "The number of pages created."
 
 #: js/messages.php:153
 msgid "Template was loaded."
-msgstr ""
+msgstr "Template was loaded."
 
 #: js/messages.php:154
 #, fuzzy
@@ -1361,11 +1331,11 @@ msgstr "Pause monitor"
 
 #: js/messages.php:222 libraries/server_status_processes.lib.php:37
 msgid "Start auto refresh"
-msgstr ""
+msgstr "Start auto refresh"
 
 #: js/messages.php:223
 msgid "Stop auto refresh"
-msgstr ""
+msgstr "Stop auto refresh"
 
 #: js/messages.php:225
 msgid "general_log and slow_query_log are enabled."
@@ -1720,7 +1690,7 @@ msgstr "Test"
 
 #: js/messages.php:349
 msgid "Formatting SQL…"
-msgstr ""
+msgstr "Formatting SQL…"
 
 #: js/messages.php:350
 #, fuzzy
@@ -1975,7 +1945,7 @@ msgstr "Browse foreign values"
 
 #: js/messages.php:420
 msgid "No auto-saved query"
-msgstr ""
+msgstr "No auto-saved query"
 
 #: js/messages.php:421
 #, fuzzy, php-format
@@ -1985,7 +1955,7 @@ msgstr "Variable"
 
 #: js/messages.php:424 libraries/normalization.lib.php:884
 msgid "Pick"
-msgstr ""
+msgstr "Pick"
 
 #: js/messages.php:425
 #, fuzzy
@@ -2102,7 +2072,7 @@ msgstr ""
 
 #: js/messages.php:463
 msgid "Step"
-msgstr ""
+msgstr "Step"
 
 #: js/messages.php:465
 #, fuzzy
@@ -2113,13 +2083,11 @@ msgstr "The following queries have been executed:"
 #: js/messages.php:466
 #, php-format
 msgid "DROP columns %s from the table %s"
-msgstr ""
+msgstr "DROP columns %s from the table %s"
 
 #: js/messages.php:467
-#, fuzzy
-#| msgid "Add privileges on the following table:"
 msgid "Create the following table"
-msgstr "Add privileges on the following table:"
+msgstr "Create the following table"
 
 #: js/messages.php:470
 msgid "Third step of normalization (3NF)"
