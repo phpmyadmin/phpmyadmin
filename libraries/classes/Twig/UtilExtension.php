@@ -1,11 +1,11 @@
 <?php
 /* vim: set expandtab sw=4 ts=4 sts=4: */
 /**
- * hold PMA\libraries\twig\UtilExtension class
+ * hold PhpMyAdmin\Twig\UtilExtension class
  *
- * @package PMA\libraries\twig
+ * @package PhpMyAdmin\Twig
  */
-namespace PMA\libraries\twig;
+namespace PhpMyAdmin\Twig;
 
 use Twig_Extension;
 use Twig_SimpleFunction;
@@ -13,7 +13,7 @@ use Twig_SimpleFunction;
 /**
  * Class UtilExtension
  *
- * @package PMA\libraries\twig
+ * @package PhpMyAdmin\Twig
  */
 class UtilExtension extends Twig_Extension
 {

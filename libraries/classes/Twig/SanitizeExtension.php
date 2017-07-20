@@ -1,22 +1,21 @@
 <?php
 /* vim: set expandtab sw=4 ts=4 sts=4: */
 /**
- * hold PMA\libraries\twig\MessageExtension class
+ * hold PhpMyAdmin\Twig\SanitizeExtension class
  *
- * @package PMA\libraries\twig
+ * @package PhpMyAdmin\Twig
  */
-namespace PMA\libraries\twig;
+namespace PhpMyAdmin\Twig;
 
 use Twig_Extension;
 use Twig_SimpleFunction;
-use PhpMyAdmin\Message;
 
 /**
- * Class MessageExtension
+ * Class SanitizeExtension
  *
- * @package PMA\libraries\twig
+ * @package PhpMyAdmin\Twig
  */
-class MessageExtension extends Twig_Extension
+class SanitizeExtension extends Twig_Extension
 {
     /**
      * Returns a list of functions to add to the existing list.
@@ -27,10 +26,8 @@ class MessageExtension extends Twig_Extension
     {
         return array(
             new Twig_SimpleFunction(
-                'Message_notice',
-                function ($string) {
-                    return Message::notice($string)->getDisplay();
-                },
+                'Sanitize_escapeJsString',
+                'PhpMyAdmin\Sanitize::escapeJsString',
                 array('is_safe' => array('html'))
             ),
         );

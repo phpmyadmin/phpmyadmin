@@ -1,19 +1,20 @@
 <?php
 /* vim: set expandtab sw=4 ts=4 sts=4: */
 /**
- * hold PMA\libraries\twig\I18nExtension class
+ * hold PhpMyAdmin\Twig\I18nExtension class
  *
- * @package PMA\libraries\twig
+ * @package PhpMyAdmin\Twig
  */
-namespace PMA\libraries\twig;
+namespace PhpMyAdmin\Twig;
 
+use PhpMyAdmin\Twig\I18n\TokenParserTrans;
 use Twig_Extensions_Extension_I18n;
 use Twig_SimpleFilter;
 
 /**
  * Class I18nExtension
  *
- * @package PMA\libraries\twig
+ * @package PhpMyAdmin\Twig
  */
 class I18nExtension extends Twig_Extensions_Extension_I18n
 {
@@ -24,7 +25,7 @@ class I18nExtension extends Twig_Extensions_Extension_I18n
      */
     public function getTokenParsers()
     {
-        return array(new i18n\TokenParserTrans());
+        return array(new TokenParserTrans());
     }
 
     /**
