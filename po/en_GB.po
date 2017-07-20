@@ -6,7 +6,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.7.3-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2017-07-18 13:29+0200\n"
-"PO-Revision-Date: 2017-07-20 23:44+0000\n"
+"PO-Revision-Date: 2017-07-20 23:46+0000\n"
 "Last-Translator: Bo Anderson <bo@toxicflames.co.uk>\n"
 "Language-Team: English (United Kingdom) "
 "<https://hosted.weblate.org/projects/phpmyadmin/4-7/en_GB/>\n"
@@ -9951,7 +9951,7 @@ msgstr "Wrong username/password. Access denied."
 
 #: libraries/plugins/auth/AuthenticationSignon.php:87
 msgid "Can not find signon authentication script:"
-msgstr "Can not find signon authentication script:"
+msgstr "Cannot find signon authentication script:"
 
 #: libraries/plugins/export/ExportCsv.php:62
 #: libraries/plugins/import/AbstractImportCsv.php:58
