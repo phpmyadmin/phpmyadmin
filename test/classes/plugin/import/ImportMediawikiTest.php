@@ -1,6 +1,6 @@
 <?php
 /**
- * Tests for PMA\libraries\plugins\import\ImportMediawiki class
+ * Tests for PhpMyAdmin\Plugins\Import\ImportMediawiki class
  *
  * @package PhpMyAdmin-test
  */
@@ -8,7 +8,7 @@
  * we must set $GLOBALS['server'] here
  * since 'check_user_privileges.lib.php' will use it globally
  */
-use PMA\libraries\plugins\import\ImportMediawiki;
+use PhpMyAdmin\Plugins\Import\ImportMediawiki;
 use PhpMyAdmin\File;
 
 $GLOBALS['server'] = 0;
@@ -21,7 +21,7 @@ require_once 'libraries/import.lib.php';
 require_once 'test/PMATestCase.php';
 
 /**
- * Tests for PMA\libraries\plugins\import\ImportMediawiki class
+ * Tests for PhpMyAdmin\Plugins\Import\ImportMediawiki class
  *
  * @package PhpMyAdmin-test
  */

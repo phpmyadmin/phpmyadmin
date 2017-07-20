@@ -2872,7 +2872,7 @@ class PMA_InsertEditTest extends PHPUnit_Framework_TestCase
             md5('col') => 'val'
         );
         $column_mime = array(
-            'input_transformation' => 'input/Image_JPEG_Upload.php',
+            'input_transformation' => 'Input/Image_JPEG_Upload.php',
             'input_transformation_options' => '150'
         );
 

@@ -1,18 +1,18 @@
 <?php
 /* vim: set expandtab sw=4 ts=4 sts=4: */
 /**
- * tests for PMA\libraries\plugins\auth\AuthenticationHttp class
+ * tests for PhpMyAdmin\Plugins\Auth\AuthenticationHttp class
  *
  * @package PhpMyAdmin-test
  */
 
-use PMA\libraries\plugins\auth\AuthenticationHttp;
+use PhpMyAdmin\Plugins\Auth\AuthenticationHttp;
 
 require_once 'libraries/config.default.php';
 require_once 'test/PMATestCase.php';
 
 /**
- * tests for PMA\libraries\plugins\auth\AuthenticationHttp class
+ * tests for PhpMyAdmin\Plugins\Auth\AuthenticationHttp class
  *
  * @package PhpMyAdmin-test
  */
@@ -113,7 +113,7 @@ class AuthenticationHttpTest extends PMATestCase
     }
 
     /**
-     * Test for PMA\libraries\plugins\auth\AuthenticationHttp::auth
+     * Test for PhpMyAdmin\Plugins\Auth\AuthenticationHttp::auth
      *
      * @return void
      */
@@ -169,7 +169,7 @@ class AuthenticationHttpTest extends PMATestCase
     }
 
     /**
-     * Test for PMA\libraries\plugins\auth\AuthenticationHttp::authCheck
+     * Test for PhpMyAdmin\Plugins\Auth\AuthenticationHttp::authCheck
      *
      * @param string $user           test username
      * @param string $pass           test password
@@ -271,7 +271,7 @@ class AuthenticationHttpTest extends PMATestCase
     }
 
     /**
-     * Test for PMA\libraries\plugins\auth\AuthenticationHttp::authSetUser
+     * Test for PhpMyAdmin\Plugins\Auth\AuthenticationHttp::authSetUser
      *
      * @return void
      */
@@ -378,7 +378,7 @@ class AuthenticationHttpTest extends PMATestCase
     }
 
     /**
-     * Test for PMA\libraries\plugins\auth\AuthenticationHttp::authSetFails
+     * Test for PhpMyAdmin\Plugins\Auth\AuthenticationHttp::authSetFails
      *
      * @return void
      *
@@ -415,7 +415,7 @@ class AuthenticationHttpTest extends PMATestCase
             $result
         );
 
-        $this->object = $this->getMockBuilder('PMA\libraries\plugins\auth\AuthenticationHttp')
+        $this->object = $this->getMockBuilder('PhpMyAdmin\Plugins\Auth\AuthenticationHttp')
             ->disableOriginalConstructor()
             ->setMethods(array('authForm'))
             ->getMock();

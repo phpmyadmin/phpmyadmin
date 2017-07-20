@@ -11,7 +11,7 @@ use PhpMyAdmin\Core;
 use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Index;
 use PhpMyAdmin\Message;
-use PMA\libraries\plugins\transformations\Text_Plain_Link;
+use PhpMyAdmin\Plugins\Transformations\Text_Plain_Link;
 use PhpMyAdmin\Response;
 use PhpMyAdmin\Sanitize;
 use PhpMyAdmin\Sql;
@@ -246,23 +246,23 @@ class DisplayResults
     private  function _setDefaultTransformations()
     {
         $json_highlighting_data = array(
-            'libraries/plugins/transformations/output/Text_Plain_Json.php',
-            'PMA\libraries\plugins\transformations\output\Text_Plain_Json',
+            'libraries/classes/Plugins/Transformations/Output/Text_Plain_Json.php',
+            'PhpMyAdmin\Plugins\Transformations\Output\Text_Plain_Json',
             'Text_Plain'
         );
         $sql_highlighting_data = array(
-            'libraries/plugins/transformations/output/Text_Plain_Sql.php',
-            'PMA\libraries\plugins\transformations\output\Text_Plain_Sql',
+            'libraries/classes/Plugins/Transformations/Output/Text_Plain_Sql.php',
+            'PhpMyAdmin\Plugins\Transformations\Output\Text_Plain_Sql',
             'Text_Plain'
         );
         $blob_sql_highlighting_data = array(
-            'libraries/plugins/transformations/output/Text_Octetstream_Sql.php',
-            'PMA\libraries\plugins\transformations\output\Text_Octetstream_Sql',
+            'libraries/classes/Plugins/Transformations/Output/Text_Octetstream_Sql.php',
+            'PhpMyAdmin\Plugins\Transformations\Output\Text_Octetstream_Sql',
             'Text_Octetstream'
         );
         $link_data = array(
-            'libraries/plugins/transformations/Text_Plain_Link.php',
-            'PMA\libraries\plugins\transformations\Text_Plain_Link',
+            'libraries/classes/Plugins/Transformations/Text_Plain_Link.php',
+            'PhpMyAdmin\Plugins\Transformations\Text_Plain_Link',
             'Text_Plain'
         );
         $this->transformation_info = array(
@@ -3050,7 +3050,7 @@ class DisplayResults
                 ) {
 
                     $file = $mime_map[$orgFullColName]['transformation'];
-                    $include_file = 'libraries/plugins/transformations/' . $file;
+                    $include_file = 'libraries/classes/Plugins/Transformations/' . $file;
 
                     if (@file_exists($include_file)) {
 

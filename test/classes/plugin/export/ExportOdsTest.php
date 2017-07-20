@@ -1,20 +1,18 @@
 <?php
 /* vim: set expandtab sw=4 ts=4 sts=4: */
 /**
- * tests for PMA\libraries\plugins\export\ExportOds class
+ * tests for PhpMyAdmin\Plugins\Export\ExportOds class
  *
  * @package PhpMyAdmin-test
  */
-use PMA\libraries\plugins\export\ExportOds;
+use PhpMyAdmin\Plugins\Export\ExportOds;
 
-//ExportOds required because of initialisation inside
-require_once 'libraries/plugins/export/ExportOds.php';
 require_once 'libraries/export.lib.php';
 require_once 'libraries/config.default.php';
 require_once 'test/PMATestCase.php';
 
 /**
- * tests for PMA\libraries\plugins\export\ExportOds class
+ * tests for PhpMyAdmin\Plugins\Export\ExportOds class
  *
  * @package PhpMyAdmin-test
  * @group medium
@@ -50,17 +48,17 @@ class ExportOdsTest extends PMATestCase
     }
 
     /**
-     * Test for PMA\libraries\plugins\export\ExportOds::setProperties
+     * Test for PhpMyAdmin\Plugins\Export\ExportOds::setProperties
      *
      * @return void
      */
     public function testSetProperties()
     {
-        $method = new ReflectionMethod('PMA\libraries\plugins\export\ExportOds', 'setProperties');
+        $method = new ReflectionMethod('PhpMyAdmin\Plugins\Export\ExportOds', 'setProperties');
         $method->setAccessible(true);
         $method->invoke($this->object, null);
 
-        $attrProperties = new ReflectionProperty('PMA\libraries\plugins\export\ExportOds', 'properties');
+        $attrProperties = new ReflectionProperty('PhpMyAdmin\Plugins\Export\ExportOds', 'properties');
         $attrProperties->setAccessible(true);
         $properties = $attrProperties->getValue($this->object);
 
@@ -169,7 +167,7 @@ class ExportOdsTest extends PMATestCase
     }
 
     /**
-     * Test for PMA\libraries\plugins\export\ExportOds::exportHeader
+     * Test for PhpMyAdmin\Plugins\Export\ExportOds::exportHeader
      *
      * @return void
      */
@@ -185,7 +183,7 @@ class ExportOdsTest extends PMATestCase
     }
 
     /**
-     * Test for PMA\libraries\plugins\export\ExportOds::exportFooter
+     * Test for PhpMyAdmin\Plugins\Export\ExportOds::exportFooter
      *
      * @return void
      */
@@ -222,7 +220,7 @@ class ExportOdsTest extends PMATestCase
     }
 
     /**
-     * Test for PMA\libraries\plugins\export\ExportOds::exportDBHeader
+     * Test for PhpMyAdmin\Plugins\Export\ExportOds::exportDBHeader
      *
      * @return void
      */
@@ -234,7 +232,7 @@ class ExportOdsTest extends PMATestCase
     }
 
     /**
-     * Test for PMA\libraries\plugins\export\ExportOds::exportDBFooter
+     * Test for PhpMyAdmin\Plugins\Export\ExportOds::exportDBFooter
      *
      * @return void
      */
@@ -246,7 +244,7 @@ class ExportOdsTest extends PMATestCase
     }
 
     /**
-     * Test for PMA\libraries\plugins\export\ExportOds::exportDBCreate
+     * Test for PhpMyAdmin\Plugins\Export\ExportOds::exportDBCreate
      *
      * @return void
      */
@@ -258,7 +256,7 @@ class ExportOdsTest extends PMATestCase
     }
 
     /**
-     * Test for PMA\libraries\plugins\export\ExportOds::exportData
+     * Test for PhpMyAdmin\Plugins\Export\ExportOds::exportData
      *
      * @return void
      */
@@ -383,7 +381,7 @@ class ExportOdsTest extends PMATestCase
     }
 
     /**
-     * Test for PMA\libraries\plugins\export\ExportOds::exportData
+     * Test for PhpMyAdmin\Plugins\Export\ExportOds::exportData
      *
      * @return void
      */

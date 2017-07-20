@@ -1,17 +1,17 @@
 <?php
 /* vim: set expandtab sw=4 ts=4 sts=4: */
 /**
- * tests for PMA\libraries\plugins\export\helpers\TableProperty class
+ * tests for PhpMyAdmin\Plugins\Export\Helpers\TableProperty class
  *
  * @package PhpMyAdmin-test
  */
-use PMA\libraries\plugins\export\helpers\TableProperty;
+use PhpMyAdmin\Plugins\Export\Helpers\TableProperty;
 
 require_once 'libraries/config.default.php';
 require_once 'test/PMATestCase.php';
 
 /**
- * tests for PMA\libraries\plugins\export\helpers\TableProperty class
+ * tests for PhpMyAdmin\Plugins\Export\Helpers\TableProperty class
  *
  * @package PhpMyAdmin-test
  */
@@ -42,7 +42,7 @@ class TablePropertyTest extends PMATestCase
     }
 
     /**
-     * Test for PMA\libraries\plugins\export\helpers\TableProperty::__construct
+     * Test for PhpMyAdmin\Plugins\Export\Helpers\TableProperty::__construct
      *
      * @return void
     */
@@ -80,7 +80,7 @@ class TablePropertyTest extends PMATestCase
     }
 
     /**
-     * Test for PMA\libraries\plugins\export\helpers\TableProperty::getPureType
+     * Test for PhpMyAdmin\Plugins\Export\Helpers\TableProperty::getPureType
      *
      * @return void
     */
@@ -102,7 +102,7 @@ class TablePropertyTest extends PMATestCase
     }
 
     /**
-     * Test for PMA\libraries\plugins\export\helpers\TableProperty::isNotNull
+     * Test for PhpMyAdmin\Plugins\Export\Helpers\TableProperty::isNotNull
      *
      * @param string $nullable nullable value
      * @param string $expected expected output
@@ -135,7 +135,7 @@ class TablePropertyTest extends PMATestCase
     }
 
     /**
-     * Test for PMA\libraries\plugins\export\helpers\TableProperty::isUnique
+     * Test for PhpMyAdmin\Plugins\Export\Helpers\TableProperty::isUnique
      *
      * @param string $key      key value
      * @param string $expected expected output
@@ -170,7 +170,7 @@ class TablePropertyTest extends PMATestCase
     }
 
     /**
-     * Test for PMA\libraries\plugins\export\helpers\TableProperty::getDotNetPrimitiveType
+     * Test for PhpMyAdmin\Plugins\Export\Helpers\TableProperty::getDotNetPrimitiveType
      *
      * @param string $type     type value
      * @param string $expected expected output
@@ -211,7 +211,7 @@ class TablePropertyTest extends PMATestCase
     }
 
     /**
-     * Test for PMA\libraries\plugins\export\helpers\TableProperty::getDotNetObjectType
+     * Test for PhpMyAdmin\Plugins\Export\Helpers\TableProperty::getDotNetObjectType
      *
      * @param string $type     type value
      * @param string $expected expected output
@@ -252,7 +252,7 @@ class TablePropertyTest extends PMATestCase
     }
 
     /**
-     * Test for PMA\libraries\plugins\export\helpers\TableProperty::getIndexName
+     * Test for PhpMyAdmin\Plugins\Export\Helpers\TableProperty::getIndexName
      *
      * @return void
      */
@@ -275,7 +275,7 @@ class TablePropertyTest extends PMATestCase
     }
 
     /**
-     * Test for PMA\libraries\plugins\export\helpers\TableProperty::isPK
+     * Test for PhpMyAdmin\Plugins\Export\Helpers\TableProperty::isPK
      *
      * @return void
      */
@@ -295,7 +295,7 @@ class TablePropertyTest extends PMATestCase
     }
 
     /**
-     * Test for PMA\libraries\plugins\export\helpers\TableProperty::formatCs
+     * Test for PhpMyAdmin\Plugins\Export\Helpers\TableProperty::formatCs
      *
      * @return void
     */
@@ -310,7 +310,7 @@ class TablePropertyTest extends PMATestCase
     }
 
     /**
-     * Test for PMA\libraries\plugins\export\helpers\TableProperty::formatXml
+     * Test for PhpMyAdmin\Plugins\Export\Helpers\TableProperty::formatXml
      *
      * @return void
     */
@@ -325,7 +325,7 @@ class TablePropertyTest extends PMATestCase
     }
 
     /**
-     * Test for PMA\libraries\plugins\export\helpers\TableProperty::format
+     * Test for PhpMyAdmin\Plugins\Export\Helpers\TableProperty::format
      *
      * @return void
     */

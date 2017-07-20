@@ -1,18 +1,18 @@
 <?php
 /* vim: set expandtab sw=4 ts=4 sts=4: */
 /**
- * tests for PMA\libraries\plugins\export\ExportMediawiki class
+ * tests for PhpMyAdmin\Plugins\Export\ExportMediawiki class
  *
  * @package PhpMyAdmin-test
  */
-use PMA\libraries\plugins\export\ExportMediawiki;
+use PhpMyAdmin\Plugins\Export\ExportMediawiki;
 
 require_once 'libraries/export.lib.php';
 require_once 'libraries/config.default.php';
 require_once 'test/PMATestCase.php';
 
 /**
- * tests for PMA\libraries\plugins\export\ExportMediawiki class
+ * tests for PhpMyAdmin\Plugins\Export\ExportMediawiki class
  *
  * @package PhpMyAdmin-test
  * @group medium
@@ -48,17 +48,17 @@ class ExportMediawikiTest extends PMATestCase
     }
 
     /**
-     * Test for PMA\libraries\plugins\export\ExportMediawiki::setProperties
+     * Test for PhpMyAdmin\Plugins\Export\ExportMediawiki::setProperties
      *
      * @return void
      */
     public function testSetProperties()
     {
-        $method = new ReflectionMethod('PMA\libraries\plugins\export\ExportMediawiki', 'setProperties');
+        $method = new ReflectionMethod('PhpMyAdmin\Plugins\Export\ExportMediawiki', 'setProperties');
         $method->setAccessible(true);
         $method->invoke($this->object, null);
 
-        $attrProperties = new ReflectionProperty('PMA\libraries\plugins\export\ExportMediawiki', 'properties');
+        $attrProperties = new ReflectionProperty('PhpMyAdmin\Plugins\Export\ExportMediawiki', 'properties');
         $attrProperties->setAccessible(true);
         $properties = $attrProperties->getValue($this->object);
 
@@ -193,7 +193,7 @@ class ExportMediawikiTest extends PMATestCase
     }
 
     /**
-     * Test for PMA\libraries\plugins\export\ExportMediawiki::exportHeader
+     * Test for PhpMyAdmin\Plugins\Export\ExportMediawiki::exportHeader
      *
      * @return void
      */
@@ -205,7 +205,7 @@ class ExportMediawikiTest extends PMATestCase
     }
 
     /**
-     * Test for PMA\libraries\plugins\export\ExportMediawiki::exportFooter
+     * Test for PhpMyAdmin\Plugins\Export\ExportMediawiki::exportFooter
      *
      * @return void
      */
@@ -217,7 +217,7 @@ class ExportMediawikiTest extends PMATestCase
     }
 
     /**
-     * Test for PMA\libraries\plugins\export\ExportMediawiki::exportDBHeader
+     * Test for PhpMyAdmin\Plugins\Export\ExportMediawiki::exportDBHeader
      *
      * @return void
      */
@@ -229,7 +229,7 @@ class ExportMediawikiTest extends PMATestCase
     }
 
     /**
-     * Test for PMA\libraries\plugins\export\ExportMediawiki::exportDBFooter
+     * Test for PhpMyAdmin\Plugins\Export\ExportMediawiki::exportDBFooter
      *
      * @return void
      */
@@ -241,7 +241,7 @@ class ExportMediawikiTest extends PMATestCase
     }
 
     /**
-     * Test for PMA\libraries\plugins\export\ExportMediawiki::exportDBCreate
+     * Test for PhpMyAdmin\Plugins\Export\ExportMediawiki::exportDBCreate
      *
      * @return void
      */
@@ -343,7 +343,7 @@ class ExportMediawikiTest extends PMATestCase
         */
     }
     /**
-     * Test for PMA\libraries\plugins\export\ExportMediawiki::exportData
+     * Test for PhpMyAdmin\Plugins\Export\ExportMediawiki::exportData
      *
      * @return void
      */

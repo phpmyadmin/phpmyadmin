@@ -1,18 +1,18 @@
 <?php
 /* vim: set expandtab sw=4 ts=4 sts=4: */
 /**
- * tests for PMA\libraries\plugins\export\ExportExcel class
+ * tests for PhpMyAdmin\Plugins\Export\ExportExcel class
  *
  * @package PhpMyAdmin-test
  */
-use PMA\libraries\plugins\export\ExportExcel;
+use PhpMyAdmin\Plugins\Export\ExportExcel;
 
 require_once 'libraries/export.lib.php';
 require_once 'libraries/config.default.php';
 require_once 'test/PMATestCase.php';
 
 /**
- * tests for PMA\libraries\plugins\export\ExportExcel class
+ * tests for PhpMyAdmin\Plugins\Export\ExportExcel class
  *
  * @package PhpMyAdmin-test
  * @group medium
@@ -43,17 +43,17 @@ class ExportExcelTest extends PMATestCase
     }
 
     /**
-     * Test for PMA\libraries\plugins\export\ExportExcel::setProperties
+     * Test for PhpMyAdmin\Plugins\Export\ExportExcel::setProperties
      *
      * @return void
      */
     public function testSetProperties()
     {
-        $method = new ReflectionMethod('PMA\libraries\plugins\export\ExportExcel', 'setProperties');
+        $method = new ReflectionMethod('PhpMyAdmin\Plugins\Export\ExportExcel', 'setProperties');
         $method->setAccessible(true);
         $method->invoke($this->object, null);
 
-        $attrProperties = new ReflectionProperty('PMA\libraries\plugins\export\ExportExcel', 'properties');
+        $attrProperties = new ReflectionProperty('PhpMyAdmin\Plugins\Export\ExportExcel', 'properties');
         $attrProperties->setAccessible(true);
         $properties = $attrProperties->getValue($this->object);
 

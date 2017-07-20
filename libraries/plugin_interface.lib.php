@@ -36,7 +36,7 @@ function PMA_getPlugin(
     $file = $class_name . ".php";
     if (is_file($plugins_dir . $file)) {
         //include_once $plugins_dir . $file;
-        $fqnClass = 'PMA\\' . str_replace('/', '\\', $plugins_dir) . $class_name;
+        $fqnClass = 'PhpMyAdmin\\' . str_replace('/', '\\', mb_substr($plugins_dir, 18)) . $class_name;
         // check if class exists, could be caused by skip_import
         if (class_exists($fqnClass)) {
             return new $fqnClass;
@@ -65,7 +65,7 @@ function PMA_getPlugins($plugin_type, $plugins_dir, $plugin_param)
         return $plugin_list;
     }
 
-    $namespace = 'PMA\\' . str_replace('/', '\\', $plugins_dir);
+    $namespace = 'PhpMyAdmin\\' . str_replace('/', '\\', mb_substr($plugins_dir, 18));
     $class_type = mb_strtoupper($plugin_type[0], 'UTF-8')
         . mb_strtolower(mb_substr($plugin_type, 1), 'UTF-8');
 

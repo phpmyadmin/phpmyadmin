@@ -100,13 +100,13 @@ class Transformations
 
         $stack = array();
         $sub_dirs = array(
-            'input/' => 'input_',
-            'output/' => '',
+            'Input/' => 'input_',
+            'Output/' => '',
             '' => ''
         );
 
         foreach ($sub_dirs as $sd => $prefix) {
-            $handle = opendir('libraries/plugins/transformations/' . $sd);
+            $handle = opendir('libraries/classes/Plugins/Transformations/' . $sd);
 
             if (! $handle) {
                 $stack[$prefix . 'transformation'] = array();
@@ -170,7 +170,7 @@ class Transformations
     {
         // get the transformation class name
         $class_name = explode(".php", $filename);
-        $class_name = 'PMA\\' . str_replace('/', '\\', $class_name[0]);
+        $class_name = 'PhpMyAdmin\\' . str_replace('/', '\\', mb_substr($class_name[0], 18));
 
         return $class_name;
     }
@@ -184,8 +184,8 @@ class Transformations
      */
     public static function getDescription($file)
     {
-        $include_file = 'libraries/plugins/transformations/' . $file;
-        /* @var $class_name PMA\libraries\plugins\TransformationsInterface */
+        $include_file = 'libraries/classes/Plugins/Transformations/' . $file;
+        /* @var $class_name PhpMyAdmin\Plugins\TransformationsInterface */
         $class_name = self::getClassName($include_file);
         // include and instantiate the class
         include_once $include_file;
@@ -201,8 +201,8 @@ class Transformations
      */
     public static function getName($file)
     {
-        $include_file = 'libraries/plugins/transformations/' . $file;
-        /* @var $class_name PMA\libraries\plugins\TransformationsInterface */
+        $include_file = 'libraries/classes/Plugins/Transformations/' . $file;
+        /* @var $class_name PhpMyAdmin\Plugins\TransformationsInterface */
         $class_name = self::getClassName($include_file);
         // include and instantiate the class
         include_once $include_file;

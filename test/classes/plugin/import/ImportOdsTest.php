@@ -1,6 +1,6 @@
 <?php
 /**
- * Tests for PMA\libraries\plugins\import\ImportOds class
+ * Tests for PhpMyAdmin\Plugins\Import\ImportOds class
  *
  * @package PhpMyAdmin-test
  */
@@ -9,7 +9,7 @@
  * we must set $GLOBALS['server'] here
  * since 'check_user_privileges.lib.php' will use it globally
  */
-use PMA\libraries\plugins\import\ImportOds;
+use PhpMyAdmin\Plugins\Import\ImportOds;
 use PhpMyAdmin\File;
 
 $GLOBALS['server'] = 0;
@@ -19,11 +19,10 @@ $GLOBALS['server'] = 0;
  */
 require_once 'libraries/database_interface.inc.php';
 require_once 'libraries/import.lib.php';
-require_once 'libraries/plugins/import/ImportOds.php';
 require_once 'test/PMATestCase.php';
 
 /**
- * Tests for PMA\libraries\plugins\import\ImportOds class
+ * Tests for PhpMyAdmin\Plugins\Import\ImportOds class
  *
  * @package PhpMyAdmin-test
  */

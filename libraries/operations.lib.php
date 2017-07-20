@@ -10,7 +10,7 @@ use PhpMyAdmin\Charsets;
 use PhpMyAdmin\Core;
 use PhpMyAdmin\Message;
 use PhpMyAdmin\Partition;
-use PMA\libraries\plugins\export\ExportSql;
+use PhpMyAdmin\Plugins\Export\ExportSql;
 use PhpMyAdmin\Response;
 use PhpMyAdmin\StorageEngine;
 use PhpMyAdmin\Table;

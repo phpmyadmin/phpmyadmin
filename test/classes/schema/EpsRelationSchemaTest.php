@@ -8,7 +8,7 @@
 /*
  * Include to test.
  */
-use PMA\libraries\plugins\schema\eps\EpsRelationSchema;
+use PhpMyAdmin\Plugins\Schema\Eps\EpsRelationSchema;
 
 require_once 'libraries/relation.lib.php';
 require_once 'libraries/database_interface.inc.php';
