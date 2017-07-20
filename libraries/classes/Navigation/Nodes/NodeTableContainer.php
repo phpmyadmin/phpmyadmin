@@ -5,9 +5,9 @@
  *
  * @package PhpMyAdmin-Navigation
  */
-namespace PMA\libraries\navigation\nodes;
+namespace PhpMyAdmin\Navigation\Nodes;
 
-use PMA\libraries\navigation\NodeFactory;
+use PhpMyAdmin\Navigation\NodeFactory;
 use PhpMyAdmin\Util;
 
 /**

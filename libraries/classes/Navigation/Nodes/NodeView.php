@@ -5,16 +5,16 @@
  *
  * @package PhpMyAdmin-Navigation
  */
-namespace PMA\libraries\navigation\nodes;
+namespace PhpMyAdmin\Navigation\Nodes;
 
 use PhpMyAdmin\Util;
 
 /**
- * Represents a columns node in the navigation tree
+ * Represents a view node in the navigation tree
  *
  * @package PhpMyAdmin-Navigation
  */
-class NodeColumn extends Node
+class NodeView extends NodeDatabaseChild
 {
     /**
      * Initialises the class
@@ -27,15 +27,23 @@ class NodeColumn extends Node
     public function __construct($name, $type = Node::OBJECT, $is_group = false)
     {
         parent::__construct($name, $type, $is_group);
-        $this->icon = Util::getImage('pause.png', __('Column'));
+        $this->icon = Util::getImage('b_props.png', __('View'));
         $this->links = array(
-            'text'  => 'tbl_structure.php?server=' . $GLOBALS['server']
-                . '&amp;db=%3$s&amp;table=%2$s&amp;field=%1$s'
-                . '&amp;change_column=1',
-            'icon'  => 'tbl_structure.php?server=' . $GLOBALS['server']
-                . '&amp;db=%3$s&amp;table=%2$s&amp;field=%1$s'
-                . '&amp;change_column=1',
-            'title' => __('Structure'),
+            'text' => 'sql.php?server=' . $GLOBALS['server']
+                . '&amp;db=%2$s&amp;table=%1$s&amp;pos=0',
+            'icon' => 'tbl_structure.php?server=' . $GLOBALS['server']
+                . '&amp;db=%2$s&amp;table=%1$s',
         );
+        $this->classes = 'view';
+    }
+
+    /**
+     * Returns the type of the item represented by the node.
+     *
+     * @return string type of the item
+     */
+    protected function getItemType()
+    {
+        return 'view';
     }
 }

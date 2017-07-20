@@ -5,7 +5,7 @@
  *
  * @package PhpMyAdmin-Navigation
  */
-namespace PMA\libraries\navigation\nodes;
+namespace PhpMyAdmin\Navigation\Nodes;
 
 use PhpMyAdmin\Url;
 use PhpMyAdmin\Util;

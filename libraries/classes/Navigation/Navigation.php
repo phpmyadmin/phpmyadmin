@@ -6,7 +6,7 @@
  *
  * @package PhpMyAdmin-navigation
  */
-namespace PMA\libraries\navigation;
+namespace PhpMyAdmin\Navigation;
 
 use PhpMyAdmin\Config\PageSettings;
 use PhpMyAdmin\Message;

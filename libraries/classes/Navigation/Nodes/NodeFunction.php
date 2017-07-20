@@ -5,16 +5,16 @@
  *
  * @package PhpMyAdmin-Navigation
  */
-namespace PMA\libraries\navigation\nodes;
+namespace PhpMyAdmin\Navigation\Nodes;
 
 use PhpMyAdmin\Util;
 
 /**
- * Represents a view node in the navigation tree
+ * Represents a function node in the navigation tree
  *
  * @package PhpMyAdmin-Navigation
  */
-class NodeView extends NodeDatabaseChild
+class NodeFunction extends NodeDatabaseChild
 {
     /**
      * Initialises the class
@@ -27,14 +27,16 @@ class NodeView extends NodeDatabaseChild
     public function __construct($name, $type = Node::OBJECT, $is_group = false)
     {
         parent::__construct($name, $type, $is_group);
-        $this->icon = Util::getImage('b_props.png', __('View'));
+        $this->icon = Util::getImage('b_routines.png', __('Function'));
         $this->links = array(
-            'text' => 'sql.php?server=' . $GLOBALS['server']
-                . '&amp;db=%2$s&amp;table=%1$s&amp;pos=0',
-            'icon' => 'tbl_structure.php?server=' . $GLOBALS['server']
-                . '&amp;db=%2$s&amp;table=%1$s',
+            'text' => 'db_routines.php?server=' . $GLOBALS['server']
+                . '&amp;db=%2$s&amp;item_name=%1$s&amp;item_type=FUNCTION'
+                . '&amp;edit_item=1',
+            'icon' => 'db_routines.php?server=' . $GLOBALS['server']
+                . '&amp;db=%2$s&amp;item_name=%1$s&amp;item_type=FUNCTION'
+                . '&amp;execute_dialog=1',
         );
-        $this->classes = 'view';
+        $this->classes = 'function';
     }
 
     /**
@@ -44,6 +46,6 @@ class NodeView extends NodeDatabaseChild
      */
     protected function getItemType()
     {
-        return 'view';
+        return 'function';
     }
 }

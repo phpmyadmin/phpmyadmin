@@ -5,37 +5,37 @@
  *
  * @package PhpMyAdmin-Navigation
  */
-namespace PMA\libraries\navigation\nodes;
+namespace PhpMyAdmin\Navigation\Nodes;
 
-use PMA\libraries\navigation\NodeFactory;
+use PhpMyAdmin\Navigation\NodeFactory;
 use PhpMyAdmin\Util;
 
 /**
- * Represents a container for functions nodes in the navigation tree
+ * Represents a container for procedure nodes in the navigation tree
  *
  * @package PhpMyAdmin-Navigation
  */
-class NodeFunctionContainer extends NodeDatabaseChildContainer
+class NodeProcedureContainer extends NodeDatabaseChildContainer
 {
     /**
      * Initialises the class
      */
     public function __construct()
     {
-        parent::__construct(__('Functions'), Node::CONTAINER);
+        parent::__construct(__('Procedures'), Node::CONTAINER);
         $this->icon = Util::getImage(
             'b_routines.png',
-            __('Functions')
+            __('Procedures')
         );
         $this->links = array(
             'text' => 'db_routines.php?server=' . $GLOBALS['server']
-                . '&amp;db=%1$s&amp;type=FUNCTION',
+                . '&amp;db=%1$s&amp;type=PROCEDURE',
             'icon' => 'db_routines.php?server=' . $GLOBALS['server']
-                . '&amp;db=%1$s&amp;type=FUNCTION',
+                . '&amp;db=%1$s&amp;type=PROCEDURE',
         );
-        $this->real_name = 'functions';
+        $this->real_name = 'procedures';
 
-        $new_label = _pgettext('Create new function', 'New');
+        $new_label = _pgettext('Create new procedure', 'New');
         $new = NodeFactory::getInstance(
             'Node',
             $new_label
@@ -44,11 +44,11 @@ class NodeFunctionContainer extends NodeDatabaseChildContainer
         $new->icon = Util::getImage('b_routine_add.png', $new_label);
         $new->links = array(
             'text' => 'db_routines.php?server=' . $GLOBALS['server']
-                . '&amp;db=%2$s&add_item=1&amp;item_type=FUNCTION',
+                . '&amp;db=%2$s&add_item=1',
             'icon' => 'db_routines.php?server=' . $GLOBALS['server']
-                . '&amp;db=%2$s&add_item=1&amp;item_type=FUNCTION',
+                . '&amp;db=%2$s&add_item=1',
         );
-        $new->classes = 'new_function italics';
+        $new->classes = 'new_procedure italics';
         $this->addChild($new);
     }
 }

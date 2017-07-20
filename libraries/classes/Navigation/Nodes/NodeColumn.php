@@ -5,16 +5,16 @@
  *
  * @package PhpMyAdmin-Navigation
  */
-namespace PMA\libraries\navigation\nodes;
+namespace PhpMyAdmin\Navigation\Nodes;
 
 use PhpMyAdmin\Util;
 
 /**
- * Represents a index node in the navigation tree
+ * Represents a columns node in the navigation tree
  *
  * @package PhpMyAdmin-Navigation
  */
-class NodeIndex extends Node
+class NodeColumn extends Node
 {
     /**
      * Initialises the class
@@ -27,13 +27,15 @@ class NodeIndex extends Node
     public function __construct($name, $type = Node::OBJECT, $is_group = false)
     {
         parent::__construct($name, $type, $is_group);
-        $this->icon = Util::getImage('b_index.png', __('Index'));
+        $this->icon = Util::getImage('pause.png', __('Column'));
         $this->links = array(
-            'text' => 'tbl_indexes.php?server=' . $GLOBALS['server']
-                . '&amp;db=%3$s&amp;table=%2$s&amp;index=%1$s',
-            'icon' => 'tbl_indexes.php?server=' . $GLOBALS['server']
-                . '&amp;db=%3$s&amp;table=%2$s&amp;index=%1$s',
+            'text'  => 'tbl_structure.php?server=' . $GLOBALS['server']
+                . '&amp;db=%3$s&amp;table=%2$s&amp;field=%1$s'
+                . '&amp;change_column=1',
+            'icon'  => 'tbl_structure.php?server=' . $GLOBALS['server']
+                . '&amp;db=%3$s&amp;table=%2$s&amp;field=%1$s'
+                . '&amp;change_column=1',
+            'title' => __('Structure'),
         );
-        $this->classes = 'index';
     }
 }

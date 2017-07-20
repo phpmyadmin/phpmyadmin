@@ -5,7 +5,7 @@
  *
  * @package PhpMyAdmin-Navigation
  */
-namespace PMA\libraries\navigation\nodes;
+namespace PhpMyAdmin\Navigation\Nodes;
 
 use PhpMyAdmin\Url;
 use PhpMyAdmin\Util;
@@ -57,8 +57,8 @@ class NodeDatabase extends Node
 
     /**
      * Returns the number of children of type $type present inside this container
-     * This method is overridden by the PMA\libraries\navigation\nodes\NodeDatabase
-     * and PMA\libraries\navigation\nodes\NodeTable classes
+     * This method is overridden by the PhpMyAdmin\Navigation\Nodes\NodeDatabase
+     * and PhpMyAdmin\Navigation\Nodes\NodeTable classes
      *
      * @param string  $type         The type of item we are looking for
      *                              ('tables', 'views', etc)
@@ -352,8 +352,8 @@ class NodeDatabase extends Node
 
     /**
      * Returns the names of children of type $type present inside this container
-     * This method is overridden by the PMA\libraries\navigation\nodes\NodeDatabase
-     * and PMA\libraries\navigation\nodes\NodeTable classes
+     * This method is overridden by the PhpMyAdmin\Navigation\Nodes\NodeDatabase
+     * and PhpMyAdmin\Navigation\Nodes\NodeTable classes
      *
      * @param string $type         The type of item we are looking for
      *                             ('tables', 'views', etc)

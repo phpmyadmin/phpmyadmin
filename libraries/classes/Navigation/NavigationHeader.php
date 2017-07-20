@@ -5,7 +5,7 @@
  *
  * @package PhpMyAdmin-Navigation
  */
-namespace PMA\libraries\navigation;
+namespace PhpMyAdmin\Navigation;
 
 use PhpMyAdmin\Sanitize;
 use PhpMyAdmin\Template;
