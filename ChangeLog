@@ -27,7 +27,9 @@ phpMyAdmin - ChangeLog
 - issue #13448 Add "format" query button in edit view form
 - issue #6241  Implement Responsive Design/mobile interface
 
-4.7.3 (not yet released)
+4.7.4 (not yet released)
+
+4.7.3 (2017-07-20)
 - issue #13447 Large multi-line query removes Export operation and blanks query box options
 - issue #13445 Fixed rendering of query results
 - issue #13437 Fixed version check when not connected to a database
