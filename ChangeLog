@@ -26,6 +26,7 @@ phpMyAdmin - ChangeLog
 - issue #13145 Improved layout of operations pages
 - issue #13448 Add "format" query button in edit view form
 - issue #6241  Implement Responsive Design/mobile interface
+- issue        Use a single location for classes under PhpMyAdmin namespace
 
 4.7.4 (not yet released)
 - issue #13415 Remove shadow from the logo

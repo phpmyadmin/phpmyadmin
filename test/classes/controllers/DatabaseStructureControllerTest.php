@@ -14,11 +14,11 @@
 use PhpMyAdmin\Controllers\Database\DatabaseStructureController;
 use PhpMyAdmin\Di\Container;
 use PhpMyAdmin\Table;
+use PhpMyAdmin\Tests\Stubs\Response as ResponseStub;
 use PhpMyAdmin\Theme;
 
 require_once 'test/PMATestCase.php';
 require_once 'libraries/database_interface.inc.php';
-require_once 'test/libraries/stubs/ResponseStub.php';
 
 /**
  * DatabaseStructureController_Test class
@@ -30,7 +30,7 @@ require_once 'test/libraries/stubs/ResponseStub.php';
 class DatabaseStructureControllerTest extends PMATestCase
 {
     /**
-     * @var \PMA\Test\Stubs\Response
+     * @var \PhpMyAdmin\Tests\Stubs\Response
      */
     private $_response;
 
@@ -78,7 +78,7 @@ class DatabaseStructureControllerTest extends PMATestCase
         $container->set('db', 'db');
         $container->set('table', 'table');
         $container->set('dbi', $GLOBALS['dbi']);
-        $this->_response = new \PMA\Test\Stubs\Response();
+        $this->_response = new ResponseStub();
         $container->set('PhpMyAdmin\Response', $this->_response);
         $container->alias('response', 'PhpMyAdmin\Response');
     }
@@ -95,7 +95,7 @@ class DatabaseStructureControllerTest extends PMATestCase
         $container->set('db', 'db');
         $container->set('table', 'table');
         $container->set('dbi', $GLOBALS['dbi']);
-        $response = new \PMA\Test\Stubs\Response();
+        $response = new ResponseStub();
         $container->set('PhpMyAdmin\Response', $response);
         $container->alias('response', 'PhpMyAdmin\Response');
 

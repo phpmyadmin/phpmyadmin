@@ -18,8 +18,6 @@ use PhpMyAdmin\Tracker;
 use PhpMyAdmin\Url;
 use PhpMyAdmin\Util;
 
-require_once './libraries/util.lib.php';
-
 /**
  * Main interface for database interactions
  *
@@ -155,7 +153,7 @@ class DatabaseInterface
      */
     public function getCachedTableContent($contentPath, $default = null)
     {
-        return \PMA\Util\get($this->_table_cache, $contentPath, $default);
+        return Util::getValueByKey($this->_table_cache, $contentPath, $default);
     }
 
     /**

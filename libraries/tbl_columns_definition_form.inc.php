@@ -10,8 +10,9 @@
 use PhpMyAdmin\Di\Container;
 use PhpMyAdmin\Response;
 use PhpMyAdmin\Table;
+use PhpMyAdmin\Template;
 use PhpMyAdmin\Transformations;
-use PMA\Util;
+use PhpMyAdmin\Util;
 
 if (!defined('PHPMYADMIN')) {
     exit;
@@ -20,9 +21,7 @@ if (!defined('PHPMYADMIN')) {
 /**
  * Check parameters
  */
-require_once 'libraries/util.lib.php';
-
-PhpMyAdmin\Util::checkParameters(
+Util::checkParameters(
     array('server', 'db', 'table', 'action', 'num_fields')
 );
 
@@ -57,7 +56,7 @@ if ($action == 'tbl_create.php') {
     if ($action == 'tbl_addfield.php') {
         $form_params = array_merge(
             $form_params, array(
-            'field_where' => Util\get($_REQUEST, 'field_where'))
+            'field_where' => Util::getValueByKey($_REQUEST, 'field_where'))
         );
         if (isset($_REQUEST['field_where'])) {
             $form_params['after_field'] = $_REQUEST['after_field'];
@@ -73,8 +72,8 @@ if (isset($num_fields)) {
 $form_params = array_merge(
     $form_params,
     array(
-        'orig_field_where' => Util\get($_REQUEST, 'field_where'),
-        'orig_after_field' => Util\get($_REQUEST, 'after_field'),
+        'orig_field_where' => Util::getValueByKey($_REQUEST, 'field_where'),
+        'orig_after_field' => Util::getValueByKey($_REQUEST, 'after_field'),
     )
 );
 
@@ -139,31 +138,31 @@ for ($columnNumber = 0; $columnNumber < $num_fields; $columnNumber++) {
         $columnMeta = array_merge(
             $columnMeta,
             array(
-                'Field'        => Util\get(
+                'Field'        => Util::getValueByKey(
                     $_REQUEST, "field_name.${columnNumber}", false
                 ),
-                'Type'         => Util\get(
+                'Type'         => Util::getValueByKey(
                     $_REQUEST, "field_type.${columnNumber}", false
                 ),
-                'Collation'    => Util\get(
+                'Collation'    => Util::getValueByKey(
                     $_REQUEST, "field_collation.${columnNumber}", ''
                 ),
-                'Null'         => Util\get(
+                'Null'         => Util::getValueByKey(
                     $_REQUEST, "field_null.${columnNumber}", ''
                 ),
-                'DefaultType'  => Util\get(
+                'DefaultType'  => Util::getValueByKey(
                     $_REQUEST, "field_default_type.${columnNumber}", 'NONE'
                 ),
-                'DefaultValue' => Util\get(
+                'DefaultValue' => Util::getValueByKey(
                     $_REQUEST, "field_default_value.${columnNumber}", ''
                 ),
-                'Extra'        => Util\get(
+                'Extra'        => Util::getValueByKey(
                     $_REQUEST, "field_extra.${columnNumber}", false
                 ),
-                'Virtuality'   => Util\get(
+                'Virtuality'   => Util::getValueByKey(
                     $_REQUEST, "field_virtuality.${columnNumber}", ''
                 ),
-                'Expression'   => Util\get(
+                'Expression'   => Util::getValueByKey(
                     $_REQUEST, "field_expression.${columnNumber}", ''
                 ),
             )
@@ -171,10 +170,10 @@ for ($columnNumber = 0; $columnNumber < $num_fields; $columnNumber++) {
 
         $columnMeta['Key'] = '';
         $parts = explode(
-            '_', Util\get($_REQUEST, "field_key.${columnNumber}", ''), 2
+            '_', Util::getValueByKey($_REQUEST, "field_key.${columnNumber}", ''), 2
         );
         if (count($parts) == 2 && $parts[1] == $columnNumber) {
-            $columnMeta['Key'] = Util\get(
+            $columnMeta['Key'] = Util::getValueByKey(
                 array(
                     'primary' => 'PRI',
                     'index' => 'MUL',
@@ -204,22 +203,22 @@ for ($columnNumber = 0; $columnNumber < $num_fields; $columnNumber++) {
             break;
         }
 
-        $length = Util\get($_REQUEST, "field_length.${columnNumber}", $length);
-        $submit_attribute = Util\get(
+        $length = Util::getValueByKey($_REQUEST, "field_length.${columnNumber}", $length);
+        $submit_attribute = Util::getValueByKey(
             $_REQUEST, "field_attribute.${columnNumber}", false
         );
-        $comments_map[$columnMeta['Field']] = Util\get(
+        $comments_map[$columnMeta['Field']] = Util::getValueByKey(
             $_REQUEST, "field_comments.${columnNumber}"
         );
 
         $mime_map[$columnMeta['Field']] = array_merge(
             $mime_map[$columnMeta['Field']],
             array(
-                'mimetype' => Util\get($_REQUEST, "field_mimetype.${$columnNumber}"),
-                'transformation' => Util\get(
+                'mimetype' => Util::getValueByKey($_REQUEST, "field_mimetype.${$columnNumber}"),
+                'transformation' => Util::getValueByKey(
                     $_REQUEST, "field_transformation.${$columnNumber}"
                 ),
-                'transformation_options' => Util\get(
+                'transformation_options' => Util::getValueByKey(
                     $_REQUEST, "field_transformation_options.${$columnNumber}"
                 ),
             )
@@ -264,12 +263,12 @@ for ($columnNumber = 0; $columnNumber < $num_fields; $columnNumber++) {
     }
 
     if (isset($columnMeta['Type'])) {
-        $extracted_columnspec = PhpMyAdmin\Util::extractColumnSpec(
+        $extracted_columnspec = Util::extractColumnSpec(
             $columnMeta['Type']
         );
         if ($extracted_columnspec['type'] == 'bit') {
             $columnMeta['Default']
-                = PhpMyAdmin\Util::convertBitDefaultValue($columnMeta['Default']);
+                = Util::convertBitDefaultValue($columnMeta['Default']);
         }
         $type = $extracted_columnspec['type'];
         if ($length == '') {
@@ -342,31 +341,31 @@ for ($columnNumber = 0; $columnNumber < $num_fields; $columnNumber++) {
         $form_params = array_merge(
             $form_params,
             array(
-                "field_default_value_orig[${columnNumber}]" => Util\get(
+                "field_default_value_orig[${columnNumber}]" => Util::getValueByKey(
                     $columnMeta, 'Default', ''
                 ),
-                "field_default_type_orig[${columnNumber}]"  => Util\get(
+                "field_default_type_orig[${columnNumber}]"  => Util::getValueByKey(
                     $columnMeta, 'DefaultType', ''
                 ),
-                "field_collation_orig[${columnNumber}]"     => Util\get(
+                "field_collation_orig[${columnNumber}]"     => Util::getValueByKey(
                     $columnMeta, 'Collation', ''
                 ),
                 "field_attribute_orig[${columnNumber}]"     => trim(
-                    Util\get($extracted_columnspec, 'attribute', '')
+                    Util::getValueByKey($extracted_columnspec, 'attribute', '')
                 ),
-                "field_null_orig[${columnNumber}]"          => Util\get(
+                "field_null_orig[${columnNumber}]"          => Util::getValueByKey(
                     $columnMeta, 'Null', ''
                 ),
-                "field_extra_orig[${columnNumber}]"         => Util\get(
+                "field_extra_orig[${columnNumber}]"         => Util::getValueByKey(
                     $columnMeta, 'Extra', ''
                 ),
-                "field_comments_orig[${columnNumber}]"      => Util\get(
+                "field_comments_orig[${columnNumber}]"      => Util::getValueByKey(
                     $columnMeta, 'Comment', ''
                 ),
-                "field_virtuality_orig[${columnNumber}]"    => Util\get(
+                "field_virtuality_orig[${columnNumber}]"    => Util::getValueByKey(
                     $columnMeta, 'Virtuality', ''
                 ),
-                "field_expression_orig[${columnNumber}]"    => Util\get(
+                "field_expression_orig[${columnNumber}]"    => Util::getValueByKey(
                     $columnMeta, 'Expression', ''
                 ),
             )
@@ -392,7 +391,7 @@ for ($columnNumber = 0; $columnNumber < $num_fields; $columnNumber++) {
 } // end for
 
 include 'libraries/tbl_partition_definition.inc.php';
-$html = PhpMyAdmin\Template::get('columns_definitions/column_definitions_form')
+$html = Template::get('columns_definitions/column_definitions_form')
     ->render(
         array(
             'is_backup'        => $is_backup,

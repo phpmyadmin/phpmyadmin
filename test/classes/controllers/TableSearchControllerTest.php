@@ -11,10 +11,10 @@
  */
 use PhpMyAdmin\Controllers\Table\TableSearchController;
 use PhpMyAdmin\Di\Container;
+use PhpMyAdmin\Tests\Stubs\Response as ResponseStub;
 use PhpMyAdmin\Theme;
 use PhpMyAdmin\TypesMySQL;
 
-require_once 'test/libraries/stubs/ResponseStub.php';
 require_once 'test/PMATestCase.php';
 
 /**
@@ -25,7 +25,7 @@ require_once 'test/PMATestCase.php';
 class TableSearchControllerTest extends PMATestCase
 {
     /**
-     * @var PMA\Test\Stubs\Response
+     * @var PhpMyAdmin\Tests\Stubs\Response
      */
     private $_response;
 
@@ -87,7 +87,7 @@ class TableSearchControllerTest extends PMATestCase
 
         $GLOBALS['dbi'] = $dbi;
 
-        $this->_response = new PMA\Test\Stubs\Response();
+        $this->_response = new ResponseStub();
 
         $container = Container::getDefaultContainer();
         $container->set('db', 'PMA');

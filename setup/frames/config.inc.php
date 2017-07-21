@@ -6,7 +6,7 @@
  * @package PhpMyAdmin-Setup
  */
 
-use PMA\setup\lib\ConfigGenerator;
+use PhpMyAdmin\Setup\ConfigGenerator;
 use PhpMyAdmin\Core;
 
 if (!defined('PHPMYADMIN')) {

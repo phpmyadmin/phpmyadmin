@@ -22,9 +22,7 @@ use PhpMyAdmin\Template;
 use PhpMyAdmin\Transformations;
 use PhpMyAdmin\Util;
 use PhpMyAdmin\Url;
-use PMA\Util as Util_lib;
 
-require_once 'libraries/util.lib.php';
 require_once 'libraries/config/messages.inc.php';
 require_once 'libraries/config/user_preferences.forms.php';
 require_once 'libraries/config/page_settings.forms.php';
@@ -844,20 +842,20 @@ class TableStructureController extends TableController
             }
 
             $changes[] = 'CHANGE ' . Table::generateAlter(
-                Util_lib\get($_REQUEST, "field_orig.${i}", ''),
+                Util::getValueByKey($_REQUEST, "field_orig.${i}", ''),
                 $_REQUEST['field_name'][$i],
                 $_REQUEST['field_type'][$i],
                 $_REQUEST['field_length'][$i],
                 $_REQUEST['field_attribute'][$i],
-                Util_lib\get($_REQUEST, "field_collation.${i}", ''),
-                Util_lib\get($_REQUEST, "field_null.${i}", 'NOT NULL'),
+                Util::getValueByKey($_REQUEST, "field_collation.${i}", ''),
+                Util::getValueByKey($_REQUEST, "field_null.${i}", 'NOT NULL'),
                 $_REQUEST['field_default_type'][$i],
                 $_REQUEST['field_default_value'][$i],
-                Util_lib\get($_REQUEST, "field_extra.${i}", false),
-                Util_lib\get($_REQUEST, "field_comments.${i}", ''),
-                Util_lib\get($_REQUEST, "field_virtuality.${i}", ''),
-                Util_lib\get($_REQUEST, "field_expression.${i}", ''),
-                Util_lib\get($_REQUEST, "field_move_to.${i}", '')
+                Util::getValueByKey($_REQUEST, "field_extra.${i}", false),
+                Util::getValueByKey($_REQUEST, "field_comments.${i}", ''),
+                Util::getValueByKey($_REQUEST, "field_virtuality.${i}", ''),
+                Util::getValueByKey($_REQUEST, "field_expression.${i}", ''),
+                Util::getValueByKey($_REQUEST, "field_move_to.${i}", '')
             );
 
             // find the remembered sort expression
@@ -980,20 +978,20 @@ class TableStructureController extends TableController
                 for ($i = 0; $i < $field_cnt; $i++) {
                     if ($changedToBlob[$i]) {
                         $changes_revert[] = 'CHANGE ' . Table::generateAlter(
-                            Util_lib\get($_REQUEST, "field_orig.${i}", ''),
+                            Util::getValueByKey($_REQUEST, "field_orig.${i}", ''),
                             $_REQUEST['field_name'][$i],
                             $_REQUEST['field_type_orig'][$i],
                             $_REQUEST['field_length_orig'][$i],
                             $_REQUEST['field_attribute_orig'][$i],
-                            Util_lib\get($_REQUEST, "field_collation_orig.${i}", ''),
-                            Util_lib\get($_REQUEST, "field_null_orig.${i}", 'NOT NULL'),
+                            Util::getValueByKey($_REQUEST, "field_collation_orig.${i}", ''),
+                            Util::getValueByKey($_REQUEST, "field_null_orig.${i}", 'NOT NULL'),
                             $_REQUEST['field_default_type_orig'][$i],
                             $_REQUEST['field_default_value_orig'][$i],
-                            Util_lib\get($_REQUEST, "field_extra_orig.${i}", false),
-                            Util_lib\get($_REQUEST, "field_comments_orig.${i}", ''),
-                            Util_lib\get($_REQUEST, "field_virtuality_orig.${i}", ''),
-                            Util_lib\get($_REQUEST, "field_expression_orig.${i}", ''),
-                            Util_lib\get($_REQUEST, "field_move_to_orig.${i}", '')
+                            Util::getValueByKey($_REQUEST, "field_extra_orig.${i}", false),
+                            Util::getValueByKey($_REQUEST, "field_comments_orig.${i}", ''),
+                            Util::getValueByKey($_REQUEST, "field_virtuality_orig.${i}", ''),
+                            Util::getValueByKey($_REQUEST, "field_expression_orig.${i}", ''),
+                            Util::getValueByKey($_REQUEST, "field_move_to_orig.${i}", '')
                         );
                     }
                 }
@@ -1066,8 +1064,8 @@ class TableStructureController extends TableController
     {
         $changed = false;
 
-        if (Util_lib\get($GLOBALS, 'col_priv', false)
-            && Util_lib\get($GLOBALS, 'is_reload_priv', false)
+        if (Util::getValueByKey($GLOBALS, 'col_priv', false)
+            && Util::getValueByKey($GLOBALS, 'is_reload_priv', false)
         ) {
             $this->dbi->selectDb('mysql');
 
