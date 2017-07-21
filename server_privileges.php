@@ -7,6 +7,7 @@
  */
 
 use PhpMyAdmin\Core;
+use PhpMyAdmin\Message;
 use PhpMyAdmin\Response;
 
 /**
@@ -132,10 +133,15 @@ if (!$GLOBALS['is_superuser'] && !$GLOBALS['is_grantuser']
 ) {
     $response->addHTML(PMA_getHtmlForSubPageHeader('privileges', '', false));
     $response->addHTML(
-        PhpMyAdmin\Message::error(__('No Privileges'))
+        Message::error(__('No Privileges'))
             ->getDisplay()
     );
     exit;
+}
+if (! $GLOBALS['is_grantuser'] && !$GLOBALS['is_createuser']) {
+    $response->addHTML(Message::notice(
+        __('You do not have privileges to manipulate with the users!')
+    )->getDisplay());
 }
 
 /**
@@ -146,7 +152,7 @@ if (isset($_REQUEST['change_copy']) && $username == $_REQUEST['old_username']
     && $hostname == $_REQUEST['old_hostname']
 ) {
     $response->addHTML(
-        PhpMyAdmin\Message::error(
+        Message::error(
             __(
                 "Username and hostname didn't change. "
                 . "If you only want to change the password, "
@@ -237,7 +243,7 @@ if (! empty($_REQUEST['changeUserGroup']) && $cfgRelation['menuswork']
     && $GLOBALS['is_superuser'] && $GLOBALS['is_createuser']
 ) {
     PMA_setUserGroup($username, $_REQUEST['userGroup']);
-    $message = PhpMyAdmin\Message::success();
+    $message = Message::success();
 }
 
 /**
@@ -283,7 +289,7 @@ if (isset($_REQUEST['delete'])
  */
 if (isset($_REQUEST['change_copy'])) {
     $queries = PMA_getDataForQueries($queries, $queries_for_display);
-    $message = PhpMyAdmin\Message::success();
+    $message = Message::success();
     $sql_query = join("\n", $queries);
 }
 
@@ -318,7 +324,7 @@ if ($response->isAjax()
         (isset($username) ? $username : '')
     );
 
-    if (! empty($message) && $message instanceof PhpMyAdmin\Message) {
+    if (! empty($message) && $message instanceof Message) {
         $response->setRequestStatus($message->isSuccess());
         $response->addJSON('message', $message);
         $response->addJSON($extra_data);
