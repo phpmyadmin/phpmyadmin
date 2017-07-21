@@ -368,25 +368,6 @@ class ThemeManager
     }
 
     /**
-     * enables backward compatibility
-     *
-     * @return void
-     * @access public
-     */
-    public function makeBc()
-    {
-        $GLOBALS['pmaThemePath']    = $this->theme->getPath();
-        $GLOBALS['pmaThemeImage']   = $this->theme->getImgPath();
-
-        /**
-         * load layout file if exists
-         */
-        if (@file_exists($this->theme->getLayoutFile())) {
-            include $this->theme->getLayoutFile();
-        }
-    }
-
-    /**
      * Renders the previews for all themes
      *
      * @return string
