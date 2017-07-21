@@ -540,11 +540,6 @@ if (! isset($cfg['Servers']) || count($cfg['Servers']) == 0) {
 unset($default_server);
 
 
-/******************************************************************************/
-/* setup themes                                          LABEL_theme_setup    */
-
-ThemeManager::initializeTheme();
-
 if (! defined('PMA_MINIMUM_COMMON')) {
     /**
      * Lookup server by name
@@ -598,7 +593,14 @@ if (! defined('PMA_MINIMUM_COMMON')) {
         }
     }
     $GLOBALS['url_params']['server'] = $GLOBALS['server'];
+}
 
+/******************************************************************************/
+/* setup themes                                          LABEL_theme_setup    */
+
+ThemeManager::initializeTheme();
+
+if (! defined('PMA_MINIMUM_COMMON')) {
     /**
      * save some settings in cookies
      * @todo should be done in PMA\libraries\Config

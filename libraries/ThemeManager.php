@@ -479,7 +479,6 @@ class ThemeManager
 
         // for the theme per server feature
         if (isset($_REQUEST['server']) && ! isset($_REQUEST['set_theme'])) {
-            $GLOBALS['server'] = $_REQUEST['server'];
             $tmp = $tmanager->getThemeCookie();
             if (empty($tmp)) {
                 $tmp = $tmanager->theme_default;
