@@ -448,9 +448,6 @@ class ThemeManager
     {
         $tmanager = self::getInstance();
 
-        /**
-         * @todo move into ThemeManager::__wakeup()
-         */
         if (isset($_REQUEST['set_theme'])) {
             // if user selected a theme
             $tmanager->setActiveTheme($_REQUEST['set_theme']);
