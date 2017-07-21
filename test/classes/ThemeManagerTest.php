@@ -94,19 +94,6 @@ class ThemeManagerTest extends PMATestCase
     }
 
     /**
-     * Test for checkConfig
-     *
-     * @return void
-     */
-    public function testCheckConfig()
-    {
-        $tm = new ThemeManager();
-        $this->assertNull(
-            $tm->checkConfig()
-        );
-    }
-
-    /**
      * Test for makeBc
      *
      * @return void
