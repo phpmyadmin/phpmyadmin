@@ -156,9 +156,8 @@ class ThemeManager
         $this->theme_default = $GLOBALS['cfg']['ThemeDefault'];
 
         // check if user have a theme cookie
-        if (! $this->getThemeCookie()
-            || ! $this->setActiveTheme($this->getThemeCookie())
-        ) {
+        $cookie_theme = $this->getThemeCookie();
+        if (! $cookie_theme || ! $this->setActiveTheme($cookie_theme)) {
             if ($GLOBALS['cfg']['ThemeDefault']) {
                 // otherwise use default theme
                 $this->setActiveTheme($this->theme_default);
@@ -242,8 +241,9 @@ class ThemeManager
      */
     public function getThemeCookie()
     {
-        if (isset($_COOKIE[$this->getThemeCookieName()])) {
-            return $_COOKIE[$this->getThemeCookieName()];
+        $name = $this->getThemeCookieName();
+        if (isset($_COOKIE[$name])) {
+            return $_COOKIE[$name];
         }
 
         return false;
