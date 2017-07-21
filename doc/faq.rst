@@ -1184,6 +1184,9 @@ or one of the host names present in the configuration file. Using
 ``pma_username`` and ``pma_password`` has been tested along with the
 usage of 'cookie' ``auth_type``.
 
+For example direct login URL can be constructed as
+``https://example.com/phpmyadmin/?pma_username=user&pma_password=password``.
+
 .. _faqbrowsers:
 
 Browsers or client OS
