@@ -331,7 +331,8 @@ Server connection settings
 
     .. seealso::
 
-        :ref:`example-google-ssl`
+        :ref:`ssl`,
+        :ref:`example-google-ssl`,
         :config:option:`$cfg['Servers'][$i]['ssl_key']`,
         :config:option:`$cfg['Servers'][$i]['ssl_cert']`,
         :config:option:`$cfg['Servers'][$i]['ssl_ca']`,
@@ -344,7 +345,8 @@ Server connection settings
     :type: string
     :default: NULL
 
-    Path to the key file when using SSL for connecting to the MySQL server.
+    Path to the client key file when using SSL for connecting to the MySQL
+    server. This is used to authenticate the client to the server.
 
     For example:
 
@@ -354,7 +356,8 @@ Server connection settings
 
     .. seealso::
 
-        :ref:`example-google-ssl`
+        :ref:`ssl`,
+        :ref:`example-google-ssl`,
         :config:option:`$cfg['Servers'][$i]['ssl']`,
         :config:option:`$cfg['Servers'][$i]['ssl_cert']`,
         :config:option:`$cfg['Servers'][$i]['ssl_ca']`,
@@ -367,11 +370,13 @@ Server connection settings
     :type: string
     :default: NULL
 
-    Path to the cert file when using SSL for connecting to the MySQL server.
+    Path to the client certificate file when using SSL for connecting to the
+    MySQL server. This is used to authenticate the client to the server.
 
     .. seealso::
 
-        :ref:`example-google-ssl`
+        :ref:`ssl`,
+        :ref:`example-google-ssl`,
         :config:option:`$cfg['Servers'][$i]['ssl']`,
         :config:option:`$cfg['Servers'][$i]['ssl_key']`,
         :config:option:`$cfg['Servers'][$i]['ssl_ca']`,
@@ -388,7 +393,8 @@ Server connection settings
 
     .. seealso::
 
-        :ref:`example-google-ssl`
+        :ref:`ssl`,
+        :ref:`example-google-ssl`,
         :config:option:`$cfg['Servers'][$i]['ssl']`,
         :config:option:`$cfg['Servers'][$i]['ssl_key']`,
         :config:option:`$cfg['Servers'][$i]['ssl_cert']`,
@@ -405,7 +411,8 @@ Server connection settings
 
     .. seealso::
 
-        :ref:`example-google-ssl`
+        :ref:`ssl`,
+        :ref:`example-google-ssl`,
         :config:option:`$cfg['Servers'][$i]['ssl']`,
         :config:option:`$cfg['Servers'][$i]['ssl_key']`,
         :config:option:`$cfg['Servers'][$i]['ssl_cert']`,
@@ -422,6 +429,8 @@ Server connection settings
 
     .. seealso::
 
+        :ref:`ssl`,
+        :ref:`example-google-ssl`,
         :config:option:`$cfg['Servers'][$i]['ssl']`,
         :config:option:`$cfg['Servers'][$i]['ssl_key']`,
         :config:option:`$cfg['Servers'][$i]['ssl_cert']`,
@@ -459,7 +468,8 @@ Server connection settings
 
     .. seealso::
 
-        :ref:`example-google-ssl`
+        :ref:`ssl`,
+        :ref:`example-google-ssl`,
         :config:option:`$cfg['Servers'][$i]['ssl']`,
         :config:option:`$cfg['Servers'][$i]['ssl_key']`,
         :config:option:`$cfg['Servers'][$i]['ssl_cert']`,
@@ -3405,6 +3415,7 @@ server certificates and tell phpMyAdmin to use them:
 
 .. seealso::
 
+    :ref:`ssl`,
     :config:option:`$cfg['Servers'][$i]['ssl']`,
     :config:option:`$cfg['Servers'][$i]['ssl_key']`,
     :config:option:`$cfg['Servers'][$i]['ssl_cert']`,

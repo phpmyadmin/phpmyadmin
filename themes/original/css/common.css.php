@@ -665,6 +665,9 @@ ul#topmenu2 a {
     white-space:        nowrap;
 }
 
+span.caution {
+    color: #FF0000;
+}
 fieldset.caution a {
     color:              #FF0000;
 }

@@ -1057,6 +1057,38 @@ are always ways to make your installation more secure:
   fail2ban to block brute-force attempts. Note that the log file used by syslog
   is not the same as the Apache error or access log files.
 
+.. _ssl:
+
+Using SSL for connection to database server
++++++++++++++++++++++++++++++++++++++++++++
+
+It is recommended to use SSL when connecting to remote database server. There
+are several configuration options involved in the SSL setup:
+
+:config:option:`$cfg['Servers'][$i]['ssl']`
+    Defines whether to use SSL at all. If you enable only this, the connection
+    will be encrypted, but there is not authentication of the connection - you
+    can not verify that you are talking to the right server.
+:config:option:`$cfg['Servers'][$i]['ssl_key']` and :config:option:`$cfg['Servers'][$i]['ssl_cert']`
+    This is used for authentication of client to the server.
+:config:option:`$cfg['Servers'][$i]['ssl_ca']` and :config:option:`$cfg['Servers'][$i]['ssl_ca_path']`
+    The certificate authorities you trust for server certificates.
+    This is used to ensure that you are talking to a trusted server.
+:config:option:`$cfg['Servers'][$i]['ssl_verify']`
+    This configuration disables server certificate verification. Use with
+    caution.
+
+.. seealso::
+
+    :ref:`example-google-ssl`,
+    :config:option:`$cfg['Servers'][$i]['ssl']`,
+    :config:option:`$cfg['Servers'][$i]['ssl_key']`,
+    :config:option:`$cfg['Servers'][$i]['ssl_cert']`,
+    :config:option:`$cfg['Servers'][$i]['ssl_ca']`,
+    :config:option:`$cfg['Servers'][$i]['ssl_ca_path']`,
+    :config:option:`$cfg['Servers'][$i]['ssl_ciphers']`,
+    :config:option:`$cfg['Servers'][$i]['ssl_verify']`
+
 Known issues
 ++++++++++++
 

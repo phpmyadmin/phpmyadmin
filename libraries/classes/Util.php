@@ -3938,6 +3938,32 @@ class Util
     }
 
     /**
+     * Returns information about SSL status for current connection
+     *
+     * @return string
+     */
+    public static function getServerSSL()
+    {
+        $server = $GLOBALS['cfg']['Server'];
+        $class = 'caution';
+        if (! $server['ssl']) {
+            $message = __('SSL is not being used');
+            if (! empty($server['socket']) || $server['host'] == '127.0.0.1' || $server['host'] == 'localhost') {
+                $class = '';
+            }
+        } elseif (! $server['ssl_verify']) {
+            $message = __('SSL is used with disabled verification');
+        } elseif (empty($server['ssl_ca']) && empty($server['ssl_ca'])) {
+            $message = __('SSL is used without certification authority');
+        } else {
+            $class = '';
+            $message = __('SSL is used');
+        }
+        return '<span class="' . $class . '">' . $message . '</span> ' . self::showDocu('setup', 'ssl');
+    }
+
+
+    /**
      * Prepare HTML code for display button.
      *
      * @return String

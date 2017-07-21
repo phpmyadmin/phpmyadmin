@@ -976,6 +976,9 @@ ul#topmenu2 a {
 
 }
 
+span.caution {
+    color: #FF0000;
+}
 fieldset.caution a {
     color: #FF0000;
 }

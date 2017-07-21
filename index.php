@@ -307,6 +307,10 @@ if ($server > 0 && $GLOBALS['cfg']['ShowServerInfo']) {
         'li_server_type'
     );
     PMA_printListItem(
+        __('Server connection:') . ' ' . PhpMyAdmin\Util::getServerSSL(),
+        'li_server_type'
+    );
+    PMA_printListItem(
         __('Server version:')
         . ' '
         . $GLOBALS['dbi']->getVersionString() . ' - ' . $GLOBALS['dbi']->getVersionComment(),
