@@ -685,7 +685,9 @@ class Header
                 . $basedir . 'js/vendor/codemirror/addon/lint/lint.css?' . $v . '" />';
             $retval .= '<link rel="stylesheet" type="text/css" href="'
                 . $basedir . 'phpmyadmin.css.php?'
-                . 'nocache=' . $theme_id . $GLOBALS['text_dir'] . '" />';
+                . 'nocache=' . $theme_id . $GLOBALS['text_dir']
+                . (isset($GLOBALS['server']) ? '&amp;server=' . $GLOBALS['server'] : '')
+                . '" />';
             // load Print view's CSS last, so that it overrides all other CSS while
             // 'printing'
             $retval .= '<link rel="stylesheet" type="text/css" href="'
