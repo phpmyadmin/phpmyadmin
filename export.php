@@ -8,7 +8,7 @@
 
 use PhpMyAdmin\Core;
 use PhpMyAdmin\Encoding;
-use PMA\libraries\plugins\ExportPlugin;
+use PhpMyAdmin\Plugins\ExportPlugin;
 use PhpMyAdmin\Url;
 use PhpMyAdmin\Util;
 use PhpMyAdmin\Sanitize;
@@ -183,7 +183,7 @@ $what = Core::securePath($_POST['what']);
 $export_plugin = PMA_getPlugin(
     "export",
     $what,
-    'libraries/plugins/export/',
+    'libraries/classes/Plugins/Export/',
     array(
         'export_type' => $export_type,
         'single_table' => isset($single_table)

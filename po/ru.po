@@ -4,17 +4,17 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.8.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2017-07-18 13:31+0200\n"
-"PO-Revision-Date: 2016-11-18 10:29+0000\n"
-"Last-Translator: Michal Čihař <michal@cihar.com>\n"
-"Language-Team: Russian <https://hosted.weblate.org/projects/phpmyadmin/"
-"master/ru/>\n"
+"PO-Revision-Date: 2017-07-19 14:12+0000\n"
+"Last-Translator: Vladimir G. <gawrilov-volodya2014@yandex.ru>\n"
+"Language-Team: Russian "
+"<https://hosted.weblate.org/projects/phpmyadmin/master/ru/>\n"
 "Language: ru\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=3; plural=n%10==1 && n%100!=11 ? 0 : n%10>=2 && n"
-"%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
-"X-Generator: Weblate 2.10-dev\n"
+"Plural-Forms: nplurals=3; plural=n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%10<="
+"4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
+"X-Generator: Weblate 2.16-dev\n"
 
 #: ajax.php:16 ajax.php:33 export.php:195 schema_export.php:66
 msgid "Bad type!"
@@ -28,9 +28,7 @@ msgstr "Ошибочный тип!"
 msgid ""
 "The %s file is not available on this system, please visit %s for more "
 "information."
-msgstr ""
-"Файл %s не найден. Вся дополнительная информация находится на сайте www."
-"phpmyadmin.net."
+msgstr "Файл %s не найден. Вся дополнительная информация находится на сайте %s."
 
 #: db_central_columns.php:110
 msgid "The central list of columns for the current database is empty."
@@ -3155,9 +3153,10 @@ msgid "Failed formatting string for rule '%s'."
 msgstr "Не удалось форматировать строку для правила '%s'."
 
 #: libraries/classes/Advisor.php:478
-#, php-format
+#, fuzzy, php-format
 msgid "Error in reading file: The file '%s' does not exist or is not readable!"
 msgstr ""
+"Ошибка чтения файла: Файл '%s' не существует или не доступен для чтения!"
 
 #: libraries/classes/Advisor.php:503
 #, php-format

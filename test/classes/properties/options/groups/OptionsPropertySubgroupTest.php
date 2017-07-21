@@ -1,15 +1,15 @@
 <?php
 /* vim: set expandtab sw=4 ts=4 sts=4: */
 /**
- * tests for PMA\libraries\properties\options\groups\OptionsPropertySubgroup class
+ * tests for PhpMyAdmin\Properties\Options\Groups\OptionsPropertySubgroup class
  *
  * @package PhpMyAdmin-test
  */
 
-use PMA\libraries\properties\options\groups\OptionsPropertySubgroup;
+use PhpMyAdmin\Properties\Options\Groups\OptionsPropertySubgroup;
 
 /**
- * tests for PMA\libraries\properties\options\groups\OptionsPropertySubgroup class
+ * tests for PhpMyAdmin\Properties\Options\Groups\OptionsPropertySubgroup class
  *
  * @package PhpMyAdmin-test
  */
@@ -38,7 +38,7 @@ class OptionsPropertySubgroupTest extends PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test for PMA\libraries\properties\options\groups\OptionsPropertySubgroup::getItemType
+     * Test for PhpMyAdmin\Properties\Options\Groups\OptionsPropertySubgroup::getItemType
      *
      * @return void
      */
@@ -52,8 +52,8 @@ class OptionsPropertySubgroupTest extends PHPUnit_Framework_TestCase
 
     /**
      * Test for
-     *     - PMA\libraries\properties\options\groups\OptionsPropertySubgroup::getSubgroupHeader
-     *     - PMA\libraries\properties\options\groups\OptionsPropertySubgroup::setSubgroupHeader
+     *     - PhpMyAdmin\Properties\Options\Groups\OptionsPropertySubgroup::getSubgroupHeader
+     *     - PhpMyAdmin\Properties\Options\Groups\OptionsPropertySubgroup::setSubgroupHeader
      *
      * @return void
      */

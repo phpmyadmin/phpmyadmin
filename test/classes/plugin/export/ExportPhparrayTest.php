@@ -1,18 +1,18 @@
 <?php
 /* vim: set expandtab sw=4 ts=4 sts=4: */
 /**
- * tests for PMA\libraries\plugins\export\ExportPhparray class
+ * tests for PhpMyAdmin\Plugins\Export\ExportPhparray class
  *
  * @package PhpMyAdmin-test
  */
-use PMA\libraries\plugins\export\ExportPhparray;
+use PhpMyAdmin\Plugins\Export\ExportPhparray;
 
 require_once 'libraries/export.lib.php';
 require_once 'libraries/config.default.php';
 require_once 'test/PMATestCase.php';
 
 /**
- * tests for PMA\libraries\plugins\export\ExportPhparray class
+ * tests for PhpMyAdmin\Plugins\Export\ExportPhparray class
  *
  * @package PhpMyAdmin-test
  * @group medium
@@ -48,22 +48,22 @@ class ExportPhparrayTest extends PMATestCase
     }
 
     /**
-     * Test for PMA\libraries\plugins\export\ExportPhparray::setProperties
+     * Test for PhpMyAdmin\Plugins\Export\ExportPhparray::setProperties
      *
      * @return void
      */
     public function testSetProperties()
     {
-        $method = new ReflectionMethod('PMA\libraries\plugins\export\ExportPhparray', 'setProperties');
+        $method = new ReflectionMethod('PhpMyAdmin\Plugins\Export\ExportPhparray', 'setProperties');
         $method->setAccessible(true);
         $method->invoke($this->object, null);
 
-        $attrProperties = new ReflectionProperty('PMA\libraries\plugins\export\ExportPhparray', 'properties');
+        $attrProperties = new ReflectionProperty('PhpMyAdmin\Plugins\Export\ExportPhparray', 'properties');
         $attrProperties->setAccessible(true);
         $properties = $attrProperties->getValue($this->object);
 
         $this->assertInstanceOf(
-            'PMA\libraries\properties\plugins\ExportPluginProperties',
+            'PhpMyAdmin\Properties\Plugins\ExportPluginProperties',
             $properties
         );
 
@@ -90,7 +90,7 @@ class ExportPhparrayTest extends PMATestCase
         $options = $properties->getOptions();
 
         $this->assertInstanceOf(
-            'PMA\libraries\properties\options\groups\OptionsPropertyRootGroup',
+            'PhpMyAdmin\Properties\Options\Groups\OptionsPropertyRootGroup',
             $options
         );
 
@@ -103,7 +103,7 @@ class ExportPhparrayTest extends PMATestCase
         $generalOptions = $generalOptionsArray[0];
 
         $this->assertInstanceOf(
-            'PMA\libraries\properties\options\groups\OptionsPropertyMainGroup',
+            'PhpMyAdmin\Properties\Options\Groups\OptionsPropertyMainGroup',
             $generalOptions
         );
 
@@ -117,13 +117,13 @@ class ExportPhparrayTest extends PMATestCase
         $property = array_shift($generalProperties);
 
         $this->assertInstanceOf(
-            'PMA\libraries\properties\options\items\HiddenPropertyItem',
+            'PhpMyAdmin\Properties\Options\Items\HiddenPropertyItem',
             $property
         );
     }
 
     /**
-     * Test for PMA\libraries\plugins\export\ExportPhparray::exportHeader
+     * Test for PhpMyAdmin\Plugins\Export\ExportPhparray::exportHeader
      *
      * @return void
      */
@@ -144,7 +144,7 @@ class ExportPhparrayTest extends PMATestCase
     }
 
     /**
-     * Test for PMA\libraries\plugins\export\ExportPhparray::exportFooter
+     * Test for PhpMyAdmin\Plugins\Export\ExportPhparray::exportFooter
      *
      * @return void
      */
@@ -156,7 +156,7 @@ class ExportPhparrayTest extends PMATestCase
     }
 
     /**
-     * Test for PMA\libraries\plugins\export\ExportPhparray::exportDBHeader
+     * Test for PhpMyAdmin\Plugins\Export\ExportPhparray::exportDBHeader
      *
      * @return void
      */
@@ -177,7 +177,7 @@ class ExportPhparrayTest extends PMATestCase
     }
 
     /**
-     * Test for PMA\libraries\plugins\export\ExportPhparray::exportDBFooter
+     * Test for PhpMyAdmin\Plugins\Export\ExportPhparray::exportDBFooter
      *
      * @return void
      */
@@ -189,7 +189,7 @@ class ExportPhparrayTest extends PMATestCase
     }
 
     /**
-     * Test for PMA\libraries\plugins\export\ExportPhparray::exportDBCreate
+     * Test for PhpMyAdmin\Plugins\Export\ExportPhparray::exportDBCreate
      *
      * @return void
      */
@@ -201,7 +201,7 @@ class ExportPhparrayTest extends PMATestCase
     }
 
     /**
-     * Test for PMA\libraries\plugins\export\ExportPhparray::exportData
+     * Test for PhpMyAdmin\Plugins\Export\ExportPhparray::exportData
      *
      * @return void
      */

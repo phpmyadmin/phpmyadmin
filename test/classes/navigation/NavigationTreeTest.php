@@ -1,7 +1,7 @@
 <?php
 /* vim: set expandtab sw=4 ts=4 sts=4: */
 /**
- * Test for PMA\libraries\navigation\NavigationTree class
+ * Test for PhpMyAdmin\Navigation\NavigationTree class
  *
  * @package PhpMyAdmin-test
  */
@@ -10,7 +10,7 @@
  * we must set $GLOBALS['server'] here
  * since 'check_user_privileges.lib.php' will use it globally
  */
-use PMA\libraries\navigation\NavigationTree;
+use PhpMyAdmin\Navigation\NavigationTree;
 use PhpMyAdmin\Theme;
 
 $GLOBALS['server'] = 0;
@@ -22,7 +22,7 @@ require_once 'libraries/check_user_privileges.lib.php';
 require_once 'test/PMATestCase.php';
 
 /**
- * Tests for PMA\libraries\navigation\NavigationTree class
+ * Tests for PhpMyAdmin\Navigation\NavigationTree class
  *
  * @package PhpMyAdmin-test
  */
@@ -52,7 +52,7 @@ class NavigationTreeTest extends PMATestCase
         $GLOBALS['cfg']['ShowDatabasesNavigationAsTree']  = true;
 
         $GLOBALS['pmaThemeImage'] = 'image';
-        $this->object = new PMA\libraries\navigation\NavigationTree();
+        $this->object = new PhpMyAdmin\Navigation\NavigationTree();
     }
 
     /**

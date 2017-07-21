@@ -1,13 +1,13 @@
 <?php
 /* vim: set expandtab sw=4 ts=4 sts=4: */
 /**
- * Test for PMA\libraries\navigation\nodes\NodeDatabaseChild
+ * Test for PhpMyAdmin\Navigation\Nodes\NodeDatabaseChild
  *
  * @package PhpMyAdmin-test
  */
 
-use PMA\libraries\navigation\NodeFactory;
-use PMA\libraries\navigation\nodes\NodeDatabaseChild;
+use PhpMyAdmin\Navigation\NodeFactory;
+use PhpMyAdmin\Navigation\Nodes\NodeDatabaseChild;
 use PhpMyAdmin\Theme;
 use PhpMyAdmin\Url;
 
@@ -15,7 +15,7 @@ require_once 'libraries/relation.lib.php';
 require_once 'test/PMATestCase.php';
 
 /**
- * Tests for PMA\libraries\navigation\nodes\NodeDatabaseChild class
+ * Tests for PhpMyAdmin\Navigation\Nodes\NodeDatabaseChild class
  *
  * @package PhpMyAdmin-test
  */
@@ -42,7 +42,7 @@ class NodeDatabaseChildTest extends PMATestCase
         $_SESSION['relation'][1]['PMA_VERSION'] = PMA_VERSION;
         $_SESSION['relation'][1]['navwork'] = true;
         $this->object = $this->getMockForAbstractClass(
-            'PMA\libraries\navigation\nodes\NodeDatabaseChild', array('child')
+            'PhpMyAdmin\Navigation\Nodes\NodeDatabaseChild', array('child')
         );
     }
 

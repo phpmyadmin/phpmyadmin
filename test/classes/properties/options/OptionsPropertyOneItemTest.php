@@ -1,13 +1,13 @@
 <?php
 /* vim: set expandtab sw=4 ts=4 sts=4: */
 /**
- * tests for PMA\libraries\properties\options\OptionsPropertyOneItem class
+ * tests for PhpMyAdmin\Properties\Options\OptionsPropertyOneItem class
  *
  * @package PhpMyAdmin-test
  */
 
 /**
- * Tests for PMA\libraries\properties\options\OptionsPropertyOneItem class
+ * Tests for PhpMyAdmin\Properties\Options\OptionsPropertyOneItem class
  *
  * @package PhpMyAdmin-test
  */
@@ -22,7 +22,7 @@ class OptionsPropertyOneItemTest extends PHPUnit_Framework_TestCase
      */
     protected function setup()
     {
-        $this->stub = $this->getMockForAbstractClass('PMA\libraries\properties\options\OptionsPropertyOneItem');
+        $this->stub = $this->getMockForAbstractClass('PhpMyAdmin\Properties\Options\OptionsPropertyOneItem');
     }
 
     /**
@@ -37,8 +37,8 @@ class OptionsPropertyOneItemTest extends PHPUnit_Framework_TestCase
 
     /**
      * Test for
-     *     - PMA\libraries\properties\options\OptionsPropertyOneItem::getValues
-     *     - PMA\libraries\properties\options\OptionsPropertyOneItem::setValues
+     *     - PhpMyAdmin\Properties\Options\OptionsPropertyOneItem::getValues
+     *     - PhpMyAdmin\Properties\Options\OptionsPropertyOneItem::setValues
      *
      * @return void
      */
@@ -54,8 +54,8 @@ class OptionsPropertyOneItemTest extends PHPUnit_Framework_TestCase
 
     /**
      * Test for
-     *     - PMA\libraries\properties\options\OptionsPropertyOneItem::getLen
-     *     - PMA\libraries\properties\options\OptionsPropertyOneItem::setLen
+     *     - PhpMyAdmin\Properties\Options\OptionsPropertyOneItem::getLen
+     *     - PhpMyAdmin\Properties\Options\OptionsPropertyOneItem::setLen
      *
      * @return void
      */
@@ -71,8 +71,8 @@ class OptionsPropertyOneItemTest extends PHPUnit_Framework_TestCase
 
     /**
      * Test for
-     *     - PMA\libraries\properties\options\OptionsPropertyOneItem::getForce
-     *     - PMA\libraries\properties\options\OptionsPropertyOneItem::setForce
+     *     - PhpMyAdmin\Properties\Options\OptionsPropertyOneItem::getForce
+     *     - PhpMyAdmin\Properties\Options\OptionsPropertyOneItem::setForce
      *
      * @return void
      */
@@ -88,8 +88,8 @@ class OptionsPropertyOneItemTest extends PHPUnit_Framework_TestCase
 
     /**
      * Test for
-     *     - PMA\libraries\properties\options\OptionsPropertyOneItem::getDoc
-     *     - PMA\libraries\properties\options\OptionsPropertyOneItem::setDoc
+     *     - PhpMyAdmin\Properties\Options\OptionsPropertyOneItem::getDoc
+     *     - PhpMyAdmin\Properties\Options\OptionsPropertyOneItem::setDoc
      *
      * @return void
      */
@@ -105,8 +105,8 @@ class OptionsPropertyOneItemTest extends PHPUnit_Framework_TestCase
 
     /**
      * Test for
-     *     - PMA\libraries\properties\options\OptionsPropertyOneItem::getSize
-     *     - PMA\libraries\properties\options\OptionsPropertyOneItem::setSize
+     *     - PhpMyAdmin\Properties\Options\OptionsPropertyOneItem::getSize
+     *     - PhpMyAdmin\Properties\Options\OptionsPropertyOneItem::setSize
      *
      * @return void
      */

@@ -50,7 +50,7 @@ function PMA_uploadProgressSetup()
         $check = "PMA_Import_" . $plugin . "Check";
 
         if ($check()) {
-            $upload_class = 'PMA\libraries\plugins\import\upload\Upload' . ucwords(
+            $upload_class = 'PhpMyAdmin\Plugins\Import\Upload\Upload' . ucwords(
                 $plugin
             );
             $_SESSION[$SESSION_KEY]["handler"] = $upload_class;
@@ -78,10 +78,10 @@ function PMA_Import_apcCheck()
 }
 
 /**
- * Checks if PMA\libraries\plugins\import\upload\UploadProgress bar extension is
+ * Checks if PhpMyAdmin\Plugins\Import\Upload\UploadProgress bar extension is
  * available.
  *
- * @return boolean true if PMA\libraries\plugins\import\upload\UploadProgress
+ * @return boolean true if PhpMyAdmin\Plugins\Import\Upload\UploadProgress
  * extension is available, false if it is not
  */
 function PMA_Import_progressCheck()

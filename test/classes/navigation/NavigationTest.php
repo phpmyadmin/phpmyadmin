@@ -1,7 +1,7 @@
 <?php
 /* vim: set expandtab sw=4 ts=4 sts=4: */
 /**
- * Test for PMA\libraries\navigation\Navigation class
+ * Test for PhpMyAdmin\Navigation\Navigation class
  *
  * @package PhpMyAdmin-test
  */
@@ -14,14 +14,14 @@ require_once 'libraries/relation.lib.php';
 require_once 'test/PMATestCase.php';
 
 /**
- * Tests for PMA\libraries\navigation\Navigation class
+ * Tests for PhpMyAdmin\Navigation\Navigation class
  *
  * @package PhpMyAdmin-test
  */
 class NavigationTest extends PMATestCase
 {
     /**
-     * @var PMA\libraries\navigation\Navigation
+     * @var PhpMyAdmin\Navigation\Navigation
      */
     protected $object;
 
@@ -33,7 +33,7 @@ class NavigationTest extends PMATestCase
      */
     protected function setUp()
     {
-        $this->object = new PMA\libraries\navigation\Navigation();
+        $this->object = new PhpMyAdmin\Navigation\Navigation();
         $GLOBALS['cfgRelation']['db'] = 'pmadb';
         $GLOBALS['cfgRelation']['navigationhiding'] = 'navigationhiding';
         $GLOBALS['cfg']['Server']['user'] = 'user';

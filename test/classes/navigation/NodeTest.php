@@ -6,11 +6,10 @@
  * @package PhpMyAdmin-test
  */
 
-use PMA\libraries\navigation\NodeFactory;
-use PMA\libraries\navigation\nodes\Node;
+use PhpMyAdmin\Navigation\NodeFactory;
+use PhpMyAdmin\Navigation\Nodes\Node;
 use PhpMyAdmin\Theme;
 
-require_once 'libraries/navigation/NodeFactory.php';
 require_once 'libraries/database_interface.inc.php';
 require_once 'test/PMATestCase.php';
 
@@ -282,7 +281,7 @@ class NodeTest extends PMATestCase
     public function testGetWhereClause()
     {
         $method = new ReflectionMethod(
-            'PMA\libraries\navigation\nodes\Node', '_getWhereClause'
+            'PhpMyAdmin\Navigation\Nodes\Node', '_getWhereClause'
         );
         $method->setAccessible(true);
 

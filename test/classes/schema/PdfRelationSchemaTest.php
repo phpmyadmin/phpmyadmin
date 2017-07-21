@@ -8,7 +8,7 @@
 /*
  * Include to test.
  */
-use PMA\libraries\plugins\schema\pdf\PdfRelationSchema;
+use PhpMyAdmin\Plugins\Schema\Pdf\PdfRelationSchema;
 
 require_once 'libraries/relation.lib.php';
 require_once 'libraries/database_interface.inc.php';

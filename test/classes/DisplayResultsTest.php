@@ -10,7 +10,7 @@
  */
 use PhpMyAdmin\Core;
 use PhpMyAdmin\DisplayResults;
-use PMA\libraries\plugins\transformations\Text_Plain_Link;
+use PhpMyAdmin\Plugins\Transformations\Text_Plain_Link;
 
 require_once 'libraries/relation.lib.php';
 require_once 'test/PMATestCase.php';

@@ -10,7 +10,7 @@ namespace PhpMyAdmin;
 use PhpMyAdmin\Core;
 use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Message;
-use PMA\libraries\plugins\ImportPlugin;
+use PhpMyAdmin\Plugins\ImportPlugin;
 use PhpMyAdmin\Response;
 use PhpMyAdmin\Sanitize;
 use PhpMyAdmin\SqlParser\Context;

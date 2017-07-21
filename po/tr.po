@@ -4,16 +4,16 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.8.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2017-07-18 13:31+0200\n"
-"PO-Revision-Date: 2017-06-28 09:43+0000\n"
+"PO-Revision-Date: 2017-07-18 17:37+0000\n"
 "Last-Translator: Burak Yavuz <hitowerdigit@hotmail.com>\n"
-"Language-Team: Turkish <https://hosted.weblate.org/projects/phpmyadmin/"
-"master/tr/>\n"
+"Language-Team: Turkish "
+"<https://hosted.weblate.org/projects/phpmyadmin/master/tr/>\n"
 "Language: tr\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n > 1;\n"
-"X-Generator: Weblate 2.15-dev\n"
+"X-Generator: Weblate 2.16-dev\n"
 
 #: ajax.php:16 ajax.php:33 export.php:195 schema_export.php:66
 msgid "Bad type!"
@@ -4333,6 +4333,7 @@ msgstr "İç sütun:"
 #: libraries/classes/Dbi/DbiMysqli.php:158
 msgid "SSL connection enforced by server, automatically enabling it."
 msgstr ""
+"SSL bağlantısı sunucu tarafından zorlandı, otomatik olarak etkinleştiriliyor."
 
 #: libraries/classes/DisplayResults.php:910
 msgid "Save edited data"
@@ -6110,22 +6111,15 @@ msgid ""
 "corrupted!"
 msgstr ""
 "PHP yapılandırmanızda mbstring.func_overload işlevini etkinleştirdiniz. Bu "
-"seçenek phpMyAdmin ile uyumlusuzdur ve bazı veri bozulmalarına sebep "
-"olabilir!"
+"seçenek phpMyAdmin ile uyumsuzdur ve bazı veri bozulmalarına sebep olabilir!"
 
 #: libraries/common.inc.php:486
-#, fuzzy
-#| msgid ""
-#| "You have enabled mbstring.func_overload in your PHP configuration. This "
-#| "option is incompatible with phpMyAdmin and might cause some data to be "
-#| "corrupted!"
 msgid ""
 "You have disabled ini_get and/or ini_set in php.ini. This option is "
 "incompatible with phpMyAdmin!"
 msgstr ""
-"PHP yapılandırmanızda mbstring.func_overload işlevini etkinleştirdiniz. Bu "
-"seçenek phpMyAdmin ile uyumlusuzdur ve bazı veri bozulmalarına sebep "
-"olabilir!"
+"Php.ini dosyasında ini_get ve/veya ini_set işlevini etkisizleştirdiniz. Bu "
+"seçenek phpMyAdmin ile uyumsuzdur!"
 
 #: libraries/common.inc.php:519
 #, php-format
@@ -10203,10 +10197,8 @@ msgid "Server Choice:"
 msgstr "Sunucu Seçimi:"
 
 #: libraries/plugins/auth/AuthenticationCookie.php:341
-#, fuzzy
-#| msgid "Could not connect to the database server!"
 msgid "Failed to connect to the reCAPTCHA service!"
-msgstr "Veritabanı sunucusuna bağlanamadı!"
+msgstr "reCAPTCHA hizmetine bağlanma başarısız!"
 
 #: libraries/plugins/auth/AuthenticationCookie.php:343
 msgid "Entered captcha is wrong, try again!"
@@ -10215,6 +10207,8 @@ msgstr "Girilen captcha yanlış, tekrar deneyin!"
 #: libraries/plugins/auth/AuthenticationCookie.php:348
 msgid "Missing reCAPTCHA verification, maybe it has been blocked by adblock?"
 msgstr ""
+"reCAPTCHA doğrulaması eksik, belki adblock tarafından engellenmiş olabilir "
+"mi?"
 
 #: libraries/plugins/auth/AuthenticationCookie.php:372
 msgid "You are not allowed to log in to this MySQL server!"

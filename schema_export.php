@@ -7,7 +7,7 @@
  */
 
 use PhpMyAdmin\Core;
-use PMA\libraries\plugins\SchemaPlugin;
+use PhpMyAdmin\Plugins\SchemaPlugin;
 
 /**
  * Gets some core libraries
@@ -58,7 +58,7 @@ function PMA_processExportSchema($export_type)
     $export_plugin = PMA_getPlugin(
         "schema",
         $export_type,
-        'libraries/plugins/schema/'
+        'libraries/classes/Plugins/Schema/'
     );
 
     // Check schema export type

@@ -10,7 +10,7 @@ use PhpMyAdmin\Bookmark;
 use PhpMyAdmin\Core;
 use PhpMyAdmin\Encoding;
 use PhpMyAdmin\File;
-use PMA\libraries\plugins\ImportPlugin;
+use PhpMyAdmin\Plugins\ImportPlugin;
 use PhpMyAdmin\Response;
 use PhpMyAdmin\Sql;
 use PhpMyAdmin\Url;
@@ -522,7 +522,7 @@ if (! $error) {
     $import_plugin = PMA_getPlugin(
         "import",
         $format,
-        'libraries/plugins/import/',
+        'libraries/classes/Plugins/Import/',
         $import_type
     );
     if ($import_plugin == null) {

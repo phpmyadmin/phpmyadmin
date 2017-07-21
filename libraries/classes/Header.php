@@ -12,7 +12,7 @@ use PhpMyAdmin\Console;
 use PhpMyAdmin\Core;
 use PhpMyAdmin\Menu;
 use PhpMyAdmin\Message;
-use PMA\libraries\navigation\Navigation;
+use PhpMyAdmin\Navigation\Navigation;
 use PhpMyAdmin\RecentFavoriteTable;
 use PhpMyAdmin\Sanitize;
 use PhpMyAdmin\Scripts;

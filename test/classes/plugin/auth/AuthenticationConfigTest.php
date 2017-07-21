@@ -1,18 +1,18 @@
 <?php
 /* vim: set expandtab sw=4 ts=4 sts=4: */
 /**
- * tests for PMA\libraries\plugins\auth\AuthenticationConfig class
+ * tests for PhpMyAdmin\Plugins\Auth\AuthenticationConfig class
  *
  * @package PhpMyAdmin-test
  */
 
-use PMA\libraries\plugins\auth\AuthenticationConfig;
+use PhpMyAdmin\Plugins\Auth\AuthenticationConfig;
 
 require_once 'libraries/config.default.php';
 require_once 'test/PMATestCase.php';
 
 /**
- * tests for PMA\libraries\plugins\auth\AuthenticationConfig class
+ * tests for PhpMyAdmin\Plugins\Auth\AuthenticationConfig class
  *
  * @package PhpMyAdmin-test
  */
@@ -46,7 +46,7 @@ class AuthenticationConfigTest extends PMATestCase
     }
 
     /**
-     * Test for PMA\libraries\plugins\auth\AuthenticationConfig::auth
+     * Test for PhpMyAdmin\Plugins\Auth\AuthenticationConfig::auth
      *
      * @return void
      */
@@ -58,7 +58,7 @@ class AuthenticationConfigTest extends PMATestCase
     }
 
     /**
-     * Test for PMA\libraries\plugins\auth\AuthenticationConfig::authCheck
+     * Test for PhpMyAdmin\Plugins\Auth\AuthenticationConfig::authCheck
      *
      * @return void
      */
@@ -70,7 +70,7 @@ class AuthenticationConfigTest extends PMATestCase
     }
 
     /**
-     * Test for PMA\libraries\plugins\auth\AuthenticationConfig::authSetUser
+     * Test for PhpMyAdmin\Plugins\Auth\AuthenticationConfig::authSetUser
      *
      * @return void
      */
@@ -82,7 +82,7 @@ class AuthenticationConfigTest extends PMATestCase
     }
 
     /**
-     * Test for PMA\libraries\plugins\auth\AuthenticationConfig::authFails
+     * Test for PhpMyAdmin\Plugins\Auth\AuthenticationConfig::authFails
      *
      * @return void
      */

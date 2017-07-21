@@ -12,7 +12,7 @@
  * @package PhpMyAdmin
  */
 use PhpMyAdmin\Response;
-use PMA\libraries\plugins\export\ExportSql;
+use PhpMyAdmin\Plugins\Export\ExportSql;
 
 /**
  * requirements
@@ -77,7 +77,7 @@ if (strlen($GLOBALS['db']) > 0
         $export_sql_plugin = PMA_getPlugin(
             "export",
             "sql",
-            'libraries/plugins/export/',
+            'libraries/classes/Plugins/Export/',
             array(
                 'single_table' => isset($single_table),
                 'export_type'  => 'database'

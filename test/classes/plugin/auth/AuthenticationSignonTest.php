@@ -1,18 +1,18 @@
 <?php
 /* vim: set expandtab sw=4 ts=4 sts=4: */
 /**
- * tests for PMA\libraries\plugins\auth\AuthenticationSignon class
+ * tests for PhpMyAdmin\Plugins\Auth\AuthenticationSignon class
  *
  * @package PhpMyAdmin-test
  */
 
-use PMA\libraries\plugins\auth\AuthenticationSignon;
+use PhpMyAdmin\Plugins\Auth\AuthenticationSignon;
 
 require_once 'libraries/config.default.php';
 require_once 'test/PMATestCase.php';
 
 /**
- * tests for PMA\libraries\plugins\auth\AuthenticationSignon class
+ * tests for PhpMyAdmin\Plugins\Auth\AuthenticationSignon class
  *
  * @package PhpMyAdmin-test
  */
@@ -45,7 +45,7 @@ class AuthenticationSignonTest extends PMATestCase
     }
 
     /**
-     * Test for PMA\libraries\plugins\auth\AuthenticationSignon::auth
+     * Test for PhpMyAdmin\Plugins\Auth\AuthenticationSignon::auth
      *
      * @return void
      */
@@ -64,7 +64,7 @@ class AuthenticationSignonTest extends PMATestCase
     }
 
     /**
-     * Test for PMA\libraries\plugins\auth\AuthenticationSignon::auth
+     * Test for PhpMyAdmin\Plugins\Auth\AuthenticationSignon::auth
      *
      * @return void
      */
@@ -79,7 +79,7 @@ class AuthenticationSignonTest extends PMATestCase
     }
 
     /**
-     * Test for PMA\libraries\plugins\auth\AuthenticationSignon::auth
+     * Test for PhpMyAdmin\Plugins\Auth\AuthenticationSignon::auth
      *
      * @return void
      */
@@ -95,7 +95,7 @@ class AuthenticationSignonTest extends PMATestCase
     }
 
     /**
-     * Test for PMA\libraries\plugins\auth\AuthenticationSignon::authCheck
+     * Test for PhpMyAdmin\Plugins\Auth\AuthenticationSignon::authCheck
      *
      * @return void
      */
@@ -110,7 +110,7 @@ class AuthenticationSignonTest extends PMATestCase
     }
 
     /**
-     * Test for PMA\libraries\plugins\auth\AuthenticationSignon::authCheck
+     * Test for PhpMyAdmin\Plugins\Auth\AuthenticationSignon::authCheck
      *
      * @return void
      */
@@ -146,7 +146,7 @@ class AuthenticationSignonTest extends PMATestCase
     }
 
     /**
-     * Test for PMA\libraries\plugins\auth\AuthenticationSignon::authCheck
+     * Test for PhpMyAdmin\Plugins\Auth\AuthenticationSignon::authCheck
      *
      * @return void
      */
@@ -202,7 +202,7 @@ class AuthenticationSignonTest extends PMATestCase
     }
 
     /**
-     * Test for PMA\libraries\plugins\auth\AuthenticationSignon::authCheck
+     * Test for PhpMyAdmin\Plugins\Auth\AuthenticationSignon::authCheck
      *
      * @return void
      */
@@ -240,7 +240,7 @@ class AuthenticationSignonTest extends PMATestCase
     }
 
     /**
-     * Test for PMA\libraries\plugins\auth\AuthenticationSignon::authSetUser
+     * Test for PhpMyAdmin\Plugins\Auth\AuthenticationSignon::authSetUser
      *
      * @return void
      */
@@ -265,7 +265,7 @@ class AuthenticationSignonTest extends PMATestCase
     }
 
     /**
-     * Test for PMA\libraries\plugins\auth\AuthenticationSignon::authFails
+     * Test for PhpMyAdmin\Plugins\Auth\AuthenticationSignon::authFails
      *
      * @return void
      */
@@ -274,7 +274,7 @@ class AuthenticationSignonTest extends PMATestCase
         $GLOBALS['cfg']['Server']['SignonSession'] = 'newSession';
         $_COOKIE['newSession'] = '42';
 
-        $this->object = $this->getMockBuilder('PMA\libraries\plugins\auth\AuthenticationSignon')
+        $this->object = $this->getMockBuilder('PhpMyAdmin\Plugins\Auth\AuthenticationSignon')
             ->disableOriginalConstructor()
             ->setMethods(array('auth'))
             ->getMock();
@@ -294,7 +294,7 @@ class AuthenticationSignonTest extends PMATestCase
     }
 
     /**
-     * Test for PMA\libraries\plugins\auth\AuthenticationSignon::authFails
+     * Test for PhpMyAdmin\Plugins\Auth\AuthenticationSignon::authFails
      *
      * @return void
      */
@@ -303,7 +303,7 @@ class AuthenticationSignonTest extends PMATestCase
         $GLOBALS['cfg']['Server']['SignonSession'] = 'newSession';
         $_COOKIE['newSession'] = '42';
 
-        $this->object = $this->getMockBuilder('PMA\libraries\plugins\auth\AuthenticationSignon')
+        $this->object = $this->getMockBuilder('PhpMyAdmin\Plugins\Auth\AuthenticationSignon')
             ->disableOriginalConstructor()
             ->setMethods(array('auth'))
             ->getMock();
@@ -323,7 +323,7 @@ class AuthenticationSignonTest extends PMATestCase
     }
 
     /**
-     * Test for PMA\libraries\plugins\auth\AuthenticationSignon::authFails
+     * Test for PhpMyAdmin\Plugins\Auth\AuthenticationSignon::authFails
      *
      * @return void
      */
@@ -332,7 +332,7 @@ class AuthenticationSignonTest extends PMATestCase
         $GLOBALS['cfg']['Server']['SignonSession'] = 'newSession';
         $_COOKIE['newSession'] = '42';
 
-        $this->object = $this->getMockBuilder('PMA\libraries\plugins\auth\AuthenticationSignon')
+        $this->object = $this->getMockBuilder('PhpMyAdmin\Plugins\Auth\AuthenticationSignon')
             ->disableOriginalConstructor()
             ->setMethods(array('auth'))
             ->getMock();
@@ -353,7 +353,7 @@ class AuthenticationSignonTest extends PMATestCase
     }
 
     /**
-     * Test for PMA\libraries\plugins\auth\AuthenticationSignon::authFails
+     * Test for PhpMyAdmin\Plugins\Auth\AuthenticationSignon::authFails
      *
      * @return void
      */
@@ -362,7 +362,7 @@ class AuthenticationSignonTest extends PMATestCase
         $GLOBALS['cfg']['Server']['SignonSession'] = 'newSession';
         $_COOKIE['newSession'] = '42';
 
-        $this->object = $this->getMockBuilder('PMA\libraries\plugins\auth\AuthenticationSignon')
+        $this->object = $this->getMockBuilder('PhpMyAdmin\Plugins\Auth\AuthenticationSignon')
             ->disableOriginalConstructor()
             ->setMethods(array('auth'))
             ->getMock();
@@ -390,7 +390,7 @@ class AuthenticationSignonTest extends PMATestCase
     }
 
     /**
-     * Test for PMA\libraries\plugins\auth\AuthenticationSignon::authFails
+     * Test for PhpMyAdmin\Plugins\Auth\AuthenticationSignon::authFails
      *
      * @return void
      */
@@ -399,7 +399,7 @@ class AuthenticationSignonTest extends PMATestCase
         $GLOBALS['cfg']['Server']['SignonSession'] = 'newSession';
         $_COOKIE['newSession'] = '42';
 
-        $this->object = $this->getMockBuilder('PMA\libraries\plugins\auth\AuthenticationSignon')
+        $this->object = $this->getMockBuilder('PhpMyAdmin\Plugins\Auth\AuthenticationSignon')
             ->disableOriginalConstructor()
             ->setMethods(array('auth'))
             ->getMock();

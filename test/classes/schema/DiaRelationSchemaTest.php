@@ -1,6 +1,6 @@
 <?php
 /**
- * Tests for PMA\libraries\plugins\schema\dia\DiaRelationSchema class
+ * Tests for PhpMyAdmin\Plugins\Schema\Dia\DiaRelationSchema class
  *
  * @package PhpMyAdmin-test
  */
@@ -8,14 +8,14 @@
 /*
  * Include to test.
  */
-use PMA\libraries\plugins\schema\dia\DiaRelationSchema;
+use PhpMyAdmin\Plugins\Schema\Dia\DiaRelationSchema;
 
 require_once 'libraries/relation.lib.php';
 require_once 'libraries/database_interface.inc.php';
 require_once 'test/PMATestCase.php';
 
 /**
- * Tests for PMA\libraries\plugins\schema\dia\DiaRelationSchema class
+ * Tests for PhpMyAdmin\Plugins\Schema\Dia\DiaRelationSchema class
  *
  * @package PhpMyAdmin-test
  */

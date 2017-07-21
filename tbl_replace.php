@@ -13,7 +13,7 @@
  */
 
 use PhpMyAdmin\Core;
-use PMA\libraries\plugins\IOTransformationsPlugin;
+use PhpMyAdmin\Plugins\IOTransformationsPlugin;
 use PhpMyAdmin\Response;
 use PhpMyAdmin\Table;
 use PhpMyAdmin\Transformations;
@@ -217,7 +217,7 @@ foreach ($loop_array as $rownumber => $where_clause) {
         if (!empty($mime_map[$column_name])
             && !empty($mime_map[$column_name]['input_transformation'])
         ) {
-            $filename = 'libraries/plugins/transformations/'
+            $filename = 'libraries/classes/Plugins/Transformations/'
                 . $mime_map[$column_name]['input_transformation'];
             if (is_file($filename)) {
                 include_once $filename;

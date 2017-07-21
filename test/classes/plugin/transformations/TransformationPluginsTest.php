@@ -5,23 +5,23 @@
  * @package PhpMyAdmin-test
  */
 
-use PMA\libraries\plugins\transformations\input\Image_JPEG_Upload;
-use PMA\libraries\plugins\transformations\input\Text_Plain_RegexValidation;
-use PMA\libraries\plugins\transformations\input\Text_Plain_FileUpload;
-use PMA\libraries\plugins\transformations\output\Application_Octetstream_Download;
-use PMA\libraries\plugins\transformations\output\Application_Octetstream_Hex;
-use PMA\libraries\plugins\transformations\output\Image_JPEG_Inline;
-use PMA\libraries\plugins\transformations\output\Image_JPEG_Link;
-use PMA\libraries\plugins\transformations\output\Image_PNG_Inline;
-use PMA\libraries\plugins\transformations\output\Text_Plain_Dateformat;
-use PMA\libraries\plugins\transformations\output\Text_Plain_External;
-use PMA\libraries\plugins\transformations\output\Text_Plain_Formatted;
-use PMA\libraries\plugins\transformations\output\Text_Plain_Imagelink;
-use PMA\libraries\plugins\transformations\output\Text_Plain_Sql;
-use PMA\libraries\plugins\transformations\Text_Plain_Link;
-use PMA\libraries\plugins\transformations\Text_Plain_Longtoipv4;
-use PMA\libraries\plugins\transformations\Text_Plain_PreApPend;
-use PMA\libraries\plugins\transformations\Text_Plain_Substring;
+use PhpMyAdmin\Plugins\Transformations\Input\Image_JPEG_Upload;
+use PhpMyAdmin\Plugins\Transformations\Input\Text_Plain_RegexValidation;
+use PhpMyAdmin\Plugins\Transformations\Input\Text_Plain_FileUpload;
+use PhpMyAdmin\Plugins\Transformations\Output\Application_Octetstream_Download;
+use PhpMyAdmin\Plugins\Transformations\Output\Application_Octetstream_Hex;
+use PhpMyAdmin\Plugins\Transformations\Output\Image_JPEG_Inline;
+use PhpMyAdmin\Plugins\Transformations\Output\Image_JPEG_Link;
+use PhpMyAdmin\Plugins\Transformations\Output\Image_PNG_Inline;
+use PhpMyAdmin\Plugins\Transformations\Output\Text_Plain_Dateformat;
+use PhpMyAdmin\Plugins\Transformations\Output\Text_Plain_External;
+use PhpMyAdmin\Plugins\Transformations\Output\Text_Plain_Formatted;
+use PhpMyAdmin\Plugins\Transformations\Output\Text_Plain_Imagelink;
+use PhpMyAdmin\Plugins\Transformations\Output\Text_Plain_Sql;
+use PhpMyAdmin\Plugins\Transformations\Text_Plain_Link;
+use PhpMyAdmin\Plugins\Transformations\Text_Plain_Longtoipv4;
+use PhpMyAdmin\Plugins\Transformations\Text_Plain_PreApPend;
+use PhpMyAdmin\Plugins\Transformations\Text_Plain_Substring;
 
 /*
  * Include to test.
@@ -77,7 +77,7 @@ class TransformationPluginsTest extends PMATestCase
     public function multiDataProvider()
     {
         return array(
-            // Test data for PMA\libraries\plugins\transformations\input\Image_JPEG_Upload plugin
+            // Test data for PhpMyAdmin\Plugins\Transformations\Input\Image_JPEG_Upload plugin
             array(
                 new Image_JPEG_Upload(),
                 'getName',
@@ -240,7 +240,7 @@ class TransformationPluginsTest extends PMATestCase
                     array(), 0, '', array(), '', 'ltr', 0, 0, 0
                 )
             ),
-            // Test data for PMA\libraries\plugins\transformations\output\Application_Octetstream_Download plugin
+            // Test data for PhpMyAdmin\Plugins\Transformations\Output\Application_Octetstream_Download plugin
             array(
                 new Application_Octetstream_Download(),
                 'getName',
@@ -265,7 +265,7 @@ class TransformationPluginsTest extends PMATestCase
                 'getMIMESubtype',
                 'OctetStream'
             ),
-            // Test data for PMA\libraries\plugins\transformations\output\Application_Octetstream_Hex plugin
+            // Test data for PhpMyAdmin\Plugins\Transformations\Output\Application_Octetstream_Hex plugin
             array(
                 new Application_Octetstream_Hex(),
                 'getName',
@@ -288,7 +288,7 @@ class TransformationPluginsTest extends PMATestCase
                 'getMIMESubtype',
                 'OctetStream'
             ),
-            // Test data for PMA\libraries\plugins\transformations\output\Image_JPEG_Inline plugin
+            // Test data for PhpMyAdmin\Plugins\Transformations\Output\Image_JPEG_Inline plugin
             array(
                 new Image_JPEG_Inline(),
                 'getName',
@@ -310,7 +310,7 @@ class TransformationPluginsTest extends PMATestCase
                 'getMIMESubtype',
                 'JPEG'
             ),
-            // Test data for PMA\libraries\plugins\transformations\output\Image_JPEG_Link plugin
+            // Test data for PhpMyAdmin\Plugins\Transformations\Output\Image_JPEG_Link plugin
             array(
                 new Image_JPEG_Link(),
                 'getName',
@@ -336,7 +336,7 @@ class TransformationPluginsTest extends PMATestCase
                 'applyTransformationNoWrap',
                 null
             ),
-            // Test data for PMA\libraries\plugins\transformations\output\Image_PNG_Inline plugin
+            // Test data for PhpMyAdmin\Plugins\Transformations\Output\Image_PNG_Inline plugin
             array(
                 new Image_PNG_Inline(),
                 'getName',
@@ -358,7 +358,7 @@ class TransformationPluginsTest extends PMATestCase
                 'getMIMESubtype',
                 'PNG'
             ),
-            // Test data for PMA\libraries\plugins\transformations\output\Text_Plain_Dateformat plugin
+            // Test data for PhpMyAdmin\Plugins\Transformations\Output\Text_Plain_Dateformat plugin
             array(
                 new Text_Plain_Dateformat(),
                 'getName',
@@ -387,7 +387,7 @@ class TransformationPluginsTest extends PMATestCase
                 'getMIMESubtype',
                 'Plain'
             ),
-            // Test data for PMA\libraries\plugins\transformations\output\Text_Plain_External plugin
+            // Test data for PhpMyAdmin\Plugins\Transformations\Output\Text_Plain_External plugin
             array(
                 new Text_Plain_External(),
                 'getName',
@@ -401,7 +401,7 @@ class TransformationPluginsTest extends PMATestCase
                 . ' data via standard input. Returns the standard output of the'
                 . ' application. The default is Tidy, to pretty-print HTML code.'
                 . ' For security reasons, you have to manually edit the file'
-                . ' libraries/plugins/transformations/output/Text_Plain_External'
+                . ' libraries/classes/Plugins/Transformations/Output/Text_Plain_External'
                 . '.php and list the tools you want to make available.'
                 . ' The first option is then the number of the program you want to'
                 . ' use and the second option is the parameters for the program.'
@@ -465,7 +465,7 @@ class TransformationPluginsTest extends PMATestCase
                     )
                 )
             ),
-            // Test data for PMA\libraries\plugins\transformations\output\Text_Plain_Formatted plugin
+            // Test data for PhpMyAdmin\Plugins\Transformations\Output\Text_Plain_Formatted plugin
             array(
                 new Text_Plain_Formatted(),
                 'getName',
@@ -488,7 +488,7 @@ class TransformationPluginsTest extends PMATestCase
                 'getMIMESubtype',
                 'Plain'
             ),
-            // Test data for PMA\libraries\plugins\transformations\output\Text_Plain_Imagelink plugin
+            // Test data for PhpMyAdmin\Plugins\Transformations\Output\Text_Plain_Imagelink plugin
             array(
                 new Text_Plain_Imagelink(),
                 'getName',
@@ -513,7 +513,7 @@ class TransformationPluginsTest extends PMATestCase
                 'getMIMESubtype',
                 'Plain'
             ),
-            // Test data for PMA\libraries\plugins\transformations\output\Text_Plain_Sql plugin
+            // Test data for PhpMyAdmin\Plugins\Transformations\Output\Text_Plain_Sql plugin
             array(
                 new Text_Plain_Sql(),
                 'getName',
@@ -534,7 +534,7 @@ class TransformationPluginsTest extends PMATestCase
                 'getMIMESubtype',
                 'Plain'
             ),
-            // Test data for PMA\libraries\plugins\transformations\Text_Plain_Link plugin
+            // Test data for PhpMyAdmin\Plugins\Transformations\Text_Plain_Link plugin
             array(
                 new Text_Plain_Link(),
                 'getName',
@@ -557,7 +557,7 @@ class TransformationPluginsTest extends PMATestCase
                 'getMIMESubtype',
                 'Plain'
             ),
-            // Test data for PMA\libraries\plugins\transformations\Text_Plain_Longtoipv4 plugin
+            // Test data for PhpMyAdmin\Plugins\Transformations\Text_Plain_Longtoipv4 plugin
             array(
                 new Text_Plain_Longtoipv4(),
                 'getName',
@@ -602,7 +602,7 @@ class TransformationPluginsTest extends PMATestCase
                 'getMIMESubtype',
                 'Plain'
             ),
-            // Test data for PMA\libraries\plugins\transformations\Text_Plain_Substring plugin
+            // Test data for PhpMyAdmin\Plugins\Transformations\Text_Plain_Substring plugin
             array(
                 new Text_Plain_Substring(),
                 'getName',
