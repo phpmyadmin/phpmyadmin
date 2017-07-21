@@ -104,7 +104,6 @@ class ThemeManagerTest extends PMATestCase
         $this->assertNull(
             $tm->makeBc()
         );
-        $this->assertEquals($GLOBALS['theme'], 'pmahomme');
         $this->assertEquals($GLOBALS['pmaThemePath'], './themes/pmahomme');
         $this->assertEquals($GLOBALS['pmaThemeImage'], './themes/pmahomme/img/');
 

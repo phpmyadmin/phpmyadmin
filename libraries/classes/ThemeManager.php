@@ -375,7 +375,6 @@ class ThemeManager
      */
     public function makeBc()
     {
-        $GLOBALS['theme']           = $this->theme->getId();
         $GLOBALS['pmaThemePath']    = $this->theme->getPath();
         $GLOBALS['pmaThemeImage']   = $this->theme->getImgPath();
 
@@ -461,11 +460,6 @@ class ThemeManager
         $GLOBALS['PMA_Theme'] = $tmanager->theme;
 
         // BC
-        /**
-         * the active theme
-         * @global string $GLOBALS['theme']
-         */
-        $GLOBALS['theme']           = $GLOBALS['PMA_Theme']->getName();
         /**
          * the theme path
          * @global string $GLOBALS['pmaThemePath']
