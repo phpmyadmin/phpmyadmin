@@ -4,16 +4,16 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.8.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2017-07-18 13:31+0200\n"
-"PO-Revision-Date: 2017-06-28 13:17+0000\n"
-"Last-Translator: George Bezerra <georgelione@gmail.com>\n"
-"Language-Team: Portuguese (Brazil) <https://hosted.weblate.org/projects/"
-"phpmyadmin/master/pt_BR/>\n"
+"PO-Revision-Date: 2017-07-21 03:23+0000\n"
+"Last-Translator: Guilherme Libardi <guilhermelibardi@visaojr.com.br>\n"
+"Language-Team: Portuguese (Brazil) "
+"<https://hosted.weblate.org/projects/phpmyadmin/master/pt_BR/>\n"
 "Language: pt_BR\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n > 1;\n"
-"X-Generator: Weblate 2.15-dev\n"
+"X-Generator: Weblate 2.16-dev\n"
 
 #: ajax.php:16 ajax.php:33 export.php:195 schema_export.php:66
 msgid "Bad type!"
@@ -4365,7 +4365,7 @@ msgstr "Dentro do campo:"
 
 #: libraries/classes/Dbi/DbiMysqli.php:158
 msgid "SSL connection enforced by server, automatically enabling it."
-msgstr ""
+msgstr "Conexão SSL executada pelo servidor, automaticamente habilitando-a."
 
 #: libraries/classes/DisplayResults.php:910
 msgid "Save edited data"
@@ -6162,17 +6162,12 @@ msgstr ""
 "incompatível com o phpMyAdmin e certamente causará a perda de algum dado!"
 
 #: libraries/common.inc.php:486
-#, fuzzy
-#| msgid ""
-#| "You have enabled mbstring.func_overload in your PHP configuration. This "
-#| "option is incompatible with phpMyAdmin and might cause some data to be "
-#| "corrupted!"
 msgid ""
 "You have disabled ini_get and/or ini_set in php.ini. This option is "
 "incompatible with phpMyAdmin!"
 msgstr ""
-"Você habilitou mbstring.func_overload nas configurações do PHP. Essa opção é "
-"incompatível com o phpMyAdmin e certamente causará a perda de algum dado!"
+"Você desabilitou ini_get e/ou ini_set no php.ini. Essa opção é incompatível "
+"com o phpMyAdmin!"
 
 #: libraries/common.inc.php:519
 #, php-format
