@@ -6,13 +6,12 @@
  * @package PhpMyAdmin-test
  */
 
-use PhpMyAdmin\Di\Container;
-use PhpMyAdmin\Theme;
 use PhpMyAdmin\Charsets;
+use PhpMyAdmin\Di\Container;
+use PhpMyAdmin\Tests\Stubs\Response as ResponseStub;
+use PhpMyAdmin\Theme;
 
 require_once 'libraries/database_interface.inc.php';
-
-require_once 'test/libraries/stubs/ResponseStub.php';
 require_once 'test/PMATestCase.php';
 
 /**
@@ -50,7 +49,7 @@ class ServerDatabasesControllerTest extends PMATestCase
 
         $container = Container::getDefaultContainer();
         $container->set('dbi', $GLOBALS['dbi']);
-        $this->response = new \PMA\Test\Stubs\Response();
+        $this->response = new ResponseStub();
         $container->set('PhpMyAdmin\Response', $this->response);
         $container->alias('response', 'PhpMyAdmin\Response');
     }

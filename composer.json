@@ -27,6 +27,11 @@
             "PhpMyAdmin\\Setup\\": "setup/lib"
         }
     },
+    "autoload-dev": {
+        "psr-4": {
+            "PhpMyAdmin\\Tests\\": "test/classes"
+        }
+    },
     "repositories": [
         {
             "type": "composer",

@@ -10,7 +10,7 @@
  * @package    PhpMyAdmin
  * @subpackage Stubs
  */
-namespace PMA\Test\Stubs;
+namespace PhpMyAdmin\Tests\Stubs;
 
 use PhpMyAdmin\Header;
 use PhpMyAdmin\Message;
@@ -21,7 +21,7 @@ use PhpMyAdmin\Message;
 /**
  * Class Response
  *
- * @package PMA\Test\Stubs
+ * @package PhpMyAdmin\Tests\Stubs
  */
 class Response
 {

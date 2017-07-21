@@ -8,17 +8,16 @@
 
 use PhpMyAdmin\Controllers\Table\TableIndexesController;
 use PhpMyAdmin\Di\Container;
+use PhpMyAdmin\Response;
+use PhpMyAdmin\Tests\Stubs\Response as ResponseStub;
 use PhpMyAdmin\Theme;
 use PhpMyAdmin\Url;
-use PhpMyAdmin\Response;
 
 /*
  * Include to test.
  */
 require_once 'libraries/database_interface.inc.php';
 require_once 'libraries/relation.lib.php';
-
-require_once 'test/libraries/stubs/ResponseStub.php';
 require_once 'test/PMATestCase.php';
 
 /**
@@ -99,7 +98,7 @@ class TableIndexesControllerTest extends PMATestCase
         $container->set('db', 'db');
         $container->set('table', 'table');
         $container->set('dbi', $GLOBALS['dbi']);
-        $response = new \PMA\Test\Stubs\Response();
+        $response = new ResponseStub();
         $container->set('PhpMyAdmin\Response', $response);
         $container->alias('response', 'PhpMyAdmin\Response');
 
@@ -151,7 +150,7 @@ class TableIndexesControllerTest extends PMATestCase
         $container->set('db', 'db');
         $container->set('table', 'table');
         $container->set('dbi', $GLOBALS['dbi']);
-        $response = new \PMA\Test\Stubs\Response();
+        $response = new ResponseStub();
         $container->set('PhpMyAdmin\Response', $response);
         $container->alias('response', 'PhpMyAdmin\Response');
         $index = new PhpMyAdmin\Index();

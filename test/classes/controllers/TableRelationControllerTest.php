@@ -10,11 +10,11 @@
  * Include to test.
  */
 use PhpMyAdmin\Di\Container;
+use PhpMyAdmin\Tests\Stubs\Response as ResponseStub;
 use PhpMyAdmin\Theme;
 
 require_once 'libraries/database_interface.inc.php';
 require_once 'libraries/relation.lib.php';
-require_once 'test/libraries/stubs/ResponseStub.php';
 require_once 'test/PMATestCase.php';
 
 /**
@@ -25,7 +25,7 @@ require_once 'test/PMATestCase.php';
 class TableRelationControllerTest extends PMATestCase
 {
     /**
-     * @var \PMA\Test\Stubs\Response
+     * @var \PhpMyAdmin\Tests\Stubs\Response
      */
     private $_response;
 
@@ -55,7 +55,7 @@ class TableRelationControllerTest extends PMATestCase
         $container->set('db', 'db');
         $container->set('table', 'table');
         $container->set('dbi', $GLOBALS['dbi']);
-        $this->_response = new \PMA\Test\Stubs\Response();
+        $this->_response = new ResponseStub();
         $container->set('PhpMyAdmin\Response', $this->_response);
         $container->alias('response', 'PhpMyAdmin\Response');
     }
