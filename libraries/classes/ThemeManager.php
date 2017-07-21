@@ -74,7 +74,44 @@ class ThemeManager
      */
     public function __construct()
     {
-        $this->init();
+        $this->themes = array();
+        $this->theme_default = self::FALLBACK_THEME;
+        $this->active_theme = '';
+
+        if (! $this->setThemesPath('./themes/')) {
+            return;
+        }
+
+        $this->setThemePerServer($GLOBALS['cfg']['ThemePerServer']);
+
+        $this->loadThemes();
+
+        $this->theme = new Theme;
+
+        if (! $this->checkTheme($GLOBALS['cfg']['ThemeDefault'])) {
+            trigger_error(
+                sprintf(
+                    __('Default theme %s not found!'),
+                    htmlspecialchars($GLOBALS['cfg']['ThemeDefault'])
+                ),
+                E_USER_ERROR
+            );
+            $GLOBALS['cfg']['ThemeDefault'] = false;
+        }
+
+        $this->theme_default = $GLOBALS['cfg']['ThemeDefault'];
+
+        // check if user have a theme cookie
+        $cookie_theme = $this->getThemeCookie();
+        if (! $cookie_theme || ! $this->setActiveTheme($cookie_theme)) {
+            if ($GLOBALS['cfg']['ThemeDefault']) {
+                // otherwise use default theme
+                $this->setActiveTheme($this->theme_default);
+            } else {
+                // or fallback theme
+                $this->setActiveTheme(self::FALLBACK_THEME);
+            }
+        }
     }
 
     /**
@@ -119,54 +156,6 @@ class ThemeManager
     public function setThemePerServer($per_server)
     {
         $this->per_server  = (bool) $per_server;
-    }
-
-    /**
-     * Initialise the class
-     *
-     * @access public
-     * @return void
-     */
-    public function init()
-    {
-        $this->themes = array();
-        $this->theme_default = self::FALLBACK_THEME;
-        $this->active_theme = '';
-
-        if (! $this->setThemesPath('./themes/')) {
-            return;
-        }
-
-        $this->setThemePerServer($GLOBALS['cfg']['ThemePerServer']);
-
-        $this->loadThemes();
-
-        $this->theme = new Theme;
-
-        if (! $this->checkTheme($GLOBALS['cfg']['ThemeDefault'])) {
-            trigger_error(
-                sprintf(
-                    __('Default theme %s not found!'),
-                    htmlspecialchars($GLOBALS['cfg']['ThemeDefault'])
-                ),
-                E_USER_ERROR
-            );
-            $GLOBALS['cfg']['ThemeDefault'] = false;
-        }
-
-        $this->theme_default = $GLOBALS['cfg']['ThemeDefault'];
-
-        // check if user have a theme cookie
-        $cookie_theme = $this->getThemeCookie();
-        if (! $cookie_theme || ! $this->setActiveTheme($cookie_theme)) {
-            if ($GLOBALS['cfg']['ThemeDefault']) {
-                // otherwise use default theme
-                $this->setActiveTheme($this->theme_default);
-            } else {
-                // or fallback theme
-                $this->setActiveTheme(self::FALLBACK_THEME);
-            }
-        }
     }
 
     /**
