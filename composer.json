@@ -23,7 +23,8 @@
     "autoload": {
         "psr-4": {
             "PMA\\": "./",
-            "PhpMyAdmin\\": "libraries/classes"
+            "PhpMyAdmin\\": "libraries/classes",
+            "PhpMyAdmin\\Setup\\": "setup/lib"
         }
     },
     "repositories": [

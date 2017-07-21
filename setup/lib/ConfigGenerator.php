@@ -5,7 +5,7 @@
  *
  * @package PhpMyAdmin-Setup
  */
-namespace PMA\setup\lib;
+namespace PhpMyAdmin\Setup;
 
 use PhpMyAdmin\Config\ConfigFile;
 
