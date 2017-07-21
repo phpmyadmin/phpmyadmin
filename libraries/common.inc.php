@@ -566,34 +566,34 @@ if (! defined('PMA_MINIMUM_COMMON')) {
         }
         unset($i);
     }
+}
 
-    /**
-     * If no server is selected, make sure that $cfg['Server'] is empty (so
-     * that nothing will work), and skip server authentication.
-     * We do NOT exit here, but continue on without logging into any server.
-     * This way, the welcome page will still come up (with no server info) and
-     * present a choice of servers in the case that there are multiple servers
-     * and '$cfg['ServerDefault'] = 0' is set.
-     */
+/**
+ * If no server is selected, make sure that $cfg['Server'] is empty (so
+ * that nothing will work), and skip server authentication.
+ * We do NOT exit here, but continue on without logging into any server.
+ * This way, the welcome page will still come up (with no server info) and
+ * present a choice of servers in the case that there are multiple servers
+ * and '$cfg['ServerDefault'] = 0' is set.
+ */
 
-    if (isset($_REQUEST['server'])
-        && (is_string($_REQUEST['server']) || is_numeric($_REQUEST['server']))
-        && ! empty($_REQUEST['server'])
-        && ! empty($cfg['Servers'][$_REQUEST['server']])
-    ) {
-        $GLOBALS['server'] = $_REQUEST['server'];
+if (isset($_REQUEST['server'])
+    && (is_string($_REQUEST['server']) || is_numeric($_REQUEST['server']))
+    && ! empty($_REQUEST['server'])
+    && ! empty($cfg['Servers'][$_REQUEST['server']])
+) {
+    $GLOBALS['server'] = $_REQUEST['server'];
+    $cfg['Server'] = $cfg['Servers'][$GLOBALS['server']];
+} else {
+    if (!empty($cfg['Servers'][$cfg['ServerDefault']])) {
+        $GLOBALS['server'] = $cfg['ServerDefault'];
         $cfg['Server'] = $cfg['Servers'][$GLOBALS['server']];
     } else {
-        if (!empty($cfg['Servers'][$cfg['ServerDefault']])) {
-            $GLOBALS['server'] = $cfg['ServerDefault'];
-            $cfg['Server'] = $cfg['Servers'][$GLOBALS['server']];
-        } else {
-            $GLOBALS['server'] = 0;
-            $cfg['Server'] = array();
-        }
+        $GLOBALS['server'] = 0;
+        $cfg['Server'] = array();
     }
-    $GLOBALS['url_params']['server'] = $GLOBALS['server'];
 }
+$GLOBALS['url_params']['server'] = $GLOBALS['server'];
 
 /******************************************************************************/
 /* setup themes                                          LABEL_theme_setup    */
