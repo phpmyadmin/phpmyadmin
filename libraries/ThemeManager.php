@@ -477,14 +477,6 @@ class ThemeManager
     {
         $tmanager = self::getInstance();
 
-        // for the theme per server feature
-        if (isset($_REQUEST['server']) && ! isset($_REQUEST['set_theme'])) {
-            $tmp = $tmanager->getThemeCookie();
-            if (empty($tmp)) {
-                $tmp = $tmanager->theme_default;
-            }
-            $tmanager->setActiveTheme($tmp);
-        }
         /**
          * @todo move into ThemeManager::__wakeup()
          */
