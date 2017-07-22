@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.7.3-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2017-07-18 13:29+0200\n"
-"PO-Revision-Date: 2017-07-22 12:41+0000\n"
+"PO-Revision-Date: 2017-07-22 13:14+0000\n"
 "Last-Translator: Василий <xaker32bit@yandex.ru>\n"
 "Language-Team: Russian "
 "<https://hosted.weblate.org/projects/phpmyadmin/4-7/ru/>\n"
@@ -2603,19 +2603,19 @@ msgstr "Чрезвычайно простой"
 
 #: js/messages.php:737
 msgid "Very weak"
-msgstr ""
+msgstr "Очень простой"
 
 #: js/messages.php:738
 msgid "Weak"
-msgstr ""
+msgstr "Простой"
 
 #: js/messages.php:739
 msgid "Good"
-msgstr ""
+msgstr "Хороший"
 
 #: js/messages.php:740
 msgid "Strong"
-msgstr ""
+msgstr "Сложный"
 
 #: js/messages.php:769
 msgctxt "Previous month"
@@ -3190,9 +3190,10 @@ msgid "Bulgarian"
 msgstr "Болгарский"
 
 #: libraries/Charsets.php:374
+#, fuzzy
 msgctxt "Collation"
 msgid "Chinese"
-msgstr ""
+msgstr "Китайский"
 
 #: libraries/Charsets.php:379
 #, fuzzy
@@ -3244,9 +3245,10 @@ msgid "German (dictionary order)"
 msgstr "Словарь данных"
 
 #: libraries/Charsets.php:405 libraries/Charsets.php:516
+#, fuzzy
 msgctxt "Collation"
 msgid "German (phone book order)"
-msgstr ""
+msgstr "Немецкий (порядок телефонной книги)"
 
 #: libraries/Charsets.php:414
 #, fuzzy
@@ -3263,9 +3265,10 @@ msgid "Icelandic"
 msgstr "Исландский"
 
 #: libraries/Charsets.php:425
+#, fuzzy
 msgctxt "Collation"
 msgid "Classical Latin"
-msgstr ""
+msgstr "Классическая латынь"
 
 #: libraries/Charsets.php:429
 #, fuzzy
@@ -3282,9 +3285,10 @@ msgid "Lithuanian"
 msgstr "Литовский"
 
 #: libraries/Charsets.php:441
+#, fuzzy
 msgctxt "Collation"
 msgid "Burmese"
-msgstr ""
+msgstr "Бирманский"
 
 #: libraries/Charsets.php:444
 #, fuzzy
@@ -3336,9 +3340,10 @@ msgid "Spanish (modern)"
 msgstr "Испанский"
 
 #: libraries/Charsets.php:477 libraries/Charsets.php:527
+#, fuzzy
 msgctxt "Collation"
 msgid "Spanish (traditional)"
-msgstr ""
+msgstr "Испанский (традиционный)"
 
 #: libraries/Charsets.php:496
 #, fuzzy
@@ -3942,8 +3947,9 @@ msgid "Unknown error in file upload."
 msgstr "При время загрузке файла произошла неизвестная ошибка."
 
 #: libraries/File.php:445
+#, fuzzy
 msgid "File is a symbolic link"
-msgstr ""
+msgstr "Файл является символической ссылкой"
 
 #: libraries/File.php:450 libraries/File.php:542
 msgid "File could not be read!"
@@ -8405,7 +8411,7 @@ msgstr "Пароль:"
 
 #: libraries/display_change_password.lib.php:68
 msgid "Enter:"
-msgstr ""
+msgstr "Введите:"
 
 #: libraries/display_change_password.lib.php:75
 #: libraries/replication_gui.lib.php:865
@@ -15238,7 +15244,7 @@ msgstr "Имя нового столбца"
 
 #: templates/export/alias_item.phtml:8
 msgid "Remove"
-msgstr ""
+msgstr "Удалить"
 
 #: templates/prefs_autoload.phtml:8
 msgid ""
