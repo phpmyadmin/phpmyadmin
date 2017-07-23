@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.8.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2017-07-18 13:31+0200\n"
-"PO-Revision-Date: 2017-07-23 06:26+0000\n"
+"PO-Revision-Date: 2017-07-23 16:01+0000\n"
 "Last-Translator: Володимир Бриняк <bardvv@gmail.com>\n"
 "Language-Team: Ukrainian "
 "<https://hosted.weblate.org/projects/phpmyadmin/master/uk/>\n"
@@ -5186,7 +5186,7 @@ msgstr "Події"
 
 #: libraries/classes/Menu.php:526 libraries/classes/Util.php:4079
 msgid "Designer"
-msgstr "Конструктор"
+msgstr "Designer"
 
 #: libraries/classes/Menu.php:535 libraries/classes/Util.php:4080
 #: templates/database/structure/check_all_tables.phtml:34
