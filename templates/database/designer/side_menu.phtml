@@ -157,9 +157,9 @@ function getImg($path)
             </span>
         </a>
     <?php else: ?>
-        <a class="M_butt"
+        <a id="build_query_button"
+           class="M_butt"
            href="#"
-           onclick="build_query('SQL Query on Database', 0)"
            class="M_butt">
             <img title="<?= __('Build Query'); ?>"
                  src="<?= getImg('pmd/query_builder.png'); ?>" />

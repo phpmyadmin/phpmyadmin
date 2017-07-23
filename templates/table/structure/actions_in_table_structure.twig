@@ -118,15 +118,11 @@
     {% if central_columns_work %}
         <li class="browse nowrap">
         {% if is_in_central_columns %}
-            <a href="#" onclick="$('input:checkbox').prop('checked', false);
-                $('#checkbox_row_{{ rownum }}').prop('checked', true);
-                $('button[value=remove_from_central_columns]').click();">
+            <a href="#" class="central_columns remove_button">
                 {{ Util_getIcon('centralColumns_delete.png', 'Remove from central columns'|trans) }}
             </a>
         {% else %}
-            <a href="#" onclick="$('input:checkbox').prop('checked', false);
-                $('#checkbox_row_{{ rownum }}').prop('checked', true);
-                $('button[value=add_to_central_columns]').click();">
+            <a href="#" class="central_columns add_button">
                 {{ Util_getIcon('centralColumns_add.png', 'Add to central columns'|trans) }}
             </a>
         {% endif %}

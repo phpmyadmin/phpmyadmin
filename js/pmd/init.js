@@ -37,4 +37,24 @@ AJAX.registerOnload('pmd/init.js', function () {
             }
         });
     }
+
+    $('#query_Aggregate_Button').click(function(){
+        document.getElementById('query_Aggregate').style.display = 'none';
+    });
+
+    $('#query_having_button').click(function(){
+        document.getElementById('query_having').style.display = 'none';
+    });
+
+    $('#query_rename_to_button').click(function(){
+        document.getElementById('query_rename_to').style.display = 'none';
+    });
+
+    $('#build_query_button').click(function(){
+        build_query('SQL Query on Database', 0)
+    });
+
+    $('#query_where_button').click(function(){
+        document.getElementById('query_where').style.display = 'none';
+    });
 });
