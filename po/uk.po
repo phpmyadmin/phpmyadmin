@@ -4,16 +4,16 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.8.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2017-07-18 13:31+0200\n"
-"PO-Revision-Date: 2017-07-02 11:53+0000\n"
+"PO-Revision-Date: 2017-07-23 06:26+0000\n"
 "Last-Translator: Володимир Бриняк <bardvv@gmail.com>\n"
-"Language-Team: Ukrainian <https://hosted.weblate.org/projects/phpmyadmin/"
-"master/uk/>\n"
+"Language-Team: Ukrainian "
+"<https://hosted.weblate.org/projects/phpmyadmin/master/uk/>\n"
 "Language: uk\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=3; plural=n%10==1 && n%100!=11 ? 0 : n%10>=2 && n"
-"%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
+"Plural-Forms: nplurals=3; plural=n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%10<="
+"4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
 "X-Generator: Weblate 2.16-dev\n"
 
 #: ajax.php:16 ajax.php:33 export.php:195 schema_export.php:66
@@ -4337,7 +4337,7 @@ msgstr "Всередині стовпця:"
 
 #: libraries/classes/Dbi/DbiMysqli.php:158
 msgid "SSL connection enforced by server, automatically enabling it."
-msgstr ""
+msgstr "SSL-з'єднання здійснюється сервером, автоматичне включення."
 
 #: libraries/classes/DisplayResults.php:910
 msgid "Save edited data"
@@ -6124,17 +6124,12 @@ msgstr ""
 "з phpMyAdmin і може викликати пошкодження деяких даних!"
 
 #: libraries/common.inc.php:486
-#, fuzzy
-#| msgid ""
-#| "You have enabled mbstring.func_overload in your PHP configuration. This "
-#| "option is incompatible with phpMyAdmin and might cause some data to be "
-#| "corrupted!"
 msgid ""
 "You have disabled ini_get and/or ini_set in php.ini. This option is "
 "incompatible with phpMyAdmin!"
 msgstr ""
-"У конфігурації PHP увімкнено mbstring.func_overload. Цей параметр несумісний "
-"з phpMyAdmin і може викликати пошкодження деяких даних!"
+"Ви відключили ini_get і/або ini_set в php.ini. Цей вибір несумісний з "
+"phpMyAdmin!"
 
 #: libraries/common.inc.php:519
 #, php-format
@@ -10199,10 +10194,8 @@ msgid "Server Choice:"
 msgstr "Вибір сервера:"
 
 #: libraries/plugins/auth/AuthenticationCookie.php:341
-#, fuzzy
-#| msgid "Could not connect to the database server!"
 msgid "Failed to connect to the reCAPTCHA service!"
-msgstr "Не вдалося з'єднатися з сервером бази даних!"
+msgstr "Не вдалося підключитися до служби reCAPTCHA!"
 
 #: libraries/plugins/auth/AuthenticationCookie.php:343
 msgid "Entered captcha is wrong, try again!"
@@ -10210,7 +10203,7 @@ msgstr "Введений captcha неправильно, спробуйте ще
 
 #: libraries/plugins/auth/AuthenticationCookie.php:348
 msgid "Missing reCAPTCHA verification, maybe it has been blocked by adblock?"
-msgstr ""
+msgstr "Відсутня перевірка reCAPTCHA, можливо, вона заблокована adblock?"
 
 #: libraries/plugins/auth/AuthenticationCookie.php:372
 msgid "You are not allowed to log in to this MySQL server!"
