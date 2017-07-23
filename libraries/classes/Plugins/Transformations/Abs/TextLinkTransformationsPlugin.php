@@ -47,6 +47,8 @@ abstract class TextLinkTransformationsPlugin extends TransformationsPlugin
      */
     public function applyTransformation($buffer, $options = array(), $meta = '')
     {
+        $cfg = $GLOBALS['cfg'];
+        $options = $this->getOptions($options, $cfg['DefaultTransformations']['TextLink']);
         $url = (isset($options[0]) ? $options[0] : '') . ((isset($options[2]) && $options[2]) ? '' : $buffer);
         /* Do not allow javascript links */
         if (! Sanitize::checkLink($url, true, true)) {

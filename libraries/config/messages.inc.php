@@ -118,6 +118,25 @@ $strConfigShowColumnComments_name = __('Show column comments');
 $strConfigShowColumnComments_desc
     = __('Whether column comments should be shown in table structure view');
 $strConfigHideStructureActions_name = __('Hide table structure actions');
+$strConfigDefaultTransformations_Hex_name = __('Default transformations for Hex');
+$strConfigDefaultTransformations_Hex_desc = __('Values for options list for default transformations. These will be overwritten if tranformation is filled in at table structure page.');
+$strConfigDefaultTransformations_Substring_name = __('Default transformations for Substring');
+$strConfigDefaultTransformations_Substring_desc = __('Values for options list for default transformations. These will be overwritten if tranformation is filled in at table structure page.');
+$strConfigDefaultTransformations_Bool2Text_name = __('Default transformations for Bool2Text');
+$strConfigDefaultTransformations_Bool2Text_desc = __('Values for options list for default transformations. These will be overwritten if tranformation is filled in at table structure page.');
+$strConfigDefaultTransformations_External_name = __('Default transformations for External');
+$strConfigDefaultTransformations_External_desc = __('Values for options list for default transformations. These will be overwritten if tranformation is filled in at table structure page.');
+$strConfigDefaultTransformations_PreApPend_name = __('Default transformations for PreApPend');
+$strConfigDefaultTransformations_PreApPend_desc = __('Values for options list for default transformations. These will be overwritten if tranformation is filled in at table structure page.');
+$strConfigDefaultTransformations_DateFormat_name = __('Default transformations for DateFormat');
+$strConfigDefaultTransformations_DateFormat_desc = __('Values for options list for default transformations. These will be overwritten if tranformation is filled in at table structure page.');
+$strConfigDefaultTransformations_Inline_name = __('Default transformations for Inline');
+$strConfigDefaultTransformations_Inline_desc = __('Values for options list for default transformations. These will be overwritten if tranformation is filled in at table structure page.');
+$strConfigDefaultTransformations_TextImageLink_name = __('Default transformations for TextImageLink');
+$strConfigDefaultTransformations_TextImageLink_desc = __('Values for options list for default transformations. These will be overwritten if tranformation is filled in at table structure page.');
+$strConfigDefaultTransformations_TextLink_name = __('Default transformations for TextLink');
+$strConfigDefaultTransformations_TextLink_desc = __('Values for options list for default transformations. These will be overwritten if tranformation is filled in at table structure page.');
+
 $strConfigDisplayServersList_desc
     = __('Show server listing as a list instead of a drop down.');
 $strConfigDisplayServersList_name = __('Display servers as a list');

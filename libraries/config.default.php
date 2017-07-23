@@ -3105,3 +3105,79 @@ $cfg['MysqlMinVersion'] = array(
  * @global array $cfg['DisableShortcutKeys']
  */
 $cfg['DisableShortcutKeys'] = false;
+
+
+/*******************************************************************************
+ * Default options for transformations
+ */
+
+/**
+ * Initialize default transformations array
+ *
+ * @global array $cfg['DefaultTransformations']
+ */
+$cfg['DefaultTransformations'] = array();
+
+/**
+ * Default transformations for Substring
+ *
+ * @global array $cfg['DefaultTransformations']['Substring']
+ */
+$cfg['DefaultTransformations']['Substring'] = array(0, 'all', '…');
+
+/**
+ * Default transformations for Bool2Text
+ *
+ * @global array $cfg['DefaultTransformations']['Bool2Text']
+ */
+$cfg['DefaultTransformations']['Bool2Text'] = array('T', 'F');
+
+/**
+ * Default transformations for External
+ *
+ * @global array $cfg['DefaultTransformations']['External']
+ */
+$cfg['DefaultTransformations']['External'] = array(0, '-f /dev/null -i -wrap -q', 1, 1);
+
+/**
+ * Default transformations for PreApPend
+ *
+ * @global array $cfg['DefaultTransformations']['PreApPend']
+ */
+$cfg['DefaultTransformations']['PreApPend'] = array('', '');
+
+/**
+ * Default transformations for Hex
+ *
+ * @global array $cfg['DefaultTransformations']['Hex']
+ */
+$cfg['DefaultTransformations']['Hex'] = array('2');
+
+/**
+ * Default transformations for DateFormat
+ *
+ * @global array $cfg['DefaultTransformations']['DateFormat']
+ */
+$cfg['DefaultTransformations']['DateFormat'] = array(0, '', 'local');
+
+/**
+ * Default transformations for Inline
+ *
+ * @global array $cfg['DefaultTransformations']['Inline']
+ */
+$cfg['DefaultTransformations']['Inline'] = array('100', 100);
+$cfg['DefaultTransformations']['Inline']['wrapper_link'] = null;
+
+/**
+ * Default transformations for TextImageLink
+ *
+ * @global array $cfg['DefaultTransformations']['TextImageLink']
+ */
+$cfg['DefaultTransformations']['TextImageLink'] = array(null, 100, 50);
+
+/**
+ * Default transformations for TextLink
+ *
+ * @global array $cfg['DefaultTransformations']['TextLink']
+ */
+$cfg['DefaultTransformations']['TextLink'] = array(null, null, null);

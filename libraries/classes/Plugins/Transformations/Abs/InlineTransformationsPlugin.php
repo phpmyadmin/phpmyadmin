@@ -45,13 +45,16 @@ abstract class InlineTransformationsPlugin extends TransformationsPlugin
      */
     public function applyTransformation($buffer, $options = array(), $meta = '')
     {
+        $cfg = $GLOBALS['cfg'];
+        $options = $this->getOptions($options, $cfg['DefaultTransformations']['Inline']);
+
         if (PMA_IS_GD2) {
             return '<a href="transformation_wrapper.php'
                 . $options['wrapper_link']
                 . '" rel="noopener noreferrer" target="_blank"><img src="transformation_wrapper.php'
                 . $options['wrapper_link'] . '&amp;resize=jpeg&amp;newWidth='
-                . (isset($options[0]) ? intval($options[0]) : '100') . '&amp;newHeight='
-                . (isset($options[1]) ? intval($options[1]) : 100)
+                . intval($options[0]) . '&amp;newHeight='
+                . intval($options[1])
                 . '" alt="[' . htmlspecialchars($buffer) . ']" border="0" /></a>';
         } else {
             return '<img src="transformation_wrapper.php'
