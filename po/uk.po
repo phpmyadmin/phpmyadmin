@@ -4,16 +4,16 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.7.3-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2017-07-18 13:29+0200\n"
-"PO-Revision-Date: 2017-07-02 11:53+0000\n"
+"PO-Revision-Date: 2017-07-23 16:01+0000\n"
 "Last-Translator: Володимир Бриняк <bardvv@gmail.com>\n"
-"Language-Team: Ukrainian <https://hosted.weblate.org/projects/phpmyadmin/4-7/"
-"uk/>\n"
+"Language-Team: Ukrainian "
+"<https://hosted.weblate.org/projects/phpmyadmin/4-7/uk/>\n"
 "Language: uk\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=3; plural=n%10==1 && n%100!=11 ? 0 : n%10>=2 && n"
-"%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
+"Plural-Forms: nplurals=3; plural=n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%10<="
+"4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
 "X-Generator: Weblate 2.16-dev\n"
 
 #: ajax.php:16 ajax.php:33 export.php:192 schema_export.php:64
@@ -4134,7 +4134,7 @@ msgstr "Події"
 
 #: libraries/Menu.php:507 libraries/Util.php:4123
 msgid "Designer"
-msgstr "Конструктор"
+msgstr "Designer"
 
 #: libraries/Menu.php:516 libraries/Util.php:4124
 #: templates/database/structure/check_all_tables.phtml:34
@@ -5084,17 +5084,12 @@ msgstr ""
 "з phpMyAdmin і може викликати пошкодження деяких даних!"
 
 #: libraries/common.inc.php:484
-#, fuzzy
-#| msgid ""
-#| "You have enabled mbstring.func_overload in your PHP configuration. This "
-#| "option is incompatible with phpMyAdmin and might cause some data to be "
-#| "corrupted!"
 msgid ""
 "You have disabled ini_get and/or ini_set in php.ini. This option is "
 "incompatible with phpMyAdmin!"
 msgstr ""
-"У конфігурації PHP увімкнено mbstring.func_overload. Цей параметр несумісний "
-"з phpMyAdmin і може викликати пошкодження деяких даних!"
+"Ви відключили ini_get і/або ini_set в php.ini. Цей вибір несумісний з "
+"phpMyAdmin!"
 
 #: libraries/common.inc.php:517
 #, php-format
@@ -8263,7 +8258,7 @@ msgstr ""
 
 #: libraries/dbi/DBIMysqli.php:158
 msgid "SSL connection enforced by server, automatically enabling it."
-msgstr ""
+msgstr "SSL-з'єднання здійснюється сервером, автоматичне включення."
 
 #: libraries/display_change_password.lib.php:57
 #: libraries/replication_gui.lib.php:854
