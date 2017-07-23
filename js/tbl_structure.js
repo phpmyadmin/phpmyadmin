@@ -529,6 +529,23 @@ AJAX.registerOnload('tbl_structure.js', function () {
     }
 
     $('.jsresponsive').css('max-width', (windowwidth - 35 ) + 'px');
+    var tableRows = $('.central_columns');
+    $.each(tableRows, function(index, item){
+        if ($(item).hasClass('add_button')) {
+            $(item).click(function() {
+                $('input:checkbox').prop('checked', false);
+                $('#checkbox_row_' + (index + 1)).prop('checked', true);
+                $('button[value=add_to_central_columns]').click();
+            });
+        }
+        else {
+            $(item).click(function() {
+                $('input:checkbox').prop('checked', false);
+                $('#checkbox_row_' + (index + 1)).prop('checked', true);
+                $('button[value=remove_from_central_columns]').click();
+            });
+        }
+    });
 });
 AJAX.registerTeardown('tbl_structure.js', function () {
     if ($('#fieldsForm').hasClass('HideStructureActions')) {

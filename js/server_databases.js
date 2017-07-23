@@ -179,4 +179,11 @@ AJAX.registerOnload('server_databases.js', function () {
             $('#databases_count').html(databasesCount);
         });
     }
+
+    var tableRows = $('.server_databases');
+    $.each(tableRows, function(index, item) {
+        $(this).click(function(){
+            PMA_commonActions.setDb($(this).attr('data'));
+        });
+    });
 }); // end $()

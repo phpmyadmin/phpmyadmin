@@ -623,4 +623,8 @@ AJAX.registerOnload('tbl_zoom_plot_jqplot.js', function () {
             }
         );
     }
+
+    $('#help_dialog').click(function(){
+        displayHelp();
+    });
 });

@@ -56,7 +56,7 @@
     <?php endif; ?>
 
     <td class="tool">
-        <a onclick="PMA_commonActions.setDb('<?= PhpMyAdmin\Sanitize::jsFormat($current['SCHEMA_NAME']) ?>');"
+        <a class="server_databases" data="<?= PhpMyAdmin\Sanitize::jsFormat($current['SCHEMA_NAME']) ?>"
            href="server_privileges.php<?= \PhpMyAdmin\Url::getCommon(array('db' => $current['SCHEMA_NAME'], 'checkprivsdb' => $current['SCHEMA_NAME'])); ?>"
            title="<?= htmlspecialchars(sprintf(__('Check privileges for database "%s".'), $current['SCHEMA_NAME'])); ?>">
            <?= \PhpMyAdmin\Util::getIcon('s_rights.png', __('Check privileges')); ?>
