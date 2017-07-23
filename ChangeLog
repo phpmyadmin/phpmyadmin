@@ -28,6 +28,7 @@ phpMyAdmin - ChangeLog
 - issue #6241  Implement Responsive Design/mobile interface
 - issue        Use a single location for classes under PhpMyAdmin namespace
 - issue #12354 Indicate SSL status on main page
+- issue #5666  Configuration directives for defaults of Transformation options
 
 4.7.4 (not yet released)
 - issue #13415 Remove shadow from the logo
