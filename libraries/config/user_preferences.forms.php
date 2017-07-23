@@ -120,7 +120,19 @@ $forms['Main_panel']['DbStructure'] = array(
     'ShowDbStructureLastCheck');
 $forms['Main_panel']['TableStructure'] = array(
     'HideStructureActions',
-    'ShowColumnComments');
+    'ShowColumnComments',
+    ':group:' . __('Default transformations'),
+    'DefaultTransformations/Hex',
+    'DefaultTransformations/Substring',
+    'DefaultTransformations/Bool2Text',
+    'DefaultTransformations/External',
+    'DefaultTransformations/PreApPend',
+    'DefaultTransformations/DateFormat',
+    'DefaultTransformations/Inline',
+    'DefaultTransformations/TextImageLink',
+    'DefaultTransformations/TextLink',
+    ':group:end'
+);
 $forms['Main_panel']['Browse'] = array(
     'TableNavigationLinksMode',
     'ActionLinksMode',

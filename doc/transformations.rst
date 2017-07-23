@@ -79,7 +79,8 @@ They are called 'MIME-type', 'Browser transformation' and
   which you can specify 2 options and you want to append a character
   set, enter "'first parameter','second parameter','charset=us-ascii'".
   You can, however use the defaults for the parameters: "'','','charset
-  =us-ascii'".
+  =us-ascii'". The default options can be configured using
+  :config:option:`$cfg['DefaultTransformations']`
 
 .. _transformationsfiles:
 

@@ -43,7 +43,8 @@ abstract class PreApPendTransformationsPlugin extends TransformationsPlugin
      */
     public function applyTransformation($buffer, $options = array(), $meta = '')
     {
-        $options = $this->getOptions($options, array('', ''));
+        $cfg = $GLOBALS['cfg'];
+        $options = $this->getOptions($options, $cfg['DefaultTransformations']['PreApPend']);
 
         //just prepend and/or append the options to the original text
         return htmlspecialchars($options[0]) . htmlspecialchars($buffer)

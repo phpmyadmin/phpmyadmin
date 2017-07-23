@@ -51,17 +51,11 @@ abstract class DateFormatTransformationsPlugin extends TransformationsPlugin
     public function applyTransformation($buffer, $options = array(), $meta = '')
     {
         // possibly use a global transform and feed it with special options
+        $cfg = $GLOBALS['cfg'];
+        $options = $this->getOptions($options, $cfg['DefaultTransformations']['DateFormat']);
 
         // further operations on $buffer using the $options[] array.
-        if (empty($options[0])) {
-            $options[0] = 0;
-        }
-
-        if (empty($options[2])) {
-            $options[2] = 'local';
-        } else {
-            $options[2] = mb_strtolower($options[2]);
-        }
+        $options[2] = mb_strtolower($options[2]);
 
         if (empty($options[1])) {
             if ($options[2] == 'local') {

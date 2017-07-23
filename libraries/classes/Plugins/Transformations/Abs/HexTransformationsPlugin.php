@@ -43,7 +43,8 @@ abstract class HexTransformationsPlugin extends TransformationsPlugin
     public function applyTransformation($buffer, $options = array(), $meta = '')
     {
         // possibly use a global transform and feed it with special options
-        $options = $this->getOptions($options, array('2'));
+        $cfg = $GLOBALS['cfg'];
+        $options = $this->getOptions($options, $cfg['DefaultTransformations']['Hex']);
         $options[0] = intval($options[0]);
 
         if ($options[0] < 1) {

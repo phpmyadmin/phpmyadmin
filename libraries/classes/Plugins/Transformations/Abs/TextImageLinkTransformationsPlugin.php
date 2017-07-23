@@ -47,15 +47,17 @@ abstract class TextImageLinkTransformationsPlugin extends TransformationsPlugin
      */
     public function applyTransformation($buffer, $options = array(), $meta = '')
     {
-        $url = (isset($options[0]) ? $options[0] : '') . $buffer;
+        $cfg = $GLOBALS['cfg'];
+        $options = $this->getOptions($options, $cfg['DefaultTransformations']['TextImageLink']);
+        $url = $options[0] . $buffer;
         /* Do not allow javascript links */
         if (! Sanitize::checkLink($url, true, true)) {
             return htmlspecialchars($url);
         }
         return '<a href="' . htmlspecialchars($url)
             . '" rel="noopener noreferrer" target="_blank"><img src="' . htmlspecialchars($url)
-            . '" border="0" width="' . (isset($options[1]) ? intval($options[1]) : 100)
-            . '" height="' . (isset($options[2]) ? intval($options[2]) : 50) . '" />'
+            . '" border="0" width="' . intval($options[1])
+            . '" height="' . intval($options[2]) . '" />'
             . htmlspecialchars($buffer) . '</a>';
     }
 
