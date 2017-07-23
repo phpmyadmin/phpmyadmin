@@ -4,16 +4,16 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.7.3-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2017-07-18 13:29+0200\n"
-"PO-Revision-Date: 2017-05-11 05:54+0000\n"
-"Last-Translator: Takumi Hamamoto <novenove@nicolog.jp>\n"
-"Language-Team: Japanese <https://hosted.weblate.org/projects/phpmyadmin/4-7/"
-"ja/>\n"
+"PO-Revision-Date: 2017-07-23 07:19+0000\n"
+"Last-Translator: worldwideskier <worldwideskier@yahoo.co.jp>\n"
+"Language-Team: Japanese "
+"<https://hosted.weblate.org/projects/phpmyadmin/4-7/ja/>\n"
 "Language: ja\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Weblate 2.14-dev\n"
+"X-Generator: Weblate 2.16-dev\n"
 
 #: ajax.php:16 ajax.php:33 export.php:192 schema_export.php:64
 msgid "Bad type!"
@@ -601,7 +601,7 @@ msgstr "戻る"
 msgid ""
 "You were logged out from one server, to logout completely from phpMyAdmin, "
 "you need to logout from all servers."
-msgstr ""
+msgstr "あるサーバからログアウトされました。phpMyAdminから完全にログアウトするためには、全てのサーバからログアウトする必要があります。"
 
 #: index.php:160 libraries/Footer.php:69
 msgid "phpMyAdmin Demo Server"
@@ -1039,8 +1039,6 @@ msgid "Matched rows:"
 msgstr "一致した行:"
 
 #: js/messages.php:137 libraries/Util.php:590
-#, fuzzy
-#| msgid "SQL query"
 msgid "SQL query:"
 msgstr "SQL クエリ:"
 
@@ -1518,22 +1516,16 @@ msgid "Chart"
 msgstr "グラフ"
 
 #: js/messages.php:298 libraries/display_export.lib.php:903
-#, fuzzy
-#| msgid "Database"
 msgctxt "Alias"
 msgid "Database"
 msgstr "データベース"
 
 #: js/messages.php:299 libraries/display_export.lib.php:915
-#, fuzzy
-#| msgid "Table"
 msgctxt "Alias"
 msgid "Table"
 msgstr "テーブル"
 
 #: js/messages.php:300 libraries/display_export.lib.php:926
-#, fuzzy
-#| msgid "Column"
 msgctxt "Alias"
 msgid "Column"
 msgstr "カラム"
@@ -1680,7 +1672,6 @@ msgid "Cancel"
 msgstr "キャンセル"
 
 #: js/messages.php:357 libraries/Header.php:447
-#, fuzzy
 msgid "Page-related settings"
 msgstr "ページ関連の設定"
 
@@ -1698,8 +1689,6 @@ msgid "Request aborted!!"
 msgstr "リクエストを中止しました!!"
 
 #: js/messages.php:363
-#, fuzzy
-#| msgid "Processing Request"
 msgid "Processing request"
 msgstr "要求を処理しています"
 
@@ -1708,8 +1697,6 @@ msgid "Request failed!!"
 msgstr "リクエストは失敗しました!!"
 
 #: js/messages.php:365
-#, fuzzy
-#| msgid "Error in processing request"
 msgid "Error in processing request"
 msgstr "要求処理中でのエラー"
 
@@ -1734,8 +1721,6 @@ msgid "Dropping column"
 msgstr "カラムを削除しています"
 
 #: js/messages.php:370
-#, fuzzy
-#| msgid "Add primary key"
 msgid "Adding primary key"
 msgstr "主キーを追加する"
 
@@ -1920,10 +1905,8 @@ msgid "Column selector"
 msgstr "カラムが選択されていません。"
 
 #: js/messages.php:426
-#, fuzzy
-#| msgid "Search in database"
 msgid "Search this list"
-msgstr "データベース内検索"
+msgstr "このリストの検索"
 
 #: js/messages.php:428
 #, php-format
@@ -1962,7 +1945,7 @@ msgstr "主キーを追加しました。"
 #, fuzzy
 #| msgid "Tracking report"
 msgid "Taking you to next step…"
-msgstr "追跡レポート"
+msgstr "次のステップに進みます…"
 
 #: js/messages.php:444
 #, php-format
@@ -2006,7 +1989,7 @@ msgstr ""
 #, fuzzy
 #| msgid "No databases selected."
 msgid "No partial dependencies selected!"
-msgstr "データベースが選択されていません。"
+msgstr "部分従属が選択されていません!"
 
 #: js/messages.php:457
 msgid "Show me the possible partial dependencies based on data in the table"
