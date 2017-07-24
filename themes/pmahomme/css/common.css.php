@@ -2232,7 +2232,7 @@ table#index_columns {
 
 table#index_columns select {
     width: 85%;
-    float: right;
+    float: left;
 }
 
 #move_columns_dialog div {
