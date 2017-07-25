@@ -72,29 +72,36 @@ class PMA_SeleniumTableInsertTest extends PMA_SeleniumBase
         $this->waitForElement("byId", "insertForm");
         usleep(1000000);
 
-        $this->byId("field_3_3")->value("2011-01-20 02:00:02");
+        $this->byId("field_3_3")->click();
+        // shorter date to prevent error,
+        // automatically gets appended with 00:00:00
+        $this->keys("2011-01-2");
+
         $this->byId("field_1_3")->value("1");
         $this->byId("field_2_3")->value("abcd");
-        usleep(1000000);
 
-        $this->byId("field_6_3")->value("2010-01-20 02:00:02");
+        $this->byId("field_6_3")->click();
+        // shorter date to prevent error,
+        // automatically gets appended with 00:00:00
+        $this->keys("2012-01-2");
+
         $this->byId("field_5_3")->value("foo");
-        usleep(1000000);
 
         $select = $this->select($this->byName("after_insert"));
         $select->selectOptionByLabel("Insert another new row");
-        usleep(1000000);
+
         // post
         $this->byId("buttonYes")->click();
         $this->waitForElementNotPresent("byId", "ajax_message_num_1");
 
         $ele = $this->waitForElement("byClassName", "success");
         $this->assertContains("2 rows inserted", $ele->text());
-        usleep(1000000);
 
-        $this->byId("field_3_3")->value("2012-01-20 02:00:02");
+        $this->byId("field_3_3")->click();
+        // shorter date to prevent error,
+        // automatically gets appended with 00:00:00
+        $this->keys("2013-01-2");
         $this->byId("field_2_3")->value("Abcd");
-        usleep(1000000);
 
         // post
         $this->byCssSelector(
@@ -137,7 +144,7 @@ class PMA_SeleniumTableInsertTest extends PMA_SeleniumBase
         );
 
         $this->assertEquals(
-            "2011-01-20 02:00:02",
+            "2011-01-02 00:00:00",
             $this->getCellByTableClass('table_results', 1, 7)
         );
 
@@ -152,7 +159,7 @@ class PMA_SeleniumTableInsertTest extends PMA_SeleniumBase
         );
 
         $this->assertEquals(
-            "2010-01-20 02:00:02",
+            "2012-01-02 00:00:00",
             $this->getCellByTableClass('table_results', 2, 7)
         );
 
@@ -167,7 +174,7 @@ class PMA_SeleniumTableInsertTest extends PMA_SeleniumBase
         );
 
         $this->assertEquals(
-            "2012-01-20 02:00:02",
+            "2013-01-02 00:00:00",
             $this->getCellByTableClass('table_results', 3, 7)
         );
     }
