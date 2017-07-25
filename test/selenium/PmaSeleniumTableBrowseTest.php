@@ -289,7 +289,8 @@ class PMA_SeleniumTableBrowseTest extends PMA_SeleniumBase
 
         $this->byId("field_3_3")->clear();
         $this->byId("field_2_3")->clear();
-        $this->byId("field_3_3")->value("2012-01-20 02:05:02");
+        $this->byId("field_3_3")->click();
+        $this->keys("2012-01-20 02:05:02");
         $this->byId("field_2_3")->value("ABCDEFG");
         usleep(1000000); // longer string takes longer to type
 
