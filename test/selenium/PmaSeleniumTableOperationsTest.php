@@ -26,16 +26,19 @@ class PMA_SeleniumTableOperationsTest extends PMA_SeleniumBase
     public function setUp()
     {
         parent::setUp();
+
+        // MYISAM ENGINE to allow for column-based order selection
+        // while table also has a PRIMARY key
         $this->dbQuery(
             "CREATE TABLE `test_table` ("
             . " `id` int(11) NOT NULL AUTO_INCREMENT,"
             . " `val` int(11) NOT NULL,"
             . " `val2` int(11) NOT NULL,"
             . " PRIMARY KEY (`id`)"
-            . ")"
+            . ") ENGINE=MYISAM"
         );
-        $this->dbQuery("INSERT INTO test_table (val) VALUES (22)");
-        $this->dbQuery("INSERT INTO test_table (val) VALUES (33)");
+        $this->dbQuery("INSERT INTO test_table (val, val2) VALUES (22, 33)");
+        $this->dbQuery("INSERT INTO test_table (val, val2) VALUES (33, 44)");
     }
 
     /**
@@ -45,12 +48,17 @@ class PMA_SeleniumTableOperationsTest extends PMA_SeleniumBase
      */
     public function setUpPage()
     {
+        parent::setUpPage();
+
         $this->login();
         $this->navigateTable('test_table');
 
+        $this->waitForElementNotPresent('byId', 'ajax_message_num_1');
+
         $this->expandMore();
         $this->byXPath("//a[contains(., 'Operations')]")->click();
-        $this->sleep();
+
+        $this->waitForElementNotPresent('byId', 'ajax_message_num_1');
         $this->waitForElement(
             "byXPath",
             "//legend[contains(., 'Table maintenance')]"
@@ -66,10 +74,6 @@ class PMA_SeleniumTableOperationsTest extends PMA_SeleniumBase
      */
     public function testChangeTableOrder()
     {
-        /* FIXME: Need to create table which will allow this */
-        $this->markTestIncomplete(
-            'Changing order is not supported for some tables.'
-        );
         $this->select($this->byName("order_field"))
             ->selectOptionByLabel("val");
 
@@ -78,14 +82,18 @@ class PMA_SeleniumTableOperationsTest extends PMA_SeleniumBase
             "form#alterTableOrderby input[type='submit']"
         )->click();
 
+        $this->waitForElementNotPresent('byId', 'ajax_message_num_1');
+
         $this->waitForElement(
             "byXPath",
             "//div[@class='success' and "
             . "contains(., 'Your SQL query has been executed successfully')]"
         );
 
-        $this->byLinkText("Browse")->click();
-        $this->waitForElement("byId", "table_results");
+        $this->byPartialLinkText("Browse")->click();
+
+        $this->waitForElementNotPresent('byId', 'ajax_message_num_1');
+        $this->waitForElement("byCssSelector", "table.table_results");
 
         $this->assertEquals(
             "2",
@@ -106,6 +114,7 @@ class PMA_SeleniumTableOperationsTest extends PMA_SeleniumBase
             ->value("2");
 
         $this->byCssSelector("form#moveTableForm input[type='submit']")->click();
+        $this->waitForElementNotPresent('byId', 'ajax_message_num_1');
 
         $this->waitForElement(
             "byXPath",
@@ -137,19 +146,14 @@ class PMA_SeleniumTableOperationsTest extends PMA_SeleniumBase
 
         $this->byName("comment")->value("foobar");
 
+        $this->scrollIntoView('tableOptionsForm');
         $this->byCssSelector("form#tableOptionsForm input[type='submit']")->click();
+        $this->waitForElementNotPresent('byId', 'ajax_message_num_1');
 
         $this->waitForElement(
             "byXPath",
             "//div[@class='success' and "
             . "contains(., 'Table test_table has been renamed to test_table2')]"
-        );
-
-        $this->assertNotNull(
-            $this->waitForElement(
-                "byXPath",
-                "//span[@id='span_table_comment' and contains(., 'foobar')]"
-            )
         );
 
         $result = $this->dbQuery("SHOW TABLES");
@@ -169,9 +173,12 @@ class PMA_SeleniumTableOperationsTest extends PMA_SeleniumBase
      */
     public function testCopyTable()
     {
+        $this->scrollIntoView('copyTable');
+
         $this->byCssSelector("form#copyTable input[name='new_name']")->value("2");
         $this->byCssSelector("label[for='what_data']")->click();
         $this->byCssSelector("form#copyTable input[type='submit']")->click();
+        $this->waitForElementNotPresent('byId', 'ajax_message_num_1');
 
         $this->waitForElement(
             "byXPath",
@@ -198,8 +205,11 @@ class PMA_SeleniumTableOperationsTest extends PMA_SeleniumBase
      */
     public function testTruncateTable()
     {
+        $this->scrollToBottom();
+
         $this->byId("truncate_tbl_anchor")->click();
-        $this->byXPath("//button[contains(., 'OK')]")->click();
+        $this->byCssSelector("button.submitOK")->click();
+        $this->waitForElementNotPresent('byId', 'ajax_message_num_1');
 
         $this->waitForElement(
             "byXPath",
@@ -224,8 +234,11 @@ class PMA_SeleniumTableOperationsTest extends PMA_SeleniumBase
      */
     public function testDropTable()
     {
+        $this->scrollToBottom();
+
         $this->byId("drop_tbl_anchor")->click();
-        $this->byXPath("//button[contains(., 'OK')]")->click();
+        $this->byCssSelector("button.submitOK")->click();
+        $this->waitForElementNotPresent('byId', 'ajax_message_num_1');
 
         $this->waitForElement(
             "byXPath",

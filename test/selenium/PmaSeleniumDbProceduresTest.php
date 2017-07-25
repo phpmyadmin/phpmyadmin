@@ -209,6 +209,8 @@ class PMA_SeleniumDbProceduresTest extends PMA_SeleniumBase
         $this->waitForElement("byPartialLinkText", "Execute")->click();
         $this->waitForElement("byName", "params[inp]")->value($text);
         $this->byCssSelector("div.ui-dialog-buttonset button:nth-child(1)")->click();
+
+        $this->waitForElementNotPresent('byId', 'ajax_message_num_1');
         $this->waitForElement(
             "byCssSelector",
             "span#PMA_slidingMessage table tbody"

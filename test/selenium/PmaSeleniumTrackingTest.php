@@ -52,21 +52,28 @@ class PMA_SeleniumTrackingTest extends PMA_SeleniumBase
      */
     public function setUpPage()
     {
-        $this->login();
+        parent::setUpPage();
 
+        $this->login();
         $this->skipIfNotPMADB();
 
-        $this->waitForElement('byLinkText', $this->database_name)->click();
+        $this->waitForElement('byPartialLinkText', $this->database_name)->click();
         $this->waitForElement(
             "byXPath",
             "//a[@class='item' and contains(., 'Database: "
             . $this->database_name . "')]"
         );
+        $this->waitForElementNotPresent('byId', 'ajax_message_num_1');
         $this->expandMore();
-        $this->byLinkText("Tracking")->click();
-        $this->waitForElement("byLinkText", "Track table");
+
+        $this->waitForElement('byPartialLinkText', "Tracking")->click();
+        $this->waitForElementNotPresent('byId', 'ajax_message_num_1');
+
+        usleep(1000000);
+        $this->waitForElement("byPartialLinkText", "Track table");
         $this->byXPath("(//a[contains(., 'Track table')])[1]")->click();
 
+        $this->waitForElementNotPresent('byId', 'ajax_message_num_1');
         $this->waitForElement("byName", "delete")->click();
         $this->byCssSelector("input[value='Create version']")->click();
         $this->waitForElement("byId", "versions");
@@ -83,7 +90,7 @@ class PMA_SeleniumTrackingTest extends PMA_SeleniumBase
     {
         $this->_executeSqlAndReturnToTableTracking();
 
-        $this->byLinkText("Tracking report")->click();
+        $this->byPartialLinkText("Tracking report")->click();
         $this->waitForElement(
             "byXPath",
             "//h3[contains(., 'Tracking report')]"
@@ -131,11 +138,12 @@ class PMA_SeleniumTrackingTest extends PMA_SeleniumBase
         );
 
         // only data
-        $this->select($this->byName("logtype"))
+        $this->select($this->waitForElement('byName', "logtype"))
             ->selectOptionByLabel("Data only");
         $this->byCssSelector("input[value='Go']")->click();
 
-        $this->waitForElementNotPresent("byId", "loading_parent");
+        $this->waitForElementNotPresent("byId", "ajax_message_num_1");
+        usleep(1000000);
 
         $this->assertFalse(
             $this->isElementPresent("byId", "ddl_versions")
@@ -180,33 +188,57 @@ class PMA_SeleniumTrackingTest extends PMA_SeleniumBase
      */
     public function testDropTracking()
     {
-        $this->byLinkText("Database: " . $this->database_name)->click();
-        $this->waitForElement("byCssSelector", "table.data");
-        usleep(1000000);
-        $this->expandMore();
-        $this->byLinkText("Tracking")->click();
-        $this->waitForElement("byId", "versions");
-        $this->byLinkText("Drop")->click();
-
         $this->waitForElement(
-            "byXPath",
-            "//button[contains(., 'OK')]"
+            'byPartialLinkText',
+            "Database: " . $this->database_name
+        )->click();
+        $this->waitForElementNotPresent('byId', 'ajax_message_num_1');
+        $this->waitForElement("byId", "structureTable");
+
+        $this->expandMore();
+        usleep(1000000);
+
+        $this->byPartialLinkText("Tracking")->click();
+
+        $this->waitForElementNotPresent('byId', 'loading_parent');
+        $this->waitForElement("byId", "versions");
+
+        $ele = $this->waitForElement(
+            'byCssSelector',
+            'table#versions tbody tr:nth-child(1) td:nth-child(7)'
+        );
+        $this->moveto($ele);
+        $this->sleep();
+        $this->click();
+
+        $this->sleep();
+        $this->waitForElement(
+            "byCssSelector",
+            "button.submitOK"
         )->click();
 
+        $this->waitForElementNotPresent('byId', 'ajax_message_num_1');
         $this->waitForElement(
             "byXPath",
             "//div[@class='success' and contains(., "
-            . "'Your SQL query has been executed')]"
+            . "'Tracking data deleted successfully.')]"
         );
 
+        // Can not use getCellByTableId,
+        // since this is under 'th' and not 'td'
         $this->assertContains(
-            "test_table",
-            $this->getCellByTableId('noversions', 1, 1)
+            'test_table',
+            $this->waitForElement(
+                'byCssSelector',
+                'table#noversions tbody tr:nth-child(1) th:nth-child(2)'
+            )->text()
         );
-
         $this->assertContains(
-            "test_table_2",
-            $this->getCellByTableId('noversions', 2, 1)
+            'test_table_2',
+            $this->waitForElement(
+                'byCssSelector',
+                'table#noversions tbody tr:nth-child(2) th:nth-child(2)'
+            )->text()
         );
     }
 
@@ -219,17 +251,17 @@ class PMA_SeleniumTrackingTest extends PMA_SeleniumBase
      */
     public function testStructureSnapshot()
     {
-        $this->byLinkText("Structure snapshot")->click();
+        $this->byPartialLinkText("Structure snapshot")->click();
         $this->waitForElement("byId", "tablestructure");
 
         $this->assertContains(
             "id",
-            $this->getCellByTableId('tablestructure', 1, 1)
+            $this->getCellByTableId('tablestructure', 1, 2)
         );
 
         $this->assertContains(
             "val",
-            $this->getCellByTableId('tablestructure', 2, 1)
+            $this->getCellByTableId('tablestructure', 2, 2)
         );
 
         $this->assertContains(
@@ -250,17 +282,23 @@ class PMA_SeleniumTrackingTest extends PMA_SeleniumBase
      */
     private function _executeSqlAndReturnToTableTracking()
     {
-        $this->byLinkText("SQL")->click();
+        $this->byPartialLinkText("SQL")->click();
+        $this->waitForElementNotPresent('byId', 'ajax_message_num_1');
+
+        usleep(1000000);
         $this->waitForElement("byId", "queryfieldscontainer");
         $this->typeInTextArea(
             ";UPDATE test_table SET val = val + 1; "
-            . "DELETE FROM test_table WHERE val = 3"
+            . "DELETE FROM test_table WHERE val = 3",
+            2
         );
         $this->byCssSelector("input[value='Go']")->click();
+        $this->waitForElementNotPresent('byId', 'ajax_message_num_1');
         $this->waitForElement("byClassName", "success");
 
         $this->expandMore();
-        $this->byLinkText("Tracking")->click();
+        $this->byPartialLinkText("Tracking")->click();
+        $this->waitForElementNotPresent('byId', 'ajax_message_num_1');
         $this->waitForElement("byId", "versions");
     }
 }

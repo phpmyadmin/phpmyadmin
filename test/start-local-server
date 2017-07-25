@@ -13,5 +13,5 @@ if [ "$CI_MODE" != "selenium" -o -z "$TESTSUITE_BROWSERSTACK_KEY" ] ; then
     exit 0
 fi
 
-php --server 127.0.0.1:8000 > php.log &
+php --server 127.0.0.1:8000 > php.log 2>&1 &
 ~/browserstack/BrowserStackLocal -localIdentifier "travis-$TRAVIS_JOB_NUMBER" -onlyAutomate "$TESTSUITE_BROWSERSTACK_KEY" 127.0.0.1,8000,0 & 

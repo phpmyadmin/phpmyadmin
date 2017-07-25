@@ -45,6 +45,7 @@ class PMA_SeleniumExportTest extends PMA_SeleniumBase
      */
     public function setUpPage()
     {
+        parent::setUpPage();
         $this->login();
     }
 
@@ -59,7 +60,7 @@ class PMA_SeleniumExportTest extends PMA_SeleniumBase
      *
      * @group large
      */
-    public function testServerImport($plugin, $expected)
+    public function testServerExport($plugin, $expected)
     {
         $text = $this->_doExport('server', $plugin);
 
@@ -82,7 +83,12 @@ class PMA_SeleniumExportTest extends PMA_SeleniumBase
      */
     public function testDbExport($plugin, $expected)
     {
-        $this->waitForElement("byLinkText", $this->database_name)->click();
+        // Go to server databases
+        $this->waitForElement('byPartialLinkText','Databases')->click();
+        $this->waitForElementNotPresent('byId', 'ajax_message_num_1');
+
+        $this->waitForElement("byPartialLinkText", $this->database_name)->click();
+        $this->waitForElementNotPresent('byId', 'ajax_message_num_1');
         $this->waitForElement(
             "byXPath",
             "//a[@class='item' and contains(., 'Database: "
@@ -138,12 +144,12 @@ class PMA_SeleniumExportTest extends PMA_SeleniumBase
                 array(
                     "CREATE TABLE IF NOT EXISTS `test_table`",
                     "INSERT INTO `test_table` (`id`, `val`) VALUES",
-                    "(1, 2);"
+                    "(1, 2)",
                 )
             ),
             array(
                 'JSON',
-                array('[{"id":"1","val":"2"}]')
+                array('{"id":"1","val":"2"}')
             )
         );
     }
@@ -160,49 +166,71 @@ class PMA_SeleniumExportTest extends PMA_SeleniumBase
     {
         $this->expandMore();
 
-        $this->waitForElement('byLinkText', "Export")->click();
+        $this->waitForElement('byPartialLinkText', "Export")->click();
         $this->sleep();
+
+        $this->waitForElementNotPresent('byId', 'ajax_message_num_1');
 
         $this->waitForElement("byId", "quick_or_custom");
-        /*
-         * FIXME: There should be better way to wait for javascript to be executed
-         */
-        $this->sleep();
         $this->byCssSelector("label[for=radio_custom_export]")->click();
+        usleep(1000000);
 
-        if ($type == 'server') {
-            $this->byLinkText('Unselect all')->click();
-            $this->byCssSelector(
+        $this->select($this->byId("plugins"))->selectOptionByLabel($plugin);
+        usleep(1000000);
+
+        if ($type === 'server') {
+            $this->scrollIntoView('databases_and_tables', 200);
+            $this->waitForElement('byPartialLinkText', 'Unselect all')->click();
+            usleep(1000000);
+
+            $this->waitForElement(
+                'byCssSelector',
                 "option[value=" . $this->database_name . "]"
             )->click();
         }
 
-        if ($type == 'table') {
+        if ($type === 'table') {
             $this->byCssSelector("label[for=radio_allrows_0]")->click();
             $this->sleep();
             $this->byName("limit_to")->clear();
             $this->byName("limit_to")->value("1");
         }
 
-        $this->select($this->byId("plugins"))->selectOptionByLabel($plugin);
-        $this->byCssSelector("label[for=radio_view_as_text]")->click();
+        $this->scrollIntoView('output', -150);
+        $this->waitForElement('byCssSelector', "label[for=radio_view_as_text]")->click();
+        usleep(1000000);
 
         if ($plugin == "SQL") {
-            $this->byCssSelector(
-                "label[for=radio_sql_structure_or_data_structure_and_data]"
-            )->click();
-
-            if ($type != "table") {
-                $this->byCssSelector(
-                    "label[for=checkbox_sql_create_database]"
+            if ($type !== 'db') {
+                $this->scrollIntoView('sql_structure', -200);
+                $this->waitForElement(
+                    'byCssSelector',
+                    "label[for=radio_sql_structure_or_data_structure_and_data]"
                 )->click();
+                usleep(1000000);
+            }
+
+            if ($type === 'server') {
+                $this->scrollIntoView('sql_data', -650);
+            } elseif ($type === 'db') {
+                $this->scrollIntoView('sql_data', -250);
+            } elseif ($type === 'table') {
+                $this->scrollIntoView('sql_data', -350);
+            }
+
+            $ele = $this->waitForElement('byId', 'checkbox_sql_if_not_exists');
+            if (! $ele->selected()) {
+                $this->moveto($ele);
+                $this->click();
             }
         }
 
-        $this->byId("buttonGo")->click();
+        $this->scrollToBottom();
+        usleep(1000000);
+
+        $this->waitForElement('byId', "buttonGo")->click();
 
         $text = $this->waitForElement("byId", "textSQLDUMP")->text();
-
         return $text;
     }
 }

@@ -123,6 +123,7 @@ class PMA_SeleniumDbOperationsTest extends PMA_SeleniumBase
         $this->byCssSelector("form#copy_db_form input[name=newname]")
             ->value($new_db_name);
 
+        $this->scrollIntoView('copy_db_form', -150);
         $this->byCssSelector("form#copy_db_form input[type='submit']")->click();
 
         $this->waitForElement(

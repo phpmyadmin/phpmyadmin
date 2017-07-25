@@ -43,9 +43,9 @@ class PMA_SeleniumTableStructureTest extends PMA_SeleniumBase
      */
     public function setUpPage()
     {
-        $this->login();
-        $this->waitForElement('byLinkText', $this->database_name)->click();
+        parent::setUpPage();
 
+        $this->login();
         $this->navigateTable('test_table');
 
         $this->waitForElement(
@@ -53,7 +53,9 @@ class PMA_SeleniumTableStructureTest extends PMA_SeleniumBase
             "(//a[contains(., 'Structure')])"
         )->click();
 
+        $this->waitForElementNotPresent('byId', 'ajax_message_num_1');
         $this->waitForElement("byId", "tablestructure");
+        usleep(1000000);
     }
 
     /**
@@ -65,31 +67,36 @@ class PMA_SeleniumTableStructureTest extends PMA_SeleniumBase
      */
     public function testAddColumn()
     {
-        $this->byCssSelector("label[for='field_where_after']")->click();
-        $this->byCssSelector("input[value='Go']")->click();
+        $this->waitForElement(
+            'byCssSelector',
+            "#addColumns > input[value='Go']"
+        )->click();
+        $this->waitForElementNotPresent('byId', 'loading_parent');
 
         $this->waitForElement("byClassName", "append_fields_form");
 
         $this->byId("field_0_1")->value('val3');
         $this->byCssSelector("input[name='do_save_data']")->click();
 
+        $this->waitForElementNotPresent('byId', 'ajax_message_num_1');
         $this->waitForElement(
             "byXPath",
             "//div[@class='success' and contains(., "
             . "'Table test_table has been altered successfully')]"
         );
 
-        $this->byLinkText("Structure")->click();
+        $this->byPartialLinkText("Structure")->click();
+        $this->waitForElementNotPresent('byId', 'ajax_message_num_1');
         $this->waitForElement("byId", "tablestructure");
 
         $this->assertEquals(
             "val3",
-            $this->byCssSelector('label[for=checkbox_row_2]')->text()
+            $this->byCssSelector('label[for=checkbox_row_4]')->text()
         );
 
         $this->assertEquals(
             "int(11)",
-            $this->getCellByTableId('tablestructure', 2, 4)
+            $this->getCellByTableId('tablestructure', 4, 4)
         );
     }
 
@@ -102,7 +109,10 @@ class PMA_SeleniumTableStructureTest extends PMA_SeleniumBase
      */
     public function testChangeColumn()
     {
-        $this->byXPath("(//a[contains(., 'Change')])[2]")->click();
+        $this->byCssSelector(
+            "#tablestructure tbody tr:nth-child(2) td:nth-child(11)"
+        )->click();
+        $this->waitForElementNotPresent('byId', 'ajax_message_num_1');
 
         $this->waitForElement("byClassName", "append_fields_form");
 
@@ -117,12 +127,14 @@ class PMA_SeleniumTableStructureTest extends PMA_SeleniumBase
             . "'Table test_table has been altered successfully')]"
         );
 
-        $this->byLinkText("Structure")->click();
+        $this->byPartialLinkText("Structure")->click();
+        $this->waitForElementNotPresent('byId', 'ajax_message_num_1');
+
         $this->waitForElement("byId", "tablestructure");
 
         $this->assertEquals(
             "val3",
-            $this->byCssSelector('label[for=checkbox_row_2]')->text()
+            $this->waitForElement('byCssSelector', 'label[for=checkbox_row_2]')->text()
         );
     }
 
@@ -135,8 +147,8 @@ class PMA_SeleniumTableStructureTest extends PMA_SeleniumBase
      */
     public function testDropColumns()
     {
-        $this->byCssSelector('label[for=checkbox_row_2]')->click();
-        $this->byCssSelector('label[for=checkbox_row_3]')->click();
+        $this->waitForElement('byCssSelector', 'label[for=checkbox_row_2]')->click();
+        $this->waitForElement('byCssSelector', 'label[for=checkbox_row_3]')->click();
         $this->byXPath(
             "//button[@class='mult_submit' and contains(., 'Drop')]"
         )->click();
@@ -150,6 +162,7 @@ class PMA_SeleniumTableStructureTest extends PMA_SeleniumBase
             "//div[@class='success' and contains(., "
             . "'Your SQL query has been executed successfully')]"
         );
+        $this->waitForElementNotPresent('byId', 'ajax_message_num_1');
 
         $this->assertFalse(
             $this->isElementPresent(

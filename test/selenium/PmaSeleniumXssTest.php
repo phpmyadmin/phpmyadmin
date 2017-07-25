@@ -18,6 +18,11 @@ require_once 'TestBase.php';
  */
 class PMA_SeleniumXSSTest extends PMA_SeleniumBase
 {
+    public function setUpPage()
+    {
+        parent::setUpPage();
+        $this->login();
+    }
     /**
      * Tests the SQL query tab with a null query
      *
@@ -30,8 +35,8 @@ class PMA_SeleniumXSSTest extends PMA_SeleniumBase
         if (mb_strtolower($this->getBrowser()) == 'safari') {
             $this->markTestSkipped('Alerts not supported on Safari browser.');
         }
-        $this->login();
-        $this->waitForElement('byLinkText', "SQL")->click();
+        $this->waitForElement('byPartialLinkText', "SQL")->click();
+        $this->waitForElementNotPresent('byId', 'ajax_message_num_1');
         $this->waitForElement("byId", "queryboxf");
         $this->byId("button_submit_query")->click();
         $this->assertEquals("Missing value in the form!", $this->alertText());
