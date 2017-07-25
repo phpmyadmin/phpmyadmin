@@ -102,12 +102,7 @@ class PMA_SeleniumTableInsertTest extends PMA_SeleniumBase
         )->click();
 
         $this->waitForElementNotPresent("byId", "ajax_message_num_1");
-        // Old success message should not be present
-        $this->waitForElementNotPresent(
-            'byXPath',
-            "//div[not(contains(., '2 rows inserted')) and contains(@class, 'success') and not(contains(@class, 'message'))]"
-        );
-        usleep(1000000);
+        usleep(2000000);
 
         // New message
         $ele = $this->waitForElement(
