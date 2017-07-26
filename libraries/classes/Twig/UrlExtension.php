@@ -26,17 +26,17 @@ class UrlExtension extends Twig_Extension
     {
         return array(
             new Twig_SimpleFunction(
-                'URL_getHiddenInputs',
+                'Url_getHiddenInputs',
                 'PhpMyAdmin\Url::getHiddenInputs',
                 array('is_safe' => array('html'))
             ),
             new Twig_SimpleFunction(
-                'URL_getHiddenFields',
+                'Url_getHiddenFields',
                 'PhpMyAdmin\Url::getHiddenFields',
                 array('is_safe' => array('html'))
             ),
             new Twig_SimpleFunction(
-                'URL_getCommon',
+                'Url_getCommon',
                 'PhpMyAdmin\Url::getCommon',
                 array('is_safe' => array('html'))
             )
