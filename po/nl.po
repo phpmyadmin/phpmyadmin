@@ -4,16 +4,16 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.8.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2017-07-18 13:31+0200\n"
-"PO-Revision-Date: 2017-06-28 16:11+0000\n"
+"PO-Revision-Date: 2017-07-26 14:16+0000\n"
 "Last-Translator: dingo thirteen <dingo13@gmail.com>\n"
-"Language-Team: Dutch <https://hosted.weblate.org/projects/phpmyadmin/master/"
-"nl/>\n"
+"Language-Team: Dutch "
+"<https://hosted.weblate.org/projects/phpmyadmin/master/nl/>\n"
 "Language: nl\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 2.15-dev\n"
+"X-Generator: Weblate 2.16-dev\n"
 
 #: ajax.php:16 ajax.php:33 export.php:195 schema_export.php:66
 msgid "Bad type!"
@@ -4356,7 +4356,7 @@ msgstr "In de kolom:"
 
 #: libraries/classes/Dbi/DbiMysqli.php:158
 msgid "SSL connection enforced by server, automatically enabling it."
-msgstr ""
+msgstr "SSL connectie afgedwongen door server, automatisch ingeschakeld."
 
 #: libraries/classes/DisplayResults.php:910
 msgid "Save edited data"
@@ -6161,18 +6161,12 @@ msgstr ""
 "gegevens corrupt raken!"
 
 #: libraries/common.inc.php:486
-#, fuzzy
-#| msgid ""
-#| "You have enabled mbstring.func_overload in your PHP configuration. This "
-#| "option is incompatible with phpMyAdmin and might cause some data to be "
-#| "corrupted!"
 msgid ""
 "You have disabled ini_get and/or ini_set in php.ini. This option is "
 "incompatible with phpMyAdmin!"
 msgstr ""
-"U heeft mbstring.func_overload ingeschakeld in uw PHP-configuratie. Deze "
-"optie is incompatibel met phpMyAdmin en kan ervoor zorgen dat sommige "
-"gegevens corrupt raken!"
+"U heeft ini_get en/of ini_set in php.ini uitgeschakeld. Deze optie is "
+"incompatibel met phpMyAdmin!"
 
 #: libraries/common.inc.php:519
 #, php-format
@@ -10285,10 +10279,8 @@ msgid "Server Choice:"
 msgstr "Serverkeuze:"
 
 #: libraries/plugins/auth/AuthenticationCookie.php:341
-#, fuzzy
-#| msgid "Could not connect to the database server!"
 msgid "Failed to connect to the reCAPTCHA service!"
-msgstr "Kan geen verbinding maken met de databaseserver!"
+msgstr "Kan geen verbinding maken met de reCAPTCHA service!"
 
 #: libraries/plugins/auth/AuthenticationCookie.php:343
 msgid "Entered captcha is wrong, try again!"
@@ -10297,6 +10289,8 @@ msgstr "Invoer is verkeerd, probeer opnieuw!"
 #: libraries/plugins/auth/AuthenticationCookie.php:348
 msgid "Missing reCAPTCHA verification, maybe it has been blocked by adblock?"
 msgstr ""
+"reCAPTCHA verificatie niet gevonden, misschien geblokkeerd door een "
+"adblocker?"
 
 #: libraries/plugins/auth/AuthenticationCookie.php:372
 msgid "You are not allowed to log in to this MySQL server!"
