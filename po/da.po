@@ -4,16 +4,16 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.8.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2017-07-18 13:31+0200\n"
-"PO-Revision-Date: 2016-11-18 10:30+0000\n"
-"Last-Translator: Michal Čihař <michal@cihar.com>\n"
-"Language-Team: Danish <https://hosted.weblate.org/projects/phpmyadmin/master/"
-"da/>\n"
+"PO-Revision-Date: 2017-07-26 11:27+0000\n"
+"Last-Translator: Daniel Grønlund Johansen <dragonreal@gmail.com>\n"
+"Language-Team: Danish "
+"<https://hosted.weblate.org/projects/phpmyadmin/master/da/>\n"
 "Language: da\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 2.10-dev\n"
+"X-Generator: Weblate 2.16-dev\n"
 
 #: ajax.php:16 ajax.php:33 export.php:195 schema_export.php:66
 msgid "Bad type!"
@@ -611,10 +611,13 @@ msgid "Back"
 msgstr "Tilbage"
 
 #: index.php:118
+#, fuzzy
 msgid ""
 "You were logged out from one server, to logout completely from phpMyAdmin, "
 "you need to logout from all servers."
 msgstr ""
+"Du er logget af fra en server, for at logge ud fra phpMyAdmin, skal du logge "
+"af alle servere"
 
 #: index.php:162 libraries/classes/Footer.php:74
 msgid "phpMyAdmin Demo Server"
@@ -841,8 +844,9 @@ msgid "You are about to DESTROY a complete database!"
 msgstr "Du er ved at DESTRUERE en komplet database!"
 
 #: js/messages.php:48
+#, fuzzy
 msgid "Cannot rename database to the same name. Change the name and try again"
-msgstr ""
+msgstr "Kan ikke omdøbe database til samme navn. Ændre navnet og prøv igen"
 
 #: js/messages.php:50
 msgid "You are about to DESTROY a complete table!"
@@ -2625,23 +2629,23 @@ msgstr "Kopier tabel med præfiks"
 
 #: js/messages.php:733
 msgid "Extremely weak"
-msgstr ""
+msgstr "Ekstrem svag"
 
 #: js/messages.php:734
 msgid "Very weak"
-msgstr ""
+msgstr "Meget svag"
 
 #: js/messages.php:735
 msgid "Weak"
-msgstr ""
+msgstr "Svag"
 
 #: js/messages.php:736
 msgid "Good"
-msgstr ""
+msgstr "God"
 
 #: js/messages.php:737
 msgid "Strong"
-msgstr ""
+msgstr "Stærk"
 
 #: js/messages.php:766
 msgctxt "Previous month"
@@ -3316,57 +3320,41 @@ msgid "Hebrew"
 msgstr "Hebræisk"
 
 #: libraries/classes/Charsets.php:353
-#, fuzzy
-#| msgid "Georgian"
 msgctxt "Collation"
 msgid "Georgian"
 msgstr "Georgisk"
 
 #: libraries/classes/Charsets.php:356
-#, fuzzy
-#| msgid "Greek"
 msgctxt "Collation"
 msgid "Greek"
 msgstr "Græsk"
 
 #: libraries/classes/Charsets.php:359
-#, fuzzy
-#| msgid "Czech-Slovak"
 msgctxt "Collation"
 msgid "Czech-Slovak"
 msgstr "Tjekkisk-Slovakisk"
 
 #: libraries/classes/Charsets.php:362 libraries/classes/Charsets.php:513
-#, fuzzy
-#| msgid "Ukrainian"
 msgctxt "Collation"
 msgid "Ukrainian"
 msgstr "Ukrainsk"
 
 #: libraries/classes/Charsets.php:365 libraries/classes/Charsets.php:509
-#, fuzzy
-#| msgid "Turkish"
 msgctxt "Collation"
 msgid "Turkish"
 msgstr "Tyrkisk"
 
 #: libraries/classes/Charsets.php:368 libraries/classes/Charsets.php:501
-#, fuzzy
-#| msgid "Swedish"
 msgctxt "Collation"
 msgid "Swedish"
 msgstr "Svensk"
 
 #: libraries/classes/Charsets.php:371 libraries/classes/Charsets.php:505
-#, fuzzy
-#| msgid "Thai"
 msgctxt "Collation"
 msgid "Thai"
 msgstr "Thai"
 
 #: libraries/classes/Charsets.php:374
-#, fuzzy
-#| msgid "unknown"
 msgctxt "Collation"
 msgid "Unknown"
 msgstr "ukendt"
@@ -3381,32 +3369,24 @@ msgstr "Bulgarsk"
 #: libraries/classes/Charsets.php:395
 msgctxt "Collation"
 msgid "Chinese"
-msgstr ""
+msgstr "Kinesisk"
 
 #: libraries/classes/Charsets.php:400
-#, fuzzy
-#| msgid "Croatian"
 msgctxt "Collation"
 msgid "Croatian"
 msgstr "Kroatisk"
 
 #: libraries/classes/Charsets.php:404
-#, fuzzy
-#| msgid "Czech"
 msgctxt "Collation"
 msgid "Czech"
 msgstr "Tjekkisk"
 
 #: libraries/classes/Charsets.php:408
-#, fuzzy
-#| msgid "Danish"
 msgctxt "Collation"
 msgid "Danish"
 msgstr "Dansk"
 
 #: libraries/classes/Charsets.php:412
-#, fuzzy
-#| msgid "English"
 msgctxt "Collation"
 msgid "English"
 msgstr "Engelsk"
@@ -3419,8 +3399,6 @@ msgid "Esperanto"
 msgstr "Esperanto"
 
 #: libraries/classes/Charsets.php:420
-#, fuzzy
-#| msgid "Estonian"
 msgctxt "Collation"
 msgid "Estonian"
 msgstr "Estisk"
@@ -3435,7 +3413,7 @@ msgstr "Dataordbog"
 #: libraries/classes/Charsets.php:426 libraries/classes/Charsets.php:537
 msgctxt "Collation"
 msgid "German (phone book order)"
-msgstr ""
+msgstr "Tysk (Telefonbogs orden)"
 
 #: libraries/classes/Charsets.php:435
 #, fuzzy
@@ -3473,7 +3451,7 @@ msgstr "Litauisk"
 #: libraries/classes/Charsets.php:462
 msgctxt "Collation"
 msgid "Burmese"
-msgstr ""
+msgstr "Burmesisk"
 
 #: libraries/classes/Charsets.php:465
 #, fuzzy
@@ -9121,7 +9099,7 @@ msgstr "Spring over tabeller større end"
 
 #: libraries/display_export.lib.php:897
 msgid "Defined aliases"
-msgstr ""
+msgstr "Definerede aliaser"
 
 #: libraries/display_export.lib.php:1013
 msgid "Could not load export plugins, please check your installation!"
@@ -11798,10 +11776,13 @@ msgid "Generate password:"
 msgstr "Generer adgangskode"
 
 #: libraries/replication_gui.lib.php:907
+#, fuzzy
 msgid ""
 "Connection to server is disabled, please enable $cfg['AllowArbitraryServer'] "
 "in phpMyAdmin configuration."
 msgstr ""
+"Forbindelse til server er afbrudt, Aktiver $cfg['AllowArbitraryServer'] i "
+"phpMyAdmin konfiguration"
 
 #: libraries/replication_gui.lib.php:916
 msgid "Replication started successfully."
@@ -14610,7 +14591,7 @@ msgstr "Tilføj ny server"
 
 #: setup/index.php:18
 msgid "Configuration already exists, setup is disabled!"
-msgstr ""
+msgstr "Konfiguration eksisterer allerede, opsætningen er deaktiveret!"
 
 #: setup/index.php:28
 msgid "Wrong GET file attribute value"
@@ -15850,7 +15831,7 @@ msgstr "Der er tilføjet et indeks til %s."
 
 #: templates/export/alias_add.twig:24
 msgid "Define new aliases"
-msgstr ""
+msgstr "Definer nye aliaser"
 
 #: templates/export/alias_add.twig:32
 #, fuzzy
@@ -15917,7 +15898,7 @@ msgstr "Relationsoperator"
 #, fuzzy
 #| msgid "Remote server"
 msgid "Remove"
-msgstr "Ekstern server"
+msgstr "Fjern/Slet"
 
 #: templates/privileges/column_privileges.twig:89
 #: templates/privileges/column_privileges.twig:93
