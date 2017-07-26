@@ -497,6 +497,74 @@ function PMA_checkRelationsParam()
         return $cfgRelation;
     }
 
+    // Set the default configuration database and table names when not configured
+    // in config.inc.php file but the control user and control pass is set
+    if ($GLOBALS['cfg']['Server']['controluser'] && $GLOBALS['cfg']['Server']['controlpass']) {
+        if (empty($GLOBALS['cfg']['Server']['pmadb'])) {
+            $GLOBALS['cfg']['Server']['pmadb'] = 'phpmyadmin';
+        }
+        if (empty($GLOBALS['cfg']['Server']['bookmarktable'])) {
+            $GLOBALS['cfg']['Server']['bookmarktable'] = 'pma__bookmark';
+        }
+        if (empty($GLOBALS['cfg']['Server']['relation'])) {
+            $GLOBALS['cfg']['Server']['relation'] = 'pma__relation';
+        }
+        if (empty($GLOBALS['cfg']['Server']['table_info'])) {
+            $GLOBALS['cfg']['Server']['table_info'] = 'pma__table_info';
+        }
+        if (empty($GLOBALS['cfg']['Server']['table_coords'])) {
+            $GLOBALS['cfg']['Server']['table_coords'] = 'pma__table_coords';
+        }
+        if (empty($GLOBALS['cfg']['Server']['pdf_pages'])) {
+            $GLOBALS['cfg']['Server']['pdf_pages'] = 'pma__pdf_pages';
+        }
+        if (empty($GLOBALS['cfg']['Server']['column_info'])) {
+            $GLOBALS['cfg']['Server']['column_info'] = 'pma__column_info';
+        }
+        if (empty($GLOBALS['cfg']['Server']['history'])) {
+            $GLOBALS['cfg']['Server']['history'] = 'pma__history';
+        }
+        if (empty($GLOBALS['cfg']['Server']['table_uiprefs'])) {
+            $GLOBALS['cfg']['Server']['table_uiprefs'] = 'pma__table_uiprefs';
+        }
+        if (empty($GLOBALS['cfg']['Server']['tracking'])) {
+            $GLOBALS['cfg']['Server']['tracking'] = 'pma__tracking';
+        }
+        if (empty($GLOBALS['cfg']['Server']['userconfig'])) {
+            $GLOBALS['cfg']['Server']['userconfig'] = 'pma__userconfig';
+        }
+        if (empty($GLOBALS['cfg']['Server']['recent'])) {
+            $GLOBALS['cfg']['Server']['recent'] = 'pma__recent';
+        }
+        if (empty($GLOBALS['cfg']['Server']['favorite'])) {
+            $GLOBALS['cfg']['Server']['favorite'] = 'pma__favorite';
+        }
+        if (empty($GLOBALS['cfg']['Server']['users'])) {
+            $GLOBALS['cfg']['Server']['users'] = 'pma__users';
+        }
+        if (empty($GLOBALS['cfg']['Server']['usergroups'])) {
+            $GLOBALS['cfg']['Server']['usergroups'] = 'pma__usergroups';
+        }
+        if (empty($GLOBALS['cfg']['Server']['navigationhiding'])) {
+            $GLOBALS['cfg']['Server']['navigationhiding'] = 'pma__navigationhiding';
+        }
+        if (empty($GLOBALS['cfg']['Server']['savedsearches'])) {
+            $GLOBALS['cfg']['Server']['savedsearches'] = 'pma__savedsearches';
+        }
+        if (empty($GLOBALS['cfg']['Server']['central_columns'])) {
+            $GLOBALS['cfg']['Server']['central_columns'] = 'pma__central_columns';
+        }
+        if (empty($GLOBALS['cfg']['Server']['designer_settings'])) {
+            $GLOBALS['cfg']['Server']['designer_settings'] = 'pma__designer_settings';
+        }
+        if (empty($GLOBALS['cfg']['Server']['export_templates'])) {
+            $GLOBALS['cfg']['Server']['export_templates'] = 'pma__export_templates';
+        }
+        if (empty($GLOBALS['cfg']['Server']['column_info'])) {
+            $GLOBALS['cfg']['Server']['column_info'] = 'pma__column_info';
+        }
+    }
+
     $cfgRelation['user']  = $GLOBALS['cfg']['Server']['user'];
     $cfgRelation['db']    = $GLOBALS['cfg']['Server']['pmadb'];
 
