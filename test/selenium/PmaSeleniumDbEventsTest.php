@@ -119,10 +119,10 @@ class PMA_SeleniumDbEventsTest extends PMA_SeleniumBase
             ->selectOptionByLabel("MINUTE_SECOND");
 
         $this->byName("item_starts")->click();
-        $this->keys(date('Y-m-d H:i:s', strtotime('-1 day')));
+        $this->keys(date('Y-m-d', strtotime('-1 day')));
 
         $this->byName("item_ends")->click();
-        $this->keys(date('Y-m-d H:i:s', strtotime('+1 day')));
+        $this->keys(date('Y-m-d', strtotime('+1 day')));
 
         $ele = $this->waitForElement('byName', "item_interval_value");
         $ele->value('1');
