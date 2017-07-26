@@ -110,15 +110,17 @@ class PMA_SeleniumImportTest extends PMA_SeleniumBase
      */
     private function _doImport($type)
     {
-        /* FIXME: Need to implement file upload compatible with remote Selenium */
-        $this->markTestIncomplete(
-            'File uploading not yet implemented in Selenium test'
-        );
-        $this->waitForElement('byLinkText', "Import")->click();
-        $ele = $this->waitForElement("byId", "input_import_file");
-        $ele->value(
-            dirname(__FILE__) . "/../test_data/" . $type . "_import.sql"
-        );
+        $this->waitForElement('byPartialLinkText', "Import")->click();
+        $this->waitForElementNotPresent('byId', 'ajax_message_num_1');
+        $this->waitForElement("byId", "input_import_file");
+
+        $this->waitForElement('byCssSelector', 'label[for=radio_local_import_file]')->click();
+        $this->select($this->byName("local_import_file"))
+            ->selectOptionByLabel($type . "_import.sql");
+
+        usleep(1000000);
+
+        $this->scrollToBottom();
         $this->byId("buttonGo")->click();
         $this->waitForElement(
             "byXPath",
