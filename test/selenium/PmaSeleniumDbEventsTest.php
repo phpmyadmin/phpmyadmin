@@ -118,16 +118,14 @@ class PMA_SeleniumDbEventsTest extends PMA_SeleniumBase
         $this->select($this->byName("item_interval_field"))
             ->selectOptionByLabel("MINUTE_SECOND");
 
+        $this->byName("item_starts")->click();
+        $this->keys(date('Y-m-d H:i:s', strtotime('-1 day')));
+
+        $this->byName("item_ends")->click();
+        $this->keys(date('Y-m-d H:i:s', strtotime('+1 day')));
+
         $ele = $this->waitForElement('byName', "item_interval_value");
         $ele->value('1');
-
-        $this->byName("item_starts")
-            ->value(date('Y-m-d H:i:s', strtotime('-1 day')));
-        usleep(1000000);
-
-        $this->byName("item_ends")
-            ->value(date('Y-m-d H:i:s', strtotime('+1 day')));
-        usleep(1000000);
 
         $proc = "UPDATE " . $this->database_name . ".`test_table` SET val=val+1";
         $this->typeInTextArea($proc, 2);

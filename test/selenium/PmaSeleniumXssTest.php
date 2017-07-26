@@ -37,6 +37,8 @@ class PMA_SeleniumXSSTest extends PMA_SeleniumBase
         }
         $this->waitForElement('byPartialLinkText', "SQL")->click();
         $this->waitForElementNotPresent('byId', 'ajax_message_num_1');
+
+        usleep(1000000);
         $this->waitForElement("byId", "queryboxf");
         $this->byId("button_submit_query")->click();
         $this->assertEquals("Missing value in the form!", $this->alertText());

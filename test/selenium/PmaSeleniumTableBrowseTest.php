@@ -188,14 +188,15 @@ class PMA_SeleniumTableBrowseTest extends PMA_SeleniumBase
             $this->byId("field_3_3")->value()
         );
 
+        $this->byId("field_3_3")->clear();
+        $this->byId("field_3_3")->click();
+        // shorter date to prevent error,
+        // automatically gets appended with 00:00:00
+        $this->keys("2009-01-2");
+
         $this->byId("field_2_3")->clear();
         $this->byId("field_2_3")->value("foobar");
 
-        $this->sleep();
-        $this->byId("field_3_3")->clear();
-        $this->byId("field_3_3")->value("2009-01-20 02:00:02");
-
-        $this->sleep();
         $this->byId("buttonYes")->click();
 
         $this->waitForElementNotPresent('byId', 'ajax_message_num_1');
@@ -208,7 +209,7 @@ class PMA_SeleniumTableBrowseTest extends PMA_SeleniumBase
         );
 
         $this->assertEquals(
-            "2009-01-20 02:00:02",
+            "2009-01-02 00:00:00",
             $this->getCellByTableClass('table_results', 2, 7)
         );
     }
@@ -287,10 +288,12 @@ class PMA_SeleniumTableBrowseTest extends PMA_SeleniumBase
             $this->byId("field_3_3")->value()
         );
 
-        $this->byId("field_3_3")->clear();
         $this->byId("field_2_3")->clear();
-        $this->byId("field_3_3")->click();
-        $this->keys("2012-01-20 02:05:02");
+        $this->byId("field_3_3")->clear();
+
+        // shorter date to prevent error,
+        // automatically gets appended with 00:00:00
+        $this->keys("2012-01-2");
         $this->byId("field_2_3")->value("ABCDEFG");
         usleep(1000000); // longer string takes longer to type
 
@@ -306,7 +309,7 @@ class PMA_SeleniumTableBrowseTest extends PMA_SeleniumBase
         );
 
         $this->assertEquals(
-            "2012-01-20 02:05:02",
+            "2012-01-02 00:00:00",
             $this->getCellByTableClass('table_results', 4, 7)
         );
     }
