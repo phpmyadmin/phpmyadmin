@@ -1,5 +1,5 @@
 <form method="post" action="tbl_addfield.php" id="addColumns" name="addColumns">
-    {{ URL_getHiddenInputs(db, table) }}
+    {{ Url_getHiddenInputs(db, table) }}
     {% if Util_showIcons('ActionLinksMode') %}
         {{ Util_getImage('b_insrow.png', 'Add column'|trans) }}&nbsp;
     {% endif %}
