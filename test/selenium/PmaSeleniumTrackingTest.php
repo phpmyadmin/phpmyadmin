@@ -71,7 +71,18 @@ class PMA_SeleniumTrackingTest extends PMA_SeleniumBase
 
         usleep(1000000);
         $this->waitForElement("byPartialLinkText", "Track table");
-        $this->byXPath("(//a[contains(., 'Track table')])[1]")->click();
+        $ele = $this->byXPath("(//a[contains(., 'Track table')])[1]");
+
+        $ele->click();
+        // Let the click go through
+        // If click happened before complete page load, it didn't go through
+        while (! $this->isElementPresent("byName", "delete")
+            && $this->isElementPresent('byXPath', "(//a[contains(., 'Track table')])[1]")
+            && ! $this->isElementPresent('byId', 'ajax_message_num_1')
+        ) {
+            usleep(1000000);
+            $ele->click();
+        }
 
         $this->waitForElementNotPresent('byId', 'ajax_message_num_1');
         $this->waitForElement("byName", "delete")->click();
@@ -200,7 +211,7 @@ class PMA_SeleniumTrackingTest extends PMA_SeleniumBase
 
         $this->byPartialLinkText("Tracking")->click();
 
-        $this->waitForElementNotPresent('byId', 'loading_parent');
+        $this->waitForElementNotPresent('byId', 'ajax_message_num_1');
         $this->waitForElement("byId", "versions");
 
         $ele = $this->waitForElement(
