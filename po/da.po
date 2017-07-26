@@ -4,16 +4,16 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.7.3-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2017-07-18 13:29+0200\n"
-"PO-Revision-Date: 2016-11-18 10:30+0000\n"
-"Last-Translator: Michal Čihař <michal@cihar.com>\n"
-"Language-Team: Danish <https://hosted.weblate.org/projects/phpmyadmin/master/"
-"da/>\n"
+"PO-Revision-Date: 2017-07-26 13:11+0000\n"
+"Last-Translator: Daniel Grønlund Johansen <dragonreal@gmail.com>\n"
+"Language-Team: Danish "
+"<https://hosted.weblate.org/projects/phpmyadmin/4-7/da/>\n"
 "Language: da\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 2.10-dev\n"
+"X-Generator: Weblate 2.16-dev\n"
 
 #: ajax.php:16 ajax.php:33 export.php:192 schema_export.php:64
 msgid "Bad type!"
@@ -604,10 +604,13 @@ msgid "Back"
 msgstr "Tilbage"
 
 #: index.php:116
+#, fuzzy
 msgid ""
 "You were logged out from one server, to logout completely from phpMyAdmin, "
 "you need to logout from all servers."
 msgstr ""
+"Du er logget af fra en server, for at logge ud fra phpMyAdmin, skal du logge "
+"af alle servere"
 
 #: index.php:160 libraries/Footer.php:69
 msgid "phpMyAdmin Demo Server"
@@ -826,8 +829,9 @@ msgid "You are about to DESTROY a complete database!"
 msgstr "Du er ved at DESTRUERE en komplet database!"
 
 #: js/messages.php:48
+#, fuzzy
 msgid "Cannot rename database to the same name. Change the name and try again"
-msgstr ""
+msgstr "Kan ikke omdøbe database til samme navn. Ændre navnet og prøv igen"
 
 #: js/messages.php:50
 msgid "You are about to DESTROY a complete table!"
@@ -2583,11 +2587,12 @@ msgid ""
 "cause such a problem, clearing your \"Offline Website Data\" might help. In "
 "Safari, such problem is commonly caused by \"Private Mode Browsing\"."
 msgstr ""
-"Det er ikke muligt at tilgå din browsers lokale lager. Visse funktioner "
-"fungerer derfor måske ikke. Det er muligt, at browseren ikke understøtter "
-"lager eller at kvotagrænsen er nået. I Firefox kan ødelagt lager også "
-"forårsage problemet. Sletning af dit \"Offline webindhold\" kan hjælpe. I "
-"Safari er sådan et problem ofte forårsaget af browsing i \"Private Mode\"."
+"Der var et problem med at tilgå din browsers lager. Nogle funktioner kan "
+"derfor ikke virke for dig. Det er sandsynligt, at browseren ikke "
+"understøtter lager eller at grænsen for lager er nået. I Firefox kan ødelagt "
+"lager også forårsage et sådant problem. Det kan hjælpe at slette dit \""
+"Offline webindhold\". I Safari, er sådanne problemer ofte forårsaget af \""
+"Private Mode Browsing\". "
 
 #: js/messages.php:730
 msgid "Copy tables to"
@@ -2607,23 +2612,23 @@ msgstr "Kopier tabel med præfiks"
 
 #: js/messages.php:736
 msgid "Extremely weak"
-msgstr ""
+msgstr "Ekstrem svag"
 
 #: js/messages.php:737
 msgid "Very weak"
-msgstr ""
+msgstr "Meget svag"
 
 #: js/messages.php:738
 msgid "Weak"
-msgstr ""
+msgstr "Svag"
 
 #: js/messages.php:739
 msgid "Good"
-msgstr ""
+msgstr "God"
 
 #: js/messages.php:740
 msgid "Strong"
-msgstr ""
+msgstr "Stærk"
 
 #: js/messages.php:769
 msgctxt "Previous month"
@@ -3133,57 +3138,41 @@ msgid "Hebrew"
 msgstr "Hebræisk"
 
 #: libraries/Charsets.php:332
-#, fuzzy
-#| msgid "Georgian"
 msgctxt "Collation"
 msgid "Georgian"
 msgstr "Georgisk"
 
 #: libraries/Charsets.php:335
-#, fuzzy
-#| msgid "Greek"
 msgctxt "Collation"
 msgid "Greek"
 msgstr "Græsk"
 
 #: libraries/Charsets.php:338
-#, fuzzy
-#| msgid "Czech-Slovak"
 msgctxt "Collation"
 msgid "Czech-Slovak"
 msgstr "Tjekkisk-Slovakisk"
 
 #: libraries/Charsets.php:341 libraries/Charsets.php:492
-#, fuzzy
-#| msgid "Ukrainian"
 msgctxt "Collation"
 msgid "Ukrainian"
 msgstr "Ukrainsk"
 
 #: libraries/Charsets.php:344 libraries/Charsets.php:488
-#, fuzzy
-#| msgid "Turkish"
 msgctxt "Collation"
 msgid "Turkish"
 msgstr "Tyrkisk"
 
 #: libraries/Charsets.php:347 libraries/Charsets.php:480
-#, fuzzy
-#| msgid "Swedish"
 msgctxt "Collation"
 msgid "Swedish"
 msgstr "Svensk"
 
 #: libraries/Charsets.php:350 libraries/Charsets.php:484
-#, fuzzy
-#| msgid "Thai"
 msgctxt "Collation"
 msgid "Thai"
 msgstr "Thai"
 
 #: libraries/Charsets.php:353
-#, fuzzy
-#| msgid "unknown"
 msgctxt "Collation"
 msgid "Unknown"
 msgstr "ukendt"
@@ -3198,32 +3187,24 @@ msgstr "Bulgarsk"
 #: libraries/Charsets.php:374
 msgctxt "Collation"
 msgid "Chinese"
-msgstr ""
+msgstr "Kinesisk"
 
 #: libraries/Charsets.php:379
-#, fuzzy
-#| msgid "Croatian"
 msgctxt "Collation"
 msgid "Croatian"
 msgstr "Kroatisk"
 
 #: libraries/Charsets.php:383
-#, fuzzy
-#| msgid "Czech"
 msgctxt "Collation"
 msgid "Czech"
 msgstr "Tjekkisk"
 
 #: libraries/Charsets.php:387
-#, fuzzy
-#| msgid "Danish"
 msgctxt "Collation"
 msgid "Danish"
 msgstr "Dansk"
 
 #: libraries/Charsets.php:391
-#, fuzzy
-#| msgid "English"
 msgctxt "Collation"
 msgid "English"
 msgstr "Engelsk"
@@ -3236,8 +3217,6 @@ msgid "Esperanto"
 msgstr "Esperanto"
 
 #: libraries/Charsets.php:399
-#, fuzzy
-#| msgid "Estonian"
 msgctxt "Collation"
 msgid "Estonian"
 msgstr "Estisk"
@@ -3252,7 +3231,7 @@ msgstr "Dataordbog"
 #: libraries/Charsets.php:405 libraries/Charsets.php:516
 msgctxt "Collation"
 msgid "German (phone book order)"
-msgstr ""
+msgstr "Tysk (Telefonbogs orden)"
 
 #: libraries/Charsets.php:414
 #, fuzzy
@@ -3290,7 +3269,7 @@ msgstr "Litauisk"
 #: libraries/Charsets.php:441
 msgctxt "Collation"
 msgid "Burmese"
-msgstr ""
+msgstr "Burmesisk"
 
 #: libraries/Charsets.php:444
 #, fuzzy
@@ -8588,7 +8567,7 @@ msgstr "Spring over tabeller større end"
 
 #: libraries/display_export.lib.php:895
 msgid "Defined aliases"
-msgstr ""
+msgstr "Definerede aliaser"
 
 #: libraries/display_export.lib.php:1011
 msgid "Could not load export plugins, please check your installation!"
@@ -11608,10 +11587,13 @@ msgid "Generate password:"
 msgstr "Generer adgangskode"
 
 #: libraries/replication_gui.lib.php:905
+#, fuzzy
 msgid ""
 "Connection to server is disabled, please enable $cfg['AllowArbitraryServer'] "
 "in phpMyAdmin configuration."
 msgstr ""
+"Forbindelse til server er afbrudt, Aktiver $cfg['AllowArbitraryServer'] i "
+"phpMyAdmin konfiguration"
 
 #: libraries/replication_gui.lib.php:914
 msgid "Replication started successfully."
@@ -14509,7 +14491,7 @@ msgstr "Tilføj ny server"
 
 #: setup/index.php:16
 msgid "Configuration already exists, setup is disabled!"
-msgstr ""
+msgstr "Konfiguration eksisterer allerede, opsætningen er deaktiveret!"
 
 #: setup/index.php:26
 msgid "Wrong GET file attribute value"
@@ -15343,7 +15325,7 @@ msgstr "Du kan gennemse indholdet i fejlrapporten:"
 
 #: templates/export/alias_add.phtml:5
 msgid "Define new aliases"
-msgstr ""
+msgstr "Definer nye aliaser"
 
 #: templates/export/alias_add.phtml:11
 #, fuzzy
@@ -15376,8 +15358,9 @@ msgid "New column name"
 msgstr "Nyt kolonnenavn"
 
 #: templates/export/alias_item.phtml:8
+#, fuzzy
 msgid "Remove"
-msgstr ""
+msgstr "Fjern/Slet"
 
 #: templates/prefs_autoload.phtml:8
 msgid ""
