@@ -674,6 +674,8 @@ abstract class PMA_SeleniumBase extends PHPUnit_Extensions_Selenium2TestCase
         // mark the test on Browerstack as failure
         if (! empty($GLOBALS['TESTSUITE_BROWSERSTACK_USER'])
             && ! empty($GLOBALS['TESTSUITE_BROWSERSTACK_KEY'])
+            && ! ($e instanceof PHPUnit_Framework_SkippedTestError)
+            && ! ($e instanceof PHPUnit_Framework_IncompleteTestError)
         ) {
             $SESSION_REST_URL = 'https://www.browserstack.com/automate/sessions/';
             $sessionId = $this->getSessionId();
