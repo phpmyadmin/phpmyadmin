@@ -96,8 +96,8 @@ function PMA_getPlugins($plugin_type, $plugins_dir, $plugin_param)
     }
 
     usort($plugin_list, function($cmp_name_1, $cmp_name_2) {
-		return strcmp($cmp_name_1->getProperties()->getText(), $cmp_name_2->getProperties()->getText());
-	});
+        return strcmp($cmp_name_1->getProperties()->getText(), $cmp_name_2->getProperties()->getText());
+    });
     return $plugin_list;
 }
 
