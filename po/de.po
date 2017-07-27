@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin-docs 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2017-07-18 13:31+0200\n"
-"PO-Revision-Date: 2017-07-27 22:21+0000\n"
+"PO-Revision-Date: 2017-07-27 22:22+0000\n"
 "Last-Translator: ssantos <ssantos@web.de>\n"
 "Language-Team: German "
 "<https://hosted.weblate.org/projects/phpmyadmin/master/de/>\n"
@@ -4196,7 +4196,7 @@ msgstr "Der Server antwortet nicht."
 
 #: libraries/classes/DatabaseInterface.php:2062
 msgid "Logout and try as another user."
-msgstr "Abmelden und als anderen Nutzer versuchen."
+msgstr "Abmelden und als anderer Benutzer versuchen."
 
 #: libraries/classes/DatabaseInterface.php:2068
 msgid "Please check privileges of directory containing database."
