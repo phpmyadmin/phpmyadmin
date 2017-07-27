@@ -5,7 +5,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2017-07-18 13:31+0200\n"
 "PO-Revision-Date: 2017-07-27 22:16+0000\n"
-"Last-Translator: Tobias Groza <tooobi14@gmail.com>\n"
+"Last-Translator: anonymous <>\n"
 "Language-Team: German "
 "<https://hosted.weblate.org/projects/phpmyadmin/master/de/>\n"
 "Language: de\n"
@@ -14012,7 +14012,7 @@ msgstr "Tabs in der Tabellen-Ansicht"
 #: libraries/sql_query_form.lib.php:139
 #, php-format
 msgid "Run SQL query/queries on server “%s”"
-msgstr "SQL-Befehl(e) auf Server \"%s\" ausführen"
+msgstr "SQL-Befehl(e) auf Server „%s“ ausführen"
 
 #: libraries/sql_query_form.lib.php:156
 #, php-format
