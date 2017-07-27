@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin-docs 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2017-07-18 13:31+0200\n"
-"PO-Revision-Date: 2017-07-19 09:47+0000\n"
-"Last-Translator: Erik V <bergischnrw@aol.de>\n"
+"PO-Revision-Date: 2017-07-27 22:13+0000\n"
+"Last-Translator: ssantos <ssantos@web.de>\n"
 "Language-Team: German "
 "<https://hosted.weblate.org/projects/phpmyadmin/master/de/>\n"
 "Language: de\n"
@@ -4397,7 +4397,7 @@ msgstr "In Spalte:"
 
 #: libraries/classes/Dbi/DbiMysqli.php:158
 msgid "SSL connection enforced by server, automatically enabling it."
-msgstr ""
+msgstr "SSL-Verbindung vom Server erzwungen, aktiviere automatisch."
 
 #: libraries/classes/DisplayResults.php:910
 msgid "Save edited data"
@@ -6196,18 +6196,12 @@ msgstr ""
 "und Datenverlust kommen kann!"
 
 #: libraries/common.inc.php:486
-#, fuzzy
-#| msgid ""
-#| "You have enabled mbstring.func_overload in your PHP configuration. This "
-#| "option is incompatible with phpMyAdmin and might cause some data to be "
-#| "corrupted!"
 msgid ""
 "You have disabled ini_get and/or ini_set in php.ini. This option is "
 "incompatible with phpMyAdmin!"
 msgstr ""
-"Sie haben die Option mbstring.func_overload in Ihrer PHP-Konfiguration "
-"aktiviert. Diese ist nicht kompatibel zu phpMyAdmin, weshalb es zu Problemen "
-"und Datenverlust kommen kann!"
+"Sie haben die ini_geht und/oder ini_set in Ihrer php.ini deaktiviert. Dies "
+"ist nicht kompatibel zu phpMyAdmin!"
 
 #: libraries/common.inc.php:519
 #, php-format
@@ -10344,6 +10338,8 @@ msgstr "Das eingegebene Captcha ist falsch, bitte erneut versuchen!"
 #: libraries/plugins/auth/AuthenticationCookie.php:348
 msgid "Missing reCAPTCHA verification, maybe it has been blocked by adblock?"
 msgstr ""
+"reCAPTCHA Bestätigung fehlgeschlagen, ist es möglicherweise von adblock "
+"blockiert worden?"
 
 #: libraries/plugins/auth/AuthenticationCookie.php:372
 msgid "You are not allowed to log in to this MySQL server!"
@@ -16564,12 +16560,11 @@ msgid ""
 msgstr ""
 "Dies bedeutet in der Regel häufig vollständige Indexscans. Vollständige "
 "Indexscans sind schneller als Tablenscans aber sie kosten viele CPU-Zyklen "
-"in großen Tabellen, wenn diese Tabellen ein große Mengen von "
-"Aktualisierungen und Löschungen haben oder hatten. Ein Ausführen von "
-"\"OPTIMIZE TABLE\" auf diese Tabllen kann die Menge verringern und/oder die "
-"Geschwindigkeit der  vollständige Indexscans beschleunigen. Abgesehen davon "
-"können vollständige Indexscans nur durch umschreiben der Abfragen reduziert "
-"werden."
+"in großen Tabellen, wenn diese Tabellen große Mengen von Aktualisierungen "
+"und Löschungen haben oder hatten. Ein Ausführen von \"OPTIMIZE TABLE\" auf "
+"diese Tabellen kann die Menge verringern und/oder die Geschwindigkeit der "
+"vollständigen Indexscans beschleunigen. Abgesehen davon können vollständige "
+"Indexscans nur durch Umschreiben der Abfragen reduziert werden."
 
 #: libraries/advisory_rules.txt:238
 #, php-format
