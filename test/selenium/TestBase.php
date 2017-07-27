@@ -667,4 +667,51 @@ abstract class PMA_SeleniumBase extends PHPUnit_Extensions_Selenium2TestCase
         );
         usleep(1000000);
     }
+
+    public function onNotSuccessfulTest(Exception $e)
+    {
+        // If this is being run on Browerstack,
+        // mark the test on Browerstack as failure
+        if (! empty($GLOBALS['TESTSUITE_BROWSERSTACK_USER'])
+            && ! empty($GLOBALS['TESTSUITE_BROWSERSTACK_KEY'])
+        ) {
+            $SESSION_REST_URL = 'https://www.browserstack.com/automate/sessions/';
+            $sessionId = $this->getSessionId();
+            $payload = json_encode(
+                array(
+                    'status' => 'failed',
+                    'reason' => $e->getMessage()
+                )
+            );
+
+            $ch = curl_init();
+            curl_setopt(
+                $ch,
+                CURLOPT_URL,
+                $SESSION_REST_URL . $sessionId . ".json"
+            );
+            curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
+            curl_setopt($ch, CURLOPT_POSTFIELDS, $payload);
+            curl_setopt($ch, CURLOPT_CUSTOMREQUEST, "PUT");
+            curl_setopt(
+                $ch,
+                CURLOPT_USERPWD,
+                $GLOBALS['TESTSUITE_BROWSERSTACK_USER']
+                    . ":" . $GLOBALS['TESTSUITE_BROWSERSTACK_KEY']
+            );
+
+            $headers = array();
+            $headers[] = "Content-Type: application/json";
+            curl_setopt($ch, CURLOPT_HTTPHEADER, $headers);
+
+            $result = curl_exec($ch);
+            if (curl_errno($ch)) {
+                echo 'Error: ' . curl_error($ch);
+            }
+            curl_close ($ch);
+        }
+
+        // Call parent's onNotSuccessful to handle everything else
+        parent::onNotSuccessfulTest($e);
+    }
 }
