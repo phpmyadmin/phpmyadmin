@@ -81,6 +81,11 @@ class UtilExtension extends Twig_Extension
                 array('is_safe' => array('html'))
             ),
             new Twig_SimpleFunction(
+                'Util_getStartAndNumberOfRowsPanel',
+                'PhpMyAdmin\Util::getStartAndNumberOfRowsPanel',
+                array('is_safe' => array('html'))
+            ),
+            new Twig_SimpleFunction(
                 'Util_getSupportedDatatypes',
                 'PhpMyAdmin\Util::getSupportedDatatypes',
                 array('is_safe' => array('html'))
