@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.8.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2017-07-18 13:31+0200\n"
-"PO-Revision-Date: 2017-07-23 16:01+0000\n"
+"PO-Revision-Date: 2017-07-28 10:47+0000\n"
 "Last-Translator: Володимир Бриняк <bardvv@gmail.com>\n"
 "Language-Team: Ukrainian "
 "<https://hosted.weblate.org/projects/phpmyadmin/master/uk/>\n"
@@ -4033,7 +4033,7 @@ msgstr "Пошук в таблиці"
 
 #: libraries/classes/Controllers/Table/TableSearchController.php:770
 msgid "Zoom search"
-msgstr "Розширити пошук"
+msgstr "Розширений пошук"
 
 #: libraries/classes/Controllers/Table/TableSearchController.php:775
 #: templates/table/search/selection_form.phtml:81
@@ -15297,7 +15297,7 @@ msgstr "Наступний автоіндекс"
 
 #: templates/table/secondary_tabs.twig:29
 msgid "Relation view"
-msgstr "Огляд зв'язків"
+msgstr "Вид відносин"
 
 #: templates/view_create.twig:164
 msgid "VIEW name"
