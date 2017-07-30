@@ -4,29 +4,28 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.7.3-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2017-07-18 13:29+0200\n"
-"PO-Revision-Date: 2017-05-31 08:26+0000\n"
-"Last-Translator: Rajat Sharma <rajatsharmaaero@gmail.com>\n"
-"Language-Team: Hindi <https://hosted.weblate.org/projects/phpmyadmin/4-7/hi/"
-">\n"
+"PO-Revision-Date: 2017-07-30 21:30+0000\n"
+"Last-Translator: Lalu-Ahirwar <lalu.ahi@gmail.com>\n"
+"Language-Team: Hindi <https://hosted.weblate.org/projects/phpmyadmin/4-7/hi/>"
+"\n"
 "Language: hi\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 2.14.1\n"
+"X-Generator: Weblate 2.16-dev\n"
 
 #: ajax.php:16 ajax.php:33 export.php:192 schema_export.php:64
 msgid "Bad type!"
 msgstr "खोटा प्रकार!"
 
 #: changelog.php:39 license.php:34
-#, fuzzy, php-format
+#, php-format
 msgid ""
 "The %s file is not available on this system, please visit %s for more "
 "information."
 msgstr ""
-"%s फ़ाइल सिस्टम  में उपलब्ध नहीं है, कृपया अधिक जानकारी के लिए www.phpmyadmin.net "
-"वेबसाईट पर जाएँ।"
+"%s फ़ाइल सिस्टम  में उपलब्ध नहीं है, कृपया अधिक जानकारी के लिए %s पर जाएँ।"
 
 #: db_central_columns.php:108
 msgid "The central list of columns for the current database is empty."
@@ -594,13 +593,12 @@ msgid "Back"
 msgstr "वापस"
 
 #: index.php:116
-#, fuzzy
 msgid ""
 "You were logged out from one server, to logout completely from phpMyAdmin, "
 "you need to logout from all servers."
 msgstr ""
-"आप phpMyAdmin से पूरी तरह लॉग आउट करने के लिए, एक सर्वर से लॉग आउट किए गए थे, आपको "
-"सभी सर्वर से लॉगआउट करने की आवश्यकता है"
+"आप एक सर्वर से लॉग आउट किए गए थे, phpMyAdmin से पूरी तरह लॉग आउट करने के लिए "
+"आपको सभी सर्वर से लॉगआउट करने की आवश्यकता है|"
 
 #: index.php:160 libraries/Footer.php:69
 msgid "phpMyAdmin Demo Server"
@@ -1883,8 +1881,9 @@ msgid "Browsing"
 msgstr "ब्राउज़िंग"
 
 #: js/messages.php:391
+#, fuzzy
 msgid "Deleting"
-msgstr "मिटाना"
+msgstr "मिट रहा है"
 
 #: js/messages.php:392
 #, php-format
@@ -3587,16 +3586,14 @@ msgid "multi-level"
 msgstr "बहुभाषी"
 
 #: libraries/Charsets.php:579
-#, fuzzy
-#| msgid "Binary"
 msgctxt "Collation variant"
 msgid "binary"
-msgstr "बइनरी"
+msgstr "द्विक"
 
 #: libraries/Config.php:1119
 #, php-format
 msgid "Existing configuration file (%s) is not readable."
-msgstr ""
+msgstr "वर्तमान विन्यास दस्तावेज %s अपठनीय है|"
 
 #: libraries/Config.php:1149
 msgid "Wrong permissions on configuration file, should not be world writable!"
@@ -3621,7 +3618,7 @@ msgstr ""
 
 #: libraries/Config.php:1558
 msgid "Font size"
-msgstr "फ़ॉन्ट का आकार"
+msgstr "अक्षरों का आकार"
 
 #: libraries/Console.php:86
 #, php-format
@@ -3631,10 +3628,8 @@ msgstr[0] ""
 msgstr[1] ""
 
 #: libraries/Console.php:93
-#, fuzzy
-#| msgid "Delete relation"
 msgid "No bookmarks"
-msgstr "संबंध हटाना"
+msgstr "कोई पुस्तक चिन्ह नहीं"
 
 #: libraries/Console.php:128
 #, fuzzy
@@ -3652,7 +3647,7 @@ msgstr "विन्यास सहेज नहीं सकते"
 msgid ""
 "The server is not responding (or the local server's socket is not correctly "
 "configured)."
-msgstr ""
+msgstr "सर्वर जवाव नहीं दे रहा है ( या लोकल सॉकेट ठीक से विन्यासित नही है )"
 
 #: libraries/DatabaseInterface.php:2035
 #, fuzzy
@@ -3662,17 +3657,15 @@ msgstr "सर्वर जवाब नहीं दे रहा"
 
 #: libraries/DatabaseInterface.php:2041
 msgid "Please check privileges of directory containing database."
-msgstr ""
+msgstr "कृपया निर्देशिका जिसमें डेटाबेस स्तिथ है के अधिकार देखिये"
 
 #: libraries/DatabaseInterface.php:2052
 msgid "Details…"
 msgstr "विवरण…"
 
 #: libraries/DatabaseInterface.php:2354
-#, fuzzy
-#| msgid "Routines"
 msgid "Missing connection parameters!"
-msgstr "नियमित कार्य"
+msgstr "संपर्क मापदंड उपलब्ध नहीं है !"
 
 #: libraries/DatabaseInterface.php:2378
 msgid "Connection for controluser as defined in your configuration failed."
@@ -3711,28 +3704,20 @@ msgid "Alias:"
 msgstr ""
 
 #: libraries/DbQbe.php:567
-#, fuzzy
-#| msgid "Sort"
 msgid "Sort:"
-msgstr "सॉर्ट"
+msgstr "छांटना:"
 
 #: libraries/DbQbe.php:631
-#, fuzzy
-#| msgid "Sort"
 msgid "Sort order:"
-msgstr "सॉर्ट"
+msgstr "छटाई प्रकार:"
 
 #: libraries/DbQbe.php:680
-#, fuzzy
-#| msgid "Show"
 msgid "Show:"
-msgstr "दिखाओ"
+msgstr "दिखाओ:"
 
 #: libraries/DbQbe.php:729
-#, fuzzy
-#| msgid "Criteria"
 msgid "Criteria:"
-msgstr "मापदंड"
+msgstr "मापदंड:"
 
 #: libraries/DbQbe.php:798
 msgid "Add/Delete criteria rows"
@@ -3751,14 +3736,12 @@ msgid "Use Tables"
 msgstr "टेबल का उपयोग करो"
 
 #: libraries/DbQbe.php:878 libraries/DbQbe.php:989
-#, fuzzy
-#| msgid "Or"
 msgid "Or:"
-msgstr "अथवा"
+msgstr "अथवा:"
 
 #: libraries/DbQbe.php:882 libraries/DbQbe.php:974
 msgid "And:"
-msgstr ""
+msgstr "और:"
 
 #: libraries/DbQbe.php:887
 msgid "Ins"
@@ -3776,11 +3759,11 @@ msgstr "संशोधन"
 
 #: libraries/DbQbe.php:969
 msgid "Ins:"
-msgstr ""
+msgstr "जोड़ें:"
 
 #: libraries/DbQbe.php:984
 msgid "Del:"
-msgstr ""
+msgstr "मिटायें:"
 
 #: libraries/DbQbe.php:1847
 #, php-format
@@ -3792,34 +3775,24 @@ msgid "Submit Query"
 msgstr "क्वरी भेजें"
 
 #: libraries/DbQbe.php:1880
-#, fuzzy
-#| msgid "Search"
 msgid "Saved bookmarked search:"
-msgstr "ढूंढें"
+msgstr "सहेजे गए संबंधों में ढूंढें:"
 
 #: libraries/DbQbe.php:1882
-#, fuzzy
-#| msgid "Delete relation"
 msgid "New bookmark"
-msgstr "संबंध हटाना"
+msgstr "नया संबंध"
 
 #: libraries/DbQbe.php:1908
-#, fuzzy
-#| msgid "Delete relation"
 msgid "Create bookmark"
-msgstr "संबंध हटाना"
+msgstr "संबंध बनायें"
 
 #: libraries/DbQbe.php:1911
-#, fuzzy
-#| msgid "Showing bookmark"
 msgid "Update bookmark"
-msgstr "बुकमार्क प्रदर्शित किया जा रहा है"
+msgstr "सम्बन्ध परिवर्तित करें"
 
 #: libraries/DbQbe.php:1913
-#, fuzzy
-#| msgid "Delete relation"
 msgid "Delete bookmark"
-msgstr "संबंध हटाना"
+msgstr "संबंध हटायें"
 
 #: libraries/DbSearch.php:99 libraries/DbSearch.php:392
 msgid "at least one of the words"
