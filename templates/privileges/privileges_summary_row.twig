@@ -1,6 +1,6 @@
 <tr>
     <td>{{ name }}</td>
-    <td><code>{{ privileges }}</code></td>
+    <td><code>{{ privileges|raw }}</code></td>
     <td>{{ grant ? 'Yes'|trans : 'No'|trans }}</td>
 
     {% if type == 'database' %}
