@@ -441,8 +441,13 @@ class Advisor
 
         // Error handling
         if ($err) {
+            // Remove PHP 7.2 and newer notice (it's not really interesting for user)
             throw new Exception(
-                strip_tags($err)
+                str_replace(
+                    ' (this will throw an Error in a future version of PHP)',
+                    '',
+                    strip_tags($err)
+                )
                 . '<br />Executed code: $value = ' . htmlspecialchars($expr) . ';'
             );
         }
