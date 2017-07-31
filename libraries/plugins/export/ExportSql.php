@@ -1771,7 +1771,7 @@ class ExportSql extends ExportPlugin
                         $sql_auto_increments_query .= ', AUTO_INCREMENT='
                             . $statement->entityOptions->has('AUTO_INCREMENT');
                     }
-                    $sql_auto_increments_query .= ';';
+                    $sql_auto_increments_query .= ';' . $crlf;
 
                     $sql_auto_increments = $this->generateComment(
                         $crlf,
