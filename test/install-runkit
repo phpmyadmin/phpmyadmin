@@ -13,8 +13,11 @@ case "$TRAVIS_PHP_VERSION" in
         exit 0
         ;;
     7.*)
-        wget https://github.com/runkit7/runkit7/releases/download/1.0.5b1/runkit-1.0.5b1.tgz
-        pecl install ./runkit-1.0.5b1.tgz
+        exit 0
+        # Disabled for now as it causes PHP crashes, we should retry with newer version
+        RVERSION=1.0.5b1
+        wget https://github.com/runkit7/runkit7/releases/download/$RVERSION/runkit-$RVERSION.tgz
+        pecl install ./runkit-$RVERSION.tgz
         ;;
     *)
         pecl install runkit
