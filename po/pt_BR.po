@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.8.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2017-07-18 13:31+0200\n"
-"PO-Revision-Date: 2017-08-01 14:34+0000\n"
+"PO-Revision-Date: 2017-08-02 19:01+0000\n"
 "Last-Translator: Maurício Meneghini Fauth <mauriciofauth@gmail.com>\n"
 "Language-Team: Portuguese (Brazil) "
 "<https://hosted.weblate.org/projects/phpmyadmin/master/pt_BR/>\n"
@@ -10272,6 +10272,7 @@ msgstr ""
 #: libraries/plugins/auth/AuthenticationCookie.php:348
 msgid "Missing reCAPTCHA verification, maybe it has been blocked by adblock?"
 msgstr ""
+"Faltando verificação do reCAPTCHA, talvez tenha sido bloqueada pelo adblock?"
 
 #: libraries/plugins/auth/AuthenticationCookie.php:372
 msgid "You are not allowed to log in to this MySQL server!"
