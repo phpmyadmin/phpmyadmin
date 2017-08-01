@@ -8,7 +8,7 @@ fi
 
 # These do not support runkit
 case "$TRAVIS_PHP_VERSION" in
-    hhvm*|7.0|7.1|nightly)
+    hhvm*|7.0|7.1|7.2|nightly)
         exit 0
         ;;
 esac

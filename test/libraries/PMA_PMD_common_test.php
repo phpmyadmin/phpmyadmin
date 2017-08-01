@@ -263,7 +263,7 @@ class PMA_PMD_CommonTest extends PHPUnit_Framework_TestCase
             ->method('fetchResult')
             ->willReturnOnConsecutiveCalls(
                 array(),
-                array($first_pg)
+                array(array($first_pg))
             );
         $dbi->expects($this->any())->method('escapeString')
             ->will($this->returnArgument(0));

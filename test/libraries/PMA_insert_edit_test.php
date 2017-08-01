@@ -145,6 +145,13 @@ class PMA_InsertEditTest extends PHPUnit_Framework_TestCase
                 array('assoc2')
             );
 
+        $dbi->expects($this->exactly(2))
+            ->method('getFieldsMeta')
+            ->willReturnOnConsecutiveCalls(
+                array(),
+                array()
+            );
+
         $GLOBALS['dbi'] = $dbi;
         $result = PMA_analyzeWhereClauses($clauses, 'table', 'db');
 

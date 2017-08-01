@@ -1169,7 +1169,7 @@ function PMA_buildSQL($db_name, &$tables, &$analyses = null,
 
     $inTables = false;
 
-    $additional_sql_len = count($additional_sql);
+    $additional_sql_len = is_null($additional_sql) ? 0 : count($additional_sql);
     for ($i = 0; $i < $additional_sql_len; ++$i) {
         preg_match($view_pattern, $additional_sql[$i], $regs);
 
