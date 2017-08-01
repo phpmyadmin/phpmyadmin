@@ -319,6 +319,8 @@ class TrackerTest extends PMATestCase
 
         $dbi->expects($this->any())->method('escapeString')
             ->will($this->returnArgument(0));
+        $dbi->expects($this->any())->method('getCompatibilities')
+            ->will($this->returnValue(array()));
 
         $GLOBALS['dbi'] = $dbi;
         $this->assertEquals(
