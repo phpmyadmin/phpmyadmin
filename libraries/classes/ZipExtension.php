@@ -163,11 +163,11 @@ class ZipExtension
         $old_offset = 0;     // Last offset position
         $eof_ctrl_dir = "\x50\x4b\x05\x06\x00\x00\x00\x00"; // End of central directory record
 
-        if (is_string($name)) {
+        if (is_string($name) && is_string($data)) {
             $name = array($name);
             $data = array($data);
         } else {
-            if (count($name) != count($data)) {
+            if (! is_array($name) || ! is_array($data) || count($name) != count($data)) {
                 return false;
             }
         }
