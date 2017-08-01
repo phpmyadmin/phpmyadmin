@@ -164,7 +164,7 @@ class ZipExtension
         $eof_ctrl_dir = "\x50\x4b\x05\x06\x00\x00\x00\x00"; // End of central directory record
         $index = false; // Whether or not to index files
 
-        if (count($name) === 1) {
+        if (is_string($name)) {
             $index = true;
             $name = str_replace('\\', '/', $name);
             $extension_pos = strpos($name, '.');
