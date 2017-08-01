@@ -130,20 +130,72 @@ class ZipExtensionTest extends PMATestCase
     }
 
     /**
+     * Helper function to get ZipArchive for content.
+     *
+     * @return ZipArchive
+     */
+    private function getZip($file)
+    {
+        $tmp = tempnam('./', 'zip-test');
+        $handle = fopen($tmp, 'w');
+        fwrite($handle, $file);
+        fclose($handle);
+
+        $zip = new ZipArchive;
+        $this->assertTrue(
+            $zip->open($tmp)
+        );
+
+        unlink($tmp);
+
+        return $zip;
+    }
+
+    /**
      * Test for ZipExtension::createFile
      *
      * @return void
      */
-    public function testCreateFile()
+    public function testCreateSingleFile()
     {
         $file = ZipExtension::createFile("Test content", "test.txt");
-        $this->assertTrue(!empty($file));
+        $this->assertNotEmpty($file);
 
+        $zip = $this->getZip($file);
+
+        $this->assertEquals(0, $zip->locateName('test.txt'));
+    }
+
+    /**
+     * Test for ZipExtension::createFile
+     *
+     * @return void
+     */
+    public function testCreateFailure()
+    {
         $this->assertEquals(
             false,
             ZipExtension::createFile(
                 "Content",
-                array("name1.txt", "name2.txt"))
+                array("name1.txt", "name2.txt")
+            )
         );
+    }
+
+    /**
+     * Test for ZipExtension::createFile
+     *
+     * @return void
+     */
+    public function testCreateMultiFile()
+    {
+        $file = ZipExtension::createFile(
+            array("Content", 'Content2'),
+            array("name1.txt", "name2.txt")
+        );
+        $this->assertNotEmpty($file);
+        $zip = $this->getZip($file);
+        $this->assertEquals(0, $zip->locateName('name1.txt'));
+        $this->assertEquals(1, $zip->locateName('name2.txt'));
     }
 }

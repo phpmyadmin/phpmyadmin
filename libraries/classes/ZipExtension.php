@@ -162,14 +162,9 @@ class ZipExtension
         $ctrl_dir = array(); // Central directory
         $old_offset = 0;     // Last offset position
         $eof_ctrl_dir = "\x50\x4b\x05\x06\x00\x00\x00\x00"; // End of central directory record
-        $index = false; // Whether or not to index files
 
         if (is_string($name)) {
-            $index = true;
-            $name = str_replace('\\', '/', $name);
-            $extension_pos = strpos($name, '.');
-            $extension = substr($name, $extension_pos);
-            $name = substr($name, 0, -$extension_pos - 1);
+            $name = array($name);
             $data = array($data);
         } else {
             if (count($name) != count($data)) {
@@ -178,11 +173,7 @@ class ZipExtension
         }
 
         for ($i = 0; $i < count($data); $i++) {
-            if ($index) {
-                $temp_name = $name . '_' . $i . $extension;
-            } else {
-                $temp_name = str_replace('\\', '/', $name[$i]);
-            }
+            $temp_name = str_replace('\\', '/', $name[$i]);
 
             /* Convert Unix timestamp to DOS timestamp */
             $timearray = ($time == 0) ? getdate() : getdate($time);
