@@ -251,7 +251,7 @@ class Transformations
     {
         $cfgRelation = PMA_getRelationsParam();
 
-        if (! $cfgRelation['commwork']) {
+        if (! $cfgRelation['mimework']) {
             return false;
         }
 
@@ -328,7 +328,7 @@ class Transformations
     ) {
         $cfgRelation = PMA_getRelationsParam();
 
-        if (! $cfgRelation['commwork']) {
+        if (! $cfgRelation['mimework']) {
             return false;
         }
 

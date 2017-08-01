@@ -179,7 +179,7 @@ class TransformationsTest extends PHPUnit_Framework_TestCase
     public function testGetMime()
     {
         $_SESSION['relation'][$GLOBALS['server']]['PMA_VERSION'] = PMA_VERSION;
-        $_SESSION['relation'][$GLOBALS['server']]['commwork'] = true;
+        $_SESSION['relation'][$GLOBALS['server']]['mimework'] = true;
         $_SESSION['relation'][$GLOBALS['server']]['db'] = "pmadb";
         $_SESSION['relation'][$GLOBALS['server']]['column_info'] = "column_info";
         $_SESSION['relation'][$GLOBALS['server']]['trackingwork'] = false;
