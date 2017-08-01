@@ -118,10 +118,10 @@ class AuthenticationSignon extends AuthenticationPlugin
             }
 
             /* Load single signon session */
-            session_set_cookie_params($session_cookie_params['lifetime'], $session_cookie_params['path'], $session_cookie_params['domain'], $session_cookie_params['secure'], $session_cookie_params['httponly']);
-            session_name($session_name);
-            session_id($_COOKIE[$session_name]);
             if (!defined('TESTSUITE')) {
+                session_set_cookie_params($session_cookie_params['lifetime'], $session_cookie_params['path'], $session_cookie_params['domain'], $session_cookie_params['secure'], $session_cookie_params['httponly']);
+                session_name($session_name);
+                session_id($_COOKIE[$session_name]);
                 session_start();
             }
 
@@ -159,12 +159,12 @@ class AuthenticationSignon extends AuthenticationPlugin
             }
 
             /* Restart phpMyAdmin session */
-            session_set_cookie_params($old_cookie_params['lifetime'], $old_cookie_params['path'], $old_cookie_params['domain'], $old_cookie_params['secure'], $old_cookie_params['httponly']);
-            session_name($old_session);
-            if (!empty($old_id)) {
-                session_id($old_id);
-            }
             if (!defined('TESTSUITE')) {
+                session_set_cookie_params($old_cookie_params['lifetime'], $old_cookie_params['path'], $old_cookie_params['domain'], $old_cookie_params['secure'], $old_cookie_params['httponly']);
+                session_name($old_session);
+                if (!empty($old_id)) {
+                    session_id($old_id);
+                }
                 session_start();
             }
 
@@ -235,15 +235,13 @@ class AuthenticationSignon extends AuthenticationPlugin
 
         /* Does session exist? */
         if (isset($_COOKIE[$session_name])) {
-            /* End current session */
             if (!defined('TESTSUITE')) {
+                /* End current session */
                 session_write_close();
-            }
 
-            /* Load single signon session */
-            session_name($session_name);
-            session_id($_COOKIE[$session_name]);
-            if (!defined('TESTSUITE')) {
+                /* Load single signon session */
+                session_name($session_name);
+                session_id($_COOKIE[$session_name]);
                 session_start();
             }
 
