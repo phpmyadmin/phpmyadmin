@@ -8,20 +8,20 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.8.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2017-07-18 13:31+0200\n"
-"PO-Revision-Date: 2017-05-31 15:16+0000\n"
-"Last-Translator: Michal Čihař <michal@cihar.com>\n"
-"Language-Team: Punjabi <https://hosted.weblate.org/projects/phpmyadmin/"
-"master/pa/>\n"
+"PO-Revision-Date: 2017-08-01 17:13+0000\n"
+"Last-Translator: Hidev Corp <hidevcorp@gmail.com>\n"
+"Language-Team: Punjabi "
+"<https://hosted.weblate.org/projects/phpmyadmin/master/pa/>\n"
 "Language: pa\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 2.15-dev\n"
+"X-Generator: Weblate 2.16-dev\n"
 
 #: ajax.php:16 ajax.php:33 export.php:195 schema_export.php:66
 msgid "Bad type!"
-msgstr ""
+msgstr "ਬੁਰਾ ਕਿਸਮ!"
 
 #: changelog.php:39 license.php:34
 #, php-format
@@ -79,7 +79,7 @@ msgstr "ਟੇਬਲ ਟਿੱਪਣੀ:"
 #: templates/table/search/table_header.twig:32
 #: templates/table/index_form.twig:183
 msgid "Column"
-msgstr ""
+msgstr "ਕਾਲਮ"
 
 #: db_datadict.php:116 libraries/central_columns.lib.php:696
 #: libraries/central_columns.lib.php:1384 libraries/classes/Index.php:720
@@ -154,7 +154,7 @@ msgstr "ਮੂਲ"
 #: libraries/plugins/schema/pdf/PdfRelationSchema.php:634
 #: libraries/plugins/schema/pdf/PdfRelationSchema.php:657
 msgid "Links to"
-msgstr ""
+msgstr "ਲਈ ਲਿੰਕ"
 
 #: db_datadict.php:122 libraries/config/messages.inc.php:161
 #: libraries/config/messages.inc.php:177 libraries/config/messages.inc.php:215
@@ -239,13 +239,13 @@ msgstr "ਹਾਂ"
 
 #: db_export.php:47
 msgid "View dump (schema) of database"
-msgstr ""
+msgstr "ਡਾਟਾਬੇਸ ਦੇ ਡੰਪ (ਸਕੀਮਾ) ਵੇਖੋ"
 
 #: db_export.php:51 db_tracking.php:103 export.php:378
 #: libraries/classes/Controllers/Database/DatabaseStructureController.php:152
 #: libraries/classes/DbQbe.php:330 libraries/navigation/NavigationTree.php:924
 msgid "No tables found in database."
-msgstr ""
+msgstr "ਡਾਟਾਬੇਸ ਵਿੱਚ ਕੋਈ ਟੇਬਲ ਨਹੀਂ ਮਿਲੇ."
 
 #: db_export.php:65
 #: libraries/classes/Controllers/Server/ServerDatabasesController.php:342
@@ -320,10 +320,12 @@ msgstr "%1$s ਡਾਟਾਬੇਸ ਦੀ ਨਕਲ %2$s ਵਿੱਚ ਕੀਤ�
 msgid ""
 "The phpMyAdmin configuration storage has been deactivated. %sFind out why%s."
 msgstr ""
+"PhpMyAdmin ਸੰਰਚਨਾ ਸਟੋਰੇਜ਼ ਨੂੰ ਬੰਦ ਕਰ ਦਿੱਤਾ ਗਿਆ ਹੈ %1$s ਇਹ ਪਤਾ ਲਗਾਓ ਕਿ ਕਿਉਂ "
+"%2$s"
 
 #: db_qbe.php:127
 msgid "You have to choose at least one column to display!"
-msgstr ""
+msgstr "ਤੁਹਾਨੂੰ ਡਿਸਪਲੇ ਕਰਨ ਲਈ ਘੱਟੋ ਘੱਟ ਇੱਕ ਕਾਲਮ ਦੀ ਚੋਣ ਕਰਨੀ ਪਵੇਗੀ!"
 
 #: db_qbe.php:145
 #, php-format
@@ -335,11 +337,11 @@ msgstr ""
 #: libraries/plugins/auth/AuthenticationConfig.php:104
 #: libraries/plugins/auth/AuthenticationHttp.php:78
 msgid "Access denied!"
-msgstr ""
+msgstr "ਐਕਸੇਸ ਡਿਨਾਇਡ!"
 
 #: db_tracking.php:53 db_tracking.php:78
 msgid "Tracking data deleted successfully."
-msgstr ""
+msgstr "ਟਰੈਕਿੰਗ ਡਾਟਾ ਸਫਲਤਾਪੂਰਵਕ ਮਿਟਾ ਦਿੱਤਾ ਗਿਆ."
 
 #: db_tracking.php:62
 #, php-format
@@ -349,7 +351,7 @@ msgstr ""
 
 #: db_tracking.php:93
 msgid "No tables selected."
-msgstr ""
+msgstr "ਕੋਈ ਟੇਬਲ ਨਹੀਂ ਚੁਣੇ."
 
 #: db_tracking.php:150
 msgid "Database Log"
@@ -360,28 +362,32 @@ msgid ""
 "An error has been detected and an error report has been automatically "
 "submitted based on your settings."
 msgstr ""
+"ਇੱਕ ਤਰੁੱਟੀ ਲੱਭੀ ਗਈ ਹੈ ਅਤੇ ਇੱਕ ਗਲਤੀ ਰਿਪੋਰਟ ਤੁਹਾਡੀ ਸੈਟਿੰਗ ਦੇ ਆਧਾਰ ਤੇ ਸਵੈਚਲਿਤ ਤੌ"
+"ਰ ਤੇ ਦਰਜ ਕੀਤੀ ਗਈ ਹੈ."
 
 #: error_report.php:72
 msgid "Thank you for submitting this report."
-msgstr ""
+msgstr "ਇਸ ਰਿਪੋਰਟ ਨੂੰ ਦਰਜ ਕਰਨ ਲਈ ਤੁਹਾਡਾ ਧੰਨਵਾਦ."
 
 #: error_report.php:76
 msgid ""
 "An error has been detected and an error report has been generated but failed "
 "to be sent."
 msgstr ""
+"ਇੱਕ ਤਰੁੱਟੀ ਲੱਭੀ ਗਈ ਹੈ ਅਤੇ ਇੱਕ ਗਲਤੀ ਰਿਪੋਰਟ ਤਿਆਰ ਕੀਤੀ ਗਈ ਹੈ ਪਰ ਭੇਜੀ ਜਾਣ ਵਿੱਚ "
+"ਅਸਫਲ."
 
 #: error_report.php:81
 msgid "If you experience any problems please submit a bug report manually."
-msgstr ""
+msgstr "ਜੇ ਤੁਸੀਂ ਕੋਈ ਸਮੱਸਿਆ ਮਹਿਸੂਸ ਕਰਦੇ ਹੋ ਤਾਂ ਬੱਗ ਰਿਪੋਰਟ ਖੁਦ ਖੁਦ ਪੇਸ਼ ਕਰੋ."
 
 #: error_report.php:85
 msgid "You may want to refresh the page."
-msgstr ""
+msgstr "ਤੁਸੀਂ ਪੰਨੇ ਨੂੰ ਤਾਜ਼ਾ ਕਰਨਾ ਚਾਹ ਸਕਦੇ ਹੋ."
 
 #: export.php:278
 msgid "Bad parameters!"
-msgstr ""
+msgstr "ਗਲਤ ਪੈਰਾਮੀਟਰ!"
 
 #: gis_data_editor.php:121
 #, php-format
