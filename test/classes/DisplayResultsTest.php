@@ -1584,4 +1584,99 @@ class DisplayResultsTest extends PMATestCase
             )
         );
     }
+
+    /**
+     * Simple output transformation test
+     *
+     * It mocks data needed to display two tranformations and asserts
+     * they are rendered.
+     *
+     * @return void
+     */
+    public function testOutputTransformations()
+    {
+        // Fake relation settings
+        $_SESSION['tmpval']['relational_display'] = 'K';
+        $_SESSION['relation'][$GLOBALS['server']]['PMA_VERSION'] = PMA_VERSION;
+        $_SESSION['relation'][$GLOBALS['server']]['mimework'] = true;
+        $_SESSION['relation'][$GLOBALS['server']]['column_info'] = 'column_info';
+        $GLOBALS['cfg']['BrowseMIME'] = true;
+
+        // Basic data
+        $result = 0;
+        $query = 'SELECT 1';
+        $this->object->__set('db', 'db');
+        $this->object->__set('fields_cnt', 2);
+
+        // Field meta information
+        $meta = new StdClass();
+        $meta->db = 'db';
+        $meta->table = 'table';
+        $meta->orgtable = 'table';
+        $meta->type = 'INT';
+        $meta->flags = '';
+        $meta->name = '1';
+        $meta->orgname = '1';
+        $meta->not_null = true;
+        $meta->numeric = true;
+        $meta->primary_key = false;
+        $meta->unique_key = false;
+        $meta2 = new StdClass();
+        $meta2->db = 'db';
+        $meta2->table = 'table';
+        $meta2->orgtable = 'table';
+        $meta2->type = 'INT';
+        $meta2->flags = '';
+        $meta2->name = '2';
+        $meta2->orgname = '2';
+        $meta2->not_null = true;
+        $meta2->numeric = true;
+        $meta2->primary_key = false;
+        $meta2->unique_key = false;
+        $fields_meta = array($meta, $meta2);
+        $this->object->__set('fields_meta', $fields_meta);
+
+        // MIME transformations
+        $GLOBALS['dbi']->expects($this->exactly(1))
+            ->method('fetchResult')
+            ->willReturn(
+                array(
+                    'db.table.1' => array(
+                        'mimetype' => '',
+                        'transformation' => 'output/text_plain_dateformat.php',
+                    ),
+                    'db.table.2' => array(
+                        'mimetype' => '',
+                        'transformation' => 'output/text_plain_bool2text.php',
+                    ),
+                )
+            );
+        $this->object->__set(
+            'mime_map',
+            \PhpMyAdmin\Transformations::getMIME('db', 'table')
+        );
+
+        // Actually invoke tested method
+        $output = $this->_callPrivateFunction(
+            '_getRowValues',
+            array(
+                &$result, array(3600, true), 0, false, array(),
+                '', false, $query,
+                PhpMyAdmin\SqlParser\Utils\Query::getAll($query)
+            )
+        );
+
+        // Dateformat
+        $this->assertContains(
+            'Jan 01, 1970 at 01:00 AM',
+            $output
+        );
+        // Bool2Text
+        $this->assertContains(
+            '>T<',
+            $output
+        );
+        unset($_SESSION['tmpval']);
+        unset($_SESSION['relation']);
+    }
 }
