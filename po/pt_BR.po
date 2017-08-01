@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.8.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2017-07-18 13:31+0200\n"
-"PO-Revision-Date: 2017-07-21 03:23+0000\n"
-"Last-Translator: Guilherme Libardi <guilhermelibardi@visaojr.com.br>\n"
+"PO-Revision-Date: 2017-08-01 14:34+0000\n"
+"Last-Translator: Maurício Meneghini Fauth <mauriciofauth@gmail.com>\n"
 "Language-Team: Portuguese (Brazil) "
 "<https://hosted.weblate.org/projects/phpmyadmin/master/pt_BR/>\n"
 "Language: pt_BR\n"
@@ -10261,10 +10261,8 @@ msgid "Server Choice:"
 msgstr "Escolha de servidor:"
 
 #: libraries/plugins/auth/AuthenticationCookie.php:341
-#, fuzzy
-#| msgid "Could not connect to the database server!"
 msgid "Failed to connect to the reCAPTCHA service!"
-msgstr "Não foi possível conectar ao servidor de banco de dados!"
+msgstr "Falha ao conectar-se ao serviço reCAPTCHA!"
 
 #: libraries/plugins/auth/AuthenticationCookie.php:343
 msgid "Entered captcha is wrong, try again!"
