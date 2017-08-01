@@ -23,6 +23,8 @@ use PhpMyAdmin\Transformations;
 use PhpMyAdmin\Url;
 use PhpMyAdmin\Util;
 
+require_once 'libraries/operations.lib.php';
+
 /**
  * Sql class
  *
@@ -2181,6 +2183,8 @@ EOT;
                 isset($extra_data) ? $extra_data : null
             );
 
+        $warning_messages = PMA_getWarningMessagesArray();
+
         // No rows returned -> move back to the calling page
         if ((0 == $num_rows && 0 == $unlim_num_rows)
             || $analyzed_sql_results['is_affected']
@@ -2217,6 +2221,11 @@ EOT;
 
         // Handle disable/enable foreign key checks
         Util::handleDisableFKCheckCleanup($default_fk_check);
+
+        foreach ($warning_messages as $warning) {
+            $message = \PhpMyAdmin\Message::notice($warning);
+            $html_output .= $message->getDisplay();
+        }
 
         return $html_output;
     }
