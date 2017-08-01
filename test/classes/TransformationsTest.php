@@ -196,7 +196,7 @@ class TransformationsTest extends PHPUnit_Framework_TestCase
                 'col' => array(
                     'column_name' => 'col',
                     'mimetype' => 'T',
-                    'transformation' => 'o/P',
+                    'transformation' => 'O/P',
                     'transformation_options' => '',
                     'input_transformation' => 'i/p',
                     'input_transformation_options' => '',
