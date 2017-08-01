@@ -196,52 +196,50 @@ class ZipExtension
 
             $hexdtime = pack('V', $time);
 
-            $fr = "\x50\x4b\x03\x04";
-            $fr .= "\x14\x00";        // ver needed to extract
-            $fr .= "\x00\x00";        // gen purpose bit flag
-            $fr .= "\x08\x00";        // compression method
-            $fr .= $hexdtime;         // last mod time and date
-
-            // "local file header" segment
             $unc_len = strlen($data[$i]);
             $crc = crc32($data[$i]);
             $zdata = gzcompress($data[$i]);
             $zdata = substr(substr($zdata, 0, strlen($zdata) - 4), 2); // fix crc bug
             $c_len = strlen($zdata);
-            $fr .= pack('V', $crc);               // crc32
-            $fr .= pack('V', $c_len);             // compressed filesize
-            $fr .= pack('V', $unc_len);           // uncompressed filesize
-            $fr .= pack('v', strlen($temp_name)); // length of filename
-            $fr .= pack('v', 0);                  // extra field length
-            $fr .= $temp_name;
+            $fr = "\x50\x4b\x03\x04"
+                . "\x14\x00"        // ver needed to extract
+                . "\x00\x00"        // gen purpose bit flag
+                . "\x08\x00"        // compression method
+                . $hexdtime         // last mod time and date
 
-            // "file data" segment
-            $fr .= $zdata;
+                // "local file header" segment
+                . pack('V', $crc)               // crc32
+                . pack('V', $c_len)             // compressed filesize
+                . pack('V', $unc_len)           // uncompressed filesize
+                . pack('v', strlen($temp_name)) // length of filename
+                . pack('v', 0)                  // extra field length
+                . $temp_name
+
+                // "file data" segment
+                . $zdata;
 
             $datasec[] = $fr;
 
-            // now add to central directory record
-            $cdrec = "\x50\x4b\x01\x02";
-            $cdrec .= "\x00\x00";                     // version made by
-            $cdrec .= "\x14\x00";                     // version needed to extract
-            $cdrec .= "\x00\x00";                     // gen purpose bit flag
-            $cdrec .= "\x08\x00";                     // compression method
-            $cdrec .= $hexdtime;                      // last mod time & date
-            $cdrec .= pack('V', $crc);                // crc32
-            $cdrec .= pack('V', $c_len);              // compressed filesize
-            $cdrec .= pack('V', $unc_len);            // uncompressed filesize
-            $cdrec .= pack('v', strlen($temp_name));  // length of filename
-            $cdrec .= pack('v', 0);                   // extra field length
-            $cdrec .= pack('v', 0);                   // file comment length
-            $cdrec .= pack('v', 0);                   // disk number start
-            $cdrec .= pack('v', 0);                   // internal file attributes
-            $cdrec .= pack('V', 32);                  // external file attributes
-            // - 'archive' bit set
-
-            $cdrec .= pack('V', $old_offset); // relative offset of local header
             $old_offset += strlen($fr);
-
-            $cdrec .= $temp_name;
+            // now add to central directory record
+            $cdrec = "\x50\x4b\x01\x02"
+                . "\x00\x00"                     // version made by
+                . "\x14\x00"                     // version needed to extract
+                . "\x00\x00"                     // gen purpose bit flag
+                . "\x08\x00"                     // compression method
+                . $hexdtime                      // last mod time & date
+                . pack('V', $crc)                // crc32
+                . pack('V', $c_len)              // compressed filesize
+                . pack('V', $unc_len)            // uncompressed filesize
+                . pack('v', strlen($temp_name))  // length of filename
+                . pack('v', 0)                   // extra field length
+                . pack('v', 0)                   // file comment length
+                . pack('v', 0)                   // disk number start
+                . pack('v', 0)                   // internal file attributes
+                . pack('V', 32)                  // external file attributes
+                                                 // - 'archive' bit set
+                . pack('V', $old_offset)         // relative offset of local header
+                . $temp_name;                    // filename
 
             // optional extra field, file comment goes here
             // save to central directory
