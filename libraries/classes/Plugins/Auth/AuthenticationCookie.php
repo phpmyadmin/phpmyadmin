@@ -8,18 +8,18 @@
  */
 namespace PhpMyAdmin\Plugins\Auth;
 
-use phpseclib\Crypt;
+use PhpMyAdmin\Config;
+use PhpMyAdmin\Core;
 use PhpMyAdmin\LanguageManager;
 use PhpMyAdmin\Message;
 use PhpMyAdmin\Plugins\AuthenticationPlugin;
 use PhpMyAdmin\Response;
+use PhpMyAdmin\Session;
 use PhpMyAdmin\Util;
-use PhpMyAdmin\Config;
-use PhpMyAdmin\Core;
-use ReCaptcha;
 use PhpMyAdmin\Url;
+use phpseclib\Crypt;
+use ReCaptcha;
 
-require_once './libraries/session.lib.php';
 require_once './libraries/hash.lib.php';
 
 /**
@@ -376,7 +376,7 @@ class AuthenticationCookie extends AuthenticationPlugin
                 }
                 $GLOBALS['pma_auth_server'] = Core::sanitizeMySQLHost($_REQUEST['pma_servername']);
             }
-            PMA_secureSession();
+            Session::secure();
             return true;
         }
 

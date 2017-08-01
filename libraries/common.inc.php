@@ -34,17 +34,18 @@
 use PhpMyAdmin\Config;
 use PhpMyAdmin\Core;
 use PhpMyAdmin\DatabaseInterface;
-use PhpMyAdmin\ErrorHandler;
-use PhpMyAdmin\Message;
-use PhpMyAdmin\Plugins\AuthenticationPlugin;
 use PhpMyAdmin\DbList;
-use PhpMyAdmin\ThemeManager;
-use PhpMyAdmin\Tracker;
-use PhpMyAdmin\Response;
-use PhpMyAdmin\TypesMySQL;
-use PhpMyAdmin\Util;
+use PhpMyAdmin\ErrorHandler;
 use PhpMyAdmin\LanguageManager;
 use PhpMyAdmin\Logging;
+use PhpMyAdmin\Message;
+use PhpMyAdmin\Plugins\AuthenticationPlugin;
+use PhpMyAdmin\Response;
+use PhpMyAdmin\Session;
+use PhpMyAdmin\ThemeManager;
+use PhpMyAdmin\Tracker;
+use PhpMyAdmin\TypesMySQL;
+use PhpMyAdmin\Util;
 
 /**
  * block attempts to directly run this script
@@ -258,7 +259,7 @@ if (isset($_COOKIE)) {
 /**
  * include session handling after the globals, to prevent overwriting
  */
-require './libraries/session.inc.php';
+Session::setUp($GLOBALS['PMA_Config'], $GLOBALS['error_handler']);
 
 /**
  * init some variables LABEL_variables_init
@@ -670,7 +671,7 @@ if (! defined('PMA_MINIMUM_COMMON')) {
 
         if (! $auth_plugin->authCheck()) {
             /* Force generating of new session on login */
-            PMA_secureSession();
+            Session::secure();
             $auth_plugin->auth();
         } else {
             $auth_plugin->authSetUser();
