@@ -5040,11 +5040,14 @@ function createProgress(type) {
     var params = {
         ajax_request : true,
         uuid: uuid,
-        type : "create" + type + "progress"
+        name: 'create',
+        type : type
     };
     $.post('progress.php', params, function (response) {
         if (response.success === true) {
-            showAndUpdateProgress(type, uuid);
+            if (type == 'export'){
+                showAndUpdateProgress(type, uuid);
+            }
         }
     });
 }
@@ -5057,10 +5060,15 @@ function createProgress(type) {
  *
  */
 function showAndUpdateProgress(type, uuid) {
+    $('#progressaction').show();
+    if (type == 'export') {
+        $('#progressbar').show();
+    }
     var params = {
         ajax_request : true,
         uuid: uuid,
-        type : "update" + type + "progress"
+        name: 'update',
+        type : type
     };
     var progressInterval = setInterval(function () {
         $.post('progress.php', params, function (response) {
@@ -5071,7 +5079,10 @@ function showAndUpdateProgress(type, uuid) {
                 else {
                     var data = JSON.parse(response.message);
                     data[2] = data[2].split(',');
-                    $('#progressaction').html('<progress value="' + data[3] + '" max="' + data[4] + '"></progress><br>');
+                    if (type == 'export') {
+                        $('#progressbar').attr('value', data[3]);
+                        $('#progressbar').attr('max', data[4]);
+                    }
                     for (i = 0; i < data[2].length; i++) {
                         $('#progressaction').append(PMA_getImage('s_success.png').toString() + ' Processing table ' + data[2][i] + '<br>');
                     }
@@ -5092,14 +5103,18 @@ function showAndUpdateProgress(type, uuid) {
  *
  */
 function deleteProgress(type, uuid) {
+    if (type == 'export') {
+        $('#progressbar').hide();
+    }
     var params = {
         ajax_request : true,
         uuid : uuid,
-        type : "delete" + type + "progress"
+        name: 'delete',
+        type : type
     };
     $.post('progress.php', params, function (response) {
         if (response.success === true) {
-            $('#progressaction').html('');
+            $('#progressaction').append(PMA_getImage('s_success.png').toString() + ' ' + params.type + ' completed sucessfully');
         }
     });
 }
