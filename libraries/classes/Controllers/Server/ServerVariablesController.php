@@ -295,6 +295,7 @@ class ServerVariablesController extends Controller
         $output = Template::get('filter')
             ->render(array('filter_value' => $filterValue));
 
+        $output .= '<div class="responsivetable">';
         $output .= '<table id="serverVariables" class="width100 data filteredData noclick">';
         $output .= Template::get('server/variables/variable_table_head')->render();
         $output .= '<tbody>';
@@ -305,6 +306,7 @@ class ServerVariablesController extends Controller
 
         $output .= '</tbody>';
         $output .= '</table>';
+        $output .= '</div>';
 
         return $output;
     }

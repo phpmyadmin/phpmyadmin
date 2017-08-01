@@ -1462,19 +1462,14 @@ div#queryAnalyzerDialog table.queryNums {
     padding: 0.5em;
     min-height: 18px;
 }
-#serverVariables .var-action {
-    width: 15%;
-}
 #serverVariables .var-name {
     font-weight: bold;
-    width: 65%;
 }
 #serverVariables .var-name.session {
     font-weight: normal;
     font-style: italic;
 }
 #serverVariables .var-value {
-    width: 20%;
     float: <?php echo $right; ?>;
     text-align: <?php echo $right; ?>;
 }
