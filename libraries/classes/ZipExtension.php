@@ -170,6 +170,7 @@ class ZipExtension
             $extension_pos = strpos($name, '.');
             $extension = substr($name, $extension_pos);
             $name = substr($name, 0, -$extension_pos - 1);
+            $data = array($data);
         } else {
             if (count($name) != count($data)) {
                 return false;
