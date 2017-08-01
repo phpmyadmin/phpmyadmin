@@ -285,6 +285,10 @@ class TransformationsTest extends PHPUnit_Framework_TestCase
                 'image_jpeg_link.php',
                 'Image_JPEG_Link.php'
             ),
+            array(
+                'text_plain_dateformat.php',
+                'Text_Plain_Dateformat.php'
+            ),
         );
     }
 }
