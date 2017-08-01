@@ -447,10 +447,6 @@ function PMA_getHtmlForOtherActions($what, $action, $_url_params, $full_query)
         $html .=  __('You are about to DESTROY a complete database!') . ' ';
     }
     $html .= __('Do you really want to execute the following query?');
-    $html .= '<input type="submit" name="mult_btn" value="'
-        . __('Yes') . '" />';
-    $html .= '<input type="submit" name="mult_btn" value="'
-        . __('No') . '" />';
     $html .= '</legend>';
     $html .= '<code>' . $full_query . '</code>';
     $html .= '</fieldset>';
