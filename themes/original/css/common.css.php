@@ -1119,12 +1119,8 @@ div#logTable table {
     padding: 0.5em;
     min-height: 18px;
 }
-#serverVariables .var-action {
-    width: 15%;
-}
 #serverVariables .var-name {
     font-weight: bold;
-    width: 65%;
 }
 #serverVariables .var-name.session {
     font-weight: normal;
@@ -1132,7 +1128,6 @@ div#logTable table {
 }
 #serverVariables .var-value {
     text-align: <?php echo $right; ?>;
-    width: 20%;
     float: <?php echo $right; ?>;
 }
 
