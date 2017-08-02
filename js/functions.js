@@ -1879,6 +1879,7 @@ AJAX.registerTeardown('functions.js', function () {
         $(document).off('blur', '#sqlquery');
     }
     $(document).off('change', '#parameterized');
+    $(document).off('click', 'input.sqlbutton');
     $('#sqlquery').off('keydown');
     $('#sql_query_edit').off('keydown');
 
@@ -1961,7 +1962,7 @@ AJAX.registerOnload('functions.js', function () {
         $divEditor.remove();
     });
 
-    $('input.sqlbutton').click(function (evt) {
+    $(document).on('click', 'input.sqlbutton', function (evt) {
         insertQuery(evt.target.id);
         PMA_handleSimulateQueryButton();
         return false;
