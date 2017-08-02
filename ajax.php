@@ -8,12 +8,13 @@
 
 use PhpMyAdmin\Response;
 use PhpMyAdmin\Util;
+use PhpMyAdmin\Core;
 require_once 'libraries/common.inc.php';
 
 $response = Response::getInstance();
 
 if (empty($_POST['type'])) {
-    PMA_fatalError(__('Bad type!'));
+    Core::fatalError(__('Bad type!'));
 }
 
 switch ($_POST['type']) {
@@ -30,5 +31,5 @@ switch ($_POST['type']) {
         break;
 
     default:
-        PMA_fatalError(__('Bad type!'));
+        Core::fatalError(__('Bad type!'));
 }
