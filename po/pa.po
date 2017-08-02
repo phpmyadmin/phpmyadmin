@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.7.3-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2017-07-18 13:29+0200\n"
-"PO-Revision-Date: 2017-08-01 17:13+0000\n"
+"PO-Revision-Date: 2017-08-02 09:17+0000\n"
 "Last-Translator: Hidev Corp <hidevcorp@gmail.com>\n"
 "Language-Team: Punjabi "
 "<https://hosted.weblate.org/projects/phpmyadmin/4-7/pa/>\n"
@@ -340,7 +340,7 @@ msgstr "ਟਰੈਕਿੰਗ ਡਾਟਾ ਸਫਲਤਾਪੂਰਵਕ ਮਿ
 #, php-format
 msgid ""
 "Version %1$s was created for selected tables, tracking is active for them."
-msgstr ""
+msgstr "ਵਰਜਨ %1$ sਚੁਣਿਆ ਟੇਬਲ ਲਈ ਬਣਾਇਆ ਗਿਆ ਸੀ, ਟਰੈਕਿੰਗ ਉਹਨਾਂ ਲਈ ਕਿਰਿਆਸ਼ੀਲ ਹੈ."
 
 #: db_tracking.php:93
 msgid "No tables selected."
@@ -385,26 +385,26 @@ msgstr "ਗਲਤ ਪੈਰਾਮੀਟਰ!"
 #: gis_data_editor.php:119
 #, php-format
 msgid "Value for the column \"%s\""
-msgstr ""
+msgstr "ਕਾਲਮ ਲਈ ਮੁੱਲ \"%s\""
 
 #: gis_data_editor.php:147
 #: templates/table/gis_visualization/gis_visualization.phtml:38
 msgid "Use OpenStreetMaps as Base Layer"
-msgstr ""
+msgstr "ਬੇਸ ਲੇਅਰ ਦੇ ਤੌਰ ਤੇ ਹਵਾਮੈਪ ਵਰਤੋ"
 
 #. l10n: Spatial Reference System Identifier
 #: gis_data_editor.php:169
 msgid "SRID:"
-msgstr ""
+msgstr "SRID: ਸਥਾਨਿਕ ਸੰਦਰਭ ਸਿਸਟਮ ਪਛਾਣਕਰਤਾ"
 
 #: gis_data_editor.php:195
 #, php-format
 msgid "Geometry %d:"
-msgstr ""
+msgstr "ਜਿਉਮੈਟਰੀ %d:"
 
 #: gis_data_editor.php:217
 msgid "Point:"
-msgstr ""
+msgstr "ਬਿੰਦੂ:"
 
 #: gis_data_editor.php:218 gis_data_editor.php:245 gis_data_editor.php:301
 #: gis_data_editor.php:374 js/messages.php:515
@@ -422,47 +422,47 @@ msgstr "Y"
 #: js/messages.php:518
 #, php-format
 msgid "Point %d"
-msgstr ""
+msgstr "ਬਿੰਦੂ %d"
 
 #: gis_data_editor.php:256 gis_data_editor.php:312 gis_data_editor.php:390
 #: js/messages.php:524
 msgid "Add a point"
-msgstr ""
+msgstr "ਇੱਕ ਬਿੰਦੂ ਜੋੜੋ"
 
 #: gis_data_editor.php:273
 #, php-format
 msgid "Linestring %d:"
-msgstr ""
+msgstr "ਲਿਨਸਟ੍ਰਿੰਗ %d:"
 
 #: gis_data_editor.php:276 gis_data_editor.php:353
 msgid "Outer ring:"
-msgstr ""
+msgstr "ਬਾਹਰਲੀ ਰਿੰਗ:"
 
 #: gis_data_editor.php:278 gis_data_editor.php:355
 #, php-format
 msgid "Inner ring %d:"
-msgstr ""
+msgstr "ਅੰਦਰੂਨੀ ਰਿੰਗ %d:"
 
 #: gis_data_editor.php:315
 msgid "Add a linestring"
-msgstr ""
+msgstr "ਇੱਕ ਲਿਨਸਟ੍ਰਿੰਗ ਜੋੜੋ"
 
 #: gis_data_editor.php:316 gis_data_editor.php:395 js/messages.php:525
 msgid "Add an inner ring"
-msgstr ""
+msgstr "ਇੱਕ ਅੰਦਰੂਨੀ ਰਿੰਗ ਜੋੜੋ"
 
 #: gis_data_editor.php:337
 #, php-format
 msgid "Polygon %d:"
-msgstr ""
+msgstr "ਪੌਲੀਗੌਨ %d:"
 
 #: gis_data_editor.php:401
 msgid "Add a polygon"
-msgstr ""
+msgstr "ਇੱਕ ਬਹੁਭੁਜ ਜੋੜੋ"
 
 #: gis_data_editor.php:407
 msgid "Add geometry"
-msgstr ""
+msgstr "ਜੁਮੈਟਰੀ ਜੋੜੋ"
 
 #: gis_data_editor.php:413 js/messages.php:353 libraries/DbSearch.php:455
 #: libraries/DisplayResults.php:1811 libraries/browse_foreigners.lib.php:137
@@ -506,25 +506,27 @@ msgstr "ਚੱਲੋ"
 
 #: gis_data_editor.php:416
 msgid "Output"
-msgstr ""
+msgstr "ਆਉਟਪੁੱਟ"
 
 #: gis_data_editor.php:419
 msgid ""
 "Choose \"GeomFromText\" from the \"Function\" column and paste the string "
 "below into the \"Value\" field."
 msgstr ""
+"\"ਫੰਕਸ਼ਨ\" ਕਾਲਮ ਵਿਚੋਂ \"ਜੀਓਮਫਾਰਮ ਟੈਕਸਟ\" ਨੂੰ ਚੁਣੋ ਅਤੇ ਹੇਠਾਂ ਸਤਰ ਨੂੰ \"ਵੈਲਯੂ\""
+" ਫੀਲਡ ਵਿੱਚ ਪੇਸਟ ਕਰੋ."
 
 #: import.php:65
 msgid "Succeeded"
-msgstr ""
+msgstr "ਸਫ਼ਲ ਹੋਇਆ"
 
 #: import.php:69 js/messages.php:611
 msgid "Failed"
-msgstr ""
+msgstr "ਅਸਫਲ"
 
 #: import.php:73
 msgid "Incomplete params"
-msgstr ""
+msgstr "ਅਧੂਰਾ ਪਰਮਾ"
 
 #: import.php:197
 #, php-format
@@ -532,14 +534,16 @@ msgid ""
 "You probably tried to upload a file that is too large. Please refer to "
 "%sdocumentation%s for a workaround for this limit."
 msgstr ""
+"ਤੁਸੀਂ ਸ਼ਾਇਦ ਅਜਿਹੀ ਫਾਈਲ ਅਪਲੋਡ ਕਰਨ ਦੀ ਕੋਸ਼ਿਸ਼ ਕੀਤੀ ਹੈ ਜੋ ਬਹੁਤ ਵੱਡੀ ਹੈ ਕਿਰਪਾ "
+"ਕਰਕੇ ਇਸ ਸੀਮਾ %s ਦੇ ਲਈ ਇੱਕ ਅਲਗ ਅਲਗ ਲਈ %s ਦਸਤਾਵੇਜ਼ ਵੇਖੋ."
 
 #: import.php:367 import.php:568
 msgid "Showing bookmark"
-msgstr ""
+msgstr "ਬੁੱਕਮਾਰਕ ਦਿਖਾ ਰਿਹਾ ਹੈ"
 
 #: import.php:383 import.php:564
 msgid "The bookmark has been deleted."
-msgstr ""
+msgstr "ਬੁੱਕਮਾਰਕ ਮਿਟਾਇਆ ਗਿਆ ਹੈ."
 
 #: import.php:477
 msgid ""
@@ -547,10 +551,13 @@ msgid ""
 "file size exceeded the maximum size permitted by your PHP configuration. See "
 "[doc@faq1-16]FAQ 1.16[/doc]."
 msgstr ""
+"ਆਯਾਤ ਕਰਨ ਲਈ ਕੋਈ ਡੇਟਾ ਪ੍ਰਾਪਤ ਨਹੀਂ ਹੋਇਆ ਸੀ ਜਾਂ ਤਾਂ ਕੋਈ ਫਾਈਲ ਨਾਮ ਪ੍ਰਸਤੁਤ ਨਹੀਂ "
+"ਕੀਤਾ ਗਿਆ ਸੀ, ਜਾਂ ਫਾਈਲ ਅਕਾਰ ਤੁਹਾਡੇ PHP ਕੌਂਫਿਗਰੇਸ਼ਨ ਦੁਆਰਾ ਅਨੁਚਿਤ ਅਧਿਕਤਮ ਅਕਾਰ "
+"ਤੋਂ ਵੱਧ ਗਿਆ ਹੈ. [doc@faq1-16] ਦੇਖੋ [/doc]ਦੇਖੋ."
 
 #: import.php:529 libraries/display_import.lib.php:665
 msgid "Could not load import plugins, please check your installation!"
-msgstr ""
+msgstr "ਆਯਾਤ ਪਲੱਗਇਨ ਲੋਡ ਨਹੀਂ ਕਰ ਸਕੇ, ਕਿਰਪਾ ਕਰਕੇ ਆਪਣੀ ਇੰਸਟੌਲੇਸ਼ਨ ਦੀ ਜਾਂਚ ਕਰੋ!"
 
 #: import.php:571 libraries/sql.lib.php:788 libraries/sql.lib.php:1564
 #, fuzzy, php-format
@@ -563,7 +570,9 @@ msgstr "%1$s ਡਾਟਾਬੇਸ ਬਣ ਚੁੱਕਾ ਹੈ."
 msgid "Import has been successfully finished, %d query executed."
 msgid_plural "Import has been successfully finished, %d queries executed."
 msgstr[0] ""
-msgstr[1] ""
+"ਅਯਾਤ ਸਫਲਤਾਪੂਰਕ ਮੁਕੰਮਲ ਹੋ ਗਈ ਹੈ,% d1 ਕਾਪੀ ਐਕਜ਼ੀਕਿਯੂਟ ਕੀਤੀ ਗਈ ਹੈ.\n"
+"ਹੋਰ"
+msgstr[1] "ਅਯਾਤ ਸਫਲਤਾਪੂਰਕ ਮੁਕੰਮਲ ਹੋ ਗਈ ਹੈ,% d 2 ਕਲਾਂਇੰਸ ਚਲਾਇਆ ਗਿਆ."
 
 #: import.php:612
 #, php-format
