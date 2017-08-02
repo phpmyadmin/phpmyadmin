@@ -4632,14 +4632,15 @@ AJAX.registerOnload('functions.js', function () {
         }); // end $(document).on()
     }
 
-    codemirror_editor = PMA_getSQLEditor($('textarea[name="view[as]"]'));
+    if ($('textarea[name="view[as]"]').length !== 0) {
+        codemirror_editor = PMA_getSQLEditor($('textarea[name="view[as]"]'));
+    }
 
 });
 
 function PMA_createViewDialog($this)
 {
     var $msg = PMA_ajaxShowMessage();
-    var codemirror_editor = null;
     $.get($this.attr('href') + '&ajax_request=1&ajax_dialog=1', function (data) {
         if (typeof data !== 'undefined' && data.success === true) {
             PMA_ajaxRemoveMessage($msg);
