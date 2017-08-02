@@ -4,45 +4,41 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.7.3-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2017-07-18 13:29+0200\n"
-"PO-Revision-Date: 2015-10-15 11:26+0200\n"
-"Last-Translator: Michal Čihař <michal@cihar.com>\n"
-"Language-Team: Basque <https://hosted.weblate.org/projects/phpmyadmin/master/"
-"eu/>\n"
+"PO-Revision-Date: 2017-08-02 11:56+0000\n"
+"Last-Translator: Osoitz <oelkoro@gmail.com>\n"
+"Language-Team: Basque "
+"<https://hosted.weblate.org/projects/phpmyadmin/4-7/eu/>\n"
 "Language: eu\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 2.5-dev\n"
+"X-Generator: Weblate 2.16-dev\n"
 
 #: ajax.php:16 ajax.php:33 export.php:192 schema_export.php:64
 msgid "Bad type!"
 msgstr "Mota okerra!"
 
 #: changelog.php:39 license.php:34
-#, fuzzy, php-format
+#, php-format
 msgid ""
 "The %s file is not available on this system, please visit %s for more "
 "information."
 msgstr ""
-"%s fitxategia ez dago eskuragarri sisteman, informazio gehiagorako ikusi www."
-"phpmyadmin.net"
+"%s fitxategia ez dago eskuragarri sisteman, informazio gehiagorako ikusi %s."
 
 #: db_central_columns.php:108
 msgid "The central list of columns for the current database is empty."
 msgstr ""
 
 #: db_central_columns.php:133
-#, fuzzy
-#| msgid "Click to select"
 msgid "Click to sort."
-msgstr "Egin klik hautatzeko"
+msgstr "Egin klik ordenatzeko."
 
 #: db_central_columns.php:150
-#, fuzzy, php-format
-#| msgid "Showing rows"
+#, php-format
 msgid "Showing rows %1$s - %2$s."
-msgstr "Errenkadak erakusten"
+msgstr "%1$s 1 - %2$s 2 errenkadak erakusten."
 
 #: db_datadict.php:59 libraries/operations.lib.php:36
 msgid "Database comment"
@@ -51,10 +47,8 @@ msgstr "Datu-basearen iruzkina"
 #: db_datadict.php:106 libraries/plugins/schema/pdf/PdfRelationSchema.php:596
 #: templates/columns_definitions/column_definitions_form.phtml:89
 #: templates/table/structure/display_table_stats.phtml:5
-#, fuzzy
-#| msgid "Table comments"
 msgid "Table comments:"
-msgstr "Taularen iruzkinak"
+msgstr "Taularen iruzkinak:"
 
 #: db_datadict.php:115 libraries/Index.php:686
 #: libraries/insert_edit.lib.php:1636
@@ -294,8 +288,6 @@ msgstr "Datuak"
 
 #: db_export.php:70 libraries/DbSearch.php:434
 #: libraries/display_export.lib.php:46 libraries/replication_gui.lib.php:379
-#, fuzzy
-#| msgid "Select All"
 msgid "Select all"
 msgstr "Dena hautatu"
 
@@ -304,31 +296,22 @@ msgid "The database name is empty!"
 msgstr "Datu-basearen izena hutsik dago!"
 
 #: db_operations.php:138
-#, fuzzy, php-format
-#| msgid "Database %s has been renamed to %s."
+#, php-format
 msgid "Database %1$s has been renamed to %2$s."
-msgstr "%s datu-basea %s-(e)ra berrizendatua izan da"
+msgstr "%1$s datu-basea %2$s(e)ra berrizendatua izan da."
 
 #: db_operations.php:150
-#, fuzzy, php-format
-#| msgid "Database %1$s has been copied to %2$s."
+#, php-format
 msgid "Database %1$s has been copied to %2$s."
-msgstr "%1$s datu-basea %2$s(e)ra kopiatua izan da"
+msgstr "%1$s datu-basea %2$s(e)ra kopiatua izan da."
 
 #: db_operations.php:279
-#, fuzzy, php-format
-#| msgid ""
-#| "The phpMyAdmin configuration storage has been deactivated. To find out "
-#| "why click %shere%s."
+#, php-format
 msgid ""
 "The phpMyAdmin configuration storage has been deactivated. %sFind out why%s."
 msgstr ""
-"Estekatutako taulekin lan egiteko hobespen gehigarriak ezgaitu dira . "
-"Zergatia jakiteko egizu klik %shemen%s."
 
 #: db_qbe.php:126
-#, fuzzy
-#| msgid "You have to choose at least one column to display"
 msgid "You have to choose at least one column to display!"
 msgstr "Gutxienez bistaratzeko Zutabe bat hautatu duzu"
 
@@ -345,10 +328,8 @@ msgid "Access denied!"
 msgstr "Sarbidea ukatua!"
 
 #: db_tracking.php:53 db_tracking.php:78
-#, fuzzy
-#| msgid "Chart generated successfully."
 msgid "Tracking data deleted successfully."
-msgstr "Pribilegioak arrakastaz berkargatu dira."
+msgstr ""
 
 #: db_tracking.php:62
 #, php-format
@@ -357,10 +338,8 @@ msgid ""
 msgstr ""
 
 #: db_tracking.php:93
-#, fuzzy
-#| msgid "No databases selected."
 msgid "No tables selected."
-msgstr "Ez dago datu-baserik aukeratuta."
+msgstr "Ez da datu-baserik hautatu."
 
 #: db_tracking.php:150
 msgid "Database Log"
@@ -406,16 +385,13 @@ msgstr "Erabili OpenStreetMaps Oinarri geruza moduan"
 
 #. l10n: Spatial Reference System Identifier
 #: gis_data_editor.php:169
-#, fuzzy
-#| msgid "SRID"
 msgid "SRID:"
-msgstr "SRID"
+msgstr "SRID:"
 
 #: gis_data_editor.php:195
-#, fuzzy, php-format
-#| msgid "Geometry"
+#, php-format
 msgid "Geometry %d:"
-msgstr "Geometria"
+msgstr "Geometria %d:"
 
 #: gis_data_editor.php:217
 #, fuzzy
