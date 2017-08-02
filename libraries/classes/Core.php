@@ -237,7 +237,7 @@ class Core
             echo json_encode(
                 array(
                     'success' => false,
-                    'error' => Message::error($error_message)->getDisplay(),
+                    'message' => Message::error($error_message)->getDisplay(),
                 )
             );
         } else {
