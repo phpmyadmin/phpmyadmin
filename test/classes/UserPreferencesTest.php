@@ -333,15 +333,15 @@ class UserPreferencesTest extends PmaTestCase
         $GLOBALS['server'] = 2;
         $_SESSION['relation'][2]['userconfigwork'] = null;
 
-        $this->assertNull(
+        $this->assertTrue(
             UserPreferences::persistOption('Server/hide_db', 'val', 'val')
         );
 
-        $this->assertNull(
+        $this->assertTrue(
             UserPreferences::persistOption('Server/hide_db', 'val2', 'val')
         );
 
-        $this->assertNull(
+        $this->assertTrue(
             UserPreferences::persistOption('Server/hide_db2', 'val', 'val')
         );
     }

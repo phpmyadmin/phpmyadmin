@@ -191,7 +191,7 @@ class UserPreferences
      * @param mixed  $value         value
      * @param mixed  $default_value default value
      *
-     * @return void
+     * @return true|PhpMyAdmin\Message
      */
     public static function persistOption($path, $value, $default_value)
     {
@@ -200,12 +200,12 @@ class UserPreferences
             if (isset($prefs['config_data'][$path])) {
                 unset($prefs['config_data'][$path]);
             } else {
-                return;
+                return true;
             }
         } else {
             $prefs['config_data'][$path] = $value;
         }
-        self::save($prefs['config_data']);
+        return self::save($prefs['config_data']);
     }
 
     /**
