@@ -4614,35 +4614,26 @@ function copyToClipboard()
 
     textArea.value = '';
 
-    var elementList = $('#serverinfo a');
-
-    elementList.each(function(){
+    $('#serverinfo a').each(function(){
         textArea.value += $(this).text().split(':')[1].trim() + '/';
     });
     textArea.value += '\t\t' + window.location.href;
     textArea.value += '\n';
 
-    elementList = $('.notice,.success');
-
-    elementList.each(function(){
+    $('.notice,.success').each(function(){
         textArea.value += $(this).clone().children().remove().end().text() + '\n\n';
     });
 
-    elementList = $('.sql pre');
-
-    elementList.each(function() {
+    $('.sql pre').each(function() {
         textArea.value += $(this).text() + '\n\n';
     });
 
-    elementList = $('.table_results .column_heading a');
-
-    elementList.each(function() {
+    $('.table_results .column_heading a').each(function() {
         textArea.value += $(this).clone().children().remove().end().text() + '\t';
     });
 
     textArea.value += '\n';
-    elementList = $('tbody tr');
-    elementList.each(function() {
+    $('tbody tr').each(function() {
         var childElementList = $(this).find('.data span');
         childElementList.each(function(){
             textArea.value += $(this).clone().children().remove().end().text() + '\t';
