@@ -37,6 +37,7 @@ phpMyAdmin - ChangeLog
 - issue #13507 Fixed per server theme feature
 - issue #13523 Missing newline in ALTER exports
 - issue #13414 Fixed several compatibility issues with PHP 7.2
+- issue #13550 Fixed copy results to clipboard
 
 4.7.3 (2017-07-20)
 - issue #13447 Large multi-line query removes Export operation and blanks query box options
