@@ -4,16 +4,16 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.8.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2017-07-18 13:31+0200\n"
-"PO-Revision-Date: 2017-06-28 18:10+0000\n"
-"Last-Translator: Franco <fulanodetal.github1@openaliasbox.org>\n"
-"Language-Team: Spanish <https://hosted.weblate.org/projects/phpmyadmin/"
-"master/es/>\n"
+"PO-Revision-Date: 2017-08-02 19:30+0000\n"
+"Last-Translator: George Bezerra <georgelione@gmail.com>\n"
+"Language-Team: Spanish "
+"<https://hosted.weblate.org/projects/phpmyadmin/master/es/>\n"
 "Language: es\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 2.15-dev\n"
+"X-Generator: Weblate 2.16-dev\n"
 
 #: ajax.php:16 ajax.php:33 export.php:195 schema_export.php:66
 msgid "Bad type!"
@@ -6184,18 +6184,12 @@ msgstr ""
 "datos!"
 
 #: libraries/common.inc.php:486
-#, fuzzy
-#| msgid ""
-#| "You have enabled mbstring.func_overload in your PHP configuration. This "
-#| "option is incompatible with phpMyAdmin and might cause some data to be "
-#| "corrupted!"
 msgid ""
 "You have disabled ini_get and/or ini_set in php.ini. This option is "
 "incompatible with phpMyAdmin!"
 msgstr ""
-"Usted ha activado mbstring.func_overload en su configuración PHP. ¡Esta "
-"opción es incompatible con phpMyAdmin y podría causar la pérdida de algunos "
-"datos!"
+"Usted ha desactivado ini_get o ini_set en php.ini. Esta opción es "
+"incompatible con phpMyAdmin!"
 
 #: libraries/common.inc.php:519
 #, php-format
@@ -10325,10 +10319,8 @@ msgid "Server Choice:"
 msgstr "Elección del servidor:"
 
 #: libraries/plugins/auth/AuthenticationCookie.php:341
-#, fuzzy
-#| msgid "Could not connect to the database server!"
 msgid "Failed to connect to the reCAPTCHA service!"
-msgstr "¡No se pudo conectar con el servidor de base de datos!"
+msgstr "¡No se pudo conectar con el servicio reCAPTCHA!"
 
 #: libraries/plugins/auth/AuthenticationCookie.php:343
 msgid "Entered captcha is wrong, try again!"
