@@ -1965,21 +1965,27 @@ class Util
      * Called by each script that needs parameters, it displays
      * an error message and, by default, stops the execution.
      *
-     * @param string[] $params The names of the parameters needed by the calling
-     *                         script
+     * @param string[] $params  The names of the parameters needed by the calling
+     *                          script
+     * @param boolean  $request Check parameters in request
      *
      * @return void
      *
      * @access public
      */
-    public static function checkParameters($params)
+    public static function checkParameters($params, $request=false)
     {
         $reported_script_name = basename($GLOBALS['PMA_PHP_SELF']);
         $found_error = false;
         $error_message = '';
+        if ($request) {
+            $array = $_REQUEST;
+        } else {
+            $array = $GLOBALS;
+        }
 
         foreach ($params as $param) {
-            if (! isset($GLOBALS[$param])) {
+            if (! isset($array[$param])) {
                 $error_message .= $reported_script_name
                     . ': ' . __('Missing parameter:') . ' '
                     . $param
