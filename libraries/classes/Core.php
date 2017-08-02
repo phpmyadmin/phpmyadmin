@@ -229,7 +229,7 @@ class Core
          */
         if (! empty($_REQUEST['ajax_request'])) {
             // Generate JSON manually
-            PMA_headerJSON();
+            self::headerJSON();
             echo json_encode(
                 array(
                     'success' => false,
