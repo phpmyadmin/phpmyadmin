@@ -261,7 +261,7 @@ AJAX.registerOnload('sql.js', function () {
         textArea.value += '\n';
 
         $('.notice,.success').each(function(){
-            textArea.value += $(this).clone().children().remove().end().text() + '\n\n';
+            textArea.value += $(this).text() + '\n\n';
         });
 
         $('.sql pre').each(function() {
@@ -269,13 +269,13 @@ AJAX.registerOnload('sql.js', function () {
         });
 
         $('.table_results .column_heading a').each(function() {
-            textArea.value += $(this).clone().children().remove().end().text() + '\t';
+            textArea.value += $(this).text() + '\t';
         });
 
         textArea.value += '\n';
         $('.table_results tbody tr').each(function() {
             $(this).find('.data span').each(function(){
-                textArea.value += $(this).clone().children().remove().end().text() + '\t';
+                textArea.value += $(this).text() + '\t';
             });
             textArea.value += '\n';
         });
