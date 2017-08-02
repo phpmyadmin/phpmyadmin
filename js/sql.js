@@ -274,8 +274,7 @@ AJAX.registerOnload('sql.js', function () {
 
         textArea.value += '\n';
         $('.table_results tbody tr').each(function() {
-            var childElementList = $(this).find('.data span');
-            childElementList.each(function(){
+            $(this).find('.data span').each(function(){
                 textArea.value += $(this).clone().children().remove().end().text() + '\t';
             });
             textArea.value += '\n';
