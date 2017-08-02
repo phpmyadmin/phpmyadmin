@@ -1965,9 +1965,6 @@ class Util
      * Called by each script that needs parameters, it displays
      * an error message and, by default, stops the execution.
      *
-     * Not sure we could use a strMissingParameter message here,
-     * would have to check if the error message file is always available
-     *
      * @param string[] $params The names of the parameters needed by the calling
      *                         script
      *
