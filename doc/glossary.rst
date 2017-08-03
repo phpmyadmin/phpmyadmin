@@ -35,7 +35,7 @@ From Wikipedia, the free encyclopedia
       enables a client web browser to request data from a program executed on
       the Web server.	
 
-      .. seealso:: <https://en.wikipedia.org/wiki/CGI>
+      .. seealso:: <https://en.wikipedia.org/wiki/Common_Gateway_Interface>
 
     Changelog
       a log or record of changes made to a project.	
