@@ -45,7 +45,7 @@ Query results for a simple pie chart can be generated with:
 And the result of this query is:
 
 +---------------+--------+
-| expense       | anount |
+| expense       | amount |
 +===============+========+
 | Food          | 1250   |
 +---------------+--------+
