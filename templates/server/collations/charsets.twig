@@ -1,9 +1,11 @@
 <div id="div_mysql_charset_collations">
     <table class="data noclick">
-        <tr>
-            <th id="collationHeader">{% trans 'Collation' %}</th>
-            <th>{% trans 'Description' %}</th>
-        </tr>
+        <thead>
+            <tr>
+                <th id="collationHeader">{% trans 'Collation' %}</th>
+                <th>{% trans 'Description' %}</th>
+            </tr>
+        </thead>
         {% for current_charset in mysql_charsets %}
             <tr>
                 <th colspan="2" class="right">
