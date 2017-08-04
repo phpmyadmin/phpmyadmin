@@ -44,6 +44,7 @@ class TableIndexesControllerTest extends PMATestCase
             'db' => 'db',
             'server' => 1
         );
+        $GLOBALS['db'] = 'db';
 
         $dbi = $this->getMockBuilder('PhpMyAdmin\DatabaseInterface')
             ->disableOriginalConstructor()

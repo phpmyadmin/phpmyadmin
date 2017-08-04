@@ -6,6 +6,7 @@
  * @package PhpMyAdmin
  */
 use PhpMyAdmin\Message;
+use PhpMyAdmin\Server\Privileges;
 use PhpMyAdmin\Url;
 
 /**
@@ -81,7 +82,7 @@ function PMA_getHtmlForChangePassword($mode, $username, $hostname)
 
     $serverType = PhpMyAdmin\Util::getServerType();
     $serverVersion = $GLOBALS['dbi']->getVersion();
-    $orig_auth_plugin = PMA_getCurrentAuthenticationPlugin(
+    $orig_auth_plugin = Privileges::getCurrentAuthenticationPlugin(
         'change',
         $username,
         $hostname
@@ -99,7 +100,7 @@ function PMA_getHtmlForChangePassword($mode, $username, $hostname)
             && $serverVersion >= 50706)
             || ($is_superuser && $mode == 'edit_other')
         ) {
-            $auth_plugin_dropdown = PMA_getHtmlForAuthPluginsDropdown(
+            $auth_plugin_dropdown = Privileges::getHtmlForAuthPluginsDropdown(
                 $orig_auth_plugin, 'change_pw', 'new'
             );
 
@@ -132,7 +133,7 @@ function PMA_getHtmlForChangePassword($mode, $username, $hostname)
                 . '</table>';
         }
     } else {
-        $auth_plugin_dropdown = PMA_getHtmlForAuthPluginsDropdown(
+        $auth_plugin_dropdown = Privileges::getHtmlForAuthPluginsDropdown(
             $orig_auth_plugin, 'change_pw', 'old'
         );
 

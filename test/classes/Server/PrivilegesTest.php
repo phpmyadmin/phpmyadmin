@@ -1,30 +1,31 @@
 <?php
 /* vim: set expandtab sw=4 ts=4 sts=4: */
 /**
- * tests for server_privileges.lib.php
+ * tests for PhpMyAdmin\Server\Privileges
  *
  * @package PhpMyAdmin-test
  */
+namespace PhpMyAdmin\Tests\Server;
 
 use PhpMyAdmin\Core;
+use PhpMyAdmin\Server\Privileges;
+use PhpMyAdmin\Template;
 use PhpMyAdmin\Theme;
 use PhpMyAdmin\Url;
-
+use PhpMyAdmin\Util;
 
 require_once 'libraries/database_interface.inc.php';
-
 require_once 'libraries/relation.lib.php';
 require_once 'libraries/relation_cleanup.lib.php';
-require_once 'libraries/server_privileges.lib.php';
 
 /**
- * PMA_ServerPrivileges_Test class
+ * PhpMyAdmin\Tests\Server\PrivilegesTest class
  *
- * this class is for testing server_privileges.lib.php functions
+ * this class is for testing PhpMyAdmin\Server\Privileges methods
  *
  * @package PhpMyAdmin-test
  */
-class PMA_ServerPrivileges_Test extends PHPUnit_Framework_TestCase
+class PrivilegesTest extends \PHPUnit_Framework_TestCase
 {
     /**
      * Prepares environment for the test.
@@ -136,7 +137,7 @@ class PMA_ServerPrivileges_Test extends PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test for PMA_getDataForDBInfo
+     * Test for getDataForDBInfo
      *
      * @return void
      */
@@ -149,7 +150,7 @@ class PMA_ServerPrivileges_Test extends PHPUnit_Framework_TestCase
         list(
             $username, $hostname, $dbname, $tablename, $routinename,
             $db_and_table, $dbname_is_wildcard
-        ) = PMA_getDataForDBInfo();
+        ) = Privileges::getDataForDBInfo();
         $this->assertEquals(
             "PMA_username",
             $username
@@ -181,7 +182,7 @@ class PMA_ServerPrivileges_Test extends PHPUnit_Framework_TestCase
         list(
             ,, $dbname, $tablename, $routinename,
             $db_and_table, $dbname_is_wildcard
-        ) = PMA_getDataForDBInfo();
+        ) = Privileges::getDataForDBInfo();
         $this->assertEquals(
             "PMA_pred_dbname",
             $dbname
@@ -202,7 +203,7 @@ class PMA_ServerPrivileges_Test extends PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test for PMA_wildcardEscapeForGrant
+     * Test for wildcardEscapeForGrant
      *
      * @return void
      */
@@ -210,7 +211,7 @@ class PMA_ServerPrivileges_Test extends PHPUnit_Framework_TestCase
     {
         $dbname = '';
         $tablename = '';
-        $db_and_table = PMA_wildcardEscapeForGrant($dbname, $tablename);
+        $db_and_table = Privileges::wildcardEscapeForGrant($dbname, $tablename);
         $this->assertEquals(
             '*.*',
             $db_and_table
@@ -218,7 +219,7 @@ class PMA_ServerPrivileges_Test extends PHPUnit_Framework_TestCase
 
         $dbname = 'dbname';
         $tablename = '';
-        $db_and_table = PMA_wildcardEscapeForGrant($dbname, $tablename);
+        $db_and_table = Privileges::wildcardEscapeForGrant($dbname, $tablename);
         $this->assertEquals(
             '`dbname`.*',
             $db_and_table
@@ -226,7 +227,7 @@ class PMA_ServerPrivileges_Test extends PHPUnit_Framework_TestCase
 
         $dbname = 'dbname';
         $tablename = 'tablename';
-        $db_and_table = PMA_wildcardEscapeForGrant($dbname, $tablename);
+        $db_and_table = Privileges::wildcardEscapeForGrant($dbname, $tablename);
         $this->assertEquals(
             '`dbname`.`tablename`',
             $db_and_table
@@ -234,19 +235,19 @@ class PMA_ServerPrivileges_Test extends PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test for PMA_rangeOfUsers
+     * Test for rangeOfUsers
      *
      * @return void
      */
     public function testPMARangeOfUsers()
     {
-        $ret = PMA_rangeOfUsers("INIT");
+        $ret = Privileges::rangeOfUsers("INIT");
         $this->assertEquals(
             " WHERE `User` LIKE 'INIT%' OR `User` LIKE 'init%'",
             $ret
         );
 
-        $ret = PMA_rangeOfUsers();
+        $ret = Privileges::rangeOfUsers();
         $this->assertEquals(
             '',
             $ret
@@ -254,7 +255,7 @@ class PMA_ServerPrivileges_Test extends PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test for PMA_getTableGrantsArray
+     * Test for getTableGrantsArray
      *
      * @return void
      */
@@ -269,7 +270,7 @@ class PMA_ServerPrivileges_Test extends PHPUnit_Framework_TestCase
         $GLOBALS['strPrivDescShowView'] = "strPrivDescShowView";
         $GLOBALS['strPrivDescTrigger'] = "strPrivDescTrigger";
 
-        $ret = PMA_getTableGrantsArray();
+        $ret = Privileges::getTableGrantsArray();
         $this->assertEquals(
             array(
                 'Delete',
@@ -289,13 +290,13 @@ class PMA_ServerPrivileges_Test extends PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test for PMA_getGrantsArray
+     * Test for getGrantsArray
      *
      * @return void
      */
     public function testPMAGetGrantsArray()
     {
-        $ret = PMA_getGrantsArray();
+        $ret = Privileges::getGrantsArray();
         $this->assertEquals(
             array(
                 'Select_priv',
@@ -315,7 +316,7 @@ class PMA_ServerPrivileges_Test extends PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test for PMA_getHtmlForColumnPrivileges
+     * Test for getHtmlForColumnPrivileges
      *
      * @return void
      */
@@ -333,7 +334,7 @@ class PMA_ServerPrivileges_Test extends PHPUnit_Framework_TestCase
         $name_for_dfn = 'name_for_dfn';
         $name_for_current = 'name_for_current';
 
-        $html = PMA_getHtmlForColumnPrivileges(
+        $html = Privileges::getHtmlForColumnPrivileges(
             $columns, $row, $name_for_select,
             $priv_for_header, $name, $name_for_dfn, $name_for_current
         );
@@ -370,7 +371,7 @@ class PMA_ServerPrivileges_Test extends PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test for PMA_getHtmlForRequires
+     * Test for getHtmlForRequires
      *
      * @return void
      */
@@ -382,7 +383,7 @@ class PMA_ServerPrivileges_Test extends PHPUnit_Framework_TestCase
             'ssh_cipher' => ''
         );
 
-        $html = PMA_getHtmlForRequires(
+        $html = Privileges::getHtmlForRequires(
             $row
         );
         // <legend>SSL</legend>
@@ -413,7 +414,7 @@ class PMA_ServerPrivileges_Test extends PHPUnit_Framework_TestCase
             'ssh_cipher' => ''
         );
 
-        $html = PMA_getHtmlForRequires(
+        $html = Privileges::getHtmlForRequires(
             $row
         );
         // <legend>SSL</legend>
@@ -444,7 +445,7 @@ class PMA_ServerPrivileges_Test extends PHPUnit_Framework_TestCase
             'ssh_cipher' => ''
         );
 
-        $html = PMA_getHtmlForRequires(
+        $html = Privileges::getHtmlForRequires(
             $row
         );
         // <legend>SSL</legend>
@@ -475,7 +476,7 @@ class PMA_ServerPrivileges_Test extends PHPUnit_Framework_TestCase
             'ssh_cipher' => ''
         );
 
-        $html = PMA_getHtmlForRequires(
+        $html = Privileges::getHtmlForRequires(
             $row
         );
         // <legend>SSL</legend>
@@ -502,7 +503,7 @@ class PMA_ServerPrivileges_Test extends PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test for PMA_getHtmlForUserGroupDialog
+     * Test for getHtmlForUserGroupDialog
      *
      * @return void
      */
@@ -513,8 +514,8 @@ class PMA_ServerPrivileges_Test extends PHPUnit_Framework_TestCase
         $_REQUEST['edit_user_group_dialog'] = "edit_user_group_dialog";
 
         /* Assertion 1 */
-        //PMA_getHtmlForUserGroupDialog
-        $html = PMA_getHtmlForUserGroupDialog($username, $is_menuswork);
+        //Privileges::getHtmlForUserGroupDialog
+        $html = Privileges::getHtmlForUserGroupDialog($username, $is_menuswork);
         $this->assertContains(
             '<form class="ajax" id="changeUserGroupForm"',
             $html
@@ -553,7 +554,7 @@ class PMA_ServerPrivileges_Test extends PHPUnit_Framework_TestCase
 
         $GLOBALS['dbi'] = $dbi;
 
-        $actualHtml = PMA_getHtmlForUserGroupDialog($username, $is_menuswork);
+        $actualHtml = Privileges::getHtmlForUserGroupDialog($username, $is_menuswork);
         $this->assertContains(
             '<form class="ajax" id="changeUserGroupForm"',
             $actualHtml
@@ -588,7 +589,7 @@ class PMA_ServerPrivileges_Test extends PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test for PMA_getHtmlToChooseUserGroup
+     * Test for getHtmlToChooseUserGroup
      *
      * @return void
      */
@@ -596,8 +597,8 @@ class PMA_ServerPrivileges_Test extends PHPUnit_Framework_TestCase
     {
         $username = "pma_username";
 
-        //PMA_getHtmlToChooseUserGroup
-        $html = PMA_getHtmlToChooseUserGroup($username);
+        //Privileges::getHtmlToChooseUserGroup
+        $html = Privileges::getHtmlToChooseUserGroup($username);
         $this->assertContains(
             '<form class="ajax" id="changeUserGroupForm"',
             $html
@@ -617,7 +618,7 @@ class PMA_ServerPrivileges_Test extends PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test for PMA_getHtmlForResourceLimits
+     * Test for getHtmlForResourceLimits
      *
      * @return void
      */
@@ -630,8 +631,8 @@ class PMA_ServerPrivileges_Test extends PHPUnit_Framework_TestCase
             'max_user_connections' => 'max_user_connections',
         );
 
-        //PMA_getHtmlForResourceLimits
-        $html = PMA_getHtmlForResourceLimits($row);
+        //Privileges::getHtmlForResourceLimits
+        $html = Privileges::getHtmlForResourceLimits($row);
         $this->assertContains(
             '<legend>' . __('Resource limits') . '</legend>',
             $html
@@ -671,7 +672,7 @@ class PMA_ServerPrivileges_Test extends PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test for PMA_getSqlQueryForDisplayPrivTable
+     * Test for getSqlQueryForDisplayPrivTable
      *
      * @return void
      */
@@ -683,7 +684,7 @@ class PMA_ServerPrivileges_Test extends PHPUnit_Framework_TestCase
         $hostname = "pma_hostname";
 
         //$db == '*'
-        $ret = PMA_getSqlQueryForDisplayPrivTable(
+        $ret = Privileges::getSqlQueryForDisplayPrivTable(
             $db, $table, $username, $hostname
         );
         $sql = "SELECT * FROM `mysql`.`user`"
@@ -697,13 +698,13 @@ class PMA_ServerPrivileges_Test extends PHPUnit_Framework_TestCase
         //$table == '*'
         $db = "pma_db";
         $table = "*";
-        $ret = PMA_getSqlQueryForDisplayPrivTable(
+        $ret = Privileges::getSqlQueryForDisplayPrivTable(
             $db, $table, $username, $hostname
         );
         $sql = "SELECT * FROM `mysql`.`db`"
             . " WHERE `User` = '" . $GLOBALS['dbi']->escapeString($username) . "'"
             . " AND `Host` = '" . $GLOBALS['dbi']->escapeString($hostname) . "'"
-            . " AND '" . PhpMyAdmin\Util::unescapeMysqlWildcards($db) . "'"
+            . " AND '" . Util::unescapeMysqlWildcards($db) . "'"
             . " LIKE `Db`;";
         $this->assertEquals(
             $sql,
@@ -713,14 +714,14 @@ class PMA_ServerPrivileges_Test extends PHPUnit_Framework_TestCase
         //$table == 'pma_table'
         $db = "pma_db";
         $table = "pma_table";
-        $ret = PMA_getSqlQueryForDisplayPrivTable(
+        $ret = Privileges::getSqlQueryForDisplayPrivTable(
             $db, $table, $username, $hostname
         );
         $sql = "SELECT `Table_priv`"
             . " FROM `mysql`.`tables_priv`"
             . " WHERE `User` = '" . $GLOBALS['dbi']->escapeString($username) . "'"
             . " AND `Host` = '" . $GLOBALS['dbi']->escapeString($hostname) . "'"
-            . " AND `Db` = '" . PhpMyAdmin\Util::unescapeMysqlWildcards($db) . "'"
+            . " AND `Db` = '" . Util::unescapeMysqlWildcards($db) . "'"
             . " AND `Table_name` = '" . $GLOBALS['dbi']->escapeString($table) . "';";
         $this->assertEquals(
             $sql,
@@ -730,7 +731,7 @@ class PMA_ServerPrivileges_Test extends PHPUnit_Framework_TestCase
         // SQL escaping
         $db = "db' AND";
         $table = "pma_table";
-        $ret = PMA_getSqlQueryForDisplayPrivTable(
+        $ret = Privileges::getSqlQueryForDisplayPrivTable(
             $db, $table, $username, $hostname
         );
         $this->assertEquals(
@@ -743,14 +744,14 @@ class PMA_ServerPrivileges_Test extends PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test for PMA_getDataForChangeOrCopyUser
+     * Test for getDataForChangeOrCopyUser
      *
      * @return void
      */
     public function testPMAGetDataForChangeOrCopyUser()
     {
         //$_REQUEST['change_copy'] not set
-        list($queries, $password) = PMA_getDataForChangeOrCopyUser();
+        list($queries, $password) = Privileges::getDataForChangeOrCopyUser();
         $this->assertEquals(
             null,
             $queries
@@ -764,7 +765,7 @@ class PMA_ServerPrivileges_Test extends PHPUnit_Framework_TestCase
         $_REQUEST['change_copy'] = true;
         $_REQUEST['old_username'] = 'PMA_old_username';
         $_REQUEST['old_hostname'] = 'PMA_old_hostname';
-        list($queries, $password) = PMA_getDataForChangeOrCopyUser();
+        list($queries, $password) = Privileges::getDataForChangeOrCopyUser();
         $this->assertEquals(
             'pma_password',
             $password
@@ -778,7 +779,7 @@ class PMA_ServerPrivileges_Test extends PHPUnit_Framework_TestCase
 
 
     /**
-     * Test for PMA_getListForExportUserDefinition
+     * Test for getListForExportUserDefinition
      *
      * @return void
      */
@@ -788,7 +789,7 @@ class PMA_ServerPrivileges_Test extends PHPUnit_Framework_TestCase
         $hostname = "PMA_hostname";
 
         list($title, $export)
-            = PMA_getListForExportUserDefinition($username, $hostname);
+            = Privileges::getListForExportUserDefinition($username, $hostname);
 
         //validate 1: $export
         $this->assertContains(
@@ -814,7 +815,7 @@ class PMA_ServerPrivileges_Test extends PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test for PMA_addUser
+     * Test for addUser
      *
      * @return void
      */
@@ -838,7 +839,7 @@ class PMA_ServerPrivileges_Test extends PHPUnit_Framework_TestCase
         list(
             $ret_message,,, $sql_query,
             $_add_user_error
-        ) = PMA_addUser(
+        ) = Privileges::addUser(
             $dbname,
             $username,
             $hostname,
@@ -862,7 +863,7 @@ class PMA_ServerPrivileges_Test extends PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test for PMA_addUser
+     * Test for addUser
      *
      * @return void
      */
@@ -885,7 +886,7 @@ class PMA_ServerPrivileges_Test extends PHPUnit_Framework_TestCase
         list(
             $ret_message,,, $sql_query,
             $_add_user_error
-        ) = PMA_addUser(
+        ) = Privileges::addUser(
             $dbname,
             $username,
             $hostname,
@@ -911,7 +912,7 @@ class PMA_ServerPrivileges_Test extends PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test for PMA_updatePassword
+     * Test for updatePassword
      *
      * @return void
      */
@@ -923,7 +924,7 @@ class PMA_ServerPrivileges_Test extends PHPUnit_Framework_TestCase
         $_POST['pma_pw'] = 'pma_pw';
         $_REQUEST['authentication_plugin'] = 'mysql_native_password';
 
-        $message = PMA_updatePassword(
+        $message = Privileges::updatePassword(
             $err_url, $username, $hostname
         );
 
@@ -935,7 +936,7 @@ class PMA_ServerPrivileges_Test extends PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test for PMA_getMessageAndSqlQueryForPrivilegesRevoke
+     * Test for getMessageAndSqlQueryForPrivilegesRevoke
      *
      * @return void
      */
@@ -952,7 +953,7 @@ class PMA_ServerPrivileges_Test extends PHPUnit_Framework_TestCase
         $_POST['Grant_priv'] = 'Y';
         $_POST['max_questions'] = 1000;
         list ($message, $sql_query)
-            = PMA_getMessageAndSqlQueryForPrivilegesRevoke(
+            = Privileges::getMessageAndSqlQueryForPrivilegesRevoke(
                 $dbname, $tablename, $username, $hostname, ''
             );
 
@@ -970,7 +971,7 @@ class PMA_ServerPrivileges_Test extends PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test for PMA_updatePrivileges
+     * Test for updatePrivileges
      *
      * @return void
      */
@@ -986,7 +987,7 @@ class PMA_ServerPrivileges_Test extends PHPUnit_Framework_TestCase
         $_REQUEST['createdb-3'] = true;
         $_POST['Grant_priv'] = 'Y';
         $_POST['max_questions'] = 1000;
-        list($sql_query, $message) = PMA_updatePrivileges(
+        list($sql_query, $message) = Privileges::updatePrivileges(
             $username, $hostname, $tablename, $dbname, ''
         );
 
@@ -1002,7 +1003,7 @@ class PMA_ServerPrivileges_Test extends PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test for PMA_getHtmlToDisplayPrivilegesTable
+     * Test for getHtmlToDisplayPrivilegesTable
      *
      * @return void
      * @group medium
@@ -1055,7 +1056,7 @@ class PMA_ServerPrivileges_Test extends PHPUnit_Framework_TestCase
 
         $GLOBALS['dbi'] = $dbi;
 
-        $html = PMA_getHtmlToDisplayPrivilegesTable();
+        $html = Privileges::getHtmlToDisplayPrivilegesTable();
         $GLOBALS['username'] = "username";
 
         //validate 1: fieldset
@@ -1070,7 +1071,7 @@ class PMA_ServerPrivileges_Test extends PHPUnit_Framework_TestCase
             $html
         );
 
-        //validate 3: PMA_getHtmlForGlobalOrDbSpecificPrivs
+        //validate 3: Privileges::getHtmlForGlobalOrDbSpecificPrivs
         $this->assertContains(
             '<fieldset id="fieldset_user_global_rights"><legend '
             . 'data-submenu-label="' . __('Global') . '">',
@@ -1089,7 +1090,7 @@ class PMA_ServerPrivileges_Test extends PHPUnit_Framework_TestCase
             $html
         );
 
-        //validate 4: PMA_getHtmlForGlobalPrivTableWithCheckboxes items
+        //validate 4: Privileges::getHtmlForGlobalPrivTableWithCheckboxes items
         //Select_priv
         $this->assertContains(
             '<input type="checkbox" class="checkall" name="Select_priv"',
@@ -1126,7 +1127,7 @@ class PMA_ServerPrivileges_Test extends PHPUnit_Framework_TestCase
             $html
         );
 
-        //validate 5: PMA_getHtmlForResourceLimits
+        //validate 5: Privileges::getHtmlForResourceLimits
         $this->assertContains(
             '<legend>' . __('Resource limits') . '</legend>',
             $html
@@ -1140,7 +1141,7 @@ class PMA_ServerPrivileges_Test extends PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test for PMA_getSqlQueriesForDisplayAndAddUser
+     * Test for getSqlQueriesForDisplayAndAddUser
      *
      * @return void
      */
@@ -1159,7 +1160,7 @@ class PMA_ServerPrivileges_Test extends PHPUnit_Framework_TestCase
         $dbname = "PMA_db";
 
         list($create_user_real, $create_user_show, $real_sql_query, $sql_query)
-            = PMA_getSqlQueriesForDisplayAndAddUser($username, $hostname, $password);
+            = Privileges::getSqlQueriesForDisplayAndAddUser($username, $hostname, $password);
 
         //validate 1: $create_user_real
         $this->assertEquals(
@@ -1187,8 +1188,8 @@ class PMA_ServerPrivileges_Test extends PHPUnit_Framework_TestCase
             $sql_query
         );
 
-        //test for PMA_addUserAndCreateDatabase
-        list($sql_query, $message) = PMA_addUserAndCreateDatabase(
+        //Test for addUserAndCreateDatabase
+        list($sql_query, $message) = Privileges::addUserAndCreateDatabase(
             false, $real_sql_query, $sql_query, $username, $hostname, $dbname
         );
 
@@ -1206,7 +1207,7 @@ class PMA_ServerPrivileges_Test extends PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test for PMA_getHtmlForTableSpecificPrivileges
+     * Test for getHtmlForTableSpecificPrivileges
      *
      * @return void
      */
@@ -1230,12 +1231,12 @@ class PMA_ServerPrivileges_Test extends PHPUnit_Framework_TestCase
             'ShowView_priv' => 'Y',
         );
 
-        $html = PMA_getHtmlForTableSpecificPrivileges(
+        $html = Privileges::getHtmlForTableSpecificPrivileges(
             $username, $hostname, $db, $table, $columns, $row
         );
 
-        //validate 1: PMA_getHtmlForAttachedPrivilegesToTableSpecificColumn
-        $item = PMA_getHtmlForAttachedPrivilegesToTableSpecificColumn(
+        //validate 1: Privileges::getHtmlForAttachedPrivilegesToTableSpecificColumn
+        $item = Privileges::getHtmlForAttachedPrivilegesToTableSpecificColumn(
             $columns, $row
         );
         $this->assertContains(
@@ -1259,8 +1260,8 @@ class PMA_ServerPrivileges_Test extends PHPUnit_Framework_TestCase
             $html
         );
 
-        //validate 2: PMA_getHtmlForNotAttachedPrivilegesToTableSpecificColumn
-        $item = PMA_getHtmlForNotAttachedPrivilegesToTableSpecificColumn(
+        //validate 2: Privileges::getHtmlForNotAttachedPrivilegesToTableSpecificColumn
+        $item = Privileges::getHtmlForNotAttachedPrivilegesToTableSpecificColumn(
             $row
         );
         $this->assertContains(
@@ -1278,7 +1279,7 @@ class PMA_ServerPrivileges_Test extends PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test for PMA_getHtmlForLoginInformationFields
+     * Test for getHtmlForLoginInformationFields
      *
      * @return void
      */
@@ -1302,7 +1303,7 @@ class PMA_ServerPrivileges_Test extends PHPUnit_Framework_TestCase
 
         $GLOBALS['dbi'] = $dbi;
 
-        $html = PMA_getHtmlForLoginInformationFields();
+        $html = Privileges::getHtmlForLoginInformationFields();
 
         //validate 1: __('Login Information')
         $this->assertContains(
@@ -1322,7 +1323,7 @@ class PMA_ServerPrivileges_Test extends PHPUnit_Framework_TestCase
             $html
         );
 
-        $output = PhpMyAdmin\Util::showHint(
+        $output = Util::showHint(
             __(
                 'When Host table is used, this field is ignored '
                 . 'and values stored in Host table are used instead.'
@@ -1337,7 +1338,7 @@ class PMA_ServerPrivileges_Test extends PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test for PMA_getWithClauseForAddUserAndUpdatePrivs
+     * Test for getWithClauseForAddUserAndUpdatePrivs
      *
      * @return void
      */
@@ -1349,7 +1350,7 @@ class PMA_ServerPrivileges_Test extends PHPUnit_Framework_TestCase
         $_POST['max_updates'] = 30;
         $_POST['max_user_connections'] = 40;
 
-        $sql_query = PMA_getWithClauseForAddUserAndUpdatePrivs();
+        $sql_query = Privileges::getWithClauseForAddUserAndUpdatePrivs();
         $expect = "WITH GRANT OPTION MAX_QUERIES_PER_HOUR 10 "
             . "MAX_CONNECTIONS_PER_HOUR 20"
             . " MAX_UPDATES_PER_HOUR 30 MAX_USER_CONNECTIONS 40";
@@ -1361,14 +1362,14 @@ class PMA_ServerPrivileges_Test extends PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test for PMA_getListOfPrivilegesAndComparedPrivileges
+     * Test for getListOfPrivilegesAndComparedPrivileges
      *
      * @return void
      */
     public function testPMAGetListOfPrivilegesAndComparedPrivileges()
     {
         list($list_of_privileges, $list_of_compared_privileges)
-            = PMA_getListOfPrivilegesAndComparedPrivileges();
+            = Privileges::getListOfPrivilegesAndComparedPrivileges();
         $expect = "`User`, `Host`, `Select_priv`, `Insert_priv`";
         $this->assertContains(
             $expect,
@@ -1387,7 +1388,7 @@ class PMA_ServerPrivileges_Test extends PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test for PMA_getHtmlForAddUser
+     * Test for getHtmlForAddUser
      *
      * @return void
      * @group medium
@@ -1412,7 +1413,7 @@ class PMA_ServerPrivileges_Test extends PHPUnit_Framework_TestCase
 
         $dbname = "pma_dbname";
 
-        $html = PMA_getHtmlForAddUser($dbname);
+        $html = Privileges::getHtmlForAddUser($dbname);
 
         //validate 1: Url::getHiddenInputs
         $this->assertContains(
@@ -1420,9 +1421,9 @@ class PMA_ServerPrivileges_Test extends PHPUnit_Framework_TestCase
             $html
         );
 
-        //validate 2: PMA_getHtmlForLoginInformationFields
+        //validate 2: Privileges::getHtmlForLoginInformationFields
         $this->assertContains(
-            PMA_getHtmlForLoginInformationFields('new'),
+            Privileges::getHtmlForLoginInformationFields('new'),
             $html
         );
 
@@ -1432,7 +1433,7 @@ class PMA_ServerPrivileges_Test extends PHPUnit_Framework_TestCase
             $html
         );
 
-        $item = PhpMyAdmin\Template::get('checkbox')
+        $item = Template::get('checkbox')
             ->render(
                 array(
                     'html_field_name'   => 'createdb-2',
@@ -1447,9 +1448,9 @@ class PMA_ServerPrivileges_Test extends PHPUnit_Framework_TestCase
             $html
         );
 
-        //validate 4: PMA_getHtmlToDisplayPrivilegesTable
+        //validate 4: Privileges::getHtmlToDisplayPrivilegesTable
         $this->assertContains(
-            PMA_getHtmlToDisplayPrivilegesTable('*', '*', false),
+            Privileges::getHtmlToDisplayPrivilegesTable('*', '*', false),
             $html
         );
 
@@ -1463,7 +1464,7 @@ class PMA_ServerPrivileges_Test extends PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test for PMA_getHtmlForSpecificDbPrivileges
+     * Test for getHtmlForSpecificDbPrivileges
      *
      * @return void
      */
@@ -1487,7 +1488,7 @@ class PMA_ServerPrivileges_Test extends PHPUnit_Framework_TestCase
 
         $db = "pma_dbname";
 
-        $html = PMA_getHtmlForSpecificDbPrivileges($db);
+        $html = Privileges::getHtmlForSpecificDbPrivileges($db);
 
         //validate 1: Url::getCommon
         $this->assertContains(
@@ -1541,7 +1542,7 @@ class PMA_ServerPrivileges_Test extends PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test for PMA_getHtmlForSpecificTablePrivileges
+     * Test for getHtmlForSpecificTablePrivileges
      *
      * @return void
      */
@@ -1566,7 +1567,7 @@ class PMA_ServerPrivileges_Test extends PHPUnit_Framework_TestCase
         $db = "pma_dbname";
         $table = "pma_table";
 
-        $html = PMA_getHtmlForSpecificTablePrivileges($db, $table);
+        $html = Privileges::getHtmlForSpecificTablePrivileges($db, $table);
 
         //validate 1: $db, $table
         $this->assertContains(
@@ -1628,7 +1629,7 @@ class PMA_ServerPrivileges_Test extends PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test for PMA_getHtmlTableBodyForSpecificDbOrTablePrivs
+     * Test for getHtmlTableBodyForSpecificDbOrTablePrivs
      *
      * @return void
      */
@@ -1638,7 +1639,7 @@ class PMA_ServerPrivileges_Test extends PHPUnit_Framework_TestCase
         $db = "pma_dbname";
 
         //$privMap = null
-        $html = PMA_getHtmlTableBodyForSpecificDbOrTablePrivs($privMap, $db);
+        $html = Privileges::getHtmlTableBodyForSpecificDbOrTablePrivs($privMap, $db);
         $this->assertContains(
             __('No user found.'),
             $html
@@ -1655,7 +1656,7 @@ class PMA_ServerPrivileges_Test extends PHPUnit_Framework_TestCase
             )
         );
 
-        $html = PMA_getHtmlTableBodyForSpecificDbOrTablePrivs($privMap, $db);
+        $html = Privileges::getHtmlTableBodyForSpecificDbOrTablePrivs($privMap, $db);
 
         //validate 1: $current_privileges
         $current_privileges = $privMap["user1"]["hostname1"];
@@ -1699,7 +1700,7 @@ class PMA_ServerPrivileges_Test extends PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test for PMA_getUserLink
+     * Test for getUserLink
      *
      * @return void
      */
@@ -1710,7 +1711,7 @@ class PMA_ServerPrivileges_Test extends PHPUnit_Framework_TestCase
         $dbname = "pma_dbname";
         $tablename = "pma_tablename";
 
-        $html = PMA_getUserLink(
+        $html = Privileges::getUserLink(
             'edit', $username, $hostname, $dbname, $tablename, ''
         );
 
@@ -1732,7 +1733,7 @@ class PMA_ServerPrivileges_Test extends PHPUnit_Framework_TestCase
             $html
         );
 
-        $html = PMA_getUserLink(
+        $html = Privileges::getUserLink(
             'revoke', $username, $hostname, $dbname, $tablename, ''
         );
 
@@ -1755,7 +1756,7 @@ class PMA_ServerPrivileges_Test extends PHPUnit_Framework_TestCase
             $html
         );
 
-        $html = PMA_getUserLink('export', $username, $hostname);
+        $html = Privileges::getUserLink('export', $username, $hostname);
 
         $url_html = Url::getCommon(
             array(
@@ -1776,7 +1777,7 @@ class PMA_ServerPrivileges_Test extends PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test for PMA_getExtraDataForAjaxBehavior
+     * Test for getExtraDataForAjaxBehavior
      *
      * @return void
      */
@@ -1793,8 +1794,8 @@ class PMA_ServerPrivileges_Test extends PHPUnit_Framework_TestCase
         $_REQUEST['username'] = "username";
         $_POST['update_privs'] = "update_privs";
 
-        //PMA_getExtraDataForAjaxBehavior
-        $extra_data = PMA_getExtraDataForAjaxBehavior(
+        //Privileges::getExtraDataForAjaxBehavior
+        $extra_data = Privileges::getExtraDataForAjaxBehavior(
             $password, $sql_query, $hostname, $username
         );
 
@@ -1824,7 +1825,7 @@ class PMA_ServerPrivileges_Test extends PHPUnit_Framework_TestCase
 
         //sql_query
         $this->assertEquals(
-            PhpMyAdmin\Util::getMessage(null, $sql_query),
+            Util::getMessage(null, $sql_query),
             $extra_data['sql_query']
         );
 
@@ -1840,13 +1841,13 @@ class PMA_ServerPrivileges_Test extends PHPUnit_Framework_TestCase
 
         //new_privileges
         $this->assertContains(
-            join(', ', PMA_extractPrivInfo(null, true)),
+            join(', ', Privileges::extractPrivInfo(null, true)),
             $extra_data['new_privileges']
         );
     }
 
     /**
-     * Test for PMA_getChangeLoginInformationHtmlForm
+     * Test for getChangeLoginInformationHtmlForm
      *
      * @return void
      */
@@ -1877,8 +1878,8 @@ class PMA_ServerPrivileges_Test extends PHPUnit_Framework_TestCase
 
         $GLOBALS['dbi'] = $dbi;
 
-        //PMA_getChangeLoginInformationHtmlForm
-        $html = PMA_getChangeLoginInformationHtmlForm($username, $hostname);
+        //Privileges::getChangeLoginInformationHtmlForm
+        $html = Privileges::getChangeLoginInformationHtmlForm($username, $hostname);
 
         //Url::getHiddenInputs
         $this->assertContains(
@@ -1896,9 +1897,9 @@ class PMA_ServerPrivileges_Test extends PHPUnit_Framework_TestCase
             $html
         );
 
-        //PMA_getHtmlForLoginInformationFields
+        //Privileges::getHtmlForLoginInformationFields
         $this->assertContains(
-            PMA_getHtmlForLoginInformationFields('change', $username, $hostname),
+            Privileges::getHtmlForLoginInformationFields('change', $username, $hostname),
             $html
         );
 
@@ -1918,7 +1919,7 @@ class PMA_ServerPrivileges_Test extends PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test for PMA_getUserGroupForUser
+     * Test for getUserGroupForUser
      *
      * @return void
      */
@@ -1942,7 +1943,7 @@ class PMA_ServerPrivileges_Test extends PHPUnit_Framework_TestCase
 
         $GLOBALS['dbi'] = $dbi;
 
-        $returned_userGroup = PMA_getUserGroupForUser($username);
+        $returned_userGroup = Privileges::getUserGroupForUser($username);
 
         $this->assertEquals(
             $expected_userGroup,
@@ -1953,7 +1954,7 @@ class PMA_ServerPrivileges_Test extends PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test for PMA_getLinkToDbAndTable
+     * Test for getLinkToDbAndTable
      *
      * @return void
      */
@@ -1963,7 +1964,7 @@ class PMA_ServerPrivileges_Test extends PHPUnit_Framework_TestCase
         $dbname = "dbname";
         $tablename = "tablename";
 
-        $html = PMA_getLinkToDbAndTable($url_dbname, $dbname, $tablename);
+        $html = Privileges::getLinkToDbAndTable($url_dbname, $dbname, $tablename);
 
         //$dbname
         $this->assertContains(
@@ -1971,7 +1972,7 @@ class PMA_ServerPrivileges_Test extends PHPUnit_Framework_TestCase
             $html
         );
         $this->assertContains(
-            PhpMyAdmin\Util::getScriptNameForOption(
+            Util::getScriptNameForOption(
                 $GLOBALS['cfg']['DefaultTabDatabase'], 'database'
             ),
             $html
@@ -1997,7 +1998,7 @@ class PMA_ServerPrivileges_Test extends PHPUnit_Framework_TestCase
             $html
         );
         $this->assertContains(
-            PhpMyAdmin\Util::getScriptNameForOption(
+            Util::getScriptNameForOption(
                 $GLOBALS['cfg']['DefaultTabTable'], 'table'
             ),
             $html
@@ -2017,7 +2018,7 @@ class PMA_ServerPrivileges_Test extends PHPUnit_Framework_TestCase
             htmlspecialchars($tablename),
             $html
         );
-        $item = PhpMyAdmin\Util::getTitleForTarget(
+        $item = Util::getTitleForTarget(
             $GLOBALS['cfg']['DefaultTabTable']
         );
         $this->assertContains(
@@ -2027,7 +2028,7 @@ class PMA_ServerPrivileges_Test extends PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test for PMA_getUsersOverview
+     * Test for getUsersOverview
      *
      * @return void
      */
@@ -2039,7 +2040,7 @@ class PMA_ServerPrivileges_Test extends PHPUnit_Framework_TestCase
         $text_dir = "text_dir";
         $GLOBALS['cfgRelation']['menuswork'] = true;
 
-        $html = PMA_getUsersOverview(
+        $html = Privileges::getUsersOverview(
             $result, $db_rights, $pmaThemeImage, $text_dir
         );
 
@@ -2067,9 +2068,9 @@ class PMA_ServerPrivileges_Test extends PHPUnit_Framework_TestCase
             $html
         );
 
-        //PhpMyAdmin\Util::showHint
+        //Util::showHint
         $this->assertContains(
-            PhpMyAdmin\Util::showHint(
+            Util::showHint(
                 __('Note: MySQL privilege names are expressed in English.')
             ),
             $html
@@ -2101,15 +2102,15 @@ class PMA_ServerPrivileges_Test extends PHPUnit_Framework_TestCase
             $html
         );
 
-        //PMA_getFieldsetForAddDeleteUser
+        //Privileges::getFieldsetForAddDeleteUser
         $this->assertContains(
-            PMA_getFieldsetForAddDeleteUser(),
+            Privileges::getFieldsetForAddDeleteUser(),
             $html
         );
     }
 
     /**
-     * Test for PMA_getFieldsetForAddDeleteUser
+     * Test for getFieldsetForAddDeleteUser
      *
      * @return void
      */
@@ -2121,7 +2122,7 @@ class PMA_ServerPrivileges_Test extends PHPUnit_Framework_TestCase
         $text_dir = "text_dir";
         $GLOBALS['cfgRelation']['menuswork'] = true;
 
-        $html = PMA_getUsersOverview(
+        $html = Privileges::getUsersOverview(
             $result, $db_rights, $pmaThemeImage, $text_dir
         );
 
@@ -2151,7 +2152,7 @@ class PMA_ServerPrivileges_Test extends PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test for PMA_getDataForDeleteUsers
+     * Test for getDataForDeleteUsers
      *
      * @return void
      */
@@ -2176,7 +2177,7 @@ class PMA_ServerPrivileges_Test extends PHPUnit_Framework_TestCase
 
         $queries = array();
 
-        $ret = PMA_getDataForDeleteUsers($queries);
+        $ret = Privileges::getDataForDeleteUsers($queries);
 
         $item = array(
             "# Deleting 'old_username'@'old_hostname' ...",
@@ -2189,20 +2190,20 @@ class PMA_ServerPrivileges_Test extends PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test for PMA_getAddUserHtmlFieldset
+     * Test for getAddUserHtmlFieldset
      *
      * @return void
      */
     public function testPMAGetAddUserHtmlFieldset()
     {
-        $html = PMA_getAddUserHtmlFieldset();
+        $html = Privileges::getAddUserHtmlFieldset();
 
         $this->assertContains(
             Url::getCommon(array('adduser' => 1)),
             $html
         );
         $this->assertContains(
-            PhpMyAdmin\Util::getIcon('b_usradd.png'),
+            Util::getIcon('b_usradd.png'),
             $html
         );
         $this->assertContains(
@@ -2212,7 +2213,7 @@ class PMA_ServerPrivileges_Test extends PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test for PMA_getHtmlHeaderForUserProperties
+     * Test for getHtmlHeaderForUserProperties
      *
      * @return void
      */
@@ -2226,7 +2227,7 @@ class PMA_ServerPrivileges_Test extends PHPUnit_Framework_TestCase
         $tablename = "tablename";
         $_REQUEST['tablename'] = "tablename";
 
-        $html = PMA_getHtmlHeaderForUserProperties(
+        $html = Privileges::getHtmlHeaderForUserProperties(
             $dbname_is_wildcard, $url_dbname, $dbname,
             $username, $hostname, $tablename, 'table'
         );
@@ -2297,7 +2298,7 @@ class PMA_ServerPrivileges_Test extends PHPUnit_Framework_TestCase
     }
 
     /**
-     * Tests for PMA_getHtmlForViewUsersError
+     * Tests for Privileges::getHtmlForViewUsersError
      *
      * @return void
      */
@@ -2305,18 +2306,18 @@ class PMA_ServerPrivileges_Test extends PHPUnit_Framework_TestCase
     {
         $this->assertContains(
             'Not enough privilege to view users.',
-            PMA_getHtmlForViewUsersError()
+            Privileges::getHtmlForViewUsersError()
         );
     }
 
     /**
-     * Tests for PMA_getHtmlForUserProperties
+     * Tests for Privileges::getHtmlForUserProperties
      *
      * @return void
      */
     function testPMAGetHtmlForUserProperties()
     {
-        $actual = PMA_getHtmlForUserProperties(
+        $actual = Privileges::getHtmlForUserProperties(
             false, 'db', 'user', 'host', 'db', 'table'
         );
         $this->assertContains('addUsersForm', $actual);
@@ -2333,13 +2334,13 @@ class PMA_ServerPrivileges_Test extends PHPUnit_Framework_TestCase
     }
 
     /**
-     * Tests for PMA_getHtmlForUserOverview
+     * Tests for Privileges::getHtmlForUserOverview
      *
      * @return void
      */
     function testPMAGetHtmlForUserOverview()
     {
-        $actual = PMA_getHtmlForUserOverview('theme', '');
+        $actual = Privileges::getHtmlForUserOverview('theme', '');
         $this->assertContains(
             'Note: MySQL privilege names are expressed in English.', $actual
         );
@@ -2351,14 +2352,14 @@ class PMA_ServerPrivileges_Test extends PHPUnit_Framework_TestCase
     }
 
     /**
-     * Tests for PMA_getHtmlForAllTableSpecificRights
+     * Tests for Privileges::getHtmlForAllTableSpecificRights
      *
      * @return void
      */
     function testPMAGetHtmlForAllTableSpecificRights()
     {
         // Test case 1
-        $actual = PMA_getHtmlForAllTableSpecificRights('pma', 'host', 'table', 'pmadb');
+        $actual = Privileges::getHtmlForAllTableSpecificRights('pma', 'host', 'table', 'pmadb');
         $this->assertContains(
             '<input type="hidden" name="username" value="pma" />',
             $actual
@@ -2377,9 +2378,9 @@ class PMA_ServerPrivileges_Test extends PHPUnit_Framework_TestCase
         );
 
         // Test case 2
-        $GLOBALS['dblist'] = new stdClass();
+        $GLOBALS['dblist'] = new \stdClass();
         $GLOBALS['dblist']->databases = array('x', 'y', 'z');
-        $actual = PMA_getHtmlForAllTableSpecificRights('pma2', 'host2', 'database', '');
+        $actual = Privileges::getHtmlForAllTableSpecificRights('pma2', 'host2', 'database', '');
         $this->assertContains(
             '<legend data-submenu-label="Database">',
             $actual
@@ -2391,7 +2392,7 @@ class PMA_ServerPrivileges_Test extends PHPUnit_Framework_TestCase
     }
 
     /**
-     * Tests for PMA_getHtmlForInitials
+     * Tests for Privileges::getHtmlForInitials
      *
      * @return void
      */
@@ -2400,7 +2401,7 @@ class PMA_ServerPrivileges_Test extends PHPUnit_Framework_TestCase
         // Setup for the test
         $GLOBALS['dbi']->expects($this->any())->method('fetchRow')
             ->will($this->onConsecutiveCalls(array('-')));
-        $actual = PMA_getHtmlForInitials(array('"' => true));
+        $actual = Privileges::getHtmlForInitials(array('"' => true));
         $this->assertContains('<td>A</td>', $actual);
         $this->assertContains('<td>Z</td>', $actual);
         $this->assertContains(
@@ -2419,7 +2420,7 @@ class PMA_ServerPrivileges_Test extends PHPUnit_Framework_TestCase
     }
 
     /**
-     * Tests for PMA_getDbRightsForUserOverview
+     * Tests for Privileges::getDbRightsForUserOverview
      *
      * @return void
      */
@@ -2460,12 +2461,12 @@ class PMA_ServerPrivileges_Test extends PHPUnit_Framework_TestCase
                 )
             )
         );
-        $actual = PMA_getDbRightsForUserOverview();
+        $actual = Privileges::getDbRightsForUserOverview();
         $this->assertEquals($expected, $actual);
     }
 
     /**
-     * Test for PMA_getHtmlForAuthPluginsDropdown()
+     * Test for getHtmlForAuthPluginsDropdown()
      *
      * @return void
      */
@@ -2502,7 +2503,7 @@ class PMA_ServerPrivileges_Test extends PHPUnit_Framework_TestCase
         $GLOBALS['dbi'] = $dbi;
 
         /* Assertion 1 */
-        $actualHtml = PMA_getHtmlForAuthPluginsDropdown(
+        $actualHtml = Privileges::getHtmlForAuthPluginsDropdown(
             'mysql_native_password',
             'new',
             'new'
@@ -2520,7 +2521,7 @@ class PMA_ServerPrivileges_Test extends PHPUnit_Framework_TestCase
         );
 
         /* Assertion 2 */
-        $actualHtml = PMA_getHtmlForAuthPluginsDropdown(
+        $actualHtml = Privileges::getHtmlForAuthPluginsDropdown(
             'mysql_native_password',
             'change_pw',
             'new'
@@ -2538,7 +2539,7 @@ class PMA_ServerPrivileges_Test extends PHPUnit_Framework_TestCase
         );
 
         /* Assertion 3 */
-        $actualHtml = PMA_getHtmlForAuthPluginsDropdown(
+        $actualHtml = Privileges::getHtmlForAuthPluginsDropdown(
             'mysql_native_password',
             'new',
             'old'
@@ -2554,7 +2555,7 @@ class PMA_ServerPrivileges_Test extends PHPUnit_Framework_TestCase
         );
 
         /* Assertion 4 */
-        $actualHtml = PMA_getHtmlForAuthPluginsDropdown(
+        $actualHtml = Privileges::getHtmlForAuthPluginsDropdown(
             'mysql_native_password',
             'change_pw',
             'old'
@@ -2575,7 +2576,7 @@ class PMA_ServerPrivileges_Test extends PHPUnit_Framework_TestCase
     }
 
     /**
-     * Tests for PMA_deleteUser
+     * Tests for deleteUser
      *
      * @return void
      */
@@ -2599,7 +2600,7 @@ class PMA_ServerPrivileges_Test extends PHPUnit_Framework_TestCase
 
         // Test case 1 : empty queries
         $queries = array();
-        $actual = PMA_deleteUser($queries);
+        $actual = Privileges::deleteUser($queries);
         $this->assertArrayHasKey(0, $actual);
         $this->assertArrayHasKey(1, $actual);
         $this->assertEquals('', $actual[0]);
@@ -2610,7 +2611,7 @@ class PMA_ServerPrivileges_Test extends PHPUnit_Framework_TestCase
         // Test case 2 : all successful queries
         $_REQUEST['mode'] = 3;
         $queries = array('foo');
-        $actual = PMA_deleteUser($queries);
+        $actual = Privileges::deleteUser($queries);
         $this->assertArrayHasKey(0, $actual);
         $this->assertArrayHasKey(1, $actual);
         $this->assertEquals(
@@ -2625,7 +2626,7 @@ class PMA_ServerPrivileges_Test extends PHPUnit_Framework_TestCase
         // Test case 3 : failing queries
         $_REQUEST['mode'] = 1;
         $queries = array('bar');
-        $actual = PMA_deleteUser($queries);
+        $actual = Privileges::deleteUser($queries);
         $this->assertArrayHasKey(0, $actual);
         $this->assertArrayHasKey(1, $actual);
         $this->assertEquals("bar", $actual[0]);

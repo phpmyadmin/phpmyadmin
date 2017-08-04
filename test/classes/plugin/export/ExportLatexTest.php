@@ -39,6 +39,7 @@ class ExportLatexTest extends PMATestCase
         $GLOBALS['plugin_param']['export_type'] = 'table';
         $GLOBALS['plugin_param']['single_table'] = false;
         $GLOBALS['cfgRelation']['relation'] = true;
+        $GLOBALS['db'] = 'db';
         $this->object = new ExportLatex();
     }
 
