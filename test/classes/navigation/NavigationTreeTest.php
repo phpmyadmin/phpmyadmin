@@ -52,6 +52,8 @@ class NavigationTreeTest extends PMATestCase
         $GLOBALS['cfg']['ShowDatabasesNavigationAsTree']  = true;
 
         $GLOBALS['pmaThemeImage'] = 'image';
+        $GLOBALS['db'] = 'db';
+
         $this->object = new PhpMyAdmin\Navigation\NavigationTree();
     }
 

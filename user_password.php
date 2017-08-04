@@ -10,16 +10,12 @@
 use PhpMyAdmin\Core;
 use PhpMyAdmin\Url;
 use PhpMyAdmin\Response;
+use PhpMyAdmin\Server\Privileges;
 
 /**
  * Gets some core libraries
  */
 require_once './libraries/common.inc.php';
-
-/**
- * Libraries needed for some functions
- */
-require_once './libraries/server_privileges.lib.php';
 
 $response = Response::getInstance();
 $header   = $response->getHeader();
@@ -158,7 +154,7 @@ function PMA_changePassword($password, $message, $change_password_message)
     ) {
         $orig_auth_plugin = $_REQUEST['authentication_plugin'];
     } else {
-        $orig_auth_plugin = PMA_getCurrentAuthenticationPlugin(
+        $orig_auth_plugin = Privileges::getCurrentAuthenticationPlugin(
             'change', $username, $hostname
         );
     }
@@ -257,7 +253,7 @@ function PMA_changePassUrlParamsAndSubmitQuery(
             $GLOBALS['dbi']->tryQuery('SET `old_passwords` = 2;');
         }
 
-        $hashedPassword = PMA_getHashedPassword($_POST['pma_pw']);
+        $hashedPassword = Privileges::getHashedPassword($_POST['pma_pw']);
 
         $local_query = "UPDATE `mysql`.`user` SET"
             . " `authentication_string` = '" . $hashedPassword

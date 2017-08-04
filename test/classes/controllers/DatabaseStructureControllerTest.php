@@ -48,8 +48,8 @@ class DatabaseStructureControllerTest extends PMATestCase
         //$GLOBALS
         $GLOBALS['server'] = 1;
         $GLOBALS['cfg']['Server']['DisableIS'] = false;
-
         $GLOBALS['table'] = "table";
+        $GLOBALS['db'] = 'db';
 
         //$_SESSION
 
