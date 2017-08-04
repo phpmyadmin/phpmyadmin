@@ -3591,7 +3591,7 @@ body .ui-dialog .ui-dialog-buttonpane .ui-dialog-buttonset {
     #table_columns .tablesorter {
         min-width: 100%;
     }
-    
+
     .doubleFieldset fieldset {
         width: 98%;
     }
