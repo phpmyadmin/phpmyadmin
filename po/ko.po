@@ -4,16 +4,16 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.7.3-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2017-07-18 13:29+0200\n"
-"PO-Revision-Date: 2017-06-23 14:43+0000\n"
-"Last-Translator: Myung-han Yu <greatymh@gmail.com>\n"
-"Language-Team: Korean <https://hosted.weblate.org/projects/phpmyadmin/4-7/ko/"
-">\n"
+"PO-Revision-Date: 2017-08-04 05:34+0000\n"
+"Last-Translator: Yong Kim (Neatnet) <neatnet@gmail.com>\n"
+"Language-Team: Korean "
+"<https://hosted.weblate.org/projects/phpmyadmin/4-7/ko/>\n"
 "Language: ko\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Weblate 2.15-dev\n"
+"X-Generator: Weblate 2.16-dev\n"
 
 #: ajax.php:16 ajax.php:33 export.php:192 schema_export.php:64
 msgid "Bad type!"
@@ -3126,7 +3126,7 @@ msgstr "불가리아어"
 #: libraries/Charsets.php:374
 msgctxt "Collation"
 msgid "Chinese"
-msgstr ""
+msgstr "중국어"
 
 #: libraries/Charsets.php:379
 #, fuzzy
@@ -3180,7 +3180,7 @@ msgstr "데이터 사전 (전체 구조보기)"
 #: libraries/Charsets.php:405 libraries/Charsets.php:516
 msgctxt "Collation"
 msgid "German (phone book order)"
-msgstr ""
+msgstr "독일어 (전화번호부 정렬)"
 
 #: libraries/Charsets.php:414
 #, fuzzy
@@ -3199,7 +3199,7 @@ msgstr "아이슬란드어"
 #: libraries/Charsets.php:425
 msgctxt "Collation"
 msgid "Classical Latin"
-msgstr ""
+msgstr "고전 라틴어"
 
 #: libraries/Charsets.php:429
 #, fuzzy
@@ -3272,9 +3272,10 @@ msgid "Spanish (modern)"
 msgstr "스페인어"
 
 #: libraries/Charsets.php:477 libraries/Charsets.php:527
+#, fuzzy
 msgctxt "Collation"
 msgid "Spanish (traditional)"
-msgstr ""
+msgstr "스페인어 (Traditional)"
 
 #: libraries/Charsets.php:496
 #, fuzzy
@@ -4027,7 +4028,7 @@ msgstr "언어"
 #: libraries/Linter.php:99
 msgid ""
 "Linting is disabled for this query because it exceeds the maximum length."
-msgstr "쿼리 문자열의 길이가 최대치를 초과하여서 Linting을 사용할 수 없습니다."
+msgstr "이 질의는 최대 길이를 초과하였기 때문에 Linting을 사용할 수 없습니다."
 
 #: libraries/Linter.php:165
 #, php-format
@@ -4902,12 +4903,12 @@ msgstr "%y-%m-%d %H:%M"
 #: libraries/Util.php:1587
 msgctxt "AM/PM indication in time"
 msgid "PM"
-msgstr ""
+msgstr "오후"
 
 #: libraries/Util.php:1589
 msgctxt "AM/PM indication in time"
 msgid "AM"
-msgstr ""
+msgstr "오전"
 
 #: libraries/Util.php:1961
 #, php-format
@@ -4994,15 +4995,16 @@ msgid "Use this value"
 msgstr "이 값을 사용합니다"
 
 #: libraries/central_columns.lib.php:154
+#, fuzzy
 msgid ""
 "The configuration storage is not ready for the central list of columns "
 "feature."
-msgstr ""
+msgstr "열의 중앙 목록 기능을 위한 설정 저장공간이 준비되지 않았습니다."
 
 #: libraries/central_columns.lib.php:282
 #, php-format
 msgid "Could not add %1$s as they already exist in central list!"
-msgstr ""
+msgstr "%1$s 항목은 중앙 목록에 이미 존재하기 때문에 추가할 수 없습니다!"
 
 #: libraries/central_columns.lib.php:297
 msgid "Could not add columns!"
@@ -5012,7 +5014,7 @@ msgstr "컬럼을 추가할 수 없음!"
 #, php-format
 msgid ""
 "Couldn't remove Column(s) %1$s as they don't exist in central columns list!"
-msgstr ""
+msgstr "%1$s 항목은 중앙 목록에 없기 때문에 삭제할 수 없습니다!"
 
 #: libraries/central_columns.lib.php:384
 msgid "Could not remove columns!"
@@ -5122,6 +5124,9 @@ msgid ""
 "setting for [em]$cfg['Servers'][%3$d]['SessionTimeZone'][/em]. phpMyAdmin is "
 "currently using the default time zone of the database server."
 msgstr ""
+"%2$d 서버에 대해 %1$s 시간대를 사용할 수 없습니다. "
+"[em]$cfg['Servers'][%3$d]['SessionTimeZone'][/em] 설정을 확인해 주십시오. phpMyAdmin 은 "
+"현재 데이터베이스 서버의 기본 시간대 설정을 사용하고 있습니다."
 
 #: libraries/common.inc.php:796
 #, php-format
@@ -5724,7 +5729,7 @@ msgstr "DROP 쿼리 확인"
 #: libraries/config/messages.inc.php:97
 msgid ""
 "Log SQL queries and their execution time, to be displayed in the console"
-msgstr ""
+msgstr "콘솔에서 표시되도록 SQL 질의와 실행시간을 로그로 남기기"
 
 #: libraries/config/messages.inc.php:99 templates/console/display.phtml:15
 #: templates/console/display.phtml:84
