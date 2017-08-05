@@ -3588,6 +3588,10 @@ body .ui-dialog .ui-dialog-buttonpane .ui-dialog-buttonset {
         margin-top: 60px;
     }
 
+    #table_columns .tablesorter {
+        min-width: 100%;
+    }
+
     .doubleFieldset fieldset {
         width: 98%;
     }

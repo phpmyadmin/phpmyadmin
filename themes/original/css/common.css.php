@@ -3327,6 +3327,10 @@ body .ui-dialog .ui-button-text-only .ui-button-text {
         margin-top: 60px;
     }
 
+    #table_columns .tablesorter {
+        min-width: 100%;
+    }
+
     .doubleFieldset fieldset {
         width: 98%;
     }
