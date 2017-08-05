@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.8.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2017-07-18 13:31+0200\n"
-"PO-Revision-Date: 2017-07-26 13:11+0000\n"
-"Last-Translator: Jørgen Thomsen <opensource@jth.net>\n"
+"PO-Revision-Date: 2017-08-05 10:41+0000\n"
+"Last-Translator: Kristoffer <stof2001@gmail.com>\n"
 "Language-Team: Danish "
 "<https://hosted.weblate.org/projects/phpmyadmin/master/da/>\n"
 "Language: da\n"
@@ -1538,22 +1538,16 @@ msgid "Chart"
 msgstr "Diagram"
 
 #: js/messages.php:295 libraries/display_export.lib.php:905
-#, fuzzy
-#| msgid "Database"
 msgctxt "Alias"
 msgid "Database"
 msgstr "Database"
 
 #: js/messages.php:296 libraries/display_export.lib.php:917
-#, fuzzy
-#| msgid "Table"
 msgctxt "Alias"
 msgid "Table"
 msgstr "Tabel"
 
 #: js/messages.php:297 libraries/display_export.lib.php:928
-#, fuzzy
-#| msgid "Column"
 msgctxt "Alias"
 msgid "Column"
 msgstr "Kolonne"
@@ -3433,7 +3427,7 @@ msgstr "Islandsk"
 #: libraries/classes/Charsets.php:446
 msgctxt "Collation"
 msgid "Classical Latin"
-msgstr ""
+msgstr "Klassisk latin"
 
 #: libraries/classes/Charsets.php:450
 #, fuzzy
@@ -3506,7 +3500,7 @@ msgstr "Spansk"
 #: libraries/classes/Charsets.php:498 libraries/classes/Charsets.php:548
 msgctxt "Collation"
 msgid "Spanish (traditional)"
-msgstr ""
+msgstr "Spansk (traditionel)"
 
 #: libraries/classes/Charsets.php:517
 #, fuzzy
@@ -4415,8 +4409,9 @@ msgid "Inside column:"
 msgstr "Indeni kolonne:"
 
 #: libraries/classes/Dbi/DbiMysqli.php:158
+#, fuzzy
 msgid "SSL connection enforced by server, automatically enabling it."
-msgstr ""
+msgstr "En SSL forbindelse er påkrævet af serveren, aktiverer det automatisk."
 
 #: libraries/classes/DisplayResults.php:910
 msgid "Save edited data"
@@ -6129,12 +6124,12 @@ msgstr "%d. %m %Y kl. %H:%M:%S"
 #: libraries/classes/Util.php:1586
 msgctxt "AM/PM indication in time"
 msgid "PM"
-msgstr ""
+msgstr "PM"
 
 #: libraries/classes/Util.php:1588
 msgctxt "AM/PM indication in time"
 msgid "AM"
-msgstr ""
+msgstr "AM"
 
 #: libraries/classes/Util.php:1955
 #, php-format
@@ -8888,8 +8883,9 @@ msgid "Password:"
 msgstr "Adgangskode:"
 
 #: libraries/display_change_password.lib.php:68
+#, fuzzy
 msgid "Enter:"
-msgstr ""
+msgstr "Skriv:"
 
 #: libraries/display_change_password.lib.php:75
 #: libraries/replication_gui.lib.php:867
@@ -14345,8 +14341,9 @@ msgid "phpMyAdmin configuration snippet"
 msgstr "Manglende phpMyAdmin configuration storage tabeller"
 
 #: prefs_manage.php:54
+#, fuzzy
 msgid "Paste it to your config.inc.php"
-msgstr ""
+msgstr "Indsæt det i din config.inc.php fil"
 
 #: prefs_manage.php:94
 msgid "Could not import configuration"
