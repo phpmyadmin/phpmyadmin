@@ -129,7 +129,7 @@ $response->addHTML($deleteRowForm);
 $table_struct = '<div id="tableslistcontainer">'
         . '<form name="tableslistcontainer">'
         . '<table id="table_columns" class="tablesorter" '
-        . 'style="min-width:100%" class="data">';
+        . 'class="data">';
 $response->addHTML($table_struct);
 $tableheader = PMA_getCentralColumnsTableHeader(
     'column_heading', __('Click to sort.'), 2
