@@ -405,10 +405,9 @@ class Advisor
 
             // Replaces {server_variable} with 'server_variable'
             // linking to server_variables.php
-            $rule['recommendation'] = preg_replace(
+            $rule['recommendation'] = preg_replace_callback(
                 '/\{([a-z_0-9]+)\}/Ui',
-                '<a href="server_variables.php' . Url::getCommon()
-                . '&filter=\1">\1</a>',
+                array($this, 'replaceVariable'),
                 $this->translate($rule['recommendation'])
             );
 
@@ -434,6 +433,19 @@ class Advisor
     private function replaceLinkURL($matches)
     {
         return 'href="' . Core::linkURL($matches[2]) . '" target="_blank" rel="noopener noreferrer"';
+    }
+
+    /**
+     * Callback for wrapping variable edit links
+     *
+     * @param array $matches List of matched elements form preg_replace_callback
+     *
+     * @return string Replacement value
+     */
+    private function replaceVariable($matches)
+    {
+        return '<a href="server_variables.php' . Url::getCommon(array('filter' => $matches[1]))
+                . '">' . htmlspecialchars($matches[1]). '</a>';
     }
 
     /**

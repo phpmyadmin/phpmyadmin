@@ -178,7 +178,7 @@ class AdvisorTest extends PMATestCase
                     'name' => 'Variable',
                     'issue' => 'issue',
                     'recommendation' => 'Recommend <a href="server_variables.php?' .
-                    'lang=en&filter=status_var">status_var</a>'
+                    'filter=status_var&amp;lang=en">status_var</a>'
                 ),
                 null,
             ),

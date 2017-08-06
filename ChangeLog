@@ -39,6 +39,7 @@ phpMyAdmin - ChangeLog
 - issue #13414 Fixed several compatibility issues with PHP 7.2
 - issue #13550 Fixed copy results to clipboard
 - issue #13562 Add limitation for user group length
+- issue #13561 Fixed edit variable link in advisor
 
 4.7.3 (2017-07-20)
 - issue #13447 Large multi-line query removes Export operation and blanks query box options
