@@ -182,7 +182,7 @@ Credits, in chronological order
 
   * :term:`PDF` schema output, thanks also to
     Olivier Plathey for the "FPDF" library (see <http://www.fpdf.org/>), Steven
-    Wittens for the "UFPDF" library (see <https://acko.net/blog/ufpdf-unicode-utf-8-extension-for-fpdf/>) and
+    Wittens for the "UFPDF" library and
     Nicola Asuni for the "TCPDF" library (see <https://tcpdf.org/>).
 
 * Olof Edlund <olof.edlund\_at\_upright.se>
