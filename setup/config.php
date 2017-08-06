@@ -41,6 +41,7 @@ if (Core::ifSetOr($_POST['submit_clear'], '')) {
     // Output generated config file
     //
     Core::downloadHeader('config.inc.php', 'text/plain');
+    $response->disable();
     echo ConfigGenerator::getConfigFile($GLOBALS['ConfigFile']);
     exit;
 } else {
