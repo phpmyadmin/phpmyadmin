@@ -363,6 +363,7 @@ $js_messages['strErrorProcessingRequest'] = __('Error in processing request');
 $js_messages['strErrorCode'] = __('Error code: %s');
 $js_messages['strErrorText'] = __('Error text: %s');
 $js_messages['strNoDatabasesSelected'] = __('No databases selected.');
+$js_messages['strNoAccountSelected'] = __('No accounts selected.');
 $js_messages['strDroppingColumn'] = __('Dropping column');
 $js_messages['strAddingPrimaryKey'] = __('Adding primary key');
 $js_messages['strOK'] = __('OK');
