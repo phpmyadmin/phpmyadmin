@@ -96,11 +96,6 @@ From Wikipedia, the free encyclopedia
 
       .. seealso:: <https://en.wikipedia.org/wiki/Foreign_key>
 
-    FPDF
-      the free :term:`PDF` library	
-
-      .. seealso:: <http://www.fpdf.org/>
-
     GD
       Graphics Library by Thomas Boutell and others for dynamically manipulating images.	
 
@@ -387,7 +382,7 @@ From Wikipedia, the free encyclopedia
       .. seealso:: <https://en.wikipedia.org/wiki/TCP>
 
     TCPDF
-      Rewrite of :term:`UFPDF` with various improvements.
+      PHP library to generate PDF files.
 
       .. seealso:: <https://tcpdf.org/>
 
@@ -401,11 +396,6 @@ From Wikipedia, the free encyclopedia
       unique value for each row.  The first unique key will be treated as
       :term:`primary key` if there is no *primary key* defined.
       
-    UFPDF
-      Unicode/UTF-8 extension for :term:`FPDF`
-
-      .. seealso:: <https://acko.net/blog/ufpdf-unicode-utf-8-extension-for-fpdf/>
-
     URL
       Uniform Resource Locator is a sequence of characters, conforming to a
       standardized format, that is used for referring to resources, such as
