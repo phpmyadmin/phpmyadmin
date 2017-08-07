@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.8.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2017-07-18 13:31+0200\n"
-"PO-Revision-Date: 2017-08-07 11:18+0000\n"
+"PO-Revision-Date: 2017-08-07 11:20+0000\n"
 "Last-Translator: Filip Obretenov <filip.obretenovbg@gmail.com>\n"
 "Language-Team: Bulgarian "
 "<https://hosted.weblate.org/projects/phpmyadmin/master/bg/>\n"
@@ -1974,7 +1974,7 @@ msgstr "Към следващата стъпка…"
 #: js/messages.php:441
 #, php-format
 msgid "The first step of normalization is complete for table '%s'."
-msgstr "Първата стъпка от нормализирането е завършено за таблиза '%s'."
+msgstr "Първата стъпка от нормализирането е завършено за таблица '%s'."
 
 #: js/messages.php:442 libraries/normalization.lib.php:451
 #: libraries/normalization.lib.php:498 libraries/normalization.lib.php:583
