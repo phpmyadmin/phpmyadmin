@@ -202,7 +202,7 @@ class PMA_SeleniumExportTest extends PMA_SeleniumBase
 
         if ($plugin == "SQL") {
             if ($type !== 'db') {
-                $this->scrollIntoView('sql_structure', -200);
+                $this->scrollIntoView('sql_structure', -250);
                 $this->waitForElement(
                     'byCssSelector',
                     "label[for=radio_sql_structure_or_data_structure_and_data]"
