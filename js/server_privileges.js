@@ -292,6 +292,7 @@ AJAX.registerOnload('server_privileges.js', function () {
         event.preventDefault();
         // can't export if no users checked
         if ($(this.form).find("input:checked").length === 0) {
+            PMA_ajaxShowMessage(PMA_messages.strNoAccountSelected, 2000, 'success');
             return;
         }
         var $msgbox = PMA_ajaxShowMessage();
