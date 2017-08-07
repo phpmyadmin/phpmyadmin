@@ -4,10 +4,10 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.7.3-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2017-07-18 13:29+0200\n"
-"PO-Revision-Date: 2017-07-17 20:00+0000\n"
-"Last-Translator: NMilchev <nmilchev@gmail.com>\n"
-"Language-Team: Bulgarian <https://hosted.weblate.org/projects/phpmyadmin/4-7/"
-"bg/>\n"
+"PO-Revision-Date: 2017-08-07 11:20+0000\n"
+"Last-Translator: Filip Obretenov <filip.obretenovbg@gmail.com>\n"
+"Language-Team: Bulgarian "
+"<https://hosted.weblate.org/projects/phpmyadmin/4-7/bg/>\n"
 "Language: bg\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -20,16 +20,12 @@ msgid "Bad type!"
 msgstr "Типът е неправилен!"
 
 #: changelog.php:39 license.php:34
-#, fuzzy, php-format
-#| msgid ""
-#| "The %s file is not available on this system, please visit www.phpmyadmin."
-#| "net for more information."
+#, php-format
 msgid ""
 "The %s file is not available on this system, please visit %s for more "
 "information."
 msgstr ""
-"Файлът %s не е наличен за тази система, Моля посетете www.phpmyadmin.net за "
-"повече информация."
+"Файлът %s не е наличен в тази система, моля посетете %s за повече информация."
 
 #: db_central_columns.php:108
 msgid "The central list of columns for the current database is empty."
@@ -610,6 +606,8 @@ msgid ""
 "You were logged out from one server, to logout completely from phpMyAdmin, "
 "you need to logout from all servers."
 msgstr ""
+"Вие сте излезли от един сървър, за да излезете напълно от phpMyAdmin, вие "
+"трябва да излезете от всички сървъри."
 
 #: index.php:160 libraries/Footer.php:69
 msgid "phpMyAdmin Demo Server"
@@ -925,7 +923,6 @@ msgid "Do you really want to RESET SLAVE?"
 msgstr "Наистина ли искате да ПРЕУСТАНОВИТЕ ПОДЧИНЕНИЯ СЪРВЪР?"
 
 #: js/messages.php:88
-#, fuzzy
 msgid ""
 "This operation will attempt to convert your data to the new collation. In "
 "rare cases, especially where a character doesn't exist in the new collation, "
@@ -933,10 +930,10 @@ msgid ""
 "collation; in this case we suggest you revert to the original collation and "
 "refer to the tips at "
 msgstr ""
-"Операцията ще опита да превърне Вашите данни в нова сверка. В редки случаи, "
+"Операцията ще опита да превърне вашите данни в нова сверка. В редки случаи, "
 "особено когато даден знак не съществува, процесът може да доведе до "
-"неправилно изобразяване на данните в новата сверка; в този случай, "
-"препоръчваме да се върнете към първоначалната сверка и да се обърнете към "
+"неправилно изобразяване на данните в новата сверка; в този случай ние \n"
+"предлагаме да се върнете към първоначалната сверка и да се обърнете към "
 "съветите на "
 
 #: js/messages.php:94
@@ -944,7 +941,6 @@ msgid "Garbled Data"
 msgstr "Размесени данни"
 
 #: js/messages.php:96
-#, fuzzy
 msgid "Are you sure you wish to change the collation and convert the data?"
 msgstr ""
 "Сигурни ли сте, че искате да смените сверката и да преобразувате данните?"
@@ -1527,11 +1523,9 @@ msgid "Chart"
 msgstr "Диаграма"
 
 #: js/messages.php:298 libraries/display_export.lib.php:903
-#, fuzzy
-#| msgid "Database"
 msgctxt "Alias"
 msgid "Database"
-msgstr "DB"
+msgstr "База Данни"
 
 #: js/messages.php:299 libraries/display_export.lib.php:915
 #, fuzzy
@@ -1823,7 +1817,7 @@ msgstr "Експорт"
 
 #: js/messages.php:399
 msgid "No routine is exportable. Required privileges may be lacking."
-msgstr ""
+msgstr "Никаква рутина е изнесена. Нужните привилегии може би липсват."
 
 #: js/messages.php:402 libraries/rte/rte_routines.lib.php:747
 msgid "ENUM/SET editor"
@@ -1963,7 +1957,7 @@ msgstr "Към следващата стъпка…"
 #: js/messages.php:444
 #, php-format
 msgid "The first step of normalization is complete for table '%s'."
-msgstr "Първата стъпка от нормализирането е завършено за таблиза '%s'."
+msgstr "Първата стъпка от нормализирането е завършено за таблица '%s'."
 
 #: js/messages.php:445 libraries/normalization.lib.php:450
 #: libraries/normalization.lib.php:497 libraries/normalization.lib.php:582
@@ -2184,28 +2178,32 @@ msgid ""
 "MySQL accepts additional values not selectable by the slider; key in those "
 "values directly if desired"
 msgstr ""
+"MySQL потвърждава допълнителните стойности не избрани от плъзгачът; посочете "
+"тези стойности директно ако желаете"
 
 #: js/messages.php:538
 msgid ""
 "MySQL accepts additional values not selectable by the datepicker; key in "
 "those values directly if desired"
 msgstr ""
+"MySQL потвърждава допълнителните стойности не избрани от дата-избирачът; "
+"посочете тези стойности директно ако желаете"
 
 #: js/messages.php:544
 msgid ""
 "Indicates that you have made changes to this page; you will be prompted for "
 "confirmation before abandoning changes"
 msgstr ""
-"Изглежда сте направили промени на страницата; ще бъдете уведомени преди да "
-"изоставите промените"
+"Посочва сте направили промени на страницата; ще бъдете подтикнати за "
+"потвърждение преди да изоставите промените"
 
 #: js/messages.php:549
 msgid "Select referenced key"
-msgstr "Изберете посочвания ключ"
+msgstr "Изберете съотнесен ключ"
 
 #: js/messages.php:550
 msgid "Select Foreign Key"
-msgstr "Избор външен ключ"
+msgstr "Избор чужд ключ"
 
 #: js/messages.php:552
 msgid "Please select the primary key or a unique key!"
@@ -2558,7 +2556,7 @@ msgstr "%s изпълнени заявки %s пъти %s секунди."
 #: js/messages.php:724
 #, php-format
 msgid "%s argument(s) passed"
-msgstr ""
+msgstr "%s аргумент(и) преминали"
 
 #: js/messages.php:725
 msgid "Show arguments"
@@ -2606,23 +2604,23 @@ msgstr "Копиране на таблицата с представка"
 
 #: js/messages.php:736
 msgid "Extremely weak"
-msgstr ""
+msgstr "Прекалено слаба"
 
 #: js/messages.php:737
 msgid "Very weak"
-msgstr ""
+msgstr "Много слаба"
 
 #: js/messages.php:738
 msgid "Weak"
-msgstr ""
+msgstr "Слаба"
 
 #: js/messages.php:739
 msgid "Good"
-msgstr ""
+msgstr "Добре"
 
 #: js/messages.php:740
 msgid "Strong"
-msgstr ""
+msgstr "Силна"
 
 #: js/messages.php:769
 msgctxt "Previous month"
@@ -2982,7 +2980,7 @@ msgstr "Неуспешно форматиране низ за правилото
 #: libraries/Advisor.php:469
 #, php-format
 msgid "Error in reading file: The file '%s' does not exist or is not readable!"
-msgstr ""
+msgstr "Грешки в четене на файл: Файлът '%s' не съществува или не е четлив!"
 
 #: libraries/Advisor.php:494
 #, php-format
@@ -3196,7 +3194,7 @@ msgstr "Български"
 #: libraries/Charsets.php:374
 msgctxt "Collation"
 msgid "Chinese"
-msgstr ""
+msgstr "Китайски"
 
 #: libraries/Charsets.php:379
 #, fuzzy
@@ -3250,7 +3248,7 @@ msgstr "Речник на данните"
 #: libraries/Charsets.php:405 libraries/Charsets.php:516
 msgctxt "Collation"
 msgid "German (phone book order)"
-msgstr ""
+msgstr "Германски (поръчка на телефонен указател)"
 
 #: libraries/Charsets.php:414
 #, fuzzy
@@ -3269,7 +3267,7 @@ msgstr "Исландски"
 #: libraries/Charsets.php:425
 msgctxt "Collation"
 msgid "Classical Latin"
-msgstr ""
+msgstr "Класическо латински"
 
 #: libraries/Charsets.php:429
 #, fuzzy
@@ -3344,7 +3342,7 @@ msgstr "Испански"
 #: libraries/Charsets.php:477 libraries/Charsets.php:527
 msgctxt "Collation"
 msgid "Spanish (traditional)"
-msgstr ""
+msgstr "Испански (традиционен)"
 
 #: libraries/Charsets.php:496
 #, fuzzy
@@ -3768,7 +3766,7 @@ msgstr "Пълни текстове"
 
 #: libraries/DisplayResults.php:1740
 msgid "Relational key"
-msgstr ""
+msgstr "Сроден ключ"
 
 #: libraries/DisplayResults.php:1741
 #, fuzzy
@@ -3833,7 +3831,7 @@ msgstr "Показване на редове %1s - %2s"
 #: libraries/DisplayResults.php:4722
 #, php-format
 msgid "%1$d total, %2$d in query"
-msgstr ""
+msgstr "%1$d общо, %2$d в питане"
 
 #: libraries/DisplayResults.php:4727
 #, php-format
@@ -3866,7 +3864,7 @@ msgstr "Маркиране всички"
 
 #: libraries/DisplayResults.php:5020
 msgid "Copy to clipboard"
-msgstr ""
+msgstr "Копиране в клипборда"
 
 #: libraries/DisplayResults.php:5076
 msgid "Query results operations"
@@ -3893,7 +3891,7 @@ msgstr "Няма"
 #. l10n: This is currently used only in Japanese locales
 #: libraries/Encoding.php:324
 msgid "Convert to Kana"
-msgstr ""
+msgstr "Превърни на Кана"
 
 #: libraries/ErrorHandler.php:76
 msgid "Too many error messages, some are not displayed."
@@ -3944,7 +3942,7 @@ msgstr "Неизвестна грешка при качване."
 
 #: libraries/File.php:445
 msgid "File is a symbolic link"
-msgstr ""
+msgstr "Файлът е символична връзка"
 
 #: libraries/File.php:450 libraries/File.php:542
 msgid "File could not be read!"
@@ -3975,7 +3973,7 @@ msgstr ""
 #: libraries/Footer.php:73
 #, php-format
 msgid "Currently running Git revision %1$s from the %2$s branch."
-msgstr ""
+msgstr "В момента се работи с Git ревизия %1$s от %2$s бранш."
 
 #: libraries/Footer.php:80
 msgid "Git information missing!"
@@ -3991,7 +3989,7 @@ msgstr "Преглед за печат"
 
 #: libraries/Header.php:454
 msgid "Click on the bar to scroll to top of page"
-msgstr ""
+msgstr "Кликнете върху лентата, за да превъртите до началото на страницата"
 
 #: libraries/Header.php:756 libraries/plugins/auth/AuthenticationCookie.php:152
 msgid "Javascript must be enabled past this point!"
@@ -4095,7 +4093,7 @@ msgstr "Страница:"
 
 #: libraries/LanguageManager.php:898
 msgid "Ignoring unsupported language code."
-msgstr ""
+msgstr "Пренебрегване на неподдържан код на език."
 
 #: libraries/LanguageManager.php:925 libraries/LanguageManager.php:926
 #: setup/frames/index.inc.php:66
@@ -4106,11 +4104,12 @@ msgstr "Език"
 msgid ""
 "Linting is disabled for this query because it exceeds the maximum length."
 msgstr ""
+"Linting е деактивирано за тази заявка, защото надвишава максималната дължина."
 
 #: libraries/Linter.php:165
 #, php-format
 msgid "%1$s (near <code>%2$s</code>)"
-msgstr ""
+msgstr "%1$s (близо <code>%2$s</code>)"
 
 #: libraries/Menu.php:208 libraries/ServerStatusData.php:425
 #: libraries/config/messages.inc.php:917
@@ -4360,7 +4359,7 @@ msgstr "Любими"
 
 #: libraries/SavedSearches.php:256
 msgid "Please provide a name for this bookmarked search."
-msgstr ""
+msgstr "Моля, посочете име за това търсене с отметки."
 
 #: libraries/SavedSearches.php:271
 msgid "Missing information to save the bookmarked search."
@@ -4372,11 +4371,11 @@ msgstr "Запис с това име вече съществува."
 
 #: libraries/SavedSearches.php:357
 msgid "Missing information to delete the search."
-msgstr ""
+msgstr "Липсва информация за изтриване на търсенето."
 
 #: libraries/SavedSearches.php:385
 msgid "Missing information to load the search."
-msgstr ""
+msgstr "Липсва информация за зареждане на търсенето."
 
 #: libraries/SavedSearches.php:404
 msgid "Error while loading the search."
@@ -4554,6 +4553,8 @@ msgid ""
 "Failed to cleanup table UI preferences (see $cfg['Servers'][$i]"
 "['MaxTableUiprefs'] %s)"
 msgstr ""
+"Неуспех при почистването на предпочитанията за потребителския интерфейс на "
+"таблицата (вижте $cfg['Servers'][$i]['MaxTableUiprefs'] %s)"
 
 #: libraries/Table.php:1802
 #, php-format
@@ -4562,6 +4563,9 @@ msgid ""
 "after you refresh this page. Please check if the table structure has been "
 "changed."
 msgstr ""
+"Не може да се запази собствеността на потребителския интерфейс \"%s\". "
+"Извършените промени няма да бъдат устойчиви, след като опресните тази "
+"страница. Моля, проверете дали структурата на таблицата е променена."
 
 #: libraries/Table.php:1938
 msgid "The name of the primary key must be \"PRIMARY\"!"
@@ -4617,24 +4621,32 @@ msgstr "Тема:"
 msgid ""
 "A 1-byte integer, signed range is -128 to 127, unsigned range is 0 to 255"
 msgstr ""
+"1-байт цяло число, подписано обхват е -128 до 127, неподписан обхват е от 0 "
+"до 255"
 
 #: libraries/TypesMySQL.php:36
 msgid ""
 "A 2-byte integer, signed range is -32,768 to 32,767, unsigned range is 0 to "
 "65,535"
 msgstr ""
+"2-байт цяло число, подписано обхват е -32,768 до 32,767, неподписан обхват "
+"от 0 до 65,535"
 
 #: libraries/TypesMySQL.php:41
 msgid ""
 "A 3-byte integer, signed range is -8,388,608 to 8,388,607, unsigned range is "
 "0 to 16,777,215"
 msgstr ""
+"3-байт цяло число, подписано обхват е -8,388,608 до 8,388,607, неподписан "
+"обхват е от 0 до 16,777,215"
 
 #: libraries/TypesMySQL.php:46
 msgid ""
 "A 4-byte integer, signed range is -2,147,483,648 to 2,147,483,647, unsigned "
 "range is 0 to 4,294,967,295"
 msgstr ""
+"Едно цяло число от 4 байта, подписано в обхвата, е -2,147,483,648 до "
+"2,147,483,647, неподписан обхват е от 0 до 4,294,967,295"
 
 #: libraries/TypesMySQL.php:52
 msgid ""
