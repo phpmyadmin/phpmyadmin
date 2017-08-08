@@ -5046,6 +5046,7 @@ function createProgress(type) {
     $.post('progress.php', params, function (response) {
         if (response.success === true) {
             if (type == 'export'){
+                $('#progressaction').html(PMA_getImage('s_success.png').toString() + ' Started processing ' + type + '<br>');
                 showAndUpdateProgress(type, uuid);
             }
         }
@@ -5061,32 +5062,23 @@ function createProgress(type) {
  */
 function showAndUpdateProgress(type, uuid) {
     $('#progressaction').show();
-    if (type == 'export') {
-        $('#progressbar').show();
-    }
     var params = {
         ajax_request : true,
         uuid: uuid,
         name: 'update',
         type : type
     };
-    var progressInterval = setInterval(function () {
+    var progressInterval = setTimeout(function () {
         $.post('progress.php', params, function (response) {
             if (response.success === true) {
-                if (response.message === "null") {
-                    clearInterval(progressInterval);
-                }
-                else {
+                if (response.message !== "null") {
                     var data = JSON.parse(response.message);
                     data[2] = data[2].split(',');
-                    if (type == 'export') {
-                        $('#progressbar').attr('value', data[3]);
-                        $('#progressbar').attr('max', data[4]);
-                    }
                     for (i = 0; i < data[2].length; i++) {
                         $('#progressaction').append(PMA_getImage('s_success.png').toString() + ' Processing table ' + data[2][i] + '<br>');
                     }
                     if(data[3] == data[4]){
+                        clearTimeout(progressInterval);
                         deleteProgress(type, uuid);
                     }
                 }
@@ -5103,9 +5095,6 @@ function showAndUpdateProgress(type, uuid) {
  *
  */
 function deleteProgress(type, uuid) {
-    if (type == 'export') {
-        $('#progressbar').hide();
-    }
     var params = {
         ajax_request : true,
         uuid : uuid,
@@ -5114,7 +5103,7 @@ function deleteProgress(type, uuid) {
     };
     $.post('progress.php', params, function (response) {
         if (response.success === true) {
-            $('#progressaction').append(PMA_getImage('s_success.png').toString() + ' ' + params.type + ' completed sucessfully');
+            $('#progressaction').append(PMA_getImage('s_success.png').toString() + ' ' + params.type + ' completed successfully');
         }
     });
 }

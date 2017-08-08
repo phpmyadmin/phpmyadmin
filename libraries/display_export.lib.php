@@ -411,7 +411,6 @@ function PMA_getHtmlForExportOptionsFormat($export_list)
         $html .= '<input type="submit" value="' . __('Go') . '" id="buttonGo" />';
     }
     $html .= '<input id="progressuuid" class="hide" type="text" name="progressuuid">';
-    $html .= '<progress id="progressbar" class="hide" value="0" max="1"><br></progress>';
     $html .= '<div id="progressaction" class="success hide"></div></div>';
 
     return $html;
