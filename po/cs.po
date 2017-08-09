@@ -6,16 +6,16 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.8.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2017-07-18 13:31+0200\n"
-"PO-Revision-Date: 2017-06-30 10:15+0000\n"
-"Last-Translator: Michal Čihař <michal@cihar.com>\n"
-"Language-Team: Czech <https://hosted.weblate.org/projects/phpmyadmin/master/"
-"cs/>\n"
+"PO-Revision-Date: 2017-08-09 23:12+0000\n"
+"Last-Translator: Jiří Wolker <jiwopene@gmail.com>\n"
+"Language-Team: Czech "
+"<https://hosted.weblate.org/projects/phpmyadmin/master/cs/>\n"
 "Language: cs\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=(n==1) ? 0 : (n>=2 && n<=4) ? 1 : 2;\n"
-"X-Generator: Weblate 2.15\n"
+"X-Generator: Weblate 2.16-dev\n"
 
 #: ajax.php:16 ajax.php:33 export.php:195 schema_export.php:66
 msgid "Bad type!"
@@ -614,6 +614,8 @@ msgid ""
 "You were logged out from one server, to logout completely from phpMyAdmin, "
 "you need to logout from all servers."
 msgstr ""
+"Odhlásil jste se z jednoho serveru. Pro úplné odhlášení z phpMyAdminu se "
+"musíte odhlásit ze všech serverů."
 
 #: index.php:162 libraries/classes/Footer.php:74
 msgid "phpMyAdmin Demo Server"
@@ -1529,15 +1531,11 @@ msgid "Chart"
 msgstr "Graf"
 
 #: js/messages.php:295 libraries/display_export.lib.php:905
-#, fuzzy
-#| msgid "Database"
 msgctxt "Alias"
 msgid "Database"
 msgstr "Databáze"
 
 #: js/messages.php:296 libraries/display_export.lib.php:917
-#, fuzzy
-#| msgid "Table"
 msgctxt "Alias"
 msgid "Table"
 msgstr "Tabulka"
@@ -2189,10 +2187,13 @@ msgstr ""
 "přímo podle potřeby"
 
 #: js/messages.php:535
+#, fuzzy
 msgid ""
 "MySQL accepts additional values not selectable by the datepicker; key in "
 "those values directly if desired"
 msgstr ""
+"MySQL podporuje i další hodnoty, které se nedají vybrat v kalendáři. Chcete-"
+"li je zadat, napište je."
 
 #: js/messages.php:541
 msgid ""
@@ -2568,6 +2569,7 @@ msgid "Time taken:"
 msgstr "Doba běhu:"
 
 #: js/messages.php:725
+#, fuzzy
 msgid ""
 "There was a problem accessing your browser storage, some features may not "
 "work properly for you. It is likely that the browser doesn't support storage "
@@ -2575,6 +2577,12 @@ msgid ""
 "cause such a problem, clearing your \"Offline Website Data\" might help. In "
 "Safari, such problem is commonly caused by \"Private Mode Browsing\"."
 msgstr ""
+"Při přístupu do úložiště webového prohlížeče došlo k potížím, takže některé "
+"funkce vám nemusí pracovat správně. Je to pravděpodobně způsobeno tím, že "
+"prohlížeč nemá úložiště nebo bylo dosaženo limitu velikosti dat v tomto "
+"úložišti. V prohlížeči Mozilla Firefox tento problém může způsobit poškození "
+"tohoto úložiště. Toto poškození je možno opravit vymazáním offline dat v "
+"nastaveních. V Safari to bývá způsobeno Anonymním prohlížením."
 
 #: js/messages.php:727
 msgid "Copy tables to"
@@ -3183,8 +3191,6 @@ msgid "Charset"
 msgstr "Znaková sada"
 
 #: libraries/classes/Charsets.php:265
-#, fuzzy
-#| msgid "unknown"
 msgid "Unknonwn"
 msgstr "neznámý"
 
@@ -3203,18 +3209,14 @@ msgid "Unicode"
 msgstr "Unicode"
 
 #: libraries/classes/Charsets.php:301 libraries/classes/Charsets.php:472
-#, fuzzy
-#| msgid "West European"
 msgctxt "Collation"
 msgid "West European"
-msgstr "Západní Evropa"
+msgstr "Západoevropský"
 
 #: libraries/classes/Charsets.php:308
-#, fuzzy
-#| msgid "Central European"
 msgctxt "Collation"
 msgid "Central European"
-msgstr "Střední Evropa"
+msgstr "Středoevropský"
 
 #: libraries/classes/Charsets.php:313
 #, fuzzy
@@ -3242,7 +3244,7 @@ msgstr "Japonština"
 #| msgid "Baltic"
 msgctxt "Collation"
 msgid "Baltic"
-msgstr "Baltické"
+msgstr "Baltické jazyky"
 
 #: libraries/classes/Charsets.php:335
 #, fuzzy
@@ -3252,18 +3254,14 @@ msgid "Armenian"
 msgstr "Arménština"
 
 #: libraries/classes/Charsets.php:338
-#, fuzzy
-#| msgid "Traditional Chinese"
 msgctxt "Collation"
 msgid "Traditional Chinese"
 msgstr "Tradiční čínština"
 
 #: libraries/classes/Charsets.php:341
-#, fuzzy
-#| msgid "Cyrillic"
 msgctxt "Collation"
 msgid "Cyrillic"
-msgstr "Cyrilika"
+msgstr "Cyrilice"
 
 #: libraries/classes/Charsets.php:344
 #, fuzzy
@@ -3273,8 +3271,6 @@ msgid "Arabic"
 msgstr "Arabština"
 
 #: libraries/classes/Charsets.php:347 libraries/classes/Charsets.php:458
-#, fuzzy
-#| msgid "Korean"
 msgctxt "Collation"
 msgid "Korean"
 msgstr "Korejština"
@@ -3294,18 +3290,14 @@ msgid "Georgian"
 msgstr "Gruzínština"
 
 #: libraries/classes/Charsets.php:356
-#, fuzzy
-#| msgid "Greek"
 msgctxt "Collation"
 msgid "Greek"
 msgstr "Řečtina"
 
 #: libraries/classes/Charsets.php:359
-#, fuzzy
-#| msgid "Czech-Slovak"
 msgctxt "Collation"
 msgid "Czech-Slovak"
-msgstr "Čeština/Slovenština"
+msgstr "Čeština a Slovenština"
 
 #: libraries/classes/Charsets.php:362 libraries/classes/Charsets.php:513
 #, fuzzy
@@ -3315,36 +3307,26 @@ msgid "Ukrainian"
 msgstr "Ukrajinština"
 
 #: libraries/classes/Charsets.php:365 libraries/classes/Charsets.php:509
-#, fuzzy
-#| msgid "Turkish"
 msgctxt "Collation"
 msgid "Turkish"
 msgstr "Turečtina"
 
 #: libraries/classes/Charsets.php:368 libraries/classes/Charsets.php:501
-#, fuzzy
-#| msgid "Swedish"
 msgctxt "Collation"
 msgid "Swedish"
 msgstr "Švédština"
 
 #: libraries/classes/Charsets.php:371 libraries/classes/Charsets.php:505
-#, fuzzy
-#| msgid "Thai"
 msgctxt "Collation"
 msgid "Thai"
 msgstr "Thajština"
 
 #: libraries/classes/Charsets.php:374
-#, fuzzy
-#| msgid "unknown"
 msgctxt "Collation"
 msgid "Unknown"
 msgstr "neznámý"
 
 #: libraries/classes/Charsets.php:390
-#, fuzzy
-#| msgid "Bulgarian"
 msgctxt "Collation"
 msgid "Bulgarian"
 msgstr "Bulharština"
@@ -3352,18 +3334,14 @@ msgstr "Bulharština"
 #: libraries/classes/Charsets.php:395
 msgctxt "Collation"
 msgid "Chinese"
-msgstr ""
+msgstr "Čínština"
 
 #: libraries/classes/Charsets.php:400
-#, fuzzy
-#| msgid "Croatian"
 msgctxt "Collation"
 msgid "Croatian"
 msgstr "Chorvatština"
 
 #: libraries/classes/Charsets.php:404
-#, fuzzy
-#| msgid "Czech"
 msgctxt "Collation"
 msgid "Czech"
 msgstr "Čeština"
