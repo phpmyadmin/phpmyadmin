@@ -6,8 +6,8 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.7.3-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2017-07-18 13:29+0200\n"
-"PO-Revision-Date: 2017-08-09 22:49+0000\n"
-"Last-Translator: anonymous <>\n"
+"PO-Revision-Date: 2017-08-09 23:12+0000\n"
+"Last-Translator: Jiří Wolker <jiwopene@gmail.com>\n"
 "Language-Team: Czech <https://hosted.weblate.org/projects/phpmyadmin/4-7/cs/>"
 "\n"
 "Language: cs\n"
@@ -1516,15 +1516,11 @@ msgid "Chart"
 msgstr "Graf"
 
 #: js/messages.php:298 libraries/display_export.lib.php:903
-#, fuzzy
-#| msgid "Database"
 msgctxt "Alias"
 msgid "Database"
 msgstr "Databáze"
 
 #: js/messages.php:299 libraries/display_export.lib.php:915
-#, fuzzy
-#| msgid "Table"
 msgctxt "Alias"
 msgid "Table"
 msgstr "Tabulka"
@@ -2170,10 +2166,13 @@ msgstr ""
 "přímo podle potřeby"
 
 #: js/messages.php:538
+#, fuzzy
 msgid ""
 "MySQL accepts additional values not selectable by the datepicker; key in "
 "those values directly if desired"
 msgstr ""
+"MySQL podporuje i další hodnoty, které se nedají vybrat v kalendáři. Chcete-"
+"li je zadat, napište je."
 
 #: js/messages.php:544
 msgid ""
@@ -2548,6 +2547,7 @@ msgid "Time taken:"
 msgstr "Doba běhu:"
 
 #: js/messages.php:728
+#, fuzzy
 msgid ""
 "There was a problem accessing your browser storage, some features may not "
 "work properly for you. It is likely that the browser doesn't support storage "
@@ -2555,6 +2555,12 @@ msgid ""
 "cause such a problem, clearing your \"Offline Website Data\" might help. In "
 "Safari, such problem is commonly caused by \"Private Mode Browsing\"."
 msgstr ""
+"Při přístupu do úložiště webového prohlížeče došlo k potížím, takže některé "
+"funkce vám nemusí pracovat správně. Je to pravděpodobně způsobeno tím, že "
+"prohlížeč nemá úložiště nebo bylo dosaženo limitu velikosti dat v tomto "
+"úložišti. V prohlížeči Mozilla Firefox tento problém může způsobit poškození "
+"tohoto úložiště. Toto poškození je možno opravit vymazáním offline dat v "
+"nastaveních. V Safari to bývá způsobeno Anonymním prohlížením."
 
 #: js/messages.php:730
 msgid "Copy tables to"
@@ -2998,8 +3004,6 @@ msgid "Collation"
 msgstr "Porovnávání"
 
 #: libraries/Charsets.php:244
-#, fuzzy
-#| msgid "unknown"
 msgid "Unknonwn"
 msgstr "neznámý"
 
@@ -3018,18 +3022,14 @@ msgid "Unicode"
 msgstr "Unicode"
 
 #: libraries/Charsets.php:280 libraries/Charsets.php:451
-#, fuzzy
-#| msgid "West European"
 msgctxt "Collation"
 msgid "West European"
-msgstr "Západní Evropa"
+msgstr "Západoevropský"
 
 #: libraries/Charsets.php:287
-#, fuzzy
-#| msgid "Central European"
 msgctxt "Collation"
 msgid "Central European"
-msgstr "Střední Evropa"
+msgstr "Středoevropský"
 
 #: libraries/Charsets.php:292
 #, fuzzy
@@ -3057,7 +3057,7 @@ msgstr "Japonština"
 #| msgid "Baltic"
 msgctxt "Collation"
 msgid "Baltic"
-msgstr "Baltické"
+msgstr "Baltické jazyky"
 
 #: libraries/Charsets.php:314
 #, fuzzy
@@ -3067,18 +3067,14 @@ msgid "Armenian"
 msgstr "Arménština"
 
 #: libraries/Charsets.php:317
-#, fuzzy
-#| msgid "Traditional Chinese"
 msgctxt "Collation"
 msgid "Traditional Chinese"
 msgstr "Tradiční čínština"
 
 #: libraries/Charsets.php:320
-#, fuzzy
-#| msgid "Cyrillic"
 msgctxt "Collation"
 msgid "Cyrillic"
-msgstr "Cyrilika"
+msgstr "Cyrilice"
 
 #: libraries/Charsets.php:323
 #, fuzzy
@@ -3088,8 +3084,6 @@ msgid "Arabic"
 msgstr "Arabština"
 
 #: libraries/Charsets.php:326 libraries/Charsets.php:437
-#, fuzzy
-#| msgid "Korean"
 msgctxt "Collation"
 msgid "Korean"
 msgstr "Korejština"
@@ -3109,18 +3103,14 @@ msgid "Georgian"
 msgstr "Gruzínština"
 
 #: libraries/Charsets.php:335
-#, fuzzy
-#| msgid "Greek"
 msgctxt "Collation"
 msgid "Greek"
 msgstr "Řečtina"
 
 #: libraries/Charsets.php:338
-#, fuzzy
-#| msgid "Czech-Slovak"
 msgctxt "Collation"
 msgid "Czech-Slovak"
-msgstr "Čeština/Slovenština"
+msgstr "Čeština a Slovenština"
 
 #: libraries/Charsets.php:341 libraries/Charsets.php:492
 #, fuzzy
@@ -3130,36 +3120,26 @@ msgid "Ukrainian"
 msgstr "Ukrajinština"
 
 #: libraries/Charsets.php:344 libraries/Charsets.php:488
-#, fuzzy
-#| msgid "Turkish"
 msgctxt "Collation"
 msgid "Turkish"
 msgstr "Turečtina"
 
 #: libraries/Charsets.php:347 libraries/Charsets.php:480
-#, fuzzy
-#| msgid "Swedish"
 msgctxt "Collation"
 msgid "Swedish"
 msgstr "Švédština"
 
 #: libraries/Charsets.php:350 libraries/Charsets.php:484
-#, fuzzy
-#| msgid "Thai"
 msgctxt "Collation"
 msgid "Thai"
 msgstr "Thajština"
 
 #: libraries/Charsets.php:353
-#, fuzzy
-#| msgid "unknown"
 msgctxt "Collation"
 msgid "Unknown"
 msgstr "neznámý"
 
 #: libraries/Charsets.php:369
-#, fuzzy
-#| msgid "Bulgarian"
 msgctxt "Collation"
 msgid "Bulgarian"
 msgstr "Bulharština"
@@ -3167,18 +3147,14 @@ msgstr "Bulharština"
 #: libraries/Charsets.php:374
 msgctxt "Collation"
 msgid "Chinese"
-msgstr ""
+msgstr "Čínština"
 
 #: libraries/Charsets.php:379
-#, fuzzy
-#| msgid "Croatian"
 msgctxt "Collation"
 msgid "Croatian"
 msgstr "Chorvatština"
 
 #: libraries/Charsets.php:383
-#, fuzzy
-#| msgid "Czech"
 msgctxt "Collation"
 msgid "Czech"
 msgstr "Čeština"
