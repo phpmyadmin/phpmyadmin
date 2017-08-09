@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.7.3-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2017-07-18 13:29+0200\n"
-"PO-Revision-Date: 2017-08-09 14:42+0000\n"
-"Last-Translator: Hizkia Felix <hizkifw@gmail.com>\n"
+"PO-Revision-Date: 2017-08-09 14:56+0000\n"
+"Last-Translator: Maharaj Fawwaz A. Yusran <faww4zintelgent4@gmail.com>\n"
 "Language-Team: Indonesian "
 "<https://hosted.weblate.org/projects/phpmyadmin/4-7/id/>\n"
 "Language: id\n"
@@ -2170,7 +2170,6 @@ msgid "Encryption key"
 msgstr "Kunci Enskripsi"
 
 #: js/messages.php:532
-#, fuzzy
 msgid ""
 "MySQL accepts additional values not selectable by the slider; key in those "
 "values directly if desired"
@@ -2551,15 +2550,13 @@ msgid "%s queries executed %s times in %s seconds."
 msgstr "%s kueri tereksekusi %s kali dalam waktu %s detik."
 
 #: js/messages.php:724
-#, fuzzy, php-format
+#, php-format
 msgid "%s argument(s) passed"
-msgstr "%s argumen lulus"
+msgstr "%s argumen lolos"
 
 #: js/messages.php:725
-#, fuzzy
-#| msgid "Table comments"
 msgid "Show arguments"
-msgstr "Perlihatkan Komentar tabel"
+msgstr "Tampilkan argumen"
 
 #: js/messages.php:726
 msgid "Hide arguments"
@@ -2595,10 +2592,8 @@ msgid "Add table prefix"
 msgstr "Tambahkan prefiks tabel"
 
 #: js/messages.php:732
-#, fuzzy
-#| msgid "Replace table prefix"
 msgid "Replace table with prefix"
-msgstr "Ganti prefiks tabel"
+msgstr "Ganti tabel dengan prefiks"
 
 #: js/messages.php:733 templates/database/structure/check_all_tables.phtml:29
 msgid "Copy table with prefix"
@@ -3030,10 +3025,8 @@ msgid "Collation"
 msgstr "Penyortiran"
 
 #: libraries/Charsets.php:244
-#, fuzzy
-#| msgid "unknown"
 msgid "Unknonwn"
-msgstr "tidak diketahui"
+msgstr "Tidak diketahui"
 
 #: libraries/Charsets.php:258
 #, fuzzy
@@ -5136,18 +5129,15 @@ msgid "Could not add columns!"
 msgstr "Tidak dapat menambah kolom!"
 
 #: libraries/central_columns.lib.php:372
-#, fuzzy, php-format
+#, php-format
 msgid ""
 "Couldn't remove Column(s) %1$s as they don't exist in central columns list!"
 msgstr ""
-"Tidak dapat menghapus Kolom %1$s karena mereka tidak ada dalam daftar kolom "
-"tengah!"
+"Tidak dapat menghapus Kolom %1$s karena tidak ada dalam daftar kolom pusat!"
 
 #: libraries/central_columns.lib.php:384
-#, fuzzy
-#| msgid "Could not save recent table"
 msgid "Could not remove columns!"
-msgstr "Tidak dapat menyimpan tabel terakhir: \"%1$s\""
+msgstr "Tidak dapat menghapus kolom-kolom!"
 
 #: libraries/central_columns.lib.php:529
 msgid "YES"
@@ -5189,10 +5179,8 @@ msgid "A_I"
 msgstr "A_I"
 
 #: libraries/central_columns.lib.php:749
-#, fuzzy
-#| msgid "Select Tables"
 msgid "Select a table"
-msgstr "Pilih tabel"
+msgstr "Pilih suatu tabel"
 
 #: libraries/central_columns.lib.php:803
 #: templates/table/structure/add_column.phtml:4
@@ -5204,10 +5192,8 @@ msgid "Select a column."
 msgstr "Pilih sebuah kolom."
 
 #: libraries/central_columns.lib.php:1264
-#, fuzzy
-#| msgid "Add column"
 msgid "Add new column"
-msgstr "Tambah kolom"
+msgstr "Tambah kolom baru"
 
 #: libraries/central_columns.lib.php:1386
 #: libraries/plugins/schema/pdf/PdfRelationSchema.php:631
