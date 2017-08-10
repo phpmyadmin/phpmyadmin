@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin-docs 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
-"POT-Creation-Date: 2017-07-18 13:29+0200\n"
+"POT-Creation-Date: 2017-08-10 09:13-0400\n"
 "PO-Revision-Date: 2017-06-26 19:08+0000\n"
 "Last-Translator: tmtisfree <tmtisfree@free.fr>\n"
 "Language-Team: French <https://hosted.weblate.org/projects/phpmyadmin/4-7/fr/"
@@ -486,7 +486,7 @@ msgstr "Ajouter une géométrie"
 #: libraries/server_privileges.lib.php:692
 #: libraries/server_privileges.lib.php:2194
 #: libraries/server_privileges.lib.php:3076
-#: libraries/server_user_groups.lib.php:285
+#: libraries/server_user_groups.lib.php:284
 #: libraries/sql_query_form.lib.php:373 libraries/sql_query_form.lib.php:435
 #: libraries/tracking.lib.php:544 libraries/tracking.lib.php:667
 #: prefs_manage.php:285 prefs_manage.php:369 server_privileges.php:307
@@ -3004,14 +3004,14 @@ msgstr "Échec d'exécution du test pour la règle « %s »."
 msgid "Failed formatting string for rule '%s'."
 msgstr "Échec de formatage de la chaîne pour la règle « %s »."
 
-#: libraries/Advisor.php:469
+#: libraries/Advisor.php:486
 #, php-format
 msgid "Error in reading file: The file '%s' does not exist or is not readable!"
 msgstr ""
 "Erreur à la lecture du fichier : le fichier « %s » n'existe pas ou ne peut "
 "être lu !"
 
-#: libraries/Advisor.php:494
+#: libraries/Advisor.php:511
 #, php-format
 msgid ""
 "Invalid rule declaration on line %1$s, expected line %2$s of previous rule."
@@ -3019,17 +3019,17 @@ msgstr ""
 "Règle invalide à la ligne %1$s ; la ligne %2$s de la règle précédente était "
 "attendue."
 
-#: libraries/Advisor.php:513
+#: libraries/Advisor.php:530
 #, php-format
 msgid "Invalid rule declaration on line %s."
 msgstr "Règle invalide à la ligne %s."
 
-#: libraries/Advisor.php:521
+#: libraries/Advisor.php:538
 #, php-format
 msgid "Unexpected characters on line %s."
 msgstr "Caractères inattendus à la ligne %s."
 
-#: libraries/Advisor.php:536
+#: libraries/Advisor.php:553
 #, php-format
 msgid "Unexpected character on line %1$s. Expected tab, but found \"%2$s\"."
 msgstr ""
@@ -3056,7 +3056,10 @@ msgid "Collation"
 msgstr "Interclassement"
 
 #: libraries/Charsets.php:244
-msgid "Unknonwn"
+#, fuzzy
+#| msgctxt "Collation"
+#| msgid "Unknown"
+msgid "Unknown"
 msgstr "inconnu"
 
 #: libraries/Charsets.php:258
@@ -3928,7 +3931,7 @@ msgstr "Version imprimable"
 msgid "Click on the bar to scroll to top of page"
 msgstr "Cliquer sur la barre pour faire défiler en haut de page"
 
-#: libraries/Header.php:756 libraries/plugins/auth/AuthenticationCookie.php:152
+#: libraries/Header.php:758 libraries/plugins/auth/AuthenticationCookie.php:152
 msgid "Javascript must be enabled past this point!"
 msgstr "JavaScript doit être activé !"
 
@@ -4544,7 +4547,7 @@ msgstr "utiliser celui-ci"
 msgid "Default theme %s not found!"
 msgstr "Thème par défaut %s inexistant !"
 
-#: libraries/ThemeManager.php:204
+#: libraries/ThemeManager.php:203
 #, php-format
 msgid "Theme %s not found!"
 msgstr "Thème %s inexistant !"
@@ -5159,12 +5162,12 @@ msgstr "Index de serveur invalide : %s"
 msgid "Server %d"
 msgstr "Serveur %d"
 
-#: libraries/common.inc.php:654
+#: libraries/common.inc.php:656
 msgid "Invalid authentication method set in configuration:"
 msgstr ""
 "Le fichier de configuration contient un type d'authentification invalide : "
 
-#: libraries/common.inc.php:758
+#: libraries/common.inc.php:760
 #, php-format
 msgid ""
 "Unable to use timezone %1$s for server %2$d. Please check your configuration "
@@ -5176,20 +5179,20 @@ msgstr ""
 "['SessionTimeZone'][/em]. phpMyAdmin utilise actuellement le fuseau horaire "
 "par défaut du serveur de base de données."
 
-#: libraries/common.inc.php:796
+#: libraries/common.inc.php:798
 #, php-format
 msgid "You should upgrade to %s %s or later."
 msgstr "Il faudrait utiliser %s en version %s ou plus récente."
 
-#: libraries/common.inc.php:882
+#: libraries/common.inc.php:884
 msgid "Error: Token mismatch"
 msgstr "Erreur : disparité du jeton"
 
-#: libraries/common.inc.php:900
+#: libraries/common.inc.php:902
 msgid "GLOBALS overwrite attempt"
 msgstr "Tentative d'écrasement de GLOBALS"
 
-#: libraries/common.inc.php:907
+#: libraries/common.inc.php:909
 msgid "possible exploit"
 msgstr "vulnérabilité possible"
 
@@ -13782,15 +13785,15 @@ msgstr "Attributions de menu du groupe d'utilisateurs"
 msgid "Group name:"
 msgstr "Nom du groupe : "
 
-#: libraries/server_user_groups.lib.php:272
+#: libraries/server_user_groups.lib.php:271
 msgid "Server-level tabs"
 msgstr "Onglets de niveau serveur"
 
-#: libraries/server_user_groups.lib.php:275
+#: libraries/server_user_groups.lib.php:274
 msgid "Database-level tabs"
 msgstr "Onglets de niveau base de données"
 
-#: libraries/server_user_groups.lib.php:278
+#: libraries/server_user_groups.lib.php:277
 msgid "Table-level tabs"
 msgstr "Onglets de niveau table"
 
@@ -17134,6 +17137,9 @@ msgstr ""
 #: libraries/advisory_rules.txt:446
 msgid "concurrent_insert is set to 0"
 msgstr "Le paramètre concurrent_insert a une valeur de 0"
+
+#~ msgid "Unknonwn"
+#~ msgstr "inconnu"
 
 #~ msgctxt "Collation variant"
 #~ msgid "weight=2"

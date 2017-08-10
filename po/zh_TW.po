@@ -1,9 +1,9 @@
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: phpMyAdmin 4.7.3-dev\n"
+"Project-Id-Version: phpMyAdmin 4.7.4-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
-"POT-Creation-Date: 2017-07-18 13:29+0200\n"
+"POT-Creation-Date: 2017-08-10 09:13-0400\n"
 "PO-Revision-Date: 2017-06-03 10:16+0000\n"
 "Last-Translator: 某玩家 <bckps7336@gmail.com>\n"
 "Language-Team: Chinese (Traditional) <https://hosted.weblate.org/projects/"
@@ -474,7 +474,7 @@ msgstr "新增幾何形"
 #: libraries/server_privileges.lib.php:692
 #: libraries/server_privileges.lib.php:2194
 #: libraries/server_privileges.lib.php:3076
-#: libraries/server_user_groups.lib.php:285
+#: libraries/server_user_groups.lib.php:284
 #: libraries/sql_query_form.lib.php:373 libraries/sql_query_form.lib.php:435
 #: libraries/tracking.lib.php:544 libraries/tracking.lib.php:667
 #: prefs_manage.php:285 prefs_manage.php:369 server_privileges.php:307
@@ -2895,28 +2895,28 @@ msgstr "在執行測試時，條件 \"%s\" 失敗。"
 msgid "Failed formatting string for rule '%s'."
 msgstr "無法產生規則 '%s' 的格式化文字。"
 
-#: libraries/Advisor.php:469
+#: libraries/Advisor.php:486
 #, php-format
 msgid "Error in reading file: The file '%s' does not exist or is not readable!"
 msgstr "讀取檔案時的錯誤︰檔案 %s 不存在或無法讀取！"
 
-#: libraries/Advisor.php:494
+#: libraries/Advisor.php:511
 #, php-format
 msgid ""
 "Invalid rule declaration on line %1$s, expected line %2$s of previous rule."
 msgstr "第 %1$s 行的規則宣告無效，上一修規則應在第 %2$s 行。"
 
-#: libraries/Advisor.php:513
+#: libraries/Advisor.php:530
 #, php-format
 msgid "Invalid rule declaration on line %s."
 msgstr "第 %s 行規則宣告無效。"
 
-#: libraries/Advisor.php:521
+#: libraries/Advisor.php:538
 #, php-format
 msgid "Unexpected characters on line %s."
 msgstr "第 %s 行有不明符號。"
 
-#: libraries/Advisor.php:536
+#: libraries/Advisor.php:553
 #, php-format
 msgid "Unexpected character on line %1$s. Expected tab, but found \"%2$s\"."
 msgstr "第 %1$s 行有不明符號。應該要是「tab」，但我們找到「%2$s」。"
@@ -2943,7 +2943,7 @@ msgstr "編碼與排序"
 #: libraries/Charsets.php:244
 #, fuzzy
 #| msgid "unknown"
-msgid "Unknonwn"
+msgid "Unknown"
 msgstr "未知"
 
 #: libraries/Charsets.php:258
@@ -3884,7 +3884,7 @@ msgstr "預覽列印"
 msgid "Click on the bar to scroll to top of page"
 msgstr "點選此列以回到頁面頂端"
 
-#: libraries/Header.php:756 libraries/plugins/auth/AuthenticationCookie.php:152
+#: libraries/Header.php:758 libraries/plugins/auth/AuthenticationCookie.php:152
 msgid "Javascript must be enabled past this point!"
 msgstr "必須啟用 Javascript 才能登入！"
 
@@ -4486,7 +4486,7 @@ msgstr "確定"
 msgid "Default theme %s not found!"
 msgstr "未找到預設佈景主題 %s ！"
 
-#: libraries/ThemeManager.php:204
+#: libraries/ThemeManager.php:203
 #, php-format
 msgid "Theme %s not found!"
 msgstr "未找到佈景主題 %s ！"
@@ -5062,11 +5062,11 @@ msgstr "無效的伺服器索引: %s"
 msgid "Server %d"
 msgstr "伺服器 %d"
 
-#: libraries/common.inc.php:654
+#: libraries/common.inc.php:656
 msgid "Invalid authentication method set in configuration:"
 msgstr "在設定檔中設定的認證方式無效:"
 
-#: libraries/common.inc.php:758
+#: libraries/common.inc.php:760
 #, php-format
 msgid ""
 "Unable to use timezone %1$s for server %2$d. Please check your configuration "
@@ -5076,20 +5076,20 @@ msgstr ""
 "無法於伺服器 %2$d 使用時區 %1$s。請檢查您於設定檔的 [em]$cfg['Servers'][%3$d]"
 "['SessionTimeZone'][/em] 設定。phpMyAdmin 目前使用資料庫伺服器的預設時區。"
 
-#: libraries/common.inc.php:796
+#: libraries/common.inc.php:798
 #, php-format
 msgid "You should upgrade to %s %s or later."
 msgstr "您應升級到 %s %s 或更新版本。"
 
-#: libraries/common.inc.php:882
+#: libraries/common.inc.php:884
 msgid "Error: Token mismatch"
 msgstr "錯誤: 連線資訊失效，請重新連線"
 
-#: libraries/common.inc.php:900
+#: libraries/common.inc.php:902
 msgid "GLOBALS overwrite attempt"
 msgstr "嘗試覆寫 GLOBALS (全域變數)"
 
-#: libraries/common.inc.php:907
+#: libraries/common.inc.php:909
 msgid "possible exploit"
 msgstr "$_REQUEST 數量過多（駭客？）"
 
@@ -13115,15 +13115,15 @@ msgstr "使用者群組選單分配"
 msgid "Group name:"
 msgstr "群組名稱："
 
-#: libraries/server_user_groups.lib.php:272
+#: libraries/server_user_groups.lib.php:271
 msgid "Server-level tabs"
 msgstr "主機級別標籤頁"
 
-#: libraries/server_user_groups.lib.php:275
+#: libraries/server_user_groups.lib.php:274
 msgid "Database-level tabs"
 msgstr "資料庫級別標籤頁"
 
-#: libraries/server_user_groups.lib.php:278
+#: libraries/server_user_groups.lib.php:277
 msgid "Table-level tabs"
 msgstr "資料表級別標籤頁"
 
@@ -16276,6 +16276,11 @@ msgstr ""
 #: libraries/advisory_rules.txt:446
 msgid "concurrent_insert is set to 0"
 msgstr "concurrent_insert 目前設定為 0"
+
+#, fuzzy
+#~| msgid "unknown"
+#~ msgid "Unknonwn"
+#~ msgstr "未知"
 
 #, fuzzy
 #~| msgid "Right"

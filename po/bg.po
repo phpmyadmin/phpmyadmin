@@ -1,13 +1,13 @@
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: phpMyAdmin 4.7.3-dev\n"
+"Project-Id-Version: phpMyAdmin 4.7.4-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
-"POT-Creation-Date: 2017-07-18 13:29+0200\n"
+"POT-Creation-Date: 2017-08-10 09:13-0400\n"
 "PO-Revision-Date: 2017-08-07 11:20+0000\n"
 "Last-Translator: Filip Obretenov <filip.obretenovbg@gmail.com>\n"
-"Language-Team: Bulgarian "
-"<https://hosted.weblate.org/projects/phpmyadmin/4-7/bg/>\n"
+"Language-Team: Bulgarian <https://hosted.weblate.org/projects/phpmyadmin/4-7/"
+"bg/>\n"
 "Language: bg\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -482,7 +482,7 @@ msgstr "Добави геометрия"
 #: libraries/server_privileges.lib.php:692
 #: libraries/server_privileges.lib.php:2194
 #: libraries/server_privileges.lib.php:3076
-#: libraries/server_user_groups.lib.php:285
+#: libraries/server_user_groups.lib.php:284
 #: libraries/sql_query_form.lib.php:373 libraries/sql_query_form.lib.php:435
 #: libraries/tracking.lib.php:544 libraries/tracking.lib.php:667
 #: prefs_manage.php:285 prefs_manage.php:369 server_privileges.php:307
@@ -2977,12 +2977,12 @@ msgstr "Неуспешно пускане на тест за правилото 
 msgid "Failed formatting string for rule '%s'."
 msgstr "Неуспешно форматиране низ за правилото '%s'."
 
-#: libraries/Advisor.php:469
+#: libraries/Advisor.php:486
 #, php-format
 msgid "Error in reading file: The file '%s' does not exist or is not readable!"
 msgstr "Грешки в четене на файл: Файлът '%s' не съществува или не е четлив!"
 
-#: libraries/Advisor.php:494
+#: libraries/Advisor.php:511
 #, php-format
 msgid ""
 "Invalid rule declaration on line %1$s, expected line %2$s of previous rule."
@@ -2990,17 +2990,17 @@ msgstr ""
 "Невалидна декларация на правило на ред %1$s, очакван ред %2$s от предишно "
 "правило."
 
-#: libraries/Advisor.php:513
+#: libraries/Advisor.php:530
 #, php-format
 msgid "Invalid rule declaration on line %s."
 msgstr "Невалидна декларация на правило на ред %s."
 
-#: libraries/Advisor.php:521
+#: libraries/Advisor.php:538
 #, php-format
 msgid "Unexpected characters on line %s."
 msgstr "Неочаквани знаци на ред %s."
 
-#: libraries/Advisor.php:536
+#: libraries/Advisor.php:553
 #, php-format
 msgid "Unexpected character on line %1$s. Expected tab, but found \"%2$s\"."
 msgstr "Неочакван знак на ред %1$s. Очакван табулатор, но намерен \"%2$s\"."
@@ -3027,7 +3027,7 @@ msgstr "Колация"
 #: libraries/Charsets.php:244
 #, fuzzy
 #| msgid "unknown"
-msgid "Unknonwn"
+msgid "Unknown"
 msgstr "непознат"
 
 #: libraries/Charsets.php:258
@@ -3991,7 +3991,7 @@ msgstr "Преглед за печат"
 msgid "Click on the bar to scroll to top of page"
 msgstr "Кликнете върху лентата, за да превъртите до началото на страницата"
 
-#: libraries/Header.php:756 libraries/plugins/auth/AuthenticationCookie.php:152
+#: libraries/Header.php:758 libraries/plugins/auth/AuthenticationCookie.php:152
 msgid "Javascript must be enabled past this point!"
 msgstr "Оттук нататък е необходим javascript!"
 
@@ -4603,7 +4603,7 @@ msgstr "тази ще е"
 msgid "Default theme %s not found!"
 msgstr "Темата по подразбиране %s не е намерена!"
 
-#: libraries/ThemeManager.php:204
+#: libraries/ThemeManager.php:203
 #, php-format
 msgid "Theme %s not found!"
 msgstr "Тема %s не е намерена!"
@@ -5158,11 +5158,11 @@ msgstr "Невалиден индекс на сървър: %s"
 msgid "Server %d"
 msgstr "Сървър %d"
 
-#: libraries/common.inc.php:654
+#: libraries/common.inc.php:656
 msgid "Invalid authentication method set in configuration:"
 msgstr "Невалиден метод за удостоверяване в конфогурацията:"
 
-#: libraries/common.inc.php:758
+#: libraries/common.inc.php:760
 #, php-format
 msgid ""
 "Unable to use timezone %1$s for server %2$d. Please check your configuration "
@@ -5170,20 +5170,20 @@ msgid ""
 "currently using the default time zone of the database server."
 msgstr ""
 
-#: libraries/common.inc.php:796
+#: libraries/common.inc.php:798
 #, php-format
 msgid "You should upgrade to %s %s or later."
 msgstr "Осъвременете до %s %s или по-нова."
 
-#: libraries/common.inc.php:882
+#: libraries/common.inc.php:884
 msgid "Error: Token mismatch"
 msgstr ""
 
-#: libraries/common.inc.php:900
+#: libraries/common.inc.php:902
 msgid "GLOBALS overwrite attempt"
 msgstr ""
 
-#: libraries/common.inc.php:907
+#: libraries/common.inc.php:909
 msgid "possible exploit"
 msgstr "възможен пробив в сигурността"
 
@@ -13871,19 +13871,19 @@ msgstr "Няма права."
 msgid "Group name:"
 msgstr "Имена на колони: "
 
-#: libraries/server_user_groups.lib.php:272
+#: libraries/server_user_groups.lib.php:271
 #, fuzzy
 #| msgid "Server version"
 msgid "Server-level tabs"
 msgstr "Версия на сървъра"
 
-#: libraries/server_user_groups.lib.php:275
+#: libraries/server_user_groups.lib.php:274
 #, fuzzy
 #| msgid "Database server"
 msgid "Database-level tabs"
 msgstr "БД сървър"
 
-#: libraries/server_user_groups.lib.php:278
+#: libraries/server_user_groups.lib.php:277
 #, fuzzy
 #| msgid "Table comments"
 msgid "Table-level tabs"
@@ -17294,6 +17294,11 @@ msgstr ""
 #: libraries/advisory_rules.txt:446
 msgid "concurrent_insert is set to 0"
 msgstr "concurrent_insert e 0"
+
+#, fuzzy
+#~| msgid "unknown"
+#~ msgid "Unknonwn"
+#~ msgstr "непознат"
 
 #, fuzzy
 #~| msgid "Right"

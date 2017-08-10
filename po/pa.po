@@ -5,13 +5,13 @@
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: phpMyAdmin 4.7.3-dev\n"
+"Project-Id-Version: phpMyAdmin 4.7.4-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
-"POT-Creation-Date: 2017-07-18 13:29+0200\n"
+"POT-Creation-Date: 2017-08-10 09:13-0400\n"
 "PO-Revision-Date: 2017-08-02 09:17+0000\n"
 "Last-Translator: Hidev Corp <hidevcorp@gmail.com>\n"
-"Language-Team: Punjabi "
-"<https://hosted.weblate.org/projects/phpmyadmin/4-7/pa/>\n"
+"Language-Team: Punjabi <https://hosted.weblate.org/projects/phpmyadmin/4-7/"
+"pa/>\n"
 "Language: pa\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -312,9 +312,7 @@ msgstr "%1$s ਡਾਟਾਬੇਸ ਦੀ ਨਕਲ %2$s ਵਿੱਚ ਕੀਤ�
 #, php-format
 msgid ""
 "The phpMyAdmin configuration storage has been deactivated. %sFind out why%s."
-msgstr ""
-"PhpMyAdmin ਸੰਰਚਨਾ ਸਟੋਰੇਜ਼ ਨੂੰ ਬੰਦ ਕਰ ਦਿੱਤਾ ਗਿਆ ਹੈ %1$s ਇਹ ਪਤਾ ਲਗਾਓ ਕਿ ਕਿਉਂ "
-"%2$s"
+msgstr "PhpMyAdmin ਸੰਰਚਨਾ ਸਟੋਰੇਜ਼ ਨੂੰ ਬੰਦ ਕਰ ਦਿੱਤਾ ਗਿਆ ਹੈ %1$s ਇਹ ਪਤਾ ਲਗਾਓ ਕਿ ਕਿਉਂ %2$s"
 
 #: db_qbe.php:126
 msgid "You have to choose at least one column to display!"
@@ -355,8 +353,8 @@ msgid ""
 "An error has been detected and an error report has been automatically "
 "submitted based on your settings."
 msgstr ""
-"ਇੱਕ ਤਰੁੱਟੀ ਲੱਭੀ ਗਈ ਹੈ ਅਤੇ ਇੱਕ ਗਲਤੀ ਰਿਪੋਰਟ ਤੁਹਾਡੀ ਸੈਟਿੰਗ ਦੇ ਆਧਾਰ ਤੇ ਸਵੈਚਲਿਤ ਤੌ"
-"ਰ ਤੇ ਦਰਜ ਕੀਤੀ ਗਈ ਹੈ."
+"ਇੱਕ ਤਰੁੱਟੀ ਲੱਭੀ ਗਈ ਹੈ ਅਤੇ ਇੱਕ ਗਲਤੀ ਰਿਪੋਰਟ ਤੁਹਾਡੀ ਸੈਟਿੰਗ ਦੇ ਆਧਾਰ ਤੇ ਸਵੈਚਲਿਤ ਤੌਰ ਤੇ ਦਰਜ ਕੀਤੀ "
+"ਗਈ ਹੈ."
 
 #: error_report.php:72
 msgid "Thank you for submitting this report."
@@ -366,9 +364,7 @@ msgstr "ਇਸ ਰਿਪੋਰਟ ਨੂੰ ਦਰਜ ਕਰਨ ਲਈ ਤੁਹ
 msgid ""
 "An error has been detected and an error report has been generated but failed "
 "to be sent."
-msgstr ""
-"ਇੱਕ ਤਰੁੱਟੀ ਲੱਭੀ ਗਈ ਹੈ ਅਤੇ ਇੱਕ ਗਲਤੀ ਰਿਪੋਰਟ ਤਿਆਰ ਕੀਤੀ ਗਈ ਹੈ ਪਰ ਭੇਜੀ ਜਾਣ ਵਿੱਚ "
-"ਅਸਫਲ."
+msgstr "ਇੱਕ ਤਰੁੱਟੀ ਲੱਭੀ ਗਈ ਹੈ ਅਤੇ ਇੱਕ ਗਲਤੀ ਰਿਪੋਰਟ ਤਿਆਰ ਕੀਤੀ ਗਈ ਹੈ ਪਰ ਭੇਜੀ ਜਾਣ ਵਿੱਚ ਅਸਫਲ."
 
 #: error_report.php:81
 msgid "If you experience any problems please submit a bug report manually."
@@ -486,7 +482,7 @@ msgstr "ਜੁਮੈਟਰੀ ਜੋੜੋ"
 #: libraries/server_privileges.lib.php:692
 #: libraries/server_privileges.lib.php:2194
 #: libraries/server_privileges.lib.php:3076
-#: libraries/server_user_groups.lib.php:285
+#: libraries/server_user_groups.lib.php:284
 #: libraries/sql_query_form.lib.php:373 libraries/sql_query_form.lib.php:435
 #: libraries/tracking.lib.php:544 libraries/tracking.lib.php:667
 #: prefs_manage.php:285 prefs_manage.php:369 server_privileges.php:307
@@ -513,8 +509,8 @@ msgid ""
 "Choose \"GeomFromText\" from the \"Function\" column and paste the string "
 "below into the \"Value\" field."
 msgstr ""
-"\"ਫੰਕਸ਼ਨ\" ਕਾਲਮ ਵਿਚੋਂ \"ਜੀਓਮਫਾਰਮ ਟੈਕਸਟ\" ਨੂੰ ਚੁਣੋ ਅਤੇ ਹੇਠਾਂ ਸਤਰ ਨੂੰ \"ਵੈਲਯੂ\""
-" ਫੀਲਡ ਵਿੱਚ ਪੇਸਟ ਕਰੋ."
+"\"ਫੰਕਸ਼ਨ\" ਕਾਲਮ ਵਿਚੋਂ \"ਜੀਓਮਫਾਰਮ ਟੈਕਸਟ\" ਨੂੰ ਚੁਣੋ ਅਤੇ ਹੇਠਾਂ ਸਤਰ ਨੂੰ \"ਵੈਲਯੂ\" ਫੀਲਡ ਵਿੱਚ ਪੇਸਟ "
+"ਕਰੋ."
 
 #: import.php:65
 msgid "Succeeded"
@@ -534,8 +530,8 @@ msgid ""
 "You probably tried to upload a file that is too large. Please refer to "
 "%sdocumentation%s for a workaround for this limit."
 msgstr ""
-"ਤੁਸੀਂ ਸ਼ਾਇਦ ਅਜਿਹੀ ਫਾਈਲ ਅਪਲੋਡ ਕਰਨ ਦੀ ਕੋਸ਼ਿਸ਼ ਕੀਤੀ ਹੈ ਜੋ ਬਹੁਤ ਵੱਡੀ ਹੈ ਕਿਰਪਾ "
-"ਕਰਕੇ ਇਸ ਸੀਮਾ %s ਦੇ ਲਈ ਇੱਕ ਅਲਗ ਅਲਗ ਲਈ %s ਦਸਤਾਵੇਜ਼ ਵੇਖੋ."
+"ਤੁਸੀਂ ਸ਼ਾਇਦ ਅਜਿਹੀ ਫਾਈਲ ਅਪਲੋਡ ਕਰਨ ਦੀ ਕੋਸ਼ਿਸ਼ ਕੀਤੀ ਹੈ ਜੋ ਬਹੁਤ ਵੱਡੀ ਹੈ ਕਿਰਪਾ ਕਰਕੇ ਇਸ ਸੀਮਾ %s "
+"ਦੇ ਲਈ ਇੱਕ ਅਲਗ ਅਲਗ ਲਈ %s ਦਸਤਾਵੇਜ਼ ਵੇਖੋ."
 
 #: import.php:367 import.php:568
 msgid "Showing bookmark"
@@ -551,9 +547,9 @@ msgid ""
 "file size exceeded the maximum size permitted by your PHP configuration. See "
 "[doc@faq1-16]FAQ 1.16[/doc]."
 msgstr ""
-"ਆਯਾਤ ਕਰਨ ਲਈ ਕੋਈ ਡੇਟਾ ਪ੍ਰਾਪਤ ਨਹੀਂ ਹੋਇਆ ਸੀ ਜਾਂ ਤਾਂ ਕੋਈ ਫਾਈਲ ਨਾਮ ਪ੍ਰਸਤੁਤ ਨਹੀਂ "
-"ਕੀਤਾ ਗਿਆ ਸੀ, ਜਾਂ ਫਾਈਲ ਅਕਾਰ ਤੁਹਾਡੇ PHP ਕੌਂਫਿਗਰੇਸ਼ਨ ਦੁਆਰਾ ਅਨੁਚਿਤ ਅਧਿਕਤਮ ਅਕਾਰ "
-"ਤੋਂ ਵੱਧ ਗਿਆ ਹੈ. [doc@faq1-16] ਦੇਖੋ [/doc]ਦੇਖੋ."
+"ਆਯਾਤ ਕਰਨ ਲਈ ਕੋਈ ਡੇਟਾ ਪ੍ਰਾਪਤ ਨਹੀਂ ਹੋਇਆ ਸੀ ਜਾਂ ਤਾਂ ਕੋਈ ਫਾਈਲ ਨਾਮ ਪ੍ਰਸਤੁਤ ਨਹੀਂ ਕੀਤਾ ਗਿਆ ਸੀ, "
+"ਜਾਂ ਫਾਈਲ ਅਕਾਰ ਤੁਹਾਡੇ PHP ਕੌਂਫਿਗਰੇਸ਼ਨ ਦੁਆਰਾ ਅਨੁਚਿਤ ਅਧਿਕਤਮ ਅਕਾਰ ਤੋਂ ਵੱਧ ਗਿਆ ਹੈ. "
+"[doc@faq1-16] ਦੇਖੋ [/doc]ਦੇਖੋ."
 
 #: import.php:529 libraries/display_import.lib.php:665
 msgid "Could not load import plugins, please check your installation!"
@@ -2864,28 +2860,28 @@ msgstr ""
 msgid "Failed formatting string for rule '%s'."
 msgstr ""
 
-#: libraries/Advisor.php:469
+#: libraries/Advisor.php:486
 #, php-format
 msgid "Error in reading file: The file '%s' does not exist or is not readable!"
 msgstr ""
 
-#: libraries/Advisor.php:494
+#: libraries/Advisor.php:511
 #, php-format
 msgid ""
 "Invalid rule declaration on line %1$s, expected line %2$s of previous rule."
 msgstr ""
 
-#: libraries/Advisor.php:513
+#: libraries/Advisor.php:530
 #, php-format
 msgid "Invalid rule declaration on line %s."
 msgstr ""
 
-#: libraries/Advisor.php:521
+#: libraries/Advisor.php:538
 #, php-format
 msgid "Unexpected characters on line %s."
 msgstr ""
 
-#: libraries/Advisor.php:536
+#: libraries/Advisor.php:553
 #, php-format
 msgid "Unexpected character on line %1$s. Expected tab, but found \"%2$s\"."
 msgstr ""
@@ -2910,7 +2906,7 @@ msgid "Collation"
 msgstr ""
 
 #: libraries/Charsets.php:244
-msgid "Unknonwn"
+msgid "Unknown"
 msgstr ""
 
 #: libraries/Charsets.php:258
@@ -3819,7 +3815,7 @@ msgstr ""
 msgid "Click on the bar to scroll to top of page"
 msgstr ""
 
-#: libraries/Header.php:756 libraries/plugins/auth/AuthenticationCookie.php:152
+#: libraries/Header.php:758 libraries/plugins/auth/AuthenticationCookie.php:152
 msgid "Javascript must be enabled past this point!"
 msgstr ""
 
@@ -4428,7 +4424,7 @@ msgstr ""
 msgid "Default theme %s not found!"
 msgstr ""
 
-#: libraries/ThemeManager.php:204
+#: libraries/ThemeManager.php:203
 #, php-format
 msgid "Theme %s not found!"
 msgstr ""
@@ -4966,11 +4962,11 @@ msgstr ""
 msgid "Server %d"
 msgstr ""
 
-#: libraries/common.inc.php:654
+#: libraries/common.inc.php:656
 msgid "Invalid authentication method set in configuration:"
 msgstr ""
 
-#: libraries/common.inc.php:758
+#: libraries/common.inc.php:760
 #, php-format
 msgid ""
 "Unable to use timezone %1$s for server %2$d. Please check your configuration "
@@ -4978,20 +4974,20 @@ msgid ""
 "currently using the default time zone of the database server."
 msgstr ""
 
-#: libraries/common.inc.php:796
+#: libraries/common.inc.php:798
 #, php-format
 msgid "You should upgrade to %s %s or later."
 msgstr ""
 
-#: libraries/common.inc.php:882
+#: libraries/common.inc.php:884
 msgid "Error: Token mismatch"
 msgstr ""
 
-#: libraries/common.inc.php:900
+#: libraries/common.inc.php:902
 msgid "GLOBALS overwrite attempt"
 msgstr ""
 
-#: libraries/common.inc.php:907
+#: libraries/common.inc.php:909
 msgid "possible exploit"
 msgstr ""
 
@@ -12750,15 +12746,15 @@ msgstr ""
 msgid "Group name:"
 msgstr ""
 
-#: libraries/server_user_groups.lib.php:272
+#: libraries/server_user_groups.lib.php:271
 msgid "Server-level tabs"
 msgstr ""
 
-#: libraries/server_user_groups.lib.php:275
+#: libraries/server_user_groups.lib.php:274
 msgid "Database-level tabs"
 msgstr ""
 
-#: libraries/server_user_groups.lib.php:278
+#: libraries/server_user_groups.lib.php:277
 msgid "Table-level tabs"
 msgstr ""
 

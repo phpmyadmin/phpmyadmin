@@ -1,13 +1,13 @@
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: phpMyAdmin 4.7.3-dev\n"
+"Project-Id-Version: phpMyAdmin 4.7.4-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
-"POT-Creation-Date: 2017-07-18 13:29+0200\n"
+"POT-Creation-Date: 2017-08-10 09:13-0400\n"
 "PO-Revision-Date: 2017-08-05 10:41+0000\n"
 "Last-Translator: Kristoffer <stof2001@gmail.com>\n"
-"Language-Team: Danish "
-"<https://hosted.weblate.org/projects/phpmyadmin/4-7/da/>\n"
+"Language-Team: Danish <https://hosted.weblate.org/projects/phpmyadmin/4-7/da/"
+">\n"
 "Language: da\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -486,7 +486,7 @@ msgstr "Tilføj geometri"
 #: libraries/server_privileges.lib.php:692
 #: libraries/server_privileges.lib.php:2194
 #: libraries/server_privileges.lib.php:3076
-#: libraries/server_user_groups.lib.php:285
+#: libraries/server_user_groups.lib.php:284
 #: libraries/sql_query_form.lib.php:373 libraries/sql_query_form.lib.php:435
 #: libraries/tracking.lib.php:544 libraries/tracking.lib.php:667
 #: prefs_manage.php:285 prefs_manage.php:369 server_privileges.php:307
@@ -2584,9 +2584,9 @@ msgstr ""
 "Der var et problem med at tilgå din browsers lager. Nogle funktioner kan "
 "derfor ikke virke for dig. Det er sandsynligt, at browseren ikke "
 "understøtter lager eller at grænsen for lager er nået. I Firefox kan ødelagt "
-"lager også forårsage et sådant problem. Det kan hjælpe at slette dit \""
-"Offline webindhold\". I Safari, er sådanne problemer ofte forårsaget af \""
-"Private Mode Browsing\". "
+"lager også forårsage et sådant problem. Det kan hjælpe at slette dit "
+"\"Offline webindhold\". I Safari, er sådanne problemer ofte forårsaget af "
+"\"Private Mode Browsing\". "
 
 #: js/messages.php:730
 msgid "Copy tables to"
@@ -2979,13 +2979,13 @@ msgstr "Mislykkedes med at afvikle test for reglen '%s'."
 msgid "Failed formatting string for rule '%s'."
 msgstr "Mislykkedes med at formatere streng for reglen '%s'."
 
-#: libraries/Advisor.php:469
+#: libraries/Advisor.php:486
 #, php-format
 msgid "Error in reading file: The file '%s' does not exist or is not readable!"
 msgstr ""
 "Fejl ved læsning af fil: Filen '%s' eksisterer ikke eller er ikke læsbar!"
 
-#: libraries/Advisor.php:494
+#: libraries/Advisor.php:511
 #, php-format
 msgid ""
 "Invalid rule declaration on line %1$s, expected line %2$s of previous rule."
@@ -2993,17 +2993,17 @@ msgstr ""
 "Ugyldig regel-deklaration på linje %1$s, forventede linje %2$s fra forrige "
 "regel."
 
-#: libraries/Advisor.php:513
+#: libraries/Advisor.php:530
 #, php-format
 msgid "Invalid rule declaration on line %s."
 msgstr "Ugyldig regel-deklaration på linie %s."
 
-#: libraries/Advisor.php:521
+#: libraries/Advisor.php:538
 #, php-format
 msgid "Unexpected characters on line %s."
 msgstr "Uventet tegn på linje %s."
 
-#: libraries/Advisor.php:536
+#: libraries/Advisor.php:553
 #, php-format
 msgid "Unexpected character on line %1$s. Expected tab, but found \"%2$s\"."
 msgstr "Uventet tegn på linje %1$s. Forventede tabulering, men fandt \"%2$s\"."
@@ -3029,8 +3029,9 @@ msgstr "Tegnsæt (sortering)"
 
 #: libraries/Charsets.php:244
 #, fuzzy
-#| msgid "unknown"
-msgid "Unknonwn"
+#| msgctxt "Collation"
+#| msgid "Unknown"
+msgid "Unknown"
 msgstr "ukendt"
 
 #: libraries/Charsets.php:258
@@ -3966,7 +3967,7 @@ msgstr "Udskriv"
 msgid "Click on the bar to scroll to top of page"
 msgstr "Klik på bjælken for at rulle til sidens top"
 
-#: libraries/Header.php:756 libraries/plugins/auth/AuthenticationCookie.php:152
+#: libraries/Header.php:758 libraries/plugins/auth/AuthenticationCookie.php:152
 msgid "Javascript must be enabled past this point!"
 msgstr "Herefter skal JavaScript være slået til!"
 
@@ -4580,7 +4581,7 @@ msgstr "vælg dette"
 msgid "Default theme %s not found!"
 msgstr "Standardtema %s ikke fundet!"
 
-#: libraries/ThemeManager.php:204
+#: libraries/ThemeManager.php:203
 #, php-format
 msgid "Theme %s not found!"
 msgstr "Tema %s ikke fundet!"
@@ -5188,11 +5189,11 @@ msgstr "Server indekset %s er ugyldigt"
 msgid "Server %d"
 msgstr "Server %d"
 
-#: libraries/common.inc.php:654
+#: libraries/common.inc.php:656
 msgid "Invalid authentication method set in configuration:"
 msgstr "Ugyldig autorisationsmetode sat i konfiguration:"
 
-#: libraries/common.inc.php:758
+#: libraries/common.inc.php:760
 #, php-format
 msgid ""
 "Unable to use timezone %1$s for server %2$d. Please check your configuration "
@@ -5203,20 +5204,20 @@ msgstr ""
 "konfigurationsindstilling for [em]$cfg['Servers'][%3$d]['SessionTimeZone'][/"
 "em]. phpMyAdmin anvender i øjeblikket databaseserverens standardtidszone."
 
-#: libraries/common.inc.php:796
+#: libraries/common.inc.php:798
 #, php-format
 msgid "You should upgrade to %s %s or later."
 msgstr "Du burde opdatere til %s %s eller senere."
 
-#: libraries/common.inc.php:882
+#: libraries/common.inc.php:884
 msgid "Error: Token mismatch"
 msgstr "Fejl: Token uoverensstemmelse"
 
-#: libraries/common.inc.php:900
+#: libraries/common.inc.php:902
 msgid "GLOBALS overwrite attempt"
 msgstr "forsøg på overskrivning af GLOBALS"
 
-#: libraries/common.inc.php:907
+#: libraries/common.inc.php:909
 msgid "possible exploit"
 msgstr "muligt sikkerhedshul"
 
@@ -13824,15 +13825,15 @@ msgstr "Menu-tildelinger for brugergruppe"
 msgid "Group name:"
 msgstr "Gruppenavn:"
 
-#: libraries/server_user_groups.lib.php:272
+#: libraries/server_user_groups.lib.php:271
 msgid "Server-level tabs"
 msgstr "Faner på serverniveau"
 
-#: libraries/server_user_groups.lib.php:275
+#: libraries/server_user_groups.lib.php:274
 msgid "Database-level tabs"
 msgstr "Faner på databaseniveau"
 
-#: libraries/server_user_groups.lib.php:278
+#: libraries/server_user_groups.lib.php:277
 msgid "Table-level tabs"
 msgstr "Faner på tabelniveau"
 
@@ -17274,6 +17275,11 @@ msgstr ""
 #: libraries/advisory_rules.txt:446
 msgid "concurrent_insert is set to 0"
 msgstr "concurrent_insert er sat til 0"
+
+#, fuzzy
+#~| msgid "unknown"
+#~ msgid "Unknonwn"
+#~ msgstr "ukendt"
 
 #, fuzzy
 #~| msgid "Right"

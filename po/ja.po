@@ -1,13 +1,13 @@
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: phpMyAdmin 4.7.3-dev\n"
+"Project-Id-Version: phpMyAdmin 4.7.4-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
-"POT-Creation-Date: 2017-07-18 13:29+0200\n"
+"POT-Creation-Date: 2017-08-10 09:13-0400\n"
 "PO-Revision-Date: 2017-07-23 07:19+0000\n"
 "Last-Translator: worldwideskier <worldwideskier@yahoo.co.jp>\n"
-"Language-Team: Japanese "
-"<https://hosted.weblate.org/projects/phpmyadmin/4-7/ja/>\n"
+"Language-Team: Japanese <https://hosted.weblate.org/projects/phpmyadmin/4-7/"
+"ja/>\n"
 "Language: ja\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -480,7 +480,7 @@ msgstr "幾何データを追加する"
 #: libraries/server_privileges.lib.php:692
 #: libraries/server_privileges.lib.php:2194
 #: libraries/server_privileges.lib.php:3076
-#: libraries/server_user_groups.lib.php:285
+#: libraries/server_user_groups.lib.php:284
 #: libraries/sql_query_form.lib.php:373 libraries/sql_query_form.lib.php:435
 #: libraries/tracking.lib.php:544 libraries/tracking.lib.php:667
 #: prefs_manage.php:285 prefs_manage.php:369 server_privileges.php:307
@@ -601,7 +601,9 @@ msgstr "戻る"
 msgid ""
 "You were logged out from one server, to logout completely from phpMyAdmin, "
 "you need to logout from all servers."
-msgstr "あるサーバからログアウトされました。phpMyAdminから完全にログアウトするためには、全てのサーバからログアウトする必要があります。"
+msgstr ""
+"あるサーバからログアウトされました。phpMyAdminから完全にログアウトするために"
+"は、全てのサーバからログアウトする必要があります。"
 
 #: index.php:160 libraries/Footer.php:69
 msgid "phpMyAdmin Demo Server"
@@ -2987,28 +2989,28 @@ msgstr "事象名「%s」において、判断の判定に失敗しました。"
 msgid "Failed formatting string for rule '%s'."
 msgstr "事象名「%s」において、表示書式の形成に失敗しました。"
 
-#: libraries/Advisor.php:469
+#: libraries/Advisor.php:486
 #, php-format
 msgid "Error in reading file: The file '%s' does not exist or is not readable!"
 msgstr ""
 
-#: libraries/Advisor.php:494
+#: libraries/Advisor.php:511
 #, php-format
 msgid ""
 "Invalid rule declaration on line %1$s, expected line %2$s of previous rule."
 msgstr ""
 
-#: libraries/Advisor.php:513
+#: libraries/Advisor.php:530
 #, php-format
 msgid "Invalid rule declaration on line %s."
 msgstr "無効な事象定義がありました (行: %s)。"
 
-#: libraries/Advisor.php:521
+#: libraries/Advisor.php:538
 #, php-format
 msgid "Unexpected characters on line %s."
 msgstr "予期しない文字 (行: %s)。"
 
-#: libraries/Advisor.php:536
+#: libraries/Advisor.php:553
 #, php-format
 msgid "Unexpected character on line %1$s. Expected tab, but found \"%2$s\"."
 msgstr ""
@@ -3036,7 +3038,7 @@ msgstr "照合順序"
 #: libraries/Charsets.php:244
 #, fuzzy
 #| msgid "unknown"
-msgid "Unknonwn"
+msgid "Unknown"
 msgstr "不明"
 
 #: libraries/Charsets.php:258
@@ -4029,7 +4031,7 @@ msgstr "印刷用画面"
 msgid "Click on the bar to scroll to top of page"
 msgstr "バーをクリックしてページ上部にスクロール"
 
-#: libraries/Header.php:756 libraries/plugins/auth/AuthenticationCookie.php:152
+#: libraries/Header.php:758 libraries/plugins/auth/AuthenticationCookie.php:152
 msgid "Javascript must be enabled past this point!"
 msgstr "Javascript を有効にしてください！"
 
@@ -4672,7 +4674,7 @@ msgstr "これにする"
 msgid "Default theme %s not found!"
 msgstr "デフォルトテーマ %s が見つかりません!"
 
-#: libraries/ThemeManager.php:204
+#: libraries/ThemeManager.php:203
 #, php-format
 msgid "Theme %s not found!"
 msgstr "テーマ %s が見つかりません!"
@@ -5290,11 +5292,11 @@ msgstr "サーバのインデックスが不正です: %s"
 msgid "Server %d"
 msgstr "サーバ"
 
-#: libraries/common.inc.php:654
+#: libraries/common.inc.php:656
 msgid "Invalid authentication method set in configuration:"
 msgstr "設定ファイルに無効な認証方法が指定されています:"
 
-#: libraries/common.inc.php:758
+#: libraries/common.inc.php:760
 #, php-format
 msgid ""
 "Unable to use timezone %1$s for server %2$d. Please check your configuration "
@@ -5302,20 +5304,20 @@ msgid ""
 "currently using the default time zone of the database server."
 msgstr ""
 
-#: libraries/common.inc.php:796
+#: libraries/common.inc.php:798
 #, php-format
 msgid "You should upgrade to %s %s or later."
 msgstr "%s を %s 以降にアップグレードしてください。"
 
-#: libraries/common.inc.php:882
+#: libraries/common.inc.php:884
 msgid "Error: Token mismatch"
 msgstr "エラー: トークンが一致しません"
 
-#: libraries/common.inc.php:900
+#: libraries/common.inc.php:902
 msgid "GLOBALS overwrite attempt"
 msgstr "GLOBALS 変数が書き換えられている可能性があります"
 
-#: libraries/common.inc.php:907
+#: libraries/common.inc.php:909
 msgid "possible exploit"
 msgstr "なんらかの攻撃をされている可能性があります"
 
@@ -14621,19 +14623,19 @@ msgstr "特権はありません。"
 msgid "Group name:"
 msgstr "カラム名: "
 
-#: libraries/server_user_groups.lib.php:272
+#: libraries/server_user_groups.lib.php:271
 #, fuzzy
 #| msgid "Server version"
 msgid "Server-level tabs"
 msgstr "サーバのバージョン"
 
-#: libraries/server_user_groups.lib.php:275
+#: libraries/server_user_groups.lib.php:274
 #, fuzzy
 #| msgid "Database server"
 msgid "Database-level tabs"
 msgstr "データベースサーバ"
 
-#: libraries/server_user_groups.lib.php:278
+#: libraries/server_user_groups.lib.php:277
 #, fuzzy
 #| msgid "Table removal"
 msgid "Table-level tabs"
@@ -18329,6 +18331,11 @@ msgstr ""
 #: libraries/advisory_rules.txt:446
 msgid "concurrent_insert is set to 0"
 msgstr "concurrent_insert は 0 に設定されています"
+
+#, fuzzy
+#~| msgid "unknown"
+#~ msgid "Unknonwn"
+#~ msgstr "不明"
 
 #, fuzzy
 #~| msgid "Right"

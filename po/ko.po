@@ -1,13 +1,13 @@
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: phpMyAdmin 4.7.3-dev\n"
+"Project-Id-Version: phpMyAdmin 4.7.4-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
-"POT-Creation-Date: 2017-07-18 13:29+0200\n"
+"POT-Creation-Date: 2017-08-10 09:13-0400\n"
 "PO-Revision-Date: 2017-08-04 05:34+0000\n"
 "Last-Translator: Yong Kim (Neatnet) <neatnet@gmail.com>\n"
-"Language-Team: Korean "
-"<https://hosted.weblate.org/projects/phpmyadmin/4-7/ko/>\n"
+"Language-Team: Korean <https://hosted.weblate.org/projects/phpmyadmin/4-7/ko/"
+">\n"
 "Language: ko\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -479,7 +479,7 @@ msgstr "공간 데이터를 추가"
 #: libraries/server_privileges.lib.php:692
 #: libraries/server_privileges.lib.php:2194
 #: libraries/server_privileges.lib.php:3076
-#: libraries/server_user_groups.lib.php:285
+#: libraries/server_user_groups.lib.php:284
 #: libraries/sql_query_form.lib.php:373 libraries/sql_query_form.lib.php:435
 #: libraries/tracking.lib.php:544 libraries/tracking.lib.php:667
 #: prefs_manage.php:285 prefs_manage.php:369 server_privileges.php:307
@@ -2935,28 +2935,28 @@ msgstr "규칙 '%s'에 대한 테스트를 실행 못 함."
 msgid "Failed formatting string for rule '%s'."
 msgstr "규칙 '%s'를 변환하는데 실패했습니다."
 
-#: libraries/Advisor.php:469
+#: libraries/Advisor.php:486
 #, php-format
 msgid "Error in reading file: The file '%s' does not exist or is not readable!"
 msgstr "파일 읽기 오류: 파일 '%s'는 존재하지 않거나 읽을 수 없는 상태입니다!"
 
-#: libraries/Advisor.php:494
+#: libraries/Advisor.php:511
 #, php-format
 msgid ""
 "Invalid rule declaration on line %1$s, expected line %2$s of previous rule."
 msgstr "%1$s 행의 규칙이 잘못됨, 이전 규칙의 %2$s 행일 수 있음."
 
-#: libraries/Advisor.php:513
+#: libraries/Advisor.php:530
 #, php-format
 msgid "Invalid rule declaration on line %s."
 msgstr "%s 행에 잘못된 규칙 선언."
 
-#: libraries/Advisor.php:521
+#: libraries/Advisor.php:538
 #, php-format
 msgid "Unexpected characters on line %s."
 msgstr "%s 라인에 알 수 없는 문자가 있습니다."
 
-#: libraries/Advisor.php:536
+#: libraries/Advisor.php:553
 #, php-format
 msgid "Unexpected character on line %1$s. Expected tab, but found \"%2$s\"."
 msgstr ""
@@ -2985,7 +2985,7 @@ msgstr "데이터정렬방식"
 #: libraries/Charsets.php:244
 #, fuzzy
 #| msgid "unknown"
-msgid "Unknonwn"
+msgid "Unknown"
 msgstr "알수없음"
 
 #: libraries/Charsets.php:258
@@ -3917,7 +3917,7 @@ msgstr "인쇄용 보기"
 msgid "Click on the bar to scroll to top of page"
 msgstr "클릭하여 페이지 상단으로 이동"
 
-#: libraries/Header.php:756 libraries/plugins/auth/AuthenticationCookie.php:152
+#: libraries/Header.php:758 libraries/plugins/auth/AuthenticationCookie.php:152
 msgid "Javascript must be enabled past this point!"
 msgstr "이 페이지를 넘기려면 Javascript 사용을 허용해야 합니다!"
 
@@ -4520,7 +4520,7 @@ msgstr "사용하기"
 msgid "Default theme %s not found!"
 msgstr "기본 테마 %s (을)를 찾을 수 없음!"
 
-#: libraries/ThemeManager.php:204
+#: libraries/ThemeManager.php:203
 #, php-format
 msgid "Theme %s not found!"
 msgstr "%s 테마를 찾을 수 없음!"
@@ -5113,35 +5113,35 @@ msgstr "잘못된 서버 인덱스: %s"
 msgid "Server %d"
 msgstr "서버 %d"
 
-#: libraries/common.inc.php:654
+#: libraries/common.inc.php:656
 msgid "Invalid authentication method set in configuration:"
 msgstr "설정 파일에 잘못된 인증 방식 설정되어 있습니다.:"
 
-#: libraries/common.inc.php:758
+#: libraries/common.inc.php:760
 #, php-format
 msgid ""
 "Unable to use timezone %1$s for server %2$d. Please check your configuration "
 "setting for [em]$cfg['Servers'][%3$d]['SessionTimeZone'][/em]. phpMyAdmin is "
 "currently using the default time zone of the database server."
 msgstr ""
-"%2$d 서버에 대해 %1$s 시간대를 사용할 수 없습니다. "
-"[em]$cfg['Servers'][%3$d]['SessionTimeZone'][/em] 설정을 확인해 주십시오. phpMyAdmin 은 "
-"현재 데이터베이스 서버의 기본 시간대 설정을 사용하고 있습니다."
+"%2$d 서버에 대해 %1$s 시간대를 사용할 수 없습니다. [em]$cfg['Servers'][%3$d]"
+"['SessionTimeZone'][/em] 설정을 확인해 주십시오. phpMyAdmin 은 현재 데이터베"
+"이스 서버의 기본 시간대 설정을 사용하고 있습니다."
 
-#: libraries/common.inc.php:796
+#: libraries/common.inc.php:798
 #, php-format
 msgid "You should upgrade to %s %s or later."
 msgstr "%s를 %s 이상으로 업그레이드 하십시오."
 
-#: libraries/common.inc.php:882
+#: libraries/common.inc.php:884
 msgid "Error: Token mismatch"
 msgstr "오류: 토큰 불일치"
 
-#: libraries/common.inc.php:900
+#: libraries/common.inc.php:902
 msgid "GLOBALS overwrite attempt"
 msgstr "GLOBALS 덮어쓰기 시도"
 
-#: libraries/common.inc.php:907
+#: libraries/common.inc.php:909
 msgid "possible exploit"
 msgstr "어떤 공격을 받고있을 가능성이 있습니다"
 
@@ -13391,19 +13391,19 @@ msgstr "권한 없음."
 msgid "Group name:"
 msgstr "그룹명:"
 
-#: libraries/server_user_groups.lib.php:272
+#: libraries/server_user_groups.lib.php:271
 #, fuzzy
 #| msgid "Server version"
 msgid "Server-level tabs"
 msgstr "서버 버전"
 
-#: libraries/server_user_groups.lib.php:275
+#: libraries/server_user_groups.lib.php:274
 #, fuzzy
 #| msgid "Database server"
 msgid "Database-level tabs"
 msgstr "데이터베이스 서버"
 
-#: libraries/server_user_groups.lib.php:278
+#: libraries/server_user_groups.lib.php:277
 #, fuzzy
 #| msgid "Table comments"
 msgid "Table-level tabs"
@@ -16767,6 +16767,11 @@ msgstr ""
 #: libraries/advisory_rules.txt:446
 msgid "concurrent_insert is set to 0"
 msgstr "concurrent_insert가 0으로 설정되었습니다"
+
+#, fuzzy
+#~| msgid "unknown"
+#~ msgid "Unknonwn"
+#~ msgstr "알수없음"
 
 #, fuzzy
 #~| msgid "Right"

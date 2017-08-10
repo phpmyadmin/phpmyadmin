@@ -1,9 +1,9 @@
 # Automatically generated <>, 2010.
 msgid ""
 msgstr ""
-"Project-Id-Version: phpMyAdmin 4.7.3-dev\n"
+"Project-Id-Version: phpMyAdmin 4.7.4-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
-"POT-Creation-Date: 2017-07-18 13:29+0200\n"
+"POT-Creation-Date: 2017-08-10 09:13-0400\n"
 "PO-Revision-Date: 2017-07-17 09:05+0000\n"
 "Last-Translator: Xavier Navarro <xvnavarro@gmail.com>\n"
 "Language-Team: Catalan <https://hosted.weblate.org/projects/phpmyadmin/4-7/"
@@ -485,7 +485,7 @@ msgstr "Afegir geometria"
 #: libraries/server_privileges.lib.php:692
 #: libraries/server_privileges.lib.php:2194
 #: libraries/server_privileges.lib.php:3076
-#: libraries/server_user_groups.lib.php:285
+#: libraries/server_user_groups.lib.php:284
 #: libraries/sql_query_form.lib.php:373 libraries/sql_query_form.lib.php:435
 #: libraries/tracking.lib.php:544 libraries/tracking.lib.php:667
 #: prefs_manage.php:285 prefs_manage.php:369 server_privileges.php:307
@@ -2988,12 +2988,12 @@ msgstr "Ha fallat l'execució de la prova per la regla '%s'."
 msgid "Failed formatting string for rule '%s'."
 msgstr "Error de format de cadena per a la regla '%s'."
 
-#: libraries/Advisor.php:469
+#: libraries/Advisor.php:486
 #, php-format
 msgid "Error in reading file: The file '%s' does not exist or is not readable!"
 msgstr "Error llegint arxiu: L'arxiu '%s 1' no existeix o bé no es pot llegir!"
 
-#: libraries/Advisor.php:494
+#: libraries/Advisor.php:511
 #, php-format
 msgid ""
 "Invalid rule declaration on line %1$s, expected line %2$s of previous rule."
@@ -3001,17 +3001,17 @@ msgstr ""
 "Declaració regla no vàlida a la línia %1$s, s'esperava la línia %2$s de la "
 "regla anterior."
 
-#: libraries/Advisor.php:513
+#: libraries/Advisor.php:530
 #, php-format
 msgid "Invalid rule declaration on line %s."
 msgstr "Declaració incorrecta de regla a la línia %s."
 
-#: libraries/Advisor.php:521
+#: libraries/Advisor.php:538
 #, php-format
 msgid "Unexpected characters on line %s."
 msgstr "Caràcters no esperats en la línia %s."
 
-#: libraries/Advisor.php:536
+#: libraries/Advisor.php:553
 #, php-format
 msgid "Unexpected character on line %1$s. Expected tab, but found \"%2$s\"."
 msgstr ""
@@ -3038,7 +3038,10 @@ msgid "Collation"
 msgstr "Ordenació"
 
 #: libraries/Charsets.php:244
-msgid "Unknonwn"
+#, fuzzy
+#| msgctxt "Collation"
+#| msgid "Unknown"
+msgid "Unknown"
 msgstr "Desconegut"
 
 #: libraries/Charsets.php:258
@@ -3901,7 +3904,7 @@ msgstr "Imprimeix vista"
 msgid "Click on the bar to scroll to top of page"
 msgstr "Feu clic a la barra per desplaçar-se al principi d'aquesta pàgina"
 
-#: libraries/Header.php:756 libraries/plugins/auth/AuthenticationCookie.php:152
+#: libraries/Header.php:758 libraries/plugins/auth/AuthenticationCookie.php:152
 msgid "Javascript must be enabled past this point!"
 msgstr "A partir d'aquest punt és necessari tenir el javascript activat!"
 
@@ -4516,7 +4519,7 @@ msgstr "agafa"
 msgid "Default theme %s not found!"
 msgstr "Tema per defecte %s no trobat!"
 
-#: libraries/ThemeManager.php:204
+#: libraries/ThemeManager.php:203
 #, php-format
 msgid "Theme %s not found!"
 msgstr "Tema %s no trobat!"
@@ -5130,11 +5133,11 @@ msgstr "Index de servidor invàlid: %s"
 msgid "Server %d"
 msgstr "Servidor %d"
 
-#: libraries/common.inc.php:654
+#: libraries/common.inc.php:656
 msgid "Invalid authentication method set in configuration:"
 msgstr "Mètode d'identificació incorrecte establert a la configuració:"
 
-#: libraries/common.inc.php:758
+#: libraries/common.inc.php:760
 #, php-format
 msgid ""
 "Unable to use timezone %1$s for server %2$d. Please check your configuration "
@@ -5146,20 +5149,20 @@ msgstr ""
 "phpMyAdmin fa servir actualment el fus horari per defecte del servidor de "
 "base de dades."
 
-#: libraries/common.inc.php:796
+#: libraries/common.inc.php:798
 #, php-format
 msgid "You should upgrade to %s %s or later."
 msgstr "Es necessari actualitzar a %s %s o posterior."
 
-#: libraries/common.inc.php:882
+#: libraries/common.inc.php:884
 msgid "Error: Token mismatch"
 msgstr "Error: No coincideix un «token»"
 
-#: libraries/common.inc.php:900
+#: libraries/common.inc.php:902
 msgid "GLOBALS overwrite attempt"
 msgstr "intent de sobreescriure la variable GLOBALS"
 
-#: libraries/common.inc.php:907
+#: libraries/common.inc.php:909
 msgid "possible exploit"
 msgstr "possible aprofitament"
 
@@ -13664,15 +13667,15 @@ msgstr "Menu d'assignacions de grup d'usuaris"
 msgid "Group name:"
 msgstr "Nom de grup:"
 
-#: libraries/server_user_groups.lib.php:272
+#: libraries/server_user_groups.lib.php:271
 msgid "Server-level tabs"
 msgstr "Pestanyes a nivell de servidor"
 
-#: libraries/server_user_groups.lib.php:275
+#: libraries/server_user_groups.lib.php:274
 msgid "Database-level tabs"
 msgstr "Pestanyes a nivell de base de dades"
 
-#: libraries/server_user_groups.lib.php:278
+#: libraries/server_user_groups.lib.php:277
 msgid "Table-level tabs"
 msgstr "Pestanyes a nivell de taula"
 
@@ -17009,6 +17012,9 @@ msgstr ""
 #: libraries/advisory_rules.txt:446
 msgid "concurrent_insert is set to 0"
 msgstr "{concurrent_insert} està establert a 0"
+
+#~ msgid "Unknonwn"
+#~ msgstr "Desconegut"
 
 #, fuzzy
 #~| msgid "Right"

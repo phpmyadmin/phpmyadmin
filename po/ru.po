@@ -1,19 +1,19 @@
 # Automatically generated <>, 2010.
 msgid ""
 msgstr ""
-"Project-Id-Version: phpMyAdmin 4.7.3-dev\n"
+"Project-Id-Version: phpMyAdmin 4.7.4-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
-"POT-Creation-Date: 2017-07-18 13:29+0200\n"
+"POT-Creation-Date: 2017-08-10 09:13-0400\n"
 "PO-Revision-Date: 2017-07-22 13:14+0000\n"
 "Last-Translator: Василий <xaker32bit@yandex.ru>\n"
-"Language-Team: Russian "
-"<https://hosted.weblate.org/projects/phpmyadmin/4-7/ru/>\n"
+"Language-Team: Russian <https://hosted.weblate.org/projects/phpmyadmin/4-7/"
+"ru/>\n"
 "Language: ru\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=3; plural=n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%10<="
-"4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
+"Plural-Forms: nplurals=3; plural=n%10==1 && n%100!=11 ? 0 : n%10>=2 && n"
+"%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
 "X-Generator: Weblate 2.16-dev\n"
 
 #: ajax.php:16 ajax.php:33 export.php:192 schema_export.php:64
@@ -28,7 +28,8 @@ msgstr "Ошибочный тип!"
 msgid ""
 "The %s file is not available on this system, please visit %s for more "
 "information."
-msgstr "Файл %s не найден. Вся дополнительная информация находится на сайте %s."
+msgstr ""
+"Файл %s не найден. Вся дополнительная информация находится на сайте %s."
 
 #: db_central_columns.php:108
 msgid "The central list of columns for the current database is empty."
@@ -480,7 +481,7 @@ msgstr "Добавить геометрию"
 #: libraries/server_privileges.lib.php:692
 #: libraries/server_privileges.lib.php:2194
 #: libraries/server_privileges.lib.php:3076
-#: libraries/server_user_groups.lib.php:285
+#: libraries/server_user_groups.lib.php:284
 #: libraries/sql_query_form.lib.php:373 libraries/sql_query_form.lib.php:435
 #: libraries/tracking.lib.php:544 libraries/tracking.lib.php:667
 #: prefs_manage.php:285 prefs_manage.php:369 server_privileges.php:307
@@ -2972,13 +2973,13 @@ msgstr "Не удалось запустить проверку правила '
 msgid "Failed formatting string for rule '%s'."
 msgstr "Не удалось форматировать строку для правила '%s'."
 
-#: libraries/Advisor.php:469
+#: libraries/Advisor.php:486
 #, fuzzy, php-format
 msgid "Error in reading file: The file '%s' does not exist or is not readable!"
 msgstr ""
 "Ошибка чтения файла: Файл '%s' не существует или не доступен для чтения!"
 
-#: libraries/Advisor.php:494
+#: libraries/Advisor.php:511
 #, php-format
 msgid ""
 "Invalid rule declaration on line %1$s, expected line %2$s of previous rule."
@@ -2986,17 +2987,17 @@ msgstr ""
 "Неверное определение правила на строке %1$s, ожидается строка %2$s "
 "предыдущего правила."
 
-#: libraries/Advisor.php:513
+#: libraries/Advisor.php:530
 #, php-format
 msgid "Invalid rule declaration on line %s."
 msgstr "Неверное определение правила на строке %s."
 
-#: libraries/Advisor.php:521
+#: libraries/Advisor.php:538
 #, php-format
 msgid "Unexpected characters on line %s."
 msgstr "Неожиданные символы на строке %s."
 
-#: libraries/Advisor.php:536
+#: libraries/Advisor.php:553
 #, php-format
 msgid "Unexpected character on line %1$s. Expected tab, but found \"%2$s\"."
 msgstr ""
@@ -3025,7 +3026,7 @@ msgstr "Сравнение"
 #: libraries/Charsets.php:244
 #, fuzzy
 #| msgid "unknown"
-msgid "Unknonwn"
+msgid "Unknown"
 msgstr "неизвестно"
 
 #: libraries/Charsets.php:258
@@ -3999,7 +4000,7 @@ msgstr "Версия для печати"
 msgid "Click on the bar to scroll to top of page"
 msgstr "Кликните на строку, чтобы перейти вверх страницы"
 
-#: libraries/Header.php:756 libraries/plugins/auth/AuthenticationCookie.php:152
+#: libraries/Header.php:758 libraries/plugins/auth/AuthenticationCookie.php:152
 msgid "Javascript must be enabled past this point!"
 msgstr "Для полноценной работы необходимо включить JavaScript!"
 
@@ -4614,7 +4615,7 @@ msgstr "Применить"
 msgid "Default theme %s not found!"
 msgstr "Тема по-умолчанию %s не найдена!"
 
-#: libraries/ThemeManager.php:204
+#: libraries/ThemeManager.php:203
 #, php-format
 msgid "Theme %s not found!"
 msgstr "Тема %s не найдена!"
@@ -5223,12 +5224,12 @@ msgstr "Неверный индекс сервера: %s"
 msgid "Server %d"
 msgstr "Сервер %d"
 
-#: libraries/common.inc.php:654
+#: libraries/common.inc.php:656
 msgid "Invalid authentication method set in configuration:"
 msgstr ""
 "В конфигурационном файле phpMyAdmin установлен неверный метод аутентификации:"
 
-#: libraries/common.inc.php:758
+#: libraries/common.inc.php:760
 #, php-format
 msgid ""
 "Unable to use timezone %1$s for server %2$d. Please check your configuration "
@@ -5240,20 +5241,20 @@ msgstr ""
 "phpMyAdmin в настоящий момент использует тайм зону, настроенную на сервере "
 "по-умолчанию."
 
-#: libraries/common.inc.php:796
+#: libraries/common.inc.php:798
 #, php-format
 msgid "You should upgrade to %s %s or later."
 msgstr "Необходимо обновить %s до версии %s или выше."
 
-#: libraries/common.inc.php:882
+#: libraries/common.inc.php:884
 msgid "Error: Token mismatch"
 msgstr "Ошибка: несоответствие токена"
 
-#: libraries/common.inc.php:900
+#: libraries/common.inc.php:902
 msgid "GLOBALS overwrite attempt"
 msgstr "попытка перезаписи GLOBALS"
 
-#: libraries/common.inc.php:907
+#: libraries/common.inc.php:909
 msgid "possible exploit"
 msgstr "возможная уязвимость"
 
@@ -13759,15 +13760,15 @@ msgstr "Назначения меню группы пользователей"
 msgid "Group name:"
 msgstr "Имя группы:"
 
-#: libraries/server_user_groups.lib.php:272
+#: libraries/server_user_groups.lib.php:271
 msgid "Server-level tabs"
 msgstr "Вкладки уровня сервера"
 
-#: libraries/server_user_groups.lib.php:275
+#: libraries/server_user_groups.lib.php:274
 msgid "Database-level tabs"
 msgstr "Вкладки уровня базы данных"
 
-#: libraries/server_user_groups.lib.php:278
+#: libraries/server_user_groups.lib.php:277
 msgid "Table-level tabs"
 msgstr "Вкладки уровня таблицы"
 
@@ -17148,6 +17149,11 @@ msgstr ""
 #: libraries/advisory_rules.txt:446
 msgid "concurrent_insert is set to 0"
 msgstr "concurrent_insert установлен в 0"
+
+#, fuzzy
+#~| msgid "unknown"
+#~ msgid "Unknonwn"
+#~ msgstr "неизвестно"
 
 #, fuzzy
 #~| msgid "Right"
