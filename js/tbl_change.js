@@ -479,7 +479,7 @@ AJAX.registerOnload('tbl_change.js', function () {
     /**
      * Continue Insertion form
      */
-    $(document).on('change', "#insert_rows", function (event) {
+    $(document).on('keyup mouseup', "#insert_rows", function (event) {
         event.preventDefault();
         /**
          * @var columnCount   Number of number of columns table has.
