@@ -3,8 +3,8 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.8.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2017-07-18 13:31+0200\n"
-"PO-Revision-Date: 2017-08-09 14:56+0000\n"
-"Last-Translator: Maharaj Fawwaz A. Yusran <faww4zintelgent4@gmail.com>\n"
+"PO-Revision-Date: 2017-08-10 09:59+0000\n"
+"Last-Translator: Hizkia Felix <hizkifw@gmail.com>\n"
 "Language-Team: Indonesian "
 "<https://hosted.weblate.org/projects/phpmyadmin/master/id/>\n"
 "Language: id\n"
@@ -30,7 +30,7 @@ msgstr ""
 
 #: db_central_columns.php:110
 msgid "The central list of columns for the current database is empty."
-msgstr "Daftar pusat kolom untuk database saat ini kosong."
+msgstr "Daftar kolom pusat untuk database ini kosong."
 
 #: db_central_columns.php:135
 msgid "Click to sort."
@@ -3432,7 +3432,7 @@ msgstr "Kamus Data"
 #: libraries/classes/Charsets.php:426 libraries/classes/Charsets.php:537
 msgctxt "Collation"
 msgid "German (phone book order)"
-msgstr ""
+msgstr "Jerman (urutan buku telepon)"
 
 #: libraries/classes/Charsets.php:435
 #, fuzzy
@@ -3526,7 +3526,7 @@ msgstr "Spanyol"
 #: libraries/classes/Charsets.php:498 libraries/classes/Charsets.php:548
 msgctxt "Collation"
 msgid "Spanish (traditional)"
-msgstr ""
+msgstr "Spanyol (tradisional)"
 
 #: libraries/classes/Charsets.php:517
 #, fuzzy
@@ -16869,7 +16869,7 @@ msgstr "Sebuah indeks telah ditambahkan pada %s."
 
 #: templates/export/alias_add.twig:24
 msgid "Define new aliases"
-msgstr ""
+msgstr "Tetapkan alias baru"
 
 #: templates/export/alias_add.twig:32
 #, fuzzy
