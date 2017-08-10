@@ -262,7 +262,7 @@ class Charsets
     {
         $parts = explode('_', $collation);
 
-        $name = __('Unknonwn');
+        $name = __('Unknown');
         $variant = null;
         $suffixes = array();
         $unicode = false;
