@@ -1389,7 +1389,7 @@ Server connection settings
 
     .. note::
 
-        Enabling this option might give you big performance boost on older
+        Enabling this option might give you a big performance boost on older
         MySQL servers.
 
 .. config:option:: $cfg['Servers'][$i]['SignonScript']
