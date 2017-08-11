@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.8.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2017-08-10 09:14-0400\n"
-"PO-Revision-Date: 2017-08-11 12:23+0000\n"
+"PO-Revision-Date: 2017-08-11 17:09+0000\n"
 "Last-Translator: Burak Yavuz <hitowerdigit@hotmail.com>\n"
 "Language-Team: Turkish "
 "<https://hosted.weblate.org/projects/phpmyadmin/master/tr/>\n"
@@ -13,7 +13,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n > 1;\n"
-"X-Generator: Weblate 2.16-dev\n"
+"X-Generator: Weblate 2.16\n"
 
 #: ajax.php:17 ajax.php:34 export.php:195 schema_export.php:66
 msgid "Bad type!"
@@ -8645,47 +8645,35 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:123
 msgid "Default transformations for Substring"
-msgstr "Alt dizgi için varsayılan dönüşümler"
+msgstr "Substring için varsayılan dönüşümler"
 
 #: libraries/config/messages.inc.php:125
 msgid "Default transformations for Bool2Text"
 msgstr "Bool2Text için varsayılan dönüşümler"
 
 #: libraries/config/messages.inc.php:127
-#, fuzzy
-#| msgid "Default sorting order"
 msgid "Default transformations for External"
-msgstr "Varsayılan sıralama düzeni"
+msgstr "External için varsayılan dönüşümler"
 
 #: libraries/config/messages.inc.php:129
-#, fuzzy
-#| msgid "Input transformation options"
 msgid "Default transformations for PreApPend"
-msgstr "Girdi dönüşümü seçenekleri"
+msgstr "PreApPend için varsayılan dönüşümler"
 
 #: libraries/config/messages.inc.php:131
-#, fuzzy
-#| msgid "Default sorting order"
 msgid "Default transformations for DateFormat"
-msgstr "Varsayılan sıralama düzeni"
+msgstr "DateFormat için varsayılan dönüşümler"
 
 #: libraries/config/messages.inc.php:133
-#, fuzzy
-#| msgid "Input transformation options"
 msgid "Default transformations for Inline"
-msgstr "Girdi dönüşümü seçenekleri"
+msgstr "Inline için varsayılan dönüşümler"
 
 #: libraries/config/messages.inc.php:135
-#, fuzzy
-#| msgid "Input transformation options"
 msgid "Default transformations for TextImageLink"
-msgstr "Girdi dönüşümü seçenekleri"
+msgstr "TextImageLink için varsayılan dönüşümler"
 
 #: libraries/config/messages.inc.php:137
-#, fuzzy
-#| msgid "Input transformation options"
 msgid "Default transformations for TextLink"
-msgstr "Girdi dönüşümü seçenekleri"
+msgstr "TextLink için varsayılan dönüşümler"
 
 #: libraries/config/messages.inc.php:141
 msgid "Show server listing as a list instead of a drop down."
@@ -10773,10 +10761,8 @@ msgid "OpenDocument Text"
 msgstr "OpenDocument Metni"
 
 #: libraries/config/user_preferences.forms.php:124
-#, fuzzy
-#| msgid "Input transformation"
 msgid "Default transformations"
-msgstr "Girdi dönüşümü"
+msgstr "Varsayılan dönüşümler"
 
 #: libraries/database_interface.inc.php:38
 #, php-format
@@ -14285,10 +14271,8 @@ msgid "No Privileges"
 msgstr "Yetkiniz yok"
 
 #: server_privileges.php:143
-#, fuzzy
-#| msgid "You do not have the necessary privileges to create a trigger."
 msgid "You do not have privileges to manipulate with the users!"
-msgstr "Bir tetikleyici oluşturmak için gerekli yetkilere sahip değilsiniz."
+msgstr "Kullanıcıları işlemek için yetkilere sahip değilsiniz!"
 
 #: server_privileges.php:157
 msgid ""
