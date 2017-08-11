@@ -233,6 +233,8 @@ class PMA_SeleniumSqlQueryTest extends PMA_SeleniumBase
         $this->byId('sql_query_edit_save')->click();
         $this->waitForElementNotPresent('byId', 'ajax_message_num_1');
 
+        sleep(1);
+
         $this->waitForElement('byCssSelector', 'table.table_results');
         $this->assertEquals(
             1,
