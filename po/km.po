@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.8.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2017-08-10 09:14-0400\n"
-"PO-Revision-Date: 2017-08-12 13:09+0000\n"
+"PO-Revision-Date: 2017-08-12 14:53+0000\n"
 "Last-Translator: ប៉ុកណូ រ៉ូយ៉ាល់ <royalpokno68@gmail.com>\n"
 "Language-Team: Central Khmer "
 "<https://hosted.weblate.org/projects/phpmyadmin/master/km/>\n"
@@ -38,23 +38,23 @@ msgstr ""
 
 #: db_central_columns.php:135
 msgid "Click to sort."
-msgstr ""
+msgstr "ចុច​ដេីម្បី​តម្រៀប។"
 
 #: db_central_columns.php:152
 #, php-format
 msgid "Showing rows %1$s - %2$s."
-msgstr ""
+msgstr "កំពុង​បង្ហាញ​%1$s - %2$s។"
 
 #: db_datadict.php:59 libraries/operations.lib.php:37
 msgid "Database comment"
-msgstr "មតិយោបល់​មូលដ្ឋាន​ទិន្នន័យ"
+msgstr "យោបល់​មូលដ្ឋាន​ទិន្នន័យ"
 
 #: db_datadict.php:106
 #: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php:595
 #: templates/columns_definitions/column_definitions_form.phtml:90
 #: templates/table/structure/display_table_stats.twig:32
 msgid "Table comments:"
-msgstr "មតិយោបល់​តារាង៖"
+msgstr "យោបល់​​តារាង៖"
 
 #: db_datadict.php:115 libraries/classes/Index.php:723
 #: libraries/classes/Navigation/Nodes/NodeColumn.php:30
@@ -259,7 +259,7 @@ msgstr "រកមិនឃើញតារាងនៅក្នុងមូលដ
 #: libraries/config/messages.inc.php:292
 #: templates/database/structure/show_create.phtml:18
 msgid "Tables"
-msgstr ""
+msgstr "តារាង​"
 
 #: db_export.php:66 libraries/central_columns.lib.php:727
 #: libraries/classes/Menu.php:349 libraries/classes/Menu.php:456
@@ -280,7 +280,7 @@ msgstr ""
 #: templates/columns_definitions/table_fields_definitions.phtml:4
 #: templates/database/designer/table_list.phtml:28
 msgid "Structure"
-msgstr ""
+msgstr "រចនាសម្ព័ន្ធ"
 
 #: db_export.php:67
 #: libraries/classes/Controllers/Server/ServerDatabasesController.php:352
@@ -293,7 +293,7 @@ msgstr ""
 #: libraries/config/user_preferences.forms.php:308
 #: templates/table/structure/display_table_stats.twig:57
 msgid "Data"
-msgstr ""
+msgstr "ទិន្នន័យ​"
 
 #: db_export.php:70 libraries/classes/DbSearch.php:436
 #: libraries/display_export.lib.php:48 libraries/replication_gui.lib.php:381
@@ -333,7 +333,7 @@ msgstr "អ្នក​ត្រូវ​តែ​ជ្រើស​ជួរ​
 #: db_qbe.php:145
 #, php-format
 msgid "Switch to %svisual builder%s"
-msgstr ""
+msgstr "ប្ដូរ​ទៅកាន់ %s visual builder %s"
 
 #: db_search.php:32 libraries/classes/Plugins/Auth/AuthenticationConfig.php:89
 #: libraries/classes/Plugins/Auth/AuthenticationConfig.php:104
@@ -406,7 +406,7 @@ msgstr "SRID:"
 #: gis_data_editor.php:197
 #, php-format
 msgid "Geometry %d:"
-msgstr ""
+msgstr "ធរណីមាត្រ​ %d៖"
 
 #: gis_data_editor.php:219
 msgid "Point:"
@@ -436,16 +436,16 @@ msgstr "បន្ថែម​ចំណុច​មួយ"
 #: gis_data_editor.php:275
 #, php-format
 msgid "Linestring %d:"
-msgstr ""
+msgstr "បន្ទាត់​ខ្សែ​អក្សរ​ %d៖"
 
 #: gis_data_editor.php:278 gis_data_editor.php:355
 msgid "Outer ring:"
-msgstr ""
+msgstr "រង្វង់​ក្រៅ៖"
 
 #: gis_data_editor.php:280 gis_data_editor.php:357
 #, php-format
 msgid "Inner ring %d:"
-msgstr ""
+msgstr "រង្វង់​ក្នុង​ %d៖"
 
 #: gis_data_editor.php:317
 msgid "Add a linestring"
@@ -747,6 +747,12 @@ msgid ""
 "than cookie validity configured in phpMyAdmin, because of this, your login "
 "might expire sooner than configured in phpMyAdmin."
 msgstr ""
+"ប៉ារ៉ាម៉ែត្រPHPរបស់អ្នក "
+"[a@https://secure.php.net/manual/en/session.configuration.php#ini.session.gc-"
+"maxlifetime@_blank] session.gc_maxlifetime[/a] "
+"គឺថា​ទាប​បំផុត​ដែល​បានកំណត់រចនាសម្ព័ន្ធ​សុពលភាព​ Cookieក្នុង phpMyAdmin, "
+"ព្រោះ​តែ​បែបនេះ​ការចូលគណនី​របស់​អ្នក​ អាច​ផុត​កំណត់​ក្នុង​ពេល​ឆាប់​ៗ​ជាង​ការ​"
+"កំណត់​រចនា​សម្ព័ន្ធ​ក្នុង​​​phpMyAdmin។"
 
 #: index.php:516
 msgid ""
