@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.8.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2017-08-10 09:14-0400\n"
-"PO-Revision-Date: 2017-08-12 01:45+0000\n"
+"PO-Revision-Date: 2017-08-12 01:54+0000\n"
 "Last-Translator: Claus Svalekjaer <just.my.smtp.server@gmail.com>\n"
 "Language-Team: Danish "
 "<https://hosted.weblate.org/projects/phpmyadmin/master/da/>\n"
@@ -5872,7 +5872,7 @@ msgstr "Vis struktur"
 
 #: libraries/classes/Plugins/Export/ExportPdf.php:289
 msgid "Stand in"
-msgstr "Stand in"
+msgstr "Stand-in"
 
 #: libraries/classes/Plugins/Export/ExportSql.php:100
 msgid ""
@@ -6061,7 +6061,7 @@ msgstr "Metadata for tabel %s"
 #: libraries/classes/Plugins/Export/ExportSql.php:1084
 #, php-format
 msgid "Metadata for database %s"
-msgstr "Metadata for database %s"
+msgstr "Metadata til database %s"
 
 #: libraries/classes/Plugins/Export/ExportSql.php:1416
 #: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php:602
@@ -6714,7 +6714,7 @@ msgstr "Ingen privilegier."
 
 #: libraries/classes/Server/Privileges.php:228 server_privileges.php:61
 msgid "Includes all privileges except GRANT."
-msgstr "Inkluderer alle privilegier pånær GRANT."
+msgstr "Inkluderer alle privilegier på nær GRANT."
 
 #: libraries/classes/Server/Privileges.php:301
 #: libraries/classes/Server/Privileges.php:1033
