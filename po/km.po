@@ -8,31 +8,29 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.7.4-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2017-08-10 09:13-0400\n"
-"PO-Revision-Date: 2015-10-15 11:06+0200\n"
-"Last-Translator: Michal Čihař <michal@cihar.com>\n"
-"Language-Team: Central Khmer <https://hosted.weblate.org/projects/phpmyadmin/"
-"master/km/>\n"
+"PO-Revision-Date: 2017-08-12 13:09+0000\n"
+"Last-Translator: ប៉ុកណូ រ៉ូយ៉ាល់ <royalpokno68@gmail.com>\n"
+"Language-Team: Central Khmer "
+"<https://hosted.weblate.org/projects/phpmyadmin/4-7/km/>\n"
 "Language: km\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Weblate 2.5-dev\n"
+"X-Generator: Weblate 2.16\n"
 
 #: ajax.php:16 ajax.php:33 export.php:192 schema_export.php:64
 msgid "Bad type!"
 msgstr "ប្រភេទ​មិន​ល្អ!"
 
 #: changelog.php:39 license.php:34
-#, fuzzy, php-format
-#| msgid ""
-#| "The %s file is not available on this system, please visit www.phpmyadmin."
-#| "net for more information."
+#, php-format
 msgid ""
 "The %s file is not available on this system, please visit %s for more "
 "information."
 msgstr ""
-"មិន​មាន​ឯកសារ %s នៅ​លើ​ប្រព័ន្ធ​នេះ​ទេ។ សូម​ចូល​ទៅ www.phpmyadmin.net សម្រាប់​ព័ត៌មាន​បន្ថែម។"
+"ឯកសារ %s គឺមិនទាន់អាចប្រេីបាននៅ​លើ​ប្រព័ន្ធ​នេះ​ទេ, សូម​ចូល​ទៅ %s "
+"សម្រាប់​ព័ត៌មាន​បន្ថែម។"
 
 #: db_central_columns.php:108
 msgid "The central list of columns for the current database is empty."
@@ -295,10 +293,8 @@ msgstr ""
 
 #: db_export.php:70 libraries/DbSearch.php:434
 #: libraries/display_export.lib.php:46 libraries/replication_gui.lib.php:379
-#, fuzzy
-#| msgid "Select All"
 msgid "Select all"
-msgstr "ជ្រើសទាំងអស់"
+msgstr "ជ្រើសយកទាំងអស់"
 
 #: db_operations.php:50 tbl_create.php:23
 msgid "The database name is empty!"
@@ -315,15 +311,12 @@ msgid "Database %1$s has been copied to %2$s."
 msgstr "បានចម្លងមូលដ្ឋានទិន្នន័យ %1$s ទៅ %2$s។"
 
 #: db_operations.php:279
-#, fuzzy, php-format
-#| msgid ""
-#| "The phpMyAdmin configuration storage has been deactivated. To find out "
-#| "why click %shere%s."
+#, php-format
 msgid ""
 "The phpMyAdmin configuration storage has been deactivated. %sFind out why%s."
 msgstr ""
-"ការ​កំណត់​រចនា​សម្ព័ន្ធ​ឃ្លាំង​ផ្ទុក phpMyAdmin ត្រូវ​បាន​បិទ​ដំណើរ​ការ។ សូម​ចុច %shere%s ដើម្បី​ស្វែងរក​"
-"មូលហេតុ។"
+"ការ​កំណត់​រចនា​សម្ព័ន្ធ​ឃ្លាំង​ផ្ទុក phpMyAdmin ត្រូវ​បាន​បិទ​ដំណើរ​ការ។ %s "
+"ស្វែងរក​មូលហេតុ%s។"
 
 #: db_qbe.php:126
 msgid "You have to choose at least one column to display!"
@@ -352,10 +345,8 @@ msgid ""
 msgstr ""
 
 #: db_tracking.php:93
-#, fuzzy
-#| msgid "No databases selected."
 msgid "No tables selected."
-msgstr "មិន​បាន​ជ្រើស​មូលដ្ឋាន​ទិន្នន័យ។"
+msgstr "គ្មាន​តារាង​ដែល​បាន​ជ្រើស​យក។"
 
 #: db_tracking.php:150
 msgid "Database Log"
@@ -520,10 +511,8 @@ msgid ""
 msgstr ""
 
 #: import.php:65
-#, fuzzy
-#| msgid "Access denied!"
 msgid "Succeeded"
-msgstr "ចូល​មិន​បាន!"
+msgstr "បានជោគជ័យ"
 
 #: import.php:69 js/messages.php:611
 msgid "Failed"
@@ -607,7 +596,7 @@ msgstr ""
 
 #: index.php:160 libraries/Footer.php:69
 msgid "phpMyAdmin Demo Server"
-msgstr ""
+msgstr "ម៉ាស៊ីន​បម្រើ​ phpMyAdmin គំរូ"
 
 #: index.php:164
 #, php-format
@@ -618,8 +607,6 @@ msgid ""
 msgstr ""
 
 #: index.php:174
-#, fuzzy
-#| msgid "General Settings"
 msgid "General settings"
 msgstr "ការ​កំណត់​ទូទៅ"
 
@@ -634,36 +621,34 @@ msgid "Server connection collation"
 msgstr ""
 
 #: index.php:242
-#, fuzzy
-#| msgid "Appearance Settings"
 msgid "Appearance settings"
-msgstr "ការ​កំណត់​រូបរាង​បង្ហាញ"
+msgstr "ការ​កំណត់​រូបរាង​"
 
 #: index.php:275 prefs_manage.php:294
 msgid "More settings"
-msgstr "ការ​កំណត់​ច្រើន​ទៀត"
+msgstr "ការ​កំណត់​ផ្សេង​ទៀត​"
 
 #: index.php:297
 msgid "Database server"
-msgstr "ម៉ាស៊ីន​មេ​មូលដ្ឋាន​ទិន្នន័យ"
+msgstr "ម៉ាស៊ីន​បម្រើ​​មូលដ្ឋាន​ទិន្នន័យ"
 
 #: index.php:300 libraries/plugins/auth/AuthenticationCookie.php:182
 msgid "Server:"
-msgstr "ម៉ាស៊ីន​មេ៖"
+msgstr "ម៉ាស៊ីន​បម្រេី៖"
 
 #: index.php:304
 msgid "Server type:"
-msgstr "ប្រភេទ​ម៉ាស៊ីន​មេ៖"
+msgstr "ប្រភេទ​ម៉ាស៊ីន​បម្រេី​៖"
 
 #: index.php:308 libraries/plugins/export/ExportLatex.php:220
 #: libraries/plugins/export/ExportSql.php:701
 #: libraries/plugins/export/ExportXml.php:242
 msgid "Server version:"
-msgstr "កំណែ​ម៉ាស៊ីន​មេ៖"
+msgstr "ជំនាន់ម៉ាស៊ីន​បម្រេី​៖"
 
 #: index.php:314
 msgid "Protocol version:"
-msgstr ""
+msgstr "ជំនាន់ពិធីការ​"
 
 #: index.php:318
 msgid "User:"
@@ -675,7 +660,7 @@ msgstr ""
 
 #: index.php:336
 msgid "Web server"
-msgstr ""
+msgstr "ម៉ាស៊ីន​បម្រេីវែប"
 
 #: index.php:347
 msgid "Database client version:"
@@ -686,14 +671,12 @@ msgid "PHP extension:"
 msgstr "កម្មវិធី​បន្ថែម​របស់ PHP៖"
 
 #: index.php:365
-#, fuzzy
-#| msgid "PHP extension:"
 msgid "PHP version:"
-msgstr "កម្មវិធី​បន្ថែម​របស់ PHP៖"
+msgstr "ជំនាន់​PHP៖"
 
 #: index.php:376
 msgid "Show PHP information"
-msgstr "បង្ហាញ​ព័ត៌មាន PHP"
+msgstr "បង្ហាញ​ព័ត៌មាន​លម្អិត​ PHP"
 
 #: index.php:395
 msgid "Version information:"
@@ -705,7 +688,7 @@ msgstr "ព័ត៌មាន​អំពី​កំណែ៖"
 #: libraries/navigation/NavigationHeader.php:200
 #: templates/server/variables/link_template.phtml:9
 msgid "Documentation"
-msgstr ""
+msgstr "ឯកសារ​ជំនួយ​"
 
 #: index.php:413
 msgid "Official Homepage"
@@ -713,7 +696,7 @@ msgstr "គេហទំព័រ​ផ្លូវការ"
 
 #: index.php:420
 msgid "Contribute"
-msgstr "រួម​ចំណែក"
+msgstr "ចូលរួម​ចំណែក"
 
 #: index.php:427
 msgid "Get support"
@@ -721,11 +704,11 @@ msgstr "ទទួល​ការ​គាំទ្រ"
 
 #: index.php:434
 msgid "List of changes"
-msgstr "បញ្ជី​បន្លាស់​ប្ដូរ"
+msgstr "បញ្ជី​នៃ​ការ​ផ្លាស់​​ប្ដូរ"
 
 #: index.php:441 templates/server/plugins/section.phtml:12
 msgid "License"
-msgstr ""
+msgstr "កម្ម​សិទ្ធិ​បញ្ញា​"
 
 #: index.php:461
 msgid ""
