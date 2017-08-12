@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.8.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2017-08-10 09:14-0400\n"
-"PO-Revision-Date: 2017-08-12 13:07+0000\n"
+"PO-Revision-Date: 2017-08-12 13:09+0000\n"
 "Last-Translator: ប៉ុកណូ រ៉ូយ៉ាល់ <royalpokno68@gmail.com>\n"
 "Language-Team: Central Khmer "
 "<https://hosted.weblate.org/projects/phpmyadmin/master/km/>\n"
@@ -713,7 +713,7 @@ msgstr "គេហទំព័រ​ផ្លូវការ"
 
 #: index.php:426
 msgid "Contribute"
-msgstr "រួម​ចំណែក"
+msgstr "ចូលរួម​ចំណែក"
 
 #: index.php:433
 msgid "Get support"
@@ -721,11 +721,11 @@ msgstr "ទទួល​ការ​គាំទ្រ"
 
 #: index.php:440
 msgid "List of changes"
-msgstr "បញ្ជី​បន្លាស់​ប្ដូរ"
+msgstr "បញ្ជី​នៃ​ការ​ផ្លាស់​​ប្ដូរ"
 
 #: index.php:447 templates/server/plugins/section.phtml:13
 msgid "License"
-msgstr ""
+msgstr "កម្ម​សិទ្ធិ​បញ្ញា​"
 
 #: index.php:467
 msgid ""
