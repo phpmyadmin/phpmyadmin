@@ -4,16 +4,16 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.7.4-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2017-08-10 09:13-0400\n"
-"PO-Revision-Date: 2017-06-13 16:07+0000\n"
+"PO-Revision-Date: 2017-08-12 09:56+0000\n"
 "Last-Translator: Stefano Martinelli <stefano.ste.martinelli@gmail.com>\n"
-"Language-Team: Italian <https://hosted.weblate.org/projects/phpmyadmin/4-7/"
-"it/>\n"
+"Language-Team: Italian "
+"<https://hosted.weblate.org/projects/phpmyadmin/4-7/it/>\n"
 "Language: it\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 2.15-dev\n"
+"X-Generator: Weblate 2.16\n"
 
 #: ajax.php:16 ajax.php:33 export.php:192 schema_export.php:64
 msgid "Bad type!"
@@ -3063,9 +3063,6 @@ msgid "Collation"
 msgstr "Codifica caratteri"
 
 #: libraries/Charsets.php:244
-#, fuzzy
-#| msgctxt "Collation"
-#| msgid "Unknown"
 msgid "Unknown"
 msgstr "Sconosciuto"
 
@@ -3325,11 +3322,9 @@ msgid "accent-sensitive"
 msgstr "accent-sensitive"
 
 #: libraries/Charsets.php:576
-#, fuzzy
-#| msgid "multilingual"
 msgctxt "Collation variant"
 msgid "multi-level"
-msgstr "multilingua"
+msgstr "multi-livello"
 
 #: libraries/Charsets.php:579
 msgctxt "Collation variant"
@@ -5139,18 +5134,12 @@ msgstr ""
 "alcuni dati!"
 
 #: libraries/common.inc.php:484
-#, fuzzy
-#| msgid ""
-#| "You have enabled mbstring.func_overload in your PHP configuration. This "
-#| "option is incompatible with phpMyAdmin and might cause some data to be "
-#| "corrupted!"
 msgid ""
 "You have disabled ini_get and/or ini_set in php.ini. This option is "
 "incompatible with phpMyAdmin!"
 msgstr ""
-"Avete abilitato mbstring.func_overload nella configurazione del PHP. Questa "
-"opzione è incompatibile con phpMyAdmin e potrebbe causare la corruzione di "
-"alcuni dati!"
+"Avete disabilitato i parametri ini_get e/o ini_set in php.ini. Questa "
+"opzione è incompatibile con phpMyAdmin!"
 
 #: libraries/common.inc.php:517
 #, php-format
@@ -8377,6 +8366,7 @@ msgstr ""
 #: libraries/dbi/DBIMysqli.php:158
 msgid "SSL connection enforced by server, automatically enabling it."
 msgstr ""
+"La connessione SSL è imposta dal server, viene abilitata automaticamente."
 
 #: libraries/display_change_password.lib.php:57
 #: libraries/replication_gui.lib.php:854
