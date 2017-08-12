@@ -4,16 +4,16 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.8.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2017-08-10 09:14-0400\n"
-"PO-Revision-Date: 2017-06-13 16:07+0000\n"
+"PO-Revision-Date: 2017-08-12 10:11+0000\n"
 "Last-Translator: Stefano Martinelli <stefano.ste.martinelli@gmail.com>\n"
-"Language-Team: Italian <https://hosted.weblate.org/projects/phpmyadmin/"
-"master/it/>\n"
+"Language-Team: Italian "
+"<https://hosted.weblate.org/projects/phpmyadmin/master/it/>\n"
 "Language: it\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 2.15-dev\n"
+"X-Generator: Weblate 2.16\n"
 
 #: ajax.php:17 ajax.php:34 export.php:195 schema_export.php:66
 msgid "Bad type!"
@@ -675,10 +675,8 @@ msgid "Server type:"
 msgstr "Tipo di server:"
 
 #: index.php:310
-#, fuzzy
-#| msgid "Master connection:"
 msgid "Server connection:"
-msgstr "Connessione principale:"
+msgstr "Connessione Server:"
 
 #: index.php:314 libraries/classes/Plugins/Export/ExportLatex.php:221
 #: libraries/classes/Plugins/Export/ExportSql.php:702
@@ -1765,10 +1763,8 @@ msgid "No databases selected."
 msgstr "Nessun database selezionato."
 
 #: js/messages.php:366
-#, fuzzy
-#| msgid "No column selected."
 msgid "No accounts selected."
-msgstr "Nessuna colonna selezionata."
+msgstr "Nessun account selezionato."
 
 #: js/messages.php:367
 msgid "Dropping column"
@@ -3264,9 +3260,6 @@ msgid "Charset"
 msgstr "Set di caratteri"
 
 #: libraries/classes/Charsets.php:265
-#, fuzzy
-#| msgctxt "Collation"
-#| msgid "Unknown"
 msgid "Unknown"
 msgstr "Sconosciuto"
 
@@ -3526,11 +3519,9 @@ msgid "accent-sensitive"
 msgstr "accent-sensitive"
 
 #: libraries/classes/Charsets.php:597
-#, fuzzy
-#| msgid "multilingual"
 msgctxt "Collation variant"
 msgid "multi-level"
-msgstr "multilingua"
+msgstr "multi-livello"
 
 #: libraries/classes/Charsets.php:600
 msgctxt "Collation variant"
@@ -4407,6 +4398,7 @@ msgstr "All'interno del campo:"
 #: libraries/classes/Dbi/DbiMysqli.php:158
 msgid "SSL connection enforced by server, automatically enabling it."
 msgstr ""
+"La connessione SSL è imposta dal server, viene abilitata automaticamente."
 
 #: libraries/classes/DisplayResults.php:910
 msgid "Save edited data"
@@ -5620,10 +5612,8 @@ msgid "Server Choice:"
 msgstr "Scelta del server:"
 
 #: libraries/classes/Plugins/Auth/AuthenticationCookie.php:341
-#, fuzzy
-#| msgid "Could not connect to the database server!"
 msgid "Failed to connect to the reCAPTCHA service!"
-msgstr "Impossibile connettersi al server del database!"
+msgstr "Impossibile connettersi al servizio reCAPTCHA!"
 
 #: libraries/classes/Plugins/Auth/AuthenticationCookie.php:343
 msgid "Entered captcha is wrong, try again!"
@@ -5631,7 +5621,7 @@ msgstr "Il captcha inserito è sbagliato, riprova!"
 
 #: libraries/classes/Plugins/Auth/AuthenticationCookie.php:348
 msgid "Missing reCAPTCHA verification, maybe it has been blocked by adblock?"
-msgstr ""
+msgstr "Verifica reCAPTCHA mancante, è stata forse bloccata da adblock?"
 
 #: libraries/classes/Plugins/Auth/AuthenticationCookie.php:372
 msgid "You are not allowed to log in to this MySQL server!"
@@ -6570,18 +6560,6 @@ msgstr ""
 "seconda opzione, dovete avere la prima opzione settata ad una stringa vuota."
 
 #: libraries/classes/Plugins/Transformations/Abs/ExternalTransformationsPlugin.php:28
-#, fuzzy
-#| msgid ""
-#| "LINUX ONLY: Launches an external application and feeds it the column data "
-#| "via standard input. Returns the standard output of the application. The "
-#| "default is Tidy, to pretty-print HTML code. For security reasons, you "
-#| "have to manually edit the file libraries/plugins/transformations/output/"
-#| "Text_Plain_External.php and list the tools you want to make available. "
-#| "The first option is then the number of the program you want to use and "
-#| "the second option is the parameters for the program. The third option, if "
-#| "set to 1, will convert the output using htmlspecialchars() (Default 1). "
-#| "The fourth option, if set to 1, will prevent wrapping and ensure that the "
-#| "output appears all on one line (Default 1)."
 msgid ""
 "LINUX ONLY: Launches an external application and feeds it the column data "
 "via standard input. Returns the standard output of the application. The "
@@ -6595,16 +6573,16 @@ msgid ""
 "appears all on one line (Default 1)."
 msgstr ""
 "SOLO PER LINUX: Lancia un'applicazione esterna e riempie i dati dei campi "
-"tramite lo standard input. Restituisce lo standard output dell'applicazione. "
+"via standard input. Restituisce lo standard output dell'applicazione. "
 "L'impostazione predefinita è Tidy, per stampare in maniera corretta il "
 "codice HTML. Per motivi di sicurezza, dovete editare manualmente il file "
-"libraries/plugins/transformations/output/Text_Plain_External.php e inserire "
-"gli strumenti che volete rendere disponibili. La prima opzione è il numero "
-"del programma che volete utilizzare e la seconda sono i parametri per il "
-"programma. La terza opzione, se impostata a 1, convertirà l'output "
-"utilizzando htmlspecialchars() (Predefinito: 1). Una quarta opzione, se "
-"impostata a 1, inserirà un NOWRAP al contenuto della cella così che l'intero "
-"output sarà mostrato sulla stessa riga (Predefinito: 1)."
+"libraries/classes/Plugins/Transformations/Output/Text_Plain_External.php e "
+"inserire gli strumenti che volete rendere disponibili. La prima opzione è il "
+"numero del programma che volete utilizzare e la seconda sono i parametri per "
+"il programma. La terza opzione, se impostata a 1, convertirà l'output "
+"utilizzando htmlspecialchars() (Default 1). La quarta opzione, se impostata "
+"a 1, inserirà un NOWRAP al contenuto della cella così che l'intero output "
+"sarà mostrato sulla stessa riga (Default 1)."
 
 #: libraries/classes/Plugins/Transformations/Abs/FormattedTransformationsPlugin.php:28
 msgid ""
@@ -8272,19 +8250,19 @@ msgstr "Esegui"
 
 #: libraries/classes/Util.php:3953
 msgid "SSL is not being used"
-msgstr ""
+msgstr "SSL inattivo"
 
 #: libraries/classes/Util.php:3958
 msgid "SSL is used with disabled verification"
-msgstr ""
+msgstr "SSL attivo con verifica disabilitata"
 
 #: libraries/classes/Util.php:3960
 msgid "SSL is used without certification authority"
-msgstr ""
+msgstr "SSL attivo con Autorità di Certificazione"
 
 #: libraries/classes/Util.php:3963
 msgid "SSL is used"
-msgstr ""
+msgstr "SSL attivo"
 
 #: libraries/classes/Util.php:4084
 msgid "Users"
@@ -8309,18 +8287,12 @@ msgstr ""
 "alcuni dati!"
 
 #: libraries/common.inc.php:487
-#, fuzzy
-#| msgid ""
-#| "You have enabled mbstring.func_overload in your PHP configuration. This "
-#| "option is incompatible with phpMyAdmin and might cause some data to be "
-#| "corrupted!"
 msgid ""
 "You have disabled ini_get and/or ini_set in php.ini. This option is "
 "incompatible with phpMyAdmin!"
 msgstr ""
-"Avete abilitato mbstring.func_overload nella configurazione del PHP. Questa "
-"opzione è incompatibile con phpMyAdmin e potrebbe causare la corruzione di "
-"alcuni dati!"
+"Avete disabilitato i parametri ini_get e/o ini_set in php.ini. Questa "
+"opzione è incompatibile con phpMyAdmin!"
 
 #: libraries/common.inc.php:520
 #, php-format
@@ -8753,10 +8725,8 @@ msgid "Hide table structure actions"
 msgstr "Nascondi le azioni relative alla struttura della tabella"
 
 #: libraries/config/messages.inc.php:121
-#, fuzzy
-#| msgid "Default sorting order"
 msgid "Default transformations for Hex"
-msgstr "Ordinamento predefinito"
+msgstr "Trasformazioni predefinite per Hex"
 
 #: libraries/config/messages.inc.php:122 libraries/config/messages.inc.php:124
 #: libraries/config/messages.inc.php:126 libraries/config/messages.inc.php:128
@@ -8767,54 +8737,41 @@ msgid ""
 "Values for options list for default transformations. These will be "
 "overwritten if tranformation is filled in at table structure page."
 msgstr ""
+"Valori per la lista opzioni delle trasformazioni predefinite. Questi valori "
+"saranno sovrascritti se la trasformazione è definita nella pagina struttura "
+"della tabella."
 
 #: libraries/config/messages.inc.php:123
-#, fuzzy
-#| msgid "Input transformation options"
 msgid "Default transformations for Substring"
-msgstr "Opzioni di trasformazione dell'input"
+msgstr "Trasformazioni predefinite per le Sottostringhe"
 
 #: libraries/config/messages.inc.php:125
-#, fuzzy
-#| msgid "Default sorting order"
 msgid "Default transformations for Bool2Text"
-msgstr "Ordinamento predefinito"
+msgstr "Trasformazioni predefinite per Bool2Text"
 
 #: libraries/config/messages.inc.php:127
-#, fuzzy
-#| msgid "Default sorting order"
 msgid "Default transformations for External"
-msgstr "Ordinamento predefinito"
+msgstr "Trasformazioni predefinite per External"
 
 #: libraries/config/messages.inc.php:129
-#, fuzzy
-#| msgid "Input transformation options"
 msgid "Default transformations for PreApPend"
-msgstr "Opzioni di trasformazione dell'input"
+msgstr "Trasformazioni predefinite per PreApPend"
 
 #: libraries/config/messages.inc.php:131
-#, fuzzy
-#| msgid "Default sorting order"
 msgid "Default transformations for DateFormat"
-msgstr "Ordinamento predefinito"
+msgstr "Trasformazioni predefinite per DateFormat"
 
 #: libraries/config/messages.inc.php:133
-#, fuzzy
-#| msgid "Input transformation options"
 msgid "Default transformations for Inline"
-msgstr "Opzioni di trasformazione dell'input"
+msgstr "Trasformazioni predefinite per Inline"
 
 #: libraries/config/messages.inc.php:135
-#, fuzzy
-#| msgid "Input transformation options"
 msgid "Default transformations for TextImageLink"
-msgstr "Opzioni di trasformazione dell'input"
+msgstr "Trasformazioni predefinite per TextImageLink"
 
 #: libraries/config/messages.inc.php:137
-#, fuzzy
-#| msgid "Input transformation options"
 msgid "Default transformations for TextLink"
-msgstr "Opzioni di trasformazione dell'input"
+msgstr "Trasformazioni predefinite per TextLink"
 
 #: libraries/config/messages.inc.php:141
 msgid "Show server listing as a list instead of a drop down."
@@ -10935,10 +10892,8 @@ msgid "OpenDocument Text"
 msgstr "Testo OpenDocument"
 
 #: libraries/config/user_preferences.forms.php:124
-#, fuzzy
-#| msgid "Input transformation"
 msgid "Default transformations"
-msgstr "Trasformazione dell'input"
+msgstr "Trasformazioni predefinite"
 
 #: libraries/database_interface.inc.php:38
 #, php-format
@@ -14501,10 +14456,8 @@ msgid "No Privileges"
 msgstr "Nessun Privilegio"
 
 #: server_privileges.php:143
-#, fuzzy
-#| msgid "You do not have the necessary privileges to create a trigger."
 msgid "You do not have privileges to manipulate with the users!"
-msgstr "Non hai i necessari privilegi per creare un trigger."
+msgstr "Non hai le autorizzazioni per modificare i dati degli utenti!"
 
 #: server_privileges.php:157
 msgid ""
