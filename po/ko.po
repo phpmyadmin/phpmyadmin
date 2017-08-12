@@ -4,16 +4,16 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.8.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2017-08-10 09:14-0400\n"
-"PO-Revision-Date: 2017-08-04 05:34+0000\n"
-"Last-Translator: Yong Kim (Neatnet) <neatnet@gmail.com>\n"
-"Language-Team: Korean <https://hosted.weblate.org/projects/phpmyadmin/master/"
-"ko/>\n"
+"PO-Revision-Date: 2017-08-12 12:13+0000\n"
+"Last-Translator: Bogu Ham <songtac@gmail.com>\n"
+"Language-Team: Korean "
+"<https://hosted.weblate.org/projects/phpmyadmin/master/ko/>\n"
 "Language: ko\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Weblate 2.16-dev\n"
+"X-Generator: Weblate 2.16\n"
 
 #: ajax.php:17 ajax.php:34 export.php:195 schema_export.php:66
 msgid "Bad type!"
@@ -301,13 +301,8 @@ msgid "The database name is empty!"
 msgstr "데이터베이스명이 없습니다!"
 
 #: db_operations.php:53
-#, fuzzy
-#| msgid ""
-#| "Cannot rename database to the same name. Change the name and try again"
 msgid "Cannot copy database to the same name. Change the name and try again."
-msgstr ""
-"같은 이름으로 데이터베이스의 이름을 변경할 수 없습니다. 이름을 바꾸어 다시 시"
-"도해 주세요"
+msgstr "데이터베이스를 동일한 이름으로 복사할 수 없습니다. 이름을 변경하고 다시 시도하십시오."
 
 #: db_operations.php:142
 #, php-format
@@ -666,10 +661,8 @@ msgid "Server type:"
 msgstr "서버 타입:"
 
 #: index.php:310
-#, fuzzy
-#| msgid "Insecure connection"
 msgid "Server connection:"
-msgstr "보호되지 않은 연결"
+msgstr "서버 연결:"
 
 #: index.php:314 libraries/classes/Plugins/Export/ExportLatex.php:221
 #: libraries/classes/Plugins/Export/ExportSql.php:702
@@ -1727,10 +1720,8 @@ msgid "No databases selected."
 msgstr "데이터베이스를 선택하지 않았습니다."
 
 #: js/messages.php:366
-#, fuzzy
-#| msgid "No column selected."
 msgid "No accounts selected."
-msgstr "선택된 열이 없습니다."
+msgstr "계정을 선택하지 않았습니다."
 
 #: js/messages.php:367
 msgid "Dropping column"
@@ -2184,16 +2175,10 @@ msgstr ""
 "할 경우"
 
 #: js/messages.php:536
-#, fuzzy
-#| msgid ""
-#| "MySQL accepts additional values not selectable by the slider; key in "
-#| "those values directly if desired"
 msgid ""
 "MySQL accepts additional values not selectable by the datepicker; key in "
 "those values directly if desired"
-msgstr ""
-"MySQL은 슬라이더로 선택되지 않는 추가값을 허용합니다; 값들을 직접 입력하길 원"
-"할 경우"
+msgstr "MySQL은 Datepicker에서 선택할 수 없는 추가 값을 수신합니다. 원하는 경우 해당 값의 키를 직접 입력합니다."
 
 #: js/messages.php:542
 msgid ""
@@ -2980,11 +2965,10 @@ msgid "Page number:"
 msgstr "페이지 번호:"
 
 #: libraries/central_columns.lib.php:154
-#, fuzzy
 msgid ""
 "The configuration storage is not ready for the central list of columns "
 "feature."
-msgstr "열의 중앙 목록 기능을 위한 설정 저장공간이 준비되지 않았습니다."
+msgstr "구성 저장소가 중앙 열 기능 목록에 준비되지 않았습니다."
 
 #: libraries/central_columns.lib.php:282
 #, php-format
@@ -3312,8 +3296,6 @@ msgid "Thai"
 msgstr "타이어"
 
 #: libraries/classes/Charsets.php:374
-#, fuzzy
-#| msgid "unknown"
 msgctxt "Collation"
 msgid "Unknown"
 msgstr "알수없음"
@@ -3331,8 +3313,6 @@ msgid "Chinese"
 msgstr "중국어"
 
 #: libraries/classes/Charsets.php:400
-#, fuzzy
-#| msgid "Croatian"
 msgctxt "Collation"
 msgid "Croatian"
 msgstr "크로아티아어"
@@ -3359,8 +3339,6 @@ msgid "English"
 msgstr "영어"
 
 #: libraries/classes/Charsets.php:416
-#, fuzzy
-#| msgid "Esperanto"
 msgctxt "Collation"
 msgid "Esperanto"
 msgstr "에스페란토어"
@@ -3385,15 +3363,11 @@ msgid "German (phone book order)"
 msgstr "독일어 (전화번호부 정렬)"
 
 #: libraries/classes/Charsets.php:435
-#, fuzzy
-#| msgid "Hungarian"
 msgctxt "Collation"
 msgid "Hungarian"
 msgstr "헝가리어"
 
 #: libraries/classes/Charsets.php:439
-#, fuzzy
-#| msgid "Icelandic"
 msgctxt "Collation"
 msgid "Icelandic"
 msgstr "아이슬란드어"
@@ -3404,8 +3378,6 @@ msgid "Classical Latin"
 msgstr "고전 라틴어"
 
 #: libraries/classes/Charsets.php:450
-#, fuzzy
-#| msgid "Latvian"
 msgctxt "Collation"
 msgid "Latvian"
 msgstr "라트비아어"
