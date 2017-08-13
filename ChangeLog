@@ -40,6 +40,7 @@ phpMyAdmin - ChangeLog
 - issue #13550 Fixed copy results to clipboard
 - issue #13562 Add limitation for user group length
 - issue #13561 Fixed edit variable link in advisor
+- issue #13579 Optimize table link should not be visible in print page
 
 4.7.3 (2017-07-20)
 - issue #13447 Large multi-line query removes Export operation and blanks query box options
