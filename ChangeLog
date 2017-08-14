@@ -31,6 +31,7 @@ phpMyAdmin - ChangeLog
 - issue #5666  Configuration directives for defaults of Transformation options
 - issue #12261 Remove inline JavaScript
 - issue #13408 Show MySQL warnings when executing SQL queries
+- issue #5827  Allow Designer to show tables from other databases
 
 4.7.4 (not yet released)
 - issue #13415 Remove shadow from the logo
