@@ -530,11 +530,11 @@ function PMA_saveDisplayField($db, $table, $field)
  *
  * @return array array of success/failure and message
  */
-function PMA_addNewRelation($db, $T1, $F1, $T2, $F2, $on_delete, $on_update)
+function PMA_addNewRelation($db, $T1, $F1, $T2, $F2, $on_delete, $on_update, $DB1, $DB2)
 {
-    $tables = $GLOBALS['dbi']->getTablesFull($db, $T1);
+    $tables = $GLOBALS['dbi']->getTablesFull($DB1, $T1);
     $type_T1 = mb_strtoupper($tables[$T1]['ENGINE']);
-    $tables = $GLOBALS['dbi']->getTablesFull($db, $T2);
+    $tables = $GLOBALS['dbi']->getTablesFull($DB2, $T2);
     $type_T2 = mb_strtoupper($tables[$T2]['ENGINE']);
 
     // native foreign key
@@ -543,7 +543,7 @@ function PMA_addNewRelation($db, $T1, $F1, $T2, $F2, $on_delete, $on_update)
         && $type_T1 == $type_T2
     ) {
         // relation exists?
-        $existrel_foreign = PMA_getForeigners($db, $T2, '', 'foreign');
+        $existrel_foreign = PMA_getForeigners($DB2, $T2, '', 'foreign');
         $foreigner = PMA_searchColumnInForeigners($existrel_foreign, $F2);
         if ($foreigner
             && isset($foreigner['constraint'])
@@ -554,7 +554,7 @@ function PMA_addNewRelation($db, $T1, $F1, $T2, $F2, $on_delete, $on_update)
         // or UNIQUE key
         // improve: check all other requirements for InnoDB relations
         $result = $GLOBALS['dbi']->query(
-            'SHOW INDEX FROM ' . PhpMyAdmin\Util::backquote($db)
+            'SHOW INDEX FROM ' . PhpMyAdmin\Util::backquote($DB1)
             . '.' . PhpMyAdmin\Util::backquote($T1) . ';'
         );
 
@@ -566,7 +566,7 @@ function PMA_addNewRelation($db, $T1, $F1, $T2, $F2, $on_delete, $on_update)
         $GLOBALS['dbi']->freeResult($result);
 
         $result = $GLOBALS['dbi']->query(
-            'SHOW INDEX FROM ' . PhpMyAdmin\Util::backquote($db)
+            'SHOW INDEX FROM ' . PhpMyAdmin\Util::backquote($DB2)
             . '.' . PhpMyAdmin\Util::backquote($T2) . ';'
         );
         // will be used to emphasis prim. keys in the table view
@@ -577,12 +577,12 @@ function PMA_addNewRelation($db, $T1, $F1, $T2, $F2, $on_delete, $on_update)
         $GLOBALS['dbi']->freeResult($result);
 
         if (! empty($index_array1[$F1]) && ! empty($index_array2[$F2])) {
-            $upd_query  = 'ALTER TABLE ' . PhpMyAdmin\Util::backquote($db)
+            $upd_query  = 'ALTER TABLE ' . PhpMyAdmin\Util::backquote($DB2)
                 . '.' . PhpMyAdmin\Util::backquote($T2)
                 . ' ADD FOREIGN KEY ('
                 . PhpMyAdmin\Util::backquote($F2) . ')'
                 . ' REFERENCES '
-                . PhpMyAdmin\Util::backquote($db) . '.'
+                . PhpMyAdmin\Util::backquote($DB1) . '.'
                 . PhpMyAdmin\Util::backquote($T1) . '('
                 . PhpMyAdmin\Util::backquote($F1) . ')';
 
@@ -623,10 +623,10 @@ function PMA_addNewRelation($db, $T1, $F1, $T2, $F2, $on_delete, $on_update)
         . "(master_db, master_table, master_field, "
         . "foreign_db, foreign_table, foreign_field)"
         . " values("
-        . "'" . $GLOBALS['dbi']->escapeString($db) . "', "
+        . "'" . $GLOBALS['dbi']->escapeString($DB2) . "', "
         . "'" . $GLOBALS['dbi']->escapeString($T2) . "', "
         . "'" . $GLOBALS['dbi']->escapeString($F2) . "', "
-        . "'" . $GLOBALS['dbi']->escapeString($db) . "', "
+        . "'" . $GLOBALS['dbi']->escapeString($DB1) . "', "
         . "'" . $GLOBALS['dbi']->escapeString($T1) . "', "
         . "'" . $GLOBALS['dbi']->escapeString($F1) . "')";
 

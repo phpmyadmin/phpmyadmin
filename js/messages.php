@@ -553,6 +553,7 @@ $js_messages['strLeavingDesigner'] = __(
     'You haven\'t saved the changes in the layout. They will be lost if you'
     . ' don\'t save them. Do you want to continue?'
 );
+$js_messages['strAddTables'] = __('Add tables from other databases');
 $js_messages['strPageName'] = __('Page name');
 $js_messages['strSavePage'] = __('Save page');
 $js_messages['strSavePageAs'] = __('Save page as');
