@@ -33,14 +33,14 @@ if (isset($_REQUEST['dialog'])) {
         $tables_all_keys = PMA_getAllKeys();
         $tables_pk_or_unique_keys = PMA_getPKOrUniqueKeys();
 
-        $req_key = array_search($required, $GLOBALS['PMD']["TABLE_NAME"]);
+        $req_key = array_search($required, $GLOBALS['PMD']['TABLE_NAME']);
 
-        $GLOBALS['PMD']["TABLE_NAME"] = array($GLOBALS['PMD']["TABLE_NAME"][$req_key]);
-        $GLOBALS['PMD_URL']["TABLE_NAME_SMALL"] = array($GLOBALS['PMD_URL']["TABLE_NAME_SMALL"][$req_key]);
-        $GLOBALS['PMD']["TABLE_NAME_SMALL"] = array($GLOBALS['PMD']["TABLE_NAME_SMALL"][$req_key]);
-        $GLOBALS['PMD_OUT']["TABLE_NAME_SMALL"] = array($GLOBALS['PMD_OUT']["TABLE_NAME_SMALL"][$req_key]);
-        $GLOBALS['PMD']["TABLE_TYPE"] = array($GLOBALS['PMD_URL']["TABLE_TYPE"][$req_key]);
-        $GLOBALS['PMD_OUT']["OWNER"] = array($GLOBALS['PMD_OUT']["OWNER"][$req_key]);
+        $GLOBALS['PMD']['TABLE_NAME'] = array($GLOBALS['PMD']['TABLE_NAME'][$req_key]);
+        $GLOBALS['PMD_URL']['TABLE_NAME_SMALL'] = array($GLOBALS['PMD_URL']['TABLE_NAME_SMALL'][$req_key]);
+        $GLOBALS['PMD']['TABLE_NAME_SMALL'] = array($GLOBALS['PMD']['TABLE_NAME_SMALL'][$req_key]);
+        $GLOBALS['PMD_OUT']['TABLE_NAME_SMALL'] = array($GLOBALS['PMD_OUT']['TABLE_NAME_SMALL'][$req_key]);
+        $GLOBALS['PMD']['TABLE_TYPE'] = array($GLOBALS['PMD_URL']['TABLE_TYPE'][$req_key]);
+        $GLOBALS['PMD_OUT']['OWNER'] = array($GLOBALS['PMD_OUT']['OWNER'][$req_key]);
 
         $html = PMA_getDatabaseTables(
             array(), -1, $tab_column,
