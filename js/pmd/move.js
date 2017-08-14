@@ -610,7 +610,6 @@ function Add_Other_db_tables()
 {
     var button_options = {};
     button_options[PMA_messages.strGo] = function () {
-        //var $form = $("#save_page");
         var db = $('#add_table_from').val();
         var table = $('#add_table').val();
         $.post('db_designer.php', {
