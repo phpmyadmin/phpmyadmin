@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.7.4-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2017-08-10 09:13-0400\n"
-"PO-Revision-Date: 2017-08-16 15:15+0000\n"
+"PO-Revision-Date: 2017-09-10 09:11+0000\n"
 "Last-Translator: Jamaro Ja Ma Ro <jamaropop@gmail.com>\n"
 "Language-Team: Spanish "
 "<https://hosted.weblate.org/projects/phpmyadmin/4-7/es/>\n"
@@ -3044,9 +3044,6 @@ msgid "Collation"
 msgstr "Cotejamiento"
 
 #: libraries/Charsets.php:244
-#, fuzzy
-#| msgctxt "Collation"
-#| msgid "Unknown"
 msgid "Unknown"
 msgstr "Desconocido"
 
