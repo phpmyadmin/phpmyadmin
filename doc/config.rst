@@ -2333,7 +2333,9 @@ Editing mode
     :type: integer
     :default: 2
 
-    Defines the maximum number of concurrent entries for the Insert page.
+    Defines the default number of rows to be entered from the Insert page.
+    Users can manually chnage this from the bottom of that page to add more
+    (or fewer) blank rows.
 
 .. config:option:: $cfg['ForeignKeyMaxLimit']
 
