@@ -145,6 +145,9 @@ class PmaSeleniumQueryByExampleTest extends PMA_SeleniumBase
             $actual
         );
 
+        $this->scrollToBottom();
+        sleep(1);
+
         /* Submit the query */
         $this->waitForElement('byCssSelector', 'input[value="Submit Query"]')->click();
         $this->waitForElementNotPresent('byId', 'ajax_message_num_1');
