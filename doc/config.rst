@@ -1609,6 +1609,11 @@ Generic settings
     Path for storing session data (`session\_save\_path PHP parameter
     <https://secure.php.net/session_save_path>`_).
 
+    .. warning::
+
+        This folder should not be publicly accessible through the webserver,
+        otherwise you risk leaking private data from your session.
+
 .. config:option:: $cfg['MemoryLimit']
 
     :type: string [number of bytes]
