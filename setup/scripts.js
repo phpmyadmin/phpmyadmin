@@ -35,7 +35,7 @@ $(function () {
             $(this).remove();
         });
         link.html(link.html().replace('#MSG_COUNT', hiddenmessages.length));
-        link.css('display', '');
+        link.show();
     }
 });
 
