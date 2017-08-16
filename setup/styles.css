@@ -606,3 +606,6 @@ a.btn:hover, a.btn:active {
     background: #E6F5FF;
     color: #004C96;
 }
+.hide {
+    display: none;
+}
