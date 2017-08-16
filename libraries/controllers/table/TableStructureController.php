@@ -493,9 +493,19 @@ class TableStructureController extends TableController
          */
         $fields_meta = array();
         for ($i = 0; $i < $selected_cnt; $i++) {
-            $fields_meta[] = $this->dbi->getColumns(
+            $value = $this->dbi->getColumns(
                 $this->db, $this->table, $selected[$i], true
             );
+            if (count($value) == 0) {
+                $message = Message::error(
+                    __('Failed to get description of column %s!')
+                );
+                $message->addParam($selected[$i]);
+                $this->response->addHTML($message);
+
+            } else {
+                $fields_meta[] = $value;
+            }
         }
         $num_fields = count($fields_meta);
         // set these globals because tbl_columns_definition_form.inc.php
