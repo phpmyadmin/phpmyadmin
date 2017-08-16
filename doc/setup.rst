@@ -1056,6 +1056,10 @@ are always ways to make your installation more secure:
   :config:option:`$cfg['AuthLog']`). This can allow using a tool such as
   fail2ban to block brute-force attempts. Note that the log file used by syslog
   is not the same as the Apache error or access log files.
+* In case you're running phpMyAdmin together with other PHP applications, it is
+  generally advised to use separate session storage for phpMyAdmin to avoid
+  possible session based attacks against it. You can use
+  :config:option:`$cfg['SessionSavePath']` to achieve this.
 
 .. _ssl:
 
