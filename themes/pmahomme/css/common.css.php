@@ -2186,7 +2186,7 @@ input#input_import_file {
 /**
  * Indexes
  */
-#index_frm .index_info input,
+#index_frm .index_info input[type="text"],
 #index_frm .index_info select {
     width: 14em;
     margin: 0;
