@@ -143,6 +143,10 @@ class Session
         $path = $config->get('SessionSavePath');
         if (!empty($path)) {
             session_save_path($path);
+            // We can not do this unconditionally as this would break
+            // any more complex setup (eg. cluster), see
+            // https://github.com/phpmyadmin/phpmyadmin/issues/8346
+            ini_set('session.save_handler', 'files');
         }
 
         // use cookies only
