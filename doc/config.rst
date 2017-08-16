@@ -2334,8 +2334,8 @@ Editing mode
     :default: 2
 
     Defines the default number of rows to be entered from the Insert page.
-    Users can manually chnage this from the bottom of that page to add more
-    (or fewer) blank rows.
+    Users can manually change this from the bottom of that page to add or remove
+    blank rows.
 
 .. config:option:: $cfg['ForeignKeyMaxLimit']
 
