@@ -363,7 +363,7 @@ class PMA_SeleniumTableBrowseTest extends PMA_SeleniumBase
     public function testDeleteRecords()
     {
         $this->waitForElementNotPresent('byId', 'ajax_message_num_1');
-        usleep(1000000);
+        usleep(2000000);
 
         $this->byId("id_rows_to_delete1_left")->click();
         $this->byId("id_rows_to_delete2_left")->click();

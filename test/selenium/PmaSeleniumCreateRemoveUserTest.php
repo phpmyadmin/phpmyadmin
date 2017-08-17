@@ -122,8 +122,8 @@ class PMA_SeleniumCreateRemoveUserTest extends PMA_SeleniumBase
             "(//input[@name='selected_usr[]'])[@value='" . $temp . "']"
         )->click();
 
-        $this->byId("checkbox_drop_users_db")->click();
         $this->scrollIntoView('fieldset_delete_user_footer');
+        $this->byId("checkbox_drop_users_db")->click();
 
         $this->byId("buttonGo")->click();
         $this->waitForElement("byCssSelector", "button.submitOK")->click();
