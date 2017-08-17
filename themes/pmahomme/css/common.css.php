@@ -2167,9 +2167,9 @@ input#input_import_file {
 /**
  * Indexes
  */
-#index_frm .index_info input,
+#index_frm .index_info input[type="text"],
 #index_frm .index_info select {
-    width: 17em;
+    width: 14em;
     margin: 0;
     box-sizing: border-box;
     -ms-box-sizing: border-box;
