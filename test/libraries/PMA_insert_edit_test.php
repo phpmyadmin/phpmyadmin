@@ -1479,7 +1479,7 @@ class PMA_InsertEditTest extends PHPUnit_Framework_TestCase
         );
 
         $this->assertContains(
-            '<option value="1" selected="selected">',
+            '<input type="number" name="insert_rows" id="insert_rows" value="1" min="1" />',
             $result
         );
     }

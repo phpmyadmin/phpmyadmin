@@ -1453,18 +1453,9 @@ function PMA_getContinueInsertionForm($table, $db, $where_clause_array, $err_url
                 . ' value="' . htmlspecialchars(trim($where_clause)) . '" />' . "\n";
         }
     }
-    $tmp = '<select name="insert_rows" id="insert_rows">' . "\n";
-    $option_values = array(1, 2, 5, 10, 15, 20, 30, 40);
 
-    foreach ($option_values as $value) {
-        $tmp .= '<option value="' . $value . '"';
-        if ($value == $GLOBALS['cfg']['InsertRows']) {
-            $tmp .= ' selected="selected"';
-        }
-        $tmp .= '>' . $value . '</option>' . "\n";
-    }
+    $tmp = '<input type="number" name="insert_rows" id="insert_rows" value="'.$GLOBALS['cfg']['InsertRows'].'" min="1" />';
 
-    $tmp .= '</select>' . "\n";
     $html_output .= "\n" . sprintf(__('Continue insertion with %s rows'), $tmp);
     unset($tmp);
     $html_output .= '</form>' . "\n";
