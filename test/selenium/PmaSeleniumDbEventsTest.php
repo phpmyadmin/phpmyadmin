@@ -124,6 +124,28 @@ class PMA_SeleniumDbEventsTest extends PMA_SeleniumBase
         $this->byName("item_ends")->click();
         $this->keys(date('Y-m-d', strtotime('+1 day')));
 
+        // Dynamic wait, retry if complete text not typed
+        $this->waitUntil(function () {
+            $startDate = date('Y-m-d', strtotime('-1 day'));
+            if ($this->byName('item_starts')->value() === $startDate) {
+                return true;
+            }
+
+            $this->byName("item_starts")->click();
+            $this->keys($startDate);
+            return null;
+        }, 5000);
+        $this->waitUntil(function () {
+            $endDate = date('Y-m-d', strtotime('+1 day'));
+            if ($this->byName('item_ends')->value() === $endDate) {
+                return true;
+            }
+
+            $this->byName("item_ends")->click();
+            $this->keys($endDate);
+            return null;
+        }, 5000);
+
         $ele = $this->waitForElement('byName', "item_interval_value");
         $ele->value('1');
 
