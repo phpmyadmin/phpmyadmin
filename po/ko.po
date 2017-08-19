@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.7.4-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2017-08-10 09:13-0400\n"
-"PO-Revision-Date: 2017-08-12 12:13+0000\n"
-"Last-Translator: Bogu Ham <songtac@gmail.com>\n"
+"PO-Revision-Date: 2017-08-20 01:46+0000\n"
+"Last-Translator: Kyeong Su Shin <cdac1234@gmail.com>\n"
 "Language-Team: Korean "
 "<https://hosted.weblate.org/projects/phpmyadmin/4-7/ko/>\n"
 "Language: ko\n"
@@ -13,7 +13,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Weblate 2.16\n"
+"X-Generator: Weblate 2.17-dev\n"
 
 #: ajax.php:16 ajax.php:33 export.php:192 schema_export.php:64
 msgid "Bad type!"
@@ -3048,57 +3048,41 @@ msgid "Korean"
 msgstr "한국어"
 
 #: libraries/Charsets.php:329
-#, fuzzy
-#| msgid "Hebrew"
 msgctxt "Collation"
 msgid "Hebrew"
 msgstr "히브리어"
 
 #: libraries/Charsets.php:332
-#, fuzzy
-#| msgid "Georgian"
 msgctxt "Collation"
 msgid "Georgian"
 msgstr "조지아어"
 
 #: libraries/Charsets.php:335
-#, fuzzy
-#| msgid "Greek"
 msgctxt "Collation"
 msgid "Greek"
 msgstr "그리스어"
 
 #: libraries/Charsets.php:338
-#, fuzzy
-#| msgid "Czech-Slovak"
 msgctxt "Collation"
 msgid "Czech-Slovak"
 msgstr "체코슬로바키아어"
 
 #: libraries/Charsets.php:341 libraries/Charsets.php:492
-#, fuzzy
-#| msgid "Ukrainian"
 msgctxt "Collation"
 msgid "Ukrainian"
 msgstr "우크라이나어"
 
 #: libraries/Charsets.php:344 libraries/Charsets.php:488
-#, fuzzy
-#| msgid "Turkish"
 msgctxt "Collation"
 msgid "Turkish"
 msgstr "터키어"
 
 #: libraries/Charsets.php:347 libraries/Charsets.php:480
-#, fuzzy
-#| msgid "Swedish"
 msgctxt "Collation"
 msgid "Swedish"
 msgstr "스웨덴어"
 
 #: libraries/Charsets.php:350 libraries/Charsets.php:484
-#, fuzzy
-#| msgid "Thai"
 msgctxt "Collation"
 msgid "Thai"
 msgstr "타이어"
@@ -3109,8 +3093,6 @@ msgid "Unknown"
 msgstr "알수없음"
 
 #: libraries/Charsets.php:369
-#, fuzzy
-#| msgid "Bulgarian"
 msgctxt "Collation"
 msgid "Bulgarian"
 msgstr "불가리아어"
@@ -3126,22 +3108,16 @@ msgid "Croatian"
 msgstr "크로아티아어"
 
 #: libraries/Charsets.php:383
-#, fuzzy
-#| msgid "Czech"
 msgctxt "Collation"
 msgid "Czech"
 msgstr "체코어"
 
 #: libraries/Charsets.php:387
-#, fuzzy
-#| msgid "Danish"
 msgctxt "Collation"
 msgid "Danish"
 msgstr "덴마크어"
 
 #: libraries/Charsets.php:391
-#, fuzzy
-#| msgid "English"
 msgctxt "Collation"
 msgid "English"
 msgstr "영어"
@@ -3152,18 +3128,14 @@ msgid "Esperanto"
 msgstr "에스페란토어"
 
 #: libraries/Charsets.php:399
-#, fuzzy
-#| msgid "Estonian"
 msgctxt "Collation"
 msgid "Estonian"
 msgstr "에스토니아어"
 
 #: libraries/Charsets.php:402 libraries/Charsets.php:519
-#, fuzzy
-#| msgid "Data Dictionary"
 msgctxt "Collation"
 msgid "German (dictionary order)"
-msgstr "데이터 사전 (전체 구조보기)"
+msgstr "독일어 (사전순 정렬)"
 
 #: libraries/Charsets.php:405 libraries/Charsets.php:516
 msgctxt "Collation"
@@ -3191,57 +3163,41 @@ msgid "Latvian"
 msgstr "라트비아어"
 
 #: libraries/Charsets.php:433
-#, fuzzy
-#| msgid "Lithuanian"
 msgctxt "Collation"
 msgid "Lithuanian"
 msgstr "리투아니아어"
 
 #: libraries/Charsets.php:441
-#, fuzzy
-#| msgid "Burmese"
 msgctxt "Collation"
 msgid "Burmese"
 msgstr "버마어"
 
 #: libraries/Charsets.php:444
-#, fuzzy
-#| msgid "Persian"
 msgctxt "Collation"
 msgid "Persian"
 msgstr "페르시아어"
 
 #: libraries/Charsets.php:448
-#, fuzzy
-#| msgid "Polish"
 msgctxt "Collation"
 msgid "Polish"
 msgstr "폴란드어"
 
 #: libraries/Charsets.php:455
-#, fuzzy
-#| msgid "Romanian"
 msgctxt "Collation"
 msgid "Romanian"
 msgstr "루마니어어"
 
 #: libraries/Charsets.php:459
-#, fuzzy
-#| msgid "Sinhalese"
 msgctxt "Collation"
 msgid "Sinhalese"
 msgstr "싱할라어"
 
 #: libraries/Charsets.php:463
-#, fuzzy
-#| msgid "Slovak"
 msgctxt "Collation"
 msgid "Slovak"
 msgstr "슬로바키아어"
 
 #: libraries/Charsets.php:467
-#, fuzzy
-#| msgid "Slovenian"
 msgctxt "Collation"
 msgid "Slovenian"
 msgstr "슬로베니아어"
@@ -3260,39 +3216,29 @@ msgid "Spanish (traditional)"
 msgstr "스페인어 (Traditional)"
 
 #: libraries/Charsets.php:496
-#, fuzzy
-#| msgid "Vietnamese"
 msgctxt "Collation"
 msgid "Vietnamese"
 msgstr "베트남어"
 
 #: libraries/Charsets.php:563
-#, fuzzy
-#| msgid "case-insensitive"
 msgctxt "Collation variant"
 msgid "case-insensitive"
 msgstr "대소문자 구분안함"
 
 #: libraries/Charsets.php:566
-#, fuzzy
-#| msgid "case-sensitive"
 msgctxt "Collation variant"
 msgid "case-sensitive"
 msgstr "대소문자 구분"
 
 #: libraries/Charsets.php:569
-#, fuzzy
-#| msgid "case-insensitive"
 msgctxt "Collation variant"
 msgid "accent-insensitive"
-msgstr "대소문자 구분안함"
+msgstr "악센트 구분안함"
 
 #: libraries/Charsets.php:572
-#, fuzzy
-#| msgid "case-sensitive"
 msgctxt "Collation variant"
 msgid "accent-sensitive"
-msgstr "대소문자 구분"
+msgstr "악센트 구분"
 
 #: libraries/Charsets.php:576
 #, fuzzy
