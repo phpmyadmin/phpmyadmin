@@ -164,6 +164,9 @@ class PMA_SeleniumDbEventsTest extends PMA_SeleniumBase
             '//div[@id=\'alertLabel\' and not(contains(@style,\'display: none;\'))]'
         );
 
+        // Refresh the page
+        $this->url($this->url());
+
         $this->assertTrue(
             $this->isElementPresent(
                 'byXPath',
