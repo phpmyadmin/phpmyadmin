@@ -1,31 +1,34 @@
 <?php
 /* vim: set expandtab sw=4 ts=4 sts=4: */
 /**
- * Tests for libraries/insert_edit.lib.php
+ * Tests for PhpMyAdmin\InsertEdit
  *
  * @package PhpMyAdmin-test
  */
+namespace PhpMyAdmin\Tests;
 
-/*
- * Include to test.
- */
+use PhpMyAdmin\Config;
+use PhpMyAdmin\DatabaseInterface;
+use PhpMyAdmin\InsertEdit;
+use PhpMyAdmin\Response;
 use PhpMyAdmin\Table;
 use PhpMyAdmin\Theme;
 use PhpMyAdmin\Tracker;
 use PhpMyAdmin\Types;
 use PhpMyAdmin\TypesMySQL;
+use ReflectionProperty;
+use stdClass;
 
-require_once 'libraries/insert_edit.lib.php';
 require_once 'libraries/database_interface.inc.php';
 require_once 'libraries/relation.lib.php';
 
 /**
- * Tests for libraries/insert_edit.lib.php
+ * Tests for PhpMyAdmin\InsertEdit
  *
  * @package PhpMyAdmin-test
  * @group medium
  */
-class PMA_InsertEditTest extends PHPUnit_Framework_TestCase
+class InsertEditTest extends \PHPUnit_Framework_TestCase
 {
     /**
      * Setup for test cases
@@ -61,11 +64,11 @@ class PMA_InsertEditTest extends PHPUnit_Framework_TestCase
         $GLOBALS['cfg']['NavigationTreeDefaultTabTable2'] = '';
         $GLOBALS['cfg']['Confirm'] = true;
         $GLOBALS['cfg']['LoginCookieValidity'] = 1440;
-        $GLOBALS['PMA_Config'] = new PhpMyAdmin\Config();
+        $GLOBALS['PMA_Config'] = new Config();
     }
 
     /**
-     * Test for PMA_getFormParametersForInsertForm
+     * Test for InsertEdit::getFormParametersForInsertForm
      *
      * @return void
      */
@@ -76,7 +79,7 @@ class PMA_InsertEditTest extends PHPUnit_Framework_TestCase
         $_REQUEST['sql_query'] = 'SELECT a';
         $GLOBALS['goto'] = 'index.php';
 
-        $result = PMA_getFormParametersForInsertForm(
+        $result = InsertEdit::getFormParametersForInsertForm(
             'dbname', 'tablename', array(), $where_clause, 'localhost'
         );
 
@@ -96,7 +99,7 @@ class PMA_InsertEditTest extends PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test for PMA_getWhereClauseArray
+     * Test for InsertEdit::getWhereClauseArray
      *
      * @return void
      */
@@ -104,22 +107,22 @@ class PMA_InsertEditTest extends PHPUnit_Framework_TestCase
     {
         $this->assertEquals(
             array(),
-            PMA_getWhereClauseArray(null)
+            InsertEdit::getWhereClauseArray(null)
         );
 
         $this->assertEquals(
             array(1, 2, 3),
-            PMA_getWhereClauseArray(array(1, 2, 3))
+            InsertEdit::getWhereClauseArray(array(1, 2, 3))
         );
 
         $this->assertEquals(
             array('clause'),
-            PMA_getWhereClauseArray('clause')
+            InsertEdit::getWhereClauseArray('clause')
         );
     }
 
     /**
-     * Test for PMA_analyzeWhereClauses
+     * Test for InsertEdit::analyzeWhereClauses
      *
      * @return void
      */
@@ -153,7 +156,7 @@ class PMA_InsertEditTest extends PHPUnit_Framework_TestCase
             );
 
         $GLOBALS['dbi'] = $dbi;
-        $result = PMA_analyzeWhereClauses($clauses, 'table', 'db');
+        $result = InsertEdit::analyzeWhereClauses($clauses, 'table', 'db');
 
         $this->assertEquals(
             array(
@@ -170,7 +173,7 @@ class PMA_InsertEditTest extends PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test for PMA_showEmptyResultMessageOrSetUniqueCondition
+     * Test for InsertEdit::showEmptyResultMessageOrSetUniqueCondition
      *
      * @return void
      */
@@ -194,7 +197,7 @@ class PMA_InsertEditTest extends PHPUnit_Framework_TestCase
 
         $GLOBALS['dbi'] = $dbi;
 
-        $result = PMA_showEmptyResultMessageOrSetUniqueCondition(
+        $result = InsertEdit::showEmptyResultMessageOrSetUniqueCondition(
             array('1' => array('1' => 1)), 1, array(),
             'SELECT', array('1' => 'result1')
         );
@@ -209,12 +212,12 @@ class PMA_InsertEditTest extends PHPUnit_Framework_TestCase
             ->setMethods(array('addHtml'))
             ->getMock();
 
-        $restoreInstance = PhpMyAdmin\Response::getInstance();
+        $restoreInstance = Response::getInstance();
         $response = new ReflectionProperty('PhpMyAdmin\Response', '_instance');
         $response->setAccessible(true);
         $response->setValue($responseMock);
 
-        $result = PMA_showEmptyResultMessageOrSetUniqueCondition(
+        $result = InsertEdit::showEmptyResultMessageOrSetUniqueCondition(
             array(false), 0, array('1'), 'SELECT', array('1' => 'result1')
         );
 
@@ -224,7 +227,7 @@ class PMA_InsertEditTest extends PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test for PMA_loadFirstRow
+     * Test for InsertEdit::loadFirstRow
      *
      * @return void
      */
@@ -241,13 +244,13 @@ class PMA_InsertEditTest extends PHPUnit_Framework_TestCase
             ->with(
                 'SELECT * FROM `db`.`table` LIMIT 1;',
                 null,
-                PhpMyAdmin\DatabaseInterface::QUERY_STORE
+                DatabaseInterface::QUERY_STORE
             )
             ->will($this->returnValue('result1'));
 
         $GLOBALS['dbi'] = $dbi;
 
-        $result = PMA_loadFirstRow('table', 'db');
+        $result = InsertEdit::loadFirstRow('table', 'db');
 
         $this->assertEquals(
             array('result1', array(false, false)),
@@ -256,7 +259,7 @@ class PMA_InsertEditTest extends PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test for PMA_urlParamsInEditMode
+     * Test for InsertEdit::urlParamsInEditMode
      *
      * @return void
      */
@@ -265,7 +268,7 @@ class PMA_InsertEditTest extends PHPUnit_Framework_TestCase
         $where_clause_array = array('foo=1', 'bar=2');
         $_REQUEST['sql_query'] = 'SELECT 1';
 
-        $result = PMA_urlParamsInEditMode(array(1), $where_clause_array, '');
+        $result = InsertEdit::urlParamsInEditMode(array(1), $where_clause_array, '');
 
         $this->assertEquals(
             array(
@@ -278,17 +281,18 @@ class PMA_InsertEditTest extends PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test for PMA_showTypeOrFunction
+     * Test for InsertEdit::showTypeOrFunction
      *
      * @return void
      */
     public function testShowTypeOrFunction()
     {
+        unset($GLOBALS['collation_connection']);
         $GLOBALS['cfg']['ShowFieldTypesInDataEditView'] = true;
         $GLOBALS['cfg']['ServerDefault'] = 1;
         $url_params = array('ShowFunctionFields' => 2);
 
-        $result = PMA_showTypeOrFunction('function', $url_params, false);
+        $result = InsertEdit::showTypeOrFunction('function', $url_params, false);
 
         $this->assertEquals(
             ' : <a href="tbl_change.php?ShowFunctionFields=1&amp;ShowFieldTypesIn'
@@ -298,7 +302,7 @@ class PMA_InsertEditTest extends PHPUnit_Framework_TestCase
         );
 
         // case 2
-        $result = PMA_showTypeOrFunction('function', $url_params, true);
+        $result = InsertEdit::showTypeOrFunction('function', $url_params, true);
 
         $this->assertEquals(
             '<th><a href="tbl_change.php?ShowFunctionFields=0&amp;ShowFieldTypesIn'
@@ -308,7 +312,7 @@ class PMA_InsertEditTest extends PHPUnit_Framework_TestCase
         );
 
         // case 3
-        $result = PMA_showTypeOrFunction('type', $url_params, false);
+        $result = InsertEdit::showTypeOrFunction('type', $url_params, false);
 
         $this->assertEquals(
             ' : <a href="tbl_change.php?ShowFunctionFields=1&amp;ShowFieldTypesIn'
@@ -318,7 +322,7 @@ class PMA_InsertEditTest extends PHPUnit_Framework_TestCase
         );
 
         // case 4
-        $result = PMA_showTypeOrFunction('type', $url_params, true);
+        $result = InsertEdit::showTypeOrFunction('type', $url_params, true);
 
         $this->assertEquals(
             '<th><a href="tbl_change.php?ShowFunctionFields=1&amp;ShowFieldTypesIn'
@@ -329,7 +333,7 @@ class PMA_InsertEditTest extends PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test for PMA_analyzeTableColumnsArray
+     * Test for InsertEdit::analyzeTableColumnsArray
      *
      * @return void
      */
@@ -341,7 +345,7 @@ class PMA_InsertEditTest extends PHPUnit_Framework_TestCase
             'Type' => 'float(10, 1)'
         );
 
-        $result = PMA_analyzeTableColumnsArray(
+        $result = InsertEdit::analyzeTableColumnsArray(
             $column, array(), false
         );
 
@@ -402,7 +406,7 @@ class PMA_InsertEditTest extends PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test for PMA_getColumnTitle
+     * Test for InsertEdit::getColumnTitle
      *
      * @return void
      */
@@ -413,14 +417,14 @@ class PMA_InsertEditTest extends PHPUnit_Framework_TestCase
         $column['Field_html'] = 'f1&lt;';
 
         $this->assertEquals(
-            PMA_getColumnTitle($column, array()),
+            InsertEdit::getColumnTitle($column, array()),
             'f1&lt;'
         );
 
         $comments = array();
         $comments['f1<'] = 'comment>';
 
-        $result = PMA_getColumnTitle($column, $comments);
+        $result = InsertEdit::getColumnTitle($column, $comments);
 
         $this->assertContains(
             'title="comment&gt;"',
@@ -434,7 +438,7 @@ class PMA_InsertEditTest extends PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test for PMA_isColumn
+     * Test for InsertEdit::isColumn
      *
      * @return void
      */
@@ -444,51 +448,51 @@ class PMA_InsertEditTest extends PHPUnit_Framework_TestCase
         $types = array('binary', 'varbinary');
 
         $column['Type'] = 'binaryfoo';
-        $this->assertTrue(PMA_isColumn($column, $types));
+        $this->assertTrue(InsertEdit::isColumn($column, $types));
 
         $column['Type'] = 'Binaryfoo';
-        $this->assertTrue(PMA_isColumn($column, $types));
+        $this->assertTrue(InsertEdit::isColumn($column, $types));
 
         $column['Type'] = 'varbinaryfoo';
-        $this->assertTrue(PMA_isColumn($column, $types));
+        $this->assertTrue(InsertEdit::isColumn($column, $types));
 
         $column['Type'] = 'barbinaryfoo';
-        $this->assertFalse(PMA_isColumn($column, $types));
+        $this->assertFalse(InsertEdit::isColumn($column, $types));
 
         $types = array('char', 'varchar');
 
         $column['Type'] = 'char(10)';
-        $this->assertTrue(PMA_isColumn($column, $types));
+        $this->assertTrue(InsertEdit::isColumn($column, $types));
 
         $column['Type'] = 'VarChar(20)';
-        $this->assertTrue(PMA_isColumn($column, $types));
+        $this->assertTrue(InsertEdit::isColumn($column, $types));
 
         $column['Type'] = 'foochar';
-        $this->assertFalse(PMA_isColumn($column, $types));
+        $this->assertFalse(InsertEdit::isColumn($column, $types));
 
         $types = array('blob', 'tinyblob', 'mediumblob', 'longblob');
 
         $column['Type'] = 'blob';
-        $this->assertTrue(PMA_isColumn($column, $types));
+        $this->assertTrue(InsertEdit::isColumn($column, $types));
 
         $column['Type'] = 'bloB';
-        $this->assertTrue(PMA_isColumn($column, $types));
+        $this->assertTrue(InsertEdit::isColumn($column, $types));
 
         $column['Type'] = 'mediumBloB';
-        $this->assertTrue(PMA_isColumn($column, $types));
+        $this->assertTrue(InsertEdit::isColumn($column, $types));
 
         $column['Type'] = 'tinyblobabc';
-        $this->assertTrue(PMA_isColumn($column, $types));
+        $this->assertTrue(InsertEdit::isColumn($column, $types));
 
         $column['Type'] = 'longblob';
-        $this->assertTrue(PMA_isColumn($column, $types));
+        $this->assertTrue(InsertEdit::isColumn($column, $types));
 
         $column['Type'] = 'foolongblobbar';
-        $this->assertFalse(PMA_isColumn($column, $types));
+        $this->assertFalse(InsertEdit::isColumn($column, $types));
     }
 
     /**
-     * Test for PMA_getEnumSetAndTimestampColumns
+     * Test for InsertEdit::getEnumSetAndTimestampColumns
      *
      * @return void
      */
@@ -498,46 +502,46 @@ class PMA_InsertEditTest extends PHPUnit_Framework_TestCase
         $column['True_Type'] = 'set';
         $this->assertEquals(
             array('set', '', false),
-            PMA_getEnumSetAndTimestampColumns($column, false)
+            InsertEdit::getEnumSetAndTimestampColumns($column, false)
         );
 
         $column['True_Type'] = 'enum';
         $this->assertEquals(
             array('enum', '', false),
-            PMA_getEnumSetAndTimestampColumns($column, false)
+            InsertEdit::getEnumSetAndTimestampColumns($column, false)
         );
 
         $column['True_Type'] = 'timestamp';
         $column['Type'] = 'date';
         $this->assertEquals(
             array('date', ' nowrap', true),
-            PMA_getEnumSetAndTimestampColumns($column, false)
+            InsertEdit::getEnumSetAndTimestampColumns($column, false)
         );
 
         $column['True_Type'] = 'timestamp';
         $column['Type'] = 'date';
         $this->assertEquals(
             array('date', ' nowrap', false),
-            PMA_getEnumSetAndTimestampColumns($column, true)
+            InsertEdit::getEnumSetAndTimestampColumns($column, true)
         );
 
         $column['True_Type'] = 'SET';
         $column['Type'] = 'num';
         $this->assertEquals(
             array('num', ' nowrap', false),
-            PMA_getEnumSetAndTimestampColumns($column, false)
+            InsertEdit::getEnumSetAndTimestampColumns($column, false)
         );
 
         $column['True_Type'] = '';
         $column['Type'] = 'num';
         $this->assertEquals(
             array('num', ' nowrap', false),
-            PMA_getEnumSetAndTimestampColumns($column, false)
+            InsertEdit::getEnumSetAndTimestampColumns($column, false)
         );
     }
 
     /**
-     * Test for PMA_getFunctionColumn
+     * Test for InsertEdit::getFunctionColumn
      *
      * @return void
      */
@@ -548,7 +552,7 @@ class PMA_InsertEditTest extends PHPUnit_Framework_TestCase
         $column['is_blob'] = true;
         $this->assertContains(
             '<td class="center">Binary</td>',
-            PMA_getFunctionColumn(
+            InsertEdit::getFunctionColumn(
                 $column, false, '', '', array(), 0, 0, 0, false, false, array()
             )
         );
@@ -557,7 +561,7 @@ class PMA_InsertEditTest extends PHPUnit_Framework_TestCase
         $column['is_binary'] = true;
         $this->assertContains(
             '<td class="center">Binary</td>',
-            PMA_getFunctionColumn(
+            InsertEdit::getFunctionColumn(
                 $column, true, '', '', array(), 0, 0, 0, false, false, array()
             )
         );
@@ -566,7 +570,7 @@ class PMA_InsertEditTest extends PHPUnit_Framework_TestCase
         $column['is_blob'] = false;
         $this->assertContains(
             '<td class="center">Binary</td>',
-            PMA_getFunctionColumn(
+            InsertEdit::getFunctionColumn(
                 $column, true, '', '', array(), 0, 0, 0, false, false, array()
             )
         );
@@ -575,7 +579,7 @@ class PMA_InsertEditTest extends PHPUnit_Framework_TestCase
         $column['True_Type'] = 'enum';
         $this->assertContains(
             '<td class="center">--</td>',
-            PMA_getFunctionColumn(
+            InsertEdit::getFunctionColumn(
                 $column, true, '', '', array(), 0, 0, 0, false, false, array()
             )
         );
@@ -583,7 +587,7 @@ class PMA_InsertEditTest extends PHPUnit_Framework_TestCase
         $column['True_Type'] = 'set';
         $this->assertContains(
             '<td class="center">--</td>',
-            PMA_getFunctionColumn(
+            InsertEdit::getFunctionColumn(
                 $column, true, '', '', array(), 0, 0, 0, false, false, array()
             )
         );
@@ -592,7 +596,7 @@ class PMA_InsertEditTest extends PHPUnit_Framework_TestCase
         $column['pma_type'] = 'int';
         $this->assertContains(
             '<td class="center">--</td>',
-            PMA_getFunctionColumn(
+            InsertEdit::getFunctionColumn(
                 $column, true, '', '', array('int'), 0, 0, 0, false, false, array()
             )
         );
@@ -601,14 +605,14 @@ class PMA_InsertEditTest extends PHPUnit_Framework_TestCase
         $column['Field'] = 'num';
         $this->assertContains(
             '<select name="funcsa" b tabindex="5" id="field_3_1"',
-            PMA_getFunctionColumn(
+            InsertEdit::getFunctionColumn(
                 $column, true, 'a', 'b', array(), 2, 3, 3, false, false, array()
             )
         );
     }
 
     /**
-     * Test for PMA_getNullColumn
+     * Test for InsertEdit::getNullColumn
      *
      * @return void
      */
@@ -624,7 +628,7 @@ class PMA_InsertEditTest extends PHPUnit_Framework_TestCase
             'foreign_keys_data' => array()
         );
 
-        $result = PMA_getNullColumn(
+        $result = InsertEdit::getNullColumn(
             $column, 'a', true, 2, 0, 1, "<script>", $foreigners, array(), false
         );
 
@@ -659,7 +663,7 @@ class PMA_InsertEditTest extends PHPUnit_Framework_TestCase
 
         // case 2
         $column['Null'] = 'NO';
-        $result = PMA_getNullColumn(
+        $result = InsertEdit::getNullColumn(
             $column, 'a', true, 2, 0, 1, "<script>", array(), array(), false
         );
 
@@ -670,7 +674,7 @@ class PMA_InsertEditTest extends PHPUnit_Framework_TestCase
 
         // case 3
         $column['Null'] = 'YES';
-        $result = PMA_getNullColumn(
+        $result = InsertEdit::getNullColumn(
             $column, 'a', true, 2, 0, 1, "<script>", array(), array(), true
         );
 
@@ -681,7 +685,7 @@ class PMA_InsertEditTest extends PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test for PMA_getNullifyCodeForNullColumn
+     * Test for InsertEdit::getNullifyCodeForNullColumn
      *
      * @return void
      */
@@ -696,20 +700,20 @@ class PMA_InsertEditTest extends PHPUnit_Framework_TestCase
         $column['Type'] = 'ababababababababababa';
         $this->assertEquals(
             '1',
-            PMA_getNullifyCodeForNullColumn($column, $foreigners, array())
+            InsertEdit::getNullifyCodeForNullColumn($column, $foreigners, array())
         );
 
         $column['True_Type'] = 'enum';
         $column['Type'] = 'abababababababababab';
         $this->assertEquals(
             '2',
-            PMA_getNullifyCodeForNullColumn($column, $foreigners, array())
+            InsertEdit::getNullifyCodeForNullColumn($column, $foreigners, array())
         );
 
         $column['True_Type'] = 'set';
         $this->assertEquals(
             '3',
-            PMA_getNullifyCodeForNullColumn($column, $foreigners, array())
+            InsertEdit::getNullifyCodeForNullColumn($column, $foreigners, array())
         );
 
         $column['True_Type'] = '';
@@ -717,12 +721,12 @@ class PMA_InsertEditTest extends PHPUnit_Framework_TestCase
         $foreignData['foreign_link'] = '';
         $this->assertEquals(
             '4',
-            PMA_getNullifyCodeForNullColumn($column, $foreigners, $foreignData)
+            InsertEdit::getNullifyCodeForNullColumn($column, $foreigners, $foreignData)
         );
     }
 
     /**
-     * Test for PMA_getForeignLink
+     * Test for InsertEdit::getForeignLink
      *
      * @return void
      */
@@ -732,7 +736,7 @@ class PMA_InsertEditTest extends PHPUnit_Framework_TestCase
         $column['Field'] = 'f';
         $titles['Browse'] = "'";
         $GLOBALS['cfg']['ServerDefault'] = 2;
-        $result = PMA_getForeignLink(
+        $result = InsertEdit::getForeignLink(
             $column, 'a', 'b', 'd', 2, 0, 1, "abc", array('tbl', 'db'), 8,
             $titles, false
         );
@@ -758,7 +762,7 @@ class PMA_InsertEditTest extends PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test for PMA_dispRowForeignData
+     * Test for InsertEdit::dispRowForeignData
      *
      * @return void
      */
@@ -770,7 +774,7 @@ class PMA_InsertEditTest extends PHPUnit_Framework_TestCase
         $foreignData['foreign_display'] = null;
         $GLOBALS['cfg']['ForeignKeyMaxLimit'] = 1;
         $GLOBALS['cfg']['NaturalOrder'] = false;
-        $result = PMA_dispRowForeignData(
+        $result = InsertEdit::dispRowForeignData(
             'a', 'b', 'd', 2, 0, 1, "<s>", $foreignData, false
         );
 
@@ -792,7 +796,7 @@ class PMA_InsertEditTest extends PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test for PMA_getTextarea
+     * Test for InsertEdit::getTextarea
      *
      * @return void
      */
@@ -808,7 +812,7 @@ class PMA_InsertEditTest extends PHPUnit_Framework_TestCase
         $column['is_char'] = true;
         $column['Type'] = 'char(10)';
         $column['True_Type'] = 'char';
-        $result = PMA_getTextarea(
+        $result = InsertEdit::getTextarea(
             $column, 'a', 'b', '', 2, 0, 1, "abc/", 'foobar', 'CHAR', false
         );
 
@@ -821,7 +825,7 @@ class PMA_InsertEditTest extends PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test for PMA_getPmaTypeEnum
+     * Test for InsertEdit::getPmaTypeEnum
      *
      * @return void
      */
@@ -836,7 +840,7 @@ class PMA_InsertEditTest extends PHPUnit_Framework_TestCase
                 'plain' => 'data'
             )
         );
-        $result = PMA_getPmaTypeEnum(
+        $result = InsertEdit::getPmaTypeEnum(
             $column, 'a', 'b', $extracted_columnspec, 'd', 2, 0, 1,
             'foobar', false
         );
@@ -852,7 +856,7 @@ class PMA_InsertEditTest extends PHPUnit_Framework_TestCase
         );
 
         $column['Type'] = 'ababababababababababa';
-        $result = PMA_getPmaTypeEnum(
+        $result = InsertEdit::getPmaTypeEnum(
             $column, 'a', 'b', $extracted_columnspec, 'd', 2, 0, 1,
             'foobar', false
         );
@@ -870,7 +874,7 @@ class PMA_InsertEditTest extends PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test for PMA_getColumnEnumValues
+     * Test for InsertEdit::getColumnEnumValues
      *
      * @return void
      */
@@ -883,7 +887,7 @@ class PMA_InsertEditTest extends PHPUnit_Framework_TestCase
 
         $column['values'] = 'abc';
 
-        $result = PMA_getColumnEnumValues($column, $extracted_columnspec);
+        $result = InsertEdit::getColumnEnumValues($column, $extracted_columnspec);
         $this->assertEquals(
             array(
                 array('plain' => '<abc>', 'html' => '&lt;abc&gt;'),
@@ -894,7 +898,7 @@ class PMA_InsertEditTest extends PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test for PMA_getDropDownDependingOnLength
+     * Test for InsertEdit::getDropDownDependingOnLength
      *
      * @return void
      */
@@ -911,7 +915,7 @@ class PMA_InsertEditTest extends PHPUnit_Framework_TestCase
             )
         );
 
-        $result = PMA_getDropDownDependingOnLength(
+        $result = InsertEdit::getDropDownDependingOnLength(
             array(), 'a', 'b', 2, 0, 1, 'data', $column_enum_values, false
         );
 
@@ -942,7 +946,7 @@ class PMA_InsertEditTest extends PHPUnit_Framework_TestCase
         $column = array();
         $column['Default'] = 'data';
         $column['Null'] = 'YES';
-        $result = PMA_getDropDownDependingOnLength(
+        $result = InsertEdit::getDropDownDependingOnLength(
             $column, 'a', 'b', 2, 0, 1, '', $column_enum_values, false
         );
 
@@ -953,7 +957,7 @@ class PMA_InsertEditTest extends PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test for PMA_getRadioButtonDependingOnLength
+     * Test for InsertEdit::getRadioButtonDependingOnLength
      *
      * @return void
      */
@@ -970,7 +974,7 @@ class PMA_InsertEditTest extends PHPUnit_Framework_TestCase
             )
         );
 
-        $result = PMA_getRadioButtonDependingOnLength(
+        $result = InsertEdit::getRadioButtonDependingOnLength(
             'a', 'b', 2, array(), 0, 1, 'data', $column_enum_values, false
         );
 
@@ -1007,7 +1011,7 @@ class PMA_InsertEditTest extends PHPUnit_Framework_TestCase
         $column = array();
         $column['Default'] = 'data';
         $column['Null'] = 'YES';
-        $result = PMA_getRadioButtonDependingOnLength(
+        $result = InsertEdit::getRadioButtonDependingOnLength(
             'a', 'b', 2, $column, 0, 1, '', $column_enum_values, false
         );
 
@@ -1019,7 +1023,7 @@ class PMA_InsertEditTest extends PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test for PMA_getPmaTypeSet
+     * Test for InsertEdit::getPmaTypeSet
      *
      * @return void
      */
@@ -1035,7 +1039,7 @@ class PMA_InsertEditTest extends PHPUnit_Framework_TestCase
 
         $column['select_size'] = 1;
 
-        $result = PMA_getPmaTypeSet(
+        $result = InsertEdit::getPmaTypeSet(
             $column, array(), 'a', 'b', 'c', 2, 0, 1, 'data,<', false
         );
 
@@ -1059,7 +1063,7 @@ class PMA_InsertEditTest extends PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test for PMA_getColumnSetValueAndSelectSize
+     * Test for InsertEdit::getColumnSetValueAndSelectSize
      *
      * @return void
      */
@@ -1067,7 +1071,7 @@ class PMA_InsertEditTest extends PHPUnit_Framework_TestCase
     {
         $extracted_columnspec = $column = array();
         $extracted_columnspec['enum_set_values'] = array('a', '<');
-        $result = PMA_getColumnSetValueAndSelectSize(array(), $extracted_columnspec);
+        $result = InsertEdit::getColumnSetValueAndSelectSize(array(), $extracted_columnspec);
 
         $this->assertEquals(
             array(
@@ -1082,7 +1086,7 @@ class PMA_InsertEditTest extends PHPUnit_Framework_TestCase
 
         $column['values'] = array(1, 2);
         $column['select_size'] = 3;
-        $result = PMA_getColumnSetValueAndSelectSize($column, $extracted_columnspec);
+        $result = InsertEdit::getColumnSetValueAndSelectSize($column, $extracted_columnspec);
 
         $this->assertEquals(
             array(
@@ -1094,7 +1098,7 @@ class PMA_InsertEditTest extends PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test for PMA_getBinaryAndBlobColumn
+     * Test for InsertEdit::getBinaryAndBlobColumn
      *
      * @return void
      */
@@ -1109,7 +1113,7 @@ class PMA_InsertEditTest extends PHPUnit_Framework_TestCase
         $column['True_Type'] = 'blob';
         $GLOBALS['max_upload_size'] = 65536;
 
-        $result = PMA_getBinaryAndBlobColumn(
+        $result = InsertEdit::getBinaryAndBlobColumn(
             $column, '12\\"23', null, 20, 'a', 'b', 'c', 2, 1, 1, '/', null,
             'foo', true, false
         );
@@ -1127,7 +1131,7 @@ class PMA_InsertEditTest extends PHPUnit_Framework_TestCase
         $GLOBALS['cfg']['ProtectBinary'] = "all";
         $column['is_binary'] = true;
 
-        $result = PMA_getBinaryAndBlobColumn(
+        $result = InsertEdit::getBinaryAndBlobColumn(
             $column, '1223', null, 20, 'a', 'b', 'c', 2, 1, 1, '/', null,
             'foo', false, false
         );
@@ -1143,7 +1147,7 @@ class PMA_InsertEditTest extends PHPUnit_Framework_TestCase
         $GLOBALS['cfg']['ProtectBinary'] = "noblob";
         $column['is_blob'] = false;
 
-        $result = PMA_getBinaryAndBlobColumn(
+        $result = InsertEdit::getBinaryAndBlobColumn(
             $column, '1223', null, 20, 'a', 'b', 'c', 2, 1, 1, '/', null,
             'foo', true, false
         );
@@ -1166,7 +1170,7 @@ class PMA_InsertEditTest extends PHPUnit_Framework_TestCase
         $GLOBALS['cfg']['CharTextareaCols'] = 1;
         $GLOBALS['cfg']['LimitChars'] = 100;
 
-        $result = PMA_getBinaryAndBlobColumn(
+        $result = InsertEdit::getBinaryAndBlobColumn(
             $column, '1223', null, 20, 'a', 'b', 'c', 2, 1, 1, '/', null,
             'foo', true, false
         );
@@ -1191,7 +1195,7 @@ class PMA_InsertEditTest extends PHPUnit_Framework_TestCase
         $GLOBALS['cfg']['TextareaRows'] = 20;
         $GLOBALS['cfg']['TextareaCols'] = 10;
 
-        $result = PMA_getBinaryAndBlobColumn(
+        $result = InsertEdit::getBinaryAndBlobColumn(
             $column, '1223', null, 20, 'a', 'b', 'c', 2, 1, 1, '/', null,
             'foo', true, false
         );
@@ -1217,7 +1221,7 @@ class PMA_InsertEditTest extends PHPUnit_Framework_TestCase
          *
          */
 
-        $result = PMA_getBinaryAndBlobColumn(
+        $result = InsertEdit::getBinaryAndBlobColumn(
             $column, '1223', null, 20, 'a', 'b', 'c', 2, 1, 1, '/', null,
             'foo', true, false
         );
@@ -1232,7 +1236,7 @@ class PMA_InsertEditTest extends PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test for PMA_getHTMLinput
+     * Test for InsertEdit::getHtmlInput
      *
      * @return void
      */
@@ -1242,7 +1246,7 @@ class PMA_InsertEditTest extends PHPUnit_Framework_TestCase
         $column = array();
         $column['pma_type'] = 'date';
         $column['True_Type'] = 'date';
-        $result = PMA_getHTMLinput(
+        $result = InsertEdit::getHtmlInput(
             $column, 'a', 'b', 30, 'c', 23, 2, 0, 'DATE', false
         );
 
@@ -1255,7 +1259,7 @@ class PMA_InsertEditTest extends PHPUnit_Framework_TestCase
         // case 2 datetime
         $column['pma_type'] = 'datetime';
         $column['True_Type'] = 'datetime';
-        $result = PMA_getHTMLinput(
+        $result = InsertEdit::getHtmlInput(
             $column, 'a', 'b', 30, 'c', 23, 2, 0, 'DATE', false
         );
         $this->assertEquals(
@@ -1267,7 +1271,7 @@ class PMA_InsertEditTest extends PHPUnit_Framework_TestCase
         // case 3 timestamp
         $column['pma_type'] = 'timestamp';
         $column['True_Type'] = 'timestamp';
-        $result = PMA_getHTMLinput(
+        $result = InsertEdit::getHtmlInput(
             $column, 'a', 'b', 30, 'c', 23, 2, 0, 'DATE', false
         );
         $this->assertEquals(
@@ -1278,7 +1282,7 @@ class PMA_InsertEditTest extends PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test for PMA_getMaxUploadSize
+     * Test for InsertEdit::getMaxUploadSize
      *
      * @return void
      */
@@ -1287,7 +1291,7 @@ class PMA_InsertEditTest extends PHPUnit_Framework_TestCase
         $GLOBALS['max_upload_size'] = 257;
         $column = array();
         $column['pma_type'] = 'tinyblob';
-        $result = PMA_getMaxUploadSize($column, 256);
+        $result = InsertEdit::getMaxUploadSize($column, 256);
 
         $this->assertEquals(
             array("(Max: 256B)\n", 256),
@@ -1297,7 +1301,7 @@ class PMA_InsertEditTest extends PHPUnit_Framework_TestCase
         // case 2
         $GLOBALS['max_upload_size'] = 250;
         $column['pma_type'] = 'tinyblob';
-        $result = PMA_getMaxUploadSize($column, 20);
+        $result = InsertEdit::getMaxUploadSize($column, 20);
 
         $this->assertEquals(
             array("(Max: 250B)\n", 250),
@@ -1306,7 +1310,7 @@ class PMA_InsertEditTest extends PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test for PMA_getValueColumnForOtherDatatypes
+     * Test for InsertEdit::getValueColumnForOtherDatatypes
      *
      * @return void
      */
@@ -1329,7 +1333,7 @@ class PMA_InsertEditTest extends PHPUnit_Framework_TestCase
 
         $extracted_columnspec = array();
         $extracted_columnspec['spec_in_brackets'] = 25;
-        $result = PMA_getValueColumnForOtherDatatypes(
+        $result = InsertEdit::getValueColumnForOtherDatatypes(
             $column, 'defchar', 'a', 'b', 'c', 22, '&lt;', 12, 1, "/", "&lt;",
             "foo\nbar", $extracted_columnspec, false
         );
@@ -1348,7 +1352,7 @@ class PMA_InsertEditTest extends PHPUnit_Framework_TestCase
         $column['Extra'] = 'auto_increment';
         $column['pma_type'] = 'timestamp';
         $column['True_Type'] = 'timestamp';
-        $result = PMA_getValueColumnForOtherDatatypes(
+        $result = InsertEdit::getValueColumnForOtherDatatypes(
             $column, 'defchar', 'a', 'b', 'c', 22, '&lt;', 12, 1, "/", "&lt;",
             "foo\nbar", $extracted_columnspec, false
         );
@@ -1364,7 +1368,7 @@ class PMA_InsertEditTest extends PHPUnit_Framework_TestCase
 
         // case 3: (else -> datetime)
         $column['pma_type'] = 'datetime';
-        $result = PMA_getValueColumnForOtherDatatypes(
+        $result = InsertEdit::getValueColumnForOtherDatatypes(
             $column, 'defchar', 'a', 'b', 'c', 22, '&lt;', 12, 1, "/", "&lt;",
             "foo\nbar", $extracted_columnspec, false
         );
@@ -1376,7 +1380,7 @@ class PMA_InsertEditTest extends PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test for PMA_getColumnSize
+     * Test for InsertEdit::getColumnSize
      *
      * @return void
      */
@@ -1390,7 +1394,7 @@ class PMA_InsertEditTest extends PHPUnit_Framework_TestCase
 
         $this->assertEquals(
             40,
-            PMA_getColumnSize($column, $extracted_columnspec)
+            InsertEdit::getColumnSize($column, $extracted_columnspec)
         );
 
         $this->assertEquals(
@@ -1403,12 +1407,12 @@ class PMA_InsertEditTest extends PHPUnit_Framework_TestCase
         $column['len'] = 20;
         $this->assertEquals(
             30,
-            PMA_getColumnSize($column, $extracted_columnspec)
+            InsertEdit::getColumnSize($column, $extracted_columnspec)
         );
     }
 
     /**
-     * Test for PMA_getHTMLforGisDataTypes
+     * Test for InsertEdit::getHtmlForGisDataTypes
      *
      * @return void
      */
@@ -1420,12 +1424,12 @@ class PMA_InsertEditTest extends PHPUnit_Framework_TestCase
             '<a href="#" target="_blank"><span class="nowrap"><img src="themes/dot.'
             . 'gif" title="Edit/Insert" alt="Edit/Insert" class="icon ic_b_edit" />'
             . '</span></a>',
-            PMA_getHTMLforGisDataTypes()
+            InsertEdit::getHtmlForGisDataTypes()
         );
     }
 
     /**
-     * Test for PMA_getContinueInsertionForm
+     * Test for InsertEdit::getContinueInsertionForm
      *
      * @return void
      */
@@ -1438,7 +1442,7 @@ class PMA_InsertEditTest extends PHPUnit_Framework_TestCase
         $_REQUEST['where_clause'] = true;
         $_REQUEST['sql_query'] = "SELECT 1";
 
-        $result = PMA_getContinueInsertionForm(
+        $result = InsertEdit::getContinueInsertionForm(
             "tbl", "db", $where_clause_array, "localhost"
         );
 
@@ -1485,14 +1489,14 @@ class PMA_InsertEditTest extends PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test for PMA_getActionsPanel
+     * Test for InsertEdit::getActionsPanel
      *
      * @return void
      */
     public function testGetActionsPanel()
     {
         $GLOBALS['cfg']['ShowHint'] = false;
-        $result = PMA_getActionsPanel(null, 'back', 2, 1, false);
+        $result = InsertEdit::getActionsPanel(null, 'back', 2, 1, false);
 
         $this->assertContains(
             '<select name="submit_type" class="control_at_footer" tabindex="4">',
@@ -1512,13 +1516,13 @@ class PMA_InsertEditTest extends PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test for PMA_getSubmitTypeDropDown
+     * Test for InsertEdit::getSubmitTypeDropDown
      *
      * @return void
      */
     public function testGetSubmitTypeDropDown()
     {
-        $result = PMA_getSubmitTypeDropDown(array(), 2, 2);
+        $result = InsertEdit::getSubmitTypeDropDown(array(), 2, 2);
 
         $this->assertContains(
             '<select name="submit_type" class="control_at_footer" tabindex="5">',
@@ -1532,13 +1536,13 @@ class PMA_InsertEditTest extends PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test for PMA_getAfterInsertDropDown
+     * Test for InsertEdit::getAfterInsertDropDown
      *
      * @return void
      */
     public function testGetAfterInsertDropDown()
     {
-        $result = PMA_getAfterInsertDropDown("`t`.`f` = 2", 'new_insert', true);
+        $result = InsertEdit::getAfterInsertDropDown("`t`.`f` = 2", 'new_insert', true);
 
         $this->assertContains(
             '<option value="new_insert" selected="selected">',
@@ -1557,14 +1561,14 @@ class PMA_InsertEditTest extends PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test for PMA_getSubmitAndResetButtonForActionsPanel
+     * Test for InsertEdit::getSubmitAndResetButtonForActionsPanel
      *
      * @return void
      */
     public function testGetSubmitAndResetButtonForActionsPanel()
     {
         $GLOBALS['cfg']['ShowHint'] = false;
-        $result = PMA_getSubmitAndResetButtonForActionsPanel(1, 0);
+        $result = InsertEdit::getSubmitAndResetButtonForActionsPanel(1, 0);
 
         $this->assertContains(
             '<input type="submit" class="control_at_footer" value="Go" '
@@ -1586,7 +1590,7 @@ class PMA_InsertEditTest extends PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test for PMA_getHeadAndFootOfInsertRowTable
+     * Test for InsertEdit::getHeadAndFootOfInsertRowTable
      *
      * @return void
      */
@@ -1597,7 +1601,7 @@ class PMA_InsertEditTest extends PHPUnit_Framework_TestCase
         $GLOBALS['cfg']['ServerDefault'] = 1;
         $url_params = array('ShowFunctionFields' => 2);
 
-        $result = PMA_getHeadAndFootOfInsertRowTable($url_params);
+        $result = InsertEdit::getHeadAndFootOfInsertRowTable($url_params);
 
         $this->assertContains(
             'tbl_change.php?ShowFunctionFields=1&amp;ShowFieldTypesInDataEditView=0',
@@ -1611,7 +1615,7 @@ class PMA_InsertEditTest extends PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test for PMA_getSpecialCharsAndBackupFieldForExistingRow
+     * Test for InsertEdit::getSpecialCharsAndBackupFieldForExistingRow
      *
      * @return void
      */
@@ -1624,7 +1628,7 @@ class PMA_InsertEditTest extends PHPUnit_Framework_TestCase
         $column['Key'] = 'PRI';
         $column['Extra'] = 'fooauto_increment';
 
-        $result = PMA_getSpecialCharsAndBackupFieldForExistingRow(
+        $result = InsertEdit::getSpecialCharsAndBackupFieldForExistingRow(
             $current_row, $column, array(), false, array(), 'a', false
         );
 
@@ -1646,7 +1650,7 @@ class PMA_InsertEditTest extends PHPUnit_Framework_TestCase
         $extracted_columnspec['spec_in_brackets'] = 20;
         $column['True_Type'] = 'bit';
 
-        $result = PMA_getSpecialCharsAndBackupFieldForExistingRow(
+        $result = InsertEdit::getSpecialCharsAndBackupFieldForExistingRow(
             $current_row, $column, $extracted_columnspec, false, array(), 'a', false
         );
 
@@ -1662,7 +1666,7 @@ class PMA_InsertEditTest extends PHPUnit_Framework_TestCase
         );
 
         $current_row['f'] = "abcd";
-        $result = PMA_getSpecialCharsAndBackupFieldForExistingRow(
+        $result = InsertEdit::getSpecialCharsAndBackupFieldForExistingRow(
             $current_row, $column, $extracted_columnspec, false, array(), 'a', true
         );
 
@@ -1688,7 +1692,7 @@ class PMA_InsertEditTest extends PHPUnit_Framework_TestCase
         $extracted_columnspec['spec_in_brackets'] = 20;
         $column['True_Type'] = 'int';
 
-        $result = PMA_getSpecialCharsAndBackupFieldForExistingRow(
+        $result = InsertEdit::getSpecialCharsAndBackupFieldForExistingRow(
             $current_row, $column, $extracted_columnspec,
             false, array('int'), 'a', false
         );
@@ -1713,7 +1717,7 @@ class PMA_InsertEditTest extends PHPUnit_Framework_TestCase
         $column['True_Type'] = 'char';
         $GLOBALS['cfg']['ShowFunctionFields'] = true;
 
-        $result = PMA_getSpecialCharsAndBackupFieldForExistingRow(
+        $result = InsertEdit::getSpecialCharsAndBackupFieldForExistingRow(
             $current_row, $column, $extracted_columnspec,
             false, array('int'), 'a', false
         );
@@ -1732,7 +1736,7 @@ class PMA_InsertEditTest extends PHPUnit_Framework_TestCase
         // Case 5
         $current_row['f'] = "11001\x00";
 
-        $result = PMA_getSpecialCharsAndBackupFieldForExistingRow(
+        $result = InsertEdit::getSpecialCharsAndBackupFieldForExistingRow(
             $current_row, $column, $extracted_columnspec,
             false, array('int'), 'a', false
         );
@@ -1750,7 +1754,7 @@ class PMA_InsertEditTest extends PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test for PMA_getSpecialCharsAndBackupFieldForInsertingMode
+     * Test for InsertEdit::getSpecialCharsAndBackupFieldForInsertingMode
      *
      * @return void
      */
@@ -1763,7 +1767,7 @@ class PMA_InsertEditTest extends PHPUnit_Framework_TestCase
         $GLOBALS['cfg']['ProtectBinary'] = false;
         $GLOBALS['cfg']['ShowFunctionFields'] = true;
 
-        $result = PMA_getSpecialCharsAndBackupFieldForInsertingMode($column, false);
+        $result = InsertEdit::getSpecialCharsAndBackupFieldForInsertingMode($column, false);
 
         $this->assertEquals(
             array(
@@ -1780,7 +1784,7 @@ class PMA_InsertEditTest extends PHPUnit_Framework_TestCase
         unset($column['Default']);
         $column['True_Type'] = 'char';
 
-        $result = PMA_getSpecialCharsAndBackupFieldForInsertingMode($column, false);
+        $result = InsertEdit::getSpecialCharsAndBackupFieldForInsertingMode($column, false);
 
         $this->assertEquals(
             array(
@@ -1795,7 +1799,7 @@ class PMA_InsertEditTest extends PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test for PMA_getParamsForUpdateOrInsert
+     * Test for InsertEdit::getParamsForUpdateOrInsert
      *
      * @return void
      */
@@ -1804,7 +1808,7 @@ class PMA_InsertEditTest extends PHPUnit_Framework_TestCase
         $_REQUEST['where_clause'] = 'LIMIT 1';
         $_REQUEST['submit_type'] = 'showinsert';
 
-        $result = PMA_getParamsForUpdateOrInsert();
+        $result = InsertEdit::getParamsForUpdateOrInsert();
 
         $this->assertEquals(
             array(
@@ -1819,7 +1823,7 @@ class PMA_InsertEditTest extends PHPUnit_Framework_TestCase
         // case 2 (else)
         unset($_REQUEST['where_clause']);
         $_REQUEST['fields']['multi_edit'] = array('a' => 'b', 'c' => 'd');
-        $result = PMA_getParamsForUpdateOrInsert();
+        $result = InsertEdit::getParamsForUpdateOrInsert();
 
         $this->assertEquals(
             array(
@@ -1833,7 +1837,7 @@ class PMA_InsertEditTest extends PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test for PMA_isInsertRow
+     * Test for InsertEdit::isInsertRow
      *
      * @return void
      */
@@ -1868,12 +1872,12 @@ class PMA_InsertEditTest extends PHPUnit_Framework_TestCase
             ->method('getHeader')
             ->will($this->returnValue($headerMock));
 
-        $restoreInstance = PhpMyAdmin\Response::getInstance();
+        $restoreInstance = Response::getInstance();
         $response = new ReflectionProperty('PhpMyAdmin\Response', '_instance');
         $response->setAccessible(true);
         $response->setValue($responseMock);
 
-        PMA_isInsertRow();
+        InsertEdit::isInsertRow();
 
         $response->setValue($restoreInstance);
 
@@ -1881,7 +1885,7 @@ class PMA_InsertEditTest extends PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test for PMA_setSessionForEditNext
+     * Test for InsertEdit::setSessionForEditNext
      *
      * @return void
      */
@@ -1919,7 +1923,7 @@ class PMA_InsertEditTest extends PHPUnit_Framework_TestCase
         $GLOBALS['dbi'] = $dbi;
         $GLOBALS['db'] = 'db';
         $GLOBALS['table'] = 'table';
-        PMA_setSessionForEditNext('`a` = 2');
+        InsertEdit::setSessionForEditNext('`a` = 2');
 
         $this->assertEquals(
             'CONCAT(`table`.`orgname`) IS NULL',
@@ -1928,7 +1932,7 @@ class PMA_InsertEditTest extends PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test for PMA_getGotoInclude
+     * Test for InsertEdit::getGotoInclude
      *
      * @return void
      */
@@ -1939,20 +1943,20 @@ class PMA_InsertEditTest extends PHPUnit_Framework_TestCase
 
         $this->assertEquals(
             'db_sql.php',
-            PMA_getGotoInclude('index')
+            InsertEdit::getGotoInclude('index')
         );
 
         $GLOBALS['table'] = 'tbl';
         $this->assertEquals(
             'tbl_sql.php',
-            PMA_getGotoInclude('index')
+            InsertEdit::getGotoInclude('index')
         );
 
         $GLOBALS['goto'] = 'db_sql.php';
 
         $this->assertEquals(
             'db_sql.php',
-            PMA_getGotoInclude('index')
+            InsertEdit::getGotoInclude('index')
         );
 
         $this->assertEquals(
@@ -1963,12 +1967,12 @@ class PMA_InsertEditTest extends PHPUnit_Framework_TestCase
         $_REQUEST['after_insert'] = 'new_insert';
         $this->assertEquals(
             'tbl_change.php',
-            PMA_getGotoInclude('index')
+            InsertEdit::getGotoInclude('index')
         );
     }
 
     /**
-     * Test for PMA_getErrorUrl
+     * Test for InsertEdit::getErrorUrl
      *
      * @return void
      */
@@ -1977,18 +1981,18 @@ class PMA_InsertEditTest extends PHPUnit_Framework_TestCase
         $GLOBALS['cfg']['ServerDefault'] = 1;
         $this->assertEquals(
             'tbl_change.php?lang=en',
-            PMA_getErrorUrl(array())
+            InsertEdit::getErrorUrl(array())
         );
 
         $_REQUEST['err_url'] = 'localhost';
         $this->assertEquals(
             'localhost',
-            PMA_getErrorUrl(array())
+            InsertEdit::getErrorUrl(array())
         );
     }
 
     /**
-     * Test for PMA_buildSqlQuery
+     * Test for InsertEdit::buildSqlQuery
      *
      * @return void
      */
@@ -2001,17 +2005,17 @@ class PMA_InsertEditTest extends PHPUnit_Framework_TestCase
 
         $this->assertEquals(
             array('INSERT IGNORE INTO `table` (a, b) VALUES (1), (2)'),
-            PMA_buildSqlQuery(true, $query_fields, $value_sets)
+            InsertEdit::buildSqlQuery(true, $query_fields, $value_sets)
         );
 
         $this->assertEquals(
             array('INSERT INTO `table` (a, b) VALUES (1), (2)'),
-            PMA_buildSqlQuery(false, $query_fields, $value_sets)
+            InsertEdit::buildSqlQuery(false, $query_fields, $value_sets)
         );
     }
 
     /**
-     * Test for PMA_executeSqlQuery
+     * Test for InsertEdit::executeSqlQuery
      *
      * @return void
      */
@@ -2054,7 +2058,7 @@ class PMA_InsertEditTest extends PHPUnit_Framework_TestCase
 
         $GLOBALS['dbi'] = $dbi;
 
-        $result = PMA_executeSqlQuery(array(), $query);
+        $result = InsertEdit::executeSqlQuery(array(), $query);
 
         $this->assertEquals(
             array('sql_query' => 'SELECT'),
@@ -2097,7 +2101,7 @@ class PMA_InsertEditTest extends PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test for PMA_executeSqlQuery
+     * Test for InsertEdit::executeSqlQuery
      *
      * @return void
      */
@@ -2140,7 +2144,7 @@ class PMA_InsertEditTest extends PHPUnit_Framework_TestCase
 
         $GLOBALS['dbi'] = $dbi;
 
-        $result = PMA_executeSqlQuery(array(), $query);
+        $result = InsertEdit::executeSqlQuery(array(), $query);
 
         $this->assertEquals(
             array('sql_query' => 'SELECT'),
@@ -2183,7 +2187,7 @@ class PMA_InsertEditTest extends PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test for PMA_getWarningMessages
+     * Test for InsertEdit::getWarningMessages
      *
      * @return void
      */
@@ -2204,7 +2208,7 @@ class PMA_InsertEditTest extends PHPUnit_Framework_TestCase
 
         $GLOBALS['dbi'] = $dbi;
 
-        $result = PMA_getWarningMessages();
+        $result = InsertEdit::getWarningMessages();
 
         $this->assertEquals(
             array(
@@ -2216,7 +2220,7 @@ class PMA_InsertEditTest extends PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test for PMA_getDisplayValueForForeignTableColumn
+     * Test for InsertEdit::getDisplayValueForForeignTableColumn
      *
      * @return void
      */
@@ -2237,7 +2241,7 @@ class PMA_InsertEditTest extends PHPUnit_Framework_TestCase
                 'SELECT `TABLE_COMMENT` FROM `information_schema`.`TABLES` WHERE '
                 . '`f`=1',
                 null,
-                PhpMyAdmin\DatabaseInterface::QUERY_STORE
+                DatabaseInterface::QUERY_STORE
             )
             ->will($this->returnValue('r1'));
 
@@ -2253,13 +2257,13 @@ class PMA_InsertEditTest extends PHPUnit_Framework_TestCase
 
         $GLOBALS['dbi'] = $dbi;
 
-        $result = PMA_getDisplayValueForForeignTableColumn("=1", $map, 'f');
+        $result = InsertEdit::getDisplayValueForForeignTableColumn("=1", $map, 'f');
 
         $this->assertEquals(2, $result);
     }
 
     /**
-     * Test for PMA_getLinkForRelationalDisplayField
+     * Test for InsertEdit::getLinkForRelationalDisplayField
      *
      * @return void
      */
@@ -2272,7 +2276,7 @@ class PMA_InsertEditTest extends PHPUnit_Framework_TestCase
         $map['f']['foreign_table'] = 'TABLES';
         $map['f']['foreign_field'] = 'f';
 
-        $result = PMA_getLinkForRelationalDisplayField($map, 'f', "=1", "a>", "b<");
+        $result = InsertEdit::getLinkForRelationalDisplayField($map, 'f', "=1", "a>", "b<");
 
         $this->assertEquals(
             '<a href="sql.php?db=information_schema&amp;table=TABLES&amp;pos=0&amp;'
@@ -2282,7 +2286,7 @@ class PMA_InsertEditTest extends PHPUnit_Framework_TestCase
         );
 
         $_SESSION['tmpval']['relational_display'] = 'D';
-        $result = PMA_getLinkForRelationalDisplayField($map, 'f', "=1", "a>", "b<");
+        $result = InsertEdit::getLinkForRelationalDisplayField($map, 'f', "=1", "a>", "b<");
 
         $this->assertEquals(
             '<a href="sql.php?db=information_schema&amp;table=TABLES&amp;pos=0&amp;'
@@ -2293,7 +2297,7 @@ class PMA_InsertEditTest extends PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test for PMA_transformEditedValues
+     * Test for InsertEdit::transformEditedValues
      *
      * @return void
      */
@@ -2307,7 +2311,7 @@ class PMA_InsertEditTest extends PHPUnit_Framework_TestCase
         $transformation = array(
             'transformation_options' => "'','option ,, quoted',abd"
         );
-        $result = PMA_transformEditedValues(
+        $result = InsertEdit::transformEditedValues(
             'db', 'table', $transformation, $edited_values,
             'Text_Plain_PreApPend.php', 'c', array('a' => 'b'),
             'transformation'
@@ -2320,7 +2324,7 @@ class PMA_InsertEditTest extends PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test for PMA_getQueryValuesForInsertAndUpdateInMultipleEdit
+     * Test for InsertEdit::getQueryValuesForInsertAndUpdateInMultipleEdit
      *
      * @return void
      */
@@ -2328,7 +2332,7 @@ class PMA_InsertEditTest extends PHPUnit_Framework_TestCase
     {
         $multi_edit_columns_name = array('0' => 'fld');
 
-        $result = PMA_getQueryValuesForInsertAndUpdateInMultipleEdit(
+        $result = InsertEdit::getQueryValuesForInsertAndUpdateInMultipleEdit(
             $multi_edit_columns_name, array(), '', array(), array(), true, array(1),
             array(2), 'foo', array(), '0', array()
         );
@@ -2341,7 +2345,7 @@ class PMA_InsertEditTest extends PHPUnit_Framework_TestCase
             $result
         );
 
-        $result = PMA_getQueryValuesForInsertAndUpdateInMultipleEdit(
+        $result = InsertEdit::getQueryValuesForInsertAndUpdateInMultipleEdit(
             $multi_edit_columns_name, array(), '', array(), array(), false, array(1),
             array(2), 'foo', array(), '0', array('a')
         );
@@ -2354,7 +2358,7 @@ class PMA_InsertEditTest extends PHPUnit_Framework_TestCase
             $result
         );
 
-        $result = PMA_getQueryValuesForInsertAndUpdateInMultipleEdit(
+        $result = InsertEdit::getQueryValuesForInsertAndUpdateInMultipleEdit(
             $multi_edit_columns_name, array('b'), "'`c`'", array('c'), array(),
             false, array(1), array(2), 'foo', array(), '0', array('a')
         );
@@ -2367,7 +2371,7 @@ class PMA_InsertEditTest extends PHPUnit_Framework_TestCase
             $result
         );
 
-        $result = PMA_getQueryValuesForInsertAndUpdateInMultipleEdit(
+        $result = InsertEdit::getQueryValuesForInsertAndUpdateInMultipleEdit(
             $multi_edit_columns_name, array('b'), "'`c`'", array('c'), array(3),
             false, array(1), array(2), 'foo', array(), 0, array()
         );
@@ -2382,13 +2386,13 @@ class PMA_InsertEditTest extends PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test for PMA_getCurrentValueAsAnArrayForMultipleEdit
+     * Test for InsertEdit::getCurrentValueAsAnArrayForMultipleEdit
      *
      * @return void
      */
     public function testGetCurrentValueAsAnArrayForMultipleEdit()
     {
-        $result = PMA_getCurrentValueAsAnArrayForMultipleEdit(
+        $result = InsertEdit::getCurrentValueAsAnArrayForMultipleEdit(
             array(), array(), array(), 'currVal', array(),
             array(), array(), '0'
         );
@@ -2409,7 +2413,7 @@ class PMA_InsertEditTest extends PHPUnit_Framework_TestCase
 
         $GLOBALS['dbi'] = $dbi;
 
-        $result = PMA_getCurrentValueAsAnArrayForMultipleEdit(
+        $result = InsertEdit::getCurrentValueAsAnArrayForMultipleEdit(
             $multi_edit_funcs, array(), array(), 'currVal', array(),
             array(), array(), '0'
         );
@@ -2419,7 +2423,7 @@ class PMA_InsertEditTest extends PHPUnit_Framework_TestCase
         // case 3
         $multi_edit_funcs = array('AES_ENCRYPT');
         $multi_edit_salt = array("");
-        $result = PMA_getCurrentValueAsAnArrayForMultipleEdit(
+        $result = InsertEdit::getCurrentValueAsAnArrayForMultipleEdit(
             $multi_edit_funcs, $multi_edit_salt, array(), "'''", array(),
             array('func'), array('func'), '0'
         );
@@ -2428,14 +2432,14 @@ class PMA_InsertEditTest extends PHPUnit_Framework_TestCase
         // case 4
         $multi_edit_funcs = array('func');
         $multi_edit_salt = array();
-        $result = PMA_getCurrentValueAsAnArrayForMultipleEdit(
+        $result = InsertEdit::getCurrentValueAsAnArrayForMultipleEdit(
             $multi_edit_funcs, $multi_edit_salt, array(), "'''", array(),
             array('func'), array('func'), '0'
         );
         $this->assertEquals("func(''')", $result);
 
         // case 5
-        $result = PMA_getCurrentValueAsAnArrayForMultipleEdit(
+        $result = InsertEdit::getCurrentValueAsAnArrayForMultipleEdit(
             $multi_edit_funcs, $multi_edit_salt, array(), "''", array(),
             array('func'), array('func'), '0'
         );
@@ -2443,7 +2447,7 @@ class PMA_InsertEditTest extends PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test for PMA_getCurrentValueForDifferentTypes
+     * Test for InsertEdit::getCurrentValueForDifferentTypes
      *
      * @return void
      */
@@ -2469,7 +2473,7 @@ class PMA_InsertEditTest extends PHPUnit_Framework_TestCase
 
         $GLOBALS['dbi'] = $dbi;
 
-        $result = PMA_getCurrentValueForDifferentTypes(
+        $result = InsertEdit::getCurrentValueForDifferentTypes(
             '123', '0', array(), '', array(), 0, array(), array(),
             array(), true, true, '1', 'table', array()
         );
@@ -2480,7 +2484,7 @@ class PMA_InsertEditTest extends PHPUnit_Framework_TestCase
         );
 
         // case 2
-        $result = PMA_getCurrentValueForDifferentTypes(
+        $result = InsertEdit::getCurrentValueForDifferentTypes(
             false, '0', array('test'), '', array(1), 0, array(), array(),
             array(), true, true, '1', 'table', array()
         );
@@ -2491,7 +2495,7 @@ class PMA_InsertEditTest extends PHPUnit_Framework_TestCase
         );
 
         // case 3
-        $result = PMA_getCurrentValueForDifferentTypes(
+        $result = InsertEdit::getCurrentValueForDifferentTypes(
             false, '0', array('test'), '', array(), 0, array(), array(),
             array(), true, true, '1', 'table', array()
         );
@@ -2503,7 +2507,7 @@ class PMA_InsertEditTest extends PHPUnit_Framework_TestCase
 
         // case 4
         $_REQUEST['fields']['multi_edit'][0][0] = array();
-        $result = PMA_getCurrentValueForDifferentTypes(
+        $result = InsertEdit::getCurrentValueForDifferentTypes(
             false, '0', array('set'), '', array(), 0, array(), array(),
             array(), true, true, '1', 'table', array()
         );
@@ -2514,7 +2518,7 @@ class PMA_InsertEditTest extends PHPUnit_Framework_TestCase
         );
 
         // case 5
-        $result = PMA_getCurrentValueForDifferentTypes(
+        $result = InsertEdit::getCurrentValueForDifferentTypes(
             false, '0', array('protected'), '', array(), 0, array('a'), array(),
             array(), true, true, '1', 'table', array()
         );
@@ -2525,7 +2529,7 @@ class PMA_InsertEditTest extends PHPUnit_Framework_TestCase
         );
 
         // case 6
-        $result = PMA_getCurrentValueForDifferentTypes(
+        $result = InsertEdit::getCurrentValueForDifferentTypes(
             false, '0', array('protected'), '', array(), 0, array('a'), array(),
             array(), true, true, '1', 'table', array()
         );
@@ -2536,7 +2540,7 @@ class PMA_InsertEditTest extends PHPUnit_Framework_TestCase
         );
 
         // case 7
-        $result = PMA_getCurrentValueForDifferentTypes(
+        $result = InsertEdit::getCurrentValueForDifferentTypes(
             false, '0', array('bit'), '20\'12', array(), 0, array('a'), array(),
             array(), true, true, '1', 'table', array()
         );
@@ -2547,7 +2551,7 @@ class PMA_InsertEditTest extends PHPUnit_Framework_TestCase
         );
 
         // case 7
-        $result = PMA_getCurrentValueForDifferentTypes(
+        $result = InsertEdit::getCurrentValueForDifferentTypes(
             false, '0', array('date'), '20\'12', array(), 0, array('a'), array(),
             array(), true, true, '1', 'table', array()
         );
@@ -2559,7 +2563,7 @@ class PMA_InsertEditTest extends PHPUnit_Framework_TestCase
 
         // case 8
         $_REQUEST['fields']['multi_edit'][0][0] = array();
-        $result = PMA_getCurrentValueForDifferentTypes(
+        $result = InsertEdit::getCurrentValueForDifferentTypes(
             false, '0', array('set'), '', array(), 0, array(), array(1),
             array(), true, true, '1', 'table', array()
         );
@@ -2570,7 +2574,7 @@ class PMA_InsertEditTest extends PHPUnit_Framework_TestCase
         );
 
         // case 9
-        $result = PMA_getCurrentValueForDifferentTypes(
+        $result = InsertEdit::getCurrentValueForDifferentTypes(
             false, '0', array('protected'), '', array(), 0, array('a'), array(),
             array(1), true, true, '1', 'table', array()
         );
@@ -2582,7 +2586,7 @@ class PMA_InsertEditTest extends PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test for PMA_verifyWhetherValueCanBeTruncatedAndAppendExtraData
+     * Test for InsertEdit::verifyWhetherValueCanBeTruncatedAndAppendExtraData
      *
      * @return void
      */
@@ -2646,20 +2650,20 @@ class PMA_InsertEditTest extends PHPUnit_Framework_TestCase
 
         $GLOBALS['dbi'] = $dbi;
 
-        PMA_verifyWhetherValueCanBeTruncatedAndAppendExtraData(
+        InsertEdit::verifyWhetherValueCanBeTruncatedAndAppendExtraData(
             'db', 'table', 'a', $extra_data
         );
 
         $this->assertFalse($extra_data['isNeedToRecheck']);
 
-        PMA_verifyWhetherValueCanBeTruncatedAndAppendExtraData(
+        InsertEdit::verifyWhetherValueCanBeTruncatedAndAppendExtraData(
             'db', 'table', 'a', $extra_data
         );
 
         $this->assertEquals('123', $extra_data['truncatableFieldValue']);
         $this->assertTrue($extra_data['isNeedToRecheck']);
 
-        PMA_verifyWhetherValueCanBeTruncatedAndAppendExtraData(
+        InsertEdit::verifyWhetherValueCanBeTruncatedAndAppendExtraData(
             'db', 'table', 'a', $extra_data
         );
 
@@ -2670,7 +2674,7 @@ class PMA_InsertEditTest extends PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test for PMA_getTableColumns
+     * Test for InsertEdit::getTableColumns
      *
      * @return void
      */
@@ -2691,7 +2695,7 @@ class PMA_InsertEditTest extends PHPUnit_Framework_TestCase
 
         $GLOBALS['dbi'] = $dbi;
 
-        $result = PMA_getTableColumns('db', 'table');
+        $result = InsertEdit::getTableColumns('db', 'table');
 
         $this->assertEquals(
             array('b', 'd'),
@@ -2700,7 +2704,7 @@ class PMA_InsertEditTest extends PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test for PMA_determineInsertOrEdit
+     * Test for InsertEdit::determineInsertOrEdit
      *
      * @return void
      */
@@ -2725,12 +2729,12 @@ class PMA_InsertEditTest extends PHPUnit_Framework_TestCase
             ->setMethods(array('addHtml'))
             ->getMock();
 
-        $restoreInstance = PhpMyAdmin\Response::getInstance();
+        $restoreInstance = Response::getInstance();
         $response = new ReflectionProperty('PhpMyAdmin\Response', '_instance');
         $response->setAccessible(true);
         $response->setValue($responseMock);
 
-        $result = PMA_determineInsertOrEdit('1', 'db', 'table');
+        $result = InsertEdit::determineInsertOrEdit('1', 'db', 'table');
 
         $this->assertEquals(
             array(
@@ -2751,7 +2755,7 @@ class PMA_InsertEditTest extends PHPUnit_Framework_TestCase
         unset($_SESSION['edit_next']);
         $_REQUEST['default_action'] = '';
 
-        $result = PMA_determineInsertOrEdit(null, 'db', 'table');
+        $result = InsertEdit::determineInsertOrEdit(null, 'db', 'table');
 
         $response->setValue($restoreInstance);
 
@@ -2771,7 +2775,7 @@ class PMA_InsertEditTest extends PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test for PMA_getCommentsMap
+     * Test for InsertEdit::getCommentsMap
      *
      * @return void
      */
@@ -2804,19 +2808,19 @@ class PMA_InsertEditTest extends PHPUnit_Framework_TestCase
 
         $this->assertEquals(
             array(),
-            PMA_getCommentsMap('db', 'table')
+            InsertEdit::getCommentsMap('db', 'table')
         );
 
         $GLOBALS['cfg']['ShowPropertyComments'] = true;
 
         $this->assertEquals(
             array('d' => 'b'),
-            PMA_getCommentsMap('db', 'table')
+            InsertEdit::getCommentsMap('db', 'table')
         );
     }
 
     /**
-     * Test for PMA_getUrlParameters
+     * Test for InsertEdit::getUrlParameters
      *
      * @return void
      */
@@ -2831,12 +2835,12 @@ class PMA_InsertEditTest extends PHPUnit_Framework_TestCase
                 'sql_query' => 'SELECT',
                 'table' => 'bar'
             ),
-            PMA_getUrlParameters('foo', 'bar')
+            InsertEdit::getUrlParameters('foo', 'bar')
         );
     }
 
     /**
-     * Test for PMA_getHtmlForIgnoreOption
+     * Test for InsertEdit::getHtmlForIgnoreOption
      *
      * @return void
      */
@@ -2848,17 +2852,17 @@ class PMA_InsertEditTest extends PHPUnit_Framework_TestCase
         $checked = 'checked="checked" ';
         $this->assertEquals(
             sprintf($expected, $checked),
-            PMA_getHtmlForIgnoreOption(1)
+            InsertEdit::getHtmlForIgnoreOption(1)
         );
 
         $this->assertEquals(
             sprintf($expected, ''),
-            PMA_getHtmlForIgnoreOption(1, false)
+            InsertEdit::getHtmlForIgnoreOption(1, false)
         );
     }
 
     /**
-     * Test for PMA_getHtmlForInsertEditFormColumn
+     * Test for InsertEdit::getHtmlForInsertEditFormColumn
      *
      * @return void
      */
@@ -2884,7 +2888,7 @@ class PMA_InsertEditTest extends PHPUnit_Framework_TestCase
         );
 
         // Test w/ input transformation
-        $actual = PMA_getHtmlForInsertEditFormColumn(
+        $actual = InsertEdit::getHtmlForInsertEditFormColumn(
             $table_columns, 0, array(), false, array(), '', '',
             '', false, array(), $o_rows, $tabindex, 0, false, 0,
             array(), 0, 0, 'table', 'db', 0, array(), 0, '', '',
@@ -2940,7 +2944,7 @@ class PMA_InsertEditTest extends PHPUnit_Framework_TestCase
         $repopulate = array(
             md5('qwerty') => '12-10-14'
         );
-        $actual = PMA_getHtmlForInsertEditFormColumn(
+        $actual = InsertEdit::getHtmlForInsertEditFormColumn(
             $table_columns, 0, array(), false, array(), '', '',
             '', true, array(), $o_rows, $tabindex, 0, false, 0,
             array(), 0, 0, 'table', 'db', 0, array(), 0, '', '',
@@ -2967,7 +2971,7 @@ class PMA_InsertEditTest extends PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test for PMA_getHtmlForInsertEditRow
+     * Test for InsertEdit::getHtmlForInsertEditRow
      *
      * @return void
      */
@@ -2988,7 +2992,7 @@ class PMA_InsertEditTest extends PHPUnit_Framework_TestCase
                 'Privileges' => 'select,insert,update,references',
             )
         );
-        $actual = PMA_getHtmlForInsertEditRow(
+        $actual = InsertEdit::getHtmlForInsertEditRow(
             array(), $table_columns, array(), false, array(), '', '',
             '', false, array(), $o_rows, $tabindex, 1, false, 0,
             array(), 0, 0, 'table', 'db', 0, array(), 0, '',
@@ -3021,7 +3025,7 @@ class PMA_InsertEditTest extends PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test for PMA_getHtmlForInsertEditRow based on the column privilges
+     * Test for InsertEdit::getHtmlForInsertEditRow based on the column privilges
      *
      * @return void
      */
@@ -3052,7 +3056,7 @@ class PMA_InsertEditTest extends PHPUnit_Framework_TestCase
                 'Privileges' => 'select,insert,references',
             )
         );
-        $actual = PMA_getHtmlForInsertEditRow(
+        $actual = InsertEdit::getHtmlForInsertEditRow(
             array(), $table_columns, array(), false, array(), '', '',
             '', false, array(), $o_rows, $tabindex, 1, false, 0,
             array(), 0, 0, 'table', 'db', 0, array(), 0, '',
@@ -3088,7 +3092,7 @@ class PMA_InsertEditTest extends PHPUnit_Framework_TestCase
                 'Privileges' => 'select,update,references',
             )
         );
-        $actual = PMA_getHtmlForInsertEditRow(
+        $actual = InsertEdit::getHtmlForInsertEditRow(
             array(), $table_columns, array(), false, array(), '', '',
             '', true, array(), $o_rows, $tabindex, 2, false, 0,
             array(), 0, 0, 'table', 'db', 0, array(), 0, '',

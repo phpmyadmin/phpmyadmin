@@ -6,6 +6,7 @@
  * @package PhpMyAdmin
  */
 use PhpMyAdmin\Config\PageSettings;
+use PhpMyAdmin\InsertEdit;
 use PhpMyAdmin\Response;
 use PhpMyAdmin\Util;
 use PhpMyAdmin\Url;
@@ -25,17 +26,12 @@ PageSettings::showGroup('Edit');
 require_once 'libraries/db_table_exists.inc.php';
 
 /**
- * functions implementation for this script
- */
-require_once 'libraries/insert_edit.lib.php';
-
-/**
  * Determine whether Insert or Edit and set global variables
  */
 list(
     $insert_mode, $where_clause, $where_clause_array, $where_clauses,
     $result, $rows, $found_unique_key, $after_insert
-) = PMA_determineInsertOrEdit(
+) = InsertEdit::determineInsertOrEdit(
     isset($where_clause) ? $where_clause : null, $db, $table
 );
 // Increase number of rows if unsaved rows are more
@@ -61,11 +57,11 @@ if (empty($GLOBALS['goto'])) {
 }
 
 
-$_url_params = PMA_getUrlParameters($db, $table);
+$_url_params = InsertEdit::getUrlParameters($db, $table);
 $err_url = $GLOBALS['goto'] . Url::getCommon($_url_params);
 unset($_url_params);
 
-$comments_map = PMA_getCommentsMap($db, $table);
+$comments_map = InsertEdit::getCommentsMap($db, $table);
 
 /**
  * START REGULAR OUTPUT
@@ -93,13 +89,13 @@ if (! empty($disp_message)) {
     $response->addHTML(Util::getMessage($disp_message, null));
 }
 
-$table_columns = PMA_getTableColumns($db, $table);
+$table_columns = InsertEdit::getTableColumns($db, $table);
 
 // retrieve keys into foreign fields, if any
 $foreigners = PMA_getForeigners($db, $table);
 
 // Retrieve form parameters for insert/edit form
-$_form_params = PMA_getFormParametersForInsertForm(
+$_form_params = InsertEdit::getFormParametersForInsertForm(
     $db, $table, $where_clauses, $where_clause_array, $err_url
 );
 
@@ -126,13 +122,13 @@ $biggest_max_file_size = 0;
 
 $url_params['db'] = $db;
 $url_params['table'] = $table;
-$url_params = PMA_urlParamsInEditMode(
+$url_params = InsertEdit::urlParamsInEditMode(
     $url_params, $where_clause_array, $where_clause
 );
 
 $has_blob_field = false;
 foreach ($table_columns as $column) {
-    if (PMA_isColumn(
+    if (InsertEdit::isColumn(
         $column,
         array('blob', 'tinyblob', 'mediumblob', 'longblob')
     )) {
@@ -143,7 +139,7 @@ foreach ($table_columns as $column) {
 
 //Insert/Edit form
 //If table has blob fields we have to disable ajax.
-$html_output .= PMA_getHtmlForInsertEditFormHeader($has_blob_field, $is_upload);
+$html_output .= InsertEdit::getHtmlForInsertEditFormHeader($has_blob_field, $is_upload);
 
 $html_output .= Url::getHiddenInputs($_form_params);
 
@@ -156,11 +152,11 @@ if (! $cfg['ShowFunctionFields'] || ! $cfg['ShowFieldTypesInDataEditView']) {
 }
 
 if (! $cfg['ShowFunctionFields']) {
-    $html_output .= PMA_showTypeOrFunction('function', $url_params, false);
+    $html_output .= InsertEdit::showTypeOrFunction('function', $url_params, false);
 }
 
 if (! $cfg['ShowFieldTypesInDataEditView']) {
-    $html_output .= PMA_showTypeOrFunction('type', $url_params, false);
+    $html_output .= InsertEdit::showTypeOrFunction('type', $url_params, false);
 }
 
 $GLOBALS['plugin_scripts'] = array();
@@ -182,10 +178,10 @@ foreach ($rows as $row_id => $current_row) {
         $checked = false;
     }
     if ($insert_mode && $row_id > 0) {
-        $html_output .= PMA_getHtmlForIgnoreOption($row_id, $checked);
+        $html_output .= InsertEdit::getHtmlForIgnoreOption($row_id, $checked);
     }
 
-    $html_output .= PMA_getHtmlForInsertEditRow(
+    $html_output .= InsertEdit::getHtmlForInsertEditRow(
         $url_params, $table_columns, $comments_map, $timestamp_seen,
         $current_result, $chg_evt_handler, $jsvkey, $vkey, $insert_mode,
         $current_row, $o_rows, $tabindex, $columns_cnt,
@@ -202,7 +198,7 @@ if (! isset($after_insert)) {
 }
 
 //action panel
-$html_output .= PMA_getActionsPanel(
+$html_output .= InsertEdit::getActionsPanel(
     $where_clause, $after_insert, $tabindex,
     $tabindex_for_value, $found_unique_key
 );
@@ -215,12 +211,12 @@ if ($biggest_max_file_size > 0) {
 }
 $html_output .= '</form>';
 
-$html_output .= PMA_getHtmlForGisEditor();
+$html_output .= InsertEdit::getHtmlForGisEditor();
 // end Insert/Edit form
 
 if ($insert_mode) {
     //Continue insertion form
-    $html_output .= PMA_getContinueInsertionForm(
+    $html_output .= InsertEdit::getContinueInsertionForm(
         $table, $db, $where_clause_array, $err_url
     );
 }
