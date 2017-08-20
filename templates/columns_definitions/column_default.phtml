@@ -39,9 +39,7 @@ if ($type_upper == 'BIT') {
     <textarea name="field_default_value[<?= $columnNumber; ?>]"
               cols="15"
               class="textfield
-              default_value">
-        <?= htmlspecialchars($defaultValue); ?>
-    </textarea>
+              default_value"><?= htmlspecialchars($defaultValue); ?></textarea>
 <?php else: ?>
     <input type="text"
            name="field_default_value[<?= $columnNumber; ?>]"
