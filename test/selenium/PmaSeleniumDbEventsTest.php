@@ -131,6 +131,7 @@ class PMA_SeleniumDbEventsTest extends PMA_SeleniumBase
                 return true;
             }
 
+            $this->byName("item_starts")->clear();
             $this->byName("item_starts")->click();
             $this->keys($startDate);
             return null;
@@ -141,6 +142,7 @@ class PMA_SeleniumDbEventsTest extends PMA_SeleniumBase
                 return true;
             }
 
+            $this->byName("item_ends")->clear();
             $this->byName("item_ends")->click();
             $this->keys($endDate);
             return null;
