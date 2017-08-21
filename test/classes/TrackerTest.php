@@ -257,15 +257,15 @@ class TrackerTest extends PMATestCase
                 'Update_time' => '2013-02-22 21:46:48'
             )
         );
-        $dbi->expects($this->any())->method('tryQuery')
-            ->with($this->equalTo("SHOW CREATE TABLE `pma_test`.`pma_tbl`"))
-            ->will(
-                $this->returnValue(
-                    "CREATE TABLE `pma_test`.`pma_tbl` (
-                    `id` int(11) NOT NULL AUTO_INCREMENT,
-                    `username` text NOT NULL
-                    )"
-                )
+        $dbi->expects($this->exactly(2))
+            ->method('tryQuery')
+            ->withConsecutive(
+                array("SHOW TABLE STATUS FROM `pma_test` WHERE Name = 'pma_tbl'"),
+                array('SHOW CREATE TABLE `pma_test`.`pma_tbl`')
+            )
+            ->willReturnOnConsecutiveCalls(
+                'res',
+                'res'
             );
 
         $date = Util::date('Y-m-d H:i:s');
@@ -298,13 +298,6 @@ class TrackerTest extends PMATestCase
         $GLOBALS['controllink'] = null;
 
         $queryResults = array(
-            array(
-                "SHOW TABLE STATUS FROM `pma_test` LIKE 'pma_tbl'",
-                null,
-                1,
-                true,
-                $tableStatusArray
-            ),
             array(
                 $expectedMainQuery,
                 null,
