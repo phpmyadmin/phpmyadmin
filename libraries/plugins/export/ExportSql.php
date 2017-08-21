@@ -1387,7 +1387,7 @@ class ExportSql extends ExportPlugin
 
         // need to use PMA\libraries\DatabaseInterface::QUERY_STORE
         // with $GLOBALS['dbi']->numRows() in mysqli
-        $result = $GLOBALS['dbi']->query(
+        $result = $GLOBALS['dbi']->tryQuery(
             'SHOW TABLE STATUS FROM ' . Util::backquote($db)
             . ' WHERE Name = \'' . $GLOBALS['dbi']->escapeString($table) . '\'',
             null,
