@@ -81,7 +81,7 @@ class PMA_SeleniumCreateDropDatabaseTest extends PMA_SeleniumBase
         $this->byPartialLinkText('Databases')->click();
         $this->waitForElementNotPresent('byId', 'ajax_message_num_1');
 
-        $this->scrollIntoView('tableslistcontainer');
+        $this->scrollToBottom();
         $this->byCssSelector(
             "input[name='selected_dbs[]'][value='" . $this->database_name . "']"
         )->click();

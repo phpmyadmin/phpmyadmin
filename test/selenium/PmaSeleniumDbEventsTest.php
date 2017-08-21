@@ -182,7 +182,7 @@ class PMA_SeleniumDbEventsTest extends PMA_SeleniumBase
         );
         $this->assertEquals(1, $result->num_rows);
 
-        usleep(2200000);
+        sleep(2);
         $result = $this->dbQuery(
             "SELECT val FROM `" . $this->database_name . "`.`test_table`"
         );
@@ -214,7 +214,6 @@ class PMA_SeleniumDbEventsTest extends PMA_SeleniumBase
         $this->byName("item_interval_value")->clear();
         $this->byName("item_interval_value")->value("2");
 
-        $this->sleep();
         $this->byXPath("//button[contains(., 'Go')]")->click();
 
         $ele = $this->waitForElement(
@@ -223,7 +222,7 @@ class PMA_SeleniumDbEventsTest extends PMA_SeleniumBase
             . "'Event `test_event` has been modified')]"
         );
 
-        usleep(2200000);
+        sleep(2);
         $result = $this->dbQuery(
             "SELECT val FROM `" . $this->database_name . "`.`test_table`"
         );
@@ -255,7 +254,7 @@ class PMA_SeleniumDbEventsTest extends PMA_SeleniumBase
 
         $this->waitForElement("byId", "nothing2display");
 
-        usleep(1000000);
+        sleep(1);
         $result = $this->dbQuery(
             "SHOW EVENTS WHERE Db='" . $this->database_name
             . "' AND Name='test_event'"

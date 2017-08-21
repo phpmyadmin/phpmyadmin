@@ -412,19 +412,6 @@ abstract class PMA_SeleniumBase extends PHPUnit_Extensions_Selenium2TestCase
     }
 
     /**
-     * Sleeps while waiting for browser to perform an action.
-     *
-     * @todo This method should not be used, but rather there would be
-     *       explicit waiting for some elements.
-     *
-     * @return void
-     */
-    public function sleep()
-    {
-        usleep(5000);
-    }
-
-    /**
      * Check if element is present or not
      *
      * @param string $func Locate using - byCss, byXPath, etc
@@ -586,7 +573,18 @@ abstract class PMA_SeleniumBase extends PHPUnit_Extensions_Selenium2TestCase
         $ele->click();
         $this->waitForElement('byCssSelector', 'li.submenuhover > a');
 
-        $this->sleep();
+        $this->waitUntil(function () {
+            if (
+                $this->isElementPresent(
+                    'byCssSelector',
+                    'li.submenuhover.submenu.shown'
+                )
+            ) {
+                return true;
+            }
+
+            return false;
+        }, 5000);
     }
 
     /**
@@ -606,13 +604,18 @@ abstract class PMA_SeleniumBase extends PHPUnit_Extensions_Selenium2TestCase
         $this->waitForElement("byPartialLinkText", $this->database_name)->click();
 
         /* Wait for loading and expanding tree */
-        $this->waitForElement(
-            'byCssSelector',
-            'li.last.table'
-        );
+        $this->waitUntil(function () {
+            if (
+                $this->isElementPresent(
+                    'byCssSelector',
+                    'li.last.table'
+                )
+            ) {
+                return true;
+            }
 
-        /* TODO: Timing issue of expanding navigation tree */
-        $this->sleep();
+            return null;
+        }, 5000);
 
         // go to table page
         $this->waitForElement(
@@ -668,6 +671,11 @@ abstract class PMA_SeleniumBase extends PHPUnit_Extensions_Selenium2TestCase
         usleep(1000000);
     }
 
+    /**
+     * Mark unsuccessful tests as 'Failures' on Browerstack
+     *
+     * @return void
+     */
     public function onNotSuccessfulTest(Exception $e)
     {
         // If this is being run on Browerstack,

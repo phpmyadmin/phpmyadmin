@@ -35,7 +35,6 @@ class PMA_SeleniumSettingsTest extends PMA_SeleniumBase
         $this->waitForElement(
             "byXPath", "//a[@class='tabactive' and contains(., 'Settings')]"
         );
-        $this->sleep();
     }
 
     /**
@@ -54,11 +53,18 @@ class PMA_SeleniumSettingsTest extends PMA_SeleniumBase
         $this->moveto($ele);
         $ele->click();
 
-        usleep(1000000);
-        $this->waitForElement(
-            "byXPath",
-            "//div[@class='success' and contains(., 'Configuration has been saved')]"
-        );
+        $this->waitUntil(function() {
+            if (
+                $this->isElementPresent(
+                    "byXPath",
+                    "//div[@class='success' and contains(., 'Configuration has been saved')]"
+                )
+            ) {
+                return true;
+            }
+
+            return null;
+        }, 5000);
     }
 
     /**
@@ -143,7 +149,6 @@ class PMA_SeleniumSettingsTest extends PMA_SeleniumBase
 
         $this->byCssSelector("a[href='#NavigationDisplayLogo']")->click();
         $this->_saveConfig();
-        $this->sleep();
         $this->assertTrue(
             $this->isElementPresent("byId", "imgpmalogo")
         );
