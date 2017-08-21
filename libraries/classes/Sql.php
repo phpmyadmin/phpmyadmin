@@ -13,6 +13,7 @@ use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\DisplayResults;
 use PhpMyAdmin\Index;
 use PhpMyAdmin\Message;
+use PhpMyAdmin\Operations;
 use PhpMyAdmin\Response;
 use PhpMyAdmin\SqlParser\Statements\AlterStatement;
 use PhpMyAdmin\SqlParser\Statements\DropStatement;
@@ -22,8 +23,6 @@ use PhpMyAdmin\Table;
 use PhpMyAdmin\Transformations;
 use PhpMyAdmin\Url;
 use PhpMyAdmin\Util;
-
-require_once 'libraries/operations.lib.php';
 
 /**
  * Sql class
@@ -2183,7 +2182,7 @@ EOT;
                 isset($extra_data) ? $extra_data : null
             );
 
-        $warning_messages = PMA_getWarningMessagesArray();
+        $warning_messages = Operations::getWarningMessagesArray();
 
         // No rows returned -> move back to the calling page
         if ((0 == $num_rows && 0 == $unlim_num_rows)
@@ -2223,7 +2222,7 @@ EOT;
         Util::handleDisableFKCheckCleanup($default_fk_check);
 
         foreach ($warning_messages as $warning) {
-            $message = \PhpMyAdmin\Message::notice($warning);
+            $message = Message::notice($warning);
             $html_output .= $message->getDisplay();
         }
 

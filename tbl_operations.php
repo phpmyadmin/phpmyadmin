@@ -5,9 +5,13 @@
  *
  * @package PhpMyAdmin
  */
+use PhpMyAdmin\Index;
+use PhpMyAdmin\Message;
 use PhpMyAdmin\Partition;
-use PhpMyAdmin\Table;
+use PhpMyAdmin\Operations;
 use PhpMyAdmin\Response;
+use PhpMyAdmin\Table;
+use PhpMyAdmin\Util;
 
 /**
  *
@@ -18,7 +22,6 @@ require_once 'libraries/common.inc.php';
  * functions implementation for this script
  */
 require_once 'libraries/check_user_privileges.lib.php';
-require_once 'libraries/operations.lib.php';
 
 $pma_table = new Table($GLOBALS['table'], $GLOBALS['db']);
 
@@ -95,7 +98,7 @@ $table_alters = array();
  */
 if (isset($_REQUEST['submit_move']) || isset($_REQUEST['submit_copy'])) {
     //$_message = '';
-    PMA_moveOrCopyTable($db, $table);
+    Operations::moveOrCopyTable($db, $table);
     // This was ended in an Ajax call
     exit;
 }
@@ -122,7 +125,7 @@ if (isset($_REQUEST['submitoptions'])) {
             if (isset($_REQUEST['adjust_privileges'])
                 && ! empty($_REQUEST['adjust_privileges'])
             ) {
-                PMA_AdjustPrivileges_renameOrMoveTable(
+                Operations::adjustPrivilegesRenameOrMoveTable(
                     $oldDb, $oldTable, $_REQUEST['db'], $_REQUEST['new_name']
                 );
             }
@@ -160,7 +163,7 @@ if (isset($_REQUEST['submitoptions'])) {
         ? $create_options['row_format']
         : $pma_table->getRowFormat();
 
-    $table_alters = PMA_getTableAltersArray(
+    $table_alters = Operations::getTableAltersArray(
         $pma_table,
         $create_options['pack_keys'],
         (empty($create_options['checksum']) ? '0' : '1'),
@@ -174,13 +177,13 @@ if (isset($_REQUEST['submitoptions'])) {
 
     if (count($table_alters) > 0) {
         $sql_query      = 'ALTER TABLE '
-            . PhpMyAdmin\Util::backquote($GLOBALS['table']);
+            . Util::backquote($GLOBALS['table']);
         $sql_query     .= "\r\n" . implode("\r\n", $table_alters);
         $sql_query     .= ';';
         $result        .= $GLOBALS['dbi']->query($sql_query) ? true : false;
         $reread_info    = true;
         unset($table_alters);
-        $warning_messages = PMA_getWarningMessagesArray();
+        $warning_messages = Operations::getWarningMessagesArray();
     }
 
     if (isset($_REQUEST['tbl_collation'])
@@ -188,7 +191,7 @@ if (isset($_REQUEST['submitoptions'])) {
         && isset($_REQUEST['change_all_collations'])
         && ! empty($_REQUEST['change_all_collations'])
     ) {
-        PMA_changeAllColumnsCollation(
+        Operations::changeAllColumnsCollation(
             $GLOBALS['db'], $GLOBALS['table'], $_REQUEST['tbl_collation']
         );
     }
@@ -197,7 +200,7 @@ if (isset($_REQUEST['submitoptions'])) {
  * Reordering the table has been requested by the user
  */
 if (isset($_REQUEST['submitorderby']) && ! empty($_REQUEST['order_field'])) {
-    list($sql_query, $result) = PMA_getQueryAndResultForReorderingTable();
+    list($sql_query, $result) = Operations::getQueryAndResultForReorderingTable();
 } // end if
 
 /**
@@ -206,7 +209,7 @@ if (isset($_REQUEST['submitorderby']) && ! empty($_REQUEST['order_field'])) {
 if (isset($_REQUEST['submit_partition'])
     && ! empty($_REQUEST['partition_operation'])
 ) {
-    list($sql_query, $result) = PMA_getQueryAndResultForPartition();
+    list($sql_query, $result) = Operations::getQueryAndResultForPartition();
 } // end if
 
 if ($reread_info) {
@@ -235,11 +238,11 @@ unset($reread_info);
 if (isset($result) && empty($message_to_show)) {
     if (empty($_message)) {
         if (empty($sql_query)) {
-            $_message = PhpMyAdmin\Message::success(__('No change'));
+            $_message = Message::success(__('No change'));
         } else {
             $_message = $result
-                ? PhpMyAdmin\Message::success()
-                : PhpMyAdmin\Message::error();
+                ? Message::success()
+                : Message::error();
         }
 
         if ($response->isAjax()) {
@@ -247,19 +250,19 @@ if (isset($result) && empty($message_to_show)) {
             $response->addJSON('message', $_message);
             if (!empty($sql_query)) {
                 $response->addJSON(
-                    'sql_query', PhpMyAdmin\Util::getMessage(null, $sql_query)
+                    'sql_query', Util::getMessage(null, $sql_query)
                 );
             }
             exit;
         }
     } else {
         $_message = $result
-            ? PhpMyAdmin\Message::success($_message)
-            : PhpMyAdmin\Message::error($_message);
+            ? Message::success($_message)
+            : Message::error($_message);
     }
 
     if (! empty($warning_messages)) {
-        $_message = new PhpMyAdmin\Message;
+        $_message = new Message;
         $_message->addMessagesString($warning_messages);
         $_message->isError(true);
         if ($response->isAjax()) {
@@ -267,7 +270,7 @@ if (isset($result) && empty($message_to_show)) {
             $response->addJSON('message', $_message);
             if (!empty($sql_query)) {
                 $response->addJSON(
-                    'sql_query', PhpMyAdmin\Util::getMessage(null, $sql_query)
+                    'sql_query', Util::getMessage(null, $sql_query)
                 );
             }
             exit;
@@ -281,7 +284,7 @@ if (isset($result) && empty($message_to_show)) {
         );
     } else {
         $response->addHTML(
-            PhpMyAdmin\Util::getMessage($_message, $sql_query)
+            Util::getMessage($_message, $sql_query)
         );
     }
     unset($_message);
@@ -308,7 +311,7 @@ $hideOrderTable = false;
 // a user-defined clustered index (PRIMARY KEY or NOT NULL UNIQUE index).
 // InnoDB always orders table rows according to such an index if one is present.
 if ($tbl_storage_engine == 'INNODB') {
-    $indexes = PhpMyAdmin\Index::getFromTable($GLOBALS['table'], $GLOBALS['db']);
+    $indexes = Index::getFromTable($GLOBALS['table'], $GLOBALS['db']);
     foreach ($indexes as $name => $idx) {
         if ($name == 'PRIMARY') {
             $hideOrderTable = true;
@@ -329,13 +332,13 @@ if ($tbl_storage_engine == 'INNODB') {
     }
 }
 if (! $hideOrderTable) {
-    $response->addHTML(PMA_getHtmlForOrderTheTable($columns));
+    $response->addHTML(Operations::getHtmlForOrderTheTable($columns));
 }
 
 /**
  * Move table
  */
-$response->addHTML(PMA_getHtmlForMoveTable());
+$response->addHTML(Operations::getHtmlForMoveTable());
 
 if (mb_strstr($show_comment, '; InnoDB free') === false) {
     if (mb_strstr($show_comment, 'InnoDB free') === false) {
@@ -359,7 +362,7 @@ if (mb_strstr($show_comment, '; InnoDB free') === false) {
 // check for version
 
 $response->addHTML(
-    PMA_getTableOptionDiv(
+    Operations::getTableOptionDiv(
         $pma_table, $comment, $tbl_collation, $tbl_storage_engine,
         $create_options['pack_keys'],
         $auto_increment,
@@ -373,13 +376,13 @@ $response->addHTML(
 /**
  * Copy table
  */
-$response->addHTML(PMA_getHtmlForCopytable());
+$response->addHTML(Operations::getHtmlForCopytable());
 
 /**
  * Table maintenance
  */
 $response->addHTML(
-    PMA_getHtmlForTableMaintenance($pma_table, $url_params)
+    Operations::getHtmlForTableMaintenance($pma_table, $url_params)
 );
 
 if (! (isset($db_is_system_schema) && $db_is_system_schema)) {
@@ -390,7 +393,7 @@ if (! (isset($db_is_system_schema) && $db_is_system_schema)) {
         && ! (isset($db_is_system_schema) && $db_is_system_schema)
     ) {
         $this_sql_query = 'TRUNCATE TABLE '
-            . PhpMyAdmin\Util::backquote($GLOBALS['table']);
+            . Util::backquote($GLOBALS['table']);
         $truncate_table_url_params = array_merge(
             $url_params,
             array(
@@ -406,7 +409,7 @@ if (! (isset($db_is_system_schema) && $db_is_system_schema)) {
     }
     if (! (isset($db_is_system_schema) && $db_is_system_schema)) {
         $this_sql_query = 'DROP TABLE '
-            . PhpMyAdmin\Util::backquote($GLOBALS['table']);
+            . Util::backquote($GLOBALS['table']);
         $drop_table_url_params = array_merge(
             $url_params,
             array(
@@ -428,7 +431,7 @@ if (! (isset($db_is_system_schema) && $db_is_system_schema)) {
         );
     }
     $response->addHTML(
-        PMA_getHtmlForDeleteDataOrTable(
+        Operations::getHtmlForDeleteDataOrTable(
             $truncate_table_url_params,
             $drop_table_url_params
         )
@@ -440,7 +443,7 @@ if (Partition::havePartitioning()) {
     // show the Partition maintenance section only if we detect a partition
     if (! is_null($partition_names[0])) {
         $response->addHTML(
-            PMA_getHtmlForPartitionMaintenance($partition_names, $url_params)
+            Operations::getHtmlForPartitionMaintenance($partition_names, $url_params)
         );
     } // end if
 } // end if
@@ -458,7 +461,7 @@ if ($cfgRelation['relwork'] && ! $pma_table->isEngine("INNODB")) {
 
     if (! empty($foreign)) {
         $response->addHTML(
-            PMA_getHtmlForReferentialIntegrityCheck($foreign, $url_params)
+            Operations::getHtmlForReferentialIntegrityCheck($foreign, $url_params)
         );
     } // end if ($foreign)
 

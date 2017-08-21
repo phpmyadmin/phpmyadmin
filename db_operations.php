@@ -11,8 +11,12 @@
  *
  * @package PhpMyAdmin
  */
-use PhpMyAdmin\Response;
+use PhpMyAdmin\DatabaseInterface;
+use PhpMyAdmin\Message;
 use PhpMyAdmin\Plugins\Export\ExportSql;
+use PhpMyAdmin\Operations;
+use PhpMyAdmin\Response;
+use PhpMyAdmin\Util;
 
 /**
  * requirements
@@ -24,7 +28,6 @@ require_once 'libraries/display_create_table.lib.php';
  * functions implementation for this script
  */
 require_once 'libraries/check_user_privileges.lib.php';
-require_once 'libraries/operations.lib.php';
 
 // add a javascript file for jQuery functions to handle Ajax actions
 $response = Response::getInstance();
@@ -47,15 +50,15 @@ if (strlen($GLOBALS['db']) > 0
     }
 
     if (! isset($_REQUEST['newname']) || strlen($_REQUEST['newname']) === 0) {
-        $message = PhpMyAdmin\Message::error(__('The database name is empty!'));
+        $message = Message::error(__('The database name is empty!'));
     } else if($_REQUEST['newname'] === $_REQUEST['db']) {
-        $message = PhpMyAdmin\Message::error(
+        $message = Message::error(
             __('Cannot copy database to the same name. Change the name and try again.')
         );
     } else {
         $_error = false;
         if ($move || ! empty($_REQUEST['create_database_before_copying'])) {
-            PMA_createDbBeforeCopy();
+            Operations::createDbBeforeCopy();
         }
 
         // here I don't use DELIMITER because it's not part of the
@@ -64,7 +67,7 @@ if (strlen($GLOBALS['db']) > 0
         // to avoid selecting alternatively the current and new db
         // we would need to modify the CREATE definitions to qualify
         // the db name
-        PMA_runProcedureAndFunctionDefinitions($GLOBALS['db']);
+        Operations::runProcedureAndFunctionDefinitions($GLOBALS['db']);
 
         // go back to current db, just in case
         $GLOBALS['dbi']->selectDb($GLOBALS['db']);
@@ -85,24 +88,24 @@ if (strlen($GLOBALS['db']) > 0
         );
 
         // create stand-in tables for views
-        $views = PMA_getViewsAndCreateSqlViewStandIn(
+        $views = Operations::getViewsAndCreateSqlViewStandIn(
             $tables_full, $export_sql_plugin, $GLOBALS['db']
         );
 
         // copy tables
-        $sqlConstratints = PMA_copyTables(
+        $sqlConstratints = Operations::copyTables(
             $tables_full, $move, $GLOBALS['db']
         );
 
         // handle the views
         if (! $_error) {
-            PMA_handleTheViews($views, $move, $GLOBALS['db']);
+            Operations::handleTheViews($views, $move, $GLOBALS['db']);
         }
         unset($views);
 
         // now that all tables exist, create all the accumulated constraints
         if (! $_error && count($sqlConstratints) > 0) {
-            PMA_createAllAccumulatedConstraints($sqlConstratints);
+            Operations::createAllAccumulatedConstraints($sqlConstratints);
         }
         unset($sqlConstratints);
 
@@ -110,20 +113,20 @@ if (strlen($GLOBALS['db']) > 0
             // here DELIMITER is not used because it's not part of the
             // language; each statement is sent one by one
 
-            PMA_runEventDefinitionsForDb($GLOBALS['db']);
+            Operations::runEventDefinitionsForDb($GLOBALS['db']);
         }
 
         // go back to current db, just in case
         $GLOBALS['dbi']->selectDb($GLOBALS['db']);
 
         // Duplicate the bookmarks for this db (done once for each db)
-        PMA_duplicateBookmarks($_error, $GLOBALS['db']);
+        Operations::duplicateBookmarks($_error, $GLOBALS['db']);
 
         if (! $_error && $move) {
             if (isset($_REQUEST['adjust_privileges'])
                 && ! empty($_REQUEST['adjust_privileges'])
             ) {
-                PMA_AdjustPrivileges_moveDB($GLOBALS['db'], $_REQUEST['newname']);
+                Operations::adjustPrivilegesMoveDb($GLOBALS['db'], $_REQUEST['newname']);
             }
 
             /**
@@ -134,11 +137,11 @@ if (strlen($GLOBALS['db']) > 0
 
             // if someday the RENAME DATABASE reappears, do not DROP
             $local_query = 'DROP DATABASE '
-                . PhpMyAdmin\Util::backquote($GLOBALS['db']) . ';';
+                . Util::backquote($GLOBALS['db']) . ';';
             $sql_query .= "\n" . $local_query;
             $GLOBALS['dbi']->query($local_query);
 
-            $message = PhpMyAdmin\Message::success(
+            $message = Message::success(
                 __('Database %1$s has been renamed to %2$s.')
             );
             $message->addParam($GLOBALS['db']);
@@ -147,16 +150,16 @@ if (strlen($GLOBALS['db']) > 0
             if (isset($_REQUEST['adjust_privileges'])
                 && ! empty($_REQUEST['adjust_privileges'])
             ) {
-                PMA_AdjustPrivileges_copyDB($GLOBALS['db'], $_REQUEST['newname']);
+                Operations::adjustPrivilegesCopyDb($GLOBALS['db'], $_REQUEST['newname']);
             }
 
-            $message = PhpMyAdmin\Message::success(
+            $message = Message::success(
                 __('Database %1$s has been copied to %2$s.')
             );
             $message->addParam($GLOBALS['db']);
             $message->addParam($_REQUEST['newname']);
         } else {
-            $message = PhpMyAdmin\Message::error();
+            $message = Message::error();
         }
         $reload     = true;
 
@@ -185,7 +188,7 @@ if (strlen($GLOBALS['db']) > 0
         $response->addJSON('newname', $_REQUEST['newname']);
         $response->addJSON(
             'sql_query',
-            PhpMyAdmin\Util::getMessage(null, $sql_query)
+            Util::getMessage(null, $sql_query)
         );
         $response->addJSON('db', $GLOBALS['db']);
         exit;
@@ -222,12 +225,12 @@ list(
     $tooltip_truename,
     $tooltip_aliasname,
     $pos
-) = PhpMyAdmin\Util::getDbInfo($db, isset($sub_part) ? $sub_part : '');
+) = Util::getDbInfo($db, isset($sub_part) ? $sub_part : '');
 
 echo "\n";
 
 if (isset($message)) {
-    echo PhpMyAdmin\Util::getMessage($message, $sql_query);
+    echo Util::getMessage($message, $sql_query);
     unset($message);
 }
 
@@ -239,7 +242,7 @@ if (!$is_information_schema) {
         /**
          * database comment
          */
-        $response->addHTML(PMA_getHtmlForDatabaseComment($GLOBALS['db']));
+        $response->addHTML(Operations::getHtmlForDatabaseComment($GLOBALS['db']));
     }
 
     $response->addHTML('<div>');
@@ -250,7 +253,7 @@ if (!$is_information_schema) {
      * rename database
      */
     if ($GLOBALS['db'] != 'mysql') {
-        $response->addHTML(PMA_getHtmlForRenameDatabase($GLOBALS['db']));
+        $response->addHTML(Operations::getHtmlForRenameDatabase($GLOBALS['db']));
     }
 
     // Drop link if allowed
@@ -261,22 +264,22 @@ if (!$is_information_schema) {
         && ! $db_is_system_schema
         && $GLOBALS['db'] != 'mysql'
     ) {
-        $response->addHTML(PMA_getHtmlForDropDatabaseLink($GLOBALS['db']));
+        $response->addHTML(Operations::getHtmlForDropDatabaseLink($GLOBALS['db']));
     }
     /**
      * Copy database
      */
-    $response->addHTML(PMA_getHtmlForCopyDatabase($GLOBALS['db']));
+    $response->addHTML(Operations::getHtmlForCopyDatabase($GLOBALS['db']));
 
     /**
      * Change database charset
      */
-    $response->addHTML(PMA_getHtmlForChangeDatabaseCharset($GLOBALS['db'], $table));
+    $response->addHTML(Operations::getHtmlForChangeDatabaseCharset($GLOBALS['db'], $table));
 
     if (! $cfgRelation['allworks']
         && $cfg['PmaNoRelation_DisableWarning'] == false
     ) {
-        $message = PhpMyAdmin\Message::notice(
+        $message = Message::notice(
             __(
                 'The phpMyAdmin configuration storage has been deactivated. ' .
                 '%sFind out why%s.'
@@ -296,13 +299,13 @@ if ($cfgRelation['pdfwork'] && $num_tables > 0) {
     // We only show this if we find something in the new pdf_pages table
     $test_query = '
         SELECT *
-        FROM ' . PhpMyAdmin\Util::backquote($GLOBALS['cfgRelation']['db'])
-        . '.' . PhpMyAdmin\Util::backquote($cfgRelation['pdf_pages']) . '
+        FROM ' . Util::backquote($GLOBALS['cfgRelation']['db'])
+        . '.' . Util::backquote($cfgRelation['pdf_pages']) . '
         WHERE db_name = \'' . $GLOBALS['dbi']->escapeString($GLOBALS['db'])
         . '\'';
     $test_rs = PMA_queryAsControlUser(
         $test_query,
         false,
-        PhpMyAdmin\DatabaseInterface::QUERY_STORE
+        DatabaseInterface::QUERY_STORE
     );
 } // end if
