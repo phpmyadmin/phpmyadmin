@@ -104,10 +104,15 @@ class Error extends Message
         $this->setFile($errfile);
         $this->setLine($errline);
 
-        $backtrace = debug_backtrace();
-        // remove last three calls:
-        // debug_backtrace(), handleError() and addError()
-        $backtrace = array_slice($backtrace, 3);
+        // This function can be disabled in php.ini
+        if (function_exists('debug_backtrace')) {
+            $backtrace = @debug_backtrace();
+            // remove last three calls:
+            // debug_backtrace(), handleError() and addError()
+            $backtrace = array_slice($backtrace, 3);
+        } else {
+            $backtrace = array();
+        }
 
         $this->setBacktrace($backtrace);
     }
