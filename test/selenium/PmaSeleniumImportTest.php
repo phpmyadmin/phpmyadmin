@@ -118,7 +118,7 @@ class PMA_SeleniumImportTest extends PMA_SeleniumBase
         $this->select($this->byName("local_import_file"))
             ->selectOptionByLabel($type . "_import.sql");
 
-        usleep(1000000);
+        sleep(1);
 
         $this->scrollToBottom();
         $this->byId("buttonGo")->click();

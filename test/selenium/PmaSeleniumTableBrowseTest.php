@@ -294,7 +294,7 @@ class PMA_SeleniumTableBrowseTest extends PMA_SeleniumBase
         // automatically gets appended with 00:00:00
         $this->keys("2012-01-2");
         $this->byId("field_2_3")->value("ABCDEFG");
-        usleep(1000000); // longer string takes longer to type
+        sleep(1); // longer string takes longer to type
 
         $this->waitForElement('byId', "buttonYes")->click();
 

@@ -207,8 +207,7 @@ class PMA_SeleniumDbTriggersTest extends PMA_SeleniumBase
         )->click();
 
         $this->waitForElement("byId", "nothing2display");
-
-        usleep(1000000);
+        sleep(1);
 
         // test trigger
         $this->dbQuery("INSERT INTO `test_table` (val) VALUES (1);");

@@ -189,7 +189,7 @@ class PMA_SeleniumDbProceduresTest extends PMA_SeleniumBase
 
         $this->waitForElement("byId", "nothing2display");
 
-        usleep(1000000);
+        sleep(1);
         $result = $this->dbQuery(
             "SHOW PROCEDURE STATUS WHERE Db='" . $this->database_name . "'"
         );

@@ -78,7 +78,7 @@ class PMA_SeleniumCreateRemoveUserTest extends PMA_SeleniumBase
             && ! $this->isElementPresent('byId', 'ajax_message_num_1')
         ) {
             $ele->click();
-            usleep(1000000);
+            sleep(1);
         }
 
         $this->waitForElementNotPresent('byId', 'ajax_message_num_1');
