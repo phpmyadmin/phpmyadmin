@@ -5,9 +5,12 @@
  *
  * @package PhpMyAdmin
  */
-use PhpMyAdmin\Table;
+use PhpMyAdmin\Message;
+use PhpMyAdmin\Operations;
 use PhpMyAdmin\Response;
+use PhpMyAdmin\Table;
 use PhpMyAdmin\Url;
+use PhpMyAdmin\Util;
 
 /**
  *
@@ -15,11 +18,6 @@ use PhpMyAdmin\Url;
 require_once './libraries/common.inc.php';
 
 $pma_table = new Table($GLOBALS['table'], $GLOBALS['db']);
-
-/**
- * functions implementation for this script
- */
-require_once 'libraries/operations.lib.php';
 
 /**
  * Load JavaScript files
@@ -39,7 +37,7 @@ $url_params['goto'] = $url_params['back'] = 'view_operations.php';
 /**
  * Updates if required
  */
-$_message = new PhpMyAdmin\Message;
+$_message = new Message;
 $_type = 'success';
 if (isset($_REQUEST['submitoptions'])) {
 
@@ -57,7 +55,7 @@ if (isset($_REQUEST['submitoptions'])) {
         }
     }
 
-    $warning_messages = PMA_getWarningMessagesArray();
+    $warning_messages = Operations::getWarningMessagesArray();
 }
 
 if (isset($result)) {
@@ -79,7 +77,7 @@ if (isset($result)) {
         $_message->isError(true);
         unset($warning_messages);
     }
-    echo PhpMyAdmin\Util::getMessage(
+    echo Util::getMessage(
         $_message, $sql_query, $_type
     );
 }
@@ -120,7 +118,7 @@ $url_params['back'] = 'view_operations.php';
 $drop_view_url_params = array_merge(
     $url_params,
     array(
-        'sql_query' => 'DROP VIEW ' . PhpMyAdmin\Util::backquote(
+        'sql_query' => 'DROP VIEW ' . Util::backquote(
             $GLOBALS['table']
         ),
         'goto' => 'tbl_structure.php',
@@ -138,7 +136,7 @@ echo '<fieldset class="caution">';
 echo '<legend>' , __('Delete data or table') , '</legend>';
 
 echo '<ul>';
-echo PMA_getDeleteDataOrTableLink(
+echo Operations::getDeleteDataOrTablelink(
     $drop_view_url_params,
     'DROP VIEW',
     __('Delete the view (DROP)'),
