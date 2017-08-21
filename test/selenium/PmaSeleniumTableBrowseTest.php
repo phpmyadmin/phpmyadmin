@@ -53,6 +53,17 @@ class PMA_SeleniumTableBrowseTest extends PMA_SeleniumBase
 
         $this->login();
         $this->navigateTable('test_table');
+
+        $this->waitForElementNotPresent('byId', 'ajax_message_num_1');
+        usleep(1000000); // let the page load
+
+        // Dynamic wait
+        $this->waitUntil(function () {
+            if (trim($this->getCellByTableClass('table_results', 1, 5)) === '1') {
+                return true;
+            }
+            return null;
+        }, 5000);
     }
 
     /**
@@ -64,9 +75,6 @@ class PMA_SeleniumTableBrowseTest extends PMA_SeleniumBase
      */
     public function testSortRecords()
     {
-        $this->waitForElementNotPresent('byId', 'ajax_message_num_1');
-        usleep(1000000); // let the page load
-
         // case 1
         $this->byPartialLinkText("name")->click();
         $this->waitForElementNotPresent('byId', 'ajax_message_num_1');
@@ -158,9 +166,6 @@ class PMA_SeleniumTableBrowseTest extends PMA_SeleniumBase
      */
     public function testChangeRecords()
     {
-        $this->waitForElementNotPresent('byId', 'ajax_message_num_1');
-        $this->sleep();
-
         $ele = $this->byCssSelector(
             "table.table_results tbody tr:nth-child(2) td:nth-child(2)"
         );
@@ -223,7 +228,6 @@ class PMA_SeleniumTableBrowseTest extends PMA_SeleniumBase
      */
     public function testChangeRecordsByDoubleClick()
     {
-        $this->waitForElementNotPresent('byId', 'ajax_message_num_1');
         $element = $this->byCssSelector(
             "table.table_results tbody tr:nth-child(1) td:nth-child(6)"
         );
@@ -267,9 +271,6 @@ class PMA_SeleniumTableBrowseTest extends PMA_SeleniumBase
      */
     public function testCopyRecords()
     {
-        $this->waitForElementNotPresent('byId', 'ajax_message_num_1');
-        $this->sleep();
-
         $ele = $this->byCssSelector(
             "table.table_results tbody tr:nth-child(3) td:nth-child(3)"
         );
@@ -323,7 +324,6 @@ class PMA_SeleniumTableBrowseTest extends PMA_SeleniumBase
      */
     public function testSearchRecords()
     {
-        $this->waitForElementNotPresent('byId', 'ajax_message_num_1');
         $this->expandMore();
 
         $this->byPartialLinkText("Search")->click();
@@ -362,9 +362,6 @@ class PMA_SeleniumTableBrowseTest extends PMA_SeleniumBase
      */
     public function testDeleteRecords()
     {
-        $this->waitForElementNotPresent('byId', 'ajax_message_num_1');
-        usleep(1000000);
-
         $this->byId("id_rows_to_delete1_left")->click();
         $this->byId("id_rows_to_delete2_left")->click();
 
