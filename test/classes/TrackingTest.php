@@ -1,30 +1,25 @@
 <?php
 /* vim: set expandtab sw=4 ts=4 sts=4: */
 /**
- * Tests for libraries/tracking.lib.php
+ * Tests for PhpMyAdmin\Tracking
  *
  * @package PhpMyAdmin-test
  */
+namespace PhpMyAdmin\Tests;
 
-/*
- * Include to test.
- */
 use PhpMyAdmin\Theme;
+use PhpMyAdmin\Tracking;
 use PhpMyAdmin\Url;
-
-require_once 'libraries/tracking.lib.php';
 
 require_once 'libraries/database_interface.inc.php';
 require_once 'libraries/relation.lib.php';
 
-
-
 /**
- * Tests for libraries/tracking.lib.php
+ * Tests for PhpMyAdmin\Tracking
  *
  * @package PhpMyAdmin-test
  */
-class PMA_TblTrackingTest extends PHPUnit_Framework_TestCase
+class TrackingTest extends \PHPUnit_Framework_TestCase
 {
 
     /**
@@ -77,7 +72,7 @@ class PMA_TblTrackingTest extends PHPUnit_Framework_TestCase
     }
 
     /**
-     * Tests for PMA_filterTracking() method.
+     * Tests for Tracking::filterTracking() method.
      *
      * @return void
      * @test
@@ -100,7 +95,7 @@ class PMA_TblTrackingTest extends PHPUnit_Framework_TestCase
         $filter_ts_to = 999999999999;
         $filter_users = array("username1");
 
-        $ret = PMA_filterTracking(
+        $ret = Tracking::filterTracking(
             $data, $filter_ts_from, $filter_ts_to, $filter_users
         );
 
@@ -115,7 +110,7 @@ class PMA_TblTrackingTest extends PHPUnit_Framework_TestCase
     }
 
     /**
-     * Tests for PMA_extractTableNames() method from nested table_list.
+     * Tests for Tracking::extractTableNames() method from nested table_list.
      *
      * @return void
      * @test
@@ -139,7 +134,7 @@ class PMA_TblTrackingTest extends PHPUnit_Framework_TestCase
                 )
             )
         );
-        $untracked_tables = PMA_extractTableNames($table_list, 'db', true);
+        $untracked_tables = Tracking::extractTableNames($table_list, 'db', true);
         $this->assertContains(
             "hello_world",
             $untracked_tables
@@ -155,7 +150,7 @@ class PMA_TblTrackingTest extends PHPUnit_Framework_TestCase
     }
 
     /**
-     * Tests for PMA_getHtmlForDataDefinitionAndManipulationStatements() method.
+     * Tests for Tracking::getHtmlForDataDefinitionAndManipulationStatements() method.
      *
      * @return void
      * @test
@@ -164,7 +159,7 @@ class PMA_TblTrackingTest extends PHPUnit_Framework_TestCase
     {
         $url_query = "url_query";
         $last_version = 10;
-        $html = PMA_getHtmlForDataDefinitionAndManipulationStatements(
+        $html = Tracking::getHtmlForDataDefinitionAndManipulationStatements(
             $url_query, $last_version, $GLOBALS['db'], array($GLOBALS['table'])
         );
 
@@ -207,7 +202,7 @@ class PMA_TblTrackingTest extends PHPUnit_Framework_TestCase
     }
 
     /**
-     * Tests for PMA_getHtmlForActivateDeactivateTracking() method.
+     * Tests for Tracking::getHtmlForActivateDeactivateTracking() method.
      *
      * @return void
      * @test
@@ -216,7 +211,7 @@ class PMA_TblTrackingTest extends PHPUnit_Framework_TestCase
     {
         $url_query = "url_query";
         $last_version = "10";
-        $html = PMA_getHtmlForActivateDeactivateTracking(
+        $html = Tracking::getHtmlForActivateDeactivateTracking(
             'activate', $url_query, $last_version
         );
 
@@ -244,7 +239,7 @@ class PMA_TblTrackingTest extends PHPUnit_Framework_TestCase
             $html
         );
 
-        $html = PMA_getHtmlForActivateDeactivateTracking(
+        $html = Tracking::getHtmlForActivateDeactivateTracking(
             'deactivate', $url_query, $last_version
         );
 
@@ -274,7 +269,7 @@ class PMA_TblTrackingTest extends PHPUnit_Framework_TestCase
     }
 
     /**
-     * Tests for PMA_getTableLastVersionNumber() method.
+     * Tests for Tracking::getTableLastVersionNumber() method.
      *
      * @return void
      * @test
@@ -282,7 +277,7 @@ class PMA_TblTrackingTest extends PHPUnit_Framework_TestCase
     public function testPMAGetTableLastVersionNumber()
     {
         $sql_result = "sql_result";
-        $last_version = PMA_getTableLastVersionNumber($sql_result);
+        $last_version = Tracking::getTableLastVersionNumber($sql_result);
 
         $this->assertEquals(
             "10",
@@ -291,14 +286,14 @@ class PMA_TblTrackingTest extends PHPUnit_Framework_TestCase
     }
 
     /**
-     * Tests for PMA_getSQLResultForSelectableTables() method.
+     * Tests for Tracking::getSqlResultForSelectableTables() method.
      *
      * @return void
      * @test
      */
     public function testPMAGetSQLResultForSelectableTables()
     {
-        $ret = PMA_getSQLResultForSelectableTables();
+        $ret = Tracking::getSqlResultForSelectableTables();
 
         $this->assertEquals(
             true,
@@ -307,7 +302,7 @@ class PMA_TblTrackingTest extends PHPUnit_Framework_TestCase
     }
 
     /**
-     * Tests for PMA_getHtmlForColumns() method.
+     * Tests for Tracking::getHtmlForColumns() method.
      *
      * @return void
      * @test
@@ -335,7 +330,7 @@ class PMA_TblTrackingTest extends PHPUnit_Framework_TestCase
             ),
         );
 
-        $html = PMA_getHtmlForColumns($columns);
+        $html = Tracking::getHtmlForColumns($columns);
 
         $this->assertContains(
             __('Column'),
@@ -406,14 +401,14 @@ class PMA_TblTrackingTest extends PHPUnit_Framework_TestCase
     }
 
     /**
-     * Tests for PMA_getListOfVersionsOfTable() method.
+     * Tests for Tracking::getListOfVersionsOfTable() method.
      *
      * @return void
      * @test
      */
     public function testPMAGetListOfVersionsOfTable()
     {
-        $ret = PMA_getListOfVersionsOfTable();
+        $ret = Tracking::getListOfVersionsOfTable();
 
         $this->assertEquals(
             true,
@@ -422,7 +417,7 @@ class PMA_TblTrackingTest extends PHPUnit_Framework_TestCase
     }
 
     /**
-     * Tests for PMA_getHtmlForTableVersionDetails() method.
+     * Tests for Tracking::getHtmlForTableVersionDetails() method.
      *
      * @return void
      * @test
@@ -461,7 +456,7 @@ class PMA_TblTrackingTest extends PHPUnit_Framework_TestCase
 
         $GLOBALS['dbi'] = $dbi;
 
-        $ret = PMA_getHtmlForTableVersionDetails(
+        $ret = Tracking::getHtmlForTableVersionDetails(
             $sql_result, $last_version, $url_params, $url_query,
             $pmaThemeImage, $text_dir
         );
@@ -524,7 +519,7 @@ class PMA_TblTrackingTest extends PHPUnit_Framework_TestCase
     }
 
     /**
-     * Tests for PMA_getHtmlForSelectableTables() method.
+     * Tests for Tracking::getHtmlForSelectableTables() method.
      *
      * @return void
      * @test
@@ -559,7 +554,7 @@ class PMA_TblTrackingTest extends PHPUnit_Framework_TestCase
 
         $GLOBALS['dbi'] = $dbi;
 
-        $ret = PMA_getHtmlForSelectableTables(
+        $ret = Tracking::getHtmlForSelectableTables(
             $selectable_tables_sql_result, $url_query
         );
 
@@ -577,7 +572,7 @@ class PMA_TblTrackingTest extends PHPUnit_Framework_TestCase
     }
 
     /**
-     * Tests for PMA_getHtmlForTrackingReport() method.
+     * Tests for Tracking::getHtmlForTrackingReport() method.
      *
      * @return void
      * @test
@@ -603,7 +598,7 @@ class PMA_TblTrackingTest extends PHPUnit_Framework_TestCase
         $filter_ts_from = array();
         $filter_users = array();
 
-        $html = PMA_getHtmlForTrackingReport(
+        $html = Tracking::getHtmlForTrackingReport(
             $url_query, $data, $url_params,
             $selection_schema, $selection_data,
             $selection_both, $filter_ts_to,
@@ -679,7 +674,7 @@ class PMA_TblTrackingTest extends PHPUnit_Framework_TestCase
     }
 
     /**
-     * Tests for PMA_getHtmlForDataManipulationStatements() method.
+     * Tests for Tracking::getHtmlForDataManipulationStatements() method.
      *
      * @return void
      * @test
@@ -705,7 +700,7 @@ class PMA_TblTrackingTest extends PHPUnit_Framework_TestCase
         $filter_ts_from = 0;
         $filter_users = array("*");
 
-        $html = PMA_getHtmlForDataManipulationStatements(
+        $html = Tracking::getHtmlForDataManipulationStatements(
             $data, $filter_users,
             $filter_ts_from, $filter_ts_to, $url_params,
             $ddlog_count, $drop_image_or_text
@@ -738,7 +733,7 @@ class PMA_TblTrackingTest extends PHPUnit_Framework_TestCase
     }
 
     /**
-     * Tests for PMA_getHtmlForDataDefinitionStatements() method.
+     * Tests for Tracking::getHtmlForDataDefinitionStatements() method.
      *
      * @return void
      * @test
@@ -764,7 +759,7 @@ class PMA_TblTrackingTest extends PHPUnit_Framework_TestCase
         $url_params = array();
         $drop_image_or_text = "text";
 
-        list($html, $count) = PMA_getHtmlForDataDefinitionStatements(
+        list($html, $count) = Tracking::getHtmlForDataDefinitionStatements(
             $data, $filter_users,
             $filter_ts_from, $filter_ts_to, $url_params, $drop_image_or_text
         );
@@ -803,7 +798,7 @@ class PMA_TblTrackingTest extends PHPUnit_Framework_TestCase
     }
 
     /**
-     * Tests for PMA_getHtmlForIndexes() method.
+     * Tests for Tracking::getHtmlForIndexes() method.
      *
      * @return void
      * @test
@@ -824,7 +819,7 @@ class PMA_TblTrackingTest extends PHPUnit_Framework_TestCase
             ),
         );
 
-        $html = PMA_getHtmlForIndexes($indexs);
+        $html = Tracking::getHtmlForIndexes($indexs);
 
         $this->assertContains(
             __('Indexes'),
@@ -878,7 +873,7 @@ class PMA_TblTrackingTest extends PHPUnit_Framework_TestCase
     }
 
     /**
-     * Tests for PMA_getTrackingSet() method.
+     * Tests for Tracking::getTrackingSet() method.
      *
      * @return void
      * @test
@@ -896,7 +891,7 @@ class PMA_TblTrackingTest extends PHPUnit_Framework_TestCase
         $_REQUEST['delete'] = true;
         $_REQUEST['truncate'] = true;
 
-        $tracking_set = PMA_getTrackingSet();
+        $tracking_set = Tracking::getTrackingSet();
         $this->assertEquals(
             'RENAME TABLE,CREATE TABLE,DROP TABLE,DROP INDEX,INSERT,DELETE,TRUNCATE',
             $tracking_set
@@ -914,7 +909,7 @@ class PMA_TblTrackingTest extends PHPUnit_Framework_TestCase
         $_REQUEST['delete'] = false;
         $_REQUEST['truncate'] = false;
 
-        $tracking_set = PMA_getTrackingSet();
+        $tracking_set = Tracking::getTrackingSet();
         $this->assertEquals(
             'ALTER TABLE,CREATE INDEX,UPDATE',
             $tracking_set
@@ -923,7 +918,7 @@ class PMA_TblTrackingTest extends PHPUnit_Framework_TestCase
 
 
     /**
-     * Tests for PMA_getEntries() method.
+     * Tests for Tracking::getEntries() method.
      *
      * @return void
      * @test
@@ -952,7 +947,7 @@ class PMA_TblTrackingTest extends PHPUnit_Framework_TestCase
         $filter_ts_to = 9999999999;
         $filter_ts_from = 0;
 
-        $entries = PMA_getEntries(
+        $entries = Tracking::getEntries(
             $data, $filter_ts_from, $filter_ts_to, $filter_users
         );
         $this->assertEquals(
@@ -965,4 +960,3 @@ class PMA_TblTrackingTest extends PHPUnit_Framework_TestCase
         );
     }
 }
-
