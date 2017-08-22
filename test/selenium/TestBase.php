@@ -596,37 +596,50 @@ abstract class PMA_SeleniumBase extends PHPUnit_Extensions_Selenium2TestCase
      */
     public function navigateTable($table)
     {
-        // Go to server databases
-        $this->waitForElement('byPartialLinkText','Databases')->click();
-        $this->waitForElementNotPresent('byCssSelector', 'div#loading_parent');
-
-        // go to specific database page
-        $this->waitForElement("byPartialLinkText", $this->database_name)->click();
-
-        /* Wait for loading and expanding tree */
-        $this->waitUntil(function () {
-            if (
-                $this->isElementPresent(
-                    'byCssSelector',
-                    'li.last.table'
-                )
-            ) {
-                return true;
-            }
-
-            return null;
-        }, 5000);
+        $this->navigateDatabase($this->database_name);
 
         // go to table page
         $this->waitForElement(
             "byXPath",
             "//th//a[contains(., '$table')]"
         )->click();
+        $this->waitForElementNotPresent('byCssSelector', 'ajax_message_num_1');
 
         // Wait for it to load
         $this->waitForElement(
             "byXPath",
             "//a[@class='tabactive' and contains(., 'Browse')]"
+        );
+    }
+
+    /**
+     * Navigates browser to a database page.
+     *
+     * @param string $database Name of database
+     *
+     * @return void
+     */
+    public function navigateDatabase($database, $gotoHomepageRequired = false)
+    {
+        if ($gotoHomepageRequired) {
+            $this->gotoHomepage();
+        }
+
+        // Go to server databases
+        $this->waitForElement('byPartialLinkText','Databases')->click();
+        $this->waitForElementNotPresent('byCssSelector', 'div#loading_parent');
+
+        // go to specific database page
+        $this->waitForElement(
+            'byXPath',
+            '//tr[(contains(@class, "db-row"))]//a[contains(., "' . $this->database_name . '")]'
+        )->click();
+        $this->waitForElementNotPresent('byCssSelector', 'ajax_message_num_1');
+
+        // Wait for it to load
+        $this->waitForElement(
+            "byXPath",
+            "//a[@class='tabactive' and contains(., 'Structure')]"
         );
     }
 

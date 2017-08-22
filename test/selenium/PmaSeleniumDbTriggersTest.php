@@ -56,13 +56,8 @@ class PMA_SeleniumDbTriggersTest extends PMA_SeleniumBase
         parent::setUpPage();
 
         $this->login();
-        $this->waitForElement('byPartialLinkText','Databases')->click();
-        $this->waitForElementNotPresent('byCssSelector', 'div#loading_parent');
-        $this->waitForElement('byPartialLinkText', $this->database_name)->click();
-        $this->waitForElement(
-            "byXPath", "//a[contains(., 'test_table')]"
-        );
-        $this->waitForElementNotPresent('byCssSelector', 'div#loading_parent');
+
+        $this->navigateDatabase($this->database_name);
         $this->expandMore();
     }
 

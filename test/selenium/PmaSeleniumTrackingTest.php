@@ -57,13 +57,7 @@ class PMA_SeleniumTrackingTest extends PMA_SeleniumBase
         $this->login();
         $this->skipIfNotPMADB();
 
-        $this->waitForElement('byPartialLinkText', $this->database_name)->click();
-        $this->waitForElement(
-            "byXPath",
-            "//a[@class='item' and contains(., 'Database: "
-            . $this->database_name . "')]"
-        );
-        $this->waitForElementNotPresent('byId', 'ajax_message_num_1');
+        $this->navigateDatabase($this->database_name);
         $this->expandMore();
 
         $this->waitForElement('byPartialLinkText', "Tracking")->click();
@@ -203,13 +197,7 @@ class PMA_SeleniumTrackingTest extends PMA_SeleniumBase
      */
     public function testDropTracking()
     {
-        $this->waitForElement(
-            'byPartialLinkText',
-            "Database: " . $this->database_name
-        )->click();
-        $this->waitForElementNotPresent('byId', 'ajax_message_num_1');
-        $this->waitForElement("byId", "structureTable");
-
+        $this->navigateDatabase($this->database_name, true);
         $this->expandMore();
         sleep(1);
 

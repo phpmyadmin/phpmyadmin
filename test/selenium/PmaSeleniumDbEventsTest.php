@@ -51,12 +51,7 @@ class PMA_SeleniumDbEventsTest extends PMA_SeleniumBase
         parent::setUpPage();
 
         $this->login();
-        $this->waitForElement('byPartialLinkText','Databases')->click();
-        $this->waitForElementNotPresent('byCssSelector', 'div#loading_parent');
-        $this->waitForElement('byPartialLinkText', $this->database_name)->click();
-        $this->waitForElement(
-            "byXPath", "//a[contains(., 'test_table')]"
-        );
+        $this->navigateDatabase($this->database_name);
 
         // Let the Database page load
         $this->waitForElementNotPresent('byId', 'ajax_message_num_1');

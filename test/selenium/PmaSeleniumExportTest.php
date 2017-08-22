@@ -83,17 +83,7 @@ class PMA_SeleniumExportTest extends PMA_SeleniumBase
      */
     public function testDbExport($plugin, $expected)
     {
-        // Go to server databases
-        $this->waitForElement('byPartialLinkText','Databases')->click();
-        $this->waitForElementNotPresent('byId', 'ajax_message_num_1');
-
-        $this->waitForElement("byPartialLinkText", $this->database_name)->click();
-        $this->waitForElementNotPresent('byId', 'ajax_message_num_1');
-        $this->waitForElement(
-            "byXPath",
-            "//a[@class='item' and contains(., 'Database: "
-            . $this->database_name . "')]"
-        );
+        $this->navigateDatabase($this->database_name);
 
         $text = $this->_doExport('db', $plugin);
 
