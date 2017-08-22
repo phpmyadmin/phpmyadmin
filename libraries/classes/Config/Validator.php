@@ -186,9 +186,13 @@ class Validator
             return true;
         }
 
-        //    static::testPHPErrorMsg();
         $error = null;
         $host = Core::sanitizeMySQLHost($host);
+
+        if (function_exists('error_clear_last')) {
+            /* PHP 7 only code */
+            error_clear_last();
+        }
 
         if (DatabaseInterface::checkDbExtension('mysqli')) {
             $socket = empty($socket) ? null : $socket;
@@ -215,9 +219,8 @@ class Validator
                 mysqli_close($conn);
             }
         }
-        //    static::testPHPErrorMsg(false);
-        if (isset($php_errormsg)) {
-            $error .= " - $php_errormsg";
+        if (! is_null($error)) {
+            $error .= ' - ' . error_get_last();
         }
         return is_null($error) ? true : array($error_key => $error);
     }
