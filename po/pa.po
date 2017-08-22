@@ -8,16 +8,16 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.8.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2017-08-10 09:14-0400\n"
-"PO-Revision-Date: 2017-08-02 09:17+0000\n"
-"Last-Translator: Hidev Corp <hidevcorp@gmail.com>\n"
-"Language-Team: Punjabi <https://hosted.weblate.org/projects/phpmyadmin/"
-"master/pa/>\n"
+"PO-Revision-Date: 2017-08-22 09:47+0000\n"
+"Last-Translator: Michal Čihař <michal@cihar.com>\n"
+"Language-Team: Punjabi "
+"<https://hosted.weblate.org/projects/phpmyadmin/master/pa/>\n"
 "Language: pa\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 2.16-dev\n"
+"X-Generator: Weblate 2.17-dev\n"
 
 #: ajax.php:17 ajax.php:34 export.php:195 schema_export.php:66
 msgid "Bad type!"
@@ -320,7 +320,8 @@ msgstr "%1$s ਡਾਟਾਬੇਸ ਦੀ ਨਕਲ %2$s ਵਿੱਚ ਕੀਤ�
 #, php-format
 msgid ""
 "The phpMyAdmin configuration storage has been deactivated. %sFind out why%s."
-msgstr "PhpMyAdmin ਸੰਰਚਨਾ ਸਟੋਰੇਜ਼ ਨੂੰ ਬੰਦ ਕਰ ਦਿੱਤਾ ਗਿਆ ਹੈ %1$s ਇਹ ਪਤਾ ਲਗਾਓ ਕਿ ਕਿਉਂ %2$s"
+msgstr ""
+"PhpMyAdmin ਸੰਰਚਨਾ ਸਟੋਰੇਜ਼ ਨੂੰ ਬੰਦ ਕਰ ਦਿੱਤਾ ਗਿਆ ਹੈ %s ਇਹ ਪਤਾ ਲਗਾਓ ਕਿ ਕਿਉਂ %s"
 
 #: db_qbe.php:127
 msgid "You have to choose at least one column to display!"
@@ -346,7 +347,7 @@ msgstr "ਟਰੈਕਿੰਗ ਡਾਟਾ ਸਫਲਤਾਪੂਰਵਕ ਮਿ
 #, php-format
 msgid ""
 "Version %1$s was created for selected tables, tracking is active for them."
-msgstr "ਵਰਜਨ %1$ sਚੁਣਿਆ ਟੇਬਲ ਲਈ ਬਣਾਇਆ ਗਿਆ ਸੀ, ਟਰੈਕਿੰਗ ਉਹਨਾਂ ਲਈ ਕਿਰਿਆਸ਼ੀਲ ਹੈ."
+msgstr "ਵਰਜਨ %1$s sਚੁਣਿਆ ਟੇਬਲ ਲਈ ਬਣਾਇਆ ਗਿਆ ਸੀ, ਟਰੈਕਿੰਗ ਉਹਨਾਂ ਲਈ ਕਿਰਿਆਸ਼ੀਲ ਹੈ."
 
 #: db_tracking.php:93
 msgid "No tables selected."
@@ -575,9 +576,9 @@ msgstr "%1$s ਡਾਟਾਬੇਸ ਬਣ ਚੁੱਕਾ ਹੈ."
 msgid "Import has been successfully finished, %d query executed."
 msgid_plural "Import has been successfully finished, %d queries executed."
 msgstr[0] ""
-"ਅਯਾਤ ਸਫਲਤਾਪੂਰਕ ਮੁਕੰਮਲ ਹੋ ਗਈ ਹੈ,% d1 ਕਾਪੀ ਐਕਜ਼ੀਕਿਯੂਟ ਕੀਤੀ ਗਈ ਹੈ.\n"
+"ਅਯਾਤ ਸਫਲਤਾਪੂਰਕ ਮੁਕੰਮਲ ਹੋ ਗਈ ਹੈ,%d ਕਾਪੀ ਐਕਜ਼ੀਕਿਯੂਟ ਕੀਤੀ ਗਈ ਹੈ.\n"
 "ਹੋਰ"
-msgstr[1] "ਅਯਾਤ ਸਫਲਤਾਪੂਰਕ ਮੁਕੰਮਲ ਹੋ ਗਈ ਹੈ,% d 2 ਕਲਾਂਇੰਸ ਚਲਾਇਆ ਗਿਆ."
+msgstr[1] "ਅਯਾਤ ਸਫਲਤਾਪੂਰਕ ਮੁਕੰਮਲ ਹੋ ਗਈ ਹੈ,%d ਕਲਾਂਇੰਸ ਚਲਾਇਆ ਗਿਆ."
 
 #: import.php:613
 #, php-format
