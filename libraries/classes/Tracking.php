@@ -599,7 +599,7 @@ class Tracking
         );
 
         if ($selection_schema || $selection_both && count($data['ddlog']) > 0) {
-            list($temp, $ddlog_count) = PMA_getHtmlForDataDefinitionStatements(
+            list($temp, $ddlog_count) = self::getHtmlForDataDefinitionStatements(
                 $data, $filter_users, $filter_ts_from, $filter_ts_to, $url_params,
                 $drop_image_or_text
             );
