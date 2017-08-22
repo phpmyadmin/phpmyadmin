@@ -4,17 +4,17 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.7.4-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2017-08-10 09:13-0400\n"
-"PO-Revision-Date: 2017-06-03 12:48+0000\n"
-"Last-Translator: Dovydas <dovy.buz@gmail.com>\n"
-"Language-Team: Lithuanian <https://hosted.weblate.org/projects/"
-"phpmyadmin/4-7/lt/>\n"
+"PO-Revision-Date: 2017-08-22 09:46+0000\n"
+"Last-Translator: Michal Čihař <michal@cihar.com>\n"
+"Language-Team: Lithuanian "
+"<https://hosted.weblate.org/projects/phpmyadmin/4-7/lt/>\n"
 "Language: lt\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=3; plural=n%10==1 && n%100!=11 ? 0 : n%10>=2 && (n"
-"%100<10 || n%100>=20) ? 1 : 2;\n"
-"X-Generator: Weblate 2.15-dev\n"
+"Plural-Forms: nplurals=4; plural=n==1 ? 0 : n%10>=2 && (n%100<10 || "
+"n%100>=20) ? 1 : n%10==0 || (n%100>10 && n%100<20) ? 2 : 3;\n"
+"X-Generator: Weblate 2.17-dev\n"
 
 #: ajax.php:16 ajax.php:33 export.php:192 schema_export.php:64
 msgid "Bad type!"
@@ -560,12 +560,13 @@ msgid "Bookmark %s has been created."
 msgstr "Žymė %s sukurta."
 
 #: import.php:581
-#, php-format
+#, fuzzy, php-format
 msgid "Import has been successfully finished, %d query executed."
 msgid_plural "Import has been successfully finished, %d queries executed."
 msgstr[0] "Importavimas sėkmingai baigtas, įvykdyta %d užklausa."
 msgstr[1] "Importavimas sėkmingai baigtas, įvykdyta %d užklausos."
 msgstr[2] "Importavimas sėkmingai baigtas, įvykdyta %d užklausų."
+msgstr[3] ""
 
 #: import.php:612
 #, php-format
@@ -3847,12 +3848,13 @@ msgid "Search results for \"<i>%s</i>\" %s:"
 msgstr "Paieškos rezultatai frazei „<i>%s</i>“ %s:"
 
 #: libraries/DbSearch.php:293
-#, php-format
+#, fuzzy, php-format
 msgid "<b>Total:</b> <i>%s</i> match"
 msgid_plural "<b>Total:</b> <i>%s</i> matches"
 msgstr[0] "<b>Iš viso:</b> <i>%s</i> atitikmuo"
 msgstr[1] "<b>Iš viso:</b> <i>%s</i> atitikmenys"
 msgstr[2] "<b>Iš viso:</b> <i>%s</i> atitikmenų"
+msgstr[3] ""
 
 #: libraries/DbSearch.php:329
 #, fuzzy, php-format
@@ -4578,28 +4580,31 @@ msgid "Plugins"
 msgstr ""
 
 #: libraries/Message.php:246
-#, php-format
+#, fuzzy, php-format
 msgid "%1$d row affected."
 msgid_plural "%1$d rows affected."
 msgstr[0] "Pakeista %1$d eilutė."
 msgstr[1] "Pakeistos %1$d eilutės."
 msgstr[2] "Pakeista %1$d eilučių."
+msgstr[3] ""
 
 #: libraries/Message.php:265
-#, php-format
+#, fuzzy, php-format
 msgid "%1$d row deleted."
 msgid_plural "%1$d rows deleted."
 msgstr[0] "Ištrinta %1$d eilutė."
 msgstr[1] "Ištrintos %1$d eilutės."
 msgstr[2] "Ištrinta %1$d eilučių."
+msgstr[3] ""
 
 #: libraries/Message.php:284
-#, php-format
+#, fuzzy, php-format
 msgid "%1$d row inserted."
 msgid_plural "%1$d rows inserted."
 msgstr[0] "Įterpta %1$d eilutė."
 msgstr[1] "Įterptos %1$d eilutės."
 msgstr[2] "Įterpta %1$d eilučių."
+msgstr[3] ""
 
 #: libraries/PDF.php:125
 msgid "Error while creating PDF:"
@@ -16118,12 +16123,13 @@ msgid "Number of tables:"
 msgstr "Lentelių skaičius"
 
 #: templates/database/structure/body_for_table_summary.phtml:6
-#, php-format
+#, fuzzy, php-format
 msgid "%s table"
 msgid_plural "%s tables"
 msgstr[0] "%s lentelė"
 msgstr[1] "%s lentelės"
 msgstr[2] "%s lentelių"
+msgstr[3] ""
 
 #: templates/database/structure/body_for_table_summary.phtml:17
 msgid "Sum"
