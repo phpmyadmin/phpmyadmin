@@ -4,16 +4,16 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.7.4-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2017-08-10 09:13-0400\n"
-"PO-Revision-Date: 2017-08-10 09:59+0000\n"
-"Last-Translator: Hizkia Felix <hizkifw@gmail.com>\n"
-"Language-Team: Indonesian <https://hosted.weblate.org/projects/"
-"phpmyadmin/4-7/id/>\n"
+"PO-Revision-Date: 2017-08-22 09:46+0000\n"
+"Last-Translator: Arachmadi Putra <arachmadi.putra@gmail.com>\n"
+"Language-Team: Indonesian "
+"<https://hosted.weblate.org/projects/phpmyadmin/4-7/id/>\n"
 "Language: id\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Weblate 2.16-dev\n"
+"X-Generator: Weblate 2.17-dev\n"
 "X-Poedit-Basepath: ../../..\n"
 
 #: ajax.php:16 ajax.php:33 export.php:192 schema_export.php:64
@@ -2540,9 +2540,8 @@ msgid "Do you really want to delete this bookmark?"
 msgstr "Anda yakin akan menghapus penanda ini?"
 
 #: js/messages.php:721
-#, fuzzy
 msgid "Some error occurred while getting SQL debug info."
-msgstr "Terjadi beberapa kesalahan saat mendapatkan info SQL debug."
+msgstr "Terjadi beberapa kesalahan saat mendapatkan informasi debug dari SQL."
 
 #: js/messages.php:723
 #, php-format
@@ -2563,12 +2562,10 @@ msgid "Hide arguments"
 msgstr "Sembunyikan argumen"
 
 #: js/messages.php:727
-#, fuzzy
 msgid "Time taken:"
-msgstr "Waktu yang diperlukan:"
+msgstr "Waktu yang dipakai:"
 
 #: js/messages.php:728
-#, fuzzy
 msgid ""
 "There was a problem accessing your browser storage, some features may not "
 "work properly for you. It is likely that the browser doesn't support storage "
@@ -2579,9 +2576,10 @@ msgstr ""
 "Ada masalah saat mengakses penyimpanan browser Anda, beberapa fitur mungkin "
 "tidak bekerja dengan baik untuk Anda. Sangat mungkin bahwa browser tidak "
 "mendukung penyimpanan atau batas kuota telah tercapai. Pada Firefox, "
-"penyimpanan rusak juga dapat menyebabkan masalah seperti itu, kliring Anda "
-"\"Offline data Situs web\" mungkin bisa membantu. Dalam Safari, masalah "
-"tersebut umumnya disebabkan oleh \"Mode Private Browsing\"."
+"penyimpanan yang rusak juga dapat menyebabkan masalah seperti itu, "
+"membersihkan \"Data Situs Luring\" anda, mungkin bisa memperbaiki hal ini. "
+"Di Safari, masalah tersebut umumnya disebabkan oleh \"Mode Penjelajahan "
+"Pribadi\"."
 
 #: js/messages.php:730
 msgid "Copy tables to"
@@ -3045,22 +3043,16 @@ msgid "Unicode"
 msgstr "Unikode"
 
 #: libraries/Charsets.php:280 libraries/Charsets.php:451
-#, fuzzy
-#| msgid "West European"
 msgctxt "Collation"
 msgid "West European"
 msgstr "Eropa Barat"
 
 #: libraries/Charsets.php:287
-#, fuzzy
-#| msgid "Central European"
 msgctxt "Collation"
 msgid "Central European"
 msgstr "Eropa Tengah"
 
 #: libraries/Charsets.php:292
-#, fuzzy
-#| msgid "Russian"
 msgctxt "Collation"
 msgid "Russian"
 msgstr "Rusia"
@@ -3073,29 +3065,21 @@ msgid "Simplified Chinese"
 msgstr "Cina Sederhana"
 
 #: libraries/Charsets.php:304 libraries/Charsets.php:422
-#, fuzzy
-#| msgid "Japanese"
 msgctxt "Collation"
 msgid "Japanese"
 msgstr "Jepang"
 
 #: libraries/Charsets.php:309
-#, fuzzy
-#| msgid "Baltic"
 msgctxt "Collation"
 msgid "Baltic"
 msgstr "Baltik"
 
 #: libraries/Charsets.php:314
-#, fuzzy
-#| msgid "Armenian"
 msgctxt "Collation"
 msgid "Armenian"
 msgstr "Armenia"
 
 #: libraries/Charsets.php:317
-#, fuzzy
-#| msgid "Traditional Chinese"
 msgctxt "Collation"
 msgid "Traditional Chinese"
 msgstr "Cina Tradisional"
@@ -3108,22 +3092,16 @@ msgid "Cyrillic"
 msgstr "Sirilik"
 
 #: libraries/Charsets.php:323
-#, fuzzy
-#| msgid "Arabic"
 msgctxt "Collation"
 msgid "Arabic"
 msgstr "Arab"
 
 #: libraries/Charsets.php:326 libraries/Charsets.php:437
-#, fuzzy
-#| msgid "Korean"
 msgctxt "Collation"
 msgid "Korean"
 msgstr "Korea"
 
 #: libraries/Charsets.php:329
-#, fuzzy
-#| msgid "Hebrew"
 msgctxt "Collation"
 msgid "Hebrew"
 msgstr "Ibrani"
