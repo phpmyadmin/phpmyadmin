@@ -55,7 +55,6 @@ class PMA_SeleniumTableStructureTest extends PMA_SeleniumBase
 
         $this->waitForElementNotPresent('byId', 'ajax_message_num_1');
         $this->waitForElement("byId", "tablestructure");
-        usleep(1000000);
 
         // Dynamic wait
         $this->waitUntil(function () {

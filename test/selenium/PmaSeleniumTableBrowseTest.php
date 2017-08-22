@@ -55,7 +55,6 @@ class PMA_SeleniumTableBrowseTest extends PMA_SeleniumBase
         $this->navigateTable('test_table');
 
         $this->waitForElementNotPresent('byId', 'ajax_message_num_1');
-        usleep(1000000); // let the page load
 
         // Dynamic wait
         $this->waitUntil(function () {
@@ -78,7 +77,7 @@ class PMA_SeleniumTableBrowseTest extends PMA_SeleniumBase
         // case 1
         $this->byPartialLinkText("name")->click();
         $this->waitForElementNotPresent('byId', 'ajax_message_num_1');
-        usleep(1000000);
+        sleep(1);
 
         $this->assertEquals(
             "1",
@@ -98,7 +97,7 @@ class PMA_SeleniumTableBrowseTest extends PMA_SeleniumBase
         // case 2
         $this->byPartialLinkText("name")->click();
         $this->waitForElementNotPresent("byId", "ajax_message_num_1");
-        usleep(1000000);
+        sleep(1);
 
         $this->assertEquals(
             "2",
@@ -118,7 +117,7 @@ class PMA_SeleniumTableBrowseTest extends PMA_SeleniumBase
         // case 2
         $this->byLinkText("datetimefield")->click();
         $this->waitForElementNotPresent("byId", "ajax_message_num_1");
-        usleep(1000000);
+        sleep(1);
 
         $this->getCellByTableClass('table_results', 1, 5);
         $this->assertEquals(
@@ -139,7 +138,7 @@ class PMA_SeleniumTableBrowseTest extends PMA_SeleniumBase
         // case 4
         $this->byPartialLinkText("datetimefield")->click();
         $this->waitForElementNotPresent("byId", "ajax_message_num_1");
-        usleep(1000000);
+        sleep(1);
 
         $this->assertEquals(
             "2",
@@ -169,7 +168,7 @@ class PMA_SeleniumTableBrowseTest extends PMA_SeleniumBase
         $ele = $this->byCssSelector(
             "table.table_results tbody tr:nth-child(2) td:nth-child(2)"
         );
-        usleep(1000000);
+        sleep(1);
         $this->moveto($ele);
         $this->click();
 
@@ -231,7 +230,7 @@ class PMA_SeleniumTableBrowseTest extends PMA_SeleniumBase
         $element = $this->byCssSelector(
             "table.table_results tbody tr:nth-child(1) td:nth-child(6)"
         );
-        usleep(1000000);
+        sleep(1);
 
         $this->moveto($element);
         $this->doubleclick();
@@ -247,7 +246,6 @@ class PMA_SeleniumTableBrowseTest extends PMA_SeleniumBase
         $this->byCssSelector("textarea.edit_box")->clear();
         $this->byCssSelector("textarea.edit_box")->value("abcde");
 
-        $this->sleep();
         $this->keys(PHPUnit_Extensions_Selenium2TestCase_Keys::RETURN_);
 
         $this->waitForElementNotPresent('byId', 'ajax_message_num_1');
@@ -274,7 +272,7 @@ class PMA_SeleniumTableBrowseTest extends PMA_SeleniumBase
         $ele = $this->byCssSelector(
             "table.table_results tbody tr:nth-child(3) td:nth-child(3)"
         );
-        usleep(1000000);
+        sleep(1);
         $this->moveto($ele);
         $this->click();
         $this->waitForElement("byId", "insertForm");
@@ -296,7 +294,7 @@ class PMA_SeleniumTableBrowseTest extends PMA_SeleniumBase
         // automatically gets appended with 00:00:00
         $this->keys("2012-01-2");
         $this->byId("field_2_3")->value("ABCDEFG");
-        usleep(1000000); // longer string takes longer to type
+        sleep(1); // longer string takes longer to type
 
         $this->waitForElement('byId', "buttonYes")->click();
 

@@ -57,19 +57,13 @@ class PMA_SeleniumTrackingTest extends PMA_SeleniumBase
         $this->login();
         $this->skipIfNotPMADB();
 
-        $this->waitForElement('byPartialLinkText', $this->database_name)->click();
-        $this->waitForElement(
-            "byXPath",
-            "//a[@class='item' and contains(., 'Database: "
-            . $this->database_name . "')]"
-        );
-        $this->waitForElementNotPresent('byId', 'ajax_message_num_1');
+        $this->navigateDatabase($this->database_name);
         $this->expandMore();
 
         $this->waitForElement('byPartialLinkText', "Tracking")->click();
         $this->waitForElementNotPresent('byId', 'ajax_message_num_1');
 
-        usleep(1000000);
+        sleep(1);
         $this->waitForElement("byPartialLinkText", "Track table");
         $this->byXPath("(//a[contains(., 'Track table')])[1]")->click();
 
@@ -79,7 +73,7 @@ class PMA_SeleniumTrackingTest extends PMA_SeleniumBase
             && $this->isElementPresent('byXPath', "(//a[contains(., 'Track table')])[1]")
             && ! $this->isElementPresent('byId', 'ajax_message_num_1')
         ) {
-            usleep(1000000);
+            sleep(1);
             // If link still exists on page
             if ($this->isElementPresent("byXPath", "(//a[contains(., 'Track table')])[1]")) {
                 $this->byXPath("(//a[contains(., 'Track table')])[1]")->click();
@@ -158,7 +152,7 @@ class PMA_SeleniumTrackingTest extends PMA_SeleniumBase
         $this->byCssSelector("input[value='Go']")->click();
 
         $this->waitForElementNotPresent("byId", "ajax_message_num_1");
-        usleep(1000000);
+        sleep(1);
 
         $this->assertFalse(
             $this->isElementPresent("byId", "ddl_versions")
@@ -203,15 +197,9 @@ class PMA_SeleniumTrackingTest extends PMA_SeleniumBase
      */
     public function testDropTracking()
     {
-        $this->waitForElement(
-            'byPartialLinkText',
-            "Database: " . $this->database_name
-        )->click();
-        $this->waitForElementNotPresent('byId', 'ajax_message_num_1');
-        $this->waitForElement("byId", "structureTable");
-
+        $this->navigateDatabase($this->database_name, true);
         $this->expandMore();
-        usleep(1000000);
+        sleep(1);
 
         $this->byPartialLinkText("Tracking")->click();
 
@@ -223,10 +211,8 @@ class PMA_SeleniumTrackingTest extends PMA_SeleniumBase
             'table#versions tbody tr:nth-child(1) td:nth-child(7)'
         );
         $this->moveto($ele);
-        $this->sleep();
         $this->click();
 
-        $this->sleep();
         $this->waitForElement(
             "byCssSelector",
             "button.submitOK"
@@ -300,7 +286,7 @@ class PMA_SeleniumTrackingTest extends PMA_SeleniumBase
         $this->byPartialLinkText("SQL")->click();
         $this->waitForElementNotPresent('byId', 'ajax_message_num_1');
 
-        usleep(1000000);
+        sleep(1);
         $this->waitForElement("byId", "queryfieldscontainer");
         $this->typeInTextArea(
             ";UPDATE test_table SET val = val + 1; "

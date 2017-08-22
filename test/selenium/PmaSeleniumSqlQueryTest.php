@@ -113,18 +113,7 @@ class PMA_SeleniumSqlQueryTest extends PMA_SeleniumBase
      */
     public function testDatabaseSqlQuery()
     {
-        // Go to server databases
-        $this->waitForElement('byPartialLinkText','Databases')->click();
-        $this->waitForElementNotPresent('byCssSelector', 'div#loading_parent');
-
-        // go to specific database page
-        $this->waitForElement("byPartialLinkText", $this->database_name)->click();
-
-        /* Wait for loading and expanding tree */
-        $this->waitForElement(
-            'byCssSelector',
-            'li.last.table'
-        );
+        $this->navigateDatabase($this->database_name);
 
         $this->waitForElement('byPartialLinkText', 'SQL')->click();
         $this->waitForElementNotPresent('byId', 'ajax_message_num_1');

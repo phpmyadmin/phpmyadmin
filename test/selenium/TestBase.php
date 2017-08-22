@@ -412,19 +412,6 @@ abstract class PMA_SeleniumBase extends PHPUnit_Extensions_Selenium2TestCase
     }
 
     /**
-     * Sleeps while waiting for browser to perform an action.
-     *
-     * @todo This method should not be used, but rather there would be
-     *       explicit waiting for some elements.
-     *
-     * @return void
-     */
-    public function sleep()
-    {
-        usleep(5000);
-    }
-
-    /**
      * Check if element is present or not
      *
      * @param string $func Locate using - byCss, byXPath, etc
@@ -586,7 +573,18 @@ abstract class PMA_SeleniumBase extends PHPUnit_Extensions_Selenium2TestCase
         $ele->click();
         $this->waitForElement('byCssSelector', 'li.submenuhover > a');
 
-        $this->sleep();
+        $this->waitUntil(function () {
+            if (
+                $this->isElementPresent(
+                    'byCssSelector',
+                    'li.submenuhover.submenu.shown'
+                )
+            ) {
+                return true;
+            }
+
+            return false;
+        }, 5000);
     }
 
     /**
@@ -598,32 +596,50 @@ abstract class PMA_SeleniumBase extends PHPUnit_Extensions_Selenium2TestCase
      */
     public function navigateTable($table)
     {
-        // Go to server databases
-        $this->waitForElement('byPartialLinkText','Databases')->click();
-        $this->waitForElementNotPresent('byCssSelector', 'div#loading_parent');
-
-        // go to specific database page
-        $this->waitForElement("byPartialLinkText", $this->database_name)->click();
-
-        /* Wait for loading and expanding tree */
-        $this->waitForElement(
-            'byCssSelector',
-            'li.last.table'
-        );
-
-        /* TODO: Timing issue of expanding navigation tree */
-        $this->sleep();
+        $this->navigateDatabase($this->database_name);
 
         // go to table page
         $this->waitForElement(
             "byXPath",
             "//th//a[contains(., '$table')]"
         )->click();
+        $this->waitForElementNotPresent('byCssSelector', 'ajax_message_num_1');
 
         // Wait for it to load
         $this->waitForElement(
             "byXPath",
             "//a[@class='tabactive' and contains(., 'Browse')]"
+        );
+    }
+
+    /**
+     * Navigates browser to a database page.
+     *
+     * @param string $database Name of database
+     *
+     * @return void
+     */
+    public function navigateDatabase($database, $gotoHomepageRequired = false)
+    {
+        if ($gotoHomepageRequired) {
+            $this->gotoHomepage();
+        }
+
+        // Go to server databases
+        $this->waitForElement('byPartialLinkText','Databases')->click();
+        $this->waitForElementNotPresent('byCssSelector', 'div#loading_parent');
+
+        // go to specific database page
+        $this->waitForElement(
+            'byXPath',
+            '//tr[(contains(@class, "db-row"))]//a[contains(., "' . $this->database_name . '")]'
+        )->click();
+        $this->waitForElementNotPresent('byCssSelector', 'ajax_message_num_1');
+
+        // Wait for it to load
+        $this->waitForElement(
+            "byXPath",
+            "//a[@class='tabactive' and contains(., 'Structure')]"
         );
     }
 
@@ -649,7 +665,7 @@ abstract class PMA_SeleniumBase extends PHPUnit_Extensions_Selenium2TestCase
                 'args'   => array()
             )
         );
-        usleep(1000000);
+        sleep(1);
     }
 
     /**
@@ -665,9 +681,14 @@ abstract class PMA_SeleniumBase extends PHPUnit_Extensions_Selenium2TestCase
                 'args' => array()
             )
         );
-        usleep(1000000);
+        sleep(1);
     }
 
+    /**
+     * Mark unsuccessful tests as 'Failures' on Browerstack
+     *
+     * @return void
+     */
     public function onNotSuccessfulTest(Exception $e)
     {
         // If this is being run on Browerstack,

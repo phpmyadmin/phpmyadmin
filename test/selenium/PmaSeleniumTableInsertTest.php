@@ -70,7 +70,7 @@ class PMA_SeleniumTableInsertTest extends PMA_SeleniumBase
         $this->byPartialLinkText("Insert")->click();
         $this->waitForElementNotPresent('byId', 'ajax_message_num_1');
         $this->waitForElement("byId", "insertForm");
-        usleep(1000000);
+        sleep(1);
 
         $this->byId("field_3_3")->click();
         // shorter date to prevent error,
@@ -109,7 +109,7 @@ class PMA_SeleniumTableInsertTest extends PMA_SeleniumBase
         )->click();
 
         $this->waitForElementNotPresent("byId", "ajax_message_num_1");
-        usleep(2000000);
+        sleep(2);
 
         // New message
         $ele = $this->waitForElement(

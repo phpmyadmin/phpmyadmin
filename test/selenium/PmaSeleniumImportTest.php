@@ -56,19 +56,8 @@ class PMA_SeleniumImportTest extends PMA_SeleniumBase
      */
     public function testDbImport()
     {
-        // Go to server databases
-        $this->waitForElement('byPartialLinkText','Databases')->click();
-        $this->waitForElementNotPresent('byId', 'ajax_message_num_1');
-
         $this->dbQuery("CREATE DATABASE " . $this->database_name);
-        $this->waitForElement("byPartialLinkText", $this->database_name)->click();
-
-        $this->waitForElementNotPresent('byId', 'ajax_message_num_1');
-        $this->waitForElement(
-            "byXPath",
-            "//a[@class='item' and contains(., 'Database: "
-            . $this->database_name . "')]"
-        );
+        $this->navigateDatabase($this->database_name);
 
         $this->_doImport("db");
 
@@ -118,7 +107,7 @@ class PMA_SeleniumImportTest extends PMA_SeleniumBase
         $this->select($this->byName("local_import_file"))
             ->selectOptionByLabel($type . "_import.sql");
 
-        usleep(1000000);
+        sleep(1);
 
         $this->scrollToBottom();
         $this->byId("buttonGo")->click();

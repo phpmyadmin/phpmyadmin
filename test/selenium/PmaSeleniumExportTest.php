@@ -83,17 +83,7 @@ class PMA_SeleniumExportTest extends PMA_SeleniumBase
      */
     public function testDbExport($plugin, $expected)
     {
-        // Go to server databases
-        $this->waitForElement('byPartialLinkText','Databases')->click();
-        $this->waitForElementNotPresent('byId', 'ajax_message_num_1');
-
-        $this->waitForElement("byPartialLinkText", $this->database_name)->click();
-        $this->waitForElementNotPresent('byId', 'ajax_message_num_1');
-        $this->waitForElement(
-            "byXPath",
-            "//a[@class='item' and contains(., 'Database: "
-            . $this->database_name . "')]"
-        );
+        $this->navigateDatabase($this->database_name);
 
         $text = $this->_doExport('db', $plugin);
 
@@ -167,21 +157,19 @@ class PMA_SeleniumExportTest extends PMA_SeleniumBase
         $this->expandMore();
 
         $this->waitForElement('byPartialLinkText', "Export")->click();
-        $this->sleep();
-
         $this->waitForElementNotPresent('byId', 'ajax_message_num_1');
 
         $this->waitForElement("byId", "quick_or_custom");
         $this->byCssSelector("label[for=radio_custom_export]")->click();
-        usleep(1000000);
+        sleep(1);
 
         $this->select($this->byId("plugins"))->selectOptionByLabel($plugin);
-        usleep(1000000);
+        sleep(1);
 
         if ($type === 'server') {
             $this->scrollIntoView('databases_and_tables', 200);
             $this->waitForElement('byPartialLinkText', 'Unselect all')->click();
-            usleep(1000000);
+            sleep(1);
 
             $this->waitForElement(
                 'byCssSelector',
@@ -191,14 +179,13 @@ class PMA_SeleniumExportTest extends PMA_SeleniumBase
 
         if ($type === 'table') {
             $this->byCssSelector("label[for=radio_allrows_0]")->click();
-            $this->sleep();
             $this->byName("limit_to")->clear();
             $this->byName("limit_to")->value("1");
         }
 
         $this->scrollIntoView('output', -150);
         $this->waitForElement('byCssSelector', "label[for=radio_view_as_text]")->click();
-        usleep(1000000);
+        sleep(1);
 
         if ($plugin == "SQL") {
             if ($type !== 'db') {
@@ -207,7 +194,7 @@ class PMA_SeleniumExportTest extends PMA_SeleniumBase
                     'byCssSelector',
                     "label[for=radio_sql_structure_or_data_structure_and_data]"
                 )->click();
-                usleep(1000000);
+                sleep(1);
             }
 
             if ($type === 'server') {
@@ -226,7 +213,7 @@ class PMA_SeleniumExportTest extends PMA_SeleniumBase
         }
 
         $this->scrollToBottom();
-        usleep(1000000);
+        sleep(1);
 
         $this->waitForElement('byId', "buttonGo")->click();
 

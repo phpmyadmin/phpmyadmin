@@ -90,7 +90,6 @@ class PMA_SeleniumTableCreateTest extends PMA_SeleniumBase
             )->click();
         }
 
-        $this->sleep();
         $this->byName("field_default_value[1]")->value("def");
 
         $this->scrollToBottom();

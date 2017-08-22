@@ -33,9 +33,10 @@ class PMA_SeleniumDbOperationsTest extends PMA_SeleniumBase
     private function _getToDBOperations()
     {
         $this->gotoHomepage();
-        $this->waitForElement('byLinkText', $this->database_name)->click();
-        $this->waitForElement('byPartialLinkText', 'Structure');
+
+        $this->navigateDatabase($this->database_name);
         $this->expandMore();
+
         $this->waitForElement('byPartialLinkText', 'Operations')->click();
         $this->waitForElement(
             'byXPath', '//legend[contains(., \'Rename database to\')]'
