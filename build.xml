@@ -55,7 +55,7 @@
    <arg line="${source_comma_sep}
               xml
               codesize,design,naming,unusedcode
-              --exclude test,build,vendor
+              --exclude test,build,vendor,tmp
               --reportfile '${basedir}/build/logs/pmd.xml'" />
   </exec>
  </target>
@@ -64,6 +64,7 @@
   <exec executable="phpcpd">
    <arg line="--log-pmd '${basedir}/build/logs/pmd-cpd.xml'
               --exclude test
+              --exclude tmp
               --exclude build
               --exclude vendor
               ${source}" />
@@ -76,6 +77,7 @@
               --exclude test
               --exclude build
               --exclude vendor
+              --exclude tmp
               ${source}" />
   </exec>
  </target>
@@ -89,7 +91,7 @@
  <target name="phpcs" description="Generate checkstyle.xml using PHP_CodeSniffer excluding third party libraries" depends="phpcs-config">
   <exec executable="phpcs">
    <arg line="
-              --ignore=*/vendor/*,*/build/*
+              --ignore=*/vendor/*,*/build/*,*/tmp/*
               --report=checkstyle
               --extensions=php
               --report-file='${basedir}/build/logs/checkstyle.xml'
