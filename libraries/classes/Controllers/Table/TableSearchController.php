@@ -9,6 +9,7 @@ namespace PhpMyAdmin\Controllers\Table;
 
 use PhpMyAdmin\Controllers\TableController;
 use PhpMyAdmin\DatabaseInterface;
+use PhpMyAdmin\Relation;
 use PhpMyAdmin\Sql;
 use PhpMyAdmin\Template;
 use PhpMyAdmin\Util;
@@ -155,7 +156,7 @@ class TableSearchController extends TableController
         } // end for
 
         // Retrieve foreign keys
-        $this->_foreigners = PMA_getForeigners($this->db, $this->table);
+        $this->_foreigners = Relation::getForeigners($this->db, $this->table);
     }
 
     /**
@@ -265,7 +266,7 @@ class TableSearchController extends TableController
 
             //Set default datalabel if not selected
             if (!isset($_POST['zoom_submit']) || $_POST['dataLabel'] == '') {
-                $dataLabel = PMA_getDisplayField($this->db, $this->table);
+                $dataLabel = Relation::getDisplayField($this->db, $this->table);
             } else {
                 $dataLabel = $_POST['dataLabel'];
             }
@@ -854,7 +855,7 @@ class TableSearchController extends TableController
             )
         );
         //Gets link to browse foreign data(if any) and criteria inputbox
-        $foreignData = PMA_getForeignData(
+        $foreignData = Relation::getForeignData(
             $this->_foreigners, $this->_columnNames[$column_index], false, '', ''
         );
         $value = Template::get('table/search/input_box')->render(

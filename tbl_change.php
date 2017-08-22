@@ -7,6 +7,7 @@
  */
 use PhpMyAdmin\Config\PageSettings;
 use PhpMyAdmin\InsertEdit;
+use PhpMyAdmin\Relation;
 use PhpMyAdmin\Response;
 use PhpMyAdmin\Util;
 use PhpMyAdmin\Url;
@@ -92,7 +93,7 @@ if (! empty($disp_message)) {
 $table_columns = InsertEdit::getTableColumns($db, $table);
 
 // retrieve keys into foreign fields, if any
-$foreigners = PMA_getForeigners($db, $table);
+$foreigners = Relation::getForeigners($db, $table);
 
 // Retrieve form parameters for insert/edit form
 $_form_params = InsertEdit::getFormParametersForInsertForm(

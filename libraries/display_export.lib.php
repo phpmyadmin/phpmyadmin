@@ -11,6 +11,7 @@ use PhpMyAdmin\Core;
 use PhpMyAdmin\Encoding;
 use PhpMyAdmin\Message;
 use PhpMyAdmin\Plugins\ExportPlugin;
+use PhpMyAdmin\Relation;
 use PhpMyAdmin\Response;
 use PhpMyAdmin\Table;
 use PhpMyAdmin\Template;
@@ -249,7 +250,7 @@ function PMA_getOptionsForExportTemplates($export_type)
     $ret = '<option value="">-- ' . __('Select a template') . ' --</option>';
 
     // Get the relation settings
-    $cfgRelation = PMA_getRelationsParam();
+    $cfgRelation = Relation::getRelationsParam();
 
     $query = "SELECT `id`, `template_name` FROM "
        . PhpMyAdmin\Util::backquote($cfgRelation['db']) . '.'
@@ -259,7 +260,7 @@ function PMA_getOptionsForExportTemplates($export_type)
         . "' AND `export_type` = '" . $GLOBALS['dbi']->escapeString($export_type) . "'"
        . " ORDER BY `template_name`;";
 
-    $result = PMA_queryAsControlUser($query);
+    $result = Relation::queryAsControlUser($query);
     if (!$result) {
         return $ret;
     }
@@ -986,7 +987,7 @@ function PMA_getExportDisplay(
     $export_type, $db, $table, $sql_query, $num_tables,
     $unlim_num_rows, $multi_values
 ) {
-    $cfgRelation = PMA_getRelationsParam();
+    $cfgRelation = Relation::getRelationsParam();
 
     if (isset($_REQUEST['single_table'])) {
         $GLOBALS['single_table'] = $_REQUEST['single_table'];
@@ -1099,7 +1100,7 @@ function PMA_handleExportTemplateActions($cfgRelation)
         break;
     }
 
-    $result = PMA_queryAsControlUser($query, false);
+    $result = Relation::queryAsControlUser($query, false);
 
     $response = Response::getInstance();
     if (! $result) {

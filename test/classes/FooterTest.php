@@ -14,7 +14,6 @@ use PhpMyAdmin\ErrorHandler;
 use PhpMyAdmin\Footer;
 use PhpMyAdmin\Theme;
 
-require_once 'libraries/relation.lib.php';
 require_once 'test/PMATestCase.php';
 
 /**

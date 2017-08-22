@@ -8,6 +8,7 @@
  */
 
 use PhpMyAdmin\Di\Container;
+use PhpMyAdmin\Relation;
 use PhpMyAdmin\Response;
 use PhpMyAdmin\Table;
 use PhpMyAdmin\Template;
@@ -85,9 +86,9 @@ if (isset($selected) && is_array($selected)) {
 
 $is_backup = ($action != 'tbl_create.php' && $action != 'tbl_addfield.php');
 
-$cfgRelation = PMA_getRelationsParam();
+$cfgRelation = Relation::getRelationsParam();
 
-$comments_map = PMA_getComments($db, $table);
+$comments_map = Relation::getComments($db, $table);
 
 $move_columns = array();
 if (isset($fields_meta)) {
@@ -117,12 +118,12 @@ if (isset($_REQUEST['submit_num_fields'])
     $regenerate = 1;
 }
 
-$foreigners = PMA_getForeigners($db, $table, '', 'foreign');
+$foreigners = Relation::getForeigners($db, $table, '', 'foreign');
 $child_references = null;
 // From MySQL 5.6.6 onwards columns with foreign keys can be renamed.
 // Hence, no need to get child references
 if ($GLOBALS['dbi']->getVersion() < 50606) {
-    $child_references = PMA_getChildReferences($db, $table);
+    $child_references = Relation::getChildReferences($db, $table);
 }
 
 for ($columnNumber = 0; $columnNumber < $num_fields; $columnNumber++) {
@@ -285,7 +286,7 @@ for ($columnNumber = 0; $columnNumber < $num_fields; $columnNumber++) {
         && isset($form_params['table'])
         && $GLOBALS['dbi']->getVersion() < 50606
     ) {
-        $columnMeta['column_status'] = PMA_checkChildForeignReferences(
+        $columnMeta['column_status'] = Relation::checkChildForeignReferences(
             $form_params['db'],
             $form_params['table'],
             $columnMeta['Field'],

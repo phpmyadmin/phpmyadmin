@@ -12,8 +12,6 @@
 use PhpMyAdmin\Config\ConfigFile;
 
 require_once 'libraries/user_preferences.lib.php';
-require_once 'libraries/relation.lib.php';
-
 
 /**
  * tests for methods under user_preferences library

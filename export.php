@@ -9,9 +9,10 @@
 use PhpMyAdmin\Core;
 use PhpMyAdmin\Encoding;
 use PhpMyAdmin\Plugins\ExportPlugin;
+use PhpMyAdmin\Relation;
+use PhpMyAdmin\Sanitize;
 use PhpMyAdmin\Url;
 use PhpMyAdmin\Util;
-use PhpMyAdmin\Sanitize;
 
 /**
  * Get the variables sent or posted to this script and a core script
@@ -408,7 +409,7 @@ do {
         || isset($GLOBALS[$what . '_comments']);
     $do_mime     = isset($GLOBALS[$what . '_mime']);
     if ($do_relation || $do_comments || $do_mime) {
-        $cfgRelation = PMA_getRelationsParam();
+        $cfgRelation = Relation::getRelationsParam();
     }
 
     // Include dates in export?

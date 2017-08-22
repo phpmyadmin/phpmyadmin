@@ -9,8 +9,8 @@
  * Include to test.
  */
 use PhpMyAdmin\Plugins\Schema\Eps\EpsRelationSchema;
+use PhpMyAdmin\Relation;
 
-require_once 'libraries/relation.lib.php';
 require_once 'libraries/database_interface.inc.php';
 require_once 'test/PMATestCase.php';
 
@@ -60,7 +60,7 @@ class EpsRelationSchemaTest extends PMATestCase
             'relwork' => 'relwork',
             'relation' => 'relation'
         );
-        PMA_getRelationsParam();
+        Relation::getRelationsParam();
 
         $dbi = $this->getMockBuilder('PhpMyAdmin\DatabaseInterface')
             ->disableOriginalConstructor()

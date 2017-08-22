@@ -12,6 +12,7 @@ use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Index;
 use PhpMyAdmin\Message;
 use PhpMyAdmin\Plugins\Transformations\Text_Plain_Link;
+use PhpMyAdmin\Relation;
 use PhpMyAdmin\Response;
 use PhpMyAdmin\Sanitize;
 use PhpMyAdmin\Sql;
@@ -310,7 +311,7 @@ class DisplayResults
             )
         );
 
-        $cfgRelation = PMA_getRelationsParam();
+        $cfgRelation = Relation::getRelationsParam();
         if ($cfgRelation['db']) {
             $this->transformation_info[$cfgRelation['db']] = array();
             $relDb = &$this->transformation_info[$cfgRelation['db']];
@@ -1607,7 +1608,7 @@ class DisplayResults
             if (empty($field->table)) {
                 continue;
             }
-            $ret[$field->table] = PMA_getComments(
+            $ret[$field->table] = Relation::getComments(
                 empty($field->database) ? $this->__get('db') : $field->database,
                 $field->table
             );
@@ -4761,7 +4762,7 @@ class DisplayResults
         // configuration storage. If no PMA storage, we won't be able
         // to use the "column to display" notion (for example show
         // the name related to a numeric id).
-        $exist_rel = PMA_getForeigners(
+        $exist_rel = Relation::getForeigners(
             $this->__get('db'), $this->__get('table'), '', self::POSITION_BOTH
         );
 
@@ -4769,7 +4770,7 @@ class DisplayResults
 
             foreach ($exist_rel as $master_field => $rel) {
                 if ($master_field != 'foreign_keys_data') {
-                    $display_field = PMA_getDisplayField(
+                    $display_field = Relation::getDisplayField(
                         $rel['foreign_db'], $rel['foreign_table']
                     );
                     $map[$master_field] = array(
@@ -4781,7 +4782,7 @@ class DisplayResults
                 } else {
                     foreach ($rel as $key => $one_key) {
                         foreach ($one_key['index_list'] as $index => $one_field) {
-                            $display_field = PMA_getDisplayField(
+                            $display_field = Relation::getDisplayField(
                                 isset($one_key['ref_db_name'])
                                 ? $one_key['ref_db_name']
                                 : $GLOBALS['db'],

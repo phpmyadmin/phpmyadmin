@@ -13,6 +13,7 @@ use PhpMyAdmin\Engines\Innodb;
 use PhpMyAdmin\Message;
 use PhpMyAdmin\Partition;
 use PhpMyAdmin\Plugins\Export\ExportSql;
+use PhpMyAdmin\Relation;
 use PhpMyAdmin\Response;
 use PhpMyAdmin\StorageEngine;
 use PhpMyAdmin\Table;
@@ -47,7 +48,7 @@ class Operations
         $html_output .= '</legend>';
         $html_output .= '<input type="text" name="comment" '
             . 'class="textfield"'
-            . 'value="' . htmlspecialchars(PMA_getDBComment($db)) . '" />'
+            . 'value="' . htmlspecialchars(Relation::getDbComment($db)) . '" />'
             . '</fieldset>';
         $html_output .= '<fieldset class="tblFooters">'
             . '<input type="submit" value="' . __('Go') . '" />'
@@ -1279,7 +1280,7 @@ class Operations
 
         // display "Add constraints" choice only if there are
         // foreign keys
-        if (PMA_getForeigners($GLOBALS['db'], $GLOBALS['table'], '', 'foreign')) {
+        if (Relation::getForeigners($GLOBALS['db'], $GLOBALS['table'], '', 'foreign')) {
             $html_output .= '<input type="checkbox" name="add_constraints" '
                 . 'value="1" id="checkbox_constraints" checked="checked"/>';
             $html_output .= '<label for="checkbox_constraints">'

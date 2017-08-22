@@ -10,6 +10,7 @@ namespace PhpMyAdmin;
 use PhpMyAdmin\Config;
 use PhpMyAdmin\Core;
 use PhpMyAdmin\Message;
+use PhpMyAdmin\Relation;
 use PhpMyAdmin\Response;
 use PhpMyAdmin\Sanitize;
 use PhpMyAdmin\Scripts;
@@ -246,7 +247,7 @@ class Footer
             || isset($GLOBALS['controllink'])
             && $GLOBALS['controllink']))
         ) {
-            PMA_setHistory(
+            Relation::setHistory(
                 Core::ifSetOr($GLOBALS['db'], ''),
                 Core::ifSetOr($GLOBALS['table'], ''),
                 $GLOBALS['cfg']['Server']['user'],

@@ -9,6 +9,7 @@ namespace PhpMyAdmin;
 
 use PhpMyAdmin\Core;
 use PhpMyAdmin\DatabaseInterface;
+use PhpMyAdmin\Relation;
 use PhpMyAdmin\Table;
 use PhpMyAdmin\Url;
 use PhpMyAdmin\Util;
@@ -1433,7 +1434,7 @@ class DbQbe
         // So we select candidate tables which are foreign tables.
         $foreign_tables = array();
         foreach ($candidate_columns as $one_table) {
-            $foreigners = PMA_getForeigners($this->_db, $one_table);
+            $foreigners = Relation::getForeigners($this->_db, $one_table);
             foreach ($foreigners as $key => $foreigner) {
                 if ($key != 'foreign_keys_data') {
                     if (in_array($foreigner['foreign_table'], $candidate_columns)) {
@@ -1622,7 +1623,7 @@ class DbQbe
             // having relationships with unfinalized tables
             foreach ($unfinalized as $oneTable) {
 
-                $references = PMA_getChildReferences($this->_db, $oneTable);
+                $references = Relation::getChildReferences($this->_db, $oneTable);
                 foreach ($references as $column => $columnReferences) {
                     foreach ($columnReferences as $reference) {
 
@@ -1705,7 +1706,7 @@ class DbQbe
     {
         $relations[$oneTable] = array();
 
-        $foreigners = PMA_getForeigners($GLOBALS['db'], $oneTable);
+        $foreigners = Relation::getForeigners($GLOBALS['db'], $oneTable);
         foreach ($foreigners as $field => $foreigner) {
             // Foreign keys data
             if ($field == 'foreign_keys_data') {

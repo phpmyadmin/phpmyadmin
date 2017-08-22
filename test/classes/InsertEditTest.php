@@ -20,7 +20,6 @@ use ReflectionProperty;
 use stdClass;
 
 require_once 'libraries/database_interface.inc.php';
-require_once 'libraries/relation.lib.php';
 
 /**
  * Tests for PhpMyAdmin\InsertEdit

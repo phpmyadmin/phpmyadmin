@@ -11,6 +11,7 @@
  */
 use PhpMyAdmin\Controllers\Table\TableSearchController;
 use PhpMyAdmin\Di\Container;
+use PhpMyAdmin\Relation;
 use PhpMyAdmin\Tests\Stubs\Response as ResponseStub;
 use PhpMyAdmin\Theme;
 use PhpMyAdmin\TypesMySQL;
@@ -44,7 +45,7 @@ class TableSearchControllerTest extends PMATestCase
 
         $GLOBALS['server'] = 1;
         $GLOBALS['PMA_PHP_SELF'] = 'index.php';
-        $GLOBALS['cfgRelation'] = PMA_getRelationsParam();
+        $GLOBALS['cfgRelation'] = Relation::getRelationsParam();
         $GLOBALS['PMA_Types'] = new TypesMySQL();
         $GLOBALS['cfg']['Server']['DisableIS'] = false;
 

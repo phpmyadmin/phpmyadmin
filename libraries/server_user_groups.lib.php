@@ -5,6 +5,7 @@
  *
  * @package PhpMyAdmin
  */
+use PhpMyAdmin\Relation;
 use PhpMyAdmin\Url;
 
 /**
@@ -20,13 +21,13 @@ function PMA_getHtmlForListingUsersofAGroup($userGroup)
         . sprintf(__('Users of \'%s\' user group'), htmlspecialchars($userGroup))
         . '</h2>';
 
-    $cfgRelation = PMA_getRelationsParam();
+    $cfgRelation = Relation::getRelationsParam();
     $usersTable = PhpMyAdmin\Util::backquote($cfgRelation['db'])
         . "." . PhpMyAdmin\Util::backquote($cfgRelation['users']);
     $sql_query = "SELECT `username` FROM " . $usersTable
         . " WHERE `usergroup`='" . $GLOBALS['dbi']->escapeString($userGroup)
         . "'";
-    $result = PMA_queryAsControlUser($sql_query, false);
+    $result = Relation::queryAsControlUser($sql_query, false);
     if ($result) {
         if ($GLOBALS['dbi']->numRows($result) == 0) {
             $html_output .= '<p>'
@@ -60,11 +61,11 @@ function PMA_getHtmlForListingUsersofAGroup($userGroup)
 function PMA_getHtmlForUserGroupsTable()
 {
     $html_output  = '<h2>' . __('User groups') . '</h2>';
-    $cfgRelation = PMA_getRelationsParam();
+    $cfgRelation = Relation::getRelationsParam();
     $groupTable = PhpMyAdmin\Util::backquote($cfgRelation['db'])
         . "." . PhpMyAdmin\Util::backquote($cfgRelation['usergroups']);
     $sql_query = "SELECT * FROM " . $groupTable . " ORDER BY `usergroup` ASC";
-    $result = PMA_queryAsControlUser($sql_query, false);
+    $result = Relation::queryAsControlUser($sql_query, false);
 
     if ($result && $GLOBALS['dbi']->numRows($result)) {
         $html_output .= '<form name="userGroupsForm" id="userGroupsForm"'
@@ -178,7 +179,7 @@ function _getAllowedTabNames($row, $level)
  */
 function PMA_deleteUserGroup($userGroup)
 {
-    $cfgRelation = PMA_getRelationsParam();
+    $cfgRelation = Relation::getRelationsParam();
     $userTable = PhpMyAdmin\Util::backquote($cfgRelation['db'])
         . "." . PhpMyAdmin\Util::backquote($cfgRelation['users']);
     $groupTable = PhpMyAdmin\Util::backquote($cfgRelation['db'])
@@ -186,11 +187,11 @@ function PMA_deleteUserGroup($userGroup)
     $sql_query = "DELETE FROM " . $userTable
         . " WHERE `usergroup`='" . $GLOBALS['dbi']->escapeString($userGroup)
         . "'";
-    PMA_queryAsControlUser($sql_query, true);
+    Relation::queryAsControlUser($sql_query, true);
     $sql_query = "DELETE FROM " . $groupTable
         . " WHERE `usergroup`='" . $GLOBALS['dbi']->escapeString($userGroup)
         . "'";
-    PMA_queryAsControlUser($sql_query, true);
+    Relation::queryAsControlUser($sql_query, true);
 }
 
 /**
@@ -242,13 +243,13 @@ function PMA_getHtmlToEditUserGroup($userGroup = null)
         'table'  => array()
     );
     if ($userGroup != null) {
-        $cfgRelation = PMA_getRelationsParam();
+        $cfgRelation = Relation::getRelationsParam();
         $groupTable = PhpMyAdmin\Util::backquote($cfgRelation['db'])
             . "." . PhpMyAdmin\Util::backquote($cfgRelation['usergroups']);
         $sql_query = "SELECT * FROM " . $groupTable
             . " WHERE `usergroup`='" . $GLOBALS['dbi']->escapeString($userGroup)
             . "'";
-        $result = PMA_queryAsControlUser($sql_query, false);
+        $result = Relation::queryAsControlUser($sql_query, false);
         if ($result) {
             while ($row = $GLOBALS['dbi']->fetchAssoc($result)) {
                 $key = $row['tab'];
@@ -327,7 +328,7 @@ function _getTabList($title, $level, $selected)
 function PMA_editUserGroup($userGroup, $new = false)
 {
     $tabs = PhpMyAdmin\Util::getMenuTabList();
-    $cfgRelation = PMA_getRelationsParam();
+    $cfgRelation = Relation::getRelationsParam();
     $groupTable = PhpMyAdmin\Util::backquote($cfgRelation['db'])
         . "." . PhpMyAdmin\Util::backquote($cfgRelation['usergroups']);
 
@@ -335,7 +336,7 @@ function PMA_editUserGroup($userGroup, $new = false)
         $sql_query = "DELETE FROM " . $groupTable
             . " WHERE `usergroup`='" . $GLOBALS['dbi']->escapeString($userGroup)
             . "';";
-        PMA_queryAsControlUser($sql_query, true);
+        Relation::queryAsControlUser($sql_query, true);
     }
 
     $sql_query = "INSERT INTO " . $groupTable
@@ -355,5 +356,5 @@ function PMA_editUserGroup($userGroup, $new = false)
         }
     }
     $sql_query .= ";";
-    PMA_queryAsControlUser($sql_query, true);
+    Relation::queryAsControlUser($sql_query, true);
 }

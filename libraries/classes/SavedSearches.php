@@ -8,6 +8,7 @@
 namespace PhpMyAdmin;
 
 use PhpMyAdmin\Message;
+use PhpMyAdmin\Relation;
 use PhpMyAdmin\Response;
 use PhpMyAdmin\Util;
 
@@ -312,7 +313,7 @@ class SavedSearches
                 . "'" . $GLOBALS['dbi']->escapeString(json_encode($this->getCriterias()))
                 . "')";
 
-            $result = (bool)PMA_queryAsControlUser($sqlQuery);
+            $result = (bool)Relation::queryAsControlUser($sqlQuery);
             if (!$result) {
                 return false;
             }
@@ -346,7 +347,7 @@ class SavedSearches
             . "`search_data` = '"
             . $GLOBALS['dbi']->escapeString(json_encode($this->getCriterias())) . "' "
             . "WHERE id = " . $this->getId();
-        return (bool)PMA_queryAsControlUser($sqlQuery);
+        return (bool)Relation::queryAsControlUser($sqlQuery);
     }
 
     /**
@@ -374,7 +375,7 @@ class SavedSearches
         $sqlQuery = "DELETE FROM " . $savedSearchesTbl
             . "WHERE id = '" . $GLOBALS['dbi']->escapeString($this->getId()) . "'";
 
-        return (bool)PMA_queryAsControlUser($sqlQuery);
+        return (bool)Relation::queryAsControlUser($sqlQuery);
     }
 
     /**
@@ -402,7 +403,7 @@ class SavedSearches
             . "FROM " . $savedSearchesTbl . " "
             . "WHERE id = '" . $GLOBALS['dbi']->escapeString($this->getId()) . "' ";
 
-        $resList = PMA_queryAsControlUser($sqlQuery);
+        $resList = Relation::queryAsControlUser($sqlQuery);
 
         if (false === ($oneResult = $GLOBALS['dbi']->fetchArray($resList))) {
             $message = Message::error(__('Error while loading the search.'));
@@ -449,7 +450,7 @@ class SavedSearches
 
         $sqlQuery .= "order by search_name ASC ";
 
-        $resList = PMA_queryAsControlUser($sqlQuery);
+        $resList = Relation::queryAsControlUser($sqlQuery);
 
         $list = array();
         while ($oneResult = $GLOBALS['dbi']->fetchArray($resList)) {

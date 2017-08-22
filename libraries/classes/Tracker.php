@@ -8,6 +8,7 @@
 namespace PhpMyAdmin;
 
 use PhpMyAdmin\Plugins\Export\ExportSql;
+use PhpMyAdmin\Relation;
 use PhpMyAdmin\SqlParser\Parser;
 use PhpMyAdmin\SqlParser\Statements\AlterStatement;
 use PhpMyAdmin\SqlParser\Statements\CreateStatement;
@@ -64,10 +65,10 @@ class Tracker
             return false;
         }
         /* We need to avoid attempt to track any queries
-         * from PMA_getRelationsParam
+         * from Relation::getRelationsParam
          */
         self::$enabled = false;
-        $cfgRelation = PMA_getRelationsParam();
+        $cfgRelation = Relation::getRelationsParam();
         /* Restore original state */
         self::$enabled = true;
         if (! $cfgRelation['trackingwork']) {
@@ -131,10 +132,10 @@ class Tracker
             return self::$_tracking_cache[$dbname][$tablename];
         }
         /* We need to avoid attempt to track any queries
-         * from PMA_getRelationsParam
+         * from Relation::getRelationsParam
          */
         self::$enabled = false;
-        $cfgRelation = PMA_getRelationsParam();
+        $cfgRelation = Relation::getRelationsParam();
         /* Restore original state */
         self::$enabled = true;
         if (! $cfgRelation['trackingwork']) {
@@ -271,7 +272,7 @@ class Tracker
         '" . $GLOBALS['dbi']->escapeString($tracking_set)
         . "' )";
 
-        $result = PMA_queryAsControlUser($sql_query);
+        $result = Relation::queryAsControlUser($sql_query);
 
         if ($result) {
             // Deactivate previous version
@@ -305,7 +306,7 @@ class Tracker
             $sql_query .= " AND `version` = '"
                 . $GLOBALS['dbi']->escapeString($version) . "'";
         }
-        $result = PMA_queryAsControlUser($sql_query);
+        $result = Relation::queryAsControlUser($sql_query);
 
         return $result;
     }
@@ -367,7 +368,7 @@ class Tracker
         '" . $GLOBALS['dbi']->escapeString($tracking_set)
         . "' )";
 
-        $result = PMA_queryAsControlUser($sql_query);
+        $result = Relation::queryAsControlUser($sql_query);
 
         return $result;
     }
@@ -396,7 +397,7 @@ class Tracker
         " AND `table_name` = '" . $GLOBALS['dbi']->escapeString($tablename) . "' " .
         " AND `version` = '" . $GLOBALS['dbi']->escapeString($version) . "' ";
 
-        $result = PMA_queryAsControlUser($sql_query);
+        $result = Relation::queryAsControlUser($sql_query);
 
         return $result;
     }
@@ -442,7 +443,7 @@ class Tracker
         " AND `table_name` = '" . $GLOBALS['dbi']->escapeString($tablename) . "' " .
         " AND `version` = '" . $GLOBALS['dbi']->escapeString($version) . "' ";
 
-        $result = PMA_queryAsControlUser($sql_query);
+        $result = Relation::queryAsControlUser($sql_query);
 
         return (boolean) $result;
     }
@@ -503,7 +504,7 @@ class Tracker
             $sql_query .= " AND FIND_IN_SET('"
                 . $statement . "',tracking) > 0" ;
         }
-        $row = $GLOBALS['dbi']->fetchArray(PMA_queryAsControlUser($sql_query));
+        $row = $GLOBALS['dbi']->fetchArray(Relation::queryAsControlUser($sql_query));
         return isset($row[0])
             ? $row[0]
             : -1;
@@ -533,7 +534,7 @@ class Tracker
         $sql_query .= " AND `version` = '" . $GLOBALS['dbi']->escapeString($version)
             . "' " . " ORDER BY `version` DESC LIMIT 1";
 
-        $mixed = $GLOBALS['dbi']->fetchAssoc(PMA_queryAsControlUser($sql_query));
+        $mixed = $GLOBALS['dbi']->fetchAssoc(Relation::queryAsControlUser($sql_query));
 
         // Parse log
         $log_schema_entries = explode('# log ',  $mixed['schema_sql']);
@@ -878,7 +879,7 @@ class Tracker
                 . $GLOBALS['dbi']->escapeString($result['tablename']) . "' " .
                 " AND `version` = '" . $GLOBALS['dbi']->escapeString($version) . "' ";
 
-                PMA_queryAsControlUser($sql_query);
+                Relation::queryAsControlUser($sql_query);
             }
         }
     }
@@ -890,7 +891,7 @@ class Tracker
      */
     private static function _getTrackingTable()
     {
-        $cfgRelation = PMA_getRelationsParam();
+        $cfgRelation = Relation::getRelationsParam();
         return Util::backquote($cfgRelation['db'])
             . '.' . Util::backquote($cfgRelation['tracking']);
     }

@@ -1,4 +1,4 @@
-<?php $cfgRelation = PMA_getRelationsParam(); ?>
+<?php $cfgRelation = PhpMyAdmin\Relation::getRelationsParam(); ?>
 <form action="db_designer.php" method="post" name="edit_delete_pages" id="edit_delete_pages" class="ajax">
     <?= PhpMyAdmin\Url::getHiddenInputs($db); ?>
     <fieldset id="page_edit_delete_options">

@@ -9,6 +9,7 @@ namespace PhpMyAdmin\Plugins\Schema;
 
 use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Index;
+use PhpMyAdmin\Relation;
 use PhpMyAdmin\Util;
 
 /**
@@ -136,7 +137,7 @@ abstract class TableStats
      */
     protected function loadDisplayField()
     {
-        $this->displayfield = PMA_getDisplayField($this->db, $this->tableName);
+        $this->displayfield = Relation::getDisplayField($this->db, $this->tableName);
     }
 
     /**

@@ -9,6 +9,7 @@ namespace PhpMyAdmin;
 
 use PhpMyAdmin\Core;
 use PhpMyAdmin\Message;
+use PhpMyAdmin\Relation;
 use PhpMyAdmin\Response;
 use PhpMyAdmin\Sanitize;
 use PhpMyAdmin\Template;
@@ -255,7 +256,7 @@ class Tracking
      */
     public static function getListOfVersionsOfTable()
     {
-        $cfgRelation = PMA_getRelationsParam();
+        $cfgRelation = Relation::getRelationsParam();
         $sql_query = " SELECT * FROM " .
             Util::backquote($cfgRelation['db']) . "." .
             Util::backquote($cfgRelation['tracking']) .
@@ -265,7 +266,7 @@ class Tracking
             $GLOBALS['dbi']->escapeString($_REQUEST['table']) . "' " .
             " ORDER BY version DESC ";
 
-        return PMA_queryAsControlUser($sql_query);
+        return Relation::queryAsControlUser($sql_query);
     }
 
     /**
@@ -409,8 +410,7 @@ class Tracking
      */
     public static function getSqlResultForSelectableTables()
     {
-        include_once 'libraries/relation.lib.php';
-        $cfgRelation = PMA_getRelationsParam();
+        $cfgRelation = Relation::getRelationsParam();
 
         $sql_query = " SELECT DISTINCT db_name, table_name FROM " .
             Util::backquote($cfgRelation['db']) . "." .
@@ -419,7 +419,7 @@ class Tracking
             "' " .
             " ORDER BY db_name, table_name";
 
-        return PMA_queryAsControlUser($sql_query);
+        return Relation::queryAsControlUser($sql_query);
     }
 
     /**
@@ -1640,7 +1640,7 @@ class Tracking
                  . $GLOBALS['dbi']->escapeString($table_name)
                  . '\' AND `version` = \'' . $version_number . '\'';
 
-            $table_result = PMA_queryAsControlUser($table_query);
+            $table_result = Relation::queryAsControlUser($table_query);
             $version_data = $GLOBALS['dbi']->fetchArray($table_result);
 
             $tbl_link = 'tbl_tracking.php' . $url_query . '&amp;table='

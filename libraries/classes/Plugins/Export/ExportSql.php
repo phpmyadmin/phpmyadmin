@@ -21,6 +21,7 @@ use PhpMyAdmin\Properties\Options\Items\NumberPropertyItem;
 use PhpMyAdmin\Properties\Options\Items\RadioPropertyItem;
 use PhpMyAdmin\Properties\Options\Items\SelectPropertyItem;
 use PhpMyAdmin\Properties\Options\Items\TextPropertyItem;
+use PhpMyAdmin\Relation;
 use PhpMyAdmin\SqlParser\Components\CreateDefinition;
 use PhpMyAdmin\SqlParser\Context;
 use PhpMyAdmin\SqlParser\Parser;
@@ -996,7 +997,7 @@ class ExportSql extends ExportPlugin
         $tables,
         $metadataTypes
     ) {
-        $cfgRelation = PMA_getRelationsParam();
+        $cfgRelation = Relation::getRelationsParam();
         if (!isset($cfgRelation['db'])) {
             return true;
         }
@@ -1048,7 +1049,7 @@ class ExportSql extends ExportPlugin
         $table,
         $metadataTypes
     ) {
-        $cfgRelation = PMA_getRelationsParam();
+        $cfgRelation = Relation::getRelationsParam();
 
         if (isset($table)) {
             $types = array(
@@ -1837,7 +1838,7 @@ class ExportSql extends ExportPlugin
         $schema_create = '';
 
         // Check if we can use Relations
-        list($res_rel, $have_rel) = PMA_getRelationsAndStatus(
+        list($res_rel, $have_rel) = Relation::getRelationsAndStatus(
             $do_relation && !empty($cfgRelation['relation']),
             $db,
             $table

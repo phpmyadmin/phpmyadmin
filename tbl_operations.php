@@ -9,6 +9,7 @@ use PhpMyAdmin\Index;
 use PhpMyAdmin\Message;
 use PhpMyAdmin\Partition;
 use PhpMyAdmin\Operations;
+use PhpMyAdmin\Relation;
 use PhpMyAdmin\Response;
 use PhpMyAdmin\Table;
 use PhpMyAdmin\Util;
@@ -43,10 +44,10 @@ $url_params['goto'] = $url_params['back'] = 'tbl_operations.php';
 /**
  * Gets relation settings
  */
-$cfgRelation = PMA_getRelationsParam();
+$cfgRelation = Relation::getRelationsParam();
 
 // reselect current db (needed in some cases probably due to
-// the calling of relation.lib.php)
+// the calling of PhpMyAdmin\Relation)
 $GLOBALS['dbi']->selectDb($GLOBALS['db']);
 
 /**
@@ -457,7 +458,7 @@ unset($partition_names);
 
 if ($cfgRelation['relwork'] && ! $pma_table->isEngine("INNODB")) {
     $GLOBALS['dbi']->selectDb($GLOBALS['db']);
-    $foreign = PMA_getForeigners($GLOBALS['db'], $GLOBALS['table'], '', 'internal');
+    $foreign = Relation::getForeigners($GLOBALS['db'], $GLOBALS['table'], '', 'internal');
 
     if (! empty($foreign)) {
         $response->addHTML(
