@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.8.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2017-08-10 09:14-0400\n"
-"PO-Revision-Date: 2017-08-22 09:47+0000\n"
+"PO-Revision-Date: 2017-08-22 10:49+0000\n"
 "Last-Translator: Mochammad Nur Afandi <localanu@gmail.com>\n"
 "Language-Team: Indonesian "
 "<https://hosted.weblate.org/projects/phpmyadmin/master/id/>\n"
@@ -8646,15 +8646,15 @@ msgstr "SSL sedang tidak digunakan"
 
 #: libraries/classes/Util.php:3958
 msgid "SSL is used with disabled verification"
-msgstr ""
+msgstr "SSL sedang digunakan tanpa vertifikasi"
 
 #: libraries/classes/Util.php:3960
 msgid "SSL is used without certification authority"
-msgstr ""
+msgstr "SSL sedang digunakan tanpa ijin sertifikat"
 
 #: libraries/classes/Util.php:3963
 msgid "SSL is used"
-msgstr "SSL sedang aktif"
+msgstr "SSL sedang digunakan"
 
 #: libraries/classes/Util.php:4084
 msgid "Users"
@@ -9131,10 +9131,8 @@ msgid "Whether the table structure actions should be hidden."
 msgstr "Sebaiknya stuktur aksi tabel disembunyikan."
 
 #: libraries/config/messages.inc.php:117
-#, fuzzy
-#| msgid "Table comments"
 msgid "Show column comments"
-msgstr "Komentar tabel"
+msgstr "Menampilkan komentar tabel"
 
 #: libraries/config/messages.inc.php:119
 #, fuzzy
@@ -9146,10 +9144,8 @@ msgid "Hide table structure actions"
 msgstr "Sembunyikan stuktur aksi tabel"
 
 #: libraries/config/messages.inc.php:121
-#, fuzzy
-#| msgid "Default sorting order"
 msgid "Default transformations for Hex"
-msgstr "Urutan bawaan"
+msgstr "Urutan bawaan untuk Hex"
 
 #: libraries/config/messages.inc.php:122 libraries/config/messages.inc.php:124
 #: libraries/config/messages.inc.php:126 libraries/config/messages.inc.php:128
@@ -9162,34 +9158,24 @@ msgid ""
 msgstr ""
 
 #: libraries/config/messages.inc.php:123
-#, fuzzy
-#| msgid "Transformation options"
 msgid "Default transformations for Substring"
-msgstr "Pilihan transformasi"
+msgstr "Pilihan transformasi untuk cabang inputan"
 
 #: libraries/config/messages.inc.php:125
-#, fuzzy
-#| msgid "Default sorting order"
 msgid "Default transformations for Bool2Text"
-msgstr "Urutan bawaan"
+msgstr "Urutan bawaan untuk Bool2Text"
 
 #: libraries/config/messages.inc.php:127
-#, fuzzy
-#| msgid "Default sorting order"
 msgid "Default transformations for External"
-msgstr "Urutan bawaan"
+msgstr "Urutan bawaan untuk Eksternal"
 
 #: libraries/config/messages.inc.php:129
-#, fuzzy
-#| msgid "Transformation options"
 msgid "Default transformations for PreApPend"
-msgstr "Pilihan transformasi"
+msgstr "Pilihan transformasi untuk PreApPend"
 
 #: libraries/config/messages.inc.php:131
-#, fuzzy
-#| msgid "Default sorting order"
 msgid "Default transformations for DateFormat"
-msgstr "Urutan bawaan"
+msgstr "Urutan bawaan untuk DateFormat"
 
 #: libraries/config/messages.inc.php:133
 #, fuzzy
@@ -9198,10 +9184,8 @@ msgid "Default transformations for Inline"
 msgstr "Pilihan transformasi"
 
 #: libraries/config/messages.inc.php:135
-#, fuzzy
-#| msgid "Transformation options"
 msgid "Default transformations for TextImageLink"
-msgstr "Pilihan transformasi"
+msgstr "Pilihan transformasi untuk TextImageLink"
 
 #: libraries/config/messages.inc.php:137
 #, fuzzy
