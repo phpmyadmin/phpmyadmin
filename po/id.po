@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.7.4-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2017-08-10 09:13-0400\n"
-"PO-Revision-Date: 2017-08-22 09:46+0000\n"
-"Last-Translator: Arachmadi Putra <arachmadi.putra@gmail.com>\n"
+"PO-Revision-Date: 2017-08-23 10:46+0000\n"
+"Last-Translator: Mochammad Nur Afandi <localanu@gmail.com>\n"
 "Language-Team: Indonesian "
 "<https://hosted.weblate.org/projects/phpmyadmin/4-7/id/>\n"
 "Language: id\n"
@@ -5978,10 +5978,8 @@ msgid "Whether the table structure actions should be hidden."
 msgstr "Sebaiknya stuktur aksi tabel disembunyikan."
 
 #: libraries/config/messages.inc.php:117
-#, fuzzy
-#| msgid "Table comments"
 msgid "Show column comments"
-msgstr "Komentar tabel"
+msgstr "Menampilkan komentar tabel"
 
 #: libraries/config/messages.inc.php:119
 #, fuzzy
