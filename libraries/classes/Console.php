@@ -12,10 +12,6 @@ use PhpMyAdmin\Relation;
 use PhpMyAdmin\Template;
 use PhpMyAdmin\Util;
 
-if (! defined('PHPMYADMIN')) {
-    exit;
-}
-
 /**
  * Class used to output the console
  *

@@ -103,6 +103,7 @@ class Scripts
      * @param string $filename       The name of the file to include
      * @param bool   $before_statics Whether this dynamic script should be
      *                               included before the static ones
+     * @param array  $params         Additional parameters to pass to the file
      *
      * @return void
      */

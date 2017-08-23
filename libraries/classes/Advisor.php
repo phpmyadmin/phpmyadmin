@@ -445,7 +445,7 @@ class Advisor
     private function replaceVariable($matches)
     {
         return '<a href="server_variables.php' . Url::getCommon(array('filter' => $matches[1]))
-                . '">' . htmlspecialchars($matches[1]). '</a>';
+                . '">' . htmlspecialchars($matches[1]) . '</a>';
     }
 
     /**

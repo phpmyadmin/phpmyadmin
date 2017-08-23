@@ -328,6 +328,11 @@ class Encoding
             . '</li></ul>';
     }
 
+    /**
+     * Lists available encodings.
+     *
+     * @return array
+     */
     public static function listEncodings()
     {
         if (is_null(self::$_engine)) {

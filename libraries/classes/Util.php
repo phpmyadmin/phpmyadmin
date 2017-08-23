@@ -22,10 +22,6 @@ use PhpMyAdmin\Template;
 use PhpMyAdmin\Url;
 use stdClass;
 
-if (! defined('PHPMYADMIN')) {
-    exit;
-}
-
 /**
  * Misc functions used all over the scripts.
  *
