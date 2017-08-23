@@ -7,6 +7,7 @@
  */
 namespace PhpMyAdmin\Navigation\Nodes;
 
+use PhpMyAdmin\Relation;
 use PhpMyAdmin\Util;
 
 /**
@@ -806,7 +807,7 @@ class Node
      */
     public function getNavigationHidingData()
     {
-        $cfgRelation = PMA_getRelationsParam();
+        $cfgRelation = Relation::getRelationsParam();
         if ($cfgRelation['navwork']) {
             $navTable = Util::backquote($cfgRelation['db'])
                 . "." . Util::backquote(

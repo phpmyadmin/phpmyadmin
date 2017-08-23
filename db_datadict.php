@@ -5,7 +5,7 @@
  *
  * @package PhpMyAdmin
  */
-
+use PhpMyAdmin\Relation;
 use PhpMyAdmin\Response;
 use PhpMyAdmin\Transformations;
 use PhpMyAdmin\Url;
@@ -37,7 +37,7 @@ $header->enablePrintView();
 /**
  * Gets the relations settings
  */
-$cfgRelation  = PMA_getRelationsParam();
+$cfgRelation  = Relation::getRelationsParam();
 
 /**
  * Check parameters
@@ -50,7 +50,7 @@ PhpMyAdmin\Util::checkParameters(array('db'));
 $err_url = 'db_sql.php' . Url::getCommon(array('db' => $db));
 
 if ($cfgRelation['commwork']) {
-    $comment = PMA_getDbComment($db);
+    $comment = Relation::getDbComment($db);
 
     /**
      * Displays DB comment
@@ -69,7 +69,7 @@ $tables = $GLOBALS['dbi']->getTables($db);
 
 $count  = 0;
 foreach ($tables as $table) {
-    $comments = PMA_getComments($db, $table);
+    $comments = Relation::getComments($db, $table);
 
     echo '<div>' , "\n";
 
@@ -95,7 +95,7 @@ foreach ($tables as $table) {
     $columns = $GLOBALS['dbi']->getColumns($db, $table);
 
     // Check if we can use Relations
-    list($res_rel, $have_rel) = PMA_getRelationsAndStatus(
+    list($res_rel, $have_rel) = Relation::getRelationsAndStatus(
         ! empty($cfgRelation['relation']), $db, $table
     );
 
@@ -171,7 +171,7 @@ foreach ($tables as $table) {
 
         if ($have_rel) {
             echo '    <td>';
-            if ($foreigner = PMA_searchColumnInForeigners($res_rel, $column_name)) {
+            if ($foreigner = Relation::searchColumnInForeigners($res_rel, $column_name)) {
                 echo htmlspecialchars(
                     $foreigner['foreign_table']
                     . ' -> '

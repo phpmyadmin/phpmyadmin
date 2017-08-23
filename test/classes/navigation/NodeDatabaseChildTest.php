@@ -11,7 +11,6 @@ use PhpMyAdmin\Navigation\Nodes\NodeDatabaseChild;
 use PhpMyAdmin\Theme;
 use PhpMyAdmin\Url;
 
-require_once 'libraries/relation.lib.php';
 require_once 'test/PMATestCase.php';
 
 /**

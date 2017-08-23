@@ -8,6 +8,7 @@
 namespace PhpMyAdmin;
 
 use PhpMyAdmin\Bookmark;
+use PhpMyAdmin\Relation;
 use PhpMyAdmin\Template;
 use PhpMyAdmin\Util;
 
@@ -127,7 +128,7 @@ class Console
             $cfgBookmark = Bookmark::getParams();
 
             $image = Util::getImage('console.png', __('SQL Query Console'));
-            $_sql_history = PMA_getHistory($GLOBALS['cfg']['Server']['user']);
+            $_sql_history = Relation::getHistory($GLOBALS['cfg']['Server']['user']);
             $bookmarkContent = static::getBookmarkContent();
 
             return Template::get('console/display')

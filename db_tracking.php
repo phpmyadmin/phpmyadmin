@@ -6,6 +6,7 @@
  * @package PhpMyAdmin
  */
 use PhpMyAdmin\Message;
+use PhpMyAdmin\Relation;
 use PhpMyAdmin\Response;
 use PhpMyAdmin\Tracker;
 use PhpMyAdmin\Tracking;
@@ -110,7 +111,7 @@ if ($num_tables == 0 && count($data['ddlog']) == 0) {
 }
 
 // ---------------------------------------------------------------------------
-$cfgRelation = PMA_getRelationsParam();
+$cfgRelation = Relation::getRelationsParam();
 
 // Prepare statement to get HEAD version
 $all_tables_query = ' SELECT table_name, MAX(version) as version FROM ' .
@@ -121,7 +122,7 @@ $all_tables_query = ' SELECT table_name, MAX(version) as version FROM ' .
     ' GROUP BY table_name' .
     ' ORDER BY table_name ASC';
 
-$all_tables_result = PMA_queryAsControlUser($all_tables_query);
+$all_tables_result = Relation::queryAsControlUser($all_tables_query);
 
 // If a HEAD version exists
 if (is_object($all_tables_result)

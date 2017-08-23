@@ -5,13 +5,14 @@
  *
  * @package PhpMyAdmin
  */
+use PhpMyAdmin\Relation;
 use PhpMyAdmin\Response;
 
 require_once 'libraries/common.inc.php';
 require_once 'libraries/server_users.lib.php';
 require_once 'libraries/server_user_groups.lib.php';
 
-PMA_getRelationsParam();
+Relation::getRelationsParam();
 if (! $GLOBALS['cfgRelation']['menuswork']) {
     exit;
 }

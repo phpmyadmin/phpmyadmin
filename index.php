@@ -11,6 +11,7 @@ use PhpMyAdmin\Core;
 use PhpMyAdmin\LanguageManager;
 use PhpMyAdmin\Message;
 use PhpMyAdmin\RecentFavoriteTable;
+use PhpMyAdmin\Relation;
 use PhpMyAdmin\Response;
 use PhpMyAdmin\Sanitize;
 use PhpMyAdmin\ThemeManager;
@@ -560,7 +561,7 @@ if (@file_exists('config')) {
 }
 
 if ($server > 0) {
-    $cfgRelation = PMA_getRelationsParam();
+    $cfgRelation = Relation::getRelationsParam();
     if (! $cfgRelation['allworks']
         && $cfg['PmaNoRelation_DisableWarning'] == false
     ) {

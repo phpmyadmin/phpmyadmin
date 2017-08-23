@@ -5,6 +5,7 @@
  *
  * @package PhpMyAdmin-Designer
  */
+use PhpMyAdmin\Relation;
 use PhpMyAdmin\Table;
 
 /**
@@ -16,7 +17,7 @@ if (! defined('PHPMYADMIN')) {
 
 $GLOBALS['PMD']['STYLE']          = 'default';
 
-$cfgRelation = PMA_getRelationsParam();
+$cfgRelation = Relation::getRelationsParam();
 
 /**
  * Retrieves table info and stores it in $GLOBALS['PMD']
@@ -63,7 +64,7 @@ function PMA_getTablesInfo()
             $one_table['ENGINE']
         );
 
-        $DF = PMA_getDisplayField($GLOBALS['db'], $one_table['TABLE_NAME']);
+        $DF = Relation::getDisplayField($GLOBALS['db'], $one_table['TABLE_NAME']);
         if ($DF != '') {
             $retval[$GLOBALS['PMD_URL']["TABLE_NAME_SMALL"][$i]] = $DF;
         }
@@ -124,7 +125,7 @@ function PMA_getScriptContr()
         PhpMyAdmin\DatabaseInterface::QUERY_STORE
     );
     while ($val = @$GLOBALS['dbi']->fetchRow($alltab_rs)) {
-        $row = PMA_getForeigners($GLOBALS['db'], $val[0], '', 'internal');
+        $row = Relation::getForeigners($GLOBALS['db'], $val[0], '', 'internal');
 
         if ($row !== false) {
             foreach ($row as $field => $value) {
@@ -138,7 +139,7 @@ function PMA_getScriptContr()
                 $i++;
             }
         }
-        $row = PMA_getForeigners($GLOBALS['db'], $val[0], '', 'foreign');
+        $row = Relation::getForeigners($GLOBALS['db'], $val[0], '', 'foreign');
 
         if ($row !== false) {
             foreach ($row['foreign_keys_data'] as $one_key) {
@@ -248,7 +249,7 @@ function PMA_getScriptTabs()
  */
 function PMA_getTablePositions($pg)
 {
-    $cfgRelation = PMA_getRelationsParam();
+    $cfgRelation = Relation::getRelationsParam();
     if (! $cfgRelation['pdfwork']) {
         return null;
     }
@@ -282,7 +283,7 @@ function PMA_getTablePositions($pg)
  */
 function PMA_getPageName($pg)
 {
-    $cfgRelation = PMA_getRelationsParam();
+    $cfgRelation = Relation::getRelationsParam();
     if (! $cfgRelation['pdfwork']) {
         return null;
     }
@@ -310,7 +311,7 @@ function PMA_getPageName($pg)
  */
 function PMA_deletePage($pg)
 {
-    $cfgRelation = PMA_getRelationsParam();
+    $cfgRelation = Relation::getRelationsParam();
     if (! $cfgRelation['pdfwork']) {
         return false;
     }
@@ -318,7 +319,7 @@ function PMA_deletePage($pg)
     $query = "DELETE FROM " . PhpMyAdmin\Util::backquote($cfgRelation['db'])
         . "." . PhpMyAdmin\Util::backquote($cfgRelation['table_coords'])
         . " WHERE " . PhpMyAdmin\Util::backquote('pdf_page_number') . " = " . intval($pg);
-    $success = PMA_queryAsControlUser(
+    $success = Relation::queryAsControlUser(
         $query, true, PhpMyAdmin\DatabaseInterface::QUERY_STORE
     );
 
@@ -326,7 +327,7 @@ function PMA_deletePage($pg)
         $query = "DELETE FROM " . PhpMyAdmin\Util::backquote($cfgRelation['db'])
             . "." . PhpMyAdmin\Util::backquote($cfgRelation['pdf_pages'])
             . " WHERE " . PhpMyAdmin\Util::backquote('page_nr') . " = " . intval($pg);
-        $success = PMA_queryAsControlUser(
+        $success = Relation::queryAsControlUser(
             $query, true, PhpMyAdmin\DatabaseInterface::QUERY_STORE
         );
     }
@@ -344,7 +345,7 @@ function PMA_deletePage($pg)
  */
 function PMA_getDefaultPage($db)
 {
-    $cfgRelation = PMA_getRelationsParam();
+    $cfgRelation = Relation::getRelationsParam();
     if (! $cfgRelation['pdfwork']) {
         return null;
     }
@@ -379,7 +380,7 @@ function PMA_getDefaultPage($db)
  */
 function PMA_getLoadingPage($db)
 {
-    $cfgRelation = PMA_getRelationsParam();
+    $cfgRelation = Relation::getRelationsParam();
     if (! $cfgRelation['pdfwork']) {
         return null;
     }
@@ -419,9 +420,9 @@ function PMA_getLoadingPage($db)
  */
 function PMA_createNewPage($pageName, $db)
 {
-    $cfgRelation = PMA_getRelationsParam();
+    $cfgRelation = Relation::getRelationsParam();
     if ($cfgRelation['pdfwork']) {
-        $pageNumber = PMA_REL_createPage(
+        $pageNumber = Relation::createPage(
             $pageName,
             $cfgRelation,
             $db
@@ -440,7 +441,7 @@ function PMA_createNewPage($pageName, $db)
  */
 function PMA_saveTablePositions($pg)
 {
-    $cfgRelation = PMA_getRelationsParam();
+    $cfgRelation = Relation::getRelationsParam();
     if (! $cfgRelation['pdfwork']) {
         return false;
     }
@@ -455,7 +456,7 @@ function PMA_saveTablePositions($pg)
         . " AND `pdf_page_number` = '" . $GLOBALS['dbi']->escapeString($pg)
         . "'";
 
-    $res = PMA_queryAsControlUser(
+    $res = Relation::queryAsControlUser(
         $query,
         true,
         PhpMyAdmin\DatabaseInterface::QUERY_STORE
@@ -482,7 +483,7 @@ function PMA_saveTablePositions($pg)
             . "'" . $GLOBALS['dbi']->escapeString($_REQUEST['t_x'][$key]) . "', "
             . "'" . $GLOBALS['dbi']->escapeString($_REQUEST['t_y'][$key]) . "')";
 
-        $res = PMA_queryAsControlUser(
+        $res = Relation::queryAsControlUser(
             $query,  true, PhpMyAdmin\DatabaseInterface::QUERY_STORE
         );
     }
@@ -501,12 +502,12 @@ function PMA_saveTablePositions($pg)
  */
 function PMA_saveDisplayField($db, $table, $field)
 {
-    $cfgRelation = PMA_getRelationsParam();
+    $cfgRelation = Relation::getRelationsParam();
     if (!$cfgRelation['displaywork']) {
         return false;
     }
 
-    $disp = PMA_getDisplayField($db, $table);
+    $disp = Relation::getDisplayField($db, $table);
     if ($disp && $disp === $field) {
         $field = '';
     }
@@ -543,8 +544,8 @@ function PMA_addNewRelation($db, $T1, $F1, $T2, $F2, $on_delete, $on_update, $DB
         && $type_T1 == $type_T2
     ) {
         // relation exists?
-        $existrel_foreign = PMA_getForeigners($DB2, $T2, '', 'foreign');
-        $foreigner = PMA_searchColumnInForeigners($existrel_foreign, $F2);
+        $existrel_foreign = Relation::getForeigners($DB2, $T2, '', 'foreign');
+        $foreigner = Relation::searchColumnInForeigners($existrel_foreign, $F2);
         if ($foreigner
             && isset($foreigner['constraint'])
         ) {
@@ -630,7 +631,7 @@ function PMA_addNewRelation($db, $T1, $F1, $T2, $F2, $on_delete, $on_update, $DB
         . "'" . $GLOBALS['dbi']->escapeString($T1) . "', "
         . "'" . $GLOBALS['dbi']->escapeString($F1) . "')";
 
-    if (PMA_queryAsControlUser($q, false, PhpMyAdmin\DatabaseInterface::QUERY_STORE)
+    if (Relation::queryAsControlUser($q, false, PhpMyAdmin\DatabaseInterface::QUERY_STORE)
     ) {
         return array(true, __('Internal relationship has been added.'));
     }
@@ -668,8 +669,8 @@ function PMA_removeRelation($T1, $F1, $T2, $F2)
         && $type_T1 == $type_T2
     ) {
         // InnoDB
-        $existrel_foreign = PMA_getForeigners($DB2, $T2, '', 'foreign');
-        $foreigner = PMA_searchColumnInForeigners($existrel_foreign, $F2);
+        $existrel_foreign = Relation::getForeigners($DB2, $T2, '', 'foreign');
+        $foreigner = Relation::searchColumnInForeigners($existrel_foreign, $F2);
 
         if (isset($foreigner['constraint'])) {
             $upd_query = 'ALTER TABLE ' . PhpMyAdmin\Util::backquote($DB2)
@@ -699,7 +700,7 @@ function PMA_removeRelation($T1, $F1, $T2, $F2)
         . " AND foreign_table = '" . $GLOBALS['dbi']->escapeString($T1) . "'"
         . " AND foreign_field = '" . $GLOBALS['dbi']->escapeString($F1) . "'";
 
-    $result = PMA_queryAsControlUser(
+    $result = Relation::queryAsControlUser(
         $delete_query,
         false,
         PhpMyAdmin\DatabaseInterface::QUERY_STORE
@@ -726,7 +727,7 @@ function PMA_removeRelation($T1, $F1, $T2, $F2)
  */
 function PMA_saveDesignerSetting($index, $value)
 {
-    $cfgRelation = PMA_getRelationsParam();
+    $cfgRelation = Relation::getRelationsParam();
     $cfgDesigner = array(
         'user'  => $GLOBALS['cfg']['Server']['user'],
         'db'    => $cfgRelation['db'],
@@ -758,7 +759,7 @@ function PMA_saveDesignerSetting($index, $value)
                 . " WHERE username = '"
                 . $GLOBALS['dbi']->escapeString($cfgDesigner['user']) . "';";
 
-            $success = PMA_queryAsControlUser($save_query);
+            $success = Relation::queryAsControlUser($save_query);
         } else {
             $save_data = array($index => $value);
 
@@ -769,7 +770,7 @@ function PMA_saveDesignerSetting($index, $value)
                 . " VALUES('" . $cfgDesigner['user'] . "',"
                 . " '" . json_encode($save_data) . "');";
 
-            $success = PMA_queryAsControlUser($query);
+            $success = Relation::queryAsControlUser($query);
         }
     }
 

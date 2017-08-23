@@ -7,12 +7,11 @@
  */
 use PhpMyAdmin\Message;
 use PhpMyAdmin\Plugins\SchemaPlugin;
+use PhpMyAdmin\Relation;
 
 if (! defined('PHPMYADMIN')) {
     exit;
 }
-
-require_once 'libraries/relation.lib.php';
 
 /**
  * Function to get html to display a page selector
@@ -78,13 +77,13 @@ function PMA_getHtmlForPageSaveAs($db)
  */
 function PMA_getPageIdsAndNames($db)
 {
-    $cfgRelation = PMA_getRelationsParam();
+    $cfgRelation = Relation::getRelationsParam();
     $page_query = "SELECT `page_nr`, `page_descr` FROM "
         . PhpMyAdmin\Util::backquote($cfgRelation['db']) . "."
         . PhpMyAdmin\Util::backquote($cfgRelation['pdf_pages'])
         . " WHERE db_name = '" . $GLOBALS['dbi']->escapeString($db) . "'"
         . " ORDER BY `page_descr`";
-    $page_rs = PMA_queryAsControlUser(
+    $page_rs = Relation::queryAsControlUser(
         $page_query, false, PhpMyAdmin\DatabaseInterface::QUERY_STORE
     );
 
@@ -185,7 +184,7 @@ function PMA_getSideMenuParamsArray()
 {
     $params = array();
 
-    $cfgRelation = PMA_getRelationsParam();
+    $cfgRelation = Relation::getRelationsParam();
 
     if ($GLOBALS['cfgRelation']['designersettingswork']) {
 

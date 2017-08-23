@@ -54,7 +54,7 @@
             </tr>
         </thead>
         <tbody id="id_tbody_<?= $t_n_url; ?>" style="<?= (isset($tab_pos[$t_n]) && empty($tab_pos[$t_n]["V"])) ? 'display: none' : ''; ?>">
-            <?php $display_field = PMA_getDisplayField(
+            <?php $display_field = PhpMyAdmin\Relation::getDisplayField(
                 $_GET['db'],
                 $GLOBALS['PMD']["TABLE_NAME_SMALL"][$i]
             );

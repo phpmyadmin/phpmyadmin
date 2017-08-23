@@ -8,6 +8,7 @@
  */
 namespace PhpMyAdmin\Plugins\Schema;
 
+use PhpMyAdmin\Relation;
 use PhpMyAdmin\Url;
 use PhpMyAdmin\Util;
 
@@ -265,7 +266,7 @@ class ExportRelationSchema
                 . Util::backquote($GLOBALS['cfgRelation']['db']) . '.'
                 . Util::backquote($GLOBALS['cfgRelation']['pdf_pages'])
                 . ' WHERE page_nr = ' . $this->pageNumber;
-            $_name_rs = PMA_queryAsControlUser($_name_sql);
+            $_name_rs = Relation::queryAsControlUser($_name_sql);
             $_name_row = $GLOBALS['dbi']->fetchRow($_name_rs);
             $filename = $_name_row[0] . $extension;
         }

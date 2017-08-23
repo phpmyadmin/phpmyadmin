@@ -9,6 +9,7 @@ namespace PhpMyAdmin\Plugins\Schema\Pdf;
 
 use PhpMyAdmin\Pdf as PdfLib;
 use PhpMyAdmin\Plugins\Schema\ExportRelationSchema;
+use PhpMyAdmin\Relation;
 use PhpMyAdmin\Transformations;
 use PhpMyAdmin\Util;
 
@@ -185,7 +186,7 @@ class PdfRelationSchema extends ExportRelationSchema
         // and finding its foreigns is OK (then we can support innodb)
         $seen_a_relation = false;
         foreach ($alltables as $one_table) {
-            $exist_rel = PMA_getForeigners($this->db, $one_table, '', 'both');
+            $exist_rel = Relation::getForeigners($this->db, $one_table, '', 'both');
             if (!$exist_rel) {
                 continue;
             }
@@ -546,8 +547,8 @@ class PdfRelationSchema extends ExportRelationSchema
             $this->diagram->SetFont($this->_ff, '', 8);
             $this->diagram->ln();
 
-            $cfgRelation = PMA_getRelationsParam();
-            $comments = PMA_getComments($this->db, $table);
+            $cfgRelation = Relation::getRelationsParam();
+            $comments = Relation::getComments($this->db, $table);
             if ($cfgRelation['mimework']) {
                 $mime_map = Transformations::getMIME($this->db, $table, true);
             }
@@ -583,7 +584,7 @@ class PdfRelationSchema extends ExportRelationSchema
 
             // Find which tables are related with the current one and write it in
             // an array
-            $res_rel = PMA_getForeigners($this->db, $table);
+            $res_rel = Relation::getForeigners($this->db, $table);
 
             /**
              * Displays the comments of the table if MySQL >= 3.23
@@ -679,7 +680,7 @@ class PdfRelationSchema extends ExportRelationSchema
                 $this->diagram->SetLink(
                     $this->diagram->PMA_links['doc'][$table][$field_name], -1
                 );
-                $foreigner = PMA_searchColumnInForeigners($res_rel, $field_name);
+                $foreigner = Relation::searchColumnInForeigners($res_rel, $field_name);
 
                 $linksTo = '';
                 if ($foreigner) {

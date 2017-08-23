@@ -6,6 +6,7 @@
  * @package PhpMyAdmin
  */
 use PhpMyAdmin\Message;
+use PhpMyAdmin\Relation;
 use PhpMyAdmin\Transformations;
 use PhpMyAdmin\Url;
 use PhpMyAdmin\Util;
@@ -74,7 +75,7 @@ function PMA_getHtmlForColumnsList(
 function PMA_getHtmlForCreateNewColumn(
     $num_fields, $db, $table, $columnMeta=array()
 ) {
-    $cfgRelation = PMA_getRelationsParam();
+    $cfgRelation = Relation::getRelationsParam();
     $content_cells = array();
     $available_mime = array();
     $mime_map = array();
@@ -82,7 +83,7 @@ function PMA_getHtmlForCreateNewColumn(
         $mime_map = Transformations::getMIME($db, $table);
         $available_mime = Transformations::getAvailableMIMEtypes();
     }
-    $comments_map = PMA_getComments($db, $table);
+    $comments_map = Relation::getComments($db, $table);
     for ($columnNumber = 0; $columnNumber < $num_fields; $columnNumber++) {
         $content_cells[$columnNumber] = array(
             'columnNumber' => $columnNumber,

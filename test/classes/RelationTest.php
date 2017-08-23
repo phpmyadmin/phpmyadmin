@@ -1,29 +1,24 @@
 <?php
 /* vim: set expandtab sw=4 ts=4 sts=4: */
 /**
- * tests for relation.lib.php
+ * tests for PhpMyAdmin\Relation
  *
  * @package PhpMyAdmin-test
  */
+namespace PhpMyAdmin\Tests;
 
-/*
- * Include to test.
- */
+use PhpMyAdmin\Relation;
 use PhpMyAdmin\Theme;
-
-
 
 require_once 'libraries/database_interface.inc.php';
 
-require_once 'libraries/relation.lib.php';
-
 /**
- * Tests for libraries/relation.lib.php
+ * Tests for PhpMyAdmin\Relation
  *
  * @package PhpMyAdmin-test
  * @group medium
  */
-class PMA_Relation_Test extends PHPUnit_Framework_TestCase
+class RelationTest extends \PHPUnit_Framework_TestCase
 {
     /**
      * Sets up the fixture, for example, opens a network connection.
@@ -45,12 +40,10 @@ class PMA_Relation_Test extends PHPUnit_Framework_TestCase
 
         $GLOBALS['pmaThemePath'] = $GLOBALS['PMA_Theme']->getPath();
         $GLOBALS['cfg']['ServerDefault'] = 0;
-
-        include_once 'libraries/relation.lib.php';
     }
 
     /**
-     * Test for PMA_queryAsControlUser
+     * Test for Relation::queryAsControlUser
      *
      * @return void
      */
@@ -73,22 +66,22 @@ class PMA_Relation_Test extends PHPUnit_Framework_TestCase
         $sql = "insert into PMA_bookmark A,B values(1, 2)";
         $this->assertEquals(
             'executeResult1',
-            PMA_queryAsControlUser($sql)
+            Relation::queryAsControlUser($sql)
         );
         $this->assertEquals(
             'executeResult2',
-            PMA_queryAsControlUser($sql, false)
+            Relation::queryAsControlUser($sql, false)
         );
     }
 
     /**
-     * Test for PMA_getRelationsParam & PMA_getRelationsParamDiagnostic
+     * Test for Relation::getRelationsParam & Relation::getRelationsParamDiagnostic
      *
      * @return void
      */
     public function testPMAGetRelationsParam()
     {
-        $relationsPara = PMA_getRelationsParam();
+        $relationsPara = Relation::getRelationsParam();
         $this->assertEquals(
             false,
             $relationsPara['relwork']
@@ -106,7 +99,7 @@ class PMA_Relation_Test extends PHPUnit_Framework_TestCase
             $relationsPara['db']
         );
 
-        $retval = PMA_getRelationsParamDiagnostic($relationsPara);
+        $retval = Relation::getRelationsParamDiagnostic($relationsPara);
         //check $cfg['Servers'][$i]['pmadb']
         $this->assertContains(
             "\$cfg['Servers'][\$i]['pmadb']",
@@ -153,7 +146,7 @@ class PMA_Relation_Test extends PHPUnit_Framework_TestCase
         );
 
         $relationsPara['db'] = false;
-        $retval = PMA_getRelationsParamDiagnostic($relationsPara);
+        $retval = Relation::getRelationsParamDiagnostic($relationsPara);
 
         $result = __('General relation features');
         $this->assertContains(
@@ -173,7 +166,7 @@ class PMA_Relation_Test extends PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test for PMA_getDisplayField
+     * Test for Relation::getDisplayField
      *
      * @return void
      */
@@ -183,27 +176,27 @@ class PMA_Relation_Test extends PHPUnit_Framework_TestCase
         $table = 'CHARACTER_SETS';
         $this->assertEquals(
             'DESCRIPTION',
-            PMA_getDisplayField($db, $table)
+            Relation::getDisplayField($db, $table)
         );
 
         $db = 'information_schema';
         $table = 'TABLES';
         $this->assertEquals(
             'TABLE_COMMENT',
-            PMA_getDisplayField($db, $table)
+            Relation::getDisplayField($db, $table)
         );
 
         $db = 'information_schema';
         $table = 'PMA';
         $this->assertEquals(
             false,
-            PMA_getDisplayField($db, $table)
+            Relation::getDisplayField($db, $table)
         );
 
     }
 
     /**
-     * Test for PMA_getComments
+     * Test for Relation::getComments
      *
      * @return void
      */
@@ -236,7 +229,7 @@ class PMA_Relation_Test extends PHPUnit_Framework_TestCase
         $db = 'information_schema';
         $this->assertEquals(
             array(''),
-            PMA_getComments($db)
+            Relation::getComments($db)
         );
 
         $db = 'information_schema';
@@ -246,12 +239,12 @@ class PMA_Relation_Test extends PHPUnit_Framework_TestCase
                 'field1' => 'Comment1',
                 'field2' => 'Comment1'
             ),
-            PMA_getComments($db, $table)
+            Relation::getComments($db, $table)
         );
     }
 
     /**
-     * Test for PMA_tryUpgradeTransformations
+     * Test for Relation::tryUpgradeTransformations
      *
      * @return void
      */
@@ -275,14 +268,14 @@ class PMA_Relation_Test extends PHPUnit_Framework_TestCase
         $GLOBALS['cfg']['Server']['column_info'] = 'column_info';
 
         // Case 1
-        $actual = PMA_tryUpgradeTransformations();
+        $actual = Relation::tryUpgradeTransformations();
         $this->assertEquals(
             false,
             $actual
         );
 
         // Case 2
-        $actual = PMA_tryUpgradeTransformations();
+        $actual = Relation::tryUpgradeTransformations();
         $this->assertEquals(
             true,
             $actual
@@ -290,7 +283,7 @@ class PMA_Relation_Test extends PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test for PMA_searchColumnInForeigners
+     * Test for Relation::searchColumnInForeigners
      *
      * @return void
      */
@@ -316,7 +309,7 @@ class PMA_Relation_Test extends PHPUnit_Framework_TestCase
             )
         );
 
-        $foreigner = PMA_searchColumnInForeigners($foreigners, 'id');
+        $foreigner = Relation::searchColumnInForeigners($foreigners, 'id');
         $expected = array();
         $expected['foreign_field'] = 'id';
         $expected['foreign_db'] = 'GSoC14';

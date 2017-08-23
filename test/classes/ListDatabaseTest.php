@@ -13,7 +13,6 @@ $GLOBALS['cfg']['Server']['DisableIS'] = false;
 /*
  * Include to test.
  */
-require_once 'libraries/relation.lib.php';
 require_once 'test/PMATestCase.php';
 
 /**

@@ -151,7 +151,7 @@
 
     <?php if ($cfgRelation['displaywork']): ?>
         <?php $save_row = array_values($columns);?>
-        <?php $disp = PMA_getDisplayField($db, $table); ?>
+        <?php $disp = PhpMyAdmin\Relation::getDisplayField($db, $table); ?>
         <fieldset>
             <label><?= __('Choose column to display:'); ?></label>
             <select name="display_field">

@@ -13,8 +13,9 @@
  */
 use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Message;
-use PhpMyAdmin\Plugins\Export\ExportSql;
 use PhpMyAdmin\Operations;
+use PhpMyAdmin\Plugins\Export\ExportSql;
+use PhpMyAdmin\Relation;
 use PhpMyAdmin\Response;
 use PhpMyAdmin\Util;
 
@@ -199,14 +200,14 @@ if (strlen($GLOBALS['db']) > 0
  * Settings for relations stuff
  */
 
-$cfgRelation = PMA_getRelationsParam();
+$cfgRelation = Relation::getRelationsParam();
 
 /**
  * Check if comments were updated
  * (must be done before displaying the menu tabs)
  */
 if (isset($_REQUEST['comment'])) {
-    PMA_setDbComment($GLOBALS['db'], $_REQUEST['comment']);
+    Relation::setDbComment($GLOBALS['db'], $_REQUEST['comment']);
 }
 
 require 'libraries/db_common.inc.php';
@@ -303,7 +304,7 @@ if ($cfgRelation['pdfwork'] && $num_tables > 0) {
         . '.' . Util::backquote($cfgRelation['pdf_pages']) . '
         WHERE db_name = \'' . $GLOBALS['dbi']->escapeString($GLOBALS['db'])
         . '\'';
-    $test_rs = PMA_queryAsControlUser(
+    $test_rs = Relation::queryAsControlUser(
         $test_query,
         false,
         DatabaseInterface::QUERY_STORE

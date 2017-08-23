@@ -14,6 +14,7 @@ use PhpMyAdmin\DisplayResults;
 use PhpMyAdmin\Index;
 use PhpMyAdmin\Message;
 use PhpMyAdmin\Operations;
+use PhpMyAdmin\Relation;
 use PhpMyAdmin\Response;
 use PhpMyAdmin\SqlParser\Statements\AlterStatement;
 use PhpMyAdmin\SqlParser\Statements\DropStatement;
@@ -192,9 +193,9 @@ class Sql
      */
     public static function getHtmlForRelationalColumnDropdown($db, $table, $column, $curr_value)
     {
-        $foreigners = PMA_getForeigners($db, $table, $column);
+        $foreigners = Relation::getForeigners($db, $table, $column);
 
-        $foreignData = PMA_getForeignData($foreigners, $column, false, '', '');
+        $foreignData = Relation::getForeignData($foreigners, $column, false, '', '');
 
         if ($foreignData['disp_row'] == null) {
             //Handle the case when number of values
@@ -214,7 +215,7 @@ class Sql
                 . __('Browse foreign values')
                 . '</a>';
         } else {
-            $dropdown = PMA_foreignDropdown(
+            $dropdown = Relation::foreignDropdown(
                 $foreignData['disp_row'],
                 $foreignData['foreign_field'],
                 $foreignData['foreign_display'],

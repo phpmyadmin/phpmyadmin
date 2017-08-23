@@ -12,6 +12,7 @@ use PhpMyAdmin\Plugins\Schema\Dia\TableStatsDia;
 use PhpMyAdmin\Plugins\Schema\ExportRelationSchema;
 use PhpMyAdmin\Plugins\Schema\Pdf\TableStatsPdf;
 use PhpMyAdmin\Plugins\Schema\Svg\TableStatsSvg;
+use PhpMyAdmin\Relation;
 
 /**
  * EPS Relation Schema Class
@@ -91,7 +92,7 @@ class EpsRelationSchema extends ExportRelationSchema
 
         $seen_a_relation = false;
         foreach ($alltables as $one_table) {
-            $exist_rel = PMA_getForeigners($this->db, $one_table, '', 'both');
+            $exist_rel = Relation::getForeigners($this->db, $one_table, '', 'both');
             if (!$exist_rel) {
                 continue;
             }

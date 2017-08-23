@@ -12,7 +12,6 @@ use PhpMyAdmin\Core;
 use PhpMyAdmin\DisplayResults;
 use PhpMyAdmin\Plugins\Transformations\Text_Plain_Link;
 
-require_once 'libraries/relation.lib.php';
 require_once 'test/PMATestCase.php';
 
 /**

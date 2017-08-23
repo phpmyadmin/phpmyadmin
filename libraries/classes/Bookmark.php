@@ -8,6 +8,7 @@
 namespace PhpMyAdmin;
 
 use PhpMyAdmin\DatabaseInterface;
+use PhpMyAdmin\Relation;
 use PhpMyAdmin\Util;
 
 /**
@@ -207,7 +208,7 @@ class Bookmark
             return $cfgBookmark;
         }
 
-        $cfgRelation = PMA_getRelationsParam();
+        $cfgRelation = Relation::getRelationsParam();
         if ($cfgRelation['bookmarkwork']) {
             $cfgBookmark = array(
                 'user'  => $GLOBALS['cfg']['Server']['user'],

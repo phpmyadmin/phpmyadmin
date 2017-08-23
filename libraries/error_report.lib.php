@@ -5,6 +5,7 @@
  *
  * @package PhpMyAdmin
  */
+use PhpMyAdmin\Relation;
 use PhpMyAdmin\Url;
 
 if (! defined('PHPMYADMIN')) {
@@ -48,7 +49,7 @@ function PMA_getPrettyReportData()
  */
 function PMA_getReportData($exception_type = 'js')
 {
-    $relParams = PMA_getRelationsParam();
+    $relParams = Relation::getRelationsParam();
     // common params for both, php & js exceptions
     $report = array(
             "pma_version" => PMA_VERSION,

@@ -9,12 +9,12 @@
 /*
  * Include to test.
  */
+use PhpMyAdmin\Relation;
 use PhpMyAdmin\Table;
 use PhpMyAdmin\Theme;
 use PhpMyAdmin\Util;
 
 require_once 'libraries/database_interface.inc.php';
-require_once 'libraries/relation.lib.php';
 require_once 'test/PMATestCase.php';
 
 /**
@@ -44,7 +44,7 @@ class TableTest extends PMATestCase
         $GLOBALS['sql_drop_table'] = true;
         $GLOBALS['cfg']['Server']['table_uiprefs'] = "pma__table_uiprefs";
 
-        $GLOBALS['cfgRelation'] = PMA_getRelationsParam();
+        $GLOBALS['cfgRelation'] = Relation::getRelationsParam();
         $GLOBALS['dblist'] = new DataBasePMAMock();
         $GLOBALS['dblist']->databases = new DataBaseMock();
 

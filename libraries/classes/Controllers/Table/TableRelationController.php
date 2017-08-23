@@ -11,6 +11,7 @@ use PhpMyAdmin\Controllers\TableController;
 use PhpMyAdmin\Core;
 use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Index;
+use PhpMyAdmin\Relation;
 use PhpMyAdmin\Table;
 use PhpMyAdmin\Template;
 use PhpMyAdmin\Util;
@@ -130,20 +131,20 @@ class TableRelationController extends TableController
 
         // If we did an update, refresh our data
         if (isset($_POST['destination_db']) && $this->cfgRelation['relwork']) {
-            $this->existrel = PMA_getForeigners(
+            $this->existrel = Relation::getForeigners(
                 $this->db, $this->table, '', 'internal'
             );
         }
         if (isset($_POST['destination_foreign_db'])
             && Util::isForeignKeySupported($this->tbl_storage_engine)
         ) {
-            $this->existrel_foreign = PMA_getForeigners(
+            $this->existrel_foreign = Relation::getForeigners(
                 $this->db, $this->table, '', 'foreign'
             );
         }
 
         if ($this->cfgRelation['displaywork']) {
-            $this->disp = PMA_getDisplayField($this->db, $this->table);
+            $this->disp = Relation::getDisplayField($this->db, $this->table);
         }
 
         // display secondary level tabs if necessary
@@ -157,7 +158,7 @@ class TableRelationController extends TableController
                         'table' => $GLOBALS['table']
                     ),
                     'is_foreign_key_supported' => Util::isForeignKeySupported($engine),
-                    'cfg_relation' => PMA_getRelationsParam(),
+                    'cfg_relation' => Relation::getRelationsParam(),
                 )
             )
         );

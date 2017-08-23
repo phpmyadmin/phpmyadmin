@@ -7,8 +7,9 @@
  */
 use PhpMyAdmin\Charsets;
 use PhpMyAdmin\Message;
-use PhpMyAdmin\Util;
+use PhpMyAdmin\Relation;
 use PhpMyAdmin\Url;
+use PhpMyAdmin\Util;
 
 /**
  * Defines the central_columns parameters for the current user
@@ -24,7 +25,7 @@ function PMA_centralColumnsGetParams()
         return $cfgCentralColumns;
     }
 
-    $cfgRelation = PMA_getRelationsParam();
+    $cfgRelation = Relation::getRelationsParam();
 
     if ($cfgRelation['centralcolumnswork']) {
         $cfgCentralColumns = array(
@@ -409,7 +410,7 @@ function PMA_makeConsistentWithList($db, $selected_tables)
         $has_list = PMA_getCentralColumnsFromTable($db, $table, true);
         $GLOBALS['dbi']->selectDb($db, $GLOBALS['userlink']);
         foreach ($has_list as $column) {
-            $column_status = PMA_checkChildForeignReferences(
+            $column_status = Relation::checkChildForeignReferences(
                 $db, $table, $column['col_name']
             );
             //column definition can only be changed if

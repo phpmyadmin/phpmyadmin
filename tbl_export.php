@@ -6,6 +6,7 @@
  * @package PhpMyAdmin
  */
 use PhpMyAdmin\Config\PageSettings;
+use PhpMyAdmin\Relation;
 use PhpMyAdmin\Response;
 
 /**
@@ -24,7 +25,7 @@ $scripts  = $header->getScripts();
 $scripts->addFile('export.js');
 
 // Get the relation settings
-$cfgRelation = PMA_getRelationsParam();
+$cfgRelation = Relation::getRelationsParam();
 
 // handling export template actions
 if (isset($_REQUEST['templateAction']) && $cfgRelation['exporttemplateswork']) {

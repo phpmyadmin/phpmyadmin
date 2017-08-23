@@ -6,17 +6,14 @@
  * @package PhpMyAdmin-test
  */
 
-/*
- * Include to test.
- */
-
-
-require_once 'libraries/database_interface.inc.php';
-
-require_once 'libraries/relation.lib.php';
-require_once 'libraries/relation_cleanup.lib.php';
-
 use PhpMyAdmin\DatabaseInterface;
+use PhpMyAdmin\Relation;
+
+/*
+* Include to test.
+*/
+require_once 'libraries/database_interface.inc.php';
+require_once 'libraries/relation_cleanup.lib.php';
 
 /**
  * PMA_Relation_Cleanup_Test class
@@ -87,13 +84,13 @@ class PMA_Relation_Cleanup_Test extends PHPUnit_Framework_TestCase
         $this->redefineRelation();
 
         //the $cfgRelation value before cleanup column
-        $cfgRelation = PMA_checkRelationsParam();
+        $cfgRelation = Relation::checkRelationsParam();
         $this->assertEquals(
             true,
             $cfgRelation['commwork']
         );
-        //validate PMA_getDbComments when commwork = true
-        $db_comments = PMA_getDbComments();
+        //validate Relation::getDbComments when commwork = true
+        $db_comments = Relation::getDbComments();
         $this->assertEquals(
             array('db_name0' => 'comment0','db_name1' => 'comment1'),
             $db_comments
@@ -103,8 +100,8 @@ class PMA_Relation_Cleanup_Test extends PHPUnit_Framework_TestCase
             true,
             $cfgRelation['displaywork']
         );
-        //validate PMA_getDisplayField when displaywork = true
-        $display_field = PMA_getDisplayField($db, $table);
+        //validate Relation::getDisplayField when displaywork = true
+        $display_field = Relation::getDisplayField($db, $table);
         $this->assertEquals(
             'PMA_display_field',
             $display_field
@@ -130,7 +127,7 @@ class PMA_Relation_Cleanup_Test extends PHPUnit_Framework_TestCase
         PMA_relationsCleanupColumn($db, $table, $column);
 
         //the $cfgRelation value after cleanup column
-        $cfgRelation = PMA_checkRelationsParam();
+        $cfgRelation = Relation::checkRelationsParam();
 
         $is_defined_column_info
             = isset($cfgRelation['column_info'])? $cfgRelation['column_info'] : null;
@@ -166,7 +163,7 @@ class PMA_Relation_Cleanup_Test extends PHPUnit_Framework_TestCase
         $this->redefineRelation();
 
         //the $cfgRelation value before cleanup column
-        $cfgRelation = PMA_checkRelationsParam();
+        $cfgRelation = Relation::checkRelationsParam();
         $this->assertEquals(
             'column_info',
             $cfgRelation['column_info']
@@ -188,7 +185,7 @@ class PMA_Relation_Cleanup_Test extends PHPUnit_Framework_TestCase
         PMA_relationsCleanupTable($db, $table);
 
         //the $cfgRelation value after cleanup column
-        $cfgRelation = PMA_checkRelationsParam();
+        $cfgRelation = Relation::checkRelationsParam();
 
         $is_defined_column_info
             = isset($cfgRelation['column_info'])? $cfgRelation['column_info'] : null;
@@ -230,7 +227,7 @@ class PMA_Relation_Cleanup_Test extends PHPUnit_Framework_TestCase
         $this->redefineRelation();
 
         //the $cfgRelation value before cleanup column
-        $cfgRelation = PMA_checkRelationsParam();
+        $cfgRelation = Relation::checkRelationsParam();
         $this->assertEquals(
             'column_info',
             $cfgRelation['column_info']
@@ -260,7 +257,7 @@ class PMA_Relation_Cleanup_Test extends PHPUnit_Framework_TestCase
         PMA_relationsCleanupDatabase($db);
 
         //the value after cleanup column
-        $cfgRelation = PMA_checkRelationsParam();
+        $cfgRelation = Relation::checkRelationsParam();
 
         $is_defined_column_info
             = isset($cfgRelation['column_info'])? $cfgRelation['column_info'] : null;

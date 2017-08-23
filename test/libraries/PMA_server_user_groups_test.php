@@ -9,13 +9,10 @@
 use PhpMyAdmin\Theme;
 use PhpMyAdmin\Url;
 
-
-
-require_once 'libraries/relation.lib.php';
-require_once 'libraries/database_interface.inc.php';
 /*
  * Include to test.
  */
+require_once 'libraries/database_interface.inc.php';
 require_once 'libraries/server_user_groups.lib.php';
 
 /**

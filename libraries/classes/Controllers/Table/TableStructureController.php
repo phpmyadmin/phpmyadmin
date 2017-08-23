@@ -12,6 +12,7 @@ use PhpMyAdmin\Controllers\TableController;
 use PhpMyAdmin\Core;
 use PhpMyAdmin\Index;
 use PhpMyAdmin\Message;
+use PhpMyAdmin\Relation;
 use PhpMyAdmin\Sql;
 use PhpMyAdmin\SqlParser\Context;
 use PhpMyAdmin\SqlParser\Parser;
@@ -257,7 +258,7 @@ class TableStructureController extends TableController
                         'table' => $this->table
                     ),
                     'is_foreign_key_supported' => Util::isForeignKeySupported($engine),
-                    'cfg_relation' => PMA_getRelationsParam(),
+                    'cfg_relation' => Relation::getRelationsParam(),
                 )
             )
         );
@@ -304,7 +305,7 @@ class TableStructureController extends TableController
         /**
          * Gets the relation settings
          */
-        $cfgRelation = PMA_getRelationsParam();
+        $cfgRelation = Relation::getRelationsParam();
 
         /**
          * Runs common work
@@ -1029,7 +1030,7 @@ class TableStructureController extends TableController
         if (isset($_REQUEST['field_orig']) && is_array($_REQUEST['field_orig'])) {
             foreach ($_REQUEST['field_orig'] as $fieldindex => $fieldcontent) {
                 if ($_REQUEST['field_name'][$fieldindex] != $fieldcontent) {
-                    PMA_REL_renameField(
+                    Relation::renameField(
                         $this->db, $this->table, $fieldcontent,
                         $_REQUEST['field_name'][$fieldindex]
                     );
@@ -1172,7 +1173,7 @@ class TableStructureController extends TableController
         $mime_map = array();
 
         if ($GLOBALS['cfg']['ShowPropertyComments']) {
-            $comments_map = PMA_getComments($this->db, $this->table);
+            $comments_map = Relation::getComments($this->db, $this->table);
             if ($cfgRelation['mimework'] && $GLOBALS['cfg']['BrowseMIME']) {
                 $mime_map = Transformations::getMIME($this->db, $this->table, true);
             }

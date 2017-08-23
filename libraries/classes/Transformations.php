@@ -18,6 +18,7 @@
 namespace PhpMyAdmin;
 
 use PhpMyAdmin\DatabaseInterface;
+use PhpMyAdmin\Relation;
 use PhpMyAdmin\Util;
 
 /**
@@ -249,7 +250,7 @@ class Transformations
      */
     public static function getMIME($db, $table, $strict = false, $fullName = false)
     {
-        $cfgRelation = PMA_getRelationsParam();
+        $cfgRelation = Relation::getRelationsParam();
 
         if (! $cfgRelation['mimework']) {
             return false;
@@ -326,7 +327,7 @@ class Transformations
     public static function setMIME($db, $table, $key, $mimetype, $transformation,
         $transformationOpts, $inputTransform, $inputTransformOpts, $forcedelete = false
     ) {
-        $cfgRelation = PMA_getRelationsParam();
+        $cfgRelation = Relation::getRelationsParam();
 
         if (! $cfgRelation['mimework']) {
             return false;
@@ -345,7 +346,7 @@ class Transformations
                 AND `table_name`  = \'' . $GLOBALS['dbi']->escapeString($table) . '\'
                 AND `column_name` = \'' . $GLOBALS['dbi']->escapeString($key) . '\'';
 
-        $test_rs   = PMA_queryAsControlUser(
+        $test_rs   = Relation::queryAsControlUser(
             $test_qry, true, DatabaseInterface::QUERY_STORE
         );
 
@@ -407,7 +408,7 @@ class Transformations
         }
 
         if (isset($upd_query)) {
-            return PMA_queryAsControlUser($upd_query);
+            return Relation::queryAsControlUser($upd_query);
         } else {
             return false;
         }
@@ -430,7 +431,7 @@ class Transformations
      */
     public static function clear($db, $table = '', $column = '')
     {
-        $cfgRelation = PMA_getRelationsParam();
+        $cfgRelation = Relation::getRelationsParam();
 
         if (! isset($cfgRelation['column_info'])) {
             return false;

@@ -8,6 +8,7 @@
 use PhpMyAdmin\Config\ConfigFile;
 use PhpMyAdmin\Core;
 use PhpMyAdmin\Message;
+use PhpMyAdmin\Relation;
 use PhpMyAdmin\Url;
 
 if (! defined('PHPMYADMIN')) {
@@ -47,7 +48,7 @@ function PMA_userprefsPageInit(ConfigFile $cf)
  */
 function PMA_loadUserprefs()
 {
-    $cfgRelation = PMA_getRelationsParam();
+    $cfgRelation = Relation::getRelationsParam();
     if (! $cfgRelation['userconfigwork']) {
         // no pmadb table, use session storage
         if (! isset($_SESSION['userconfig'])) {
@@ -85,7 +86,7 @@ function PMA_loadUserprefs()
  */
 function PMA_saveUserprefs(array $config_array)
 {
-    $cfgRelation = PMA_getRelationsParam();
+    $cfgRelation = Relation::getRelationsParam();
     $server = isset($GLOBALS['server'])
         ? $GLOBALS['server']
         : $GLOBALS['cfg']['ServerDefault'];

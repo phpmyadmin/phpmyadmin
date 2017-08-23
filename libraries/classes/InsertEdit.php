@@ -10,6 +10,7 @@ namespace PhpMyAdmin;
 use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Message;
 use PhpMyAdmin\Plugins\TransformationsPlugin;
+use PhpMyAdmin\Relation;
 use PhpMyAdmin\Response;
 use PhpMyAdmin\Sanitize;
 use PhpMyAdmin\Transformations;
@@ -504,7 +505,7 @@ class InsertEdit
      */
     public static function getNullifyCodeForNullColumn($column, $foreigners, $foreignData)
     {
-        $foreigner = PMA_searchColumnInForeigners($foreigners, $column['Field']);
+        $foreigner = Relation::searchColumnInForeigners($foreigners, $column['Field']);
         if (mb_strstr($column['True_Type'], 'enum')) {
             if (mb_strlen($column['Type']) > 20) {
                 $nullify_code = '1';
@@ -740,7 +741,7 @@ class InsertEdit
             . ($readOnly ? ' disabled' : '')
             . ' tabindex="' . ($tabindex + $tabindex_for_value) . '"'
             . ' id="field_' . $idindex . '_3">';
-        $html_output .= PMA_foreignDropdown(
+        $html_output .= Relation::foreignDropdown(
             $foreignData['disp_row'], $foreignData['foreign_field'],
             $foreignData['foreign_display'], $data,
             $GLOBALS['cfg']['ForeignKeyMaxLimit']
@@ -2090,8 +2091,8 @@ class InsertEdit
     public static function getDisplayValueForForeignTableColumn($where_comparison,
         $map, $relation_field
     ) {
-        $foreigner = PMA_searchColumnInForeigners($map, $relation_field);
-        $display_field = PMA_getDisplayField(
+        $foreigner = Relation::searchColumnInForeigners($map, $relation_field);
+        $display_field = Relation::getDisplayField(
             $foreigner['foreign_db'],
             $foreigner['foreign_table']
         );
@@ -2133,7 +2134,7 @@ class InsertEdit
     public static function getLinkForRelationalDisplayField($map, $relation_field,
         $where_comparison, $dispval, $relation_field_value
     ) {
-        $foreigner = PMA_searchColumnInForeigners($map, $relation_field);
+        $foreigner = Relation::searchColumnInForeigners($map, $relation_field);
         if ('K' == $_SESSION['tmpval']['relational_display']) {
             // user chose "relational key" in the display options, so
             // the title contains the display field
@@ -2596,7 +2597,7 @@ class InsertEdit
         $comments_map = array();
 
         if ($GLOBALS['cfg']['ShowPropertyComments']) {
-            $comments_map = PMA_getComments($db, $table);
+            $comments_map = Relation::getComments($db, $table);
         }
 
         return $comments_map;
@@ -2854,7 +2855,7 @@ class InsertEdit
 
         // The function column
         // -------------------
-        $foreignData = PMA_getForeignData(
+        $foreignData = Relation::getForeignData(
             $foreigners, $column['Field'], false, '', ''
         );
         if ($GLOBALS['cfg']['ShowFunctionFields']) {

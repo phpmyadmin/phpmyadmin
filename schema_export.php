@@ -8,6 +8,7 @@
 
 use PhpMyAdmin\Core;
 use PhpMyAdmin\Plugins\SchemaPlugin;
+use PhpMyAdmin\Relation;
 
 /**
  * Gets some core libraries
@@ -18,7 +19,7 @@ require_once 'libraries/common.inc.php';
  * get all variables needed for exporting relational schema
  * in $cfgRelation
  */
-$cfgRelation = PMA_getRelationsParam();
+$cfgRelation = Relation::getRelationsParam();
 
 require_once 'libraries/pmd_common.php';
 require_once 'libraries/plugin_interface.lib.php';

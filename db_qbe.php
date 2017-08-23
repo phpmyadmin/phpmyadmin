@@ -5,7 +5,7 @@
  *
  * @package PhpMyAdmin
  */
-
+use PhpMyAdmin\Relation;
 use PhpMyAdmin\Response;
 use PhpMyAdmin\SavedSearches;
 use PhpMyAdmin\Sql;
@@ -19,7 +19,7 @@ require_once 'libraries/common.inc.php';
 $response = Response::getInstance();
 
 // Gets the relation settings
-$cfgRelation = PMA_getRelationsParam();
+$cfgRelation = Relation::getRelationsParam();
 
 $savedSearchList = array();
 $savedSearch = null;

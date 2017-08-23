@@ -17,7 +17,6 @@ $GLOBALS['server'] = 0;
 $GLOBALS['cfg']['Server']['DisableIS'] = false;
 
 require_once 'libraries/database_interface.inc.php';
-require_once 'libraries/relation.lib.php';
 require_once 'libraries/check_user_privileges.lib.php';
 require_once 'test/PMATestCase.php';
 
