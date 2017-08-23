@@ -462,6 +462,7 @@ function PMA_getHtmlForImport(
 
     $html .= PMA_getHtmlForImportOptionsSubmit();
 
+    $html .= '<input id="progressuuid" class="hide" type="text" name="progressuuid">';
     $html .= '</form>';
     $html .= '</div>';
 

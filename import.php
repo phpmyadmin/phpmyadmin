@@ -15,6 +15,8 @@ use PhpMyAdmin\Response;
 use PhpMyAdmin\Sql;
 use PhpMyAdmin\Url;
 use PhpMyAdmin\Util;
+use PhpMyAdmin\SqlParser\Parser;
+use PhpMyAdmin\SqlParser\Statements\CreateStatement;
 
 /* Enable LOAD DATA LOCAL INFILE for LDI plugin */
 if (isset($_POST['format']) && $_POST['format'] == 'ldi') {
@@ -90,7 +92,8 @@ $post_params = array(
     'message_to_show',
     'noplugin',
     'skip_queries',
-    'local_import_file'
+    'local_import_file',
+    'progressuuid'
 );
 
 foreach ($post_params as $one_post_param) {
@@ -673,6 +676,15 @@ if ($go_sql) {
     }
 
     $html_output = '';
+    $data = array();
+    $count = 0;
+    $cfgRelation = PMA_getRelationsParam();
+    $response->addJSON('progressuuid', $GLOBALS['progressuuid']);
+    if (!empty($cfgRelation['progress']) && !empty($cfgRelation['db'])) {
+        $html = '<div class="success hide" id="progressaction"></div>';
+        $html .= '<script>showAndUpdateProgress("import", "'.$GLOBALS['progressuuid'].'");</script>';
+        $response->addHTML($html);
+    }
 
     foreach ($sql_queries as $sql_query) {
 
@@ -703,6 +715,28 @@ if ($go_sql) {
             $table = $table_from_sql;
         }
 
+        $parser = new Parser($sql_query);
+        foreach ($parser->statements as $statement) {
+            if ($statement instanceof CreateStatement) {
+                if (empty($data)) {
+                    $data = array(str_replace('`', '', $statement->name));
+                } else {
+                    array_push($data, str_replace('`', '', $statement->name));
+                }
+                $count++;
+            }
+        }
+
+        if (!empty($cfgRelation['progress']) && !empty($cfgRelation['db'])) {
+            $progress_query = 'UPDATE ' .
+                PhpMyAdmin\Util::backquote($cfgRelation['db']) . '.' .
+                PhpMyAdmin\Util::backquote($cfgRelation['progress']) .
+                ' SET data = "' . $GLOBALS['dbi']->escapeString(implode(",", $data)) .
+                '" WHERE type = "import" AND uuid = "' .
+                $GLOBALS['dbi']->escapeString($GLOBALS['progressuuid']) . '"';
+            PMA_queryAsControlUser($progress_query);
+        }
+
         $html_output .= Sql::executeQueryAndGetQueryResponse(
             $analyzed_sql_results, // analyzed_sql_results
             false, // is_gotofile
@@ -723,6 +757,17 @@ if ($go_sql) {
             null, // selectedTables
             null // complete_query
         );
+    }
+
+    if (!empty($cfgRelation['progress']) && !empty($cfgRelation['db'])) {
+        $progress_query = 'UPDATE ' .
+            PhpMyAdmin\Util::backquote($cfgRelation['db']) . '.' .
+            PhpMyAdmin\Util::backquote($cfgRelation['progress']) .
+            ' SET value = ' . $count .
+            ', total = ' . $count.
+            ' WHERE type = "import" AND uuid = "' .
+            $GLOBALS['dbi']->escapeString($GLOBALS['progressuuid']) . '"';
+        PMA_queryAsControlUser($progress_query);
     }
 
     // sql_query_for_bookmark is not included in Sql::executeQueryAndGetQueryResponse

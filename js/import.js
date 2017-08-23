@@ -155,4 +155,12 @@ AJAX.registerOnload('import.js', function () {
         return true;
     });
 
+    $('#buttonGo').click(function () {
+        var path = window.location.pathname;
+        var page = path.split("/").pop();
+        // Show progress only for server and database import
+        if (page != 'tbl_import.php') {
+            createProgress("import");
+        }
+    });
 });

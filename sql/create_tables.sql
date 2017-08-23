@@ -353,3 +353,20 @@ CREATE TABLE IF NOT EXISTS `pma__export_templates` (
 )
   COMMENT='Saved export templates'
   DEFAULT CHARACTER SET utf8 COLLATE utf8_bin;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `pma__progress`
+--
+
+CREATE TABLE IF NOT EXISTS `pma__progress` (
+  `uuid` varchar(36) NOT NULL,
+  `type` varchar(64) NOT NULL,
+  `data` text NOT NULL,
+  `value` int(50) unsigned NOT NULL,
+  `total` int(50) unsigned NOT NULL,
+  UNIQUE KEY `uuid` (`uuid`)
+)
+  COMMENT='Saved import/export progress data'
+  DEFAULT CHARACTER SET utf8 COLLATE utf8_bin;

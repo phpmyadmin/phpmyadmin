@@ -13,6 +13,10 @@ use PhpMyAdmin\Url;
 use PhpMyAdmin\Util;
 use PhpMyAdmin\Sanitize;
 
+// Export progress variables
+$data = array();
+$count = 0;
+$total = 0;
 /**
  * Get the variables sent or posted to this script and a core script
  */
@@ -162,7 +166,8 @@ $post_params = array(
         'latex_data_continued_caption',
         'latex_data_label',
         'latex_null',
-        'aliases'
+        'aliases',
+        'progressuuid'
 );
 
 foreach ($post_params as $one_post_param) {
@@ -369,6 +374,7 @@ if ($save_on_server) {
         $filename = Sanitize::sanitizeFilename($filename);
 
         Core::downloadHeader($filename, $mime_type);
+
     } else {
         // HTML
         if ($export_type == 'database') {
@@ -426,9 +432,10 @@ do {
         PMA_exportServer(
             $db_select, $whatStrucOrData, $export_plugin, $crlf, $err_url,
             $export_type, $do_relation, $do_comments, $do_mime, $do_dates,
-            $aliases, $separate_files
+            $aliases, $separate_files, $GLOBALS['progressuuid']
         );
     } elseif ($export_type == 'database') {
+        $total = 1;
         if (!isset($table_structure) || !is_array($table_structure)) {
             $table_structure = array();
         }
@@ -446,7 +453,7 @@ do {
                     $db, $tables, $whatStrucOrData, $table_structure,
                     $table_data, $export_plugin, $crlf, $err_url, $export_type,
                     $do_relation, $do_comments, $do_mime, $do_dates, $aliases,
-                    $separate_files
+                    $separate_files, $GLOBALS['progressuuid']
                 );
             } finally {
                 PMA_unlockTables();
@@ -455,7 +462,8 @@ do {
             PMA_exportDatabase(
                 $db, $tables, $whatStrucOrData, $table_structure, $table_data,
                 $export_plugin, $crlf, $err_url, $export_type, $do_relation,
-                $do_comments, $do_mime, $do_dates, $aliases, $separate_files
+                $do_comments, $do_mime, $do_dates, $aliases, $separate_files,
+                $GLOBALS['progressuuid']
             );
         }
     } else {

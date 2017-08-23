@@ -4919,6 +4919,103 @@ function toggleDatepickerIfInvalid($td, $input_field) {
     }
 }
 
+/**
+ *
+ * function to generate uuid.
+ *
+ */
+function generateUUID () {
+    var d = new Date().getTime();
+    if (typeof performance !== 'undefined' && typeof performance.now === 'function'){
+        d += performance.now();
+    }
+    return 'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'.replace(/[xy]/g, function (c) {
+        var r = (d + Math.random() * 16) % 16 | 0;
+        d = Math.floor(d / 16);
+        return (c === 'x' ? r : (r & 0x3 | 0x8)).toString(16);
+    });
+}
+
+/**
+ * function to start tracking the status of progress.
+ *
+ *  @param type type of progress
+ *
+ */
+function createProgress(type) {
+    var  uuid = generateUUID();
+    $('#progressuuid').val(uuid);
+    var params = {
+        ajax_request : true,
+        uuid: uuid,
+        name: 'create',
+        type : type
+    };
+    $.post('progress.php', params, function (response) {
+        if (response.success === true) {
+            if (type == 'export'){
+                $('#progressaction').html(PMA_getImage('s_success.png').toString() + ' Started processing ' + type + '<br>');
+                showAndUpdateProgress(type, uuid);
+            }
+        }
+    });
+}
+
+/**
+ * function to update the progress status.
+ *
+ *  @param type type of progress
+ *  @param uuid uuid of progress
+ *
+ */
+function showAndUpdateProgress(type, uuid) {
+    $('#progressaction').show();
+    var params = {
+        ajax_request : true,
+        uuid: uuid,
+        name: 'update',
+        type : type
+    };
+    var progressInterval = setTimeout(function () {
+        $.post('progress.php', params, function (response) {
+            if (response.success === true) {
+                if (response.message !== "null") {
+                    var data = JSON.parse(response.message);
+                    data[2] = data[2].split(',');
+                    for (i = 0; i < data[2].length; i++) {
+                        $('#progressaction').append(PMA_getImage('s_success.png').toString() + ' Processing table ' + data[2][i] + '<br>');
+                    }
+                    if(data[3] == data[4]){
+                        clearTimeout(progressInterval);
+                        deleteProgress(type, uuid);
+                    }
+                }
+            }
+        });
+    }, 500);
+}
+
+/**
+ * function to delete the progress status.
+ *
+ *  @param type type of progress
+ *  @param uuid uuid of progress
+ *
+ */
+function deleteProgress(type, uuid) {
+    var params = {
+        ajax_request : true,
+        uuid : uuid,
+        name: 'delete',
+        type : type
+    };
+    $.post('progress.php', params, function (response) {
+        if (response.success === true) {
+            $('#progressaction').append(PMA_getImage('s_success.png').toString() + ' ' + params.type + ' completed successfully');
+        }
+    });
+}
+
 /*
  * Function to submit the login form after validation is done.
  */
