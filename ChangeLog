@@ -32,6 +32,7 @@ phpMyAdmin - ChangeLog
 - issue #12261 Remove inline JavaScript
 - issue #13408 Show MySQL warnings when executing SQL queries
 - issue #5827  Allow Designer to show tables from other databases
+- issue #13268 Replace Query-By-Example with multi-table query generator interface
 
 4.7.5 (not yet released)
 
