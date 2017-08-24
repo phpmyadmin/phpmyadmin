@@ -1,6 +1,8 @@
 phpMyAdmin - ChangeLog
 ======================
 
+4.7.5 (not yet released)
+
 4.7.4 (2017-08-23)
 - issue #13415 Remove shadow from the logo
 - issue #13507 Fixed per server theme feature
