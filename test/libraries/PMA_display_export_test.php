@@ -146,6 +146,8 @@ class PMA_DisplayExport_Test extends PHPUnit_Framework_TestCase
 
         $dbi->expects($this->any())->method('getColumnsFull')
             ->will($this->returnValue($columns_info));
+        $dbi->expects($this->any())->method('getCompatibilities')
+            ->will($this->returnValue(array()));
 
         $GLOBALS['dbi'] = $dbi;
 

@@ -53,7 +53,7 @@
                             || $tbl_storage_engine == 'ARIA'
                             || $tbl_storage_engine == 'MARIA'
                             || $tbl_storage_engine == 'BDB')): ?>
-                    <tr class="tblFooters">
+                    <tr class="tblFooters print_ignore">
                         <td colspan="3" class="center">
                             <a href="sql.php<?= $url_query; ?>&pos=0&amp;sql_query=<?= urlencode(
                                     'OPTIMIZE TABLE ' . PMA\libraries\Util::backquote($GLOBALS['table'])); ?>">

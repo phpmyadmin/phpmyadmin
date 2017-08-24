@@ -1,9 +1,9 @@
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: phpMyAdmin 4.7.3-dev\n"
+"Project-Id-Version: phpMyAdmin 4.7.4-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
-"POT-Creation-Date: 2017-07-18 13:29+0200\n"
+"POT-Creation-Date: 2017-08-10 09:13-0400\n"
 "PO-Revision-Date: 2016-11-18 10:31+0000\n"
 "Last-Translator: Michal Čihař <michal@cihar.com>\n"
 "Language-Team: Albanian <https://hosted.weblate.org/projects/phpmyadmin/"
@@ -489,7 +489,7 @@ msgstr "Shto gjeometri"
 #: libraries/server_privileges.lib.php:692
 #: libraries/server_privileges.lib.php:2194
 #: libraries/server_privileges.lib.php:3076
-#: libraries/server_user_groups.lib.php:285
+#: libraries/server_user_groups.lib.php:284
 #: libraries/sql_query_form.lib.php:373 libraries/sql_query_form.lib.php:435
 #: libraries/tracking.lib.php:544 libraries/tracking.lib.php:667
 #: prefs_manage.php:285 prefs_manage.php:369 server_privileges.php:307
@@ -2998,12 +2998,12 @@ msgstr "Dështoi në ekzekutimin e testit për rregullin '%s'."
 msgid "Failed formatting string for rule '%s'."
 msgstr "Dështoi në formattimn e vargut për rregullin '%s'."
 
-#: libraries/Advisor.php:469
+#: libraries/Advisor.php:486
 #, php-format
 msgid "Error in reading file: The file '%s' does not exist or is not readable!"
 msgstr ""
 
-#: libraries/Advisor.php:494
+#: libraries/Advisor.php:511
 #, php-format
 msgid ""
 "Invalid rule declaration on line %1$s, expected line %2$s of previous rule."
@@ -3011,17 +3011,17 @@ msgstr ""
 "Deklaratë e pavlefshme rregulli në linjën %1$s, pritet linja %2$s nga "
 "rregulli i mëparshëm."
 
-#: libraries/Advisor.php:513
+#: libraries/Advisor.php:530
 #, php-format
 msgid "Invalid rule declaration on line %s."
 msgstr "Deklaratë e pavlefshme rregulli në linjën %s."
 
-#: libraries/Advisor.php:521
+#: libraries/Advisor.php:538
 #, php-format
 msgid "Unexpected characters on line %s."
 msgstr "Karakter i papritur në linjën %s."
 
-#: libraries/Advisor.php:536
+#: libraries/Advisor.php:553
 #, php-format
 msgid "Unexpected character on line %1$s. Expected tab, but found \"%2$s\"."
 msgstr ""
@@ -3049,7 +3049,7 @@ msgstr "Përshtatja"
 #: libraries/Charsets.php:244
 #, fuzzy
 #| msgid "unknown"
-msgid "Unknonwn"
+msgid "Unknown"
 msgstr "e panjohur"
 
 #: libraries/Charsets.php:258
@@ -4013,7 +4013,7 @@ msgstr "Shfaq printimin"
 msgid "Click on the bar to scroll to top of page"
 msgstr "Kliko mbi shirit për të lëvizur në krye të faqes"
 
-#: libraries/Header.php:756 libraries/plugins/auth/AuthenticationCookie.php:152
+#: libraries/Header.php:758 libraries/plugins/auth/AuthenticationCookie.php:152
 msgid "Javascript must be enabled past this point!"
 msgstr "Javascript duhet të aftësohet për të kaluar këtë pikë!"
 
@@ -4627,7 +4627,7 @@ msgstr "merre atë"
 msgid "Default theme %s not found!"
 msgstr "Modeli standard %s nuk gjendet!"
 
-#: libraries/ThemeManager.php:204
+#: libraries/ThemeManager.php:203
 #, php-format
 msgid "Theme %s not found!"
 msgstr "Modeli %s nuk gjendet!"
@@ -5236,11 +5236,11 @@ msgstr "Indeks serveri i pavlefshëm: %s"
 msgid "Server %d"
 msgstr "Serveri %d"
 
-#: libraries/common.inc.php:654
+#: libraries/common.inc.php:656
 msgid "Invalid authentication method set in configuration:"
 msgstr "Metodë e pavlefshme autentifikimi e vendosur në konfigurim:"
 
-#: libraries/common.inc.php:758
+#: libraries/common.inc.php:760
 #, php-format
 msgid ""
 "Unable to use timezone %1$s for server %2$d. Please check your configuration "
@@ -5252,20 +5252,20 @@ msgstr ""
 "['SessionTimeZone'][/em]. phpMyAdmin përdor aktualisht zonën kohore të "
 "parazgjedhur të serverit të databazës."
 
-#: libraries/common.inc.php:796
+#: libraries/common.inc.php:798
 #, php-format
 msgid "You should upgrade to %s %s or later."
 msgstr "Duhet të aktualizoni tek %s %s ose më lart."
 
-#: libraries/common.inc.php:882
+#: libraries/common.inc.php:884
 msgid "Error: Token mismatch"
 msgstr "Gabim: mospërputhje e shenjave"
 
-#: libraries/common.inc.php:900
+#: libraries/common.inc.php:902
 msgid "GLOBALS overwrite attempt"
 msgstr "GLOBALS përpjekje mbishkrimi"
 
-#: libraries/common.inc.php:907
+#: libraries/common.inc.php:909
 msgid "possible exploit"
 msgstr "e mundur të shfrytëzohet"
 
@@ -13815,15 +13815,15 @@ msgstr "Meny e detyrave të grupi të përdoruesit"
 msgid "Group name:"
 msgstr "Emri i grupit:"
 
-#: libraries/server_user_groups.lib.php:272
+#: libraries/server_user_groups.lib.php:271
 msgid "Server-level tabs"
 msgstr "Tabelat e nivelit të serverit"
 
-#: libraries/server_user_groups.lib.php:275
+#: libraries/server_user_groups.lib.php:274
 msgid "Database-level tabs"
 msgstr "Tabelorët e nivelit të databazës"
 
-#: libraries/server_user_groups.lib.php:278
+#: libraries/server_user_groups.lib.php:277
 msgid "Table-level tabs"
 msgstr "Tabelori i nivelit të tabelës"
 
@@ -17191,6 +17191,11 @@ msgstr ""
 #: libraries/advisory_rules.txt:446
 msgid "concurrent_insert is set to 0"
 msgstr "concurrent_insert është vendosur në 0"
+
+#, fuzzy
+#~| msgid "unknown"
+#~ msgid "Unknonwn"
+#~ msgstr "e panjohur"
 
 #, fuzzy
 #~| msgid "Right"

@@ -1,9 +1,9 @@
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: phpMyAdmin 4.7.3-dev\n"
+"Project-Id-Version: phpMyAdmin 4.7.4-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
-"POT-Creation-Date: 2017-07-18 13:29+0200\n"
+"POT-Creation-Date: 2017-08-10 09:13-0400\n"
 "PO-Revision-Date: 2017-06-28 13:38+0000\n"
 "Last-Translator: Viktar Vauchkevich <victorenator@gmail.com>\n"
 "Language-Team: Belarusian <https://hosted.weblate.org/projects/"
@@ -475,7 +475,7 @@ msgstr "Дадаць геаметрыю"
 #: libraries/server_privileges.lib.php:692
 #: libraries/server_privileges.lib.php:2194
 #: libraries/server_privileges.lib.php:3076
-#: libraries/server_user_groups.lib.php:285
+#: libraries/server_user_groups.lib.php:284
 #: libraries/sql_query_form.lib.php:373 libraries/sql_query_form.lib.php:435
 #: libraries/tracking.lib.php:544 libraries/tracking.lib.php:667
 #: prefs_manage.php:285 prefs_manage.php:369 server_privileges.php:307
@@ -2851,12 +2851,12 @@ msgstr "Не атрымалася выканаць тэст для правіл�
 msgid "Failed formatting string for rule '%s'."
 msgstr "Не атрымаляся фарматаваць радок для правіла «%s»."
 
-#: libraries/Advisor.php:469
+#: libraries/Advisor.php:486
 #, php-format
 msgid "Error in reading file: The file '%s' does not exist or is not readable!"
 msgstr "Памылка пры чытанні файла: файл «%s» не існуе ці не чытаецца!"
 
-#: libraries/Advisor.php:494
+#: libraries/Advisor.php:511
 #, php-format
 msgid ""
 "Invalid rule declaration on line %1$s, expected line %2$s of previous rule."
@@ -2864,17 +2864,17 @@ msgstr ""
 "Некарэктная дэкларацыя правіла ў радку %1$s, чакаецца радок %2$s папярэдняга "
 "правіла."
 
-#: libraries/Advisor.php:513
+#: libraries/Advisor.php:530
 #, php-format
 msgid "Invalid rule declaration on line %s."
 msgstr "Некарэктнае азначэнне правіла ў радку %s."
 
-#: libraries/Advisor.php:521
+#: libraries/Advisor.php:538
 #, php-format
 msgid "Unexpected characters on line %s."
 msgstr "Нечаканыя знакі ў радку %s."
 
-#: libraries/Advisor.php:536
+#: libraries/Advisor.php:553
 #, php-format
 msgid "Unexpected character on line %1$s. Expected tab, but found \"%2$s\"."
 msgstr "Нечаканы знак у радку %1$s. Чакаецца табуляцыя, а знойдзена «%2$s»."
@@ -2899,7 +2899,10 @@ msgid "Collation"
 msgstr "Параўноўванне"
 
 #: libraries/Charsets.php:244
-msgid "Unknonwn"
+#, fuzzy
+#| msgctxt "Collation"
+#| msgid "Unknown"
+msgid "Unknown"
 msgstr "Невядома"
 
 #: libraries/Charsets.php:258
@@ -3769,7 +3772,7 @@ msgstr "Вэрсія для друку"
 msgid "Click on the bar to scroll to top of page"
 msgstr ""
 
-#: libraries/Header.php:756 libraries/plugins/auth/AuthenticationCookie.php:152
+#: libraries/Header.php:758 libraries/plugins/auth/AuthenticationCookie.php:152
 msgid "Javascript must be enabled past this point!"
 msgstr "Javascript мусіць быць уключаным!"
 
@@ -4382,7 +4385,7 @@ msgstr "гэтая"
 msgid "Default theme %s not found!"
 msgstr "Тэма па змоўчаньні %s ня знойдзеная!"
 
-#: libraries/ThemeManager.php:204
+#: libraries/ThemeManager.php:203
 #, php-format
 msgid "Theme %s not found!"
 msgstr "Тэма %s ня знойдзеная!"
@@ -4928,11 +4931,11 @@ msgstr "Некарэктны індэкс сервера: %s"
 msgid "Server %d"
 msgstr "Сервер %d"
 
-#: libraries/common.inc.php:654
+#: libraries/common.inc.php:656
 msgid "Invalid authentication method set in configuration:"
 msgstr "У канфігурацыі вызначаны некарэктны мэтад аўтэнтыфікацыі:"
 
-#: libraries/common.inc.php:758
+#: libraries/common.inc.php:760
 #, php-format
 msgid ""
 "Unable to use timezone %1$s for server %2$d. Please check your configuration "
@@ -4940,20 +4943,20 @@ msgid ""
 "currently using the default time zone of the database server."
 msgstr ""
 
-#: libraries/common.inc.php:796
+#: libraries/common.inc.php:798
 #, php-format
 msgid "You should upgrade to %s %s or later."
 msgstr "Вам трэба абнавіць %s да вэрсіі %s ці пазьнейшай."
 
-#: libraries/common.inc.php:882
+#: libraries/common.inc.php:884
 msgid "Error: Token mismatch"
 msgstr ""
 
-#: libraries/common.inc.php:900
+#: libraries/common.inc.php:902
 msgid "GLOBALS overwrite attempt"
 msgstr ""
 
-#: libraries/common.inc.php:907
+#: libraries/common.inc.php:909
 msgid "possible exploit"
 msgstr ""
 
@@ -12956,15 +12959,15 @@ msgstr "Прызначэнні меню груп карыстальнікаў"
 msgid "Group name:"
 msgstr "Назва групы:"
 
-#: libraries/server_user_groups.lib.php:272
+#: libraries/server_user_groups.lib.php:271
 msgid "Server-level tabs"
 msgstr "Укладкі сервернага ўзроўню"
 
-#: libraries/server_user_groups.lib.php:275
+#: libraries/server_user_groups.lib.php:274
 msgid "Database-level tabs"
 msgstr "Укладкі ўзроўню базы даных"
 
-#: libraries/server_user_groups.lib.php:278
+#: libraries/server_user_groups.lib.php:277
 msgid "Table-level tabs"
 msgstr "Укладкі таблічнага ўзроўню"
 
@@ -16018,6 +16021,9 @@ msgstr ""
 #: libraries/advisory_rules.txt:446
 msgid "concurrent_insert is set to 0"
 msgstr "concurrent_insert устаноўленая ў 0"
+
+#~ msgid "Unknonwn"
+#~ msgstr "Невядома"
 
 #~ msgctxt "Collation variant"
 #~ msgid "weight=2"

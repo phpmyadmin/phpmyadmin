@@ -1021,7 +1021,7 @@ class TableTest extends PMATestCase
         $dbi->expects($this->any())
             ->method('fetchResult')
             ->willReturnOnConsecutiveCalls(
-                array('`one_pk`'),
+                array(array('`one_pk`')),
 
                 array(), // No Uniques found
                 array('`one_ind`', '`sec_ind`'),

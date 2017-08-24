@@ -1,20 +1,20 @@
 # Automatically generated <>, 2010.
 msgid ""
 msgstr ""
-"Project-Id-Version: phpMyAdmin 4.7.3-dev\n"
+"Project-Id-Version: phpMyAdmin 4.7.4-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
-"POT-Creation-Date: 2017-07-18 13:29+0200\n"
-"PO-Revision-Date: 2017-06-03 12:48+0000\n"
-"Last-Translator: Dovydas <dovy.buz@gmail.com>\n"
-"Language-Team: Lithuanian <https://hosted.weblate.org/projects/"
-"phpmyadmin/4-7/lt/>\n"
+"POT-Creation-Date: 2017-08-10 09:13-0400\n"
+"PO-Revision-Date: 2017-08-22 09:46+0000\n"
+"Last-Translator: Michal Čihař <michal@cihar.com>\n"
+"Language-Team: Lithuanian "
+"<https://hosted.weblate.org/projects/phpmyadmin/4-7/lt/>\n"
 "Language: lt\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=3; plural=n%10==1 && n%100!=11 ? 0 : n%10>=2 && (n"
-"%100<10 || n%100>=20) ? 1 : 2;\n"
-"X-Generator: Weblate 2.15-dev\n"
+"Plural-Forms: nplurals=4; plural=n==1 ? 0 : n%10>=2 && (n%100<10 || "
+"n%100>=20) ? 1 : n%10==0 || (n%100>10 && n%100<20) ? 2 : 3;\n"
+"X-Generator: Weblate 2.17-dev\n"
 
 #: ajax.php:16 ajax.php:33 export.php:192 schema_export.php:64
 msgid "Bad type!"
@@ -483,7 +483,7 @@ msgstr "Pridėti geometriją"
 #: libraries/server_privileges.lib.php:692
 #: libraries/server_privileges.lib.php:2194
 #: libraries/server_privileges.lib.php:3076
-#: libraries/server_user_groups.lib.php:285
+#: libraries/server_user_groups.lib.php:284
 #: libraries/sql_query_form.lib.php:373 libraries/sql_query_form.lib.php:435
 #: libraries/tracking.lib.php:544 libraries/tracking.lib.php:667
 #: prefs_manage.php:285 prefs_manage.php:369 server_privileges.php:307
@@ -560,12 +560,13 @@ msgid "Bookmark %s has been created."
 msgstr "Žymė %s sukurta."
 
 #: import.php:581
-#, php-format
+#, fuzzy, php-format
 msgid "Import has been successfully finished, %d query executed."
 msgid_plural "Import has been successfully finished, %d queries executed."
 msgstr[0] "Importavimas sėkmingai baigtas, įvykdyta %d užklausa."
 msgstr[1] "Importavimas sėkmingai baigtas, įvykdyta %d užklausos."
 msgstr[2] "Importavimas sėkmingai baigtas, įvykdyta %d užklausų."
+msgstr[3] ""
 
 #: import.php:612
 #, php-format
@@ -3180,29 +3181,29 @@ msgstr ""
 "Nepavyko suformuoti eilutės taisyklei „%s“. PHP išspjovė štai tokią klaidą: "
 "%s"
 
-#: libraries/Advisor.php:469
+#: libraries/Advisor.php:486
 #, php-format
 msgid "Error in reading file: The file '%s' does not exist or is not readable!"
 msgstr ""
 
-#: libraries/Advisor.php:494
+#: libraries/Advisor.php:511
 #, php-format
 msgid ""
 "Invalid rule declaration on line %1$s, expected line %2$s of previous rule."
 msgstr ""
 
-#: libraries/Advisor.php:513
+#: libraries/Advisor.php:530
 #, fuzzy, php-format
 #| msgid "Invalid format of CSV input on line %d."
 msgid "Invalid rule declaration on line %s."
 msgstr "Neteisingas CSV įvedimo formatas eilutėje %d."
 
-#: libraries/Advisor.php:521
+#: libraries/Advisor.php:538
 #, php-format
 msgid "Unexpected characters on line %s."
 msgstr ""
 
-#: libraries/Advisor.php:536
+#: libraries/Advisor.php:553
 #, php-format
 msgid "Unexpected character on line %1$s. Expected tab, but found \"%2$s\"."
 msgstr ""
@@ -3229,7 +3230,7 @@ msgstr "Palyginimas"
 #: libraries/Charsets.php:244
 #, fuzzy
 #| msgid "unknown"
-msgid "Unknonwn"
+msgid "Unknown"
 msgstr "nežinoma"
 
 #: libraries/Charsets.php:258
@@ -3847,12 +3848,13 @@ msgid "Search results for \"<i>%s</i>\" %s:"
 msgstr "Paieškos rezultatai frazei „<i>%s</i>“ %s:"
 
 #: libraries/DbSearch.php:293
-#, php-format
+#, fuzzy, php-format
 msgid "<b>Total:</b> <i>%s</i> match"
 msgid_plural "<b>Total:</b> <i>%s</i> matches"
 msgstr[0] "<b>Iš viso:</b> <i>%s</i> atitikmuo"
 msgstr[1] "<b>Iš viso:</b> <i>%s</i> atitikmenys"
 msgstr[2] "<b>Iš viso:</b> <i>%s</i> atitikmenų"
+msgstr[3] ""
 
 #: libraries/DbSearch.php:329
 #, fuzzy, php-format
@@ -4269,7 +4271,7 @@ msgstr "Spausdinti struktūrą"
 msgid "Click on the bar to scroll to top of page"
 msgstr ""
 
-#: libraries/Header.php:756 libraries/plugins/auth/AuthenticationCookie.php:152
+#: libraries/Header.php:758 libraries/plugins/auth/AuthenticationCookie.php:152
 #, fuzzy
 #| msgid "Cookies must be enabled past this point."
 msgid "Javascript must be enabled past this point!"
@@ -4578,28 +4580,31 @@ msgid "Plugins"
 msgstr ""
 
 #: libraries/Message.php:246
-#, php-format
+#, fuzzy, php-format
 msgid "%1$d row affected."
 msgid_plural "%1$d rows affected."
 msgstr[0] "Pakeista %1$d eilutė."
 msgstr[1] "Pakeistos %1$d eilutės."
 msgstr[2] "Pakeista %1$d eilučių."
+msgstr[3] ""
 
 #: libraries/Message.php:265
-#, php-format
+#, fuzzy, php-format
 msgid "%1$d row deleted."
 msgid_plural "%1$d rows deleted."
 msgstr[0] "Ištrinta %1$d eilutė."
 msgstr[1] "Ištrintos %1$d eilutės."
 msgstr[2] "Ištrinta %1$d eilučių."
+msgstr[3] ""
 
 #: libraries/Message.php:284
-#, php-format
+#, fuzzy, php-format
 msgid "%1$d row inserted."
 msgid_plural "%1$d rows inserted."
 msgstr[0] "Įterpta %1$d eilutė."
 msgstr[1] "Įterptos %1$d eilutės."
 msgstr[2] "Įterpta %1$d eilučių."
+msgstr[3] ""
 
 #: libraries/PDF.php:125
 msgid "Error while creating PDF:"
@@ -4921,7 +4926,7 @@ msgstr "pasirinkti"
 msgid "Default theme %s not found!"
 msgstr "Standartinė tema %s nerasta!"
 
-#: libraries/ThemeManager.php:204
+#: libraries/ThemeManager.php:203
 #, php-format
 msgid "Theme %s not found!"
 msgstr "Tema %s nerasta!"
@@ -5503,11 +5508,11 @@ msgstr "Blogas serverio indeksas: %s"
 msgid "Server %d"
 msgstr "Serveris"
 
-#: libraries/common.inc.php:654
+#: libraries/common.inc.php:656
 msgid "Invalid authentication method set in configuration:"
 msgstr "Blogai nustatytas identifikavimo metodas nustatymuose:"
 
-#: libraries/common.inc.php:758
+#: libraries/common.inc.php:760
 #, php-format
 msgid ""
 "Unable to use timezone %1$s for server %2$d. Please check your configuration "
@@ -5515,20 +5520,20 @@ msgid ""
 "currently using the default time zone of the database server."
 msgstr ""
 
-#: libraries/common.inc.php:796
+#: libraries/common.inc.php:798
 #, php-format
 msgid "You should upgrade to %s %s or later."
 msgstr "Rekomenduojame atnaujint %s iki %s ar vėlesnės versijos."
 
-#: libraries/common.inc.php:882
+#: libraries/common.inc.php:884
 msgid "Error: Token mismatch"
 msgstr ""
 
-#: libraries/common.inc.php:900
+#: libraries/common.inc.php:902
 msgid "GLOBALS overwrite attempt"
 msgstr ""
 
-#: libraries/common.inc.php:907
+#: libraries/common.inc.php:909
 msgid "possible exploit"
 msgstr "galimas pažeidžiamumas"
 
@@ -14623,19 +14628,19 @@ msgstr "Be teisių."
 msgid "Group name:"
 msgstr "Stulpelių vardai: "
 
-#: libraries/server_user_groups.lib.php:272
+#: libraries/server_user_groups.lib.php:271
 #, fuzzy
 #| msgid "Server version"
 msgid "Server-level tabs"
 msgstr "Serverio versija"
 
-#: libraries/server_user_groups.lib.php:275
+#: libraries/server_user_groups.lib.php:274
 #, fuzzy
 #| msgid "Database server"
 msgid "Database-level tabs"
 msgstr "Duomenų bazės serveris"
 
-#: libraries/server_user_groups.lib.php:278
+#: libraries/server_user_groups.lib.php:277
 #, fuzzy
 #| msgid "Table comments"
 msgid "Table-level tabs"
@@ -16118,12 +16123,13 @@ msgid "Number of tables:"
 msgstr "Lentelių skaičius"
 
 #: templates/database/structure/body_for_table_summary.phtml:6
-#, php-format
+#, fuzzy, php-format
 msgid "%s table"
 msgid_plural "%s tables"
 msgstr[0] "%s lentelė"
 msgstr[1] "%s lentelės"
 msgstr[2] "%s lentelių"
+msgstr[3] ""
 
 #: templates/database/structure/body_for_table_summary.phtml:17
 msgid "Sum"
@@ -18193,6 +18199,11 @@ msgstr ""
 #| msgid "MyISAM concurrent inserts"
 msgid "concurrent_insert is set to 0"
 msgstr "MyISAM concurrent įterpimai"
+
+#, fuzzy
+#~| msgid "unknown"
+#~ msgid "Unknonwn"
+#~ msgstr "nežinoma"
 
 #, fuzzy
 #~| msgid "Right"

@@ -5,23 +5,23 @@
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: phpMyAdmin 4.7.3-dev\n"
+"Project-Id-Version: phpMyAdmin 4.7.4-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
-"POT-Creation-Date: 2017-07-18 13:29+0200\n"
-"PO-Revision-Date: 2017-05-31 15:16+0000\n"
+"POT-Creation-Date: 2017-08-10 09:13-0400\n"
+"PO-Revision-Date: 2017-08-22 09:46+0000\n"
 "Last-Translator: Michal Čihař <michal@cihar.com>\n"
-"Language-Team: Punjabi <https://hosted.weblate.org/projects/phpmyadmin/4-7/"
-"pa/>\n"
+"Language-Team: Punjabi "
+"<https://hosted.weblate.org/projects/phpmyadmin/4-7/pa/>\n"
 "Language: pa\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 2.15-dev\n"
+"X-Generator: Weblate 2.17-dev\n"
 
 #: ajax.php:16 ajax.php:33 export.php:192 schema_export.php:64
 msgid "Bad type!"
-msgstr ""
+msgstr "ਬੁਰਾ ਕਿਸਮ!"
 
 #: changelog.php:39 license.php:34
 #, php-format
@@ -79,7 +79,7 @@ msgstr "ਟੇਬਲ ਟਿੱਪਣੀ:"
 #: templates/table/search/table_header.phtml:6
 #: templates/table/search/zoom_result_form.phtml:33
 msgid "Column"
-msgstr ""
+msgstr "ਕਾਲਮ"
 
 #: db_datadict.php:116 libraries/Index.php:683
 #: libraries/central_columns.lib.php:696 libraries/central_columns.lib.php:1385
@@ -154,7 +154,7 @@ msgstr "ਮੂਲ"
 #: libraries/plugins/schema/pdf/PdfRelationSchema.php:635
 #: libraries/plugins/schema/pdf/PdfRelationSchema.php:658
 msgid "Links to"
-msgstr ""
+msgstr "ਲਈ ਲਿੰਕ"
 
 #: db_datadict.php:122 libraries/config/messages.inc.php:161
 #: libraries/config/messages.inc.php:177 libraries/config/messages.inc.php:215
@@ -239,13 +239,13 @@ msgstr "ਹਾਂ"
 
 #: db_export.php:47
 msgid "View dump (schema) of database"
-msgstr ""
+msgstr "ਡਾਟਾਬੇਸ ਦੇ ਡੰਪ (ਸਕੀਮਾ) ਵੇਖੋ"
 
 #: db_export.php:51 db_tracking.php:103 export.php:375 libraries/DbQbe.php:327
 #: libraries/controllers/database/DatabaseStructureController.php:168
 #: libraries/navigation/NavigationTree.php:924
 msgid "No tables found in database."
-msgstr ""
+msgstr "ਡਾਟਾਬੇਸ ਵਿੱਚ ਕੋਈ ਟੇਬਲ ਨਹੀਂ ਮਿਲੇ."
 
 #: db_export.php:65 libraries/ServerStatusData.php:128
 #: libraries/config/messages.inc.php:273
@@ -313,10 +313,11 @@ msgstr "%1$s ਡਾਟਾਬੇਸ ਦੀ ਨਕਲ %2$s ਵਿੱਚ ਕੀਤ�
 msgid ""
 "The phpMyAdmin configuration storage has been deactivated. %sFind out why%s."
 msgstr ""
+"PhpMyAdmin ਸੰਰਚਨਾ ਸਟੋਰੇਜ਼ ਨੂੰ ਬੰਦ ਕਰ ਦਿੱਤਾ ਗਿਆ ਹੈ %s ਇਹ ਪਤਾ ਲਗਾਓ ਕਿ ਕਿਉਂ %s"
 
 #: db_qbe.php:126
 msgid "You have to choose at least one column to display!"
-msgstr ""
+msgstr "ਤੁਹਾਨੂੰ ਡਿਸਪਲੇ ਕਰਨ ਲਈ ਘੱਟੋ ਘੱਟ ਇੱਕ ਕਾਲਮ ਦੀ ਚੋਣ ਕਰਨੀ ਪਵੇਗੀ!"
 
 #: db_qbe.php:144
 #, php-format
@@ -328,21 +329,21 @@ msgstr ""
 #: libraries/plugins/auth/AuthenticationConfig.php:104
 #: libraries/plugins/auth/AuthenticationHttp.php:78
 msgid "Access denied!"
-msgstr ""
+msgstr "ਐਕਸੇਸ ਡਿਨਾਇਡ!"
 
 #: db_tracking.php:53 db_tracking.php:78
 msgid "Tracking data deleted successfully."
-msgstr ""
+msgstr "ਟਰੈਕਿੰਗ ਡਾਟਾ ਸਫਲਤਾਪੂਰਵਕ ਮਿਟਾ ਦਿੱਤਾ ਗਿਆ."
 
 #: db_tracking.php:62
 #, php-format
 msgid ""
 "Version %1$s was created for selected tables, tracking is active for them."
-msgstr ""
+msgstr "ਵਰਜਨ %1$s sਚੁਣਿਆ ਟੇਬਲ ਲਈ ਬਣਾਇਆ ਗਿਆ ਸੀ, ਟਰੈਕਿੰਗ ਉਹਨਾਂ ਲਈ ਕਿਰਿਆਸ਼ੀਲ ਹੈ."
 
 #: db_tracking.php:93
 msgid "No tables selected."
-msgstr ""
+msgstr "ਕੋਈ ਟੇਬਲ ਨਹੀਂ ਚੁਣੇ."
 
 #: db_tracking.php:150
 msgid "Database Log"
@@ -353,52 +354,54 @@ msgid ""
 "An error has been detected and an error report has been automatically "
 "submitted based on your settings."
 msgstr ""
+"ਇੱਕ ਤਰੁੱਟੀ ਲੱਭੀ ਗਈ ਹੈ ਅਤੇ ਇੱਕ ਗਲਤੀ ਰਿਪੋਰਟ ਤੁਹਾਡੀ ਸੈਟਿੰਗ ਦੇ ਆਧਾਰ ਤੇ ਸਵੈਚਲਿਤ ਤੌਰ ਤੇ ਦਰਜ ਕੀਤੀ "
+"ਗਈ ਹੈ."
 
 #: error_report.php:72
 msgid "Thank you for submitting this report."
-msgstr ""
+msgstr "ਇਸ ਰਿਪੋਰਟ ਨੂੰ ਦਰਜ ਕਰਨ ਲਈ ਤੁਹਾਡਾ ਧੰਨਵਾਦ."
 
 #: error_report.php:76
 msgid ""
 "An error has been detected and an error report has been generated but failed "
 "to be sent."
-msgstr ""
+msgstr "ਇੱਕ ਤਰੁੱਟੀ ਲੱਭੀ ਗਈ ਹੈ ਅਤੇ ਇੱਕ ਗਲਤੀ ਰਿਪੋਰਟ ਤਿਆਰ ਕੀਤੀ ਗਈ ਹੈ ਪਰ ਭੇਜੀ ਜਾਣ ਵਿੱਚ ਅਸਫਲ."
 
 #: error_report.php:81
 msgid "If you experience any problems please submit a bug report manually."
-msgstr ""
+msgstr "ਜੇ ਤੁਸੀਂ ਕੋਈ ਸਮੱਸਿਆ ਮਹਿਸੂਸ ਕਰਦੇ ਹੋ ਤਾਂ ਬੱਗ ਰਿਪੋਰਟ ਖੁਦ ਖੁਦ ਪੇਸ਼ ਕਰੋ."
 
 #: error_report.php:85
 msgid "You may want to refresh the page."
-msgstr ""
+msgstr "ਤੁਸੀਂ ਪੰਨੇ ਨੂੰ ਤਾਜ਼ਾ ਕਰਨਾ ਚਾਹ ਸਕਦੇ ਹੋ."
 
 #: export.php:275
 msgid "Bad parameters!"
-msgstr ""
+msgstr "ਗਲਤ ਪੈਰਾਮੀਟਰ!"
 
 #: gis_data_editor.php:119
 #, php-format
 msgid "Value for the column \"%s\""
-msgstr ""
+msgstr "ਕਾਲਮ ਲਈ ਮੁੱਲ \"%s\""
 
 #: gis_data_editor.php:147
 #: templates/table/gis_visualization/gis_visualization.phtml:38
 msgid "Use OpenStreetMaps as Base Layer"
-msgstr ""
+msgstr "ਬੇਸ ਲੇਅਰ ਦੇ ਤੌਰ ਤੇ ਹਵਾਮੈਪ ਵਰਤੋ"
 
 #. l10n: Spatial Reference System Identifier
 #: gis_data_editor.php:169
 msgid "SRID:"
-msgstr ""
+msgstr "SRID: ਸਥਾਨਿਕ ਸੰਦਰਭ ਸਿਸਟਮ ਪਛਾਣਕਰਤਾ"
 
 #: gis_data_editor.php:195
 #, php-format
 msgid "Geometry %d:"
-msgstr ""
+msgstr "ਜਿਉਮੈਟਰੀ %d:"
 
 #: gis_data_editor.php:217
 msgid "Point:"
-msgstr ""
+msgstr "ਬਿੰਦੂ:"
 
 #: gis_data_editor.php:218 gis_data_editor.php:245 gis_data_editor.php:301
 #: gis_data_editor.php:374 js/messages.php:515
@@ -416,47 +419,47 @@ msgstr "Y"
 #: js/messages.php:518
 #, php-format
 msgid "Point %d"
-msgstr ""
+msgstr "ਬਿੰਦੂ %d"
 
 #: gis_data_editor.php:256 gis_data_editor.php:312 gis_data_editor.php:390
 #: js/messages.php:524
 msgid "Add a point"
-msgstr ""
+msgstr "ਇੱਕ ਬਿੰਦੂ ਜੋੜੋ"
 
 #: gis_data_editor.php:273
 #, php-format
 msgid "Linestring %d:"
-msgstr ""
+msgstr "ਲਿਨਸਟ੍ਰਿੰਗ %d:"
 
 #: gis_data_editor.php:276 gis_data_editor.php:353
 msgid "Outer ring:"
-msgstr ""
+msgstr "ਬਾਹਰਲੀ ਰਿੰਗ:"
 
 #: gis_data_editor.php:278 gis_data_editor.php:355
 #, php-format
 msgid "Inner ring %d:"
-msgstr ""
+msgstr "ਅੰਦਰੂਨੀ ਰਿੰਗ %d:"
 
 #: gis_data_editor.php:315
 msgid "Add a linestring"
-msgstr ""
+msgstr "ਇੱਕ ਲਿਨਸਟ੍ਰਿੰਗ ਜੋੜੋ"
 
 #: gis_data_editor.php:316 gis_data_editor.php:395 js/messages.php:525
 msgid "Add an inner ring"
-msgstr ""
+msgstr "ਇੱਕ ਅੰਦਰੂਨੀ ਰਿੰਗ ਜੋੜੋ"
 
 #: gis_data_editor.php:337
 #, php-format
 msgid "Polygon %d:"
-msgstr ""
+msgstr "ਪੌਲੀਗੌਨ %d:"
 
 #: gis_data_editor.php:401
 msgid "Add a polygon"
-msgstr ""
+msgstr "ਇੱਕ ਬਹੁਭੁਜ ਜੋੜੋ"
 
 #: gis_data_editor.php:407
 msgid "Add geometry"
-msgstr ""
+msgstr "ਜੁਮੈਟਰੀ ਜੋੜੋ"
 
 #: gis_data_editor.php:413 js/messages.php:353 libraries/DbSearch.php:455
 #: libraries/DisplayResults.php:1811 libraries/browse_foreigners.lib.php:137
@@ -480,7 +483,7 @@ msgstr ""
 #: libraries/server_privileges.lib.php:692
 #: libraries/server_privileges.lib.php:2194
 #: libraries/server_privileges.lib.php:3076
-#: libraries/server_user_groups.lib.php:285
+#: libraries/server_user_groups.lib.php:284
 #: libraries/sql_query_form.lib.php:373 libraries/sql_query_form.lib.php:435
 #: libraries/tracking.lib.php:544 libraries/tracking.lib.php:667
 #: prefs_manage.php:285 prefs_manage.php:369 server_privileges.php:307
@@ -500,25 +503,27 @@ msgstr "ਚੱਲੋ"
 
 #: gis_data_editor.php:416
 msgid "Output"
-msgstr ""
+msgstr "ਆਉਟਪੁੱਟ"
 
 #: gis_data_editor.php:419
 msgid ""
 "Choose \"GeomFromText\" from the \"Function\" column and paste the string "
 "below into the \"Value\" field."
 msgstr ""
+"\"ਫੰਕਸ਼ਨ\" ਕਾਲਮ ਵਿਚੋਂ \"ਜੀਓਮਫਾਰਮ ਟੈਕਸਟ\" ਨੂੰ ਚੁਣੋ ਅਤੇ ਹੇਠਾਂ ਸਤਰ ਨੂੰ \"ਵੈਲਯੂ\" ਫੀਲਡ ਵਿੱਚ ਪੇਸਟ "
+"ਕਰੋ."
 
 #: import.php:65
 msgid "Succeeded"
-msgstr ""
+msgstr "ਸਫ਼ਲ ਹੋਇਆ"
 
 #: import.php:69 js/messages.php:611
 msgid "Failed"
-msgstr ""
+msgstr "ਅਸਫਲ"
 
 #: import.php:73
 msgid "Incomplete params"
-msgstr ""
+msgstr "ਅਧੂਰਾ ਪਰਮਾ"
 
 #: import.php:197
 #, php-format
@@ -526,14 +531,16 @@ msgid ""
 "You probably tried to upload a file that is too large. Please refer to "
 "%sdocumentation%s for a workaround for this limit."
 msgstr ""
+"ਤੁਸੀਂ ਸ਼ਾਇਦ ਅਜਿਹੀ ਫਾਈਲ ਅਪਲੋਡ ਕਰਨ ਦੀ ਕੋਸ਼ਿਸ਼ ਕੀਤੀ ਹੈ ਜੋ ਬਹੁਤ ਵੱਡੀ ਹੈ ਕਿਰਪਾ ਕਰਕੇ ਇਸ ਸੀਮਾ %s "
+"ਦੇ ਲਈ ਇੱਕ ਅਲਗ ਅਲਗ ਲਈ %s ਦਸਤਾਵੇਜ਼ ਵੇਖੋ."
 
 #: import.php:367 import.php:568
 msgid "Showing bookmark"
-msgstr ""
+msgstr "ਬੁੱਕਮਾਰਕ ਦਿਖਾ ਰਿਹਾ ਹੈ"
 
 #: import.php:383 import.php:564
 msgid "The bookmark has been deleted."
-msgstr ""
+msgstr "ਬੁੱਕਮਾਰਕ ਮਿਟਾਇਆ ਗਿਆ ਹੈ."
 
 #: import.php:477
 msgid ""
@@ -541,10 +548,13 @@ msgid ""
 "file size exceeded the maximum size permitted by your PHP configuration. See "
 "[doc@faq1-16]FAQ 1.16[/doc]."
 msgstr ""
+"ਆਯਾਤ ਕਰਨ ਲਈ ਕੋਈ ਡੇਟਾ ਪ੍ਰਾਪਤ ਨਹੀਂ ਹੋਇਆ ਸੀ ਜਾਂ ਤਾਂ ਕੋਈ ਫਾਈਲ ਨਾਮ ਪ੍ਰਸਤੁਤ ਨਹੀਂ ਕੀਤਾ ਗਿਆ ਸੀ, "
+"ਜਾਂ ਫਾਈਲ ਅਕਾਰ ਤੁਹਾਡੇ PHP ਕੌਂਫਿਗਰੇਸ਼ਨ ਦੁਆਰਾ ਅਨੁਚਿਤ ਅਧਿਕਤਮ ਅਕਾਰ ਤੋਂ ਵੱਧ ਗਿਆ ਹੈ. "
+"[doc@faq1-16] ਦੇਖੋ [/doc]ਦੇਖੋ."
 
 #: import.php:529 libraries/display_import.lib.php:665
 msgid "Could not load import plugins, please check your installation!"
-msgstr ""
+msgstr "ਆਯਾਤ ਪਲੱਗਇਨ ਲੋਡ ਨਹੀਂ ਕਰ ਸਕੇ, ਕਿਰਪਾ ਕਰਕੇ ਆਪਣੀ ਇੰਸਟੌਲੇਸ਼ਨ ਦੀ ਜਾਂਚ ਕਰੋ!"
 
 #: import.php:571 libraries/sql.lib.php:788 libraries/sql.lib.php:1564
 #, fuzzy, php-format
@@ -557,7 +567,9 @@ msgstr "%1$s ਡਾਟਾਬੇਸ ਬਣ ਚੁੱਕਾ ਹੈ."
 msgid "Import has been successfully finished, %d query executed."
 msgid_plural "Import has been successfully finished, %d queries executed."
 msgstr[0] ""
-msgstr[1] ""
+"ਅਯਾਤ ਸਫਲਤਾਪੂਰਕ ਮੁਕੰਮਲ ਹੋ ਗਈ ਹੈ,%d ਕਾਪੀ ਐਕਜ਼ੀਕਿਯੂਟ ਕੀਤੀ ਗਈ ਹੈ.\n"
+"ਹੋਰ"
+msgstr[1] "ਅਯਾਤ ਸਫਲਤਾਪੂਰਕ ਮੁਕੰਮਲ ਹੋ ਗਈ ਹੈ,%d ਕਲਾਂਇੰਸ ਚਲਾਇਆ ਗਿਆ."
 
 #: import.php:612
 #, php-format
@@ -2849,28 +2861,28 @@ msgstr ""
 msgid "Failed formatting string for rule '%s'."
 msgstr ""
 
-#: libraries/Advisor.php:469
+#: libraries/Advisor.php:486
 #, php-format
 msgid "Error in reading file: The file '%s' does not exist or is not readable!"
 msgstr ""
 
-#: libraries/Advisor.php:494
+#: libraries/Advisor.php:511
 #, php-format
 msgid ""
 "Invalid rule declaration on line %1$s, expected line %2$s of previous rule."
 msgstr ""
 
-#: libraries/Advisor.php:513
+#: libraries/Advisor.php:530
 #, php-format
 msgid "Invalid rule declaration on line %s."
 msgstr ""
 
-#: libraries/Advisor.php:521
+#: libraries/Advisor.php:538
 #, php-format
 msgid "Unexpected characters on line %s."
 msgstr ""
 
-#: libraries/Advisor.php:536
+#: libraries/Advisor.php:553
 #, php-format
 msgid "Unexpected character on line %1$s. Expected tab, but found \"%2$s\"."
 msgstr ""
@@ -2895,7 +2907,7 @@ msgid "Collation"
 msgstr ""
 
 #: libraries/Charsets.php:244
-msgid "Unknonwn"
+msgid "Unknown"
 msgstr ""
 
 #: libraries/Charsets.php:258
@@ -3804,7 +3816,7 @@ msgstr ""
 msgid "Click on the bar to scroll to top of page"
 msgstr ""
 
-#: libraries/Header.php:756 libraries/plugins/auth/AuthenticationCookie.php:152
+#: libraries/Header.php:758 libraries/plugins/auth/AuthenticationCookie.php:152
 msgid "Javascript must be enabled past this point!"
 msgstr ""
 
@@ -4413,7 +4425,7 @@ msgstr ""
 msgid "Default theme %s not found!"
 msgstr ""
 
-#: libraries/ThemeManager.php:204
+#: libraries/ThemeManager.php:203
 #, php-format
 msgid "Theme %s not found!"
 msgstr ""
@@ -4951,11 +4963,11 @@ msgstr ""
 msgid "Server %d"
 msgstr ""
 
-#: libraries/common.inc.php:654
+#: libraries/common.inc.php:656
 msgid "Invalid authentication method set in configuration:"
 msgstr ""
 
-#: libraries/common.inc.php:758
+#: libraries/common.inc.php:760
 #, php-format
 msgid ""
 "Unable to use timezone %1$s for server %2$d. Please check your configuration "
@@ -4963,20 +4975,20 @@ msgid ""
 "currently using the default time zone of the database server."
 msgstr ""
 
-#: libraries/common.inc.php:796
+#: libraries/common.inc.php:798
 #, php-format
 msgid "You should upgrade to %s %s or later."
 msgstr ""
 
-#: libraries/common.inc.php:882
+#: libraries/common.inc.php:884
 msgid "Error: Token mismatch"
 msgstr ""
 
-#: libraries/common.inc.php:900
+#: libraries/common.inc.php:902
 msgid "GLOBALS overwrite attempt"
 msgstr ""
 
-#: libraries/common.inc.php:907
+#: libraries/common.inc.php:909
 msgid "possible exploit"
 msgstr ""
 
@@ -12735,15 +12747,15 @@ msgstr ""
 msgid "Group name:"
 msgstr ""
 
-#: libraries/server_user_groups.lib.php:272
+#: libraries/server_user_groups.lib.php:271
 msgid "Server-level tabs"
 msgstr ""
 
-#: libraries/server_user_groups.lib.php:275
+#: libraries/server_user_groups.lib.php:274
 msgid "Database-level tabs"
 msgstr ""
 
-#: libraries/server_user_groups.lib.php:278
+#: libraries/server_user_groups.lib.php:277
 msgid "Table-level tabs"
 msgstr ""
 

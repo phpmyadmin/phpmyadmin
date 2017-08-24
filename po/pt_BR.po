@@ -1,19 +1,19 @@
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: phpMyAdmin 4.7.3-dev\n"
+"Project-Id-Version: phpMyAdmin 4.7.4-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
-"POT-Creation-Date: 2017-07-18 13:29+0200\n"
-"PO-Revision-Date: 2017-06-28 13:17+0000\n"
+"POT-Creation-Date: 2017-08-10 09:13-0400\n"
+"PO-Revision-Date: 2017-08-10 13:55+0000\n"
 "Last-Translator: George Bezerra <georgelione@gmail.com>\n"
-"Language-Team: Portuguese (Brazil) <https://hosted.weblate.org/projects/"
-"phpmyadmin/4-7/pt_BR/>\n"
+"Language-Team: Portuguese (Brazil) "
+"<https://hosted.weblate.org/projects/phpmyadmin/4-7/pt_BR/>\n"
 "Language: pt_BR\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n > 1;\n"
-"X-Generator: Weblate 2.15-dev\n"
+"X-Generator: Weblate 2.16-dev\n"
 
 #: ajax.php:16 ajax.php:33 export.php:192 schema_export.php:64
 msgid "Bad type!"
@@ -486,7 +486,7 @@ msgstr "Adicionar geometria"
 #: libraries/server_privileges.lib.php:692
 #: libraries/server_privileges.lib.php:2194
 #: libraries/server_privileges.lib.php:3076
-#: libraries/server_user_groups.lib.php:285
+#: libraries/server_user_groups.lib.php:284
 #: libraries/sql_query_form.lib.php:373 libraries/sql_query_form.lib.php:435
 #: libraries/tracking.lib.php:544 libraries/tracking.lib.php:667
 #: prefs_manage.php:285 prefs_manage.php:369 server_privileges.php:307
@@ -608,8 +608,8 @@ msgid ""
 "You were logged out from one server, to logout completely from phpMyAdmin, "
 "you need to logout from all servers."
 msgstr ""
-"Você foi desconectado de um servidor, para desconectar-se completamente do "
-"phpMyAdmin, você precisa desconectar-se de todos os servidores."
+"Você foi desconectado de um servidor, para se desconectar completamente do "
+"phpMyAdmin, é necessário que se desconecte de todos os servidores."
 
 #: index.php:160 libraries/Footer.php:69
 msgid "phpMyAdmin Demo Server"
@@ -836,8 +836,8 @@ msgstr "Você está prestes à DESTRUIR um banco de dados completamente!"
 #: js/messages.php:48
 msgid "Cannot rename database to the same name. Change the name and try again"
 msgstr ""
-"Não é possível renomear o banco de dados para o mesmo nome. Escolha outro "
-"nome e tente novamente"
+"Não é possível renomear o banco de dados para o mesmo nome. Altere o nome e "
+"tente novamente"
 
 #: js/messages.php:50
 msgid "You are about to DESTROY a complete table!"
@@ -921,7 +921,7 @@ msgstr ""
 
 #: js/messages.php:83
 msgid "Do you really want to TRUNCATE the selected partition(s)?"
-msgstr "Você realmente deseja LIMPAR a(s) partição(ões) selecionada(s)?"
+msgstr "Você realmente deseja TRUNCAR a(s) partição(ões) selecionada(s)?"
 
 #: js/messages.php:85
 msgid "Do you really want to remove partitioning?"
@@ -2996,14 +2996,14 @@ msgstr "Falha ao testar a regra '%s'."
 msgid "Failed formatting string for rule '%s'."
 msgstr "Falha ao formatar string para a regra '%s'."
 
-#: libraries/Advisor.php:469
+#: libraries/Advisor.php:486
 #, php-format
 msgid "Error in reading file: The file '%s' does not exist or is not readable!"
 msgstr ""
 "Erro na leitura do arquivo: O arquivo '%s' pode não existir ou não estar "
 "acessível!"
 
-#: libraries/Advisor.php:494
+#: libraries/Advisor.php:511
 #, php-format
 msgid ""
 "Invalid rule declaration on line %1$s, expected line %2$s of previous rule."
@@ -3011,17 +3011,17 @@ msgstr ""
 "Declaração de regra inválida na linha %1$s, é esperado a linha %2$s da regra "
 "anterior."
 
-#: libraries/Advisor.php:513
+#: libraries/Advisor.php:530
 #, php-format
 msgid "Invalid rule declaration on line %s."
 msgstr "Declaração de regra inválida na linha %s."
 
-#: libraries/Advisor.php:521
+#: libraries/Advisor.php:538
 #, php-format
 msgid "Unexpected characters on line %s."
 msgstr "Há caracteres inesperados na linha %s."
 
-#: libraries/Advisor.php:536
+#: libraries/Advisor.php:553
 #, php-format
 msgid "Unexpected character on line %1$s. Expected tab, but found \"%2$s\"."
 msgstr ""
@@ -3048,7 +3048,7 @@ msgid "Collation"
 msgstr "Colação"
 
 #: libraries/Charsets.php:244
-msgid "Unknonwn"
+msgid "Unknown"
 msgstr "Desconhecido"
 
 #: libraries/Charsets.php:258
@@ -3915,7 +3915,7 @@ msgstr "Imprimir view"
 msgid "Click on the bar to scroll to top of page"
 msgstr "Clique na barra para rolar até o topo da página"
 
-#: libraries/Header.php:756 libraries/plugins/auth/AuthenticationCookie.php:152
+#: libraries/Header.php:758 libraries/plugins/auth/AuthenticationCookie.php:152
 msgid "Javascript must be enabled past this point!"
 msgstr "O JavaScript deve estar ativo após este ponto!"
 
@@ -4532,7 +4532,7 @@ msgstr "tome"
 msgid "Default theme %s not found!"
 msgstr "Tema padrão %s não encontrado!"
 
-#: libraries/ThemeManager.php:204
+#: libraries/ThemeManager.php:203
 #, php-format
 msgid "Theme %s not found!"
 msgstr "Tema %s não encontrado!"
@@ -5125,17 +5125,12 @@ msgstr ""
 "incompatível com o phpMyAdmin e certamente causará a perda de algum dado!"
 
 #: libraries/common.inc.php:484
-#, fuzzy
-#| msgid ""
-#| "You have enabled mbstring.func_overload in your PHP configuration. This "
-#| "option is incompatible with phpMyAdmin and might cause some data to be "
-#| "corrupted!"
 msgid ""
 "You have disabled ini_get and/or ini_set in php.ini. This option is "
 "incompatible with phpMyAdmin!"
 msgstr ""
-"Você habilitou mbstring.func_overload nas configurações do PHP. Essa opção é "
-"incompatível com o phpMyAdmin e certamente causará a perda de algum dado!"
+"Você desabilitou ini_get e/ou ini_set no php.ini. Essa opção é incompatível "
+"com o phpMyAdmin!"
 
 #: libraries/common.inc.php:517
 #, php-format
@@ -5147,11 +5142,11 @@ msgstr "Índice de servidor inválido: \"%s\""
 msgid "Server %d"
 msgstr "Servidor %d"
 
-#: libraries/common.inc.php:654
+#: libraries/common.inc.php:656
 msgid "Invalid authentication method set in configuration:"
 msgstr "Método de autenticação inválido informado nas configurações:"
 
-#: libraries/common.inc.php:758
+#: libraries/common.inc.php:760
 #, php-format
 msgid ""
 "Unable to use timezone %1$s for server %2$d. Please check your configuration "
@@ -5163,20 +5158,20 @@ msgstr ""
 "em]. O phpMyAdmin está atualmente usando o fuso horário padrão do servidor "
 "de banco de dados."
 
-#: libraries/common.inc.php:796
+#: libraries/common.inc.php:798
 #, php-format
 msgid "You should upgrade to %s %s or later."
 msgstr "Você deveria atualizar para %s %s ou posterior."
 
-#: libraries/common.inc.php:882
+#: libraries/common.inc.php:884
 msgid "Error: Token mismatch"
 msgstr "Erro: Incompatibilidade de token"
 
-#: libraries/common.inc.php:900
+#: libraries/common.inc.php:902
 msgid "GLOBALS overwrite attempt"
 msgstr "Tentativa de sobrescrever variáveis GLOBALS"
 
-#: libraries/common.inc.php:907
+#: libraries/common.inc.php:909
 msgid "possible exploit"
 msgstr "Possível exploit"
 
@@ -8322,7 +8317,7 @@ msgstr ""
 
 #: libraries/dbi/DBIMysqli.php:158
 msgid "SSL connection enforced by server, automatically enabling it."
-msgstr ""
+msgstr "Conexão SSL executada pelo servidor, automaticamente habilitando-a."
 
 #: libraries/display_change_password.lib.php:57
 #: libraries/replication_gui.lib.php:854
@@ -10685,7 +10680,7 @@ msgstr "Não foi possível gerar a planilha do OpenDocument!"
 
 #: libraries/plugins/import/ImportShp.php:45
 msgid "ESRI Shape File"
-msgstr "Arquivo de formas ESRI"
+msgstr "Shapefile ESRI"
 
 #: libraries/plugins/import/ImportShp.php:77
 #: libraries/plugins/import/ImportShp.php:153
@@ -13685,15 +13680,15 @@ msgstr "Atribuições do menu de grupos de usuários"
 msgid "Group name:"
 msgstr "Nome do Grupo:"
 
-#: libraries/server_user_groups.lib.php:272
+#: libraries/server_user_groups.lib.php:271
 msgid "Server-level tabs"
 msgstr "Guias do Servidor"
 
-#: libraries/server_user_groups.lib.php:275
+#: libraries/server_user_groups.lib.php:274
 msgid "Database-level tabs"
 msgstr "Guias do Banco de Dados"
 
-#: libraries/server_user_groups.lib.php:278
+#: libraries/server_user_groups.lib.php:277
 msgid "Table-level tabs"
 msgstr "Guias de Tabelas"
 
@@ -17024,6 +17019,9 @@ msgstr ""
 #: libraries/advisory_rules.txt:446
 msgid "concurrent_insert is set to 0"
 msgstr "concurrent_insert está com valor 0"
+
+#~ msgid "Unknonwn"
+#~ msgstr "Desconhecido"
 
 #~ msgctxt "Collation variant"
 #~ msgid "weight=2"

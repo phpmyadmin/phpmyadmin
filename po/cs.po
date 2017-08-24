@@ -3,11 +3,11 @@
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: phpMyAdmin 4.7.3-dev\n"
+"Project-Id-Version: phpMyAdmin 4.7.4-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
-"POT-Creation-Date: 2017-07-18 13:29+0200\n"
-"PO-Revision-Date: 2017-06-30 10:15+0000\n"
-"Last-Translator: Michal Čihař <michal@cihar.com>\n"
+"POT-Creation-Date: 2017-08-10 09:13-0400\n"
+"PO-Revision-Date: 2017-08-09 23:12+0000\n"
+"Last-Translator: Jiří Wolker <jiwopene@gmail.com>\n"
 "Language-Team: Czech <https://hosted.weblate.org/projects/phpmyadmin/4-7/cs/"
 ">\n"
 "Language: cs\n"
@@ -15,7 +15,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=(n==1) ? 0 : (n>=2 && n<=4) ? 1 : 2;\n"
-"X-Generator: Weblate 2.15\n"
+"X-Generator: Weblate 2.16-dev\n"
 
 #: ajax.php:16 ajax.php:33 export.php:192 schema_export.php:64
 msgid "Bad type!"
@@ -480,7 +480,7 @@ msgstr "Přidat geometrii"
 #: libraries/server_privileges.lib.php:692
 #: libraries/server_privileges.lib.php:2194
 #: libraries/server_privileges.lib.php:3076
-#: libraries/server_user_groups.lib.php:285
+#: libraries/server_user_groups.lib.php:284
 #: libraries/sql_query_form.lib.php:373 libraries/sql_query_form.lib.php:435
 #: libraries/tracking.lib.php:544 libraries/tracking.lib.php:667
 #: prefs_manage.php:285 prefs_manage.php:369 server_privileges.php:307
@@ -603,6 +603,8 @@ msgid ""
 "You were logged out from one server, to logout completely from phpMyAdmin, "
 "you need to logout from all servers."
 msgstr ""
+"Odhlásil jste se z jednoho serveru. Pro úplné odhlášení z phpMyAdminu se "
+"musíte odhlásit ze všech serverů."
 
 #: index.php:160 libraries/Footer.php:69
 msgid "phpMyAdmin Demo Server"
@@ -1514,15 +1516,11 @@ msgid "Chart"
 msgstr "Graf"
 
 #: js/messages.php:298 libraries/display_export.lib.php:903
-#, fuzzy
-#| msgid "Database"
 msgctxt "Alias"
 msgid "Database"
 msgstr "Databáze"
 
 #: js/messages.php:299 libraries/display_export.lib.php:915
-#, fuzzy
-#| msgid "Table"
 msgctxt "Alias"
 msgid "Table"
 msgstr "Tabulka"
@@ -2168,10 +2166,13 @@ msgstr ""
 "přímo podle potřeby"
 
 #: js/messages.php:538
+#, fuzzy
 msgid ""
 "MySQL accepts additional values not selectable by the datepicker; key in "
 "those values directly if desired"
 msgstr ""
+"MySQL podporuje i další hodnoty, které se nedají vybrat v kalendáři. Chcete-"
+"li je zadat, napište je."
 
 #: js/messages.php:544
 msgid ""
@@ -2546,6 +2547,7 @@ msgid "Time taken:"
 msgstr "Doba běhu:"
 
 #: js/messages.php:728
+#, fuzzy
 msgid ""
 "There was a problem accessing your browser storage, some features may not "
 "work properly for you. It is likely that the browser doesn't support storage "
@@ -2553,6 +2555,12 @@ msgid ""
 "cause such a problem, clearing your \"Offline Website Data\" might help. In "
 "Safari, such problem is commonly caused by \"Private Mode Browsing\"."
 msgstr ""
+"Při přístupu do úložiště webového prohlížeče došlo k potížím, takže některé "
+"funkce vám nemusí pracovat správně. Je to pravděpodobně způsobeno tím, že "
+"prohlížeč nemá úložiště nebo bylo dosaženo limitu velikosti dat v tomto "
+"úložišti. V prohlížeči Mozilla Firefox tento problém může způsobit poškození "
+"tohoto úložiště. Toto poškození je možno opravit vymazáním offline dat v "
+"nastaveních. V Safari to bývá způsobeno Anonymním prohlížením."
 
 #: js/messages.php:730
 msgid "Copy tables to"
@@ -2945,14 +2953,14 @@ msgstr "Selhalo spuštění podmínky pro pravidlo „%s“."
 msgid "Failed formatting string for rule '%s'."
 msgstr "Selhalo formátování textu pro pravidlo „%s“."
 
-#: libraries/Advisor.php:469
+#: libraries/Advisor.php:486
 #, php-format
 msgid "Error in reading file: The file '%s' does not exist or is not readable!"
 msgstr ""
 "Chyba při čtení souboru: Soubor „%s“ neexistuje, nebo se jej nepodařilo "
 "přečíst!"
 
-#: libraries/Advisor.php:494
+#: libraries/Advisor.php:511
 #, php-format
 msgid ""
 "Invalid rule declaration on line %1$s, expected line %2$s of previous rule."
@@ -2960,17 +2968,17 @@ msgstr ""
 "Neplatná definice pravidla na řádku %1$s, očekáván řádek %2$s z předchozího "
 "pravidla."
 
-#: libraries/Advisor.php:513
+#: libraries/Advisor.php:530
 #, php-format
 msgid "Invalid rule declaration on line %s."
 msgstr "Chybná definice pravidla na řádku %s."
 
-#: libraries/Advisor.php:521
+#: libraries/Advisor.php:538
 #, php-format
 msgid "Unexpected characters on line %s."
 msgstr "Neočekávané znaky na řádku %s."
 
-#: libraries/Advisor.php:536
+#: libraries/Advisor.php:553
 #, php-format
 msgid "Unexpected character on line %1$s. Expected tab, but found \"%2$s\"."
 msgstr ""
@@ -2997,8 +3005,9 @@ msgstr "Porovnávání"
 
 #: libraries/Charsets.php:244
 #, fuzzy
-#| msgid "unknown"
-msgid "Unknonwn"
+#| msgctxt "Collation"
+#| msgid "Unknown"
+msgid "Unknown"
 msgstr "neznámý"
 
 #: libraries/Charsets.php:258
@@ -3016,18 +3025,14 @@ msgid "Unicode"
 msgstr "Unicode"
 
 #: libraries/Charsets.php:280 libraries/Charsets.php:451
-#, fuzzy
-#| msgid "West European"
 msgctxt "Collation"
 msgid "West European"
-msgstr "Západní Evropa"
+msgstr "Západoevropský"
 
 #: libraries/Charsets.php:287
-#, fuzzy
-#| msgid "Central European"
 msgctxt "Collation"
 msgid "Central European"
-msgstr "Střední Evropa"
+msgstr "Středoevropský"
 
 #: libraries/Charsets.php:292
 #, fuzzy
@@ -3055,7 +3060,7 @@ msgstr "Japonština"
 #| msgid "Baltic"
 msgctxt "Collation"
 msgid "Baltic"
-msgstr "Baltické"
+msgstr "Baltické jazyky"
 
 #: libraries/Charsets.php:314
 #, fuzzy
@@ -3065,18 +3070,14 @@ msgid "Armenian"
 msgstr "Arménština"
 
 #: libraries/Charsets.php:317
-#, fuzzy
-#| msgid "Traditional Chinese"
 msgctxt "Collation"
 msgid "Traditional Chinese"
 msgstr "Tradiční čínština"
 
 #: libraries/Charsets.php:320
-#, fuzzy
-#| msgid "Cyrillic"
 msgctxt "Collation"
 msgid "Cyrillic"
-msgstr "Cyrilika"
+msgstr "Cyrilice"
 
 #: libraries/Charsets.php:323
 #, fuzzy
@@ -3086,8 +3087,6 @@ msgid "Arabic"
 msgstr "Arabština"
 
 #: libraries/Charsets.php:326 libraries/Charsets.php:437
-#, fuzzy
-#| msgid "Korean"
 msgctxt "Collation"
 msgid "Korean"
 msgstr "Korejština"
@@ -3107,18 +3106,14 @@ msgid "Georgian"
 msgstr "Gruzínština"
 
 #: libraries/Charsets.php:335
-#, fuzzy
-#| msgid "Greek"
 msgctxt "Collation"
 msgid "Greek"
 msgstr "Řečtina"
 
 #: libraries/Charsets.php:338
-#, fuzzy
-#| msgid "Czech-Slovak"
 msgctxt "Collation"
 msgid "Czech-Slovak"
-msgstr "Čeština/Slovenština"
+msgstr "Čeština a Slovenština"
 
 #: libraries/Charsets.php:341 libraries/Charsets.php:492
 #, fuzzy
@@ -3128,36 +3123,26 @@ msgid "Ukrainian"
 msgstr "Ukrajinština"
 
 #: libraries/Charsets.php:344 libraries/Charsets.php:488
-#, fuzzy
-#| msgid "Turkish"
 msgctxt "Collation"
 msgid "Turkish"
 msgstr "Turečtina"
 
 #: libraries/Charsets.php:347 libraries/Charsets.php:480
-#, fuzzy
-#| msgid "Swedish"
 msgctxt "Collation"
 msgid "Swedish"
 msgstr "Švédština"
 
 #: libraries/Charsets.php:350 libraries/Charsets.php:484
-#, fuzzy
-#| msgid "Thai"
 msgctxt "Collation"
 msgid "Thai"
 msgstr "Thajština"
 
 #: libraries/Charsets.php:353
-#, fuzzy
-#| msgid "unknown"
 msgctxt "Collation"
 msgid "Unknown"
 msgstr "neznámý"
 
 #: libraries/Charsets.php:369
-#, fuzzy
-#| msgid "Bulgarian"
 msgctxt "Collation"
 msgid "Bulgarian"
 msgstr "Bulharština"
@@ -3165,18 +3150,14 @@ msgstr "Bulharština"
 #: libraries/Charsets.php:374
 msgctxt "Collation"
 msgid "Chinese"
-msgstr ""
+msgstr "Čínština"
 
 #: libraries/Charsets.php:379
-#, fuzzy
-#| msgid "Croatian"
 msgctxt "Collation"
 msgid "Croatian"
 msgstr "Chorvatština"
 
 #: libraries/Charsets.php:383
-#, fuzzy
-#| msgid "Czech"
 msgctxt "Collation"
 msgid "Czech"
 msgstr "Čeština"
@@ -3966,7 +3947,7 @@ msgstr "Náhled pro tisk"
 msgid "Click on the bar to scroll to top of page"
 msgstr "Klikněte na pruh pro posunutí stránky nahoru"
 
-#: libraries/Header.php:756 libraries/plugins/auth/AuthenticationCookie.php:152
+#: libraries/Header.php:758 libraries/plugins/auth/AuthenticationCookie.php:152
 msgid "Javascript must be enabled past this point!"
 msgstr "Pro použití phpMyAdmina musíte mít zapnutý Javascript!"
 
@@ -4582,7 +4563,7 @@ msgstr "zvolit"
 msgid "Default theme %s not found!"
 msgstr "Výchozí vzhled %s nebyl nalezen!"
 
-#: libraries/ThemeManager.php:204
+#: libraries/ThemeManager.php:203
 #, php-format
 msgid "Theme %s not found!"
 msgstr "Vzhled %s nebyl nalezen!"
@@ -5174,11 +5155,11 @@ msgstr "Chybné číslo serveru: %s"
 msgid "Server %d"
 msgstr "Server %d"
 
-#: libraries/common.inc.php:654
+#: libraries/common.inc.php:656
 msgid "Invalid authentication method set in configuration:"
 msgstr "V nastavení máte špatnou přihlašovací metodu:"
 
-#: libraries/common.inc.php:758
+#: libraries/common.inc.php:760
 #, php-format
 msgid ""
 "Unable to use timezone %1$s for server %2$d. Please check your configuration "
@@ -5189,20 +5170,20 @@ msgstr ""
 "nastavení pro [em]$cfg['Servers'][%3$d]['SessionTimeZone'][/em]. phpMyAdmin "
 "momentálně používá výchozí časové pásmo databázového serveru."
 
-#: libraries/common.inc.php:796
+#: libraries/common.inc.php:798
 #, php-format
 msgid "You should upgrade to %s %s or later."
 msgstr "Měli byste aktualizovat %s na verzi %s nebo vyšší."
 
-#: libraries/common.inc.php:882
+#: libraries/common.inc.php:884
 msgid "Error: Token mismatch"
 msgstr "Chyba: neplatný token"
 
-#: libraries/common.inc.php:900
+#: libraries/common.inc.php:902
 msgid "GLOBALS overwrite attempt"
 msgstr "Pokus o přepsání GLOBALS"
 
-#: libraries/common.inc.php:907
+#: libraries/common.inc.php:909
 msgid "possible exploit"
 msgstr "možný pokus o exploit"
 
@@ -13658,15 +13639,15 @@ msgstr "Přiřazení nabídky pro skupinu uživatelů"
 msgid "Group name:"
 msgstr "Název skupiny:"
 
-#: libraries/server_user_groups.lib.php:272
+#: libraries/server_user_groups.lib.php:271
 msgid "Server-level tabs"
 msgstr "Záložky pro práci se serverem"
 
-#: libraries/server_user_groups.lib.php:275
+#: libraries/server_user_groups.lib.php:274
 msgid "Database-level tabs"
 msgstr "Záložky pro práci s databází"
 
-#: libraries/server_user_groups.lib.php:278
+#: libraries/server_user_groups.lib.php:277
 msgid "Table-level tabs"
 msgstr "Záložky pro práci s tabulkou"
 
@@ -17064,6 +17045,9 @@ msgstr ""
 #: libraries/advisory_rules.txt:446
 msgid "concurrent_insert is set to 0"
 msgstr "concurrent_insert je nastaveno na 0"
+
+#~ msgid "Unknonwn"
+#~ msgstr "neznámý"
 
 #, fuzzy
 #~| msgid "Right"

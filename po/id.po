@@ -1,19 +1,19 @@
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: phpMyAdmin 4.7.3-dev\n"
+"Project-Id-Version: phpMyAdmin 4.7.4-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
-"POT-Creation-Date: 2017-07-18 13:29+0200\n"
-"PO-Revision-Date: 2017-04-22 23:01+0000\n"
-"Last-Translator: Dadan Setia <da2n_s@yahoo.co.id>\n"
-"Language-Team: Indonesian <https://hosted.weblate.org/projects/"
-"phpmyadmin/4-7/id/>\n"
+"POT-Creation-Date: 2017-08-10 09:13-0400\n"
+"PO-Revision-Date: 2017-08-23 10:46+0000\n"
+"Last-Translator: Mochammad Nur Afandi <localanu@gmail.com>\n"
+"Language-Team: Indonesian "
+"<https://hosted.weblate.org/projects/phpmyadmin/4-7/id/>\n"
 "Language: id\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Weblate 2.14-dev\n"
+"X-Generator: Weblate 2.17-dev\n"
 "X-Poedit-Basepath: ../../..\n"
 
 #: ajax.php:16 ajax.php:33 export.php:192 schema_export.php:64
@@ -31,7 +31,7 @@ msgstr ""
 
 #: db_central_columns.php:108
 msgid "The central list of columns for the current database is empty."
-msgstr "Daftar pusat kolom untuk database saat ini kosong."
+msgstr "Daftar kolom pusat untuk database ini kosong."
 
 #: db_central_columns.php:133
 msgid "Click to sort."
@@ -484,7 +484,7 @@ msgstr "Tambahkan geometri"
 #: libraries/server_privileges.lib.php:692
 #: libraries/server_privileges.lib.php:2194
 #: libraries/server_privileges.lib.php:3076
-#: libraries/server_user_groups.lib.php:285
+#: libraries/server_user_groups.lib.php:284
 #: libraries/sql_query_form.lib.php:373 libraries/sql_query_form.lib.php:435
 #: libraries/tracking.lib.php:544 libraries/tracking.lib.php:667
 #: prefs_manage.php:285 prefs_manage.php:369 server_privileges.php:307
@@ -606,6 +606,8 @@ msgid ""
 "You were logged out from one server, to logout completely from phpMyAdmin, "
 "you need to logout from all servers."
 msgstr ""
+"Anda keluar dari satu server, untuk keluar sepenuhnya dari phpMyAdmin, Anda "
+"perlu keluar dari semua server."
 
 #: index.php:160 libraries/Footer.php:69
 msgid "phpMyAdmin Demo Server"
@@ -1523,22 +1525,16 @@ msgid "Chart"
 msgstr "Bagan"
 
 #: js/messages.php:298 libraries/display_export.lib.php:903
-#, fuzzy
-#| msgid "Database"
 msgctxt "Alias"
 msgid "Database"
 msgstr "Basis data"
 
 #: js/messages.php:299 libraries/display_export.lib.php:915
-#, fuzzy
-#| msgid "Table"
 msgctxt "Alias"
 msgid "Table"
 msgstr "Tabel"
 
 #: js/messages.php:300 libraries/display_export.lib.php:926
-#, fuzzy
-#| msgid "Column"
 msgctxt "Alias"
 msgid "Column"
 msgstr "Kolom"
@@ -2174,7 +2170,6 @@ msgid "Encryption key"
 msgstr "Kunci Enskripsi"
 
 #: js/messages.php:532
-#, fuzzy
 msgid ""
 "MySQL accepts additional values not selectable by the slider; key in those "
 "values directly if desired"
@@ -2183,13 +2178,12 @@ msgstr ""
 "di nilai-nilai ini secara langsung jika diinginkan"
 
 #: js/messages.php:538
-#, fuzzy
 msgid ""
 "MySQL accepts additional values not selectable by the datepicker; key in "
 "those values directly if desired"
 msgstr ""
-"MySQL menerima nilai tambahan yang tidak dapat terpilih oleh slider; kunci "
-"di nilai-nilai ini secara langsung jika diinginkan"
+"MySQL menerima nilai tambahan yang tidak dapat terpilih oleh pemilih "
+"tanggal; masukkan nilai-nilai ini secara langsung jika diinginkan"
 
 #: js/messages.php:544
 msgid ""
@@ -2235,10 +2229,8 @@ msgstr "Simpan halaman"
 
 #: js/messages.php:560 templates/database/designer/side_menu.phtml:63
 #: templates/database/designer/side_menu.phtml:66
-#, fuzzy
-#| msgid "Select page"
 msgid "Save page as"
-msgstr "simpan halaman sebagai"
+msgstr "Simpan halaman sebagai"
 
 #: js/messages.php:561 templates/database/designer/side_menu.phtml:49
 #: templates/database/designer/side_menu.phtml:52
@@ -2481,16 +2473,12 @@ msgid "Create view"
 msgstr "Buat tampilan"
 
 #: js/messages.php:672
-#, fuzzy
-#| msgid "Send error reports"
 msgid "Send error report"
 msgstr "Kirim laporan kesalahan"
 
 #: js/messages.php:673
-#, fuzzy
-#| msgid "Submit Error Report"
 msgid "Submit error report"
-msgstr "Kirim Laporan Kesalahan"
+msgstr "Kirim laporan kesalahan"
 
 #: js/messages.php:675
 msgid ""
@@ -2501,16 +2489,12 @@ msgstr ""
 "kesalahan?"
 
 #: js/messages.php:677
-#, fuzzy
-#| msgid "Change Report Settings"
 msgid "Change report settings"
-msgstr "Ubah Pengaturan Pelaporan"
+msgstr "Ubah pengaturan pelaporan"
 
 #: js/messages.php:678
-#, fuzzy
-#| msgid "Show Report Details"
 msgid "Show report details"
-msgstr "Tampilkan Detail Laporan"
+msgstr "Tampilkan detail laporan"
 
 #: js/messages.php:681
 msgid ""
@@ -2556,40 +2540,32 @@ msgid "Do you really want to delete this bookmark?"
 msgstr "Anda yakin akan menghapus penanda ini?"
 
 #: js/messages.php:721
-#, fuzzy
 msgid "Some error occurred while getting SQL debug info."
-msgstr "Terjadi beberapa kesalahan saat mendapatkan info SQL debug."
+msgstr "Terjadi beberapa kesalahan saat mendapatkan informasi debug dari SQL."
 
 #: js/messages.php:723
-#, fuzzy, php-format
-#| msgid "Executed queries"
+#, php-format
 msgid "%s queries executed %s times in %s seconds."
-msgstr "Kueri tereksekusi"
+msgstr "%s kueri tereksekusi %s kali dalam waktu %s detik."
 
 #: js/messages.php:724
-#, fuzzy, php-format
+#, php-format
 msgid "%s argument(s) passed"
-msgstr "%s argumen lulus"
+msgstr "%s argumen lolos"
 
 #: js/messages.php:725
-#, fuzzy
-#| msgid "Table comments"
 msgid "Show arguments"
-msgstr "Perlihatkan Komentar tabel"
+msgstr "Tampilkan argumen"
 
 #: js/messages.php:726
-#, fuzzy
-#| msgid "Hide search results"
 msgid "Hide arguments"
-msgstr "Sembunyikan hasil pencarian"
+msgstr "Sembunyikan argumen"
 
 #: js/messages.php:727
-#, fuzzy
 msgid "Time taken:"
-msgstr "Waktu yang diperlukan:"
+msgstr "Waktu yang dipakai:"
 
 #: js/messages.php:728
-#, fuzzy
 msgid ""
 "There was a problem accessing your browser storage, some features may not "
 "work properly for you. It is likely that the browser doesn't support storage "
@@ -2600,27 +2576,22 @@ msgstr ""
 "Ada masalah saat mengakses penyimpanan browser Anda, beberapa fitur mungkin "
 "tidak bekerja dengan baik untuk Anda. Sangat mungkin bahwa browser tidak "
 "mendukung penyimpanan atau batas kuota telah tercapai. Pada Firefox, "
-"penyimpanan rusak juga dapat menyebabkan masalah seperti itu, kliring Anda "
-"\"Offline data Situs web\" mungkin bisa membantu. Dalam Safari, masalah "
-"tersebut umumnya disebabkan oleh \"Mode Private Browsing\"."
+"penyimpanan yang rusak juga dapat menyebabkan masalah seperti itu, "
+"membersihkan \"Data Situs Luring\" anda, mungkin bisa memperbaiki hal ini. "
+"Di Safari, masalah tersebut umumnya disebabkan oleh \"Mode Penjelajahan "
+"Pribadi\"."
 
 #: js/messages.php:730
-#, fuzzy
-#| msgid "Copy database to"
 msgid "Copy tables to"
-msgstr "Salin basis data ke"
+msgstr "Salin tabel ke"
 
 #: js/messages.php:731
-#, fuzzy
-#| msgid "Add table prefix"
 msgid "Add table prefix"
 msgstr "Tambahkan prefiks tabel"
 
 #: js/messages.php:732
-#, fuzzy
-#| msgid "Replace table prefix"
 msgid "Replace table with prefix"
-msgstr "Ganti prefiks tabel"
+msgstr "Ganti tabel dengan prefiks"
 
 #: js/messages.php:733 templates/database/structure/check_all_tables.phtml:29
 msgid "Copy table with prefix"
@@ -3001,13 +2972,13 @@ msgstr "Gagal menjalankan tes untuk aturan '%s'."
 msgid "Failed formatting string for rule '%s'."
 msgstr "Gagal memformat string untuk aturan '%s'."
 
-#: libraries/Advisor.php:469
+#: libraries/Advisor.php:486
 #, php-format
 msgid "Error in reading file: The file '%s' does not exist or is not readable!"
 msgstr ""
 "Kesalahan dalam membaca Arsip: Arsip '%s' tidak ada atau tidak dapat terbaca!"
 
-#: libraries/Advisor.php:494
+#: libraries/Advisor.php:511
 #, php-format
 msgid ""
 "Invalid rule declaration on line %1$s, expected line %2$s of previous rule."
@@ -3015,17 +2986,17 @@ msgstr ""
 "Deklarasi aturan tidak sah pada baris %1$s, diharapkan baris %2$s dari "
 "aturan sebelumnya."
 
-#: libraries/Advisor.php:513
+#: libraries/Advisor.php:530
 #, php-format
 msgid "Invalid rule declaration on line %s."
 msgstr "Deklarasi aturan tidak valid pada baris %s."
 
-#: libraries/Advisor.php:521
+#: libraries/Advisor.php:538
 #, php-format
 msgid "Unexpected characters on line %s."
 msgstr "Karakter tidak diharapkan pada baris %s."
 
-#: libraries/Advisor.php:536
+#: libraries/Advisor.php:553
 #, php-format
 msgid "Unexpected character on line %1$s. Expected tab, but found \"%2$s\"."
 msgstr ""
@@ -3054,7 +3025,7 @@ msgstr "Penyortiran"
 #: libraries/Charsets.php:244
 #, fuzzy
 #| msgid "unknown"
-msgid "Unknonwn"
+msgid "Unknown"
 msgstr "tidak diketahui"
 
 #: libraries/Charsets.php:258
@@ -3072,22 +3043,16 @@ msgid "Unicode"
 msgstr "Unikode"
 
 #: libraries/Charsets.php:280 libraries/Charsets.php:451
-#, fuzzy
-#| msgid "West European"
 msgctxt "Collation"
 msgid "West European"
 msgstr "Eropa Barat"
 
 #: libraries/Charsets.php:287
-#, fuzzy
-#| msgid "Central European"
 msgctxt "Collation"
 msgid "Central European"
 msgstr "Eropa Tengah"
 
 #: libraries/Charsets.php:292
-#, fuzzy
-#| msgid "Russian"
 msgctxt "Collation"
 msgid "Russian"
 msgstr "Rusia"
@@ -3100,29 +3065,21 @@ msgid "Simplified Chinese"
 msgstr "Cina Sederhana"
 
 #: libraries/Charsets.php:304 libraries/Charsets.php:422
-#, fuzzy
-#| msgid "Japanese"
 msgctxt "Collation"
 msgid "Japanese"
 msgstr "Jepang"
 
 #: libraries/Charsets.php:309
-#, fuzzy
-#| msgid "Baltic"
 msgctxt "Collation"
 msgid "Baltic"
 msgstr "Baltik"
 
 #: libraries/Charsets.php:314
-#, fuzzy
-#| msgid "Armenian"
 msgctxt "Collation"
 msgid "Armenian"
 msgstr "Armenia"
 
 #: libraries/Charsets.php:317
-#, fuzzy
-#| msgid "Traditional Chinese"
 msgctxt "Collation"
 msgid "Traditional Chinese"
 msgstr "Cina Tradisional"
@@ -3135,22 +3092,16 @@ msgid "Cyrillic"
 msgstr "Sirilik"
 
 #: libraries/Charsets.php:323
-#, fuzzy
-#| msgid "Arabic"
 msgctxt "Collation"
 msgid "Arabic"
 msgstr "Arab"
 
 #: libraries/Charsets.php:326 libraries/Charsets.php:437
-#, fuzzy
-#| msgid "Korean"
 msgctxt "Collation"
 msgid "Korean"
 msgstr "Korea"
 
 #: libraries/Charsets.php:329
-#, fuzzy
-#| msgid "Hebrew"
 msgctxt "Collation"
 msgid "Hebrew"
 msgstr "Ibrani"
@@ -3221,7 +3172,7 @@ msgstr "Bulgaria"
 #: libraries/Charsets.php:374
 msgctxt "Collation"
 msgid "Chinese"
-msgstr ""
+msgstr "Cina"
 
 #: libraries/Charsets.php:379
 #, fuzzy
@@ -3275,7 +3226,7 @@ msgstr "Kamus Data"
 #: libraries/Charsets.php:405 libraries/Charsets.php:516
 msgctxt "Collation"
 msgid "German (phone book order)"
-msgstr ""
+msgstr "Jerman (urutan buku telepon)"
 
 #: libraries/Charsets.php:414
 #, fuzzy
@@ -3294,7 +3245,7 @@ msgstr "Islandia"
 #: libraries/Charsets.php:425
 msgctxt "Collation"
 msgid "Classical Latin"
-msgstr ""
+msgstr "Latin Klasik"
 
 #: libraries/Charsets.php:429
 #, fuzzy
@@ -3369,7 +3320,7 @@ msgstr "Spanyol"
 #: libraries/Charsets.php:477 libraries/Charsets.php:527
 msgctxt "Collation"
 msgid "Spanish (traditional)"
-msgstr ""
+msgstr "Spanyol (tradisional)"
 
 #: libraries/Charsets.php:496
 #, fuzzy
@@ -4029,7 +3980,7 @@ msgstr "Tampilan cetak"
 msgid "Click on the bar to scroll to top of page"
 msgstr "Klik pada bar untuk menggulir ke atas halaman"
 
-#: libraries/Header.php:756 libraries/plugins/auth/AuthenticationCookie.php:152
+#: libraries/Header.php:758 libraries/plugins/auth/AuthenticationCookie.php:152
 msgid "Javascript must be enabled past this point!"
 msgstr "Javascript harus diaktifkan lewat point ini!"
 
@@ -4644,7 +4595,7 @@ msgstr "ambil ini"
 msgid "Default theme %s not found!"
 msgstr "Tema %s bawaan tidak ditemukan!"
 
-#: libraries/ThemeManager.php:204
+#: libraries/ThemeManager.php:203
 #, php-format
 msgid "Theme %s not found!"
 msgstr "Tema %s tidak ditemukan!"
@@ -5158,18 +5109,15 @@ msgid "Could not add columns!"
 msgstr "Tidak dapat menambah kolom!"
 
 #: libraries/central_columns.lib.php:372
-#, fuzzy, php-format
+#, php-format
 msgid ""
 "Couldn't remove Column(s) %1$s as they don't exist in central columns list!"
 msgstr ""
-"Tidak dapat menghapus Kolom %1$s karena mereka tidak ada dalam daftar kolom "
-"tengah!"
+"Tidak dapat menghapus Kolom %1$s karena tidak ada dalam daftar kolom pusat!"
 
 #: libraries/central_columns.lib.php:384
-#, fuzzy
-#| msgid "Could not save recent table"
 msgid "Could not remove columns!"
-msgstr "Tidak dapat menyimpan tabel terakhir: \"%1$s\""
+msgstr "Tidak dapat menghapus kolom-kolom!"
 
 #: libraries/central_columns.lib.php:529
 msgid "YES"
@@ -5211,10 +5159,8 @@ msgid "A_I"
 msgstr "A_I"
 
 #: libraries/central_columns.lib.php:749
-#, fuzzy
-#| msgid "Select Tables"
 msgid "Select a table"
-msgstr "Pilih tabel"
+msgstr "Pilih suatu tabel"
 
 #: libraries/central_columns.lib.php:803
 #: templates/table/structure/add_column.phtml:4
@@ -5222,16 +5168,12 @@ msgid "Add column"
 msgstr "Tambah kolom"
 
 #: libraries/central_columns.lib.php:815
-#, fuzzy
-#| msgid "Select two columns"
 msgid "Select a column."
-msgstr "Pilih dua kolom"
+msgstr "Pilih sebuah kolom."
 
 #: libraries/central_columns.lib.php:1264
-#, fuzzy
-#| msgid "Add column"
 msgid "Add new column"
-msgstr "Tambah kolom"
+msgstr "Tambah kolom baru"
 
 #: libraries/central_columns.lib.php:1386
 #: libraries/plugins/schema/pdf/PdfRelationSchema.php:631
@@ -5273,11 +5215,11 @@ msgstr "Indeks server tidak sah: %s"
 msgid "Server %d"
 msgstr "Server %d"
 
-#: libraries/common.inc.php:654
+#: libraries/common.inc.php:656
 msgid "Invalid authentication method set in configuration:"
 msgstr "Metode autentikasi dalam konfigurasi tidak sah:"
 
-#: libraries/common.inc.php:758
+#: libraries/common.inc.php:760
 #, fuzzy, php-format
 msgid ""
 "Unable to use timezone %1$s for server %2$d. Please check your configuration "
@@ -5288,20 +5230,20 @@ msgstr ""
 "pengaturan konfigurasi untuk [em]$cfg['Servers'][%3$d]['SessionTimeZone'][/"
 "em]. phpMyAdmin saat ini menggunakan zona waktu default dari server database."
 
-#: libraries/common.inc.php:796
+#: libraries/common.inc.php:798
 #, php-format
 msgid "You should upgrade to %s %s or later."
 msgstr "Anda harus memperbarui ke %s %s atau lebih baru."
 
-#: libraries/common.inc.php:882
+#: libraries/common.inc.php:884
 msgid "Error: Token mismatch"
 msgstr "Error: Token tidak cocok"
 
-#: libraries/common.inc.php:900
+#: libraries/common.inc.php:902
 msgid "GLOBALS overwrite attempt"
 msgstr "upaya penimpaan GLOBALS"
 
-#: libraries/common.inc.php:907
+#: libraries/common.inc.php:909
 msgid "possible exploit"
 msgstr "memungkinkan mengeksploitasi"
 
@@ -6036,10 +5978,8 @@ msgid "Whether the table structure actions should be hidden."
 msgstr "Sebaiknya stuktur aksi tabel disembunyikan."
 
 #: libraries/config/messages.inc.php:117
-#, fuzzy
-#| msgid "Table comments"
 msgid "Show column comments"
-msgstr "Komentar tabel"
+msgstr "Menampilkan komentar tabel"
 
 #: libraries/config/messages.inc.php:119
 #, fuzzy
@@ -8758,7 +8698,7 @@ msgstr "Tidak dapat memuat plugin import, harap periksa instalasi Anda!"
 
 #: libraries/dbi/DBIMysqli.php:158
 msgid "SSL connection enforced by server, automatically enabling it."
-msgstr ""
+msgstr "Koneksi SSL ditegakkan oleh server, secara otomatis memungkinkannya."
 
 #: libraries/display_change_password.lib.php:57
 #: libraries/replication_gui.lib.php:854
@@ -9015,7 +8955,7 @@ msgstr "Lewati tabel lebih besar dari"
 
 #: libraries/display_export.lib.php:895
 msgid "Defined aliases"
-msgstr ""
+msgstr "Nama-nama lain yang ditetapkan"
 
 #: libraries/display_export.lib.php:1011
 msgid "Could not load export plugins, please check your installation!"
@@ -14705,19 +14645,19 @@ msgstr "Tanpa hak akses."
 msgid "Group name:"
 msgstr "Nama kolom: "
 
-#: libraries/server_user_groups.lib.php:272
+#: libraries/server_user_groups.lib.php:271
 #, fuzzy
 #| msgid "Server version"
 msgid "Server-level tabs"
 msgstr "Versi Server"
 
-#: libraries/server_user_groups.lib.php:275
+#: libraries/server_user_groups.lib.php:274
 #, fuzzy
 #| msgid "Database server"
 msgid "Database-level tabs"
 msgstr "Server basis data"
 
-#: libraries/server_user_groups.lib.php:278
+#: libraries/server_user_groups.lib.php:277
 #, fuzzy
 #| msgid "Table comments"
 msgid "Table-level tabs"
@@ -16349,7 +16289,7 @@ msgstr "Anda dapat memeriksa data dalam laporan galat:"
 
 #: templates/export/alias_add.phtml:5
 msgid "Define new aliases"
-msgstr ""
+msgstr "Tetapkan alias baru"
 
 #: templates/export/alias_add.phtml:11
 #, fuzzy
@@ -18497,6 +18437,9 @@ msgstr ""
 #: libraries/advisory_rules.txt:446
 msgid "concurrent_insert is set to 0"
 msgstr "concurrent_insert diatur ke 0"
+
+#~ msgid "Unknonwn"
+#~ msgstr "Tidak diketahui"
 
 #, fuzzy
 #~| msgid "Right"
