@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.8.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2017-08-10 09:14-0400\n"
-"PO-Revision-Date: 2017-08-25 20:45+0000\n"
+"PO-Revision-Date: 2017-08-26 13:32+0000\n"
 "Last-Translator: Steven WdV <stevenwdv@gmail.com>\n"
 "Language-Team: Dutch "
 "<https://hosted.weblate.org/projects/phpmyadmin/master/nl/>\n"
@@ -548,6 +548,7 @@ msgstr ""
 "%sdocumentatie%s om deze limiet te omzeilen."
 
 #: import.php:368 import.php:569
+#, fuzzy
 msgid "Showing bookmark"
 msgstr "Bladwijzer tonen"
 
@@ -569,7 +570,7 @@ msgstr ""
 #: import.php:530 libraries/display_import.lib.php:667
 msgid "Could not load import plugins, please check your installation!"
 msgstr ""
-"De importeer-plugins konden niet worden geladen, controleer de installatie!"
+"De importeerplugins konden niet worden geladen, controleer de installatie!"
 
 #: import.php:572 libraries/classes/Sql.php:806 libraries/classes/Sql.php:1581
 #, php-format
@@ -1066,7 +1067,7 @@ msgstr "Gelieve de kolom(men) voor de index te selecteren."
 #: templates/table/relation/common_form.phtml:172
 #: templates/table/index_form.twig:382
 msgid "Preview SQL"
-msgstr "SQL voorbeeld"
+msgstr "SQL-voorbeeld"
 
 #: js/messages.php:132
 msgid "Simulate query"
@@ -1388,8 +1389,8 @@ msgid ""
 "Following settings will be applied globally and reset to default on server "
 "restart:"
 msgstr ""
-"Volgende instellingen zullen algemeen toegepast worden en worden gereset tot "
-"de standaardwaarde bij herstart van de server:"
+"Volgende instellingen zullen overal toegepast worden en worden teruggezet op "
+"de standaardwaarde bij herstarten van de server:"
 
 #. l10n: %s is FILE or TABLE
 #: js/messages.php:239
@@ -5635,7 +5636,7 @@ msgstr "Kan niet aanmelden op de MySQL-server"
 #: libraries/classes/Plugins/Export/ExportCodegen.php:100
 #: libraries/display_export.lib.php:364 libraries/display_import.lib.php:366
 msgid "Format:"
-msgstr "Opmaak:"
+msgstr "Indeling:"
 
 #: libraries/classes/Plugins/Export/ExportCsv.php:62
 #: libraries/classes/Plugins/Import/AbstractImportCsv.php:58
@@ -8237,7 +8238,7 @@ msgstr "SSL wordt gebruikt met uitgeschakelde verificatie"
 
 #: libraries/classes/Util.php:3960
 msgid "SSL is used without certification authority"
-msgstr "SSL wordt gebruikt zonder certificatie autoriteit"
+msgstr "SSL wordt gebruikt zonder certificatieautoriteit"
 
 #: libraries/classes/Util.php:3963
 msgid "SSL is used"
@@ -8443,7 +8444,7 @@ msgstr "Waarde instellen op: %s"
 #: libraries/config/FormDisplay.tpl.php:338
 #: libraries/config/messages.inc.php:623
 msgid "Restore default value"
-msgstr "Standaard waarde herstellen"
+msgstr "Standaardwaarde herstellen"
 
 #: libraries/config/FormDisplay.tpl.php:351
 msgid "Allow users to customize this value"
@@ -8801,7 +8802,7 @@ msgstr "Karakterset voor het bestand"
 #: libraries/sql_query_form.lib.php:250
 #: templates/table/structure/row_stats_table.twig:32
 msgid "Format"
-msgstr "Opmaak"
+msgstr "Opmaken"
 
 #: libraries/config/messages.inc.php:159
 msgid "Compression"
@@ -10947,7 +10948,7 @@ msgstr "Databases:"
 
 #: libraries/display_export.lib.php:380 libraries/display_import.lib.php:372
 msgid "Format-specific options:"
-msgstr "Opmaakspecifieke opties:"
+msgstr "Indelingsspecifieke opties:"
 
 #: libraries/display_export.lib.php:383
 msgid ""
@@ -11187,7 +11188,7 @@ msgstr "%s van %s"
 
 #: libraries/display_import.lib.php:492
 msgid "Uploading your import file…"
-msgstr "Uw geïmporteerde bestand wordt ingeladen…"
+msgstr "Uw te importeren bestand wordt geüpload…"
 
 #: libraries/display_import.lib.php:493
 #, php-format
@@ -12454,7 +12455,7 @@ msgstr "De volgende query is mislukt: \"%s\""
 
 #: libraries/rte/rte_events.lib.php:130
 msgid "Sorry, we failed to restore the dropped event."
-msgstr "Herstellen van de verwijderde gebeurtenis is mislukt."
+msgstr "Sorry, het herstellen van de verwijderde gebeurtenis is mislukt."
 
 #: libraries/rte/rte_events.lib.php:137
 #, php-format
@@ -13693,7 +13694,8 @@ msgstr "Het aantal schrijfopdrachten voor een sleutelblok naar de cache."
 
 #: libraries/server_status_variables.lib.php:614
 msgid "The number of physical writes of a key block to disk."
-msgstr "Het aantal fysieke schrijfopdrachten voor een sleutelblok naar disk."
+msgstr ""
+"Het aantal fysieke schrijfopdrachten van een sleutelblok naar de opslag."
 
 #: libraries/server_status_variables.lib.php:617
 msgid ""
@@ -14538,7 +14540,7 @@ msgstr "Regeleinde"
 
 #: setup/frames/index.inc.php:255
 msgid "Display"
-msgstr "Toon"
+msgstr "Tonen"
 
 #: setup/frames/index.inc.php:268
 msgid "phpMyAdmin homepage"
@@ -15437,7 +15439,7 @@ msgstr "Vervangen tekenreeks"
 
 #: templates/table/search/replace_preview.twig:108
 msgid "Replace"
-msgstr "Vervang"
+msgstr "Vervangen"
 
 #: templates/columns_definitions/column_length.twig:47
 msgid "Edit ENUM/SET values"
