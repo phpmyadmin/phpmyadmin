@@ -133,7 +133,7 @@ if [ $do_ci -eq 0 -a -$do_daily -eq 0 ] ; then
     cat <<END
 
 Please ensure you have incremented rc count or version in the repository :
-     - in $CONFIG_LIB PhpMyAdmin\Config::__constructor() the line
+     - in $CONFIG_LIB Config::__constructor() the line
           " \$this->set( 'PMA_VERSION', '$version' ); "
      - in doc/conf.py the line
           " version = '$version' "
@@ -444,7 +444,7 @@ Todo now:
     based on documentation.
 
  6. increment rc count or version in the repository :
-        - in $CONFIG_LIB PhpMyAdmin\Config::__constructor() the line
+        - in $CONFIG_LIB Config::__constructor() the line
               " \$this->set( 'PMA_VERSION', '2.7.1-dev' ); "
         - in Documentation.html (if it exists) the 2 lines
               " <title>phpMyAdmin 2.2.2-rc1 - Documentation</title> "
