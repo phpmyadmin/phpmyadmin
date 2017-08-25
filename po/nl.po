@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.7.4-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2017-08-10 09:13-0400\n"
-"PO-Revision-Date: 2017-08-25 20:32+0000\n"
-"Last-Translator: dingo thirteen <dingo13@gmail.com>\n"
+"PO-Revision-Date: 2017-08-25 20:45+0000\n"
+"Last-Translator: Steven WdV <stevenwdv@gmail.com>\n"
 "Language-Team: Dutch <https://hosted.weblate.org/projects/phpmyadmin/4-7/nl/>"
 "\n"
 "Language: nl\n"
@@ -642,7 +642,7 @@ msgstr "Collatie van de serververbinding"
 
 #: index.php:242
 msgid "Appearance settings"
-msgstr "Opmaak instellingen"
+msgstr "Opmaakinstellingen"
 
 #: index.php:275 prefs_manage.php:294
 msgid "More settings"
@@ -2485,7 +2485,7 @@ msgstr ", meest recente versie:"
 
 #: js/messages.php:667
 msgid "up to date"
-msgstr "Recent bijgewerkt"
+msgstr "meest recent"
 
 #: js/messages.php:669 libraries/DisplayResults.php:4974 view_create.php:206
 msgid "Create view"
@@ -4266,7 +4266,7 @@ msgstr "Recente tabellen"
 
 #: libraries/RecentFavoriteTable.php:249
 msgid "Recent"
-msgstr "Onlangs"
+msgstr "Recent"
 
 #: libraries/RecentFavoriteTable.php:251 libraries/config/messages.inc.php:539
 msgid "Favorite tables"
@@ -4384,7 +4384,7 @@ msgstr "Alle statusvariabelen"
 
 #: libraries/ServerStatusData.php:441
 msgid "Monitor"
-msgstr "Opvolgen"
+msgstr "Monitoren"
 
 #: libraries/ServerStatusData.php:445
 msgid "Advisor"
@@ -12740,7 +12740,7 @@ msgstr "Query-analyser"
 
 #: libraries/server_status_monitor.lib.php:106
 msgid "Monitor Instructions"
-msgstr "Bewakingsinstructies"
+msgstr "Monitorinstructies"
 
 #: libraries/server_status_monitor.lib.php:108
 msgid ""
