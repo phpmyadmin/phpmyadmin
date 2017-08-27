@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.7.4-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2017-08-10 09:13-0400\n"
-"PO-Revision-Date: 2017-08-23 10:46+0000\n"
-"Last-Translator: Mochammad Nur Afandi <localanu@gmail.com>\n"
+"PO-Revision-Date: 2017-08-28 11:14+0000\n"
+"Last-Translator: ZoroarkDarkrai <fidellawi@gmail.com>\n"
 "Language-Team: Indonesian "
 "<https://hosted.weblate.org/projects/phpmyadmin/4-7/id/>\n"
 "Language: id\n"
@@ -3023,21 +3023,15 @@ msgid "Collation"
 msgstr "Penyortiran"
 
 #: libraries/Charsets.php:244
-#, fuzzy
-#| msgid "unknown"
 msgid "Unknown"
-msgstr "tidak diketahui"
+msgstr "Tidak diketahui"
 
 #: libraries/Charsets.php:258
-#, fuzzy
-#| msgid "Binary"
 msgctxt "Collation"
 msgid "Binary"
 msgstr "Biner"
 
 #: libraries/Charsets.php:270 libraries/Charsets.php:500
-#, fuzzy
-#| msgid "Unicode"
 msgctxt "Collation"
 msgid "Unicode"
 msgstr "Unikode"
@@ -3058,8 +3052,6 @@ msgid "Russian"
 msgstr "Rusia"
 
 #: libraries/Charsets.php:297
-#, fuzzy
-#| msgid "Simplified Chinese"
 msgctxt "Collation"
 msgid "Simplified Chinese"
 msgstr "Cina Sederhana"
@@ -3114,53 +3106,39 @@ msgid "Georgian"
 msgstr "Georgia"
 
 #: libraries/Charsets.php:335
-#, fuzzy
-#| msgid "Greek"
 msgctxt "Collation"
 msgid "Greek"
 msgstr "Yunani"
 
 #: libraries/Charsets.php:338
-#, fuzzy
-#| msgid "Czech-Slovak"
 msgctxt "Collation"
 msgid "Czech-Slovak"
 msgstr "Cecko-Slovakia"
 
 #: libraries/Charsets.php:341 libraries/Charsets.php:492
-#, fuzzy
-#| msgid "Ukrainian"
 msgctxt "Collation"
 msgid "Ukrainian"
 msgstr "Ukrainia"
 
 #: libraries/Charsets.php:344 libraries/Charsets.php:488
-#, fuzzy
-#| msgid "Turkish"
 msgctxt "Collation"
 msgid "Turkish"
 msgstr "Turki"
 
 #: libraries/Charsets.php:347 libraries/Charsets.php:480
-#, fuzzy
-#| msgid "Swedish"
 msgctxt "Collation"
 msgid "Swedish"
 msgstr "Swedia"
 
 #: libraries/Charsets.php:350 libraries/Charsets.php:484
-#, fuzzy
-#| msgid "Thai"
 msgctxt "Collation"
 msgid "Thai"
 msgstr "Thailand"
 
 #: libraries/Charsets.php:353
-#, fuzzy
-#| msgid "unknown"
 msgctxt "Collation"
 msgid "Unknown"
-msgstr "tidak diketahui"
+msgstr "Tidak diketahui"
 
 #: libraries/Charsets.php:369
 #, fuzzy
@@ -3175,15 +3153,11 @@ msgid "Chinese"
 msgstr "Cina"
 
 #: libraries/Charsets.php:379
-#, fuzzy
-#| msgid "Croatian"
 msgctxt "Collation"
 msgid "Croatian"
 msgstr "Kroasia"
 
 #: libraries/Charsets.php:383
-#, fuzzy
-#| msgid "Czech"
 msgctxt "Collation"
 msgid "Czech"
 msgstr "Ceko"
@@ -3196,15 +3170,11 @@ msgid "Danish"
 msgstr "Denmark"
 
 #: libraries/Charsets.php:391
-#, fuzzy
-#| msgid "English"
 msgctxt "Collation"
 msgid "English"
 msgstr "Inggris"
 
 #: libraries/Charsets.php:395
-#, fuzzy
-#| msgid "Esperanto"
 msgctxt "Collation"
 msgid "Esperanto"
 msgstr "Esperanto"
@@ -3422,7 +3392,7 @@ msgstr "Kotak Kueri SQL"
 #, fuzzy
 #| msgid "Failed to read configuration file"
 msgid "Failed to set configured collation connection!"
-msgstr "Gagal membaca berkas konfigurasi"
+msgstr "Gagal menyetel koneksi kolasi!"
 
 #: libraries/DatabaseInterface.php:2030
 msgid ""
@@ -3448,7 +3418,7 @@ msgstr "Rincian…"
 #, fuzzy
 #| msgid "Missing parameter:"
 msgid "Missing connection parameters!"
-msgstr "Parameter yang hilang:"
+msgstr "Parameter koneksi hilang!"
 
 #: libraries/DatabaseInterface.php:2378
 msgid "Connection for controluser as defined in your configuration failed."
@@ -3752,7 +3722,7 @@ msgstr "Kunci relasi"
 #, fuzzy
 #| msgid "Display foreign key relationships"
 msgid "Display column for relationships"
-msgstr "Tampilkan hubungan kunci luar"
+msgstr "Tampilkan kolom untuk relasi"
 
 #: libraries/DisplayResults.php:1757
 msgid "Show binary contents"
@@ -3948,7 +3918,7 @@ msgstr "Terjadi galat sewaktu memindahkan berkas unggahan."
 #, fuzzy
 #| msgid "Cannot read (moved) upload file."
 msgid "Cannot read uploaded file."
-msgstr "Tidak bisa membaca (memindah) file unggah."
+msgstr "Tidak bisa membaca file yang telah diunggah."
 
 #: libraries/File.php:609
 #, php-format
@@ -4252,7 +4222,7 @@ msgstr "Basis data"
 #, fuzzy
 #| msgid "User groups"
 msgid "User accounts"
-msgstr "Grup pengguna"
+msgstr "Akun pengguna"
 
 #: libraries/Menu.php:601 libraries/ServerStatusData.php:121
 #: libraries/Util.php:4103 libraries/server_common.lib.php:33
@@ -5148,13 +5118,10 @@ msgid "Length/Values"
 msgstr "Panjang/Nilai"
 
 #: libraries/central_columns.lib.php:705
-#, fuzzy
-#| msgid "Attributes"
 msgid "Attribute"
 msgstr "Atribut"
 
 #: libraries/central_columns.lib.php:709 libraries/central_columns.lib.php:1386
-#, fuzzy
 msgid "A_I"
 msgstr "A_I"
 
@@ -8588,7 +8555,7 @@ msgstr "Sukses hentikan Thread %s."
 #, fuzzy
 #| msgid "Internal relation added"
 msgid "Internal relationships were successfully updated."
-msgstr "Relasi internal ditambahkan"
+msgstr "Relasi internal sukses diperbarui."
 
 #: libraries/controllers/table/TableSearchController.php:768
 msgid "Table search"
@@ -8630,7 +8597,7 @@ msgstr "Galat kueri"
 #| msgid "Table %1$s has been altered successfully."
 msgid ""
 "Table %1$s has been altered successfully. Privileges have been adjusted."
-msgstr "Tabel %1$s berhasil diubah."
+msgstr "Tabel %1$s berhasil diubah. Hak telah disesuaikan."
 
 #: libraries/controllers/table/TableStructureController.php:1181
 #: templates/table/structure/check_all_table_column.phtml:18
@@ -8665,7 +8632,7 @@ msgstr "Teks penuh"
 #, fuzzy
 #| msgid "Browse distinct values"
 msgid "Distinct values"
-msgstr "Jelajahi nilai distingtif"
+msgstr "Nilai unik"
 
 #: libraries/core.lib.php:297
 #, php-format
@@ -8824,10 +8791,8 @@ msgid "Databases:"
 msgstr "Basis data"
 
 #: libraries/display_export.lib.php:342 libraries/navigation/Navigation.php:197
-#, fuzzy
-#| msgid "Tables"
 msgid "Tables:"
-msgstr "Tabel"
+msgstr "Tabel:"
 
 #: libraries/display_export.lib.php:362 libraries/display_import.lib.php:364
 #: libraries/plugins/export/ExportCodegen.php:100
@@ -9333,12 +9298,11 @@ msgid "Log cache size"
 msgstr "Besar singgahan log"
 
 #: libraries/engines/Pbxt.php:50
-#, fuzzy
 msgid ""
 "The amount of memory allocated to the transaction log cache used to cache on "
 "transaction log data. The default is 16MB."
 msgstr ""
-"Jumlah memori yang dialokasikan untuk log transaksi Cache digunakan untuk "
+"Jumlah memori yang dialokasikan untuk log transaksi cache digunakan untuk "
 "cache data log transaksi. Standarnya adalah 16MB."
 
 #: libraries/engines/Pbxt.php:57
@@ -9750,34 +9714,26 @@ msgid "An error has occurred while loading the navigation display"
 msgstr "Sebuah kesalahan telah terjadi saat memuat pohon navigasi"
 
 #: libraries/navigation/Navigation.php:193
-#, fuzzy
-#| msgid "Column names: "
 msgid "Groups:"
-msgstr "Nama kolom: "
+msgstr "Kelompok:"
 
 #: libraries/navigation/Navigation.php:194
-#, fuzzy
-#| msgid "Events"
 msgid "Events:"
-msgstr "Event"
+msgstr "Acara:"
 
 #: libraries/navigation/Navigation.php:195
-#, fuzzy
-#| msgid "Functions"
 msgid "Functions:"
-msgstr "Fungsi"
+msgstr "Fungsi:"
 
 #: libraries/navigation/Navigation.php:196
-#, fuzzy
-#| msgid "Procedures"
 msgid "Procedures:"
-msgstr "Prosedur"
+msgstr "Prosedur:"
 
 #: libraries/navigation/Navigation.php:198
 #, fuzzy
 #| msgid "Views"
 msgid "Views:"
-msgstr "View"
+msgstr "Dilihat:"
 
 #: libraries/navigation/Navigation.php:222 libraries/tracking.lib.php:289
 #: libraries/tracking.lib.php:1601 tbl_change.php:156
@@ -9796,7 +9752,7 @@ msgstr "Keluar"
 #, fuzzy
 #| msgid "Dumping data for table"
 msgid "Empty session data"
-msgstr "Dumping data untuk tabel"
+msgstr "Data sesi kosong"
 
 #: libraries/navigation/NavigationHeader.php:190
 msgid "phpMyAdmin documentation"
