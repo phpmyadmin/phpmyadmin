@@ -8,6 +8,7 @@
 namespace PhpMyAdmin;
 
 use PhpMyAdmin\DatabaseInterface;
+use PhpMyAdmin\Relation;
 use PhpMyAdmin\Tracker;
 use PhpMyAdmin\Url;
 use PhpMyAdmin\Util;
@@ -137,7 +138,7 @@ class Menu
             return Util::cacheGet($cache_key);
         }
         $allowedTabs = Util::getMenuTabList($level);
-        $cfgRelation = PMA_getRelationsParam();
+        $cfgRelation = Relation::getRelationsParam();
         if ($cfgRelation['menuswork']) {
             $groupTable = Util::backquote($cfgRelation['db'])
                 . "."
@@ -152,7 +153,7 @@ class Menu
                 . $userTable . " WHERE `username` = '"
                 . $GLOBALS['dbi']->escapeString($GLOBALS['cfg']['Server']['user']) . "')";
 
-            $result = PMA_queryAsControlUser($sql_query, false);
+            $result = Relation::queryAsControlUser($sql_query, false);
             if ($result) {
                 while ($row = $GLOBALS['dbi']->fetchAssoc($result)) {
                     $tabName = mb_substr(
@@ -292,12 +293,12 @@ class Menu
                 } // end if
             } else {
                 // no table selected, display database comment if present
-                $cfgRelation = PMA_getRelationsParam();
+                $cfgRelation = Relation::getRelationsParam();
 
                 // Get additional information about tables for tooltip is done
                 // in Util::getDbInfo() only once
                 if ($cfgRelation['commwork']) {
-                    $comment = PMA_getDbComment($this->_db);
+                    $comment = Relation::getDbComment($this->_db);
                     /**
                      * Displays table comment
                      */
@@ -448,7 +449,7 @@ class Menu
         /**
          * Gets the relation settings
          */
-        $cfgRelation = PMA_getRelationsParam();
+        $cfgRelation = Relation::getRelationsParam();
 
         $tabs = array();
 
@@ -467,9 +468,9 @@ class Menu
             $tabs['search']['warning'] = __('Database seems to be empty!');
         }
 
-        $tabs['qbe']['text'] = __('Query');
-        $tabs['qbe']['icon'] = 's_db.png';
-        $tabs['qbe']['link'] = 'db_qbe.php';
+        $tabs['multi_table_query']['text'] = __('Query');
+        $tabs['multi_table_query']['icon'] = 's_db.png';
+        $tabs['multi_table_query']['link'] = 'db_multi_table_query.php';
         if ($num_tables == 0) {
             $tabs['qbe']['warning'] = __('Database seems to be empty!');
         }

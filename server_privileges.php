@@ -8,6 +8,7 @@
 
 use PhpMyAdmin\Core;
 use PhpMyAdmin\Message;
+use PhpMyAdmin\Relation;
 use PhpMyAdmin\Response;
 use PhpMyAdmin\Server\Privileges;
 
@@ -22,7 +23,7 @@ require_once 'libraries/common.inc.php';
 require_once 'libraries/display_change_password.lib.php';
 require_once 'libraries/check_user_privileges.lib.php';
 
-$cfgRelation = PMA_getRelationsParam();
+$cfgRelation = Relation::getRelationsParam();
 
 /**
  * Does the common work

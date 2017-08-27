@@ -10,6 +10,7 @@ namespace PhpMyAdmin\Plugins\Export\Helpers;
 
 use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Pdf as PdfLib;
+use PhpMyAdmin\Relation;
 use PhpMyAdmin\Transformations;
 use PhpMyAdmin\Util;
 use TCPDF_STATIC;
@@ -463,7 +464,7 @@ class Pdf extends PdfLib
         if ($do_relation) {
             // Find which tables are related with the current one and write it in
             // an array
-            $res_rel = PMA_getForeigners($db, $table);
+            $res_rel = Relation::getForeigners($db, $table);
             $have_rel = !empty($res_rel);
         } else {
             $have_rel = false;
@@ -516,7 +517,7 @@ class Pdf extends PdfLib
         // Now let's start to write the table structure
 
         if ($do_comments) {
-            $comments = PMA_getComments($db, $table);
+            $comments = Relation::getComments($db, $table);
         }
         if ($do_mime && $cfgRelation['mimework']) {
             $mime_map = Transformations::getMIME($db, $table, true);

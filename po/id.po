@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.8.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2017-08-10 09:14-0400\n"
-"PO-Revision-Date: 2017-08-22 10:49+0000\n"
+"PO-Revision-Date: 2017-08-26 13:32+0000\n"
 "Last-Translator: Mochammad Nur Afandi <localanu@gmail.com>\n"
 "Language-Team: Indonesian "
 "<https://hosted.weblate.org/projects/phpmyadmin/master/id/>\n"
@@ -669,10 +669,8 @@ msgid "Server type:"
 msgstr "Jenis server:"
 
 #: index.php:310
-#, fuzzy
-#| msgid "Insecure connection"
 msgid "Server connection:"
-msgstr "Koneksi tidak aman"
+msgstr "Koneksi server:"
 
 #: index.php:314 libraries/classes/Plugins/Export/ExportLatex.php:221
 #: libraries/classes/Plugins/Export/ExportSql.php:702
@@ -1747,10 +1745,8 @@ msgid "No databases selected."
 msgstr "Basis data belum dipilih."
 
 #: js/messages.php:366
-#, fuzzy
-#| msgid "No column selected."
 msgid "No accounts selected."
-msgstr "Tidak ada kolom yang dipilih."
+msgstr "Tidak ada akun yang dipilih."
 
 #: js/messages.php:367
 msgid "Dropping column"

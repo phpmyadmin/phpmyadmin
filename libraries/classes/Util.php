@@ -22,10 +22,6 @@ use PhpMyAdmin\Template;
 use PhpMyAdmin\Url;
 use stdClass;
 
-if (! defined('PHPMYADMIN')) {
-    exit;
-}
-
 /**
  * Misc functions used all over the scripts.
  *
@@ -2670,11 +2666,11 @@ class Util
      * @return string         html div element
      *
      */
-    public static function getDivForSliderEffect($id = '', $message = '')
+    public static function getDivForSliderEffect($id = '', $message = '', $overridedefault = null)
     {
         return Template::get('div_for_slider_effect')->render([
             'id'                    => $id,
-            'initial_sliders_state' => $GLOBALS['cfg']['InitialSlidersState'],
+            'initial_sliders_state' => ($overridedefault !=null) ? $overridedefault : $GLOBALS['cfg']['InitialSlidersState'],
             'message'               => $message,
         ]);
     }
@@ -4096,7 +4092,7 @@ class Util
                 'structure'   => __('Structure'),
                 'sql'         => __('SQL'),
                 'search'      => __('Search'),
-                'qbe'         => __('Query'),
+                'multi_table_query'         => __('Query'),
                 'export'      => __('Export'),
                 'import'      => __('Import'),
                 'operation'   => __('Operations'),

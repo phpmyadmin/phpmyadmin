@@ -7,6 +7,7 @@
  */
 
 use PhpMyAdmin\Core;
+use PhpMyAdmin\Relation;
 use PhpMyAdmin\Response;
 use PhpMyAdmin\Transformations;
 
@@ -20,7 +21,7 @@ define('IS_TRANSFORMATION_WRAPPER', true);
  */
 require_once './libraries/common.inc.php';
 
-$cfgRelation = PMA_getRelationsParam();
+$cfgRelation = Relation::getRelationsParam();
 
 /**
  * Ensures db and table are valid, else moves to the "parent" script

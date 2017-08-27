@@ -11,6 +11,7 @@ use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Index;
 use PhpMyAdmin\Message;
 use PhpMyAdmin\Plugins\Export\ExportSql;
+use PhpMyAdmin\Relation;
 use PhpMyAdmin\SqlParser\Components\Expression;
 use PhpMyAdmin\SqlParser\Components\OptionsArray;
 use PhpMyAdmin\SqlParser\Context;
@@ -799,7 +800,7 @@ class Table
 
         // must use DatabaseInterface::QUERY_STORE here, since we execute
         // another query inside the loop
-        $table_copy_rs = PMA_queryAsControlUser(
+        $table_copy_rs = Relation::queryAsControlUser(
             $table_copy_query, true, DatabaseInterface::QUERY_STORE
         );
 
@@ -819,7 +820,7 @@ class Table
                 . implode('\', \'', $value_parts) . '\', \''
                 . implode('\', \'', $new_value_parts) . '\')';
 
-            PMA_queryAsControlUser($new_table_query);
+            Relation::queryAsControlUser($new_table_query);
             $last_id = $GLOBALS['dbi']->insertId();
         } // end while
 
@@ -1160,7 +1161,7 @@ class Table
             }
         }
 
-        PMA_getRelationsParam();
+        Relation::getRelationsParam();
 
         // Drops old table if the user has requested to move it
         if ($move) {
@@ -1179,7 +1180,7 @@ class Table
             $GLOBALS['dbi']->query($sql_drop_query);
 
             // Renable table in configuration storage
-            PMA_REL_renameTable(
+            Relation::renameTable(
                 $source_db, $target_db,
                 $source_table, $target_table
             );
@@ -1197,7 +1198,7 @@ class Table
 
         if ($GLOBALS['cfgRelation']['commwork']) {
             // Get all comments and MIME-Types for current table
-            $comments_copy_rs = PMA_queryAsControlUser(
+            $comments_copy_rs = Relation::queryAsControlUser(
                 'SELECT column_name, comment'
                 . ($GLOBALS['cfgRelation']['mimework']
                 ? ', mimetype, transformation, transformation_options'
@@ -1245,7 +1246,7 @@ class Table
                         . '\''
                         : '')
                     . ')';
-                PMA_queryAsControlUser($new_comment_query);
+                Relation::queryAsControlUser($new_comment_query);
             } // end while
             $GLOBALS['dbi']->freeResult($comments_copy_rs);
             unset($comments_copy_rs);
@@ -1484,7 +1485,7 @@ class Table
         $this->_db_name = $new_db;
 
         // Renable table in configuration storage
-        PMA_REL_renameTable(
+        Relation::renameTable(
             $old_db, $new_db,
             $old_name, $new_name
         );
@@ -1679,7 +1680,7 @@ class Table
      */
     protected function getUiPrefsFromDb()
     {
-        $cfgRelation = PMA_getRelationsParam();
+        $cfgRelation = Relation::getRelationsParam();
         $pma_table = Util::backquote($cfgRelation['db']) . "."
             . Util::backquote($cfgRelation['table_uiprefs']);
 
@@ -1689,7 +1690,7 @@ class Table
             . " AND `db_name` = '" . $GLOBALS['dbi']->escapeString($this->_db_name) . "'"
             . " AND `table_name` = '" . $GLOBALS['dbi']->escapeString($this->_name) . "'";
 
-        $row = $this->_dbi->fetchArray(PMA_queryAsControlUser($sql_query));
+        $row = $this->_dbi->fetchArray(Relation::queryAsControlUser($sql_query));
         if (isset($row[0])) {
             return json_decode($row[0], true);
         } else {
@@ -1704,7 +1705,7 @@ class Table
      */
     protected function saveUiPrefsToDb()
     {
-        $cfgRelation = PMA_getRelationsParam();
+        $cfgRelation = Relation::getRelationsParam();
         $pma_table = Util::backquote($cfgRelation['db']) . "."
             . Util::backquote($cfgRelation['table_uiprefs']);
 
@@ -1779,7 +1780,7 @@ class Table
      */
     protected function loadUiPrefs()
     {
-        $cfgRelation = PMA_getRelationsParam();
+        $cfgRelation = Relation::getRelationsParam();
         $server_id = $GLOBALS['server'];
 
         // set session variable if it's still undefined
@@ -1917,7 +1918,7 @@ class Table
         $this->uiprefs[$property] = $value;
 
         // check if pmadb is set
-        $cfgRelation = PMA_getRelationsParam();
+        $cfgRelation = Relation::getRelationsParam();
         if ($cfgRelation['uiprefswork']) {
             return $this->saveUiprefsToDb();
         }
@@ -1940,7 +1941,7 @@ class Table
             unset($this->uiprefs[$property]);
 
             // check if pmadb is set
-            $cfgRelation = PMA_getRelationsParam();
+            $cfgRelation = Relation::getRelationsParam();
             if ($cfgRelation['uiprefswork']) {
                 return $this->saveUiprefsToDb();
             }

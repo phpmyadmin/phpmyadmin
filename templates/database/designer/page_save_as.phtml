@@ -1,5 +1,5 @@
 <?php
-$cfgRelation = PMA_getRelationsParam();
+$cfgRelation = PhpMyAdmin\Relation::getRelationsParam();
 $choices = array(
     'same' => __('Save to selected page'),
     'new' => __('Create a page and save to it')

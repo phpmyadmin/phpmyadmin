@@ -15,11 +15,7 @@ use PhpMyAdmin\TypesMySQL;
 $GLOBALS['server'] = 1;
 
 require_once 'libraries/database_interface.inc.php';
-
-require_once 'libraries/relation.lib.php';
-
 require_once 'libraries/normalization.lib.php';
-
 
 /**
  * tests for normalization.lib.php

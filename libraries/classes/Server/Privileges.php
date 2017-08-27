@@ -10,10 +10,11 @@ namespace PhpMyAdmin\Server;
 use PhpMyAdmin\Core;
 use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Message;
+use PhpMyAdmin\Relation;
 use PhpMyAdmin\Response;
 use PhpMyAdmin\Template;
-use PhpMyAdmin\Util;
 use PhpMyAdmin\Url;
+use PhpMyAdmin\Util;
 
 /**
  * Privileges class
@@ -523,7 +524,7 @@ class Privileges
      */
     public static function getHtmlToChooseUserGroup($username)
     {
-        $cfgRelation = PMA_getRelationsParam();
+        $cfgRelation = Relation::getRelationsParam();
         $groupTable = Util::backquote($cfgRelation['db'])
             . "." . Util::backquote($cfgRelation['usergroups']);
         $userTable = Util::backquote($cfgRelation['db'])
@@ -540,7 +541,7 @@ class Privileges
 
         $allUserGroups = array('' => '');
         $sql_query = "SELECT DISTINCT `usergroup` FROM " . $groupTable;
-        $result = PMA_queryAsControlUser($sql_query, false);
+        $result = Relation::queryAsControlUser($sql_query, false);
         if ($result) {
             while ($row = $GLOBALS['dbi']->fetchRow($result)) {
                 $allUserGroups[$row[0]] = $row[0];
@@ -570,7 +571,7 @@ class Privileges
      */
     public static function setUserGroup($username, $userGroup)
     {
-        $cfgRelation = PMA_getRelationsParam();
+        $cfgRelation = Relation::getRelationsParam();
         if (empty($cfgRelation['db']) || empty($cfgRelation['users']) || empty($cfgRelation['usergroups'])) {
             return;
         }
@@ -599,7 +600,7 @@ class Privileges
             }
         }
         if (isset($upd_query)) {
-            PMA_queryAsControlUser($upd_query);
+            Relation::queryAsControlUser($upd_query);
         }
     }
 
@@ -2841,7 +2842,7 @@ class Privileges
      */
     public static function getUserGroupCount()
     {
-        $cfgRelation = PMA_getRelationsParam();
+        $cfgRelation = Relation::getRelationsParam();
         $user_group_table = Util::backquote($cfgRelation['db'])
             . '.' . Util::backquote($cfgRelation['usergroups']);
         $sql_query = 'SELECT COUNT(*) FROM ' . $user_group_table;
@@ -2861,7 +2862,7 @@ class Privileges
      */
     public static function getUserGroupForUser($username)
     {
-        $cfgRelation = PMA_getRelationsParam();
+        $cfgRelation = Relation::getRelationsParam();
 
         if (empty($cfgRelation['db'])
             || empty($cfgRelation['users'])
@@ -2952,7 +2953,7 @@ class Privileges
 
             // if $cfg['Servers'][$i]['users'] and $cfg['Servers'][$i]['usergroups'] are
             // enabled
-            $cfgRelation = PMA_getRelationsParam();
+            $cfgRelation = Relation::getRelationsParam();
             if (!empty($cfgRelation['users']) && !empty($cfgRelation['usergroups'])) {
                 $new_user_string .= '<td class="usrGroup"></td>';
             }
@@ -3560,12 +3561,12 @@ class Privileges
      */
     public static function getHtmlTableBodyForUserRights($db_rights)
     {
-        $cfgRelation = PMA_getRelationsParam();
+        $cfgRelation = Relation::getRelationsParam();
         if ($cfgRelation['menuswork']) {
             $users_table = Util::backquote($cfgRelation['db'])
                 . "." . Util::backquote($cfgRelation['users']);
             $sql_query = 'SELECT * FROM ' . $users_table;
-            $result = PMA_queryAsControlUser($sql_query, false);
+            $result = Relation::queryAsControlUser($sql_query, false);
             $group_assignment = array();
             if ($result) {
                 while ($row = $GLOBALS['dbi']->fetchAssoc($result)) {

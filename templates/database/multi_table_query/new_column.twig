@@ -1,0 +1,90 @@
+<fieldset style="display:inline" class="column_details">
+    <select style="display:inline" class="tableNameSelect">
+        <option value="">select table</option>
+        {% for table in tables %}
+            <option value="{{ table }}"> {{ table }} </option>
+        {% endfor %}
+    </select>
+    <span>.</span>
+    <select style="display:inline" class="columnNameSelect">
+        <option value=""> select column </option>
+    </select>
+    <br> <input type="checkbox" checked="checked" class="show_col"> <span> Show </span>
+    <br> <input type="text" placeholder="Table alias" class="table_alias"> <input type="text" placeholder="Column alias" class="col_alias">
+    <br>
+    <input type="checkbox" title="Use this column in criteria" class="criteria_col">
+    {% include 'div_for_slider_effect.twig' with {'id' : 'criteria_div' ~ id, 'initial_sliders_state' : 'closed', 'message' : 'criteria'}%}
+    <div>
+        <table>
+
+            <tr class="sort_order" style="background:none">
+                <td>Sort</td>
+                <td><input type="radio" name="sort[{{ id }}]">Ascending</td>
+                <td><input type="radio" name="sort[{{ id }}]">Descending</td>
+            </tr>
+
+            <tr class="logical_operator" style="background:none;display:none">
+                <td>Add as</td>
+                <td><input type="radio" name="logical_op[{{ id }}]" value="AND" class="logical_op" checked="checked">AND</td>
+                <td><input type="radio" name="logical_op[{{ id }}]" value="OR" class="logical_op">OR</td>
+            </tr>
+
+            <tr style="background:none">
+                <td>Op </td>
+                <td>
+                    <select class="criteria_op">
+                        <option value="=">=</option>
+                        <option value=">">&gt;</option>
+                        <option value=">=">&gt;=</option>
+                        <option value="<">&lt;</option>
+                        <option value="<=">&lt;=</option>
+                        <option value="!=">!=</option>
+                        <option value="LIKE">LIKE</option>
+                        <option value="LIKE %...%">LIKE %...%</option>
+                        <option value="NOT LIKE">NOT LIKE</option>
+                        <option value="IN (...)">IN (...)</option>
+                        <option value="NOT IN (...)">NOT IN (...)</option>
+                        <option value="BETWEEN">BETWEEN</option>
+                        <option value="NOT BETWEEN">NOT BETWEEN</option>
+                        <option value="IS NULL">IS NULL</option>
+                        <option value="IS NOT NULL">IS NOT NULL</option>
+                        <option value="REGEXP">REGEXP</option>
+                        <option value="REGEXP ^...$">REGEXP ^...$</option>
+                        <option value="NOT REGEXP">NOT REGEXP</option>
+                    </select>
+                </td>
+                <td>
+                    <select class="criteria_rhs">
+                        <option value="text">Text</option>
+                        <option value="anotherColumn">Another column</option>
+                    </select>
+                </td>
+            </tr>
+
+            <tr class="rhs_table" style="display:none;background:none">
+                <td></td>
+                <td>
+                    <select  class="tableNameSelect">
+                        <option value="">select table</option>
+                        {% for table in tables %}
+                            <option value="{{ table }}"> {{ table }} </option>
+                        {% endfor %}
+                    </select><span>.</span>
+                </td>
+                <td>
+                    <select style="display:inline" class="columnNameSelect">
+                        <option value=""> select column </option>
+                    </select>
+                </td>
+            </tr>
+
+            <tr style="background:none" class="rhs_text">
+                <td></td>
+                <td colspan="2"><input type="text" style="width:91%" class="rhs_text_val" placeholder="Enter criteria as free text"></td>
+            </tr>
+
+            </table>
+        </div>
+    </div>
+    <a href="#" title="Remove this column" style="float:right;color:red" class="removeColumn">X</a>
+</fieldset>

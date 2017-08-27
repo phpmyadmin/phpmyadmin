@@ -13,7 +13,6 @@ use PhpMyAdmin\Url;
 require_once 'libraries/display_export.lib.php';
 require_once 'libraries/database_interface.inc.php';
 require_once 'libraries/plugin_interface.lib.php';
-require_once 'libraries/relation.lib.php';
 
 /**
  * class PMA_DisplayExport_Test

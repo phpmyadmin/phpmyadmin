@@ -7,6 +7,7 @@
  */
 namespace PhpMyAdmin\Navigation\Nodes;
 
+use PhpMyAdmin\Relation;
 use PhpMyAdmin\Url;
 use PhpMyAdmin\Util;
 
@@ -386,7 +387,7 @@ class NodeDatabase extends Node
         }
 
         // Remove hidden items so that they are not displayed in navigation tree
-        $cfgRelation = PMA_getRelationsParam();
+        $cfgRelation = Relation::getRelationsParam();
         if ($cfgRelation['navwork']) {
             $hiddenItems = $this->getHiddenItems(substr($type, 0, -1));
             foreach ($retval as $key => $item) {
@@ -410,7 +411,7 @@ class NodeDatabase extends Node
     public function getHiddenItems($type)
     {
         $db = $this->real_name;
-        $cfgRelation = PMA_getRelationsParam();
+        $cfgRelation = Relation::getRelationsParam();
         if (empty($cfgRelation['navigationhiding'])) {
             return array();
         }
@@ -421,7 +422,7 @@ class NodeDatabase extends Node
             . " AND `item_type`='" . $type
             . "'" . " AND `db_name`='" . $GLOBALS['dbi']->escapeString($db)
             . "'";
-        $result = PMA_queryAsControlUser($sqlQuery, false);
+        $result = Relation::queryAsControlUser($sqlQuery, false);
         $hiddenItems = array();
         if ($result) {
             while ($row = $GLOBALS['dbi']->fetchArray($result)) {
@@ -668,7 +669,7 @@ class NodeDatabase extends Node
     public function getHtmlForControlButtons()
     {
         $ret = '';
-        $cfgRelation = PMA_getRelationsParam();
+        $cfgRelation = Relation::getRelationsParam();
         if ($cfgRelation['navwork']) {
             if ($this->hiddenCount > 0) {
                 $params = array(

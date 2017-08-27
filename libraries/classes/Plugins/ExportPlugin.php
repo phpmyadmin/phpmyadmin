@@ -9,6 +9,7 @@
 namespace PhpMyAdmin\Plugins;
 
 use PhpMyAdmin\Properties\Plugins\ExportPluginProperties;
+use PhpMyAdmin\Relation;
 
 /**
  * Provides a common interface that will have to be implemented by all of the
@@ -349,7 +350,7 @@ abstract class ExportPlugin
         $aliases = array()
     ) {
         $relation = '';
-        $foreigner = PMA_searchColumnInForeigners($res_rel, $field_name);
+        $foreigner = Relation::searchColumnInForeigners($res_rel, $field_name);
         if ($foreigner) {
             $ftable = $foreigner['foreign_table'];
             $ffield = $foreigner['foreign_field'];

@@ -605,7 +605,9 @@ abstract class PMA_SeleniumBase extends PHPUnit_Extensions_Selenium2TestCase
         )->click();
         $this->waitForElementNotPresent('byCssSelector', 'ajax_message_num_1');
 
-        // Wait for it to load
+        // Let table resize (uses JS)
+        sleep(1);
+
         $this->waitForElement(
             "byXPath",
             "//a[@class='tabactive' and contains(., 'Browse')]"
@@ -628,6 +630,9 @@ abstract class PMA_SeleniumBase extends PHPUnit_Extensions_Selenium2TestCase
         // Go to server databases
         $this->waitForElement('byPartialLinkText','Databases')->click();
         $this->waitForElementNotPresent('byCssSelector', 'div#loading_parent');
+
+        // Let the table resize (uses JS)
+        sleep(1);
 
         // go to specific database page
         $this->waitForElement(

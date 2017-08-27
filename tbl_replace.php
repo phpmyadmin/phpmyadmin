@@ -15,6 +15,7 @@
 use PhpMyAdmin\Core;
 use PhpMyAdmin\InsertEdit;
 use PhpMyAdmin\Plugins\IOTransformationsPlugin;
+use PhpMyAdmin\Relation;
 use PhpMyAdmin\Response;
 use PhpMyAdmin\Table;
 use PhpMyAdmin\Transformations;
@@ -381,7 +382,7 @@ if ($response->isAjax() && ! isset($_POST['ajax_page_request'])) {
 
     if (isset($_REQUEST['rel_fields_list']) && $_REQUEST['rel_fields_list'] != '') {
 
-        $map = PMA_getForeigners($db, $table, '', 'both');
+        $map = Relation::getForeigners($db, $table, '', 'both');
 
         $relation_fields = array();
         parse_str($_REQUEST['rel_fields_list'], $relation_fields);

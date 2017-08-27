@@ -16,6 +16,7 @@
 
 use PhpMyAdmin\Controllers\Table\TableRelationController;
 use PhpMyAdmin\Di\Container;
+use PhpMyAdmin\Relation;
 use PhpMyAdmin\Response;
 use PhpMyAdmin\Table;
 use PhpMyAdmin\Util;
@@ -41,7 +42,7 @@ $options_array = array(
     'NO_ACTION' => 'NO ACTION',
     'RESTRICT' => 'RESTRICT',
 );
-$cfgRelation = PMA_getRelationsParam();
+$cfgRelation = Relation::getRelationsParam();
 $tbl_storage_engine = mb_strtoupper(
     $dbi->getTable($db, $table)->getStatusInfo('Engine')
 );
@@ -54,17 +55,17 @@ $dependency_definitions = array(
     "upd_query" => $upd_query
 );
 if ($cfgRelation['relwork']) {
-    $dependency_definitions['existrel'] = PMA_getForeigners(
+    $dependency_definitions['existrel'] = Relation::getForeigners(
         $db, $table, '', 'internal'
     );
 }
 if (Util::isForeignKeySupported($tbl_storage_engine)) {
-    $dependency_definitions['existrel_foreign'] = PMA_getForeigners(
+    $dependency_definitions['existrel_foreign'] = Relation::getForeigners(
         $db, $table, '', 'foreign'
     );
 }
 if ($cfgRelation['displaywork']) {
-    $dependency_definitions['disp'] = PMA_getDisplayField($db, $table);
+    $dependency_definitions['disp'] = Relation::getDisplayField($db, $table);
 } else {
     $dependency_definitions['disp'] = 'asas';
 }

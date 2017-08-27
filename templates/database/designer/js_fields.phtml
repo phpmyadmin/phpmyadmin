@@ -1,4 +1,4 @@
-<?php $cfgRelation = PMA_getRelationsParam(); ?>
+<?php $cfgRelation = PhpMyAdmin\Relation::getRelationsParam(); ?>
 <!-- Do not expand HTML here, invisible characters will make javascript crash -->
 <div id="script_server" class="hide"><?= htmlspecialchars($GLOBALS['server']); ?></div>
 <div id="script_db" class="hide"><?= htmlspecialchars($_GET['db']); ?></div>

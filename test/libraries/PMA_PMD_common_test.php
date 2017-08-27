@@ -7,7 +7,6 @@
 
 require_once 'libraries/database_interface.inc.php';
 
-
 /**
  * Tests for libraries/pmd_common.php
  *
@@ -15,7 +14,6 @@ require_once 'libraries/database_interface.inc.php';
  */
 class PMA_PMD_CommonTest extends PHPUnit_Framework_TestCase
 {
-
     /**
      * Setup for test cases
      *
@@ -37,7 +35,6 @@ class PMA_PMD_CommonTest extends PHPUnit_Framework_TestCase
             )
         );
 
-        include_once 'libraries/relation.lib.php';
         include_once 'libraries/pmd_common.php';
     }
 

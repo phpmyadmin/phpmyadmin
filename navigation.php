@@ -7,9 +7,10 @@
  */
 
 // Include common functionalities
-use PhpMyAdmin\Response;
 use PhpMyAdmin\Config\PageSettings;
 use PhpMyAdmin\Navigation\Navigation;
+use PhpMyAdmin\Relation;
+use PhpMyAdmin\Response;
 
 require_once './libraries/common.inc.php';
 
@@ -30,7 +31,7 @@ if (isset($_REQUEST['getNaviSettings']) && $_REQUEST['getNaviSettings']) {
     exit();
 }
 
-$cfgRelation = PMA_getRelationsParam();
+$cfgRelation = Relation::getRelationsParam();
 if ($cfgRelation['navwork']) {
     if (isset($_REQUEST['hideNavItem'])) {
         if (! empty($_REQUEST['itemName'])

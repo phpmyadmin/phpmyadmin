@@ -2,11 +2,11 @@
 // Get inputbox based on different column types
 // (Foreign key, geometrical, enum)
 if ($_foreigners
-    && PMA_searchColumnInForeigners($_foreigners, $column_name)): ?>
+    && PhpMyAdmin\Relation::searchColumnInForeigners($_foreigners, $column_name)): ?>
     <?php if (is_array($foreignData['disp_row'])): ?>
         <select name="criteriaValues[<?= $column_index; ?>]"
                 id="<?= $column_id , $column_index ?>">
-            <?= PMA_foreignDropdown(
+            <?= PhpMyAdmin\Relation::foreignDropdown(
                 $foreignData['disp_row'], $foreignData['foreign_field'],
                 $foreignData['foreign_display'], '', $foreignMaxLimit
             ) ?>

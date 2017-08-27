@@ -42,7 +42,7 @@ if (! function_exists('hash_hmac')) {
     function hash_hmac($algo, $data, $key, $raw_output = false)
     {
         $algo = strtolower($algo);
-        $pack = 'H'.strlen($algo('test'));
+        $pack = 'H' . strlen($algo('test'));
         $size = 64;
         $opad = str_repeat(chr(0x5C), $size);
         $ipad = str_repeat(chr(0x36), $size);
@@ -58,7 +58,7 @@ if (! function_exists('hash_hmac')) {
             $ipad[$i] = $ipad[$i] ^ $key[$i];
         }
 
-        $output = $algo($opad.pack($pack, $algo($ipad.$data)));
+        $output = $algo($opad . pack($pack, $algo($ipad . $data)));
 
         return ($raw_output) ? pack($pack, $output) : $output;
     }

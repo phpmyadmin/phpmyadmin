@@ -10,9 +10,10 @@ namespace PhpMyAdmin\Navigation;
 
 use PhpMyAdmin\Config\PageSettings;
 use PhpMyAdmin\Message;
+use PhpMyAdmin\Relation;
 use PhpMyAdmin\Response;
-use PhpMyAdmin\Util;
 use PhpMyAdmin\Url;
+use PhpMyAdmin\Util;
 
 /**
  * The navigation panel - displays server, db and table selection tree
@@ -98,7 +99,7 @@ class Navigation
             . "'" . $GLOBALS['dbi']->escapeString($dbName) . "',"
             . "'" . (! empty($tableName)? $GLOBALS['dbi']->escapeString($tableName) : "" )
             . "')";
-        PMA_queryAsControlUser($sqlQuery, false);
+        Relation::queryAsControlUser($sqlQuery, false);
     }
 
     /**
@@ -149,7 +150,7 @@ class Navigation
                 ? " AND `table_name`='" . $GLOBALS['dbi']->escapeString($tableName) . "'"
                 : ""
             );
-        PMA_queryAsControlUser($sqlQuery, false);
+        Relation::queryAsControlUser($sqlQuery, false);
     }
 
     /**
@@ -175,7 +176,7 @@ class Navigation
             . " AND `db_name`='" . $GLOBALS['dbi']->escapeString($dbName) . "'"
             . " AND `table_name`='"
             . (! empty($tableName) ? $GLOBALS['dbi']->escapeString($tableName) : '') . "'";
-        $result = PMA_queryAsControlUser($sqlQuery, false);
+        $result = Relation::queryAsControlUser($sqlQuery, false);
 
         $hidden = array();
         if ($result) {

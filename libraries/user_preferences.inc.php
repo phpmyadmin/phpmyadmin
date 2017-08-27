@@ -6,6 +6,7 @@
  * @package PhpMyAdmin
  */
 use PhpMyAdmin\Message;
+use PhpMyAdmin\Relation;
 use PhpMyAdmin\Sanitize;
 
 if (!defined('PHPMYADMIN')) {
@@ -51,28 +52,13 @@ echo PhpMyAdmin\Template::get('list/unordered')->render(
 );
 echo '<div class="clearfloat"></div>';
 
-
 // show "configuration saved" message and reload navigation panel if needed
 if (!empty($_GET['saved'])) {
     Message::rawSuccess(__('Configuration has been saved.'))->display();
 }
 
-/* debug code
-$arr = $cf->getConfigArray();
-$arr2 = array();
-foreach ($arr as $k => $v) {
-    $arr2[] = "<b>$k</b> " . var_export($v, true);
-}
-$arr2 = implode(', ', $arr2);
-$arr2 .= '<br />Blacklist: ' . (empty($cfg['UserprefsDisallow'])
-        ? '<i>empty</i>'
-        : implode(', ', $cfg['UserprefsDisallow']));
-$msg = Message::notice('Settings: ' . $arr2);
-$msg->display();
-//*/
-
 // warn about using session storage for settings
-$cfgRelation = PMA_getRelationsParam();
+$cfgRelation = Relation::getRelationsParam();
 if (! $cfgRelation['userconfigwork']) {
     $msg = __(
         'Your preferences will be saved for current session only. Storing them '

@@ -42,7 +42,7 @@
                     $column_index++
                 ): ?>
                     <?php
-                    $foreignData = PMA_getForeignData(
+                    $foreignData = PhpMyAdmin\Relation::getForeignData(
                         $_foreigners,
                         $_columnNames[$column_index],
                         false,
@@ -57,7 +57,7 @@
                 ): ?>
                     <?php
                         $fieldpopup = $_columnNames[$column_index];
-                        $foreignData = PMA_getForeignData($_foreigners, $fieldpopup, false, '', '' );?>
+                        $foreignData = PhpMyAdmin\Relation::getForeignData($_foreigners, $fieldpopup, false, '', '' );?>
                     <tr class="noclick">
                         <!-- Display column Names -->
                         <th><?= htmlspecialchars($_columnNames[$column_index]); ?></th>

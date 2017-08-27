@@ -93,7 +93,7 @@ class NodeTrans extends Twig_Extensions_Node_Trans
 
         if ($vars) {
             $compiler
-                ->write('echo strtr('.$function.'(')
+                ->write('echo strtr(' . $function . '(')
                 ->subcompile($msg)
             ;
 
@@ -119,7 +119,7 @@ class NodeTrans extends Twig_Extensions_Node_Trans
                     ;
                 } else {
                     $compiler
-                        ->string('%'.$var->getAttribute('name').'%')
+                        ->string('%' . $var->getAttribute('name') . '%')
                         ->raw(' => ')
                         ->subcompile($var)
                         ->raw(', ')
@@ -129,7 +129,7 @@ class NodeTrans extends Twig_Extensions_Node_Trans
 
             $compiler->raw("));\n");
         } else {
-            $compiler->write('echo '.$function.'(');
+            $compiler->write('echo ' . $function . '(');
 
             if ($this->hasNode('context')) {
                 $context = trim($this->getNode('context')->getAttribute('data'));

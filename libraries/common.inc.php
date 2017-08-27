@@ -40,6 +40,7 @@ use PhpMyAdmin\LanguageManager;
 use PhpMyAdmin\Logging;
 use PhpMyAdmin\Message;
 use PhpMyAdmin\Plugins\AuthenticationPlugin;
+use PhpMyAdmin\Relation;
 use PhpMyAdmin\Response;
 use PhpMyAdmin\Session;
 use PhpMyAdmin\ThemeManager;
@@ -119,12 +120,6 @@ mb_internal_encoding('utf-8');
  * round(1.2, 2) returns 1.199999999999999956.
  */
 ini_set('precision', 14);
-
-/**
- * the relation lib, tracker needs it
- */
-require './libraries/relation.lib.php';
-
 
 /******************************************************************************/
 /* start procedural code                       label_start_procedural         */
@@ -281,7 +276,7 @@ $goto_whitelist = array(
     'db_events.php',
     'db_export.php',
     'db_importdocsql.php',
-    'db_qbe.php',
+    'db_multi_table_query.php',
     'db_structure.php',
     'db_import.php',
     'db_operations.php',
@@ -937,15 +932,15 @@ if (! defined('PMA_MINIMUM_COMMON')
     && $GLOBALS['cfg']['ZeroConf'] == true
 ) {
     if (! empty($GLOBALS['db'])) {
-        $cfgRelation = PMA_getRelationsParam();
+        $cfgRelation = Relation::getRelationsParam();
         if (empty($cfgRelation['db'])) {
-            PMA_fixPMATables($GLOBALS['db'], false);
+            Relation::fixPmaTables($GLOBALS['db'], false);
         }
     }
-    $cfgRelation = PMA_getRelationsParam();
+    $cfgRelation = Relation::getRelationsParam();
     if (empty($cfgRelation['db'])) {
         if ($GLOBALS['dblist']->databases->exists('phpmyadmin')) {
-            PMA_fixPMATables('phpmyadmin', false);
+            Relation::fixPmaTables('phpmyadmin', false);
         }
     }
 }

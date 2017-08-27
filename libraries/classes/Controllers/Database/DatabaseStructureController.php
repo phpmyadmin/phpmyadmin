@@ -15,6 +15,7 @@ use PhpMyAdmin\Controllers\DatabaseController;
 use PhpMyAdmin\Core;
 use PhpMyAdmin\Message;
 use PhpMyAdmin\RecentFavoriteTable;
+use PhpMyAdmin\Relation;
 use PhpMyAdmin\Response;
 use PhpMyAdmin\Sanitize;
 use PhpMyAdmin\Template;
@@ -234,7 +235,7 @@ class DatabaseStructureController extends DatabaseController
 
         // Request for Synchronization of favorite tables.
         if (isset($_REQUEST['sync_favorite_tables'])) {
-            $cfgRelation = PMA_getRelationsParam();
+            $cfgRelation = Relation::getRelationsParam();
             if ($cfgRelation['favoritework']) {
                 $this->synchronizeFavoriteTables($fav_instance, $user, $favorite_tables);
             }
