@@ -62,9 +62,7 @@ var ErrorReport = {
         if ($('#error_report_dialog').length !== 0) {
             $('#error_report_dialog').remove();
         }
-        var $div = $('<div id="error_report_dialog"></div>');
-        $div.css('z-index', '1000');
-
+     
         var button_options = {};
 
         button_options[PMA_messages.strSendErrorReport] = function () {
@@ -117,13 +115,6 @@ var ErrorReport = {
     _showErrorNotification: function () {
         ErrorReport._removeErrorNotification();
 
-        var $div = $(
-            '<div style="position:fixed;bottom:0;left:0;right:0;margin:0;' +
-            'z-index:1000" class="error" id="error_notification"></div>'
-        ).append(
-            PMA_getImage("s_error.png") + PMA_messages.strErrorOccurred
-        );
-
         var $buttons = $('<div class="floatright"></div>');
 
         var button_html  = '<button id="show_error_report">';
@@ -140,8 +131,6 @@ var ErrorReport = {
 
         $buttons.html(button_html);
 
-        $div.append($buttons);
-        $div.appendTo(document.body);
         $("#change_error_settings").on("click", ErrorReport._redirect_to_settings);
         $("#show_error_report").on("click", ErrorReport._createReportDialog);
         $("#ignore_error").on("click", ErrorReport._removeErrorNotification);
@@ -234,6 +223,7 @@ var ErrorReport = {
             }
         }
     },
+   
     /**
      * Wraps given function in error reporting code and returns wrapped function
      *
