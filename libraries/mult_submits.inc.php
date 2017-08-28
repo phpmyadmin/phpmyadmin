@@ -6,6 +6,7 @@
  * @package PhpMyAdmin
  */
 
+use PhpMyAdmin\CentralColumns;
 use PhpMyAdmin\Message;
 use PhpMyAdmin\Response;
 use PhpMyAdmin\Sql;
@@ -118,16 +119,13 @@ if (! empty($submit_mult)
             $response->addJSON('message', $show_create);
             exit;
         case 'sync_unique_columns_central_list':
-            include_once 'libraries/central_columns.lib.php';
-            $centralColsError = PMA_syncUniqueColumns($selected);
+            $centralColsError = CentralColumns::syncUniqueColumns($selected);
             break;
         case 'delete_unique_columns_central_list':
-            include_once 'libraries/central_columns.lib.php';
-            $centralColsError = PMA_deleteColumnsFromList($selected);
+            $centralColsError = CentralColumns::deleteColumnsFromList($selected);
             break;
         case 'make_consistent_with_central_list':
-            include_once 'libraries/central_columns.lib.php';
-            $centralColsError = PMA_makeConsistentWithList(
+            $centralColsError = CentralColumns::makeConsistentWithList(
                 $GLOBALS['db'],
                 $selected
             );

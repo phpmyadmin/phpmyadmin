@@ -7,6 +7,7 @@
  */
 namespace PhpMyAdmin\Controllers\Table;
 
+use PhpMyAdmin\CentralColumns;
 use PhpMyAdmin\Config\PageSettings;
 use PhpMyAdmin\Controllers\TableController;
 use PhpMyAdmin\Core;
@@ -21,8 +22,8 @@ use PhpMyAdmin\SqlParser\Utils\Table as SqlTable;
 use PhpMyAdmin\Table;
 use PhpMyAdmin\Template;
 use PhpMyAdmin\Transformations;
-use PhpMyAdmin\Util;
 use PhpMyAdmin\Url;
+use PhpMyAdmin\Util;
 
 require_once 'libraries/config/messages.inc.php';
 require_once 'libraries/config/user_preferences.forms.php';
@@ -1178,8 +1179,7 @@ class TableStructureController extends TableController
                 $mime_map = Transformations::getMIME($this->db, $this->table, true);
             }
         }
-        include_once 'libraries/central_columns.lib.php';
-        $central_list = PMA_getCentralColumnsFromTable($this->db, $this->table);
+        $central_list = CentralColumns::getFromTable($this->db, $this->table);
         $columns_list = array();
 
         $titles = array(
@@ -1464,12 +1464,10 @@ class TableStructureController extends TableController
             $mult_btn   = __('Yes');
             break;
         case 'add_to_central_columns':
-            include_once 'libraries/central_columns.lib.php';
-            $centralColsError = PMA_syncUniqueColumns($selected, false);
+            $centralColsError = CentralColumns::syncUniqueColumns($selected, false);
             break;
         case 'remove_from_central_columns':
-            include_once 'libraries/central_columns.lib.php';
-            $centralColsError = PMA_deleteColumnsFromList($selected, false);
+            $centralColsError = CentralColumns::deleteColumnsFromList($selected, false);
             break;
         case 'change':
             $this->displayHtmlForColumnChange($selected, $action);
