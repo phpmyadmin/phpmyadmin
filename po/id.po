@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.8.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2017-08-10 09:14-0400\n"
-"PO-Revision-Date: 2017-08-28 11:48+0000\n"
+"PO-Revision-Date: 2017-08-28 20:26+0000\n"
 "Last-Translator: Theodore Fabian Rudy <dorerudy@gmail.com>\n"
 "Language-Team: Indonesian "
 "<https://hosted.weblate.org/projects/phpmyadmin/master/id/>\n"
@@ -3380,11 +3380,9 @@ msgid "Estonian"
 msgstr "Estonia"
 
 #: libraries/classes/Charsets.php:423 libraries/classes/Charsets.php:540
-#, fuzzy
-#| msgid "Data Dictionary"
 msgctxt "Collation"
 msgid "German (dictionary order)"
-msgstr "Kamus Data"
+msgstr "Jerman (Urutan Kamus)"
 
 #: libraries/classes/Charsets.php:426 libraries/classes/Charsets.php:537
 msgctxt "Collation"
@@ -3478,7 +3476,7 @@ msgstr "Slovenia"
 #| msgid "Spanish"
 msgctxt "Collation"
 msgid "Spanish (modern)"
-msgstr "Spanyol"
+msgstr "Spanyol (modern)"
 
 #: libraries/classes/Charsets.php:498 libraries/classes/Charsets.php:548
 msgctxt "Collation"
@@ -3497,7 +3495,7 @@ msgstr "Vietnam"
 #| msgid "case-insensitive"
 msgctxt "Collation variant"
 msgid "case-insensitive"
-msgstr "peka kapitalisasi"
+msgstr "tidak peka huruf kapital"
 
 #: libraries/classes/Charsets.php:587
 #, fuzzy
@@ -3511,21 +3509,21 @@ msgstr "tidak peka kapitalisasi"
 #| msgid "case-insensitive"
 msgctxt "Collation variant"
 msgid "accent-insensitive"
-msgstr "peka kapitalisasi"
+msgstr "tidak peka logat"
 
 #: libraries/classes/Charsets.php:593
 #, fuzzy
 #| msgid "case-sensitive"
 msgctxt "Collation variant"
 msgid "accent-sensitive"
-msgstr "tidak peka kapitalisasi"
+msgstr "tidak peka aksen"
 
 #: libraries/classes/Charsets.php:597
 #, fuzzy
 #| msgid "multilingual"
 msgctxt "Collation variant"
 msgid "multi-level"
-msgstr "berbagai bahasa"
+msgstr "banyak tingkat"
 
 #: libraries/classes/Charsets.php:600
 #, fuzzy
@@ -3601,7 +3599,7 @@ msgstr "Nilai yang salah"
 #, fuzzy, php-format
 #| msgid "Value must be equal or lower than %s"
 msgid "Value must be equal or lower than %s!"
-msgstr "Nilai harus sama dengan atau lebih kecil dari %s"
+msgstr "Nilai harus sama dengan atau lebih kecil dari %s!"
 
 #: libraries/classes/Config/FormDisplay.php:618
 #, php-format
@@ -3638,7 +3636,9 @@ msgstr "maksimum %s"
 #, fuzzy
 #| msgid "Cannot save settings, submitted form contains errors"
 msgid "Cannot save settings, submitted configuration form contains errors!"
-msgstr "Pengaturan tidak dapat disimpan, formulir kiriman mengandung galat"
+msgstr ""
+"Pengaturan tidak dapat disimpan, konfigurasi yang diserahkan mengandung "
+"kesalahan!"
 
 #: libraries/classes/Config/ServerConfigChecks.php:162
 msgid "You should use SSL connections if your database server supports it."
@@ -3655,7 +3655,7 @@ msgstr "Anda mengizinkan sambungan ke server tanpa sandi."
 #| msgid "Key is too short, it should have at least 8 characters."
 msgid "Key is too short, it should have at least 32 characters."
 msgstr ""
-"Kunci terlalu pendek dan sebaiknya terdiri dari paling tidak 8 karakter."
+"Kunci terlalu pendek dan sebaiknya terdiri dari paling tidak 32 karakter."
 
 #: libraries/classes/Config/ServerConfigChecks.php:348
 msgid "Key should contain letters, numbers [em]and[/em] special characters."
@@ -3678,8 +3678,9 @@ msgid ""
 msgstr ""
 "%soption%s ini harus di nonaktifkan karena memungkinkan penyerang untuk "
 "masuk secara membabibuta ke server MySQL. Jika Anda merasa hal ini "
-"diperlukan, gunakan %strusted proxies list%s. Namun, perlindungan berbasis "
-"IP mungkin tidak dapat diandalkan jika IP dari ISP anda digunakan ribuan "
+"diperlukan, gunakan %restrict login to MySQL server%s atau %strusted proxies "
+"list%s. Namun, perlindungan berbasis IP dengan daftar proxy terpercaya "
+"mungkin tidak dapat diandalkan jika IP dari ISP anda digunakan ribuan "
 "pengguna, termasuk Anda, untuk terhubung."
 
 #: libraries/classes/Config/ServerConfigChecks.php:393
@@ -3812,13 +3813,13 @@ msgstr ""
 #, fuzzy
 #| msgid "Could not connect to the target"
 msgid "Could not connect to the database server!"
-msgstr "Tidak dapat terhubung ke target"
+msgstr "Tidak dapat terhubung ke server sumber data"
 
 #: libraries/classes/Config/Validator.php:246
 #, fuzzy
 #| msgid "Authentication type"
 msgid "Invalid authentication type!"
-msgstr "Jenis autentikasi"
+msgstr "Tidak benar yang Jenis autentikasi"
 
 #: libraries/classes/Config/Validator.php:253
 #, fuzzy
