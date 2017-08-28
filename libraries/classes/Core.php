@@ -227,7 +227,7 @@ class Core
          * Avoid using Response class as config does not have to be loaded yet
          * (this can happen on early fatal error)
          */
-        if (isset($GLOBALS['PMA_Config']) && Response::getInstance()->isAjax()) {
+        if (isset($GLOBALS['PMA_Config']) && $GLOBALS['PMA_Config']->get('is_setup') === false && Response::getInstance()->isAjax()) {
             $response = Response::getInstance();
             $response->setRequestStatus(false);
             $response->addJSON('message', Message::error($error_message));
