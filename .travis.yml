@@ -34,6 +34,7 @@ install:
 
 before_script:
   - export TESTSUITE_PASSWORD=`openssl rand -base64 30`
+  - export TESTSUITE_BROWSERSTACK_KEY=`echo eDJkYVJzelR5bnJMbkthTEFBcXI= | base64 --decode`
   - export PATH=~/.composer/vendor/bin/:$PATH
   - mysql -uroot -e "CREATE DATABASE IF NOT EXISTS test"
   - mysql -uroot < sql/create_tables.sql
