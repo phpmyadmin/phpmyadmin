@@ -148,7 +148,7 @@ class Template
             );
             extract($this->data);
             ob_start();
-            if (file_exists($template)) {
+            if (@file_exists($template)) {
                 include $template;
             } else {
                 throw new \LogicException(

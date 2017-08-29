@@ -140,7 +140,7 @@ class ImportShp extends ImportPlugin
         // Delete the .dbf file extracted to 'TempDir'
         if ($temp_dbf_file
             && isset($dbf_file_path)
-            && file_exists($dbf_file_path)
+            && @file_exists($dbf_file_path)
         ) {
             unlink($dbf_file_path);
         }

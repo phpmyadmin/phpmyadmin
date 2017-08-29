@@ -131,7 +131,7 @@ if [ $do_ci -eq 0 -a -$do_daily -eq 0 ] ; then
     cat <<END
 
 Please ensure you have incremented rc count or version in the repository :
-     - in $CONFIG_LIB PMA\libraries\Config::__constructor() the line
+     - in $CONFIG_LIB Config::__constructor() the line
           " \$this->set( 'PMA_VERSION', '$version' ); "
      - in doc/conf.py the line
           " version = '$version' "
@@ -288,9 +288,7 @@ if [ $do_test -eq 1 ] ; then
     fi
     # Remove libs installed for testing
     rm -rf build
-    if [ ! -d libraries/tcpdf ] ; then
-        composer update --no-dev
-    fi
+    composer update --no-dev
 fi
 
 
@@ -444,7 +442,7 @@ Todo now:
     based on documentation.
 
  6. increment rc count or version in the repository :
-        - in $CONFIG_LIB PMA\libraries\Config::__constructor() the line
+        - in $CONFIG_LIB Config::__constructor() the line
               " \$this->set( 'PMA_VERSION', '2.7.1-dev' ); "
         - in Documentation.html (if it exists) the 2 lines
               " <title>phpMyAdmin 2.2.2-rc1 - Documentation</title> "

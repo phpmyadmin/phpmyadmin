@@ -484,7 +484,7 @@ class File
         }
 
         $tmp_subdir = ConfigFile::getDefaultTempDirectory();
-        if (@is_writable($tmp_subdir)) {
+        if (is_null($tmp_subdir)) {
             // cannot create directory or access, point user to FAQ 1.11
             $this->_error_message = Message::error(__(
                 'Error moving the uploaded file, see [doc@faq1-11]FAQ 1.11[/doc].'
@@ -493,7 +493,7 @@ class File
         }
 
         $new_file_to_upload = tempnam(
-            realpath($tmp_subdir),
+            $tmp_subdir,
             basename($this->getName())
         );
 

@@ -67,7 +67,7 @@ class Footer
     private function _getDemoMessage()
     {
         $message = '<a href="/">' . __('phpMyAdmin Demo Server') . '</a>: ';
-        if (file_exists('./revision-info.php')) {
+        if (@file_exists('./revision-info.php')) {
             include './revision-info.php';
             $message .= sprintf(
                 __('Currently running Git revision %1$s from the %2$s branch.'),
