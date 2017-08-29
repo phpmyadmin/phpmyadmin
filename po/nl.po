@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.7.4-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2017-08-10 09:13-0400\n"
-"PO-Revision-Date: 2017-08-29 13:00+0000\n"
+"PO-Revision-Date: 2017-08-29 13:28+0000\n"
 "Last-Translator: Steven WdV <stevenwdv@gmail.com>\n"
 "Language-Team: Dutch <https://hosted.weblate.org/projects/phpmyadmin/4-7/nl/>"
 "\n"
@@ -685,7 +685,7 @@ msgstr "Webserver"
 
 #: index.php:347
 msgid "Database client version:"
-msgstr "Clientversie van database:"
+msgstr "Cliëntversie van database:"
 
 #: index.php:351
 msgid "PHP extension:"
@@ -13616,7 +13616,7 @@ msgstr ""
 
 #: libraries/server_status_variables.lib.php:723
 msgid "The number of sorts that were done with ranges."
-msgstr "Het aantal sorteringen dat werd uitgevoerd met een bereikbeperking."
+msgstr "Het aantal sorteringen dat is uitgevoerd met een bereikbeperking."
 
 #: libraries/server_status_variables.lib.php:726
 msgid "The number of sorted rows."
@@ -13624,8 +13624,7 @@ msgstr "Het aantal gesorteerde rijen."
 
 #: libraries/server_status_variables.lib.php:729
 msgid "The number of sorts that were done by scanning the table."
-msgstr ""
-"Het aantal sorteringen dat werd uitgevoerd door het scannen van de tabel."
+msgstr "Het aantal sorteringen dat is uitgevoerd door het scannen van de tabel."
 
 #: libraries/server_status_variables.lib.php:732
 msgid "The number of times that a table lock was acquired immediately."
@@ -13684,8 +13683,7 @@ msgstr "Gebruikers in '%s' gebruikersgroep"
 
 #: libraries/server_user_groups.lib.php:33
 msgid "No users were found belonging to this user group."
-msgstr ""
-"Er werden geen gebruikers gevonden die tot deze gebruikersgroep behoren."
+msgstr "Er zijn geen gebruikers gevonden die tot deze gebruikersgroep behoren."
 
 #: libraries/server_user_groups.lib.php:62 libraries/server_users.lib.php:29
 msgid "User groups"
@@ -14061,7 +14059,7 @@ msgstr "Tracking van %1$s is uitgeschakeld op versie %2$s."
 #: libraries/tracking.lib.php:1299
 #, php-format
 msgid "Version %1$s of %2$s was deleted."
-msgstr "Versie %1$s van %2$s werd verwijderd."
+msgstr "Versie %1$s van %2$s is verwijderd."
 
 #: libraries/tracking.lib.php:1330
 #, php-format
@@ -14099,7 +14097,7 @@ msgstr "Uw instellingen beheren"
 
 #: libraries/user_preferences.inc.php:57 prefs_manage.php:316
 msgid "Configuration has been saved."
-msgstr "De configuratie werd opgeslagen."
+msgstr "De configuratie is opgeslagen."
 
 #: libraries/user_preferences.inc.php:78
 #, php-format
@@ -14130,7 +14128,7 @@ msgstr "Fatale fout: de navigatie is alleen toegankelijk via AJAX"
 #: prefs_forms.php:89
 msgid "Cannot save settings, submitted form contains errors!"
 msgstr ""
-"Instellingen werden niet opgeslagen, het verstuurde formulier bevat fouten!"
+"Instellingen zijn niet opgeslagen, het verstuurde formulier bevat fouten!"
 
 #: prefs_manage.php:52
 msgid "phpMyAdmin configuration snippet"
@@ -14298,7 +14296,7 @@ msgid ""
 "Configuration saved to file config/config.inc.php in phpMyAdmin top level "
 "directory, copy it to top level one and delete directory config to use it."
 msgstr ""
-"Instellingen werden opgeslagen in bestand config/config.inc.php van de "
+"Instellingen zijn opgeslagen in bestand config/config.inc.php van de "
 "phpMyAdmin-installatiemap, kopieer dit bestand naar de installatiemap en "
 "verwijder de config-map."
 
@@ -14416,7 +14414,7 @@ msgstr "Een ongeldige versiecode was ontvangen van de server"
 
 #: setup/lib/index.lib.php:153
 msgid "Unparsable version string"
-msgstr "De versiecode werd niet herkend"
+msgstr "De versiecode wordt niet herkend"
 
 #: setup/lib/index.lib.php:173
 #, php-format
@@ -15830,7 +15828,7 @@ msgid ""
 "of queries."
 msgstr ""
 "Laat de server langer lopen totdat er een groter aantal query's uitgevoerd "
-"werd."
+"is."
 
 #: libraries/advisory_rules.txt:61
 #, php-format
@@ -16002,13 +16000,13 @@ msgid ""
 "not any package distributions (such as RedHat, Debian/Ubuntu etc)."
 msgstr ""
 "Als u niet gecompileerd heeft vanaf broncode, gebruikt u misschien een "
-"pakket dat gewijzigd werd door een distributie. De MySQL-handleiding is "
-"enkel van toepassing op officiële MySQL-versies, niet op pakket versies van "
+"pakket dat gewijzigd is door een distributie. De MySQL-handleiding is enkel "
+"van toepassing op officiële MySQL-versies, niet op pakketversies van "
 "distributies (zoals RedHat, Debian/Ubuntu, enz.)."
 
 #: libraries/advisory_rules.txt:126
 msgid "'source' found in version_comment"
-msgstr "'source' werd gevonden in version_comment"
+msgstr "'source' is gevonden in version_comment"
 
 #: libraries/advisory_rules.txt:131
 msgid "The MySQL manual only is accurate for official MySQL binaries."
@@ -16025,7 +16023,7 @@ msgstr ""
 
 #: libraries/advisory_rules.txt:133
 msgid "'percona' found in version_comment"
-msgstr "'percona' werd gevonden in version_comment"
+msgstr "'percona' is gevonden in version_comment"
 
 #: libraries/advisory_rules.txt:135
 msgid "MySQL Architecture"
@@ -16669,7 +16667,7 @@ msgid ""
 "restarting after changing {open_files_limit}."
 msgstr ""
 "Overweeg om {open_files_limit} te verhogen, en controleer het foutenlogboek "
-"na herstarten nadat {open_files_limit} gewijzigd werd."
+"na herstarten nadat {open_files_limit} gewijzigd is."
 
 #: libraries/advisory_rules.txt:321
 #, php-format
@@ -16879,11 +16877,11 @@ msgstr ""
 
 #: libraries/advisory_rules.txt:395
 msgid "Percentage of aborted clients"
-msgstr "Percentage van afgebroken clients"
+msgstr "Percentage van afgebroken cliënten"
 
 #: libraries/advisory_rules.txt:398 libraries/advisory_rules.txt:405
 msgid "Too many clients are aborted."
-msgstr "Te veel clients werden afgebroken."
+msgstr "Te veel cliënten werden afgebroken."
 
 #: libraries/advisory_rules.txt:399 libraries/advisory_rules.txt:406
 msgid ""
@@ -16891,7 +16889,7 @@ msgid ""
 "MySQL properly. This can be due to network issues or code not closing a "
 "database handler properly. Check your network and code."
 msgstr ""
-"Clients worden meestal geforceerd afgesloten als deze hun verbindingen met "
+"Cliënten worden meestal geforceerd afgesloten als deze hun verbindingen met "
 "MySQL niet netjes afsluiten. Dit kan veroorzaakt worden door "
 "netwerkproblemen of door code die database-handlers niet netjes afsluit. "
 "Controleer uw netwerk en code."
@@ -16900,18 +16898,18 @@ msgstr ""
 #, php-format
 msgid "%s%% of all clients are aborted. This value should be below 2%%"
 msgstr ""
-"%s%% van alle clients werden afgebroken. Deze waarde zou minder dan 2%% "
+"%s%% van alle cliënten werden afgebroken. Deze waarde zou minder dan 2%% "
 "moeten zijn"
 
 #: libraries/advisory_rules.txt:402
 msgid "Rate of aborted clients"
-msgstr "Aantal afgebroken clients"
+msgstr "Aantal afgebroken cliënten"
 
 #: libraries/advisory_rules.txt:407
 #, php-format
 msgid "Aborted client rate is at %s, this value should be less than 1 per hour"
 msgstr ""
-"Mate van afgebroken clients is %s, deze waarde zou minder dan 1 per uur "
+"Mate van afgebroken cliënten is %s, deze waarde zou minder dan 1 per uur "
 "moeten zijn"
 
 #: libraries/advisory_rules.txt:411
