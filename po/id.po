@@ -3,8 +3,8 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.8.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2017-08-10 09:14-0400\n"
-"PO-Revision-Date: 2017-08-26 13:32+0000\n"
-"Last-Translator: Mochammad Nur Afandi <localanu@gmail.com>\n"
+"PO-Revision-Date: 2017-08-28 20:26+0000\n"
+"Last-Translator: Theodore Fabian Rudy <dorerudy@gmail.com>\n"
 "Language-Team: Indonesian "
 "<https://hosted.weblate.org/projects/phpmyadmin/master/id/>\n"
 "Language: id\n"
@@ -301,7 +301,6 @@ msgid "The database name is empty!"
 msgstr "Nama database kosong!"
 
 #: db_operations.php:53
-#, fuzzy
 msgid "Cannot copy database to the same name. Change the name and try again."
 msgstr "Nama basis data tidak boleh sama. Gunakan nama lain dan coba lagi."
 
@@ -3105,13 +3104,10 @@ msgid "Collation"
 msgstr "Penyortiran"
 
 #: libraries/central_columns.lib.php:705
-#, fuzzy
-#| msgid "Attributes"
 msgid "Attribute"
 msgstr "Atribut"
 
 #: libraries/central_columns.lib.php:709 libraries/central_columns.lib.php:1385
-#, fuzzy
 msgid "A_I"
 msgstr "A_I"
 
@@ -3220,21 +3216,15 @@ msgid "Charset"
 msgstr "Perangkat karakter (Charset)"
 
 #: libraries/classes/Charsets.php:265
-#, fuzzy
-#| msgid "unknown"
 msgid "Unknown"
-msgstr "tidak diketahui"
+msgstr "Tidak diketahui"
 
 #: libraries/classes/Charsets.php:279
-#, fuzzy
-#| msgid "Binary"
 msgctxt "Collation"
 msgid "Binary"
 msgstr "Biner"
 
 #: libraries/classes/Charsets.php:291 libraries/classes/Charsets.php:521
-#, fuzzy
-#| msgid "Unicode"
 msgctxt "Collation"
 msgid "Unicode"
 msgstr "Unikode"
@@ -3255,8 +3245,6 @@ msgid "Russian"
 msgstr "Rusia"
 
 #: libraries/classes/Charsets.php:318
-#, fuzzy
-#| msgid "Simplified Chinese"
 msgctxt "Collation"
 msgid "Simplified Chinese"
 msgstr "Cina Sederhana"
@@ -3311,53 +3299,39 @@ msgid "Georgian"
 msgstr "Georgia"
 
 #: libraries/classes/Charsets.php:356
-#, fuzzy
-#| msgid "Greek"
 msgctxt "Collation"
 msgid "Greek"
 msgstr "Yunani"
 
 #: libraries/classes/Charsets.php:359
-#, fuzzy
-#| msgid "Czech-Slovak"
 msgctxt "Collation"
 msgid "Czech-Slovak"
 msgstr "Cecko-Slovakia"
 
 #: libraries/classes/Charsets.php:362 libraries/classes/Charsets.php:513
-#, fuzzy
-#| msgid "Ukrainian"
 msgctxt "Collation"
 msgid "Ukrainian"
 msgstr "Ukrainia"
 
 #: libraries/classes/Charsets.php:365 libraries/classes/Charsets.php:509
-#, fuzzy
-#| msgid "Turkish"
 msgctxt "Collation"
 msgid "Turkish"
 msgstr "Turki"
 
 #: libraries/classes/Charsets.php:368 libraries/classes/Charsets.php:501
-#, fuzzy
-#| msgid "Swedish"
 msgctxt "Collation"
 msgid "Swedish"
 msgstr "Swedia"
 
 #: libraries/classes/Charsets.php:371 libraries/classes/Charsets.php:505
-#, fuzzy
-#| msgid "Thai"
 msgctxt "Collation"
 msgid "Thai"
 msgstr "Thailand"
 
 #: libraries/classes/Charsets.php:374
-#, fuzzy
-#| msgid "unknown"
 msgctxt "Collation"
 msgid "Unknown"
-msgstr "tidak diketahui"
+msgstr "Tidak diketahui"
 
 #: libraries/classes/Charsets.php:390
 #, fuzzy
@@ -3372,15 +3346,11 @@ msgid "Chinese"
 msgstr "Cina"
 
 #: libraries/classes/Charsets.php:400
-#, fuzzy
-#| msgid "Croatian"
 msgctxt "Collation"
 msgid "Croatian"
 msgstr "Kroasia"
 
 #: libraries/classes/Charsets.php:404
-#, fuzzy
-#| msgid "Czech"
 msgctxt "Collation"
 msgid "Czech"
 msgstr "Ceko"
@@ -3393,15 +3363,11 @@ msgid "Danish"
 msgstr "Denmark"
 
 #: libraries/classes/Charsets.php:412
-#, fuzzy
-#| msgid "English"
 msgctxt "Collation"
 msgid "English"
 msgstr "Inggris"
 
 #: libraries/classes/Charsets.php:416
-#, fuzzy
-#| msgid "Esperanto"
 msgctxt "Collation"
 msgid "Esperanto"
 msgstr "Esperanto"
@@ -3414,11 +3380,9 @@ msgid "Estonian"
 msgstr "Estonia"
 
 #: libraries/classes/Charsets.php:423 libraries/classes/Charsets.php:540
-#, fuzzy
-#| msgid "Data Dictionary"
 msgctxt "Collation"
 msgid "German (dictionary order)"
-msgstr "Kamus Data"
+msgstr "Jerman (Urutan Kamus)"
 
 #: libraries/classes/Charsets.php:426 libraries/classes/Charsets.php:537
 msgctxt "Collation"
@@ -3512,7 +3476,7 @@ msgstr "Slovenia"
 #| msgid "Spanish"
 msgctxt "Collation"
 msgid "Spanish (modern)"
-msgstr "Spanyol"
+msgstr "Spanyol (modern)"
 
 #: libraries/classes/Charsets.php:498 libraries/classes/Charsets.php:548
 msgctxt "Collation"
@@ -3531,7 +3495,7 @@ msgstr "Vietnam"
 #| msgid "case-insensitive"
 msgctxt "Collation variant"
 msgid "case-insensitive"
-msgstr "peka kapitalisasi"
+msgstr "tidak peka huruf kapital"
 
 #: libraries/classes/Charsets.php:587
 #, fuzzy
@@ -3545,21 +3509,21 @@ msgstr "tidak peka kapitalisasi"
 #| msgid "case-insensitive"
 msgctxt "Collation variant"
 msgid "accent-insensitive"
-msgstr "peka kapitalisasi"
+msgstr "tidak peka logat"
 
 #: libraries/classes/Charsets.php:593
 #, fuzzy
 #| msgid "case-sensitive"
 msgctxt "Collation variant"
 msgid "accent-sensitive"
-msgstr "tidak peka kapitalisasi"
+msgstr "tidak peka aksen"
 
 #: libraries/classes/Charsets.php:597
 #, fuzzy
 #| msgid "multilingual"
 msgctxt "Collation variant"
 msgid "multi-level"
-msgstr "berbagai bahasa"
+msgstr "banyak tingkat"
 
 #: libraries/classes/Charsets.php:600
 #, fuzzy
@@ -3635,7 +3599,7 @@ msgstr "Nilai yang salah"
 #, fuzzy, php-format
 #| msgid "Value must be equal or lower than %s"
 msgid "Value must be equal or lower than %s!"
-msgstr "Nilai harus sama dengan atau lebih kecil dari %s"
+msgstr "Nilai harus sama dengan atau lebih kecil dari %s!"
 
 #: libraries/classes/Config/FormDisplay.php:618
 #, php-format
@@ -3672,7 +3636,9 @@ msgstr "maksimum %s"
 #, fuzzy
 #| msgid "Cannot save settings, submitted form contains errors"
 msgid "Cannot save settings, submitted configuration form contains errors!"
-msgstr "Pengaturan tidak dapat disimpan, formulir kiriman mengandung galat"
+msgstr ""
+"Pengaturan tidak dapat disimpan, konfigurasi yang diserahkan mengandung "
+"kesalahan!"
 
 #: libraries/classes/Config/ServerConfigChecks.php:162
 msgid "You should use SSL connections if your database server supports it."
@@ -3689,7 +3655,7 @@ msgstr "Anda mengizinkan sambungan ke server tanpa sandi."
 #| msgid "Key is too short, it should have at least 8 characters."
 msgid "Key is too short, it should have at least 32 characters."
 msgstr ""
-"Kunci terlalu pendek dan sebaiknya terdiri dari paling tidak 8 karakter."
+"Kunci terlalu pendek dan sebaiknya terdiri dari paling tidak 32 karakter."
 
 #: libraries/classes/Config/ServerConfigChecks.php:348
 msgid "Key should contain letters, numbers [em]and[/em] special characters."
@@ -3712,8 +3678,9 @@ msgid ""
 msgstr ""
 "%soption%s ini harus di nonaktifkan karena memungkinkan penyerang untuk "
 "masuk secara membabibuta ke server MySQL. Jika Anda merasa hal ini "
-"diperlukan, gunakan %strusted proxies list%s. Namun, perlindungan berbasis "
-"IP mungkin tidak dapat diandalkan jika IP dari ISP anda digunakan ribuan "
+"diperlukan, gunakan %restrict login to MySQL server%s atau %strusted proxies "
+"list%s. Namun, perlindungan berbasis IP dengan daftar proxy terpercaya "
+"mungkin tidak dapat diandalkan jika IP dari ISP anda digunakan ribuan "
 "pengguna, termasuk Anda, untuk terhubung."
 
 #: libraries/classes/Config/ServerConfigChecks.php:393
@@ -3846,13 +3813,13 @@ msgstr ""
 #, fuzzy
 #| msgid "Could not connect to the target"
 msgid "Could not connect to the database server!"
-msgstr "Tidak dapat terhubung ke target"
+msgstr "Tidak dapat terhubung ke server sumber data"
 
 #: libraries/classes/Config/Validator.php:246
 #, fuzzy
 #| msgid "Authentication type"
 msgid "Invalid authentication type!"
-msgstr "Jenis autentikasi"
+msgstr "Tidak benar yang Jenis autentikasi"
 
 #: libraries/classes/Config/Validator.php:253
 #, fuzzy
@@ -4170,7 +4137,7 @@ msgstr "Kueri SQL Anda berhasil dieksekusi."
 #, fuzzy
 #| msgid "Internal relation added"
 msgid "Internal relationships were successfully updated."
-msgstr "Relasi internal ditambahkan"
+msgstr "Relasi internal sukses diperbarui."
 
 #: libraries/classes/Controllers/Table/TableSearchController.php:763
 msgid "Table search"
@@ -4212,7 +4179,7 @@ msgstr "Galat kueri"
 #| msgid "Table %1$s has been altered successfully."
 msgid ""
 "Table %1$s has been altered successfully. Privileges have been adjusted."
-msgstr "Tabel %1$s berhasil diubah."
+msgstr "Tabel %1$s berhasil diubah. Hak telah disesuaikan."
 
 #: libraries/classes/Controllers/Table/TableStructureController.php:1175
 #: templates/table/structure/check_all_table_column.twig:38
@@ -4256,7 +4223,7 @@ msgstr "Teks penuh"
 #, fuzzy
 #| msgid "Browse distinct values"
 msgid "Distinct values"
-msgstr "Jelajahi nilai distingtif"
+msgstr "Nilai unik"
 
 #: libraries/classes/Core.php:295
 #, php-format
@@ -4272,7 +4239,7 @@ msgstr "Tidak ada perubahan"
 #, fuzzy
 #| msgid "Failed to read configuration file"
 msgid "Failed to set configured collation connection!"
-msgstr "Gagal membaca berkas konfigurasi"
+msgstr "Gagal menyetel koneksi kolasi!"
 
 #: libraries/classes/DatabaseInterface.php:2051
 msgid ""
@@ -4302,7 +4269,7 @@ msgstr "Rincian…"
 #, fuzzy
 #| msgid "Missing parameter:"
 msgid "Missing connection parameters!"
-msgstr "Parameter yang hilang:"
+msgstr "Parameter koneksi hilang!"
 
 #: libraries/classes/DatabaseInterface.php:2399
 msgid "Connection for controluser as defined in your configuration failed."
@@ -4414,22 +4381,18 @@ msgid "at least one of the words"
 msgstr "paling tidak satu kata"
 
 #: libraries/classes/DbSearch.php:88
-#, fuzzy
-#| msgid "at least one of the words"
 msgid "all of the words"
-msgstr "paling tidak satu kata"
+msgstr "semua kata"
 
 #: libraries/classes/DbSearch.php:89
-#, fuzzy
-#| msgid "the exact phrase"
 msgid "the exact phrase as substring"
-msgstr "frasa tepat"
+msgstr "frasa tepat sebagai substring"
 
 #: libraries/classes/DbSearch.php:90
 #, fuzzy
 #| msgid "the exact phrase"
 msgid "the exact phrase as whole field"
-msgstr "frasa tepat"
+msgstr "frasa tepat sebagai seluruh field"
 
 #: libraries/classes/DbSearch.php:91
 msgid "as regular expression"
@@ -4580,7 +4543,7 @@ msgstr "Kunci relasi"
 #, fuzzy
 #| msgid "Display foreign key relationships"
 msgid "Display column for relationships"
-msgstr "Tampilkan hubungan kunci luar"
+msgstr "Tampilkan kolom untuk relasi"
 
 #: libraries/classes/DisplayResults.php:1765
 msgid "Show binary contents"
@@ -4914,12 +4877,11 @@ msgid "Log cache size"
 msgstr "Besar singgahan log"
 
 #: libraries/classes/Engines/Pbxt.php:51
-#, fuzzy
 msgid ""
 "The amount of memory allocated to the transaction log cache used to cache on "
 "transaction log data. The default is 16MB."
 msgstr ""
-"Jumlah memori yang dialokasikan untuk log transaksi Cache digunakan untuk "
+"Jumlah memori yang dialokasikan untuk log transaksi cache digunakan untuk "
 "cache data log transaksi. Standarnya adalah 16MB."
 
 #: libraries/classes/Engines/Pbxt.php:58
@@ -5120,7 +5082,7 @@ msgstr "Terjadi galat sewaktu memindahkan berkas unggahan."
 #, fuzzy
 #| msgid "Cannot read (moved) upload file."
 msgid "Cannot read uploaded file."
-msgstr "Tidak bisa membaca (memindah) file unggah."
+msgstr "Tidak bisa membaca file yang telah diunggah."
 
 #: libraries/classes/File.php:613
 #, php-format
@@ -5391,7 +5353,7 @@ msgstr "Basis data"
 #, fuzzy
 #| msgid "User groups"
 msgid "User accounts"
-msgstr "Grup pengguna"
+msgstr "Akun pengguna"
 
 #: libraries/classes/Menu.php:620 libraries/classes/ServerStatusData.php:121
 #: libraries/classes/Util.php:4088 libraries/server_common.lib.php:33
@@ -5456,41 +5418,31 @@ msgid "An error has occurred while loading the navigation display"
 msgstr "Sebuah kesalahan telah terjadi saat memuat pohon navigasi"
 
 #: libraries/classes/Navigation/Navigation.php:193
-#, fuzzy
-#| msgid "Column names: "
 msgid "Groups:"
-msgstr "Nama kolom: "
+msgstr "Kelompok:"
 
 #: libraries/classes/Navigation/Navigation.php:194
-#, fuzzy
-#| msgid "Events"
 msgid "Events:"
-msgstr "Event"
+msgstr "Acara:"
 
 #: libraries/classes/Navigation/Navigation.php:195
-#, fuzzy
-#| msgid "Functions"
 msgid "Functions:"
-msgstr "Fungsi"
+msgstr "Fungsi:"
 
 #: libraries/classes/Navigation/Navigation.php:196
-#, fuzzy
-#| msgid "Procedures"
 msgid "Procedures:"
-msgstr "Prosedur"
+msgstr "Prosedur:"
 
 #: libraries/classes/Navigation/Navigation.php:197
 #: libraries/display_export.lib.php:344
-#, fuzzy
-#| msgid "Tables"
 msgid "Tables:"
-msgstr "Tabel"
+msgstr "Tabel:"
 
 #: libraries/classes/Navigation/Navigation.php:198
 #, fuzzy
 #| msgid "Views"
 msgid "Views:"
-msgstr "View"
+msgstr "Dilihat:"
 
 #: libraries/classes/Navigation/Navigation.php:222
 #: libraries/tracking.lib.php:291 libraries/tracking.lib.php:1605
@@ -5510,7 +5462,7 @@ msgstr "Keluar"
 #, fuzzy
 #| msgid "Dumping data for table"
 msgid "Empty session data"
-msgstr "Dumping data untuk tabel"
+msgstr "Data sesi kosong"
 
 #: libraries/classes/Navigation/NavigationHeader.php:190
 msgid "phpMyAdmin documentation"
@@ -13516,7 +13468,7 @@ msgstr ""
 
 #: libraries/rte/rte_routines.lib.php:1207
 msgid "You must provide a name and a type for each routine parameter."
-msgstr "Anda harus memasukkan nama dan jenis setiap parameter routine."
+msgstr "Anda harus memasukkan nama dan jenis setiap parameter rutin."
 
 #: libraries/rte/rte_routines.lib.php:1226
 msgid "You must provide a valid return type for the routine."
@@ -16612,7 +16564,7 @@ msgstr "Usulkan struktur tabel"
 
 #: templates/table/structure/optional_action_links.twig:70
 msgid "Normalize"
-msgstr ""
+msgstr "Normalisasi"
 
 #: templates/table/structure/optional_action_links.twig:86
 #, fuzzy
