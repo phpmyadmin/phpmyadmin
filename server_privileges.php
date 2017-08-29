@@ -422,7 +422,7 @@ if (isset($_REQUEST['adduser'])) {
             str_replace(
                 array('\_', '\%'),
                 array('_', '%'),
-                $_REQUEST['dbname']
+                $dbname
             )
         );
     }
