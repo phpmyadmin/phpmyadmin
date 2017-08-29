@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.8.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2017-08-10 09:14-0400\n"
-"PO-Revision-Date: 2017-08-29 12:36+0000\n"
+"PO-Revision-Date: 2017-08-29 13:00+0000\n"
 "Last-Translator: Steven WdV <stevenwdv@gmail.com>\n"
 "Language-Team: Dutch "
 "<https://hosted.weblate.org/projects/phpmyadmin/master/nl/>\n"
@@ -1480,8 +1480,8 @@ msgid ""
 "However only the SQL query itself has been used as a grouping criteria, so "
 "the other attributes of queries, such as start time, may differ."
 msgstr ""
-"Deze kolom toont het aantal identieke query's die gegroepeerd worden. Enkel "
-"de SQL-query werd gebruikt als criterium voor het groeperen, dus andere "
+"Deze kolom toont het aantal identieke query's die gegroepeerd zijn. Enkel de "
+"SQL-query zelf is gebruikt als criterium voor het groeperen, dus andere "
 "eigenschappen van query's, zoals de starttijd, kunnen verschillend zijn."
 
 #: js/messages.php:274
@@ -1490,7 +1490,7 @@ msgid ""
 "same table are also being grouped together, disregarding of the inserted "
 "data."
 msgstr ""
-"Omdat het groeperen van INSERT-query's geselecteerd werd, zullen INSERT-"
+"Omdat het groeperen van INSERT-query's geselecteerd is, zullen INSERT-"
 "query's voor dezelfde tabel ook gegroepeerd worden, zonder rekening te "
 "houden met de gegevens die ingevoegd worden."
 
@@ -2309,7 +2309,7 @@ msgstr "Wilt u de wijzigingen in de huidige pagina opslaan?"
 
 #: js/messages.php:566
 msgid "Successfully deleted the page"
-msgstr "Pagina werd succesvol verwijderd"
+msgstr "Pagina is succesvol verwijderd"
 
 #: js/messages.php:567
 msgid "Export relational schema"
@@ -2317,7 +2317,7 @@ msgstr "Exporteer relationeel schema"
 
 #: js/messages.php:568
 msgid "Modifications have been saved"
-msgstr "Wijzigingen werden opgeslagen"
+msgstr "Wijzigingen zijn opgeslagen"
 
 #: js/messages.php:571
 #, php-format
@@ -2342,8 +2342,8 @@ msgid ""
 "You have edited some data and they have not been saved. Are you sure you "
 "want to leave this page before saving the data?"
 msgstr ""
-"U heeft gegevens bewerkt en deze werden nog niet opgeslagen. Bent u zeker "
-"dat u deze pagina wil verlaten alvorens de wijzigingen op te slaan?"
+"U heeft gegevens bewerkt en deze zijn nog niet opgeslagen. Weet u zeker dat "
+"u deze pagina wil verlaten zonder de wijzigingen op te slaan?"
 
 #: js/messages.php:581
 msgid "Drag to reorder."
@@ -2498,7 +2498,7 @@ msgstr "Loskoppelen van hoofdpaneel"
 #: js/messages.php:656
 msgid "The requested page was not found in the history, it may have expired."
 msgstr ""
-"De opgevraagde pagina werd niet gevonden in de historiek, mogelijk is deze "
+"De opgevraagde pagina is niet gevonden in de historiek, mogelijk is deze "
 "verlopen."
 
 #: js/messages.php:660 setup/lib/index.lib.php:165
@@ -3834,13 +3834,13 @@ msgstr "Tabel %s is leeggemaakt."
 #: tbl_operations.php:419 view_operations.php:130
 #, php-format
 msgid "View %s has been dropped."
-msgstr "View %s werd verwijderd."
+msgstr "View %s is verwijderd."
 
 #: libraries/classes/Controllers/Database/DatabaseStructureController.php:587
 #: tbl_operations.php:420
 #, php-format
 msgid "Table %s has been dropped."
-msgstr "Tabel %s werd verwijderd."
+msgstr "Tabel %s is verwijderd."
 
 #: libraries/classes/Controllers/Database/DatabaseStructureController.php:775
 #: libraries/classes/DisplayResults.php:4686
@@ -3921,8 +3921,8 @@ msgstr "Database %1$s is aangemaakt."
 #, php-format
 msgid "%1$d database has been dropped successfully."
 msgid_plural "%1$d databases have been dropped successfully."
-msgstr[0] "%1$d database werd succesvol verwijderd."
-msgstr[1] "%1$d databases werden succesvol verwijderd."
+msgstr[0] "%1$d database is succesvol verwijderd."
+msgstr[1] "%1$d databases zijn succesvol verwijderd."
 
 #: libraries/classes/Controllers/Server/ServerDatabasesController.php:347
 #: libraries/import.lib.php:90
@@ -4059,7 +4059,7 @@ msgstr "Uw SQL-query is succesvol uitgevoerd."
 
 #: libraries/classes/Controllers/Table/TableRelationController.php:280
 msgid "Internal relationships were successfully updated."
-msgstr "Interne relaties werden succesvol bijgewerkt."
+msgstr "Interne relaties zijn succesvol bijgewerkt."
 
 #: libraries/classes/Controllers/Table/TableSearchController.php:763
 msgid "Table search"
@@ -4476,7 +4476,7 @@ msgstr "Goed gekende binaire waarde"
 #: libraries/classes/DisplayResults.php:3531
 #: libraries/classes/DisplayResults.php:3546
 msgid "The row has been deleted."
-msgstr "De regel werd verwijderd."
+msgstr "De rij is verwijderd."
 
 #: libraries/classes/DisplayResults.php:3579
 #: libraries/classes/DisplayResults.php:4828
@@ -4788,7 +4788,7 @@ msgid ""
 "The amount of memory allocated to the transaction log cache used to cache on "
 "transaction log data. The default is 16MB."
 msgstr ""
-"De hoeveelheid geheugen die vrijgemaakt werd voor de transactiecache, die "
+"De hoeveelheid geheugen die vrijgemaakt wordt voor de transactiecache die "
 "gebruikt wordt om de transactieloggegevens op te slaan. Standaard is dit "
 "16MB."
 
@@ -5049,7 +5049,7 @@ msgstr "Opmerking"
 
 #: libraries/classes/Index.php:754
 msgid "The primary key has been dropped."
-msgstr "De primaire sleutel werd verwijderd."
+msgstr "De primaire sleutel is verwijderd."
 
 #: libraries/classes/Index.php:761
 #, php-format
@@ -5947,7 +5947,7 @@ msgid ""
 "checked"
 msgstr ""
 "Voeg een tijdstip toe waarop databases aangemaakt, laatst aangepast en "
-"laatst gecontroleerd werden"
+"laatst gecontroleerd zijn"
 
 #: libraries/classes/Plugins/Export/ExportSql.php:138
 #: libraries/config/messages.inc.php:243
@@ -7345,7 +7345,7 @@ msgstr "Gebruikersgroep"
 #: libraries/classes/Server/Privileges.php:3638
 #: libraries/classes/Server/Privileges.php:4762
 msgid "The selected user was not found in the privilege table."
-msgstr "De geselecteerde gebruiker werd niet aangetroffen in de rechtentabel."
+msgstr "De geselecteerde gebruiker is niet aangetroffen in de rechtentabel."
 
 #: libraries/classes/Server/Privileges.php:3815
 msgid "No users selected for deleting!"
@@ -7353,7 +7353,7 @@ msgstr "Geen gebruikers geselecteerd om te verwijderen!"
 
 #: libraries/classes/Server/Privileges.php:3818
 msgid "Reloading the privileges"
-msgstr "De rechten werden opnieuw ingeladen"
+msgstr "De rechten worden opnieuw geladen"
 
 #: libraries/classes/Server/Privileges.php:3837
 msgid "The selected users have been deleted successfully."
@@ -7371,7 +7371,7 @@ msgstr "Verwijderen van %s"
 
 #: libraries/classes/Server/Privileges.php:4047
 msgid "The privileges were reloaded successfully."
-msgstr "De rechten werden succesvol opnieuw ingeladen."
+msgstr "De rechten zijn succesvol opnieuw geladen."
 
 #: libraries/classes/Server/Privileges.php:4138
 #, php-format
@@ -7695,7 +7695,7 @@ msgstr "Onbekende tabelstatus:"
 #: libraries/classes/Table.php:868
 #, php-format
 msgid "Source database `%s` was not found!"
-msgstr "Brondatabase `%s` werd niet gevonden!"
+msgstr "Brondatabase `%s` is niet gevonden!"
 
 #: libraries/classes/Table.php:876
 #, php-format
@@ -8117,7 +8117,7 @@ msgstr "Statische analyse:"
 #: libraries/classes/Util.php:581
 #, php-format
 msgid "%d errors were found during analysis."
-msgstr "%d fouten werden gevonden tijdens de analyse."
+msgstr "%d fouten zijn gevonden tijdens de analyse."
 
 #: libraries/classes/Util.php:644 libraries/rte/rte_events.lib.php:114
 #: libraries/rte/rte_events.lib.php:123 libraries/rte/rte_events.lib.php:154
@@ -11666,7 +11666,7 @@ msgstr "De derde stap van normalisatie is voltooid."
 #: libraries/normalization.lib.php:675
 #, php-format
 msgid "Selected repeating group has been moved to the table '%s'"
-msgstr "De geselecteerde herhalende groep werd verplaatst naar tabel '%s'"
+msgstr "De geselecteerde herhalende groep is verplaatst naar tabel '%s'"
 
 #: libraries/normalization.lib.php:722
 msgid "Step 3."
@@ -11755,7 +11755,7 @@ msgstr ""
 #: libraries/operations.lib.php:134
 #, php-format
 msgid "Database %s has been dropped."
-msgstr "Database %s werd verwijderd."
+msgstr "Database %s is verwijderd."
 
 #: libraries/operations.lib.php:146
 msgid "Remove database"
@@ -12394,7 +12394,7 @@ msgstr "Fout bij starten van replicatie."
 
 #: libraries/replication_gui.lib.php:920
 msgid "Replication stopped successfully."
-msgstr "Replicatie werd succesvol gestopt."
+msgstr "Replicatie is succesvol gestopt."
 
 #: libraries/replication_gui.lib.php:921
 msgid "Error stopping replication."
@@ -12459,12 +12459,12 @@ msgstr "Sorry, het herstellen van de verwijderde gebeurtenis is mislukt."
 #: libraries/rte/rte_events.lib.php:137
 #, php-format
 msgid "Event %1$s has been modified."
-msgstr "Gebeurtenis %1$s werd gewijzigd."
+msgstr "Gebeurtenis %1$s is gewijzigd."
 
 #: libraries/rte/rte_events.lib.php:157
 #, php-format
 msgid "Event %1$s has been created."
-msgstr "Gebeurtenis %1$s werd aangemaakt."
+msgstr "Gebeurtenis %1$s is aangemaakt."
 
 #: libraries/rte/rte_events.lib.php:171 libraries/rte/rte_routines.lib.php:274
 #: libraries/rte/rte_triggers.lib.php:147
@@ -12595,7 +12595,7 @@ msgstr "Ongeldig routine-type: \"%s\""
 #: libraries/rte/rte_routines.lib.php:261
 #, php-format
 msgid "Routine %1$s has been created."
-msgstr "Routine %1$s werd aangemaakt."
+msgstr "Routine %1$s is aangemaakt."
 
 #: libraries/rte/rte_routines.lib.php:380
 msgid "Sorry, we failed to restore the dropped routine."
@@ -12604,12 +12604,12 @@ msgstr "Het terugzetten van de verwijderde routine is mislukt."
 #: libraries/rte/rte_routines.lib.php:436
 #, php-format
 msgid "Routine %1$s has been modified. Privileges have been adjusted."
-msgstr "Routine %1$s werd gewijzigd. Rechten zijn aangepast."
+msgstr "Routine %1$s is gewijzigd. Rechten zijn aangepast."
 
 #: libraries/rte/rte_routines.lib.php:441
 #, php-format
 msgid "Routine %1$s has been modified."
-msgstr "Routine %1$s werd gewijzigd."
+msgstr "Routine %1$s is gewijzigd."
 
 #: libraries/rte/rte_routines.lib.php:893
 msgid "Routine name"
@@ -12722,12 +12722,12 @@ msgstr "De verwijderde trigger kon niet hersteld worden."
 #: libraries/rte/rte_triggers.lib.php:113
 #, php-format
 msgid "Trigger %1$s has been modified."
-msgstr "Trigger %1$s werd gewijzigd."
+msgstr "Trigger %1$s is gewijzigd."
 
 #: libraries/rte/rte_triggers.lib.php:133
 #, php-format
 msgid "Trigger %1$s has been created."
-msgstr "Trigger %1$s werd aangemaakt."
+msgstr "Trigger %1$s is aangemaakt."
 
 #: libraries/rte/rte_triggers.lib.php:209
 msgid "Edit trigger"
@@ -13248,8 +13248,8 @@ msgid ""
 "The number of connections that were aborted because the client died without "
 "closing the connection properly."
 msgstr ""
-"Het aantal verbindingen dat afgebroken werd omdat de client wegviel zonder "
-"de verbinding keurig af te sluiten."
+"Het aantal verbindingen dat afgebroken werd omdat de cliënt wegviel zonder "
+"de verbinding correct af te sluiten."
 
 #: libraries/server_status_variables.lib.php:333
 msgid "The number of failed attempts to connect to the MySQL server."
@@ -13284,22 +13284,22 @@ msgid ""
 "to increase the tmp_table_size  value to cause temporary tables to be memory-"
 "based instead of disk-based."
 msgstr ""
-"Het aantal tijdelijke tabellen op schijf die door de server automatisch "
-"aangemaakt werden bij het uitvoeren van query's. Als Created_tmp_disk_tables "
-"groot is, is het aangewezen om tmp_table_size te vergroten om tijdelijke "
-"tabellen aan te maken in geheugen in plaats van op harde schijf."
+"Het aantal tijdelijke tabellen op de schijf die door de server automatisch "
+"aangemaakt zijn bij het uitvoeren van query's. Als Created_tmp_disk_tables "
+"groot is, wordt het aanbevolen om de waarde van tmp_table_size te vergroten "
+"om tijdelijke tabellen aan te maken in geheugen in plaats van op de schijf."
 
 #: libraries/server_status_variables.lib.php:355
 msgid "How many temporary files mysqld has created."
-msgstr "Het aantal tijdelijke bestanden dat door MySQL werd aangemaakt."
+msgstr "Het aantal tijdelijke bestanden dat door MySQL is aangemaakt."
 
 #: libraries/server_status_variables.lib.php:358
 msgid ""
 "The number of in-memory temporary tables created automatically by the server "
 "while executing statements."
 msgstr ""
-"Het aantal in het geheugen geplaatste tijdelijke tabellen dat automatisch "
-"door de server werd aangemaakt tijdens het uitvoeren van opdrachten."
+"Het aantal in het geheugen geplaatste tijdelijke tabellen die automatisch "
+"door de server werden aangemaakt tijdens het uitvoeren van opdrachten."
 
 #: libraries/server_status_variables.lib.php:362
 msgid ""
@@ -13331,7 +13331,7 @@ msgstr "Het aantal interne COMMIT-opdrachten."
 
 #: libraries/server_status_variables.lib.php:380
 msgid "The number of times a row was deleted from a table."
-msgstr "Het aantal keer dat een rij werd verwijderd uit een tabel."
+msgstr "Het aantal keer dat een rij is verwijderd uit een tabel."
 
 #: libraries/server_status_variables.lib.php:383
 msgid ""
@@ -13341,7 +13341,7 @@ msgid ""
 msgstr ""
 "De MySQL-server kan aan de NDB Cluster-opslagengine vragen naar een tabel "
 "met een bepaalde naam. Dit wordt discovery genoemd. Handler_discover geeft "
-"aan hoeveel tabellen met discovery werden opgezocht."
+"aan hoeveel tabellen met discovery zijn opgezocht."
 
 #: libraries/server_status_variables.lib.php:389
 msgid ""
@@ -13349,9 +13349,9 @@ msgid ""
 "it suggests that the server is doing a lot of full index scans; for example, "
 "SELECT col1 FROM foo, assuming that col1 is indexed."
 msgstr ""
-"Het aantal keer dat de eerste eenheid uit een index werd gelezen. Indien "
-"hoog geeft dit een indicatie dat de server veel scans doet op de volledige "
-"index; bijvoorbeeld SELECT kolom1 FROM foo, waarbij kolom1 is geïndexeerd."
+"Het aantal keer dat de eerste eenheid uit een index is gelezen. Indien hoog "
+"geeft dit een indicatie dat de server veel scans doet op de volledige index; "
+"bijvoorbeeld SELECT kolom1 FROM foo, waarbij kolom1 is geïndexeerd."
 
 #: libraries/server_status_variables.lib.php:395
 msgid ""
@@ -13464,7 +13464,7 @@ msgid ""
 "The number of \"random\" read-aheads InnoDB initiated. This happens when a "
 "query is to scan a large portion of a table but in random order."
 msgstr ""
-"Het aantal \"random\" read-aheads dat door InnoDB werd geïnitieerd. Dit "
+"Het aantal \"random\" read-aheads die door InnoDB zijn geïnitieerd. Dit "
 "gebeurt wanneer een query een groot deel van een tabel laat scannen, maar in "
 "willekeurige volgorde."
 
@@ -13473,12 +13473,12 @@ msgid ""
 "The number of sequential read-aheads InnoDB initiated. This happens when "
 "InnoDB does a sequential full table scan."
 msgstr ""
-"Het aantal sequentiële read-aheads dat door InnoDB werd geïnitieerd. Dit "
+"Het aantal sequentiële read-aheads die door InnoDB zijn geïnitieerd. Dit "
 "gebeurt wanneer er een volledige tabelscan wordt uitgevoerd."
 
 #: libraries/server_status_variables.lib.php:469
 msgid "The number of logical read requests InnoDB has done."
-msgstr "Het aantal logische leesverzoeken dat door InnoDB werd uitgevoerd."
+msgstr "Het aantal logische leesverzoeken dat door InnoDB is uitgevoerd."
 
 #: libraries/server_status_variables.lib.php:472
 msgid ""
@@ -13540,7 +13540,7 @@ msgstr "De hoeveelheid tot nu toe geschreven gegevens, in bytes."
 
 #: libraries/server_status_variables.lib.php:511
 msgid "The number of pages that have been written for doublewrite operations."
-msgstr "Het aantal pagina's dat werd geschreven voor doublewrite-operaties."
+msgstr "Het aantal pagina's die zijn geschreven voor doublewrite-operaties."
 
 #: libraries/server_status_variables.lib.php:515
 msgid "The number of doublewrite operations that have been performed."
@@ -13575,11 +13575,11 @@ msgstr "Het aantal momenteel openstaande schrijfoperaties op het logbestand."
 
 #: libraries/server_status_variables.lib.php:537
 msgid "The number of bytes written to the log file."
-msgstr "Het aantal bytes dat naar het logbestand werd geschreven."
+msgstr "Het aantal bytes dat naar het logbestand is geschreven."
 
 #: libraries/server_status_variables.lib.php:540
 msgid "The number of pages created."
-msgstr "Het aantal pagina's dat werd aangemaakt."
+msgstr "Het aantal pagina's dat is aangemaakt."
 
 #: libraries/server_status_variables.lib.php:543
 msgid ""
@@ -13733,7 +13733,7 @@ msgid ""
 "The number of tables that have been opened. If opened tables is big, your "
 "table cache value is probably too small."
 msgstr ""
-"Het aantal tabellen dat werd geopend. Indien hoog, is mogelijk de "
+"Het aantal tabellen dat werd geopend. Indien hoog is mogelijk de "
 "tabelcachewaarde te laag."
 
 #: libraries/server_status_variables.lib.php:638
