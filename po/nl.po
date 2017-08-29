@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.8.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2017-08-10 09:14-0400\n"
-"PO-Revision-Date: 2017-08-26 13:32+0000\n"
+"PO-Revision-Date: 2017-08-29 12:36+0000\n"
 "Last-Translator: Steven WdV <stevenwdv@gmail.com>\n"
 "Language-Team: Dutch "
 "<https://hosted.weblate.org/projects/phpmyadmin/master/nl/>\n"
@@ -321,7 +321,7 @@ msgstr "Database %1$s is gekopieerd naar %2$s."
 msgid ""
 "The phpMyAdmin configuration storage has been deactivated. %sFind out why%s."
 msgstr ""
-"De configuratie-opslag van phpMyAdmin is uitgeschakeld. %sOntdek waarom%s."
+"De configuratieopslag van phpMyAdmin is uitgeschakeld. %sOntdek waarom%s."
 
 #: db_qbe.php:127
 msgid "You have to choose at least one column to display!"
@@ -754,7 +754,7 @@ msgid ""
 "multibyte charset. Without the mbstring extension phpMyAdmin is unable to "
 "split strings correctly and it may result in unexpected results."
 msgstr ""
-"De PHP-uitbreiding mbstring werd niet gevonden en u lijkt een multibyte-"
+"De PHP-uitbreiding mbstring is niet gevonden en u lijkt een multibyte-"
 "karakterset te gebruiken. Zonder de uitbreiding mbstring kan phpMyAdmin "
 "strings niet correct splitsen, wat tot onverwachte resultaten kan leiden."
 
@@ -817,7 +817,7 @@ msgid ""
 "The phpMyAdmin configuration storage is not completely configured, some "
 "extended features have been deactivated. %sFind out why%s. "
 msgstr ""
-"De configuratie-opslag van phpMyAdmin is niet volledig ingesteld, sommige "
+"De configuratieopslag van phpMyAdmin is niet volledig ingesteld, sommige "
 "uitgebreide mogelijkheden zijn uitgeschakeld. %sOntdek waarom%s. "
 
 #: index.php:575
@@ -1115,19 +1115,19 @@ msgstr "Sluiten"
 
 #: js/messages.php:149
 msgid "Template was created."
-msgstr "Template werd aangemaakt."
+msgstr "Template is aangemaakt."
 
 #: js/messages.php:150
 msgid "Template was loaded."
-msgstr "Template werd geladen."
+msgstr "Template is geladen."
 
 #: js/messages.php:151
 msgid "Template was updated."
-msgstr "Template werd aangepast."
+msgstr "Template is aangepast."
 
 #: js/messages.php:152
 msgid "Template was deleted."
-msgstr "Template werd verwijderd."
+msgstr "Template is verwijderd."
 
 #. l10n: Other, small valued, queries
 #: js/messages.php:155 libraries/classes/ServerStatusData.php:132
@@ -3037,7 +3037,7 @@ msgid ""
 "The configuration storage is not ready for the central list of columns "
 "feature."
 msgstr ""
-"De configuratie-opslag is niet klaar voor de centrale lijst van kolommen "
+"De configuratieopslag is niet klaar voor de centrale lijst van kolommen "
 "functie."
 
 #: libraries/central_columns.lib.php:282
@@ -3540,7 +3540,7 @@ msgstr ""
 
 #: libraries/classes/Config.php:1560
 msgid "Font size"
-msgstr "Lettertypegrootte"
+msgstr "Lettergrootte"
 
 #: libraries/classes/Config/FormDisplay.php:98
 #: libraries/classes/Config/Validator.php:522
@@ -3785,7 +3785,7 @@ msgstr ""
 msgid ""
 "Empty phpMyAdmin control user while using phpMyAdmin configuration storage!"
 msgstr ""
-"De controlegebruikersnaam is leeg terwijl u wel de configuratie-opslag van "
+"De controlegebruikersnaam is leeg terwijl u wel de configuratieopslag van "
 "phpMyAdmin gebruikt!"
 
 #: libraries/classes/Config/Validator.php:330
@@ -3794,7 +3794,7 @@ msgid ""
 "storage!"
 msgstr ""
 "Het wachtwoord voor de controlegebruiker is leeg terwijl u wel de "
-"configuratie-opslag van phpMyAdmin gebruikt!"
+"configuratieopslag van phpMyAdmin gebruikt!"
 
 #: libraries/classes/Config/Validator.php:428
 msgid "Incorrect value:"
@@ -5841,12 +5841,12 @@ msgstr "Labelsleutel:"
 #: libraries/classes/Plugins/Export/ExportOdt.php:98
 #: libraries/classes/Plugins/Export/ExportSql.php:122
 msgid "Display foreign key relationships"
-msgstr "Toon vreemde sleutel-relaties"
+msgstr "Toon vreemdesleutelrelaties"
 
 #: libraries/classes/Plugins/Export/ExportLatex.php:144
 #: libraries/classes/Plugins/Export/ExportOdt.php:104
 msgid "Display comments"
-msgstr "Toon kolomopmerkingen"
+msgstr "Toon opmerkingen"
 
 #: libraries/classes/Plugins/Export/ExportLatex.php:150
 #: libraries/classes/Plugins/Export/ExportOdt.php:110
@@ -8350,7 +8350,7 @@ msgstr "Klik"
 
 #: libraries/config.values.php:93
 msgid "Double click"
-msgstr "Dubbelklik"
+msgstr "Dubbelklikken"
 
 #: libraries/config.values.php:94 libraries/config.values.php:124
 #: libraries/config/FormDisplay.tpl.php:236 libraries/relation.lib.php:100
@@ -8693,16 +8693,15 @@ msgstr "Of de tabelstructuur acties verborgen moeten worden."
 
 #: libraries/config/messages.inc.php:117
 msgid "Show column comments"
-msgstr "Toon kolom opmerkingen"
+msgstr "Toon kolomopmerkingen"
 
 #: libraries/config/messages.inc.php:119
 msgid "Whether column comments should be shown in table structure view"
-msgstr ""
-"Of kolom commentaar getoond moet worden in het tabel structuuroverzicht"
+msgstr "Of kolomcommentaar getoond moet worden in het tabelstructuuroverzicht"
 
 #: libraries/config/messages.inc.php:120
 msgid "Hide table structure actions"
-msgstr "Tabel structuur acties verbergen"
+msgstr "Tabelstructuuracties verbergen"
 
 #: libraries/config/messages.inc.php:121
 msgid "Default transformations for Hex"
@@ -8942,13 +8941,13 @@ msgid ""
 "Sort order for items in a foreign-key dropdown box; [kbd]content[/kbd] is "
 "the referenced data, [kbd]id[/kbd] is the key value."
 msgstr ""
-"Sorteer volgorde van elementen in een vreemde sleutel-afrolmenu; "
+"Sorteervolgorde van elementen in het vreemdesleutelkeuzemenu; "
 "[kbd]content[/kbd] is de gerefereerde data, [kbd]id[/kbd] is de "
 "sleutelwaarde."
 
 #: libraries/config/messages.inc.php:252
 msgid "Foreign key dropdown order"
-msgstr "Vreemde sleutel-afrolmenu sortering"
+msgstr "Sortering van het vreemdesleutelkeuzemenu"
 
 #: libraries/config/messages.inc.php:254
 msgid "A dropdown will be used if fewer items are present."
@@ -8956,7 +8955,7 @@ msgstr "Een afrolmenu wordt gebruikt indien er minder items beschikbaar zijn."
 
 #: libraries/config/messages.inc.php:255
 msgid "Foreign key limit"
-msgstr "Vreemde sleutel-limiet"
+msgstr "Vreemdesleutellimiet"
 
 #: libraries/config/messages.inc.php:257
 msgid "Default value for foreign key checks checkbox for some queries."
@@ -8970,11 +8969,11 @@ msgstr "Controles op extern sleutelveld"
 
 #: libraries/config/messages.inc.php:260
 msgid "Browse mode"
-msgstr "Verkennen-mode"
+msgstr "Verkenmodus"
 
 #: libraries/config/messages.inc.php:261
 msgid "Customize browse mode."
-msgstr "Aanpassen verkennen-mode."
+msgstr "Aanpassen van verkenmodus."
 
 #: libraries/config/messages.inc.php:263 libraries/config/messages.inc.php:265
 #: libraries/config/messages.inc.php:283 libraries/config/messages.inc.php:296
@@ -9149,7 +9148,7 @@ msgstr "Geef de serververbindingsparameters op."
 
 #: libraries/config/messages.inc.php:322
 msgid "Configuration storage"
-msgstr "Configuratie-opslag"
+msgstr "Configuratieopslag"
 
 #: libraries/config/messages.inc.php:324
 msgid ""
@@ -9158,8 +9157,8 @@ msgid ""
 "documentation."
 msgstr ""
 "Configureer de configuratie-opslag van phpMyAdmin om toegang te krijgen tot "
-"extra functionaliteit, zie [doc@linked-tables]phpMyAdmin-configuratie-"
-"opslag[/doc] in de documentatie."
+"extra functionaliteit, zie [doc@linked-tables]phpMyAdmin-"
+"configuratieopslag[/doc] in de documentatie."
 
 #: libraries/config/messages.inc.php:328
 msgid "Changes tracking"
@@ -9170,7 +9169,7 @@ msgid ""
 "Tracking of changes made in database. Requires the phpMyAdmin configuration "
 "storage."
 msgstr ""
-"Bijhouden van wijzigingen in de database. Dit vereist de configuratie-opslag "
+"Bijhouden van wijzigingen in de database. Dit vereist de configuratieopslag "
 "van phpMyAdmin."
 
 #: libraries/config/messages.inc.php:333
@@ -9732,7 +9731,7 @@ msgstr "Natuurlijke volgorde"
 #: libraries/config/messages.inc.php:570 libraries/config/messages.inc.php:595
 #: libraries/config/messages.inc.php:597
 msgid "Use only icons, only text or both."
-msgstr "Gebruik enkel iconen, enkel tekst of beide."
+msgstr "Gebruik enkel pictogrammen, enkel tekst of beide."
 
 #: libraries/config/messages.inc.php:571
 msgid "Table navigation bar"
@@ -9772,13 +9771,13 @@ msgid ""
 "Structure page if any of the required tables for the phpMyAdmin "
 "configuration storage could not be found."
 msgstr ""
-"De waarschuwing uitschakelen die getoond wordt op de pagina met "
-"databasedetails Structuur wanneer een benodigde tabel voor de configuratie-"
-"opslag van phpMyAdmin niet gevonden kan worden."
+"De waarschuwing uitschakelen die getoond wordt op het deel Structuur van de "
+"pagina met databasedetails wanneer een benodigde tabel voor de "
+"configuratieopslag van phpMyAdmin niet gevonden kan worden."
 
 #: libraries/config/messages.inc.php:589
 msgid "Missing phpMyAdmin configuration storage tables"
-msgstr "Tabellen voor de configuratie-opslag van phpMyAdmin ontbreken"
+msgstr "Tabellen voor de configuratieopslag van phpMyAdmin ontbreken"
 
 #: libraries/config/messages.inc.php:591
 msgid ""
@@ -9815,9 +9814,9 @@ msgid ""
 "(lost by window close)."
 msgstr ""
 "Schakel dit in wanneer u wil dat SQL-querygeschiedenis wordt bijgehouden in "
-"een database (configuratie-opslag van phpMyAdmin is vereist). Indien "
-"uitgeschakeld, worden JS-routines gebruikt om querygeschiedenis te tonen "
-"(deze gaat verloren bij het sluiten van het venster)."
+"een database (configuratieopslag van phpMyAdmin is vereist). Indien "
+"uitgeschakeld, worden JS-routines gebruikt om querygeschiedenis te tonen ("
+"deze gaat verloren bij het sluiten van het venster)."
 
 #: libraries/config/messages.inc.php:606
 msgid "Permanent query history"
@@ -9843,7 +9842,7 @@ msgstr "Hercoderingsengine"
 
 #: libraries/config/messages.inc.php:614
 msgid "When browsing tables, the sorting of each table is remembered."
-msgstr "Bij het bekijken van tabellen, wordt de sorteervolgorde onthouden."
+msgstr "Bij het bekijken van tabellen wordt de sorteervolgorde onthouden."
 
 #: libraries/config/messages.inc.php:615
 msgid "Remember table's sorting"
@@ -9881,7 +9880,7 @@ msgstr "Voor weergaveopties"
 
 #: libraries/config/messages.inc.php:627
 msgid "Grid editing: save all edited cells at once"
-msgstr "Roosterbewerkingen : Alle wijzigingen aan cellen tegelijk opslaan"
+msgstr "Roosterbewerkingen : alle wijzigingen aan cellen tegelijk opslaan"
 
 #: libraries/config/messages.inc.php:628
 msgid "Directory where exports can be saved on server."
@@ -9996,7 +9995,7 @@ msgid ""
 "An alternate host to hold the configuration storage; leave blank to use the "
 "already defined host."
 msgstr ""
-"Een alternatieve host voor de configuratie-opslag; laat leeg om de reeds "
+"Een alternatieve host voor de configuratieopslag; laat leeg om de reeds "
 "gedefinieerde host te gebruiken."
 
 #: libraries/config/messages.inc.php:668
@@ -10009,7 +10008,7 @@ msgid ""
 "storage; leave blank to use the default port, or the already defined port, "
 "if the controlhost equals host."
 msgstr ""
-"Een alternatieve poort om te verbinden met de host voor configuratie-opslag; "
+"Een alternatieve poort om te verbinden met de host voor configuratieopslag; "
 "laat leeg om de standaardpoort te gebruiken, of om de reeds gedefinieerde "
 "poort te gebruiken als controlhost gelijk is aan host."
 
@@ -10450,7 +10449,7 @@ msgstr "Toon of verberg een kolom met het commentaar voor alle tabellen."
 
 #: libraries/config/messages.inc.php:848
 msgid "Show table comments"
-msgstr "Tabel opmerkingen"
+msgstr "Toon tabelopmerkingen"
 
 #: libraries/config/messages.inc.php:850
 msgid "Show or hide a column displaying the Creation timestamp for all tables."
@@ -10489,7 +10488,7 @@ msgstr "Toon of verberg een kolom met de karakterset voor alle tabellen."
 
 #: libraries/config/messages.inc.php:864
 msgid "Show table charset"
-msgstr "Toon tabel karakterset"
+msgstr "Toon karakterset van tabel"
 
 #: libraries/config/messages.inc.php:866
 msgid ""
@@ -10805,7 +10804,7 @@ msgstr "'Zonder configuratie'-modus inschakelen"
 
 #: libraries/config/setup.forms.php:38
 msgid "Config authentication"
-msgstr "Configuratie-authenticatie"
+msgstr "Configuratieauthenticatie"
 
 #: libraries/config/setup.forms.php:42
 msgid "HTTP authentication"
@@ -12027,7 +12026,7 @@ msgstr "Configuratie van pmadb…"
 
 #: libraries/relation.lib.php:107 libraries/relation.lib.php:143
 msgid "General relation features"
-msgstr "Algemene relatie-opties"
+msgstr "Algemene relatieopties"
 
 #: libraries/relation.lib.php:154
 msgid "Display Features"
@@ -12156,7 +12155,7 @@ msgstr ""
 msgid ""
 "%sCreate%s the phpMyAdmin configuration storage in the current database."
 msgstr ""
-"%sMaak%s de configuratie-opslag van phpMyAdmin aan in de huidige database."
+"%sMaak%s de configuratieopslag van phpMyAdmin aan in de huidige database."
 
 #: libraries/relation.lib.php:2017
 #, php-format
@@ -14298,7 +14297,7 @@ msgid ""
 "permanently requires %sphpMyAdmin configuration storage%s."
 msgstr ""
 "Uw voorkeuren worden enkel in de huidige sessie bewaard. Om deze permanent "
-"te bewaren is %sconfiguratie-opslag van phpMyAdmin%s vereist."
+"te bewaren is %sconfiguratieopslag van phpMyAdmin%s vereist."
 
 #: libraries/user_preferences.lib.php:135
 msgid "Could not save configuration"
@@ -14978,7 +14977,7 @@ msgstr "Wissel klein/groot"
 #: templates/database/designer/side_menu.phtml:145
 #: templates/database/designer/side_menu.phtml:148
 msgid "Toggle relationship lines"
-msgstr "Relatielijnen wisselen"
+msgstr "Relatielijnen tonen/verbergen"
 
 #: templates/database/designer/side_menu.phtml:153
 #: templates/database/designer/side_menu.phtml:156
@@ -15156,7 +15155,7 @@ msgstr "Dit is een alleen-lezen variabele en kan niet worden gewijzigd"
 
 #: templates/table/relation/common_form.phtml:6
 msgid "Foreign key constraints"
-msgstr "Beperkingen voor vreemde sleutel"
+msgstr "Beperkingen voor vreemde sleutels"
 
 #: templates/table/relation/common_form.phtml:10
 msgid "Actions"
@@ -15185,7 +15184,7 @@ msgstr ""
 
 #: templates/table/relation/common_form.phtml:27
 msgid "Foreign key constraint"
-msgstr "Beperking voor vreemde sleutel"
+msgstr "Vreemde sleutel"
 
 #: templates/table/relation/common_form.phtml:67
 msgid "+ Add constraint"
@@ -15215,7 +15214,7 @@ msgstr "Kies weer te geven kolom:"
 #: templates/table/relation/foreign_key_row.phtml:19
 #, php-format
 msgid "Foreign key constraint %s has been dropped"
-msgstr "Beperkingen voor vreemde sleutel %s werd verwijderd"
+msgstr "Beperkingen voor vreemde sleutel %s zijn verwijderd"
 
 #: templates/table/relation/foreign_key_row.phtml:96
 msgid "Constraint name"
@@ -15459,7 +15458,7 @@ msgstr "View volgen"
 
 #: templates/table/secondary_tabs.twig:29
 msgid "Relation view"
-msgstr "Relatie overzicht"
+msgstr "Relatieoverzicht"
 
 #: templates/table/structure/table_structure_row.twig:162
 #, php-format
@@ -15519,7 +15518,7 @@ msgstr "Index keuze:"
 
 #: templates/table/index_form.twig:90
 msgid "Key block size:"
-msgstr "Sleutelveld grootte:"
+msgstr "Sleutelveldgrootte:"
 
 #: templates/table/index_form.twig:113
 msgid "Index type:"
@@ -15896,7 +15895,7 @@ msgstr "Sla grafiek op als afbeelding"
 #: templates/database/designer/options_panel.twig:54
 #: templates/database/designer/options_panel.twig:250
 msgid "Relationship operator"
-msgstr "Relatie parameter"
+msgstr "Operator voor relatie"
 
 #: templates/export/alias_add.twig:24
 msgid "Define new aliases"
