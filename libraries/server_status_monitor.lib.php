@@ -9,6 +9,7 @@
  */
 use PMA\libraries\ServerStatusData;
 use PMA\libraries\Util;
+use PMA\libraries\Sanitize;
 
 /**
  * Prints html with monitor
@@ -42,7 +43,7 @@ function PMA_getHtmlForMonitor($ServerStatusData)
             if ($i++ > 0) {
                 $retval .= ", ";
             }
-            $retval .= "'" . $name . "'";
+            $retval .= Sanitize::formatJsVal($name);
         }
     }
     $retval .= '];';
