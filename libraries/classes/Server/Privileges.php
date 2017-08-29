@@ -3140,7 +3140,7 @@ class Privileges
                 )
             )
             . '">'
-            . htmlspecialchars($dbname) . ': '
+            . htmlspecialchars(Util::unescapeMysqlWildcards($dbname)) . ': '
             . Util::getTitleForTarget(
                 $GLOBALS['cfg']['DefaultTabDatabase']
             )
@@ -4762,7 +4762,7 @@ class Privileges
      *
      * @return string $html_output
      */
-    public static function getHtmlForUserProperties($dbname_is_wildcard,$url_dbname,
+    public static function getHtmlForUserProperties($dbname_is_wildcard, $url_dbname,
         $username, $hostname, $dbname, $tablename
     ) {
         $html_output  = '<div id="edit_user_dialog">';
