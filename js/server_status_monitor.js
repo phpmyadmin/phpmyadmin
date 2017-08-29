@@ -362,7 +362,7 @@ AJAX.registerOnload('server_status_monitor.js', function () {
     };
 
     // Server is localhost => We can add cpu/memory/swap to the default chart
-    if (server_db_isLocal) {
+    if (server_db_isLocal && typeof presetCharts.cpu !== 'undefined') {
         defaultChartGrid.c3 = presetCharts.cpu;
         defaultChartGrid.c4 = presetCharts.memory;
         defaultChartGrid.c5 = presetCharts.swap;
