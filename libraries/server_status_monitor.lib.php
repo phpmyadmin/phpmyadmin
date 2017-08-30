@@ -11,6 +11,8 @@ use PhpMyAdmin\ServerStatusData;
 use PhpMyAdmin\Util;
 use PhpMyAdmin\Sanitize;
 
+require_once 'libraries/sysinfo.lib.php';
+
 /**
  * Prints html with monitor
  *
