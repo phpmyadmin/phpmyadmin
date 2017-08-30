@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.7.4-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2017-08-10 09:13-0400\n"
-"PO-Revision-Date: 2017-08-29 13:28+0000\n"
+"PO-Revision-Date: 2017-08-31 12:01+0000\n"
 "Last-Translator: Steven WdV <stevenwdv@gmail.com>\n"
 "Language-Team: Dutch <https://hosted.weblate.org/projects/phpmyadmin/4-7/nl/>"
 "\n"
@@ -1273,7 +1273,7 @@ msgstr "%d tabel(len)"
 #. l10n: Questions is the name of a MySQL Status variable
 #: js/messages.php:212
 msgid "Questions"
-msgstr "Questions"
+msgstr "Aanvragen"
 
 #: js/messages.php:213 libraries/server_status.lib.php:140
 msgid "Traffic"
@@ -3762,7 +3762,7 @@ msgstr "Query duurde %01.4f seconden."
 #: templates/database/structure/check_all_tables.phtml:9
 #: templates/select_all.phtml:2 templates/select_all.phtml:7
 msgid "With selected:"
-msgstr "Met geselecteerd:"
+msgstr "Met geselecteerde:"
 
 #: libraries/DisplayResults.php:4845 libraries/DisplayResults.php:4847
 #: libraries/server_privileges.lib.php:1164
@@ -5285,7 +5285,7 @@ msgstr "data"
 #: libraries/plugins/export/ExportSql.php:212
 #: libraries/plugins/export/ExportTexytext.php:67
 msgid "structure and data"
-msgstr "Structuur en data"
+msgstr "structuur en data"
 
 #: libraries/config.values.php:168
 msgid "Quick - display only the minimal options to configure"
@@ -5601,7 +5601,7 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:20
 msgid "Allow login to any MySQL server"
-msgstr "Aanmelden op gelijk welke MySQL-server toestaan"
+msgstr "Aanmelden op elke MySQL-server toestaan"
 
 #: libraries/config/messages.inc.php:22
 msgid ""
@@ -5953,15 +5953,15 @@ msgstr "Excel-editie"
 
 #: libraries/config/messages.inc.php:152
 msgid "Database name template"
-msgstr "Databasenaam-template"
+msgstr "Databasenaamtemplate"
 
 #: libraries/config/messages.inc.php:153
 msgid "Server name template"
-msgstr "Servernaam-template"
+msgstr "Servernaamtemplate"
 
 #: libraries/config/messages.inc.php:154
 msgid "Table name template"
-msgstr "Tabelnaam-template"
+msgstr "Tabelnaamtemplate"
 
 #: libraries/config/messages.inc.php:158 libraries/config/messages.inc.php:172
 #: libraries/config/messages.inc.php:181 libraries/config/messages.inc.php:222
@@ -6025,7 +6025,7 @@ msgstr "Exporteer als afzonderlijke bestanden"
 
 #: libraries/config/messages.inc.php:188
 msgid "Remember file name template"
-msgstr "Bestandsnaam-template herinneren"
+msgstr "Bestandsnaamtemplate herinneren"
 
 #: libraries/config/messages.inc.php:189 libraries/operations.lib.php:223
 #: libraries/operations.lib.php:842 libraries/operations.lib.php:1269
@@ -6234,11 +6234,11 @@ msgstr "Weergaveopties voor het navigatiepaneel."
 
 #: libraries/config/messages.inc.php:269
 msgid "Navigation tree"
-msgstr "Navigatie boomstructuur"
+msgstr "Navigatieboom"
 
 #: libraries/config/messages.inc.php:270
 msgid "Customize the navigation tree."
-msgstr "Aanpassen navigatie boomstructuur."
+msgstr "Aanpassen van de navigatieboom"
 
 #: libraries/config/messages.inc.php:271 libraries/select_server.lib.php:47
 #: setup/frames/index.inc.php:126
@@ -6847,7 +6847,7 @@ msgstr "Toon tabellen in boomstructuur"
 
 #: libraries/config/messages.inc.php:521
 msgid "Whether to show tables under database in the navigation tree"
-msgstr "Of tabellen getoond worden in de navigatie boomstructuur"
+msgstr "Of tabellen getoond worden in de navigatieboom"
 
 #: libraries/config/messages.inc.php:522
 msgid "Show views in tree"
@@ -6855,7 +6855,7 @@ msgstr "Versies weergeven in boomstructuur"
 
 #: libraries/config/messages.inc.php:524
 msgid "Whether to show views under database in the navigation tree"
-msgstr "Of views getoond worden onder database in de navigatie boomstructuur"
+msgstr "Of views getoond worden onder database in de navigatieboom"
 
 #: libraries/config/messages.inc.php:525
 msgid "Show functions in tree"
@@ -6863,8 +6863,7 @@ msgstr "Toon functies in boomstructuur"
 
 #: libraries/config/messages.inc.php:527
 msgid "Whether to show functions under database in the navigation tree"
-msgstr ""
-"Of functies getoond worden onder database in de navigatie boomstructuur"
+msgstr "Of functies getoond worden onder database in de navigatieboom"
 
 #: libraries/config/messages.inc.php:528
 msgid "Show procedures in tree"
@@ -6872,8 +6871,7 @@ msgstr "Laat procedures zien een boomstructuur"
 
 #: libraries/config/messages.inc.php:530
 msgid "Whether to show procedures under database in the navigation tree"
-msgstr ""
-"Of procedures getoond worden onder database in de navigatie boomstructuur"
+msgstr "Of procedures getoond worden onder database in de navigatieboom"
 
 #: libraries/config/messages.inc.php:531
 msgid "Show events in tree"
@@ -6881,8 +6879,7 @@ msgstr "Toon gebeurtenissen in een boomstructuur"
 
 #: libraries/config/messages.inc.php:533
 msgid "Whether to show events under database in the navigation tree"
-msgstr ""
-"Of gebeurtenissen getoond worden onder database in de navigatie boomstructuur"
+msgstr "Of gebeurtenissen getoond worden onder database in de navigatieboom"
 
 #: libraries/config/messages.inc.php:535
 msgid "Maximum number of recently used tables; set 0 to disable."
@@ -8479,7 +8476,7 @@ msgstr "Bewaar op de server in de map <b>%s</b>"
 
 #: libraries/display_export.lib.php:558
 msgid "File name template:"
-msgstr "Bestandsnaam-template:"
+msgstr "Bestandsnaamtemplate:"
 
 #: libraries/display_export.lib.php:560
 msgid "@SERVER@ will become the server name"
@@ -8624,7 +8621,7 @@ msgstr "Te importeren bestand:"
 
 #: libraries/display_import.lib.php:234 libraries/display_import.lib.php:254
 msgid "You may also drag and drop a file on any page."
-msgstr "U kan ook een bestand slepen en neerzetten op gelijk welke pagina."
+msgstr "U kan ook een bestand slepen en neerzetten op welke pagina dan ook."
 
 #: libraries/display_import.lib.php:257
 msgid "File uploads are not allowed on this server."
@@ -9277,7 +9274,7 @@ msgstr "Voeg beperkingen toe"
 #: libraries/rte/rte_routines.lib.php:1007
 #: templates/columns_definitions/table_fields_definitions.phtml:47
 msgid "Adjust privileges"
-msgstr "Aanpassen rechten"
+msgstr "Rechten aanpassen"
 
 #: libraries/mult_submits.lib.php:379
 msgid "From"
@@ -9342,7 +9339,7 @@ msgstr "phpMyAdmin-documentatie"
 
 #: libraries/navigation/NavigationHeader.php:210
 msgid "Navigation panel settings"
-msgstr "Navigatiepaneel instellingen"
+msgstr "Navigatiepaneelinstellingen"
 
 # Zowel "frame" als "window" vertalen naar "venster".
 #: libraries/navigation/NavigationHeader.php:221
@@ -9864,7 +9861,7 @@ msgstr "Opslag-engine"
 
 #: libraries/operations.lib.php:1064
 msgid "Change all column collations"
-msgstr "Wijzig alle kolommen vergelijkingen"
+msgstr "Wijzig alle kolomcollaties"
 
 #: libraries/operations.lib.php:1235
 msgid "Copy table to (database<b>.</b>table)"
@@ -12342,14 +12339,14 @@ msgstr ""
 
 #: libraries/server_privileges.lib.php:1547
 msgid "Host name:"
-msgstr "Server naam:"
+msgstr "Servernaam:"
 
 #: libraries/server_privileges.lib.php:1552
 #: libraries/server_privileges.lib.php:1637
 #: libraries/server_privileges.lib.php:2528
 #: libraries/server_privileges.lib.php:3489
 msgid "Host name"
-msgstr "Server naam"
+msgstr "Servernaam"
 
 #: libraries/server_privileges.lib.php:1660
 msgid "Do not change the password"
@@ -12768,9 +12765,8 @@ msgid ""
 "chart using the cog icon on each respective chart."
 msgstr ""
 "Uw browser zal alle weergegeven grafieken verversen na een vast interval. U "
-"kan grafieken toevoegen en de ververssnelheid aanpassen onder "
-"'Instellingen', of gelijk welke grafiek verwijderen via het tandwielicoon "
-"bij iedere grafiek."
+"kan grafieken toevoegen en de ververssnelheid aanpassen onder 'Instellingen' "
+"en grafieken verwijderen via het tandwielicoon bij iedere grafiek."
 
 #: libraries/server_status_monitor.lib.php:133
 msgid ""
@@ -12924,12 +12920,12 @@ msgstr "Filters"
 
 #: libraries/server_status_processes.lib.php:238
 msgid "Show only active"
-msgstr "Enkel actieve waarden tonen"
+msgstr "Enkel actieve tonen"
 
 #: libraries/server_status_queries.lib.php:30
 #, php-format
 msgid "Questions since startup: %s"
-msgstr "Questions sinds opstart: %s"
+msgstr "Aanvragen sinds opstart: %s"
 
 #: libraries/server_status_queries.lib.php:41
 msgid "per hour:"
@@ -13769,7 +13765,7 @@ msgstr "Gemiddelde tijd"
 
 #: libraries/sql.lib.php:569 libraries/sql.lib.php:587
 msgid "Bookmark this SQL query"
-msgstr "Deze SQL-query opslaan"
+msgstr "Deze SQL-query opslaan als bladwijzer"
 
 #: libraries/sql.lib.php:573
 msgid "Label:"
@@ -13825,12 +13821,12 @@ msgstr "Voer SQL-query/query's uit op de server %s"
 #: libraries/sql_query_form.lib.php:156
 #, php-format
 msgid "Run SQL query/queries on database %s"
-msgstr "Voer SQL-query/query's uit op database %s"
+msgstr "Voer SQL-query/-query's uit op database %s"
 
 #: libraries/sql_query_form.lib.php:177
 #, php-format
 msgid "Run SQL query/queries on table %s"
-msgstr "Voer SQL query/query's uit op tabel %s"
+msgstr "Voer SQL-query/-query's uit op tabel %s"
 
 #: libraries/sql_query_form.lib.php:247 setup/frames/index.inc.php:257
 #: templates/console/display.phtml:10
@@ -13843,7 +13839,7 @@ msgstr "Neem automatisch opgeslagen query"
 
 #: libraries/sql_query_form.lib.php:259
 msgid "Bind parameters"
-msgstr "Bind parameters"
+msgstr "Koppel parameters"
 
 #: libraries/sql_query_form.lib.php:307
 msgid "Bookmark this SQL query:"
@@ -14191,7 +14187,7 @@ msgstr ""
 
 #: prefs_manage.php:332
 msgid "Save as PHP file"
-msgstr "Opslaan als PHP bestand"
+msgstr "Opslaan als PHP-bestand"
 
 #: prefs_manage.php:337
 msgid "Save to browser's storage"
