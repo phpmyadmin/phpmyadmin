@@ -4,16 +4,16 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.7.4-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2017-08-10 09:13-0400\n"
-"PO-Revision-Date: 2017-06-19 12:55+0000\n"
-"Last-Translator: Alexandre Palma <alx.palma@gmail.com>\n"
-"Language-Team: Portuguese <https://hosted.weblate.org/projects/"
-"phpmyadmin/4-7/pt/>\n"
+"PO-Revision-Date: 2017-08-30 10:34+0000\n"
+"Last-Translator: MatheusReisJ <matheus.r.jesus@ufv.br>\n"
+"Language-Team: Portuguese "
+"<https://hosted.weblate.org/projects/phpmyadmin/4-7/pt/>\n"
 "Language: pt\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 2.15-dev\n"
+"X-Generator: Weblate 2.17-dev\n"
 
 #: ajax.php:16 ajax.php:33 export.php:192 schema_export.php:64
 msgid "Bad type!"
@@ -1206,13 +1206,13 @@ msgstr "swap retida (em cache)"
 #, fuzzy
 #| msgid "Used Swap"
 msgid "Used swap"
-msgstr "Swap utilizada"
+msgstr "Troca utilizada"
 
 #: js/messages.php:194
 #, fuzzy
 #| msgid "Free Swap"
 msgid "Free swap"
-msgstr "Swap livre"
+msgstr "Troca livre"
 
 #: js/messages.php:196
 msgid "Bytes sent"
