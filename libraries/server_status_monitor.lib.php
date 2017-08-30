@@ -11,6 +11,8 @@ use PMA\libraries\ServerStatusData;
 use PMA\libraries\Util;
 use PMA\libraries\Sanitize;
 
+require_once 'libraries/sysinfo.lib.php';
+
 /**
  * Prints html with monitor
  *
