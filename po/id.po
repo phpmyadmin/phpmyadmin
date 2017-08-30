@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.7.4-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2017-08-10 09:13-0400\n"
-"PO-Revision-Date: 2017-08-29 13:00+0000\n"
-"Last-Translator: Theodore Fabian Rudy <dorerudy@gmail.com>\n"
+"PO-Revision-Date: 2017-08-30 10:34+0000\n"
+"Last-Translator: Hori75 <Guardianangelhori75@gmail.com>\n"
 "Language-Team: Indonesian "
 "<https://hosted.weblate.org/projects/phpmyadmin/4-7/id/>\n"
 "Language: id\n"
@@ -3141,8 +3141,6 @@ msgid "Unknown"
 msgstr "Tidak diketahui"
 
 #: libraries/Charsets.php:369
-#, fuzzy
-#| msgid "Bulgarian"
 msgctxt "Collation"
 msgid "Bulgarian"
 msgstr "Bulgaria"
@@ -3163,8 +3161,6 @@ msgid "Czech"
 msgstr "Ceko"
 
 #: libraries/Charsets.php:387
-#, fuzzy
-#| msgid "Danish"
 msgctxt "Collation"
 msgid "Danish"
 msgstr "Denmark"
@@ -3180,8 +3176,6 @@ msgid "Esperanto"
 msgstr "Esperanto"
 
 #: libraries/Charsets.php:399
-#, fuzzy
-#| msgid "Estonian"
 msgctxt "Collation"
 msgid "Estonian"
 msgstr "Estonia"
@@ -3197,8 +3191,6 @@ msgid "German (phone book order)"
 msgstr "Jerman (urutan buku telepon)"
 
 #: libraries/Charsets.php:414
-#, fuzzy
-#| msgid "Hungarian"
 msgctxt "Collation"
 msgid "Hungarian"
 msgstr "Hungaria"
@@ -3216,15 +3208,11 @@ msgid "Classical Latin"
 msgstr "Latin Klasik"
 
 #: libraries/Charsets.php:429
-#, fuzzy
-#| msgid "Latvian"
 msgctxt "Collation"
 msgid "Latvian"
 msgstr "Latvia"
 
 #: libraries/Charsets.php:433
-#, fuzzy
-#| msgid "Lithuanian"
 msgctxt "Collation"
 msgid "Lithuanian"
 msgstr "Lithuania"
@@ -3237,22 +3225,16 @@ msgid "Burmese"
 msgstr "Myanmar"
 
 #: libraries/Charsets.php:444
-#, fuzzy
-#| msgid "Persian"
 msgctxt "Collation"
 msgid "Persian"
 msgstr "Persia"
 
 #: libraries/Charsets.php:448
-#, fuzzy
-#| msgid "Polish"
 msgctxt "Collation"
 msgid "Polish"
 msgstr "Polandia"
 
 #: libraries/Charsets.php:455
-#, fuzzy
-#| msgid "Romanian"
 msgctxt "Collation"
 msgid "Romanian"
 msgstr "Romania"
@@ -3265,22 +3247,16 @@ msgid "Sinhalese"
 msgstr "Sinhala"
 
 #: libraries/Charsets.php:463
-#, fuzzy
-#| msgid "Slovak"
 msgctxt "Collation"
 msgid "Slovak"
 msgstr "Slovakia"
 
 #: libraries/Charsets.php:467
-#, fuzzy
-#| msgid "Slovenian"
 msgctxt "Collation"
 msgid "Slovenian"
 msgstr "Slovenia"
 
 #: libraries/Charsets.php:470 libraries/Charsets.php:530
-#, fuzzy
-#| msgid "Spanish"
 msgctxt "Collation"
 msgid "Spanish (modern)"
 msgstr "Spanyol (modern)"
@@ -3291,8 +3267,6 @@ msgid "Spanish (traditional)"
 msgstr "Spanyol (tradisional)"
 
 #: libraries/Charsets.php:496
-#, fuzzy
-#| msgid "Vietnamese"
 msgctxt "Collation"
 msgid "Vietnamese"
 msgstr "Vietnam"
@@ -3333,11 +3307,9 @@ msgid "multi-level"
 msgstr "banyak tingkat"
 
 #: libraries/Charsets.php:579
-#, fuzzy
-#| msgid "Binary"
 msgctxt "Collation variant"
 msgid "binary"
-msgstr "Biner"
+msgstr "biner"
 
 #: libraries/Config.php:1119
 #, php-format
@@ -3358,7 +3330,7 @@ msgstr "Tidak dapat memuat konfigurasi default dari: %1$s"
 #, fuzzy
 #| msgid "Failed to read configuration file"
 msgid "Failed to read configuration file!"
-msgstr "Gagal membaca berkas konfigurasi"
+msgstr "Gagal membaca file konfigurasi!"
 
 #: libraries/Config.php:1179
 msgid ""
@@ -5369,10 +5341,8 @@ msgid "neither of the above"
 msgstr "tidak keduanya dari yang di atas"
 
 #: libraries/config/FormDisplay.php:99 libraries/config/Validator.php:520
-#, fuzzy
-#| msgid "Not a positive number"
 msgid "Not a positive number!"
-msgstr "Bukan angka positif"
+msgstr "Bukan angka positif!"
 
 #: libraries/config/FormDisplay.php:100 libraries/config/Validator.php:542
 #, fuzzy
@@ -5469,11 +5439,9 @@ msgid "You allow for connecting to the server without a password."
 msgstr "Anda mengizinkan sambungan ke server tanpa sandi."
 
 #: libraries/config/ServerConfigChecks.php:349
-#, fuzzy
-#| msgid "Key is too short, it should have at least 8 characters."
 msgid "Key is too short, it should have at least 32 characters."
 msgstr ""
-"Kunci terlalu pendek dan sebaiknya terdiri dari paling tidak 32 karakter."
+"Kunci terlalu pendek dan sebaiknya terdiri dari paling sedikit 32 karakter."
 
 #: libraries/config/ServerConfigChecks.php:359
 msgid "Key should contain letters, numbers [em]and[/em] special characters."
@@ -18094,8 +18062,8 @@ msgid ""
 "Set {slow_launch_time} to 1s or 2s to correctly count threads that are slow "
 "to launch."
 msgstr ""
-"Atur {slow_launch_time} menjadi 1 atau 2 detik untuk memperbaiki perhitungan "
-"thread yang lambat diluncurkan"
+"Atur {slow_launch_time} menjadi 1 detik atau 2 detik untuk memperbaiki "
+"perhitungan thread yang lambat untuk diluncurkan."
 
 #: libraries/advisory_rules.txt:370
 #, php-format
