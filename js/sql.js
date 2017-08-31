@@ -259,7 +259,7 @@ AJAX.registerOnload('sql.js', function () {
         textArea.value += '\t\t' + window.location.href;
         textArea.value += '\n';
         
-        $('.notice,.success').each(function(){
+        $('.success').each(function(){
             textArea.value += $(this).text() + '\n\n';
         });
 
