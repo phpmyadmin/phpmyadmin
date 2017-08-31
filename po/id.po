@@ -3,8 +3,8 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.8.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2017-08-10 09:14-0400\n"
-"PO-Revision-Date: 2017-08-31 11:27+0000\n"
-"Last-Translator: Theodore Fabian Rudy <dorerudy@gmail.com>\n"
+"PO-Revision-Date: 2017-08-31 11:40+0000\n"
+"Last-Translator: Prajna Prasetya <prajnapras19@gmail.com>\n"
 "Language-Team: Indonesian "
 "<https://hosted.weblate.org/projects/phpmyadmin/master/id/>\n"
 "Language: id\n"
@@ -3924,11 +3924,10 @@ msgid "Database %1$s has been created."
 msgstr "Database %1$s telah dibuat."
 
 #: libraries/classes/Controllers/Server/ServerDatabasesController.php:206
-#, fuzzy, php-format
-#| msgid "%s databases have been dropped successfully."
+#, php-format
 msgid "%1$d database has been dropped successfully."
 msgid_plural "%1$d databases have been dropped successfully."
-msgstr[0] "Sukses menghapus basis data %s."
+msgstr[0] "Basis data %s berhasil dihapus."
 
 #: libraries/classes/Controllers/Server/ServerDatabasesController.php:347
 #: libraries/import.lib.php:90
@@ -4042,8 +4041,6 @@ msgid "No numeric columns present in the table to plot."
 msgstr "Tidak ada kolom numerik yang muncul dalam tabel untuk perencanaan."
 
 #: libraries/classes/Controllers/Table/TableChartController.php:209
-#, fuzzy
-#| msgid "No data"
 msgid "No data to display"
 msgstr "Tidak ada data"
 
@@ -4551,8 +4548,6 @@ msgstr "Dengan pilihan:"
 #: templates/database/structure/check_all_tables.phtml:4
 #: templates/privileges/global_priv_table.phtml:5 templates/select_all.twig:34
 #: templates/select_all.twig:40
-#, fuzzy
-#| msgid "Check All"
 msgid "Check all"
 msgstr "Pilih Semua"
 
