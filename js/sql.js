@@ -258,7 +258,6 @@ AJAX.registerOnload('sql.js', function () {
         });
         textArea.value += '\t\t' + window.location.href;
         textArea.value += '\n';
-        
         $('.success').each(function(){
             textArea.value += $(this).text() + '\n\n';
         });
