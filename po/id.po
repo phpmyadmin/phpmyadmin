@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.7.4-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2017-08-10 09:13-0400\n"
-"PO-Revision-Date: 2017-08-31 11:45+0000\n"
-"Last-Translator: Theodore Fabian Rudy <dorerudy@gmail.com>\n"
+"PO-Revision-Date: 2017-08-31 12:01+0000\n"
+"Last-Translator: Michal Čihař <michal@cihar.com>\n"
 "Language-Team: Indonesian "
 "<https://hosted.weblate.org/projects/phpmyadmin/4-7/id/>\n"
 "Language: id\n"
@@ -4830,7 +4830,7 @@ msgstr "Batas ukuran: %s%s"
 
 #: libraries/Util.php:573
 msgid "Static analysis:"
-msgstr "Data statis"
+msgstr "Data statis:"
 
 #: libraries/Util.php:576
 #, php-format
@@ -5554,17 +5554,17 @@ msgstr ""
 
 #: libraries/config/Validator.php:204 libraries/config/Validator.php:211
 msgid "Could not connect to the database server!"
-msgstr "Tidak dapat terhubung ke server sumber data"
+msgstr "Tidak dapat terhubung ke server sumber data!"
 
 #: libraries/config/Validator.php:244
 msgid "Invalid authentication type!"
-msgstr "Jenis autentikasi yang tidak benar"
+msgstr "Jenis autentikasi yang tidak benar!"
 
 #: libraries/config/Validator.php:251
 msgid "Empty username while using [kbd]config[/kbd] authentication method!"
 msgstr ""
 "Kosongkan nama pengguna sewaktu menggunakan metode autentikasi "
-"[kbd]config[/kbd]"
+"[kbd]config[/kbd]!"
 
 #: libraries/config/Validator.php:259
 #, fuzzy
@@ -8375,7 +8375,7 @@ msgstr "Database %1$s telah dibuat."
 #, php-format
 msgid "%1$d database has been dropped successfully."
 msgid_plural "%1$d databases have been dropped successfully."
-msgstr[0] "Basis data %s berhasil dihapus."
+msgstr[0] "Basis data %1$d berhasil dihapus."
 
 #: libraries/controllers/server/ServerDatabasesController.php:349
 #: libraries/import.lib.php:90
