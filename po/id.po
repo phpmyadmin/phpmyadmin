@@ -3,8 +3,8 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.8.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2017-08-10 09:14-0400\n"
-"PO-Revision-Date: 2017-08-26 13:32+0000\n"
-"Last-Translator: Mochammad Nur Afandi <localanu@gmail.com>\n"
+"PO-Revision-Date: 2017-08-31 12:01+0000\n"
+"Last-Translator: Michal Čihař <michal@cihar.com>\n"
 "Language-Team: Indonesian "
 "<https://hosted.weblate.org/projects/phpmyadmin/master/id/>\n"
 "Language: id\n"
@@ -301,7 +301,6 @@ msgid "The database name is empty!"
 msgstr "Nama database kosong!"
 
 #: db_operations.php:53
-#, fuzzy
 msgid "Cannot copy database to the same name. Change the name and try again."
 msgstr "Nama basis data tidak boleh sama. Gunakan nama lain dan coba lagi."
 
@@ -3105,13 +3104,10 @@ msgid "Collation"
 msgstr "Penyortiran"
 
 #: libraries/central_columns.lib.php:705
-#, fuzzy
-#| msgid "Attributes"
 msgid "Attribute"
 msgstr "Atribut"
 
 #: libraries/central_columns.lib.php:709 libraries/central_columns.lib.php:1385
-#, fuzzy
 msgid "A_I"
 msgstr "A_I"
 
@@ -3220,21 +3216,15 @@ msgid "Charset"
 msgstr "Perangkat karakter (Charset)"
 
 #: libraries/classes/Charsets.php:265
-#, fuzzy
-#| msgid "unknown"
 msgid "Unknown"
-msgstr "tidak diketahui"
+msgstr "Tidak diketahui"
 
 #: libraries/classes/Charsets.php:279
-#, fuzzy
-#| msgid "Binary"
 msgctxt "Collation"
 msgid "Binary"
 msgstr "Biner"
 
 #: libraries/classes/Charsets.php:291 libraries/classes/Charsets.php:521
-#, fuzzy
-#| msgid "Unicode"
 msgctxt "Collation"
 msgid "Unicode"
 msgstr "Unikode"
@@ -3255,8 +3245,6 @@ msgid "Russian"
 msgstr "Rusia"
 
 #: libraries/classes/Charsets.php:318
-#, fuzzy
-#| msgid "Simplified Chinese"
 msgctxt "Collation"
 msgid "Simplified Chinese"
 msgstr "Cina Sederhana"
@@ -3282,8 +3270,6 @@ msgid "Traditional Chinese"
 msgstr "Cina Tradisional"
 
 #: libraries/classes/Charsets.php:341
-#, fuzzy
-#| msgid "Cyrillic"
 msgctxt "Collation"
 msgid "Cyrillic"
 msgstr "Sirilik"
@@ -3311,57 +3297,41 @@ msgid "Georgian"
 msgstr "Georgia"
 
 #: libraries/classes/Charsets.php:356
-#, fuzzy
-#| msgid "Greek"
 msgctxt "Collation"
 msgid "Greek"
 msgstr "Yunani"
 
 #: libraries/classes/Charsets.php:359
-#, fuzzy
-#| msgid "Czech-Slovak"
 msgctxt "Collation"
 msgid "Czech-Slovak"
 msgstr "Cecko-Slovakia"
 
 #: libraries/classes/Charsets.php:362 libraries/classes/Charsets.php:513
-#, fuzzy
-#| msgid "Ukrainian"
 msgctxt "Collation"
 msgid "Ukrainian"
 msgstr "Ukrainia"
 
 #: libraries/classes/Charsets.php:365 libraries/classes/Charsets.php:509
-#, fuzzy
-#| msgid "Turkish"
 msgctxt "Collation"
 msgid "Turkish"
 msgstr "Turki"
 
 #: libraries/classes/Charsets.php:368 libraries/classes/Charsets.php:501
-#, fuzzy
-#| msgid "Swedish"
 msgctxt "Collation"
 msgid "Swedish"
 msgstr "Swedia"
 
 #: libraries/classes/Charsets.php:371 libraries/classes/Charsets.php:505
-#, fuzzy
-#| msgid "Thai"
 msgctxt "Collation"
 msgid "Thai"
 msgstr "Thailand"
 
 #: libraries/classes/Charsets.php:374
-#, fuzzy
-#| msgid "unknown"
 msgctxt "Collation"
 msgid "Unknown"
-msgstr "tidak diketahui"
+msgstr "Tidak diketahui"
 
 #: libraries/classes/Charsets.php:390
-#, fuzzy
-#| msgid "Bulgarian"
 msgctxt "Collation"
 msgid "Bulgarian"
 msgstr "Bulgaria"
@@ -3372,53 +3342,39 @@ msgid "Chinese"
 msgstr "Cina"
 
 #: libraries/classes/Charsets.php:400
-#, fuzzy
-#| msgid "Croatian"
 msgctxt "Collation"
 msgid "Croatian"
 msgstr "Kroasia"
 
 #: libraries/classes/Charsets.php:404
-#, fuzzy
-#| msgid "Czech"
 msgctxt "Collation"
 msgid "Czech"
 msgstr "Ceko"
 
 #: libraries/classes/Charsets.php:408
-#, fuzzy
-#| msgid "Danish"
 msgctxt "Collation"
 msgid "Danish"
 msgstr "Denmark"
 
 #: libraries/classes/Charsets.php:412
-#, fuzzy
-#| msgid "English"
 msgctxt "Collation"
 msgid "English"
 msgstr "Inggris"
 
 #: libraries/classes/Charsets.php:416
-#, fuzzy
-#| msgid "Esperanto"
 msgctxt "Collation"
 msgid "Esperanto"
 msgstr "Esperanto"
 
 #: libraries/classes/Charsets.php:420
-#, fuzzy
-#| msgid "Estonian"
 msgctxt "Collation"
 msgid "Estonian"
 msgstr "Estonia"
 
 #: libraries/classes/Charsets.php:423 libraries/classes/Charsets.php:540
-#, fuzzy
-#| msgid "Data Dictionary"
 msgctxt "Collation"
 msgid "German (dictionary order)"
-msgstr "Kamus Data"
+msgstr "Jerman (Urutan Kamus)"
 
 #: libraries/classes/Charsets.php:426 libraries/classes/Charsets.php:537
 msgctxt "Collation"
@@ -3426,15 +3382,11 @@ msgid "German (phone book order)"
 msgstr "Jerman (urutan buku telepon)"
 
 #: libraries/classes/Charsets.php:435
-#, fuzzy
-#| msgid "Hungarian"
 msgctxt "Collation"
 msgid "Hungarian"
 msgstr "Hungaria"
 
 #: libraries/classes/Charsets.php:439
-#, fuzzy
-#| msgid "Icelandic"
 msgctxt "Collation"
 msgid "Icelandic"
 msgstr "Islandia"
@@ -3445,74 +3397,54 @@ msgid "Classical Latin"
 msgstr "Latin Klasik"
 
 #: libraries/classes/Charsets.php:450
-#, fuzzy
-#| msgid "Latvian"
 msgctxt "Collation"
 msgid "Latvian"
 msgstr "Latvia"
 
 #: libraries/classes/Charsets.php:454
-#, fuzzy
-#| msgid "Lithuanian"
 msgctxt "Collation"
 msgid "Lithuanian"
 msgstr "Lithuania"
 
 #: libraries/classes/Charsets.php:462
-#, fuzzy
-#| msgid "Burmese"
 msgctxt "Collation"
 msgid "Burmese"
 msgstr "Myanmar"
 
 #: libraries/classes/Charsets.php:465
-#, fuzzy
-#| msgid "Persian"
 msgctxt "Collation"
 msgid "Persian"
 msgstr "Persia"
 
 #: libraries/classes/Charsets.php:469
-#, fuzzy
-#| msgid "Polish"
 msgctxt "Collation"
 msgid "Polish"
 msgstr "Polandia"
 
 #: libraries/classes/Charsets.php:476
-#, fuzzy
-#| msgid "Romanian"
 msgctxt "Collation"
 msgid "Romanian"
 msgstr "Romania"
 
 #: libraries/classes/Charsets.php:480
-#, fuzzy
-#| msgid "Sinhalese"
 msgctxt "Collation"
 msgid "Sinhalese"
 msgstr "Sinhala"
 
 #: libraries/classes/Charsets.php:484
-#, fuzzy
-#| msgid "Slovak"
 msgctxt "Collation"
 msgid "Slovak"
 msgstr "Slovakia"
 
 #: libraries/classes/Charsets.php:488
-#, fuzzy
-#| msgid "Slovenian"
 msgctxt "Collation"
 msgid "Slovenian"
 msgstr "Slovenia"
 
 #: libraries/classes/Charsets.php:491 libraries/classes/Charsets.php:551
-#, fuzzy
-#| msgid "Spanish"
 msgctxt "Collation"
 msgid "Spanish (modern)"
-msgstr "Spanyol"
+msgstr "Spanyol (modern)"
 
 #: libraries/classes/Charsets.php:498 libraries/classes/Charsets.php:548
 msgctxt "Collation"
@@ -3520,53 +3452,41 @@ msgid "Spanish (traditional)"
 msgstr "Spanyol (tradisional)"
 
 #: libraries/classes/Charsets.php:517
-#, fuzzy
-#| msgid "Vietnamese"
 msgctxt "Collation"
 msgid "Vietnamese"
 msgstr "Vietnam"
 
 #: libraries/classes/Charsets.php:584
-#, fuzzy
-#| msgid "case-insensitive"
 msgctxt "Collation variant"
 msgid "case-insensitive"
-msgstr "peka kapitalisasi"
+msgstr "tidak peka huruf kapital"
 
 #: libraries/classes/Charsets.php:587
-#, fuzzy
-#| msgid "case-sensitive"
 msgctxt "Collation variant"
 msgid "case-sensitive"
-msgstr "tidak peka kapitalisasi"
-
-#: libraries/classes/Charsets.php:590
-#, fuzzy
-#| msgid "case-insensitive"
-msgctxt "Collation variant"
-msgid "accent-insensitive"
 msgstr "peka kapitalisasi"
 
+#: libraries/classes/Charsets.php:590
+msgctxt "Collation variant"
+msgid "accent-insensitive"
+msgstr "tidak peka logat"
+
 #: libraries/classes/Charsets.php:593
-#, fuzzy
-#| msgid "case-sensitive"
 msgctxt "Collation variant"
 msgid "accent-sensitive"
-msgstr "tidak peka kapitalisasi"
+msgstr "tidak peka aksen"
 
 #: libraries/classes/Charsets.php:597
 #, fuzzy
 #| msgid "multilingual"
 msgctxt "Collation variant"
 msgid "multi-level"
-msgstr "berbagai bahasa"
+msgstr "banyak tingkat"
 
 #: libraries/classes/Charsets.php:600
-#, fuzzy
-#| msgid "Binary"
 msgctxt "Collation variant"
 msgid "binary"
-msgstr "Biner"
+msgstr "biner"
 
 #: libraries/classes/Config.php:1120
 #, php-format
@@ -3584,10 +3504,8 @@ msgid "Could not load default configuration from: %1$s"
 msgstr "Tidak dapat memuat konfigurasi default dari: %1$s"
 
 #: libraries/classes/Config.php:1177
-#, fuzzy
-#| msgid "Failed to read configuration file"
 msgid "Failed to read configuration file!"
-msgstr "Gagal membaca berkas konfigurasi"
+msgstr "Gagal membaca file konfigurasi!"
 
 #: libraries/classes/Config.php:1180
 msgid ""
@@ -3603,39 +3521,30 @@ msgstr "Ukuran huruf"
 
 #: libraries/classes/Config/FormDisplay.php:98
 #: libraries/classes/Config/Validator.php:522
-#, fuzzy
-#| msgid "Not a positive number"
 msgid "Not a positive number!"
-msgstr "Bukan angka positif"
+msgstr "Bukan angka positif!"
 
 #: libraries/classes/Config/FormDisplay.php:99
 #: libraries/classes/Config/Validator.php:544
-#, fuzzy
-#| msgid "Not a non-negative number"
 msgid "Not a non-negative number!"
-msgstr "Bukan angka non-negatif"
+msgstr "Bukan angka non-negatif!"
 
 #: libraries/classes/Config/FormDisplay.php:100
 #: libraries/classes/Config/Validator.php:500
-#, fuzzy
-#| msgid "Not a valid port number"
 msgid "Not a valid port number!"
-msgstr "Bukan angka port yang sah"
+msgstr "Bukan angka port yang sah!"
 
 #: libraries/classes/Config/FormDisplay.php:101
 #: libraries/classes/Config/FormDisplay.php:658
 #: libraries/classes/Config/Validator.php:565
-#, fuzzy
-#| msgid "Incorrect value"
 msgid "Incorrect value!"
-msgstr "Nilai yang salah"
+msgstr "Nilai yang salah!"
 
 #: libraries/classes/Config/FormDisplay.php:102
 #: libraries/classes/Config/Validator.php:581
-#, fuzzy, php-format
-#| msgid "Value must be equal or lower than %s"
+#, php-format
 msgid "Value must be equal or lower than %s!"
-msgstr "Nilai harus sama dengan atau lebih kecil dari %s"
+msgstr "Nilai harus sama dengan atau lebih kecil dari %s!"
 
 #: libraries/classes/Config/FormDisplay.php:618
 #, php-format
@@ -3669,10 +3578,10 @@ msgid "maximum %s"
 msgstr "maksimum %s"
 
 #: libraries/classes/Config/PageSettings.php:147
-#, fuzzy
-#| msgid "Cannot save settings, submitted form contains errors"
 msgid "Cannot save settings, submitted configuration form contains errors!"
-msgstr "Pengaturan tidak dapat disimpan, formulir kiriman mengandung galat"
+msgstr ""
+"Pengaturan tidak dapat disimpan, konfigurasi yang diserahkan mengandung "
+"kesalahan!"
 
 #: libraries/classes/Config/ServerConfigChecks.php:162
 msgid "You should use SSL connections if your database server supports it."
@@ -3685,11 +3594,9 @@ msgid "You allow for connecting to the server without a password."
 msgstr "Anda mengizinkan sambungan ke server tanpa sandi."
 
 #: libraries/classes/Config/ServerConfigChecks.php:338
-#, fuzzy
-#| msgid "Key is too short, it should have at least 8 characters."
 msgid "Key is too short, it should have at least 32 characters."
 msgstr ""
-"Kunci terlalu pendek dan sebaiknya terdiri dari paling tidak 8 karakter."
+"Kunci terlalu pendek dan sebaiknya terdiri dari paling sedikit 32 karakter."
 
 #: libraries/classes/Config/ServerConfigChecks.php:348
 msgid "Key should contain letters, numbers [em]and[/em] special characters."
@@ -3712,8 +3619,9 @@ msgid ""
 msgstr ""
 "%soption%s ini harus di nonaktifkan karena memungkinkan penyerang untuk "
 "masuk secara membabibuta ke server MySQL. Jika Anda merasa hal ini "
-"diperlukan, gunakan %strusted proxies list%s. Namun, perlindungan berbasis "
-"IP mungkin tidak dapat diandalkan jika IP dari ISP anda digunakan ribuan "
+"diperlukan, gunakan %restrict login to MySQL server%s atau %strusted proxies "
+"list%s. Namun, perlindungan berbasis IP dengan daftar proxy terpercaya "
+"mungkin tidak dapat diandalkan jika IP dari ISP anda digunakan ribuan "
 "pengguna, termasuk Anda, untuk terhubung."
 
 #: libraries/classes/Config/ServerConfigChecks.php:393
@@ -3779,16 +3687,14 @@ msgstr ""
 "peniruan."
 
 #: libraries/classes/Config/ServerConfigChecks.php:452
-#, fuzzy, php-format
-#| msgid ""
-#| "If using cookie authentication and %sLogin cookie store%s is not 0, "
-#| "%sLogin cookie validity%s must be set to a value less or equal to it."
+#, php-format
 msgid ""
 "If using [kbd]cookie[/kbd] authentication and %sLogin cookie store%s is not "
 "0, %sLogin cookie validity%s must be set to a value less or equal to it."
 msgstr ""
-"JIka menggunakan otentikasi cookie dan %sLogin cookie store%s bukan 0, "
-"%sLogin cookie validity%s harus diatur ke nilai kurang atau sama dengan itu."
+"JIka menggunakan otentikasi [kbd]cookie[/kbd] dan %sLogin cookie store%s "
+"bukan 0, %sLogin cookie validity%s harus diatur ke nilai kurang atau sama "
+"dengan itu."
 
 #: libraries/classes/Config/ServerConfigChecks.php:466
 #, fuzzy, php-format
@@ -3843,22 +3749,18 @@ msgstr ""
 
 #: libraries/classes/Config/Validator.php:206
 #: libraries/classes/Config/Validator.php:213
-#, fuzzy
-#| msgid "Could not connect to the target"
 msgid "Could not connect to the database server!"
-msgstr "Tidak dapat terhubung ke target"
+msgstr "Tidak dapat terhubung ke server sumber data!"
 
 #: libraries/classes/Config/Validator.php:246
-#, fuzzy
-#| msgid "Authentication type"
 msgid "Invalid authentication type!"
-msgstr "Jenis autentikasi"
+msgstr "Jenis autentikasi yang tidak benar!"
 
 #: libraries/classes/Config/Validator.php:253
-#, fuzzy
-#| msgid "Empty username while using config authentication method"
 msgid "Empty username while using [kbd]config[/kbd] authentication method!"
-msgstr "Kosongkan nama pengguna sewaktu menggunakan metode autentikasi config"
+msgstr ""
+"Kosongkan nama pengguna sewaktu menggunakan metode autentikasi "
+"[kbd]config[/kbd]!"
 
 #: libraries/classes/Config/Validator.php:261
 #, fuzzy
@@ -3882,8 +3784,8 @@ msgstr "Kosongkan URL signon sewaktu menggunakan metode autentikasi signon"
 msgid ""
 "Empty phpMyAdmin control user while using phpMyAdmin configuration storage!"
 msgstr ""
-"Kosongkan pengguna pengendali phpMyAdmin sewaktu menggunakan phpMyAdmin "
-"configuration storage"
+"Kosongkan pengendali pengguna phpMyAdmin sewaktu menggunakan gudang "
+"konfigurasi phpMyAdmin"
 
 #: libraries/classes/Config/Validator.php:330
 #, fuzzy
@@ -4021,11 +3923,10 @@ msgid "Database %1$s has been created."
 msgstr "Database %1$s telah dibuat."
 
 #: libraries/classes/Controllers/Server/ServerDatabasesController.php:206
-#, fuzzy, php-format
-#| msgid "%s databases have been dropped successfully."
+#, php-format
 msgid "%1$d database has been dropped successfully."
 msgid_plural "%1$d databases have been dropped successfully."
-msgstr[0] "Sukses menghapus basis data %s."
+msgstr[0] "Basis data %1$d berhasil dihapus."
 
 #: libraries/classes/Controllers/Server/ServerDatabasesController.php:347
 #: libraries/import.lib.php:90
@@ -4139,8 +4040,6 @@ msgid "No numeric columns present in the table to plot."
 msgstr "Tidak ada kolom numerik yang muncul dalam tabel untuk perencanaan."
 
 #: libraries/classes/Controllers/Table/TableChartController.php:209
-#, fuzzy
-#| msgid "No data"
 msgid "No data to display"
 msgstr "Tidak ada data"
 
@@ -4170,7 +4069,7 @@ msgstr "Kueri SQL Anda berhasil dieksekusi."
 #, fuzzy
 #| msgid "Internal relation added"
 msgid "Internal relationships were successfully updated."
-msgstr "Relasi internal ditambahkan"
+msgstr "Relasi internal sukses diperbarui."
 
 #: libraries/classes/Controllers/Table/TableSearchController.php:763
 msgid "Table search"
@@ -4212,7 +4111,7 @@ msgstr "Galat kueri"
 #| msgid "Table %1$s has been altered successfully."
 msgid ""
 "Table %1$s has been altered successfully. Privileges have been adjusted."
-msgstr "Tabel %1$s berhasil diubah."
+msgstr "Tabel %1$s berhasil diubah. Hak telah disesuaikan."
 
 #: libraries/classes/Controllers/Table/TableStructureController.php:1175
 #: templates/table/structure/check_all_table_column.twig:38
@@ -4256,7 +4155,7 @@ msgstr "Teks penuh"
 #, fuzzy
 #| msgid "Browse distinct values"
 msgid "Distinct values"
-msgstr "Jelajahi nilai distingtif"
+msgstr "Nilai unik"
 
 #: libraries/classes/Core.php:295
 #, php-format
@@ -4272,7 +4171,7 @@ msgstr "Tidak ada perubahan"
 #, fuzzy
 #| msgid "Failed to read configuration file"
 msgid "Failed to set configured collation connection!"
-msgstr "Gagal membaca berkas konfigurasi"
+msgstr "Gagal menyetel koneksi kolasi!"
 
 #: libraries/classes/DatabaseInterface.php:2051
 msgid ""
@@ -4299,10 +4198,8 @@ msgid "Details…"
 msgstr "Rincian…"
 
 #: libraries/classes/DatabaseInterface.php:2375
-#, fuzzy
-#| msgid "Missing parameter:"
 msgid "Missing connection parameters!"
-msgstr "Parameter yang hilang:"
+msgstr "Parameter koneksi hilang!"
 
 #: libraries/classes/DatabaseInterface.php:2399
 msgid "Connection for controluser as defined in your configuration failed."
@@ -4414,22 +4311,18 @@ msgid "at least one of the words"
 msgstr "paling tidak satu kata"
 
 #: libraries/classes/DbSearch.php:88
-#, fuzzy
-#| msgid "at least one of the words"
 msgid "all of the words"
-msgstr "paling tidak satu kata"
+msgstr "semua kata"
 
 #: libraries/classes/DbSearch.php:89
-#, fuzzy
-#| msgid "the exact phrase"
 msgid "the exact phrase as substring"
-msgstr "frasa tepat"
+msgstr "frasa tepat sebagai substring"
 
 #: libraries/classes/DbSearch.php:90
 #, fuzzy
 #| msgid "the exact phrase"
 msgid "the exact phrase as whole field"
-msgstr "frasa tepat"
+msgstr "frasa tepat sebagai seluruh field"
 
 #: libraries/classes/DbSearch.php:91
 msgid "as regular expression"
@@ -4580,7 +4473,7 @@ msgstr "Kunci relasi"
 #, fuzzy
 #| msgid "Display foreign key relationships"
 msgid "Display column for relationships"
-msgstr "Tampilkan hubungan kunci luar"
+msgstr "Tampilkan kolom untuk relasi"
 
 #: libraries/classes/DisplayResults.php:1765
 msgid "Show binary contents"
@@ -4654,8 +4547,6 @@ msgstr "Dengan pilihan:"
 #: templates/database/structure/check_all_tables.phtml:4
 #: templates/privileges/global_priv_table.phtml:5 templates/select_all.twig:34
 #: templates/select_all.twig:40
-#, fuzzy
-#| msgid "Check All"
 msgid "Check all"
 msgstr "Pilih Semua"
 
@@ -4914,12 +4805,11 @@ msgid "Log cache size"
 msgstr "Besar singgahan log"
 
 #: libraries/classes/Engines/Pbxt.php:51
-#, fuzzy
 msgid ""
 "The amount of memory allocated to the transaction log cache used to cache on "
 "transaction log data. The default is 16MB."
 msgstr ""
-"Jumlah memori yang dialokasikan untuk log transaksi Cache digunakan untuk "
+"Jumlah memori yang dialokasikan untuk log transaksi cache digunakan untuk "
 "cache data log transaksi. Standarnya adalah 16MB."
 
 #: libraries/classes/Engines/Pbxt.php:58
@@ -5120,7 +5010,7 @@ msgstr "Terjadi galat sewaktu memindahkan berkas unggahan."
 #, fuzzy
 #| msgid "Cannot read (moved) upload file."
 msgid "Cannot read uploaded file."
-msgstr "Tidak bisa membaca (memindah) file unggah."
+msgstr "Tidak bisa membaca file yang telah diunggah."
 
 #: libraries/classes/File.php:613
 #, php-format
@@ -5388,10 +5278,8 @@ msgid "Databases"
 msgstr "Basis data"
 
 #: libraries/classes/Menu.php:593
-#, fuzzy
-#| msgid "User groups"
 msgid "User accounts"
-msgstr "Grup pengguna"
+msgstr "Akun pengguna"
 
 #: libraries/classes/Menu.php:620 libraries/classes/ServerStatusData.php:121
 #: libraries/classes/Util.php:4088 libraries/server_common.lib.php:33
@@ -5456,41 +5344,31 @@ msgid "An error has occurred while loading the navigation display"
 msgstr "Sebuah kesalahan telah terjadi saat memuat pohon navigasi"
 
 #: libraries/classes/Navigation/Navigation.php:193
-#, fuzzy
-#| msgid "Column names: "
 msgid "Groups:"
-msgstr "Nama kolom: "
+msgstr "Kelompok:"
 
 #: libraries/classes/Navigation/Navigation.php:194
-#, fuzzy
-#| msgid "Events"
 msgid "Events:"
-msgstr "Event"
+msgstr "Acara:"
 
 #: libraries/classes/Navigation/Navigation.php:195
-#, fuzzy
-#| msgid "Functions"
 msgid "Functions:"
-msgstr "Fungsi"
+msgstr "Fungsi:"
 
 #: libraries/classes/Navigation/Navigation.php:196
-#, fuzzy
-#| msgid "Procedures"
 msgid "Procedures:"
-msgstr "Prosedur"
+msgstr "Prosedur:"
 
 #: libraries/classes/Navigation/Navigation.php:197
 #: libraries/display_export.lib.php:344
-#, fuzzy
-#| msgid "Tables"
 msgid "Tables:"
-msgstr "Tabel"
+msgstr "Tabel:"
 
 #: libraries/classes/Navigation/Navigation.php:198
 #, fuzzy
 #| msgid "Views"
 msgid "Views:"
-msgstr "View"
+msgstr "Dilihat:"
 
 #: libraries/classes/Navigation/Navigation.php:222
 #: libraries/tracking.lib.php:291 libraries/tracking.lib.php:1605
@@ -5510,7 +5388,7 @@ msgstr "Keluar"
 #, fuzzy
 #| msgid "Dumping data for table"
 msgid "Empty session data"
-msgstr "Dumping data untuk tabel"
+msgstr "Data sesi kosong"
 
 #: libraries/classes/Navigation/NavigationHeader.php:190
 msgid "phpMyAdmin documentation"
@@ -8471,13 +8349,12 @@ msgid "A collection of geometry objects of any type"
 msgstr "Sebuah koleksi objek geometri dari jenis apa pun"
 
 #: libraries/classes/TypesMySQL.php:214
-#, fuzzy
 msgid ""
 "Stores and enables efficient access to data in JSON (JavaScript Object "
 "Notation) documents"
 msgstr ""
-"Toko dan memungkinkan akses efisien untuk data dalam JSON (JavaScript Object "
-"Notation) dokumen"
+"Menyimpan dan memungkinkan akses efisien untuk data dalam dokumen JSON ("
+"JavaScript Object Notation)"
 
 #: libraries/classes/TypesMySQL.php:484
 msgctxt "numeric types"
@@ -8506,10 +8383,8 @@ msgid "Max: %s%s"
 msgstr "Batas ukuran: %s%s"
 
 #: libraries/classes/Util.php:578
-#, fuzzy
-#| msgid "Static data"
 msgid "Static analysis:"
-msgstr "Data statis"
+msgstr "Data statis:"
 
 #: libraries/classes/Util.php:581
 #, php-format
@@ -8774,16 +8649,12 @@ msgid "key"
 msgstr "kunci"
 
 #: libraries/config.values.php:98
-#, fuzzy
-#| msgid "Display columns table"
 msgid "display column"
 msgstr "Tabel kolom tampilan"
 
 #: libraries/config.values.php:102
-#, fuzzy
-#| msgid "Welcome to %s"
 msgid "Welcome"
-msgstr "Selamat Datang di %s"
+msgstr "Selamat Datang"
 
 #: libraries/config.values.php:122
 msgid "Open"
@@ -8883,7 +8754,6 @@ msgid "Allow login to any MySQL server"
 msgstr "Izinkan masuk ke server MySQL mana pun"
 
 #: libraries/config/messages.inc.php:22
-#, fuzzy
 msgid ""
 "Restricts the MySQL servers the user can enter when a login to an arbitrary "
 "MySQL server is enabled by matching the IP or hostname of the MySQL server "
@@ -8894,8 +8764,6 @@ msgstr ""
 "server MySQL untuk ekspresi reguler yang diberikan."
 
 #: libraries/config/messages.inc.php:26
-#, fuzzy
-#| msgid "Cannot log in to the MySQL server"
 msgid "Restrict login to MySQL server"
 msgstr "Gagal masuk ke MySQL server"
 
@@ -8991,12 +8859,11 @@ msgid "Enable CodeMirror"
 msgstr "Aktifkan CodeMirror"
 
 #: libraries/config/messages.inc.php:64
-#, fuzzy
 msgid ""
 "Find any errors in the query before executing it. Requires CodeMirror to be "
 "enabled."
 msgstr ""
-"Menemukan kesalahan dalam query sebelum dijalankan. Membutuhkan CodeMirror "
+"Mencari kesalahan dalam query sebelum menjalankannya. Membutuhkan CodeMirror "
 "harus diaktifkan."
 
 #: libraries/config/messages.inc.php:67
@@ -9075,7 +8942,6 @@ msgid "Confirm DROP queries"
 msgstr "Konfirmasi kueri DROP"
 
 #: libraries/config/messages.inc.php:97
-#, fuzzy
 msgid ""
 "Log SQL queries and their execution time, to be displayed in the console"
 msgstr ""
@@ -9131,7 +8997,6 @@ msgid "Show column comments"
 msgstr "Menampilkan komentar tabel"
 
 #: libraries/config/messages.inc.php:119
-#, fuzzy
 msgid "Whether column comments should be shown in table structure view"
 msgstr "Kolom komentar seharusnya ditampilkan dalam tabel tampilan struktur"
 
@@ -9190,7 +9055,6 @@ msgid "Default transformations for TextLink"
 msgstr "Pilihan transformasi"
 
 #: libraries/config/messages.inc.php:141
-#, fuzzy
 msgid "Show server listing as a list instead of a drop down."
 msgstr "Tampilkan daftar server dalam bentuk daftar dan bukan tarik-turun."
 
@@ -9223,10 +9087,9 @@ msgid "Maximum execution time"
 msgstr "Waktu eksekusi maksimum"
 
 #: libraries/config/messages.inc.php:154 libraries/display_export.lib.php:799
-#, fuzzy, php-format
-#| msgid "Add %s statement"
+#, php-format
 msgid "Use %s statement"
-msgstr "Tambahkan statement %s"
+msgstr "Gunakan pernyataan %s"
 
 #: libraries/config/messages.inc.php:156 prefs_manage.php:328
 msgid "Save as file"
@@ -9309,7 +9172,7 @@ msgstr "Timpa berkas yang ada"
 #, fuzzy
 #| msgid "horizontal (rotated headers)"
 msgid "Export as separate files"
-msgstr "horisontal (judul diputar)"
+msgstr "Ekspor sebagai file terpisah"
 
 #: libraries/config/messages.inc.php:207
 msgid "Remember file name template"
@@ -13516,7 +13379,7 @@ msgstr ""
 
 #: libraries/rte/rte_routines.lib.php:1207
 msgid "You must provide a name and a type for each routine parameter."
-msgstr "Anda harus memasukkan nama dan jenis setiap parameter routine."
+msgstr "Anda harus memasukkan nama dan jenis setiap parameter rutin."
 
 #: libraries/rte/rte_routines.lib.php:1226
 msgid "You must provide a valid return type for the routine."
@@ -16612,7 +16475,7 @@ msgstr "Usulkan struktur tabel"
 
 #: templates/table/structure/optional_action_links.twig:70
 msgid "Normalize"
-msgstr ""
+msgstr "Normalisasi"
 
 #: templates/table/structure/optional_action_links.twig:86
 #, fuzzy
@@ -18340,8 +18203,8 @@ msgid ""
 "Set {slow_launch_time} to 1s or 2s to correctly count threads that are slow "
 "to launch."
 msgstr ""
-"Atur {slow_launch_time} menjadi 1 atau 2 detik untuk memperbaiki perhitungan "
-"thread yang lambat diluncurkan"
+"Atur {slow_launch_time} menjadi 1 detik atau 2 detik untuk memperbaiki "
+"perhitungan thread yang lambat untuk diluncurkan."
 
 #: libraries/advisory_rules.txt:370
 #, php-format

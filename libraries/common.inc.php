@@ -809,7 +809,9 @@ if (! defined('PMA_MINIMUM_COMMON')) {
         $GLOBALS['PMA_Types'] = new TypesMySQL();
 
         // Loads closest context to this version.
-        PhpMyAdmin\SqlParser\Context::loadClosest('MySql' . $GLOBALS['dbi']->getVersion());
+        PhpMyAdmin\SqlParser\Context::loadClosest(
+            ($GLOBALS['dbi']->isMariaDB() ? 'MariaDb' : 'MySql') . $GLOBALS['dbi']->getVersion()
+        );
 
         // Sets the default delimiter (if specified).
         if (!empty($_REQUEST['sql_delimiter'])) {

@@ -2323,6 +2323,16 @@ class Privileges
                 );
             }
             $html_output .= '</td>';
+            $html_output .= '<td>';
+            $html_output .= self::getUserLink(
+                'export',
+                $current_user,
+                $current_host,
+                $specific_db,
+                $specific_table,
+                $routine
+            );
+            $html_output .= '</td>';
 
             $html_output .= '</tr>';
 
@@ -2548,7 +2558,7 @@ class Privileges
             . '<th>' . __('Type') . '</th>'
             . '<th>' . __('Privileges') . '</th>'
             . '<th>' . __('Grant') . '</th>'
-            . '<th>' . __('Action') . '</th>'
+            . '<th colspan="2">' . __('Action') . '</th>'
             . '</tr>'
             . '</thead>';
     }
@@ -2741,6 +2751,15 @@ class Privileges
                 );
             }
             $html_output .= '</td>';
+            $html_output .= '<td class="center">'
+                . self::getUserLink(
+                    'export',
+                    $current_user,
+                    $current_host,
+                    $specific_db,
+                    $specific_table
+                )
+                . '</td>';
 
             $html_output .= '</tr>';
             if (($i + 1) < $nbPrivileges) {
@@ -3121,7 +3140,7 @@ class Privileges
                 )
             )
             . '">'
-            . htmlspecialchars($dbname) . ': '
+            . htmlspecialchars(Util::unescapeMysqlWildcards($dbname)) . ': '
             . Util::getTitleForTarget(
                 $GLOBALS['cfg']['DefaultTabDatabase']
             )
@@ -4743,7 +4762,7 @@ class Privileges
      *
      * @return string $html_output
      */
-    public static function getHtmlForUserProperties($dbname_is_wildcard,$url_dbname,
+    public static function getHtmlForUserProperties($dbname_is_wildcard, $url_dbname,
         $username, $hostname, $dbname, $tablename
     ) {
         $html_output  = '<div id="edit_user_dialog">';

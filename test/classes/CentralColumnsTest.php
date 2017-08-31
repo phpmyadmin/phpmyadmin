@@ -1,29 +1,28 @@
 <?php
 /* vim: set expandtab sw=4 ts=4 sts=4: */
 /**
- * tests for central_columns.lib.php
+ * tests for PhpMyAdmin\CentralColumns
  *
  * @package PhpMyAdmin-test
  */
+namespace PhpMyAdmin\Tests;
 
-/*
- * Include to test.
- */
+use PhpMyAdmin\CentralColumns;
 use PhpMyAdmin\Theme;
 use PhpMyAdmin\TypesMySQL;
 use PhpMyAdmin\Url;
+use PhpMyAdmin\Util;
 
 $GLOBALS['server'] = 1;
 
 require_once 'libraries/database_interface.inc.php';
-require_once 'libraries/central_columns.lib.php';
 
 /**
- * tests for central_columns.lib.php
+ * tests for PhpMyAdmin\CentralColumns
  *
  * @package PhpMyAdmin-test
  */
-class PMA_Central_Columns_Test extends PHPUnit_Framework_TestCase
+class CentralColumnsTest extends \PHPUnit_Framework_TestCase
 {
     private $_columnData = array(
         array(
@@ -129,7 +128,7 @@ class PMA_Central_Columns_Test extends PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test for PMA_centralColumnsGetParams
+     * Test for CentralColumns::getParams
      *
      * @return void
      */
@@ -141,12 +140,12 @@ class PMA_Central_Columns_Test extends PHPUnit_Framework_TestCase
                 'db' => 'phpmyadmin',
                 'table' => 'pma_central_columns'
             ),
-            PMA_centralColumnsGetParams()
+            CentralColumns::getParams()
         );
     }
 
     /**
-     * Test for PMA_getColumnsList
+     * Test for CentralColumns::getColumnsList
      *
      * @return void
      */
@@ -161,16 +160,16 @@ class PMA_Central_Columns_Test extends PHPUnit_Framework_TestCase
 
         $this->assertEquals(
             $this->_modifiedColumnData,
-            PMA_getColumnsList('phpmyadmin')
+            CentralColumns::getColumnsList('phpmyadmin')
         );
         $this->assertEquals(
             array_slice($this->_modifiedColumnData, 1, 2),
-            PMA_getColumnsList('phpmyadmin', 1, 2)
+            CentralColumns::getColumnsList('phpmyadmin', 1, 2)
         );
     }
 
     /**
-     * Test for PMA_getCentralColumnsCount
+     * Test for CentralColumns::getCount
      *
      * @return void
      */
@@ -189,12 +188,12 @@ class PMA_Central_Columns_Test extends PHPUnit_Framework_TestCase
 
         $this->assertEquals(
             3,
-            PMA_getCentralColumnsCount('phpmyadmin')
+            CentralColumns::getCount('phpmyadmin')
         );
     }
 
     /**
-     * Test for PMA_syncUniqueColumns
+     * Test for CentralColumns::syncUniqueColumns
      *
      * @return void
      */
@@ -204,12 +203,12 @@ class PMA_Central_Columns_Test extends PHPUnit_Framework_TestCase
         $_REQUEST['table'] = 'PMA_table';
 
         $this->assertTrue(
-            PMA_syncUniqueColumns(array('PMA_table'))
+            CentralColumns::syncUniqueColumns(array('PMA_table'))
         );
     }
 
     /**
-     * Test for PMA_deleteColumnsFromList
+     * Test for CentralColumns::deleteColumnsFromList
      *
      * @return void
      */
@@ -242,21 +241,21 @@ class PMA_Central_Columns_Test extends PHPUnit_Framework_TestCase
             );
 
         $this->assertTrue(
-            PMA_deleteColumnsFromList(array("col1"), false)
+            CentralColumns::deleteColumnsFromList(array("col1"), false)
         );
 
         // when column does not exist in the central column list
         $this->assertInstanceOf(
-            'PhpMyAdmin\Message', PMA_deleteColumnsFromList(array('column1'), false)
+            'PhpMyAdmin\Message', CentralColumns::deleteColumnsFromList(array('column1'), false)
         );
 
         $this->assertInstanceOf(
-            'PhpMyAdmin\Message', PMA_deleteColumnsFromList(array('PMA_table'))
+            'PhpMyAdmin\Message', CentralColumns::deleteColumnsFromList(array('PMA_table'))
         );
     }
 
     /**
-     * Test for PMA_makeConsistentWithList
+     * Test for CentralColumns::makeConsistentWithList
      *
      * @return void
      */
@@ -273,12 +272,12 @@ class PMA_Central_Columns_Test extends PHPUnit_Framework_TestCase
                 $this->returnValue('PMA_table=CREATE table `PMA_table` (id integer)')
             );
         $this->assertTrue(
-            PMA_makeConsistentWithList("phpmyadmin", array('PMA_table'))
+            CentralColumns::makeConsistentWithList("phpmyadmin", array('PMA_table'))
         );
     }
 
     /**
-     * Test for PMA_getCentralColumnsFromTable
+     * Test for CentralColumns::getFromTable
      *
      * @return void
      */
@@ -299,12 +298,12 @@ class PMA_Central_Columns_Test extends PHPUnit_Framework_TestCase
             );
         $this->assertEquals(
             array("id", "col1"),
-            PMA_getCentralColumnsFromTable($db, $table)
+            CentralColumns::getFromTable($db, $table)
         );
     }
 
     /**
-     * Test for PMA_getCentralColumnsFromTable with $allFields = true
+     * Test for CentralColumns::getFromTable with $allFields = true
      *
      * @return void
      */
@@ -325,31 +324,31 @@ class PMA_Central_Columns_Test extends PHPUnit_Framework_TestCase
             );
         $this->assertEquals(
             array_slice($this->_modifiedColumnData, 0, 2),
-            PMA_getCentralColumnsFromTable($db, $table, true)
+            CentralColumns::getFromTable($db, $table, true)
         );
     }
 
     /**
-     * Test for PMA_updateOneColumn
+     * Test for CentralColumns::updateOneColumn
      *
      * @return void
      */
     public function testPMAUpdateOneColumn()
     {
         $this->assertTrue(
-            PMA_updateOneColumn(
+            CentralColumns::updateOneColumn(
                 "phpmyadmin", "", "", "", "", "", "", "", "", ""
             )
         );
         $this->assertTrue(
-            PMA_updateOneColumn(
+            CentralColumns::updateOneColumn(
                 "phpmyadmin", "col1", "", "", "", "", "", "", "", ""
             )
         );
     }
 
     /**
-     * Test for PMA_updateMultipleColumn
+     * Test for CentralColumns::updateMultipleColumn
      *
      * @return void
      */
@@ -365,13 +364,13 @@ class PMA_Central_Columns_Test extends PHPUnit_Framework_TestCase
         $_POST['field_type'] = array("","");
         $_POST['field_collation'] = array("","");
         $this->assertTrue(
-            PMA_updateMultipleColumn()
+            CentralColumns::updateMultipleColumn()
         );
 
     }
 
     /**
-     * Test for PMA_getHTMLforEditingPage
+     * Test for CentralColumns::getHtmlForEditingPage
      *
      * @return void
      */
@@ -387,7 +386,7 @@ class PMA_Central_Columns_Test extends PHPUnit_Framework_TestCase
             ->will(
                 $this->returnValue($this->_columnData)
             );
-        $result = PMA_getHTMLforEditingPage(
+        $result = CentralColumns::getHtmlForEditingPage(
             array("col1", "col2"), 'phpmyadmin'
         );
         $this->assertContains(
@@ -399,30 +398,30 @@ class PMA_Central_Columns_Test extends PHPUnit_Framework_TestCase
         __('Collation'), __('Attributes'), __('Null'), __('A_I')
         );
         $this->assertContains(
-            PMA_getCentralColumnsEditTableHeader($header_cells), $result
+            CentralColumns::getEditTableHeader($header_cells), $result
         );
-        $list_detail_cols = PMA_findExistingColNames(
+        $list_detail_cols = CentralColumns::findExistingColNames(
             'phpmyadmin', "'col1','col2'", true
         );
         $this->assertContains(
-            PMA_getHTMLforCentralColumnsEditTableRow(
+            CentralColumns::getHtmlForCentralColumnsEditTableRow(
                 $list_detail_cols[0], 0
             ), $result
         );
         $this->assertContains(
-            PMA_getCentralColumnsEditTableFooter(), $result
+            CentralColumns::getEditTableFooter(), $result
         );
 
     }
 
     /**
-     * Test for PMA_getHTMLforTableNavigation
+     * Test for CentralColumns::getHtmlForTableNavigation
      *
      * @return void
      */
     public function testPMAGetHTMLforTableNavigation()
     {
-        $result = PMA_getHTMLforTableNavigation(0, 0, 'phpmyadmin');
+        $result = CentralColumns::getHtmlForTableNavigation(0, 0, 'phpmyadmin');
         $this->assertContains(
             '<table',
             $result
@@ -431,7 +430,7 @@ class PMA_Central_Columns_Test extends PHPUnit_Framework_TestCase
             __('Search this table'),
             $result
         );
-        $result_1 = PMA_getHTMLforTableNavigation(25, 10, 'phpmyadmin');
+        $result_1 = CentralColumns::getHtmlForTableNavigation(25, 10, 'phpmyadmin');
         $this->assertContains(
             '<form action="db_central_columns.php" method="post">'
             . Url::getHiddenInputs(
@@ -446,7 +445,7 @@ class PMA_Central_Columns_Test extends PHPUnit_Framework_TestCase
             $result_1
         );
         $this->assertContains(
-            PhpMyAdmin\Util::pageselector(
+            Util::pageselector(
                 'pos', 10, 2, 3
             ),
             $result_1
@@ -460,7 +459,7 @@ class PMA_Central_Columns_Test extends PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test for PMA_getCentralColumnsTableHeader
+     * Test for CentralColumns::getTableHeader
      *
      * @return void
      */
@@ -468,14 +467,14 @@ class PMA_Central_Columns_Test extends PHPUnit_Framework_TestCase
     {
         $this->assertContains(
             '<thead',
-            PMA_getCentralColumnsTableHeader(
+            CentralColumns::getTableHeader(
                 'column_heading', __('Click to sort'), 2
             )
         );
     }
 
     /**
-     * Test for PMA_getCentralColumnsListRaw
+     * Test for CentralColumns::getListRaw
      *
      * @return void
      */
@@ -493,12 +492,12 @@ class PMA_Central_Columns_Test extends PHPUnit_Framework_TestCase
             );
         $this->assertEquals(
             json_encode($this->_modifiedColumnData),
-            PMA_getCentralColumnsListRaw('phpmyadmin', '')
+            CentralColumns::getListRaw('phpmyadmin', '')
         );
     }
 
     /**
-     * Test for PMA_getCentralColumnsListRaw with a table name
+     * Test for CentralColumns::getListRaw with a table name
      *
      * @return void
      */
@@ -517,19 +516,19 @@ class PMA_Central_Columns_Test extends PHPUnit_Framework_TestCase
             );
         $this->assertEquals(
             json_encode($this->_modifiedColumnData),
-            PMA_getCentralColumnsListRaw('phpmyadmin', 'table1')
+            CentralColumns::getListRaw('phpmyadmin', 'table1')
         );
 
     }
 
     /**
-     * Test for PMA_getHTMLforAddNewColumn
+     * Test for CentralColumns::getHtmlForAddNewColumn
      *
      * @return void
      */
     public function testPMAGetHTMLforAddNewColumn()
     {
-        $result = PMA_getHTMLforAddNewColumn('phpmyadmin', 0);
+        $result = CentralColumns::getHtmlForAddNewColumn('phpmyadmin', 0);
         $this->assertContains(
             '<form',
             $result
@@ -549,7 +548,7 @@ class PMA_Central_Columns_Test extends PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test for PMA_configErrorMessage
+     * Test for CentralColumns::configErrorMessage
      *
      * @return void
      */
@@ -557,12 +556,12 @@ class PMA_Central_Columns_Test extends PHPUnit_Framework_TestCase
     {
         $this->assertInstanceOf(
             'PhpMyAdmin\Message',
-            PMA_configErrorMessage()
+            CentralColumns::configErrorMessage()
         );
     }
 
     /**
-     * Test for PMA_findExistingColNames
+     * Test for CentralColumns::findExistingColNames
      *
      * @return void
      */
@@ -580,19 +579,19 @@ class PMA_Central_Columns_Test extends PHPUnit_Framework_TestCase
             );
         $this->assertEquals(
             array_slice($this->_modifiedColumnData, 1, 1),
-            PMA_findExistingColNames('phpmyadmin', "'col1'", true)
+            CentralColumns::findExistingColNames('phpmyadmin', "'col1'", true)
         );
     }
 
     /**
-     * Test for PMA_getHTMLforTableDropdown
+     * Test for CentralColumns::getHtmlForTableDropdown
      *
      * @return void
      */
     public function testPMAGetHTMLforTableDropdown()
     {
         $db = 'PMA_db';
-        $result = PMA_getHTMLforTableDropdown($db);
+        $result = CentralColumns::getHtmlForTableDropdown($db);
         $this->assertContains(
             '<select name="table-select" id="table-select"',
             $result
@@ -604,7 +603,7 @@ class PMA_Central_Columns_Test extends PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test for PMA_getHTMLforColumnDropdown
+     * Test for CentralColumns::getHtmlForColumnDropdown
      *
      * @return void
      */
@@ -612,7 +611,7 @@ class PMA_Central_Columns_Test extends PHPUnit_Framework_TestCase
     {
         $db = 'PMA_db';
         $selected_tbl = 'PMA_table';
-        $result = PMA_getHTMLforColumnDropdown($db, $selected_tbl);
+        $result = CentralColumns::getHtmlForColumnDropdown($db, $selected_tbl);
         $this->assertEquals(
             '<option value="id">id</option><option value="col1">col1</option>'
             . '<option value="col2">col2</option>',
@@ -621,13 +620,13 @@ class PMA_Central_Columns_Test extends PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test for PMA_getHTMLforAddCentralColumn
+     * Test for CentralColumns::getHtmlForAddCentralColumn
      *
      * @return void
      */
     public function testPMAGetHTMLforAddCentralColumn()
     {
-        $result = PMA_getHTMLforAddCentralColumn(20, 0, 'phpmyadmin');
+        $result = CentralColumns::getHtmlForAddCentralColumn(20, 0, 'phpmyadmin');
         $this->assertContains(
             '<table',
             $result
@@ -646,7 +645,7 @@ class PMA_Central_Columns_Test extends PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test for PMA_getCentralColumnsTableFooter
+     * Test for CentralColumns::getTableFooter
      *
      * @return void
      */
@@ -654,10 +653,7 @@ class PMA_Central_Columns_Test extends PHPUnit_Framework_TestCase
     {
         $pmaThemeImage = "pmaThemeImage";
         $text_dir = "text_dir";
-        if (!defined("PMA_USR_BROWSER_AGENT")) {
-            define("PMA_USR_BROWSER_AGENT", "other");
-        }
-        $result = PMA_getCentralColumnsTableFooter($pmaThemeImage, $text_dir);
+        $result = CentralColumns::getTableFooter($pmaThemeImage, $text_dir);
         $this->assertContains(
             '<input type="checkbox" id="tableslistcontainer_checkall" class="checkall_box"',
             $result

@@ -7,6 +7,7 @@
  * @package PhpMyAdmin
  */
 
+use PhpMyAdmin\CentralColumns;
 use PhpMyAdmin\Core;
 use PhpMyAdmin\Url;
 use PhpMyAdmin\Response;
@@ -15,7 +16,6 @@ use PhpMyAdmin\Response;
  * Gets some core libraries
  */
 require_once 'libraries/common.inc.php';
-require_once 'libraries/central_columns.lib.php';
 
 if (isset($_POST['edit_save']) || isset($_POST['add_new_column'])) {
     $col_name = $_POST['col_name'];
@@ -33,13 +33,13 @@ if (isset($_POST['edit_save']) || isset($_POST['add_new_column'])) {
     $col_type = $_POST['col_type'];
     $collation = $_POST['collation'];
     if (isset($orig_col_name) && $orig_col_name) {
-        echo PMA_updateOneColumn(
+        echo CentralColumns::updateOneColumn(
             $db, $orig_col_name, $col_name, $col_type, $col_attribute,
             $col_length, $col_isNull, $collation, $col_extra, $col_default
         );
         exit;
     } else {
-        $tmp_msg = PMA_updateOneColumn(
+        $tmp_msg = CentralColumns::updateOneColumn(
             $db, "", $col_name, $col_type, $col_attribute,
             $col_length, $col_isNull, $collation, $col_extra, $col_default
         );
@@ -47,18 +47,18 @@ if (isset($_POST['edit_save']) || isset($_POST['add_new_column'])) {
 }
 if (isset($_POST['populateColumns'])) {
     $selected_tbl = $_POST['selectedTable'];
-    echo PMA_getHTMLforColumnDropdown($db, $selected_tbl);
+    echo CentralColumns::getHtmlForColumnDropdown($db, $selected_tbl);
     exit;
 }
 if (isset($_POST['getColumnList'])) {
-    echo PMA_getCentralColumnsListRaw($db, $_POST['cur_table']);
+    echo CentralColumns::getListRaw($db, $_POST['cur_table']);
     exit;
 }
 if (isset($_POST['add_column'])) {
     $selected_col = array();
     $selected_tbl = $_POST['table-select'];
     $selected_col[] = $_POST['column-select'];
-    $tmp_msg = PMA_syncUniqueColumns($selected_col, false, $selected_tbl);
+    $tmp_msg = CentralColumns::syncUniqueColumns($selected_col, false, $selected_tbl);
 }
 $response = Response::getInstance();
 $header = $response->getHeader();
@@ -66,7 +66,7 @@ $scripts = $header->getScripts();
 $scripts->addFile('vendor/jquery/jquery.uitablefilter.js');
 $scripts->addFile('vendor/jquery/jquery.tablesorter.js');
 $scripts->addFile('db_central_columns.js');
-$cfgCentralColumns = PMA_centralColumnsGetParams();
+$cfgCentralColumns = CentralColumns::getParams();
 $pmadb = $cfgCentralColumns['db'];
 $pmatable = $cfgCentralColumns['table'];
 $max_rows = intval($GLOBALS['cfg']['MaxRows']);
@@ -74,14 +74,14 @@ $max_rows = intval($GLOBALS['cfg']['MaxRows']);
 if (isset($_REQUEST['edit_central_columns_page'])) {
     $selected_fld = $_REQUEST['selected_fld'];
     $selected_db = $_REQUEST['db'];
-    $edit_central_column_page = PMA_getHTMLforEditingPage(
+    $edit_central_column_page = CentralColumns::getHtmlForEditingPage(
         $selected_fld, $selected_db
     );
     $response->addHTML($edit_central_column_page);
     exit;
 }
 if (isset($_POST['multi_edit_central_column_save'])) {
-    $message = PMA_updateMultipleColumn();
+    $message = CentralColumns::updateMultipleColumn();
     if (!is_bool($message)) {
         $response->setRequestStatus(false);
         $response->addJSON('message', $message);
@@ -90,19 +90,19 @@ if (isset($_POST['multi_edit_central_column_save'])) {
 if (isset($_POST['delete_save'])) {
     $col_name = array();
     parse_str($_POST['col_name'], $col_name);
-    $tmp_msg = PMA_deleteColumnsFromList($col_name['selected_fld'], false);
+    $tmp_msg = CentralColumns::deleteColumnsFromList($col_name['selected_fld'], false);
 }
 if (isset($_REQUEST['total_rows']) && $_REQUEST['total_rows']) {
     $total_rows = $_REQUEST['total_rows'];
 } else {
-    $total_rows = PMA_getCentralColumnsCount($db);
+    $total_rows = CentralColumns::getCount($db);
 }
 if (Core::isValid($_REQUEST['pos'], 'integer')) {
     $pos = intval($_REQUEST['pos']);
 } else {
     $pos = 0;
 }
-$addNewColumn = PMA_getHTMLforAddNewColumn($db, $total_rows);
+$addNewColumn = CentralColumns::getHtmlForAddNewColumn($db, $total_rows);
 $response->addHTML($addNewColumn);
 if ($total_rows <= 0) {
     $response->addHTML(
@@ -110,13 +110,13 @@ if ($total_rows <= 0) {
             'The central list of columns for the current database is empty.'
         ) . '</fieldset>'
     );
-    $columnAdd = PMA_getHTMLforAddCentralColumn($total_rows, $pos, $db);
+    $columnAdd = CentralColumns::getHtmlForAddCentralColumn($total_rows, $pos, $db);
     $response->addHTML($columnAdd);
     exit;
 }
-$table_navigation_html = PMA_getHTMLforTableNavigation($total_rows, $pos, $db);
+$table_navigation_html = CentralColumns::getHtmlForTableNavigation($total_rows, $pos, $db);
 $response->addHTML($table_navigation_html);
-$columnAdd = PMA_getHTMLforAddCentralColumn($total_rows, $pos, $db);
+$columnAdd = CentralColumns::getHtmlForAddCentralColumn($total_rows, $pos, $db);
 $response->addHTML($columnAdd);
 $deleteRowForm = '<form method="post" id="del_form" action="db_central_columns.php">'
         . Url::getHiddenInputs(
@@ -131,21 +131,21 @@ $table_struct = '<div id="tableslistcontainer">'
         . '<table id="table_columns" class="tablesorter" '
         . 'class="data">';
 $response->addHTML($table_struct);
-$tableheader = PMA_getCentralColumnsTableHeader(
+$tableheader = CentralColumns::getTableHeader(
     'column_heading', __('Click to sort.'), 2
 );
 $response->addHTML($tableheader);
-$result = PMA_getColumnsList($db, $pos, $max_rows);
+$result = CentralColumns::getColumnsList($db, $pos, $max_rows);
 $row_num = 0;
 foreach ($result as $row) {
-    $tableHtmlRow = PMA_getHTMLforCentralColumnsTableRow(
+    $tableHtmlRow = CentralColumns::getHtmlForCentralColumnsTableRow(
         $row, $row_num, $db
     );
     $response->addHTML($tableHtmlRow);
     $row_num++;
 }
 $response->addHTML('</table>');
-$tablefooter = PMA_getCentralColumnsTableFooter($pmaThemeImage, $text_dir);
+$tablefooter = CentralColumns::getTableFooter($pmaThemeImage, $text_dir);
 $response->addHTML($tablefooter);
 $response->addHTML('</form></div>');
 $message = PhpMyAdmin\Message::success(

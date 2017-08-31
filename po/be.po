@@ -4,17 +4,17 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.8.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2017-08-10 09:14-0400\n"
-"PO-Revision-Date: 2017-06-28 13:38+0000\n"
+"PO-Revision-Date: 2017-08-29 12:36+0000\n"
 "Last-Translator: Viktar Vauchkevich <victorenator@gmail.com>\n"
-"Language-Team: Belarusian <https://hosted.weblate.org/projects/phpmyadmin/"
-"master/be/>\n"
+"Language-Team: Belarusian "
+"<https://hosted.weblate.org/projects/phpmyadmin/master/be/>\n"
 "Language: be\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=3; plural=n%10==1 && n%100!=11 ? 0 : n%10>=2 && n"
-"%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
-"X-Generator: Weblate 2.15-dev\n"
+"Plural-Forms: nplurals=3; plural=n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%10<="
+"4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
+"X-Generator: Weblate 2.17-dev\n"
 
 #: ajax.php:17 ajax.php:34 export.php:195 schema_export.php:66
 msgid "Bad type!"
@@ -345,7 +345,7 @@ msgstr "Даныя адсочвання паспяхова выдаленыя."
 #, php-format
 msgid ""
 "Version %1$s was created for selected tables, tracking is active for them."
-msgstr ""
+msgstr "Версія %1$s створаная для абраных табліц, адсочванне ўключанае."
 
 #: db_tracking.php:93
 msgid "No tables selected."
@@ -659,10 +659,8 @@ msgid "Server type:"
 msgstr "Тып сервера:"
 
 #: index.php:310
-#, fuzzy
-#| msgid "Master connection:"
 msgid "Server connection:"
-msgstr "Галоўнае злучэнне:"
+msgstr "Злучэнне сервера:"
 
 #: index.php:314 libraries/classes/Plugins/Export/ExportLatex.php:221
 #: libraries/classes/Plugins/Export/ExportSql.php:702
@@ -1677,10 +1675,8 @@ msgid "No databases selected."
 msgstr "Ня выбраная база дадзеных."
 
 #: js/messages.php:366
-#, fuzzy
-#| msgid "No column selected."
 msgid "No accounts selected."
-msgstr "Ніводны слупок не выбраны."
+msgstr "Ніводны конт не выбраны."
 
 #: js/messages.php:367
 msgid "Dropping column"
@@ -3096,9 +3092,6 @@ msgid "Charset"
 msgstr "Знаказбор"
 
 #: libraries/classes/Charsets.php:265
-#, fuzzy
-#| msgctxt "Collation"
-#| msgid "Unknown"
 msgid "Unknown"
 msgstr "Невядома"
 
@@ -6287,18 +6280,6 @@ msgstr ""
 "вам трэба пакінуць першую пустым."
 
 #: libraries/classes/Plugins/Transformations/Abs/ExternalTransformationsPlugin.php:28
-#, fuzzy
-#| msgid ""
-#| "LINUX ONLY: Launches an external application and feeds it the column data "
-#| "via standard input. Returns the standard output of the application. The "
-#| "default is Tidy, to pretty-print HTML code. For security reasons, you "
-#| "have to manually edit the file libraries/plugins/transformations/output/"
-#| "Text_Plain_External.php and list the tools you want to make available. "
-#| "The first option is then the number of the program you want to use and "
-#| "the second option is the parameters for the program. The third option, if "
-#| "set to 1, will convert the output using htmlspecialchars() (Default 1). "
-#| "The fourth option, if set to 1, will prevent wrapping and ensure that the "
-#| "output appears all on one line (Default 1)."
 msgid ""
 "LINUX ONLY: Launches an external application and feeds it the column data "
 "via standard input. Returns the standard output of the application. The "
@@ -6314,14 +6295,14 @@ msgstr ""
 "ТОЛЬКІ ДЛЯ LINUX: Запускае зьнешнюю праграму і перадае ёй даныя слупка праз "
 "стандартны ўвод. Вяртае стандартны вывад праграмы. Агаданая праграма — Tidy, "
 "якая друкуе прыемны HTML-код. З меркаванняў бяспекі, вам трэба ўручную "
-"адрэдагаваць файл libraries/plugins/transformations/output/"
+"адрэдагаваць файл libraries/classes/Plugins/Transformations/Output/"
 "Text_Plain_External.php і пазначыць спіс праграмаў, якія вы хочаце зрабіць "
 "даступнымі. Першая опцыя — нумар праграмы, якую вы хочаце выкарыстоўваць, "
 "другая — параметры для праграмы. Трэцяя опцыя, калі вызначаная як 1, "
-"сканвертуе даныя з стандартнага вываду выкарыстоўваючы htmlspecialchars() "
-"(Агадана 1). Чацвёртая опцыя, калі вызначаная як 1, прадухіліць перанос па "
-"словах, каб пераканацца, што выхадны паток будзе выведзены ў адзін радок "
-"(Агадана 1)."
+"сканвертуе даныя з стандартнага вываду выкарыстоўваючы htmlspecialchars() ("
+"Агадана 1). Чацвёртая опцыя, калі вызначаная як 1, прадухіліць перанос па "
+"словах, каб пераканацца, што выхадны паток будзе выведзены ў адзін радок ("
+"Агадана 1)."
 
 #: libraries/classes/Plugins/Transformations/Abs/FormattedTransformationsPlugin.php:28
 msgid ""
@@ -7913,17 +7894,12 @@ msgstr ""
 "опцыя несумяшчальная з phpMyAdmin і можа выклікаць пашкоджаньне дадзеных!"
 
 #: libraries/common.inc.php:487
-#, fuzzy
-#| msgid ""
-#| "You have enabled mbstring.func_overload in your PHP configuration. This "
-#| "option is incompatible with phpMyAdmin and might cause some data to be "
-#| "corrupted!"
 msgid ""
 "You have disabled ini_get and/or ini_set in php.ini. This option is "
 "incompatible with phpMyAdmin!"
 msgstr ""
-"Вы ўключылі mbstring.func_overload у вашым канфігурацыйным файле PHP. Гэтая "
-"опцыя несумяшчальная з phpMyAdmin і можа выклікаць пашкоджаньне дадзеных!"
+"Вы адключылі ini_get і/ці ini_set у php.ini. Гэтая опцыя несумяшчальная з "
+"phpMyAdmin!"
 
 #: libraries/common.inc.php:520
 #, php-format
@@ -8319,10 +8295,8 @@ msgid "Hide table structure actions"
 msgstr "Схаваць дзеянні над структурай табліцы"
 
 #: libraries/config/messages.inc.php:121
-#, fuzzy
-#| msgid "Input transformation"
 msgid "Default transformations for Hex"
-msgstr "Пераўтварэнне ўвода"
+msgstr "Агаданае пераўтварэнне для Hex"
 
 #: libraries/config/messages.inc.php:122 libraries/config/messages.inc.php:124
 #: libraries/config/messages.inc.php:126 libraries/config/messages.inc.php:128
@@ -8335,52 +8309,36 @@ msgid ""
 msgstr ""
 
 #: libraries/config/messages.inc.php:123
-#, fuzzy
-#| msgid "Input transformation options"
 msgid "Default transformations for Substring"
-msgstr "Параметры пераўтварэння ўвода"
+msgstr "Агадагае пераўтварэнне для падрадка"
 
 #: libraries/config/messages.inc.php:125
-#, fuzzy
-#| msgid "Input transformation options"
 msgid "Default transformations for Bool2Text"
-msgstr "Параметры пераўтварэння ўвода"
+msgstr "Агаданае пераўтварэнне для Bool2Text"
 
 #: libraries/config/messages.inc.php:127
-#, fuzzy
-#| msgid "Input transformation options"
 msgid "Default transformations for External"
-msgstr "Параметры пераўтварэння ўвода"
+msgstr "Агаданае пераўтварэнне для External"
 
 #: libraries/config/messages.inc.php:129
-#, fuzzy
-#| msgid "Input transformation options"
 msgid "Default transformations for PreApPend"
-msgstr "Параметры пераўтварэння ўвода"
+msgstr "Агаданае пераўтварэнне для PreApPend"
 
 #: libraries/config/messages.inc.php:131
-#, fuzzy
-#| msgid "Input transformation options"
 msgid "Default transformations for DateFormat"
-msgstr "Параметры пераўтварэння ўвода"
+msgstr "Агаданае пераўтварэнне для DateFormat"
 
 #: libraries/config/messages.inc.php:133
-#, fuzzy
-#| msgid "Input transformation options"
 msgid "Default transformations for Inline"
-msgstr "Параметры пераўтварэння ўвода"
+msgstr "Агаданае пераўтварэнне для Inline"
 
 #: libraries/config/messages.inc.php:135
-#, fuzzy
-#| msgid "Input transformation options"
 msgid "Default transformations for TextImageLink"
-msgstr "Параметры пераўтварэння ўвода"
+msgstr "Агаданае пераўтварэнне для TextImageLink"
 
 #: libraries/config/messages.inc.php:137
-#, fuzzy
-#| msgid "Input transformation options"
 msgid "Default transformations for TextLink"
-msgstr "Параметры пераўтварэння ўвода"
+msgstr "Агаданае пераўтварэнне для TextLink"
 
 #: libraries/config/messages.inc.php:141
 msgid "Show server listing as a list instead of a drop down."
@@ -10270,10 +10228,8 @@ msgid "OpenDocument Text"
 msgstr "Тэкст OpenDocument"
 
 #: libraries/config/user_preferences.forms.php:124
-#, fuzzy
-#| msgid "Input transformation"
 msgid "Default transformations"
-msgstr "Пераўтварэнне ўвода"
+msgstr "Агаданыя пераўтварэнні"
 
 #: libraries/database_interface.inc.php:38
 #, php-format
@@ -13637,10 +13593,8 @@ msgid "No Privileges"
 msgstr "Без прывілеяў"
 
 #: server_privileges.php:143
-#, fuzzy
-#| msgid "You do not have the necessary privileges to create a trigger."
 msgid "You do not have privileges to manipulate with the users!"
-msgstr "Вы не маеце дастатковых прывілеяў для стварэння трыгера."
+msgstr "Вы не маеце прывілеяў для маніпуляцый з карыстальнікамі!"
 
 #: server_privileges.php:157
 msgid ""
