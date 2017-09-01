@@ -3,8 +3,8 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.8.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2017-08-10 09:14-0400\n"
-"PO-Revision-Date: 2017-09-01 10:50+0000\n"
-"Last-Translator: Imam Ilham Khawarizma <khrzm@tuta.io>\n"
+"PO-Revision-Date: 2017-09-02 01:50+0000\n"
+"Last-Translator: Chandra Chou <developerchan1@gmail.com>\n"
 "Language-Team: Indonesian "
 "<https://hosted.weblate.org/projects/phpmyadmin/master/id/>\n"
 "Language: id\n"
@@ -3475,11 +3475,9 @@ msgid "accent-sensitive"
 msgstr "tidak peka aksen"
 
 #: libraries/classes/Charsets.php:597
-#, fuzzy
-#| msgid "multilingual"
 msgctxt "Collation variant"
 msgid "multi-level"
-msgstr "banyak tingkat"
+msgstr "banyak level"
 
 #: libraries/classes/Charsets.php:600
 msgctxt "Collation variant"
@@ -3601,13 +3599,7 @@ msgid "Key should contain letters, numbers [em]and[/em] special characters."
 msgstr "Kunci harus terdiri dari huruf, angka, [em]dan[/em] karakter khusus."
 
 #: libraries/classes/Config/ServerConfigChecks.php:373
-#, fuzzy, php-format
-#| msgid ""
-#| "This %soption%s should be disabled as it allows attackers to bruteforce "
-#| "login to any MySQL server. If you feel this is necessary, use %strusted "
-#| "proxies list%s. However, IP-based protection may not be reliable if your "
-#| "IP belongs to an ISP where thousands of users, including you, are "
-#| "connected to."
+#, php-format
 msgid ""
 "This %soption%s should be disabled as it allows attackers to bruteforce "
 "login to any MySQL server. If you feel this is necessary, use %srestrict "
@@ -3615,27 +3607,23 @@ msgid ""
 "protection with trusted proxies list may not be reliable if your IP belongs "
 "to an ISP where thousands of users, including you, are connected to."
 msgstr ""
-"%soption%s ini harus di nonaktifkan karena memungkinkan penyerang untuk "
-"masuk secara membabibuta ke server MySQL. Jika Anda merasa hal ini "
-"diperlukan, gunakan %restrict login to MySQL server%s atau %strusted proxies "
-"list%s. Namun, perlindungan berbasis IP dengan daftar proxy terpercaya "
-"mungkin tidak dapat diandalkan jika IP dari ISP anda digunakan ribuan "
-"pengguna, termasuk Anda, untuk terhubung."
+"%s(1)option%s(2) ini sebaiknya di nonaktifkan karena memungkinkan penyerang "
+"untuk masuk secara bruteforce ke server MySQL. Jika Anda merasa hal ini "
+"diperlukan, gunakan %s(3)restrict login to MySQL server%s(4) atau %s(5)"
+"trusted proxies list%s(6). Bagaimanapun, perlindungan berbasis IP dengan "
+"daftar proxy terpercaya mungkin tidak dapat diandalkan jika IP mu milik ISP "
+"dimana ribuan pengguna, termasuk Anda, saling terhubung."
 
 #: libraries/classes/Config/ServerConfigChecks.php:393
-#, fuzzy
-#| msgid ""
-#| "You didn't have blowfish secret set and have enabled cookie "
-#| "authentication, so a key was automatically generated for you. It is used "
-#| "to encrypt cookies; you don't need to remember it."
 msgid ""
 "You didn't have blowfish secret set and have enabled [kbd]cookie[/kbd] "
 "authentication, so a key was automatically generated for you. It is used to "
 "encrypt cookies; you don't need to remember it."
 msgstr ""
-"Anda tidak menentukan blowfish secret dan mengaktifkan otentikasi cookie, "
-"sehingga kunci secara otomatis dihasilkan untuk Anda. Hal ini digunakan "
-"untuk mengenkripsi cookies; Anda tidak perlu mengingatnya."
+"Kamu tidak memiliki kumpulan blowfish secret dan telah mengaktifkan "
+"autentikasi [kbd]cookie[/kbd], sehingga sebuah kunci secara otomatis "
+"dihasilkan untuk Anda. Hal ini digunakan untuk mengenkripsi cookies; Anda "
+"tidak perlu mengingatnya."
 
 #: libraries/classes/Config/ServerConfigChecks.php:399
 #, php-format
@@ -3695,22 +3683,17 @@ msgstr ""
 "dengan itu."
 
 #: libraries/classes/Config/ServerConfigChecks.php:466
-#, fuzzy, php-format
-#| msgid ""
-#| "If you feel this is necessary, use additional protection settings - "
-#| "%shost authentication%s settings and %strusted proxies list%s. However, "
-#| "IP-based protection may not be reliable if your IP belongs to an ISP "
-#| "where thousands of users, including you, are connected to."
+#, php-format
 msgid ""
 "If you feel this is necessary, use additional protection settings - %shost "
 "authentication%s settings and %strusted proxies list%s. However, IP-based "
 "protection may not be reliable if your IP belongs to an ISP where thousands "
 "of users, including you, are connected to."
 msgstr ""
-"Jika anda merasa ini perlu, gunakan pengaturan perlindungan tambahan - "
+"Jika kamu merasa ini perlu, gunakan pengaturan perlindungan tambahan - "
 "pengaturan %shost authentication%s dan %strusted proxies list%s. Namun, "
-"perlindungan berbasis IP tidak dapat diandalkan jika IP dari ISP anda "
-"digunakan ribuan pengguna, termasuk anda, untuk terhubung."
+"perlindungan berbasis IP tidak dapat diandalkan jika IP mu merupakan milik "
+"ISP dimana ribuan pengguna, termasuk anda, saling terhubung."
 
 #: libraries/classes/Config/ServerConfigChecks.php:481
 #, php-format
@@ -3824,17 +3807,15 @@ msgstr "Tabel %s telah dikosongkan."
 
 #: libraries/classes/Controllers/Database/DatabaseStructureController.php:586
 #: tbl_operations.php:419 view_operations.php:130
-#, fuzzy, php-format
-#| msgid "View %s has been dropped."
+#, php-format
 msgid "View %s has been dropped."
-msgstr "View %s telah dihapus"
+msgstr "Tampilan %s telah dihapus."
 
 #: libraries/classes/Controllers/Database/DatabaseStructureController.php:587
 #: tbl_operations.php:420
-#, fuzzy, php-format
-#| msgid "Table %s has been dropped."
+#, php-format
 msgid "Table %s has been dropped."
-msgstr "Tabel %s telah dihapus."
+msgstr "Tabel %s telah terhapus."
 
 #: libraries/classes/Controllers/Database/DatabaseStructureController.php:775
 #: libraries/classes/DisplayResults.php:4686
@@ -4070,20 +4051,18 @@ msgid "Find and replace"
 msgstr "Cari dan Gantikan"
 
 #: libraries/classes/Controllers/Table/TableStructureController.php:158
-#, fuzzy, php-format
+#, php-format
 msgid "The name '%s' is a MySQL reserved keyword."
 msgid_plural "The names '%s' are MySQL reserved keywords."
-msgstr[0] "Nama kolom '%s' adalah kata kunci pesanan MySQL."
+msgstr[0] "Nama '%s' adalah kata kunci pesanan MySQL."
 
 #: libraries/classes/Controllers/Table/TableStructureController.php:246
 msgid "No column selected."
 msgstr "Tidak ada kolom yang dipilih."
 
 #: libraries/classes/Controllers/Table/TableStructureController.php:461
-#, fuzzy
-#| msgid "The selected users have been deleted successfully."
 msgid "The columns have been moved successfully."
-msgstr "Kolum telah sukses dipindahkan."
+msgstr "Kolom telah berhasil dipindahkan."
 
 #: libraries/classes/Controllers/Table/TableStructureController.php:726
 #: libraries/classes/Controllers/Table/TableStructureController.php:1011
@@ -4987,10 +4966,8 @@ msgid "Error while moving uploaded file."
 msgstr "Terjadi galat sewaktu memindahkan berkas unggahan."
 
 #: libraries/classes/File.php:521
-#, fuzzy
-#| msgid "Cannot read (moved) upload file."
 msgid "Cannot read uploaded file."
-msgstr "Tidak bisa membaca file yang telah diunggah."
+msgstr "Tidak dapat membaca file yang telah diunggah."
 
 #: libraries/classes/File.php:613
 #, php-format
@@ -8396,10 +8373,8 @@ msgid "Analyze Explain at %s"
 msgstr "Menganalisis Jelaskan di %s"
 
 #: libraries/classes/Util.php:1125
-#, fuzzy
-#| msgid "Without PHP Code"
 msgid "Without PHP code"
-msgstr "Kode PHP tidak ditemukan"
+msgstr "Tanpa kode PHP"
 
 #: libraries/classes/Util.php:1137
 #, fuzzy
@@ -8556,15 +8531,16 @@ msgid "Invalid authentication method set in configuration:"
 msgstr "Metode autentikasi dalam konfigurasi tidak sah:"
 
 #: libraries/common.inc.php:768
-#, fuzzy, php-format
+#, php-format
 msgid ""
 "Unable to use timezone %1$s for server %2$d. Please check your configuration "
 "setting for [em]$cfg['Servers'][%3$d]['SessionTimeZone'][/em]. phpMyAdmin is "
 "currently using the default time zone of the database server."
 msgstr ""
-"Tidak dapat menggunakan zona %1$s untuk server %2$d. Silakan periksa "
-"pengaturan konfigurasi untuk [em]$cfg['Servers'][%3$d]['SessionTimeZone'][/"
-"em]. phpMyAdmin saat ini menggunakan zona waktu default dari server database."
+"Tidak dapat menggunakan zona waktu %1$s untuk server %2$d. Silakan periksa "
+"pengaturan konfigurasi anda untuk "
+"[em]$cfg['Servers'][%3$d]['SessionTimeZone'][/em]. phpMyAdmin saat ini "
+"menggunakan zona waktu semula dari server database."
 
 #: libraries/common.inc.php:806
 #, php-format
