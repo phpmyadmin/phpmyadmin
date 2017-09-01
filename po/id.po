@@ -3,8 +3,8 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.8.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2017-08-10 09:14-0400\n"
-"PO-Revision-Date: 2017-08-31 14:04+0000\n"
-"Last-Translator: Theodore Fabian Rudy <dorerudy@gmail.com>\n"
+"PO-Revision-Date: 2017-09-01 07:16+0000\n"
+"Last-Translator: Chandra Chou <developerchan1@gmail.com>\n"
 "Language-Team: Indonesian "
 "<https://hosted.weblate.org/projects/phpmyadmin/master/id/>\n"
 "Language: id\n"
@@ -524,7 +524,7 @@ msgstr ""
 
 #: import.php:66
 msgid "Succeeded"
-msgstr "Sukses"
+msgstr "Telah berhasil"
 
 #: import.php:70 js/messages.php:609
 msgid "Failed"
@@ -3290,8 +3290,6 @@ msgid "Hebrew"
 msgstr "Ibrani"
 
 #: libraries/classes/Charsets.php:353
-#, fuzzy
-#| msgid "Georgian"
 msgctxt "Collation"
 msgid "Georgian"
 msgstr "Georgia"
@@ -3768,12 +3766,13 @@ msgid ""
 "method!"
 msgstr ""
 "Kosongkan nama sesi signon sewaktu menggunakan metode autentikasi "
-"[kbd]signon[/kbd]"
+"[kbd]signon[/kbd] !"
 
 #: libraries/classes/Config/Validator.php:270
 msgid "Empty signon URL while using [kbd]signon[/kbd] authentication method!"
 msgstr ""
-"Kosongkan URL signon sewaktu menggunakan metode autentikasi [kbd]signon[/kbd]"
+"Kosongkan URL signon sewaktu menggunakan metode autentikasi "
+"[kbd]signon[/kbd]!"
 
 #: libraries/classes/Config/Validator.php:323
 msgid ""
