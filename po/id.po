@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.7.4-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2017-08-10 09:13-0400\n"
-"PO-Revision-Date: 2017-09-01 07:16+0000\n"
-"Last-Translator: Chandra Chou <developerchan1@gmail.com>\n"
+"PO-Revision-Date: 2017-09-01 10:50+0000\n"
+"Last-Translator: Imam Ilham Khawarizma <khrzm@tuta.io>\n"
 "Language-Team: Indonesian "
 "<https://hosted.weblate.org/projects/phpmyadmin/4-7/id/>\n"
 "Language: id\n"
@@ -3325,10 +3325,10 @@ msgid "Font size"
 msgstr "Ukuran huruf"
 
 #: libraries/Console.php:86
-#, fuzzy, php-format
+#, php-format
 msgid "Showing %1$d bookmark (both private and shared)"
 msgid_plural "Showing %1$d bookmarks (both private and shared)"
-msgstr[0] "Menampilkan %1$d penunjuk (baik privat maupun bersama)"
+msgstr[0] "Menampilkan bookmark %1$d (baik privat maupun bersama)"
 
 #: libraries/Console.php:93
 msgid "No bookmarks"
@@ -3342,7 +3342,7 @@ msgstr "Kotak Kueri SQL"
 #, fuzzy
 #| msgid "Failed to read configuration file"
 msgid "Failed to set configured collation connection!"
-msgstr "Gagal menyetel koneksi kolasi!"
+msgstr "Gagal menyetel konfigurasi pemeriksaan koneksi!"
 
 #: libraries/DatabaseInterface.php:2030
 msgid ""
@@ -3666,7 +3666,7 @@ msgstr "Kunci relasi"
 #, fuzzy
 #| msgid "Display foreign key relationships"
 msgid "Display column for relationships"
-msgstr "Tampilkan kolom untuk relasi"
+msgstr "Tampilkan kolom untuk hubungan relasi"
 
 #: libraries/DisplayResults.php:1757
 msgid "Show binary contents"
@@ -8305,7 +8305,7 @@ msgstr "View %s telah dihapus"
 #, fuzzy, php-format
 #| msgid "Table %s has been dropped."
 msgid "Table %s has been dropped."
-msgstr "Tabel %s telah dihapus"
+msgstr "Tabel %s telah dihapus."
 
 #: libraries/controllers/database/DatabaseStructureController.php:1001
 msgid "unknown"
@@ -8441,10 +8441,8 @@ msgid "Table %1$s has been altered successfully."
 msgstr "Tabel %1$s berhasil diubah."
 
 #: libraries/controllers/table/TableRelationController.php:212
-#, fuzzy
-#| msgid "Thread %s was successfully killed."
 msgid "Display column was successfully updated."
-msgstr "Sukses hentikan Thread %s."
+msgstr "Kolum layar telah sukses diupdate."
 
 #: libraries/controllers/table/TableRelationController.php:282
 #, fuzzy
@@ -8479,7 +8477,7 @@ msgstr "Tidak ada kolom yang dipilih."
 #, fuzzy
 #| msgid "The selected users have been deleted successfully."
 msgid "The columns have been moved successfully."
-msgstr "Sukses menghapus pengguna yang dipilih."
+msgstr "Kolum telah sukses dipindahkan."
 
 #: libraries/controllers/table/TableStructureController.php:729
 #: libraries/controllers/table/TableStructureController.php:1016
@@ -8526,7 +8524,7 @@ msgstr "Teks penuh"
 #, fuzzy
 #| msgid "Browse distinct values"
 msgid "Distinct values"
-msgstr "Nilai unik"
+msgstr "Nilai berbeda"
 
 #: libraries/core.lib.php:297
 #, php-format
