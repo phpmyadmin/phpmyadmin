@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.7.4-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2017-08-10 09:13-0400\n"
-"PO-Revision-Date: 2017-09-01 22:45+0000\n"
+"PO-Revision-Date: 2017-09-03 16:45+0000\n"
 "Last-Translator: Steven WdV <stevenwdv@gmail.com>\n"
 "Language-Team: Dutch <https://hosted.weblate.org/projects/phpmyadmin/4-7/nl/>"
 "\n"
@@ -8286,7 +8286,7 @@ msgstr "Volledige tekst"
 
 #: libraries/controllers/table/TableStructureController.php:1196
 msgid "Distinct values"
-msgstr "Onderscheidbare waarden"
+msgstr "Verschillende waarden"
 
 #: libraries/core.lib.php:297
 #, php-format
