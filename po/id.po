@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.7.4-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2017-08-10 09:13-0400\n"
-"PO-Revision-Date: 2017-09-02 01:50+0000\n"
-"Last-Translator: Chandra Chou <developerchan1@gmail.com>\n"
+"PO-Revision-Date: 2017-09-02 04:04+0000\n"
+"Last-Translator: Muhammad Athallah <mhd.athallah@gmail.com>\n"
 "Language-Team: Indonesian "
 "<https://hosted.weblate.org/projects/phpmyadmin/4-7/id/>\n"
 "Language: id\n"
@@ -3337,10 +3337,8 @@ msgid "SQL Query Console"
 msgstr "Kotak Kueri SQL"
 
 #: libraries/DatabaseInterface.php:1418
-#, fuzzy
-#| msgid "Failed to read configuration file"
 msgid "Failed to set configured collation connection!"
-msgstr "Gagal menyetel konfigurasi pemeriksaan koneksi!"
+msgstr "Gagal untuk menyetel pemeriksaan koneksi yang telah terkonfigurasi!"
 
 #: libraries/DatabaseInterface.php:2030
 msgid ""
@@ -3661,10 +3659,8 @@ msgid "Relational key"
 msgstr "Kunci relasi"
 
 #: libraries/DisplayResults.php:1741
-#, fuzzy
-#| msgid "Display foreign key relationships"
 msgid "Display column for relationships"
-msgstr "Tampilkan kolom untuk hubungan relasi"
+msgstr "Tampilkan kolom untuk hubungan"
 
 #: libraries/DisplayResults.php:1757
 msgid "Show binary contents"
@@ -3784,9 +3780,8 @@ msgstr "Tidak ada"
 
 #. l10n: This is currently used only in Japanese locales
 #: libraries/Encoding.php:324
-#, fuzzy
 msgid "Convert to Kana"
-msgstr "Mengkonversi ke Kana"
+msgstr "Mengonversi ke Kana"
 
 #: libraries/ErrorHandler.php:76
 msgid "Too many error messages, some are not displayed."
@@ -8402,9 +8397,8 @@ msgid "No SQL query was set to fetch data."
 msgstr "Tidak ada query SQL ditetapkan untuk mengambil data."
 
 #: libraries/controllers/table/TableChartController.php:153
-#, fuzzy
 msgid "No numeric columns present in the table to plot."
-msgstr "Tidak ada kolom numerik yang muncul dalam tabel untuk perencanaan."
+msgstr "Tidak ada kolom numerik yang muncul dalam tabel untuk direncanakan."
 
 #: libraries/controllers/table/TableChartController.php:211
 msgid "No data to display"
@@ -8423,10 +8417,8 @@ msgid "Display column was successfully updated."
 msgstr "Kolum layar telah sukses diupdate."
 
 #: libraries/controllers/table/TableRelationController.php:282
-#, fuzzy
-#| msgid "Internal relation added"
 msgid "Internal relationships were successfully updated."
-msgstr "Relasi internal sukses diperbarui."
+msgstr "Hubungan internal sukses diperbarui."
 
 #: libraries/controllers/table/TableSearchController.php:768
 msgid "Table search"
@@ -8497,10 +8489,8 @@ msgid "Fulltext"
 msgstr "Teks penuh"
 
 #: libraries/controllers/table/TableStructureController.php:1196
-#, fuzzy
-#| msgid "Browse distinct values"
 msgid "Distinct values"
-msgstr "Nilai berbeda"
+msgstr "Nilai yang berbeda"
 
 #: libraries/core.lib.php:297
 #, php-format
@@ -9137,29 +9127,28 @@ msgid "Index cache size"
 msgstr "Besar singgahan indeks"
 
 #: libraries/engines/Pbxt.php:31
-#, fuzzy
 msgid ""
 "This is the amount of memory allocated to the index cache. Default value is "
 "32MB. The memory allocated here is used only for caching index pages."
 msgstr ""
 "Ini adalah jumlah memori yang dialokasikan untuk cache indeks. Nilai default "
-"adalah 32MB. Memori yang dialokasikan di sini hanya digunakan untuk caching "
-"halaman indeks."
+"adalah 32MB. Memori yang dialokasikan di sini hanya digunakan untuk "
+"penyimpanan halaman indeks."
 
 #: libraries/engines/Pbxt.php:38
 msgid "Record cache size"
 msgstr "Besar singgahan data"
 
 #: libraries/engines/Pbxt.php:40
-#, fuzzy
 msgid ""
 "This is the amount of memory allocated to the record cache used to cache "
 "table data. The default value is 32MB. This memory is used to cache changes "
 "to the handle data (.xtd) and row pointer (.xtr) files."
 msgstr ""
-"Ini adalah jumlah memori yang dialokasikan untuk cache record digunakan "
-"untuk data yang tabel cache. Nilai default adalah 32MB. Memori ini digunakan "
-"untuk perubahan cache data handle (.xtd) dan baris pointer (.xtr) file."
+"Ini adalah jumlah memori yang dialokasikan untuk cache record yang digunakan "
+"untuk menyimpan data tabel. Nilai default adalah 32MB. Memori ini digunakan "
+"untuk perubahan cache kepada file data handle (.xtd) dan baris pointer "
+"(.xtr)."
 
 #: libraries/engines/Pbxt.php:48
 msgid "Log cache size"
@@ -9204,12 +9193,11 @@ msgid "Checkpoint frequency"
 msgstr "Frekuensi checkpoint"
 
 #: libraries/engines/Pbxt.php:76
-#, fuzzy
 msgid ""
 "The amount of data written to the transaction log before a checkpoint is "
 "performed. The default value is 24MB."
 msgstr ""
-"Jumlah data ditulis ke log transaksi sebelum pos pemeriksaan dilakukan. "
+"Jumlah data ditulis kepada log transaksi sebelum pemeriksaan dilakukan. "
 "Nilai default adalah 24MB."
 
 #: libraries/engines/Pbxt.php:83
@@ -9234,27 +9222,25 @@ msgid "Garbage threshold"
 msgstr "Ambang sampah"
 
 #: libraries/engines/Pbxt.php:96
-#, fuzzy
 msgid ""
 "The percentage of garbage in a data log file before it is compacted. This is "
 "a value between 1 and 99. The default is 50."
 msgstr ""
 "Persentase sampah dalam file log data sebelum dipadatkan. Ini adalah nilai "
-"antara 1 dan 99. Standarnya adalah 50."
+"yang berkisar antara 1 dan 99. Standarnya adalah 50."
 
 #: libraries/engines/Pbxt.php:103
 msgid "Log buffer size"
 msgstr "Besar penyangga log"
 
 #: libraries/engines/Pbxt.php:105
-#, fuzzy
 msgid ""
 "The size of the buffer used when writing a data log. The default is 256MB. "
 "The engine allocates one buffer per thread, but only if the thread is "
 "required to write a data log."
 msgstr ""
 "Ukuran buffer yang digunakan saat menulis log data. Standarnya adalah 256MB. "
-"Mesin mengalokasikan satu buffer per benang, tetapi hanya jika benang "
+"Mesin mengalokasikan satu buffer per thread, tetapi hanya jika thread "
 "diperlukan untuk menulis log data."
 
 #: libraries/engines/Pbxt.php:113
@@ -9262,44 +9248,41 @@ msgid "Data file grow size"
 msgstr "Besar pertumbuhan berkas data"
 
 #: libraries/engines/Pbxt.php:114
-#, fuzzy
 msgid "The grow size of the handle data (.xtd) files."
-msgstr "Ukuran tumbuh dari data (.xtd) file menangani."
+msgstr "Ukuran perkembangan dari file handle data (.xtd)."
 
 #: libraries/engines/Pbxt.php:118
 msgid "Row file grow size"
 msgstr "Besar pertumbuhan berkas baris"
 
 #: libraries/engines/Pbxt.php:119
-#, fuzzy
 msgid "The grow size of the row pointer (.xtr) files."
-msgstr "Ukuran tumbuh dari baris pointer (.xtr) file."
+msgstr "Ukuran perkembangan dari file row pointer (.xtr)."
 
 #: libraries/engines/Pbxt.php:123
 msgid "Log file count"
 msgstr "Jumlah berkas log"
 
 #: libraries/engines/Pbxt.php:125
-#, fuzzy
 msgid ""
 "This is the number of transaction log files (pbxt/system/xlog*.xt) the "
 "system will maintain. If the number of logs exceeds this value then old logs "
 "will be deleted, otherwise they are renamed and given the next highest "
 "number."
 msgstr ""
-"Ini adalah jumlah file log transaksi (pbxt / sistem / xlog * .xt) sistem "
-"akan mempertahankan. Jika jumlah log melebihi nilai ini maka log lama akan "
-"dihapus, jika tidak mereka berganti nama dan mengingat jumlah tertinggi "
+"Ini adalah nilai dari file log transaksi (pbxt / sistem / xlog * .xt) yang "
+"akan sistem pelihara. Jika nilai log melebihi nilai ini maka log lama akan "
+"dihapus, jika tidak mereka berganti nama dan diberikan nilai yang tertinggi "
 "berikutnya."
 
 #: libraries/engines/Pbxt.php:181
-#, fuzzy, php-format
+#, php-format
 msgid ""
 "Documentation and further information about PBXT can be found on the "
 "%sPrimeBase XT Home Page%s."
 msgstr ""
 "Dokumentasi dan informasi lebih lanjut mengenai PBXT dapat ditemukan pada %s "
-"PrimeBase XT Halaman %s."
+"Halaman PrimeBase XT  %s."
 
 #: libraries/export.lib.php:122 libraries/export.lib.php:157
 #: libraries/export.lib.php:381
@@ -9577,9 +9560,8 @@ msgid "Do you really want to execute the following query?"
 msgstr "Benarkah Anda ingin untuk "
 
 #: libraries/navigation/Navigation.php:55
-#, fuzzy
 msgid "An error has occurred while loading the navigation display"
-msgstr "Sebuah kesalahan telah terjadi saat memuat pohon navigasi"
+msgstr "Sebuah kesalahan telah terjadi saat memuat tampilan navigasi"
 
 #: libraries/navigation/Navigation.php:193
 msgid "Groups:"
@@ -9598,10 +9580,8 @@ msgid "Procedures:"
 msgstr "Prosedur:"
 
 #: libraries/navigation/Navigation.php:198
-#, fuzzy
-#| msgid "Views"
 msgid "Views:"
-msgstr "Dilihat:"
+msgstr "Penonton:"
 
 #: libraries/navigation/Navigation.php:222 libraries/tracking.lib.php:289
 #: libraries/tracking.lib.php:1601 tbl_change.php:156
@@ -9627,46 +9607,36 @@ msgid "phpMyAdmin documentation"
 msgstr "Dokumentasi phpMyAdmin"
 
 #: libraries/navigation/NavigationHeader.php:210
-#, fuzzy
-#| msgid "Navigation panel"
 msgid "Navigation panel settings"
-msgstr "Panel navigasi"
+msgstr "Pengaturan panel navigasi"
 
 #: libraries/navigation/NavigationHeader.php:221
-#, fuzzy
-#| msgid "Reload navigation frame"
 msgid "Reload navigation panel"
-msgstr "Muat ulang bingkai navigasi"
+msgstr "Muat ulang panel navigasi"
 
 #: libraries/navigation/NavigationTree.php:755
-#, fuzzy
 msgid ""
 "There are large item groups in navigation panel which may affect the "
 "performance. Consider disabling item grouping in the navigation panel."
 msgstr ""
-"Ada kelompok barang besar di panel navigasi yang dapat mempengaruhi kinerja. "
-"Mempertimbangkan untuk menonaktifkan barang pengelompokan di panel navigasi."
+"Terdapat grup item besar di panel navigasi yang dapat mempengaruhi kinerja. "
+"Pertimbangkan untuk menonaktifkan pengelompokan barang di panel navigasi."
 
 #: libraries/navigation/NavigationTree.php:949
-#, fuzzy, php-format
-#| msgid "%s other result found"
-#| msgid_plural "%s other results found"
+#, php-format
 msgid "%s result found"
 msgid_plural "%s results found"
-msgstr[0] "%s hasil lainnya ditemukan"
+msgstr[0] "ditemukan %s hasil"
 
 #: libraries/navigation/NavigationTree.php:1366
 #: libraries/navigation/NavigationTree.php:1398
-#, fuzzy
 msgid "Type to filter these, Enter to search all"
-msgstr "Ketik untuk menyaring ini, Enter untuk mencari semua"
+msgstr "Ketik untuk menyaring ini, tekan Enter untuk mencari semua"
 
 #: libraries/navigation/NavigationTree.php:1368
 #: libraries/navigation/NavigationTree.php:1399
-#, fuzzy
-#| msgid "Clear series"
 msgid "Clear fast filter"
-msgstr "Bersihkan seri"
+msgstr "Bersihkan filter cepat"
 
 #: libraries/navigation/NavigationTree.php:1425
 #, fuzzy
