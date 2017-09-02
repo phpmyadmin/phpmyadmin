@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.7.4-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2017-08-10 09:13-0400\n"
-"PO-Revision-Date: 2017-09-02 14:13+0000\n"
-"Last-Translator: Imam Ilham Khawarizma <khrzm@tuta.io>\n"
+"PO-Revision-Date: 2017-09-02 15:06+0000\n"
+"Last-Translator: Andreas Lukita <ffvaand@gmail.com>\n"
 "Language-Team: Indonesian "
 "<https://hosted.weblate.org/projects/phpmyadmin/4-7/id/>\n"
 "Language: id\n"
@@ -3326,12 +3326,12 @@ msgstr "Ukuran huruf"
 #, fuzzy, php-format
 msgid "Showing %1$d bookmark (both private and shared)"
 msgid_plural "Showing %1$d bookmarks (both private and shared)"
-msgstr[0] "Menampilkan penanda %1$d (baik privat maupun bersama)"
+msgstr[0] "Menampilkan bookmark %1$d (baik privat maupun bersama)"
 
 #: libraries/Console.php:93
 #, fuzzy
 msgid "No bookmarks"
-msgstr "Tidak ada penanda"
+msgstr "Tidak ada bookmark"
 
 #: libraries/Console.php:128
 msgid "SQL Query Console"
@@ -10639,18 +10639,14 @@ msgstr "Inang"
 #: libraries/plugins/export/ExportLatex.php:218
 #: libraries/plugins/export/ExportSql.php:697
 #: libraries/plugins/export/ExportXml.php:240
-#, fuzzy
-#| msgid "Generation Time"
 msgid "Generation Time:"
-msgstr "Waktu pembuatan"
+msgstr "Waktu pembuatan:"
 
 #: libraries/plugins/export/ExportLatex.php:221
 #: libraries/plugins/export/ExportSql.php:703
 #: libraries/plugins/export/ExportXml.php:243
-#, fuzzy
-#| msgid "PHP Version"
 msgid "PHP Version:"
-msgstr "Versi PHP"
+msgstr "Versi PHP:"
 
 #: libraries/plugins/export/ExportLatex.php:251
 #: libraries/plugins/export/ExportSql.php:892
@@ -10663,16 +10659,12 @@ msgstr "Basis data"
 
 #: libraries/plugins/export/ExportLatex.php:324
 #: libraries/plugins/export/ExportSql.php:2185
-#, fuzzy
-#| msgid "Data"
 msgid "Data:"
-msgstr "Data"
+msgstr "Data:"
 
 #: libraries/plugins/export/ExportLatex.php:504
-#, fuzzy
-#| msgid "Structure"
 msgid "Structure:"
-msgstr "Struktur"
+msgstr "Struktur:"
 
 #: libraries/plugins/export/ExportMediawiki.php:79
 #, fuzzy
@@ -10764,10 +10756,9 @@ msgid "(less efficient as indexes will be generated during table creation)"
 msgstr "(Kurang efisien sebagai indeks akan dihasilkan selama pembuatan tabel)"
 
 #: libraries/plugins/export/ExportSql.php:294
-#, fuzzy, php-format
-#| msgid "Session value"
+#, php-format
 msgid "%s value"
-msgstr "Nilai sesi"
+msgstr "Nilai %s"
 
 #: libraries/plugins/export/ExportSql.php:328
 #, fuzzy
@@ -10940,10 +10931,8 @@ msgid "Indexes for dumped tables"
 msgstr "Ketidakleluasaan untuk tabel pelimpahan (Dumped Tables)"
 
 #: libraries/plugins/export/ExportSql.php:1751
-#, fuzzy
-#| msgid "Inside tables:"
 msgid "Indexes for table"
-msgstr "Dalam tabel:"
+msgstr "Indeks untuk tabel:"
 
 #: libraries/plugins/export/ExportSql.php:1779
 #, fuzzy
