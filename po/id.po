@@ -3,8 +3,8 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.8.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2017-08-10 09:14-0400\n"
-"PO-Revision-Date: 2017-09-02 16:42+0000\n"
-"Last-Translator: Chandra Chou <developerchan1@gmail.com>\n"
+"PO-Revision-Date: 2017-09-02 22:26+0000\n"
+"Last-Translator: Eurecode <jason.yonathan.h@gmail.com>\n"
 "Language-Team: Indonesian "
 "<https://hosted.weblate.org/projects/phpmyadmin/master/id/>\n"
 "Language: id\n"
@@ -3790,7 +3790,6 @@ msgid_plural "Showing %1$d bookmarks (both private and shared)"
 msgstr[0] "Menampilkan bookmark %1$d (baik privat maupun bersama)"
 
 #: libraries/classes/Console.php:94
-#, fuzzy
 msgid "No bookmarks"
 msgstr "Tidak ada bookmark"
 
