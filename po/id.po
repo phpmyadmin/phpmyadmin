@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.7.4-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2017-08-10 09:13-0400\n"
-"PO-Revision-Date: 2017-09-02 15:06+0000\n"
+"PO-Revision-Date: 2017-09-02 15:21+0000\n"
 "Last-Translator: Andreas Lukita <ffvaand@gmail.com>\n"
 "Language-Team: Indonesian "
 "<https://hosted.weblate.org/projects/phpmyadmin/4-7/id/>\n"
@@ -11121,10 +11121,8 @@ msgid "MySQL Spatial Extension does not support ESRI type \"%s\"."
 msgstr "MySQL Spatial Ekstensi tidak mendukung ESRI Jenis \"%s\"."
 
 #: libraries/plugins/import/ImportShp.php:230
-#, fuzzy
-#| msgid "The imported file does not contain any data"
 msgid "The imported file does not contain any data!"
-msgstr "Berkas yang diimpor tidak mengandung data"
+msgstr "Berkas yang diimpor tidak mengandung data!"
 
 #: libraries/plugins/import/ImportSql.php:67
 msgid "SQL compatibility mode:"
@@ -11186,16 +11184,12 @@ msgid "Order of the tables"
 msgstr "tidak keduanya dari yang di atas"
 
 #: libraries/plugins/schema/SchemaPdf.php:104
-#, fuzzy
-#| msgid "Ascending"
 msgid "Name (Ascending)"
-msgstr "Menaik"
+msgstr "Nama (Menaik)"
 
 #: libraries/plugins/schema/SchemaPdf.php:105
-#, fuzzy
-#| msgid "Descending"
 msgid "Name (Descending)"
-msgstr "Menurun"
+msgstr "Nama (Menurun)"
 
 #: libraries/plugins/schema/dia/TableStatsDia.php:74
 #: libraries/plugins/schema/eps/TableStatsEps.php:92
