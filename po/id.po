@@ -3,8 +3,8 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.8.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2017-08-10 09:14-0400\n"
-"PO-Revision-Date: 2017-09-02 15:21+0000\n"
-"Last-Translator: Andreas Lukita <ffvaand@gmail.com>\n"
+"PO-Revision-Date: 2017-09-02 16:42+0000\n"
+"Last-Translator: Chandra Chou <developerchan1@gmail.com>\n"
 "Language-Team: Indonesian "
 "<https://hosted.weblate.org/projects/phpmyadmin/master/id/>\n"
 "Language: id\n"
@@ -924,7 +924,7 @@ msgstr "Anda yakin akan menghapus pengguna yang dipilih?"
 
 #: js/messages.php:75
 msgid "Do you really want to delete this central column?"
-msgstr "Apakah anda yakin untuk menghapus kolom ini?"
+msgstr "Apakah anda yakin untuk menghapus kolom utama ini?"
 
 #: js/messages.php:77
 msgid "Do you really want to delete the selected items?"
@@ -2735,7 +2735,7 @@ msgstr "Apr"
 #: js/messages.php:805 libraries/classes/Util.php:1532
 msgctxt "Short month name"
 msgid "May"
-msgstr "Mei"
+msgstr "Bulan Mei"
 
 #. l10n: Short month name
 #: js/messages.php:807 libraries/classes/Util.php:1534
@@ -4022,9 +4022,8 @@ msgid "Table %1$s has been altered successfully."
 msgstr "Tabel %1$s berhasil diubah."
 
 #: libraries/classes/Controllers/Table/TableRelationController.php:210
-#, fuzzy
 msgid "Display column was successfully updated."
-msgstr "Kolum layar telah sukses diperbaharui."
+msgstr "Kolum tampilan sukses diperbaharui."
 
 #: libraries/classes/Controllers/Table/TableRelationController.php:251
 #: libraries/classes/Controllers/Table/TableSearchController.php:565
@@ -4779,13 +4778,12 @@ msgid "Transaction buffer size"
 msgstr "Besar penyangga transaksi"
 
 #: libraries/classes/Engines/Pbxt.php:68
-#, fuzzy
 msgid ""
 "The size of the global transaction log buffer (the engine allocates 2 "
 "buffers of this size). The default is 1MB."
 msgstr ""
-"Ukuran global log transaksi penyangga (mesin mengalokasikan 2 buffer ukuran "
-"ini). Standarnya adalah 1MB."
+"Ukuran global log transaksi penyangga (mesin mengalokasikan 2 buffer dari "
+"ukuran ini). Standarnya adalah 1MB."
 
 #: libraries/classes/Engines/Pbxt.php:75
 msgid "Checkpoint frequency"
@@ -5371,9 +5369,9 @@ msgstr "Tutup semua"
 
 #. l10n: The word "Node" must not be translated here
 #: libraries/classes/Navigation/NodeFactory.php:34
-#, fuzzy, php-format
+#, php-format
 msgid "Invalid class name \"%1$s\", using default of \"Node\""
-msgstr "Nama kelas tidak valid \"%1$s\", menggunakan default \"Node\""
+msgstr "Nama kelas tidak valid \"%1$s\", menggunakan standar \"Node\""
 
 #: libraries/classes/Navigation/NodeFactory.php:61
 #, fuzzy, php-format
@@ -5382,9 +5380,8 @@ msgid "Could not load class \"%1$s\""
 msgstr "Tidak dapat menambah kolom!"
 
 #: libraries/classes/Navigation/Nodes/Node.php:798
-#, fuzzy
 msgid "Expand/Collapse"
-msgstr "Bentangkan/Collapse"
+msgstr "Bentangkan/Tutup"
 
 #: libraries/classes/Navigation/Nodes/NodeColumnContainer.php:25
 #: libraries/classes/Navigation/Nodes/NodeColumnContainer.php:26
@@ -6205,7 +6202,7 @@ msgstr "Ketidakleluasaan untuk tabel pelimpahan (Dumped Tables)"
 
 #: libraries/classes/Plugins/Export/ExportSql.php:1752
 msgid "Indexes for table"
-msgstr "Indeks untuk tabel:"
+msgstr "Indeks untuk tabel"
 
 #: libraries/classes/Plugins/Export/ExportSql.php:1780
 #, fuzzy
@@ -13213,7 +13210,7 @@ msgstr "Routine %1$s telah diubah."
 #: libraries/rte/rte_routines.lib.php:441
 #, php-format
 msgid "Routine %1$s has been modified."
-msgstr "Routine %1$s telah diubah."
+msgstr "Routine %1$s telah dimodifikasi."
 
 #: libraries/rte/rte_routines.lib.php:893
 msgid "Routine name"
@@ -17814,8 +17811,8 @@ msgid ""
 "%s%% of all temporary tables are being written to disk, this value should be "
 "below 25%%"
 msgstr ""
-"%s%% dari semua tabel sementara yang sedang ditulis ke disk, nilai ini "
-"seharusnya kurang dari 25%%"
+"%s%% dari semua tabel sementara sedang ditulis ke disk, nilai ini seharusnya "
+"kurang dari 25%%"
 
 #: libraries/advisory_rules.txt:269
 msgid "Temp disk rate"
