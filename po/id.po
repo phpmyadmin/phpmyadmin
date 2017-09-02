@@ -3,8 +3,8 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.8.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2017-08-10 09:14-0400\n"
-"PO-Revision-Date: 2017-09-02 04:04+0000\n"
-"Last-Translator: Muhammad Athallah <mhd.athallah@gmail.com>\n"
+"PO-Revision-Date: 2017-09-02 09:21+0000\n"
+"Last-Translator: Chandra Chou <developerchan1@gmail.com>\n"
 "Language-Team: Indonesian "
 "<https://hosted.weblate.org/projects/phpmyadmin/master/id/>\n"
 "Language: id\n"
@@ -176,7 +176,7 @@ msgstr "Komentar"
 #: templates/columns_definitions/column_indexes.twig:36
 #: templates/table/structure/check_all_table_column.twig:52
 msgid "Primary"
-msgstr "Kunci Utama"
+msgstr "Utama"
 
 #: db_datadict.php:164 js/messages.php:376
 #: libraries/central_columns.lib.php:962 libraries/classes/Index.php:568
@@ -244,7 +244,7 @@ msgstr "Tampilkan dump (skema) dari database"
 #: libraries/classes/DbQbe.php:330
 #: libraries/classes/Navigation/NavigationTree.php:924
 msgid "No tables found in database."
-msgstr "Tabel tidak ditemukan di database."
+msgstr "Tidak ada tabel yang ditemukan di dalam database."
 
 #: db_export.php:65
 #: libraries/classes/Controllers/Server/ServerDatabasesController.php:342
@@ -302,7 +302,9 @@ msgstr "Nama database kosong!"
 
 #: db_operations.php:53
 msgid "Cannot copy database to the same name. Change the name and try again."
-msgstr "Nama basis data tidak boleh sama. Gunakan nama lain dan coba lagi."
+msgstr ""
+"Tidak dapat menyalin database dengan nama yang sama. Gunakan nama lain dan "
+"coba kembali."
 
 #: db_operations.php:142
 #, php-format
@@ -574,7 +576,7 @@ msgstr "Bookmark %s telah dibuat."
 #, php-format
 msgid "Import has been successfully finished, %d query executed."
 msgid_plural "Import has been successfully finished, %d queries executed."
-msgstr[0] "Impor sukses, %d kueri dieksekusi."
+msgstr[0] "Import telah berhasil diselesaikan , %d kueri dieksekusi."
 
 #: import.php:613
 #, php-format
@@ -582,9 +584,9 @@ msgid ""
 "Script timeout passed, if you want to finish import, please %sresubmit the "
 "same file%s and import will resume."
 msgstr ""
-"Batas script sudah melewati batas, jika anda ingin menyelesaikan proses "
-"import, silahkan %skirim ulang berkas yang %ssama agar proses import segera "
-"dilanjutkan."
+"Script telah melewati batas waktu, jika anda ingin menyelesaikan proses "
+"import, harap %skirim ulang berkas yang sama %s dan proses import akan "
+"berlanjut."
 
 #: import.php:623
 msgid ""
@@ -748,10 +750,10 @@ msgid ""
 "multibyte charset. Without the mbstring extension phpMyAdmin is unable to "
 "split strings correctly and it may result in unexpected results."
 msgstr ""
-"Ekstensi PHP mbstring tidak ditemukan dan rupanya Anda menggunakan Charset "
-"Multibyte. Tanpa ekstensi mbstring phpMyAdmin tidak sanggup untuk membagikan "
-"baris-baris dengan cara yang benar. Hal ini mampu mengakibatkan hasil yang "
-"tidak diinginkan."
+"Ekstensi PHP mbstring tidak ditemukan dan sepertinya Anda menggunakan "
+"Charset Multibyte. Tanpa ekstensi mbstring phpMyAdmin tidak dapat membagikan "
+"baris-baris dengan benar dan hal ini mampu mengakibatkan hasil yang tidak "
+"diinginkan."
 
 #: index.php:482
 msgid ""
@@ -5403,10 +5405,8 @@ msgid "Database operations"
 msgstr "Opsi ekspor basis data"
 
 #: libraries/classes/Navigation/Nodes/NodeDatabase.php:684
-#, fuzzy
-#| msgid "Show hint"
 msgid "Show hidden items"
-msgstr "Tampilkan petunjuk"
+msgstr "Tampilkan item tersembunyi"
 
 #: libraries/classes/Navigation/Nodes/NodeDatabaseChild.php:53
 #: libraries/insert_edit.lib.php:235
