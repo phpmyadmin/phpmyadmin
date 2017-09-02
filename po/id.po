@@ -3,8 +3,8 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.8.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2017-08-10 09:14-0400\n"
-"PO-Revision-Date: 2017-09-02 09:25+0000\n"
-"Last-Translator: Imam Ilham Khawarizma <khrzm@tuta.io>\n"
+"PO-Revision-Date: 2017-09-02 11:15+0000\n"
+"Last-Translator: Muhammad Athallah <mhd.athallah@gmail.com>\n"
 "Language-Team: Indonesian "
 "<https://hosted.weblate.org/projects/phpmyadmin/master/id/>\n"
 "Language: id\n"
@@ -16407,10 +16407,8 @@ msgid "Track view"
 msgstr "Lacak tabel"
 
 #: templates/table/secondary_tabs.twig:29
-#, fuzzy
-#| msgid "Relation view"
 msgid "Relation view"
-msgstr "Tampilan relasi"
+msgstr "Tampilan hubungan"
 
 #: templates/table/structure/table_structure_row.twig:162
 #, php-format
