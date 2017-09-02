@@ -3,8 +3,8 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.8.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2017-08-10 09:14-0400\n"
-"PO-Revision-Date: 2017-09-02 15:11+0000\n"
-"Last-Translator: Eurecode <jason.yonathan.h@gmail.com>\n"
+"PO-Revision-Date: 2017-09-02 15:21+0000\n"
+"Last-Translator: Andreas Lukita <ffvaand@gmail.com>\n"
 "Language-Team: Indonesian "
 "<https://hosted.weblate.org/projects/phpmyadmin/master/id/>\n"
 "Language: id\n"
@@ -6433,10 +6433,8 @@ msgid "MySQL Spatial Extension does not support ESRI type \"%s\"."
 msgstr "MySQL Spatial Ekstensi tidak mendukung ESRI Jenis \"%s\"."
 
 #: libraries/classes/Plugins/Import/ImportShp.php:229
-#, fuzzy
-#| msgid "The imported file does not contain any data"
 msgid "The imported file does not contain any data!"
-msgstr "Berkas yang diimpor tidak mengandung data"
+msgstr "Berkas yang diimpor tidak mengandung data!"
 
 #: libraries/classes/Plugins/Import/ImportSql.php:67
 msgid "SQL compatibility mode:"
@@ -6546,16 +6544,12 @@ msgid "Order of the tables"
 msgstr "tidak keduanya dari yang di atas"
 
 #: libraries/classes/Plugins/Schema/SchemaPdf.php:104
-#, fuzzy
-#| msgid "Ascending"
 msgid "Name (Ascending)"
-msgstr "Menaik"
+msgstr "Nama (Menaik)"
 
 #: libraries/classes/Plugins/Schema/SchemaPdf.php:105
-#, fuzzy
-#| msgid "Descending"
 msgid "Name (Descending)"
-msgstr "Menurun"
+msgstr "Nama (Menurun)"
 
 #: libraries/classes/Plugins/SchemaPlugin.php:69
 msgid "Show color"
