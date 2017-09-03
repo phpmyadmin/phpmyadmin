@@ -3,8 +3,8 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.8.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2017-08-10 09:14-0400\n"
-"PO-Revision-Date: 2017-09-03 11:18+0000\n"
-"Last-Translator: Eurecode <jason.yonathan.h@gmail.com>\n"
+"PO-Revision-Date: 2017-09-03 11:39+0000\n"
+"Last-Translator: Chandra Chou <developerchan1@gmail.com>\n"
 "Language-Team: Indonesian "
 "<https://hosted.weblate.org/projects/phpmyadmin/master/id/>\n"
 "Language: id\n"
@@ -5371,10 +5371,9 @@ msgid "Invalid class name \"%1$s\", using default of \"Node\""
 msgstr "Nama kelas tidak valid \"%1$s\", menggunakan standar \"Node\""
 
 #: libraries/classes/Navigation/NodeFactory.php:61
-#, fuzzy, php-format
-#| msgid "Could not add columns!"
+#, php-format
 msgid "Could not load class \"%1$s\""
-msgstr "Tidak dapat menambah kolom!"
+msgstr "Tidak dapat memuat kelas %1$s"
 
 #: libraries/classes/Navigation/Nodes/Node.php:798
 msgid "Expand/Collapse"
@@ -5394,10 +5393,8 @@ msgid "New"
 msgstr "Baru"
 
 #: libraries/classes/Navigation/Nodes/NodeDatabase.php:40
-#, fuzzy
-#| msgid "Database export options"
 msgid "Database operations"
-msgstr "Opsi ekspor basis data"
+msgstr "Operasi database"
 
 #: libraries/classes/Navigation/Nodes/NodeDatabase.php:684
 msgid "Show hidden items"
@@ -5536,9 +5533,8 @@ msgstr ""
 "dengan informasi yang telah diberikan oleh administrator server MySQL."
 
 #: libraries/classes/Plugins/Auth/AuthenticationConfig.php:158
-#, fuzzy
 msgid "Retry to connect"
-msgstr "Coba lagi untuk menghubungkan"
+msgstr "Coba untuk menghubungkan kembali"
 
 #: libraries/classes/Plugins/Auth/AuthenticationCookie.php:148
 msgid "Your session has expired. Please log in again."
@@ -5778,9 +5774,8 @@ msgstr "Struktur untuk view"
 #: libraries/classes/Plugins/Export/ExportOdt.php:744
 #: libraries/classes/Plugins/Export/ExportSql.php:2118
 #: libraries/classes/Plugins/Export/ExportTexytext.php:555
-#, fuzzy
 msgid "Stand-in structure for view"
-msgstr "Stand-dalam struktur untuk tampilan"
+msgstr "Stand-in struktur untuk tampilan"
 
 #: libraries/classes/Plugins/Export/ExportJson.php:88
 #, fuzzy
@@ -16788,28 +16783,20 @@ msgstr ""
 "Enter. Untuk membuat ini permanen, pengaturan tampilan."
 
 #: templates/console/display.twig:207
-#, fuzzy
-#| msgid "Switch to copied table"
 msgid "Switch to dark theme"
-msgstr "Pindah ke tabel salinan"
+msgstr "Beralih ke tema gelap"
 
 #: templates/table/chart/tbl_chart.twig:45
-#, fuzzy
-#| msgid "Bar"
 msgctxt "Chart type"
 msgid "Bar"
-msgstr "Batang"
+msgstr "Diagram Batang"
 
 #: templates/table/chart/tbl_chart.twig:52
-#, fuzzy
-#| msgid "Column"
 msgctxt "Chart type"
 msgid "Column"
 msgstr "Kolom"
 
 #: templates/table/chart/tbl_chart.twig:59
-#, fuzzy
-#| msgid "Line"
 msgctxt "Chart type"
 msgid "Line"
 msgstr "Garis"
@@ -16827,18 +16814,14 @@ msgid "Area"
 msgstr "daerah"
 
 #: templates/table/chart/tbl_chart.twig:80
-#, fuzzy
-#| msgid "Pie"
 msgctxt "Chart type"
 msgid "Pie"
-msgstr "Pai"
+msgstr "Diagram Lingkaran/Pie"
 
 #: templates/table/chart/tbl_chart.twig:87
-#, fuzzy
-#| msgid "Time"
 msgctxt "Chart type"
 msgid "Timeline"
-msgstr "Waktu"
+msgstr "Garis waktu"
 
 #: templates/table/chart/tbl_chart.twig:94
 msgctxt "Chart type"
@@ -16850,10 +16833,8 @@ msgid "Stacked"
 msgstr "Bertumpuk"
 
 #: templates/table/chart/tbl_chart.twig:108
-#, fuzzy
-#| msgid "Chart title"
 msgid "Chart title:"
-msgstr "Judul bagan"
+msgstr "Judul grafik:"
 
 #: templates/table/chart/tbl_chart.twig:119
 msgid "X-Axis:"
