@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.7.4-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2017-08-10 09:13-0400\n"
-"PO-Revision-Date: 2017-09-03 21:39+0000\n"
-"Last-Translator: Anton Alekseevich <AntonBoch12.44@gmail.com>\n"
+"PO-Revision-Date: 2017-09-04 08:17+0000\n"
+"Last-Translator: Egorov Artyom <unlucky@inbox.ru>\n"
 "Language-Team: Russian "
 "<https://hosted.weblate.org/projects/phpmyadmin/4-7/ru/>\n"
 "Language: ru\n"
@@ -8250,8 +8250,7 @@ msgstr "Включить статистику"
 #: libraries/controllers/server/ServerVariablesController.php:113
 #, php-format
 msgid "Not enough privilege to view server variables and settings. %s"
-msgstr ""
-"Недостаточно прав для просмотра настроек и значений переменных сервера. %s"
+msgstr "Недостаточно прав для просмотра настроек и переменных сервера. %s"
 
 #: libraries/controllers/server/ServerVariablesController.php:231
 msgid "Setting variable failed"
