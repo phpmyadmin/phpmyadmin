@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.7.4-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2017-08-10 09:13-0400\n"
-"PO-Revision-Date: 2017-08-20 01:46+0000\n"
-"Last-Translator: Kyeong Su Shin <cdac1234@gmail.com>\n"
+"PO-Revision-Date: 2017-09-04 04:47+0000\n"
+"Last-Translator: Cyan K <arewecy@gmail.com>\n"
 "Language-Team: Korean "
 "<https://hosted.weblate.org/projects/phpmyadmin/4-7/ko/>\n"
 "Language: ko\n"
@@ -1512,8 +1512,6 @@ msgid "Table"
 msgstr "테이블"
 
 #: js/messages.php:300 libraries/display_export.lib.php:926
-#, fuzzy
-#| msgid "Column"
 msgctxt "Alias"
 msgid "Column"
 msgstr "컬럼명"
@@ -2151,7 +2149,7 @@ msgstr ""
 msgid ""
 "MySQL accepts additional values not selectable by the datepicker; key in "
 "those values directly if desired"
-msgstr "MySQL은 Datepicker에서 선택할 수 없는 추가 값을 수신합니다. 원하는 경우 해당 값의 키를 직접 입력합니다."
+msgstr "MySQL은 Datepicker에서 선택할 수 없는 추가 값을 수신합니다. 원하는 경우 해당 값의 키를 직접 입력합니다"
 
 #: js/messages.php:544
 msgid ""
@@ -2977,8 +2975,6 @@ msgid "Collation"
 msgstr "데이터정렬방식"
 
 #: libraries/Charsets.php:244
-#, fuzzy
-#| msgid "unknown"
 msgid "Unknown"
 msgstr "알수없음"
 
@@ -3203,17 +3199,14 @@ msgid "Slovenian"
 msgstr "슬로베니아어"
 
 #: libraries/Charsets.php:470 libraries/Charsets.php:530
-#, fuzzy
-#| msgid "Spanish"
 msgctxt "Collation"
 msgid "Spanish (modern)"
-msgstr "스페인어"
+msgstr "스페인어 (현대)"
 
 #: libraries/Charsets.php:477 libraries/Charsets.php:527
-#, fuzzy
 msgctxt "Collation"
 msgid "Spanish (traditional)"
-msgstr "스페인어 (Traditional)"
+msgstr "스페인어 (고전)"
 
 #: libraries/Charsets.php:496
 msgctxt "Collation"
@@ -3241,15 +3234,11 @@ msgid "accent-sensitive"
 msgstr "악센트 구분"
 
 #: libraries/Charsets.php:576
-#, fuzzy
-#| msgid "multilingual"
 msgctxt "Collation variant"
 msgid "multi-level"
-msgstr "다국어"
+msgstr "다중레벨"
 
 #: libraries/Charsets.php:579
-#, fuzzy
-#| msgid "Binary"
 msgctxt "Collation variant"
 msgid "binary"
 msgstr "바이너리"
@@ -3621,8 +3610,6 @@ msgid "Relational key"
 msgstr "관계키"
 
 #: libraries/DisplayResults.php:1741
-#, fuzzy
-#| msgid "Display column for relations"
 msgid "Display column for relationships"
 msgstr "관계에 대해 칼럼 표시"
 
@@ -7864,15 +7851,13 @@ msgstr "테이블 %s 을 비웠습니다."
 
 #: libraries/controllers/database/DatabaseStructureController.php:596
 #: tbl_operations.php:383 view_operations.php:136
-#, fuzzy, php-format
-#| msgid "View %s has been dropped."
+#, php-format
 msgid "View %s has been dropped."
 msgstr "뷰 %s가 제거되었습니다."
 
 #: libraries/controllers/database/DatabaseStructureController.php:597
 #: tbl_operations.php:384
-#, fuzzy, php-format
-#| msgid "Table %s has been dropped."
+#, php-format
 msgid "Table %s has been dropped."
 msgstr "테이블 %s를 삭제했습니다."
 
@@ -7974,16 +7959,13 @@ msgstr ""
 
 #: libraries/controllers/server/ServerDatabasesController.php:582
 #: libraries/controllers/server/ServerDatabasesController.php:588
-#, fuzzy
-#| msgid "Enable Statistics"
 msgid "Enable statistics"
 msgstr "통계 보기"
 
 #: libraries/controllers/server/ServerVariablesController.php:113
-#, fuzzy, php-format
-#| msgid "Server variables and settings"
+#, php-format
 msgid "Not enough privilege to view server variables and settings. %s"
-msgstr "서버의 환경설정"
+msgstr "서버의 변수와 설정을 볼 권한이 없습니다. %s"
 
 #: libraries/controllers/server/ServerVariablesController.php:231
 msgid "Setting variable failed"
@@ -8011,16 +7993,12 @@ msgid "Table %1$s has been altered successfully."
 msgstr "테이블 %1$s 가 성공적으로 수정되었습니다."
 
 #: libraries/controllers/table/TableRelationController.php:212
-#, fuzzy
-#| msgid "Thread %s was successfully killed."
 msgid "Display column was successfully updated."
-msgstr "쓰레드 %s 를 죽였습니다."
+msgstr "보여지는 칼럼값이 성공적으로 업데이트 되었습니다."
 
 #: libraries/controllers/table/TableRelationController.php:282
-#, fuzzy
-#| msgid "Internal relations were successfully updated."
 msgid "Internal relationships were successfully updated."
-msgstr "내부 릴레이션(들)이 성공적으로 갱신되었습니다."
+msgstr "내부 관계가 성공적으로 갱신되었습니다."
 
 #: libraries/controllers/table/TableSearchController.php:768
 msgid "Table search"
@@ -8056,11 +8034,10 @@ msgid "Query error"
 msgstr "질의 오류"
 
 #: libraries/controllers/table/TableStructureController.php:961
-#, fuzzy, php-format
-#| msgid "Table %1$s has been altered successfully."
+#, php-format
 msgid ""
 "Table %1$s has been altered successfully. Privileges have been adjusted."
-msgstr "테이블 %1$s 가 성공적으로 수정되었습니다."
+msgstr "테이블 %1$s 가 성공적으로 수정되었습니다. 권한이 조정되었습니다."
 
 #: libraries/controllers/table/TableStructureController.php:1181
 #: templates/table/structure/check_all_table_column.phtml:18
@@ -9081,16 +9058,12 @@ msgid "Do you really want to execute the following query?"
 msgstr "정말로 다음 쿼리를 실행하시겠습니까?"
 
 #: libraries/navigation/Navigation.php:55
-#, fuzzy
-#| msgid "An error has occurred while loading the navigation tree"
 msgid "An error has occurred while loading the navigation display"
-msgstr "네비게이션 트리를 불러오는 도중 에러가 발생함"
+msgstr "네비게이션 디스플레이를 불러오는 도중 에러가 발생함"
 
 #: libraries/navigation/Navigation.php:193
-#, fuzzy
-#| msgid "Column names: "
 msgid "Groups:"
-msgstr "열(컬럼) 이름: "
+msgstr "그룹:"
 
 #: libraries/navigation/Navigation.php:194
 msgid "Events:"
@@ -9122,10 +9095,8 @@ msgid "Log out"
 msgstr "로그아웃"
 
 #: libraries/navigation/NavigationHeader.php:172
-#, fuzzy
-#| msgid "Dumping data for table"
 msgid "Empty session data"
-msgstr "테이블의 덤프 데이터"
+msgstr "빈 세션 데이터"
 
 #: libraries/navigation/NavigationHeader.php:190
 msgid "phpMyAdmin documentation"
@@ -9158,8 +9129,6 @@ msgstr ""
 
 #: libraries/navigation/NavigationTree.php:1368
 #: libraries/navigation/NavigationTree.php:1399
-#, fuzzy
-#| msgid "Save as file"
 msgid "Clear fast filter"
 msgstr "빠른 필터 비우기"
 
@@ -9174,10 +9143,9 @@ msgid "Invalid class name \"%1$s\", using default of \"Node\""
 msgstr "\"%1$s\"를 클래스 이름으로 사용할 수 없음, 기본 값 \"Node\"를 사용"
 
 #: libraries/navigation/NodeFactory.php:61
-#, fuzzy, php-format
-#| msgid "Could not add columns!"
+#, php-format
 msgid "Could not load class \"%1$s\""
-msgstr "컬럼을 추가할 수 없음!"
+msgstr "클래스 \"%1$s\"를 불러올 수 없음"
 
 #: libraries/navigation/nodes/Node.php:798
 msgid "Expand/Collapse"
@@ -9203,9 +9171,6 @@ msgid "Show hidden items"
 msgstr "숨겨진 항목 보기"
 
 #: libraries/navigation/nodes/NodeDatabaseContainer.php:36
-#, fuzzy
-#| msgctxt "Create new procedure"
-#| msgid "New"
 msgctxt "Create new database"
 msgid "New"
 msgstr "새로운"
@@ -9989,10 +9954,8 @@ msgstr "객체 생성 옵션"
 
 #: libraries/plugins/export/ExportLatex.php:118
 #: libraries/plugins/export/ExportLatex.php:170
-#, fuzzy
-#| msgid "Table comments:"
 msgid "Table caption:"
-msgstr "테이블 설명:"
+msgstr "테이블 주석:"
 
 #: libraries/plugins/export/ExportLatex.php:124
 #: libraries/plugins/export/ExportLatex.php:176
@@ -10073,16 +10036,12 @@ msgid "Report title:"
 msgstr "보고서 제목:"
 
 #: libraries/plugins/export/ExportPdf.php:233
-#, fuzzy
-#| msgid "Dumping data for table"
 msgid "Dumping data"
-msgstr "테이블의 덤프 데이터"
+msgstr "덤프 데이터"
 
 #: libraries/plugins/export/ExportPdf.php:288
-#, fuzzy
-#| msgid "structure"
 msgid "View structure"
-msgstr "구조"
+msgstr "구조 보기"
 
 #: libraries/plugins/export/ExportPdf.php:291
 #, fuzzy
