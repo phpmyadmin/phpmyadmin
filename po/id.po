@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.7.4-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2017-08-10 09:13-0400\n"
-"PO-Revision-Date: 2017-09-03 05:12+0000\n"
-"Last-Translator: Imam Ilham Khawarizma <khrzm@tuta.io>\n"
+"PO-Revision-Date: 2017-09-03 11:18+0000\n"
+"Last-Translator: Eurecode <jason.yonathan.h@gmail.com>\n"
 "Language-Team: Indonesian "
 "<https://hosted.weblate.org/projects/phpmyadmin/4-7/id/>\n"
 "Language: id\n"
@@ -1680,9 +1680,8 @@ msgid "Cancel"
 msgstr "Batal"
 
 #: js/messages.php:357 libraries/Header.php:447
-#, fuzzy
 msgid "Page-related settings"
-msgstr "Pengaturan Terkait Halaman"
+msgstr "Pengaturan Terkait dengan Halaman"
 
 #: js/messages.php:358 libraries/config/FormDisplay.tpl.php:424
 msgid "Apply"
@@ -3324,13 +3323,12 @@ msgid "Font size"
 msgstr "Ukuran huruf"
 
 #: libraries/Console.php:86
-#, fuzzy, php-format
+#, php-format
 msgid "Showing %1$d bookmark (both private and shared)"
 msgid_plural "Showing %1$d bookmarks (both private and shared)"
 msgstr[0] "Menampilkan penanda %1$d (baik privat maupun bersama)"
 
 #: libraries/Console.php:93
-#, fuzzy
 msgid "No bookmarks"
 msgstr "Tidak ada penanda"
 
@@ -3834,9 +3832,8 @@ msgid "Unknown error in file upload."
 msgstr "Galat tidak dikenal sewaktu mengunggah berkas."
 
 #: libraries/File.php:445
-#, fuzzy
 msgid "File is a symbolic link"
-msgstr "File merupakan tautan simbolik"
+msgstr "File adalah tautan simbolik"
 
 #: libraries/File.php:450 libraries/File.php:542
 msgid "File could not be read!"
@@ -8415,7 +8412,6 @@ msgid "Table %1$s has been altered successfully."
 msgstr "Tabel %1$s berhasil diubah."
 
 #: libraries/controllers/table/TableRelationController.php:212
-#, fuzzy
 msgid "Display column was successfully updated."
 msgstr "Kolum layar telah sukses diupdate."
 
@@ -9206,7 +9202,6 @@ msgid "Data log threshold"
 msgstr "Ambang log data"
 
 #: libraries/engines/Pbxt.php:85
-#, fuzzy
 msgid ""
 "The maximum size of a data log file. The default value is 64MB. PBXT can "
 "create a maximum of 32000 data logs, which are used by all tables. So the "
