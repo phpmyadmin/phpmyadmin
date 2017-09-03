@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.7.4-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2017-08-10 09:13-0400\n"
-"PO-Revision-Date: 2017-09-03 12:31+0000\n"
-"Last-Translator: Eurecode <jason.yonathan.h@gmail.com>\n"
+"PO-Revision-Date: 2017-09-03 15:18+0000\n"
+"Last-Translator: Imam Ilham Khawarizma <khrzm@tuta.io>\n"
 "Language-Team: Indonesian "
 "<https://hosted.weblate.org/projects/phpmyadmin/4-7/id/>\n"
 "Language: id\n"
@@ -8412,8 +8412,9 @@ msgid "Table %1$s has been altered successfully."
 msgstr "Tabel %1$s berhasil diubah."
 
 #: libraries/controllers/table/TableRelationController.php:212
+#, fuzzy
 msgid "Display column was successfully updated."
-msgstr "Kolum layar telah sukses diupdate."
+msgstr "Kolom layar telah sukses diupdate."
 
 #: libraries/controllers/table/TableRelationController.php:282
 msgid "Internal relationships were successfully updated."
@@ -10573,21 +10574,21 @@ msgstr "Opsi pembuatan objek"
 #, fuzzy
 #| msgid "Table caption"
 msgid "Table caption:"
-msgstr "Judul halaman"
+msgstr "Keterangan tabel:"
 
 #: libraries/plugins/export/ExportLatex.php:124
 #: libraries/plugins/export/ExportLatex.php:176
 #, fuzzy
 #| msgid "Table caption (continued)"
 msgid "Table caption (continued):"
-msgstr "Judul halaman (lanjutan)"
+msgstr "Keterangan tabel (lanjutan):"
 
 #: libraries/plugins/export/ExportLatex.php:130
 #: libraries/plugins/export/ExportLatex.php:182
 #, fuzzy
 #| msgid "Label key"
 msgid "Label key:"
-msgstr "Kunci nama"
+msgstr "Kunci label:"
 
 #: libraries/plugins/export/ExportLatex.php:137
 #: libraries/plugins/export/ExportOdt.php:98
@@ -10610,7 +10611,7 @@ msgstr "Tampilkan jenis MIME"
 #, fuzzy
 #| msgid "Put columns names in the first row"
 msgid "Put columns names in the first row:"
-msgstr "Masukkan nama kolom pada baris pertama"
+msgstr "Masukkan nama kolom pada baris pertama:"
 
 #: libraries/plugins/export/ExportLatex.php:213
 #: libraries/plugins/export/ExportSql.php:691
@@ -10619,7 +10620,7 @@ msgstr "Masukkan nama kolom pada baris pertama"
 #, fuzzy
 #| msgid "Host"
 msgid "Host:"
-msgstr "Inang"
+msgstr "Host:"
 
 #: libraries/plugins/export/ExportLatex.php:218
 #: libraries/plugins/export/ExportSql.php:697
@@ -10655,7 +10656,7 @@ msgstr "Struktur:"
 #, fuzzy
 #| msgid "Export contents"
 msgid "Export table names"
-msgstr "Ekspor isi"
+msgstr "Ekspor nama tabel"
 
 #: libraries/plugins/export/ExportMediawiki.php:86
 #, fuzzy
@@ -10677,7 +10678,7 @@ msgstr "Dumping data untuk tabel"
 #, fuzzy
 #| msgid "structure"
 msgid "View structure"
-msgstr "struktur"
+msgstr "Lihat struktur"
 
 #: libraries/plugins/export/ExportPdf.php:291
 #, fuzzy
@@ -10711,7 +10712,7 @@ msgstr ""
 #, fuzzy
 #| msgid "Export method"
 msgid "Export metadata"
-msgstr "Metode ekspor"
+msgstr "Ekspor metadata"
 
 #: libraries/plugins/export/ExportSql.php:187
 #, fuzzy
@@ -10758,7 +10759,7 @@ msgstr ""
 #, fuzzy
 #| msgid "Object creation options"
 msgid "Data creation options"
-msgstr "Opsi pembuatan objek"
+msgstr "Opsi pembuatan data"
 
 #: libraries/plugins/export/ExportSql.php:347
 #: libraries/plugins/export/ExportSql.php:2294
@@ -10858,10 +10859,8 @@ msgid "alias export may not work reliably in all cases."
 msgstr "ekspor alias mungkin tidak bekerja andal dalam semua kasus."
 
 #: libraries/plugins/export/ExportSql.php:1006
-#, fuzzy
-#| msgid "Metadata Headers"
 msgid "Metadata"
-msgstr "Kepala Metadata"
+msgstr "Metadata"
 
 #: libraries/plugins/export/ExportSql.php:1076
 #, fuzzy, php-format
@@ -10940,7 +10939,7 @@ msgstr "JENIS MIME UNTUK TABEL"
 #, fuzzy
 #| msgid "RELATIONS FOR TABLE"
 msgid "RELATIONSHIPS FOR TABLE"
-msgstr "RELASI UNTUK TABEL"
+msgstr "HUBUNGAN RELASI UNTUK TABEL"
 
 #: libraries/plugins/export/ExportSql.php:2059
 #, fuzzy
