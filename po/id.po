@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.7.4-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2017-08-10 09:13-0400\n"
-"PO-Revision-Date: 2017-09-03 04:39+0000\n"
-"Last-Translator: Zoisom <p.nestiawan@gmail.com>\n"
+"PO-Revision-Date: 2017-09-03 05:12+0000\n"
+"Last-Translator: Imam Ilham Khawarizma <khrzm@tuta.io>\n"
 "Language-Team: Indonesian "
 "<https://hosted.weblate.org/projects/phpmyadmin/4-7/id/>\n"
 "Language: id\n"
@@ -3327,9 +3327,10 @@ msgstr "Ukuran huruf"
 #, fuzzy, php-format
 msgid "Showing %1$d bookmark (both private and shared)"
 msgid_plural "Showing %1$d bookmarks (both private and shared)"
-msgstr[0] "Menampilkan bookmark %1$d (baik privat maupun bersama)"
+msgstr[0] "Menampilkan penanda %1$d (baik privat maupun bersama)"
 
 #: libraries/Console.php:93
+#, fuzzy
 msgid "No bookmarks"
 msgstr "Tidak ada penanda"
 
@@ -8416,7 +8417,7 @@ msgstr "Tabel %1$s berhasil diubah."
 #: libraries/controllers/table/TableRelationController.php:212
 #, fuzzy
 msgid "Display column was successfully updated."
-msgstr "Kolum layar telah sukses diperbarui."
+msgstr "Kolum layar telah sukses diupdate."
 
 #: libraries/controllers/table/TableRelationController.php:282
 msgid "Internal relationships were successfully updated."
