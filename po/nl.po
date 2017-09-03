@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.8.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2017-08-10 09:14-0400\n"
-"PO-Revision-Date: 2017-08-31 12:01+0000\n"
+"PO-Revision-Date: 2017-09-01 22:44+0000\n"
 "Last-Translator: Steven WdV <stevenwdv@gmail.com>\n"
 "Language-Team: Dutch "
 "<https://hosted.weblate.org/projects/phpmyadmin/master/nl/>\n"
@@ -7778,7 +7778,7 @@ msgstr "Geen preview beschikbaar."
 
 #: libraries/classes/Theme.php:482
 msgid "take it"
-msgstr "neem het"
+msgstr "gebruiken"
 
 #: libraries/classes/ThemeManager.php:94
 #, php-format
@@ -15669,7 +15669,7 @@ msgstr "Bladwijzers"
 
 #: templates/console/display.twig:36
 msgid "Press Ctrl+Enter to execute query"
-msgstr "Druk Ctrl+Enter om de query uit te voeren"
+msgstr "Druk op Ctrl+Enter om de query uit te voeren"
 
 #: templates/console/display.twig:42
 msgid "Press Enter to execute query"
@@ -15778,7 +15778,7 @@ msgstr "Queryberichten altijd volledig weergeven"
 
 #: templates/console/display.twig:185
 msgid "Show query history at start"
-msgstr "Query geschiedenis aan begin weergeven"
+msgstr "Querygeschiedenis aan begin weergeven"
 
 #: templates/console/display.twig:192
 msgid "Show current browsing query"
