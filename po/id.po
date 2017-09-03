@@ -3,8 +3,8 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.8.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2017-08-10 09:14-0400\n"
-"PO-Revision-Date: 2017-09-03 15:18+0000\n"
-"Last-Translator: Imam Ilham Khawarizma <khrzm@tuta.io>\n"
+"PO-Revision-Date: 2017-09-04 07:20+0000\n"
+"Last-Translator: Chandra Chou <developerchan1@gmail.com>\n"
 "Language-Team: Indonesian "
 "<https://hosted.weblate.org/projects/phpmyadmin/master/id/>\n"
 "Language: id\n"
@@ -244,7 +244,7 @@ msgstr "Tampilkan dump (skema) dari database"
 #: libraries/classes/DbQbe.php:330
 #: libraries/classes/Navigation/NavigationTree.php:924
 msgid "No tables found in database."
-msgstr "Tidak ada tabel yang ditemukan di dalam database."
+msgstr "Tidak ada tabel ditemukan di dalam database."
 
 #: db_export.php:65
 #: libraries/classes/Controllers/Server/ServerDatabasesController.php:342
@@ -576,7 +576,7 @@ msgstr "Bookmark %s telah dibuat."
 #, php-format
 msgid "Import has been successfully finished, %d query executed."
 msgid_plural "Import has been successfully finished, %d queries executed."
-msgstr[0] "Import telah berhasil diselesaikan , %d kueri dieksekusi."
+msgstr[0] "Impor telah berhasil diselesaikan , %d kueri dieksekusi."
 
 #: import.php:613
 #, php-format
@@ -4021,9 +4021,8 @@ msgid "Table %1$s has been altered successfully."
 msgstr "Tabel %1$s berhasil diubah."
 
 #: libraries/classes/Controllers/Table/TableRelationController.php:210
-#, fuzzy
 msgid "Display column was successfully updated."
-msgstr "Kolom layar telah sukses diupdate."
+msgstr "Kolom tampilan telah sukses diupdate."
 
 #: libraries/classes/Controllers/Table/TableRelationController.php:251
 #: libraries/classes/Controllers/Table/TableSearchController.php:565
@@ -16871,16 +16870,12 @@ msgid "Series column:"
 msgstr "Dalam kolom:"
 
 #: templates/table/chart/tbl_chart.twig:335
-#, fuzzy
-#| msgid "Values for column %s"
 msgid "Value Column:"
-msgstr "Nilai untuk kolom %s"
+msgstr "Nilai Kolom:"
 
 #: templates/table/chart/tbl_chart.twig:395
-#, fuzzy
-#| msgid "Save as file"
 msgid "Save chart as image"
-msgstr "Simpan sebagai berkas"
+msgstr "Simpan grafik sebagai gambar"
 
 #: templates/database/designer/options_panel.twig:54
 #: templates/database/designer/options_panel.twig:250
@@ -16894,40 +16889,28 @@ msgid "Define new aliases"
 msgstr "Tetapkan alias baru"
 
 #: templates/export/alias_add.twig:32
-#, fuzzy
-#| msgid "Select Tables"
 msgid "Select database:"
-msgstr "Pilih tabel"
+msgstr "Pilih database:"
 
 #: templates/export/alias_add.twig:41
-#, fuzzy
-#| msgid "Database name"
 msgid "New database name"
-msgstr "Nama basis data"
+msgstr "Nama database baru"
 
 #: templates/export/alias_add.twig:55
-#, fuzzy
-#| msgid "Select Tables"
 msgid "Select table:"
-msgstr "Pilih tabel"
+msgstr "Pilih tabel:"
 
 #: templates/export/alias_add.twig:64
-#, fuzzy
-#| msgid "New page name: "
 msgid "New table name"
-msgstr "Nama halaman baru: "
+msgstr "Nama tabel baru"
 
 #: templates/export/alias_add.twig:78
-#, fuzzy
-#| msgid "Select two columns"
 msgid "Select column:"
-msgstr "Pilih dua kolom"
+msgstr "Pilih kolom:"
 
 #: templates/export/alias_add.twig:87
-#, fuzzy
-#| msgid "Copy column name"
 msgid "New column name"
-msgstr "Salin Nama kolom"
+msgstr "Nama kolom baru"
 
 #: templates/table/gis_visualization/gis_visualization.twig:23
 msgid "Display GIS Visualization"
@@ -16967,10 +16950,8 @@ msgid "The profile has been updated."
 msgstr "Profil telah diperbarui."
 
 #: user_password.php:125
-#, fuzzy
-#| msgid "Password Hashing"
 msgid "Password is too long!"
-msgstr "Pengernaian Kata Sandi (Password Hashing)"
+msgstr "Kata sandi terlalu panjang !"
 
 #: view_create.php:51
 #, fuzzy
