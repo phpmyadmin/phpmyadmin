@@ -5,7 +5,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2017-08-10 09:13-0400\n"
 "PO-Revision-Date: 2017-09-03 04:39+0000\n"
-"Last-Translator: Imam Ilham Khawarizma <khrzm@tuta.io>\n"
+"Last-Translator: Zoisom <p.nestiawan@gmail.com>\n"
 "Language-Team: Indonesian "
 "<https://hosted.weblate.org/projects/phpmyadmin/4-7/id/>\n"
 "Language: id\n"
@@ -1680,8 +1680,9 @@ msgid "Cancel"
 msgstr "Batal"
 
 #: js/messages.php:357 libraries/Header.php:447
+#, fuzzy
 msgid "Page-related settings"
-msgstr "Pengaturan Halaman-relasi"
+msgstr "Pengaturan Terkait Halaman"
 
 #: js/messages.php:358 libraries/config/FormDisplay.tpl.php:424
 msgid "Apply"
