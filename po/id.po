@@ -3,8 +3,8 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.8.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2017-08-10 09:14-0400\n"
-"PO-Revision-Date: 2017-09-03 04:36+0000\n"
-"Last-Translator: Zoisom <p.nestiawan@gmail.com>\n"
+"PO-Revision-Date: 2017-09-03 04:39+0000\n"
+"Last-Translator: Imam Ilham Khawarizma <khrzm@tuta.io>\n"
 "Language-Team: Indonesian "
 "<https://hosted.weblate.org/projects/phpmyadmin/master/id/>\n"
 "Language: id\n"
@@ -3791,7 +3791,7 @@ msgstr[0] "Menampilkan bookmark %1$d (baik privat maupun bersama)"
 
 #: libraries/classes/Console.php:94
 msgid "No bookmarks"
-msgstr "Tidak ada bookmark"
+msgstr "Tidak ada penanda"
 
 #: libraries/classes/Console.php:129
 msgid "SQL Query Console"
@@ -4021,8 +4021,9 @@ msgid "Table %1$s has been altered successfully."
 msgstr "Tabel %1$s berhasil diubah."
 
 #: libraries/classes/Controllers/Table/TableRelationController.php:210
+#, fuzzy
 msgid "Display column was successfully updated."
-msgstr "Kolum tampilan sukses diperbaharui."
+msgstr "Kolum layar telah sukses diperbarui."
 
 #: libraries/classes/Controllers/Table/TableRelationController.php:251
 #: libraries/classes/Controllers/Table/TableSearchController.php:565
