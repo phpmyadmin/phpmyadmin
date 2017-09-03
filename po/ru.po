@@ -5,7 +5,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2017-08-10 09:13-0400\n"
 "PO-Revision-Date: 2017-09-03 21:38+0000\n"
-"Last-Translator: worw <weblate@bzx2.com>\n"
+"Last-Translator: anonymous <>\n"
 "Language-Team: Russian "
 "<https://hosted.weblate.org/projects/phpmyadmin/4-7/ru/>\n"
 "Language: ru\n"
@@ -35,7 +35,7 @@ msgstr "Центральный список столбцов для текуще
 
 #: db_central_columns.php:133
 msgid "Click to sort."
-msgstr "Кликните для сортировки."
+msgstr "Нажмите для сортировки."
 
 #: db_central_columns.php:150
 #, php-format
