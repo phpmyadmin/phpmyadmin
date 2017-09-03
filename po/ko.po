@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.8.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2017-08-10 09:14-0400\n"
-"PO-Revision-Date: 2017-08-20 01:31+0000\n"
-"Last-Translator: Kyeong Su Shin <cdac1234@gmail.com>\n"
+"PO-Revision-Date: 2017-09-04 04:47+0000\n"
+"Last-Translator: Cyan K <arewecy@gmail.com>\n"
 "Language-Team: Korean "
 "<https://hosted.weblate.org/projects/phpmyadmin/master/ko/>\n"
 "Language: ko\n"
@@ -1530,8 +1530,6 @@ msgid "Table"
 msgstr "테이블"
 
 #: js/messages.php:297 libraries/display_export.lib.php:928
-#, fuzzy
-#| msgid "Column"
 msgctxt "Alias"
 msgid "Column"
 msgstr "컬럼명"
@@ -2178,7 +2176,7 @@ msgstr ""
 msgid ""
 "MySQL accepts additional values not selectable by the datepicker; key in "
 "those values directly if desired"
-msgstr "MySQL은 Datepicker에서 선택할 수 없는 추가 값을 수신합니다. 원하는 경우 해당 값의 키를 직접 입력합니다."
+msgstr "MySQL은 Datepicker에서 선택할 수 없는 추가 값을 수신합니다. 원하는 경우 해당 값의 키를 직접 입력합니다"
 
 #: js/messages.php:542
 msgid ""
@@ -3092,10 +3090,9 @@ msgid "Attributes"
 msgstr "보기"
 
 #: libraries/classes/Advisor.php:243
-#, fuzzy, php-format
-#| msgid "Error while creating PDF:"
+#, php-format
 msgid "Error when evaluating: %s"
-msgstr "PDF 생성 중 오류 발생 :"
+msgstr "수치 계산 중 오류 발생 : %s"
 
 #: libraries/classes/Advisor.php:274
 #, php-format
@@ -3169,8 +3166,6 @@ msgid "Charset"
 msgstr "문자셋"
 
 #: libraries/classes/Charsets.php:265
-#, fuzzy
-#| msgid "unknown"
 msgid "Unknown"
 msgstr "알수없음"
 
@@ -3395,17 +3390,14 @@ msgid "Slovenian"
 msgstr "슬로베니아어"
 
 #: libraries/classes/Charsets.php:491 libraries/classes/Charsets.php:551
-#, fuzzy
-#| msgid "Spanish"
 msgctxt "Collation"
 msgid "Spanish (modern)"
-msgstr "스페인어"
+msgstr "스페인어 (현대)"
 
 #: libraries/classes/Charsets.php:498 libraries/classes/Charsets.php:548
-#, fuzzy
 msgctxt "Collation"
 msgid "Spanish (traditional)"
-msgstr "스페인어 (Traditional)"
+msgstr "스페인어 (고전)"
 
 #: libraries/classes/Charsets.php:517
 msgctxt "Collation"
@@ -3433,15 +3425,11 @@ msgid "accent-sensitive"
 msgstr "악센트 구분"
 
 #: libraries/classes/Charsets.php:597
-#, fuzzy
-#| msgid "multilingual"
 msgctxt "Collation variant"
 msgid "multi-level"
-msgstr "다국어"
+msgstr "다중레벨"
 
 #: libraries/classes/Charsets.php:600
-#, fuzzy
-#| msgid "Binary"
 msgctxt "Collation variant"
 msgid "binary"
 msgstr "바이너리"
@@ -3748,15 +3736,13 @@ msgstr "테이블 %s 을 비웠습니다."
 
 #: libraries/classes/Controllers/Database/DatabaseStructureController.php:586
 #: tbl_operations.php:419 view_operations.php:130
-#, fuzzy, php-format
-#| msgid "View %s has been dropped."
+#, php-format
 msgid "View %s has been dropped."
 msgstr "뷰 %s가 제거되었습니다."
 
 #: libraries/classes/Controllers/Database/DatabaseStructureController.php:587
 #: tbl_operations.php:420
-#, fuzzy, php-format
-#| msgid "Table %s has been dropped."
+#, php-format
 msgid "Table %s has been dropped."
 msgstr "테이블 %s를 삭제했습니다."
 
@@ -3926,16 +3912,13 @@ msgstr ""
 
 #: libraries/classes/Controllers/Server/ServerDatabasesController.php:577
 #: libraries/classes/Controllers/Server/ServerDatabasesController.php:583
-#, fuzzy
-#| msgid "Enable Statistics"
 msgid "Enable statistics"
 msgstr "통계 보기"
 
 #: libraries/classes/Controllers/Server/ServerVariablesController.php:113
-#, fuzzy, php-format
-#| msgid "Server variables and settings"
+#, php-format
 msgid "Not enough privilege to view server variables and settings. %s"
-msgstr "서버의 환경설정"
+msgstr "서버의 변수와 설정을 볼 권한이 없습니다. %s"
 
 #: libraries/classes/Controllers/Server/ServerVariablesController.php:231
 msgid "Setting variable failed"
@@ -3963,10 +3946,8 @@ msgid "Table %1$s has been altered successfully."
 msgstr "테이블 %1$s 가 성공적으로 수정되었습니다."
 
 #: libraries/classes/Controllers/Table/TableRelationController.php:210
-#, fuzzy
-#| msgid "Thread %s was successfully killed."
 msgid "Display column was successfully updated."
-msgstr "쓰레드 %s 를 죽였습니다."
+msgstr "보여지는 칼럼값이 성공적으로 업데이트 되었습니다."
 
 #: libraries/classes/Controllers/Table/TableRelationController.php:251
 #: libraries/classes/Controllers/Table/TableSearchController.php:565
@@ -3977,10 +3958,8 @@ msgid "Your SQL query has been executed successfully."
 msgstr "쿼리가 성공적으로 실행되었습니다."
 
 #: libraries/classes/Controllers/Table/TableRelationController.php:280
-#, fuzzy
-#| msgid "Internal relations were successfully updated."
 msgid "Internal relationships were successfully updated."
-msgstr "내부 릴레이션(들)이 성공적으로 갱신되었습니다."
+msgstr "내부 관계가 성공적으로 갱신되었습니다."
 
 #: libraries/classes/Controllers/Table/TableSearchController.php:763
 msgid "Table search"
@@ -4016,11 +3995,10 @@ msgid "Query error"
 msgstr "질의 오류"
 
 #: libraries/classes/Controllers/Table/TableStructureController.php:956
-#, fuzzy, php-format
-#| msgid "Table %1$s has been altered successfully."
+#, php-format
 msgid ""
 "Table %1$s has been altered successfully. Privileges have been adjusted."
-msgstr "테이블 %1$s 가 성공적으로 수정되었습니다."
+msgstr "테이블 %1$s 가 성공적으로 수정되었습니다. 권한이 조정되었습니다."
 
 #: libraries/classes/Controllers/Table/TableStructureController.php:1175
 #: templates/table/structure/check_all_table_column.twig:38
@@ -4213,22 +4191,16 @@ msgid "at least one of the words"
 msgstr "최소 한 단어"
 
 #: libraries/classes/DbSearch.php:88
-#, fuzzy
-#| msgid "at least one of the words"
 msgid "all of the words"
-msgstr "최소 한 단어"
+msgstr "모든 단어"
 
 #: libraries/classes/DbSearch.php:89
-#, fuzzy
-#| msgid "the exact phrase"
 msgid "the exact phrase as substring"
-msgstr "정확한 문구"
+msgstr "하위 문자열로서 정확한 문구"
 
 #: libraries/classes/DbSearch.php:90
-#, fuzzy
-#| msgid "the exact phrase"
 msgid "the exact phrase as whole field"
-msgstr "정확한 문구"
+msgstr "전체 범위로서의 정확한 문구"
 
 #: libraries/classes/DbSearch.php:91
 msgid "as regular expression"
@@ -4374,8 +4346,6 @@ msgid "Relational key"
 msgstr "관계키"
 
 #: libraries/classes/DisplayResults.php:1749
-#, fuzzy
-#| msgid "Display column for relations"
 msgid "Display column for relationships"
 msgstr "관계에 대해 칼럼 표시"
 
@@ -5198,16 +5168,12 @@ msgid_plural "%1$d rows inserted."
 msgstr[0] "%1$d 열이 삽입되었습니다."
 
 #: libraries/classes/Navigation/Navigation.php:55
-#, fuzzy
-#| msgid "An error has occurred while loading the navigation tree"
 msgid "An error has occurred while loading the navigation display"
-msgstr "네비게이션 트리를 불러오는 도중 에러가 발생함"
+msgstr "네비게이션 디스플레이를 불러오는 도중 에러가 발생함"
 
 #: libraries/classes/Navigation/Navigation.php:193
-#, fuzzy
-#| msgid "Column names: "
 msgid "Groups:"
-msgstr "열(컬럼) 이름: "
+msgstr "그룹:"
 
 #: libraries/classes/Navigation/Navigation.php:194
 msgid "Events:"
@@ -5245,10 +5211,8 @@ msgid "Log out"
 msgstr "로그아웃"
 
 #: libraries/classes/Navigation/NavigationHeader.php:172
-#, fuzzy
-#| msgid "Dumping data for table"
 msgid "Empty session data"
-msgstr "테이블의 덤프 데이터"
+msgstr "빈 세션 데이터"
 
 #: libraries/classes/Navigation/NavigationHeader.php:190
 msgid "phpMyAdmin documentation"
@@ -5281,8 +5245,6 @@ msgstr ""
 
 #: libraries/classes/Navigation/NavigationTree.php:1368
 #: libraries/classes/Navigation/NavigationTree.php:1399
-#, fuzzy
-#| msgid "Save as file"
 msgid "Clear fast filter"
 msgstr "빠른 필터 비우기"
 
@@ -5297,10 +5259,9 @@ msgid "Invalid class name \"%1$s\", using default of \"Node\""
 msgstr "\"%1$s\"를 클래스 이름으로 사용할 수 없음, 기본 값 \"Node\"를 사용"
 
 #: libraries/classes/Navigation/NodeFactory.php:61
-#, fuzzy, php-format
-#| msgid "Could not add columns!"
+#, php-format
 msgid "Could not load class \"%1$s\""
-msgstr "컬럼을 추가할 수 없음!"
+msgstr "클래스 \"%1$s\"를 불러올 수 없음"
 
 #: libraries/classes/Navigation/Nodes/Node.php:798
 msgid "Expand/Collapse"
@@ -5332,9 +5293,6 @@ msgid "Hide"
 msgstr "숨기기"
 
 #: libraries/classes/Navigation/Nodes/NodeDatabaseContainer.php:36
-#, fuzzy
-#| msgctxt "Create new procedure"
-#| msgid "New"
 msgctxt "Create new database"
 msgid "New"
 msgstr "새로운"
@@ -5481,10 +5439,8 @@ msgid "Server Choice:"
 msgstr "서버 선택:"
 
 #: libraries/classes/Plugins/Auth/AuthenticationCookie.php:341
-#, fuzzy
-#| msgid "Could not connect to the database server!"
 msgid "Failed to connect to the reCAPTCHA service!"
-msgstr "데이터베이스 서버에 접속할 수 없습니다!"
+msgstr "리캡챠 서비스에 접속할 수 없습니다!"
 
 #: libraries/classes/Plugins/Auth/AuthenticationCookie.php:343
 msgid "Entered captcha is wrong, try again!"
@@ -5714,10 +5670,8 @@ msgstr "객체 생성 옵션"
 
 #: libraries/classes/Plugins/Export/ExportLatex.php:119
 #: libraries/classes/Plugins/Export/ExportLatex.php:171
-#, fuzzy
-#| msgid "Table comments:"
 msgid "Table caption:"
-msgstr "테이블 설명:"
+msgstr "테이블 주석:"
 
 #: libraries/classes/Plugins/Export/ExportLatex.php:125
 #: libraries/classes/Plugins/Export/ExportLatex.php:177
@@ -5805,10 +5759,8 @@ msgid "Report title:"
 msgstr "보고서 제목:"
 
 #: libraries/classes/Plugins/Export/ExportPdf.php:231
-#, fuzzy
-#| msgid "Dumping data for table"
 msgid "Dumping data"
-msgstr "테이블의 덤프 데이터"
+msgstr "덤프 데이터"
 
 #: libraries/classes/Plugins/Export/ExportPdf.php:280
 #: libraries/config/messages.inc.php:350 templates/table/secondary_tabs.twig:24
@@ -5816,10 +5768,8 @@ msgid "Table structure"
 msgstr "테이블 구조"
 
 #: libraries/classes/Plugins/Export/ExportPdf.php:286
-#, fuzzy
-#| msgid "structure"
 msgid "View structure"
-msgstr "구조"
+msgstr "구조 보기"
 
 #: libraries/classes/Plugins/Export/ExportPdf.php:289
 #, fuzzy
