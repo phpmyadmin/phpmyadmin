@@ -3397,6 +3397,16 @@ class DisplayResults
         if ($this->_isSelect($analyzed_sql_results)) {
             $pmatable = new Table($this->__get('table'), $this->__get('db'));
             $col_order = $pmatable->getUiProp(Table::PROP_COLUMN_ORDER);
+            /* Validate the value */
+            if ($col_order !== false) {
+                $fields_cnt = $this->__get('fields_cnt');
+                foreach ($col_order as $value) {
+                    if ($value >= $fields_cnt) {
+                        $this->removeUiProp(Table::PROP_COLUMN_ORDER);
+                        $fields_cnt = false;
+                    }
+                }
+            }
             $col_visib = $pmatable->getUiProp(Table::PROP_COLUMN_VISIB);
         } else {
             $col_order = false;
