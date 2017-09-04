@@ -1099,4 +1099,32 @@ class Core
 
         return unserialize($data);
     }
+
+    /**
+     * Applies changes to PHP configuration.
+     *
+     * @return void
+     */
+    public static function configure()
+    {
+        /**
+         * Set utf-8 encoding for PHP
+         */
+        ini_set('default_charset', 'utf-8');
+        mb_internal_encoding('utf-8');
+
+        /**
+         * Set precision to sane value, with higher values
+         * things behave slightly unexpectedly, for example
+         * round(1.2, 2) returns 1.199999999999999956.
+         */
+        ini_set('precision', 14);
+
+        /**
+         * check timezone setting
+         * this could produce an E_WARNING - but only once,
+         * if not done here it will produce E_WARNING on every date/time function
+         */
+        date_default_timezone_set(@date_default_timezone_get());
+    }
 }

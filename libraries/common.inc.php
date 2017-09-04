@@ -109,17 +109,9 @@ $GLOBALS['error_handler'] = new ErrorHandler();
 Core::checkExtensions();
 
 /**
- * Set utf-8 encoding for PHP
+ * Configure required PHP settings.
  */
-ini_set('default_charset', 'utf-8');
-mb_internal_encoding('utf-8');
-
-/**
- * Set precision to sane value, with higher values
- * things behave slightly unexpectedly, for example
- * round(1.2, 2) returns 1.199999999999999956.
- */
-ini_set('precision', 14);
+Core::configure();
 
 /******************************************************************************/
 /* start procedural code                       label_start_procedural         */
@@ -206,12 +198,6 @@ if (isset($_POST['usesubform']) && ! defined('PMA_MINIMUM_COMMON')) {
 }
 // end check if a subform is submitted
 
-/**
- * check timezone setting
- * this could produce an E_WARNING - but only once,
- * if not done here it will produce E_WARNING on every date/time function
- */
-date_default_timezone_set(@date_default_timezone_get());
 
 /******************************************************************************/
 /* parsing configuration file                  LABEL_parsing_config_file      */
