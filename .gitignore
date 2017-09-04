@@ -53,3 +53,5 @@ cache.properties
 # Composer
 composer.lock
 /vendor/
+# GitHub specific
+.github
