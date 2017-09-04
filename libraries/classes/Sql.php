@@ -1315,6 +1315,9 @@ EOT;
      */
     public static function deleteTransformationInfo($db, $table, $analyzed_sql_results)
     {
+        if (! isset($analyzed_sql_results['statement'])) {
+            return;
+        }
         $statement = $analyzed_sql_results['statement'];
         if ($statement instanceof AlterStatement) {
             if (!empty($statement->altered[0])
@@ -1674,7 +1677,7 @@ EOT;
             } while ($GLOBALS['dbi']->moreResults() && $GLOBALS['dbi']->nextResult());
 
         } else {
-            if (isset($result) && $result) {
+            if (isset($result) && $result !== false) {
                 $fields_meta = $GLOBALS['dbi']->getFieldsMeta($result);
                 $fields_cnt  = count($fields_meta);
             }
@@ -1883,7 +1886,7 @@ EOT;
 
         $updatableView = false;
 
-        $statement = $analyzed_sql_results['statement'];
+        $statement = isset($analyzed_sql_results['statement']) ? $analyzed_sql_results['statement'] : null;
         if ($statement instanceof SelectStatement) {
             if (!empty($statement->expr)) {
                 if ($statement->expr[0]->expr === '*') {
