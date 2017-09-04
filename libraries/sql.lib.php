@@ -1298,6 +1298,9 @@ function PMA_executeTheQuery($analyzed_sql_results, $full_sql_query, $is_gotofil
 function PMA_deleteTransformationInfo($db, $table, $analyzed_sql_results)
 {
     include_once 'libraries/transformations.lib.php';
+    if (! isset($analyzed_sql_results['statement'])) {
+        return;
+    }
     $statement = $analyzed_sql_results['statement'];
     if ($statement instanceof PhpMyAdmin\SqlParser\Statements\AlterStatement) {
         if (!empty($statement->altered[0])

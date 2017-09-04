@@ -4257,7 +4257,11 @@ class DisplayResults
          * The statement this table is built for.
          * @var \PhpMyAdmin\SqlParser\Statements\SelectStatement
          */
-        $statement = $analyzed_sql_results['statement'];
+        if (isset($analyzed_sql_results['statement'])) {
+            $statement = $analyzed_sql_results['statement'];
+        } else {
+            $statement = null;
+        }
 
         $table_html = '';
         // Following variable are needed for use in isset/empty or
@@ -4313,7 +4317,7 @@ class DisplayResults
         $sort_expression_nodirection = array();
         $sort_direction = array();
 
-        if (!empty($statement->order)) {
+        if (!is_null($statement) && !empty($statement->order)) {
             foreach ($statement->order as $o) {
                 $sort_expression[] = $o->expr->expr . ' ' . $o->type;
                 $sort_expression_nodirection[] = $o->expr->expr;
@@ -4391,7 +4395,7 @@ class DisplayResults
             $sort_by_key_html = $unsorted_sql_query = '';
         }
 
-        if (($displayParts['nav_bar'] == '1') && (empty($statement->limit))) {
+        if (($displayParts['nav_bar'] == '1') && !is_null($statement) && (empty($statement->limit))) {
             $table_html .= $this->_getPlacedTableNavigations(
                 $pos_next, $pos_prev, self::PLACE_TOP_DIRECTION_DROPDOWN,
                 $is_innodb, $sort_by_key_html
@@ -4405,7 +4409,7 @@ class DisplayResults
         $map = array();
 
         $target = array();
-        if (!empty($statement->from)) {
+        if (!is_null($statement) && !empty($statement->from)) {
             foreach ($statement->from as $field) {
                 if (!empty($field->table)) {
                     $target[] = $field->table;
@@ -4474,7 +4478,7 @@ class DisplayResults
         }
 
         // 5. ----- Get the navigation bar at the bottom if required -----
-        if (($displayParts['nav_bar'] == '1') && empty($statement->limit)) {
+        if (($displayParts['nav_bar'] == '1') && !is_null($statement) && empty($statement->limit)) {
             $table_html .= $this->_getPlacedTableNavigations(
                 $pos_next, $pos_prev, self::PLACE_BOTTOM_DIRECTION_DROPDOWN,
                 $is_innodb, $sort_by_key_html
