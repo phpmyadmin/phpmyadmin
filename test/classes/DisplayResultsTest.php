@@ -1078,7 +1078,7 @@ class DisplayResultsTest extends PMATestCase
 
         foreach ($column_names as $column_name) {
             $field_meta = new stdClass();
-            $field_meta->name = $column_name;
+            $field_meta->orgname = $column_name;
             $fields_mata[] = $field_meta;
         }
 
