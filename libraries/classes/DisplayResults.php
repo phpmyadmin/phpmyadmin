@@ -1307,9 +1307,7 @@ class DisplayResults
             . '</div>';
 
         // Output data needed for column reordering and show/hide column
-        if ($this->_isSelect($analyzed_sql_results)) {
-            $table_headers_html .= $this->_getDataForResettingColumnOrder();
-        }
+        $table_headers_html .= $this->_getDataForResettingColumnOrder($analyzed_sql_results);
 
         $display_params['emptypre']   = 0;
         $display_params['emptyafter'] = 0;
@@ -1650,27 +1648,31 @@ class DisplayResults
     /**
      * Prepare data for column restoring and show/hide
      *
+     * @param array $analyzed_sql_results analyzed sql results
+     *
      * @return  string  $data_html      html content
      *
      * @access  private
      *
      * @see     _getTableHeaders()
      */
-    private function _getDataForResettingColumnOrder()
+    private function _getDataForResettingColumnOrder($analyzed_sql_results)
     {
-
-        $data_html = '';
+        if (! $this->_isSelect($analyzed_sql_results)) {
+            return '';
+        }
 
         // generate the column order, if it is set
-        $pmatable = new Table($this->__get('table'), $this->__get('db'));
-        $col_order = $pmatable->getUiProp(Table::PROP_COLUMN_ORDER);
+        list($col_order, $col_visib) = $this->_getColumnParams(
+            $analyzed_sql_results
+        );
+
+        $data_html = '';
 
         if ($col_order) {
             $data_html .= '<input class="col_order" type="hidden" value="'
                 . implode(',', $col_order) . '" />';
         }
-
-        $col_visib = $pmatable->getUiProp(Table::PROP_COLUMN_VISIB);
 
         if ($col_visib) {
             $data_html .= '<input class="col_visib" type="hidden" value="'
@@ -3393,6 +3395,16 @@ class DisplayResults
         if ($this->_isSelect($analyzed_sql_results)) {
             $pmatable = new Table($this->__get('table'), $this->__get('db'));
             $col_order = $pmatable->getUiProp(Table::PROP_COLUMN_ORDER);
+            /* Validate the value */
+            if ($col_order !== false) {
+                $fields_cnt = $this->__get('fields_cnt');
+                foreach ($col_order as $value) {
+                    if ($value >= $fields_cnt) {
+                        $this->removeUiProp(Table::PROP_COLUMN_ORDER);
+                        $fields_cnt = false;
+                    }
+                }
+            }
             $col_visib = $pmatable->getUiProp(Table::PROP_COLUMN_VISIB);
         } else {
             $col_order = false;
@@ -4243,7 +4255,11 @@ class DisplayResults
          * The statement this table is built for.
          * @var \PhpMyAdmin\SqlParser\Statements\SelectStatement
          */
-        $statement = $analyzed_sql_results['statement'];
+        if (isset($analyzed_sql_results['statement'])) {
+            $statement = $analyzed_sql_results['statement'];
+        } else {
+            $statement = null;
+        }
 
         $table_html = '';
         // Following variable are needed for use in isset/empty or
@@ -4294,7 +4310,7 @@ class DisplayResults
         $sort_expression_nodirection = array();
         $sort_direction = array();
 
-        if (!empty($statement->order)) {
+        if (!is_null($statement) && !empty($statement->order)) {
             foreach ($statement->order as $o) {
                 $sort_expression[] = $o->expr->expr . ' ' . $o->type;
                 $sort_expression_nodirection[] = $o->expr->expr;
@@ -4372,7 +4388,7 @@ class DisplayResults
             $sort_by_key_html = $unsorted_sql_query = '';
         }
 
-        if (($displayParts['nav_bar'] == '1') && (empty($statement->limit))) {
+        if (($displayParts['nav_bar'] == '1') && !is_null($statement) && (empty($statement->limit))) {
             $table_html .= $this->_getPlacedTableNavigations(
                 $pos_next, $pos_prev, self::PLACE_TOP_DIRECTION_DROPDOWN,
                 $is_innodb, $sort_by_key_html
@@ -4386,7 +4402,7 @@ class DisplayResults
         $map = array();
 
         $target = array();
-        if (!empty($statement->from)) {
+        if (!is_null($statement) && !empty($statement->from)) {
             foreach ($statement->from as $field) {
                 if (!empty($field->table)) {
                     $target[] = $field->table;
@@ -4455,7 +4471,7 @@ class DisplayResults
         }
 
         // 5. ----- Get the navigation bar at the bottom if required -----
-        if (($displayParts['nav_bar'] == '1') && empty($statement->limit)) {
+        if (($displayParts['nav_bar'] == '1') && !is_null($statement) && empty($statement->limit)) {
             $table_html .= $this->_getPlacedTableNavigations(
                 $pos_next, $pos_prev, self::PLACE_BOTTOM_DIRECTION_DROPDOWN,
                 $is_innodb, $sort_by_key_html
