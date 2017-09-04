@@ -3,8 +3,8 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.8.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2017-08-10 09:14-0400\n"
-"PO-Revision-Date: 2017-09-04 07:20+0000\n"
-"Last-Translator: Chandra Chou <developerchan1@gmail.com>\n"
+"PO-Revision-Date: 2017-09-04 07:55+0000\n"
+"Last-Translator: developerchan1 <developerchan1@gmail.com>\n"
 "Language-Team: Indonesian "
 "<https://hosted.weblate.org/projects/phpmyadmin/master/id/>\n"
 "Language: id\n"
@@ -11261,10 +11261,8 @@ msgid "OpenDocument Text"
 msgstr "Teks OpenDocument"
 
 #: libraries/config/user_preferences.forms.php:124
-#, fuzzy
-#| msgid "Browser transformation"
 msgid "Default transformations"
-msgstr "Transformasi Browser"
+msgstr "Transformasi semula"
 
 #: libraries/database_interface.inc.php:38
 #, php-format
@@ -11280,10 +11278,8 @@ msgstr ""
 "Silakan pertimbangkan untuk menginstal ekstensi mysqli."
 
 #: libraries/db_designer.lib.php:119
-#, fuzzy
-#| msgid "Could not load import plugins, please check your installation!"
 msgid "Could not load schema plugins, please check your installation!"
-msgstr "Tidak dapat memuat plugin import, harap periksa instalasi Anda!"
+msgstr "Tidak dapat memuat skema plugin, harap periksa instalasi Anda!"
 
 #: libraries/display_change_password.lib.php:69
 #, fuzzy
@@ -11318,16 +11314,12 @@ msgid "Export templates:"
 msgstr "Jenis ekspor"
 
 #: libraries/display_export.lib.php:209
-#, fuzzy
-#| msgid "File name template:"
 msgid "New template:"
-msgstr "Templat nama berkas:"
+msgstr "Template Baru:"
 
 #: libraries/display_export.lib.php:212
-#, fuzzy
-#| msgid "Table name"
 msgid "Template name"
-msgstr "Nama tabel"
+msgstr "Nama template"
 
 #: libraries/display_export.lib.php:214
 #: templates/server/databases/create.phtml:22
@@ -11335,34 +11327,24 @@ msgid "Create"
 msgstr "Buat"
 
 #: libraries/display_export.lib.php:221
-#, fuzzy
-#| msgid "File name template:"
 msgid "Existing templates:"
-msgstr "Templat nama berkas:"
+msgstr "Template yang tersedia:"
 
 #: libraries/display_export.lib.php:222
-#, fuzzy
-#| msgid "Temp disk rate"
 msgid "Template:"
-msgstr "Tingkat diska temporer"
+msgstr "Template:"
 
 #: libraries/display_export.lib.php:227
-#, fuzzy
-#| msgid "Updated"
 msgid "Update"
-msgstr "Diperbarui"
+msgstr "Perbaharui"
 
 #: libraries/display_export.lib.php:249
-#, fuzzy
-#| msgid "Select Tables"
 msgid "Select a template"
-msgstr "Pilih tabel"
+msgstr "Pilih template"
 
 #: libraries/display_export.lib.php:298
-#, fuzzy
-#| msgid "Export method"
 msgid "Export method:"
-msgstr "Metode ekspor"
+msgstr "Metode ekspor:"
 
 #: libraries/display_export.lib.php:308
 msgid "Quick - display only the minimal options"
