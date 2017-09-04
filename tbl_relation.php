@@ -64,11 +64,6 @@ if (Util::isForeignKeySupported($tbl_storage_engine)) {
         $db, $table, '', 'foreign'
     );
 }
-if ($cfgRelation['displaywork']) {
-    $dependency_definitions['disp'] = Relation::getDisplayField($db, $table);
-} else {
-    $dependency_definitions['disp'] = 'asas';
-}
 
 /** @var TableRelationController $controller */
 $controller = $container->get('TableRelationController', $dependency_definitions);
