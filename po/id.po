@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.7.4-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2017-08-10 09:13-0400\n"
-"PO-Revision-Date: 2017-09-04 13:04+0000\n"
-"Last-Translator: developerchan1 <developerchan1@gmail.com>\n"
+"PO-Revision-Date: 2017-09-04 14:58+0000\n"
+"Last-Translator: Surya Widi <neversleepman@tfwno.gf>\n"
 "Language-Team: Indonesian "
 "<https://hosted.weblate.org/projects/phpmyadmin/4-7/id/>\n"
 "Language: id\n"
@@ -3992,11 +3992,9 @@ msgid "Language"
 msgstr "Bahasa"
 
 #: libraries/Linter.php:99
-#, fuzzy
 msgid ""
 "Linting is disabled for this query because it exceeds the maximum length."
-msgstr ""
-"Linting dinonaktifkan untuk query ini karena melebihi panjang maksimum."
+msgstr "Linting dinonaktifkan untuk query ini karena melebihi panjang maksimum."
 
 #: libraries/Linter.php:165
 #, php-format
@@ -4473,7 +4471,7 @@ msgid "No index parts defined!"
 msgstr "Bagian indeks belum diberi definisin!"
 
 #: libraries/Table.php:2292
-#, fuzzy, php-format
+#, php-format
 msgid "Error creating foreign key on %1$s (check data types)"
 msgstr "Kesalahan membuat kunci asing pada %1$s (periksa tipe data)"
 
@@ -4850,14 +4848,10 @@ msgid "Without PHP code"
 msgstr "Tanpa kode PHP"
 
 #: libraries/Util.php:1131
-#, fuzzy
-#| msgid "Submit Query"
 msgid "Submit query"
 msgstr "Kirim Kueri"
 
 #: libraries/Util.php:1142 libraries/config/messages.inc.php:882
-#, fuzzy
-#| msgid "Create PHP Code"
 msgid "Create PHP code"
 msgstr "Buat kode PHP"
 
@@ -4891,13 +4885,11 @@ msgid "%B %d, %Y at %I:%M %p"
 msgstr "%d %B %Y pada %H.%M"
 
 #: libraries/Util.php:1587
-#, fuzzy
 msgctxt "AM/PM indication in time"
 msgid "PM"
 msgstr "PM"
 
 #: libraries/Util.php:1589
-#, fuzzy
 msgctxt "AM/PM indication in time"
 msgid "AM"
 msgstr "AM"
@@ -5085,17 +5077,12 @@ msgstr ""
 "Pilihan ini tidak cocok dengan phpMyAdmin dan mampu merusak sebagian data!"
 
 #: libraries/common.inc.php:484
-#, fuzzy
-#| msgid ""
-#| "You have enabled mbstring.func_overload in your PHP configuration. This "
-#| "option is incompatible with phpMyAdmin and might cause some data to be "
-#| "corrupted!"
 msgid ""
 "You have disabled ini_get and/or ini_set in php.ini. This option is "
 "incompatible with phpMyAdmin!"
 msgstr ""
-"Anda mengaktifkan Fungsi mbstring.func_overload pada konfigurasi PHP. "
-"Pilihan ini tidak cocok dengan phpMyAdmin dan mampu merusak sebagian data!"
+"Anda telah menonaktifkan ini_get dan/atau ini_set pada php.ini. Opsi ini "
+"tidak kompatibel dengan phpMyAdmin!"
 
 #: libraries/common.inc.php:517
 #, php-format
@@ -5214,20 +5201,14 @@ msgid "Never send error reports"
 msgstr "Jangan pernah mengirimkan laporan kesalahan"
 
 #: libraries/config.values.php:132
-#, fuzzy
-#| msgid "Reset to default"
 msgid "Server default"
-msgstr "Kembalikan nilai bawaan"
+msgstr "Server bawaan"
 
 #: libraries/config.values.php:133
-#, fuzzy
-#| msgid "Enabled"
 msgid "Enable"
 msgstr "Aktif"
 
 #: libraries/config.values.php:134
-#, fuzzy
-#| msgid "Disabled"
 msgid "Disable"
 msgstr "Tidak aktif"
 
@@ -5645,14 +5626,8 @@ msgid "Highlight pointer"
 msgstr "Sorot penunjuk"
 
 #: libraries/config/messages.inc.php:47
-#, fuzzy
-#| msgid ""
-#| "Enable [a@https://en.wikipedia.org/wiki/Bzip2]bzip2[/a] compression for "
-#| "import operations."
 msgid "Enable bzip2 compression for import operations."
-msgstr ""
-"Aktifkan kompresi [a@https://en.wikipedia.org/wiki/Bzip2]bzip2[/a] untuk "
-"operasi impor."
+msgstr "Aktifkan kompresi bzip2 untuk operasi impor."
 
 #: libraries/config/messages.inc.php:50
 msgid "Bzip2"
@@ -5673,16 +5648,12 @@ msgid "CHAR columns editing"
 msgstr "Pengeditan kolom CHAR"
 
 #: libraries/config/messages.inc.php:58
-#, fuzzy
-#| msgid ""
-#| "Use user-friendly editor for editing SQL queries ([a@https://codemirror."
-#| "net/]CodeMirror[/a]) with syntax highlighting and line numbers."
 msgid ""
 "Use user-friendly editor for editing SQL queries (CodeMirror) with syntax "
 "highlighting and line numbers."
 msgstr ""
-"Gunakan editor user-friendly ([a@https://codemirror.net/]CodeMirror[/a]) "
-"untuk mengedit kueri SQL dilengkapi dengan penyorotan sintak dan nomor baris."
+"Gunakan editor user-friendly (CodeMirror) untuk mengedit kueri SQL "
+"dilengkapi dengan penyorotan sintak dan nomor baris."
 
 #: libraries/config/messages.inc.php:62
 msgid "Enable CodeMirror"
@@ -5697,10 +5668,8 @@ msgstr ""
 "harus diaktifkan."
 
 #: libraries/config/messages.inc.php:67
-#, fuzzy
-#| msgid "Enable SQL Validator"
 msgid "Enable linter"
-msgstr "Aktifkan Validator SQL"
+msgstr "Aktifkan linter SQL"
 
 #: libraries/config/messages.inc.php:69
 msgid ""
@@ -5813,10 +5782,8 @@ msgid "Autocomplete of the table and column names in the SQL queries."
 msgstr "Apit nama tabel dan kolom dengan tanda petik balik"
 
 #: libraries/config/messages.inc.php:113
-#, fuzzy
-#| msgid "Enclose table and column names with backquotes"
 msgid "Enable autocomplete for table and column names"
-msgstr "Apit nama tabel dan kolom dengan tanda petik balik"
+msgstr "Aktifkan pelengkapan otomatis untuk nama tabel dan kolom"
 
 #: libraries/config/messages.inc.php:116
 msgid "Whether the table structure actions should be hidden."
@@ -5992,10 +5959,8 @@ msgstr "Jenis MIME"
 
 #: libraries/config/messages.inc.php:167 libraries/config/messages.inc.php:180
 #: libraries/config/messages.inc.php:221
-#, fuzzy
-#| msgid "Relations"
 msgid "Relationships"
-msgstr "Tabel Relasi"
+msgstr "Relasi"
 
 #: libraries/config/messages.inc.php:173
 msgid "Export method"
@@ -6011,8 +5976,6 @@ msgid "Overwrite existing file(s)"
 msgstr "Timpa berkas yang ada"
 
 #: libraries/config/messages.inc.php:184
-#, fuzzy
-#| msgid "horizontal (rotated headers)"
 msgid "Export as separate files"
 msgstr "Ekspor sebagai file terpisah"
 
@@ -6054,10 +6017,8 @@ msgid "Export views as tables"
 msgstr "Mengekspor tampilan sebagai tabel"
 
 #: libraries/config/messages.inc.php:198
-#, fuzzy
-#| msgid "Missing phpMyAdmin configuration storage tables"
 msgid "Export related metadata from phpMyAdmin configuration storage"
-msgstr "Tabel penyimpanan konfigurasi phpMyAdmin tidak ditemukan"
+msgstr "Ekspor metadata terkait dari penyimpanan konfigurasi phpMyAdmin"
 
 #: libraries/config/messages.inc.php:200 libraries/config/messages.inc.php:201
 #: libraries/config/messages.inc.php:203 libraries/config/messages.inc.php:205
@@ -6069,10 +6030,8 @@ msgid "Add %s"
 msgstr "Tambahkan %s"
 
 #: libraries/config/messages.inc.php:209
-#, fuzzy
-#| msgid "Use hexadecimal for BLOB"
 msgid "Use hexadecimal for BINARY & BLOB"
-msgstr "Gunakan heksadesimal untuk BLOB"
+msgstr "Gunakan heksadesimal untuk BINARY & BLOB"
 
 #: libraries/config/messages.inc.php:211
 #, fuzzy
@@ -6137,10 +6096,8 @@ msgstr ""
 "permintaan."
 
 #: libraries/config/messages.inc.php:240
-#, fuzzy
-#| msgid "Foreign key check:"
 msgid "Foreign key checks"
-msgstr "Pemeriksaan kunci asing:"
+msgstr "Pemeriksaan kunci asing"
 
 #: libraries/config/messages.inc.php:241
 msgid "Browse mode"
@@ -6233,16 +6190,12 @@ msgid "Customize appearance of the navigation panel."
 msgstr "Atur tampilan panel navigasi."
 
 #: libraries/config/messages.inc.php:269
-#, fuzzy
-#| msgid "Navigation panel"
 msgid "Navigation tree"
 msgstr "Panel navigasi"
 
 #: libraries/config/messages.inc.php:270
-#, fuzzy
-#| msgid "Customize navigation panel"
 msgid "Customize the navigation tree."
-msgstr "Atur panel navigasi"
+msgstr "Atur panel navigasi."
 
 #: libraries/config/messages.inc.php:271 libraries/select_server.lib.php:47
 #: setup/frames/index.inc.php:126
@@ -6465,9 +6418,7 @@ msgstr "Nonaktifkan beberapa peringatan dari phpMyAdmin."
 #| "Enable [a@https://en.wikipedia.org/wiki/Gzip]gzip[/a] compression for "
 #| "import and export operations."
 msgid "Enable gzip compression for import and export operations."
-msgstr ""
-"Aktifkan kompresi [a@https://en.wikipedia.org/wiki/Gzip]gzip[/a] untuk "
-"operasi impor dan ekspor."
+msgstr "Aktifkan kompresi gzip untuk operasi impor dan ekspor."
 
 #: libraries/config/messages.inc.php:352
 msgid "GZip"
@@ -6515,7 +6466,6 @@ msgid "Add ON DUPLICATE KEY UPDATE"
 msgstr "Add ON DUPLICATE KEY UPDATE"
 
 #: libraries/config/messages.inc.php:372 libraries/config/messages.inc.php:386
-#, fuzzy
 msgid "Update data when duplicate keys found on import"
 msgstr "Memperbarui data saat duplikat kunci ditemukan pada impor"
 
@@ -6690,10 +6640,8 @@ msgstr ""
 "Jumlah item yang dapat ditampilkan pada setiap halaman dari pohon navigasi."
 
 #: libraries/config/messages.inc.php:443
-#, fuzzy
-#| msgid "Maximum items in branch"
 msgid "Maximum items on first level"
-msgstr "Item maksimal di cabang"
+msgstr "Item maksimum di tingkat pertama"
 
 #: libraries/config/messages.inc.php:445
 msgid ""
