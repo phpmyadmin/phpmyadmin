@@ -1735,7 +1735,7 @@ class Table
                 }
             }
             // remove the property, since it no longer exists in database
-            $this->removeUiProp(self::PROP_SORTED_COLUMN);
+            $this->removeUiProp($property);
             return false;
         }
 
@@ -1753,7 +1753,7 @@ class Table
             }
 
             // remove the property, since the table has been modified
-            $this->removeUiProp(self::PROP_COLUMN_ORDER);
+            $this->removeUiProp($property);
             return false;
         }
 
