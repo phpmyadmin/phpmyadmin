@@ -40,11 +40,6 @@ class TableRelationController extends TableController
     protected $existrel;
 
     /**
-     * @var string $disp
-     */
-    protected $disp;
-
-    /**
      * @var string $tbl_storage_engine
      */
     protected $tbl_storage_engine;
@@ -67,11 +62,10 @@ class TableRelationController extends TableController
      * @param string $tbl_storage_engine Table storage engine
      * @param array  $existrel           Relations
      * @param array  $existrel_foreign   External relations
-     * @param string $disp               Display
      * @param string $upd_query          Update query
      */
     public function __construct($options_array, $cfgRelation, $tbl_storage_engine,
-        $existrel, $existrel_foreign, $disp, $upd_query
+        $existrel, $existrel_foreign, $upd_query
     ) {
         parent::__construct();
 
@@ -80,7 +74,6 @@ class TableRelationController extends TableController
         $this->tbl_storage_engine = $tbl_storage_engine;
         $this->existrel = $existrel;
         $this->existrel_foreign = $existrel_foreign;
-        $this->disp = $disp;
         $this->upd_query = $upd_query;
     }
 
@@ -142,10 +135,6 @@ class TableRelationController extends TableController
             $this->existrel_foreign = PMA_getForeigners(
                 $this->db, $this->table, '', 'foreign'
             );
-        }
-
-        if ($this->cfgRelation['displaywork']) {
-            $this->disp = PMA_getDisplayField($this->db, $this->table);
         }
 
         // display secondary level tabs if necessary
