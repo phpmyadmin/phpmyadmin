@@ -441,35 +441,7 @@ if ($GLOBALS['text_dir'] == 'ltr') {
 $GLOBALS['PMA_Config']->checkPermissions();
 $GLOBALS['PMA_Config']->checkErrors();
 
-/**
- * As we try to handle charsets by ourself, mbstring overloads just
- * break it, see bug 1063821.
- *
- * We specifically use empty here as we are looking for anything else than
- * empty value or 0.
- */
-if (@extension_loaded('mbstring') && !empty(@ini_get('mbstring.func_overload'))) {
-    Core::fatalError(
-        __(
-            'You have enabled mbstring.func_overload in your PHP '
-            . 'configuration. This option is incompatible with phpMyAdmin '
-            . 'and might cause some data to be corrupted!'
-        )
-    );
-}
-
-/**
- * The ini_set and ini_get functions can be disabled using
- * disable_functions but we're relying quite a lot of them.
- */
-if (! function_exists('ini_get') || ! function_exists('ini_set')) {
-    Core::fatalError(
-        __(
-            'You have disabled ini_get and/or ini_set in php.ini. '
-            . 'This option is incompatible with phpMyAdmin!'
-        )
-    );
-}
+Core::checkConfiguration();
 
 /******************************************************************************/
 /* setup servers                                       LABEL_setup_servers    */
