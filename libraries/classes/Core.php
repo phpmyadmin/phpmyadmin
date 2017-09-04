@@ -931,6 +931,13 @@ class Core
         if (! function_exists('json_encode')) {
             self::warnMissingExtension('json', true);
         }
+
+        /**
+         * ctype is required for Twig.
+         */
+        if (! function_exists('ctype_alpha')) {
+            self::warnMissingExtension('ctype', true);
+        }
     }
 
     /**
