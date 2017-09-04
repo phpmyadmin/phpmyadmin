@@ -1660,7 +1660,7 @@ function PMA_getHtmlForSqlQueryResultsTable($displayResultsObject,
         } while ($GLOBALS['dbi']->moreResults() && $GLOBALS['dbi']->nextResult());
 
     } else {
-        if (isset($result) && $result) {
+        if (isset($result) && $result !== false) {
             $fields_meta = $GLOBALS['dbi']->getFieldsMeta($result);
             $fields_cnt  = count($fields_meta);
         }
