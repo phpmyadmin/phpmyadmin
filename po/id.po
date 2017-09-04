@@ -3,8 +3,8 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.8.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2017-08-10 09:14-0400\n"
-"PO-Revision-Date: 2017-09-04 14:58+0000\n"
-"Last-Translator: Surya Widi <neversleepman@tfwno.gf>\n"
+"PO-Revision-Date: 2017-09-04 15:45+0000\n"
+"Last-Translator: developerchan1 <developerchan1@gmail.com>\n"
 "Language-Team: Indonesian "
 "<https://hosted.weblate.org/projects/phpmyadmin/master/id/>\n"
 "Language: id\n"
@@ -244,7 +244,7 @@ msgstr "Tampilkan dump (skema) dari database"
 #: libraries/classes/DbQbe.php:330
 #: libraries/classes/Navigation/NavigationTree.php:924
 msgid "No tables found in database."
-msgstr "Tidak ada tabel ditemukan di dalam database."
+msgstr "Tidak ada tabel ditemukan di database."
 
 #: db_export.php:65
 #: libraries/classes/Controllers/Server/ServerDatabasesController.php:342
@@ -304,7 +304,7 @@ msgstr "Nama database kosong!"
 msgid "Cannot copy database to the same name. Change the name and try again."
 msgstr ""
 "Tidak dapat menyalin database dengan nama yang sama. Gunakan nama lain dan "
-"coba kembali."
+"coba lagi."
 
 #: db_operations.php:142
 #, php-format
@@ -6133,16 +6133,14 @@ msgid "Metadata"
 msgstr "Metadata"
 
 #: libraries/classes/Plugins/Export/ExportSql.php:1077
-#, fuzzy, php-format
-#| msgid "Metadata Headers"
+#, php-format
 msgid "Metadata for table %s"
-msgstr "Kepala Metadata"
+msgstr "Metadata untuk tabel %s"
 
 #: libraries/classes/Plugins/Export/ExportSql.php:1084
-#, fuzzy, php-format
-#| msgid "Metadata Headers"
+#, php-format
 msgid "Metadata for database %s"
-msgstr "Kepala Metadata"
+msgstr "Metadata untuk database %s"
 
 #: libraries/classes/Plugins/Export/ExportSql.php:1416
 #: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php:602
@@ -6160,10 +6158,9 @@ msgid "Last check:"
 msgstr "Pemeriksaan terakhir:"
 
 #: libraries/classes/Plugins/Export/ExportSql.php:1489
-#, fuzzy, php-format
-#| msgid "Table structure for table"
+#, php-format
 msgid "Error reading structure for table %s:"
-msgstr "Struktur dari tabel"
+msgstr "Kesalahan membaca struktur untuk tabel %s:"
 
 #: libraries/classes/Plugins/Export/ExportSql.php:1543
 #, fuzzy
@@ -6227,10 +6224,9 @@ msgid "(See below for the actual view)"
 msgstr "(Lihat di bawah untuk tampilan aktual)"
 
 #: libraries/classes/Plugins/Export/ExportSql.php:2205
-#, fuzzy, php-format
-#| msgid "Error reading data:"
+#, php-format
 msgid "Error reading data for table %s:"
-msgstr "Galat pembacaan data:"
+msgstr "Kesalahan membaca data untuk tabel %s:"
 
 #: libraries/classes/Plugins/Export/ExportXml.php:97
 #, fuzzy
@@ -6351,9 +6347,8 @@ msgid "Use LOCAL keyword"
 msgstr "Gunakan kata kunci LOCAL"
 
 #: libraries/classes/Plugins/Import/ImportLdi.php:112
-#, fuzzy
 msgid "This plugin does not support compressed imports!"
-msgstr "Plugin ini tidak mendukung impor dikompresi!"
+msgstr "Plugin ini tidak mendukung file impor yang di kompress!"
 
 #: libraries/classes/Plugins/Import/ImportMediawiki.php:52
 msgid "MediaWiki Table"
@@ -6503,9 +6498,8 @@ msgstr "Ukuran kertas"
 #: libraries/classes/Plugins/Schema/SchemaEps.php:62
 #: libraries/classes/Plugins/Schema/SchemaPdf.php:62
 #: libraries/classes/Plugins/Schema/SchemaSvg.php:61
-#, fuzzy
 msgid "Same width for all tables"
-msgstr "Lebar yang sama untuk semua tabel"
+msgstr "Lebar sama untuk semua tabel"
 
 #: libraries/classes/Plugins/Schema/SchemaPdf.php:87
 msgid "Show grid"
@@ -6513,10 +6507,8 @@ msgstr "Tampilkan garis"
 
 #: libraries/classes/Plugins/Schema/SchemaPdf.php:93
 #: templates/database/structure/print_view_data_dictionary_link.twig:32
-#, fuzzy
-#| msgid "Data Dictionary"
 msgid "Data dictionary"
-msgstr "Kamus Data"
+msgstr "Kamus data"
 
 #: libraries/classes/Plugins/Schema/SchemaPdf.php:99
 #, fuzzy
@@ -15977,10 +15969,8 @@ msgstr ""
 "Relasi internal tidak diperlukan bila hubungan FOREIGN KEY yang sesuai."
 
 #: templates/table/relation/common_form.phtml:156
-#, fuzzy
-#| msgid "Choose column to display"
 msgid "Choose column to display:"
-msgstr "Pilih kolom untuk ditampilkan"
+msgstr "Pilih kolom untuk ditampilkan:"
 
 #: templates/table/relation/foreign_key_row.phtml:19
 #, fuzzy, php-format
@@ -15995,10 +15985,8 @@ msgid "Constraint name"
 msgstr "Ketidakleluasaan untuk tabel"
 
 #: templates/table/relation/foreign_key_row.phtml:151
-#, fuzzy
-#| msgid "Add column"
 msgid "+ Add column"
-msgstr "Tambah kolom"
+msgstr "+ Tambah kolom"
 
 #: templates/table/search/options.phtml:8
 msgid "Select columns (at least one):"
