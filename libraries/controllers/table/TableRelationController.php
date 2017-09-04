@@ -204,7 +204,7 @@ class TableRelationController extends TableController
     public function updateForDisplayField()
     {
         if ($this->upd_query->updateDisplayField(
-            $this->disp, $_POST['display_field'], $this->cfgRelation
+            $_POST['display_field'], $this->cfgRelation
         )
         ) {
             $this->response->addHTML(
