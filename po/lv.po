@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.7.4-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2017-08-10 09:13-0400\n"
-"PO-Revision-Date: 2017-09-04 13:04+0000\n"
+"PO-Revision-Date: 2017-09-04 14:58+0000\n"
 "Last-Translator: Māris <weblate@netparks.lv>\n"
 "Language-Team: Latvian "
 "<https://hosted.weblate.org/projects/phpmyadmin/4-7/lv/>\n"
@@ -32,12 +32,12 @@ msgstr "Centrālais kolonnu saraksts pašreizējai datubāzei ir tukšs."
 
 #: db_central_columns.php:133
 msgid "Click to sort."
-msgstr "Spied, lai kārtotu."
+msgstr "Kārtot."
 
 #: db_central_columns.php:150
 #, php-format
 msgid "Showing rows %1$s - %2$s."
-msgstr "Tiek rādītas %1$s - %2$s rindas."
+msgstr "Tiek rādītas rindas no %1$s līdz %2$s."
 
 #: db_datadict.php:59 libraries/operations.lib.php:36
 msgid "Database comment"
@@ -121,7 +121,7 @@ msgstr "Tips"
 #: templates/table/search/zoom_result_form.phtml:34
 #: templates/table/structure/table_structure_header.phtml:11
 msgid "Null"
-msgstr "Nulle"
+msgstr "Null"
 
 #: db_datadict.php:118 libraries/central_columns.lib.php:700
 #: libraries/central_columns.lib.php:1385
@@ -241,7 +241,7 @@ msgstr "Apskatīt datubāzes dampu (shēmu)"
 #: libraries/controllers/database/DatabaseStructureController.php:168
 #: libraries/navigation/NavigationTree.php:924
 msgid "No tables found in database."
-msgstr "Tabulas nav atrastas šajā datubāzē."
+msgstr "Šajā datubāzē tabulas nav atrastas."
 
 #: db_export.php:65 libraries/ServerStatusData.php:128
 #: libraries/config/messages.inc.php:273
@@ -563,9 +563,9 @@ msgstr "Grāmatzīme %s ir izveidota."
 #, php-format
 msgid "Import has been successfully finished, %d query executed."
 msgid_plural "Import has been successfully finished, %d queries executed."
-msgstr[0] "Importēšana veiksmīga, izpildīts %d vaicājums."
-msgstr[1] "Importēšana veiksmīga, izpildīti %d vaicājumi."
-msgstr[2] "Importēšana veiksmīga, izpildīti %d vaicājumi."
+msgstr[0] "Importēšana pabeigta veiksmīgi, izpildīts %d vaicājums."
+msgstr[1] "Importēšana pabeigta veiksmīgi, izpildīti %d vaicājumi."
+msgstr[2] "Importēšana pabeigta veiksmīgi, izpildīti %d vaicājumi."
 
 #: import.php:612
 #, php-format
@@ -14284,7 +14284,7 @@ msgstr "Servera versija"
 #: libraries/tracking.lib.php:296 libraries/tracking.lib.php:468
 #: libraries/tracking.lib.php:1611
 msgid "Tracking report"
-msgstr ""
+msgstr "Atsekošanas atskaite"
 
 #: libraries/tracking.lib.php:299 libraries/tracking.lib.php:834
 #: libraries/tracking.lib.php:1614
@@ -17537,7 +17537,7 @@ msgstr ""
 
 #: libraries/advisory_rules.txt:446
 msgid "concurrent_insert is set to 0"
-msgstr ""
+msgstr "concurrent_insert iestatīts uz 0"
 
 #, fuzzy
 #~| msgid "unknown"
