@@ -801,7 +801,7 @@ $(document).ajaxError(function (event, request, settings) {
     // Don't handle aborted requests
     if (request.status !== 0 || request.statusText !== 'abort') {
         var errorCode = PMA_sprintf(PMA_messages.strErrorCode, request.status);
-        var errorText = PMA_sprintf(PMA_messages.strErrorText, request.statusText);
+        var errorText = PMA_sprintf(PMA_messages.strErrorText, request.statusText + ' (' + request.state() + ')');
         PMA_ajaxShowMessage(
             '<div class="error">' +
             PMA_messages.strErrorProcessingRequest +
