@@ -43,6 +43,7 @@
         "ext-xml": "*",
         "ext-pcre": "*",
         "ext-json": "*",
+        "ext-ctype": "*",
         "phpmyadmin/sql-parser": "^4.2",
         "phpmyadmin/motranslator": "^3.0",
         "phpmyadmin/shapefile": "^2.0",
