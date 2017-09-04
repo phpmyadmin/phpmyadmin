@@ -54,8 +54,9 @@ class Sanitize
             './server_privileges.php?',
             './tbl_structure.php?',
         );
+        $is_setup = !is_null($GLOBALS['PMA_Config']) && $GLOBALS['PMA_Config']->get('is_setup');
         // Adjust path to setup script location
-        if ($GLOBALS['PMA_Config']->get('is_setup')) {
+        if ($is_setup) {
             foreach ($valid_starts as $key => $value) {
                 if (substr($value, 0, 2) === './') {
                     $valid_starts[$key] = '.' . $value;
@@ -69,7 +70,7 @@ class Sanitize
         if ($http) {
             $valid_starts[] = 'http://';
         }
-        if ($GLOBALS['PMA_Config']->get('is_setup')) {
+        if ($is_setup) {
             $valid_starts[] = '?page=form&';
             $valid_starts[] = '?page=servers&';
         }

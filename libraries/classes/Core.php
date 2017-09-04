@@ -692,7 +692,7 @@ class Core
         parse_str($arr["query"], $vars);
         $query = http_build_query(array("url" => $vars["url"]));
 
-        if ($GLOBALS['PMA_Config']->get('is_setup')) {
+        if (!is_null($GLOBALS['PMA_Config']) && $GLOBALS['PMA_Config']->get('is_setup')) {
             $url = '../url.php?' . $query;
         } else {
             $url = './url.php?' . $query;
