@@ -6,6 +6,7 @@
  * @package PhpMyAdmin
  */
 use PhpMyAdmin\Config\PageSettings;
+use PhpMyAdmin\Display\Export;
 use PhpMyAdmin\Response;
 
 /**
@@ -136,7 +137,6 @@ foreach ($tables as $each_table) {
 $multi_values .= "\n";
 $multi_values .= '</tbody></table></div>';
 
-require_once 'libraries/display_export.lib.php';
 if (! isset($sql_query)) {
     $sql_query = '';
 }
@@ -151,7 +151,7 @@ if (! isset($multi_values)) {
 }
 $response = Response::getInstance();
 $response->addHTML(
-    PMA_getExportDisplay(
+    Export::getExportDisplay(
         'database', $db, $table, $sql_query, $num_tables,
         $unlim_num_rows, $multi_values
     )

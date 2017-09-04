@@ -6,6 +6,7 @@
  * @package PhpMyAdmin
  */
 use PhpMyAdmin\Config\PageSettings;
+use PhpMyAdmin\Display\Export;
 use PhpMyAdmin\Relation;
 use PhpMyAdmin\Response;
 
@@ -13,7 +14,6 @@ use PhpMyAdmin\Response;
  *
  */
 require_once 'libraries/common.inc.php';
-require_once 'libraries/display_export.lib.php';
 require_once 'libraries/config/user_preferences.forms.php';
 require_once 'libraries/config/page_settings.forms.php';
 
@@ -29,7 +29,7 @@ $cfgRelation = Relation::getRelationsParam();
 
 // handling export template actions
 if (isset($_REQUEST['templateAction']) && $cfgRelation['exporttemplateswork']) {
-    PMA_handleExportTemplateActions($cfgRelation);
+    Export::handleExportTemplateActions($cfgRelation);
     exit;
 }
 
@@ -122,8 +122,6 @@ if (! empty($sql_query)) {
     echo PhpMyAdmin\Util::getMessage(PhpMyAdmin\Message::success());
 }
 
-require_once 'libraries/display_export.lib.php';
-
 if (! isset($sql_query)) {
     $sql_query = '';
 }
@@ -138,7 +136,7 @@ if (! isset($multi_values)) {
 }
 $response = Response::getInstance();
 $response->addHTML(
-    PMA_getExportDisplay(
+    Export::getExportDisplay(
         'table', $db, $table, $sql_query, $num_tables,
         $unlim_num_rows, $multi_values
     )

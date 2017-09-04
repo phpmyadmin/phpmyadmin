@@ -1,28 +1,30 @@
 <?php
 /* vim: set expandtab sw=4 ts=4 sts=4: */
 /**
- * tests for display_export.lib.php
+ * tests for PhpMyAdmin\Display\Export
  *
  * @package PhpMyAdmin-test
  */
+namespace PhpMyAdmin\Tests\Display;
 
 use PhpMyAdmin\Core;
+use PhpMyAdmin\Display\Export;
 use PhpMyAdmin\Theme;
 use PhpMyAdmin\Url;
+use PhpMyAdmin\Util;
 
-require_once 'libraries/display_export.lib.php';
 require_once 'libraries/database_interface.inc.php';
 require_once 'libraries/plugin_interface.lib.php';
 
 /**
- * class PMA_DisplayExport_Test
+ * class PhpMyAdmin\Tests\Display\ExportTest
  *
- * this class is for testing display_export.lib.php functions
+ * this class is for testing PhpMyAdmin\Display\Export methods
  *
  * @package PhpMyAdmin-test
  * @group large
  */
-class PMA_DisplayExport_Test extends PHPUnit_Framework_TestCase
+class ExportTest extends \PHPUnit_Framework_TestCase
 {
     /**
      * Test for setUp
@@ -69,7 +71,7 @@ class PMA_DisplayExport_Test extends PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test for PMA_getHtmlForHiddenInput
+     * Test for Export::getHtmlForHiddenInput
      *
      * @return void
      */
@@ -82,7 +84,7 @@ class PMA_DisplayExport_Test extends PHPUnit_Framework_TestCase
         $sql_query_str = "sql_query_str";
 
         //Call the test function
-        $html = PMA_getHtmlForHiddenInput(
+        $html = Export::getHtmlForHiddenInput(
             $export_type,
             $db,
             $table,
@@ -108,7 +110,7 @@ class PMA_DisplayExport_Test extends PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test for PMA_getHtmlForExportOptions
+     * Test for Export::getHtmlForExportOptions
      *
      * @return void
      */
@@ -157,7 +159,7 @@ class PMA_DisplayExport_Test extends PHPUnit_Framework_TestCase
         );
 
         //Call the test function
-        $html = PMA_getHtmlForExportOptions(
+        $html = Export::getHtmlForExportOptions(
             $export_type,
             $db,
             $table,
@@ -167,7 +169,7 @@ class PMA_DisplayExport_Test extends PHPUnit_Framework_TestCase
             $unlim_num_rows_str
         );
 
-        //validate 2: PMA_getHtmlForExportOptionsMethod
+        //validate 2: Export::getHtmlForExportOptionsMethod
         $this->assertContains(
             $cfg['Export']['method'],
             $html
@@ -185,7 +187,7 @@ class PMA_DisplayExport_Test extends PHPUnit_Framework_TestCase
             $html
         );
 
-        //validate 3: PMA_getHtmlForExportOptionsSelection
+        //validate 3: Export::getHtmlForExportOptionsSelection
         $this->assertContains(
             '<div class="exportoptions" id="databases_and_tables">',
             $html
@@ -199,18 +201,18 @@ class PMA_DisplayExport_Test extends PHPUnit_Framework_TestCase
             $html
         );
 
-        //validate 4: PMA_getHtmlForExportOptionsQuickExport
+        //validate 4: Export::getHtmlForExportOptionsQuickExport
         $this->assertContains(
             '<input type="checkbox" name="onserver" value="saveit" ',
             $html
         );
-        $dir = htmlspecialchars(PhpMyAdmin\Util::userDir($cfg['SaveDir']));
+        $dir = htmlspecialchars(Util::userDir($cfg['SaveDir']));
         $this->assertContains(
             'Save on server in the directory <b>' . $dir . '</b>',
             $html
         );
 
-        //validate 5: PMA_getHtmlForAliasModalDialog
+        //validate 5: Export::getHtmlForAliasModalDialog
         $this->assertContains(
             '<div id="alias_modal" class="hide" title="'
             . 'Rename exported databases/tables/columns">',
@@ -233,7 +235,7 @@ class PMA_DisplayExport_Test extends PHPUnit_Framework_TestCase
             $html
         );
 
-        //validate 6: PMA_getHtmlForExportOptionsOutput
+        //validate 6: Export::getHtmlForExportOptionsOutput
         $this->assertContains(
             '<div class="exportoptions" id="output">',
             $html
@@ -243,7 +245,7 @@ class PMA_DisplayExport_Test extends PHPUnit_Framework_TestCase
             $html
         );
 
-        //validate 7: PMA_getHtmlForExportOptionsFormat
+        //validate 7: Export::getHtmlForExportOptionsFormat
         $this->assertContains(
             '<div class="exportoptions" id="format">',
             $html
@@ -255,7 +257,7 @@ class PMA_DisplayExport_Test extends PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test for PMA_getHtmlForAliasModalDialog
+     * Test for Export::getHtmlForAliasModalDialog
      *
      * @return void
      */
@@ -283,7 +285,7 @@ class PMA_DisplayExport_Test extends PHPUnit_Framework_TestCase
 
         $GLOBALS['dbi'] = $dbi;
 
-        $html = PMA_getHtmlForAliasModalDialog();
+        $html = Export::getHtmlForAliasModalDialog();
 
         $this->assertContains(
             '<div id="alias_modal" class="hide" title="'
