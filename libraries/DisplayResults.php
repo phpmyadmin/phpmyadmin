@@ -3333,7 +3333,7 @@ class DisplayResults
 
         for ($n = 0; $n < $this->__get('fields_cnt'); ++$n) {
             $m = $col_order ? $col_order[$n] : $n;
-            $row_info[mb_strtolower($fields_meta[$m]->name)]
+            $row_info[mb_strtolower($fields_meta[$m]->orgname)]
                 = $row[$m];
         }
 
