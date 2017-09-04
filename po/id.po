@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.8.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2017-08-10 09:14-0400\n"
-"PO-Revision-Date: 2017-09-04 07:55+0000\n"
+"PO-Revision-Date: 2017-09-04 10:14+0000\n"
 "Last-Translator: developerchan1 <developerchan1@gmail.com>\n"
 "Language-Team: Indonesian "
 "<https://hosted.weblate.org/projects/phpmyadmin/master/id/>\n"
@@ -11355,21 +11355,19 @@ msgid "Custom - display all possible options"
 msgstr "Kustom - menampilkan semua opsi"
 
 #: libraries/display_export.lib.php:342
-#, fuzzy
-#| msgid "Databases"
 msgid "Databases:"
-msgstr "Basis data"
+msgstr "Basis data:"
 
 #: libraries/display_export.lib.php:380 libraries/display_import.lib.php:372
 msgid "Format-specific options:"
-msgstr "Opsi khusus format:"
+msgstr "Opsi format-spesifik:"
 
 #: libraries/display_export.lib.php:383
 msgid ""
 "Scroll down to fill in the options for the selected format and ignore the "
 "options for other formats."
 msgstr ""
-"Gulir ke bawah untuk mengisi pilihan untuk format yang dipilih dan "
+"Tarik ke bawah untuk mengisi pilihan untuk format yang dipilih dan "
 "mengabaikan pilihan untuk format lain."
 
 #: libraries/display_export.lib.php:393 libraries/display_import.lib.php:383
@@ -11399,7 +11397,7 @@ msgstr "Hasil:"
 #: libraries/display_export.lib.php:495 libraries/display_export.lib.php:530
 #, php-format
 msgid "Save on server in the directory <b>%s</b>"
-msgstr "Simpan ke direktori <b>%s</b> di server"
+msgstr "Simpan ke server didalam direktori <b>%s</b>"
 
 #: libraries/display_export.lib.php:560
 msgid "File name template:"
@@ -11454,30 +11452,24 @@ msgid "View output as text"
 msgstr "Tampilkan hasil sebagai teks"
 
 #: libraries/display_export.lib.php:754
-#, fuzzy
-#| msgid "Export views as tables"
 msgid "Export databases as separate files"
-msgstr "Mengekspor tampilan sebagai tabel"
+msgstr "Mengekspor database sebagai file terpisah"
 
 #: libraries/display_export.lib.php:756
-#, fuzzy
-#| msgid "horizontal (rotated headers)"
 msgid "Export tables as separate files"
-msgstr "horisontal (judul diputar)"
+msgstr "Mengekspor tabel sebagai file terpisah"
 
 #: libraries/display_export.lib.php:786 libraries/display_export.lib.php:962
-#, fuzzy
 msgid "Rename exported databases/tables/columns"
-msgstr "Ubah nama diekspor database / tabel / kolom"
+msgstr "Ubah nama database / tabel / kolom yang diekspor"
 
 #: libraries/display_export.lib.php:811
 msgid "Save output to a file"
 msgstr "Simpan hasil ke suatu berkas"
 
 #: libraries/display_export.lib.php:844
-#, fuzzy
 msgid "Skip tables larger than"
-msgstr "Lewati tabel lebih besar dari"
+msgstr "Lewati tabel yang lebih besar dari"
 
 #: libraries/display_export.lib.php:897
 msgid "Defined aliases"
@@ -11546,25 +11538,20 @@ msgstr ""
 "Contoh: <b>.sql.zip</b>"
 
 #: libraries/display_import.lib.php:226
-#, fuzzy
-#| msgid "File to Import:"
 msgid "File to import:"
-msgstr "Berkas untuk Diimpor:"
+msgstr "Berkas untuk impor:"
 
 #: libraries/display_import.lib.php:236 libraries/display_import.lib.php:256
-#, fuzzy
 msgid "You may also drag and drop a file on any page."
-msgstr "Anda juga dapat drag dan drop file pada halaman manapun."
+msgstr "Anda juga dapat drag dan drop sebuah file pada halaman manapun."
 
 #: libraries/display_import.lib.php:259
 msgid "File uploads are not allowed on this server."
 msgstr "Pengunggahan berkas tidak diizinkan di server ini."
 
 #: libraries/display_import.lib.php:286
-#, fuzzy
-#| msgid "Partial Import:"
 msgid "Partial import:"
-msgstr "Impor Parsial:"
+msgstr "Impor sebagian:"
 
 #: libraries/display_import.lib.php:293
 #, php-format
@@ -11597,10 +11584,8 @@ msgstr ""
 "dari yang pertama:"
 
 #: libraries/display_import.lib.php:347
-#, fuzzy
-#| msgid "Options"
 msgid "Other options:"
-msgstr "Opsi"
+msgstr "Opsi lain:"
 
 #: libraries/display_import.lib.php:485
 #, fuzzy
@@ -11619,10 +11604,8 @@ msgid "%s of %s"
 msgstr "%s dari %s"
 
 #: libraries/display_import.lib.php:492
-#, fuzzy
-#| msgid "Format of imported file"
 msgid "Uploading your import file…"
-msgstr "Format berkas impor"
+msgstr "Sedang memuat file impor anda…"
 
 #: libraries/display_import.lib.php:493
 #, php-format
@@ -11685,15 +11668,13 @@ msgid ""
 msgstr "Mengubah pengaturan yang dengan mengklik sesuai \"Options\" link."
 
 #: libraries/import.lib.php:1212
-#, fuzzy
 msgid "Edit structure by following the \"Structure\" link."
-msgstr "Mengedit struktur dengan mengikuti link \"Struktur\"."
+msgstr "Edit struktur dengan mengikuti link \"Struktur\"."
 
 #: libraries/import.lib.php:1219
-#, fuzzy, php-format
-#| msgid "Go to database"
+#, php-format
 msgid "Go to database: %s"
-msgstr "Tuju ke basis data"
+msgstr "Menuju ke database : %s"
 
 #: libraries/import.lib.php:1225 libraries/import.lib.php:1269
 #, php-format
@@ -11701,10 +11682,9 @@ msgid "Edit settings for %s"
 msgstr "Edit pengaturan %s"
 
 #: libraries/import.lib.php:1254
-#, fuzzy, php-format
-#| msgid "Go to table"
+#, php-format
 msgid "Go to table: %s"
-msgstr "Tuju ke tabel"
+msgstr "Menuju ke tabel: %s"
 
 #: libraries/import.lib.php:1262
 #, php-format
@@ -11712,10 +11692,9 @@ msgid "Structure of %s"
 msgstr "Struktur %s"
 
 #: libraries/import.lib.php:1280
-#, fuzzy, php-format
-#| msgid "Go to view"
+#, php-format
 msgid "Go to view: %s"
-msgstr "Tuju ke view"
+msgstr "Menuju ke view: %s"
 
 #: libraries/import.lib.php:1340
 #, fuzzy
@@ -11736,10 +11715,8 @@ msgid "Binary"
 msgstr "Biner"
 
 #: libraries/insert_edit.lib.php:606
-#, fuzzy
-#| msgid "Because of its length,<br /> this column might not be editable"
 msgid "Because of its length,<br /> this column might not be editable."
-msgstr "Karena panjangnya,<br /> isian ini mungkin tidak dapat diedit"
+msgstr "Karena panjangnya,<br /> kolom ini mungkin tidak dapat diedit."
 
 #: libraries/insert_edit.lib.php:1101
 msgid "Binary - do not edit"
@@ -11751,10 +11728,8 @@ msgid "Or"
 msgstr "Atau"
 
 #: libraries/insert_edit.lib.php:1238
-#, fuzzy
-#| msgid "web server upload directory"
 msgid "web server upload directory:"
-msgstr "direktori unggahan server web"
+msgstr "direktori unggahan server web:"
 
 #: libraries/insert_edit.lib.php:1418 templates/table/search/input_box.phtml:46
 msgid "Edit/Insert"
@@ -11798,14 +11773,11 @@ msgid "Edit next row"
 msgstr "Edit baris berikut"
 
 #: libraries/insert_edit.lib.php:1610
-#, fuzzy
-#| msgid ""
-#| "Use TAB key to move from value to value, or CTRL+arrows to move anywhere"
 msgid ""
 "Use TAB key to move from value to value, or CTRL+arrows to move anywhere."
 msgstr ""
-"Gunakan tombol TAB untuk maju dari angka ke angka atau gunakan CTRL+panah "
-"untuk maju kemana saja"
+"Gunakan tombol TAB untuk berpindah dari angka ke angka atau gunakan CTRL+"
+"panah untuk pindah kemana saja."
 
 #: libraries/insert_edit.lib.php:1648 libraries/replication_gui.lib.php:546
 #: libraries/rte/rte_routines.lib.php:1608
@@ -11874,10 +11846,8 @@ msgid "Add prefix"
 msgstr "Tambahkan prefiks"
 
 #: libraries/mult_submits.lib.php:449
-#, fuzzy
-#| msgid "Do you really want to "
 msgid "Do you really want to execute the following query?"
-msgstr "Benarkah Anda ingin untuk "
+msgstr "Apakah anda benar-benar ingin untuk mengesekusi queri di ikuti?"
 
 #: libraries/normalization.lib.php:130
 #, fuzzy
@@ -12914,10 +12884,8 @@ msgstr ""
 "dalam daftar ini."
 
 #: libraries/replication_gui.lib.php:875
-#, fuzzy
-#| msgid "Generate password"
 msgid "Generate password:"
-msgstr "Buatkan kata sandi"
+msgstr "Menghasilkan kata sandi:"
 
 #: libraries/replication_gui.lib.php:907
 msgid ""
@@ -12928,50 +12896,36 @@ msgstr ""
 "$cfg['AllowArbitraryServer'] pada konfigurasi phpMyAdmin."
 
 #: libraries/replication_gui.lib.php:916
-#, fuzzy
-#| msgid "Replication status"
 msgid "Replication started successfully."
-msgstr "Status replikasi"
+msgstr "Replikasi berhasil dilakukan."
 
 #: libraries/replication_gui.lib.php:917
-#, fuzzy
-#| msgid "Master replication"
 msgid "Error starting replication."
-msgstr "Replikasi master"
+msgstr "Kesalahan melakukan replikasi."
 
 #: libraries/replication_gui.lib.php:920
-#, fuzzy
-#| msgid "Chart generated successfully."
 msgid "Replication stopped successfully."
-msgstr "Sukses reload Hak Istimewa (Privileges)."
+msgstr "Replikasi berhasil dihentikan."
 
 #: libraries/replication_gui.lib.php:921
-#, fuzzy
-#| msgid "Master replication"
 msgid "Error stopping replication."
-msgstr "Replikasi master"
+msgstr "Kesalahan menghentikan replikasi."
 
 #: libraries/replication_gui.lib.php:924
-#, fuzzy
-#| msgid "Replication status"
 msgid "Replication resetting successfully."
-msgstr "Status replikasi"
+msgstr "Replikasi berhasil diatur ulang."
 
 #: libraries/replication_gui.lib.php:925
-#, fuzzy
-#| msgid "Master replication"
 msgid "Error resetting replication."
-msgstr "Replikasi master"
+msgstr "Kesalahan mensetting ulang replikasi."
 
 #: libraries/replication_gui.lib.php:928
 msgid "Success."
-msgstr "Sukses."
+msgstr "Berhasil."
 
 #: libraries/replication_gui.lib.php:929
-#, fuzzy
-#| msgid "Error"
 msgid "Error."
-msgstr "Galat"
+msgstr "Galat."
 
 #: libraries/replication_gui.lib.php:974
 msgid "Unknown error"
@@ -13433,9 +13387,8 @@ msgid "Export of event %s"
 msgstr "Ekspor event %s"
 
 #: libraries/rte/rte_words.lib.php:66
-#, fuzzy
 msgid "event"
-msgstr "event"
+msgstr "acara"
 
 #: libraries/rte/rte_words.lib.php:68
 #, fuzzy
@@ -13444,20 +13397,17 @@ msgid "You do not have the necessary privileges to create an event."
 msgstr "Anda tidak punya hak akses untuk membuat event"
 
 #: libraries/rte/rte_words.lib.php:70
-#, fuzzy, php-format
-#| msgid "No event with name %1$s found in database %2$s"
+#, php-format
 msgid "No event with name %1$s found in database %2$s."
-msgstr "Event dengan nama %1$s tidak ditemukan dalam basis data %2$s"
+msgstr "Tidak ada event dengan nama %1$s ditemukan dalam basis data %2$s."
 
 #: libraries/rte/rte_words.lib.php:71
 msgid "There are no events to display."
 msgstr "Tidak ada event untuk ditampilkan."
 
 #: libraries/select_server.lib.php:44 libraries/select_server.lib.php:49
-#, fuzzy
-#| msgid "Current server"
 msgid "Current server:"
-msgstr "Server saat ini"
+msgstr "Server saat ini:"
 
 #: libraries/server_common.lib.php:24
 msgid "Server variables and settings"
@@ -13735,10 +13685,8 @@ msgid "Clear series"
 msgstr "Bersihkan seri"
 
 #: libraries/server_status_monitor.lib.php:229
-#, fuzzy
-#| msgid "Series in Chart:"
 msgid "Series in chart:"
-msgstr "Seri pada Bagan:"
+msgstr "Seri pada grafik:"
 
 #: libraries/server_status_monitor.lib.php:250
 msgid "Start Monitor"
