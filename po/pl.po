@@ -4,17 +4,17 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.8.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2017-08-10 09:14-0400\n"
-"PO-Revision-Date: 2017-08-03 20:58+0000\n"
-"Last-Translator: Marcin Wróblewski <marcinwroblewski@outlook.com>\n"
-"Language-Team: Polish <https://hosted.weblate.org/projects/phpmyadmin/master/"
-"pl/>\n"
+"PO-Revision-Date: 2017-09-04 10:14+0000\n"
+"Last-Translator: Piotr Strebski <strebski@o2.pl>\n"
+"Language-Team: Polish "
+"<https://hosted.weblate.org/projects/phpmyadmin/master/pl/>\n"
 "Language: pl\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=n==1 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 "
 "|| n%100>=20) ? 1 : 2;\n"
-"X-Generator: Weblate 2.16-dev\n"
+"X-Generator: Weblate 2.17-dev\n"
 
 #: ajax.php:17 ajax.php:34 export.php:195 schema_export.php:66
 msgid "Bad type!"
@@ -803,8 +803,7 @@ msgstr ""
 #: index.php:538
 msgid "The secret passphrase in configuration (blowfish_secret) is too short."
 msgstr ""
-"Tajna fraza kodująca (blowfish_secret) w pliku konfiguracyjnym jest za "
-"krótka."
+"Klucz szyfrujący (blowfish_secret) podany w konfiguracji jest zbyt krótki."
 
 #: index.php:552
 msgid ""
@@ -825,15 +824,16 @@ msgid ""
 "The phpMyAdmin configuration storage is not completely configured, some "
 "extended features have been deactivated. %sFind out why%s. "
 msgstr ""
-"Przechowywania konfiguracji phpMyAdmin nie jest w pełni skonfigurowane, "
-"niektóre rozszerzone funkcje zostały wyłączone. %sDowiedz się dlaczego%s. "
+"Program phpMyAdmin nie ma w pełni skonfigurowanej przestrzeni do "
+"przechowywania danych, niektóre rozszerzone funkcje zostały wyłączone. Aby "
+"dowiedzieć się dlaczego kliknij %stutaj%s. "
 
 #: index.php:575
 msgid ""
 "Or alternately go to 'Operations' tab of any database to set it up there."
 msgstr ""
-"Możesz też przejść do karty 'Operacje' dowolnej bazy danych, by "
-"skonfigurować tą opcję tylko dla tej bazy."
+"Możesz też przejść do zakładki 'Operacje' w dowolnej bazie danych, aby tam "
+"to skonfigurować."
 
 #: index.php:600
 #, php-format
