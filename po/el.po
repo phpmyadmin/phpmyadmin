@@ -4,16 +4,16 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.8.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2017-08-10 09:14-0400\n"
-"PO-Revision-Date: 2017-04-13 09:16+0000\n"
+"PO-Revision-Date: 2017-09-04 06:26+0000\n"
 "Last-Translator: Παναγιώτης Παπάζογλου <papaz_p@yahoo.com>\n"
-"Language-Team: Greek <https://hosted.weblate.org/projects/phpmyadmin/master/"
-"el/>\n"
+"Language-Team: Greek "
+"<https://hosted.weblate.org/projects/phpmyadmin/master/el/>\n"
 "Language: el\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 2.14-dev\n"
+"X-Generator: Weblate 2.17-dev\n"
 
 #: ajax.php:17 ajax.php:34 export.php:195 schema_export.php:66
 msgid "Bad type!"
@@ -301,13 +301,10 @@ msgid "The database name is empty!"
 msgstr "Το όνομα της βάσης δεδομένων είναι κενό!"
 
 #: db_operations.php:53
-#, fuzzy
-#| msgid ""
-#| "Cannot rename database to the same name. Change the name and try again"
 msgid "Cannot copy database to the same name. Change the name and try again."
 msgstr ""
-"Αδύνατη η μετονομασία βάσης δεδομένων με το ίδιο όνομα. Αλλάξτε το όνομα και "
-"δοκιμάστε ξανά"
+"Αδύνατη η αντιγραφή βάσης δεδομένων με το ίδιο όνομα. Αλλάξτε το όνομα και "
+"δοκιμάστε ξανά."
 
 #: db_operations.php:142
 #, php-format
@@ -624,6 +621,8 @@ msgid ""
 "You were logged out from one server, to logout completely from phpMyAdmin, "
 "you need to logout from all servers."
 msgstr ""
+"Έχετε αποσυνδεθεί από έναν διακομιστή, για να αποσυνθεθείτε πλήρως από το "
+"phpMyAdmin, πρέπει να αποσυνδεθείτε από όλους του διακομιστές."
 
 #: index.php:162 libraries/classes/Footer.php:74
 msgid "phpMyAdmin Demo Server"
@@ -675,10 +674,8 @@ msgid "Server type:"
 msgstr "Τύπος διακομιστή:"
 
 #: index.php:310
-#, fuzzy
-#| msgid "Master connection:"
 msgid "Server connection:"
-msgstr "Κύρια σύνδεση:"
+msgstr "Σύνδεση διακομιστή:"
 
 #: index.php:314 libraries/classes/Plugins/Export/ExportLatex.php:221
 #: libraries/classes/Plugins/Export/ExportSql.php:702
@@ -847,6 +844,8 @@ msgid ""
 "The $cfg['TempDir'] (%s) is not accessible. phpMyAdmin is not able to cache "
 "templates and will be slow because of this."
 msgstr ""
+"Το $cfg['TempDir'] (%s) δεν είναι προσβάσιμο. Το phpMyAdmin δεν μπορεί να "
+"βάλει στη λανθάνουσα μνήμη πρότυπα και θα είναι αργό εξαιτίας αυτού."
 
 #: js/messages.php:43
 msgid "Confirm"
@@ -1563,22 +1562,16 @@ msgid "Chart"
 msgstr "Διάγραμμα"
 
 #: js/messages.php:295 libraries/display_export.lib.php:905
-#, fuzzy
-#| msgid "Database"
 msgctxt "Alias"
 msgid "Database"
-msgstr "Βάση"
+msgstr "Βάση δεδομένων"
 
 #: js/messages.php:296 libraries/display_export.lib.php:917
-#, fuzzy
-#| msgid "Table"
 msgctxt "Alias"
 msgid "Table"
 msgstr "Πίνακας"
 
 #: js/messages.php:297 libraries/display_export.lib.php:928
-#, fuzzy
-#| msgid "Column"
 msgctxt "Alias"
 msgid "Column"
 msgstr "Στήλη"
@@ -1772,10 +1765,8 @@ msgid "No databases selected."
 msgstr "Δεν έχετε επιλέξει βάσεις δεδομένων."
 
 #: js/messages.php:366
-#, fuzzy
-#| msgid "No column selected."
 msgid "No accounts selected."
-msgstr "Δεν επιλέχθηκε στήλη."
+msgstr "Δεν επιλέχθηκαν λογαριασμοί."
 
 #: js/messages.php:367
 msgid "Dropping column"
@@ -3171,10 +3162,9 @@ msgid "Attributes"
 msgstr "Χαρακτηριστικά"
 
 #: libraries/classes/Advisor.php:243
-#, fuzzy, php-format
-#| msgid "Error while creating PDF:"
+#, php-format
 msgid "Error when evaluating: %s"
-msgstr "Σφάλμα κατά τη δημιουργία του PDF:"
+msgstr "Σφάλμα κατά την εκτίμηση: %s"
 
 #: libraries/classes/Advisor.php:274
 #, php-format
@@ -3252,168 +3242,120 @@ msgid "Charset"
 msgstr "Σύνολο χαρακτήρων"
 
 #: libraries/classes/Charsets.php:265
-#, fuzzy
-#| msgid "unknown"
 msgid "Unknown"
-msgstr "άγνωστο"
+msgstr "Άγνωστο"
 
 #: libraries/classes/Charsets.php:279
-#, fuzzy
-#| msgid "Binary"
 msgctxt "Collation"
 msgid "Binary"
 msgstr "Δυαδικό"
 
 #: libraries/classes/Charsets.php:291 libraries/classes/Charsets.php:521
-#, fuzzy
-#| msgid "Unicode"
 msgctxt "Collation"
 msgid "Unicode"
 msgstr "Unicode"
 
 #: libraries/classes/Charsets.php:301 libraries/classes/Charsets.php:472
-#, fuzzy
-#| msgid "West European"
 msgctxt "Collation"
 msgid "West European"
 msgstr "Δυτικής Ευρώπης"
 
 #: libraries/classes/Charsets.php:308
-#, fuzzy
-#| msgid "Central European"
 msgctxt "Collation"
 msgid "Central European"
 msgstr "Κεντρικής Ευρώπης"
 
 #: libraries/classes/Charsets.php:313
-#, fuzzy
-#| msgid "Russian"
 msgctxt "Collation"
 msgid "Russian"
 msgstr "Ρωσικά"
 
 #: libraries/classes/Charsets.php:318
-#, fuzzy
-#| msgid "Simplified Chinese"
 msgctxt "Collation"
 msgid "Simplified Chinese"
 msgstr "Απλοποιημένα Κινέζικα"
 
 #: libraries/classes/Charsets.php:325 libraries/classes/Charsets.php:443
-#, fuzzy
-#| msgid "Japanese"
 msgctxt "Collation"
 msgid "Japanese"
 msgstr "Ιαπωνικά"
 
 #: libraries/classes/Charsets.php:330
-#, fuzzy
-#| msgid "Baltic"
 msgctxt "Collation"
 msgid "Baltic"
 msgstr "Βαλτικής"
 
 #: libraries/classes/Charsets.php:335
-#, fuzzy
-#| msgid "Armenian"
 msgctxt "Collation"
 msgid "Armenian"
 msgstr "Αρμενικά"
 
 #: libraries/classes/Charsets.php:338
-#, fuzzy
-#| msgid "Traditional Chinese"
 msgctxt "Collation"
 msgid "Traditional Chinese"
 msgstr "Παραδοσιακά Κινέζικα"
 
 #: libraries/classes/Charsets.php:341
-#, fuzzy
-#| msgid "Cyrillic"
 msgctxt "Collation"
 msgid "Cyrillic"
 msgstr "Κυριλλικά"
 
 #: libraries/classes/Charsets.php:344
-#, fuzzy
-#| msgid "Arabic"
 msgctxt "Collation"
 msgid "Arabic"
 msgstr "Αραβικά"
 
 #: libraries/classes/Charsets.php:347 libraries/classes/Charsets.php:458
-#, fuzzy
-#| msgid "Korean"
 msgctxt "Collation"
 msgid "Korean"
 msgstr "Κορεατικά"
 
 #: libraries/classes/Charsets.php:350
-#, fuzzy
-#| msgid "Hebrew"
 msgctxt "Collation"
 msgid "Hebrew"
 msgstr "Εβραϊκά"
 
 #: libraries/classes/Charsets.php:353
-#, fuzzy
-#| msgid "Georgian"
 msgctxt "Collation"
 msgid "Georgian"
 msgstr "Γεωργιανά"
 
 #: libraries/classes/Charsets.php:356
-#, fuzzy
-#| msgid "Greek"
 msgctxt "Collation"
 msgid "Greek"
 msgstr "Ελληνικά"
 
 #: libraries/classes/Charsets.php:359
-#, fuzzy
-#| msgid "Czech-Slovak"
 msgctxt "Collation"
 msgid "Czech-Slovak"
 msgstr "Τσέχο-Σλοβάκικα"
 
 #: libraries/classes/Charsets.php:362 libraries/classes/Charsets.php:513
-#, fuzzy
-#| msgid "Ukrainian"
 msgctxt "Collation"
 msgid "Ukrainian"
 msgstr "Ουκρανικά"
 
 #: libraries/classes/Charsets.php:365 libraries/classes/Charsets.php:509
-#, fuzzy
-#| msgid "Turkish"
 msgctxt "Collation"
 msgid "Turkish"
 msgstr "Τουρκικά"
 
 #: libraries/classes/Charsets.php:368 libraries/classes/Charsets.php:501
-#, fuzzy
-#| msgid "Swedish"
 msgctxt "Collation"
 msgid "Swedish"
 msgstr "Σουηδικά"
 
 #: libraries/classes/Charsets.php:371 libraries/classes/Charsets.php:505
-#, fuzzy
-#| msgid "Thai"
 msgctxt "Collation"
 msgid "Thai"
 msgstr "Ταϊλανδικά"
 
 #: libraries/classes/Charsets.php:374
-#, fuzzy
-#| msgid "unknown"
 msgctxt "Collation"
 msgid "Unknown"
-msgstr "άγνωστο"
+msgstr "Άγνωστο"
 
 #: libraries/classes/Charsets.php:390
-#, fuzzy
-#| msgid "Bulgarian"
 msgctxt "Collation"
 msgid "Bulgarian"
 msgstr "Βουλγαρικά"
@@ -3421,72 +3363,54 @@ msgstr "Βουλγαρικά"
 #: libraries/classes/Charsets.php:395
 msgctxt "Collation"
 msgid "Chinese"
-msgstr ""
+msgstr "Κινέζικα"
 
 #: libraries/classes/Charsets.php:400
-#, fuzzy
-#| msgid "Croatian"
 msgctxt "Collation"
 msgid "Croatian"
 msgstr "Κροατικά"
 
 #: libraries/classes/Charsets.php:404
-#, fuzzy
-#| msgid "Czech"
 msgctxt "Collation"
 msgid "Czech"
 msgstr "Τσεχικά"
 
 #: libraries/classes/Charsets.php:408
-#, fuzzy
-#| msgid "Danish"
 msgctxt "Collation"
 msgid "Danish"
-msgstr "Δανικά"
+msgstr "Δανέζικα"
 
 #: libraries/classes/Charsets.php:412
-#, fuzzy
-#| msgid "English"
 msgctxt "Collation"
 msgid "English"
 msgstr "Αγγλικά"
 
 #: libraries/classes/Charsets.php:416
-#, fuzzy
-#| msgid "Esperanto"
 msgctxt "Collation"
 msgid "Esperanto"
 msgstr "Εσπεράντο"
 
 #: libraries/classes/Charsets.php:420
-#, fuzzy
-#| msgid "Estonian"
 msgctxt "Collation"
 msgid "Estonian"
 msgstr "Εσθονικά"
 
 #: libraries/classes/Charsets.php:423 libraries/classes/Charsets.php:540
-#, fuzzy
-#| msgid "Data dictionary"
 msgctxt "Collation"
 msgid "German (dictionary order)"
-msgstr "Λεξικό δεδομένων"
+msgstr "Γερμανικά (ταξινόμηση λεξικού)"
 
 #: libraries/classes/Charsets.php:426 libraries/classes/Charsets.php:537
 msgctxt "Collation"
 msgid "German (phone book order)"
-msgstr ""
+msgstr "Γερμανικά (ταξινόμηση τηλεφωνικού καταλόγου)"
 
 #: libraries/classes/Charsets.php:435
-#, fuzzy
-#| msgid "Hungarian"
 msgctxt "Collation"
 msgid "Hungarian"
 msgstr "Ουγγρικά"
 
 #: libraries/classes/Charsets.php:439
-#, fuzzy
-#| msgid "Icelandic"
 msgctxt "Collation"
 msgid "Icelandic"
 msgstr "Ισλανδικά"
@@ -3494,131 +3418,97 @@ msgstr "Ισλανδικά"
 #: libraries/classes/Charsets.php:446
 msgctxt "Collation"
 msgid "Classical Latin"
-msgstr ""
+msgstr "Κλασσικά Λατινικά"
 
 #: libraries/classes/Charsets.php:450
-#, fuzzy
-#| msgid "Latvian"
 msgctxt "Collation"
 msgid "Latvian"
-msgstr "Λιθουανικά"
+msgstr "Λετονικά"
 
 #: libraries/classes/Charsets.php:454
-#, fuzzy
-#| msgid "Lithuanian"
 msgctxt "Collation"
 msgid "Lithuanian"
 msgstr "Λιθουανικά"
 
 #: libraries/classes/Charsets.php:462
-#, fuzzy
-#| msgid "Burmese"
 msgctxt "Collation"
 msgid "Burmese"
 msgstr "Μπουρμέζικα"
 
 #: libraries/classes/Charsets.php:465
-#, fuzzy
-#| msgid "Persian"
 msgctxt "Collation"
 msgid "Persian"
 msgstr "Περσικά"
 
 #: libraries/classes/Charsets.php:469
-#, fuzzy
-#| msgid "Polish"
 msgctxt "Collation"
 msgid "Polish"
 msgstr "Πολωνικά"
 
 #: libraries/classes/Charsets.php:476
-#, fuzzy
-#| msgid "Romanian"
 msgctxt "Collation"
 msgid "Romanian"
 msgstr "Ρουμάνικα"
 
 #: libraries/classes/Charsets.php:480
-#, fuzzy
-#| msgid "Sinhalese"
 msgctxt "Collation"
 msgid "Sinhalese"
 msgstr "Σινχαλέζικα"
 
 #: libraries/classes/Charsets.php:484
-#, fuzzy
-#| msgid "Slovak"
 msgctxt "Collation"
 msgid "Slovak"
 msgstr "Σλοβάκικα"
 
 #: libraries/classes/Charsets.php:488
-#, fuzzy
-#| msgid "Slovenian"
 msgctxt "Collation"
 msgid "Slovenian"
 msgstr "Σλοβένικα"
 
 #: libraries/classes/Charsets.php:491 libraries/classes/Charsets.php:551
-#, fuzzy
-#| msgid "Spanish"
 msgctxt "Collation"
 msgid "Spanish (modern)"
-msgstr "Ισπανικά"
+msgstr "Ισπανικά (μοντέρνα)"
 
 #: libraries/classes/Charsets.php:498 libraries/classes/Charsets.php:548
 msgctxt "Collation"
 msgid "Spanish (traditional)"
-msgstr ""
+msgstr "Ισπανικά (παραδοσιακά)"
 
 #: libraries/classes/Charsets.php:517
-#, fuzzy
-#| msgid "Vietnamese"
 msgctxt "Collation"
 msgid "Vietnamese"
 msgstr "Βιετναμέζικα"
 
 #: libraries/classes/Charsets.php:584
-#, fuzzy
-#| msgid "case-insensitive"
 msgctxt "Collation variant"
 msgid "case-insensitive"
 msgstr "χωρίς ταίριασμα πεζών-κεφαλαίων"
 
 #: libraries/classes/Charsets.php:587
-#, fuzzy
-#| msgid "case-sensitive"
 msgctxt "Collation variant"
 msgid "case-sensitive"
 msgstr "ταίριασμα πεζών-κεφαλαίων"
 
 #: libraries/classes/Charsets.php:590
-#, fuzzy
-#| msgid "case-insensitive"
 msgctxt "Collation variant"
 msgid "accent-insensitive"
-msgstr "χωρίς ταίριασμα πεζών-κεφαλαίων"
+msgstr "χωρίς ταίριασμα τονισμένων"
 
 #: libraries/classes/Charsets.php:593
-#, fuzzy
-#| msgid "case-sensitive"
 msgctxt "Collation variant"
 msgid "accent-sensitive"
-msgstr "ταίριασμα πεζών-κεφαλαίων"
+msgstr "ταίριασμα τονισμένων"
 
 #: libraries/classes/Charsets.php:597
-#, fuzzy
-#| msgid "multilingual"
 msgctxt "Collation variant"
 msgid "multi-level"
-msgstr "πολυγλωσσικό"
+msgstr "πολυεπίπεδο"
 
 #: libraries/classes/Charsets.php:600
-#, fuzzy
-#| msgid "Binary"
 msgctxt "Collation variant"
 msgid "binary"
-msgstr "Δυαδικό"
+msgstr "δυαδικό"
 
 #: libraries/classes/Config.php:1120
 #, php-format
@@ -4484,7 +4374,7 @@ msgstr "Εσωτερικό πεδίο:"
 
 #: libraries/classes/Dbi/DbiMysqli.php:158
 msgid "SSL connection enforced by server, automatically enabling it."
-msgstr ""
+msgstr "Ο διακομιστής δεσμεύει για σύνδεση SSL και ενεργοποιείται αυτόματα."
 
 #: libraries/classes/DisplayResults.php:910
 msgid "Save edited data"
@@ -5705,10 +5595,8 @@ msgid "Server Choice:"
 msgstr "Επιλογή Διακομιστή:"
 
 #: libraries/classes/Plugins/Auth/AuthenticationCookie.php:341
-#, fuzzy
-#| msgid "Could not connect to the database server!"
 msgid "Failed to connect to the reCAPTCHA service!"
-msgstr "Αδύνατη η σύνδεση με τον διακομιστή βάσης δεδομένων!"
+msgstr "Αδύνατη η σύνδεση με υπηρεσία reCAPTCHA!"
 
 #: libraries/classes/Plugins/Auth/AuthenticationCookie.php:343
 msgid "Entered captcha is wrong, try again!"
@@ -5716,7 +5604,7 @@ msgstr "Το captcha που εισάγατε είναι λανθασμένο, δ
 
 #: libraries/classes/Plugins/Auth/AuthenticationCookie.php:348
 msgid "Missing reCAPTCHA verification, maybe it has been blocked by adblock?"
-msgstr ""
+msgstr "Λείπει η επιβεβαίωση reCAPTCHA, ίσως έχει αποκλειστεί από το adblock;"
 
 #: libraries/classes/Plugins/Auth/AuthenticationCookie.php:372
 msgid "You are not allowed to log in to this MySQL server!"
@@ -6647,18 +6535,6 @@ msgstr ""
 "επιλογή ως κενό."
 
 #: libraries/classes/Plugins/Transformations/Abs/ExternalTransformationsPlugin.php:28
-#, fuzzy
-#| msgid ""
-#| "LINUX ONLY: Launches an external application and feeds it the column data "
-#| "via standard input. Returns the standard output of the application. The "
-#| "default is Tidy, to pretty-print HTML code. For security reasons, you "
-#| "have to manually edit the file libraries/plugins/transformations/output/"
-#| "Text_Plain_External.php and list the tools you want to make available. "
-#| "The first option is then the number of the program you want to use and "
-#| "the second option is the parameters for the program. The third option, if "
-#| "set to 1, will convert the output using htmlspecialchars() (Default 1). "
-#| "The fourth option, if set to 1, will prevent wrapping and ensure that the "
-#| "output appears all on one line (Default 1)."
 msgid ""
 "LINUX ONLY: Launches an external application and feeds it the column data "
 "via standard input. Returns the standard output of the application. The "
@@ -6671,18 +6547,18 @@ msgid ""
 "option, if set to 1, will prevent wrapping and ensure that the output "
 "appears all on one line (Default 1)."
 msgstr ""
-"ΜΟΝΟ ΓΙΑ LINUX: Εκτελεί μία εξωτερική εφαρμογή και στέλνει τα δεδομένα μέσω "
-"«βασικής εισαγωγής». Επιστρέφει το αποτέλεσμα της εφαρμογής. Προεπιλεγμένη "
+"ΜΟΝΟ ΓΙΑ LINUX: Εκτελεί μία εξωτερική εφαρμογή και στέλνει τα δεδομένα μέσω «"
+"βασικής εισαγωγής». Επιστρέφει το αποτέλεσμα της εφαρμογής. Προεπιλεγμένη "
 "τιμή είναι το Tidy, που τυπώνει μορφοποιημένο κώδικα HTML. Για λόγους "
-"ασφαλείας, πρέπει χειροκίνητα να αλλάξετε το αρχείο libraries/"
-"transformations/output/text_plain__external.php και να εισάγετε τα εργαλεία "
-"που εσείς θέλετε να είναι διαθέσιμα. Η πρώτη επιλογή είναι ο αριθμός της "
-"εφαρμογής που θέλετε να χρησιμοποιήσετε και η δεύτερη επιλογή είναι οι "
-"παράμετροι της. Η τρίτη επιλογή, αν τεθεί σε 1 θα μετατρέψει το αποτέλεσμα "
-"χρησιμοποιώντας την εντολή htmlspecialchars() (Προεπιλεγμένη τιμή: 1). Η "
-"τέταρτη επιλογή, αν τεθεί σε 1 θα εισάγει NOWRAP στο κελί περιεχομένου ούτως "
-"ώστε όλο το αποτέλεσμα να εμφανιστεί χωρίς αλλαγές στην διάταξη "
-"(Προεπιλεγμένη τιμή: 1)."
+"ασφαλείας, πρέπει χειροκίνητα να αλλάξετε το αρχείο "
+"libraries/pclasses/Plugins/tTransformations/oOutput/Text_Plain_External.php "
+"και να εισάγετε τα εργαλεία που εσείς θέλετε να είναι διαθέσιμα. Η πρώτη "
+"επιλογή είναι ο αριθμός της εφαρμογής που θέλετε να χρησιμοποιήσετε και η "
+"δεύτερη επιλογή είναι οι παράμετροι της. Η τρίτη επιλογή, αν τεθεί σε 1 θα "
+"μετατρέψει το αποτέλεσμα χρησιμοποιώντας την εντολή htmlspecialchars() ("
+"Προεπιλεγμένη τιμή: 1). Η τέταρτη επιλογή, αν τεθεί σε 1 θα εισάγει NOWRAP "
+"στο κελί περιεχομένου ούτως ώστε όλο το αποτέλεσμα να εμφανιστεί χωρίς "
+"αλλαγές στην διάταξη (Προεπιλεγμένη τιμή: 1)."
 
 #: libraries/classes/Plugins/Transformations/Abs/FormattedTransformationsPlugin.php:28
 msgid ""
@@ -7891,10 +7767,9 @@ msgstr ""
 "δεδομένων)"
 
 #: libraries/classes/Template.php:199
-#, fuzzy, php-format
-#| msgid "Error while loading the search."
+#, php-format
 msgid "Error while working with template cache: %s"
-msgstr "Σφάλμα κατά τη φόρτωση της αναζήτησης."
+msgstr "Σφάλμα κατά την εργασία με τη λανθάνουσα μνήμη προτύπων: %s"
 
 #: libraries/classes/Theme.php:184
 #, php-format
@@ -8356,19 +8231,19 @@ msgstr "Εκτέλεση"
 
 #: libraries/classes/Util.php:3953
 msgid "SSL is not being used"
-msgstr ""
+msgstr "Το SSL δεν έχει χρησιμοποιηθεί"
 
 #: libraries/classes/Util.php:3958
 msgid "SSL is used with disabled verification"
-msgstr ""
+msgstr "Το SSL χρησιμοποιείται με απενεργοποιημένη επιβεβαίωση"
 
 #: libraries/classes/Util.php:3960
 msgid "SSL is used without certification authority"
-msgstr ""
+msgstr "Το SSL χρησιμοποιείται χωρίς απενεργοποιημένη επιβεβαίωση"
 
 #: libraries/classes/Util.php:3963
 msgid "SSL is used"
-msgstr ""
+msgstr "Το SSL χρησιμοποιείται"
 
 #: libraries/classes/Util.php:4084
 msgid "Users"
@@ -8393,18 +8268,12 @@ msgstr ""
 "μερικά δεδομένα!"
 
 #: libraries/common.inc.php:487
-#, fuzzy
-#| msgid ""
-#| "You have enabled mbstring.func_overload in your PHP configuration. This "
-#| "option is incompatible with phpMyAdmin and might cause some data to be "
-#| "corrupted!"
 msgid ""
 "You have disabled ini_get and/or ini_set in php.ini. This option is "
 "incompatible with phpMyAdmin!"
 msgstr ""
-"Έχετε ενεργή τη mbstring.func_overload στις ρυθμίσεις της PHP. Αυτή η "
-"επιλογή είναι ασύμβατη με το phpMyAdmin και ίσως προκαλέσει πρόβλημα με "
-"μερικά δεδομένα!"
+"Έχετε απενεργοποιήσει τα ini_get και/ή ini_set στο php.ini. Αυτή η επιλογή "
+"είναι ασύμβατη με το phpMyAdmin!"
 
 #: libraries/common.inc.php:520
 #, php-format
@@ -8835,10 +8704,8 @@ msgid "Hide table structure actions"
 msgstr "Απόκρυψη ενεργειών δομής πίνακα"
 
 #: libraries/config/messages.inc.php:121
-#, fuzzy
-#| msgid "Default sorting order"
 msgid "Default transformations for Hex"
-msgstr "Προεπιλεγμένη ταξινόμηση"
+msgstr "Προεπιλεγμένες μετατροπές για Δεκαεξαδικό"
 
 #: libraries/config/messages.inc.php:122 libraries/config/messages.inc.php:124
 #: libraries/config/messages.inc.php:126 libraries/config/messages.inc.php:128
@@ -8849,54 +8716,40 @@ msgid ""
 "Values for options list for default transformations. These will be "
 "overwritten if tranformation is filled in at table structure page."
 msgstr ""
+"Τιμές για τη λίστα επιλογών για τις προεπιλεγμένες μετατροπές. Αυτά θα "
+"αντικατασταθούν η μετατροπή έχει συμπληρωθεί στη σελίδα δομής πίνακα."
 
 #: libraries/config/messages.inc.php:123
-#, fuzzy
-#| msgid "Input transformation options"
 msgid "Default transformations for Substring"
-msgstr "Επιλογές μετατροπής εισαγωγής"
+msgstr "Προεπιλεγμένες μετατροπές για το Substring"
 
 #: libraries/config/messages.inc.php:125
-#, fuzzy
-#| msgid "Default sorting order"
 msgid "Default transformations for Bool2Text"
-msgstr "Προεπιλεγμένη ταξινόμηση"
+msgstr "Προεπιλεγμένες μετατροπές για Bool2Text"
 
 #: libraries/config/messages.inc.php:127
-#, fuzzy
-#| msgid "Default sorting order"
 msgid "Default transformations for External"
-msgstr "Προεπιλεγμένη ταξινόμηση"
+msgstr "Προεπιλεγμένες μετατροπές για External"
 
 #: libraries/config/messages.inc.php:129
-#, fuzzy
-#| msgid "Input transformation options"
 msgid "Default transformations for PreApPend"
-msgstr "Επιλογές μετατροπής εισαγωγής"
+msgstr "Προεπιλεγμένες μετατροπές για PreApPend"
 
 #: libraries/config/messages.inc.php:131
-#, fuzzy
-#| msgid "Default sorting order"
 msgid "Default transformations for DateFormat"
-msgstr "Προεπιλεγμένη ταξινόμηση"
+msgstr "Προεπιλεγμένες μετατροπές για το DateFormat"
 
 #: libraries/config/messages.inc.php:133
-#, fuzzy
-#| msgid "Input transformation options"
 msgid "Default transformations for Inline"
-msgstr "Επιλογές μετατροπής εισαγωγής"
+msgstr "Προεπιλεγμένες μετατροπές για το Inline"
 
 #: libraries/config/messages.inc.php:135
-#, fuzzy
-#| msgid "Input transformation options"
 msgid "Default transformations for TextImageLink"
-msgstr "Επιλογές μετατροπής εισαγωγής"
+msgstr "Προεπιλεγμένες μετατροπές για το TextImageLink"
 
 #: libraries/config/messages.inc.php:137
-#, fuzzy
-#| msgid "Input transformation options"
 msgid "Default transformations for TextLink"
-msgstr "Επιλογές μετατροπής εισαγωγής"
+msgstr "Προεπιλεγμένες μετατροπές για το TextLink"
 
 #: libraries/config/messages.inc.php:141
 msgid "Show server listing as a list instead of a drop down."
@@ -11016,10 +10869,8 @@ msgid "OpenDocument Text"
 msgstr "Έγγραφο Κειμένου Ανοιχτού Κώδικα - ODΤ"
 
 #: libraries/config/user_preferences.forms.php:124
-#, fuzzy
-#| msgid "Input transformation"
 msgid "Default transformations"
-msgstr "Μετατροπή εισαγωγής"
+msgstr "Προεπιλεγμένες μετατροπές"
 
 #: libraries/database_interface.inc.php:38
 #, php-format
@@ -11227,7 +11078,7 @@ msgstr "Αγνόηση πινάκων μεγαλύτερων από"
 
 #: libraries/display_export.lib.php:897
 msgid "Defined aliases"
-msgstr ""
+msgstr "Ορισμένες ετικέτες"
 
 #: libraries/display_export.lib.php:1013
 msgid "Could not load export plugins, please check your installation!"
@@ -14592,10 +14443,8 @@ msgid "No Privileges"
 msgstr "Χωρίς Δικαιώματα"
 
 #: server_privileges.php:143
-#, fuzzy
-#| msgid "You do not have the necessary privileges to create a trigger."
 msgid "You do not have privileges to manipulate with the users!"
-msgstr "Δεν έχετε τα απαραίτητα δικαιώματα για να δημιουργήσετε μια ενέργεια."
+msgstr "Δεν έχετε τα απαραίτητα δικαιώματα για να χειριστείτε χρήστες!"
 
 #: server_privileges.php:157
 msgid ""
@@ -15787,10 +15636,8 @@ msgid "Aggregate"
 msgstr "Άθροιση"
 
 #: templates/export/alias_item.twig:39
-#, fuzzy
-#| msgid "Remote server"
 msgid "Remove"
-msgstr "Απομακρυσμένος διακομιστής"
+msgstr "Απομάκρυνση"
 
 #: templates/database/create_table.twig:47
 msgid "Number of columns"
@@ -15852,10 +15699,8 @@ msgstr ""
 "εισάγετε για την τρέχουσα συνεδρία;"
 
 #: templates/prefs_autoload.twig:46
-#, fuzzy
-#| msgid "Delete settings "
 msgid "Delete settings"
-msgstr "Διαγραφή ρυθμίσεων "
+msgstr "Διαγραφή ρυθμίσεων"
 
 #: templates/console/display.twig:24
 msgid "Console"
@@ -16093,33 +15938,27 @@ msgstr "Λειτουργός συσχέτισης"
 
 #: templates/export/alias_add.twig:24
 msgid "Define new aliases"
-msgstr ""
+msgstr "Ορισμός νεών ετικετών"
 
 #: templates/export/alias_add.twig:32
-#, fuzzy
-#| msgid "Select database"
 msgid "Select database:"
-msgstr "Επιλογή βάσης δεδομένων"
+msgstr "Επιλογή βάσης δεδομένων:"
 
 #: templates/export/alias_add.twig:41
 msgid "New database name"
 msgstr "Νέο όνομα βάσης δεδομένων"
 
 #: templates/export/alias_add.twig:55
-#, fuzzy
-#| msgid "Select table"
 msgid "Select table:"
-msgstr "Επιλογή πίνακα"
+msgstr "Επιλογή πίνακα:"
 
 #: templates/export/alias_add.twig:64
 msgid "New table name"
 msgstr "Νέο όνομα πίνακα"
 
 #: templates/export/alias_add.twig:78
-#, fuzzy
-#| msgid "Select a column."
 msgid "Select column:"
-msgstr "Επιλογή μιας στήλης."
+msgstr "Επιλογή στήλης:"
 
 #: templates/export/alias_add.twig:87
 msgid "New column name"
