@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.8.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2017-08-10 09:14-0400\n"
-"PO-Revision-Date: 2017-09-04 14:58+0000\n"
+"PO-Revision-Date: 2017-09-04 15:45+0000\n"
 "Last-Translator: Māris <weblate@netparks.lv>\n"
 "Language-Team: Latvian "
 "<https://hosted.weblate.org/projects/phpmyadmin/master/lv/>\n"
@@ -296,7 +296,7 @@ msgstr "Iezīmēt visu"
 
 #: db_operations.php:50 tbl_create.php:26
 msgid "The database name is empty!"
-msgstr "Datubāzes nosaukums ir tukšs!"
+msgstr "Nav norādīts datu bāzes nosaukums!"
 
 #: db_operations.php:53
 msgid "Cannot copy database to the same name. Change the name and try again."
@@ -367,7 +367,7 @@ msgstr ""
 
 #: error_report.php:72
 msgid "Thank you for submitting this report."
-msgstr "Paldies Jums, ka iesniedzāt kļūdu atskaiti."
+msgstr "Paldies, ka iesniedzāt kļūdu atskaiti."
 
 #: error_report.php:76
 msgid ""
@@ -383,7 +383,7 @@ msgstr "Ja Jums rodas problēmas, lūdzu manuāli iesniedziet kļūdu atskaiti."
 
 #: error_report.php:85
 msgid "You may want to refresh the page."
-msgstr "Jūs varētu vēlēties atjaunot lapu."
+msgstr "Varētu būt derīgi pārlādēt lapu."
 
 #: export.php:278
 msgid "Bad parameters!"
@@ -540,8 +540,8 @@ msgid ""
 "You probably tried to upload a file that is too large. Please refer to "
 "%sdocumentation%s for a workaround for this limit."
 msgstr ""
-"Visticamāk Jūs mēģinājāt augšupielādēt failu, kas ir par lielu. Skaties "
-"%sdocumentation%s, lai atrastu risinājumu šai problēmai."
+"Visticamāk jūs mēģinājāt augšupielādēt failu, kas ir par lielu. Risinājumu "
+"droši vien var atrast %sdokumentācijā%s."
 
 #: import.php:368 import.php:569
 msgid "Showing bookmark"
@@ -557,13 +557,13 @@ msgid ""
 "file size exceeded the maximum size permitted by your PHP configuration. See "
 "[doc@faq1-16]FAQ 1.16[/doc]."
 msgstr ""
-"Netika saņemti dati, ko importēt. Vai nu nebija ievadīts faila nosaukums, "
+"Netika saņemti importējamie dati. Vai nu nebija ievadīts faila nosaukums, "
 "vai arī faila izmērs pārsniedza maksimālo izmēru, ko pieļauj jūsu PHP "
-"configurācija. Skatīt [doc@faq1-16]FAQ[/doc]."
+"configurācija. Skatīt [doc@faq1-16]BUJ 1.16[/doc]."
 
 #: import.php:530 libraries/display_import.lib.php:667
 msgid "Could not load import plugins, please check your installation!"
-msgstr "Nevar ielādēt importētos spraudņus, lūdzu pārbaudi savu instalāciju!"
+msgstr "Nevar ielādēt importētos spraudņus, lūdzu pārbaudiet savu instalāciju!"
 
 #: import.php:572 libraries/classes/Sql.php:806 libraries/classes/Sql.php:1581
 #, php-format
@@ -630,7 +630,7 @@ msgid ""
 "change root, debian-sys-maint and pma users. More information is available "
 "at %s."
 msgstr ""
-"Jūs izmantojat demo serveri. Jūs šeit varat darīt visu, bet lūdzu nemainat "
+"Jūs izmantojat demo serveri. Jūs šeit varat darīt visu, bet lūdzu nemainiet "
 "root, debian-sys-maint un pma users tabulas. Vairāk informācijas %s."
 
 #: index.php:176
@@ -653,7 +653,7 @@ msgstr "Izskata iestatījumi"
 
 #: index.php:277 prefs_manage.php:295
 msgid "More settings"
-msgstr "Pārējie uzstādījumi"
+msgstr "Pārējie iestatījumi"
 
 #: index.php:299
 msgid "Database server"
