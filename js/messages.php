@@ -365,6 +365,10 @@ $js_messages['strRequestFailed'] = __('Request failed!!');
 $js_messages['strErrorProcessingRequest'] = __('Error in processing request');
 $js_messages['strErrorCode'] = __('Error code: %s');
 $js_messages['strErrorText'] = __('Error text: %s');
+$js_messages['strErrorConnection'] = __(
+    'It seems that the connection to server has been lost. Please check your ' .
+    'network connectivity and server status.'
+);
 $js_messages['strNoDatabasesSelected'] = __('No databases selected.');
 $js_messages['strDroppingColumn'] = __('Dropping column');
 $js_messages['strAddingPrimaryKey'] = __('Adding primary key');
