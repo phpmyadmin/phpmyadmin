@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.7.4-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2017-08-10 09:13-0400\n"
-"PO-Revision-Date: 2017-09-04 15:45+0000\n"
+"PO-Revision-Date: 2017-09-05 12:49+0000\n"
 "Last-Translator: developerchan1 <developerchan1@gmail.com>\n"
 "Language-Team: Indonesian "
 "<https://hosted.weblate.org/projects/phpmyadmin/4-7/id/>\n"
@@ -4427,7 +4427,7 @@ msgstr "Nama tabel tidak valid:"
 #: libraries/Table.php:1369
 #, php-format
 msgid "Failed to rename table %1$s to %2$s!"
-msgstr "Galat sewaktu mengganti nama table %1$s menjadi %2$s!"
+msgstr "Gagal mengganti nama table %1$s menjadi %2$s!"
 
 #: libraries/Table.php:1388
 #, php-format
@@ -4839,9 +4839,9 @@ msgid "Skip Explain SQL"
 msgstr "Lewati Penjelasan SQL"
 
 #: libraries/Util.php:1086
-#, fuzzy, php-format
+#, php-format
 msgid "Analyze Explain at %s"
-msgstr "Menganalisis Jelaskan di %s"
+msgstr "Menganalisis penjelasan di %s"
 
 #: libraries/Util.php:1119
 msgid "Without PHP code"
@@ -8484,9 +8484,8 @@ msgid "Password:"
 msgstr "Kata Sandi:"
 
 #: libraries/display_change_password.lib.php:68
-#, fuzzy
 msgid "Enter:"
-msgstr "Masukkan:"
+msgstr "Masuk:"
 
 #: libraries/display_change_password.lib.php:75
 #: libraries/replication_gui.lib.php:865
@@ -8496,10 +8495,8 @@ msgstr "Ketik ulang:"
 
 #: libraries/display_change_password.lib.php:106
 #: libraries/display_change_password.lib.php:139
-#, fuzzy
-#| msgid "Password Hashing"
 msgid "Password Hashing:"
-msgstr "Pengernaian Kata Sandi (Password Hashing)"
+msgstr "Pengernaian Kata Sandi:"
 
 #: libraries/display_change_password.lib.php:119
 #: libraries/server_privileges.lib.php:1729
@@ -8527,10 +8524,8 @@ msgid "Exporting rows from \"%s\" table"
 msgstr "Mengekspor baris dari tabel \"%s\""
 
 #: libraries/display_export.lib.php:202
-#, fuzzy
-#| msgid "Export type"
 msgid "Export templates:"
-msgstr "Jenis ekspor"
+msgstr "Template ekspor:"
 
 #: libraries/display_export.lib.php:207
 msgid "New template:"
@@ -9495,10 +9490,8 @@ msgid "Log out"
 msgstr "Keluar"
 
 #: libraries/navigation/NavigationHeader.php:172
-#, fuzzy
-#| msgid "Dumping data for table"
 msgid "Empty session data"
-msgstr "Data sesi kosong"
+msgstr "Sesi data kosong"
 
 #: libraries/navigation/NavigationHeader.php:190
 msgid "phpMyAdmin documentation"
@@ -10817,17 +10810,13 @@ msgid "Indexes for table"
 msgstr "Indeks untuk tabel"
 
 #: libraries/plugins/export/ExportSql.php:1779
-#, fuzzy
-#| msgid "Do not use AUTO_INCREMENT for zero values"
 msgid "AUTO_INCREMENT for dumped tables"
-msgstr "Jangan gunakan AUTO_INCREMENT untuk nilai nol"
+msgstr "AUTO_INCREMENT untuk tabel yang dibuang"
 
 # Imperative verb
 #: libraries/plugins/export/ExportSql.php:1780
-#, fuzzy
-#| msgid "Add AUTO_INCREMENT value"
 msgid "AUTO_INCREMENT for table"
-msgstr "Tambahkan nilai AUTO_INCREMENT"
+msgstr "AUTO_INCREMENT untuk tabel"
 
 #: libraries/plugins/export/ExportSql.php:1855
 msgid "MIME TYPES FOR TABLE"
@@ -10840,15 +10829,13 @@ msgid "RELATIONSHIPS FOR TABLE"
 msgstr "HUBUNGAN RELASI UNTUK TABEL"
 
 #: libraries/plugins/export/ExportSql.php:2059
-#, fuzzy
 msgid "It appears your table uses triggers;"
-msgstr "Tampaknya meja Anda menggunakan pemicu;"
+msgstr "Tampaknya tabel Anda menggunakan pemicu;"
 
 #: libraries/plugins/export/ExportSql.php:2096
-#, fuzzy, php-format
-#| msgid "Structure for view"
+#, php-format
 msgid "Structure for view %s exported as a table"
-msgstr "Struktur untuk view"
+msgstr "Struktur untuk view %s diekspor sebagai tabel"
 
 #: libraries/plugins/export/ExportSql.php:2120
 msgid "(See below for the actual view)"
@@ -10860,9 +10847,8 @@ msgid "Error reading data for table %s:"
 msgstr "Kesalahan membaca data untuk tabel %s:"
 
 #: libraries/plugins/export/ExportXml.php:97
-#, fuzzy
 msgid "Object creation options (all are recommended)"
-msgstr "Pilihan pembuatan obyek (semua dianjurkan)"
+msgstr "Pilihan pembuatan obyek (semua direkomendasikan)"
 
 #: libraries/plugins/export/ExportXml.php:140
 msgid "Export contents"
@@ -10919,9 +10905,9 @@ msgstr "Nama kolom: "
 #: libraries/plugins/import/ImportCsv.php:133
 #: libraries/plugins/import/ImportCsv.php:144
 #: libraries/plugins/import/ImportCsv.php:153
-#, fuzzy, php-format
+#, php-format
 msgid "Invalid parameter for CSV import: %s"
-msgstr "Parameter yang salah untuk impor CSV: %s"
+msgstr "Parameter yang tidak valid untuk impor CSV: %s"
 
 #: libraries/plugins/import/ImportCsv.php:205
 #, fuzzy, php-format
@@ -10939,9 +10925,9 @@ msgid "Invalid format of CSV input on line %d."
 msgstr "Format masukan CSV tidak valid pada baris %d."
 
 #: libraries/plugins/import/ImportCsv.php:531
-#, fuzzy, php-format
+#, php-format
 msgid "Invalid column count in CSV input on line %d."
-msgstr "Format masukan CSV tidak valid pada baris %d."
+msgstr "Perhitungan CSV tidak valid pada baris %d."
 
 #: libraries/plugins/import/ImportLdi.php:111
 msgid "This plugin does not support compressed imports!"
@@ -10952,21 +10938,19 @@ msgid "MediaWiki Table"
 msgstr "Tabel MediaWiki"
 
 #: libraries/plugins/import/ImportMediawiki.php:275
-#, fuzzy, php-format
+#, php-format
 msgid "Invalid format of mediawiki input on line: <br />%s."
-msgstr "Format valid input mediawiki pada bari: <br /> %s."
+msgstr "Format tidak valid pada input mediawiki pada baris: <br /> %s."
 
 #: libraries/plugins/import/ImportOds.php:77
-#, fuzzy
 msgid "Import percentages as proper decimals <i>(ex. 12.00% to .12)</i>"
 msgstr ""
-"Persentase impor sebagai desimal yang tepat <i>(contoh. 12.00% menjadi "
+"Persentase impor sebagai desimal yang tepat <i>(misalnya 12.00% menjadi "
 "0,12)</i>"
 
 #: libraries/plugins/import/ImportOds.php:83
-#, fuzzy
 msgid "Import currencies <i>(ex. $5.00 to 5.00)</i>"
-msgstr "Mata uang impor <i>(ex. $5.00 menjadi 5.00)</i>"
+msgstr "Mata uang impor <i>(misalnya $5.00 menjadi 5.00)</i>"
 
 #: libraries/plugins/import/ImportOds.php:151
 #: libraries/plugins/import/ImportXml.php:110
@@ -10979,10 +10963,8 @@ msgstr ""
 "lagi."
 
 #: libraries/plugins/import/ImportOds.php:162
-#, fuzzy
-#| msgid "Open Document Spreadsheet"
 msgid "Could not parse OpenDocument Spreadsheet!"
-msgstr "Open Document Spreadsheet"
+msgstr "Tidak dapat mengurai OpenDocument Spreadsheet!"
 
 #: libraries/plugins/import/ImportShp.php:45
 #, fuzzy
@@ -11083,10 +11065,8 @@ msgid "Schema of the %s database - Page %s"
 msgstr "Skema basis data %s - Halaman %s"
 
 #: libraries/plugins/schema/pdf/Pdf.php:238
-#, fuzzy
-#| msgid "Invalid export type"
 msgid "PDF export page"
-msgstr "Jenis ekspor invalid"
+msgstr "Ekspor halaman PDF"
 
 #: libraries/plugins/schema/pdf/PdfRelationSchema.php:102
 #, fuzzy, php-format
@@ -11250,14 +11230,12 @@ msgstr ""
 "kutip tunggal, bawaan string kosong)."
 
 #: libraries/plugins/transformations/abs/RegexValidationTransformationsPlugin.php:30
-#, fuzzy
 msgid ""
 "Validates the string using regular expression and performs insert only if "
 "string matches it. The first option is the Regular Expression."
 msgstr ""
-"Memvalidasi string menggunakan ekspresi reguler dan melakukan hubungan "
-"memasukkan hanya apakah string cocok itu. Opsi pertama adalah Regular "
-"Expression."
+"Memvalidasi string menggunakan ekspresi biasa dan melakukan masukan hanya "
+"jika string cocok itu. Opsi pertama adalah Regular Expression."
 
 #: libraries/plugins/transformations/abs/RegexValidationTransformationsPlugin.php:52
 #, php-format
@@ -11338,16 +11316,12 @@ msgstr ""
 "standar Internet Format bertitik."
 
 #: libraries/plugins/transformations/output/Text_Plain_Json.php:47
-#, fuzzy
-#| msgid "Formats text as SQL query with syntax highlighting."
 msgid "Formats text as JSON with syntax highlighting."
-msgstr "Format teks sebagai kueri SQL dengan penyorotan sintaks."
+msgstr "Format teks sebagai JSON dengan penyorotan sintaks."
 
 #: libraries/plugins/transformations/output/Text_Plain_Xml.php:47
-#, fuzzy
-#| msgid "Formats text as SQL query with syntax highlighting."
 msgid "Formats text as XML with syntax highlighting."
-msgstr "Format teks sebagai kueri SQL dengan penyorotan sintaks."
+msgstr "Format teks sebagai XML dengan penyorotan sintaks."
 
 #: libraries/pmd_common.php:551
 #, fuzzy
@@ -11752,20 +11726,17 @@ msgid "Slave configuration"
 msgstr "Konfigurasi slave"
 
 #: libraries/replication_gui.lib.php:405
-#, fuzzy
 msgid ""
 "Make sure you have a unique server-id in your configuration file (my.cnf). "
 "If not, please add the following line into [mysqld] section:"
 msgstr ""
-"Pastikan, Anda memiliki server-id unik di file konfigurasi anda (my.cnf). "
-"Jika tidak, silakan tambahkan baris berikut ke dalam seksi [mysqld]:"
+"Pastikan anda memiliki server-id unik di file konfigurasi anda (my.cnf). "
+"Jika tidak, silakan tambahkan baris berikut ke dalam bagian [mysqld]:"
 
 #: libraries/replication_gui.lib.php:412 libraries/replication_gui.lib.php:782
 #: libraries/server_privileges.lib.php:1492
-#, fuzzy
-#| msgid "User name"
 msgid "User name:"
-msgstr "Nama pengguna"
+msgstr "Nama pengguna:"
 
 #: libraries/replication_gui.lib.php:418 libraries/replication_gui.lib.php:786
 #: libraries/replication_gui.lib.php:799
@@ -11842,10 +11813,8 @@ msgstr "Setiap pengguna"
 #: libraries/replication_gui.lib.php:795 libraries/replication_gui.lib.php:828
 #: libraries/replication_gui.lib.php:857
 #: libraries/server_privileges.lib.php:1629
-#, fuzzy
-#| msgid "Use text field"
 msgid "Use text field:"
-msgstr "Gunakan text field"
+msgstr "Gunakan text field:"
 
 #: libraries/replication_gui.lib.php:822
 #: libraries/server_privileges.lib.php:1620
@@ -12208,10 +12177,10 @@ msgid "Execution results of routine %s"
 msgstr "Hasil eksekusi routine %s"
 
 #: libraries/rte/rte_routines.lib.php:1453
-#, fuzzy, php-format
+#, php-format
 msgid "%d row affected by the last statement inside the procedure."
 msgid_plural "%d rows affected by the last statement inside the procedure."
-msgstr[0] "%d baris terpengaruh oleh pernyataan terakhir dalam prosedur."
+msgstr[0] "%d baris dipengaruh oleh pernyataan terakhir dalam prosedur."
 
 #: libraries/rte/rte_routines.lib.php:1510
 #: libraries/rte/rte_routines.lib.php:1517
@@ -12375,10 +12344,8 @@ msgid "event"
 msgstr "acara"
 
 #: libraries/rte/rte_words.lib.php:68
-#, fuzzy
-#| msgid "You do not have the necessary privileges to create an event"
 msgid "You do not have the necessary privileges to create an event."
-msgstr "Anda tidak punya hak akses untuk membuat event"
+msgstr "Anda tidak punya hak akses yang diperlukan untuk membuat acara."
 
 #: libraries/rte/rte_words.lib.php:70
 #, php-format
@@ -12464,10 +12431,8 @@ msgstr "Mengizinkan untuk shut-down server."
 
 #: libraries/server_privileges.lib.php:331
 #: libraries/server_privileges.lib.php:1318 server_privileges.php:93
-#, fuzzy
-#| msgid "Allows viewing processes of all users"
 msgid "Allows viewing processes of all users."
-msgstr "Mengizinkan untuk melihat proses dari semua pengguna"
+msgstr "Mengizinkan untuk melihat proses oleh semua pengguna."
 
 #: libraries/server_privileges.lib.php:336
 #: libraries/server_privileges.lib.php:1206 server_privileges.php:72
@@ -12544,10 +12509,8 @@ msgstr "Mengizinkan penyiapan event untuk penjadwal event"
 
 #: libraries/server_privileges.lib.php:400
 #: libraries/server_privileges.lib.php:1282 server_privileges.php:111
-#, fuzzy
-#| msgid "Allows creating and dropping triggers"
 msgid "Allows creating and dropping triggers."
-msgstr "Mengizinkan untuk membuat dan menghapus trigger"
+msgstr "Mengizinkan untuk membuat dan menghapus trigger."
 
 #: libraries/server_privileges.lib.php:411
 #: libraries/server_privileges.lib.php:417
@@ -12576,16 +12539,12 @@ msgid "Allows executing stored routines."
 msgstr "Mengizinkan eksekusi routine tersimpan."
 
 #: libraries/server_privileges.lib.php:713
-#, fuzzy
-#| msgid "Persistent connections"
 msgid "Does not require SSL-encrypted connections."
-msgstr "Koneksi persisten"
+msgstr "Tidak diperlukan koneksi SLL-encrypted."
 
 #: libraries/server_privileges.lib.php:729
-#, fuzzy
-#| msgid "Persistent connections"
 msgid "Requires SSL-encrypted connections."
-msgstr "Koneksi persisten"
+msgstr "Diperlukan koneksi SLL-encrypted."
 
 #: libraries/server_privileges.lib.php:743
 msgid "Requires a valid X509 certificate."
@@ -12635,31 +12594,24 @@ msgstr "Membatasi jumlah koneksi simultan yang dapat dibuat pengguna."
 #: libraries/server_privileges.lib.php:3303
 #: libraries/server_privileges.lib.php:4518
 #: templates/privileges/edit_routine_privileges.phtml:11
-#, fuzzy
-#| msgid "Routines"
 msgid "Routine"
-msgstr "Routine"
+msgstr "Rutinitas"
 
 #: libraries/server_privileges.lib.php:927
-#, fuzzy
 msgid ""
 "Allows user to give to other users or remove from other users privileges "
 "that user possess on this routine."
 msgstr ""
-"Memperbolehkan pengguna untujk memberi atau menghapus otoritas pengguna lain "
-"yang mengakses rutinitas ini."
+"Memperbolehkan pengguna untuk memberi ke pengguna lain atau menghapus "
+"otoritas pengguna lain yang mengakses rutinitas ini."
 
 #: libraries/server_privileges.lib.php:934
-#, fuzzy
-#| msgid "Allows altering and dropping stored routines."
 msgid "Allows altering and dropping this routine."
-msgstr "Mengizinkan untuk mengubah dan menghapus routine tersimpan."
+msgstr "Mengizinkan mengubah dan membuang rutinitas ini."
 
 #: libraries/server_privileges.lib.php:939
-#, fuzzy
-#| msgid "Allows executing stored routines."
 msgid "Allows executing this routine."
-msgstr "Mengizinkan eksekusi routine tersimpan."
+msgstr "Mengizinkan eksekusi rutinitas ini."
 
 #: libraries/server_privileges.lib.php:989
 #: libraries/server_privileges.lib.php:1158
@@ -12687,10 +12639,8 @@ msgid "Global privileges"
 msgstr "Hak akses global"
 
 #: libraries/server_privileges.lib.php:1153
-#, fuzzy
-#| msgid "global"
 msgid "Global"
-msgstr "global"
+msgstr "Dunia"
 
 #: libraries/server_privileges.lib.php:1155
 #: libraries/server_privileges.lib.php:3290
@@ -12723,16 +12673,12 @@ msgstr ""
 
 #: libraries/server_privileges.lib.php:1422
 #: libraries/server_privileges.lib.php:1453
-#, fuzzy
-#| msgid "Cookie authentication"
 msgid "Native MySQL authentication"
-msgstr "Autentikasi kuki"
+msgstr "Autentikasi asli MySQL"
 
 #: libraries/server_privileges.lib.php:1455
-#, fuzzy
-#| msgid "Signon authentication"
 msgid "SHA256 password authentication"
-msgstr "Autentikasi signon"
+msgstr "Autentikasi kata sandi SHA256"
 
 #: libraries/server_privileges.lib.php:1489
 #: libraries/server_privileges.lib.php:3058
@@ -12756,19 +12702,15 @@ msgstr ""
 "yang berbeda."
 
 #: libraries/server_privileges.lib.php:1547
-#, fuzzy
-#| msgid "User name"
 msgid "Host name:"
-msgstr "Nama pengguna"
+msgstr "Nama pemilik:"
 
 #: libraries/server_privileges.lib.php:1552
 #: libraries/server_privileges.lib.php:1637
 #: libraries/server_privileges.lib.php:2528
 #: libraries/server_privileges.lib.php:3489
-#, fuzzy
-#| msgid "Log name"
 msgid "Host name"
-msgstr "Catat nama"
+msgstr "Nama pemilik"
 
 #: libraries/server_privileges.lib.php:1660
 msgid "Do not change the password"
@@ -12886,9 +12828,8 @@ msgid "Revoke"
 msgstr "Cabut"
 
 #: libraries/server_privileges.lib.php:2815
-#, fuzzy
 msgid "Edit user group"
-msgstr "Edit server"
+msgstr "Edit pengguna grup"
 
 #: libraries/server_privileges.lib.php:3030
 msgid "… keep the old one."
@@ -12911,16 +12852,12 @@ msgstr ""
 "… hapuskan yang lama dari tabel pengguna, kemudian muat ulang hak akses."
 
 #: libraries/server_privileges.lib.php:3059
-#, fuzzy
-#| msgid "Change Login Information / Copy User"
 msgid "Change login information / Copy user account"
-msgstr "Ubah Informasi Masuk / Salin Pengguna"
+msgstr "Ubah informasi masuk / Salin akun pengguna"
 
 #: libraries/server_privileges.lib.php:3065
-#, fuzzy
-#| msgid "Create a new user with the same privileges and …"
 msgid "Create a new user account with the same privileges and …"
-msgstr "Buat pengguna baru dengan hak akses yang sama dan …"
+msgstr "Buat akun pengguna baru dengan hak akses yang sama dan …"
 
 #: libraries/server_privileges.lib.php:3302
 #: templates/privileges/edit_routine_privileges.phtml:12
@@ -12973,10 +12910,9 @@ msgid "The user %s already exists!"
 msgstr "Pengguna %s telah terdaftar!"
 
 #: libraries/server_privileges.lib.php:4391
-#, fuzzy, php-format
-#| msgid "Privileges"
+#, php-format
 msgid "Privileges for %s"
-msgstr "Hak Akses untuk %s"
+msgstr "Hak akses untuk %s"
 
 #: libraries/server_privileges.lib.php:4400
 #: libraries/server_status_processes.lib.php:72
@@ -12985,16 +12921,12 @@ msgid "User"
 msgstr "Pengguna"
 
 #: libraries/server_privileges.lib.php:4468
-#, fuzzy
-#| msgid "Edit Privileges"
 msgid "Edit privileges:"
-msgstr "Edit Hak Akses"
+msgstr "Edit hak akses:"
 
 #: libraries/server_privileges.lib.php:4469
-#, fuzzy
-#| msgid "User group"
 msgid "User account"
-msgstr "Grup pengguna"
+msgstr "Akun pengguna"
 
 #: libraries/server_privileges.lib.php:4543
 #, fuzzy
@@ -13005,10 +12937,8 @@ msgstr ""
 "Catatan: Anda mencoba untuk mengedit hak-hak user yang Anda sedang login."
 
 #: libraries/server_privileges.lib.php:4563 libraries/server_users.lib.php:21
-#, fuzzy
-#| msgid "Users overview"
 msgid "User accounts overview"
-msgstr "Ikhtisar pengguna"
+msgstr "Ikhtisar akun pengguna"
 
 #: libraries/server_privileges.lib.php:4631
 #, fuzzy
@@ -13113,10 +13043,8 @@ msgid "Sent"
 msgstr "Pengiriman"
 
 #: libraries/server_status.lib.php:240
-#, fuzzy
-#| msgid "max. concurrent connections"
 msgid "Max. concurrent connections"
-msgstr "Koneksi konkuren maksimum"
+msgstr "Koneksi bersamaan maksimum"
 
 #: libraries/server_status.lib.php:250
 msgid "Failed attempts"
@@ -14307,60 +14235,44 @@ msgid "Order"
 msgstr "Lainnya"
 
 #: libraries/sql.lib.php:238 libraries/sql.lib.php:254
-#, fuzzy
-#| msgctxt "Start of recurring event"
-#| msgid "Start"
 msgid "State"
-msgstr "Mulai"
+msgstr "Negara"
 
 #: libraries/sql.lib.php:251
-#, fuzzy
 msgid "Summary by state"
-msgstr "Ringkasan berdasarkan negara"
+msgstr "Rangkuman berdasarkan negara"
 
 #: libraries/sql.lib.php:257
-#, fuzzy
-#| msgid "Total time:"
 msgid "Total Time"
-msgstr "Total waktu:"
+msgstr "Total waktu"
 
 #: libraries/sql.lib.php:259
-#, fuzzy
-#| msgid "Time"
 msgid "% Time"
-msgstr "Waktu"
+msgstr "% Waktu"
 
 #: libraries/sql.lib.php:261
-#, fuzzy
-#| msgid "Close"
 msgid "Calls"
-msgstr "Tutup"
+msgstr "Panggil"
 
 #: libraries/sql.lib.php:263
-#, fuzzy
-#| msgid "Time"
 msgid "ø Time"
-msgstr "Waktu"
+msgstr "ø Waktu"
 
 #: libraries/sql.lib.php:569 libraries/sql.lib.php:587
 msgid "Bookmark this SQL query"
 msgstr "Markahi kueri SQL ini"
 
 #: libraries/sql.lib.php:573
-#, fuzzy
-#| msgid "Label"
 msgid "Label:"
-msgstr "Judul"
+msgstr "Judul:"
 
 #: libraries/sql.lib.php:580 libraries/sql_query_form.lib.php:315
 msgid "Let every user access this bookmark"
 msgstr "Izinkan semua pengguna untuk mengakses markah ini"
 
 #: libraries/sql.lib.php:792
-#, fuzzy
-#| msgid "Bookmark %s created"
 msgid "Bookmark not created!"
-msgstr "Markah %s dibuat"
+msgstr "Bookmark tidak dibuat!"
 
 #: libraries/sql.lib.php:900
 #, php-format
