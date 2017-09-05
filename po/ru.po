@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.7.4-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2017-08-10 09:13-0400\n"
-"PO-Revision-Date: 2017-09-05 11:09+0000\n"
-"Last-Translator: Egorov Artyom <unlucky@inbox.ru>\n"
+"PO-Revision-Date: 2017-09-05 11:38+0000\n"
+"Last-Translator: pitchblack <pitchblack@mail.ru>\n"
 "Language-Team: Russian "
 "<https://hosted.weblate.org/projects/phpmyadmin/4-7/ru/>\n"
 "Language: ru\n"
@@ -3328,9 +3328,9 @@ msgstr "Размер шрифта"
 #, php-format
 msgid "Showing %1$d bookmark (both private and shared)"
 msgid_plural "Showing %1$d bookmarks (both private and shared)"
-msgstr[0] ""
-msgstr[1] ""
-msgstr[2] ""
+msgstr[0] "Показать %1$d закладку (как частных, так и общих)"
+msgstr[1] "Показать %1$d закладки (как частных, так и общих)"
+msgstr[2] "Показать %1$d закладок (как частных, так и общих)"
 
 #: libraries/Console.php:93
 msgid "No bookmarks"
@@ -4903,12 +4903,12 @@ msgstr "%B %d %Y г., %H:%M"
 #: libraries/Util.php:1587
 msgctxt "AM/PM indication in time"
 msgid "PM"
-msgstr ""
+msgstr "PM"
 
 #: libraries/Util.php:1589
 msgctxt "AM/PM indication in time"
 msgid "AM"
-msgstr ""
+msgstr "AM"
 
 #: libraries/Util.php:1961
 #, php-format
@@ -6867,11 +6867,11 @@ msgstr "Где вывести ссылки строки таблицы"
 
 #: libraries/config/messages.inc.php:543
 msgid "Whether to show row links even in the absence of a unique key."
-msgstr ""
+msgstr "Нужно ли показывать строки ссылок даже в отсутствие уникального ключа."
 
 #: libraries/config/messages.inc.php:545
 msgid "Show row links anyway"
-msgstr ""
+msgstr "Показывать ссылки строк"
 
 #: libraries/config/messages.inc.php:546 libraries/config/messages.inc.php:547
 msgid "Disable shortcut keys"
@@ -8259,7 +8259,7 @@ msgstr ""
 
 #: libraries/dbi/DBIMysqli.php:158
 msgid "SSL connection enforced by server, automatically enabling it."
-msgstr ""
+msgstr "SSL-соединение, выполняемое сервером, автоматически включающее его."
 
 #: libraries/display_change_password.lib.php:57
 #: libraries/replication_gui.lib.php:854
@@ -8488,7 +8488,7 @@ msgstr "Пропускать таблицы большие, чем"
 
 #: libraries/display_export.lib.php:895
 msgid "Defined aliases"
-msgstr ""
+msgstr "Определенные псевдонимы"
 
 #: libraries/display_export.lib.php:1011
 msgid "Could not load export plugins, please check your installation!"
@@ -9281,6 +9281,9 @@ msgid ""
 "There are large item groups in navigation panel which may affect the "
 "performance. Consider disabling item grouping in the navigation panel."
 msgstr ""
+"На панели навигации есть большие группы элементов, которые могут повлиять на "
+"производительность. Рассмотрите возможность отключения группировки элементов "
+"на панели навигации."
 
 #: libraries/navigation/NavigationTree.php:949
 #, php-format
@@ -9293,7 +9296,7 @@ msgstr[2] "найдено %s результатов"
 #: libraries/navigation/NavigationTree.php:1366
 #: libraries/navigation/NavigationTree.php:1398
 msgid "Type to filter these, Enter to search all"
-msgstr ""
+msgstr "Введите, чтобы отфильтровать их, Enter для поиска всех"
 
 #: libraries/navigation/NavigationTree.php:1368
 #: libraries/navigation/NavigationTree.php:1399
@@ -9661,6 +9664,10 @@ msgid ""
 "value of the column.<br />Note: A column may have no transitive dependency, "
 "in that case you don't have to select any."
 msgstr ""
+"Для каждого столбца ниже выберите <b> minimal set</b> столбцов среди "
+"заданного набора, значения которого объединены вместе, чтобы определить "
+"значение столбца. <br/> Примечание: столбец может не иметь транзитивной "
+"зависимости , в этом случае вам не нужно выбирать."
 
 #: libraries/normalization.lib.php:775
 msgid ""
@@ -10131,7 +10138,7 @@ msgstr "Дублирующая структура для представлен�
 
 #: libraries/plugins/export/ExportJson.php:83
 msgid "Output pretty-printed JSON (Use human-readable formatting)"
-msgstr ""
+msgstr "Вывод печатного JSON (используйте человекочитаемое форматирование)"
 
 #: libraries/plugins/export/ExportLatex.php:48
 msgid "Content of table @TABLE@"
@@ -10486,7 +10493,7 @@ msgstr "Структура для представления %s экспорти
 
 #: libraries/plugins/export/ExportSql.php:2120
 msgid "(See below for the actual view)"
-msgstr ""
+msgstr "(См. Ниже фактическое представление)"
 
 #: libraries/plugins/export/ExportSql.php:2204
 #, php-format
@@ -10517,6 +10524,8 @@ msgstr "MIME"
 msgid ""
 "Update data when duplicate keys found on import (add ON DUPLICATE KEY UPDATE)"
 msgstr ""
+"Обновить данные при обнаружении дубликатов ключей при импорте (добавьте "
+"ОБНОВЛЕНИЕ DUPLICATE KEY)"
 
 #: libraries/plugins/import/ImportCsv.php:61
 #: libraries/plugins/import/ImportOds.php:63
@@ -10916,15 +10925,15 @@ msgstr "Преобразует IP адрес из формата IPv4/IPv6 в б
 
 #: libraries/plugins/transformations/input/Text_Plain_JsonEditor.php:29
 msgid "Syntax highlighted CodeMirror editor for JSON."
-msgstr ""
+msgstr "Синтаксис выделил редактор CodeMirror для JSON."
 
 #: libraries/plugins/transformations/input/Text_Plain_SqlEditor.php:29
 msgid "Syntax highlighted CodeMirror editor for SQL."
-msgstr ""
+msgstr "Синтаксис выделил редактор CodeMirror для SQL."
 
 #: libraries/plugins/transformations/input/Text_Plain_XmlEditor.php:29
 msgid "Syntax highlighted CodeMirror editor for XML (and HTML)."
-msgstr ""
+msgstr "Синтаксис выделил редактор CodeMirror для XML (и HTML)."
 
 #: libraries/plugins/transformations/output/Text_Plain_Binarytoip.php:29
 msgid ""
@@ -11114,6 +11123,9 @@ msgid ""
 "'phpmyadmin'. You may go to 'Operations' tab of any database to set up the "
 "phpMyAdmin configuration storage there."
 msgstr ""
+"У вас нет необходимых прав для создания базы данных с именем «phpmyadmin». "
+"Вы можете перейти на вкладку «Операции» любой базы данных, чтобы настроить "
+"хранилище конфигурации phpMyAdmin."
 
 #: libraries/relation.lib.php:1999
 #, php-format
@@ -11421,6 +11433,8 @@ msgid ""
 "Connection to server is disabled, please enable $cfg['AllowArbitraryServer'] "
 "in phpMyAdmin configuration."
 msgstr ""
+"Подключение к серверу отключено, включите $cfg['AllowArbitraryServer'] в "
+"конфигурации phpMyAdmin."
 
 #: libraries/replication_gui.lib.php:914
 msgid "Replication started successfully."
@@ -11688,6 +11702,8 @@ msgid ""
 "You do not have sufficient privileges to perform this operation; Please "
 "refer to the documentation for more details"
 msgstr ""
+"У вас недостаточно прав для выполнения этой операции; Более подробную "
+"информацию смотри в документации"
 
 #: libraries/rte/rte_routines.lib.php:1033
 msgid "Security type"
@@ -11820,6 +11836,8 @@ msgid ""
 "No routine with name %1$s found in database %2$s. You might be lacking the "
 "necessary privileges to edit this routine."
 msgstr ""
+"Нет процедуры с именем %1$s, найденным в базе данных %2$s. Возможно, вам не "
+"нужны необходимые привилегии для редактирования этой процедуры."
 
 #: libraries/rte/rte_words.lib.php:39
 #, php-format
@@ -11827,6 +11845,8 @@ msgid ""
 "No routine with name %1$s found in database %2$s. You might be lacking the "
 "necessary privileges to view/export this routine."
 msgstr ""
+"Нет процедуры с именем %1$s, найденным в базе данных %2$s. Возможно, вам не "
+"хватает необходимых привилегий для просмотра/экспорта этой процедуры."
 
 #: libraries/rte/rte_words.lib.php:42
 #, php-format
@@ -12078,19 +12098,22 @@ msgstr "Требует SSL-шифрованного соединения."
 
 #: libraries/server_privileges.lib.php:743
 msgid "Requires a valid X509 certificate."
-msgstr ""
+msgstr "Требуется действительный сертификат X509."
 
 #: libraries/server_privileges.lib.php:768
 msgid "Requires that a specific cipher method be used for a connection."
 msgstr ""
+"Требуется, чтобы для соединения использовался специальный метод шифрования."
 
 #: libraries/server_privileges.lib.php:781
 msgid "Requires that a valid X509 certificate issued by this CA be presented."
 msgstr ""
+"Требуется, чтобы был представлен действительный сертификат X509, выданный "
+"этим ЦС."
 
 #: libraries/server_privileges.lib.php:794
 msgid "Requires that a valid X509 certificate with this subject be presented."
-msgstr ""
+msgstr "Требуется наличие действительного сертификата X509 с этим предметом."
 
 #: libraries/server_privileges.lib.php:824 server_privileges.php:84
 msgid "Limits the number of queries the user may send to the server per hour."
@@ -12129,6 +12152,9 @@ msgid ""
 "Allows user to give to other users or remove from other users privileges "
 "that user possess on this routine."
 msgstr ""
+"Позволяет пользователю предоставлять другим пользователям или удалять из "
+"других пользователей привилегии, которыми обладает пользователь в этой "
+"подпрограмме."
 
 #: libraries/server_privileges.lib.php:934
 msgid "Allows altering and dropping this routine."
@@ -12190,6 +12216,8 @@ msgid ""
 "Allows user to give to other users or remove from other users the privileges "
 "that user possess yourself."
 msgstr ""
+"Позволяет пользователю предоставлять другим пользователям или удалять у "
+"других пользователей привилегии, которыми обладает пользователь."
 
 #: libraries/server_privileges.lib.php:1422
 #: libraries/server_privileges.lib.php:1453
@@ -12451,6 +12479,10 @@ msgid ""
 "will prevent other users from connecting if the host part of their account "
 "allows a connection from any (%) host."
 msgstr ""
+"Имеется учетная запись пользователя, позволяющая любому пользователю "
+"подключиться к локальному хосту. Это предотвратит подключение других "
+"пользователей, если хост-часть их учетной записи разрешает соединение с "
+"любым (%) хостом."
 
 #: libraries/server_privileges.lib.php:4673
 #, php-format
@@ -13998,7 +14030,7 @@ msgstr "Фрагмент настройки phpMyAdmin"
 
 #: prefs_manage.php:53
 msgid "Paste it to your config.inc.php"
-msgstr ""
+msgstr "Вставьте это в свой config.inc.php"
 
 #: prefs_manage.php:93
 msgid "Could not import configuration"
@@ -14085,6 +14117,8 @@ msgid ""
 "Username and hostname didn't change. If you only want to change the "
 "password, 'Change password' tab should be used."
 msgstr ""
+"Имя пользователя и имя хоста не изменились. Если вы хотите изменить пароль, "
+"следует использовать вкладку «Изменить пароль»."
 
 #: server_status.php:36
 msgid "Not enough privilege to view server status."
@@ -14232,7 +14266,7 @@ msgstr "Добавить новый сервер"
 
 #: setup/index.php:16
 msgid "Configuration already exists, setup is disabled!"
-msgstr ""
+msgstr "Конфигурация уже существует, настройка отключена!"
 
 #: setup/index.php:26
 msgid "Wrong GET file attribute value"
@@ -14296,7 +14330,7 @@ msgstr "Ошибочные данные"
 #: setup/validate.php:30
 #, php-format
 msgid "Wrong data or no validation for %s"
-msgstr ""
+msgstr "Неверные данные или отсутствие проверки для %s"
 
 #: tbl_create.php:32 tbl_get_field.php:26
 #, php-format
@@ -15010,7 +15044,7 @@ msgstr "Вы можете изучить данные в отчёте об ош�
 
 #: templates/export/alias_add.phtml:5
 msgid "Define new aliases"
-msgstr ""
+msgstr "Определение новых псевдонимов"
 
 #: templates/export/alias_add.phtml:11
 msgid "Select database:"
@@ -15314,6 +15348,9 @@ msgid ""
 "an index on it. Alternatively, you can define an index below, before "
 "creating the foreign key."
 msgstr ""
+"Создание внешнего ключа над не индексированным столбцом автоматически "
+"создало бы на нем индекс. Кроме того, перед созданием внешнего ключа вы "
+"можете определить индекс ниже."
 
 #: templates/table/relation/common_form.phtml:20
 msgid ""
@@ -15621,7 +15658,7 @@ msgstr "Пароль слишком длинный!"
 
 #: view_create.php:48
 msgid "View name can not be empty!"
-msgstr ""
+msgstr "Имя вида не может быть пустым!"
 
 #: view_create.php:253
 msgid "VIEW name"
