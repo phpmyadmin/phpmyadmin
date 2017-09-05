@@ -292,7 +292,7 @@ class ServerConfigChecks
         // $cfg['ZipDump']
         // requires zip_open in import
         //
-        if ($this->cfg->getValue('ZipDump') && !@function_exists('zip_open')) {
+        if ($this->cfg->getValue('ZipDump') && !$this->functionExists('zip_open')) {
             PMA_messagesSet(
                 'error',
                 'ZipDump_import',
@@ -313,7 +313,7 @@ class ServerConfigChecks
         // $cfg['ZipDump']
         // requires gzcompress in export
         //
-        if ($this->cfg->getValue('ZipDump') && !@function_exists('gzcompress')) {
+        if ($this->cfg->getValue('ZipDump') && !$this->functionExists('gzcompress')) {
             PMA_messagesSet(
                 'error',
                 'ZipDump_export',
@@ -487,12 +487,12 @@ class ServerConfigChecks
         // requires bzip2 functions
         //
         if ($this->cfg->getValue('BZipDump')
-            && (!@function_exists('bzopen') || !@function_exists('bzcompress'))
+            && (!$this->functionExists('bzopen') || !$this->functionExists('bzcompress'))
         ) {
-            $functions = @function_exists('bzopen')
+            $functions = $this->functionExists('bzopen')
                 ? '' :
                 'bzopen';
-            $functions .= @function_exists('bzcompress')
+            $functions .= $this->functionExists('bzcompress')
                 ? ''
                 : ($functions ? ', ' : '') . 'bzcompress';
             PMA_messagesSet(
@@ -526,7 +526,7 @@ class ServerConfigChecks
         // requires zlib functions
         //
         if ($this->cfg->getValue('GZipDump')
-            && (@!function_exists('gzopen') || @!function_exists('gzencode'))
+            && (!$this->functionExists('gzopen') || !$this->functionExists('gzencode'))
         ) {
             PMA_messagesSet(
                 'error',
@@ -543,5 +543,17 @@ class ServerConfigChecks
                 ))
             );
         }
+    }
+
+    /**
+     * Wrapper around function_exists to allow mock in test
+     *
+     * @param string $name Function name
+     *
+     * @return boolean
+     */
+    protected function functionExists($name)
+    {
+        return @function_exists($name);
     }
 }

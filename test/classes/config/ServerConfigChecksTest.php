@@ -37,7 +37,7 @@ class ServeConfigChecksTest extends PMATestCase
         unset($_SESSION[$this->sessionID]);
     }
 
-    public function testErrors()
+    public function testManyErrors()
     {
         $_SESSION[$this->sessionID]['Servers'] = array(
             '1' => array(
@@ -61,23 +61,14 @@ class ServeConfigChecksTest extends PMATestCase
         $_SESSION[$this->sessionID]['BZipDump'] = true;
         $_SESSION[$this->sessionID]['ZipDump'] = true;
 
-        if (@!function_exists('gzopen') || @!function_exists('gzencode')) {
-            $errorArrayKeys[] = 'GZipDump';
-        }
+        $configChecker = $this->getMockbuilder('PhpMyAdmin\Config\ServerConfigChecks')
+            ->setMethods(['functionExists'])
+            ->setConstructorArgs([$GLOBALS['ConfigFile']])
+            ->getMock();
 
-        if (@!function_exists('bzopen') || @!function_exists('bzcompress')) {
-            $errorArrayKeys[] = 'BZipDump';
-        }
+        // Configure the stub.
+        $configChecker->method('functionExists')->willReturn(False);
 
-        if (!@function_exists('zip_open')) {
-            $errorArrayKeys[] = 'ZipDump_import';
-        }
-
-        if (!@function_exists('gzcompress')) {
-            $errorArrayKeys[] = 'ZipDump_export';
-        }
-
-        $configChecker = new ServerConfigChecks($GLOBALS['ConfigFile']);
         $configChecker->performConfigChecks();
 
         $this->assertEquals(
@@ -97,6 +88,10 @@ class ServeConfigChecksTest extends PMATestCase
         $this->assertEquals(
             array(
                 'LoginCookieValidity',
+                'GZipDump',
+                'BZipDump',
+                'ZipDump_import',
+                'ZipDump_export',
             ),
             array_keys($_SESSION['messages']['error'])
         );
