@@ -10,6 +10,7 @@ namespace PhpMyAdmin\Plugins\Export;
 
 use PhpMyAdmin\Charsets;
 use PhpMyAdmin\DatabaseInterface;
+use PhpMyAdmin\Export;
 use PhpMyAdmin\Plugins\ExportPlugin;
 use PhpMyAdmin\Properties\Plugins\ExportPluginProperties;
 use PhpMyAdmin\Properties\Options\Groups\OptionsPropertyMainGroup;
@@ -579,7 +580,7 @@ class ExportSql extends ExportPlugin
         }
 
         if (!empty($text)) {
-            return PMA_exportOutputHandler($text);
+            return Export::outputHandler($text);
         } else {
             return false;
         }
@@ -665,7 +666,7 @@ class ExportSql extends ExportPlugin
             $GLOBALS['dbi']->query('SET time_zone = "' . $GLOBALS['old_tz'] . '"');
         }
 
-        return PMA_exportOutputHandler($foot);
+        return Export::outputHandler($foot);
     }
 
     /**
@@ -772,7 +773,7 @@ class ExportSql extends ExportPlugin
             $this->_sent_charset = true;
         }
 
-        return PMA_exportOutputHandler($head);
+        return Export::outputHandler($head);
     }
 
     /**
@@ -797,7 +798,7 @@ class ExportSql extends ExportPlugin
             $compat = 'NONE';
         }
         if (isset($GLOBALS['sql_drop_database'])) {
-            if (!PMA_exportOutputHandler(
+            if (!Export::outputHandler(
                 'DROP DATABASE IF EXISTS '
                 . Util::backquoteCompat(
                     $db_alias,
@@ -833,7 +834,7 @@ class ExportSql extends ExportPlugin
             $create_query .= ' DEFAULT CHARACTER SET ' . $collation;
         }
         $create_query .= ';' . $crlf;
-        if (!PMA_exportOutputHandler($create_query)) {
+        if (!Export::outputHandler($create_query)) {
             return false;
         }
 
@@ -855,7 +856,7 @@ class ExportSql extends ExportPlugin
         if (isset($GLOBALS['sql_compatibility'])
             && $GLOBALS['sql_compatibility'] == 'NONE'
         ) {
-            $result = PMA_exportOutputHandler(
+            $result = Export::outputHandler(
                 'USE '
                 . Util::backquoteCompat(
                     $db,
@@ -865,7 +866,7 @@ class ExportSql extends ExportPlugin
                 . ';' . $crlf
             );
         } else {
-            $result = PMA_exportOutputHandler('USE ' . $db . ';' . $crlf);
+            $result = Export::outputHandler('USE ' . $db . ';' . $crlf);
         }
 
         return $result;
@@ -900,7 +901,7 @@ class ExportSql extends ExportPlugin
             )
             . $this->_exportComment();
 
-        return PMA_exportOutputHandler($head);
+        return Export::outputHandler($head);
     }
 
     /**
@@ -918,17 +919,17 @@ class ExportSql extends ExportPlugin
 
         //add indexes to the sql dump file
         if (isset($GLOBALS['sql_indexes'])) {
-            $result = PMA_exportOutputHandler($GLOBALS['sql_indexes']);
+            $result = Export::outputHandler($GLOBALS['sql_indexes']);
             unset($GLOBALS['sql_indexes']);
         }
         //add auto increments to the sql dump file
         if (isset($GLOBALS['sql_auto_increments'])) {
-            $result = PMA_exportOutputHandler($GLOBALS['sql_auto_increments']);
+            $result = Export::outputHandler($GLOBALS['sql_auto_increments']);
             unset($GLOBALS['sql_auto_increments']);
         }
         //add constraints to the sql dump file
         if (isset($GLOBALS['sql_constraints'])) {
-            $result = PMA_exportOutputHandler($GLOBALS['sql_constraints']);
+            $result = Export::outputHandler($GLOBALS['sql_constraints']);
             unset($GLOBALS['sql_constraints']);
         }
 
@@ -977,7 +978,7 @@ class ExportSql extends ExportPlugin
         }
 
         if (!empty($text)) {
-            return PMA_exportOutputHandler($text);
+            return Export::outputHandler($text);
         } else {
             return false;
         }
@@ -1007,7 +1008,7 @@ class ExportSql extends ExportPlugin
             . $this->_exportComment()
             . $this->_exportComment(__('Metadata'))
             . $this->_exportComment();
-        if (!PMA_exportOutputHandler($comment)) {
+        if (!Export::outputHandler($comment)) {
             return false;
         }
 
@@ -1090,7 +1091,7 @@ class ExportSql extends ExportPlugin
 
         $comment .= $this->_exportComment();
 
-        if (!PMA_exportOutputHandler($comment)) {
+        if (!Export::outputHandler($comment)) {
             return false;
         }
 
@@ -1140,7 +1141,7 @@ class ExportSql extends ExportPlugin
                         $lastPage = $GLOBALS['crlf']
                             . "SET @LAST_PAGE = LAST_INSERT_ID();"
                             . $GLOBALS['crlf'];
-                        if (!PMA_exportOutputHandler($lastPage)) {
+                        if (!Export::outputHandler($lastPage)) {
                             return false;
                         }
 
@@ -2130,7 +2131,7 @@ class ExportSql extends ExportPlugin
         // but not in the case of export
         unset($GLOBALS['sql_constraints_query']);
 
-        return PMA_exportOutputHandler($dump);
+        return Export::outputHandler($dump);
     }
 
     /**
@@ -2188,7 +2189,7 @@ class ExportSql extends ExportPlugin
                 . $this->_exportComment()
                 . $this->_possibleCRLF();
 
-            if (!PMA_exportOutputHandler($head)) {
+            if (!Export::outputHandler($head)) {
                 return false;
             }
 
@@ -2208,7 +2209,7 @@ class ExportSql extends ExportPlugin
             if (! defined('TESTSUITE')) {
                 trigger_error($message, E_USER_ERROR);
             }
-            return PMA_exportOutputHandler(
+            return Export::outputHandler(
                 $this->_exportComment($message)
             );
         }
@@ -2298,8 +2299,8 @@ class ExportSql extends ExportPlugin
                     )
                     . $this->_exportComment()
                     . $crlf;
-                PMA_exportOutputHandler($truncatehead);
-                PMA_exportOutputHandler($truncate);
+                Export::outputHandler($truncatehead);
+                Export::outputHandler($truncate);
             }
 
             // scheme for inserting fields
@@ -2350,7 +2351,7 @@ class ExportSql extends ExportPlugin
                     )
                     . $this->_exportComment()
                     . $crlf;
-                if (!PMA_exportOutputHandler($head)) {
+                if (!Export::outputHandler($head)) {
                     return false;
                 }
             }
@@ -2359,7 +2360,7 @@ class ExportSql extends ExportPlugin
                 && $GLOBALS['sql_compatibility'] == 'MSSQL'
                 && $current_row == 0
             ) {
-                if (!PMA_exportOutputHandler(
+                if (!Export::outputHandler(
                     'SET IDENTITY_INSERT '
                     . Util::backquoteCompat(
                         $table_alias,
@@ -2470,7 +2471,7 @@ class ExportSql extends ExportPlugin
                             && $sql_max_size > 0
                             && $query_size + $insertLineSize > $sql_max_size
                         ) {
-                            if (!PMA_exportOutputHandler(';' . $crlf)) {
+                            if (!Export::outputHandler(';' . $crlf)) {
                                 return false;
                             }
                             $query_size = 0;
@@ -2487,7 +2488,7 @@ class ExportSql extends ExportPlugin
             }
             unset($values);
 
-            if (!PMA_exportOutputHandler(
+            if (!Export::outputHandler(
                 ($current_row == 1 ? '' : $separator . $crlf)
                 . $insert_line
             )
@@ -2497,7 +2498,7 @@ class ExportSql extends ExportPlugin
         } // end while
 
         if ($current_row > 0) {
-            if (!PMA_exportOutputHandler(';' . $crlf)) {
+            if (!Export::outputHandler(';' . $crlf)) {
                 return false;
             }
         }
@@ -2507,7 +2508,7 @@ class ExportSql extends ExportPlugin
             && $GLOBALS['sql_compatibility'] == 'MSSQL'
             && $current_row > 0
         ) {
-            $outputSucceeded = PMA_exportOutputHandler(
+            $outputSucceeded = Export::outputHandler(
                 $crlf . 'SET IDENTITY_INSERT '
                 . Util::backquoteCompat(
                     $table_alias,

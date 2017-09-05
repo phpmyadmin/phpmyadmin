@@ -9,6 +9,7 @@
 namespace PhpMyAdmin\Plugins\Export;
 
 use PhpMyAdmin\DatabaseInterface;
+use PhpMyAdmin\Export;
 use PhpMyAdmin\Plugins\ExportPlugin;
 use PhpMyAdmin\Properties\Plugins\ExportPluginProperties;
 use PhpMyAdmin\Properties\Options\Groups\OptionsPropertyMainGroup;
@@ -131,7 +132,7 @@ class ExportTexytext extends ExportPlugin
             $db_alias = $db;
         }
 
-        return PMA_exportOutputHandler(
+        return Export::outputHandler(
             '===' . __('Database') . ' ' . $db_alias . "\n\n"
         );
     }
@@ -188,7 +189,7 @@ class ExportTexytext extends ExportPlugin
         $table_alias = $table;
         $this->initAlias($aliases, $db_alias, $table_alias);
 
-        if (!PMA_exportOutputHandler(
+        if (!Export::outputHandler(
             '== ' . __('Dumping data for table') . ' ' . $table_alias . "\n\n"
         )
         ) {
@@ -215,7 +216,7 @@ class ExportTexytext extends ExportPlugin
                     . htmlspecialchars(stripslashes($col_as));
             } // end for
             $text_output .= "\n|------\n";
-            if (!PMA_exportOutputHandler($text_output)) {
+            if (!Export::outputHandler($text_output)) {
                 return false;
             }
         } // end if
@@ -239,7 +240,7 @@ class ExportTexytext extends ExportPlugin
                     );
             } // end for
             $text_output .= "\n";
-            if (!PMA_exportOutputHandler($text_output)) {
+            if (!Export::outputHandler($text_output)) {
                 return false;
             }
         } // end while
@@ -559,7 +560,7 @@ class ExportTexytext extends ExportPlugin
             $dump .= $this->getTableDefStandIn($db, $table, $crlf, $aliases);
         } // end switch
 
-        return PMA_exportOutputHandler($dump);
+        return Export::outputHandler($dump);
     }
 
     /**
