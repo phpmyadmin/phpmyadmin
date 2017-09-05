@@ -480,6 +480,8 @@ class Descriptions
                 return __('Databases');
             case 'Form_Navi_databases_desc':
                 return __('Databases display options.');
+            case 'Form_Navi_name':
+                return __('Navigation panel');
             case 'Form_Navi_panel_name':
                 return __('Navigation panel');
             case 'Form_Navi_panel_desc':

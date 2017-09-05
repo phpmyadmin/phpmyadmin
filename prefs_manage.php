@@ -6,7 +6,7 @@
  * @package PhpMyAdmin
  */
 use PhpMyAdmin\Config\ConfigFile;
-use PhpMyAdmin\Config\FormDisplay;
+use PhpMyAdmin\Config\Forms\User\UserFormList;
 use PhpMyAdmin\Core;
 use PhpMyAdmin\File;
 use PhpMyAdmin\Message;
@@ -21,7 +21,6 @@ use PhpMyAdmin\ThemeManager;
  */
 require_once 'libraries/common.inc.php';
 require_once 'libraries/user_preferences.lib.php';
-require 'libraries/config/user_preferences.forms.php';
 
 $cf = new ConfigFile($GLOBALS['PMA_Config']->base_settings);
 PMA_userprefsPageInit($cf);
@@ -94,12 +93,7 @@ if (isset($_POST['submit_export'])
     } else {
         // sanitize input values: treat them as though
         // they came from HTTP POST request
-        $form_display = new FormDisplay($cf);
-        foreach ($forms as $formset_id => $formset) {
-            foreach ($formset as $form_name => $form) {
-                $form_display->registerForm($formset_id . ': ' . $form_name, $form);
-            }
-        }
+        $form_display = new UserFormList($cf);
         $new_config = $cf->getFlatDefaultConfig();
         if (!empty($_POST['import_merge'])) {
             $new_config = array_merge($new_config, $cf->getConfigArray());

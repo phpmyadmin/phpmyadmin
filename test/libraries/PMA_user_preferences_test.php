@@ -43,15 +43,9 @@ class PMA_User_Preferences_Test extends PMATestCase
     {
         $GLOBALS['cfg'] = array(
             'Server/hide_db' => 'testval123',
-            'Server/only_db' => 'test213'
+            'Server/port' => '213'
         );
         $GLOBALS['cfg']['AvailableCharsets'] = array();
-        $GLOBALS['forms'] = array(
-            'form1' => array(
-                array('Servers/1/hide_db', 'bar'),
-                array('test' => 'val')
-            )
-        );
 
         PMA_userprefsPageInit(new ConfigFile());
 
@@ -297,31 +291,6 @@ class PMA_User_Preferences_Test extends PMATestCase
                 )
             ),
             $result
-        );
-    }
-
-    /**
-     * Test for PMA_readUserprefsFieldNames
-     *
-     * @return void
-     */
-    public function testReadUserprefsFieldNames()
-    {
-        $this->assertGreaterThan(
-            0,
-            count(PMA_readUserprefsFieldNames())
-        );
-
-        $forms = array(
-            'form1' => array(
-                array('Servers/1/hide_db', 'bar'),
-                array('test' => 'val')
-            )
-        );
-
-        $this->assertEquals(
-            array('Servers/1/hide_db', 'bar', 'test'),
-            PMA_readUserprefsFieldNames($forms)
         );
     }
 

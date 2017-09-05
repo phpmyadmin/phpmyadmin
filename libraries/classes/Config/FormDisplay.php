@@ -17,6 +17,7 @@ namespace PhpMyAdmin\Config;
 use PhpMyAdmin\Config\ConfigFile;
 use PhpMyAdmin\Config\Descriptions;
 use PhpMyAdmin\Config\Form;
+use PhpMyAdmin\Config\Forms\User\UserFormList;
 use PhpMyAdmin\Config\Validator;
 use PhpMyAdmin\Sanitize;
 use PhpMyAdmin\Util;
@@ -781,7 +782,7 @@ class FormDisplay
             return;
         }
 
-        $this->_userprefsKeys = array_flip(PMA_readUserprefsFieldNames());
+        $this->_userprefsKeys = array_flip(UserFormList::getFields());
         // read real config for user preferences display
         $userprefs_disallow = $GLOBALS['PMA_Config']->get('is_setup')
             ? $this->_configFile->get('UserprefsDisallow', array())

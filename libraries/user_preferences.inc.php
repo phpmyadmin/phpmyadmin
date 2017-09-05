@@ -6,6 +6,7 @@
  * @package PhpMyAdmin
  */
 use PhpMyAdmin\Config\Descriptions;
+use PhpMyAdmin\Config\Forms\User\UserFormList;
 use PhpMyAdmin\Message;
 use PhpMyAdmin\Relation;
 use PhpMyAdmin\Sanitize;
@@ -16,15 +17,14 @@ if (!defined('PHPMYADMIN')) {
 // build user preferences menu
 
 $form_param = isset($_GET['form']) ? $_GET['form'] : null;
-if (! isset($forms[$form_param])) {
-    $forms_keys = array_keys($forms);
-    $form_param = array_shift($forms_keys);
+if (! UserFormList::isValid($form_param)) {
+    $form_param = UserFormList::getDefault();
 }
 $tabs_icons = array(
     'Features'    => 'b_tblops.png',
-    'Sql_queries' => 'b_sql.png',
-    'Navi_panel'  => 'b_select.png',
-    'Main_panel'  => 'b_props.png',
+    'Sql'         => 'b_sql.png',
+    'Navi'        => 'b_select.png',
+    'Main'        => 'b_props.png',
     'Import'      => 'b_import.png',
     'Export'      => 'b_export.png');
 
@@ -35,7 +35,7 @@ $content = PhpMyAdmin\Util::getHtmlTab(
     )
 ) . "\n";
 $script_name = basename($GLOBALS['PMA_PHP_SELF']);
-foreach (array_keys($forms) as $formset) {
+foreach (UserFormList::getAll() as $formset) {
     $tab = array(
         'link' => 'prefs_forms.php',
         'text' => Descriptions::get('Form_' . $formset),
