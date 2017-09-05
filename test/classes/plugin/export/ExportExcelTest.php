@@ -7,7 +7,6 @@
  */
 use PhpMyAdmin\Plugins\Export\ExportExcel;
 
-require_once 'libraries/export.lib.php';
 require_once 'libraries/config.default.php';
 require_once 'test/PMATestCase.php';
 

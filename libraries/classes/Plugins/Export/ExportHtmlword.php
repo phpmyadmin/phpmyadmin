@@ -9,6 +9,7 @@
 namespace PhpMyAdmin\Plugins\Export;
 
 use PhpMyAdmin\DatabaseInterface;
+use PhpMyAdmin\Export;
 use PhpMyAdmin\Plugins\ExportPlugin;
 use PhpMyAdmin\Properties\Plugins\ExportPluginProperties;
 use PhpMyAdmin\Properties\Options\Groups\OptionsPropertyMainGroup;
@@ -107,7 +108,7 @@ class ExportHtmlword extends ExportPlugin
     {
         global $charset;
 
-        return PMA_exportOutputHandler(
+        return Export::outputHandler(
             '<html xmlns:o="urn:schemas-microsoft-com:office:office"
             xmlns:x="urn:schemas-microsoft-com:office:word"
             xmlns="http://www.w3.org/TR/REC-html40">
@@ -130,7 +131,7 @@ class ExportHtmlword extends ExportPlugin
      */
     public function exportFooter()
     {
-        return PMA_exportOutputHandler('</body></html>');
+        return Export::outputHandler('</body></html>');
     }
 
     /**
@@ -147,7 +148,7 @@ class ExportHtmlword extends ExportPlugin
             $db_alias = $db;
         }
 
-        return PMA_exportOutputHandler(
+        return Export::outputHandler(
             '<h1>' . __('Database') . ' ' . htmlspecialchars($db_alias) . '</h1>'
         );
     }
@@ -204,7 +205,7 @@ class ExportHtmlword extends ExportPlugin
         $table_alias = $table;
         $this->initAlias($aliases, $db_alias, $table_alias);
 
-        if (!PMA_exportOutputHandler(
+        if (!Export::outputHandler(
             '<h2>'
             . __('Dumping data for table') . ' ' . htmlspecialchars($table_alias)
             . '</h2>'
@@ -212,7 +213,7 @@ class ExportHtmlword extends ExportPlugin
         ) {
             return false;
         }
-        if (!PMA_exportOutputHandler(
+        if (!Export::outputHandler(
             '<table class="width100" cellspacing="1">'
         )
         ) {
@@ -241,7 +242,7 @@ class ExportHtmlword extends ExportPlugin
                     . '</strong></td>';
             } // end for
             $schema_insert .= '</tr>';
-            if (!PMA_exportOutputHandler($schema_insert)) {
+            if (!Export::outputHandler($schema_insert)) {
                 return false;
             }
         } // end if
@@ -262,12 +263,12 @@ class ExportHtmlword extends ExportPlugin
                     . '</td>';
             } // end for
             $schema_insert .= '</tr>';
-            if (!PMA_exportOutputHandler($schema_insert)) {
+            if (!Export::outputHandler($schema_insert)) {
                 return false;
             }
         } // end while
         $GLOBALS['dbi']->freeResult($result);
-        if (!PMA_exportOutputHandler('</table>')) {
+        if (!Export::outputHandler('</table>')) {
             return false;
         }
 
@@ -605,7 +606,7 @@ class ExportHtmlword extends ExportPlugin
             $dump .= $this->getTableDefStandIn($db, $table, $crlf, $aliases);
         } // end switch
 
-        return PMA_exportOutputHandler($dump);
+        return Export::outputHandler($dump);
     }
 
     /**

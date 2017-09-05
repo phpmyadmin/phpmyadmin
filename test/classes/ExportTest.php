@@ -1,40 +1,26 @@
 <?php
 /* vim: set expandtab sw=4 ts=4 sts=4: */
 /**
- * tests for export.lib.php
+ * tests for PhpMyAdmin\Export
  *
  * @package PhpMyAdmin-test
  */
+namespace PhpMyAdmin\Tests;
 
-/*
- * Include to test.
- */
-
-
-require_once 'libraries/export.lib.php';
+use PhpMyAdmin\Export;
 
 /**
- * class PMA_Export_Test
+ * PhpMyAdmin\ExportTest class
  *
- * this class is for testing export.lib.php functions
+ * this class is for testing PhpMyAdmin\Export methods
  *
  * @package PhpMyAdmin-test
  * @group large
  */
-class PMA_Export_Test extends PHPUnit_Framework_TestCase
+class ExportTest extends \PHPUnit_Framework_TestCase
 {
     /**
-     * Test for setUp
-     *
-     * @return void
-     */
-    public function setUp()
-    {
-
-    }
-
-    /**
-     * Test for PMA_mergeAliases
+     * Test for Export::mergeAliases
      *
      * @return void
      */
@@ -104,7 +90,7 @@ class PMA_Export_Test extends PHPUnit_Framework_TestCase
                 )
             )
         );
-        $actual = PMA_mergeAliases($aliases1, $aliases2);
+        $actual = Export::mergeAliases($aliases1, $aliases2);
         $this->assertEquals($expected, $actual);
     }
 }

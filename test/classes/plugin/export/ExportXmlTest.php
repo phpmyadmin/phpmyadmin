@@ -10,7 +10,6 @@ use PhpMyAdmin\Table;
 
 $GLOBALS['db'] = 'db';
 
-require_once 'libraries/export.lib.php';
 require_once 'libraries/config.default.php';
 require_once 'test/PMATestCase.php';
 

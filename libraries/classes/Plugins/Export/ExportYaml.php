@@ -10,6 +10,7 @@
 namespace PhpMyAdmin\Plugins\Export;
 
 use PhpMyAdmin\DatabaseInterface;
+use PhpMyAdmin\Export;
 use PhpMyAdmin\Plugins\ExportPlugin;
 use PhpMyAdmin\Properties\Plugins\ExportPluginProperties;
 use PhpMyAdmin\Properties\Options\Groups\OptionsPropertyMainGroup;
@@ -73,7 +74,7 @@ class ExportYaml extends ExportPlugin
      */
     public function exportHeader()
     {
-        PMA_exportOutputHandler(
+        Export::outputHandler(
             '%YAML 1.1' . $GLOBALS['crlf'] . '---' . $GLOBALS['crlf']
         );
 
@@ -87,7 +88,7 @@ class ExportYaml extends ExportPlugin
      */
     public function exportFooter()
     {
-        PMA_exportOutputHandler('...' . $GLOBALS['crlf']);
+        Export::outputHandler('...' . $GLOBALS['crlf']);
 
         return true;
     }
@@ -206,7 +207,7 @@ class ExportYaml extends ExportPlugin
                 $buffer .= '  ' . $columns[$i] . ': "' . $record[$i] . '"' . $crlf;
             }
 
-            if (!PMA_exportOutputHandler($buffer)) {
+            if (!Export::outputHandler($buffer)) {
                 return false;
             }
         }
