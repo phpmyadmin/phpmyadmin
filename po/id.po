@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.7.4-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2017-08-10 09:13-0400\n"
-"PO-Revision-Date: 2017-09-05 12:49+0000\n"
-"Last-Translator: developerchan1 <developerchan1@gmail.com>\n"
+"PO-Revision-Date: 2017-09-05 13:14+0000\n"
+"Last-Translator: Surya Widi <neversleepman@tfwno.gf>\n"
 "Language-Team: Indonesian "
 "<https://hosted.weblate.org/projects/phpmyadmin/4-7/id/>\n"
 "Language: id\n"
@@ -5202,7 +5202,7 @@ msgstr "Jangan pernah mengirimkan laporan kesalahan"
 
 #: libraries/config.values.php:132
 msgid "Server default"
-msgstr "Server bawaan"
+msgstr "Bawaan server"
 
 #: libraries/config.values.php:133
 msgid "Enable"
