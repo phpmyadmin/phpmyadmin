@@ -6,6 +6,6 @@
         <label for="selected_page">
             <?= $operation == 'editPage' ? __("Page to open") : __("Page to delete"); ?>:
         </label>
-        <?= PMA_getHtmlForPageSelector($cfgRelation, $db); ?>
+        <?= PhpMyAdmin\Database\Designer::getHtmlForPageSelector($cfgRelation, $db); ?>
     </fieldset>
 </form>

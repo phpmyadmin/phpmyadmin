@@ -1,22 +1,26 @@
 <?php
 /**
- * Tests for libraries/db_designer.lib.php
+ * Tests for PhpMyAdmin\Database\Designer
  *
  * @package PhpMyAdmin-test
  */
+namespace PhpMyAdmin\Tests\Database;
+
+use PhpMyAdmin\Database\Designer;
+use PhpMyAdmin\DatabaseInterface;
+
 /*
  * Include to test.
  */
-require_once 'libraries/db_designer.lib.php';
 require_once 'libraries/database_interface.inc.php';
 require_once 'libraries/plugin_interface.lib.php';
 
 /**
- * Tests for libraries/db_designer.lib.php
+ * Tests for PhpMyAdmin\Database\Designer
  *
  * @package PhpMyAdmin-test
  */
-class PMA_DesignerTest extends PHPUnit_Framework_TestCase
+class DesignerTest extends \PHPUnit_Framework_TestCase
 {
 
     /**
@@ -65,7 +69,7 @@ class PMA_DesignerTest extends PHPUnit_Framework_TestCase
                 "SELECT `page_nr`, `page_descr` FROM `pmadb`.`pdf_pages`"
                 . " WHERE db_name = '" . $db . "' ORDER BY `page_descr`",
                 2,
-                PhpMyAdmin\DatabaseInterface::QUERY_STORE,
+                DatabaseInterface::QUERY_STORE,
                 false
             )
             ->will($this->returnValue('dummyRS'));
@@ -86,7 +90,7 @@ class PMA_DesignerTest extends PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test for PMA_getPageIdsAndNames()
+     * Test for Designer::getPageIdsAndNames()
      *
      * @return void
      */
@@ -95,7 +99,7 @@ class PMA_DesignerTest extends PHPUnit_Framework_TestCase
         $db = 'db';
         $this->_mockDatabaseInteraction($db);
 
-        $result = PMA_getPageIdsAndNames($db);
+        $result = Designer::getPageIdsAndNames($db);
 
         $this->assertEquals(
             array(
@@ -107,7 +111,7 @@ class PMA_DesignerTest extends PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test for PMA_getHtmlForEditOrDeletePages()
+     * Test for Designer::getHtmlForEditOrDeletePages()
      *
      * @return void
      */
@@ -117,7 +121,7 @@ class PMA_DesignerTest extends PHPUnit_Framework_TestCase
         $operation = 'edit';
         $this->_mockDatabaseInteraction($db);
 
-        $result = PMA_getHtmlForEditOrDeletePages($db, $operation);
+        $result = Designer::getHtmlForEditOrDeletePages($db, $operation);
         $this->assertContains(
             '<input type="hidden" name="operation" value="' . $operation . '" />',
             $result
@@ -134,7 +138,7 @@ class PMA_DesignerTest extends PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test for PMA_getHtmlForPageSaveAs()
+     * Test for Designer::getHtmlForPageSaveAs()
      *
      * @return void
      */
@@ -143,7 +147,7 @@ class PMA_DesignerTest extends PHPUnit_Framework_TestCase
         $db = 'db';
         $this->_mockDatabaseInteraction($db);
 
-        $result = PMA_getHtmlForPageSaveAs($db);
+        $result = Designer::getHtmlForPageSaveAs($db);
         $this->assertContains(
             '<input type="hidden" name="operation" value="savePage" />',
             $result
@@ -174,7 +178,7 @@ class PMA_DesignerTest extends PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test for PMA_getHtmlForSchemaExport()
+     * Test for Designer::getHtmlForSchemaExport()
      *
      * @return void
      */
@@ -183,7 +187,7 @@ class PMA_DesignerTest extends PHPUnit_Framework_TestCase
         $db = 'db';
         $page = 2;
 
-        $result = PMA_getHtmlForSchemaExport($db, $page);
+        $result = Designer::getHtmlForSchemaExport($db, $page);
         // export type
         $this->assertContains(
             '<select id="plugins" name="export_type">',
