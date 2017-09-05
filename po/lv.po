@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.8.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2017-08-10 09:14-0400\n"
-"PO-Revision-Date: 2017-09-04 15:45+0000\n"
+"PO-Revision-Date: 2017-09-05 18:19+0000\n"
 "Last-Translator: Māris <weblate@netparks.lv>\n"
 "Language-Team: Latvian "
 "<https://hosted.weblate.org/projects/phpmyadmin/master/lv/>\n"
@@ -775,7 +775,7 @@ msgstr ""
 
 #: index.php:531
 msgid "The configuration file now needs a secret passphrase (blowfish_secret)."
-msgstr "Konfigurācijas fails tagad prasa slepeno paroli (blowfish_secret)."
+msgstr "Konfigurācijas failā jānorāda slepenā parole (blowfish_secret)."
 
 #: index.php:538
 msgid "The secret passphrase in configuration (blowfish_secret) is too short."
@@ -827,7 +827,7 @@ msgstr "Apstiprināt"
 #: js/messages.php:44
 #, php-format
 msgid "Do you really want to execute \"%s\"?"
-msgstr "Vai Jūs tiešām gribat izpildīt \"%s\"?"
+msgstr "Vai tiešām vēlaties izpildīt vaicājumu \"%s\"?"
 
 #: js/messages.php:46 libraries/mult_submits.lib.php:447
 msgid "You are about to DESTROY a complete database!"
@@ -877,7 +877,7 @@ msgstr "Ļauj ievietot un mainīt datus."
 
 #: js/messages.php:61
 msgid "Deleting tracking data"
-msgstr "Izsekošanas datu dzēšana"
+msgstr "Atsekošanas datu dzēšana"
 
 #: js/messages.php:62
 msgid "Dropping Primary Key/Index"
@@ -891,7 +891,7 @@ msgstr "Nepārbaudīt ārējās atslēgas"
 
 #: js/messages.php:65
 msgid "This operation could take a long time. Proceed anyway?"
-msgstr "Šī operacīja var aizņemt ilgāku laiku. Turpināt?"
+msgstr "Šī operācija var aizņemt ilgu laiku. Turpināt?"
 
 #: js/messages.php:67
 #, php-format
@@ -1097,16 +1097,16 @@ msgstr "Y Vērtība"
 
 #: js/messages.php:141
 msgid "The host name is empty!"
-msgstr "Hosts nav norādīts!"
+msgstr "Nav norādīts servera vārds!"
 
 #: js/messages.php:142
 msgid "The user name is empty!"
-msgstr "Lietotāja vārds nav norādīts!"
+msgstr "Nav norādīts lietotāja vārds!"
 
 #: js/messages.php:143 libraries/classes/Server/Privileges.php:1880
 #: user_password.php:117
 msgid "The password is empty!"
-msgstr "Parole nav norādīta!"
+msgstr "Nav norādīta parole!"
 
 #: js/messages.php:144 libraries/classes/Server/Privileges.php:1878
 #: user_password.php:121
