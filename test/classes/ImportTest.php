@@ -1,16 +1,16 @@
 <?php
 /* vim: set expandtab sw=4 ts=4 sts=4: */
 /**
- * Test for PMA_checkTimeout()
- * from libraries/import.lib.php
+ * Test for PhpMyAdmin\Import
  *
  * @package PhpMyAdmin-test
  */
-use PhpMyAdmin\Url;
+namespace PhpMyAdmin\Tests;
 
-/*
- * Include to test.
- */
+use PhpMyAdmin\Import;
+use PhpMyAdmin\SqlParser\Parser;
+use PhpMyAdmin\Url;
+use PhpMyAdmin\Util;
 
 /*
  * we must set $GLOBALS['server'] here
@@ -21,17 +21,14 @@ $GLOBALS['server'] = 0;
 /*
  * Include to test.
  */
-
-
 require_once 'libraries/database_interface.inc.php';
-require_once 'libraries/import.lib.php';
 
 /**
  * Tests for import functions
  *
  * @package PhpMyAdmin-test
  */
-class PMA_Import_Test extends PHPUnit_Framework_TestCase
+class ImportTest extends \PHPUnit_Framework_TestCase
 {
     /**
      * Prepares environment for the test.
@@ -44,7 +41,7 @@ class PMA_Import_Test extends PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test for PMA_checkTimeout
+     * Test for Import::checkTimeout
      *
      * @return void
      */
@@ -57,39 +54,39 @@ class PMA_Import_Test extends PHPUnit_Framework_TestCase
         $maximum_time = 0;
         $timeout_passed = false;
 
-        $this->assertFalse(PMA_checkTimeout());
+        $this->assertFalse(Import::checkTimeout());
 
         //Reinit values.
         $timestamp = time();
         $maximum_time = 0;
         $timeout_passed = true;
 
-        $this->assertFalse(PMA_checkTimeout());
+        $this->assertFalse(Import::checkTimeout());
 
         //Reinit values.
         $timestamp = time();
         $maximum_time = 30;
         $timeout_passed = true;
 
-        $this->assertTrue(PMA_checkTimeout());
+        $this->assertTrue(Import::checkTimeout());
 
         //Reinit values.
         $timestamp = time()-15;
         $maximum_time = 30;
         $timeout_passed = false;
 
-        $this->assertFalse(PMA_checkTimeout());
+        $this->assertFalse(Import::checkTimeout());
 
         //Reinit values.
         $timestamp = time()-60;
         $maximum_time = 30;
         $timeout_passed = false;
 
-        $this->assertTrue(PMA_checkTimeout());
+        $this->assertTrue(Import::checkTimeout());
     }
 
     /**
-     * Test for PMA_lookForUse
+     * Test for Import::lookForUse
      *
      * @return void
      */
@@ -97,42 +94,42 @@ class PMA_Import_Test extends PHPUnit_Framework_TestCase
     {
         $this->assertEquals(
             array(null, null),
-            PMA_lookForUse(null, null, null)
+            Import::lookForUse(null, null, null)
         );
 
         $this->assertEquals(
             array('myDb', null),
-            PMA_lookForUse(null, 'myDb', null)
+            Import::lookForUse(null, 'myDb', null)
         );
 
         $this->assertEquals(
             array('myDb', true),
-            PMA_lookForUse(null, 'myDb', true)
+            Import::lookForUse(null, 'myDb', true)
         );
 
         $this->assertEquals(
             array('myDb', true),
-            PMA_lookForUse('select 1 from myTable', 'myDb', true)
+            Import::lookForUse('select 1 from myTable', 'myDb', true)
         );
 
         $this->assertEquals(
             array('anotherDb', true),
-            PMA_lookForUse('use anotherDb', 'myDb', false)
+            Import::lookForUse('use anotherDb', 'myDb', false)
         );
 
         $this->assertEquals(
             array('anotherDb', true),
-            PMA_lookForUse('use anotherDb', 'myDb', true)
+            Import::lookForUse('use anotherDb', 'myDb', true)
         );
 
         $this->assertEquals(
             array('anotherDb', true),
-            PMA_lookForUse('use `anotherDb`;', 'myDb', true)
+            Import::lookForUse('use `anotherDb`;', 'myDb', true)
         );
     }
 
     /**
-     * Test for PMA_getColumnAlphaName
+     * Test for Import::getColumnAlphaName
      *
      * @param string $expected Expected result of the function
      * @param int    $num      The column number
@@ -143,7 +140,7 @@ class PMA_Import_Test extends PHPUnit_Framework_TestCase
      */
     function testGetColumnAlphaName($expected, $num)
     {
-        $this->assertEquals($expected, PMA_getColumnAlphaName($num));
+        $this->assertEquals($expected, Import::getColumnAlphaName($num));
     }
 
     /**
@@ -164,7 +161,7 @@ class PMA_Import_Test extends PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test for PMA_getColumnNumberFromName
+     * Test for Import::getColumnNumberFromName
      *
      * @param int         $expected Expected result of the function
      * @param string|null $name     column name(i.e. "A", or "BC", etc.)
@@ -175,7 +172,7 @@ class PMA_Import_Test extends PHPUnit_Framework_TestCase
      */
     function testGetColumnNumberFromName($expected, $name)
     {
-        $this->assertEquals($expected, PMA_getColumnNumberFromName($name));
+        $this->assertEquals($expected, Import::getColumnNumberFromName($name));
     }
 
     /**
@@ -196,7 +193,7 @@ class PMA_Import_Test extends PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test for PMA_getDecimalPrecision
+     * Test for Import::getDecimalPrecision
      *
      * @param int         $expected Expected result of the function
      * @param string|null $size     Size of field
@@ -207,7 +204,7 @@ class PMA_Import_Test extends PHPUnit_Framework_TestCase
      */
     function testGetDecimalPrecision($expected, $size)
     {
-        $this->assertEquals($expected, PMA_getDecimalPrecision($size));
+        $this->assertEquals($expected, Import::getDecimalPrecision($size));
     }
 
     /**
@@ -226,7 +223,7 @@ class PMA_Import_Test extends PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test for PMA_getDecimalScale
+     * Test for Import::getDecimalScale
      *
      * @param int         $expected Expected result of the function
      * @param string|null $size     Size of field
@@ -237,7 +234,7 @@ class PMA_Import_Test extends PHPUnit_Framework_TestCase
      */
     function testGetDecimalScale($expected, $size)
     {
-        $this->assertEquals($expected, PMA_getDecimalScale($size));
+        $this->assertEquals($expected, Import::getDecimalScale($size));
     }
 
     /**
@@ -256,7 +253,7 @@ class PMA_Import_Test extends PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test for PMA_getDecimalSize
+     * Test for Import::getDecimalSize
      *
      * @param array       $expected Expected result of the function
      * @param string|null $cell     Cell content
@@ -267,7 +264,7 @@ class PMA_Import_Test extends PHPUnit_Framework_TestCase
      */
     function testGetDecimalSize($expected, $cell)
     {
-        $this->assertEquals($expected, PMA_getDecimalSize($cell));
+        $this->assertEquals($expected, Import::getDecimalSize($cell));
     }
 
     /**
@@ -286,7 +283,7 @@ class PMA_Import_Test extends PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test for PMA_detectType
+     * Test for Import::detectType
      *
      * @param int         $expected Expected result of the function
      * @param int|null    $type     Last cumulative column type (VARCHAR or INT or
@@ -300,7 +297,7 @@ class PMA_Import_Test extends PHPUnit_Framework_TestCase
      */
     function testDetectType($expected, $type, $cell)
     {
-        $this->assertEquals($expected, PMA_detectType($type, $cell));
+        $this->assertEquals($expected, Import::detectType($type, $cell));
     }
 
     /**
@@ -311,24 +308,24 @@ class PMA_Import_Test extends PHPUnit_Framework_TestCase
     function provDetectType()
     {
         return array(
-            array(NONE, null, 'NULL'),
-            array(NONE, NONE, 'NULL'),
-            array(INT, INT, 'NULL'),
-            array(VARCHAR, VARCHAR, 'NULL'),
-            array(VARCHAR, null, null),
-            array(VARCHAR, INT, null),
-            array(INT, INT, '10'),
-            array(DECIMAL, DECIMAL, '10.2'),
-            array(DECIMAL, INT, '10.2'),
-            array(BIGINT, BIGINT, '2147483648'),
-            array(BIGINT, INT, '2147483648'),
-            array(VARCHAR, VARCHAR, 'test'),
-            array(VARCHAR, INT, 'test'),
+            array(Import::NONE, null, 'NULL'),
+            array(Import::NONE, Import::NONE, 'NULL'),
+            array(Import::INT, Import::INT, 'NULL'),
+            array(Import::VARCHAR, Import::VARCHAR, 'NULL'),
+            array(Import::VARCHAR, null, null),
+            array(Import::VARCHAR, Import::INT, null),
+            array(Import::INT, Import::INT, '10'),
+            array(Import::DECIMAL, Import::DECIMAL, '10.2'),
+            array(Import::DECIMAL, Import::INT, '10.2'),
+            array(Import::BIGINT, Import::BIGINT, '2147483648'),
+            array(Import::BIGINT, Import::INT, '2147483648'),
+            array(Import::VARCHAR, Import::VARCHAR, 'test'),
+            array(Import::VARCHAR, Import::INT, 'test'),
         );
     }
 
     /**
-     * Test for PMA_getMatchedRows.
+     * Test for Import::getMatchedRows.
      *
      * @return void
      */
@@ -385,14 +382,14 @@ class PMA_Import_Test extends PHPUnit_Framework_TestCase
      */
     function simulatedQueryTest($sql_query, $simulated_query)
     {
-        $parser = new PhpMyAdmin\SqlParser\Parser($sql_query);
+        $parser = new Parser($sql_query);
         $analyzed_sql_results = array(
             'query' => $sql_query,
             'parser' => $parser,
             'statement' => $parser->statements[0],
         );
 
-        $simulated_data = PMA_getMatchedRows($analyzed_sql_results);
+        $simulated_data = Import::getMatchedRows($analyzed_sql_results);
 
         // URL to matched rows.
         $_url_params = array(
@@ -403,7 +400,7 @@ class PMA_Import_Test extends PHPUnit_Framework_TestCase
 
         $this->assertEquals(
             array(
-                'sql_query' => PhpMyAdmin\Util::formatSql(
+                'sql_query' => Util::formatSql(
                     $analyzed_sql_results['query']
                 ),
                 'matched_rows' => 2,
@@ -414,7 +411,7 @@ class PMA_Import_Test extends PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test for PMA_checkIfRollbackPossible
+     * Test for Import::checkIfRollbackPossible
      *
      * @return void
      */
@@ -482,6 +479,6 @@ class PMA_Import_Test extends PHPUnit_Framework_TestCase
             . 'SET `table_1`.`id` = `table_2`.`id` '
             . 'WHERE 1';
 
-        $this->assertEquals(true, PMA_checkIfRollbackPossible($sql_query));
+        $this->assertEquals(true, Import::checkIfRollbackPossible($sql_query));
     }
 }

@@ -13,6 +13,7 @@ use PhpMyAdmin\Gis\GisMultiLineString;
 use PhpMyAdmin\Gis\GisMultiPoint;
 use PhpMyAdmin\Gis\GisPoint;
 use PhpMyAdmin\Gis\GisPolygon;
+use PhpMyAdmin\Import;
 use PhpMyAdmin\Message;
 use PhpMyAdmin\Plugins\ImportPlugin;
 use PhpMyAdmin\Properties\Plugins\ImportPluginProperties;
@@ -250,12 +251,12 @@ class ImportShp extends ImportPlugin
 
         // Use data from shape file to chose best-fit MySQL types for each column
         $analyses = array();
-        $analyses[] = PMA_analyzeTable($tables[0]);
+        $analyses[] = Import::analyzeTable($tables[0]);
 
         $table_no = 0;
         $spatial_col = 0;
-        $analyses[$table_no][TYPES][$spatial_col] = GEOMETRY;
-        $analyses[$table_no][FORMATTEDSQL][$spatial_col] = true;
+        $analyses[$table_no][Import::TYPES][$spatial_col] = Import::GEOMETRY;
+        $analyses[$table_no][Import::FORMATTEDSQL][$spatial_col] = true;
 
         // Set database name to the currently selected one, if applicable
         if (strlen($db) > 0) {
@@ -268,7 +269,7 @@ class ImportShp extends ImportPlugin
 
         // Created and execute necessary SQL statements from data
         $null_param = null;
-        PMA_buildSQL($db_name, $tables, $analyses, $null_param, $options, $sql_data);
+        Import::buildSql($db_name, $tables, $analyses, $null_param, $options, $sql_data);
 
         unset($tables);
         unset($analyses);
@@ -277,7 +278,7 @@ class ImportShp extends ImportPlugin
         $error = false;
 
         // Commit any possible data in buffers
-        PMA_importRunQuery('', '', $sql_data);
+        Import::runQuery('', '', $sql_data);
     }
 
     /**
@@ -298,7 +299,7 @@ class ImportShp extends ImportPlugin
             if ($GLOBALS['finished']) {
                 $eof = true;
             } else {
-                $buffer .= PMA_importGetNextChunk();
+                $buffer .= Import::getNextChunk();
             }
         }
         $result = substr($buffer, 0, $length);

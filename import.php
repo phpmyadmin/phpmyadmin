@@ -10,6 +10,7 @@ use PhpMyAdmin\Bookmark;
 use PhpMyAdmin\Core;
 use PhpMyAdmin\Encoding;
 use PhpMyAdmin\File;
+use PhpMyAdmin\Import;
 use PhpMyAdmin\Plugins\ImportPlugin;
 use PhpMyAdmin\Response;
 use PhpMyAdmin\Sql;
@@ -30,12 +31,9 @@ if (isset($_REQUEST['show_as_php'])) {
     $GLOBALS['show_as_php'] = $_REQUEST['show_as_php'];
 }
 
-// Import functions.
-require_once 'libraries/import.lib.php';
-
 // If there is a request to 'Simulate DML'.
 if (isset($_REQUEST['simulate_dml'])) {
-    PMA_handleSimulateDMLRequest();
+    Import::handleSimulateDmlRequest();
     exit;
 }
 
@@ -147,7 +145,7 @@ if (! empty($sql_query)) {
 
     // If there is a request to ROLLBACK when finished.
     if (isset($_REQUEST['rollback_query'])) {
-        PMA_handleRollbackRequest($import_text);
+        Import::handleRollbackRequest($import_text);
     }
 
     // refresh navigation and main panels
@@ -464,12 +462,12 @@ if ($import_file != 'none' && ! $error) {
     $import_handle = new File($import_file);
     $import_handle->checkUploadedFile();
     if ($import_handle->isError()) {
-        PMA_stopImport($import_handle->getError());
+        Import::stop($import_handle->getError());
     }
     $import_handle->setDecompressContent(true);
     $import_handle->open();
     if ($import_handle->isError()) {
-        PMA_stopImport($import_handle->getError());
+        Import::stop($import_handle->getError());
     }
 } elseif (! $error) {
     if (! isset($import_text) || empty($import_text)) {
@@ -480,7 +478,7 @@ if ($import_file != 'none' && ! $error) {
                 'by your PHP configuration. See [doc@faq1-16]FAQ 1.16[/doc].'
             )
         );
-        PMA_stopImport($message);
+        Import::stop($message);
     }
 }
 
@@ -503,7 +501,7 @@ if (Encoding::isSupported() && isset($charset_of_file)) {
 if (! $error && isset($_POST['skip'])) {
     $original_skip = $skip = intval($_POST['skip']);
     while ($skip > 0 && ! $finished) {
-        PMA_importGetNextChunk($skip < $read_limit ? $skip : $read_limit);
+        Import::getNextChunk($skip < $read_limit ? $skip : $read_limit);
         // Disable read progressivity, otherwise we eat all memory!
         $read_multiply = 1;
         $skip -= $read_limit;
@@ -529,7 +527,7 @@ if (! $error) {
         $message = PhpMyAdmin\Message::error(
             __('Could not load import plugins, please check your installation!')
         );
-        PMA_stopImport($message);
+        Import::stop($message);
     } else {
         // Do the real import
         try {

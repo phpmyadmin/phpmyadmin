@@ -8,6 +8,7 @@
  */
 namespace PhpMyAdmin\Plugins\Import;
 
+use PhpMyAdmin\Import;
 use PhpMyAdmin\Message;
 use PhpMyAdmin\Plugins\ImportPlugin;
 use PhpMyAdmin\Properties\Plugins\ImportPluginProperties;
@@ -92,7 +93,7 @@ class ImportMediawiki extends ImportPlugin
         $cur_table_name = "";
 
         while (!$finished && !$error && !$timeout_passed) {
-            $data = PMA_importGetNextChunk();
+            $data = Import::getNextChunk();
 
             if ($data === false) {
                 // Subtract data we didn't handle yet and stop processing
@@ -307,19 +308,19 @@ class ImportMediawiki extends ImportPlugin
             // Set generic names for table headers if they don't exist
             $this->_setTableHeaders($table[1], $table[2][0]);
 
-            // Create the tables array to be used in PMA_buildSQL()
+            // Create the tables array to be used in Import::buildSql()
             $tables = array();
             $tables [] = array($table[0], $table[1], $table[2]);
 
             // Obtain the best-fit MySQL types for each column
             $analyses = array();
-            $analyses [] = PMA_analyzeTable($tables[0]);
+            $analyses [] = Import::analyzeTable($tables[0]);
 
             $this->_executeImportTables($tables, $analyses, $sql_data);
         }
 
         // Commit any possible data in buffers
-        PMA_importRunQuery('', '', $sql_data);
+        Import::runQuery('', '', $sql_data);
     }
 
     /**
@@ -360,7 +361,7 @@ class ImportMediawiki extends ImportPlugin
     }
 
     /**
-     * Sets the database name and additional options and calls PMA_buildSQL()
+     * Sets the database name and additional options and calls Import::buildSql()
      * Used in PMA_importDataAllTables() and $this->_importDataOneTable()
      *
      * @param array &$tables   structure:
@@ -392,7 +393,7 @@ class ImportMediawiki extends ImportPlugin
         $create = null;
 
         // Create and execute necessary SQL statements from data
-        PMA_buildSQL($db_name, $tables, $analyses, $create, $options, $sql_data);
+        Import::buildSql($db_name, $tables, $analyses, $create, $options, $sql_data);
 
         unset($tables);
         unset($analyses);
