@@ -5,25 +5,25 @@
  *
  * @package PhpMyAdmin-Designer
  */
+use PhpMyAdmin\Database\Designer;
 use PhpMyAdmin\Response;
 
 require_once 'libraries/common.inc.php';
 require_once 'libraries/pmd_common.php';
-require_once 'libraries/db_designer.lib.php';
 
 $response = Response::getInstance();
 
 if (isset($_REQUEST['dialog'])) {
 
     if ($_REQUEST['dialog'] == 'edit') {
-        $html = PMA_getHtmlForEditOrDeletePages($GLOBALS['db'], 'editPage');
+        $html = Designer::getHtmlForEditOrDeletePages($GLOBALS['db'], 'editPage');
     } else if ($_REQUEST['dialog'] == 'delete') {
-        $html = PMA_getHtmlForEditOrDeletePages($GLOBALS['db'], 'deletePage');
+        $html = Designer::getHtmlForEditOrDeletePages($GLOBALS['db'], 'deletePage');
     } else if ($_REQUEST['dialog'] == 'save_as') {
-        $html = PMA_getHtmlForPageSaveAs($GLOBALS['db']);
+        $html = Designer::getHtmlForPageSaveAs($GLOBALS['db']);
     } else if ($_REQUEST['dialog'] == 'export') {
         include_once 'libraries/plugin_interface.lib.php';
-        $html = PMA_getHtmlForSchemaExport(
+        $html = Designer::getHtmlForSchemaExport(
             $GLOBALS['db'], $_REQUEST['selected_page']
         );
     } else if ($_REQUEST['dialog'] == 'add_table') {
@@ -42,7 +42,7 @@ if (isset($_REQUEST['dialog'])) {
         $GLOBALS['PMD']['TABLE_TYPE'] = array($GLOBALS['PMD_URL']['TABLE_TYPE'][$req_key]);
         $GLOBALS['PMD_OUT']['OWNER'] = array($GLOBALS['PMD_OUT']['OWNER'][$req_key]);
 
-        $html = PMA_getDatabaseTables(
+        $html = Designer::getDatabaseTables(
             array(), -1, $tab_column,
             $tables_all_keys, $tables_pk_or_unique_keys
         );
@@ -111,7 +111,7 @@ $tab_column = PMA_getColumnsInfo();
 $script_tables = PMA_getScriptTabs();
 $tables_pk_or_unique_keys = PMA_getPKOrUniqueKeys();
 $tables_all_keys = PMA_getAllKeys();
-$classes_side_menu = PMA_returnClassNamesFromMenuButtons();
+$classes_side_menu = Designer::returnClassNamesFromMenuButtons();
 
 $display_page = -1;
 $selected_page = null;
@@ -165,12 +165,12 @@ list(
 // Embed some data into HTML, later it will be read
 // by pmd/init.js and converted to JS variables.
 $response->addHTML(
-    PMA_getHtmlForJSFields(
+    Designer::getHtmlForJsFields(
         $script_tables, $script_contr, $script_display_field, $display_page
     )
 );
 $response->addHTML(
-    PMA_getDesignerPageMenu(
+    Designer::getPageMenu(
         isset($_REQUEST['query']),
         $selected_page,
         $classes_side_menu
@@ -184,11 +184,11 @@ $response->addHTML(
     '<form action="" id="container-form" method="post" name="form1">'
 );
 
-$response->addHTML(PMA_getHTMLCanvas());
-$response->addHTML(PMA_getHTMLTableList($tab_pos, $display_page));
+$response->addHTML(Designer::getHtmlCanvas());
+$response->addHTML(Designer::getHtmlTableList($tab_pos, $display_page));
 
 $response->addHTML(
-    PMA_getDatabaseTables(
+    Designer::getDatabaseTables(
         $tab_pos, $display_page, $tab_column,
         $tables_all_keys, $tables_pk_or_unique_keys
     )
@@ -198,16 +198,16 @@ $response->addHTML('</div>'); // end canvas_outer
 
 $response->addHTML('<div id="pmd_hint"></div>');
 
-$response->addHTML(PMA_getNewRelationPanel());
-$response->addHTML(PMA_getDeleteRelationPanel());
+$response->addHTML(Designer::getNewRelationPanel());
+$response->addHTML(Designer::getDeleteRelationPanel());
 
 if (isset($_REQUEST['query'])) {
-    $response->addHTML(PMA_getOptionsPanel());
-    $response->addHTML(PMA_getRenameToPanel());
-    $response->addHTML(PMA_getHavingQueryPanel());
-    $response->addHTML(PMA_getAggregateQueryPanel());
-    $response->addHTML(PMA_getWhereQueryPanel());
-    $response->addHTML(PMA_getQueryDetails());
+    $response->addHTML(Designer::getOptionsPanel());
+    $response->addHTML(Designer::getRenameToPanel());
+    $response->addHTML(Designer::getHavingQueryPanel());
+    $response->addHTML(Designer::getAggregateQueryPanel());
+    $response->addHTML(Designer::getWhereQueryPanel());
+    $response->addHTML(Designer::getQueryDetails());
 }
 
 $response->addHTML('<div id="PMA_disable_floating_menubar"></div>');

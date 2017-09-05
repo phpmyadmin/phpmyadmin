@@ -13,7 +13,7 @@ $choices = array(
                 <tr>
                     <td>
                         <input type="hidden" name="operation" value="savePage" />
-                        <?= PMA_getHtmlForPageSelector($cfgRelation, $db); ?>
+                        <?= PhpMyAdmin\Database\Designer::getHtmlForPageSelector($cfgRelation, $db); ?>
                     </td>
                 </tr>
                 <tr>
