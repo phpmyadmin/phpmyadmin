@@ -853,11 +853,6 @@ if (! defined('PMA_MINIMUM_COMMON')) {
     $GLOBALS['PMA_Config']->loadUserPreferences();
 }
 
-// remove sensitive values from session
-$GLOBALS['PMA_Config']->set('blowfish_secret', '');
-$GLOBALS['PMA_Config']->set('Servers', '');
-$GLOBALS['PMA_Config']->set('default_server', '');
-
 /* Tell tracker that it can actually work */
 Tracker::enable();
 
