@@ -10,6 +10,7 @@
 namespace PhpMyAdmin\Plugins\Export;
 
 use PhpMyAdmin\DatabaseInterface;
+use PhpMyAdmin\Export;
 use PhpMyAdmin\Plugins\ExportPlugin;
 use PhpMyAdmin\Properties\Plugins\ExportPluginProperties;
 use PhpMyAdmin\Properties\Options\Items\HiddenPropertyItem;
@@ -86,7 +87,7 @@ class ExportPhparray extends ExportPlugin
      */
     public function exportHeader()
     {
-        PMA_exportOutputHandler(
+        Export::outputHandler(
             '<?php' . $GLOBALS['crlf']
             . '/**' . $GLOBALS['crlf']
             . ' * Export to PHP Array plugin for PHPMyAdmin' . $GLOBALS['crlf']
@@ -120,7 +121,7 @@ class ExportPhparray extends ExportPlugin
         if (empty($db_alias)) {
             $db_alias = $db;
         }
-        PMA_exportOutputHandler(
+        Export::outputHandler(
             '/**' . $GLOBALS['crlf']
             . ' * Database ' . $this->commentString(Util::backquote($db_alias))
             . $GLOBALS['crlf'] . ' */' . $GLOBALS['crlf']
@@ -245,7 +246,7 @@ class ExportPhparray extends ExportPlugin
         }
 
         $buffer .= $crlf . ');' . $crlf;
-        if (!PMA_exportOutputHandler($buffer)) {
+        if (!Export::outputHandler($buffer)) {
             return false;
         }
 

@@ -8,6 +8,7 @@
 
 use PhpMyAdmin\Core;
 use PhpMyAdmin\Encoding;
+use PhpMyAdmin\Export;
 use PhpMyAdmin\Plugins\ExportPlugin;
 use PhpMyAdmin\Relation;
 use PhpMyAdmin\Sanitize;
@@ -26,7 +27,6 @@ if (isset($_POST['output_format']) && $_POST['output_format'] == 'sendit') {
 }
 include_once 'libraries/common.inc.php';
 include_once 'libraries/plugin_interface.lib.php';
-include_once 'libraries/export.lib.php';
 
 //check if it's the GET request to check export time out
 if (isset($_GET['check_time_out'])) {
@@ -290,7 +290,7 @@ if ((!empty($parser->statements[0]))
     $aliases = \PhpMyAdmin\SqlParser\Utils\Misc::getAliases($parser->statements[0], $db);
 }
 if (!empty($_REQUEST['aliases'])) {
-    $aliases = PMA_mergeAliases($aliases, $_REQUEST['aliases']);
+    $aliases = Export::mergeAliases($aliases, $_REQUEST['aliases']);
     $_SESSION['tmpval']['aliases'] = $_REQUEST['aliases'];
 }
 
@@ -301,7 +301,7 @@ Util::setTimeLimit();
 if (! empty($cfg['MemoryLimit'])) {
     @ini_set('memory_limit', $cfg['MemoryLimit']);
 }
-register_shutdown_function('PMA_shutdownDuringExport');
+register_shutdown_function('PhpMyAdmin\Export::shutdown');
 // Start with empty buffer
 $dump_buffer = '';
 $dump_buffer_len = 0;
@@ -331,7 +331,7 @@ $output_charset_conversion = $asfile
 $GLOBALS['onfly_compression'] = $GLOBALS['cfg']['CompressOnFly']
     && $compression == 'gzip';
 if ($GLOBALS['onfly_compression']) {
-    $GLOBALS['memory_limit'] = PMA_getMemoryLimitForExport();
+    $GLOBALS['memory_limit'] = Export::getMemoryLimit();
 }
 
 // Generate filename and mime type if needed
@@ -339,7 +339,7 @@ if ($asfile) {
     if (empty($remember_template)) {
         $remember_template = '';
     }
-    list($filename, $mime_type) = PMA_getExportFilenameAndMimetype(
+    list($filename, $mime_type) = Export::getFilenameAndMimetype(
         $export_type, $remember_template, $export_plugin, $compression,
         $filename_template
     );
@@ -349,13 +349,13 @@ if ($asfile) {
 
 // Open file on server if needed
 if ($save_on_server) {
-    list($save_filename, $message, $file_handle) = PMA_openExportFile(
+    list($save_filename, $message, $file_handle) = Export::openFile(
         $filename, $quick_export
     );
 
     // problem opening export file on server?
     if (! empty($message)) {
-        PMA_showExportPage($db, $table, $export_type);
+        Export::showPage($db, $table, $export_type);
     }
 } else {
     /**
@@ -383,7 +383,7 @@ if ($save_on_server) {
                 exit();
             }
         }
-        list($html, $back_button) = PMA_getHtmlForDisplayedExportHeader(
+        list($html, $back_button) = Export::getHtmlForDisplayedExportHeader(
             $export_type, $db, $table
         );
         echo $html;
@@ -424,7 +424,7 @@ do {
         if (! isset($db_select)) {
             $db_select = '';
         }
-        PMA_exportServer(
+        Export::exportServer(
             $db_select, $whatStrucOrData, $export_plugin, $crlf, $err_url,
             $export_type, $do_relation, $do_comments, $do_mime, $do_dates,
             $aliases, $separate_files
@@ -441,19 +441,19 @@ do {
             $table_data = $tables;
         }
         if (isset($lock_tables)) {
-            PMA_lockTables($db, $tables, "READ");
+            Export::lockTables($db, $tables, "READ");
             try {
-                PMA_exportDatabase(
+                Export::exportDatabase(
                     $db, $tables, $whatStrucOrData, $table_structure,
                     $table_data, $export_plugin, $crlf, $err_url, $export_type,
                     $do_relation, $do_comments, $do_mime, $do_dates, $aliases,
                     $separate_files
                 );
             } finally {
-                PMA_unlockTables();
+                Export::unlockTables();
             }
         } else {
-            PMA_exportDatabase(
+            Export::exportDatabase(
                 $db, $tables, $whatStrucOrData, $table_structure, $table_data,
                 $export_plugin, $crlf, $err_url, $export_type, $do_relation,
                 $do_comments, $do_mime, $do_dates, $aliases, $separate_files
@@ -473,18 +473,18 @@ do {
         }
         if (isset($lock_tables)) {
             try {
-                PMA_lockTables($db, array($table), "READ");
-                PMA_exportTable(
+                Export::lockTables($db, array($table), "READ");
+                Export::exportTable(
                     $db, $table, $whatStrucOrData, $export_plugin, $crlf,
                     $err_url, $export_type, $do_relation, $do_comments,
                     $do_mime, $do_dates, $allrows, $limit_to, $limit_from,
                     $sql_query, $aliases
                 );
             } finally {
-                PMA_unlockTables();
+                Export::unlockTables();
             }
         } else {
-            PMA_exportTable(
+            Export::exportTable(
                 $db, $table, $whatStrucOrData, $export_plugin, $crlf, $err_url,
                 $export_type, $do_relation, $do_comments, $do_mime, $do_dates,
                 $allrows, $limit_to, $limit_from, $sql_query, $aliases
@@ -499,14 +499,14 @@ do {
 // End of fake loop
 
 if ($save_on_server && ! empty($message)) {
-    PMA_showExportPage($db, $table, $export_type);
+    Export::showPage($db, $table, $export_type);
 }
 
 /**
  * Send the dump as a file...
  */
 if (empty($asfile)) {
-    echo PMA_getHtmlForDisplayedExportFooter($back_button);
+    echo Export::getHtmlForDisplayedExportFooter($back_button);
     return;
 } // end if
 
@@ -522,21 +522,21 @@ if ($output_charset_conversion) {
 // Compression needed?
 if ($compression) {
     if (! empty($separate_files)) {
-        $dump_buffer = PMA_compressExport(
+        $dump_buffer = Export::compress(
             $dump_buffer_objects, $compression, $filename
         );
     } else {
-        $dump_buffer = PMA_compressExport($dump_buffer, $compression, $filename);
+        $dump_buffer = Export::compress($dump_buffer, $compression, $filename);
     }
 
 }
 
 /* If we saved on server, we have to close file now */
 if ($save_on_server) {
-    $message = PMA_closeExportFile(
+    $message = Export::closeFile(
         $file_handle, $dump_buffer, $save_filename
     );
-    PMA_showExportPage($db, $table, $export_type);
+    Export::showPage($db, $table, $export_type);
 } else {
     echo $dump_buffer;
 }

@@ -9,6 +9,7 @@
 namespace PhpMyAdmin\Plugins\Export;
 
 use PhpMyAdmin\DatabaseInterface;
+use PhpMyAdmin\Export;
 use PhpMyAdmin\Plugins\ExportPlugin;
 use PhpMyAdmin\Properties\Plugins\ExportPluginProperties;
 use PhpMyAdmin\Properties\Options\Groups\OptionsPropertyMainGroup;
@@ -367,7 +368,7 @@ class ExportXml extends ExportPlugin
             }
         }
 
-        return PMA_exportOutputHandler($head);
+        return Export::outputHandler($head);
     }
 
     /**
@@ -379,7 +380,7 @@ class ExportXml extends ExportPlugin
     {
         $foot = '</pma_xml_export>';
 
-        return PMA_exportOutputHandler($foot);
+        return Export::outputHandler($foot);
     }
 
     /**
@@ -406,7 +407,7 @@ class ExportXml extends ExportPlugin
                 . '    -->' . $crlf . '    <database name="'
                 . htmlspecialchars($db_alias) . '">' . $crlf;
 
-            return PMA_exportOutputHandler($head);
+            return Export::outputHandler($head);
         } else {
             return true;
         }
@@ -426,7 +427,7 @@ class ExportXml extends ExportPlugin
         if (isset($GLOBALS['xml_export_contents'])
             && $GLOBALS['xml_export_contents']
         ) {
-            return PMA_exportOutputHandler('    </database>' . $crlf);
+            return Export::outputHandler('    </database>' . $crlf);
         } else {
             return true;
         }
@@ -492,7 +493,7 @@ class ExportXml extends ExportPlugin
 
             $buffer = '        <!-- ' . __('Table') . ' '
                 . htmlspecialchars($table_alias) . ' -->' . $crlf;
-            if (!PMA_exportOutputHandler($buffer)) {
+            if (!Export::outputHandler($buffer)) {
                 return false;
             }
 
@@ -518,7 +519,7 @@ class ExportXml extends ExportPlugin
                 }
                 $buffer .= '        </table>' . $crlf;
 
-                if (!PMA_exportOutputHandler($buffer)) {
+                if (!Export::outputHandler($buffer)) {
                     return false;
                 }
             }

@@ -9,6 +9,7 @@
 namespace PhpMyAdmin\Plugins\Export;
 
 use PhpMyAdmin\DatabaseInterface;
+use PhpMyAdmin\Export;
 use PhpMyAdmin\Plugins\ExportPlugin;
 use PhpMyAdmin\Properties\Plugins\ExportPluginProperties;
 use PhpMyAdmin\Properties\Options\Groups\OptionsPropertyMainGroup;
@@ -261,7 +262,7 @@ class ExportMediawiki extends ExportPlugin
             break;
         } // end switch
 
-        return PMA_exportOutputHandler($output);
+        return Export::outputHandler($output);
     }
 
     /**
@@ -346,7 +347,7 @@ class ExportMediawiki extends ExportPlugin
         // End table construction
         $output .= "|}" . str_repeat($this->_exportCRLF(), 2);
 
-        return PMA_exportOutputHandler($output);
+        return Export::outputHandler($output);
     }
 
     /**

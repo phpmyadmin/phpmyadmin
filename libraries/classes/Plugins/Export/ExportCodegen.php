@@ -8,6 +8,7 @@
  */
 namespace PhpMyAdmin\Plugins\Export;
 
+use PhpMyAdmin\Export;
 use PhpMyAdmin\Plugins\ExportPlugin;
 use PhpMyAdmin\Plugins\Export\Helpers\TableProperty;
 use PhpMyAdmin\Properties\Plugins\ExportPluginProperties;
@@ -195,12 +196,12 @@ class ExportCodegen extends ExportPlugin
         if (isset($CG_FORMATS[$format])) {
             $method = $CG_HANDLERS[$format];
 
-            return PMA_exportOutputHandler(
+            return Export::outputHandler(
                 $this->$method($db, $table, $crlf, $aliases)
             );
         }
 
-        return PMA_exportOutputHandler(sprintf("%s is not supported.", $format));
+        return Export::outputHandler(sprintf("%s is not supported.", $format));
     }
 
     /**
