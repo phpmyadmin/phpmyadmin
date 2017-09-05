@@ -156,8 +156,6 @@ class Descriptions
                 );
             case 'CompressOnFly_name':
                 return __('Compress on the fly');
-            case 'ConfigurationFile':
-                return __('Configuration file');
             case 'Confirm_desc':
                 return __(
                     'Whether a warning ("Are your really sure…") should be displayed '
@@ -967,8 +965,6 @@ class Descriptions
                 return __('Repeat the headers every X cells, [kbd]0[/kbd] deactivates this feature.');
             case 'RepeatCells_name':
                 return __('Repeat headers');
-            case 'RestoreDefaultValue':
-                return __('Restore default value');
             case 'GridEditing_name':
                 return __('Grid editing: trigger action');
             case 'RelationalDisplay_name':
@@ -1418,8 +1414,6 @@ class Descriptions
                 );
             case 'UserprefsDeveloperTab_name':
                 return __('Enable the Developer tab in settings');
-            case 'VersionCheckLink':
-                return __('Check for latest version');
             case 'VersionCheck_desc':
                 return __('Enables check for latest version on main phpMyAdmin page.');
             case 'VersionCheck_name':
