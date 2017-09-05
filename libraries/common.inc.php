@@ -906,7 +906,6 @@ if (! defined('PMA_MINIMUM_COMMON')
 }
 
 if (! defined('PMA_MINIMUM_COMMON')) {
-    include_once 'libraries/config/messages.inc.php';
     include 'libraries/config/user_preferences.forms.php';
     include_once 'libraries/config/page_settings.forms.php';
 }

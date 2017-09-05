@@ -14,8 +14,6 @@ use PhpMyAdmin\Message;
 use PhpMyAdmin\Response;
 
 require_once 'libraries/user_preferences.lib.php';
-require_once 'libraries/config/config_functions.lib.php';
-require_once 'libraries/config/messages.inc.php';
 require 'libraries/config/user_preferences.forms.php';
 require 'libraries/config/page_settings.forms.php';
 

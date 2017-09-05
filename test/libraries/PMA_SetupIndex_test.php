@@ -12,7 +12,6 @@
 use PhpMyAdmin\Config\ConfigFile;
 use PhpMyAdmin\Config\ServerConfigChecks;
 
-require_once 'libraries/config/config_functions.lib.php';
 require_once 'setup/lib/index.lib.php';
 
 /**

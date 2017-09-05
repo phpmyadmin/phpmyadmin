@@ -16,8 +16,6 @@ use PhpMyAdmin\Url;
  */
 require_once 'libraries/common.inc.php';
 require_once 'libraries/user_preferences.lib.php';
-require_once 'libraries/config/config_functions.lib.php';
-require_once 'libraries/config/messages.inc.php';
 require 'libraries/config/user_preferences.forms.php';
 
 $cf = new ConfigFile($GLOBALS['PMA_Config']->base_settings);

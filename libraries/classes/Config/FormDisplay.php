@@ -15,6 +15,7 @@
 namespace PhpMyAdmin\Config;
 
 use PhpMyAdmin\Config\ConfigFile;
+use PhpMyAdmin\Config\Descriptions;
 use PhpMyAdmin\Config\Form;
 use PhpMyAdmin\Config\Validator;
 use PhpMyAdmin\Sanitize;
@@ -226,14 +227,11 @@ class FormDisplay
 
         foreach ($this->_forms as $form) {
             /* @var $form Form */
-            $form_desc = isset($GLOBALS["strConfigForm_{$form->name}_desc"])
-                ? PMA_lang("Form_{$form->name}_desc")
-                : '';
             $form_errors = isset($this->_errors[$form->name])
                 ? $this->_errors[$form->name] : null;
             $htmlOutput .= PMA_displayFieldsetTop(
-                PMA_lang("Form_$form->name"),
-                $form_desc,
+                Descriptions::get("Form_{$form->name}"),
+                Descriptions::get("Form_{$form->name}", 'desc'),
                 $form_errors,
                 array('id' => $form->name)
             );
@@ -299,7 +297,7 @@ class FormDisplay
         if ($tabbed_form) {
             $tabs = array();
             foreach ($this->_forms as $form) {
-                $tabs[$form->name] = PMA_lang("Form_$form->name");
+                $tabs[$form->name] = Descriptions::get("Form_$form->name");
             }
             $htmlOutput .= PMA_displayTabsTop($tabs);
         }
@@ -371,8 +369,8 @@ class FormDisplay
         Form $form, $field, $system_path, $work_path,
         $translated_path, $show_restore_default, $userprefs_allow, array &$js_default
     ) {
-        $name = PMA_langName($system_path);
-        $description = PMA_langName($system_path, 'desc', '');
+        $name = Descriptions::get($system_path);
+        $description = Descriptions::get($system_path, 'desc');
 
         $value = $this->_configFile->get($work_path);
         $value_default = $this->_configFile->getDefault($system_path);
@@ -386,7 +384,8 @@ class FormDisplay
             'doc' => $this->getDocLink($system_path),
             'show_restore_default' => $show_restore_default,
             'userprefs_allow' => $userprefs_allow,
-            'userprefs_comment' => PMA_langName($system_path, 'cmt', ''));
+            'userprefs_comment' => Descriptions::get($system_path, 'cmt')
+        );
         if (isset($form->default[$system_path])) {
             $opts['setvalue'] = $form->default[$system_path];
         }
@@ -501,10 +500,9 @@ class FormDisplay
 
         foreach ($this->_errors as $system_path => $error_list) {
             if (isset($this->_systemPaths[$system_path])) {
-                $path = $this->_systemPaths[$system_path];
-                $name = PMA_langName($path);
+                $name = Descriptions::get($this->_systemPaths[$system_path]);
             } else {
-                $name = $GLOBALS["strConfigForm_$system_path"];
+                $name = Descriptions::get('Form_' . $system_path);
             }
             $htmlOutput .= PMA_displayErrors($name, $error_list);
         }
@@ -616,7 +614,7 @@ class FormDisplay
                     } else {
                         $this->_errors[$form->name][] = sprintf(
                             __('Missing data for %s'),
-                            '<i>' . PMA_langName($system_path) . '</i>'
+                            '<i>' . Descriptions::get($system_path) . '</i>'
                         );
                         $result = false;
                         continue;

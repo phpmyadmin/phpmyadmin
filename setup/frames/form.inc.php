@@ -6,6 +6,7 @@
  * @package PhpMyAdmin-Setup
  */
 
+use PhpMyAdmin\Config\Descriptions;
 use PhpMyAdmin\Config\FormDisplay;
 use PhpMyAdmin\Core;
 
@@ -26,8 +27,9 @@ if (! isset($forms[$formset_id]) || substr($formset_id, 0, 1) === '_') {
     Core::fatalError(__('Incorrect formset, check $formsets array in setup/frames/form.inc.php!'));
 }
 
-if (isset($GLOBALS['strConfigFormset_' . $formset_id])) {
-    echo '<h2>' , $GLOBALS['strConfigFormset_' . $formset_id] , '</h2>';
+$form_title = Descriptions::get('Formset_' . $formset_id);
+if (! is_null($form_title)) {
+    echo '<h2>' , $form_title , '</h2>';
 }
 $form_display = new FormDisplay($GLOBALS['ConfigFile']);
 foreach ($forms[$formset_id] as $form_name => $form) {
