@@ -29,4 +29,4 @@ English
 Русский (Russian)
 +++++++++++++++++
 
-* `Russian server about phpMyAdmin <http://php-myadmin.ru/>`_
+* `Russian server about phpMyAdmin <https://php-myadmin.ru/>`_
