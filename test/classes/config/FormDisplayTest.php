@@ -9,7 +9,6 @@
 use PhpMyAdmin\Config;
 use PhpMyAdmin\Config\ConfigFile;
 use PhpMyAdmin\Config\FormDisplay;
-use PhpMyAdmin\Theme;
 
 require_once 'test/PMATestCase.php';
 require_once 'libraries/config/config_functions.lib.php';
