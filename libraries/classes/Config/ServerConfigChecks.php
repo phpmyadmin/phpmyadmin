@@ -74,14 +74,11 @@ class ServerConfigChecks
                     . 'reliable if your IP belongs to an ISP where thousands of users, '
                     . 'including you, are connected to.'
                 ),
-                '[a@?page=form' . Url::getCommon(array(), '&')
-                . '&amp;formset=Features#tab_Security]',
+                '[a@' . Url::getCommon(array('page' => 'form', 'formset' => 'Features')) . '#tab_Security]',
                 '[/a]',
-                '[a@?page=form' . Url::getCommon(array(), '&')
-                . '&amp;formset=Features#tab_Security]',
+                '[a@' . Url::getCommon(array('page' => 'form', 'formset' => 'Features')) . '#tab_Security]',
                 '[/a]',
-                '[a@?page=form' . Url::getCommon(array(), '&')
-                . '&amp;formset=Features#tab_Security]',
+                '[a@' . Url::getCommon(array('page' => 'form', 'formset' => 'Features')) . '#tab_Security]',
                 '[/a]'
             );
             PMA_messagesSet(
@@ -180,11 +177,9 @@ class ServerConfigChecks
                     . 'However, IP-based protection may not be reliable if your IP belongs '
                     . 'to an ISP where thousands of users, including you, are connected to.'
                 ),
-                '[a@?page=servers' . Url::getCommon(array(), '&')
-                . '&amp;mode=edit&amp;id=' . $i . '#tab_Server_config]',
+                '[a@' . Url::getCommon(array('page' => 'servers', 'mode' => 'edit', 'id' => $i)) . '#tab_Server_config]',
                 '[/a]',
-                '[a@?page=form' . Url::getCommon(array(), '&')
-                . '&amp;formset=Features#tab_Security]',
+                '[a@' . Url::getCommon(array('page' => 'form', 'formset' => 'Features')) . '#tab_Security]',
                 '[/a]'
             ));
 
@@ -210,8 +205,7 @@ class ServerConfigChecks
                             . 'URL can directly access your phpMyAdmin panel. Set %1$sauthentication '
                             . 'type%2$s to [kbd]cookie[/kbd] or [kbd]http[/kbd].'
                         ),
-                        '[a@?page=servers' . Url::getCommon(array(), '&')
-                        . '&amp;mode=edit&amp;id=' . $i . '#tab_Server]',
+                        '[a@' . Url::getCommon(array('page' => 'servers', 'mode' => 'edit', 'id' => $i)) . '#tab_Server]',
                         '[/a]'
                     ))
                     . ' ' . $sSecurityInfoMsg
@@ -308,8 +302,7 @@ class ServerConfigChecks
                         '%sZip decompression%s requires functions (%s) which are unavailable '
                         . 'on this system.'
                     ),
-                    '[a@?page=form' . Url::getCommon(array(), '&')
-                    . '&amp;formset=Features#tab_Import_export]',
+                    '[a@' . Url::getCommon(array('page' => 'form', 'formset' => 'Features')) . '#tab_Import_export]',
                     '[/a]',
                     'zip_open'
                 ))
@@ -330,8 +323,7 @@ class ServerConfigChecks
                         '%sZip compression%s requires functions (%s) which are unavailable on '
                         . 'this system.'
                     ),
-                    '[a@?page=form' . Url::getCommon(array(), '&')
-                    . '&amp;formset=Features#tab_Import_export]',
+                    '[a@' . Url::getCommon(array('page' => 'form', 'formset' => 'Features')) . '#tab_Import_export]',
                     '[/a]',
                     'gzcompress'
                 ))
@@ -426,12 +418,9 @@ class ServerConfigChecks
                         . 'cause random session invalidation (currently session.gc_maxlifetime '
                         . 'is %5$d).'
                     ),
-                    '[a@?page=form' . Url::getCommon(array(), '&')
-                    . '&amp;formset=Features#tab_Security]',
+                    '[a@' . Url::getCommon(array('page' => 'form', 'formset' => 'Features')) . '#tab_Security]',
                     '[/a]',
-                    '[a@' . Core::getPHPDocLink(
-                        'session.configuration.php#ini.session.gc-maxlifetime'
-                    ) . ']',
+                    '[a@' . Core::getPHPDocLink('session.configuration.php#ini.session.gc-maxlifetime') . ']',
                     '[/a]',
                     ini_get('session.gc_maxlifetime')
                 ))
@@ -453,8 +442,7 @@ class ServerConfigChecks
                         . 'at most. Values larger than 1800 may pose a security risk such as '
                         . 'impersonation.'
                     ),
-                    '[a@?page=form' . Url::getCommon(array(), '&')
-                    . '&amp;formset=Features#tab_Security]',
+                    '[a@' . Url::getCommon(array('page' => 'form', 'formset' => 'Features')) . '#tab_Security]',
                     '[/a]'
                 ))
             );
@@ -478,11 +466,9 @@ class ServerConfigChecks
                         . 'is not 0, %sLogin cookie validity%s must be set to a value less or '
                         . 'equal to it.'
                     ),
-                    '[a@?page=form' . Url::getCommon(array(), '&')
-                    . '&amp;formset=Features#tab_Security]',
+                    '[a@' . Url::getCommon(array('page' => 'form', 'formset' => 'Features')) . '#tab_Security]',
                     '[/a]',
-                    '[a@?page=form' . Url::getCommon(array(), '&')
-                    . '&amp;formset=Features#tab_Security]',
+                    '[a@' . Url::getCommon(array('page' => 'form', 'formset' => 'Features')) . '#tab_Security]',
                     '[/a]'
                 ))
             );
@@ -519,8 +505,7 @@ class ServerConfigChecks
                             '%1$sBzip2 compression and decompression%2$s requires functions (%3$s) which '
                             . 'are unavailable on this system.'
                         ),
-                        '[a@?page=form' . Url::getCommon(array(), '&')
-                        . '&amp;formset=Features#tab_Import_export]',
+                        '[a@' . Url::getCommon(array('page' => 'form', 'formset' => 'Features')) . '#tab_Import_export]',
                         '[/a]',
                         $functions
                     )
@@ -552,8 +537,7 @@ class ServerConfigChecks
                         '%1$sGZip compression and decompression%2$s requires functions (%3$s) which '
                         . 'are unavailable on this system.'
                     ),
-                    '[a@?page=form' . Url::getCommon(array(), '&')
-                    . '&amp;formset=Features#tab_Import_export]',
+                    '[a@' . Url::getCommon(array('page' => 'form', 'formset' => 'Features')) . '#tab_Import_export]',
                     '[/a]',
                     'gzencode'
                 ))
