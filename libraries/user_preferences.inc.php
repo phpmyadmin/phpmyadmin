@@ -5,6 +5,7 @@
  *
  * @package PhpMyAdmin
  */
+use PhpMyAdmin\Config\Descriptions;
 use PhpMyAdmin\Message;
 use PhpMyAdmin\Relation;
 use PhpMyAdmin\Sanitize;
@@ -37,7 +38,7 @@ $script_name = basename($GLOBALS['PMA_PHP_SELF']);
 foreach (array_keys($forms) as $formset) {
     $tab = array(
         'link' => 'prefs_forms.php',
-        'text' => PMA_lang('Form_' . $formset),
+        'text' => Descriptions::get('Form_' . $formset),
         'icon' => $tabs_icons[$formset],
         'active' => ($script_name == 'prefs_forms.php' && $formset == $form_param));
     $content .= PhpMyAdmin\Util::getHtmlTab($tab, array('form' => $formset))

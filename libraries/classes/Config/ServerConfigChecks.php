@@ -8,6 +8,7 @@
 namespace PhpMyAdmin\Config;
 
 use PhpMyAdmin\Config\ConfigFile;
+use PhpMyAdmin\Config\Descriptions;
 use PhpMyAdmin\Core;
 use PhpMyAdmin\Sanitize;
 use PhpMyAdmin\Url;
@@ -86,7 +87,7 @@ class ServerConfigChecks
             PMA_messagesSet(
                 'notice',
                 'AllowArbitraryServer',
-                PMA_lang(PMA_langName('AllowArbitraryServer')),
+                Descriptions::get('AllowArbitraryServer'),
                 Sanitize::sanitize($sAllowArbitraryServerWarn)
             );
         }
@@ -107,7 +108,7 @@ class ServerConfigChecks
             PMA_messagesSet(
                 'notice',
                 'SaveDir',
-                PMA_lang(PMA_langName('SaveDir')),
+                Descriptions::get('SaveDir'),
                 Sanitize::sanitize($sDirectoryNotice)
             );
         }
@@ -120,7 +121,7 @@ class ServerConfigChecks
             PMA_messagesSet(
                 'notice',
                 'TempDir',
-                PMA_lang(PMA_langName('TempDir')),
+                Descriptions::get('TempDir'),
                 Sanitize::sanitize($sDirectoryNotice)
             );
         }
@@ -161,7 +162,7 @@ class ServerConfigChecks
             // should be enabled if possible
             //
             if (!$this->cfg->getValue("Servers/$i/ssl")) {
-                $title = PMA_lang(PMA_langName('Servers/1/ssl')) . " ($serverName)";
+                $title = Descriptions::get('Servers/1/ssl') . " ($serverName)";
                 PMA_messagesSet(
                     'notice',
                     "Servers/$i/ssl",
@@ -195,7 +196,7 @@ class ServerConfigChecks
                 && $this->cfg->getValue("Servers/$i/user") != ''
                 && $this->cfg->getValue("Servers/$i/password") != ''
             ) {
-                $title = PMA_lang(PMA_langName('Servers/1/auth_type'))
+                $title = Descriptions::get('Servers/1/auth_type')
                     . " ($serverName)";
                 PMA_messagesSet(
                     'notice',
@@ -225,7 +226,7 @@ class ServerConfigChecks
             if ($this->cfg->getValue("Servers/$i/AllowRoot")
                 && $this->cfg->getValue("Servers/$i/AllowNoPassword")
             ) {
-                $title = PMA_lang(PMA_langName('Servers/1/AllowNoPassword'))
+                $title = Descriptions::get('Servers/1/AllowNoPassword')
                     . " ($serverName)";
                 PMA_messagesSet(
                     'notice',
@@ -301,7 +302,7 @@ class ServerConfigChecks
             PMA_messagesSet(
                 'error',
                 'ZipDump_import',
-                PMA_lang(PMA_langName('ZipDump')),
+                Descriptions::get('ZipDump'),
                 Sanitize::sanitize(sprintf(
                     __(
                         '%sZip decompression%s requires functions (%s) which are unavailable '
@@ -323,7 +324,7 @@ class ServerConfigChecks
             PMA_messagesSet(
                 'error',
                 'ZipDump_export',
-                PMA_lang(PMA_langName('ZipDump')),
+                Descriptions::get('ZipDump'),
                 Sanitize::sanitize(sprintf(
                     __(
                         '%sZip compression%s requires functions (%s) which are unavailable on '
@@ -361,7 +362,7 @@ class ServerConfigChecks
                 PMA_messagesSet(
                     'notice',
                     'blowfish_secret_created',
-                    PMA_lang(PMA_langName('blowfish_secret')),
+                    Descriptions::get('blowfish_secret'),
                     Sanitize::sanitize(__(
                         'You didn\'t have blowfish secret set and have enabled '
                         . '[kbd]cookie[/kbd] authentication, so a key was automatically '
@@ -394,7 +395,7 @@ class ServerConfigChecks
                     PMA_messagesSet(
                         'error',
                         'blowfish_warnings' . count($blowfishWarnings),
-                        PMA_lang(PMA_langName('blowfish_secret')),
+                        Descriptions::get('blowfish_secret'),
                         implode('<br />', $blowfishWarnings)
                     );
                 }
@@ -418,7 +419,7 @@ class ServerConfigChecks
             PMA_messagesSet(
                 'error',
                 'LoginCookieValidity',
-                PMA_lang(PMA_langName('LoginCookieValidity')),
+                Descriptions::get('LoginCookieValidity'),
                 Sanitize::sanitize(sprintf(
                     __(
                         '%1$sLogin cookie validity%2$s greater than %3$ssession.gc_maxlifetime%4$s may '
@@ -445,7 +446,7 @@ class ServerConfigChecks
             PMA_messagesSet(
                 'notice',
                 'LoginCookieValidity',
-                PMA_lang(PMA_langName('LoginCookieValidity')),
+                Descriptions::get('LoginCookieValidity'),
                 Sanitize::sanitize(sprintf(
                     __(
                         '%sLogin cookie validity%s should be set to 1800 seconds (30 minutes) '
@@ -470,7 +471,7 @@ class ServerConfigChecks
             PMA_messagesSet(
                 'error',
                 'LoginCookieValidity',
-                PMA_lang(PMA_langName('LoginCookieValidity')),
+                Descriptions::get('LoginCookieValidity'),
                 Sanitize::sanitize(sprintf(
                     __(
                         'If using [kbd]cookie[/kbd] authentication and %sLogin cookie store%s '
@@ -511,7 +512,7 @@ class ServerConfigChecks
             PMA_messagesSet(
                 'error',
                 'BZipDump',
-                PMA_lang(PMA_langName('BZipDump')),
+                Descriptions::get('BZipDump'),
                 Sanitize::sanitize(
                     sprintf(
                          __(
@@ -545,7 +546,7 @@ class ServerConfigChecks
             PMA_messagesSet(
                 'error',
                 'GZipDump',
-                PMA_lang(PMA_langName('GZipDump')),
+                Descriptions::get('GZipDump'),
                 Sanitize::sanitize(sprintf(
                     __(
                         '%1$sGZip compression and decompression%2$s requires functions (%3$s) which '
