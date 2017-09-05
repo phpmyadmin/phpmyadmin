@@ -9,6 +9,7 @@
  */
 namespace PhpMyAdmin\Plugins\Import;
 
+use PhpMyAdmin\Import;
 use PhpMyAdmin\Message;
 use PhpMyAdmin\Properties\Options\Items\BoolPropertyItem;
 use PhpMyAdmin\Properties\Options\Items\TextPropertyItem;
@@ -241,7 +242,7 @@ class ImportCsv extends AbstractImportCsv
         $max_cols = 0;
         $csv_terminated_len = mb_strlen($csv_terminated);
         while (!($finished && $i >= $len) && !$error && !$timeout_passed) {
-            $data = PMA_importGetNextChunk();
+            $data = Import::getNextChunk();
             if ($data === false) {
                 // subtract data we didn't handle yet and stop processing
                 $GLOBALS['offset'] -= strlen($buffer);
@@ -572,7 +573,7 @@ class ImportCsv extends AbstractImportCsv
                          * @todo maybe we could add original line to verbose
                          * SQL in comment
                          */
-                        PMA_importRunQuery($sql, $sql, $sql_data);
+                        Import::runQuery($sql, $sql, $sql_data);
                     }
 
                     $line++;
@@ -625,7 +626,7 @@ class ImportCsv extends AbstractImportCsv
 
             /* Obtain the best-fit MySQL types for each column */
             $analyses = array();
-            $analyses[] = PMA_analyzeTable($tables[0]);
+            $analyses[] = Import::analyzeTable($tables[0]);
 
             /**
              * string $db_name (no backquotes)
@@ -648,14 +649,14 @@ class ImportCsv extends AbstractImportCsv
             $create = null;
 
             /* Created and execute necessary SQL statements from data */
-            PMA_buildSQL($db_name, $tables, $analyses, $create, $options, $sql_data);
+            Import::buildSql($db_name, $tables, $analyses, $create, $options, $sql_data);
 
             unset($tables);
             unset($analyses);
         }
 
         // Commit any possible data in buffers
-        PMA_importRunQuery('', '', $sql_data);
+        Import::runQuery('', '', $sql_data);
 
         if (count($values) != 0 && !$error) {
             $message = Message::error(

@@ -10,6 +10,7 @@
 
 namespace PhpMyAdmin\Plugins\Import;
 
+use PhpMyAdmin\Import;
 use PhpMyAdmin\Message;
 use PhpMyAdmin\Plugins\ImportPlugin;
 use PhpMyAdmin\Properties\Plugins\ImportPluginProperties;
@@ -66,11 +67,11 @@ class ImportXml extends ImportPlugin
         $buffer = "";
 
         /**
-         * Read in the file via PMA_importGetNextChunk so that
+         * Read in the file via Import::getNextChunk so that
          * it can process compressed files
          */
         while (!($finished && $i >= $len) && !$error && !$timeout_passed) {
-            $data = PMA_importGetNextChunk();
+            $data = Import::getNextChunk();
             if ($data === false) {
                 /* subtract data we didn't handle yet and stop processing */
                 $GLOBALS['offset'] -= strlen($buffer);
@@ -249,7 +250,7 @@ class ImportXml extends ImportPlugin
                 $isInTables = false;
                 $num_tables = count($tables);
                 for ($i = 0; $i < $num_tables; ++$i) {
-                    if (!strcmp($tables[$i][TBL_NAME], (string)$tbl_attr['name'])) {
+                    if (!strcmp($tables[$i][Import::TBL_NAME], (string)$tbl_attr['name'])) {
                         $isInTables = true;
                         break;
                     }
@@ -284,12 +285,12 @@ class ImportXml extends ImportPlugin
             for ($i = 0; $i < $num_tables; ++$i) {
                 $num_rows = count($rows);
                 for ($j = 0; $j < $num_rows; ++$j) {
-                    if (!strcmp($tables[$i][TBL_NAME], $rows[$j][TBL_NAME])) {
-                        if (!isset($tables[$i][COL_NAMES])) {
-                            $tables[$i][] = $rows[$j][COL_NAMES];
+                    if (!strcmp($tables[$i][Import::TBL_NAME], $rows[$j][Import::TBL_NAME])) {
+                        if (!isset($tables[$i][Import::COL_NAMES])) {
+                            $tables[$i][] = $rows[$j][Import::COL_NAMES];
                         }
 
-                        $tables[$i][ROWS][] = $rows[$j][ROWS];
+                        $tables[$i][Import::ROWS][] = $rows[$j][Import::ROWS];
                     }
                 }
             }
@@ -301,7 +302,7 @@ class ImportXml extends ImportPlugin
 
                 $len = count($tables);
                 for ($i = 0; $i < $len; ++$i) {
-                    $analyses[] = PMA_analyzeTable($tables[$i]);
+                    $analyses[] = Import::analyzeTable($tables[$i]);
                 }
             }
         }
@@ -316,7 +317,7 @@ class ImportXml extends ImportPlugin
         if ($data_present) {
             /**
              * Set values to NULL if they were not present
-             * to maintain PMA_buildSQL() call integrity
+             * to maintain Import::buildSql() call integrity
              */
             if (!isset($analyses)) {
                 $analyses = null;
@@ -358,13 +359,13 @@ class ImportXml extends ImportPlugin
         }
 
         /* Created and execute necessary SQL statements from data */
-        PMA_buildSQL($db_name, $tables, $analyses, $create, $options, $sql_data);
+        Import::buildSql($db_name, $tables, $analyses, $create, $options, $sql_data);
 
         unset($analyses);
         unset($tables);
         unset($create);
 
         /* Commit any possible data in buffers */
-        PMA_importRunQuery('', '', $sql_data);
+        Import::runQuery('', '', $sql_data);
     }
 }

@@ -10,6 +10,7 @@
  */
 namespace PhpMyAdmin\Plugins\Import;
 
+use PhpMyAdmin\Import;
 use PhpMyAdmin\Message;
 use PhpMyAdmin\Plugins\ImportPlugin;
 use PhpMyAdmin\Properties\Plugins\ImportPluginProperties;
@@ -108,11 +109,11 @@ class ImportOds extends ImportPlugin
         $buffer = "";
 
         /**
-         * Read in the file via PMA_importGetNextChunk so that
+         * Read in the file via Import::getNextChunk so that
          * it can process compressed files
          */
         while (!($finished && $i >= $len) && !$error && !$timeout_passed) {
-            $data = PMA_importGetNextChunk();
+            $data = Import::getNextChunk();
             if ($data === false) {
                 /* subtract data we didn't handle yet and stop processing */
                 $GLOBALS['offset'] -= strlen($buffer);
@@ -235,7 +236,7 @@ class ImportOds extends ImportPlugin
                             }
                         } else {
                             for ($i = 0; $i < $num_null; ++$i) {
-                                $col_names[] = PMA_getColumnAlphaName(
+                                $col_names[] = Import::getColumnAlphaName(
                                     $col_count + 1
                                 );
                                 ++$col_count;
@@ -245,7 +246,7 @@ class ImportOds extends ImportPlugin
                         if (!$col_names_in_first_row) {
                             $tempRow[] = 'NULL';
                         } else {
-                            $col_names[] = PMA_getColumnAlphaName(
+                            $col_names[] = Import::getColumnAlphaName(
                                 $col_count + 1
                             );
                         }
@@ -294,7 +295,7 @@ class ImportOds extends ImportPlugin
 
             /* Fill out column names */
             for ($i = count($col_names); $i < $max_cols; ++$i) {
-                $col_names[] = PMA_getColumnAlphaName($i + 1);
+                $col_names[] = Import::getColumnAlphaName($i + 1);
             }
 
             /* Fill out all rows */
@@ -329,15 +330,15 @@ class ImportOds extends ImportPlugin
         for ($i = 0; $i < $num_tables; ++$i) {
             $num_rows = count($rows);
             for ($j = 0; $j < $num_rows; ++$j) {
-                if (strcmp($tables[$i][TBL_NAME], $rows[$j][TBL_NAME])) {
+                if (strcmp($tables[$i][Import::TBL_NAME], $rows[$j][Import::TBL_NAME])) {
                     continue;
                 }
 
-                if (!isset($tables[$i][COL_NAMES])) {
-                    $tables[$i][] = $rows[$j][COL_NAMES];
+                if (!isset($tables[$i][Import::COL_NAMES])) {
+                    $tables[$i][] = $rows[$j][Import::COL_NAMES];
                 }
 
-                $tables[$i][ROWS] = $rows[$j][ROWS];
+                $tables[$i][Import::ROWS] = $rows[$j][Import::ROWS];
             }
         }
 
@@ -349,7 +350,7 @@ class ImportOds extends ImportPlugin
 
         $len = count($tables);
         for ($i = 0; $i < $len; ++$i) {
-            $analyses[] = PMA_analyzeTable($tables[$i]);
+            $analyses[] = Import::analyzeTable($tables[$i]);
         }
 
         /**
@@ -373,13 +374,13 @@ class ImportOds extends ImportPlugin
         $create = null;
 
         /* Created and execute necessary SQL statements from data */
-        PMA_buildSQL($db_name, $tables, $analyses, $create, $options, $sql_data);
+        Import::buildSql($db_name, $tables, $analyses, $create, $options, $sql_data);
 
         unset($tables);
         unset($analyses);
 
         /* Commit any possible data in buffers */
-        PMA_importRunQuery('', '', $sql_data);
+        Import::runQuery('', '', $sql_data);
     }
 
     /**
