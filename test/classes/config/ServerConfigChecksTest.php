@@ -18,15 +18,10 @@ require_once 'test/PMATestCase.php';
  */
 class ServeConfigChecksTest extends PMATestCase
 {
-    /**
-     * Test for ServerConfigChecks::performConfigChecks
-     *
-     * @return void
-     * @group medium
-     */
-    public function testServerConfigChecksPerformConfigChecks()
-    {
+    private $sessionID;
 
+    public function setUp()
+    {
         $GLOBALS['cfg']['AvailableCharsets'] = array();
         $GLOBALS['cfg']['ServerDefault'] = 0;
         $GLOBALS['server'] = 0;
@@ -36,9 +31,15 @@ class ServeConfigChecksTest extends PMATestCase
 
         $reflection = new \ReflectionProperty('PhpMyAdmin\Config\ConfigFile', '_id');
         $reflection->setAccessible(true);
-        $sessionID = $reflection->getValue($cf);
+        $this->sessionID = $reflection->getValue($cf);
 
-        $_SESSION[$sessionID]['Servers'] = array(
+        unset($_SESSION['messages']);
+        unset($_SESSION[$this->sessionID]);
+    }
+
+    public function testErrors()
+    {
+        $_SESSION[$this->sessionID]['Servers'] = array(
             '1' => array(
                 'host' => 'localhost',
                 'ssl' => false,
@@ -51,28 +52,14 @@ class ServeConfigChecksTest extends PMATestCase
             )
         );
 
-        $_SESSION[$sessionID]['AllowArbitraryServer'] = true;
-        $_SESSION[$sessionID]['LoginCookieValidity'] = 5000;
-        $_SESSION[$sessionID]['LoginCookieStore'] = 4000;
-        $_SESSION[$sessionID]['SaveDir'] = true;
-        $_SESSION[$sessionID]['TempDir'] = true;
-        $_SESSION[$sessionID]['GZipDump'] = true;
-        $_SESSION[$sessionID]['BZipDump'] = true;
-        $_SESSION[$sessionID]['ZipDump'] = true;
-
-        $noticeArrayKeys = array(
-            'TempDir',
-            'SaveDir',
-            'LoginCookieValidity',
-            'AllowArbitraryServer',
-            'Servers/1/AllowNoPassword',
-            'Servers/1/auth_type',
-            'Servers/1/ssl'
-        );
-
-        $errorArrayKeys = array(
-            'LoginCookieValidity'
-        );
+        $_SESSION[$this->sessionID]['AllowArbitraryServer'] = true;
+        $_SESSION[$this->sessionID]['LoginCookieValidity'] = 5000;
+        $_SESSION[$this->sessionID]['LoginCookieStore'] = 4000;
+        $_SESSION[$this->sessionID]['SaveDir'] = true;
+        $_SESSION[$this->sessionID]['TempDir'] = true;
+        $_SESSION[$this->sessionID]['GZipDump'] = true;
+        $_SESSION[$this->sessionID]['BZipDump'] = true;
+        $_SESSION[$this->sessionID]['ZipDump'] = true;
 
         if (@!function_exists('gzopen') || @!function_exists('gzencode')) {
             $errorArrayKeys[] = 'GZipDump';
@@ -93,26 +80,31 @@ class ServeConfigChecksTest extends PMATestCase
         $configChecker = new ServerConfigChecks($GLOBALS['ConfigFile']);
         $configChecker->performConfigChecks();
 
-        foreach ($noticeArrayKeys as $noticeKey) {
-            $this->assertArrayHasKey(
-                $noticeKey,
-                $_SESSION['messages']['notice']
-            );
-        }
+        $this->assertEquals(
+            array(
+                'Servers/1/ssl',
+                'Servers/1/auth_type',
+                'Servers/1/AllowNoPassword',
+                'AllowArbitraryServer',
+                'LoginCookieValidity',
+                'SaveDir',
+                'TempDir',
+            ),
+            array_keys($_SESSION['messages']['notice'])
+        );
 
-        foreach ($errorArrayKeys as $errorKey) {
-            $this->assertArrayHasKey(
-                $errorKey,
-                $_SESSION['messages']['error']
-            );
-        }
 
-        // Case 2
+        $this->assertEquals(
+            array(
+                'LoginCookieValidity',
+            ),
+            array_keys($_SESSION['messages']['error'])
+        );
+    }
 
-        unset($_SESSION['messages']);
-        unset($_SESSION[$sessionID]);
-
-        $_SESSION[$sessionID]['Servers'] = array(
+    public function testBlowfishCreate()
+    {
+        $_SESSION[$this->sessionID]['Servers'] = array(
             '1' => array(
                 'host' => 'localhost',
                 'ssl' => true,
@@ -122,40 +114,35 @@ class ServeConfigChecksTest extends PMATestCase
             )
         );
 
-        $_SESSION[$sessionID]['AllowArbitraryServer'] = false;
-        $_SESSION[$sessionID]['LoginCookieValidity'] = -1;
-        $_SESSION[$sessionID]['LoginCookieStore'] = 0;
-        $_SESSION[$sessionID]['SaveDir'] = '';
-        $_SESSION[$sessionID]['TempDir'] = '';
-        $_SESSION[$sessionID]['GZipDump'] = false;
-        $_SESSION[$sessionID]['BZipDump'] = false;
-        $_SESSION[$sessionID]['ZipDump'] = false;
+        $_SESSION[$this->sessionID]['AllowArbitraryServer'] = false;
+        $_SESSION[$this->sessionID]['LoginCookieValidity'] = -1;
+        $_SESSION[$this->sessionID]['LoginCookieStore'] = 0;
+        $_SESSION[$this->sessionID]['SaveDir'] = '';
+        $_SESSION[$this->sessionID]['TempDir'] = '';
+        $_SESSION[$this->sessionID]['GZipDump'] = false;
+        $_SESSION[$this->sessionID]['BZipDump'] = false;
+        $_SESSION[$this->sessionID]['ZipDump'] = false;
 
         $configChecker = new ServerConfigChecks($GLOBALS['ConfigFile']);
         $configChecker->performConfigChecks();
 
-        $this->assertArrayHasKey(
-            'blowfish_secret_created',
-            $_SESSION['messages']['notice']
+        $this->assertEquals(
+            array('blowfish_secret_created'),
+            array_keys($_SESSION['messages']['notice'])
         );
-
-        foreach ($noticeArrayKeys as $noticeKey) {
-            $this->assertArrayNotHasKey(
-                $noticeKey,
-                $_SESSION['messages']['notice']
-            );
-        }
 
         $this->assertArrayNotHasKey(
             'error',
             $_SESSION['messages']
         );
+    }
 
-        // Case 3
+    public function testBlowfish()
+    {
 
-        $_SESSION[$sessionID]['blowfish_secret'] = 'sec';
+        $_SESSION[$this->sessionID]['blowfish_secret'] = 'sec';
 
-        $_SESSION[$sessionID]['Servers'] = array(
+        $_SESSION[$this->sessionID]['Servers'] = array(
             '1' => array(
                 'host' => 'localhost',
                 'auth_type' => 'cookie'
