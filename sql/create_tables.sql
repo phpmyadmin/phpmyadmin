@@ -353,3 +353,17 @@ CREATE TABLE IF NOT EXISTS `pma__export_templates` (
 )
   COMMENT='Saved export templates'
   DEFAULT CHARACTER SET utf8 COLLATE utf8_bin;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `pma__export_templates`
+--
+
+CREATE TABLE IF NOT EXISTS `pma__2fa_secrets` (
+   `pma_user` varchar(64) NOT NULL,
+   `secret` varchar(20) NOT NULL,
+   PRIMARY KEY (`pma_user`)
+)
+  COMMENT='Save secrets for 2-factor authentication'
+  DEFAULT CHARACTER SET utf8 COLLATE utf8_bin;

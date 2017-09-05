@@ -19,6 +19,7 @@ use PhpMyAdmin\Util;
 use PhpMyAdmin\Url;
 use phpseclib\Crypt;
 use ReCaptcha;
+use PhpMyAdmin\DatabaseInterface;
 
 require_once './libraries/hash.lib.php';
 
@@ -67,6 +68,100 @@ class AuthenticationCookie extends AuthenticationPlugin
     public function setUseOpenSSL($use)
     {
         $this->_use_openssl = $use;
+    }
+
+    /**
+     *  Displays 2FA authentication form
+     *
+     */
+    public function auth2FA()
+    {
+        global $conn_error;
+        if (! empty($conn_error)) {
+            PMA_secureSession();
+            $this->auth();
+        }
+        if (!($controllink = $GLOBALS['dbi']->connect(
+            DatabaseInterface::CONNECT_CONTROL
+        ))) {
+            PMA_secureSession();
+            $this->auth();
+        }
+        if (!$GLOBALS['dbi']->selectDb('phpmyadmin', $controllink)) {
+            $conn_error = $GLOBALS['dbi']->getError($controllink);
+            PMA_secureSession();
+            $this->auth();
+        }
+
+        if (!isset($GLOBALS['PHP_AUTH_USER'])) {
+            PMA_secureSession();
+            $this->auth();
+        }
+
+        $user = $GLOBALS['dbi']->escapeString($GLOBALS['PHP_AUTH_USER'], $controllink);
+
+        $cfg_2fa_table = $GLOBALS['cfg']['Server']['2fa_secrets'];
+        $check_2FA_db_query = 'SELECT `pma_user`, `secret` FROM `' . $cfg_2fa_table  .'` WHERE `pma_user` = \'' . $user . '\';';
+        $result = null;
+        if (!($result = $GLOBALS['dbi']->query($check_2FA_db_query, $controllink))) {
+            $conn_error = $GLOBALS['dbi']->getError($controllink);
+            PMA_secureSession();
+            $this->auth();
+        }
+        $num_rows = $GLOBALS['dbi']->numRows($result);
+        if ($num_rows == 0) {
+            PMA_secureSession();
+            $this->auth();
+        }
+        assert($num_rows == 1);
+        $response = Response::getInstance();
+        $response->getFooter()->setMinimal();
+        $header = $response->getHeader();
+        $header->setBodyId('form2FA');
+        $header->setTitle('phpMyAdmin');
+        $header->disableMenuAndConsole();
+        $header->disableWarnings();
+        $header->getScripts()->addFile('2FAform.js');
+        $row = $GLOBALS['dbi']->fetchAssoc($result);
+        $_SESSION['secret'] = $row['secret'];
+
+        echo '
+    <div class="container">
+    <a href="';
+        echo Core::linkURL('https://www.phpmyadmin.net/');
+        echo '" target="_blank" rel="noopener noreferrer" class="logo">';
+        $logo_image = $GLOBALS['pmaThemeImage'] . 'logo_right.png';
+        if (@file_exists($logo_image)) {
+            echo '<img src="' , $logo_image
+                , '" id="imLogo" name="imLogo" alt="phpMyAdmin" border="0" />';
+        } else {
+            echo '<img name="imLogo" id="imLogo" src="'
+                , $GLOBALS['pmaThemeImage'] , 'pma_logo.png' , '" '
+                , 'border="0" width="88" height="31" alt="phpMyAdmin" />';
+        }
+        echo '</a>
+       <h1>';
+        echo sprintf(
+            __('Welcome to %s'),
+            '<bdo dir="ltr" lang="en">phpMyAdmin</bdo>'
+        );
+        echo "</h1>";
+
+        echo "<h4> User account associated with <span style='font-size:15px'>" . $user . "</span> is secured with 2-factor authentication.
+            Please enter the shared code generated in your app.</h4>";
+        echo "<fieldset>";
+        echo "<input type='text' id='shared_code'>";
+        echo "<input type='button' id='submit' value='Submit'>";
+        echo "</fieldset>";
+        echo "</div>";
+
+        exit;
+        if (!isset($_SESSION['2FAVerified']) || !$_SESSION['2FAVerified']) {
+            $_SESSION['2FAEnabled'] = true;
+            $_SESSION['2FAVerified'] = false;
+            return false;
+        }
+        return true;
     }
 
     /**
@@ -449,6 +544,52 @@ class AuthenticationCookie extends AuthenticationPlugin
 
         $GLOBALS['from_cookie'] = true;
 
+        // Check for 2 factor authentication
+        if (!empty($GLOBALS['cfg']['Server']['2fa_secrets']) && !$this->check2FA()) {
+            return false;
+        }
+
+        return true;
+    }
+
+    /**
+     * Check if user has setup 2FA.
+     * If setup, check if authenticated
+     *
+     * @return boolean
+     */
+    private function check2FA()
+    {
+        global $conn_error;
+        $controllink = $GLOBALS['dbi']->connect(
+            DatabaseInterface::CONNECT_CONTROL
+        );
+
+        $user = $GLOBALS['dbi']->escapeString($GLOBALS['PHP_AUTH_USER'], $controllink);
+
+        if (!$GLOBALS['dbi']->selectDb('phpmyadmin', $controllink)) {
+            $conn_error = $GLOBALS['dbi']->getError($controllink);
+            return false;
+        }
+        $cfg_2fa_table = $GLOBALS['cfg']['Server']['2fa_secrets'];
+        $check_2FA_db_query = 'SELECT `pma_user` FROM `' . $cfg_2fa_table . '` WHERE `pma_user` = \'' . $user . '\';';
+        $result = null;
+        if (!($result = $GLOBALS['dbi']->query($check_2FA_db_query, $controllink))) {
+            $conn_error = $GLOBALS['dbi']->getError($controllink);
+            return false;
+        }
+        $num_rows = $GLOBALS['dbi']->numRows($result);
+        if ($num_rows == 0) {
+            $_SESSION['2FAEnabled'] = false;
+            return true;
+        }
+        assert($num_rows == 1);
+        $row = $GLOBALS['dbi']->fetchAssoc($result);
+        if (!isset($_SESSION['2FAVerified']) || !$_SESSION['2FAVerified']) {
+            $_SESSION['2FAEnabled'] = true;
+            $_SESSION['2FAVerified'] = false;
+            return false;
+        }
         return true;
     }
 

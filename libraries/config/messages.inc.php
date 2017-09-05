@@ -704,6 +704,11 @@ $strConfigServers_export_templates_desc = __(
     'Leave blank for no export template support, suggested: '
     . '[kbd]pma__export_templates[/kbd].'
 );
+$strConfigServers_export_templates_name = __('2-factor authentication table');
+$strConfigServers_export_templates_desc = __(
+    'Leave blank for no 2-factor authentication support, suggested: '
+    . '[kbd]pma__2fa_secrets[/kbd].'
+);
 $strConfigServers_central_columns_name = __('Central columns table');
 $strConfigServers_central_columns_desc = __(
     'Leave blank for no central columns support, suggested: '

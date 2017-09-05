@@ -39,7 +39,8 @@ body {
     background:         <?php echo $GLOBALS['cfg']['MainBackground']; ?>;
 }
 
-body#loginform {
+body#loginform,
+body#form2FA {
     margin: 0;
 }
 
@@ -591,17 +592,21 @@ div#querychart {
  * login form
  */
 body#loginform h1,
-body#loginform a.logo {
+body#form2FA h1,
+body#loginform a.logo,
+body#form2FA a.logo {
     display: block;
     text-align: center;
 }
 
-body#loginform {
+body#loginform,
+body#form2FA {
     margin-top: 1em;
     text-align: center;
 }
 
-body#loginform div.container {
+body#loginform div.container,
+body#form2FA div.container {
     text-align: <?php echo $left; ?>;
     width: 30em;
     margin: 0 auto;

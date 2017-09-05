@@ -80,6 +80,7 @@ $forms['Servers']['Server_pmadb'] = array('Servers' => array(1 => array(
     'central_columns' => 'pma__central_columns',
     'designer_settings' => 'pma__designer_settings',
     'export_templates' => 'pma__export_templates',
+    '2fa_secrets' => 'pma__2fa_secrets',
     'MaxTableUiprefs' => 100)));
 $forms['Servers']['Server_tracking'] = array('Servers' => array(1 => array(
     'tracking_version_auto_create',

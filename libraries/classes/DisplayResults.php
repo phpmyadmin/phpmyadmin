@@ -366,6 +366,11 @@ class DisplayResults
                     'template_data' => $json_highlighting_data
                 );
             }
+            if (! empty($cfgRelation['2fa_secrets'])) {
+                $relDb[$cfgRelation['2fa_secrets']] = array(
+                    'template_data' => $json_highlighting_data
+                );
+            }
         }
     }
 
