@@ -8,6 +8,7 @@
  */
 namespace PhpMyAdmin\Plugins\Import;
 
+use PhpMyAdmin\Import;
 use PhpMyAdmin\Plugins\ImportPlugin;
 use PhpMyAdmin\Properties\Plugins\ImportPluginProperties;
 use PhpMyAdmin\Properties\Options\Groups\OptionsPropertyMainGroup;
@@ -116,7 +117,7 @@ class ImportSql extends ImportPlugin
         }
 
         /**
-         * Will be set in PMA_importGetNextChunk().
+         * Will be set in Import::getNextChunk().
          *
          * @global bool $GLOBALS ['finished']
          */
@@ -132,7 +133,7 @@ class ImportSql extends ImportPlugin
             if (empty($statement)) {
 
                 // Importing new data.
-                $newData = PMA_importGetNextChunk();
+                $newData = Import::getNextChunk();
 
                 // Subtract data we didn't handle yet and stop processing.
                 if ($newData === false) {
@@ -154,19 +155,19 @@ class ImportSql extends ImportPlugin
             }
 
             // Executing the query.
-            PMA_importRunQuery($statement, $statement, $sql_data);
+            Import::runQuery($statement, $statement, $sql_data);
         }
 
         // Extracting remaining statements.
         while ((!$error) && (!$timeout_passed) && (!empty($bq->query))) {
             $statement = $bq->extract(true);
             if (!empty($statement)) {
-                PMA_importRunQuery($statement, $statement, $sql_data);
+                Import::runQuery($statement, $statement, $sql_data);
             }
         }
 
         // Finishing.
-        PMA_importRunQuery('', '', $sql_data);
+        Import::runQuery('', '', $sql_data);
     }
 
     /**

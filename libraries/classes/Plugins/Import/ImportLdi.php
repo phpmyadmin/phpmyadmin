@@ -8,6 +8,7 @@
  */
 namespace PhpMyAdmin\Plugins\Import;
 
+use PhpMyAdmin\Import;
 use PhpMyAdmin\Message;
 use PhpMyAdmin\Plugins\Import\AbstractImportCsv;
 use PhpMyAdmin\Properties\Options\Items\BoolPropertyItem;
@@ -169,8 +170,8 @@ class ImportLdi extends AbstractImportCsv
             $sql .= ')';
         }
 
-        PMA_importRunQuery($sql, $sql, $sql_data);
-        PMA_importRunQuery('', '', $sql_data);
+        Import::runQuery($sql, $sql, $sql_data);
+        Import::runQuery('', '', $sql_data);
         $finished = true;
     }
 }
