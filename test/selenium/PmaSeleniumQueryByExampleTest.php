@@ -59,6 +59,7 @@ class PmaSeleniumQueryByExampleTest extends PMA_SeleniumBase
      */
     public function testQueryByExample()
     {
+        $this->markTestSkipped('Broken, see https://github.com/phpmyadmin/phpmyadmin/issues/13621');
         $this->navigateDatabase($this->database_name);
 
         $this->waitForElement('byPartialLinkText', 'Query')->click();
