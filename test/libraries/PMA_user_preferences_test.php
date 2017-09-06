@@ -296,6 +296,28 @@ class PMA_User_Preferences_Test extends PMATestCase
     }
 
     /**
+     * Test for PMA_applyUserprefs
+     *
+     * @return void
+     */
+    public function testApplyDevelUserprefs()
+    {
+        $GLOBALS['cfg']['UserprefsDeveloperTab'] = true;
+        $result = PMA_applyUserprefs(
+            array(
+                'DBG/sql' => true,
+            )
+        );
+
+        $this->assertEquals(
+            array(
+                'DBG' => array('sql' => true),
+            ),
+            $result
+        );
+    }
+
+    /**
      * Test for PMA_persistOption
      *
      * @return void
