@@ -6,8 +6,9 @@
  * @package PhpMyAdmin
  */
 
-use PhpMyAdmin\Response;
 use PhpMyAdmin\Config\PageSettings;
+use PhpMyAdmin\Display\Import;
+use PhpMyAdmin\Response;
 
 require_once 'libraries/common.inc.php';
 
@@ -35,10 +36,9 @@ list(
     $pos
 ) = PhpMyAdmin\Util::getDbInfo($db, isset($sub_part) ? $sub_part : '');
 
-require 'libraries/display_import.lib.php';
 $response = Response::getInstance();
 $response->addHTML(
-    PMA_getImportDisplay(
+    Import::getImportDisplay(
         'database', $db, $table, $max_upload_size
     )
 );
