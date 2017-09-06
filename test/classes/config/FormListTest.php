@@ -9,6 +9,7 @@
 use PhpMyAdmin\Config\ConfigFile;
 use PhpMyAdmin\Config\Forms\User\UserFormList;
 use PhpMyAdmin\Config\Forms\Page\PageFormList;
+use PhpMyAdmin\Config\Forms\Setup\SetupFormList;
 
 require_once 'test/PMATestCase.php';
 
@@ -70,6 +71,32 @@ class FormListTest extends PMATestCase
 
         /* Instance handling */
         $forms = new PageFormList($cf);
+        $this->assertFalse($forms->process());
+        $forms->fixErrors();
+        $this->assertFalse($forms->hasErrors());
+        $this->assertEquals('', $forms->displayErrors());
+    }
+
+    /**
+     * Tests for setup preferences forms.
+     */
+    public function testSetupForms()
+    {
+        $cf = new ConfigFile($GLOBALS['PMA_Config']->base_settings);
+
+        /* Static API */
+        $this->assertTrue(SetupFormList::isValid('Export'));
+        $this->assertEquals(
+            'PhpMyAdmin\\Config\\Forms\\Setup\\ExportForm',
+            SetupFormList::get('Export')
+        );
+        $this->assertContains(
+            'Export/texytext_columns',
+            SetupFormList::getFields()
+        );
+
+        /* Instance handling */
+        $forms = new SetupFormList($cf);
         $this->assertFalse($forms->process());
         $forms->fixErrors();
         $this->assertFalse($forms->hasErrors());

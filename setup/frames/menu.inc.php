@@ -20,9 +20,9 @@ echo '<li><a href="index.php' , Url::getCommon() , '"'
 
 $formsets = array(
     'Features'    => __('Features'),
-    'Sql_queries' => __('SQL queries'),
-    'Navi_panel'  => __('Navigation panel'),
-    'Main_panel'  => __('Main panel'),
+    'Sql'         => __('SQL queries'),
+    'Navi'        => __('Navigation panel'),
+    'Main'        => __('Main panel'),
     'Import'      => __('Import'),
     'Export'      => __('Export')
 );
