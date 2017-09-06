@@ -79,7 +79,6 @@ if (defined('TESTSUITE')) {
         $extension = new DbiMysql();
         break;
     case 'mysqli' :
-        include_once 'libraries/dbi/dbi_mysqli.inc.php';
         $extension = new DbiMysqli();
         break;
     }
