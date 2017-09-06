@@ -50,9 +50,14 @@ abstract class BaseForm extends FormDisplay
      * End group blocks with:
      * ':group:end'
      *
+     * @todo This should be abstract, but that does not work in PHP 5
+     *
      * @return array
      */
-    abstract public static function getForms();
+    public static function getForms()
+    {
+        return array();
+    }
 
     /**
      * Returns list of fields used in the form.
