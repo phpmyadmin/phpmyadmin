@@ -19,7 +19,6 @@
  * Include to test.
  */
 require_once 'libraries/rte/rte_triggers.lib.php';
-require_once 'libraries/database_interface.inc.php';
 
 
 /**

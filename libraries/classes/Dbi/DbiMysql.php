@@ -21,13 +21,6 @@ if (! extension_loaded('mysql')) {
     return;
 }
 
-require_once 'libraries/dbi/dbi_extension.lib.php';
-
-/**
- * MySQL client API
- */
-PMA_defineClientAPI(mysql_get_client_info());
-
 /**
  * Interface to the classic MySQL extension
  *

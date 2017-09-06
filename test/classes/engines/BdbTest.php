@@ -11,7 +11,6 @@
 
 use PhpMyAdmin\Engines\Bdb;
 
-require_once 'libraries/database_interface.inc.php';
 require_once 'test/PMATestCase.php';
 
 /**

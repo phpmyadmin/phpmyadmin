@@ -13,7 +13,6 @@ use PhpMyAdmin\Theme;
 use PhpMyAdmin\Url;
 use PhpMyAdmin\Util;
 
-require_once 'libraries/database_interface.inc.php';
 require_once 'libraries/plugin_interface.lib.php';
 
 /**

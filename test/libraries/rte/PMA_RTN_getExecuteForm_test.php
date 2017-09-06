@@ -11,7 +11,6 @@ use PhpMyAdmin\Response;
 
 $GLOBALS['server'] = 0;
 
-require_once 'libraries/database_interface.inc.php';
 
 /*
  * Include to test.

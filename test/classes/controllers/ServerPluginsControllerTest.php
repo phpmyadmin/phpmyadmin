@@ -13,7 +13,6 @@ use PhpMyAdmin\Theme;
 use PhpMyAdmin\Controllers\Server\ServerPluginsController;
 use PhpMyAdmin\Di\Container;
 
-require_once 'libraries/database_interface.inc.php';
 require_once 'test/PMATestCase.php';
 
 /**

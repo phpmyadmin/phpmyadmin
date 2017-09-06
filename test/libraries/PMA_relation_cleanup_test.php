@@ -12,7 +12,6 @@ use PhpMyAdmin\Relation;
 /*
 * Include to test.
 */
-require_once 'libraries/database_interface.inc.php';
 require_once 'libraries/relation_cleanup.lib.php';
 
 /**
