@@ -18,8 +18,6 @@ use PhpMyAdmin\Util;
  */
 require_once 'libraries/common.inc.php';
 require_once 'libraries/check_user_privileges.lib.php';
-require_once 'libraries/config/user_preferences.forms.php';
-require_once 'libraries/config/page_settings.forms.php';
 
 PageSettings::showGroup('Browse');
 

@@ -9,13 +9,12 @@ namespace PhpMyAdmin\Config;
 
 use PhpMyAdmin\Config\ConfigFile;
 use PhpMyAdmin\Config\FormDisplay;
+use PhpMyAdmin\Config\Forms\Page\PageFormList;
 use PhpMyAdmin\Core;
 use PhpMyAdmin\Message;
 use PhpMyAdmin\Response;
 
 require_once 'libraries/user_preferences.lib.php';
-require 'libraries/config/user_preferences.forms.php';
-require 'libraries/config/page_settings.forms.php';
 
 /**
  * Page-related settings
@@ -57,8 +56,8 @@ class PageSettings
      */
     public function __construct($formGroupName, $elemId = null)
     {
-        global $forms;
-        if (empty($forms[$formGroupName])) {
+        $form_class = PageFormList::get($formGroupName);
+        if (is_null($form_class)) {
             return;
         }
 
@@ -74,16 +73,7 @@ class PageSettings
         $cf = new ConfigFile($GLOBALS['PMA_Config']->base_settings);
         PMA_userprefsPageInit($cf);
 
-        $form_display = new FormDisplay($cf);
-        foreach ($forms[$formGroupName] as $form_name => $form) {
-            // skip Developer form if no setting is available
-            if ($form_name == 'Developer'
-                && !$GLOBALS['cfg']['UserprefsDeveloperTab']
-            ) {
-                continue;
-            }
-            $form_display->registerForm($form_name, $form, 1);
-        }
+        $form_display = new $form_class($cf);
 
         // Process form
         $error = null;
@@ -226,7 +216,7 @@ class PageSettings
      */
     public static function getNaviSettings()
     {
-        $object = new PageSettings('Navi_panel', 'pma_navigation_settings');
+        $object = new PageSettings('Navi', 'pma_navigation_settings');
 
         $response = Response::getInstance();
         $response->addHTML($object->getErrorHTML());

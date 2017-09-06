@@ -3152,7 +3152,7 @@ Various display setting
 
     Contains names of configuration options (keys in ``$cfg`` array) that
     users can't set through user preferences. For possible values, refer
-    to :file:`libraries/config/user_preferences.forms.php`.
+    to clases under :file:`libraries/classes/Config/Forms/User/`.
 
 .. config:option:: $cfg['UserprefsDeveloperTab']
 

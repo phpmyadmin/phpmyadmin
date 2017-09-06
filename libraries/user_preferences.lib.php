@@ -6,6 +6,7 @@
  * @package PhpMyAdmin
  */
 use PhpMyAdmin\Config\ConfigFile;
+use PhpMyAdmin\Config\Forms\User\UserFormList;
 use PhpMyAdmin\Core;
 use PhpMyAdmin\Message;
 use PhpMyAdmin\Relation;
@@ -24,7 +25,7 @@ if (! defined('PHPMYADMIN')) {
  */
 function PMA_userprefsPageInit(ConfigFile $cf)
 {
-    $forms_all_keys = PMA_readUserprefsFieldNames($GLOBALS['forms']);
+    $forms_all_keys = UserFormList::getFields();
     $cf->resetConfigData(); // start with a clean instance
     $cf->setAllowedKeys($forms_all_keys);
     $cf->setCfgUpdateReadMapping(
@@ -157,11 +158,7 @@ function PMA_applyUserprefs(array $config_data)
 {
     $cfg = array();
     $blacklist = array_flip($GLOBALS['cfg']['UserprefsDisallow']);
-    if (!$GLOBALS['cfg']['UserprefsDeveloperTab']) {
-        // disallow everything in the Developers tab
-        $blacklist['DBG/sql'] = true;
-    }
-    $whitelist = array_flip(PMA_readUserprefsFieldNames());
+    $whitelist = array_flip(UserFormList::getFields());
     // whitelist some additional fields which are custom handled
     $whitelist['ThemeDefault'] = true;
     $whitelist['fontsize'] = true;
@@ -176,40 +173,6 @@ function PMA_applyUserprefs(array $config_data)
         Core::arrayWrite($path, $cfg, $value);
     }
     return $cfg;
-}
-
-/**
- * Reads user preferences field names
- *
- * @param array|null $forms Forms
- *
- * @return array
- */
-function PMA_readUserprefsFieldNames(array $forms = null)
-{
-    static $names;
-
-    if (defined('TESTSUITE')) {
-        $names = null;
-    }
-
-    // return cached results
-    if ($names !== null) {
-        return $names;
-    }
-    if (is_null($forms)) {
-        $forms = array();
-        include 'libraries/config/user_preferences.forms.php';
-    }
-    $names = array();
-    foreach ($forms as $formset) {
-        foreach ($formset as $form) {
-            foreach ($form as $k => $v) {
-                $names[] = is_int($k) ? $v : $k;
-            }
-        }
-    }
-    return $names;
 }
 
 /**

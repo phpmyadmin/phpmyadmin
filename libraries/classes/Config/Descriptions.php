@@ -450,20 +450,14 @@ class Descriptions
                 return __('Edit mode');
             case 'Form_Edit_desc':
                 return __('Customize edit mode.');
-            case 'Form_Export_name':
-                return __('Export');
             case 'Form_Export_defaults_name':
                 return __('Export defaults');
             case 'Form_Export_defaults_desc':
                 return __('Customize default export options.');
-            case 'Form_Features_name':
-                return __('Features');
             case 'Form_General_name':
                 return __('General');
             case 'Form_General_desc':
                 return __('Set some commonly used options.');
-            case 'Form_Import_name':
-                return __('Import');
             case 'Form_Import_defaults_name':
                 return __('Import defaults');
             case 'Form_Import_defaults_desc':
@@ -555,18 +549,6 @@ class Descriptions
                     'Tracking of changes made in database. Requires the phpMyAdmin configuration '
                     . 'storage.'
                 );
-            case 'Formset_Export_name':
-                return __('Customize export options');
-            case 'Formset_Features_name':
-                return __('Features');
-            case 'Formset_Import_name':
-                return __('Customize import defaults');
-            case 'Formset_Navi_panel_name':
-                return __('Customize navigation panel');
-            case 'Formset_Main_panel_name':
-                return __('Customize main panel');
-            case 'Formset_Sql_queries_name':
-                return __('SQL queries');
             case 'Form_Sql_name':
                 return __('SQL');
             case 'Form_Sql_box_name':

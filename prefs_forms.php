@@ -6,7 +6,7 @@
  * @package PhpMyAdmin
  */
 use PhpMyAdmin\Config\ConfigFile;
-use PhpMyAdmin\Config\FormDisplay;
+use PhpMyAdmin\Config\Forms\User\UserFormList;
 use PhpMyAdmin\Core;
 use PhpMyAdmin\Response;
 use PhpMyAdmin\Url;
@@ -16,7 +16,6 @@ use PhpMyAdmin\Url;
  */
 require_once 'libraries/common.inc.php';
 require_once 'libraries/user_preferences.lib.php';
-require 'libraries/config/user_preferences.forms.php';
 
 $cf = new ConfigFile($GLOBALS['PMA_Config']->base_settings);
 PMA_userprefsPageInit($cf);
@@ -24,19 +23,12 @@ PMA_userprefsPageInit($cf);
 // handle form processing
 
 $form_param = isset($_GET['form']) ? $_GET['form'] : null;
-if (! isset($forms[$form_param])) {
-    $forms_keys = array_keys($forms);
-    $form_param = array_shift($forms_keys);
+$form_class = UserFormList::get($form_param);
+if (is_null($form_class)) {
+    Core::fatalError(__('Incorrect form specified!'));
 }
 
-$form_display = new FormDisplay($cf);
-foreach ($forms[$form_param] as $form_name => $form) {
-    // skip Developer form if no setting is available
-    if ($form_name == 'Developer' && !$GLOBALS['cfg']['UserprefsDeveloperTab']) {
-        continue;
-    }
-    $form_display->registerForm($form_name, $form, 1);
-}
+$form_display = new $form_class($cf, 1);
 
 if (isset($_POST['revert'])) {
     // revert erroneous fields to their default values
