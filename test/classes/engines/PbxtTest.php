@@ -13,7 +13,6 @@
 use PhpMyAdmin\Core;
 use PhpMyAdmin\Engines\Pbxt;
 
-require_once 'libraries/database_interface.inc.php';
 require_once 'test/PMATestCase.php';
 
 /**

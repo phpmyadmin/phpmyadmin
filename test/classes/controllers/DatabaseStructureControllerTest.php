@@ -18,7 +18,6 @@ use PhpMyAdmin\Tests\Stubs\Response as ResponseStub;
 use PhpMyAdmin\Theme;
 
 require_once 'test/PMATestCase.php';
-require_once 'libraries/database_interface.inc.php';
 
 /**
  * DatabaseStructureController_Test class

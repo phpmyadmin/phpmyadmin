@@ -14,13 +14,6 @@ if (! defined('PHPMYADMIN')) {
     exit;
 }
 
-require_once 'libraries/dbi/dbi_extension.lib.php';
-
-/**
- * MySQL client API
- */
-PMA_defineClientAPI(mysqli_get_client_info());
-
 /**
  * some PHP versions are reporting extra messages like "No index used in query"
  */
@@ -57,6 +50,22 @@ if (! defined('MYSQLI_TYPE_JSON')) {
  */
 class DbiMysqli implements DbiExtension
 {
+    static private $pma_mysqli_flag_names = array(
+        MYSQLI_NUM_FLAG => 'num',
+        MYSQLI_PART_KEY_FLAG => 'part_key',
+        MYSQLI_SET_FLAG => 'set',
+        MYSQLI_TIMESTAMP_FLAG => 'timestamp',
+        MYSQLI_AUTO_INCREMENT_FLAG => 'auto_increment',
+        MYSQLI_ENUM_FLAG => 'enum',
+        MYSQLI_ZEROFILL_FLAG => 'zerofill',
+        MYSQLI_UNSIGNED_FLAG => 'unsigned',
+        MYSQLI_BLOB_FLAG => 'blob',
+        MYSQLI_MULTIPLE_KEY_FLAG => 'multiple_key',
+        MYSQLI_UNIQUE_KEY_FLAG => 'unique_key',
+        MYSQLI_PRI_KEY_FLAG => 'primary_key',
+        MYSQLI_NOT_NULL_FLAG => 'not_null',
+    );
+
     /**
      * connects to the database server
      *
@@ -540,7 +549,7 @@ class DbiMysqli implements DbiExtension
         $charsetnr = $f->charsetnr;
         $f = $f->flags;
         $flags = array();
-        foreach ($GLOBALS['pma_mysqli_flag_names'] as $flag => $name) {
+        foreach (self::$pma_mysqli_flag_names as $flag => $name) {
             if ($f & $flag) {
                 $flags[] = $name;
             }

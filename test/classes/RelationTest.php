@@ -10,7 +10,6 @@ namespace PhpMyAdmin\Tests;
 use PhpMyAdmin\Relation;
 use PhpMyAdmin\Theme;
 
-require_once 'libraries/database_interface.inc.php';
 
 /**
  * Tests for PhpMyAdmin\Relation

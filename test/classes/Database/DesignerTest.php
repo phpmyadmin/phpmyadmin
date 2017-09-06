@@ -12,7 +12,6 @@ use PhpMyAdmin\DatabaseInterface;
 /*
  * Include to test.
  */
-require_once 'libraries/database_interface.inc.php';
 require_once 'libraries/plugin_interface.lib.php';
 
 /**

@@ -576,7 +576,7 @@ if (! defined('PMA_MINIMUM_COMMON')) {
         /**
          * Loads the proper database interface for this server
          */
-        include_once './libraries/database_interface.inc.php';
+        DatabaseInterface::load();
 
         // get LoginCookieValidity from preferences cache
         // no generic solution for loading preferences from cache as some settings

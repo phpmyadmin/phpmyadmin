@@ -12,7 +12,6 @@ require_once 'test/PMATestCase.php';
  * Include to test.
  */
 require_once 'libraries/config.default.php';
-require_once 'libraries/database_interface.inc.php';
 
 /**
  * Tests for StorageEngine.php

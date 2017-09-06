@@ -13,7 +13,6 @@ use PhpMyAdmin\Dbi\DbiMysql;
 
 require_once 'test/PMATestCase.php';
 
-require_once 'libraries/database_interface.inc.php';
 
 /**
  * Tests for PhpMyAdmin\Dbi\DbiMysql class

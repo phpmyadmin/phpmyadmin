@@ -12,7 +12,6 @@ use PhpMyAdmin\Di\Container;
 use PhpMyAdmin\Util;
 
 require_once 'test/PMATestCase.php';
-require_once 'libraries/database_interface.inc.php';
 
 /**
  * Tests for ServerCollationsController class

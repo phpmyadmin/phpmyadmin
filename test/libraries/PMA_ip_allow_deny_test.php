@@ -8,7 +8,6 @@
 
 use PhpMyAdmin\Core;
 
-require_once 'libraries/database_interface.inc.php';
 require_once 'libraries/ip_allow_deny.lib.php';
 
 /**

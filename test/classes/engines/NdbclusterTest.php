@@ -11,7 +11,6 @@
 
 use PhpMyAdmin\Engines\Ndbcluster;
 
-require_once 'libraries/database_interface.inc.php';
 require_once 'test/PMATestCase.php';
 
 /**

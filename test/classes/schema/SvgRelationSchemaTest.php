@@ -11,7 +11,6 @@
 use PhpMyAdmin\Plugins\Schema\Svg\SvgRelationSchema;
 use PhpMyAdmin\Relation;
 
-require_once 'libraries/database_interface.inc.php';
 require_once 'test/PMATestCase.php';
 
 /**

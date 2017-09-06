@@ -19,7 +19,6 @@ use PhpMyAdmin\TypesMySQL;
 use ReflectionProperty;
 use stdClass;
 
-require_once 'libraries/database_interface.inc.php';
 
 /**
  * Tests for PhpMyAdmin\InsertEdit

@@ -11,8 +11,6 @@ use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Relation;
 use PhpMyAdmin\Util;
 
-require_once 'libraries/database_interface.inc.php';
-
 /**
  * Class SystemDatabase
  *
