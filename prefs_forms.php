@@ -23,11 +23,11 @@ PMA_userprefsPageInit($cf);
 // handle form processing
 
 $form_param = isset($_GET['form']) ? $_GET['form'] : null;
-if (! UserFormList::isValid($form_param)) {
-    $form_param = UserFormList::getDefault();
+$form_class = UserFormList::get($form_param);
+if (is_null($form_class)) {
+    Core::fatalError(__('Incorrect form specified!'));
 }
 
-$form_class = UserFormList::get($form_param);
 $form_display = new $form_class($cf, 1);
 
 if (isset($_POST['revert'])) {

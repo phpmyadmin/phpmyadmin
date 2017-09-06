@@ -56,7 +56,8 @@ class PageSettings
      */
     public function __construct($formGroupName, $elemId = null)
     {
-        if (! PageFormList::isValid($formGroupName)) {
+        $form_class = PageFormList::get($formGroupName);
+        if (is_null($form_class)) {
             return;
         }
 
@@ -72,7 +73,6 @@ class PageSettings
         $cf = new ConfigFile($GLOBALS['PMA_Config']->base_settings);
         PMA_userprefsPageInit($cf);
 
-        $form_class = PageFormList::get($formGroupName);
         $form_display = new $form_class($cf);
 
         // Process form
