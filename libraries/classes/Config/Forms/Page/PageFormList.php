@@ -21,5 +21,5 @@ class PageFormList extends BaseFormList
         'Sql',
         'TableStructure',
     );
-    protected static $ns = 'PhpMyAdmin\\Config\\Forms\\Page\\';
+    protected static $ns = '\\PhpMyAdmin\\Config\\Forms\\Page\\';
 }

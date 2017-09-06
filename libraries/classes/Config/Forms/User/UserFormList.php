@@ -19,5 +19,5 @@ class UserFormList extends BaseFormList
         'Import',
         'Export',
     );
-    protected static $ns = 'PhpMyAdmin\\Config\\Forms\\User\\';
+    protected static $ns = '\\PhpMyAdmin\\Config\\Forms\\User\\';
 }

@@ -26,80 +26,51 @@ class FormListTest extends PMATestCase
     }
 
     /**
-     * Tests for user preferences forms.
+     * Tests for preferences forms.
+     *
+     * @param string $class  Class to test
+     * @param string $prefix Reuturned class prefix
+     *
+     * @dataProvider formObjects
      */
-    public function testUserForms()
+    public function testForms($class, $prefix)
     {
         $cf = new ConfigFile($GLOBALS['PMA_Config']->base_settings);
 
         /* Static API */
-        $this->assertTrue(UserFormList::isValid('Export'));
+        $this->assertTrue($class::isValid('Export'));
         $this->assertEquals(
-            'PhpMyAdmin\\Config\\Forms\\User\\ExportForm',
-            UserFormList::get('Export')
+            $prefix . 'ExportForm',
+            $class::get('Export')
         );
         $this->assertContains(
             'Export/texytext_columns',
-            UserFormList::getFields()
+            $class::getFields()
         );
 
         /* Instance handling */
-        $forms = new UserFormList($cf);
+        $forms = new $class($cf);
         $this->assertFalse($forms->process());
         $forms->fixErrors();
         $this->assertFalse($forms->hasErrors());
         $this->assertEquals('', $forms->displayErrors());
     }
 
-    /**
-     * Tests for page preferences forms.
-     */
-    public function testPageForms()
+    public function formObjects()
     {
-        $cf = new ConfigFile($GLOBALS['PMA_Config']->base_settings);
-
-        /* Static API */
-        $this->assertTrue(PageFormList::isValid('Export'));
-        $this->assertEquals(
-            'PhpMyAdmin\\Config\\Forms\\Page\\ExportForm',
-            PageFormList::get('Export')
+        return array(
+            array(
+                '\\PhpMyAdmin\\Config\\Forms\\User\\UserFormList',
+                '\\PhpMyAdmin\\Config\\Forms\\User\\',
+            ),
+            array(
+                '\\PhpMyAdmin\\Config\\Forms\\Page\\PageFormList',
+                '\\PhpMyAdmin\\Config\\Forms\\Page\\',
+            ),
+            array(
+                '\\PhpMyAdmin\\Config\\Forms\\Setup\\SetupFormList',
+                '\\PhpMyAdmin\\Config\\Forms\\Setup\\',
+            ),
         );
-        $this->assertContains(
-            'Export/texytext_columns',
-            PageFormList::getFields()
-        );
-
-        /* Instance handling */
-        $forms = new PageFormList($cf);
-        $this->assertFalse($forms->process());
-        $forms->fixErrors();
-        $this->assertFalse($forms->hasErrors());
-        $this->assertEquals('', $forms->displayErrors());
-    }
-
-    /**
-     * Tests for setup preferences forms.
-     */
-    public function testSetupForms()
-    {
-        $cf = new ConfigFile($GLOBALS['PMA_Config']->base_settings);
-
-        /* Static API */
-        $this->assertTrue(SetupFormList::isValid('Export'));
-        $this->assertEquals(
-            'PhpMyAdmin\\Config\\Forms\\Setup\\ExportForm',
-            SetupFormList::get('Export')
-        );
-        $this->assertContains(
-            'Export/texytext_columns',
-            SetupFormList::getFields()
-        );
-
-        /* Instance handling */
-        $forms = new SetupFormList($cf);
-        $this->assertFalse($forms->process());
-        $forms->fixErrors();
-        $this->assertFalse($forms->hasErrors());
-        $this->assertEquals('', $forms->displayErrors());
     }
 }

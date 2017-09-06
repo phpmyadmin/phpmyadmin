@@ -21,5 +21,5 @@ class SetupFormList extends BaseFormList
         'Servers',
         'Sql',
     );
-    protected static $ns = 'PhpMyAdmin\\Config\\Forms\\Setup\\';
+    protected static $ns = '\\PhpMyAdmin\\Config\\Forms\\Setup\\';
 }
