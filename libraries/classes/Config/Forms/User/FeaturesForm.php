@@ -18,18 +18,18 @@ class FeaturesForm extends BaseForm
                 'VersionCheck',
                 'NaturalOrder',
                 'InitialSlidersState',
-                'LoginCookieValidity',
                 'SkipLockedTables',
                 'DisableMultiTableMaintenance',
-                'MaxTableList',
                 'ShowHint',
                 'SendErrorReports',
-                'ConsoleEnterExecutes'
+                'ConsoleEnterExecutes',
+                'DisableShortcutKeys',
             ),
             'Databases' => array(
                 'Servers/1/only_db', // saves to Server/only_db
                 'Servers/1/hide_db', // saves to Server/hide_db
-                'MaxDbList'
+                'MaxDbList',
+                'MaxTableList',
             ),
             'Text_fields' => array(
                 'CharEditing',

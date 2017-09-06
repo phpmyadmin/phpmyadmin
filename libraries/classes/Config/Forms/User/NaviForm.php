@@ -36,6 +36,10 @@ class NaviForm extends BaseForm
                 'NavigationTreeShowProcedures',
                 'NavigationTreeShowEvents'
             ),
+            'Navi_servers' => array(
+                'NavigationDisplayServers',
+                'DisplayServersList',
+            ),
             'Navi_databases' => array(
                 'NavigationTreeDisplayDbFilterMinimum',
                 'NavigationTreeDbSeparator'
