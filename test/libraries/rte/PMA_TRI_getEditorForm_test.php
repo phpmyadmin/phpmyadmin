@@ -7,7 +7,6 @@
  */
 use PhpMyAdmin\Response;
 
-require_once 'libraries/database_interface.inc.php';
 
 /*
  * Include to test.

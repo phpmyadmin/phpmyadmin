@@ -11,7 +11,6 @@ use PhpMyAdmin\ServerStatusData;
 use PhpMyAdmin\Theme;
 
 require_once 'libraries/server_status_queries.lib.php';
-require_once 'libraries/database_interface.inc.php';
 
 /**
  * class PMA_ServerStatusVariables_Test

@@ -14,7 +14,6 @@ use PhpMyAdmin\Theme;
 
 require_once 'libraries/select_server.lib.php';
 
-require_once 'libraries/database_interface.inc.php';
 
 /**
  * PMA_SelectServer_Test class

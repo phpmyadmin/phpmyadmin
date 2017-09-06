@@ -11,7 +11,6 @@ use PhpMyAdmin\Core;
 use PhpMyAdmin\Header;
 use PhpMyAdmin\Theme;
 
-require_once 'libraries/database_interface.inc.php';
 require_once 'test/PMATestCase.php';
 
 /**

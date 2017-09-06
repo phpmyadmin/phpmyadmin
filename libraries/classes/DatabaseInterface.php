@@ -9,6 +9,10 @@ namespace PhpMyAdmin;
 
 use PhpMyAdmin\Core;
 use PhpMyAdmin\Dbi\DbiExtension;
+use PhpMyAdmin\Dbi\DbiDummy;
+use PhpMyAdmin\Dbi\DbiMysql;
+use PhpMyAdmin\Dbi\DbiMysqli;
+use PhpMyAdmin\Di\Container;
 use PhpMyAdmin\Error;
 use PhpMyAdmin\Index;
 use PhpMyAdmin\LanguageManager;
@@ -2919,5 +2923,82 @@ class DatabaseInterface
     public function isPercona()
     {
         return $this->_is_percona;
+    }
+
+    /**
+     * Load correct database driver
+     */
+    public static function load()
+    {
+        if (defined('TESTSUITE')) {
+            /**
+             * For testsuite we use dummy driver which can fake some queries.
+             */
+            $extension = new DbiDummy();
+        } else {
+
+            /**
+             * First check for the mysqli extension, as it's the one recommended
+             * for the MySQL server's version that we support
+             * (if PHP 7+, it's the only one supported)
+             */
+            $extension = 'mysqli';
+            if (! self::checkDbExtension($extension)) {
+
+                $docurl = Util::getDocuLink('faq', 'faqmysql');
+                $doclink = sprintf(
+                    __('See %sour documentation%s for more information.'),
+                    '[a@' . $docurl  . '@documentation]',
+                    '[/a]'
+                );
+
+                if (PHP_VERSION_ID < 70000) {
+                    $extension = 'mysql';
+                    if (! self::checkDbExtension($extension)) {
+                        // warn about both extensions missing and exit
+                        Core::warnMissingExtension(
+                            'mysqli',
+                            true,
+                            $doclink
+                        );
+                    } elseif (empty($_SESSION['mysqlwarning'])) {
+                        trigger_error(
+                            __(
+                                'You are using the mysql extension which is deprecated in '
+                                . 'phpMyAdmin. Please consider installing the mysqli '
+                                . 'extension.'
+                            ) . ' ' . $doclink,
+                            E_USER_WARNING
+                        );
+                        // tell the user just once per session
+                        $_SESSION['mysqlwarning'] = true;
+                    }
+                } else {
+                    // mysql extension is not part of PHP 7+, so warn and exit
+                    Core::warnMissingExtension(
+                        'mysqli',
+                        true,
+                        $doclink
+                    );
+                }
+            }
+
+            /**
+             * Including The DBI Plugin
+             */
+            switch($extension) {
+            case 'mysql' :
+                $extension = new DbiMysql();
+                break;
+            case 'mysqli' :
+                $extension = new DbiMysqli();
+                break;
+            }
+        }
+        $GLOBALS['dbi'] = new DatabaseInterface($extension);
+
+        $container = Container::getDefaultContainer();
+        $container->set('PMA_DatabaseInterface', $GLOBALS['dbi']);
+        $container->alias('dbi', 'PMA_DatabaseInterface');
     }
 }

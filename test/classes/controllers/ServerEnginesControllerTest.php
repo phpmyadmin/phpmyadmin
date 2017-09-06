@@ -11,7 +11,6 @@ use PhpMyAdmin\Theme;
 use PhpMyAdmin\Controllers\Server\ServerEnginesController;
 use PhpMyAdmin\Url;
 
-require_once 'libraries/database_interface.inc.php';
 
 require_once 'test/PMATestCase.php';
 

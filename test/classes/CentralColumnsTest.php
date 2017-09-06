@@ -15,7 +15,6 @@ use PhpMyAdmin\Util;
 
 $GLOBALS['server'] = 1;
 
-require_once 'libraries/database_interface.inc.php';
 
 /**
  * tests for PhpMyAdmin\CentralColumns

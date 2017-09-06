@@ -16,7 +16,6 @@ $GLOBALS['cfg']['DBG']['sql'] = false;
  * Include to test.
  */
 
-require_once 'libraries/database_interface.inc.php';
 require_once 'libraries/display_create_table.lib.php';
 
 /**

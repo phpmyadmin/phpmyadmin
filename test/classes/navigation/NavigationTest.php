@@ -9,7 +9,6 @@
 use PhpMyAdmin\Theme;
 use PhpMyAdmin\Url;
 
-require_once 'libraries/database_interface.inc.php';
 require_once 'test/PMATestCase.php';
 
 /**

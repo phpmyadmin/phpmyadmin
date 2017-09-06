@@ -20,7 +20,6 @@ if (!file_exists('./libraries/common.inc.php')) {
 
 require_once './libraries/common.inc.php';
 require_once './libraries/user_preferences.lib.php';
-require_once './libraries/database_interface.inc.php';
 require_once './setup/lib/ConfigGenerator.php';
 
 // use default error handler

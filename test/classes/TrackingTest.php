@@ -11,7 +11,6 @@ use PhpMyAdmin\Theme;
 use PhpMyAdmin\Tracking;
 use PhpMyAdmin\Url;
 
-require_once 'libraries/database_interface.inc.php';
 
 /**
  * Tests for PhpMyAdmin\Tracking

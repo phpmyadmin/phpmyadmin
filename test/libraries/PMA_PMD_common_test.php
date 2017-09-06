@@ -5,7 +5,6 @@
  * @package PhpMyAdmin-test
  */
 
-require_once 'libraries/database_interface.inc.php';
 
 /**
  * Tests for libraries/pmd_common.php

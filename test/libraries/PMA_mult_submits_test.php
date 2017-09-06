@@ -13,7 +13,6 @@ use PhpMyAdmin\Theme;
 use PhpMyAdmin\Url;
 
 require_once 'libraries/mult_submits.lib.php';
-require_once 'libraries/database_interface.inc.php';
 require_once 'libraries/relation_cleanup.lib.php';
 
 /**
