@@ -38,11 +38,6 @@ class BaseFormList
         return null;
     }
 
-    public static function getDefault()
-    {
-        return static::$all[0];
-    }
-
     /**
      * Constructor
      *
