@@ -450,20 +450,14 @@ class Descriptions
                 return __('Edit mode');
             case 'Form_Edit_desc':
                 return __('Customize edit mode.');
-            case 'Form_Export_name':
-                return __('Export');
             case 'Form_Export_defaults_name':
                 return __('Export defaults');
             case 'Form_Export_defaults_desc':
                 return __('Customize default export options.');
-            case 'Form_Features_name':
-                return __('Features');
             case 'Form_General_name':
                 return __('General');
             case 'Form_General_desc':
                 return __('Set some commonly used options.');
-            case 'Form_Import_name':
-                return __('Import');
             case 'Form_Import_defaults_name':
                 return __('Import defaults');
             case 'Form_Import_defaults_desc':
@@ -480,8 +474,6 @@ class Descriptions
                 return __('Databases');
             case 'Form_Navi_databases_desc':
                 return __('Databases display options.');
-            case 'Form_Navi_name':
-                return __('Navigation panel');
             case 'Form_Navi_panel_name':
                 return __('Navigation panel');
             case 'Form_Navi_panel_desc':

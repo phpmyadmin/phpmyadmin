@@ -5,7 +5,6 @@
  *
  * @package PhpMyAdmin
  */
-use PhpMyAdmin\Config\Descriptions;
 use PhpMyAdmin\Config\Forms\User\UserFormList;
 use PhpMyAdmin\Message;
 use PhpMyAdmin\Relation;
@@ -36,9 +35,10 @@ $content = PhpMyAdmin\Util::getHtmlTab(
 ) . "\n";
 $script_name = basename($GLOBALS['PMA_PHP_SELF']);
 foreach (UserFormList::getAll() as $formset) {
+    $formset_class = UserFormList::get($formset);
     $tab = array(
         'link' => 'prefs_forms.php',
-        'text' => Descriptions::get('Form_' . $formset),
+        'text' => $formset_class::getName(),
         'icon' => $tabs_icons[$formset],
         'active' => ($script_name == 'prefs_forms.php' && $formset == $form_param));
     $content .= PhpMyAdmin\Util::getHtmlTab($tab, array('form' => $formset))
