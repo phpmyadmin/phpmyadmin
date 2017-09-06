@@ -6,6 +6,7 @@
  * @package PhpMyAdmin
  */
 use PhpMyAdmin\Config\PageSettings;
+use PhpMyAdmin\Display\Import;
 use PhpMyAdmin\Response;
 
 /**
@@ -26,9 +27,8 @@ $scripts->addFile('import.js');
 require_once 'libraries/tbl_common.inc.php';
 $url_query .= '&amp;goto=tbl_import.php&amp;back=tbl_import.php';
 
-require 'libraries/display_import.lib.php';
 $response->addHTML(
-    PMA_getImportDisplay(
+    Import::getImportDisplay(
         'table', $db, $table, $max_upload_size
     )
 );
