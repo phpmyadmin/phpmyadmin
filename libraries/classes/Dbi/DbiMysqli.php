@@ -14,13 +14,6 @@ if (! defined('PHPMYADMIN')) {
     exit;
 }
 
-require_once 'libraries/dbi/dbi_extension.lib.php';
-
-/**
- * MySQL client API
- */
-PMA_defineClientAPI(mysqli_get_client_info());
-
 /**
  * some PHP versions are reporting extra messages like "No index used in query"
  */
