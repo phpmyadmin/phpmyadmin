@@ -91,7 +91,7 @@ class PageSettingsTest extends PMATestCase
         );
 
         $this->assertContains(
-            '<input type="hidden" name="submit_save" value="Navi_panel" />',
+            '<input type="hidden" name="submit_save" value="Navi" />',
             $html
         );
     }
