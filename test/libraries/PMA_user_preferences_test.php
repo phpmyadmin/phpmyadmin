@@ -46,6 +46,7 @@ class PMA_User_Preferences_Test extends PMATestCase
             'Server/port' => '213'
         );
         $GLOBALS['cfg']['AvailableCharsets'] = array();
+        $GLOBALS['cfg']['UserprefsDeveloperTab'] = null;
 
         PMA_userprefsPageInit(new ConfigFile());
 

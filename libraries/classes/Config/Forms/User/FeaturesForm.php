@@ -13,7 +13,7 @@ class FeaturesForm extends BaseForm
 {
     public static function getForms()
     {
-        return array(
+        $result = array(
             'General' => array(
                 'VersionCheck',
                 'NaturalOrder',
@@ -53,12 +53,14 @@ class FeaturesForm extends BaseForm
                 'LoginCookieValidityDisableWarning',
                 'ReservedWordDisableWarning'
             ),
-            // settings from this form are treated specially,
-            // see prefs_forms.php and user_preferences.lib.php
-            'Developer' => array(
-                'DBG/sql'
-            ),
         );
+        // skip Developer form if no setting is available
+        if ($GLOBALS['cfg']['UserprefsDeveloperTab']) {
+            $result['Developer'] = array(
+                'DBG/sql'
+            );
+        }
+        return $result;
     }
 
     public static function getName()

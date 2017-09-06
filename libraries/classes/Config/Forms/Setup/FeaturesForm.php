@@ -42,7 +42,10 @@ class FeaturesForm extends \PhpMyAdmin\Config\Forms\User\FeaturesForm
             'CaptchaLoginPublicKey',
             'CaptchaLoginPrivateKey'
         );
-        $result['Developer'][] = 'UserprefsDeveloperTab';
+        $result['Developer'] = array(
+            'UserprefsDeveloperTab',
+            'DBG/sql',
+        );
         $result['Other_core_settings'] = array(
             'OBGzip',
             'PersistentConnections',

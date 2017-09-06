@@ -25,10 +25,6 @@ abstract class BaseForm extends FormDisplay
     {
         parent::__construct($cf);
         foreach (static::getForms() as $form_name => $form) {
-            // skip Developer form if no setting is available
-            if ($form_name == 'Developer' && !$GLOBALS['cfg']['UserprefsDeveloperTab']) {
-                continue;
-            }
             $this->registerForm($form_name, $form, $server_id);
         }
     }
