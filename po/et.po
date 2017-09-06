@@ -6,16 +6,16 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.7.4-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2017-08-10 09:13-0400\n"
-"PO-Revision-Date: 2017-05-17 18:39+0000\n"
+"PO-Revision-Date: 2017-09-06 19:44+0000\n"
 "Last-Translator: Kristjan Räts <kristjanrats@gmail.com>\n"
-"Language-Team: Estonian <https://hosted.weblate.org/projects/phpmyadmin/4-7/"
-"et/>\n"
+"Language-Team: Estonian "
+"<https://hosted.weblate.org/projects/phpmyadmin/4-7/et/>\n"
 "Language: et\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 2.14\n"
+"X-Generator: Weblate 2.17-dev\n"
 
 #: ajax.php:16 ajax.php:33 export.php:192 schema_export.php:64
 msgid "Bad type!"
@@ -1521,22 +1521,16 @@ msgid "Chart"
 msgstr "Diagramm"
 
 #: js/messages.php:298 libraries/display_export.lib.php:903
-#, fuzzy
-#| msgid "Database"
 msgctxt "Alias"
 msgid "Database"
 msgstr "Andmebaas"
 
 #: js/messages.php:299 libraries/display_export.lib.php:915
-#, fuzzy
-#| msgid "Table"
 msgctxt "Alias"
 msgid "Table"
 msgstr "Tabel"
 
 #: js/messages.php:300 libraries/display_export.lib.php:926
-#, fuzzy
-#| msgid "Column"
 msgctxt "Alias"
 msgid "Column"
 msgstr "Veerg"
@@ -3011,9 +3005,6 @@ msgid "Collation"
 msgstr "Kodeering"
 
 #: libraries/Charsets.php:244
-#, fuzzy
-#| msgctxt "Collation"
-#| msgid "Unknown"
 msgid "Unknown"
 msgstr "Tundmatu"
 
@@ -3273,11 +3264,9 @@ msgid "accent-sensitive"
 msgstr "diakriitikute tundlik"
 
 #: libraries/Charsets.php:576
-#, fuzzy
-#| msgid "multilingual"
 msgctxt "Collation variant"
 msgid "multi-level"
-msgstr "mitmekeelne"
+msgstr "mitmetasemeline"
 
 #: libraries/Charsets.php:579
 msgctxt "Collation variant"
@@ -5065,17 +5054,12 @@ msgstr ""
 "phpMyAdminiga ja võib andmeid rikkuda!"
 
 #: libraries/common.inc.php:484
-#, fuzzy
-#| msgid ""
-#| "You have enabled mbstring.func_overload in your PHP configuration. This "
-#| "option is incompatible with phpMyAdmin and might cause some data to be "
-#| "corrupted!"
 msgid ""
 "You have disabled ini_get and/or ini_set in php.ini. This option is "
 "incompatible with phpMyAdmin!"
 msgstr ""
-"Oled PHP seadistuses lubanud mbstring.func_overload. See ei ühildu "
-"phpMyAdminiga ja võib andmeid rikkuda!"
+"Oled php.ini failis keelanud ini_get ja/või ini_set funktsiooni(d). See "
+"valik ei ühildu phpMyAdminiga!"
 
 #: libraries/common.inc.php:517
 #, php-format
@@ -8192,7 +8176,7 @@ msgstr "Skeemi pluginaid ei suudetud laadida, palun kontrolli oma paigaldust!"
 
 #: libraries/dbi/DBIMysqli.php:158
 msgid "SSL connection enforced by server, automatically enabling it."
-msgstr ""
+msgstr "Server sunnib SSL ühendust, lubatud automaatselt."
 
 #: libraries/display_change_password.lib.php:57
 #: libraries/replication_gui.lib.php:854
@@ -8419,7 +8403,7 @@ msgstr "Jäta vahele tabelid, mis on suuremad kui"
 
 #: libraries/display_export.lib.php:895
 msgid "Defined aliases"
-msgstr ""
+msgstr "Defineeritud aliased"
 
 #: libraries/display_export.lib.php:1011
 msgid "Could not load export plugins, please check your installation!"
@@ -14896,33 +14880,27 @@ msgstr "Sa võid tutvuda vearaportis olevate andmetega:"
 
 #: templates/export/alias_add.phtml:5
 msgid "Define new aliases"
-msgstr ""
+msgstr "Defineeri uued aliased"
 
 #: templates/export/alias_add.phtml:11
-#, fuzzy
-#| msgid "Select database"
 msgid "Select database:"
-msgstr "Vali andmebaas"
+msgstr "Vali andmebaas:"
 
 #: templates/export/alias_add.phtml:17
 msgid "New database name"
 msgstr "Uue andmebaasi nimi"
 
 #: templates/export/alias_add.phtml:26
-#, fuzzy
-#| msgid "Select table"
 msgid "Select table:"
-msgstr "Vali tabel"
+msgstr "Vali tabel:"
 
 #: templates/export/alias_add.phtml:32
 msgid "New table name"
 msgstr "Uue tabeli nimi"
 
 #: templates/export/alias_add.phtml:41
-#, fuzzy
-#| msgid "Select a column."
 msgid "Select column:"
-msgstr "Vali veerg."
+msgstr "Vali veerg:"
 
 #: templates/export/alias_add.phtml:47
 msgid "New column name"
@@ -14930,7 +14908,7 @@ msgstr "Uue veeru nimi"
 
 #: templates/export/alias_item.phtml:8
 msgid "Remove"
-msgstr ""
+msgstr "Eemalda"
 
 #: templates/prefs_autoload.phtml:8
 msgid ""
