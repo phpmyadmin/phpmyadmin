@@ -16,9 +16,6 @@ if (!defined('PHPMYADMIN')) {
 // build user preferences menu
 
 $form_param = isset($_GET['form']) ? $_GET['form'] : null;
-if (! UserFormList::isValid($form_param)) {
-    $form_param = UserFormList::getDefault();
-}
 $tabs_icons = array(
     'Features'    => 'b_tblops.png',
     'Sql'         => 'b_sql.png',
