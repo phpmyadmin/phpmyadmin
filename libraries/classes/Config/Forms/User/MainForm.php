@@ -78,4 +78,9 @@ class MainForm extends BaseForm
             ),
         );
     }
+
+    public static function getName()
+    {
+        return __('Main panel');
+    }
 }

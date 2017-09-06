@@ -6,6 +6,7 @@
  * @package PhpMyAdmin-Setup
  */
 use PhpMyAdmin\Url;
+use PhpMyAdmin\Config\Forms\Setup\SetupFormList;
 
 if (!defined('PHPMYADMIN')) {
     exit;
@@ -18,19 +19,15 @@ echo '<li><a href="index.php' , Url::getCommon() , '"'
     , ($formset_id === null ? ' class="active' : '')
     , '">' , __('Overview') , '</a></li>';
 
-$formsets = array(
-    'Features'    => __('Features'),
-    'Sql'         => __('SQL queries'),
-    'Navi'        => __('Navigation panel'),
-    'Main'        => __('Main panel'),
-    'Import'      => __('Import'),
-    'Export'      => __('Export')
-);
-
-foreach ($formsets as $formset => $label) {
+$ignored = array('Config', 'Servers');
+foreach (SetupFormList::getAll() as $formset) {
+    if (in_array($formset, $ignored)) {
+        continue;
+    }
+    $form_class = SetupFormList::get($formset);
     echo '<li><a href="index.php' , Url::getCommon(array('page' => 'form', 'formset' => $formset)) , '" '
         , ($formset_id === $formset ? ' class="active' : '')
-        , '">' , $label , '</a></li>';
+        , '">' , $form_class::getName() , '</a></li>';
 }
 
 echo '</ul>';

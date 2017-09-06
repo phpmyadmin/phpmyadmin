@@ -557,18 +557,6 @@ class Descriptions
                     'Tracking of changes made in database. Requires the phpMyAdmin configuration '
                     . 'storage.'
                 );
-            case 'Formset_Export_name':
-                return __('Customize export options');
-            case 'Formset_Features_name':
-                return __('Features');
-            case 'Formset_Import_name':
-                return __('Customize import defaults');
-            case 'Formset_Navi_panel_name':
-                return __('Customize navigation panel');
-            case 'Formset_Main_panel_name':
-                return __('Customize main panel');
-            case 'Formset_Sql_queries_name':
-                return __('SQL queries');
             case 'Form_Sql_name':
                 return __('SQL');
             case 'Form_Sql_box_name':

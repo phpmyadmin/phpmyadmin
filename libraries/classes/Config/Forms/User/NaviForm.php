@@ -52,4 +52,9 @@ class NaviForm extends BaseForm
             ),
         );
     }
+
+    public static function getName()
+    {
+        return __('Navigation panel');
+    }
 }

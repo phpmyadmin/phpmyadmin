@@ -134,4 +134,9 @@ class ExportForm extends BaseForm
             ),
         );
     }
+
+    public static function getName()
+    {
+        return __('Export');
+    }
 }

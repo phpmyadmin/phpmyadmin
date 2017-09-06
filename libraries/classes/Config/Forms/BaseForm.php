@@ -74,4 +74,16 @@ abstract class BaseForm extends FormDisplay
         }
         return $names;
     }
+
+    /**
+     * Returns name of the form
+     *
+     * @todo This should be abstract, but that does not work in PHP 5
+     *
+     * @return string
+     */
+    public static function getName()
+    {
+        return '';
+    }
 }

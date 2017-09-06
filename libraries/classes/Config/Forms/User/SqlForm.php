@@ -34,4 +34,9 @@ class SqlForm extends BaseForm
             ),
         );
     }
+
+    public static function getName()
+    {
+        return __('SQL queries');
+    }
 }

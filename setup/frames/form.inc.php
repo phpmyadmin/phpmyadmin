@@ -6,7 +6,6 @@
  * @package PhpMyAdmin-Setup
  */
 
-use PhpMyAdmin\Config\Descriptions;
 use PhpMyAdmin\Config\Forms\Setup\SetupFormList;
 use PhpMyAdmin\Core;
 
@@ -25,10 +24,7 @@ if (! SetupFormList::isValid($formset_id)) {
     Core::fatalError(__('Incorrect formset, check $formsets array in setup/frames/form.inc.php!'));
 }
 
-$form_title = Descriptions::get('Formset_' . $formset_id);
-if (! is_null($form_title)) {
-    echo '<h2>' , $form_title , '</h2>';
-}
 $form_class = SetupFormList::get($formset_id);
+echo '<h2>' , $form_class::getName() , '</h2>';
 $form_display = new $form_class($GLOBALS['ConfigFile']);
 PMA_Process_formset($form_display);

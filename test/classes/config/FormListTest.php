@@ -43,6 +43,11 @@ class FormListTest extends PMATestCase
             $prefix . 'ExportForm',
             $class::get('Export')
         );
+        foreach ($class::getAll() as $form) {
+            $form_class = $class::get($form);
+            $this->assertNotNull($form_class::getName());
+        }
+
         $this->assertContains(
             'Export/texytext_columns',
             $class::getFields()

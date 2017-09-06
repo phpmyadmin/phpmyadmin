@@ -52,4 +52,9 @@ class ImportForm extends BaseForm
 
         );
     }
+
+    public static function getName()
+    {
+        return __('Import');
+    }
 }
