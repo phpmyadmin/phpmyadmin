@@ -3,8 +3,8 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.8.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2017-08-10 09:14-0400\n"
-"PO-Revision-Date: 2017-09-05 12:59+0000\n"
-"Last-Translator: Surya Widi <neversleepman@tfwno.gf>\n"
+"PO-Revision-Date: 2017-09-06 14:17+0000\n"
+"Last-Translator: eisenhaus335 <greenzone332@outlook.com>\n"
 "Language-Team: Indonesian "
 "<https://hosted.weblate.org/projects/phpmyadmin/master/id/>\n"
 "Language: id\n"
@@ -5403,15 +5403,11 @@ msgid "Hide"
 msgstr "Sembunyikan"
 
 #: libraries/classes/Navigation/Nodes/NodeDatabaseContainer.php:36
-#, fuzzy
-#| msgid "New"
 msgctxt "Create new database"
 msgid "New"
 msgstr "Baru"
 
 #: libraries/classes/Navigation/Nodes/NodeEventContainer.php:37
-#, fuzzy
-#| msgid "New"
 msgctxt "Create new event"
 msgid "New"
 msgstr "Baru"
@@ -5444,8 +5440,6 @@ msgid "New"
 msgstr "Baru"
 
 #: libraries/classes/Navigation/Nodes/NodeProcedure.php:32
-#, fuzzy
-#| msgid "Procedures"
 msgid "Procedure"
 msgstr "Prosedur"
 
@@ -5458,22 +5452,16 @@ msgstr "Prosedur"
 
 #: libraries/classes/Navigation/Nodes/NodeProcedureContainer.php:38
 #: libraries/rte/rte_footer.lib.php:29
-#, fuzzy
-#| msgid "New"
 msgctxt "Create new procedure"
 msgid "New"
 msgstr "Baru"
 
 #: libraries/classes/Navigation/Nodes/NodeTableContainer.php:36
-#, fuzzy
-#| msgid "New"
 msgctxt "Create new table"
 msgid "New"
 msgstr "Baru"
 
 #: libraries/classes/Navigation/Nodes/NodeTriggerContainer.php:37
-#, fuzzy
-#| msgid "New"
 msgctxt "Create new trigger"
 msgid "New"
 msgstr "Baru"
@@ -5486,8 +5474,6 @@ msgid "Views"
 msgstr "View"
 
 #: libraries/classes/Navigation/Nodes/NodeViewContainer.php:36
-#, fuzzy
-#| msgid "New"
 msgctxt "Create new view"
 msgid "New"
 msgstr "Baru"
@@ -5572,13 +5558,10 @@ msgid "Server Choice:"
 msgstr "Pilihan Server:"
 
 #: libraries/classes/Plugins/Auth/AuthenticationCookie.php:341
-#, fuzzy
-#| msgid "Could not connect to the target"
 msgid "Failed to connect to the reCAPTCHA service!"
-msgstr "Tidak dapat terhubung ke target"
+msgstr "Tidak dapat terhubung ke layanan reCAPTCHA"
 
 #: libraries/classes/Plugins/Auth/AuthenticationCookie.php:343
-#, fuzzy
 msgid "Entered captcha is wrong, try again!"
 msgstr "Captcha yang dimasukan salah, coba lagi!"
 
