@@ -8,8 +8,6 @@
 use PhpMyAdmin\Config\PageSettings;
 
 require_once 'test/PMATestCase.php';
-require_once 'libraries/config/user_preferences.forms.php';
-require_once 'libraries/config/page_settings.forms.php';
 
 /**
  * Tests for PhpMyAdmin\Config\PageSettings
