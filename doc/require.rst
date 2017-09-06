@@ -13,7 +13,7 @@ PHP
 ---
 
 * You need PHP 5.5.0 or newer, with ``session`` support, the Standard PHP Library
-  (SPL) extension, ctype, and JSON support.
+  (SPL) extension, hash, ctype, and JSON support.
 
 * The ``mbstring`` extension (see :term:`mbstring`) is strongly recommended
   for performance reasons.

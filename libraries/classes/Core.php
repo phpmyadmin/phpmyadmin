@@ -938,6 +938,13 @@ class Core
         if (! function_exists('ctype_alpha')) {
             self::warnMissingExtension('ctype', true);
         }
+
+        /**
+         * hash is required for cookie authentication.
+         */
+        if (! function_exists('hash_hmac')) {
+            self::warnMissingExtension('hash', true);
+        }
     }
 
     /**
