@@ -49,6 +49,7 @@ script:
 after_script:
   - if [ -f vendor/bin/codacycoverage ] ; then php vendor/bin/codacycoverage clover || true ; fi
   - if [ -f php.log ] ; then cat php.log ; fi
+  - if [ -f nginx-error.log ] ; then cat nginx-error.log ; fi
   - if [ -f build/logs/phpunit.json ] ; then ./scripts/phpunit-top-tests build/logs/phpunit.json ; fi
   - if [ -f config.inc.php ] ; then rm -rf config.inc.php; fi
 
@@ -91,3 +92,4 @@ addons:
     packages:
     - git
     - mysql-server-5.6
+    - nginx
