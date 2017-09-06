@@ -157,7 +157,7 @@ class PMA_SeleniumExportTest extends PMA_SeleniumBase
         $this->expandMore();
 
         $this->waitForElement('byPartialLinkText', "Export")->click();
-        $this->waitForElementNotPresent('byId', 'ajax_message_num_1');
+        $this->waitAjax();
 
         $this->waitForElement("byId", "quick_or_custom");
         $this->byCssSelector("label[for=radio_custom_export]")->click();

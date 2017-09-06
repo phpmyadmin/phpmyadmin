@@ -63,7 +63,7 @@ class PmaSeleniumQueryByExampleTest extends PMA_SeleniumBase
         $this->navigateDatabase($this->database_name);
 
         $this->waitForElement('byPartialLinkText', 'Query')->click();
-        $this->waitForElementNotPresent('byId', 'ajax_message_num_1');
+        $this->waitAjax();
 
         /* Select Columns to be used in the query */
         $select = $this->select(
@@ -118,7 +118,7 @@ class PmaSeleniumQueryByExampleTest extends PMA_SeleniumBase
 
         /* Update Query in the editor */
         $this->byCssSelector('input[name=modify]')->click();
-        $this->waitForElementNotPresent('byId', 'ajax_message_num_1');
+        $this->waitAjax();
 
         $this->scrollToBottom();
         sleep(1);
@@ -140,7 +140,7 @@ class PmaSeleniumQueryByExampleTest extends PMA_SeleniumBase
 
         /* Submit the query */
         $this->waitForElement('byCssSelector', 'input[value="Submit Query"]')->click();
-        $this->waitForElementNotPresent('byId', 'ajax_message_num_1');
+        $this->waitAjax();
 
         $this->waitForElement('byCssSelector', 'table.table_results');
 

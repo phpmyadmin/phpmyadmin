@@ -60,10 +60,7 @@ class PMA_SeleniumSqlQueryTest extends PMA_SeleniumBase
     public function testServerSqlQuery()
     {
         $this->waitForElement('byPartialLinkText', 'SQL')->click();
-        $this->waitForElementNotPresent('byId', 'ajax_message_num_1');
-
-        // Minimum wait
-        sleep(1);
+        $this->waitAjax();
 
         // Dynamic wait
         $this->waitUntil(function () {
@@ -78,7 +75,7 @@ class PMA_SeleniumSqlQueryTest extends PMA_SeleniumBase
             2
         );
         $this->byId('button_submit_query')->click();
-        $this->waitForElementNotPresent('byId', 'ajax_message_num_1');
+        $this->waitAjax();
 
         $this->waitForElement('byCssSelector', 'table.table_results');
         $this->assertEquals(
@@ -116,10 +113,7 @@ class PMA_SeleniumSqlQueryTest extends PMA_SeleniumBase
         $this->navigateDatabase($this->database_name);
 
         $this->waitForElement('byPartialLinkText', 'SQL')->click();
-        $this->waitForElementNotPresent('byId', 'ajax_message_num_1');
-
-        // Minimum wait
-        sleep(1);
+        $this->waitAjax();
 
         // Dynamic wait
         $this->waitUntil(function () {
@@ -133,7 +127,7 @@ class PMA_SeleniumSqlQueryTest extends PMA_SeleniumBase
             2
         );
         $this->byId('button_submit_query')->click();
-        $this->waitForElementNotPresent('byId', 'ajax_message_num_1');
+        $this->waitAjax();
 
         $this->waitForElement('byCssSelector', 'table.table_results');
         $this->assertEquals(
@@ -163,10 +157,7 @@ class PMA_SeleniumSqlQueryTest extends PMA_SeleniumBase
         $this->navigateTable('test_table');
 
         $this->waitForElement('byPartialLinkText', 'SQL')->click();
-        $this->waitForElementNotPresent('byId', 'ajax_message_num_1');
-
-        // Minimum wait
-        sleep(1);
+        $this->waitAjax();
 
         // Dynamic wait
         $this->waitUntil(function () {
@@ -180,7 +171,7 @@ class PMA_SeleniumSqlQueryTest extends PMA_SeleniumBase
             2
         );
         $this->byId('button_submit_query')->click();
-        $this->waitForElementNotPresent('byId', 'ajax_message_num_1');
+        $this->waitAjax();
 
         $this->waitForElement('byCssSelector', 'table.table_results');
         $this->assertEquals(
@@ -220,9 +211,7 @@ class PMA_SeleniumSqlQueryTest extends PMA_SeleniumBase
         );
 
         $this->byId('sql_query_edit_save')->click();
-        $this->waitForElementNotPresent('byId', 'ajax_message_num_1');
-
-        sleep(1);
+        $this->waitAjax();
 
         $this->waitForElement('byCssSelector', 'table.table_results');
         $this->assertEquals(

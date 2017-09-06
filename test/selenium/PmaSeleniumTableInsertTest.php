@@ -64,13 +64,12 @@ class PMA_SeleniumTableInsertTest extends PMA_SeleniumBase
             /* TODO: this should be fixed, but the cause is unclear to me */
             $this->markTestIncomplete('Fails with Safari');
         }
-        $this->waitForElementNotPresent('byId', 'ajax_message_num_1');
+        $this->waitAjax();
         $this->expandMore();
 
         $this->byPartialLinkText("Insert")->click();
-        $this->waitForElementNotPresent('byId', 'ajax_message_num_1');
+        $this->waitAjax();
         $this->waitForElement("byId", "insertForm");
-        sleep(1);
 
         $this->byId("field_3_3")->click();
         // shorter date to prevent error,
@@ -92,7 +91,7 @@ class PMA_SeleniumTableInsertTest extends PMA_SeleniumBase
 
         // post
         $this->byId("buttonYes")->click();
-        $this->waitForElementNotPresent("byId", "ajax_message_num_1");
+        $this->waitAjax();
 
         $ele = $this->waitForElement("byClassName", "success");
         $this->assertContains("2 rows inserted", $ele->text());
@@ -108,8 +107,7 @@ class PMA_SeleniumTableInsertTest extends PMA_SeleniumBase
             "input[value=Go]"
         )->click();
 
-        $this->waitForElementNotPresent("byId", "ajax_message_num_1");
-        sleep(2);
+        $this->waitAjax();
 
         // New message
         $ele = $this->waitForElement(
@@ -130,7 +128,7 @@ class PMA_SeleniumTableInsertTest extends PMA_SeleniumBase
     {
         $this->byPartialLinkText("Browse")->click();
 
-        $this->waitForElementNotPresent('byId', 'ajax_message_num_1');
+        $this->waitAjax();
         $this->waitForElement("byCssSelector", "table.table_results");
 
         $this->assertEquals(

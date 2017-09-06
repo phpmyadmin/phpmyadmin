@@ -334,7 +334,7 @@ abstract class PMA_SeleniumBase extends PHPUnit_Extensions_Selenium2TestCase
     {
         $e = $this->byPartialLinkText("Server: ");
         $e->click();
-        $this->waitForElementNotPresent('byCssSelector', 'div#loading_parent');
+        $this->waitAjax();
     }
 
     /**
@@ -603,10 +603,7 @@ abstract class PMA_SeleniumBase extends PHPUnit_Extensions_Selenium2TestCase
             "byXPath",
             "//th//a[contains(., '$table')]"
         )->click();
-        $this->waitForElementNotPresent('byCssSelector', 'ajax_message_num_1');
-
-        // Let table resize (uses JS)
-        sleep(1);
+        $this->waitAjax();
 
         $this->waitForElement(
             "byXPath",
@@ -629,17 +626,14 @@ abstract class PMA_SeleniumBase extends PHPUnit_Extensions_Selenium2TestCase
 
         // Go to server databases
         $this->waitForElement('byPartialLinkText','Databases')->click();
-        $this->waitForElementNotPresent('byCssSelector', 'div#loading_parent');
-
-        // Let the table resize (uses JS)
-        sleep(1);
+        $this->waitAjax();
 
         // go to specific database page
         $this->waitForElement(
             'byXPath',
             '//tr[(contains(@class, "db-row"))]//a[contains(., "' . $this->database_name . '")]'
         )->click();
-        $this->waitForElementNotPresent('byCssSelector', 'ajax_message_num_1');
+        $this->waitAjax();
 
         // Wait for it to load
         $this->waitForElement(
@@ -687,6 +681,31 @@ abstract class PMA_SeleniumBase extends PHPUnit_Extensions_Selenium2TestCase
             )
         );
         sleep(1);
+    }
+
+    /**
+     * Wait for AJAX completion
+     *
+     * @return void
+     */
+    public function waitAjax()
+    {
+        /* Get current message count */
+        $ajax_message_count = $this->execute(
+            array(
+                'script' => 'return ajax_message_count;',
+                'args' => array()
+            )
+        );
+        /* Wait while code is loading */
+        while ($this->execute(array('script' => 'return AJAX.active;', 'args' => array()))) {
+            usleep(5000);
+        }
+        /* Ensure the popup is gone */
+        $this->waitForElementNotPresent(
+            'byId',
+            'ajax_message_num_' . $ajax_message_count
+        );
     }
 
     /**

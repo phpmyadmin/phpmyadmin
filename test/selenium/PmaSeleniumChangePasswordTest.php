@@ -32,7 +32,7 @@ class PMA_SeleniumChangePasswordTest extends PMA_SeleniumBase
         $e = $this->waitForElement("byId", "change_password_anchor");
         $e->click();
 
-        $this->waitForElementNotPresent('byCssSelector', 'ajax_message_num_1');
+        $this->waitAjax();
 
         $this->waitForElement('byXpath', "//span[contains(., 'Change password')]");
         try {

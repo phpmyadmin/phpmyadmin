@@ -54,7 +54,7 @@ class PMA_SeleniumTableBrowseTest extends PMA_SeleniumBase
         $this->login();
         $this->navigateTable('test_table');
 
-        $this->waitForElementNotPresent('byId', 'ajax_message_num_1');
+        $this->waitAjax();
 
         // Dynamic wait
         $this->waitUntil(function () {
@@ -76,8 +76,7 @@ class PMA_SeleniumTableBrowseTest extends PMA_SeleniumBase
     {
         // case 1
         $this->byPartialLinkText("name")->click();
-        $this->waitForElementNotPresent('byId', 'ajax_message_num_1');
-        sleep(1);
+        $this->waitAjax();
 
         $this->assertEquals(
             "1",
@@ -96,8 +95,7 @@ class PMA_SeleniumTableBrowseTest extends PMA_SeleniumBase
 
         // case 2
         $this->byPartialLinkText("name")->click();
-        $this->waitForElementNotPresent("byId", "ajax_message_num_1");
-        sleep(1);
+        $this->waitAjax();
 
         $this->assertEquals(
             "2",
@@ -116,8 +114,7 @@ class PMA_SeleniumTableBrowseTest extends PMA_SeleniumBase
 
         // case 2
         $this->byLinkText("datetimefield")->click();
-        $this->waitForElementNotPresent("byId", "ajax_message_num_1");
-        sleep(1);
+        $this->waitAjax();
 
         $this->getCellByTableClass('table_results', 1, 5);
         $this->assertEquals(
@@ -137,8 +134,7 @@ class PMA_SeleniumTableBrowseTest extends PMA_SeleniumBase
 
         // case 4
         $this->byPartialLinkText("datetimefield")->click();
-        $this->waitForElementNotPresent("byId", "ajax_message_num_1");
-        sleep(1);
+        $this->waitAjax();
 
         $this->assertEquals(
             "2",
@@ -174,7 +170,7 @@ class PMA_SeleniumTableBrowseTest extends PMA_SeleniumBase
 
         $this->waitForElement("byId", "insertForm");
 
-        $this->waitForElementNotPresent('byId', 'ajax_message_num_1');
+        $this->waitAjax();
         $this->waitForElement("byId", "insertForm");
 
         $this->assertEquals(
@@ -203,7 +199,7 @@ class PMA_SeleniumTableBrowseTest extends PMA_SeleniumBase
 
         $this->byId("buttonYes")->click();
 
-        $this->waitForElementNotPresent('byId', 'ajax_message_num_1');
+        $this->waitAjax();
         $success = $this->waitForElement("byClassName", "success");
         $this->assertContains("1 row affected", $success->text());
 
@@ -248,7 +244,7 @@ class PMA_SeleniumTableBrowseTest extends PMA_SeleniumBase
 
         $this->keys(PHPUnit_Extensions_Selenium2TestCase_Keys::RETURN_);
 
-        $this->waitForElementNotPresent('byId', 'ajax_message_num_1');
+        $this->waitAjax();
         $success = $this->waitForElement(
             "byCssSelector", "span.ajax_notification div.success"
         );
@@ -298,7 +294,7 @@ class PMA_SeleniumTableBrowseTest extends PMA_SeleniumBase
 
         $this->waitForElement('byId', "buttonYes")->click();
 
-        $this->waitForElementNotPresent('byId', 'ajax_message_num_1');
+        $this->waitAjax();
         $success = $this->waitForElement("byClassName", "success");
         $this->assertContains("1 row inserted", $success->text());
 
@@ -336,7 +332,7 @@ class PMA_SeleniumTableBrowseTest extends PMA_SeleniumBase
         $this->moveto($elem);
         $elem->click();
 
-        $this->waitForElementNotPresent('byId', 'ajax_message_num_1');
+        $this->waitAjax();
         $success = $this->waitForElement("byClassName", "success");
         $this->assertContains("Showing rows", $success->text());
 
@@ -368,7 +364,7 @@ class PMA_SeleniumTableBrowseTest extends PMA_SeleniumBase
 
         $this->byId("buttonYes")->click();
 
-        $this->waitForElementNotPresent('byId', 'ajax_message_num_1');
+        $this->waitAjax();
         $success = $this->waitForElement("byClassName", "success");
         $this->assertContains("Showing rows", $success->text());
 
