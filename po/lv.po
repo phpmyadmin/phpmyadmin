@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.7.4-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2017-08-10 09:13-0400\n"
-"PO-Revision-Date: 2017-09-04 15:45+0000\n"
+"PO-Revision-Date: 2017-09-06 10:03+0000\n"
 "Last-Translator: Māris <weblate@netparks.lv>\n"
 "Language-Team: Latvian "
 "<https://hosted.weblate.org/projects/phpmyadmin/4-7/lv/>\n"
@@ -758,7 +758,7 @@ msgstr ""
 
 #: index.php:525
 msgid "The configuration file now needs a secret passphrase (blowfish_secret)."
-msgstr "Konfigurācijas fails tagad prasa slepeno paroli (blowfish_secret)."
+msgstr "Konfigurācijas failā jānorāda slepenā parole (blowfish_secret)."
 
 #: index.php:532
 msgid "The secret passphrase in configuration (blowfish_secret) is too short."
@@ -803,7 +803,7 @@ msgstr "Apstiprināt"
 #: js/messages.php:44
 #, php-format
 msgid "Do you really want to execute \"%s\"?"
-msgstr "Vai Jūs tiešām gribat izpildīt \"%s\"?"
+msgstr "Vai tiešām vēlaties izpildīt vaicājumu \"%s\"?"
 
 #: js/messages.php:46 libraries/mult_submits.lib.php:444
 msgid "You are about to DESTROY a complete database!"
@@ -853,7 +853,7 @@ msgstr "Ļauj ievietot un mainīt datus."
 
 #: js/messages.php:61
 msgid "Deleting tracking data"
-msgstr "Izsekošanas datu dzēšana"
+msgstr "Atsekošanas datu dzēšana"
 
 #: js/messages.php:62
 msgid "Dropping Primary Key/Index"
@@ -867,7 +867,7 @@ msgstr "Nepārbaudīt ārējās atslēgas"
 
 #: js/messages.php:65
 msgid "This operation could take a long time. Proceed anyway?"
-msgstr "Šī operacīja var aizņemt ilgāku laiku. Turpināt?"
+msgstr "Šī operācija var aizņemt ilgu laiku. Turpināt?"
 
 #: js/messages.php:67
 #, php-format
@@ -1079,16 +1079,16 @@ msgstr "Y Vērtība"
 
 #: js/messages.php:144
 msgid "The host name is empty!"
-msgstr "Hosts nav norādīts!"
+msgstr "Nav norādīts servera vārds!"
 
 #: js/messages.php:145
 msgid "The user name is empty!"
-msgstr "Lietotāja vārds nav norādīts!"
+msgstr "Nav norādīts lietotāja vārds!"
 
 #: js/messages.php:146 libraries/server_privileges.lib.php:1868
 #: user_password.php:119
 msgid "The password is empty!"
-msgstr "Parole nav norādīta!"
+msgstr "Nav norādīta parole!"
 
 #: js/messages.php:147 libraries/server_privileges.lib.php:1866
 #: user_password.php:123
@@ -1161,15 +1161,15 @@ msgstr ""
 
 #: js/messages.php:176
 msgid "Query cache efficiency"
-msgstr "Vaicājuma kešatmiņas efektivitāte"
+msgstr "Vaicājumu kešatmiņas efektivitāte"
 
 #: js/messages.php:177
 msgid "Query cache usage"
-msgstr "Pieprasījumu kešatmiņas lietojums"
+msgstr "Vaicājumu kešatmiņas lietojums"
 
 #: js/messages.php:178
 msgid "Query cache used"
-msgstr "Izmantotā pieprasījumu kešatmiņa"
+msgstr "Izmantotā vaicājumu kešatmiņa"
 
 #: js/messages.php:180
 #, fuzzy
@@ -1187,7 +1187,7 @@ msgstr ""
 
 #: js/messages.php:184
 msgid "Average load"
-msgstr "Vidējais noslogojums"
+msgstr "Vidējā noslodze"
 
 #: js/messages.php:185
 msgid "Total memory"
@@ -1239,7 +1239,7 @@ msgstr "Saņemtie baiti"
 
 #: js/messages.php:198 libraries/server_status.lib.php:232
 msgid "Connections"
-msgstr "Konekcijas"
+msgstr "Savienojumi"
 
 #: js/messages.php:199 libraries/ServerStatusData.php:429
 #: libraries/server_status_processes.lib.php:130
@@ -1249,40 +1249,40 @@ msgstr "Procesi"
 #. l10n: shortcuts for Byte
 #: js/messages.php:202 libraries/Util.php:1308
 msgid "B"
-msgstr "baiti"
+msgstr "B"
 
 #. l10n: shortcuts for Kilobyte
 #: js/messages.php:203 libraries/Util.php:1310
 #: libraries/server_status_monitor.lib.php:213
 msgid "KiB"
-msgstr "KB"
+msgstr "KiB"
 
 #. l10n: shortcuts for Megabyte
 #: js/messages.php:204 libraries/Util.php:1312
 #: libraries/display_export.lib.php:843
 #: libraries/server_status_monitor.lib.php:214
 msgid "MiB"
-msgstr "MB"
+msgstr "MiB"
 
 #. l10n: shortcuts for Gigabyte
 #: js/messages.php:205 libraries/Util.php:1314
 msgid "GiB"
-msgstr "GB"
+msgstr "GiB"
 
 #. l10n: shortcuts for Terabyte
 #: js/messages.php:206 libraries/Util.php:1316
 msgid "TiB"
-msgstr "TB"
+msgstr "TiB"
 
 #. l10n: shortcuts for Petabyte
 #: js/messages.php:207 libraries/Util.php:1318
 msgid "PiB"
-msgstr "PB"
+msgstr "PiB"
 
 #. l10n: shortcuts for Exabyte
 #: js/messages.php:208 libraries/Util.php:1320
 msgid "EiB"
-msgstr "EB"
+msgstr "EiB"
 
 #: js/messages.php:209
 #, php-format
@@ -1296,12 +1296,12 @@ msgstr "Jautājumi"
 
 #: js/messages.php:213 libraries/server_status.lib.php:140
 msgid "Traffic"
-msgstr "Datu apmaiņa"
+msgstr "Datu plūsma"
 
 #: js/messages.php:214 libraries/Menu.php:592 libraries/Util.php:4102
 #: libraries/server_status_monitor.lib.php:253
 msgid "Settings"
-msgstr "Uzstādījumi"
+msgstr "Iestatījumi"
 
 #: js/messages.php:215
 msgid "Add chart to grid"
@@ -1417,11 +1417,11 @@ msgstr ""
 
 #: js/messages.php:253
 msgid "Change settings"
-msgstr "Mainīt uzstādījumus"
+msgstr "Mainīt iestatījumus"
 
 #: js/messages.php:254
 msgid "Current settings"
-msgstr "Pašreizējie uzstādījumi"
+msgstr "Pašreizējie iestatījumi"
 
 #: js/messages.php:256
 #, fuzzy
@@ -1573,7 +1573,7 @@ msgstr "Žurnālu tabulas filtrēšanas opcijas"
 #. l10n: Filter as in "Start Filtering"
 #: js/messages.php:305
 msgid "Filter"
-msgstr "Filtrs"
+msgstr "Filtrēt"
 
 #: js/messages.php:306
 msgid "Filter queries by word/regexp:"
@@ -1614,7 +1614,7 @@ msgstr "Pārlādēt lapu"
 
 #: js/messages.php:321
 msgid "Affected rows:"
-msgstr "Aizskartās rindas:"
+msgstr "Ietekmētās rindas:"
 
 #: js/messages.php:324
 msgid "Failed parsing config file. It doesn't seem to be valid JSON code."
@@ -1873,7 +1873,7 @@ msgstr ""
 #: js/messages.php:403
 #, php-format
 msgid "Values for column %s"
-msgstr "Tabulas %s vērtības"
+msgstr "Lauka %s vērtības"
 
 #: js/messages.php:404
 msgid "Values for a new column"
@@ -1895,11 +1895,11 @@ msgstr ""
 
 #: js/messages.php:414
 msgid "Hide query box"
-msgstr "Slēpt pieprasījumu logu"
+msgstr "Slēpt vaicājuma logu"
 
 #: js/messages.php:415
 msgid "Show query box"
-msgstr "Rādīt pieprasījumu logu"
+msgstr "Rādīt vaicājumu logu"
 
 #: js/messages.php:416 libraries/DisplayResults.php:3489
 #: libraries/DisplayResults.php:4852 libraries/Index.php:709
@@ -3195,7 +3195,7 @@ msgstr ""
 #: libraries/Charsets.php:160
 #: templates/database/structure/table_header.phtml:84
 msgid "Charset"
-msgstr "Kodējums"
+msgstr "Rakstzīmju kopa"
 
 #: libraries/Charsets.php:207 libraries/Index.php:688
 #: libraries/central_columns.lib.php:702 libraries/central_columns.lib.php:1386
@@ -3209,7 +3209,7 @@ msgstr "Kodējums"
 #: templates/table/structure/row_stats_table.phtml:30
 #: templates/table/structure/table_structure_header.phtml:9
 msgid "Collation"
-msgstr "Izkārtojumi"
+msgstr "Komplektēšana"
 
 #: libraries/Charsets.php:244
 #, fuzzy
@@ -3768,7 +3768,7 @@ msgstr ""
 #: libraries/DbQbe.php:1847
 #, php-format
 msgid "SQL query on database <b>%s</b>:"
-msgstr "SQL vaicājums uz datubāzes <b>%s</b>:"
+msgstr "SQL vaicājums datubāzē <b>%s</b>:"
 
 #: libraries/DbQbe.php:1866
 msgid "Submit Query"
@@ -3806,7 +3806,7 @@ msgstr "Meklēt"
 
 #: libraries/DbSearch.php:99 libraries/DbSearch.php:392
 msgid "at least one of the words"
-msgstr "kaut viens no vārdiem"
+msgstr "vismaz viens no vārdiem"
 
 #: libraries/DbSearch.php:100 libraries/DbSearch.php:396
 msgid "all words"
