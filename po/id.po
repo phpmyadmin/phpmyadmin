@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.7.4-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2017-08-10 09:13-0400\n"
-"PO-Revision-Date: 2017-09-05 13:14+0000\n"
-"Last-Translator: Surya Widi <neversleepman@tfwno.gf>\n"
+"PO-Revision-Date: 2017-09-07 06:40+0000\n"
+"Last-Translator: eisenhaus335 <greenzone332@outlook.com>\n"
 "Language-Team: Indonesian "
 "<https://hosted.weblate.org/projects/phpmyadmin/4-7/id/>\n"
 "Language: id\n"
@@ -9571,15 +9571,11 @@ msgid "Show hidden items"
 msgstr "Tampilkan item tersembunyi"
 
 #: libraries/navigation/nodes/NodeDatabaseContainer.php:36
-#, fuzzy
-#| msgid "New"
 msgctxt "Create new database"
 msgid "New"
 msgstr "Baru"
 
 #: libraries/navigation/nodes/NodeEventContainer.php:37
-#, fuzzy
-#| msgid "New"
 msgctxt "Create new event"
 msgid "New"
 msgstr "Baru"
@@ -9606,8 +9602,6 @@ msgid "New"
 msgstr "Baru"
 
 #: libraries/navigation/nodes/NodeProcedure.php:32
-#, fuzzy
-#| msgid "Procedures"
 msgid "Procedure"
 msgstr "Prosedur"
 
@@ -9620,22 +9614,16 @@ msgstr "Prosedur"
 
 #: libraries/navigation/nodes/NodeProcedureContainer.php:38
 #: libraries/rte/rte_footer.lib.php:29
-#, fuzzy
-#| msgid "New"
 msgctxt "Create new procedure"
 msgid "New"
 msgstr "Baru"
 
 #: libraries/navigation/nodes/NodeTableContainer.php:36
-#, fuzzy
-#| msgid "New"
 msgctxt "Create new table"
 msgid "New"
 msgstr "Baru"
 
 #: libraries/navigation/nodes/NodeTriggerContainer.php:37
-#, fuzzy
-#| msgid "New"
 msgctxt "Create new trigger"
 msgid "New"
 msgstr "Baru"
@@ -9648,8 +9636,6 @@ msgid "Views"
 msgstr "View"
 
 #: libraries/navigation/nodes/NodeViewContainer.php:36
-#, fuzzy
-#| msgid "New"
 msgctxt "Create new view"
 msgid "New"
 msgstr "Baru"
@@ -10326,7 +10312,6 @@ msgid "Server Choice:"
 msgstr "Pilihan Server:"
 
 #: libraries/plugins/auth/AuthenticationCookie.php:329
-#, fuzzy
 msgid "Entered captcha is wrong, try again!"
 msgstr "Captcha yang dimasukan salah, coba lagi!"
 
