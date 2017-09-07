@@ -166,12 +166,9 @@ class PMA_SeleniumExportTest extends PMA_SeleniumBase
 
         if ($type === 'server') {
             $this->scrollIntoView('databases_and_tables', 200);
-            $this->waitForElement('byPartialLinkText', 'Unselect all')->click();
+            $this->byPartialLinkText('Unselect all')->click();
 
-            $this->waitForElement(
-                'byCssSelector',
-                "option[value=" . $this->database_name . "]"
-            )->click();
+            $this->byCssSelector("option[value=" . $this->database_name . "]")->click();
         }
 
         if ($type === 'table') {
@@ -182,19 +179,16 @@ class PMA_SeleniumExportTest extends PMA_SeleniumBase
         }
 
         $this->scrollIntoView('radio_view_as_text');
-        $this->waitForElement('byCssSelector', "label[for=radio_view_as_text]")->click();
+        $this->byCssSelector("label[for=radio_view_as_text]")->click();
 
         if ($plugin == "SQL") {
             if ($type !== 'db') {
                 $this->scrollIntoView('radio_sql_structure_or_data_structure_and_data');
-                $this->waitForElement(
-                    'byCssSelector',
-                    "label[for=radio_sql_structure_or_data_structure_and_data]"
-                )->click();
+                $this->byCssSelector("label[for=radio_sql_structure_or_data_structure_and_data]")->click();
             }
 
             $this->scrollIntoView('checkbox_sql_if_not_exists');
-            $ele = $this->waitForElement('byId', 'checkbox_sql_if_not_exists');
+            $ele = $this->byId('checkbox_sql_if_not_exists');
             if (! $ele->selected()) {
                 $this->byCssSelector("label[for=checkbox_sql_if_not_exists]")->click();
             }
@@ -202,7 +196,8 @@ class PMA_SeleniumExportTest extends PMA_SeleniumBase
 
         $this->scrollToBottom();
 
-        $this->waitForElement('byId', "buttonGo")->click();
+        $this->byId("buttonGo")->click();
+        $this->waitAjax();
 
         $text = $this->waitForElement("byId", "textSQLDUMP")->text();
         return $text;
