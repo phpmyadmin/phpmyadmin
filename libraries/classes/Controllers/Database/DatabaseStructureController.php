@@ -13,6 +13,7 @@ use PhpMyAdmin\Charsets;
 use PhpMyAdmin\Config\PageSettings;
 use PhpMyAdmin\Controllers\DatabaseController;
 use PhpMyAdmin\Core;
+use PhpMyAdmin\Display\CreateTable;
 use PhpMyAdmin\Message;
 use PhpMyAdmin\RecentFavoriteTable;
 use PhpMyAdmin\Relation;
@@ -22,8 +23,6 @@ use PhpMyAdmin\Template;
 use PhpMyAdmin\Tracker;
 use PhpMyAdmin\Util;
 use PhpMyAdmin\Url;
-
-require_once 'libraries/display_create_table.lib.php';
 
 /**
  * Handles database structure logic
@@ -150,7 +149,7 @@ class DatabaseStructureController extends DatabaseController
                 Message::notice(__('No tables found in database.'))
             );
             if (empty($this->_db_is_system_schema)) {
-                $this->response->addHTML(PMA_getHtmlForCreateTable($this->db));
+                $this->response->addHTML(CreateTable::getHtml($this->db));
             }
             return;
         }
@@ -210,7 +209,7 @@ class DatabaseStructureController extends DatabaseController
         );
 
         if (empty($this->_db_is_system_schema)) {
-            $this->response->addHTML(PMA_getHtmlForCreateTable($this->db));
+            $this->response->addHTML(CreateTable::getHtml($this->db));
         }
     }
 

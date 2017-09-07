@@ -2893,7 +2893,7 @@ AJAX.registerTeardown('functions.js', function () {
 /**
  * jQuery coding for 'Create Table'.  Used on db_operations.php,
  * db_structure.php and db_tracking.php (i.e., wherever
- * libraries/display_create_table.lib.php is used)
+ * PhpMyAdmin\Display\CreateTable is used)
  *
  * Attach Ajax Event handlers for Create Table
  */

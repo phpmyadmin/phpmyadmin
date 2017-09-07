@@ -5,6 +5,7 @@
  *
  * @package PhpMyAdmin
  */
+use PhpMyAdmin\Display\CreateTable;
 use PhpMyAdmin\Message;
 use PhpMyAdmin\Relation;
 use PhpMyAdmin\Response;
@@ -16,7 +17,6 @@ use PhpMyAdmin\Util;
  * Run common work
  */
 require_once 'libraries/common.inc.php';
-require_once 'libraries/display_create_table.lib.php';
 
 //Get some js files needed for Ajax requests
 $response = Response::getInstance();
@@ -105,7 +105,7 @@ if ($num_tables == 0 && count($data['ddlog']) == 0) {
     echo '<p>' , __('No tables found in database.') , '</p>' , "\n";
 
     if (empty($db_is_system_schema)) {
-        echo PMA_getHtmlForCreateTable($db);
+        echo CreateTable::getHtml($db);
     }
     exit;
 }

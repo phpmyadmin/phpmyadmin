@@ -5209,7 +5209,7 @@ class Results
         /**
          *
          * @todo detect privileges to create a view
-         *       (but see 2006-01-19 note in display_create_table.lib.php,
+         *       (but see 2006-01-19 note in PhpMyAdmin\Display\CreateTable,
          *        I think we cannot detect db-specific privileges reliably)
          * Note: we don't display a Create view link if we found a PROCEDURE clause
          */
