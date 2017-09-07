@@ -4,14 +4,21 @@
  *
  * @package PhpMyAdmin-test
  */
+namespace PhpMyAdmin\Tests\Display;
+
+use PhpMyAdmin\Config;
+use PhpMyAdmin\Core;
+use PhpMyAdmin\Display\Results as DisplayResults;
+use PhpMyAdmin\Plugins\Transformations\Text_Plain_Link;
+use PhpMyAdmin\SqlParser\Parser;
+use PhpMyAdmin\SqlParser\Utils\Query;
+use PhpMyAdmin\Transformations;
+use ReflectionClass;
+use stdClass;
 
 /*
- * Include to test.
- */
-use PhpMyAdmin\Core;
-use PhpMyAdmin\DisplayResults;
-use PhpMyAdmin\Plugins\Transformations\Text_Plain_Link;
-
+* Include to test.
+*/
 require_once 'test/PMATestCase.php';
 
 /**
@@ -19,7 +26,7 @@ require_once 'test/PMATestCase.php';
  *
  * @package PhpMyAdmin-test
  */
-class DisplayResultsTest extends PMATestCase
+class ResultsTest extends \PMATestCase
 {
     /**
      * @access protected
@@ -37,7 +44,7 @@ class DisplayResultsTest extends PMATestCase
     {
         $GLOBALS['server'] = 0;
         $this->object = new DisplayResults('as', '', '', '');
-        $GLOBALS['PMA_Config'] = new PhpMyAdmin\Config();
+        $GLOBALS['PMA_Config'] = new Config();
         $GLOBALS['PMA_Config']->enableBc();
         $GLOBALS['text_dir'] = 'ltr';
         $GLOBALS['collation_connection'] = 'utf-8';
@@ -87,7 +94,7 @@ class DisplayResultsTest extends PMATestCase
      */
     public function testisSelect()
     {
-        $parser = new \PhpMyAdmin\SqlParser\Parser('SELECT * FROM pma');
+        $parser = new Parser('SELECT * FROM pma');
         $this->assertTrue(
             $this->_callPrivateFunction(
                 '_isSelect',
@@ -1211,7 +1218,7 @@ class DisplayResultsTest extends PMATestCase
      */
     public function dataProviderForTestSetHighlightedColumnGlobalField()
     {
-        $parser = new PhpMyAdmin\SqlParser\Parser(
+        $parser = new Parser(
             'SELECT * FROM db_name WHERE `db_name`.`tbl`.id > 0 AND `id` < 10'
         );
         return array(
@@ -1301,7 +1308,7 @@ class DisplayResultsTest extends PMATestCase
     public function dataProviderForTestHandleNonPrintableContents()
     {
         $transformation_plugin = new Text_Plain_Link();
-        $meta = new StdClass();
+        $meta = new stdClass();
         $meta->type = 'BLOB';
         $meta->orgtable = 'bar';
         $url_params = array('db' => 'foo', 'table' => 'bar');
@@ -1434,7 +1441,7 @@ class DisplayResultsTest extends PMATestCase
     public function dataProviderForTestGetDataCellForNonNumericColumns()
     {
         $transformation_plugin = new Text_Plain_Link();
-        $meta = new StdClass();
+        $meta = new stdClass();
         $meta->db = 'foo';
         $meta->table = 'tbl';
         $meta->orgtable = 'tbl';
@@ -1443,7 +1450,7 @@ class DisplayResultsTest extends PMATestCase
         $meta->name = 'tblob';
         $meta->orgname = 'tblob';
 
-        $meta2 = new StdClass();
+        $meta2 = new stdClass();
         $meta2->db = 'foo';
         $meta2->table = 'tbl';
         $meta2->orgtable = 'tbl';
@@ -1608,7 +1615,7 @@ class DisplayResultsTest extends PMATestCase
         $this->object->__set('fields_cnt', 2);
 
         // Field meta information
-        $meta = new StdClass();
+        $meta = new stdClass();
         $meta->db = 'db';
         $meta->table = 'table';
         $meta->orgtable = 'table';
@@ -1620,7 +1627,7 @@ class DisplayResultsTest extends PMATestCase
         $meta->numeric = true;
         $meta->primary_key = false;
         $meta->unique_key = false;
-        $meta2 = new StdClass();
+        $meta2 = new stdClass();
         $meta2->db = 'db';
         $meta2->table = 'table';
         $meta2->orgtable = 'table';
@@ -1652,7 +1659,7 @@ class DisplayResultsTest extends PMATestCase
             );
         $this->object->__set(
             'mime_map',
-            \PhpMyAdmin\Transformations::getMIME('db', 'table')
+            Transformations::getMIME('db', 'table')
         );
 
         // Actually invoke tested method
@@ -1661,7 +1668,7 @@ class DisplayResultsTest extends PMATestCase
             array(
                 &$result, array(3600, true), 0, false, array(),
                 '', false, $query,
-                PhpMyAdmin\SqlParser\Utils\Query::getAll($query)
+                Query::getAll($query)
             )
         );
 
