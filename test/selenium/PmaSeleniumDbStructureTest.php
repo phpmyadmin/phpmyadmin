@@ -58,7 +58,7 @@ class PMA_SeleniumDbStructureTest extends PMA_SeleniumBase
         $this->navigateDatabase($this->database_name);
 
         // Let the Database page load
-        $this->waitForElementNotPresent('byId', 'ajax_message_num_1');
+        $this->waitAjax();
         $this->expandMore();
     }
 

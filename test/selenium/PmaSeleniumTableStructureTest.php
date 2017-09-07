@@ -53,16 +53,8 @@ class PMA_SeleniumTableStructureTest extends PMA_SeleniumBase
             "(//a[contains(., 'Structure')])"
         )->click();
 
-        $this->waitForElementNotPresent('byId', 'ajax_message_num_1');
+        $this->waitAjax();
         $this->waitForElement("byId", "tablestructure");
-
-        // Dynamic wait
-        $this->waitUntil(function () {
-            if (trim($this->getCellByTableId('tablestructure', 2, 2)) === '2') {
-                return true;
-            }
-            return null;
-        }, 5000);
     }
 
     /**
@@ -78,14 +70,14 @@ class PMA_SeleniumTableStructureTest extends PMA_SeleniumBase
             'byCssSelector',
             "#addColumns > input[value='Go']"
         )->click();
-        $this->waitForElementNotPresent('byId', 'loading_parent');
+        $this->waitAjax();
 
         $this->waitForElement("byClassName", "append_fields_form");
 
         $this->byId("field_0_1")->value('val3');
         $this->byCssSelector("input[name='do_save_data']")->click();
 
-        $this->waitForElementNotPresent('byId', 'ajax_message_num_1');
+        $this->waitAjax();
         $this->waitForElement(
             "byXPath",
             "//div[@class='success' and contains(., "
@@ -93,7 +85,7 @@ class PMA_SeleniumTableStructureTest extends PMA_SeleniumBase
         );
 
         $this->byPartialLinkText("Structure")->click();
-        $this->waitForElementNotPresent('byId', 'ajax_message_num_1');
+        $this->waitAjax();
         $this->waitForElement("byId", "tablestructure");
 
         $this->assertEquals(
@@ -119,7 +111,7 @@ class PMA_SeleniumTableStructureTest extends PMA_SeleniumBase
         $this->byCssSelector(
             "#tablestructure tbody tr:nth-child(2) td:nth-child(11)"
         )->click();
-        $this->waitForElementNotPresent('byId', 'ajax_message_num_1');
+        $this->waitAjax();
 
         $this->waitForElement("byClassName", "append_fields_form");
 
@@ -135,7 +127,7 @@ class PMA_SeleniumTableStructureTest extends PMA_SeleniumBase
         );
 
         $this->byPartialLinkText("Structure")->click();
-        $this->waitForElementNotPresent('byId', 'ajax_message_num_1');
+        $this->waitAjax();
 
         $this->waitForElement("byId", "tablestructure");
 
@@ -169,7 +161,7 @@ class PMA_SeleniumTableStructureTest extends PMA_SeleniumBase
             "//div[@class='success' and contains(., "
             . "'Your SQL query has been executed successfully')]"
         );
-        $this->waitForElementNotPresent('byId', 'ajax_message_num_1');
+        $this->waitAjax();
 
         $this->assertFalse(
             $this->isElementPresent(

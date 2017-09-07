@@ -157,65 +157,47 @@ class PMA_SeleniumExportTest extends PMA_SeleniumBase
         $this->expandMore();
 
         $this->waitForElement('byPartialLinkText', "Export")->click();
-        $this->waitForElementNotPresent('byId', 'ajax_message_num_1');
+        $this->waitAjax();
 
         $this->waitForElement("byId", "quick_or_custom");
         $this->byCssSelector("label[for=radio_custom_export]")->click();
-        sleep(1);
 
         $this->select($this->byId("plugins"))->selectOptionByLabel($plugin);
-        sleep(1);
 
         if ($type === 'server') {
             $this->scrollIntoView('databases_and_tables', 200);
-            $this->waitForElement('byPartialLinkText', 'Unselect all')->click();
-            sleep(1);
+            $this->byPartialLinkText('Unselect all')->click();
 
-            $this->waitForElement(
-                'byCssSelector',
-                "option[value=" . $this->database_name . "]"
-            )->click();
+            $this->byCssSelector("option[value=" . $this->database_name . "]")->click();
         }
 
         if ($type === 'table') {
+            $this->scrollIntoView('radio_allrows_0');
             $this->byCssSelector("label[for=radio_allrows_0]")->click();
             $this->byName("limit_to")->clear();
             $this->byName("limit_to")->value("1");
         }
 
-        $this->scrollIntoView('output', -150);
-        $this->waitForElement('byCssSelector', "label[for=radio_view_as_text]")->click();
-        sleep(1);
+        $this->scrollIntoView('radio_view_as_text');
+        $this->byCssSelector("label[for=radio_view_as_text]")->click();
 
         if ($plugin == "SQL") {
             if ($type !== 'db') {
-                $this->scrollIntoView('sql_structure', -250);
-                $this->waitForElement(
-                    'byCssSelector',
-                    "label[for=radio_sql_structure_or_data_structure_and_data]"
-                )->click();
-                sleep(1);
+                $this->scrollIntoView('radio_sql_structure_or_data_structure_and_data');
+                $this->byCssSelector("label[for=radio_sql_structure_or_data_structure_and_data]")->click();
             }
 
-            if ($type === 'server') {
-                $this->scrollIntoView('sql_data', -650);
-            } elseif ($type === 'db') {
-                $this->scrollIntoView('sql_data', -250);
-            } elseif ($type === 'table') {
-                $this->scrollIntoView('sql_data', -350);
-            }
-
-            $ele = $this->waitForElement('byId', 'checkbox_sql_if_not_exists');
+            $this->scrollIntoView('checkbox_sql_if_not_exists');
+            $ele = $this->byId('checkbox_sql_if_not_exists');
             if (! $ele->selected()) {
-                $this->moveto($ele);
-                $this->click();
+                $this->byCssSelector("label[for=checkbox_sql_if_not_exists]")->click();
             }
         }
 
         $this->scrollToBottom();
-        sleep(1);
 
-        $this->waitForElement('byId', "buttonGo")->click();
+        $this->byId("buttonGo")->click();
+        $this->waitAjax();
 
         $text = $this->waitForElement("byId", "textSQLDUMP")->text();
         return $text;

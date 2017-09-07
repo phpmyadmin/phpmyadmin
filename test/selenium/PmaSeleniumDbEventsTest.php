@@ -54,7 +54,7 @@ class PMA_SeleniumDbEventsTest extends PMA_SeleniumBase
         $this->navigateDatabase($this->database_name);
 
         // Let the Database page load
-        $this->waitForElementNotPresent('byId', 'ajax_message_num_1');
+        $this->waitAjax();
         $this->expandMore();
     }
 
@@ -98,11 +98,11 @@ class PMA_SeleniumDbEventsTest extends PMA_SeleniumBase
      */
     public function testAddEvent()
     {
-        $ele = $this->waitForElement("byPartialLinkText", "Events");
-        $ele->click();
+        $this->waitForElement("byPartialLinkText", "Events")->click();
+        $this->waitAjax();
 
-        $ele = $this->waitForElement("byPartialLinkText", "Add event");
-        $ele->click();
+        $this->waitForElement("byPartialLinkText", "Add event")->click();
+        $this->waitAjax();
 
         $this->waitForElement("byClassName", "rte_form");
 
@@ -113,41 +113,15 @@ class PMA_SeleniumDbEventsTest extends PMA_SeleniumBase
         $this->select($this->byName("item_interval_field"))
             ->selectOptionByLabel("MINUTE_SECOND");
 
-        $this->byName("item_starts")->click();
-        $this->keys(date('Y-m-d', strtotime('-1 day')));
+        $this->byName("item_starts")->value(date('Y-m-d', strtotime('-1 day')));
 
-        $this->byName("item_ends")->click();
-        $this->keys(date('Y-m-d', strtotime('+1 day')));
-
-        // Dynamic wait, retry if complete text not typed
-        $this->waitUntil(function () {
-            $startDate = date('Y-m-d', strtotime('-1 day'));
-            if ($this->byName('item_starts')->value() === $startDate) {
-                return true;
-            }
-
-            $this->byName("item_starts")->clear();
-            $this->byName("item_starts")->click();
-            $this->keys($startDate);
-            return null;
-        }, 5000);
-        $this->waitUntil(function () {
-            $endDate = date('Y-m-d', strtotime('+1 day'));
-            if ($this->byName('item_ends')->value() === $endDate) {
-                return true;
-            }
-
-            $this->byName("item_ends")->clear();
-            $this->byName("item_ends")->click();
-            $this->keys($endDate);
-            return null;
-        }, 5000);
+        $this->byName("item_ends")->value(date('Y-m-d', strtotime('+1 day')));
 
         $ele = $this->waitForElement('byName', "item_interval_value");
         $ele->value('1');
 
         $proc = "UPDATE " . $this->database_name . ".`test_table` SET val=val+1";
-        $this->typeInTextArea($proc, 2);
+        $this->typeInTextArea($proc);
 
         $this->byXPath("//button[contains(., 'Go')]")->click();
 
@@ -195,8 +169,8 @@ class PMA_SeleniumDbEventsTest extends PMA_SeleniumBase
     public function testEditEvents()
     {
         $this->_eventSQL();
-        $ele = $this->waitForElement("byPartialLinkText", "Events");
-        $ele->click();
+        $this->waitForElement("byPartialLinkText", "Events")->click();
+        $this->waitAjax();
 
         $this->waitForElement(
             "byXPath",
@@ -236,6 +210,7 @@ class PMA_SeleniumDbEventsTest extends PMA_SeleniumBase
     {
         $this->_eventSQL();
         $this->waitForElement("byPartialLinkText", "Events")->click();
+        $this->waitAjax();
 
         $this->waitForElement(
             "byXPath",
@@ -247,9 +222,8 @@ class PMA_SeleniumDbEventsTest extends PMA_SeleniumBase
             "byClassName", "submitOK"
         )->click();
 
-        $this->waitForElement("byId", "nothing2display");
+        $this->waitAjaxMessage();
 
-        sleep(1);
         $result = $this->dbQuery(
             "SHOW EVENTS WHERE Db='" . $this->database_name
             . "' AND Name='test_event'"

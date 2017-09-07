@@ -25,7 +25,7 @@ class PMA_SeleniumTableCreateTest extends PMA_SeleniumBase
 
         $this->login();
         $this->waitForElement('byPartialLinkText','Databases')->click();
-        $this->waitForElementNotPresent('byCssSelector', 'div#loading_parent');
+        $this->waitAjax();
 
         // go to specific database page
         $this->waitForElement("byPartialLinkText", $this->database_name)->click();
@@ -40,8 +40,8 @@ class PMA_SeleniumTableCreateTest extends PMA_SeleniumBase
      */
     public function testCreateTable()
     {
-        $this->waitForElementNotPresent('byCssSelector', 'div#loading_parent');
-        $this->waitForElementNotPresent('byId', 'ajax_message_num_1');
+        $this->waitAjax();
+        $this->waitAjax();
 
         $this->waitForElement('byId', 'create_table_form_minimal');
         $this->byCssSelector(
@@ -51,7 +51,7 @@ class PMA_SeleniumTableCreateTest extends PMA_SeleniumBase
         $this->byName("num_fields")->value("4");
         $this->byCssSelector('input[value=Go]')->click();
 
-        $this->waitForElementNotPresent('byId', 'ajax_message_num_1');
+        $this->waitAjax();
         $this->waitForElement('byName', 'do_save_data');
 
         $this->waitForElement('byId', "field_1_6")->click(); // null
@@ -59,7 +59,7 @@ class PMA_SeleniumTableCreateTest extends PMA_SeleniumBase
 
         // Do this separately since this opens a dialog
         // Since auto-increment auto sets a PRIMARY key since no key present
-        $this->waitForElementNotPresent('byId', 'ajax_message_num_1');
+        $this->waitAjax();
         $this->waitForElement('byXPath', '//button[contains(text(), \'Go\')]')->click();
 
         // column details
@@ -102,7 +102,7 @@ class PMA_SeleniumTableCreateTest extends PMA_SeleniumBase
             'li.last.table'
         );
 
-        $this->waitForElementNotPresent('byId', 'ajax_message_num_1');
+        $this->waitAjax();
 
         $this->waitForElement("byPartialLinkText", "test_table");
 
@@ -117,11 +117,11 @@ class PMA_SeleniumTableCreateTest extends PMA_SeleniumBase
     private function _tableStructureAssertions()
     {
         $this->gotoHomepage();
-        $this->waitForElementNotPresent('byId', 'loading_parent');
+        $this->waitAjax();
 
         $this->navigateTable('test_table');
 
-        $this->waitForElementNotPresent('byId', 'loading_parent');
+        $this->waitAjax();
 
         // go to structure page
         $this->waitForElement('byPartialLinkText', "Structure")->click();
