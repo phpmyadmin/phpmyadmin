@@ -1,25 +1,25 @@
 <?php
 /* vim: set expandtab sw=4 ts=4 sts=4: */
 /**
- * tests for server_status_advisor.lib.php
+ * tests for PhpMyAdmin\Server\Status\Advisor
  *
  * @package PhpMyAdmin-test
  */
+namespace PhpMyAdmin\Tests\Server\Status;
 
 use PhpMyAdmin\Core;
+use PhpMyAdmin\Server\Status\Advisor;
 use PhpMyAdmin\Server\Status\Data;
 use PhpMyAdmin\Theme;
 
-require_once 'libraries/server_status_advisor.lib.php';
-
 /**
- * class PMA_ServerStatusAdvisor_Test
+ * PhpMyAdmin\Tests\Server\Status\AdvisorTest class
  *
- * this class is for testing server_status_advisor.lib.php functions
+ * this class is for testing PhpMyAdmin\Server\Status\Advisor methods
  *
  * @package PhpMyAdmin-test
  */
-class PMA_ServerStatusAdvisor_Test extends PHPUnit_Framework_TestCase
+class AdvisorTest extends \PHPUnit_Framework_TestCase
 {
     /**
      * Prepares environment for the test.
@@ -119,15 +119,15 @@ class PMA_ServerStatusAdvisor_Test extends PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test for PMA_getHTMLForAdvisor
+     * Test for Advisor::getHtml
      *
      * @return void
      * @group medium
      */
-    public function testPMAGetHTMLForAdvisor()
+    public function testGetHtml()
     {
         //Call the test function
-        $html = PMA_getHTMLForAdvisor();
+        $html = Advisor::getHtml();
 
         //validate 1: Advisor Instructions
         $this->assertContains(

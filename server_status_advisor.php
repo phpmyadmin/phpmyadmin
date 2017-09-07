@@ -8,10 +8,10 @@
 
 use PhpMyAdmin\Message;
 use PhpMyAdmin\Response;
+use PhpMyAdmin\Server\Status\Advisor;
 use PhpMyAdmin\Server\Status\Data;
 
 require_once 'libraries/common.inc.php';
-require_once 'libraries/server_status_advisor.lib.php';
 require_once 'libraries/replication.inc.php';
 require_once 'libraries/replication_gui.lib.php';
 
@@ -27,7 +27,7 @@ $scripts->addFile('server_status_advisor.js');
 $response->addHTML('<div>');
 $response->addHTML($serverStatusData->getMenuHtml());
 if ($serverStatusData->dataLoaded) {
-    $response->addHTML(PMA_getHtmlForAdvisor());
+    $response->addHTML(Advisor::getHtml());
 } else {
     $response->addHTML(
         Message::error(
