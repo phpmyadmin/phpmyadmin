@@ -175,35 +175,28 @@ class PMA_SeleniumExportTest extends PMA_SeleniumBase
         }
 
         if ($type === 'table') {
+            $this->scrollIntoView('radio_allrows_0');
             $this->byCssSelector("label[for=radio_allrows_0]")->click();
             $this->byName("limit_to")->clear();
             $this->byName("limit_to")->value("1");
         }
 
-        $this->scrollIntoView('output', -150);
+        $this->scrollIntoView('radio_view_as_text');
         $this->waitForElement('byCssSelector', "label[for=radio_view_as_text]")->click();
 
         if ($plugin == "SQL") {
             if ($type !== 'db') {
-                $this->scrollIntoView('sql_structure', -250);
+                $this->scrollIntoView('radio_sql_structure_or_data_structure_and_data');
                 $this->waitForElement(
                     'byCssSelector',
                     "label[for=radio_sql_structure_or_data_structure_and_data]"
                 )->click();
             }
 
-            if ($type === 'server') {
-                $this->scrollIntoView('sql_data', -650);
-            } elseif ($type === 'db') {
-                $this->scrollIntoView('sql_data', -250);
-            } elseif ($type === 'table') {
-                $this->scrollIntoView('sql_data', -350);
-            }
-
+            $this->scrollIntoView('checkbox_sql_if_not_exists');
             $ele = $this->waitForElement('byId', 'checkbox_sql_if_not_exists');
             if (! $ele->selected()) {
-                $this->moveto($ele);
-                $this->click();
+                $this->byCssSelector("label[for=checkbox_sql_if_not_exists]")->click();
             }
         }
 
