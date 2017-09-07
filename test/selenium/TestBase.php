@@ -390,6 +390,13 @@ abstract class PMA_SeleniumBase extends PHPUnit_Extensions_Selenium2TestCase
      */
     public function waitForElement($func, $arg)
     {
+        try {
+            return call_user_func_array(
+                array($this, $func), array($arg)
+            );
+        } catch(Exception $e) {
+            // Element not present, fall back to waiting
+        }
         $this->timeouts()->implicitWait(10000);
         $element = call_user_func_array(
             array($this, $func), array($arg)
