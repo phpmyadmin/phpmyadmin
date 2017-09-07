@@ -9,6 +9,7 @@ namespace PhpMyAdmin\Server;
 
 use PhpMyAdmin\Core;
 use PhpMyAdmin\DatabaseInterface;
+use PhpMyAdmin\Display\ChangePassword;
 use PhpMyAdmin\Message;
 use PhpMyAdmin\Relation;
 use PhpMyAdmin\Response;
@@ -4838,7 +4839,7 @@ class Privileges
 
         if (! is_array($dbname) && strlen($dbname) === 0 && ! $user_does_not_exists) {
             //change login information
-            $html_output .= PMA_getHtmlForChangePassword(
+            $html_output .= ChangePassword::getHtml(
                 'edit_other',
                 $username,
                 $hostname

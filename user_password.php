@@ -8,9 +8,10 @@
  */
 
 use PhpMyAdmin\Core;
-use PhpMyAdmin\Url;
+use PhpMyAdmin\Display\ChangePassword;
 use PhpMyAdmin\Response;
 use PhpMyAdmin\Server\Privileges;
+use PhpMyAdmin\Url;
 
 /**
  * Gets some core libraries
@@ -67,9 +68,7 @@ if (isset($msg)) {
     unset($msg);
 }
 
-require_once './libraries/display_change_password.lib.php';
-
-echo PMA_getHtmlForChangePassword('change_pw', $username, $hostname);
+echo ChangePassword::getHtml('change_pw', $username, $hostname);
 exit;
 
 /**

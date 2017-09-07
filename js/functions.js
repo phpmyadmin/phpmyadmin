@@ -604,7 +604,7 @@ function PMA_display_git_revision()
 }
 
 /**
- * for libraries/display_change_password.lib.php
+ * for PhpMyAdmin\Display\ChangePassword
  *     libraries/user_password.php
  *
  */
