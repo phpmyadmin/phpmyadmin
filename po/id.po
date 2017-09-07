@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.7.4-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2017-08-10 09:13-0400\n"
-"PO-Revision-Date: 2017-09-07 06:40+0000\n"
-"Last-Translator: eisenhaus335 <greenzone332@outlook.com>\n"
+"PO-Revision-Date: 2017-09-08 07:46+0000\n"
+"Last-Translator: SacredWKnight <yudhis.sumardiono@gmail.com>\n"
 "Language-Team: Indonesian "
 "<https://hosted.weblate.org/projects/phpmyadmin/4-7/id/>\n"
 "Language: id\n"
@@ -9530,7 +9530,6 @@ msgid "Clear fast filter"
 msgstr "Bersihkan filter cepat"
 
 #: libraries/navigation/NavigationTree.php:1425
-#, fuzzy
 msgid "Collapse all"
 msgstr "Tutup semua"
 
@@ -9556,8 +9555,6 @@ msgid "Columns"
 msgstr "Kolom"
 
 #: libraries/navigation/nodes/NodeColumnContainer.php:36
-#, fuzzy
-#| msgid "New"
 msgctxt "Create new column"
 msgid "New"
 msgstr "Baru"
@@ -9588,15 +9585,11 @@ msgid "Functions"
 msgstr "Fungsi"
 
 #: libraries/navigation/nodes/NodeFunctionContainer.php:38
-#, fuzzy
-#| msgid "New"
 msgctxt "Create new function"
 msgid "New"
 msgstr "Baru"
 
 #: libraries/navigation/nodes/NodeIndexContainer.php:35
-#, fuzzy
-#| msgid "New"
 msgctxt "Create new index"
 msgid "New"
 msgstr "Baru"
@@ -10450,24 +10443,20 @@ msgstr "Opsi pembuatan objek"
 
 #: libraries/plugins/export/ExportLatex.php:118
 #: libraries/plugins/export/ExportLatex.php:170
-#, fuzzy
-#| msgid "Table caption"
 msgid "Table caption:"
-msgstr "Keterangan tabel:"
+msgstr "Tabel keterangan:"
 
 #: libraries/plugins/export/ExportLatex.php:124
 #: libraries/plugins/export/ExportLatex.php:176
-#, fuzzy
-#| msgid "Table caption (continued)"
 msgid "Table caption (continued):"
-msgstr "Keterangan tabel (lanjutan):"
+msgstr "Tabel keterangan (lanjutan):"
 
 #: libraries/plugins/export/ExportLatex.php:130
 #: libraries/plugins/export/ExportLatex.php:182
 #, fuzzy
 #| msgid "Label key"
 msgid "Label key:"
-msgstr "Kunci label:"
+msgstr "Label kunci:"
 
 #: libraries/plugins/export/ExportLatex.php:137
 #: libraries/plugins/export/ExportOdt.php:98
@@ -10487,8 +10476,6 @@ msgid "Display MIME types"
 msgstr "Tampilkan jenis MIME"
 
 #: libraries/plugins/export/ExportLatex.php:165
-#, fuzzy
-#| msgid "Put columns names in the first row"
 msgid "Put columns names in the first row:"
 msgstr "Masukkan nama kolom pada baris pertama:"
 
