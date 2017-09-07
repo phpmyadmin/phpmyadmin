@@ -179,9 +179,8 @@ class PMA_SeleniumDbProceduresTest extends PMA_SeleniumBase
             "byCssSelector", "button.submitOK"
         )->click();
 
-        $this->waitForElement("byId", "nothing2display");
+        $this->waitAjax();
 
-        sleep(1);
         $result = $this->dbQuery(
             "SHOW PROCEDURE STATUS WHERE Db='" . $this->database_name . "'"
         );
