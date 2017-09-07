@@ -98,11 +98,11 @@ class PMA_SeleniumDbEventsTest extends PMA_SeleniumBase
      */
     public function testAddEvent()
     {
-        $ele = $this->waitForElement("byPartialLinkText", "Events");
-        $ele->click();
+        $this->waitForElement("byPartialLinkText", "Events")->click();
+        $this->waitAjax();
 
-        $ele = $this->waitForElement("byPartialLinkText", "Add event");
-        $ele->click();
+        $this->waitForElement("byPartialLinkText", "Add event")->click();
+        $this->waitAjax();
 
         $this->waitForElement("byClassName", "rte_form");
 
@@ -169,8 +169,8 @@ class PMA_SeleniumDbEventsTest extends PMA_SeleniumBase
     public function testEditEvents()
     {
         $this->_eventSQL();
-        $ele = $this->waitForElement("byPartialLinkText", "Events");
-        $ele->click();
+        $this->waitForElement("byPartialLinkText", "Events")->click();
+        $this->waitAjax();
 
         $this->waitForElement(
             "byXPath",
@@ -210,6 +210,7 @@ class PMA_SeleniumDbEventsTest extends PMA_SeleniumBase
     {
         $this->_eventSQL();
         $this->waitForElement("byPartialLinkText", "Events")->click();
+        $this->waitAjax();
 
         $this->waitForElement(
             "byXPath",

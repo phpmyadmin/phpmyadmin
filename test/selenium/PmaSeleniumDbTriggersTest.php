@@ -86,11 +86,11 @@ class PMA_SeleniumDbTriggersTest extends PMA_SeleniumBase
     public function testAddTrigger()
     {
         $this->expandMore();
-        $ele = $this->waitForElement("byPartialLinkText", "Triggers");
-        $ele->click();
+        $this->waitForElement("byPartialLinkText", "Triggers")->click();
+        $this->waitAjax();
 
-        $ele = $this->waitForElement("byPartialLinkText", "Add trigger");
-        $ele->click();
+        $this->waitForElement("byPartialLinkText", "Add trigger")->click();
+        $this->waitAjax();
 
         $this->waitForElement("byClassName", "rte_form");
 
@@ -147,8 +147,8 @@ class PMA_SeleniumDbTriggersTest extends PMA_SeleniumBase
         $this->expandMore();
 
         $this->_triggerSQL();
-        $ele = $this->waitForElement("byPartialLinkText", "Triggers");
-        $ele->click();
+        $this->waitForElement("byPartialLinkText", "Triggers")->click();
+        $this->waitAjax();
 
         $this->waitForElement(
             "byXPath",
