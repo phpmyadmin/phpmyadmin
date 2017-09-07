@@ -7,21 +7,21 @@
  *
  * @package PhpMyAdmin
  */
-use PhpMyAdmin\ServerStatusData;
+use PhpMyAdmin\Server\Status\Data;
 
 /**
  * Returns the html content for the query statistics
  *
- * @param ServerStatusData $ServerStatusData Server status data
+ * @param Data $serverStatusData Server status data
  *
  * @return string
  */
-function PMA_getHtmlForQueryStatistics($ServerStatusData)
+function PMA_getHtmlForQueryStatistics(Data $serverStatusData)
 {
     $retval = '';
 
-    $hour_factor   = 3600 / $ServerStatusData->status['Uptime'];
-    $used_queries = $ServerStatusData->used_queries;
+    $hour_factor   = 3600 / $serverStatusData->status['Uptime'];
+    $used_queries = $serverStatusData->used_queries;
     $total_queries = array_sum($used_queries);
 
     $retval .= '<h3 id="serverstatusqueries">';
@@ -43,21 +43,21 @@ function PMA_getHtmlForQueryStatistics($ServerStatusData)
     $retval .= '<br />';
     $retval .= '&oslash; ' . __('per minute:') . ' ';
     $retval .= PhpMyAdmin\Util::formatNumber(
-        $total_queries * 60 / $ServerStatusData->status['Uptime'],
+        $total_queries * 60 / $serverStatusData->status['Uptime'],
         0
     );
     $retval .= '<br />';
-    if ($total_queries / $ServerStatusData->status['Uptime'] >= 1) {
+    if ($total_queries / $serverStatusData->status['Uptime'] >= 1) {
         $retval .= '&oslash; ' . __('per second:') . ' ';
         $retval .= PhpMyAdmin\Util::formatNumber(
-            $total_queries / $ServerStatusData->status['Uptime'],
+            $total_queries / $serverStatusData->status['Uptime'],
             0
         );
     }
     $retval .= '</span>';
     $retval .= '</h3>';
 
-    $retval .= PMA_getHtmlForServerStatusQueriesDetails($ServerStatusData);
+    $retval .= PMA_getHtmlForServerStatusQueriesDetails($serverStatusData);
 
     return $retval;
 }
@@ -65,19 +65,19 @@ function PMA_getHtmlForQueryStatistics($ServerStatusData)
 /**
  * Returns the html content for the query details
  *
- * @param ServerStatusData $ServerStatusData Server status data
+ * @param Data $serverStatusData Server status data
  *
  * @return string
  */
-function PMA_getHtmlForServerStatusQueriesDetails($ServerStatusData)
+function PMA_getHtmlForServerStatusQueriesDetails(Data $serverStatusData)
 {
-    $hour_factor   = 3600 / $ServerStatusData->status['Uptime'];
-    $used_queries = $ServerStatusData->used_queries;
+    $hour_factor   = 3600 / $serverStatusData->status['Uptime'];
+    $used_queries = $serverStatusData->used_queries;
     $total_queries = array_sum($used_queries);
     // reverse sort by value to show most used statements first
     arsort($used_queries);
 
-    //(- $ServerStatusData->status['Connections']);
+    //(- $serverStatusData->status['Connections']);
     $perc_factor    = 100 / $total_queries;
 
     $retval = '<table id="serverstatusqueriesdetails" '

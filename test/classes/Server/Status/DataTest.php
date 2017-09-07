@@ -1,25 +1,23 @@
 <?php
 /* vim: set expandtab sw=4 ts=4 sts=4: */
 /**
- * Test for ServerStatusData class
+ * Test for PhpMyAdmin\Server\Status\Data class
  *
  * @package PhpMyAdmin-test
  */
+namespace PhpMyAdmin\Tests\Server\Status;
 
-/*
- * Include to test.
- */
 use PhpMyAdmin\Core;
-use PhpMyAdmin\ServerStatusData;
+use PhpMyAdmin\Server\Status\Data;
 
 require_once 'test/PMATestCase.php';
 
 /**
- * Test for ServerStatusData class
+ * Test for PhpMyAdmin\Server\Status\Data class
  *
  * @package PhpMyAdmin-test
  */
-class ServerStatusDataTest extends PMATestCase
+class DataTest extends \PMATestCase
 {
     /**
      * @access protected
@@ -44,7 +42,7 @@ class ServerStatusDataTest extends PMATestCase
             ->disableOriginalConstructor()
             ->getMock();
 
-        //this data is needed when ServerStatusData constructs
+        //this data is needed when PhpMyAdmin\Server\Status\Data constructs
         $server_status = array(
             "Aborted_clients" => "0",
             "Aborted_connects" => "0",
@@ -102,7 +100,7 @@ class ServerStatusDataTest extends PMATestCase
 
         $GLOBALS['dbi'] = $dbi;
 
-        $this->object = new ServerStatusData();
+        $this->object = new Data();
     }
 
     /**

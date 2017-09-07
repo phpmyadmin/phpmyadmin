@@ -9,7 +9,7 @@
 
 use PhpMyAdmin\Response;
 use PhpMyAdmin\Message;
-use PhpMyAdmin\ServerStatusData;
+use PhpMyAdmin\Server\Status\Data;
 
 require_once 'libraries/common.inc.php';
 require_once 'libraries/server_common.inc.php';
@@ -17,7 +17,7 @@ require_once 'libraries/server_status_queries.lib.php';
 require_once 'libraries/replication.inc.php';
 require_once 'libraries/replication_gui.lib.php';
 
-$serverStatusData = new ServerStatusData();
+$serverStatusData = new Data();
 
 $response = Response::getInstance();
 $header   = $response->getHeader();

@@ -7,17 +7,17 @@
  *
  * @package PhpMyAdmin
  */
-use PhpMyAdmin\ServerStatusData;
+use PhpMyAdmin\Server\Status\Data;
 use PhpMyAdmin\Url;
 
 /**
  * Returns the html for the list filter
  *
- * @param ServerStatusData $ServerStatusData Server status data
+ * @param Data $serverStatusData Server status data
  *
  * @return string
  */
-function PMA_getHtmlForFilter($ServerStatusData)
+function PMA_getHtmlForFilter(Data $serverStatusData)
 {
     $filterAlert = '';
     if (! empty($_REQUEST['filterAlert'])) {
@@ -54,8 +54,8 @@ function PMA_getHtmlForFilter($ServerStatusData)
     $retval .= '<select id="filterCategory" name="filterCategory">';
     $retval .= '<option value="">' . __('Filter by category…') . '</option>';
 
-    foreach ($ServerStatusData->sections as $section_id => $section_name) {
-        if (isset($ServerStatusData->sectionUsed[$section_id])) {
+    foreach ($serverStatusData->sections as $section_id => $section_name) {
+        if (isset($serverStatusData->sectionUsed[$section_id])) {
             if (! empty($_REQUEST['filterCategory'])
                 && $_REQUEST['filterCategory'] == $section_id
             ) {
@@ -85,15 +85,15 @@ function PMA_getHtmlForFilter($ServerStatusData)
 /**
  * Prints the suggestion links
  *
- * @param ServerStatusData $ServerStatusData Server status data
+ * @param Data $serverStatusData Server status data
  *
  * @return string
  */
-function PMA_getHtmlForLinkSuggestions($ServerStatusData)
+function PMA_getHtmlForLinkSuggestions(Data $serverStatusData)
 {
     $retval  = '<div id="linkSuggestions" class="defaultLinks hide">';
     $retval .= '<p class="notice">' . __('Related links:');
-    foreach ($ServerStatusData->links as $section_name => $section_links) {
+    foreach ($serverStatusData->links as $section_name => $section_links) {
         $retval .= '<span class="status_' . $section_name . '"> ';
         $i = 0;
         foreach ($section_links as $link_name => $link_url) {
@@ -119,11 +119,11 @@ function PMA_getHtmlForLinkSuggestions($ServerStatusData)
 /**
  * Returns a table with variables information
  *
- * @param ServerStatusData $ServerStatusData Server status data
+ * @param Data $serverStatusData Server status data
  *
  * @return string
  */
-function PMA_getHtmlForVariablesList($ServerStatusData)
+function PMA_getHtmlForVariablesList(Data $serverStatusData)
 {
     $retval  = '';
     $strShowStatus = PMA_getStatusVariablesDescriptions();
@@ -162,25 +162,25 @@ function PMA_getHtmlForVariablesList($ServerStatusData)
         'Qcache_lowmem_prunes' => 0,
 
         'Qcache_free_blocks' =>
-            isset($ServerStatusData->status['Qcache_total_blocks'])
-            ? $ServerStatusData->status['Qcache_total_blocks'] / 5
+            isset($serverStatusData->status['Qcache_total_blocks'])
+            ? $serverStatusData->status['Qcache_total_blocks'] / 5
             : 0,
         'Slow_launch_threads' => 0,
 
         // depends on Key_read_requests
         // normally lower then 1:0.01
-        'Key_reads' => isset($ServerStatusData->status['Key_read_requests'])
-            ? (0.01 * $ServerStatusData->status['Key_read_requests']) : 0,
+        'Key_reads' => isset($serverStatusData->status['Key_read_requests'])
+            ? (0.01 * $serverStatusData->status['Key_read_requests']) : 0,
         // depends on Key_write_requests
         // normally nearly 1:1
-        'Key_writes' => isset($ServerStatusData->status['Key_write_requests'])
-            ? (0.9 * $ServerStatusData->status['Key_write_requests']) : 0,
+        'Key_writes' => isset($serverStatusData->status['Key_write_requests'])
+            ? (0.9 * $serverStatusData->status['Key_write_requests']) : 0,
 
         'Key_buffer_fraction' => 0.5,
 
         // alert if more than 95% of thread cache is in use
-        'Threads_cached' => isset($ServerStatusData->variables['thread_cache_size'])
-            ? 0.95 * $ServerStatusData->variables['thread_cache_size'] : 0
+        'Threads_cached' => isset($serverStatusData->variables['thread_cache_size'])
+            ? 0.95 * $serverStatusData->variables['thread_cache_size'] : 0
 
         // higher is better
         // variable => min value
@@ -188,7 +188,7 @@ function PMA_getHtmlForVariablesList($ServerStatusData)
     );
 
     $retval .= PMA_getHtmlForRenderVariables(
-        $ServerStatusData,
+        $serverStatusData,
         $alerts,
         $strShowStatus
     );
@@ -199,13 +199,13 @@ function PMA_getHtmlForVariablesList($ServerStatusData)
 /**
  * Returns HTML for render variables list
  *
- * @param ServerStatusData $ServerStatusData Server status data
- * @param array            $alerts           Alert Array
- * @param array            $strShowStatus    Status Array
+ * @param Data  $serverStatusData Server status data
+ * @param array $alerts           Alert Array
+ * @param array $strShowStatus    Status Array
  *
  * @return string
  */
-function PMA_getHtmlForRenderVariables($ServerStatusData, $alerts, $strShowStatus)
+function PMA_getHtmlForRenderVariables(Data $serverStatusData, array $alerts, array $strShowStatus)
 {
     $retval = '<div class="responsivetable">';
     $retval  .= '<table class="data noclick" id="serverstatusvariables">';
@@ -221,9 +221,9 @@ function PMA_getHtmlForRenderVariables($ServerStatusData, $alerts, $strShowStatu
     $retval .= '</thead>';
     $retval .= '<tbody>';
 
-    foreach ($ServerStatusData->status as $name => $value) {
-        $retval .= '<tr class="' . (isset($ServerStatusData->allocationMap[$name])
-                ?' s_' . $ServerStatusData->allocationMap[$name]
+    foreach ($serverStatusData->status as $name => $value) {
+        $retval .= '<tr class="' . (isset($serverStatusData->allocationMap[$name])
+                ?' s_' . $serverStatusData->allocationMap[$name]
                 : '')
             . '">';
 
@@ -294,8 +294,8 @@ function PMA_getHtmlForRenderVariables($ServerStatusData, $alerts, $strShowStatu
             $retval .= $strShowStatus[$name];
         }
 
-        if (isset($ServerStatusData->links[$name])) {
-            foreach ($ServerStatusData->links[$name] as $link_name => $link_url) {
+        if (isset($serverStatusData->links[$name])) {
+            foreach ($serverStatusData->links[$name] as $link_name => $link_url) {
                 if ('doc' == $link_name) {
                     $retval .= PhpMyAdmin\Util::showMySQLDocu($link_url);
                 } else {

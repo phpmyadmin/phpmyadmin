@@ -7,7 +7,7 @@
  */
 
 use PhpMyAdmin\Core;
-use PhpMyAdmin\ServerStatusData;
+use PhpMyAdmin\Server\Status\Data;
 use PhpMyAdmin\Theme;
 
 require_once 'libraries/server_status_variables.lib.php';
@@ -26,7 +26,7 @@ class PMA_ServerStatusVariables_Test extends PHPUnit_Framework_TestCase
      *
      * @return void
      */
-    public $ServerStatusData;
+    public $serverStatusData;
 
     /**
      * Test for setUp
@@ -63,7 +63,7 @@ class PMA_ServerStatusVariables_Test extends PHPUnit_Framework_TestCase
             ->disableOriginalConstructor()
             ->getMock();
 
-        //this data is needed when ServerStatusData constructs
+        //this data is needed when PhpMyAdmin\Server\Status\Data constructs
         $server_status = array(
             "Aborted_clients" => "0",
             "Aborted_connects" => "0",
@@ -138,7 +138,7 @@ class PMA_ServerStatusVariables_Test extends PHPUnit_Framework_TestCase
             ->will($this->returnValueMap($fetchResult));
 
         $GLOBALS['dbi'] = $dbi;
-        $this->ServerStatusData = new ServerStatusData();
+        $this->serverStatusData = new Data();
     }
 
     /**
@@ -149,7 +149,7 @@ class PMA_ServerStatusVariables_Test extends PHPUnit_Framework_TestCase
     public function testPMAGetHtmlForFilter()
     {
         //Call the test function
-        $html = PMA_getHtmlForFilter($this->ServerStatusData);
+        $html = PMA_getHtmlForFilter($this->serverStatusData);
 
         //validate 1: PMA_getHtmlForFilter
         $this->assertContains(
@@ -188,7 +188,7 @@ class PMA_ServerStatusVariables_Test extends PHPUnit_Framework_TestCase
     public function testPMAGetHtmlForLinkSuggestions()
     {
         //Call the test function
-        $html = PMA_getHtmlForLinkSuggestions($this->ServerStatusData);
+        $html = PMA_getHtmlForLinkSuggestions($this->serverStatusData);
 
         //validate 1: PMA_getHtmlForLinkSuggestions
         $this->assertContains(
@@ -219,7 +219,7 @@ class PMA_ServerStatusVariables_Test extends PHPUnit_Framework_TestCase
     public function testPMAGetHtmlForVariablesList()
     {
         //Call the test function
-        $html = PMA_getHtmlForVariablesList($this->ServerStatusData);
+        $html = PMA_getHtmlForVariablesList($this->serverStatusData);
 
         //validate 1: PMA_getHtmlForVariablesList
         $table = '<table class="data noclick" '

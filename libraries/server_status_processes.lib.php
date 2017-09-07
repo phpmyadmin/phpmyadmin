@@ -8,7 +8,7 @@
  * @package PhpMyAdmin
  */
 use PhpMyAdmin\Message;
-use PhpMyAdmin\ServerStatusData;
+use PhpMyAdmin\Server\Status\Data;
 use PhpMyAdmin\Util;
 use PhpMyAdmin\Url;
 
@@ -27,7 +27,7 @@ function PMA_getHtmlForProcessListAutoRefresh()
     )->getDisplay();
     $retval  = $notice . '<div class="tabLinks">';
     $retval .= '<label>' . __('Refresh rate') . ': ';
-    $retval .= ServerStatusData::getHtmlForRefreshList(
+    $retval .= Data::getHtmlForRefreshList(
         'refreshRate',
         5,
         Array(2, 3, 4, 5, 10, 20, 40, 60, 120, 300, 600, 1200)
@@ -299,4 +299,3 @@ function PMA_getHtmlForServerProcessItem($process, $show_full_sql)
 
     return $retval;
 }
-

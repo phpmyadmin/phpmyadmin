@@ -7,7 +7,7 @@
  */
 
 use PhpMyAdmin\Core;
-use PhpMyAdmin\ServerStatusData;
+use PhpMyAdmin\Server\Status\Data;
 use PhpMyAdmin\Theme;
 
 require_once 'libraries/server_status_queries.lib.php';
@@ -26,7 +26,7 @@ class PMA_ServerStatusQueries_Test extends PHPUnit_Framework_TestCase
      *
      * @return void
      */
-    public $ServerStatusData;
+    public $serverStatusData;
 
     /**
      * Test for setUp
@@ -59,7 +59,7 @@ class PMA_ServerStatusQueries_Test extends PHPUnit_Framework_TestCase
             ->disableOriginalConstructor()
             ->getMock();
 
-        //this data is needed when ServerStatusData constructs
+        //this data is needed when PhpMyAdmin\Server\Status\Data constructs
         $server_status = array(
             "Aborted_clients" => "0",
             "Aborted_connects" => "0",
@@ -99,9 +99,9 @@ class PMA_ServerStatusQueries_Test extends PHPUnit_Framework_TestCase
             ->will($this->returnValueMap($fetchResult));
 
         $GLOBALS['dbi'] = $dbi;
-        $this->ServerStatusData = new ServerStatusData();
-        $this->ServerStatusData->status['Uptime'] = 36000;
-        $this->ServerStatusData->used_queries = array(
+        $this->serverStatusData = new Data();
+        $this->serverStatusData->status['Uptime'] = 36000;
+        $this->serverStatusData->used_queries = array(
             "Com_change_db" => "15",
             "Com_select" => "12",
             "Com_set_option" => "54",
@@ -119,10 +119,10 @@ class PMA_ServerStatusQueries_Test extends PHPUnit_Framework_TestCase
     public function testPMAGetHtmlForQueryStatistics()
     {
         //Call the test function
-        $html = PMA_getHtmlForQueryStatistics($this->ServerStatusData);
+        $html = PMA_getHtmlForQueryStatistics($this->serverStatusData);
 
-        $hour_factor   = 3600 / $this->ServerStatusData->status['Uptime'];
-        $used_queries = $this->ServerStatusData->used_queries;
+        $hour_factor   = 3600 / $this->serverStatusData->status['Uptime'];
+        $used_queries = $this->serverStatusData->used_queries;
         $total_queries = array_sum($used_queries);
 
         $questions_from_start = sprintf(
@@ -152,7 +152,7 @@ class PMA_ServerStatusQueries_Test extends PHPUnit_Framework_TestCase
 
         //validate 3:per minute
         $value_per_minute = PhpMyAdmin\Util::formatNumber(
-            $total_queries * 60 / $this->ServerStatusData->status['Uptime'],
+            $total_queries * 60 / $this->serverStatusData->status['Uptime'],
             0
         );
         $this->assertContains(
@@ -173,7 +173,7 @@ class PMA_ServerStatusQueries_Test extends PHPUnit_Framework_TestCase
     public function testPMAGetHtmlForServerStatusQueriesDetails()
     {
         //Call the test function
-        $html = PMA_getHtmlForServerStatusQueriesDetails($this->ServerStatusData);
+        $html = PMA_getHtmlForServerStatusQueriesDetails($this->serverStatusData);
 
         //validate 1: PMA_getHtmlForServerStatusQueriesDetails
         $this->assertContains(

@@ -7,7 +7,7 @@
  */
 
 use PhpMyAdmin\Core;
-use PhpMyAdmin\ServerStatusData;
+use PhpMyAdmin\Server\Status\Data;
 use PhpMyAdmin\Theme;
 
 require_once 'libraries/server_status.lib.php';
@@ -26,7 +26,7 @@ class PMA_ServerStatus_Test extends PHPUnit_Framework_TestCase
      *
      * @return void
      */
-    public $ServerStatusData;
+    public $serverStatusData;
 
     /**
      * Test for setUp
@@ -52,7 +52,7 @@ class PMA_ServerStatus_Test extends PHPUnit_Framework_TestCase
             ->disableOriginalConstructor()
             ->getMock();
 
-        //this data is needed when ServerStatusData constructs
+        //this data is needed when PhpMyAdmin\Server\Status\Data constructs
         $server_status = array(
             "Aborted_clients" => "0",
             "Aborted_connects" => "0",
@@ -130,7 +130,7 @@ class PMA_ServerStatus_Test extends PHPUnit_Framework_TestCase
 
         $GLOBALS['dbi'] = $dbi;
 
-        $this->ServerStatusData = new ServerStatusData();
+        $this->serverStatusData = new Data();
     }
 
     /**
@@ -147,15 +147,15 @@ class PMA_ServerStatus_Test extends PHPUnit_Framework_TestCase
         $max_used_conn = 500;
         $aborted_conn = 200;
         $conn = 1000;
-        $this->ServerStatusData->status['Uptime'] = 36000;
-        $this->ServerStatusData->status['Bytes_received'] = $bytes_received;
-        $this->ServerStatusData->status['Bytes_sent'] = $bytes_sent;
-        $this->ServerStatusData->status['Max_used_connections'] = $max_used_conn;
-        $this->ServerStatusData->status['Aborted_connects'] = $aborted_conn;
-        $this->ServerStatusData->status['Connections'] = $conn;
+        $this->serverStatusData->status['Uptime'] = 36000;
+        $this->serverStatusData->status['Bytes_received'] = $bytes_received;
+        $this->serverStatusData->status['Bytes_sent'] = $bytes_sent;
+        $this->serverStatusData->status['Max_used_connections'] = $max_used_conn;
+        $this->serverStatusData->status['Aborted_connects'] = $aborted_conn;
+        $this->serverStatusData->status['Connections'] = $conn;
 
         //Call the test function
-        $html = PMA_getHtmlForServerStatus($this->ServerStatusData);
+        $html = PMA_getHtmlForServerStatus($this->serverStatusData);
 
         //validate 1: PMA_getHtmlForServerStateGeneralInfo
         //traffic: $bytes_received + $bytes_sent
@@ -240,8 +240,8 @@ class PMA_ServerStatus_Test extends PHPUnit_Framework_TestCase
 
         $GLOBALS['replication_info']['master']['status'] = true;
         $GLOBALS['replication_info']['slave']['status'] = true;
-        $this->ServerStatusData->status['Connections'] = 0;
-        $html = PMA_getHtmlForServerStatus($this->ServerStatusData);
+        $this->serverStatusData->status['Connections'] = 0;
+        $html = PMA_getHtmlForServerStatus($this->serverStatusData);
 
         $this->assertContains(
             'This MySQL server works as <b>master</b> and <b>slave</b>',
@@ -250,7 +250,7 @@ class PMA_ServerStatus_Test extends PHPUnit_Framework_TestCase
 
         $GLOBALS['replication_info']['master']['status'] = false;
         $GLOBALS['replication_info']['slave']['status'] = true;
-        $html = PMA_getHtmlForServerStatus($this->ServerStatusData);
+        $html = PMA_getHtmlForServerStatus($this->serverStatusData);
 
         $this->assertContains(
             'This MySQL server works as <b>slave</b>',

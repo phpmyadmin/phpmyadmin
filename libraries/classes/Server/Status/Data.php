@@ -1,12 +1,12 @@
 <?php
 /* vim: set expandtab sw=4 ts=4 sts=4: */
 /**
- * ServerStatusData class
+ * PhpMyAdmin\Server\Status\Data class
  * Used by server_status_*.php pages
  *
  * @package PhpMyAdmin
  */
-namespace PhpMyAdmin;
+namespace PhpMyAdmin\Server\Status;
 
 use PhpMyAdmin\Url;
 
@@ -21,7 +21,7 @@ use PhpMyAdmin\Url;
  *
  * @package PhpMyAdmin
  */
-class ServerStatusData
+class Data
 {
     public $status;
     public $sections;

@@ -10,7 +10,7 @@
 namespace PhpMyAdmin\Server\Status;
 
 use PhpMyAdmin\Sanitize;
-use PhpMyAdmin\ServerStatusData;
+use PhpMyAdmin\Server\Status\Data;
 use PhpMyAdmin\Util;
 
 require_once 'libraries/sysinfo.lib.php';
@@ -20,11 +20,11 @@ class Monitor
     /**
      * Prints html with monitor
      *
-     * @param ServerStatusData $ServerStatusData Server status data
+     * @param Data $serverStatusData Server status data
      *
      * @return string
      */
-    public static function getHtmlForMonitor(ServerStatusData $ServerStatusData)
+    public static function getHtmlForMonitor(Data $serverStatusData)
     {
         $retval  = self::getHtmlForTabLinks();
 
@@ -44,7 +44,7 @@ class Monitor
         $retval .= '<script type="text/javascript">';
         $retval .= 'variableNames = [ ';
         $i = 0;
-        foreach ($ServerStatusData->status as $name=>$value) {
+        foreach ($serverStatusData->status as $name=>$value) {
             if (is_numeric($value)) {
                 if ($i++ > 0) {
                     $retval .= ", ";
@@ -288,7 +288,7 @@ class Monitor
         $retval .= '<div class="clearfloat paddingtop"></div>';
         $retval .= '<div class="floatleft">';
         $retval .= __('Refresh rate') . '<br />';
-        $retval .= ServerStatusData::getHtmlForRefreshList(
+        $retval .= Data::getHtmlForRefreshList(
             'gridChartRefresh',
             5,
             Array(2, 3, 4, 5, 10, 20, 40, 60, 120, 300, 600, 1200)
@@ -337,11 +337,11 @@ class Monitor
     /**
      * Define some data and links needed on the client side
      *
-     * @param ServerStatusData $ServerStatusData Server status data
+     * @param Data $serverStatusData Server status data
      *
      * @return string
      */
-    public static function getHtmlForClientSideDataAndLinks($ServerStatusData)
+    public static function getHtmlForClientSideDataAndLinks(Data $serverStatusData)
     {
         /**
          * Define some data needed on the client side
@@ -351,7 +351,7 @@ class Monitor
         $form .= sprintf($input, 'server_time', microtime(true) * 1000);
         $form .= sprintf($input, 'server_os', PMA_getSysInfoOs());
         $form .= sprintf($input, 'is_superuser', $GLOBALS['dbi']->isSuperuser());
-        $form .= sprintf($input, 'server_db_isLocal', $ServerStatusData->db_isLocal);
+        $form .= sprintf($input, 'server_db_isLocal', $serverStatusData->db_isLocal);
         $form .= '</form>';
         /**
          * Define some links used on client side
