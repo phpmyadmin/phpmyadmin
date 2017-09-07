@@ -8,6 +8,7 @@
 
 use PhpMyAdmin\Charsets;
 use PhpMyAdmin\Core;
+use PhpMyAdmin\Display\GitRevision;
 use PhpMyAdmin\LanguageManager;
 use PhpMyAdmin\Message;
 use PhpMyAdmin\RecentFavoriteTable;
@@ -21,11 +22,6 @@ use PhpMyAdmin\Url;
  * Gets some core libraries and displays a top message if required
  */
 require_once 'libraries/common.inc.php';
-
-/**
- * display Git revision if requested
- */
-require_once 'libraries/display_git_revision.lib.php';
 
 /**
  * pass variables to child pages
@@ -98,7 +94,7 @@ if ($response->isAjax() && ! empty($_REQUEST['recent_table'])) {
 
 if ($GLOBALS['PMA_Config']->isGitRevision()) {
     if (isset($_REQUEST['git_revision']) && $response->isAjax()) {
-        PMA_printGitRevision();
+        GitRevision::print();
         exit;
     }
     echo '<div id="is_git_revision"></div>';
