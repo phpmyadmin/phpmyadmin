@@ -93,7 +93,12 @@ abstract class PMA_SeleniumBase extends PHPUnit_Extensions_Selenium2TestCase
                 'port' => 80,
                 'timeout' => 30000,
                 'sessionStrategy' => $strategy,
-                'desiredCapabilities' => $capabilities,
+                'desiredCapabilities' => array_merge(
+                    $capabilities,
+                    array(
+                        'os' => 'Windows',
+                    )
+                )
             );
 
             /* Only one browser for continuous integration for speed */
