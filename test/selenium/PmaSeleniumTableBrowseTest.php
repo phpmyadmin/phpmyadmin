@@ -55,14 +55,6 @@ class PMA_SeleniumTableBrowseTest extends PMA_SeleniumBase
         $this->navigateTable('test_table');
 
         $this->waitAjax();
-
-        // Dynamic wait
-        $this->waitUntil(function () {
-            if (trim($this->getCellByTableClass('table_results', 1, 5)) === '1') {
-                return true;
-            }
-            return null;
-        }, 5000);
     }
 
     /**
@@ -164,7 +156,6 @@ class PMA_SeleniumTableBrowseTest extends PMA_SeleniumBase
         $ele = $this->byCssSelector(
             "table.table_results tbody tr:nth-child(2) td:nth-child(2)"
         );
-        sleep(1);
         $this->moveto($ele);
         $this->click();
 
@@ -226,7 +217,6 @@ class PMA_SeleniumTableBrowseTest extends PMA_SeleniumBase
         $element = $this->byCssSelector(
             "table.table_results tbody tr:nth-child(1) td:nth-child(6)"
         );
-        sleep(1);
 
         $this->moveto($element);
         $this->doubleclick();
@@ -268,7 +258,6 @@ class PMA_SeleniumTableBrowseTest extends PMA_SeleniumBase
         $ele = $this->byCssSelector(
             "table.table_results tbody tr:nth-child(3) td:nth-child(3)"
         );
-        sleep(1);
         $this->moveto($ele);
         $this->click();
         $this->waitForElement("byId", "insertForm");

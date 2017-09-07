@@ -62,7 +62,6 @@ class PMA_SeleniumSqlQueryTest extends PMA_SeleniumBase
         $this->waitForElement('byPartialLinkText', 'SQL')->click();
         $this->waitAjax();
 
-        // Dynamic wait
         $this->typeInTextArea(
             'SET @t1=1, @t2=2, @t3:=4;'
             . 'SELECT 1 as `id`,  @t1, @t2, @t3, @t4 := @t1+@t2+@t3;'

@@ -182,7 +182,6 @@ class PMA_SeleniumTrackingTest extends PMA_SeleniumBase
     {
         $this->navigateDatabase($this->database_name, true);
         $this->expandMore();
-        sleep(1);
 
         $this->byPartialLinkText("Tracking")->click();
 

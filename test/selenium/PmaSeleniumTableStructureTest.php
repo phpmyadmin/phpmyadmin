@@ -55,14 +55,6 @@ class PMA_SeleniumTableStructureTest extends PMA_SeleniumBase
 
         $this->waitAjax();
         $this->waitForElement("byId", "tablestructure");
-
-        // Dynamic wait
-        $this->waitUntil(function () {
-            if (trim($this->getCellByTableId('tablestructure', 2, 2)) === '2') {
-                return true;
-            }
-            return null;
-        }, 5000);
     }
 
     /**
