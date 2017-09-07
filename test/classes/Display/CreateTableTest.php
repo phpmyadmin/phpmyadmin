@@ -1,31 +1,25 @@
 <?php
 /* vim: set expandtab sw=4 ts=4 sts=4: */
 /**
- * tests for display_create_table.lib.php
+ * tests for PhpMyAdmin\Display\CreateTable
  *
  * @package PhpMyAdmin-test
  */
+namespace PhpMyAdmin\Tests\Display;
 
+use PhpMyAdmin\Display\CreateTable;
 use PhpMyAdmin\Theme;
 use PhpMyAdmin\Url;
-
-$GLOBALS['server'] = 0;
-$GLOBALS['cfg']['Server']['DisableIS'] = false;
-$GLOBALS['cfg']['DBG']['sql'] = false;
-/*
- * Include to test.
- */
-
-require_once 'libraries/display_create_table.lib.php';
+use PhpMyAdmin\Util;
 
 /**
- * class PMA_DisplayCreateTable_Test
+ * PhpMyAdmin\Tests\Display\CreateTableTest class
  *
- * this class is for testing display_create_table.lib.php functions
+ * this class is for testing PhpMyAdmin\Display\CreateTable methods
  *
  * @package PhpMyAdmin-test
  */
-class PMA_DisplayCreateTable_Test extends PHPUnit_Framework_TestCase
+class CreateTableTest extends \PHPUnit_Framework_TestCase
 {
     /**
      * Test for setUp
@@ -36,6 +30,8 @@ class PMA_DisplayCreateTable_Test extends PHPUnit_Framework_TestCase
     {
         //$GLOBALS
         $GLOBALS['server'] = 0;
+        $GLOBALS['cfg']['Server']['DisableIS'] = false;
+        $GLOBALS['cfg']['DBG']['sql'] = false;
         $GLOBALS['cfg']['MaxRows'] = 10;
         $GLOBALS['cfg']['ServerDefault'] = "PMA_server";
         $GLOBALS['cfg']['TableNavigationLinksMode'] = 'icons';
@@ -52,7 +48,7 @@ class PMA_DisplayCreateTable_Test extends PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test for PMA_getHtmlForCreateTable
+     * Test for CreateTable::getHtml
      *
      * @return void
      */
@@ -61,11 +57,11 @@ class PMA_DisplayCreateTable_Test extends PHPUnit_Framework_TestCase
         $db = "pma_db";
 
         //Call the test function
-        $html = PMA_getHtmlForCreateTable($db);
+        $html = CreateTable::getHtml($db);
 
         //getImage
         $this->assertContains(
-            PhpMyAdmin\Util::getImage('b_table_add.png'),
+            Util::getImage('b_table_add.png'),
             $html
         );
 

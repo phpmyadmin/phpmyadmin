@@ -24,25 +24,30 @@
  *
  * @package PhpMyAdmin
  */
-if (! defined('PHPMYADMIN')) {
-    exit;
-}
+namespace PhpMyAdmin\Display;
 
-/**
- *
- */
+use PhpMyAdmin\Template;
+
 require_once './libraries/check_user_privileges.lib.php';
 
 /**
- * Returns the html for create table.
+ * PhpMyAdmin\Display\CreateTable class
  *
- * @param string $db database name
- *
- * @return string
+ * @package PhpMyAdmin
  */
-function PMA_getHtmlForCreateTable($db)
+class CreateTable
 {
-    return PhpMyAdmin\Template::get('database/create_table')->render(
-        array('db' => $db)
-    );
+    /**
+     * Returns the html for create table.
+     *
+     * @param string $db database name
+     *
+     * @return string
+     */
+    public static function getHtml($db)
+    {
+        return Template::get('database/create_table')->render(
+            array('db' => $db)
+        );
+    }
 }

@@ -1,11 +1,11 @@
 <?php
 /* vim: set expandtab sw=4 ts=4 sts=4: */
 /**
- * Hold the PhpMyAdmin\DisplayResults class
+ * Hold the PhpMyAdmin\Display\Results class
  *
  * @package PhpMyAdmin
  */
-namespace PhpMyAdmin;
+namespace PhpMyAdmin\Display;
 
 use PhpMyAdmin\Core;
 use PhpMyAdmin\DatabaseInterface;
@@ -30,9 +30,8 @@ use PhpMyAdmin\Util;
  *
  * @package PhpMyAdmin
  */
-class DisplayResults
+class Results
 {
-
     // Define constants
     const NO_EDIT_OR_DELETE = 'nn';
     const UPDATE_ROW = 'ur';
@@ -219,7 +218,7 @@ class DisplayResults
 
 
     /**
-     * Constructor for DisplayResults class
+     * Constructor for PhpMyAdmin\Display\Results class
      *
      * @param string $db        the database name
      * @param string $table     the table name
@@ -5210,7 +5209,7 @@ class DisplayResults
         /**
          *
          * @todo detect privileges to create a view
-         *       (but see 2006-01-19 note in display_create_table.lib.php,
+         *       (but see 2006-01-19 note in PhpMyAdmin\Display\CreateTable,
          *        I think we cannot detect db-specific privileges reliably)
          * Note: we don't display a Create view link if we found a PROCEDURE clause
          */

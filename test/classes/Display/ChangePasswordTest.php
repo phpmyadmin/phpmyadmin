@@ -1,31 +1,27 @@
 <?php
 /* vim: set expandtab sw=4 ts=4 sts=4: */
 /**
- * tests for display_change_password.lib.php
+ * tests for PhpMyAdmin\Display\ChangePassword
  *
  * @package PhpMyAdmin-test
  */
+namespace PhpMyAdmin\Tests\Display;
 
-/*
- * Include to test.
- */
+use PhpMyAdmin\Config;
+use PhpMyAdmin\Display\ChangePassword;
 use PhpMyAdmin\Theme;
 use PhpMyAdmin\Url;
-
-
-require_once 'libraries/display_change_password.lib.php';
-
 
 require_once 'libraries/config.default.php';
 
 /**
- * class PMA_DisplayChangePassword_Test
+ * ChangePasswordTest class
  *
- * this class is for testing display_change_password.lib.php functions
+ * this class is for testing PhpMyAdmin\Display\ChangePassword functions
  *
  * @package PhpMyAdmin-test
  */
-class PMA_DisplayChangePassword_Test extends PHPUnit_Framework_TestCase
+class ChangePasswordTest extends \PHPUnit_Framework_TestCase
 {
     /**
      * Test for setUp
@@ -35,7 +31,7 @@ class PMA_DisplayChangePassword_Test extends PHPUnit_Framework_TestCase
     public function setUp()
     {
         //$GLOBALS
-        $GLOBALS['PMA_Config'] = new PhpMyAdmin\Config();
+        $GLOBALS['PMA_Config'] = new Config();
         $GLOBALS['PMA_Config']->enableBc();
         $GLOBALS['cfg']['MaxRows'] = 10;
         $GLOBALS['cfg']['ServerDefault'] = "PMA_server";
@@ -55,17 +51,17 @@ class PMA_DisplayChangePassword_Test extends PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test for PMA_getHtmlForChangePassword
+     * Test for ChangePassword::getHtml
      *
      * @return void
      */
-    public function testPMAGetHtmlForChangePassword()
+    public function testGetHtml()
     {
         $username = "pma_username";
         $hostname = "pma_hostname";
 
         //Call the test function
-        $html = PMA_getHtmlForChangePassword('change_pw', $username, $hostname);
+        $html = ChangePassword::getHtml('change_pw', $username, $hostname);
 
         //PMA_PHP_SELF
         $this->assertContains(

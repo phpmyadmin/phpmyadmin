@@ -12,6 +12,7 @@
  * @package PhpMyAdmin
  */
 use PhpMyAdmin\DatabaseInterface;
+use PhpMyAdmin\Display\CreateTable;
 use PhpMyAdmin\Message;
 use PhpMyAdmin\Operations;
 use PhpMyAdmin\Plugins\Export\ExportSql;
@@ -23,7 +24,6 @@ use PhpMyAdmin\Util;
  * requirements
  */
 require_once 'libraries/common.inc.php';
-require_once 'libraries/display_create_table.lib.php';
 
 /**
  * functions implementation for this script
@@ -247,7 +247,7 @@ if (!$is_information_schema) {
     }
 
     $response->addHTML('<div>');
-    $response->addHTML(PMA_getHtmlForCreateTable($db));
+    $response->addHTML(CreateTable::getHtml($db));
     $response->addHTML('</div>');
 
     /**

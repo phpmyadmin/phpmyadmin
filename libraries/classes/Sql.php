@@ -10,7 +10,7 @@ namespace PhpMyAdmin;
 use PhpMyAdmin\Bookmark;
 use PhpMyAdmin\Core;
 use PhpMyAdmin\DatabaseInterface;
-use PhpMyAdmin\DisplayResults;
+use PhpMyAdmin\Display\Results as DisplayResults;
 use PhpMyAdmin\Index;
 use PhpMyAdmin\Message;
 use PhpMyAdmin\Operations;

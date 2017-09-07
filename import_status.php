@@ -7,6 +7,7 @@
  */
 
 use PhpMyAdmin\Core;
+use PhpMyAdmin\Display\ImportAjax;
 
 /* PHP 5.4 stores upload progress data only in the default session.
  * After calling session_name(), we won't find the progress data anymore.
@@ -51,12 +52,11 @@ if (ini_get('session.upload_progress.enabled')) {
 define('PMA_MINIMUM_COMMON', 1);
 
 require_once 'libraries/common.inc.php';
-require_once 'libraries/display_import_ajax.lib.php';
 list(
     $SESSION_KEY,
     $upload_id,
     $plugins
-) = PMA_uploadProgressSetup();
+) = ImportAjax::uploadProgressSetup();
 
 /*
 if (defined('SESSIONUPLOAD')) {
@@ -117,5 +117,5 @@ if (isset($_GET["message"]) && $_GET["message"]) {
     echo '</fieldset>' , "\n";
 
 } else {
-    PMA_importAjaxStatus($_GET["id"]);
+    ImportAjax::status($_GET["id"]);
 }
