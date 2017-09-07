@@ -667,12 +667,9 @@ abstract class PMA_SeleniumBase extends PHPUnit_Extensions_Selenium2TestCase
         // 70pt offset by-default so that the topmenu does not cover the element
         $this->execute(
             array(
-                'script' => 'var element = document.getElementById("'
-                            . $element_id . '");'
-                            . 'var position = element.getBoundingClientRect();'
-                            . 'var x = position.left;'
-                            . 'var y = position.top;'
-                            . 'window.scrollTo(x, y-(' . $offset . '));',
+                'script' => 'var position = document.getElementById("'
+                            . $element_id . '").getBoundingClientRect();'
+                            . 'window.scrollBy(position.left, position.top-(' . $offset . '));',
                 'args'   => array()
             )
         );
