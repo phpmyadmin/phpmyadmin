@@ -9,6 +9,7 @@ namespace PhpMyAdmin\Display;
 
 use PhpMyAdmin\Charsets;
 use PhpMyAdmin\Core;
+use PhpMyAdmin\Display\ImportAjax;
 use PhpMyAdmin\Encoding;
 use PhpMyAdmin\Message;
 use PhpMyAdmin\Plugins\ImportPlugin;
@@ -652,11 +653,10 @@ class Import
         include_once './libraries/file_listing.lib.php';
         include_once './libraries/plugin_interface.lib.php';
 
-        include_once './libraries/display_import_ajax.lib.php';
         list(
             $SESSION_KEY,
             $upload_id,
-        ) = PMA_uploadProgressSetup();
+        ) = ImportAjax::uploadProgressSetup();
 
         /* Scan for plugins */
         /* @var $import_list ImportPlugin[] */
