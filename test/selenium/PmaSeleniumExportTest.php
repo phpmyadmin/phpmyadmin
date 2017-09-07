@@ -161,15 +161,12 @@ class PMA_SeleniumExportTest extends PMA_SeleniumBase
 
         $this->waitForElement("byId", "quick_or_custom");
         $this->byCssSelector("label[for=radio_custom_export]")->click();
-        sleep(1);
 
         $this->select($this->byId("plugins"))->selectOptionByLabel($plugin);
-        sleep(1);
 
         if ($type === 'server') {
             $this->scrollIntoView('databases_and_tables', 200);
             $this->waitForElement('byPartialLinkText', 'Unselect all')->click();
-            sleep(1);
 
             $this->waitForElement(
                 'byCssSelector',
@@ -185,7 +182,6 @@ class PMA_SeleniumExportTest extends PMA_SeleniumBase
 
         $this->scrollIntoView('output', -150);
         $this->waitForElement('byCssSelector', "label[for=radio_view_as_text]")->click();
-        sleep(1);
 
         if ($plugin == "SQL") {
             if ($type !== 'db') {
@@ -194,7 +190,6 @@ class PMA_SeleniumExportTest extends PMA_SeleniumBase
                     'byCssSelector',
                     "label[for=radio_sql_structure_or_data_structure_and_data]"
                 )->click();
-                sleep(1);
             }
 
             if ($type === 'server') {
@@ -213,7 +208,6 @@ class PMA_SeleniumExportTest extends PMA_SeleniumBase
         }
 
         $this->scrollToBottom();
-        sleep(1);
 
         $this->waitForElement('byId', "buttonGo")->click();
 
