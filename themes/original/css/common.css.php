@@ -2357,6 +2357,10 @@ body .ui-widget {
     color: #0000FF;
 }
 
+.ui-draggable {
+    z-index: 801;
+}
+
 /* jqPlot */
 
 /*rules for the plot target div.  These will be cascaded down to all plot elements
