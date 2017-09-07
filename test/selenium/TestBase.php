@@ -676,7 +676,6 @@ abstract class PMA_SeleniumBase extends PHPUnit_Extensions_Selenium2TestCase
                 'args'   => array()
             )
         );
-        sleep(1);
     }
 
     /**
@@ -692,7 +691,6 @@ abstract class PMA_SeleniumBase extends PHPUnit_Extensions_Selenium2TestCase
                 'args' => array()
             )
         );
-        sleep(1);
     }
 
     /**

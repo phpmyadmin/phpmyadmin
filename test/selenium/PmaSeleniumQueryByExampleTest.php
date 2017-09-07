@@ -121,7 +121,6 @@ class PmaSeleniumQueryByExampleTest extends PMA_SeleniumBase
         $this->waitAjax();
 
         $this->scrollToBottom();
-        sleep(1);
 
         $expected = "SELECT `test_table`.`id` AS `ID`, `test_table`.`val` AS `VAL`"
             . "\nFROM `test_table`"
@@ -136,7 +135,6 @@ class PmaSeleniumQueryByExampleTest extends PMA_SeleniumBase
         );
 
         $this->scrollToBottom();
-        sleep(1);
 
         /* Submit the query */
         $this->waitForElement('byCssSelector', 'input[value="Submit Query"]')->click();
