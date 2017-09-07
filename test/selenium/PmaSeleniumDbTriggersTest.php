@@ -201,7 +201,7 @@ class PMA_SeleniumDbTriggersTest extends PMA_SeleniumBase
             "byCssSelector", "button.submitOK"
         )->click();
 
-        $this->waitAjax();
+        $this->waitAjaxMessage();
 
         // test trigger
         $this->dbQuery("INSERT INTO `test_table` (val) VALUES (1);");

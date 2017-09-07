@@ -222,7 +222,7 @@ class PMA_SeleniumDbEventsTest extends PMA_SeleniumBase
             "byClassName", "submitOK"
         )->click();
 
-        $this->waitAjax();
+        $this->waitAjaxMessage();
 
         $result = $this->dbQuery(
             "SHOW EVENTS WHERE Db='" . $this->database_name

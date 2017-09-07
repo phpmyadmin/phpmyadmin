@@ -704,6 +704,27 @@ abstract class PMA_SeleniumBase extends PHPUnit_Extensions_Selenium2TestCase
     }
 
     /**
+     * Wait for AJAX message disappear
+     *
+     * @return void
+     */
+    public function waitAjaxMessage()
+    {
+        /* Get current message count */
+        $ajax_message_count = $this->execute(
+            array(
+                'script' => 'return ajax_message_count;',
+                'args' => array()
+            )
+        );
+        /* Ensure the popup is gone */
+        $this->waitForElementNotPresent(
+            'byId',
+            'ajax_message_num_' . $ajax_message_count
+        );
+    }
+
+    /**
      * Mark unsuccessful tests as 'Failures' on Browerstack
      *
      * @return void
