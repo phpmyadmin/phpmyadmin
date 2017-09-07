@@ -307,3 +307,4 @@ lexers['php'] = PhpLexer(startinline=True)
 linkcheck_retries = 10
 linkcheck_timeout = 10
 linkcheck_anchors = False
+linkcheck_ignore = [r'https://software.opensuse.org/package/.*']
