@@ -66,21 +66,6 @@ class PMA_SeleniumTrackingTest extends PMA_SeleniumBase
         $this->waitForElement("byPartialLinkText", "Track table");
         $this->byXPath("(//a[contains(., 'Track table')])[1]")->click();
 
-        // Let the click go through
-        // If click happened before complete page load, it didn't go through
-        while (! $this->isElementPresent("byName", "delete")
-            && $this->isElementPresent('byXPath', "(//a[contains(., 'Track table')])[1]")
-            && ! $this->isElementPresent('byId', 'span.ajax_notification')
-        ) {
-            sleep(1);
-            // If link still exists on page
-            if ($this->isElementPresent("byXPath", "(//a[contains(., 'Track table')])[1]")) {
-                $this->byXPath("(//a[contains(., 'Track table')])[1]")->click();
-            } else {
-                break;
-            }
-        }
-
         $this->waitAjax();
         $this->waitForElement("byName", "delete")->click();
         $this->byCssSelector("input[value='Create version']")->click();

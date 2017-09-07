@@ -71,15 +71,7 @@ class PMA_SeleniumCreateRemoveUserTest extends PMA_SeleniumBase
         $this->waitForElement('byId', 'usersForm');
         $ele = $this->waitForElement("byId", "add_user_anchor");
         $this->moveto($ele);
-
-        // Let the click go through
-        // If click happened before complete page load, it didn't go through
-        while ($this->isElementPresent('byId', 'add_user_anchor')
-            && ! $this->isElementPresent('byId', 'span.ajax_notification')
-        ) {
-            $ele->click();
-            sleep(1);
-        }
+        $ele->click();
 
         $this->waitAjax();
         $userField = $this->waitForElement("byName", "username");
