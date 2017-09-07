@@ -272,8 +272,7 @@ class PMA_SeleniumTrackingTest extends PMA_SeleniumBase
         $this->waitForElement("byId", "queryfieldscontainer");
         $this->typeInTextArea(
             ";UPDATE test_table SET val = val + 1; "
-            . "DELETE FROM test_table WHERE val = 3",
-            2
+            . "DELETE FROM test_table WHERE val = 3"
         );
         $this->byCssSelector("input[value='Go']")->click();
         $this->waitAjax();

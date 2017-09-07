@@ -552,16 +552,16 @@ abstract class PMA_SeleniumBase extends PHPUnit_Extensions_Selenium2TestCase
      * Type text in textarea (CodeMirror enabled)
      *
      * @param string $text  Text to type
-     * @param string $index Index of CodeMirror instance to write to
+     * @param int    $index Index of CodeMirror instance to write to
      *
      * @return void
      */
     public function typeInTextArea($text, $index=0)
     {
+        $this->waitForElement('byCssSelector', 'div.cm-s-default');
         $this->execute(
             array(
-                'script' => "var cm = $('.CodeMirror')[" . $index . "].CodeMirror;"
-                    . "cm.setValue('" . $text . "');",
+                'script' => "$('.cm-s-default')[$index].CodeMirror.setValue('" . $text . "');",
                 'args' => array()
             )
         );

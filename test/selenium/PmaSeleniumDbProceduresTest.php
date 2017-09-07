@@ -100,7 +100,7 @@ class PMA_SeleniumDbProceduresTest extends PMA_SeleniumBase
         $ele->value("outp");
 
         $proc = "SELECT char_length(inp) + count(*) FROM test_table INTO outp";
-        $this->typeInTextArea($proc, 2);
+        $this->typeInTextArea($proc);
 
         $this->select(
             $this->byName("item_sqldataaccess")

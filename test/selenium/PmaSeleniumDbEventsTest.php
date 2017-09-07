@@ -147,7 +147,7 @@ class PMA_SeleniumDbEventsTest extends PMA_SeleniumBase
         $ele->value('1');
 
         $proc = "UPDATE " . $this->database_name . ".`test_table` SET val=val+1";
-        $this->typeInTextArea($proc, 2);
+        $this->typeInTextArea($proc);
 
         $this->byXPath("//button[contains(., 'Go')]")->click();
 

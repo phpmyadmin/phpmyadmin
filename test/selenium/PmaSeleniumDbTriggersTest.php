@@ -106,7 +106,7 @@ class PMA_SeleniumDbTriggersTest extends PMA_SeleniumBase
             ->selectOptionByLabel("INSERT");
 
         $proc = "UPDATE " . $this->database_name . ".`test_table2` SET val=val+1";
-        $this->typeInTextArea($proc, 2);
+        $this->typeInTextArea($proc);
 
         $this->byXPath("//button[contains(., 'Go')]")->click();
 
@@ -159,7 +159,7 @@ class PMA_SeleniumDbTriggersTest extends PMA_SeleniumBase
 
         $this->waitForElement("byClassName", "rte_form");
         $proc = "UPDATE " . $this->database_name . ".`test_table2` SET val=val+10";
-        $this->typeInTextArea($proc, 2);
+        $this->typeInTextArea($proc);
 
         $this->byXPath("//button[contains(., 'Go')]")->click();
 

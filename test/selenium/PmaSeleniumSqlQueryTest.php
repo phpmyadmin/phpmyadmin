@@ -63,16 +63,9 @@ class PMA_SeleniumSqlQueryTest extends PMA_SeleniumBase
         $this->waitAjax();
 
         // Dynamic wait
-        $this->waitUntil(function () {
-            if ($this->byCssSelector('div.CodeMirror')) {
-                return true;
-            }
-            return null;
-        }, 5000);
         $this->typeInTextArea(
             'SET @t1=1, @t2=2, @t3:=4;'
-            . 'SELECT 1 as `id`,  @t1, @t2, @t3, @t4 := @t1+@t2+@t3;',
-            2
+            . 'SELECT 1 as `id`,  @t1, @t2, @t3, @t4 := @t1+@t2+@t3;'
         );
         $this->byId('button_submit_query')->click();
         $this->waitAjax();
@@ -115,17 +108,7 @@ class PMA_SeleniumSqlQueryTest extends PMA_SeleniumBase
         $this->waitForElement('byPartialLinkText', 'SQL')->click();
         $this->waitAjax();
 
-        // Dynamic wait
-        $this->waitUntil(function () {
-            if ($this->byCssSelector('div.CodeMirror')) {
-                return true;
-            }
-            return null;
-        }, 5000);
-        $this->typeInTextArea(
-            'SHOW TABLE STATUS',
-            2
-        );
+        $this->typeInTextArea('SHOW TABLE STATUS');
         $this->byId('button_submit_query')->click();
         $this->waitAjax();
 
@@ -159,17 +142,7 @@ class PMA_SeleniumSqlQueryTest extends PMA_SeleniumBase
         $this->waitForElement('byPartialLinkText', 'SQL')->click();
         $this->waitAjax();
 
-        // Dynamic wait
-        $this->waitUntil(function () {
-            if ($this->byCssSelector('div.CodeMirror')) {
-                return true;
-            }
-            return null;
-        }, 5000);
-        $this->typeInTextArea(
-            'SELECT * FROM `test_table` WHERE `val` NOT IN (2, 3);',
-            2
-        );
+        $this->typeInTextArea('SELECT * FROM `test_table` WHERE `val` NOT IN (2, 3);');
         $this->byId('button_submit_query')->click();
         $this->waitAjax();
 
@@ -199,16 +172,10 @@ class PMA_SeleniumSqlQueryTest extends PMA_SeleniumBase
     {
         $this->waitForElement('byCssSelector', 'a.inline_edit_sql')->click();
         // empty current query
-        $this->typeInTextArea(
-            '',
-            3
-        );
+        $this->typeInTextArea('',  1);
 
         // type in next sql query
-        $this->typeInTextArea(
-            'SELECT 1',
-            3
-        );
+        $this->typeInTextArea('SELECT 1', 1);
 
         $this->byId('sql_query_edit_save')->click();
         $this->waitAjax();
