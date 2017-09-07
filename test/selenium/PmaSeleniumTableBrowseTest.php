@@ -180,10 +180,9 @@ class PMA_SeleniumTableBrowseTest extends PMA_SeleniumBase
         );
 
         $this->byId("field_3_3")->clear();
-        $this->byId("field_3_3")->click();
+        $this->byId("field_3_3")->value("2009-01-2");
         // shorter date to prevent error,
         // automatically gets appended with 00:00:00
-        $this->keys("2009-01-2");
 
         $this->byId("field_2_3")->clear();
         $this->byId("field_2_3")->value("foobar");
@@ -279,7 +278,6 @@ class PMA_SeleniumTableBrowseTest extends PMA_SeleniumBase
         // automatically gets appended with 00:00:00
         $this->keys("2012-01-2");
         $this->byId("field_2_3")->value("ABCDEFG");
-        sleep(1); // longer string takes longer to type
 
         $this->waitForElement('byId', "buttonYes")->click();
 
