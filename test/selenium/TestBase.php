@@ -697,22 +697,10 @@ abstract class PMA_SeleniumBase extends PHPUnit_Extensions_Selenium2TestCase
      */
     public function waitAjax()
     {
-        /* Get current message count */
-        $ajax_message_count = $this->execute(
-            array(
-                'script' => 'return ajax_message_count;',
-                'args' => array()
-            )
-        );
         /* Wait while code is loading */
         while ($this->execute(array('script' => 'return AJAX.active;', 'args' => array()))) {
             usleep(5000);
         }
-        /* Ensure the popup is gone */
-        $this->waitForElementNotPresent(
-            'byId',
-            'ajax_message_num_' . $ajax_message_count
-        );
     }
 
     /**
