@@ -1,25 +1,22 @@
 <?php
 /* vim: set expandtab sw=4 ts=4 sts=4: */
 /**
- * Tests for server_user_groups.lib.php
+ * Tests for PhpMyAdmin\Server\UserGroups
  *
  * @package PhpMyAdmin-test
  */
+namespace PhpMyAdmin\Tests\Server;
 
+use PhpMyAdmin\Server\UserGroups;
 use PhpMyAdmin\Theme;
 use PhpMyAdmin\Url;
 
-/*
- * Include to test.
- */
-require_once 'libraries/server_user_groups.lib.php';
-
 /**
- * Tests for server_user_groups.lib.php
+ * Tests for PhpMyAdmin\Server\UserGroups
  *
  * @package PhpMyAdmin-test
  */
-class PMA_ServerUserGroupsTest extends PHPUnit_Framework_TestCase
+class UserGroupsTest extends \PHPUnit_Framework_TestCase
 {
     /**
      * Prepares environment for the test.
@@ -42,7 +39,7 @@ class PMA_ServerUserGroupsTest extends PHPUnit_Framework_TestCase
     }
 
     /**
-     * Tests PMA_getHtmlForUserGroupsTable() function when there are no user groups
+     * Tests UserGroups::getHtmlForUserGroupsTable() function when there are no user groups
      *
      * @return void
      * @group medium
@@ -67,7 +64,7 @@ class PMA_ServerUserGroupsTest extends PHPUnit_Framework_TestCase
             ->method('freeResult');
         $GLOBALS['dbi'] = $dbi;
 
-        $html = PMA_getHtmlForUserGroupsTable();
+        $html = UserGroups::getHtmlForUserGroupsTable();
         $this->assertNotContains(
             '<table id="userGroupsTable">',
             $html
@@ -81,7 +78,7 @@ class PMA_ServerUserGroupsTest extends PHPUnit_Framework_TestCase
     }
 
     /**
-     * Tests PMA_getHtmlForUserGroupsTable() function when there are user groups
+     * Tests UserGroups::getHtmlForUserGroupsTable() function when there are user groups
      *
      * @return void
      */
@@ -121,7 +118,7 @@ class PMA_ServerUserGroupsTest extends PHPUnit_Framework_TestCase
             ->method('freeResult');
         $GLOBALS['dbi'] = $dbi;
 
-        $html = PMA_getHtmlForUserGroupsTable();
+        $html = UserGroups::getHtmlForUserGroupsTable();
         $this->assertContains(
             '<td>usergroup</td>',
             $html
@@ -161,7 +158,7 @@ class PMA_ServerUserGroupsTest extends PHPUnit_Framework_TestCase
     }
 
     /**
-     * Tests PMA_deleteUserGroup() function
+     * Tests UserGroups::delete() function
      *
      * @return void
      */
@@ -187,18 +184,18 @@ class PMA_ServerUserGroupsTest extends PHPUnit_Framework_TestCase
 
         $GLOBALS['dbi'] = $dbi;
 
-        PMA_deleteUserGroup('ug');
+        UserGroups::delete('ug');
     }
 
     /**
-     * Tests PMA_getHtmlToEditUserGroup() function
+     * Tests UserGroups::getHtmlToEditUserGroup() function
      *
      * @return void
      */
     public function testGetHtmlToEditUserGroup()
     {
         // adding a user group
-        $html = PMA_getHtmlToEditUserGroup();
+        $html = UserGroups::getHtmlToEditUserGroup();
         $this->assertContains(
             '<input type="hidden" name="addUserGroupSubmit" value="1"',
             $html
@@ -236,7 +233,7 @@ class PMA_ServerUserGroupsTest extends PHPUnit_Framework_TestCase
         $GLOBALS['dbi'] = $dbi;
 
         // editing a user group
-        $html = PMA_getHtmlToEditUserGroup('ug');
+        $html = UserGroups::getHtmlToEditUserGroup('ug');
         $this->assertContains(
             '<input type="hidden" name="userGroup" value="ug"',
             $html
