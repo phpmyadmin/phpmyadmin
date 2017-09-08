@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.8.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2017-08-10 09:14-0400\n"
-"PO-Revision-Date: 2017-09-07 08:08+0000\n"
+"PO-Revision-Date: 2017-09-08 19:11+0000\n"
 "Last-Translator: SacredWKnight <yudhis.sumardiono@gmail.com>\n"
 "Language-Team: Indonesian "
 "<https://hosted.weblate.org/projects/phpmyadmin/master/id/>\n"
@@ -5793,8 +5793,6 @@ msgstr "Tabel keterangan (lanjutan):"
 
 #: libraries/classes/Plugins/Export/ExportLatex.php:131
 #: libraries/classes/Plugins/Export/ExportLatex.php:183
-#, fuzzy
-#| msgid "Label key"
 msgid "Label key:"
 msgstr "Label kunci:"
 
@@ -5882,10 +5880,8 @@ msgid "Report title:"
 msgstr "Judul laporan:"
 
 #: libraries/classes/Plugins/Export/ExportPdf.php:231
-#, fuzzy
-#| msgid "Dumping data for table"
 msgid "Dumping data"
-msgstr "Dumping data untuk tabel"
+msgstr "Dumping data"
 
 #: libraries/classes/Plugins/Export/ExportPdf.php:280
 #: libraries/config/messages.inc.php:350 templates/table/secondary_tabs.twig:24
@@ -5893,8 +5889,6 @@ msgid "Table structure"
 msgstr "Struktur tabel"
 
 #: libraries/classes/Plugins/Export/ExportPdf.php:286
-#, fuzzy
-#| msgid "structure"
 msgid "View structure"
 msgstr "Lihat struktur"
 
@@ -5918,7 +5912,6 @@ msgid "Additional custom header comment (\\n splits lines):"
 msgstr "Menambahkan komentar judul kustom (\\n memotong baris):"
 
 #: libraries/classes/Plugins/Export/ExportSql.php:114
-#, fuzzy
 msgid ""
 "Include a timestamp of when databases were created, last updated, and last "
 "checked"
@@ -5942,17 +5935,14 @@ msgid "Export views as tables"
 msgstr "Mengekspor tampilan sebagai tabel"
 
 #: libraries/classes/Plugins/Export/ExportSql.php:173
-#, fuzzy
-#| msgid "Export method"
 msgid "Export metadata"
 msgstr "Ekspor metadata"
 
 #: libraries/classes/Plugins/Export/ExportSql.php:188
-#, fuzzy
 msgid ""
 "Database system or older MySQL server to maximize output compatibility with:"
 msgstr ""
-"Database sistem atau server MySQL yang lebih tua untuk memaksimalkan output "
+"Sistem database atau server MySQL yang lebih tua untuk memaksimalkan output "
 "kompatibilitas dengan:"
 
 #: libraries/classes/Plugins/Export/ExportSql.php:233
@@ -5989,16 +5979,13 @@ msgstr ""
 "nama tabel dibentuk dengan karakter khusus atau kata kunci)</i>"
 
 #: libraries/classes/Plugins/Export/ExportSql.php:343
-#, fuzzy
-#| msgid "Object creation options"
 msgid "Data creation options"
 msgstr "Opsi pembuatan data"
 
 #: libraries/classes/Plugins/Export/ExportSql.php:348
 #: libraries/classes/Plugins/Export/ExportSql.php:2295
-#, fuzzy
 msgid "Truncate table before insert"
-msgstr "Truncate table sebelum insert"
+msgstr "Potong tabel sebelum dimasukkan"
 
 #: libraries/classes/Plugins/Export/ExportSql.php:355
 msgid "Instead of <code>INSERT</code> statements, use:"
