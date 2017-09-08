@@ -1,26 +1,25 @@
 <?php
 /* vim: set expandtab sw=4 ts=4 sts=4: */
 /**
- * tests for server_status_processes.lib.php
+ * tests for PhpMyAdmin\Server\Status\Processes
  *
  * @package PhpMyAdmin-test
  */
+namespace PhpMyAdmin\Tests\Server\Status;
 
 use PhpMyAdmin\Core;
+use PhpMyAdmin\Server\Status\Processes;
 use PhpMyAdmin\Theme;
 use PhpMyAdmin\Url;
 
-
-require_once 'libraries/server_status_processes.lib.php';
-
 /**
- * class PMA_ServerStatusProcesses_Test
+ * PhpMyAdmin\Tests\Server\Status\ProcessesTest class
  *
- * this class is for testing server_status_processes.lib.php functions
+ * this class is for testing PhpMyAdmin\Server\Status\Processes methods
  *
  * @package PhpMyAdmin-test
  */
-class PMA_ServerStatusProcesses_Test extends PHPUnit_Framework_TestCase
+class ProcessesTest extends \PHPUnit_Framework_TestCase
 {
     /**
      * Test for setUp
@@ -48,14 +47,14 @@ class PMA_ServerStatusProcesses_Test extends PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test for PMA_getHtmlForProcessListAutoRefresh
+     * Test for Processes::getHtmlForProcessListAutoRefresh
      *
      * @return void
      * @group medium
      */
     public function testPMAGetHtmlForProcessListAutoRefresh()
     {
-        $html = PMA_getHtmlForProcessListAutoRefresh();
+        $html = Processes::getHtmlForProcessListAutoRefresh();
 
         // Test Notice
         $this->assertContains(
@@ -91,7 +90,7 @@ class PMA_ServerStatusProcesses_Test extends PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test for PMA_getHtmlForServerProcesslist
+     * Test for Processes::getHtmlForServerProcesslist
      *
      * @return void
      * @group medium
@@ -112,7 +111,7 @@ class PMA_ServerStatusProcesses_Test extends PHPUnit_Framework_TestCase
         $GLOBALS['dbi']->expects($this->any())->method('fetchAssoc')
             ->will($this->onConsecutiveCalls($process));
 
-        $html = PMA_getHtmlForServerProcesslist();
+        $html = Processes::getHtmlForServerProcesslist();
 
         // Test process table
         $this->assertContains(
@@ -137,7 +136,7 @@ class PMA_ServerStatusProcesses_Test extends PHPUnit_Framework_TestCase
         $_REQUEST['sort_order'] = 'ASC';
         $_REQUEST['order_by_field'] = 'db';
         $_REQUEST['column_name'] = 'Database';
-        $html = PMA_getHtmlForServerProcesslist();
+        $html = Processes::getHtmlForServerProcesslist();
 
         $this->assertContains(
             'Truncate Shown Queries',
@@ -155,7 +154,7 @@ class PMA_ServerStatusProcesses_Test extends PHPUnit_Framework_TestCase
         $_REQUEST['sort_order'] = 'DESC';
         $_REQUEST['order_by_field'] = 'Host';
         $_REQUEST['column_name'] = 'Host';
-        $html = PMA_getHtmlForServerProcesslist();
+        $html = Processes::getHtmlForServerProcesslist();
 
         $this->assertContains(
             'Host',
@@ -168,7 +167,7 @@ class PMA_ServerStatusProcesses_Test extends PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test for PMA_getHtmlForServerProcessItem
+     * Test for Processes::getHtmlForServerProcessItem
      *
      * @return void
      */
@@ -192,7 +191,7 @@ class PMA_ServerStatusProcesses_Test extends PHPUnit_Framework_TestCase
         $GLOBALS['cfg']['MaxCharactersInDisplayedSQL'] = 12;
 
         //Call the test function
-        $html = PMA_getHtmlForServerProcessItem($process, $show_full_sql);
+        $html = Processes::getHtmlForServerProcessItem($process, $show_full_sql);
 
         //validate 1: $kill_process
         $url_params = array(
@@ -257,7 +256,7 @@ class PMA_ServerStatusProcesses_Test extends PHPUnit_Framework_TestCase
         );
 
         unset($process['info']);
-        $html = PMA_getHtmlForServerProcessItem($process, $show_full_sql);
+        $html = Processes::getHtmlForServerProcessItem($process, $show_full_sql);
 
         $this->assertContains(
             '---',

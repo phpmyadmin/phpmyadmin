@@ -9,15 +9,15 @@
 
 use PhpMyAdmin\Response;
 use PhpMyAdmin\Message;
-use PhpMyAdmin\ServerStatusData;
+use PhpMyAdmin\Server\Status\Data;
+use PhpMyAdmin\Server\Status\Queries;
 
 require_once 'libraries/common.inc.php';
 require_once 'libraries/server_common.inc.php';
-require_once 'libraries/server_status_queries.lib.php';
 require_once 'libraries/replication.inc.php';
 require_once 'libraries/replication_gui.lib.php';
 
-$serverStatusData = new ServerStatusData();
+$serverStatusData = new Data();
 
 $response = Response::getInstance();
 $header   = $response->getHeader();
@@ -37,7 +37,7 @@ $scripts->addFile('server_status_queries.js');
 $response->addHTML('<div>');
 $response->addHTML($serverStatusData->getMenuHtml());
 if ($serverStatusData->dataLoaded) {
-    $response->addHTML(PMA_getHtmlForQueryStatistics($serverStatusData));
+    $response->addHTML(Queries::getHtmlForQueryStatistics($serverStatusData));
 } else {
     $response->addHTML(
         Message::error(

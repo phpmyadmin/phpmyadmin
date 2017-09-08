@@ -10,7 +10,9 @@ use PhpMyAdmin\Core;
 use PhpMyAdmin\Message;
 use PhpMyAdmin\Relation;
 use PhpMyAdmin\Response;
+use PhpMyAdmin\Server\Common;
 use PhpMyAdmin\Server\Privileges;
+use PhpMyAdmin\Server\Users;
 
 /**
  * include common file
@@ -37,9 +39,8 @@ if ((isset($_REQUEST['viewing_mode'])
     && $_REQUEST['viewing_mode'] == 'server')
     && $GLOBALS['cfgRelation']['menuswork']
 ) {
-    include_once 'libraries/server_users.lib.php';
     $response->addHTML('<div>');
-    $response->addHTML(PMA_getHtmlForSubMenusOnUsersPage('server_privileges.php'));
+    $response->addHTML(Users::getHtmlForSubMenusOnUsersPage('server_privileges.php'));
 }
 
 /**
@@ -131,7 +132,7 @@ list(
 if (!$GLOBALS['is_superuser'] && !$GLOBALS['is_grantuser']
     && !$GLOBALS['is_createuser']
 ) {
-    $response->addHTML(PMA_getHtmlForSubPageHeader('privileges', '', false));
+    $response->addHTML(Common::getHtmlForSubPageHeader('privileges', '', false));
     $response->addHTML(
         Message::error(__('No Privileges'))
             ->getDisplay()

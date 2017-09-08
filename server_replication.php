@@ -6,6 +6,7 @@
  * @package PhpMyAdmin
  */
 use PhpMyAdmin\Response;
+use PhpMyAdmin\Server\Common;
 
 /**
  * include files
@@ -30,7 +31,7 @@ $scripts->addFile('vendor/zxcvbn.js');
  * Checks if the user is allowed to do what he tries to...
  */
 if (! $is_superuser) {
-    $html  = PMA_getHtmlForSubPageHeader('replication');
+    $html  = Common::getHtmlForSubPageHeader('replication');
     $html .= PhpMyAdmin\Message::error(__('No Privileges'))->getDisplay();
     $response->addHTML($html);
     exit;
@@ -51,7 +52,7 @@ PMA_handleControlRequest();
  * start output
  */
 $response->addHTML('<div id="replication">');
-$response->addHTML(PMA_getHtmlForSubPageHeader('replication'));
+$response->addHTML(Common::getHtmlForSubPageHeader('replication'));
 
 // Display error messages
 $response->addHTML(PMA_getHtmlForErrorMessage());

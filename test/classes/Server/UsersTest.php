@@ -1,33 +1,31 @@
 <?php
 /* vim: set expandtab sw=4 ts=4 sts=4: */
 /**
- * Tests for server_users.lib.php
+ * Tests for PhpMyAdmin\Server\Users
  *
  * @package PhpMyAdmin-test
  */
+namespace PhpMyAdmin\Tests\Server;
 
-/*
- * Include to test.
- */
-require_once 'libraries/server_users.lib.php';
+use PhpMyAdmin\Server\Users;
 
 /**
- * PMA_ServerUsers_Test class
+ * PhpMyAdmin\Tests\Server\UsersTest class
  *
- * This class is for testing server_users.lib.php functions
+ * This class is for testing PhpMyAdmin\Server\Users methods
  *
  * @package PhpMyAdmin-test
  */
-class PMA_ServerUsers_Test extends PHPUnit_Framework_TestCase
+class UsersTest extends \PHPUnit_Framework_TestCase
 {
     /**
-     * Test for PMA_getHtmlForSubMenusOnUsersPage
+     * Test for Users::getHtmlForSubMenusOnUsersPage
      *
      * @return void
      */
-    public function testPMAGetHtmlForSubMenusOnUsersPage()
+    public function testGetHtmlForSubMenusOnUsersPage()
     {
-        $html = PMA_getHtmlForSubMenusOnUsersPage('server_privileges.php');
+        $html = Users::getHtmlForSubMenusOnUsersPage('server_privileges.php');
 
         //validate 1: topmenu2
         $this->assertContains(

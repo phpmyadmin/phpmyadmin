@@ -7,7 +7,7 @@
  */
 
 use PhpMyAdmin\Server\Status\Monitor;
-use PhpMyAdmin\ServerStatusData;
+use PhpMyAdmin\Server\Status\Data;
 use PhpMyAdmin\Response;
 
 require_once 'libraries/common.inc.php';
@@ -91,14 +91,14 @@ $scripts->addFile('server_status_sorter.js');
 /**
  * start output
  */
-$ServerStatusData = new ServerStatusData();
+$serverStatusData = new Data();
 
 /**
  * Output
  */
 $response->addHTML('<div>');
-$response->addHTML($ServerStatusData->getMenuHtml());
-$response->addHTML(Monitor::getHtmlForMonitor($ServerStatusData));
-$response->addHTML(Monitor::getHtmlForClientSideDataAndLinks($ServerStatusData));
+$response->addHTML($serverStatusData->getMenuHtml());
+$response->addHTML(Monitor::getHtmlForMonitor($serverStatusData));
+$response->addHTML(Monitor::getHtmlForClientSideDataAndLinks($serverStatusData));
 $response->addHTML('</div>');
 exit;

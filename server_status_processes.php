@@ -7,11 +7,11 @@
  */
 
 use PhpMyAdmin\Response;
-use PhpMyAdmin\ServerStatusData;
+use PhpMyAdmin\Server\Status\Data;
+use PhpMyAdmin\Server\Status\Processes;
 
 require_once 'libraries/common.inc.php';
 require_once 'libraries/server_common.inc.php';
-require_once 'libraries/server_status_processes.lib.php';
 
 /**
  * Replication library
@@ -19,7 +19,7 @@ require_once 'libraries/server_status_processes.lib.php';
 require_once 'libraries/replication.inc.php';
 require_once 'libraries/replication_gui.lib.php';
 
-$ServerStatusData = new ServerStatusData();
+$serverStatusData = new Data();
 $response = Response::getInstance();
 
 /**
@@ -47,17 +47,17 @@ if ($response->isAjax() && !empty($_REQUEST['kill'])) {
     $response->addJSON('message', $message);
 } elseif ($response->isAjax() && !empty($_REQUEST['refresh'])) {
     // Only sends the process list table
-    $response->addHTML(PMA_getHtmlForServerProcessList());
+    $response->addHTML(Processes::getHtmlForServerProcesslist());
 } else {
     // Load the full page
     $header   = $response->getHeader();
     $scripts  = $header->getScripts();
     $scripts->addFile('server_status_processes.js');
     $response->addHTML('<div>');
-    $response->addHTML($ServerStatusData->getMenuHtml());
-    $response->addHTML(PMA_getHtmlForProcessListFilter());
-    $response->addHTML(PMA_getHtmlForServerProcesslist());
-    $response->addHTML(PMA_getHtmlForProcessListAutoRefresh());
+    $response->addHTML($serverStatusData->getMenuHtml());
+    $response->addHTML(Processes::getHtmlForProcessListFilter());
+    $response->addHTML(Processes::getHtmlForServerProcesslist());
+    $response->addHTML(Processes::getHtmlForProcessListAutoRefresh());
     $response->addHTML('</div>');
 }
 exit;

@@ -12,9 +12,10 @@ namespace PhpMyAdmin\Controllers\Server;
 use PhpMyAdmin\Controllers\Controller;
 use PhpMyAdmin\Message;
 use PhpMyAdmin\Response;
+use PhpMyAdmin\Server\Common;
 use PhpMyAdmin\Template;
-use PhpMyAdmin\Util;
 use PhpMyAdmin\Url;
+use PhpMyAdmin\Util;
 
 /**
  * Handles viewing and editing server variables
@@ -73,7 +74,7 @@ class ServerVariablesController extends Controller
          */
         $doc_link = Util::showMySQLDocu('server_system_variables');
         $this->response->addHtml(
-            PMA_getHtmlForSubPageHeader('variables', $doc_link)
+            Common::getHtmlForSubPageHeader('variables', $doc_link)
         );
 
         /**

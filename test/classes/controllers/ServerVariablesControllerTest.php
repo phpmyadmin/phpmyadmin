@@ -49,7 +49,7 @@ class ServerVariablesControllerTest extends PMATestCase
             ->disableOriginalConstructor()
             ->getMock();
 
-        //this data is needed when ServerStatusData constructs
+        //this data is needed when PhpMyAdmin\Server\Status\Data constructs
         $server_session_variable = array(
             "auto_increment_increment" => "1",
             "auto_increment_offset" => "13",

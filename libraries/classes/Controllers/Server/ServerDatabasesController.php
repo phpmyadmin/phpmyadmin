@@ -13,9 +13,10 @@ use PhpMyAdmin\Controllers\Controller;
 use PhpMyAdmin\Charsets;
 use PhpMyAdmin\Message;
 use PhpMyAdmin\Response;
+use PhpMyAdmin\Server\Common;
 use PhpMyAdmin\Template;
-use PhpMyAdmin\Util;
 use PhpMyAdmin\Url;
+use PhpMyAdmin\Util;
 
 /**
  * Handles viewing and creating and deleting databases
@@ -91,7 +92,7 @@ class ServerDatabasesController extends Controller
          * Displays the sub-page heading
          */
         $header_type = $this->_dbstats ? "database_statistics" : "databases";
-        $this->response->addHTML(PMA_getHtmlForSubPageHeader($header_type));
+        $this->response->addHTML(Common::getHtmlForSubPageHeader($header_type));
 
         /**
          * Displays For Create database.

@@ -1,32 +1,32 @@
 <?php
 /* vim: set expandtab sw=4 ts=4 sts=4: */
 /**
- * tests for server_status_advisor.lib.php
+ * tests for PhpMyAdmin\Server\Status\Advisor
  *
  * @package PhpMyAdmin-test
  */
+namespace PhpMyAdmin\Tests\Server\Status;
 
 use PhpMyAdmin\Core;
-use PhpMyAdmin\ServerStatusData;
+use PhpMyAdmin\Server\Status\Advisor;
+use PhpMyAdmin\Server\Status\Data;
 use PhpMyAdmin\Theme;
 
-require_once 'libraries/server_status_advisor.lib.php';
-
 /**
- * class PMA_ServerStatusAdvisor_Test
+ * PhpMyAdmin\Tests\Server\Status\AdvisorTest class
  *
- * this class is for testing server_status_advisor.lib.php functions
+ * this class is for testing PhpMyAdmin\Server\Status\Advisor methods
  *
  * @package PhpMyAdmin-test
  */
-class PMA_ServerStatusAdvisor_Test extends PHPUnit_Framework_TestCase
+class AdvisorTest extends \PHPUnit_Framework_TestCase
 {
     /**
      * Prepares environment for the test.
      *
      * @return void
      */
-    public $ServerStatusData;
+    public $serverStatusData;
 
     /**
      * Test for setUp
@@ -65,7 +65,7 @@ class PMA_ServerStatusAdvisor_Test extends PHPUnit_Framework_TestCase
             ->disableOriginalConstructor()
             ->getMock();
 
-        //this data is needed when ServerStatusData constructs
+        //this data is needed when PhpMyAdmin\Server\Status\Data constructs
         $server_status = array(
             "Aborted_clients" => "0",
             "Aborted_connects" => "0",
@@ -115,19 +115,19 @@ class PMA_ServerStatusAdvisor_Test extends PHPUnit_Framework_TestCase
 
         $GLOBALS['dbi'] = $dbi;
 
-        $this->ServerStatusData = new ServerStatusData();
+        $this->serverStatusData = new Data();
     }
 
     /**
-     * Test for PMA_getHTMLForAdvisor
+     * Test for Advisor::getHtml
      *
      * @return void
      * @group medium
      */
-    public function testPMAGetHTMLForAdvisor()
+    public function testGetHtml()
     {
         //Call the test function
-        $html = PMA_getHTMLForAdvisor();
+        $html = Advisor::getHtml();
 
         //validate 1: Advisor Instructions
         $this->assertContains(

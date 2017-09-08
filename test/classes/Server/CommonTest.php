@@ -1,47 +1,31 @@
 <?php
 /* vim: set expandtab sw=4 ts=4 sts=4: */
 /**
- * tests for server_common.lib.php
+ * tests for PhpMyAdmin\Server\Common
  *
  * @package PhpMyAdmin-test
  */
+namespace PhpMyAdmin\Tests\Server;
 
-/*
- * Include to test.
- */
+use PhpMyAdmin\Server\Common;
 use PhpMyAdmin\Theme;
 
-
-require_once 'libraries/server_common.lib.php';
-
-
 /**
- * PMA_ServerCommon_Test class
- *
- * this class is for testing server_common.lib.php functions
+ * This class is for testing PhpMyAdmin\Server\Common methods
  *
  * @package PhpMyAdmin-test
  */
-class PMA_ServerCommon_Test extends PHPUnit_Framework_TestCase
+class CommonTest extends \PHPUnit_Framework_TestCase
 {
     /**
-     * Prepares environment for the test.
-     *
-     * @return void
-     */
-    public function setUp()
-    {
-    }
-
-    /**
-     * Test for PMA_getHtmlForSubPageHeader
+     * Test for Common::getHtmlForSubPageHeader
      *
      * @return void
      */
     public function testPMAGetSubPageHeader()
     {
         //server_engines
-        $html = PMA_getHtmlForSubPageHeader("engines");
+        $html = Common::getHtmlForSubPageHeader("engines");
         $this->assertContains(
             '<img src="themes/dot.gif" title="" alt="" class="icon ic_b_engine" />',
             $html
@@ -52,7 +36,7 @@ class PMA_ServerCommon_Test extends PHPUnit_Framework_TestCase
         );
 
         //server_databases
-        $html = PMA_getHtmlForSubPageHeader("databases");
+        $html = Common::getHtmlForSubPageHeader("databases");
         $this->assertContains(
             '<img src="themes/dot.gif" title="" alt="" class="icon ic_s_db" />',
             $html
@@ -63,7 +47,7 @@ class PMA_ServerCommon_Test extends PHPUnit_Framework_TestCase
         );
 
         //server_replication
-        $html = PMA_getHtmlForSubPageHeader("replication");
+        $html = Common::getHtmlForSubPageHeader("replication");
         $replication_img = '<img src="themes/dot.gif" title="" '
             . 'alt="" class="icon ic_s_replication" />';
         $this->assertContains(
