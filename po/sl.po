@@ -4,17 +4,17 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.8.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2017-09-08 21:11+0200\n"
-"PO-Revision-Date: 2017-08-10 20:26+0000\n"
+"PO-Revision-Date: 2017-09-08 23:21+0000\n"
 "Last-Translator: Domen <mitenem@outlook.com>\n"
-"Language-Team: Slovenian <https://hosted.weblate.org/projects/phpmyadmin/"
-"master/sl/>\n"
+"Language-Team: Slovenian "
+"<https://hosted.weblate.org/projects/phpmyadmin/master/sl/>\n"
 "Language: sl\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=4; plural=n%100==1 ? 0 : n%100==2 ? 1 : n%100==3 || n"
-"%100==4 ? 2 : 3;\n"
-"X-Generator: Weblate 2.16-dev\n"
+"Plural-Forms: nplurals=4; plural=n%100==1 ? 0 : n%100==2 ? 1 : n%100==3 || "
+"n%100==4 ? 2 : 3;\n"
+"X-Generator: Weblate 2.17-dev\n"
 
 #: ajax.php:17 ajax.php:34 export.php:196 schema_export.php:67
 msgid "Bad type!"
@@ -1755,6 +1755,8 @@ msgid ""
 "It seems that the connection to server has been lost. Please check your "
 "network connectivity and server status."
 msgstr ""
+"Videti je, da smo izgubili povezavo s strežnikom. Prosimo, preverite vašo "
+"povezljivost in stanje strežnika."
 
 #: js/messages.php:369
 #: libraries/classes/Controllers/Server/ServerDatabasesController.php:193
@@ -2265,10 +2267,8 @@ msgstr ""
 
 #: js/messages.php:560 templates/database/designer/side_menu.phtml:40
 #: templates/database/designer/side_menu.phtml:43
-#, fuzzy
-#| msgid "No tables found in database."
 msgid "Add tables from other databases"
-msgstr "V zbirki podatkov ni mogoče najti tabel."
+msgstr "Dodaj tabele iz drugih zbirk podatkov"
 
 #: js/messages.php:561
 msgid "Page name"
@@ -6215,12 +6215,6 @@ msgid "You should use SSL connections if your database server supports it."
 msgstr "Uporabite povezave SSL, če jih vaš strežnik zbirke podatkov podpira."
 
 #: libraries/classes/Config/ServerConfigChecks.php:175
-#, fuzzy
-#| msgid ""
-#| "If you feel this is necessary, use additional protection settings - "
-#| "%shost authentication%s settings and %strusted proxies list%s. However, "
-#| "IP-based protection may not be reliable if your IP belongs to an ISP "
-#| "where thousands of users, including you, are connected to."
 msgid ""
 "If you feel this is necessary, use additional protection settings - %1$shost "
 "authentication%2$s settings and %3$strusted proxies list%4%s. However, IP-"
@@ -6228,18 +6222,12 @@ msgid ""
 "thousands of users, including you, are connected to."
 msgstr ""
 "Če menite, da je to potrebno, uporabite dodatne nastavitve zaščite – "
-"nastavitve %soverovitve gostitelja%s in %sseznam zaupanih proxyjev%s. Kakor "
-"koli, zaščita, temelječa na IP, ni zanesljiva, če vaš IP pripada ISP-ju, na "
-"katerega je povezanih tisoče uporabnikov, vključno z vami."
+"nastavitve %1$soverovitve gostitelja%2$s in %3$sseznam zaupanih proxyjev%4$"
+"s. Kakor koli, zaščita, temelječa na IP, ni zanesljiva, če vaš IP pripada "
+"ISP-ju, na katerega je povezanih tisoče uporabnikov, vključno z vami."
 
 #: libraries/classes/Config/ServerConfigChecks.php:202
-#, fuzzy, php-format
-#| msgid ""
-#| "You set the [kbd]config[/kbd] authentication type and included username "
-#| "and password for auto-login, which is not a desirable option for live "
-#| "hosts. Anyone who knows or guesses your phpMyAdmin URL can directly "
-#| "access your phpMyAdmin panel. Set %sauthentication type%s to [kbd]cookie[/"
-#| "kbd] or [kbd]http[/kbd]."
+#, php-format
 msgid ""
 "You set the [kbd]config[/kbd] authentication type and included username and "
 "password for auto-login, which is not a desirable option for live hosts. "
@@ -6250,8 +6238,8 @@ msgstr ""
 "Nastavili ste vrsto overovitve [kbd]config[/kbd] in vključili uporabniško "
 "ime in geslo za samodejno prijavo, kar ni zaželena možnost za gostitelje "
 "aktivnih strani. Vsakdo, ki ve ali ugane vaš URL phpMyAdmina, lahko "
-"neposredno dostopa do vaše plošče phpMyAdmin. Nastavite %svrsto overovitve%s "
-"na [kbd]cookie[/kbd] ali [kbd]http[/kbd]."
+"neposredno dostopa do vaše plošče phpMyAdmin. Nastavite %1$svrsto "
+"overovitve%2$s na [kbd]cookie[/kbd] ali [kbd]http[/kbd]."
 
 #: libraries/classes/Config/ServerConfigChecks.php:229
 msgid "You allow for connecting to the server without a password."
@@ -6292,19 +6280,15 @@ msgid "Key should contain letters, numbers [em]and[/em] special characters."
 msgstr "Ključ naj vsebuje črke, številke [em]in[/em] posebne znake."
 
 #: libraries/classes/Config/ServerConfigChecks.php:417
-#, fuzzy, php-format
-#| msgid ""
-#| "%sLogin cookie validity%s greater than %ssession.gc_maxlifetime%s may "
-#| "cause random session invalidation (currently session.gc_maxlifetime is "
-#| "%d)."
+#, php-format
 msgid ""
 "%1$sLogin cookie validity%2$s greater than %3$ssession.gc_maxlifetime%4$s "
 "may cause random session invalidation (currently session.gc_maxlifetime is "
 "%5$d)."
 msgstr ""
-"%sVeljavnost prijavnega piškotka%s večja od %ssession.gc_maxlifetime%s lahko "
-"povzroči naključno razvrednotenje seje (session.gc_maxlifetime je trenutno "
-"%d)."
+"%1$sVeljavnost prijavnega piškotka%2$s večja od %3$ssession.gc_maxlifetime%4$"
+"s lahko povzroči naključno razvrednotenje seje (session.gc_maxlifetime je "
+"trenutno %5$d)."
 
 #: libraries/classes/Config/ServerConfigChecks.php:441
 #, php-format
@@ -6327,28 +6311,22 @@ msgstr ""
 "manjšo ali enako vrednost."
 
 #: libraries/classes/Config/ServerConfigChecks.php:505
-#, fuzzy, php-format
-#| msgid ""
-#| "%sBzip2 compression and decompression%s requires functions (%s) which are "
-#| "unavailable on this system."
+#, php-format
 msgid ""
 "%1$sBzip2 compression and decompression%2$s requires functions (%3$s) which "
 "are unavailable on this system."
 msgstr ""
-"%sStiskanje in razširjanje Bzip2%s potrebuje funkcije (%s), ki na tem "
+"%1$sStiskanje in razširjanje Bzip2%2$s potrebuje funkcije (%3$s), ki na tem "
 "sistemu niso na voljo."
 
 #: libraries/classes/Config/ServerConfigChecks.php:537
-#, fuzzy, php-format
-#| msgid ""
-#| "%sGZip compression and decompression%s requires functions (%s) which are "
-#| "unavailable on this system."
+#, php-format
 msgid ""
 "%1$sGZip compression and decompression%2$s requires functions (%3$s) which "
 "are unavailable on this system."
 msgstr ""
-"%sStiskanje in razširjanje GZip%s zahteva funkcije (%s), ki na tem sistemu "
-"niso na voljo."
+"%1$sStiskanje in razširjanje GZip%2$s zahteva funkcije (%3$s), ki na tem "
+"sistemu niso na voljo."
 
 #: libraries/classes/Config/Validator.php:210
 #: libraries/classes/Config/Validator.php:217
@@ -6693,10 +6671,9 @@ msgid "The columns have been moved successfully."
 msgstr "Stolpce smo uspešno premaknili."
 
 #: libraries/classes/Controllers/Table/TableStructureController.php:495
-#, fuzzy, php-format
-#| msgid "Failed to get real row count."
+#, php-format
 msgid "Failed to get description of column %s!"
-msgstr "Pridobivanje pravega števila vrstic je spodletelo."
+msgstr "Pridobivanje opisa stolpca %s je spodletelo!"
 
 #: libraries/classes/Controllers/Table/TableStructureController.php:734
 #: libraries/classes/Controllers/Table/TableStructureController.php:1019
@@ -14257,7 +14234,7 @@ msgstr "Usodna napaka: Do navigacije lahko dostopate samo z Ajaxom"
 
 #: prefs_forms.php:28 setup/frames/form.inc.php:25
 msgid "Incorrect form specified!"
-msgstr ""
+msgstr "Določena je neveljavna oblika!"
 
 #: prefs_forms.php:80
 msgid "Cannot save settings, submitted form contains errors!"
