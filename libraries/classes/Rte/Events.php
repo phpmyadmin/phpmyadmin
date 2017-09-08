@@ -10,6 +10,7 @@ namespace PhpMyAdmin\Rte;
 use PhpMyAdmin\Message;
 use PhpMyAdmin\Response;
 use PhpMyAdmin\Rte\Export;
+use PhpMyAdmin\Rte\Footer;
 use PhpMyAdmin\Url;
 use PhpMyAdmin\Util;
 
@@ -81,7 +82,7 @@ class Events
          * the user has the privileges and a link to
          * toggle the state of the event scheduler.
          */
-        echo PMA_EVN_getFooterLinks();
+        echo Footer::events();
     } // end self::main()
 
     /**

@@ -20,7 +20,6 @@ if (! defined('PHPMYADMIN')) {
 require_once './libraries/rte/rte_general.lib.php';
 require_once './libraries/rte/rte_words.lib.php';
 require_once './libraries/rte/rte_list.lib.php';
-require_once './libraries/rte/rte_footer.lib.php';
 
 $response = Response::getInstance();
 

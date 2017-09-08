@@ -7,6 +7,7 @@
  */
 use PhpMyAdmin\Response;
 use PhpMyAdmin\Rte\Export;
+use PhpMyAdmin\Rte\Footer;
 use PhpMyAdmin\Url;
 
 if (! defined('PHPMYADMIN')) {
@@ -54,7 +55,7 @@ function PMA_TRI_main()
      * Display a link for adding a new trigger,
      * if the user has the necessary privileges
      */
-    echo PMA_TRI_getFooterLinks();
+    echo Footer::triggers();
 } // end PMA_TRI_main()
 
 /**

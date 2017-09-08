@@ -10,6 +10,7 @@ use PhpMyAdmin\Core;
 use PhpMyAdmin\Message;
 use PhpMyAdmin\Response;
 use PhpMyAdmin\Rte\Export;
+use PhpMyAdmin\Rte\Footer;
 use PhpMyAdmin\SqlParser\Statements\CreateStatement;
 use PhpMyAdmin\Url;
 use PhpMyAdmin\Util;
@@ -70,7 +71,7 @@ function PMA_RTN_main($type)
     /**
      * Display the form for adding a new routine, if the user has the privileges.
      */
-    echo PMA_RTN_getFooterLinks();
+    echo Footer::routines();
     /**
      * Display a warning for users with PHP's old "mysql" extension.
      */
