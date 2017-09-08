@@ -4,16 +4,16 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.8.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2017-09-08 21:11+0200\n"
-"PO-Revision-Date: 2017-08-11 17:09+0000\n"
+"PO-Revision-Date: 2017-09-08 20:00+0000\n"
 "Last-Translator: Burak Yavuz <hitowerdigit@hotmail.com>\n"
-"Language-Team: Turkish <https://hosted.weblate.org/projects/phpmyadmin/"
-"master/tr/>\n"
+"Language-Team: Turkish "
+"<https://hosted.weblate.org/projects/phpmyadmin/master/tr/>\n"
 "Language: tr\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n > 1;\n"
-"X-Generator: Weblate 2.16\n"
+"X-Generator: Weblate 2.17-dev\n"
 
 #: ajax.php:17 ajax.php:34 export.php:196 schema_export.php:67
 msgid "Bad type!"
@@ -1747,6 +1747,8 @@ msgid ""
 "It seems that the connection to server has been lost. Please check your "
 "network connectivity and server status."
 msgstr ""
+"Sunucuyla bağlantı kopmuş gibi görünüyor. Lütfen ağ bağlantınızı ve sunucu "
+"durumunu kontrol edin."
 
 #: js/messages.php:369
 #: libraries/classes/Controllers/Server/ServerDatabasesController.php:193
@@ -2263,10 +2265,8 @@ msgstr ""
 
 #: js/messages.php:560 templates/database/designer/side_menu.phtml:40
 #: templates/database/designer/side_menu.phtml:43
-#, fuzzy
-#| msgid "No tables found in database."
 msgid "Add tables from other databases"
-msgstr "Veritabanında tablo bulunamadı."
+msgstr "Diğer veritabanlarında tabloları ekle"
 
 #: js/messages.php:561
 msgid "Page name"
@@ -6230,12 +6230,6 @@ msgstr ""
 "Eğer veritabanı sunucunuz destekliyorsa SSL bağlantıları kullanmalısınız."
 
 #: libraries/classes/Config/ServerConfigChecks.php:175
-#, fuzzy
-#| msgid ""
-#| "If you feel this is necessary, use additional protection settings - "
-#| "%shost authentication%s settings and %strusted proxies list%s. However, "
-#| "IP-based protection may not be reliable if your IP belongs to an ISP "
-#| "where thousands of users, including you, are connected to."
 msgid ""
 "If you feel this is necessary, use additional protection settings - %1$shost "
 "authentication%2$s settings and %3$strusted proxies list%4%s. However, IP-"
@@ -6243,18 +6237,13 @@ msgid ""
 "thousands of users, including you, are connected to."
 msgstr ""
 "Eğer bunun gerekli olduğunu düşünüyorsanız, ilave koruma ayarlarını kullanın "
-"- %sanamakine kimlik doğrulaması%s ayarları ve %sgüvenilir proksiler listesi"
-"%s. Ancak, IP-tabanlı koruma eğer IP'niz, sizinde dahil olduğunuz binlerce "
-"kullanıcıya sahip ve bağlı olduğunuz bir ISS'e ait ise güvenilir olmayabilir."
+"- %1$sanamakine kimlik doğrulaması%2$s ayarları ve %3$sgüvenilir proksiler "
+"listesi%4$s. Ancak, IP-tabanlı koruma eğer IP'niz, sizinde dahil olduğunuz "
+"binlerce kullanıcıya sahip ve bağlı olduğunuz bir ISS'e ait ise güvenilir "
+"olmayabilir."
 
 #: libraries/classes/Config/ServerConfigChecks.php:202
-#, fuzzy, php-format
-#| msgid ""
-#| "You set the [kbd]config[/kbd] authentication type and included username "
-#| "and password for auto-login, which is not a desirable option for live "
-#| "hosts. Anyone who knows or guesses your phpMyAdmin URL can directly "
-#| "access your phpMyAdmin panel. Set %sauthentication type%s to [kbd]cookie[/"
-#| "kbd] or [kbd]http[/kbd]."
+#, php-format
 msgid ""
 "You set the [kbd]config[/kbd] authentication type and included username and "
 "password for auto-login, which is not a desirable option for live hosts. "
@@ -6265,9 +6254,9 @@ msgstr ""
 "[kbd]Yapılandırma[/kbd] kimlik doğrulaması türünü ayarladınız ve buna "
 "otomatik oturum açma için kullanıcı adı ve parola dahildir, canlı "
 "anamakineler için istenmeyen bir seçenektir. phpMyAdmin URL'nizi bilen veya "
-"tahmin eden herhangi biri doğrudan phpMyAdmin panelinize erişebilir. "
-"%sKimlik doğrulama türünü%s [kbd]tanımlama bilgisi[/kbd] ya da [kbd]http[/"
-"kbd] olarak ayarlayın."
+"tahmin eden herhangi biri doğrudan phpMyAdmin panelinize erişebilir. %1$"
+"sKimlik doğrulama türünü%2$s [kbd]tanımlama bilgisi[/kbd] ya da "
+"[kbd]http[/kbd] olarak ayarlayın."
 
 #: libraries/classes/Config/ServerConfigChecks.php:229
 msgid "You allow for connecting to the server without a password."
@@ -6308,19 +6297,15 @@ msgid "Key should contain letters, numbers [em]and[/em] special characters."
 msgstr "Anahtar harf, sayı [em]ve[/em] özel karakterler içermelidir."
 
 #: libraries/classes/Config/ServerConfigChecks.php:417
-#, fuzzy, php-format
-#| msgid ""
-#| "%sLogin cookie validity%s greater than %ssession.gc_maxlifetime%s may "
-#| "cause random session invalidation (currently session.gc_maxlifetime is "
-#| "%d)."
+#, php-format
 msgid ""
 "%1$sLogin cookie validity%2$s greater than %3$ssession.gc_maxlifetime%4$s "
 "may cause random session invalidation (currently session.gc_maxlifetime is "
 "%5$d)."
 msgstr ""
-"%sOturum açma tanımlama bilgisi geçerliliğinin%s %ssession.gc_maxlifetime%s "
-"saniyeden büyük olması gelişi güzel oturum geçersizliğine sebep olabilir (şu "
-"anki session.gc_maxlifetime %d)."
+"%1$sOturum açma tanımlama bilgisi geçerliliğinin%2$s "
+"%3$ssession.gc_maxlifetime%4$s saniyeden büyük olması gelişi güzel oturum "
+"geçersizliğine sebep olabilir (şu anki session.gc_maxlifetime %5$d)."
 
 #: libraries/classes/Config/ServerConfigChecks.php:441
 #, php-format
@@ -6344,28 +6329,22 @@ msgstr ""
 "zorundadır."
 
 #: libraries/classes/Config/ServerConfigChecks.php:505
-#, fuzzy, php-format
-#| msgid ""
-#| "%sBzip2 compression and decompression%s requires functions (%s) which are "
-#| "unavailable on this system."
+#, php-format
 msgid ""
 "%1$sBzip2 compression and decompression%2$s requires functions (%3$s) which "
 "are unavailable on this system."
 msgstr ""
-"%sBzip2 sıkıştırması ve açması%s bu sistemde mevcut olmayan işlevleri (%s) "
-"gerektiriyor."
+"%1$sBzip2 sıkıştırması ve açması%2$s bu sistemde mevcut olmayan işlevleri "
+"(%3$s) gerektiriyor."
 
 #: libraries/classes/Config/ServerConfigChecks.php:537
-#, fuzzy, php-format
-#| msgid ""
-#| "%sGZip compression and decompression%s requires functions (%s) which are "
-#| "unavailable on this system."
+#, php-format
 msgid ""
 "%1$sGZip compression and decompression%2$s requires functions (%3$s) which "
 "are unavailable on this system."
 msgstr ""
-"%sGZip sıkıştırması ve açması%s bu sistemde mevcut olmayan işlevleri (%s) "
-"gerektiriyor."
+"%1$sGZip sıkıştırması ve açması%2$s bu sistemde mevcut olmayan işlevleri "
+"(%3$s) gerektiriyor."
 
 #: libraries/classes/Config/Validator.php:210
 #: libraries/classes/Config/Validator.php:217
@@ -6707,10 +6686,9 @@ msgid "The columns have been moved successfully."
 msgstr "Sütunlar başarılı olarak taşındı."
 
 #: libraries/classes/Controllers/Table/TableStructureController.php:495
-#, fuzzy, php-format
-#| msgid "Failed to get real row count."
+#, php-format
 msgid "Failed to get description of column %s!"
-msgstr "Gerçek satır sayısını alma başarısız."
+msgstr "%s sütunu açıklamasını alma başarısız!"
 
 #: libraries/classes/Controllers/Table/TableStructureController.php:734
 #: libraries/classes/Controllers/Table/TableStructureController.php:1019
@@ -14275,7 +14253,7 @@ msgstr "Önemli hata: Gezintiye sadece AJAX aracılığıyla erişilebilir"
 
 #: prefs_forms.php:28 setup/frames/form.inc.php:25
 msgid "Incorrect form specified!"
-msgstr ""
+msgstr "Yanlış form belirtildi!"
 
 #: prefs_forms.php:80
 msgid "Cannot save settings, submitted form contains errors!"
