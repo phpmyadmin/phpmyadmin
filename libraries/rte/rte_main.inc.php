@@ -13,12 +13,6 @@ if (! defined('PHPMYADMIN')) {
     exit;
 }
 
-/**
- * Include all other files that are common
- * to routines, triggers and events.
- */
-require_once './libraries/rte/rte_words.lib.php';
-
 $response = Response::getInstance();
 
 if (! $response->isAjax()) {

@@ -10,6 +10,7 @@ namespace PhpMyAdmin\Rte;
 use PhpMyAdmin\Message;
 use PhpMyAdmin\Response;
 use PhpMyAdmin\Rte\Events;
+use PhpMyAdmin\Rte\Words;
 use PhpMyAdmin\Util;
 
 /**
@@ -81,7 +82,7 @@ class General
         } else {
             $message  = __('Error in processing request:') . ' ';
             $message .= sprintf(
-                PMA_RTE_getWord('not_found'),
+                Words::get('not_found'),
                 htmlspecialchars(Util::backquote($_REQUEST['item_name'])),
                 htmlspecialchars(Util::backquote($db))
             );

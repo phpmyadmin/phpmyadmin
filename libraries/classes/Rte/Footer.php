@@ -7,6 +7,7 @@
  */
 namespace PhpMyAdmin\Rte;
 
+use PhpMyAdmin\Rte\Words;
 use PhpMyAdmin\Util;
 
 /**
@@ -42,11 +43,11 @@ class Footer
             $retval .= "onclick='$.datepicker.initialized = false;'>";
             $icon = 'b_' . $icon;
             $retval .= Util::getIcon($icon);
-            $retval .= PMA_RTE_getWord('add') . "</a>\n";
+            $retval .= Words::get('add') . "</a>\n";
         } else {
             $icon = 'bd_' . $icon;
             $retval .= Util::getIcon($icon);
-            $retval .= PMA_RTE_getWord('add') . "\n";
+            $retval .= Words::get('add') . "\n";
         }
         $retval .= "            " . Util::showMySQLDocu($docu) . "\n";
         $retval .= "        </div>\n";

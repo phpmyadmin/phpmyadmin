@@ -13,6 +13,7 @@ use PhpMyAdmin\Rte\Export;
 use PhpMyAdmin\Rte\Footer;
 use PhpMyAdmin\Rte\General;
 use PhpMyAdmin\Rte\RteList;
+use PhpMyAdmin\Rte\Words;
 use PhpMyAdmin\SqlParser\Statements\CreateStatement;
 use PhpMyAdmin\Url;
 use PhpMyAdmin\Util;
@@ -127,7 +128,7 @@ function PMA_RTN_handleEditor()
         }
         // Get the data for the form (if any)
         if (! empty($_REQUEST['add_item'])) {
-            $title = PMA_RTE_getWord('add');
+            $title = Words::get('add');
             $routine = PMA_RTN_getDataFromRequest();
             $mode = 'add';
         } else if (! empty($_REQUEST['edit_item'])) {
@@ -162,7 +163,7 @@ function PMA_RTN_handleEditor()
         } else {
             $message  = __('Error in processing request:') . ' ';
             $message .= sprintf(
-                PMA_RTE_getWord('no_edit'),
+                Words::get('no_edit'),
                 htmlspecialchars(
                     PhpMyAdmin\Util::backquote($_REQUEST['item_name'])
                 ),
@@ -1315,7 +1316,7 @@ function PMA_RTN_handleExecute()
         if ($routine === false) {
             $message  = __('Error in processing request:') . ' ';
             $message .= sprintf(
-                PMA_RTE_getWord('not_found'),
+                Words::get('not_found'),
                 htmlspecialchars(PhpMyAdmin\Util::backquote($_REQUEST['item_name'])),
                 htmlspecialchars(PhpMyAdmin\Util::backquote($db))
             );
@@ -1525,7 +1526,7 @@ function PMA_RTN_handleExecute()
         } else if (($response->isAjax())) {
             $message  = __('Error in processing request:') . ' ';
             $message .= sprintf(
-                PMA_RTE_getWord('not_found'),
+                Words::get('not_found'),
                 htmlspecialchars(PhpMyAdmin\Util::backquote($_REQUEST['item_name'])),
                 htmlspecialchars(PhpMyAdmin\Util::backquote($db))
             );

@@ -8,6 +8,7 @@
 namespace PhpMyAdmin\Rte;
 
 use PhpMyAdmin\Response;
+use PhpMyAdmin\Rte\Words;
 use PhpMyAdmin\SqlParser\Parser;
 use PhpMyAdmin\SqlParser\Statements\CreateStatement;
 use PhpMyAdmin\SqlParser\Utils\Routine;
@@ -47,7 +48,7 @@ class RteList
         /**
          * Generate output
          */
-        $retval  = "<!-- LIST OF " . PMA_RTE_getWord('docu') . " START -->\n";
+        $retval  = "<!-- LIST OF " . Words::get('docu') . " START -->\n";
         $retval .= '<form id="rteListForm" class="ajax" action="';
         switch ($type) {
         case 'routine':
@@ -70,12 +71,12 @@ class RteList
         $retval .= Url::getHiddenInputs($GLOBALS['db'], $GLOBALS['table']);
         $retval .= "<fieldset>\n";
         $retval .= "    <legend>\n";
-        $retval .= "        " . PMA_RTE_getWord('title') . "\n";
+        $retval .= "        " . Words::get('title') . "\n";
         $retval .= "        "
-            . Util::showMySQLDocu(PMA_RTE_getWord('docu')) . "\n";
+            . Util::showMySQLDocu(Words::get('docu')) . "\n";
         $retval .= "    </legend>\n";
         $retval .= "    <div class='$class1' id='nothing2display'>\n";
-        $retval .= "      " . PMA_RTE_getWord('nothing') . "\n";
+        $retval .= "      " . Words::get('nothing') . "\n";
         $retval .= "    </div>\n";
         $retval .= "    <table class='data$class2'>\n";
         $retval .= "        <!-- TABLE HEADERS -->\n";
@@ -175,7 +176,7 @@ class RteList
 
         $retval .= "</fieldset>\n";
         $retval .= "</form>\n";
-        $retval .= "<!-- LIST OF " . PMA_RTE_getWord('docu') . " END -->\n";
+        $retval .= "<!-- LIST OF " . Words::get('docu') . " END -->\n";
 
         return $retval;
     } // end self::get()

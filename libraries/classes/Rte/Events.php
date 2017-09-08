@@ -13,6 +13,7 @@ use PhpMyAdmin\Rte\Export;
 use PhpMyAdmin\Rte\Footer;
 use PhpMyAdmin\Rte\General;
 use PhpMyAdmin\Rte\RteList;
+use PhpMyAdmin\Rte\Words;
 use PhpMyAdmin\Url;
 use PhpMyAdmin\Util;
 
@@ -228,7 +229,7 @@ class Events
             }
             // Get the data for the form (if any)
             if (! empty($_REQUEST['add_item'])) {
-                $title = PMA_RTE_getWord('add');
+                $title = Words::get('add');
                 $item = self::getDataFromRequest();
                 $mode = 'add';
             } else if (! empty($_REQUEST['edit_item'])) {

@@ -9,6 +9,7 @@ namespace PhpMyAdmin\Rte;
 
 use PhpMyAdmin\Message;
 use PhpMyAdmin\Response;
+use PhpMyAdmin\Rte\Words;
 use PhpMyAdmin\Util;
 
 /**
@@ -35,7 +36,7 @@ class Export
         $item_name = htmlspecialchars(Util::backquote($_GET['item_name']));
         if ($export_data !== false) {
             $export_data = htmlspecialchars(trim($export_data));
-            $title = sprintf(PMA_RTE_getWord('export'), $item_name);
+            $title = sprintf(Words::get('export'), $item_name);
             if ($response->isAjax()) {
                 $response->addJSON('message', $export_data);
                 $response->addJSON('title', $title);
@@ -51,7 +52,7 @@ class Export
         } else {
             $_db = htmlspecialchars(Util::backquote($db));
             $message  = __('Error in processing request:') . ' '
-                      . sprintf(PMA_RTE_getWord('no_view'), $item_name, $_db);
+                      . sprintf(Words::get('no_view'), $item_name, $_db);
             $message = Message::error($message);
 
             if ($response->isAjax()) {
