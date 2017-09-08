@@ -11,6 +11,7 @@ use PhpMyAdmin\Message;
 use PhpMyAdmin\Response;
 use PhpMyAdmin\Rte\Export;
 use PhpMyAdmin\Rte\Footer;
+use PhpMyAdmin\Rte\General;
 use PhpMyAdmin\SqlParser\Statements\CreateStatement;
 use PhpMyAdmin\Url;
 use PhpMyAdmin\Util;
@@ -376,7 +377,7 @@ function PMA_RTN_createRoutine(
         // but were unable to create the new one
         // Try to restore the backup query
         $result = $GLOBALS['dbi']->tryQuery($create_routine);
-        $errors = checkResult(
+        $errors = General::checkResult(
             $result,
             __(
                 'Sorry, we failed to restore'

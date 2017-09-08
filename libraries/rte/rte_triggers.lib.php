@@ -8,6 +8,7 @@
 use PhpMyAdmin\Response;
 use PhpMyAdmin\Rte\Export;
 use PhpMyAdmin\Rte\Footer;
+use PhpMyAdmin\Rte\General;
 use PhpMyAdmin\Url;
 
 if (! defined('PHPMYADMIN')) {
@@ -102,7 +103,7 @@ function PMA_TRI_handleEditor()
                         // new one. Try to restore the backup query.
                         $result = $GLOBALS['dbi']->tryQuery($create_item);
 
-                        $errors = checkResult(
+                        $errors = General::checkResult(
                             $result,
                             __(
                                 'Sorry, we failed to restore the dropped trigger.'
@@ -221,7 +222,7 @@ function PMA_TRI_handleEditor()
             }
             $mode = 'edit';
         }
-        PMA_RTE_sendEditor('TRI', $mode, $item, $title, $db);
+        General::sendEditor('TRI', $mode, $item, $title, $db);
     }
 } // end PMA_TRI_handleEditor()
 

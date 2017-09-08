@@ -11,6 +11,7 @@ use PhpMyAdmin\Message;
 use PhpMyAdmin\Response;
 use PhpMyAdmin\Rte\Export;
 use PhpMyAdmin\Rte\Footer;
+use PhpMyAdmin\Rte\General;
 use PhpMyAdmin\Url;
 use PhpMyAdmin\Util;
 
@@ -133,7 +134,7 @@ class Events
                             // We dropped the old item, but were unable to create
                             // the new one. Try to restore the backup query
                             $result = $GLOBALS['dbi']->tryQuery($create_item);
-                            $errors = checkResult(
+                            $errors = General::checkResult(
                                 $result,
                                 __(
                                     'Sorry, we failed to restore the dropped event.'
@@ -244,7 +245,7 @@ class Events
                 }
                 $mode = 'edit';
             }
-            PMA_RTE_sendEditor('EVN', $mode, $item, $title, $db, $operation);
+            General::sendEditor('EVN', $mode, $item, $title, $db, $operation);
         }
     } // end self::handleEditor()
 

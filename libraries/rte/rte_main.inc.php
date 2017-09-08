@@ -17,7 +17,6 @@ if (! defined('PHPMYADMIN')) {
  * Include all other files that are common
  * to routines, triggers and events.
  */
-require_once './libraries/rte/rte_general.lib.php';
 require_once './libraries/rte/rte_words.lib.php';
 require_once './libraries/rte/rte_list.lib.php';
 
