@@ -7,9 +7,9 @@
  */
 use PhpMyAdmin\Relation;
 use PhpMyAdmin\Response;
+use PhpMyAdmin\Server\Users;
 
 require_once 'libraries/common.inc.php';
-require_once 'libraries/server_users.lib.php';
 require_once 'libraries/server_user_groups.lib.php';
 
 Relation::getRelationsParam();
@@ -34,7 +34,7 @@ if (! $GLOBALS['is_superuser']) {
 }
 
 $response->addHTML('<div>');
-$response->addHTML(PMA_getHtmlForSubMenusOnUsersPage('server_user_groups.php'));
+$response->addHTML(Users::getHtmlForSubMenusOnUsersPage('server_user_groups.php'));
 
 /**
  * Delete user group

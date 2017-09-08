@@ -11,6 +11,7 @@ use PhpMyAdmin\Message;
 use PhpMyAdmin\Relation;
 use PhpMyAdmin\Response;
 use PhpMyAdmin\Server\Privileges;
+use PhpMyAdmin\Server\Users;
 
 /**
  * include common file
@@ -37,9 +38,8 @@ if ((isset($_REQUEST['viewing_mode'])
     && $_REQUEST['viewing_mode'] == 'server')
     && $GLOBALS['cfgRelation']['menuswork']
 ) {
-    include_once 'libraries/server_users.lib.php';
     $response->addHTML('<div>');
-    $response->addHTML(PMA_getHtmlForSubMenusOnUsersPage('server_privileges.php'));
+    $response->addHTML(Users::getHtmlForSubMenusOnUsersPage('server_privileges.php'));
 }
 
 /**
