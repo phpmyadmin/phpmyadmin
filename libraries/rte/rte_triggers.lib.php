@@ -6,6 +6,7 @@
  * @package PhpMyAdmin
  */
 use PhpMyAdmin\Response;
+use PhpMyAdmin\Rte\Export;
 use PhpMyAdmin\Url;
 
 if (! defined('PHPMYADMIN')) {
@@ -43,7 +44,7 @@ function PMA_TRI_main()
      * Process all requests
      */
     PMA_TRI_handleEditor();
-    PMA_TRI_handleExport();
+    Export::triggers();
     /**
      * Display a list of available triggers
      */
@@ -463,4 +464,3 @@ function PMA_TRI_getQueryFromRequest()
 
     return $query;
 } // end PMA_TRI_getQueryFromRequest()
-

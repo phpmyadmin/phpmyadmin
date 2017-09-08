@@ -5,9 +5,9 @@
  *
  * @package PhpMyAdmin
  */
-use PhpMyAdmin\Url;
 use PhpMyAdmin\Response;
 use PhpMyAdmin\Rte\Events;
+use PhpMyAdmin\Url;
 
 if (! defined('PHPMYADMIN')) {
     exit;
@@ -19,7 +19,6 @@ if (! defined('PHPMYADMIN')) {
  */
 require_once './libraries/rte/rte_general.lib.php';
 require_once './libraries/rte/rte_words.lib.php';
-require_once './libraries/rte/rte_export.lib.php';
 require_once './libraries/rte/rte_list.lib.php';
 require_once './libraries/rte/rte_footer.lib.php';
 

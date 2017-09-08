@@ -9,6 +9,7 @@ namespace PhpMyAdmin\Rte;
 
 use PhpMyAdmin\Message;
 use PhpMyAdmin\Response;
+use PhpMyAdmin\Rte\Export;
 use PhpMyAdmin\Url;
 use PhpMyAdmin\Util;
 
@@ -69,7 +70,7 @@ class Events
          * Process all requests
          */
         self::handleEditor();
-        PMA_EVN_handleExport();
+        Export::events();
         /**
          * Display a list of available events
          */

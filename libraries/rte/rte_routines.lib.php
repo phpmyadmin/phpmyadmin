@@ -9,9 +9,10 @@ use PhpMyAdmin\Charsets;
 use PhpMyAdmin\Core;
 use PhpMyAdmin\Message;
 use PhpMyAdmin\Response;
-use PhpMyAdmin\Util;
-use PhpMyAdmin\Url;
+use PhpMyAdmin\Rte\Export;
 use PhpMyAdmin\SqlParser\Statements\CreateStatement;
+use PhpMyAdmin\Url;
+use PhpMyAdmin\Util;
 
 if (! defined('PHPMYADMIN')) {
     exit;
@@ -57,7 +58,7 @@ function PMA_RTN_main($type)
      */
     PMA_RTN_handleEditor();
     PMA_RTN_handleExecute();
-    PMA_RTN_handleExport();
+    Export::routines();
     /**
      * Display a list of available routines
      */
