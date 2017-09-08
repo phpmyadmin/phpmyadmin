@@ -1,25 +1,23 @@
 <?php
 /* vim: set expandtab sw=4 ts=4 sts=4: */
 /**
- * tests for server_status_variables.lib.php
+ * tests for PhpMyAdmin\Server\Status\Variables
  *
  * @package PhpMyAdmin-test
  */
+namespace PhpMyAdmin\Tests\Server\Status;
 
 use PhpMyAdmin\Core;
 use PhpMyAdmin\Server\Status\Data;
+use PhpMyAdmin\Server\Status\Variables;
 use PhpMyAdmin\Theme;
 
-require_once 'libraries/server_status_variables.lib.php';
-
 /**
- * class PMA_ServerStatusVariables_Test
- *
- * this class is for testing server_status_variables.lib.php functions
+ * This class is for testing PhpMyAdmin\Server\Status\Variables methods
  *
  * @package PhpMyAdmin-test
  */
-class PMA_ServerStatusVariables_Test extends PHPUnit_Framework_TestCase
+class VariablesTest extends \PHPUnit_Framework_TestCase
 {
     /**
      * Prepares environment for the test.
@@ -142,16 +140,16 @@ class PMA_ServerStatusVariables_Test extends PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test for PMA_getHtmlForFilter
+     * Test for Variables::getHtmlForFilter
      *
      * @return void
      */
     public function testPMAGetHtmlForFilter()
     {
         //Call the test function
-        $html = PMA_getHtmlForFilter($this->serverStatusData);
+        $html = Variables::getHtmlForFilter($this->serverStatusData);
 
-        //validate 1: PMA_getHtmlForFilter
+        //validate 1: Variables::getHtmlForFilter
         $this->assertContains(
             '<fieldset id="tableFilter">',
             $html
@@ -181,16 +179,16 @@ class PMA_ServerStatusVariables_Test extends PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test for PMA_getHtmlForLinkSuggestions
+     * Test for Variables::getHtmlForLinkSuggestions
      *
      * @return void
      */
     public function testPMAGetHtmlForLinkSuggestions()
     {
         //Call the test function
-        $html = PMA_getHtmlForLinkSuggestions($this->serverStatusData);
+        $html = Variables::getHtmlForLinkSuggestions($this->serverStatusData);
 
-        //validate 1: PMA_getHtmlForLinkSuggestions
+        //validate 1: Variables::getHtmlForLinkSuggestions
         $this->assertContains(
             '<div id="linkSuggestions" class="defaultLinks hide"',
             $html
@@ -211,7 +209,7 @@ class PMA_ServerStatusVariables_Test extends PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test for PMA_getHtmlForVariablesList
+     * Test for Variables::getHtmlForVariablesList
      *
      * @return void
      * @group medium
@@ -219,9 +217,9 @@ class PMA_ServerStatusVariables_Test extends PHPUnit_Framework_TestCase
     public function testPMAGetHtmlForVariablesList()
     {
         //Call the test function
-        $html = PMA_getHtmlForVariablesList($this->serverStatusData);
+        $html = Variables::getHtmlForVariablesList($this->serverStatusData);
 
-        //validate 1: PMA_getHtmlForVariablesList
+        //validate 1: Variables::getHtmlForVariablesList
         $table = '<table class="data noclick" '
             . 'id="serverstatusvariables">';
         $this->assertContains(
