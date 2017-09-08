@@ -7,6 +7,7 @@
  */
 use PhpMyAdmin\Message;
 use PhpMyAdmin\Response;
+use PhpMyAdmin\Rte\Events;
 
 if (! defined('PHPMYADMIN')) {
     exit;
@@ -61,7 +62,7 @@ function PMA_RTE_sendEditor($type, $mode, $item, $title, $db, $operation = null)
         if ($type == 'TRI') {
             $editor = PMA_TRI_getEditorForm($mode, $item);
         } else { // EVN
-            $editor = PMA_EVN_getEditorForm($mode, $operation, $item);
+            $editor = Events::getEditorForm($mode, $operation, $item);
         }
         if ($response->isAjax()) {
             $response->addJSON('message', $editor);

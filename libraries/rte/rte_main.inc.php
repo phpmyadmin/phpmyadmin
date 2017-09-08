@@ -7,6 +7,7 @@
  */
 use PhpMyAdmin\Url;
 use PhpMyAdmin\Response;
+use PhpMyAdmin\Rte\Events;
 
 if (! defined('PHPMYADMIN')) {
     exit;
@@ -103,7 +104,6 @@ case 'TRI':
     PMA_TRI_main();
     break;
 case 'EVN':
-    PMA_EVN_main();
+    Events::main();
     break;
 }
-
