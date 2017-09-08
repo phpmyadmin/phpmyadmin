@@ -18,7 +18,6 @@ if (! defined('PHPMYADMIN')) {
  * to routines, triggers and events.
  */
 require_once './libraries/rte/rte_words.lib.php';
-require_once './libraries/rte/rte_list.lib.php';
 
 $response = Response::getInstance();
 

@@ -12,6 +12,7 @@ use PhpMyAdmin\Response;
 use PhpMyAdmin\Rte\Export;
 use PhpMyAdmin\Rte\Footer;
 use PhpMyAdmin\Rte\General;
+use PhpMyAdmin\Rte\RteList;
 use PhpMyAdmin\Url;
 use PhpMyAdmin\Util;
 
@@ -77,7 +78,7 @@ class Events
          * Display a list of available events
          */
         $items = $GLOBALS['dbi']->getEvents($db);
-        echo PMA_RTE_getList('event', $items);
+        echo RteList::get('event', $items);
         /**
          * Display a link for adding a new event, if
          * the user has the privileges and a link to
@@ -201,7 +202,7 @@ class Events
                             mb_strtoupper($_REQUEST['item_name'])
                         )
                     );
-                    $response->addJSON('new_row', PMA_EVN_getRowForList($event));
+                    $response->addJSON('new_row', RteList::getEventRow($event));
                     $response->addJSON('insert', ! empty($event));
                     $response->addJSON('message', $output);
                 } else {

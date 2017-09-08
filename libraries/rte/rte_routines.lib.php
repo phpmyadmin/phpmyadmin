@@ -12,6 +12,7 @@ use PhpMyAdmin\Response;
 use PhpMyAdmin\Rte\Export;
 use PhpMyAdmin\Rte\Footer;
 use PhpMyAdmin\Rte\General;
+use PhpMyAdmin\Rte\RteList;
 use PhpMyAdmin\SqlParser\Statements\CreateStatement;
 use PhpMyAdmin\Url;
 use PhpMyAdmin\Util;
@@ -68,7 +69,7 @@ function PMA_RTN_main($type)
         $type = null;
     }
     $items = $GLOBALS['dbi']->getRoutines($db, $type);
-    echo PMA_RTE_getList('routine', $items);
+    echo RteList::get('routine', $items);
     /**
      * Display the form for adding a new routine, if the user has the privileges.
      */
@@ -309,7 +310,7 @@ function PMA_RTN_handleRequestCreateOrEdit($errors, $db)
             mb_strtoupper($_REQUEST['item_name'])
         )
     );
-    $response->addJSON('new_row', PMA_RTN_getRowForList($routine));
+    $response->addJSON('new_row', RteList::getRoutineRow($routine));
     $response->addJSON('insert', !empty($routine));
     $response->addJSON('message', $output);
     exit;

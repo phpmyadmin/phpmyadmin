@@ -9,6 +9,7 @@ use PhpMyAdmin\Response;
 use PhpMyAdmin\Rte\Export;
 use PhpMyAdmin\Rte\Footer;
 use PhpMyAdmin\Rte\General;
+use PhpMyAdmin\Rte\RteList;
 use PhpMyAdmin\Url;
 
 if (! defined('PHPMYADMIN')) {
@@ -51,7 +52,7 @@ function PMA_TRI_main()
      * Display a list of available triggers
      */
     $items = $GLOBALS['dbi']->getTriggers($db, $table);
-    echo PMA_RTE_getList('trigger', $items);
+    echo RteList::get('trigger', $items);
     /**
      * Display a link for adding a new trigger,
      * if the user has the necessary privileges
@@ -174,7 +175,7 @@ function PMA_TRI_handleEditor()
                     || ($trigger !== false && $table == $trigger['table'])
                 ) {
                     $insert = true;
-                    $response->addJSON('new_row', PMA_TRI_getRowForList($trigger));
+                    $response->addJSON('new_row', RteList::getTriggerRow($trigger));
                     $response->addJSON(
                         'name',
                         htmlspecialchars(
