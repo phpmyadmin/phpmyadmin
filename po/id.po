@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.7.4-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2017-08-10 09:13-0400\n"
-"PO-Revision-Date: 2017-09-08 07:46+0000\n"
+"PO-Revision-Date: 2017-09-09 13:46+0000\n"
 "Last-Translator: SacredWKnight <yudhis.sumardiono@gmail.com>\n"
 "Language-Team: Indonesian "
 "<https://hosted.weblate.org/projects/phpmyadmin/4-7/id/>\n"
@@ -10453,8 +10453,6 @@ msgstr "Tabel keterangan (lanjutan):"
 
 #: libraries/plugins/export/ExportLatex.php:130
 #: libraries/plugins/export/ExportLatex.php:182
-#, fuzzy
-#| msgid "Label key"
 msgid "Label key:"
 msgstr "Label kunci:"
 
@@ -10535,14 +10533,10 @@ msgid "Report title:"
 msgstr "Judul laporan:"
 
 #: libraries/plugins/export/ExportPdf.php:233
-#, fuzzy
-#| msgid "Dumping data for table"
 msgid "Dumping data"
-msgstr "Dumping data untuk tabel"
+msgstr "Dumping data"
 
 #: libraries/plugins/export/ExportPdf.php:288
-#, fuzzy
-#| msgid "structure"
 msgid "View structure"
 msgstr "Lihat struktur"
 
@@ -10566,7 +10560,6 @@ msgid "Additional custom header comment (\\n splits lines):"
 msgstr "Menambahkan komentar judul kustom (\\n memotong baris):"
 
 #: libraries/plugins/export/ExportSql.php:113
-#, fuzzy
 msgid ""
 "Include a timestamp of when databases were created, last updated, and last "
 "checked"
@@ -10575,17 +10568,14 @@ msgstr ""
 "terakhir diperiksa"
 
 #: libraries/plugins/export/ExportSql.php:172
-#, fuzzy
-#| msgid "Export method"
 msgid "Export metadata"
 msgstr "Ekspor metadata"
 
 #: libraries/plugins/export/ExportSql.php:187
-#, fuzzy
 msgid ""
 "Database system or older MySQL server to maximize output compatibility with:"
 msgstr ""
-"Database sistem atau server MySQL yang lebih tua untuk memaksimalkan output "
+"Sistem database atau server MySQL yang lebih tua untuk memaksimalkan output "
 "kompatibilitas dengan:"
 
 #: libraries/plugins/export/ExportSql.php:232
@@ -10622,16 +10612,13 @@ msgstr ""
 "nama tabel dibentuk dengan karakter khusus atau kata kunci)</i>"
 
 #: libraries/plugins/export/ExportSql.php:342
-#, fuzzy
-#| msgid "Object creation options"
 msgid "Data creation options"
 msgstr "Opsi pembuatan data"
 
 #: libraries/plugins/export/ExportSql.php:347
 #: libraries/plugins/export/ExportSql.php:2294
-#, fuzzy
 msgid "Truncate table before insert"
-msgstr "Truncate table sebelum insert"
+msgstr "Potong tabel sebelum dimasukkan"
 
 #: libraries/plugins/export/ExportSql.php:354
 msgid "Instead of <code>INSERT</code> statements, use:"
