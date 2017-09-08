@@ -42,9 +42,3 @@ $GLOBALS['is_createuser'] = $GLOBALS['dbi']->isUserType('create');
 if ($GLOBALS['is_superuser']) {
     $GLOBALS['dbi']->selectDb('mysql', $GLOBALS['userlink']);
 }
-
-/**
- * shared functions for server page
- */
-require_once './libraries/server_common.lib.php';
-

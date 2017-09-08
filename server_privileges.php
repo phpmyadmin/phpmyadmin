@@ -10,6 +10,7 @@ use PhpMyAdmin\Core;
 use PhpMyAdmin\Message;
 use PhpMyAdmin\Relation;
 use PhpMyAdmin\Response;
+use PhpMyAdmin\Server\Common;
 use PhpMyAdmin\Server\Privileges;
 use PhpMyAdmin\Server\Users;
 
@@ -131,7 +132,7 @@ list(
 if (!$GLOBALS['is_superuser'] && !$GLOBALS['is_grantuser']
     && !$GLOBALS['is_createuser']
 ) {
-    $response->addHTML(PMA_getHtmlForSubPageHeader('privileges', '', false));
+    $response->addHTML(Common::getHtmlForSubPageHeader('privileges', '', false));
     $response->addHTML(
         Message::error(__('No Privileges'))
             ->getDisplay()

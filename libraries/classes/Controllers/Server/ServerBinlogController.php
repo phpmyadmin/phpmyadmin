@@ -1,20 +1,19 @@
 <?php
 /* vim: set expandtab sw=4 ts=4 sts=4: */
-
 /**
  * Holds the PhpMyAdmin\Controllers\Server\ServerBinlogController
  *
  * @package PhpMyAdmin\Controllers
  */
-
 namespace PhpMyAdmin\Controllers\Server;
 
 use PhpMyAdmin\Controllers\Controller;
 use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Message;
-use PhpMyAdmin\Util;
+use PhpMyAdmin\Server\Common;
 use PhpMyAdmin\Template;
 use PhpMyAdmin\Url;
+use PhpMyAdmin\Util;
 
 /**
  * Handles viewing binary logs
@@ -68,7 +67,7 @@ class ServerBinlogController extends Controller
             $url_params['dontlimitchars'] = 1;
         }
 
-        $this->response->addHTML(PMA_getHtmlForSubPageHeader('binlog'));
+        $this->response->addHTML(Common::getHtmlForSubPageHeader('binlog'));
         $this->response->addHTML($this->_getLogSelector($url_params));
         $this->response->addHTML($this->_getLogInfo($url_params));
     }
