@@ -77,7 +77,7 @@ function PMA_TRI_handleEditor()
 
         $item_query = PMA_TRI_getQueryFromRequest();
 
-        if (! count($errors)) { // set by PMA_RTN_getQueryFromRequest()
+        if (! count($errors)) { // set by PhpMyAdmin\Rte\Routines::getQueryFromRequest()
             // Execute the created query
             if (! empty($_REQUEST['editor_process_edit'])) {
                 // Backup the old trigger, in case something goes wrong

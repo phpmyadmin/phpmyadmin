@@ -7,6 +7,7 @@
  */
 use PhpMyAdmin\Response;
 use PhpMyAdmin\Rte\Events;
+use PhpMyAdmin\Rte\Routines;
 use PhpMyAdmin\Url;
 
 if (! defined('PHPMYADMIN')) {
@@ -88,7 +89,7 @@ case 'RTN':
     if (isset($_REQUEST['type'])) {
         $type = $_REQUEST['type'];
     }
-    PMA_RTN_main($type);
+    Routines::main($type);
     break;
 case 'TRI':
     PMA_TRI_main();
