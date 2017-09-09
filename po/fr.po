@@ -4,10 +4,10 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin-docs 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2017-09-08 21:11+0200\n"
-"PO-Revision-Date: 2017-09-04 07:55+0000\n"
-"Last-Translator: Marc Delisle <marc@infomarc.info>\n"
-"Language-Team: French <https://hosted.weblate.org/projects/phpmyadmin/master/"
-"fr/>\n"
+"PO-Revision-Date: 2017-09-09 17:57+0000\n"
+"Last-Translator: tmtisfree <tmtisfree@free.fr>\n"
+"Language-Team: French "
+"<https://hosted.weblate.org/projects/phpmyadmin/master/fr/>\n"
 "Language: fr\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -676,8 +676,6 @@ msgid "Server type:"
 msgstr "Type de serveur : "
 
 #: index.php:307
-#, fuzzy
-#| msgid "Master connection:"
 msgid "Server connection:"
 msgstr "Connexion au serveur :"
 
@@ -1769,6 +1767,8 @@ msgid ""
 "It seems that the connection to server has been lost. Please check your "
 "network connectivity and server status."
 msgstr ""
+"Il semble que la connexion au serveur a été perdue. Merci de vérifier la "
+"connectivité réseau et l'état du serveur."
 
 #: js/messages.php:369
 #: libraries/classes/Controllers/Server/ServerDatabasesController.php:193
@@ -1777,10 +1777,8 @@ msgid "No databases selected."
 msgstr "Aucune base de données n'a été sélectionnée."
 
 #: js/messages.php:370
-#, fuzzy
-#| msgid "No column selected."
 msgid "No accounts selected."
-msgstr "Pas de comptes sélectionnés."
+msgstr "Aucun compte sélectionné."
 
 #: js/messages.php:371
 msgid "Dropping column"
@@ -2291,10 +2289,8 @@ msgstr ""
 
 #: js/messages.php:560 templates/database/designer/side_menu.phtml:40
 #: templates/database/designer/side_menu.phtml:43
-#, fuzzy
-#| msgid "No tables found in database."
 msgid "Add tables from other databases"
-msgstr "Aucune table n'a été trouvée dans cette base de données."
+msgstr "Ajouter des tables depuis d'autres bases de données"
 
 #: js/messages.php:561
 msgid "Page name"
@@ -3834,10 +3830,8 @@ msgid "Hide table structure actions"
 msgstr "Cacher les actions dans la structure de table"
 
 #: libraries/classes/Config/Descriptions.php:195
-#, fuzzy
-#| msgid "Default sorting order"
 msgid "Default transformations for Hex"
-msgstr "Ordre de tri par défaut"
+msgstr "Transformations par défaut pour « Hex »"
 
 #: libraries/classes/Config/Descriptions.php:197
 #: libraries/classes/Config/Descriptions.php:201
@@ -3852,54 +3846,41 @@ msgid ""
 "Values for options list for default transformations. These will be "
 "overwritten if tranformation is filled in at table structure page."
 msgstr ""
+"Valeurs de la liste d'options pour les transformations par défaut. Elles "
+"seront écrasées si la transformation est remplie à la page de structure de "
+"table."
 
 #: libraries/classes/Config/Descriptions.php:199
-#, fuzzy
-#| msgid "Input transformation options"
 msgid "Default transformations for Substring"
-msgstr "Options de transformation de saisie"
+msgstr "Transformations par défaut pour « Substring »"
 
 #: libraries/classes/Config/Descriptions.php:203
-#, fuzzy
-#| msgid "Default sorting order"
 msgid "Default transformations for Bool2Text"
-msgstr "Ordre de tri par défaut"
+msgstr "Transformations par défaut pour « Bool2Text »"
 
 #: libraries/classes/Config/Descriptions.php:207
-#, fuzzy
-#| msgid "Default sorting order"
 msgid "Default transformations for External"
-msgstr "Ordre de tri par défaut"
+msgstr "Transformations par défaut pour « External »"
 
 #: libraries/classes/Config/Descriptions.php:211
-#, fuzzy
-#| msgid "Input transformation options"
 msgid "Default transformations for PreApPend"
-msgstr "Options de transformation de saisie"
+msgstr "Transformations par défaut pour « PreAppend »"
 
 #: libraries/classes/Config/Descriptions.php:215
-#, fuzzy
-#| msgid "Default sorting order"
 msgid "Default transformations for DateFormat"
-msgstr "Ordre de tri par défaut"
+msgstr "Transformations par défaut pour « DateFormat »"
 
 #: libraries/classes/Config/Descriptions.php:219
-#, fuzzy
-#| msgid "Input transformation options"
 msgid "Default transformations for Inline"
-msgstr "Options de transformation de saisie"
+msgstr "Transformations par défaut pour « Inline »"
 
 #: libraries/classes/Config/Descriptions.php:223
-#, fuzzy
-#| msgid "Input transformation options"
 msgid "Default transformations for TextImageLink"
-msgstr "Options de transformation de saisie"
+msgstr "Transformations par défaut pour « TextImageLink »"
 
 #: libraries/classes/Config/Descriptions.php:227
-#, fuzzy
-#| msgid "Input transformation options"
 msgid "Default transformations for TextLink"
-msgstr "Options de transformation de saisie"
+msgstr "Transformations par défaut pour « TextLink »"
 
 #: libraries/classes/Config/Descriptions.php:232
 msgid "Show server listing as a list instead of a drop down."
@@ -6270,10 +6251,8 @@ msgid "CSV using LOAD DATA"
 msgstr "CSV en utilisant LOAD DATA"
 
 #: libraries/classes/Config/Forms/User/MainForm.php:32
-#, fuzzy
-#| msgid "Input transformation"
 msgid "Default transformations"
-msgstr "Transformation de saisie"
+msgstr "Transformations par défaut"
 
 #: libraries/classes/Config/PageSettings.php:135
 msgid "Cannot save settings, submitted configuration form contains errors!"
@@ -6312,32 +6291,20 @@ msgid "You should use SSL connections if your database server supports it."
 msgstr "Il faudrait utiliser des connexions SSL si le serveur le permet."
 
 #: libraries/classes/Config/ServerConfigChecks.php:175
-#, fuzzy
-#| msgid ""
-#| "If you feel this is necessary, use additional protection settings - "
-#| "%shost authentication%s settings and %strusted proxies list%s. However, "
-#| "IP-based protection may not be reliable if your IP belongs to an ISP "
-#| "where thousands of users, including you, are connected to."
 msgid ""
 "If you feel this is necessary, use additional protection settings - %1$shost "
 "authentication%2$s settings and %3$strusted proxies list%4%s. However, IP-"
 "based protection may not be reliable if your IP belongs to an ISP where "
 "thousands of users, including you, are connected to."
 msgstr ""
-"Si nécessaire, utiliser des paramètres de protection - %sauthentification de "
-"l'hôte%s et %sserveurs mandataires de confiance%s. Cependant, la protection "
-"par adresse IP peut ne pas être fiable si l'IP appartient à un fournisseur "
-"via lequel des milliers d'utilisateurs, l'utilisateur y compris, sont "
-"connectés."
+"Si nécessaire, utiliser des paramètres de protection - %1$sauthentification "
+"de l'hôte%2$s et %3$sserveurs mandataires de confiance%4%s. Cependant, la "
+"protection par adresse IP peut ne pas être fiable si l'IP appartient à un "
+"fournisseur via lequel des milliers d'utilisateurs, l'utilisateur y compris, "
+"sont connectés."
 
 #: libraries/classes/Config/ServerConfigChecks.php:202
-#, fuzzy, php-format
-#| msgid ""
-#| "You set the [kbd]config[/kbd] authentication type and included username "
-#| "and password for auto-login, which is not a desirable option for live "
-#| "hosts. Anyone who knows or guesses your phpMyAdmin URL can directly "
-#| "access your phpMyAdmin panel. Set %sauthentication type%s to [kbd]cookie[/"
-#| "kbd] or [kbd]http[/kbd]."
+#, php-format
 msgid ""
 "You set the [kbd]config[/kbd] authentication type and included username and "
 "password for auto-login, which is not a desirable option for live hosts. "
@@ -6348,7 +6315,7 @@ msgstr ""
 "La méthode d'authentification [kbd]config[/kbd] permet une connexion "
 "automatique, ce qui n'est pas souhaitable dans un environnement réel. Toute "
 "personne qui connaît l'URL d'accès peut accéder à ce phpMyAdmin. Il est "
-"suggéré de régler le %stype d'authentification%s à [kbd]cookie[/kbd] ou "
+"suggéré de régler le %1$stype d'authentification%2$s à [kbd]cookie[/kbd] ou "
 "[kbd]http[/kbd]."
 
 #: libraries/classes/Config/ServerConfigChecks.php:229
@@ -6394,19 +6361,16 @@ msgstr ""
 "spéciaux."
 
 #: libraries/classes/Config/ServerConfigChecks.php:417
-#, fuzzy, php-format
-#| msgid ""
-#| "%sLogin cookie validity%s greater than %ssession.gc_maxlifetime%s may "
-#| "cause random session invalidation (currently session.gc_maxlifetime is "
-#| "%d)."
+#, php-format
 msgid ""
 "%1$sLogin cookie validity%2$s greater than %3$ssession.gc_maxlifetime%4$s "
 "may cause random session invalidation (currently session.gc_maxlifetime is "
 "%5$d)."
 msgstr ""
-"Le paramètre %sLogin cookie validity%s avec une valeur plus grande que celle "
-"de %ssession.gc_maxlifetime%s peut causer des interruptions de la session de "
-"travail (la valeur courante de session.gc_maxlifetime est de %d)."
+"Le paramètre %1$sLogin cookie validity%2$s avec une valeur plus grande que "
+"celle de %3$ssession.gc_maxlifetime%4$s peut causer des interruptions de la "
+"session de travail (la valeur courante de session.gc_maxlifetime est de "
+"%5$d)."
 
 #: libraries/classes/Config/ServerConfigChecks.php:441
 #, php-format
@@ -6429,28 +6393,22 @@ msgstr ""
 "ci."
 
 #: libraries/classes/Config/ServerConfigChecks.php:505
-#, fuzzy, php-format
-#| msgid ""
-#| "%sBzip2 compression and decompression%s requires functions (%s) which are "
-#| "unavailable on this system."
+#, php-format
 msgid ""
 "%1$sBzip2 compression and decompression%2$s requires functions (%3$s) which "
 "are unavailable on this system."
 msgstr ""
-"La %scompression et décompression Bzip2%s requièrent des fonctions (%s) non "
-"disponibles sur ce serveur."
+"La %1$scompression et décompression Bzip2%2$s requièrent des fonctions (%3$s)"
+" non disponibles sur ce serveur."
 
 #: libraries/classes/Config/ServerConfigChecks.php:537
-#, fuzzy, php-format
-#| msgid ""
-#| "%sGZip compression and decompression%s requires functions (%s) which are "
-#| "unavailable on this system."
+#, php-format
 msgid ""
 "%1$sGZip compression and decompression%2$s requires functions (%3$s) which "
 "are unavailable on this system."
 msgstr ""
-"La %scompression et décompression GZip%s requièrent des fonctions (%s) non "
-"disponibles sur ce serveur."
+"La %1$scompression et décompression GZip%2$s requièrent des fonctions (%3$s) "
+"non disponibles sur ce serveur."
 
 #: libraries/classes/Config/Validator.php:210
 #: libraries/classes/Config/Validator.php:217
@@ -6794,10 +6752,9 @@ msgid "The columns have been moved successfully."
 msgstr "Les colonnes ont été déplacées avec succès."
 
 #: libraries/classes/Controllers/Table/TableStructureController.php:495
-#, fuzzy, php-format
-#| msgid "Failed to get real row count."
+#, php-format
 msgid "Failed to get description of column %s!"
-msgstr "Impossible d'obtenir le nombre réel de lignes."
+msgstr "Impossible d'obtenir la description de la colonne %s !"
 
 #: libraries/classes/Controllers/Table/TableStructureController.php:734
 #: libraries/classes/Controllers/Table/TableStructureController.php:1019
@@ -9428,10 +9385,8 @@ msgid "Server Choice:"
 msgstr "Choix du serveur : "
 
 #: libraries/classes/Plugins/Auth/AuthenticationCookie.php:341
-#, fuzzy
-#| msgid "Could not connect to the database server!"
 msgid "Failed to connect to the reCAPTCHA service!"
-msgstr "Connexion au serveur de base de données impossible !"
+msgstr "Impossible de se connecter au service reCAPTCHA !"
 
 #: libraries/classes/Plugins/Auth/AuthenticationCookie.php:343
 msgid "Entered captcha is wrong, try again!"
@@ -9439,7 +9394,7 @@ msgstr "Erreur, essayer à nouveau !"
 
 #: libraries/classes/Plugins/Auth/AuthenticationCookie.php:348
 msgid "Missing reCAPTCHA verification, maybe it has been blocked by adblock?"
-msgstr ""
+msgstr "Vérification reCAPTCHA manquante, peut-être bloquée par AdBlock ?"
 
 #: libraries/classes/Plugins/Auth/AuthenticationCookie.php:372
 msgid "You are not allowed to log in to this MySQL server!"
@@ -10260,18 +10215,6 @@ msgstr ""
 "utilisée, merci de laisser la première option vide."
 
 #: libraries/classes/Plugins/Transformations/Abs/ExternalTransformationsPlugin.php:28
-#, fuzzy
-#| msgid ""
-#| "LINUX ONLY: Launches an external application and feeds it the column data "
-#| "via standard input. Returns the standard output of the application. The "
-#| "default is Tidy, to pretty-print HTML code. For security reasons, you "
-#| "have to manually edit the file libraries/plugins/transformations/output/"
-#| "Text_Plain_External.php and list the tools you want to make available. "
-#| "The first option is then the number of the program you want to use and "
-#| "the second option is the parameters for the program. The third option, if "
-#| "set to 1, will convert the output using htmlspecialchars() (Default 1). "
-#| "The fourth option, if set to 1, will prevent wrapping and ensure that the "
-#| "output appears all on one line (Default 1)."
 msgid ""
 "LINUX ONLY: Launches an external application and feeds it the column data "
 "via standard input. Returns the standard output of the application. The "
@@ -10288,12 +10231,13 @@ msgstr ""
 "la colonne via l'entrée standard. Puis capture la sortie standard de ce "
 "programme externe. Le programme par défaut est Tidy, pour un affichage "
 "embelli du code HTML. Pour des raisons de sécurité, il faut éditer le script "
-"libraries/plugins/transformations/output/Text_Plain_External.php et y "
-"insérer les noms de programme externe possibles. La première option est le "
-"numéro du programme à utiliser, la seconde option contient les paramètres "
-"pour ce programme. En troisième option, une valeur de 1 va convertir le "
-"résultat avec la fonction htmlspecialchars() (par défaut, 1). En option 4, "
-"une valeur de 1 va ajouter NOWRAP à la cellule affichée (par défaut, 1)."
+"/classes/Plugins/Transformations/Output/Text_Plain_External.php et y insérer "
+"les noms de programmes externes à rendre disponibles. La première option est "
+"le numéro du programme à utiliser, la seconde contient les paramètres pour "
+"ce programme. En 3ème option, une valeur de 1 va convertir le résultat avec "
+"la fonction htmlspecialchars() (par défaut, 1). En option 4, une valeur de 1 "
+"va interdire tout retour à la ligne pour afficher sur une seule ligne (par "
+"défaut, 1)."
 
 #: libraries/classes/Plugins/Transformations/Abs/FormattedTransformationsPlugin.php:28
 msgid ""
@@ -13438,19 +13382,19 @@ msgstr "Exécuter"
 
 #: libraries/classes/Util.php:3949
 msgid "SSL is not being used"
-msgstr ""
+msgstr "SSL n'est pas utilisé"
 
 #: libraries/classes/Util.php:3954
 msgid "SSL is used with disabled verification"
-msgstr ""
+msgstr "SSL est utilisé avec vérification désactivée"
 
 #: libraries/classes/Util.php:3956
 msgid "SSL is used without certification authority"
-msgstr ""
+msgstr "SSL est utilisé sans autorité de certification"
 
 #: libraries/classes/Util.php:3959
 msgid "SSL is used"
-msgstr ""
+msgstr "SSL est utilisé"
 
 #: libraries/classes/Util.php:4080
 msgid "Users"
@@ -14488,7 +14432,7 @@ msgstr "Erreur fatale : la navigation requiert AJAX"
 
 #: prefs_forms.php:28 setup/frames/form.inc.php:25
 msgid "Incorrect form specified!"
-msgstr ""
+msgstr "Formulaire incorrect spécifié !"
 
 #: prefs_forms.php:80
 msgid "Cannot save settings, submitted form contains errors!"
@@ -14586,11 +14530,10 @@ msgid "No Privileges"
 msgstr "Aucun privilège"
 
 #: server_privileges.php:144
-#, fuzzy
-#| msgid "You do not have the necessary privileges to create a trigger."
 msgid "You do not have privileges to manipulate with the users!"
 msgstr ""
-"L'utilisateur n'a pas les privilèges nécessaires pour créer un déclencheur."
+"L'utilisateur n'a pas les privilèges nécessaires pour modifier les "
+"utilisateurs !"
 
 #: server_privileges.php:158
 msgid ""
