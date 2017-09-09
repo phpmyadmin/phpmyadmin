@@ -8,6 +8,7 @@
 use PhpMyAdmin\Response;
 use PhpMyAdmin\Rte\Events;
 use PhpMyAdmin\Rte\Routines;
+use PhpMyAdmin\Rte\Triggers;
 use PhpMyAdmin\Url;
 
 if (! defined('PHPMYADMIN')) {
@@ -92,7 +93,7 @@ case 'RTN':
     Routines::main($type);
     break;
 case 'TRI':
-    PMA_TRI_main();
+    Triggers::main();
     break;
 case 'EVN':
     Events::main();

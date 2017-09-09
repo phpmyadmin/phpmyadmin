@@ -10,6 +10,7 @@ namespace PhpMyAdmin\Rte;
 use PhpMyAdmin\Message;
 use PhpMyAdmin\Response;
 use PhpMyAdmin\Rte\Events;
+use PhpMyAdmin\Rte\Triggers;
 use PhpMyAdmin\Rte\Words;
 use PhpMyAdmin\Util;
 
@@ -67,7 +68,7 @@ class General
         if ($item !== false) {
             // Show form
             if ($type == 'TRI') {
-                $editor = PMA_TRI_getEditorForm($mode, $item);
+                $editor = Triggers::getEditorForm($mode, $item);
             } else { // EVN
                 $editor = Events::getEditorForm($mode, $operation, $item);
             }
