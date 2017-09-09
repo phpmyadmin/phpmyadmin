@@ -334,9 +334,9 @@ class ServerConfigChecks
     /**
      * Check config of servers
      *
-     * @param boolean $cookieAuthUsed     Cookie auth is used
-     * @param boolean $blowfishSecretSet  Blowfish secret set
-     * @param string  $blowfishSecret     Blowfish secret
+     * @param boolean $cookieAuthUsed    Cookie auth is used
+     * @param boolean $blowfishSecretSet Blowfish secret set
+     * @param string  $blowfishSecret    Blowfish secret
      *
      * @return array
      */
