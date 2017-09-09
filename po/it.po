@@ -4,16 +4,16 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.8.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2017-09-08 21:11+0200\n"
-"PO-Revision-Date: 2017-08-12 10:11+0000\n"
+"PO-Revision-Date: 2017-09-09 08:39+0000\n"
 "Last-Translator: Stefano Martinelli <stefano.ste.martinelli@gmail.com>\n"
-"Language-Team: Italian <https://hosted.weblate.org/projects/phpmyadmin/"
-"master/it/>\n"
+"Language-Team: Italian "
+"<https://hosted.weblate.org/projects/phpmyadmin/master/it/>\n"
 "Language: it\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 2.16\n"
+"X-Generator: Weblate 2.17-dev\n"
 
 #: ajax.php:17 ajax.php:34 export.php:196 schema_export.php:67
 msgid "Bad type!"
@@ -1764,6 +1764,8 @@ msgid ""
 "It seems that the connection to server has been lost. Please check your "
 "network connectivity and server status."
 msgstr ""
+"Sembra che la connessione al server sia andata persa. Controlla per favore "
+"la connettività della tua rete e lo stato del server."
 
 #: js/messages.php:369
 #: libraries/classes/Controllers/Server/ServerDatabasesController.php:193
@@ -2283,10 +2285,8 @@ msgstr ""
 
 #: js/messages.php:560 templates/database/designer/side_menu.phtml:40
 #: templates/database/designer/side_menu.phtml:43
-#, fuzzy
-#| msgid "No tables found in database."
 msgid "Add tables from other databases"
-msgstr "Non ci sono tabelle nel database."
+msgstr "Aggiungi tabelle da altri database"
 
 #: js/messages.php:561
 msgid "Page name"
@@ -6312,31 +6312,20 @@ msgid "You should use SSL connections if your database server supports it."
 msgstr "Usa una connessione SSL se il tuo server database la supporta."
 
 #: libraries/classes/Config/ServerConfigChecks.php:175
-#, fuzzy
-#| msgid ""
-#| "If you feel this is necessary, use additional protection settings - "
-#| "%shost authentication%s settings and %strusted proxies list%s. However, "
-#| "IP-based protection may not be reliable if your IP belongs to an ISP "
-#| "where thousands of users, including you, are connected to."
 msgid ""
 "If you feel this is necessary, use additional protection settings - %1$shost "
 "authentication%2$s settings and %3$strusted proxies list%4%s. However, IP-"
 "based protection may not be reliable if your IP belongs to an ISP where "
 "thousands of users, including you, are connected to."
 msgstr ""
-"Se lo ritieni necessario, usa ulteriori impostazioni di protezione - "
-"%sautenticazione degli host%s e %slista di proxy fidati%s. Comunque, la "
-"protezione a basata su IP potrebbe non essere affidabile se il tuo IP "
-"appartiene ad un ISP al quale migliaia di utenti, incluso te, sono connessi."
+"Se lo ritieni necessario, usa ulteriori impostazioni di protezione - %"
+"1sautenticazione degli host%2s e %3slista di proxy fidati%4s. Comunque, la "
+"protezione a basata su IP potrebbe non essere affidabile se il tuo indirizzo "
+"IP pubblico appartiene ad un ISP (Internet Service Provider) che lo "
+"condivide con migliaia di utenti, incluso te."
 
 #: libraries/classes/Config/ServerConfigChecks.php:202
-#, fuzzy, php-format
-#| msgid ""
-#| "You set the [kbd]config[/kbd] authentication type and included username "
-#| "and password for auto-login, which is not a desirable option for live "
-#| "hosts. Anyone who knows or guesses your phpMyAdmin URL can directly "
-#| "access your phpMyAdmin panel. Set %sauthentication type%s to [kbd]cookie[/"
-#| "kbd] or [kbd]http[/kbd]."
+#, php-format
 msgid ""
 "You set the [kbd]config[/kbd] authentication type and included username and "
 "password for auto-login, which is not a desirable option for live hosts. "
@@ -6344,11 +6333,12 @@ msgid ""
 "phpMyAdmin panel. Set %1$sauthentication type%2$s to [kbd]cookie[/kbd] or "
 "[kbd]http[/kbd]."
 msgstr ""
-"Hai impostato il tipo di autenticazione [kbd]config[/kbd] e hai inclusi il "
-"nome utente e la parola chiave per l'auto-login, questo non è desiderato per "
-"gli host in uso live. Chiunque che conosce o indovina il tuo URL di "
-"phpMyAdmin potrá direttamente accedere al pannello di phpMyAdmin. Imposta "
-"%sil tipo di autenticazione%s a [kbd]cookie[/kbd] o [kbd]http[/kbd]."
+"Hai impostato il tipo di autenticazione su [kbd]config[/kbd] e hai incluso "
+"il nome utente e la parola chiave per l'auto-login. Questa configurazione "
+"non è opportuna per gli host ad accesso diretto dall'esterno. Chiunque "
+"conosca o indovini il tuo URL di accesso a phpMyAdmin potrá accedere "
+"direttamente al pannello di phpMyAdmin. Imposta %1$sil tipo di "
+"autenticazione%2$s a [kbd]cookie[/kbd] o [kbd]http[/kbd]."
 
 #: libraries/classes/Config/ServerConfigChecks.php:229
 msgid "You allow for connecting to the server without a password."
@@ -6393,20 +6383,16 @@ msgstr ""
 "La chiave deve contenere lettere, numeri [em]e[/em] caratteri speciali."
 
 #: libraries/classes/Config/ServerConfigChecks.php:417
-#, fuzzy, php-format
-#| msgid ""
-#| "%sLogin cookie validity%s greater than %ssession.gc_maxlifetime%s may "
-#| "cause random session invalidation (currently session.gc_maxlifetime is "
-#| "%d)."
+#, php-format
 msgid ""
 "%1$sLogin cookie validity%2$s greater than %3$ssession.gc_maxlifetime%4$s "
 "may cause random session invalidation (currently session.gc_maxlifetime is "
 "%5$d)."
 msgstr ""
-"%sUn periodo di validità del cookie di sessione%s maggiore di %ssession."
-"gc_maxlifetime%s secondi potrebbe causare una scadenza anticipata (in modo "
-"casuale) della sessione di phpMyAdmin (attualmente session.gc_maxlifetime è "
-"impostato a %d secondi)."
+"%1$sUn periodo di validità del cookie di sessione%2$s maggiore di "
+"%3$ssession.gc_maxlifetime%4$s secondi potrebbe causare una scadenza "
+"anticipata (in modo casuale) della sessione di phpMyAdmin (attualmente "
+"session.gc_maxlifetime è impostato a %5$d secondi)."
 
 #: libraries/classes/Config/ServerConfigChecks.php:441
 #, php-format
@@ -6429,28 +6415,22 @@ msgstr ""
 "uguale."
 
 #: libraries/classes/Config/ServerConfigChecks.php:505
-#, fuzzy, php-format
-#| msgid ""
-#| "%sBzip2 compression and decompression%s requires functions (%s) which are "
-#| "unavailable on this system."
+#, php-format
 msgid ""
 "%1$sBzip2 compression and decompression%2$s requires functions (%3$s) which "
 "are unavailable on this system."
 msgstr ""
-"%sLa compressione e decompressione Bzip2%s richiedono funzioni (%s) che non "
-"sono disponibili su questo sistema."
+"%1$sLa compressione e decompressione Bzip%2$s richiedono alcune funzioni "
+"(%3$s) che non sono disponibili su questo sistema."
 
 #: libraries/classes/Config/ServerConfigChecks.php:537
-#, fuzzy, php-format
-#| msgid ""
-#| "%sGZip compression and decompression%s requires functions (%s) which are "
-#| "unavailable on this system."
+#, php-format
 msgid ""
 "%1$sGZip compression and decompression%2$s requires functions (%3$s) which "
 "are unavailable on this system."
 msgstr ""
-"%sLa compressione e decompressione GZip%s richiedono funzioni (%s) che non "
-"sono disponibili su questo sistema."
+"%1$sLa compressione e decompressione GZip%2$s richiedono alcune funzioni "
+"(%3$s) che non sono disponibili su questo sistema."
 
 #: libraries/classes/Config/Validator.php:210
 #: libraries/classes/Config/Validator.php:217
@@ -6795,10 +6775,9 @@ msgid "The columns have been moved successfully."
 msgstr "I campi sono stati spostati con successo."
 
 #: libraries/classes/Controllers/Table/TableStructureController.php:495
-#, fuzzy, php-format
-#| msgid "Failed to get real row count."
+#, php-format
 msgid "Failed to get description of column %s!"
-msgstr "Il conteggio delle righe reali è fallito."
+msgstr "Impossibile recuperare la descrizione del campo %s!"
 
 #: libraries/classes/Controllers/Table/TableStructureController.php:734
 #: libraries/classes/Controllers/Table/TableStructureController.php:1019
@@ -14459,7 +14438,7 @@ msgstr "Errore fatale: si può accedere ala navigazione solo tramite AJAX"
 
 #: prefs_forms.php:28 setup/frames/form.inc.php:25
 msgid "Incorrect form specified!"
-msgstr ""
+msgstr "Modulo errato!"
 
 #: prefs_forms.php:80
 msgid "Cannot save settings, submitted form contains errors!"
