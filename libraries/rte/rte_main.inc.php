@@ -5,22 +5,15 @@
  *
  * @package PhpMyAdmin
  */
-use PhpMyAdmin\Url;
 use PhpMyAdmin\Response;
+use PhpMyAdmin\Rte\Events;
+use PhpMyAdmin\Rte\Routines;
+use PhpMyAdmin\Rte\Triggers;
+use PhpMyAdmin\Url;
 
 if (! defined('PHPMYADMIN')) {
     exit;
 }
-
-/**
- * Include all other files that are common
- * to routines, triggers and events.
- */
-require_once './libraries/rte/rte_general.lib.php';
-require_once './libraries/rte/rte_words.lib.php';
-require_once './libraries/rte/rte_export.lib.php';
-require_once './libraries/rte/rte_list.lib.php';
-require_once './libraries/rte/rte_footer.lib.php';
 
 $response = Response::getInstance();
 
@@ -97,13 +90,12 @@ case 'RTN':
     if (isset($_REQUEST['type'])) {
         $type = $_REQUEST['type'];
     }
-    PMA_RTN_main($type);
+    Routines::main($type);
     break;
 case 'TRI':
-    PMA_TRI_main();
+    Triggers::main();
     break;
 case 'EVN':
-    PMA_EVN_main();
+    Events::main();
     break;
 }
-
