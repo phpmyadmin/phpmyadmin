@@ -257,18 +257,18 @@ function PMA_pluginGetChoice($section, $name, &$list, $cfgname = null)
 /**
  * Returns single option in a list element
  *
- * @param string                                       $section        name of
+ * @param string                                    $section        name of config section in $GLOBALS['cfg'][$section] for plugin
  *                                                                     config
  *                                                                     section in
  *                                                                     $GLOBALS['cfg'][$section]
  *                                                                     for plugin
- * @param string                                       $plugin_name    unique plugin
+ * @param string                                    $plugin_name    unique plugin name
  *                                                                     name
  * @param array|\PhpMyAdmin\Properties\PropertyItem &$propertyGroup options
  *                                                                     property main
  *                                                                     group
  *                                                                     instance
- * @param boolean                                      $is_subgroup    if this group
+ * @param boolean                                   $is_subgroup    if this group is a subgroup
  *                                                                     is a subgroup
  *
  * @return string  table row with option

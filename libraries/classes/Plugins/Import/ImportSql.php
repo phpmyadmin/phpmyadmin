@@ -174,7 +174,7 @@ class ImportSql extends ImportPlugin
      * Handle compatibility options
      *
      * @param PhpMyAdmin\DatabaseInterface $dbi     Database interface
-     * @param array                           $request Request array
+     * @param array                        $request Request array
      *
      * @return void
      */

@@ -84,7 +84,6 @@ class ServeConfigChecksTest extends PMATestCase
             array_keys($_SESSION['messages']['notice'])
         );
 
-
         $this->assertEquals(
             array(
                 'LoginCookieValidity',
