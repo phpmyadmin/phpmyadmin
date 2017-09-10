@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.7.4-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2017-08-10 09:13-0400\n"
-"PO-Revision-Date: 2017-09-10 09:33+0000\n"
-"Last-Translator: Phillips Zhu <phizzarfernos@gmail.com>\n"
+"PO-Revision-Date: 2017-09-10 09:38+0000\n"
+"Last-Translator: Neoubs <corneliuscheka@gmail.com>\n"
 "Language-Team: Indonesian "
 "<https://hosted.weblate.org/projects/phpmyadmin/4-7/id/>\n"
 "Language: id\n"
@@ -6461,9 +6461,8 @@ msgid "Do not abort on INSERT error"
 msgstr "Jangan gugurkan sewaktu galat INSERT"
 
 #: libraries/config/messages.inc.php:370 libraries/config/messages.inc.php:384
-#, fuzzy
 msgid "Add ON DUPLICATE KEY UPDATE"
-msgstr "Add ON DUPLICATE KEY UPDATE"
+msgstr "Tambahkan ON DUPLICATE KEY UPDATE"
 
 #: libraries/config/messages.inc.php:372 libraries/config/messages.inc.php:386
 msgid "Update data when duplicate keys found on import"
@@ -6516,10 +6515,8 @@ msgid "Do not use AUTO_INCREMENT for zero values"
 msgstr "Jangan gunakan AUTO_INCREMENT untuk nilai nol"
 
 #: libraries/config/messages.inc.php:400
-#, fuzzy
-#| msgid "Read misses"
 msgid "Read as multibytes"
-msgstr "Pembacaan yang kelewat"
+msgstr "Baca sebagai multibytes"
 
 #: libraries/config/messages.inc.php:401
 msgid "Initial state for sliders"
@@ -6560,16 +6557,12 @@ msgid "Delete all cookies on logout"
 msgstr "Hapus semua kuki sewaktu keluar"
 
 #: libraries/config/messages.inc.php:415
-#, fuzzy
-#| msgid ""
-#| "Define whether the previous login should be recalled or not in cookie "
-#| "authentication mode."
 msgid ""
 "Define whether the previous login should be recalled or not in [kbd]cookie[/"
 "kbd] authentication mode."
 msgstr ""
-"Tentukan apakah login sebelumnya harus diingat atau tidak dalam mode "
-"otentikasi cookie."
+"Tentukan apakah login sebelumnya harus dipanggil kembali atau tidak dalam "
+"mode otentikasi cookie."
 
 #: libraries/config/messages.inc.php:418
 msgid "Recall user name"
@@ -6675,15 +6668,11 @@ msgid "Maximum tables"
 msgstr "Tabel maksimum"
 
 #: libraries/config/messages.inc.php:460
-#, fuzzy
-#| msgid ""
-#| "The number of bytes a script is allowed to allocate, eg. [kbd]32M[/kbd] "
-#| "([kbd]0[/kbd] for no limit)."
 msgid ""
 "The number of bytes a script is allowed to allocate, eg. [kbd]32M[/kbd] "
 "([kbd]-1[/kbd] for no limit and [kbd]0[/kbd] for no change)."
 msgstr ""
-"Jumlah bytes script yang diperbolehkan untuk mengalokasikan, misalnya. "
+"Jumlah bytes yang diperbolehkan pada sebuah script untuk alokasi, misalnya. "
 "[kbd]32M[/kbd] ([kbd]0[/kbd] untuk tak terbatas)."
 
 #: libraries/config/messages.inc.php:463
