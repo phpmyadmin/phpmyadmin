@@ -4,16 +4,16 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.8.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2017-09-08 21:11+0200\n"
-"PO-Revision-Date: 2017-08-10 14:07+0000\n"
-"Last-Translator: George Bezerra <georgelione@gmail.com>\n"
-"Language-Team: Portuguese (Brazil) <https://hosted.weblate.org/projects/"
-"phpmyadmin/master/pt_BR/>\n"
+"PO-Revision-Date: 2017-09-11 04:48+0000\n"
+"Last-Translator: Ricardo Luiz Gomes <rick@interword.com.br>\n"
+"Language-Team: Portuguese (Brazil) "
+"<https://hosted.weblate.org/projects/phpmyadmin/master/pt_BR/>\n"
 "Language: pt_BR\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n > 1;\n"
-"X-Generator: Weblate 2.16-dev\n"
+"X-Generator: Weblate 2.17-dev\n"
 
 #: ajax.php:17 ajax.php:34 export.php:196 schema_export.php:67
 msgid "Bad type!"
@@ -1764,6 +1764,8 @@ msgid ""
 "It seems that the connection to server has been lost. Please check your "
 "network connectivity and server status."
 msgstr ""
+"Parece que a conexão com o servidor foi perdida. Por favor cheque se sua "
+"conexão está ativa e o status do servidor."
 
 #: js/messages.php:369
 #: libraries/classes/Controllers/Server/ServerDatabasesController.php:193
@@ -2280,10 +2282,8 @@ msgstr ""
 
 #: js/messages.php:560 templates/database/designer/side_menu.phtml:40
 #: templates/database/designer/side_menu.phtml:43
-#, fuzzy
-#| msgid "No tables found in database."
 msgid "Add tables from other databases"
-msgstr "Nenhuma tabela encontrada no banco de dados."
+msgstr "Adicione tabelas de outra base de dados"
 
 #: js/messages.php:561
 msgid "Page name"
@@ -2314,7 +2314,7 @@ msgstr "Sem título"
 
 #: js/messages.php:567
 msgid "Please select a page to continue"
-msgstr "Favor escolher uma página para editar"
+msgstr "Favor escolher uma página para continuar"
 
 #: js/messages.php:568
 msgid "Please enter a valid page name"
@@ -6267,12 +6267,6 @@ msgid "You should use SSL connections if your database server supports it."
 msgstr "Você deveria utilizar conexões SSL, se o seu servidor web suportar."
 
 #: libraries/classes/Config/ServerConfigChecks.php:175
-#, fuzzy
-#| msgid ""
-#| "If you feel this is necessary, use additional protection settings - "
-#| "%shost authentication%s settings and %strusted proxies list%s. However, "
-#| "IP-based protection may not be reliable if your IP belongs to an ISP "
-#| "where thousands of users, including you, are connected to."
 msgid ""
 "If you feel this is necessary, use additional protection settings - %1$shost "
 "authentication%2$s settings and %3$strusted proxies list%4%s. However, IP-"
@@ -6280,9 +6274,10 @@ msgid ""
 "thousands of users, including you, are connected to."
 msgstr ""
 "Se achar necessário, você pode usar as configurações de proteção adicional - "
-"%shost authenticaion%s e %strusted proxies list%s. No entando, proteções "
-"baseadas em IP podem não ser confiáveis se o seu IP pertence a um servidor "
-"ISP onde milhares de usuários, incluindo você, estão conectados."
+"%1$shost authentication%2$s settings and %3$strusted proxies list%4%s. No "
+"entanto, proteções baseadas em IP podem não ser confiáveis se o seu IP "
+"pertence a um servidor ISP onde milhares de usuários, incluindo você, estão "
+"conectados."
 
 #: libraries/classes/Config/ServerConfigChecks.php:202
 #, fuzzy, php-format
@@ -6745,10 +6740,9 @@ msgid "The columns have been moved successfully."
 msgstr "As colunas foram movidas com sucesso."
 
 #: libraries/classes/Controllers/Table/TableStructureController.php:495
-#, fuzzy, php-format
-#| msgid "Failed to get real row count."
+#, php-format
 msgid "Failed to get description of column %s!"
-msgstr "Falha ao recuperar a contagem real de linhas."
+msgstr "Falha ao recuperar a descrição da coluna!"
 
 #: libraries/classes/Controllers/Table/TableStructureController.php:734
 #: libraries/classes/Controllers/Table/TableStructureController.php:1019
@@ -14353,7 +14347,7 @@ msgstr "Erro fatal: A navegação somente pode ser acessada via AJAX"
 
 #: prefs_forms.php:28 setup/frames/form.inc.php:25
 msgid "Incorrect form specified!"
-msgstr ""
+msgstr "O formulário fornecido está incorreto!"
 
 #: prefs_forms.php:80
 msgid "Cannot save settings, submitted form contains errors!"
