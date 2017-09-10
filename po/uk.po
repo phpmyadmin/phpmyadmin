@@ -4,16 +4,16 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.8.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2017-09-08 21:11+0200\n"
-"PO-Revision-Date: 2017-08-18 18:56+0000\n"
+"PO-Revision-Date: 2017-09-10 20:22+0000\n"
 "Last-Translator: Володимир Бриняк <bardvv@gmail.com>\n"
-"Language-Team: Ukrainian <https://hosted.weblate.org/projects/phpmyadmin/"
-"master/uk/>\n"
+"Language-Team: Ukrainian "
+"<https://hosted.weblate.org/projects/phpmyadmin/master/uk/>\n"
 "Language: uk\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=3; plural=n%10==1 && n%100!=11 ? 0 : n%10>=2 && n"
-"%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
+"Plural-Forms: nplurals=3; plural=n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%10<="
+"4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
 "X-Generator: Weblate 2.17-dev\n"
 
 #: ajax.php:17 ajax.php:34 export.php:196 schema_export.php:67
@@ -1743,6 +1743,8 @@ msgid ""
 "It seems that the connection to server has been lost. Please check your "
 "network connectivity and server status."
 msgstr ""
+"Здається, що з'єднання з сервером було втрачено. Перевірте стан з'єднання з "
+"мережею та стан сервера."
 
 #: js/messages.php:369
 #: libraries/classes/Controllers/Server/ServerDatabasesController.php:193
@@ -2256,10 +2258,8 @@ msgstr ""
 
 #: js/messages.php:560 templates/database/designer/side_menu.phtml:40
 #: templates/database/designer/side_menu.phtml:43
-#, fuzzy
-#| msgid "No tables found in database."
 msgid "Add tables from other databases"
-msgstr "В базі даних не виявлено таблиць."
+msgstr "Додайте таблиці з інших баз даних"
 
 #: js/messages.php:561
 msgid "Page name"
@@ -6215,12 +6215,6 @@ msgstr ""
 "підтримує його."
 
 #: libraries/classes/Config/ServerConfigChecks.php:175
-#, fuzzy
-#| msgid ""
-#| "If you feel this is necessary, use additional protection settings - "
-#| "%shost authentication%s settings and %strusted proxies list%s. However, "
-#| "IP-based protection may not be reliable if your IP belongs to an ISP "
-#| "where thousands of users, including you, are connected to."
 msgid ""
 "If you feel this is necessary, use additional protection settings - %1$shost "
 "authentication%2$s settings and %3$strusted proxies list%4%s. However, IP-"
@@ -6228,19 +6222,13 @@ msgid ""
 "thousands of users, including you, are connected to."
 msgstr ""
 "При необхідності можна використати додаткові налаштування захисту - "
-"налаштування %sавтентифікації хоста%s та  %sсписок довірених проксі%s. "
+"налаштування %1$автентифікації хоста%2$s та %3$список довірених проксі%4%s. "
 "Однак, захист на основі IP не може бути надійним, якщо ваш IP не є "
 "виділеним, а належить провайдеру і через який разом з вами з'єднуються "
 "тисячі користувачів."
 
 #: libraries/classes/Config/ServerConfigChecks.php:202
-#, fuzzy, php-format
-#| msgid ""
-#| "You set the [kbd]config[/kbd] authentication type and included username "
-#| "and password for auto-login, which is not a desirable option for live "
-#| "hosts. Anyone who knows or guesses your phpMyAdmin URL can directly "
-#| "access your phpMyAdmin panel. Set %sauthentication type%s to [kbd]cookie[/"
-#| "kbd] or [kbd]http[/kbd]."
+#, php-format
 msgid ""
 "You set the [kbd]config[/kbd] authentication type and included username and "
 "password for auto-login, which is not a desirable option for live hosts. "
@@ -6252,8 +6240,8 @@ msgstr ""
 "користувача і пароль для автоматичного входу в систему, що не є бажаним "
 "варіантом для діючого хосту. Будь-хто, хто знає чи має здогадки щодо URL-"
 "адреси вашого PHPMyAdmin може безпосередньо отримати доступ до панелі "
-"PHPMyAdmin. Встановіть %sтип автентифікації%s [kbd]куки[/kbd] або [kbd]http[/"
-"kbd]."
+"PHPMyAdmin. Встановіть %1$sтип автентифікації%2$s [kbd]куки[/kbd] або "
+"[kbd]http[/kbd]."
 
 #: libraries/classes/Config/ServerConfigChecks.php:229
 msgid "You allow for connecting to the server without a password."
@@ -6297,19 +6285,15 @@ msgstr ""
 "Ключ кодування має містити літери, цифри [em]та[/em] спеціальні символи."
 
 #: libraries/classes/Config/ServerConfigChecks.php:417
-#, fuzzy, php-format
-#| msgid ""
-#| "%sLogin cookie validity%s greater than %ssession.gc_maxlifetime%s may "
-#| "cause random session invalidation (currently session.gc_maxlifetime is "
-#| "%d)."
+#, php-format
 msgid ""
 "%1$sLogin cookie validity%2$s greater than %3$ssession.gc_maxlifetime%4$s "
 "may cause random session invalidation (currently session.gc_maxlifetime is "
 "%5$d)."
 msgstr ""
-"%sТермін придатності cookie входу%s перевищує  %ssession.gc_maxlifetime%s і "
-"може викликати випадкові скидання сеансу  (наразі session.gc_maxlifetime "
-"рівний %d)."
+"%1$sТермін придатності cookie входу%2$s перевищує  "
+"%3$sssession.gc_maxlifetime%4$s і може викликати випадкові скидання сеансу  ("
+"наразі session.gc_maxlifetime рівний %5$d)."
 
 #: libraries/classes/Config/ServerConfigChecks.php:441
 #, php-format
@@ -6332,28 +6316,22 @@ msgstr ""
 "значення, менше або рівне йому."
 
 #: libraries/classes/Config/ServerConfigChecks.php:505
-#, fuzzy, php-format
-#| msgid ""
-#| "%sBzip2 compression and decompression%s requires functions (%s) which are "
-#| "unavailable on this system."
+#, php-format
 msgid ""
 "%1$sBzip2 compression and decompression%2$s requires functions (%3$s) which "
 "are unavailable on this system."
 msgstr ""
-"%sСтиснення і розпакування в форматі Bzip2%s вимагає наявності функцій (%s), "
-"котрі в цій системі недоступні."
+"%1$sСтиснення і розпакування в форматі Bzip%2$s вимагає наявності функцій "
+"(%3$s), котрі в цій системі недоступні."
 
 #: libraries/classes/Config/ServerConfigChecks.php:537
-#, fuzzy, php-format
-#| msgid ""
-#| "%sGZip compression and decompression%s requires functions (%s) which are "
-#| "unavailable on this system."
+#, php-format
 msgid ""
 "%1$sGZip compression and decompression%2$s requires functions (%3$s) which "
 "are unavailable on this system."
 msgstr ""
-"%sСтиснення і розпакування в форматі Gzip%s вимагає наявності функцій (%s), "
-"котрі в цій системі недоступні."
+"%1$sСтиснення і розпакування в форматі Gzip%2$s вимагає наявності функцій "
+"(%3$s), котрі в цій системі недоступні."
 
 #: libraries/classes/Config/Validator.php:210
 #: libraries/classes/Config/Validator.php:217
@@ -6696,10 +6674,9 @@ msgid "The columns have been moved successfully."
 msgstr "Стовпці успішно переміщено."
 
 #: libraries/classes/Controllers/Table/TableStructureController.php:495
-#, fuzzy, php-format
-#| msgid "Failed to get real row count."
+#, php-format
 msgid "Failed to get description of column %s!"
-msgstr "Не вдалося отримати реальну кількість рядків."
+msgstr "Не вдалося отримати опис стовпця %s!"
 
 #: libraries/classes/Controllers/Table/TableStructureController.php:734
 #: libraries/classes/Controllers/Table/TableStructureController.php:1019
@@ -14278,7 +14255,7 @@ msgstr ""
 
 #: prefs_forms.php:28 setup/frames/form.inc.php:25
 msgid "Incorrect form specified!"
-msgstr ""
+msgstr "Вказана неправильна форма!"
 
 #: prefs_forms.php:80
 msgid "Cannot save settings, submitted form contains errors!"
