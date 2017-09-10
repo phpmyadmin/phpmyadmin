@@ -3,8 +3,8 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.8.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2017-09-08 21:11+0200\n"
-"PO-Revision-Date: 2017-09-10 05:18+0000\n"
-"Last-Translator: Phillips Zhu <phizzarfernos@gmail.com>\n"
+"PO-Revision-Date: 2017-09-10 07:55+0000\n"
+"Last-Translator: haruu <haruute0@gmail.com>\n"
 "Language-Team: Indonesian "
 "<https://hosted.weblate.org/projects/phpmyadmin/master/id/>\n"
 "Language: id\n"
@@ -1743,13 +1743,12 @@ msgid "Error text: %s"
 msgstr "Pesan Kesalahan: %s"
 
 #: js/messages.php:366
-#, fuzzy
 msgid ""
 "It seems that the connection to server has been lost. Please check your "
 "network connectivity and server status."
 msgstr ""
-"Sepertinya koneksi anda ke server telah terputus. Tolong cek koneksi "
-"internet anda dan status server."
+"Tampaknya koneksi ke server telah terputus. Harap periksa koneksi jaringan "
+"dan status server Anda."
 
 #: js/messages.php:369
 #: libraries/classes/Controllers/Server/ServerDatabasesController.php:193
