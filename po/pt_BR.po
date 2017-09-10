@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.7.4-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2017-08-10 09:13-0400\n"
-"PO-Revision-Date: 2017-08-10 13:55+0000\n"
-"Last-Translator: George Bezerra <georgelione@gmail.com>\n"
+"PO-Revision-Date: 2017-09-11 04:48+0000\n"
+"Last-Translator: Ricardo Luiz Gomes <rick@interword.com.br>\n"
 "Language-Team: Portuguese (Brazil) "
 "<https://hosted.weblate.org/projects/phpmyadmin/4-7/pt_BR/>\n"
 "Language: pt_BR\n"
@@ -13,7 +13,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n > 1;\n"
-"X-Generator: Weblate 2.16-dev\n"
+"X-Generator: Weblate 2.17-dev\n"
 
 #: ajax.php:16 ajax.php:33 export.php:192 schema_export.php:64
 msgid "Bad type!"
@@ -2265,7 +2265,7 @@ msgstr "Sem título"
 
 #: js/messages.php:564
 msgid "Please select a page to continue"
-msgstr "Favor escolher uma página para editar"
+msgstr "Favor escolher uma página para continuar"
 
 #: js/messages.php:565
 msgid "Please enter a valid page name"
