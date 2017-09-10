@@ -4,16 +4,16 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.8.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2017-09-08 21:11+0200\n"
-"PO-Revision-Date: 2017-09-05 12:05+0000\n"
+"PO-Revision-Date: 2017-09-10 20:05+0000\n"
 "Last-Translator: pitchblack <pitchblack@mail.ru>\n"
-"Language-Team: Russian <https://hosted.weblate.org/projects/phpmyadmin/"
-"master/ru/>\n"
+"Language-Team: Russian "
+"<https://hosted.weblate.org/projects/phpmyadmin/master/ru/>\n"
 "Language: ru\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=3; plural=n%10==1 && n%100!=11 ? 0 : n%10>=2 && n"
-"%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
+"Plural-Forms: nplurals=3; plural=n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%10<="
+"4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
 "X-Generator: Weblate 2.17-dev\n"
 
 #: ajax.php:17 ajax.php:34 export.php:196 schema_export.php:67
@@ -1748,6 +1748,8 @@ msgid ""
 "It seems that the connection to server has been lost. Please check your "
 "network connectivity and server status."
 msgstr ""
+"Похоже соединение с сервером потеряно. Проверьте сетевое подключение и "
+"статус сервера."
 
 #: js/messages.php:369
 #: libraries/classes/Controllers/Server/ServerDatabasesController.php:193
@@ -2262,10 +2264,8 @@ msgstr ""
 
 #: js/messages.php:560 templates/database/designer/side_menu.phtml:40
 #: templates/database/designer/side_menu.phtml:43
-#, fuzzy
-#| msgid "No tables found in database."
 msgid "Add tables from other databases"
-msgstr "Таблиц в базе данных не обнаружено."
+msgstr "Добавить таблицы из других баз данных"
 
 #: js/messages.php:561
 msgid "Page name"
@@ -6220,31 +6220,19 @@ msgstr ""
 "поддерживает."
 
 #: libraries/classes/Config/ServerConfigChecks.php:175
-#, fuzzy
-#| msgid ""
-#| "If you feel this is necessary, use additional protection settings - "
-#| "%shost authentication%s settings and %strusted proxies list%s. However, "
-#| "IP-based protection may not be reliable if your IP belongs to an ISP "
-#| "where thousands of users, including you, are connected to."
 msgid ""
 "If you feel this is necessary, use additional protection settings - %1$shost "
 "authentication%2$s settings and %3$strusted proxies list%4%s. However, IP-"
 "based protection may not be reliable if your IP belongs to an ISP where "
 "thousands of users, including you, are connected to."
 msgstr ""
-"При необходимости используйте дополнительные настройки безопасности - "
-"%sидентификация по хосту%s и %sсписок доверенных прокси серверов%s. Однако, "
-"защита по IP может быть ненадежной, если ваш IP не является выделенным и "
-"кроме вас принадлежит тысячам пользователей того же интернет провайдера."
+"Если вы считаете, что это необходимо, используйте дополнительные настройки "
+"защиты -%1$shost authentication%2$s и %3$strusted proxies list%4%s. Однако "
+"защита на основе IP может оказаться ненадежной, если ваш IP принадлежит "
+"провайдеру, к которому подключены тысячи пользователей, включая вас."
 
 #: libraries/classes/Config/ServerConfigChecks.php:202
-#, fuzzy, php-format
-#| msgid ""
-#| "You set the [kbd]config[/kbd] authentication type and included username "
-#| "and password for auto-login, which is not a desirable option for live "
-#| "hosts. Anyone who knows or guesses your phpMyAdmin URL can directly "
-#| "access your phpMyAdmin panel. Set %sauthentication type%s to [kbd]cookie[/"
-#| "kbd] or [kbd]http[/kbd]."
+#, php-format
 msgid ""
 "You set the [kbd]config[/kbd] authentication type and included username and "
 "password for auto-login, which is not a desirable option for live hosts. "
@@ -6255,8 +6243,8 @@ msgstr ""
 "Вы установили [kbd]config[/kbd] идентификацию и ввели имя пользователя с "
 "паролем для автоматического входа, что крайне не рекомендуется для рабочего "
 "хоста. Любой, кто сможет узнать ссылку к phpMyAdmin сможет напрямую попасть "
-"в панель управления. Установите %sтип идентификации%s в [kbd]cookie[/kbd] "
-"или [kbd]http[/kbd]."
+"в панель управления. Установите %1$sauthentication type%2$s в "
+"[kbd]cookie[/kbd] или [kbd]http[/kbd]."
 
 #: libraries/classes/Config/ServerConfigChecks.php:229
 msgid "You allow for connecting to the server without a password."
@@ -6299,19 +6287,15 @@ msgid "Key should contain letters, numbers [em]and[/em] special characters."
 msgstr "Ключ должен содержать символы алфавита, цифры [em]и[/em] знаки."
 
 #: libraries/classes/Config/ServerConfigChecks.php:417
-#, fuzzy, php-format
-#| msgid ""
-#| "%sLogin cookie validity%s greater than %ssession.gc_maxlifetime%s may "
-#| "cause random session invalidation (currently session.gc_maxlifetime is "
-#| "%d)."
+#, php-format
 msgid ""
 "%1$sLogin cookie validity%2$s greater than %3$ssession.gc_maxlifetime%4$s "
 "may cause random session invalidation (currently session.gc_maxlifetime is "
 "%5$d)."
 msgstr ""
-"%sLogin cookie validity%s более %ssession.gc_maxlifetime%s секунд может "
-"вызывать случайные сбросы сессии (текущее значение session.gc_maxlifetime - "
-"%d)."
+"%1$sLogin cookie validity%2$s более %3$ssession.gc_maxlifetime%4$s секунд "
+"может вызывать случайные сбросы сессии (текущее значение "
+"session.gc_maxlifetime - %5$d)."
 
 #: libraries/classes/Config/ServerConfigChecks.php:441
 #, php-format
@@ -6334,28 +6318,22 @@ msgstr ""
 "или равное значение."
 
 #: libraries/classes/Config/ServerConfigChecks.php:505
-#, fuzzy, php-format
-#| msgid ""
-#| "%sBzip2 compression and decompression%s requires functions (%s) which are "
-#| "unavailable on this system."
+#, php-format
 msgid ""
 "%1$sBzip2 compression and decompression%2$s requires functions (%3$s) which "
 "are unavailable on this system."
 msgstr ""
-"%sСоздание и распаковка Bzip2 архивов%s требует наличия функций (%s), "
+"%1$sСоздание и распаковка Bzip2 архивов%2$s требует наличия функций (%3$s), "
 "которые недоступны на данной системе."
 
 #: libraries/classes/Config/ServerConfigChecks.php:537
-#, fuzzy, php-format
-#| msgid ""
-#| "%sGZip compression and decompression%s requires functions (%s) which are "
-#| "unavailable on this system."
+#, php-format
 msgid ""
 "%1$sGZip compression and decompression%2$s requires functions (%3$s) which "
 "are unavailable on this system."
 msgstr ""
-"%sСоздание и распаковка GZip архивов%s требует наличия функций (%s), которые "
-"недоступны на данной системе."
+"%1$sСоздание и распаковка GZip архивов%2$s требует наличия функций (%3$s), "
+"которые недоступны на данной системе."
 
 #: libraries/classes/Config/Validator.php:210
 #: libraries/classes/Config/Validator.php:217
@@ -6695,10 +6673,9 @@ msgid "The columns have been moved successfully."
 msgstr "Поля были успешно перемещены."
 
 #: libraries/classes/Controllers/Table/TableStructureController.php:495
-#, fuzzy, php-format
-#| msgid "Failed to get real row count."
+#, php-format
 msgid "Failed to get description of column %s!"
-msgstr "Не удалось получить реальное количество строк."
+msgstr "Не удалось получить описание столбца %s!"
 
 #: libraries/classes/Controllers/Table/TableStructureController.php:734
 #: libraries/classes/Controllers/Table/TableStructureController.php:1019
@@ -14295,7 +14272,7 @@ msgstr ""
 
 #: prefs_forms.php:28 setup/frames/form.inc.php:25
 msgid "Incorrect form specified!"
-msgstr ""
+msgstr "Указана неверная форма!"
 
 #: prefs_forms.php:80
 msgid "Cannot save settings, submitted form contains errors!"
