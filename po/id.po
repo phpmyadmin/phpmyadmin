@@ -3,8 +3,8 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.8.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2017-09-08 21:11+0200\n"
-"PO-Revision-Date: 2017-09-10 16:08+0000\n"
-"Last-Translator: Brane Warren <doubleu1809@gmail.com>\n"
+"PO-Revision-Date: 2017-09-10 23:31+0000\n"
+"Last-Translator: SacredWKnight <yudhis.sumardiono@gmail.com>\n"
 "Language-Team: Indonesian "
 "<https://hosted.weblate.org/projects/phpmyadmin/master/id/>\n"
 "Language: id\n"
@@ -2263,10 +2263,8 @@ msgstr ""
 
 #: js/messages.php:560 templates/database/designer/side_menu.phtml:40
 #: templates/database/designer/side_menu.phtml:43
-#, fuzzy
-#| msgid "No tables found in database."
 msgid "Add tables from other databases"
-msgstr "Tambahkan tabel dari database lainya."
+msgstr "Tambahkan tabel dari database lainya"
 
 #: js/messages.php:561
 msgid "Page name"
