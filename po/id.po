@@ -3,8 +3,8 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.8.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2017-09-08 21:11+0200\n"
-"PO-Revision-Date: 2017-09-10 09:31+0000\n"
-"Last-Translator: Phillips Zhu <phizzarfernos@gmail.com>\n"
+"PO-Revision-Date: 2017-09-10 09:38+0000\n"
+"Last-Translator: Neoubs <corneliuscheka@gmail.com>\n"
 "Language-Team: Indonesian "
 "<https://hosted.weblate.org/projects/phpmyadmin/master/id/>\n"
 "Language: id\n"
@@ -3835,10 +3835,8 @@ msgid "Default transformations for TextImageLink"
 msgstr "Pilihan transformasi untuk TextImageLink"
 
 #: libraries/classes/Config/Descriptions.php:227
-#, fuzzy
-#| msgid "Transformation options"
 msgid "Default transformations for TextLink"
-msgstr "Pilihan transformasi"
+msgstr "Transformasi standar untuk TextLink"
 
 #: libraries/classes/Config/Descriptions.php:232
 msgid "Show server listing as a list instead of a drop down."
@@ -4534,9 +4532,8 @@ msgstr "Jangan gugurkan sewaktu galat INSERT"
 
 #: libraries/classes/Config/Descriptions.php:637
 #: libraries/classes/Config/Descriptions.php:658
-#, fuzzy
 msgid "Add ON DUPLICATE KEY UPDATE"
-msgstr "Add ON DUPLICATE KEY UPDATE"
+msgstr "Tambahkan ON DUPLICATE KEY UPDATE"
 
 #: libraries/classes/Config/Descriptions.php:639
 #: libraries/classes/Config/Descriptions.php:660
@@ -4590,10 +4587,8 @@ msgid "Do not use AUTO_INCREMENT for zero values"
 msgstr "Jangan gunakan AUTO_INCREMENT untuk nilai nol"
 
 #: libraries/classes/Config/Descriptions.php:680
-#, fuzzy
-#| msgid "Read misses"
 msgid "Read as multibytes"
-msgstr "Pembacaan yang kelewat"
+msgstr "Baca sebagai multibytes"
 
 #: libraries/classes/Config/Descriptions.php:682
 msgid "Initial state for sliders"
@@ -4634,16 +4629,12 @@ msgid "Delete all cookies on logout"
 msgstr "Hapus semua kuki sewaktu keluar"
 
 #: libraries/classes/Config/Descriptions.php:701
-#, fuzzy
-#| msgid ""
-#| "Define whether the previous login should be recalled or not in cookie "
-#| "authentication mode."
 msgid ""
 "Define whether the previous login should be recalled or not in [kbd]cookie[/"
 "kbd] authentication mode."
 msgstr ""
-"Tentukan apakah login sebelumnya harus diingat atau tidak dalam mode "
-"otentikasi cookie."
+"Tentukan apakah login sebelumnya harus dipanggil kembali atau tidak dalam "
+"mode otentikasi cookie."
 
 #: libraries/classes/Config/Descriptions.php:705
 msgid "Recall user name"
@@ -4750,15 +4741,11 @@ msgid "Maximum tables"
 msgstr "Tabel maksimum"
 
 #: libraries/classes/Config/Descriptions.php:760
-#, fuzzy
-#| msgid ""
-#| "The number of bytes a script is allowed to allocate, eg. [kbd]32M[/kbd] "
-#| "([kbd]0[/kbd] for no limit)."
 msgid ""
 "The number of bytes a script is allowed to allocate, eg. [kbd]32M[/kbd] "
 "([kbd]-1[/kbd] for no limit and [kbd]0[/kbd] for no change)."
 msgstr ""
-"Jumlah bytes script yang diperbolehkan untuk mengalokasikan, misalnya. "
+"Jumlah bytes yang diperbolehkan pada sebuah script untuk alokasi, misalnya. "
 "[kbd]32M[/kbd] ([kbd]0[/kbd] untuk tak terbatas)."
 
 #: libraries/classes/Config/Descriptions.php:764
