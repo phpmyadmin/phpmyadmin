@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.7.4-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2017-08-10 09:13-0400\n"
-"PO-Revision-Date: 2017-09-10 23:31+0000\n"
-"Last-Translator: Brane Warren <doubleu1809@gmail.com>\n"
+"PO-Revision-Date: 2017-09-11 13:07+0000\n"
+"Last-Translator: Neoubs <corneliuscheka@gmail.com>\n"
 "Language-Team: Indonesian "
 "<https://hosted.weblate.org/projects/phpmyadmin/4-7/id/>\n"
 "Language: id\n"
@@ -13841,12 +13841,11 @@ msgstr ""
 "permintaan telah disusun belum."
 
 #: libraries/server_status_variables.lib.php:626
-#, fuzzy
 msgid ""
 "The maximum number of connections that have been in use simultaneously since "
 "the server started."
 msgstr ""
-"Jumlah maksimum koneksi yang telah digunakan secara bersamaan karena server "
+"Jumlah maksimum koneksi yang telah digunakan secara bersamaan sejak server "
 "dimulai."
 
 #: libraries/server_status_variables.lib.php:630
