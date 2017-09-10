@@ -4,10 +4,10 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.8.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2017-09-08 21:11+0200\n"
-"PO-Revision-Date: 2017-08-16 12:50+0000\n"
-"Last-Translator: Jamaro Ja Ma Ro <jamaropop@gmail.com>\n"
-"Language-Team: Spanish <https://hosted.weblate.org/projects/phpmyadmin/"
-"master/es/>\n"
+"PO-Revision-Date: 2017-09-11 10:51+0000\n"
+"Last-Translator: Javier Muñoz Ferrara <javier.munoz@gmail.com>\n"
+"Language-Team: Spanish "
+"<https://hosted.weblate.org/projects/phpmyadmin/master/es/>\n"
 "Language: es\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -17,7 +17,7 @@ msgstr ""
 
 #: ajax.php:17 ajax.php:34 export.php:196 schema_export.php:67
 msgid "Bad type!"
-msgstr "¡Tipo erróneo!"
+msgstr "¡Tipo incorrecto!"
 
 #: changelog.php:39 license.php:34
 #, php-format
@@ -25,8 +25,8 @@ msgid ""
 "The %s file is not available on this system, please visit %s for more "
 "information."
 msgstr ""
-"El archivo %s no está disponible en este sistema, visite %s para más "
-"información."
+"El archivo %s no está disponible en este sistema. Por favor, visite %s para "
+"más información."
 
 #: db_central_columns.php:110
 msgid "The central list of columns for the current database is empty."
@@ -39,7 +39,7 @@ msgstr "Pulsar para ordenar."
 #: db_central_columns.php:152
 #, php-format
 msgid "Showing rows %1$s - %2$s."
-msgstr "Mostrando fila(s) %1$s - %2$s."
+msgstr "Mostrando filas %1$s - %2$s."
 
 #: db_datadict.php:59 libraries/classes/Operations.php:47
 msgid "Database comment"
@@ -1761,6 +1761,8 @@ msgid ""
 "It seems that the connection to server has been lost. Please check your "
 "network connectivity and server status."
 msgstr ""
+"Parece que se ha perdido la conexión con el servidor. Por favor, compruebe "
+"su conexión de red y el estado del servidor."
 
 #: js/messages.php:369
 #: libraries/classes/Controllers/Server/ServerDatabasesController.php:193
@@ -2277,10 +2279,8 @@ msgstr ""
 
 #: js/messages.php:560 templates/database/designer/side_menu.phtml:40
 #: templates/database/designer/side_menu.phtml:43
-#, fuzzy
-#| msgid "No tables found in database."
 msgid "Add tables from other databases"
-msgstr "No se han encontrado tablas en la base de datos."
+msgstr "Añadir tablas de otras bases de datos"
 
 #: js/messages.php:561
 msgid "Page name"
@@ -3265,9 +3265,6 @@ msgid "Charset"
 msgstr "Juego de caracteres"
 
 #: libraries/classes/Charsets.php:265
-#, fuzzy
-#| msgctxt "Collation"
-#| msgid "Unknown"
 msgid "Unknown"
 msgstr "Desconocido"
 
@@ -3818,8 +3815,6 @@ msgid "Hide table structure actions"
 msgstr "Esconder acciones sobre la estructura de la tabla"
 
 #: libraries/classes/Config/Descriptions.php:195
-#, fuzzy
-#| msgid "Default sorting order"
 msgid "Default transformations for Hex"
 msgstr "Transformaciones predeterminadas para Hex"
 
@@ -3832,60 +3827,43 @@ msgstr "Transformaciones predeterminadas para Hex"
 #: libraries/classes/Config/Descriptions.php:221
 #: libraries/classes/Config/Descriptions.php:225
 #: libraries/classes/Config/Descriptions.php:229
-#, fuzzy
 msgid ""
 "Values for options list for default transformations. These will be "
 "overwritten if tranformation is filled in at table structure page."
 msgstr ""
 "Valores de la lista de opciones para las transformaciones predeterminadas. "
-"Éstos se sobrescribirán si la transformación se rellena en la página de "
-"estructura de la tabla."
+"Se sobrescribirán si la transformación se rellena en la página de estructura "
+"de la tabla."
 
 #: libraries/classes/Config/Descriptions.php:199
-#, fuzzy
-#| msgid "Input transformation options"
 msgid "Default transformations for Substring"
 msgstr "Transformaciones predeterminadas para Substring"
 
 #: libraries/classes/Config/Descriptions.php:203
-#, fuzzy
-#| msgid "Default sorting order"
 msgid "Default transformations for Bool2Text"
 msgstr "Transformaciones predeterminadas para Bool2Text"
 
 #: libraries/classes/Config/Descriptions.php:207
-#, fuzzy
-#| msgid "Default sorting order"
 msgid "Default transformations for External"
 msgstr "Transformaciones predeterminadas para External"
 
 #: libraries/classes/Config/Descriptions.php:211
-#, fuzzy
-#| msgid "Input transformation options"
 msgid "Default transformations for PreApPend"
 msgstr "Transformaciones predeterminadas para PreApPend"
 
 #: libraries/classes/Config/Descriptions.php:215
-#, fuzzy
-#| msgid "Default sorting order"
 msgid "Default transformations for DateFormat"
 msgstr "Transformaciones predeterminadas para DateFormat"
 
 #: libraries/classes/Config/Descriptions.php:219
-#, fuzzy
-#| msgid "Input transformation options"
 msgid "Default transformations for Inline"
 msgstr "Transformaciones predeterminadas para Inline"
 
 #: libraries/classes/Config/Descriptions.php:223
-#, fuzzy
-#| msgid "Input transformation options"
 msgid "Default transformations for TextImageLink"
 msgstr "Transformaciones predeterminadas para TextImageLink"
 
 #: libraries/classes/Config/Descriptions.php:227
-#, fuzzy
-#| msgid "Input transformation options"
 msgid "Default transformations for TextLink"
 msgstr "Transformaciones predeterminadas para TextLink"
 
@@ -6796,10 +6774,9 @@ msgid "The columns have been moved successfully."
 msgstr "Las columnas fueron movidas exitosamente."
 
 #: libraries/classes/Controllers/Table/TableStructureController.php:495
-#, fuzzy, php-format
-#| msgid "Failed to get real row count."
+#, php-format
 msgid "Failed to get description of column %s!"
-msgstr "No se pudo obtener la cantidad de filas real."
+msgstr "¡No se pudo obtener la descripción de la columna %s!"
 
 #: libraries/classes/Controllers/Table/TableStructureController.php:734
 #: libraries/classes/Controllers/Table/TableStructureController.php:1019
@@ -9434,7 +9411,6 @@ msgid "Entered captcha is wrong, try again!"
 msgstr "El captcha introducido es incorrecto, ¡intente nuevamente!"
 
 #: libraries/classes/Plugins/Auth/AuthenticationCookie.php:348
-#, fuzzy
 msgid "Missing reCAPTCHA verification, maybe it has been blocked by adblock?"
 msgstr "Falta verificación reCAPTCHA, ¿tal vez ha sido bloqueado por adblock?"
 
@@ -13442,22 +13418,18 @@ msgid "Execute"
 msgstr "Ejecutar"
 
 #: libraries/classes/Util.php:3949
-#, fuzzy
 msgid "SSL is not being used"
 msgstr "No se está utilizando SSL"
 
 #: libraries/classes/Util.php:3954
-#, fuzzy
 msgid "SSL is used with disabled verification"
 msgstr "Se utiliza SSL con la verificación deshabilitada"
 
 #: libraries/classes/Util.php:3956
-#, fuzzy
 msgid "SSL is used without certification authority"
 msgstr "Se utiliza SSL sin autorización de certificación"
 
 #: libraries/classes/Util.php:3959
-#, fuzzy
 msgid "SSL is used"
 msgstr "Se utiliza SSL"
 
@@ -14489,7 +14461,7 @@ msgstr "Error fatal: sólo se puede acceder a la navegación mediante AJAX"
 
 #: prefs_forms.php:28 setup/frames/form.inc.php:25
 msgid "Incorrect form specified!"
-msgstr ""
+msgstr "¡Se ha especificado un formulario incorrecto!"
 
 #: prefs_forms.php:80
 msgid "Cannot save settings, submitted form contains errors!"
@@ -14588,10 +14560,8 @@ msgid "No Privileges"
 msgstr "Sin privilegios"
 
 #: server_privileges.php:144
-#, fuzzy
-#| msgid "You do not have the necessary privileges to create a trigger."
 msgid "You do not have privileges to manipulate with the users!"
-msgstr "¡No posee privilegios para manejar usuarios!"
+msgstr "¡No posee privilegios para manipular usuarios!"
 
 #: server_privileges.php:158
 msgid ""
