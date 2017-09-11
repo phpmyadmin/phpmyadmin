@@ -4,16 +4,16 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.8.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2017-09-08 21:11+0200\n"
-"PO-Revision-Date: 2017-02-06 07:52+0000\n"
-"Last-Translator: Capita-Finnish <tom.shaw2@capita.co.uk>\n"
-"Language-Team: Finnish <https://hosted.weblate.org/projects/phpmyadmin/"
-"master/fi/>\n"
+"PO-Revision-Date: 2017-09-12 00:15+0000\n"
+"Last-Translator: Petri Ikonen <kuopassa123@gmail.com>\n"
+"Language-Team: Finnish "
+"<https://hosted.weblate.org/projects/phpmyadmin/master/fi/>\n"
 "Language: fi\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 2.11\n"
+"X-Generator: Weblate 2.17-dev\n"
 
 #: ajax.php:17 ajax.php:34 export.php:196 schema_export.php:67
 msgid "Bad type!"
@@ -305,7 +305,7 @@ msgstr "Tietokannan nimi on tyhjä!"
 #| "Cannot rename database to the same name. Change the name and try again"
 msgid "Cannot copy database to the same name. Change the name and try again."
 msgstr ""
-"Tietokannalle ei voi antaa samaa nimeä uudelleen. Muuta nimi ja yritä "
+"Tietokannalle ei voi antaa samaa nimeä uudelleen. Vaihda nimi ja yritä "
 "uudelleen"
 
 #: db_operations.php:146
@@ -614,10 +614,13 @@ msgid "Back"
 msgstr "Takaisin"
 
 #: index.php:115
+#, fuzzy
 msgid ""
 "You were logged out from one server, to logout completely from phpMyAdmin, "
 "you need to logout from all servers."
 msgstr ""
+"Kirjauduit ulos yhdeltä palvelimelta. Kirjautuaksesi kokonaan ulos "
+"phpMyAdminista, sinun tulee kirjautua ulos kaikilta palvelimilta."
 
 #: index.php:159 libraries/classes/Footer.php:75
 msgid "phpMyAdmin Demo Server"
@@ -831,11 +834,13 @@ msgstr ""
 "mahdollisista ongelmista."
 
 #: index.php:611
-#, php-format
+#, fuzzy, php-format
 msgid ""
 "The $cfg['TempDir'] (%s) is not accessible. phpMyAdmin is not able to cache "
 "templates and will be slow because of this."
 msgstr ""
+"Ei kyetä avaamaan hakemistoa $cfg['TempDir'] (%s). phpMyAdmin ei kykene "
+"tallentamaan mallipohjia välimuistiin ja se aiheuttaa hidastelua."
 
 #: js/messages.php:43
 msgid "Confirm"
@@ -1546,22 +1551,16 @@ msgid "Chart"
 msgstr "Kaavio"
 
 #: js/messages.php:295 libraries/classes/Display/Export.php:915
-#, fuzzy
-#| msgid "Database"
 msgctxt "Alias"
 msgid "Database"
 msgstr "Tietokanta"
 
 #: js/messages.php:296 libraries/classes/Display/Export.php:927
-#, fuzzy
-#| msgid "Table"
 msgctxt "Alias"
 msgid "Table"
 msgstr "Taulu"
 
 #: js/messages.php:297 libraries/classes/Display/Export.php:938
-#, fuzzy
-#| msgid "Column"
 msgctxt "Alias"
 msgid "Column"
 msgstr "Sarake"
@@ -1747,10 +1746,13 @@ msgid "Error text: %s"
 msgstr "Virhekoodi: %s"
 
 #: js/messages.php:366
+#, fuzzy
 msgid ""
 "It seems that the connection to server has been lost. Please check your "
 "network connectivity and server status."
 msgstr ""
+"Vaikuttaa siltä, että yhteys palvelimelle on katkennut. Ole hyvä ja tarkista "
+"nettiyhteytesi toimivuus ja palvelimen tila."
 
 #: js/messages.php:369
 #: libraries/classes/Controllers/Server/ServerDatabasesController.php:193
@@ -3248,168 +3250,120 @@ msgid "Charset"
 msgstr "Merkistökoodaus"
 
 #: libraries/classes/Charsets.php:265
-#, fuzzy
-#| msgid "unknown"
 msgid "Unknown"
-msgstr "tuntematon"
+msgstr "Tuntematon"
 
 #: libraries/classes/Charsets.php:279
-#, fuzzy
-#| msgid "Binary"
 msgctxt "Collation"
 msgid "Binary"
-msgstr "Binääritietoa"
+msgstr "Binääri"
 
 #: libraries/classes/Charsets.php:291 libraries/classes/Charsets.php:521
-#, fuzzy
-#| msgid "Unicode"
 msgctxt "Collation"
 msgid "Unicode"
 msgstr "Unicode"
 
 #: libraries/classes/Charsets.php:301 libraries/classes/Charsets.php:472
-#, fuzzy
-#| msgid "West European"
 msgctxt "Collation"
 msgid "West European"
 msgstr "Länsieurooppalainen"
 
 #: libraries/classes/Charsets.php:308
-#, fuzzy
-#| msgid "Central European"
 msgctxt "Collation"
 msgid "Central European"
 msgstr "Keskieurooppalainen"
 
 #: libraries/classes/Charsets.php:313
-#, fuzzy
-#| msgid "Russian"
 msgctxt "Collation"
 msgid "Russian"
 msgstr "Venäläinen"
 
 #: libraries/classes/Charsets.php:318
-#, fuzzy
-#| msgid "Simplified Chinese"
 msgctxt "Collation"
 msgid "Simplified Chinese"
 msgstr "Yksinkertaistettu kiina"
 
 #: libraries/classes/Charsets.php:325 libraries/classes/Charsets.php:443
-#, fuzzy
-#| msgid "Japanese"
 msgctxt "Collation"
 msgid "Japanese"
 msgstr "Japanilainen"
 
 #: libraries/classes/Charsets.php:330
-#, fuzzy
-#| msgid "Baltic"
 msgctxt "Collation"
 msgid "Baltic"
-msgstr "Baltilainen"
+msgstr "Balttilainen"
 
 #: libraries/classes/Charsets.php:335
-#, fuzzy
-#| msgid "Armenian"
 msgctxt "Collation"
 msgid "Armenian"
 msgstr "Armenialainen"
 
 #: libraries/classes/Charsets.php:338
-#, fuzzy
-#| msgid "Traditional Chinese"
 msgctxt "Collation"
 msgid "Traditional Chinese"
 msgstr "Perinteinen kiina"
 
 #: libraries/classes/Charsets.php:341
-#, fuzzy
-#| msgid "Cyrillic"
 msgctxt "Collation"
 msgid "Cyrillic"
 msgstr "Kyrillinen"
 
 #: libraries/classes/Charsets.php:344
-#, fuzzy
-#| msgid "Arabic"
 msgctxt "Collation"
 msgid "Arabic"
 msgstr "Arabialainen"
 
 #: libraries/classes/Charsets.php:347 libraries/classes/Charsets.php:458
-#, fuzzy
-#| msgid "Korean"
 msgctxt "Collation"
 msgid "Korean"
 msgstr "Korealainen"
 
 #: libraries/classes/Charsets.php:350
-#, fuzzy
-#| msgid "Hebrew"
 msgctxt "Collation"
 msgid "Hebrew"
-msgstr "Hebrealainen"
+msgstr "Heprealainen"
 
 #: libraries/classes/Charsets.php:353
-#, fuzzy
-#| msgid "Georgian"
 msgctxt "Collation"
 msgid "Georgian"
 msgstr "Georgialainen"
 
 #: libraries/classes/Charsets.php:356
-#, fuzzy
-#| msgid "Greek"
 msgctxt "Collation"
 msgid "Greek"
 msgstr "Kreikkalainen"
 
 #: libraries/classes/Charsets.php:359
-#, fuzzy
-#| msgid "Czech-Slovak"
 msgctxt "Collation"
 msgid "Czech-Slovak"
 msgstr "Tsekkoslovakialainen"
 
 #: libraries/classes/Charsets.php:362 libraries/classes/Charsets.php:513
-#, fuzzy
-#| msgid "Ukrainian"
 msgctxt "Collation"
 msgid "Ukrainian"
 msgstr "Ukrainalainen"
 
 #: libraries/classes/Charsets.php:365 libraries/classes/Charsets.php:509
-#, fuzzy
-#| msgid "Turkish"
 msgctxt "Collation"
 msgid "Turkish"
 msgstr "Turkkilainen"
 
 #: libraries/classes/Charsets.php:368 libraries/classes/Charsets.php:501
-#, fuzzy
-#| msgid "Swedish"
 msgctxt "Collation"
 msgid "Swedish"
 msgstr "Ruotsalainen"
 
 #: libraries/classes/Charsets.php:371 libraries/classes/Charsets.php:505
-#, fuzzy
-#| msgid "Thai"
 msgctxt "Collation"
 msgid "Thai"
-msgstr "Thai"
+msgstr "Thaimaalainen"
 
 #: libraries/classes/Charsets.php:374
-#, fuzzy
-#| msgid "unknown"
 msgctxt "Collation"
 msgid "Unknown"
-msgstr "tuntematon"
+msgstr "Tuntematon"
 
 #: libraries/classes/Charsets.php:390
-#, fuzzy
-#| msgid "Bulgarian"
 msgctxt "Collation"
 msgid "Bulgarian"
 msgstr "Bulgarialainen"
@@ -3417,7 +3371,7 @@ msgstr "Bulgarialainen"
 #: libraries/classes/Charsets.php:395
 msgctxt "Collation"
 msgid "Chinese"
-msgstr ""
+msgstr "Kiinalainen"
 
 #: libraries/classes/Charsets.php:400
 #, fuzzy
@@ -3427,22 +3381,16 @@ msgid "Croatian"
 msgstr "Kroaatti"
 
 #: libraries/classes/Charsets.php:404
-#, fuzzy
-#| msgid "Czech"
 msgctxt "Collation"
 msgid "Czech"
 msgstr "Tsekkiläinen"
 
 #: libraries/classes/Charsets.php:408
-#, fuzzy
-#| msgid "Danish"
 msgctxt "Collation"
 msgid "Danish"
 msgstr "Tanskalainen"
 
 #: libraries/classes/Charsets.php:412
-#, fuzzy
-#| msgid "English"
 msgctxt "Collation"
 msgid "English"
 msgstr "Englantilainen"
@@ -3455,8 +3403,6 @@ msgid "Esperanto"
 msgstr "Esperanto"
 
 #: libraries/classes/Charsets.php:420
-#, fuzzy
-#| msgid "Estonian"
 msgctxt "Collation"
 msgid "Estonian"
 msgstr "Virolainen"
@@ -3469,20 +3415,17 @@ msgid "German (dictionary order)"
 msgstr "Tietosanasto"
 
 #: libraries/classes/Charsets.php:426 libraries/classes/Charsets.php:537
+#, fuzzy
 msgctxt "Collation"
 msgid "German (phone book order)"
-msgstr ""
+msgstr "Saksalainen (puhelinluettelojärjestys)"
 
 #: libraries/classes/Charsets.php:435
-#, fuzzy
-#| msgid "Hungarian"
 msgctxt "Collation"
 msgid "Hungarian"
 msgstr "Unkarilainen"
 
 #: libraries/classes/Charsets.php:439
-#, fuzzy
-#| msgid "Icelandic"
 msgctxt "Collation"
 msgid "Icelandic"
 msgstr "Islantilainen"
@@ -3493,15 +3436,11 @@ msgid "Classical Latin"
 msgstr ""
 
 #: libraries/classes/Charsets.php:450
-#, fuzzy
-#| msgid "Latvian"
 msgctxt "Collation"
 msgid "Latvian"
 msgstr "Latvialainen"
 
 #: libraries/classes/Charsets.php:454
-#, fuzzy
-#| msgid "Lithuanian"
 msgctxt "Collation"
 msgid "Lithuanian"
 msgstr "Liettualainen"
@@ -3511,68 +3450,52 @@ msgstr "Liettualainen"
 #| msgid "Burmese"
 msgctxt "Collation"
 msgid "Burmese"
-msgstr "Burma"
+msgstr "Burmalainen"
 
 #: libraries/classes/Charsets.php:465
-#, fuzzy
-#| msgid "Persian"
 msgctxt "Collation"
 msgid "Persian"
 msgstr "Persialainen"
 
 #: libraries/classes/Charsets.php:469
-#, fuzzy
-#| msgid "Polish"
 msgctxt "Collation"
 msgid "Polish"
 msgstr "Puolalainen"
 
 #: libraries/classes/Charsets.php:476
-#, fuzzy
-#| msgid "Romanian"
 msgctxt "Collation"
 msgid "Romanian"
 msgstr "Romanialainen"
 
 #: libraries/classes/Charsets.php:480
-#, fuzzy
-#| msgid "Sinhalese"
 msgctxt "Collation"
 msgid "Sinhalese"
-msgstr "Sinhali"
+msgstr "Sinhalilainen"
 
 #: libraries/classes/Charsets.php:484
-#, fuzzy
-#| msgid "Slovak"
 msgctxt "Collation"
 msgid "Slovak"
 msgstr "Slovakialainen"
 
 #: libraries/classes/Charsets.php:488
-#, fuzzy
-#| msgid "Slovenian"
 msgctxt "Collation"
 msgid "Slovenian"
 msgstr "Slovenialainen"
 
 #: libraries/classes/Charsets.php:491 libraries/classes/Charsets.php:551
-#, fuzzy
-#| msgid "Spanish"
 msgctxt "Collation"
 msgid "Spanish (modern)"
-msgstr "Espanjalainen"
+msgstr "Espanjalainen (moderni)"
 
 #: libraries/classes/Charsets.php:498 libraries/classes/Charsets.php:548
 msgctxt "Collation"
 msgid "Spanish (traditional)"
-msgstr ""
+msgstr "Espanjalainen (perinteinen)"
 
 #: libraries/classes/Charsets.php:517
-#, fuzzy
-#| msgid "Vietnamese"
 msgctxt "Collation"
 msgid "Vietnamese"
-msgstr "Vietnam"
+msgstr "Vietnamilainen"
 
 #: libraries/classes/Charsets.php:584
 #, fuzzy
@@ -17973,7 +17896,7 @@ msgstr ""
 #, fuzzy
 #| msgid "Buffer pool size"
 msgid "InnoDB buffer pool size"
-msgstr "Puskurivarannon koko"
+msgstr "InnoDB-puskurivarannon koko"
 
 #: libraries/advisory_rules.txt:435
 #, fuzzy
