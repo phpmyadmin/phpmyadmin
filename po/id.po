@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.7.4-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2017-08-10 09:13-0400\n"
-"PO-Revision-Date: 2017-09-11 17:34+0000\n"
-"Last-Translator: Muhammad Rafly Andrianza <luphieanza@gmail.com>\n"
+"PO-Revision-Date: 2017-09-11 17:55+0000\n"
+"Last-Translator: Steven Rachman <steven.rachman@gmail.com>\n"
 "Language-Team: Indonesian "
 "<https://hosted.weblate.org/projects/phpmyadmin/4-7/id/>\n"
 "Language: id\n"
@@ -6402,12 +6402,8 @@ msgid "Disable some of the warnings shown by phpMyAdmin."
 msgstr "Nonaktifkan beberapa peringatan dari phpMyAdmin."
 
 #: libraries/config/messages.inc.php:349
-#, fuzzy
-#| msgid ""
-#| "Enable [a@https://en.wikipedia.org/wiki/Gzip]gzip[/a] compression for "
-#| "import and export operations."
 msgid "Enable gzip compression for import and export operations."
-msgstr "Aktifkan kompresi gzip untuk operasi impor dan ekspor."
+msgstr "Aktifkan kompresi gzip untuk operasi import dan export."
 
 #: libraries/config/messages.inc.php:352
 msgid "GZip"
@@ -6719,10 +6715,8 @@ msgid "Target for quick access icon"
 msgstr "Target ikon akses cepat"
 
 #: libraries/config/messages.inc.php:489
-#, fuzzy
-#| msgid "Target for quick access icon"
 msgid "Target for second quick access icon"
-msgstr "Target ikon akses cepat"
+msgstr "Target buat ikon akses cepat kedua"
 
 #: libraries/config/messages.inc.php:492
 msgid ""
@@ -6874,10 +6868,8 @@ msgid "Show row links anyway"
 msgstr "Tampilkan baris link juga"
 
 #: libraries/config/messages.inc.php:546 libraries/config/messages.inc.php:547
-#, fuzzy
-#| msgid "Disable foreign key checks"
 msgid "Disable shortcut keys"
-msgstr "Tanpa pemeriksaan kunci asing"
+msgstr "Nonaktifkan tombol shortcut"
 
 #: libraries/config/messages.inc.php:549
 msgid "Use natural order for sorting table and database names."
@@ -7031,16 +7023,12 @@ msgid "Grid editing: trigger action"
 msgstr "Pengeditan Grid: trigger action"
 
 #: libraries/config/messages.inc.php:606
-#, fuzzy
-#| msgid "Relational display column"
 msgid "Relational display"
-msgstr "Kolom tampilan relasi"
+msgstr "Tampilan berelasi"
 
 #: libraries/config/messages.inc.php:607
-#, fuzzy
-#| msgid "Servers display options."
 msgid "For display Options"
-msgstr "Opsi tampilan server."
+msgstr "Untuk pengaturan tampilan"
 
 #: libraries/config/messages.inc.php:608
 msgid "Grid editing: save all edited cells at once"
@@ -7289,10 +7277,8 @@ msgstr ""
 "kbd]."
 
 #: libraries/config/messages.inc.php:688
-#, fuzzy
-#| msgid "Textarea columns"
 msgid "Central columns table"
-msgstr "Kolom textarea"
+msgstr "Kolom tengah tabel"
 
 #: libraries/config/messages.inc.php:690
 #, fuzzy
