@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.7.4-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2017-08-10 09:13-0400\n"
-"PO-Revision-Date: 2017-09-11 17:55+0000\n"
-"Last-Translator: Steven Rachman <steven.rachman@gmail.com>\n"
+"PO-Revision-Date: 2017-09-12 00:04+0000\n"
+"Last-Translator: ekickx <mujahidmasadepan@gmail.com>\n"
 "Language-Team: Indonesian "
 "<https://hosted.weblate.org/projects/phpmyadmin/4-7/id/>\n"
 "Language: id\n"
@@ -243,8 +243,9 @@ msgstr "Tampilkan dump (skema) dari database"
 #: db_export.php:51 db_tracking.php:103 export.php:375 libraries/DbQbe.php:327
 #: libraries/controllers/database/DatabaseStructureController.php:168
 #: libraries/navigation/NavigationTree.php:924
+#, fuzzy
 msgid "No tables found in database."
-msgstr "Tidak ada tabel ditemukan di database."
+msgstr "Tabel tidak ditemukan di database."
 
 #: db_export.php:65 libraries/ServerStatusData.php:128
 #: libraries/config/messages.inc.php:273
