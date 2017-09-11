@@ -1069,7 +1069,7 @@ AJAX.registerOnload('functions.js', function () {
                 end = last_clicked_row;
             }
             $tr.parent().find('tr:not(.noclick)')
-                .slice(start, end + 1)
+                .slice(start, end)
                 .addClass('marked')
                 .find(':checkbox')
                 .prop('checked', true)
