@@ -192,7 +192,7 @@ if ($server > 0 || count($cfg['Servers']) > 1
      * Displays the mysql server related links
      */
     if ($server > 0) {
-        include_once 'libraries/check_user_privileges.lib.php';
+        include_once 'libraries/check_user_privileges.inc.php';
 
         // Logout for advanced authentication
         if ($cfg['Server']['auth_type'] != 'config') {

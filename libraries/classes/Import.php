@@ -24,7 +24,7 @@ use PhpMyAdmin\Util;
  * We need to know something about user
  */
 $GLOBALS['cfg']['Server']['DisableIS'] = false;
-require_once './libraries/check_user_privileges.lib.php';
+require_once './libraries/check_user_privileges.inc.php';
 
 /**
  * PhpMyAdmin\Import class

@@ -7,7 +7,7 @@
 
 /*
  * we must set $GLOBALS['server'] here
- * since 'check_user_privileges.lib.php' will use it globally
+ * since 'check_user_privileges.inc.php' will use it globally
  */
 use PhpMyAdmin\Plugins\Import\ImportSql;
 use PhpMyAdmin\File;

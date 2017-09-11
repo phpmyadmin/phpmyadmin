@@ -8,7 +8,7 @@
 
 /*
  * we must set $GLOBALS['server'] here
- * since 'check_user_privileges.lib.php' will use it globally
+ * since 'check_user_privileges.inc.php' will use it globally
  */
 use PhpMyAdmin\Navigation\NavigationTree;
 use PhpMyAdmin\Theme;
@@ -16,7 +16,7 @@ use PhpMyAdmin\Theme;
 $GLOBALS['server'] = 0;
 $GLOBALS['cfg']['Server']['DisableIS'] = false;
 
-require_once 'libraries/check_user_privileges.lib.php';
+require_once 'libraries/check_user_privileges.inc.php';
 require_once 'test/PMATestCase.php';
 
 /**

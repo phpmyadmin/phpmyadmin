@@ -14,7 +14,7 @@ require_once 'libraries/common.inc.php';
 /**
  * Include all other files
  */
-require_once 'libraries/check_user_privileges.lib.php';
+require_once 'libraries/check_user_privileges.inc.php';
 
 /**
  * Do the magic

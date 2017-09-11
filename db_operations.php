@@ -28,7 +28,7 @@ require_once 'libraries/common.inc.php';
 /**
  * functions implementation for this script
  */
-require_once 'libraries/check_user_privileges.lib.php';
+require_once 'libraries/check_user_privileges.inc.php';
 
 // add a javascript file for jQuery functions to handle Ajax actions
 $response = Response::getInstance();
