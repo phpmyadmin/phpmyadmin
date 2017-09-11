@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.7.4-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2017-08-10 09:13-0400\n"
-"PO-Revision-Date: 2017-09-11 13:07+0000\n"
-"Last-Translator: Neoubs <corneliuscheka@gmail.com>\n"
+"PO-Revision-Date: 2017-09-11 17:34+0000\n"
+"Last-Translator: Muhammad Rafly Andrianza <luphieanza@gmail.com>\n"
 "Language-Team: Indonesian "
 "<https://hosted.weblate.org/projects/phpmyadmin/4-7/id/>\n"
 "Language: id\n"
@@ -566,7 +566,7 @@ msgstr "Bookmark %s telah dibuat."
 #, php-format
 msgid "Import has been successfully finished, %d query executed."
 msgid_plural "Import has been successfully finished, %d queries executed."
-msgstr[0] "Impor telah berhasil diselesaikan , %d kueri dieksekusi."
+msgstr[0] "Impor telah Berhasil, %d pertanyaan di eksekusi"
 
 #: import.php:612
 #, php-format
@@ -574,9 +574,8 @@ msgid ""
 "Script timeout passed, if you want to finish import, please %sresubmit the "
 "same file%s and import will resume."
 msgstr ""
-"Script telah melewati batas waktu, jika anda ingin menyelesaikan proses "
-"import, harap %skirim ulang berkas yang sama %s dan proses import akan "
-"berlanjut."
+"Masa waktu Skrip telah habis, Jika anda ingin menyelesaikan hasil impornya, "
+"Tolong %s kirim kembali berkas yang sama %s dan hasil impor akan berlanjut."
 
 #: import.php:622
 msgid ""
@@ -734,10 +733,9 @@ msgid ""
 "multibyte charset. Without the mbstring extension phpMyAdmin is unable to "
 "split strings correctly and it may result in unexpected results."
 msgstr ""
-"Ekstensi PHP mbstring tidak ditemukan dan sepertinya Anda menggunakan "
-"Charset Multibyte. Tanpa ekstensi mbstring phpMyAdmin tidak dapat membagikan "
-"baris-baris dengan benar dan hal ini mampu mengakibatkan hasil yang tidak "
-"diinginkan."
+"Ekstensi PHP mbstring tidak ditemukan dan anda juga menggunakan multibyte "
+"charset. Tanpa ekstensi mbstring menyala phpMyAdmin mencampurkan string yang "
+"benar dan itu juga akan menghasilkan hasil yang tak terduga."
 
 #: index.php:476
 msgid ""
@@ -5776,10 +5774,8 @@ msgid "Default table tab"
 msgstr "Tab tabel bawaan"
 
 #: libraries/config/messages.inc.php:110
-#, fuzzy
-#| msgid "Enclose table and column names with backquotes"
 msgid "Autocomplete of the table and column names in the SQL queries."
-msgstr "Apit nama tabel dan kolom dengan tanda petik balik"
+msgstr "otomatis selesai pada tabel dan nama kolom didalam SQL query"
 
 #: libraries/config/messages.inc.php:113
 msgid "Enable autocomplete for table and column names"
@@ -6088,11 +6084,10 @@ msgid "Foreign key limit"
 msgstr "Batas foreign key"
 
 #: libraries/config/messages.inc.php:238
-#, fuzzy
 msgid "Default value for foreign key checks checkbox for some queries."
 msgstr ""
-"Nilai default untuk pemeriksaan kunci asing centang untuk beberapa "
-"permintaan."
+"Nilai default untuk kunci luar untuk mencentang kotak centang pada suatu "
+"pertanyaan"
 
 #: libraries/config/messages.inc.php:240
 msgid "Foreign key checks"
@@ -6230,18 +6225,13 @@ msgid "Page titles"
 msgstr "Judul halaman"
 
 #: libraries/config/messages.inc.php:285
-#, fuzzy
-#| msgid ""
-#| "Specify browser's title bar text. Refer to "
-#| "[doc@cfg_TitleTable]documentation[/doc] for magic strings that can be "
-#| "used to get special values."
 msgid ""
 "Specify browser's title bar text. Refer to [doc@faq6-27]documentation[/doc] "
 "for magic strings that can be used to get special values."
 msgstr ""
-"Tentukan judul teks bar browser. Lihat [doc@cfg_TitleTable]dokumentasi[/doc] "
-"untuk magic strings yang dapat digunakan untuk mendapatkan nilai-nilai "
-"khusus."
+"Tentukan judul teks pada browser. Mengacu pada[doc@faq6-27] "
+"dokumentasinya[/doc] untuk String ajaib yang bisa digunakan untuk "
+"mendapatkan nilai spesial"
 
 #: libraries/config/messages.inc.php:289
 msgid "Security"
@@ -6621,15 +6611,11 @@ msgid "Maximum databases"
 msgstr "Basis data maksimum"
 
 #: libraries/config/messages.inc.php:440
-#, fuzzy
-#| msgid ""
-#| "The number of items that can be displayed on each page of the navigation "
-#| "tree."
 msgid ""
 "The number of items that can be displayed on each page on the first level of "
 "the navigation tree."
 msgstr ""
-"Jumlah item yang dapat ditampilkan pada setiap halaman dari pohon navigasi."
+"Jumlah item yang dapat ditampilkan pada setiap halaman dari cabang navigasi."
 
 #: libraries/config/messages.inc.php:443
 msgid "Maximum items on first level"
@@ -6679,22 +6665,18 @@ msgid "Memory limit"
 msgstr "Limit memori"
 
 #: libraries/config/messages.inc.php:465
-#, fuzzy
 msgid "In the navigation panel, replaces the database tree with a selector"
-msgstr "Di panel navigasi, diganti pohon database dengan pemilih"
+msgstr "di panel navigasi, timpa cabang database serta selectornya"
 
 #: libraries/config/messages.inc.php:468
-#, fuzzy
-#| msgid "Show hidden navigation tree items."
 msgid "Show databases navigation as tree"
-msgstr "Tampilkan navigasi pohon item tersembunyi."
+msgstr "Tampilkan cabang navigasi databases"
 
 #: libraries/config/messages.inc.php:471
-#, fuzzy
 msgid "Link with main panel by highlighting the current database or table."
 msgstr ""
-"Menghubungkan dengan panel utama dengan menyorot database saat ini atau "
-"tabel."
+"Menghubungkan dengan panel utama untuk menyoroti database atau tabel yang "
+"saat ini."
 
 #: libraries/config/messages.inc.php:474
 msgid "Show logo in navigation panel."
@@ -6759,15 +6741,12 @@ msgid "Minimum number of databases to display the database filter box"
 msgstr "Jumlah minimum database yang ditampilkan di kotak tabel filter"
 
 #: libraries/config/messages.inc.php:500
-#, fuzzy
-#| msgid ""
-#| "Group items in the navigation tree (determined by the separator defined "
-#| "below)."
 msgid ""
 "Group items in the navigation tree (determined by the separator defined in "
 "the Databases and Tables tabs above)."
 msgstr ""
-"Item Group di pohon navigasi (ditentukan oleh pemisah definisikan di bawah)."
+"Item grup di cabang navigasi (ditentukan oleh pemisah yang didefinisikan di "
+"tab Database dan Tabel di atas)"
 
 #: libraries/config/messages.inc.php:503
 msgid "Group items in the tree"
@@ -6803,22 +6782,17 @@ msgid "Enable highlighting"
 msgstr "Aktifkan penyorotan"
 
 #: libraries/config/messages.inc.php:515
-#, fuzzy
 msgid ""
 "Whether to offer the possibility of tree expansion in the navigation panel."
 msgstr "Apakah akan menonaktifkan kemungkinan ekspansi database atau tidak."
 
 #: libraries/config/messages.inc.php:518
-#, fuzzy
-#| msgid "Table navigation bar"
 msgid "Enable navigation tree expansion"
-msgstr "Bar tabel navigasi"
+msgstr "Nyalakan Perluasan pada Cabang Navigasi"
 
 #: libraries/config/messages.inc.php:519
-#, fuzzy
-#| msgid "Showing tables"
 msgid "Show tables in tree"
-msgstr "Menampilkan tabel"
+msgstr "Tampilkan tabel pada cabang"
 
 #: libraries/config/messages.inc.php:521
 #, fuzzy
@@ -6826,10 +6800,8 @@ msgid "Whether to show tables under database in the navigation tree"
 msgstr "Apakah akan menonaktifkan kemungkinan ekspansi database atau tidak."
 
 #: libraries/config/messages.inc.php:522
-#, fuzzy
-#| msgid "Show versions"
 msgid "Show views in tree"
-msgstr "Tunjukkan Versi"
+msgstr "Tampilkan Views dalam bentuk bercabang"
 
 #: libraries/config/messages.inc.php:524
 #, fuzzy
@@ -6838,10 +6810,8 @@ msgid "Whether to show views under database in the navigation tree"
 msgstr "Tampilkan navigasi pohon item tersembunyi."
 
 #: libraries/config/messages.inc.php:525
-#, fuzzy
-#| msgid "Show function fields"
 msgid "Show functions in tree"
-msgstr "Tampilkan isian fungsi"
+msgstr "Tampilkan Fungsi dalam bentuk bercabang"
 
 #: libraries/config/messages.inc.php:527
 #, fuzzy
@@ -6849,10 +6819,8 @@ msgid "Whether to show functions under database in the navigation tree"
 msgstr "Apakah akan menampilkan fungsi di bawah database di pohon navigasi"
 
 #: libraries/config/messages.inc.php:528
-#, fuzzy
-#| msgid "Show processes"
 msgid "Show procedures in tree"
-msgstr "Tampilkan Proses"
+msgstr "Tampilkan prosedur di percabangan"
 
 #: libraries/config/messages.inc.php:530
 #, fuzzy
