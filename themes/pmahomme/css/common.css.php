@@ -2099,7 +2099,12 @@ select#table_select {
 .export_sub_options li {
     margin-bottom: 0;
 }
-
+#export_refresh_form {
+    margin-left: 20px;
+}
+#export_back_button {
+    display: inline;
+}
 #output_quick_export {
     display: none;
 }
