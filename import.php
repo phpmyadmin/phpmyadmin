@@ -12,6 +12,7 @@ use PhpMyAdmin\Encoding;
 use PhpMyAdmin\File;
 use PhpMyAdmin\Import;
 use PhpMyAdmin\ParseAnalyze;
+use PhpMyAdmin\Plugins;
 use PhpMyAdmin\Plugins\ImportPlugin;
 use PhpMyAdmin\Response;
 use PhpMyAdmin\Sql;
@@ -515,10 +516,8 @@ if (! $error && isset($_POST['skip'])) {
 $sql_data = array('valid_sql' => array(), 'valid_queries' => 0);
 
 if (! $error) {
-    // Check for file existence
-    include_once "libraries/plugin_interface.lib.php";
     /* @var $import_plugin ImportPlugin */
-    $import_plugin = PMA_getPlugin(
+    $import_plugin = Plugins::getPlugin(
         "import",
         $format,
         'libraries/classes/Plugins/Import/',

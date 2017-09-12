@@ -7,6 +7,7 @@
  */
 
 use PhpMyAdmin\Core;
+use PhpMyAdmin\Plugins;
 use PhpMyAdmin\Plugins\SchemaPlugin;
 use PhpMyAdmin\Relation;
 
@@ -22,7 +23,6 @@ require_once 'libraries/common.inc.php';
 $cfgRelation = Relation::getRelationsParam();
 
 require_once 'libraries/pmd_common.php';
-require_once 'libraries/plugin_interface.lib.php';
 
 if (! isset($_REQUEST['export_type'])) {
     PhpMyAdmin\Util::checkParameters(array('export_type'));
@@ -56,7 +56,7 @@ function PMA_processExportSchema($export_type)
 
     // get the specific plugin
     /* @var $export_plugin SchemaPlugin */
-    $export_plugin = PMA_getPlugin(
+    $export_plugin = Plugins::getPlugin(
         "schema",
         $export_type,
         'libraries/classes/Plugins/Schema/'

@@ -9,11 +9,6 @@ namespace PhpMyAdmin\Tests\Database;
 use PhpMyAdmin\Database\Designer;
 use PhpMyAdmin\DatabaseInterface;
 
-/*
- * Include to test.
- */
-require_once 'libraries/plugin_interface.lib.php';
-
 /**
  * Tests for PhpMyAdmin\Database\Designer
  *

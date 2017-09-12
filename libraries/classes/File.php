@@ -547,18 +547,6 @@ class File
             return false;
         }
 
-        /**
-         * @todo
-         * get registered plugins for file compression
-
-        foreach (PMA_getPlugins($type = 'compression') as $plugin) {
-            if ($plugin['classname']::canHandle($this->getName())) {
-                $this->setCompressionPlugin($plugin);
-                break;
-            }
-        }
-         */
-
         $this->_compression = Util::getCompressionMimeType($file);
         return $this->_compression;
     }

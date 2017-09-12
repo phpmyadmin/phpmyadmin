@@ -15,6 +15,7 @@ use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Display\CreateTable;
 use PhpMyAdmin\Message;
 use PhpMyAdmin\Operations;
+use PhpMyAdmin\Plugins;
 use PhpMyAdmin\Plugins\Export\ExportSql;
 use PhpMyAdmin\Relation;
 use PhpMyAdmin\Response;
@@ -75,10 +76,9 @@ if (strlen($GLOBALS['db']) > 0
 
         $tables_full = $GLOBALS['dbi']->getTablesFull($GLOBALS['db']);
 
-        include_once "libraries/plugin_interface.lib.php";
         // remove all foreign key constraints, otherwise we can get errors
         /* @var $export_sql_plugin ExportSql */
-        $export_sql_plugin = PMA_getPlugin(
+        $export_sql_plugin = Plugins::getPlugin(
             "export",
             "sql",
             'libraries/classes/Plugins/Export/',
