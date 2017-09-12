@@ -14,6 +14,7 @@ use PhpMyAdmin\Display\Results as DisplayResults;
 use PhpMyAdmin\Index;
 use PhpMyAdmin\Message;
 use PhpMyAdmin\Operations;
+use PhpMyAdmin\ParseAnalyze;
 use PhpMyAdmin\Relation;
 use PhpMyAdmin\Response;
 use PhpMyAdmin\SqlParser\Statements\AlterStatement;
@@ -45,10 +46,7 @@ class Sql
         if (($db === null) && (!empty($GLOBALS['db']))) {
             $db = $GLOBALS['db'];
         }
-
-        include_once 'libraries/parse_analyze.lib.php';
-        list($analyzed_sql_results,,) = PMA_parseAnalyze($sql_query, $db);
-
+        list($analyzed_sql_results,,) = ParseAnalyze::sqlQuery($sql_query, $db);
         return $analyzed_sql_results;
     }
 
@@ -2064,12 +2062,11 @@ EOT;
     ) {
         if ($analyzed_sql_results == null) {
             // Parse and analyze the query
-            include_once 'libraries/parse_analyze.lib.php';
             list(
                 $analyzed_sql_results,
                 $db,
                 $table_from_sql
-            ) = PMA_parseAnalyze($sql_query, $db);
+            ) = ParseAnalyze::sqlQuery($sql_query, $db);
             // @todo: possibly refactor
             extract($analyzed_sql_results);
 
