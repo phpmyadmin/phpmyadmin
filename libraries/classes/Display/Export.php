@@ -1002,7 +1002,6 @@ class Export
             $GLOBALS['single_table'] = $_REQUEST['single_table'];
         }
 
-        include_once './libraries/file_listing.lib.php';
         include_once './libraries/plugin_interface.lib.php';
 
         /* Scan for plugins */

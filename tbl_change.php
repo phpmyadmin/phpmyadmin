@@ -37,10 +37,6 @@ list(
 if (!empty($unsaved_values) && count($rows) < count($unsaved_values)) {
     $rows = array_fill(0, count($unsaved_values), false);
 }
-/**
- * file listing
-*/
-require_once 'libraries/file_listing.lib.php';
 
 /**
  * Defines the url to return to in case of error in a sql statement
