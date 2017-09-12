@@ -1,28 +1,26 @@
 <?php
 /* vim: set expandtab sw=4 ts=4 sts=4: */
 /**
- * tests for mult_submits.lib.php
+ * tests for PhpMyAdmin\MultSubmits
  *
  * @package PhpMyAdmin-test
  */
+namespace PhpMyAdmin\Tests;
 
-/*
- * Include to test.
- */
+use PhpMyAdmin\MultSubmits;
 use PhpMyAdmin\Theme;
 use PhpMyAdmin\Url;
 
-require_once 'libraries/mult_submits.lib.php';
 require_once 'libraries/relation_cleanup.lib.php';
 
 /**
- * class PMA_MultSubmits_Test
+ * PhpMyAdmin\Tests\MultSubmitsTest class
  *
- * this class is for testing mult_submits.lib.php functions
+ * this class is for testing PhpMyAdmin\MultSubmits methods
  *
  * @package PhpMyAdmin-test
  */
-class PMA_MultSubmits_Test extends PHPUnit_Framework_TestCase
+class MultSubmitsTest extends \PHPUnit_Framework_TestCase
 {
     /**
      * Test for setUp
@@ -73,7 +71,7 @@ class PMA_MultSubmits_Test extends PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test for PMA_getHtmlForReplacePrefixTable
+     * Test for MultSubmits::getHtmlForReplacePrefixTable
      *
      * @return void
      */
@@ -83,7 +81,7 @@ class PMA_MultSubmits_Test extends PHPUnit_Framework_TestCase
         $_url_params = array('url_query'=>'PMA_original_url_query');
 
         //Call the test function
-        $html = PMA_getHtmlForReplacePrefixTable($action, $_url_params);
+        $html = MultSubmits::getHtmlForReplacePrefixTable($action, $_url_params);
 
         //form action
         $this->assertContains(
@@ -103,7 +101,7 @@ class PMA_MultSubmits_Test extends PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test for PMA_getHtmlForAddPrefixTable
+     * Test for MultSubmits::getHtmlForAddPrefixTable
      *
      * @return void
      */
@@ -113,7 +111,7 @@ class PMA_MultSubmits_Test extends PHPUnit_Framework_TestCase
         $_url_params = array('url_query'=>'PMA_original_url_query');
 
         //Call the test function
-        $html = PMA_getHtmlForAddPrefixTable($action, $_url_params);
+        $html = MultSubmits::getHtmlForAddPrefixTable($action, $_url_params);
 
         //form action
         $this->assertContains(
@@ -133,7 +131,7 @@ class PMA_MultSubmits_Test extends PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test for PMA_getHtmlForOtherActions
+     * Test for MultSubmits::getHtmlForOtherActions
      *
      * @return void
      */
@@ -145,7 +143,7 @@ class PMA_MultSubmits_Test extends PHPUnit_Framework_TestCase
         $full_query = 'select column from PMA_table';
 
         //Call the test function
-        $html = PMA_getHtmlForOtherActions(
+        $html = MultSubmits::getHtmlForOtherActions(
             $what, $action, $_url_params, $full_query
         );
 
@@ -181,7 +179,7 @@ class PMA_MultSubmits_Test extends PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test for PMA_getUrlParams
+     * Test for MultSubmits::getUrlParams
      *
      * @return void
      */
@@ -199,7 +197,7 @@ class PMA_MultSubmits_Test extends PHPUnit_Framework_TestCase
         $original_sql_query = "original_sql_query";
         $original_url_query = "original_url_query";
 
-        $_url_params = PMA_getUrlParams(
+        $_url_params = MultSubmits::getUrlParams(
             $what, $reload, $action, $db, $table, $selected, $views,
             $original_sql_query, $original_url_query
         );
@@ -226,7 +224,7 @@ class PMA_MultSubmits_Test extends PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test for PMA_buildOrExecuteQueryForMulti
+     * Test for MultSubmits::buildOrExecuteQueryForMulti
      *
      * @return void
      */
@@ -250,7 +248,7 @@ class PMA_MultSubmits_Test extends PHPUnit_Framework_TestCase
         list(
             $result, $rebuild_database_list, $reload_ret,
             $run_parts, $execute_query_later,,
-        ) = PMA_buildOrExecuteQueryForMulti(
+        ) = MultSubmits::buildOrExecuteQueryForMulti(
             $query_type, $selected, $db, $table, $views,
             $primary, $from_prefix, $to_prefix
         );
@@ -282,7 +280,7 @@ class PMA_MultSubmits_Test extends PHPUnit_Framework_TestCase
         $query_type = 'analyze_tbl';
         list(
             ,,,, $execute_query_later,,
-        ) = PMA_buildOrExecuteQueryForMulti(
+        ) = MultSubmits::buildOrExecuteQueryForMulti(
             $query_type, $selected, $db, $table, $views,
             $primary, $from_prefix, $to_prefix
         );
@@ -295,7 +293,7 @@ class PMA_MultSubmits_Test extends PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test for PMA_getQueryFromSelected
+     * Test for MultSubmits::getQueryFromSelected
      *
      * @return void
      */
@@ -311,7 +309,7 @@ class PMA_MultSubmits_Test extends PHPUnit_Framework_TestCase
         );
 
         list($full_query, $reload, $full_query_views)
-            = PMA_getQueryFromSelected(
+            = MultSubmits::getQueryFromSelected(
                 $what, $table, $selected, $views
             );
 
@@ -336,7 +334,7 @@ class PMA_MultSubmits_Test extends PHPUnit_Framework_TestCase
         $what = "drop_db";
 
         list($full_query, $reload, $full_query_views)
-            = PMA_getQueryFromSelected(
+            = MultSubmits::getQueryFromSelected(
                 $what, $table, $selected, $views
             );
 
