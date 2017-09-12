@@ -36,6 +36,7 @@ use PhpMyAdmin\Core;
 use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\DbList;
 use PhpMyAdmin\ErrorHandler;
+use PhpMyAdmin\IpAllowDeny;
 use PhpMyAdmin\LanguageManager;
 use PhpMyAdmin\Logging;
 use PhpMyAdmin\Message;
@@ -635,30 +636,24 @@ if (! defined('PMA_MINIMUM_COMMON')) {
         if (isset($cfg['Server']['AllowDeny'])
             && isset($cfg['Server']['AllowDeny']['order'])
         ) {
-
-            /**
-             * ip based access library
-             */
-            include_once './libraries/ip_allow_deny.lib.php';
-
             $allowDeny_forbidden         = false; // default
             if ($cfg['Server']['AllowDeny']['order'] == 'allow,deny') {
                 $allowDeny_forbidden     = true;
-                if (PMA_allowDeny('allow')) {
+                if (IpAllowDeny::allowDeny('allow')) {
                     $allowDeny_forbidden = false;
                 }
-                if (PMA_allowDeny('deny')) {
+                if (IpAllowDeny::allowDeny('deny')) {
                     $allowDeny_forbidden = true;
                 }
             } elseif ($cfg['Server']['AllowDeny']['order'] == 'deny,allow') {
-                if (PMA_allowDeny('deny')) {
+                if (IpAllowDeny::allowDeny('deny')) {
                     $allowDeny_forbidden = true;
                 }
-                if (PMA_allowDeny('allow')) {
+                if (IpAllowDeny::allowDeny('allow')) {
                     $allowDeny_forbidden = false;
                 }
             } elseif ($cfg['Server']['AllowDeny']['order'] == 'explicit') {
-                if (PMA_allowDeny('allow') && ! PMA_allowDeny('deny')) {
+                if (IpAllowDeny::allowDeny('allow') && ! IpAllowDeny::allowDeny('deny')) {
                     $allowDeny_forbidden = false;
                 } else {
                     $allowDeny_forbidden = true;
