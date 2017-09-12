@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.7.4-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2017-08-10 09:13-0400\n"
-"PO-Revision-Date: 2017-09-12 13:08+0000\n"
-"Last-Translator: Phillips Zhu <phizzarfernos@gmail.com>\n"
+"PO-Revision-Date: 2017-09-12 13:37+0000\n"
+"Last-Translator: Steven Rachman <steven.rachman@gmail.com>\n"
 "Language-Team: Indonesian "
 "<https://hosted.weblate.org/projects/phpmyadmin/4-7/id/>\n"
 "Language: id\n"
@@ -6864,9 +6864,8 @@ msgid "Whether to show row links even in the absence of a unique key."
 msgstr "Apakah akan menampilkan link baris bahkan tanpa adanya unique key."
 
 #: libraries/config/messages.inc.php:545
-#, fuzzy
 msgid "Show row links anyway"
-msgstr "Tampilkan baris link juga"
+msgstr "Tampilkan link baris bagaimanapun"
 
 #: libraries/config/messages.inc.php:546 libraries/config/messages.inc.php:547
 msgid "Disable shortcut keys"
@@ -7068,10 +7067,8 @@ msgid "Allow root login"
 msgstr "Izinkan masuk root"
 
 #: libraries/config/messages.inc.php:617
-#, fuzzy
-#| msgid "Session value"
 msgid "Session timezone"
-msgstr "Nilai sesi"
+msgstr "Sesi zona waktu"
 
 #: libraries/config/messages.inc.php:619
 #, fuzzy
@@ -7385,8 +7382,6 @@ msgstr ""
 "saran: [kbd]pma_userconfig[/kbd]"
 
 #: libraries/config/messages.inc.php:723
-#, fuzzy
-#| msgid "Favorite tables"
 msgid "Favorites table"
 msgstr "Tabel favorit"
 
@@ -7535,9 +7530,10 @@ msgid "Add DROP VIEW"
 msgstr "Tambahkan DROP VIEW"
 
 #: libraries/config/messages.inc.php:773
-#, fuzzy
 msgid "Defines the list of statements the auto-creation uses for new versions."
-msgstr "Mendefinisikan daftar laporan auto-penciptaan menggunakan versi baru."
+msgstr ""
+"Mendefinisikan daftar pernyataan yang dipakai penciptaan otomatis untuk "
+"versi baru."
 
 #: libraries/config/messages.inc.php:774
 msgid "Statements to track"
@@ -7600,10 +7596,8 @@ msgstr ""
 "menonaktifkan fitur ini, disarankan: [kbd] pma__users [/ kbd]."
 
 #: libraries/config/messages.inc.php:796
-#, fuzzy
-#| msgid "Use Tables"
 msgid "Users table"
-msgstr "Gunakan Tabel"
+msgstr "Tabel pengguna"
 
 #: libraries/config/messages.inc.php:798
 #, fuzzy
@@ -7617,10 +7611,8 @@ msgstr ""
 "fitur ini, disarankan: [kbd] pma__usergroups [/ kbd]."
 
 #: libraries/config/messages.inc.php:802
-#, fuzzy
-#| msgid "Use Host Table"
 msgid "User groups table"
-msgstr "Gunakan Host Table"
+msgstr "Tabel grup pengguna"
 
 #: libraries/config/messages.inc.php:804
 #, fuzzy
@@ -7635,9 +7627,8 @@ msgstr ""
 "saran: [kbd]pma_userconfig[/kbd]"
 
 #: libraries/config/messages.inc.php:807
-#, fuzzy
 msgid "Hidden navigation items table"
-msgstr "Tersembunyi tabel item navigasi"
+msgstr "Tabel item navigasi tersembunyi"
 
 #: libraries/config/messages.inc.php:809
 msgid "User for config auth"
@@ -7686,10 +7677,9 @@ msgid "Show create database form"
 msgstr "Tampilkan formulir pembuatan basis data"
 
 #: libraries/config/messages.inc.php:827
-#, fuzzy
 msgid "Show or hide a column displaying the comments for all tables."
 msgstr ""
-"Menampilkan atau menyembunyikan kolom menampilkan timestamp Penciptaan untuk "
+"Menampilkan atau menyembunyikan sebuah kolom yang menampilkan komentar untuk "
 "semua tabel."
 
 #: libraries/config/messages.inc.php:829
@@ -7699,17 +7689,14 @@ msgid "Show table comments"
 msgstr "Komentar tabel"
 
 #: libraries/config/messages.inc.php:831
-#, fuzzy
 msgid "Show or hide a column displaying the Creation timestamp for all tables."
 msgstr ""
-"Menampilkan atau menyembunyikan kolom menampilkan timestamp Penciptaan untuk "
-"semua tabel."
+"Menampilkan atau menyembunyikan sebuah kolom yang menampilkan timestamp "
+"pembuatan untuk semua tabel."
 
 #: libraries/config/messages.inc.php:833
-#, fuzzy
-#| msgid "Show more actions"
 msgid "Show creation timestamp"
-msgstr "Tampilkan tindakan lain"
+msgstr "Tampilkan timestamp pembuatan"
 
 #: libraries/config/messages.inc.php:835
 #, fuzzy
