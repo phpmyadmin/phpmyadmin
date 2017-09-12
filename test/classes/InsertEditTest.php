@@ -1214,7 +1214,7 @@ class InsertEditTest extends \PHPUnit_Framework_TestCase
 
         /**
          * This condition should be tested, however, it gives an undefined function
-         * PMA_getFileSelectOptions error:
+         * PhpMyAdmin\FileListing::getFileSelectOptions error:
          * $GLOBALS['cfg']['UploadDir'] = true;
          *
          */

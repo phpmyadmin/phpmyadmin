@@ -14,7 +14,7 @@ use PhpMyAdmin\Util;
 
 /*
  * we must set $GLOBALS['server'] here
- * since 'check_user_privileges.lib.php' will use it globally
+ * since 'check_user_privileges.inc.php' will use it globally
  */
 $GLOBALS['server'] = 0;
 

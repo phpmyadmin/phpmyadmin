@@ -11,6 +11,7 @@ use PhpMyAdmin\CentralColumns;
 use PhpMyAdmin\Config\PageSettings;
 use PhpMyAdmin\Controllers\TableController;
 use PhpMyAdmin\Core;
+use PhpMyAdmin\CreateAddField;
 use PhpMyAdmin\Index;
 use PhpMyAdmin\Message;
 use PhpMyAdmin\Relation;
@@ -112,7 +113,7 @@ class TableStructureController extends TableController
         /**
          * Function implementations for this script
          */
-        include_once 'libraries/check_user_privileges.lib.php';
+        include_once 'libraries/check_user_privileges.inc.php';
 
         $this->response->getHeader()->getScripts()->addFiles(
             array(
@@ -512,7 +513,7 @@ class TableStructureController extends TableController
         /**
          * Form for changing properties.
          */
-        include_once 'libraries/check_user_privileges.lib.php';
+        include_once 'libraries/check_user_privileges.inc.php';
         include 'libraries/tbl_columns_definition_form.inc.php';
     }
 
@@ -710,10 +711,8 @@ class TableStructureController extends TableController
      */
     protected function updatePartitioning()
     {
-        include_once 'libraries/create_addfield.lib.php';
-
         $sql_query = "ALTER TABLE " . Util::backquote($this->table) . " "
-            . PMA_getPartitionsDefinition();
+            . CreateAddField::getPartitionsDefinition();
 
         // Execute alter query
         $result = $this->dbi->tryQuery($sql_query);

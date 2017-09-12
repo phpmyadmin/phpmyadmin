@@ -57,7 +57,7 @@ class ServerDatabasesController extends Controller
      */
     public function indexAction()
     {
-        include_once 'libraries/check_user_privileges.lib.php';
+        include_once 'libraries/check_user_privileges.inc.php';
 
         $response = Response::getInstance();
 

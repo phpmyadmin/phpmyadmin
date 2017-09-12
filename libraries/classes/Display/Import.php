@@ -650,7 +650,6 @@ class Import
     public static function getImportDisplay($import_type, $db, $table, $max_upload_size)
     {
         global $SESSION_KEY;
-        include_once './libraries/file_listing.lib.php';
         include_once './libraries/plugin_interface.lib.php';
 
         list(

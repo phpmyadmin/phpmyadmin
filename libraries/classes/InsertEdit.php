@@ -8,6 +8,7 @@
 namespace PhpMyAdmin;
 
 use PhpMyAdmin\DatabaseInterface;
+use PhpMyAdmin\FileListing;
 use PhpMyAdmin\Message;
 use PhpMyAdmin\Plugins\TransformationsPlugin;
 use PhpMyAdmin\Relation;
@@ -1237,7 +1238,7 @@ class InsertEdit
      */
     public static function getSelectOptionForUpload($vkey, $column)
     {
-        $files = PMA_getFileSelectOptions(
+        $files = FileListing::getFileSelectOptions(
             Util::userDir($GLOBALS['cfg']['UploadDir'])
         );
 

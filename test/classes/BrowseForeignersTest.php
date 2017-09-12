@@ -1,22 +1,20 @@
 <?php
 /* vim: set expandtab sw=4 ts=4 sts=4: */
 /**
- * Tests for libraries/browse_foreigners.lib.php
+ * Tests for PhpMyAdmin\BrowseForeigners
  *
  * @package PhpMyAdmin-test
  */
+namespace PhpMyAdmin\Tests;
 
-/*
- * Include to test.
- */
-require_once 'libraries/browse_foreigners.lib.php';
+use PhpMyAdmin\BrowseForeigners;
 
 /**
- * Tests for libraries/browse_foreigners.lib.php
+ * Tests for PhpMyAdmin\BrowseForeigners
  *
  * @package PhpMyAdmin-test
  */
-class PMA_BrowseForeignersTest extends PHPUnit_Framework_TestCase
+class BrowseForeignersTest extends \PHPUnit_Framework_TestCase
 {
     /**
      * Setup for test cases
@@ -29,43 +27,43 @@ class PMA_BrowseForeignersTest extends PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test for PMA_getForeignLimit
+     * Test for BrowseForeigners::getForeignLimit
      *
      * @return void
      */
     function testGetForeignLimit()
     {
         $this->assertNull(
-            PMA_getForeignLimit('Show all')
+            BrowseForeigners::getForeignLimit('Show all')
         );
 
         $this->assertEquals(
             'LIMIT 0, 25 ',
-            PMA_getForeignLimit(null)
+            BrowseForeigners::getForeignLimit(null)
         );
 
         $_REQUEST['pos'] = 10;
 
         $this->assertEquals(
             'LIMIT 10, 25 ',
-            PMA_getForeignLimit(null)
+            BrowseForeigners::getForeignLimit(null)
         );
 
         $GLOBALS['cfg']['MaxRows'] = 50;
 
         $this->assertEquals(
             'LIMIT 10, 50 ',
-            PMA_getForeignLimit(null)
+            BrowseForeigners::getForeignLimit(null)
         );
 
         $this->assertEquals(
             'LIMIT 10, 50 ',
-            PMA_getForeignLimit('xyz')
+            BrowseForeigners::getForeignLimit('xyz')
         );
     }
 
     /**
-     * Test for PMA_getHtmlForShowAll
+     * Test for BrowseForeigners::getHtmlForShowAll
      *
      * @return void
      */
@@ -73,7 +71,7 @@ class PMA_BrowseForeignersTest extends PHPUnit_Framework_TestCase
     {
         $this->assertEquals(
             '',
-            PMA_getHtmlForShowAll(null)
+            BrowseForeigners::getHtmlForShowAll(null)
         );
 
         $foreignData = array();
@@ -82,7 +80,7 @@ class PMA_BrowseForeignersTest extends PHPUnit_Framework_TestCase
 
         $this->assertEquals(
             '',
-            PMA_getHtmlForShowAll($foreignData)
+            BrowseForeigners::getHtmlForShowAll($foreignData)
         );
 
         $GLOBALS['cfg']['ShowAll'] = true;
@@ -90,7 +88,7 @@ class PMA_BrowseForeignersTest extends PHPUnit_Framework_TestCase
 
         $this->assertEquals(
             '',
-            PMA_getHtmlForShowAll($foreignData)
+            BrowseForeigners::getHtmlForShowAll($foreignData)
         );
 
         $foreignData['the_total'] = 30;
@@ -99,12 +97,12 @@ class PMA_BrowseForeignersTest extends PHPUnit_Framework_TestCase
             '<input type="submit" id="foreign_showAll" '
             . 'name="foreign_showAll" '
             . 'value="' . 'Show all' . '" />',
-            PMA_getHtmlForShowAll($foreignData)
+            BrowseForeigners::getHtmlForShowAll($foreignData)
         );
     }
 
     /**
-     * Test for PMA_getHtmlForGotoPage
+     * Test for BrowseForeigners::getHtmlForGotoPage
      *
      * @return void
      */
@@ -112,7 +110,7 @@ class PMA_BrowseForeignersTest extends PHPUnit_Framework_TestCase
     {
         $this->assertEquals(
             '',
-            PMA_getHtmlForGotoPage(null)
+            BrowseForeigners::getHtmlForGotoPage(null)
         );
 
         $_REQUEST['pos'] = 15;
@@ -122,11 +120,11 @@ class PMA_BrowseForeignersTest extends PHPUnit_Framework_TestCase
 
         $this->assertEquals(
             '',
-            PMA_getHtmlForGotoPage($foreignData)
+            BrowseForeigners::getHtmlForGotoPage($foreignData)
         );
 
         $foreignData['the_total'] = 30;
-        $result = PMA_getHtmlForGotoPage($foreignData);
+        $result = BrowseForeigners::getHtmlForGotoPage($foreignData);
 
         $this->assertStringStartsWith(
             'Page number:',
@@ -156,7 +154,7 @@ class PMA_BrowseForeignersTest extends PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test for PMA_getHtmlForColumnElement
+     * Test for BrowseForeigners::getHtmlForColumnElement
      *
      * @return void
      */
@@ -167,7 +165,7 @@ class PMA_BrowseForeignersTest extends PHPUnit_Framework_TestCase
         $keyname = '';
         $description = 'foo';
         $title = '';
-        $result = PMA_getHtmlForColumnElement(
+        $result = BrowseForeigners::getHtmlForColumnElement(
             $cssClass, $isSelected, $keyname,
             $description, $title
         );
@@ -187,7 +185,7 @@ class PMA_BrowseForeignersTest extends PHPUnit_Framework_TestCase
         $isSelected = true;
         $keyname = 'bar';
         $title = 'foo';
-        $result = PMA_getHtmlForColumnElement(
+        $result = BrowseForeigners::getHtmlForColumnElement(
             $cssClass, $isSelected, $keyname,
             $description, $title
         );
@@ -210,7 +208,7 @@ class PMA_BrowseForeignersTest extends PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test for PMA_getDescriptionAndTitle
+     * Test for BrowseForeigners::getDescriptionAndTitle
      *
      * @return void
      */
@@ -221,19 +219,19 @@ class PMA_BrowseForeignersTest extends PHPUnit_Framework_TestCase
 
         $this->assertEquals(
             array('foobar&lt;baz', ''),
-            PMA_getDescriptionAndTitle($desc)
+            BrowseForeigners::getDescriptionAndTitle($desc)
         );
 
         $GLOBALS['cfg']['LimitChars'] = 5;
 
         $this->assertEquals(
             array('fooba...', 'foobar&lt;baz'),
-            PMA_getDescriptionAndTitle($desc)
+            BrowseForeigners::getDescriptionAndTitle($desc)
         );
     }
 
     /**
-     * Test for PMA_getHtmlForRelationalFieldSelection
+     * Test for BrowseForeigners::getHtmlForRelationalFieldSelection
      *
      * @return void
      */
@@ -248,7 +246,7 @@ class PMA_BrowseForeignersTest extends PHPUnit_Framework_TestCase
         $current_value = '';
         $_REQUEST['rownumber'] = 1;
         $_REQUEST['foreign_filter'] = '5';
-        $result = PMA_getHtmlForRelationalFieldSelection(
+        $result = BrowseForeigners::getHtmlForRelationalFieldSelection(
             $db, $table, $field, $foreignData, $fieldkey, $current_value
         );
 
@@ -315,7 +313,7 @@ class PMA_BrowseForeignersTest extends PHPUnit_Framework_TestCase
         $foreignData['disp_row'] = array();
         $foreignData['the_total'] = 5;
         $GLOBALS['cfg']['ShowAll'] = false;
-        $result = PMA_getHtmlForRelationalFieldSelection(
+        $result = BrowseForeigners::getHtmlForRelationalFieldSelection(
             $db, $table, $field, $foreignData, $fieldkey, $current_value
         );
 

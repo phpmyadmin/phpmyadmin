@@ -10,7 +10,7 @@ namespace PhpMyAdmin;
 use PhpMyAdmin\ListAbstract;
 use PhpMyAdmin\Util;
 
-require_once './libraries/check_user_privileges.lib.php';
+require_once './libraries/check_user_privileges.inc.php';
 
 /**
  * handles database lists
