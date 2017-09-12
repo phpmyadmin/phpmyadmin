@@ -1179,4 +1179,40 @@ class Core
             );
         }
     }
+
+    /**
+     * prints list item for main page
+     *
+     * @param string $name            displayed text
+     * @param string $listId          id, used for css styles
+     * @param string $url             make item as link with $url as target
+     * @param string $mysql_help_page display a link to MySQL's manual
+     * @param string $target          special target for $url
+     * @param string $a_id            id for the anchor,
+     *                                used for jQuery to hook in functions
+     * @param string $class           class for the li element
+     * @param string $a_class         class for the anchor element
+     *
+     * @return void
+     */
+    public static function printListItem($name, $listId = null, $url = null,
+        $mysql_help_page = null, $target = null, $a_id = null, $class = null,
+        $a_class = null
+    ) {
+        echo Template::get('list/item')
+            ->render(
+                array(
+                    'content' => $name,
+                    'id' => $listId,
+                    'class' => $class,
+                    'url' => array(
+                        'href' => $url,
+                        'target' => $target,
+                        'id' => $a_id,
+                        'class' => $a_class,
+                    ),
+                    'mysql_help_page' => $mysql_help_page,
+                )
+            );
+    }
 }
