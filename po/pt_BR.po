@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.8.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2017-09-08 21:11+0200\n"
-"PO-Revision-Date: 2017-09-12 16:59+0000\n"
-"Last-Translator: George Bezerra <georgelione@gmail.com>\n"
+"PO-Revision-Date: 2017-09-12 17:02+0000\n"
+"Last-Translator: Guilherme Souza Silva <g.szsilva@gmail.com>\n"
 "Language-Team: Portuguese (Brazil) "
 "<https://hosted.weblate.org/projects/phpmyadmin/master/pt_BR/>\n"
 "Language: pt_BR\n"
@@ -3904,7 +3904,7 @@ msgstr "Tempo máximo de execução"
 #: libraries/classes/Display/Export.php:809
 #, php-format
 msgid "Use %s statement"
-msgstr "Use a declaração %s"
+msgstr "Usar comando %s"
 
 #: libraries/classes/Config/Descriptions.php:254 prefs_manage.php:320
 msgid "Save as file"
