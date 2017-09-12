@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.7.4-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2017-08-10 09:13-0400\n"
-"PO-Revision-Date: 2017-09-12 00:04+0000\n"
-"Last-Translator: ekickx <mujahidmasadepan@gmail.com>\n"
+"PO-Revision-Date: 2017-09-12 07:47+0000\n"
+"Last-Translator: SacredWKnight <yudhis.sumardiono@gmail.com>\n"
 "Language-Team: Indonesian "
 "<https://hosted.weblate.org/projects/phpmyadmin/4-7/id/>\n"
 "Language: id\n"
@@ -243,7 +243,6 @@ msgstr "Tampilkan dump (skema) dari database"
 #: db_export.php:51 db_tracking.php:103 export.php:375 libraries/DbQbe.php:327
 #: libraries/controllers/database/DatabaseStructureController.php:168
 #: libraries/navigation/NavigationTree.php:924
-#, fuzzy
 msgid "No tables found in database."
 msgstr "Tabel tidak ditemukan di database."
 
@@ -567,7 +566,7 @@ msgstr "Bookmark %s telah dibuat."
 #, php-format
 msgid "Import has been successfully finished, %d query executed."
 msgid_plural "Import has been successfully finished, %d queries executed."
-msgstr[0] "Impor telah Berhasil, %d pertanyaan di eksekusi"
+msgstr[0] "Impor telah selesai, %d pertanyaan di eksekusi."
 
 #: import.php:612
 #, php-format
@@ -6232,7 +6231,7 @@ msgid ""
 msgstr ""
 "Tentukan judul teks pada browser. Mengacu pada[doc@faq6-27] "
 "dokumentasinya[/doc] untuk String ajaib yang bisa digunakan untuk "
-"mendapatkan nilai spesial"
+"mendapatkan nilai spesial."
 
 #: libraries/config/messages.inc.php:289
 msgid "Security"
@@ -6740,8 +6739,8 @@ msgid ""
 "Group items in the navigation tree (determined by the separator defined in "
 "the Databases and Tables tabs above)."
 msgstr ""
-"Item grup di cabang navigasi (ditentukan oleh pemisah yang didefinisikan di "
-"tab Database dan Tabel di atas)"
+"Mengelompokkan barang di cabang navigasi (ditentukan oleh pemisah yang "
+"didefinisikan di tab Database dan Tabel di atas)."
 
 #: libraries/config/messages.inc.php:503
 msgid "Group items in the tree"
