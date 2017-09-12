@@ -9,6 +9,7 @@ namespace PhpMyAdmin;
 
 use PhpMyAdmin\Core;
 use PhpMyAdmin\DatabaseInterface;
+use PhpMyAdmin\FileListing;
 use PhpMyAdmin\Message;
 use PhpMyAdmin\Plugins\ImportPlugin;
 use PhpMyAdmin\Response;
@@ -3385,14 +3386,14 @@ class Util
         }
 
         $matcher = '@\.(' . $extensions . ')(\.('
-            . PMA_supportedDecompressions() . '))?$@';
+            . FileListing::supportedDecompressions() . '))?$@';
 
         $active = (isset($GLOBALS['timeout_passed']) && $GLOBALS['timeout_passed']
             && isset($GLOBALS['local_import_file']))
             ? $GLOBALS['local_import_file']
             : '';
 
-        $files = PMA_getFileSelectOptions(
+        $files = FileListing::getFileSelectOptions(
             self::userDir($uploaddir),
             $matcher,
             $active

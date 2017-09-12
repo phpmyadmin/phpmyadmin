@@ -1,27 +1,27 @@
 <?php
 /* vim: set expandtab sw=4 ts=4 sts=4: */
 /**
- * tests for check_user_privileges.lib.php
+ * tests for PhpMyAdmin\CheckUserPrivileges
  *
  * @package PhpMyAdmin-test
  */
+namespace PhpMyAdmin\Tests;
+
+use PhpMyAdmin\CheckUserPrivileges;
 
 /*
  * Include to test.
  */
-
 $GLOBALS['server'] = 1;
 $GLOBALS['cfg']['Server']['DisableIS'] = false;
-require_once 'libraries/check_user_privileges.lib.php';
 
 /**
- * tests for check_user_privileges.lib.php
+ * tests for PhpMyAdmin\CheckUserPrivileges
  *
  * @package PhpMyAdmin-test
  */
-class PMA_CheckUserPrivileges_Test extends PHPUnit_Framework_TestCase
+class CheckUserPrivilegesTest extends \PHPUnit_Framework_TestCase
 {
-
     /**
      * prepares environment for tests
      *
@@ -29,7 +29,6 @@ class PMA_CheckUserPrivileges_Test extends PHPUnit_Framework_TestCase
      */
     public function setUp()
     {
-
         $GLOBALS['col_priv'] = false;
         $GLOBALS['db_priv'] = false;
         $GLOBALS['proc_priv'] = false;
@@ -48,7 +47,7 @@ class PMA_CheckUserPrivileges_Test extends PHPUnit_Framework_TestCase
             $show_grants_str,
             $show_grants_dbname,
             $show_grants_tblname
-        ) = PMA_getItemsFromShowGrantsRow(
+        ) = CheckUserPrivileges::getItemsFromShowGrantsRow(
             $show_grants_full_row
         );
 
@@ -75,7 +74,7 @@ class PMA_CheckUserPrivileges_Test extends PHPUnit_Framework_TestCase
             $show_grants_str,
             $show_grants_dbname,
             $show_grants_tblname
-        ) = PMA_getItemsFromShowGrantsRow(
+        ) = CheckUserPrivileges::getItemsFromShowGrantsRow(
             $show_grants_full_row
         );
 
@@ -102,7 +101,7 @@ class PMA_CheckUserPrivileges_Test extends PHPUnit_Framework_TestCase
             $show_grants_str,
             $show_grants_dbname,
             $show_grants_tblname
-        ) = PMA_getItemsFromShowGrantsRow(
+        ) = CheckUserPrivileges::getItemsFromShowGrantsRow(
             $show_grants_full_row
         );
 
@@ -125,7 +124,7 @@ class PMA_CheckUserPrivileges_Test extends PHPUnit_Framework_TestCase
 
 
     /**
-     * Test for PMA_checkRequiredPrivilegesForAdjust
+     * Test for CheckUserPrivileges::checkRequiredPrivilegesForAdjust
      *
      * @return void
      */
@@ -138,12 +137,12 @@ class PMA_CheckUserPrivileges_Test extends PHPUnit_Framework_TestCase
             $show_grants_str,
             $show_grants_dbname,
             $show_grants_tblname
-        ) = PMA_getItemsFromShowGrantsRow(
+        ) = CheckUserPrivileges::getItemsFromShowGrantsRow(
             $show_grants_full_row
         );
 
         // call the to-be-tested function
-        PMA_checkRequiredPrivilegesForAdjust(
+        CheckUserPrivileges::checkRequiredPrivilegesForAdjust(
             $show_grants_str,
             $show_grants_dbname,
             $show_grants_tblname
@@ -179,12 +178,12 @@ class PMA_CheckUserPrivileges_Test extends PHPUnit_Framework_TestCase
             $show_grants_str,
             $show_grants_dbname,
             $show_grants_tblname
-        ) = PMA_getItemsFromShowGrantsRow(
+        ) = CheckUserPrivileges::getItemsFromShowGrantsRow(
             $show_grants_full_row
         );
 
         // call the to-be-tested function
-        PMA_checkRequiredPrivilegesForAdjust(
+        CheckUserPrivileges::checkRequiredPrivilegesForAdjust(
             $show_grants_str,
             $show_grants_dbname,
             $show_grants_tblname
@@ -220,12 +219,12 @@ class PMA_CheckUserPrivileges_Test extends PHPUnit_Framework_TestCase
             $show_grants_str,
             $show_grants_dbname,
             $show_grants_tblname
-        ) = PMA_getItemsFromShowGrantsRow(
+        ) = CheckUserPrivileges::getItemsFromShowGrantsRow(
             $show_grants_full_row
         );
 
         // call the to-be-tested function
-        PMA_checkRequiredPrivilegesForAdjust(
+        CheckUserPrivileges::checkRequiredPrivilegesForAdjust(
             $show_grants_str,
             $show_grants_dbname,
             $show_grants_tblname
@@ -261,12 +260,12 @@ class PMA_CheckUserPrivileges_Test extends PHPUnit_Framework_TestCase
             $show_grants_str,
             $show_grants_dbname,
             $show_grants_tblname
-        ) = PMA_getItemsFromShowGrantsRow(
+        ) = CheckUserPrivileges::getItemsFromShowGrantsRow(
             $show_grants_full_row
         );
 
         // call the to-be-tested function
-        PMA_checkRequiredPrivilegesForAdjust(
+        CheckUserPrivileges::checkRequiredPrivilegesForAdjust(
             $show_grants_str,
             $show_grants_dbname,
             $show_grants_tblname

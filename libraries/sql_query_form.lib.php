@@ -19,11 +19,6 @@ if (! defined('PHPMYADMIN')) {
 }
 
 /**
- *
- */
-require_once './libraries/file_listing.lib.php'; // used for file listing
-
-/**
  * return HTML for the sql query boxes
  *
  * @param boolean|string $query       query to display in the textarea

@@ -28,7 +28,7 @@ namespace PhpMyAdmin\Display;
 
 use PhpMyAdmin\Template;
 
-require_once './libraries/check_user_privileges.lib.php';
+require_once './libraries/check_user_privileges.inc.php';
 
 /**
  * PhpMyAdmin\Display\CreateTable class

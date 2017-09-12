@@ -7,22 +7,23 @@
  */
 
 use PhpMyAdmin\Core;
+use PhpMyAdmin\CreateAddField;
 use PhpMyAdmin\Response;
 use PhpMyAdmin\Transformations;
 use PhpMyAdmin\Url;
+use PhpMyAdmin\Util;
 
 /**
  * Get some core libraries
  */
 require_once 'libraries/common.inc.php';
-require_once 'libraries/create_addfield.lib.php';
 
 // Check parameters
-PhpMyAdmin\Util::checkParameters(array('db'));
+Util::checkParameters(array('db'));
 
 /* Check if database name is empty */
 if (strlen($db) === 0) {
-    PhpMyAdmin\Util::mysqlDie(
+    Util::mysqlDie(
         __('The database name is empty!'), '', false, 'index.php'
     );
 }
@@ -31,7 +32,7 @@ if (strlen($db) === 0) {
  * Selects the database to work with
  */
 if (!$GLOBALS['dbi']->selectDb($db)) {
-    PhpMyAdmin\Util::mysqlDie(
+    Util::mysqlDie(
         sprintf(__('\'%s\' database does not exist.'), htmlspecialchars($db)),
         '',
         false,
@@ -41,7 +42,7 @@ if (!$GLOBALS['dbi']->selectDb($db)) {
 
 if ($GLOBALS['dbi']->getColumns($db, $table)) {
     // table exists already
-    PhpMyAdmin\Util::mysqlDie(
+    Util::mysqlDie(
         sprintf(__('Table %s already exists!'), htmlspecialchars($table)),
         '',
         false,
@@ -51,7 +52,7 @@ if ($GLOBALS['dbi']->getColumns($db, $table)) {
 
 // for libraries/tbl_columns_definition_form.inc.php
 // check number of fields to be created
-$num_fields = PMA_getNumberOfFieldsFromRequest();
+$num_fields = CreateAddField::getNumberOfFieldsFromRequest();
 
 $action = 'tbl_create.php';
 
@@ -59,7 +60,7 @@ $action = 'tbl_create.php';
  * The form used to define the structure of the table has been submitted
  */
 if (isset($_REQUEST['do_save_data'])) {
-    $sql_query = PMA_getTableCreationQuery($db, $table);
+    $sql_query = CreateAddField::getTableCreationQuery($db, $table);
 
     // If there is a request for SQL previewing.
     if (isset($_REQUEST['preview_sql'])) {
