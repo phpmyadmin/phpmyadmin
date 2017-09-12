@@ -810,7 +810,7 @@ class Relation
                 include_once './libraries/information_schema_relations.inc.php';
             } else {
                 $relations_key = 'mysql_relations';
-                include_once './libraries/mysql_relations.lib.php';
+                include_once './libraries/mysql_relations.inc.php';
             }
             if (isset($GLOBALS[$relations_key][$table])) {
                 foreach ($GLOBALS[$relations_key][$table] as $field => $relations) {
