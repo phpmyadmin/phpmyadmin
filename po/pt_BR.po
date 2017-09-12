@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.8.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2017-09-08 21:11+0200\n"
-"PO-Revision-Date: 2017-09-12 13:10+0000\n"
-"Last-Translator: Maurício Meneghini Fauth <mauriciofauth@gmail.com>\n"
+"PO-Revision-Date: 2017-09-12 16:43+0000\n"
+"Last-Translator: George Bezerra <georgelione@gmail.com>\n"
 "Language-Team: Portuguese (Brazil) "
 "<https://hosted.weblate.org/projects/phpmyadmin/master/pt_BR/>\n"
 "Language: pt_BR\n"
@@ -6280,13 +6280,7 @@ msgstr ""
 "conectados."
 
 #: libraries/classes/Config/ServerConfigChecks.php:202
-#, fuzzy, php-format
-#| msgid ""
-#| "You set the [kbd]config[/kbd] authentication type and included username "
-#| "and password for auto-login, which is not a desirable option for live "
-#| "hosts. Anyone who knows or guesses your phpMyAdmin URL can directly "
-#| "access your phpMyAdmin panel. Set %sauthentication type%s to [kbd]cookie[/"
-#| "kbd] or [kbd]http[/kbd]."
+#, php-format
 msgid ""
 "You set the [kbd]config[/kbd] authentication type and included username and "
 "password for auto-login, which is not a desirable option for live hosts. "
@@ -6294,11 +6288,11 @@ msgid ""
 "phpMyAdmin panel. Set %1$sauthentication type%2$s to [kbd]cookie[/kbd] or "
 "[kbd]http[/kbd]."
 msgstr ""
-"Você [kbd]configurou[/kbd] o tipo de autenticação e incluiu o usuário e "
-"senha para auto-login, o que não é uma opção desejável para live hosts. "
-"Qualquer um que souber ou descobrir sua URL do phpMyAdmin pode ter acesso "
-"direto ao painel de controle. Configure o %stipo de autenticação%s para "
-"[kbd]cookie[/kbd] ou [kbd]http[/kbd]."
+"Você escolheu o tipo de autenticação por [kbd]configuração[/kbd] e incluiu o "
+"usuário e senha para auto-login, o que não é uma opção desejável para live "
+"hosts. Qualquer um que souber ou adivinhar sua URL do phpMyAdmin pode ter "
+"acesso direto ao seu painel do phpMyAdmin. Configure o %1$stipo de "
+"autenticação%2$s para [kbd]cookie[/kbd] ou [kbd]http[/kbd]."
 
 #: libraries/classes/Config/ServerConfigChecks.php:229
 msgid "You allow for connecting to the server without a password."
@@ -6341,19 +6335,15 @@ msgid "Key should contain letters, numbers [em]and[/em] special characters."
 msgstr "A chave deve conter letras, números, [em]e[/em] caracteres especiais."
 
 #: libraries/classes/Config/ServerConfigChecks.php:417
-#, fuzzy, php-format
-#| msgid ""
-#| "%sLogin cookie validity%s greater than %ssession.gc_maxlifetime%s may "
-#| "cause random session invalidation (currently session.gc_maxlifetime is "
-#| "%d)."
+#, php-format
 msgid ""
 "%1$sLogin cookie validity%2$s greater than %3$ssession.gc_maxlifetime%4$s "
 "may cause random session invalidation (currently session.gc_maxlifetime is "
 "%5$d)."
 msgstr ""
-"A %svalidação dos cookies de login%s com mais de %ssession.gc_maxlifetime%s "
-"pode causar invalidação aleatória de sessão (atualmente a session."
-"gc_maslifetime é %d)."
+"A %1$svalidade do cookie de login%2$s maior que %3$ssession.gc_maxlifetime%4$"
+"s pode causar invalidação aleatória de sessão (atualmente a "
+"session.gc_maslifetime é %5$d)."
 
 #: libraries/classes/Config/ServerConfigChecks.php:441
 #, php-format
@@ -6376,28 +6366,22 @@ msgstr ""
 "%s precisa ser configurado para um valor menor ou igual a ele."
 
 #: libraries/classes/Config/ServerConfigChecks.php:505
-#, fuzzy, php-format
-#| msgid ""
-#| "%sBzip2 compression and decompression%s requires functions (%s) which are "
-#| "unavailable on this system."
+#, php-format
 msgid ""
 "%1$sBzip2 compression and decompression%2$s requires functions (%3$s) which "
 "are unavailable on this system."
 msgstr ""
-"A %scompactação e descompactação Bzip2%s requer funções (%s) que não estão "
-"indisponíveis neste sistema."
+"A %1$scompactação e descompactação Bzip2%2$s requer funções (%3$s) que não "
+"estão disponíveis neste sistema."
 
 #: libraries/classes/Config/ServerConfigChecks.php:537
-#, fuzzy, php-format
-#| msgid ""
-#| "%sGZip compression and decompression%s requires functions (%s) which are "
-#| "unavailable on this system."
+#, php-format
 msgid ""
 "%1$sGZip compression and decompression%2$s requires functions (%3$s) which "
 "are unavailable on this system."
 msgstr ""
-"A %scompactação e descompactação GZip%s requer funções (%s) que não estão "
-"disponíveis neste sistema."
+"A %1$scompactação e descompactação GZip2%2$s requer funções (%3$s) que não "
+"estão disponíveis neste sistema."
 
 #: libraries/classes/Config/Validator.php:210
 #: libraries/classes/Config/Validator.php:217
