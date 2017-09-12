@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.8.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2017-09-08 21:11+0200\n"
-"PO-Revision-Date: 2017-09-12 13:10+0000\n"
+"PO-Revision-Date: 2017-09-12 13:37+0000\n"
 "Last-Translator: Steven Rachman <steven.rachman@gmail.com>\n"
 "Language-Team: Indonesian "
 "<https://hosted.weblate.org/projects/phpmyadmin/master/id/>\n"
@@ -5459,8 +5459,6 @@ msgstr ""
 "saran: [kbd]pma_userconfig[/kbd]"
 
 #: libraries/classes/Config/Descriptions.php:1124
-#, fuzzy
-#| msgid "Favorite tables"
 msgid "Favorites table"
 msgstr "Tabel favorit"
 
@@ -5610,9 +5608,10 @@ msgid "Add DROP VIEW"
 msgstr "Tambahkan DROP VIEW"
 
 #: libraries/classes/Config/Descriptions.php:1190
-#, fuzzy
 msgid "Defines the list of statements the auto-creation uses for new versions."
-msgstr "Mendefinisikan daftar laporan auto-penciptaan menggunakan versi baru."
+msgstr ""
+"Mendefinisikan daftar pernyataan yang dipakai penciptaan otomatis untuk "
+"versi baru."
 
 #: libraries/classes/Config/Descriptions.php:1192
 msgid "Statements to track"
@@ -5675,10 +5674,8 @@ msgstr ""
 "menonaktifkan fitur ini, disarankan: [kbd] pma__users [/ kbd]."
 
 #: libraries/classes/Config/Descriptions.php:1221
-#, fuzzy
-#| msgid "Use Tables"
 msgid "Users table"
-msgstr "Gunakan Tabel"
+msgstr "Tabel pengguna"
 
 #: libraries/classes/Config/Descriptions.php:1224
 #, fuzzy
@@ -5692,10 +5689,8 @@ msgstr ""
 "fitur ini, disarankan: [kbd] pma__usergroups [/ kbd]."
 
 #: libraries/classes/Config/Descriptions.php:1229
-#, fuzzy
-#| msgid "Use Host Table"
 msgid "User groups table"
-msgstr "Gunakan Host Table"
+msgstr "Tabel grup pengguna"
 
 #: libraries/classes/Config/Descriptions.php:1232
 #, fuzzy
@@ -5710,9 +5705,8 @@ msgstr ""
 "saran: [kbd]pma_userconfig[/kbd]"
 
 #: libraries/classes/Config/Descriptions.php:1236
-#, fuzzy
 msgid "Hidden navigation items table"
-msgstr "Tersembunyi tabel item navigasi"
+msgstr "Tabel item navigasi tersembunyi"
 
 #: libraries/classes/Config/Descriptions.php:1240
 msgid "User for config auth"
@@ -5761,10 +5755,9 @@ msgid "Show create database form"
 msgstr "Tampilkan formulir pembuatan basis data"
 
 #: libraries/classes/Config/Descriptions.php:1263
-#, fuzzy
 msgid "Show or hide a column displaying the comments for all tables."
 msgstr ""
-"Menampilkan atau menyembunyikan kolom menampilkan timestamp Penciptaan untuk "
+"Menampilkan atau menyembunyikan sebuah kolom yang menampilkan komentar untuk "
 "semua tabel."
 
 #: libraries/classes/Config/Descriptions.php:1265
@@ -5774,17 +5767,14 @@ msgid "Show table comments"
 msgstr "Komentar tabel"
 
 #: libraries/classes/Config/Descriptions.php:1267
-#, fuzzy
 msgid "Show or hide a column displaying the Creation timestamp for all tables."
 msgstr ""
-"Menampilkan atau menyembunyikan kolom menampilkan timestamp Penciptaan untuk "
-"semua tabel."
+"Menampilkan atau menyembunyikan sebuah kolom yang menampilkan timestamp "
+"pembuatan untuk semua tabel."
 
 #: libraries/classes/Config/Descriptions.php:1269
-#, fuzzy
-#| msgid "Show more actions"
 msgid "Show creation timestamp"
-msgstr "Tampilkan tindakan lain"
+msgstr "Tampilkan timestamp pembuatan"
 
 #: libraries/classes/Config/Descriptions.php:1271
 #, fuzzy
