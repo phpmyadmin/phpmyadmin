@@ -11,8 +11,6 @@ use PhpMyAdmin\MultSubmits;
 use PhpMyAdmin\Theme;
 use PhpMyAdmin\Url;
 
-require_once 'libraries/relation_cleanup.lib.php';
-
 /**
  * PhpMyAdmin\Tests\MultSubmitsTest class
  *

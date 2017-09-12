@@ -10,6 +10,7 @@
 namespace PhpMyAdmin;
 
 use PhpMyAdmin\Operations;
+use PhpMyAdmin\RelationCleanup;
 use PhpMyAdmin\Sql;
 use PhpMyAdmin\Table;
 use PhpMyAdmin\Transformations;
@@ -124,7 +125,7 @@ class MultSubmits
                 break;
 
             case 'drop_db':
-                PMA_relationsCleanupDatabase($selected[$i]);
+                RelationCleanup::database($selected[$i]);
                 $a_query   = 'DROP DATABASE '
                            . Util::backquote($selected[$i]);
                 $reload    = 1;
@@ -133,7 +134,7 @@ class MultSubmits
                 break;
 
             case 'drop_tbl':
-                PMA_relationsCleanupTable($db, $selected[$i]);
+                RelationCleanup::table($db, $selected[$i]);
                 $current = $selected[$i];
                 if (!empty($views) && in_array($current, $views)) {
                     $sql_query_views .= (empty($sql_query_views) ? 'DROP VIEW ' : ', ')
@@ -183,7 +184,7 @@ class MultSubmits
                 break;
 
             case 'drop_fld':
-                PMA_relationsCleanupColumn($db, $table, $selected[$i]);
+                RelationCleanup::column($db, $table, $selected[$i]);
                 $sql_query .= (empty($sql_query)
                     ? 'ALTER TABLE ' . Util::backquote($table)
                     : ',')

@@ -1,27 +1,25 @@
 <?php
 /* vim: set expandtab sw=4 ts=4 sts=4: */
 /**
- * tests for relation_cleanup.lib.php
+ * tests for PhpMyAdmin\RelationCleanup
  *
  * @package PhpMyAdmin-test
  */
+namespace PhpMyAdmin\Tests;
 
 use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Relation;
-
-/*
-* Include to test.
-*/
-require_once 'libraries/relation_cleanup.lib.php';
+use PhpMyAdmin\RelationCleanup;
+use PHPUnit_Framework_TestCase as TestCase;
 
 /**
- * PMA_Relation_Cleanup_Test class
+ * PhpMyAdmin\Tests\RelationCleanupTest class
  *
- * this class is for testing relation_cleanup.lib.php functions
+ * this class is for testing PhpMyAdmin\RelationCleanup methods
  *
  * @package PhpMyAdmin-test
  */
-class PMA_Relation_Cleanup_Test extends PHPUnit_Framework_TestCase
+class RelationCleanupTest extends TestCase
 {
     /**
      * Prepares environment for the test.
@@ -70,7 +68,7 @@ class PMA_Relation_Cleanup_Test extends PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test for PMA_relationsCleanupColumn
+     * Test for RelationCleanup::column
      *
      * @return void
      * @group medium
@@ -123,7 +121,7 @@ class PMA_Relation_Cleanup_Test extends PHPUnit_Framework_TestCase
         );
 
         //cleanup
-        PMA_relationsCleanupColumn($db, $table, $column);
+        RelationCleanup::column($db, $table, $column);
 
         //the $cfgRelation value after cleanup column
         $cfgRelation = Relation::checkRelationsParam();
@@ -151,7 +149,7 @@ class PMA_Relation_Cleanup_Test extends PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test for PMA_relationsCleanupTable
+     * Test for RelationCleanup::table
      *
      * @return void
      */
@@ -180,8 +178,8 @@ class PMA_Relation_Cleanup_Test extends PHPUnit_Framework_TestCase
             $cfgRelation['relation']
         );
 
-        //PMA_relationsCleanupTable
-        PMA_relationsCleanupTable($db, $table);
+        //RelationCleanup::table
+        RelationCleanup::table($db, $table);
 
         //the $cfgRelation value after cleanup column
         $cfgRelation = Relation::checkRelationsParam();
@@ -216,7 +214,7 @@ class PMA_Relation_Cleanup_Test extends PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test for PMA_relationsCleanupDatabase
+     * Test for RelationCleanup::database
      *
      * @return void
      */
@@ -253,7 +251,7 @@ class PMA_Relation_Cleanup_Test extends PHPUnit_Framework_TestCase
         );
 
         //cleanup
-        PMA_relationsCleanupDatabase($db);
+        RelationCleanup::database($db);
 
         //the value after cleanup column
         $cfgRelation = Relation::checkRelationsParam();

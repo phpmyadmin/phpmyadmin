@@ -18,6 +18,7 @@ use PhpMyAdmin\Operations;
 use PhpMyAdmin\Plugins;
 use PhpMyAdmin\Plugins\Export\ExportSql;
 use PhpMyAdmin\Relation;
+use PhpMyAdmin\RelationCleanup;
 use PhpMyAdmin\Response;
 use PhpMyAdmin\Util;
 
@@ -133,8 +134,7 @@ if (strlen($GLOBALS['db']) > 0
             /**
              * cleanup pmadb stuff for this db
              */
-            include_once 'libraries/relation_cleanup.lib.php';
-            PMA_relationsCleanupDatabase($GLOBALS['db']);
+            RelationCleanup::database($GLOBALS['db']);
 
             // if someday the RENAME DATABASE reappears, do not DROP
             $local_query = 'DROP DATABASE '

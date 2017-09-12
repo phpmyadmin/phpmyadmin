@@ -14,8 +14,6 @@ use PhpMyAdmin\Theme;
 use PhpMyAdmin\Url;
 use PhpMyAdmin\Util;
 
-require_once 'libraries/relation_cleanup.lib.php';
-
 /**
  * PhpMyAdmin\Tests\Server\PrivilegesTest class
  *

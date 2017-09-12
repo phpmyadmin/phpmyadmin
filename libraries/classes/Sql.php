@@ -16,6 +16,7 @@ use PhpMyAdmin\Message;
 use PhpMyAdmin\Operations;
 use PhpMyAdmin\ParseAnalyze;
 use PhpMyAdmin\Relation;
+use PhpMyAdmin\RelationCleanup;
 use PhpMyAdmin\Response;
 use PhpMyAdmin\SqlParser\Statements\AlterStatement;
 use PhpMyAdmin\SqlParser\Statements\DropStatement;
@@ -1092,17 +1093,15 @@ EOT;
      */
     public static function cleanupRelations($db, $table, $column, $purge)
     {
-        include_once 'libraries/relation_cleanup.lib.php';
-
         if (! empty($purge) && strlen($db) > 0) {
             if (strlen($table) > 0) {
                 if (isset($column) && strlen($column) > 0) {
-                    PMA_relationsCleanupColumn($db, $table, $column);
+                    RelationCleanup::column($db, $table, $column);
                 } else {
-                    PMA_relationsCleanupTable($db, $table);
+                    RelationCleanup::table($db, $table);
                 }
             } else {
-                PMA_relationsCleanupDatabase($db);
+                RelationCleanup::database($db);
             }
         }
     }

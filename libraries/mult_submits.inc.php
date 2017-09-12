@@ -210,13 +210,6 @@ if (!empty($submit_mult) && !empty($what)) {
     /**
      * Executes the query - dropping rows, columns/fields, tables or dbs
      */
-    if ($query_type == 'drop_db'
-        || $query_type == 'drop_tbl'
-        || $query_type == 'drop_fld'
-    ) {
-        include_once './libraries/relation_cleanup.lib.php';
-    }
-
     if ($query_type == 'primary_fld') {
         // Gets table primary key
         $GLOBALS['dbi']->selectDb($db);

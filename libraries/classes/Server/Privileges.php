@@ -12,6 +12,7 @@ use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Display\ChangePassword;
 use PhpMyAdmin\Message;
 use PhpMyAdmin\Relation;
+use PhpMyAdmin\RelationCleanup;
 use PhpMyAdmin\Response;
 use PhpMyAdmin\Template;
 use PhpMyAdmin\Url;
@@ -4042,7 +4043,7 @@ class Privileges
             $queries[] = 'DROP USER \''
                 . $GLOBALS['dbi']->escapeString($this_user)
                 . '\'@\'' . $GLOBALS['dbi']->escapeString($this_host) . '\';';
-            PMA_relationsCleanupUser($this_user);
+            RelationCleanup::user($this_user);
 
             if (isset($_REQUEST['drop_users_db'])) {
                 $queries[] = 'DROP DATABASE IF EXISTS '
