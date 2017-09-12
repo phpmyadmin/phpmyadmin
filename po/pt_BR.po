@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.8.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2017-09-08 21:11+0200\n"
-"PO-Revision-Date: 2017-09-12 16:43+0000\n"
-"Last-Translator: George Bezerra <georgelione@gmail.com>\n"
+"PO-Revision-Date: 2017-09-12 16:48+0000\n"
+"Last-Translator: Miro Baía <adm@pescweb.com>\n"
 "Language-Team: Portuguese (Brazil) "
 "<https://hosted.weblate.org/projects/phpmyadmin/master/pt_BR/>\n"
 "Language: pt_BR\n"
@@ -1116,7 +1116,7 @@ msgstr "Fechar"
 
 #: js/messages.php:149
 msgid "Template was created."
-msgstr "Template foi criado."
+msgstr "O modelo foi criado."
 
 #: js/messages.php:150
 msgid "Template was loaded."
@@ -1124,11 +1124,11 @@ msgstr "O template foi carregado."
 
 #: js/messages.php:151
 msgid "Template was updated."
-msgstr "Template foi atualizado."
+msgstr "O modelo foi atualizado."
 
 #: js/messages.php:152
 msgid "Template was deleted."
-msgstr "Template foi excluído."
+msgstr "O modelo foi apagado."
 
 #. l10n: Other, small valued, queries
 #: js/messages.php:155 libraries/classes/Server/Status/Data.php:132
