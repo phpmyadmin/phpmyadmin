@@ -17,6 +17,7 @@ use PhpMyAdmin\RecentFavoriteTable;
 use PhpMyAdmin\Sanitize;
 use PhpMyAdmin\Scripts;
 use PhpMyAdmin\Url;
+use PhpMyAdmin\UserPreferences;
 use PhpMyAdmin\Util;
 
 /**
@@ -436,8 +437,7 @@ class Header
                 $retval .= Config::renderHeader();
                 // offer to load user preferences from localStorage
                 if ($this->_userprefsOfferImport) {
-                    include_once './libraries/user_preferences.lib.php';
-                    $retval .= PMA_userprefsAutoloadGetHeader();
+                    $retval .= UserPreferences::autoloadGetHeader();
                 }
                 // pass configuration for hint tooltip display
                 // (to be used by PMA_tooltip() in js/functions.js)
