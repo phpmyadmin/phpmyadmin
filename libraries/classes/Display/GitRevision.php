@@ -23,7 +23,7 @@ class GitRevision
     *
     * @return void
     */
-    public static function print()
+    public static function display()
     {
         if (! $GLOBALS['PMA_Config']->get('PMA_VERSION_GIT')) {
             $response = Response::getInstance();
