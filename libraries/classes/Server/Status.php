@@ -9,6 +9,7 @@
  */
 namespace PhpMyAdmin\Server;
 
+use PhpMyAdmin\ReplicationGui;
 use PhpMyAdmin\Server\Status\Data;
 use PhpMyAdmin\Util;
 
@@ -126,7 +127,7 @@ class Status
             if (isset($GLOBALS['replication_info'][$type]['status'])
                 && $GLOBALS['replication_info'][$type]['status']
             ) {
-                $retval .= PMA_getHtmlForReplicationStatusTable($type);
+                $retval .= ReplicationGui::getHtmlForReplicationStatusTable($type);
             }
         }
 
