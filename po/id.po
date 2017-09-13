@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.7.4-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2017-08-10 09:13-0400\n"
-"PO-Revision-Date: 2017-09-13 14:26+0000\n"
-"Last-Translator: ekickx <mujahidmasadepan@gmail.com>\n"
+"PO-Revision-Date: 2017-09-14 16:47+0000\n"
+"Last-Translator: developerchan1 <developerchan1@gmail.com>\n"
 "Language-Team: Indonesian "
 "<https://hosted.weblate.org/projects/phpmyadmin/4-7/id/>\n"
 "Language: id\n"
@@ -9597,16 +9597,12 @@ msgstr ""
 "kolom seperti', itu akan pindah ke langkah berikutnya)"
 
 #: libraries/normalization.lib.php:153 normalization.php:19
-#, fuzzy
-#| msgid "Select two columns"
 msgid "Select one…"
-msgstr "Pilih dua kolom"
+msgstr "Pilih satu…"
 
 #: libraries/normalization.lib.php:154 normalization.php:20
-#, fuzzy
-#| msgid "Remove column(s)"
 msgid "No such column"
-msgstr "Hapus kolom"
+msgstr "Tidak ada kolom seperti itu"
 
 #: libraries/normalization.lib.php:161
 #, fuzzy
@@ -9620,10 +9616,8 @@ msgid "Have a primary key"
 msgstr "Tambahkan kunci primer"
 
 #: libraries/normalization.lib.php:188
-#, fuzzy
-#| msgid "Error: relation already exists."
 msgid "Primary key already exists."
-msgstr "Galat: relasi sudah ada."
+msgstr "Kunci utama telah ada."
 
 #: libraries/normalization.lib.php:193
 #, fuzzy
