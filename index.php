@@ -15,6 +15,7 @@ use PhpMyAdmin\RecentFavoriteTable;
 use PhpMyAdmin\Relation;
 use PhpMyAdmin\Response;
 use PhpMyAdmin\Sanitize;
+use PhpMyAdmin\Server\Select;
 use PhpMyAdmin\ThemeManager;
 use PhpMyAdmin\Url;
 use PhpMyAdmin\Util;
@@ -183,9 +184,8 @@ if ($server > 0 || count($cfg['Servers']) > 1
         || ($server == 0 && count($cfg['Servers']) == 1)))
     ) {
         echo '<li id="li_select_server" class="no_bullets" >';
-        include_once 'libraries/select_server.lib.php';
         echo Util::getImage('s_host.png') , " "
-            , PMA_selectServer(true, true);
+            , Select::render(true, true);
         echo '</li>';
     }
 

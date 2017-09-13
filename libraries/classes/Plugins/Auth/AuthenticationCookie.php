@@ -14,6 +14,7 @@ use PhpMyAdmin\LanguageManager;
 use PhpMyAdmin\Message;
 use PhpMyAdmin\Plugins\AuthenticationPlugin;
 use PhpMyAdmin\Response;
+use PhpMyAdmin\Server\Select;
 use PhpMyAdmin\Session;
 use PhpMyAdmin\Util;
 use PhpMyAdmin\Url;
@@ -218,10 +219,7 @@ class AuthenticationCookie extends AuthenticationPlugin
                     , 'elements[\'pma_servername\'].value = \'\'" ';
             }
             echo '>';
-
-            include_once './libraries/select_server.lib.php';
-            echo PMA_selectServer(false, false);
-
+            echo Select::render(false, false);
             echo '</select></div>';
         } else {
             echo '    <input type="hidden" name="server" value="'
