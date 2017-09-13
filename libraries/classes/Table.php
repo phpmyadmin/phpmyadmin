@@ -10,6 +10,7 @@ namespace PhpMyAdmin;
 use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Index;
 use PhpMyAdmin\Message;
+use PhpMyAdmin\Plugins;
 use PhpMyAdmin\Plugins\Export\ExportSql;
 use PhpMyAdmin\Relation;
 use PhpMyAdmin\SqlParser\Components\Expression;
@@ -908,15 +909,12 @@ class Table
 
         // No table is created when this is a data-only operation.
         if ($what != 'dataonly') {
-
-            include_once "libraries/plugin_interface.lib.php";
-
             /**
              * Instance used for exporting the current structure of the table.
              *
-             * @var \PhpMyAdmin\Plugins\Export\ExportSql
+             * @var PhpMyAdmin\Plugins\Export\ExportSql
              */
-            $export_sql_plugin = PMA_getPlugin(
+            $export_sql_plugin = Plugins::getPlugin(
                 "export",
                 "sql",
                 'libraries/classes/Plugins/Export/',

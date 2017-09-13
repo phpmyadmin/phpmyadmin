@@ -1,26 +1,22 @@
 <?php
 /* vim: set expandtab sw=4 ts=4 sts=4: */
 /**
- * tests for methods under user_preferences library
+ * tests for methods under PhpMyAdmin\UserPreferences class
  *
  * @package PhpMyAdmin-test
  */
+namespace PhpMyAdmin\Tests;
 
-/*
- * Include to test
- */
 use PhpMyAdmin\Config\ConfigFile;
-
-require_once 'libraries/user_preferences.lib.php';
+use PhpMyAdmin\UserPreferences;
 
 /**
- * tests for methods under user_preferences library
+ * tests for methods under PhpMyAdmin\UserPreferences class
  *
  * @package PhpMyAdmin-test
  */
-class PMA_User_Preferences_Test extends PMATestCase
+class UserPreferencesTest extends \PMATestCase
 {
-
     /**
      * Setup various pre conditions
      *
@@ -35,7 +31,7 @@ class PMA_User_Preferences_Test extends PMATestCase
     }
 
     /**
-     * Test for PMA_userprefsPageInit
+     * Test for UserPreferences::pageInit
      *
      * @return void
      */
@@ -48,7 +44,7 @@ class PMA_User_Preferences_Test extends PMATestCase
         $GLOBALS['cfg']['AvailableCharsets'] = array();
         $GLOBALS['cfg']['UserprefsDeveloperTab'] = null;
 
-        PMA_userprefsPageInit(new ConfigFile());
+        UserPreferences::pageInit(new ConfigFile());
 
         $this->assertEquals(
             array(
@@ -63,7 +59,7 @@ class PMA_User_Preferences_Test extends PMATestCase
     }
 
     /**
-     * Test for PMA_loadUserprefs
+     * Test for UserPreferences::load
      *
      * @return void
      */
@@ -74,7 +70,7 @@ class PMA_User_Preferences_Test extends PMATestCase
         $_SESSION['relation'][$GLOBALS['server']]['userconfigwork'] = null;
         unset($_SESSION['userconfig']);
 
-        $result = PMA_loadUserprefs();
+        $result = UserPreferences::load();
 
         $this->assertCount(
             3,
@@ -129,7 +125,7 @@ class PMA_User_Preferences_Test extends PMATestCase
 
         $GLOBALS['dbi'] = $dbi;
 
-        $result = PMA_loadUserprefs();
+        $result = UserPreferences::load();
 
         $this->assertEquals(
             array(
@@ -142,7 +138,7 @@ class PMA_User_Preferences_Test extends PMATestCase
     }
 
     /**
-     * Test for PMA_saveUserprefs
+     * Test for UserPreferences::save
      *
      *  @return void
      */
@@ -153,7 +149,7 @@ class PMA_User_Preferences_Test extends PMATestCase
         $_SESSION['relation'][2]['userconfigwork'] = null;
         unset($_SESSION['userconfig']);
 
-        $result = PMA_saveUserprefs(array(1));
+        $result = UserPreferences::save(array(1));
 
         $this->assertTrue(
             $result
@@ -220,7 +216,7 @@ class PMA_User_Preferences_Test extends PMATestCase
 
         $GLOBALS['dbi'] = $dbi;
         $this->assertTrue(
-            PMA_saveUserprefs(array(1))
+            UserPreferences::save(array(1))
         );
 
         // case 3
@@ -255,7 +251,7 @@ class PMA_User_Preferences_Test extends PMATestCase
 
         $GLOBALS['dbi'] = $dbi;
 
-        $result = PMA_saveUserprefs(array(1));
+        $result = UserPreferences::save(array(1));
 
         $this->assertEquals(
             'Could not save configuration<br /><br />err1',
@@ -264,7 +260,7 @@ class PMA_User_Preferences_Test extends PMATestCase
     }
 
     /**
-     * Test for PMA_applyUserprefs
+     * Test for UserPreferences::apply
      *
      * @return void
      */
@@ -275,7 +271,7 @@ class PMA_User_Preferences_Test extends PMATestCase
             'foo' => 'bar'
         );
         $GLOBALS['cfg']['UserprefsDeveloperTab'] = null;
-        $result = PMA_applyUserprefs(
+        $result = UserPreferences::apply(
             array(
                 'DBG/sql' => true,
                 'ErrorHandler/display' => true,
@@ -296,14 +292,14 @@ class PMA_User_Preferences_Test extends PMATestCase
     }
 
     /**
-     * Test for PMA_applyUserprefs
+     * Test for UserPreferences::apply
      *
      * @return void
      */
     public function testApplyDevelUserprefs()
     {
         $GLOBALS['cfg']['UserprefsDeveloperTab'] = true;
-        $result = PMA_applyUserprefs(
+        $result = UserPreferences::apply(
             array(
                 'DBG/sql' => true,
             )
@@ -318,7 +314,7 @@ class PMA_User_Preferences_Test extends PMATestCase
     }
 
     /**
-     * Test for PMA_persistOption
+     * Test for UserPreferences::persistOption
      *
      * @return void
      */
@@ -337,20 +333,20 @@ class PMA_User_Preferences_Test extends PMATestCase
         $_SESSION['relation'][2]['userconfigwork'] = null;
 
         $this->assertNull(
-            PMA_persistOption('Server/hide_db', 'val', 'val')
+            UserPreferences::persistOption('Server/hide_db', 'val', 'val')
         );
 
         $this->assertNull(
-            PMA_persistOption('Server/hide_db', 'val2', 'val')
+            UserPreferences::persistOption('Server/hide_db', 'val2', 'val')
         );
 
         $this->assertNull(
-            PMA_persistOption('Server/hide_db2', 'val', 'val')
+            UserPreferences::persistOption('Server/hide_db2', 'val', 'val')
         );
     }
 
     /**
-     * Test for PMA_userprefsRedirect
+     * Test for UserPreferences::redirect
      *
      * @return void
      */
@@ -363,7 +359,7 @@ class PMA_User_Preferences_Test extends PMATestCase
         $GLOBALS['PMA_Config']->set('PmaAbsoluteUri', '');
         $GLOBALS['PMA_Config']->set('PMA_IS_IIS', false);
 
-        PMA_userprefsRedirect(
+        UserPreferences::redirect(
             'file.html',
             array('a' => 'b'),
             'h ash'
@@ -371,7 +367,7 @@ class PMA_User_Preferences_Test extends PMATestCase
     }
 
     /**
-     * Test for PMA_userprefsAutoloadGetHeader
+     * Test for UserPreferences::autoloadGetHeader
      *
      * @return void
      */
@@ -382,7 +378,7 @@ class PMA_User_Preferences_Test extends PMATestCase
 
         $this->assertEquals(
             '',
-            PMA_userprefsAutoloadGetHeader()
+            UserPreferences::autoloadGetHeader()
         );
 
         $this->assertTrue(
@@ -392,7 +388,7 @@ class PMA_User_Preferences_Test extends PMATestCase
         $_REQUEST['prefs_autoload'] = 'nohide';
         $GLOBALS['cfg']['ServerDefault'] = 1;
         $GLOBALS['PMA_PHP_SELF'] = 'phpunit';
-        $result = PMA_userprefsAutoloadGetHeader();
+        $result = UserPreferences::autoloadGetHeader();
 
         $this->assertContains(
             '<form action="prefs_manage.php" method="post" class="disableAjax">',

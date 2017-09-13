@@ -278,7 +278,6 @@ if (isset($_REQUEST['change_pw'])) {
 if (isset($_REQUEST['delete'])
     || (isset($_REQUEST['change_copy']) && $_REQUEST['mode'] < 4)
 ) {
-    include_once 'libraries/relation_cleanup.lib.php';
     $queries = Privileges::getDataForDeleteUsers($queries);
     if (empty($_REQUEST['change_copy'])) {
         list($sql_query, $message) = Privileges::deleteUser($queries);

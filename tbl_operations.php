@@ -426,7 +426,7 @@ if (! (isset($db_is_system_schema) && $db_is_system_schema)) {
                     htmlspecialchars($table)
                 ),
                 // table name is needed to avoid running
-                // PMA_relationsCleanupDatabase() on the whole db later
+                // PhpMyAdmin\RelationCleanup::database() on the whole db later
                 'table' => $GLOBALS['table'],
             )
         );

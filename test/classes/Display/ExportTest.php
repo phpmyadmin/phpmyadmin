@@ -9,11 +9,10 @@ namespace PhpMyAdmin\Tests\Display;
 
 use PhpMyAdmin\Core;
 use PhpMyAdmin\Display\Export;
+use PhpMyAdmin\Plugins;
 use PhpMyAdmin\Theme;
 use PhpMyAdmin\Url;
 use PhpMyAdmin\Util;
-
-require_once 'libraries/plugin_interface.lib.php';
 
 /**
  * class PhpMyAdmin\Tests\Display\ExportTest
@@ -148,7 +147,7 @@ class ExportTest extends \PHPUnit_Framework_TestCase
         $GLOBALS['dbi'] = $dbi;
 
         /* Scan for plugins */
-        $export_list = PMA_getPlugins(
+        $export_list = Plugins::getPlugins(
             "export",
             'libraries/classes/Plugins/Export/',
             array(

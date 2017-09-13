@@ -13,8 +13,7 @@ use PhpMyAdmin\Config\Forms\Page\PageFormList;
 use PhpMyAdmin\Core;
 use PhpMyAdmin\Message;
 use PhpMyAdmin\Response;
-
-require_once 'libraries/user_preferences.lib.php';
+use PhpMyAdmin\UserPreferences;
 
 /**
  * Page-related settings
@@ -71,7 +70,7 @@ class PageSettings
         $this->_groupName = $formGroupName;
 
         $cf = new ConfigFile($GLOBALS['PMA_Config']->base_settings);
-        PMA_userprefsPageInit($cf);
+        UserPreferences::pageInit($cf);
 
         $form_display = new $form_class($cf);
 
@@ -100,7 +99,7 @@ class PageSettings
     {
         if ($form_display->process(false) && !$form_display->hasErrors()) {
             // save settings
-            $result = PMA_saveUserprefs($cf->getConfigArray());
+            $result = UserPreferences::save($cf->getConfigArray());
             if ($result === true) {
                 // reload page
                 $response = Response::getInstance();

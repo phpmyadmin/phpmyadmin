@@ -1,48 +1,45 @@
 <?php
 /* vim: set expandtab sw=4 ts=4 sts=4: */
 /**
- * tests for mime.lib.php
+ * tests for PhpMyAdmin\Mime
  *
  * @package PhpMyAdmin-test
  */
+namespace PhpMyAdmin;
 
-/*
- * Include to test.
- */
-
-require_once 'libraries/mime.lib.php';
+use PhpMyAdmin\Mime;
 
 /**
  * Test for mime detection.
  *
  * @package PhpMyAdmin-test
  */
-class PMA_MIME_Test extends PHPUnit_Framework_TestCase
+class MimeTest extends \PHPUnit_Framework_TestCase
 {
     /**
-     * Test for PMA_detectMIME
+     * Test for Mime::detect
      *
      * @param string $test   MIME to test
      * @param string $output Expected output
      *
      * @return void
-     * @dataProvider providerForTestDetectMIME
+     * @dataProvider providerForTestDetect
      */
-    public function testDetectMIME($test, $output)
+    public function testDetect($test, $output)
     {
 
         $this->assertEquals(
-            PMA_detectMIME($test),
+            Mime::detect($test),
             $output
         );
     }
 
     /**
-     * Provider for testPMA_detectMIME
+     * Provider for testDetect
      *
-     * @return array data for testPMA_detectMIME
+     * @return array data for testDetect
      */
-    public function providerForTestDetectMIME()
+    public function providerForTestDetect()
     {
         return array(
             array(

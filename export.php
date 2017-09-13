@@ -9,6 +9,7 @@
 use PhpMyAdmin\Core;
 use PhpMyAdmin\Encoding;
 use PhpMyAdmin\Export;
+use PhpMyAdmin\Plugins;
 use PhpMyAdmin\Plugins\ExportPlugin;
 use PhpMyAdmin\Relation;
 use PhpMyAdmin\Sanitize;
@@ -26,7 +27,6 @@ if (isset($_POST['output_format']) && $_POST['output_format'] == 'sendit') {
     define('PMA_BYPASS_GET_INSTANCE', 1);
 }
 include_once 'libraries/common.inc.php';
-include_once 'libraries/plugin_interface.lib.php';
 
 //check if it's the GET request to check export time out
 if (isset($_GET['check_time_out'])) {
@@ -181,7 +181,7 @@ $what = Core::securePath($_POST['what']);
 
 // export class instance, not array of properties, as before
 /* @var $export_plugin ExportPlugin */
-$export_plugin = PMA_getPlugin(
+$export_plugin = Plugins::getPlugin(
     "export",
     $what,
     'libraries/classes/Plugins/Export/',

@@ -2,10 +2,10 @@
     <fieldset>
         <?= PhpMyAdmin\Url::getHiddenInputs($db); ?>
         <label><?= __('Select Export Relational Type'); ?></label><br/>
-        <?= PMA_pluginGetChoice(
+        <?= PhpMyAdmin\Plugins::getChoice(
             'Schema', 'export_type', $export_list, 'format'
         ); ?>
         <input type="hidden" name="page_number" value="<?= htmlspecialchars($page); ?>" />
-        <?= PMA_pluginGetOptions('Schema', $export_list); ?>
+        <?= PhpMyAdmin\Plugins::getOptions('Schema', $export_list); ?>
     </fieldset>
 </form>

@@ -9,7 +9,6 @@
 use PhpMyAdmin\Theme;
 
 require_once 'libraries/config/FormDisplay.tpl.php';
-require_once 'libraries/user_preferences.lib.php';
 
 /**
  * Tests for FromDisplay.tpl.php

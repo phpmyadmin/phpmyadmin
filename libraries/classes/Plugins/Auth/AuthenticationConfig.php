@@ -10,6 +10,7 @@ namespace PhpMyAdmin\Plugins\Auth;
 
 use PhpMyAdmin\Plugins\AuthenticationPlugin;
 use PhpMyAdmin\Response;
+use PhpMyAdmin\Server\Select;
 use PhpMyAdmin\Url;
 use PhpMyAdmin\Util;
 
@@ -161,10 +162,9 @@ class AuthenticationConfig extends AuthenticationPlugin
         </tr>' , "\n";
         if (count($GLOBALS['cfg']['Servers']) > 1) {
             // offer a chance to login to other servers if the current one failed
-            include_once './libraries/select_server.lib.php';
             echo '<tr>' , "\n";
             echo ' <td>' , "\n";
-            echo PMA_selectServer(true, true);
+            echo Select::render(true, true);
             echo ' </td>' , "\n";
             echo '</tr>' , "\n";
         }

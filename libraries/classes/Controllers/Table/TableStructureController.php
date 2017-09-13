@@ -14,6 +14,7 @@ use PhpMyAdmin\Core;
 use PhpMyAdmin\CreateAddField;
 use PhpMyAdmin\Index;
 use PhpMyAdmin\Message;
+use PhpMyAdmin\ParseAnalyze;
 use PhpMyAdmin\Relation;
 use PhpMyAdmin\Sql;
 use PhpMyAdmin\SqlParser\Context;
@@ -793,11 +794,10 @@ class TableStructureController extends TableController
 
         // Parse and analyze the query
         $db = &$this->db;
-        include_once 'libraries/parse_analyze.lib.php';
         list(
             $analyzed_sql_results,
             $db,
-        ) = PMA_parseAnalyze($sql_query, $db);
+        ) = ParseAnalyze::sqlQuery($sql_query, $db);
         // @todo: possibly refactor
         extract($analyzed_sql_results);
 

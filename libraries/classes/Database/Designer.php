@@ -9,6 +9,7 @@ namespace PhpMyAdmin\Database;
 
 use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Message;
+use PhpMyAdmin\Plugins;
 use PhpMyAdmin\Plugins\SchemaPlugin;
 use PhpMyAdmin\Relation;
 use PhpMyAdmin\Template;
@@ -114,7 +115,7 @@ class Designer
     {
         /* Scan for schema plugins */
         /* @var $export_list SchemaPlugin[] */
-        $export_list = PMA_getPlugins(
+        $export_list = Plugins::getPlugins(
             "schema",
             'libraries/classes/Plugins/Schema/',
             null

@@ -11,7 +11,6 @@ use PhpMyAdmin\Config\ConfigFile;
 use PhpMyAdmin\Config\FormDisplay;
 
 require_once 'test/PMATestCase.php';
-require_once 'libraries/user_preferences.lib.php';
 
 /**
  * Tests for PMA_FormDisplay class

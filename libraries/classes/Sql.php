@@ -14,7 +14,9 @@ use PhpMyAdmin\Display\Results as DisplayResults;
 use PhpMyAdmin\Index;
 use PhpMyAdmin\Message;
 use PhpMyAdmin\Operations;
+use PhpMyAdmin\ParseAnalyze;
 use PhpMyAdmin\Relation;
+use PhpMyAdmin\RelationCleanup;
 use PhpMyAdmin\Response;
 use PhpMyAdmin\SqlParser\Statements\AlterStatement;
 use PhpMyAdmin\SqlParser\Statements\DropStatement;
@@ -45,10 +47,7 @@ class Sql
         if (($db === null) && (!empty($GLOBALS['db']))) {
             $db = $GLOBALS['db'];
         }
-
-        include_once 'libraries/parse_analyze.lib.php';
-        list($analyzed_sql_results,,) = PMA_parseAnalyze($sql_query, $db);
-
+        list($analyzed_sql_results,,) = ParseAnalyze::sqlQuery($sql_query, $db);
         return $analyzed_sql_results;
     }
 
@@ -1094,17 +1093,15 @@ EOT;
      */
     public static function cleanupRelations($db, $table, $column, $purge)
     {
-        include_once 'libraries/relation_cleanup.lib.php';
-
         if (! empty($purge) && strlen($db) > 0) {
             if (strlen($table) > 0) {
                 if (isset($column) && strlen($column) > 0) {
-                    PMA_relationsCleanupColumn($db, $table, $column);
+                    RelationCleanup::column($db, $table, $column);
                 } else {
-                    PMA_relationsCleanupTable($db, $table);
+                    RelationCleanup::table($db, $table);
                 }
             } else {
-                PMA_relationsCleanupDatabase($db);
+                RelationCleanup::database($db);
             }
         }
     }
@@ -2064,12 +2061,11 @@ EOT;
     ) {
         if ($analyzed_sql_results == null) {
             // Parse and analyze the query
-            include_once 'libraries/parse_analyze.lib.php';
             list(
                 $analyzed_sql_results,
                 $db,
                 $table_from_sql
-            ) = PMA_parseAnalyze($sql_query, $db);
+            ) = ParseAnalyze::sqlQuery($sql_query, $db);
             // @todo: possibly refactor
             extract($analyzed_sql_results);
 

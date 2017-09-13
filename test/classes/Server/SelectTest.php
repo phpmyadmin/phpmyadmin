@@ -1,28 +1,25 @@
 <?php
 /* vim: set expandtab sw=4 ts=4 sts=4: */
 /**
- * tests for select_server.lib.php
+ * tests for PhpMyAdmin\Server\Select
  *
  * @package PhpMyAdmin-test
  */
+namespace PhpMyAdmin\Tests\Server;
 
-/*
- * Include to test.
- */
+use PhpMyAdmin\Server\Select;
 use PhpMyAdmin\Theme;
-
-
-require_once 'libraries/select_server.lib.php';
-
+use PhpMyAdmin\Util;
+use PHPUnit_Framework_TestCase as TestCase;
 
 /**
- * PMA_SelectServer_Test class
+ * PhpMyAdmin\Tests\Server\SelectTest class
  *
- * this class is for testing select_server.lib.php functions
+ * this class is for testing PhpMyAdmin\Server\Select methods
  *
  * @package PhpMyAdmin-test
  */
-class PMA_SelectServer_Test extends PHPUnit_Framework_TestCase
+class SelectTest extends TestCase
 {
     /**
      * Prepares environment for the test.
@@ -52,11 +49,11 @@ class PMA_SelectServer_Test extends PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test for PMA_selectServer
+     * Test for Select::render
      *
      * @return void
      */
-    public function testPMASelectServer()
+    public function testRender()
     {
         $not_only_options = false;
         $omit_fieldset = false;
@@ -81,7 +78,7 @@ class PMA_SelectServer_Test extends PHPUnit_Framework_TestCase
         );
 
         //$not_only_options=false & $omit_fieldset=false
-        $html = PMA_selectServer($not_only_options, $omit_fieldset);
+        $html = Select::render($not_only_options, $omit_fieldset);
         $server = $GLOBALS['cfg']['Servers']['0'];
 
         //server items
@@ -107,11 +104,11 @@ class PMA_SelectServer_Test extends PHPUnit_Framework_TestCase
         $GLOBALS['cfg']['DisplayServersList'] = null;
 
         //$not_only_options=true & $omit_fieldset=true
-        $html = PMA_selectServer($not_only_options, $omit_fieldset);
+        $html = Select::render($not_only_options, $omit_fieldset);
 
         //$GLOBALS['cfg']['DefaultTabServer']
         $this->assertContains(
-            PhpMyAdmin\Util::getScriptNameForOption(
+            Util::getScriptNameForOption(
                 $GLOBALS['cfg']['DefaultTabServer'], 'server'
             ),
             $html

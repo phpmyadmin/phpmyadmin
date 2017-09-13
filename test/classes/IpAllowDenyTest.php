@@ -1,23 +1,23 @@
 <?php
 /* vim: set expandtab sw=4 ts=4 sts=4: */
 /**
- * tests for ip_allow_deny.lib.php
+ * tests for PhpMyAdmin\IpAllowDeny
  *
  * @package PhpMyAdmin-test
  */
+namespace PhpMyAdmin\Tests;
 
 use PhpMyAdmin\Core;
-
-require_once 'libraries/ip_allow_deny.lib.php';
+use PhpMyAdmin\IpAllowDeny;
 
 /**
- * PMA_Ip_Allow_Deny_Test class
+ * PhpMyAdmin\Tests\IpAllowDenyTest class
  *
- * this class is for testing ip_allow_deny.lib.php
+ * this class is for testing PhpMyAdmin\IpAllowDeny
  *
  * @package PhpMyAdmin-test
  */
-class PMA_Ip_Allow_Deny_Test extends PHPUnit_Framework_TestCase
+class IpAllowDenyTest extends \PHPUnit_Framework_TestCase
 {
     /**
      * Prepares environment for the test.
@@ -101,7 +101,7 @@ class PMA_Ip_Allow_Deny_Test extends PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test for PMA_ipMaskTest
+     * Test for IpAllowDeny::ipMaskTest
      *
      * @return void
      */
@@ -112,26 +112,26 @@ class PMA_Ip_Allow_Deny_Test extends PHPUnit_Framework_TestCase
         $ipToTest = "10.0.0.0";
         $this->assertEquals(
             false,
-            PMA_ipMaskTest($testRange, $ipToTest)
+            IpAllowDeny::ipMaskTest($testRange, $ipToTest)
         );
 
         $testRange = "255.255.0.0/4";
         $ipToTest = "255.3.0.0";
         $this->assertEquals(
             true,
-            PMA_ipMaskTest($testRange, $ipToTest)
+            IpAllowDeny::ipMaskTest($testRange, $ipToTest)
         );
 
         $testRange = "255.255.0.[0-10]";
         $ipToTest = "255.3.0.3";
         $this->assertEquals(
             false,
-            PMA_ipMaskTest($testRange, $ipToTest)
+            IpAllowDeny::ipMaskTest($testRange, $ipToTest)
         );
         $ipToTest = "255.3.0.12";
         $this->assertEquals(
             false,
-            PMA_ipMaskTest($testRange, $ipToTest)
+            IpAllowDeny::ipMaskTest($testRange, $ipToTest)
         );
 
         //IPV6 testing
@@ -140,13 +140,13 @@ class PMA_Ip_Allow_Deny_Test extends PHPUnit_Framework_TestCase
         $testRange = "2001:4998:c:a0d:0000:0000:4998:1020";
         $this->assertEquals(
             true,
-            PMA_ipMaskTest($testRange, $ipToTest)
+            IpAllowDeny::ipMaskTest($testRange, $ipToTest)
         );
         $ipToTest = "2001:4998:c:a0d:0000:0000:4998:1020";
         $testRange = "2001:4998:c:a0d:0000:0000:4998:2020";
         $this->assertEquals(
             false,
-            PMA_ipMaskTest($testRange, $ipToTest)
+            IpAllowDeny::ipMaskTest($testRange, $ipToTest)
         );
 
         //range
@@ -154,13 +154,13 @@ class PMA_Ip_Allow_Deny_Test extends PHPUnit_Framework_TestCase
         $testRange = "2001:4998:c:a0d:0000:0000:4998:[1001-2010]";
         $this->assertEquals(
             true,
-            PMA_ipMaskTest($testRange, $ipToTest)
+            IpAllowDeny::ipMaskTest($testRange, $ipToTest)
         );
         $ipToTest = "2001:4998:c:a0d:0000:0000:4998:3020";
         $testRange = "2001:4998:c:a0d:0000:0000:4998:[1001-2010]";
         $this->assertEquals(
             false,
-            PMA_ipMaskTest($testRange, $ipToTest)
+            IpAllowDeny::ipMaskTest($testRange, $ipToTest)
         );
 
         //CDIR
@@ -168,18 +168,18 @@ class PMA_Ip_Allow_Deny_Test extends PHPUnit_Framework_TestCase
         $testRange = "2001:4998:c:a0d:0000:0000:4998:[1001-2010]";
         $this->assertEquals(
             true,
-            PMA_ipMaskTest($testRange, $ipToTest)
+            IpAllowDeny::ipMaskTest($testRange, $ipToTest)
         );
         $ipToTest = "2001:4998:c:a0d:0000:0000:4998:1000";
         $testRange = "2001:4998:c:a0d:0000:0000:4998:3020/24";
         $this->assertEquals(
             false,
-            PMA_ipMaskTest($testRange, $ipToTest)
+            IpAllowDeny::ipMaskTest($testRange, $ipToTest)
         );
     }
 
     /**
-     * Test for PMA_allowDeny
+     * Test for IpAllowDeny::allowDeny
      *
      * @return void
      */
@@ -188,51 +188,51 @@ class PMA_Ip_Allow_Deny_Test extends PHPUnit_Framework_TestCase
         $_SERVER['REMOTE_ADDR'] = "";
         $this->assertEquals(
             false,
-            PMA_allowDeny("allow")
+            IpAllowDeny::allowDeny("allow")
         );
 
         $_SERVER['REMOTE_ADDR'] = "255.0.1.0";
         $this->assertEquals(
             true,
-            PMA_allowDeny("allow")
+            IpAllowDeny::allowDeny("allow")
         );
         $_SERVER['REMOTE_ADDR'] = "10.0.0.0";
         $this->assertEquals(
             false,
-            PMA_allowDeny("allow")
+            IpAllowDeny::allowDeny("allow")
         );
 
         $_SERVER['REMOTE_ADDR'] = "255.255.0.1";
         $this->assertEquals(
             true,
-            PMA_allowDeny("deny")
+            IpAllowDeny::allowDeny("deny")
         );
         $_SERVER['REMOTE_ADDR'] = "255.124.0.5";
         $this->assertEquals(
             true,
-            PMA_allowDeny("deny")
+            IpAllowDeny::allowDeny("deny")
         );
         $_SERVER['REMOTE_ADDR'] = "122.124.0.5";
         $this->assertEquals(
             false,
-            PMA_allowDeny("deny")
+            IpAllowDeny::allowDeny("deny")
         );
 
         //IPV6
         $_SERVER['REMOTE_ADDR'] = "2001:4998:c:a0d:0000:0000:4998:1020";
         $this->assertEquals(
             true,
-            PMA_allowDeny("allow")
+            IpAllowDeny::allowDeny("allow")
         );
         $_SERVER['REMOTE_ADDR'] = "2001:4998:c:a0d:0000:0000:4998:1000";
         $this->assertEquals(
             false,
-            PMA_allowDeny("allow")
+            IpAllowDeny::allowDeny("allow")
         );
         $_SERVER['REMOTE_ADDR'] = "2001:4998:c:a0d:0000:0000:4998:1020";
         $this->assertEquals(
             true,
-            PMA_allowDeny("allow")
+            IpAllowDeny::allowDeny("allow")
         );
     }
 }

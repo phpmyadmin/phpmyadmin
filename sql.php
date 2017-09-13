@@ -8,6 +8,7 @@
  * @package PhpMyAdmin
  */
 use PhpMyAdmin\Config\PageSettings;
+use PhpMyAdmin\ParseAnalyze;
 use PhpMyAdmin\Response;
 use PhpMyAdmin\Sql;
 use PhpMyAdmin\Url;
@@ -130,12 +131,11 @@ if (empty($sql_query) && strlen($table) > 0 && strlen($db) > 0) {
 /**
  * Parse and analyze the query
  */
-require_once 'libraries/parse_analyze.lib.php';
 list(
     $analyzed_sql_results,
     $db,
     $table_from_sql
-) = PMA_parseAnalyze($sql_query, $db);
+) = ParseAnalyze::sqlQuery($sql_query, $db);
 // @todo: possibly refactor
 extract($analyzed_sql_results);
 

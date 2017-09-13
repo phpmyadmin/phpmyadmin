@@ -22,7 +22,6 @@ if (isset($_REQUEST['dialog'])) {
     } else if ($_REQUEST['dialog'] == 'save_as') {
         $html = Designer::getHtmlForPageSaveAs($GLOBALS['db']);
     } else if ($_REQUEST['dialog'] == 'export') {
-        include_once 'libraries/plugin_interface.lib.php';
         $html = Designer::getHtmlForSchemaExport(
             $GLOBALS['db'], $_REQUEST['selected_page']
         );

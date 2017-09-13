@@ -13,6 +13,7 @@ use PhpMyAdmin\Error;
 use PhpMyAdmin\LanguageManager;
 use PhpMyAdmin\ThemeManager;
 use PhpMyAdmin\Url;
+use PhpMyAdmin\UserPreferences;
 use PhpMyAdmin\Util;
 
 /**
@@ -907,11 +908,9 @@ class Config
             if (! isset($_SESSION['cache'][$cache_key]['userprefs'])
                 || $_SESSION['cache'][$cache_key]['config_mtime'] < $config_mtime
             ) {
-                // load required libraries
-                include_once './libraries/user_preferences.lib.php';
-                $prefs = PMA_loadUserprefs();
+                $prefs = UserPreferences::load();
                 $_SESSION['cache'][$cache_key]['userprefs']
-                    = PMA_applyUserprefs($prefs['config_data']);
+                    = UserPreferences::apply($prefs['config_data']);
                 $_SESSION['cache'][$cache_key]['userprefs_mtime'] = $prefs['mtime'];
                 $_SESSION['cache'][$cache_key]['userprefs_type'] = $prefs['type'];
                 $_SESSION['cache'][$cache_key]['config_mtime'] = $config_mtime;
@@ -1032,11 +1031,10 @@ class Config
         // use permanent user preferences if possible
         $prefs_type = $this->get('user_preferences');
         if ($prefs_type) {
-            include_once './libraries/user_preferences.lib.php';
             if ($default_value === null) {
                 $default_value = Core::arrayRead($cfg_path, $this->default);
             }
-            PMA_persistOption($cfg_path, $new_cfg_value, $default_value);
+            UserPreferences::persistOption($cfg_path, $new_cfg_value, $default_value);
         }
         if ($prefs_type != 'db' && $cookie_name) {
             // fall back to cookies
