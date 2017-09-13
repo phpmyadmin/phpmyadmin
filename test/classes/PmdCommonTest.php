@@ -1,17 +1,22 @@
 <?php
 /**
- * Tests for libraries/pmd_common.php
+ * Tests for PhpMyAdmin\PmdCommon
  *
  * @package PhpMyAdmin-test
  */
+namespace PhpMyAdmin\Tests;
 
+use PhpMyAdmin\DatabaseInterface;
+use PhpMyAdmin\PmdCommon;
+use PhpMyAdmin\Relation;
+use PHPUnit_Framework_TestCase as TestCase;
 
 /**
- * Tests for libraries/pmd_common.php
+ * Tests for PhpMyAdmin\PmdCommon
  *
  * @package PhpMyAdmin-test
  */
-class PMA_PMD_CommonTest extends PHPUnit_Framework_TestCase
+class PmdCommonTest extends TestCase
 {
     /**
      * Setup for test cases
@@ -33,13 +38,10 @@ class PMA_PMD_CommonTest extends PHPUnit_Framework_TestCase
                 )
             )
         );
-
-        include_once 'libraries/pmd_common.php';
     }
 
-
     /**
-     * Test for PMA_getTablePositions()
+     * Test for PmdCommon::getTablePositions()
      *
      * @return void
      */
@@ -57,25 +59,25 @@ class PMA_PMD_CommonTest extends PHPUnit_Framework_TestCase
             ->method('fetchResult')
             ->with(
                 "
-        SELECT CONCAT_WS('.', `db_name`, `table_name`) AS `name`,
-            `x` AS `X`,
-            `y` AS `Y`,
-            1 AS `V`,
-            1 AS `H`
-        FROM `pmadb`.`table_coords`
-        WHERE pdf_page_number = " . $pg,
+            SELECT CONCAT_WS('.', `db_name`, `table_name`) AS `name`,
+                `x` AS `X`,
+                `y` AS `Y`,
+                1 AS `V`,
+                1 AS `H`
+            FROM `pmadb`.`table_coords`
+            WHERE pdf_page_number = " . $pg,
                 'name',
                 null,
                 2,
-                PhpMyAdmin\DatabaseInterface::QUERY_STORE
+                DatabaseInterface::QUERY_STORE
             );
         $GLOBALS['dbi'] = $dbi;
 
-        PMA_getTablePositions($pg);
+        PmdCommon::getTablePositions($pg);
     }
 
     /**
-     * Test for PMA_getPageName()
+     * Test for PmdCommon::getPageName()
      *
      * @return void
      */
@@ -98,18 +100,18 @@ class PMA_PMD_CommonTest extends PHPUnit_Framework_TestCase
                 null,
                 null,
                 2,
-                PhpMyAdmin\DatabaseInterface::QUERY_STORE
+                DatabaseInterface::QUERY_STORE
             )
             ->will($this->returnValue(array($pageName)));
         $GLOBALS['dbi'] = $dbi;
 
-        $result = PMA_getPageName($pg);
+        $result = PmdCommon::getPageName($pg);
 
         $this->assertEquals($pageName, $result);
     }
 
     /**
-     * Test for PMA_deletePage()
+     * Test for PmdCommon::deletePage()
      *
      * @return void
      */
@@ -132,7 +134,7 @@ class PMA_PMD_CommonTest extends PHPUnit_Framework_TestCase
 
         $GLOBALS['dbi'] = $dbi;
 
-        $result = PMA_deletePage($pg);
+        $result = PmdCommon::deletePage($pg);
         $this->assertEquals(true, $result);
     }
 
@@ -160,7 +162,7 @@ class PMA_PMD_CommonTest extends PHPUnit_Framework_TestCase
                 null,
                 null,
                 2,
-                PhpMyAdmin\DatabaseInterface::QUERY_STORE
+                DatabaseInterface::QUERY_STORE
             )
             ->will($this->returnValue(array($default_pg)));
         $dbi->expects($this->any())->method('escapeString')
@@ -168,7 +170,7 @@ class PMA_PMD_CommonTest extends PHPUnit_Framework_TestCase
 
         $GLOBALS['dbi'] = $dbi;
 
-        $result = PMA_getDefaultPage($db);
+        $result = PmdCommon::getDefaultPage($db);
         $this->assertEquals($default_pg, $result);
     }
 
@@ -194,7 +196,7 @@ class PMA_PMD_CommonTest extends PHPUnit_Framework_TestCase
                 null,
                 null,
                 2,
-                PhpMyAdmin\DatabaseInterface::QUERY_STORE
+                DatabaseInterface::QUERY_STORE
             )
             ->will($this->returnValue(array()));
         $dbi->expects($this->any())->method('escapeString')
@@ -202,7 +204,7 @@ class PMA_PMD_CommonTest extends PHPUnit_Framework_TestCase
 
         $GLOBALS['dbi'] = $dbi;
 
-        $result = PMA_getDefaultPage($db);
+        $result = PmdCommon::getDefaultPage($db);
         $this->assertEquals(-1, $result);
     }
 
@@ -229,7 +231,7 @@ class PMA_PMD_CommonTest extends PHPUnit_Framework_TestCase
                 null,
                 null,
                 2,
-                PhpMyAdmin\DatabaseInterface::QUERY_STORE
+                DatabaseInterface::QUERY_STORE
             )
             ->will($this->returnValue(array($default_pg)));
         $dbi->expects($this->any())->method('escapeString')
@@ -237,7 +239,7 @@ class PMA_PMD_CommonTest extends PHPUnit_Framework_TestCase
 
         $GLOBALS['dbi'] = $dbi;
 
-        $result = PMA_getLoadingPage($db);
+        $result = PmdCommon::getLoadingPage($db);
         $this->assertEquals($default_pg, $result);
     }
 
@@ -266,7 +268,7 @@ class PMA_PMD_CommonTest extends PHPUnit_Framework_TestCase
 
         $GLOBALS['dbi'] = $dbi;
 
-        $result = PMA_getLoadingPage($db);
+        $result = PmdCommon::getLoadingPage($db);
         $this->assertEquals($first_pg, $result);
     }
 }
