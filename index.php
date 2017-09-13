@@ -94,7 +94,7 @@ if ($response->isAjax() && ! empty($_REQUEST['recent_table'])) {
 
 if ($GLOBALS['PMA_Config']->isGitRevision()) {
     if (isset($_REQUEST['git_revision']) && $response->isAjax()) {
-        GitRevision::print();
+        GitRevision::printGitRevision();
         exit;
     }
     echo '<div id="is_git_revision"></div>';
