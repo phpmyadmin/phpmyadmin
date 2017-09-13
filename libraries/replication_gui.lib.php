@@ -8,6 +8,7 @@
 
 use PhpMyAdmin\Core;
 use PhpMyAdmin\Message;
+use PhpMyAdmin\Replication;
 use PhpMyAdmin\Response;
 use PhpMyAdmin\Url;
 
@@ -974,7 +975,7 @@ function PMA_handleRequestForSlaveChangeMaster()
     $_SESSION['replication']['sr_action_info'] = __('Unknown error');
 
     // Attempt to connect to the new master server
-    $link_to_master = PMA_Replication_connectToMaster(
+    $link_to_master = Replication::connectToMaster(
         $sr['username'], $sr['pma_pw'], $sr['hostname'], $sr['port']
     );
 
@@ -986,7 +987,7 @@ function PMA_handleRequestForSlaveChangeMaster()
         );
     } else {
         // Read the current master position
-        $position = PMA_Replication_Slave_binLogMaster($link_to_master);
+        $position = Replication::slaveBinLogMaster($link_to_master);
 
         if (empty($position)) {
             $_SESSION['replication']['sr_action_status'] = 'error';
@@ -998,7 +999,7 @@ function PMA_handleRequestForSlaveChangeMaster()
         } else {
             $_SESSION['replication']['m_correct']  = true;
 
-            if (! PMA_Replication_Slave_changeMaster(
+            if (! Replication::slaveChangeMaster(
                 $sr['username'],
                 $sr['pma_pw'],
                 $sr['hostname'],
@@ -1035,15 +1036,15 @@ function PMA_handleRequestForSlaveServerControl()
         $_REQUEST['sr_slave_control_parm'] = null;
     }
     if ($_REQUEST['sr_slave_action'] == 'reset') {
-        $qStop = PMA_Replication_Slave_control("STOP");
+        $qStop = Replication::slaveControl("STOP");
         $qReset = $GLOBALS['dbi']->tryQuery("RESET SLAVE;");
-        $qStart = PMA_Replication_Slave_control("START");
+        $qStart = Replication::slaveControl("START");
 
         $result = ($qStop !== false && $qStop !== -1 &&
             $qReset !== false && $qReset !== -1 &&
             $qStart !== false && $qStart !== -1);
     } else {
-        $qControl = PMA_Replication_Slave_control(
+        $qControl = Replication::slaveControl(
             $_REQUEST['sr_slave_action'],
             $_REQUEST['sr_slave_control_parm']
         );
@@ -1066,11 +1067,11 @@ function PMA_handleRequestForSlaveSkipError()
         $count = $_REQUEST['sr_skip_errors_count'] * 1;
     }
 
-    $qStop = PMA_Replication_Slave_control("STOP");
+    $qStop = Replication::slaveControl("STOP");
     $qSkip = $GLOBALS['dbi']->tryQuery(
         "SET GLOBAL SQL_SLAVE_SKIP_COUNTER = " . $count . ";"
     );
-    $qStart = PMA_Replication_Slave_control("START");
+    $qStart = Replication::slaveControl("START");
 
     $result = ($qStop !== false && $qStop !== -1 &&
         $qSkip !== false && $qSkip !== -1 &&
