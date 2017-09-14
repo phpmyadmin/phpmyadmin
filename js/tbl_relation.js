@@ -173,29 +173,31 @@ AJAX.registerOnload('tbl_relation.js', function () {
         event.stopPropagation();
 
         var $prev_row = $(this).closest('tr').prev('tr');
-        var $new_row = $prev_row.clone(true, true);
+        var $newRow = $prev_row.clone(true, true);
 
         // Update serial number.
-        var curr_index = $new_row
+        var curr_index = $newRow
             .find('a.add_foreign_key_field')
             .attr('data-index');
         var new_index = parseInt(curr_index) + 1;
-        $new_row.find('a.add_foreign_key_field').attr('data-index', new_index);
+        $newRow.find('a.add_foreign_key_field').attr('data-index', new_index);
 
         // Update form parameter names.
-        $new_row.find('select[name^="foreign_key_fields_name"]:not(:first), ' +
+        $newRow.find('select[name^="foreign_key_fields_name"]:not(:first), ' +
             'select[name^="destination_foreign_column"]:not(:first)'
         ).each(function () {
             $(this).parent().remove();
         });
-        $new_row.find('input, select').each(function () {
+        $newRow.find('input, select').each(function () {
             $(this).attr('name',
                 $(this).attr('name').replace(/\d/, new_index)
             );
         });
-
+        $newRow.find('input[type="text"]').each(function () {
+            $(this).val('');
+        });
         // Finally add the row.
-        $new_row.insertAfter($prev_row);
+        $newRow.insertAfter($prev_row);
     });
 
     /**
