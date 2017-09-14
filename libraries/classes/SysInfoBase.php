@@ -1,7 +1,7 @@
 <?php
 /* vim: set expandtab sw=4 ts=4 sts=4: */
 /**
- * Hold PhpMyAdmin\SysInfo class
+ * Hold PhpMyAdmin\SysInfoBase class
  *
  * @package PhpMyAdmin
  */
@@ -12,7 +12,7 @@ namespace PhpMyAdmin;
  *
  * @package PhpMyAdmin
  */
-class SysInfo
+class SysInfoBase
 {
     public $os = PHP_OS;
 

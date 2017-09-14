@@ -7,14 +7,14 @@
  */
 namespace PhpMyAdmin;
 
-use PhpMyAdmin\SysInfo;
+use PhpMyAdmin\SysInfoBase;
 
 /**
  * SunOS based SysInfo class
  *
  * @package PhpMyAdmin
  */
-class SysInfoSunOS extends SysInfo
+class SysInfoSunOS extends SysInfoBase
 {
     public $os = 'SunOS';
 

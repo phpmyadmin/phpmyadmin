@@ -13,7 +13,7 @@ if (! defined('PHPMYADMIN')) {
     exit;
 }
 
-use PhpMyAdmin\SysInfo;
+use PhpMyAdmin\SysInfoBase;
 
 define(
     'MEMORY_REGEXP',
@@ -43,7 +43,7 @@ function PMA_getSysInfoOs($php_os = PHP_OS)
 /**
  * Gets sysinfo class mathing current OS
  *
- * @return \PhpMyAdmin\SysInfo|mixed sysinfo class
+ * @return \PhpMyAdmin\SysInfoBase|mixed sysinfo class
  */
 function PMA_getSysInfo()
 {
@@ -52,12 +52,12 @@ function PMA_getSysInfo()
 
     if (in_array($php_os, $supported)) {
         $class_name = 'PhpMyAdmin\SysInfo' . $php_os;
-        /** @var PhpMyAdmin\SysInfo $ret */
+        /** @var PhpMyAdmin\SysInfoBase $ret */
         $ret = new $class_name();
         if ($ret->supported()) {
             return $ret;
         }
     }
 
-    return new SysInfo();
+    return new SysInfoBase();
 }

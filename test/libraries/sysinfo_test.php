@@ -55,7 +55,7 @@ class PMA_SysInfoTest extends PHPUnit_Framework_TestCase
      */
     public function testGetSysInfo()
     {
-        $this->assertInstanceOf('PhpMyAdmin\SysInfo', PMA_getSysInfo());
+        $this->assertInstanceOf('PhpMyAdmin\SysInfoBase', PMA_getSysInfo());
     }
 
     /**
