@@ -10,6 +10,7 @@ namespace PhpMyAdmin;
 
 use Exception;
 use PhpMyAdmin\Core;
+use PhpMyAdmin\SysInfo;
 use PhpMyAdmin\Url;
 use PhpMyAdmin\Util;
 use Symfony\Component\ExpressionLanguage\ExpressionLanguage;
@@ -209,8 +210,7 @@ class Advisor
         );
 
         // Add total memory to variables as well
-        include_once 'libraries/sysinfo.lib.php';
-        $sysinfo = PMA_getSysInfo();
+        $sysinfo = SysInfo::get();
         $memory  = $sysinfo->memory();
         $this->variables['system_memory']
             = isset($memory['MemTotal']) ? $memory['MemTotal'] : 0;

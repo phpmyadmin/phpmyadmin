@@ -8,15 +8,11 @@
 
 use PhpMyAdmin\Config\Forms\Setup\SetupFormList;
 use PhpMyAdmin\Core;
+use PhpMyAdmin\Setup\FormProcessing;
 
 if (!defined('PHPMYADMIN')) {
     exit;
 }
-
-/**
- * Core libraries.
- */
-require_once './setup/lib/form_processing.lib.php';
 
 $formset_id = Core::isValid($_GET['formset'], 'scalar') ? $_GET['formset'] : null;
 $mode = isset($_GET['mode']) ? $_GET['mode'] : null;
@@ -26,4 +22,4 @@ if (is_null($form_class)) {
 }
 echo '<h2>' , $form_class::getName() , '</h2>';
 $form_display = new $form_class($GLOBALS['ConfigFile']);
-PMA_Process_formset($form_display);
+FormProcessing::process($form_display);

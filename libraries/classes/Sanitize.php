@@ -48,7 +48,7 @@ class Sanitize
             './tbl_select.php?',
             './tbl_change.php?',
             './sql.php?',
-            # Hardcoded options in libraries/special_schema_links.lib.php
+            # Hardcoded options in libraries/special_schema_links.inc.php
             './db_events.php?',
             './db_routines.php?',
             './server_privileges.php?',
