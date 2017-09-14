@@ -8,14 +8,14 @@
 namespace PhpMyAdmin;
 
 use COM;
-use PhpMyAdmin\SysInfo;
+use PhpMyAdmin\SysInfoBase;
 
 /**
  * Windows NT based SysInfo class
  *
  * @package PhpMyAdmin
  */
-class SysInfoWINNT extends SysInfo
+class SysInfoWINNT extends SysInfoBase
 {
     private $_wmi;
     public $os = 'WINNT';

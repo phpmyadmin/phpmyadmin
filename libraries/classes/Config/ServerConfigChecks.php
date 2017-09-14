@@ -11,14 +11,15 @@ use PhpMyAdmin\Config\ConfigFile;
 use PhpMyAdmin\Config\Descriptions;
 use PhpMyAdmin\Core;
 use PhpMyAdmin\Sanitize;
+use PhpMyAdmin\Setup\Index as SetupIndex;
 use PhpMyAdmin\Url;
 use PhpMyAdmin\Util;
 
 /**
  * Performs various compatibility, security and consistency checks on current config
  *
- * Outputs results to message list, must be called between PMA_messagesBegin()
- * and PMA_messagesEnd()
+ * Outputs results to message list, must be called between SetupIndex::messagesBegin()
+ * and SetupIndex::messagesEnd()
  *
  * @package PhpMyAdmin
  */
@@ -81,7 +82,7 @@ class ServerConfigChecks
                 '[a@' . Url::getCommon(array('page' => 'form', 'formset' => 'Features')) . '#tab_Security]',
                 '[/a]'
             );
-            PMA_messagesSet(
+            SetupIndex::messagesSet(
                 'notice',
                 'AllowArbitraryServer',
                 Descriptions::get('AllowArbitraryServer'),
@@ -102,7 +103,7 @@ class ServerConfigChecks
         // should not be world-accessible
         //
         if ($this->cfg->getValue('SaveDir') != '') {
-            PMA_messagesSet(
+            SetupIndex::messagesSet(
                 'notice',
                 'SaveDir',
                 Descriptions::get('SaveDir'),
@@ -115,7 +116,7 @@ class ServerConfigChecks
         // should not be world-accessible
         //
         if ($this->cfg->getValue('TempDir') != '') {
-            PMA_messagesSet(
+            SetupIndex::messagesSet(
                 'notice',
                 'TempDir',
                 Descriptions::get('TempDir'),
@@ -160,7 +161,7 @@ class ServerConfigChecks
             //
             if (!$this->cfg->getValue("Servers/$i/ssl")) {
                 $title = Descriptions::get('Servers/1/ssl') . " ($serverName)";
-                PMA_messagesSet(
+                SetupIndex::messagesSet(
                     'notice',
                     "Servers/$i/ssl",
                     $title,
@@ -193,7 +194,7 @@ class ServerConfigChecks
             ) {
                 $title = Descriptions::get('Servers/1/auth_type')
                     . " ($serverName)";
-                PMA_messagesSet(
+                SetupIndex::messagesSet(
                     'notice',
                     "Servers/$i/auth_type",
                     $title,
@@ -222,7 +223,7 @@ class ServerConfigChecks
             ) {
                 $title = Descriptions::get('Servers/1/AllowNoPassword')
                     . " ($serverName)";
-                PMA_messagesSet(
+                SetupIndex::messagesSet(
                     'notice',
                     "Servers/$i/AllowNoPassword",
                     $title,
@@ -293,7 +294,7 @@ class ServerConfigChecks
         // requires zip_open in import
         //
         if ($this->cfg->getValue('ZipDump') && !$this->functionExists('zip_open')) {
-            PMA_messagesSet(
+            SetupIndex::messagesSet(
                 'error',
                 'ZipDump_import',
                 Descriptions::get('ZipDump'),
@@ -314,7 +315,7 @@ class ServerConfigChecks
         // requires gzcompress in export
         //
         if ($this->cfg->getValue('ZipDump') && !$this->functionExists('gzcompress')) {
-            PMA_messagesSet(
+            SetupIndex::messagesSet(
                 'error',
                 'ZipDump_export',
                 Descriptions::get('ZipDump'),
@@ -351,7 +352,7 @@ class ServerConfigChecks
         if ($cookieAuthUsed) {
             if ($blowfishSecretSet) {
                 // 'cookie' auth used, blowfish_secret was generated
-                PMA_messagesSet(
+                SetupIndex::messagesSet(
                     'notice',
                     'blowfish_secret_created',
                     Descriptions::get('blowfish_secret'),
@@ -384,7 +385,7 @@ class ServerConfigChecks
                     );
                 }
                 if (!empty($blowfishWarnings)) {
-                    PMA_messagesSet(
+                    SetupIndex::messagesSet(
                         'error',
                         'blowfish_warnings' . count($blowfishWarnings),
                         Descriptions::get('blowfish_secret'),
@@ -408,7 +409,7 @@ class ServerConfigChecks
         $loginCookieValidity = $this->cfg->getValue('LoginCookieValidity');
         if ($loginCookieValidity > ini_get('session.gc_maxlifetime')
         ) {
-            PMA_messagesSet(
+            SetupIndex::messagesSet(
                 'error',
                 'LoginCookieValidity',
                 Descriptions::get('LoginCookieValidity'),
@@ -432,7 +433,7 @@ class ServerConfigChecks
         // should be at most 1800 (30 min)
         //
         if ($loginCookieValidity > 1800) {
-            PMA_messagesSet(
+            SetupIndex::messagesSet(
                 'notice',
                 'LoginCookieValidity',
                 Descriptions::get('LoginCookieValidity'),
@@ -456,7 +457,7 @@ class ServerConfigChecks
         if (($this->cfg->getValue('LoginCookieStore') != 0)
             && ($loginCookieValidity > $this->cfg->getValue('LoginCookieStore'))
         ) {
-            PMA_messagesSet(
+            SetupIndex::messagesSet(
                 'error',
                 'LoginCookieValidity',
                 Descriptions::get('LoginCookieValidity'),
@@ -495,7 +496,7 @@ class ServerConfigChecks
             $functions .= $this->functionExists('bzcompress')
                 ? ''
                 : ($functions ? ', ' : '') . 'bzcompress';
-            PMA_messagesSet(
+            SetupIndex::messagesSet(
                 'error',
                 'BZipDump',
                 Descriptions::get('BZipDump'),
@@ -528,7 +529,7 @@ class ServerConfigChecks
         if ($this->cfg->getValue('GZipDump')
             && (!$this->functionExists('gzopen') || !$this->functionExists('gzencode'))
         ) {
-            PMA_messagesSet(
+            SetupIndex::messagesSet(
                 'error',
                 'GZipDump',
                 Descriptions::get('GZipDump'),

@@ -5,19 +5,16 @@
  *
  * @package PhpMyAdmin-test
  */
+namespace PhpMyAdmin\Tests\Setup;
 
-/*
- * Include to test
- */
-require_once 'setup/lib/form_processing.lib.php';
-
+use PhpMyAdmin\Setup\FormProcessing;
 
 /**
  * tests for methods under Formset processing library
  *
  * @package PhpMyAdmin-test
  */
-class PMA_Form_Processing_Test extends PMATestCase
+class FormProcessingTest extends \PMATestCase
 {
     /**
      * Prepares environment for the test.
@@ -60,7 +57,7 @@ class PMA_Form_Processing_Test extends PMATestCase
             ->method('getDisplay')
             ->with(true, true);
 
-        PMA_Process_formset($formDisplay);
+        FormProcessing::process($formDisplay);
 
         // case 2
         $formDisplay = $this->getMockBuilder('PhpMyAdmin\Config\FormDisplay')
@@ -79,7 +76,7 @@ class PMA_Form_Processing_Test extends PMATestCase
             ->will($this->returnValue(true));
 
         ob_start();
-        PMA_Process_formset($formDisplay);
+        FormProcessing::process($formDisplay);
         $result = ob_get_clean();
 
         $this->assertContains(
@@ -118,8 +115,6 @@ class PMA_Form_Processing_Test extends PMATestCase
             ->with()
             ->will($this->returnValue(false));
 
-        PMA_Process_formset($formDisplay);
-
+        FormProcessing::process($formDisplay);
     }
-
 }

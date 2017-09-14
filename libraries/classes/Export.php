@@ -7,8 +7,10 @@
  */
 namespace PhpMyAdmin;
 
+use PhpMyAdmin\Core;
 use PhpMyAdmin\Encoding;
 use PhpMyAdmin\Message;
+use PhpMyAdmin\Plugins;
 use PhpMyAdmin\Plugins\ExportPlugin;
 use PhpMyAdmin\Sanitize;
 use PhpMyAdmin\Table;
@@ -1045,5 +1047,42 @@ class Export
         } else {
             return '';
         }
+    }
+
+    /**
+     * get all the export options and verify
+     * call and include the appropriate Schema Class depending on $export_type
+     *
+     * @param string $export_type format of the export
+     *
+     * @return void
+     */
+    public static function processExportSchema($export_type)
+    {
+        /**
+         * default is PDF, otherwise validate it's only letters a-z
+         */
+        if (! isset($export_type) || ! preg_match('/^[a-zA-Z]+$/', $export_type)) {
+            $export_type = 'pdf';
+        }
+
+        // sanitize this parameter which will be used below in a file inclusion
+        $export_type = Core::securePath($export_type);
+
+        // get the specific plugin
+        /* @var $export_plugin SchemaPlugin */
+        $export_plugin = Plugins::getPlugin(
+            "schema",
+            $export_type,
+            'libraries/classes/Plugins/Schema/'
+        );
+
+        // Check schema export type
+        if (! isset($export_plugin)) {
+            Core::fatalError(__('Bad type!'));
+        }
+
+        $GLOBALS['dbi']->selectDb($GLOBALS['db']);
+        $export_plugin->exportSchema($GLOBALS['db']);
     }
 }

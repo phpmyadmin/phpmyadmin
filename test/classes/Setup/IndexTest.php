@@ -1,23 +1,21 @@
 <?php
 /* vim: set expandtab sw=4 ts=4 sts=4: */
 /**
- * tests for methods under setup/lib/index.lib.php
+ * tests for methods under PhpMyAdmin\Setup\Index
  *
  * @package PhpMyAdmin-test
  */
+namespace PhpMyAdmin\Tests\Setup;
 
-/*
- * Include to test
- */
-
-require_once 'setup/lib/index.lib.php';
+use PhpMyAdmin\Setup\Index as SetupIndex;
+use PHPUnit_Framework_TestCase as TestCase;
 
 /**
- * tests for methods under setup/lib/index.lib.php
+ * tests for methods under PhpMyAdmin\Setup\Index
  *
  * @package PhpMyAdmin-test
  */
-class PMA_SetupIndex_Test extends PHPUnit_Framework_TestCase
+class IndexTest extends TestCase
 {
     /**
      * SetUp for test cases
@@ -30,7 +28,7 @@ class PMA_SetupIndex_Test extends PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test for PMA_messagesBegin()
+     * Test for SetupIndex::messagesBegin()
      *
      * @return void
      */
@@ -43,7 +41,7 @@ class PMA_SetupIndex_Test extends PHPUnit_Framework_TestCase
             )
         );
 
-        PMA_messagesBegin();
+        SetupIndex::messagesBegin();
 
         $this->assertEquals(
             array(
@@ -66,7 +64,7 @@ class PMA_SetupIndex_Test extends PHPUnit_Framework_TestCase
         // case 2
 
         unset($_SESSION['messages']);
-        PMA_messagesBegin();
+        SetupIndex::messagesBegin();
         $this->assertEquals(
             array(
                 'error' => array(),
@@ -77,13 +75,13 @@ class PMA_SetupIndex_Test extends PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test for PMA_messagesSet
+     * Test for SetupIndex::messagesSet
      *
      * @return void
      */
     public function testPMAmessagesSet()
     {
-        PMA_messagesSet('type', '123', 'testTitle', 'msg');
+        SetupIndex::messagesSet('type', '123', 'testTitle', 'msg');
 
         $this->assertEquals(
             array(
@@ -97,7 +95,7 @@ class PMA_SetupIndex_Test extends PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test for PMA_messagesEnd
+     * Test for SetupIndex::messagesEnd
      *
      * @return void
      */
@@ -110,7 +108,7 @@ class PMA_SetupIndex_Test extends PHPUnit_Framework_TestCase
             )
         );
 
-        PMA_messagesEnd();
+        SetupIndex::messagesEnd();
 
         $this->assertEquals(
             array(
@@ -126,7 +124,7 @@ class PMA_SetupIndex_Test extends PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test for PMA_messagesShowHtml
+     * Test for SetupIndex::messagesShowHtml
      *
      * @return void
      */
@@ -140,7 +138,7 @@ class PMA_SetupIndex_Test extends PHPUnit_Framework_TestCase
         );
 
         ob_start();
-        PMA_messagesShowHtml();
+        SetupIndex::messagesShowHtml();
         $result = ob_get_clean();
 
         $this->assertContains(
