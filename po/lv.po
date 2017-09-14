@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.7.4-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2017-08-10 09:13-0400\n"
-"PO-Revision-Date: 2017-09-06 10:03+0000\n"
+"PO-Revision-Date: 2017-09-15 07:47+0000\n"
 "Last-Translator: Māris <weblate@netparks.lv>\n"
 "Language-Team: Latvian "
 "<https://hosted.weblate.org/projects/phpmyadmin/4-7/lv/>\n"
@@ -3818,7 +3818,7 @@ msgstr "precīza frāze"
 
 #: libraries/DbSearch.php:102 libraries/DbSearch.php:401
 msgid "as regular expression"
-msgstr "kā regulārā izteiksme"
+msgstr "kā regulāro izteiksmi"
 
 #: libraries/DbSearch.php:268
 #, php-format
@@ -4045,7 +4045,7 @@ msgstr "Ieraksts tika dzēsts"
 #: libraries/DisplayResults.php:3582 libraries/DisplayResults.php:4836
 #: libraries/server_status_processes.lib.php:279
 msgid "Kill"
-msgstr "Nogalināt"
+msgstr "Apturēt"
 
 #: libraries/DisplayResults.php:4274
 #, fuzzy
@@ -4326,7 +4326,7 @@ msgstr "Primārā atslēga tika izdzēsta."
 #: libraries/Index.php:724
 #, php-format
 msgid "Index %s has been dropped."
-msgstr "Indekss %s tika izdzēsts."
+msgstr "Indekss %s dzēsts."
 
 #: libraries/Index.php:736 libraries/Util.php:3479 libraries/Util.php:3480
 #: libraries/controllers/server/ServerDatabasesController.php:402
@@ -4487,6 +4487,7 @@ msgid "Database seems to be empty!"
 msgstr ""
 
 #: libraries/Menu.php:451 libraries/Util.php:4114
+#, fuzzy
 msgid "Query"
 msgstr "Vaicājums pēc parauga"
 
@@ -4551,7 +4552,7 @@ msgstr "Mainīgie"
 
 #: libraries/Menu.php:616 libraries/Util.php:4106
 msgid "Charsets"
-msgstr "Rakstzīmju kodējumi"
+msgstr "Rakstzīmju kopas"
 
 #: libraries/Menu.php:620 libraries/Util.php:4108
 msgid "Engines"
@@ -4753,7 +4754,7 @@ msgstr "InnoDB statuss"
 
 #: libraries/ServerStatusData.php:433
 msgid "Query statistics"
-msgstr "Pieprasījumu statistika"
+msgstr "Vaicājumu statistika"
 
 #: libraries/ServerStatusData.php:437
 msgid "All status variables"
@@ -4876,7 +4877,7 @@ msgstr "Nevar pārsaukt indeksu par PRIMARY!"
 
 #: libraries/Table.php:1971
 msgid "No index parts defined!"
-msgstr "Nav definēto indeksa daļu!"
+msgstr "Nav definētas indeksa daļas!"
 
 #: libraries/Table.php:2292
 #, php-format
@@ -4893,6 +4894,7 @@ msgid "No preview available."
 msgstr ""
 
 #: libraries/Theme.php:464
+#, fuzzy
 msgid "take it"
 msgstr "izmantot šo stilu"
 
@@ -5247,6 +5249,7 @@ msgstr "Sv"
 #. l10n: See https://secure.php.net/manual/en/function.strftime.php
 #: libraries/Util.php:1566
 #: libraries/plugins/transformations/abs/DateFormatTransformationsPlugin.php:68
+#, fuzzy
 msgid "%B %d, %Y at %I:%M %p"
 msgstr "%d.%m.%Y %H:%M"
 
@@ -5274,7 +5277,7 @@ msgstr "Pievienot jaunu lauku"
 #: libraries/Util.php:2552
 #, php-format
 msgid "Jump to database \"%s\"."
-msgstr "pāriet pie datubāzes \"%s\"."
+msgstr "Pāriet uz datubāzi \"%s\"."
 
 #: libraries/Util.php:2577
 #, php-format
@@ -5293,7 +5296,7 @@ msgstr "web servera augšupielādes direktorija"
 
 #: libraries/Util.php:3445 libraries/insert_edit.lib.php:1233
 msgid "The directory you set for upload work cannot be reached."
-msgstr "Direktoija, kuru norādijāt augšupielādei, nav pieejama."
+msgstr "Direktoija, kuru norādīji augšupielādei, nav pieejama."
 
 #: libraries/Util.php:3456
 msgid "There are no files to upload!"
