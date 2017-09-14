@@ -17,12 +17,11 @@ namespace PhpMyAdmin\Config;
 use PhpMyAdmin\Config\ConfigFile;
 use PhpMyAdmin\Config\Descriptions;
 use PhpMyAdmin\Config\Form;
+use PhpMyAdmin\Config\FormDisplayTemplate;
 use PhpMyAdmin\Config\Forms\User\UserFormList;
 use PhpMyAdmin\Config\Validator;
 use PhpMyAdmin\Sanitize;
 use PhpMyAdmin\Util;
-
-require_once './libraries/config/FormDisplay.tpl.php';
 
 /**
  * Form management class, displays and processes forms
@@ -230,7 +229,7 @@ class FormDisplay
             /* @var $form Form */
             $form_errors = isset($this->_errors[$form->name])
                 ? $this->_errors[$form->name] : null;
-            $htmlOutput .= PMA_displayFieldsetTop(
+            $htmlOutput .= FormDisplayTemplate::displayFieldsetTop(
                 Descriptions::get("Form_{$form->name}"),
                 Descriptions::get("Form_{$form->name}", 'desc'),
                 $form_errors,
@@ -258,10 +257,10 @@ class FormDisplay
                 );
                 // register JS validators for this field
                 if (isset($validators[$path])) {
-                    PMA_addJsValidate($translated_path, $validators[$path], $js);
+                    FormDisplayTemplate::addJsValidate($translated_path, $validators[$path], $js);
                 }
             }
-            $htmlOutput .= PMA_displayFieldsetBottom($show_buttons);
+            $htmlOutput .= FormDisplayTemplate::displayFieldsetBottom($show_buttons);
         }
         return $htmlOutput;
     }
@@ -293,14 +292,14 @@ class FormDisplay
         $js = array();
         $js_default = array();
 
-        $htmlOutput .= PMA_displayFormTop($form_action, 'post', $hidden_fields);
+        $htmlOutput .= FormDisplayTemplate::displayFormTop($form_action, 'post', $hidden_fields);
 
         if ($tabbed_form) {
             $tabs = array();
             foreach ($this->_forms as $form) {
                 $tabs[$form->name] = Descriptions::get("Form_$form->name");
             }
-            $htmlOutput .= PMA_displayTabsTop($tabs);
+            $htmlOutput .= FormDisplayTemplate::displayTabsTop($tabs);
         }
 
         // validate only when we aren't displaying a "new server" form
@@ -325,9 +324,9 @@ class FormDisplay
         );
 
         if ($tabbed_form) {
-            $htmlOutput .= PMA_displayTabsBottom();
+            $htmlOutput .= FormDisplayTemplate::displayTabsBottom();
         }
-        $htmlOutput .= PMA_displayFormBottom();
+        $htmlOutput .= FormDisplayTemplate::displayFormBottom();
 
         // if not already done, send strings used for validation to JavaScript
         if (! $js_lang_sent) {
@@ -342,7 +341,7 @@ class FormDisplay
 
         $js[] = "$.extend(defaultValues, {\n\t"
             . implode(",\n\t", $js_default) . '})';
-        $htmlOutput .= PMA_displayJavascript($js);
+        $htmlOutput .= FormDisplayTemplate::displayJavascript($js);
 
         return $htmlOutput;
     }
@@ -423,11 +422,11 @@ class FormDisplay
             // :group:end is changed to :group:end:{unique id} in Form class
             $htmlOutput = '';
             if (mb_substr($field, 7, 4) != 'end:') {
-                $htmlOutput .= PMA_displayGroupHeader(
+                $htmlOutput .= FormDisplayTemplate::displayGroupHeader(
                     mb_substr($field, 7)
                 );
             } else {
-                PMA_displayGroupFooter();
+                FormDisplayTemplate::displayGroupFooter();
             }
             return $htmlOutput;
         case 'NULL':
@@ -479,7 +478,7 @@ class FormDisplay
         }
         $js_default[] = $js_line;
 
-        return PMA_displayInput(
+        return FormDisplayTemplate::displayInput(
             $translated_path, $name, $type, $value,
             $description, $value_is_default, $opts
         );
@@ -505,7 +504,7 @@ class FormDisplay
             } else {
                 $name = Descriptions::get('Form_' . $system_path);
             }
-            $htmlOutput .= PMA_displayErrors($name, $error_list);
+            $htmlOutput .= FormDisplayTemplate::displayErrors($name, $error_list);
         }
 
         return $htmlOutput;

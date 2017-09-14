@@ -8,6 +8,7 @@
 
 use PhpMyAdmin\Config\ConfigFile;
 use PhpMyAdmin\Config\FormDisplay;
+use PhpMyAdmin\Config\FormDisplayTemplate;
 use PhpMyAdmin\Config\ServerConfigChecks;
 use PhpMyAdmin\Core;
 use PhpMyAdmin\LanguageManager;
@@ -22,7 +23,6 @@ if (!defined('PHPMYADMIN')) {
  * Core libraries.
  */
 require_once './setup/lib/index.lib.php';
-require_once './libraries/config/FormDisplay.tpl.php';
 
 // prepare unfiltered language list
 $all_languages = LanguageManager::getInstance()->sortedLanguages();
@@ -130,7 +130,7 @@ echo '</legend>';
 //
 // Display server list
 //
-echo PMA_displayFormTop(
+echo FormDisplayTemplate::displayFormTop(
     'index.php', 'get',
     array(
         'page' => 'servers',
@@ -186,7 +186,7 @@ echo '</tr>';
 echo '</table>';
 echo '</div>';
 
-echo PMA_displayFormBottom();
+echo FormDisplayTemplate::displayFormBottom();
 
 echo '</fieldset>';
 
@@ -197,7 +197,7 @@ echo '<fieldset class="simple"><legend>' , __('Configuration file') , '</legend>
 //
 $form_display = new FormDisplay($cf);
 
-echo PMA_displayFormTop('config.php');
+echo FormDisplayTemplate::displayFormTop('config.php');
 echo '<table width="100%" cellspacing="0">';
 
 // Display language list
@@ -208,7 +208,7 @@ $opts = array(
 foreach ($all_languages as $each_lang) {
     $opts['values'][$each_lang->getCode()] = $each_lang->getName();
 }
-echo PMA_displayInput(
+echo FormDisplayTemplate::displayInput(
     'DefaultLang', __('Default language'), 'select',
     $cf->getValue('DefaultLang'), '', true, $opts
 );
@@ -233,7 +233,7 @@ if ($cf->getServerCount() > 0) {
     $opts['values']['1'] = __('- none -');
     $opts['values_escaped'] = true;
 }
-echo PMA_displayInput(
+echo FormDisplayTemplate::displayInput(
     'ServerDefault', __('Default server'), 'select',
     $cf->getValue('ServerDefault'), '', true, $opts
 );
@@ -245,7 +245,7 @@ $opts = array(
         'win' => 'Windows (\r\n)'),
     'values_escaped' => true);
 $eol = Core::ifSetOr($_SESSION['eol'], (PMA_IS_WINDOWS ? 'win' : 'unix'));
-echo PMA_displayInput(
+echo FormDisplayTemplate::displayInput(
     'eol', __('End of line'), 'select',
     $eol, '', true, $opts
 );
@@ -261,7 +261,7 @@ echo '</td>';
 echo '</tr>';
 echo '</table>';
 
-echo PMA_displayFormBottom();
+echo FormDisplayTemplate::displayFormBottom();
 
 echo '</fieldset>';
 echo '<div id="footer">';

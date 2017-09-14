@@ -379,7 +379,7 @@ function getFieldValidators(field_id, onKeyUpOnly)
  * Displays errors for given form fields
  *
  * WARNING: created DOM elements must be identical with the ones made by
- * display_input() in FormDisplay.tpl.php!
+ * PhpMyAdmin\Config\FormDisplayTemplate::displayInput()!
  *
  * @param {Object} error_list list of errors in the form {field id: error array}
  */
