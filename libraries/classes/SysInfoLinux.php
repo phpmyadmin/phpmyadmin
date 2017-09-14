@@ -7,6 +7,7 @@
  */
 namespace PhpMyAdmin;
 
+use PhpMyAdmin\SysInfo;
 use PhpMyAdmin\SysInfoBase;
 
 /**
@@ -59,7 +60,7 @@ class SysInfoLinux extends SysInfoBase
     function memory()
     {
         preg_match_all(
-            MEMORY_REGEXP,
+            SysInfo::MEMORY_REGEXP,
             file_get_contents('/proc/meminfo'),
             $matches
         );

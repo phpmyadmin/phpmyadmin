@@ -5,15 +5,17 @@
  *
  * @package PhpMyAdmin-test
  */
+namespace PhpMyAdmin\Tests;
 
-require_once 'libraries/sysinfo.lib.php';
+use PhpMyAdmin\SysInfo;
+use PHPUnit_Framework_TestCase as TestCase;
 
 /**
  * tests for sysinfo library
  *
  * @package PhpMyAdmin-test
  */
-class PMA_SysInfoTest extends PHPUnit_Framework_TestCase
+class SysInfoTest extends TestCase
 {
     /**
      * Test for OS detection
@@ -29,7 +31,7 @@ class PMA_SysInfoTest extends PHPUnit_Framework_TestCase
     {
         $this->assertEquals(
             $expected,
-            PMA_getSysInfoOs($os)
+            SysInfo::getOs($os)
         );
     }
 
@@ -55,7 +57,7 @@ class PMA_SysInfoTest extends PHPUnit_Framework_TestCase
      */
     public function testGetSysInfo()
     {
-        $this->assertInstanceOf('PhpMyAdmin\SysInfoBase', PMA_getSysInfo());
+        $this->assertInstanceOf('PhpMyAdmin\SysInfoBase', SysInfo::get());
     }
 
     /**
@@ -65,6 +67,6 @@ class PMA_SysInfoTest extends PHPUnit_Framework_TestCase
      */
     public function testGetSysInfoSupported()
     {
-        $this->assertTrue(PMA_getSysInfo()->supported());
+        $this->assertTrue(SysInfo::get()->supported());
     }
 }
