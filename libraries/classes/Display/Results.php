@@ -3113,7 +3113,7 @@ class Results
             }
 
             // Check for the predefined fields need to show as link in schemas
-            include_once 'libraries/special_schema_links.lib.php';
+            include_once 'libraries/special_schema_links.inc.php';
 
             if (isset($GLOBALS['special_schema_links'])
                 && (! empty($GLOBALS['special_schema_links'][$dbLower][$tblLower][$nameLower]))
