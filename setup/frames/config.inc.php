@@ -14,11 +14,6 @@ if (!defined('PHPMYADMIN')) {
     exit;
 }
 
-/**
- * Core libraries.
- */
-require_once './setup/lib/index.lib.php';
-
 echo '<h2>' , __('Configuration file') , '</h2>';
 
 echo FormDisplayTemplate::displayFormTop('config.php');
