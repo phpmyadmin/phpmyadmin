@@ -17,7 +17,6 @@ require_once 'libraries/server_common.inc.php';
  * Replication library
  */
 require_once 'libraries/replication.inc.php';
-require_once 'libraries/replication_gui.lib.php';
 
 $serverStatusData = new Data();
 $response = Response::getInstance();

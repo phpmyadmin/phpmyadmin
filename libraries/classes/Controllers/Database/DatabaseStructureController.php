@@ -1,12 +1,10 @@
 <?php
 /* vim: set expandtab sw=4 ts=4 sts=4: */
-
 /**
  * Holds the PhpMyAdmin\Controllers\Database\DatabaseStructureController
  *
  * @package PhpMyAdmin\Controllers
  */
-
 namespace PhpMyAdmin\Controllers\Database;
 
 use PhpMyAdmin\Charsets;
@@ -17,6 +15,7 @@ use PhpMyAdmin\Display\CreateTable;
 use PhpMyAdmin\Message;
 use PhpMyAdmin\RecentFavoriteTable;
 use PhpMyAdmin\Relation;
+use PhpMyAdmin\Replication;
 use PhpMyAdmin\Response;
 use PhpMyAdmin\Sanitize;
 use PhpMyAdmin\Template;
@@ -903,10 +902,10 @@ class DatabaseStructureController extends DatabaseController
     protected function hasTable($db, $truename)
     {
         foreach ($db as $db_table) {
-            if ($this->db == PMA_extractDbOrTable($db_table)
+            if ($this->db == Replication::extractDbOrTable($db_table)
                 && preg_match(
                     "@^" .
-                    preg_quote(mb_substr(PMA_extractDbOrTable($db_table, 'table'), 0, -1)) . "@",
+                    preg_quote(mb_substr(Replication::extractDbOrTable($db_table, 'table'), 0, -1)) . "@",
                     $truename
                 )
             ) {

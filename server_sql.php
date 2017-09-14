@@ -7,6 +7,7 @@
  */
 use PhpMyAdmin\Config\PageSettings;
 use PhpMyAdmin\Response;
+use PhpMyAdmin\SqlQueryForm;
 
 /**
  *
@@ -26,9 +27,8 @@ $scripts->addFile('vendor/jquery/jquery.uitablefilter.js');
 $scripts->addFile('sql.js');
 
 require_once 'libraries/server_common.inc.php';
-require_once 'libraries/sql_query_form.lib.php';
 
 /**
  * Query box, bookmark, insert data from textfile
  */
-$response->addHTML(PMA_getHtmlForSqlQueryForm());
+$response->addHTML(SqlQueryForm::getHtml());

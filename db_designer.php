@@ -6,10 +6,10 @@
  * @package PhpMyAdmin-Designer
  */
 use PhpMyAdmin\Database\Designer;
+use PhpMyAdmin\PmdCommon;
 use PhpMyAdmin\Response;
 
 require_once 'libraries/common.inc.php';
-require_once 'libraries/pmd_common.php';
 
 $response = Response::getInstance();
 
@@ -26,11 +26,11 @@ if (isset($_REQUEST['dialog'])) {
             $GLOBALS['db'], $_REQUEST['selected_page']
         );
     } else if ($_REQUEST['dialog'] == 'add_table') {
-        $script_display_field = PMA_getTablesInfo();
+        $script_display_field = PmdCommon::getTablesInfo();
         $required = $GLOBALS['db'] . '.' . $GLOBALS['table'];
-        $tab_column = PMA_getColumnsInfo();
-        $tables_all_keys = PMA_getAllKeys();
-        $tables_pk_or_unique_keys = PMA_getPKOrUniqueKeys();
+        $tab_column = PmdCommon::getColumnsInfo();
+        $tables_all_keys = PmdCommon::getAllKeys();
+        $tables_pk_or_unique_keys = PmdCommon::getPkOrUniqueKeys();
 
         $req_key = array_search($required, $GLOBALS['PMD']['TABLE_NAME']);
 
@@ -56,24 +56,24 @@ if (isset($_REQUEST['dialog'])) {
 if (isset($_REQUEST['operation'])) {
 
     if ($_REQUEST['operation'] == 'deletePage') {
-        $success = PMA_deletePage($_REQUEST['selected_page']);
+        $success = PmdCommon::deletePage($_REQUEST['selected_page']);
         $response->setRequestStatus($success);
     } elseif ($_REQUEST['operation'] == 'savePage') {
         if ($_REQUEST['save_page'] == 'same') {
             $page = $_REQUEST['selected_page'];
         } else { // new
-            $page = PMA_createNewPage($_REQUEST['selected_value'], $GLOBALS['db']);
+            $page = PmdCommon::createNewPage($_REQUEST['selected_value'], $GLOBALS['db']);
             $response->addJSON('id', $page);
         }
-        $success = PMA_saveTablePositions($page);
+        $success = PmdCommon::saveTablePositions($page);
         $response->setRequestStatus($success);
     } elseif ($_REQUEST['operation'] == 'setDisplayField') {
-        PMA_saveDisplayField(
+        PmdCommon::saveDisplayField(
             $_REQUEST['db'], $_REQUEST['table'], $_REQUEST['field']
         );
         $response->setRequestStatus(true);
     } elseif ($_REQUEST['operation'] == 'addNewRelation') {
-        list($success, $message) = PMA_addNewRelation(
+        list($success, $message) = PmdCommon::addNewRelation(
             $_REQUEST['db'],
             $_REQUEST['T1'],
             $_REQUEST['F1'],
@@ -87,7 +87,7 @@ if (isset($_REQUEST['operation'])) {
         $response->setRequestStatus($success);
         $response->addJSON('message', $message);
     } elseif ($_REQUEST['operation'] == 'removeRelation') {
-        list($success, $message) = PMA_removeRelation(
+        list($success, $message) = PmdCommon::removeRelation(
             $_REQUEST['T1'],
             $_REQUEST['F1'],
             $_REQUEST['T2'],
@@ -96,7 +96,7 @@ if (isset($_REQUEST['operation'])) {
         $response->setRequestStatus($success);
         $response->addJSON('message', $message);
     } elseif ($_REQUEST['operation'] == 'save_setting_value') {
-        $success = PMA_saveDesignerSetting($_REQUEST['index'], $_REQUEST['value']);
+        $success = PmdCommon::saveDesignerSetting($_REQUEST['index'], $_REQUEST['value']);
         $response->setRequestStatus($success);
     }
 
@@ -105,30 +105,30 @@ if (isset($_REQUEST['operation'])) {
 
 require 'libraries/db_common.inc.php';
 
-$script_display_field = PMA_getTablesInfo();
-$tab_column = PMA_getColumnsInfo();
-$script_tables = PMA_getScriptTabs();
-$tables_pk_or_unique_keys = PMA_getPKOrUniqueKeys();
-$tables_all_keys = PMA_getAllKeys();
+$script_display_field = PmdCommon::getTablesInfo();
+$tab_column = PmdCommon::getColumnsInfo();
+$script_tables = PmdCommon::getScriptTabs();
+$tables_pk_or_unique_keys = PmdCommon::getPkOrUniqueKeys();
+$tables_all_keys = PmdCommon::getAllKeys();
 $classes_side_menu = Designer::returnClassNamesFromMenuButtons();
 
 $display_page = -1;
 $selected_page = null;
 
 if (isset($_REQUEST['query'])) {
-    $display_page = PMA_getDefaultPage($_REQUEST['db']);
+    $display_page = PmdCommon::getDefaultPage($_REQUEST['db']);
 } else {
     if (! empty($_REQUEST['page'])) {
         $display_page = $_REQUEST['page'];
     } else {
-        $display_page = PMA_getLoadingPage($_REQUEST['db']);
+        $display_page = PmdCommon::getLoadingPage($_REQUEST['db']);
     }
 }
 if ($display_page != -1) {
-    $selected_page = PMA_getPageName($display_page);
+    $selected_page = PmdCommon::getPageName($display_page);
 }
-$tab_pos = PMA_getTablePositions($display_page);
-$script_contr = PMA_getScriptContr();
+$tab_pos = PmdCommon::getTablePositions($display_page);
+$script_contr = PmdCommon::getScriptContr();
 
 $params = array('lang' => $GLOBALS['lang']);
 if (isset($_GET['db'])) {

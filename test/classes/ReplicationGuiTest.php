@@ -1,28 +1,29 @@
 <?php
 /* vim: set expandtab sw=4 ts=4 sts=4: */
 /**
- * tests for replication_gui.lib.php
+ * tests for PhpMyAdmin\ReplicationGui
  *
  * @package PhpMyAdmin-test
  */
+namespace PhpMyAdmin\Tests;
+
+use PhpMyAdmin\ReplicationGui;
+use PhpMyAdmin\Theme;
+use PHPUnit_Framework_TestCase as TestCase;
 
 /*
- * Include to test.
- */
-use PhpMyAdmin\Theme;
-
-
+* Include to test.
+*/
 require_once 'libraries/replication.inc.php';
-require_once 'libraries/replication_gui.lib.php';
 
 /**
- * PMA_Serverreplication_Test class
+ * PhpMyAdmin\Tests\ReplicationGuiTest class
  *
- * this class is for testing replication_gui.lib.php functions
+ * this class is for testing PhpMyAdmin\ReplicationGui methods
  *
  * @package PhpMyAdmin-test
  */
-class PMA_ServerReplication_Test extends PHPUnit_Framework_TestCase
+class ReplicationGuiTest extends TestCase
 {
     /**
      * Prepares environment for the test.
@@ -92,7 +93,7 @@ class PMA_ServerReplication_Test extends PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test for PMA_getHtmlForMasterReplication
+     * Test for ReplicationGui::getHtmlForMasterReplication
      *
      * @return void
      * @group medium
@@ -108,7 +109,7 @@ class PMA_ServerReplication_Test extends PHPUnit_Framework_TestCase
         $strReplicationStatus_master = null;
 
         //Call the test function
-        $html = PMA_getHtmlForMasterReplication();
+        $html = ReplicationGui::getHtmlForMasterReplication();
 
         //validate 1: Master replication
         $this->assertContains(
@@ -120,7 +121,7 @@ class PMA_ServerReplication_Test extends PHPUnit_Framework_TestCase
             $html
         );
 
-        //validate 2: PMA_getHtmlForReplicationStatusTable
+        //validate 2: ReplicationGui::getHtmlForReplicationStatusTable
         $this->assertContains(
             '<div id="replication_master_section"',
             $html
@@ -140,7 +141,7 @@ class PMA_ServerReplication_Test extends PHPUnit_Framework_TestCase
             $html
         );
 
-        //validate 3: PMA_getHtmlForReplicationSlavesTable
+        //validate 3: ReplicationGui::getHtmlForReplicationSlavesTable
         $this->assertContains(
             'replication_slaves_section',
             $html
@@ -194,14 +195,14 @@ class PMA_ServerReplication_Test extends PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test for PMA_getHtmlForNotServerReplication
+     * Test for ReplicationGui::getHtmlForNotServerReplication
      *
      * @return void
      */
     public function testPMAGetHtmlForNotServerReplication()
     {
         //Call the test function
-        $html = PMA_getHtmlForNotServerReplication();
+        $html = ReplicationGui::getHtmlForNotServerReplication();
 
         $this->assertContains(
             '<legend>Master replication</legend>',
@@ -214,7 +215,7 @@ class PMA_ServerReplication_Test extends PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test for PMA_getHtmlForSlaveConfiguration
+     * Test for ReplicationGui::getHtmlForSlaveConfiguration
      *
      * @return void
      */
@@ -223,7 +224,7 @@ class PMA_ServerReplication_Test extends PHPUnit_Framework_TestCase
         global $server_slave_replication;
 
         //Call the test function
-        $html = PMA_getHtmlForSlaveConfiguration(
+        $html = ReplicationGui::getHtmlForSlaveConfiguration(
             true,
             $server_slave_replication
         );
@@ -267,14 +268,14 @@ class PMA_ServerReplication_Test extends PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test for PMA_getHtmlForReplicationChangeMaster
+     * Test for ReplicationGui::getHtmlForReplicationChangeMaster
      *
      * @return void
      */
     public function testPMAGetHtmlForReplicationChangeMaster()
     {
         //Call the test function
-        $html = PMA_getHtmlForReplicationChangeMaster("slave_changemaster");
+        $html = ReplicationGui::getHtmlForReplicationChangeMaster("slave_changemaster");
 
         $this->assertContains(
             '<form method="post" action="server_replication.php">',

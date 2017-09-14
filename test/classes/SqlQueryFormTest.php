@@ -1,32 +1,31 @@
 <?php
 /* vim: set expandtab sw=4 ts=4 sts=4: */
 /**
- * tests for sql_query_form.lib.php
+ * tests for PhpMyAdmin\SqlQueryForm
  *
  * @package PhpMyAdmin-test
  */
+namespace PhpMyAdmin\Tests;
 
 use PhpMyAdmin\Core;
 use PhpMyAdmin\Encoding;
+use PhpMyAdmin\SqlQueryForm;
 use PhpMyAdmin\Theme;
 use PhpMyAdmin\Url;
+use PhpMyAdmin\Util;
+use PHPUnit_Framework_TestCase as TestCase;
 
 //the following definition should be used globally
 $GLOBALS['server'] = 0;
 
-/*
- * Include to test.
-*/
-require_once 'libraries/sql_query_form.lib.php';
-
 /**
- * class PMA_SqlQueryForm_Test
+ * PhpMyAdmin\Tests\SqlQueryFormTest class
  *
- * this class is for testing sql_query_form.lib.php functions
+ * this class is for testing PhpMyAdmin\SqlQueryForm methods
  *
  * @package PhpMyAdmin-test
  */
-class PMA_SqlQueryForm_Test extends PHPUnit_Framework_TestCase
+class SqlQueryFormTest extends TestCase
 {
     /**
      * Test for setUp
@@ -98,7 +97,7 @@ class PMA_SqlQueryForm_Test extends PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test for PMA_getHtmlForSqlQueryFormInsert
+     * Test for SqlQueryForm::getHtmlForInsert
      *
      * @return void
      */
@@ -106,7 +105,7 @@ class PMA_SqlQueryForm_Test extends PHPUnit_Framework_TestCase
     {
         //Call the test function
         $query = "select * from PMA";
-        $html = PMA_getHtmlForSqlQueryFormInsert($query);
+        $html = SqlQueryForm::getHtmlForInsert($query);
 
         //validate 1: query
         $this->assertContains(
@@ -123,7 +122,7 @@ class PMA_SqlQueryForm_Test extends PHPUnit_Framework_TestCase
 
         //validate 3: showMySQLDocu
         $this->assertContains(
-            PhpMyAdmin\Util::showMySQLDocu('SELECT'),
+            Util::showMySQLDocu('SELECT'),
             $html
         );
 
@@ -161,7 +160,7 @@ class PMA_SqlQueryForm_Test extends PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test for PMA_getHtmlForSqlQueryForm
+     * Test for SqlQueryForm::getHtml
      *
      * @return void
      */
@@ -171,7 +170,7 @@ class PMA_SqlQueryForm_Test extends PHPUnit_Framework_TestCase
         $GLOBALS['is_upload'] = true;
         $GLOBALS['lang'] = 'ja';
         $query = "select * from PMA";
-        $html = PMA_getHtmlForSqlQueryForm($query);
+        $html = SqlQueryForm::getHtml($query);
 
         //validate 1: query
         $this->assertContains(
