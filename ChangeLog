@@ -17,7 +17,7 @@ phpMyAdmin - ChangeLog
 - issue #13269 Small refactoring in preparation to CSP
 - issue #13384 Database link broken in Databases Page
 - issue #13391 Configurable authentication logging using $cfg['AuthLog']
-- issue #13086 Add support for Goole Invisible Captcha
+- issue #13086 Add support for Google Invisible Captcha
 - issue #13058 Improved error reporting for reCAPTCHA
 - issue #12899 Improved rendering of server variables table
 - issue #12948 Fixed javascript editor for TIME values
@@ -34,6 +34,7 @@ phpMyAdmin - ChangeLog
 - issue #5827  Allow Designer to show tables from other databases
 - issue #13268 Replace Query-By-Example with multi-table query generator interface
 - issue #13576 Add privileges export to per database listing
+- issue        Consolidate functions into class files
 
 4.7.5 (not yet released)
 - issue #13615 Avoid problems with browsing unknown query types
