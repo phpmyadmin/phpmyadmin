@@ -4,10 +4,10 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.8.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2017-09-08 21:11+0200\n"
-"PO-Revision-Date: 2017-09-06 10:03+0000\n"
+"PO-Revision-Date: 2017-09-14 13:19+0000\n"
 "Last-Translator: Māris <weblate@netparks.lv>\n"
-"Language-Team: Latvian <https://hosted.weblate.org/projects/phpmyadmin/"
-"master/lv/>\n"
+"Language-Team: Latvian "
+"<https://hosted.weblate.org/projects/phpmyadmin/master/lv/>\n"
 "Language: lv\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -7253,7 +7253,7 @@ msgstr "precīza frāze"
 
 #: libraries/classes/DbSearch.php:91
 msgid "as regular expression"
-msgstr "kā regulārā izteiksme"
+msgstr "kā regulāro izteiksmi"
 
 #: libraries/classes/DbSearch.php:269
 #, php-format
@@ -7874,7 +7874,7 @@ msgstr "Ieraksts tika dzēsts"
 #: libraries/classes/Display/Results.php:4844
 #: libraries/classes/Server/Status/Processes.php:285
 msgid "Kill"
-msgstr "Nogalināt"
+msgstr "Apturēt"
 
 #: libraries/classes/Display/Results.php:4282
 #, fuzzy
@@ -8496,7 +8496,7 @@ msgstr "Primārā atslēga tika izdzēsta."
 #: libraries/classes/Index.php:761
 #, php-format
 msgid "Index %s has been dropped."
-msgstr "Indekss %s tika izdzēsts."
+msgstr "Indekss %s dzēsts."
 
 #: libraries/classes/Index.php:890
 #, php-format
@@ -8534,7 +8534,7 @@ msgstr "Binārais - netiek labots"
 
 #: libraries/classes/InsertEdit.php:1246 libraries/classes/Util.php:3403
 msgid "The directory you set for upload work cannot be reached."
-msgstr "Direktoija, kuru norādijāt augšupielādei, nav pieejama."
+msgstr "Direktoija, kuru norādīji augšupielādei, nav pieejama."
 
 #: libraries/classes/InsertEdit.php:1249
 #: templates/table/search/options.phtml:36
@@ -8720,6 +8720,7 @@ msgid "Database seems to be empty!"
 msgstr ""
 
 #: libraries/classes/Menu.php:471 libraries/classes/Util.php:4095
+#, fuzzy
 msgid "Query"
 msgstr "Vaicājums pēc parauga"
 
@@ -8776,7 +8777,7 @@ msgstr "Mainīgie"
 
 #: libraries/classes/Menu.php:636 libraries/classes/Util.php:4087
 msgid "Charsets"
-msgstr "Rakstzīmju kodējumi"
+msgstr "Rakstzīmju kopas"
 
 #: libraries/classes/Menu.php:640 libraries/classes/Util.php:4089
 msgid "Engines"
@@ -10523,6 +10524,7 @@ msgstr ""
 #. l10n: See https://secure.php.net/manual/en/function.strftime.php
 #: libraries/classes/Plugins/Transformations/Abs/DateFormatTransformationsPlugin.php:62
 #: libraries/classes/Util.php:1561
+#, fuzzy
 msgid "%B %d, %Y at %I:%M %p"
 msgstr "%d.%m.%Y %H:%M"
 
@@ -11845,7 +11847,7 @@ msgstr ""
 
 #: libraries/classes/Server/Status/Data.php:433
 msgid "Query statistics"
-msgstr "Pieprasījumu statistika"
+msgstr "Vaicājumu statistika"
 
 #: libraries/classes/Server/Status/Data.php:437
 msgid "All status variables"
@@ -13006,7 +13008,7 @@ msgstr "Nevar pārsaukt indeksu par PRIMARY!"
 
 #: libraries/classes/Table.php:2077
 msgid "No index parts defined!"
-msgstr "Nav definēto indeksa daļu!"
+msgstr "Nav definētas indeksa daļas!"
 
 #: libraries/classes/Table.php:2385
 #, php-format
@@ -13029,6 +13031,7 @@ msgid "No preview available."
 msgstr ""
 
 #: libraries/classes/Theme.php:482
+#, fuzzy
 msgid "take it"
 msgstr "izmantot šo stilu"
 
