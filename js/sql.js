@@ -37,7 +37,7 @@ function PMA_urlencode(str)
 }
 
 /**
- * Saves SQL query in local storage or cooie
+ * Saves SQL query in local storage or cookie
  *
  * @param string SQL query
  * @return void
@@ -49,6 +49,23 @@ function PMA_autosaveSQL(query)
             window.localStorage.auto_saved_sql = query;
         } else {
             Cookies.set('auto_saved_sql', query);
+        }
+    }
+}
+
+/**
+ * Saves SQL query with sort in local storage or cookie
+ *
+ * @param string SQL query
+ * @return void
+ */
+function PMA_autosaveSQLSort(query)
+{
+    if (query) {
+        if (isStorageSupported('localStorage')) {
+            window.localStorage.auto_saved_sql_sort = query;
+        } else {
+            Cookies.set('auto_saved_sql_sort', query);
         }
     }
 }
@@ -158,6 +175,15 @@ AJAX.registerOnload('sql.js', function () {
             $('#sqlquery').on('input propertychange', function () {
                 PMA_autosaveSQL($('#sqlquery').val());
             });
+            //Save sql query with sort
+            $('select[name="sql_query"]').on('change', function () {
+                PMA_autosaveSQLSort($('select[name="sql_query"]').val());
+            });
+            //If sql query with sort for current table is stored, change sort by key select value
+            var sortStoredQuery = (isStorageSupported('localStorage') && typeof window.localStorage.auto_saved_sql_sort !== 'undefined') ? window.localStorage.auto_saved_sql_sort : Cookies.get('auto_saved_sql_sort');
+            if (typeof sortStoredQuery !== 'undefined' && sortStoredQuery !== $('select[name="sql_query"]').val() && $('select[name="sql_query"] option[value="'+sortStoredQuery+'"]').length !== 0) {
+                $('select[name="sql_query"]').val(sortStoredQuery).change();
+            }
         }
     });
 
