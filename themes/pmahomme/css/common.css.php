@@ -2925,7 +2925,7 @@ body .ui-widget {
 }
 
 .ui-draggable {
-	z-index: 801;
+    z-index: 801;
 }
 
 /* over-riding jqplot-yaxis class */
