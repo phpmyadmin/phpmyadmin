@@ -4,16 +4,16 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.8.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2017-09-08 21:11+0200\n"
-"PO-Revision-Date: 2017-08-12 01:54+0000\n"
-"Last-Translator: Claus Svalekjaer <just.my.smtp.server@gmail.com>\n"
-"Language-Team: Danish <https://hosted.weblate.org/projects/phpmyadmin/master/"
-"da/>\n"
+"PO-Revision-Date: 2017-09-14 18:08+0000\n"
+"Last-Translator: Jakob Bo Kristensen <jakobbo@gmail.com>\n"
+"Language-Team: Danish "
+"<https://hosted.weblate.org/projects/phpmyadmin/master/da/>\n"
 "Language: da\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 2.16\n"
+"X-Generator: Weblate 2.17-dev\n"
 
 #: ajax.php:17 ajax.php:34 export.php:196 schema_export.php:67
 msgid "Bad type!"
@@ -1746,6 +1746,8 @@ msgid ""
 "It seems that the connection to server has been lost. Please check your "
 "network connectivity and server status."
 msgstr ""
+"Det ser ud til at din forbindelse til serveren er tabt. Tjek venligst din "
+"netværksforbindelse og serverens status."
 
 #: js/messages.php:369
 #: libraries/classes/Controllers/Server/ServerDatabasesController.php:193
@@ -2260,10 +2262,8 @@ msgstr ""
 
 #: js/messages.php:560 templates/database/designer/side_menu.phtml:40
 #: templates/database/designer/side_menu.phtml:43
-#, fuzzy
-#| msgid "No tables found in database."
 msgid "Add tables from other databases"
-msgstr "Ingen tabeller fundet i databasen."
+msgstr "Tilføj tabeller fra andre databaser"
 
 #: js/messages.php:561
 msgid "Page name"
@@ -6192,31 +6192,19 @@ msgstr ""
 "Du bør bruge SSL-forbindelser, hvis din database-server understøtter det."
 
 #: libraries/classes/Config/ServerConfigChecks.php:175
-#, fuzzy
-#| msgid ""
-#| "If you feel this is necessary, use additional protection settings - "
-#| "%shost authentication%s settings and %strusted proxies list%s. However, "
-#| "IP-based protection may not be reliable if your IP belongs to an ISP "
-#| "where thousands of users, including you, are connected to."
 msgid ""
 "If you feel this is necessary, use additional protection settings - %1$shost "
 "authentication%2$s settings and %3$strusted proxies list%4%s. However, IP-"
 "based protection may not be reliable if your IP belongs to an ISP where "
 "thousands of users, including you, are connected to."
 msgstr ""
-"Hvis du føler at det er nødvendigt, benyt da yderligere sikring - "
-"%sværtsautentifikation%s indstillinger og %sbetroet proxy liste%s. IP-"
-"baseret beskyttelse er næppe pålidelig, hvis din IP-adresse hører til en "
-"udbyder med mange tusinde brugere."
+"Hvis du føler at det er nødvendigt, benyt da yderligere sikring - %1$shost "
+"authentication%2$s settings og %3$strusted proxies list%4%s. IP-baseret "
+"beskyttelse er næppe pålidelig, hvis din IP-adresse hører til en udbyder med "
+"mange tusinde brugere."
 
 #: libraries/classes/Config/ServerConfigChecks.php:202
-#, fuzzy, php-format
-#| msgid ""
-#| "You set the [kbd]config[/kbd] authentication type and included username "
-#| "and password for auto-login, which is not a desirable option for live "
-#| "hosts. Anyone who knows or guesses your phpMyAdmin URL can directly "
-#| "access your phpMyAdmin panel. Set %sauthentication type%s to [kbd]cookie[/"
-#| "kbd] or [kbd]http[/kbd]."
+#, php-format
 msgid ""
 "You set the [kbd]config[/kbd] authentication type and included username and "
 "password for auto-login, which is not a desirable option for live hosts. "
@@ -6224,11 +6212,11 @@ msgid ""
 "phpMyAdmin panel. Set %1$sauthentication type%2$s to [kbd]cookie[/kbd] or "
 "[kbd]http[/kbd]."
 msgstr ""
-"Du har sat  [kbd]config[/kbd] autentifikation og inkluderet brugernavn og "
+"Du har sat [kbd]config[/kbd] autentifikation og inkluderet brugernavn og "
 "adgangskode for auto-login, hvilket er ikke en ønskværdig konfiguration for "
 "produktionssystemer. Enhver som kender eller gætter din phpMyAdmin URL kan "
 "direkte få adgang til dit phpMyAdmin panel for denne server. Sæt "
-"%sautentifikationstype%s til [kbd]cookie[/kbd] eller [kbd]http[/kbd]."
+"%1$sautentifikationstype%2$s til [kbd]cookie[/kbd] eller [kbd]http[/kbd]."
 
 #: libraries/classes/Config/ServerConfigChecks.php:229
 msgid "You allow for connecting to the server without a password."
@@ -6271,19 +6259,15 @@ msgid "Key should contain letters, numbers [em]and[/em] special characters."
 msgstr "Nøglen bør indeholde bogstaver, numre [em]og[/em] specialtegn."
 
 #: libraries/classes/Config/ServerConfigChecks.php:417
-#, fuzzy, php-format
-#| msgid ""
-#| "%sLogin cookie validity%s greater than %ssession.gc_maxlifetime%s may "
-#| "cause random session invalidation (currently session.gc_maxlifetime is "
-#| "%d)."
+#, php-format
 msgid ""
 "%1$sLogin cookie validity%2$s greater than %3$ssession.gc_maxlifetime%4$s "
 "may cause random session invalidation (currently session.gc_maxlifetime is "
 "%5$d)."
 msgstr ""
-"%sLogin cookie gyldighed%s større end %ssession.gc_maxlifetime%s kan "
+"%1$sLogin cookie gyldighed%2$s større end %3$ssession.gc_maxlifetime%4$s kan "
 "forårsage tilfældig afslutning af session (session.gc_maxlifetime er i "
-"øjeblikket %d)."
+"øjeblikket %5$d)."
 
 #: libraries/classes/Config/ServerConfigChecks.php:441
 #, php-format
@@ -6306,28 +6290,22 @@ msgstr ""
 "lig med den."
 
 #: libraries/classes/Config/ServerConfigChecks.php:505
-#, fuzzy, php-format
-#| msgid ""
-#| "%sBzip2 compression and decompression%s requires functions (%s) which are "
-#| "unavailable on this system."
+#, php-format
 msgid ""
 "%1$sBzip2 compression and decompression%2$s requires functions (%3$s) which "
 "are unavailable on this system."
 msgstr ""
-"%sBzip2 komprimering og dekomprimering%s kræver funktioner (%s) som ikke er "
-"tilgængelige på dette system."
+"%1$sBzip2 komprimering og dekomprimering%2$s kræver funktioner (%3$s) som "
+"ikke er tilgængelige på dette system."
 
 #: libraries/classes/Config/ServerConfigChecks.php:537
-#, fuzzy, php-format
-#| msgid ""
-#| "%sGZip compression and decompression%s requires functions (%s) which are "
-#| "unavailable on this system."
+#, php-format
 msgid ""
 "%1$sGZip compression and decompression%2$s requires functions (%3$s) which "
 "are unavailable on this system."
 msgstr ""
-"%sGZip komprimering og dekomprimering%s kræver funktioner (%s) som ikke er "
-"tilgængelige på dette system."
+"%1$sGZip komprimering og dekomprimering%2$s kræver funktioner (%3$s) som "
+"ikke er tilgængelige på dette system."
 
 #: libraries/classes/Config/Validator.php:210
 #: libraries/classes/Config/Validator.php:217
@@ -6663,10 +6641,9 @@ msgid "The columns have been moved successfully."
 msgstr "Flytning af kolonnen er blevet fuldført."
 
 #: libraries/classes/Controllers/Table/TableStructureController.php:495
-#, fuzzy, php-format
-#| msgid "Failed to get real row count."
+#, php-format
 msgid "Failed to get description of column %s!"
-msgstr "Kunne få reelt rækkeantal."
+msgstr "Kunne ikke hente beskrivelse af kolonne %s!"
 
 #: libraries/classes/Controllers/Table/TableStructureController.php:734
 #: libraries/classes/Controllers/Table/TableStructureController.php:1019
@@ -14217,7 +14194,7 @@ msgstr "Kritisk fejl: Navigationen kan kun tilgås via AJAX"
 
 #: prefs_forms.php:28 setup/frames/form.inc.php:25
 msgid "Incorrect form specified!"
-msgstr ""
+msgstr "Ukorrekt formular angivet!"
 
 #: prefs_forms.php:80
 msgid "Cannot save settings, submitted form contains errors!"
