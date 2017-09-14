@@ -12,6 +12,7 @@ use PhpMyAdmin\Message;
 use PhpMyAdmin\Relation;
 use PhpMyAdmin\Response;
 use PhpMyAdmin\Sanitize;
+use PhpMyAdmin\SqlQueryForm;
 use PhpMyAdmin\Template;
 use PhpMyAdmin\Tracker;
 use PhpMyAdmin\Url;
@@ -1142,9 +1143,8 @@ class Tracking
         $table_temp = $GLOBALS['table'];
 
         $GLOBALS['db'] = $GLOBALS['table'] = '';
-        include_once './libraries/sql_query_form.lib.php';
 
-        $html .= PMA_getHtmlForSqlQueryForm($new_query, 'sql');
+        $html .= SqlQueryForm::getHtml($new_query, 'sql');
 
         $GLOBALS['db'] = $db_temp;
         $GLOBALS['table'] = $table_temp;

@@ -13,7 +13,6 @@ use PhpMyAdmin\Server\Status\Data;
 
 require_once 'libraries/common.inc.php';
 require_once 'libraries/replication.inc.php';
-require_once 'libraries/replication_gui.lib.php';
 
 $serverStatusData = new Data();
 

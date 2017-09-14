@@ -22,8 +22,6 @@ require_once 'libraries/common.inc.php';
  */
 $cfgRelation = Relation::getRelationsParam();
 
-require_once 'libraries/pmd_common.php';
-
 if (! isset($_REQUEST['export_type'])) {
     PhpMyAdmin\Util::checkParameters(array('export_type'));
 }

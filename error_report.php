@@ -5,11 +5,11 @@
  *
  * @package PhpMyAdmin
  */
+use PhpMyAdmin\ErrorReport;
 use PhpMyAdmin\Response;
 use PhpMyAdmin\UserPreferences;
 
 require_once 'libraries/common.inc.php';
-require_once 'libraries/error_report.lib.php';
 
 if (!isset($_REQUEST['exception_type'])
     ||!in_array($_REQUEST['exception_type'], array('js', 'php'))
@@ -47,10 +47,10 @@ if (isset($_REQUEST['send_error_report'])
             );
         }
     }
-    $reportData = PMA_getReportData($_REQUEST['exception_type']);
+    $reportData = ErrorReport::getReportData($_REQUEST['exception_type']);
     // report if and only if there were 'actual' errors.
     if (count($reportData) > 0) {
-        $server_response = PMA_sendErrorReport($reportData);
+        $server_response = ErrorReport::send($reportData);
         if ($server_response === false) {
             $success = false;
         } else {
@@ -122,7 +122,7 @@ if (isset($_REQUEST['send_error_report'])
     $response->addJSON('report_setting', $GLOBALS['cfg']['SendErrorReports']);
 } else {
     if ($_REQUEST['exception_type'] == 'js') {
-        $response->addHTML(PMA_getErrorReportForm());
+        $response->addHTML(ErrorReport::getForm());
     } else {
         // clear previous errors & save new ones.
         $GLOBALS['error_handler']->savePreviousErrors();

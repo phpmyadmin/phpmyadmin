@@ -15,7 +15,6 @@ use PhpMyAdmin\Server\Status\Queries;
 require_once 'libraries/common.inc.php';
 require_once 'libraries/server_common.inc.php';
 require_once 'libraries/replication.inc.php';
-require_once 'libraries/replication_gui.lib.php';
 
 $serverStatusData = new Data();
 
