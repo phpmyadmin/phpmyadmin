@@ -304,6 +304,18 @@ class Operations
                 isset($_REQUEST['db_collation']) ? $_REQUEST['db_collation'] : '',
                 false
             )
+            . '<br />'
+            . '<input type="checkbox" name="change_all_tables_collations"'
+            . 'id="checkbox_change_all_tables_collations" />'
+            . '<label for="checkbox_change_all_tables_collations">'
+            . __('Change all tables collations')
+            . '</label>'
+            . '<br />'
+            . '<span id="span_change_all_tables_columns_collations"><input type="checkbox" name="change_all_tables_columns_collations"'
+            . 'id="checkbox_change_all_tables_columns_collations" />'
+            . '<label for="checkbox_change_all_tables_columns_collations">'
+            . __('Change all tables columns collations')
+            . '</label></span>'
             . '</fieldset>'
             . '<fieldset class="tblFooters">'
             . '<input type="submit" name="submitcollation"'
