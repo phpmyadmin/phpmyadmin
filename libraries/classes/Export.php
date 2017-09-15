@@ -190,18 +190,21 @@ class Export
      * Returns HTML containing the footer for a displayed export
      *
      * @param string $back_button the link for going Back
+     * @param string $refreshButton the link for refreshing page
      *
      * @return string $html the HTML output
      */
-    public static function getHtmlForDisplayedExportFooter($back_button)
+    public static function getHtmlForDisplayedExportFooter($back_button, $refreshButton)
     {
         /**
          * Close the html tags and add the footers for on-screen export
          */
         $html = '</textarea>'
             . '    </form>'
+            . '<br />'
             // bottom back button
             . $back_button
+            . $refreshButton
             . '</div>'
             . '<script type="text/javascript">' . "\n"
             . '//<![CDATA[' . "\n"
@@ -468,7 +471,7 @@ class Export
          * Displays a back button with all the $_REQUEST data in the URL
          * (store in a variable to also display after the textarea)
          */
-        $back_button = '<p>[ <a href="';
+        $back_button = '<p id="export_back_button">[ <a href="';
         if ($export_type == 'server') {
             $back_button .= 'server_export.php' . Url::getCommon();
         } elseif ($export_type == 'database') {
@@ -509,13 +512,28 @@ class Export
             }
         }
         $back_button .= '&amp;repopulate=1">' . __('Back') . '</a> ]</p>';
-
-        $html .= $back_button
+        $html .= '<br />';
+        $html .= $back_button;
+        $refreshButton = '<form id="export_refresh_form" method="POST" action="export.php" class="disableAjax">';
+        $refreshButton .= '[ <a class="disableAjax" onclick="$(this).parent().submit()">'. __('Refresh') .'</a> ]';
+        foreach($_POST as $name => $value) {
+            if (is_array($value)) {
+                foreach($value as $val) {
+                    $refreshButton .= '<input type="hidden" name="' . $name . '[]" value="' . $val . '">';
+                }
+            }
+            else {
+                $refreshButton .= '<input type="hidden" name="' . $name . '" value="' . $value . '">';
+            }
+        }
+        $refreshButton .= '</form>';
+        $html .= $refreshButton
+            . '<br />'
             . '<form name="nofunction">'
             . '<textarea name="sqldump" cols="50" rows="30" '
             . 'id="textSQLDUMP" wrap="OFF">';
 
-        return array($html, $back_button);
+        return array($html, $back_button, $refreshButton);
     }
 
     /**
