@@ -601,7 +601,7 @@ function PMA_makegrid(t, enableResize, enableReorder, enableVisib, enableGridEdi
                         });
                     // fill the cell edit with text from <td>
                     var value = PMA_getCellValue(cell);
-                    if($cell.attr('data-type') == 'json'){
+                    if(isJsonString(value)){
                         value = JSON.stringify(JSON.parse(value), null, 4);
                     }
                     $(g.cEdit).find('.edit_box').val(value);
@@ -1218,7 +1218,14 @@ function PMA_makegrid(t, enableResize, enableReorder, enableVisib, enableGridEdi
                         // The internal browser representation has to be just \n
                         // while form submitted value \r\n, see specification:
                         // https://www.w3.org/TR/html5/forms.html#the-textarea-element
-                        fields.push($this_field.data('value').replace(/\n/g, '\r\n'));
+                        var fieldvalue = $this_field.data('value');
+                        if (isJsonString(fieldvalue)) {
+                            fieldvalue = fieldvalue.replace(/[\r\n]/g, "").replace(/    /g,'');
+                        }
+                        else {
+                            fieldvalue = fieldvalue.replace(/\n/g, '\r\n');
+                        }
+                        fields.push(fieldvalue);
 
                         var cell_index = $this_field.index('.to_be_saved');
                         if ($this_field.is(":not(.relation, .enum, .set, .bit)")) {
