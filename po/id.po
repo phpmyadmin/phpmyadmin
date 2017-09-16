@@ -3,8 +3,8 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.8.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2017-09-08 21:11+0200\n"
-"PO-Revision-Date: 2017-09-14 03:07+0000\n"
-"Last-Translator: developerchan1 <developerchan1@gmail.com>\n"
+"PO-Revision-Date: 2017-09-17 23:06+0000\n"
+"Last-Translator: Andreas Lukita <ffvaand@gmail.com>\n"
 "Language-Team: Indonesian "
 "<https://hosted.weblate.org/projects/phpmyadmin/master/id/>\n"
 "Language: id\n"
@@ -5418,9 +5418,8 @@ msgid "Database name"
 msgstr "Nama basis data"
 
 #: libraries/classes/Config/Descriptions.php:1108
-#, fuzzy
 msgid "Port on which MySQL server is listening, leave empty for default."
-msgstr "Port yang server MySQL mendengarkan, biarkan kosong untuk default."
+msgstr "Port di server MySQL sedang mendengarkan, biarkan kosong untuk default."
 
 #: libraries/classes/Config/Descriptions.php:1110
 msgid "Server port"
@@ -5504,10 +5503,8 @@ msgid "Server socket"
 msgstr "Socket server"
 
 #: libraries/classes/Config/Descriptions.php:1147
-#, fuzzy
-#| msgid "Enable SSL for connection to MySQL server"
 msgid "Enable SSL for connection to MySQL server."
-msgstr "Aktifkan SSL untuk koneksi ke server MySQL"
+msgstr "Aktifkan SSL untuk koneksi ke server MySQL."
 
 #: libraries/classes/Config/Descriptions.php:1149
 msgid "Use SSL"
@@ -5757,10 +5754,8 @@ msgstr ""
 "semua tabel."
 
 #: libraries/classes/Config/Descriptions.php:1265
-#, fuzzy
-#| msgid "Table comments"
 msgid "Show table comments"
-msgstr "Komentar tabel"
+msgstr "Tampilkan komentar tabel"
 
 #: libraries/classes/Config/Descriptions.php:1267
 msgid "Show or hide a column displaying the Creation timestamp for all tables."
@@ -5773,11 +5768,10 @@ msgid "Show creation timestamp"
 msgstr "Tampilkan timestamp pembuatan"
 
 #: libraries/classes/Config/Descriptions.php:1271
-#, fuzzy
 msgid ""
 "Show or hide a column displaying the Last update timestamp for all tables."
 msgstr ""
-"Menampilkan atau menyembunyikan kolom menampilkan timestamp Terakhir "
+"Menampilkan atau menyembunyikan kolom yang menampilkan timestamp Terakhir "
 "diperbaharui untuk semua tabel."
 
 #: libraries/classes/Config/Descriptions.php:1273
@@ -5786,18 +5780,15 @@ msgid "Show last update timestamp"
 msgstr "Tampilkan pembaruan timestamp terakhir"
 
 #: libraries/classes/Config/Descriptions.php:1275
-#, fuzzy
 msgid ""
 "Show or hide a column displaying the Last check timestamp for all tables."
 msgstr ""
-"Menampilkan atau menyembunyikan kolom menampilkan cek timestamp terakhir "
-"untuk semua tabel."
+"Menampilkan atau menyembunyikan kolom yang menampilkan cek timestamp "
+"terakhir untuk semua tabel."
 
 #: libraries/classes/Config/Descriptions.php:1277
-#, fuzzy
-#| msgid "Show master status"
 msgid "Show last check timestamp"
-msgstr "Tampilkan status master"
+msgstr "Tampilkan cek timestamp terakhir"
 
 #: libraries/classes/Config/Descriptions.php:1279
 #, fuzzy
@@ -5826,20 +5817,16 @@ msgid "Show field types"
 msgstr "Tampilkan jenis isian"
 
 #: libraries/classes/Config/Descriptions.php:1290
-#, fuzzy
-#| msgid "Display the function fields in edit/insert mode"
 msgid "Display the function fields in edit/insert mode."
-msgstr "Menampilkan isian fungsi pada modus edit/tambahkan"
+msgstr "Menampilkan fungsi fields pada mode edit/tambah."
 
 #: libraries/classes/Config/Descriptions.php:1292
 msgid "Show function fields"
 msgstr "Tampilkan isian fungsi"
 
 #: libraries/classes/Config/Descriptions.php:1294
-#, fuzzy
-#| msgid "Where to show the table row links"
 msgid "Whether to show hint or not."
-msgstr "Tempat menampilkan tautan baris tabel"
+msgstr "Apakah menampilkan petunjuk atau tidak."
 
 #: libraries/classes/Config/Descriptions.php:1296
 msgid "Show hint"
@@ -5887,10 +5874,8 @@ msgstr ""
 
 #: libraries/classes/Config/Descriptions.php:1313
 #: libraries/sql_query_form.lib.php:355
-#, fuzzy
-#| msgid "Hide query box"
 msgid "Retain query box"
-msgstr "Sembunyikan kotak kueri"
+msgstr "Menahan kotak kueri"
 
 #: libraries/classes/Config/Descriptions.php:1315
 #, fuzzy
