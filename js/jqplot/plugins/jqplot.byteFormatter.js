@@ -4,8 +4,8 @@
  *
  * @package phpMyAdmin
  */
-(function($) {
-    "use strict";
+(function ($) {
+    'use strict';
     var formatByte = function (val, index) {
         var units = [
             PMA_messages.strB,
@@ -43,4 +43,4 @@
             }
         };
     };
-})(jQuery);
+}(jQuery));

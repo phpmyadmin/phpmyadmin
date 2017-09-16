@@ -11,7 +11,7 @@
 /**
  **  Display Help/Info
  **/
-function displayHelp() {
+function displayHelp () {
     $('<div />')
         .append(PMA_messages.strDisplayHelp)
         .appendTo('#page_content')
@@ -43,7 +43,7 @@ Array.min = function (array) {
  ** Checks if a string contains only numeric value
  ** @param n: String (to be checked)
  **/
-function isNumeric(n) {
+function isNumeric (n) {
     return !isNaN(parseFloat(n)) && isFinite(n);
 }
 
@@ -51,7 +51,7 @@ function isNumeric(n) {
  ** Checks if an object is empty
  ** @param n: Object (to be checked)
  **/
-function isEmpty(obj) {
+function isEmpty (obj) {
     var name;
     for (name in obj) {
         return false;
@@ -64,16 +64,14 @@ function isEmpty(obj) {
  ** @param val  String Date
  ** @param type Sring  Field type(datetime/timestamp/time/date)
  **/
-function getTimeStamp(val, type) {
+function getTimeStamp (val, type) {
     if (type.toString().search(/datetime/i) != -1 ||
         type.toString().search(/timestamp/i) != -1
     ) {
         return $.datepicker.parseDateTime('yy-mm-dd', 'HH:mm:ss', val);
-    }
-    else if (type.toString().search(/time/i) != -1) {
+    } else if (type.toString().search(/time/i) != -1) {
         return $.datepicker.parseDateTime('yy-mm-dd', 'HH:mm:ss', '1970-01-01 ' + val);
-    }
-    else if (type.toString().search(/date/i) != -1) {
+    } else if (type.toString().search(/date/i) != -1) {
         return $.datepicker.parseDate('yy-mm-dd', val);
     }
 }
@@ -82,7 +80,7 @@ function getTimeStamp(val, type) {
  ** Classifies the field type into numeric,timeseries or text
  ** @param field: field type (as in database structure)
  **/
-function getType(field) {
+function getType (field) {
     if (field.toString().search(/int/i) != -1 ||
         field.toString().search(/decimal/i) != -1 ||
         field.toString().search(/year/i) != -1
@@ -100,9 +98,9 @@ function getType(field) {
 /**
  ** Scrolls the view to the display section
  **/
-function scrollToChart() {
+function scrollToChart () {
     var x = $('#dataDisplay').offset().top - 100; // 100 provides buffer in viewport
-    $('html,body').animate({scrollTop: x}, 500);
+    $('html,body').animate({ scrollTop: x }, 500);
 }
 
 /**
@@ -115,14 +113,14 @@ AJAX.registerTeardown('tbl_zoom_plot_jqplot.js', function () {
     $('#tableid_3').off('change');
     $('#inputFormSubmitId').off('click');
     $('#togglesearchformlink').off('click');
-    $(document).off('keydown', "#dataDisplay :input");
+    $(document).off('keydown', '#dataDisplay :input');
     $('button.button-reset').off('click');
     $('div#resizer').off('resizestop');
     $('div#querychart').off('jqplotDataClick');
 });
 
 AJAX.registerOnload('tbl_zoom_plot_jqplot.js', function () {
-    var cursorMode = ($("input[name='mode']:checked").val() == 'edit') ? 'crosshair' : 'pointer';
+    var cursorMode = ($('input[name=\'mode\']:checked').val() == 'edit') ? 'crosshair' : 'pointer';
     var currentChart = null;
     var searchedDataKey = null;
     var xLabel = $('#tableid_0').val();
@@ -150,7 +148,7 @@ AJAX.registerOnload('tbl_zoom_plot_jqplot.js', function () {
 
     // first column choice corresponds to the X axis
     $('#tableid_0').change(function () {
-        //AJAX request for field type, collation, operators, and value field
+        // AJAX request for field type, collation, operators, and value field
         $.post('tbl_zoom_select.php', {
             'ajax_request' : true,
             'change_tbl_info' : true,
@@ -174,7 +172,7 @@ AJAX.registerOnload('tbl_zoom_plot_jqplot.js', function () {
 
     // second column choice corresponds to the Y axis
     $('#tableid_1').change(function () {
-        //AJAX request for field type, collation, operators, and value field
+        // AJAX request for field type, collation, operators, and value field
         $.post('tbl_zoom_select.php', {
             'ajax_request' : true,
             'change_tbl_info' : true,
@@ -197,7 +195,7 @@ AJAX.registerOnload('tbl_zoom_plot_jqplot.js', function () {
     });
 
     $('#tableid_2').change(function () {
-        //AJAX request for field type, collation, operators, and value field
+        // AJAX request for field type, collation, operators, and value field
         $.post('tbl_zoom_select.php', {
             'ajax_request' : true,
             'change_tbl_info' : true,
@@ -218,7 +216,7 @@ AJAX.registerOnload('tbl_zoom_plot_jqplot.js', function () {
     });
 
     $('#tableid_3').change(function () {
-        //AJAX request for field type, collation, operators, and value field
+        // AJAX request for field type, collation, operators, and value field
         $.post('tbl_zoom_select.php', {
             'ajax_request' : true,
             'change_tbl_info' : true,
@@ -280,8 +278,8 @@ AJAX.registerOnload('tbl_zoom_plot_jqplot.js', function () {
      * Handle saving of a row in the editor
      */
     buttonOptions[PMA_messages.strSave] = function () {
-        //Find changed values by comparing form values with selectedRow Object
-        var newValues = {};//Stores the values changed from original
+        // Find changed values by comparing form values with selectedRow Object
+        var newValues = {};// Stores the values changed from original
         var sqlTypes = {};
         var it = 0;
         var xChange = false;
@@ -294,7 +292,7 @@ AJAX.registerOnload('tbl_zoom_plot_jqplot.js', function () {
             var oldVal = selectedRow[key];
             var newVal = ($('#edit_fields_null_id_' + it).prop('checked')) ? null : $('#edit_fieldID_' + it).val();
             if (newVal instanceof Array) { // when the column is of type SET
-                newVal =  $('#edit_fieldID_' + it).map(tempGetVal).get().join(",");
+                newVal =  $('#edit_fieldID_' + it).map(tempGetVal).get().join(',');
             }
             if (oldVal != newVal) {
                 selectedRow[key] = newVal;
@@ -314,12 +312,12 @@ AJAX.registerOnload('tbl_zoom_plot_jqplot.js', function () {
                 sqlTypes[key] = null;
             }
             it++;
-        } //End data update
+        } // End data update
 
-        //Update the chart series and replot
+        // Update the chart series and replot
         if (xChange || yChange) {
-            //Logic similar to plot generation, replot only if xAxis changes or yAxis changes.
-            //Code includes a lot of checks so as to replot only when necessary
+            // Logic similar to plot generation, replot only if xAxis changes or yAxis changes.
+            // Code includes a lot of checks so as to replot only when necessary
             if (xChange) {
                 xCord[searchedDataKey] = selectedRow[xLabel];
                 // [searchedDataKey][0] contains the x value
@@ -335,7 +333,6 @@ AJAX.registerOnload('tbl_zoom_plot_jqplot.js', function () {
                 currentChart.series[0].data = series[0];
                 // TODO: axis changing
                 currentChart.replot();
-
             }
             if (yChange) {
                 yCord[searchedDataKey] = selectedRow[yLabel];
@@ -353,9 +350,9 @@ AJAX.registerOnload('tbl_zoom_plot_jqplot.js', function () {
                 // TODO: axis changing
                 currentChart.replot();
             }
-        } //End plot update
+        } // End plot update
 
-        //Generate SQL query for update
+        // Generate SQL query for update
         if (!isEmpty(newValues)) {
             var sql_query = 'UPDATE `' + PMA_commonParams.get('table') + '` SET ';
             for (key in newValues) {
@@ -368,19 +365,19 @@ AJAX.registerOnload('tbl_zoom_plot_jqplot.js', function () {
 
                 // empty
                 } else if ($.trim(value) === '') {
-                    sql_query += "'', ";
+                    sql_query += '\'\', ';
 
                 // other
                 } else {
                     // type explicitly identified
                     if (sqlTypes[key] !== null) {
                         if (sqlTypes[key] == 'bit') {
-                            sql_query += "b'" + value + "', ";
+                            sql_query += 'b\'' + value + '\', ';
                         }
                     // type not explicitly identified
                     } else {
                         if (!isNumeric(value)) {
-                            sql_query += "'" + value + "', ";
+                            sql_query += '\'' + value + '\', ';
                         } else {
                             sql_query += value + ', ';
                         }
@@ -391,28 +388,28 @@ AJAX.registerOnload('tbl_zoom_plot_jqplot.js', function () {
             sql_query = sql_query.substring(0, sql_query.length - 2);
             sql_query += ' WHERE ' + PMA_urldecode(searchedData[searchedDataKey].where_clause);
 
-            //Post SQL query to sql.php
+            // Post SQL query to sql.php
             $.post('sql.php', {
-                    'server' : PMA_commonParams.get('server'),
-                    'db' : PMA_commonParams.get('db'),
-                    'ajax_request' : true,
-                    'sql_query' : sql_query,
-                    'inline_edit' : false
-                }, function (data) {
-                    if (typeof data !== 'undefined' && data.success === true) {
-                        $('#sqlqueryresultsouter').html(data.sql_query);
-                        PMA_highlightSQL($('#sqlqueryresultsouter'));
-                    } else {
-                        PMA_ajaxShowMessage(data.error, false);
-                    }
-                }); //End $.post
-        }//End database update
-        $("#dataDisplay").dialog('close');
+                'server' : PMA_commonParams.get('server'),
+                'db' : PMA_commonParams.get('db'),
+                'ajax_request' : true,
+                'sql_query' : sql_query,
+                'inline_edit' : false
+            }, function (data) {
+                if (typeof data !== 'undefined' && data.success === true) {
+                    $('#sqlqueryresultsouter').html(data.sql_query);
+                    PMA_highlightSQL($('#sqlqueryresultsouter'));
+                } else {
+                    PMA_ajaxShowMessage(data.error, false);
+                }
+            }); // End $.post
+        }// End database update
+        $('#dataDisplay').dialog('close');
     };
     buttonOptions[PMA_messages.strCancel] = function () {
         $(this).dialog('close');
     };
-    $("#dataDisplay").dialog({
+    $('#dataDisplay').dialog({
         autoOpen: false,
         title: PMA_messages.strDataPointContent,
         modal: true,
@@ -427,7 +424,7 @@ AJAX.registerOnload('tbl_zoom_plot_jqplot.js', function () {
      * in the dialog. Used to submit the Ajax
      * request when the ENTER key is pressed.
      */
-    $(document).on('keydown', "#dataDisplay :input", function (e) {
+    $(document).on('keydown', '#dataDisplay :input', function (e) {
         if (e.which === 13) { // 13 is the ENTER key
             e.preventDefault();
             if (typeof buttonOptions[PMA_messages.strSave] === 'function') {
@@ -443,10 +440,10 @@ AJAX.registerOnload('tbl_zoom_plot_jqplot.js', function () {
 
     if (searchedData !== null) {
         $('#zoom_search_form')
-         .slideToggle()
-         .hide();
+            .slideToggle()
+            .hide();
         $('#togglesearchformlink')
-         .text(PMA_messages.strShowSearchCriteria);
+            .text(PMA_messages.strShowSearchCriteria);
         $('#togglesearchformdiv').show();
         var selectedRow;
         var colorCodes = ['#FF0000', '#00FFFF', '#0000FF', '#0000A0', '#FF0080', '#800080', '#FFFF00', '#00FF00', '#FF00FF'];
@@ -515,11 +512,11 @@ AJAX.registerOnload('tbl_zoom_plot_jqplot.js', function () {
                 format = '%Y-%m-%d';
             }
             // TODO: does not seem to work
-            //else if (originalXType == 'time') {
-              //  format = '%H:%M';
-            //} else {
+            // else if (originalXType == 'time') {
+            //  format = '%H:%M';
+            // } else {
             //    format = '%Y-%m-%d %H:%M';
-            //}
+            // }
             $.extend(options.axes.xaxis, {
                 renderer: $.jqplot.DateAxisRenderer,
                 tickOptions: {
@@ -558,7 +555,7 @@ AJAX.registerOnload('tbl_zoom_plot_jqplot.js', function () {
                 yVal,
                 // extra Y values
                 value[dataLabel], // for highlighter
-                                  // (may set an undefined value)
+                // (may set an undefined value)
                 value.where_clause, // for click on point
                 key               // key from searchedData
             ]);
@@ -580,7 +577,7 @@ AJAX.registerOnload('tbl_zoom_plot_jqplot.js', function () {
             // make room so that the handle will still appear
             $('div#querychart').height($('div#resizer').height() * 0.96);
             $('div#querychart').width($('div#resizer').width() * 0.96);
-            currentChart.replot({resetAxes: true});
+            currentChart.replot({ resetAxes: true });
         });
 
         $('div#querychart').bind('jqplotDataClick',
@@ -619,12 +616,12 @@ AJAX.registerOnload('tbl_zoom_plot_jqplot.js', function () {
                     selectedRow = data.row_info;
                 });
 
-                $("#dataDisplay").dialog("open");
+                $('#dataDisplay').dialog('open');
             }
         );
     }
 
-    $('#help_dialog').click(function(){
+    $('#help_dialog').click(function () {
         displayHelp();
     });
 });

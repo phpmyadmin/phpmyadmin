@@ -31,9 +31,9 @@ AJAX.registerOnload('server_variables.js', function () {
         var textFilter = null, val = $(this).val();
         if (val.length !== 0) {
             try {
-                textFilter = new RegExp("(^| )" + val.replace(/_/g, ' '), 'i');
+                textFilter = new RegExp('(^| )' + val.replace(/_/g, ' '), 'i');
                 $(this).removeClass('error');
-            } catch(e) {
+            } catch (e) {
                 if (e instanceof SyntaxError) {
                     $(this).addClass('error');
                     textFilter = null;
@@ -49,7 +49,7 @@ AJAX.registerOnload('server_variables.js', function () {
     }
 
     /* Filters the rows by the user given regexp */
-    function filterVariables(textFilter) {
+    function filterVariables (textFilter) {
         var mark_next = false, $row;
         $('#serverVariables').find('.var-row').not('.var-header').each(function () {
             $row = $(this);
@@ -67,7 +67,7 @@ AJAX.registerOnload('server_variables.js', function () {
     }
 
     /* Allows the user to edit a server variable */
-    function editVariable(link) {
+    function editVariable (link) {
         var $link = $(link);
         var $cell = $link.parent();
         var $valueCell = $link.parents('.var-row').find('.var-value');
@@ -83,26 +83,26 @@ AJAX.registerOnload('server_variables.js', function () {
         $mySaveLink.click(function () {
             var $msgbox = PMA_ajaxShowMessage(PMA_messages.strProcessingRequest);
             $.post($(this).attr('href'), {
-                    ajax_request: true,
-                    type: 'setval',
-                    varName: varName,
-                    varValue: $valueCell.find('input').val()
-                }, function (data) {
-                    if (data.success) {
-                        $valueCell
-                            .html(data.variable)
-                            .data('content', data.variable);
-                        PMA_ajaxRemoveMessage($msgbox);
+                ajax_request: true,
+                type: 'setval',
+                varName: varName,
+                varValue: $valueCell.find('input').val()
+            }, function (data) {
+                if (data.success) {
+                    $valueCell
+                        .html(data.variable)
+                        .data('content', data.variable);
+                    PMA_ajaxRemoveMessage($msgbox);
+                } else {
+                    if (data.error == '') {
+                        PMA_ajaxShowMessage(PMA_messages.strRequestFailed, false);
                     } else {
-                        if (data.error == '') {
-                            PMA_ajaxShowMessage(PMA_messages.strRequestFailed, false);
-                        } else {
-                            PMA_ajaxShowMessage(data.error, false);
-                        }
-                        $valueCell.html($valueCell.data('content'));
+                        PMA_ajaxShowMessage(data.error, false);
                     }
-                    $cell.removeClass('edit').html($myEditLink);
-                });
+                    $valueCell.html($valueCell.data('content'));
+                }
+                $cell.removeClass('edit').html($myEditLink);
+            });
             return false;
         });
 
@@ -113,25 +113,25 @@ AJAX.registerOnload('server_variables.js', function () {
         });
 
         $.get($mySaveLink.attr('href'), {
-                ajax_request: true,
-                type: 'getval',
-                varName: varName
-            }, function (data) {
-                if (typeof data !== 'undefined' && data.success === true) {
-                    var $links = $('<div />')
-                        .append($myCancelLink)
-                        .append('&nbsp;&nbsp;&nbsp;')
-                        .append($mySaveLink);
-                    var $editor = $('<div />', {'class': 'serverVariableEditor'})
-                        .append(
-                            $('<div/>').append(
-                                $('<input />', {type: 'text'}).val(data.message)
-                            )
-                        );
+            ajax_request: true,
+            type: 'getval',
+            varName: varName
+        }, function (data) {
+            if (typeof data !== 'undefined' && data.success === true) {
+                var $links = $('<div />')
+                    .append($myCancelLink)
+                    .append('&nbsp;&nbsp;&nbsp;')
+                    .append($mySaveLink);
+                var $editor = $('<div />', { 'class': 'serverVariableEditor' })
+                    .append(
+                        $('<div/>').append(
+                            $('<input />', { type: 'text' }).val(data.message)
+                        )
+                    );
                     // Save and replace content
-                    $cell
+                $cell
                     .html($links);
-                    $valueCell
+                $valueCell
                     .data('content', $valueCell.html())
                     .html($editor)
                     .find('input')
@@ -143,11 +143,11 @@ AJAX.registerOnload('server_variables.js', function () {
                             $myCancelLink.trigger('click');
                         }
                     });
-                    PMA_ajaxRemoveMessage($msgbox);
-                } else {
-                    $cell.removeClass('edit').html($myEditLink);
-                    PMA_ajaxShowMessage(data.error);
-                }
-            });
+                PMA_ajaxRemoveMessage($msgbox);
+            } else {
+                $cell.removeClass('edit').html($myEditLink);
+                PMA_ajaxShowMessage(data.error);
+            }
+        });
     }
 });

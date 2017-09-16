@@ -21,14 +21,13 @@
  */
 AJAX.registerTeardown('db_qbe.js', function () {
     $(document).off('change', 'select[name^=criteriaColumn]');
-    $(document).off('change', "#searchId");
-    $(document).off('click', "#saveSearch");
-    $(document).off('click', "#updateSearch");
-    $(document).off('click', "#deleteSearch");
+    $(document).off('change', '#searchId');
+    $(document).off('click', '#saveSearch');
+    $(document).off('click', '#updateSearch');
+    $(document).off('click', '#deleteSearch');
 });
 
 AJAX.registerOnload('db_qbe.js', function () {
-
     PMA_getSQLEditor($('#textSqlquery'), {}, 'both');
 
     /**
@@ -44,7 +43,7 @@ AJAX.registerOnload('db_qbe.js', function () {
     /**
      * Ajax event handlers for 'Select saved search'
      */
-    $(document).on('change', "#searchId", function (event) {
+    $(document).on('change', '#searchId', function (event) {
         $('#action').val('load');
         $('#formQBE').submit();
     });
@@ -52,22 +51,22 @@ AJAX.registerOnload('db_qbe.js', function () {
     /**
      * Ajax event handlers for 'Create bookmark'
      */
-    $(document).on('click', "#saveSearch", function () {
+    $(document).on('click', '#saveSearch', function () {
         $('#action').val('create');
     });
 
     /**
      * Ajax event handlers for 'Update bookmark'
      */
-    $(document).on('click', "#updateSearch", function (event) {
+    $(document).on('click', '#updateSearch', function (event) {
         $('#action').val('update');
     });
 
     /**
      * Ajax event handlers for 'Delete bookmark'
      */
-    $(document).on('click', "#deleteSearch", function (event) {
-        var question = PMA_sprintf(PMA_messages.strConfirmDeleteQBESearch, $("#searchId").find("option:selected").text());
+    $(document).on('click', '#deleteSearch', function (event) {
+        var question = PMA_sprintf(PMA_messages.strConfirmDeleteQBESearch, $('#searchId').find('option:selected').text());
         if (!confirm(question)) {
             return false;
         }
@@ -76,5 +75,5 @@ AJAX.registerOnload('db_qbe.js', function () {
     });
 
     var windowwidth = $(window).width();
-    $('.jsresponsive').css('max-width', (windowwidth - 35 ) + 'px');
+    $('.jsresponsive').css('max-width', (windowwidth - 35) + 'px');
 });

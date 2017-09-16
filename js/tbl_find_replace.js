@@ -10,7 +10,6 @@ AJAX.registerTeardown('tbl_find_replace.js', function () {
  * Bind events
  */
 AJAX.registerOnload('tbl_find_replace.js', function () {
-
     $('<div id="toggle_find_div"><a id="toggle_find"></a></div>')
         .insertAfter('#find_replace_form')
         .hide();
@@ -38,9 +37,9 @@ AJAX.registerOnload('tbl_find_replace.js', function () {
             if (data.success === true) {
                 $('#toggle_find_div').show();
                 $('#toggle_find').click();
-                $("#sqlqueryresultsouter").html(data.preview);
+                $('#sqlqueryresultsouter').html(data.preview);
             } else {
-                $("#sqlqueryresultsouter").html(data.error);
+                $('#sqlqueryresultsouter').html(data.error);
             }
         });
     });

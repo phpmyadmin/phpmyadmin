@@ -16,7 +16,6 @@ AJAX.registerTeardown('server_status_variables.js', function () {
 });
 
 AJAX.registerOnload('server_status_variables.js', function () {
-
     // Filters for status variables
     var textFilter = null;
     var alertFilter = $('#filterAlert').prop('checked');
@@ -48,9 +47,9 @@ AJAX.registerOnload('server_status_variables.js', function () {
             textFilter = null;
         } else {
             try {
-                textFilter = new RegExp("(^| )" + word, 'i');
+                textFilter = new RegExp('(^| )' + word, 'i');
                 $(this).removeClass('error');
-            } catch(e) {
+            } catch (e) {
                 if (e instanceof SyntaxError) {
                     $(this).addClass('error');
                     textFilter = null;
@@ -62,7 +61,7 @@ AJAX.registerOnload('server_status_variables.js', function () {
     }).trigger('keyup');
 
     /* Filters the status variables by name/category/alert in the variables tab */
-    function filterVariables() {
+    function filterVariables () {
         var useful_links = 0;
         var section = text;
 
