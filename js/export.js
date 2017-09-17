@@ -237,6 +237,24 @@ AJAX.registerTeardown('export.js', function () {
 });
 
 AJAX.registerOnload('export.js', function () {
+    /**
+     * Filter table list
+     */
+    $("#filterText").keyup(function() {
+        var filterInput = $(this).val().toUpperCase();
+        $('.export_table_select tbody tr').each(function() {
+            var tr = $(this);
+            var td = tr.find('td.export_table_name');
+            if (td) {
+                var tdText = td.html().trim().toUpperCase();
+                if (tdText.indexOf(filterInput) > -1) {
+                    tr.show();
+                } else {
+                    tr.hide();
+                }
+            }
+        });
+    });
 
     /**
      * Export template handling code
