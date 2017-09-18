@@ -4,10 +4,10 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.8.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2017-09-08 21:11+0200\n"
-"PO-Revision-Date: 2017-09-04 10:14+0000\n"
-"Last-Translator: Piotr Strebski <strebski@o2.pl>\n"
-"Language-Team: Polish <https://hosted.weblate.org/projects/phpmyadmin/master/"
-"pl/>\n"
+"PO-Revision-Date: 2017-09-18 17:24+0000\n"
+"Last-Translator: Stanisław Krukowski <stdf021@riseup.net>\n"
+"Language-Team: Polish "
+"<https://hosted.weblate.org/projects/phpmyadmin/master/pl/>\n"
 "Language: pl\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -35,7 +35,7 @@ msgstr "Centralna lista kolumn dla obecnej bazy danych jest pusta."
 
 #: db_central_columns.php:135
 msgid "Click to sort."
-msgstr "Kliknij, by posortować."
+msgstr "Kliknij, aby posortować."
 
 #: db_central_columns.php:152
 #, php-format
@@ -352,11 +352,12 @@ msgstr "Dane śledzenia zostały poprawnie usunięte."
 msgid ""
 "Version %1$s was created for selected tables, tracking is active for them."
 msgstr ""
-"Wersja %1$s została utworzona dla wybranej tabeli, śledzenie jest aktywne."
+"Dla wybranych tabel została stworzona wersja%1$s, śledzenie jest dla nich "
+"aktywne."
 
 #: db_tracking.php:95
 msgid "No tables selected."
-msgstr "Nie wybrano tabeli."
+msgstr "Nie wybrano żadnych tabel."
 
 #: db_tracking.php:152
 msgid "Database Log"
@@ -367,30 +368,30 @@ msgid ""
 "An error has been detected and an error report has been automatically "
 "submitted based on your settings."
 msgstr ""
-"Wykryto błąd. Zgłoszenie błędu zostało automatycznie wysłane, zgodnie z "
-"Twoimi ustawieniami."
+"Wykryto błąd. Na podstawie twoich ustawień został automatycznie wysłany "
+"raport na temat tego błędu."
 
 #: error_report.php:72
 msgid "Thank you for submitting this report."
-msgstr "Dziękujemy za wysłanie raportu."
+msgstr "Dziękujemy za wysłanie tego raportu."
 
 #: error_report.php:76
 msgid ""
 "An error has been detected and an error report has been generated but failed "
 "to be sent."
 msgstr ""
-"Wykryto błąd. Zgłoszenie błędu zostało automatycznie wysłane, zgodnie z "
-"Twoimi ustawieniami."
+"Wykryto błąd. Na podstawie twoich ustawień został automatycznie wysłany "
+"raport na temat tego błędu, lecz nie udało się go wysłać."
 
 #: error_report.php:81
 msgid "If you experience any problems please submit a bug report manually."
 msgstr ""
-"W przypadku jakichkolwiek problemów prosimy o przysłanie zgłoszenia błędu "
-"ręcznie."
+"Jeśli masz jakieś problemy, to prosimy o przesłanie raportu (ang. bug report)"
+" ręcznie."
 
 #: error_report.php:85
 msgid "You may want to refresh the page."
-msgstr "Możesz odświeżyć stronę."
+msgstr "Jeśli chcesz, możesz odświeżyć stronę."
 
 #: export.php:279
 msgid "Bad parameters!"
@@ -404,7 +405,7 @@ msgstr "Wartość dla kolumny \"%s\""
 #: gis_data_editor.php:149
 #: templates/table/gis_visualization/gis_visualization.twig:113
 msgid "Use OpenStreetMaps as Base Layer"
-msgstr "Użyj OpenStreetMaps jako Podstawowej Warstwy"
+msgstr "Użyj OpenStreetMaps jako Warstwy Podstawowej"
 
 #. l10n: Spatial Reference System Identifier
 #: gis_data_editor.php:171
@@ -533,15 +534,15 @@ msgstr ""
 
 #: import.php:64
 msgid "Succeeded"
-msgstr "Sukces"
+msgstr "Udało się"
 
 #: import.php:68 js/messages.php:614
 msgid "Failed"
-msgstr "Nieudane"
+msgstr "Nie udało się"
 
 #: import.php:72
 msgid "Incomplete params"
-msgstr "Niekompletne parametry"
+msgstr "Parametry są niekompletne"
 
 #: import.php:196
 #, php-format
@@ -549,12 +550,12 @@ msgid ""
 "You probably tried to upload a file that is too large. Please refer to "
 "%sdocumentation%s for a workaround for this limit."
 msgstr ""
-"Prawdopodobnie nastąpiła próba załadowania zbyt dużego pliku. Proszę "
-"zapoznać się %sdokumentacją%s, aby obejść to ograniczenie."
+"Prawdopodobnie próbowano wczytać zbyt duży plik. Proszę zapoznać się z "
+"%sdokumentacją%s, aby obejść to ograniczenie."
 
 #: import.php:366 import.php:567
 msgid "Showing bookmark"
-msgstr "Wyświetlanie zakładki"
+msgstr "Pokazywanie zakładki"
 
 #: import.php:382 import.php:563
 msgid "The bookmark has been deleted."
@@ -567,7 +568,7 @@ msgid ""
 "[doc@faq1-16]FAQ 1.16[/doc]."
 msgstr ""
 "Nie otrzymano żadnych danych do importu. Albo nie dostarczono nazwy pliku, "
-"albo jego rozmiar przekroczył rozmiar maksymalny, dozwolony przez "
+"albo jego rozmiar przekroczył rozmiar maksymalny, dozwolony przez twoją "
 "konfigurację PHP. Zobacz [doc@faq1-16]FAQ 1.16[/doc]."
 
 #: import.php:528 libraries/classes/Display/Import.php:673
@@ -804,7 +805,8 @@ msgstr ""
 #: index.php:535
 msgid "The secret passphrase in configuration (blowfish_secret) is too short."
 msgstr ""
-"Klucz szyfrujący (blowfish_secret) podany w konfiguracji jest zbyt krótki."
+"Tajne wyrażenie hasłowe (ang. secret passphrase), podane w konfiguracji "
+"(blowfish_secret), jest zbyt krótkie."
 
 #: index.php:549
 msgid ""
@@ -833,8 +835,8 @@ msgstr ""
 msgid ""
 "Or alternately go to 'Operations' tab of any database to set it up there."
 msgstr ""
-"Możesz też przejść do zakładki 'Operacje' w dowolnej bazie danych, aby tam "
-"to skonfigurować."
+"Lub, alternatywnie, przejdź do zakładki 'Operacje', w dowolnej bazie danych, "
+"aby tam to skonfigurować."
 
 #: index.php:597
 #, php-format
