@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.7.4-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2017-08-10 09:13-0400\n"
-"PO-Revision-Date: 2017-09-17 23:06+0000\n"
-"Last-Translator: Andreas Lukita <ffvaand@gmail.com>\n"
+"PO-Revision-Date: 2017-09-19 05:18+0000\n"
+"Last-Translator: Linus Randu <linusrandu23@gmail.com>\n"
 "Language-Team: Indonesian "
 "<https://hosted.weblate.org/projects/phpmyadmin/4-7/id/>\n"
 "Language: id\n"
@@ -6030,7 +6030,6 @@ msgid "Use hexadecimal for BINARY & BLOB"
 msgstr "Gunakan heksadesimal untuk BINARY & BLOB"
 
 #: libraries/config/messages.inc.php:211
-#, fuzzy
 msgid ""
 "Add IF NOT EXISTS (less efficient as indexes will be generated during table "
 "creation)"
@@ -6790,7 +6789,6 @@ msgid "Show tables in tree"
 msgstr "Tampilkan tabel pada cabang"
 
 #: libraries/config/messages.inc.php:521
-#, fuzzy
 msgid "Whether to show tables under database in the navigation tree"
 msgstr "Apakah akan menampilkan tabel di bawah database di pohon navigasi"
 
@@ -6802,7 +6800,7 @@ msgstr "Tampilkan Views dalam bentuk bercabang"
 #, fuzzy
 #| msgid "Show hidden navigation tree items."
 msgid "Whether to show views under database in the navigation tree"
-msgstr "Tampilkan navigasi pohon item tersembunyi."
+msgstr "Apakah menampilkan views di bawah database di pohon navigasi"
 
 #: libraries/config/messages.inc.php:525
 msgid "Show functions in tree"
@@ -6818,21 +6816,18 @@ msgid "Show procedures in tree"
 msgstr "Tampilkan prosedur di percabangan"
 
 #: libraries/config/messages.inc.php:530
-#, fuzzy
 msgid "Whether to show procedures under database in the navigation tree"
-msgstr "Apakah akan menampilkan prosedur di bawah database di navigasi"
+msgstr "Apakah akan menampilkan prosedur di bawah database di pohon navigasi"
 
 #: libraries/config/messages.inc.php:531
-#, fuzzy
-#| msgid "Show versions"
 msgid "Show events in tree"
-msgstr "Tunjukkan Versi"
+msgstr "Tunjukkan events dalam pohon"
 
 #: libraries/config/messages.inc.php:533
 #, fuzzy
 #| msgid "Show hidden navigation tree items."
 msgid "Whether to show events under database in the navigation tree"
-msgstr "Tampilkan kejadian pada database di pohon navigasi."
+msgstr "Entah untuk menampilkan events di bawah database di pohon navigasi"
 
 #: libraries/config/messages.inc.php:535
 msgid "Maximum number of recently used tables; set 0 to disable."
@@ -6840,11 +6835,8 @@ msgstr ""
 "Jumlah maksimum tabel yang terakhir digunakan; atur 0 untuk menonaktifkannya."
 
 #: libraries/config/messages.inc.php:537
-#, fuzzy
-#| msgid "Maximum number of recently used tables; set 0 to disable."
 msgid "Maximum number of favorite tables; set 0 to disable."
-msgstr ""
-"Jumlah maksimum tabel yang terakhir digunakan; atur 0 untuk menonaktifkannya."
+msgstr "Jumlah maksimum tabel favorit; atur 0 untuk menonaktifkannya."
 
 #: libraries/config/messages.inc.php:538
 msgid "Recently used tables"
@@ -6859,9 +6851,8 @@ msgid "Where to show the table row links"
 msgstr "Tempat menampilkan tautan baris tabel"
 
 #: libraries/config/messages.inc.php:543
-#, fuzzy
 msgid "Whether to show row links even in the absence of a unique key."
-msgstr "Apakah akan menampilkan link baris bahkan tanpa adanya unique key."
+msgstr "Apakah untuk menampilkan link baris bahkan tanpa adanya unique key."
 
 #: libraries/config/messages.inc.php:545
 msgid "Show row links anyway"
@@ -7004,10 +6995,8 @@ msgid "Default sort order for tables with a primary key."
 msgstr "Urutan default untuk tabel dengan primary key."
 
 #: libraries/config/messages.inc.php:600
-#, fuzzy
-#| msgid "Default sorting order"
 msgid "Primary key default sort order"
-msgstr "Urutan bawaan"
+msgstr "Urutan default primary key"
 
 #: libraries/config/messages.inc.php:602
 msgid ""
@@ -7071,12 +7060,11 @@ msgid "Session timezone"
 msgstr "Sesi zona waktu"
 
 #: libraries/config/messages.inc.php:619
-#, fuzzy
 msgid ""
 "Sets the effective timezone; possibly different than the one from your "
 "database server"
 msgstr ""
-"Menetapkan zona waktu yang efektif; mungkin berbeda dari yang dari server "
+"Menetapkan zona waktu yang efektif; mungkin berbeda dengan yang dari server "
 "database Anda"
 
 #: libraries/config/messages.inc.php:623
@@ -7134,18 +7122,13 @@ msgid "Control user password"
 msgstr "Sandi pengguna pengendali"
 
 #: libraries/config/messages.inc.php:641
-#, fuzzy
-#| msgid ""
-#| "A special MySQL user configured with limited permissions, more "
-#| "information available on [a@https://wiki.phpmyadmin.net/pma/"
-#| "controluser]wiki[/a]."
 msgid ""
 "A special MySQL user configured with limited permissions, more information "
 "available on [doc@linked-tables]documentation[/doc]."
 msgstr ""
 "Seorang pengguna khusus MySQL dikonfigurasi dengan hak akses yang terbatas, "
-"informasi lebih lanjut yang tersedia pada [a@https://wiki.phpmyadmin.net/pma/"
-"controluser]wiki[/a]."
+"informasi lebih lanjut tersedia pada "
+"[a@https://wiki.phpmyadmin.net/pma/controluser]wiki[/a]."
 
 #: libraries/config/messages.inc.php:644
 msgid "Control user"
@@ -7249,14 +7232,12 @@ msgid ""
 "Leave blank for no QBE saved searches support, suggested: "
 "[kbd]pma__savedsearches[/kbd]."
 msgstr ""
-"Biarkan kosong agar tidak mendukung skema PDF, saran: [kbd]pma__pdf_pages[/"
-"kbd]."
+"Biarkan kosong untuk menonaktifkan QBE saved search support, saran: "
+"[kbd]pma__pdf_pages[/kbd]."
 
 #: libraries/config/messages.inc.php:683
-#, fuzzy
-#| msgid "Export views as tables"
 msgid "Export templates table"
-msgstr "Mengekspor tampilan sebagai tabel"
+msgstr "Mengekspor templates sebagai tabel"
 
 #: libraries/config/messages.inc.php:685
 #, fuzzy
@@ -7287,15 +7268,14 @@ msgstr ""
 "saran: [kbd]pma_userconfig[/kbd]"
 
 #: libraries/config/messages.inc.php:694
-#, fuzzy
 msgid ""
 "You can use MySQL wildcard characters (% and _), escape them if you want to "
 "use their literal instances, i.e. use [kbd]'my\\_db'[/kbd] and not "
 "[kbd]'my_db'[/kbd]."
 msgstr ""
-"Anda dapat menggunakan karakter wildcard MySQL  (% dan _), loloskan jika "
-"Anda ingin menggunakan contoh literal, yaitu gunakan [kbd]'my\\_db'[/kbd] "
-"dan bukan [kbd]'my_db'[/kbd]."
+"Anda dapat menggunakan karakter wildcard MySQL  (% dan _), lewati jika Anda "
+"ingin menggunakan contoh literal, sebagai contohnya gunakan [kbd]'my\\"
+"_db'[/kbd] dan bukan [kbd]'my_db'[/kbd]."
 
 #: libraries/config/messages.inc.php:698
 msgid "Show only listed databases"
