@@ -618,8 +618,19 @@ function setupConfigTabs() {
     });
 }
 
+function adjustPrefsNotification() {
+     var $prefsAutoLoad = $('#prefs_autoload');
+     var $tableNameControl = $('#table_name_col_no');
+     var $prefsAutoShowing = ($prefsAutoLoad.css('display') !== 'none');
+
+     if ($prefsAutoShowing && $tableNameControl.length) {
+        $tableNameControl.css('top', '120px');
+     }
+}
+
 AJAX.registerOnload('config.js', function () {
     setupConfigTabs();
+    adjustPrefsNotification();
 
     // tab links handling, check each 200ms
     // (works with history in FF, further browser support here would be an overkill)
