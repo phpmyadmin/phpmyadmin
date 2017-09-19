@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.8.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2017-09-08 21:11+0200\n"
-"PO-Revision-Date: 2017-09-18 17:24+0000\n"
+"PO-Revision-Date: 2017-09-20 10:47+0000\n"
 "Last-Translator: Stanisław Krukowski <stdf021@riseup.net>\n"
 "Language-Team: Polish "
 "<https://hosted.weblate.org/projects/phpmyadmin/master/pl/>\n"
@@ -16332,8 +16332,6 @@ msgid "Track view"
 msgstr "Śledź tabelę"
 
 #: templates/table/secondary_tabs.twig:29
-#, fuzzy
-#| msgid "Relation view"
 msgid "Relation view"
 msgstr "Widok relacyjny"
 
