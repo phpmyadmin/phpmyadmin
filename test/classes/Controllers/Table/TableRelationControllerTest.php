@@ -5,22 +5,18 @@
  *
  * @package PhpMyAdmin-test
  */
+namespace PhpMyAdmin\Tests\Controllers\Table;
 
-/*
- * Include to test.
- */
 use PhpMyAdmin\Di\Container;
 use PhpMyAdmin\Tests\Stubs\Response as ResponseStub;
 use PhpMyAdmin\Theme;
-
-require_once 'test/PMATestCase.php';
 
 /**
  * Tests for libraries/controllers/TableRelationController.php
  *
  * @package PhpMyAdmin-test
  */
-class TableRelationControllerTest extends PMATestCase
+class TableRelationControllerTest extends \PMATestCase
 {
     /**
      * @var \PhpMyAdmin\Tests\Stubs\Response

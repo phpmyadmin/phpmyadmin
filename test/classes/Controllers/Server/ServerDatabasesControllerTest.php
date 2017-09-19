@@ -5,13 +5,14 @@
  *
  * @package PhpMyAdmin-test
  */
+namespace PhpMyAdmin\Tests\Controllers\Server;
 
 use PhpMyAdmin\Charsets;
+use PhpMyAdmin\Config;
 use PhpMyAdmin\Di\Container;
 use PhpMyAdmin\Tests\Stubs\Response as ResponseStub;
 use PhpMyAdmin\Theme;
-
-require_once 'test/PMATestCase.php';
+use ReflectionClass;
 
 /**
  * Tests for ServerDatabasesController class
@@ -19,7 +20,7 @@ require_once 'test/PMATestCase.php';
  * @package PhpMyAdmin-test
  */
 
-class ServerDatabasesControllerTest extends PMATestCase
+class ServerDatabasesControllerTest extends \PMATestCase
 {
     /**
      * Prepares environment for the test.
@@ -33,7 +34,7 @@ class ServerDatabasesControllerTest extends PMATestCase
         $_REQUEST['pos'] = 3;
 
         //$GLOBALS
-        $GLOBALS['PMA_Config'] = new PhpMyAdmin\Config();
+        $GLOBALS['PMA_Config'] = new Config();
         $GLOBALS['PMA_Config']->enableBc();
         $GLOBALS['is_superuser'] = true;
 

@@ -5,25 +5,23 @@
  *
  * @package PhpMyAdmin-test
  */
+namespace PhpMyAdmin\Tests\Controllers\Table;
 
-/*
- * Include to test.
- */
 use PhpMyAdmin\Controllers\Table\TableSearchController;
 use PhpMyAdmin\Di\Container;
 use PhpMyAdmin\Relation;
 use PhpMyAdmin\Tests\Stubs\Response as ResponseStub;
 use PhpMyAdmin\Theme;
 use PhpMyAdmin\TypesMySQL;
-
-require_once 'test/PMATestCase.php';
+use ReflectionClass;
+use stdClass;
 
 /**
  * Tests for PMA_TableSearch
  *
  * @package PhpMyAdmin-test
  */
-class TableSearchControllerTest extends PMATestCase
+class TableSearchControllerTest extends \PMATestCase
 {
     /**
      * @var PhpMyAdmin\Tests\Stubs\Response

@@ -5,21 +5,22 @@
  *
  * @package PhpMyAdmin-test
  */
+namespace PhpMyAdmin\Tests\Controllers\Server;
 
 use PhpMyAdmin\Core;
 use PhpMyAdmin\Di\Container;
 use PhpMyAdmin\Tests\Stubs\Response as ResponseStub;
 use PhpMyAdmin\Theme;
 use PhpMyAdmin\Url;
-
-require_once 'test/PMATestCase.php';
+use PhpMyAdmin\Util;
+use ReflectionClass;
 
 /**
  * Tests for ServerVariablesController class
  *
  * @package PhpMyAdmin-test
  */
-class ServerVariablesControllerTest extends PMATestCase
+class ServerVariablesControllerTest extends \PMATestCase
 {
     /**
      * @var \PhpMyAdmin\Tests\Stubs\Response
@@ -184,11 +185,11 @@ class ServerVariablesControllerTest extends PMATestCase
         );
         //validate 2: images
         $this->assertContains(
-            PhpMyAdmin\Util::getIcon('b_save.png', __('Save')),
+            Util::getIcon('b_save.png', __('Save')),
             $html
         );
         $this->assertContains(
-            PhpMyAdmin\Util::getIcon('b_close.png', __('Cancel')),
+            Util::getIcon('b_close.png', __('Cancel')),
             $html
         );
     }

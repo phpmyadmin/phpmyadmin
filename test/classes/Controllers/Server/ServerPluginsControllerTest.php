@@ -5,22 +5,19 @@
  *
  * @package PhpMyAdmin-test
  */
+namespace PhpMyAdmin\Tests\Controllers\Server;
 
-/*
- * Include to test.
- */
-use PhpMyAdmin\Theme;
 use PhpMyAdmin\Controllers\Server\ServerPluginsController;
 use PhpMyAdmin\Di\Container;
-
-require_once 'test/PMATestCase.php';
+use PhpMyAdmin\Theme;
+use ReflectionClass;
 
 /**
  * Tests for ServerPluginsController class
  *
  * @package PhpMyAdmin-test
  */
-class ServerPluginsControllerTest extends PMATestCase
+class ServerPluginsControllerTest extends \PMATestCase
 {
     /**
      * Prepares environment for the test.

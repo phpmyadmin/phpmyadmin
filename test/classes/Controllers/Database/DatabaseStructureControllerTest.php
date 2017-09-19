@@ -1,32 +1,29 @@
 <?php
 /* vim: set expandtab sw=4 ts=4 sts=4: */
 /**
- * DatabaseStructureController_Test class
+ * DatabaseStructureControllerTest class
  *
  * this class is for testing DatabaseStructureController class
  *
  * @package PhpMyAdmin-test
  */
+namespace PhpMyAdmin\Tests\Controllers\Database;
 
-/*
- * Include to test.
- */
 use PhpMyAdmin\Controllers\Database\DatabaseStructureController;
 use PhpMyAdmin\Di\Container;
 use PhpMyAdmin\Table;
 use PhpMyAdmin\Tests\Stubs\Response as ResponseStub;
 use PhpMyAdmin\Theme;
-
-require_once 'test/PMATestCase.php';
+use ReflectionClass;
 
 /**
- * DatabaseStructureController_Test class
+ * DatabaseStructureControllerTest class
  *
  * this class is for testing DatabaseStructureController class
  *
  * @package PhpMyAdmin-test
  */
-class DatabaseStructureControllerTest extends PMATestCase
+class DatabaseStructureControllerTest extends \PMATestCase
 {
     /**
      * @var \PhpMyAdmin\Tests\Stubs\Response

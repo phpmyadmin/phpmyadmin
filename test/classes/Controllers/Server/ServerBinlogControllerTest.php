@@ -5,20 +5,20 @@
  *
  * @package PhpMyAdmin-test
  */
+namespace PhpMyAdmin\Tests\Controllers\Server;
 
 use PhpMyAdmin\Theme;
 use PhpMyAdmin\Controllers\Server\ServerBinlogController;
 use PhpMyAdmin\Di\Container;
 use PhpMyAdmin\Util;
-
-require_once 'test/PMATestCase.php';
+use ReflectionClass;
 
 /**
  * Tests for ServerCollationsController class
  *
  * @package PhpMyAdmin-test
  */
-class ServerBinlogControllerTest extends PMATestCase
+class ServerBinlogControllerTest extends \PMATestCase
 {
     /**
      * Prepares environment for the test.

@@ -5,25 +5,24 @@
  *
  * @package PhpMyAdmin-test
  */
+namespace PhpMyAdmin\Tests\Controllers\Table;
 
 use PhpMyAdmin\Controllers\Table\TableIndexesController;
 use PhpMyAdmin\Di\Container;
+use PhpMyAdmin\Index;
+use PhpMyAdmin\Message;
 use PhpMyAdmin\Response;
 use PhpMyAdmin\Tests\Stubs\Response as ResponseStub;
 use PhpMyAdmin\Theme;
 use PhpMyAdmin\Url;
-
-/*
- * Include to test.
- */
-require_once 'test/PMATestCase.php';
+use PhpMyAdmin\Util;
 
 /**
  * Tests for libraries/controllers/TableIndexesController.php
  *
  * @package PhpMyAdmin-test
  */
-class TableIndexesControllerTest extends PMATestCase
+class TableIndexesControllerTest extends \PMATestCase
 {
     /**
      * Setup function for test cases
@@ -152,7 +151,7 @@ class TableIndexesControllerTest extends PMATestCase
         $response = new ResponseStub();
         $container->set('PhpMyAdmin\Response', $response);
         $container->alias('response', 'PhpMyAdmin\Response');
-        $index = new PhpMyAdmin\Index();
+        $index = new Index();
 
         $ctrl = new TableIndexesController($index);
 
@@ -173,8 +172,8 @@ class TableIndexesControllerTest extends PMATestCase
             $html
         );
 
-        $doc_html = PhpMyAdmin\Util::showHint(
-            PhpMyAdmin\Message::notice(
+        $doc_html = Util::showHint(
+            Message::notice(
                 __(
                     '"PRIMARY" <b>must</b> be the name of'
                     . ' and <b>only of</b> a primary key!'
@@ -187,7 +186,7 @@ class TableIndexesControllerTest extends PMATestCase
         );
 
         $this->assertContains(
-            PhpMyAdmin\Util::showMySQLDocu('ALTER_TABLE'),
+            Util::showMySQLDocu('ALTER_TABLE'),
             $html
         );
 

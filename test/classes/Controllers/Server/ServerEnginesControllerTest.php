@@ -5,21 +5,21 @@
  *
  * @package PhpMyAdmin-test
  */
+namespace PhpMyAdmin\Tests\Controllers\Server;
 
+use PhpMyAdmin\Controllers\Server\ServerEnginesController;
 use PhpMyAdmin\StorageEngine;
 use PhpMyAdmin\Theme;
-use PhpMyAdmin\Controllers\Server\ServerEnginesController;
 use PhpMyAdmin\Url;
-
-
-require_once 'test/PMATestCase.php';
+use PhpMyAdmin\Util;
+use ReflectionClass;
 
 /**
  * Tests for ServerEnginesController class
  *
  * @package PhpMyAdmin-test
  */
-class ServerEnginesControllerTest extends PMATestCase
+class ServerEnginesControllerTest extends \PMATestCase
 {
     /**
      * Prepares environment for the test.
@@ -123,7 +123,7 @@ class ServerEnginesControllerTest extends PMATestCase
 
         //validate 2: Engine Mysql Help Page
         $this->assertContains(
-            PhpMyAdmin\Util::showMySQLDocu($engine_plugin->getMysqlHelpPage()),
+            Util::showMySQLDocu($engine_plugin->getMysqlHelpPage()),
             $html
         );
 

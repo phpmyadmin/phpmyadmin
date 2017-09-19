@@ -7,15 +7,12 @@
  *
  * @package PhpMyAdmin-test
  */
+namespace PhpMyAdmin\Tests\Controllers\Table;
 
-/*
- * Include to test.
- */
 use PhpMyAdmin\Di\Container;
 use PhpMyAdmin\Tests\Stubs\Response as ResponseStub;
 use PhpMyAdmin\Theme;
-
-require_once 'test/PMATestCase.php';
+use ReflectionClass;
 
 /**
  * TableStructureController_Test class
@@ -24,7 +21,7 @@ require_once 'test/PMATestCase.php';
  *
  * @package PhpMyAdmin-test
  */
-class TableStructureControllerTest extends PMATestCase
+class TableStructureControllerTest extends \PMATestCase
 {
     /**
      * @var \PhpMyAdmin\Tests\Stubs\Response

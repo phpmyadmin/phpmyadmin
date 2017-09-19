@@ -5,10 +5,12 @@
  *
  * @package PhpMyAdmin-test
  */
+namespace PhpMyAdmin\Tests\Controllers\Server;
 
 use PhpMyAdmin\Controllers\Server\ServerCollationsController;
 use PhpMyAdmin\Core;
 use PhpMyAdmin\Theme;
+use ReflectionClass;
 
 /*
  * Include to test.
@@ -24,19 +26,15 @@ $GLOBALS['text_dir'] = "text_dir";
 $GLOBALS['cfg']['Server'] = array(
     'DisableIS' => false
 );
-//$_SESSION
-
-
 
 require_once 'libraries/server_common.inc.php';
-require_once 'test/PMATestCase.php';
 
 /**
  * Tests for ServerCollationsController class
  *
  * @package PhpMyAdmin-test
  */
-class ServerCollationsControllerTest extends PMATestCase
+class ServerCollationsControllerTest extends \PMATestCase
 {
     /**
      * Prepares environment for the test.
