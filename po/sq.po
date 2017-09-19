@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.7.4-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2017-08-10 09:13-0400\n"
-"PO-Revision-Date: 2017-09-19 16:04+0000\n"
+"PO-Revision-Date: 2017-09-20 19:44+0000\n"
 "Last-Translator: Adalen Vladi <adalenvladi@gmail.com>\n"
 "Language-Team: Albanian "
 "<https://hosted.weblate.org/projects/phpmyadmin/4-7/sq/>\n"
@@ -4018,7 +4018,7 @@ msgstr "Numri i faqes:"
 
 #: libraries/LanguageManager.php:898
 msgid "Ignoring unsupported language code."
-msgstr "Injoron kodin e gjuhës së pambuluar."
+msgstr "Injorimi i kodit të pambështetur të gjuhës."
 
 #: libraries/LanguageManager.php:925 libraries/LanguageManager.php:926
 #: setup/frames/index.inc.php:66
@@ -7608,7 +7608,7 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:818
 msgid "Allow to display all the rows"
-msgstr "Lejo për të shfaqur të gjitha radhët"
+msgstr "Lejo të shfaq të gjitha rreshtat"
 
 #: libraries/config/messages.inc.php:820
 msgid ""
@@ -11656,7 +11656,7 @@ msgstr "Gabim në proçesimin e kërkesës:"
 
 #: libraries/rte/rte_footer.lib.php:94
 msgid "OFF"
-msgstr "JO"
+msgstr "hequr"
 
 #: libraries/rte/rte_footer.lib.php:99
 msgid "ON"
@@ -13727,7 +13727,7 @@ msgstr "Lejo çdo përdorues të hyjë në këtë faqeruajtës"
 
 #: libraries/sql.lib.php:792
 msgid "Bookmark not created!"
-msgstr "Faqeruajtësi nuk është krijuar!"
+msgstr "Bookmark nuk u krijua!"
 
 #: libraries/sql.lib.php:900
 #, php-format
@@ -15912,8 +15912,8 @@ msgid ""
 "You should upgrade, as recent versions of MySQL 5.1 have improved "
 "performance and MySQL 5.5 even more so."
 msgstr ""
-"Duhet ta aktualizoni, pasi versionet e fundit të MySQL 5.1 kanë përmirësuar "
-"performancën dhe MySQL 5.5 edhe më shumë."
+"Ju duhet të perditesoni, pasi versionet e fundit të MySQL 5.1 kanë "
+"përmirësuar performancën dhe MySQL 5.5 edhe më shumë."
 
 #: libraries/advisory_rules.txt:117
 msgid "Version less than 5.5.8 (the first GA release of 5.5)."
@@ -16244,8 +16244,8 @@ msgid ""
 "%s%% of all sorts cause temporary tables, this value should be lower than "
 "10%%."
 msgstr ""
-"%s%% prej të gjitha llojeve shkaktojnë tabela të përkohëshme, kjo vlerë "
-"duhet të jetë nën 10%%."
+"%s %% of all sorts cause temporary tables, this value should be lower than "
+"10 %%."
 
 #: libraries/advisory_rules.txt:211
 msgid "Rate of sorts that cause temporary tables"
@@ -16622,7 +16622,7 @@ msgstr "Norma e fileve të hapura"
 
 #: libraries/advisory_rules.txt:326
 msgid "The rate of opening files is high."
-msgstr "Shkalla e fileve që hapen është e lartë."
+msgstr "Shkalla e skedareve që hapen është e lartë."
 
 #: libraries/advisory_rules.txt:328
 #, php-format
