@@ -1,24 +1,20 @@
 <?php
 /* vim: set expandtab sw=4 ts=4 sts=4: */
 /**
- * Tests for PhpMyAdmin\Di\NotFoundException class
+ * Tests for PhpMyAdmin\Di\ContainerException class
  *
  * @package PhpMyAdmin-test
  */
+namespace PhpMyAdmin\Tests\Di;
 
-/*
- * Include to test.
- */
-require_once 'test/PMATestCase.php';
-
-use PhpMyAdmin\Di\NotFoundException;
+use PhpMyAdmin\Di\ContainerException;
 
 /**
- * Tests for PhpMyAdmin\Di\NotFoundException class
+ * Tests for PhpMyAdmin\Di\ContainerException class
  *
  * @package PhpMyAdmin-test
  */
-class NotFoundExceptionTest extends PMATestCase
+class ContainerExceptionTest extends \PMATestCase
 {
     /**
      * @access protected
@@ -34,7 +30,7 @@ class NotFoundExceptionTest extends PMATestCase
      */
     protected function setUp()
     {
-        $this->exception = new NotFoundException();
+        $this->exception = new ContainerException();
     }
 
     /**
@@ -50,24 +46,11 @@ class NotFoundExceptionTest extends PMATestCase
     }
 
     /**
-     * Test for NotFoundException
+     * Test for ContainerException
      *
      * @return void
      */
-    public function testNotFoundExceptionImplementsInteface()
-    {
-        $this->assertInstanceOf(
-            'Psr\Container\NotFoundExceptionInterface',
-            $this->exception
-        );
-    }
-
-    /**
-     * Test for NotFoundException
-     *
-     * @return void
-     */
-    public function testNotFoundExceptionExtendsContainerExceptionInteface()
+    public function testContainerExceptionImplementsInteface()
     {
         $this->assertInstanceOf(
             'Psr\Container\ContainerExceptionInterface',
@@ -76,7 +59,7 @@ class NotFoundExceptionTest extends PMATestCase
     }
 
     /**
-     * Test for NotFoundException
+     * Test for ContainerException
      *
      * @return void
      */

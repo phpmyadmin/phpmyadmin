@@ -5,11 +5,7 @@
  *
  * @package PhpMyAdmin-test
  */
-
-/*
- * Include to test.
- */
-require_once 'test/PMATestCase.php';
+namespace PhpMyAdmin\Tests\Di;
 
 use PhpMyAdmin\Di\Container;
 
@@ -18,7 +14,7 @@ use PhpMyAdmin\Di\Container;
  *
  * @package PhpMyAdmin-test
  */
-class ContainerTest extends PMATestCase
+class ContainerTest extends \PMATestCase
 {
     /**
      * @access protected
