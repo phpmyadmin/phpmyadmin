@@ -5,18 +5,17 @@
  *
  * @package PhpMyAdmin-test
  */
+namespace PhpMyAdmin\Tests\Navigation\Nodes;
 
 use PhpMyAdmin\Navigation\NodeFactory;
 use PhpMyAdmin\Theme;
-
-require_once 'test/PMATestCase.php';
 
 /**
  * Tests for PhpMyAdmin\Navigation\Nodes\NodeTrigger class
  *
  * @package PhpMyAdmin-test
  */
-class NodeTriggerContainerTest extends PMATestCase
+class NodeTriggerContainerTest extends \PMATestCase
 {
     /**
      * SetUp for test cases

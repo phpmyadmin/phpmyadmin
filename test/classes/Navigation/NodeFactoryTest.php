@@ -5,19 +5,18 @@
  *
  * @package PhpMyAdmin-test
  */
+namespace PhpMyAdmin\Tests\Navigation;
 
 use PhpMyAdmin\Navigation\NodeFactory;
 use PhpMyAdmin\Navigation\Nodes\Node;
 use PhpMyAdmin\Theme;
-
-require_once 'test/PMATestCase.php';
 
 /**
  * Tests for NodeFactory class
  *
  * @package PhpMyAdmin-test
  */
-class NodeFactoryTest extends PMATestCase
+class NodeFactoryTest extends \PMATestCase
 {
     /**
      * SetUp for test cases

@@ -5,26 +5,27 @@
  *
  * @package PhpMyAdmin-test
  */
+namespace PhpMyAdmin\Tests\Navigation;
+
+use PhpMyAdmin\Config;
+use PhpMyAdmin\Navigation\NavigationTree;
+use PhpMyAdmin\Theme;
 
 /*
  * we must set $GLOBALS['server'] here
  * since 'check_user_privileges.inc.php' will use it globally
  */
-use PhpMyAdmin\Navigation\NavigationTree;
-use PhpMyAdmin\Theme;
-
 $GLOBALS['server'] = 0;
 $GLOBALS['cfg']['Server']['DisableIS'] = false;
 
 require_once 'libraries/check_user_privileges.inc.php';
-require_once 'test/PMATestCase.php';
 
 /**
  * Tests for PhpMyAdmin\Navigation\NavigationTree class
  *
  * @package PhpMyAdmin-test
  */
-class NavigationTreeTest extends PMATestCase
+class NavigationTreeTest extends \PMATestCase
 {
     /**
      * @var NavigationTree
@@ -40,7 +41,7 @@ class NavigationTreeTest extends PMATestCase
     protected function setUp()
     {
         $GLOBALS['server'] = 1;
-        $GLOBALS['PMA_Config'] = new PhpMyAdmin\Config();
+        $GLOBALS['PMA_Config'] = new Config();
         $GLOBALS['PMA_Config']->enableBc();
         $GLOBALS['cfg']['Server']['host'] = 'localhost';
         $GLOBALS['cfg']['Server']['user'] = 'root';
@@ -52,7 +53,7 @@ class NavigationTreeTest extends PMATestCase
         $GLOBALS['pmaThemeImage'] = 'image';
         $GLOBALS['db'] = 'db';
 
-        $this->object = new PhpMyAdmin\Navigation\NavigationTree();
+        $this->object = new NavigationTree();
     }
 
     /**

@@ -1,22 +1,21 @@
 <?php
 /* vim: set expandtab sw=4 ts=4 sts=4: */
 /**
- * Tests for PhpMyAdmin\Navigation\Nodes\NodeProcedureContainer class
+ * Tests for PhpMyAdmin\Navigation\Nodes\NodeFunctionContainer class
  *
  * @package PhpMyAdmin-test
  */
+namespace PhpMyAdmin\Tests\Navigation\Nodes;
 
 use PhpMyAdmin\Navigation\NodeFactory;
 use PhpMyAdmin\Theme;
 
-require_once 'test/PMATestCase.php';
-
 /**
- * Tests for PhpMyAdmin\Navigation\Nodes\NodeProcedureContainer class
+ * Tests for PhpMyAdmin\Navigation\Nodes\NodeFunctionContainer class
  *
  * @package PhpMyAdmin-test
  */
-class NodeProcedureContainerTest extends PMATestCase
+class NodeFunctionContainerTest extends \PMATestCase
 {
     /**
      * SetUp for test cases
@@ -35,7 +34,7 @@ class NodeProcedureContainerTest extends PMATestCase
      */
     public function testConstructor()
     {
-        $parent = NodeFactory::getInstance('NodeProcedureContainer');
+        $parent = NodeFactory::getInstance('NodeFunctionContainer');
         $this->assertArrayHasKey(
             'text',
             $parent->links
@@ -44,6 +43,6 @@ class NodeProcedureContainerTest extends PMATestCase
             'db_routines.php',
             $parent->links['text']
         );
-        $this->assertEquals('procedures', $parent->real_name);
+        $this->assertEquals('functions', $parent->real_name);
     }
 }

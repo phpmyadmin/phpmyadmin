@@ -5,18 +5,18 @@
  *
  * @package PhpMyAdmin-test
  */
+namespace PhpMyAdmin\Tests\Navigation;
 
+use PhpMyAdmin\Navigation\Navigation;
 use PhpMyAdmin\Theme;
 use PhpMyAdmin\Url;
-
-require_once 'test/PMATestCase.php';
 
 /**
  * Tests for PhpMyAdmin\Navigation\Navigation class
  *
  * @package PhpMyAdmin-test
  */
-class NavigationTest extends PMATestCase
+class NavigationTest extends \PMATestCase
 {
     /**
      * @var PhpMyAdmin\Navigation\Navigation
@@ -31,7 +31,7 @@ class NavigationTest extends PMATestCase
      */
     protected function setUp()
     {
-        $this->object = new PhpMyAdmin\Navigation\Navigation();
+        $this->object = new Navigation();
         $GLOBALS['cfgRelation']['db'] = 'pmadb';
         $GLOBALS['cfgRelation']['navigationhiding'] = 'navigationhiding';
         $GLOBALS['cfg']['Server']['user'] = 'user';

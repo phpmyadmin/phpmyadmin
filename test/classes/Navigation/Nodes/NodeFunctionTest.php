@@ -1,22 +1,21 @@
 <?php
 /* vim: set expandtab sw=4 ts=4 sts=4: */
 /**
- * Tests for PhpMyAdmin\Navigation\Nodes\NodeView class
+ * Tests for PhpMyAdmin\Navigation\Nodes\NodeFunction class
  *
  * @package PhpMyAdmin-test
  */
+namespace PhpMyAdmin\Tests\Navigation\Nodes;
 
 use PhpMyAdmin\Navigation\NodeFactory;
 use PhpMyAdmin\Theme;
 
-require_once 'test/PMATestCase.php';
-
 /**
- * Tests for PhpMyAdmin\Navigation\Nodes\NodeView class
+ * Tests for PhpMyAdmin\Navigation\Nodes\NodeFunction class
  *
  * @package PhpMyAdmin-test
  */
-class NodeViewTest extends PMATestCase
+class NodeFunctionTest extends \PMATestCase
 {
     /**
      * SetUp for test cases
@@ -28,7 +27,6 @@ class NodeViewTest extends PMATestCase
         $GLOBALS['server'] = 0;
     }
 
-
     /**
      * Test for __construct
      *
@@ -36,16 +34,14 @@ class NodeViewTest extends PMATestCase
      */
     public function testConstructor()
     {
-        $parent = NodeFactory::getInstance('NodeView');
+        $parent = NodeFactory::getInstance('NodeFunction');
         $this->assertArrayHasKey(
             'text',
             $parent->links
         );
         $this->assertContains(
-            'sql.php',
+            'db_routines.php',
             $parent->links['text']
         );
-        $this->assertContains('b_props', $parent->icon);
-        $this->assertContains('view', $parent->classes);
     }
 }

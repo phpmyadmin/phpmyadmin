@@ -1,22 +1,21 @@
 <?php
 /* vim: set expandtab sw=4 ts=4 sts=4: */
 /**
- * Tests for PhpMyAdmin\Navigation\Nodes\NodeEvent class
+ * Tests for PhpMyAdmin\Navigation\Nodes\NodeEventContainer class
  *
  * @package PhpMyAdmin-test
  */
+namespace PhpMyAdmin\Tests\Navigation\Nodes;
 
 use PhpMyAdmin\Navigation\NodeFactory;
 use PhpMyAdmin\Theme;
 
-require_once 'test/PMATestCase.php';
-
 /**
- * Tests for PhpMyAdmin\Navigation\Nodes\NodeEvent class
+ * Tests for PhpMyAdmin\Navigation\Nodes\NodeEventContainer class
  *
  * @package PhpMyAdmin-test
  */
-class NodeEventTest extends PMATestCase
+class NodeEventContainerTest extends \PMATestCase
 {
     /**
      * SetUp for test cases
@@ -35,7 +34,7 @@ class NodeEventTest extends PMATestCase
      */
     public function testConstructor()
     {
-        $parent = NodeFactory::getInstance('NodeEvent');
+        $parent = NodeFactory::getInstance('NodeEventContainer');
         $this->assertArrayHasKey(
             'text',
             $parent->links
@@ -44,5 +43,6 @@ class NodeEventTest extends PMATestCase
             'db_events.php',
             $parent->links['text']
         );
+        $this->assertEquals('events', $parent->real_name);
     }
 }

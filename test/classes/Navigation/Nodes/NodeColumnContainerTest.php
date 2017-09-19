@@ -1,22 +1,21 @@
 <?php
 /* vim: set expandtab sw=4 ts=4 sts=4: */
 /**
- * Tests for PhpMyAdmin\Navigation\Nodes\NodeFunctionContainer class
+ * Tests for PhpMyAdmin\Navigation\Nodes\NodeColumnContainer class
  *
  * @package PhpMyAdmin-test
  */
+namespace PhpMyAdmin\Tests\Navigation\Nodes;
 
 use PhpMyAdmin\Navigation\NodeFactory;
 use PhpMyAdmin\Theme;
 
-require_once 'test/PMATestCase.php';
-
 /**
- * Tests for PhpMyAdmin\Navigation\Nodes\NodeFunctionContainer class
+ * Tests for PhpMyAdmin\Navigation\Nodes\NodeColumnContainer class
  *
  * @package PhpMyAdmin-test
  */
-class NodeFunctionContainerTest extends PMATestCase
+class NodeColumnContainerTest extends \PMATestCase
 {
     /**
      * SetUp for test cases
@@ -29,21 +28,21 @@ class NodeFunctionContainerTest extends PMATestCase
     }
 
     /**
-     * Test for __construct
+     * Test for PhpMyAdmin\Navigation\NodeFactory::__construct
      *
      * @return void
      */
     public function testConstructor()
     {
-        $parent = NodeFactory::getInstance('NodeFunctionContainer');
+        $parent = NodeFactory::getInstance('NodeColumnContainer');
         $this->assertArrayHasKey(
             'text',
             $parent->links
         );
         $this->assertContains(
-            'db_routines.php',
+            'tbl_structure.php',
             $parent->links['text']
         );
-        $this->assertEquals('functions', $parent->real_name);
+        $this->assertEquals('columns', $parent->real_name);
     }
 }
