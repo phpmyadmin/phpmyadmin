@@ -4,22 +4,16 @@
  *
  * @package PhpMyAdmin-test
  */
-
-/*
- * Include to test.
- */
+namespace PhpMyAdmin\Tests\Dbi;
 
 use PhpMyAdmin\Dbi\DbiMysql;
-
-require_once 'test/PMATestCase.php';
-
 
 /**
  * Tests for PhpMyAdmin\Dbi\DbiMysql class
  *
  * @package PhpMyAdmin-test
  */
-class DbiMysqlTest extends PMATestCase
+class DbiMysqlTest extends \PMATestCase
 {
     /**
      * @access protected
