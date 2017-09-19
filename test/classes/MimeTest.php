@@ -5,16 +5,17 @@
  *
  * @package PhpMyAdmin-test
  */
-namespace PhpMyAdmin;
+namespace PhpMyAdmin\Tests;
 
 use PhpMyAdmin\Mime;
+use PHPUnit_Framework_TestCase as TestCase;
 
 /**
  * Test for mime detection.
  *
  * @package PhpMyAdmin-test
  */
-class MimeTest extends \PHPUnit_Framework_TestCase
+class MimeTest extends TestCase
 {
     /**
      * Test for Mime::detect

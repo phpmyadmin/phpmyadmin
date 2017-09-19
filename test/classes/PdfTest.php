@@ -5,18 +5,17 @@
  *
  * @package PhpMyAdmin-test
  */
+namespace PhpMyAdmin\Tests;
 
 use PhpMyAdmin\Config;
 use PhpMyAdmin\Pdf;
-
-require_once 'test/PMATestCase.php';
 
 /**
  * tests for Pdf class
  *
  * @package PhpMyAdmin-test
  */
-class PdfTest extends PMATestCase
+class PdfTest extends \PMATestCase
 {
     /**
      * SetUp for test cases

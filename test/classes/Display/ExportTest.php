@@ -13,6 +13,7 @@ use PhpMyAdmin\Plugins;
 use PhpMyAdmin\Theme;
 use PhpMyAdmin\Url;
 use PhpMyAdmin\Util;
+use PHPUnit_Framework_TestCase as TestCase;
 
 /**
  * class PhpMyAdmin\Tests\Display\ExportTest
@@ -22,7 +23,7 @@ use PhpMyAdmin\Util;
  * @package PhpMyAdmin-test
  * @group large
  */
-class ExportTest extends \PHPUnit_Framework_TestCase
+class ExportTest extends TestCase
 {
     /**
      * Test for setUp

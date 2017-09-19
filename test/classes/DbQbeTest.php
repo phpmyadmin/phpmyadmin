@@ -4,21 +4,17 @@
  *
  * @package PhpMyAdmin-test
  */
-
-/*
- * Include to test.
- */
-
-require_once 'test/PMATestCase.php';
+namespace PhpMyAdmin\Tests;
 
 use PhpMyAdmin\DbQbe;
+use ReflectionClass;
 
 /**
  * Tests for PhpMyAdmin\DbQbe class
  *
  *  @package PhpMyAdmin-test
  */
-class DbQbeTest extends PMATestCase
+class DbQbeTest extends \PMATestCase
 {
     /**
      * @access protected

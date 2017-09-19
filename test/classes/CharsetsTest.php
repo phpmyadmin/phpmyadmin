@@ -5,15 +5,17 @@
  *
  * @package PhpMyAdmin-test
  */
+namespace PhpMyAdmin\Tests;
 
 use PhpMyAdmin\Charsets;
+use PHPUnit_Framework_TestCase as TestCase;
 
 /**
  * Tests for MySQL Charsets
  *
  * @package PhpMyAdmin-test
  */
-class CharsetsTest extends PHPUnit_Framework_TestCase
+class CharsetsTest extends TestCase
 {
     public function setUp()
     {

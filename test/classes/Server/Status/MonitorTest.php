@@ -11,13 +11,14 @@ use PhpMyAdmin\Core;
 use PhpMyAdmin\Server\Status\Monitor;
 use PhpMyAdmin\Server\Status\Data;
 use PhpMyAdmin\Theme;
+use PHPUnit_Framework_TestCase as TestCase;
 
 /**
  * this class is for testing PhpMyAdmin\Server\Status\Monitor methods
  *
  * @package PhpMyAdmin-test
  */
-class MonitorTest extends \PHPUnit_Framework_TestCase
+class MonitorTest extends TestCase
 {
     /**
      * Prepares environment for the test.

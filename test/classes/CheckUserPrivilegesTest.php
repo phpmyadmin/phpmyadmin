@@ -8,6 +8,7 @@
 namespace PhpMyAdmin\Tests;
 
 use PhpMyAdmin\CheckUserPrivileges;
+use PHPUnit_Framework_TestCase as TestCase;
 
 /*
  * Include to test.
@@ -20,7 +21,7 @@ $GLOBALS['cfg']['Server']['DisableIS'] = false;
  *
  * @package PhpMyAdmin-test
  */
-class CheckUserPrivilegesTest extends \PHPUnit_Framework_TestCase
+class CheckUserPrivilegesTest extends TestCase
 {
     /**
      * prepares environment for tests

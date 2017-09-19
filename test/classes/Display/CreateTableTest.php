@@ -11,6 +11,7 @@ use PhpMyAdmin\Display\CreateTable;
 use PhpMyAdmin\Theme;
 use PhpMyAdmin\Url;
 use PhpMyAdmin\Util;
+use PHPUnit_Framework_TestCase as TestCase;
 
 /**
  * PhpMyAdmin\Tests\Display\CreateTableTest class
@@ -19,7 +20,7 @@ use PhpMyAdmin\Util;
  *
  * @package PhpMyAdmin-test
  */
-class CreateTableTest extends \PHPUnit_Framework_TestCase
+class CreateTableTest extends TestCase
 {
     /**
      * Test for setUp

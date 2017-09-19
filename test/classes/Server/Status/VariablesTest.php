@@ -11,13 +11,14 @@ use PhpMyAdmin\Core;
 use PhpMyAdmin\Server\Status\Data;
 use PhpMyAdmin\Server\Status\Variables;
 use PhpMyAdmin\Theme;
+use PHPUnit_Framework_TestCase as TestCase;
 
 /**
  * This class is for testing PhpMyAdmin\Server\Status\Variables methods
  *
  * @package PhpMyAdmin-test
  */
-class VariablesTest extends \PHPUnit_Framework_TestCase
+class VariablesTest extends TestCase
 {
     /**
      * Prepares environment for the test.

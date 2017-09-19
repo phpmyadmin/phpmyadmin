@@ -4,16 +4,16 @@
  *
  * @package PhpMyAdmin-test
  */
-use PhpMyAdmin\Types;
+namespace PhpMyAdmin\Tests;
 
-require_once 'test/PMATestCase.php';
+use PhpMyAdmin\Types;
 
 /**
  * Test class for Types.
  *
  * @package PhpMyAdmin-test
  */
-class TypesTest extends PMATestCase
+class TypesTest extends \PMATestCase
 {
     /**
      * @var Types

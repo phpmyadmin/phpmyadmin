@@ -9,14 +9,14 @@ namespace PhpMyAdmin\Tests;
 
 use PhpMyAdmin\Operations;
 use PhpMyAdmin\Theme;
-
+use PHPUnit_Framework_TestCase as TestCase;
 
 /**
  * tests for operations
  *
  * @package PhpMyAdmin-test
  */
-class OperationsTest extends \PHPUnit_Framework_TestCase
+class OperationsTest extends TestCase
 {
     /**
      * Set up global environment.

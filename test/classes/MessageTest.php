@@ -5,18 +5,17 @@
  *
  * @package PhpMyAdmin-test
  */
+namespace PhpMyAdmin\Tests;
 
 use PhpMyAdmin\Message;
 use PhpMyAdmin\Theme;
-
-require_once 'test/PMATestCase.php';
 
 /**
  * Test for Message class
  *
  * @package PhpMyAdmin-test
  */
-class MessageTest extends PMATestCase
+class MessageTest extends \PMATestCase
 {
     /**
      * @var    PhpMyAdmin\Message

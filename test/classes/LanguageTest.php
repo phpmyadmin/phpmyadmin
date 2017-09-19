@@ -5,10 +5,7 @@
  *
  * @package PhpMyAdmin-test
  */
-
-/*
- * Include to test.
- */
+namespace PhpMyAdmin\Tests;
 
 use PhpMyAdmin\LanguageManager;
 
@@ -17,7 +14,7 @@ use PhpMyAdmin\LanguageManager;
  *
  * @package PhpMyAdmin-test
  */
-class LanguageTest extends PMATestCase
+class LanguageTest extends \PMATestCase
 {
     private $manager;
 

@@ -4,22 +4,18 @@
  *
  * @package PhpMyAdmin-test
  */
-
-/*
- * Include to test.
- */
-
-require_once 'test/PMATestCase.php';
+namespace PhpMyAdmin\Tests;
 
 use PhpMyAdmin\DbSearch;
 use PhpMyAdmin\Theme;
+use ReflectionClass;
 
 /**
  * Tests for database search.
  *
  * @package PhpMyAdmin-test
  */
-class DbSearchTest extends PMATestCase
+class DbSearchTest extends \PMATestCase
 {
     /**
      * @access protected

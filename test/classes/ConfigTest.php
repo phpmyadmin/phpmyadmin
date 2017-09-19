@@ -6,20 +6,18 @@
  * @package PhpMyAdmin-test
  * @group current
  */
+namespace PhpMyAdmin\Tests;
 
-/*
- * Include to test.
- */
+use PhpMyAdmin\Config;
 use PhpMyAdmin\Theme;
-
-require_once 'test/PMATestCase.php';
+use PHPUnit_Framework_Assert as Assert;
 
 /**
  * Tests behaviour of PhpMyAdmin\Config class
  *
  * @package PhpMyAdmin-test
  */
-class ConfigTest extends PMATestCase
+class ConfigTest extends \PMATestCase
 {
     /**
      * Turn off backup globals
@@ -44,14 +42,14 @@ class ConfigTest extends PMATestCase
      */
     protected function setUp()
     {
-        $this->object = new PhpMyAdmin\Config;
+        $this->object = new Config;
         $GLOBALS['server'] = 0;
         $_SESSION['is_git_revision'] = true;
-        $GLOBALS['PMA_Config'] = new PhpMyAdmin\Config(CONFIG_FILE);
+        $GLOBALS['PMA_Config'] = new Config(CONFIG_FILE);
         $GLOBALS['cfg']['ProxyUrl'] = '';
 
         //for testing file permissions
-        $this->permTestObj = new PhpMyAdmin\Config("./config.sample.inc.php");
+        $this->permTestObj = new Config("./config.sample.inc.php");
     }
 
     /**
@@ -90,12 +88,12 @@ class ConfigTest extends PMATestCase
     {
         $this->assertContains(
             '<form name="form_fontsize_selection" id="form_fontsize_selection"',
-            PhpMyAdmin\Config::getFontsizeForm()
+            Config::getFontsizeForm()
         );
 
         $this->assertContains(
             '<label for="select_fontsize">',
-            PhpMyAdmin\Config::getFontsizeForm()
+            Config::getFontsizeForm()
         );
 
         //test getFontsizeOptions for "em" unit
@@ -104,44 +102,44 @@ class ConfigTest extends PMATestCase
         $_COOKIE['pma_fontsize'] = "10em";
         $this->assertContains(
             '<option value="7em"',
-            PhpMyAdmin\Config::getFontsizeForm()
+            Config::getFontsizeForm()
         );
         $this->assertContains(
             '<option value="8em"',
-            PhpMyAdmin\Config::getFontsizeForm()
+            Config::getFontsizeForm()
         );
 
         //test getFontsizeOptions for "pt" unit
         $_COOKIE['pma_fontsize'] = "10pt";
         $this->assertContains(
             '<option value="2pt"',
-            PhpMyAdmin\Config::getFontsizeForm()
+            Config::getFontsizeForm()
         );
         $this->assertContains(
             '<option value="4pt"',
-            PhpMyAdmin\Config::getFontsizeForm()
+            Config::getFontsizeForm()
         );
 
         //test getFontsizeOptions for "px" unit
         $_COOKIE['pma_fontsize'] = "10px";
         $this->assertContains(
             '<option value="5px"',
-            PhpMyAdmin\Config::getFontsizeForm()
+            Config::getFontsizeForm()
         );
         $this->assertContains(
             '<option value="6px"',
-            PhpMyAdmin\Config::getFontsizeForm()
+            Config::getFontsizeForm()
         );
 
         //test getFontsizeOptions for unknown unit
         $_COOKIE['pma_fontsize'] = "10abc";
         $this->assertContains(
             '<option value="7abc"',
-            PhpMyAdmin\Config::getFontsizeForm()
+            Config::getFontsizeForm()
         );
         $this->assertContains(
             '<option value="8abc"',
-            PhpMyAdmin\Config::getFontsizeForm()
+            Config::getFontsizeForm()
         );
         unset($_COOKIE['pma_fontsize']);
         //rollback the fontsize setting
@@ -830,10 +828,9 @@ class ConfigTest extends PMATestCase
      */
     public function testGetThemeUniqueValue()
     {
-
         $partial_sum = (
-            PHPUnit_Framework_Assert::readAttribute($this->object, 'source_mtime') +
-            PHPUnit_Framework_Assert::readAttribute(
+            Assert::readAttribute($this->object, 'source_mtime') +
+            Assert::readAttribute(
                 $this->object,
                 'default_source_mtime'
             ) +

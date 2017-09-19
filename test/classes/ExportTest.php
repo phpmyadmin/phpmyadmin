@@ -8,6 +8,7 @@
 namespace PhpMyAdmin\Tests;
 
 use PhpMyAdmin\Export;
+use PHPUnit_Framework_TestCase as TestCase;
 
 /**
  * PhpMyAdmin\ExportTest class
@@ -17,7 +18,7 @@ use PhpMyAdmin\Export;
  * @package PhpMyAdmin-test
  * @group large
  */
-class ExportTest extends \PHPUnit_Framework_TestCase
+class ExportTest extends TestCase
 {
     /**
      * Test for Export::mergeAliases

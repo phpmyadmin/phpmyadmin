@@ -5,22 +5,17 @@
  *
  * @package PhpMyAdmin-test
  */
-
-/*
- * Include to test.
- */
+namespace PhpMyAdmin\Tests;
 
 use PhpMyAdmin\Error;
 use PhpMyAdmin\Theme;
-
-require_once 'test/PMATestCase.php';
 
 /**
  * Error class testing.
  *
  * @package PhpMyAdmin-test
  */
-class ErrorTest extends PMATestCase
+class ErrorTest extends \PMATestCase
 {
     /**
      * @access protected
@@ -60,7 +55,7 @@ class ErrorTest extends PMATestCase
     {
         $bt = array(array('file'=>'bt1','line'=>2, 'function'=>'bar', 'args'=>array('foo'=>$this)));
         $this->object->setBacktrace($bt);
-        $bt[0]['args']['foo'] = '<Class:ErrorTest>';
+        $bt[0]['args']['foo'] = '<Class:PhpMyAdmin\Tests\ErrorTest>';
         $this->assertEquals($bt, $this->object->getBacktrace());
     }
 
@@ -123,7 +118,7 @@ class ErrorTest extends PMATestCase
     public function testGetBacktraceDisplay()
     {
         $this->assertContains(
-            'PHPUnit_Framework_TestResult->run(<Class:ErrorTest>)<br />',
+            'PHPUnit_Framework_TestResult->run(<Class:PhpMyAdmin\Tests\ErrorTest>)<br />',
             $this->object->getBacktraceDisplay()
         );
     }

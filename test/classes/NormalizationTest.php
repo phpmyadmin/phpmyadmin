@@ -11,17 +11,17 @@ use PhpMyAdmin\Normalization;
 use PhpMyAdmin\Theme;
 use PhpMyAdmin\TypesMySQL;
 use PhpMyAdmin\Util;
+use PHPUnit_Framework_TestCase as TestCase;
 use stdClass;
 
 $GLOBALS['server'] = 1;
-
 
 /**
  * tests for PhpMyAdmin\Normalization
  *
  * @package PhpMyAdmin-test
  */
-class NormalizationTest extends \PHPUnit_Framework_TestCase
+class NormalizationTest extends TestCase
 {
     /**
      * prepares environment for tests

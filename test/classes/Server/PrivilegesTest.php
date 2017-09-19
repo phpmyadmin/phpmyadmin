@@ -13,6 +13,7 @@ use PhpMyAdmin\Template;
 use PhpMyAdmin\Theme;
 use PhpMyAdmin\Url;
 use PhpMyAdmin\Util;
+use PHPUnit_Framework_TestCase as TestCase;
 
 /**
  * PhpMyAdmin\Tests\Server\PrivilegesTest class
@@ -21,7 +22,7 @@ use PhpMyAdmin\Util;
  *
  * @package PhpMyAdmin-test
  */
-class PrivilegesTest extends \PHPUnit_Framework_TestCase
+class PrivilegesTest extends TestCase
 {
     /**
      * Prepares environment for the test.

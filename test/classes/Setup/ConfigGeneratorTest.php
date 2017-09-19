@@ -5,24 +5,19 @@
  *
  * @package PhpMyAdmin-test
  */
+namespace PhpMyAdmin\Tests\Setup;
 
-/*
- * Include to test
- */
 use PhpMyAdmin\Config;
 use PhpMyAdmin\Config\ConfigFile;
 use PhpMyAdmin\Setup\ConfigGenerator;
-
-require_once 'test/PMATestCase.php';
 
 /**
  * Tests for PhpMyAdmin\Setup\ConfigGenerator
  *
  * @package PhpMyAdmin-test
  */
-class ConfigGeneratorTest extends PMATestCase
+class ConfigGeneratorTest extends \PMATestCase
 {
-
     /**
      * Test for ConfigGenerator::getConfigFile
      *

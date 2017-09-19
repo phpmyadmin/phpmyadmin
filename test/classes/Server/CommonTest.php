@@ -9,13 +9,14 @@ namespace PhpMyAdmin\Tests\Server;
 
 use PhpMyAdmin\Server\Common;
 use PhpMyAdmin\Theme;
+use PHPUnit_Framework_TestCase as TestCase;
 
 /**
  * This class is for testing PhpMyAdmin\Server\Common methods
  *
  * @package PhpMyAdmin-test
  */
-class CommonTest extends \PHPUnit_Framework_TestCase
+class CommonTest extends TestCase
 {
     /**
      * Test for Common::getHtmlForSubPageHeader

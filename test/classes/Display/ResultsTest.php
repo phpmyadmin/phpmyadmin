@@ -16,11 +16,6 @@ use PhpMyAdmin\Transformations;
 use ReflectionClass;
 use stdClass;
 
-/*
-* Include to test.
-*/
-require_once 'test/PMATestCase.php';
-
 /**
  * Test cases for displaying results.
  *

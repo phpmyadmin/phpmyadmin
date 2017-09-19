@@ -12,16 +12,16 @@ use PhpMyAdmin\Theme;
 use PhpMyAdmin\TypesMySQL;
 use PhpMyAdmin\Url;
 use PhpMyAdmin\Util;
+use PHPUnit_Framework_TestCase as TestCase;
 
 $GLOBALS['server'] = 1;
-
 
 /**
  * tests for PhpMyAdmin\CentralColumns
  *
  * @package PhpMyAdmin-test
  */
-class CentralColumnsTest extends \PHPUnit_Framework_TestCase
+class CentralColumnsTest extends TestCase
 {
     private $_columnData = array(
         array(

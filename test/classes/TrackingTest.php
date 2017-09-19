@@ -10,14 +10,14 @@ namespace PhpMyAdmin\Tests;
 use PhpMyAdmin\Theme;
 use PhpMyAdmin\Tracking;
 use PhpMyAdmin\Url;
-
+use PHPUnit_Framework_TestCase as TestCase;
 
 /**
  * Tests for PhpMyAdmin\Tracking
  *
  * @package PhpMyAdmin-test
  */
-class TrackingTest extends \PHPUnit_Framework_TestCase
+class TrackingTest extends TestCase
 {
 
     /**

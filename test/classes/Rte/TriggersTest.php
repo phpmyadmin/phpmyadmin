@@ -9,13 +9,14 @@ namespace PhpMyAdmin\Tests\Rte;
 
 use PhpMyAdmin\Response;
 use PhpMyAdmin\Rte\Triggers;
+use PHPUnit_Framework_TestCase as TestCase;
 
 /**
  * This class is for testing PhpMyAdmin\Rte\Triggers methods
  *
  * @package PhpMyAdmin-test
  */
-class TriggersTest extends \PHPUnit_Framework_TestCase
+class TriggersTest extends TestCase
 {
     /**
      * Set up

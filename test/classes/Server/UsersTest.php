@@ -8,6 +8,7 @@
 namespace PhpMyAdmin\Tests\Server;
 
 use PhpMyAdmin\Server\Users;
+use PHPUnit_Framework_TestCase as TestCase;
 
 /**
  * PhpMyAdmin\Tests\Server\UsersTest class
@@ -16,7 +17,7 @@ use PhpMyAdmin\Server\Users;
  *
  * @package PhpMyAdmin-test
  */
-class UsersTest extends \PHPUnit_Framework_TestCase
+class UsersTest extends TestCase
 {
     /**
      * Test for Users::getHtmlForSubMenusOnUsersPage

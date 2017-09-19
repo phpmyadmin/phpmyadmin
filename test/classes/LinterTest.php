@@ -5,22 +5,17 @@
  *
  * @package PhpMyAdmin-test
  */
+namespace PhpMyAdmin\Tests;
 
-/*
- * Include to test.
- */
 use PhpMyAdmin\Linter;
-
-require_once 'test/PMATestCase.php';
 
 /**
  * Tests for PhpMyAdmin\Linter
  *
  * @package PhpMyAdmin-test
  */
-class LinterTest extends PMATestCase
+class LinterTest extends \PMATestCase
 {
-
     /**
      * Test for Linter::getLines
      *

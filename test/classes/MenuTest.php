@@ -5,22 +5,18 @@
  *
  * @package PhpMyAdmin-test
  */
+namespace PhpMyAdmin\Tests;
 
-/*
- * Include to test.
- */
 use PhpMyAdmin\Core;
 use PhpMyAdmin\Menu;
 use PhpMyAdmin\Theme;
-
-require_once 'test/PMATestCase.php';
 
 /**
  * Test for Menu class
  *
  * @package PhpMyAdmin-test
  */
-class MenuTest extends PMATestCase
+class MenuTest extends \PMATestCase
 {
     /**
      * Configures global environment.
