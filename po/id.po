@@ -3,8 +3,8 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.8.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2017-09-08 21:11+0200\n"
-"PO-Revision-Date: 2017-09-19 05:18+0000\n"
-"Last-Translator: Linus Randu <linusrandu23@gmail.com>\n"
+"PO-Revision-Date: 2017-09-20 07:46+0000\n"
+"Last-Translator: Andika Triwidada <andika@gmail.com>\n"
 "Language-Team: Indonesian "
 "<https://hosted.weblate.org/projects/phpmyadmin/master/id/>\n"
 "Language: id\n"
@@ -17,7 +17,7 @@ msgstr ""
 
 #: ajax.php:17 ajax.php:34 export.php:196 schema_export.php:67
 msgid "Bad type!"
-msgstr "Penulisan yang buruk!"
+msgstr "Tipe yang buruk!"
 
 #: changelog.php:39 license.php:34
 #, php-format
@@ -25,7 +25,7 @@ msgid ""
 "The %s file is not available on this system, please visit %s for more "
 "information."
 msgstr ""
-"Berkas %s tidak tersedia pada sistem ini, silahkan kunjungi %s untuk "
+"Berkas %s tidak tersedia pada sistem ini, silakan kunjungi %s untuk "
 "informasi lebih lanjut."
 
 #: db_central_columns.php:110
@@ -124,7 +124,7 @@ msgstr "Jenis"
 #: templates/table/search/zoom_result_form.phtml:34
 #: templates/table/structure/table_structure_header.twig:41
 msgid "Null"
-msgstr "Kosong"
+msgstr "Null"
 
 #: db_datadict.php:118 libraries/classes/CentralColumns.php:711
 #: libraries/classes/CentralColumns.php:1396
@@ -246,7 +246,7 @@ msgstr "Tampilkan dump (skema) dari database"
 #: libraries/classes/DbQbe.php:331
 #: libraries/classes/Navigation/NavigationTree.php:924
 msgid "No tables found in database."
-msgstr "Tabel tidak ditemukan di database."
+msgstr "Tidak ada tabel yang ditemukan di database."
 
 #: db_export.php:68 libraries/classes/Config/Descriptions.php:490
 #: libraries/classes/Controllers/Server/ServerDatabasesController.php:343
@@ -320,7 +320,8 @@ msgstr "Database %1$s telah disalin ke %2$s."
 msgid ""
 "The phpMyAdmin configuration storage has been deactivated. %sFind out why%s."
 msgstr ""
-"Konfigurasi penyimpanan phpMyAdmin telah dinonaktifkan. %sCari masalah ini%s."
+"Penyimpanan konfigurasi phpMyAdmin telah dinonaktifkan. %sCari tahu "
+"mengapa%s."
 
 #: db_qbe.php:127
 msgid "You have to choose at least one column to display!"
@@ -340,14 +341,15 @@ msgstr "Akses ditolak!"
 
 #: db_tracking.php:55 db_tracking.php:80
 msgid "Tracking data deleted successfully."
-msgstr "Pelacakan data berhasil dihapus."
+msgstr "Data pelacakan berhasil dihapus."
 
 #: db_tracking.php:64
 #, php-format
 msgid ""
 "Version %1$s was created for selected tables, tracking is active for them."
 msgstr ""
-"Versi %1$s telah dibuat untuk tabel terpilih, pelacakan telah aktif untuknya."
+"Versi %1$s telah dibuat untuk tabel terpilih, pelacakan telah aktif untuk "
+"mereka."
 
 #: db_tracking.php:95
 msgid "No tables selected."
@@ -363,7 +365,7 @@ msgid ""
 "submitted based on your settings."
 msgstr ""
 "Kesalahan terdeteksi dan laporan kesalahan telah otomatis terkirim "
-"berdasarkan pengaturan anda."
+"berdasarkan pengaturan Anda."
 
 #: error_report.php:72
 msgid "Thank you for submitting this report."
@@ -384,11 +386,11 @@ msgstr ""
 
 #: error_report.php:85
 msgid "You may want to refresh the page."
-msgstr "Anda mungkin perlu me-refresh halaman."
+msgstr "Anda mungkin perlu menyegarkan halaman."
 
 #: export.php:279
 msgid "Bad parameters!"
-msgstr "Pembatasan yang buruk!"
+msgstr "Parameter yang buruk!"
 
 #: gis_data_editor.php:121
 #, php-format
@@ -442,12 +444,12 @@ msgstr "Deretan baris %d:"
 
 #: gis_data_editor.php:278 gis_data_editor.php:355
 msgid "Outer ring:"
-msgstr "Lingkar Luar:"
+msgstr "Lingkar luar:"
 
 #: gis_data_editor.php:280 gis_data_editor.php:357
 #, php-format
 msgid "Inner ring %d:"
-msgstr "Lingkar Dalam %d:"
+msgstr "Lingkar dalam %d:"
 
 #: gis_data_editor.php:317
 msgid "Add a linestring"
@@ -510,6 +512,7 @@ msgstr "Tambahkan geometri"
 #: templates/table/structure/add_column.twig:97
 #: templates/privileges/edit_routine_privileges.twig:76
 #: templates/header_location.twig:45 view_operations.php:113
+#, fuzzy
 msgid "Go"
 msgstr "Kirim"
 
@@ -523,7 +526,7 @@ msgid ""
 "below into the \"Value\" field."
 msgstr ""
 "Pilih \"GeomFromText\" dari kolom \"Fungsi\" dan rekatkan string dibawahnya "
-"ke dalam isian \"Value\"."
+"ke dalam isian \"Nilai\"."
 
 #: import.php:64
 msgid "Succeeded"
@@ -543,12 +546,12 @@ msgid ""
 "You probably tried to upload a file that is too large. Please refer to "
 "%sdocumentation%s for a workaround for this limit."
 msgstr ""
-"Anda mungkin mencoba mengunggah berkas yang terlalu besar. Silahkan lihat "
+"Anda mungkin mencoba mengunggah berkas yang terlalu besar. Silakan lihat "
 "%sdokumentasi%s untuk mendapatkan solusi tentang batasan ini."
 
 #: import.php:366 import.php:567
 msgid "Showing bookmark"
-msgstr "Tampilkan markah"
+msgstr "Menampilkan markah"
 
 #: import.php:382 import.php:563
 msgid "The bookmark has been deleted."
@@ -560,24 +563,24 @@ msgid ""
 "file size exceeded the maximum size permitted by your PHP configuration. See "
 "[doc@faq1-16]FAQ 1.16[/doc]."
 msgstr ""
-"Tidak ada data untuk diimpor. Kemungkinan karena tidak ada berkas yang "
-"diambil atau ukuran berkas melebihi ukuran maksimum yang diizinkan oleh "
-"konfigurasi PHP Anda. Lihat [doc@faq1-16]FAQ 1.16[/doc]."
+"Tidak ada data yang diterima untuk diimpor. Kemungkinan karena tidak ada "
+"nama berkas yang diberikan, atau ukuran berkas melebihi ukuran maksimum yang "
+"diizinkan oleh konfigurasi PHP Anda. Lihat [doc@faq1-16]FAQ 1.16[/doc]."
 
 #: import.php:528 libraries/classes/Display/Import.php:673
 msgid "Could not load import plugins, please check your installation!"
-msgstr "Tidak dapat memuat plugin import, harap periksa instalasi Anda!"
+msgstr "Tidak dapat memuat plugin impor, harap periksa instalasi Anda!"
 
 #: import.php:570 libraries/classes/Sql.php:806 libraries/classes/Sql.php:1584
 #, php-format
 msgid "Bookmark %s has been created."
-msgstr "Bookmark %s telah dibuat."
+msgstr "Markah %s telah dibuat."
 
 #: import.php:580
 #, php-format
 msgid "Import has been successfully finished, %d query executed."
 msgid_plural "Import has been successfully finished, %d queries executed."
-msgstr[0] "Impor telah selesai, %d pertanyaan di eksekusi."
+msgstr[0] "Impor telah selesai, %d kueri dieksekusi."
 
 #: import.php:611
 #, php-format
@@ -585,15 +588,15 @@ msgid ""
 "Script timeout passed, if you want to finish import, please %sresubmit the "
 "same file%s and import will resume."
 msgstr ""
-"Masa waktu Skrip telah habis, Jika anda ingin menyelesaikan hasil impornya, "
-"Tolong %s kirim kembali berkas yang sama %s dan hasil impor akan berlanjut."
+"Masa waktu skrip telah habis, jika Anda ingin menyelesaikan mengimpor, %"
+"skirim kembali berkas yang sama%s dan impor akan berlanjut."
 
 #: import.php:621
 msgid ""
 "However on last run no data has been parsed, this usually means phpMyAdmin "
 "won't be able to finish this import unless you increase php time limits."
 msgstr ""
-"Tidak ada data yang di-parse pada eksekusi terakhir, biasanya ini berarti "
+"Tidak ada data yang diurai pada eksekusi terakhir, biasanya ini berarti "
 "phpMyAdmin tidak bisa menyelesaikan proses impor kecuali Anda menambah batas "
 "waktu eksekusi php."
 
@@ -603,7 +606,7 @@ msgstr "Perintah \"DROP DATABASE\" dinonaktifkan."
 
 #: import_status.php:107
 msgid "Could not load the progress of the import."
-msgstr "Tidak dapat memuat perubahan dari impor."
+msgstr "Tidak dapat memuat kemajuan impor."
 
 #: import_status.php:116 js/messages.php:457 js/messages.php:622
 #: libraries/classes/Export.php:509
@@ -622,7 +625,7 @@ msgstr ""
 
 #: index.php:159 libraries/classes/Footer.php:75
 msgid "phpMyAdmin Demo Server"
-msgstr "Server demonstrasi phpMyAdmin"
+msgstr "Server Demo phpMyAdmin"
 
 #: index.php:163
 #, php-format
@@ -632,8 +635,8 @@ msgid ""
 "at %s."
 msgstr ""
 "Anda menggunakan server demonstrasi. Anda dapat melakukan apapun disini, "
-"tetapi harap jangan mengubah root, debian-sys-main dan pma users. Informasi "
-"lebih lanjut tersedia di %s."
+"tetapi harap jangan mengubah pengguna root, debian-sys-maint, dan pma. "
+"Informasi lebih lanjut tersedia di %s."
 
 #: index.php:173
 msgid "General settings"
@@ -643,7 +646,7 @@ msgstr "Pengaturan umum"
 #: libraries/classes/Display/ChangePassword.php:58
 #: libraries/classes/Display/ChangePassword.php:61 user_password.php:292
 msgid "Change password"
-msgstr "Ubah Sandi"
+msgstr "Ubah kata sandi"
 
 #: index.php:220
 msgid "Server connection collation"
@@ -677,7 +680,7 @@ msgstr "Koneksi server:"
 #: libraries/classes/Plugins/Export/ExportSql.php:704
 #: libraries/classes/Plugins/Export/ExportXml.php:243
 msgid "Server version:"
-msgstr "Versi Server:"
+msgstr "Versi server:"
 
 #: index.php:317
 msgid "Protocol version:"
@@ -693,7 +696,7 @@ msgstr "Kumpulan karakter server:"
 
 #: index.php:339
 msgid "Web server"
-msgstr "web server"
+msgstr "Server web"
 
 #: index.php:350
 msgid "Database client version:"
@@ -705,7 +708,7 @@ msgstr "Ekstensi PHP:"
 
 #: index.php:368
 msgid "PHP version:"
-msgstr "PHP Versi:"
+msgstr "Versi PHP:"
 
 #: index.php:379
 msgid "Show PHP information"
@@ -726,7 +729,7 @@ msgstr "Dokumentasi"
 
 #: index.php:416
 msgid "Official Homepage"
-msgstr "Situs resmi"
+msgstr "Situs Resmi"
 
 #: index.php:423
 msgid "Contribute"
@@ -734,7 +737,7 @@ msgstr "Berkontribusi"
 
 #: index.php:430
 msgid "Get support"
-msgstr "Dukungan"
+msgstr "Dapatkan dukungan"
 
 #: index.php:437
 msgid "List of changes"
@@ -750,17 +753,17 @@ msgid ""
 "multibyte charset. Without the mbstring extension phpMyAdmin is unable to "
 "split strings correctly and it may result in unexpected results."
 msgstr ""
-"Ekstensi PHP mbstring tidak ditemukan dan anda juga menggunakan multibyte "
-"charset. Tanpa ekstensi mbstring menyala phpMyAdmin mencampurkan string yang "
-"benar dan itu juga akan menghasilkan hasil yang tak terduga."
+"Ekstensi PHP mbstring tidak ditemukan dan Anda juga menggunakan multibyte "
+"charset. Tanpa ekstensi mbstring phpMyAdmin tidak bisa memecang string "
+"secara benar dan juga akan menghasilkan hasil yang tak terduga."
 
 #: index.php:479
 msgid ""
 "The curl extension was not found and allow_url_fopen is disabled. Due to "
 "this some features such as error reporting or version check are disabled."
 msgstr ""
-"ekstensi curl tidak ditemukan dan pengaturan allow_url_fopen tidak aktif. "
-"Sehingga menyebabkan beberapa fitur-fitur seperti laporan kesalahan atau "
+"Ekstensi curl tidak ditemukan dan pengaturan allow_url_fopen tidak aktif. "
+"Sehingga menyebabkan beberapa fitur seperti laporan kesalahan atau "
 "pengecekan versi tidak aktif."
 
 #: index.php:494
@@ -770,11 +773,11 @@ msgid ""
 "than cookie validity configured in phpMyAdmin, because of this, your login "
 "might expire sooner than configured in phpMyAdmin."
 msgstr ""
-"Parameter PHP [a@https://secure.php.net/manual/en/session.configuration."
-"php#ini.session.gc-maxlifetime@_blank]session.gc_maxlifetime[/a] anda lebih "
-"kecil daripada konfigurasi lama validitas cookie di  phpMyAdmin, oleh karena "
-"itu login anda mungkin dapat berakhir lebih cepat daripada konfigurasi "
-"phpMyAdmin."
+"Parameter PHP "
+"[a@https://secure.php.net/manual/en/session.configuration.php#ini.session.gc-"
+"maxlifetime@_blank]session.gc_maxlifetime[/a] Anda lebih kecil daripada "
+"validitas cookie di phpMyAdmin, oleh karena itu login Anda mungkin "
+"kedaluwarsa lebih cepat daripada yang dikonfigurasi dalam phpMyAdmin."
 
 #: index.php:513
 msgid ""
@@ -782,17 +785,18 @@ msgid ""
 "because of this, your login will expire sooner than configured in phpMyAdmin."
 msgstr ""
 "Penyimpanan cookie login lebih kecil daripada validitas cookie di "
-"phpMyAdmin, karenanya, login anda akan lebih cepat berakhir daripada "
-"konfigurasi phpMyAdmin."
+"phpMyAdmin, karenanya, login Anda lebih cepat kedaluwarsa daripada yang "
+"dikonfigurasi dalam phpMyAdmin."
 
 #: index.php:528
 msgid "The configuration file now needs a secret passphrase (blowfish_secret)."
 msgstr ""
-"File konfigurasi membutuhkan susunan kata-kata rahasia (blowfish_secret)."
+"Berkas konfigurasi sekarang membutuhkan frasa sandi rahasia "
+"(blowfish_secret)."
 
 #: index.php:535
 msgid "The secret passphrase in configuration (blowfish_secret) is too short."
-msgstr "Passphrase rahasia (blowfish_secret) di konfigurasi terlalu pendek."
+msgstr "Frasa sandi rahasia (blowfish_secret) dalam konfigurasi terlalu pendek."
 
 #: index.php:549
 msgid ""
@@ -801,10 +805,10 @@ msgid ""
 "once phpMyAdmin has been configured. Otherwise the security of your server "
 "may be compromised by unauthorized people downloading your configuration."
 msgstr ""
-"Direktori [code]config[/code] yang digunakan oleh skrip pengaturan, masih "
-"ada di direktori phpMyAdmin Anda. Anda disarankan menghapusnya setelah "
-"phpMyAdmin dikonfigurasi. Atau keamanan server anda bisa dimasuki orang lain "
-"dan mengunduh konfigurasi anda."
+"Direktori [code]config[/code] yang digunakan oleh skrip penyiapan, masih ada "
+"di direktori phpMyAdmin Anda. Anda disarankan menghapusnya setelah "
+"phpMyAdmin dikonfigurasi. Jika tidak, keamanan server Anda bisa dirusak oleh "
+"orang yang tidak berhak yang mengunduh konfigurasi Anda."
 
 #: index.php:565
 #, php-format
@@ -812,14 +816,14 @@ msgid ""
 "The phpMyAdmin configuration storage is not completely configured, some "
 "extended features have been deactivated. %sFind out why%s. "
 msgstr ""
-"Penyimpanan konfigurasi phpMyAdmin belum sempurna, beberapa fitur untuk "
-"sementara dimatikan. %sCari tahu mengapa%s. "
+"Penyimpanan konfigurasi phpMyAdmin belum ditata secara lengkap, beberapa "
+"fitur untuk sementara dimatikan. %sCari tahu mengapa%s. "
 
 #: index.php:572
 msgid ""
 "Or alternately go to 'Operations' tab of any database to set it up there."
 msgstr ""
-"Sebagai alternatif pergilah ke tab 'Operator' dari sebarang database untuk "
+"Sebagai alternatif pergilah ke tab 'Operasi' dari sebarang database untuk "
 "menatanya di sana."
 
 #: index.php:597
@@ -851,19 +855,21 @@ msgstr "Anda yakin akan menjalankan \"%s\"?"
 
 #: js/messages.php:46 libraries/mult_submits.lib.php:448
 msgid "You are about to DESTROY a complete database!"
-msgstr "Anda akan MENGHAPUS seluruh database!"
+msgstr "Anda akan MENGHANCURKAN sebuah database lengkap!"
 
 #: js/messages.php:48
 msgid "Cannot rename database to the same name. Change the name and try again"
-msgstr "Nama basisdata tidak boleh sama. Gunakan nama lain dan coba lagi"
+msgstr ""
+"Tidak bisa mengubah nama database ke nama yang sama. Gunakan nama lain dan "
+"coba lagi"
 
 #: js/messages.php:50
 msgid "You are about to DESTROY a complete table!"
-msgstr "Anda akan MENGHAPUS seluruh tabel!"
+msgstr "Anda akan MENGHANCURKAN sebuah tabel lengkap!"
 
 #: js/messages.php:52
 msgid "You are about to TRUNCATE a complete table!"
-msgstr "Anda akan MENGOSONGKAN seluruh tabel!"
+msgstr "Anda akan MENGOSONGKAN sebuah tabel lengkap!"
 
 #: js/messages.php:53
 msgid "Delete tracking data for this table?"
@@ -883,23 +889,25 @@ msgstr "Hapus data pelacakan versi ini?"
 
 #: js/messages.php:60
 msgid "Delete entry from tracking report?"
-msgstr "Hapus data dari laporan pelacakan?"
+msgstr "Hapus entri dari laporan pelacakan?"
 
 #: js/messages.php:61
 msgid "Deleting tracking data"
-msgstr "Hapus data pelacakan"
+msgstr "Menghapus data pelacakan"
 
 #: js/messages.php:62
+#, fuzzy
 msgid "Dropping Primary Key/Index"
 msgstr "Menghapus Kunci/Indeks Primer"
 
 #: js/messages.php:63
+#, fuzzy
 msgid "Dropping Foreign key."
 msgstr "Penghapusan Foreign Key."
 
 #: js/messages.php:65
 msgid "This operation could take a long time. Proceed anyway?"
-msgstr "Operasi ini membutuhkan waktu yang lama. Tetap lanjutkan?"
+msgstr "Operasi ini bisa makan waktu lama. Tetap lanjutkan?"
 
 #: js/messages.php:67
 #, php-format
@@ -909,25 +917,27 @@ msgstr "Anda yakin akan menghapus grup pengguna \"%s\"?"
 #: js/messages.php:69
 #, php-format
 msgid "Do you really want to delete the search \"%s\"?"
-msgstr "Apakah anda yakin ingin menghapus pencarian \"%s\"?"
+msgstr "Anda yakin ingin menghapus pencarian \"%s\"?"
 
 #: js/messages.php:71
 msgid "You have unsaved changes; are you sure you want to leave this page?"
 msgstr ""
-"Anda punya perubahan yang belum disimpan; apakah Anda yakin hendak "
-"meninggalkan halaman ini?"
+"Anda punya perubahan yang belum disimpan; Anda yakin hendak meninggalkan "
+"halaman ini?"
 
 #: js/messages.php:73
+#, fuzzy
 msgid "Do you really want to revoke the selected user(s) ?"
 msgstr "Anda yakin akan menghapus pengguna yang dipilih?"
 
 #: js/messages.php:75
 msgid "Do you really want to delete this central column?"
-msgstr "Apakah anda yakin untuk menghapus kolom utama ini?"
+msgstr "Anda yakin hendak menghapus kolom utama ini?"
 
 #: js/messages.php:77
+#, fuzzy
 msgid "Do you really want to delete the selected items?"
-msgstr "Apakah anda yakin ingin menghapus item terpilih?"
+msgstr "Anda yakin ingin menghapus item terpilih?"
 
 #: js/messages.php:79
 msgid ""
