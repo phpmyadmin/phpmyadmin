@@ -5,22 +5,17 @@
  *
  * @package PhpMyAdmin-test
  */
-
-/*
- * Include to test.
- */
+namespace PhpMyAdmin\Tests\Engines;
 
 use PhpMyAdmin\Core;
 use PhpMyAdmin\Engines\Pbxt;
-
-require_once 'test/PMATestCase.php';
 
 /**
  * Tests for PhpMyAdmin\Engines\Pbxt;
  *
  * @package PhpMyAdmin-test
  */
-class PbxtTest extends PMATestCase
+class PbxtTest extends \PMATestCase
 {
     /**
      * @access protected

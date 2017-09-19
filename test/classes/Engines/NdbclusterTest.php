@@ -1,24 +1,19 @@
 <?php
 /**
- * Tests for PhpMyAdmin\Engines\Bdb
+ * Tests for PMA_StorageEngine_ndbcluster
  *
  * @package PhpMyAdmin-test
  */
+namespace PhpMyAdmin\Tests\Engines;
 
-/*
- * Include to test.
- */
-
-use PhpMyAdmin\Engines\Bdb;
-
-require_once 'test/PMATestCase.php';
+use PhpMyAdmin\Engines\Ndbcluster;
 
 /**
- * Tests for PhpMyAdmin\Engines\Bdb
+ * Tests for PhpMyAdmin\Engines\Ndbcluster
  *
  * @package PhpMyAdmin-test
  */
-class BdbTest extends PMATestCase
+class NdbclusterTest extends \PMATestCase
 {
     /**
      * @access protected
@@ -35,7 +30,7 @@ class BdbTest extends PMATestCase
     protected function setUp()
     {
         $GLOBALS['server'] = 0;
-        $this->object = new Bdb('bdb');
+        $this->object = new Ndbcluster('nbdcluster');
     }
 
     /**
@@ -60,39 +55,7 @@ class BdbTest extends PMATestCase
         $this->assertEquals(
             $this->object->getVariables(),
             array(
-                'version_bdb' => array(
-                    'title' => __('Version information'),
-                ),
-                'bdb_cache_size' => array(
-                    'type'  => 1,
-                ),
-                'bdb_home' => array(
-                ),
-                'bdb_log_buffer_size' => array(
-                    'type'  => 1,
-                ),
-                'bdb_logdir' => array(
-                ),
-                'bdb_max_lock' => array(
-                    'type'  => 2,
-                ),
-                'bdb_shared_data' => array(
-                ),
-                'bdb_tmpdir' => array(
-                ),
-                'bdb_data_direct' => array(
-                ),
-                'bdb_lock_detect' => array(
-                ),
-                'bdb_log_direct' => array(
-                ),
-                'bdb_no_recover' => array(
-                ),
-                'bdb_no_sync' => array(
-                ),
-                'skip_sync_bdb_logs' => array(
-                ),
-                'sync_bdb_logs' => array(
+                'ndb_connectstring' => array(
                 ),
             )
         );
@@ -107,7 +70,7 @@ class BdbTest extends PMATestCase
     {
         $this->assertEquals(
             $this->object->getVariablesLikePattern(),
-            '%bdb%'
+            'ndb\\_%'
         );
     }
 
@@ -120,7 +83,7 @@ class BdbTest extends PMATestCase
     {
         $this->assertEquals(
             $this->object->getMysqlHelpPage(),
-            'bdb'
+            'ndbcluster'
         );
 
     }

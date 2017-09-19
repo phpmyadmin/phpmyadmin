@@ -4,21 +4,16 @@
  *
  * @package PhpMyAdmin-test
  */
-
-/*
- * Include to test.
- */
+namespace PhpMyAdmin\Tests\Engines;
 
 use PhpMyAdmin\Engines\MrgMyisam;
-
-require_once 'test/PMATestCase.php';
 
 /**
  * Tests for PhpMyAdmin\Engines\MrgMyisam
  *
  * @package PhpMyAdmin-test
  */
-class MrgMyisamTest extends PMATestCase
+class MrgMyisamTest extends \PMATestCase
 {
     /**
      * @access protected

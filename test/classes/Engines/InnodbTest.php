@@ -4,21 +4,16 @@
  *
  * @package PhpMyAdmin-test
  */
-
-/*
- * Include to test.
- */
+namespace PhpMyAdmin\Tests\Engines;
 
 use PhpMyAdmin\Engines\Innodb;
-
-require_once 'test/PMATestCase.php';
 
 /**
  * Tests for PhpMyAdmin\Engines\Innodb
  *
  * @package PhpMyAdmin-test
  */
-class InnodbTest extends PMATestCase
+class InnodbTest extends \PMATestCase
 {
     /**
      * @access protected

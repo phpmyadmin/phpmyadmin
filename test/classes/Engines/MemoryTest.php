@@ -1,24 +1,19 @@
 <?php
 /**
- * Tests for PMA_StorageEngine_binlog
+ * Tests for PMA_StorageEngine_memory
  *
  * @package PhpMyAdmin-test
  */
+namespace PhpMyAdmin\Tests\Engines;
 
-/*
- * Include to test.
- */
-
-use PhpMyAdmin\Engines\Binlog;
-
-require_once 'test/PMATestCase.php';
+use PhpMyAdmin\Engines\Memory;
 
 /**
- * Tests for PhpMyAdmin\Engines\Binlog
+ * Tests for PhpMyAdmin\Engines\Memory
  *
  * @package PhpMyAdmin-test
  */
-class BinlogTest extends PMATestCase
+class MemoryTest extends \PMATestCase
 {
     /**
      * @access protected
@@ -35,7 +30,7 @@ class BinlogTest extends PMATestCase
     protected function setUp()
     {
         $GLOBALS['server'] = 0;
-        $this->object = new Binlog('binlog');
+        $this->object = new Memory('memory');
     }
 
     /**
@@ -50,17 +45,20 @@ class BinlogTest extends PMATestCase
         unset($this->object);
     }
 
-
     /**
-     * Test for getMysqlHelpPage
+     * Test for getVariables
      *
      * @return void
      */
-    public function testGetMysqlHelpPage()
+    public function testGetVariables()
     {
         $this->assertEquals(
-            $this->object->getMysqlHelpPage(),
-            'binary-log'
+            $this->object->getVariables(),
+            array(
+                'max_heap_table_size' => array(
+                                            'type'  => 1,
+                                         )
+                )
         );
     }
 }
