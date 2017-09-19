@@ -6,15 +6,18 @@
  *
  * @package PhpMyAdmin-test
  */
-use PhpMyAdmin\Gis\GisGeometryCollection;
+namespace PhpMyAdmin\Tests\Gis;
 
+use PhpMyAdmin\Gis\GisGeometryCollection;
+use PHPUnit_Framework_TestCase as TestCase;
+use TCPDF;
 
 /**
  * Tests for PhpMyAdmin\Gis\GisGeometryCollection class
  *
  * @package PhpMyAdmin-test
  */
-class GisGeometryCollectionTest extends PHPUnit_Framework_TestCase
+class GisGeometryCollectionTest extends TestCase
 {
 
     /**
@@ -268,7 +271,7 @@ class GisGeometryCollectionTest extends PHPUnit_Framework_TestCase
                     'scale' => 2,
                     'height' => 150
                 ),
-                new \TCPDF(),
+                new TCPDF(),
             )
         );
     }

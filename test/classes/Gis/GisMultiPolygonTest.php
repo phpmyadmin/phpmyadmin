@@ -5,10 +5,11 @@
  *
  * @package PhpMyAdmin-test
  */
+namespace PhpMyAdmin\Tests\Gis;
 
 use PhpMyAdmin\Gis\GisMultiPolygon;
-
-require_once 'GisGeomTest.php';
+use PhpMyAdmin\Tests\Gis\GisGeomTest;
+use TCPDF;
 
 /**
  * Tests for PhpMyAdmin\Gis\GisMultiPolygon class

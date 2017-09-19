@@ -5,14 +5,17 @@
  *
  * @package PhpMyAdmin-test
  */
+namespace PhpMyAdmin\Tests\Gis;
+
 use PhpMyAdmin\Gis\GisFactory;
+use PHPUnit_Framework_TestCase as TestCase;
 
 /**
  * Test class for PhpMyAdmin\Gis\GisFactory
  *
  * @package PhpMyAdmin-test
  */
-class GisFactoryTest extends PHPUnit_Framework_TestCase
+class GisFactoryTest extends TestCase
 {
 
     /**

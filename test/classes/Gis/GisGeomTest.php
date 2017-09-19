@@ -5,13 +5,16 @@
  *
  * @package PhpMyAdmin-test
  */
+namespace PhpMyAdmin\Tests\Gis;
+
+use PHPUnit_Framework_TestCase as TestCase;
 
 /**
  * Abstract parent class for all GIS<Geom_type> test classes
  *
  * @package PhpMyAdmin-test
  */
-abstract class GisGeomTest extends PHPUnit_Framework_TestCase
+abstract class GisGeomTest extends TestCase
 {
 
     /**

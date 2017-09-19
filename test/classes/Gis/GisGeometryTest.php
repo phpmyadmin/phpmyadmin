@@ -5,13 +5,17 @@
  *
  * @package PhpMyAdmin-test
  */
+namespace PhpMyAdmin\Tests\Gis;
+
+use PHPUnit_Framework_TestCase as TestCase;
+use ReflectionClass;
 
 /**
  * Tests for PhpMyAdmin\Gis\GisGeometry class
  *
  * @package PhpMyAdmin-test
  */
-class GisGeometryTest extends PHPUnit_Framework_TestCase
+class GisGeometryTest extends TestCase
 {
     /**
      * @access protected

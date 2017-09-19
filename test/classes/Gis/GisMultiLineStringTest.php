@@ -5,10 +5,11 @@
  *
  * @package PhpMyAdmin-test
  */
+namespace PhpMyAdmin\Tests\Gis;
 
 use PhpMyAdmin\Gis\GisMultiLineString;
-
-require_once 'GisGeomTest.php';
+use PhpMyAdmin\Tests\Gis\GisGeomTest;
+use TCPDF;
 
 /**
  * Tests for PhpMyAdmin\Gis\GisMultiLineString class
