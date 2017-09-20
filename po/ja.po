@@ -4,16 +4,16 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.8.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2017-09-08 21:11+0200\n"
-"PO-Revision-Date: 2017-07-23 07:19+0000\n"
+"PO-Revision-Date: 2017-09-20 14:06+0000\n"
 "Last-Translator: worldwideskier <worldwideskier@yahoo.co.jp>\n"
-"Language-Team: Japanese <https://hosted.weblate.org/projects/phpmyadmin/"
-"master/ja/>\n"
+"Language-Team: Japanese "
+"<https://hosted.weblate.org/projects/phpmyadmin/master/ja/>\n"
 "Language: ja\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Weblate 2.16-dev\n"
+"X-Generator: Weblate 2.17-dev\n"
 
 #: ajax.php:17 ajax.php:34 export.php:196 schema_export.php:67
 msgid "Bad type!"
@@ -304,9 +304,7 @@ msgstr "データベース名が空です!"
 #| msgid ""
 #| "Cannot rename database to the same name. Change the name and try again"
 msgid "Cannot copy database to the same name. Change the name and try again."
-msgstr ""
-"同じ名前にデータベースをリネームすることはできません。 名前を変更して再試行し"
-"てください"
+msgstr "同じ名前にデータベースをコピーすることはできません。 名前を変更して再試行してください"
 
 #: db_operations.php:146
 #, php-format
@@ -674,7 +672,7 @@ msgstr "サーバの種類："
 #, fuzzy
 #| msgid "Insecure connection"
 msgid "Server connection:"
-msgstr "セキュリティで保護されていない接続"
+msgstr "サーバの接続:"
 
 #: index.php:311 libraries/classes/Plugins/Export/ExportLatex.php:223
 #: libraries/classes/Plugins/Export/ExportSql.php:704
@@ -1402,10 +1400,9 @@ msgstr "%s を無効にする"
 
 #. l10n: %d seconds
 #: js/messages.php:245
-#, fuzzy, php-format
-#| msgid "Set long_query_time to %ds"
+#, php-format
 msgid "Set long_query_time to %d seconds."
-msgstr "long_query_time を %d 秒に設定する"
+msgstr "long_query_time を %d 秒に設定する。"
 
 #: js/messages.php:247
 msgid ""
@@ -1741,10 +1738,11 @@ msgid "Error text: %s"
 msgstr "エラーテキスト：%s"
 
 #: js/messages.php:366
+#, fuzzy
 msgid ""
 "It seems that the connection to server has been lost. Please check your "
 "network connectivity and server status."
-msgstr ""
+msgstr "サーバへの接続が失われたようです。ネットワークの接続とサーバの状態を確認して下さい。"
 
 #: js/messages.php:369
 #: libraries/classes/Controllers/Server/ServerDatabasesController.php:193
@@ -1753,10 +1751,8 @@ msgid "No databases selected."
 msgstr "データベースが選択されていません。"
 
 #: js/messages.php:370
-#, fuzzy
-#| msgid "No column selected."
 msgid "No accounts selected."
-msgstr "カラムが選択されていません。"
+msgstr "アカウントが選択されていません。"
 
 #: js/messages.php:371
 msgid "Dropping column"
@@ -2235,9 +2231,7 @@ msgstr "MySQLは日付ピッカーで選択できない値を直接キー入力�
 msgid ""
 "Indicates that you have made changes to this page; you will be prompted for "
 "confirmation before abandoning changes"
-msgstr ""
-"あなたがこのページに変更を加えた場合、変更を破棄する前に確認画面が表示される"
-"でしょう。"
+msgstr "あなたがこのページに変更を加えた場合、変更を破棄する前に確認画面が表示されるでしょう"
 
 #: js/messages.php:551
 msgid "Select referenced key"
@@ -8153,15 +8147,15 @@ msgstr "インポートファイルをアップロードしています…"
 #: libraries/classes/Display/Import.php:500
 #, php-format
 msgid "%s/sec."
-msgstr "%s/秒"
+msgstr "%s/秒。"
 
 #: libraries/classes/Display/Import.php:501
 msgid "About %MIN min. %SEC sec. remaining."
-msgstr "残り時間 約 %MIN 分 %SEC 秒"
+msgstr "残り時間 約 %MIN 分 %SEC 秒。"
 
 #: libraries/classes/Display/Import.php:502
 msgid "About %SEC sec. remaining."
-msgstr "残り時間 約 %SEC 秒"
+msgstr "残り時間 約 %SEC 秒。"
 
 #: libraries/classes/Display/Import.php:504
 msgid "The file is being processed, please be patient."
@@ -8841,7 +8835,7 @@ msgstr "返り値が空でした (行数 0)。"
 
 #: libraries/classes/Import.php:290 libraries/classes/Sql.php:1408
 msgid "[ROLLBACK occurred.]"
-msgstr "ロールバックが発生しました。"
+msgstr "[ロールバックが発生しました。]"
 
 #: libraries/classes/Import.php:1209
 msgid ""
@@ -9250,7 +9244,7 @@ msgstr[0] "%1$d 行挿入しました。"
 
 #: libraries/classes/Navigation/Navigation.php:56
 msgid "An error has occurred while loading the navigation display"
-msgstr "ナビゲーション画面を読み込み中にエラーが発生しました。"
+msgstr "ナビゲーション画面を読み込み中にエラーが発生しました"
 
 #: libraries/classes/Navigation/Navigation.php:194
 #, fuzzy
