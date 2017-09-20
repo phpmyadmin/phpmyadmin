@@ -5,22 +5,19 @@
  *
  * @package PhpMyAdmin-test
  */
-
-/*
- * Include to test.
- */
-require_once 'test/PMATestCase.php';
+namespace PhpMyAdmin\Tests;
 
 use PhpMyAdmin\Config;
 use PhpMyAdmin\Core;
 use PhpMyAdmin\Sanitize;
+use stdClass;
 
 /**
  * Tests for PhpMyAdmin\Core class
  *
  * @package PhpMyAdmin-test
  */
-class CoreTest extends PMATestCase
+class CoreTest extends \PMATestCase
 {
     protected $goto_whitelist = array(
         'db_datadict.php',

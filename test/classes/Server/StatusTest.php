@@ -11,6 +11,7 @@ use PhpMyAdmin\Core;
 use PhpMyAdmin\Server\Status;
 use PhpMyAdmin\Server\Status\Data;
 use PhpMyAdmin\Theme;
+use PHPUnit_Framework_TestCase as TestCase;
 
 /**
  * PhpMyAdmin\Tests\Server\StatusTest class
@@ -19,7 +20,7 @@ use PhpMyAdmin\Theme;
  *
  * @package PhpMyAdmin-test
  */
-class StatusTest extends \PHPUnit_Framework_TestCase
+class StatusTest extends TestCase
 {
     /**
      * Prepares environment for the test.

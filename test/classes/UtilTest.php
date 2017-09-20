@@ -5,17 +5,16 @@
  *
  * @package PhpMyAdmin-test
  */
+namespace PhpMyAdmin\Tests;
 
 use PhpMyAdmin\Util;
-
-require_once 'test/PMATestCase.php';
 
 /**
  * Test for PhpMyAdmin\Util class
  *
  * @package PhpMyAdmin-test
  */
-class UtilTest extends PMATestCase
+class UtilTest extends \PMATestCase
 {
 
     /**

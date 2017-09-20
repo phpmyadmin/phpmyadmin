@@ -8,13 +8,14 @@ namespace PhpMyAdmin\Tests\Database;
 
 use PhpMyAdmin\Database\Designer;
 use PhpMyAdmin\DatabaseInterface;
+use PHPUnit_Framework_TestCase as TestCase;
 
 /**
  * Tests for PhpMyAdmin\Database\Designer
  *
  * @package PhpMyAdmin-test
  */
-class DesignerTest extends \PHPUnit_Framework_TestCase
+class DesignerTest extends TestCase
 {
 
     /**

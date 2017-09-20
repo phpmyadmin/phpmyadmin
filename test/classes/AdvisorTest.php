@@ -5,13 +5,10 @@
  *
  * @package PhpMyAdmin-test
  */
-
-/*
- * Include to test.
- */
-require_once 'test/PMATestCase.php';
+namespace PhpMyAdmin\Tests;
 
 use PhpMyAdmin\Advisor;
+use PhpMyAdmin\Config;
 use PhpMyAdmin\Theme;
 
 /**
@@ -19,7 +16,7 @@ use PhpMyAdmin\Theme;
  *
  * @package PhpMyAdmin-test
  */
-class AdvisorTest extends PMATestCase
+class AdvisorTest extends \PMATestCase
 {
 
     /**
@@ -30,6 +27,7 @@ class AdvisorTest extends PMATestCase
      */
     public function setup()
     {
+        $GLOBALS['PMA_Config'] = new Config();
         $GLOBALS['server'] = 1;
     }
 

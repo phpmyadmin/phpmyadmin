@@ -5,22 +5,20 @@
  *
  * @package PhpMyAdmin-test
  */
+namespace PhpMyAdmin\Tests;
 
 use PhpMyAdmin\ListDatabase;
+use ReflectionClass;
 
 $GLOBALS['server'] = 1;
 $GLOBALS['cfg']['Server']['DisableIS'] = false;
-/*
- * Include to test.
- */
-require_once 'test/PMATestCase.php';
 
 /**
  * tests for ListDatabase class
  *
  * @package PhpMyAdmin-test
  */
-class ListDatabaseTest extends PMATestCase
+class ListDatabaseTest extends \PMATestCase
 {
     /**
      * SetUp for test cases

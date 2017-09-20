@@ -9,7 +9,7 @@ namespace PhpMyAdmin\Tests;
 
 use PhpMyAdmin\Relation;
 use PhpMyAdmin\Theme;
-
+use PHPUnit_Framework_TestCase as TestCase;
 
 /**
  * Tests for PhpMyAdmin\Relation
@@ -17,7 +17,7 @@ use PhpMyAdmin\Theme;
  * @package PhpMyAdmin-test
  * @group medium
  */
-class RelationTest extends \PHPUnit_Framework_TestCase
+class RelationTest extends TestCase
 {
     /**
      * Sets up the fixture, for example, opens a network connection.

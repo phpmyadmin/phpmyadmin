@@ -10,13 +10,14 @@ namespace PhpMyAdmin\Tests\Rte;
 use PhpMyAdmin\Response;
 use PhpMyAdmin\Rte\Routines;
 use PhpMyAdmin\TypesMySQL;
+use PHPUnit_Framework_TestCase as TestCase;
 
 /**
  * This class is for testing PhpMyAdmin\Rte\Routines methods
  *
  * @package PhpMyAdmin-test
  */
-class RoutinesTest extends \PHPUnit_Framework_TestCase
+class RoutinesTest extends TestCase
 {
     /**
      * Set up

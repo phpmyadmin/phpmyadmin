@@ -8,13 +8,14 @@
 namespace PhpMyAdmin\Tests;
 
 use PhpMyAdmin\BrowseForeigners;
+use PHPUnit_Framework_TestCase as TestCase;
 
 /**
  * Tests for PhpMyAdmin\BrowseForeigners
  *
  * @package PhpMyAdmin-test
  */
-class BrowseForeignersTest extends \PHPUnit_Framework_TestCase
+class BrowseForeignersTest extends TestCase
 {
     /**
      * Setup for test cases

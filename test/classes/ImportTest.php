@@ -11,6 +11,7 @@ use PhpMyAdmin\Import;
 use PhpMyAdmin\SqlParser\Parser;
 use PhpMyAdmin\Url;
 use PhpMyAdmin\Util;
+use PHPUnit_Framework_TestCase as TestCase;
 
 /*
  * we must set $GLOBALS['server'] here
@@ -18,16 +19,12 @@ use PhpMyAdmin\Util;
  */
 $GLOBALS['server'] = 0;
 
-/*
- * Include to test.
- */
-
 /**
  * Tests for import functions
  *
  * @package PhpMyAdmin-test
  */
-class ImportTest extends \PHPUnit_Framework_TestCase
+class ImportTest extends TestCase
 {
     /**
      * Prepares environment for the test.

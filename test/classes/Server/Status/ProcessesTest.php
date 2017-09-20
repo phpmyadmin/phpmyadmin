@@ -11,6 +11,7 @@ use PhpMyAdmin\Core;
 use PhpMyAdmin\Server\Status\Processes;
 use PhpMyAdmin\Theme;
 use PhpMyAdmin\Url;
+use PHPUnit_Framework_TestCase as TestCase;
 
 /**
  * PhpMyAdmin\Tests\Server\Status\ProcessesTest class
@@ -19,7 +20,7 @@ use PhpMyAdmin\Url;
  *
  * @package PhpMyAdmin-test
  */
-class ProcessesTest extends \PHPUnit_Framework_TestCase
+class ProcessesTest extends TestCase
 {
     /**
      * Test for setUp

@@ -1,19 +1,20 @@
 <?php
 /* vim: set expandtab sw=4 ts=4 sts=4: */
 /**
- * tests for PhpMyAdmin\File class
+ * tests for File class
  *
  * @package PhpMyAdmin-test
  */
+namespace PhpMyAdmin\Tests;
 
-require_once 'test/PMATestCase.php';
+use PhpMyAdmin\File;
 
 /**
  * tests for PhpMyAdmin\File class
  *
  * @package PhpMyAdmin-test
  */
-class FileTest extends PMATestCase
+class FileTest extends \PMATestCase
 {
     /**
      * Setup function for test cases
@@ -26,7 +27,7 @@ class FileTest extends PMATestCase
     }
 
     /**
-     * Test for PhpMyAdmin\File::getCompression
+     * Test for File::getCompression
      *
      * @param string $file file string
      * @param string $mime expected mime
@@ -36,12 +37,12 @@ class FileTest extends PMATestCase
      */
     public function testMIME($file, $mime)
     {
-        $arr = new PhpMyAdmin\File($file);
+        $arr = new File($file);
         $this->assertEquals($mime, $arr->getCompression());
     }
 
     /**
-     * Test for PhpMyAdmin\File::getContent
+     * Test for File::getContent
      *
      * @param string $file file string
      *
@@ -51,12 +52,12 @@ class FileTest extends PMATestCase
     public function testBinaryContent($file)
     {
         $data = '0x' . bin2hex(file_get_contents($file));
-        $file = new PhpMyAdmin\File($file);
+        $file = new File($file);
         $this->assertEquals($data, $file->getContent());
     }
 
     /**
-     * Test for PhpMyAdmin\File::read
+     * Test for File::read
      *
      * @param string $file file string
      *
@@ -65,7 +66,7 @@ class FileTest extends PMATestCase
      */
     public function testReadCompressed($file)
     {
-        $file = new PhpMyAdmin\File($file);
+        $file = new File($file);
         $file->setDecompressContent(true);
         $file->open();
         $this->assertEquals("TEST FILE\n", $file->read(100));

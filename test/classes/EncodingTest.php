@@ -5,15 +5,17 @@
  *
  * @package PhpMyAdmin-test
  */
+namespace PhpMyAdmin\Tests;
 
 use PhpMyAdmin\Encoding;
+use PHPUnit_Framework_TestCase as TestCase;
 
 /**
  * Tests for Charset Conversions
  *
  * @package PhpMyAdmin-test
  */
-class EncodingTest extends PHPUnit_Framework_TestCase
+class EncodingTest extends TestCase
 {
     public function setUp()
     {

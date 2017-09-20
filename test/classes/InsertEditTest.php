@@ -16,9 +16,9 @@ use PhpMyAdmin\Theme;
 use PhpMyAdmin\Tracker;
 use PhpMyAdmin\Types;
 use PhpMyAdmin\TypesMySQL;
+use PHPUnit_Framework_TestCase as TestCase;
 use ReflectionProperty;
 use stdClass;
-
 
 /**
  * Tests for PhpMyAdmin\InsertEdit
@@ -26,7 +26,7 @@ use stdClass;
  * @package PhpMyAdmin-test
  * @group medium
  */
-class InsertEditTest extends \PHPUnit_Framework_TestCase
+class InsertEditTest extends TestCase
 {
     /**
      * Setup for test cases

@@ -10,6 +10,7 @@ namespace PhpMyAdmin\Tests;
 use PhpMyAdmin\MultSubmits;
 use PhpMyAdmin\Theme;
 use PhpMyAdmin\Url;
+use PHPUnit_Framework_TestCase as TestCase;
 
 /**
  * PhpMyAdmin\Tests\MultSubmitsTest class
@@ -18,7 +19,7 @@ use PhpMyAdmin\Url;
  *
  * @package PhpMyAdmin-test
  */
-class MultSubmitsTest extends \PHPUnit_Framework_TestCase
+class MultSubmitsTest extends TestCase
 {
     /**
      * Test for setUp

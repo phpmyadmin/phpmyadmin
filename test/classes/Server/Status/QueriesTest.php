@@ -12,6 +12,7 @@ use PhpMyAdmin\Server\Status\Data;
 use PhpMyAdmin\Server\Status\Queries;
 use PhpMyAdmin\Theme;
 use PhpMyAdmin\Util;
+use PHPUnit_Framework_TestCase as TestCase;
 
 /**
  * PhpMyAdmin\Tests\Server\Status\QueriesTest class
@@ -20,7 +21,7 @@ use PhpMyAdmin\Util;
  *
  * @package PhpMyAdmin-test
  */
-class QueriesTest extends \PHPUnit_Framework_TestCase
+class QueriesTest extends TestCase
 {
     /**
      * Prepares environment for the test.

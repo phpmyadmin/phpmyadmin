@@ -10,8 +10,6 @@ namespace PhpMyAdmin\Tests\Server\Status;
 use PhpMyAdmin\Core;
 use PhpMyAdmin\Server\Status\Data;
 
-require_once 'test/PMATestCase.php';
-
 /**
  * Test for PhpMyAdmin\Server\Status\Data class
  *

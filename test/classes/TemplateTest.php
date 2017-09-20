@@ -5,8 +5,7 @@
  *
  * @package PhpMyAdmin-test
  */
-
-require_once 'test/PMATestCase.php';
+namespace PhpMyAdmin\Tests;
 
 use PhpMyAdmin\Template;
 
@@ -15,7 +14,7 @@ use PhpMyAdmin\Template;
  *
  * @package PhpMyAdmin-test
  */
-class TemplateTest extends PMATestCase
+class TemplateTest extends \PMATestCase
 {
     /**
      * Test for set function

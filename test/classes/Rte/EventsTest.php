@@ -9,13 +9,14 @@ namespace PhpMyAdmin\Tests\Rte;
 
 use PhpMyAdmin\Response;
 use PhpMyAdmin\Rte\Events;
+use PHPUnit_Framework_TestCase as TestCase;
 
 /**
  * This class is for testing PhpMyAdmin\Rte\Events methods
  *
  * @package PhpMyAdmin-test
  */
-class EventsTest extends \PHPUnit_Framework_TestCase
+class EventsTest extends TestCase
 {
     /**
      * Set up

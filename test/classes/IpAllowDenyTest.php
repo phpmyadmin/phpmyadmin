@@ -9,6 +9,7 @@ namespace PhpMyAdmin\Tests;
 
 use PhpMyAdmin\Core;
 use PhpMyAdmin\IpAllowDeny;
+use PHPUnit_Framework_TestCase as TestCase;
 
 /**
  * PhpMyAdmin\Tests\IpAllowDenyTest class
@@ -17,7 +18,7 @@ use PhpMyAdmin\IpAllowDeny;
  *
  * @package PhpMyAdmin-test
  */
-class IpAllowDenyTest extends \PHPUnit_Framework_TestCase
+class IpAllowDenyTest extends TestCase
 {
     /**
      * Prepares environment for the test.

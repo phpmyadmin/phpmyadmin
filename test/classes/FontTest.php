@@ -4,17 +4,16 @@
  *
  * @package PhpMyAdmin-test
  */
+namespace PhpMyAdmin\Tests;
 
 use PhpMyAdmin\Font;
-
-require_once 'test/PMATestCase.php';
 
 /**
  * Tests for PhpMyAdmin\Font class
  *
  * @package PhpMyAdmin-test
  */
-class FontTest extends PMATestCase
+class FontTest extends \PMATestCase
 {
     /**
      * Test getStringWidth with different characters.

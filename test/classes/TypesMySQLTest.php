@@ -4,21 +4,16 @@
  *
  * @package PhpMyAdmin-test
  */
-
-/*
- * Include to test.
- */
+namespace PhpMyAdmin\Tests;
 
 use PhpMyAdmin\TypesMySQL;
-
-require_once 'test/PMATestCase.php';
 
 /**
  * Testcase for MySQL types handling.
  *
  * @package PhpMyAdmin-test
  */
-class TypesMySQLTest extends PMATestCase
+class TypesMySQLTest extends \PMATestCase
 {
     /**
      * @var PhpMyAdmin\Types

@@ -29,7 +29,8 @@
     "autoload-dev": {
         "psr-4": {
             "PhpMyAdmin\\Tests\\": "test/classes"
-        }
+        },
+        "classmap": ["test/PMATestCase.php"]
     },
     "repositories": [
         {
