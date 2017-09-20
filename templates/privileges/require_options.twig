@@ -1,0 +1,14 @@
+<fieldset>
+    <legend>SSL</legend>
+    <div id="require_ssl_div">
+        {% for require_option in require_options %}
+            {% if require_option['name'] is same as('ssl_cipher') %}
+                <div id="specified_div" style="padding-left:20px;">
+            {% endif %}
+            {% include 'privileges/require_options_item.twig' with {
+                'require_option': require_option
+            } only %}
+        {% endfor %}
+        </div>{# END specified_div #}
+    </div>{# END require_ssl_div #}
+</fieldset>
