@@ -5,18 +5,28 @@
  *
  * @package PhpMyAdmin-test
  */
+namespace PhpMyAdmin\Tests\Config;
 
+use PhpMyAdmin\Config;
 use PhpMyAdmin\Config\Descriptions;
-
-require_once 'test/PMATestCase.php';
 
 /**
  * Tests for PMA_FormDisplay class
  *
  * @package PhpMyAdmin-test
  */
-class DescriptionTest extends PMATestCase
+class DescriptionTest extends \PMATestCase
 {
+    /**
+     * Setup tests
+     *
+     * @return void
+     */
+    public function setUp()
+    {
+        $GLOBALS['PMA_Config'] = new Config();
+    }
+
     /**
      * @dataProvider getValues
      */

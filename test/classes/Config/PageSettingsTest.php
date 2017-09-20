@@ -5,16 +5,17 @@
  *
  * @package PhpMyAdmin-test
  */
-use PhpMyAdmin\Config\PageSettings;
+namespace PhpMyAdmin\Tests\Config;
 
-require_once 'test/PMATestCase.php';
+use PhpMyAdmin\Config;
+use PhpMyAdmin\Config\PageSettings;
 
 /**
  * Tests for PhpMyAdmin\Config\PageSettings
  *
  * @package PhpMyAdmin-test
  */
-class PageSettingsTest extends PMATestCase
+class PageSettingsTest extends \PMATestCase
 {
     /**
      * Setup tests
@@ -23,6 +24,7 @@ class PageSettingsTest extends PMATestCase
      */
     public function setUp()
     {
+        $GLOBALS['PMA_Config'] = new Config();
         $GLOBALS['server'] = 1;
         $GLOBALS['db'] = 'db';
     }

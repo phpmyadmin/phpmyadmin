@@ -5,23 +5,25 @@
  *
  * @package PhpMyAdmin-test
  */
+namespace PhpMyAdmin\Tests\Config;
 
+use PhpMyAdmin\Config;
 use PhpMyAdmin\Config\ConfigFile;
 use PhpMyAdmin\Config\ServerConfigChecks;
-
-require_once 'test/PMATestCase.php';
+use ReflectionProperty;
 
 /**
  * Tests for ServeConfigChecks class
  *
  * @package PhpMyAdmin-test
  */
-class ServeConfigChecksTest extends PMATestCase
+class ServeConfigChecksTest extends \PMATestCase
 {
     private $sessionID;
 
     public function setUp()
     {
+        $GLOBALS['PMA_Config'] = new Config();
         $GLOBALS['cfg']['AvailableCharsets'] = array();
         $GLOBALS['cfg']['ServerDefault'] = 0;
         $GLOBALS['server'] = 0;
@@ -29,7 +31,7 @@ class ServeConfigChecksTest extends PMATestCase
         $cf = new ConfigFile();
         $GLOBALS['ConfigFile'] = $cf;
 
-        $reflection = new \ReflectionProperty('PhpMyAdmin\Config\ConfigFile', '_id');
+        $reflection = new ReflectionProperty('PhpMyAdmin\Config\ConfigFile', '_id');
         $reflection->setAccessible(true);
         $this->sessionID = $reflection->getValue($cf);
 

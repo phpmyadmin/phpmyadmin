@@ -5,20 +5,21 @@
  *
  * @package PhpMyAdmin-test
  */
+namespace PhpMyAdmin\Tests\Config;
 
 use PhpMyAdmin\Config;
 use PhpMyAdmin\Config\ConfigFile;
 use PhpMyAdmin\Config\Form;
 use PhpMyAdmin\Theme;
-
-require_once 'test/PMATestCase.php';
+use ReflectionClass;
+use ReflectionProperty;
 
 /**
  * Tests for PMA_Form class
  *
  * @package PhpMyAdmin-test
  */
-class FormTest extends PMATestCase
+class FormTest extends \PMATestCase
 {
     /**
      * @var Form
@@ -34,7 +35,6 @@ class FormTest extends PMATestCase
     {
         $GLOBALS['pmaThemePath'] = $GLOBALS['PMA_Theme']->getPath();
         $GLOBALS['PMA_Config'] = new Config();
-        $GLOBALS['PMA_Config']->enableBc();
         $GLOBALS['server'] = 0;
         $this->object = new Form(
             'pma_form_name', array('pma_form1','pma_form2'), new ConfigFile(), 1
@@ -80,7 +80,7 @@ class FormTest extends PMATestCase
      */
     public function testGetOptionType()
     {
-        $attrFieldsTypes = new \ReflectionProperty('PhpMyAdmin\Config\Form', '_fieldsTypes');
+        $attrFieldsTypes = new ReflectionProperty('PhpMyAdmin\Config\Form', '_fieldsTypes');
         $attrFieldsTypes->setAccessible(true);
         $attrFieldsTypes->setValue(
             $this->object,
@@ -136,7 +136,7 @@ class FormTest extends PMATestCase
      */
     public function testReadFormPathsCallBack()
     {
-        $reflection = new \ReflectionClass('PhpMyAdmin\Config\Form');
+        $reflection = new ReflectionClass('PhpMyAdmin\Config\Form');
         $method = $reflection->getMethod('_readFormPathsCallback');
         $method->setAccessible(true);
 
@@ -188,7 +188,7 @@ class FormTest extends PMATestCase
      */
     public function testReadFormPaths()
     {
-        $reflection = new \ReflectionClass('PhpMyAdmin\Config\Form');
+        $reflection = new ReflectionClass('PhpMyAdmin\Config\Form');
         $method = $reflection->getMethod('readFormPaths');
         $method->setAccessible(true);
 
@@ -243,7 +243,7 @@ class FormTest extends PMATestCase
      */
     public function testReadTypes()
     {
-        $reflection = new \ReflectionClass('PhpMyAdmin\Config\Form');
+        $reflection = new ReflectionClass('PhpMyAdmin\Config\Form');
         $method = $reflection->getMethod('readTypes');
         $method->setAccessible(true);
 

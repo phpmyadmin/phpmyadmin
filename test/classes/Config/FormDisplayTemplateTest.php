@@ -5,7 +5,9 @@
  *
  * @package PhpMyAdmin-test
  */
+namespace PhpMyAdmin\Tests\Config;
 
+use PhpMyAdmin\Config;
 use PhpMyAdmin\Config\FormDisplayTemplate;
 use PhpMyAdmin\Theme;
 use PHPUnit_Framework_TestCase as TestCase;
@@ -17,6 +19,16 @@ use PHPUnit_Framework_TestCase as TestCase;
  */
 class FormDisplayTemplateTest extends TestCase
 {
+    /**
+     * Setup tests
+     *
+     * @return void
+     */
+    public function setUp()
+    {
+        $GLOBALS['PMA_Config'] = new Config();
+    }
+
     /**
      * Test for FormDisplayTemplate::displayFormTop()
      *

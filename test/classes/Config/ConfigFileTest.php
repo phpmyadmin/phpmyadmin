@@ -5,20 +5,17 @@
  *
  * @package PhpMyAdmin-test
  */
+namespace PhpMyAdmin\Tests\Config;
 
-/*
- * Include to test.
- */
 use PhpMyAdmin\Config\ConfigFile;
-
-require_once 'test/PMATestCase.php';
+use stdClass;
 
 /**
  * Tests for Config File Management
  *
  * @package PhpMyAdmin-test
  */
-class ConfigFileTest extends PMATestCase
+class ConfigFileTest extends \PMATestCase
 {
     /**
      * Any valid key that exists in config.default.php and isn't empty

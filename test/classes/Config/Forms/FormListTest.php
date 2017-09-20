@@ -5,23 +5,24 @@
  *
  * @package PhpMyAdmin-test
  */
+namespace PhpMyAdmin\Tests\Config\Forms;
 
+use PhpMyAdmin\Config;
 use PhpMyAdmin\Config\ConfigFile;
 use PhpMyAdmin\Config\Forms\User\UserFormList;
 use PhpMyAdmin\Config\Forms\Page\PageFormList;
 use PhpMyAdmin\Config\Forms\Setup\SetupFormList;
-
-require_once 'test/PMATestCase.php';
 
 /**
  * Tests for PMA_FormDisplay class
  *
  * @package PhpMyAdmin-test
  */
-class FormListTest extends PMATestCase
+class FormListTest extends \PMATestCase
 {
     public function setUp()
     {
+        $GLOBALS['PMA_Config'] = new Config();
         $GLOBALS['server'] = 1;
     }
 

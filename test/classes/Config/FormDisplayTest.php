@@ -5,19 +5,21 @@
  *
  * @package PhpMyAdmin-test
  */
+namespace PhpMyAdmin\Tests\Config;
 
 use PhpMyAdmin\Config;
 use PhpMyAdmin\Config\ConfigFile;
 use PhpMyAdmin\Config\FormDisplay;
-
-require_once 'test/PMATestCase.php';
+use ReflectionClass;
+use ReflectionMethod;
+use ReflectionProperty;
 
 /**
  * Tests for PMA_FormDisplay class
  *
  * @package PhpMyAdmin-test
  */
-class FormDisplayTest extends PMATestCase
+class FormDisplayTest extends \PMATestCase
 {
     /**
      * @var FormDisplay
@@ -33,7 +35,6 @@ class FormDisplayTest extends PMATestCase
     {
         $GLOBALS['pmaThemePath'] = $GLOBALS['PMA_Theme']->getPath();
         $GLOBALS['PMA_Config'] = new Config();
-        $GLOBALS['PMA_Config']->enableBc();
         $GLOBALS['server'] = 0;
         $this->object = new FormDisplay(new ConfigFile());
     }
@@ -70,7 +71,7 @@ class FormDisplayTest extends PMATestCase
      */
     public function testRegisterForm()
     {
-        $reflection = new \ReflectionClass('PhpMyAdmin\Config\FormDisplay');
+        $reflection = new ReflectionClass('PhpMyAdmin\Config\FormDisplay');
 
         $attrForms = $reflection->getProperty('_forms');
         $attrForms->setAccessible(true);
@@ -125,7 +126,7 @@ class FormDisplayTest extends PMATestCase
             ->setMethods(array('save'))
             ->getMock();
 
-        $attrForms = new \ReflectionProperty('PhpMyAdmin\Config\FormDisplay', '_forms');
+        $attrForms = new ReflectionProperty('PhpMyAdmin\Config\FormDisplay', '_forms');
         $attrForms->setAccessible(true);
         $attrForms->setValue($this->object, array(1, 2, 3));
 
@@ -152,7 +153,7 @@ class FormDisplayTest extends PMATestCase
      */
     public function testDisplayErrors()
     {
-        $reflection = new \ReflectionClass('PhpMyAdmin\Config\FormDisplay');
+        $reflection = new ReflectionClass('PhpMyAdmin\Config\FormDisplay');
 
         $attrIsValidated = $reflection->getProperty('_isValidated');
         $attrIsValidated->setAccessible(true);
@@ -198,7 +199,7 @@ class FormDisplayTest extends PMATestCase
      */
     public function testFixErrors()
     {
-        $reflection = new \ReflectionClass('PhpMyAdmin\Config\FormDisplay');
+        $reflection = new ReflectionClass('PhpMyAdmin\Config\FormDisplay');
 
         $attrIsValidated = $reflection->getProperty('_isValidated');
         $attrIsValidated->setAccessible(true);
@@ -249,7 +250,7 @@ class FormDisplayTest extends PMATestCase
      */
     public function testValidateSelect()
     {
-        $attrValidateSelect = new \ReflectionMethod(
+        $attrValidateSelect = new ReflectionMethod(
             'PhpMyAdmin\Config\FormDisplay',
             '_validateSelect'
         );
@@ -303,7 +304,7 @@ class FormDisplayTest extends PMATestCase
      */
     public function testHasErrors()
     {
-        $attrErrors = new \ReflectionProperty('PhpMyAdmin\Config\FormDisplay', '_errors');
+        $attrErrors = new ReflectionProperty('PhpMyAdmin\Config\FormDisplay', '_errors');
         $attrErrors->setAccessible(true);
 
         $this->assertFalse(
@@ -351,7 +352,7 @@ class FormDisplayTest extends PMATestCase
      */
     public function testGetOptName()
     {
-        $method = new \ReflectionMethod('PhpMyAdmin\Config\FormDisplay', '_getOptName');
+        $method = new ReflectionMethod('PhpMyAdmin\Config\FormDisplay', '_getOptName');
         $method->setAccessible(true);
 
         $this->assertEquals(
@@ -372,10 +373,10 @@ class FormDisplayTest extends PMATestCase
      */
     public function testLoadUserprefsInfo()
     {
-        $method = new \ReflectionMethod('PhpMyAdmin\Config\FormDisplay', '_loadUserprefsInfo');
+        $method = new ReflectionMethod('PhpMyAdmin\Config\FormDisplay', '_loadUserprefsInfo');
         $method->setAccessible(true);
 
-        $attrUserprefs = new \ReflectionProperty(
+        $attrUserprefs = new ReflectionProperty(
             'PhpMyAdmin\Config\FormDisplay',
             '_userprefsDisallow'
         );
@@ -395,7 +396,7 @@ class FormDisplayTest extends PMATestCase
      */
     public function testSetComments()
     {
-        $method = new \ReflectionMethod('PhpMyAdmin\Config\FormDisplay', '_setComments');
+        $method = new ReflectionMethod('PhpMyAdmin\Config\FormDisplay', '_setComments');
         $method->setAccessible(true);
 
         // recoding
