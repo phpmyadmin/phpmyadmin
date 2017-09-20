@@ -5,13 +5,16 @@
  *
  * @package PhpMyAdmin-test
  */
+namespace PhpMyAdmin\Tests\Properties\Options;
+
+use PHPUnit_Framework_TestCase as TestCase;
 
 /**
  * Tests for PhpMyAdmin\Properties\Options\OptionsPropertyItem class
  *
  * @package PhpMyAdmin-test
  */
-class OptionsPropertyItemTest extends PHPUnit_Framework_TestCase
+class OptionsPropertyItemTest extends TestCase
 {
     protected $stub;
 

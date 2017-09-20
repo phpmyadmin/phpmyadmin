@@ -5,13 +5,17 @@
  *
  * @package PhpMyAdmin-test
  */
+namespace PhpMyAdmin\Tests\Properties\Options;
+
+use PHPUnit_Framework_TestCase as TestCase;
+use ReflectionProperty;
 
 /**
  * Tests for PhpMyAdmin\Properties\Options\OptionsPropertyGroup class
  *
  * @package PhpMyAdmin-test
  */
-class OptionsPropertyGroupTest extends PHPUnit_Framework_TestCase
+class OptionsPropertyGroupTest extends TestCase
 {
     protected $stub;
 
@@ -42,7 +46,7 @@ class OptionsPropertyGroupTest extends PHPUnit_Framework_TestCase
      */
     public function testAddProperty()
     {
-        $properties = new \ReflectionProperty('PhpMyAdmin\Properties\Options\OptionsPropertyGroup', '_properties');
+        $properties = new ReflectionProperty('PhpMyAdmin\Properties\Options\OptionsPropertyGroup', '_properties');
         $properties->setAccessible(true);
 
         $properties->setValue($this->stub, array(1, 2, 3));
@@ -66,7 +70,7 @@ class OptionsPropertyGroupTest extends PHPUnit_Framework_TestCase
      */
     public function testRemoveProperty()
     {
-        $properties = new \ReflectionProperty('PhpMyAdmin\Properties\Options\OptionsPropertyGroup', '_properties');
+        $properties = new ReflectionProperty('PhpMyAdmin\Properties\Options\OptionsPropertyGroup', '_properties');
         $properties->setAccessible(true);
 
         $properties->setValue($this->stub, array(1, 2, 'test', 3));
@@ -102,7 +106,7 @@ class OptionsPropertyGroupTest extends PHPUnit_Framework_TestCase
      */
     public function testGetProperties()
     {
-        $properties = new \ReflectionProperty('PhpMyAdmin\Properties\Options\OptionsPropertyGroup', '_properties');
+        $properties = new ReflectionProperty('PhpMyAdmin\Properties\Options\OptionsPropertyGroup', '_properties');
         $properties->setAccessible(true);
         $properties->setValue($this->stub, array(1, 2, 3));
 
@@ -119,7 +123,7 @@ class OptionsPropertyGroupTest extends PHPUnit_Framework_TestCase
      */
     public function testGetNrOfProperties()
     {
-        $properties = new \ReflectionProperty('PhpMyAdmin\Properties\Options\OptionsPropertyGroup', '_properties');
+        $properties = new ReflectionProperty('PhpMyAdmin\Properties\Options\OptionsPropertyGroup', '_properties');
         $properties->setAccessible(true);
         $properties->setValue($this->stub, array(1, 2, 3));
 

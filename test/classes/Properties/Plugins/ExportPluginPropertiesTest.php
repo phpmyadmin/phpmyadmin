@@ -5,10 +5,10 @@
  *
  * @package PhpMyAdmin-test
  */
+namespace PhpMyAdmin\Tests\Properties\Plugins;
 
 use PhpMyAdmin\Properties\Plugins\ExportPluginProperties;
-
-require_once 'test/classes/properties/plugins/ImportPluginPropertiesTest.php';
+use PhpMyAdmin\Tests\Properties\Plugins\ImportPluginPropertiesTest;
 
 /**
  * Tests for PhpMyAdmin\Properties\Plugins\ExportPluginProperties class. Extends PMA_ImportPluginProperties_Tests

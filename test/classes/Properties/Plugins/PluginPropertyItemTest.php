@@ -5,13 +5,16 @@
  *
  * @package PhpMyAdmin-test
  */
+namespace PhpMyAdmin\Tests\Properties\Plugins;
+
+use PHPUnit_Framework_TestCase as TestCase;
 
 /**
  * Tests for PhpMyAdmin\Properties\Plugins\PluginPropertyItem class
  *
  * @package PhpMyAdmin-test
  */
-class PluginPropertyItemTest extends PHPUnit_Framework_TestCase
+class PluginPropertyItemTest extends TestCase
 {
     protected $stub;
 

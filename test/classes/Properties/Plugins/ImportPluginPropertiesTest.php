@@ -5,15 +5,17 @@
  *
  * @package PhpMyAdmin-test
  */
+namespace PhpMyAdmin\Tests\Properties\Plugins;
 
 use PhpMyAdmin\Properties\Plugins\ImportPluginProperties;
+use PHPUnit_Framework_TestCase as TestCase;
 
 /**
  * tests for PhpMyAdmin\Properties\Plugins\ImportPluginProperties class
  *
  * @package PhpMyAdmin-test
  */
-class ImportPluginPropertiesTest extends PHPUnit_Framework_TestCase
+class ImportPluginPropertiesTest extends TestCase
 {
     protected $object;
 

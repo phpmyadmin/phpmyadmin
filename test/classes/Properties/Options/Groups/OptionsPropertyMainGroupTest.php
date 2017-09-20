@@ -5,15 +5,17 @@
  *
  * @package PhpMyAdmin-test
  */
+namespace PhpMyAdmin\Tests\Properties\Options\Groups;
 
 use PhpMyAdmin\Properties\Options\Groups\OptionsPropertyMainGroup;
+use PHPUnit_Framework_TestCase as TestCase;
 
 /**
  * tests for PhpMyAdmin\Properties\Options\Groups\OptionsPropertyMainGroup class
  *
  * @package PhpMyAdmin-test
  */
-class OptionsPropertyMainGroupTest extends PHPUnit_Framework_TestCase
+class OptionsPropertyMainGroupTest extends TestCase
 {
     protected $object;
 

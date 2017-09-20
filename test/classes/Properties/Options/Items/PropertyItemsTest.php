@@ -5,6 +5,7 @@
  *
  * @package PhpMyAdmin-test
  */
+namespace PhpMyAdmin\Tests\Properties\Options\Items;
 
 use PhpMyAdmin\Properties\Options\Items\BoolPropertyItem;
 use PhpMyAdmin\Properties\Options\Items\DocPropertyItem;
@@ -13,13 +14,14 @@ use PhpMyAdmin\Properties\Options\Items\MessageOnlyPropertyItem;
 use PhpMyAdmin\Properties\Options\Items\RadioPropertyItem;
 use PhpMyAdmin\Properties\Options\Items\SelectPropertyItem;
 use PhpMyAdmin\Properties\Options\Items\TextPropertyItem;
+use PHPUnit_Framework_TestCase as TestCase;
 
 /**
  * tests for *PhpMyAdmin\Properties\PropertyItem class
  *
  * @package PhpMyAdmin-test
  */
-class PropertyItemsTest extends PHPUnit_Framework_TestCase
+class PropertyItemsTest extends TestCase
 {
     /**
      * Test for PhpMyAdmin\Properties\Options\Items\BoolPropertyItem::getText
@@ -169,6 +171,4 @@ class PropertyItemsTest extends PHPUnit_Framework_TestCase
             $object->getItemType()
         );
     }
-
-
 }
