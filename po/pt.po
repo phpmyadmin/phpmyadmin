@@ -4,10 +4,10 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.8.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2017-09-08 21:11+0200\n"
-"PO-Revision-Date: 2017-08-30 10:34+0000\n"
-"Last-Translator: MatheusReisJ <matheus.r.jesus@ufv.br>\n"
-"Language-Team: Portuguese <https://hosted.weblate.org/projects/phpmyadmin/"
-"master/pt/>\n"
+"PO-Revision-Date: 2017-09-20 14:06+0000\n"
+"Last-Translator: RD WebDesign <weblate@rdwebdesign.com.br>\n"
+"Language-Team: Portuguese "
+"<https://hosted.weblate.org/projects/phpmyadmin/master/pt/>\n"
 "Language: pt\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -1225,16 +1225,12 @@ msgid "Cached swap"
 msgstr "swap retida (em cache)"
 
 #: js/messages.php:190
-#, fuzzy
-#| msgid "Used Swap"
 msgid "Used swap"
-msgstr "Troca utilizada"
+msgstr "Arquivo de troca utilizado"
 
 #: js/messages.php:191
-#, fuzzy
-#| msgid "Free Swap"
 msgid "Free swap"
-msgstr "Troca livre"
+msgstr "Arquivo de troca livre"
 
 #: js/messages.php:193
 msgid "Bytes sent"
@@ -1782,10 +1778,8 @@ msgid "Dropping column"
 msgstr "Apagando Coluna"
 
 #: js/messages.php:372
-#, fuzzy
-#| msgid "Add primary key"
 msgid "Adding primary key"
-msgstr "Adicionar chave primária"
+msgstr "Adicionando chave primária"
 
 #: js/messages.php:373 templates/database/designer/where_query_panel.twig:115
 #: templates/database/designer/rename_to_panel.twig:67
@@ -1816,10 +1810,8 @@ msgid "Changing charset"
 msgstr "Mudando Mapa de Caracteres"
 
 #: js/messages.php:383 libraries/classes/Util.php:3039
-#, fuzzy
-#| msgid "Disable foreign key checks"
 msgid "Enable foreign key checks"
-msgstr "Ativar verificação de chaves estrangeiras"
+msgstr "Ativa a verificação de chaves estrangeiras"
 
 #: js/messages.php:386
 msgid "Failed to get real row count."
@@ -1874,6 +1866,7 @@ msgstr "Exportar"
 #: js/messages.php:401
 msgid "No routine is exportable. Required privileges may be lacking."
 msgstr ""
+"Nenhuma rotina é exportável. Privilégios necessários podem estar faltando."
 
 #: js/messages.php:404 libraries/rte/rte_routines.lib.php:747
 msgid "ENUM/SET editor"
@@ -2245,12 +2238,16 @@ msgid ""
 "MySQL accepts additional values not selectable by the slider; key in those "
 "values directly if desired"
 msgstr ""
+"O MySQL aceita valores adicionais não selecionáveis através do slider; "
+"Digite estes valores diretamente, se desejado"
 
 #: js/messages.php:540
 msgid ""
 "MySQL accepts additional values not selectable by the datepicker; key in "
 "those values directly if desired"
 msgstr ""
+"O MySQL aceita valores adicionais não selecionáveis através do datepicker; "
+"Digite estes valores diretamente, se desejado"
 
 #: js/messages.php:546
 msgid ""
@@ -2430,10 +2427,8 @@ msgstr ""
 "navegador."
 
 #: js/messages.php:609
-#, fuzzy
-#| msgid "Original string"
 msgid "Original length"
-msgstr "Segmento original"
+msgstr "Comprimento original"
 
 #: js/messages.php:612
 msgid "cancel"
@@ -2503,16 +2498,12 @@ msgid "More"
 msgstr "Mais"
 
 #: js/messages.php:653
-#, fuzzy
-#| msgid "Show Panel"
 msgid "Show panel"
-msgstr "Ver Painel"
+msgstr "Mostrar Painel"
 
 #: js/messages.php:654
-#, fuzzy
-#| msgid "Hide Panel"
 msgid "Hide panel"
-msgstr "Esconder Painel"
+msgstr "Esconder painel"
 
 #: js/messages.php:655
 msgid "Show hidden navigation tree items."
@@ -2579,10 +2570,8 @@ msgid "Change report settings"
 msgstr "Alterar as definições dos relatórios"
 
 #: js/messages.php:681
-#, fuzzy
-#| msgid "Show Report Details"
 msgid "Show report details"
-msgstr "Ver os detalhes do relatório"
+msgstr "Mostrar os detalhes do relatório"
 
 #: js/messages.php:684
 msgid ""
@@ -2639,23 +2628,19 @@ msgstr "%s querys executadas %s vezes em %s segundos."
 #: js/messages.php:727
 #, php-format
 msgid "%s argument(s) passed"
-msgstr ""
+msgstr "%s argumento(s) passado(s)"
 
 #: js/messages.php:728
-#, fuzzy
-#| msgid "Table comments"
 msgid "Show arguments"
-msgstr "Comentários da tabela"
+msgstr "Mostrar argumentos"
 
 #: js/messages.php:729
-#, fuzzy
-#| msgid "Hide search results"
 msgid "Hide arguments"
-msgstr "Esconder resultados da pesquisa"
+msgstr "Ocultar argumentos"
 
 #: js/messages.php:730
 msgid "Time taken:"
-msgstr ""
+msgstr "Tempo gasto:"
 
 #: js/messages.php:731
 msgid ""
@@ -2665,24 +2650,24 @@ msgid ""
 "cause such a problem, clearing your \"Offline Website Data\" might help. In "
 "Safari, such problem is commonly caused by \"Private Mode Browsing\"."
 msgstr ""
+"Houve um erro ao acessar o armazenamento do seu browser. Algumas "
+"funcionalidades podem não funcionar corretamente para você. É provável que o "
+"browser não suporte armazenamento ou que a quota limite tenha sido "
+"alcançada. No Firefox, armazenamento corrompido também pode causar um "
+"problema. Limpar seus \"Dados offline de sites\" pode ajudar. No Safari, "
+"este problema é comumente causado pelo \"Modo de Navegação Privada\"."
 
 #: js/messages.php:733
-#, fuzzy
-#| msgid "Copy database to"
 msgid "Copy tables to"
-msgstr "Copiar a Base de Dados para"
+msgstr "Copiar tabelas para"
 
 #: js/messages.php:734
-#, fuzzy
-#| msgid "Replace table prefix"
 msgid "Add table prefix"
-msgstr "Substituir prefixo da tabela"
+msgstr "Adicionar prefixo à tabela"
 
 #: js/messages.php:735
-#, fuzzy
-#| msgid "Replace table prefix"
 msgid "Replace table with prefix"
-msgstr "Substituir prefixo da tabela"
+msgstr "Substituir tabela com prefixo"
 
 #: js/messages.php:736 templates/database/structure/check_all_tables.phtml:29
 msgid "Copy table with prefix"
@@ -2690,23 +2675,23 @@ msgstr "Copiar tabela com prefixo"
 
 #: js/messages.php:739
 msgid "Extremely weak"
-msgstr ""
+msgstr "Extremamente fraco"
 
 #: js/messages.php:740
 msgid "Very weak"
-msgstr ""
+msgstr "Muito fraco"
 
 #: js/messages.php:741
 msgid "Weak"
-msgstr ""
+msgstr "Fraco"
 
 #: js/messages.php:742
 msgid "Good"
-msgstr ""
+msgstr "Bom"
 
 #: js/messages.php:743
 msgid "Strong"
-msgstr ""
+msgstr "Forte"
 
 #: js/messages.php:772
 msgctxt "Previous month"
@@ -2962,105 +2947,75 @@ msgstr "Segundo"
 
 #: js/messages.php:913
 msgid "This field is required"
-msgstr ""
+msgstr "Este campo é obrigatório"
 
 #: js/messages.php:914
-#, fuzzy
-#| msgid "Use text field"
 msgid "Please fix this field"
-msgstr "Usar campo de texto"
+msgstr "Por favor, corrija este campo"
 
 #: js/messages.php:915
-#, fuzzy
-#| msgid "Please enter a valid page name"
 msgid "Please enter a valid email address"
-msgstr "Introduza um nome de página válido"
+msgstr "Por favor, digite um e-mail válido"
 
 #: js/messages.php:916
-#, fuzzy
-#| msgid "Please enter a valid number!"
 msgid "Please enter a valid URL"
-msgstr "Introduza um número válido!"
+msgstr "Por favor, digite uma URL válida"
 
 #: js/messages.php:917
-#, fuzzy
-#| msgid "Please enter a valid page name"
 msgid "Please enter a valid date"
-msgstr "Introduza um nome de página válido"
+msgstr "Por favor, digite uma data válida"
 
 #: js/messages.php:920
-#, fuzzy
-#| msgid "Please enter a valid page name"
 msgid "Please enter a valid date ( ISO )"
-msgstr "Introduza um nome de página válido"
+msgstr "Por favor, digite uma data (ISO) válida"
 
 #: js/messages.php:922
-#, fuzzy
-#| msgid "Please enter a valid number!"
 msgid "Please enter a valid number"
-msgstr "Introduza um número válido!"
+msgstr "Por favor, digite um número válido"
 
 #: js/messages.php:925
-#, fuzzy
-#| msgid "Please enter a valid number!"
 msgid "Please enter a valid credit card number"
-msgstr "Introduza um número válido!"
+msgstr "Por favor, digite um número de cartão de crédito válido"
 
 #: js/messages.php:927
-#, fuzzy
-#| msgid "Please enter a valid length!"
 msgid "Please enter only digits"
-msgstr "Introduza um comprimento válido!"
+msgstr "Por favor, utilize somente dígitos"
 
 #: js/messages.php:930
-#, fuzzy
-#| msgid "Please enter a valid page name"
 msgid "Please enter the same value again"
-msgstr "Introduza um nome de página válido"
+msgstr "Por favor, digite o mesmo valor novamente"
 
 #: js/messages.php:934
 msgid "Please enter no more than {0} characters"
-msgstr ""
+msgstr "Por favor, digite no máximo {0} caracteres"
 
 #: js/messages.php:939
-#, fuzzy
-#| msgid "Please enter a valid page name"
 msgid "Please enter at least {0} characters"
-msgstr "Introduza um nome de página válido"
+msgstr "Por favor, digite no mínimo {0} caracteres"
 
 #: js/messages.php:944
 msgid "Please enter a value between {0} and {1} characters long"
-msgstr ""
+msgstr "Por favor, digite um valor entre {0} e {1} caracteres de comprimento"
 
 #: js/messages.php:949
-#, fuzzy
-#| msgid "Please enter a valid page name"
 msgid "Please enter a value between {0} and {1}"
-msgstr "Introduza um nome de página válido"
+msgstr "Por Favor, digite um valor entre {0} e {1}"
 
 #: js/messages.php:954
-#, fuzzy
-#| msgid "Please enter a valid length!"
 msgid "Please enter a value less than or equal to {0}"
-msgstr "Introduza um comprimento válido!"
+msgstr "Por favor, digite um valor menor ou igual a {0}"
 
 #: js/messages.php:959
-#, fuzzy
-#| msgid "Please enter a valid page name"
 msgid "Please enter a value greater than or equal to {0}"
-msgstr "Introduza um nome de página válido"
+msgstr "Por favor, digite um valor maior ou igual a {0}"
 
 #: js/messages.php:965
-#, fuzzy
-#| msgid "Please enter a valid page name"
 msgid "Please enter a valid date or time"
-msgstr "Introduza um nome de página válido"
+msgstr "Por favor, digite uma data ou hora válida"
 
 #: js/messages.php:970
-#, fuzzy
-#| msgid "Please enter a valid number!"
 msgid "Please enter a valid HEX input"
-msgstr "Introduza um número válido!"
+msgstr "Por favor, digite um valor HEX válido"
 
 #: js/messages.php:975 libraries/classes/Core.php:245
 #: libraries/classes/Import.php:112 libraries/classes/InsertEdit.php:1245
@@ -3130,6 +3085,8 @@ msgstr "Falha ao formatar linha pela regra '%s'."
 #, php-format
 msgid "Error in reading file: The file '%s' does not exist or is not readable!"
 msgstr ""
+"Erro ao ler o arquivo: O arquivo '%s' não existe ou não possui permissão de "
+"leitura!"
 
 #: libraries/classes/Advisor.php:515
 #, php-format
@@ -3319,77 +3276,55 @@ msgid "Charset"
 msgstr "Mapa de Caractere"
 
 #: libraries/classes/Charsets.php:265
-#, fuzzy
-#| msgid "unknown"
 msgid "Unknown"
-msgstr "desconhecido"
+msgstr "Desconhecido"
 
 #: libraries/classes/Charsets.php:279
-#, fuzzy
-#| msgid "Binary"
 msgctxt "Collation"
 msgid "Binary"
 msgstr "Binário"
 
 #: libraries/classes/Charsets.php:291 libraries/classes/Charsets.php:521
-#, fuzzy
-#| msgid "Unicode"
 msgctxt "Collation"
 msgid "Unicode"
 msgstr "Unicode"
 
 #: libraries/classes/Charsets.php:301 libraries/classes/Charsets.php:472
-#, fuzzy
-#| msgid "West European"
 msgctxt "Collation"
 msgid "West European"
-msgstr "Europeu de Oeste"
+msgstr "Europa Ocidental"
 
 #: libraries/classes/Charsets.php:308
-#, fuzzy
-#| msgid "Central European"
 msgctxt "Collation"
 msgid "Central European"
-msgstr "Europeu Central"
+msgstr "Europa Central"
 
 #: libraries/classes/Charsets.php:313
-#, fuzzy
-#| msgid "Russian"
 msgctxt "Collation"
 msgid "Russian"
 msgstr "Russo"
 
 #: libraries/classes/Charsets.php:318
-#, fuzzy
-#| msgid "Simplified Chinese"
 msgctxt "Collation"
 msgid "Simplified Chinese"
 msgstr "Chinês Simplificado"
 
 #: libraries/classes/Charsets.php:325 libraries/classes/Charsets.php:443
-#, fuzzy
-#| msgid "Japanese"
 msgctxt "Collation"
 msgid "Japanese"
 msgstr "Japonês"
 
 #: libraries/classes/Charsets.php:330
-#, fuzzy
-#| msgid "Baltic"
 msgctxt "Collation"
 msgid "Baltic"
 msgstr "Báltico"
 
 #: libraries/classes/Charsets.php:335
-#, fuzzy
-#| msgid "Armenian"
 msgctxt "Collation"
 msgid "Armenian"
-msgstr "Arménio"
+msgstr "Armênio"
 
 #: libraries/classes/Charsets.php:338
-#, fuzzy
-#| msgid "Traditional Chinese"
 msgctxt "Collation"
 msgid "Traditional Chinese"
 msgstr "Chinês Tradicional"
@@ -3397,88 +3332,64 @@ msgstr "Chinês Tradicional"
 #: libraries/classes/Charsets.php:341
 msgctxt "Collation"
 msgid "Cyrillic"
-msgstr ""
+msgstr "Cirílico"
 
 #: libraries/classes/Charsets.php:344
-#, fuzzy
-#| msgid "Arabic"
 msgctxt "Collation"
 msgid "Arabic"
 msgstr "Árabe"
 
 #: libraries/classes/Charsets.php:347 libraries/classes/Charsets.php:458
-#, fuzzy
-#| msgid "Korean"
 msgctxt "Collation"
 msgid "Korean"
 msgstr "Coreano"
 
 #: libraries/classes/Charsets.php:350
-#, fuzzy
-#| msgid "Hebrew"
 msgctxt "Collation"
 msgid "Hebrew"
-msgstr "Hebráico"
+msgstr "Hebraico"
 
 #: libraries/classes/Charsets.php:353
-#, fuzzy
-#| msgid "Georgian"
 msgctxt "Collation"
 msgid "Georgian"
 msgstr "Georgiano"
 
 #: libraries/classes/Charsets.php:356
-#, fuzzy
-#| msgid "Greek"
 msgctxt "Collation"
 msgid "Greek"
 msgstr "Grego"
 
 #: libraries/classes/Charsets.php:359
-#, fuzzy
-#| msgid "Czech-Slovak"
 msgctxt "Collation"
 msgid "Czech-Slovak"
 msgstr "Checo-Eslovaco"
 
 #: libraries/classes/Charsets.php:362 libraries/classes/Charsets.php:513
-#, fuzzy
-#| msgid "Ukrainian"
 msgctxt "Collation"
 msgid "Ukrainian"
 msgstr "Ucraniano"
 
 #: libraries/classes/Charsets.php:365 libraries/classes/Charsets.php:509
-#, fuzzy
-#| msgid "Turkish"
 msgctxt "Collation"
 msgid "Turkish"
 msgstr "Turco"
 
 #: libraries/classes/Charsets.php:368 libraries/classes/Charsets.php:501
-#, fuzzy
-#| msgid "Swedish"
 msgctxt "Collation"
 msgid "Swedish"
 msgstr "Sueco"
 
 #: libraries/classes/Charsets.php:371 libraries/classes/Charsets.php:505
-#, fuzzy
-#| msgid "Thai"
 msgctxt "Collation"
 msgid "Thai"
 msgstr "Tailandês"
 
 #: libraries/classes/Charsets.php:374
-#, fuzzy
-#| msgid "unknown"
 msgctxt "Collation"
 msgid "Unknown"
-msgstr "desconhecido"
+msgstr "Desconhecido"
 
 #: libraries/classes/Charsets.php:390
-#, fuzzy
-#| msgid "Bulgarian"
 msgctxt "Collation"
 msgid "Bulgarian"
 msgstr "Búlgaro"
@@ -3486,46 +3397,34 @@ msgstr "Búlgaro"
 #: libraries/classes/Charsets.php:395
 msgctxt "Collation"
 msgid "Chinese"
-msgstr ""
+msgstr "Chinês"
 
 #: libraries/classes/Charsets.php:400
-#, fuzzy
-#| msgid "Croatian"
 msgctxt "Collation"
 msgid "Croatian"
 msgstr "Croata"
 
 #: libraries/classes/Charsets.php:404
-#, fuzzy
-#| msgid "Czech"
 msgctxt "Collation"
 msgid "Czech"
 msgstr "Checo"
 
 #: libraries/classes/Charsets.php:408
-#, fuzzy
-#| msgid "Danish"
 msgctxt "Collation"
 msgid "Danish"
 msgstr "Dinamarquês"
 
 #: libraries/classes/Charsets.php:412
-#, fuzzy
-#| msgid "English"
 msgctxt "Collation"
 msgid "English"
 msgstr "Inglês"
 
 #: libraries/classes/Charsets.php:416
-#, fuzzy
-#| msgid "Operator"
 msgctxt "Collation"
 msgid "Esperanto"
-msgstr "Operador"
+msgstr "Esperanto"
 
 #: libraries/classes/Charsets.php:420
-#, fuzzy
-#| msgid "Estonian"
 msgctxt "Collation"
 msgid "Estonian"
 msgstr "Estoniano"
