@@ -8,6 +8,7 @@
 namespace PhpMyAdmin\Tests;
 
 use PhpMyAdmin\Advisor;
+use PhpMyAdmin\Config;
 use PhpMyAdmin\Theme;
 
 /**
@@ -26,6 +27,7 @@ class AdvisorTest extends \PMATestCase
      */
     public function setup()
     {
+        $GLOBALS['PMA_Config'] = new Config();
         $GLOBALS['server'] = 1;
     }
 

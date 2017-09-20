@@ -8,6 +8,7 @@
 namespace PhpMyAdmin\Tests;
 
 use PhpMyAdmin\CentralColumns;
+use PhpMyAdmin\Config;
 use PhpMyAdmin\Theme;
 use PhpMyAdmin\TypesMySQL;
 use PhpMyAdmin\Url;
@@ -67,6 +68,7 @@ class CentralColumnsTest extends TestCase
      */
     public function setUp()
     {
+        $GLOBALS['PMA_Config'] = new Config();
         $GLOBALS['PMA_Types'] = new TypesMySQL();
         $GLOBALS['cfg']['Server']['user'] = 'pma_user';
         $GLOBALS['cfg']['Server']['DisableIS'] = true;
