@@ -4,16 +4,16 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.7.4-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2017-08-10 09:13-0400\n"
-"PO-Revision-Date: 2017-07-23 07:19+0000\n"
+"PO-Revision-Date: 2017-09-21 07:46+0000\n"
 "Last-Translator: worldwideskier <worldwideskier@yahoo.co.jp>\n"
-"Language-Team: Japanese <https://hosted.weblate.org/projects/phpmyadmin/4-7/"
-"ja/>\n"
+"Language-Team: Japanese "
+"<https://hosted.weblate.org/projects/phpmyadmin/4-7/ja/>\n"
 "Language: ja\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Weblate 2.16-dev\n"
+"X-Generator: Weblate 2.17-dev\n"
 
 #: ajax.php:16 ajax.php:33 export.php:192 schema_export.php:64
 msgid "Bad type!"
@@ -1373,10 +1373,9 @@ msgstr "%s を無効にする"
 
 #. l10n: %d seconds
 #: js/messages.php:248
-#, fuzzy, php-format
-#| msgid "Set long_query_time to %ds"
+#, php-format
 msgid "Set long_query_time to %d seconds."
-msgstr "long_query_time を %d 秒に設定する"
+msgstr "long_query_time を %d 秒に設定する。"
 
 #: js/messages.php:250
 msgid ""
@@ -2188,9 +2187,7 @@ msgstr "MySQLは日付ピッカーで選択できない値を直接キー入力�
 msgid ""
 "Indicates that you have made changes to this page; you will be prompted for "
 "confirmation before abandoning changes"
-msgstr ""
-"あなたがこのページに変更を加えた場合、変更を破棄する前に確認画面が表示される"
-"でしょう。"
+msgstr "あなたがこのページに変更を加えた場合、変更を破棄する前に確認画面が表示されるでしょう"
 
 #: js/messages.php:549
 msgid "Select referenced key"
@@ -9403,15 +9400,15 @@ msgstr "インポートファイルをアップロードしています…"
 #: libraries/display_import.lib.php:491
 #, php-format
 msgid "%s/sec."
-msgstr "%s/秒"
+msgstr "%s/秒。"
 
 #: libraries/display_import.lib.php:492
 msgid "About %MIN min. %SEC sec. remaining."
-msgstr "残り時間 約 %MIN 分 %SEC 秒"
+msgstr "残り時間 約 %MIN 分 %SEC 秒。"
 
 #: libraries/display_import.lib.php:493
 msgid "About %SEC sec. remaining."
-msgstr "残り時間 約 %SEC 秒"
+msgstr "残り時間 約 %SEC 秒。"
 
 #: libraries/display_import.lib.php:495
 msgid "The file is being processed, please be patient."
@@ -9784,7 +9781,7 @@ msgstr "返り値が空でした (行数 0)。"
 
 #: libraries/import.lib.php:258 libraries/sql.lib.php:1388
 msgid "[ROLLBACK occurred.]"
-msgstr "ロールバックが発生しました。"
+msgstr "[ロールバックが発生しました。]"
 
 #: libraries/import.lib.php:1204
 msgid ""
@@ -10022,7 +10019,7 @@ msgstr "以下のクエリを本当に実行しますか?"
 
 #: libraries/navigation/Navigation.php:55
 msgid "An error has occurred while loading the navigation display"
-msgstr "ナビゲーション画面を読み込み中にエラーが発生しました。"
+msgstr "ナビゲーション画面を読み込み中にエラーが発生しました"
 
 #: libraries/navigation/Navigation.php:193
 #, fuzzy
