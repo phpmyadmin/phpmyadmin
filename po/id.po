@@ -3,8 +3,8 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.8.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2017-09-08 21:11+0200\n"
-"PO-Revision-Date: 2017-09-20 07:46+0000\n"
-"Last-Translator: Andika Triwidada <andika@gmail.com>\n"
+"PO-Revision-Date: 2017-09-21 21:37+0000\n"
+"Last-Translator: phyxkal <haikalvidya@gmail.com>\n"
 "Language-Team: Indonesian "
 "<https://hosted.weblate.org/projects/phpmyadmin/master/id/>\n"
 "Language: id\n"
@@ -256,7 +256,7 @@ msgstr "Tidak ada tabel yang ditemukan di database."
 #: libraries/classes/Server/Status/Data.php:128
 #: templates/database/structure/show_create.phtml:18
 msgid "Tables"
-msgstr "Tabel"
+msgstr "Tabel-tabel"
 
 #: db_export.php:69 libraries/classes/CentralColumns.php:738
 #: libraries/classes/Config/Forms/User/ExportForm.php:49
@@ -4876,19 +4876,16 @@ msgid "Show views in tree"
 msgstr "Tampilkan Views dalam bentuk bercabang"
 
 #: libraries/classes/Config/Descriptions.php:837
-#, fuzzy
-#| msgid "Show hidden navigation tree items."
 msgid "Whether to show views under database in the navigation tree"
-msgstr "Apakah menampilkan views di bawah database di pohon navigasi"
+msgstr "Apakah menampilkan views di bawah database di navigation tree"
 
 #: libraries/classes/Config/Descriptions.php:839
 msgid "Show functions in tree"
 msgstr "Tampilkan Fungsi dalam bentuk bercabang"
 
 #: libraries/classes/Config/Descriptions.php:841
-#, fuzzy
 msgid "Whether to show functions under database in the navigation tree"
-msgstr "Apakah akan menampilkan fungsi di bawah database di pohon navigasi"
+msgstr "Apakah akan menampilkan fungsi di bawah database di navigation tree"
 
 #: libraries/classes/Config/Descriptions.php:843
 msgid "Show procedures in tree"
@@ -4903,10 +4900,8 @@ msgid "Show events in tree"
 msgstr "Tunjukkan events dalam pohon"
 
 #: libraries/classes/Config/Descriptions.php:849
-#, fuzzy
-#| msgid "Show hidden navigation tree items."
 msgid "Whether to show events under database in the navigation tree"
-msgstr "Entah untuk menampilkan events di bawah database di pohon navigasi"
+msgstr "Entah untuk menampilkan events di bawah database di navigation tree"
 
 #: libraries/classes/Config/Descriptions.php:851
 msgid "Maximum number of recently used tables; set 0 to disable."
@@ -5304,21 +5299,15 @@ msgid "Maximal number of table preferences to store"
 msgstr "Jumlah maksimal preferensi tabel untuk menyimpan"
 
 #: libraries/classes/Config/Descriptions.php:1063
-#, fuzzy
-#| msgid "See slave status table"
 msgid "QBE saved searches table"
-msgstr "Lihat tabel status slave"
+msgstr "QBE menyimpan tabel pencarian"
 
 #: libraries/classes/Config/Descriptions.php:1066
-#, fuzzy
-#| msgid ""
-#| "Leave blank for no PDF schema support, suggested: [kbd]pma__pdf_pages[/"
-#| "kbd]."
 msgid ""
 "Leave blank for no QBE saved searches support, suggested: "
 "[kbd]pma__savedsearches[/kbd]."
 msgstr ""
-"Biarkan kosong untuk menonaktifkan QBE saved search support, saran: "
+"Biarkan kosong agar QBE tidak menyimpan search support, saran: "
 "[kbd]pma__pdf_pages[/kbd]."
 
 #: libraries/classes/Config/Descriptions.php:1070
@@ -5342,16 +5331,12 @@ msgid "Central columns table"
 msgstr "Kolom tengah tabel"
 
 #: libraries/classes/Config/Descriptions.php:1080
-#, fuzzy
-#| msgid ""
-#| "Leave blank for no user preferences storage in database, suggested: "
-#| "[kbd]pma_userconfig[/kbd]"
 msgid ""
 "Leave blank for no central columns support, suggested: "
 "[kbd]pma__central_columns[/kbd]."
 msgstr ""
-"Biarkan kosong untuk tidak menyimpan preferensi pengguna dalam basis data, "
-"saran: [kbd]pma_userconfig[/kbd]"
+"Biarkan kosong untuk tanpa dukungan kolom utama, saran: "
+"[kbd]pma_userconfig[/kbd]"
 
 #: libraries/classes/Config/Descriptions.php:1085
 msgid ""
