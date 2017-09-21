@@ -11,6 +11,7 @@ use PhpMyAdmin\Twig\CharsetsExtension;
 use PhpMyAdmin\Twig\I18nExtension;
 use PhpMyAdmin\Twig\MessageExtension;
 use PhpMyAdmin\Twig\SanitizeExtension;
+use PhpMyAdmin\Twig\ServerPrivilegesExtension;
 use PhpMyAdmin\Twig\UrlExtension;
 use PhpMyAdmin\Twig\UtilExtension;
 use Twig_Environment;
@@ -75,6 +76,7 @@ class Template
         $this->twig->addExtension(new I18nExtension());
         $this->twig->addExtension(new MessageExtension());
         $this->twig->addExtension(new SanitizeExtension());
+        $this->twig->addExtension(new ServerPrivilegesExtension());
         $this->twig->addExtension(new UrlExtension());
         $this->twig->addExtension(new UtilExtension());
     }

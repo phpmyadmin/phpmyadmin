@@ -1382,27 +1382,21 @@ class Privileges
     /**
      * Get HTML snippet for global privileges table with check boxes
      *
-     * @param array $privTable       privileges table array
-     * @param array $privTable_names names of the privilege tables
-     *                               (Data, Structure, Administration)
-     * @param array $row             first row from result or boolean false
+     * @param array $privTable      privileges table array
+     * @param array $privTableNames names of the privilege tables
+     *                              (Data, Structure, Administration)
+     * @param array $row            first row from result or boolean false
      *
      * @return string $html_output
      */
     public static function getHtmlForGlobalPrivTableWithCheckboxes(
-        $privTable, $privTable_names, $row
+        $privTable, $privTableNames, $row
     ) {
-        $html_output = '';
-        $html_output = Template::get('privileges/global_priv_table')
-            ->render(
-                array(
-                    'privTable'       => $privTable,
-                    'privTable_names' => $privTable_names,
-                    'row'             => $row
-                )
-            );
-
-        return $html_output;
+        return Template::get('privileges/global_priv_table')->render(array(
+            'priv_table' => $privTable,
+            'priv_table_names' => $privTableNames,
+            'row' => $row,
+        ));
     }
 
     /**
