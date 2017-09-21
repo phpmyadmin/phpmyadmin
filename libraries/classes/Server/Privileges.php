@@ -3319,22 +3319,22 @@ class Privileges
     ) {
         $uiData = array(
             'database' => array(
-                'formId'       => 'database_specific_priv',
-                'subMenuLabel' => __('Database'),
-                'legend'       => __('Database-specific privileges'),
-                'typeLabel'    => __('Database'),
+                'form_id'        => 'database_specific_priv',
+                'sub_menu_label' => __('Database'),
+                'legend'         => __('Database-specific privileges'),
+                'type_label'     => __('Database'),
             ),
             'table' => array(
-                'formId'       => 'table_specific_priv',
-                'subMenuLabel' => __('Table'),
-                'legend'       => __('Table-specific privileges'),
-                'typeLabel'    => __('Table'),
+                'form_id'        => 'table_specific_priv',
+                'sub_menu_label' => __('Table'),
+                'legend'         => __('Table-specific privileges'),
+                'type_label'     => __('Table'),
             ),
             'routine' => array(
-                'formId'       => 'routine_specific_priv',
-                'subMenuLabel' => __('Routine'),
-                'legend'       => __('Routine-specific privileges'),
-                'typeLabel'    => __('Routine'),
+                'form_id'        => 'routine_specific_priv',
+                'sub_menu_label' => __('Routine'),
+                'legend'         => __('Routine-specific privileges'),
+                'type_label'     => __('Routine'),
             ),
         );
 
@@ -3423,8 +3423,8 @@ class Privileges
 
         $data = $uiData[$type];
         $data['privileges'] = $privileges;
-        $data['userName']   = $username;
-        $data['hostName']   = $hostname;
+        $data['username']   = $username;
+        $data['hostname']   = $hostname;
         $data['database']   = $dbname;
         $data['type']       = $type;
 
