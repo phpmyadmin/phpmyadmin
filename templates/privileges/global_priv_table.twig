@@ -1,0 +1,18 @@
+{% for key, table in priv_table %}
+    <fieldset>
+        <legend>
+            <input type="checkbox" class="sub_checkall_box" id="checkall_{{ priv_table_names[key] }}_priv"
+                title="{% trans 'Check all' %}" />
+            <label for="checkall_{{ priv_table_names[key] }}_priv">{{ priv_table_names[key] }}</label>
+        </legend>
+        {% for priv in table %}
+            {% set checked = row[priv[0] ~ '_priv'] is defined and row[priv[0] ~ '_priv'] == 'Y' ? ' checked="checked"' %}
+            {% set formatted_priv = ServerPrivileges_formatPrivilege(priv, true) %}
+            {% include 'privileges/global_priv_tbl_item.twig' with {
+                'checked': checked,
+                'formatted_priv': formatted_priv,
+                'priv': priv
+            } only %}
+        {% endfor %}
+    </fieldset>
+{% endfor %}
