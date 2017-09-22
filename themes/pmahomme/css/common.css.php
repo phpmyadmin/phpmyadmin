@@ -2233,7 +2233,7 @@ table#index_columns {
 
 table#index_columns select {
     width: 85%;
-    float: right;
+    float: <?php echo $left; ?>;
 }
 
 #move_columns_dialog div {
