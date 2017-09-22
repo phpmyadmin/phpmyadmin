@@ -148,19 +148,19 @@ class PMA_SeleniumSqlQueryTest extends PMA_SeleniumBase
         $this->waitForElement('byCssSelector', 'table.table_results');
         $this->assertEquals(
             3,
-            $this->getCellByTableClass('table_results', 1, 5)
+            $this->getCellByTableClass('table_results', 1, 1)
         );
         $this->assertEquals(
             4,
-            $this->getCellByTableClass('table_results', 2, 5)
+            $this->getCellByTableClass('table_results', 2, 1)
         );
         $this->assertEquals(
             4,
-            $this->getCellByTableClass('table_results', 1, 6)
+            $this->getCellByTableClass('table_results', 1, 2)
         );
         $this->assertEquals(
             5,
-            $this->getCellByTableClass('table_results', 2, 6)
+            $this->getCellByTableClass('table_results', 2, 2)
         );
 
         // test inline edit button

@@ -72,17 +72,17 @@ class PMA_SeleniumTableBrowseTest extends PMA_SeleniumBase
 
         $this->assertEquals(
             "1",
-            $this->getCellByTableClass('table_results', 1, 5)
+            $this->getCellByTableClass('table_results', 1, 1)
         );
 
         $this->assertEquals(
             "3",
-            $this->getCellByTableClass('table_results', 2, 5)
+            $this->getCellByTableClass('table_results', 2, 1)
         );
 
         $this->assertEquals(
             "2",
-            $this->getCellByTableClass('table_results', 3, 5)
+            $this->getCellByTableClass('table_results', 3, 1)
         );
 
         // case 2
@@ -91,37 +91,37 @@ class PMA_SeleniumTableBrowseTest extends PMA_SeleniumBase
 
         $this->assertEquals(
             "2",
-            $this->getCellByTableClass('table_results', 1, 5)
+            $this->getCellByTableClass('table_results', 1, 1)
         );
 
         $this->assertEquals(
             "1",
-            $this->getCellByTableClass('table_results', 2, 5)
+            $this->getCellByTableClass('table_results', 2, 1)
         );
 
         $this->assertEquals(
             "3",
-            $this->getCellByTableClass('table_results', 3, 5)
+            $this->getCellByTableClass('table_results', 3, 1)
         );
 
         // case 2
         $this->byLinkText("datetimefield")->click();
         $this->waitAjax();
 
-        $this->getCellByTableClass('table_results', 1, 5);
+        $this->getCellByTableClass('table_results', 1, 1);
         $this->assertEquals(
             "3",
-            $this->getCellByTableClass('table_results', 1, 5)
+            $this->getCellByTableClass('table_results', 1, 1)
         );
 
         $this->assertEquals(
             "1",
-            $this->getCellByTableClass('table_results', 2, 5)
+            $this->getCellByTableClass('table_results', 2, 1)
         );
 
         $this->assertEquals(
             "2",
-            $this->getCellByTableClass('table_results', 3, 5)
+            $this->getCellByTableClass('table_results', 3, 1)
         );
 
         // case 4
@@ -130,17 +130,17 @@ class PMA_SeleniumTableBrowseTest extends PMA_SeleniumBase
 
         $this->assertEquals(
             "2",
-            $this->getCellByTableClass('table_results', 1, 5)
+            $this->getCellByTableClass('table_results', 1, 1)
         );
 
         $this->assertEquals(
             "1",
-            $this->getCellByTableClass('table_results', 2, 5)
+            $this->getCellByTableClass('table_results', 2, 1)
         );
 
         $this->assertEquals(
             "3",
-            $this->getCellByTableClass('table_results', 3, 5)
+            $this->getCellByTableClass('table_results', 3, 1)
         );
     }
 
@@ -154,7 +154,7 @@ class PMA_SeleniumTableBrowseTest extends PMA_SeleniumBase
     public function testChangeRecords()
     {
         $ele = $this->byCssSelector(
-            "table.table_results tbody tr:nth-child(2) td:nth-child(2)"
+            "table.table_results tbody tr:nth-child(2) td:nth-child(5)"
         );
         $this->moveto($ele);
         $this->click();
@@ -195,12 +195,12 @@ class PMA_SeleniumTableBrowseTest extends PMA_SeleniumBase
 
         $this->assertEquals(
             "foobar",
-            $this->getCellByTableClass('table_results', 2, 6)
+            $this->getCellByTableClass('table_results', 2, 2)
         );
 
         $this->assertEquals(
             "2009-01-02 00:00:00",
-            $this->getCellByTableClass('table_results', 2, 7)
+            $this->getCellByTableClass('table_results', 2, 3)
         );
     }
 
@@ -214,7 +214,7 @@ class PMA_SeleniumTableBrowseTest extends PMA_SeleniumBase
     public function testChangeRecordsByDoubleClick()
     {
         $element = $this->byCssSelector(
-            "table.table_results tbody tr:nth-child(1) td:nth-child(6)"
+            "table.table_results tbody tr:nth-child(1) td:nth-child(2)"
         );
 
         $this->moveto($element);
@@ -241,7 +241,7 @@ class PMA_SeleniumTableBrowseTest extends PMA_SeleniumBase
 
         $this->assertEquals(
             "abcde",
-            $this->getCellByTableClass('table_results', 1, 6)
+            $this->getCellByTableClass('table_results', 1, 2)
         );
     }
 
@@ -255,7 +255,7 @@ class PMA_SeleniumTableBrowseTest extends PMA_SeleniumBase
     public function testCopyRecords()
     {
         $ele = $this->byCssSelector(
-            "table.table_results tbody tr:nth-child(3) td:nth-child(3)"
+            "table.table_results tbody tr:nth-child(3) td:nth-child(6)"
         );
         $this->moveto($ele);
         $this->click();
@@ -287,12 +287,12 @@ class PMA_SeleniumTableBrowseTest extends PMA_SeleniumBase
 
         $this->assertEquals(
             "ABCDEFG",
-            $this->getCellByTableClass('table_results', 4, 6)
+            $this->getCellByTableClass('table_results', 4, 2)
         );
 
         $this->assertEquals(
             "2012-01-02 00:00:00",
-            $this->getCellByTableClass('table_results', 4, 7)
+            $this->getCellByTableClass('table_results', 4, 3)
         );
     }
 
@@ -325,12 +325,12 @@ class PMA_SeleniumTableBrowseTest extends PMA_SeleniumBase
 
         $this->assertEquals(
             "1",
-            $this->getCellByTableClass('table_results', 1, 5)
+            $this->getCellByTableClass('table_results', 1, 1)
         );
 
         $this->assertEquals(
             "3",
-            $this->getCellByTableClass('table_results', 2, 5)
+            $this->getCellByTableClass('table_results', 2, 1)
         );
     }
 
