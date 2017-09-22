@@ -337,21 +337,18 @@ class ServerVariablesController extends Controller
 
             list($formattedValue, $isHtmlFormatted) = $this->_formatVariable($name, $value);
 
-            $output .= Template::get('server/variables/variable_row')
-                ->render(
-                    array(
-                        'rowClass'    => $row_class,
-                        'editable'    => ! in_array(
-                            strtolower($name),
-                            $static_variables
-                        ),
-                        'docLink'     => $docLink,
-                        'name'        => $name,
-                        'value'       => $formattedValue,
-                        'isSuperuser' => $this->dbi->isSuperuser(),
-                        'isHtmlFormatted' => $isHtmlFormatted,
-                    )
-                );
+            $output .= Template::get('server/variables/variable_row')->render(array(
+                'row_class' => $row_class,
+                'editable' => ! in_array(
+                    strtolower($name),
+                    $static_variables
+                ),
+                'doc_link' => $docLink,
+                'name' => $name,
+                'value' => $formattedValue,
+                'is_superuser' => $this->dbi->isSuperuser(),
+                'is_html_formatted' => $isHtmlFormatted,
+            ));
 
             if ($has_session_value) {
                 list($formattedValue, $isHtmlFormatted)= $this->_formatVariable(
