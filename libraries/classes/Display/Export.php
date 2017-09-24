@@ -1064,7 +1064,7 @@ class Export
      *
      * @return void
      */
-    public static function handleExportTemplateActions($cfgRelation)
+    public static function handleExportTemplateActions(array $cfgRelation)
     {
         if (isset($_REQUEST['templateId'])) {
             $id = $GLOBALS['dbi']->escapeString($_REQUEST['templateId']);

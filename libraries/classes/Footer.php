@@ -98,7 +98,7 @@ class Footer
      *
      * @return object Reference passed object
      */
-    private static function _removeRecursion(&$object, $stack = array())
+    private static function _removeRecursion(&$object, array $stack = array())
     {
         if ((is_object($object) || is_array($object)) && $object) {
             if ($object instanceof Traversable) {

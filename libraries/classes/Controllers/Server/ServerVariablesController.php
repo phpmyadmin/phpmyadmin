@@ -289,7 +289,7 @@ class ServerVariablesController extends Controller
      *
      * @return string
      */
-    private function _getHtmlForServerVariables($serverVars, $serverVarsSession)
+    private function _getHtmlForServerVariables(array $serverVars, array $serverVarsSession)
     {
         // filter
         $filterValue = ! empty($_REQUEST['filter']) ? $_REQUEST['filter'] : '';
@@ -322,7 +322,7 @@ class ServerVariablesController extends Controller
      * @return string
      */
     private function _getHtmlForServerVariablesItems(
-        $serverVars, $serverVarsSession
+        array $serverVars, array $serverVarsSession
     ) {
         // list of static (i.e. non-editable) system variables
         $static_variables = $this->_getStaticSystemVariables();

@@ -72,7 +72,7 @@ class SysInfoWINNT extends SysInfoBase
      *
      * @return array with results
      */
-    private function _getWMI($strClass, $strValue = array())
+    private function _getWMI($strClass, array $strValue = array())
     {
         $arrData = array();
 

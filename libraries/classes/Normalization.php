@@ -84,7 +84,7 @@ class Normalization
      * @return string HTML
      */
     public static function getHtmlForCreateNewColumn(
-        $num_fields, $db, $table, $columnMeta=array()
+        $num_fields, $db, $table, array $columnMeta = array()
     ) {
         $cfgRelation = Relation::getRelationsParam();
         $content_cells = array();
@@ -415,7 +415,7 @@ class Normalization
      *
      * @return string HTML
      */
-    public static function getHtmlForNewTables2NF($partialDependencies,$table)
+    public static function getHtmlForNewTables2NF(array $partialDependencies, $table)
     {
         $html = '<p><b>' . sprintf(
             __(
@@ -448,7 +448,7 @@ class Normalization
      *
      * @return array
      */
-    public static function createNewTablesFor2NF($partialDependencies, $tablesName, $table, $db)
+    public static function createNewTablesFor2NF(array $partialDependencies, $tablesName, $table, $db)
     {
         $dropCols = false;
         $nonPKCols = array();
@@ -524,7 +524,7 @@ class Normalization
      *
      * @return array containing html and the list of new tables
      */
-    public static function getHtmlForNewTables3NF($dependencies, $tables, $db)
+    public static function getHtmlForNewTables3NF($dependencies, array $tables, $db)
     {
         $html = "";
         $i = 1;
@@ -582,7 +582,7 @@ class Normalization
      *
      * @return array
      */
-    public static function createNewTablesFor3NF($newTables, $db)
+    public static function createNewTablesFor3NF(array $newTables, $db)
     {
         $queries = array();
         $dropCols = false;
@@ -730,7 +730,7 @@ class Normalization
      *
      * @return string
      */
-    public static function getHtmlFor3NFstep1($db, $tables)
+    public static function getHtmlFor3NFstep1($db, array $tables)
     {
         $legendText = __('Step 3.') . "1 " . __('Find transitive dependencies');
         $extra = "";
@@ -952,7 +952,7 @@ class Normalization
      *
      * @return array associative array containing the count
      */
-    public static function findDistinctValuesCount($columns, $table)
+    public static function findDistinctValuesCount(array $columns, $table)
     {
         $result = array();
         $query = 'SELECT ';
@@ -981,7 +981,7 @@ class Normalization
      *
      * @return array containing all the possible partial keys(subset of primary key)
      */
-    public static function getAllCombinationPartialKeys($primaryKey)
+    public static function getAllCombinationPartialKeys(array $primaryKey)
     {
         $results = array('');
         foreach ($primaryKey as $element) {

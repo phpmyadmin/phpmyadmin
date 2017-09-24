@@ -113,7 +113,7 @@ class Privileges
      *
      * @return string
      */
-    public static function formatPrivilege($privilege, $html)
+    public static function formatPrivilege(array $privilege, $html)
     {
         if ($html) {
             return '<dfn title="' . $privilege[2] . '">'
@@ -130,7 +130,7 @@ class Privileges
      *
      * @return void
      */
-    public static function fillInTablePrivileges(&$row)
+    public static function fillInTablePrivileges(array &$row)
     {
         $row1 = $GLOBALS['dbi']->fetchSingleRow(
             'SHOW COLUMNS FROM `mysql`.`tables_priv` LIKE \'Table_priv\';',
@@ -466,7 +466,7 @@ class Privileges
      *
      * @return string $html_output html snippet
      */
-    public static function getHtmlForColumnPrivileges($columns, $row, $name_for_select,
+    public static function getHtmlForColumnPrivileges(array $columns, array $row, $name_for_select,
         $priv_for_header, $name, $name_for_dfn, $name_for_current
     ) {
         $data = array(
@@ -715,7 +715,7 @@ class Privileges
      *
      * @return string html snippet
      */
-    public static function getHtmlForRequires($row)
+    public static function getHtmlForRequires(array $row)
     {
         $specified = (isset($row['ssl_type']) && $row['ssl_type'] == 'SPECIFIED');
         $require_options = array(
@@ -826,7 +826,7 @@ class Privileges
      *
      * @return string html snippet
      */
-    public static function getHtmlForResourceLimits($row)
+    public static function getHtmlForResourceLimits(array $row)
     {
         $limits = array(
             array(
@@ -968,7 +968,7 @@ class Privileges
      * @return string $html_output
      */
     public static function getHtmlForTableSpecificPrivileges(
-        $username, $hostname, $db, $table, $columns, $row
+        $username, $hostname, $db, $table, array $columns, array $row
     ) {
         $res = $GLOBALS['dbi']->query(
             'SELECT `Column_name`, `Column_priv`'
@@ -1029,7 +1029,7 @@ class Privileges
      *
      * @return string $html_output
      */
-    public static function getHtmlForAttachedPrivilegesToTableSpecificColumn($columns, $row)
+    public static function getHtmlForAttachedPrivilegesToTableSpecificColumn(array $columns, array $row)
     {
         $html_output = self::getHtmlForColumnPrivileges(
             $columns, $row, 'Select_priv', 'SELECT',
@@ -1060,7 +1060,7 @@ class Privileges
      *
      * @return string $html_output
      */
-    public static function getHtmlForNotAttachedPrivilegesToTableSpecificColumn($row)
+    public static function getHtmlForNotAttachedPrivilegesToTableSpecificColumn(array $row)
     {
         $html_output = '';
 
@@ -1138,7 +1138,7 @@ class Privileges
      *
      * @return string $html_output
      */
-    public static function getHtmlForGlobalOrDbSpecificPrivs($db, $table, $row)
+    public static function getHtmlForGlobalOrDbSpecificPrivs($db, $table, array $row)
     {
         $privTable_names = array(0 => __('Data'),
             1 => __('Structure'),
@@ -1230,7 +1230,7 @@ class Privileges
      *
      * @return string structure privilege table
      */
-    public static function getStructurePrivilegeTable($table, $row)
+    public static function getStructurePrivilegeTable($table, array $row)
     {
         $structure_privTable = array(
             array('Create',
@@ -1390,7 +1390,7 @@ class Privileges
      * @return string $html_output
      */
     public static function getHtmlForGlobalPrivTableWithCheckboxes(
-        $privTable, $privTableNames, $row
+        array $privTable, array $privTableNames, array $row
     ) {
         return Template::get('privileges/global_priv_table')->render(array(
             'priv_table' => $privTable,
@@ -2524,7 +2524,7 @@ class Privileges
      *
      * @return void
      */
-    public static function mergePrivMapFromResult(&$privMap, $result)
+    public static function mergePrivMapFromResult(array &$privMap, $result)
     {
         while ($row = $GLOBALS['dbi']->fetchAssoc($result)) {
             $user = $row['User'];
@@ -2658,7 +2658,7 @@ class Privileges
      * @return string HTML to display privileges
      */
     public static function getHtmlListOfPrivs(
-        $db, $current_privileges, $current_user,
+        $db, array $current_privileges, $current_user,
         $current_host
     ) {
         $nbPrivileges = count($current_privileges);
@@ -3500,7 +3500,7 @@ class Privileges
      *
      * @return string HTML snippet
      */
-    public static function getUsersOverview($result, $db_rights, $pmaThemeImage, $text_dir)
+    public static function getUsersOverview($result, array $db_rights, $pmaThemeImage, $text_dir)
     {
         while ($row = $GLOBALS['dbi']->fetchAssoc($result)) {
             $row['privs'] = self::extractPrivInfo($row, true);
@@ -3574,7 +3574,7 @@ class Privileges
      *
      * @return string HTML snippet
      */
-    public static function getHtmlTableBodyForUserRights($db_rights)
+    public static function getHtmlTableBodyForUserRights(array $db_rights)
     {
         $cfgRelation = Relation::getRelationsParam();
         if ($cfgRelation['menuswork']) {
@@ -3729,7 +3729,7 @@ class Privileges
      *
      * @return string HTML snippet
      */
-    public static function getHtmlForInitials($array_initials)
+    public static function getHtmlForInitials(array $array_initials)
     {
         // initialize to false the letters A-Z
         for ($letter_counter = 1; $letter_counter < 27; $letter_counter++) {
@@ -3824,7 +3824,7 @@ class Privileges
      *
      * @return array Message
      */
-    public static function deleteUser($queries)
+    public static function deleteUser(array $queries)
     {
         $sql_query = '';
         if (empty($queries)) {
@@ -4079,7 +4079,7 @@ class Privileges
      *
      * @return null
      */
-    public static function getDataForQueries($queries, $queries_for_display)
+    public static function getDataForQueries(array $queries, $queries_for_display)
     {
         $tmp_count = 0;
         foreach ($queries as $sql_query) {
@@ -4858,7 +4858,7 @@ class Privileges
      * @return array  $queries
      */
     public static function getTablePrivsQueriesForChangeOrCopyUser($user_host_condition,
-        $queries, $username, $hostname
+        array $queries, $username, $hostname
     ) {
         $res = $GLOBALS['dbi']->query(
             'SELECT `Db`, `Table_name`, `Table_priv` FROM `mysql`.`tables_priv`'
@@ -4945,7 +4945,7 @@ class Privileges
      * @return array $queries
      */
     public static function getDbSpecificPrivsQueriesForChangeOrCopyUser(
-        $queries, $username, $hostname
+        array $queries, $username, $hostname
     ) {
         $user_host_condition = ' WHERE `User`'
             . ' = \'' . $GLOBALS['dbi']->escapeString($_REQUEST['old_username']) . "'"

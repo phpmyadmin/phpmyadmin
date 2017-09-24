@@ -124,7 +124,7 @@ class Error extends Message
      *
      * @return array
      */
-    public static function processBacktrace($backtrace)
+    public static function processBacktrace(array $backtrace)
     {
         $result = array();
 
@@ -178,7 +178,7 @@ class Error extends Message
      *
      * @return void
      */
-    public function setBacktrace($backtrace)
+    public function setBacktrace(array $backtrace)
     {
         $this->backtrace = self::processBacktrace($backtrace);
     }
@@ -335,7 +335,7 @@ class Error extends Message
      *
      * @return string formatted backtrace
      */
-    public static function formatBacktrace($backtrace, $separator, $lines)
+    public static function formatBacktrace(array $backtrace, $separator, $lines)
     {
         $retval = '';
 
@@ -362,7 +362,7 @@ class Error extends Message
      *
      * @return string
      */
-    public static function getFunctionCall($step, $separator)
+    public static function getFunctionCall(array $step, $separator)
     {
         $retval = $step['function'] . '(';
         if (isset($step['args'])) {

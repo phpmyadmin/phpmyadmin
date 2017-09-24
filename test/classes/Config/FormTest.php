@@ -284,12 +284,12 @@ class FormTest extends \PMATestCase
 
         $this->object->expects($this->exactly(1))
             ->method('readFormPaths')
-            ->with('testForm');
+            ->with(['testForm']);
 
         $this->object->expects($this->exactly(1))
             ->method('readTypes');
 
-        $this->object->loadForm('pmaform', 'testForm');
+        $this->object->loadForm('pmaform', ['testForm']);
 
         $this->assertEquals(
             'pmaform',

@@ -742,7 +742,7 @@ class DatabaseStructureController extends DatabaseController
      *
      * @return array
      */
-    protected function isRowCountApproximated($current_table, $table_is_view)
+    protected function isRowCountApproximated(array $current_table, $table_is_view)
     {
         $approx_rows = false;
         $show_superscript = '';
@@ -846,7 +846,7 @@ class DatabaseStructureController extends DatabaseController
     protected function synchronizeFavoriteTables(
         $fav_instance,
         $user,
-        $favorite_tables
+        array $favorite_tables
     ) {
         $fav_instance_tables = $fav_instance->getTables();
 
@@ -899,7 +899,7 @@ class DatabaseStructureController extends DatabaseController
      *
      * @return bool
      */
-    protected function hasTable($db, $truename)
+    protected function hasTable(array $db, $truename)
     {
         foreach ($db as $db_table) {
             if ($this->db == Replication::extractDbOrTable($db_table)
@@ -926,7 +926,7 @@ class DatabaseStructureController extends DatabaseController
      * @internal param bool $table_is_view whether table is view or not
      */
     protected function getStuffForEngineTypeTable(
-        $current_table, $sum_size, $overhead_size
+        array $current_table, $sum_size, $overhead_size
     ) {
         $formatted_size = '-';
         $unit = '';
@@ -1018,7 +1018,7 @@ class DatabaseStructureController extends DatabaseController
      * @return array
      */
     protected function getValuesForAriaTable(
-        $current_table, $sum_size, $overhead_size, $formatted_size, $unit,
+        array $current_table, $sum_size, $overhead_size, $formatted_size, $unit,
         $formatted_overhead, $overhead_unit
     ) {
         if ($this->_db_is_system_schema) {
@@ -1059,7 +1059,7 @@ class DatabaseStructureController extends DatabaseController
      * @return array
      */
     protected function getValuesForInnodbTable(
-        $current_table, $sum_size
+        array $current_table, $sum_size
     ) {
         $formatted_size = $unit = '';
 

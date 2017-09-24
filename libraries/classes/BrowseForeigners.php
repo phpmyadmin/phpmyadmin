@@ -30,8 +30,8 @@ class BrowseForeigners
      *
      * @return string $html the generated html
      */
-    public static function getHtmlForOneKey($horizontal_count, $header, $keys,
-        $indexByKeyname, $descriptions, $indexByDescription, $current_value
+    public static function getHtmlForOneKey($horizontal_count, $header, array $keys,
+        $indexByKeyname, array $descriptions, $indexByDescription, $current_value
     ) {
         $horizontal_count++;
         $output = '';
@@ -114,7 +114,7 @@ class BrowseForeigners
      *
      * @return string
      */
-    public static function getHtmlForRelationalFieldSelection($db, $table, $field, $foreignData,
+    public static function getHtmlForRelationalFieldSelection($db, $table, $field, array $foreignData,
         $fieldkey, $current_value
     ) {
         $gotopage = self::getHtmlForGotoPage($foreignData);
@@ -277,7 +277,7 @@ class BrowseForeigners
     /**
      * Function to get html for show all case
      *
-     * @param array $foreignData foreign data
+     * @param array|null $foreignData foreign data
      *
      * @return string
      */
@@ -300,7 +300,7 @@ class BrowseForeigners
     /**
      * Function to get html for the goto page option
      *
-     * @param array $foreignData foreign data
+     * @param array|null $foreignData foreign data
      *
      * @return string
      */

@@ -55,7 +55,7 @@ class Template
      * @param array  $data            Variables to be provided to the template
      * @param array  $helperFunctions Helper functions to be used by template
      */
-    protected function __construct($name, $data = array(), $helperFunctions = array())
+    protected function __construct($name, array $data = array(), array $helperFunctions = array())
     {
         $this->name = $name;
         $this->data = $data;
@@ -90,7 +90,7 @@ class Template
      *
      * @return Template
      */
-    public static function get($name, $data = array(), $helperFunctions = array())
+    public static function get($name, array $data = array(), array $helperFunctions = array())
     {
         return new Template($name, $data, $helperFunctions);
     }
@@ -160,7 +160,7 @@ class Template
      *
      * @return mixed
      */
-    public function __call($funcName, $arguments)
+    public function __call($funcName, array $arguments)
     {
         if (isset($this->helperFunctions[$funcName])) {
             return call_user_func_array($this->helperFunctions[$funcName], $arguments);
@@ -179,7 +179,7 @@ class Template
      *
      * @return string
      */
-    public function render($data = array(), $helperFunctions = array())
+    public function render(array $data = array(), array $helperFunctions = array())
     {
         $template = static::BASE_PATH . $this->name;
 

@@ -437,7 +437,7 @@ class Results
      * @access  private
      *
      */
-    private function _setDisplayPartsForPrintView($displayParts)
+    private function _setDisplayPartsForPrintView(array $displayParts)
     {
         // set all elements to false!
         $displayParts['edit_lnk']  = self::NO_EDIT_OR_DELETE; // no edit link
@@ -461,7 +461,7 @@ class Results
      * @access  private
      *
      */
-    private function _setDisplayPartsForShow($displayParts)
+    private function _setDisplayPartsForShow(array $displayParts)
     {
         preg_match(
             '@^SHOW[[:space:]]+(VARIABLES|(FULL[[:space:]]+)?'
@@ -509,7 +509,7 @@ class Results
      * @access  private
      *
      */
-    private function _setDisplayPartsForNonData($displayParts)
+    private function _setDisplayPartsForNonData(array $displayParts)
     {
         // Statement is a "SELECT COUNT", a
         // "CHECK/ANALYZE/REPAIR/OPTIMIZE/CHECKSUM", an "EXPLAIN" one or
@@ -540,7 +540,7 @@ class Results
      * @access  private
      *
      */
-    private function _setDisplayPartsForSelect($displayParts)
+    private function _setDisplayPartsForSelect(array $displayParts)
     {
         // Other statements (ie "SELECT" ones) -> updates
         // $displayParts['edit_lnk'], $displayParts['del_lnk'] and
@@ -611,7 +611,7 @@ class Results
      *
      * @see     getTable()
      */
-    private function _setDisplayPartsAndTotal($displayParts)
+    private function _setDisplayPartsAndTotal(array $displayParts)
     {
         $the_total = 0;
 
@@ -690,7 +690,7 @@ class Results
      *
      * @see     _getTableHeaders(), _getColumnParams()
      */
-    private function _isSelect($analyzed_sql_results)
+    private function _isSelect(array $analyzed_sql_results)
     {
         return ! ($this->__get('is_count')
                 || $this->__get('is_export')
@@ -1178,8 +1178,8 @@ class Results
      * @see    getTableHeaders()
      */
     private function _getTableHeadersForColumns(
-        $displayParts, $analyzed_sql_results, $sort_expression,
-        $sort_expression_nodirection, $sort_direction, $is_limited_display,
+        array $displayParts, array $analyzed_sql_results, array $sort_expression,
+        array $sort_expression_nodirection, array $sort_direction, $is_limited_display,
         $unsorted_sql_query
     ) {
         $html = '';
@@ -1268,15 +1268,15 @@ class Results
     /**
      * Get the headers of the results table
      *
-     * @param array   &$displayParts               which elements to display
-     * @param array   $analyzed_sql_results        analyzed sql results
-     * @param string  $unsorted_sql_query          the unsorted sql query
-     * @param array   $sort_expression             sort expression
-     * @param array   $sort_expression_nodirection sort expression
-     *                                             without direction
-     * @param array   $sort_direction              sort direction
-     * @param boolean $is_limited_display          with limited operations
-     *                                             or not
+     * @param array        &$displayParts               which elements to display
+     * @param array        $analyzed_sql_results        analyzed sql results
+     * @param string       $unsorted_sql_query          the unsorted sql query
+     * @param array        $sort_expression             sort expression
+     * @param array|string $sort_expression_nodirection sort expression
+     *                                                  without direction
+     * @param array        $sort_direction              sort direction
+     * @param boolean      $is_limited_display          with limited operations
+     *                                                  or not
      *
      * @return string html content
      *
@@ -1285,9 +1285,9 @@ class Results
      * @see    getTable()
      */
     private function _getTableHeaders(
-        &$displayParts, $analyzed_sql_results, $unsorted_sql_query,
-        $sort_expression = array(), $sort_expression_nodirection = '',
-        $sort_direction = array(), $is_limited_display = false
+        array &$displayParts, array $analyzed_sql_results, $unsorted_sql_query,
+        array $sort_expression = array(), $sort_expression_nodirection = '',
+        array $sort_direction = array(), $is_limited_display = false
     ) {
 
         $table_headers_html = '';
@@ -1379,7 +1379,7 @@ class Results
      * @see     _getTableHeaders()
      */
     private function _getUnsortedSqlAndSortByKeyDropDown(
-        $analyzed_sql_results, $sort_expression
+        array $analyzed_sql_results, $sort_expression
     ) {
         $drop_down_html = '';
 
@@ -1517,7 +1517,7 @@ class Results
      * @see     _getTableHeaders()
      */
     private function _getFieldVisibilityParams(
-        &$displayParts, $full_or_partial_text_link
+        array &$displayParts, $full_or_partial_text_link
     ) {
 
         $button_html = '';
@@ -1592,7 +1592,7 @@ class Results
      *
      * @see     _getTableHeaders()
      */
-    private function _getTableCommentsArray($analyzed_sql_results)
+    private function _getTableCommentsArray(array $analyzed_sql_results)
     {
         if ((!$GLOBALS['cfg']['ShowBrowseComments'])
             || (empty($analyzed_sql_results['statement']->from))
@@ -1627,7 +1627,7 @@ class Results
      *
      * @see     _getTableHeaders()
      */
-    private function _setHighlightedColumnGlobalField($analyzed_sql_results)
+    private function _setHighlightedColumnGlobalField(array $analyzed_sql_results)
     {
         $highlight_columns = array();
 
@@ -1655,7 +1655,7 @@ class Results
      *
      * @see     _getTableHeaders()
      */
-    private function _getDataForResettingColumnOrder($analyzed_sql_results)
+    private function _getDataForResettingColumnOrder(array $analyzed_sql_results)
     {
         if (! $this->_isSelect($analyzed_sql_results)) {
             return '';
@@ -1922,7 +1922,7 @@ class Results
      *
      * @see     _getTableHeaders()
      */
-    private function _getCommentForRow($comments_map, $fields_meta)
+    private function _getCommentForRow(array $comments_map, $fields_meta)
     {
         $comments = '';
         if (isset($comments_map[$fields_meta->table])
@@ -1969,9 +1969,9 @@ class Results
      * @see     _getTableHeaders()
      */
     private function _getOrderLinkAndSortedHeaderHtml(
-        $fields_meta, $sort_expression, $sort_expression_nodirection,
+        $fields_meta, array $sort_expression, array $sort_expression_nodirection,
         $column_index, $unsorted_sql_query, $session_max_rows,
-        $comments, $sort_direction, $col_visib, $col_visib_j
+        $comments, array $sort_direction, $col_visib, $col_visib_j
     ) {
 
         $sorted_header_html = '';
@@ -2065,8 +2065,8 @@ class Results
      * @see     _getOrderLinkAndSortedHeaderHtml()
      */
     private function _getSingleAndMultiSortUrls(
-        $sort_expression, $sort_expression_nodirection, $sort_tbl,
-        $name_to_use_in_sort, $sort_direction, $fields_meta, $column_index
+        array $sort_expression, array $sort_expression_nodirection, $sort_tbl,
+        $name_to_use_in_sort, array $sort_direction, $fields_meta, $column_index
     ) {
         $sort_order = "";
         // Check if the current column is in the order by clause
@@ -2195,7 +2195,7 @@ class Results
      * @see     _getTableHeaders()
      */
     private function _isInSorted(
-        $sort_expression, $sort_expression_nodirection, $sort_tbl,
+        array $sort_expression, array $sort_expression_nodirection, $sort_tbl,
         $name_to_use_in_sort
     ) {
 
@@ -2271,7 +2271,7 @@ class Results
      *
      * @see     _getSingleAndMultiSortUrls()
      */
-    private function _getSortingUrlParams($sort_direction, $sort_order, $index)
+    private function _getSortingUrlParams(array $sort_direction, $sort_order, $index)
     {
         if (strtoupper(trim($sort_direction[$index])) == self::DESCENDING_SORT_DIR) {
             $sort_order .= ' ASC';
@@ -2341,7 +2341,7 @@ class Results
      *
      * @see  _getDraggableClassForSortableColumns()
      */
-    private function _getClassForNumericColumnType($fields_meta,&$th_class)
+    private function _getClassForNumericColumnType($fields_meta, array &$th_class)
     {
         if (preg_match(
             '@int|decimal|float|double|real|bit|boolean|serial@i',
@@ -2460,7 +2460,7 @@ class Results
      * @see     _getTableHeaders()
      */
     private function _getColumnAtRightSide(
-        &$displayParts, $full_or_partial_text_link, $colspan
+        array &$displayParts, $full_or_partial_text_link, $colspan
     ) {
 
         $right_column_html = '';
@@ -2675,7 +2675,7 @@ class Results
      * @see     getTable()
      */
     private function _getTableBody(
-        &$dt_result, &$displayParts, $map, $analyzed_sql_results,
+        &$dt_result, array &$displayParts, array $map, array $analyzed_sql_results,
         $is_limited_display = false
     ) {
 
@@ -2964,7 +2964,7 @@ class Results
      *                                                   displayed
      * @param array                $row                  current row data
      * @param integer              $row_no               the index of current row
-     * @param array                $col_order            the column order false when
+     * @param array|boolean        $col_order            the column order false when
      *                                                   a property not found false
      *                                                   when a property not found
      * @param array                $map                  the list of relations
@@ -2983,9 +2983,9 @@ class Results
      * @see     _getTableBody()
      */
     private function _getRowValues(
-        &$dt_result, $row, $row_no, $col_order, $map,
+        &$dt_result, array $row, $row_no, $col_order, array $map,
         $grid_edit_class, $col_visib,
-        $url_sql_query, $analyzed_sql_results
+        $url_sql_query, array $analyzed_sql_results
     ) {
         $row_values_html = '';
 
@@ -3263,7 +3263,7 @@ class Results
      *
      * @return string generated link
      */
-    private function _getSpecialLinkUrl($column_value, $row_info, $field_name)
+    private function _getSpecialLinkUrl($column_value, array $row_info, $field_name)
     {
 
         $linking_url_params = array();
@@ -3317,12 +3317,12 @@ class Results
     /**
      * Prepare row information for display special links
      *
-     * @param array $row       current row data
-     * @param array $col_order the column order
+     * @param array         $row       current row data
+     * @param array|boolean $col_order the column order
      *
      * @return array $row_info associative array with column nama -> value
      */
-    private function _getRowInfoForSpecialLinks($row, $col_order)
+    private function _getRowInfoForSpecialLinks(array $row, $col_order)
     {
 
         $row_info = array();
@@ -3349,7 +3349,7 @@ class Results
      *
      * @see     _getTableBody()
      */
-    private function _getUrlSqlQuery($analyzed_sql_results)
+    private function _getUrlSqlQuery(array $analyzed_sql_results)
     {
         if (($analyzed_sql_results['querytype'] != 'SELECT')
             || (mb_strlen($this->__get('sql_query')) < 200)
@@ -3389,7 +3389,7 @@ class Results
      *
      * @see     _getTableBody()
      */
-    private function _getColumnParams($analyzed_sql_results)
+    private function _getColumnParams(array $analyzed_sql_results)
     {
         if ($this->_isSelect($analyzed_sql_results)) {
             $pmatable = new Table($this->__get('table'), $this->__get('db'));
@@ -3426,7 +3426,7 @@ class Results
      * @see     _getTableBody()
      */
     private function _getRepeatingHeaders(
-        $display_params
+        array $display_params
     ) {
         $header_html = '<tr>' . "\n";
 
@@ -3529,7 +3529,7 @@ class Results
      * @see     _getTableBody()
      */
     private function _getDeleteAndKillLinks(
-        $where_clause, $clause_is_unique, $url_sql_query, $del_lnk, $row
+        $where_clause, $clause_is_unique, $url_sql_query, $del_lnk, array $row
     ) {
 
         $goto = $this->__get('goto');
@@ -3670,8 +3670,8 @@ class Results
      * @see     _getTableBody()
      */
     private function _getPlacedLinks(
-        $dir, $del_url, $displayParts, $row_no, $where_clause, $where_clause_html,
-        $condition_array, $edit_url, $copy_url,
+        $dir, $del_url, array $displayParts, $row_no, $where_clause, $where_clause_html,
+        array $condition_array, $edit_url, $copy_url,
         $edit_anchor_class, $edit_str, $copy_str, $del_str, $js_conf
     ) {
 
@@ -3771,9 +3771,9 @@ class Results
      * @see     _getTableBody()
      */
     private function _getDataCellForNumericColumns(
-        $column, $class, $condition_field, $meta, $map, $is_field_truncated,
-        $analyzed_sql_results, $transformation_plugin, $default_function,
-        $transform_options
+        $column, $class, $condition_field, $meta, array $map, $is_field_truncated,
+        array $analyzed_sql_results, $transformation_plugin, $default_function,
+        array $transform_options
     ) {
 
         if (! isset($column) || is_null($column)) {
@@ -3831,9 +3831,9 @@ class Results
      * @see     _getTableBody()
      */
     private function _getDataCellForGeometryColumns(
-        $column, $class, $meta, $map, $_url_params, $condition_field,
+        $column, $class, $meta, array $map, array $_url_params, $condition_field,
         $transformation_plugin, $default_function, $transform_options,
-        $analyzed_sql_results
+        array $analyzed_sql_results
     ) {
         if (! isset($column) || is_null($column)) {
             $cell = $this->_buildNullDisplay($class, $condition_field, $meta);
@@ -3948,9 +3948,9 @@ class Results
      * @see     _getTableBody()
      */
     private function _getDataCellForNonNumericColumns(
-        $column, $class, $meta, $map, $_url_params, $condition_field,
+        $column, $class, $meta, array $map, array $_url_params, $condition_field,
         $transformation_plugin, $default_function, $transform_options,
-        $is_field_truncated, $analyzed_sql_results, &$dt_result, $col_index
+        $is_field_truncated, array $analyzed_sql_results, &$dt_result, $col_index
     ) {
         $original_length = 0;
 
@@ -4246,7 +4246,7 @@ class Results
      * @see     sql.php file
      */
     public function getTable(
-        &$dt_result, &$displayParts, $analyzed_sql_results,
+        &$dt_result, array &$displayParts, array $analyzed_sql_results,
         $is_limited_display = false
     ) {
 
@@ -4661,7 +4661,7 @@ class Results
      * @see     getTable()
      */
     private function _setMessageInformation(
-        $sorted_column_message, $analyzed_sql_results, $total,
+        $sorted_column_message, array $analyzed_sql_results, $total,
         $pos_next, $pre_count, $after_count
     ) {
 
@@ -4753,9 +4753,7 @@ class Results
         }
 
         return $message;
-
     } // end of the '_setMessageInformation()' function
-
 
     /**
      * Set the value of $map array for linking foreign key related tables
@@ -4768,9 +4766,8 @@ class Results
      *
      * @see      getTable()
      */
-    private function _setParamForLinkForeignKeyRelatedTables(&$map)
+    private function _setParamForLinkForeignKeyRelatedTables(array &$map)
     {
-
         // To be able to later display a link to the related table,
         // we verify both types of relations: either those that are
         // native foreign keys or those defined in the phpMyAdmin
@@ -4836,7 +4833,7 @@ class Results
      * @see     getTable()
      */
     private function _getMultiRowOperationLinks(
-        &$dt_result, $analyzed_sql_results, $del_link
+        &$dt_result, array $analyzed_sql_results, $del_link
     ) {
 
         $links_html = '<div class="print_ignore" >';
@@ -4968,7 +4965,7 @@ class Results
      *
      * @see _getResultsOperations()
      */
-    private function _getLinkForCreateView($analyzed_sql_results, $url_query)
+    private function _getLinkForCreateView(array $analyzed_sql_results, $url_query)
     {
         $results_operations_html = '';
         if (empty($analyzed_sql_results['procedure'])) {
@@ -4999,7 +4996,7 @@ class Results
      * @access public
      *
      */
-    public function getCreateViewQueryResultOp($analyzed_sql_results)
+    public function getCreateViewQueryResultOp(array $analyzed_sql_results)
     {
 
         $results_operations_html = '';
@@ -5073,7 +5070,7 @@ class Results
      * @see     getTable()
      */
     private function _getResultsOperations(
-        $displayParts, $analyzed_sql_results, $only_view = false
+        array $displayParts, array $analyzed_sql_results, $only_view = false
     ) {
         global $printview;
 
@@ -5257,7 +5254,7 @@ class Results
      */
     private function _handleNonPrintableContents(
         $category, $content, $transformation_plugin, $transform_options,
-        $default_function, $meta, $url_params = array(), &$is_truncated = null
+        $default_function, $meta, array $url_params = array(), &$is_truncated = null
     ) {
 
         $is_truncated = false;
@@ -5359,7 +5356,7 @@ class Results
      * @access  private
      *
      */
-    private function _getFromForeign($map, $meta, $where_comparison)
+    private function _getFromForeign(array $map, $meta, $where_comparison)
     {
         $dispsql = 'SELECT '
             . Util::backquote($map[$meta->name][2])
@@ -5420,9 +5417,9 @@ class Results
      *
      */
     private function _getRowData(
-        $class, $condition_field, $analyzed_sql_results, $meta, $map, $data,
+        $class, $condition_field, array $analyzed_sql_results, $meta, array $map, $data,
         $transformation_plugin, $default_function, $nowrap, $where_comparison,
-        $transform_options, $is_field_truncated, $original_length=''
+        array $transform_options, $is_field_truncated, $original_length=''
     ) {
         $relational_display = $_SESSION['tmpval']['relational_display'];
         $printview = $this->__get('printview');
@@ -5570,7 +5567,7 @@ class Results
      * @see     _getTableBody(), _getCheckboxAndLinks()
      */
     private function _getCheckboxForMultiRowSubmissions(
-        $del_url, $displayParts, $row_no, $where_clause_html, $condition_array,
+        $del_url, array $displayParts, $row_no, $where_clause_html, array $condition_array,
         $id_suffix, $class
     ) {
 
@@ -5760,8 +5757,8 @@ class Results
      * @see     _getPlacedLinks()
      */
     private function _getCheckboxAndLinks(
-        $position, $del_url, $displayParts, $row_no, $where_clause,
-        $where_clause_html, $condition_array,
+        $position, $del_url, array $displayParts, $row_no, $where_clause,
+        $where_clause_html, array $condition_array,
         $edit_url, $copy_url, $class, $edit_str, $copy_str, $del_str, $js_conf
     ) {
 

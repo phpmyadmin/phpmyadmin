@@ -112,7 +112,7 @@ class Util
      *
      * @return string an html IMG tag
      */
-    public static function getImage($image, $alternate = '', $attributes = array())
+    public static function getImage($image, $alternate = '', array $attributes = array())
     {
         static $sprites; // cached list of available sprites (if any)
         if (defined('TESTSUITE')) {
@@ -704,7 +704,7 @@ class Util
      * @return int $rowCount the possibly modified row count
      *
      */
-    private static function _checkRowCount($db, $table)
+    private static function _checkRowCount($db, array $table)
     {
         $rowCount = 0;
 
@@ -1607,7 +1607,7 @@ class Util
      *
      * @access  public
      */
-    public static function getHtmlTab($tab, $url_params = array())
+    public static function getHtmlTab(array $tab, array $url_params = array())
     {
         // default values
         $defaults = array(
@@ -1709,8 +1709,8 @@ class Util
      * @return string  html-code for tab-navigation
      */
     public static function getHtmlTabs(
-        $tabs,
-        $url_params,
+        array $tabs,
+        array $url_params,
         $menu_id,
         $resizable = false
     ) {
@@ -2008,14 +2008,14 @@ class Util
      * @param string|boolean $restrict_to_table    restrict the unique condition
      *                                             to this table or false if
      *                                             none
-     * @param array          $analyzed_sql_results the analyzed query
+     * @param array|null     $analyzed_sql_results the analyzed query
      *
      * @access public
      *
      * @return array the calculated condition and whether condition is unique
      */
     public static function getUniqueCondition(
-        $handle, $fields_cnt, $fields_meta, $row, $force_unique = false,
+        $handle, $fields_cnt, array $fields_meta, array $row, $force_unique = false,
         $restrict_to_table = false, $analyzed_sql_results = null
     ) {
         $primary_key          = '';
@@ -2383,7 +2383,7 @@ class Util
      * @todo    use $pos from $_url_params
      */
     public static function getListNavigator(
-        $count, $pos, $_url_params, $script, $frame, $max_count, $name = 'pos',
+        $count, $pos, array $_url_params, $script, $frame, $max_count, $name = 'pos',
         $classes = array()
     ) {
 
@@ -2577,7 +2577,7 @@ class Util
      * @return string                  set of html radio fiels
      */
     public static function getRadioFields(
-        $html_field_name, $choices, $checked_choice = '',
+        $html_field_name, array $choices, $checked_choice = '',
         $line_break = true, $escape_label = true, $class = '',
         $id_prefix = ''
     ) {
@@ -2630,7 +2630,7 @@ class Util
      * @todo    support titles
      */
     public static function getDropdown(
-        $select_name, $choices, $active_choice, $id, $class = '', $placeholder = null
+        $select_name, array $choices, $active_choice, $id, $class = '', $placeholder = null
     ) {
         $resultOptions = [];
         $selected = false;
@@ -2688,7 +2688,7 @@ class Util
      *
      * @return string   HTML code for the toggle button
      */
-    public static function toggleButton($action, $select_name, $options, $callback)
+    public static function toggleButton($action, $select_name, array $options, $callback)
     {
         // Do the logic first
         $link = "$action&amp;" . urlencode($select_name) . "=";
@@ -3240,7 +3240,7 @@ class Util
      * @return string
      */
     public static function expandUserString(
-        $string, $escape = null, $updates = array()
+        $string, $escape = null, array $updates = array()
     ) {
         /* Content */
         $vars = array();
@@ -3717,7 +3717,7 @@ class Util
      * @return string   An HTML snippet of a dropdown list with function
      *                    names appropriate for the requested column.
      */
-    public static function getDefaultFunctionForField($field, $insert_mode)
+    public static function getDefaultFunctionForField(array $field, $insert_mode)
     {
         /*
          * @todo Except for $cfg, no longer use globals but pass as parameters
@@ -3776,7 +3776,7 @@ class Util
      * @return string   An HTML snippet of a dropdown list with function
      *                    names appropriate for the requested column.
      */
-    public static function getFunctionsForField($field, $insert_mode, $foreignData)
+    public static function getFunctionsForField(array $field, $insert_mode, array $foreignData)
     {
         $default_function = self::getDefaultFunctionForField($field, $insert_mode);
         $dropdown_built = array();
@@ -4046,7 +4046,7 @@ class Util
      *
      * @return String Matching regular expression.
      */
-    public static function getFirstOccurringRegularExpression($regex_array, $query)
+    public static function getFirstOccurringRegularExpression(array $regex_array, $query)
     {
         $minimum_first_occurence_index = null;
         $regex = null;
@@ -4232,7 +4232,7 @@ class Util
         $linkId = '',
         $disableAjax = false,
         $linkTarget = '',
-        $classes = array()
+        array $classes = array()
     ) {
         $retval = '<a href="' . $link . '"';
         if (! empty($linkId)) {
@@ -4288,7 +4288,7 @@ class Util
      *
      * @return array processes index data
      */
-    public static function processIndexData($indexes)
+    public static function processIndexData(array $indexes)
     {
         $lastIndex    = '';
 
@@ -4939,7 +4939,7 @@ class Util
      *
      * @return mixed Searched value
      */
-    public static function getValueByKey($array, $path, $default = null)
+    public static function getValueByKey(array $array, $path, $default = null)
     {
         if (is_string($path)) {
             $path = explode('.', $path);

@@ -169,7 +169,7 @@ class TableStructureControllerTest extends \PMATestCase
 
         $this->assertEquals(
             false,
-            $method->invokeArgs($ctrl, array(null))
+            $method->invokeArgs($ctrl, [[]])
         );
     }
 

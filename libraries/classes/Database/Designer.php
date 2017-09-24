@@ -30,7 +30,7 @@ class Designer
      *
      * @return string html content
      */
-    public static function getHtmlForPageSelector($cfgRelation, $db)
+    public static function getHtmlForPageSelector(array $cfgRelation, $db)
     {
         return Template::get('database/designer/page_selector')
             ->render(
@@ -149,7 +149,7 @@ class Designer
      * @return string html
      */
     public static function getHtmlForJsFields(
-        $script_tables, $script_contr, $script_display_field, $display_page
+        array $script_tables, array $script_contr, array $script_display_field, $display_page
     ) {
         return Template::get('database/designer/js_fields')
             ->render(
@@ -172,7 +172,7 @@ class Designer
      *
      * @return string html
      */
-    public static function getPageMenu($visualBuilder, $selected_page, $params_array)
+    public static function getPageMenu($visualBuilder, $selected_page, array $params_array)
     {
         return Template::get('database/designer/side_menu')
             ->render(
@@ -290,7 +290,7 @@ class Designer
      *
      * @return string html
      */
-    public static function getHtmlTableList($tab_pos, $display_page)
+    public static function getHtmlTableList(array $tab_pos, $display_page)
     {
         return Template::get('database/designer/table_list')
             ->render(
@@ -313,7 +313,7 @@ class Designer
      * @return string html
      */
     public static function getDatabaseTables(
-        $tab_pos, $display_page, $tab_column, $tables_all_keys, $tables_pk_or_unique_keys
+        array $tab_pos, $display_page, array $tab_column, array $tables_all_keys, array $tables_pk_or_unique_keys
     ) {
         return Template::get('database/designer/database_tables')
             ->render(

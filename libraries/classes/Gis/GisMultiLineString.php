@@ -90,7 +90,7 @@ class GisMultiLineString extends GisGeometry
         $spatial,
         $label,
         $line_color,
-        $scale_data,
+        array $scale_data,
         $image
     ) {
         // allocate colors
@@ -159,7 +159,7 @@ class GisMultiLineString extends GisGeometry
      * @return TCPDF the modified TCPDF instance
      * @access public
      */
-    public function prepareRowAsPdf($spatial, $label, $line_color, $scale_data, $pdf)
+    public function prepareRowAsPdf($spatial, $label, $line_color, array $scale_data, $pdf)
     {
         // allocate colors
         $red = hexdec(mb_substr($line_color, 1, 2));
@@ -219,7 +219,7 @@ class GisMultiLineString extends GisGeometry
      * @return string the code related to a row in the GIS dataset
      * @access public
      */
-    public function prepareRowAsSvg($spatial, $label, $line_color, $scale_data)
+    public function prepareRowAsSvg($spatial, $label, $line_color, array $scale_data)
     {
         $line_options = array(
             'name'         => $label,
@@ -271,7 +271,7 @@ class GisMultiLineString extends GisGeometry
      * @return string JavaScript related to a row in the GIS dataset
      * @access public
      */
-    public function prepareRowAsOl($spatial, $srid, $label, $line_color, $scale_data)
+    public function prepareRowAsOl($spatial, $srid, $label, $line_color, array $scale_data)
     {
         $style_options = array(
             'strokeColor' => $line_color,
@@ -312,7 +312,7 @@ class GisMultiLineString extends GisGeometry
      * @return string WKT with the set of parameters passed by the GIS editor
      * @access public
      */
-    public function generateWkt($gis_data, $index, $empty = '')
+    public function generateWkt(array $gis_data, $index, $empty = '')
     {
         $data_row = $gis_data[$index]['MULTILINESTRING'];
 
@@ -364,7 +364,7 @@ class GisMultiLineString extends GisGeometry
      * @return string the WKT for the data from ESRI shape files
      * @access public
      */
-    public function getShape($row_data)
+    public function getShape(array $row_data)
     {
         $wkt = 'MULTILINESTRING(';
         for ($i = 0; $i < $row_data['numparts']; $i++) {

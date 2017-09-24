@@ -345,7 +345,7 @@ class Events
      *
      * @return string   HTML code for the editor.
      */
-    public static function getEditorForm($mode, $operation, $item)
+    public static function getEditorForm($mode, $operation, array $item)
     {
         global $db, $table, $event_status, $event_type, $event_interval;
 

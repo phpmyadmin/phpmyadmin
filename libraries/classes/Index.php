@@ -116,7 +116,7 @@ class Index
      *
      * @param array $params parameters
      */
-    public function __construct($params = array())
+    public function __construct(array $params = array())
     {
         $this->set($params);
     }
@@ -263,7 +263,7 @@ class Index
      *
      * @return void
      */
-    public function addColumn($params)
+    public function addColumn(array $params)
     {
         if (isset($params['Column_name'])
             && strlen($params['Column_name']) > 0
@@ -279,7 +279,7 @@ class Index
      *
      * @return void
      */
-    public function addColumns($columns)
+    public function addColumns(array $columns)
     {
         $_columns = array();
 
@@ -327,7 +327,7 @@ class Index
      *
      * @return void
      */
-    public function set($params)
+    public function set(array $params)
     {
         if (isset($params['columns'])) {
             $this->addColumns($params['columns']);

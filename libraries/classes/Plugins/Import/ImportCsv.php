@@ -96,7 +96,7 @@ class ImportCsv extends AbstractImportCsv
      *
      * @return void
      */
-    public function doImport(&$sql_data = array())
+    public function doImport(array &$sql_data = array())
     {
         global $db, $table, $csv_terminated, $csv_enclosed, $csv_escaped,
                $csv_new_line, $csv_columns, $err_url;

@@ -89,7 +89,7 @@ class Sanitize
      *
      * @return string Replaced string
      */
-    public static function replaceBBLink($found)
+    public static function replaceBBLink(array $found)
     {
         /* Check for valid link */
         if (! self::checkLink($found[1])) {
@@ -126,7 +126,7 @@ class Sanitize
      *
      * @return string Replaced string
      */
-    public static function replaceDocLink($found)
+    public static function replaceDocLink(array $found)
     {
         if (count($found) >= 4) {
             $page = $found[1];

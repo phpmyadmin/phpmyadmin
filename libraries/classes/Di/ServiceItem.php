@@ -24,7 +24,7 @@ class ServiceItem extends ReflectorItem
      * @param array $params Parameters
      * @return mixed
      */
-    public function get($params = array())
+    public function get(array $params = array())
     {
         if (!isset($this->instance)) {
             $this->instance = $this->invoke();

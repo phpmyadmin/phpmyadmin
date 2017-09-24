@@ -557,7 +557,7 @@ class Export
     public static function exportServer(
         $db_select, $whatStrucOrData, $export_plugin, $crlf, $err_url,
         $export_type, $do_relation, $do_comments, $do_mime, $do_dates,
-        $aliases, $separate_files
+        array $aliases, $separate_files
     ) {
         if (! empty($db_select)) {
             $tmp_select = implode($db_select, '|');
@@ -604,9 +604,9 @@ class Export
      * @return void
      */
     public static function exportDatabase(
-        $db, $tables, $whatStrucOrData, $table_structure, $table_data,
+        $db, array $tables, $whatStrucOrData, array $table_structure, array $table_data,
         $export_plugin, $crlf, $err_url, $export_type, $do_relation,
-        $do_comments, $do_mime, $do_dates, $aliases, $separate_files
+        $do_comments, $do_mime, $do_dates, array $aliases, $separate_files
     ) {
         $db_alias = !empty($aliases[$db]['alias'])
             ? $aliases[$db]['alias'] : '';
@@ -815,7 +815,7 @@ class Export
     public static function exportTable(
         $db, $table, $whatStrucOrData, $export_plugin, $crlf, $err_url,
         $export_type, $do_relation, $do_comments, $do_mime, $do_dates,
-        $allrows, $limit_to, $limit_from, $sql_query, $aliases
+        $allrows, $limit_to, $limit_from, $sql_query, array $aliases
     ) {
         $db_alias = !empty($aliases[$db]['alias'])
             ? $aliases[$db]['alias'] : '';
@@ -954,7 +954,7 @@ class Export
      *
      * @return array resultant merged aliases info
      */
-    public static function mergeAliases($aliases1, $aliases2)
+    public static function mergeAliases(array $aliases1, array $aliases2)
     {
         // First do a recursive array merge
         // on aliases arrays.
@@ -1007,7 +1007,7 @@ class Export
      *
      * @return mixed result of the query
      */
-    public static function lockTables($db, $tables, $lockType = "WRITE")
+    public static function lockTables($db, array $tables, $lockType = "WRITE")
     {
         $locks = array();
         foreach ($tables as $table) {
@@ -1058,7 +1058,7 @@ class Export
      *
      * @return string the checked clause
      */
-    public static function getCheckedClause($key, $array)
+    public static function getCheckedClause($key, array $array)
     {
         if (in_array($key, $array)) {
             return ' checked="checked"';

@@ -187,7 +187,7 @@ class ExportCodegen extends ExportPlugin
         $crlf,
         $error_url,
         $sql_query,
-        $aliases = array()
+        array $aliases = array()
     ) {
         $CG_FORMATS = $this->_getCgFormats();
         $CG_HANDLERS = $this->_getCgHandlers();
@@ -237,7 +237,7 @@ class ExportCodegen extends ExportPlugin
      *
      * @return string containing C# code lines, separated by "\n"
      */
-    private function _handleNHibernateCSBody($db, $table, $crlf, $aliases = array())
+    private function _handleNHibernateCSBody($db, $table, $crlf, array $aliases = array())
     {
         $db_alias = $db;
         $table_alias = $table;
@@ -340,7 +340,7 @@ class ExportCodegen extends ExportPlugin
         $db,
         $table,
         $crlf,
-        $aliases = array()
+        array $aliases = array()
     ) {
         $db_alias = $db;
         $table_alias = $table;
@@ -415,7 +415,7 @@ class ExportCodegen extends ExportPlugin
      *
      * @return void
      */
-    private function _setCgFormats($CG_FORMATS)
+    private function _setCgFormats(array $CG_FORMATS)
     {
         $this->_cgFormats = $CG_FORMATS;
     }
@@ -437,7 +437,7 @@ class ExportCodegen extends ExportPlugin
      *
      * @return void
      */
-    private function _setCgHandlers($CG_HANDLERS)
+    private function _setCgHandlers(array $CG_HANDLERS)
     {
         $this->_cgHandlers = $CG_HANDLERS;
     }

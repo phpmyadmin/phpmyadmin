@@ -65,7 +65,7 @@ class TableProperty
      *
      * @param array $row table row
      */
-    public function __construct($row)
+    public function __construct(array $row)
     {
         $this->name = trim($row[0]);
         $this->type = trim($row[1]);

@@ -56,12 +56,12 @@ class TableRelationController extends TableController
     /**
      * Constructor
      *
-     * @param array  $options_array      Options
-     * @param array  $cfgRelation        Config relation
-     * @param string $tbl_storage_engine Table storage engine
-     * @param array  $existrel           Relations
-     * @param array  $existrel_foreign   External relations
-     * @param string $upd_query          Update query
+     * @param array|null $options_array      Options
+     * @param array|null $cfgRelation        Config relation
+     * @param string     $tbl_storage_engine Table storage engine
+     * @param array|null $existrel           Relations
+     * @param array|null $existrel_foreign   External relations
+     * @param string     $upd_query          Update query
      */
     public function __construct($options_array, $cfgRelation, $tbl_storage_engine,
         $existrel, $existrel_foreign, $upd_query

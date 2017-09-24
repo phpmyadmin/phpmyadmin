@@ -248,7 +248,7 @@ class DbQbe
      * @param SavedSearches $currentSearch   Current search id
      */
     public function __construct(
-        $dbname, $savedSearchList = array(), $currentSearch = null
+        $dbname, array $savedSearchList = array(), $currentSearch = null
     ) {
         $this->_db = $dbname;
         $this->_savedSearchList = $savedSearchList;
@@ -866,9 +866,9 @@ class DbQbe
      * Provides And/Or modification cell along with Insert/Delete options
      * (For modifying search form's table columns)
      *
-     * @param integer $column_number Column Number (0,1,2) or more
-     * @param array   $selected      Selected criteria column name
-     * @param bool    $last_column   Whether this is the last column
+     * @param integer    $column_number Column Number (0,1,2) or more
+     * @param array|null $selected      Selected criteria column name
+     * @param bool       $last_column   Whether this is the last column
      *
      * @return string HTML for modification cell
      */
@@ -961,7 +961,7 @@ class DbQbe
      *
      * @return string HTML
      */
-    private function _getInsDelAndOrCell($row_index, $checked_options)
+    private function _getInsDelAndOrCell($row_index, array $checked_options)
     {
         $html_output = '<td class="' . $GLOBALS['cell_align_right'] . ' nowrap">';
         $html_output .= '<!-- Row controls -->';
@@ -1308,8 +1308,8 @@ class DbQbe
      *
      * @return array having UNIQUE and INDEX columns
      */
-    private function _getIndexes($search_tables, $search_columns,
-        $where_clause_columns
+    private function _getIndexes(array $search_tables, array $search_columns,
+        array $where_clause_columns
     ) {
         $unique_columns = array();
         $index_columns = array();
@@ -1351,8 +1351,8 @@ class DbQbe
      *
      * @return array having UNIQUE and INDEX columns
      */
-    private function _getLeftJoinColumnCandidates($search_tables, $search_columns,
-        $where_clause_columns
+    private function _getLeftJoinColumnCandidates(array $search_tables, array $search_columns,
+        array $where_clause_columns
     ) {
         $GLOBALS['dbi']->selectDb($this->_db);
 
@@ -1411,8 +1411,8 @@ class DbQbe
      *
      * @return string table name
      */
-    private function _getMasterTable($search_tables, $search_columns,
-        $where_clause_columns, $where_clause_tables
+    private function _getMasterTable(array $search_tables, array $search_columns,
+        array $where_clause_columns, array $where_clause_tables
     ) {
         if (count($where_clause_tables) == 1) {
             // If there is exactly one column that has a decent where-clause
@@ -1532,7 +1532,7 @@ class DbQbe
      *
      * @return string FROM clause
      */
-    private function _getFromClause($formColumns)
+    private function _getFromClause(array $formColumns)
     {
         $from_clause = '';
         if (empty($formColumns)) {
@@ -1579,7 +1579,7 @@ class DbQbe
      *
      * @return string table name
      */
-    private function _getJoinForFromClause($searchTables, $searchColumns)
+    private function _getJoinForFromClause(array $searchTables, array $searchColumns)
     {
         // $relations[master_table][foreign_table] => clause
         $relations = array();
@@ -1702,7 +1702,7 @@ class DbQbe
      *
      * @return void
      */
-    private function _loadRelationsForTable(&$relations, $oneTable)
+    private function _loadRelationsForTable(array &$relations, $oneTable)
     {
         $relations[$oneTable] = array();
 
@@ -1743,7 +1743,7 @@ class DbQbe
      *
      * @return void
      */
-    private function _fillJoinClauses(&$finalized, $relations, $searchTables)
+    private function _fillJoinClauses(array &$finalized, array $relations, array $searchTables)
     {
         while (true) {
             $added = false;
@@ -1784,7 +1784,7 @@ class DbQbe
      *
      * @return string SQL query
      */
-    private function _getSQLQuery($formColumns)
+    private function _getSQLQuery(array $formColumns)
     {
         $sql_query = '';
         // get SELECT clause
@@ -1967,7 +1967,7 @@ class DbQbe
      * @return array
      */
     private function _getLeftJoinColumnCandidatesBest(
-        $search_tables, $where_clause_columns, $unique_columns, $index_columns
+        array $search_tables, array $where_clause_columns, array $unique_columns, array $index_columns
     ) {
         // now we want to find the best.
         if (isset($unique_columns) && count($unique_columns) > 0) {

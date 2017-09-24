@@ -198,7 +198,7 @@ class Routines
      *
      * @return array
      */
-    public static function handleRequestCreateOrEdit($errors, $db)
+    public static function handleRequestCreateOrEdit(array $errors, $db)
     {
         if (empty($_REQUEST['editor_process_add'])
             && empty($_REQUEST['editor_process_edit'])
@@ -372,7 +372,7 @@ class Routines
     public static function create(
         $routine_query,
         $create_routine,
-        $privilegesBackup
+        array $privilegesBackup
     ) {
         $result = $GLOBALS['dbi']->tryQuery($routine_query);
         if (!$result) {
@@ -697,7 +697,7 @@ class Routines
      *
      * @return string    HTML code of one row of parameter table for the editor.
      */
-    public static function getParameterRow($routine = array(), $index = null, $class = '')
+    public static function getParameterRow(array $routine = array(), $index = null, $class = '')
     {
         global $param_directions, $param_opts_num, $titles;
 
@@ -809,7 +809,7 @@ class Routines
      *
      * @return string   HTML code for the editor.
      */
-    public static function getEditorForm($mode, $operation, $routine)
+    public static function getEditorForm($mode, $operation, array $routine)
     {
         global $db, $errors, $param_sqldataaccess, $param_opts_num;
 
@@ -1554,7 +1554,7 @@ class Routines
      *
      * @return string
      */
-    private static function browseRow($row)
+    private static function browseRow(array $row)
     {
         $output = null;
         foreach ($row as $value) {
@@ -1576,7 +1576,7 @@ class Routines
      *
      * @return string   HTML code for the routine execution dialog.
      */
-    public static function getExecuteForm($routine)
+    public static function getExecuteForm(array $routine)
     {
         global $db, $cfg;
 

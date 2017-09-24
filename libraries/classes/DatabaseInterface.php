@@ -155,7 +155,7 @@ class DatabaseInterface
      *
      * @return mixed cached value or default
      */
-    public function getCachedTableContent($contentPath, $default = null)
+    public function getCachedTableContent(array $contentPath, $default = null)
     {
         return Util::getValueByKey($this->_table_cache, $contentPath, $default);
     }
@@ -168,7 +168,7 @@ class DatabaseInterface
      *
      * @return void
      */
-    public function cacheTableContent($contentPath, $value)
+    public function cacheTableContent(array $contentPath, $value)
     {
         $loc = &$this->_table_cache;
 
@@ -212,7 +212,7 @@ class DatabaseInterface
      *
      * @return void
      */
-    private function _cacheTableData($tables, $table)
+    private function _cacheTableData(array $tables, $table)
     {
         // Note: I don't see why we would need array_merge_recursive() here,
         // as it creates double entries for the same table (for example a double
@@ -1000,7 +1000,7 @@ class DatabaseInterface
      *
      * @return array
      */
-    public function getColumnMapFromSql($sql_query, $view_columns = array())
+    public function getColumnMapFromSql($sql_query, array $view_columns = array())
     {
         $result = $this->tryQuery($sql_query);
 
@@ -1594,7 +1594,7 @@ class DatabaseInterface
      *
      * @return mixed
      */
-    private function _fetchValue($row, $value)
+    private function _fetchValue(array $row, $value)
     {
         if (is_null($value)) {
             return $row;
@@ -2276,9 +2276,9 @@ class DatabaseInterface
     /**
      * Return connection parameters for the database server
      *
-     * @param integer $mode   Connection mode on of CONNECT_USER, CONNECT_CONTROL
-     *                        or CONNECT_AUXILIARY.
-     * @param array   $server Server information like host/port/socket/persistent
+     * @param integer    $mode   Connection mode on of CONNECT_USER, CONNECT_CONTROL
+     *                           or CONNECT_AUXILIARY.
+     * @param array|null $server Server information like host/port/socket/persistent
      *
      * @return array user, host and server settings array
      */
@@ -2364,9 +2364,9 @@ class DatabaseInterface
     /**
      * connects to the database server
      *
-     * @param integer $mode   Connection mode on of CONNECT_USER, CONNECT_CONTROL
-     *                        or CONNECT_AUXILIARY.
-     * @param array   $server Server information like host/port/socket/persistent
+     * @param integer    $mode   Connection mode on of CONNECT_USER, CONNECT_CONTROL
+     *                           or CONNECT_AUXILIARY.
+     * @param array|null $server Server information like host/port/socket/persistent
      *
      * @return mixed false on error or a connection object on success
      */

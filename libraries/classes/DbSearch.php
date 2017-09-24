@@ -312,7 +312,7 @@ class DbSearch
      *
      * @return string HTML row
      */
-    private function _getResultsRow($each_table, $newsearchsqls, $res_cnt)
+    private function _getResultsRow($each_table, array $newsearchsqls, $res_cnt)
     {
         $this_url_params = array(
             'db'    => $GLOBALS['db'],

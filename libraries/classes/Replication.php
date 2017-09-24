@@ -28,7 +28,7 @@ class Replication
      * @return array
      */
     public static function fillInfo(
-        $type, $replicationInfoKey, $mysqlInfo, $mysqlKey
+        $type, $replicationInfoKey, array $mysqlInfo, $mysqlKey
     ) {
         $GLOBALS['replication_info'][$type][$replicationInfoKey]
             = empty($mysqlInfo[$mysqlKey])
@@ -102,7 +102,7 @@ class Replication
      * @return string output of CHANGE MASTER mysql command
      */
     public static function slaveChangeMaster($user, $password, $host, $port,
-        $pos, $stop = true, $start = true, $link = null
+        array $pos, $stop = true, $start = true, $link = null
     ) {
         if ($stop) {
             self::slaveControl("STOP", null, $link);

@@ -301,7 +301,7 @@ class Triggers
      *
      * @return string HTML code for the editor.
      */
-    public static function getEditorForm($mode, $item)
+    public static function getEditorForm($mode, array $item)
     {
         global $db, $table, $event_manipulations, $action_timings;
 

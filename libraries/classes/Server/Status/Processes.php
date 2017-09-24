@@ -258,7 +258,7 @@ class Processes
      *
      * @return string
      */
-    public static function getHtmlForServerProcessItem($process, $show_full_sql)
+    public static function getHtmlForServerProcessItem(array $process, $show_full_sql)
     {
         // Array keys need to modify due to the way it has used
         // to display column values

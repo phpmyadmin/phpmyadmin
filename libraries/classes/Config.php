@@ -853,7 +853,7 @@ class Config
      *
      * @return void
      */
-    private function _saveConnectionCollation($config_data)
+    private function _saveConnectionCollation(array $config_data)
     {
         // just to shorten the lines
         $collation = 'collation_connection';

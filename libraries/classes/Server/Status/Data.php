@@ -213,7 +213,7 @@ class Data
      *
      * @return array $server_status
      */
-    private function _calculateValues($server_status, $server_variables)
+    private function _calculateValues(array $server_status, array $server_variables)
     {
         // Key_buffer_fraction
         if (isset($server_status['Key_blocks_unused'])
@@ -283,8 +283,8 @@ class Data
      * @return array ($allocationMap, $sectionUsed, $used_queries)
      */
     private function _sortVariables(
-        $server_status, $allocations, $allocationMap, $sectionUsed,
-        $used_queries
+        array $server_status, array $allocations, array $allocationMap, array $sectionUsed,
+        array $used_queries
     ) {
         foreach ($server_status as $name => $value) {
             $section_found = false;
@@ -397,7 +397,7 @@ class Data
      *
      * @return array
      */
-    public static function cleanDeprecated($server_status)
+    public static function cleanDeprecated(array $server_status)
     {
         $deprecated = array(
             'Com_prepare_sql' => 'Com_stmt_prepare',
@@ -477,7 +477,7 @@ class Data
      */
     public static function getHtmlForRefreshList($name,
         $defaultRate = 5,
-        $refreshRates = array(1, 2, 5, 10, 20, 40, 60, 120, 300, 600)
+        array $refreshRates = array(1, 2, 5, 10, 20, 40, 60, 120, 300, 600)
     ) {
         $return = '<select name="' . $name . '" id="id_' . $name
             . '" class="refreshRate">';

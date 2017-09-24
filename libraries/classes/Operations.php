@@ -406,7 +406,7 @@ class Operations
      * @return array $views
      */
     public static function getViewsAndCreateSqlViewStandIn(
-        $tables_full, $export_sql_plugin, $db
+        array $tables_full, $export_sql_plugin, $db
     ) {
         $views = array();
         foreach ($tables_full as $each_table => $tmp) {
@@ -450,7 +450,7 @@ class Operations
      *
      * @return array SQL queries for the constraints
      */
-    public static function copyTables($tables_full, $move, $db)
+    public static function copyTables(array $tables_full, $move, $db)
     {
         $sqlContraints = array();
         foreach ($tables_full as $each_table => $tmp) {
@@ -546,7 +546,7 @@ class Operations
      *
      * @return void
      */
-    public static function handleTheViews($views, $move, $db)
+    public static function handleTheViews(array $views, $move, $db)
     {
         // temporarily force to add DROP IF EXIST to CREATE VIEW query,
         // to remove stand-in VIEW that was created earlier
@@ -735,7 +735,7 @@ class Operations
      *
      * @return void
      */
-    public static function createAllAccumulatedConstraints($sqlConstratints)
+    public static function createAllAccumulatedConstraints(array $sqlConstratints)
     {
         $GLOBALS['dbi']->selectDb($_REQUEST['newname']);
         foreach ($sqlConstratints as $one_query) {
@@ -773,7 +773,7 @@ class Operations
      *
      * @return string $html_out
      */
-    public static function getHtmlForOrderTheTable($columns)
+    public static function getHtmlForOrderTheTable(array $columns)
     {
         $html_output = '<div>';
         $html_output .= '<form method="post" id="alterTableOrderby" '
@@ -1338,7 +1338,7 @@ class Operations
      *
      * @return string $html_output
      */
-    public static function getHtmlForTableMaintenance($pma_table, $url_params)
+    public static function getHtmlForTableMaintenance($pma_table, array $url_params)
     {
         $html_output = '<div>';
         $html_output .= '<fieldset>'
@@ -1363,7 +1363,7 @@ class Operations
      *
      * @return string $html_output
      */
-    public static function getListofMaintainActionLink($pma_table, $url_params)
+    public static function getListofMaintainActionLink($pma_table, array $url_params)
     {
         $html_output = '';
 
@@ -1485,7 +1485,7 @@ class Operations
      *
      * @return string $html_output
      */
-    public static function getMaintainActionlink($action_message, $params, $url_params, $link)
+    public static function getMaintainActionlink($action_message, array $params, array $url_params, $link)
     {
         return '<li>'
             . '<a class="maintain_action ajax" '
@@ -1506,8 +1506,8 @@ class Operations
      * @return string $html_output
      */
     public static function getHtmlForDeleteDataOrTable(
-        $truncate_table_url_params,
-        $dropTableUrlParams
+        array $truncate_table_url_params,
+        array $dropTableUrlParams
     ) {
         $html_output = '<div>'
             . '<fieldset class="caution">'
@@ -1546,7 +1546,7 @@ class Operations
      *
      * @return String html output
      */
-    public static function getDeleteDataOrTablelink($url_params, $syntax, $link, $htmlId)
+    public static function getDeleteDataOrTablelink(array $url_params, $syntax, $link, $htmlId)
     {
         return  '<li><a '
             . 'href="sql.php' . Url::getCommon($url_params) . '"'
@@ -1564,7 +1564,7 @@ class Operations
      *
      * @return string $html_output
      */
-    public static function getHtmlForPartitionMaintenance($partition_names, $url_params)
+    public static function getHtmlForPartitionMaintenance(array $partition_names, array $url_params)
     {
         $choices = array(
             'ANALYZE' => __('Analyze'),
@@ -1652,7 +1652,7 @@ class Operations
      *
      * @return string $html_output
      */
-    public static function getHtmlForReferentialIntegrityCheck($foreign, $url_params)
+    public static function getHtmlForReferentialIntegrityCheck(array $foreign, array $url_params)
     {
         $html_output = '<div>'
             . '<fieldset>'

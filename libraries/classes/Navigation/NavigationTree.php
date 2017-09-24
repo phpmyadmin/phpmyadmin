@@ -327,7 +327,7 @@ class NavigationTree
      *
      * @return Node|false The active node or false in case of failure
      */
-    private function _buildPathPart($path, $type2, $pos2, $type3, $pos3)
+    private function _buildPathPart(array $path, $type2, $pos2, $type3, $pos3)
     {
         if (empty($pos2)) {
             $pos2 = 0;
@@ -1002,7 +1002,7 @@ class NavigationTree
      *
      * @return boolean
      */
-    private function _findTreeMatch($tree, $paths)
+    private function _findTreeMatch(array $tree, array $paths)
     {
         $match = false;
         foreach ($tree as $path) {
