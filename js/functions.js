@@ -459,9 +459,8 @@ function suggestPassword (passwd_form) {
     // First we're going to try to use a built-in CSPRNG
     if (window.crypto && window.crypto.getRandomValues) {
         window.crypto.getRandomValues(randomWords);
-    }
-    // Because of course IE calls it msCrypto instead of being standard
-    else if (window.msCrypto && window.msCrypto.getRandomValues) {
+    } else if (window.msCrypto && window.msCrypto.getRandomValues) {
+        // Because of course IE calls it msCrypto instead of being standard
         window.msCrypto.getRandomValues(randomWords);
     } else {
         // Fallback to Math.random
@@ -734,9 +733,8 @@ function confirmQuery (theForm1, sqlQuery1) {
         if (is_confirmed) {
             theForm1.elements.is_js_confirmed.value = 1;
             return true;
-        }
-        // statement is rejected -> do not submit the form
-        else {
+        } else {
+            // statement is rejected -> do not submit the form
             window.focus();
             return false;
         } // end if (handle confirm box result)
@@ -826,22 +824,17 @@ function checkFormElementInRange (theForm, theFieldName, message, min, max) {
         max = Number.MAX_VALUE;
     }
 
-    // It's not a number
     if (isNaN(val)) {
         theField.select();
         alert(PMA_messages.strEnterValidNumber);
         theField.focus();
         return false;
-    }
-    // It's a number but it is not between min and max
-    else if (val < min || val > max) {
+    } else if (val < min || val > max) {
         theField.select();
         alert(PMA_sprintf(message, val));
         theField.focus();
         return false;
-    }
-    // It's a valid number
-    else {
+    } else {
         theField.value = val;
     }
     return true;
@@ -1300,9 +1293,8 @@ function insertValueQuery () {
             myQuery.focus();
             var sel = document.selection.createRange();
             sel.text = columnsList;
-        }
         // MOZILLA/NETSCAPE support
-        else if (document.sqlform.sql_query.selectionStart || document.sqlform.sql_query.selectionStart == '0') {
+        } else if (document.sqlform.sql_query.selectionStart || document.sqlform.sql_query.selectionStart == '0') {
             var startPos = document.sqlform.sql_query.selectionStart;
             var endPos = document.sqlform.sql_query.selectionEnd;
             var SqlString = document.sqlform.sql_query.value;
@@ -2692,9 +2684,8 @@ function PMA_SQLPrettyPrint (string) {
             output += tabs(indentLevel) + tokens[i][1].toUpperCase();
             output += '\n' + tabs(indentLevel + 1);
             lastStatementPart = tokens[i][1];
-        }
         // Normal indentation and spaces for everything else
-        else {
+        } else {
             if (! spaceExceptionsBefore[tokens[i][1]] &&
                ! (i > 0 && spaceExceptionsAfter[tokens[i - 1][1]]) &&
                output.charAt(output.length - 1) != ' ') {
@@ -3697,10 +3688,7 @@ function checkIndexName (form_id) {
     if ($the_idx_choice.find('option:selected').val() == 'PRIMARY') {
         $the_idx_name.val('PRIMARY');
         $the_idx_name.prop('disabled', true);
-    }
-
-    // Other cases
-    else {
+    } else {
         if ($the_idx_name.val() == 'PRIMARY') {
             $the_idx_name.val('');
         }

@@ -5,7 +5,7 @@
     },
     "rules": {
         "array-bracket-spacing": "error",
-        "brace-style": "warn",
+        "brace-style": "error",
         "camelcase": "warn",
         "comma-style": ["error", "last"],
         "curly": "error",

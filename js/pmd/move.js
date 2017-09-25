@@ -672,8 +672,8 @@ function New () {
 }
 
 // ------------------------------ SAVE ------------------------------------------
-function Save (url) // (del?) no for pdf
-{
+// (del?) no for pdf
+function Save (url) {
     for (var key in j_tabs) {
         document.getElementById('t_x_' + key + '_').value = parseInt(document.getElementById(key).style.left, 10);
         document.getElementById('t_y_' + key + '_').value = parseInt(document.getElementById(key).style.top, 10);
@@ -1212,8 +1212,8 @@ function Start_relation () {
     }
 }
 
-function Click_field (db, T, f, PK) // table field
-{
+// table field
+function Click_field (db, T, f, PK) {
     PK = parseInt(PK);
     if (ON_relation) {
         if (!click_field) {
@@ -1304,8 +1304,8 @@ function Start_tab_upd (table) {
 }
 // --------------------------- hide tables --------------------------------------
 
-function Small_tab_all (id_this) // max/min all tables
-{
+// max/min all tables
+function Small_tab_all (id_this) {
     var icon = id_this.children[0];
     var key;
     var value_sent = '';
@@ -1335,8 +1335,8 @@ function Small_tab_all (id_this) // max/min all tables
     Re_load();
 }
 
-function Small_tab_invert () // invert max/min all tables
-{
+// invert max/min all tables
+function Small_tab_invert () {
     for (var key in j_tabs) {
         Small_tab(key, 0);
     }
@@ -1522,8 +1522,8 @@ function VisibleTab (id, t_n) {
     Re_load();
 }
 
-function Hide_tab_all (id_this) // max/min all tables
-{
+// max/min all tables
+function Hide_tab_all (id_this) {
     if (id_this.alt == 'v') {
         id_this.alt = '>';
         id_this.src = id_this.dataset.right;
@@ -1615,21 +1615,8 @@ function General_scroll () {
     );
 }
 
-/*
-function General_scroll_end()
-{
-    document.getElementById('layer_menu').style.left = document.body.scrollLeft;
-    document.getElementById('layer_menu').style.top  = document.body.scrollTop + document.getElementById('top_menu').offsetHeight;
-    if (isIE) {
-        document.getElementById('layer_menu').style.left = document.body.scrollLeft;
-        document.getElementById('layer_menu').style.top  = document.body.scrollTop + document.getElementById('top_menu').offsetHeight;
-    }
-    document.getElementById("canvas").style.display = 'block';
-}
-*/
-
-function Show_left_menu (id_this) // max/min all tables
-{
+// max/min all tables
+function Show_left_menu (id_this) {
     var icon = id_this.children[0];
     $('#key_Show_left_menu').toggleClass('M_butt_Selected_down');
     if (icon.alt == 'v') {

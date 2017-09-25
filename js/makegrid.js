@@ -2179,17 +2179,17 @@ function PMA_makegrid (t, enableResize, enableReorder, enableVisib, enableGridEd
     if (enableResize) {
         g.initColResize();
     }
+    // disable reordering for result from EXPLAIN or SHOW syntax, which do not have a table navigation panel
     if (enableReorder &&
-        $(g.o).find('table.navigation').length > 0)    // disable reordering for result from EXPLAIN or SHOW syntax, which do not have a table navigation panel
-    {
+        $(g.o).find('table.navigation').length > 0) {
         g.initColReorder();
     }
     if (enableVisib) {
         g.initColVisib();
     }
+    // make sure we have the ajax class
     if (enableGridEdit &&
-        $(t).is('.ajax'))   // make sure we have the ajax class
-    {
+        $(t).is('.ajax')) {
         g.initGridEdit();
     }
 
