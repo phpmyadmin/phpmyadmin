@@ -29,7 +29,7 @@ var ChartFactory = function () {
 };
 ChartFactory.prototype = {
     createChart : function (type, options) {
-        throw new Error("createChart must be implemented by a subclass");
+        throw new Error('createChart must be implemented by a subclass');
     }
 };
 
@@ -44,16 +44,16 @@ var Chart = function (elementId) {
 };
 Chart.prototype = {
     draw : function (data, options) {
-        throw new Error("draw must be implemented by a subclass");
+        throw new Error('draw must be implemented by a subclass');
     },
     redraw : function (options) {
-        throw new Error("redraw must be implemented by a subclass");
+        throw new Error('redraw must be implemented by a subclass');
     },
     destroy : function () {
-        throw new Error("destroy must be implemented by a subclass");
+        throw new Error('destroy must be implemented by a subclass');
     },
-    toImageString : function() {
-        throw new Error("toImageString must be implemented by a subclass");
+    toImageString : function () {
+        throw new Error('toImageString must be implemented by a subclass');
     }
 };
 
@@ -77,11 +77,11 @@ BaseChart.prototype.constructor = BaseChart;
 BaseChart.prototype.validateColumns = function (dataTable) {
     var columns = dataTable.getColumns();
     if (columns.length < 2) {
-        throw new Error("Minimum of two columns are required for this chart");
+        throw new Error('Minimum of two columns are required for this chart');
     }
     for (var i = 1; i < columns.length; i++) {
         if (columns[i].type != ColumnType.NUMBER) {
-            throw new Error("Column " + (i + 1) + " should be of type 'Number'");
+            throw new Error('Column ' + (i + 1) + ' should be of type \'Number\'');
         }
     }
     return true;
@@ -101,7 +101,7 @@ PieChart.prototype.constructor = PieChart;
 PieChart.prototype.validateColumns = function (dataTable) {
     var columns = dataTable.getColumns();
     if (columns.length > 2) {
-        throw new Error("Pie charts can draw only one series");
+        throw new Error('Pie charts can draw only one series');
     }
     return BaseChart.prototype.validateColumns.call(this, dataTable);
 };
@@ -122,7 +122,7 @@ TimelineChart.prototype.validateColumns = function (dataTable) {
     if (result) {
         var columns = dataTable.getColumns();
         if (columns[0].type != ColumnType.DATE) {
-            throw new Error("First column of timeline chart need to be a date column");
+            throw new Error('First column of timeline chart need to be a date column');
         }
     }
     return result;
@@ -134,7 +134,7 @@ TimelineChart.prototype.validateColumns = function (dataTable) {
  * @param elementId
  *            id of the div element the chart is drawn in
  */
-var ScatterChart = function(elementId) {
+var ScatterChart = function (elementId) {
     BaseChart.call(this, elementId);
 };
 ScatterChart.prototype = new BaseChart();
@@ -144,7 +144,7 @@ ScatterChart.prototype.validateColumns = function (dataTable) {
     if (result) {
         var columns = dataTable.getColumns();
         if (columns[0].type != ColumnType.NUMBER) {
-            throw new Error("First column of scatter chart need to be a numeric column");
+            throw new Error('First column of scatter chart need to be a numeric column');
         }
     }
     return result;
@@ -179,7 +179,7 @@ var DataTable = function () {
 
     var fillMissingValues = function () {
         if (columns.length === 0) {
-            throw new Error("Set columns first");
+            throw new Error('Set columns first');
         }
         var row;
         for (var i = 0; i < data.length; i++) {
@@ -195,7 +195,7 @@ var DataTable = function () {
     };
 };
 
-/*******************************************************************************
+/** *****************************************************************************
  * JQPlot specific code
  ******************************************************************************/
 
@@ -215,7 +215,7 @@ JQPlotChart.prototype.constructor = JQPlotChart;
 JQPlotChart.prototype.draw = function (data, options) {
     if (this.validator.validateColumns(data)) {
         this.plot = $.jqplot(this.elementId, this.prepareData(data), this
-                .populateOptions(data, options));
+            .populateOptions(data, options));
     }
 };
 JQPlotChart.prototype.destroy = function () {
@@ -234,10 +234,10 @@ JQPlotChart.prototype.toImageString = function (options) {
     }
 };
 JQPlotChart.prototype.populateOptions = function (dataTable, options) {
-    throw new Error("populateOptions must be implemented by a subclass");
+    throw new Error('populateOptions must be implemented by a subclass');
 };
 JQPlotChart.prototype.prepareData = function (dataTable) {
-    throw new Error("prepareData must be implemented by a subclass");
+    throw new Error('prepareData must be implemented by a subclass');
 };
 
 /**
@@ -324,7 +324,7 @@ JQPlotSplineChart.prototype.constructor = JQPlotSplineChart;
 JQPlotSplineChart.prototype.populateOptions = function (dataTable, options) {
     var optional = {};
     var opt = JQPlotLineChart.prototype.populateOptions.call(this, dataTable,
-            options);
+        options);
     var compulsory = {
         seriesDefaults : {
             rendererOptions : {
@@ -379,7 +379,7 @@ JQPlotScatterChart.prototype.populateOptions = function (dataTable, options) {
             showLine: false,
             markerOptions: {
                 size: 7,
-                style: "x"
+                style: 'x'
             }
         }
     };
@@ -481,7 +481,7 @@ JQPlotAreaChart.prototype.populateOptions = function (dataTable, options) {
         }
     };
     var opt = JQPlotLineChart.prototype.populateOptions.call(this, dataTable,
-            options);
+        options);
     var compulsory = {
         seriesDefaults : {
             fill : true
@@ -510,7 +510,7 @@ JQPlotColumnChart.prototype.populateOptions = function (dataTable, options) {
         }
     };
     var opt = JQPlotLineChart.prototype.populateOptions.call(this, dataTable,
-            options);
+        options);
     var compulsory = {
         seriesDefaults : {
             renderer : $.jqplot.BarRenderer
@@ -612,7 +612,7 @@ JQPlotPieChart.prototype.populateOptions = function (dataTable, options) {
         seriesDefaults : {
             shadow: false,
             renderer : $.jqplot.PieRenderer,
-            rendererOptions: {sliceMargin: 1, showDataLabels: true }
+            rendererOptions: { sliceMargin: 1, showDataLabels: true }
         }
     };
     $.extend(true, optional, options, compulsory);
@@ -624,9 +624,9 @@ JQPlotPieChart.prototype.prepareData = function (dataTable) {
     var retData = [];
     for (var i = 0; i < data.length; i++) {
         row = data[i];
-        retData.push([ row[0], row[1] ]);
+        retData.push([row[0], row[1]]);
     }
-    return [ retData ];
+    return [retData];
 };
 
 /**

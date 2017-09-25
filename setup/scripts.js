@@ -13,7 +13,6 @@ if (top != self) {
 //
 
 $(function () {
-
     if (window.location.protocol === 'https:') {
         $('#no_https').remove();
     } else {
@@ -39,10 +38,10 @@ $(function () {
     }
 });
 
-//set document width
-$(document).ready(function(){
+// set document width
+$(document).ready(function () {
     width = 0;
-    $('ul.tabs li').each(function(){
+    $('ul.tabs li').each(function () {
         width += $(this).width() + 10;
     });
     var contentWidth = width;
@@ -66,8 +65,7 @@ $(document).ready(function(){
  * @param {String}  id      validator id
  * @param {Object}  values  values hash {element1_id: value, ...}
  */
-function ajaxValidate(parent, id, values)
-{
+function ajaxValidate (parent, id, values) {
     parent = $(parent);
     // ensure that parent is a fieldset
     if (parent.attr('tagName') != 'FIELDSET') {
@@ -96,9 +94,9 @@ function ajaxValidate(parent, id, values)
             }
 
             var error = {};
-            if (typeof response != 'object') {
+            if (typeof response !== 'object') {
                 error[parent.id] = [response];
-            } else if (typeof response.error != 'undefined') {
+            } else if (typeof response.error !== 'undefined') {
                 error[parent.id] = [response.error];
             } else {
                 for (var key in response) {

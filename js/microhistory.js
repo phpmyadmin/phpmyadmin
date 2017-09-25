@@ -223,7 +223,7 @@ PMA_MicroHistory = {
  * Allows direct bookmarking and microhistory.
  */
 PMA_SetUrlHash = (function (jQuery, window) {
-    "use strict";
+    'use strict';
     /**
      * Indictaes whether we have already completed
      * the initialisation of the hash
@@ -236,7 +236,7 @@ PMA_SetUrlHash = (function (jQuery, window) {
      *
      * @access private
      */
-    var savedHash = "";
+    var savedHash = '';
     /**
      * Flag to indicate if the change of hash was triggered
      * by a user pressing the back/forward button or if
@@ -247,7 +247,7 @@ PMA_SetUrlHash = (function (jQuery, window) {
     var userChange = true;
 
     // Fix favicon disappearing in Firefox when setting location.hash
-    function resetFavicon() {
+    function resetFavicon () {
         if (navigator.userAgent.indexOf('Firefox') > -1) {
             // Move the link tags for the favicon to the bottom
             // of the head element to force a reload of the favicon
@@ -260,7 +260,7 @@ PMA_SetUrlHash = (function (jQuery, window) {
      *
      * @access public
      */
-    function setUrlHash(index, hash) {
+    function setUrlHash (index, hash) {
         /*
          * Known problem:
          * Setting hash leads to reload in webkit:
@@ -271,10 +271,10 @@ PMA_SetUrlHash = (function (jQuery, window) {
 
         userChange = false;
         if (ready) {
-            window.location.hash = "PMAURL-" + index + ":" + hash;
+            window.location.hash = 'PMAURL-' + index + ':' + hash;
             resetFavicon();
         } else {
-            savedHash = "PMAURL-" + index + ":" + hash;
+            savedHash = 'PMAURL-' + index + ':' + hash;
         }
     }
     /**
@@ -299,9 +299,9 @@ PMA_SetUrlHash = (function (jQuery, window) {
         // when the page finishes loading
         jQuery(function () {
             /* Check if we should set URL */
-            if (savedHash !== "") {
+            if (savedHash !== '') {
                 window.location.hash = savedHash;
-                savedHash = "";
+                savedHash = '';
                 resetFavicon();
             }
             // Indicate that we're done initialising
@@ -329,4 +329,4 @@ PMA_SetUrlHash = (function (jQuery, window) {
      * Publicly exposes a reference to the otherwise private setUrlHash function
      */
     return setUrlHash;
-})(jQuery, window);
+}(jQuery, window));

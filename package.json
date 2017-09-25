@@ -1,0 +1,11 @@
+{
+  "name": "phpmyadmin",
+  "version": "4.8.0-dev",
+  "description": "A web interface for MySQL and MariaDB",
+  "repository": "https://github.com/phpmyadmin/phpmyadmin.git",
+  "author": "The phpMyAdmin Team <developers@phpmyadmin.net> (https://www.phpmyadmin.net/team/)",
+  "license": "GPL-2.0",
+  "devDependencies": {
+    "eslint": "^4.7.0"
+  }
+}

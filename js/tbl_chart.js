@@ -9,7 +9,7 @@ var currentSettings = null;
 var dateTimeCols = [];
 var numericCols = [];
 
-function extractDate(dateString) {
+function extractDate (dateString) {
     var matches, match;
     var dateTimeRegExp = /[0-9]{4}-[0-9]{2}-[0-9]{2} [0-9]{2}:[0-9]{2}:[0-9]{2}/;
     var dateRegExp = /[0-9]{4}-[0-9]{2}-[0-9]{2}/;
@@ -28,7 +28,7 @@ function extractDate(dateString) {
     return null;
 }
 
-function PMA_queryChart(data, columnNames, settings) {
+function PMA_queryChart (data, columnNames, settings) {
     if ($('#querychart').length === 0) {
         return;
     }
@@ -64,7 +64,7 @@ function PMA_queryChart(data, columnNames, settings) {
 
     // create the chart
     var factory = new JQPlotChartFactory();
-    var chart = factory.createChart(settings.type, "querychart");
+    var chart = factory.createChart(settings.type, 'querychart');
 
     // create the data table and add columns
     var dataTable = new DataTable();
@@ -83,7 +83,7 @@ function PMA_queryChart(data, columnNames, settings) {
         });
 
         // set data to the data table
-        var columnsToExtract = [ settings.mainAxis ];
+        var columnsToExtract = [settings.mainAxis];
         $.each(settings.selectedSeries, function (index, element) {
             columnsToExtract.push(element);
         });
@@ -137,7 +137,7 @@ function PMA_queryChart(data, columnNames, settings) {
         }
 
         var values = [];
-        $.each(valueMap, function(index, value) {
+        $.each(valueMap, function (index, value) {
             values.push(value);
         });
         dataTable.setData(values);
@@ -148,7 +148,7 @@ function PMA_queryChart(data, columnNames, settings) {
     return chart;
 }
 
-function drawChart() {
+function drawChart () {
     currentSettings.width = $('#resizer').width() - 20;
     currentSettings.height = $('#resizer').height() - 20;
 
@@ -171,7 +171,7 @@ function drawChart() {
     }
 }
 
-function getSelectedSeries() {
+function getSelectedSeries () {
     var val = $('select[name="chartSeries"]').val() || [];
     var ret = [];
     $.each(val, function (i, v) {
@@ -180,7 +180,7 @@ function getSelectedSeries() {
     return ret;
 }
 
-function onXAxisChange() {
+function onXAxisChange () {
     var $xAxisSelect = $('select[name="chartXAxis"]');
     currentSettings.mainAxis = parseInt($xAxisSelect.val(), 10);
     if (dateTimeCols.indexOf(currentSettings.mainAxis) != -1) {
@@ -206,7 +206,7 @@ function onXAxisChange() {
     currentSettings.xaxisLabel = xaxis_title;
 }
 
-function onDataSeriesChange() {
+function onDataSeriesChange () {
     var $seriesSelect = $('select[name="chartSeries"]');
     currentSettings.selectedSeries = getSelectedSeries();
     var yaxis_title;
@@ -244,7 +244,6 @@ AJAX.registerTeardown('tbl_chart.js', function () {
 });
 
 AJAX.registerOnload('tbl_chart.js', function () {
-
     // handle manual resize
     $('#resizer').on('resizestop', function (event, ui) {
         // make room so that the handle will still appear
@@ -264,7 +263,7 @@ AJAX.registerOnload('tbl_chart.js', function () {
             $('span.barStacked').show();
         } else {
             $('input[name="barStacked"]').prop('checked', false);
-            $.extend(true, currentSettings, {stackSeries : false});
+            $.extend(true, currentSettings, { stackSeries : false });
             $('span.barStacked').hide();
         }
         drawChart();
@@ -294,27 +293,27 @@ AJAX.registerOnload('tbl_chart.js', function () {
     // handle stacking for bar, column and area charts
     $('input[name="barStacked"]').click(function () {
         if ($(this).is(':checked')) {
-            $.extend(true, currentSettings, {stackSeries : true});
+            $.extend(true, currentSettings, { stackSeries : true });
         } else {
-            $.extend(true, currentSettings, {stackSeries : false});
+            $.extend(true, currentSettings, { stackSeries : false });
         }
         drawChart();
     });
 
     // handle changes in chart title
     $('input[name="chartTitle"]')
-    .focus(function () {
-        temp_chart_title = $(this).val();
-    })
-    .keyup(function () {
-        currentSettings.title = $('input[name="chartTitle"]').val();
-        drawChart();
-    })
-    .blur(function () {
-        if ($(this).val() != temp_chart_title) {
+        .focus(function () {
+            temp_chart_title = $(this).val();
+        })
+        .keyup(function () {
+            currentSettings.title = $('input[name="chartTitle"]').val();
             drawChart();
-        }
-    });
+        })
+        .blur(function () {
+            if ($(this).val() != temp_chart_title) {
+                drawChart();
+            }
+        });
 
     // handle changing the x-axis
     $('select[name="chartXAxis"]').change(function () {
@@ -354,7 +353,6 @@ AJAX.registerOnload('tbl_chart.js', function () {
 
     // handler for ajax form submission
     $('#tblchartform').submit(function (event) {
-
         var $form = $(this);
         if (codemirror_editor) {
             $form[0].elements.sql_query.value = codemirror_editor.getValue();
@@ -375,7 +373,7 @@ AJAX.registerOnload('tbl_chart.js', function () {
             } else {
                 PMA_ajaxShowMessage(data.error, false);
             }
-        }, "json"); // end $.post()
+        }, 'json'); // end $.post()
 
         return false;
     });
@@ -385,8 +383,8 @@ AJAX.registerOnload('tbl_chart.js', function () {
         minHeight: 240,
         minWidth: 300
     })
-    .width($('#div_view_options').width() - 50)
-    .trigger('resizestop');
+        .width($('#div_view_options').width() - 50)
+        .trigger('resizestop');
 
     currentSettings = {
         type : 'line',
@@ -414,5 +412,5 @@ AJAX.registerOnload('tbl_chart.js', function () {
     onXAxisChange();
     onDataSeriesChange();
 
-    $("#tblchartform").submit();
+    $('#tblchartform').submit();
 });

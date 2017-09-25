@@ -44,7 +44,7 @@ var AJAX = {
      */
     hash: function (key) {
         /* http://burtleburtle.net/bob/hash/doobs.html#one */
-        key += "";
+        key += '';
         var len = key.length, hash = 0, i = 0;
         for (; i < len; ++i) {
             hash += key.charCodeAt(i);
@@ -70,7 +70,7 @@ var AJAX = {
         if (this._debug) {
             console.log(
                 // no need to translate
-                "Registered event " + eventName + " for file " + file
+                'Registered event ' + eventName + ' for file ' + file
             );
         }
         return this;
@@ -91,7 +91,7 @@ var AJAX = {
         if (this._debug) {
             console.log(
                 // no need to translate
-                "Registered event " + eventName + " for file " + file
+                'Registered event ' + eventName + ' for file ' + file
             );
         }
         return this;
@@ -110,7 +110,7 @@ var AJAX = {
         if (this._debug) {
             console.log(
                 // no need to translate
-                "Fired event " + eventName + " for file " + file
+                'Fired event ' + eventName + ' for file ' + file
             );
         }
     },
@@ -128,7 +128,7 @@ var AJAX = {
         if (this._debug) {
             console.log(
                 // no need to translate
-                "Fired event " + eventName + " for file " + file
+                'Fired event ' + eventName + ' for file ' + file
             );
         }
     },
@@ -139,8 +139,8 @@ var AJAX = {
      *
      * @return void
      */
-    lockPageHandler: function(event) {
-        //Don't lock on enter.
+    lockPageHandler: function (event) {
+        // Don't lock on enter.
         if (0 === event.charCode) {
             return;
         }
@@ -157,7 +157,7 @@ var AJAX = {
         if (event.data.value == 1) {
             newHash = AJAX.hash($(this).val());
         } else {
-            newHash = AJAX.hash($(this).is(":checked"));
+            newHash = AJAX.hash($(this).is(':checked'));
         }
         var oldHash = $(this).data('val-hash');
         // Set lock if old value != new value
@@ -180,7 +180,7 @@ var AJAX = {
      *
      * @return void
      */
-    resetLock: function() {
+    resetLock: function () {
         AJAX.lockedTargets = {};
         $('#lock_page_icon').html('');
     },
@@ -205,12 +205,12 @@ var AJAX = {
         // leave the browser deal with it natively (e.g: file download)
         // or leave an existing ajax event handler present elsewhere deal with it
         var href = $(this).attr('href');
-        if (typeof event != 'undefined' && (event.shiftKey || event.ctrlKey)) {
+        if (typeof event !== 'undefined' && (event.shiftKey || event.ctrlKey)) {
             return true;
         } else if ($(this).attr('target')) {
             return true;
         } else if ($(this).hasClass('ajax') || $(this).hasClass('disableAjax')) {
-            //reset the lockedTargets object, as specified AJAX operation has finished
+            // reset the lockedTargets object, as specified AJAX operation has finished
             AJAX.resetLock();
             return true;
         } else if (href && href.match(/^#/)) {
@@ -223,15 +223,15 @@ var AJAX = {
             return true;
         }
 
-        if (typeof event != 'undefined') {
+        if (typeof event !== 'undefined') {
             event.preventDefault();
             event.stopImmediatePropagation();
         }
 
-        //triggers a confirm dialog if:
-        //the user has performed some operations on loaded page
-        //the user clicks on some link, (won't trigger for buttons)
-        //the click event is not triggered by script
+        // triggers a confirm dialog if:
+        // the user has performed some operations on loaded page
+        // the user clicks on some link, (won't trigger for buttons)
+        // the click event is not triggered by script
         if (typeof event !== 'undefined' && event.type === 'click' &&
             event.isTrigger !== true &&
             !jQuery.isEmptyObject(AJAX.lockedTargets) &&
@@ -248,27 +248,27 @@ var AJAX = {
             // something else. Otherwise silently bail out, as there is already
             // a request well in progress.
             if (AJAX.xhr) {
-                //In case of a link request, attempt aborting
+                // In case of a link request, attempt aborting
                 AJAX.xhr.abort();
-                if(AJAX.xhr.status === 0 && AJAX.xhr.statusText === 'abort') {
-                    //If aborted
+                if (AJAX.xhr.status === 0 && AJAX.xhr.statusText === 'abort') {
+                    // If aborted
                     AJAX.$msgbox = PMA_ajaxShowMessage(PMA_messages.strAbortedRequest);
                     AJAX.active = false;
                     AJAX.xhr = null;
                     previousLinkAborted = true;
                 } else {
-                    //If can't abort
+                    // If can't abort
                     return false;
                 }
             } else {
-                //In case submitting a form, don't attempt aborting
+                // In case submitting a form, don't attempt aborting
                 return false;
             }
         }
 
         AJAX.source = $(this);
 
-        $('html, body').animate({scrollTop: 0}, 'fast');
+        $('html, body').animate({ scrollTop: 0 }, 'fast');
 
         var url = isLink ? href : $(this).attr('action');
         var params = 'ajax_request=true&ajax_page_request=true';
@@ -281,21 +281,21 @@ var AJAX = {
         }
 
         if (AJAX._debug) {
-            console.log("Loading: " + url); // no need to translate
+            console.log('Loading: ' + url); // no need to translate
         }
 
         if (isLink) {
             AJAX.active = true;
             AJAX.$msgbox = PMA_ajaxShowMessage();
-            //Save reference for the new link request
+            // Save reference for the new link request
             AJAX.xhr = $.get(url, params, AJAX.responseHandler);
             if (history && history.pushState) {
                 var state = {
                     url : href
                 };
                 if (previousLinkAborted) {
-                    //hack: there is already an aborted entry on stack
-                    //so just modify the aborted one
+                    // hack: there is already an aborted entry on stack
+                    // so just modify the aborted one
                     history.replaceState(state, null, href);
                 } else {
                     history.pushState(state, null, href);
@@ -339,8 +339,8 @@ var AJAX = {
         if (typeof data === 'undefined' || data === null) {
             return;
         }
-        if (typeof data.success != 'undefined' && data.success) {
-            $('html, body').animate({scrollTop: 0}, 'fast');
+        if (typeof data.success !== 'undefined' && data.success) {
+            $('html, body').animate({ scrollTop: 0 }, 'fast');
             PMA_ajaxRemoveMessage(AJAX.$msgbox);
 
             if (data._redirect) {
@@ -376,8 +376,7 @@ var AJAX = {
                 }
                 if (data._disableNaviSettings) {
                     PMA_disableNaviSettings();
-                }
-                else {
+                } else {
                     PMA_ensureNaviSettings(data._selflink);
                 }
 
@@ -398,7 +397,7 @@ var AJAX = {
                 // Replace #page_content with new content
                 if (data.message && data.message.length > 0) {
                     $('#page_content').replaceWith(
-                        "<div id='page_content'>" + data.message + "</div>"
+                        '<div id=\'page_content\'>' + data.message + '</div>'
                     );
                     PMA_highlightSQL($('#page_content'));
                     checkNumberOfFields();
@@ -406,11 +405,11 @@ var AJAX = {
 
                 if (data._selflink) {
                     var source = data._selflink.split('?')[0];
-                    //Check for faulty links
+                    // Check for faulty links
                     $selflink_replace = {
-                        "import.php": "tbl_sql.php",
-                        "tbl_chart.php": "sql.php",
-                        "tbl_gis_visualization.php": "sql.php"
+                        'import.php': 'tbl_sql.php',
+                        'tbl_chart.php': 'sql.php',
+                        'tbl_gis_visualization.php': 'sql.php'
                     };
                     if ($selflink_replace[source]) {
                         var replacement = $selflink_replace[source];
@@ -443,19 +442,19 @@ var AJAX = {
                 $('#pma_errors').remove();
 
                 var msg = '';
-                if(data._errSubmitMsg){
+                if (data._errSubmitMsg) {
                     msg = data._errSubmitMsg;
                 }
                 if (data._errors) {
-                    $('<div/>', {id : 'pma_errors', class : 'clearfloat'})
+                    $('<div/>', { id : 'pma_errors', class : 'clearfloat' })
                         .insertAfter('#selflink')
                         .append(data._errors);
                     // bind for php error reporting forms (bottom)
-                    $("#pma_ignore_errors_bottom").on("click", function(e) {
+                    $('#pma_ignore_errors_bottom').on('click', function (e) {
                         e.preventDefault();
                         PMA_ignorePhpErrors();
                     });
-                    $("#pma_ignore_all_errors_bottom").on("click", function(e) {
+                    $('#pma_ignore_all_errors_bottom').on('click', function (e) {
                         e.preventDefault();
                         PMA_ignorePhpErrors(false);
                     });
@@ -464,22 +463,22 @@ var AJAX = {
                     if (data._sendErrorAlways == '1' &&
                         data._stopErrorReportLoop != '1'
                     ) {
-                        $("#pma_report_errors_form").submit();
+                        $('#pma_report_errors_form').submit();
                         PMA_ajaxShowMessage(PMA_messages.phpErrorsBeingSubmitted, false);
-                        $('html, body').animate({scrollTop:$(document).height()}, 'slow');
+                        $('html, body').animate({ scrollTop:$(document).height() }, 'slow');
                     } else if (data._promptPhpErrors) {
                         // otherwise just prompt user if it is set so.
                         msg = msg + PMA_messages.phpErrorsFound;
                         // scroll to bottom where all the errors are displayed.
-                        $('html, body').animate({scrollTop:$(document).height()}, 'slow');
+                        $('html, body').animate({ scrollTop:$(document).height() }, 'slow');
                     }
                 }
                 PMA_ajaxShowMessage(msg, false);
                 // bind for php error reporting forms (popup)
-                $("#pma_ignore_errors_popup").on("click", function() {
+                $('#pma_ignore_errors_popup').on('click', function () {
                     PMA_ignorePhpErrors();
                 });
-                $("#pma_ignore_all_errors_popup").on("click", function() {
+                $('#pma_ignore_all_errors_popup').on('click', function () {
                     PMA_ignorePhpErrors(false);
                 });
 
@@ -488,15 +487,14 @@ var AJAX = {
                 }
                 AJAX._callback = function () {};
             });
-
         } else {
             PMA_ajaxShowMessage(data.error, false);
             AJAX.active = false;
             AJAX.xhr = null;
             PMA_handleRedirectAndReload(data);
             if (data.fieldWithError) {
-                $(':input.error').removeClass("error");
-                $('#'+data.fieldWithError).addClass("error");
+                $(':input.error').removeClass('error');
+                $('#' + data.fieldWithError).addClass('error');
             }
         }
     },
@@ -577,7 +575,7 @@ var AJAX = {
                 if ($.inArray(script, self._scripts) == -1) {
                     needRequest = true;
                     this.add(script);
-                    request.push("scripts%5B%5D=" + script);
+                    request.push('scripts%5B%5D=' + script);
                     if (request.length >= 10) {
                         // Download scripts in chunks
                         this.appendScript(request);
@@ -586,8 +584,8 @@ var AJAX = {
                     }
                 }
             }
-            request.push("call_done=1");
-            request.push("v=" + encodeURIComponent(PMA_commonParams.get('PMA_VERSION')));
+            request.push('call_done=1');
+            request.push('v=' + encodeURIComponent(PMA_commonParams.get('PMA_VERSION')));
             // Download the composite js file, if necessary
             if (needRequest) {
                 this.appendScript(request);
@@ -601,7 +599,7 @@ var AJAX = {
          * @return void
          */
         done: function (callback) {
-            if($.isFunction(callback)) {
+            if ($.isFunction(callback)) {
                 callback();
             }
             if (typeof ErrorReport !== 'undefined') {
@@ -621,10 +619,10 @@ var AJAX = {
             var head = document.head || document.getElementsByTagName('head')[0];
             var script = document.createElement('script');
 
-            request.push("call_done=1");
-            request.push("v=" + encodeURIComponent(PMA_commonParams.get('PMA_VERSION')));
+            request.push('call_done=1');
+            request.push('v=' + encodeURIComponent(PMA_commonParams.get('PMA_VERSION')));
             script.type = 'text/javascript';
-            script.src = "js/get_scripts.js.php?" + request.join("&");
+            script.src = 'js/get_scripts.js.php?' + request.join('&');
             script.async = false;
             head.appendChild(script);
         },
@@ -677,7 +675,7 @@ AJAX.registerOnload('functions.js', function () {
      * Workaround for passing submit button name,value on ajax form submit
      * by appending hidden element with submit button name and value.
      */
-    $page_content.on('click', 'form input[type=submit]', function() {
+    $page_content.on('click', 'form input[type=submit]', function () {
         var buttonName = $(this).attr('name');
         if (typeof buttonName === 'undefined') {
             return;
@@ -699,14 +697,14 @@ AJAX.registerOnload('functions.js', function () {
         'form.lock-page input[type="text"], ' +
         'form.lock-page input[type="number"], ' +
         'form.lock-page select',
-        {value:1},
+        { value:1 },
         AJAX.lockPageHandler
     );
     $page_content.on(
         'change',
         'form.lock-page input[type="checkbox"], ' +
         'form.lock-page input[type="radio"]',
-        {value:2},
+        { value:2 },
         AJAX.lockPageHandler
     );
     /**
@@ -714,7 +712,7 @@ AJAX.registerOnload('functions.js', function () {
      * Note: reset does not bubble in all browser so attach to
      * form directly.
      */
-    $('form.lock-page').on('reset', function(event){
+    $('form.lock-page').on('reset', function (event) {
         AJAX.resetLock();
     });
 });
@@ -728,7 +726,7 @@ $(function () {
         .append($('#topmenucontainer').clone())
         .html();
     if (history && history.pushState) {
-        //set initial state reload
+        // set initial state reload
         var initState = ('state' in window.history && window.history.state !== null);
         var initURL = $('#selflink').find('> a').attr('href') || location.href;
         var state = {
@@ -737,10 +735,10 @@ $(function () {
         };
         history.replaceState(state, null);
 
-        $(window).on('popstate', function(event) {
+        $(window).on('popstate', function (event) {
             var initPop = (! initState && location.href == initURL);
             initState = true;
-            //check if popstate fired on first page itself
+            // check if popstate fired on first page itself
             if (initPop) {
                 return;
             }
@@ -750,17 +748,17 @@ $(function () {
                 var params = 'ajax_request=true&ajax_page_request=true';
                 var url = state.url || location.href;
                 $.get(url, params, AJAX.responseHandler);
-                //TODO: Check if sometimes menu is not retrieved from server,
+                // TODO: Check if sometimes menu is not retrieved from server,
                 // Not sure but it seems menu was missing only for printview which
                 // been removed lately, so if it's right some dead menu checks/fallbacks
                 // may need to be removed from this file and Header.php
-                //AJAX.handleMenu.replace(event.originalEvent.state.menu);
+                // AJAX.handleMenu.replace(event.originalEvent.state.menu);
             }
         });
     } else {
         // Fallback to microhistory mechanism
         AJAX.scriptHandler
-            .load([{'name' : 'microhistory.js', 'fire' : 1}], function () {
+            .load([{ 'name' : 'microhistory.js', 'fire' : 1 }], function () {
                 // The cache primer is set by the footer class
                 if (PMA_MicroHistory.primer.url) {
                     PMA_MicroHistory.menus.add(
@@ -800,7 +798,7 @@ $(document).ajaxError(function (event, request, settings) {
     }
     // Don't handle aborted requests
     if (request.status !== 0 || request.statusText !== 'abort') {
-        var details = ''
+        var details = '';
         var state = request.state();
 
         if (request.status !== 0) {

@@ -11,15 +11,14 @@ AJAX.registerTeardown('tbl_tracking.js', function () {
  * Bind event handlers
  */
 AJAX.registerOnload('tbl_tracking.js', function () {
-
     $('#versions tr:first th').append($('<div class="sorticon"></div>'));
     $('#versions').tablesorter({
         sortList: [[1, 0]],
         headers: {
-            0: {sorter: false},
-            1: {sorter: "integer"},
-            5: {sorter: false},
-            6: {sorter: false}
+            0: { sorter: false },
+            1: { sorter: 'integer' },
+            5: { sorter: false },
+            6: { sorter: false }
         }
     });
 
@@ -28,9 +27,9 @@ AJAX.registerOnload('tbl_tracking.js', function () {
         $('#ddl_versions').tablesorter({
             sortList: [[0, 0]],
             headers: {
-                0: {sorter: "integer"},
-                3: {sorter: false},
-                4: {sorter: false}
+                0: { sorter: 'integer' },
+                3: { sorter: false },
+                4: { sorter: false }
             }
         });
     }
@@ -40,9 +39,9 @@ AJAX.registerOnload('tbl_tracking.js', function () {
         $('#dml_versions').tablesorter({
             sortList: [[0, 0]],
             headers: {
-                0: {sorter: "integer"},
-                3: {sorter: false},
-                4: {sorter: false}
+                0: { sorter: 'integer' },
+                3: { sorter: false },
+                4: { sorter: false }
             }
         });
     }

@@ -1,5 +1,4 @@
-function Show_tables_in_landing_page(db)
-{
+function Show_tables_in_landing_page (db) {
     Load_first_page(db, function (page) {
         if (page) {
             Load_HTML_for_page(page.pg_nr);
@@ -10,8 +9,7 @@ function Show_tables_in_landing_page(db)
     });
 }
 
-function Save_to_new_page(db, page_name, table_positions, callback)
-{
+function Save_to_new_page (db, page_name, table_positions, callback) {
     Create_new_page(db, page_name, function (page) {
         if (page) {
             var tbl_cords = [];
@@ -32,8 +30,7 @@ function Save_to_new_page(db, page_name, table_positions, callback)
     });
 }
 
-function Save_to_selected_page(db, page_id, page_name, table_positions, callback)
-{
+function Save_to_selected_page (db, page_id, page_name, table_positions, callback) {
     Delete_page(page_id);
     Save_to_new_page(db, page_name, table_positions, function (page) {
         if (typeof callback !== 'undefined') {
@@ -43,8 +40,7 @@ function Save_to_selected_page(db, page_id, page_name, table_positions, callback
     });
 }
 
-function Create_new_page(db, page_name, callback)
-{
+function Create_new_page (db, page_name, callback) {
     var newPage = new PDFPage(db, page_name);
     DesignerOfflineDB.addObject('pdf_pages', newPage, function (pg_nr) {
         newPage.pg_nr = pg_nr;
@@ -54,15 +50,13 @@ function Create_new_page(db, page_name, callback)
     });
 }
 
-function Save_table_positions(positions, callback)
-{
+function Save_table_positions (positions, callback) {
     DesignerOfflineDB.addObject('table_coords', positions, callback);
 }
 
-function Create_page_list(db, callback)
-{
+function Create_page_list (db, callback) {
     DesignerOfflineDB.loadAllObjects('pdf_pages', function (pages) {
-        var html = "";
+        var html = '';
         for (var p = 0; p < pages.length; p++) {
             var page = pages[p];
             if (page.db_name == db) {
@@ -76,8 +70,7 @@ function Create_page_list(db, callback)
     });
 }
 
-function Delete_page(page_id, callback)
-{
+function Delete_page (page_id, callback) {
     DesignerOfflineDB.loadObject('pdf_pages', page_id, function (page) {
         if (page) {
             for (var i = 0; i < page.tbl_cords.length; i++) {
@@ -88,8 +81,7 @@ function Delete_page(page_id, callback)
     });
 }
 
-function Load_first_page(db, callback)
-{
+function Load_first_page (db, callback) {
     DesignerOfflineDB.loadAllObjects('pdf_pages', function (pages) {
         var firstPage = null;
         for (var i = 0; i < pages.length; i++) {
@@ -109,9 +101,8 @@ function Load_first_page(db, callback)
     });
 }
 
-function Show_new_page_tables(check)
-{
-    var all_tables = $("#id_scroll_tab").find("td input:checkbox");
+function Show_new_page_tables (check) {
+    var all_tables = $('#id_scroll_tab').find('td input:checkbox');
     all_tables.prop('checked', check);
     for (var tab = 0; tab < all_tables.length; tab++) {
         var input = all_tables[tab];
@@ -123,15 +114,14 @@ function Show_new_page_tables(check)
         }
     }
     selected_page = -1;
-    $("#page_name").text(PMA_messages.strUntitled);
+    $('#page_name').text(PMA_messages.strUntitled);
     MarkUnsaved();
 }
 
-function Load_HTML_for_page(page_id)
-{
+function Load_HTML_for_page (page_id) {
     Show_new_page_tables(false);
     Load_page_objects(page_id, function (page, tbl_cords) {
-        $("#name-panel").find("#page_name").text(page.page_descr);
+        $('#name-panel').find('#page_name').text(page.page_descr);
         MarkSaved();
         for (var t = 0; t < tbl_cords.length; t++) {
             var tb_id = db + '.' + tbl_cords[t].table_name;
@@ -139,7 +129,7 @@ function Load_HTML_for_page(page_id)
             table.style.top = tbl_cords[t].y + 'px';
             table.style.left = tbl_cords[t].x + 'px';
 
-            var checkbox = document.getElementById("check_vis_" + tb_id);
+            var checkbox = document.getElementById('check_vis_' + tb_id);
             checkbox.checked = true;
             VisibleTab(checkbox, checkbox.value);
         }
@@ -147,8 +137,7 @@ function Load_HTML_for_page(page_id)
     });
 }
 
-function Load_page_objects(page_id, callback)
-{
+function Load_page_objects (page_id, callback) {
     DesignerOfflineDB.loadObject('pdf_pages', page_id, function (page) {
         var tbl_cords = [];
         var count = page.tbl_cords.length;
@@ -165,8 +154,7 @@ function Load_page_objects(page_id, callback)
     });
 }
 
-function Get_random(max, min)
-{
+function Get_random (max, min) {
     var val = Math.random() * (max - min) + min;
     return Math.floor(val);
 }

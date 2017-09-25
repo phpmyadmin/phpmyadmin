@@ -23,8 +23,7 @@ var svg;
 /**
  * Zooms and pans the visualization.
  */
-function zoomAndPan()
-{
+function zoomAndPan () {
     var g = svg.getElementById('groupPanel');
     if (!g) {
         return;
@@ -38,7 +37,7 @@ function zoomAndPan()
         circle = svg.getElementById(id);
         svg.change(circle, {
             r : (3 / scale),
-            "stroke-width" : (2 / scale)
+            'stroke-width' : (2 / scale)
         });
     });
 
@@ -47,7 +46,7 @@ function zoomAndPan()
         id = $(this).attr('id');
         line = svg.getElementById(id);
         svg.change(line, {
-            "stroke-width" : (2 / scale)
+            'stroke-width' : (2 / scale)
         });
     });
 
@@ -56,7 +55,7 @@ function zoomAndPan()
         id = $(this).attr('id');
         polygon = svg.getElementById(id);
         svg.change(polygon, {
-            "stroke-width" : (0.5 / scale)
+            'stroke-width' : (0.5 / scale)
         });
     });
 }
@@ -64,7 +63,7 @@ function zoomAndPan()
 /**
  * Initially loads either SVG or OSM visualization based on the choice.
  */
-function selectVisualization() {
+function selectVisualization () {
     if ($('#choice').prop('checked') !== true) {
         $('#openlayersmap').hide();
     } else {
@@ -75,7 +74,7 @@ function selectVisualization() {
 /**
  * Adds necessary styles to the div that coontains the openStreetMap.
  */
-function styleOSM() {
+function styleOSM () {
     var $placeholder = $('#placeholder');
     var cssObj = {
         'border' : '1px solid #aaa',
@@ -89,7 +88,7 @@ function styleOSM() {
 /**
  * Loads the SVG element and make a reference to it.
  */
-function loadSVG() {
+function loadSVG () {
     var $placeholder = $('#placeholder');
 
     $placeholder.svg({
@@ -105,9 +104,9 @@ function loadSVG() {
 /**
  * Adds controllers for zooming and panning.
  */
-function addZoomPanControllers() {
+function addZoomPanControllers () {
     var $placeholder = $('#placeholder');
-    if ($("#placeholder").find("svg").length > 0) {
+    if ($('#placeholder').find('svg').length > 0) {
         var pmaThemeImage = $('#pmaThemeImage').val();
         // add panning arrows
         $('<img class="button" id="left_arrow" src="' + pmaThemeImage + 'west-mini.png">').appendTo($placeholder);
@@ -124,7 +123,7 @@ function addZoomPanControllers() {
 /**
  * Resizes the GIS visualization to fit into the space available.
  */
-function resizeGISVisualization() {
+function resizeGISVisualization () {
     var $placeholder = $('#placeholder');
     var old_width = $placeholder.width();
     var visWidth = $('#div_view_options').width() - 48;
@@ -143,14 +142,16 @@ function resizeGISVisualization() {
 /**
  * Initialize the GIS visualization.
  */
-function initGISVisualization() {
+function initGISVisualization () {
     // Loads either SVG or OSM visualization based on the choice
     selectVisualization();
     // Resizes the GIS visualization to fit into the space available
     resizeGISVisualization();
     if (typeof OpenLayers !== 'undefined') {
         // Configure OpenLayers
-        OpenLayers._getScriptLocation = function() {return './js/vendor/openlayers/';};
+        OpenLayers._getScriptLocation = function () {
+            return './js/vendor/openlayers/';
+        };
         // Adds necessary styles to the div that coontains the openStreetMap
         styleOSM();
         // Draws openStreetMap with openLayers
@@ -163,7 +164,7 @@ function initGISVisualization() {
     zoomAndPan();
 }
 
-function getRelativeCoords(e) {
+function getRelativeCoords (e) {
     var position = $('#placeholder').offset();
     return {
         x : e.pageX - position.left,
@@ -205,7 +206,6 @@ AJAX.registerTeardown('tbl_gis_visualization.js', function () {
 });
 
 AJAX.registerOnload('tbl_gis_visualization.js', function () {
-
     // If we are in GIS visualization, initialize it
     if ($('#gis_div').length > 0) {
         initGISVisualization();
@@ -228,14 +228,14 @@ AJAX.registerOnload('tbl_gis_visualization.js', function () {
         event.preventDefault();
         var relCoords = getRelativeCoords(event);
         if (delta > 0) {
-            //zoom in
+            // zoom in
             scale *= zoomFactor;
             // zooming in keeping the position under mouse pointer unmoved.
             x = relCoords.x - (relCoords.x - x) * zoomFactor;
             y = relCoords.y - (relCoords.y - y) * zoomFactor;
             zoomAndPan();
         } else {
-            //zoom out
+            // zoom out
             scale /= zoomFactor;
             // zooming out keeping the position under mouse pointer unmoved.
             x = relCoords.x - (relCoords.x - x) / zoomFactor;
@@ -279,7 +279,7 @@ AJAX.registerOnload('tbl_gis_visualization.js', function () {
 
     $(document).on('click', '#zoom_in', function (e) {
         e.preventDefault();
-        //zoom in
+        // zoom in
         scale *= zoomFactor;
 
         var $placeholder = $('#placeholder').find('svg');
@@ -301,7 +301,7 @@ AJAX.registerOnload('tbl_gis_visualization.js', function () {
 
     $(document).on('click', '#zoom_out', function (e) {
         e.preventDefault();
-        //zoom out
+        // zoom out
         scale /= zoomFactor;
 
         var $placeholder = $('#placeholder').find('svg');
@@ -342,7 +342,7 @@ AJAX.registerOnload('tbl_gis_visualization.js', function () {
      */
     $('.vector').on('mousemove', function (event) {
         var contents = $.trim(escapeHtml($(this).attr('name')));
-        $("#tooltip").remove();
+        $('#tooltip').remove();
         if (contents !== '') {
             $('<div id="tooltip">' + contents + '</div>').css({
                 position : 'absolute',
@@ -352,7 +352,7 @@ AJAX.registerOnload('tbl_gis_visualization.js', function () {
                 padding : '2px',
                 'background-color' : '#fee',
                 opacity : 0.90
-            }).appendTo("body").fadeIn(200);
+            }).appendTo('body').fadeIn(200);
         }
     });
 
@@ -360,6 +360,6 @@ AJAX.registerOnload('tbl_gis_visualization.js', function () {
      * Detect the mouseout event and hide tooltips.
      */
     $('.vector').on('mouseout', function (event) {
-        $("#tooltip").remove();
+        $('#tooltip').remove();
     });
 });

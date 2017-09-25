@@ -5,10 +5,10 @@
  * @package PhpMyAdmin
  */
 
-AJAX.registerOnload('transformations/image_upload.js', function() {
+AJAX.registerOnload('transformations/image_upload.js', function () {
     // Change thumbnail when image file is selected
     // through file upload dialog
-    $('input.image-upload').on('change', function(event) {
+    $('input.image-upload').on('change', function (event) {
         if (this.files && this.files[0]) {
             var reader = new FileReader();
             var $input = $(this);
@@ -23,6 +23,6 @@ AJAX.registerOnload('transformations/image_upload.js', function() {
 /**
  * Unbind all event handlers before tearing down a page
  */
-AJAX.registerTeardown('transformations/image_upload.js', function() {
+AJAX.registerTeardown('transformations/image_upload.js', function () {
     $('input.image-upload').off('change');
 });

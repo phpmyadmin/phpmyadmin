@@ -11,17 +11,16 @@ AJAX.registerTeardown('db_tracking.js', function () {
  * Bind event handlers
  */
 AJAX.registerOnload('db_tracking.js', function () {
-
     var $versions = $('#versions');
     $versions.find('tr:first th').append($('<div class="sorticon"></div>'));
     $versions.tablesorter({
         sortList: [[1, 0]],
         headers: {
-            0: {sorter: false},
-            2: {sorter: "integer"},
-            5: {sorter: false},
-            6: {sorter: false},
-            7: {sorter: false}
+            0: { sorter: false },
+            2: { sorter: 'integer' },
+            5: { sorter: false },
+            6: { sorter: false },
+            7: { sorter: false }
         }
     });
 
@@ -30,8 +29,8 @@ AJAX.registerOnload('db_tracking.js', function () {
     $noVersions.tablesorter({
         sortList: [[1, 0]],
         headers: {
-            0: {sorter: false},
-            2: {sorter: false}
+            0: { sorter: false },
+            2: { sorter: false }
         }
     });
 
