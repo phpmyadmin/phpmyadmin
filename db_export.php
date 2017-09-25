@@ -61,6 +61,13 @@ if (isset($_GET['structure_or_data_forced'])) {
 } else {
     $force_val = 0;
 }
+$multi_values .= '<fieldset id="tableFilter">
+    <legend>Filters</legend>
+    <div class="formelement">
+        <label for="filterText">Containing the word:</label>
+        <input name="filterText" type="text" id="filterText" value="">
+    </div>
+</fieldset> <br />';
 $multi_values .= '<input type="hidden" name="structure_or_data_forced" value="'
     . $force_val . '">';
 $multi_values .= '<table class="export_table_select">'
