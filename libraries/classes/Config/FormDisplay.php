@@ -268,13 +268,13 @@ class FormDisplay
     /**
      * Outputs HTML for forms
      *
-     * @param bool   $tabbed_form          if true, use a form with tabs
-     * @param bool   $show_restore_default whether show "restore default" button
-     *                                     besides the input field
-     * @param bool   $show_buttons         whether show submit and reset button
-     * @param string $form_action          action attribute for the form
-     * @param array  $hidden_fields        array of form hidden fields (key: field
-     *                                     name)
+     * @param bool       $tabbed_form          if true, use a form with tabs
+     * @param bool       $show_restore_default whether show "restore default" button
+     *                                         besides the input field
+     * @param bool       $show_buttons         whether show submit and reset button
+     * @param string     $form_action          action attribute for the form
+     * @param array|null $hidden_fields        array of form hidden fields (key: field
+     *                                         name)
      *
      * @return string HTML for forms
      */
@@ -867,7 +867,7 @@ class FormDisplay
      *
      * @return void
      */
-    private function _fillPostArrayParameters($post_values, $key)
+    private function _fillPostArrayParameters(array $post_values, $key)
     {
         foreach ($post_values as $v) {
             $v = Util::requestString($v);

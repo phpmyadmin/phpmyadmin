@@ -211,9 +211,9 @@ class UserPreferences
     /**
      * Redirects after saving new user preferences
      *
-     * @param string $file_name Filename
-     * @param array  $params    URL parameters
-     * @param string $hash      Hash value
+     * @param string     $file_name Filename
+     * @param array|null $params    URL parameters
+     * @param string     $hash      Hash value
      *
      * @return void
      */

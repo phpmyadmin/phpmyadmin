@@ -176,7 +176,7 @@ class ErrorReport
      *
      * @return String the reply of the server
      */
-    public static function send($report)
+    public static function send(array $report)
     {
         $response = Util::httpRequest(
             self::SUBMISSION_URL,
@@ -254,7 +254,7 @@ class ErrorReport
      *   exists
      * - Integer $linenumber the translated line number in the returned file
      */
-    public static function getLineNumber($filenames, $cumulative_number)
+    public static function getLineNumber(array $filenames, $cumulative_number)
     {
         $cumulative_sum = 0;
         foreach ($filenames as $filename) {
@@ -279,7 +279,7 @@ class ErrorReport
      *
      * @return array $stack the modified stack trace
      */
-    public static function translateStacktrace($stack)
+    public static function translateStacktrace(array $stack)
     {
         foreach ($stack as &$level) {
             foreach ($level["context"] as &$line) {

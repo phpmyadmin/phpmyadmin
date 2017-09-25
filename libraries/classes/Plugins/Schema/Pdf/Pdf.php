@@ -276,7 +276,7 @@ class Pdf extends PdfLib
      *
      * @return void
      */
-    public function setWidths($w)
+    public function setWidths(array $w)
     {
         // column widths
         $this->widths = $w;
@@ -290,7 +290,7 @@ class Pdf extends PdfLib
      *
      * @return void
      */
-    public function row($data, $links)
+    public function row(array $data, array $links)
     {
         // line height
         $nb = 0;

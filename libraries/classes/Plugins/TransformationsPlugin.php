@@ -22,7 +22,7 @@ abstract class TransformationsPlugin implements TransformationsInterface
      *
      * @return void
      */
-    public function applyTransformationNoWrap($options = array())
+    public function applyTransformationNoWrap(array $options = array())
     {
         ;
     }
@@ -38,7 +38,7 @@ abstract class TransformationsPlugin implements TransformationsInterface
      */
     abstract public function applyTransformation(
         $buffer,
-        $options = array(),
+        array $options = array(),
         $meta = ''
     );
 
@@ -50,7 +50,7 @@ abstract class TransformationsPlugin implements TransformationsInterface
      *
      * @return string[] List of options possibly filled in by defaults.
      */
-    public function getOptions($options, $defaults)
+    public function getOptions(array $options, array $defaults)
     {
         $result = array();
         foreach ($defaults as $key => $value) {

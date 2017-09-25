@@ -197,7 +197,7 @@ class ExportHtmlword extends ExportPlugin
         $crlf,
         $error_url,
         $sql_query,
-        $aliases = array()
+        array $aliases = array()
     ) {
         global $what;
 
@@ -359,7 +359,7 @@ class ExportHtmlword extends ExportPlugin
         $do_comments,
         $do_mime,
         $view = false,
-        $aliases = array()
+        array $aliases = array()
     ) {
         // set $cfgRelation here, because there is a chance that it's modified
         // since the class initialization
@@ -549,7 +549,7 @@ class ExportHtmlword extends ExportPlugin
         $do_comments = false,
         $do_mime = false,
         $dates = false,
-        $aliases = array()
+        array $aliases = array()
     ) {
         $db_alias = $db;
         $table_alias = $table;
@@ -619,8 +619,8 @@ class ExportHtmlword extends ExportPlugin
      * @return string Formatted column definition
      */
     protected function formatOneColumnDefinition(
-        $column,
-        $unique_keys,
+        array $column,
+        array $unique_keys,
         $col_alias = ''
     ) {
         if (empty($col_alias)) {

@@ -148,7 +148,7 @@ class CreateAddField
      *
      * @return array an array of sql statements for indexes
      */
-    public static function buildIndexStatements($index, $index_choice,
+    public static function buildIndexStatements(array $index, $index_choice,
         $is_create_tbl = true
     ) {
         $statement = array();
@@ -235,7 +235,7 @@ class CreateAddField
      * @return array $index_definitions
      */
     public static function mergeIndexStatements(
-        $definitions, $is_create_tbl, $indexed_columns, $index_keyword
+        array $definitions, $is_create_tbl, array $indexed_columns, $index_keyword
     ) {
         foreach ($indexed_columns as $index) {
             $statements = self::buildIndexStatements(
@@ -351,7 +351,7 @@ class CreateAddField
      *
      * @return string partition/subpartition definition
      */
-    public static function getPartitionDefinition($partition, $isSubPartition = false)
+    public static function getPartitionDefinition(array $partition, $isSubPartition = false)
     {
         $sql_query = " " . ($isSubPartition ? "SUB" : "") . "PARTITION ";
         $sql_query .= $partition['name'];

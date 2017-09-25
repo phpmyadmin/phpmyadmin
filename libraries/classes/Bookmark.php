@@ -166,11 +166,11 @@ class Bookmark
     /**
      * Replace the placeholders in the bookmark query with variables
      *
-     * @param  array $variables array of variables
+     * @param array $variables array of variables
      *
      * @return string query with variables applied
      */
-    public function applyVariables($variables)
+    public function applyVariables(array $variables)
     {
         // remove comments that encloses a variable placeholder
         $query = preg_replace(
@@ -232,7 +232,7 @@ class Bookmark
      *
      * @return Bookmark|false
      */
-    public static function createBookmark($bkm_fields, $all_users = false)
+    public static function createBookmark(array $bkm_fields, $all_users = false)
     {
         if (!(isset($bkm_fields['bkm_sql_query'])
             && strlen($bkm_fields['bkm_sql_query']) > 0

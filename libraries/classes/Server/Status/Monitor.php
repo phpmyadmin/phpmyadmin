@@ -424,7 +424,7 @@ class Monitor
      *
      * @return array
      */
-    public static function getJsonForChartingDataSet($ret, $statusVarValues, $serverVarValues)
+    public static function getJsonForChartingDataSet(array $ret, array $statusVarValues, array $serverVarValues)
     {
         foreach ($ret as $chart_id => $chartNodes) {
             foreach ($chartNodes as $node_id => $nodeDataPoints) {
@@ -458,7 +458,7 @@ class Monitor
      * @return array
      */
     public static function getJsonForChartingDataGet(
-        $ret, $serverVars, $statusVars, $sysinfo, $cpuload, $memory
+        array $ret, array $serverVars, array $statusVars, $sysinfo, $cpuload, $memory
     ) {
         // For each chart
         foreach ($ret as $chart_id => $chartNodes) {
@@ -493,7 +493,7 @@ class Monitor
      * @return array
      */
     public static function getJsonForChartingDataSwitch(
-        $type, $pName, $serverVars, $statusVars, $ret,
+        $type, $pName, array $serverVars, array $statusVars, array $ret,
         $sysinfo, $cpuload, $memory
     ) {
         switch ($type) {

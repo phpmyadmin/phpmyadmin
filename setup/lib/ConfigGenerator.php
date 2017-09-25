@@ -154,7 +154,7 @@ class ConfigGenerator
      *
      * @return string
      */
-    protected static function getServerPart(ConfigFile $cf, $crlf, $servers)
+    protected static function getServerPart(ConfigFile $cf, $crlf, array $servers)
     {
         if ($cf->getServerCount() === 0) {
             return null;

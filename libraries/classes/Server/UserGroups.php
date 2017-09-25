@@ -166,7 +166,7 @@ class UserGroups
      *
      * @return string comma separated list of allowed menu tab names
      */
-    public static function getAllowedTabNames($row, $level)
+    public static function getAllowedTabNames(array $row, $level)
     {
         $tabNames = array();
         $tabs = Util::getMenuTabList($level);
@@ -308,7 +308,7 @@ class UserGroups
      *
      * @return string HTML for checkbox groups
      */
-    public static function getTabList($title, $level, $selected)
+    public static function getTabList($title, $level, array $selected)
     {
         $tabs = Util::getMenuTabList($level);
         $html_output = '<fieldset>';

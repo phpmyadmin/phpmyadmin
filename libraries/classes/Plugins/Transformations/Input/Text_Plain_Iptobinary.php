@@ -42,7 +42,7 @@ class Text_Plain_Iptobinary extends IOTransformationsPlugin
      *
      * @return string IP address
      */
-    public function applyTransformation($buffer, $options = array(), $meta = '')
+    public function applyTransformation($buffer, array $options = array(), $meta = '')
     {
         $val = @inet_pton($buffer);
         if ($val !== false) {
@@ -69,10 +69,10 @@ class Text_Plain_Iptobinary extends IOTransformationsPlugin
      * @return string the html for input field
      */
     public function getInputHtml(
-        $column,
+        array $column,
         $row_id,
         $column_name_appendix,
-        $options,
+        array $options,
         $value,
         $text_dir,
         $tabindex,

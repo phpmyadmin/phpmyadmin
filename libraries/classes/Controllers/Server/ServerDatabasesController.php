@@ -262,9 +262,8 @@ class ServerDatabasesController extends Controller
      *
      * @return string
      */
-    private function _getHtmlForDatabases($replication_types)
+    private function _getHtmlForDatabases(array $replication_types)
     {
-
         $html = '<div id="tableslistcontainer">';
         $first_database = reset($this->_databases);
         // table col order
@@ -433,7 +432,7 @@ class ServerDatabasesController extends Controller
      *
      * @return string
      */
-    private function _getHtmlForTableBody($column_order, $replication_types)
+    private function _getHtmlForTableBody(array $column_order, array $replication_types)
     {
         $html = '<tbody>' . "\n";
 
@@ -470,8 +469,8 @@ class ServerDatabasesController extends Controller
      * @return array $column_order, $out
      */
     function _buildHtmlForDb(
-        $current, $column_order,
-        $replication_types, $replication_info, $tr_class = ''
+        array $current, array $column_order,
+        array $replication_types, array $replication_info, $tr_class = ''
     ) {
         $master_replication = $slave_replication = '';
         foreach ($replication_types as $type) {
@@ -535,7 +534,7 @@ class ServerDatabasesController extends Controller
      * @return string
      */
     private function _getHtmlForTableHeader(
-        $_url_params, $column_order, $first_database
+        array $_url_params, array $column_order, array $first_database
     ) {
         return Template::get('server/databases/table_header')->render(
             array(

@@ -137,7 +137,7 @@ class Message
      *                          constant definitions above
      */
     public function __construct($string = '', $number = Message::NOTICE,
-        $params = array(), $sanitize = Message::SANITIZE_NONE
+        array $params = array(), $sanitize = Message::SANITIZE_NONE
     ) {
         $this->setString($string, $sanitize & Message::SANITIZE_STRING);
         $this->setNumber($number);

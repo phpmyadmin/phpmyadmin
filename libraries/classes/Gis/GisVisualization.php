@@ -82,7 +82,7 @@ class GisVisualization
      *
      * @access public
      */
-    public static function get($sql_query, $options, $row, $pos)
+    public static function get($sql_query, array $options, $row, $pos)
     {
         return new GisVisualization($sql_query, $options, $row, $pos);
     }
@@ -96,7 +96,7 @@ class GisVisualization
      *
      * @return GisVisualization
      */
-    public static function getByData($data, $options)
+    public static function getByData(array $data, array $options)
     {
         return new GisVisualization(null, $options, null, null, $data);
     }
@@ -120,16 +120,16 @@ class GisVisualization
     /**
      * Constructor. Stores user specified options.
      *
-     * @param string  $sql_query SQL to fetch raw data for visualization
-     * @param array   $options   Users specified options
-     * @param integer $row       number of rows
-     * @param integer $pos       start position
-     * @param array   $data      raw data. If set, parameters other than $options
-     *                           will be ignored
+     * @param string     $sql_query SQL to fetch raw data for visualization
+     * @param array      $options   Users specified options
+     * @param integer    $row       number of rows
+     * @param integer    $pos       start position
+     * @param array|null $data      raw data. If set, parameters other than $options
+     *                              will be ignored
      *
      * @access public
      */
-    private function __construct($sql_query, $options, $row, $pos, $data = null)
+    private function __construct($sql_query, array $options, $row, $pos, $data = null)
     {
         $this->_userSpecifiedSettings = $options;
         if (isset($data)) {
@@ -540,7 +540,7 @@ class GisVisualization
      * @return array an array containing the scale, x and y offsets
      * @access private
      */
-    private function _scaleDataSet($data)
+    private function _scaleDataSet(array $data)
     {
         $min_max = array();
         $border = 15;
@@ -631,7 +631,7 @@ class GisVisualization
      * @return mixed the formatted array of data
      * @access private
      */
-    private function _prepareDataSet($data, $scale_data, $format, $results)
+    private function _prepareDataSet(array $data, array $scale_data, $format, $results)
     {
         $color_number = 0;
 
@@ -703,7 +703,7 @@ class GisVisualization
      *
      * @return void
      */
-    public function setUserSpecifiedSettings($userSpecifiedSettings)
+    public function setUserSpecifiedSettings(array $userSpecifiedSettings)
     {
         $this->_userSpecifiedSettings = $userSpecifiedSettings;
     }

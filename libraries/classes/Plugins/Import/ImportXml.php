@@ -58,7 +58,7 @@ class ImportXml extends ImportPlugin
      *
      * @return void
      */
-    public function doImport(&$sql_data = array())
+    public function doImport(array &$sql_data = array())
     {
         global $error, $timeout_passed, $finished, $db;
 

@@ -344,7 +344,7 @@ class File
      * @static
      */
     public function fetchUploadedFromTblChangeRequestMultiple(
-        $file, $rownumber, $key
+        array $file, $rownumber, $key
     ) {
         $new_file = array(
             'name' => $file['name']['multi_edit'][$rownumber][$key],

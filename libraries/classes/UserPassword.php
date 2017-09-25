@@ -29,7 +29,7 @@ class UserPassword
      *
      * @return void
      */
-    public static function getChangePassMessage($change_password_message, $sql_query = '')
+    public static function getChangePassMessage(array $change_password_message, $sql_query = '')
     {
         $response = Response::getInstance();
         if ($response->isAjax()) {
@@ -87,7 +87,7 @@ class UserPassword
      *
      * @return void
      */
-    public static function changePassword($password, $message, $change_password_message)
+    public static function changePassword($password, $message, array $change_password_message)
     {
         global $auth_plugin;
 

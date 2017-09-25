@@ -76,7 +76,7 @@ class DbiMysqli implements DbiExtension
      * @return mixed false on error or a mysqli object on success
      */
     public function connect(
-        $user, $password, $server
+        $user, $password, array $server
     ) {
         if ($server) {
             $server['host'] = (empty($server['host']))

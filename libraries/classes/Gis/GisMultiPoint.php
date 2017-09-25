@@ -82,7 +82,7 @@ class GisMultiPoint extends GisGeometry
         $spatial,
         $label,
         $point_color,
-        $scale_data,
+        array $scale_data,
         $image
     ) {
         // allocate colors
@@ -140,7 +140,7 @@ class GisMultiPoint extends GisGeometry
         $spatial,
         $label,
         $point_color,
-        $scale_data,
+        array $scale_data,
         $pdf
     ) {
         // allocate colors
@@ -187,7 +187,7 @@ class GisMultiPoint extends GisGeometry
      * @return string the code related to a row in the GIS dataset
      * @access public
      */
-    public function prepareRowAsSvg($spatial, $label, $point_color, $scale_data)
+    public function prepareRowAsSvg($spatial, $label, $point_color, array $scale_data)
     {
         $point_options = array(
             'name'         => $label,
@@ -240,7 +240,7 @@ class GisMultiPoint extends GisGeometry
         $srid,
         $label,
         $point_color,
-        $scale_data
+        array $scale_data
     ) {
         $style_options = array(
             'pointRadius'  => 3,
@@ -283,7 +283,7 @@ class GisMultiPoint extends GisGeometry
      * @return string WKT with the set of parameters passed by the GIS editor
      * @access public
      */
-    public function generateWkt($gis_data, $index, $empty = '')
+    public function generateWkt(array $gis_data, $index, $empty = '')
     {
         $no_of_points = isset($gis_data[$index]['MULTIPOINT']['no_of_points'])
             ? $gis_data[$index]['MULTIPOINT']['no_of_points'] : 1;
@@ -319,7 +319,7 @@ class GisMultiPoint extends GisGeometry
      * @return string the WKT for the data from ESRI shape files
      * @access public
      */
-    public function getShape($row_data)
+    public function getShape(array $row_data)
     {
         $wkt = 'MULTIPOINT(';
         for ($i = 0; $i < $row_data['numpoints']; $i++) {
@@ -389,7 +389,7 @@ class GisMultiPoint extends GisGeometry
      * @return string JavaScript for adding an array of points to OpenLayers
      * @access protected
      */
-    protected function getPointsArrayForOpenLayers($points_arr, $srid)
+    protected function getPointsArrayForOpenLayers(array $points_arr, $srid)
     {
         $ol_array = 'new Array(';
         foreach ($points_arr as $point) {

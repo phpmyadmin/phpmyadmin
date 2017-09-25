@@ -22,9 +22,9 @@ class FormDisplayTemplate
     /**
      * Displays top part of the form
      *
-     * @param string $action        default: $_SERVER['REQUEST_URI']
-     * @param string $method        'post' or 'get'
-     * @param array  $hidden_fields array of form hidden fields (key: field name)
+     * @param string     $action        default: $_SERVER['REQUEST_URI']
+     * @param string     $method        'post' or 'get'
+     * @param array|null $hidden_fields array of form hidden fields (key: field name)
      *
      * @return string
      */
@@ -61,7 +61,7 @@ class FormDisplayTemplate
      *
      * @return string
      */
-    public static function displayTabsTop($tabs)
+    public static function displayTabsTop(array $tabs)
     {
         $items = array();
         foreach ($tabs as $tab_id => $tab_name) {
@@ -87,15 +87,15 @@ class FormDisplayTemplate
     /**
      * Displays top part of a fieldset
      *
-     * @param string $title       title of fieldset
-     * @param string $description description shown on top of fieldset
-     * @param array  $errors      error messages to display
-     * @param array  $attributes  optional extra attributes of fieldset
+     * @param string     $title       title of fieldset
+     * @param string     $description description shown on top of fieldset
+     * @param array|null $errors      error messages to display
+     * @param array      $attributes  optional extra attributes of fieldset
      *
      * @return string
      */
     public static function displayFieldsetTop($title = '', $description = '', $errors = null,
-        $attributes = array()
+        array $attributes = array()
     ) {
         global $_FormDisplayGroup;
 
@@ -141,13 +141,13 @@ class FormDisplayTemplate
      * o comment - (string) tooltip comment
      * o comment_warning - (bool) whether this comments warns about something
      *
-     * @param string $path             config option path
-     * @param string $name             config option name
-     * @param string $type             type of config option
-     * @param mixed  $value            current value
-     * @param string $description      verbose description
-     * @param bool   $value_is_default whether value is default
-     * @param array  $opts             see above description
+     * @param string     $path             config option path
+     * @param string     $name             config option name
+     * @param string     $type             type of config option
+     * @param mixed      $value            current value
+     * @param string     $description      verbose description
+     * @param bool       $value_is_default whether value is default
+     * @param array|null $opts             see above description
      *
      * @return string
      */
@@ -482,7 +482,7 @@ class FormDisplayTemplate
      *
      * @return void
      */
-    public static function addJsValidate($field_id, $validators, &$js_array)
+    public static function addJsValidate($field_id, $validators, array &$js_array)
     {
         foreach ((array)$validators as $validator) {
             $validator = (array)$validator;
@@ -504,7 +504,7 @@ class FormDisplayTemplate
      *
      * @return string
      */
-    public static function displayJavascript($js_array)
+    public static function displayJavascript(array $js_array)
     {
         if (empty($js_array)) {
             return null;
@@ -523,7 +523,7 @@ class FormDisplayTemplate
      *
      * @return string HTML for errors
      */
-    public static function displayErrors($name, $error_list)
+    public static function displayErrors($name, array $error_list)
     {
         $htmlOutput = '<dl>';
         $htmlOutput .= '<dt>' . htmlspecialchars($name) . '</dt>';

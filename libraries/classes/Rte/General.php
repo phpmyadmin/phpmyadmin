@@ -31,7 +31,7 @@ class General
      *
      * @return array
      */
-    public static function checkResult($result, $error, $createStatement, $errors)
+    public static function checkResult($result, $error, $createStatement, array $errors)
     {
         if ($result) {
             return $errors;
@@ -62,7 +62,7 @@ class General
      *
      * @return void
      */
-    public static function sendEditor($type, $mode, $item, $title, $db, $operation = null)
+    public static function sendEditor($type, $mode, array $item, $title, $db, $operation = null)
     {
         $response = Response::getInstance();
         if ($item !== false) {

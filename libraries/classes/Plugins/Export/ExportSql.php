@@ -484,7 +484,7 @@ class ExportSql extends ExportPlugin
      * @return string SQL query
      */
     protected function _exportRoutineSQL(
-        $db, $aliases, $type, $name, $routines, $delimiter
+        $db, array $aliases, $type, $name, array $routines, $delimiter
     ) {
         global $crlf;
 
@@ -536,7 +536,7 @@ class ExportSql extends ExportPlugin
      *
      * @return bool Whether it succeeded
      */
-    public function exportRoutines($db, $aliases = array())
+    public function exportRoutines($db, array $aliases = array())
     {
         global $crlf;
 
@@ -996,7 +996,7 @@ class ExportSql extends ExportPlugin
     public function exportMetadata(
         $db,
         $tables,
-        $metadataTypes
+        array $metadataTypes
     ) {
         $cfgRelation = Relation::getRelationsParam();
         if (!isset($cfgRelation['db'])) {
@@ -1048,7 +1048,7 @@ class ExportSql extends ExportPlugin
     private function _exportMetadata(
         $db,
         $table,
-        $metadataTypes
+        array $metadataTypes
     ) {
         $cfgRelation = Relation::getRelationsParam();
 
@@ -1274,7 +1274,7 @@ class ExportSql extends ExportPlugin
         $view,
         $crlf,
         $add_semicolon = true,
-        $aliases = array()
+        array $aliases = array()
     ) {
         $db_alias = $db;
         $view_alias = $view;
@@ -1368,7 +1368,7 @@ class ExportSql extends ExportPlugin
         $add_semicolon = true,
         $view = false,
         $update_indexes_increments = true,
-        $aliases = array()
+        array $aliases = array()
     ) {
         global $sql_drop_table, $sql_backquotes, $sql_constraints,
                $sql_constraints_query, $sql_indexes, $sql_indexes_query,
@@ -1828,7 +1828,7 @@ class ExportSql extends ExportPlugin
         $crlf,
         $do_relation = false,
         $do_mime = false,
-        $aliases = array()
+        array $aliases = array()
     ) {
         global $cfgRelation, $sql_backquotes;
 
@@ -1978,7 +1978,7 @@ class ExportSql extends ExportPlugin
         $comments = false,
         $mime = false,
         $dates = false,
-        $aliases = array()
+        array $aliases = array()
     ) {
         $db_alias = $db;
         $table_alias = $table;
@@ -2152,7 +2152,7 @@ class ExportSql extends ExportPlugin
         $crlf,
         $error_url,
         $sql_query,
-        $aliases = array()
+        array $aliases = array()
     ) {
         global $current_row, $sql_backquotes;
 
@@ -2646,7 +2646,7 @@ class ExportSql extends ExportPlugin
      */
     public function replaceWithAliases(
         $sql_query,
-        $aliases,
+        array $aliases,
         $db,
         $table = '',
         &$flag = null

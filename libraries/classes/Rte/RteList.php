@@ -32,7 +32,7 @@ class RteList
      *
      * @return string HTML code of the list of items
      */
-    public static function get($type, $items)
+    public static function get($type, array $items)
     {
         global $table;
 
@@ -189,7 +189,7 @@ class RteList
      *
      * @return string HTML code of a row for the list of routines
      */
-    public static function getRoutineRow($routine, $rowclass = '')
+    public static function getRoutineRow(array $routine, $rowclass = '')
     {
         global $ajax_class, $url_query, $db, $titles;
 
@@ -342,7 +342,7 @@ class RteList
      *
      * @return string HTML code of a cell for the list of triggers
      */
-    public static function getTriggerRow($trigger, $rowclass = '')
+    public static function getTriggerRow(array $trigger, $rowclass = '')
     {
         global $ajax_class, $url_query, $db, $table, $titles;
 
@@ -421,7 +421,7 @@ class RteList
      *
      * @return string HTML code of a cell for the list of events
      */
-    public static function getEventRow($event, $rowclass = '')
+    public static function getEventRow(array $event, $rowclass = '')
     {
         global $ajax_class, $url_query, $db, $titles;
 

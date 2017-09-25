@@ -54,8 +54,8 @@ class ServerCollationsController extends Controller
      *
      * @return string
      */
-    function _getHtmlForCharsets($mysqlCharsets, $mysqlCollations,
-        $mysqlCharsetsDesc, $mysqlDftCollations
+    function _getHtmlForCharsets(array $mysqlCharsets, array $mysqlCollations,
+        array $mysqlCharsetsDesc, array $mysqlDftCollations
     ) {
         return Template::get('server/collations/charsets')->render(
             array(

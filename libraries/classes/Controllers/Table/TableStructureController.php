@@ -1067,7 +1067,7 @@ class TableStructureController extends TableController
      * @return boolean $changed  boolean whether at least one column privileges
      * adjusted
      */
-    protected function adjustColumnPrivileges($adjust_privileges)
+    protected function adjustColumnPrivileges(array $adjust_privileges)
     {
         $changed = false;
 
@@ -1155,8 +1155,8 @@ class TableStructureController extends TableController
      * @return string
      */
     protected function displayStructure(
-        $cfgRelation, $columns_with_unique_index, $url_params,
-        $primary_index, $fields, $columns_with_index
+        array $cfgRelation, array $columns_with_unique_index, $url_params,
+        $primary_index, array $fields, array $columns_with_index
     ) {
         /* TABLE INFORMATION */
         $HideStructureActions = '';

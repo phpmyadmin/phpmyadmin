@@ -96,7 +96,7 @@ class Relation
      *
      * @return string
      */
-    public static function getRelationsParamDiagnostic($cfgRelation)
+    public static function getRelationsParamDiagnostic(array $cfgRelation)
     {
         $retval = '<br>';
 
@@ -409,7 +409,7 @@ class Relation
      * @return string
      */
     public static function getDiagMessageForFeature($feature_name,
-        $relation_parameter, $messages, $skip_line = true
+        $relation_parameter, array $messages, $skip_line = true
     ) {
         $retval = '    <tr><td colspan=2 class="right">' . $feature_name . ': ';
         if (isset($GLOBALS['cfgRelation'][$relation_parameter])
@@ -437,7 +437,7 @@ class Relation
      * @return string
      */
     public static function getDiagMessageForParameter($parameter,
-        $relationParameterSet, $messages, $docAnchor
+        $relationParameterSet, array $messages, $docAnchor
     ) {
         $retval = '<tr><th class="left">';
         $retval .= '$cfg[\'Servers\'][$i][\'' . $parameter . '\']  ... ';
@@ -1206,7 +1206,7 @@ class Relation
      *
      * @access  protected
      */
-    public static function buildForeignDropdown($foreign, $data, $mode)
+    public static function buildForeignDropdown(array $foreign, $data, $mode)
     {
         $reloptions = array();
 
@@ -1279,7 +1279,7 @@ class Relation
      *
      * @access  public
      */
-    public static function foreignDropdown($disp_row, $foreign_field, $foreign_display, $data,
+    public static function foreignDropdown(array $disp_row, $foreign_field, $foreign_display, $data,
         $max = null
     ) {
         if (null === $max) {
@@ -1699,7 +1699,7 @@ class Relation
      *
      * @return int $pdf_page_number
      */
-    public static function createPage($newpage, $cfgRelation, $db)
+    public static function createPage($newpage, array $cfgRelation, $db)
     {
         if (! isset($newpage) || $newpage == '') {
             $newpage = __('no description');
@@ -1754,11 +1754,11 @@ class Relation
     /**
      * Check child table references and foreign key for a table column.
      *
-     * @param string $db                    name of master table db.
-     * @param string $table                 name of master table.
-     * @param string $column                name of master table column.
-     * @param array  $foreigners_full       foreiners array for the whole table.
-     * @param array  $child_references_full child references for the whole table.
+     * @param string     $db                    name of master table db.
+     * @param string     $table                 name of master table.
+     * @param string     $column                name of master table column.
+     * @param array|null $foreigners_full       foreiners array for the whole table.
+     * @param array|null $child_references_full child references for the whole table.
      *
      * @return array $column_status telling about references if foreign key.
      */
@@ -1825,7 +1825,7 @@ class Relation
      *
      * @return bool|array
      */
-    public static function searchColumnInForeigners($foreigners, $column)
+    public static function searchColumnInForeigners(array $foreigners, $column)
     {
         if (isset($foreigners[$column])) {
             return $foreigners[$column];

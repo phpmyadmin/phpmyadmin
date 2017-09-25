@@ -171,7 +171,7 @@ class Table
     /**
      * Checks the storage engine used to create table
      *
-     * @param array or string $engine Checks the table engine against an
+     * @param array|string $engine Checks the table engine against an
      * array of engine strings or a single string, should be uppercase
      *
      * @return bool True, if $engine matches the storage engine for the table,
@@ -764,8 +764,8 @@ class Table
      *
      * @return int|boolean
      */
-    static public function duplicateInfo($work, $pma_table, $get_fields,
-        $where_fields, $new_fields
+    static public function duplicateInfo($work, $pma_table, array $get_fields,
+        array $where_fields, array $new_fields
     ) {
         $last_id = -1;
 
@@ -1563,7 +1563,7 @@ class Table
      *
      * @return array
      */
-    private function _formatColumns($indexed, $backquoted, $fullName)
+    private function _formatColumns(array $indexed, $backquoted, $fullName)
     {
         $return = array();
         foreach ($indexed as $column) {
@@ -2123,7 +2123,7 @@ class Table
      *
      * @return boolean True on update succeed or False on failure
      */
-    public function updateDisplayField($display_field, $cfgRelation)
+    public function updateDisplayField($display_field, array $cfgRelation)
     {
         $upd_query = false;
         if ($display_field == '') {
@@ -2168,9 +2168,9 @@ class Table
      *
      * @return boolean
      */
-    public function updateInternalRelations($multi_edit_columns_name,
-        $destination_db, $destination_table, $destination_column,
-        $cfgRelation, $existrel
+    public function updateInternalRelations(array $multi_edit_columns_name,
+        array $destination_db, array $destination_table, array $destination_column,
+        array $cfgRelation, $existrel
     ) {
         $updated = false;
         foreach ($destination_db as $master_field_md5 => $foreign_db) {
@@ -2255,9 +2255,9 @@ class Table
      *
      * @return array
      */
-    public function updateForeignKeys($destination_foreign_db,
-        $multi_edit_columns_name, $destination_foreign_table,
-        $destination_foreign_column, $options_array, $table, $existrel_foreign
+    public function updateForeignKeys(array $destination_foreign_db,
+        array $multi_edit_columns_name, array $destination_foreign_table,
+        array $destination_foreign_column, array $options_array, $table, array $existrel_foreign
     ) {
         $html_output = '';
         $preview_sql_data = '';
@@ -2449,10 +2449,10 @@ class Table
      */
     private function _getSQLToCreateForeignKey(
         $table,
-        $field,
+        array $field,
         $foreignDb,
         $foreignTable,
-        $foreignField,
+        array $foreignField,
         $name = null,
         $onDelete = null,
         $onUpdate = null

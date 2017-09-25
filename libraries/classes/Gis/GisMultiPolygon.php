@@ -98,7 +98,7 @@ class GisMultiPolygon extends GisGeometry
         $spatial,
         $label,
         $fill_color,
-        $scale_data,
+        array $scale_data,
         $image
     ) {
         // allocate colors
@@ -173,7 +173,7 @@ class GisMultiPolygon extends GisGeometry
      * @return TCPDF the modified TCPDF instance
      * @access public
      */
-    public function prepareRowAsPdf($spatial, $label, $fill_color, $scale_data, $pdf)
+    public function prepareRowAsPdf($spatial, $label, $fill_color, array $scale_data, $pdf)
     {
         // allocate colors
         $red = hexdec(mb_substr($fill_color, 1, 2));
@@ -241,7 +241,7 @@ class GisMultiPolygon extends GisGeometry
      * @return string the code related to a row in the GIS dataset
      * @access public
      */
-    public function prepareRowAsSvg($spatial, $label, $fill_color, $scale_data)
+    public function prepareRowAsSvg($spatial, $label, $fill_color, array $scale_data)
     {
         $polygon_options = array(
             'name'         => $label,
@@ -307,7 +307,7 @@ class GisMultiPolygon extends GisGeometry
      * @return string JavaScript related to a row in the GIS dataset
      * @access public
      */
-    public function prepareRowAsOl($spatial, $srid, $label, $fill_color, $scale_data)
+    public function prepareRowAsOl($spatial, $srid, $label, $fill_color, array $scale_data)
     {
         $style_options = array(
             'strokeColor' => '#000000',
@@ -349,7 +349,7 @@ class GisMultiPolygon extends GisGeometry
      * @return string the code to draw the ring
      * @access private
      */
-    private function _drawPath($polygon, $scale_data)
+    private function _drawPath($polygon, array $scale_data)
     {
         $points_arr = $this->extractPoints($polygon, $scale_data);
 
@@ -373,7 +373,7 @@ class GisMultiPolygon extends GisGeometry
      * @return string WKT with the set of parameters passed by the GIS editor
      * @access public
      */
-    public function generateWkt($gis_data, $index, $empty = '')
+    public function generateWkt(array $gis_data, $index, $empty = '')
     {
         $data_row = $gis_data[$index]['MULTIPOLYGON'];
 
@@ -441,7 +441,7 @@ class GisMultiPolygon extends GisGeometry
      * @return string the WKT for the data from ESRI shape files
      * @access public
      */
-    public function getShape($row_data)
+    public function getShape(array $row_data)
     {
         // Determines whether each line ring is an inner ring or an outer ring.
         // If it's an inner ring get a point on the surface which can be used to

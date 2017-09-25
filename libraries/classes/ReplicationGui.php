@@ -147,7 +147,7 @@ class ReplicationGui
      * @return String HTML code
      */
     public static function getHtmlForSlaveConfiguration(
-        $server_slave_status, $server_slave_replication
+        $server_slave_status, array $server_slave_replication
     ) {
         $html  = '<fieldset>';
         $html .= '<legend>' . __('Slave replication') . '</legend>';
@@ -487,7 +487,7 @@ class ReplicationGui
      *
      * @return String HTML code
      */
-    public static function getHtmlForAddUserInputDiv($label_array, $input_array)
+    public static function getHtmlForAddUserInputDiv(array $label_array, array $input_array)
     {
         $html  = '  <div class="item">';
         $html .= '     <label for="' . $label_array['for'] . '">';

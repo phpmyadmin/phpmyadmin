@@ -122,7 +122,7 @@ class Advisor
      *
      * @return Advisor
      */
-    public function setVariables($variables)
+    public function setVariables(array $variables)
     {
         $this->variables = $variables;
 
@@ -161,7 +161,7 @@ class Advisor
      *
      * @return Advisor
      */
-    public function setParseResult($parseResult)
+    public function setParseResult(array $parseResult)
     {
         $this->parseResult = $parseResult;
 
@@ -185,7 +185,7 @@ class Advisor
      *
      * @return Advisor
      */
-    public function setRunResult($runResult)
+    public function setRunResult(array $runResult)
     {
         $this->runResult = $runResult;
 
@@ -357,7 +357,7 @@ class Advisor
      *
      * @return string[]
      */
-    public static function splitJustification($rule)
+    public static function splitJustification(array $rule)
     {
         $jst = preg_split('/\s*\|\s*/', $rule['justification'], 2);
         if (count($jst) > 1) {
@@ -374,7 +374,7 @@ class Advisor
      *
      * @return void
      */
-    public function addRule($type, $rule)
+    public function addRule($type, array $rule)
     {
         switch ($type) {
         case 'notfired':
@@ -430,7 +430,7 @@ class Advisor
      *
      * @return string Replacement value
      */
-    private function replaceLinkURL($matches)
+    private function replaceLinkURL(array $matches)
     {
         return 'href="' . Core::linkURL($matches[2]) . '" target="_blank" rel="noopener noreferrer"';
     }
@@ -442,7 +442,7 @@ class Advisor
      *
      * @return string Replacement value
      */
-    private function replaceVariable($matches)
+    private function replaceVariable(array $matches)
     {
         return '<a href="server_variables.php' . Url::getCommon(array('filter' => $matches[1]))
                 . '">' . htmlspecialchars($matches[1]) . '</a>';

@@ -27,20 +27,20 @@ class MultSubmits
     /**
      * Gets url params
      *
-     * @param string $what               mult submit type
-     * @param bool   $reload             is reload
-     * @param string $action             action type
-     * @param string $db                 database name
-     * @param string $table              table name
-     * @param array  $selected           selected rows(table,db)
-     * @param array  $views              table views
-     * @param string $original_sql_query original sql query
-     * @param string $original_url_query original url query
+     * @param string     $what               mult submit type
+     * @param bool       $reload             is reload
+     * @param string     $action             action type
+     * @param string     $db                 database name
+     * @param string     $table              table name
+     * @param array      $selected           selected rows(table,db)
+     * @param array|null $views              table views
+     * @param string     $original_sql_query original sql query
+     * @param string     $original_url_query original url query
      *
      * @return array
      */
     public static function getUrlParams(
-        $what, $reload, $action, $db, $table, $selected, $views,
+        $what, $reload, $action, $db, $table, array $selected, $views,
         $original_sql_query, $original_url_query
     ) {
         $_url_params = array(
@@ -82,19 +82,19 @@ class MultSubmits
     /**
      * Builds or execute queries for multiple elements, depending on $query_type
      *
-     * @param string $query_type  query type
-     * @param array  $selected    selected tables
-     * @param string $db          db name
-     * @param string $table       table name
-     * @param array  $views       table views
-     * @param string $primary     table primary
-     * @param string $from_prefix from prefix original
-     * @param string $to_prefix   to prefix original
+     * @param string     $query_type  query type
+     * @param array      $selected    selected tables
+     * @param string     $db          db name
+     * @param string     $table       table name
+     * @param array|null $views       table views
+     * @param string     $primary     table primary
+     * @param string     $from_prefix from prefix original
+     * @param string     $to_prefix   to prefix original
      *
      * @return array
      */
     public static function buildOrExecuteQueryForMulti(
-        $query_type, $selected, $db, $table, $views, $primary,
+        $query_type, array $selected, $db, $table, $views, $primary,
         $from_prefix, $to_prefix
     ) {
         $rebuild_database_list = false;
@@ -337,7 +337,7 @@ class MultSubmits
      *
      * @return string
      */
-    public static function getHtmlForCopyMultipleTables($action, $_url_params)
+    public static function getHtmlForCopyMultipleTables($action, array $_url_params)
     {
         $html = '<form id="ajax_form" action="' . $action . '" method="post">';
         $html .= Url::getHiddenInputs($_url_params);
@@ -382,7 +382,7 @@ class MultSubmits
      *
      * @return string
      */
-    public static function getHtmlForReplacePrefixTable($action, $_url_params)
+    public static function getHtmlForReplacePrefixTable($action, array $_url_params)
     {
         $html  = '<form id="ajax_form" action="' . $action . '" method="post">';
         $html .= Url::getHiddenInputs($_url_params);
@@ -416,7 +416,7 @@ class MultSubmits
      *
      * @return string
      */
-    public static function getHtmlForAddPrefixTable($action, $_url_params)
+    public static function getHtmlForAddPrefixTable($action, array $_url_params)
     {
         $html  = '<form id="ajax_form" action="' . $action . '" method="post">';
         $html .= Url::getHiddenInputs($_url_params);
@@ -447,7 +447,7 @@ class MultSubmits
      *
      * @return string
      */
-    public static function getHtmlForOtherActions($what, $action, $_url_params, $full_query)
+    public static function getHtmlForOtherActions($what, $action, array $_url_params, $full_query)
     {
         $html = '<form action="' . $action . '" method="post">';
         $html .= Url::getHiddenInputs($_url_params);
@@ -487,7 +487,7 @@ class MultSubmits
      *
      * @return array
      */
-    public static function getQueryFromSelected($what, $table, $selected, $views)
+    public static function getQueryFromSelected($what, $table, array $selected, array $views)
     {
         $reload = false;
         $full_query_views = null;
