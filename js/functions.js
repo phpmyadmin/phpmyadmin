@@ -3526,8 +3526,9 @@ AJAX.registerOnload('functions.js', function () {
             });
             // get the Length/Values text field where this value belongs
             var values_id = $(this).find("input[type='hidden']").val();
-            $("input#" + values_id).val(value_array.join(","));
+            $("input#" + values_id).attr("value", value_array.join(","));
             $(this).dialog("close");
+            defaultEnumPopulate();
         };
         buttonOptions[PMA_messages.strClose] = function () {
             $(this).dialog("close");
