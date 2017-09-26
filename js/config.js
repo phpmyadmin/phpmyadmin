@@ -120,7 +120,8 @@ function setFieldValue (field, field_type, value) {
         break;
     case 'select':
         var options = $field.prop('options');
-        var i, imax = options.length;
+        var i;
+        var imax = options.length;
         if (value === undefined) {
             for (i = 0; i < imax; i++) {
                 options[i].selected = options[i].defaultSelected;
@@ -157,7 +158,9 @@ function getFieldValue (field, field_type) {
         return $field.prop('checked');
     case 'select':
         var options = $field.prop('options');
-        var i, imax = options.length, items = [];
+        var i;
+        var imax = options.length;
+        var items = [];
         for (i = 0; i < imax; i++) {
             if (options[i].selected) {
                 items.push(options[i].value);
@@ -174,7 +177,8 @@ function getFieldValue (field, field_type) {
 function getAllValues () {
     var $elements = $('fieldset input, fieldset select, fieldset textarea');
     var values = {};
-    var type, value;
+    var type;
+    var value;
     for (var i = 0; i < $elements.length; i++) {
         type = getFieldType($elements[i]);
         value = getFieldValue($elements[i], type);
@@ -452,7 +456,8 @@ function validate_fieldset (fieldset, isKeyUp, errors) {
  * @param {Object}  errors
  */
 function validate_field (field, isKeyUp, errors) {
-    var args, result;
+    var args;
+    var result;
     var $field = $(field);
     var field_id = $field.attr('id');
     errors[field_id] = [];

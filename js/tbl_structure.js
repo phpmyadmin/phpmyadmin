@@ -139,7 +139,13 @@ AJAX.registerOnload('tbl_structure.js', function () {
         }
 
         function checkIfConfirmRequired ($form, $field_cnt) {
-            var i = 0, id, elm, val, name_orig, elm_orig, val_orig;
+            var i = 0;
+            var id;
+            var elm;
+            var val;
+            var name_orig;
+            var elm_orig;
+            var val_orig;
             var checkRequired = false;
             for (i = 0; i < field_cnt; i++) {
                 id = '#field_' + i + '_5';

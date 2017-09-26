@@ -129,7 +129,8 @@ PMA_MicroHistory = {
          * @return int
          */
         size: function (obj) {
-            var size = 0, key;
+            var size = 0;
+            var key;
             for (key in obj) {
                 if (obj.hasOwnProperty(key)) {
                     size++;
@@ -152,7 +153,9 @@ PMA_MicroHistory = {
         add: function (hash, content) {
             if (this.size(this.data) > PMA_MicroHistory.MAX) {
                 // when the cache grows, we remove the oldest entry
-                var oldest, key, init = 0;
+                var oldest;
+                var key;
+                var init = 0;
                 for (var i in this.data) {
                     if (this.data[i]) {
                         if (! init || this.data[i].timestamp.getTime() < oldest.getTime()) {

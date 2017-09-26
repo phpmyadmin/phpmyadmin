@@ -646,7 +646,8 @@ AJAX.registerOnload('indexes.js', function () {
     **/
     $(document).on('click', '#table_index tbody tr td.edit_index.ajax, #index_div .add_index.ajax', function (event) {
         event.preventDefault();
-        var url, title;
+        var url;
+        var title;
         if ($(this).find('a').length === 0) {
             // Add index
             var valid = checkFormElementInRange(

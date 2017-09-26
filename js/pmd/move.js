@@ -2,12 +2,6 @@
 /**
  * @package PhpMyAdmin-Designer
  */
-
-/**
- * init
- */
-
-
 var _change = 0; // variable to track any change in designer layout.
 var _staying = 0; //  variable to check if the user stayed after seeing the confirmation prompt.
 var show_relation_lines = true;
@@ -49,10 +43,13 @@ function MarkUnsaved () {
     $('#saved_state').text('*');
 }
 
-var dx, dy, dy2;
+var dx;
+var dy;
+var dy2;
 var cur_click = null;
 // update in Main()
-var sm_x = 2, sm_y = 2;
+var sm_x = 2;
+var sm_y = 2;
 var sm_s           = 0;
 var sm_add         = 10;
 var s_left         = 0;
@@ -70,7 +67,8 @@ var canvas_height  = 0;
 var osn_tab_width  = 0;
 var osn_tab_height = 0;
 var height_field   = 7;
-var Glob_X, Glob_Y;
+var Glob_X;
+var Glob_Y;
 var timeoutID;
 var layer_menu_cur_click = 0;
 var step = 10;
@@ -1375,8 +1373,17 @@ function Canvas_click (id, event) {
     var relation_name = 0;
     var selected = 0;
     var a = [];
-    var Key0, Key1, Key2, Key3, Key, x1, x2;
-    var K, key, key2, key3;
+    var Key0;
+    var Key1;
+    var Key2;
+    var Key3;
+    var Key;
+    var x1;
+    var x2;
+    var K;
+    var key;
+    var key2;
+    var key3;
     var Local_X = isIE ? event.clientX + document.body.scrollLeft : event.pageX;
     var Local_Y = isIE ? event.clientY + document.body.scrollTop : event.pageY;
     Local_X -= $('#osn_tab').offset().left;
@@ -1534,7 +1541,10 @@ function in_array_k (x, m) {
 
 function No_have_constr (id_this) {
     var a = [];
-    var K, key, key2, key3;
+    var K;
+    var key;
+    var key2;
+    var key3;
     for (K in contr) {
         for (key in contr[K]) {
             // contr name
@@ -1809,7 +1819,8 @@ function store_column (id_this, owner, col) {
 **/
 
 function add_object () {
-    var p, where_obj;
+    var p;
+    var where_obj;
     var rel = document.getElementById('rel_opt');
     var sum = 0;
     var init = history_array.length;

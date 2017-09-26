@@ -293,8 +293,10 @@ JQPlotLineChart.prototype.populateOptions = function (dataTable, options) {
 };
 
 JQPlotLineChart.prototype.prepareData = function (dataTable) {
-    var data = dataTable.getData(), row;
-    var retData = [], retRow;
+    var data = dataTable.getData();
+    var row;
+    var retData = [];
+    var retRow;
     for (var i = 0; i < data.length; i++) {
         row = data[i];
         for (var j = 1; j < row.length; j++) {
@@ -389,8 +391,10 @@ JQPlotScatterChart.prototype.populateOptions = function (dataTable, options) {
 };
 
 JQPlotScatterChart.prototype.prepareData = function (dataTable) {
-    var data = dataTable.getData(), row;
-    var retData = [], retRow;
+    var data = dataTable.getData();
+    var row;
+    var retData = [];
+    var retRow;
     for (var i = 0; i < data.length; i++) {
         row = data[i];
         if (row[0]) {
@@ -443,8 +447,11 @@ JQPlotTimelineChart.prototype.populateOptions = function (dataTable, options) {
 };
 
 JQPlotTimelineChart.prototype.prepareData = function (dataTable) {
-    var data = dataTable.getData(), row, d;
-    var retData = [], retRow;
+    var data = dataTable.getData();
+    var row;
+    var d;
+    var retData = [];
+    var retRow;
     for (var i = 0; i < data.length; i++) {
         row = data[i];
         d = row[0];
@@ -620,7 +627,8 @@ JQPlotPieChart.prototype.populateOptions = function (dataTable, options) {
 };
 
 JQPlotPieChart.prototype.prepareData = function (dataTable) {
-    var data = dataTable.getData(), row;
+    var data = dataTable.getData();
+    var row;
     var retData = [];
     for (var i = 0; i < data.length; i++) {
         row = data[i];

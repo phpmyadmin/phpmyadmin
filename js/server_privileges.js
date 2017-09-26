@@ -409,11 +409,11 @@ AJAX.registerOnload('server_privileges.js', function () {
      * Create submenu for simpler interface
      */
     var addOrUpdateSubmenu = function () {
-        var $topmenu2 = $('#topmenu2'),
-            $edit_user_dialog = $('#edit_user_dialog'),
-            submenu_label,
-            submenu_link,
-            link_number;
+        var $topmenu2 = $('#topmenu2');
+        var $edit_user_dialog = $('#edit_user_dialog');
+        var submenu_label;
+        var submenu_link;
+        var link_number;
 
         // if submenu exists yet, remove it first
         if ($topmenu2.length > 0) {

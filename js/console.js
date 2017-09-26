@@ -1269,7 +1269,8 @@ PMA_consoleDebug = {
         $traceElem.append(
             $('<div class="message welcome">')
         );
-        var step, $stepElem;
+        var step;
+        var $stepElem;
         for (var stepId in dbgTrace) {
             if (dbgTrace.hasOwnProperty(stepId)) {
                 step = dbgTrace[stepId];
@@ -1317,7 +1318,11 @@ PMA_consoleDebug = {
         return $traceElem;
     },
     _formatQueryOrGroup: function (queryInfo, totalTime) {
-        var grouped, queryText, queryTime, count, i;
+        var grouped;
+        var queryText;
+        var queryTime;
+        var count;
+        var i;
         if (Array.isArray(queryInfo)) {
             // It is grouped
             grouped = true;
@@ -1390,7 +1395,8 @@ PMA_consoleDebug = {
         $('#debug_console').find('.debugLog').empty();
         $('#debug_console').find('.debug>.welcome').empty();
 
-        var debugJson = false, i;
+        var debugJson = false;
+        var i;
         if (typeof debugInfo === 'object' && 'queries' in debugInfo) {
             // Copy it to debugJson, so that it doesn't get changed
             if (!('queries' in debugInfo)) {
@@ -1432,7 +1438,8 @@ PMA_consoleDebug = {
             uniqueQueries[allQueries[i].hash].push(allQueries[i]);
         }
         // Count total unique queries, convert uniqueQueries to Array
-        var totalUnique = 0, uniqueArray = [];
+        var totalUnique = 0;
+        var uniqueArray = [];
         for (var hash in uniqueQueries) {
             if (uniqueQueries.hasOwnProperty(hash)) {
                 ++totalUnique;
@@ -1462,7 +1469,9 @@ PMA_consoleDebug = {
             var order = ((PMA_consoleDebug.configParam('order') === 'asc') ? 1 : -1);
             if (Array.isArray(a) && Array.isArray(b)) {
                 // It is grouped
-                var timeA = 0, timeB = 0, i;
+                var timeA = 0;
+                var timeB = 0;
+                var i;
                 for (i in a) {
                     timeA += a[i].time;
                 }

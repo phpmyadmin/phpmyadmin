@@ -45,7 +45,9 @@ var AJAX = {
     hash: function (key) {
         /* http://burtleburtle.net/bob/hash/doobs.html#one */
         key += '';
-        var len = key.length, hash = 0, i = 0;
+        var len = key.length;
+        var hash = 0;
+        var i = 0;
         for (; i < len; ++i) {
             hash += key.charCodeAt(i);
             hash += (hash << 10);

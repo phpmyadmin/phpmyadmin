@@ -1030,7 +1030,8 @@ function PMA_selectCurrentDb () {
 function PMA_navigationTreePagination ($this) {
     var $msgbox = PMA_ajaxShowMessage();
     var isDbSelector = $this.closest('div.pageselector').is('.dbselector');
-    var url, params;
+    var url;
+    var params;
     if ($this[0].tagName === 'A') {
         url = $this.attr('href');
         params = 'ajax_request=true';
@@ -1264,10 +1265,10 @@ var ResizeHandler = function () {
      * @return void
      */
     this.treeResize = function (event) {
-        var $nav        = $('#pma_navigation'),
-            $nav_tree   = $('#pma_navigation_tree'),
-            $nav_header = $('#pma_navigation_header'),
-            $nav_tree_content = $('#pma_navigation_tree_content');
+        var $nav        = $('#pma_navigation');
+        var $nav_tree   = $('#pma_navigation_tree');
+        var $nav_header = $('#pma_navigation_header');
+        var $nav_tree_content = $('#pma_navigation_tree_content');
         $nav_tree.height($nav.height() - $nav_header.height());
         if ($nav_tree_content.length > 0) {
             $nav_tree_content.height($nav_tree.height() - $nav_tree_content.position().top);

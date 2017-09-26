@@ -10,7 +10,8 @@ var dateTimeCols = [];
 var numericCols = [];
 
 function extractDate (dateString) {
-    var matches, match;
+    var matches;
+    var match;
     var dateTimeRegExp = /[0-9]{4}-[0-9]{2}-[0-9]{2} [0-9]{2}:[0-9]{2}:[0-9]{2}/;
     var dateRegExp = /[0-9]{4}-[0-9]{2}-[0-9]{2}/;
 
@@ -87,7 +88,10 @@ function PMA_queryChart (data, columnNames, settings) {
         $.each(settings.selectedSeries, function (index, element) {
             columnsToExtract.push(element);
         });
-        var values = [], newRow, row, col;
+        var values = [];
+        var newRow;
+        var row;
+        var col;
         for (i = 0; i < data.length; i++) {
             row = data[i];
             newRow = [];
@@ -109,7 +113,8 @@ function PMA_queryChart (data, columnNames, settings) {
         }
         dataTable.setData(values);
     } else {
-        var seriesNames = {}, seriesNumber = 1;
+        var seriesNames = {};
+        var seriesNumber = 1;
         var seriesColumnName = columnNames[settings.seriesColumn];
         for (i = 0; i < data.length; i++) {
             if (! seriesNames[data[i][seriesColumnName]]) {
@@ -122,7 +127,9 @@ function PMA_queryChart (data, columnNames, settings) {
             dataTable.addColumn(ColumnType.NUMBER, seriesName);
         });
 
-        var valueMap = {}, xValue, value;
+        var valueMap = {};
+        var xValue;
+        var value;
         var mainAxisName = columnNames[settings.mainAxis];
         var valueColumnName = columnNames[settings.valueColumn];
         for (i = 0; i < data.length; i++) {

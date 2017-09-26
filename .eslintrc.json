@@ -28,7 +28,7 @@
         "no-unneeded-ternary": "error",
         "no-useless-escape": "warn",
         "object-curly-spacing": ["error", "always"],
-        "one-var": ["warn", "never"],
+        "one-var": ["error", "never"],
         "padded-blocks": ["error", "never"],
         "quotes": ["error", "single"],
         "semi": "error",

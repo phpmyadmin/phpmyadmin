@@ -846,7 +846,12 @@ function checkTableEditForm (theForm, fieldsCnt) {
     // on the form but has not completed at least one field name
 
     var atLeastOneField = 0;
-    var i, elm, elm2, elm3, val, id;
+    var i;
+    var elm;
+    var elm2;
+    var elm3;
+    var val;
+    var id;
 
     for (i = 0; i < fieldsCnt; i++) {
         id = '#field_' + i + '_2';
@@ -1035,7 +1040,8 @@ AJAX.registerOnload('functions.js', function () {
         } else {
             // handle the shift click
             PMA_clearSelection();
-            var start, end;
+            var start;
+            var end;
 
             // clear last shift click result
             if (last_shift_clicked_row >= 0) {
@@ -2191,7 +2197,8 @@ function PMA_updateCode ($base, htmlValue, rawValue) {
     }
 
     // Determines the type of the content and appropriate CodeMirror mode.
-    var type = '', mode = '';
+    var type = '';
+    var mode = '';
     if  ($code.hasClass('json')) {
         type = 'json';
         mode = 'application/json';
@@ -2586,7 +2593,8 @@ function PMA_SQLPrettyPrint (string) {
     var mode = CodeMirror.getMode({}, 'text/x-mysql');
     var stream = new CodeMirror.StringStream(string);
     var state = mode.startState();
-    var token, tokens = [];
+    var token;
+    var tokens = [];
     var output = '';
     var tabs = function (cnt) {
         var ret = '';
@@ -2627,11 +2635,13 @@ function PMA_SQLPrettyPrint (string) {
     // Holds the type of block from last iteration (the current is in blockStack[0])
     var previousBlock;
     // If a new code block is found, newBlock contains its type for one iteration and vice versa for endBlock
-    var newBlock, endBlock;
+    var newBlock;
+    var endBlock;
     // How much to indent in the current line
     var indentLevel = 0;
     // Holds the "root-level" statements
-    var statementPart, lastStatementPart = statements[currentStatement][0];
+    var statementPart;
+    var lastStatementPart = statements[currentStatement][0];
 
     blockStack.unshift('statement');
 
@@ -3384,7 +3394,9 @@ AJAX.registerOnload('functions.js', function () {
         // slashes on the fly, into an array
         var values = [];
         var in_string = false;
-        var curr, next, buffer = '';
+        var curr;
+        var next;
+        var buffer = '';
         for (i = 0; i < inputstring.length; i++) {
             curr = inputstring.charAt(i);
             next = i === inputstring.length ? '' : inputstring.charAt(i + 1);
@@ -4027,7 +4039,10 @@ var toggleButton = function ($obj) {
         var $msg = PMA_ajaxShowMessage();
         var $container = $(this);
         var callback = $('span.callback', this).text();
-        var operator, url, removeClass, addClass;
+        var operator;
+        var url;
+        var removeClass;
+        var addClass;
         // Perform the actual toggle
         if ($(this).hasClass('on')) {
             if (right === 'right') {

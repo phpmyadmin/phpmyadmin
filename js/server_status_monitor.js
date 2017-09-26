@@ -1,10 +1,10 @@
 /* vim: set expandtab sw=4 ts=4 sts=4: */
-var runtime = {},
-    server_time_diff,
-    server_os,
-    is_superuser,
-    server_db_isLocal,
-    chartSize;
+var runtime = {};
+var server_time_diff;
+var server_os;
+var is_superuser;
+var server_db_isLocal;
+var chartSize;
 AJAX.registerOnload('server_status_monitor.js', function () {
     var $js_data_form = $('#js_data');
     server_time_diff  = new Date().getTime() - $js_data_form.find('input[name=server_time]').val();
@@ -186,7 +186,10 @@ AJAX.registerOnload('server_status_monitor.js', function () {
 
     // time span selection
     var selectionTimeDiff = [];
-    var selectionStartX, selectionStartY, selectionEndX, selectionEndY;
+    var selectionStartX;
+    var selectionStartY;
+    var selectionEndX;
+    var selectionEndY;
     var drawTimeSpan = false;
 
     // chart tooltip
@@ -691,7 +694,9 @@ AJAX.registerOnload('server_status_monitor.js', function () {
                     } else {
                         return serverResponseError();
                     }
-                    var icon = PMA_getImage('s_success.png'), msg = '', str = '';
+                    var icon = PMA_getImage('s_success.png');
+                    var msg = '';
+                    var str = '';
 
                     if (logVars.general_log === 'ON') {
                         if (logVars.slow_query_log === 'ON') {
@@ -1360,7 +1365,8 @@ AJAX.registerOnload('server_status_monitor.js', function () {
             } else {
                 return serverResponseError();
             }
-            var value, i = 0;
+            var value;
+            var i = 0;
             var diff;
             var total;
 
@@ -1674,7 +1680,8 @@ AJAX.registerOnload('server_status_monitor.js', function () {
          *                to group queries ignoring data in WHERE clauses
         */
         function filterQueries (varFilterChange) {
-            var cell, textFilter;
+            var cell;
+            var textFilter;
             var val = $('#filterQueryText').val();
 
             if (val.length === 0) {
@@ -1691,12 +1698,17 @@ AJAX.registerOnload('server_status_monitor.js', function () {
                 }
             }
 
-            var rowSum = 0, totalSum = 0, i = 0, q;
+            var rowSum = 0;
+            var totalSum = 0;
+            var i = 0;
+            var q;
             var noVars = $('#noWHEREData').prop('checked');
             var equalsFilter = /([^=]+)=(\d+|((\'|"|).*?[^\\])\4((\s+)|$))/gi;
             var functionFilter = /([a-z0-9_]+)\(.+?\)/gi;
-            var filteredQueries = {}, filteredQueriesLines = {};
-            var hide = false, rowData;
+            var filteredQueries = {};
+            var filteredQueriesLines = {};
+            var hide = false;
+            var rowData;
             var queryColumnName = runtime.logDataCols[runtime.logDataCols.length - 2];
             var sumColumnName = runtime.logDataCols[runtime.logDataCols.length - 1];
             var isSlowLog = opts.src === 'slow';
@@ -1784,7 +1796,9 @@ AJAX.registerOnload('server_status_monitor.js', function () {
             // We finished summarizing counts => Update count values of all grouped entries
             if (varFilterChange) {
                 if (noVars) {
-                    var numCol, row, $table = $('#logTable').find('table tbody');
+                    var numCol;
+                    var row;
+                    var $table = $('#logTable').find('table tbody');
                     $.each(filteredQueriesLines, function (key, value) {
                         if (filteredQueries[key] <= 1) {
                             return;
@@ -1848,7 +1862,9 @@ AJAX.registerOnload('server_status_monitor.js', function () {
         var rows = data.rows;
         var cols = [];
         var $table = $('<table class="sortable"></table>');
-        var $tBody, $tRow, $tCell;
+        var $tBody;
+        var $tRow;
+        var $tCell;
 
         $('#logTable').html($table);
 
@@ -1983,7 +1999,8 @@ AJAX.registerOnload('server_status_monitor.js', function () {
             database: db,
             server: PMA_commonParams.get('server')
         }, function (data) {
-            var i, l;
+            var i;
+            var l;
             if (typeof data !== 'undefined' && data.success === true) {
                 data = data.message;
             }

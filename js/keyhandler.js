@@ -47,7 +47,8 @@ function onKeyDownArrowsHandler (e) {
         return;
     }
 
-    var x = pos[2], y = pos[1];
+    var x = pos[2];
+    var y = pos[1];
 
     switch (e.keyCode) {
     case 38:

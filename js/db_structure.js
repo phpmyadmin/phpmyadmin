@@ -60,7 +60,8 @@ function PMA_adjustTotals () {
 
     $allTr.each(function () {
         var $this = $(this);
-        var i, tmpVal;
+        var i;
+        var tmpVal;
         // Get the number of rows for this SQL table
         var strRows = $this.find('.tbl_rows').text();
         // If the value is approximated
@@ -112,7 +113,8 @@ function PMA_adjustTotals () {
         strRowSum = '~' + strRowSum;
     }
     // Calculate the magnitude for the size and overhead values
-    var size_magnitude = 0, overhead_magnitude = 0;
+    var size_magnitude = 0;
+    var overhead_magnitude = 0;
     while (sizeSum >= 1024) {
         sizeSum /= 1024;
         size_magnitude++;

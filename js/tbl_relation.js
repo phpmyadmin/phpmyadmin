@@ -33,8 +33,11 @@ function setDropdownValues ($dropdown, values, selectedValue) {
  * @param $dropdown the dropdown whose value got changed
  */
 function getDropdownValues ($dropdown) {
-    var foreignDb = null, foreignTable = null;
-    var $databaseDd, $tableDd, $columnDd;
+    var foreignDb = null;
+    var foreignTable = null;
+    var $databaseDd;
+    var $tableDd;
+    var $columnDd;
     var foreign = '';
     // if the changed dropdown is for foreign key constraints
     if ($dropdown.is('select[name^="destination_foreign"]')) {

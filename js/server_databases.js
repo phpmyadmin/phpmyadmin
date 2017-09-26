@@ -143,7 +143,8 @@ AJAX.registerOnload('server_databases.js', function () {
     var $filterField = $('#filterText');
     /* Event handler for database filter */
     $filterField.keyup(function () {
-        var textFilter = null, val = $(this).val();
+        var textFilter = null;
+        var val = $(this).val();
         if (val.length !== 0) {
             try {
                 textFilter = new RegExp(val.replace(/_/g, ' '), 'i');
@@ -165,7 +166,8 @@ AJAX.registerOnload('server_databases.js', function () {
 
     /* Filters the rows by the user given regexp */
     function filterVariables (textFilter) {
-        var $row, databasesCount = 0;
+        var $row;
+        var databasesCount = 0;
         $('#tabledatabases').find('.db-row').each(function () {
             $row = $(this);
             if (textFilter === null ||

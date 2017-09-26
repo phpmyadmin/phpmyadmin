@@ -450,7 +450,8 @@ AJAX.registerOnload('tbl_zoom_plot_jqplot.js', function () {
         var series = [];
         var xCord = [];
         var yCord = [];
-        var tempX, tempY;
+        var tempX;
+        var tempY;
         var it = 0;
         var xMax; // xAxis extreme max
         var xMin; // xAxis extreme min

@@ -61,7 +61,12 @@ function detail (index) {
 **/
 
 function display (init, finit) {
-    var str, i, j, k, sto, temp;
+    var str;
+    var i;
+    var j;
+    var k;
+    var sto;
+    var temp;
     // this part sorts the history array based on table name,this is needed for clubbing all object of same name together.
     for (i = init; i < finit; i++) {
         sto = history_array[i];

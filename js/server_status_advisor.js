@@ -40,7 +40,10 @@ AJAX.registerOnload('server_status_advisor.js', function () {
     });
 
     var $cnt = $('#statustabs_advisor');
-    var $tbody, $tr, str, even = true;
+    var $tbody;
+    var $tr;
+    var str;
+    var even = true;
 
     data = JSON.parse($('#advisorData').text());
     $cnt.html('');
