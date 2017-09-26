@@ -333,7 +333,7 @@ AJAX.registerOnload('tbl_structure.js', function () {
             var serialized = $form.serialize();
 
             // check if any columns were moved at all
-            if (serialized == $form.data('serialized-unmoved')) {
+            if (serialized === $form.data('serialized-unmoved')) {
                 PMA_ajaxRemoveMessage($msgbox);
                 $this.dialog('close');
                 return;

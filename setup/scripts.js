@@ -4,7 +4,7 @@
  */
 
 // show this window in top frame
-if (top != self) {
+if (top !== self) {
     window.top.location.href = location;
 }
 
@@ -68,7 +68,7 @@ $(document).ready(function () {
 function ajaxValidate (parent, id, values) {
     parent = $(parent);
     // ensure that parent is a fieldset
-    if (parent.attr('tagName') != 'FIELDSET') {
+    if (parent.attr('tagName') !== 'FIELDSET') {
         parent = parent.closest('fieldset');
         if (parent.length === 0) {
             return false;
@@ -202,7 +202,7 @@ $.extend(true, validators, {
 
 $(function () {
     $('.userprefs-allow').click(function (e) {
-        if (this != e.target) {
+        if (this !== e.target) {
             return;
         }
         var el = $(this).find('input');

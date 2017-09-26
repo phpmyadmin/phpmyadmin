@@ -59,7 +59,7 @@ function Create_page_list (db, callback) {
         var html = '';
         for (var p = 0; p < pages.length; p++) {
             var page = pages[p];
-            if (page.db_name == db) {
+            if (page.db_name === db) {
                 html += '<option value="' + page.pg_nr + '">';
                 html += escapeHtml(page.page_descr) + '</option>';
             }
@@ -86,13 +86,13 @@ function Load_first_page (db, callback) {
         var firstPage = null;
         for (var i = 0; i < pages.length; i++) {
             var page = pages[i];
-            if (page.db_name == db) {
+            if (page.db_name === db) {
                 // give preference to a page having same name as the db
-                if (page.page_descr == db) {
+                if (page.page_descr === db) {
                     callback(page);
                     return;
                 }
-                if (firstPage == null) {
+                if (firstPage === null) {
                     firstPage = page;
                 }
             }
@@ -144,7 +144,7 @@ function Load_page_objects (page_id, callback) {
         for (var i = 0; i < count; i++) {
             DesignerOfflineDB.loadObject('table_coords', page.tbl_cords[i], function (tbl_cord) {
                 tbl_cords.push(tbl_cord);
-                if (tbl_cords.length == count) {
+                if (tbl_cords.length === count) {
                     if (typeof callback !== 'undefined') {
                         callback(page, tbl_cords);
                     }

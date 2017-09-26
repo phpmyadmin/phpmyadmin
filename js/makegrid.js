@@ -155,7 +155,7 @@ function PMA_makegrid (t, enableResize, enableReorder, enableVisib, enableGridEd
                 if (hoveredCol) {
                     var newn = g.getHeaderIdx(hoveredCol);
                     g.colReorder.newn = newn;
-                    if (newn != g.colReorder.n) {
+                    if (newn !== g.colReorder.n) {
                         // show the column pointer in the right place
                         var colPos = $(hoveredCol).position();
                         var newleft = newn < g.colReorder.n ?
@@ -197,7 +197,7 @@ function PMA_makegrid (t, enableResize, enableReorder, enableVisib, enableGridEd
                 rearrangeStickyColumns($(t).prev('.sticky_columns'), $(t));
             } else if (g.colReorder) {
                 // shift columns
-                if (g.colReorder.newn != g.colReorder.n) {
+                if (g.colReorder.newn !== g.colReorder.n) {
                     g.shiftCol(g.colReorder.n, g.colReorder.newn);
                     // assign new position
                     var objPos = $(g.colReorder.obj).position();
@@ -251,7 +251,7 @@ function PMA_makegrid (t, enableResize, enableReorder, enableVisib, enableGridEd
             for (var n = 0, l = $firstRowCols.length; n < l; n++) {
                 var $col = $($firstRowCols[n]);
                 var colWidth;
-                if (navigator.userAgent.toLowerCase().indexOf('safari') != -1) {
+                if (navigator.userAgent.toLowerCase().indexOf('safari') !== -1) {
                     colWidth = $col.outerWidth();
                 } else {
                     colWidth = $col.outerWidth(true);
@@ -354,7 +354,7 @@ function PMA_makegrid (t, enableResize, enableReorder, enableVisib, enableGridEd
                 while (j >= 0 && x < g.colOrder[j]) {
                     j--;
                 }
-                if (j != i - 1) {
+                if (j !== i - 1) {
                     g.shiftCol(i, j + 1);
                 }
             }
@@ -404,13 +404,13 @@ function PMA_makegrid (t, enableResize, enableReorder, enableVisib, enableGridEd
             // check if table state is as initial state
             var isInitial = true;
             for (var i = 0; i < g.colOrder.length; i++) {
-                if (g.colOrder[i] != i) {
+                if (g.colOrder[i] !== i) {
                     isInitial = false;
                     break;
                 }
             }
             // check if only one visible column left
-            var isOneColumn = g.visibleHeadersCount == 1;
+            var isOneColumn = g.visibleHeadersCount === 1;
             // enable or disable restore button
             if (isInitial || isOneColumn) {
                 $(g.o).find('div.restore_column').hide();
@@ -600,7 +600,7 @@ function PMA_makegrid (t, enableResize, enableReorder, enableVisib, enableGridEd
                         });
                     // fill the cell edit with text from <td>
                     var value = PMA_getCellValue(cell);
-                    if ($cell.attr('data-type') == 'json') {
+                    if ($cell.attr('data-type') === 'json') {
                         value = JSON.stringify(JSON.parse(value), null, 4);
                     }
                     $(g.cEdit).find('.edit_box').val(value);
@@ -675,12 +675,12 @@ function PMA_makegrid (t, enableResize, enableReorder, enableVisib, enableGridEd
                         new_html = new_html.replace(/\n/g, '<br>\n');
 
                         // remove decimal places if column type not supported
-                        if (($this_field.attr('data-decimals') == 0) && ($this_field.attr('data-type').indexOf('time') != -1)) {
+                        if (($this_field.attr('data-decimals') === 0) && ($this_field.attr('data-type').indexOf('time') !== -1)) {
                             new_html = new_html.substring(0, new_html.indexOf('.'));
                         }
 
                         // remove addtional decimal places
-                        if (($this_field.attr('data-decimals') > 0) && ($this_field.attr('data-type').indexOf('time') != -1)) {
+                        if (($this_field.attr('data-decimals') > 0) && ($this_field.attr('data-type').indexOf('time') !== -1)) {
                             new_html = new_html.substring(0, new_html.length - (6 - $this_field.attr('data-decimals')));
                         }
 
@@ -815,7 +815,7 @@ function PMA_makegrid (t, enableResize, enableReorder, enableVisib, enableGridEd
                         });
                         // Capture ctrl+v (on IE and Chrome)
                         $(g.cEdit).on('keydown', '.edit_box', function (e) {
-                            if (e.ctrlKey && e.which == 86) {
+                            if (e.ctrlKey && e.which === 86) {
                                 $checkbox.prop('checked', false);
                             }
                         });
@@ -1014,7 +1014,7 @@ function PMA_makegrid (t, enableResize, enableReorder, enableVisib, enableGridEd
                     var showMicrosec = false;
                     var timeFormat = 'HH:mm:ss';
                     // check for decimal places of seconds
-                    if (($td.attr('data-decimals') > 0) && ($td.attr('data-type').indexOf('time') != -1)) {
+                    if (($td.attr('data-decimals') > 0) && ($td.attr('data-type').indexOf('time') !== -1)) {
                         if (datetime_value && datetime_value.indexOf('.') === false) {
                             datetime_value += '.';
                         }
@@ -1048,12 +1048,12 @@ function PMA_makegrid (t, enableResize, enableReorder, enableVisib, enableGridEd
                     });
 
                     $input_field.on('keyup', function (e) {
-                        if (e.which == 13) {
+                        if (e.which === 13) {
                             // post on pressing "Enter"
                             e.preventDefault();
                             e.stopPropagation();
                             g.saveOrPostEditedCell();
-                        } else if (e.which == 27) {
+                        } else if (e.which === 27) {
                         } else {
                             toggleDatepickerIfInvalid($td, $input_field);
                         }
@@ -1448,7 +1448,7 @@ function PMA_makegrid (t, enableResize, enableReorder, enableVisib, enableGridEd
                 } else {
                     this_field_params[field_name] = $(g.cEdit).find('.edit_box').val();
                 }
-                if (g.wasEditedCellNull || this_field_params[field_name] != PMA_getCellValue(g.currentEditCell)) {
+                if (g.wasEditedCellNull || this_field_params[field_name] !== PMA_getCellValue(g.currentEditCell)) {
                     need_to_post = true;
                 }
             }
@@ -1691,7 +1691,7 @@ function PMA_makegrid (t, enableResize, enableReorder, enableVisib, enableGridEd
                     var pos = $th.position();
                     $(cd).addClass('coldrop')
                         .click(function () {
-                            if (g.cList.style.display == 'none') {
+                            if (g.cList.style.display === 'none') {
                                 g.showColList(this);
                             } else {
                                 g.hideColList();
@@ -1768,7 +1768,7 @@ function PMA_makegrid (t, enableResize, enableReorder, enableVisib, enableGridEd
             var j = 0;
 
             $this_field.parents('tr').first().parents('tbody').children().each(function () {
-                if ($(this).find('.where_clause').val() == where_clause) {
+                if ($(this).find('.where_clause').val() === where_clause) {
                     found = true;
                     $found_row = $(this);
                 }
@@ -1781,7 +1781,7 @@ function PMA_makegrid (t, enableResize, enableReorder, enableVisib, enableGridEd
 
             if (found && $prev_row) {
                 $prev_row.children('td').each(function () {
-                    if (getFieldName($(g.t), $(this)) == field_name) {
+                    if (getFieldName($(g.t), $(this)) === field_name) {
                         new_cell = this;
                     }
                 });
@@ -1811,7 +1811,7 @@ function PMA_makegrid (t, enableResize, enableReorder, enableVisib, enableGridEd
             var j = 0;
             var next_row_found = false;
             $this_field.parents('tr').first().parents('tbody').children().each(function () {
-                if ($(this).find('.where_clause').val() == where_clause) {
+                if ($(this).find('.where_clause').val() === where_clause) {
                     found = true;
                     $found_row = $(this);
                 }
@@ -1828,7 +1828,7 @@ function PMA_makegrid (t, enableResize, enableReorder, enableVisib, enableGridEd
             var new_cell;
             if (found && $next_row) {
                 $next_row.children('td').each(function () {
-                    if (getFieldName($(g.t), $(this)) == field_name) {
+                    if (getFieldName($(g.t), $(this)) === field_name) {
                         new_cell = this;
                     }
                 });
@@ -1856,7 +1856,7 @@ function PMA_makegrid (t, enableResize, enableReorder, enableVisib, enableGridEd
             var $found_row;
             var j = 0;
             $this_field.parents('tr').first().parents('tbody').children().each(function () {
-                if ($(this).find('.where_clause').val() == where_clause) {
+                if ($(this).find('.where_clause').val() === where_clause) {
                     found = true;
                     $found_row = $(this);
                 }
@@ -1897,7 +1897,7 @@ function PMA_makegrid (t, enableResize, enableReorder, enableVisib, enableGridEd
             var $found_row;
             var j = 0;
             $this_field.parents('tr').first().parents('tbody').children().each(function () {
-                if ($(this).find('.where_clause').val() == where_clause) {
+                if ($(this).find('.where_clause').val() === where_clause) {
                     found = true;
                     $found_row = $(this);
                 }
@@ -1941,13 +1941,13 @@ function PMA_makegrid (t, enableResize, enableReorder, enableVisib, enableGridEd
             }
 
             function handleCtrlNavigation (e) {
-                if ((e.ctrlKey && e.which == 38) || (e.altKey && e.which == 38)) {
+                if ((e.ctrlKey && e.which === 38) || (e.altKey && e.which === 38)) {
                     g.moveUp(e);
-                } else if ((e.ctrlKey && e.which == 40)  || (e.altKey && e.which == 40)) {
+                } else if ((e.ctrlKey && e.which === 40)  || (e.altKey && e.which === 40)) {
                     g.moveDown(e);
-                } else if ((e.ctrlKey && e.which == 37) || (e.altKey && e.which == 37)) {
+                } else if ((e.ctrlKey && e.which === 37) || (e.altKey && e.which === 37)) {
                     g.moveLeft(e);
-                } else if ((e.ctrlKey && e.which == 39)  || (e.altKey && e.which == 39)) {
+                } else if ((e.ctrlKey && e.which === 39)  || (e.altKey && e.which === 39)) {
                     g.moveRight(e);
                 }
             }
@@ -1999,7 +1999,7 @@ function PMA_makegrid (t, enableResize, enableReorder, enableVisib, enableGridEd
                         var clicks = $cell.data('clicks');
                         clicks = (typeof clicks === 'undefined') ? 1 : clicks + 1;
 
-                        if (clicks == 1) {
+                        if (clicks === 1) {
                             // if there are no previous clicks,
                             // start the single click timer
                             var timer = setTimeout(function () {
@@ -2036,7 +2036,7 @@ function PMA_makegrid (t, enableResize, enableReorder, enableVisib, enableGridEd
                 g.showEditArea();
             });
             $(g.cEditStd).on('keydown', '.edit_box, select', function (e) {
-                if (e.which == 13) {
+                if (e.which === 13) {
                     // post on pressing "Enter"
                     e.preventDefault();
                     g.saveOrPostEditedCell();
@@ -2055,7 +2055,7 @@ function PMA_makegrid (t, enableResize, enableReorder, enableVisib, enableGridEd
                 g.showEditArea();
             });
             $(g.cEditTextarea).on('keydown', '.edit_box, select', function (e) {
-                if (e.which == 13 && !e.shiftKey) {
+                if (e.which === 13 && !e.shiftKey) {
                     // post on pressing "Enter"
                     e.preventDefault();
                     g.saveOrPostEditedCell();
@@ -2069,7 +2069,7 @@ function PMA_makegrid (t, enableResize, enableReorder, enableVisib, enableGridEd
             });
             $('html').click(function (e) {
                 // hide edit cell if the click is not fromDat edit area
-                if ($(e.target).parents().index($(g.cEdit)) == -1 &&
+                if ($(e.target).parents().index($(g.cEdit)) === -1 &&
                     !$(e.target).parents('.ui-datepicker-header').length &&
                     !$('.browse_foreign_modal.ui-dialog:visible').length &&
                     !$(e.target).closest('.dismissable').length
@@ -2077,7 +2077,7 @@ function PMA_makegrid (t, enableResize, enableReorder, enableVisib, enableGridEd
                     g.hideEditCell();
                 }
             }).keydown(function (e) {
-                if (e.which == 27 && g.isCellEditActive) {
+                if (e.which === 27 && g.isCellEditActive) {
                     // cancel on pressing "Esc"
                     g.hideEditCell(true);
                 }

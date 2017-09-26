@@ -68,7 +68,7 @@ function checkIndexType () {
      */
     var $add_more = $('#index_frm').find('.add_more');
 
-    if ($select_index_choice.val() == 'SPATIAL') {
+    if ($select_index_choice.val() === 'SPATIAL') {
         // Disable and hide the size column
         $size_header.hide();
         $size_inputs.each(function () {
@@ -112,8 +112,8 @@ function checkIndexType () {
         $add_more.show();
     }
 
-    if ($select_index_choice.val() == 'SPATIAL' ||
-            $select_index_choice.val() == 'FULLTEXT') {
+    if ($select_index_choice.val() === 'SPATIAL' ||
+            $select_index_choice.val() === 'FULLTEXT') {
         $select_index_type.val('').prop('disabled', true);
     } else {
         $select_index_type.prop('disabled', false);
@@ -129,7 +129,7 @@ function checkIndexType () {
  * @return void
  */
 function PMA_setIndexFormParameters (source_array, index_choice) {
-    if (index_choice == 'index') {
+    if (index_choice === 'index') {
         $('input[name="indexes"]').val(JSON.stringify(source_array));
     } else {
         $('input[name="' + index_choice + '_indexes"]').val(JSON.stringify(source_array));
@@ -150,14 +150,14 @@ function PMA_removeColumnFromIndex (col_index) {
     if (previous_index.length) {
         previous_index = previous_index.split(',');
         var source_array = PMA_getIndexArray(previous_index[0]);
-        if (source_array == null) {
+        if (source_array === null) {
             return;
         }
 
         // Remove column from index array.
         var source_length = source_array[previous_index[1]].columns.length;
         for (var i = 0; i < source_length; i++) {
-            if (source_array[previous_index[1]].columns[i].col_index == col_index) {
+            if (source_array[previous_index[1]].columns[i].col_index === col_index) {
                 source_array[previous_index[1]].columns.splice(i, 1);
             }
         }
@@ -218,7 +218,7 @@ function PMA_addColumnToIndex (source_array, array_index, index_choice, col_inde
 
     // Display index name (or column list)
     var displayName = index_name;
-    if (displayName == '') {
+    if (displayName === '') {
         var columnNames = [];
         $.each(columns, function () {
             columnNames.push($('input[name="field_name[' +  this.col_index + ']"]').val());
@@ -228,7 +228,7 @@ function PMA_addColumnToIndex (source_array, array_index, index_choice, col_inde
     $.each(columns, function () {
         var id = 'index_name_' + this.col_index + '_8';
         var $name = $('#' + id);
-        if ($name.length == 0) {
+        if ($name.length === 0) {
             $name = $('<a id="' + id + '" href="#" class="ajax show_index_dialog"></a>');
             $name.insertAfter($('select[name="field_key[' + this.col_index + ']"]'));
         }
@@ -276,7 +276,7 @@ function PMA_getCompositeIndexList (source_array, col_index) {
                 $('input[name="field_name[' + source_array[i].columns[j].col_index + ']"]').val()
             );
 
-            if (col_index == source_array[i].columns[j].col_index) {
+            if (col_index === source_array[i].columns[j].col_index) {
                 already_present = true;
             }
         }
@@ -438,7 +438,7 @@ function PMA_indexTypeSelectionDialog (source_array, index_choice, col_index) {
     button_options[PMA_messages.strGo] = function () {
         if ($('#single_column').is(':checked')) {
             var index = {
-                'Key_name': (index_choice == 'primary' ? 'PRIMARY' : ''),
+                'Key_name': (index_choice === 'primary' ? 'PRIMARY' : ''),
                 'Index_choice': index_choice.toUpperCase()
             };
             PMA_showAddIndexDialog(source_array, (source_array.length), [col_index], col_index, index);
@@ -608,7 +608,7 @@ AJAX.registerOnload('indexes.js', function () {
                 if (typeof data !== 'undefined' && data.success === true) {
                     PMA_ajaxRemoveMessage($msg);
                     var $table_ref = $rows_to_hide.closest('table');
-                    if ($rows_to_hide.length == $table_ref.find('tbody > tr').length) {
+                    if ($rows_to_hide.length === $table_ref.find('tbody > tr').length) {
                         // We are about to remove all rows from the table
                         $table_ref.hide('medium', function () {
                             $('div.no_indexes_defined').show('medium');
@@ -662,7 +662,7 @@ AJAX.registerOnload('indexes.js', function () {
         } else {
             // Edit index
             url = $(this).find('a').attr('href');
-            if (url.substring(0, 16) == 'tbl_indexes.php?') {
+            if (url.substring(0, 16) === 'tbl_indexes.php?') {
                 url = url.substring(16, url.length);
             }
             title = PMA_messages.strEditIndex;
@@ -690,25 +690,25 @@ AJAX.registerOnload('indexes.js', function () {
         // Array containing corresponding indexes.
         var source_array = null;
 
-        if (index_choice == 'none') {
+        if (index_choice === 'none') {
             PMA_removeColumnFromIndex(col_index);
             return false;
         }
 
         // Select a source array.
         source_array = PMA_getIndexArray(index_choice);
-        if (source_array == null) {
+        if (source_array === null) {
             return;
         }
 
         if (source_array.length === 0) {
             var index = {
-                'Key_name': (index_choice == 'primary' ? 'PRIMARY' : ''),
+                'Key_name': (index_choice === 'primary' ? 'PRIMARY' : ''),
                 'Index_choice': index_choice.toUpperCase()
             };
             PMA_showAddIndexDialog(source_array, 0, [col_index], col_index, index);
         } else {
-            if (index_choice == 'primary') {
+            if (index_choice === 'primary') {
                 var array_index = 0;
                 var source_length = source_array[array_index].columns.length;
                 var target_columns = [];

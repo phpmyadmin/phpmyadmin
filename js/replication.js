@@ -14,7 +14,7 @@ function update_config () {
 
     if ($('#db_select option:selected').size() === 0) {
         $('#rep').text(conf_prefix);
-    } else if ($('#db_type option:selected').val() == 'all') {
+    } else if ($('#db_type option:selected').val() === 'all') {
         $('#db_select option:selected').each(function () {
             database_list += conf_ignore + $(this).val() + '\n';
         });

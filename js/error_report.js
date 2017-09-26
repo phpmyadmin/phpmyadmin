@@ -29,9 +29,9 @@ var ErrorReport = {
                 PMA_ajaxShowMessage(data.error, false);
                 return;
             }
-            if (data.report_setting == 'ask') {
+            if (data.report_setting === 'ask') {
                 ErrorReport._showErrorNotification();
-            } else if (data.report_setting == 'always') {
+            } else if (data.report_setting === 'always') {
                 report_data = ErrorReport._get_report_data(exception);
                 post_data = $.extend(report_data, {
                     send_error_report: true,
@@ -172,7 +172,7 @@ var ErrorReport = {
 
         var reg = /([a-zA-Z]+):/;
         var regex_result = reg.exec(exception.message);
-        if (regex_result && regex_result.length == 2) {
+        if (regex_result && regex_result.length === 2) {
             return regex_result[1];
         }
 

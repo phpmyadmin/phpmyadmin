@@ -184,7 +184,7 @@ function loadChildNodes (isNode, $expandElem, callback) {
             if (callback && typeof callback === 'function') {
                 callback(data);
             }
-        } else if (data.redirect_flag == '1') {
+        } else if (data.redirect_flag === '1') {
             if (window.location.href.indexOf('?') === -1) {
                 window.location.href += '?session_expired=1';
             } else {
@@ -688,7 +688,7 @@ function expandTreeNode ($expandElem, callback) {
                 $icon.removeClass('ic_b_plus').addClass('ic_b_minus');
                 $children = $destination.children('div.list_container');
                 $children.slideDown('fast');
-                if ($destination.find('ul > li').length == 1) {
+                if ($destination.find('ul > li').length === 1) {
                     $destination.find('ul > li')
                         .find('a.expander.container')
                         .click();
@@ -818,7 +818,7 @@ function PMA_showCurrentNavigation () {
             } else { // this is a real navigation item
                 // name and class matches
                 if (((clazz && $li.is('.' + clazz)) || ! clazz) &&
-                        $li.children('a').text() == name) {
+                        $li.children('a').text() === name) {
                     if (doSelect) {
                         $li.addClass('selected');
                     }
@@ -908,7 +908,7 @@ function PMA_showCurrentNavigation () {
         $items = $container.find(clazz);
         var found = false;
         $items.each(function () {
-            if ($(this).children('a').text() == name) {
+            if ($(this).children('a').text() === name) {
                 $whichItem = $(this);
                 return false;
             }
@@ -1031,10 +1031,10 @@ function PMA_navigationTreePagination ($this) {
     var $msgbox = PMA_ajaxShowMessage();
     var isDbSelector = $this.closest('div.pageselector').is('.dbselector');
     var url, params;
-    if ($this[0].tagName == 'A') {
+    if ($this[0].tagName === 'A') {
         url = $this.attr('href');
         params = 'ajax_request=true';
-    } else { // tagName == 'SELECT'
+    } else { // tagName === 'SELECT'
         url = 'navigation.php';
         params = $this.closest('form').serialize() + '&ajax_request=true';
     }
@@ -1103,7 +1103,7 @@ var ResizeHandler = function () {
     /**
      * @var string left Used to provide support for RTL languages
      */
-    this.left = $('html').attr('dir') == 'ltr' ? 'left' : 'right';
+    this.left = $('html').attr('dir') === 'ltr' ? 'left' : 'right';
     /**
      * Adjusts the width of the navigation panel to the specified value
      *
@@ -1161,7 +1161,7 @@ var ResizeHandler = function () {
         var windowWidth = $(window).width();
         var windowScroll = $(window).scrollLeft();
         pos = pos - windowScroll;
-        if (this.left != 'left') {
+        if (this.left !== 'left') {
             pos = windowWidth - event.pageX;
         }
         if (pos < 0) {
@@ -1181,7 +1181,7 @@ var ResizeHandler = function () {
      * @return string
      */
     this.getSymbol = function (width) {
-        if (this.left == 'left') {
+        if (this.left === 'left') {
             if (width === 0) {
                 return '&rarr;';
             } else {
@@ -1345,7 +1345,7 @@ var PMA_fastFilter = {
         var $filterInput = $this.find('li.fast_filter input.searchClause');
         if ($filterInput.length !== 0 &&
             $filterInput.val() !== '' &&
-            $filterInput.val() != $filterInput[0].defaultValue
+            $filterInput.val() !== $filterInput[0].defaultValue
         ) {
             this.request();
         }
@@ -1359,7 +1359,7 @@ var PMA_fastFilter = {
         var retval = '';
         var $input = $('#pma_navigation_tree')
             .find('li.fast_filter.db_fast_filter input.searchClause');
-        if ($input.length && $input.val() != $input[0].defaultValue) {
+        if ($input.length && $input.val() !== $input[0].defaultValue) {
             retval = $input.val();
         }
         return retval;
@@ -1381,7 +1381,7 @@ var PMA_fastFilter = {
         }
         var searchClause2 = '';
         if ($filterInput.length !== 0 &&
-            $filterInput.first().val() != $filterInput[0].defaultValue
+            $filterInput.first().val() !== $filterInput[0].defaultValue
         ) {
             searchClause2 = $filterInput.val();
         }
@@ -1400,7 +1400,7 @@ var PMA_fastFilter = {
                     new PMA_fastFilter.filter($obj, $(this).val())
                 );
             }
-            if ($(this).val() == this.defaultValue) {
+            if ($(this).val() === this.defaultValue) {
                 $(this).val('');
             } else {
                 $(this).select();
@@ -1411,14 +1411,14 @@ var PMA_fastFilter = {
                 $(this).val(this.defaultValue);
             }
             var $obj = $(this).closest('div.list_container');
-            if ($(this).val() == this.defaultValue && $obj.data('fastFilter')) {
+            if ($(this).val() === this.defaultValue && $obj.data('fastFilter')) {
                 $obj.data('fastFilter').restore();
             }
         },
         keyup: function (event) {
             var $obj = $(this).closest('div.list_container');
             var str = '';
-            if ($(this).val() != this.defaultValue && $(this).val() !== '') {
+            if ($(this).val() !== this.defaultValue && $(this).val() !== '') {
                 $obj.find('div.pageselector').hide();
                 str = $(this).val();
             }
@@ -1479,14 +1479,14 @@ var PMA_fastFilter = {
             };
             container_filter(outerContainer);
 
-            if ($(this).val() != this.defaultValue && $(this).val() !== '') {
+            if ($(this).val() !== this.defaultValue && $(this).val() !== '') {
                 if (! $obj.data('fastFilter')) {
                     $obj.data(
                         'fastFilter',
                         new PMA_fastFilter.filter($obj, $(this).val())
                     );
                 } else {
-                    if (event.keyCode == 13) {
+                    if (event.keyCode === 13) {
                         $obj.data('fastFilter').update($(this).val());
                     }
                 }
@@ -1495,7 +1495,7 @@ var PMA_fastFilter = {
             }
             // update filter state
             var filterName;
-            if ($(this).attr('name') == 'searchClause2') {
+            if ($(this).attr('name') === 'searchClause2') {
                 filterName = $(this).siblings('input[name=aPath]').val();
             } else {
                 filterName = 'dbFilter';
@@ -1522,7 +1522,7 @@ var PMA_fastFilter = {
  * @return void
  */
 PMA_fastFilter.filter.prototype.update = function (searchClause) {
-    if (this.searchClause != searchClause) {
+    if (this.searchClause !== searchClause) {
         this.searchClause = searchClause;
         this.request();
     }
@@ -1553,7 +1553,7 @@ PMA_fastFilter.filter.prototype.request = function () {
 
     if (self.$this.find('> ul > li > form.fast_filter:first input[name=searchClause]').length === 0) {
         var $input = $('#pma_navigation_tree').find('li.fast_filter.db_fast_filter input.searchClause');
-        if ($input.length && $input.val() != $input[0].defaultValue) {
+        if ($input.length && $input.val() !== $input[0].defaultValue) {
             params += '&searchClause=' + encodeURIComponent($input.val());
         }
     }
@@ -1563,7 +1563,7 @@ PMA_fastFilter.filter.prototype.request = function () {
         dataType: 'json',
         data: params,
         complete: function (jqXHR, status) {
-            if (status != 'abort') {
+            if (status !== 'abort') {
                 var data = JSON.parse(jqXHR.responseText);
                 self.$this.find('li.fast_filter').find('div.throbber').remove();
                 if (data && data.results) {

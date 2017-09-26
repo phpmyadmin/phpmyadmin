@@ -15,7 +15,7 @@ function changePluginOpts () {
     });
     var selected_plugin_name = $('#plugins').find('option:selected').val();
     $('#' + selected_plugin_name + '_options').fadeIn('slow');
-    if (selected_plugin_name == 'csv') {
+    if (selected_plugin_name === 'csv') {
         $('#import_notification').text(PMA_messages.strImportCSV);
     } else {
         $('#import_notification').text('');
@@ -31,11 +31,11 @@ function matchFile (fname) {
     var len = fname_array.length;
     if (len !== 0) {
         var extension = fname_array[len - 1];
-        if (extension == 'gz' || extension == 'bz2' || extension == 'zip') {
+        if (extension === 'gz' || extension === 'bz2' || extension === 'zip') {
             len--;
         }
         // Only toggle if the format of the file can be imported
-        if ($('select[name=\'format\'] option').filterByValue(fname_array[len - 1]).length == 1) {
+        if ($('select[name=\'format\'] option').filterByValue(fname_array[len - 1]).length === 1) {
             $('select[name=\'format\'] option').filterByValue(fname_array[len - 1]).prop('selected', true);
             changePluginOpts();
         }

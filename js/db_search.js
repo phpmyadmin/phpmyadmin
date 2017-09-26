@@ -56,7 +56,7 @@ AJAX.registerOnload('db_search.js', function () {
         .on('click', function () {
             var $link = $(this);
             $('#searchresults').slideToggle();
-            if ($link.text() == PMA_messages.strHideSearchResults) {
+            if ($link.text() === PMA_messages.strHideSearchResults) {
                 $link.text(PMA_messages.strShowSearchResults);
             } else {
                 $link.text(PMA_messages.strHideSearchResults);
@@ -81,7 +81,7 @@ AJAX.registerOnload('db_search.js', function () {
         .on('click', function () {
             var $link = $(this);
             $('#sqlqueryform').slideToggle('medium');
-            if ($link.text() == PMA_messages.strHideQueryBox) {
+            if ($link.text() === PMA_messages.strHideQueryBox) {
                 $link.text(PMA_messages.strShowQueryBox);
             } else {
                 $link.text(PMA_messages.strHideQueryBox);
@@ -101,7 +101,7 @@ AJAX.registerOnload('db_search.js', function () {
         .on('click', function () {
             var $link = $(this);
             $('#db_search_form').slideToggle();
-            if ($link.text() == PMA_messages.strHideSearchCriteria) {
+            if ($link.text() === PMA_messages.strHideSearchCriteria) {
                 $link.text(PMA_messages.strShowSearchCriteria);
             } else {
                 $link.text(PMA_messages.strHideSearchCriteria);

@@ -22,24 +22,24 @@ var vqb_editor = null;
 function detail (index) {
     var type = history_array[index].get_type();
     var str;
-    if (type == 'Where') {
+    if (type === 'Where') {
         str = 'Where ' + history_array[index].get_column_name() + history_array[index].get_obj().getrelation_operator() + history_array[index].get_obj().getquery();
     }
-    if (type == 'Rename') {
+    if (type === 'Rename') {
         str = 'Rename ' + history_array[index].get_column_name() + ' To ' + history_array[index].get_obj().getrename_to();
     }
-    if (type == 'Aggregate') {
+    if (type === 'Aggregate') {
         str = 'Select ' + history_array[index].get_obj().get_operator() + '( ' + history_array[index].get_column_name() + ' )';
     }
-    if (type == 'GroupBy') {
+    if (type === 'GroupBy') {
         str = 'GroupBy ' + history_array[index].get_column_name();
     }
-    if (type == 'OrderBy') {
+    if (type === 'OrderBy') {
         str = 'OrderBy ' + history_array[index].get_column_name() + ' ' + history_array[index].get_obj().get_order();
     }
-    if (type == 'Having') {
+    if (type === 'Having') {
         str = 'Having ';
-        if (history_array[index].get_obj().get_operator() != 'None') {
+        if (history_array[index].get_obj().get_operator() !== 'None') {
             str += history_array[index].get_obj().get_operator() + '( ' + history_array[index].get_column_name() + ' )';
             str += history_array[index].get_obj().getrelation_operator() + history_array[index].get_obj().getquery();
         } else {
@@ -82,7 +82,7 @@ function display (init, finit) {
         temp = history_array[i].get_tab(); // + '.' + history_array[i].get_obj_no(); for Self JOIN
         str += '<h3 class="tiger"><a href="#">' + temp + '</a></h3>';
         str += '<div class="toggle_container">\n';
-        while ((history_array[i].get_tab()) == temp) { // + '.' + history_array[i].get_obj_no()) == temp) {
+        while ((history_array[i].get_tab()) === temp) { // + '.' + history_array[i].get_obj_no()) === temp) {
             str += '<div class="block"> <table width ="250">';
             str += '<thead><tr><td>';
             if (history_array[i].get_and_or()) {
@@ -92,7 +92,7 @@ function display (init, finit) {
             }
             str += '<td style="padding-left: 5px;" class="right">' + PMA_getImage('b_sbrowse.png', 'column name') + '</td>' +
                 '<td width="175" style="padding-left: 5px">' + history_array[i].get_column_name() + '<td>';
-            if (history_array[i].get_type() == 'GroupBy' || history_array[i].get_type() == 'OrderBy') {
+            if (history_array[i].get_type() === 'GroupBy' || history_array[i].get_type() === 'OrderBy') {
                 str += '<td class="center">' + PMA_getImage('s_info.png', detail(i)) + '</td>' +
                     '<td title="' + detail(i) + '">' + history_array[i].get_type() + '</td>' +
                     '<td onclick=history_delete(' + i + ')>' + PMA_getImage('b_drop.png', PMA_messages.strDelete) + '</td>';
@@ -143,7 +143,7 @@ function and_or (index) {
 
 function history_delete (index) {
     for (var k = 0; k < from_array.length; k++) {
-        if (from_array[k] == history_array[index].get_tab()) {
+        if (from_array[k] === history_array[index].get_tab()) {
             from_array.splice(k, 1);
             break;
         }
@@ -164,7 +164,7 @@ function history_delete (index) {
 function history_edit (index) {
     g_index = index;
     var type = history_array[index].get_type();
-    if (type == 'Where') {
+    if (type === 'Where') {
         document.getElementById('eQuery').value = history_array[index].get_obj().getquery();
         document.getElementById('erel_opt').value = history_array[index].get_obj().getrelation_operator();
         document.getElementById('query_where').style.left =  '530px';
@@ -174,7 +174,7 @@ function history_edit (index) {
         document.getElementById('query_where').style.visibility = 'visible';
         document.getElementById('query_where').style.display = 'block';
     }
-    if (type == 'Having') {
+    if (type === 'Having') {
         document.getElementById('hQuery').value = history_array[index].get_obj().getquery();
         document.getElementById('hrel_opt').value = history_array[index].get_obj().getrelation_operator();
         document.getElementById('hoperator').value = history_array[index].get_obj().get_operator();
@@ -185,7 +185,7 @@ function history_edit (index) {
         document.getElementById('query_having').style.visibility = 'visible';
         document.getElementById('query_having').style.display = 'block';
     }
-    if (type == 'Rename') {
+    if (type === 'Rename') {
         document.getElementById('e_rename').value = history_array[index].get_obj().getrename_to();
         document.getElementById('query_rename_to').style.left =  '530px';
         document.getElementById('query_rename_to').style.top  = '130px';
@@ -194,7 +194,7 @@ function history_edit (index) {
         document.getElementById('query_rename_to').style.visibility = 'visible';
         document.getElementById('query_rename_to').style.display = 'block';
     }
-    if (type == 'Aggregate') {
+    if (type === 'Aggregate') {
         document.getElementById('e_operator').value = history_array[index].get_obj().get_operator();
         document.getElementById('query_Aggregate').style.left = '530px';
         document.getElementById('query_Aggregate').style.top  = '130px';
@@ -213,29 +213,29 @@ function history_edit (index) {
 **/
 
 function edit (type) {
-    if (type == 'Rename') {
+    if (type === 'Rename') {
         if (document.getElementById('e_rename').value !== '') {
             history_array[g_index].get_obj().setrename_to(document.getElementById('e_rename').value);
             document.getElementById('e_rename').value = '';
         }
         document.getElementById('query_rename_to').style.visibility = 'hidden';
     }
-    if (type == 'Aggregate') {
-        if (document.getElementById('e_operator').value != '---') {
+    if (type === 'Aggregate') {
+        if (document.getElementById('e_operator').value !== '---') {
             history_array[g_index].get_obj().set_operator(document.getElementById('e_operator').value);
             document.getElementById('e_operator').value = '---';
         }
         document.getElementById('query_Aggregate').style.visibility = 'hidden';
     }
-    if (type == 'Where') {
-        if (document.getElementById('erel_opt').value != '--' && document.getElementById('eQuery').value !== '') {
+    if (type === 'Where') {
+        if (document.getElementById('erel_opt').value !== '--' && document.getElementById('eQuery').value !== '') {
             history_array[g_index].get_obj().setquery(document.getElementById('eQuery').value);
             history_array[g_index].get_obj().setrelation_operator(document.getElementById('erel_opt').value);
         }
         document.getElementById('query_where').style.visibility = 'hidden';
     }
-    if (type == 'Having') {
-        if (document.getElementById('hrel_opt').value != '--' && document.getElementById('hQuery').value !== '') {
+    if (type === 'Having') {
+        if (document.getElementById('hrel_opt').value !== '--' && document.getElementById('hQuery').value !== '') {
             history_array[g_index].get_obj().setquery(document.getElementById('hQuery').value);
             history_array[g_index].get_obj().setrelation_operator(document.getElementById('hrel_opt').value);
             history_array[g_index].get_obj().set_operator(document.getElementById('hoperator').value);
@@ -439,7 +439,7 @@ function unique (arrayName) {
     uniquetop:
     for (var i = 0; i < arrayName.length; i++) {
         for (var j = 0; j < newArray.length; j++) {
-            if (newArray[j] == arrayName[i]) {
+            if (newArray[j] === arrayName[i]) {
                 continue uniquetop;
             }
         }
@@ -458,7 +458,7 @@ function unique (arrayName) {
 
 function found (arrayName, value) {
     for (var i = 0; i < arrayName.length; i++) {
-        if (arrayName[i] == value) {
+        if (arrayName[i] === value) {
             return 1;
         }
     }
@@ -487,7 +487,7 @@ function add_array (add, arr) {
 function remove_array (rem, arr) {
     for (var i = 0; i < rem.length; i++) {
         for (var j = 0; j < arr.length; j++) {
-            if (rem[i] == arr[j]) {
+            if (rem[i] === arr[j]) {
                 arr.splice(j, 1);
             }
         }
@@ -504,7 +504,7 @@ function query_groupby () {
     var i;
     var str = '';
     for (i = 0; i < history_array.length;i++) {
-        if (history_array[i].get_type() == 'GroupBy') {
+        if (history_array[i].get_type() === 'GroupBy') {
             str += '`' + history_array[i].get_column_name() + '`, ';
         }
     }
@@ -521,8 +521,8 @@ function query_having () {
     var i;
     var and = '(';
     for (i = 0; i < history_array.length;i++) {
-        if (history_array[i].get_type() == 'Having') {
-            if (history_array[i].get_obj().get_operator() != 'None') {
+        if (history_array[i].get_type() === 'Having') {
+            if (history_array[i].get_obj().get_operator() !== 'None') {
                 and += history_array[i].get_obj().get_operator() + '(`' + history_array[i].get_column_name() + '`) ' + history_array[i].get_obj().getrelation_operator();
                 and += ' ' + history_array[i].get_obj().getquery() + ', ';
             } else {
@@ -530,7 +530,7 @@ function query_having () {
             }
         }
     }
-    if (and == '(') {
+    if (and === '(') {
         and = '';
     } else {
         and = and.substr(0, and.length - 2) + ')';
@@ -548,7 +548,7 @@ function query_orderby () {
     var i;
     var str = '';
     for (i = 0; i < history_array.length;i++) {
-        if (history_array[i].get_type() == 'OrderBy') {
+        if (history_array[i].get_type() === 'OrderBy') {
             str += '`' + history_array[i].get_column_name() + '` ' +
                 history_array[i].get_obj().get_order() + ', ';
         }
@@ -568,7 +568,7 @@ function query_where () {
     var and = '(';
     var or = '(';
     for (i = 0; i < history_array.length;i++) {
-        if (history_array[i].get_type() == 'Where') {
+        if (history_array[i].get_type() === 'Where') {
             if (history_array[i].get_and_or() === 0) {
                 and += '( `' + history_array[i].get_column_name() + '` ' + history_array[i].get_obj().getrelation_operator() + ' ' + history_array[i].get_obj().getquery() + ')';
                 and += ' AND ';
@@ -578,12 +578,12 @@ function query_where () {
             }
         }
     }
-    if (or != '(') {
+    if (or !== '(') {
         or = or.substring(0, (or.length - 4)) + ')';
     } else {
         or = '';
     }
-    if (and != '(') {
+    if (and !== '(') {
         and = and.substring(0, (and.length - 5)) + ')';
     } else {
         and = '';
@@ -598,7 +598,7 @@ function check_aggregate (id_this) {
     var i;
     for (i = 0; i < history_array.length; i++) {
         var temp = '`' + history_array[i].get_tab() + '`.`' + history_array[i].get_column_name() + '`';
-        if (temp == id_this && history_array[i].get_type() == 'Aggregate') {
+        if (temp === id_this && history_array[i].get_type() === 'Aggregate') {
             return history_array[i].get_obj().get_operator() + '(' + id_this + ')';
         }
     }
@@ -609,7 +609,7 @@ function check_rename (id_this) {
     var i;
     for (i = 0; i < history_array.length; i++) {
         var temp = '`' + history_array[i].get_tab() + '`.`' + history_array[i].get_column_name() + '`';
-        if (temp == id_this && history_array[i].get_type() == 'Rename') {
+        if (temp === id_this && history_array[i].get_type() === 'Rename') {
             return ' AS `' + history_array[i].get_obj().getrename_to() + '`';
         }
     }

@@ -94,7 +94,7 @@ $.ajaxPrefilter(function (options, originalOptions, jqXHR) {
  */
 function PMA_addDatepicker ($this_element, type, options) {
     var showTimepicker = true;
-    if (type == 'date') {
+    if (type === 'date') {
         showTimepicker = false;
     }
 
@@ -155,11 +155,11 @@ function PMA_addDatepicker ($this_element, type, options) {
             }
         }
     };
-    if (type == 'datetime' || type == 'timestamp') {
+    if (type === 'datetime' || type === 'timestamp') {
         $this_element.datetimepicker($.extend(defaultOptions, options));
-    } else if (type == 'date') {
+    } else if (type === 'date') {
         $this_element.datetimepicker($.extend(defaultOptions, options));
-    } else if (type == 'time') {
+    } else if (type === 'time') {
         $this_element.timepicker($.extend(defaultOptions, options));
         // Add a tip regarding entering MySQL allowed-values for TIME data-type
         PMA_tooltip($this_element, 'input', PMA_messages.strMysqlAllowedValuesTipTime);
@@ -181,7 +181,7 @@ function addDateTimePicker () {
             var timeFormat = 'HH:mm:ss';
             var hourMax = 23;
             // check for decimal places of seconds
-            if (decimals > 0 && type.indexOf('time') != -1) {
+            if (decimals > 0 && type.indexOf('time') !== -1) {
                 if (decimals > 3) {
                     showMillisec = true;
                     showMicrosec = true;
@@ -191,7 +191,7 @@ function addDateTimePicker () {
                     timeFormat = 'HH:mm:ss.l';
                 }
             }
-            if (type == 'time') {
+            if (type === 'time') {
                 hourMax = 99;
             }
             PMA_addDatepicker($(this), type, {
@@ -217,7 +217,7 @@ function addDateTimePicker () {
  * @param data ajax response data
  */
 function PMA_handleRedirectAndReload (data) {
-    if (parseInt(data.redirect_flag) == 1) {
+    if (parseInt(data.redirect_flag) === 1) {
         // add one more GET param to display session expiry msg
         if (window.location.href.indexOf('?') === -1) {
             window.location.href += '?session_expired=1';
@@ -225,7 +225,7 @@ function PMA_handleRedirectAndReload (data) {
             window.location.href += '&session_expired=1';
         }
         window.location.reload();
-    } else if (parseInt(data.reload_flag) == 1) {
+    } else if (parseInt(data.reload_flag) === 1) {
         window.location.reload();
     }
 }
@@ -271,13 +271,13 @@ function PMA_getSQLEditor ($textarea, options, resize, lintOptions) {
             resize = 'vertical';
         }
         var handles = '';
-        if (resize == 'vertical') {
+        if (resize === 'vertical') {
             handles = 's';
         }
-        if (resize == 'both') {
+        if (resize === 'both') {
             handles = 'all';
         }
-        if (resize == 'horizontal') {
+        if (resize === 'horizontal') {
             handles = 'e, w';
         }
         $(codemirrorEditor.getWrapperElement())
@@ -385,11 +385,11 @@ function PMA_sprintf () {
  * Ticks the NULL checkbox if NULL is chosen as default value.
  */
 function PMA_hideShowDefaultValue ($default_type) {
-    if ($default_type.val() == 'USER_DEFINED') {
+    if ($default_type.val() === 'USER_DEFINED') {
         $default_type.siblings('.default_value').show().focus();
     } else {
         $default_type.siblings('.default_value').hide();
-        if ($default_type.val() == 'NULL') {
+        if ($default_type.val() === 'NULL') {
             var $null_checkbox = $default_type.closest('tr').find('.allow_null');
             $null_checkbox.prop('checked', true);
         }
@@ -494,13 +494,13 @@ function parseVersionString (str) {
     // Parse possible alpha/beta/rc/
     var state = str.split('-');
     if (state.length >= 2) {
-        if (state[1].substr(0, 2) == 'rc') {
+        if (state[1].substr(0, 2) === 'rc') {
             add = - 20 - parseInt(state[1].substr(2), 10);
-        } else if (state[1].substr(0, 4) == 'beta') {
+        } else if (state[1].substr(0, 4) === 'beta') {
             add =  - 40 - parseInt(state[1].substr(4), 10);
-        } else if (state[1].substr(0, 5) == 'alpha') {
+        } else if (state[1].substr(0, 5) === 'alpha') {
             add =  - 60 - parseInt(state[1].substr(5), 10);
-        } else if (state[1].substr(0, 3) == 'dev') {
+        } else if (state[1].substr(0, 3) === 'dev') {
             /* We don't handle dev, it's git snapshot */
             add = 0;
         }
@@ -668,9 +668,9 @@ function confirmLink (theLink, theSqlQuery) {
         if ($(theLink).hasClass('formLinkSubmit')) {
             var name = 'is_js_confirmed';
 
-            if ($(theLink).attr('href').indexOf('usesubform') != -1) {
+            if ($(theLink).attr('href').indexOf('usesubform') !== -1) {
                 var matches = $(theLink).attr('href').substr('#').match(/usesubform\[(\d+)\]/i);
-                if (matches != null) {
+                if (matches !== null) {
                     name = 'subform[' + matches[1] + '][is_js_confirmed]';
                 }
             }
@@ -852,7 +852,7 @@ function checkTableEditForm (theForm, fieldsCnt) {
         id = '#field_' + i + '_2';
         elm = $(id);
         val = elm.val();
-        if (val == 'VARCHAR' || val == 'CHAR' || val == 'BIT' || val == 'VARBINARY' || val == 'BINARY') {
+        if (val === 'VARCHAR' || val === 'CHAR' || val === 'BIT' || val === 'VARBINARY' || val === 'BINARY') {
             elm2 = $('#field_' + i + '_3');
             val = parseInt(elm2.val(), 10);
             elm3 = $('#field_' + i + '_1');
@@ -1016,7 +1016,7 @@ AJAX.registerOnload('functions.js', function () {
         var $tr = $this.closest('tr');
         var $table = $this.closest('table');
 
-        if (!e.shiftKey || last_clicked_row == -1) {
+        if (!e.shiftKey || last_clicked_row === -1) {
             // usual click
 
             var $checkbox = $tr.find(':checkbox.checkall');
@@ -1187,10 +1187,10 @@ function PMA_handleSimulateQueryButton () {
   *
   */
 function insertQuery (queryType) {
-    if (queryType == 'clear') {
+    if (queryType === 'clear') {
         setQuery('');
         return;
-    } else if (queryType == 'format') {
+    } else if (queryType === 'format') {
         if (codemirror_editor) {
             $('#querymessage').html(PMA_messages.strFormatting +
                 '&nbsp;<img class="ajaxIcon" src="' +
@@ -1213,7 +1213,7 @@ function insertQuery (queryType) {
             });
         }
         return;
-    } else if (queryType == 'saved') {
+    } else if (queryType === 'saved') {
         if (isStorageSupported('localStorage') && typeof window.localStorage.auto_saved_sql !== 'undefined') {
             setQuery(window.localStorage.auto_saved_sql);
         } else if (Cookies.get('auto_saved_sql')) {
@@ -1245,15 +1245,15 @@ function insertQuery (queryType) {
             valDis += '[value-' + NbSelect + ']';
             editDis += myListBox.options[i].value + '=[value-' + NbSelect + ']';
         }
-        if (queryType == 'selectall') {
+        if (queryType === 'selectall') {
             query = 'SELECT * FROM `' + table + '` WHERE 1';
-        } else if (queryType == 'select') {
+        } else if (queryType === 'select') {
             query = 'SELECT ' + columnsList + ' FROM `' + table + '` WHERE 1';
-        } else if (queryType == 'insert') {
+        } else if (queryType === 'insert') {
             query = 'INSERT INTO `' + table + '`(' + columnsList + ') VALUES (' + valDis + ')';
-        } else if (queryType == 'update') {
+        } else if (queryType === 'update') {
             query = 'UPDATE `' + table + '` SET ' + editDis + ' WHERE 1';
-        } else if (queryType == 'delete') {
+        } else if (queryType === 'delete') {
             query = 'DELETE FROM `' + table + '` WHERE 0';
         }
         setQuery(query);
@@ -1294,7 +1294,7 @@ function insertValueQuery () {
             var sel = document.selection.createRange();
             sel.text = columnsList;
         // MOZILLA/NETSCAPE support
-        } else if (document.sqlform.sql_query.selectionStart || document.sqlform.sql_query.selectionStart == '0') {
+        } else if (document.sqlform.sql_query.selectionStart || document.sqlform.sql_query.selectionStart === '0') {
             var startPos = document.sqlform.sql_query.selectionStart;
             var endPos = document.sqlform.sql_query.selectionEnd;
             var SqlString = document.sqlform.sql_query.value;
@@ -1356,12 +1356,12 @@ function refreshLayout () {
     var orientation = $('#orientation_opt').val();
     var paper = 'A4';
     var $paperOpt = $('#paper_opt');
-    if ($paperOpt.length == 1) {
+    if ($paperOpt.length === 1) {
         paper = $paperOpt.val();
     }
     var posa = 'y';
     var posb = 'x';
-    if (orientation == 'P') {
+    if (orientation === 'P') {
         posa = 'x';
         posb = 'y';
     }
@@ -1418,7 +1418,7 @@ $(function () {
     /* Refresh on paper size/orientation change */
     $(document).on('change', '.paper-change', function () {
         var $elm = $('#pdflayout');
-        if ($elm.css('visibility') == 'visible') {
+        if ($elm.css('visibility') === 'visible') {
             refreshLayout();
             TableDragInit();
         }
@@ -1426,7 +1426,7 @@ $(function () {
     /* Show/hide the WYSIWYG scratchboard */
     $(document).on('click', '#toggle-dragdrop', function () {
         var $elm = $('#pdflayout');
-        if ($elm.css('visibility') == 'hidden') {
+        if ($elm.css('visibility') === 'hidden') {
             refreshLayout();
             TableDragInit();
             $elm.css('visibility', 'visible');
@@ -1450,343 +1450,343 @@ $(function () {
 function pdfPaperSize (format, axis) {
     switch (format.toUpperCase()) {
     case '4A0':
-        if (axis == 'x') {
+        if (axis === 'x') {
             return 4767.87;
         } else {
             return 6740.79;
         }
         break;
     case '2A0':
-        if (axis == 'x') {
+        if (axis === 'x') {
             return 3370.39;
         } else {
             return 4767.87;
         }
         break;
     case 'A0':
-        if (axis == 'x') {
+        if (axis === 'x') {
             return 2383.94;
         } else {
             return 3370.39;
         }
         break;
     case 'A1':
-        if (axis == 'x') {
+        if (axis === 'x') {
             return 1683.78;
         } else {
             return 2383.94;
         }
         break;
     case 'A2':
-        if (axis == 'x') {
+        if (axis === 'x') {
             return 1190.55;
         } else {
             return 1683.78;
         }
         break;
     case 'A3':
-        if (axis == 'x') {
+        if (axis === 'x') {
             return 841.89;
         } else {
             return 1190.55;
         }
         break;
     case 'A4':
-        if (axis == 'x') {
+        if (axis === 'x') {
             return 595.28;
         } else {
             return 841.89;
         }
         break;
     case 'A5':
-        if (axis == 'x') {
+        if (axis === 'x') {
             return 419.53;
         } else {
             return 595.28;
         }
         break;
     case 'A6':
-        if (axis == 'x') {
+        if (axis === 'x') {
             return 297.64;
         } else {
             return 419.53;
         }
         break;
     case 'A7':
-        if (axis == 'x') {
+        if (axis === 'x') {
             return 209.76;
         } else {
             return 297.64;
         }
         break;
     case 'A8':
-        if (axis == 'x') {
+        if (axis === 'x') {
             return 147.40;
         } else {
             return 209.76;
         }
         break;
     case 'A9':
-        if (axis == 'x') {
+        if (axis === 'x') {
             return 104.88;
         } else {
             return 147.40;
         }
         break;
     case 'A10':
-        if (axis == 'x') {
+        if (axis === 'x') {
             return 73.70;
         } else {
             return 104.88;
         }
         break;
     case 'B0':
-        if (axis == 'x') {
+        if (axis === 'x') {
             return 2834.65;
         } else {
             return 4008.19;
         }
         break;
     case 'B1':
-        if (axis == 'x') {
+        if (axis === 'x') {
             return 2004.09;
         } else {
             return 2834.65;
         }
         break;
     case 'B2':
-        if (axis == 'x') {
+        if (axis === 'x') {
             return 1417.32;
         } else {
             return 2004.09;
         }
         break;
     case 'B3':
-        if (axis == 'x') {
+        if (axis === 'x') {
             return 1000.63;
         } else {
             return 1417.32;
         }
         break;
     case 'B4':
-        if (axis == 'x') {
+        if (axis === 'x') {
             return 708.66;
         } else {
             return 1000.63;
         }
         break;
     case 'B5':
-        if (axis == 'x') {
+        if (axis === 'x') {
             return 498.90;
         } else {
             return 708.66;
         }
         break;
     case 'B6':
-        if (axis == 'x') {
+        if (axis === 'x') {
             return 354.33;
         } else {
             return 498.90;
         }
         break;
     case 'B7':
-        if (axis == 'x') {
+        if (axis === 'x') {
             return 249.45;
         } else {
             return 354.33;
         }
         break;
     case 'B8':
-        if (axis == 'x') {
+        if (axis === 'x') {
             return 175.75;
         } else {
             return 249.45;
         }
         break;
     case 'B9':
-        if (axis == 'x') {
+        if (axis === 'x') {
             return 124.72;
         } else {
             return 175.75;
         }
         break;
     case 'B10':
-        if (axis == 'x') {
+        if (axis === 'x') {
             return 87.87;
         } else {
             return 124.72;
         }
         break;
     case 'C0':
-        if (axis == 'x') {
+        if (axis === 'x') {
             return 2599.37;
         } else {
             return 3676.54;
         }
         break;
     case 'C1':
-        if (axis == 'x') {
+        if (axis === 'x') {
             return 1836.85;
         } else {
             return 2599.37;
         }
         break;
     case 'C2':
-        if (axis == 'x') {
+        if (axis === 'x') {
             return 1298.27;
         } else {
             return 1836.85;
         }
         break;
     case 'C3':
-        if (axis == 'x') {
+        if (axis === 'x') {
             return 918.43;
         } else {
             return 1298.27;
         }
         break;
     case 'C4':
-        if (axis == 'x') {
+        if (axis === 'x') {
             return 649.13;
         } else {
             return 918.43;
         }
         break;
     case 'C5':
-        if (axis == 'x') {
+        if (axis === 'x') {
             return 459.21;
         } else {
             return 649.13;
         }
         break;
     case 'C6':
-        if (axis == 'x') {
+        if (axis === 'x') {
             return 323.15;
         } else {
             return 459.21;
         }
         break;
     case 'C7':
-        if (axis == 'x') {
+        if (axis === 'x') {
             return 229.61;
         } else {
             return 323.15;
         }
         break;
     case 'C8':
-        if (axis == 'x') {
+        if (axis === 'x') {
             return 161.57;
         } else {
             return 229.61;
         }
         break;
     case 'C9':
-        if (axis == 'x') {
+        if (axis === 'x') {
             return 113.39;
         } else {
             return 161.57;
         }
         break;
     case 'C10':
-        if (axis == 'x') {
+        if (axis === 'x') {
             return 79.37;
         } else {
             return 113.39;
         }
         break;
     case 'RA0':
-        if (axis == 'x') {
+        if (axis === 'x') {
             return 2437.80;
         } else {
             return 3458.27;
         }
         break;
     case 'RA1':
-        if (axis == 'x') {
+        if (axis === 'x') {
             return 1729.13;
         } else {
             return 2437.80;
         }
         break;
     case 'RA2':
-        if (axis == 'x') {
+        if (axis === 'x') {
             return 1218.90;
         } else {
             return 1729.13;
         }
         break;
     case 'RA3':
-        if (axis == 'x') {
+        if (axis === 'x') {
             return 864.57;
         } else {
             return 1218.90;
         }
         break;
     case 'RA4':
-        if (axis == 'x') {
+        if (axis === 'x') {
             return 609.45;
         } else {
             return 864.57;
         }
         break;
     case 'SRA0':
-        if (axis == 'x') {
+        if (axis === 'x') {
             return 2551.18;
         } else {
             return 3628.35;
         }
         break;
     case 'SRA1':
-        if (axis == 'x') {
+        if (axis === 'x') {
             return 1814.17;
         } else {
             return 2551.18;
         }
         break;
     case 'SRA2':
-        if (axis == 'x') {
+        if (axis === 'x') {
             return 1275.59;
         } else {
             return 1814.17;
         }
         break;
     case 'SRA3':
-        if (axis == 'x') {
+        if (axis === 'x') {
             return 907.09;
         } else {
             return 1275.59;
         }
         break;
     case 'SRA4':
-        if (axis == 'x') {
+        if (axis === 'x') {
             return 637.80;
         } else {
             return 907.09;
         }
         break;
     case 'LETTER':
-        if (axis == 'x') {
+        if (axis === 'x') {
             return 612.00;
         } else {
             return 792.00;
         }
         break;
     case 'LEGAL':
-        if (axis == 'x') {
+        if (axis === 'x') {
             return 612.00;
         } else {
             return 1008.00;
         }
         break;
     case 'EXECUTIVE':
-        if (axis == 'x') {
+        if (axis === 'x') {
             return 521.86;
         } else {
             return 756.00;
         }
         break;
     case 'FOLIO':
-        if (axis == 'x') {
+        if (axis === 'x') {
             return 612.00;
         } else {
             return 936.00;
@@ -2000,9 +2000,9 @@ function codemirrorAutocompleteOnInputRead (instance) {
                                 for (var column in columns) {
                                     if (columns.hasOwnProperty(column)) {
                                         var displayText = columns[column].Type;
-                                        if (columns[column].Key == 'PRI') {
+                                        if (columns[column].Key === 'PRI') {
                                             displayText += ' | Primary';
-                                        } else if (columns[column].Key == 'UNI') {
+                                        } else if (columns[column].Key === 'UNI') {
                                             displayText += ' | Unique';
                                         }
                                         table.columns.push({
@@ -2076,7 +2076,7 @@ function bindCodeMirrorToInlineEditor () {
 
 function catchKeypressesFromSqlInlineEdit (event) {
     // ctrl-enter is 10 in chrome and ie, but 13 in ff
-    if ((event.ctrlKey || event.metaKey) && (event.keyCode == 13 || event.keyCode == 10)) {
+    if ((event.ctrlKey || event.metaKey) && (event.keyCode === 13 || event.keyCode === 10)) {
         $('#sql_query_edit_save').trigger('click');
     }
 }
@@ -2278,7 +2278,7 @@ function PMA_ajaxShowMessage (message, timeout, type) {
         message = PMA_messages.strLoading;
         dismissable = false;
         self_closing = false;
-    } else if (message == PMA_messages.strProcessingRequest) {
+    } else if (message === PMA_messages.strProcessingRequest) {
         // This is another case where the message should not disappear
         dismissable = false;
         self_closing = false;
@@ -2475,7 +2475,7 @@ function PMA_showNoticeForEnum (selectElement) {
     var enum_notice_id = selectElement.attr('id').split('_')[1];
     enum_notice_id += '_' + (parseInt(selectElement.attr('id').split('_')[2], 10) + 1);
     var selectedType = selectElement.val();
-    if (selectedType == 'ENUM' || selectedType == 'SET') {
+    if (selectedType === 'ENUM' || selectedType === 'SET') {
         $('p#enum_notice_' + enum_notice_id).show();
     } else {
         $('p#enum_notice_' + enum_notice_id).hide();
@@ -2640,10 +2640,10 @@ function PMA_SQLPrettyPrint (string) {
         previousBlock = blockStack[0];
 
         // New block => push to stack
-        if (tokens[i][1] == '(') {
-            if (i < tokens.length - 1 && tokens[i + 1][0] == 'statement-verb') {
+        if (tokens[i][1] === '(') {
+            if (i < tokens.length - 1 && tokens[i + 1][0] === 'statement-verb') {
                 blockStack.unshift(newBlock = 'statement');
-            } else if (i > 0 && tokens[i - 1][0] == 'builtin') {
+            } else if (i > 0 && tokens[i - 1][0] === 'builtin') {
                 blockStack.unshift(newBlock = 'function');
             } else {
                 blockStack.unshift(newBlock = 'generic');
@@ -2653,7 +2653,7 @@ function PMA_SQLPrettyPrint (string) {
         }
 
         // Block end => pop from stack
-        if (tokens[i][1] == ')') {
+        if (tokens[i][1] === ')') {
             endBlock = blockStack[0];
             blockStack.shift();
         } else {
@@ -2661,7 +2661,7 @@ function PMA_SQLPrettyPrint (string) {
         }
 
         // A subquery is starting
-        if (i > 0 && newBlock == 'statement') {
+        if (i > 0 && newBlock === 'statement') {
             indentLevel++;
             output += '\n' + tabs(indentLevel) + tokens[i][1] + ' ' + tokens[i + 1][1].toUpperCase() + '\n' + tabs(indentLevel + 1);
             currentStatement = tokens[i + 1][1];
@@ -2670,14 +2670,14 @@ function PMA_SQLPrettyPrint (string) {
         }
 
         // A subquery is ending
-        if (endBlock == 'statement' && indentLevel > 0) {
+        if (endBlock === 'statement' && indentLevel > 0) {
             output += '\n' + tabs(indentLevel);
             indentLevel--;
         }
 
         // One less indentation for statement parts (from, where, order by, etc.) and a newline
         statementPart = statements[currentStatement].indexOf(tokens[i][1]);
-        if (statementPart != -1) {
+        if (statementPart !== -1) {
             if (i > 0) {
                 output += '\n';
             }
@@ -2688,10 +2688,10 @@ function PMA_SQLPrettyPrint (string) {
         } else {
             if (! spaceExceptionsBefore[tokens[i][1]] &&
                ! (i > 0 && spaceExceptionsAfter[tokens[i - 1][1]]) &&
-               output.charAt(output.length - 1) != ' ') {
+               output.charAt(output.length - 1) !== ' ') {
                 output += ' ';
             }
-            if (tokens[i][0] == 'keyword') {
+            if (tokens[i][0] === 'keyword') {
                 output += tokens[i][1].toUpperCase();
             } else {
                 output += tokens[i][1];
@@ -2699,19 +2699,19 @@ function PMA_SQLPrettyPrint (string) {
         }
 
         // split columns in select and 'update set' clauses, but only inside statements blocks
-        if ((lastStatementPart == 'select' || lastStatementPart == 'where'  || lastStatementPart == 'set') &&
-            tokens[i][1] == ',' && blockStack[0] == 'statement') {
+        if ((lastStatementPart === 'select' || lastStatementPart === 'where'  || lastStatementPart === 'set') &&
+            tokens[i][1] === ',' && blockStack[0] === 'statement') {
             output += '\n' + tabs(indentLevel + 1);
         }
 
         // split conditions in where clauses, but only inside statements blocks
-        if (lastStatementPart == 'where' &&
-            (tokens[i][1] == 'and' || tokens[i][1] == 'or' || tokens[i][1] == 'xor')) {
-            if (blockStack[0] == 'statement') {
+        if (lastStatementPart === 'where' &&
+            (tokens[i][1] === 'and' || tokens[i][1] === 'or' || tokens[i][1] === 'xor')) {
+            if (blockStack[0] === 'statement') {
                 output += '\n' + tabs(indentLevel + 1);
             }
             // Todo: Also split and or blocks in newlines & indentation++
-            // if (blockStack[0] == 'generic')
+            // if (blockStack[0] === 'generic')
             //   output += ...
         }
     }
@@ -2978,7 +2978,7 @@ AJAX.registerOnload('functions.js', function () {
     }); // end create table form (add fields)
 
     $(document).on('keydown', 'form.create_table_form.ajax input[name=added_fields]', function (event) {
-        if (event.keyCode == 13) {
+        if (event.keyCode === 13) {
             event.preventDefault();
             event.stopImmediatePropagation();
             $(this)
@@ -3034,7 +3034,7 @@ function PMA_checkPassword ($the_form) {
         return true;
     } else {
         var $pred = $the_form.find('#select_pred_password');
-        if ($pred.length && ($pred.val() == 'none' || $pred.val() == 'keep')) {
+        if ($pred.length && ($pred.val() === 'none' || $pred.val() === 'keep')) {
             return true;
         }
     }
@@ -3045,7 +3045,7 @@ function PMA_checkPassword ($the_form) {
 
     if ($password.val() === '') {
         alert_msg = PMA_messages.strPasswordEmpty;
-    } else if ($password.val() != $password_repeat.val()) {
+    } else if ($password.val() !== $password_repeat.val()) {
         alert_msg = PMA_messages.strPasswordNotSame;
     }
 
@@ -3066,15 +3066,15 @@ AJAX.registerOnload('functions.js', function () {
     /* Handler for hostname type */
     $(document).on('change', '#select_pred_hostname', function () {
         var hostname = $('#pma_hostname');
-        if (this.value == 'any') {
+        if (this.value === 'any') {
             hostname.val('%');
-        } else if (this.value == 'localhost') {
+        } else if (this.value === 'localhost') {
             hostname.val('localhost');
-        } else if (this.value == 'thishost' && $(this).data('thishost')) {
+        } else if (this.value === 'thishost' && $(this).data('thishost')) {
             hostname.val($(this).data('thishost'));
-        } else if (this.value == 'hosttable') {
+        } else if (this.value === 'hosttable') {
             hostname.val('').prop('required', false);
-        } else if (this.value == 'userdefined') {
+        } else if (this.value === 'userdefined') {
             hostname.focus().select().prop('required', true);
         }
     });
@@ -3087,10 +3087,10 @@ AJAX.registerOnload('functions.js', function () {
 
     /* Handler for username type */
     $(document).on('change', '#select_pred_username', function () {
-        if (this.value == 'any') {
+        if (this.value === 'any') {
             $('#pma_username').val('').prop('required', false);
             $('#user_exists_warning').css('display', 'none');
-        } else if (this.value == 'userdefined') {
+        } else if (this.value === 'userdefined') {
             $('#pma_username').focus().select().prop('required', true);
         }
     });
@@ -3103,10 +3103,10 @@ AJAX.registerOnload('functions.js', function () {
 
     /* Handler for password type */
     $(document).on('change', '#select_pred_password', function () {
-        if (this.value == 'none') {
+        if (this.value === 'none') {
             $('#text_pma_pw2').prop('required', false).val('');
             $('#text_pma_pw').prop('required', false).val('');
-        } else if (this.value == 'userdefined') {
+        } else if (this.value === 'userdefined') {
             $('#text_pma_pw2').prop('required', true);
             $('#text_pma_pw').prop('required', true).focus().select();
         } else {
@@ -3266,7 +3266,7 @@ function PMA_hideShowConnection ($engine_selector) {
     var $connection = $('.create_table_form input[name=connection]');
     var index = $connection.parent('td').index() + 1;
     var $labelTh = $connection.parents('tr').prev('tr').children('th:nth-child(' + index + ')');
-    if ($engine_selector.val() != 'FEDERATED') {
+    if ($engine_selector.val() !== 'FEDERATED') {
         $connection
             .prop('disabled', true)
             .parent('td').hide();
@@ -3285,7 +3285,7 @@ function PMA_hideShowConnection ($engine_selector) {
 function PMA_validateDefaultValue ($null_checkbox) {
     if (! $null_checkbox.prop('checked')) {
         var $default = $null_checkbox.closest('tr').find('.default_type');
-        if ($default.val() == 'NULL') {
+        if ($default.val() === 'NULL') {
             $default.val('NONE');
         }
     }
@@ -3387,16 +3387,16 @@ AJAX.registerOnload('functions.js', function () {
         var curr, next, buffer = '';
         for (i = 0; i < inputstring.length; i++) {
             curr = inputstring.charAt(i);
-            next = i == inputstring.length ? '' : inputstring.charAt(i + 1);
-            if (! in_string && curr == '\'') {
+            next = i === inputstring.length ? '' : inputstring.charAt(i + 1);
+            if (! in_string && curr === '\'') {
                 in_string = true;
-            } else if (in_string && curr == '\\' && next == '\\') {
+            } else if (in_string && curr === '\\' && next === '\\') {
                 buffer += '&#92;';
                 i++;
-            } else if (in_string && next == '\'' && (curr == '\'' || curr == '\\')) {
+            } else if (in_string && next === '\'' && (curr === '\'' || curr === '\\')) {
                 buffer += '&#39;';
                 i++;
-            } else if (in_string && curr == '\'') {
+            } else if (in_string && curr === '\'') {
                 in_string = false;
                 values.push(buffer);
                 buffer = '';
@@ -3685,11 +3685,11 @@ function checkIndexName (form_id) {
     var $the_idx_choice = $('#select_index_choice');
 
     // Index is a primary key
-    if ($the_idx_choice.find('option:selected').val() == 'PRIMARY') {
+    if ($the_idx_choice.find('option:selected').val() === 'PRIMARY') {
         $the_idx_name.val('PRIMARY');
         $the_idx_name.prop('disabled', true);
     } else {
-        if ($the_idx_name.val() == 'PRIMARY') {
+        if ($the_idx_name.val() === 'PRIMARY') {
             $the_idx_name.val('');
         }
         $the_idx_name.prop('disabled', false);
@@ -3937,7 +3937,7 @@ function PMA_getRowNumber (classlist) {
  */
 function PMA_set_status_label ($element) {
     var text;
-    if ($element.css('display') == 'none') {
+    if ($element.css('display') === 'none') {
         text = '+ ';
     } else {
         text = '- ';
@@ -3954,7 +3954,7 @@ var toggleButton = function ($obj) {
     // In rtl mode the toggle switch is flipped horizontally
     // so we need to take that into account
     var right;
-    if ($('span.text_direction', $obj).text() == 'ltr') {
+    if ($('span.text_direction', $obj).text() === 'ltr') {
         right = 'right';
     } else {
         right = 'left';
@@ -4011,7 +4011,7 @@ var toggleButton = function ($obj) {
     // If the switch is initialized to the
     // OFF state we need to move it now.
     if ($('div.container', $obj).hasClass('off')) {
-        if (right == 'right') {
+        if (right === 'right') {
             $('div.container', $obj).animate({ 'left': '-=' + move + 'px' }, 0);
         } else {
             $('div.container', $obj).animate({ 'left': '+=' + move + 'px' }, 0);
@@ -4030,7 +4030,7 @@ var toggleButton = function ($obj) {
         var operator, url, removeClass, addClass;
         // Perform the actual toggle
         if ($(this).hasClass('on')) {
-            if (right == 'right') {
+            if (right === 'right') {
                 operator = '-=';
             } else {
                 operator = '+=';
@@ -4039,7 +4039,7 @@ var toggleButton = function ($obj) {
             removeClass = 'on';
             addClass = 'off';
         } else {
-            if (right == 'right') {
+            if (right === 'right') {
                 operator = '+=';
             } else {
                 operator = '-=';
@@ -4196,7 +4196,7 @@ AJAX.registerOnload('functions.js', function () {
  * @returns {Boolean}
  */
 function submitFormLink ($link) {
-    if ($link.attr('href').indexOf('=') != -1) {
+    if ($link.attr('href').indexOf('=') !== -1) {
         var data = $link.attr('href').substr($link.attr('href').indexOf('#') + 1).split('=', 2);
         $link.parents('form').append('<input type="hidden" name="' + data[0] + '" value="' + data[1] + '"/>');
     }
@@ -4616,7 +4616,7 @@ function PMA_createViewDialog ($this) {
  */
 $(function () {
     if ($('#floating_menubar').length && $('#PMA_disable_floating_menubar').length === 0) {
-        var left = $('html').attr('dir') == 'ltr' ? 'left' : 'right';
+        var left = $('html').attr('dir') === 'ltr' ? 'left' : 'right';
         $('#floating_menubar')
             .css('margin-' + left, $('#pma_navigation').width() + $('#pma_navigation_resizer').width())
             .css(left, 0)
@@ -4660,7 +4660,7 @@ var checkboxes_changed = function () {
     // number of checkboxes checked in current form
     var checked_boxes = $form.find(checkboxes_sel + ':checked').length;
     var $checkall = $form.find('input.checkall_box');
-    if (total_boxes == checked_boxes) {
+    if (total_boxes === checked_boxes) {
         $checkall.prop({ checked: true, indeterminate: false });
     } else if (checked_boxes > 0) {
         $checkall.prop({ checked: true, indeterminate: true });
@@ -4686,7 +4686,7 @@ var sub_checkboxes_changed = function () {
     // number of checkboxes checked in current sub form
     var checked_boxes = $form.find(checkboxes_sel + ':checked').length;
     var $checkall = $form.find('input.sub_checkall_box');
-    if (total_boxes == checked_boxes) {
+    if (total_boxes === checked_boxes) {
         $checkall.prop({ checked: true, indeterminate: false });
     } else if (checked_boxes > 0) {
         $checkall.prop({ checked: true, indeterminate: true });
@@ -4743,7 +4743,7 @@ AJAX.registerOnload('functions.js', function () {
     }
     var $https_warning = $('#js-https-mismatch');
     if ($https_warning.length) {
-        if ((window.location.protocol === 'https:') != PMA_commonParams.get('is_https')) {
+        if ((window.location.protocol === 'https:') !== PMA_commonParams.get('is_https')) {
             $https_warning.show();
         }
     }
@@ -4861,7 +4861,7 @@ AJAX.registerOnload('functions.js', function () {
      * Handle 'Ctrl/Alt + Enter' form submits
      */
     $('form input, form textarea, form select').on('keydown', function (e) {
-        if ((e.ctrlKey && e.which == 13) || (e.altKey && e.which == 13)) {
+        if ((e.ctrlKey && e.which === 13) || (e.altKey && e.which === 13)) {
             $form = $(this).closest('form');
             if (! $form.find('input[type="submit"]') ||
                 ! $form.find('input[type="submit"]').click()

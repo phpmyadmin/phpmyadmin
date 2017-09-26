@@ -281,14 +281,14 @@ PMA_SetUrlHash = (function (jQuery, window) {
      * Start initialisation
      */
     var urlhash = window.location.hash;
-    if (urlhash.substring(0, 8) == '#PMAURL-') {
+    if (urlhash.substring(0, 8) === '#PMAURL-') {
         // We have a valid hash, let's redirect the user
         // to the page that it's pointing to
         var colon_position = urlhash.indexOf(':');
         var questionmark_position = urlhash.indexOf('?');
-        if (colon_position != -1 && questionmark_position != -1 && colon_position < questionmark_position) {
+        if (colon_position !== -1 && questionmark_position !== -1 && colon_position < questionmark_position) {
             var hash_url = urlhash.substring(colon_position + 1, questionmark_position);
-            if (PMA_gotoWhitelist.indexOf(hash_url) != -1) {
+            if (PMA_gotoWhitelist.indexOf(hash_url) !== -1) {
                 window.location = urlhash.substring(
                     colon_position + 1
                 );

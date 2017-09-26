@@ -15,13 +15,13 @@
  * @return boolean  whether the form is validated or not
  */
 function checkAddUser (the_form) {
-    if (the_form.elements.pred_hostname.value == 'userdefined' && the_form.elements.hostname.value === '') {
+    if (the_form.elements.pred_hostname.value === 'userdefined' && the_form.elements.hostname.value === '') {
         alert(PMA_messages.strHostEmpty);
         the_form.elements.hostname.focus();
         return false;
     }
 
-    if (the_form.elements.pred_username.value == 'userdefined' && the_form.elements.username.value === '') {
+    if (the_form.elements.pred_username.value === 'userdefined' && the_form.elements.username.value === '') {
         alert(PMA_messages.strUserEmpty);
         the_form.elements.username.focus();
         return false;
@@ -40,7 +40,7 @@ function checkPasswordStrength (value, meter_obj, meter_object_label, username) 
         'my',
         'admin',
     ];
-    if (username != null) {
+    if (username !== null) {
         customDict.push(username);
     }
     var zxcvbn_obj = zxcvbn(value, customDict);
@@ -100,7 +100,7 @@ AJAX.registerOnload('server_privileges.js', function () {
     $('#fieldset_add_user_login').on('change', 'input[name=\'username\']', function () {
         var username = $(this).val();
         var $warning = $('#user_exists_warning');
-        if ($('#select_pred_username').val() == 'userdefined' && username !== '') {
+        if ($('#select_pred_username').val() === 'userdefined' && username !== '') {
             var href = $('form[name=\'usersForm\']').attr('action');
             var params = {
                 'ajax_request' : true,

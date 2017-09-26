@@ -369,7 +369,7 @@ AJAX.registerOnload('sql.js', function () {
         $('#togglequerybox').bind('click', function () {
             var $link = $(this);
             $link.siblings().slideToggle('fast');
-            if ($link.text() == PMA_messages.strHideQueryBox) {
+            if ($link.text() === PMA_messages.strHideQueryBox) {
                 $link.text(PMA_messages.strShowQueryBox);
                 // cheap trick to add a spacer between the menu tabs
                 // and "Show query box"; feel free to improve!
@@ -418,7 +418,7 @@ AJAX.registerOnload('sql.js', function () {
             $varDiv.append($('<input type="text" size="10" name="bookmark_variable[' + i + ']" id="bookmark_variable_' + i + '"/>'));
         }
 
-        if (varCount == 0) {
+        if (varCount === 0) {
             $varDiv.parent('.formelement').hide();
         } else {
             $varDiv.parent('.formelement').show();
@@ -434,7 +434,7 @@ AJAX.registerOnload('sql.js', function () {
     $('input[name=bookmark_variable]').on('keypress', function (event) {
         // force the 'Enter Key' to implicitly click the #button_submit_bookmark
         var keycode = (event.keyCode ? event.keyCode : (event.which ? event.which : event.charCode));
-        if (keycode == 13) { // keycode for enter key
+        if (keycode === 13) { // keycode for enter key
             // When you press enter in the sqlqueryform, which
             // has 2 submit buttons, the default is to run the
             // #button_submit_query, because of the tabindex
@@ -483,17 +483,17 @@ AJAX.registerOnload('sql.js', function () {
                 // show a message that stays on screen
                 if (typeof data.action_bookmark !== 'undefined') {
                     // view only
-                    if ('1' == data.action_bookmark) {
+                    if ('1' === data.action_bookmark) {
                         $('#sqlquery').text(data.sql_query);
                         // send to codemirror if possible
                         setQuery(data.sql_query);
                     }
                     // delete
-                    if ('2' == data.action_bookmark) {
+                    if ('2' === data.action_bookmark) {
                         $('#id_bookmark option[value=\'' + data.id_bookmark + '\']').remove();
                         // if there are no bookmarked queries now (only the empty option),
                         // remove the bookmark section
-                        if ($('#id_bookmark option').length == 1) {
+                        if ($('#id_bookmark option').length === 1) {
                             $('#fieldsetBookmarkOptions').hide();
                             $('#fieldsetBookmarkOptionsFooter').hide();
                         }
@@ -817,7 +817,7 @@ function browseForeignDialog ($this_a) {
             e.preventDefault();
             // if filter value is not equal to old value
             // then reset page number to 1
-            if ($(filterId).val() != $(filterId).data('old')) {
+            if ($(filterId).val() !== $(filterId).data('old')) {
                 $(formId).find('select[name=pos]').val('0');
             }
             var postParams = $(this).serializeArray();
@@ -989,7 +989,7 @@ function handleStickyColumns ($sticky_columns, $table_results) {
     var tableEndOffset = tableStartOffset + $table_results.height();
     if (windowOffset >= tableStartOffset && windowOffset <= tableEndOffset) {
         // for horizontal scrolling
-        if (prevScrollX != currentScrollX) {
+        if (prevScrollX !== currentScrollX) {
             prevScrollX = currentScrollX;
             setStickyColumnsPosition($sticky_columns, $table_results, 'absolute', $('#floating_menubar').height() + windowOffset - tableStartOffset);
         // for vertical scrolling

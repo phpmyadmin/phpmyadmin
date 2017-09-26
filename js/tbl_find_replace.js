@@ -19,7 +19,7 @@ AJAX.registerOnload('tbl_find_replace.js', function () {
         .click(function () {
             var $link = $(this);
             $('#find_replace_form').slideToggle();
-            if ($link.text() == PMA_messages.strHideFindNReplaceCriteria) {
+            if ($link.text() === PMA_messages.strHideFindNReplaceCriteria) {
                 $link.text(PMA_messages.strShowFindNReplaceCriteria);
             } else {
                 $link.text(PMA_messages.strHideFindNReplaceCriteria);

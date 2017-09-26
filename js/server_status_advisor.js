@@ -17,7 +17,7 @@ AJAX.registerTeardown('server_status_advisor.js', function () {
 
 AJAX.registerOnload('server_status_advisor.js', function () {
     // if no advisor is loaded
-    if ($('#advisorData').length == 0) {
+    if ($('#advisorData').length === 0) {
         return;
     }
 

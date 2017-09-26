@@ -11,7 +11,7 @@
         "curly": "error",
         "dot-notation": "error",
         "eol-last": "error",
-        "eqeqeq": "warn",
+        "eqeqeq": "error",
         "indent": ["error", 4],
         "keyword-spacing": "error",
         "new-cap": "warn",

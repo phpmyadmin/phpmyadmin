@@ -154,13 +154,13 @@ var AJAX = {
          * in textarea, it returns only the change in content.
          */
         var newHash = null;
-        if (event.data.value == 1) {
+        if (event.data.value === 1) {
             newHash = AJAX.hash($(this).val());
         } else {
             newHash = AJAX.hash($(this).is(':checked'));
         }
         var oldHash = $(this).data('val-hash');
-        // Set lock if old value != new value
+        // Set lock if old value !== new value
         // otherwise release lock
         if (oldHash !== newHash) {
             AJAX.lockedTargets[lockId] = true;
@@ -460,8 +460,8 @@ var AJAX = {
                     });
                     // In case of 'sendErrorReport'='always'
                     // submit the hidden error reporting form.
-                    if (data._sendErrorAlways == '1' &&
-                        data._stopErrorReportLoop != '1'
+                    if (data._sendErrorAlways === '1' &&
+                        data._stopErrorReportLoop !== '1'
                     ) {
                         $('#pma_report_errors_form').submit();
                         PMA_ajaxShowMessage(PMA_messages.phpErrorsBeingSubmitted, false);
@@ -554,7 +554,7 @@ var AJAX = {
             // Depends on common params being set before loading scripts in responseHandler
             if (self._scriptsVersion === null) {
                 self._scriptsVersion = PMA_commonParams.get('PMA_VERSION');
-            } else if (self._scriptsVersion != PMA_commonParams.get('PMA_VERSION')) {
+            } else if (self._scriptsVersion !== PMA_commonParams.get('PMA_VERSION')) {
                 self._scripts = [];
                 self._scriptsVersion = PMA_commonParams.get('PMA_VERSION');
             }
@@ -572,7 +572,7 @@ var AJAX = {
             for (var index in self._scriptsToBeLoaded) {
                 var script = self._scriptsToBeLoaded[index];
                 // Only for scripts that we don't already have
-                if ($.inArray(script, self._scripts) == -1) {
+                if ($.inArray(script, self._scripts) === -1) {
                     needRequest = true;
                     this.add(script);
                     request.push('scripts%5B%5D=' + script);
@@ -736,7 +736,7 @@ $(function () {
         history.replaceState(state, null);
 
         $(window).on('popstate', function (event) {
-            var initPop = (! initState && location.href == initURL);
+            var initPop = (! initState && location.href === initURL);
             initState = true;
             // check if popstate fired on first page itself
             if (initPop) {
@@ -805,7 +805,7 @@ $(document).ajaxError(function (event, request, settings) {
             details += '<div>' + escapeHtml(PMA_sprintf(PMA_messages.strErrorCode, request.status)) + '</div>';
         }
         details += '<div>' + escapeHtml(PMA_sprintf(PMA_messages.strErrorText, request.statusText + ' (' + state + ')')) + '</div>';
-        if (state == 'rejected' || state == 'timeout') {
+        if (state === 'rejected' || state === 'timeout') {
             details += '<div>' + escapeHtml(PMA_messages.strErrorConnection) + '</div>';
         }
         PMA_ajaxShowMessage(

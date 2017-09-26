@@ -130,7 +130,7 @@
                 // item fits or (it is the last item
                 // and it would fit if More got removed)
                 if (total_len < wmax ||
-                    (i == $li2.length - 1 && total_len - submenu_w < wmax)
+                    (i === $li2.length - 1 && total_len - submenu_w < wmax)
                 ) {
                     $($li2[i]).insertBefore($submenu);
                 } else {
@@ -152,7 +152,7 @@
                 $submenu.removeClass('shown');
             }
         }
-        if (this.$container.find('> li').length == 1) {
+        if (this.$container.find('> li').length === 1) {
             // If there is only the "More" tab left, then we need
             // to align the submenu to the left edge of the tab
             $submenu_ul.removeClass().addClass('only');

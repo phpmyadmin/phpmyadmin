@@ -147,7 +147,7 @@ var PMA_console = {
             });
 
             PMA_console.$consoleContent.click(function (event) {
-                if (event.target == this) {
+                if (event.target === this) {
                     PMA_consoleInput.focus();
                 }
             });
@@ -183,7 +183,7 @@ var PMA_console = {
             });
 
             $(document).ajaxComplete(function (event, xhr, ajaxOptions) {
-                if (ajaxOptions.dataType && ajaxOptions.dataType.indexOf('json') != -1) {
+                if (ajaxOptions.dataType && ajaxOptions.dataType.indexOf('json') !== -1) {
                     return;
                 }
                 if (xhr.status !== 200) {
@@ -585,7 +585,7 @@ var PMA_consoleInput = {
         $('#pma_console').find('.console_query_input').keydown(PMA_consoleInput._keydown);
     },
     _historyNavigate: function (event) {
-        if (event.keyCode == 38 || event.keyCode == 40) {
+        if (event.keyCode === 38 || event.keyCode === 40) {
             var upPermitted = false;
             var downPermitted = false;
             var editor = PMA_consoleInput._inputs.console;
@@ -603,19 +603,19 @@ var PMA_consoleInput = {
             if (cursorLine === 0) {
                 upPermitted = true;
             }
-            if (cursorLine == totalLine - 1) {
+            if (cursorLine === totalLine - 1) {
                 downPermitted = true;
             }
             var nextCount;
             var queryString = false;
-            if (upPermitted && event.keyCode == 38) {
+            if (upPermitted && event.keyCode === 38) {
                 // Navigate up in history
                 if (PMA_consoleInput._historyCount === 0) {
                     PMA_consoleInput._historyPreserveCurrent = PMA_consoleInput.getText();
                 }
                 nextCount = PMA_consoleInput._historyCount + 1;
                 queryString = PMA_consoleMessages.getHistory(nextCount);
-            } else if (downPermitted && event.keyCode == 40) {
+            } else if (downPermitted && event.keyCode === 40) {
                 // Navigate down in history
                 if (PMA_consoleInput._historyCount === 0) {
                     return;
@@ -1137,7 +1137,7 @@ PMA_consoleDebug = {
             $('#debug_console').addClass('grouped');
         } else {
             $('#debug_console').addClass('ungrouped');
-            if (PMA_consoleDebug.configParam('orderBy') == 'count') {
+            if (PMA_consoleDebug.configParam('orderBy') === 'count') {
                 $('#debug_console').find('.button.order_by.sort_exec').addClass('active');
             }
         }
@@ -1152,7 +1152,7 @@ PMA_consoleDebug = {
             $('#debug_console').removeClass('ungrouped');
             PMA_consoleDebug.configParam('groupQueries', true);
             PMA_consoleDebug.refresh();
-            if (PMA_consoleDebug.configParam('orderBy') == 'count') {
+            if (PMA_consoleDebug.configParam('orderBy') === 'count') {
                 $('#debug_console').find('.button.order_by.sort_exec').removeClass('active');
             }
         });
@@ -1161,7 +1161,7 @@ PMA_consoleDebug = {
             $('#debug_console').removeClass('grouped');
             PMA_consoleDebug.configParam('groupQueries', false);
             PMA_consoleDebug.refresh();
-            if (PMA_consoleDebug.configParam('orderBy') == 'count') {
+            if (PMA_consoleDebug.configParam('orderBy') === 'count') {
                 $('#debug_console').find('.button.order_by.sort_exec').addClass('active');
             }
         });
@@ -1459,7 +1459,7 @@ PMA_consoleDebug = {
 
         // For sorting queries
         function sortByTime (a, b) {
-            var order = ((PMA_consoleDebug.configParam('order') == 'asc') ? 1 : -1);
+            var order = ((PMA_consoleDebug.configParam('order') === 'asc') ? 1 : -1);
             if (Array.isArray(a) && Array.isArray(b)) {
                 // It is grouped
                 var timeA = 0, timeB = 0, i;
@@ -1476,7 +1476,7 @@ PMA_consoleDebug = {
         }
 
         function sortByCount (a, b) {
-            var order = ((PMA_consoleDebug.configParam('order') == 'asc') ? 1 : -1);
+            var order = ((PMA_consoleDebug.configParam('order') === 'asc') ? 1 : -1);
             return (a.length - b.length) * order;
         }
 
@@ -1485,25 +1485,25 @@ PMA_consoleDebug = {
 
         if (this.configParam('groupQueries')) {
             // Sort queries
-            if (orderBy == 'time') {
+            if (orderBy === 'time') {
                 uniqueQueries.sort(sortByTime);
-            } else if (orderBy == 'count') {
+            } else if (orderBy === 'count') {
                 uniqueQueries.sort(sortByCount);
-            } else if (orderBy == 'exec' && order == 'desc') {
+            } else if (orderBy === 'exec' && order === 'desc') {
                 uniqueQueries.reverse();
             }
             for (i in uniqueQueries) {
-                if (orderBy == 'time') {
+                if (orderBy === 'time') {
                     uniqueQueries[i].sort(sortByTime);
-                } else if (orderBy == 'exec' && order == 'desc') {
+                } else if (orderBy === 'exec' && order === 'desc') {
                     uniqueQueries[i].reverse();
                 }
                 $('#debug_console').find('.debugLog').append(this._formatQueryOrGroup(uniqueQueries[i], totalTime));
             }
         } else {
-            if (orderBy == 'time') {
+            if (orderBy === 'time') {
                 allQueries.sort(sortByTime);
-            } else if (order == 'desc') {
+            } else if (order === 'desc') {
                 allQueries.reverse();
             }
             for (i = 0; i < totalExec; ++i) {

@@ -42,7 +42,7 @@ $(document).ready(function () {
             PMA_console.toggle();
         }
 
-        if (e.ctrlKey && e.keyCode == keyK) {
+        if (e.ctrlKey && e.keyCode === keyK) {
             e.preventDefault();
             PMA_console.toggle();
         }

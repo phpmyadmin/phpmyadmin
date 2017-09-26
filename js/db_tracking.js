@@ -45,7 +45,7 @@ AJAX.registerOnload('db_tracking.js', function () {
         var $form = $button.parent('form');
         var submitData = $form.serialize() + '&ajax_request=true&ajax_page_request=true&submit_mult=' + $button.val();
 
-        if ($button.val() == 'delete_tracking') {
+        if ($button.val() === 'delete_tracking') {
             var question = PMA_messages.strDeleteTrackingDataMultiple;
             $button.PMA_confirm(question, $form.attr('action'), function (url) {
                 PMA_ajaxShowMessage(PMA_messages.strDeletingTrackingData);

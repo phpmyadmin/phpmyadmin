@@ -31,7 +31,7 @@ var PMA_commonParams = (function () {
             var updateNavigation = false;
             for (var i in obj) {
                 if (params[i] !== undefined && params[i] !== obj[i]) {
-                    if (i == 'db' || i == 'table') {
+                    if (i === 'db' || i === 'table') {
                         updateNavigation = true;
                     }
                     reload = true;
@@ -65,7 +65,7 @@ var PMA_commonParams = (function () {
          */
         set: function (name, value) {
             var updateNavigation = false;
-            if (name == 'db' || name == 'table' &&
+            if (name === 'db' || name === 'table' &&
                 params[name] !== value
             ) {
                 updateNavigation = true;
@@ -117,7 +117,7 @@ var PMA_commonActions = {
      * @return void
      */
     setDb: function (new_db) {
-        if (new_db != PMA_commonParams.get('db')) {
+        if (new_db !== PMA_commonParams.get('db')) {
             PMA_commonParams.setAll({ 'db': new_db, 'table': '' });
         }
     },

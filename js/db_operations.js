@@ -39,7 +39,7 @@ AJAX.registerOnload('db_operations.js', function () {
         var old_db_name = PMA_commonParams.get('db');
         var new_db_name = $('#new_db_name').val();
 
-        if (new_db_name == old_db_name) {
+        if (new_db_name === old_db_name) {
             PMA_ajaxShowMessage(PMA_messages.strDatabaseRenameToSameName, false, 'error');
             return false;
         }
@@ -62,7 +62,7 @@ AJAX.registerOnload('db_operations.js', function () {
                             .find('a:not(\'.expander\')')
                             .each(function (index) {
                                 var $thisAnchor = $(this);
-                                if ($thisAnchor.text() == data.newname) {
+                                if ($thisAnchor.text() === data.newname) {
                                     // simulate a click on the new db name
                                     // in navigation
                                     $thisAnchor.trigger('click');

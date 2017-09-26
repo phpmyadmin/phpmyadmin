@@ -84,14 +84,14 @@ function PMA_adjustTotals () {
         // Given a value and a unit, such as 100 and KiB, for the table size
         // and overhead calculate their numeric values in bytes, such as 102400
         for (i = 0; i < byteUnits.length; i++) {
-            if (strSizeUnit == byteUnits[i]) {
+            if (strSizeUnit === byteUnits[i]) {
                 tmpVal = parseFloat(strSize);
                 valSize = tmpVal * Math.pow(1024, i);
                 break;
             }
         }
         for (i = 0; i < byteUnits.length; i++) {
-            if (strOverheadUnit == byteUnits[i]) {
+            if (strOverheadUnit === byteUnits[i]) {
                 tmpVal = parseFloat(strOverhead);
                 valOverhead = tmpVal * Math.pow(1024, i);
                 break;

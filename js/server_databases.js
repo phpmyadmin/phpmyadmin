@@ -144,7 +144,7 @@ AJAX.registerOnload('server_databases.js', function () {
     /* Event handler for database filter */
     $filterField.keyup(function () {
         var textFilter = null, val = $(this).val();
-        if (val.length != 0) {
+        if (val.length !== 0) {
             try {
                 textFilter = new RegExp(val.replace(/_/g, ' '), 'i');
                 $(this).removeClass('error');

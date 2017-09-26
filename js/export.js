@@ -56,7 +56,7 @@ function getTemplateData () {
     });
     // include empty multiselects
     $form.find('select').each(function () {
-        if ($(this).find('option:selected').length == 0) {
+        if ($(this).find('option:selected').length === 0) {
             obj[this.name] = [];
         }
     });
@@ -88,7 +88,7 @@ function createTemplate (name) {
             $('#templateName').val('');
             $('#template').html(response.data);
             $('#template').find('option').each(function () {
-                if ($(this).text() == name) {
+                if ($(this).text() === name) {
                     $(this).prop('selected', true);
                 }
             });
@@ -123,12 +123,12 @@ function loadTemplate (id) {
             $.each(options, function (key, value) {
                 var $element = $form.find('[name="' + key + '"]');
                 if ($element.length) {
-                    if (($element.is('input') && $element.attr('type') == 'checkbox') && value === null) {
+                    if (($element.is('input') && $element.attr('type') === 'checkbox') && value === null) {
                         $element.prop('checked', false);
                     } else {
-                        if (($element.is('input') && $element.attr('type') == 'checkbox') ||
-                            ($element.is('input') && $element.attr('type') == 'radio') ||
-                            ($element.is('select') && $element.attr('multiple') == 'multiple')) {
+                        if (($element.is('input') && $element.attr('type') === 'checkbox') ||
+                            ($element.is('input') && $element.attr('type') === 'radio') ||
+                            ($element.is('select') && $element.attr('multiple') === 'multiple')) {
                             if (! value.push) {
                                 value = [value];
                             }
@@ -285,7 +285,7 @@ AJAX.registerOnload('export.js', function () {
     $('input[type=\'radio\'][name=\'sql_structure_or_data\']').change(function () {
         var comments_are_present = $('#checkbox_sql_include_comments').prop('checked');
         var show = $('input[type=\'radio\'][name=\'sql_structure_or_data\']:checked').val();
-        if (show == 'data') {
+        if (show === 'data') {
             // disable the SQL comment options
             if (comments_are_present) {
                 $('#checkbox_sql_dates').prop('disabled', true).parent().fadeTo('fast', 0.4);
@@ -301,7 +301,7 @@ AJAX.registerOnload('export.js', function () {
             $('#checkbox_sql_mime').prop('disabled', false).parent().fadeTo('fast', 1);
         }
 
-        if (show == 'structure') {
+        if (show === 'structure') {
             $('#checkbox_sql_auto_increment').prop('disabled', true).parent().fadeTo('fast', 0.4);
         } else {
             $('#checkbox_sql_auto_increment').prop('disabled', false).parent().fadeTo('fast', 1);
@@ -323,7 +323,7 @@ AJAX.registerOnload('export.js', function () {
 });
 
 function setup_table_structure_or_data () {
-    if ($('input[name=\'export_type\']').val() != 'database') {
+    if ($('input[name=\'export_type\']').val() !== 'database') {
         return;
     }
     var pluginName = $('#plugins').find('option:selected').val();
@@ -343,14 +343,14 @@ function setup_table_structure_or_data () {
 
         var structure_or_data = $('input[name="' + formElemName + '_default"]').val();
 
-        if (structure_or_data == 'structure') {
+        if (structure_or_data === 'structure') {
             $('.export_data input[type="checkbox"]')
                 .prop('checked', false);
-        } else if (structure_or_data == 'data') {
+        } else if (structure_or_data === 'data') {
             $('.export_structure input[type="checkbox"]')
                 .prop('checked', false);
         }
-        if (structure_or_data == 'structure' || structure_or_data == 'structure_and_data') {
+        if (structure_or_data === 'structure' || structure_or_data === 'structure_and_data') {
             if (!$('.export_structure input[type="checkbox"]:checked').length) {
                 $('input[name="table_select[]"]:checked')
                     .closest('tr')
@@ -358,7 +358,7 @@ function setup_table_structure_or_data () {
                     .prop('checked', true);
             }
         }
-        if (structure_or_data == 'data' || structure_or_data == 'structure_and_data') {
+        if (structure_or_data === 'data' || structure_or_data === 'structure_and_data') {
             if (!$('.export_data input[type="checkbox"]:checked').length) {
                 $('input[name="table_select[]"]:checked')
                     .closest('tr')
@@ -382,12 +382,12 @@ function toggle_structure_data_opts () {
     var dataDiv = '#' + pluginName + '_data';
     var structureDiv = '#' + pluginName + '_structure';
     var show = $('input[type=\'radio\'][name=\'' + radioFormName + '\']:checked').val();
-    if (show == 'data') {
+    if (show === 'data') {
         $(dataDiv).slideDown('slow');
         $(structureDiv).slideUp('slow');
     } else {
         $(structureDiv).slideDown('slow');
-        if (show == 'structure') {
+        if (show === 'structure') {
             $(dataDiv).slideUp('slow');
         } else {
             $(dataDiv).slideDown('slow');
@@ -444,7 +444,7 @@ function check_table_select_all () {
     var str_all = $('#table_structure_all');
     var data_all = $('#table_data_all');
 
-    if (str_checked == total) {
+    if (str_checked === total) {
         str_all
             .prop('indeterminate', false)
             .prop('checked', true);
@@ -458,7 +458,7 @@ function check_table_select_all () {
             .prop('checked', false);
     }
 
-    if (data_checked == total) {
+    if (data_checked === total) {
         data_all
             .prop('indeterminate', false)
             .prop('checked', true);
@@ -562,7 +562,7 @@ AJAX.registerOnload('export.js', function () {
     $('#plugins').change(function () {
         var active_plugin = $('#plugins').find('option:selected').val();
         var force_file = $('#force_file_' + active_plugin).val();
-        if (force_file == 'true') {
+        if (force_file === 'true') {
             if ($('#radio_dump_asfile').prop('checked') !== true) {
                 $('#radio_dump_asfile').prop('checked', true);
                 toggle_save_to_file();
@@ -607,7 +607,7 @@ AJAX.registerOnload('export.js', function () {
         handleAddProcCheckbox();
     });
 
-    if ($('input[name=\'export_type\']').val() == 'database') {
+    if ($('input[name=\'export_type\']').val() === 'database') {
         // Hide structure or data radio buttons
         $('input[type=\'radio\'][name$=\'_structure_or_data\']').each(function () {
             var $this = $(this);

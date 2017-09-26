@@ -112,7 +112,7 @@ function loadJSAndGISEditor (value, field, type, input_name) {
     script.type = 'text/javascript';
 
     script.onreadystatechange = function () {
-        if (this.readyState == 'complete') {
+        if (this.readyState === 'complete') {
             loadGISEditor(value, field, type, input_name);
         }
     };
@@ -319,7 +319,7 @@ AJAX.registerOnload('gis_data_editor.js', function () {
         // Add the new linesting of inner ring based on the type
         var html = '<br/>';
         var noOfPoints;
-        if (type == 'MULTILINESTRING') {
+        if (type === 'MULTILINESTRING') {
             html += PMA_messages.strLineString + ' ' + (noOfLines + 1) + ':';
             noOfPoints = 2;
         } else {

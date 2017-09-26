@@ -71,7 +71,7 @@ AJAX.registerOnload('tbl_select.js', function () {
         .on('click', function () {
             var $link = $(this);
             $('#tbl_search_form').slideToggle();
-            if ($link.text() == PMA_messages.strHideSearchCriteria) {
+            if ($link.text() === PMA_messages.strHideSearchCriteria) {
                 $link.text(PMA_messages.strShowSearchCriteria);
             } else {
                 $link.text(PMA_messages.strHideSearchCriteria);
@@ -118,7 +118,7 @@ AJAX.registerOnload('tbl_select.js', function () {
         var values = {};
         $search_form.find(':input').each(function () {
             var $input = $(this);
-            if ($input.attr('type') == 'checkbox' || $input.attr('type') == 'radio') {
+            if ($input.attr('type') === 'checkbox' || $input.attr('type') === 'radio') {
                 if ($input.is(':checked')) {
                     values[this.name] = $input.val();
                 }
@@ -148,7 +148,7 @@ AJAX.registerOnload('tbl_select.js', function () {
         }
         // If all columns are selected, use a single parameter to indicate that
         if (values['columnsToDisplay[]'] !== null) {
-            if (values['columnsToDisplay[]'].length == columnCount) {
+            if (values['columnsToDisplay[]'].length === columnCount) {
                 delete values['columnsToDisplay[]'];
                 values.displayAllColumns = true;
             }
@@ -256,9 +256,9 @@ AJAX.registerOnload('tbl_select.js', function () {
         // Column type
         var geom_func = $span.parents('tr').find('.geom_func').val();
         var type;
-        if (geom_func == 'Envelope') {
+        if (geom_func === 'Envelope') {
             type = 'polygon';
-        } else if (geom_func == 'ExteriorRing') {
+        } else if (geom_func === 'ExteriorRing') {
             type = 'linestring';
         } else {
             type = 'point';
@@ -296,7 +296,7 @@ AJAX.registerOnload('tbl_select.js', function () {
         // Get the operator.
         var operator = $(this).val();
 
-        if ((operator == 'BETWEEN' || operator == 'NOT BETWEEN')
+        if ((operator === 'BETWEEN' || operator === 'NOT BETWEEN')
             && data_type
         ) {
             var $msgbox = PMA_ajaxShowMessage();

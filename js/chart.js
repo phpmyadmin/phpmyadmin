@@ -80,7 +80,7 @@ BaseChart.prototype.validateColumns = function (dataTable) {
         throw new Error('Minimum of two columns are required for this chart');
     }
     for (var i = 1; i < columns.length; i++) {
-        if (columns[i].type != ColumnType.NUMBER) {
+        if (columns[i].type !== ColumnType.NUMBER) {
             throw new Error('Column ' + (i + 1) + ' should be of type \'Number\'');
         }
     }
@@ -121,7 +121,7 @@ TimelineChart.prototype.validateColumns = function (dataTable) {
     var result = BaseChart.prototype.validateColumns.call(this, dataTable);
     if (result) {
         var columns = dataTable.getColumns();
-        if (columns[0].type != ColumnType.DATE) {
+        if (columns[0].type !== ColumnType.DATE) {
             throw new Error('First column of timeline chart need to be a date column');
         }
     }
@@ -143,7 +143,7 @@ ScatterChart.prototype.validateColumns = function (dataTable) {
     var result = BaseChart.prototype.validateColumns.call(this, dataTable);
     if (result) {
         var columns = dataTable.getColumns();
-        if (columns[0].type != ColumnType.NUMBER) {
+        if (columns[0].type !== ColumnType.NUMBER) {
             throw new Error('First column of scatter chart need to be a numeric column');
         }
     }
@@ -263,7 +263,7 @@ JQPlotLineChart.prototype.populateOptions = function (dataTable, options) {
                 ticks : []
             },
             yaxis : {
-                label : (columns.length == 2 ? columns[1].name : 'Values'),
+                label : (columns.length === 2 ? columns[1].name : 'Values'),
                 labelRenderer : $.jqplot.CanvasAxisLabelRenderer
             }
         },
@@ -357,7 +357,7 @@ JQPlotScatterChart.prototype.populateOptions = function (dataTable, options) {
                 label : columns[0].name
             },
             yaxis : {
-                label : (columns.length == 2 ? columns[1].name : 'Values'),
+                label : (columns.length === 2 ? columns[1].name : 'Values'),
                 labelRenderer : $.jqplot.CanvasAxisLabelRenderer
             }
         },
@@ -543,7 +543,7 @@ JQPlotBarChart.prototype.populateOptions = function (dataTable, options) {
                 ticks : []
             },
             xaxis : {
-                label : (columns.length == 2 ? columns[1].name : 'Values'),
+                label : (columns.length === 2 ? columns[1].name : 'Values'),
                 labelRenderer : $.jqplot.CanvasAxisLabelRenderer
             }
         },
@@ -666,4 +666,3 @@ JQPlotChartFactory.prototype.createChart = function (type, elementId) {
 
     return chart;
 };
-

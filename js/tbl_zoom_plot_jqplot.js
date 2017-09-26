@@ -65,13 +65,13 @@ function isEmpty (obj) {
  ** @param type Sring  Field type(datetime/timestamp/time/date)
  **/
 function getTimeStamp (val, type) {
-    if (type.toString().search(/datetime/i) != -1 ||
-        type.toString().search(/timestamp/i) != -1
+    if (type.toString().search(/datetime/i) !== -1 ||
+        type.toString().search(/timestamp/i) !== -1
     ) {
         return $.datepicker.parseDateTime('yy-mm-dd', 'HH:mm:ss', val);
-    } else if (type.toString().search(/time/i) != -1) {
+    } else if (type.toString().search(/time/i) !== -1) {
         return $.datepicker.parseDateTime('yy-mm-dd', 'HH:mm:ss', '1970-01-01 ' + val);
-    } else if (type.toString().search(/date/i) != -1) {
+    } else if (type.toString().search(/date/i) !== -1) {
         return $.datepicker.parseDate('yy-mm-dd', val);
     }
 }
@@ -81,13 +81,13 @@ function getTimeStamp (val, type) {
  ** @param field: field type (as in database structure)
  **/
 function getType (field) {
-    if (field.toString().search(/int/i) != -1 ||
-        field.toString().search(/decimal/i) != -1 ||
-        field.toString().search(/year/i) != -1
+    if (field.toString().search(/int/i) !== -1 ||
+        field.toString().search(/decimal/i) !== -1 ||
+        field.toString().search(/year/i) !== -1
     ) {
         return 'numeric';
-    } else if (field.toString().search(/time/i) != -1 ||
-        field.toString().search(/date/i) != -1
+    } else if (field.toString().search(/time/i) !== -1 ||
+        field.toString().search(/date/i) !== -1
     ) {
         return 'time';
     } else {
@@ -120,7 +120,7 @@ AJAX.registerTeardown('tbl_zoom_plot_jqplot.js', function () {
 });
 
 AJAX.registerOnload('tbl_zoom_plot_jqplot.js', function () {
-    var cursorMode = ($('input[name=\'mode\']:checked').val() == 'edit') ? 'crosshair' : 'pointer';
+    var cursorMode = ($('input[name=\'mode\']:checked').val() === 'edit') ? 'crosshair' : 'pointer';
     var currentChart = null;
     var searchedDataKey = null;
     var xLabel = $('#tableid_0').val();
@@ -242,7 +242,7 @@ AJAX.registerOnload('tbl_zoom_plot_jqplot.js', function () {
     $('#inputFormSubmitId').click(function () {
         if ($('#tableid_0').get(0).selectedIndex === 0 || $('#tableid_1').get(0).selectedIndex === 0) {
             PMA_ajaxShowMessage(PMA_messages.strInputNull);
-        } else if (xLabel == yLabel) {
+        } else if (xLabel === yLabel) {
             PMA_ajaxShowMessage(PMA_messages.strSameInputs);
         }
     });
@@ -261,7 +261,7 @@ AJAX.registerOnload('tbl_zoom_plot_jqplot.js', function () {
         .bind('click', function () {
             var $link = $(this);
             $('#zoom_search_form').slideToggle();
-            if ($link.text() == PMA_messages.strHideSearchCriteria) {
+            if ($link.text() === PMA_messages.strHideSearchCriteria) {
                 $link.text(PMA_messages.strShowSearchCriteria);
             } else {
                 $link.text(PMA_messages.strHideSearchCriteria);
@@ -294,13 +294,13 @@ AJAX.registerOnload('tbl_zoom_plot_jqplot.js', function () {
             if (newVal instanceof Array) { // when the column is of type SET
                 newVal =  $('#edit_fieldID_' + it).map(tempGetVal).get().join(',');
             }
-            if (oldVal != newVal) {
+            if (oldVal !== newVal) {
                 selectedRow[key] = newVal;
                 newValues[key] = newVal;
-                if (key == xLabel) {
+                if (key === xLabel) {
                     xChange = true;
                     searchedData[searchedDataKey][xLabel] = newVal;
-                } else if (key == yLabel) {
+                } else if (key === yLabel) {
                     yChange = true;
                     searchedData[searchedDataKey][yLabel] = newVal;
                 }
@@ -321,9 +321,9 @@ AJAX.registerOnload('tbl_zoom_plot_jqplot.js', function () {
             if (xChange) {
                 xCord[searchedDataKey] = selectedRow[xLabel];
                 // [searchedDataKey][0] contains the x value
-                if (xType == 'numeric') {
+                if (xType === 'numeric') {
                     series[0][searchedDataKey][0] = selectedRow[xLabel];
-                } else if (xType == 'time') {
+                } else if (xType === 'time') {
                     series[0][searchedDataKey][0] =
                         getTimeStamp(selectedRow[xLabel], $('#types_0').val());
                 } else {
@@ -337,9 +337,9 @@ AJAX.registerOnload('tbl_zoom_plot_jqplot.js', function () {
             if (yChange) {
                 yCord[searchedDataKey] = selectedRow[yLabel];
                 // [searchedDataKey][1] contains the y value
-                if (yType == 'numeric') {
+                if (yType === 'numeric') {
                     series[0][searchedDataKey][1] = selectedRow[yLabel];
-                } else if (yType == 'time') {
+                } else if (yType === 'time') {
                     series[0][searchedDataKey][1] =
                         getTimeStamp(selectedRow[yLabel], $('#types_1').val());
                 } else {
@@ -371,7 +371,7 @@ AJAX.registerOnload('tbl_zoom_plot_jqplot.js', function () {
                 } else {
                     // type explicitly identified
                     if (sqlTypes[key] !== null) {
-                        if (sqlTypes[key] == 'bit') {
+                        if (sqlTypes[key] === 'bit') {
                             sql_query += 'b\'' + value + '\', ';
                         }
                     // type not explicitly identified
@@ -506,13 +506,13 @@ AJAX.registerOnload('tbl_zoom_plot_jqplot.js', function () {
         // could have multiple series but we'll have just one
         series[0] = [];
 
-        if (xType == 'time') {
+        if (xType === 'time') {
             var originalXType = $('#types_0').val();
-            if (originalXType == 'date') {
+            if (originalXType === 'date') {
                 format = '%Y-%m-%d';
             }
             // TODO: does not seem to work
-            // else if (originalXType == 'time') {
+            // else if (originalXType === 'time') {
             //  format = '%H:%M';
             // } else {
             //    format = '%Y-%m-%d %H:%M';
@@ -524,9 +524,9 @@ AJAX.registerOnload('tbl_zoom_plot_jqplot.js', function () {
                 }
             });
         }
-        if (yType == 'time') {
+        if (yType === 'time') {
             var originalYType = $('#types_1').val();
-            if (originalYType == 'date') {
+            if (originalYType === 'date') {
                 format = '%Y-%m-%d';
             }
             $.extend(options.axes.yaxis, {
@@ -538,16 +538,16 @@ AJAX.registerOnload('tbl_zoom_plot_jqplot.js', function () {
         }
 
         $.each(searchedData, function (key, value) {
-            if (xType == 'numeric') {
+            if (xType === 'numeric') {
                 xVal = parseFloat(value[xLabel]);
             }
-            if (xType == 'time') {
+            if (xType === 'time') {
                 xVal = getTimeStamp(value[xLabel], originalXType);
             }
-            if (yType == 'numeric') {
+            if (yType === 'numeric') {
                 yVal = parseFloat(value[yLabel]);
             }
-            if (yType == 'time') {
+            if (yType === 'time') {
                 yVal = getTimeStamp(value[yLabel], originalYType);
             }
             series[0].push([

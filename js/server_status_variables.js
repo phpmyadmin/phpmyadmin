@@ -71,7 +71,7 @@ AJAX.registerOnload('server_status_variables.js', function () {
 
         if (section.length > 1) {
             $('#linkSuggestions').find('span').each(function () {
-                if ($(this).attr('class').indexOf('status_' + section) != -1) {
+                if ($(this).attr('class').indexOf('status_' + section) !== -1) {
                     useful_links++;
                     $(this).css('display', '');
                 } else {

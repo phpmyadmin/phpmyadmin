@@ -137,14 +137,14 @@ RTE.COMMON = {
                     returnCount++;
                     if (data.success === true) {
                         combined.message += '\n' + data.message + '\n';
-                        if (returnCount == count) {
+                        if (returnCount === count) {
                             showExport(combined);
                         }
                     } else {
                         // complain even if one export is failing
                         combined.success = false;
                         combined.error += '\n' + data.error + '\n';
-                        if (returnCount == count) {
+                        if (returnCount === count) {
                             showExport(combined);
                         }
                     }
@@ -525,7 +525,7 @@ RTE.COMMON = {
                                 });
                             });
                         }
-                        if (returnCount == count) {
+                        if (returnCount === count) {
                             if (success) {
                                 // Get rid of the "Loading" message
                                 PMA_ajaxRemoveMessage($msg);
@@ -536,7 +536,7 @@ RTE.COMMON = {
                     } else {
                         PMA_ajaxShowMessage(data.error, false);
                         success = false;
-                        if (returnCount == count) {
+                        if (returnCount === count) {
                             PMA_reloadNavigation();
                         }
                     }
@@ -812,7 +812,7 @@ RTE.ROUTINE = {
             $no_len.show();
             break;
         default:
-            if ($type.val() == 'ENUM' || $type.val() == 'SET') {
+            if ($type.val() === 'ENUM' || $type.val() === 'SET') {
                 $text.closest('tr').find('a:first').show();
             } else {
                 $text.closest('tr').find('a:first').hide();
@@ -930,11 +930,11 @@ $(function () {
     $(document).on('click', 'a.ajax.add_anchor, a.ajax.edit_anchor', function (event) {
         event.preventDefault();
         var type = $(this).attr('href').substr(0, $(this).attr('href').indexOf('?'));
-        if (type.indexOf('routine') != -1) {
+        if (type.indexOf('routine') !== -1) {
             type = 'routine';
-        } else if (type.indexOf('trigger') != -1) {
+        } else if (type.indexOf('trigger') !== -1) {
             type = 'trigger';
-        } else if (type.indexOf('event') != -1) {
+        } else if (type.indexOf('event') !== -1) {
             type = 'event';
         } else {
             type = '';

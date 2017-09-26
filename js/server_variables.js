@@ -94,7 +94,7 @@ AJAX.registerOnload('server_variables.js', function () {
                         .data('content', data.variable);
                     PMA_ajaxRemoveMessage($msgbox);
                 } else {
-                    if (data.error == '') {
+                    if (data.error === '') {
                         PMA_ajaxShowMessage(PMA_messages.strRequestFailed, false);
                     } else {
                         PMA_ajaxShowMessage(data.error, false);

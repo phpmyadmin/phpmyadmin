@@ -55,7 +55,7 @@ AJAX.registerOnload('tbl_tracking.js', function () {
         var $form = $button.parent('form');
         var submitData = $form.serialize() + '&ajax_request=true&ajax_page_request=true&submit_mult=' + $button.val();
 
-        if ($button.val() == 'delete_version') {
+        if ($button.val() === 'delete_version') {
             var question = PMA_messages.strDeleteTrackingVersionMultiple;
             $button.PMA_confirm(question, $form.attr('action'), function (url) {
                 PMA_ajaxShowMessage();

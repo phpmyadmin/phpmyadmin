@@ -26,10 +26,10 @@ function nullify (theType, urlField, md5Field, multi_edit) {
     }
 
     // "ENUM" field with more than 20 characters
-    if (theType == 1) {
+    if (theType === 1) {
         rowForm.elements['fields' + multi_edit + '[' + md5Field +  ']'][1].selectedIndex = -1;
     // Other "ENUM" field
-    } else if (theType == 2) {
+    } else if (theType === 2) {
         var elts     = rowForm.elements['fields' + multi_edit + '[' + md5Field + ']'];
         // when there is just one option in ENUM:
         if (elts.checked) {
@@ -41,16 +41,16 @@ function nullify (theType, urlField, md5Field, multi_edit) {
             } // end for
         } // end if
     // "SET" field
-    } else if (theType == 3) {
+    } else if (theType === 3) {
         rowForm.elements['fields' + multi_edit + '[' + md5Field +  '][]'].selectedIndex = -1;
     // Foreign key field (drop-down)
-    } else if (theType == 4) {
+    } else if (theType === 4) {
         rowForm.elements['fields' + multi_edit + '[' + md5Field +  ']'].selectedIndex = -1;
     // foreign key field (with browsing icon for foreign values)
-    } else if (theType == 6) {
+    } else if (theType === 6) {
         rowForm.elements['fields' + multi_edit + '[' + md5Field + ']'].value = '';
     // Other field types
-    } else /* if (theType == 5)*/ {
+    } else /* if (theType === 5)*/ {
         rowForm.elements['fields' + multi_edit + '[' + md5Field + ']'].value = '';
     } // end if... else if... else
 
@@ -84,24 +84,24 @@ function isDate (val, tmstmp) {
     val = val.replace(/[.|*|^|+|//|@]/g, '-');
     var arrayVal = val.split('-');
     for (var a = 0; a < arrayVal.length; a++) {
-        if (arrayVal[a].length == 1) {
+        if (arrayVal[a].length === 1) {
             arrayVal[a] = fractionReplace(arrayVal[a]);
         }
     }
     val = arrayVal.join('-');
     var pos = 2;
     var dtexp = new RegExp(/^([0-9]{4})-(((01|03|05|07|08|10|12)-((0[0-9])|([1-2][0-9])|(3[0-1])))|((02|04|06|09|11)-((0[0-9])|([1-2][0-9])|30))|((00)-(00)))$/);
-    if (val.length == 8) {
+    if (val.length === 8) {
         pos = 0;
     }
     if (dtexp.test(val)) {
         var month = parseInt(val.substring(pos + 3, pos + 5), 10);
         var day = parseInt(val.substring(pos + 6, pos + 8), 10);
         var year = parseInt(val.substring(0, pos + 2), 10);
-        if (month == 2 && day > daysInFebruary(year)) {
+        if (month === 2 && day > daysInFebruary(year)) {
             return false;
         }
-        if (val.substring(0, pos + 2).length == 2) {
+        if (val.substring(0, pos + 2).length === 2) {
             year = parseInt('20' + val.substring(0, pos + 2), 10);
         }
         if (tmstmp === true) {
@@ -127,7 +127,7 @@ function isDate (val, tmstmp) {
 function isTime (val) {
     var arrayVal = val.split(':');
     for (var a = 0, l = arrayVal.length; a < l; a++) {
-        if (arrayVal[a].length == 1) {
+        if (arrayVal[a].length === 1) {
             arrayVal[a] = fractionReplace(arrayVal[a]);
         }
     }
@@ -212,11 +212,11 @@ function verificationsAfterFieldChange (urlField, multi_edit, theType) {
         // @todo: put back attributes if corresponding function is deselected
     }
 
-    if ($this_input.data('rulesadded') == null && ! function_selected) {
+    if ($this_input.data('rulesadded') === null && ! function_selected) {
         // call validate before adding rules
         $($this_input[0].form).validate();
         // validate for date time
-        if (theType == 'datetime' || theType == 'time' || theType == 'date' || theType == 'timestamp') {
+        if (theType === 'datetime' || theType === 'time' || theType === 'date' || theType === 'timestamp') {
             $this_input.rules('add', {
                 validationFunctionForDateTime: {
                     param: theType,
@@ -286,7 +286,7 @@ function verificationsAfterFieldChange (urlField, multi_edit, theType) {
             });
         }
         $this_input.data('rulesadded', true);
-    } else if ($this_input.data('rulesadded') == true && function_selected) {
+    } else if ($this_input.data('rulesadded') === true && function_selected) {
         // remove any rules added
         $this_input.rules('remove');
         // remove any error messages
@@ -340,24 +340,24 @@ AJAX.registerOnload('tbl_change.js', function () {
         jQuery.validator.addMethod('validationFunctionForDateTime', function (value, element, options) {
             var dt_value = value;
             var theType = options;
-            if (theType == 'date') {
+            if (theType === 'date') {
                 return isDate(dt_value);
-            } else if (theType == 'time') {
+            } else if (theType === 'time') {
                 return isTime(dt_value);
-            } else if (theType == 'datetime' || theType == 'timestamp') {
+            } else if (theType === 'datetime' || theType === 'timestamp') {
                 var tmstmp = false;
                 dt_value = dt_value.trim();
-                if (dt_value == 'CURRENT_TIMESTAMP') {
+                if (dt_value === 'CURRENT_TIMESTAMP') {
                     return true;
                 }
-                if (theType == 'timestamp') {
+                if (theType === 'timestamp') {
                     tmstmp = true;
                 }
-                if (dt_value == '0000-00-00 00:00:00') {
+                if (dt_value === '0000-00-00 00:00:00') {
                     return true;
                 }
                 var dv = dt_value.indexOf(' ');
-                if (dv == -1) { // Only the date component, which is valid
+                if (dv === -1) { // Only the date component, which is valid
                     return isDate(dt_value, tmstmp);
                 }
 
@@ -445,9 +445,9 @@ AJAX.registerOnload('tbl_change.js', function () {
             var value_field = $table.find('input[name="' + thisElemName.replace('auto_increment', 'fields') + '"]');
             var previous_value = $(prev_value_field).val();
             if (previous_value !== undefined) {
-                if (thisElemSubmitTypeVal == 'insert'
-                    || thisElemSubmitTypeVal == 'insertignore'
-                    || thisElemSubmitTypeVal == 'showinsert'
+                if (thisElemSubmitTypeVal === 'insert'
+                    || thisElemSubmitTypeVal === 'insertignore'
+                    || thisElemSubmitTypeVal === 'showinsert'
                 ) {
                     $(value_field).val(0);
                 } else {
@@ -531,7 +531,7 @@ AJAX.registerOnload('tbl_change.js', function () {
                 if ($this_element.is('.textfield') || $this_element.is('.char') || $this_element.is('textarea')) {
                     // do not remove the 'value' attribute for ENUM columns
                     // special handling for radio fields after updating ids to unique - see below
-                    if ($this_element.closest('tr').find('span.column_type').html() != 'enum') {
+                    if ($this_element.closest('tr').find('span.column_type').html() !== 'enum') {
                         $this_element.val($this_element.closest('tr').find('span.default_value').html());
                     }
                     $this_element
@@ -605,7 +605,7 @@ AJAX.registerOnload('tbl_change.js', function () {
                     .each(tempReplaceAnchor);
 
                 // Insert/Clone the ignore checkboxes
-                if (curr_rows == 1) {
+                if (curr_rows === 1) {
                     $('<input id="insert_ignore_1" type="checkbox" name="insert_ignore_1" checked="checked" />')
                         .insertBefore('table.insertRowTable:last')
                         .after('<label for="insert_ignore_1">' + PMA_messages.strIgnore + '</label>');
@@ -687,10 +687,10 @@ function changeValueFieldType (elem, searchIndex) {
     }
 
     var type = $(elem).val();
-    if ('IN (...)' == type ||
-        'NOT IN (...)' == type ||
-        'BETWEEN' == type ||
-        'NOT BETWEEN' == type
+    if ('IN (...)' === type ||
+        'NOT IN (...)' === type ||
+        'BETWEEN' === type ||
+        'NOT BETWEEN' === type
     ) {
         $('#fieldID_' + searchIndex).attr('multiple', '');
     } else {

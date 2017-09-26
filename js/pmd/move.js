@@ -35,31 +35,6 @@ AJAX.registerOnload('pmd/move.js', function () {
     $('#selflink').hide();
 });
 
-// Below is the function to bind onbeforeunload events with the content_frame as well as the top window.
-
-/*
-FIXME: we can't register the beforeonload event because it will persist between pageloads
-
-AJAX.registerOnload('pmd/move.js', function (){
-    $(window).bind('beforeunload', function () {        // onbeforeunload for the frame window.
-        if (_change == 1 && _staying === 0) {
-            return PMA_messages.strLeavingDesigner;
-        } else if (_change == 1 && _staying == 1) {
-            _staying = 0;
-        }
-    });
-    $(window).unload(function () {
-        _change = 0;
-    });
-    window.top.onbeforeunload = function () {     // onbeforeunload for the browser main window.
-        if (_change == 1 && _staying === 0) {
-            _staying = 1;                                                   //  Helps if the user stays on the page  as there
-            setTimeout('make_zero();', 100);                    //   is no other way of knowing whether the user stayed or not.
-            return PMA_messages.strLeavingDesigner;
-        }
-    };
-});*/
-
 function make_zero () {   // Function called if the user stays after seeing the confirmation prompt.
     _staying = 0;
 }
@@ -130,13 +105,13 @@ function MouseDown (e) {
     Glob_X = dx = isIE ? e.clientX + document.body.scrollLeft : e.pageX;
     Glob_Y = dy = isIE ? e.clientY + document.body.scrollTop : e.pageY;
 
-    if (e.target.tagName == 'SPAN') {
+    if (e.target.tagName === 'SPAN') {
         cur_click = e.target.parentNode.parentNode.parentNode.parentNode;
-    } else if (e.target.className == 'tab_zag_2') {
+    } else if (e.target.className === 'tab_zag_2') {
         cur_click = e.target.parentNode.parentNode.parentNode;
-    } else if (e.target.className == 'icon') {
+    } else if (e.target.className === 'icon') {
         layer_menu_cur_click = 1;
-    } else if (e.target.className == 'M_butt') {
+    } else if (e.target.className === 'M_butt') {
         return false;
     }
 
@@ -363,21 +338,21 @@ function Re_load () {
                             n = i;
                         }
                     }
-                    if (n == 1) {
+                    if (n === 1) {
                         x1 = x1_left - sm_s;
                         x2 = x2_right + sm_s;
                         if (x1 < x2) {
                             n = 0;
                         }
                     }
-                    if (n == 2) {
+                    if (n === 2) {
                         x1 = x1_right + sm_s;
                         x2 = x2_left - sm_s;
                         if (x1 > x2) {
                             n = 0;
                         }
                     }
-                    if (n == 3) {
+                    if (n === 3) {
                         x1 = x1_right + sm_s;
                         x2 = x2_right + sm_s;
                         s_right = 1;
@@ -391,7 +366,7 @@ function Re_load () {
                     var row_offset_top = 0;
                     var tab_hide_button = document.getElementById('id_hide_tbody_' + key2);
 
-                    if (tab_hide_button.innerHTML == 'v') {
+                    if (tab_hide_button.innerHTML === 'v') {
                         var fromColumn = document.getElementById(key2 + '.' + key3);
                         if (fromColumn) {
                             row_offset_top = fromColumn.offsetTop;
@@ -407,7 +382,7 @@ function Re_load () {
 
                     row_offset_top = 0;
                     tab_hide_button = document.getElementById('id_hide_tbody_' + contr[K][key][key2][key3][0]);
-                    if (tab_hide_button.innerHTML == 'v') {
+                    if (tab_hide_button.innerHTML === 'v') {
                         var toColumn = document.getElementById(contr[K][key][key2][key3][0] +
                             '.' + contr[K][key][key2][key3][1]);
                         if (toColumn) {
@@ -677,7 +652,7 @@ function Save (url) {
     for (var key in j_tabs) {
         document.getElementById('t_x_' + key + '_').value = parseInt(document.getElementById(key).style.left, 10);
         document.getElementById('t_y_' + key + '_').value = parseInt(document.getElementById(key).style.top, 10);
-        document.getElementById('t_v_' + key + '_').value = document.getElementById('id_tbody_' + key).style.display == 'none' ? 0 : 1;
+        document.getElementById('t_v_' + key + '_').value = document.getElementById('id_tbody_' + key).style.display === 'none' ? 0 : 1;
         document.getElementById('t_h_' + key + '_').value = document.getElementById('check_vis_' + key).checked ? 1 : 0;
     }
     document.form1.action = url;
@@ -690,7 +665,7 @@ function Get_url_pos (forceString) {
         for (var key in j_tabs) {
             poststr += '&t_x[' + key + ']=' + parseInt(document.getElementById(key).style.left, 10);
             poststr += '&t_y[' + key + ']=' + parseInt(document.getElementById(key).style.top, 10);
-            poststr += '&t_v[' + key + ']=' + (document.getElementById('id_tbody_' + key).style.display == 'none' ? 0 : 1);
+            poststr += '&t_v[' + key + ']=' + (document.getElementById('id_tbody_' + key).style.display === 'none' ? 0 : 1);
             poststr += '&t_h[' + key + ']=' + (document.getElementById('check_vis_' + key).checked ? 1 : 0);
         }
         return poststr;
@@ -879,7 +854,7 @@ function Delete_pages () {
         }
 
         var $msgbox = PMA_ajaxShowMessage(PMA_messages.strProcessingRequest);
-        var deleting_current_page = selected == selected_page;
+        var deleting_current_page = selected === selected_page;
         PMA_prepareForAjaxRequest($form);
 
         if (pmd_tables_enabled) {
@@ -1049,7 +1024,7 @@ function Save_as () {
 }
 
 function Prompt_to_save_current_page (callback) {
-    if (_change == 1 || selected_page == '-1') {
+    if (_change === 1 || selected_page === '-1') {
         var button_options = {};
         button_options[PMA_messages.strYes] = function () {
             $(this).dialog('close');
@@ -1222,7 +1197,7 @@ function Click_field (db, T, f, PK) {
                 alert(PMA_messages.strPleaseSelectPrimaryOrUniqueKey);
                 return;// 0;
             }// PK
-            if (j_tabs[db + '.' + T] != '1') {
+            if (j_tabs[db + '.' + T] !== '1') {
                 document.getElementById('foreign_relation').style.display = 'none';
             }
             click_field = 1;
@@ -1230,7 +1205,7 @@ function Click_field (db, T, f, PK) {
             document.getElementById('pmd_hint').innerHTML = PMA_messages.strSelectForeignKey;
         } else {
             Start_relation(); // hidden hint...
-            if (j_tabs[db + '.' + T] != '1' || !PK) {
+            if (j_tabs[db + '.' + T] !== '1' || !PK) {
                 document.getElementById('foreign_relation').style.display = 'none';
             }
             var left = Glob_X - (document.getElementById('layer_new_relation').offsetWidth >> 1);
@@ -1244,7 +1219,7 @@ function Click_field (db, T, f, PK) {
 
     if (ON_display_field) {
         // if is display field
-        if (display_field[T] == f) {
+        if (display_field[T] === f) {
             old_class = 'tab_field';
             delete display_field[T];
         } else {
@@ -1310,9 +1285,9 @@ function Small_tab_all (id_this) {
     var key;
     var value_sent = '';
 
-    if (icon.alt == 'v') {
+    if (icon.alt === 'v') {
         for (key in j_tabs) {
-            if (document.getElementById('id_hide_tbody_' + key).innerHTML == 'v') {
+            if (document.getElementById('id_hide_tbody_' + key).innerHTML === 'v') {
                 Small_tab(key, 0);
             }
         }
@@ -1321,7 +1296,7 @@ function Small_tab_all (id_this) {
         value_sent = 'v';
     } else {
         for (key in j_tabs) {
-            if (document.getElementById('id_hide_tbody_' + key).innerHTML != 'v') {
+            if (document.getElementById('id_hide_tbody_' + key).innerHTML !== 'v') {
                 Small_tab(key, 0);
             }
         }
@@ -1353,7 +1328,7 @@ function Relation_lines_invert () {
 
 function Small_tab_refresh () {
     for (var key in j_tabs) {
-        if (document.getElementById('id_hide_tbody_' + key).innerHTML != 'v') {
+        if (document.getElementById('id_hide_tbody_' + key).innerHTML !== 'v') {
             Small_tab(key, 0);
         }
     }
@@ -1363,7 +1338,7 @@ function Small_tab (t, re_load) {
     var id      = document.getElementById('id_tbody_' + t);
     var id_this = document.getElementById('id_hide_tbody_' + t);
     var id_t    = document.getElementById(t);
-    if (id_this.innerHTML == 'v') {
+    if (id_this.innerHTML === 'v') {
         // ---CROSS
         id.style.display = 'none';
         id_this.innerHTML = '>';
@@ -1378,7 +1353,7 @@ function Small_tab (t, re_load) {
 // ------------------------------------------------------------------------------
 function Select_tab (t) {
     var id_zag = document.getElementById('id_zag_' + t);
-    if (id_zag.className != 'tab_zag_3') {
+    if (id_zag.className !== 'tab_zag_3') {
         document.getElementById('id_zag_' + t).className = 'tab_zag_2';
     } else {
         document.getElementById('id_zag_' + t).className = 'tab_zag';
@@ -1429,21 +1404,21 @@ function Canvas_click (id, event) {
                             n = i;
                         }
                     }
-                    if (n == 1) {
+                    if (n === 1) {
                         x1 = x1_left - sm_s;
                         x2 = x2_right + sm_s;
                         if (x1 < x2) {
                             n = 0;
                         }
                     }
-                    if (n == 2) {
+                    if (n === 2) {
                         x1 = x1_right + sm_s;
                         x2 = x2_left - sm_s;
                         if (x1 > x2) {
                             n = 0;
                         }
                     }
-                    if (n == 3) {
+                    if (n === 3) {
                         x1 = x1_right + sm_s;
                         x2 = x2_right + sm_s;
                         s_right = 1;
@@ -1524,7 +1499,7 @@ function VisibleTab (id, t_n) {
 
 // max/min all tables
 function Hide_tab_all (id_this) {
-    if (id_this.alt == 'v') {
+    if (id_this.alt === 'v') {
         id_this.alt = '>';
         id_this.src = id_this.dataset.right;
     } else {
@@ -1533,8 +1508,8 @@ function Hide_tab_all (id_this) {
     }
     var E = document.form1;
     for (var i = 0; i < E.elements.length; i++) {
-        if (E.elements[i].type == 'checkbox' && E.elements[i].id.substring(0, 10) == 'check_vis_') {
-            if (id_this.alt == 'v') {
+        if (E.elements[i].type === 'checkbox' && E.elements[i].id.substring(0, 10) === 'check_vis_') {
+            if (id_this.alt === 'v') {
                 E.elements[i].checked = true;
                 document.getElementById(E.elements[i].value).style.display = '';
             } else {
@@ -1549,7 +1524,7 @@ function Hide_tab_all (id_this) {
 function in_array_k (x, m) {
     var b = 0;
     for (var u in m) {
-        if (x == u) {
+        if (x === u) {
             b = 1;
             break;
         }
@@ -1573,7 +1548,7 @@ function No_have_constr (id_this) {
         }
     }
 
-    if (id_this.alt == 'v') {
+    if (id_this.alt === 'v') {
         id_this.alt = '>';
         id_this.src = id_this.dataset.right;
     } else {
@@ -1582,9 +1557,9 @@ function No_have_constr (id_this) {
     }
     var E = document.form1;
     for (var i = 0; i < E.elements.length; i++) {
-        if (E.elements[i].type == 'checkbox' && E.elements[i].id.substring(0, 10) == 'check_vis_') {
+        if (E.elements[i].type === 'checkbox' && E.elements[i].id.substring(0, 10) === 'check_vis_') {
             if (!in_array_k(E.elements[i].value, a)) {
-                if (id_this.alt == 'v') {
+                if (id_this.alt === 'v') {
                     E.elements[i].checked = true;
                     document.getElementById(E.elements[i].value).style.display = '';
                 } else {
@@ -1619,7 +1594,7 @@ function General_scroll () {
 function Show_left_menu (id_this) {
     var icon = id_this.children[0];
     $('#key_Show_left_menu').toggleClass('M_butt_Selected_down');
-    if (icon.alt == 'v') {
+    if (icon.alt === 'v') {
         document.getElementById('layer_menu').style.top = '0px';
         document.getElementById('layer_menu').style.display = 'block';
         icon.alt = '>';
@@ -1696,7 +1671,7 @@ function getColorByTarget (target) {
     var color = '';  // "rgba(0,100,150,1)";
 
     for (var a in TargetColors) {
-        if (TargetColors[a][0] == target) {
+        if (TargetColors[a][0] === target) {
             color = TargetColors[a][1];
             break;
         }
@@ -1754,7 +1729,7 @@ function Select_all (id_this, owner) {
     var k;
     var tab = [];
     for (i = 0; i < parent.elements.length; i++) {
-        if (parent.elements[i].type == 'checkbox' && parent.elements[i].id.substring(0, (9 + id_this.length)) == 'select_' + id_this + '._') {
+        if (parent.elements[i].type === 'checkbox' && parent.elements[i].id.substring(0, (9 + id_this.length)) === 'select_' + id_this + '._') {
             if (document.getElementById('select_all_' + id_this).checked === true) {
                 parent.elements[i].checked = true;
                 parent.elements[i].disabled = true;
@@ -1771,12 +1746,12 @@ function Select_all (id_this, owner) {
         from_array.push(tab[1]);
     } else {
         for (i = 0; i < select_field.length; i++) {
-            if (select_field[i] == ('`' + id_this.substring(owner.length + 1) + '`.*')) {
+            if (select_field[i] === ('`' + id_this.substring(owner.length + 1) + '`.*')) {
                 select_field.splice(i, 1);
             }
         }
         for (k = 0; k < from_array.length; k++) {
-            if (from_array[k] == id_this) {
+            if (from_array[k] === id_this) {
                 from_array.splice(k, 1);
                 break;
             }
@@ -1812,13 +1787,13 @@ function store_column (id_this, owner, col) {
         from_array.push(id_this);
     } else {
         for (i = 0; i < select_field.length; i++) {
-            if (select_field[i] == ('`' + id_this + '`.`' + col + '`')) {
+            if (select_field[i] === ('`' + id_this + '`.`' + col + '`')) {
                 select_field.splice(i, 1);
                 break;
             }
         }
         for (k = 0; k < from_array.length; k++) {
-            if (from_array[k] == id_this) {
+            if (from_array[k] === id_this) {
                 from_array.splice(k, 1);
                 break;
             }
@@ -1838,7 +1813,7 @@ function add_object () {
     var rel = document.getElementById('rel_opt');
     var sum = 0;
     var init = history_array.length;
-    if (rel.value != '--') {
+    if (rel.value !== '--') {
         if (document.getElementById('Query').value === '') {
             document.getElementById('pmd_hint').innerHTML = 'value/subQuery is empty';
             document.getElementById('pmd_hint').style.display = 'block';
@@ -1857,7 +1832,7 @@ function add_object () {
         sum = sum + 1;
         document.getElementById('new_name').value = '';
     }
-    if (document.getElementById('operator').value != '---') {
+    if (document.getElementById('operator').value !== '---') {
         var aggregate_obj = new aggregate(document.getElementById('operator').value);
         history_array.push(new history_obj(col_name, aggregate_obj, tab_name, h_tabs[downer + '.' + tab_name], 'Aggregate'));
         sum = sum + 1;
@@ -1870,7 +1845,7 @@ function add_object () {
         document.getElementById('groupby').checked = false;
         // make groupby
     }
-    if (document.getElementById('h_rel_opt').value != '--') {
+    if (document.getElementById('h_rel_opt').value !== '--') {
         if (document.getElementById('having').value === '') {
             document.getElementById('pmd_hint').innerHTML = 'value/subQuery is empty';
             document.getElementById('pmd_hint').style.display = 'block';
@@ -1888,7 +1863,7 @@ function add_object () {
         document.getElementById('h_operator').value = '---';
         p.value = ''; // make having
     }
-    if (document.getElementById('orderby').value != '---') {
+    if (document.getElementById('orderby').value !== '---') {
         var oderby_obj = new orderby(document.getElementById('orderby').value);
         history_array.push(new history_obj(col_name, oderby_obj, tab_name, h_tabs[downer + '.' + tab_name], 'OrderBy'));
         sum = sum + 1;

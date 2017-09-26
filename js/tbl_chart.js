@@ -68,9 +68,9 @@ function PMA_queryChart (data, columnNames, settings) {
 
     // create the data table and add columns
     var dataTable = new DataTable();
-    if (settings.type == 'timeline') {
+    if (settings.type === 'timeline') {
         dataTable.addColumn(ColumnType.DATE, columnNames[settings.mainAxis]);
-    } else if (settings.type == 'scatter') {
+    } else if (settings.type === 'scatter') {
         dataTable.addColumn(ColumnType.NUMBER, columnNames[settings.mainAxis]);
     } else {
         dataTable.addColumn(ColumnType.STRING, columnNames[settings.mainAxis]);
@@ -94,9 +94,9 @@ function PMA_queryChart (data, columnNames, settings) {
             for (var j = 0; j < columnsToExtract.length; j++) {
                 col = columnNames[columnsToExtract[j]];
                 if (j === 0) {
-                    if (settings.type == 'timeline') { // first column is date type
+                    if (settings.type === 'timeline') { // first column is date type
                         newRow.push(extractDate(row[col]));
-                    } else if (settings.type == 'scatter') {
+                    } else if (settings.type === 'scatter') {
                         newRow.push(parseFloat(row[col]));
                     } else { // first column is string type
                         newRow.push(row[col]);
@@ -163,7 +163,7 @@ function drawChart () {
     });
     try {
         currentChart = PMA_queryChart(chart_data, columnNames, currentSettings);
-        if (currentChart != null) {
+        if (currentChart !== null) {
             $('#saveChart').attr('href', currentChart.toImageString());
         }
     } catch (err) {
@@ -183,20 +183,20 @@ function getSelectedSeries () {
 function onXAxisChange () {
     var $xAxisSelect = $('select[name="chartXAxis"]');
     currentSettings.mainAxis = parseInt($xAxisSelect.val(), 10);
-    if (dateTimeCols.indexOf(currentSettings.mainAxis) != -1) {
+    if (dateTimeCols.indexOf(currentSettings.mainAxis) !== -1) {
         $('span.span_timeline').show();
     } else {
         $('span.span_timeline').hide();
-        if (currentSettings.type == 'timeline') {
+        if (currentSettings.type === 'timeline') {
             $('input#radio_line').prop('checked', true);
             currentSettings.type = 'line';
         }
     }
-    if (numericCols.indexOf(currentSettings.mainAxis) != -1) {
+    if (numericCols.indexOf(currentSettings.mainAxis) !== -1) {
         $('span.span_scatter').show();
     } else {
         $('span.span_scatter').hide();
-        if (currentSettings.type == 'scatter') {
+        if (currentSettings.type === 'scatter') {
             $('input#radio_line').prop('checked', true);
             currentSettings.type = 'line';
         }
@@ -210,12 +210,12 @@ function onDataSeriesChange () {
     var $seriesSelect = $('select[name="chartSeries"]');
     currentSettings.selectedSeries = getSelectedSeries();
     var yaxis_title;
-    if (currentSettings.selectedSeries.length == 1) {
+    if (currentSettings.selectedSeries.length === 1) {
         $('span.span_pie').show();
         yaxis_title = $seriesSelect.children('option:selected').text();
     } else {
         $('span.span_pie').hide();
-        if (currentSettings.type == 'pie') {
+        if (currentSettings.type === 'pie') {
             $('input#radio_line').prop('checked', true);
             currentSettings.type = 'line';
         }
@@ -259,7 +259,7 @@ AJAX.registerOnload('tbl_chart.js', function () {
     // handle chart type changes
     $('input[name="chartType"]').click(function () {
         var type = currentSettings.type = $(this).val();
-        if (type == 'bar' || type == 'column' || type == 'area') {
+        if (type === 'bar' || type === 'column' || type === 'area') {
             $('span.barStacked').show();
         } else {
             $('input[name="barStacked"]').prop('checked', false);
@@ -310,7 +310,7 @@ AJAX.registerOnload('tbl_chart.js', function () {
             drawChart();
         })
         .blur(function () {
-            if ($(this).val() != temp_chart_title) {
+            if ($(this).val() !== temp_chart_title) {
                 drawChart();
             }
         });

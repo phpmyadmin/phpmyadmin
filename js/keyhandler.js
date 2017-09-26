@@ -15,35 +15,35 @@ function onKeyDownArrowsHandler (e) {
     if (!o) {
         return;
     }
-    if (o.tagName != 'TEXTAREA' && o.tagName != 'INPUT' && o.tagName != 'SELECT') {
+    if (o.tagName !== 'TEXTAREA' && o.tagName !== 'INPUT' && o.tagName !== 'SELECT') {
         return;
     }
-    if ((e.which != 17) && (e.which != 37) && (e.which != 38) && (e.which != 39) && (e.which != 40)) {
+    if ((e.which !== 17) && (e.which !== 37) && (e.which !== 38) && (e.which !== 39) && (e.which !== 40)) {
         return;
     }
     if (!o.id) {
         return;
     }
 
-    if (e.type == 'keyup') {
-        if (e.which == 17) {
+    if (e.type === 'keyup') {
+        if (e.which === 17) {
             ctrlKeyHistory = 0;
         }
         return;
-    } else if (e.type == 'keydown') {
-        if (e.which == 17) {
+    } else if (e.type === 'keydown') {
+        if (e.which === 17) {
             ctrlKeyHistory = 1;
         }
     }
 
-    if (ctrlKeyHistory != 1) {
+    if (ctrlKeyHistory !== 1) {
         return;
     }
 
     e.preventDefault();
 
     var pos = o.id.split('_');
-    if (pos[0] != 'field' || typeof pos[2] === 'undefined') {
+    if (pos[0] !== 'field' || typeof pos[2] === 'undefined') {
         return;
     }
 
@@ -101,24 +101,24 @@ function onKeyDownArrowsHandler (e) {
                 break;
             }
         }
-        if (ffcheck == 1) {
-            if (e.which == 38 || e.which == 37) {
+        if (ffcheck === 1) {
+            if (e.which === 38 || e.which === 37) {
                 nOvalue++;
-            } else if (e.which == 40 || e.which == 39) {
+            } else if (e.which === 40 || e.which === 39) {
                 nOvalue--;
             }
             nO.selectedIndex = nOvalue;
         } else {
-            if (e.which == 38 || e.which == 37) {
+            if (e.which === 38 || e.which === 37) {
                 lvalue++;
-            } else if (e.which == 40 || e.which == 39) {
+            } else if (e.which === 40 || e.which === 39) {
                 lvalue--;
             }
             o.selectedIndex = lvalue;
         }
     }
 
-    if (nO.tagName != 'SELECT') {
+    if (nO.tagName !== 'SELECT') {
         nO.select();
     }
     e.returnValue = false;
