@@ -5,7 +5,7 @@
  *
  * @package PhpMyAdmin
  */
-namespace PhpMyAdmin;
+namespace PhpMyAdmin\Database;
 
 use PhpMyAdmin\Sanitize;
 use PhpMyAdmin\Url;
@@ -16,7 +16,7 @@ use PhpMyAdmin\Util;
  *
  * @package PhpMyAdmin
  */
-class DbSearch
+class Search
 {
     /**
      * Database name

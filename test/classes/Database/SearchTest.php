@@ -1,12 +1,12 @@
 <?php
 /**
- * Tests for DbSearch.php
+ * Tests for PhpMyAdmin\Database\Search
  *
  * @package PhpMyAdmin-test
  */
-namespace PhpMyAdmin\Tests;
+namespace PhpMyAdmin\Tests\Database;
 
-use PhpMyAdmin\DbSearch;
+use PhpMyAdmin\Database\Search;
 use PhpMyAdmin\Theme;
 use ReflectionClass;
 
@@ -15,7 +15,7 @@ use ReflectionClass;
  *
  * @package PhpMyAdmin-test
  */
-class DbSearchTest extends \PMATestCase
+class SearchTest extends \PMATestCase
 {
     /**
      * @access protected
@@ -31,7 +31,7 @@ class DbSearchTest extends \PMATestCase
      */
     protected function setUp()
     {
-        $this->object = new DbSearch('pma_test');
+        $this->object = new Search('pma_test');
         $GLOBALS['server'] = 0;
         $GLOBALS['db'] = 'pma';
         $GLOBALS['collation_connection'] = 'utf-8';
@@ -78,7 +78,7 @@ class DbSearchTest extends \PMATestCase
      */
     private function _callProtectedFunction($name, $params)
     {
-        $class = new ReflectionClass(DbSearch::class);
+        $class = new ReflectionClass(Search::class);
         $method = $class->getMethod($name);
         $method->setAccessible(true);
         return $method->invokeArgs($this->object, $params);
@@ -94,7 +94,7 @@ class DbSearchTest extends \PMATestCase
         $_REQUEST['criteriaSearchType'] = $type;
         $_REQUEST['criteriaSearchString'] = 'search string';
 
-        $this->object = new DbSearch('pma_test');
+        $this->object = new Search('pma_test');
         $this->assertEquals(
             $expected,
             $this->_callProtectedFunction(
