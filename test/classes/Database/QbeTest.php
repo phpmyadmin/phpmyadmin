@@ -1,20 +1,20 @@
 <?php
 /**
- * Tests for DbQbe.php
+ * Tests for PhpMyAdmin\Database\Qbe
  *
  * @package PhpMyAdmin-test
  */
-namespace PhpMyAdmin\Tests;
+namespace PhpMyAdmin\Tests\Database;
 
-use PhpMyAdmin\DbQbe;
+use PhpMyAdmin\Database\Qbe;
 use ReflectionClass;
 
 /**
- * Tests for PhpMyAdmin\DbQbe class
+ * Tests for PhpMyAdmin\Database\Qbe class
  *
  *  @package PhpMyAdmin-test
  */
-class DbQbeTest extends \PMATestCase
+class QbeTest extends \PMATestCase
 {
     /**
      * @access protected
@@ -30,7 +30,7 @@ class DbQbeTest extends \PMATestCase
      */
     protected function setUp()
     {
-        $this->object = new DbQbe('pma_test');
+        $this->object = new Qbe('pma_test');
         $GLOBALS['server'] = 0;
         $GLOBALS['db'] = 'pma_test';
         //mock DBI
@@ -80,7 +80,7 @@ class DbQbeTest extends \PMATestCase
      */
     private function _callProtectedFunction($name, $params)
     {
-        $class = new ReflectionClass(DbQbe::class);
+        $class = new ReflectionClass(Qbe::class);
         $method = $class->getMethod($name);
         $method->setAccessible(true);
         return $method->invokeArgs($this->object, $params);

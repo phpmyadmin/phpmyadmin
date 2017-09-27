@@ -5,7 +5,7 @@
  *
  * @package PhpMyAdmin
  */
-namespace PhpMyAdmin;
+namespace PhpMyAdmin\Database;
 
 use PhpMyAdmin\Core;
 use PhpMyAdmin\DatabaseInterface;
@@ -19,7 +19,7 @@ use PhpMyAdmin\Util;
  *
  * @package PhpMyAdmin
  */
-class DbQbe
+class Qbe
 {
     /**
      * Database name
