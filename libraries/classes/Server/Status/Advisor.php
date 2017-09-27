@@ -9,6 +9,7 @@ namespace PhpMyAdmin\Server\Status;
 
 use PhpMyAdmin\Advisor as PmaAdvisor;
 use PhpMyAdmin\Util;
+use Symfony\Component\ExpressionLanguage\ExpressionLanguage;
 
 /**
  * PhpMyAdmin\Server\Status\Advisor class
@@ -59,7 +60,7 @@ class Advisor
         $output .= '</p>';
         $output .= '</div>';
         $output .= '<div id="advisorData" class="hide">';
-        $advisor = new PmaAdvisor();
+        $advisor = new PmaAdvisor($GLOBALS['dbi'], new ExpressionLanguage());
         $output .= htmlspecialchars(
             json_encode(
                 $advisor->run()

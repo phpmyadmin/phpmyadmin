@@ -10,6 +10,7 @@ namespace PhpMyAdmin;
 
 use Exception;
 use PhpMyAdmin\Core;
+use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\SysInfo;
 use PhpMyAdmin\Url;
 use PhpMyAdmin\Util;
@@ -22,6 +23,7 @@ use Symfony\Component\ExpressionLanguage\ExpressionLanguage;
  */
 class Advisor
 {
+    protected $dbi;
     protected $variables;
     protected $globals;
     protected $parseResult;
@@ -31,9 +33,10 @@ class Advisor
     /**
      * Constructor.
      */
-    public function __construct()
+    public function __construct(DatabaseInterface $dbi, ExpressionLanguage $expression)
     {
-        $this->expression = new ExpressionLanguage();
+        $this->dbi = $dbi;
+        $this->expression = $expression;
         /*
          * Register functions for ExpressionLanguage, we intentionally
          * do not implement support for compile as we do not use it.
@@ -100,7 +103,7 @@ class Advisor
         );
         /* Some global variables for advisor */
         $this->globals = array(
-            'PMA_MYSQL_INT_VERSION' => $GLOBALS['dbi']->getVersion(),
+            'PMA_MYSQL_INT_VERSION' => $this->dbi->getVersion(),
         );
 
     }
@@ -204,8 +207,8 @@ class Advisor
         // Step 1: Get some variables to evaluate on
         $this->setVariables(
             array_merge(
-                $GLOBALS['dbi']->fetchResult('SHOW GLOBAL STATUS', 0, 1),
-                $GLOBALS['dbi']->fetchResult('SHOW GLOBAL VARIABLES', 0, 1)
+                $this->dbi->fetchResult('SHOW GLOBAL STATUS', 0, 1),
+                $this->dbi->fetchResult('SHOW GLOBAL VARIABLES', 0, 1)
             )
         );
 

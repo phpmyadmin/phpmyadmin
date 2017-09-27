@@ -10,6 +10,7 @@ namespace PhpMyAdmin\Tests;
 use PhpMyAdmin\Advisor;
 use PhpMyAdmin\Config;
 use PhpMyAdmin\Theme;
+use Symfony\Component\ExpressionLanguage\ExpressionLanguage;
 
 /**
  * Tests behaviour of PMA_Advisor class
@@ -18,7 +19,6 @@ use PhpMyAdmin\Theme;
  */
 class AdvisorTest extends \PMATestCase
 {
-
     /**
      * Sets up the fixture, for example, opens a network connection.
      * This method is called before a test is executed.
@@ -68,7 +68,7 @@ class AdvisorTest extends \PMATestCase
      */
     public function testParse()
     {
-        $advisor = new Advisor();
+        $advisor = new Advisor($GLOBALS['dbi'], new ExpressionLanguage());
         $parseResult = $advisor->parseRulesFile();
         $this->assertEquals($parseResult['errors'], array());
     }
@@ -125,7 +125,7 @@ class AdvisorTest extends \PMATestCase
      */
     public function testAddRule($rule, $expected, $error)
     {
-        $advisor = new Advisor();
+        $advisor = new Advisor($GLOBALS['dbi'], new ExpressionLanguage());
         $parseResult = $advisor->parseRulesFile();
         $this->assertEquals($parseResult['errors'], array());
         $advisor->setVariable('value', 0);
