@@ -1,24 +1,24 @@
 <?php
 /* vim: set expandtab sw=4 ts=4 sts=4: */
 /**
- * holds the DbList class
+ * holds the PhpMyAdmin\Database\DatabaseList class
  *
  * @package PhpMyAdmin
  *
  */
-namespace PhpMyAdmin;
+namespace PhpMyAdmin\Database;
 
 use PhpMyAdmin\ListDatabase;
 
 /**
- * holds the DbList class
+ * holds the DatabaseList class
  *
  * @package PhpMyAdmin
  *
  * @property object $userlink
  * @property object $controllink
  */
-class DbList
+class DatabaseList
 {
     /**
      * Holds database list

@@ -34,7 +34,7 @@
 use PhpMyAdmin\Config;
 use PhpMyAdmin\Core;
 use PhpMyAdmin\DatabaseInterface;
-use PhpMyAdmin\DbList;
+use PhpMyAdmin\Database\DatabaseList;
 use PhpMyAdmin\ErrorHandler;
 use PhpMyAdmin\IpAllowDeny;
 use PhpMyAdmin\LanguageManager;
@@ -774,9 +774,9 @@ if (! defined('PMA_MINIMUM_COMMON')) {
         // TODO: Set SQL modes too.
 
         /**
-         * the DbList class as a stub for the ListDatabase class
+         * the DatabaseList class as a stub for the ListDatabase class
          */
-        $dblist = new DbList;
+        $dblist = new DatabaseList();
         $dblist->userlink = $userlink;
         $dblist->controllink = $controllink;
 
