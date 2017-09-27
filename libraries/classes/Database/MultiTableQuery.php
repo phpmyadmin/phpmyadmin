@@ -5,7 +5,7 @@
  *
  * @package PhpMyAdmin
  */
-namespace PhpMyAdmin;
+namespace PhpMyAdmin\Database;
 
 use PhpMyAdmin\Template;
 /**
@@ -13,7 +13,7 @@ use PhpMyAdmin\Template;
  *
  * @package PhpMyAdmin
  */
-class DbMultiTableQuery
+class MultiTableQuery
 {
     /**
      * Database name

@@ -5,7 +5,7 @@
  *
  * @package PhpMyAdmin
  */
-use PhpMyAdmin\DbMultiTableQuery;
+use PhpMyAdmin\Database\MultiTableQuery;
 use PhpMyAdmin\ParseAnalyze;
 use PhpMyAdmin\Response;
 use PhpMyAdmin\Sql;
@@ -53,6 +53,6 @@ $scripts = $header->getScripts();
 $scripts->addFile('vendor/jquery.md5.js');
 $scripts->addFile('db_multi_table_query.js');
 
-$QueryInstance = new DbMultiTableQuery($db);
+$QueryInstance = new MultiTableQuery($db);
 
 $response->addHTML($QueryInstance->getFormHTML());
