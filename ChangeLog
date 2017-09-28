@@ -35,6 +35,7 @@ phpMyAdmin - ChangeLog
 - issue #13268 Replace Query-By-Example with multi-table query generator interface
 - issue #13576 Add privileges export to per database listing
 - issue        Consolidate functions into class files
+- issue #13560 Add support for changing collation for all tables and columns in database
 
 4.7.5 (not yet released)
 - issue #13615 Avoid problems with browsing unknown query types
