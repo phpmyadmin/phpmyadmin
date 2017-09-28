@@ -581,4 +581,36 @@ class UtilTest extends \PMATestCase
             array("chars%$\r\n", 1),
         );
     }
+
+    /**
+     * Test for Util::convertBitDefaultValue
+     *
+     * @param string $bit Value
+     * @param string $val Expected value
+     *
+     * @return void
+     *
+     * @covers PhpMyAdmin\Util::convertBitDefaultValue
+     * @dataProvider providerConvertBitDefaultValue
+     */
+    public function testConvertBitDefaultValue($bit, $val)
+    {
+        $this->assertEquals(
+            $val, Util::convertBitDefaultValue($bit)
+        );
+    }
+
+    /**
+     * Provider for testConvertBitDefaultValue
+     *
+     * @return array
+     */
+    public function providerConvertBitDefaultValue()
+    {
+        return array(
+            array("b'",""),
+            array("b'01'","01"),
+            array("b'010111010'","010111010")
+        );
+    }
 }
