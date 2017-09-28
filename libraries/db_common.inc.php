@@ -91,12 +91,12 @@ if (isset($_REQUEST['submitcollation'])
         . ' DEFAULT' . Util::getCharsetQueryPart($_REQUEST['db_collation']);
     $result           = $GLOBALS['dbi']->query($sql_query);
     $message          = Message::success();
-    
+
     /**
     * Changes tables charset if requested by the user
     */
     if (
-        isset($_REQUEST['change_all_tables_collations']) && 
+        isset($_REQUEST['change_all_tables_collations']) &&
         $_REQUEST['change_all_tables_collations'] == 'on'
     ) {
         list($tables, , , , , , , ,) = PhpMyAdmin\Util::getDbInfo($db, null);
@@ -108,17 +108,17 @@ if (isset($_REQUEST['submitcollation'])
             . 'DEFAULT '
             . Util::getCharsetQueryPart($_REQUEST['db_collation']);
             $GLOBALS['dbi']->query($sql_query);
-            
+
             /**
             * Changes columns charset if requested by the user
             */
             if (
-                isset($_REQUEST['change_all_tables_columns_collations']) && 
+                isset($_REQUEST['change_all_tables_columns_collations']) &&
                 $_REQUEST['change_all_tables_columns_collations'] == 'on'
             ) {
                 Operations::changeAllColumnsCollation($db, $tableName, $_REQUEST['db_collation']);
             }
-            
+
         }
     }
     unset($db_charset);
