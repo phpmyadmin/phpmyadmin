@@ -7,6 +7,8 @@
  */
 namespace PhpMyAdmin\Tests;
 
+use PhpMyAdmin\Config;
+use PhpMyAdmin\Core;
 use PhpMyAdmin\Util;
 
 /**
@@ -496,6 +498,53 @@ class UtilTest extends \PMATestCase
         $this->assertArrayNotHasKey(
             'is_superuser',
             $_SESSION['cache']['server_server']
+        );
+    }
+
+    /**
+     * Test for Util::checkParameters
+     *
+     * @covers PhpMyAdmin\Util::checkParameters
+     *
+     * @return void
+     */
+    function testCheckParameterMissing()
+    {
+        $GLOBALS['PMA_Config'] = new Config();
+        $GLOBALS['cfg'] = array('ServerDefault' => 1);
+        $GLOBALS['text_dir'] = 'ltr';
+        $GLOBALS['PMA_PHP_SELF'] = Core::getenv('PHP_SELF');
+        $GLOBALS['pmaThemePath'] = $GLOBALS['PMA_Theme']->getPath();
+
+        $this->expectOutputRegex("/Missing parameter: field/");
+
+        Util::checkParameters(
+            array('db', 'table', 'field')
+        );
+    }
+
+    /**
+     * Test for Util::checkParameters
+     *
+     * @covers PhpMyAdmin\Util::checkParameters
+     *
+     * @return void
+     */
+    function testCheckParameter()
+    {
+        $GLOBALS['PMA_Config'] = new Config();
+        $GLOBALS['cfg'] = array('ServerDefault' => 1);
+        $GLOBALS['text_dir'] = 'ltr';
+        $GLOBALS['PMA_PHP_SELF'] = Core::getenv('PHP_SELF');
+        $GLOBALS['pmaThemePath'] = $GLOBALS['PMA_Theme']->getPath();
+        $GLOBALS['db'] = "dbDatabase";
+        $GLOBALS['table'] = "tblTable";
+        $GLOBALS['field'] = "test_field";
+        $GLOBALS['sql_query'] = "SELECT * FROM tblTable;";
+
+        $this->expectOutputString("");
+        Util::checkParameters(
+            array('db', 'table', 'field', 'sql_query')
         );
     }
 }
