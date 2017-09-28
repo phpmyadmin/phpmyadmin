@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.7.4-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2017-08-10 09:13-0400\n"
-"PO-Revision-Date: 2017-09-25 07:46+0000\n"
-"Last-Translator: Ellianto Sarono Putro <elliantosarono.p@gmail.com>\n"
+"PO-Revision-Date: 2017-09-29 05:13+0000\n"
+"Last-Translator: eisenhaus335 <greenzone332@outlook.com>\n"
 "Language-Team: Indonesian "
 "<https://hosted.weblate.org/projects/phpmyadmin/4-7/id/>\n"
 "Language: id\n"
@@ -21,7 +21,7 @@ msgid "Bad type!"
 msgstr "Tipe yang buruk!"
 
 #: changelog.php:39 license.php:34
-#, fuzzy, php-format
+#, php-format
 msgid ""
 "The %s file is not available on this system, please visit %s for more "
 "information."
@@ -30,12 +30,10 @@ msgstr ""
 "selanjutnya."
 
 #: db_central_columns.php:108
-#, fuzzy
 msgid "The central list of columns for the current database is empty."
-msgstr "Daftar kolom utama untuk database ini tidak ada."
+msgstr "Daftar utama kolom untuk database saat ini kosong."
 
 #: db_central_columns.php:133
-#, fuzzy
 msgid "Click to sort."
 msgstr "Klik untuk mengurutkan."
 
@@ -45,14 +43,12 @@ msgid "Showing rows %1$s - %2$s."
 msgstr "Tampilkan baris %1$s s/d %2$s."
 
 #: db_datadict.php:59 libraries/operations.lib.php:36
-#, fuzzy
 msgid "Database comment"
-msgstr "Komentar database"
+msgstr "Komentari database"
 
 #: db_datadict.php:106 libraries/plugins/schema/pdf/PdfRelationSchema.php:596
 #: templates/columns_definitions/column_definitions_form.phtml:89
 #: templates/table/structure/display_table_stats.phtml:5
-#, fuzzy
 msgid "Table comments:"
 msgstr "Komentar tabel:"
 
@@ -81,7 +77,6 @@ msgstr "Komentar tabel:"
 #: templates/table/relation/internal_relational_row.phtml:66
 #: templates/table/search/table_header.phtml:6
 #: templates/table/search/zoom_result_form.phtml:33
-#, fuzzy
 msgid "Column"
 msgstr "Kolom"
 
@@ -108,9 +103,8 @@ msgstr "Kolom"
 #: templates/database/structure/table_header.phtml:48
 #: templates/table/search/table_header.phtml:7
 #: templates/table/structure/table_structure_header.phtml:8
-#, fuzzy
 msgid "Type"
-msgstr "Jenis"
+msgstr "Mengetik"
 
 #: db_datadict.php:117 libraries/Index.php:689
 #: libraries/central_columns.lib.php:707 libraries/central_columns.lib.php:1386
@@ -129,9 +123,8 @@ msgstr "Jenis"
 #: templates/columns_definitions/table_fields_definitions.phtml:39
 #: templates/table/search/zoom_result_form.phtml:34
 #: templates/table/structure/table_structure_header.phtml:11
-#, fuzzy
 msgid "Null"
-msgstr "Kosong"
+msgstr "Tak Ternilai"
 
 #: db_datadict.php:118 libraries/central_columns.lib.php:700
 #: libraries/central_columns.lib.php:1385
@@ -5792,7 +5785,7 @@ msgstr "Tab tabel bawaan"
 
 #: libraries/config/messages.inc.php:110
 msgid "Autocomplete of the table and column names in the SQL queries."
-msgstr "otomatis selesai pada tabel dan nama kolom didalam SQL query"
+msgstr "Pelengkapan otomatis pada tabel dan nama kolom didalam SQL query"
 
 #: libraries/config/messages.inc.php:113
 msgid "Enable autocomplete for table and column names"
@@ -6098,7 +6091,7 @@ msgstr "Sebuah dropdown akan digunakan jika sedikit item yang ditampilkan."
 
 #: libraries/config/messages.inc.php:236
 msgid "Foreign key limit"
-msgstr "Batas foreign key"
+msgstr "Batas kunci luar"
 
 #: libraries/config/messages.inc.php:238
 msgid "Default value for foreign key checks checkbox for some queries."
@@ -15704,7 +15697,7 @@ msgstr "Nama kolom baru"
 
 #: templates/export/alias_item.phtml:8
 msgid "Remove"
-msgstr ""
+msgstr "Lepas"
 
 #: templates/prefs_autoload.phtml:8
 #, fuzzy
