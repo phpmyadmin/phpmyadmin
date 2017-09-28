@@ -3615,3 +3615,7 @@ body .ui-dialog .ui-dialog-buttonpane .ui-dialog-buttonset {
         width: 95% !important;
     }
 }
+#index_frm > #index_edit_fields > .index_info > #index_columns > tbody > tr > td > select[name="index[columns][names][]"],
+#index_frm > #index_edit_fields > .index_info > div > input[name="index[Key_name]"] {
+    width: 100%;
+}
