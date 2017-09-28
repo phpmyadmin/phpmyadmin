@@ -1852,7 +1852,8 @@ class Operations
             // should not be reported with a Level of Error, so here
             // I just ignore it. But there are other 1478 messages
             // that it's better to show.
-            if (! ($_REQUEST['new_tbl_storage_engine'] == 'MyISAM'
+            if (! (isset($_REQUEST['new_tbl_storage_engine'])
+                && $_REQUEST['new_tbl_storage_engine'] == 'MyISAM'
                 && $warning['Code'] == '1478'
                 && $warning['Level'] == 'Error')
             ) {
