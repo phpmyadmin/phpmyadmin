@@ -3047,7 +3047,7 @@ $cfg['DBG']['sql'] = false;
 /**
  * Log executed queries and their execution times to syslog
  *
- * @global boolean $cfg['DBG']['sql']
+ * @global boolean $cfg['DBG']['sqllog']
  */
 $cfg['DBG']['sqllog'] = false;
 
