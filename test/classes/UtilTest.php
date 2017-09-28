@@ -396,4 +396,106 @@ class UtilTest extends \PMATestCase
 
         $this->assertEquals($titles, Util::buildActionTitles());
     }
+
+    /**
+     * Test if cached data is available after set
+     *
+     * @covers PhpMyAdmin\Util::cacheExists
+     *
+     * @return void
+     */
+    public function testCacheExists()
+    {
+        $GLOBALS['server'] = 'server';
+        Util::cacheSet('test_data', 5);
+        Util::cacheSet('test_data_2', 5);
+
+        $this->assertTrue(Util::cacheExists('test_data'));
+        $this->assertTrue(Util::cacheExists('test_data_2'));
+        $this->assertFalse(Util::cacheExists('fake_data_2'));
+    }
+
+    /**
+     * Test if PhpMyAdmin\Util::cacheGet does not return data for non existing cache entries
+     *
+     * @covers PhpMyAdmin\Util::cacheGet
+     *
+     * @return void
+     */
+    public function testCacheGet()
+    {
+        $GLOBALS['server'] = 'server';
+        Util::cacheSet('test_data', 5);
+        Util::cacheSet('test_data_2', 5);
+
+        $this->assertNotNull(Util::cacheGet('test_data'));
+        $this->assertNotNull(Util::cacheGet('test_data_2'));
+        $this->assertNull(Util::cacheGet('fake_data_2'));
+    }
+
+    /**
+     * Test retrieval of cached data
+     *
+     * @covers PhpMyAdmin\Util::cacheSet
+     *
+     * @return void
+     */
+    public function testCacheSetGet()
+    {
+        $GLOBALS['server'] = 'server';
+        Util::cacheSet('test_data', 25);
+
+        Util::cacheSet('test_data', 5);
+        $this->assertEquals(5, $_SESSION['cache']['server_server']['test_data']);
+        Util::cacheSet('test_data_3', 3);
+        $this->assertEquals(3, $_SESSION['cache']['server_server']['test_data_3']);
+    }
+
+    /**
+     * Test clearing cached values
+     *
+     * @covers PhpMyAdmin\Util::cacheUnset
+     *
+     * @return void
+     */
+    public function testCacheUnSet()
+    {
+        $GLOBALS['server'] = 'server';
+        Util::cacheSet('test_data', 25);
+        Util::cacheSet('test_data_2', 25);
+
+        Util::cacheUnset('test_data');
+        $this->assertArrayNotHasKey(
+            'test_data',
+            $_SESSION['cache']['server_server']
+        );
+        Util::cacheUnset('test_data_2');
+        $this->assertArrayNotHasKey(
+            'test_data_2',
+            $_SESSION['cache']['server_server']
+        );
+    }
+
+    /**
+     * Test clearing user cache
+     *
+     * @covers PhpMyAdmin\Util::clearUserCache
+     *
+     * @return void
+     */
+    public function testClearUserCache()
+    {
+        $GLOBALS['server'] = 'server';
+        Util::cacheSet('is_superuser', 'yes');
+        $this->assertEquals(
+            'yes',
+            $_SESSION['cache']['server_server']['is_superuser']
+        );
+
+        Util::clearUserCache();
+        $this->assertArrayNotHasKey(
+            'is_superuser',
+            $_SESSION['cache']['server_server']
+        );
+    }
 }
