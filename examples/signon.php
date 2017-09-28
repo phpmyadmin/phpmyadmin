@@ -11,6 +11,8 @@
  * @subpackage Example
  */
 
+/* Use cookies for session */
+@ini_set('session.use_cookies', 'true');
 /* Need to have cookie visible from parent directory */
 session_set_cookie_params(0, '/', '', true, true);
 /* Create signon session */
