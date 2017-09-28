@@ -279,7 +279,11 @@ class Header
     {
         $params = $this->getJsParams();
         foreach ($params as $key => $value) {
-            $params[$key] = $key . ':"' . Sanitize::escapeJsString($value) . '"';
+            if (is_bool($value)) {
+                $params[$key] = $key . ':' . ($value ? 'true' : 'false') . '';
+            } else {
+                $params[$key] = $key . ':"' . Sanitize::escapeJsString($value) . '"';
+            }
         }
         return 'PMA_commonParams.setAll({' . implode(',', $params) . '});';
     }

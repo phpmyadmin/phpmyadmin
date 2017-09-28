@@ -53,7 +53,7 @@ var PMA_commonParams = (function () {
          * @return string
          */
         get: function (name) {
-            return params[name] || '';
+            return params[name];
         },
         /**
          * Saves a single key value pair
