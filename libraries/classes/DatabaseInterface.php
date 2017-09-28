@@ -303,11 +303,17 @@ class DatabaseInterface
             $time = microtime(true) - $time;
             $this->_dbgQuery($query, $link, $result, $time);
             if ($GLOBALS['cfg']['DBG']['sqllog']) {
+                $tmp = $this->_extension->realQuery('
+                    SHOW COUNT(*) WARNINGS', $link, DatabaseInterface::QUERY_STORE
+                );
+                $warnings = $this->fetchRow($tmp);
+
                 openlog('phpMyAdmin', LOG_NDELAY | LOG_PID, LOG_USER);
+
                 syslog(
                     LOG_INFO,
                     'SQL[' . basename($_SERVER['SCRIPT_NAME']) . ']: '
-                    . sprintf('%0.3f', $time) . ' > ' . $query
+                    . sprintf('%0.3f', $time) . '(W:' . $warnings[0] . ') > ' . $query
                 );
                 closelog();
             }
