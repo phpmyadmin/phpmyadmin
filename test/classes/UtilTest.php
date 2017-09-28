@@ -613,4 +613,59 @@ class UtilTest extends \PMATestCase
             array("b'010111010'","010111010")
         );
     }
+
+    /**
+     * data provider for testEscapeMysqlWildcards and testUnescapeMysqlWildcards
+     *
+     * @return array
+     */
+    public function providerUnEscapeMysqlWildcards()
+    {
+        return array(
+            array('\_test', '_test'),
+            array('\_\\', '_\\'),
+            array('\\_\%', '_%'),
+            array('\\\_', '\_'),
+            array('\\\_\\\%', '\_\%'),
+            array('\_\\%\_\_\%', '_%__%'),
+            array('\%\_', '%_'),
+            array('\\\%\\\_', '\%\_')
+        );
+    }
+
+    /**
+     * PhpMyAdmin\Util::escapeMysqlWildcards tests
+     *
+     * @param string $a Expected value
+     * @param string $b String to escape
+     *
+     * @return void
+     *
+     * @covers PhpMyAdmin\Util::escapeMysqlWildcards
+     * @dataProvider providerUnEscapeMysqlWildcards
+     */
+    public function testEscapeMysqlWildcards($a, $b)
+    {
+        $this->assertEquals(
+            $a, Util::escapeMysqlWildcards($b)
+        );
+    }
+
+    /**
+     * PhpMyAdmin\Util::unescapeMysqlWildcards tests
+     *
+     * @param string $a String to unescape
+     * @param string $b Expected value
+     *
+     * @return void
+     *
+     * @covers PhpMyAdmin\Util::unescapeMysqlWildcards
+     * @dataProvider providerUnEscapeMysqlWildcards
+     */
+    public function testUnescapeMysqlWildcards($a, $b)
+    {
+        $this->assertEquals(
+            $b, Util::unescapeMysqlWildcards($a)
+        );
+    }
 }
