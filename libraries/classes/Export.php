@@ -189,7 +189,7 @@ class Export
     /**
      * Returns HTML containing the footer for a displayed export
      *
-     * @param string $back_button the link for going Back
+     * @param string $back_button   the link for going Back
      * @param string $refreshButton the link for refreshing page
      *
      * @return string $html the HTML output

@@ -16,7 +16,6 @@ use PhpMyAdmin\Util;
  */
 class UtilTest extends \PMATestCase
 {
-
     /**
      * Test for createGISData
      *
@@ -315,5 +314,51 @@ class UtilTest extends \PMATestCase
     {
         $this->assertEquals(32, strlen(Util::generateRandom(32)));
         $this->assertEquals(16, strlen(Util::generateRandom(16)));
+    }
+
+    /**
+     * Test for PhpMyAdmin\Util::getBrowseUploadFileBlock
+     *
+     * @param int    $size Size
+     * @param string $unit Unit
+     * @param string $res  Result
+     *
+     * @return void
+     *
+     * @covers PhpMyAdmin\Util::getBrowseUploadFileBlock
+     * @dataProvider providerGetBrowseUploadFileBlock
+     */
+    function testGetBrowseUploadFileBlock($size, $unit, $res)
+    {
+        $GLOBALS['is_upload'] = false;
+        $this->assertEquals(
+            Util::getBrowseUploadFileBlock($size),
+            '<label for="input_import_file">' . __("Browse your computer:")
+            . '</label>'
+            . '<div id="upload_form_status" class="hide"></div>'
+            . '<div id="upload_form_status_info" class="hide"></div>'
+            . '<input type="file" name="import_file" id="input_import_file" />'
+            . "(" . __('Max: ') . $res . $unit . ")" . "\n"
+            . '<input type="hidden" name="MAX_FILE_SIZE" value="'
+            . $size . '" />' . "\n"
+        );
+    }
+
+    /**
+     * Data provider for testGetBrowseUploadFileBlock
+     *
+     * @return array
+     */
+    public function providerGetBrowseUploadFileBlock()
+    {
+        return array(
+            array(10, __('B'), "10"),
+            array(100, __('B'), "100"),
+            array(1024, __('B'), "1,024"),
+            array(102400, __('KiB'), "100"),
+            array(10240000, __('MiB'), "10"),
+            array(2147483648, __('MiB'), "2,048"),
+            array(21474836480, __('GiB'), "20")
+        );
     }
 }
