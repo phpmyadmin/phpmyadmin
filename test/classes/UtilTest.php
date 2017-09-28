@@ -361,4 +361,39 @@ class UtilTest extends \PMATestCase
             array(21474836480, __('GiB'), "20")
         );
     }
+
+    /**
+     * Test for PhpMyAdmin\Util::buildActionTitles
+     *
+     * @covers PhpMyAdmin\Util::buildActionTitles
+     *
+     * @return void
+     */
+    function testBuildActionTitles()
+    {
+        $GLOBALS['cfg'] = array('ActionLinksMode' => 'both');
+
+        $titles = array();
+        $titles['Browse']     = Util::getIcon('b_browse.png', __('Browse'));
+        $titles['NoBrowse']   = Util::getIcon('bd_browse.png', __('Browse'));
+        $titles['Search']     = Util::getIcon('b_select.png', __('Search'));
+        $titles['NoSearch']   = Util::getIcon('bd_select.png', __('Search'));
+        $titles['Insert']     = Util::getIcon('b_insrow.png', __('Insert'));
+        $titles['NoInsert']   = Util::getIcon('bd_insrow.png', __('Insert'));
+        $titles['Structure']  = Util::getIcon('b_props.png', __('Structure'));
+        $titles['Drop']       = Util::getIcon('b_drop.png', __('Drop'));
+        $titles['NoDrop']     = Util::getIcon('bd_drop.png', __('Drop'));
+        $titles['Empty']      = Util::getIcon('b_empty.png', __('Empty'));
+        $titles['NoEmpty']    = Util::getIcon('bd_empty.png', __('Empty'));
+        $titles['Edit']       = Util::getIcon('b_edit.png', __('Edit'));
+        $titles['NoEdit']     = Util::getIcon('bd_edit.png', __('Edit'));
+        $titles['Export']     = Util::getIcon('b_export.png', __('Export'));
+        $titles['NoExport']   = Util::getIcon('bd_export.png', __('Export'));
+        $titles['Execute']    = Util::getIcon('b_nextpage.png', __('Execute'));
+        $titles['NoExecute']  = Util::getIcon('bd_nextpage.png', __('Execute'));
+        $titles['Favorite']   = Util::getIcon('b_favorite.png', '');
+        $titles['NoFavorite'] = Util::getIcon('b_no_favorite.png', '');
+
+        $this->assertEquals($titles, Util::buildActionTitles());
+    }
 }
