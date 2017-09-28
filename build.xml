@@ -83,13 +83,13 @@
  </target>
 
  <target name="phpcs-config" description="PHPCS configuration tweaking">
-  <exec executable="phpcs">
+  <exec executable="${basedir}/vendor/bin/phpcs">
    <arg line="--config-set installed_paths ${basedir}/vendor/phpmyadmin/coding-standard" />
   </exec>
  </target>
 
  <target name="phpcs" description="Generate checkstyle.xml using PHP_CodeSniffer excluding third party libraries" depends="phpcs-config">
-  <exec executable="phpcs">
+  <exec executable="${basedir}/vendor/bin/phpcs">
    <arg line="
               --ignore=*/vendor/*,*/build/*,*/tmp/*
               --report=checkstyle
