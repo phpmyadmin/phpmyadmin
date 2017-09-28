@@ -30,6 +30,7 @@ if (isset($_POST['user'])) {
     /* Update another field of server configuration */
     $_SESSION['PMA_single_signon_cfgupdate'] = array('verbose' => 'Signon test');
     $id = session_id();
+    setcookie($session_name, $id , 0, "/");
     /* Close that session */
     @session_write_close();
     /* Redirect to phpMyAdmin (should use absolute URL here!) */
