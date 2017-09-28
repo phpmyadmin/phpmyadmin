@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.8.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2017-09-08 21:11+0200\n"
-"PO-Revision-Date: 2017-09-28 15:19+0000\n"
+"PO-Revision-Date: 2017-09-28 20:00+0000\n"
 "Last-Translator: eisenhaus335 <greenzone332@outlook.com>\n"
 "Language-Team: Indonesian "
 "<https://hosted.weblate.org/projects/phpmyadmin/master/id/>\n"
@@ -29,12 +29,10 @@ msgstr ""
 "selanjutnya."
 
 #: db_central_columns.php:110
-#, fuzzy
 msgid "The central list of columns for the current database is empty."
-msgstr "Daftar kolom utama untuk database ini tidak ada."
+msgstr "Daftar utama kolom untuk database saat ini kosong."
 
 #: db_central_columns.php:135
-#, fuzzy
 msgid "Click to sort."
 msgstr "Klik untuk mengurutkan."
 
@@ -44,15 +42,13 @@ msgid "Showing rows %1$s - %2$s."
 msgstr "Tampilkan baris %1$s s/d %2$s."
 
 #: db_datadict.php:59 libraries/classes/Operations.php:47
-#, fuzzy
 msgid "Database comment"
-msgstr "Komentar database"
+msgstr "Komentari database"
 
 #: db_datadict.php:106
 #: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php:596
 #: templates/columns_definitions/column_definitions_form.phtml:90
 #: templates/table/structure/display_table_stats.twig:32
-#, fuzzy
 msgid "Table comments:"
 msgstr "Komentar tabel:"
 
@@ -81,7 +77,6 @@ msgstr "Komentar tabel:"
 #: templates/table/relation/internal_relational_row.twig:55
 #: templates/table/index_form.twig:183
 #: templates/table/search/table_header.twig:32
-#, fuzzy
 msgid "Column"
 msgstr "Kolom"
 
@@ -108,9 +103,8 @@ msgstr "Kolom"
 #: templates/database/structure/table_header.phtml:49
 #: templates/table/structure/table_structure_header.twig:29
 #: templates/table/search/table_header.twig:36
-#, fuzzy
 msgid "Type"
-msgstr "Jenis"
+msgstr "Mengetik"
 
 #: db_datadict.php:117 libraries/classes/CentralColumns.php:718
 #: libraries/classes/CentralColumns.php:1397 libraries/classes/Index.php:726
@@ -129,9 +123,8 @@ msgstr "Jenis"
 #: templates/columns_definitions/table_fields_definitions.phtml:40
 #: templates/table/search/zoom_result_form.phtml:34
 #: templates/table/structure/table_structure_header.twig:41
-#, fuzzy
 msgid "Null"
-msgstr "Kosong"
+msgstr "Tak Ternilai"
 
 #: db_datadict.php:118 libraries/classes/CentralColumns.php:711
 #: libraries/classes/CentralColumns.php:1396
@@ -3773,7 +3766,7 @@ msgstr "Tab tabel bawaan"
 
 #: libraries/classes/Config/Descriptions.php:183
 msgid "Autocomplete of the table and column names in the SQL queries."
-msgstr "otomatis selesai pada tabel dan nama kolom didalam SQL query"
+msgstr "Pelengkapan otomatis pada tabel dan nama kolom didalam SQL query"
 
 #: libraries/classes/Config/Descriptions.php:185
 msgid "Enable autocomplete for table and column names"
@@ -4160,7 +4153,7 @@ msgstr "Sebuah dropdown akan digunakan jika sedikit item yang ditampilkan."
 
 #: libraries/classes/Config/Descriptions.php:428
 msgid "Foreign key limit"
-msgstr "Batas foreign key"
+msgstr "Batas kunci luar"
 
 #: libraries/classes/Config/Descriptions.php:430
 msgid "Default value for foreign key checks checkbox for some queries."
@@ -16260,10 +16253,8 @@ msgid "Aggregate"
 msgstr "Agregasi"
 
 #: templates/export/alias_item.twig:39
-#, fuzzy
-#| msgid "Remote server"
 msgid "Remove"
-msgstr "Server jauh"
+msgstr "Lepas"
 
 #: templates/database/create_table.twig:47
 msgid "Number of columns"
