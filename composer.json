@@ -77,7 +77,7 @@
         "phpunit/phpunit-selenium": "~1.2",
         "squizlabs/php_codesniffer": "2.*",
         "tecnickcom/tcpdf": "^6.2",
-        "phpmyadmin/coding-standard": ">=0.1.0"
+        "phpmyadmin/coding-standard": "^0.3"
     },
     "extra": {
         "branch-alias": {
