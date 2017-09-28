@@ -547,4 +547,38 @@ class UtilTest extends \PMATestCase
             array('db', 'table', 'field', 'sql_query')
         );
     }
+
+    /**
+     * Test for Util::containsNonPrintableAscii
+     *
+     * @param string $str Value
+     * @param bool   $res Expected value
+     *
+     * @return void
+     *
+     * @covers PhpMyAdmin\Util::containsNonPrintableAscii
+     * @dataProvider providerContainsNonPrintableAscii
+     */
+    public function testContainsNonPrintableAscii($str, $res)
+    {
+        $this->assertEquals(
+            $res, Util::containsNonPrintableAscii($str)
+        );
+    }
+
+    /**
+     * Data provider for testContainsNonPrintableAscii
+     *
+     * @return array
+     */
+    public function providerContainsNonPrintableAscii()
+    {
+        return array(
+            array("normal string", 0),
+            array("new\nline", 1),
+            array("tab\tspace", 1),
+            array("escape" . chr(27) . "char", 1),
+            array("chars%$\r\n", 1),
+        );
+    }
 }
