@@ -668,4 +668,59 @@ class UtilTest extends \PMATestCase
             $b, Util::unescapeMysqlWildcards($a)
         );
     }
+
+    /**
+     * Test case for expanding strings
+     *
+     * @param string $in  string to evaluate
+     * @param string $out expected output
+     *
+     * @return void
+     *
+     * @covers PhpMyAdmin\Util::expandUserString
+     * @dataProvider providerExpandUserString
+     */
+    public function testExpandUserString($in, $out)
+    {
+        $GLOBALS['PMA_Config'] = new Config();
+        $GLOBALS['PMA_Config']->enableBc();
+        $GLOBALS['cfg'] = array(
+            'Server' => array(
+                'host' => 'host&',
+                'verbose' => 'verbose',
+            )
+        );
+        $GLOBALS['db'] = 'database';
+        $GLOBALS['table'] = 'table';
+
+        $out = str_replace('PMA_VERSION', PMA_VERSION, $out);
+
+        $this->assertEquals(
+            $out, Util::expandUserString($in)
+        );
+
+        $this->assertEquals(
+            htmlspecialchars($out),
+            Util::expandUserString(
+                $in, 'htmlspecialchars'
+            )
+        );
+    }
+
+    /**
+     * Data provider for testExpandUserString
+     *
+     * @return array
+     */
+    public function providerExpandUserString()
+    {
+        return array(
+            array('@SERVER@', 'host&'),
+            array('@VSERVER@', 'verbose'),
+            array('@DATABASE@', 'database'),
+            array('@TABLE@', 'table'),
+            array('@IGNORE@', '@IGNORE@'),
+            array('@PHPMYADMIN@', 'phpMyAdmin PMA_VERSION'),
+        );
+    }
 }
