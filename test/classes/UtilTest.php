@@ -131,26 +131,6 @@ class UtilTest extends \PMATestCase
     }
 
     /**
-     * Test for isForeignKeySupported
-     *
-     * @return void
-     */
-    public function testIsForeignKeySupported()
-    {
-        $GLOBALS['server'] = 1;
-
-        $this->assertTrue(
-            Util::isForeignKeySupported('innodb')
-        );
-        $this->assertFalse(
-            Util::isForeignKeySupported('myisam')
-        );
-        $this->assertTrue(
-            Util::isForeignKeySupported('ndb')
-        );
-    }
-
-    /**
      * Skip test if CURL extension is not installed
      *
      * @param boolean $ssl_flags Whether to check support for SSL flags
@@ -891,6 +871,41 @@ class UtilTest extends \PMATestCase
             array("10GB", 10737418240),
             array("15MB", 15728640),
             array("256K", 262144)
+        );
+    }
+
+    /**
+     * foreign key supported test
+     *
+     * @param string $a Engine
+     * @param bool   $e Expected Value
+     *
+     * @return void
+     *
+     * @covers PhpMyAdmin\Util::isForeignKeySupported
+     * @dataProvider providerIsForeignKeySupported
+     */
+    public function testIsForeignKeySupported($a, $e)
+    {
+        $GLOBALS['server'] = 1;
+
+        $this->assertEquals(
+            $e, Util::isForeignKeySupported($a)
+        );
+    }
+
+    /**
+     * data provider for foreign key supported test
+     *
+     * @return array
+     */
+    public function providerIsForeignKeySupported()
+    {
+        return array(
+            array('MyISAM', false),
+            array('innodb', true),
+            array('pBxT', true),
+            array('ndb', true)
         );
     }
 }
