@@ -908,4 +908,30 @@ class UtilTest extends \PMATestCase
             array('ndb', true)
         );
     }
+
+    /**
+     * Test for formatSql
+     *
+     * @covers PhpMyAdmin\Util::formatSql
+     *
+     * @return void
+     */
+    function testFormatSql()
+    {
+        $this->assertEquals(
+            '<code class="sql"><pre>' . "\n"
+            . 'SELECT 1 &lt; 2' . "\n"
+            . '</pre></code>',
+            Util::formatSql('SELECT 1 < 2')
+        );
+
+        $GLOBALS['cfg']['MaxCharactersInDisplayedSQL'] = 6;
+
+        $this->assertEquals(
+            '<code class="sql"><pre>' . "\n"
+            . 'SELECT[...]' . "\n"
+            . '</pre></code>',
+            Util::formatSql('SELECT 1 < 2', true)
+        );
+    }
 }
