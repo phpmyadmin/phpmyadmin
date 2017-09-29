@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.7.4-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2017-08-10 09:13-0400\n"
-"PO-Revision-Date: 2017-09-29 05:13+0000\n"
-"Last-Translator: eisenhaus335 <greenzone332@outlook.com>\n"
+"PO-Revision-Date: 2017-09-29 14:46+0000\n"
+"Last-Translator: John Vandenberg <jayvdb@gmail.com>\n"
 "Language-Team: Indonesian "
 "<https://hosted.weblate.org/projects/phpmyadmin/4-7/id/>\n"
 "Language: id\n"
@@ -5785,7 +5785,7 @@ msgstr "Tab tabel bawaan"
 
 #: libraries/config/messages.inc.php:110
 msgid "Autocomplete of the table and column names in the SQL queries."
-msgstr "Pelengkapan otomatis pada tabel dan nama kolom didalam SQL query"
+msgstr "Pelengkapan otomatis pada tabel dan nama kolom didalam SQL query."
 
 #: libraries/config/messages.inc.php:113
 msgid "Enable autocomplete for table and column names"
@@ -6097,7 +6097,7 @@ msgstr "Batas kunci luar"
 msgid "Default value for foreign key checks checkbox for some queries."
 msgstr ""
 "Nilai default untuk kunci luar untuk mencentang kotak centang pada suatu "
-"pertanyaan"
+"pertanyaan."
 
 #: libraries/config/messages.inc.php:240
 msgid "Foreign key checks"
@@ -6557,7 +6557,7 @@ msgid ""
 "kbd] authentication mode."
 msgstr ""
 "Tentukan apakah login sebelumnya harus dipanggil kembali atau tidak dalam "
-"mode otentikasi cookie."
+"mode otentikasi [kbd]cookie[/kbd]."
 
 #: libraries/config/messages.inc.php:418
 msgid "Recall user name"
@@ -7260,7 +7260,7 @@ msgid ""
 "[kbd]pma__central_columns[/kbd]."
 msgstr ""
 "Biarkan kosong untuk tanpa dukungan kolom utama, saran: "
-"[kbd]pma_userconfig[/kbd]"
+"[kbd]pma__central_columns[/kbd]."
 
 #: libraries/config/messages.inc.php:694
 msgid ""
@@ -10414,7 +10414,7 @@ msgstr "Judul laporan:"
 
 #: libraries/plugins/export/ExportPdf.php:233
 msgid "Dumping data"
-msgstr "Dumping data"
+msgstr ""
 
 #: libraries/plugins/export/ExportPdf.php:288
 msgid "View structure"
