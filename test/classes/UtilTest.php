@@ -859,4 +859,38 @@ class UtilTest extends \PMATestCase
             ),
         );
     }
+
+    /**
+     * Test for Util::extractValueFromFormattedSize
+     *
+     * @param int|string $size     Size
+     * @param int        $expected Expected value
+     *
+     * @return void
+     *
+     * @covers PhpMyAdmin\Util::extractValueFromFormattedSize
+     * @dataProvider providerExtractValueFromFormattedSize
+     */
+    function testExtractValueFromFormattedSize($size, $expected)
+    {
+        $this->assertEquals(
+            $expected,
+            Util::extractValueFromFormattedSize($size)
+        );
+    }
+
+    /**
+     * Data provider for testExtractValueFromFormattedSize
+     *
+     * @return array
+     */
+    public function providerExtractValueFromFormattedSize()
+    {
+        return array(
+            array(100, -1),
+            array("10GB", 10737418240),
+            array("15MB", 15728640),
+            array("256K", 262144)
+        );
+    }
 }
