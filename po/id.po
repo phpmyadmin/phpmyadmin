@@ -3,8 +3,8 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.8.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2017-09-08 21:11+0200\n"
-"PO-Revision-Date: 2017-09-29 14:45+0000\n"
-"Last-Translator: John Vandenberg <jayvdb@gmail.com>\n"
+"PO-Revision-Date: 2017-09-30 00:39+0000\n"
+"Last-Translator: Prajna Prasetya <prajnapras19@gmail.com>\n"
 "Language-Team: Indonesian "
 "<https://hosted.weblate.org/projects/phpmyadmin/master/id/>\n"
 "Language: id\n"
@@ -935,7 +935,6 @@ msgid "Do you really want to delete this central column?"
 msgstr "Anda yakin hendak menghapus kolom utama ini?"
 
 #: js/messages.php:77
-#, fuzzy
 msgid "Do you really want to delete the selected items?"
 msgstr "Anda yakin ingin menghapus item terpilih?"
 
@@ -5773,10 +5772,8 @@ msgstr ""
 "semua tabel."
 
 #: libraries/classes/Config/Descriptions.php:1281
-#, fuzzy
-#| msgid "Table comments"
 msgid "Show table charset"
-msgstr "Komentar tabel"
+msgstr "Tampilkan tabel set karakter"
 
 #: libraries/classes/Config/Descriptions.php:1284
 #, fuzzy
@@ -5808,16 +5805,12 @@ msgid "Show hint"
 msgstr "Tampilkan petunjuk"
 
 #: libraries/classes/Config/Descriptions.php:1299
-#, fuzzy
-#| msgid ""
-#| "Shows link to [a@https://secure.php.net/manual/function.phpinfo."
-#| "php]phpinfo()[/a] output"
 msgid ""
 "Shows link to [a@https://php.net/manual/function.phpinfo.php]phpinfo()[/a] "
 "output."
 msgstr ""
-"Tampilkan tautan untuk melihat hasil [a@https://secure.php.net/manual/"
-"function.phpinfo.php]phpinfo()[/a]"
+"Tampilkan tautan sebagai keluaran "
+"[a@https://secure.php.net/manual/function.phpinfo.php]phpinfo()[/a]"
 
 #: libraries/classes/Config/Descriptions.php:1303
 msgid "Show phpinfo() link"
@@ -5853,11 +5846,10 @@ msgid "Retain query box"
 msgstr "Menahan kotak kueri"
 
 #: libraries/classes/Config/Descriptions.php:1315
-#, fuzzy
 msgid "Allow to display database and table statistics (eg. space usage)."
 msgstr ""
-"Memungkinkan untuk menampilkan database dan tabel statistik (misalnya. "
-"Penggunaan ruang)."
+"Izinkan untuk menampilkan basis data dan tabel statistik  (misalnya, "
+"penggunaan ruang memori)."
 
 #: libraries/classes/Config/Descriptions.php:1317
 msgid "Show statistics"
@@ -6150,12 +6142,11 @@ msgid "Send error reports"
 msgstr "Kirim laporan kesalahan"
 
 #: libraries/classes/Config/Descriptions.php:1446
-#, fuzzy
 msgid ""
 "Queries are executed by pressing Enter (instead of Ctrl+Enter). New lines "
 "will be inserted with Shift+Enter."
 msgstr ""
-"Query dijalankan dengan menekan Enter (bukan Ctrl + Enter). baris baru akan "
+"Query dijalankan dengan menekan Enter (bukan Ctrl + Enter). Baris baru akan "
 "disisipkan dengan Shift + Enter."
 
 #: libraries/classes/Config/Descriptions.php:1450
@@ -6452,10 +6443,7 @@ msgstr ""
 "tersedia pada sistem ini."
 
 #: libraries/classes/Config/ServerConfigChecks.php:537
-#, fuzzy, php-format
-#| msgid ""
-#| "%sGZip compression and decompression%s requires functions (%s) which are "
-#| "unavailable on this system."
+#, php-format
 msgid ""
 "%1$sGZip compression and decompression%2$s requires functions (%3$s) which "
 "are unavailable on this system."
@@ -7468,11 +7456,8 @@ msgstr ""
 "dapat memotong transaksi.)</i>"
 
 #: libraries/classes/Display/Import.php:324
-#, fuzzy
 msgid "Skip this number of queries (for SQL) starting from the first one:"
-msgstr ""
-"Loncat nomor ini query (untuk SQL) atau garis (untuk format lain), mulai "
-"dari yang pertama:"
+msgstr "Lewati beberapa kueri (untuk SQL) mulai dari yang pertama:"
 
 #: libraries/classes/Display/Import.php:354
 msgid "Other options:"
@@ -7512,9 +7497,8 @@ msgid "About %SEC sec. remaining."
 msgstr "Sekitar %SEC detik. lagi."
 
 #: libraries/classes/Display/Import.php:504
-#, fuzzy
 msgid "The file is being processed, please be patient."
-msgstr "File tersebut sedang diproses, harap bersabar."
+msgstr "Berkas sedang diproses, harap bersabar."
 
 #: libraries/classes/Display/Results.php:910
 msgid "Save edited data"
@@ -8785,13 +8769,13 @@ msgid "Step 1."
 msgstr "Tahap 1."
 
 #: libraries/classes/Normalization.php:149
-#, fuzzy
 msgid ""
 "Do you have any column which can be split into more than one column? For "
 "example: address can be split into street, city, country and zip."
 msgstr ""
 "Apakah Anda memiliki kolom yang dapat dipecah menjadi lebih dari satu kolom? "
-"Sebagai contoh: alamat dapat dipecah menjadi jalan, kota, negara dan zip."
+"Sebagai contoh: alamat dapat dipecah menjadi jalan, kota, negara dan kode "
+"pos."
 
 #: libraries/classes/Normalization.php:156
 #, fuzzy
@@ -8837,7 +8821,6 @@ msgid "Primary key already exists."
 msgstr "Kunci utama telah ada."
 
 #: libraries/classes/Normalization.php:206
-#, fuzzy
 msgid ""
 "There is no primary key; please add one.<br/>Hint: A primary key is a column "
 "(or combination of columns) that uniquely identify all rows."
@@ -8882,12 +8865,11 @@ msgstr ""
 "FULL_NAME yang berlebihan."
 
 #: libraries/classes/Normalization.php:254
-#, fuzzy
 msgid ""
 "Check the columns which are redundant and click on remove. If no redundant "
 "column, click on 'No redundant column'"
 msgstr ""
-"Periksa kolom yang berlebihan dan klik hapus. Jika tidak ada kolom "
+"Periksa kolom mana yang berlebihan dan klik hapus. Jika tidak ada kolom yang "
 "berlebihan, klik 'Tidak ada kolom berlebihan'"
 
 #: libraries/classes/Normalization.php:259
