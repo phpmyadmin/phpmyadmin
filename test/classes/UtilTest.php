@@ -1337,4 +1337,42 @@ class UtilTest extends \PMATestCase
             )
         );
     }
+
+    /**
+     * Test for Util::getFormattedMaximumUploadSize
+     *
+     * @param int    $size Size
+     * @param string $unit Unit
+     * @param string $res  Result
+     *
+     * @return void
+     *
+     * @covers PhpMyAdmin\Util::getFormattedMaximumUploadSize
+     * @dataProvider providerGetFormattedMaximumUploadSize
+     */
+    public function testGetFormattedMaximumUploadSize($size, $unit, $res)
+    {
+        $this->assertEquals(
+            "(" . __('Max: ') . $res . $unit . ")",
+            Util::getFormattedMaximumUploadSize($size)
+        );
+    }
+
+    /**
+     * Data provider for testGetFormattedMaximumUploadSize
+     *
+     * @return array
+     */
+    public function providerGetFormattedMaximumUploadSize()
+    {
+        return array(
+            array(10, __('B'), "10"),
+            array(100, __('B'), "100"),
+            array(1024, __('B'), "1,024"),
+            array(102400, __('KiB'), "100"),
+            array(10240000, __('MiB'), "10"),
+            array(2147483648, __('MiB'), "2,048"),
+            array(21474836480, __('GiB'), "20")
+        );
+    }
 }
