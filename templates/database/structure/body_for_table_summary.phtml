@@ -6,15 +6,7 @@
     printf(_ngettext('%s table', '%s tables', $num_tables),
         PhpMyAdmin\Util::formatNumber($num_tables, 0)); ?>
 </th>
-<?php if ($server_slave_status): ?>
-    <th> <?= __('Replication'); ?> </th>
-<?php endif; ?>
-<?php
-$sum_colspan = ($db_is_system_schema ? 4 : 7);
-if ($GLOBALS['cfg']['NumFavoriteTables'] == 0) {
-    $sum_colspan--;
-} ?>
-<th colspan="<?= $sum_colspan; ?>" class="print_ignore" ><?= __('Sum'); ?></th>
+
 <?php
 $row_count_sum = PhpMyAdmin\Util::formatNumber($sum_entries, 0);
 // If a table shows approximate rows count, display update-all-real-count anchor.
@@ -70,6 +62,16 @@ $cell_text = ($approx_rows)
     <th class="value tbl_size"><?= $sum_formatted , ' ' , $unit; ?></th>
     <th class="value tbl_overhead"><?= $overhead_formatted , ' ' , $overhead_unit; ?></th>
 <?php endif; ?>
+
+<?php if ($server_slave_status): ?>
+    <th> <?= __('Replication'); ?> </th>
+<?php endif; ?>
+<?php
+$sum_colspan = ($db_is_system_schema ? 4 : 7);
+if ($GLOBALS['cfg']['NumFavoriteTables'] == 0) {
+    $sum_colspan--;
+} ?>
+<th colspan="<?= $sum_colspan; ?>" class="print_ignore" ><?= __('Sum'); ?></th>
 
 <?php if ($GLOBALS['cfg']['ShowDbStructureCharset']): ?>
     <th>
