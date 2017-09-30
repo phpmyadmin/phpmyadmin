@@ -1768,4 +1768,78 @@ class UtilTest extends \PMATestCase
             array('db_operations.php', __('Operations')),
         );
     }
+
+    /**
+     * localised date test, globals are defined
+     *
+     * @param string $a Current timestamp
+     * @param string $b Format
+     * @param string $e Expected output
+     *
+     * @return void
+     *
+     * @covers PhpMyAdmin\Util::localisedDate
+     * @dataProvider providerLocalisedDate
+     */
+    public function testLocalisedDate($a, $b, $e)
+    {
+        $tmpTimezone = date_default_timezone_get();
+        date_default_timezone_set('Europe/London');
+
+        $this->assertEquals(
+            $e, Util::localisedDate($a, $b)
+        );
+
+        date_default_timezone_set($tmpTimezone);
+    }
+
+    /**
+     * data provider for localised date test
+     *
+     * @return array
+     */
+    public function providerLocalisedDate()
+    {
+        return array(
+            array(1227455558, '', 'Nov 23, 2008 at 03:52 PM'),
+            array(1227455558, '%Y-%m-%d %H:%M:%S %a', '2008-11-23 15:52:38 Sun')
+        );
+    }
+
+    /**
+     * localised timestamp test, globals are defined
+     *
+     * @param int    $a Timespan in seconds
+     * @param string $e Expected output
+     *
+     * @return void
+     *
+     * @covers PhpMyAdmin\Util::timespanFormat
+     * @dataProvider providerTimespanFormat
+     */
+    public function testTimespanFormat($a, $e)
+    {
+        $GLOBALS['timespanfmt'] = '%s days, %s hours, %s minutes and %s seconds';
+        $tmpTimezone = date_default_timezone_get();
+        date_default_timezone_set('Europe/London');
+
+        $this->assertEquals(
+            $e, Util::timespanFormat($a)
+        );
+
+        date_default_timezone_set($tmpTimezone);
+    }
+
+    /**
+     * data provider for localised timestamp test
+     *
+     * @return array
+     */
+    public function providerTimespanFormat()
+    {
+        return array(
+            array(1258, '0 days, 0 hours, 20 minutes and 58 seconds'),
+            array(821958, '9 days, 12 hours, 19 minutes and 18 seconds')
+        );
+    }
 }
