@@ -524,6 +524,8 @@ class PmdCommon
      * @param string $F2        master field
      * @param string $on_delete on delete action
      * @param string $on_update on update action
+     * @param string $DB1       database
+     * @param string $DB2       database
      *
      * @return array array of success/failure and message
      */

@@ -20,9 +20,11 @@ class TemplateTest extends PmaTestCase
     /**
      * Test for set function
      *
-     * @dataProvider providerTestSet
+     * @param string $data Template name
      *
      * @return void
+     *
+     * @dataProvider providerTestSet
      */
     public function testSet($data)
     {
@@ -101,9 +103,13 @@ class TemplateTest extends PmaTestCase
     /**
      * Test for render
      *
-     * @dataProvider providerTestDynamicRender
+     * @param string $templateFile Template name
+     * @param string $key          Template variable array key
+     * @param string $value        Template variable array value
      *
      * @return void
+     *
+     * @dataProvider providerTestDynamicRender
      */
     public function testDynamicRender($templateFile, $key, $value)
     {
@@ -140,9 +146,12 @@ class TemplateTest extends PmaTestCase
     /**
      * Test for render
      *
-     * @dataProvider providerTestRender
+     * @param string $templateFile   Template name
+     * @param string $expectedResult Expected result
      *
      * @return void
+     *
+     * @dataProvider providerTestRender
      */
     public function testRender($templateFile, $expectedResult)
     {
@@ -168,9 +177,13 @@ class TemplateTest extends PmaTestCase
     /**
      * Test for render
      *
-     * @dataProvider providerTestRenderGettext
+     * @param string $templateFile   Template name
+     * @param array  $renderParams   Render params
+     * @param string $expectedResult Expected result
      *
      * @return void
+     *
+     * @dataProvider providerTestRenderGettext
      */
     public function testRenderGettext($templateFile, $renderParams, $expectedResult)
     {

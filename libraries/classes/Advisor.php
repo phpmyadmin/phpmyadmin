@@ -31,7 +31,10 @@ class Advisor
     protected $expression;
 
     /**
-     * Constructor.
+     * Constructor
+     *
+     * @param DatabaseInterface  $dbi        DatabaseInterface object
+     * @param ExpressionLanguage $expression ExpressionLanguage object
      */
     public function __construct(DatabaseInterface $dbi, ExpressionLanguage $expression)
     {

@@ -2661,17 +2661,18 @@ class Util
      * controlling the slider; you have to generate the </div> yourself
      * after the sliding section.
      *
-     * @param string $id      the id of the <div> on which to apply the effect
-     * @param string $message the message to show as a link
+     * @param string      $id              the id of the <div> on which to apply the effect
+     * @param string      $message         the message to show as a link
+     * @param string|null $overrideDefault override InitialSlidersState config
      *
      * @return string         html div element
      *
      */
-    public static function getDivForSliderEffect($id = '', $message = '', $overridedefault = null)
+    public static function getDivForSliderEffect($id = '', $message = '', $overrideDefault = null)
     {
         return Template::get('div_for_slider_effect')->render([
             'id'                    => $id,
-            'initial_sliders_state' => ($overridedefault !=null) ? $overridedefault : $GLOBALS['cfg']['InitialSlidersState'],
+            'initial_sliders_state' => ($overrideDefault != null) ? $overrideDefault : $GLOBALS['cfg']['InitialSlidersState'],
             'message'               => $message,
         ]);
     }

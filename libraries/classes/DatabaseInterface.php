@@ -2933,6 +2933,8 @@ class DatabaseInterface
 
     /**
      * Load correct database driver
+     *
+     * @return void
      */
     public static function load()
     {

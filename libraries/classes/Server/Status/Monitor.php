@@ -14,6 +14,11 @@ use PhpMyAdmin\Server\Status\Data;
 use PhpMyAdmin\SysInfo;
 use PhpMyAdmin\Util;
 
+/**
+ * functions for displaying server status sub item: monitor
+ *
+ * @package PhpMyAdmin
+ */
 class Monitor
 {
     /**

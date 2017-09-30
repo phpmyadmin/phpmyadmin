@@ -1331,7 +1331,6 @@ class Results
 
         $table_headers_html .= '<thead><tr>' . "\n";
 
-
         // 1. Displays the fields' name
         // 1.0 If sorting links should be used, checks if the query is a "JOIN"
         //     statement (see 2.1.3)
@@ -1356,8 +1355,6 @@ class Results
             );
 
         $table_headers_html .= $button_html;
-
-
 
         // Display column at rightside - checkboxes or empty column
         if (! $printview) {
@@ -2864,8 +2861,6 @@ class Results
 
                 } // end if (2.1.3)
             } // end if (2)
-
-
 
             // 3. Displays the modify/delete links on the right if required
             if (($displayParts['edit_lnk'] != self::NO_EDIT_OR_DELETE)
