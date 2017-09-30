@@ -1062,7 +1062,7 @@ class UtilTest extends \PMATestCase
      * @covers PhpMyAdmin\Util::generateHiddenMaxFileSize
      * @dataProvider providerGenerateHiddenMaxFileSize
      */
-    function testGenerateHiddenMaxFileSize($size)
+    public function testGenerateHiddenMaxFileSize($size)
     {
         $this->assertEquals(
             Util::generateHiddenMaxFileSize($size),
@@ -1084,6 +1084,98 @@ class UtilTest extends \PMATestCase
             array("1024Mb"),
             array(2147483648),
             array("some_string")
+        );
+    }
+
+    /**
+     * Test for getDbLink
+     *
+     * @return void
+     *
+     * @covers PhpMyAdmin\Util::getDbLink
+     * @group medium
+     */
+    public function testGetDbLinkEmpty()
+    {
+        $GLOBALS['db'] = null;
+        $this->assertEmpty(Util::getDbLink());
+    }
+
+    /**
+     * Test for getDbLink
+     *
+     * @return void
+     *
+     * @covers PhpMyAdmin\Util::getDbLink
+     * @group medium
+     */
+    public function testGetDbLinkNull()
+    {
+        global $cfg;
+        $GLOBALS['db'] = 'test_db';
+        $GLOBALS['server'] = 99;
+        $database = $GLOBALS['db'];
+        $this->assertEquals(
+            '<a href="'
+            . Util::getScriptNameForOption(
+                $GLOBALS['cfg']['DefaultTabDatabase'], 'database'
+            )
+            . '?db=' . $database
+            . '&amp;server=99&amp;lang=en" '
+            . 'title="Jump to database “'
+            . htmlspecialchars($database) . '”.">'
+            . htmlspecialchars($database) . '</a>',
+            Util::getDbLink()
+        );
+    }
+
+    /**
+     * Test for getDbLink
+     *
+     * @return void
+     *
+     * @covers PhpMyAdmin\Util::getDbLink
+     */
+    public function testGetDbLink()
+    {
+        global $cfg;
+        $GLOBALS['server'] = 99;
+        $database = 'test_database';
+        $this->assertEquals(
+            '<a href="' . Util::getScriptNameForOption(
+                $GLOBALS['cfg']['DefaultTabDatabase'], 'database'
+            )
+            . '?db=' . $database
+            . '&amp;server=99&amp;lang=en" title="Jump to database “'
+            . htmlspecialchars($database) . '”.">'
+            . htmlspecialchars($database) . '</a>',
+            Util::getDbLink($database)
+        );
+    }
+
+    /**
+     * Test for getDbLink
+     *
+     * @return void
+     *
+     * @covers PhpMyAdmin\Util::getDbLink
+     */
+    public function testGetDbLinkWithSpecialChars()
+    {
+        global $cfg;
+        $GLOBALS['server'] = 99;
+        $database = 'test&data\'base';
+        $this->assertEquals(
+            '<a href="'
+            . Util::getScriptNameForOption(
+                $GLOBALS['cfg']['DefaultTabDatabase'], 'database'
+            )
+            . '?db='
+            . htmlspecialchars(urlencode($database))
+            . '&amp;server=99&amp;lang=en" title="Jump to database “'
+            . htmlspecialchars($database) . '”.">'
+            . htmlspecialchars($database) . '</a>',
+            Util::getDbLink($database)
         );
     }
 }
