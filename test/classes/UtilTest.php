@@ -2092,4 +2092,68 @@ class UtilTest extends \PMATestCase
             $expected, Util::showPHPDocu($target)
         );
     }
+
+    /**
+     * test of generating user dir, globals are defined
+     *
+     * @param string $a String
+     * @param string $e Expected output
+     *
+     * @return void
+     *
+     * @covers PhpMyAdmin\Util::userDir
+     * @dataProvider providerUserDir
+     */
+    public function testUserDir($a, $e)
+    {
+        $GLOBALS['cfg']['Server']['user'] = 'root';
+
+        $this->assertEquals($e, Util::userDir($a));
+    }
+
+    /**
+     * data provider for PhpMyAdmin\Util::userDir test
+     *
+     * @return array
+     */
+    public function providerUserDir()
+    {
+        return array(
+            array('/var/pma_tmp/%u/', "/var/pma_tmp/root/"),
+            array('/home/%u/pma', "/home/root/pma/")
+        );
+    }
+
+    /**
+     * duplicate first newline test
+     *
+     * @param string $a String
+     * @param string $e Expected output
+     *
+     * @return void
+     *
+     * @covers PhpMyAdmin\Util::duplicateFirstNewline
+     * @dataProvider providerDuplicateFirstNewline
+     */
+    public function testDuplicateFirstNewline($a, $e)
+    {
+        $this->assertEquals(
+            $e, Util::duplicateFirstNewline($a)
+        );
+    }
+
+    /**
+     * data provider for duplicate first newline test
+     *
+     * @return array
+     */
+    public function providerDuplicateFirstNewline()
+    {
+        return array(
+            array('test', 'test'),
+            array("\r\ntest", "\n\r\ntest"),
+            array("\ntest", "\ntest"),
+            array("\n\r\ntest", "\n\r\ntest")
+        );
+    }
 }
