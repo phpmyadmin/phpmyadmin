@@ -1051,4 +1051,39 @@ class UtilTest extends \PMATestCase
             array(0, 6, 0, '0')
         );
     }
+
+    /**
+     * Test for Util::generateHiddenMaxFileSize
+     *
+     * @param int $size Size
+     *
+     * @return void
+     *
+     * @covers PhpMyAdmin\Util::generateHiddenMaxFileSize
+     * @dataProvider providerGenerateHiddenMaxFileSize
+     */
+    function testGenerateHiddenMaxFileSize($size)
+    {
+        $this->assertEquals(
+            Util::generateHiddenMaxFileSize($size),
+            '<input type="hidden" name="MAX_FILE_SIZE" value="' . $size . '" />'
+        );
+    }
+
+    /**
+     * Data provider for testGenerateHiddenMaxFileSize
+     *
+     * @return array
+     */
+    public function providerGenerateHiddenMaxFileSize()
+    {
+        return array(
+            array(10),
+            array("100"),
+            array(1024),
+            array("1024Mb"),
+            array(2147483648),
+            array("some_string")
+        );
+    }
 }
