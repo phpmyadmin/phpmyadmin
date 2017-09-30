@@ -9,6 +9,8 @@ namespace PhpMyAdmin\Tests;
 
 use PhpMyAdmin\Config;
 use PhpMyAdmin\Core;
+use PhpMyAdmin\SqlParser\Context;
+use PhpMyAdmin\SqlParser\Token;
 use PhpMyAdmin\Util;
 
 /**
@@ -1877,5 +1879,175 @@ class UtilTest extends \PMATestCase
             ),
             array('5', 32, '00000000000000000000000000000101')
         );
+    }
+
+    /**
+     * PhpMyAdmin\Util::unQuote test
+     *
+     * @param string $param    String
+     * @param string $expected Expected output
+     *
+     * @return void
+     *
+     * @covers PhpMyAdmin\Util::unQuote
+     * @dataProvider providerUnQuote
+     */
+    public function testUnQuote($param, $expected)
+    {
+        $this->assertEquals(
+            $expected, Util::unQuote($param)
+        );
+    }
+
+    /**
+     * data provider for PhpMyAdmin\Util::unQuote test
+     *
+     * @return array
+     */
+    public function providerUnQuote()
+    {
+        return array(
+            array('"test\'"', "test'"),
+            array("'test''", "test'"),
+            array("`test'`", "test'"),
+            array("'test'test", "'test'test")
+        );
+    }
+
+    /**
+     * PhpMyAdmin\Util::unQuote test with chosen quote
+     *
+     * @param string $param    String
+     * @param string $expected Expected output
+     *
+     * @return void
+     *
+     * @covers PhpMyAdmin\Util::unQuote
+     * @dataProvider providerUnQuoteSelectedChar
+     */
+    public function testUnQuoteSelectedChar($param, $expected)
+    {
+        $this->assertEquals(
+            $expected, Util::unQuote($param, '"')
+        );
+    }
+
+    /**
+     * data provider for PhpMyAdmin\Util::unQuote test with chosen quote
+     *
+     * @return array
+     */
+    public function providerUnQuoteSelectedChar()
+    {
+        return array(
+            array('"test\'"', "test'"),
+            array("'test''", "'test''"),
+            array("`test'`", "`test'`"),
+            array("'test'test", "'test'test")
+        );
+    }
+
+    /**
+     * backquote test with different param $do_it (true, false)
+     *
+     * @param string $a String
+     * @param string $b Expected output
+     *
+     * @return void
+     *
+     * @covers PhpMyAdmin\Util::backquote
+     * @dataProvider providerBackquote
+     */
+    public function testBackquote($a, $b)
+    {
+        // Test bypass quoting (used by dump functions)
+        $this->assertEquals($a, Util::backquote($a, false));
+
+        // Test backquote
+        $this->assertEquals($b, Util::backquote($a));
+    }
+
+    /**
+     * data provider for backquote test
+     *
+     * @return array
+     */
+    public function providerBackquote()
+    {
+        return array(
+            array('0', '`0`'),
+            array('test', '`test`'),
+            array('te`st', '`te``st`'),
+            array(
+                array('test', 'te`st', '', '*'),
+                array('`test`', '`te``st`', '', '*')
+            )
+        );
+    }
+
+    /**
+     * backquoteCompat test with different param $compatibility (NONE, MSSQL)
+     *
+     * @param string $a String
+     * @param string $b Expected output
+     *
+     * @return void
+     *
+     * @covers PhpMyAdmin\Util::backquoteCompat
+     * @dataProvider providerBackquoteCompat
+     */
+    public function testBackquoteCompat($a, $b)
+    {
+        // Test bypass quoting (used by dump functions)
+        $this->assertEquals($a, Util::backquoteCompat($a, 'NONE', false));
+
+        // Run tests in MSSQL compatibility mode
+        // Test bypass quoting (used by dump functions)
+        $this->assertEquals($a, Util::backquoteCompat($a, 'MSSQL', false));
+
+        // Test backquote
+        $this->assertEquals($b, Util::backquoteCompat($a, 'MSSQL'));
+    }
+
+    /**
+     * data provider for backquoteCompat test
+     *
+     * @return array
+     */
+    public function providerBackquoteCompat()
+    {
+        return array(
+            array('0', '"0"'),
+            array('test', '"test"'),
+            array('te`st', '"te`st"'),
+            array(
+                array('test', 'te`st', '', '*'),
+                array('"test"', '"te`st"', '', '*')
+            )
+        );
+    }
+
+    /**
+     * backquoteCompat test with forbidden words
+     *
+     * @return void
+     *
+     * @covers PhpMyAdmin\Util::backquote
+     */
+    public function testBackquoteForbidenWords()
+    {
+        foreach (Context::$KEYWORDS as $keyword => $type) {
+            if ($type & Token::FLAG_KEYWORD_RESERVED) {
+                $this->assertEquals(
+                    "`" . $keyword . "`",
+                    Util::backquote($keyword, false)
+                );
+            } else {
+                $this->assertEquals(
+                    $keyword,
+                    Util::backquote($keyword, false)
+                );
+            }
+        }
     }
 }
