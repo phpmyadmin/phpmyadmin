@@ -1375,4 +1375,80 @@ class UtilTest extends \PMATestCase
             array(21474836480, __('GiB'), "20")
         );
     }
+
+    /**
+     * Test for Util::getIcon
+     *
+     * @return void
+     *
+     * @covers PhpMyAdmin\Util::getIcon
+     */
+    public function testGetIconWithoutActionLinksMode()
+    {
+        $GLOBALS['cfg']['ActionLinksMode'] = 'text';
+
+        $this->assertEquals(
+            '<span class="nowrap"></span>',
+            Util::getIcon('b_comment.png')
+        );
+    }
+
+    /**
+     * Test for Util::getIcon
+     *
+     * @return void
+     *
+     * @covers PhpMyAdmin\Util::getIcon
+     */
+    public function testGetIconWithActionLinksMode()
+    {
+        $GLOBALS['cfg']['ActionLinksMode'] = 'icons';
+
+        $this->assertEquals(
+            '<span class="nowrap"><img src="themes/dot.gif" title="" alt="" class="icon ic_b_comment" /></span>',
+            Util::getIcon('b_comment.png')
+        );
+    }
+
+    /**
+     * Test for Util::getIcon
+     *
+     * @return void
+     *
+     * @covers PhpMyAdmin\Util::getIcon
+     */
+    public function testGetIconAlternate()
+    {
+        $GLOBALS['cfg']['ActionLinksMode'] = 'icons';
+        $alternate_text = 'alt_str';
+
+        $this->assertEquals(
+            '<span class="nowrap"><img src="themes/dot.gif" title="'
+            . $alternate_text . '" alt="' . $alternate_text
+            . '" class="icon ic_b_comment" /></span>',
+            Util::getIcon('b_comment.png', $alternate_text)
+        );
+    }
+
+    /**
+     * Test for Util::getIcon
+     *
+     * @return void
+     *
+     * @covers PhpMyAdmin\Util::getIcon
+     */
+    public function testGetIconWithForceText()
+    {
+        $GLOBALS['cfg']['ActionLinksMode'] = 'icons';
+        $alternate_text = 'alt_str';
+
+        // Here we are checking for an icon embedded inside a span (i.e not a menu
+        // bar icon
+        $this->assertEquals(
+            '<span class="nowrap"><img src="themes/dot.gif" title="'
+            . $alternate_text . '" alt="' . $alternate_text
+            . '" class="icon ic_b_comment" />&nbsp;' . $alternate_text . '</span>',
+            Util::getIcon('b_comment.png', $alternate_text, true, false)
+        );
+    }
 }
