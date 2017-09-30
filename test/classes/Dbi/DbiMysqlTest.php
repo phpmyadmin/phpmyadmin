@@ -7,13 +7,14 @@
 namespace PhpMyAdmin\Tests\Dbi;
 
 use PhpMyAdmin\Dbi\DbiMysql;
+use PhpMyAdmin\Tests\PmaTestCase;
 
 /**
  * Tests for PhpMyAdmin\Dbi\DbiMysql class
  *
  * @package PhpMyAdmin-test
  */
-class DbiMysqlTest extends \PMATestCase
+class DbiMysqlTest extends PmaTestCase
 {
     /**
      * @access protected

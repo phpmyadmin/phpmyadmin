@@ -9,6 +9,7 @@ namespace PhpMyAdmin\Tests\Navigation\Nodes;
 
 use PhpMyAdmin\Navigation\NodeFactory;
 use PhpMyAdmin\Navigation\Nodes\NodeDatabaseChild;
+use PhpMyAdmin\Tests\PmaTestCase;
 use PhpMyAdmin\Theme;
 use PhpMyAdmin\Url;
 
@@ -17,7 +18,7 @@ use PhpMyAdmin\Url;
  *
  * @package PhpMyAdmin-test
  */
-class NodeDatabaseChildTest extends \PMATestCase
+class NodeDatabaseChildTest extends PmaTestCase
 {
     /**
      * @var NodeDatabaseChild

@@ -8,13 +8,14 @@
 namespace PhpMyAdmin\Tests;
 
 use PhpMyAdmin\File;
+use PhpMyAdmin\Tests\PmaTestCase;
 
 /**
  * tests for PhpMyAdmin\File class
  *
  * @package PhpMyAdmin-test
  */
-class FileTest extends \PMATestCase
+class FileTest extends PmaTestCase
 {
     /**
      * Setup function for test cases

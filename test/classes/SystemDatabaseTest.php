@@ -8,13 +8,14 @@
 namespace PhpMyAdmin\Tests;
 
 use PhpMyAdmin\SystemDatabase;
+use PhpMyAdmin\Tests\PmaTestCase;
 
 /**
  * Tests for libraries/SystemDatabase.php
  *
  * @package PhpMyAdmin-test
  */
-class SystemDatabaseTest extends \PMATestCase
+class SystemDatabaseTest extends PmaTestCase
 {
     /**
      * Setup function for test cases

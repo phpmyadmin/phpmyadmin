@@ -8,6 +8,7 @@
 namespace PhpMyAdmin\Tests\Navigation\Nodes;
 
 use PhpMyAdmin\Navigation\NodeFactory;
+use PhpMyAdmin\Tests\PmaTestCase;
 use PhpMyAdmin\Theme;
 
 /**
@@ -15,7 +16,7 @@ use PhpMyAdmin\Theme;
  *
  * @package PhpMyAdmin-test
  */
-class NodeViewContainerTest extends \PMATestCase
+class NodeViewContainerTest extends PmaTestCase
 {
     /**
      * SetUp for test cases

@@ -8,13 +8,14 @@
 namespace PhpMyAdmin\Tests;
 
 use PhpMyAdmin\Linter;
+use PhpMyAdmin\Tests\PmaTestCase;
 
 /**
  * Tests for PhpMyAdmin\Linter
  *
  * @package PhpMyAdmin-test
  */
-class LinterTest extends \PMATestCase
+class LinterTest extends PmaTestCase
 {
     /**
      * Test for Linter::getLines

@@ -10,13 +10,14 @@ namespace PhpMyAdmin\Tests\Setup;
 use PhpMyAdmin\Config;
 use PhpMyAdmin\Config\ConfigFile;
 use PhpMyAdmin\Setup\ConfigGenerator;
+use PhpMyAdmin\Tests\PmaTestCase;
 
 /**
  * Tests for PhpMyAdmin\Setup\ConfigGenerator
  *
  * @package PhpMyAdmin-test
  */
-class ConfigGeneratorTest extends \PMATestCase
+class ConfigGeneratorTest extends PmaTestCase
 {
     /**
      * Test for ConfigGenerator::getConfigFile

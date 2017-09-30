@@ -7,13 +7,14 @@
 namespace PhpMyAdmin\Tests\Engines;
 
 use PhpMyAdmin\Engines\Bdb;
+use PhpMyAdmin\Tests\PmaTestCase;
 
 /**
  * Tests for PhpMyAdmin\Engines\Bdb
  *
  * @package PhpMyAdmin-test
  */
-class BdbTest extends \PMATestCase
+class BdbTest extends PmaTestCase
 {
     /**
      * @access protected

@@ -9,6 +9,7 @@ namespace PhpMyAdmin\Tests;
 
 use PhpMyAdmin\Advisor;
 use PhpMyAdmin\Config;
+use PhpMyAdmin\Tests\PmaTestCase;
 use PhpMyAdmin\Theme;
 use Symfony\Component\ExpressionLanguage\ExpressionLanguage;
 
@@ -17,7 +18,7 @@ use Symfony\Component\ExpressionLanguage\ExpressionLanguage;
  *
  * @package PhpMyAdmin-test
  */
-class AdvisorTest extends \PMATestCase
+class AdvisorTest extends PmaTestCase
 {
     /**
      * Sets up the fixture, for example, opens a network connection.

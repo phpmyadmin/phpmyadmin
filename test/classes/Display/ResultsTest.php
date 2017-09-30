@@ -12,6 +12,7 @@ use PhpMyAdmin\Display\Results as DisplayResults;
 use PhpMyAdmin\Plugins\Transformations\Text_Plain_Link;
 use PhpMyAdmin\SqlParser\Parser;
 use PhpMyAdmin\SqlParser\Utils\Query;
+use PhpMyAdmin\Tests\PmaTestCase;
 use PhpMyAdmin\Transformations;
 use ReflectionClass;
 use stdClass;
@@ -21,7 +22,7 @@ use stdClass;
  *
  * @package PhpMyAdmin-test
  */
-class ResultsTest extends \PMATestCase
+class ResultsTest extends PmaTestCase
 {
     /**
      * @access protected

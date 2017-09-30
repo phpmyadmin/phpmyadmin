@@ -7,6 +7,7 @@
  */
 namespace PhpMyAdmin\Tests;
 
+use PhpMyAdmin\Tests\PmaTestCase;
 use PhpMyAdmin\Tracker;
 use PhpMyAdmin\Util;
 use PHPUnit_Framework_Assert as Assert;
@@ -17,7 +18,7 @@ use ReflectionClass;
  *
  * @package PhpMyAdmin-test
  */
-class TrackerTest extends \PMATestCase
+class TrackerTest extends PmaTestCase
 {
     /**
      * Setup function for test cases

@@ -9,6 +9,7 @@ namespace PhpMyAdmin\Tests\Controllers\Server;
 
 use PhpMyAdmin\Controllers\Server\ServerCollationsController;
 use PhpMyAdmin\Core;
+use PhpMyAdmin\Tests\PmaTestCase;
 use PhpMyAdmin\Theme;
 use ReflectionClass;
 
@@ -34,7 +35,7 @@ require_once 'libraries/server_common.inc.php';
  *
  * @package PhpMyAdmin-test
  */
-class ServerCollationsControllerTest extends \PMATestCase
+class ServerCollationsControllerTest extends PmaTestCase
 {
     /**
      * Prepares environment for the test.

@@ -8,6 +8,7 @@
 namespace PhpMyAdmin\Tests\Config;
 
 use PhpMyAdmin\Config\ConfigFile;
+use PhpMyAdmin\Tests\PmaTestCase;
 use stdClass;
 
 /**
@@ -15,7 +16,7 @@ use stdClass;
  *
  * @package PhpMyAdmin-test
  */
-class ConfigFileTest extends \PMATestCase
+class ConfigFileTest extends PmaTestCase
 {
     /**
      * Any valid key that exists in config.default.php and isn't empty

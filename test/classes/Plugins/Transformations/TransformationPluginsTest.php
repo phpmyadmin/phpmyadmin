@@ -24,19 +24,15 @@ use PhpMyAdmin\Plugins\Transformations\Text_Plain_Link;
 use PhpMyAdmin\Plugins\Transformations\Text_Plain_Longtoipv4;
 use PhpMyAdmin\Plugins\Transformations\Text_Plain_PreApPend;
 use PhpMyAdmin\Plugins\Transformations\Text_Plain_Substring;
+use PhpMyAdmin\Tests\PmaTestCase;
 use ReflectionMethod;
-
-/*
- * Include to test.
- */
-require_once 'libraries/config.default.php';
 
 /**
  * Tests for different input/output transformation plugins
  *
  * @package PhpMyAdmin-test
  */
-class TransformationPluginsTest extends \PMATestCase
+class TransformationPluginsTest extends PmaTestCase
 {
     /**
      * Sets up the fixture, for example, opens a network connection.

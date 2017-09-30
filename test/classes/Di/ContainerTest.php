@@ -8,13 +8,14 @@
 namespace PhpMyAdmin\Tests\Di;
 
 use PhpMyAdmin\Di\Container;
+use PhpMyAdmin\Tests\PmaTestCase;
 
 /**
  * Tests for PhpMyAdmin\Di\Container class
  *
  * @package PhpMyAdmin-test
  */
-class ContainerTest extends \PMATestCase
+class ContainerTest extends PmaTestCase
 {
     /**
      * @access protected

@@ -9,15 +9,14 @@ namespace PhpMyAdmin\Tests\Plugins\Auth;
 
 use PhpMyAdmin\Config;
 use PhpMyAdmin\Plugins\Auth\AuthenticationHttp;
-
-require_once 'libraries/config.default.php';
+use PhpMyAdmin\Tests\PmaTestCase;
 
 /**
  * tests for PhpMyAdmin\Plugins\Auth\AuthenticationHttp class
  *
  * @package PhpMyAdmin-test
  */
-class AuthenticationHttpTest extends \PMATestCase
+class AuthenticationHttpTest extends PmaTestCase
 {
     /**
      * @var AuthenticationHttp

@@ -9,13 +9,14 @@ namespace PhpMyAdmin\Tests;
 
 use PhpMyAdmin\Config;
 use PhpMyAdmin\Pdf;
+use PhpMyAdmin\Tests\PmaTestCase;
 
 /**
  * tests for Pdf class
  *
  * @package PhpMyAdmin-test
  */
-class PdfTest extends \PMATestCase
+class PdfTest extends PmaTestCase
 {
     /**
      * SetUp for test cases

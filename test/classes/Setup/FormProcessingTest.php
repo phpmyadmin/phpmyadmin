@@ -8,13 +8,14 @@
 namespace PhpMyAdmin\Tests\Setup;
 
 use PhpMyAdmin\Setup\FormProcessing;
+use PhpMyAdmin\Tests\PmaTestCase;
 
 /**
  * tests for methods under Formset processing library
  *
  * @package PhpMyAdmin-test
  */
-class FormProcessingTest extends \PMATestCase
+class FormProcessingTest extends PmaTestCase
 {
     /**
      * Prepares environment for the test.

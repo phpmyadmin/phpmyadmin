@@ -9,6 +9,7 @@ namespace PhpMyAdmin\Tests\Controllers\Server;
 
 use PhpMyAdmin\Core;
 use PhpMyAdmin\Di\Container;
+use PhpMyAdmin\Tests\PmaTestCase;
 use PhpMyAdmin\Tests\Stubs\Response as ResponseStub;
 use PhpMyAdmin\Theme;
 use PhpMyAdmin\Url;
@@ -20,7 +21,7 @@ use ReflectionClass;
  *
  * @package PhpMyAdmin-test
  */
-class ServerVariablesControllerTest extends \PMATestCase
+class ServerVariablesControllerTest extends PmaTestCase
 {
     /**
      * @var \PhpMyAdmin\Tests\Stubs\Response

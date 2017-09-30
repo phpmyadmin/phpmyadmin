@@ -10,10 +10,9 @@ namespace PhpMyAdmin\Tests\Plugins\Export;
 use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Plugins\Export\ExportXml;
 use PhpMyAdmin\Table;
+use PhpMyAdmin\Tests\PmaTestCase;
 use ReflectionMethod;
 use ReflectionProperty;
-
-require_once 'libraries/config.default.php';
 
 /**
  * tests for PhpMyAdmin\Plugins\Export\ExportXml class
@@ -21,7 +20,7 @@ require_once 'libraries/config.default.php';
  * @package PhpMyAdmin-test
  * @group medium
  */
-class ExportXmlTest extends \PMATestCase
+class ExportXmlTest extends PmaTestCase
 {
     protected $object;
 

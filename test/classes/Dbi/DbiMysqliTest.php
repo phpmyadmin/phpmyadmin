@@ -7,6 +7,7 @@
 namespace PhpMyAdmin\Tests\Dbi;
 
 use PhpMyAdmin\Dbi\DbiMysqli;
+use PhpMyAdmin\Tests\PmaTestCase;
 use PhpMyAdmin\Theme;
 
 /**
@@ -14,7 +15,7 @@ use PhpMyAdmin\Theme;
  *
  * @package PhpMyAdmin-test
  */
-class DbiMysqliTest extends \PMATestCase
+class DbiMysqliTest extends PmaTestCase
 {
     /**
      * @access protected

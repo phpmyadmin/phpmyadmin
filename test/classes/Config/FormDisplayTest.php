@@ -10,6 +10,7 @@ namespace PhpMyAdmin\Tests\Config;
 use PhpMyAdmin\Config;
 use PhpMyAdmin\Config\ConfigFile;
 use PhpMyAdmin\Config\FormDisplay;
+use PhpMyAdmin\Tests\PmaTestCase;
 use ReflectionClass;
 use ReflectionMethod;
 use ReflectionProperty;
@@ -19,7 +20,7 @@ use ReflectionProperty;
  *
  * @package PhpMyAdmin-test
  */
-class FormDisplayTest extends \PMATestCase
+class FormDisplayTest extends PmaTestCase
 {
     /**
      * @var FormDisplay

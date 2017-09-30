@@ -8,11 +8,10 @@
 namespace PhpMyAdmin\Tests\Plugins\Export;
 
 use PhpMyAdmin\Plugins\Export\ExportCodegen;
+use PhpMyAdmin\Tests\PmaTestCase;
 use ReflectionClass;
 use ReflectionMethod;
 use ReflectionProperty;
-
-require_once 'libraries/config.default.php';
 
 /**
  * tests for PhpMyAdmin\Plugins\Export\ExportCodegen class
@@ -20,7 +19,7 @@ require_once 'libraries/config.default.php';
  * @package PhpMyAdmin-test
  * @group medium
  */
-class ExportCodegenTest extends \PMATestCase
+class ExportCodegenTest extends PmaTestCase
 {
     protected $object;
 

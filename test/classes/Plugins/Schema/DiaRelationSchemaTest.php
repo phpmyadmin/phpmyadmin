@@ -8,13 +8,14 @@ namespace PhpMyAdmin\Tests\Plugins\Schema;
 
 use PhpMyAdmin\Plugins\Schema\Dia\DiaRelationSchema;
 use PhpMyAdmin\Relation;
+use PhpMyAdmin\Tests\PmaTestCase;
 
 /**
  * Tests for PhpMyAdmin\Plugins\Schema\Dia\DiaRelationSchema class
  *
  * @package PhpMyAdmin-test
  */
-class DiaRelationSchemaTest extends \PMATestCase
+class DiaRelationSchemaTest extends PmaTestCase
 {
     /**
      * @access protected

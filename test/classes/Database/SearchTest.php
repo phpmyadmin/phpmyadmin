@@ -7,6 +7,7 @@
 namespace PhpMyAdmin\Tests\Database;
 
 use PhpMyAdmin\Database\Search;
+use PhpMyAdmin\Tests\PmaTestCase;
 use PhpMyAdmin\Theme;
 use ReflectionClass;
 
@@ -15,7 +16,7 @@ use ReflectionClass;
  *
  * @package PhpMyAdmin-test
  */
-class SearchTest extends \PMATestCase
+class SearchTest extends PmaTestCase
 {
     /**
      * @access protected

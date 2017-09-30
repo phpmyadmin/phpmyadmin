@@ -9,6 +9,7 @@ namespace PhpMyAdmin\Tests\Navigation\Nodes;
 
 use PhpMyAdmin\Navigation\NodeFactory;
 use PhpMyAdmin\Navigation\Nodes\Node;
+use PhpMyAdmin\Tests\PmaTestCase;
 use PhpMyAdmin\Theme;
 use ReflectionMethod;
 
@@ -17,7 +18,7 @@ use ReflectionMethod;
  *
  * @package PhpMyAdmin-test
  */
-class NodeTest extends \PMATestCase
+class NodeTest extends PmaTestCase
 {
     /**
      * SetUp for test cases

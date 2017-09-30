@@ -10,6 +10,7 @@ namespace PhpMyAdmin\Tests\Controllers\Table;
 use PhpMyAdmin\Controllers\Table\TableSearchController;
 use PhpMyAdmin\Di\Container;
 use PhpMyAdmin\Relation;
+use PhpMyAdmin\Tests\PmaTestCase;
 use PhpMyAdmin\Tests\Stubs\Response as ResponseStub;
 use PhpMyAdmin\Theme;
 use PhpMyAdmin\TypesMySQL;
@@ -21,7 +22,7 @@ use stdClass;
  *
  * @package PhpMyAdmin-test
  */
-class TableSearchControllerTest extends \PMATestCase
+class TableSearchControllerTest extends PmaTestCase
 {
     /**
      * @var PhpMyAdmin\Tests\Stubs\Response

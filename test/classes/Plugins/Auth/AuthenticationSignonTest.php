@@ -9,15 +9,14 @@ namespace PhpMyAdmin\Tests\Plugins\Auth;
 
 use PhpMyAdmin\Config;
 use PhpMyAdmin\Plugins\Auth\AuthenticationSignon;
-
-require_once 'libraries/config.default.php';
+use PhpMyAdmin\Tests\PmaTestCase;
 
 /**
  * tests for PhpMyAdmin\Plugins\Auth\AuthenticationSignon class
  *
  * @package PhpMyAdmin-test
  */
-class AuthenticationSignonTest extends \PMATestCase
+class AuthenticationSignonTest extends PmaTestCase
 {
     protected $object;
 

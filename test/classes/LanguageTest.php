@@ -8,13 +8,14 @@
 namespace PhpMyAdmin\Tests;
 
 use PhpMyAdmin\LanguageManager;
+use PhpMyAdmin\Tests\PmaTestCase;
 
 /**
  * Tests behaviour of PMA_Advisor class
  *
  * @package PhpMyAdmin-test
  */
-class LanguageTest extends \PMATestCase
+class LanguageTest extends PmaTestCase
 {
     private $manager;
 

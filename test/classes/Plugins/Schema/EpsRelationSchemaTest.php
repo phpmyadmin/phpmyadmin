@@ -8,13 +8,14 @@ namespace PhpMyAdmin\Tests\Plugins\Schema;
 
 use PhpMyAdmin\Plugins\Schema\Eps\EpsRelationSchema;
 use PhpMyAdmin\Relation;
+use PhpMyAdmin\Tests\PmaTestCase;
 
 /**
  * Tests for EpsRelationSchema class
  *
  * @package PhpMyAdmin-test
  */
-class EpsRelationSchemaTest extends \PMATestCase
+class EpsRelationSchemaTest extends PmaTestCase
 {
     /**
      * @access protected

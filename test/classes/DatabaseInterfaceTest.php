@@ -9,6 +9,7 @@ namespace PhpMyAdmin\Tests;
 
 use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Dbi\DbiDummy;
+use PhpMyAdmin\Tests\PmaTestCase;
 use PhpMyAdmin\Util;
 
 /**
@@ -16,7 +17,7 @@ use PhpMyAdmin\Util;
  *
  * @package PhpMyAdmin-test
  */
-class DatabaseInterfaceTest extends \PMATestCase
+class DatabaseInterfaceTest extends PmaTestCase
 {
     private $_dbi;
 

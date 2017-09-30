@@ -8,6 +8,7 @@ namespace PhpMyAdmin\Tests\Plugins\Import;
 
 use PhpMyAdmin\File;
 use PhpMyAdmin\Plugins\Import\ImportOds;
+use PhpMyAdmin\Tests\PmaTestCase;
 
 /*
  * we must set $GLOBALS['server'] here
@@ -20,7 +21,7 @@ $GLOBALS['server'] = 0;
  *
  * @package PhpMyAdmin-test
  */
-class ImportOdsTest extends \PMATestCase
+class ImportOdsTest extends PmaTestCase
 {
     /**
      * @access protected

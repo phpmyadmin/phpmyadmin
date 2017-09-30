@@ -8,6 +8,7 @@
 namespace PhpMyAdmin\Tests;
 
 use PhpMyAdmin\Scripts;
+use PhpMyAdmin\Tests\PmaTestCase;
 use ReflectionClass;
 
 /**
@@ -15,7 +16,7 @@ use ReflectionClass;
  *
  * @package PhpMyAdmin-test
  */
-class ScriptsTest extends \PMATestCase
+class ScriptsTest extends PmaTestCase
 {
     /**
      * @access protected

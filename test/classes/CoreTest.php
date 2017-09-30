@@ -10,6 +10,7 @@ namespace PhpMyAdmin\Tests;
 use PhpMyAdmin\Config;
 use PhpMyAdmin\Core;
 use PhpMyAdmin\Sanitize;
+use PhpMyAdmin\Tests\PmaTestCase;
 use stdClass;
 
 /**
@@ -17,7 +18,7 @@ use stdClass;
  *
  * @package PhpMyAdmin-test
  */
-class CoreTest extends \PMATestCase
+class CoreTest extends PmaTestCase
 {
     protected $goto_whitelist = array(
         'db_datadict.php',

@@ -8,13 +8,14 @@
 namespace PhpMyAdmin\Tests\Di;
 
 use PhpMyAdmin\Di\ContainerException;
+use PhpMyAdmin\Tests\PmaTestCase;
 
 /**
  * Tests for PhpMyAdmin\Di\ContainerException class
  *
  * @package PhpMyAdmin-test
  */
-class ContainerExceptionTest extends \PMATestCase
+class ContainerExceptionTest extends PmaTestCase
 {
     /**
      * @access protected

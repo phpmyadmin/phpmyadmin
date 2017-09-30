@@ -8,6 +8,7 @@
 namespace PhpMyAdmin\Tests;
 
 use PhpMyAdmin\Config\ConfigFile;
+use PhpMyAdmin\Tests\PmaTestCase;
 use PhpMyAdmin\UserPreferences;
 
 /**
@@ -15,7 +16,7 @@ use PhpMyAdmin\UserPreferences;
  *
  * @package PhpMyAdmin-test
  */
-class UserPreferencesTest extends \PMATestCase
+class UserPreferencesTest extends PmaTestCase
 {
     /**
      * Setup various pre conditions

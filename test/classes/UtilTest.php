@@ -11,6 +11,7 @@ use PhpMyAdmin\Config;
 use PhpMyAdmin\Core;
 use PhpMyAdmin\SqlParser\Context;
 use PhpMyAdmin\SqlParser\Token;
+use PhpMyAdmin\Tests\PmaTestCase;
 use PhpMyAdmin\Util;
 
 /**
@@ -18,7 +19,7 @@ use PhpMyAdmin\Util;
  *
  * @package PhpMyAdmin-test
  */
-class UtilTest extends \PMATestCase
+class UtilTest extends PmaTestCase
 {
     /**
      * Test for createGISData

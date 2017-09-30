@@ -10,15 +10,14 @@ namespace PhpMyAdmin\Tests\Plugins\Auth;
 use PhpMyAdmin\Config;
 use PhpMyAdmin\ErrorHandler;
 use PhpMyAdmin\Plugins\Auth\AuthenticationConfig;
-
-require_once 'libraries/config.default.php';
+use PhpMyAdmin\Tests\PmaTestCase;
 
 /**
  * tests for PhpMyAdmin\Plugins\Auth\AuthenticationConfig class
  *
  * @package PhpMyAdmin-test
  */
-class AuthenticationConfigTest extends \PMATestCase
+class AuthenticationConfigTest extends PmaTestCase
 {
     protected $object;
 

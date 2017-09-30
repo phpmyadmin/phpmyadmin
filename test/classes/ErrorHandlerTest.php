@@ -7,6 +7,7 @@
 namespace PhpMyAdmin\Tests;
 
 use PhpMyAdmin\ErrorHandler;
+use PhpMyAdmin\Tests\PmaTestCase;
 use PhpMyAdmin\Theme;
 use ReflectionClass;
 
@@ -15,7 +16,7 @@ use ReflectionClass;
  *
  * @package PhpMyAdmin-test
  */
-class ErrorHandlerTest extends \PMATestCase
+class ErrorHandlerTest extends PmaTestCase
 {
     /**
      * @access protected

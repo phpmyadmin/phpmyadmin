@@ -9,6 +9,7 @@ namespace PhpMyAdmin\Tests\Controllers\Server;
 
 use PhpMyAdmin\Controllers\Server\ServerEnginesController;
 use PhpMyAdmin\StorageEngine;
+use PhpMyAdmin\Tests\PmaTestCase;
 use PhpMyAdmin\Theme;
 use PhpMyAdmin\Url;
 use PhpMyAdmin\Util;
@@ -19,7 +20,7 @@ use ReflectionClass;
  *
  * @package PhpMyAdmin-test
  */
-class ServerEnginesControllerTest extends \PMATestCase
+class ServerEnginesControllerTest extends PmaTestCase
 {
     /**
      * Prepares environment for the test.

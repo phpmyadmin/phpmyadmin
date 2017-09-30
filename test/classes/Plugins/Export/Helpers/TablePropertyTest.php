@@ -8,15 +8,14 @@
 namespace PhpMyAdmin\Tests\Plugins\Export\Helpers;
 
 use PhpMyAdmin\Plugins\Export\Helpers\TableProperty;
-
-require_once 'libraries/config.default.php';
+use PhpMyAdmin\Tests\PmaTestCase;
 
 /**
  * tests for PhpMyAdmin\Plugins\Export\Helpers\TableProperty class
  *
  * @package PhpMyAdmin-test
  */
-class TablePropertyTest extends \PMATestCase
+class TablePropertyTest extends PmaTestCase
 {
     protected $object;
 

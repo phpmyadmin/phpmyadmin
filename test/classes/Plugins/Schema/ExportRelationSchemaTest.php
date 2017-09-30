@@ -7,13 +7,14 @@
 namespace PhpMyAdmin\Tests\Plugins\Schema;
 
 use PhpMyAdmin\Plugins\Schema\ExportRelationSchema;
+use PhpMyAdmin\Tests\PmaTestCase;
 
 /**
  * Tests for PhpMyAdmin\Plugins\Schema\ExportRelationSchema class
  *
  * @package PhpMyAdmin-test
  */
-class ExportRelationSchemaTest extends \PMATestCase
+class ExportRelationSchemaTest extends PmaTestCase
 {
     /**
      * @access protected

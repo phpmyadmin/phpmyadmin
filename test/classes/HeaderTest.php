@@ -10,6 +10,7 @@ namespace PhpMyAdmin\Tests;
 use PhpMyAdmin\Config;
 use PhpMyAdmin\Core;
 use PhpMyAdmin\Header;
+use PhpMyAdmin\Tests\PmaTestCase;
 use PhpMyAdmin\Theme;
 use ReflectionMethod;
 
@@ -19,7 +20,7 @@ use ReflectionMethod;
  * @package PhpMyAdmin-test
  * @group medium
  */
-class HeaderTest extends \PMATestCase
+class HeaderTest extends PmaTestCase
 {
     /**
      * Configures global environment.

@@ -8,6 +8,7 @@
 namespace PhpMyAdmin\Tests;
 
 use PhpMyAdmin\Config;
+use PhpMyAdmin\Tests\PmaTestCase;
 use PhpMyAdmin\ThemeManager;
 
 /**
@@ -15,7 +16,7 @@ use PhpMyAdmin\ThemeManager;
  *
  * @package PhpMyAdmin-test
  */
-class ThemeManagerTest extends \PMATestCase
+class ThemeManagerTest extends PmaTestCase
 {
     /**
      * SetUp for test cases

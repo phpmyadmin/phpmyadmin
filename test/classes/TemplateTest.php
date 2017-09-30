@@ -8,13 +8,14 @@
 namespace PhpMyAdmin\Tests;
 
 use PhpMyAdmin\Template;
+use PhpMyAdmin\Tests\PmaTestCase;
 
 /**
  * Test for PhpMyAdmin\Template class
  *
  * @package PhpMyAdmin-test
  */
-class TemplateTest extends \PMATestCase
+class TemplateTest extends PmaTestCase
 {
     /**
      * Test for set function

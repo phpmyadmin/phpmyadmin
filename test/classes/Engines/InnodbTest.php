@@ -7,13 +7,14 @@
 namespace PhpMyAdmin\Tests\Engines;
 
 use PhpMyAdmin\Engines\Innodb;
+use PhpMyAdmin\Tests\PmaTestCase;
 
 /**
  * Tests for PhpMyAdmin\Engines\Innodb
  *
  * @package PhpMyAdmin-test
  */
-class InnodbTest extends \PMATestCase
+class InnodbTest extends PmaTestCase
 {
     /**
      * @access protected

@@ -6,6 +6,7 @@
  */
 namespace PhpMyAdmin\Tests;
 
+use PhpMyAdmin\Tests\PmaTestCase;
 use PhpMyAdmin\TypesMySQL;
 
 /**
@@ -13,7 +14,7 @@ use PhpMyAdmin\TypesMySQL;
  *
  * @package PhpMyAdmin-test
  */
-class TypesMySQLTest extends \PMATestCase
+class TypesMySQLTest extends PmaTestCase
 {
     /**
      * @var PhpMyAdmin\Types

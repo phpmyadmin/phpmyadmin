@@ -12,13 +12,14 @@ use PhpMyAdmin\Config\ConfigFile;
 use PhpMyAdmin\Config\Forms\User\UserFormList;
 use PhpMyAdmin\Config\Forms\Page\PageFormList;
 use PhpMyAdmin\Config\Forms\Setup\SetupFormList;
+use PhpMyAdmin\Tests\PmaTestCase;
 
 /**
  * Tests for PMA_FormDisplay class
  *
  * @package PhpMyAdmin-test
  */
-class FormListTest extends \PMATestCase
+class FormListTest extends PmaTestCase
 {
     public function setUp()
     {

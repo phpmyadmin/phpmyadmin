@@ -9,6 +9,7 @@
 namespace PhpMyAdmin\Tests;
 
 use PhpMyAdmin\Config;
+use PhpMyAdmin\Tests\PmaTestCase;
 use PhpMyAdmin\Theme;
 use PHPUnit_Framework_Assert as Assert;
 
@@ -17,7 +18,7 @@ use PHPUnit_Framework_Assert as Assert;
  *
  * @package PhpMyAdmin-test
  */
-class ConfigTest extends \PMATestCase
+class ConfigTest extends PmaTestCase
 {
     /**
      * Turn off backup globals

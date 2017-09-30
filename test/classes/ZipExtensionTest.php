@@ -6,6 +6,7 @@
  */
 namespace PhpMyAdmin\Tests;
 
+use PhpMyAdmin\Tests\PmaTestCase;
 use PhpMyAdmin\ZipExtension;
 use ZipArchive;
 
@@ -14,7 +15,7 @@ use ZipArchive;
  *
  * @package PhpMyAdmin-test
  */
-class ZipExtensionTest extends \PMATestCase
+class ZipExtensionTest extends PmaTestCase
 {
     /**
      * Test for ZipExtension::getContents

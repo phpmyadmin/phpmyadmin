@@ -8,6 +8,7 @@
 namespace PhpMyAdmin\Tests;
 
 use PhpMyAdmin\ListDatabase;
+use PhpMyAdmin\Tests\PmaTestCase;
 use ReflectionClass;
 
 $GLOBALS['server'] = 1;
@@ -18,7 +19,7 @@ $GLOBALS['cfg']['Server']['DisableIS'] = false;
  *
  * @package PhpMyAdmin-test
  */
-class ListDatabaseTest extends \PMATestCase
+class ListDatabaseTest extends PmaTestCase
 {
     /**
      * SetUp for test cases

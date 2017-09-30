@@ -9,13 +9,14 @@ namespace PhpMyAdmin\Tests\Config;
 
 use PhpMyAdmin\Config;
 use PhpMyAdmin\Config\Descriptions;
+use PhpMyAdmin\Tests\PmaTestCase;
 
 /**
  * Tests for PMA_FormDisplay class
  *
  * @package PhpMyAdmin-test
  */
-class DescriptionTest extends \PMATestCase
+class DescriptionTest extends PmaTestCase
 {
     /**
      * Setup tests

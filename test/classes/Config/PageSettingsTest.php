@@ -9,13 +9,14 @@ namespace PhpMyAdmin\Tests\Config;
 
 use PhpMyAdmin\Config;
 use PhpMyAdmin\Config\PageSettings;
+use PhpMyAdmin\Tests\PmaTestCase;
 
 /**
  * Tests for PhpMyAdmin\Config\PageSettings
  *
  * @package PhpMyAdmin-test
  */
-class PageSettingsTest extends \PMATestCase
+class PageSettingsTest extends PmaTestCase
 {
     /**
      * Setup tests

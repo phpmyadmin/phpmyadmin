@@ -8,13 +8,14 @@ namespace PhpMyAdmin\Tests\Plugins\Schema;
 
 use PhpMyAdmin\Plugins\Schema\Pdf\PdfRelationSchema;
 use PhpMyAdmin\Relation;
+use PhpMyAdmin\Tests\PmaTestCase;
 
 /**
  * Tests for PdfRelationSchema class
  *
  * @package PhpMyAdmin-test
  */
-class PdfRelationSchemaTest extends \PMATestCase
+class PdfRelationSchemaTest extends PmaTestCase
 {
     /**
      * @access protected

@@ -9,13 +9,14 @@ namespace PhpMyAdmin\Tests\Engines;
 
 use PhpMyAdmin\Core;
 use PhpMyAdmin\Engines\Pbxt;
+use PhpMyAdmin\Tests\PmaTestCase;
 
 /**
  * Tests for PhpMyAdmin\Engines\Pbxt;
  *
  * @package PhpMyAdmin-test
  */
-class PbxtTest extends \PMATestCase
+class PbxtTest extends PmaTestCase
 {
     /**
      * @access protected

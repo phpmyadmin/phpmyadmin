@@ -7,13 +7,14 @@
 namespace PhpMyAdmin\Tests\Engines;
 
 use PhpMyAdmin\Engines\Ndbcluster;
+use PhpMyAdmin\Tests\PmaTestCase;
 
 /**
  * Tests for PhpMyAdmin\Engines\Ndbcluster
  *
  * @package PhpMyAdmin-test
  */
-class NdbclusterTest extends \PMATestCase
+class NdbclusterTest extends PmaTestCase
 {
     /**
      * @access protected

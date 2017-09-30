@@ -8,6 +8,7 @@ namespace PhpMyAdmin\Tests\Plugins\Import;
 
 use PhpMyAdmin\File;
 use PhpMyAdmin\Plugins\Import\ImportCsv;
+use PhpMyAdmin\Tests\PmaTestCase;
 use PhpMyAdmin\Theme;
 
 /**
@@ -21,7 +22,7 @@ $GLOBALS['server'] = 0;
  *
  * @package PhpMyAdmin-test
  */
-class ImportCsvTest extends \PMATestCase
+class ImportCsvTest extends PmaTestCase
 {
     /**
      * @var ImportCsv

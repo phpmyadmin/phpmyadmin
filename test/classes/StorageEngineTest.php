@@ -7,18 +7,14 @@
 namespace PhpMyAdmin\Tests;
 
 use PhpMyAdmin\StorageEngine;
-
-/*
- * Include to test.
- */
-require_once 'libraries/config.default.php';
+use PhpMyAdmin\Tests\PmaTestCase;
 
 /**
  * Tests for StorageEngine.php
  *
  * @package PhpMyAdmin-test
  */
-class StorageEngineTest extends \PMATestCase
+class StorageEngineTest extends PmaTestCase
 {
     /**
      * @access protected

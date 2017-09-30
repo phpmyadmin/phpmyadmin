@@ -8,6 +8,7 @@
 namespace PhpMyAdmin\Tests\Navigation;
 
 use PhpMyAdmin\Navigation\Navigation;
+use PhpMyAdmin\Tests\PmaTestCase;
 use PhpMyAdmin\Theme;
 use PhpMyAdmin\Url;
 
@@ -16,7 +17,7 @@ use PhpMyAdmin\Url;
  *
  * @package PhpMyAdmin-test
  */
-class NavigationTest extends \PMATestCase
+class NavigationTest extends PmaTestCase
 {
     /**
      * @var PhpMyAdmin\Navigation\Navigation

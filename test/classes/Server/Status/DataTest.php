@@ -9,13 +9,14 @@ namespace PhpMyAdmin\Tests\Server\Status;
 
 use PhpMyAdmin\Core;
 use PhpMyAdmin\Server\Status\Data;
+use PhpMyAdmin\Tests\PmaTestCase;
 
 /**
  * Test for PhpMyAdmin\Server\Status\Data class
  *
  * @package PhpMyAdmin-test
  */
-class DataTest extends \PMATestCase
+class DataTest extends PmaTestCase
 {
     /**
      * @access protected

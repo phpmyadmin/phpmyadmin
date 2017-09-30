@@ -12,6 +12,7 @@ use PhpMyAdmin\Di\Container;
 use PhpMyAdmin\Index;
 use PhpMyAdmin\Message;
 use PhpMyAdmin\Response;
+use PhpMyAdmin\Tests\PmaTestCase;
 use PhpMyAdmin\Tests\Stubs\Response as ResponseStub;
 use PhpMyAdmin\Theme;
 use PhpMyAdmin\Url;
@@ -22,7 +23,7 @@ use PhpMyAdmin\Util;
  *
  * @package PhpMyAdmin-test
  */
-class TableIndexesControllerTest extends \PMATestCase
+class TableIndexesControllerTest extends PmaTestCase
 {
     /**
      * Setup function for test cases

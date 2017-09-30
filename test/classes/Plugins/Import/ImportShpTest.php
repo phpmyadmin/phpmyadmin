@@ -8,6 +8,7 @@ namespace PhpMyAdmin\Tests\Plugins\Import;
 
 use PhpMyAdmin\File;
 use PhpMyAdmin\Plugins\Import\ImportShp;
+use PhpMyAdmin\Tests\PmaTestCase;
 
 /*
  * we must set $GLOBALS['server'] here
@@ -20,7 +21,7 @@ $GLOBALS['server'] = 0;
  *
  * @package PhpMyAdmin-test
  */
-class ImportShpTest extends \PMATestCase
+class ImportShpTest extends PmaTestCase
 {
     /**
      * @var ImportShp

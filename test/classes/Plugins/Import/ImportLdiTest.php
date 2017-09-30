@@ -8,6 +8,7 @@ namespace PhpMyAdmin\Tests\Plugins\Import;
 
 use PhpMyAdmin\File;
 use PhpMyAdmin\Plugins\Import\ImportLdi;
+use PhpMyAdmin\Tests\PmaTestCase;
 
 /*
  * we must set $GLOBALS['server'] here
@@ -21,7 +22,7 @@ $GLOBALS['plugin_param'] = "table";
  *
  * @package PhpMyAdmin-test
  */
-class ImportLdiTest extends \PMATestCase
+class ImportLdiTest extends PmaTestCase
 {
     /**
      * @access protected

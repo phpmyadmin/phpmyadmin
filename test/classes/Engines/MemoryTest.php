@@ -7,13 +7,14 @@
 namespace PhpMyAdmin\Tests\Engines;
 
 use PhpMyAdmin\Engines\Memory;
+use PhpMyAdmin\Tests\PmaTestCase;
 
 /**
  * Tests for PhpMyAdmin\Engines\Memory
  *
  * @package PhpMyAdmin-test
  */
-class MemoryTest extends \PMATestCase
+class MemoryTest extends PmaTestCase
 {
     /**
      * @access protected

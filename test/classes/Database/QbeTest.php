@@ -7,6 +7,7 @@
 namespace PhpMyAdmin\Tests\Database;
 
 use PhpMyAdmin\Database\Qbe;
+use PhpMyAdmin\Tests\PmaTestCase;
 use ReflectionClass;
 
 /**
@@ -14,7 +15,7 @@ use ReflectionClass;
  *
  *  @package PhpMyAdmin-test
  */
-class QbeTest extends \PMATestCase
+class QbeTest extends PmaTestCase
 {
     /**
      * @access protected

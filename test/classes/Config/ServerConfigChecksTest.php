@@ -10,6 +10,7 @@ namespace PhpMyAdmin\Tests\Config;
 use PhpMyAdmin\Config;
 use PhpMyAdmin\Config\ConfigFile;
 use PhpMyAdmin\Config\ServerConfigChecks;
+use PhpMyAdmin\Tests\PmaTestCase;
 use ReflectionProperty;
 
 /**
@@ -17,7 +18,7 @@ use ReflectionProperty;
  *
  * @package PhpMyAdmin-test
  */
-class ServeConfigChecksTest extends \PMATestCase
+class ServeConfigChecksTest extends PmaTestCase
 {
     private $sessionID;
 

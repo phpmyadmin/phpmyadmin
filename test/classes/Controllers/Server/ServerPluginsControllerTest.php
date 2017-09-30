@@ -9,6 +9,7 @@ namespace PhpMyAdmin\Tests\Controllers\Server;
 
 use PhpMyAdmin\Controllers\Server\ServerPluginsController;
 use PhpMyAdmin\Di\Container;
+use PhpMyAdmin\Tests\PmaTestCase;
 use PhpMyAdmin\Theme;
 use ReflectionClass;
 
@@ -17,7 +18,7 @@ use ReflectionClass;
  *
  * @package PhpMyAdmin-test
  */
-class ServerPluginsControllerTest extends \PMATestCase
+class ServerPluginsControllerTest extends PmaTestCase
 {
     /**
      * Prepares environment for the test.

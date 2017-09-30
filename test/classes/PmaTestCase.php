@@ -5,8 +5,18 @@
  *
  * @package PhpMyAdmin-test
  */
+namespace PhpMyAdmin\Tests;
 
-class PMATestCase extends PHPUnit_Framework_TestCase
+use PhpMyAdmin\Response;
+use PHPUnit_Framework_TestCase as TestCase;
+use ReflectionProperty;
+
+/**
+ * Base class for phpMyAdmin tests
+ *
+ * @package PhpMyAdmin-test
+ */
+class PmaTestCase extends TestCase
 {
     protected $restoreInstance = null;
     protected $attrInstance = null;
@@ -29,7 +39,7 @@ class PMATestCase extends PHPUnit_Framework_TestCase
      */
     public function mockResponse()
     {
-        $this->restoreInstance = PhpMyAdmin\Response::getInstance();
+        $this->restoreInstance = Response::getInstance();
 
         $mockResponse = $this->getMockBuilder('PhpMyAdmin\Response')
             ->disableOriginalConstructor()

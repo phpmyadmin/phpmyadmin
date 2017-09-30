@@ -7,13 +7,14 @@
 namespace PhpMyAdmin\Tests\Engines;
 
 use PhpMyAdmin\Engines\MrgMyisam;
+use PhpMyAdmin\Tests\PmaTestCase;
 
 /**
  * Tests for PhpMyAdmin\Engines\MrgMyisam
  *
  * @package PhpMyAdmin-test
  */
-class MrgMyisamTest extends \PMATestCase
+class MrgMyisamTest extends PmaTestCase
 {
     /**
      * @access protected

@@ -12,6 +12,7 @@ namespace PhpMyAdmin\Tests\Controllers\Database;
 use PhpMyAdmin\Controllers\Database\DatabaseStructureController;
 use PhpMyAdmin\Di\Container;
 use PhpMyAdmin\Table;
+use PhpMyAdmin\Tests\PmaTestCase;
 use PhpMyAdmin\Tests\Stubs\Response as ResponseStub;
 use PhpMyAdmin\Theme;
 use ReflectionClass;
@@ -23,7 +24,7 @@ use ReflectionClass;
  *
  * @package PhpMyAdmin-test
  */
-class DatabaseStructureControllerTest extends \PMATestCase
+class DatabaseStructureControllerTest extends PmaTestCase
 {
     /**
      * @var \PhpMyAdmin\Tests\Stubs\Response

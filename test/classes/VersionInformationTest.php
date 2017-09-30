@@ -7,6 +7,7 @@
  */
 namespace PhpMyAdmin\Tests;
 
+use PhpMyAdmin\Tests\PmaTestCase;
 use PhpMyAdmin\VersionInformation;
 use stdClass;
 
@@ -15,7 +16,7 @@ use stdClass;
  *
  * @package PhpMyAdmin-test
  */
-class VersionInformationTest extends \PMATestCase
+class VersionInformationTest extends PmaTestCase
 {
     private $_releases;
 
