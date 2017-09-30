@@ -1730,4 +1730,42 @@ class UtilTest extends \PMATestCase
             $out
         );
     }
+
+    /**
+     * Test for Util::getTitleForTarget
+     *
+     * @param string $target Target
+     * @param array  $result Expected value
+     *
+     * @return void
+     *
+     * @covers PhpMyAdmin\Util::getTitleForTarget
+     * @dataProvider providerGetTitleForTarget
+     */
+    public function testGetTitleForTarget($target, $result)
+    {
+        $this->assertEquals(
+            $result, Util::getTitleForTarget($target)
+        );
+    }
+
+    /**
+     * Data provider for testGetTitleForTarget
+     *
+     * @return array
+     */
+    public function providerGetTitleForTarget()
+    {
+        return array(
+            array('tbl_structure.php', __('Structure')),
+            array('tbl_sql.php', __('SQL'),),
+            array('tbl_select.php', __('Search'),),
+            array('tbl_change.php', __('Insert')),
+            array('sql.php', __('Browse')),
+            array('db_structure.php', __('Structure')),
+            array('db_sql.php', __('SQL')),
+            array('db_search.php', __('Search')),
+            array('db_operations.php', __('Operations')),
+        );
+    }
 }
