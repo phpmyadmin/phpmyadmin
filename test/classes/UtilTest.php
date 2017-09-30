@@ -1178,4 +1178,70 @@ class UtilTest extends \PMATestCase
             Util::getDbLink($database)
         );
     }
+
+    /**
+     * Test for getDivForSliderEffect
+     *
+     * @return void
+     *
+     * @covers PhpMyAdmin\Util::getDivForSliderEffect
+     */
+    public function testGetDivForSliderEffectTest()
+    {
+        global $cfg;
+        $cfg['InitialSlidersState'] = 'undefined';
+
+        $id = "test_id";
+        $message = "test_message";
+
+        $this->assertXmlStringEqualsXmlString(
+            "<root>" . Util::getDivForSliderEffect($id, $message) . "</div></root>",
+            "<root><div id=\"$id\" class=\"pma_auto_slider\"\ntitle=\""
+            . htmlspecialchars($message) . "\" >\n</div></root>"
+        );
+    }
+
+    /**
+     * Test for getDivForSliderEffect
+     *
+     * @return void
+     *
+     * @covers PhpMyAdmin\Util::getDivForSliderEffect
+     */
+    public function testGetDivForSliderEffectTestClosed()
+    {
+        global $cfg;
+        $cfg['InitialSlidersState'] = 'closed';
+
+        $id = "test_id";
+        $message = "test_message";
+
+        $this->assertXmlStringEqualsXmlString(
+            "<root>" . Util::getDivForSliderEffect($id, $message) . "</div></root>",
+            "<root><div id=\"$id\" style=\"display: none; overflow:auto;\" class=\"pma_auto_slider\"\ntitle=\""
+            . htmlspecialchars($message) . "\" >\n</div></root>"
+        );
+
+    }
+
+    /**
+     * Test for getDivForSliderEffect
+     *
+     * @return void
+     *
+     * @covers PhpMyAdmin\Util::getDivForSliderEffect
+     */
+    public function testGetDivForSliderEffectTestDisabled()
+    {
+        global $cfg;
+        $cfg['InitialSlidersState'] = 'disabled';
+
+        $id = "test_id";
+        $message = "test_message";
+
+        $this->assertXmlStringEqualsXmlString(
+            "<root>" . Util::getDivForSliderEffect($id, $message) . "</div></root>",
+            "<root><div id=\"$id\">\n</div></root>"
+        );
+    }
 }
