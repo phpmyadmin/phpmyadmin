@@ -36,6 +36,7 @@ phpMyAdmin - ChangeLog
 - issue #13576 Add privileges export to per database listing
 - issue        Consolidate functions into class files
 - issue #13560 Add support for changing collation for all tables and columns in database
+- issue #12167 Fix action column position
 
 4.7.5 (not yet released)
 - issue #13615 Avoid problems with browsing unknown query types

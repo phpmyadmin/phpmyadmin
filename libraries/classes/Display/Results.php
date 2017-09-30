@@ -1530,7 +1530,6 @@ class Results
         $display_params = $this->__get('display_params');
 
         // 1. Displays the full/partial text button (part 1)...
-        // $button_html .= '<thead><tr>' . "\n";
 
         $colspan = (($displayParts['edit_lnk'] != self::NO_EDIT_OR_DELETE)
             && ($displayParts['del_lnk'] != self::NO_EDIT_OR_DELETE))
