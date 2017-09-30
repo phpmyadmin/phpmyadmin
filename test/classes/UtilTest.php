@@ -2156,4 +2156,19 @@ class UtilTest extends \PMATestCase
             array("\n\r\ntest", "\n\r\ntest")
         );
     }
+
+    /**
+     * Test for Util::unsupportedDatatypes
+     *
+     * @return void
+     *
+     * @covers PhpMyAdmin\Util::unsupportedDatatypes
+     */
+    function testUnsupportedDatatypes()
+    {
+        $no_support_types = array();
+        $this->assertEquals(
+            $no_support_types, Util::unsupportedDatatypes()
+        );
+    }
 }
