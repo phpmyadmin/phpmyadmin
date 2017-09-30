@@ -1842,4 +1842,40 @@ class UtilTest extends \PMATestCase
             array(821958, '9 days, 12 hours, 19 minutes and 18 seconds')
         );
     }
+
+    /**
+     * test for generating string contains printable bit value of selected data
+     *
+     * @param integer $a Value
+     * @param int     $b Length
+     * @param string  $e Expected output
+     *
+     * @return void
+     *
+     * @covers PhpMyAdmin\Util::printableBitValue
+     * @dataProvider providerPrintableBitValue
+     */
+    public function testPrintableBitValue($a, $b, $e)
+    {
+        $this->assertEquals(
+            $e, Util::printableBitValue($a, $b)
+        );
+    }
+
+    /**
+     * data provider for printable bit value test
+     *
+     * @return array
+     */
+    public function providerPrintableBitValue()
+    {
+        return array(
+            array(
+                '20131009',
+                64,
+                '0000000000000000000000000000000000000001001100110010110011000001'
+            ),
+            array('5', 32, '00000000000000000000000000000101')
+        );
+    }
 }
