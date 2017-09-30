@@ -1451,4 +1451,283 @@ class UtilTest extends \PMATestCase
             Util::getIcon('b_comment.png', $alternate_text, true, false)
         );
     }
+
+    /**
+     * Test for getRadioFields
+     *
+     * @return void
+     *
+     * @covers PhpMyAdmin\Util::getRadioFields
+     */
+    public function testGetRadioFieldsEmpty()
+    {
+        $name = "test_display_radio";
+        $choices = array();
+
+        $this->assertEquals(
+            Util::getRadioFields($name, $choices),
+            ""
+        );
+    }
+
+    /**
+     * Test for getRadioFields
+     *
+     * @return void
+     *
+     * @covers PhpMyAdmin\Util::getRadioFields
+     */
+    public function testGetRadioFields()
+    {
+        $name = "test_display_radio";
+        $choices = array('value_1'=>'choice_1', 'value_2'=>'choice_2');
+
+        $out = "";
+        foreach ($choices as $choice_value => $choice_label) {
+            $html_field_id = $name . '_' . $choice_value;
+            $out .= '<input type="radio" name="' . $name . '" id="' . $html_field_id
+                . '" value="' . htmlspecialchars($choice_value) . '"';
+            $out .= ' />' . "\n";
+            $out .= '<label for="' . $html_field_id . '">' . $choice_label
+                . '</label>';
+            $out .= "\n";
+            $out .= '<br />';
+            $out .= "\n";
+        }
+
+        $this->assertEquals(
+            Util::getRadioFields($name, $choices),
+            $out
+        );
+    }
+
+    /**
+     * Test for getRadioFields
+     *
+     * @return void
+     *
+     * @covers PhpMyAdmin\Util::getRadioFields
+     */
+    public function testGetRadioFieldsWithChecked()
+    {
+        $name = "test_display_radio";
+        $choices = array('value_1'=>'choice_1', 'value_2'=>'choice_2');
+        $checked_choice = "value_2";
+
+        $out = "";
+        foreach ($choices as $choice_value => $choice_label) {
+            $html_field_id = $name . '_' . $choice_value;
+            $out .= '<input type="radio" name="' . $name . '" id="' . $html_field_id
+                . '" value="' . htmlspecialchars($choice_value) . '"';
+            if ($choice_value == $checked_choice) {
+                $out .= ' checked="checked"';
+            }
+            $out .= ' />' . "\n";
+            $out .= '<label for="' . $html_field_id . '">' . $choice_label
+                . '</label>';
+            $out .= "\n";
+            $out .= '<br />';
+            $out .= "\n";
+        }
+
+        $this->assertEquals(
+            Util::getRadioFields(
+                $name, $choices, $checked_choice
+            ),
+            $out
+        );
+    }
+
+    /**
+     * Test for getRadioFields
+     *
+     * @return void
+     *
+     * @covers PhpMyAdmin\Util::getRadioFields
+     */
+    public function testGetRadioFieldsWithCheckedWithClass()
+    {
+        $name = "test_display_radio";
+        $choices = array('value_1'=>'choice_1', 'value_2'=>'choice_2');
+        $checked_choice = "value_2";
+        $class = "test_class";
+
+        $out = "";
+        foreach ($choices as $choice_value => $choice_label) {
+            $html_field_id = $name . '_' . $choice_value;
+            $out .= '<div class="' . $class . '">';
+            $out .= "\n";
+            $out .= '<input type="radio" name="' . $name . '" id="' . $html_field_id
+                . '" value="' . htmlspecialchars($choice_value) . '"';
+            if ($choice_value == $checked_choice) {
+                $out .= ' checked="checked"';
+            }
+            $out .= ' />' . "\n";
+            $out .= '<label for="' . $html_field_id . '">' . $choice_label
+                . '</label>';
+            $out .= "\n";
+            $out .= '<br />';
+            $out .= "\n";
+            $out .= '</div>';
+            $out .= "\n";
+        }
+
+        $this->assertEquals(
+            Util::getRadioFields(
+                $name, $choices, $checked_choice, true, false, $class
+            ),
+            $out
+        );
+    }
+
+    /**
+     * Test for getRadioFields
+     *
+     * @return void
+     *
+     * @covers PhpMyAdmin\Util::getRadioFields
+     */
+    public function testGetRadioFieldsWithoutBR()
+    {
+        $name = "test_display_radio";
+        $choices = array('value_1'=>'choice_1', 'value&_&lt;2&gt;'=>'choice_2');
+        $checked_choice = "choice_2";
+
+        $out = "";
+        foreach ($choices as $choice_value => $choice_label) {
+            $html_field_id = $name . '_' . $choice_value;
+            $out .= '<input type="radio" name="' . $name . '" id="' . $html_field_id
+                . '" value="' . htmlspecialchars($choice_value) . '"';
+            if ($choice_value == $checked_choice) {
+                $out .= ' checked="checked"';
+            }
+            $out .= ' />' . "\n";
+            $out .= '<label for="' . $html_field_id . '">' . $choice_label
+                . '</label>';
+            $out .= "\n";
+        }
+
+        $this->assertEquals(
+            Util::getRadioFields(
+                $name, $choices, $checked_choice, false
+            ),
+            $out
+        );
+    }
+
+    /**
+     * Test for getRadioFields
+     *
+     * @return void
+     *
+     * @covers PhpMyAdmin\Util::getRadioFields
+     */
+    public function testGetRadioFieldsEscapeLabelEscapeLabel()
+    {
+        $name = "test_display_radio";
+        $choices = array('value_1'=>'choice_1', 'value_&2'=>'choice&_&lt;2&gt;');
+        $checked_choice = "value_2";
+
+        $out = "";
+        foreach ($choices as $choice_value => $choice_label) {
+            $html_field_id = $name . '_' . $choice_value;
+            $out .= '<input type="radio" name="' . $name . '" id="' . $html_field_id
+                . '" value="' . htmlspecialchars($choice_value) . '"';
+            if ($choice_value == $checked_choice) {
+                $out .= ' checked="checked"';
+            }
+            $out .= ' />' . "\n";
+            $out .= '<label for="' . $html_field_id . '">'
+                . htmlspecialchars($choice_label) . '</label>';
+            $out .= "\n";
+            $out .= '<br />';
+            $out .= "\n";
+        }
+
+        $this->assertEquals(
+            Util::getRadioFields(
+                $name, $choices, $checked_choice, true, true
+            ),
+            $out
+        );
+    }
+
+    /**
+     * Test for getRadioFields
+     *
+     * @return void
+     *
+     * @covers PhpMyAdmin\Util::getRadioFields
+     */
+    public function testGetRadioFieldsEscapeLabelNotEscapeLabel()
+    {
+        $name = "test_display_radio";
+        $choices = array('value_1'=>'choice_1', 'value_&2'=>'choice&_&lt;2&gt;');
+        $checked_choice = "value_2";
+
+        $out = "";
+        foreach ($choices as $choice_value => $choice_label) {
+            $html_field_id = $name . '_' . $choice_value;
+            $out .= '<input type="radio" name="' . $name . '" id="' . $html_field_id
+                . '" value="' . htmlspecialchars($choice_value) . '"';
+            if ($choice_value == $checked_choice) {
+                $out .= ' checked="checked"';
+            }
+            $out .= ' />' . "\n";
+            $out .= '<label for="' . $html_field_id . '">' . $choice_label
+                . '</label>';
+            $out .= "\n";
+            $out .= '<br />';
+            $out .= "\n";
+        }
+
+        $this->assertEquals(
+            Util::getRadioFields(
+                $name, $choices, $checked_choice, true, false
+            ),
+            $out
+        );
+    }
+
+    /**
+     * Test for getRadioFields
+     *
+     * @return void
+     *
+     * @covers PhpMyAdmin\Util::getRadioFields
+     */
+    public function testGetRadioFieldsEscapeLabelEscapeLabelWithClass()
+    {
+        $name = "test_display_radio";
+        $choices = array('value_1'=>'choice_1', 'value_&2'=>'choice&_&lt;2&gt;');
+        $checked_choice = "value_2";
+        $class = "test_class";
+
+        $out = "";
+        foreach ($choices as $choice_value => $choice_label) {
+            $html_field_id = $name . '_' . $choice_value;
+            $out .= '<div class="' . $class . '">';
+            $out .= "\n";
+            $out .= '<input type="radio" name="' . $name . '" id="' . $html_field_id
+                . '" value="' . htmlspecialchars($choice_value) . '"';
+            if ($choice_value == $checked_choice) {
+                $out .= ' checked="checked"';
+            }
+            $out .= ' />' . "\n";
+            $out .= '<label for="' . $html_field_id . '">'
+                . htmlspecialchars($choice_label) . '</label>';
+            $out .= "\n";
+            $out .= '<br />';
+            $out .= "\n";
+            $out .= '</div>';
+            $out .= "\n";
+        }
+
+        $this->assertEquals(
+            Util::getRadioFields(
+                $name, $choices, $checked_choice, true, true, $class
+            ),
+            $out
+        );
+    }
 }
