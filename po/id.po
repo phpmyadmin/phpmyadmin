@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.7.4-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2017-08-10 09:13-0400\n"
-"PO-Revision-Date: 2017-09-30 16:46+0000\n"
+"PO-Revision-Date: 2017-10-02 07:47+0000\n"
 "Last-Translator: Prajna Prasetya <prajnapras19@gmail.com>\n"
 "Language-Team: Indonesian "
 "<https://hosted.weblate.org/projects/phpmyadmin/4-7/id/>\n"
@@ -26,8 +26,8 @@ msgid ""
 "The %s file is not available on this system, please visit %s for more "
 "information."
 msgstr ""
-"Berkas %s tidak tersedia di sistem ini, tolong kunjungi %s untuk informasi "
-"selanjutnya."
+"Berkas %s tidak tersedia di sistem ini, kunjungi %s untuk informasi lebih "
+"lanjut."
 
 #: db_central_columns.php:108
 msgid "The central list of columns for the current database is empty."
@@ -9766,9 +9766,8 @@ msgstr ""
 "ke dalam bentuk normal ketiga kita perlu membuat tabel berikut:"
 
 #: libraries/normalization.lib.php:578
-#, fuzzy
 msgid "The third step of normalization is complete."
-msgstr "Langkah ketiga normalisasi selesai."
+msgstr "Langkah ketiga dari normalisasi selesai."
 
 #: libraries/normalization.lib.php:674
 #, fuzzy, php-format
@@ -9780,7 +9779,6 @@ msgid "Step 3."
 msgstr "Tahap 3."
 
 #: libraries/normalization.lib.php:721
-#, fuzzy
 msgid "Find transitive dependencies"
 msgstr "Cari dependensi transitif"
 
@@ -9798,13 +9796,12 @@ msgstr ""
 "ketergantungan transitif, dalam hal ini Anda tidak perlu memilih."
 
 #: libraries/normalization.lib.php:775
-#, fuzzy
 msgid ""
 "No Transitive dependencies possible as the table doesn't have any non "
 "primary key columns"
 msgstr ""
-"Tidak ada transitif dependensi mungkin karena meja tidak memiliki kolom "
-"kunci non primary"
+"Tidak ada dependensi transitif yang mungkin karena tabel tidak memiliki "
+"kolom yang bukan merupakan kunci primer"
 
 #: libraries/normalization.lib.php:779
 #, fuzzy
@@ -9831,13 +9828,12 @@ msgid "Third step of normalization (1NF+2NF+3NF)"
 msgstr "Normalisasi tahap ketiga (1NF+2NF+3NF)"
 
 #: libraries/normalization.lib.php:817
-#, fuzzy
 msgid ""
 "Hint: Please follow the procedure carefully in order to obtain correct "
 "normalization"
 msgstr ""
-"Petunjuk: Silahkan ikuti prosedur dengan hati-hati untuk mendapatkan "
-"normalisasi yang benar"
+"Petunjuk: Silahkan ikuti prosedur dengan benar untuk mendapatkan normalisasi "
+"yang benar"
 
 #: libraries/normalization.lib.php:878
 #, fuzzy
@@ -14171,10 +14167,8 @@ msgid "Bind parameters"
 msgstr "Pembatasan yang buruk!"
 
 #: libraries/sql_query_form.lib.php:307
-#, fuzzy
-#| msgid "Bookmark this SQL query"
 msgid "Bookmark this SQL query:"
-msgstr "Markahi kueri SQL ini"
+msgstr "Markahi kueri SQL ini:"
 
 #: libraries/sql_query_form.lib.php:321
 msgid "Replace existing bookmark of same name"
@@ -14530,10 +14524,8 @@ msgstr ""
 "dengan menggunakan %sskrip pengaturan%s."
 
 #: prefs_manage.php:332
-#, fuzzy
-#| msgid "Save as file"
 msgid "Save as PHP file"
-msgstr "Simpan sebagai berkas"
+msgstr "Simpan sebagai berkas PHP"
 
 #: prefs_manage.php:337
 msgid "Save to browser's storage"
@@ -14571,9 +14563,8 @@ msgstr ""
 "password, tab 'Ganti password' harus digunakan."
 
 #: server_status.php:36
-#, fuzzy
 msgid "Not enough privilege to view server status."
-msgstr "Hak akses tidak cukup untuk melihat pengguna."
+msgstr "Hak akses tidak cukup untuk melihat status peladen."
 
 #: server_status_advisor.php:34
 #, fuzzy
@@ -14594,14 +14585,12 @@ msgstr ""
 "ditutup terlebih dahulu."
 
 #: server_status_queries.php:43
-#, fuzzy
 msgid "Not enough privilege to view query statistics."
-msgstr "Hak akses tidak cukup untuk melihat pengguna."
+msgstr "Hak akses tidak cukup untuk melihat statistik kueri."
 
 #: server_status_variables.php:53
-#, fuzzy
 msgid "Not enough privilege to view status variables."
-msgstr "Hak akses tidak cukup untuk melihat pengguna."
+msgstr "Hak akses tidak cukup untuk melihat status variabel."
 
 #: setup/frames/config.inc.php:38 setup/frames/index.inc.php:255
 msgid "Download"
@@ -14650,10 +14639,8 @@ msgstr ""
 "config untuk menggunakannya."
 
 #: setup/frames/index.inc.php:100
-#, fuzzy
-#| msgid "Configuration saved."
 msgid "Configuration not saved!"
-msgstr "Konfigurasi disimpan."
+msgstr "Pengaturan tidak disimpan!"
 
 #: setup/frames/index.inc.php:103
 #, fuzzy
@@ -14884,10 +14871,8 @@ msgid "Storage Engine:"
 msgstr "Mesin Penyimpanan"
 
 #: templates/columns_definitions/column_definitions_form.phtml:102
-#, fuzzy
-#| msgid "Connections"
 msgid "Connection:"
-msgstr "Koneksi"
+msgstr "Koneksi:"
 
 #: templates/columns_definitions/column_definitions_form.phtml:146
 #, fuzzy
@@ -14920,10 +14905,8 @@ msgstr "Hapus kolom"
 
 #: templates/columns_definitions/column_virtuality.phtml:46
 #: templates/table/structure/display_partitions.phtml:28
-#, fuzzy
-#| msgid "Compression"
 msgid "Expression"
-msgstr "Kompresi"
+msgstr "Ekspresi"
 
 #: templates/columns_definitions/move_column.phtml:7
 msgid "first"
@@ -14968,14 +14951,10 @@ msgstr "dipartisi"
 
 #: templates/columns_definitions/partitions.phtml:71
 #: templates/table/structure/display_partitions.phtml:26
-#, fuzzy
-#| msgid "Partition %s"
 msgid "Partition"
-msgstr "Partisi %s"
+msgstr "Partisi"
 
 #: templates/columns_definitions/partitions.phtml:73
-#, fuzzy
-#| msgid "Value"
 msgid "Values"
 msgstr "Nilai"
 
@@ -14986,8 +14965,6 @@ msgid "Subpartition"
 msgstr "dipartisi"
 
 #: templates/columns_definitions/partitions.phtml:78
-#, fuzzy
-#| msgid "Engines"
 msgid "Engine"
 msgstr "Mesin"
 
