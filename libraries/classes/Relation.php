@@ -112,7 +112,7 @@ class Relation
         $messages['enabled']  = '<span style="color:green">' . __('Enabled') . '</span>';
         $messages['disabled'] = '<span style="color:red">'   . __('Disabled') . '</span>';
 
-        if (empty($cfgRelation['db'])) {
+        if (strlen($cfgRelation['db']) == 0) {
             $retval .= __('Configuration of pmadb…') . ' '
                  . $messages['error']
                  . Util::showDocu('setup', 'linked-tables')
@@ -121,7 +121,7 @@ class Relation
                  . ' <font color="green">' . __('Disabled')
                  . '</font>' . "\n";
             if ($GLOBALS['cfg']['ZeroConf']) {
-                if (empty($GLOBALS['db'])) {
+                if (strlen($GLOBALS['db']) == 0) {
                     $retval .= self::getHtmlFixPmaTables(true, true);
                 } else {
                     $retval .= self::getHtmlFixPmaTables(true);

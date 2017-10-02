@@ -123,8 +123,8 @@ class Header
         $this->_bodyId = '';
         $this->_title  = '';
         $this->_console = new Console();
-        $db = ! empty($GLOBALS['db']) ? $GLOBALS['db'] : '';
-        $table = ! empty($GLOBALS['table']) ? $GLOBALS['table'] : '';
+        $db = strlen($GLOBALS['db']) ? $GLOBALS['db'] : '';
+        $table = strlen($GLOBALS['table']) ? $GLOBALS['table'] : '';
         $this->_menu   = new Menu(
             $GLOBALS['server'],
             $db,
@@ -215,9 +215,9 @@ class Header
      */
     public function getJsParams()
     {
-        $db = ! empty($GLOBALS['db']) ? $GLOBALS['db'] : '';
-        $table = ! empty($GLOBALS['table']) ? $GLOBALS['table'] : '';
-        $pftext = ! empty($_SESSION['tmpval']['pftext'])
+        $db = strlen($GLOBALS['db']) ? $GLOBALS['db'] : '';
+        $table = strlen($GLOBALS['table']) ? $GLOBALS['table'] : '';
+        $pftext = strlen($_SESSION['tmpval']['pftext'])
             ? $_SESSION['tmpval']['pftext'] : '';
 
         // not sure when this happens, but it happens
@@ -472,7 +472,7 @@ class Header
                 $retval .= '<div id="page_content">';
                 $retval .= $this->getMessage();
             }
-            if ($this->_isEnabled && empty($_REQUEST['recent_table'])) {
+            if ($this->_isEnabled && isset($_REQUEST['recent_table']) && strlen($_REQUEST['recent_table'])) {
                 $retval .= $this->_addRecentTable(
                     $GLOBALS['db'],
                     $GLOBALS['table']
@@ -722,13 +722,13 @@ class Header
      */
     private function _getPageTitle()
     {
-        if (empty($this->_title)) {
+        if (strlen($this->_title) == 0) {
             if ($GLOBALS['server'] > 0) {
-                if (! empty($GLOBALS['table'])) {
+                if (strlen($GLOBALS['table'])) {
                     $temp_title = $GLOBALS['cfg']['TitleTable'];
-                } else if (! empty($GLOBALS['db'])) {
+                } else if (strlen($GLOBALS['db'])) {
                     $temp_title = $GLOBALS['cfg']['TitleDatabase'];
-                } elseif (! empty($GLOBALS['cfg']['Server']['host'])) {
+                } elseif (strlen($GLOBALS['cfg']['Server']['host'])) {
                     $temp_title = $GLOBALS['cfg']['TitleServer'];
                 } else {
                     $temp_title = $GLOBALS['cfg']['TitleDefault'];
@@ -752,7 +752,7 @@ class Header
     private function _getBodyStart()
     {
         $retval = "</head><body";
-        if (! empty($this->_bodyId)) {
+        if (strlen($this->_bodyId)) {
             $retval .= " id='" . $this->_bodyId . "'";
         }
         $retval .= ">";

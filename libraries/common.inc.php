@@ -881,7 +881,7 @@ if (! defined('PMA_MINIMUM_COMMON')
     && isset($GLOBALS['cfg']['ZeroConf'])
     && $GLOBALS['cfg']['ZeroConf'] == true
 ) {
-    if (! empty($GLOBALS['db'])) {
+    if (strlen($GLOBALS['db'])) {
         $cfgRelation = Relation::getRelationsParam();
         if (empty($cfgRelation['db'])) {
             Relation::fixPmaTables($GLOBALS['db'], false);

@@ -242,13 +242,13 @@ class AuthenticationCookie extends AuthenticationPlugin
                 .' data-callback="recaptchaCallback" value="' , __('Go') , '" type="submit" id="input_go" />';
         }
         $_form_params = array();
-        if (! empty($GLOBALS['target'])) {
+        if (strlen($GLOBALS['target'])) {
             $_form_params['target'] = $GLOBALS['target'];
         }
-        if (! empty($GLOBALS['db'])) {
+        if (strlen($GLOBALS['db'])) {
             $_form_params['db'] = $GLOBALS['db'];
         }
-        if (! empty($GLOBALS['table'])) {
+        if (strlen($GLOBALS['table'])) {
             $_form_params['table'] = $GLOBALS['table'];
         }
         // do not generate a "server" hidden field as we want the "server"

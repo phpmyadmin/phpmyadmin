@@ -166,7 +166,7 @@ class NavigationTree
     {
         $retval = 0;
 
-        if (empty($GLOBALS['db'])) {
+        if (strlen($GLOBALS['db']) == 0) {
             return $retval;
         }
 
@@ -1169,11 +1169,11 @@ class NavigationTree
 
             if (isset($node->links['text'])) {
                 $args = array();
-                foreach ($node->parents(true) as $parent) {
+                foreach ($node->parents(true) as $parent) {;
                     $args[] = urlencode($parent->real_name);
                 }
                 $link = vsprintf($node->links['text'], $args);
-                $title = empty($node->links['title']) ? '' : $node->links['title'];
+                $title = isset($node->links['title']) ? $node->links['title'] : '';
                 if ($node->type == Node::CONTAINER) {
                     $retval .= "&nbsp;<a class='hover_show_full' href='$link'>";
                     $retval .= htmlspecialchars($node->name);
@@ -1279,7 +1279,7 @@ class NavigationTree
             }
             $paths = $node->getPaths();
             if (isset($node->links['text'])) {
-                $title = empty($node->links['title']) ? '' : $node->links['title'];
+                $title = isset($node->links['title']) ? '' : $node->links['title'];
                 $retval .= '<option value="'
                     . htmlspecialchars($node->real_name) . '"'
                     . ' title="' . htmlspecialchars($title) . '"'
