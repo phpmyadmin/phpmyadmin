@@ -217,7 +217,7 @@ class Header
     {
         $db = strlen($GLOBALS['db']) ? $GLOBALS['db'] : '';
         $table = strlen($GLOBALS['table']) ? $GLOBALS['table'] : '';
-        $pftext = strlen($_SESSION['tmpval']['pftext'])
+        $pftext = isset($_SESSION['tmpval']['pftext'])
             ? $_SESSION['tmpval']['pftext'] : '';
 
         // not sure when this happens, but it happens
