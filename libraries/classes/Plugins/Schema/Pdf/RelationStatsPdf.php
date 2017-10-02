@@ -19,7 +19,7 @@ use PhpMyAdmin\Plugins\Schema\RelationStats;
  *
  * @name    Relation_Stats_Pdf
  * @package PhpMyAdmin
- * @see     PMA_Schema_PDF::SetDrawColor, PMA_Schema_PDF::setLineWidthScale,
+ * @see     PMA_Schema_PDF::SetDrawColor PMA_Schema_PDF::setLineWidthScale
  *          Pdf::lineScale
  */
 class RelationStatsPdf extends RelationStats
