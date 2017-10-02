@@ -1754,19 +1754,26 @@ class Config
      */
     public function getTempDir($name)
     {
+        static $temp_dir = array();
+
+        if (isset($temp_dir[$name]) && !defined('TESTSUITE')) {
+            return $temp_dir[$name];
+        }
+
         $path = $this->get('TempDir');
         if (empty($path)) {
-            return null;
+            $path = null;
+        } else {
+            $path .= '/' . $name;
+            if (! @is_dir($path)) {
+                @mkdir($path, 0770, true);
+            }
+            if (! @is_dir($path) || ! @is_writable($path)) {
+                $path = null;
+            }
         }
 
-        $path .= '/' . $name;
-        if (! @is_dir($path)) {
-            @mkdir($path, 0770, true);
-        }
-        if (! @is_dir($path) || ! @is_writable($path)) {
-            return null;
-        }
-
+        $temp_dir[$name] = $path;
         return $path;
     }
 
