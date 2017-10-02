@@ -57,28 +57,33 @@ class Template
      */
     protected function __construct($name, array $data = array(), array $helperFunctions = array())
     {
+        static $twig = null;
+
         $this->name = $name;
         $this->data = $data;
         $this->helperFunctions = $helperFunctions;
 
-        $loader = new Twig_Loader_Filesystem(static::BASE_PATH);
-        $cache_dir = $GLOBALS['PMA_Config']->getTempDir('twig');
-        /* Twig expects false when cache is not configured */
-        if (is_null($cache_dir)) {
-            $cache_dir = false;
+        if (is_null($twig)) {
+            $loader = new Twig_Loader_Filesystem(static::BASE_PATH);
+            $cache_dir = $GLOBALS['PMA_Config']->getTempDir('twig');
+            /* Twig expects false when cache is not configured */
+            if (is_null($cache_dir)) {
+                $cache_dir = false;
+            }
+            $twig = new Twig_Environment($loader, array(
+                'auto_reload' => true,
+                'cache' => $cache_dir,
+                'debug' => false,
+            ));
+            $twig->addExtension(new CharsetsExtension());
+            $twig->addExtension(new I18nExtension());
+            $twig->addExtension(new MessageExtension());
+            $twig->addExtension(new SanitizeExtension());
+            $twig->addExtension(new ServerPrivilegesExtension());
+            $twig->addExtension(new UrlExtension());
+            $twig->addExtension(new UtilExtension());
         }
-        $this->twig = new Twig_Environment($loader, array(
-            'auto_reload' => true,
-            'cache' => $cache_dir,
-            'debug' => false,
-        ));
-        $this->twig->addExtension(new CharsetsExtension());
-        $this->twig->addExtension(new I18nExtension());
-        $this->twig->addExtension(new MessageExtension());
-        $this->twig->addExtension(new SanitizeExtension());
-        $this->twig->addExtension(new ServerPrivilegesExtension());
-        $this->twig->addExtension(new UrlExtension());
-        $this->twig->addExtension(new UtilExtension());
+        $this->twig = $twig;
     }
 
     /**
