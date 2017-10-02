@@ -32,16 +32,6 @@ class Template
     protected $name = null;
 
     /**
-     * Data associated with the template
-     */
-    protected $data;
-
-    /**
-     * Helper functions for the template
-     */
-    protected $helperFunctions;
-
-    /**
      * Twig environment
      */
     protected $twig;
@@ -52,16 +42,12 @@ class Template
      * Template constructor
      *
      * @param string $name            Template name
-     * @param array  $data            Variables to be provided to the template
-     * @param array  $helperFunctions Helper functions to be used by template
      */
-    protected function __construct($name, array $data = array(), array $helperFunctions = array())
+    protected function __construct($name)
     {
         static $twig = null;
 
         $this->name = $name;
-        $this->data = $data;
-        $this->helperFunctions = $helperFunctions;
 
         if (is_null($twig)) {
             $loader = new Twig_Loader_Filesystem(static::BASE_PATH);
@@ -90,106 +76,26 @@ class Template
      * Template getter
      *
      * @param string $name            Template name
-     * @param array  $data            Variables to be provided to the template
-     * @param array  $helperFunctions Helper functions to be used by template
      *
      * @return Template
      */
-    public static function get($name, array $data = array(), array $helperFunctions = array())
+    public static function get($name)
     {
-        return new Template($name, $data, $helperFunctions);
-    }
-
-    /**
-     * Adds more entries to the data for this template
-     *
-     * @param array|string $data  containing data array or data key
-     * @param string       $value containing data value
-     *
-     * @return void
-     */
-    public function set($data, $value = null)
-    {
-        if(is_array($data) && ! $value) {
-            $this->data = array_merge(
-                $this->data,
-                $data
-            );
-        } else if (is_string($data)) {
-            $this->data[$data] = $value;
-        }
-    }
-
-    /**
-     * Adds a function for use by the template
-     *
-     * @param string   $funcName function name
-     * @param callable $funcDef  function definition
-     *
-     * @return void
-     */
-    public function setHelper($funcName, $funcDef)
-    {
-        if (! isset($this->helperFunctions[$funcName])) {
-            $this->helperFunctions[$funcName] = $funcDef;
-        } else {
-            throw new \LogicException(
-                'The function "' . $funcName . '" is already associated with the template.'
-            );
-        }
-    }
-
-    /**
-     * Removes a function
-     *
-     * @param string $funcName function name
-     *
-     * @return void
-     */
-    public function removeHelper($funcName)
-    {
-        if (isset($this->helperFunctions[$funcName])) {
-            unset($this->helperFunctions[$funcName]);
-        } else {
-            throw new \LogicException(
-                'The function "' . $funcName . '" is not associated with the template.'
-            );
-        }
-    }
-
-    /**
-     * Magic call to locally inaccessible but associated helper functions
-     *
-     * @param string $funcName  function name
-     * @param array  $arguments function arguments
-     *
-     * @return mixed
-     */
-    public function __call($funcName, array $arguments)
-    {
-        if (isset($this->helperFunctions[$funcName])) {
-            return call_user_func_array($this->helperFunctions[$funcName], $arguments);
-        } else {
-            throw new \LogicException(
-                'The function "' . $funcName . '" is not associated with the template.'
-            );
-        }
+        return new Template($name);
     }
 
     /**
      * Render template
      *
      * @param array $data            Variables to be provided to the template
-     * @param array $helperFunctions Helper functions to be used by template
      *
      * @return string
      */
-    public function render(array $data = array(), array $helperFunctions = array())
+    public function render(array $data = array())
     {
         $template = static::BASE_PATH . $this->name;
 
         if (file_exists($template . '.twig')) {
-            $this->set($data);
             try {
                 $template = $this->twig->load($this->name . '.twig');
             } catch (\RuntimeException $e) {
@@ -209,17 +115,12 @@ class Template
                     E_USER_WARNING
                 );
             }
-            return $template->render($this->data);
+            return $template->render($data);
         }
 
         $template = $template . '.phtml';
         try {
-            $this->set($data);
-            $this->helperFunctions = array_merge(
-                $this->helperFunctions,
-                $helperFunctions
-            );
-            extract($this->data);
+            extract($data);
             ob_start();
             if (@file_exists($template)) {
                 include $template;

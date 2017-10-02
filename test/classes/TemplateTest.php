@@ -29,13 +29,12 @@ class TemplateTest extends PmaTestCase
     public function testSet($data)
     {
         $template = Template::get($data);
-        $template->set('variable1', 'value1');
-        $template->set(
+        $result = $template->render(
             array(
-                'variable2' => 'value2'
+                'variable1' => 'value1',
+                'variable2' => 'value2',
             )
         );
-        $result = $template->render();
         $this->assertContains('value1', $result);
         $this->assertContains('value2', $result);
     }
@@ -51,53 +50,6 @@ class TemplateTest extends PmaTestCase
             ['test/add_data'],
             ['test/add_data_twig'],
         ];
-    }
-
-    /**
-     * Test for setHelper
-     *
-     * @return void
-     */
-    public function testSetHelper()
-    {
-        $template = Template::get('test/set_helper');
-        $template->setHelper('hello', function ($string) {
-            return 'hello ' . $string;
-        });
-        $template->set(['variable' => 'world']);
-        $this->assertEquals('hello world', $template->render());
-
-        $this->setExpectedException('LogicException');
-        $template->setHelper('hello', 'again');
-    }
-
-    /**
-     * Test for removeHelper
-     *
-     * @return void
-     */
-    public function testRemoveHelper()
-    {
-        $template = Template::get('test/set_helper');
-        $template->setHelper('hello', function ($string) {
-            return 'hello ' . $string;
-        });
-        $template->set(['variable' => 'world']);
-        $template->removeHelper('hello');
-        $this->setExpectedException('LogicException');
-        $template->render();
-    }
-
-    /**
-     * Test for removeHelper
-     *
-     * @return void
-     */
-    public function testRemoveHelperNotFound()
-    {
-        $template = Template::get('test/set_helper');
-        $this->setExpectedException('LogicException');
-        $template->removeHelper('not found');
     }
 
     /**
