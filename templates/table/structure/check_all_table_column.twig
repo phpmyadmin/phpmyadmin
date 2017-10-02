@@ -51,6 +51,13 @@
                 'b_index.png',
                 'index'
             ) }}
+            {{ Util_getButtonOrImage(
+                'submit_mult',
+                'mult_submit',
+                'Fulltext'|trans,
+                'b_ftext.png',
+                'ftext'
+            ) }}
 
             {% if tbl_storage_engine is not empty and (
                 tbl_storage_engine == 'MYISAM'
