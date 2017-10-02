@@ -242,7 +242,7 @@ class AuthenticationCookie extends AuthenticationPlugin
                 .' data-callback="recaptchaCallback" value="' , __('Go') , '" type="submit" id="input_go" />';
         }
         $_form_params = array();
-        if (strlen($GLOBALS['target'])) {
+        if (! empty($GLOBALS['target'])) {
             $_form_params['target'] = $GLOBALS['target'];
         }
         if (strlen($GLOBALS['db'])) {
