@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.7.4-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2017-08-10 09:13-0400\n"
-"PO-Revision-Date: 2017-10-02 07:47+0000\n"
-"Last-Translator: Prajna Prasetya <prajnapras19@gmail.com>\n"
+"PO-Revision-Date: 2017-10-03 12:10+0000\n"
+"Last-Translator: Ahnaf Hadi Fathulloh <ahnafhadi@gmail.com>\n"
 "Language-Team: Indonesian "
 "<https://hosted.weblate.org/projects/phpmyadmin/4-7/id/>\n"
 "Language: id\n"
@@ -104,7 +104,7 @@ msgstr "Kolom"
 #: templates/table/search/table_header.phtml:7
 #: templates/table/structure/table_structure_header.phtml:8
 msgid "Type"
-msgstr "Mengetik"
+msgstr "Tipe"
 
 #: db_datadict.php:117 libraries/Index.php:689
 #: libraries/central_columns.lib.php:707 libraries/central_columns.lib.php:1386
@@ -254,7 +254,7 @@ msgstr "Tidak ada tabel yang ditemukan di database."
 #: libraries/plugins/export/ExportXml.php:118
 #: templates/database/structure/show_create.phtml:18
 msgid "Tables"
-msgstr "Tabel-tabel"
+msgstr "Tabel"
 
 #: db_export.php:66 libraries/Menu.php:330 libraries/Menu.php:437
 #: libraries/Util.php:3182 libraries/Util.php:3192 libraries/Util.php:3198
@@ -333,7 +333,7 @@ msgstr "Akses ditolak!"
 
 #: db_tracking.php:53 db_tracking.php:78
 msgid "Tracking data deleted successfully."
-msgstr "Data pelacakan berhasil dihapus."
+msgstr "Melacak data berhasil dihapus."
 
 #: db_tracking.php:62
 #, php-format
@@ -345,7 +345,7 @@ msgstr ""
 
 #: db_tracking.php:93
 msgid "No tables selected."
-msgstr "Tabel belum dipilih."
+msgstr "Tidak ada tabel yang dipilih."
 
 #: db_tracking.php:150
 msgid "Database Log"
@@ -422,12 +422,12 @@ msgstr "Y"
 #: js/messages.php:518
 #, php-format
 msgid "Point %d"
-msgstr "Titik %d"
+msgstr "Poin %d"
 
 #: gis_data_editor.php:256 gis_data_editor.php:312 gis_data_editor.php:390
 #: js/messages.php:524
 msgid "Add a point"
-msgstr "Tambahkan titik"
+msgstr "Tambahkan poin"
 
 #: gis_data_editor.php:273
 #, php-format
