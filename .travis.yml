@@ -65,6 +65,8 @@ matrix:
       env: CI_MODE=release
     - php: "7.0"
       env: CI_MODE=docs
+    - php: "7.1"
+      env: CI_MODE=apidocs
     - os: osx
       language: generic
       env: CI_MODE=test
