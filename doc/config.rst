@@ -3107,13 +3107,21 @@ Various display setting
 .. config:option:: $cfg['MaxExactCount']
 
     :type: integer
-    :default: 500000
+    :default: 50000
 
     For InnoDB tables, determines for how large tables phpMyAdmin should
     get the exact row count using ``SELECT COUNT``. If the approximate row
     count as returned by ``SHOW TABLE STATUS`` is smaller than this value,
     ``SELECT COUNT`` will be used, otherwise the approximate count will be
     used.
+
+    .. versionchanged:: 4.8.0
+
+        The default value was lowered to 50000 for performance reasons.
+
+    .. versionchanged:: 4.2.6
+
+        The default value was changed to 500000.
 
     .. seealso:: :ref:`faq3_11`
 
