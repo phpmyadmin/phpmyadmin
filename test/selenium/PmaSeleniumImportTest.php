@@ -109,9 +109,16 @@ class PMA_SeleniumImportTest extends PMA_SeleniumBase
 
         $this->scrollToBottom();
         $this->byId("buttonGo")->click();
-        $this->waitForElement(
-            "byXPath",
-            "//div[@class='success' and contains(., 'Import has been successfully')]"
-        );
+        if (
+            $this->isElementPresent(
+                "byXPath",
+                "//a[@class='item' and contains(., 'Database:')]"
+            )
+        ) {
+            $this->waitForElement(
+                "byXPath",
+                "//div[@class='success' and contains(., 'Import has been successfully')]"
+            );
+        }
     }
 }
