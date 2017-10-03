@@ -66,6 +66,14 @@ class UtilExtension extends Twig_Extension
                 array('is_safe' => array('html'))
             ),
             new Twig_SimpleFunction(
+                'Util_getGISDatatypes',
+                'PhpMyAdmin\Util::getGISDatatypes'
+            ),
+            new Twig_SimpleFunction(
+                'Util_getGISFunctions',
+                'PhpMyAdmin\Util::getGISFunctions'
+            ),
+            new Twig_SimpleFunction(
                 'Util_getHtmlTab',
                 'PhpMyAdmin\Util::getHtmlTab',
                 array('is_safe' => array('html'))
