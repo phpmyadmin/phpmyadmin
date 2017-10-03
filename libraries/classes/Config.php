@@ -838,6 +838,8 @@ class Config
 
         $this->settings = array_replace_recursive($this->settings, $cfg);
 
+        $this->checkServers();
+
         // Handling of the collation must be done after merging of $cfg
         // (from config.inc.php) so that $cfg['DefaultConnectionCollation']
         // can have an effect.
@@ -1799,6 +1801,103 @@ class Config
         }
 
         return null;
+    }
+
+    /**
+     * Selects server based on request parameters.
+     *
+     * @return integer
+     */
+    public function selectServer() {
+        $server = 0;
+        $request = empty($_REQUEST['server']) ? 0 : $_REQUEST['server'];
+
+        /**
+         * Lookup server by name
+         * (see FAQ 4.8)
+         */
+        if (! is_numeric($request)) {
+            foreach ($this->settings['Servers'] as $i => $server) {
+                $verboseToLower = mb_strtolower($server['verbose']);
+                $serverToLower = mb_strtolower($request);
+                if ($server['host'] == $request
+                    || $server['verbose'] == $request
+                    || $verboseToLower == $serverToLower
+                    || md5($verboseToLower) === $serverToLower
+                ) {
+                    $request = $i;
+                    break;
+                }
+            }
+            if (is_string($request)) {
+                $request = 0;
+            }
+        }
+
+        /**
+         * If no server is selected, make sure that $this->settings['Server'] is empty (so
+         * that nothing will work), and skip server authentication.
+         * We do NOT exit here, but continue on without logging into any server.
+         * This way, the welcome page will still come up (with no server info) and
+         * present a choice of servers in the case that there are multiple servers
+         * and '$this->settings['ServerDefault'] = 0' is set.
+         */
+
+        if (is_numeric($request) && ! empty($request) && ! empty($this->settings['Servers'][$request])) {
+            $server = $request;
+            $this->settings['Server'] = $this->settings['Servers'][$server];
+        } else {
+            if (!empty($this->settings['Servers'][$this->settings['ServerDefault']])) {
+                $server = $this->settings['ServerDefault'];
+                $this->settings['Server'] = $this->settings['Servers'][$server];
+            } else {
+                $server = 0;
+                $this->settings['Server'] = array();
+            }
+        }
+
+        return $server;
+    }
+
+    /**
+     * Checks whether Servers configuration is valid and possibly apply fixups.
+     *
+     * @return void
+     */
+    public function checkServers() {
+        // Do we have some server?
+        if (! isset($this->settings['Servers']) || count($this->settings['Servers']) == 0) {
+            // No server => create one with defaults
+            $this->settings['Servers'] = array(1 => $this->default_server);
+        } else {
+            // We have server(s) => apply default configuration
+            $new_servers = array();
+
+            foreach ($this->settings['Servers'] as $server_index => $each_server) {
+
+                // Detect wrong configuration
+                if (!is_int($server_index) || $server_index < 1) {
+                    trigger_error(
+                        sprintf(__('Invalid server index: %s'), $server_index),
+                        E_USER_ERROR
+                    );
+                }
+
+                $each_server = array_merge($this->default_server, $each_server);
+
+                // Final solution to bug #582890
+                // If we are using a socket connection
+                // and there is nothing in the verbose server name
+                // or the host field, then generate a name for the server
+                // in the form of "Server 2", localized of course!
+                if (empty($each_server['host']) && empty($each_server['verbose'])) {
+                    $each_server['verbose'] = sprintf(__('Server %d'), $server_index);
+                }
+
+                $new_servers[$server_index] = $each_server;
+            }
+            $this->settings['Servers'] = $new_servers;
+        }
     }
 }
 
