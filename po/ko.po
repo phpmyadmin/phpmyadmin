@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.7.4-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2017-08-10 09:13-0400\n"
-"PO-Revision-Date: 2017-09-04 04:47+0000\n"
-"Last-Translator: Cyan K <arewecy@gmail.com>\n"
+"PO-Revision-Date: 2017-10-04 19:50+0000\n"
+"Last-Translator: urty5656 <urty5656@gmail.com>\n"
 "Language-Team: Korean "
 "<https://hosted.weblate.org/projects/phpmyadmin/4-7/ko/>\n"
 "Language: ko\n"
@@ -5005,17 +5005,10 @@ msgstr ""
 "와 호환되지 않고 일부 데이터가 손상될 수 있습니다!"
 
 #: libraries/common.inc.php:484
-#, fuzzy
-#| msgid ""
-#| "You have enabled mbstring.func_overload in your PHP configuration. This "
-#| "option is incompatible with phpMyAdmin and might cause some data to be "
-#| "corrupted!"
 msgid ""
 "You have disabled ini_get and/or ini_set in php.ini. This option is "
 "incompatible with phpMyAdmin!"
-msgstr ""
-"PHP 설정에서 mbstring.func_overload를 활성화해야합니다. 이 옵션은 phpMyAdmin"
-"와 호환되지 않고 일부 데이터가 손상될 수 있습니다!"
+msgstr "php.ini에서 ini_get 또는 ini_set이 비활성화 되었습니다. 이 설정은 phpMyAdmin과 호환되지 않습니다!"
 
 #: libraries/common.inc.php:517
 #, php-format
@@ -5856,8 +5849,6 @@ msgstr "MIME 형식"
 
 #: libraries/config/messages.inc.php:167 libraries/config/messages.inc.php:180
 #: libraries/config/messages.inc.php:221
-#, fuzzy
-#| msgid "Relations"
 msgid "Relationships"
 msgstr "관계"
 
@@ -6793,7 +6784,7 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:570
 msgid "Missing phpMyAdmin configuration storage tables"
-msgstr "phpMyAdmin 설정 공간 테이블이 없습니다"
+msgstr "phpMyAdmin 설정 테이블 없음"
 
 #: libraries/config/messages.inc.php:572
 msgid ""
@@ -7484,17 +7475,12 @@ msgid "Show last check timestamp"
 msgstr "최종 체크 시간 표시"
 
 #: libraries/config/messages.inc.php:843
-#, fuzzy
-#| msgid ""
-#| "Show or hide a column displaying the Creation timestamp for all tables."
 msgid "Show or hide a column displaying the charset for all tables."
-msgstr "전체 테이블의 생성 시간을 표시하는 컬럼을 보이기/숨기기."
+msgstr "전체 테이블의 문자 인코딩을 표시하는 컬럼을 보이기/숨기기."
 
 #: libraries/config/messages.inc.php:845
-#, fuzzy
-#| msgid "Table comments"
 msgid "Show table charset"
-msgstr "테이블 설명"
+msgstr "테이블 인코딩 보이기"
 
 #: libraries/config/messages.inc.php:847
 msgid ""
@@ -7523,16 +7509,10 @@ msgid "Show hint"
 msgstr "힌트 보여주기"
 
 #: libraries/config/messages.inc.php:858
-#, fuzzy
-#| msgid ""
-#| "Shows link to [a@https://secure.php.net/manual/function.phpinfo."
-#| "php]phpinfo()[/a] output."
 msgid ""
 "Shows link to [a@https://php.net/manual/function.phpinfo.php]phpinfo()[/a] "
 "output."
-msgstr ""
-"[a@https://secure.php.net/manual/function.phpinfo.php]phpinfo()[/a] 출력 링"
-"크 표시."
+msgstr "[a@https://php.net/manual/function.phpinfo.php]phpinfo()[/a] 출력 링크 표시."
 
 #: libraries/config/messages.inc.php:861
 msgid "Show phpinfo() link"
@@ -7575,7 +7555,7 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:878
 msgid "Skip locked tables"
-msgstr "잠긴 테이블 건너띄기"
+msgstr "잠긴 테이블 건너뛰기"
 
 #: libraries/config/messages.inc.php:884
 msgid ""
@@ -7602,10 +7582,8 @@ msgstr ""
 "를 끄기."
 
 #: libraries/config/messages.inc.php:894
-#, fuzzy
-#| msgid "Login cookie validity"
 msgid "Login cookie validity warning"
-msgstr "로그인 쿠키 유효시간"
+msgstr "로그인 쿠키 유효시간 경고"
 
 #: libraries/config/messages.inc.php:897
 msgid ""
@@ -8160,16 +8138,12 @@ msgid "Export templates:"
 msgstr "내보내기 형식"
 
 #: libraries/display_export.lib.php:207
-#, fuzzy
-#| msgid "File name template:"
 msgid "New template:"
-msgstr "파일명 템플릿:"
+msgstr "새 템플릿:"
 
 #: libraries/display_export.lib.php:210
-#, fuzzy
-#| msgid "Table name"
 msgid "Template name"
-msgstr "테이블 이름"
+msgstr "템플릿 이름"
 
 #: libraries/display_export.lib.php:212
 #: templates/server/databases/create.phtml:22
@@ -8183,22 +8157,16 @@ msgid "Existing templates:"
 msgstr "파일명 템플릿:"
 
 #: libraries/display_export.lib.php:220
-#, fuzzy
-#| msgid "Temp disk rate"
 msgid "Template:"
-msgstr "임시 디스크 비율"
+msgstr "템플릿:"
 
 #: libraries/display_export.lib.php:225
-#, fuzzy
-#| msgid "Updated"
 msgid "Update"
-msgstr "수정됨"
+msgstr "업데이트"
 
 #: libraries/display_export.lib.php:247
-#, fuzzy
-#| msgid "Select a table"
 msgid "Select a template"
-msgstr "테이블 선택"
+msgstr "템플릿 선택"
 
 #: libraries/display_export.lib.php:296
 msgid "Export method:"
@@ -8317,16 +8285,12 @@ msgid "View output as text"
 msgstr "출력를 텍스트로 표시"
 
 #: libraries/display_export.lib.php:752
-#, fuzzy
-#| msgid "Export views as tables"
 msgid "Export databases as separate files"
-msgstr "뷰를 테이블로 내보내기"
+msgstr "데이터베이스를 파일로 내보내기"
 
 #: libraries/display_export.lib.php:754
-#, fuzzy
-#| msgid "Export table headers"
 msgid "Export tables as separate files"
-msgstr "테이블 제목(header) 내보내기"
+msgstr "테이블을 파일로 내보내기"
 
 #: libraries/display_export.lib.php:784 libraries/display_export.lib.php:960
 msgid "Rename exported databases/tables/columns"
@@ -8973,12 +8937,9 @@ msgid "Edit next row"
 msgstr "다음 행 수정"
 
 #: libraries/insert_edit.lib.php:1609
-#, fuzzy
-#| msgid ""
-#| "Use TAB key to move from value to value, or CTRL+arrows to move anywhere"
 msgid ""
 "Use TAB key to move from value to value, or CTRL+arrows to move anywhere."
-msgstr "TAB 키나 CTRL+화살표로 값 사이를 이동할 수 있습니다"
+msgstr "TAB 키나 CTRL+화살표로 값 사이를 이동할 수 있습니다."
 
 #: libraries/insert_edit.lib.php:1646 libraries/replication_gui.lib.php:544
 #: libraries/rte/rte_routines.lib.php:1609
@@ -9021,10 +8982,8 @@ msgid "Data only"
 msgstr "데이터만"
 
 #: libraries/mult_submits.lib.php:353
-#, fuzzy
-#| msgid "Add AUTO_INCREMENT value"
 msgid "Add AUTO INCREMENT value"
-msgstr "AUTO_INCREMENT 값 추가"
+msgstr "AUTO INCREMENT 값 추가"
 
 #: libraries/mult_submits.lib.php:355 libraries/operations.lib.php:227
 #: libraries/operations.lib.php:1277
@@ -9036,8 +8995,6 @@ msgstr "제약조건 추가"
 #: libraries/operations.lib.php:947 libraries/operations.lib.php:1296
 #: libraries/rte/rte_routines.lib.php:1007
 #: templates/columns_definitions/table_fields_definitions.phtml:47
-#, fuzzy
-#| msgid "Edit Privileges"
 msgid "Adjust privileges"
 msgstr "권한 수정"
 
@@ -9305,16 +9262,12 @@ msgid ""
 msgstr ""
 
 #: libraries/normalization.lib.php:209
-#, fuzzy
-#| msgid "Add primary key"
 msgid "+ Add a new primary key column"
-msgstr "+ 새로운 기본키를 컬럼에 추가"
+msgstr "+ 새로운 기본키 컬럼 추가"
 
 #: libraries/normalization.lib.php:232
-#, fuzzy
-#| msgid "Remove from Favorites"
 msgid "Remove redundant columns"
-msgstr "즐겨찾기에서 삭제"
+msgstr "불필요한 컬럼 제거"
 
 #: libraries/normalization.lib.php:235
 msgid ""
@@ -9334,10 +9287,8 @@ msgid "Remove selected"
 msgstr "선택된 것 삭제"
 
 #: libraries/normalization.lib.php:247
-#, fuzzy
-#| msgid "Add column"
 msgid "No redundant column"
-msgstr "컬럼 추가"
+msgstr "불필요한 컬럼 없음"
 
 #: libraries/normalization.lib.php:270
 msgid "Move repeating groups"
@@ -10096,10 +10047,9 @@ msgid "(less efficient as indexes will be generated during table creation)"
 msgstr ""
 
 #: libraries/plugins/export/ExportSql.php:294
-#, fuzzy, php-format
-#| msgid "Session value"
+#, php-format
 msgid "%s value"
-msgstr "세션 값"
+msgstr "%s 값"
 
 #: libraries/plugins/export/ExportSql.php:328
 msgid ""
@@ -10351,16 +10301,14 @@ msgstr ""
 
 #: libraries/plugins/import/ImportCsv.php:300
 #: libraries/plugins/import/ImportCsv.php:661
-#, fuzzy, php-format
-#| msgid "Invalid rule declaration on line %s."
+#, php-format
 msgid "Invalid format of CSV input on line %d."
-msgstr "%s 행에 잘못된 규칙 선언"
+msgstr "%d 행에 잘못된 형식."
 
 #: libraries/plugins/import/ImportCsv.php:531
-#, fuzzy, php-format
-#| msgid "Invalid rule declaration on line %s."
+#, php-format
 msgid "Invalid column count in CSV input on line %d."
-msgstr "%s 행에 잘못된 규칙 선언"
+msgstr "%d 행에 잘못된 컬럼 수."
 
 #: libraries/plugins/import/ImportLdi.php:111
 msgid "This plugin does not support compressed imports!"
@@ -10435,24 +10383,20 @@ msgstr "스키마 에러: "
 #: libraries/plugins/schema/SchemaDia.php:60
 #: libraries/plugins/schema/SchemaEps.php:68
 #: libraries/plugins/schema/SchemaPdf.php:68
-#, fuzzy
-#| msgid "Creation:"
 msgid "Orientation"
-msgstr "생성:"
+msgstr "화면 방향"
 
 #: libraries/plugins/schema/SchemaDia.php:64
 #: libraries/plugins/schema/SchemaEps.php:72
 #: libraries/plugins/schema/SchemaPdf.php:72
 msgid "Landscape"
-msgstr ""
+msgstr "가로"
 
 #: libraries/plugins/schema/SchemaDia.php:65
 #: libraries/plugins/schema/SchemaEps.php:73
 #: libraries/plugins/schema/SchemaPdf.php:73
-#, fuzzy
-#| msgid "Point"
 msgid "Portrait"
-msgstr "포인트"
+msgstr "세로"
 
 #: libraries/plugins/schema/SchemaEps.php:62
 #: libraries/plugins/schema/SchemaPdf.php:62
@@ -10462,32 +10406,24 @@ msgstr ""
 
 #: libraries/plugins/schema/SchemaPdf.php:87
 msgid "Show grid"
-msgstr "grid 보기"
+msgstr "그리드 표시"
 
 #: libraries/plugins/schema/SchemaPdf.php:93
 #: templates/database/structure/print_view_data_dictionary_link.phtml:6
-#, fuzzy
-#| msgid "Data Dictionary"
 msgid "Data dictionary"
-msgstr "데이터 사전 (전체 구조보기)"
+msgstr "데이터 사전"
 
 #: libraries/plugins/schema/SchemaPdf.php:99
-#, fuzzy
-#| msgid "neither of the above"
 msgid "Order of the tables"
-msgstr "위의 것 모두 아님"
+msgstr "테이블 정렬 순서"
 
 #: libraries/plugins/schema/SchemaPdf.php:104
-#, fuzzy
-#| msgid "Ascending"
 msgid "Name (Ascending)"
-msgstr "오름차순"
+msgstr "이름 (오름차순)"
 
 #: libraries/plugins/schema/SchemaPdf.php:105
-#, fuzzy
-#| msgid "Descending"
 msgid "Name (Descending)"
-msgstr "내림차순"
+msgstr "이름 (내림차순)"
 
 #: libraries/plugins/schema/dia/TableStatsDia.php:74
 #: libraries/plugins/schema/eps/TableStatsEps.php:92
@@ -10504,10 +10440,8 @@ msgid "Schema of the %s database - Page %s"
 msgstr "데이터베이스 %s의 스키마 - 페이지 %s"
 
 #: libraries/plugins/schema/pdf/Pdf.php:238
-#, fuzzy
-#| msgid "Invalid export type"
 msgid "PDF export page"
-msgstr "잘못된 내보내기 타입"
+msgstr "PDF 내보내기 페이지"
 
 #: libraries/plugins/schema/pdf/PdfRelationSchema.php:102
 #, php-format
