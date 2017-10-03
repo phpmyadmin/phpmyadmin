@@ -330,6 +330,15 @@ function PMA_setMIME($db, $table, $key, $mimetype, $transformation,
     $mimetype = mb_strtolower($mimetype);
     $transformation = mb_strtolower($transformation);
 
+    // Do we have any parameter to set?
+    $has_value = (
+        strlen($mimetype) > 0 ||
+        strlen($transformation) > 0 ||
+        strlen($transformationOpts) > 0 ||
+        strlen($inputTransform) > 0 ||
+        strlen($inputTransformOpts) > 0
+    );
+
     $test_qry = '
          SELECT `mimetype`,
                 `comment`
@@ -347,12 +356,7 @@ function PMA_setMIME($db, $table, $key, $mimetype, $transformation,
         $row = @$GLOBALS['dbi']->fetchAssoc($test_rs);
         $GLOBALS['dbi']->freeResult($test_rs);
 
-        if (! $forcedelete
-            && (strlen($mimetype) > 0
-            || strlen($transformation) > 0
-            || strlen($transformationOpts) > 0
-            || strlen($row['comment']) > 0)
-        ) {
+        if (! $forcedelete && ($has_value || strlen($row['comment']) > 0)) {
             $upd_query = 'UPDATE '
                 . PMA\libraries\Util::backquote($cfgRelation['db']) . '.'
                 . PMA\libraries\Util::backquote($cfgRelation['column_info'])
@@ -378,10 +382,7 @@ function PMA_setMIME($db, $table, $key, $mimetype, $transformation,
                 . '\'
               AND `column_name` = \'' . $GLOBALS['dbi']->escapeString($key)
                 . '\'';
-    } elseif (strlen($mimetype) > 0
-        || strlen($transformation) > 0
-        || strlen($transformationOpts) > 0
-    ) {
+    } elseif ($has_value) {
 
         $upd_query = 'INSERT INTO '
             . PMA\libraries\Util::backquote($cfgRelation['db'])
