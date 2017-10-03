@@ -337,6 +337,15 @@ class Transformations
         $mimetype = mb_strtolower($mimetype);
         $transformation = mb_strtolower($transformation);
 
+        // Do we have any parameter to set?
+        $has_value = (
+            strlen($mimetype) > 0 ||
+            strlen($transformation) > 0 ||
+            strlen($transformationOpts) > 0 ||
+            strlen($inputTransform) > 0 ||
+            strlen($inputTransformOpts) > 0
+        );
+
         $test_qry = '
              SELECT `mimetype`,
                     `comment`
@@ -354,12 +363,7 @@ class Transformations
             $row = @$GLOBALS['dbi']->fetchAssoc($test_rs);
             $GLOBALS['dbi']->freeResult($test_rs);
 
-            if (! $forcedelete
-                && (strlen($mimetype) > 0
-                || strlen($transformation) > 0
-                || strlen($transformationOpts) > 0
-                || strlen($row['comment']) > 0)
-            ) {
+            if (! $forcedelete && ($has_value || strlen($row['comment']) > 0)) {
                 $upd_query = 'UPDATE '
                     . Util::backquote($cfgRelation['db']) . '.'
                     . Util::backquote($cfgRelation['column_info'])
@@ -385,10 +389,7 @@ class Transformations
                     . '\'
                   AND `column_name` = \'' . $GLOBALS['dbi']->escapeString($key)
                     . '\'';
-        } elseif (strlen($mimetype) > 0
-            || strlen($transformation) > 0
-            || strlen($transformationOpts) > 0
-        ) {
+        } elseif ($has_value) {
 
             $upd_query = 'INSERT INTO '
                 . Util::backquote($cfgRelation['db'])
