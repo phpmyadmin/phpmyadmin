@@ -27,6 +27,9 @@ if ($GLOBALS['cfg']['NumFavoriteTables'] > 0) {
             <?php if ($replication): ?>
                 <th><?= __('Replication'); ?></th>
             <?php endif; ?>
+            <th colspan="<?= $action_colspan; ?>" class="print_ignore">
+                <?= __('Action'); ?>
+            </th>
             <!-- larger values are more interesting so default sort order is DESC-->
             <th>
                 <?= PhpMyAdmin\Template::get('database/structure/sortable_header')->render(
@@ -75,9 +78,6 @@ if ($GLOBALS['cfg']['NumFavoriteTables'] > 0) {
                         )
                     ); $cnt++; ?></th>
             <?php endif; ?>
-            <th colspan="<?= $action_colspan; ?>" class="print_ignore">
-                <?= __('Action'); ?>
-            </th>
 
             <?php if ($GLOBALS['cfg']['ShowDbStructureCharset']): ?>
                 <th><?= PhpMyAdmin\Template::get('database/structure/sortable_header')->render(

@@ -97,7 +97,7 @@ class PMA_SeleniumTableOperationsTest extends PMA_SeleniumBase
 
         $this->assertEquals(
             "2",
-            $this->getCellByTableClass('table_results', 1, 1)
+            $this->getCellByTableClass('table_results', 1, 5)
         );
     }
 

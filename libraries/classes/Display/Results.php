@@ -1329,15 +1329,21 @@ class Results
             $displayParts['del_lnk']
         );
 
-        $table_headers_html .= '<thead><tr>' . "\n";
+        // 1. Set $colspan and generate html with full/partial
+        // text button or link
+        list($colspan, $button_html)
+            = $this->_getFieldVisibilityParams(
+                $displayParts, $full_or_partial_text_link
+            );
 
-        // 1. Displays the fields' name
-        // 1.0 If sorting links should be used, checks if the query is a "JOIN"
+        $table_headers_html .= $button_html;
+
+        // 2. Displays the fields' name
+        // 2.0 If sorting links should be used, checks if the query is a "JOIN"
         //     statement (see 2.1.3)
 
         // See if we have to highlight any header fields of a WHERE query.
         // Uses SQL-Parser results.
-
         $this->_setHighlightedColumnGlobalField($analyzed_sql_results);
 
         // Get the headers for all of the columns
@@ -1346,15 +1352,6 @@ class Results
             $sort_expression_nodirection, $sort_direction,
             $is_limited_display, $unsorted_sql_query
         );
-
-        // 2. Set $colspan and generate html with full/partial
-        // text button or link
-        list($colspan, $button_html)
-            = $this->_getFieldVisibilityParams(
-                $displayParts, $full_or_partial_text_link
-            );
-
-        $table_headers_html .= $button_html;
 
         // Display column at rightside - checkboxes or empty column
         if (! $printview) {
@@ -1527,7 +1524,7 @@ class Results
         $display_params = $this->__get('display_params');
 
         // 1. Displays the full/partial text button (part 1)...
-        // $button_html .= '<thead><tr>' . "\n";
+        $button_html .= '<thead><tr>' . "\n";
 
         $colspan = (($displayParts['edit_lnk'] != self::NO_EDIT_OR_DELETE)
             && ($displayParts['del_lnk'] != self::NO_EDIT_OR_DELETE))
@@ -2773,25 +2770,7 @@ class Results
             $del_url = $del_str = $edit_anchor_class
                 = $edit_str = $js_conf = $copy_url = $copy_str = $edit_url = null;
 
-            // 1.2 Displays the rows' values
-            if (is_null($this->__get('mime_map'))) {
-                $this->_setMimeMap();
-            }
-            $table_body_html .= $this->_getRowValues(
-                $dt_result,
-                $row,
-                $row_no,
-                $col_order,
-                $map,
-                $grid_edit_class,
-                $col_visib,
-                $url_sql_query,
-                $analyzed_sql_results
-            ); // end (1)
-
-            // 2 Defines the Action
-
-            // 2.1 Defines the URLs for the modify/delete link(s)
+            // 1.2 Defines the URLs for the modify/delete link(s)
 
             if (($displayParts['edit_lnk'] != self::NO_EDIT_OR_DELETE)
                 || ($displayParts['del_lnk'] != self::NO_EDIT_OR_DELETE)
@@ -2819,7 +2798,7 @@ class Results
 
                 $where_clause_html = htmlspecialchars($where_clause);
 
-                // 2.1.1 Modify link(s) - update row case
+                // 1.2.1 Modify link(s) - update row case
                 if ($displayParts['edit_lnk'] == self::UPDATE_ROW) {
 
                     list($edit_url, $copy_url, $edit_str, $copy_str,
@@ -2829,9 +2808,9 @@ class Results
                                 $clause_is_unique, $url_sql_query
                             );
 
-                } // end if (2.1.1)
+                } // end if (1.2.1)
 
-                // 2.1.2 Delete/Kill link(s)
+                // 1.2.2 Delete/Kill link(s)
                 list($del_url, $del_str, $js_conf)
                     = $this->_getDeleteAndKillLinks(
                         $where_clause, $clause_is_unique,
@@ -2839,7 +2818,7 @@ class Results
                         $row
                     );
 
-                // 2.1.3 Displays the links at left if required
+                // 1.3 Displays the links at left if required
                 if (($GLOBALS['cfg']['RowActionLinks'] == self::POSITION_LEFT)
                     || ($GLOBALS['cfg']['RowActionLinks'] == self::POSITION_BOTH)
                 ) {
@@ -2860,8 +2839,24 @@ class Results
                         $edit_str, $copy_str, $del_str, $js_conf
                     );
 
-                } // end if (2.1.3)
-            } // end if (2)
+                } // end if (1.3)
+            } // end if (1)
+
+            // 2. Displays the rows' values
+            if (is_null($this->__get('mime_map'))) {
+                $this->_setMimeMap();
+            }
+            $table_body_html .= $this->_getRowValues(
+                $dt_result,
+                $row,
+                $row_no,
+                $col_order,
+                $map,
+                $grid_edit_class,
+                $col_visib,
+                $url_sql_query,
+                $analyzed_sql_results
+            );
 
             // 3. Displays the modify/delete links on the right if required
             if (($displayParts['edit_lnk'] != self::NO_EDIT_OR_DELETE)

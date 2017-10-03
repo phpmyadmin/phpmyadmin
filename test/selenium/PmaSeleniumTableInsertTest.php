@@ -133,47 +133,47 @@ class PMA_SeleniumTableInsertTest extends PMA_SeleniumBase
 
         $this->assertEquals(
             "1",
-            $this->getCellByTableClass('table_results', 1, 1)
+            $this->getCellByTableClass('table_results', 1, 5)
         );
 
         $this->assertEquals(
             "abcd",
-            $this->getCellByTableClass('table_results', 1, 2)
+            $this->getCellByTableClass('table_results', 1, 6)
         );
 
         $this->assertEquals(
             "2011-01-02 00:00:00",
-            $this->getCellByTableClass('table_results', 1, 3)
+            $this->getCellByTableClass('table_results', 1, 7)
         );
 
         $this->assertEquals(
             "2",
-            $this->getCellByTableClass('table_results', 2, 1)
+            $this->getCellByTableClass('table_results', 2, 5)
         );
 
         $this->assertEquals(
             "foo",
-            $this->getCellByTableClass('table_results', 2, 2)
+            $this->getCellByTableClass('table_results', 2, 6)
         );
 
         $this->assertEquals(
             "2012-01-02 00:00:00",
-            $this->getCellByTableClass('table_results', 2, 3)
+            $this->getCellByTableClass('table_results', 2, 7)
         );
 
         $this->assertEquals(
             "4",
-            $this->getCellByTableClass('table_results', 3, 1)
+            $this->getCellByTableClass('table_results', 3, 5)
         );
 
         $this->assertEquals(
             "Abcd",
-            $this->getCellByTableClass('table_results', 3, 2)
+            $this->getCellByTableClass('table_results', 3, 6)
         );
 
         $this->assertEquals(
             "2013-01-02 00:00:00",
-            $this->getCellByTableClass('table_results', 3, 3)
+            $this->getCellByTableClass('table_results', 3, 7)
         );
     }
 }
