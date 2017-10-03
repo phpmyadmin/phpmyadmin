@@ -930,4 +930,117 @@ class ConfigTest extends PmaTestCase
             $this->object->isGitRevision()
         );
     }
+
+    /**
+     * Test for checkServers
+     *
+     * @return void
+     *
+     * @dataProvider serverSettingsProvider
+     */
+    public function testCheckServers($settings, $expected, $error = false)
+    {
+        if ($error) {
+            $this->setExpectedException('PHPUnit_Framework_Error');
+        }
+
+        $this->object->settings['Servers'] = $settings;
+        $this->object->checkServers();
+        if (is_null($expected)) {
+            $expected = $this->object->default_server;
+        } else {
+            $expected = array_merge($this->object->default_server, $expected);
+        }
+        $this->assertEquals($expected, $this->object->settings['Servers'][1]);
+    }
+
+    /**
+     * Data provider for checkServers test
+     *
+     * @return array
+     */
+    public function serverSettingsProvider()
+    {
+        return [
+            'empty' => [
+                [],
+                [],
+            ],
+            'only_host' => [
+                [1 => ['host' => '127.0.0.1']],
+                ['host' => '127.0.0.1'],
+            ],
+            'empty_host' => [
+                [1 => ['host' => '']],
+                ['verbose' => 'Server 1', 'host' => ''],
+            ],
+            'invalid' => [
+                ['invalid' => ['host' => '127.0.0.1']],
+                ['host' => '127.0.0.1'],
+                true
+            ],
+        ];
+    }
+
+    /**
+     * Test for selectServer
+     *
+     * @return void
+     *
+     * @dataProvider selectServerProvider
+     * @depends testCheckServers
+     */
+    public function testSelectServer($settings, $request, $expected)
+    {
+        $this->object->settings['Servers'] = $settings;
+        $this->object->checkServers();
+        $_REQUEST['server'] = $request;
+        $this->assertEquals($expected, $this->object->selectServer());
+    }
+
+    /**
+     * Data provider for selectServer test
+     *
+     * @return array
+     */
+    public function selectServerProvider()
+    {
+        return [
+            'zero' => [
+                [],
+                '0',
+                1,
+            ],
+            'number' => [
+                [1 => []],
+                '1',
+                1,
+            ],
+            'host' => [
+                [2 => ['host' => '127.0.0.1']],
+                '127.0.0.1',
+                2,
+            ],
+            'verbose' => [
+                [1 => ['verbose' => 'Server 1', 'host' => '']],
+                'Server 1',
+                1
+            ],
+            'md5' => [
+                [66 => ['verbose' => 'Server 1', 'host' => '']],
+                '753f173bd4ac8a45eae0fe9a4fbe0fc0',
+                66
+            ],
+            'nonexisting_string' => [
+                [1 => []],
+                'invalid',
+                1,
+            ],
+            'nonexisting' => [
+                [1 => []],
+                '100',
+                1,
+            ],
+        ];
+    }
 }

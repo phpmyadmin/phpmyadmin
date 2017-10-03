@@ -211,12 +211,6 @@ if (isset($_POST['usesubform']) && ! defined('PMA_MINIMUM_COMMON')) {
 $GLOBALS['PMA_Config'] = new Config(CONFIG_FILE);
 
 /**
- * BC - enable backward compatibility
- * exports all configuration settings into $GLOBALS ($GLOBALS['cfg'])
- */
-$GLOBALS['PMA_Config']->enableBc();
-
-/**
  * clean cookies on upgrade
  * when changing something related to PMA cookies, increment the cookie version
  */
@@ -451,106 +445,14 @@ Core::checkConfiguration();
  * current server
  * @global integer $GLOBALS['server']
  */
-$GLOBALS['server'] = 0;
-
-/**
- * Servers array fixups.
- * $default_server comes from PhpMyAdmin\Config::enableBc()
- * @todo merge into PhpMyAdmin\Config
- */
-// Do we have some server?
-if (! isset($cfg['Servers']) || count($cfg['Servers']) == 0) {
-    // No server => create one with defaults
-    $cfg['Servers'] = array(1 => $default_server);
-} else {
-    // We have server(s) => apply default configuration
-    $new_servers = array();
-
-    foreach ($cfg['Servers'] as $server_index => $each_server) {
-
-        // Detect wrong configuration
-        if (!is_int($server_index) || $server_index < 1) {
-            trigger_error(
-                sprintf(__('Invalid server index: %s'), $server_index),
-                E_USER_ERROR
-            );
-        }
-
-        $each_server = array_merge($default_server, $each_server);
-
-        // Final solution to bug #582890
-        // If we are using a socket connection
-        // and there is nothing in the verbose server name
-        // or the host field, then generate a name for the server
-        // in the form of "Server 2", localized of course!
-        if (empty($each_server['host']) && empty($each_server['verbose'])) {
-            $each_server['verbose'] = sprintf(__('Server %d'), $server_index);
-        }
-
-        $new_servers[$server_index] = $each_server;
-    }
-    $cfg['Servers'] = $new_servers;
-    unset($new_servers, $server_index, $each_server);
-}
-
-// Cleanup
-unset($default_server);
-
-
-if (! defined('PMA_MINIMUM_COMMON')) {
-    /**
-     * Lookup server by name
-     * (see FAQ 4.8)
-     */
-    if (! empty($_REQUEST['server'])
-        && is_string($_REQUEST['server'])
-        && ! is_numeric($_REQUEST['server'])
-    ) {
-        foreach ($cfg['Servers'] as $i => $server) {
-            $verboseToLower = mb_strtolower($server['verbose']);
-            $serverToLower = mb_strtolower($_REQUEST['server']);
-            if ($server['host'] == $_REQUEST['server']
-                || $server['verbose'] == $_REQUEST['server']
-                || $verboseToLower == $serverToLower
-                || md5($verboseToLower) === $serverToLower
-            ) {
-                $_REQUEST['server'] = $i;
-                break;
-            }
-        }
-        if (is_string($_REQUEST['server'])) {
-            unset($_REQUEST['server']);
-        }
-        unset($i);
-    }
-}
-
-/**
- * If no server is selected, make sure that $cfg['Server'] is empty (so
- * that nothing will work), and skip server authentication.
- * We do NOT exit here, but continue on without logging into any server.
- * This way, the welcome page will still come up (with no server info) and
- * present a choice of servers in the case that there are multiple servers
- * and '$cfg['ServerDefault'] = 0' is set.
- */
-
-if (isset($_REQUEST['server'])
-    && (is_string($_REQUEST['server']) || is_numeric($_REQUEST['server']))
-    && ! empty($_REQUEST['server'])
-    && ! empty($cfg['Servers'][$_REQUEST['server']])
-) {
-    $GLOBALS['server'] = $_REQUEST['server'];
-    $cfg['Server'] = $cfg['Servers'][$GLOBALS['server']];
-} else {
-    if (!empty($cfg['Servers'][$cfg['ServerDefault']])) {
-        $GLOBALS['server'] = $cfg['ServerDefault'];
-        $cfg['Server'] = $cfg['Servers'][$GLOBALS['server']];
-    } else {
-        $GLOBALS['server'] = 0;
-        $cfg['Server'] = array();
-    }
-}
+$GLOBALS['server'] = $GLOBALS['PMA_Config']->selectServer();
 $GLOBALS['url_params']['server'] = $GLOBALS['server'];
+
+/**
+ * BC - enable backward compatibility
+ * exports all configuration settings into $GLOBALS ($GLOBALS['cfg'])
+ */
+$GLOBALS['PMA_Config']->enableBc();
 
 /******************************************************************************/
 /* setup themes                                          LABEL_theme_setup    */
