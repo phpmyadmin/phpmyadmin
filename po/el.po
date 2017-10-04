@@ -4,10 +4,10 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.8.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2017-09-08 21:11+0200\n"
-"PO-Revision-Date: 2017-09-04 06:26+0000\n"
-"Last-Translator: Παναγιώτης Παπάζογλου <papaz_p@yahoo.com>\n"
-"Language-Team: Greek <https://hosted.weblate.org/projects/phpmyadmin/master/"
-"el/>\n"
+"PO-Revision-Date: 2017-10-05 10:47+0000\n"
+"Last-Translator: dnhost.gr <jefaraz@gmail.com>\n"
+"Language-Team: Greek "
+"<https://hosted.weblate.org/projects/phpmyadmin/master/el/>\n"
 "Language: el\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -1724,7 +1724,7 @@ msgstr "Άκυρο"
 
 #: js/messages.php:354 libraries/classes/Header.php:455
 msgid "Page-related settings"
-msgstr "Ρυθμίσεις σχετισμένες με σελίδα"
+msgstr "Ρυθμίσεις σχετικές με τη σελίδα"
 
 #: js/messages.php:355 libraries/config/FormDisplay.tpl.php:423
 msgid "Apply"
@@ -1737,19 +1737,19 @@ msgstr "Φόρτωση…"
 
 #: js/messages.php:359
 msgid "Request aborted!!"
-msgstr "Το Αίτημα διακόπηκε!!"
+msgstr "Το αίτημα διακόπηκε!!"
 
 #: js/messages.php:360
 msgid "Processing request"
-msgstr "Προώθηση αιτήματος"
+msgstr "Εκτέλεση αιτήματος"
 
 #: js/messages.php:361
 msgid "Request failed!!"
-msgstr "Το Αίτημα απέτυχε!!"
+msgstr "Το αίτημα απέτυχε!!"
 
 #: js/messages.php:362
 msgid "Error in processing request"
-msgstr "Σφάλμα στην προώθηση αιτημάτος"
+msgstr "Σφάλμα στην εκτέλεση του αιτήματος"
 
 #: js/messages.php:363
 #, php-format
@@ -1766,6 +1766,8 @@ msgid ""
 "It seems that the connection to server has been lost. Please check your "
 "network connectivity and server status."
 msgstr ""
+"Φαίνεται ότι η σύνδεση με τον εξυπηρετητή χάθηκε. Παρακαλώ ελέγξτε τη "
+"συνδεσιμότητά σας και την κατάσταση του εξυπηρετητή."
 
 #: js/messages.php:369
 #: libraries/classes/Controllers/Server/ServerDatabasesController.php:193
@@ -2283,10 +2285,8 @@ msgstr ""
 
 #: js/messages.php:560 templates/database/designer/side_menu.phtml:40
 #: templates/database/designer/side_menu.phtml:43
-#, fuzzy
-#| msgid "No tables found in database."
 msgid "Add tables from other databases"
-msgstr "Δεν βρέθηκαν πίνακες στη βάση δεδομένων."
+msgstr "Προσθήκη πινάκων από άλλες βάσεις δεδομένων"
 
 #: js/messages.php:561
 msgid "Page name"
@@ -6290,12 +6290,6 @@ msgstr ""
 "υποστηρίζει."
 
 #: libraries/classes/Config/ServerConfigChecks.php:175
-#, fuzzy
-#| msgid ""
-#| "If you feel this is necessary, use additional protection settings - "
-#| "%shost authentication%s settings and %strusted proxies list%s. However, "
-#| "IP-based protection may not be reliable if your IP belongs to an ISP "
-#| "where thousands of users, including you, are connected to."
 msgid ""
 "If you feel this is necessary, use additional protection settings - %1$shost "
 "authentication%2$s settings and %3$strusted proxies list%4%s. However, IP-"
@@ -6303,18 +6297,13 @@ msgid ""
 "thousands of users, including you, are connected to."
 msgstr ""
 "Αν νομίζετε ότι είναι απαραίτητο, χρησιμοποιήστε πρόσθετες ρυθμίσεις "
-"προστασίας - ρυθμίσεις %sπιστοποίησης φιλοξενίας%s και %sλίστα ασφαλών "
-"διακομιστών%s. Ωστόσο, η βασισμένη στις ΙΡ προστασία δεν είναι αξιόπιστη αν "
-"ο πάροχός έχει χιλιάδες χρήστες που συνδέονται."
+"προστασίας - ρυθμίσεις %1$sπιστοποίησης φιλοξενίας%2$s και %3$sλίστα ασφαλών "
+"διακομιστών%4%s. Ωστόσο, η προστασία βασισμένη στις ΙΡ δεν είναι αξιόπιστη "
+"αν η IP σας ανήκει σε πάροχο διαδικτύου (ISP) με χιλιάδες συνδεδεμένους "
+"χρήστες."
 
 #: libraries/classes/Config/ServerConfigChecks.php:202
-#, fuzzy, php-format
-#| msgid ""
-#| "You set the [kbd]config[/kbd] authentication type and included username "
-#| "and password for auto-login, which is not a desirable option for live "
-#| "hosts. Anyone who knows or guesses your phpMyAdmin URL can directly "
-#| "access your phpMyAdmin panel. Set %sauthentication type%s to [kbd]cookie[/"
-#| "kbd] or [kbd]http[/kbd]."
+#, php-format
 msgid ""
 "You set the [kbd]config[/kbd] authentication type and included username and "
 "password for auto-login, which is not a desirable option for live hosts. "
@@ -6322,10 +6311,10 @@ msgid ""
 "phpMyAdmin panel. Set %1$sauthentication type%2$s to [kbd]cookie[/kbd] or "
 "[kbd]http[/kbd]."
 msgstr ""
-"Ορίζετε τον τύπο πιστοποίησης [kbd]ρύθμισης[/kbd] και περιλαμβάνει όνομα "
+"Ορίσατε τον τύπο πιστοποίησης [kbd]ρύθμισης[/kbd] και συμπεριλάβατε όνομα "
 "χρήστη και κωδικό πρόσβασης για αυτόματη σύνδεση, αν και δεν προτείνεται. "
 "Όποιος γνωρίζει ή υποθέτει τη διεύθυνση URL του phpMyAdmin μπορεί να έχει "
-"άμεση πρόσβαση. Ορίστε τον %sτύπο πιστοποίησης%s σε [kbd]cookie[/kbd] ή "
+"άμεση πρόσβαση. Ορίστε τον %1$sτύπο πιστοποίησης%2$s σε [kbd]cookie[/kbd] ή "
 "[kbd]http[/kbd]."
 
 #: libraries/classes/Config/ServerConfigChecks.php:229
@@ -6356,9 +6345,10 @@ msgid ""
 "authentication, so a key was automatically generated for you. It is used to "
 "encrypt cookies; you don't need to remember it."
 msgstr ""
-"Δεν ορίσατε το μυστικό κολιτσίδας και ενεργοποιήσατε την επικύρωση "
+"Δεν ορίσατε τη μυστική φράση και ενεργοποιήσατε την επικύρωση "
 "[kbd]cookie[/kbd]. Έτσι δημιουργήθηκε αυτόματα ένα κλειδί για σας. "
-"Χρησιμοποιήθηκε για την κρυπτογράφηση cookies. Δεν χρειάζεται να το θυμάστε."
+"Χρησιμοποιείται για την κρυπτογράφηση των cookies και δε χρειάζεται να το "
+"θυμάστε."
 
 #: libraries/classes/Config/ServerConfigChecks.php:371
 msgid "Key is too short, it should have at least 32 characters."
@@ -7051,7 +7041,7 @@ msgstr[1] "<b>Σύνολο:</b> <i>%s</i> αποτελέσματα"
 #, php-format
 msgid "%1$s match in <strong>%2$s</strong>"
 msgid_plural "%1$s matches in <strong>%2$s</strong>"
-msgstr[0] "%1$s απατέλεσμα στο <strong>%2$s</strong>"
+msgstr[0] "%1$s αποτέλεσμα στο <strong>%2$s</strong>"
 msgstr[1] "%1$s αποτελέσματα στο <strong>%2$s</strong>"
 
 #: libraries/classes/DbSearch.php:347 libraries/classes/Menu.php:344
@@ -14445,7 +14435,7 @@ msgstr "Κρίσιμο σφάλμα: Η πλοήγηση μπορεί να πρ�
 
 #: prefs_forms.php:28 setup/frames/form.inc.php:25
 msgid "Incorrect form specified!"
-msgstr ""
+msgstr "Ορίστηκε λάθος φόρμα!"
 
 #: prefs_forms.php:80
 msgid "Cannot save settings, submitted form contains errors!"
