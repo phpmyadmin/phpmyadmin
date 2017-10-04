@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.7.4-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2017-08-10 09:13-0400\n"
-"PO-Revision-Date: 2017-09-04 05:36+0000\n"
-"Last-Translator: Παναγιώτης Παπάζογλου <papaz_p@yahoo.com>\n"
+"PO-Revision-Date: 2017-10-05 10:47+0000\n"
+"Last-Translator: dnhost.gr <jefaraz@gmail.com>\n"
 "Language-Team: Greek <https://hosted.weblate.org/projects/phpmyadmin/4-7/el/>"
 "\n"
 "Language: el\n"
@@ -1699,7 +1699,7 @@ msgstr "Άκυρο"
 
 #: js/messages.php:357 libraries/Header.php:447
 msgid "Page-related settings"
-msgstr "Ρυθμίσεις σχετισμένες με σελίδα"
+msgstr "Ρυθμίσεις σχετικές με τη σελίδα"
 
 #: js/messages.php:358 libraries/config/FormDisplay.tpl.php:424
 msgid "Apply"
@@ -1712,19 +1712,19 @@ msgstr "Φόρτωση…"
 
 #: js/messages.php:362
 msgid "Request aborted!!"
-msgstr "Το Αίτημα διακόπηκε!!"
+msgstr "Το αίτημα διακόπηκε!!"
 
 #: js/messages.php:363
 msgid "Processing request"
-msgstr "Προώθηση αιτήματος"
+msgstr "Εκτέλεση αιτήματος"
 
 #: js/messages.php:364
 msgid "Request failed!!"
-msgstr "Το Αίτημα απέτυχε!!"
+msgstr "Το αίτημα απέτυχε!!"
 
 #: js/messages.php:365
 msgid "Error in processing request"
-msgstr "Σφάλμα στην προώθηση αιτημάτος"
+msgstr "Σφάλμα στην εκτέλεση του αιτήματος"
 
 #: js/messages.php:366
 #, php-format
@@ -3541,7 +3541,7 @@ msgstr[1] "<b>Σύνολο:</b> <i>%s</i> αποτελέσματα"
 #, php-format
 msgid "%1$s match in <strong>%2$s</strong>"
 msgid_plural "%1$s matches in <strong>%2$s</strong>"
-msgstr[0] "%1$s απατέλεσμα στο <strong>%2$s</strong>"
+msgstr[0] "%1$s αποτέλεσμα στο <strong>%2$s</strong>"
 msgstr[1] "%1$s αποτελέσματα στο <strong>%2$s</strong>"
 
 #: libraries/DbSearch.php:346 libraries/Menu.php:324 libraries/Util.php:3186
@@ -5438,9 +5438,10 @@ msgid ""
 "authentication, so a key was automatically generated for you. It is used to "
 "encrypt cookies; you don't need to remember it."
 msgstr ""
-"Δεν ορίσατε το μυστικό κολιτσίδας και ενεργοποιήσατε την επικύρωση "
+"Δεν ορίσατε τη μυστική φράση και ενεργοποιήσατε την επικύρωση "
 "[kbd]cookie[/kbd]. Έτσι δημιουργήθηκε αυτόματα ένα κλειδί για σας. "
-"Χρησιμοποιήθηκε για την κρυπτογράφηση cookies. Δεν χρειάζεται να το θυμάστε."
+"Χρησιμοποιείται για την κρυπτογράφηση των cookies και δε χρειάζεται να το "
+"θυμάστε."
 
 #: libraries/config/ServerConfigChecks.php:410
 #, php-format
