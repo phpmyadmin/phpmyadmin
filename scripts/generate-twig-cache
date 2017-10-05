@@ -7,6 +7,7 @@ require_once AUTOLOAD_FILE;
 use PhpMyAdmin\Twig\CharsetsExtension;
 use PhpMyAdmin\Twig\I18nExtension;
 use PhpMyAdmin\Twig\MessageExtension;
+use PhpMyAdmin\Twig\RelationExtension;
 use PhpMyAdmin\Twig\SanitizeExtension;
 use PhpMyAdmin\Twig\ServerPrivilegesExtension;
 use PhpMyAdmin\Twig\UrlExtension;
@@ -24,6 +25,7 @@ $twig = new Twig_Environment($loader, array(
 $twig->addExtension(new CharsetsExtension());
 $twig->addExtension(new I18nExtension());
 $twig->addExtension(new MessageExtension());
+$twig->addExtension(new RelationExtension());
 $twig->addExtension(new SanitizeExtension());
 $twig->addExtension(new ServerPrivilegesExtension());
 $twig->addExtension(new UrlExtension());
