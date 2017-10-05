@@ -71,7 +71,8 @@ switch ($searchType) {
         </fieldset>
         <?= PhpMyAdmin\Template::get('table/search/options')
             ->render(array(
-                'columnNames' => $columnNames
+                'column_names' => $columnNames,
+                'max_rows' => intval($GLOBALS['cfg']['MaxRows'])
             )); ?>
     </fieldset>
 <?php elseif ($searchType == 'replace'): ?>
