@@ -354,20 +354,20 @@ class TableSearchController extends TableController
             )
         );
         $this->response->addHTML(
-            Template::get('table/search/zoom_result_form')
-                ->render(
-                    array(
-                        '_db'              => $this->db,
-                        '_table'           => $this->table,
-                        '_columnNames'     => $this->_columnNames,
-                        '_foreigners'      => $this->_foreigners,
-                        '_columnNullFlags' => $this->_columnNullFlags,
-                        '_columnTypes'     => $this->_columnTypes,
-                        'titles'           => $titles,
-                        'goto'             => $goto,
-                        'data'             => $data,
-                    )
-                )
+            Template::get('table/search/zoom_result_form')->render([
+                'db' => $this->db,
+                'table' => $this->table,
+                'column_names' => $this->_columnNames,
+                'foreigners' => $this->_foreigners,
+                'column_null_flags' => $this->_columnNullFlags,
+                'column_types' => $this->_columnTypes,
+                'titles' => $titles,
+                'goto' => $goto,
+                'data' => $data,
+                'data_json' => json_encode($data),
+                'zoom_submit' => isset($_POST['zoom_submit']),
+                'foreign_max_limit' => $GLOBALS['cfg']['ForeignKeyMaxLimit'],
+            ])
         );
     }
 

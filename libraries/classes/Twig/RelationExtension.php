@@ -26,13 +26,17 @@ class RelationExtension extends Twig_Extension
     {
         return array(
             new Twig_SimpleFunction(
-                'Relation_searchColumnInForeigners',
-                'PhpMyAdmin\Relation::searchColumnInForeigners'
-            ),
-            new Twig_SimpleFunction(
                 'Relation_foreignDropdown',
                 'PhpMyAdmin\Relation::foreignDropdown',
                 array('is_safe' => array('html'))
+            ),
+            new Twig_SimpleFunction(
+                'Relation_getForeignData',
+                'PhpMyAdmin\Relation::getForeignData'
+            ),
+            new Twig_SimpleFunction(
+                'Relation_searchColumnInForeigners',
+                'PhpMyAdmin\Relation::searchColumnInForeigners'
             ),
         );
     }

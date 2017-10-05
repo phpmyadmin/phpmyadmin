@@ -10,6 +10,7 @@ namespace PhpMyAdmin;
 use PhpMyAdmin\Twig\CharsetsExtension;
 use PhpMyAdmin\Twig\I18nExtension;
 use PhpMyAdmin\Twig\MessageExtension;
+use PhpMyAdmin\Twig\PhpFunctionsExtension;
 use PhpMyAdmin\Twig\RelationExtension;
 use PhpMyAdmin\Twig\SanitizeExtension;
 use PhpMyAdmin\Twig\ServerPrivilegesExtension;
@@ -65,6 +66,7 @@ class Template
             $twig->addExtension(new CharsetsExtension());
             $twig->addExtension(new I18nExtension());
             $twig->addExtension(new MessageExtension());
+            $twig->addExtension(new PhpFunctionsExtension());
             $twig->addExtension(new RelationExtension());
             $twig->addExtension(new SanitizeExtension());
             $twig->addExtension(new ServerPrivilegesExtension());
