@@ -10,7 +10,9 @@
         <?= PhpMyAdmin\Template::get('table/search/rows_zoom')
             ->render(array(
                 'self' => $self,
-                'columnNames' => $columnNames
+                'column_names' => $columnNames,
+                'criteria_column_names' => $_POST['criteriaColumnNames'],
+                'criteria_column_types' => $_POST['criteriaColumnTypes'],
         )) ?>
     <?php else: ?>
         <?= PhpMyAdmin\Template::get('table/search/rows_normal')

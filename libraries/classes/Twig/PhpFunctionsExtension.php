@@ -25,6 +25,7 @@ class PhpFunctionsExtension extends Twig_Extension
     public function getFunctions()
     {
         return array(
+            new Twig_SimpleFunction('array_search', 'array_search'),
             new Twig_SimpleFunction('md5', 'md5'),
         );
     }

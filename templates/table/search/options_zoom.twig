@@ -11,7 +11,7 @@
                 <option value = "">
                     {% trans 'None' %}
                 </option>
-                {% for i in 0..column_names|lenght - 1 %}
+                {% for i in 0..column_names|length - 1 %}
                     {% if data_label is defined and data_label == column_names[i]|e %}
                         <option value="{{ column_names[i] }}" selected="selected">
                             {{ column_names[i] }}
