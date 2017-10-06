@@ -33,11 +33,13 @@ switch ($searchType) {
             <?= PhpMyAdmin\Template::get('table/search/fields_table')
                 ->render(array(
                     'self' => $self,
-                    'searchType' => $searchType,
-                    'geomColumnFlag' => $geomColumnFlag,
-                    'columnNames' => $columnNames,
-                    'columnTypes' => $columnTypes,
-                    'columnCollations' => $columnCollations
+                    'search_type' => $searchType,
+                    'geom_column_flag' => $geomColumnFlag,
+                    'column_names' => $columnNames,
+                    'column_types' => $columnTypes,
+                    'column_collations' => $columnCollations,
+                    'criteria_column_names' => $_POST['criteriaColumnNames'],
+                    'criteria_column_types' => $_POST['criteriaColumnTypes'],
                 ))
             ?>
             <?= PhpMyAdmin\Template::get('table/search/options_zoom')
@@ -60,11 +62,13 @@ switch ($searchType) {
                 <?= PhpMyAdmin\Template::get('table/search/fields_table')
                 ->render(array(
                     'self' => $self,
-                    'searchType' => $searchType,
-                    'geomColumnFlag' => $geomColumnFlag,
-                    'columnNames' => $columnNames,
-                    'columnTypes' => $columnTypes,
-                    'columnCollations' => $columnCollations
+                    'search_type' => $searchType,
+                    'geom_column_flag' => $geomColumnFlag,
+                    'column_names' => $columnNames,
+                    'column_types' => $columnTypes,
+                    'column_collations' => $columnCollations,
+                    'criteria_column_names' => $_POST['criteriaColumnNames'],
+                    'criteria_column_types' => $_POST['criteriaColumnTypes'],
                 )); ?>
             </div>
             <div id="gis_editor">
