@@ -90,8 +90,9 @@ switch ($searchType) {
             </legend>
             <?= PhpMyAdmin\Template::get('table/search/search_and_replace')
                 ->render(array(
-                    'columnNames' => $columnNames,
-                    'columnTypes' => $columnTypes
+                    'column_names' => $columnNames,
+                    'column_types' => $columnTypes,
+                    'sql_types' => $GLOBALS['PMA_Types'],
                 )); ?>
         </fieldset>
     </fieldset>

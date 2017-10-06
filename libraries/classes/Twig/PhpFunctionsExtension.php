@@ -27,6 +27,7 @@ class PhpFunctionsExtension extends Twig_Extension
         return array(
             new Twig_SimpleFunction('array_search', 'array_search'),
             new Twig_SimpleFunction('md5', 'md5'),
+            new Twig_SimpleFunction('preg_replace', 'preg_replace'),
         );
     }
 }
