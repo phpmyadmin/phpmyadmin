@@ -42,8 +42,11 @@ switch ($searchType) {
             ?>
             <?= PhpMyAdmin\Template::get('table/search/options_zoom')
                 ->render(array(
-                    'dataLabel' => $dataLabel,
-                    'columnNames' => $columnNames
+                    'data_label' => $dataLabel,
+                    'column_names' => $columnNames,
+                    'max_plot_limit' => ((! empty($_POST['maxPlotLimit']))
+                        ? intval($_POST['maxPlotLimit'])
+                        : intval($GLOBALS['cfg']['maxRowPlotLimit'])),
             )) ?>
         </fieldset>
     </fieldset>
