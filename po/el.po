@@ -7056,7 +7056,7 @@ msgstr "Περιήγηση"
 
 #: libraries/classes/DbSearch.php:377
 msgid "Search in database"
-msgstr "Αναζήτηση στη βάση δεδπμένων"
+msgstr "Αναζήτηση στη βάση δεδομένων"
 
 #: libraries/classes/DbSearch.php:381
 msgid "Words or values to search for (wildcard: \"%\"):"
