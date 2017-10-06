@@ -3253,17 +3253,18 @@ AJAX.registerOnload('functions.js', function () {
                 AJAX.scriptHandler.load(data._scripts);
             }
 
-            $('<div id="change_password_dialog"></div>')
+            $('<div id="change_password_dialog" ></div>')
                 .dialog({
                     title: PMA_messages.strChangePassword,
-                    width: 600,
-                    close: function (ev, ui) {
+                    width: 600,	
+                    position: { my: "top", at: "top", of: window }	,				
+					close: function (ev, ui) {
                         $(this).remove();
                     },
                     buttons: button_options,
                     modal: true
                 })
-                .append(data.message);
+			    .append(data.message);
             // for this dialog, we remove the fieldset wrapping due to double headings
             $("fieldset#fieldset_change_password")
                 .find("legend").remove().end()
