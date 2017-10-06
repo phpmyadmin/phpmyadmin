@@ -19,11 +19,11 @@
             {{ properties['collation'] }}
         </td>
         <td>
-            {{ properties['func'] }}
+            {{ properties['func']|raw }}
         </td>
         {# here, the data-type attribute is needed for a date/time picker #}
         <td data-type="{{ properties['type'] }}">
-            {{ properties['value'] }}
+            {{ properties['value']|raw }}
             {# Displays hidden fields #}
             <input type="hidden"
                 name="criteriaColumnNames[{{ column_index }}]"

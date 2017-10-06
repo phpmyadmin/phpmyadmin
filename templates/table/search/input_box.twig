@@ -25,7 +25,7 @@
                 {{- Url_getCommon({'db': db, 'table': table}) -}}
                 &amp;field={{ column_name|url_encode }}&amp;fieldkey=
                 {{- column_index }}&amp;fromsearch=1">
-            {{ titles['Browse']|replace({"'": "\\'"}) }}
+            {{ titles['Browse']|replace({"'": "\\'"})|raw }}
         </a>
     {% endif %}
 {% elseif column_type in Util_getGISDatatypes() %}
