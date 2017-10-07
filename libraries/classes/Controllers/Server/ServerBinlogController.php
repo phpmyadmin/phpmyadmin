@@ -85,6 +85,7 @@ class ServerBinlogController extends Controller
             array(
                 'url_params' => $url_params,
                 'binary_logs' => $this->binary_logs,
+                'log' => $_REQUEST['log'],
             )
         );
     }
