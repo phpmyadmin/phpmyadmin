@@ -39,6 +39,7 @@ class NormalizationTest extends TestCase
         $GLOBALS['db'] = 'PMA_db';
         $GLOBALS['table'] = 'PMA_table';
         $GLOBALS['server'] = 1;
+        $GLOBALS['cfg']['Server']['DisableIS'] = false;
 
         //$_SESSION
 

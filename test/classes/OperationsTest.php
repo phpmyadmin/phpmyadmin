@@ -40,6 +40,7 @@ class OperationsTest extends TestCase
         $GLOBALS['col_priv'] = true;
         $GLOBALS['proc_priv'] = true;
         $GLOBALS['flush_priv'] = true;
+        $GLOBALS['cfg']['Server']['DisableIS'] = false;
     }
 
     /**

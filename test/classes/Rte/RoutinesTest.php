@@ -36,6 +36,7 @@ class RoutinesTest extends TestCase
         $GLOBALS['server'] = 0;
         $GLOBALS['PMA_Types'] = new TypesMySQL();
         $GLOBALS['pmaThemePath'] = $GLOBALS['PMA_Theme']->getPath();
+        $GLOBALS['cfg']['Server']['DisableIS'] = false;
     }
 
     /**

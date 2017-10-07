@@ -20,6 +20,7 @@ class CharsetsTest extends TestCase
     public function setUp()
     {
         $GLOBALS['cfg']['DBG']['sql'] = false;
+        $GLOBALS['cfg']['Server']['DisableIS'] = false;
     }
 
     /**

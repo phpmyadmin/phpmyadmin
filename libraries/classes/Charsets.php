@@ -65,14 +65,20 @@ class Charsets
             return;
         }
 
-        $sql = 'SELECT * FROM information_schema.CHARACTER_SETS';
+        if ($GLOBALS['cfg']['Server']['DisableIS']) {
+            $sql = 'SHOW CHARACTER SET';
+        } else {
+            $sql = 'SELECT `CHARACTER_SET_NAME` AS `Charset`,'
+                . ' `DESCRIPTION` AS `Description`'
+                . ' FROM `information_schema`.`CHARACTER_SETS`';
+        }
         $res = $GLOBALS['dbi']->query($sql);
 
         self::$_charsets = array();
         while ($row = $GLOBALS['dbi']->fetchAssoc($res)) {
-            $name = $row['CHARACTER_SET_NAME'];
+            $name = $row['Charset'];
             self::$_charsets[] = $name;
-            self::$_charsets_descriptions[$name] = $row['DESCRIPTION'];
+            self::$_charsets_descriptions[$name] = $row['Description'];
         }
         $GLOBALS['dbi']->freeResult($res);
 
@@ -91,13 +97,20 @@ class Charsets
             return;
         }
 
-        $sql = 'SELECT * FROM information_schema.COLLATIONS';
+        if ($GLOBALS['cfg']['Server']['DisableIS']) {
+            $sql = 'SHOW COLLATION';
+        } else {
+            $sql = 'SELECT `CHARACTER_SET_NAME` AS `Charset`,'
+                . ' `COLLATION_NAME` AS `Collation`, `IS_DEFAULT` AS `Default`'
+                . ' FROM `information_schema`.`COLLATIONS`';
+        }
+
         $res = $GLOBALS['dbi']->query($sql);
         while ($row = $GLOBALS['dbi']->fetchAssoc($res)) {
-            $char_set_name = $row['CHARACTER_SET_NAME'];
-            $name = $row['COLLATION_NAME'];
+            $char_set_name = $row['Charset'];
+            $name = $row['Collation'];
             self::$_collations[$char_set_name][] = $name;
-            if ($row['IS_DEFAULT'] == 'Yes' || $row['IS_DEFAULT'] == '1') {
+            if ($row['Default'] == 'Yes' || $row['Default'] == '1') {
                 self::$_default_collations[$char_set_name] = $name;
             }
         }

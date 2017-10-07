@@ -38,6 +38,7 @@ phpMyAdmin - ChangeLog
 - issue #13560 Add support for changing collation for all tables and columns in database
 - issue #13303 Add support for creating fulltext index from table structure
 - issue #13711 Lower default value for $cfg['MaxExactCount']
+- issue #13722 DisableIS is not fully honored
 
 4.7.5 (not yet released)
 - issue #13615 Avoid problems with browsing unknown query types
