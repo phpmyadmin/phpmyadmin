@@ -498,21 +498,25 @@ class TableSearchController extends TableController
                 )
         );
         $this->response->addHTML(
-            Template::get('table/search/selection_form')
-                ->render(
-                    array(
-                        'searchType'       => $this->_searchType,
-                        'db'               => $this->db,
-                        'table'            => $this->table,
-                        'goto'             => $goto,
-                        'self'             => $this,
-                        'geomColumnFlag'   => $this->_geomColumnFlag,
-                        'columnNames'      => $this->_columnNames,
-                        'columnTypes'      => $this->_columnTypes,
-                        'columnCollations' => $this->_columnCollations,
-                        'dataLabel'        => $dataLabel,
-                    )
-                )
+            Template::get('table/search/selection_form')->render(array(
+                'search_type' => $this->_searchType,
+                'db' => $this->db,
+                'table' => $this->table,
+                'goto' => $goto,
+                'self' => $this,
+                'geom_column_flag' => $this->_geomColumnFlag,
+                'column_names' => $this->_columnNames,
+                'column_types' => $this->_columnTypes,
+                'column_collations' => $this->_columnCollations,
+                'data_label' => $dataLabel,
+                'criteria_column_names' => $_POST['criteriaColumnNames'],
+                'criteria_column_types' => $_POST['criteriaColumnTypes'],
+                'sql_types' => $GLOBALS['PMA_Types'],
+                'max_rows' => intval($GLOBALS['cfg']['MaxRows']),
+                'max_plot_limit' => ((! empty($_POST['maxPlotLimit']))
+                    ? intval($_POST['maxPlotLimit'])
+                    : intval($GLOBALS['cfg']['maxRowPlotLimit'])),
+            ))
         );
     }
 
