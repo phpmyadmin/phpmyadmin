@@ -151,15 +151,16 @@ class Designer
     public static function getHtmlForJsFields(
         array $script_tables, array $script_contr, array $script_display_field, $display_page
     ) {
-        return Template::get('database/designer/js_fields')
-            ->render(
-                array(
-                    'script_tables' => $script_tables,
-                    'script_contr' => $script_contr,
-                    'script_display_field' => $script_display_field,
-                    'display_page' => $display_page
-                )
-            );
+        $cfgRelation = Relation::getRelationsParam();
+        return Template::get('database/designer/js_fields')->render(array(
+            'server' => $GLOBALS['server'],
+            'db' => $_GET['db'],
+            'script_tables' => json_encode($script_tables),
+            'script_contr' => json_encode($script_contr),
+            'script_display_field' => json_encode($script_display_field),
+            'display_page' => $display_page,
+            'relation_pdfwork' => $cfgRelation['pdfwork'],
+        ));
     }
 
     /**
