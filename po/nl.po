@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.7.4-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2017-08-10 09:13-0400\n"
-"PO-Revision-Date: 2017-09-03 16:45+0000\n"
-"Last-Translator: Steven WdV <stevenwdv@gmail.com>\n"
+"PO-Revision-Date: 2017-10-08 21:45+0000\n"
+"Last-Translator: dingo thirteen <dingo13@gmail.com>\n"
 "Language-Team: Dutch <https://hosted.weblate.org/projects/phpmyadmin/4-7/nl/>"
 "\n"
 "Language: nl\n"
@@ -537,9 +537,8 @@ msgstr ""
 "%sdocumentatie%s om deze limiet te omzeilen."
 
 #: import.php:367 import.php:568
-#, fuzzy
 msgid "Showing bookmark"
-msgstr "Bladwijzer tonen"
+msgstr "Toon bladwijzer"
 
 #: import.php:383 import.php:564
 msgid "The bookmark has been deleted."
