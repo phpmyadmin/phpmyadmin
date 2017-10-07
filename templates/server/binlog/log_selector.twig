@@ -1,0 +1,29 @@
+<form action="server_binlog.php" method="get">
+    {{ Url_getHiddenInputs(url_params) }}
+    <fieldset>
+        <legend>
+            {% trans 'Select binary log to view' %}
+        </legend>
+        {% set full_size = 0 %}
+        <select name="log">
+            {% for each_log in binary_logs %}
+                <option value="{{ each_log['Log_name'] }}"
+                    {{- each_log['Log_name'] == log ? ' selected="selected"' }}>
+                    {{ each_log['Log_name'] }}
+                    {% if each_log['File_size'] is defined %}
+                        ({{ Util_formatByteDown(each_log['File_size'], 3, 2)|join(' ') }})
+                        {% set full_size = full_size + each_log['File_size'] %}
+                    {% endif %}
+                </option>
+            {% endfor %}
+        </select>
+        {{ binary_logs|length }}
+        {% trans 'Files' %},
+        {% if full_size > 0 %}
+            {{ Util_formatByteDown(full_size)|join(' ') }}
+        {% endif %}
+    </fieldset>
+    <fieldset class="tblFooters">
+        <input type="submit" value="{% trans 'Go' %}" />
+    </fieldset>
+</form>
