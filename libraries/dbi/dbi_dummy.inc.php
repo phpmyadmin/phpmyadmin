@@ -239,8 +239,8 @@ $GLOBALS['dummy_queries'] = array(
             'Description',
         ),
         'result'  => array(
-            array('utf8', 'utf8_general_ci'),
-            array('latin1', 'latin1_swedish_ci'),
+            array('utf8', 'UTF-8 Unicode'),
+            array('latin1', 'cp1252 West European'),
         ),
     ),
     array(
