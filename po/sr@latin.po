@@ -4,49 +4,43 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.8.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2017-09-08 21:11+0200\n"
-"PO-Revision-Date: 2015-10-15 11:24+0200\n"
-"Last-Translator: Michal Čihař <michal@cihar.com>\n"
-"Language-Team: Serbian (latin) <https://hosted.weblate.org/projects/"
-"phpmyadmin/master/sr%40latin/>\n"
+"PO-Revision-Date: 2017-10-09 08:47+0000\n"
+"Last-Translator: Suad Pacariz <suad@pacariz.in.rs>\n"
+"Language-Team: Serbian (latin) "
+"<https://hosted.weblate.org/projects/phpmyadmin/master/sr_Latn/>\n"
 "Language: sr@latin\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=3; plural=n%10==1 && n%100!=11 ? 0 : n%10>=2 && n"
-"%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
-"X-Generator: Weblate 2.5-dev\n"
+"Plural-Forms: nplurals=3; plural=n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%10<="
+"4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
+"X-Generator: Weblate 2.17-dev\n"
 
 #: ajax.php:17 ajax.php:34 export.php:196 schema_export.php:67
 msgid "Bad type!"
 msgstr "Pogrešan tip!"
 
 #: changelog.php:39 license.php:34
-#, fuzzy, php-format
-#| msgid ""
-#| "The %s file is not available on this system, please visit www.phpmyadmin."
-#| "net for more information."
+#, php-format
 msgid ""
 "The %s file is not available on this system, please visit %s for more "
 "information."
 msgstr ""
-"Datoteka %s nije dostupna na ovom sistemu, molimo vas posetite www."
-"phpmyadmin.net za više informacija."
+"Datoteka %s nije dostupna na ovom sistemu, molimo vas posetite %s za više "
+"informacija."
 
 #: db_central_columns.php:110
 msgid "The central list of columns for the current database is empty."
-msgstr ""
+msgstr "Lista kolona trebutne baze je prazna."
 
 #: db_central_columns.php:135
-#, fuzzy
-#| msgid "Click to sort"
 msgid "Click to sort."
-msgstr "Kliknite da bi ste sortirali"
+msgstr "Kliknite da bi ste sortirali."
 
 #: db_central_columns.php:152
-#, fuzzy, php-format
-#| msgid "Showing rows"
+#, php-format
 msgid "Showing rows %1$s - %2$s."
-msgstr "Prikaz zapisa"
+msgstr "Prikaz redova %1$s - %2$s."
 
 #: db_datadict.php:59 libraries/classes/Operations.php:47
 msgid "Database comment"
@@ -56,10 +50,8 @@ msgstr "Komentar baze"
 #: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php:596
 #: templates/columns_definitions/column_definitions_form.phtml:90
 #: templates/table/structure/display_table_stats.twig:32
-#, fuzzy
-#| msgid "Table comments"
 msgid "Table comments:"
-msgstr "Komentari tabele"
+msgstr "Komentari tabele:"
 
 #: db_datadict.php:115 libraries/classes/Index.php:723
 #: libraries/classes/InsertEdit.php:1650
@@ -248,7 +240,7 @@ msgstr "Da"
 
 #: db_export.php:48
 msgid "View dump (schema) of database"
-msgstr "Prikaži sadržaj (shemu) baze"
+msgstr "Prikaži sadržaj (šemu) baze"
 
 #: db_export.php:53 db_tracking.php:105 export.php:379
 #: libraries/classes/Controllers/Database/DatabaseStructureController.php:149
@@ -308,29 +300,24 @@ msgstr "Izaberi sve"
 
 #: db_operations.php:54 tbl_create.php:26
 msgid "The database name is empty!"
-msgstr "Ime baze nije zadato!"
+msgstr "Naziv baze je prazan!"
 
 #: db_operations.php:57
 msgid "Cannot copy database to the same name. Change the name and try again."
 msgstr ""
 
 #: db_operations.php:146
-#, fuzzy, php-format
-#| msgid "Database %1$s has been renamed to %2$s."
+#, php-format
 msgid "Database %1$s has been renamed to %2$s."
-msgstr "Baza %1$s je preimenovana u %2$s"
+msgstr "Baza %1$s je preimenovana u %2$s."
 
 #: db_operations.php:158
-#, fuzzy, php-format
-#| msgid "Database %1$s has been copied to %2$s."
+#, php-format
 msgid "Database %1$s has been copied to %2$s."
-msgstr "Baza %1$s je iskopirana u %2$s"
+msgstr "Baza %1$s je iskopirana u %2$s."
 
 #: db_operations.php:285
-#, fuzzy, php-format
-#| msgid ""
-#| "The phpMyAdmin configuration storage has been deactivated. To find out "
-#| "why click %shere%s."
+#, php-format
 msgid ""
 "The phpMyAdmin configuration storage has been deactivated. %sFind out why%s."
 msgstr ""
@@ -338,10 +325,8 @@ msgstr ""
 "zašto, kliknite %sovde%s."
 
 #: db_qbe.php:127
-#, fuzzy
-#| msgid "You have to choose at least one column to display"
 msgid "You have to choose at least one column to display!"
-msgstr "Morate izabrati bar jednu kolonu za prikaz"
+msgstr "Morate izabrati bar jednu kolonu za prikaz!"
 
 #: db_qbe.php:145
 #, php-format
