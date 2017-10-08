@@ -1568,6 +1568,7 @@ div#profilingchart {
     font-size: 1.7em;
 }
 #sectionlinks {
+    margin-bottom: 15px;
     padding: 16px;
     background: #f3f3f3;
     border: 1px solid #aaa;

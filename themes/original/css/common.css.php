@@ -1101,6 +1101,15 @@ div#logTable table {
 
 /* end serverstatus */
 
+#sectionlinks {
+    margin-bottom: 15px;
+    padding: 10px;
+    border: 1px solid #CCC;
+}
+#sectionlinks a {
+    margin-<?php echo $right; ?>: 7px;
+}
+
 /* server variables */
 #serverVariables {
     width: 100%;

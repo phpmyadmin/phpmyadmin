@@ -1,8 +1,0 @@
-<div id="sectionlinks">
-<?php foreach ($plugins as $plugin_type => $plugin_list): ?>
-    <a href="#plugins-<?= preg_replace('/[^a-z]/', '', mb_strtolower($plugin_type)); ?>">
-         <?= htmlspecialchars($plugin_type); ?>
-    </a>
-<?php endforeach; ?>
-</div>
-<br />
