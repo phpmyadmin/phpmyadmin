@@ -29,6 +29,11 @@ class CharsetsExtension extends Twig_Extension
                 'Charsets_getCollationDescr',
                 'PhpMyAdmin\Charsets::getCollationDescr'
             ),
+            new Twig_SimpleFunction(
+                'Charsets_getCollationDropdownBox',
+                'PhpMyAdmin\Charsets::getCollationDropdownBox',
+                array('is_safe' => array('html'))
+            ),
         );
     }
 }

@@ -99,7 +99,12 @@ class ServerDatabasesController extends Controller
          */
         $html = '';
         if ($GLOBALS['cfg']['ShowCreateDb']) {
-            $html .= Template::get('server/databases/create')->render();
+            $html .= Template::get('server/databases/create')->render([
+                'is_create_db_priv' => $GLOBALS['is_create_db_priv'],
+                'dbstats' => $this->_dbstats,
+                'db_to_create' => $GLOBALS['db_to_create'],
+                'server_collation' => $GLOBALS['dbi']->getServerCollation(),
+            ]);
         }
 
         $html .= Template::get('filter')->render(array('filter_value'=>''));

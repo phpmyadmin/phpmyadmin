@@ -509,8 +509,8 @@ class TableSearchController extends TableController
                 'column_types' => $this->_columnTypes,
                 'column_collations' => $this->_columnCollations,
                 'data_label' => $dataLabel,
-                'criteria_column_names' => $_POST['criteriaColumnNames'],
-                'criteria_column_types' => $_POST['criteriaColumnTypes'],
+                'criteria_column_names' => isset($_POST['criteriaColumnNames']) ? $_POST['criteriaColumnNames'] : null,
+                'criteria_column_types' => isset($_POST['criteriaColumnTypes']) ? $_POST['criteriaColumnTypes'] : null,
                 'sql_types' => $GLOBALS['PMA_Types'],
                 'max_rows' => intval($GLOBALS['cfg']['MaxRows']),
                 'max_plot_limit' => ((! empty($_POST['maxPlotLimit']))
