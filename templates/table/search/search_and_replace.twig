@@ -6,7 +6,7 @@
 {% trans 'Column:' %}
 <select name="columnIndex">
     {% for i in 0..column_names|length - 1 %}
-        {% set type = preg_replace('@\(.*@s', '', column_types[i]) %}
+        {% set type = preg_replace('@\\(.*@s', '', column_types[i]) %}
         {% if sql_types.getTypeClass(type) == 'CHAR' %}
             {% set column = column_names[i] %}
             <option value="{{ i }}">
