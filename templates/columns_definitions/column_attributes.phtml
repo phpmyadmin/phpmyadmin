@@ -174,11 +174,11 @@ $ci_offset = -1;
         <!-- Column Mime-type -->
         <?= PhpMyAdmin\Template::get('columns_definitions/mime_type')
             ->render(array(
-                'columnNumber' => $columnNumber,
+                'column_number' => $columnNumber,
                 'ci' => $ci++,
                 'ci_offset' => $ci_offset,
                 'available_mime' => $available_mime,
-                'columnMeta' => $columnMeta,
+                'column_meta' => $columnMeta,
                 'mime_map' => $mime_map
             )); ?>
     </td>
