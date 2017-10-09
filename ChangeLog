@@ -56,6 +56,7 @@ phpMyAdmin - ChangeLog
 - issue #13710 Fixed possible error in server advisor
 - issue #13477 Fixed setting input transformations
 - issue #13552 Fixed IPv4/IPv6 To Binary input transformation
+- issue #13686 Clicking on column name to trigger sort with an active search leads to logout
 
 4.7.4 (2017-08-23)
 - issue #13415 Remove shadow from the logo
