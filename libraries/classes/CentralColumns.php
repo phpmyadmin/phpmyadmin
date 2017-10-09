@@ -869,20 +869,18 @@ class CentralColumns
             . '<span>' . htmlspecialchars($row['col_name']) . '</span>'
             . '<input name="orig_col_name" type="hidden" '
             . 'value="' . htmlspecialchars($row['col_name']) . '">'
-            . Template::get('columns_definitions/column_name')
-                ->render(
-                    array(
-                    'columnNumber' => $row_num,
-                    'ci' => 0,
-                    'ci_offset' => 0,
-                    'columnMeta' => array(
-                        'Field'=>$row['col_name']
-                    ),
-                    'cfgRelation' => array(
-                        'centralcolumnswork' => false
-                    )
-                    )
-                )
+            . Template::get('columns_definitions/column_name')->render(array(
+                'column_number' => $row_num,
+                'ci' => 0,
+                'ci_offset' => 0,
+                'column_meta' => array(
+                    'Field'=>$row['col_name']
+                ),
+                'cfg_relation' => array(
+                    'centralcolumnswork' => false
+                ),
+                'max_rows' => intval($GLOBALS['cfg']['MaxRows']),
+            ))
             . '</td>';
         $tableHtml .=
             '<td name = "col_type" class="nowrap"><span>'
@@ -1017,20 +1015,18 @@ class CentralColumns
             . '<input name="orig_col_name[' . $row_num . ']" type="hidden" '
             . 'value="' . htmlspecialchars($row['col_name']) . '">'
             . '<td name="col_name" class="nowrap">'
-            . Template::get('columns_definitions/column_name')
-                ->render(
-                    array(
-                    'columnNumber' => $row_num,
-                    'ci' => 0,
-                    'ci_offset' => 0,
-                    'columnMeta' => array(
-                        'Field' => $row['col_name']
-                    ),
-                    'cfgRelation' => array(
-                        'centralcolumnswork' => false
-                    )
-                    )
-                )
+            . Template::get('columns_definitions/column_name')->render(array(
+                'column_number' => $row_num,
+                'ci' => 0,
+                'ci_offset' => 0,
+                'column_meta' => array(
+                    'Field' => $row['col_name']
+                ),
+                'cfg_relation' => array(
+                    'centralcolumnswork' => false
+                ),
+                'max_rows' => intval($GLOBALS['cfg']['MaxRows']),
+            ))
             . '</td>';
         $tableHtml .=
             '<td name = "col_type" class="nowrap">'
@@ -1285,18 +1281,16 @@ class CentralColumns
         $addNewColumn .= '<tr>'
             . '<td></td>'
             . '<td name="col_name" class="nowrap">'
-            . Template::get('columns_definitions/column_name')
-                ->render(
-                    array(
-                    'columnNumber' => 0,
-                    'ci' => 0,
-                    'ci_offset' => 0,
-                    'columnMeta' => array(),
-                    'cfgRelation' => array(
-                        'centralcolumnswork' => false
-                    )
-                    )
-                )
+            . Template::get('columns_definitions/column_name')->render(array(
+                'column_number' => 0,
+                'ci' => 0,
+                'ci_offset' => 0,
+                'column_meta' => array(),
+                'cfg_relation' => array(
+                    'centralcolumnswork' => false
+                ),
+                'max_rows' => intval($GLOBALS['cfg']['MaxRows']),
+            ))
             . '</td>'
             . '<td name = "col_type" class="nowrap">'
             . Template::get('columns_definitions/column_type')

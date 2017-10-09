@@ -11,11 +11,12 @@ $ci_offset = -1;
     <!-- column name -->
     <?= PhpMyAdmin\Template::get('columns_definitions/column_name')
         ->render(array(
-            'columnNumber' => $columnNumber,
+            'column_number' => $columnNumber,
             'ci' => $ci++,
             'ci_offset' => $ci_offset,
-            'columnMeta' => isset($columnMeta) ? $columnMeta : null,
-            'cfgRelation' => $cfgRelation
+            'column_meta' => isset($columnMeta) ? $columnMeta : null,
+            'cfg_relation' => $cfgRelation,
+            'max_rows' => intval($GLOBALS['cfg']['MaxRows']),
         )); ?>
 </td>
 <td class="center">
