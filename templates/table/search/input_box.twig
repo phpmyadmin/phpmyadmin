@@ -63,16 +63,17 @@
             size="{{ min(3, cnt_value) }}">
     {% endif %}
     {# Add select options #}
+    <option value=""></option>
     {% for i in 0..cnt_value - 1 %}
         {% if criteria_values[column_index] is defined
             and criteria_values[column_index] is iterable
             and value[i] in criteria_values[column_index] %}
-            <option value="{{ value[i] }}" selected>
-                {{ value[i] }}
+            <option value="{{ value[i]|raw }}" selected>
+                {{ value[i]|raw }}
             </option>
         {% else %}
-            <option value="{{ value[i] }}">
-                {{ value[i] }}
+            <option value="{{ value[i]|raw }}">
+                {{ value[i]|raw }}
             </option>
         {% endif %}
     {% endfor %}
