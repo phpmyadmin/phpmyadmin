@@ -1849,6 +1849,7 @@ class Util
                 $submit_link    = '#';
             } else {
                 $query_parts[] = 'redirect=' . $url_parts['path'];
+                $query_parts[] = 'token=' . $_SESSION[' PMA_token '];
                 if (empty($GLOBALS['subform_counter'])) {
                     $GLOBALS['subform_counter'] = 0;
                 }
