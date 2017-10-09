@@ -155,10 +155,10 @@ $ci_offset = -1;
     <td class="center">
         <?= PhpMyAdmin\Template::get('columns_definitions/move_column')
             ->render(array(
-                'columnNumber' => $columnNumber,
+                'column_number' => $columnNumber,
                 'ci' => $ci++,
                 'ci_offset' => $ci_offset,
-                'columnMeta' => $columnMeta,
+                'column_meta' => $columnMeta,
                 'move_columns' => $move_columns,
                 'current_index' => $current_index
             )); ?>
