@@ -123,11 +123,15 @@ $ci_offset = -1;
     <!-- column comments -->
     <?= PhpMyAdmin\Template::get('columns_definitions/column_comment')
         ->render(array(
-            'columnNumber' => $columnNumber,
+            'column_number' => $columnNumber,
             'ci' => $ci++,
             'ci_offset' => $ci_offset,
-            'columnMeta' => isset($columnMeta) ? $columnMeta : null,
-            'comments_map' => $comments_map
+            'max_length' => $GLOBALS['dbi']->getVersion() >= 50503 ? 1024 : 255,
+            'value' => (isset($columnMeta['Field'])
+                && is_array($comments_map)
+                && isset($comments_map[$columnMeta['Field']]))
+                ? htmlspecialchars($comments_map[$columnMeta['Field']])
+                : '',
         )); ?>
 </td>
  <!-- column virtuality -->
