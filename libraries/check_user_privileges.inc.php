@@ -11,8 +11,6 @@ if (! defined('PHPMYADMIN')) {
 
 use PhpMyAdmin\CheckUserPrivileges;
 
-$GLOBALS['is_superuser'] = $GLOBALS['dbi']->isSuperuser();
-
 list($username, $hostname) = $GLOBALS['dbi']->getCurrentUserAndHost();
 if ($username === '') { // MySQL is started with --skip-grant-tables
     $GLOBALS['is_create_db_priv'] = true;

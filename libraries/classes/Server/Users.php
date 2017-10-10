@@ -33,7 +33,7 @@ class Users
             )
         );
 
-        if ($GLOBALS['is_superuser']) {
+        if ($GLOBALS['dbi']->isSuperuser()) {
             $items[] = array(
                 'name' => __('User groups'),
                 'url' => 'server_user_groups.php',

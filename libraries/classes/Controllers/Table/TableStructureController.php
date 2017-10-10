@@ -295,7 +295,6 @@ class TableStructureController extends TableController
             $db = $this->db;
             $table = $this->table;
             $cfg = $GLOBALS['cfg'];
-            $is_superuser = $GLOBALS['dbi']->isSuperuser();
             $pmaThemeImage = $GLOBALS['pmaThemeImage'];
             include 'sql.php';
             $GLOBALS['reload'] = true;

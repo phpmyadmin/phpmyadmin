@@ -754,11 +754,6 @@ if (count($_REQUEST) > 1000) {
     Core::fatalError(__('possible exploit'));
 }
 
-// here, the function does not exist with this configuration:
-// $cfg['ServerDefault'] = 0;
-$GLOBALS['is_superuser']
-    = isset($GLOBALS['dbi']) && $GLOBALS['dbi']->isSuperuser();
-
 if (!empty($__redirect) && in_array($__redirect, $goto_whitelist)) {
     /**
      * include subform target page

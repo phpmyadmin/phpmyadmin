@@ -152,7 +152,7 @@ if ($table != $table_from_sql && !empty($table_from_sql)) {
  * into account this case.
  */
 if (Sql::hasNoRightsToDropDatabase(
-    $analyzed_sql_results, $cfg['AllowUserDropDatabase'], $is_superuser
+    $analyzed_sql_results, $cfg['AllowUserDropDatabase'], $GLOBALS['dbi']->isSuperuser()
 )) {
     Util::mysqlDie(
         __('"DROP DATABASE" statements are disabled.'),

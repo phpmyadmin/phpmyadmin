@@ -26,6 +26,7 @@ class UsersTest extends TestCase
      */
     public function testGetHtmlForSubMenusOnUsersPage()
     {
+        $GLOBALS['server'] = 1;
         $html = Users::getHtmlForSubMenusOnUsersPage('server_privileges.php');
 
         //validate 1: topmenu2

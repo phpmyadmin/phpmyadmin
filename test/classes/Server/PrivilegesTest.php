@@ -127,7 +127,6 @@ class PrivilegesTest extends TestCase
             ->will($this->returnArgument(0));
 
         $GLOBALS['dbi'] = $dbi;
-        $GLOBALS['is_superuser'] = true;
         $GLOBALS['is_grantuser'] = true;
         $GLOBALS['is_createuser'] = true;
         $GLOBALS['is_reload_priv'] = true;
@@ -1475,6 +1474,8 @@ class PrivilegesTest extends TestCase
             array('COLUMN_NAME' => 'Host', 'CHARACTER_MAXIMUM_LENGTH' => 80),
             array('COLUMN_NAME' => 'User', 'CHARACTER_MAXIMUM_LENGTH' => 40),
         );
+        $dbi->expects($this->any())->method('isSuperuser')
+            ->will($this->returnValue(true));
         $dbi->expects($this->any())->method('fetchResult')
             ->will($this->returnValue($fields_info));
         $dbi->expects($this->any())
@@ -1558,6 +1559,8 @@ class PrivilegesTest extends TestCase
         $dbi->expects($this->any())
             ->method('escapeString')
             ->will($this->returnArgument(0));
+        $dbi->expects($this->any())->method('isSuperuser')
+            ->will($this->returnValue(true));
 
         $GLOBALS['dbi'] = $dbi;
 

@@ -97,7 +97,6 @@ class ChangePassword
             $username,
             $hostname
         );
-        $is_superuser = $GLOBALS['dbi']->isSuperuser();
 
         if (($serverType == 'MySQL'
             && $serverVersion >= 50507)
@@ -108,7 +107,7 @@ class ChangePassword
             // OR for privileged users in 5.5.7+
             if (($serverType == 'MySQL'
                 && $serverVersion >= 50706)
-                || ($is_superuser && $mode == 'edit_other')
+                || ($GLOBALS['dbi']->isSuperuser() && $mode == 'edit_other')
             ) {
                 $auth_plugin_dropdown = Privileges::getHtmlForAuthPluginsDropdown(
                     $orig_auth_plugin, 'change_pw', 'new'

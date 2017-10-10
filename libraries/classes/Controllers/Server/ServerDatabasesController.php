@@ -63,7 +63,7 @@ class ServerDatabasesController extends Controller
 
         if (isset($_REQUEST['drop_selected_dbs'])
             && $response->isAjax()
-            && ($GLOBALS['is_superuser'] || $GLOBALS['cfg']['AllowUserDropDatabase'])
+            && ($GLOBALS['dbi']->isSuperuser() || $GLOBALS['cfg']['AllowUserDropDatabase'])
         ) {
             $this->dropDatabasesAction();
             return;
@@ -384,7 +384,7 @@ class ServerDatabasesController extends Controller
      */
     private function _getHtmlForTableFooterButtons()
     {
-        if (! $GLOBALS['is_superuser']
+        if (! $GLOBALS['dbi']->isSuperuser()
             && ! $GLOBALS['cfg']['AllowUserDropDatabase']
         ) {
             return '';

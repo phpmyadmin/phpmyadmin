@@ -25,7 +25,7 @@ $scripts->addFile('server_user_groups.js');
 /**
  * Only allowed to superuser
  */
-if (! $GLOBALS['is_superuser']) {
+if (! $GLOBALS['dbi']->isSuperuser()) {
     $response->addHTML(
         PhpMyAdmin\Message::error(__('No Privileges'))
             ->getDisplay()

@@ -129,7 +129,7 @@ list(
 /**
  * Checks if the user is allowed to do what he tries to...
  */
-if (!$GLOBALS['is_superuser'] && !$GLOBALS['is_grantuser']
+if (!$GLOBALS['dbi']->isSuperuser() && !$GLOBALS['is_grantuser']
     && !$GLOBALS['is_createuser']
 ) {
     $response->addHTML(Common::getHtmlForSubPageHeader('privileges', '', false));
@@ -241,7 +241,7 @@ if (! empty($_POST['update_privs'])) {
  * Assign users to user groups
  */
 if (! empty($_REQUEST['changeUserGroup']) && $cfgRelation['menuswork']
-    && $GLOBALS['is_superuser'] && $GLOBALS['is_createuser']
+    && $GLOBALS['dbi']->isSuperuser() && $GLOBALS['is_createuser']
 ) {
     Privileges::setUserGroup($username, $_REQUEST['userGroup']);
     $message = Message::success();

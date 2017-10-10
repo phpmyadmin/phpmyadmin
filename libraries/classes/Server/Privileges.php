@@ -637,7 +637,7 @@ class Privileges
             $row = $GLOBALS['dbi']->fetchSingleRow($sql_query);
         }
         if (empty($row)) {
-            if ($table == '*' && $GLOBALS['is_superuser']) {
+            if ($table == '*' && $GLOBALS['dbi']->isSuperuser()) {
                 $row = array();
                 if ($db == '*') {
                     $sql_query = 'SHOW COLUMNS FROM `mysql`.`user`;';
@@ -1865,7 +1865,6 @@ class Privileges
     {
         // similar logic in user_password.php
         $message = '';
-        $is_superuser = $GLOBALS['dbi']->isSuperuser();
 
         if (empty($_REQUEST['nopass'])
             && isset($_POST['pma_pw'])
@@ -1917,7 +1916,7 @@ class Privileges
                     . $GLOBALS['dbi']->escapeString($_POST['pma_pw']) . "'";
             } else if ($serverType == 'MariaDB'
                 && $serverVersion >= 50200
-                && $is_superuser
+                && $GLOBALS['dbi']->isSuperuser()
             ) {
                 // Use 'UPDATE `mysql`.`user` ...' Syntax for MariaDB 5.2+
                 if ($authentication_plugin == 'mysql_native_password') {
@@ -2346,7 +2345,8 @@ class Privileges
     public static function getHtmlForSpecificDbPrivileges($db)
     {
         $html_output = '';
-        if ($GLOBALS['is_superuser']) {
+
+        if ($GLOBALS['dbi']->isSuperuser()) {
             // check the privileges for a particular database.
             $html_output  = '<form id="usersForm" action="server_privileges.php">';
             $html_output .= Url::getHiddenInputs($db);
@@ -2422,7 +2422,7 @@ class Privileges
     public static function getHtmlForSpecificTablePrivileges($db, $table)
     {
         $html_output = '';
-        if ($GLOBALS['is_superuser']) {
+        if ($GLOBALS['dbi']->isSuperuser()) {
             // check the privileges for a particular table.
             $html_output  = '<form id="usersForm" action="server_privileges.php">';
             $html_output .= Url::getHiddenInputs($db, $table);

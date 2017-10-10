@@ -231,7 +231,7 @@ class RteList
         // CREATE ROUTINE privilege to avoid lost procedures.
         if ((Util::currentUserHasPrivilege('CREATE ROUTINE', $db)
             && $curr_user == $routine_definer)
-            || $GLOBALS['is_superuser']
+            || $GLOBALS['dbi']->isSuperuser()
         ) {
             $retval .= '                <a ' . $ajax_class['edit']
                                              . ' href="db_routines.php'
@@ -299,7 +299,7 @@ class RteList
         $retval .= "            <td>\n";
         if ((Util::currentUserHasPrivilege('CREATE ROUTINE', $db)
             && $curr_user == $routine_definer)
-            || $GLOBALS['is_superuser']
+            || $GLOBALS['dbi']->isSuperuser()
         ) {
             $retval .= '                <a ' . $ajax_class['export']
                                              . ' href="db_routines.php'

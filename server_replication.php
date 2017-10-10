@@ -30,7 +30,7 @@ $scripts->addFile('vendor/zxcvbn.js');
 /**
  * Checks if the user is allowed to do what he tries to...
  */
-if (! $is_superuser) {
+if (! $GLOBALS['dbi']->isSuperuser()) {
     $html  = Common::getHtmlForSubPageHeader('replication');
     $html .= PhpMyAdmin\Message::error(__('No Privileges'))->getDisplay();
     $response->addHTML($html);

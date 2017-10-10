@@ -18,7 +18,6 @@ use ReflectionClass;
  */
 //$GLOBALS
 $GLOBALS['server'] = 1;
-$GLOBALS['is_superuser'] = false;
 $GLOBALS['cfg']['ServerDefault'] = 1;
 $GLOBALS['url_query'] = "url_query";
 $GLOBALS['PMA_PHP_SELF'] = Core::getenv('PHP_SELF');
