@@ -701,8 +701,7 @@ if (! defined('PMA_MINIMUM_COMMON')) {
      */
     $response = Response::getInstance();
     if (isset($_SESSION['profiling'])) {
-        $header   = $response->getHeader();
-        $scripts  = $header->getScripts();
+        $scripts  = $response->getHeader()->header->getScripts();
         $scripts->addFile('chart.js');
         $scripts->addFile('vendor/jqplot/jquery.jqplot.js');
         $scripts->addFile('vendor/jqplot/plugins/jqplot.pieRenderer.js');
