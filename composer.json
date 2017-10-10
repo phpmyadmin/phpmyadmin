@@ -38,7 +38,7 @@
         "ext-xml": "*",
         "ext-pcre": "*",
         "ext-json": "*",
-        "phpmyadmin/sql-parser": "^4.2.2",
+        "phpmyadmin/sql-parser": "^4.2.3",
         "phpmyadmin/motranslator": "^3.0",
         "phpmyadmin/shapefile": "^2.0",
         "tecnickcom/tcpdf": "^6.2",
