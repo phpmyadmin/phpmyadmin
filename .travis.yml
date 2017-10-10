@@ -67,8 +67,8 @@ matrix:
         # Default 2.0.0 Ruby is buggy
         - rvm install ruby-2.3.3
         - rvm --default use 2.3.3
-        - brew tap homebrew/php
         - brew update
+        - brew tap homebrew/php
         - brew install gettext php70 mariadb
         - brew link --force gettext
         - sed -i -e 's/^memory_limit = .*/memory_limit = -1/' /usr/local/etc/php/7.0/php.ini
