@@ -64,9 +64,6 @@ matrix:
       language: generic
       env: CI_MODE=test
       before_install:
-        # Default 2.0.0 Ruby is buggy
-        - rvm install ruby-2.3.3
-        - rvm --default use 2.3.3
         - brew update
         - brew tap homebrew/php
         - brew install gettext php70 mariadb
