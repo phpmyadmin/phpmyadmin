@@ -1481,6 +1481,11 @@ class DatabaseInterface
                 self::QUERY_STORE
             );
         }
+
+        /* Loads closest context to this version. */
+        \PhpMyAdmin\SqlParser\Context::loadClosest(
+            ($this->_is_mariadb ? 'MariaDb' : 'MySql') . $this->_version_int
+        );
     }
 
     /**
