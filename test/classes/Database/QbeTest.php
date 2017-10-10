@@ -283,15 +283,14 @@ class QbeTest extends PmaTestCase
      */
     public function testGetInsDelAndOrCell()
     {
-        $GLOBALS['cell_align_right'] = 'cellAlign';
         $this->assertEquals(
-            '<td class="cellAlign nowrap"><!-- Row controls --><table class="nospac'
-            . 'ing nopadding"><tr><td class="cellAlign nowrap"><small>Ins:</small>'
+            '<td class="value nowrap"><!-- Row controls --><table class="nospac'
+            . 'ing nopadding"><tr><td class="value nowrap"><small>Ins:</small>'
             . '<input type="checkbox" name="criteriaRowInsert[3]" /></td><td '
-            . 'class="cellAlign"><strong>And:</strong></td><td><input type="radio" '
+            . 'class="value"><strong>And:</strong></td><td><input type="radio" '
             . 'name="criteriaAndOrRow[3]" value="and" /></td></tr><tr><td class="'
-            . 'cellAlign nowrap"><small>Del:</small><input type="checkbox" '
-            . 'name="criteriaRowDelete[3]" /></td><td class="cellAlign"><strong>'
+            . 'value nowrap"><small>Del:</small><input type="checkbox" '
+            . 'name="criteriaRowDelete[3]" /></td><td class="value"><strong>'
             . 'Or:</strong></td><td><input type="radio" name="criteriaAndOrRow[3]" '
             . 'value="or" checked="checked" /></td></tr></table></td>',
             $this->_callProtectedFunction(
@@ -329,16 +328,15 @@ class QbeTest extends PmaTestCase
      */
     public function testGetInsDelAndOrCriteriaRows()
     {
-        $GLOBALS['cell_align_right'] = 'cellAlign';
         $this->assertEquals(
-            '<tr class="noclick"><td class="cellAlign nowrap"><!-- Row controls'
-            . ' --><table class="nospacing nopadding"><tr><td class="cellAlign '
+            '<tr class="noclick"><td class="value nowrap"><!-- Row controls'
+            . ' --><table class="nospacing nopadding"><tr><td class="value '
             . 'nowrap"><small>Ins:</small><input type="checkbox" name="'
-            . 'criteriaRowInsert[0]" /></td><td class="cellAlign"><strong>And:'
+            . 'criteriaRowInsert[0]" /></td><td class="value"><strong>And:'
             . '</strong></td><td><input type="radio" name="criteriaAndOrRow[0]" '
-            . 'value="and" /></td></tr><tr><td class="cellAlign nowrap"><small>Del:'
+            . 'value="and" /></td></tr><tr><td class="value nowrap"><small>Del:'
             . '</small><input type="checkbox" name="criteriaRowDelete[0]" /></td>'
-            . '<td class="cellAlign"><strong>Or:</strong></td><td><input type='
+            . '<td class="value"><strong>Or:</strong></td><td><input type='
             . '"radio" name="criteriaAndOrRow[0]" value="or" checked="checked" />'
             . '</td></tr></table></td><td class="center"><input type="text" '
             . 'name="Or0[0]" value="" class="textfield" style="width: 12ex" '

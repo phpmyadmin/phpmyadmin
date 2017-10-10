@@ -963,16 +963,16 @@ class Qbe
      */
     private function _getInsDelAndOrCell($row_index, array $checked_options)
     {
-        $html_output = '<td class="' . $GLOBALS['cell_align_right'] . ' nowrap">';
+        $html_output = '<td class="value nowrap">';
         $html_output .= '<!-- Row controls -->';
         $html_output .= '<table class="nospacing nopadding">';
         $html_output .= '<tr>';
-        $html_output .= '<td class="' . $GLOBALS['cell_align_right'] . ' nowrap">';
+        $html_output .= '<td class="value nowrap">';
         $html_output .= '<small>' . __('Ins:') . '</small>';
         $html_output .= '<input type="checkbox"'
             . ' name="criteriaRowInsert[' . $row_index . ']" />';
         $html_output .= '</td>';
-        $html_output .= '<td class="' . $GLOBALS['cell_align_right'] . '">';
+        $html_output .= '<td class="value">';
         $html_output .= '<strong>' . __('And:') . '</strong>';
         $html_output .= '</td>';
         $html_output .= '<td>';
@@ -982,12 +982,12 @@ class Qbe
         $html_output .= '</td>';
         $html_output .= '</tr>';
         $html_output .= '<tr>';
-        $html_output .= '<td class="' . $GLOBALS['cell_align_right'] . ' nowrap">';
+        $html_output .= '<td class="value nowrap">';
         $html_output .= '<small>' . __('Del:') . '</small>';
         $html_output .= '<input type="checkbox"'
             . ' name="criteriaRowDelete[' . $row_index . ']" />';
         $html_output .= '</td>';
-        $html_output .= '<td class="' . $GLOBALS['cell_align_right'] . '">';
+        $html_output .= '<td class="value">';
         $html_output .= '<strong>' . __('Or:') . '</strong>';
         $html_output .= '</td>';
         $html_output .= '<td>';
