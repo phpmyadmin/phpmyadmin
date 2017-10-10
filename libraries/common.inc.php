@@ -700,7 +700,7 @@ if (! defined('PMA_MINIMUM_COMMON')) {
      * pages like sql, tbl_sql, db_sql, tbl_select
      */
     $response = Response::getInstance();
-    if (isset($response) && isset($_SESSION['profiling'])) {
+    if (isset($_SESSION['profiling'])) {
         $header   = $response->getHeader();
         $scripts  = $header->getScripts();
         $scripts->addFile('chart.js');
@@ -714,7 +714,7 @@ if (! defined('PMA_MINIMUM_COMMON')) {
      * There is no point in even attempting to process
      * an ajax request if there is a token mismatch
      */
-    if (isset($response) && $response->isAjax() && $_SERVER['REQUEST_METHOD'] == 'POST' && $token_mismatch) {
+    if ($response->isAjax() && $_SERVER['REQUEST_METHOD'] == 'POST' && $token_mismatch) {
         $response->setRequestStatus(false);
         $response->addJSON(
             'message',
