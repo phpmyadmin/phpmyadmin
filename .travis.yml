@@ -74,7 +74,6 @@ matrix:
         # Default 2.0.0 Ruby is buggy
         - rvm install ruby-2.3.3
         - rvm --default use 2.3.3
-        - brew tap homebrew/php
         - brew update
         - brew install gettext php71 mariadb
         - brew link --force gettext
