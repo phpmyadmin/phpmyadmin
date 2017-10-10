@@ -1365,6 +1365,10 @@ div.sqlvalidate  {
     background:         <?php echo $GLOBALS['cfg']['BgOne']; ?>;
 }
 
+.result_query div.sqlOuter {
+    text-align: <?php echo $left; ?>;
+}
+
 #PMA_slidingMessage code.sql {
     border:             <?php echo $GLOBALS['cfg']['MainColor']; ?> solid 1px;
     border-top:         0;

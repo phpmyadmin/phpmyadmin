@@ -422,10 +422,8 @@ $language->activate();
 
 // Defines the cell alignment values depending on text direction
 if ($GLOBALS['text_dir'] == 'ltr') {
-    $GLOBALS['cell_align_left']  = 'left';
     $GLOBALS['cell_align_right'] = 'right';
 } else {
-    $GLOBALS['cell_align_left']  = 'right';
     $GLOBALS['cell_align_right'] = 'left';
 }
 

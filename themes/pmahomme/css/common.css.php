@@ -1779,6 +1779,7 @@ div.sqlvalidate {
 
 .result_query div.sqlOuter {
     background: <?php echo $GLOBALS['cfg']['BgOne']; ?>;
+    text-align: <?php echo $left; ?>;
 }
 
 .result_query .success, .result_query .error {

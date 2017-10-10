@@ -975,9 +975,7 @@ class Util
         }
 
         if ($render_sql) {
-            $retval .= '<div class="result_query"'
-                . ' style="text-align: ' . $GLOBALS['cell_align_left'] . '"'
-                . '>' . "\n";
+            $retval .= '<div class="result_query">' . "\n";
         }
 
         if ($message instanceof Message) {

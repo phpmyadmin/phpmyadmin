@@ -90,7 +90,6 @@ $_SESSION[' PMA_token '] = 'token';
 $GLOBALS['PMA_Theme'] = PhpMyAdmin\Theme::load('./themes/pmahomme');
 $_SESSION['tmpval']['pftext'] = 'F';
 $GLOBALS['lang'] = 'en';
-$GLOBALS['cell_align_left'] = 'left';
 
 // Check whether we have runkit extension
 define('PMA_HAS_RUNKIT', function_exists('runkit_constant_redefine'));

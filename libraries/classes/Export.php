@@ -465,7 +465,7 @@ class Export
      */
     public static function getHtmlForDisplayedExportHeader($export_type, $db, $table)
     {
-        $html = '<div style="text-align: ' . $GLOBALS['cell_align_left'] . '">';
+        $html = '<div>';
 
         /**
          * Displays a back button with all the $_REQUEST data in the URL
