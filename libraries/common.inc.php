@@ -674,8 +674,6 @@ if (! defined('PMA_MINIMUM_COMMON')) {
         $_SESSION['tmpval']['previous_server'] = $GLOBALS['server'];
 
     } else { // end server connecting
-        // No need to check for 'PMA_BYPASS_GET_INSTANCE' since this execution path
-        // applies only to initial login
         $response = Response::getInstance();
         $response->getHeader()->disableMenuAndConsole();
         $response->getFooter()->setMinimal();
@@ -701,9 +699,7 @@ if (! defined('PMA_MINIMUM_COMMON')) {
      * Inclusion of profiling scripts is needed on various
      * pages like sql, tbl_sql, db_sql, tbl_select
      */
-    if (! defined('PMA_BYPASS_GET_INSTANCE')) {
-        $response = Response::getInstance();
-    }
+    $response = Response::getInstance();
     if (isset($response) && isset($_SESSION['profiling'])) {
         $header   = $response->getHeader();
         $scripts  = $header->getScripts();

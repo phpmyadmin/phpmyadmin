@@ -20,14 +20,15 @@ use PhpMyAdmin\Response;
 /**
  * Get the variables sent or posted to this script and a core script
  */
+include_once 'libraries/common.inc.php';
 /**
  * If we are sending the export file (as opposed to just displaying it
  * as text), we have to bypass the usual PhpMyAdmin\Response mechanism
  */
 if (isset($_POST['output_format']) && $_POST['output_format'] == 'sendit') {
-    define('PMA_BYPASS_GET_INSTANCE', 1);
+    $response = Response::getInstance();
+    $response->disable();
 }
-include_once 'libraries/common.inc.php';
 
 $response = Response::getInstance();
 $header   = $response->getHeader();
