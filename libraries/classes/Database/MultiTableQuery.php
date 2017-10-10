@@ -8,6 +8,8 @@
 namespace PhpMyAdmin\Database;
 
 use PhpMyAdmin\Template;
+use PhpMyAdmin\Util;
+
 /**
  * Class to handle database Multi-table querying
  *
