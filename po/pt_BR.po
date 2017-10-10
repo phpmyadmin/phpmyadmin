@@ -5,7 +5,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2017-08-10 09:13-0400\n"
 "PO-Revision-Date: 2017-10-10 18:12+0000\n"
-"Last-Translator: anonymous <>\n"
+"Last-Translator: Guilherme Souza Silva <g.szsilva@gmail.com>\n"
 "Language-Team: Portuguese (Brazil) "
 "<https://hosted.weblate.org/projects/phpmyadmin/4-7/pt_BR/>\n"
 "Language: pt_BR\n"
@@ -5398,7 +5398,8 @@ msgstr "Permitir usuários customizar esse valor"
 #: libraries/config/PageSettings.php:146
 msgid "Cannot save settings, submitted configuration form contains errors!"
 msgstr ""
-"As configurações não podem salvas, a configuração enviada contém erros!"
+"As configurações não podem salvas, o formulário de configuração submetido "
+"contém erros!"
 
 #: libraries/config/ServerConfigChecks.php:159
 msgid "You should use SSL connections if your database server supports it."
