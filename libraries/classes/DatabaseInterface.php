@@ -310,10 +310,14 @@ class DatabaseInterface
             $time = microtime(true) - $time;
             $this->_dbgQuery($query, $link, $result, $time);
             if ($GLOBALS['cfg']['DBG']['sqllog']) {
-                $tmp = $this->_extension->realQuery('
-                    SHOW COUNT(*) WARNINGS', $link, DatabaseInterface::QUERY_STORE
-                );
-                $warnings = $this->fetchRow($tmp);
+                if ($options & DatabaseInterface::QUERY_STORE == DatabaseInterface::QUERY_STORE) {
+                    $tmp = $this->_extension->realQuery('
+                        SHOW COUNT(*) WARNINGS', $link, DatabaseInterface::QUERY_STORE
+                    );
+                    $warnings = $this->fetchRow($tmp);
+                } else {
+                    $warnings = 0;
+                }
 
                 openlog('phpMyAdmin', LOG_NDELAY | LOG_PID, LOG_USER);
 
