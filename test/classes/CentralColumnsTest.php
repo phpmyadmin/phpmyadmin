@@ -69,7 +69,6 @@ class CentralColumnsTest extends TestCase
     public function setUp()
     {
         $GLOBALS['PMA_Config'] = new Config();
-        $GLOBALS['PMA_Types'] = new Types();
         $GLOBALS['cfg']['Server']['user'] = 'pma_user';
         $GLOBALS['cfg']['Server']['DisableIS'] = true;
         $GLOBALS['cfg']['MaxRows'] = 10;
@@ -95,6 +94,7 @@ class CentralColumnsTest extends TestCase
         $dbi = $this->getMockBuilder('PhpMyAdmin\DatabaseInterface')
             ->disableOriginalConstructor()
             ->getMock();
+        $dbi->types = new Types($dbi);
         $GLOBALS['dbi'] = $dbi;
 
         // set some common expectations

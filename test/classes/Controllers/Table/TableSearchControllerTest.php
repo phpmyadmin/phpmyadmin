@@ -45,12 +45,12 @@ class TableSearchControllerTest extends PmaTestCase
         $GLOBALS['server'] = 1;
         $GLOBALS['PMA_PHP_SELF'] = 'index.php';
         $GLOBALS['cfgRelation'] = Relation::getRelationsParam();
-        $GLOBALS['PMA_Types'] = new Types();
         $GLOBALS['cfg']['Server']['DisableIS'] = false;
 
         $dbi = $this->getMockBuilder('PhpMyAdmin\DatabaseInterface')
             ->disableOriginalConstructor()
             ->getMock();
+        $dbi->types = new Types($dbi);
 
         $columns =array(
             array(
@@ -270,7 +270,6 @@ class TableSearchControllerTest extends PmaTestCase
             ->getMock();
         $types->expects($this->any())->method('isUnaryOperator')
             ->will($this->returnValue(false));
-        $GLOBALS['PMA_Types'] = $types;
 
         $class = new ReflectionClass('\PhpMyAdmin\Controllers\Table\TableSearchController');
         $method = $class->getMethod('_generateWhereClause');

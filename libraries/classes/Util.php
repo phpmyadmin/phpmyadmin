@@ -3473,14 +3473,14 @@ class Util
             // NOTE: the SELECT tag in not included in this snippet.
             $retval = '';
 
-            foreach ($GLOBALS['PMA_Types']->getColumns() as $key => $value) {
+            foreach ($GLOBALS['dbi']->types->getColumns() as $key => $value) {
                 if (is_array($value)) {
                     $retval .= "<optgroup label='" . htmlspecialchars($key) . "'>";
                     foreach ($value as $subvalue) {
                         if ($subvalue == $selected) {
                             $retval .= sprintf(
                                 '<option selected="selected" title="%s">%s</option>',
-                                $GLOBALS['PMA_Types']->getTypeDescription($subvalue),
+                                $GLOBALS['dbi']->types->getTypeDescription($subvalue),
                                 $subvalue
                             );
                         } else if ($subvalue === '-') {
@@ -3490,7 +3490,7 @@ class Util
                         } else {
                             $retval .= sprintf(
                                 '<option title="%s">%s</option>',
-                                $GLOBALS['PMA_Types']->getTypeDescription($subvalue),
+                                $GLOBALS['dbi']->types->getTypeDescription($subvalue),
                                 $subvalue
                             );
                         }
@@ -3500,13 +3500,13 @@ class Util
                     if ($selected == $value) {
                         $retval .= sprintf(
                             '<option selected="selected" title="%s">%s</option>',
-                            $GLOBALS['PMA_Types']->getTypeDescription($value),
+                            $GLOBALS['dbi']->types->getTypeDescription($value),
                             $value
                         );
                     } else {
                         $retval .= sprintf(
                             '<option title="%s">%s</option>',
-                            $GLOBALS['PMA_Types']->getTypeDescription($value),
+                            $GLOBALS['dbi']->types->getTypeDescription($value),
                             $value
                         );
                     }
@@ -3514,7 +3514,7 @@ class Util
             }
         } else {
             $retval = array();
-            foreach ($GLOBALS['PMA_Types']->getColumns() as $value) {
+            foreach ($GLOBALS['dbi']->types->getColumns() as $value) {
                 if (is_array($value)) {
                     foreach ($value as $subvalue) {
                         if ($subvalue !== '-') {
@@ -3730,7 +3730,7 @@ class Util
         $default_function   = '';
 
         // Can we get field class based values?
-        $current_class = $GLOBALS['PMA_Types']->getTypeClass($field['True_Type']);
+        $current_class = $GLOBALS['dbi']->types->getTypeClass($field['True_Type']);
         if (! empty($current_class)) {
             if (isset($cfg['DefaultFunctions']['FUNC_' . $current_class])) {
                 $default_function
@@ -3787,7 +3787,7 @@ class Util
         $retval = '<option></option>' . "\n";
         // loop on the dropdown array and print all available options for that
         // field.
-        $functions = $GLOBALS['PMA_Types']->getFunctions($field['True_Type']);
+        $functions = $GLOBALS['dbi']->types->getFunctions($field['True_Type']);
         foreach ($functions as $function) {
             $retval .= '<option';
             if (isset($foreignData['foreign_link']) && $foreignData['foreign_link'] !== false && $default_function === $function) {
@@ -3806,7 +3806,7 @@ class Util
         // For compatibility's sake, do not let out all other functions. Instead
         // print a separator (blank) and then show ALL functions which weren't
         // shown yet.
-        $functions = $GLOBALS['PMA_Types']->getAllFunctions();
+        $functions = $GLOBALS['dbi']->types->getAllFunctions();
         foreach ($functions as $function) {
             // Skip already included functions
             if (isset($dropdown_built[$function])) {

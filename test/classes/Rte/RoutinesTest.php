@@ -34,7 +34,6 @@ class RoutinesTest extends TestCase
         $cfg['DefaultFunctions']['FUNC_DATE'] = '';
         $cfg['DefaultFunctions']['FUNC_SPATIAL'] = 'GeomFromText';
         $GLOBALS['server'] = 0;
-        $GLOBALS['PMA_Types'] = new Types();
         $GLOBALS['pmaThemePath'] = $GLOBALS['PMA_Theme']->getPath();
         $GLOBALS['cfg']['Server']['DisableIS'] = false;
     }
@@ -1093,7 +1092,6 @@ class RoutinesTest extends TestCase
 
         $cfg['ShowFunctionFields'] = false;
 
-        $GLOBALS['PMA_Types'] = new Types();
 
         $errors = array();
         Routines::setGlobals();
@@ -1102,6 +1100,7 @@ class RoutinesTest extends TestCase
         $dbi = $this->getMockBuilder('PhpMyAdmin\DatabaseInterface')
             ->disableOriginalConstructor()
             ->getMock();
+        $dbi->types = new Types($dbi);
         $dbi->expects($this->any())
             ->method('escapeString')
             ->will(

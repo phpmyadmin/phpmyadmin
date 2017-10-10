@@ -39,7 +39,7 @@ class Normalization
     ) {
         $columnTypeList = array();
         if ($colTypeCategory != 'all') {
-            $types = $GLOBALS['PMA_Types']->getColumns();
+            $types = $GLOBALS['dbi']->types->getColumns();
             $columnTypeList = $types[$colTypeCategory];
         }
         $GLOBALS['dbi']->selectDb($db, $GLOBALS['userlink']);

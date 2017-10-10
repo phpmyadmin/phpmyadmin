@@ -511,7 +511,7 @@ class TableSearchController extends TableController
                 'data_label' => $dataLabel,
                 'criteria_column_names' => isset($_POST['criteriaColumnNames']) ? $_POST['criteriaColumnNames'] : null,
                 'criteria_column_types' => isset($_POST['criteriaColumnTypes']) ? $_POST['criteriaColumnTypes'] : null,
-                'sql_types' => $GLOBALS['PMA_Types'],
+                'sql_types' => $GLOBALS['dbi']->types,
                 'max_rows' => intval($GLOBALS['cfg']['MaxRows']),
                 'max_plot_limit' => ((! empty($_POST['maxPlotLimit']))
                     ? intval($_POST['maxPlotLimit'])
@@ -848,7 +848,7 @@ class TableSearchController extends TableController
         $type = $this->_columnTypes[$column_index];
         $collation = $this->_columnCollations[$column_index];
         //Gets column's comparison operators depending on column type
-        $typeOperators = $GLOBALS['PMA_Types']->getTypeOperatorsHtml(
+        $typeOperators = $GLOBALS['dbi']->types->getTypeOperatorsHtml(
             preg_replace('@\(.*@s', '', $this->_columnTypes[$column_index]),
             $this->_columnNullFlags[$column_index], $selected_operator
         );
@@ -914,7 +914,7 @@ class TableSearchController extends TableController
         // else continue to form the where clause from column criteria values
         $fullWhereClause = array();
         foreach ($_POST['criteriaColumnOperators'] as $column_index => $operator) {
-            $unaryFlag =  $GLOBALS['PMA_Types']->isUnaryOperator($operator);
+            $unaryFlag =  $GLOBALS['dbi']->types->isUnaryOperator($operator);
             $tmp_geom_func = isset($_POST['geom_func'][$column_index])
                 ? $_POST['geom_func'][$column_index] : null;
 

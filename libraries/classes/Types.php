@@ -15,6 +15,21 @@ namespace PhpMyAdmin;
 class Types
 {
     /**
+     * @var PhpMyAdmin\DatabaseInteface Database interface
+     */
+    private $_dbi;
+
+    /**
+     * Constructor
+     *
+     * @param PhpMyAdmin\DatabaseInteface $dbi Database interface instance
+     */
+    public function __construct($dbi)
+    {
+        $this->_dbi = $dbi;
+    }
+
+    /**
      * Returns list of unary operators.
      *
      * @return string[]
@@ -450,8 +465,8 @@ class Types
      */
     public function getFunctionsClass($class)
     {
-        $isMariaDB = $GLOBALS['dbi']->isMariaDB();
-        $serverVersion = $GLOBALS['dbi']->getVersion();
+        $isMariaDB = $this->_dbi->isMariaDB();
+        $serverVersion = $this->_dbi->getVersion();
 
         switch ($class) {
         case 'CHAR':
@@ -666,8 +681,8 @@ class Types
      */
     public function getColumns()
     {
-        $isMariaDB = $GLOBALS['dbi']->isMariaDB();
-        $serverVersion = $GLOBALS['dbi']->getVersion();
+        $isMariaDB = $this->_dbi->isMariaDB();
+        $serverVersion = $this->_dbi->getVersion();
 
         // most used types
         $ret = array(

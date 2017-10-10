@@ -661,7 +661,6 @@ if (! defined('PMA_MINIMUM_COMMON')) {
         /**
          * Type handling object.
          */
-        $GLOBALS['PMA_Types'] = new Types();
 
         // Loads closest context to this version.
         PhpMyAdmin\SqlParser\Context::loadClosest(

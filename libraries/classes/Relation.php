@@ -879,7 +879,7 @@ class Relation
         $columns = $GLOBALS['dbi']->getColumnsFull($db, $table);
         if ($columns) {
             foreach ($columns as $column) {
-                if ($GLOBALS['PMA_Types']->getTypeClass($column['DATA_TYPE']) == 'CHAR') {
+                if ($GLOBALS['dbi']->types->getTypeClass($column['DATA_TYPE']) == 'CHAR') {
                     return $column['COLUMN_NAME'];
                 }
             }

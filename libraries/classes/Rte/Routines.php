@@ -1093,7 +1093,7 @@ class Routines
      */
     public static function getQueryFromRequest()
     {
-        global $_REQUEST, $errors, $param_sqldataaccess, $param_directions, $PMA_Types;
+        global $_REQUEST, $errors, $param_sqldataaccess, $param_directions, $dbi;
 
         $_REQUEST['item_type'] = isset($_REQUEST['item_type'])
             ? $_REQUEST['item_type'] : '';
@@ -1197,7 +1197,7 @@ class Routines
                         }
                     }
                     if (! empty($_REQUEST['item_param_opts_text'][$i])) {
-                        if ($PMA_Types->getTypeClass($item_param_type[$i]) == 'CHAR') {
+                        if ($dbi->types->getTypeClass($item_param_type[$i]) == 'CHAR') {
                             $params .= ' CHARSET '
                                 . mb_strtolower(
                                     $_REQUEST['item_param_opts_text'][$i]
@@ -1205,7 +1205,7 @@ class Routines
                         }
                     }
                     if (! empty($_REQUEST['item_param_opts_num'][$i])) {
-                        if ($PMA_Types->getTypeClass($item_param_type[$i]) == 'NUMBER') {
+                        if ($dbi->types->getTypeClass($item_param_type[$i]) == 'NUMBER') {
                             $params .= ' '
                                 . mb_strtoupper(
                                     $_REQUEST['item_param_opts_num'][$i]
@@ -1259,13 +1259,13 @@ class Routines
                 }
             }
             if (! empty($_REQUEST['item_returnopts_text'])) {
-                if ($PMA_Types->getTypeClass($item_returntype) == 'CHAR') {
+                if ($dbi->types->getTypeClass($item_returntype) == 'CHAR') {
                     $query .= ' CHARSET '
                         . mb_strtolower($_REQUEST['item_returnopts_text']);
                 }
             }
             if (! empty($_REQUEST['item_returnopts_num'])) {
-                if ($PMA_Types->getTypeClass($item_returntype) == 'NUMBER') {
+                if ($dbi->types->getTypeClass($item_returntype) == 'NUMBER') {
                     $query .= ' '
                         . mb_strtoupper($_REQUEST['item_returnopts_num']);
                 }
@@ -1342,7 +1342,7 @@ class Routines
             $queries   = array();
             $end_query = array();
             $args      = array();
-            $all_functions = $GLOBALS['PMA_Types']->getAllFunctions();
+            $all_functions = $GLOBALS['dbi']->types->getAllFunctions();
             for ($i = 0; $i < $routine['item_num_params']; $i++) {
                 if (isset($_REQUEST['params'][$routine['item_param_name'][$i]])) {
                     $value = $_REQUEST['params'][$routine['item_param_name'][$i]];

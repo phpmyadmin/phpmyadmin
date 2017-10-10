@@ -14,7 +14,6 @@ use PhpMyAdmin\Response;
 use PhpMyAdmin\Table;
 use PhpMyAdmin\Theme;
 use PhpMyAdmin\Tracker;
-use PhpMyAdmin\Types;
 use PHPUnit_Framework_TestCase as TestCase;
 use ReflectionProperty;
 use stdClass;
@@ -40,7 +39,6 @@ class InsertEditTest extends TestCase
         $GLOBALS['text_dir'] = 'ltr';
         $GLOBALS['db'] = 'db';
         $GLOBALS['table'] = 'table';
-        $GLOBALS['PMA_Types'] = new Types();
         $GLOBALS['cfg']['LimitChars'] = 50;
         $GLOBALS['cfg']['LongtextDoubleTextarea'] = false;
         $GLOBALS['cfg']['ShowFieldTypesInDataEditView'] = true;
@@ -598,7 +596,6 @@ class InsertEditTest extends TestCase
             )
         );
 
-        $GLOBALS['PMA_Types'] = new Types;
         $column['Field'] = 'num';
         $this->assertContains(
             '<select name="funcsa" b tabindex="5" id="field_3_1"',

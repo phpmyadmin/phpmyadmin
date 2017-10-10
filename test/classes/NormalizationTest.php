@@ -31,7 +31,6 @@ class NormalizationTest extends TestCase
     public function setUp()
     {
         $GLOBALS['cfg']['LimitChars'] = 50;
-        $GLOBALS['PMA_Types'] = new Types();
         $GLOBALS['cfg']['ServerDefault'] = "PMA_server";
         $GLOBALS['cfg']['ShowHint'] = true;
         $GLOBALS['cfg']['CharEditing'] = '';
@@ -47,6 +46,7 @@ class NormalizationTest extends TestCase
         $dbi = $this->getMockBuilder('PhpMyAdmin\DatabaseInterface')
             ->disableOriginalConstructor()
             ->getMock();
+        $dbi->types = new Types($dbi);
         $GLOBALS['dbi'] = $dbi;
         // set expectations
         $dbi->expects($this->any())

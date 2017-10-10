@@ -18,6 +18,7 @@ use PhpMyAdmin\Index;
 use PhpMyAdmin\LanguageManager;
 use PhpMyAdmin\SystemDatabase;
 use PhpMyAdmin\Table;
+use PhpMyAdmin\Types;
 use PhpMyAdmin\Tracker;
 use PhpMyAdmin\Url;
 use PhpMyAdmin\Util;
@@ -103,6 +104,11 @@ class DatabaseInterface
     private $_version_comment = '';
 
     /**
+     * @var Types MySQL types data
+     */
+    public $types;
+
+    /**
      * Constructor
      *
      * @param DbiExtension $ext Object to be used for database queries
@@ -112,6 +118,7 @@ class DatabaseInterface
         $this->_extension = $ext;
         $this->_table_cache = array();
         $this->_current_user = array();
+        $this->types = new Types($this);
     }
 
     /**

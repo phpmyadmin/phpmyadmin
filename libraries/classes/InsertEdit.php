@@ -579,7 +579,7 @@ class InsertEdit
         $readOnly
     ) {
         // HTML5 data-* attribute data-type
-        $data_type = $GLOBALS['PMA_Types']->getTypeClass($column['True_Type']);
+        $data_type = $GLOBALS['dbi']->types->getTypeClass($column['True_Type']);
         $html_output = '';
 
         if ($foreignData['foreign_link'] == true) {
@@ -1201,12 +1201,12 @@ class InsertEdit
             $the_class .= ' datetimefield';
         }
         $input_min_max = false;
-        if (in_array($column['True_Type'], $GLOBALS['PMA_Types']->getIntegerTypes())) {
+        if (in_array($column['True_Type'], $GLOBALS['dbi']->types->getIntegerTypes())) {
             $extracted_columnspec = Util::extractColumnSpec(
                 $column['Type']
             );
             $is_unsigned = $extracted_columnspec['unsigned'];
-            $min_max_values = $GLOBALS['PMA_Types']->getIntegerRange(
+            $min_max_values = $GLOBALS['dbi']->types->getIntegerRange(
                 $column['True_Type'], ! $is_unsigned
             );
             $input_min_max = 'min="' . $min_max_values[0] . '" '
@@ -1330,7 +1330,7 @@ class InsertEdit
         array $extracted_columnspec, $readOnly
     ) {
         // HTML5 data-* attribute data-type
-        $data_type = $GLOBALS['PMA_Types']->getTypeClass($column['True_Type']);
+        $data_type = $GLOBALS['dbi']->types->getTypeClass($column['True_Type']);
         $fieldsize = self::getColumnSize($column, $extracted_columnspec);
         $html_output = $backup_field . "\n";
         if ($column['is_char']
