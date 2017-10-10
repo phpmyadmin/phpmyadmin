@@ -39,6 +39,7 @@ phpMyAdmin - ChangeLog
 - issue #13303 Add support for creating fulltext index from table structure
 - issue #13711 Lower default value for $cfg['MaxExactCount']
 - issue #13722 DisableIS is not fully honored
+- issue        Support JSON datatype on MariaDB 10.2.7 and newer
 
 4.7.5 (not yet released)
 - issue #13615 Avoid problems with browsing unknown query types

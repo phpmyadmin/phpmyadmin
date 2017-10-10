@@ -666,6 +666,9 @@ class Types
      */
     public function getColumns()
     {
+        $isMariaDB = $GLOBALS['dbi']->isMariaDB();
+        $serverVersion = $GLOBALS['dbi']->getVersion();
+
         // most used types
         $ret = array(
             'INT',
@@ -733,9 +736,8 @@ class Types
             'GEOMETRYCOLLECTION',
         );
 
-        if ($GLOBALS['dbi']->getVersion() >= 50708
-            && ! $GLOBALS['dbi']->isMariaDB()
-        ) {
+        if (($isMariaDB && $serverVersion > 100207)
+            || (!$isMariaDB && $serverVersion >= 50708)) {
           $ret['JSON'] = array(
               'JSON',
           );
