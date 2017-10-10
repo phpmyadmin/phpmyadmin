@@ -13,7 +13,7 @@ use PhpMyAdmin\Relation;
 use PhpMyAdmin\Tests\PmaTestCase;
 use PhpMyAdmin\Tests\Stubs\Response as ResponseStub;
 use PhpMyAdmin\Theme;
-use PhpMyAdmin\TypesMySQL;
+use PhpMyAdmin\Types;
 use ReflectionClass;
 use stdClass;
 
@@ -45,7 +45,7 @@ class TableSearchControllerTest extends PmaTestCase
         $GLOBALS['server'] = 1;
         $GLOBALS['PMA_PHP_SELF'] = 'index.php';
         $GLOBALS['cfgRelation'] = Relation::getRelationsParam();
-        $GLOBALS['PMA_Types'] = new TypesMySQL();
+        $GLOBALS['PMA_Types'] = new Types();
         $GLOBALS['cfg']['Server']['DisableIS'] = false;
 
         $dbi = $this->getMockBuilder('PhpMyAdmin\DatabaseInterface')

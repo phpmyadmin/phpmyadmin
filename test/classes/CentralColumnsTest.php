@@ -10,7 +10,7 @@ namespace PhpMyAdmin\Tests;
 use PhpMyAdmin\CentralColumns;
 use PhpMyAdmin\Config;
 use PhpMyAdmin\Theme;
-use PhpMyAdmin\TypesMySQL;
+use PhpMyAdmin\Types;
 use PhpMyAdmin\Url;
 use PhpMyAdmin\Util;
 use PHPUnit_Framework_TestCase as TestCase;
@@ -69,7 +69,7 @@ class CentralColumnsTest extends TestCase
     public function setUp()
     {
         $GLOBALS['PMA_Config'] = new Config();
-        $GLOBALS['PMA_Types'] = new TypesMySQL();
+        $GLOBALS['PMA_Types'] = new Types();
         $GLOBALS['cfg']['Server']['user'] = 'pma_user';
         $GLOBALS['cfg']['Server']['DisableIS'] = true;
         $GLOBALS['cfg']['MaxRows'] = 10;

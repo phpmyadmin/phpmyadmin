@@ -9,7 +9,7 @@ namespace PhpMyAdmin\Tests;
 
 use PhpMyAdmin\Normalization;
 use PhpMyAdmin\Theme;
-use PhpMyAdmin\TypesMySQL;
+use PhpMyAdmin\Types;
 use PhpMyAdmin\Util;
 use PHPUnit_Framework_TestCase as TestCase;
 use stdClass;
@@ -31,7 +31,7 @@ class NormalizationTest extends TestCase
     public function setUp()
     {
         $GLOBALS['cfg']['LimitChars'] = 50;
-        $GLOBALS['PMA_Types'] = new TypesMySQL();
+        $GLOBALS['PMA_Types'] = new Types();
         $GLOBALS['cfg']['ServerDefault'] = "PMA_server";
         $GLOBALS['cfg']['ShowHint'] = true;
         $GLOBALS['cfg']['CharEditing'] = '';

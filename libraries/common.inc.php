@@ -46,7 +46,7 @@ use PhpMyAdmin\Response;
 use PhpMyAdmin\Session;
 use PhpMyAdmin\ThemeManager;
 use PhpMyAdmin\Tracker;
-use PhpMyAdmin\TypesMySQL;
+use PhpMyAdmin\Types;
 use PhpMyAdmin\Util;
 
 /**
@@ -661,7 +661,7 @@ if (! defined('PMA_MINIMUM_COMMON')) {
         /**
          * Type handling object.
          */
-        $GLOBALS['PMA_Types'] = new TypesMySQL();
+        $GLOBALS['PMA_Types'] = new Types();
 
         // Loads closest context to this version.
         PhpMyAdmin\SqlParser\Context::loadClosest(

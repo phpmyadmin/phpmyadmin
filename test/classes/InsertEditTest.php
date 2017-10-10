@@ -15,7 +15,6 @@ use PhpMyAdmin\Table;
 use PhpMyAdmin\Theme;
 use PhpMyAdmin\Tracker;
 use PhpMyAdmin\Types;
-use PhpMyAdmin\TypesMySQL;
 use PHPUnit_Framework_TestCase as TestCase;
 use ReflectionProperty;
 use stdClass;
@@ -41,7 +40,7 @@ class InsertEditTest extends TestCase
         $GLOBALS['text_dir'] = 'ltr';
         $GLOBALS['db'] = 'db';
         $GLOBALS['table'] = 'table';
-        $GLOBALS['PMA_Types'] = new TypesMySQL();
+        $GLOBALS['PMA_Types'] = new Types();
         $GLOBALS['cfg']['LimitChars'] = 50;
         $GLOBALS['cfg']['LongtextDoubleTextarea'] = false;
         $GLOBALS['cfg']['ShowFieldTypesInDataEditView'] = true;
