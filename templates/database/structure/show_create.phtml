@@ -17,7 +17,8 @@
               'db' => $db,
               'title' => __('Tables'),
               'raw_title' => 'Table',
-              'db_objects' => $tables
+              'db_objects' => $tables,
+              'dbi' => $GLOBALS['dbi'],
             )
         ) ?>
     <?php endif; ?>
@@ -28,7 +29,8 @@
                 'db' => $db,
                 'title' => __('Views'),
                 'raw_title' => 'View',
-                'db_objects' => $views
+                'db_objects' => $views,
+                'dbi' => $GLOBALS['dbi'],
             )
         ) ?>
     <?php endif; ?>

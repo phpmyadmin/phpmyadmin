@@ -8,6 +8,7 @@
 namespace PhpMyAdmin;
 
 use PhpMyAdmin\Twig\CharsetsExtension;
+use PhpMyAdmin\Twig\CoreExtension;
 use PhpMyAdmin\Twig\I18nExtension;
 use PhpMyAdmin\Twig\MessageExtension;
 use PhpMyAdmin\Twig\PhpFunctionsExtension;
@@ -64,6 +65,7 @@ class Template
                 'debug' => false,
             ));
             $twig->addExtension(new CharsetsExtension());
+            $twig->addExtension(new CoreExtension());
             $twig->addExtension(new I18nExtension());
             $twig->addExtension(new MessageExtension());
             $twig->addExtension(new PhpFunctionsExtension());
