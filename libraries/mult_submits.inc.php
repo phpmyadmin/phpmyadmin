@@ -112,6 +112,7 @@ if (! empty($submit_mult)
                     array(
                         'db'         => $GLOBALS['db'],
                         'db_objects' => $selected,
+                        'dbi'        => $GLOBALS['dbi'],
                     )
                 );
             // Send response to client.
