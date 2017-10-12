@@ -32,13 +32,10 @@ class Designer
      */
     public static function getHtmlForPageSelector(array $cfgRelation, $db)
     {
-        return Template::get('database/designer/page_selector')
-            ->render(
-                array(
-                    'db' => $db,
-                    'cfgRelation' => $cfgRelation
-                )
-            );
+        return Template::get('database/designer/page_selector')->render([
+            'pdfwork' => $cfgRelation['pdfwork'],
+            'pages' => self::getPageIdsAndNames($db),
+        ]);
     }
 
     /**
