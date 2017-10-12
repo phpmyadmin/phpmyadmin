@@ -5,27 +5,25 @@
  *
  * @package PhpMyAdmin
  */
-
 use PhpMyAdmin\Charsets;
+use PhpMyAdmin\Config;
 use PhpMyAdmin\Core;
+use PhpMyAdmin\Display\GitRevision;
 use PhpMyAdmin\LanguageManager;
 use PhpMyAdmin\Message;
 use PhpMyAdmin\RecentFavoriteTable;
 use PhpMyAdmin\Relation;
 use PhpMyAdmin\Response;
 use PhpMyAdmin\Sanitize;
+use PhpMyAdmin\Server\Select;
 use PhpMyAdmin\ThemeManager;
 use PhpMyAdmin\Url;
+use PhpMyAdmin\Util;
 
 /**
  * Gets some core libraries and displays a top message if required
  */
 require_once 'libraries/common.inc.php';
-
-/**
- * display Git revision if requested
- */
-require_once 'libraries/display_git_revision.lib.php';
 
 /**
  * pass variables to child pages
@@ -72,11 +70,11 @@ if (isset($_REQUEST['ajax_request']) && ! empty($_REQUEST['access_time'])) {
 if (! empty($_REQUEST['db'])) {
     $page = null;
     if (! empty($_REQUEST['table'])) {
-        $page = PhpMyAdmin\Util::getScriptNameForOption(
+        $page = Util::getScriptNameForOption(
             $GLOBALS['cfg']['DefaultTabTable'], 'table'
         );
     } else {
-        $page = PhpMyAdmin\Util::getScriptNameForOption(
+        $page = Util::getScriptNameForOption(
             $GLOBALS['cfg']['DefaultTabDatabase'], 'database'
         );
     }
@@ -98,7 +96,7 @@ if ($response->isAjax() && ! empty($_REQUEST['recent_table'])) {
 
 if ($GLOBALS['PMA_Config']->isGitRevision()) {
     if (isset($_REQUEST['git_revision']) && $response->isAjax()) {
-        PMA_printGitRevision();
+        GitRevision::display();
         exit;
     }
     echo '<div id="is_git_revision"></div>';
@@ -111,7 +109,7 @@ $show_query = '1';
 
 // Any message to display?
 if (! empty($message)) {
-    echo PhpMyAdmin\Util::getMessage($message);
+    echo Util::getMessage($message);
     unset($message);
 }
 if (isset($_SESSION['partial_logout'])) {
@@ -186,9 +184,8 @@ if ($server > 0 || count($cfg['Servers']) > 1
         || ($server == 0 && count($cfg['Servers']) == 1)))
     ) {
         echo '<li id="li_select_server" class="no_bullets" >';
-        include_once 'libraries/select_server.lib.php';
-        echo PhpMyAdmin\Util::getImage('s_host.png') , " "
-            , PMA_selectServer(true, true);
+        echo Util::getImage('s_host.png') , " "
+            , Select::render(true, true);
         echo '</li>';
     }
 
@@ -196,14 +193,14 @@ if ($server > 0 || count($cfg['Servers']) > 1
      * Displays the mysql server related links
      */
     if ($server > 0) {
-        include_once 'libraries/check_user_privileges.lib.php';
+        include_once 'libraries/check_user_privileges.inc.php';
 
         // Logout for advanced authentication
         if ($cfg['Server']['auth_type'] != 'config') {
             if ($cfg['ShowChgPassword']) {
                 $conditional_class = 'ajax';
-                PMA_printListItem(
-                    PhpMyAdmin\Util::getImage('s_passwd.png') . "&nbsp;" . __(
+                Core::printListItem(
+                    Util::getImage('s_passwd.png') . "&nbsp;" . __(
                         'Change password'
                     ),
                     'li_change_password',
@@ -220,10 +217,10 @@ if ($server > 0 || count($cfg['Servers']) > 1
         echo '        <form method="post" action="index.php">' , "\n"
            . Url::getHiddenInputs(null, null, 4, 'collation_connection')
            . '            <label for="select_collation_connection">' . "\n"
-           . '                ' . PhpMyAdmin\Util::getImage('s_asci.png')
+           . '                ' . Util::getImage('s_asci.png')
             . "&nbsp;" . __('Server connection collation') . "\n"
            // put the doc link in the form so that it appears on the same line
-           . PhpMyAdmin\Util::showMySQLDocu('Charset-connection')
+           . Util::showMySQLDocu('Charset-connection')
            . ': ' .  "\n"
            . '            </label>' . "\n"
 
@@ -250,7 +247,7 @@ $language_manager = LanguageManager::getInstance();
 if (empty($cfg['Lang']) && $language_manager->hasChoice()) {
     echo '<li id="li_select_lang" class="no_bullets">';
 
-    echo PhpMyAdmin\Util::getImage('s_lang.png') , " "
+    echo Util::getImage('s_lang.png') , " "
         , $language_manager->getSelectorDisplay();
     echo '</li>';
 }
@@ -259,12 +256,12 @@ if (empty($cfg['Lang']) && $language_manager->hasChoice()) {
 
 if ($GLOBALS['cfg']['ThemeManager']) {
     echo '<li id="li_select_theme" class="no_bullets">';
-    echo PhpMyAdmin\Util::getImage('s_theme.png') , " "
+    echo Util::getImage('s_theme.png') , " "
             ,  ThemeManager::getInstance()->getHtmlSelectBox();
     echo '</li>';
 }
 echo '<li id="li_select_fontsize">';
-echo PhpMyAdmin\Config::getFontsizeForm();
+echo Config::getFontsizeForm();
 echo '</li>';
 
 echo '</ul>';
@@ -273,8 +270,8 @@ echo '</ul>';
 
 if ($server > 0) {
     echo '<ul>';
-    PMA_printListItem(
-        PhpMyAdmin\Util::getImage('b_tblops.png') . "&nbsp;" . __(
+    Core::printListItem(
+        Util::getImage('b_tblops.png') . "&nbsp;" . __(
             'More settings'
         ),
         'li_user_preferences',
@@ -299,29 +296,29 @@ if ($server > 0 && $GLOBALS['cfg']['ShowServerInfo']) {
     echo '<div class="group">';
     echo '<h2>' , __('Database server') , '</h2>';
     echo '<ul>' , "\n";
-    PMA_printListItem(
+    Core::printListItem(
         __('Server:') . ' ' . $server_info,
         'li_server_info'
     );
-    PMA_printListItem(
-        __('Server type:') . ' ' . PhpMyAdmin\Util::getServerType(),
+    Core::printListItem(
+        __('Server type:') . ' ' . Util::getServerType(),
         'li_server_type'
     );
-    PMA_printListItem(
-        __('Server connection:') . ' ' . PhpMyAdmin\Util::getServerSSL(),
+    Core::printListItem(
+        __('Server connection:') . ' ' . Util::getServerSSL(),
         'li_server_type'
     );
-    PMA_printListItem(
+    Core::printListItem(
         __('Server version:')
         . ' '
         . $GLOBALS['dbi']->getVersionString() . ' - ' . $GLOBALS['dbi']->getVersionComment(),
         'li_server_version'
     );
-    PMA_printListItem(
+    Core::printListItem(
         __('Protocol version:') . ' ' . $GLOBALS['dbi']->getProtoInfo(),
         'li_mysql_proto'
     );
-    PMA_printListItem(
+    Core::printListItem(
         __('User:') . ' ' . htmlspecialchars($mysql_cur_user_and_host),
         'li_user_info'
     );
@@ -343,35 +340,35 @@ if ($GLOBALS['cfg']['ShowServerInfo'] || $GLOBALS['cfg']['ShowPhpInfo']) {
     echo '<h2>' , __('Web server') , '</h2>';
     echo '<ul>';
     if ($GLOBALS['cfg']['ShowServerInfo']) {
-        PMA_printListItem($_SERVER['SERVER_SOFTWARE'], 'li_web_server_software');
+        Core::printListItem($_SERVER['SERVER_SOFTWARE'], 'li_web_server_software');
 
         if ($server > 0) {
             $client_version_str = $GLOBALS['dbi']->getClientInfo();
             if (preg_match('#\d+\.\d+\.\d+#', $client_version_str)) {
                 $client_version_str = 'libmysql - ' . $client_version_str;
             }
-            PMA_printListItem(
+            Core::printListItem(
                 __('Database client version:') . ' ' . $client_version_str,
                 'li_mysql_client_version'
             );
 
             $php_ext_string = __('PHP extension:') . ' ';
 
-            $extensions = PhpMyAdmin\Util::listPHPExtensions();
+            $extensions = Util::listPHPExtensions();
 
             foreach ($extensions as $extension) {
                 $php_ext_string  .= '  ' . $extension
-                    . PhpMyAdmin\Util::showPHPDocu('book.' . $extension . '.php');
+                    . Util::showPHPDocu('book.' . $extension . '.php');
             }
 
-            PMA_printListItem(
+            Core::printListItem(
                 $php_ext_string,
                 'li_used_php_extension'
             );
 
             $php_version_string = __('PHP version:') . ' ' . phpversion();
 
-            PMA_printListItem(
+            Core::printListItem(
                 $php_version_string,
                 'li_used_php_version'
             );
@@ -379,7 +376,7 @@ if ($GLOBALS['cfg']['ShowServerInfo'] || $GLOBALS['cfg']['ShowPhpInfo']) {
     }
 
     if ($cfg['ShowPhpInfo']) {
-        PMA_printListItem(
+        Core::printListItem(
             __('Show PHP information'),
             'li_phpinfo',
             'phpinfo.php' . $common_url_query,
@@ -398,7 +395,7 @@ $class = null;
 if ($GLOBALS['cfg']['VersionCheck']) {
     $class = 'jsversioncheck';
 }
-PMA_printListItem(
+Core::printListItem(
     __('Version information:') . ' <span class="version">' . PMA_VERSION . '</span>',
     'li_pma_version',
     null,
@@ -407,44 +404,44 @@ PMA_printListItem(
     null,
     $class
 );
-PMA_printListItem(
+Core::printListItem(
     __('Documentation'),
     'li_pma_docs',
-    PhpMyAdmin\Util::getDocuLink('index'),
+    Util::getDocuLink('index'),
     null,
     '_blank'
 );
 
 // does not work if no target specified, don't know why
-PMA_printListItem(
+Core::printListItem(
     __('Official Homepage'),
     'li_pma_homepage',
     Core::linkURL('https://www.phpmyadmin.net/'),
     null,
     '_blank'
 );
-PMA_printListItem(
+Core::printListItem(
     __('Contribute'),
     'li_pma_contribute',
     Core::linkURL('https://www.phpmyadmin.net/contribute/'),
     null,
     '_blank'
 );
-PMA_printListItem(
+Core::printListItem(
     __('Get support'),
     'li_pma_support',
     Core::linkURL('https://www.phpmyadmin.net/support/'),
     null,
     '_blank'
 );
-PMA_printListItem(
+Core::printListItem(
     __('List of changes'),
     'li_pma_changes',
     'changelog.php' . Url::getCommon(),
     null,
     '_blank'
 );
-PMA_printListItem(
+Core::printListItem(
     __('License'),
     'li_pma_license',
     'license.php' . Url::getCommon(),
@@ -577,7 +574,7 @@ if ($server > 0) {
                     . 'to set it up there.'
                 );
         }
-        $msg = PhpMyAdmin\Message::notice($msg_text);
+        $msg = Message::notice($msg_text);
         $msg->addParamHtml('<a href="./chk_rel.php' . $common_url_query . '">');
         $msg->addParamHtml('</a>');
         /* Show error if user has configured something, notice elsewhere */
@@ -641,40 +638,4 @@ if (@file_exists('libraries/language_stats.inc.php')) {
             E_USER_NOTICE
         );
     }
-}
-
-/**
- * prints list item for main page
- *
- * @param string $name            displayed text
- * @param string $listId          id, used for css styles
- * @param string $url             make item as link with $url as target
- * @param string $mysql_help_page display a link to MySQL's manual
- * @param string $target          special target for $url
- * @param string $a_id            id for the anchor,
- *                                used for jQuery to hook in functions
- * @param string $class           class for the li element
- * @param string $a_class         class for the anchor element
- *
- * @return void
- */
-function PMA_printListItem($name, $listId = null, $url = null,
-    $mysql_help_page = null, $target = null, $a_id = null, $class = null,
-    $a_class = null
-) {
-    echo PhpMyAdmin\Template::get('list/item')
-        ->render(
-            array(
-                'content' => $name,
-                'id' => $listId,
-                'class' => $class,
-                'url' => array(
-                    'href' => $url,
-                    'target' => $target,
-                    'id' => $a_id,
-                    'class' => $a_class,
-                ),
-                'mysql_help_page' => $mysql_help_page,
-            )
-        );
 }

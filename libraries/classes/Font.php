@@ -78,10 +78,10 @@ class Font
      * The text element width is calculated depending on font name
      * and font size.
      *
-     * @param string  $text      string of which the width will be calculated
-     * @param string  $font      name of the font like Arial,sans-serif etc
-     * @param integer $fontSize  size of font
-     * @param array   $charLists list of characters and their width modifiers
+     * @param string     $text      string of which the width will be calculated
+     * @param string     $font      name of the font like Arial,sans-serif etc
+     * @param integer    $fontSize  size of font
+     * @param array|null $charLists list of characters and their width modifiers
      *
      * @return integer width of the text
      * @access public

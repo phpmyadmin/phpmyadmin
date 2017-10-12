@@ -13,9 +13,7 @@ use PhpMyAdmin\Template;
 use PhpMyAdmin\Theme;
 use PhpMyAdmin\Url;
 use PhpMyAdmin\Util;
-
-require_once 'libraries/database_interface.inc.php';
-require_once 'libraries/relation_cleanup.lib.php';
+use PHPUnit_Framework_TestCase as TestCase;
 
 /**
  * PhpMyAdmin\Tests\Server\PrivilegesTest class
@@ -24,7 +22,7 @@ require_once 'libraries/relation_cleanup.lib.php';
  *
  * @package PhpMyAdmin-test
  */
-class PrivilegesTest extends \PHPUnit_Framework_TestCase
+class PrivilegesTest extends TestCase
 {
     /**
      * Prepares environment for the test.
@@ -129,7 +127,6 @@ class PrivilegesTest extends \PHPUnit_Framework_TestCase
             ->will($this->returnArgument(0));
 
         $GLOBALS['dbi'] = $dbi;
-        $GLOBALS['is_superuser'] = true;
         $GLOBALS['is_grantuser'] = true;
         $GLOBALS['is_createuser'] = true;
         $GLOBALS['is_reload_priv'] = true;
@@ -1477,6 +1474,8 @@ class PrivilegesTest extends \PHPUnit_Framework_TestCase
             array('COLUMN_NAME' => 'Host', 'CHARACTER_MAXIMUM_LENGTH' => 80),
             array('COLUMN_NAME' => 'User', 'CHARACTER_MAXIMUM_LENGTH' => 40),
         );
+        $dbi->expects($this->any())->method('isSuperuser')
+            ->will($this->returnValue(true));
         $dbi->expects($this->any())->method('fetchResult')
             ->will($this->returnValue($fields_info));
         $dbi->expects($this->any())
@@ -1560,6 +1559,8 @@ class PrivilegesTest extends \PHPUnit_Framework_TestCase
         $dbi->expects($this->any())
             ->method('escapeString')
             ->will($this->returnArgument(0));
+        $dbi->expects($this->any())->method('isSuperuser')
+            ->will($this->returnValue(true));
 
         $GLOBALS['dbi'] = $dbi;
 

@@ -8,14 +8,14 @@
 namespace PhpMyAdmin;
 
 use COM;
-use PhpMyAdmin\SysInfo;
+use PhpMyAdmin\SysInfoBase;
 
 /**
  * Windows NT based SysInfo class
  *
  * @package PhpMyAdmin
  */
-class SysInfoWINNT extends SysInfo
+class SysInfoWINNT extends SysInfoBase
 {
     private $_wmi;
     public $os = 'WINNT';
@@ -72,7 +72,7 @@ class SysInfoWINNT extends SysInfo
      *
      * @return array with results
      */
-    private function _getWMI($strClass, $strValue = array())
+    private function _getWMI($strClass, array $strValue = array())
     {
         $arrData = array();
 

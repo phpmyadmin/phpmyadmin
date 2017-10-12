@@ -7,20 +7,14 @@
  */
 
 use PhpMyAdmin\Config\ConfigFile;
-use PhpMyAdmin\Config\FormDisplay;
+use PhpMyAdmin\Config\Forms\Setup\ServersForm;
 use PhpMyAdmin\Core;
+use PhpMyAdmin\Setup\FormProcessing;
 use PhpMyAdmin\Url;
 
 if (!defined('PHPMYADMIN')) {
     exit;
 }
-
-/**
- * Core libraries.
- */
-require_once './setup/lib/form_processing.lib.php';
-
-require './libraries/config/setup.forms.php';
 
 $mode = isset($_GET['mode']) ? $_GET['mode'] : null;
 $id = Core::isValid($_GET['id'], 'numeric') ? intval($_GET['id']) : null;
@@ -46,8 +40,5 @@ if ($mode == 'edit' && $server_exists) {
 if (isset($page_title)) {
     echo '<h2>' , $page_title . '</h2>';
 }
-$form_display = new FormDisplay($cf);
-foreach ($forms['Servers'] as $form_name => $form) {
-    $form_display->registerForm($form_name, $form, $id);
-}
-PMA_Process_formset($form_display);
+$form_display = new ServersForm($cf, $id);
+FormProcessing::process($form_display);

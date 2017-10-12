@@ -11,8 +11,6 @@ use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Di\Container;
 use PhpMyAdmin\Response;
 
-require_once 'libraries/database_interface.inc.php';
-
 /**
  * Base class for all of controller
  *

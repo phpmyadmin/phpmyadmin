@@ -86,11 +86,11 @@ class PMA_SeleniumDbTriggersTest extends PMA_SeleniumBase
     public function testAddTrigger()
     {
         $this->expandMore();
-        $ele = $this->waitForElement("byPartialLinkText", "Triggers");
-        $ele->click();
+        $this->waitForElement("byPartialLinkText", "Triggers")->click();
+        $this->waitAjax();
 
-        $ele = $this->waitForElement("byPartialLinkText", "Add trigger");
-        $ele->click();
+        $this->waitForElement("byPartialLinkText", "Add trigger")->click();
+        $this->waitAjax();
 
         $this->waitForElement("byClassName", "rte_form");
 
@@ -106,7 +106,7 @@ class PMA_SeleniumDbTriggersTest extends PMA_SeleniumBase
             ->selectOptionByLabel("INSERT");
 
         $proc = "UPDATE " . $this->database_name . ".`test_table2` SET val=val+1";
-        $this->typeInTextArea($proc, 2);
+        $this->typeInTextArea($proc);
 
         $this->byXPath("//button[contains(., 'Go')]")->click();
 
@@ -147,8 +147,8 @@ class PMA_SeleniumDbTriggersTest extends PMA_SeleniumBase
         $this->expandMore();
 
         $this->_triggerSQL();
-        $ele = $this->waitForElement("byPartialLinkText", "Triggers");
-        $ele->click();
+        $this->waitForElement("byPartialLinkText", "Triggers")->click();
+        $this->waitAjax();
 
         $this->waitForElement(
             "byXPath",
@@ -159,7 +159,7 @@ class PMA_SeleniumDbTriggersTest extends PMA_SeleniumBase
 
         $this->waitForElement("byClassName", "rte_form");
         $proc = "UPDATE " . $this->database_name . ".`test_table2` SET val=val+10";
-        $this->typeInTextArea($proc, 2);
+        $this->typeInTextArea($proc);
 
         $this->byXPath("//button[contains(., 'Go')]")->click();
 
@@ -201,8 +201,7 @@ class PMA_SeleniumDbTriggersTest extends PMA_SeleniumBase
             "byCssSelector", "button.submitOK"
         )->click();
 
-        $this->waitForElement("byId", "nothing2display");
-        sleep(1);
+        $this->waitAjaxMessage();
 
         // test trigger
         $this->dbQuery("INSERT INTO `test_table` (val) VALUES (1);");

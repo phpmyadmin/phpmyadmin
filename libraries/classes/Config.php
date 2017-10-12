@@ -13,6 +13,7 @@ use PhpMyAdmin\Error;
 use PhpMyAdmin\LanguageManager;
 use PhpMyAdmin\ThemeManager;
 use PhpMyAdmin\Url;
+use PhpMyAdmin\UserPreferences;
 use PhpMyAdmin\Util;
 
 /**
@@ -837,6 +838,8 @@ class Config
 
         $this->settings = array_replace_recursive($this->settings, $cfg);
 
+        $this->checkServers();
+
         // Handling of the collation must be done after merging of $cfg
         // (from config.inc.php) so that $cfg['DefaultConnectionCollation']
         // can have an effect.
@@ -852,7 +855,7 @@ class Config
      *
      * @return void
      */
-    private function _saveConnectionCollation($config_data)
+    private function _saveConnectionCollation(array $config_data)
     {
         // just to shorten the lines
         $collation = 'collation_connection';
@@ -907,11 +910,9 @@ class Config
             if (! isset($_SESSION['cache'][$cache_key]['userprefs'])
                 || $_SESSION['cache'][$cache_key]['config_mtime'] < $config_mtime
             ) {
-                // load required libraries
-                include_once './libraries/user_preferences.lib.php';
-                $prefs = PMA_loadUserprefs();
+                $prefs = UserPreferences::load();
                 $_SESSION['cache'][$cache_key]['userprefs']
-                    = PMA_applyUserprefs($prefs['config_data']);
+                    = UserPreferences::apply($prefs['config_data']);
                 $_SESSION['cache'][$cache_key]['userprefs_mtime'] = $prefs['mtime'];
                 $_SESSION['cache'][$cache_key]['userprefs_type'] = $prefs['type'];
                 $_SESSION['cache'][$cache_key]['config_mtime'] = $config_mtime;
@@ -1032,11 +1033,10 @@ class Config
         // use permanent user preferences if possible
         $prefs_type = $this->get('user_preferences');
         if ($prefs_type) {
-            include_once './libraries/user_preferences.lib.php';
             if ($default_value === null) {
                 $default_value = Core::arrayRead($cfg_path, $this->default);
             }
-            PMA_persistOption($cfg_path, $new_cfg_value, $default_value);
+            UserPreferences::persistOption($cfg_path, $new_cfg_value, $default_value);
         }
         if ($prefs_type != 'db' && $cookie_name) {
             // fall back to cookies
@@ -1756,19 +1756,26 @@ class Config
      */
     public function getTempDir($name)
     {
+        static $temp_dir = array();
+
+        if (isset($temp_dir[$name]) && !defined('TESTSUITE')) {
+            return $temp_dir[$name];
+        }
+
         $path = $this->get('TempDir');
         if (empty($path)) {
-            return null;
+            $path = null;
+        } else {
+            $path .= '/' . $name;
+            if (! @is_dir($path)) {
+                @mkdir($path, 0770, true);
+            }
+            if (! @is_dir($path) || ! @is_writable($path)) {
+                $path = null;
+            }
         }
 
-        $path .= '/' . $name;
-        if (! @is_dir($path)) {
-            @mkdir($path, 0770, true);
-        }
-        if (! @is_dir($path) || ! @is_writable($path)) {
-            return null;
-        }
-
+        $temp_dir[$name] = $path;
         return $path;
     }
 
@@ -1794,6 +1801,103 @@ class Config
         }
 
         return null;
+    }
+
+    /**
+     * Selects server based on request parameters.
+     *
+     * @return integer
+     */
+    public function selectServer() {
+        $server = 0;
+        $request = empty($_REQUEST['server']) ? 0 : $_REQUEST['server'];
+
+        /**
+         * Lookup server by name
+         * (see FAQ 4.8)
+         */
+        if (! is_numeric($request)) {
+            foreach ($this->settings['Servers'] as $i => $server) {
+                $verboseToLower = mb_strtolower($server['verbose']);
+                $serverToLower = mb_strtolower($request);
+                if ($server['host'] == $request
+                    || $server['verbose'] == $request
+                    || $verboseToLower == $serverToLower
+                    || md5($verboseToLower) === $serverToLower
+                ) {
+                    $request = $i;
+                    break;
+                }
+            }
+            if (is_string($request)) {
+                $request = 0;
+            }
+        }
+
+        /**
+         * If no server is selected, make sure that $this->settings['Server'] is empty (so
+         * that nothing will work), and skip server authentication.
+         * We do NOT exit here, but continue on without logging into any server.
+         * This way, the welcome page will still come up (with no server info) and
+         * present a choice of servers in the case that there are multiple servers
+         * and '$this->settings['ServerDefault'] = 0' is set.
+         */
+
+        if (is_numeric($request) && ! empty($request) && ! empty($this->settings['Servers'][$request])) {
+            $server = $request;
+            $this->settings['Server'] = $this->settings['Servers'][$server];
+        } else {
+            if (!empty($this->settings['Servers'][$this->settings['ServerDefault']])) {
+                $server = $this->settings['ServerDefault'];
+                $this->settings['Server'] = $this->settings['Servers'][$server];
+            } else {
+                $server = 0;
+                $this->settings['Server'] = array();
+            }
+        }
+
+        return $server;
+    }
+
+    /**
+     * Checks whether Servers configuration is valid and possibly apply fixups.
+     *
+     * @return void
+     */
+    public function checkServers() {
+        // Do we have some server?
+        if (! isset($this->settings['Servers']) || count($this->settings['Servers']) == 0) {
+            // No server => create one with defaults
+            $this->settings['Servers'] = array(1 => $this->default_server);
+        } else {
+            // We have server(s) => apply default configuration
+            $new_servers = array();
+
+            foreach ($this->settings['Servers'] as $server_index => $each_server) {
+
+                // Detect wrong configuration
+                if (!is_int($server_index) || $server_index < 1) {
+                    trigger_error(
+                        sprintf(__('Invalid server index: %s'), $server_index),
+                        E_USER_ERROR
+                    );
+                }
+
+                $each_server = array_merge($this->default_server, $each_server);
+
+                // Final solution to bug #582890
+                // If we are using a socket connection
+                // and there is nothing in the verbose server name
+                // or the host field, then generate a name for the server
+                // in the form of "Server 2", localized of course!
+                if (empty($each_server['host']) && empty($each_server['verbose'])) {
+                    $each_server['verbose'] = sprintf(__('Server %d'), $server_index);
+                }
+
+                $new_servers[$server_index] = $each_server;
+            }
+            $this->settings['Servers'] = $new_servers;
+        }
     }
 }
 

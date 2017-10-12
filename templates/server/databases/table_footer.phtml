@@ -1,6 +1,6 @@
 <tfoot>
     <tr>
-        <?php if ($GLOBALS['is_superuser'] || $GLOBALS['cfg']['AllowUserDropDatabase']): ?>
+        <?php if ($GLOBALS['dbi']->isSuperuser() || $GLOBALS['cfg']['AllowUserDropDatabase']): ?>
             <th></th>
         <?php endif; ?>
         <th>

@@ -5,8 +5,9 @@
  *
  * @package PhpMyAdmin
  */
+use PhpMyAdmin\Database\MultiTableQuery;
+use PhpMyAdmin\ParseAnalyze;
 use PhpMyAdmin\Response;
-use PhpMyAdmin\DbMultiTableQuery;
 use PhpMyAdmin\Sql;
 
 require_once 'libraries/common.inc.php';
@@ -14,12 +15,11 @@ require_once 'libraries/common.inc.php';
 if (isset($_REQUEST['sql_query'])) {
     $sql_query = $_REQUEST['sql_query'];
     $db = $_REQUEST['db'];
-    include_once 'libraries/parse_analyze.lib.php';
     list(
         $analyzed_sql_results,
         $db,
         $table_from_sql
-    ) = PMA_parseAnalyze($sql_query, $db);
+    ) = ParseAnalyze::sqlQuery($sql_query, $db);
 
     extract($analyzed_sql_results);
     $goto = 'db_multi_table_query.php';
@@ -53,6 +53,6 @@ $scripts = $header->getScripts();
 $scripts->addFile('vendor/jquery.md5.js');
 $scripts->addFile('db_multi_table_query.js');
 
-$QueryInstance = new DbMultiTableQuery($db);
+$QueryInstance = new MultiTableQuery($db);
 
 $response->addHTML($QueryInstance->getFormHTML());

@@ -47,7 +47,7 @@ abstract class ExternalTransformationsPlugin extends TransformationsPlugin
      *
      * @return bool
      */
-    public function applyTransformationNoWrap($options = array())
+    public function applyTransformationNoWrap(array $options = array())
     {
         if (!isset($options[3]) || $options[3] == '') {
             $nowrap = true;
@@ -69,7 +69,7 @@ abstract class ExternalTransformationsPlugin extends TransformationsPlugin
      *
      * @return string
      */
-    public function applyTransformation($buffer, $options = array(), $meta = '')
+    public function applyTransformation($buffer, array $options = array(), $meta = '')
     {
         // possibly use a global transform and feed it with special options
 

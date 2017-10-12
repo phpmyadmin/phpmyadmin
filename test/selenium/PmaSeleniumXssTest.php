@@ -36,9 +36,8 @@ class PMA_SeleniumXSSTest extends PMA_SeleniumBase
             $this->markTestSkipped('Alerts not supported on Safari browser.');
         }
         $this->waitForElement('byPartialLinkText', "SQL")->click();
-        $this->waitForElementNotPresent('byId', 'ajax_message_num_1');
+        $this->waitAjax();
 
-        sleep(1);
         $this->waitForElement("byId", "queryboxf");
         $this->byId("button_submit_query")->click();
         $this->assertEquals("Missing value in the form!", $this->alertText());

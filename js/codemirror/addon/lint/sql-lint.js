@@ -1,12 +1,11 @@
-CodeMirror.sqlLint = function(text, updateLinting, options, cm) {
-
+CodeMirror.sqlLint = function (text, updateLinting, options, cm) {
     // Skipping check if text box is empty.
-    if(text.trim() == "") {
+    if (text.trim() === '') {
         updateLinting(cm, []);
         return;
     }
 
-    function handleResponse(response) {
+    function handleResponse (response) {
         var found = [];
         for (var idx in response) {
             found.push({
@@ -25,8 +24,8 @@ CodeMirror.sqlLint = function(text, updateLinting, options, cm) {
     }
 
     $.ajax({
-        method: "POST",
-        url: "lint.php",
+        method: 'POST',
+        url: 'lint.php',
         dataType: 'json',
         data: {
             sql_query: text,
@@ -36,4 +35,4 @@ CodeMirror.sqlLint = function(text, updateLinting, options, cm) {
         },
         success: handleResponse
     });
-}
+};

@@ -30,7 +30,7 @@ class PMA_SeleniumSettingsTest extends PMA_SeleniumBase
         $this->login();
         $this->expandMore();
         $this->waitForElement("byPartialLinkText", "Settings")->click();
-        $this->waitForElementNotPresent('byCssSelector', 'ajax_message_num_1');
+        $this->waitAjax();
 
         $this->waitForElement(
             "byXPath", "//a[@class='tabactive' and contains(., 'Settings')]"
@@ -77,7 +77,7 @@ class PMA_SeleniumSettingsTest extends PMA_SeleniumBase
     public function testHideDatabase()
     {
         $this->byPartialLinkText("Features")->click();
-        $this->waitForElementNotPresent('byCssSelector', 'ajax_message_num_1');
+        $this->waitAjax();
 
         $this->waitForElement('byXPath', "//a[contains(@href, '#Databases')]")->click();
 
@@ -107,7 +107,7 @@ class PMA_SeleniumSettingsTest extends PMA_SeleniumBase
     public function testSettingsTabsAreDisplayed()
     {
         $this->byPartialLinkText("SQL queries")->click();
-        $this->waitForElementNotPresent('byCssSelector', 'ajax_message_num_1');
+        $this->waitAjax();
 
         $this->waitForElement('byClassName', 'tabs');
 
@@ -138,7 +138,7 @@ class PMA_SeleniumSettingsTest extends PMA_SeleniumBase
     public function testHideLogo()
     {
         $this->byPartialLinkText("Navigation panel")->click();
-        $this->waitForElementNotPresent('byCssSelector', 'ajax_message_num_1');
+        $this->waitAjax();
 
         $this->waitForElement("byName", "NavigationDisplayLogo")
             ->click();

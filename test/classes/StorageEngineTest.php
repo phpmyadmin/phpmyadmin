@@ -4,22 +4,17 @@
  *
  * @package PhpMyAdmin-test
  */
+namespace PhpMyAdmin\Tests;
 
 use PhpMyAdmin\StorageEngine;
-
-require_once 'test/PMATestCase.php';
-/*
- * Include to test.
- */
-require_once 'libraries/config.default.php';
-require_once 'libraries/database_interface.inc.php';
+use PhpMyAdmin\Tests\PmaTestCase;
 
 /**
  * Tests for StorageEngine.php
  *
  * @package PhpMyAdmin-test
  */
-class StorageEngineTest extends PMATestCase
+class StorageEngineTest extends PmaTestCase
 {
     /**
      * @access protected

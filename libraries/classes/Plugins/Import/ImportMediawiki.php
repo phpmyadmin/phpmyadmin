@@ -66,7 +66,7 @@ class ImportMediawiki extends ImportPlugin
      *
      * @return void
      */
-    public function doImport(&$sql_data = array())
+    public function doImport(array &$sql_data = array())
     {
         global $error, $timeout_passed, $finished;
 
@@ -298,7 +298,7 @@ class ImportMediawiki extends ImportPlugin
      *
      * @return void
      */
-    private function _importDataOneTable($table, &$sql_data)
+    private function _importDataOneTable(array $table, array &$sql_data)
     {
         $analyze = $this->_getAnalyze();
         if ($analyze) {
@@ -348,7 +348,7 @@ class ImportMediawiki extends ImportPlugin
      *
      * @return void
      */
-    private function _setTableHeaders(&$table_headers, $table_row)
+    private function _setTableHeaders(array &$table_headers, array $table_row)
     {
         if (empty($table_headers)) {
             // The first table row should contain the number of columns
@@ -379,7 +379,7 @@ class ImportMediawiki extends ImportPlugin
      *
      * @return void
      */
-    private function _executeImportTables(&$tables, &$analyses, &$sql_data)
+    private function _executeImportTables(array &$tables, array &$analyses, array &$sql_data)
     {
         global $db;
 

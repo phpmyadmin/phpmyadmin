@@ -12,10 +12,13 @@
  * @package PhpMyAdmin
  */
 use PhpMyAdmin\DatabaseInterface;
+use PhpMyAdmin\Display\CreateTable;
 use PhpMyAdmin\Message;
 use PhpMyAdmin\Operations;
+use PhpMyAdmin\Plugins;
 use PhpMyAdmin\Plugins\Export\ExportSql;
 use PhpMyAdmin\Relation;
+use PhpMyAdmin\RelationCleanup;
 use PhpMyAdmin\Response;
 use PhpMyAdmin\Util;
 
@@ -23,12 +26,11 @@ use PhpMyAdmin\Util;
  * requirements
  */
 require_once 'libraries/common.inc.php';
-require_once 'libraries/display_create_table.lib.php';
 
 /**
  * functions implementation for this script
  */
-require_once 'libraries/check_user_privileges.lib.php';
+require_once 'libraries/check_user_privileges.inc.php';
 
 // add a javascript file for jQuery functions to handle Ajax actions
 $response = Response::getInstance();
@@ -75,10 +77,9 @@ if (strlen($GLOBALS['db']) > 0
 
         $tables_full = $GLOBALS['dbi']->getTablesFull($GLOBALS['db']);
 
-        include_once "libraries/plugin_interface.lib.php";
         // remove all foreign key constraints, otherwise we can get errors
         /* @var $export_sql_plugin ExportSql */
-        $export_sql_plugin = PMA_getPlugin(
+        $export_sql_plugin = Plugins::getPlugin(
             "export",
             "sql",
             'libraries/classes/Plugins/Export/',
@@ -133,8 +134,7 @@ if (strlen($GLOBALS['db']) > 0
             /**
              * cleanup pmadb stuff for this db
              */
-            include_once 'libraries/relation_cleanup.lib.php';
-            PMA_relationsCleanupDatabase($GLOBALS['db']);
+            RelationCleanup::database($GLOBALS['db']);
 
             // if someday the RENAME DATABASE reappears, do not DROP
             $local_query = 'DROP DATABASE '
@@ -247,7 +247,7 @@ if (!$is_information_schema) {
     }
 
     $response->addHTML('<div>');
-    $response->addHTML(PMA_getHtmlForCreateTable($db));
+    $response->addHTML(CreateTable::getHtml($db));
     $response->addHTML('</div>');
 
     /**
@@ -261,7 +261,7 @@ if (!$is_information_schema) {
     // Don't even try to drop information_schema.
     // You won't be able to. Believe me. You won't.
     // Don't allow to easily drop mysql database, RFE #1327514.
-    if (($is_superuser || $GLOBALS['cfg']['AllowUserDropDatabase'])
+    if (($GLOBALS['dbi']->isSuperuser() || $GLOBALS['cfg']['AllowUserDropDatabase'])
         && ! $db_is_system_schema
         && $GLOBALS['db'] != 'mysql'
     ) {

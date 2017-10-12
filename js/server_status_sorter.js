@@ -1,6 +1,7 @@
 // TODO: tablesorter shouldn't sort already sorted columns
-function initTableSorter(tabid) {
-    var $table, opts;
+function initTableSorter (tabid) {
+    var $table;
+    var opts;
     switch (tabid) {
     case 'statustabs_queries':
         $table = $('#serverstatusqueriesdetails');
@@ -20,14 +21,14 @@ function initTableSorter(tabid) {
 
 $(function () {
     $.tablesorter.addParser({
-        id: "fancyNumber",
+        id: 'fancyNumber',
         is: function (s) {
             return (/^[0-9]?[0-9,\.]*\s?(k|M|G|T|%)?$/).test(s);
         },
         format: function (s) {
             var num = jQuery.tablesorter.formatFloat(
                 s.replace(PMA_messages.strThousandsSeparator, '')
-                 .replace(PMA_messages.strDecimalSeparator, '.')
+                    .replace(PMA_messages.strDecimalSeparator, '.')
             );
 
             var factor = 1;
@@ -52,11 +53,11 @@ $(function () {
 
             return num * Math.pow(10, factor);
         },
-        type: "numeric"
+        type: 'numeric'
     });
 
     $.tablesorter.addParser({
-        id: "withinSpanNumber",
+        id: 'withinSpanNumber',
         is: function (s) {
             return (/<span class="original"/).test(s);
         },
@@ -64,6 +65,6 @@ $(function () {
             var res = html.innerHTML.match(/<span(\s*style="display:none;"\s*)?\s*class="original">(.*)?<\/span>/);
             return (res && res.length >= 3) ? res[2] : 0;
         },
-        type: "numeric"
+        type: 'numeric'
     });
 });

@@ -41,7 +41,7 @@ class DbiDummy implements DbiExtension
     public function connect(
         $user,
         $password,
-        $server = null
+        array $server = []
     ) {
         return true;
     }

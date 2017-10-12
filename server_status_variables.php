@@ -8,13 +8,12 @@
 
 use PhpMyAdmin\Response;
 use PhpMyAdmin\Message;
-use PhpMyAdmin\ServerStatusData;
+use PhpMyAdmin\Server\Status\Data;
+use PhpMyAdmin\Server\Status\Variables;
 
 require_once 'libraries/common.inc.php';
 require_once 'libraries/server_common.inc.php';
-require_once 'libraries/server_status_variables.lib.php';
 require_once 'libraries/replication.inc.php';
-require_once 'libraries/replication_gui.lib.php';
 
 /**
  * flush status variables if requested
@@ -32,7 +31,7 @@ if (isset($_REQUEST['flush'])) {
     unset($_flush_commands);
 }
 
-$serverStatusData = new ServerStatusData();
+$serverStatusData = new Data();
 
 $response = Response::getInstance();
 $header   = $response->getHeader();
@@ -44,9 +43,9 @@ $scripts->addFile('server_status_sorter.js');
 $response->addHTML('<div>');
 $response->addHTML($serverStatusData->getMenuHtml());
 if ($serverStatusData->dataLoaded) {
-    $response->addHTML(PMA_getHtmlForFilter($serverStatusData));
-    $response->addHTML(PMA_getHtmlForLinkSuggestions($serverStatusData));
-    $response->addHTML(PMA_getHtmlForVariablesList($serverStatusData));
+    $response->addHTML(Variables::getHtmlForFilter($serverStatusData));
+    $response->addHTML(Variables::getHtmlForLinkSuggestions($serverStatusData));
+    $response->addHTML(Variables::getHtmlForVariablesList($serverStatusData));
 } else {
     $response->addHTML(
         Message::error(

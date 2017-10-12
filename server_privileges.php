@@ -10,7 +10,9 @@ use PhpMyAdmin\Core;
 use PhpMyAdmin\Message;
 use PhpMyAdmin\Relation;
 use PhpMyAdmin\Response;
+use PhpMyAdmin\Server\Common;
 use PhpMyAdmin\Server\Privileges;
+use PhpMyAdmin\Server\Users;
 
 /**
  * include common file
@@ -20,8 +22,7 @@ require_once 'libraries/common.inc.php';
 /**
  * functions implementation for this script
  */
-require_once 'libraries/display_change_password.lib.php';
-require_once 'libraries/check_user_privileges.lib.php';
+require_once 'libraries/check_user_privileges.inc.php';
 
 $cfgRelation = Relation::getRelationsParam();
 
@@ -38,9 +39,8 @@ if ((isset($_REQUEST['viewing_mode'])
     && $_REQUEST['viewing_mode'] == 'server')
     && $GLOBALS['cfgRelation']['menuswork']
 ) {
-    include_once 'libraries/server_users.lib.php';
     $response->addHTML('<div>');
-    $response->addHTML(PMA_getHtmlForSubMenusOnUsersPage('server_privileges.php'));
+    $response->addHTML(Users::getHtmlForSubMenusOnUsersPage('server_privileges.php'));
 }
 
 /**
@@ -129,10 +129,10 @@ list(
 /**
  * Checks if the user is allowed to do what he tries to...
  */
-if (!$GLOBALS['is_superuser'] && !$GLOBALS['is_grantuser']
+if (!$GLOBALS['dbi']->isSuperuser() && !$GLOBALS['is_grantuser']
     && !$GLOBALS['is_createuser']
 ) {
-    $response->addHTML(PMA_getHtmlForSubPageHeader('privileges', '', false));
+    $response->addHTML(Common::getHtmlForSubPageHeader('privileges', '', false));
     $response->addHTML(
         Message::error(__('No Privileges'))
             ->getDisplay()
@@ -241,7 +241,7 @@ if (! empty($_POST['update_privs'])) {
  * Assign users to user groups
  */
 if (! empty($_REQUEST['changeUserGroup']) && $cfgRelation['menuswork']
-    && $GLOBALS['is_superuser'] && $GLOBALS['is_createuser']
+    && $GLOBALS['dbi']->isSuperuser() && $GLOBALS['is_createuser']
 ) {
     Privileges::setUserGroup($username, $_REQUEST['userGroup']);
     $message = Message::success();
@@ -278,7 +278,6 @@ if (isset($_REQUEST['change_pw'])) {
 if (isset($_REQUEST['delete'])
     || (isset($_REQUEST['change_copy']) && $_REQUEST['mode'] < 4)
 ) {
-    include_once 'libraries/relation_cleanup.lib.php';
     $queries = Privileges::getDataForDeleteUsers($queries);
     if (empty($_REQUEST['change_copy'])) {
         list($sql_query, $message) = Privileges::deleteUser($queries);

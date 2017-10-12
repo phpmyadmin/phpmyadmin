@@ -1,0 +1,43 @@
+<table class="data">
+    {# Select options for data label #}
+    <tr>
+        <td>
+            <label for="dataLabel">
+                {% trans 'Use this column to label each point' %}
+            </label>
+        </td>
+        <td>
+            <select name="dataLabel" id="dataLabel" >
+                <option value = "">
+                    {% trans 'None' %}
+                </option>
+                {% for i in 0..column_names|length - 1 %}
+                    {% if data_label is defined and data_label == column_names[i]|e %}
+                        <option value="{{ column_names[i] }}" selected="selected">
+                            {{ column_names[i] }}
+                        </option>
+                    {% else %}
+                        <option value="{{ column_names[i] }}" >
+                            {{ column_names[i] }}
+                        </option>
+                    {% endif %}
+                {% endfor %}
+            </select>
+        </td>
+    </tr>
+    {# Inputbox for changing default maximum rows to plot #}
+    <tr>
+        <td>
+            <label for="maxRowPlotLimit">
+                {% trans 'Maximum rows to plot' %}
+            </label>
+        </td>
+        <td>
+            <input type="number"
+                name="maxPlotLimit"
+                id="maxRowPlotLimit"
+                required="required"
+                value="{{ max_plot_limit }}" />
+        </td>
+    </tr>
+</table>

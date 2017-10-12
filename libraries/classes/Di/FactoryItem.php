@@ -22,7 +22,7 @@ class FactoryItem extends ReflectorItem
      *
      * @return mixed
      */
-    public function get($params = array())
+    public function get(array $params = array())
     {
         return $this->invoke($params);
     }

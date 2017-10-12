@@ -4,17 +4,18 @@
  *
  * @package PhpMyAdmin-test
  */
+namespace PhpMyAdmin\Tests;
 
+use PhpMyAdmin\Tests\PmaTestCase;
 use PhpMyAdmin\ZipExtension;
-
-require_once 'test/PMATestCase.php';
+use ZipArchive;
 
 /**
  * Tests zip extension usage.
  *
  * @package PhpMyAdmin-test
  */
-class ZipExtensionTest extends PMATestCase
+class ZipExtensionTest extends PmaTestCase
 {
     /**
      * Test for ZipExtension::getContents

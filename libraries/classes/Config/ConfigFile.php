@@ -77,11 +77,11 @@ class ConfigFile
     /**
      * Constructor
      *
-     * @param array $base_config base configuration read from
-     *                           {@link PhpMyAdmin\Config::$base_config},
-     *                           use only when not in PMA Setup
+     * @param array|null $base_config base configuration read from
+     *                                {@link PhpMyAdmin\Config::$base_config},
+     *                                use only when not in PMA Setup
      */
-    public function __construct(array $base_config = null)
+    public function __construct($base_config = null)
     {
         // load default config values
         $cfg = &$this->_defaultCfg;

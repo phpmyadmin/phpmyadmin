@@ -14,12 +14,9 @@ use PhpMyAdmin\Response;
 use PhpMyAdmin\Table;
 use PhpMyAdmin\Theme;
 use PhpMyAdmin\Tracker;
-use PhpMyAdmin\Types;
-use PhpMyAdmin\TypesMySQL;
+use PHPUnit_Framework_TestCase as TestCase;
 use ReflectionProperty;
 use stdClass;
-
-require_once 'libraries/database_interface.inc.php';
 
 /**
  * Tests for PhpMyAdmin\InsertEdit
@@ -27,7 +24,7 @@ require_once 'libraries/database_interface.inc.php';
  * @package PhpMyAdmin-test
  * @group medium
  */
-class InsertEditTest extends \PHPUnit_Framework_TestCase
+class InsertEditTest extends TestCase
 {
     /**
      * Setup for test cases
@@ -42,7 +39,6 @@ class InsertEditTest extends \PHPUnit_Framework_TestCase
         $GLOBALS['text_dir'] = 'ltr';
         $GLOBALS['db'] = 'db';
         $GLOBALS['table'] = 'table';
-        $GLOBALS['PMA_Types'] = new TypesMySQL();
         $GLOBALS['cfg']['LimitChars'] = 50;
         $GLOBALS['cfg']['LongtextDoubleTextarea'] = false;
         $GLOBALS['cfg']['ShowFieldTypesInDataEditView'] = true;
@@ -600,7 +596,6 @@ class InsertEditTest extends \PHPUnit_Framework_TestCase
             )
         );
 
-        $GLOBALS['PMA_Types'] = new Types;
         $column['Field'] = 'num';
         $this->assertContains(
             '<select name="funcsa" b tabindex="5" id="field_3_1"',
@@ -1215,7 +1210,7 @@ class InsertEditTest extends \PHPUnit_Framework_TestCase
 
         /**
          * This condition should be tested, however, it gives an undefined function
-         * PMA_getFileSelectOptions error:
+         * PhpMyAdmin\FileListing::getFileSelectOptions error:
          * $GLOBALS['cfg']['UploadDir'] = true;
          *
          */

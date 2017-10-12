@@ -26,6 +26,7 @@ class PmaSeleniumQueryByExampleTest extends PMA_SeleniumBase
      */
     public function setUp()
     {
+        $this->markTestSkipped('Broken, see https://github.com/phpmyadmin/phpmyadmin/issues/13621');
         parent::setUp();
 
         $this->dbQuery(
@@ -59,11 +60,10 @@ class PmaSeleniumQueryByExampleTest extends PMA_SeleniumBase
      */
     public function testQueryByExample()
     {
-        $this->markTestSkipped('Broken, see https://github.com/phpmyadmin/phpmyadmin/issues/13621');
         $this->navigateDatabase($this->database_name);
 
         $this->waitForElement('byPartialLinkText', 'Query')->click();
-        $this->waitForElementNotPresent('byId', 'ajax_message_num_1');
+        $this->waitAjax();
 
         /* Select Columns to be used in the query */
         $select = $this->select(
@@ -118,10 +118,9 @@ class PmaSeleniumQueryByExampleTest extends PMA_SeleniumBase
 
         /* Update Query in the editor */
         $this->byCssSelector('input[name=modify]')->click();
-        $this->waitForElementNotPresent('byId', 'ajax_message_num_1');
+        $this->waitAjax();
 
         $this->scrollToBottom();
-        sleep(1);
 
         $expected = "SELECT `test_table`.`id` AS `ID`, `test_table`.`val` AS `VAL`"
             . "\nFROM `test_table`"
@@ -136,11 +135,10 @@ class PmaSeleniumQueryByExampleTest extends PMA_SeleniumBase
         );
 
         $this->scrollToBottom();
-        sleep(1);
 
         /* Submit the query */
         $this->waitForElement('byCssSelector', 'input[value="Submit Query"]')->click();
-        $this->waitForElementNotPresent('byId', 'ajax_message_num_1');
+        $this->waitAjax();
 
         $this->waitForElement('byCssSelector', 'table.table_results');
 

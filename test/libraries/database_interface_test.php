@@ -9,7 +9,6 @@
 /*
  * Include to test.
  */
-require_once 'libraries/database_interface.inc.php';
 
 /**
  * Tests basic functionality of dummy dbi driver

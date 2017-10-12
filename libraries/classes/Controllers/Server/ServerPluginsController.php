@@ -10,6 +10,7 @@
 namespace PhpMyAdmin\Controllers\Server;
 
 use PhpMyAdmin\Controllers\Controller;
+use PhpMyAdmin\Server\Common;
 use PhpMyAdmin\Template;
 
 /**
@@ -50,7 +51,7 @@ class ServerPluginsController extends Controller
         /**
          * Displays the page
         */
-        $this->response->addHTML(PMA_getHtmlForSubPageHeader('plugins'));
+        $this->response->addHTML(Common::getHtmlForSubPageHeader('plugins'));
         $this->response->addHTML($this->_getPluginsHtml());
     }
 

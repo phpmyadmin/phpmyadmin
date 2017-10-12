@@ -41,7 +41,7 @@ abstract class TextFileUploadTransformationsPlugin extends IOTransformationsPlug
      *
      * @return string
      */
-    public function applyTransformation($buffer, $options = array(), $meta = '')
+    public function applyTransformation($buffer, array $options = array(), $meta = '')
     {
         return $buffer;
     }
@@ -63,10 +63,10 @@ abstract class TextFileUploadTransformationsPlugin extends IOTransformationsPlug
      * @return string the html for input field
      */
     public function getInputHtml(
-        $column,
+        array $column,
         $row_id,
         $column_name_appendix,
-        $options,
+        array $options,
         $value,
         $text_dir,
         $tabindex,

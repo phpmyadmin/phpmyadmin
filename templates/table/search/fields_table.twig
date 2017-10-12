@@ -1,0 +1,23 @@
+<table class="data"{{ search_type == 'zoom' ? ' id="tableFieldsId"' }}>
+    {% include 'table/search/table_header.twig' with {
+        'geom_column_flag': geom_column_flag
+    } only %}
+    <tbody>
+    {% if search_type == 'zoom' %}
+        {% include 'table/search/rows_zoom.twig' with {
+            'self': self,
+            'column_names': column_names,
+            'criteria_column_names': criteria_column_names,
+            'criteria_column_types': criteria_column_types
+        } only %}
+    {% else %}
+        {% include 'table/search/rows_normal.twig' with {
+            'self': self,
+            'geom_column_flag': geom_column_flag,
+            'column_names': column_names,
+            'column_types': column_types,
+            'column_collations': column_collations
+        } only %}
+    {% endif %}
+    </tbody>
+</table>

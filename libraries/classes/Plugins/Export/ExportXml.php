@@ -177,7 +177,7 @@ class ExportXml extends ExportPlugin
      *
      * @return string XML with definitions
      */
-    private function _exportDefinitions($db, $type, $dbitype, $names)
+    private function _exportDefinitions($db, $type, $dbitype, array $names)
     {
         global $crlf;
 
@@ -465,7 +465,7 @@ class ExportXml extends ExportPlugin
         $crlf,
         $error_url,
         $sql_query,
-        $aliases = array()
+        array $aliases = array()
     ) {
         // Do not export data for merge tables
         if ($GLOBALS['dbi']->getTable($db, $table)->isMerge()) {
@@ -571,7 +571,7 @@ class ExportXml extends ExportPlugin
      *
      * @return void
      */
-    private function _setTables($tables)
+    private function _setTables(array $tables)
     {
         $this->_tables = $tables;
     }

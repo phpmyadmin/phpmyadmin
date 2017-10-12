@@ -6,20 +6,19 @@
  * @package PhpMyAdmin-test
  * @group current
  */
+namespace PhpMyAdmin\Tests;
 
-/*
- * Include to test.
- */
+use PhpMyAdmin\Config;
+use PhpMyAdmin\Tests\PmaTestCase;
 use PhpMyAdmin\Theme;
-
-require_once 'test/PMATestCase.php';
+use PHPUnit_Framework_Assert as Assert;
 
 /**
  * Tests behaviour of PhpMyAdmin\Config class
  *
  * @package PhpMyAdmin-test
  */
-class ConfigTest extends PMATestCase
+class ConfigTest extends PmaTestCase
 {
     /**
      * Turn off backup globals
@@ -44,14 +43,14 @@ class ConfigTest extends PMATestCase
      */
     protected function setUp()
     {
-        $this->object = new PhpMyAdmin\Config;
+        $this->object = new Config;
         $GLOBALS['server'] = 0;
         $_SESSION['is_git_revision'] = true;
-        $GLOBALS['PMA_Config'] = new PhpMyAdmin\Config(CONFIG_FILE);
+        $GLOBALS['PMA_Config'] = new Config(CONFIG_FILE);
         $GLOBALS['cfg']['ProxyUrl'] = '';
 
         //for testing file permissions
-        $this->permTestObj = new PhpMyAdmin\Config("./config.sample.inc.php");
+        $this->permTestObj = new Config("./config.sample.inc.php");
     }
 
     /**
@@ -90,12 +89,12 @@ class ConfigTest extends PMATestCase
     {
         $this->assertContains(
             '<form name="form_fontsize_selection" id="form_fontsize_selection"',
-            PhpMyAdmin\Config::getFontsizeForm()
+            Config::getFontsizeForm()
         );
 
         $this->assertContains(
             '<label for="select_fontsize">',
-            PhpMyAdmin\Config::getFontsizeForm()
+            Config::getFontsizeForm()
         );
 
         //test getFontsizeOptions for "em" unit
@@ -104,44 +103,44 @@ class ConfigTest extends PMATestCase
         $_COOKIE['pma_fontsize'] = "10em";
         $this->assertContains(
             '<option value="7em"',
-            PhpMyAdmin\Config::getFontsizeForm()
+            Config::getFontsizeForm()
         );
         $this->assertContains(
             '<option value="8em"',
-            PhpMyAdmin\Config::getFontsizeForm()
+            Config::getFontsizeForm()
         );
 
         //test getFontsizeOptions for "pt" unit
         $_COOKIE['pma_fontsize'] = "10pt";
         $this->assertContains(
             '<option value="2pt"',
-            PhpMyAdmin\Config::getFontsizeForm()
+            Config::getFontsizeForm()
         );
         $this->assertContains(
             '<option value="4pt"',
-            PhpMyAdmin\Config::getFontsizeForm()
+            Config::getFontsizeForm()
         );
 
         //test getFontsizeOptions for "px" unit
         $_COOKIE['pma_fontsize'] = "10px";
         $this->assertContains(
             '<option value="5px"',
-            PhpMyAdmin\Config::getFontsizeForm()
+            Config::getFontsizeForm()
         );
         $this->assertContains(
             '<option value="6px"',
-            PhpMyAdmin\Config::getFontsizeForm()
+            Config::getFontsizeForm()
         );
 
         //test getFontsizeOptions for unknown unit
         $_COOKIE['pma_fontsize'] = "10abc";
         $this->assertContains(
             '<option value="7abc"',
-            PhpMyAdmin\Config::getFontsizeForm()
+            Config::getFontsizeForm()
         );
         $this->assertContains(
             '<option value="8abc"',
-            PhpMyAdmin\Config::getFontsizeForm()
+            Config::getFontsizeForm()
         );
         unset($_COOKIE['pma_fontsize']);
         //rollback the fontsize setting
@@ -830,10 +829,9 @@ class ConfigTest extends PMATestCase
      */
     public function testGetThemeUniqueValue()
     {
-
         $partial_sum = (
-            PHPUnit_Framework_Assert::readAttribute($this->object, 'source_mtime') +
-            PHPUnit_Framework_Assert::readAttribute(
+            Assert::readAttribute($this->object, 'source_mtime') +
+            Assert::readAttribute(
                 $this->object,
                 'default_source_mtime'
             ) +
@@ -931,5 +929,118 @@ class ConfigTest extends PMATestCase
         $this->assertTrue(
             $this->object->isGitRevision()
         );
+    }
+
+    /**
+     * Test for checkServers
+     *
+     * @return void
+     *
+     * @dataProvider serverSettingsProvider
+     */
+    public function testCheckServers($settings, $expected, $error = false)
+    {
+        if ($error) {
+            $this->setExpectedException('PHPUnit_Framework_Error');
+        }
+
+        $this->object->settings['Servers'] = $settings;
+        $this->object->checkServers();
+        if (is_null($expected)) {
+            $expected = $this->object->default_server;
+        } else {
+            $expected = array_merge($this->object->default_server, $expected);
+        }
+        $this->assertEquals($expected, $this->object->settings['Servers'][1]);
+    }
+
+    /**
+     * Data provider for checkServers test
+     *
+     * @return array
+     */
+    public function serverSettingsProvider()
+    {
+        return [
+            'empty' => [
+                [],
+                [],
+            ],
+            'only_host' => [
+                [1 => ['host' => '127.0.0.1']],
+                ['host' => '127.0.0.1'],
+            ],
+            'empty_host' => [
+                [1 => ['host' => '']],
+                ['verbose' => 'Server 1', 'host' => ''],
+            ],
+            'invalid' => [
+                ['invalid' => ['host' => '127.0.0.1']],
+                ['host' => '127.0.0.1'],
+                true
+            ],
+        ];
+    }
+
+    /**
+     * Test for selectServer
+     *
+     * @return void
+     *
+     * @dataProvider selectServerProvider
+     * @depends testCheckServers
+     */
+    public function testSelectServer($settings, $request, $expected)
+    {
+        $this->object->settings['Servers'] = $settings;
+        $this->object->checkServers();
+        $_REQUEST['server'] = $request;
+        $this->assertEquals($expected, $this->object->selectServer());
+    }
+
+    /**
+     * Data provider for selectServer test
+     *
+     * @return array
+     */
+    public function selectServerProvider()
+    {
+        return [
+            'zero' => [
+                [],
+                '0',
+                1,
+            ],
+            'number' => [
+                [1 => []],
+                '1',
+                1,
+            ],
+            'host' => [
+                [2 => ['host' => '127.0.0.1']],
+                '127.0.0.1',
+                2,
+            ],
+            'verbose' => [
+                [1 => ['verbose' => 'Server 1', 'host' => '']],
+                'Server 1',
+                1
+            ],
+            'md5' => [
+                [66 => ['verbose' => 'Server 1', 'host' => '']],
+                '753f173bd4ac8a45eae0fe9a4fbe0fc0',
+                66
+            ],
+            'nonexisting_string' => [
+                [1 => []],
+                'invalid',
+                1,
+            ],
+            'nonexisting' => [
+                [1 => []],
+                '100',
+                1,
+            ],
+        ];
     }
 }

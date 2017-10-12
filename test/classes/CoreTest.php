@@ -5,22 +5,20 @@
  *
  * @package PhpMyAdmin-test
  */
-
-/*
- * Include to test.
- */
-require_once 'test/PMATestCase.php';
+namespace PhpMyAdmin\Tests;
 
 use PhpMyAdmin\Config;
 use PhpMyAdmin\Core;
 use PhpMyAdmin\Sanitize;
+use PhpMyAdmin\Tests\PmaTestCase;
+use stdClass;
 
 /**
  * Tests for PhpMyAdmin\Core class
  *
  * @package PhpMyAdmin-test
  */
-class CoreTest extends PMATestCase
+class CoreTest extends PmaTestCase
 {
     protected $goto_whitelist = array(
         'db_datadict.php',
@@ -269,7 +267,7 @@ class CoreTest extends PMATestCase
     public function providerTestGotoNowhere()
     {
         return array(
-            array(null, null, false),
+            array(null, [], false),
             array('export.php', $this->goto_whitelist, true),
             array('shell.php', $this->goto_whitelist, false),
             array('index.php?sql.php&test=true', $this->goto_whitelist, true),

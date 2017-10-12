@@ -60,7 +60,7 @@ class SubPartition
      *
      * @param array $row fetched row from information_schema.PARTITIONS
      */
-    public function __construct($row)
+    public function __construct(array $row)
     {
         $this->db = $row['TABLE_SCHEMA'];
         $this->table = $row['TABLE_NAME'];
@@ -74,7 +74,7 @@ class SubPartition
      *
      * @return void
      */
-    protected function loadData($row)
+    protected function loadData(array $row)
     {
         $this->name = $row['SUBPARTITION_NAME'];
         $this->ordinal = $row['SUBPARTITION_ORDINAL_POSITION'];
@@ -90,7 +90,7 @@ class SubPartition
      *
      * @return void
      */
-    protected function loadCommonData($row)
+    protected function loadCommonData(array $row)
     {
         $this->rows = $row['TABLE_ROWS'];
         $this->dataLength = $row['DATA_LENGTH'];

@@ -9,12 +9,11 @@ namespace PhpMyAdmin\Tests\Display;
 
 use PhpMyAdmin\Core;
 use PhpMyAdmin\Display\Export;
+use PhpMyAdmin\Plugins;
 use PhpMyAdmin\Theme;
 use PhpMyAdmin\Url;
 use PhpMyAdmin\Util;
-
-require_once 'libraries/database_interface.inc.php';
-require_once 'libraries/plugin_interface.lib.php';
+use PHPUnit_Framework_TestCase as TestCase;
 
 /**
  * class PhpMyAdmin\Tests\Display\ExportTest
@@ -24,7 +23,7 @@ require_once 'libraries/plugin_interface.lib.php';
  * @package PhpMyAdmin-test
  * @group large
  */
-class ExportTest extends \PHPUnit_Framework_TestCase
+class ExportTest extends TestCase
 {
     /**
      * Test for setUp
@@ -149,7 +148,7 @@ class ExportTest extends \PHPUnit_Framework_TestCase
         $GLOBALS['dbi'] = $dbi;
 
         /* Scan for plugins */
-        $export_list = PMA_getPlugins(
+        $export_list = Plugins::getPlugins(
             "export",
             'libraries/classes/Plugins/Export/',
             array(

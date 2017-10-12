@@ -10,8 +10,7 @@
  *
  * @returns bool
  */
-function isStorageSupported(type, warn)
-{
+function isStorageSupported (type, warn) {
     try {
         window[type].setItem('PMATest', 'test');
         // Check whether key-value pair was set successfully
@@ -20,7 +19,7 @@ function isStorageSupported(type, warn)
             window[type].removeItem('PMATest');
             return true;
         }
-    } catch(error) {
+    } catch (error) {
         // Not supported
         if (warn) {
             PMA_ajaxShowMessage(PMA_messages.strNoLocalStorage, false);
@@ -56,15 +55,14 @@ var defaultValues = {};
  *
  * @param {Element} field
  */
-function getFieldType(field)
-{
+function getFieldType (field) {
     var $field = $(field);
     var tagName = $field.prop('tagName');
-    if (tagName == 'INPUT') {
+    if (tagName === 'INPUT') {
         return $field.attr('type');
-    } else if (tagName == 'SELECT') {
+    } else if (tagName === 'SELECT') {
         return 'select';
-    } else if (tagName == 'TEXTAREA') {
+    } else if (tagName === 'TEXTAREA') {
         return 'text';
     }
     return '';
@@ -76,8 +74,7 @@ function getFieldType(field)
  * @param {Element} field
  * @param {boolean} display
  */
-function setRestoreDefaultBtn(field, display)
-{
+function setRestoreDefaultBtn (field, display) {
     var $el = $(field).closest('td').find('.restore-default img');
     $el[display ? 'show' : 'hide']();
 }
@@ -87,14 +84,13 @@ function setRestoreDefaultBtn(field, display)
  *
  * @param {Element} field
  */
-function markField(field)
-{
+function markField (field) {
     var $field = $(field);
     var type = getFieldType($field);
     var isDefault = checkFieldDefault($field, type);
 
     // checkboxes uses parent <span> for marking
-    var $fieldMarker = (type == 'checkbox') ? $field.parent() : $field;
+    var $fieldMarker = (type === 'checkbox') ? $field.parent() : $field;
     setRestoreDefaultBtn($field, !isDefault);
     $fieldMarker[isDefault ? 'removeClass' : 'addClass']('custom');
 }
@@ -112,8 +108,7 @@ function markField(field)
  * @param {String}  field_type  see {@link #getFieldType}
  * @param {String|Boolean}  [value]
  */
-function setFieldValue(field, field_type, value)
-{
+function setFieldValue (field, field_type, value) {
     var $field = $(field);
     switch (field_type) {
     case 'text':
@@ -125,14 +120,15 @@ function setFieldValue(field, field_type, value)
         break;
     case 'select':
         var options = $field.prop('options');
-        var i, imax = options.length;
+        var i;
+        var imax = options.length;
         if (value === undefined) {
             for (i = 0; i < imax; i++) {
                 options[i].selected = options[i].defaultSelected;
             }
         } else {
             for (i = 0; i < imax; i++) {
-                options[i].selected = (value.indexOf(options[i].value) != -1);
+                options[i].selected = (value.indexOf(options[i].value) !== -1);
             }
         }
         break;
@@ -152,8 +148,7 @@ function setFieldValue(field, field_type, value)
  * @param {String}  field_type returned by {@link #getFieldType}
  * @type Boolean|String|String[]
  */
-function getFieldValue(field, field_type)
-{
+function getFieldValue (field, field_type) {
     var $field = $(field);
     switch (field_type) {
     case 'text':
@@ -163,7 +158,9 @@ function getFieldValue(field, field_type)
         return $field.prop('checked');
     case 'select':
         var options = $field.prop('options');
-        var i, imax = options.length, items = [];
+        var i;
+        var imax = options.length;
+        var items = [];
         for (i = 0; i < imax; i++) {
             if (options[i].selected) {
                 items.push(options[i].value);
@@ -177,17 +174,17 @@ function getFieldValue(field, field_type)
 /**
  * Returns values for all fields in fieldsets
  */
-function getAllValues()
-{
+function getAllValues () {
     var $elements = $('fieldset input, fieldset select, fieldset textarea');
     var values = {};
-    var type, value;
+    var type;
+    var value;
     for (var i = 0; i < $elements.length; i++) {
         type = getFieldType($elements[i]);
         value = getFieldValue($elements[i], type);
-        if (typeof value != 'undefined') {
+        if (typeof value !== 'undefined') {
             // we only have single selects, fatten array
-            if (type == 'select') {
+            if (type === 'select') {
                 value = value[0];
             }
             values[$elements[i].name] = value;
@@ -203,25 +200,23 @@ function getAllValues()
  * @param {String}  type
  * @return boolean
  */
-function checkFieldDefault(field, type)
-{
+function checkFieldDefault (field, type) {
     var $field = $(field);
     var field_id = $field.attr('id');
-    if (typeof defaultValues[field_id] == 'undefined') {
+    if (typeof defaultValues[field_id] === 'undefined') {
         return true;
     }
     var isDefault = true;
     var currentValue = getFieldValue($field, type);
-    if (type != 'select') {
-        isDefault = currentValue == defaultValues[field_id];
+    if (type !== 'select') {
+        isDefault = currentValue === defaultValues[field_id];
     } else {
         // compare arrays, will work for our representation of select values
-        if (currentValue.length != defaultValues[field_id].length) {
+        if (currentValue.length !== defaultValues[field_id].length) {
             isDefault = false;
-        }
-        else {
+        } else {
             for (var i = 0; i < currentValue.length; i++) {
-                if (currentValue[i] != defaultValues[field_id][i]) {
+                if (currentValue[i] !== defaultValues[field_id][i]) {
                     isDefault = false;
                     break;
                 }
@@ -235,8 +230,7 @@ function checkFieldDefault(field, type)
  * Returns element's id prefix
  * @param {Element} element
  */
-function getIdPrefix(element)
-{
+function getIdPrefix (element) {
     return $(element).attr('id').replace(/[^-]+$/, '');
 }
 
@@ -262,7 +256,7 @@ var validators = {
         if (isKeyUp && this.value === '') {
             return true;
         }
-        var result = this.value != '0' && validators._regexp_numeric.test(this.value);
+        var result = this.value !== '0' && validators._regexp_numeric.test(this.value);
         return result ? true : PMA_messages.error_nan_p;
     },
     /**
@@ -286,7 +280,7 @@ var validators = {
         if (this.value === '') {
             return true;
         }
-        var result = validators._regexp_numeric.test(this.value) && this.value != '0';
+        var result = validators._regexp_numeric.test(this.value) && this.value !== '0';
         return result && this.value <= 65535 ? true : PMA_messages.error_incorrect_port;
     },
     /**
@@ -333,12 +327,11 @@ var validators = {
  * @param {boolean} onKeyUp  whether fire on key up
  * @param {Array}   params   validation function parameters
  */
-function validateField(id, type, onKeyUp, params)
-{
-    if (typeof validators[type] == 'undefined') {
+function validateField (id, type, onKeyUp, params) {
+    if (typeof validators[type] === 'undefined') {
         return;
     }
-    if (typeof validate[id] == 'undefined') {
+    if (typeof validate[id] === 'undefined') {
         validate[id] = [];
     }
     validate[id].push([type, params, onKeyUp]);
@@ -352,17 +345,16 @@ function validateField(id, type, onKeyUp, params)
  * @type Array
  * @return array of [function, parameters to be passed to function]
  */
-function getFieldValidators(field_id, onKeyUpOnly)
-{
+function getFieldValidators (field_id, onKeyUpOnly) {
     // look for field bound validator
     var name = field_id && field_id.match(/[^-]+$/)[0];
-    if (typeof validators._field[name] != 'undefined') {
+    if (typeof validators._field[name] !== 'undefined') {
         return [[validators._field[name], null]];
     }
 
     // look for registered validators
     var functions = [];
-    if (typeof validate[field_id] != 'undefined') {
+    if (typeof validate[field_id] !== 'undefined') {
         // validate[field_id]: array of [type, params, onKeyUp]
         for (var i = 0, imax = validate[field_id].length; i < imax; i++) {
             if (onKeyUpOnly && !validate[field_id][i][2]) {
@@ -379,12 +371,11 @@ function getFieldValidators(field_id, onKeyUpOnly)
  * Displays errors for given form fields
  *
  * WARNING: created DOM elements must be identical with the ones made by
- * display_input() in FormDisplay.tpl.php!
+ * PhpMyAdmin\Config\FormDisplayTemplate::displayInput()!
  *
  * @param {Object} error_list list of errors in the form {field id: error array}
  */
-function displayErrors(error_list)
-{
+function displayErrors (error_list) {
     var tempIsEmpty = function (item) {
         return item !== '';
     };
@@ -392,7 +383,7 @@ function displayErrors(error_list)
     for (var field_id in error_list) {
         var errors = error_list[field_id];
         var $field = $('#' + field_id);
-        var isFieldset = $field.attr('tagName') == 'FIELDSET';
+        var isFieldset = $field.attr('tagName') === 'FIELDSET';
         var $errorCnt;
         if (isFieldset) {
             $errorCnt = $field.find('dl.errors');
@@ -406,7 +397,7 @@ function displayErrors(error_list)
         // CSS error class
         if (!isFieldset) {
             // checkboxes uses parent <span> for marking
-            var $fieldMarker = ($field.attr('type') == 'checkbox') ? $field.parent() : $field;
+            var $fieldMarker = ($field.attr('type') === 'checkbox') ? $field.parent() : $field;
             $fieldMarker[errors.length ? 'addClass' : 'removeClass']('field-error');
         }
 
@@ -441,16 +432,15 @@ function displayErrors(error_list)
  * @param {boolean} isKeyUp
  * @param {Object}  errors
  */
-function validate_fieldset(fieldset, isKeyUp, errors)
-{
+function validate_fieldset (fieldset, isKeyUp, errors) {
     var $fieldset = $(fieldset);
-    if ($fieldset.length && typeof validators._fieldset[$fieldset.attr('id')] != 'undefined') {
+    if ($fieldset.length && typeof validators._fieldset[$fieldset.attr('id')] !== 'undefined') {
         var fieldset_errors = validators._fieldset[$fieldset.attr('id')].apply($fieldset[0], [isKeyUp]);
         for (var field_id in fieldset_errors) {
-            if (typeof errors[field_id] == 'undefined') {
+            if (typeof errors[field_id] === 'undefined') {
                 errors[field_id] = [];
             }
-            if (typeof fieldset_errors[field_id] == 'string') {
+            if (typeof fieldset_errors[field_id] === 'string') {
                 fieldset_errors[field_id] = [fieldset_errors[field_id]];
             }
             $.merge(errors[field_id], fieldset_errors[field_id]);
@@ -465,9 +455,9 @@ function validate_fieldset(fieldset, isKeyUp, errors)
  * @param {boolean} isKeyUp
  * @param {Object}  errors
  */
-function validate_field(field, isKeyUp, errors)
-{
-    var args, result;
+function validate_field (field, isKeyUp, errors) {
+    var args;
+    var result;
     var $field = $(field);
     var field_id = $field.attr('id');
     errors[field_id] = [];
@@ -481,7 +471,7 @@ function validate_field(field, isKeyUp, errors)
         args.unshift(isKeyUp);
         result = functions[i][0].apply($field[0], args);
         if (result !== true) {
-            if (typeof result == 'string') {
+            if (typeof result === 'string') {
                 result = [result];
             }
             $.merge(errors[field_id], result);
@@ -495,8 +485,7 @@ function validate_field(field, isKeyUp, errors)
  * @param {Element} field
  * @param {boolean} isKeyUp
  */
-function validate_field_and_fieldset(field, isKeyUp)
-{
+function validate_field_and_fieldset (field, isKeyUp) {
     var $field = $(field);
     var errors = {};
     validate_field($field, isKeyUp, errors);
@@ -504,7 +493,7 @@ function validate_field_and_fieldset(field, isKeyUp)
     displayErrors(errors);
 }
 
-function loadInlineConfig() {
+function loadInlineConfig () {
     if (!Array.isArray(configInlineParams)) {
         return;
     }
@@ -515,10 +504,10 @@ function loadInlineConfig() {
     }
 }
 
-function setupValidation() {
+function setupValidation () {
     validate = {};
     configScriptLoaded = true;
-    if (configScriptLoaded && typeof configInlineParams !== "undefined") {
+    if (configScriptLoaded && typeof configInlineParams !== 'undefined') {
         loadInlineConfig();
     }
     // register validators and mark custom values
@@ -532,14 +521,14 @@ function setupValidation() {
         });
         var tagName = $el.attr('tagName');
         // text fields can be validated after each change
-        if (tagName == 'INPUT' && $el.attr('type') == 'text') {
+        if (tagName === 'INPUT' && $el.attr('type') === 'text') {
             $el.keyup(function () {
                 validate_field_and_fieldset($el, true);
                 markField($el);
             });
         }
         // disable textarea spellcheck
-        if (tagName == 'TEXTAREA') {
+        if (tagName === 'TEXTAREA') {
             $el.attr('spellcheck', false);
         }
     });
@@ -547,7 +536,7 @@ function setupValidation() {
     // check whether we've refreshed a page and browser remembered modified
     // form values
     var $check_page_refresh = $('#check_page_refresh');
-    if ($check_page_refresh.length === 0 || $check_page_refresh.val() == '1') {
+    if ($check_page_refresh.length === 0 || $check_page_refresh.val() === '1') {
         // run all field validators
         var errors = {};
         for (var i = 0; i < $elements.length; i++) {
@@ -581,9 +570,8 @@ AJAX.registerOnload('config.js', function () {
  *
  * @param {String} tab_id
  */
-function setTab(tab_id)
-{
-    $('ul.tabs').each(function() {
+function setTab (tab_id) {
+    $('ul.tabs').each(function () {
         var $this = $(this);
         if (!$this.find('li a[href="#' + tab_id + '"]').length) {
             return;
@@ -596,9 +584,9 @@ function setTab(tab_id)
     });
 }
 
-function setupConfigTabs() {
+function setupConfigTabs () {
     var forms = $('form.config-form');
-    forms.each(function() {
+    forms.each(function () {
         var $this = $(this);
         var $tabs = $this.find('ul.tabs');
         if (!$tabs.length) {
@@ -618,14 +606,25 @@ function setupConfigTabs() {
     });
 }
 
+function adjustPrefsNotification () {
+    var $prefsAutoLoad = $('#prefs_autoload');
+    var $tableNameControl = $('#table_name_col_no');
+    var $prefsAutoShowing = ($prefsAutoLoad.css('display') !== 'none');
+
+    if ($prefsAutoShowing && $tableNameControl.length) {
+        $tableNameControl.css('top', '120px');
+    }
+}
+
 AJAX.registerOnload('config.js', function () {
     setupConfigTabs();
+    adjustPrefsNotification();
 
     // tab links handling, check each 200ms
     // (works with history in FF, further browser support here would be an overkill)
     var prev_hash;
     var tab_check_fnc = function () {
-        if (location.hash != prev_hash) {
+        if (location.hash !== prev_hash) {
             prev_hash = location.hash;
             if (prev_hash.match(/^#tab_[a-zA-Z0-9_]+$/)) {
                 // session ID is sometimes appended here
@@ -670,8 +669,7 @@ AJAX.registerOnload('config.js', function () {
  *
  * @param {String} field_id
  */
-function restoreField(field_id)
-{
+function restoreField (field_id) {
     var $field = $('#' + field_id);
     if ($field.length === 0 || defaultValues[field_id] === undefined) {
         return;
@@ -679,7 +677,7 @@ function restoreField(field_id)
     setFieldValue($field, getFieldType($field), defaultValues[field_id]);
 }
 
-function setupRestoreField() {
+function setupRestoreField () {
     $('div.tabs_contents')
         .on('mouseenter', '.restore-default, .set-value', function () {
             $(this).css('opacity', 1);
@@ -703,7 +701,7 @@ function setupRestoreField() {
         })
         .find('.restore-default, .set-value')
         // inline-block for IE so opacity inheritance works
-        .css({display: 'inline-block', opacity: 0.25});
+        .css({ display: 'inline-block', opacity: 0.25 });
 }
 
 AJAX.registerOnload('config.js', function () {
@@ -754,19 +752,19 @@ AJAX.registerOnload('config.js', function () {
         var disabled = false;
         if (!ls_supported) {
             disabled = $form.find('input[type=radio][value$=local_storage]').prop('checked');
-        } else if (!ls_exists && $form.attr('name') == 'prefs_import' &&
+        } else if (!ls_exists && $form.attr('name') === 'prefs_import' &&
             $('#import_local_storage')[0].checked
-            ) {
+        ) {
             disabled = true;
         }
         $form.find('input[type=submit]').prop('disabled', disabled);
     }).submit(function (e) {
         var $form = $(this);
-        if ($form.attr('name') == 'prefs_export' && $('#export_local_storage')[0].checked) {
+        if ($form.attr('name') === 'prefs_export' && $('#export_local_storage')[0].checked) {
             e.preventDefault();
             // use AJAX to read JSON settings and save them
             savePrefsToLocalStorage($form);
-        } else if ($form.attr('name') == 'prefs_import' && $('#import_local_storage')[0].checked) {
+        } else if ($form.attr('name') === 'prefs_import' && $('#import_local_storage')[0].checked) {
             // set 'json' input and submit form
             $form.find('input[name=json]').val(window.localStorage.config);
         }
@@ -774,11 +772,11 @@ AJAX.registerOnload('config.js', function () {
 
     $(document).on('click', 'div.click-hide-message', function () {
         $(this)
-        .hide()
-        .parent('.group')
-        .css('height', '')
-        .next('form')
-        .show();
+            .hide()
+            .parent('.group')
+            .css('height', '')
+            .next('form')
+            .show();
     });
 });
 
@@ -787,8 +785,7 @@ AJAX.registerOnload('config.js', function () {
  *
  * @param {Element} form
  */
-function savePrefsToLocalStorage(form)
-{
+function savePrefsToLocalStorage (form) {
     $form = $(form);
     var submit = $form.find('input[type=submit]');
     submit.prop('disabled', true);
@@ -826,8 +823,7 @@ function savePrefsToLocalStorage(form)
 /**
  * Updates preferences timestamp in Import form
  */
-function updatePrefsDate()
-{
+function updatePrefsDate () {
     var d = new Date(window.localStorage.config_mtime_local);
     var msg = PMA_messages.strSavedOn.replace(
         '@DATE@',
@@ -839,8 +835,7 @@ function updatePrefsDate()
 /**
  * Prepares message which informs that localStorage preferences are available and can be imported or deleted
  */
-function offerPrefsAutoimport()
-{
+function offerPrefsAutoimport () {
     var has_config = (isStorageSupported('localStorage')) && (window.localStorage.config || false);
     var $cnt = $('#prefs_autoload');
     if (!$cnt.length || !has_config) {
@@ -849,14 +844,14 @@ function offerPrefsAutoimport()
     $cnt.find('a').click(function (e) {
         e.preventDefault();
         var $a = $(this);
-        if ($a.attr('href') == '#no') {
+        if ($a.attr('href') === '#no') {
             $cnt.remove();
             $.post('index.php', {
                 server: PMA_commonParams.get('server'),
                 prefs_autoload: 'hide'
             }, null, 'html');
             return;
-        } else if ($a.attr('href') == '#delete') {
+        } else if ($a.attr('href') === '#delete') {
             $cnt.remove();
             localStorage.clear();
             $.post('index.php', {

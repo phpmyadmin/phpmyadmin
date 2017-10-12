@@ -8,6 +8,7 @@
 namespace PhpMyAdmin\Navigation;
 
 use PhpMyAdmin\Sanitize;
+use PhpMyAdmin\Server\Select;
 use PhpMyAdmin\Template;
 use PhpMyAdmin\Url;
 use PhpMyAdmin\Util;
@@ -240,10 +241,9 @@ class NavigationHeader
         if ($GLOBALS['cfg']['NavigationDisplayServers']
             && count($GLOBALS['cfg']['Servers']) > 1
         ) {
-            include_once './libraries/select_server.lib.php';
             $retval .= '<!-- SERVER CHOICE START -->';
             $retval .= '<div id="serverChoice">';
-            $retval .= PMA_selectServer(true, true);
+            $retval .= Select::render(true, true);
             $retval .= '</div>';
             $retval .= '<!-- SERVER CHOICE END -->';
         }

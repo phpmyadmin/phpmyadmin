@@ -34,8 +34,9 @@
 use PhpMyAdmin\Config;
 use PhpMyAdmin\Core;
 use PhpMyAdmin\DatabaseInterface;
-use PhpMyAdmin\DbList;
+use PhpMyAdmin\Database\DatabaseList;
 use PhpMyAdmin\ErrorHandler;
+use PhpMyAdmin\IpAllowDeny;
 use PhpMyAdmin\LanguageManager;
 use PhpMyAdmin\Logging;
 use PhpMyAdmin\Message;
@@ -45,7 +46,7 @@ use PhpMyAdmin\Response;
 use PhpMyAdmin\Session;
 use PhpMyAdmin\ThemeManager;
 use PhpMyAdmin\Tracker;
-use PhpMyAdmin\TypesMySQL;
+use PhpMyAdmin\Types;
 use PhpMyAdmin\Util;
 
 /**
@@ -208,12 +209,6 @@ if (isset($_POST['usesubform']) && ! defined('PMA_MINIMUM_COMMON')) {
  * in the previous iteration
  */
 $GLOBALS['PMA_Config'] = new Config(CONFIG_FILE);
-
-/**
- * BC - enable backward compatibility
- * exports all configuration settings into $GLOBALS ($GLOBALS['cfg'])
- */
-$GLOBALS['PMA_Config']->enableBc();
 
 /**
  * clean cookies on upgrade
@@ -425,15 +420,6 @@ if (Core::isValid($_REQUEST['sql_query'])) {
 $language = LanguageManager::getInstance()->selectLanguage();
 $language->activate();
 
-// Defines the cell alignment values depending on text direction
-if ($GLOBALS['text_dir'] == 'ltr') {
-    $GLOBALS['cell_align_left']  = 'left';
-    $GLOBALS['cell_align_right'] = 'right';
-} else {
-    $GLOBALS['cell_align_left']  = 'right';
-    $GLOBALS['cell_align_right'] = 'left';
-}
-
 /**
  * check for errors occurred while loading configuration
  * this check is done here after loading language files to present errors in locale
@@ -450,106 +436,14 @@ Core::checkConfiguration();
  * current server
  * @global integer $GLOBALS['server']
  */
-$GLOBALS['server'] = 0;
-
-/**
- * Servers array fixups.
- * $default_server comes from PhpMyAdmin\Config::enableBc()
- * @todo merge into PhpMyAdmin\Config
- */
-// Do we have some server?
-if (! isset($cfg['Servers']) || count($cfg['Servers']) == 0) {
-    // No server => create one with defaults
-    $cfg['Servers'] = array(1 => $default_server);
-} else {
-    // We have server(s) => apply default configuration
-    $new_servers = array();
-
-    foreach ($cfg['Servers'] as $server_index => $each_server) {
-
-        // Detect wrong configuration
-        if (!is_int($server_index) || $server_index < 1) {
-            trigger_error(
-                sprintf(__('Invalid server index: %s'), $server_index),
-                E_USER_ERROR
-            );
-        }
-
-        $each_server = array_merge($default_server, $each_server);
-
-        // Final solution to bug #582890
-        // If we are using a socket connection
-        // and there is nothing in the verbose server name
-        // or the host field, then generate a name for the server
-        // in the form of "Server 2", localized of course!
-        if (empty($each_server['host']) && empty($each_server['verbose'])) {
-            $each_server['verbose'] = sprintf(__('Server %d'), $server_index);
-        }
-
-        $new_servers[$server_index] = $each_server;
-    }
-    $cfg['Servers'] = $new_servers;
-    unset($new_servers, $server_index, $each_server);
-}
-
-// Cleanup
-unset($default_server);
-
-
-if (! defined('PMA_MINIMUM_COMMON')) {
-    /**
-     * Lookup server by name
-     * (see FAQ 4.8)
-     */
-    if (! empty($_REQUEST['server'])
-        && is_string($_REQUEST['server'])
-        && ! is_numeric($_REQUEST['server'])
-    ) {
-        foreach ($cfg['Servers'] as $i => $server) {
-            $verboseToLower = mb_strtolower($server['verbose']);
-            $serverToLower = mb_strtolower($_REQUEST['server']);
-            if ($server['host'] == $_REQUEST['server']
-                || $server['verbose'] == $_REQUEST['server']
-                || $verboseToLower == $serverToLower
-                || md5($verboseToLower) === $serverToLower
-            ) {
-                $_REQUEST['server'] = $i;
-                break;
-            }
-        }
-        if (is_string($_REQUEST['server'])) {
-            unset($_REQUEST['server']);
-        }
-        unset($i);
-    }
-}
-
-/**
- * If no server is selected, make sure that $cfg['Server'] is empty (so
- * that nothing will work), and skip server authentication.
- * We do NOT exit here, but continue on without logging into any server.
- * This way, the welcome page will still come up (with no server info) and
- * present a choice of servers in the case that there are multiple servers
- * and '$cfg['ServerDefault'] = 0' is set.
- */
-
-if (isset($_REQUEST['server'])
-    && (is_string($_REQUEST['server']) || is_numeric($_REQUEST['server']))
-    && ! empty($_REQUEST['server'])
-    && ! empty($cfg['Servers'][$_REQUEST['server']])
-) {
-    $GLOBALS['server'] = $_REQUEST['server'];
-    $cfg['Server'] = $cfg['Servers'][$GLOBALS['server']];
-} else {
-    if (!empty($cfg['Servers'][$cfg['ServerDefault']])) {
-        $GLOBALS['server'] = $cfg['ServerDefault'];
-        $cfg['Server'] = $cfg['Servers'][$GLOBALS['server']];
-    } else {
-        $GLOBALS['server'] = 0;
-        $cfg['Server'] = array();
-    }
-}
+$GLOBALS['server'] = $GLOBALS['PMA_Config']->selectServer();
 $GLOBALS['url_params']['server'] = $GLOBALS['server'];
+
+/**
+ * BC - enable backward compatibility
+ * exports all configuration settings into $GLOBALS ($GLOBALS['cfg'])
+ */
+$GLOBALS['PMA_Config']->enableBc();
 
 /******************************************************************************/
 /* setup themes                                          LABEL_theme_setup    */
@@ -576,7 +470,7 @@ if (! defined('PMA_MINIMUM_COMMON')) {
         /**
          * Loads the proper database interface for this server
          */
-        include_once './libraries/database_interface.inc.php';
+        DatabaseInterface::load();
 
         // get LoginCookieValidity from preferences cache
         // no generic solution for loading preferences from cache as some settings
@@ -635,30 +529,24 @@ if (! defined('PMA_MINIMUM_COMMON')) {
         if (isset($cfg['Server']['AllowDeny'])
             && isset($cfg['Server']['AllowDeny']['order'])
         ) {
-
-            /**
-             * ip based access library
-             */
-            include_once './libraries/ip_allow_deny.lib.php';
-
             $allowDeny_forbidden         = false; // default
             if ($cfg['Server']['AllowDeny']['order'] == 'allow,deny') {
                 $allowDeny_forbidden     = true;
-                if (PMA_allowDeny('allow')) {
+                if (IpAllowDeny::allowDeny('allow')) {
                     $allowDeny_forbidden = false;
                 }
-                if (PMA_allowDeny('deny')) {
+                if (IpAllowDeny::allowDeny('deny')) {
                     $allowDeny_forbidden = true;
                 }
             } elseif ($cfg['Server']['AllowDeny']['order'] == 'deny,allow') {
-                if (PMA_allowDeny('deny')) {
+                if (IpAllowDeny::allowDeny('deny')) {
                     $allowDeny_forbidden = true;
                 }
-                if (PMA_allowDeny('allow')) {
+                if (IpAllowDeny::allowDeny('allow')) {
                     $allowDeny_forbidden = false;
                 }
             } elseif ($cfg['Server']['AllowDeny']['order'] == 'explicit') {
-                if (PMA_allowDeny('allow') && ! PMA_allowDeny('deny')) {
+                if (IpAllowDeny::allowDeny('allow') && ! IpAllowDeny::allowDeny('deny')) {
                     $allowDeny_forbidden = false;
                 } else {
                     $allowDeny_forbidden = true;
@@ -761,16 +649,6 @@ if (! defined('PMA_MINIMUM_COMMON')) {
             );
         }
 
-        /**
-         * Type handling object.
-         */
-        $GLOBALS['PMA_Types'] = new TypesMySQL();
-
-        // Loads closest context to this version.
-        PhpMyAdmin\SqlParser\Context::loadClosest(
-            ($GLOBALS['dbi']->isMariaDB() ? 'MariaDb' : 'MySql') . $GLOBALS['dbi']->getVersion()
-        );
-
         // Sets the default delimiter (if specified).
         if (!empty($_REQUEST['sql_delimiter'])) {
             PhpMyAdmin\SqlParser\Lexer::$DEFAULT_DELIMITER = $_REQUEST['sql_delimiter'];
@@ -779,9 +657,9 @@ if (! defined('PMA_MINIMUM_COMMON')) {
         // TODO: Set SQL modes too.
 
         /**
-         * the DbList class as a stub for the ListDatabase class
+         * the DatabaseList class as a stub for the ListDatabase class
          */
-        $dblist = new DbList;
+        $dblist = new DatabaseList();
         $dblist->userlink = $userlink;
         $dblist->controllink = $controllink;
 
@@ -796,8 +674,6 @@ if (! defined('PMA_MINIMUM_COMMON')) {
         $_SESSION['tmpval']['previous_server'] = $GLOBALS['server'];
 
     } else { // end server connecting
-        // No need to check for 'PMA_BYPASS_GET_INSTANCE' since this execution path
-        // applies only to initial login
         $response = Response::getInstance();
         $response->getHeader()->disableMenuAndConsole();
         $response->getFooter()->setMinimal();
@@ -823,12 +699,9 @@ if (! defined('PMA_MINIMUM_COMMON')) {
      * Inclusion of profiling scripts is needed on various
      * pages like sql, tbl_sql, db_sql, tbl_select
      */
-    if (! defined('PMA_BYPASS_GET_INSTANCE')) {
-        $response = Response::getInstance();
-    }
-    if (isset($response) && isset($_SESSION['profiling'])) {
-        $header   = $response->getHeader();
-        $scripts  = $header->getScripts();
+    $response = Response::getInstance();
+    if (isset($_SESSION['profiling'])) {
+        $scripts  = $response->getHeader()->header->getScripts();
         $scripts->addFile('chart.js');
         $scripts->addFile('vendor/jqplot/jquery.jqplot.js');
         $scripts->addFile('vendor/jqplot/plugins/jqplot.pieRenderer.js');
@@ -840,7 +713,7 @@ if (! defined('PMA_MINIMUM_COMMON')) {
      * There is no point in even attempting to process
      * an ajax request if there is a token mismatch
      */
-    if (isset($response) && $response->isAjax() && $_SERVER['REQUEST_METHOD'] == 'POST' && $token_mismatch) {
+    if ($response->isAjax() && $_SERVER['REQUEST_METHOD'] == 'POST' && $token_mismatch) {
         $response->setRequestStatus(false);
         $response->addJSON(
             'message',
@@ -867,11 +740,6 @@ if (count($_REQUEST) > 1000) {
     Core::fatalError(__('possible exploit'));
 }
 
-// here, the function does not exist with this configuration:
-// $cfg['ServerDefault'] = 0;
-$GLOBALS['is_superuser']
-    = isset($GLOBALS['dbi']) && $GLOBALS['dbi']->isSuperuser();
-
 if (!empty($__redirect) && in_array($__redirect, $goto_whitelist)) {
     /**
      * include subform target page
@@ -886,7 +754,7 @@ if (! defined('PMA_MINIMUM_COMMON')
     && isset($GLOBALS['cfg']['ZeroConf'])
     && $GLOBALS['cfg']['ZeroConf'] == true
 ) {
-    if (! empty($GLOBALS['db'])) {
+    if (strlen($GLOBALS['db'])) {
         $cfgRelation = Relation::getRelationsParam();
         if (empty($cfgRelation['db'])) {
             Relation::fixPmaTables($GLOBALS['db'], false);
@@ -898,9 +766,4 @@ if (! defined('PMA_MINIMUM_COMMON')
             Relation::fixPmaTables('phpmyadmin', false);
         }
     }
-}
-
-if (! defined('PMA_MINIMUM_COMMON')) {
-    include 'libraries/config/user_preferences.forms.php';
-    include_once 'libraries/config/page_settings.forms.php';
 }

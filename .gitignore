@@ -39,6 +39,8 @@ web.config
 /doc/linkcheck/
 # Demo server
 revision-info.php
+# PHP_CodeSniffer
+phpcs.xml
 # PHPUnit
 phpunit.xml
 /test/bootstrap.php
@@ -53,3 +55,5 @@ cache.properties
 # Composer
 composer.lock
 /vendor/
+# NPM
+/node_modules/

@@ -5,17 +5,17 @@
  *
  * @package PhpMyAdmin-test
  */
+namespace PhpMyAdmin\Tests;
 
 use PhpMyAdmin\Index;
-
-require_once 'test/PMATestCase.php';
+use PhpMyAdmin\Tests\PmaTestCase;
 
 /**
  * Test for Index class
  *
  * @package PhpMyAdmin-test
  */
-class IndexTest extends PMATestCase
+class IndexTest extends PmaTestCase
 {
     private $_params = array();
 

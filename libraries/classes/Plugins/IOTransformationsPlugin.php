@@ -39,10 +39,10 @@ abstract class IOTransformationsPlugin extends TransformationsPlugin
      * @return string the html for input field
      */
     public function getInputHtml(
-        $column,
+        array $column,
         $row_id,
         $column_name_appendix,
-        $options,
+        array $options,
         $value,
         $text_dir,
         $tabindex,

@@ -11,8 +11,10 @@ use PhpMyAdmin\CentralColumns;
 use PhpMyAdmin\Config\PageSettings;
 use PhpMyAdmin\Controllers\TableController;
 use PhpMyAdmin\Core;
+use PhpMyAdmin\CreateAddField;
 use PhpMyAdmin\Index;
 use PhpMyAdmin\Message;
+use PhpMyAdmin\ParseAnalyze;
 use PhpMyAdmin\Relation;
 use PhpMyAdmin\Sql;
 use PhpMyAdmin\SqlParser\Context;
@@ -24,9 +26,6 @@ use PhpMyAdmin\Template;
 use PhpMyAdmin\Transformations;
 use PhpMyAdmin\Url;
 use PhpMyAdmin\Util;
-
-require_once 'libraries/config/user_preferences.forms.php';
-require_once 'libraries/config/page_settings.forms.php';
 
 /**
  * Handles table structure logic
@@ -115,7 +114,7 @@ class TableStructureController extends TableController
         /**
          * Function implementations for this script
          */
-        include_once 'libraries/check_user_privileges.lib.php';
+        include_once 'libraries/check_user_privileges.inc.php';
 
         $this->response->getHeader()->getScripts()->addFiles(
             array(
@@ -296,7 +295,6 @@ class TableStructureController extends TableController
             $db = $this->db;
             $table = $this->table;
             $cfg = $GLOBALS['cfg'];
-            $is_superuser = $GLOBALS['dbi']->isSuperuser();
             $pmaThemeImage = $GLOBALS['pmaThemeImage'];
             include 'sql.php';
             $GLOBALS['reload'] = true;
@@ -515,7 +513,7 @@ class TableStructureController extends TableController
         /**
          * Form for changing properties.
          */
-        include_once 'libraries/check_user_privileges.lib.php';
+        include_once 'libraries/check_user_privileges.inc.php';
         include 'libraries/tbl_columns_definition_form.inc.php';
     }
 
@@ -713,10 +711,8 @@ class TableStructureController extends TableController
      */
     protected function updatePartitioning()
     {
-        include_once 'libraries/create_addfield.lib.php';
-
         $sql_query = "ALTER TABLE " . Util::backquote($this->table) . " "
-            . PMA_getPartitionsDefinition();
+            . CreateAddField::getPartitionsDefinition();
 
         // Execute alter query
         $result = $this->dbi->tryQuery($sql_query);
@@ -797,11 +793,10 @@ class TableStructureController extends TableController
 
         // Parse and analyze the query
         $db = &$this->db;
-        include_once 'libraries/parse_analyze.lib.php';
         list(
             $analyzed_sql_results,
             $db,
-        ) = PMA_parseAnalyze($sql_query, $db);
+        ) = ParseAnalyze::sqlQuery($sql_query, $db);
         // @todo: possibly refactor
         extract($analyzed_sql_results);
 
@@ -1071,7 +1066,7 @@ class TableStructureController extends TableController
      * @return boolean $changed  boolean whether at least one column privileges
      * adjusted
      */
-    protected function adjustColumnPrivileges($adjust_privileges)
+    protected function adjustColumnPrivileges(array $adjust_privileges)
     {
         $changed = false;
 
@@ -1159,8 +1154,8 @@ class TableStructureController extends TableController
      * @return string
      */
     protected function displayStructure(
-        $cfgRelation, $columns_with_unique_index, $url_params,
-        $primary_index, $fields, $columns_with_index
+        array $cfgRelation, array $columns_with_unique_index, $url_params,
+        $primary_index, array $fields, array $columns_with_index
     ) {
         /* TABLE INFORMATION */
         $HideStructureActions = '';

@@ -65,23 +65,15 @@ class PMA_SeleniumCreateRemoveUserTest extends PMA_SeleniumBase
         $this->waitForElement('byPartialLinkText', "User accounts")->click();
 
         // Let the User Accounts page load
-        $this->waitForElementNotPresent('byId', 'ajax_message_num_1');
+        $this->waitAjax();
 
         $this->scrollIntoView('add_user_anchor');
         $this->waitForElement('byId', 'usersForm');
         $ele = $this->waitForElement("byId", "add_user_anchor");
         $this->moveto($ele);
+        $ele->click();
 
-        // Let the click go through
-        // If click happened before complete page load, it didn't go through
-        while ($this->isElementPresent('byId', 'add_user_anchor')
-            && ! $this->isElementPresent('byId', 'ajax_message_num_1')
-        ) {
-            $ele->click();
-            sleep(1);
-        }
-
-        $this->waitForElementNotPresent('byId', 'ajax_message_num_1');
+        $this->waitAjax();
         $userField = $this->waitForElement("byName", "username");
         $userField->value($this->_txtUsername);
 

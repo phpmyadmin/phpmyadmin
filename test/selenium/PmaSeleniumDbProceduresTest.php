@@ -75,11 +75,10 @@ class PMA_SeleniumDbProceduresTest extends PMA_SeleniumBase
      */
     public function testAddProcedure()
     {
-        $ele = $this->waitForElement("byPartialLinkText", "Routines");
-        $ele->click();
+        $this->waitForElement("byPartialLinkText", "Routines")->click();
+        $this->waitAjax();
 
-        $ele = $this->waitForElement("byPartialLinkText", "Add routine");
-        $ele->click();
+        $this->waitForElement("byPartialLinkText", "Add routine")->click();
 
         $this->waitForElement("byClassName", "rte_form");
 
@@ -100,7 +99,7 @@ class PMA_SeleniumDbProceduresTest extends PMA_SeleniumBase
         $ele->value("outp");
 
         $proc = "SELECT char_length(inp) + count(*) FROM test_table INTO outp";
-        $this->typeInTextArea($proc, 2);
+        $this->typeInTextArea($proc);
 
         $this->select(
             $this->byName("item_sqldataaccess")
@@ -132,8 +131,8 @@ class PMA_SeleniumDbProceduresTest extends PMA_SeleniumBase
     public function testEditProcedure()
     {
         $this->_procedureSQL();
-        $ele = $this->waitForElement("byPartialLinkText", "Routines");
-        $ele->click();
+        $this->waitForElement("byPartialLinkText", "Routines")->click();
+        $this->waitAjax();
 
         $this->waitForElement(
             "byXPath",
@@ -166,8 +165,8 @@ class PMA_SeleniumDbProceduresTest extends PMA_SeleniumBase
     public function testDropProcedure()
     {
         $this->_procedureSQL();
-        $ele = $this->waitForElement("byPartialLinkText", "Routines");
-        $ele->click();
+        $this->waitForElement("byPartialLinkText", "Routines")->click();
+        $this->waitAjax();
 
         $this->waitForElement(
             "byXPath",
@@ -179,9 +178,8 @@ class PMA_SeleniumDbProceduresTest extends PMA_SeleniumBase
             "byCssSelector", "button.submitOK"
         )->click();
 
-        $this->waitForElement("byId", "nothing2display");
+        $this->waitAjaxMessage();
 
-        sleep(1);
         $result = $this->dbQuery(
             "SHOW PROCEDURE STATUS WHERE Db='" . $this->database_name . "'"
         );
@@ -202,7 +200,7 @@ class PMA_SeleniumDbProceduresTest extends PMA_SeleniumBase
         $this->waitForElement("byName", "params[inp]")->value($text);
         $this->byCssSelector("div.ui-dialog-buttonset button:nth-child(1)")->click();
 
-        $this->waitForElementNotPresent('byId', 'ajax_message_num_1');
+        $this->waitAjax();
         $this->waitForElement(
             "byCssSelector",
             "span#PMA_slidingMessage table tbody"

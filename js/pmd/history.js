@@ -19,28 +19,27 @@ var vqb_editor = null;
  *
 **/
 
-function detail(index)
-{
+function detail (index) {
     var type = history_array[index].get_type();
     var str;
-    if (type == "Where") {
+    if (type === 'Where') {
         str = 'Where ' + history_array[index].get_column_name() + history_array[index].get_obj().getrelation_operator() + history_array[index].get_obj().getquery();
     }
-    if (type == "Rename") {
+    if (type === 'Rename') {
         str = 'Rename ' + history_array[index].get_column_name() + ' To ' + history_array[index].get_obj().getrename_to();
     }
-    if (type == "Aggregate") {
+    if (type === 'Aggregate') {
         str = 'Select ' + history_array[index].get_obj().get_operator() + '( ' + history_array[index].get_column_name() + ' )';
     }
-    if (type == "GroupBy") {
+    if (type === 'GroupBy') {
         str = 'GroupBy ' + history_array[index].get_column_name();
     }
-    if (type == "OrderBy") {
+    if (type === 'OrderBy') {
         str = 'OrderBy ' + history_array[index].get_column_name() + ' ' + history_array[index].get_obj().get_order();
     }
-    if (type == "Having") {
+    if (type === 'Having') {
         str = 'Having ';
-        if (history_array[index].get_obj().get_operator() != 'None') {
+        if (history_array[index].get_obj().get_operator() !== 'None') {
             str += history_array[index].get_obj().get_operator() + '( ' + history_array[index].get_column_name() + ' )';
             str += history_array[index].get_obj().getrelation_operator() + history_array[index].get_obj().getquery();
         } else {
@@ -61,15 +60,19 @@ function detail(index)
  *
 **/
 
-function display(init, finit)
-{
-    var str, i, j, k, sto, temp;
+function display (init, finit) {
+    var str;
+    var i;
+    var j;
+    var k;
+    var sto;
+    var temp;
     // this part sorts the history array based on table name,this is needed for clubbing all object of same name together.
     for (i = init; i < finit; i++) {
         sto = history_array[i];
-        temp = history_array[i].get_tab();//+ '.' + history_array[i].get_obj_no(); for Self JOINS
+        temp = history_array[i].get_tab();// + '.' + history_array[i].get_obj_no(); for Self JOINS
         for (j = 0; j < i; j++) {
-            if (temp > (history_array[j].get_tab())) {//+ '.' + history_array[j].get_obj_no())) { //for Self JOINS
+            if (temp > (history_array[j].get_tab())) {// + '.' + history_array[j].get_obj_no())) { //for Self JOINS
                 for (k = i; k > j; k--) {
                     history_array[k] = history_array[k - 1];
                 }
@@ -81,10 +84,10 @@ function display(init, finit)
     // this part generates HTML code for history tab.adds delete,edit,and/or and detail features with objects.
     str = ''; // string to store Html code for history tab
     for (i = 0; i < history_array.length; i++) {
-        temp = history_array[i].get_tab(); //+ '.' + history_array[i].get_obj_no(); for Self JOIN
+        temp = history_array[i].get_tab(); // + '.' + history_array[i].get_obj_no(); for Self JOIN
         str += '<h3 class="tiger"><a href="#">' + temp + '</a></h3>';
         str += '<div class="toggle_container">\n';
-        while ((history_array[i].get_tab()) == temp) { //+ '.' + history_array[i].get_obj_no()) == temp) {
+        while ((history_array[i].get_tab()) === temp) { // + '.' + history_array[i].get_obj_no()) === temp) {
             str += '<div class="block"> <table width ="250">';
             str += '<thead><tr><td>';
             if (history_array[i].get_and_or()) {
@@ -94,7 +97,7 @@ function display(init, finit)
             }
             str += '<td style="padding-left: 5px;" class="right">' + PMA_getImage('b_sbrowse.png', 'column name') + '</td>' +
                 '<td width="175" style="padding-left: 5px">' + history_array[i].get_column_name() + '<td>';
-            if (history_array[i].get_type() == "GroupBy" || history_array[i].get_type() == "OrderBy") {
+            if (history_array[i].get_type() === 'GroupBy' || history_array[i].get_type() === 'OrderBy') {
                 str += '<td class="center">' + PMA_getImage('s_info.png', detail(i)) + '</td>' +
                     '<td title="' + detail(i) + '">' + history_array[i].get_type() + '</td>' +
                     '<td onclick=history_delete(' + i + ')>' + PMA_getImage('b_drop.png', PMA_messages.strDelete) + '</td>';
@@ -125,8 +128,7 @@ function display(init, finit)
  *
 **/
 
-function and_or(index)
-{
+function and_or (index) {
     if (history_array[index].get_and_or()) {
         history_array[index].set_and_or(0);
     } else {
@@ -134,7 +136,7 @@ function and_or(index)
     }
     var existingDiv = document.getElementById('ab');
     existingDiv.innerHTML = display(0, 0);
-    $('#ab').accordion("refresh");
+    $('#ab').accordion('refresh');
 }
 
 /**
@@ -144,10 +146,9 @@ function and_or(index)
  *
 **/
 
-function history_delete(index)
-{
+function history_delete (index) {
     for (var k = 0; k < from_array.length; k++) {
-        if (from_array[k] == history_array[index].get_tab()) {
+        if (from_array[k] === history_array[index].get_tab()) {
             from_array.splice(k, 1);
             break;
         }
@@ -155,7 +156,7 @@ function history_delete(index)
     history_array.splice(index, 1);
     var existingDiv = document.getElementById('ab');
     existingDiv.innerHTML = display(0, 0);
-    $('#ab').accordion("refresh");
+    $('#ab').accordion('refresh');
 }
 
 /**
@@ -165,11 +166,10 @@ function history_delete(index)
  *
 **/
 
-function history_edit(index)
-{
+function history_edit (index) {
     g_index = index;
     var type = history_array[index].get_type();
-    if (type == "Where") {
+    if (type === 'Where') {
         document.getElementById('eQuery').value = history_array[index].get_obj().getquery();
         document.getElementById('erel_opt').value = history_array[index].get_obj().getrelation_operator();
         document.getElementById('query_where').style.left =  '530px';
@@ -179,7 +179,7 @@ function history_edit(index)
         document.getElementById('query_where').style.visibility = 'visible';
         document.getElementById('query_where').style.display = 'block';
     }
-    if (type == "Having") {
+    if (type === 'Having') {
         document.getElementById('hQuery').value = history_array[index].get_obj().getquery();
         document.getElementById('hrel_opt').value = history_array[index].get_obj().getrelation_operator();
         document.getElementById('hoperator').value = history_array[index].get_obj().get_operator();
@@ -190,7 +190,7 @@ function history_edit(index)
         document.getElementById('query_having').style.visibility = 'visible';
         document.getElementById('query_having').style.display = 'block';
     }
-    if (type == "Rename") {
+    if (type === 'Rename') {
         document.getElementById('e_rename').value = history_array[index].get_obj().getrename_to();
         document.getElementById('query_rename_to').style.left =  '530px';
         document.getElementById('query_rename_to').style.top  = '130px';
@@ -199,7 +199,7 @@ function history_edit(index)
         document.getElementById('query_rename_to').style.visibility = 'visible';
         document.getElementById('query_rename_to').style.display = 'block';
     }
-    if (type == "Aggregate") {
+    if (type === 'Aggregate') {
         document.getElementById('e_operator').value = history_array[index].get_obj().get_operator();
         document.getElementById('query_Aggregate').style.left = '530px';
         document.getElementById('query_Aggregate').style.top  = '130px';
@@ -217,31 +217,30 @@ function history_edit(index)
  * @param index index of history_array where change is to be made
 **/
 
-function edit(type)
-{
-    if (type == "Rename") {
-        if (document.getElementById('e_rename').value !== "") {
+function edit (type) {
+    if (type === 'Rename') {
+        if (document.getElementById('e_rename').value !== '') {
             history_array[g_index].get_obj().setrename_to(document.getElementById('e_rename').value);
-            document.getElementById('e_rename').value = "";
+            document.getElementById('e_rename').value = '';
         }
         document.getElementById('query_rename_to').style.visibility = 'hidden';
     }
-    if (type == "Aggregate") {
-        if (document.getElementById('e_operator').value != '---') {
+    if (type === 'Aggregate') {
+        if (document.getElementById('e_operator').value !== '---') {
             history_array[g_index].get_obj().set_operator(document.getElementById('e_operator').value);
             document.getElementById('e_operator').value = '---';
         }
         document.getElementById('query_Aggregate').style.visibility = 'hidden';
     }
-    if (type == "Where") {
-        if (document.getElementById('erel_opt').value != '--' && document.getElementById('eQuery').value !== "") {
+    if (type === 'Where') {
+        if (document.getElementById('erel_opt').value !== '--' && document.getElementById('eQuery').value !== '') {
             history_array[g_index].get_obj().setquery(document.getElementById('eQuery').value);
             history_array[g_index].get_obj().setrelation_operator(document.getElementById('erel_opt').value);
         }
         document.getElementById('query_where').style.visibility = 'hidden';
     }
-    if (type == "Having") {
-        if (document.getElementById('hrel_opt').value != '--' && document.getElementById('hQuery').value !== "") {
+    if (type === 'Having') {
+        if (document.getElementById('hrel_opt').value !== '--' && document.getElementById('hQuery').value !== '') {
             history_array[g_index].get_obj().setquery(document.getElementById('hQuery').value);
             history_array[g_index].get_obj().setrelation_operator(document.getElementById('hrel_opt').value);
             history_array[g_index].get_obj().set_operator(document.getElementById('hoperator').value);
@@ -250,7 +249,7 @@ function edit(type)
     }
     var existingDiv = document.getElementById('ab');
     existingDiv.innerHTML = display(0, 0);
-    $('#ab').accordion("refresh");
+    $('#ab').accordion('refresh');
 }
 
 /**
@@ -264,8 +263,7 @@ function edit(type)
  *
 **/
 
-function history_obj(ncolumn_name, nobj, ntab, nobj_no, ntype)
-{
+function history_obj (ncolumn_name, nobj, ntab, nobj_no, ntype) {
     var and_or;
     var obj;
     var tab;
@@ -352,12 +350,12 @@ var where = function (nrelation_operator, nquery) {
  *
  * @param norder order, ASC or DESC
  */
-var orderby = function(norder) {
+var orderby = function (norder) {
     var order;
-    this.set_order = function(norder) {
+    this.set_order = function (norder) {
         order = norder;
     };
-    this.get_order = function() {
+    this.get_order = function () {
         return order;
     };
     this.set_order(norder);
@@ -441,13 +439,12 @@ var aggregate = function (noperator) {
  * @return unique array
  */
 
-function unique(arrayName)
-{
+function unique (arrayName) {
     var newArray = [];
-uniquetop:
+    uniquetop:
     for (var i = 0; i < arrayName.length; i++) {
         for (var j = 0; j < newArray.length; j++) {
-            if (newArray[j] == arrayName[i]) {
+            if (newArray[j] === arrayName[i]) {
                 continue uniquetop;
             }
         }
@@ -464,10 +461,9 @@ uniquetop:
  * @param value  value which is to be searched in the array
  */
 
-function found(arrayName, value)
-{
+function found (arrayName, value) {
     for (var i = 0; i < arrayName.length; i++) {
-        if (arrayName[i] == value) {
+        if (arrayName[i] === value) {
             return 1;
         }
     }
@@ -480,8 +476,7 @@ function found(arrayName, value)
  * @params add array elements of which are pushed in
  * @params arr array in which elements are added
  */
-function add_array(add, arr)
-{
+function add_array (add, arr) {
     for (var i = 0; i < add.length; i++) {
         arr.push(add[i]);
     }
@@ -494,11 +489,10 @@ function add_array(add, arr)
  * @params arr array from which elements are removed.
  *
  */
-function remove_array(rem, arr)
-{
+function remove_array (rem, arr) {
     for (var i = 0; i < rem.length; i++) {
         for (var j = 0; j < arr.length; j++) {
-            if (rem[i] == arr[j]) {
+            if (rem[i] === arr[j]) {
                 arr.splice(j, 1);
             }
         }
@@ -511,13 +505,12 @@ function remove_array(rem, arr)
  *
  */
 
-function query_groupby()
-{
+function query_groupby () {
     var i;
-    var str = "";
+    var str = '';
     for (i = 0; i < history_array.length;i++) {
-        if (history_array[i].get_type() == "GroupBy") {
-            str += '`' + history_array[i].get_column_name() + "`, ";
+        if (history_array[i].get_type() === 'GroupBy') {
+            str += '`' + history_array[i].get_column_name() + '`, ';
         }
     }
     str = str.substr(0, str.length - 2);
@@ -529,24 +522,23 @@ function query_groupby()
  *
  */
 
-function query_having()
-{
+function query_having () {
     var i;
-    var and = "(";
+    var and = '(';
     for (i = 0; i < history_array.length;i++) {
-        if (history_array[i].get_type() == "Having") {
-            if (history_array[i].get_obj().get_operator() != 'None') {
-                and += history_array[i].get_obj().get_operator() + "(`" + history_array[i].get_column_name() + "`) " + history_array[i].get_obj().getrelation_operator();
-                and += " " + history_array[i].get_obj().getquery() + ", ";
+        if (history_array[i].get_type() === 'Having') {
+            if (history_array[i].get_obj().get_operator() !== 'None') {
+                and += history_array[i].get_obj().get_operator() + '(`' + history_array[i].get_column_name() + '`) ' + history_array[i].get_obj().getrelation_operator();
+                and += ' ' + history_array[i].get_obj().getquery() + ', ';
             } else {
-                and += "`" + history_array[i].get_column_name() + "` " + history_array[i].get_obj().getrelation_operator() + " " + history_array[i].get_obj().getquery() + ", ";
+                and += '`' + history_array[i].get_column_name() + '` ' + history_array[i].get_obj().getrelation_operator() + ' ' + history_array[i].get_obj().getquery() + ', ';
             }
         }
     }
-    if (and == "(") {
-        and = "";
+    if (and === '(') {
+        and = '';
     } else {
-        and = and.substr(0, and.length - 2) + ")";
+        and = and.substr(0, and.length - 2) + ')';
     }
     return and;
 }
@@ -557,14 +549,13 @@ function query_having()
  *
  */
 
-function query_orderby()
-{
+function query_orderby () {
     var i;
-    var str = "";
+    var str = '';
     for (i = 0; i < history_array.length;i++) {
-        if (history_array[i].get_type() == "OrderBy") {
-            str += "`" + history_array[i].get_column_name() + "` " +
-                history_array[i].get_obj().get_order() + ", ";
+        if (history_array[i].get_type() === 'OrderBy') {
+            str += '`' + history_array[i].get_column_name() + '` ' +
+                history_array[i].get_obj().get_order() + ', ';
         }
     }
     str = str.substr(0, str.length - 2);
@@ -577,78 +568,74 @@ function query_orderby()
  *
  */
 
-function query_where()
-{
+function query_where () {
     var i;
-    var and = "(";
-    var or = "(";
+    var and = '(';
+    var or = '(';
     for (i = 0; i < history_array.length;i++) {
-        if (history_array[i].get_type() == "Where") {
+        if (history_array[i].get_type() === 'Where') {
             if (history_array[i].get_and_or() === 0) {
-                and += "( `" + history_array[i].get_column_name() + "` " + history_array[i].get_obj().getrelation_operator() + " " + history_array[i].get_obj().getquery() + ")";
-                and += " AND ";
+                and += '( `' + history_array[i].get_column_name() + '` ' + history_array[i].get_obj().getrelation_operator() + ' ' + history_array[i].get_obj().getquery() + ')';
+                and += ' AND ';
             } else {
-                or += "( `" + history_array[i].get_column_name() + "` " + history_array[i].get_obj().getrelation_operator() + " " + history_array[i].get_obj().getquery() + ")";
-                or += " OR ";
+                or += '( `' + history_array[i].get_column_name() + '` ' + history_array[i].get_obj().getrelation_operator() + ' ' + history_array[i].get_obj().getquery() + ')';
+                or += ' OR ';
             }
         }
     }
-    if (or != "(") {
-        or = or.substring(0, (or.length - 4)) + ")";
+    if (or !== '(') {
+        or = or.substring(0, (or.length - 4)) + ')';
     } else {
-        or = "";
+        or = '';
     }
-    if (and != "(") {
-        and = and.substring(0, (and.length - 5)) + ")";
+    if (and !== '(') {
+        and = and.substring(0, (and.length - 5)) + ')';
     } else {
-        and = "";
+        and = '';
     }
-    if (or !== "") {
-        and = and + " OR " + or + " )";
+    if (or !== '') {
+        and = and + ' OR ' + or + ' )';
     }
     return and;
 }
 
-function check_aggregate(id_this)
-{
+function check_aggregate (id_this) {
     var i;
     for (i = 0; i < history_array.length; i++) {
         var temp = '`' + history_array[i].get_tab() + '`.`' + history_array[i].get_column_name() + '`';
-        if (temp == id_this && history_array[i].get_type() == "Aggregate") {
+        if (temp === id_this && history_array[i].get_type() === 'Aggregate') {
             return history_array[i].get_obj().get_operator() + '(' + id_this + ')';
         }
     }
-    return "";
+    return '';
 }
 
-function check_rename(id_this)
-{
+function check_rename (id_this) {
     var i;
     for (i = 0; i < history_array.length; i++) {
         var temp = '`' + history_array[i].get_tab() + '`.`' + history_array[i].get_column_name() + '`';
-        if (temp == id_this && history_array[i].get_type() == "Rename") {
-            return " AS `" + history_array[i].get_obj().getrename_to() + "`";
+        if (temp === id_this && history_array[i].get_type() === 'Rename') {
+            return ' AS `' + history_array[i].get_obj().getrename_to() + '`';
         }
     }
-    return "";
+    return '';
 }
 
- /**
+/**
   * This function builds from clause of query
   * makes automatic joins.
   *
   *
   */
-function query_from()
-{
+function query_from () {
     var i;
     var tab_left = [];
     var tab_used = [];
     var t_tab_used = [];
     var t_tab_left = [];
     var temp;
-    var query = "";
-    var quer = "";
+    var query = '';
+    var quer = '';
     var parts = [];
     var t_array = [];
     t_array = from_array;
@@ -677,16 +664,16 @@ function query_from()
         for (K in contr) {
             for (key in contr[K]) {// contr name
                 for (key2 in contr[K][key]) {// table name
-                    parts = key2.split(".");
+                    parts = key2.split('.');
                     if (found(tab_used, parts[1]) > 0) {
                         for (key3 in contr[K][key][key2]) {
-                            parts1 = contr[K][key][key2][key3][0].split(".");
+                            parts1 = contr[K][key][key2][key3][0].split('.');
                             if (found(tab_left, parts1[1]) > 0) {
                                 if (found(constraints_added, key) > 0) {
                                     query += ' AND ' + '`' + parts[1] + '`.`' + key3 + '` = ';
                                     query += '`' + parts1[1] + '`.`' + contr[K][key][key2][key3][1] + '` ';
                                 } else {
-                                    query += "\n" + 'LEFT JOIN ';
+                                    query += '\n' + 'LEFT JOIN ';
                                     query += '`' + parts[1] + '` ON ';
                                     query += '`' + parts1[1] + '`.`' + contr[K][key][key2][key3][1] + '` = ';
                                     query += '`' + parts[1] + '`.`' + key3 + '` ';
@@ -708,16 +695,16 @@ function query_from()
         for (K in contr) {
             for (key in contr[K]) {
                 for (key2 in contr[K][key]) {// table name
-                    parts = key2.split(".");
+                    parts = key2.split('.');
                     if (found(tab_left, parts[1]) > 0) {
                         for (key3 in contr[K][key][key2]) {
-                            parts1 = contr[K][key][key2][key3][0].split(".");
+                            parts1 = contr[K][key][key2][key3][0].split('.');
                             if (found(tab_used, parts1[1]) > 0) {
                                 if (found(constraints_added, key) > 0) {
                                     query += ' AND ' + '`' + parts[1] + '`.`' + key3 + '` = ';
                                     query += '`' + parts1[1] + '`.`' + contr[K][key][key2][key3][1] + '` ';
                                 } else {
-                                    query += "\n" + 'LEFT JOIN ';
+                                    query += '\n' + 'LEFT JOIN ';
                                     query += '`' + parts[1] + '` ON ';
                                     query += '`' + parts1[1] + '`.`' + contr[K][key][key2][key3][1] + '` = ';
                                     query += '`' + parts[1] + '`.`' + key3 + '` ';
@@ -737,7 +724,7 @@ function query_from()
         t_tab_left = [];
     }
     for (k in tab_left) {
-        quer += " , `" + tab_left[k] + "`";
+        quer += ' , `' + tab_left[k] + '`';
     }
     query = quer + query;
     from_array = t_array;
@@ -757,47 +744,46 @@ function query_from()
  * @param fadin
  */
 
-function build_query(formtitle, fadin)
-{
-    var q_select = "SELECT ";
+function build_query (formtitle, fadin) {
+    var q_select = 'SELECT ';
     var temp;
     if (select_field.length > 0) {
         for (var i = 0; i < select_field.length; i++) {
             temp = check_aggregate(select_field[i]);
-            if (temp !== "") {
+            if (temp !== '') {
                 q_select += temp;
                 temp = check_rename(select_field[i]);
-                q_select += temp + ", ";
+                q_select += temp + ', ';
             } else {
                 temp = check_rename(select_field[i]);
-                q_select += select_field[i] + temp + ", ";
+                q_select += select_field[i] + temp + ', ';
             }
         }
         q_select = q_select.substring(0, q_select.length - 2);
     } else {
-        q_select += "* ";
+        q_select += '* ';
     }
 
-    q_select += "\nFROM " + query_from();
+    q_select += '\nFROM ' + query_from();
 
     var q_where = query_where();
-    if (q_where !== "") {
-        q_select += "\nWHERE " + q_where;
+    if (q_where !== '') {
+        q_select += '\nWHERE ' + q_where;
     }
 
     var q_groupby = query_groupby();
-    if (q_groupby !== "") {
-        q_select += "\nGROUP BY " + q_groupby;
+    if (q_groupby !== '') {
+        q_select += '\nGROUP BY ' + q_groupby;
     }
 
     var q_having = query_having();
-    if (q_having !== "") {
-        q_select += "\nHAVING " + q_having;
+    if (q_having !== '') {
+        q_select += '\nHAVING ' + q_having;
     }
 
     var q_orderby = query_orderby();
-    if (q_orderby !== "") {
-        q_select += "\nORDER BY " + q_orderby;
+    if (q_orderby !== '') {
+        q_select += '\nORDER BY ' + q_orderby;
     }
 
     /**
@@ -806,7 +792,7 @@ function build_query(formtitle, fadin)
      */
     var button_options = {};
     button_options[PMA_messages.strClose] = function () {
-        $(this).dialog("close");
+        $(this).dialog('close');
     };
     button_options[PMA_messages.strSubmit] = function () {
         if (vqb_editor) {
@@ -846,24 +832,24 @@ AJAX.registerTeardown('pmd/history.js', function () {
     vqb_editor = null;
     history_array = [];
     select_field = [];
-    $("#ok_edit_rename").off('click');
-    $("#ok_edit_having").off('click');
-    $("#ok_edit_Aggr").off('click');
-    $("#ok_edit_where").off('click');
+    $('#ok_edit_rename').off('click');
+    $('#ok_edit_having').off('click');
+    $('#ok_edit_Aggr').off('click');
+    $('#ok_edit_where').off('click');
 });
 
 AJAX.registerOnload('pmd/history.js', function () {
-    $("#ok_edit_rename").click(function() {
+    $('#ok_edit_rename').click(function () {
         edit('Rename');
     });
-    $("#ok_edit_having").click(function() {
+    $('#ok_edit_having').click(function () {
         edit('Having');
     });
-    $("#ok_edit_Aggr").click(function() {
+    $('#ok_edit_Aggr').click(function () {
         edit('Aggregate');
     });
-    $("#ok_edit_where").click(function() {
+    $('#ok_edit_where').click(function () {
         edit('Where');
     });
-    $('#ab').accordion({collapsible : true, active : 'none'});
+    $('#ab').accordion({ collapsible : true, active : 'none' });
 });

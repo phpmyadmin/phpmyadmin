@@ -98,7 +98,7 @@ class Footer
      *
      * @return object Reference passed object
      */
-    private static function _removeRecursion(&$object, $stack = array())
+    private static function _removeRecursion(&$object, array $stack = array())
     {
         if ((is_object($object) || is_array($object)) && $object) {
             if ($object instanceof Traversable) {
@@ -145,9 +145,9 @@ class Footer
      */
     public function getSelfUrl()
     {
-        $db = ! empty($GLOBALS['db']) ? $GLOBALS['db'] : '';
-        $table = ! empty($GLOBALS['table']) ? $GLOBALS['table'] : '';
-        $target = ! empty($_REQUEST['target']) ? $_REQUEST['target'] : '';
+        $db = isset($GLOBALS['db']) && strlen($GLOBALS['db']) ? $GLOBALS['db'] : '';
+        $table = isset($GLOBALS['table']) && strlen($GLOBALS['table']) ? $GLOBALS['table'] : '';
+        $target = isset($_REQUEST['target']) && strlen($_REQUEST['target']) ? $_REQUEST['target'] : '';
         $params = array(
             'db' => $db,
             'table' => $table,

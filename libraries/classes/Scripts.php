@@ -42,7 +42,7 @@ class Scripts
      *
      * @return string HTML code for javascript inclusion.
      */
-    private function _includeFiles($files)
+    private function _includeFiles(array $files)
     {
         $first_dynamic_scripts = "";
         $dynamic_scripts = "";
@@ -110,7 +110,7 @@ class Scripts
     public function addFile(
         $filename,
         $before_statics = false,
-        $params = array()
+        array $params = array()
     ) {
         $hash = md5($filename);
         if (!empty($this->_files[$hash])) {
@@ -133,7 +133,7 @@ class Scripts
      *
      * @return void
      */
-    public function addFiles($filelist)
+    public function addFiles(array $filelist)
     {
         foreach ($filelist as $filename) {
             $this->addFile($filename);

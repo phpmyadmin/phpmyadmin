@@ -34,7 +34,7 @@ class ValueItem implements Item
      * @param array $params Parameters
      * @return mixed
      */
-    public function get($params = array())
+    public function get(array $params = array())
     {
         return $this->value;
     }

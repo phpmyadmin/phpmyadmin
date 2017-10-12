@@ -10,11 +10,13 @@ namespace PhpMyAdmin;
 use PhpMyAdmin\Bookmark;
 use PhpMyAdmin\Core;
 use PhpMyAdmin\DatabaseInterface;
-use PhpMyAdmin\DisplayResults;
+use PhpMyAdmin\Display\Results as DisplayResults;
 use PhpMyAdmin\Index;
 use PhpMyAdmin\Message;
 use PhpMyAdmin\Operations;
+use PhpMyAdmin\ParseAnalyze;
 use PhpMyAdmin\Relation;
+use PhpMyAdmin\RelationCleanup;
 use PhpMyAdmin\Response;
 use PhpMyAdmin\SqlParser\Statements\AlterStatement;
 use PhpMyAdmin\SqlParser\Statements\DropStatement;
@@ -42,13 +44,10 @@ class Sql
      */
     public static function parseAndAnalyze($sql_query, $db = null)
     {
-        if (($db === null) && (!empty($GLOBALS['db']))) {
+        if (is_null($db) && isset($GLOBALS['db']) && strlen($GLOBALS['db'])) {
             $db = $GLOBALS['db'];
         }
-
-        include_once 'libraries/parse_analyze.lib.php';
-        list($analyzed_sql_results,,) = PMA_parseAnalyze($sql_query, $db);
-
+        list($analyzed_sql_results,,) = ParseAnalyze::sqlQuery($sql_query, $db);
         return $analyzed_sql_results;
     }
 
@@ -63,7 +62,7 @@ class Sql
      * @return void
      */
     public static function handleSortOrder(
-        $db, $table, &$analyzed_sql_results, &$full_sql_query
+        $db, $table, array &$analyzed_sql_results, &$full_sql_query
     ) {
         $pmatable = new Table($table, $db);
 
@@ -111,7 +110,7 @@ class Sql
      *
      * @return string limit clause appended SQL query
      */
-    public static function getSqlWithLimitClause(&$analyzed_sql_results)
+    public static function getSqlWithLimitClause(array &$analyzed_sql_results)
     {
         return Query::replaceClause(
             $analyzed_sql_results['statement'],
@@ -128,7 +127,7 @@ class Sql
      *
      * @return boolean whether the result set has columns from just one table
      */
-    public static function resultSetHasJustOneTable($fields_meta)
+    public static function resultSetHasJustOneTable(array $fields_meta)
     {
         $just_one_table = true;
         $prev_table = '';
@@ -156,7 +155,7 @@ class Sql
      *
      * @return boolean whether the result set contains a unique key
      */
-    public static function resultSetContainsUniqueKey($db, $table, $fields_meta)
+    public static function resultSetContainsUniqueKey($db, $table, array $fields_meta)
     {
         $resultSetColumnNames = array();
         foreach ($fields_meta as $oneMeta) {
@@ -372,7 +371,7 @@ EOT;
      *
      * @return string $table html for the table
      */
-    public static function getTableHtmlForProfilingSummaryByState($profiling_stats)
+    public static function getTableHtmlForProfilingSummaryByState(array $profiling_stats)
     {
         $table = '';
         foreach ($profiling_stats['states'] as $name => $stats) {
@@ -521,7 +520,7 @@ EOT;
      *
      * @return string $options HTML for options list
      */
-    public static function getHtmlForOptionsList($values, $selected_values)
+    public static function getHtmlForOptionsList(array $values, array $selected_values)
     {
         $options = '';
         foreach ($values as $value) {
@@ -548,7 +547,7 @@ EOT;
      *
      * @return string $html
      */
-    public static function getHtmlForBookmark($displayParts, $cfgBookmark, $sql_query, $db,
+    public static function getHtmlForBookmark(array $displayParts, array $cfgBookmark, $sql_query, $db,
         $table, $complete_query, $bkm_user
     ) {
         if ($displayParts['bkm_form'] == '1'
@@ -621,7 +620,7 @@ EOT;
      *
      * @return boolean
      */
-    public static function isRememberSortingOrder($analyzed_sql_results)
+    public static function isRememberSortingOrder(array $analyzed_sql_results)
     {
         return $GLOBALS['cfg']['RememberSorting']
             && ! ($analyzed_sql_results['is_count']
@@ -643,7 +642,7 @@ EOT;
      *
      * @return boolean
      */
-    public static function isAppendLimitClause($analyzed_sql_results)
+    public static function isAppendLimitClause(array $analyzed_sql_results)
     {
         // Assigning LIMIT clause to an syntactically-wrong query
         // is not needed. Also we would want to show the true query
@@ -668,7 +667,7 @@ EOT;
      *
      * @return boolean
      */
-    public static function isJustBrowsing($analyzed_sql_results, $find_real_end)
+    public static function isJustBrowsing(array $analyzed_sql_results, $find_real_end)
     {
         return ! $analyzed_sql_results['is_group']
             && ! $analyzed_sql_results['is_func']
@@ -694,7 +693,7 @@ EOT;
      *
      * @return boolean
      */
-    public static function isDeleteTransformationInfo($analyzed_sql_results)
+    public static function isDeleteTransformationInfo(array $analyzed_sql_results)
     {
         return !empty($analyzed_sql_results['querytype'])
             && (($analyzed_sql_results['querytype'] == 'ALTER')
@@ -711,7 +710,7 @@ EOT;
      *
      * @return boolean
      */
-    public static function hasNoRightsToDropDatabase($analyzed_sql_results,
+    public static function hasNoRightsToDropDatabase(array $analyzed_sql_results,
         $allowUserDropDatabase, $is_superuser
     ) {
         return ! $allowUserDropDatabase
@@ -1094,17 +1093,15 @@ EOT;
      */
     public static function cleanupRelations($db, $table, $column, $purge)
     {
-        include_once 'libraries/relation_cleanup.lib.php';
-
         if (! empty($purge) && strlen($db) > 0) {
             if (strlen($table) > 0) {
                 if (isset($column) && strlen($column) > 0) {
-                    PMA_relationsCleanupColumn($db, $table, $column);
+                    RelationCleanup::column($db, $table, $column);
                 } else {
-                    PMA_relationsCleanupTable($db, $table);
+                    RelationCleanup::table($db, $table);
                 }
             } else {
-                PMA_relationsCleanupDatabase($db);
+                RelationCleanup::database($db);
             }
         }
     }
@@ -1123,7 +1120,7 @@ EOT;
      * @return int $unlim_num_rows unlimited number of rows
      */
     public static function countQueryResults(
-        $num_rows, $justBrowsing, $db, $table, $analyzed_sql_results
+        $num_rows, $justBrowsing, $db, $table, array $analyzed_sql_results
     ) {
 
         /* Shortcut for not analyzed/empty query */
@@ -1217,7 +1214,7 @@ EOT;
      *
      * @return mixed
      */
-    public static function executeTheQuery($analyzed_sql_results, $full_sql_query, $is_gotofile,
+    public static function executeTheQuery(array $analyzed_sql_results, $full_sql_query, $is_gotofile,
         $db, $table, $find_real_end, $sql_query_for_bookmark, $extra_data
     ) {
         $response = Response::getInstance();
@@ -1313,7 +1310,7 @@ EOT;
      *
      * @return void
      */
-    public static function deleteTransformationInfo($db, $table, $analyzed_sql_results)
+    public static function deleteTransformationInfo($db, $table, array $analyzed_sql_results)
     {
         if (! isset($analyzed_sql_results['statement'])) {
             return;
@@ -1346,7 +1343,7 @@ EOT;
      * @return string $message
      */
     public static function getMessageForNoRowsReturned($message_to_show,
-        $analyzed_sql_results, $num_rows
+        array $analyzed_sql_results, $num_rows
     ) {
         if ($analyzed_sql_results['querytype'] == 'DELETE"') {
             $message = Message::getMessageForDeletedRows($num_rows);
@@ -1374,7 +1371,7 @@ EOT;
             $message = Message::getMessageForAffectedRows($num_rows);
 
             // Ok, here is an explanation for the !$is_select.
-            // The form generated by sql_query_form.lib.php
+            // The form generated by PhpMyAdmin\SqlQueryForm
             // and db_sql.php has many submit buttons
             // on the same form, and some confusion arises from the
             // fact that $message_to_show is sent for every case.
@@ -1436,7 +1433,7 @@ EOT;
      *
      * @return string html
      */
-    public static function getQueryResponseForNoResultsReturned($analyzed_sql_results, $db,
+    public static function getQueryResponseForNoResultsReturned(array $analyzed_sql_results, $db,
         $table, $message_to_show, $num_rows, $displayResultsObject, $extra_data,
         $pmaThemeImage, $result, $sql_query, $complete_query
     ) {
@@ -1610,9 +1607,9 @@ EOT;
      * @return String
      */
     public static function getHtmlForSqlQueryResultsTable($displayResultsObject,
-        $pmaThemeImage, $url_query, $displayParts,
+        $pmaThemeImage, $url_query, array $displayParts,
         $editable, $unlim_num_rows, $num_rows, $showtable, $result,
-        $analyzed_sql_results, $is_limited_display = false
+        array $analyzed_sql_results, $is_limited_display = false
     ) {
         $printview = isset($_REQUEST['printview']) && $_REQUEST['printview'] == '1' ? '1' : null;
         $table_html = '';
@@ -1851,7 +1848,7 @@ EOT;
      *
      * @return string html
      */
-    public static function getQueryResponseForResultsReturned($result, $analyzed_sql_results,
+    public static function getQueryResponseForResultsReturned($result, array $analyzed_sql_results,
         $db, $table, $message, $sql_data, $displayResultsObject, $pmaThemeImage,
         $unlim_num_rows, $num_rows, $disp_query, $disp_message, $profiling_results,
         $query_type, $selectedTables, $sql_query, $complete_query
@@ -2064,12 +2061,11 @@ EOT;
     ) {
         if ($analyzed_sql_results == null) {
             // Parse and analyze the query
-            include_once 'libraries/parse_analyze.lib.php';
             list(
                 $analyzed_sql_results,
                 $db,
                 $table_from_sql
-            ) = PMA_parseAnalyze($sql_query, $db);
+            ) = ParseAnalyze::sqlQuery($sql_query, $db);
             // @todo: possibly refactor
             extract($analyzed_sql_results);
 
@@ -2130,7 +2126,7 @@ EOT;
      *
      * @return string html
      */
-    public static function executeQueryAndGetQueryResponse($analyzed_sql_results,
+    public static function executeQueryAndGetQueryResponse(array $analyzed_sql_results,
         $is_gotofile, $db, $table, $find_real_end, $sql_query_for_bookmark,
         $extra_data, $message_to_show, $message, $sql_data, $goto, $pmaThemeImage,
         $disp_query, $disp_message, $query_type, $sql_query, $selectedTables,

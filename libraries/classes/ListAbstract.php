@@ -36,7 +36,7 @@ abstract class ListAbstract extends ArrayObject
      *                               ArrayIterator is the default class used.
      */
     public function __construct(
-        $array = array(), $flags = 0, $iterator_class = "ArrayIterator"
+        array $array = array(), $flags = 0, $iterator_class = "ArrayIterator"
     ) {
         parent::__construct($array, $flags, $iterator_class);
     }

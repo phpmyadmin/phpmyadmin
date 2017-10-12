@@ -8,13 +8,14 @@
  * @package PhpMyAdmin
  */
 
-/**
- * Gets some core libraries
- */
-require_once 'libraries/common.inc.php';
-
+use PhpMyAdmin\Database\Search;
 use PhpMyAdmin\Response;
-use PhpMyAdmin\DbSearch;
+use PhpMyAdmin\Util;
+
+/**
+* Gets some core libraries
+*/
+require_once 'libraries/common.inc.php';
 
 $response = Response::getInstance();
 $header   = $response->getHeader();
@@ -28,7 +29,7 @@ require 'libraries/db_common.inc.php';
 
 // If config variable $GLOBALS['cfg']['UseDbSearch'] is on false : exit.
 if (! $GLOBALS['cfg']['UseDbSearch']) {
-    PhpMyAdmin\Util::mysqlDie(
+    Util::mysqlDie(
         __('Access denied!'), '', false, $err_url
     );
 } // end if
@@ -36,7 +37,7 @@ $url_query .= '&amp;goto=db_search.php';
 $url_params['goto'] = 'db_search.php';
 
 // Create a database search instance
-$db_search = new DbSearch($GLOBALS['db']);
+$db_search = new Search($GLOBALS['db']);
 
 // Display top links if we are not in an Ajax request
 if (! $response->isAjax()) {
@@ -50,7 +51,7 @@ if (! $response->isAjax()) {
         $tooltip_truename,
         $tooltip_aliasname,
         $pos
-    ) = PhpMyAdmin\Util::getDbInfo($db, isset($sub_part) ? $sub_part : '');
+    ) = Util::getDbInfo($db, isset($sub_part) ? $sub_part : '');
 }
 
 // Main search form has been submitted, get results

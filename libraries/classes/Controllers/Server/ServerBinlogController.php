@@ -1,20 +1,19 @@
 <?php
 /* vim: set expandtab sw=4 ts=4 sts=4: */
-
 /**
  * Holds the PhpMyAdmin\Controllers\Server\ServerBinlogController
  *
  * @package PhpMyAdmin\Controllers
  */
-
 namespace PhpMyAdmin\Controllers\Server;
 
 use PhpMyAdmin\Controllers\Controller;
 use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Message;
-use PhpMyAdmin\Util;
+use PhpMyAdmin\Server\Common;
 use PhpMyAdmin\Template;
 use PhpMyAdmin\Url;
+use PhpMyAdmin\Util;
 
 /**
  * Handles viewing binary logs
@@ -68,7 +67,7 @@ class ServerBinlogController extends Controller
             $url_params['dontlimitchars'] = 1;
         }
 
-        $this->response->addHTML(PMA_getHtmlForSubPageHeader('binlog'));
+        $this->response->addHTML(Common::getHtmlForSubPageHeader('binlog'));
         $this->response->addHTML($this->_getLogSelector($url_params));
         $this->response->addHTML($this->_getLogInfo($url_params));
     }
@@ -80,12 +79,13 @@ class ServerBinlogController extends Controller
      *
      * @return string
      */
-    private function _getLogSelector($url_params)
+    private function _getLogSelector(array $url_params)
     {
         return Template::get('server/binlog/log_selector')->render(
             array(
                 'url_params' => $url_params,
                 'binary_logs' => $this->binary_logs,
+                'log' => $_REQUEST['log'],
             )
         );
     }
@@ -97,7 +97,7 @@ class ServerBinlogController extends Controller
      *
      * @return string
      */
-    private function _getLogInfo($url_params)
+    private function _getLogInfo(array $url_params)
     {
         /**
          * Need to find the real end of rows?
@@ -177,7 +177,7 @@ class ServerBinlogController extends Controller
      *
      * @return string
      */
-    private function _getNavigationRow($url_params, $pos, $num_rows, $dontlimitchars)
+    private function _getNavigationRow(array $url_params, $pos, $num_rows, $dontlimitchars)
     {
         $html = "";
         // we do not know how much rows are in the binlog

@@ -52,7 +52,7 @@ class PMA_SeleniumNormalizationTest extends PMA_SeleniumBase
             "(//a[contains(., 'Structure')])"
         )->click();
 
-        $this->waitForElementNotPresent('byCssSelector', 'div#loading_parent');
+        $this->waitAjax();
 
         $this->waitForElement("byId", "tablestructure");
         $this->byPartialLinkText('Normalize')->click();

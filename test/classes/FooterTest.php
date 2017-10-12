@@ -4,24 +4,21 @@
  *
  * @package PhpMyAdmin-test
  */
-
-/*
- * Include to test.
- */
+namespace PhpMyAdmin\Tests;
 
 use PhpMyAdmin\Config;
 use PhpMyAdmin\ErrorHandler;
 use PhpMyAdmin\Footer;
+use PhpMyAdmin\Tests\PmaTestCase;
 use PhpMyAdmin\Theme;
-
-require_once 'test/PMATestCase.php';
+use ReflectionClass;
 
 /**
  * Tests for Footer class
  *
  * @package PhpMyAdmin-test
  */
-class FooterTest extends PMATestCase
+class FooterTest extends PmaTestCase
 {
 
     /**

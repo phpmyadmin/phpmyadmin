@@ -39,7 +39,7 @@ abstract class LongToIPv4TransformationsPlugin extends TransformationsPlugin
      *
      * @return string
      */
-    public function applyTransformation($buffer, $options = array(), $meta = '')
+    public function applyTransformation($buffer, array $options = array(), $meta = '')
     {
         if ($buffer < 0 || $buffer > 4294967295) {
             return htmlspecialchars($buffer);

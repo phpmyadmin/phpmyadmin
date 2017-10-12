@@ -1187,6 +1187,11 @@ usage of 'cookie' ``auth_type``.
 For example direct login URL can be constructed as
 ``https://example.com/phpmyadmin/?pma_username=user&pma_password=password``.
 
+.. warning::
+
+    Passing password and username in URL is insecure and should not be used in
+    production environments.
+
 .. _faqbrowsers:
 
 Browsers or client OS

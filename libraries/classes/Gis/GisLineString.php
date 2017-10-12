@@ -82,7 +82,7 @@ class GisLineString extends GisGeometry
         $spatial,
         $label,
         $line_color,
-        $scale_data,
+        array $scale_data,
         $image
     ) {
         // allocate colors
@@ -144,7 +144,7 @@ class GisLineString extends GisGeometry
      * @return TCPDF the modified TCPDF instance
      * @access public
      */
-    public function prepareRowAsPdf($spatial, $label, $line_color, $scale_data, $pdf)
+    public function prepareRowAsPdf($spatial, $label, $line_color, array $scale_data, $pdf)
     {
         // allocate colors
         $red = hexdec(mb_substr($line_color, 1, 2));
@@ -197,7 +197,7 @@ class GisLineString extends GisGeometry
      * @return string the code related to a row in the GIS dataset
      * @access public
      */
-    public function prepareRowAsSvg($spatial, $label, $line_color, $scale_data)
+    public function prepareRowAsSvg($spatial, $label, $line_color, array $scale_data)
     {
         $line_options = array(
             'name'         => $label,
@@ -243,7 +243,7 @@ class GisLineString extends GisGeometry
      * @return string JavaScript related to a row in the GIS dataset
      * @access public
      */
-    public function prepareRowAsOl($spatial, $srid, $label, $line_color, $scale_data)
+    public function prepareRowAsOl($spatial, $srid, $label, $line_color, array $scale_data)
     {
         $style_options = array(
             'strokeColor' => $line_color,
@@ -282,7 +282,7 @@ class GisLineString extends GisGeometry
      * @return string WKT with the set of parameters passed by the GIS editor
      * @access public
      */
-    public function generateWkt($gis_data, $index, $empty = '')
+    public function generateWkt(array $gis_data, $index, $empty = '')
     {
         $no_of_points = isset($gis_data[$index]['LINESTRING']['no_of_points'])
             ? $gis_data[$index]['LINESTRING']['no_of_points'] : 2;

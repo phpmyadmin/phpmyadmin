@@ -20,21 +20,21 @@
  * @package PhpMyAdmin
  */
 (function ($) {
-    function MenuResizer($container, widthCalculator) {
+    function MenuResizer ($container, widthCalculator) {
         var self = this;
         self.$container = $container;
         self.widthCalculator = widthCalculator;
         var windowWidth = $(window).width();
 
         if (windowWidth < 768) {
-            $('#pma_navigation_resizer').css({'width': '0px'});
+            $('#pma_navigation_resizer').css({ 'width': '0px' });
         }
         // Sets the image for the left and right scroll indicator
         $('.scrollindicator--left').html($(PMA_getImage('b_left.png').toString()));
         $('.scrollindicator--right').html($(PMA_getImage('b_right.png').toString()));
 
         // Set the width of the navigation bar without scroll indicator
-        $('.navigationbar').css({'width': widthCalculator.call($container) - 60});
+        $('.navigationbar').css({ 'width': widthCalculator.call($container) - 60 });
 
         // Scroll the navigation bar on click
         $('.scrollindicator--right')
@@ -47,34 +47,34 @@
             });
 
         // create submenu container
-        var link = $('<a />', {href: '#', 'class': 'tab nowrap'})
+        var link = $('<a />', { href: '#', 'class': 'tab nowrap' })
             .text(PMA_messages.strMore)
             .on('click', false); // same as event.preventDefault()
         var img = $container.find('li img');
         if (img.length) {
             $(PMA_getImage('b_more.png').toString()).prependTo(link);
         }
-        var $submenu = $('<li />', {'class': 'submenu'})
+        var $submenu = $('<li />', { 'class': 'submenu' })
             .append(link)
             .append($('<ul />'))
-            .mouseenter(function() {
+            .mouseenter(function () {
                 if ($(this).find('ul .tabactive').length === 0) {
                     $(this)
-                    .addClass('submenuhover')
-                    .find('> a')
-                    .addClass('tabactive');
+                        .addClass('submenuhover')
+                        .find('> a')
+                        .addClass('tabactive');
                 }
             })
-            .mouseleave(function() {
+            .mouseleave(function () {
                 if ($(this).find('ul .tabactive').length === 0) {
                     $(this)
-                    .removeClass('submenuhover')
-                    .find('> a')
-                    .removeClass('tabactive');
+                        .removeClass('submenuhover')
+                        .find('> a')
+                        .removeClass('tabactive');
                 }
             });
         $container.children('.clearfloat').remove();
-        $container.append($submenu).append("<div class='clearfloat'></div>");
+        $container.append($submenu).append('<div class=\'clearfloat\'></div>');
         setTimeout(function () {
             self.resize();
         }, 4);
@@ -101,7 +101,7 @@
             windowWidth += 15;
         }
         var navigationwidth = wmax;
-        if (windowWidth < 768){
+        if (windowWidth < 768) {
             wmax = 2000;
         }
 
@@ -130,7 +130,7 @@
                 // item fits or (it is the last item
                 // and it would fit if More got removed)
                 if (total_len < wmax ||
-                    (i == $li2.length - 1 && total_len - submenu_w < wmax)
+                    (i === $li2.length - 1 && total_len - submenu_w < wmax)
                 ) {
                     $($li2[i]).insertBefore($submenu);
                 } else {
@@ -140,20 +140,19 @@
         }
         // Show/hide the "More" tab as needed
         if (windowWidth < 768) {
-            $('.navigationbar').css({'width': windowWidth - 80 - $('#pma_navigation').width()});
+            $('.navigationbar').css({ 'width': windowWidth - 80 - $('#pma_navigation').width() });
             $submenu.removeClass('shown');
-            $('.navigationbar').css({'overflow': 'hidden'});
-        }
-        else {
-            $('.navigationbar').css({'width': 'auto'});
-            $('.navigationbar').css({'overflow': 'visible'});
+            $('.navigationbar').css({ 'overflow': 'hidden' });
+        } else {
+            $('.navigationbar').css({ 'width': 'auto' });
+            $('.navigationbar').css({ 'overflow': 'visible' });
             if ($submenu_ul.find('li').length > 0) {
                 $submenu.addClass('shown');
             } else {
                 $submenu.removeClass('shown');
             }
         }
-        if (this.$container.find('> li').length == 1) {
+        if (this.$container.find('> li').length === 1) {
             // If there is only the "More" tab left, then we need
             // to align the submenu to the left edge of the tab
             $submenu_ul.removeClass().addClass('only');
@@ -163,16 +162,16 @@
         }
         if ($submenu.find('.tabactive').length) {
             $submenu
-            .addClass('active')
-            .find('> a')
-            .removeClass('tab')
-            .addClass('tabactive');
+                .addClass('active')
+                .find('> a')
+                .removeClass('tab')
+                .addClass('tabactive');
         } else {
             $submenu
-            .removeClass('active')
-            .find('> a')
-            .addClass('tab')
-            .removeClass('tabactive');
+                .removeClass('active')
+                .find('> a')
+                .addClass('tab')
+                .removeClass('tabactive');
         }
     };
     MenuResizer.prototype.destroy = function () {
@@ -183,7 +182,7 @@
 
     /** Public API */
     var methods = {
-        init: function(widthCalculator) {
+        init: function (widthCalculator) {
             return this.each(function () {
                 var $this = $(this);
                 if (! $this.data('menuResizer')) {
@@ -213,7 +212,7 @@
     };
 
     /** Extend jQuery */
-    $.fn.menuResizer = function(method) {
+    $.fn.menuResizer = function (method) {
         if (methods[method]) {
             return methods[method].call(this);
         } else if (typeof method === 'function') {
@@ -222,4 +221,4 @@
             $.error('Method ' +  method + ' does not exist on jQuery.menuResizer');
         }
     };
-})(jQuery);
+}(jQuery));

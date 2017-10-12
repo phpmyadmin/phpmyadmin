@@ -100,14 +100,12 @@ class PMA_SeleniumImportTest extends PMA_SeleniumBase
     private function _doImport($type)
     {
         $this->waitForElement('byPartialLinkText', "Import")->click();
-        $this->waitForElementNotPresent('byId', 'ajax_message_num_1');
+        $this->waitAjax();
         $this->waitForElement("byId", "input_import_file");
 
         $this->waitForElement('byCssSelector', 'label[for=radio_local_import_file]')->click();
         $this->select($this->byName("local_import_file"))
             ->selectOptionByLabel($type . "_import.sql");
-
-        sleep(1);
 
         $this->scrollToBottom();
         $this->byId("buttonGo")->click();

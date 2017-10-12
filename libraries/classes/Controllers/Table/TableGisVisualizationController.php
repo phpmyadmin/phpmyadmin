@@ -56,10 +56,10 @@ class TableGisVisualizationController extends TableController
      */
     public function __construct(
         $sql_query,
-        $url_params,
+        array $url_params,
         $goto,
         $back,
-        $visualizationSettings
+        array $visualizationSettings
     ) {
         parent::__construct();
 

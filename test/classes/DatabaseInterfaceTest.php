@@ -5,20 +5,20 @@
  *
  * @package PhpMyAdmin-test
  */
+namespace PhpMyAdmin\Tests;
 
 use PhpMyAdmin\DatabaseInterface;
+use PhpMyAdmin\Dbi\DbiDummy;
+use PhpMyAdmin\Tests\PmaTestCase;
 use PhpMyAdmin\Util;
-
-require_once 'test/PMATestCase.php';
 
 /**
  * Tests basic functionality of dummy dbi driver
  *
  * @package PhpMyAdmin-test
  */
-class DatabaseInterfaceTest extends PMATestCase
+class DatabaseInterfaceTest extends PmaTestCase
 {
-
     private $_dbi;
 
     /**
@@ -28,7 +28,7 @@ class DatabaseInterfaceTest extends PMATestCase
      */
     function setup()
     {
-        $extension = new PhpMyAdmin\Dbi\DbiDummy();
+        $extension = new DbiDummy();
         $this->_dbi = new DatabaseInterface($extension);
     }
 
@@ -43,7 +43,7 @@ class DatabaseInterfaceTest extends PMATestCase
     {
         Util::cacheUnset('mysql_cur_user');
 
-        $extension = new PhpMyAdmin\Dbi\DbiDummy();
+        $extension = new DbiDummy();
         $extension->setResult('SELECT CURRENT_USER();', $value);
 
         $dbi = new DatabaseInterface($extension);
@@ -387,7 +387,7 @@ class DatabaseInterfaceTest extends PMATestCase
     {
         Util::cacheUnset('is_amazon_rds');
 
-        $extension = new PhpMyAdmin\Dbi\DbiDummy();
+        $extension = new DbiDummy();
         $extension->setResult('SELECT @@basedir', $value);
 
         $dbi = new DatabaseInterface($extension);

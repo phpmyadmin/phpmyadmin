@@ -7,15 +7,18 @@
  */
 
 use PhpMyAdmin\Core;
+use PhpMyAdmin\Mime;
+use PhpMyAdmin\Response;
 
 /**
  * Common functions.
  */
+require_once 'libraries/common.inc.php';
+
 // we don't want the usual PhpMyAdmin\Response-generated HTML above the column's
 // data
-define('PMA_BYPASS_GET_INSTANCE', 1);
-require_once 'libraries/common.inc.php';
-require_once 'libraries/mime.lib.php';
+$response = Response::getInstance();
+$response->disable();
 
 /* Check parameters */
 PhpMyAdmin\Util::checkParameters(
@@ -53,7 +56,7 @@ if ($result === false) {
 
 Core::downloadHeader(
     $table . '-' .  $_GET['transform_key'] . '.bin',
-    PMA_detectMIME($result),
+    Mime::detect($result),
     strlen($result)
 );
 echo $result;

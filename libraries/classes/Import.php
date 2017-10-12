@@ -24,7 +24,7 @@ use PhpMyAdmin\Util;
  * We need to know something about user
  */
 $GLOBALS['cfg']['Server']['DisableIS'] = false;
-require_once './libraries/check_user_privileges.lib.php';
+require_once './libraries/check_user_privileges.inc.php';
 
 /**
  * PhpMyAdmin\Import class
@@ -86,7 +86,7 @@ class Import
      * @return void
      * @access public
      */
-    public static function executeQuery($sql, $full, &$sql_data)
+    public static function executeQuery($sql, $full, array &$sql_data)
     {
         global $go_sql,
             $sql_query, $my_die, $error, $reload,
@@ -174,12 +174,12 @@ class Import
      * @return void
      * @access public
      */
-    public static function runQuery($sql = '', $full = '', &$sql_data = array())
+    public static function runQuery($sql = '', $full = '', array &$sql_data = array())
     {
         global $import_run_buffer, $go_sql, $complete_query, $display_query,
             $sql_query, $error, $reload, $result, $msg,
             $skip_queries, $executed_queries, $max_sql_len, $read_multiply,
-            $cfg, $sql_query_disabled, $db, $run_query, $is_superuser;
+            $cfg, $sql_query_disabled, $db, $run_query;
         $read_multiply = 1;
         if (!isset($import_run_buffer)) {
             // Do we have something to push into buffer?
@@ -829,7 +829,7 @@ class Import
      *
      * @todo    Handle the error case more elegantly
      */
-    public static function analyzeTable(&$table)
+    public static function analyzeTable(array &$table)
     {
         /* Get number of rows in table */
         $numRows = count($table[self::ROWS]);
@@ -919,20 +919,20 @@ class Import
      * Builds and executes SQL statements to create the database and tables
      * as necessary, as well as insert all the data.
      *
-     * @param string $db_name         Name of the database
-     * @param array  &$tables         Array of tables for the specified database
-     * @param array  &$analyses       Analyses of the tables
-     * @param array  &$additional_sql Additional SQL statements to be executed
-     * @param array  $options         Associative array of options
-     * @param array  &$sql_data       2-element array with sql data
+     * @param string     $db_name         Name of the database
+     * @param array      &$tables         Array of tables for the specified database
+     * @param array|null &$analyses       Analyses of the tables
+     * @param array|null &$additional_sql Additional SQL statements to be executed
+     * @param array|null $options         Associative array of options
+     * @param array      &$sql_data       2-element array with sql data
      *
      * @return void
      * @access  public
      *
      * @link https://wiki.phpmyadmin.net/pma/Import
      */
-    public static function buildSql($db_name, &$tables, &$analyses = null,
-        &$additional_sql = null, $options = null, &$sql_data
+    public static function buildSql($db_name, array &$tables, &$analyses = null,
+        &$additional_sql = null, $options = null, array &$sql_data
     ) {
         /* Needed to quell the beast that is Message */
         $import_notice = null;
@@ -1405,7 +1405,7 @@ class Import
      *
      * @return mixed
      */
-    public static function getMatchedRows($analyzed_sql_results = array())
+    public static function getMatchedRows(array $analyzed_sql_results = array())
     {
         $statement = $analyzed_sql_results['statement'];
 
@@ -1440,7 +1440,7 @@ class Import
      *
      * @return string SQL query
      */
-    public static function getSimulatedUpdateQuery($analyzed_sql_results)
+    public static function getSimulatedUpdateQuery(array $analyzed_sql_results)
     {
         $table_references = Query::getTables(
             $analyzed_sql_results['statement']
@@ -1496,7 +1496,7 @@ class Import
      *
      * @return string SQL query
      */
-    public static function getSimulatedDeleteQuery($analyzed_sql_results)
+    public static function getSimulatedDeleteQuery(array $analyzed_sql_results)
     {
         $table_references = Query::getTables(
             $analyzed_sql_results['statement']

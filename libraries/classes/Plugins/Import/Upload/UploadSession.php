@@ -7,6 +7,7 @@
  */
 namespace PhpMyAdmin\Plugins\Import\Upload;
 
+use PhpMyAdmin\Display\ImportAjax;
 use PhpMyAdmin\Plugins\UploadInterface;
 
 /**
@@ -55,7 +56,7 @@ class UploadSession implements UploadInterface
         }
         $ret = $_SESSION[$SESSION_KEY][$id];
 
-        if (!PMA_Import_sessionCheck() || $ret['finished']) {
+        if (!ImportAjax::sessionCheck() || $ret['finished']) {
             return $ret;
         }
 

@@ -246,7 +246,7 @@ class ExportOdt extends ExportPlugin
         $crlf,
         $error_url,
         $sql_query,
-        $aliases = array()
+        array $aliases = array()
     ) {
         global $what;
 
@@ -441,7 +441,7 @@ class ExportOdt extends ExportPlugin
         $show_dates = false,
         $add_semicolon = true,
         $view = false,
-        $aliases = array()
+        array $aliases = array()
     ) {
         global $cfgRelation;
 
@@ -590,7 +590,7 @@ class ExportOdt extends ExportPlugin
      *
      * @return bool true
      */
-    protected function getTriggers($db, $table, $aliases = array())
+    protected function getTriggers($db, $table, array $aliases = array())
     {
         $db_alias = $db;
         $table_alias = $table;
@@ -679,7 +679,7 @@ class ExportOdt extends ExportPlugin
         $do_comments = false,
         $do_mime = false,
         $dates = false,
-        $aliases = array()
+        array $aliases = array()
     ) {
         $db_alias = $db;
         $table_alias = $table;

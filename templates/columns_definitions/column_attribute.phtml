@@ -1,5 +1,5 @@
 <?php
-$attribute_types = $GLOBALS['PMA_Types']->getAttributes();
+$attribute_types = $GLOBALS['dbi']->types->getAttributes();
 $cnt_attribute_types = count($attribute_types);
 
 $attribute = '';

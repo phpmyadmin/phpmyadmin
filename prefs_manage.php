@@ -6,25 +6,24 @@
  * @package PhpMyAdmin
  */
 use PhpMyAdmin\Config\ConfigFile;
-use PhpMyAdmin\Config\FormDisplay;
+use PhpMyAdmin\Config\Forms\User\UserFormList;
 use PhpMyAdmin\Core;
 use PhpMyAdmin\File;
 use PhpMyAdmin\Message;
 use PhpMyAdmin\Response;
-use PhpMyAdmin\Util;
-use PhpMyAdmin\Url;
 use PhpMyAdmin\Sanitize;
 use PhpMyAdmin\ThemeManager;
+use PhpMyAdmin\Url;
+use PhpMyAdmin\UserPreferences;
+use PhpMyAdmin\Util;
 
 /**
  * Gets some core libraries and displays a top message if required
  */
 require_once 'libraries/common.inc.php';
-require_once 'libraries/user_preferences.lib.php';
-require 'libraries/config/user_preferences.forms.php';
 
 $cf = new ConfigFile($GLOBALS['PMA_Config']->base_settings);
-PMA_userprefsPageInit($cf);
+UserPreferences::pageInit($cf);
 $response = Response::getInstance();
 
 $error = '';
@@ -36,7 +35,7 @@ if (isset($_POST['submit_export'])
     $response->disable();
     $filename = 'phpMyAdmin-config-' . urlencode(Core::getenv('HTTP_HOST')) . '.json';
     Core::downloadHeader($filename, 'application/json');
-    $settings = PMA_loadUserprefs();
+    $settings = UserPreferences::load();
     echo json_encode($settings['config_data'], JSON_PRETTY_PRINT);
     exit;
 } elseif (isset($_POST['submit_export'])
@@ -47,7 +46,7 @@ if (isset($_POST['submit_export'])
     $response->disable();
     $filename = 'phpMyAdmin-config-' . urlencode(Core::getenv('HTTP_HOST')) . '.php';
     Core::downloadHeader($filename, 'application/php');
-    $settings = PMA_loadUserprefs();
+    $settings = UserPreferences::load();
     echo '/* ' . _('phpMyAdmin configuration snippet') . " */\n\n";
     echo '/* ' . _('Paste it to your config.inc.php') . " */\n\n";
     foreach ($settings['config_data'] as $key => $val) {
@@ -56,7 +55,7 @@ if (isset($_POST['submit_export'])
     }
     exit;
 } else if (isset($_POST['submit_get_json'])) {
-    $settings = PMA_loadUserprefs();
+    $settings = UserPreferences::load();
     $response->addJSON('prefs', json_encode($settings['config_data']));
     $response->addJSON('mtime', $settings['mtime']);
     exit;
@@ -94,12 +93,7 @@ if (isset($_POST['submit_export'])
     } else {
         // sanitize input values: treat them as though
         // they came from HTTP POST request
-        $form_display = new FormDisplay($cf);
-        foreach ($forms as $formset_id => $formset) {
-            foreach ($formset as $form_name => $form) {
-                $form_display->registerForm($formset_id . ': ' . $form_name, $form);
-            }
-        }
+        $form_display = new UserFormList($cf);
         $new_config = $cf->getFlatDefaultConfig();
         if (!empty($_POST['import_merge'])) {
             $new_config = array_merge($new_config, $cf->getConfigArray());
@@ -178,7 +172,7 @@ if (isset($_POST['submit_export'])
         }
 
         // save settings
-        $result = PMA_saveUserprefs($cf->getConfigArray());
+        $result = UserPreferences::save($cf->getConfigArray());
         if ($result === true) {
             if ($return_url) {
                 $query =  PhpMyAdmin\Util::splitURLQuery($return_url);
@@ -197,14 +191,14 @@ if (isset($_POST['submit_export'])
             }
             // reload config
             $GLOBALS['PMA_Config']->loadUserPreferences();
-            PMA_userprefsRedirect($return_url, $params);
+            UserPreferences::redirect($return_url, $params);
             exit;
         } else {
             $error = $result;
         }
     }
 } else if (isset($_POST['submit_clear'])) {
-    $result = PMA_saveUserprefs(array());
+    $result = UserPreferences::save(array());
     if ($result === true) {
         $params = array();
         if ($GLOBALS['PMA_Config']->get('fontsize') != '82%') {
@@ -212,7 +206,7 @@ if (isset($_POST['submit_export'])
         }
         $GLOBALS['PMA_Config']->removeCookie('pma_collaction_connection');
         $GLOBALS['PMA_Config']->removeCookie('pma_lang');
-        PMA_userprefsRedirect('prefs_manage.php', $params);
+        UserPreferences::redirect('prefs_manage.php', $params);
         exit;
     } else {
         $error = $result;

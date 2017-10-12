@@ -9,6 +9,7 @@ namespace PhpMyAdmin;
 
 use PhpMyAdmin\Core;
 use PhpMyAdmin\DatabaseInterface;
+use PhpMyAdmin\FileListing;
 use PhpMyAdmin\Message;
 use PhpMyAdmin\Plugins\ImportPlugin;
 use PhpMyAdmin\Response;
@@ -111,7 +112,7 @@ class Util
      *
      * @return string an html IMG tag
      */
-    public static function getImage($image, $alternate = '', $attributes = array())
+    public static function getImage($image, $alternate = '', array $attributes = array())
     {
         static $sprites; // cached list of available sprites (if any)
         if (defined('TESTSUITE')) {
@@ -703,7 +704,7 @@ class Util
      * @return int $rowCount the possibly modified row count
      *
      */
-    private static function _checkRowCount($db, $table)
+    private static function _checkRowCount($db, array $table)
     {
         $rowCount = 0;
 
@@ -974,9 +975,7 @@ class Util
         }
 
         if ($render_sql) {
-            $retval .= '<div class="result_query"'
-                . ' style="text-align: ' . $GLOBALS['cell_align_left'] . '"'
-                . '>' . "\n";
+            $retval .= '<div class="result_query">' . "\n";
         }
 
         if ($message instanceof Message) {
@@ -1606,7 +1605,7 @@ class Util
      *
      * @access  public
      */
-    public static function getHtmlTab($tab, $url_params = array())
+    public static function getHtmlTab(array $tab, array $url_params = array())
     {
         // default values
         $defaults = array(
@@ -1708,8 +1707,8 @@ class Util
      * @return string  html-code for tab-navigation
      */
     public static function getHtmlTabs(
-        $tabs,
-        $url_params,
+        array $tabs,
+        array $url_params,
         $menu_id,
         $resizable = false
     ) {
@@ -1848,6 +1847,7 @@ class Util
                 $submit_link    = '#';
             } else {
                 $query_parts[] = 'redirect=' . $url_parts['path'];
+                $query_parts[] = 'token=' . $_SESSION[' PMA_token '];
                 if (empty($GLOBALS['subform_counter'])) {
                     $GLOBALS['subform_counter'] = 0;
                 }
@@ -2007,14 +2007,14 @@ class Util
      * @param string|boolean $restrict_to_table    restrict the unique condition
      *                                             to this table or false if
      *                                             none
-     * @param array          $analyzed_sql_results the analyzed query
+     * @param array|null     $analyzed_sql_results the analyzed query
      *
      * @access public
      *
      * @return array the calculated condition and whether condition is unique
      */
     public static function getUniqueCondition(
-        $handle, $fields_cnt, $fields_meta, $row, $force_unique = false,
+        $handle, $fields_cnt, array $fields_meta, array $row, $force_unique = false,
         $restrict_to_table = false, $analyzed_sql_results = null
     ) {
         $primary_key          = '';
@@ -2382,7 +2382,7 @@ class Util
      * @todo    use $pos from $_url_params
      */
     public static function getListNavigator(
-        $count, $pos, $_url_params, $script, $frame, $max_count, $name = 'pos',
+        $count, $pos, array $_url_params, $script, $frame, $max_count, $name = 'pos',
         $classes = array()
     ) {
 
@@ -2576,7 +2576,7 @@ class Util
      * @return string                  set of html radio fiels
      */
     public static function getRadioFields(
-        $html_field_name, $choices, $checked_choice = '',
+        $html_field_name, array $choices, $checked_choice = '',
         $line_break = true, $escape_label = true, $class = '',
         $id_prefix = ''
     ) {
@@ -2629,7 +2629,7 @@ class Util
      * @todo    support titles
      */
     public static function getDropdown(
-        $select_name, $choices, $active_choice, $id, $class = '', $placeholder = null
+        $select_name, array $choices, $active_choice, $id, $class = '', $placeholder = null
     ) {
         $resultOptions = [];
         $selected = false;
@@ -2660,17 +2660,18 @@ class Util
      * controlling the slider; you have to generate the </div> yourself
      * after the sliding section.
      *
-     * @param string $id      the id of the <div> on which to apply the effect
-     * @param string $message the message to show as a link
+     * @param string      $id              the id of the <div> on which to apply the effect
+     * @param string      $message         the message to show as a link
+     * @param string|null $overrideDefault override InitialSlidersState config
      *
      * @return string         html div element
      *
      */
-    public static function getDivForSliderEffect($id = '', $message = '', $overridedefault = null)
+    public static function getDivForSliderEffect($id = '', $message = '', $overrideDefault = null)
     {
         return Template::get('div_for_slider_effect')->render([
             'id'                    => $id,
-            'initial_sliders_state' => ($overridedefault !=null) ? $overridedefault : $GLOBALS['cfg']['InitialSlidersState'],
+            'initial_sliders_state' => ($overrideDefault != null) ? $overrideDefault : $GLOBALS['cfg']['InitialSlidersState'],
             'message'               => $message,
         ]);
     }
@@ -2681,13 +2682,13 @@ class Util
      *
      * @param string $action      The URL for the request to be executed
      * @param string $select_name The name for the dropdown box
-     * @param array  $options     An array of options (see rte_footer.lib.php)
+     * @param array  $options     An array of options (see PhpMyAdmin\Rte\Footer)
      * @param string $callback    A JS snippet to execute when the request is
      *                            successfully processed
      *
      * @return string   HTML code for the toggle button
      */
-    public static function toggleButton($action, $select_name, $options, $callback)
+    public static function toggleButton($action, $select_name, array $options, $callback)
     {
         // Do the logic first
         $link = "$action&amp;" . urlencode($select_name) . "=";
@@ -3239,7 +3240,7 @@ class Util
      * @return string
      */
     public static function expandUserString(
-        $string, $escape = null, $updates = array()
+        $string, $escape = null, array $updates = array()
     ) {
         /* Content */
         $vars = array();
@@ -3385,14 +3386,14 @@ class Util
         }
 
         $matcher = '@\.(' . $extensions . ')(\.('
-            . PMA_supportedDecompressions() . '))?$@';
+            . FileListing::supportedDecompressions() . '))?$@';
 
         $active = (isset($GLOBALS['timeout_passed']) && $GLOBALS['timeout_passed']
             && isset($GLOBALS['local_import_file']))
             ? $GLOBALS['local_import_file']
             : '';
 
-        $files = PMA_getFileSelectOptions(
+        $files = FileListing::getFileSelectOptions(
             self::userDir($uploaddir),
             $matcher,
             $active
@@ -3470,14 +3471,14 @@ class Util
             // NOTE: the SELECT tag in not included in this snippet.
             $retval = '';
 
-            foreach ($GLOBALS['PMA_Types']->getColumns() as $key => $value) {
+            foreach ($GLOBALS['dbi']->types->getColumns() as $key => $value) {
                 if (is_array($value)) {
                     $retval .= "<optgroup label='" . htmlspecialchars($key) . "'>";
                     foreach ($value as $subvalue) {
                         if ($subvalue == $selected) {
                             $retval .= sprintf(
                                 '<option selected="selected" title="%s">%s</option>',
-                                $GLOBALS['PMA_Types']->getTypeDescription($subvalue),
+                                $GLOBALS['dbi']->types->getTypeDescription($subvalue),
                                 $subvalue
                             );
                         } else if ($subvalue === '-') {
@@ -3487,7 +3488,7 @@ class Util
                         } else {
                             $retval .= sprintf(
                                 '<option title="%s">%s</option>',
-                                $GLOBALS['PMA_Types']->getTypeDescription($subvalue),
+                                $GLOBALS['dbi']->types->getTypeDescription($subvalue),
                                 $subvalue
                             );
                         }
@@ -3497,13 +3498,13 @@ class Util
                     if ($selected == $value) {
                         $retval .= sprintf(
                             '<option selected="selected" title="%s">%s</option>',
-                            $GLOBALS['PMA_Types']->getTypeDescription($value),
+                            $GLOBALS['dbi']->types->getTypeDescription($value),
                             $value
                         );
                     } else {
                         $retval .= sprintf(
                             '<option title="%s">%s</option>',
-                            $GLOBALS['PMA_Types']->getTypeDescription($value),
+                            $GLOBALS['dbi']->types->getTypeDescription($value),
                             $value
                         );
                     }
@@ -3511,7 +3512,7 @@ class Util
             }
         } else {
             $retval = array();
-            foreach ($GLOBALS['PMA_Types']->getColumns() as $value) {
+            foreach ($GLOBALS['dbi']->types->getColumns() as $value) {
                 if (is_array($value)) {
                     foreach ($value as $subvalue) {
                         if ($subvalue !== '-') {
@@ -3716,7 +3717,7 @@ class Util
      * @return string   An HTML snippet of a dropdown list with function
      *                    names appropriate for the requested column.
      */
-    public static function getDefaultFunctionForField($field, $insert_mode)
+    public static function getDefaultFunctionForField(array $field, $insert_mode)
     {
         /*
          * @todo Except for $cfg, no longer use globals but pass as parameters
@@ -3727,7 +3728,7 @@ class Util
         $default_function   = '';
 
         // Can we get field class based values?
-        $current_class = $GLOBALS['PMA_Types']->getTypeClass($field['True_Type']);
+        $current_class = $GLOBALS['dbi']->types->getTypeClass($field['True_Type']);
         if (! empty($current_class)) {
             if (isset($cfg['DefaultFunctions']['FUNC_' . $current_class])) {
                 $default_function
@@ -3775,7 +3776,7 @@ class Util
      * @return string   An HTML snippet of a dropdown list with function
      *                    names appropriate for the requested column.
      */
-    public static function getFunctionsForField($field, $insert_mode, $foreignData)
+    public static function getFunctionsForField(array $field, $insert_mode, array $foreignData)
     {
         $default_function = self::getDefaultFunctionForField($field, $insert_mode);
         $dropdown_built = array();
@@ -3784,7 +3785,7 @@ class Util
         $retval = '<option></option>' . "\n";
         // loop on the dropdown array and print all available options for that
         // field.
-        $functions = $GLOBALS['PMA_Types']->getFunctions($field['True_Type']);
+        $functions = $GLOBALS['dbi']->types->getFunctions($field['True_Type']);
         foreach ($functions as $function) {
             $retval .= '<option';
             if (isset($foreignData['foreign_link']) && $foreignData['foreign_link'] !== false && $default_function === $function) {
@@ -3803,7 +3804,7 @@ class Util
         // For compatibility's sake, do not let out all other functions. Instead
         // print a separator (blank) and then show ALL functions which weren't
         // shown yet.
-        $functions = $GLOBALS['PMA_Types']->getAllFunctions();
+        $functions = $GLOBALS['dbi']->types->getAllFunctions();
         foreach ($functions as $function) {
             // Skip already included functions
             if (isset($dropdown_built[$function])) {
@@ -4045,7 +4046,7 @@ class Util
      *
      * @return String Matching regular expression.
      */
-    public static function getFirstOccurringRegularExpression($regex_array, $query)
+    public static function getFirstOccurringRegularExpression(array $regex_array, $query)
     {
         $minimum_first_occurence_index = null;
         $regex = null;
@@ -4231,7 +4232,7 @@ class Util
         $linkId = '',
         $disableAjax = false,
         $linkTarget = '',
-        $classes = array()
+        array $classes = array()
     ) {
         $retval = '<a href="' . $link . '"';
         if (! empty($linkId)) {
@@ -4287,7 +4288,7 @@ class Util
      *
      * @return array processes index data
      */
-    public static function processIndexData($indexes)
+    public static function processIndexData(array $indexes)
     {
         $lastIndex    = '';
 
@@ -4938,7 +4939,7 @@ class Util
      *
      * @return mixed Searched value
      */
-    public static function getValueByKey($array, $path, $default = null)
+    public static function getValueByKey(array $array, $path, $default = null)
     {
         if (is_string($path)) {
             $path = explode('.', $path);

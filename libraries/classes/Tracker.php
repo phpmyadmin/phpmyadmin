@@ -7,6 +7,7 @@
  */
 namespace PhpMyAdmin;
 
+use PhpMyAdmin\Plugins;
 use PhpMyAdmin\Plugins\Export\ExportSql;
 use PhpMyAdmin\Relation;
 use PhpMyAdmin\SqlParser\Parser;
@@ -192,9 +193,8 @@ class Tracker
         }
 
         // get Export SQL instance
-        include_once "libraries/plugin_interface.lib.php";
-        /* @var $export_sql_plugin \PhpMyAdmin\Plugins\Export\ExportSql */
-        $export_sql_plugin = PMA_getPlugin(
+        /* @var $export_sql_plugin PhpMyAdmin\Plugins\Export\ExportSql */
+        $export_sql_plugin = Plugins::getPlugin(
             "export",
             "sql",
             'libraries/classes/Plugins/Export/',

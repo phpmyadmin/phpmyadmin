@@ -52,7 +52,7 @@ class Container implements ContainerInterface
      *
      * @return mixed
      */
-    public function get($name, $params = array())
+    public function get($name, array $params = array())
     {
         if (!$this->has($name)) {
             throw new NotFoundException("No entry was found for $name identifier.");

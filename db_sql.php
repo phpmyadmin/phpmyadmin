@@ -7,15 +7,14 @@
  */
 use PhpMyAdmin\Config\PageSettings;
 use PhpMyAdmin\Response;
+use PhpMyAdmin\SqlQueryForm;
 
 /**
  *
  */
 require_once 'libraries/common.inc.php';
-require_once 'libraries/config/user_preferences.forms.php';
-require_once 'libraries/config/page_settings.forms.php';
 
-PageSettings::showGroup('Sql_queries');
+PageSettings::showGroup('Sql');
 
 /**
  * Runs common work
@@ -28,7 +27,6 @@ $scripts->addFile('vendor/jquery/jquery.uitablefilter.js');
 $scripts->addFile('sql.js');
 
 require 'libraries/db_common.inc.php';
-require_once 'libraries/sql_query_form.lib.php';
 
 // After a syntax error, we return to this script
 // with the typed query in the textarea.
@@ -39,7 +37,7 @@ $back = 'db_sql.php';
  * Query box, bookmark, insert data from textfile
  */
 $response->addHTML(
-    PMA_getHtmlForSqlQueryForm(
+    SqlQueryForm::getHtml(
         true, false,
         isset($_REQUEST['delimiter'])
         ? htmlspecialchars($_REQUEST['delimiter'])

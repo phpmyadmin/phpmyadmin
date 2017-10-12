@@ -354,20 +354,20 @@ class TableSearchController extends TableController
             )
         );
         $this->response->addHTML(
-            Template::get('table/search/zoom_result_form')
-                ->render(
-                    array(
-                        '_db'              => $this->db,
-                        '_table'           => $this->table,
-                        '_columnNames'     => $this->_columnNames,
-                        '_foreigners'      => $this->_foreigners,
-                        '_columnNullFlags' => $this->_columnNullFlags,
-                        '_columnTypes'     => $this->_columnTypes,
-                        'titles'           => $titles,
-                        'goto'             => $goto,
-                        'data'             => $data,
-                    )
-                )
+            Template::get('table/search/zoom_result_form')->render([
+                'db' => $this->db,
+                'table' => $this->table,
+                'column_names' => $this->_columnNames,
+                'foreigners' => $this->_foreigners,
+                'column_null_flags' => $this->_columnNullFlags,
+                'column_types' => $this->_columnTypes,
+                'titles' => $titles,
+                'goto' => $goto,
+                'data' => $data,
+                'data_json' => json_encode($data),
+                'zoom_submit' => isset($_POST['zoom_submit']),
+                'foreign_max_limit' => $GLOBALS['cfg']['ForeignKeyMaxLimit'],
+            ])
         );
     }
 
@@ -498,21 +498,25 @@ class TableSearchController extends TableController
                 )
         );
         $this->response->addHTML(
-            Template::get('table/search/selection_form')
-                ->render(
-                    array(
-                        'searchType'       => $this->_searchType,
-                        'db'               => $this->db,
-                        'table'            => $this->table,
-                        'goto'             => $goto,
-                        'self'             => $this,
-                        'geomColumnFlag'   => $this->_geomColumnFlag,
-                        'columnNames'      => $this->_columnNames,
-                        'columnTypes'      => $this->_columnTypes,
-                        'columnCollations' => $this->_columnCollations,
-                        'dataLabel'        => $dataLabel,
-                    )
-                )
+            Template::get('table/search/selection_form')->render(array(
+                'search_type' => $this->_searchType,
+                'db' => $this->db,
+                'table' => $this->table,
+                'goto' => $goto,
+                'self' => $this,
+                'geom_column_flag' => $this->_geomColumnFlag,
+                'column_names' => $this->_columnNames,
+                'column_types' => $this->_columnTypes,
+                'column_collations' => $this->_columnCollations,
+                'data_label' => $dataLabel,
+                'criteria_column_names' => isset($_POST['criteriaColumnNames']) ? $_POST['criteriaColumnNames'] : null,
+                'criteria_column_types' => isset($_POST['criteriaColumnTypes']) ? $_POST['criteriaColumnTypes'] : null,
+                'sql_types' => $GLOBALS['dbi']->types,
+                'max_rows' => intval($GLOBALS['cfg']['MaxRows']),
+                'max_plot_limit' => ((! empty($_POST['maxPlotLimit']))
+                    ? intval($_POST['maxPlotLimit'])
+                    : intval($GLOBALS['cfg']['maxRowPlotLimit'])),
+            ))
         );
     }
 
@@ -844,7 +848,7 @@ class TableSearchController extends TableController
         $type = $this->_columnTypes[$column_index];
         $collation = $this->_columnCollations[$column_index];
         //Gets column's comparison operators depending on column type
-        $typeOperators = $GLOBALS['PMA_Types']->getTypeOperatorsHtml(
+        $typeOperators = $GLOBALS['dbi']->types->getTypeOperatorsHtml(
             preg_replace('@\(.*@s', '', $this->_columnTypes[$column_index]),
             $this->_columnNullFlags[$column_index], $selected_operator
         );
@@ -864,13 +868,14 @@ class TableSearchController extends TableController
                 'column_type' => (string) $type,
                 'column_id' => 'fieldID_',
                 'in_zoom_search_edit' => false,
-                '_foreigners' => $this->_foreigners,
+                'foreigners' => $this->_foreigners,
                 'column_name' => $this->_columnNames[$column_index],
-                'foreignData' => $foreignData,
+                'column_name_hash' => md5($this->_columnNames[$column_index]),
+                'foreign_data' => $foreignData,
                 'table' => $this->table,
                 'column_index' => $search_index,
-                'foreignMaxLimit' => $GLOBALS['cfg']['ForeignKeyMaxLimit'],
-                'criteriaValues' => $entered_value,
+                'foreign_max_limit' => $GLOBALS['cfg']['ForeignKeyMaxLimit'],
+                'criteria_values' => $entered_value,
                 'db' => $this->db,
                 'titles' => $titles,
                 'in_fbs' => true
@@ -909,7 +914,7 @@ class TableSearchController extends TableController
         // else continue to form the where clause from column criteria values
         $fullWhereClause = array();
         foreach ($_POST['criteriaColumnOperators'] as $column_index => $operator) {
-            $unaryFlag =  $GLOBALS['PMA_Types']->isUnaryOperator($operator);
+            $unaryFlag =  $GLOBALS['dbi']->types->isUnaryOperator($operator);
             $tmp_geom_func = isset($_POST['geom_func'][$column_index])
                 ? $_POST['geom_func'][$column_index] : null;
 

@@ -17,7 +17,7 @@ use PhpMyAdmin\Response;
 use PhpMyAdmin\Util;
 use PhpMyAdmin\Url;
 
-require_once 'libraries/check_user_privileges.lib.php';
+require_once 'libraries/check_user_privileges.inc.php';
 
 /**
  * Displays a collapsible of database objects in the navigation frame
@@ -166,7 +166,7 @@ class NavigationTree
     {
         $retval = 0;
 
-        if (empty($GLOBALS['db'])) {
+        if (strlen($GLOBALS['db']) == 0) {
             return $retval;
         }
 
@@ -327,7 +327,7 @@ class NavigationTree
      *
      * @return Node|false The active node or false in case of failure
      */
-    private function _buildPathPart($path, $type2, $pos2, $type3, $pos3)
+    private function _buildPathPart(array $path, $type2, $pos2, $type3, $pos3)
     {
         if (empty($pos2)) {
             $pos2 = 0;
@@ -1002,7 +1002,7 @@ class NavigationTree
      *
      * @return boolean
      */
-    private function _findTreeMatch($tree, $paths)
+    private function _findTreeMatch(array $tree, array $paths)
     {
         $match = false;
         foreach ($tree as $path) {
@@ -1169,11 +1169,11 @@ class NavigationTree
 
             if (isset($node->links['text'])) {
                 $args = array();
-                foreach ($node->parents(true) as $parent) {
+                foreach ($node->parents(true) as $parent) {;
                     $args[] = urlencode($parent->real_name);
                 }
                 $link = vsprintf($node->links['text'], $args);
-                $title = empty($node->links['title']) ? '' : $node->links['title'];
+                $title = isset($node->links['title']) ? $node->links['title'] : '';
                 if ($node->type == Node::CONTAINER) {
                     $retval .= "&nbsp;<a class='hover_show_full' href='$link'>";
                     $retval .= htmlspecialchars($node->name);
@@ -1279,7 +1279,7 @@ class NavigationTree
             }
             $paths = $node->getPaths();
             if (isset($node->links['text'])) {
-                $title = empty($node->links['title']) ? '' : $node->links['title'];
+                $title = isset($node->links['title']) ? '' : $node->links['title'];
                 $retval .= '<option value="'
                     . htmlspecialchars($node->real_name) . '"'
                     . ' title="' . htmlspecialchars($title) . '"'

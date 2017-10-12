@@ -11,6 +11,8 @@ use PhpMyAdmin\Core;
 use PhpMyAdmin\Encoding;
 use PhpMyAdmin\File;
 use PhpMyAdmin\Import;
+use PhpMyAdmin\ParseAnalyze;
+use PhpMyAdmin\Plugins;
 use PhpMyAdmin\Plugins\ImportPlugin;
 use PhpMyAdmin\Response;
 use PhpMyAdmin\Sql;
@@ -514,10 +516,8 @@ if (! $error && isset($_POST['skip'])) {
 $sql_data = array('valid_sql' => array(), 'valid_queries' => 0);
 
 if (! $error) {
-    // Check for file existence
-    include_once "libraries/plugin_interface.lib.php";
     /* @var $import_plugin ImportPlugin */
-    $import_plugin = PMA_getPlugin(
+    $import_plugin = Plugins::getPlugin(
         "import",
         $format,
         'libraries/classes/Plugins/Import/',
@@ -637,13 +637,11 @@ if (isset($message)) {
 //  can choke on it so avoid parsing)
 $sqlLength = mb_strlen($sql_query);
 if ($sqlLength <= $GLOBALS['cfg']['MaxCharactersInDisplayedSQL']) {
-    include_once 'libraries/parse_analyze.lib.php';
-
     list(
         $analyzed_sql_results,
         $db,
         $table_from_sql
-    ) = PMA_parseAnalyze($sql_query, $db);
+    ) = ParseAnalyze::sqlQuery($sql_query, $db);
     // @todo: possibly refactor
     extract($analyzed_sql_results);
 
@@ -675,18 +673,17 @@ if ($go_sql) {
     foreach ($sql_queries as $sql_query) {
 
         // parse sql query
-        include_once 'libraries/parse_analyze.lib.php';
         list(
             $analyzed_sql_results,
             $db,
             $table_from_sql
-        ) = PMA_parseAnalyze($sql_query, $db);
+        ) = ParseAnalyze::sqlQuery($sql_query, $db);
         // @todo: possibly refactor
         extract($analyzed_sql_results);
 
         // Check if User is allowed to issue a 'DROP DATABASE' Statement
         if (Sql::hasNoRightsToDropDatabase(
-            $analyzed_sql_results, $cfg['AllowUserDropDatabase'], $GLOBALS['is_superuser']
+            $analyzed_sql_results, $cfg['AllowUserDropDatabase'], $GLOBALS['dbi']->isSuperuser()
         )) {
             PhpMyAdmin\Util::mysqlDie(
                 __('"DROP DATABASE" statements are disabled.'),

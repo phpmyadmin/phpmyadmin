@@ -5,21 +5,18 @@
  *
  * @package PhpMyAdmin-test
  */
+namespace PhpMyAdmin\Tests;
 
 use PhpMyAdmin\Theme;
 use PhpMyAdmin\Transformations;
-
-/*
- * Include to test.
- */
-require_once 'libraries/database_interface.inc.php';
+use PHPUnit_Framework_TestCase as TestCase;
 
 /**
  * tests for transformation wrappers
  *
  * @package PhpMyAdmin-test
  */
-class TransformationsTest extends PHPUnit_Framework_TestCase
+class TransformationsTest extends TestCase
 {
     /**
      * Set up global environment.

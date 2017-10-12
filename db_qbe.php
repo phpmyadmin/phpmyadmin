@@ -5,11 +5,14 @@
  *
  * @package PhpMyAdmin
  */
+use PhpMyAdmin\Database\Qbe;
+use PhpMyAdmin\Message;
 use PhpMyAdmin\Relation;
 use PhpMyAdmin\Response;
 use PhpMyAdmin\SavedSearches;
 use PhpMyAdmin\Sql;
 use PhpMyAdmin\Url;
+use PhpMyAdmin\Util;
 
 /**
  * requirements
@@ -120,10 +123,10 @@ list(
     $tooltip_truename,
     $tooltip_aliasname,
     $pos
-) = PhpMyAdmin\Util::getDbInfo($db, isset($sub_part) ? $sub_part : '');
+) = Util::getDbInfo($db, isset($sub_part) ? $sub_part : '');
 
 if ($message_to_display) {
-    PhpMyAdmin\Message::error(
+    Message::error(
         __('You have to choose at least one column to display!')
     )
         ->display();
@@ -131,7 +134,7 @@ if ($message_to_display) {
 unset($message_to_display);
 
 // create new qbe search instance
-$db_qbe = new PhpMyAdmin\DbQbe($GLOBALS['db'], $savedSearchList, $savedSearch);
+$db_qbe = new Qbe($GLOBALS['db'], $savedSearchList, $savedSearch);
 
 $url = 'db_designer.php' . Url::getCommon(
     array_merge(
@@ -140,7 +143,7 @@ $url = 'db_designer.php' . Url::getCommon(
     )
 );
 $response->addHTML(
-    PhpMyAdmin\Message::notice(
+    Message::notice(
         sprintf(
             __('Switch to %svisual builder%s'),
             '<a href="' . $url . '">',

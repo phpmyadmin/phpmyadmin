@@ -22,7 +22,7 @@ require_once 'libraries/common.inc.php';
 /**
  * functions implementation for this script
  */
-require_once 'libraries/check_user_privileges.lib.php';
+require_once 'libraries/check_user_privileges.inc.php';
 
 $pma_table = new Table($GLOBALS['table'], $GLOBALS['db']);
 
@@ -426,7 +426,7 @@ if (! (isset($db_is_system_schema) && $db_is_system_schema)) {
                     htmlspecialchars($table)
                 ),
                 // table name is needed to avoid running
-                // PMA_relationsCleanupDatabase() on the whole db later
+                // PhpMyAdmin\RelationCleanup::database() on the whole db later
                 'table' => $GLOBALS['table'],
             )
         );

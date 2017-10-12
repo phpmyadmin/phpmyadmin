@@ -2,23 +2,21 @@
 /* vim: set expandtab sw=4 ts=4 sts=4: */
 /**
  * Tests for methods in PhpMyAdmin\VersionInformation class
-*
-* @package PhpMyAdmin-test
-*/
-
-/*
- * Include to test.
+ *
+ * @package PhpMyAdmin-test
  */
-use PhpMyAdmin\VersionInformation;
+namespace PhpMyAdmin\Tests;
 
-require_once 'test/PMATestCase.php';
+use PhpMyAdmin\Tests\PmaTestCase;
+use PhpMyAdmin\VersionInformation;
+use stdClass;
 
 /**
  * Tests for methods in PhpMyAdmin\VersionInformation class
  *
  * @package PhpMyAdmin-test
  */
-class VersionInformationTest extends PMATestCase
+class VersionInformationTest extends PmaTestCase
 {
     private $_releases;
 

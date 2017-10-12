@@ -6,8 +6,6 @@
  */
 namespace PhpMyAdmin\Dbi;
 
-require_once 'libraries/dbi/dbi_extension.lib.php';
-
 /**
  * Contract for every database extension supported by phpMyAdmin
  *
@@ -25,7 +23,7 @@ interface DbiExtension
      * @return mixed false on error or a connection object on success
      */
     public function connect(
-        $user, $password, $server
+        $user, $password, array $server
     );
 
     /**

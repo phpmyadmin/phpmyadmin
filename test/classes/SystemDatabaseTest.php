@@ -5,15 +5,17 @@
  *
  * @package PhpMyAdmin-test
  */
+namespace PhpMyAdmin\Tests;
 
-require_once 'test/PMATestCase.php';
+use PhpMyAdmin\SystemDatabase;
+use PhpMyAdmin\Tests\PmaTestCase;
 
 /**
  * Tests for libraries/SystemDatabase.php
  *
  * @package PhpMyAdmin-test
  */
-class SystemDatabaseTest extends PMATestCase
+class SystemDatabaseTest extends PmaTestCase
 {
     /**
      * Setup function for test cases
@@ -66,7 +68,7 @@ class SystemDatabaseTest extends PMATestCase
                 )
             );
 
-        $this->sysDb = new PhpMyAdmin\SystemDatabase($dbi);
+        $this->sysDb = new SystemDatabase($dbi);
     }
 
     /**

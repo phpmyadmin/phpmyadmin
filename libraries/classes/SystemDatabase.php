@@ -11,8 +11,6 @@ use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Relation;
 use PhpMyAdmin\Util;
 
-require_once 'libraries/database_interface.inc.php';
-
 /**
  * Class SystemDatabase
  *
@@ -71,7 +69,7 @@ class SystemDatabase
      * @return string $new_transformations_sql SQL query for new transformations
      */
     function getNewTransformationDataSql(
-        $pma_transformation_data, $column_map, $view_name, $db
+        $pma_transformation_data, array $column_map, $view_name, $db
     ) {
         $cfgRelation = Relation::getRelationsParam();
 

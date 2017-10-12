@@ -86,7 +86,7 @@ abstract class OptionsPropertyOneItem extends OptionsPropertyItem
      *
      * @return void
      */
-    public function setValues($values)
+    public function setValues(array $values)
     {
         $this->_values = $values;
     }
@@ -104,7 +104,7 @@ abstract class OptionsPropertyOneItem extends OptionsPropertyItem
     /**
      * Sets the doc
      *
-     * @param array $doc MySQL documentation pointer
+     * @param string $doc MySQL documentation pointer
      *
      * @return void
      */

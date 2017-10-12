@@ -5,21 +5,18 @@
  *
  * @package PhpMyAdmin-test
  */
-
-/*
- * Include to test.
- */
+namespace PhpMyAdmin\Tests;
 
 use PhpMyAdmin\Scripts;
-
-require_once 'test/PMATestCase.php';
+use PhpMyAdmin\Tests\PmaTestCase;
+use ReflectionClass;
 
 /**
  * Tests for Script.php
  *
  * @package PhpMyAdmin-test
  */
-class ScriptsTest extends PMATestCase
+class ScriptsTest extends PmaTestCase
 {
     /**
      * @access protected

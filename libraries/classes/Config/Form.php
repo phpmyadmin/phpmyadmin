@@ -136,7 +136,7 @@ class Form
 
     /**
      * array_walk callback function, reads path of form fields from
-     * array (see file comment in setup.forms.php or user_preferences.forms.inc)
+     * array (see docs for \PhpMyAdmin\Config\Forms\BaseForm::getForms)
      *
      * @param mixed $value  Value
      * @param mixed $key    Key
@@ -172,7 +172,7 @@ class Form
      *
      * @return void
      */
-    protected function readFormPaths($form)
+    protected function readFormPaths(array $form)
     {
         // flatten form fields' paths and save them to $fields
         $this->fields = array();
@@ -224,7 +224,7 @@ class Form
      *
      * @return void
      */
-    public function loadForm($form_name, $form)
+    public function loadForm($form_name, array $form)
     {
         $this->name = $form_name;
         $this->readFormPaths($form);

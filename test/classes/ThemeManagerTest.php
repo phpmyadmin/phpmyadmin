@@ -5,20 +5,18 @@
  *
  * @package PhpMyAdmin-test
  */
+namespace PhpMyAdmin\Tests;
 
-/*
- * Include to test.
- */
+use PhpMyAdmin\Config;
+use PhpMyAdmin\Tests\PmaTestCase;
 use PhpMyAdmin\ThemeManager;
-
-require_once 'test/PMATestCase.php';
 
 /**
  * tests for ThemeManager class
  *
  * @package PhpMyAdmin-test
  */
-class ThemeManagerTest extends PMATestCase
+class ThemeManagerTest extends PmaTestCase
 {
     /**
      * SetUp for test cases
@@ -31,7 +29,7 @@ class ThemeManagerTest extends PMATestCase
         $GLOBALS['cfg']['ThemeDefault'] = 'pmahomme';
         $GLOBALS['cfg']['ServerDefault'] = 0;
         $GLOBALS['server'] = 99;
-        $GLOBALS['PMA_Config'] = new PhpMyAdmin\Config();
+        $GLOBALS['PMA_Config'] = new Config();
         $GLOBALS['collation_connection'] = 'utf8_general_ci';
 
         $dbi = $this->getMockBuilder('PhpMyAdmin\DatabaseInterface')

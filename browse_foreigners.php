@@ -5,12 +5,13 @@
  *
  * @package PhpMyAdmin
  */
+
+use PhpMyAdmin\BrowseForeigners;
 use PhpMyAdmin\Relation;
 use PhpMyAdmin\Response;
 use PhpMyAdmin\Util;
 
 require_once 'libraries/common.inc.php';
-require_once 'libraries/browse_foreigners.lib.php';
 
 /**
  * Sets globals from $_REQUEST
@@ -39,7 +40,7 @@ $header->setBodyId('body_browse_foreigners');
  */
 
 $foreigners = Relation::getForeigners($db, $table);
-$foreign_limit = PMA_getForeignLimit(
+$foreign_limit = BrowseForeigners::getForeignLimit(
     isset($_REQUEST['foreign_showAll']) ? $_REQUEST['foreign_showAll'] : null
 );
 
@@ -53,7 +54,7 @@ $foreignData = Relation::getForeignData(
 );
 
 // HTML output
-$html = PMA_getHtmlForRelationalFieldSelection(
+$html = BrowseForeigners::getHtmlForRelationalFieldSelection(
     $db, $table, $_REQUEST['field'], $foreignData,
     isset($fieldkey) ? $fieldkey : null,
     isset($data) ? $data : null

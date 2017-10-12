@@ -118,7 +118,7 @@ class GisGeometryCollection extends GisGeometry
      * @return resource the modified image object
      * @access public
      */
-    public function prepareRowAsPng($spatial, $label, $color, $scale_data, $image)
+    public function prepareRowAsPng($spatial, $label, $color, array $scale_data, $image)
     {
         // Trim to remove leading 'GEOMETRYCOLLECTION(' and trailing ')'
         $goem_col
@@ -165,7 +165,7 @@ class GisGeometryCollection extends GisGeometry
      * @return TCPDF the modified TCPDF instance
      * @access public
      */
-    public function prepareRowAsPdf($spatial, $label, $color, $scale_data, $pdf)
+    public function prepareRowAsPdf($spatial, $label, $color, array $scale_data, $pdf)
     {
         // Trim to remove leading 'GEOMETRYCOLLECTION(' and trailing ')'
         $goem_col
@@ -211,7 +211,7 @@ class GisGeometryCollection extends GisGeometry
      * @return string the code related to a row in the GIS dataset
      * @access public
      */
-    public function prepareRowAsSvg($spatial, $label, $color, $scale_data)
+    public function prepareRowAsSvg($spatial, $label, $color, array $scale_data)
     {
         $row = '';
 
@@ -260,7 +260,7 @@ class GisGeometryCollection extends GisGeometry
      * @return string JavaScript related to a row in the GIS dataset
      * @access public
      */
-    public function prepareRowAsOl($spatial, $srid, $label, $color, $scale_data)
+    public function prepareRowAsOl($spatial, $srid, $label, $color, array $scale_data)
     {
         $row = '';
 
@@ -342,7 +342,7 @@ class GisGeometryCollection extends GisGeometry
      * @return string WKT with the set of parameters passed by the GIS editor
      * @access public
      */
-    public function generateWkt($gis_data, $index, $empty = '')
+    public function generateWkt(array $gis_data, $index, $empty = '')
     {
         $geom_count = (isset($gis_data['GEOMETRYCOLLECTION']['geom_count']))
             ? $gis_data['GEOMETRYCOLLECTION']['geom_count'] : 1;

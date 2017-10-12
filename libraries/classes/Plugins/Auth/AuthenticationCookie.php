@@ -14,6 +14,7 @@ use PhpMyAdmin\LanguageManager;
 use PhpMyAdmin\Message;
 use PhpMyAdmin\Plugins\AuthenticationPlugin;
 use PhpMyAdmin\Response;
+use PhpMyAdmin\Server\Select;
 use PhpMyAdmin\Session;
 use PhpMyAdmin\Util;
 use PhpMyAdmin\Url;
@@ -218,10 +219,7 @@ class AuthenticationCookie extends AuthenticationPlugin
                     , 'elements[\'pma_servername\'].value = \'\'" ';
             }
             echo '>';
-
-            include_once './libraries/select_server.lib.php';
-            echo PMA_selectServer(false, false);
-
+            echo Select::render(false, false);
             echo '</select></div>';
         } else {
             echo '    <input type="hidden" name="server" value="'
@@ -247,10 +245,10 @@ class AuthenticationCookie extends AuthenticationPlugin
         if (! empty($GLOBALS['target'])) {
             $_form_params['target'] = $GLOBALS['target'];
         }
-        if (! empty($GLOBALS['db'])) {
+        if (strlen($GLOBALS['db'])) {
             $_form_params['db'] = $GLOBALS['db'];
         }
-        if (! empty($GLOBALS['table'])) {
+        if (strlen($GLOBALS['table'])) {
             $_form_params['table'] = $GLOBALS['table'];
         }
         // do not generate a "server" hidden field as we want the "server"

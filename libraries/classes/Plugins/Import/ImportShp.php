@@ -60,7 +60,7 @@ class ImportShp extends ImportPlugin
      *
      * @return void
      */
-    public function doImport(&$sql_data = array())
+    public function doImport(array &$sql_data = array())
     {
         global $db, $error, $finished,
                $import_file, $local_import_file, $message;

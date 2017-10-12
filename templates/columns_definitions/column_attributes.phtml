@@ -11,11 +11,12 @@ $ci_offset = -1;
     <!-- column name -->
     <?= PhpMyAdmin\Template::get('columns_definitions/column_name')
         ->render(array(
-            'columnNumber' => $columnNumber,
+            'column_number' => $columnNumber,
             'ci' => $ci++,
             'ci_offset' => $ci_offset,
-            'columnMeta' => isset($columnMeta) ? $columnMeta : null,
-            'cfgRelation' => $cfgRelation
+            'column_meta' => isset($columnMeta) ? $columnMeta : null,
+            'cfg_relation' => $cfgRelation,
+            'max_rows' => intval($GLOBALS['cfg']['MaxRows']),
         )); ?>
 </td>
 <td class="center">
@@ -122,11 +123,15 @@ $ci_offset = -1;
     <!-- column comments -->
     <?= PhpMyAdmin\Template::get('columns_definitions/column_comment')
         ->render(array(
-            'columnNumber' => $columnNumber,
+            'column_number' => $columnNumber,
             'ci' => $ci++,
             'ci_offset' => $ci_offset,
-            'columnMeta' => isset($columnMeta) ? $columnMeta : null,
-            'comments_map' => $comments_map
+            'max_length' => $GLOBALS['dbi']->getVersion() >= 50503 ? 1024 : 255,
+            'value' => (isset($columnMeta['Field'])
+                && is_array($comments_map)
+                && isset($comments_map[$columnMeta['Field']]))
+                ? htmlspecialchars($comments_map[$columnMeta['Field']])
+                : '',
         )); ?>
 </td>
  <!-- column virtuality -->
@@ -154,10 +159,10 @@ $ci_offset = -1;
     <td class="center">
         <?= PhpMyAdmin\Template::get('columns_definitions/move_column')
             ->render(array(
-                'columnNumber' => $columnNumber,
+                'column_number' => $columnNumber,
                 'ci' => $ci++,
                 'ci_offset' => $ci_offset,
-                'columnMeta' => $columnMeta,
+                'column_meta' => $columnMeta,
                 'move_columns' => $move_columns,
                 'current_index' => $current_index
             )); ?>
@@ -169,11 +174,11 @@ $ci_offset = -1;
         <!-- Column Mime-type -->
         <?= PhpMyAdmin\Template::get('columns_definitions/mime_type')
             ->render(array(
-                'columnNumber' => $columnNumber,
+                'column_number' => $columnNumber,
                 'ci' => $ci++,
                 'ci_offset' => $ci_offset,
                 'available_mime' => $available_mime,
-                'columnMeta' => $columnMeta,
+                'column_meta' => $columnMeta,
                 'mime_map' => $mime_map
             )); ?>
     </td>

@@ -104,7 +104,7 @@ class ImportSql extends ImportPlugin
      *
      * @return void
      */
-    public function doImport(&$sql_data = array())
+    public function doImport(array &$sql_data = array())
     {
         global $error, $timeout_passed;
 
@@ -174,11 +174,11 @@ class ImportSql extends ImportPlugin
      * Handle compatibility options
      *
      * @param PhpMyAdmin\DatabaseInterface $dbi     Database interface
-     * @param array                           $request Request array
+     * @param array                        $request Request array
      *
      * @return void
      */
-    private function _setSQLMode($dbi, $request)
+    private function _setSQLMode($dbi, array $request)
     {
         $sql_modes = array();
         if (isset($request['sql_compatibility'])

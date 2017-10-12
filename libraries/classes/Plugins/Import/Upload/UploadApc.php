@@ -7,6 +7,7 @@
  */
 namespace PhpMyAdmin\Plugins\Import\Upload;
 
+use PhpMyAdmin\Display\ImportAjax;
 use PhpMyAdmin\Plugins\UploadInterface;
 
 /**
@@ -54,7 +55,7 @@ class UploadApc implements UploadInterface
         }
         $ret = $_SESSION[$SESSION_KEY][$id];
 
-        if (!PMA_Import_apcCheck() || $ret['finished']) {
+        if (!ImportAjax::apcCheck() || $ret['finished']) {
             return $ret;
         }
         $status = apc_fetch('upload_' . $id);

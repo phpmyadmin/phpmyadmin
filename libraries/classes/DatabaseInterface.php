@@ -9,11 +9,16 @@ namespace PhpMyAdmin;
 
 use PhpMyAdmin\Core;
 use PhpMyAdmin\Dbi\DbiExtension;
+use PhpMyAdmin\Dbi\DbiDummy;
+use PhpMyAdmin\Dbi\DbiMysql;
+use PhpMyAdmin\Dbi\DbiMysqli;
+use PhpMyAdmin\Di\Container;
 use PhpMyAdmin\Error;
 use PhpMyAdmin\Index;
 use PhpMyAdmin\LanguageManager;
 use PhpMyAdmin\SystemDatabase;
 use PhpMyAdmin\Table;
+use PhpMyAdmin\Types;
 use PhpMyAdmin\Tracker;
 use PhpMyAdmin\Url;
 use PhpMyAdmin\Util;
@@ -99,6 +104,11 @@ class DatabaseInterface
     private $_version_comment = '';
 
     /**
+     * @var Types MySQL types data
+     */
+    public $types;
+
+    /**
      * Constructor
      *
      * @param DbiExtension $ext Object to be used for database queries
@@ -108,6 +118,7 @@ class DatabaseInterface
         $this->_extension = $ext;
         $this->_table_cache = array();
         $this->_current_user = array();
+        $this->types = new Types($this);
     }
 
     /**
@@ -151,7 +162,7 @@ class DatabaseInterface
      *
      * @return mixed cached value or default
      */
-    public function getCachedTableContent($contentPath, $default = null)
+    public function getCachedTableContent(array $contentPath, $default = null)
     {
         return Util::getValueByKey($this->_table_cache, $contentPath, $default);
     }
@@ -164,7 +175,7 @@ class DatabaseInterface
      *
      * @return void
      */
-    public function cacheTableContent($contentPath, $value)
+    public function cacheTableContent(array $contentPath, $value)
     {
         $loc = &$this->_table_cache;
 
@@ -208,7 +219,7 @@ class DatabaseInterface
      *
      * @return void
      */
-    private function _cacheTableData($tables, $table)
+    private function _cacheTableData(array $tables, $table)
     {
         // Note: I don't see why we would need array_merge_recursive() here,
         // as it creates double entries for the same table (for example a double
@@ -299,11 +310,21 @@ class DatabaseInterface
             $time = microtime(true) - $time;
             $this->_dbgQuery($query, $link, $result, $time);
             if ($GLOBALS['cfg']['DBG']['sqllog']) {
+                if ($options & DatabaseInterface::QUERY_STORE == DatabaseInterface::QUERY_STORE) {
+                    $tmp = $this->_extension->realQuery('
+                        SHOW COUNT(*) WARNINGS', $link, DatabaseInterface::QUERY_STORE
+                    );
+                    $warnings = $this->fetchRow($tmp);
+                } else {
+                    $warnings = 0;
+                }
+
                 openlog('phpMyAdmin', LOG_NDELAY | LOG_PID, LOG_USER);
+
                 syslog(
                     LOG_INFO,
                     'SQL[' . basename($_SERVER['SCRIPT_NAME']) . ']: '
-                    . sprintf('%0.3f', $time) . ' > ' . $query
+                    . sprintf('%0.3f', $time) . '(W:' . $warnings[0] . ') > ' . $query
                 );
                 closelog();
             }
@@ -996,7 +1017,7 @@ class DatabaseInterface
      *
      * @return array
      */
-    public function getColumnMapFromSql($sql_query, $view_columns = array())
+    public function getColumnMapFromSql($sql_query, array $view_columns = array())
     {
         $result = $this->tryQuery($sql_query);
 
@@ -1464,6 +1485,11 @@ class DatabaseInterface
                 self::QUERY_STORE
             );
         }
+
+        /* Loads closest context to this version. */
+        \PhpMyAdmin\SqlParser\Context::loadClosest(
+            ($this->_is_mariadb ? 'MariaDb' : 'MySql') . $this->_version_int
+        );
     }
 
     /**
@@ -1590,7 +1616,7 @@ class DatabaseInterface
      *
      * @return mixed
      */
-    private function _fetchValue($row, $value)
+    private function _fetchValue(array $row, $value)
     {
         if (is_null($value)) {
             return $row;
@@ -2272,9 +2298,9 @@ class DatabaseInterface
     /**
      * Return connection parameters for the database server
      *
-     * @param integer $mode   Connection mode on of CONNECT_USER, CONNECT_CONTROL
-     *                        or CONNECT_AUXILIARY.
-     * @param array   $server Server information like host/port/socket/persistent
+     * @param integer    $mode   Connection mode on of CONNECT_USER, CONNECT_CONTROL
+     *                           or CONNECT_AUXILIARY.
+     * @param array|null $server Server information like host/port/socket/persistent
      *
      * @return array user, host and server settings array
      */
@@ -2360,9 +2386,9 @@ class DatabaseInterface
     /**
      * connects to the database server
      *
-     * @param integer $mode   Connection mode on of CONNECT_USER, CONNECT_CONTROL
-     *                        or CONNECT_AUXILIARY.
-     * @param array   $server Server information like host/port/socket/persistent
+     * @param integer    $mode   Connection mode on of CONNECT_USER, CONNECT_CONTROL
+     *                           or CONNECT_AUXILIARY.
+     * @param array|null $server Server information like host/port/socket/persistent
      *
      * @return mixed false on error or a connection object on success
      */
@@ -2919,5 +2945,84 @@ class DatabaseInterface
     public function isPercona()
     {
         return $this->_is_percona;
+    }
+
+    /**
+     * Load correct database driver
+     *
+     * @return void
+     */
+    public static function load()
+    {
+        if (defined('TESTSUITE')) {
+            /**
+             * For testsuite we use dummy driver which can fake some queries.
+             */
+            $extension = new DbiDummy();
+        } else {
+
+            /**
+             * First check for the mysqli extension, as it's the one recommended
+             * for the MySQL server's version that we support
+             * (if PHP 7+, it's the only one supported)
+             */
+            $extension = 'mysqli';
+            if (! self::checkDbExtension($extension)) {
+
+                $docurl = Util::getDocuLink('faq', 'faqmysql');
+                $doclink = sprintf(
+                    __('See %sour documentation%s for more information.'),
+                    '[a@' . $docurl  . '@documentation]',
+                    '[/a]'
+                );
+
+                if (PHP_VERSION_ID < 70000) {
+                    $extension = 'mysql';
+                    if (! self::checkDbExtension($extension)) {
+                        // warn about both extensions missing and exit
+                        Core::warnMissingExtension(
+                            'mysqli',
+                            true,
+                            $doclink
+                        );
+                    } elseif (empty($_SESSION['mysqlwarning'])) {
+                        trigger_error(
+                            __(
+                                'You are using the mysql extension which is deprecated in '
+                                . 'phpMyAdmin. Please consider installing the mysqli '
+                                . 'extension.'
+                            ) . ' ' . $doclink,
+                            E_USER_WARNING
+                        );
+                        // tell the user just once per session
+                        $_SESSION['mysqlwarning'] = true;
+                    }
+                } else {
+                    // mysql extension is not part of PHP 7+, so warn and exit
+                    Core::warnMissingExtension(
+                        'mysqli',
+                        true,
+                        $doclink
+                    );
+                }
+            }
+
+            /**
+             * Including The DBI Plugin
+             */
+            switch($extension) {
+            case 'mysql' :
+                $extension = new DbiMysql();
+                break;
+            case 'mysqli' :
+                $extension = new DbiMysqli();
+                break;
+            }
+        }
+        $GLOBALS['dbi'] = new DatabaseInterface($extension);
+
+        $container = Container::getDefaultContainer();
+        $container->set('PMA_DatabaseInterface', $GLOBALS['dbi']);
+        $container->alias('dbi', 'PMA_DatabaseInterface');
     }
 }

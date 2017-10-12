@@ -180,7 +180,7 @@ class CentralColumns
      * @return string query string to insert the given column
      * with definition into central list
      */
-    public static function getInsertQuery($column, $def, $db, $central_list_table)
+    public static function getInsertQuery($column, array $def, $db, $central_list_table)
     {
         $type = "";
         $length = 0;
@@ -224,7 +224,7 @@ class CentralColumns
      *
      * @return true|PhpMyAdmin\Message
      */
-    public static function syncUniqueColumns($field_select, $isTable=true, $table=null)
+    public static function syncUniqueColumns(array $field_select, $isTable=true, $table=null)
     {
         $cfgCentralColumns = self::getParams();
         if (empty($cfgCentralColumns)) {
@@ -329,7 +329,7 @@ class CentralColumns
      *
      * @return true|PhpMyAdmin\Message
      */
-    public static function deleteColumnsFromList($field_select, $isTable=true)
+    public static function deleteColumnsFromList(array $field_select, $isTable=true)
     {
         $cfgCentralColumns = self::getParams();
         if (empty($cfgCentralColumns)) {
@@ -412,7 +412,7 @@ class CentralColumns
      *
      * @return true|PhpMyAdmin\Message
      */
-    public static function makeConsistentWithList($db, $selected_tables)
+    public static function makeConsistentWithList($db, array $selected_tables)
     {
         $message = true;
         foreach ($selected_tables as $table) {
@@ -731,7 +731,7 @@ class CentralColumns
      *
      * @return string html for table header in central columns multi edit page
      */
-    public static function getEditTableHeader($header_cells)
+    public static function getEditTableHeader(array $header_cells)
     {
         $html = '<table id="table_columns" class="noclick"'
             . ' style="min-width: 100%;">';
@@ -842,7 +842,7 @@ class CentralColumns
      *
      * @return string html of a particular row in the central columns table.
      */
-    public static function getHtmlForCentralColumnsTableRow($row, $row_num, $db)
+    public static function getHtmlForCentralColumnsTableRow(array $row, $row_num, $db)
     {
         $tableHtml = '<tr data-rownum="' . $row_num . '" id="f_' . $row_num . '">'
             . Url::getHiddenInputs(
@@ -869,20 +869,18 @@ class CentralColumns
             . '<span>' . htmlspecialchars($row['col_name']) . '</span>'
             . '<input name="orig_col_name" type="hidden" '
             . 'value="' . htmlspecialchars($row['col_name']) . '">'
-            . Template::get('columns_definitions/column_name')
-                ->render(
-                    array(
-                    'columnNumber' => $row_num,
-                    'ci' => 0,
-                    'ci_offset' => 0,
-                    'columnMeta' => array(
-                        'Field'=>$row['col_name']
-                    ),
-                    'cfgRelation' => array(
-                        'centralcolumnswork' => false
-                    )
-                    )
-                )
+            . Template::get('columns_definitions/column_name')->render(array(
+                'column_number' => $row_num,
+                'ci' => 0,
+                'ci_offset' => 0,
+                'column_meta' => array(
+                    'Field'=>$row['col_name']
+                ),
+                'cfg_relation' => array(
+                    'centralcolumnswork' => false
+                ),
+                'max_rows' => intval($GLOBALS['cfg']['MaxRows']),
+            ))
             . '</td>';
         $tableHtml .=
             '<td name = "col_type" class="nowrap"><span>'
@@ -1011,26 +1009,24 @@ class CentralColumns
      *
      * @return string html of a particular row in the central columns table.
      */
-    public static function getHtmlForCentralColumnsEditTableRow($row, $row_num)
+    public static function getHtmlForCentralColumnsEditTableRow(array $row, $row_num)
     {
         $tableHtml = '<tr>'
             . '<input name="orig_col_name[' . $row_num . ']" type="hidden" '
             . 'value="' . htmlspecialchars($row['col_name']) . '">'
             . '<td name="col_name" class="nowrap">'
-            . Template::get('columns_definitions/column_name')
-                ->render(
-                    array(
-                    'columnNumber' => $row_num,
-                    'ci' => 0,
-                    'ci_offset' => 0,
-                    'columnMeta' => array(
-                        'Field' => $row['col_name']
-                    ),
-                    'cfgRelation' => array(
-                        'centralcolumnswork' => false
-                    )
-                    )
-                )
+            . Template::get('columns_definitions/column_name')->render(array(
+                'column_number' => $row_num,
+                'ci' => 0,
+                'ci_offset' => 0,
+                'column_meta' => array(
+                    'Field' => $row['col_name']
+                ),
+                'cfg_relation' => array(
+                    'centralcolumnswork' => false
+                ),
+                'max_rows' => intval($GLOBALS['cfg']['MaxRows']),
+            ))
             . '</td>';
         $tableHtml .=
             '<td name = "col_type" class="nowrap">'
@@ -1234,7 +1230,7 @@ class CentralColumns
      *
      * @return void
      */
-    public static function handleColumnExtra(&$columns_list)
+    public static function handleColumnExtra(array &$columns_list)
     {
         foreach ($columns_list as &$row) {
             $vals = explode(',', $row['col_extra']);
@@ -1285,18 +1281,16 @@ class CentralColumns
         $addNewColumn .= '<tr>'
             . '<td></td>'
             . '<td name="col_name" class="nowrap">'
-            . Template::get('columns_definitions/column_name')
-                ->render(
-                    array(
-                    'columnNumber' => 0,
-                    'ci' => 0,
-                    'ci_offset' => 0,
-                    'columnMeta' => array(),
-                    'cfgRelation' => array(
-                        'centralcolumnswork' => false
-                    )
-                    )
-                )
+            . Template::get('columns_definitions/column_name')->render(array(
+                'column_number' => 0,
+                'ci' => 0,
+                'ci_offset' => 0,
+                'column_meta' => array(),
+                'cfg_relation' => array(
+                    'centralcolumnswork' => false
+                ),
+                'max_rows' => intval($GLOBALS['cfg']['MaxRows']),
+            ))
             . '</td>'
             . '<td name = "col_type" class="nowrap">'
             . Template::get('columns_definitions/column_type')
@@ -1389,7 +1383,7 @@ class CentralColumns
      *
      * @return string HTML for complete editing page for central columns
      */
-    public static function getHtmlForEditingPage($selected_fld,$selected_db)
+    public static function getHtmlForEditingPage(array $selected_fld, $selected_db)
     {
         $html = '<form id="multi_edit_central_columns">';
         $header_cells = array(

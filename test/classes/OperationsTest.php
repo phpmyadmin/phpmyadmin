@@ -9,15 +9,14 @@ namespace PhpMyAdmin\Tests;
 
 use PhpMyAdmin\Operations;
 use PhpMyAdmin\Theme;
-
-require_once 'libraries/database_interface.inc.php';
+use PHPUnit_Framework_TestCase as TestCase;
 
 /**
  * tests for operations
  *
  * @package PhpMyAdmin-test
  */
-class OperationsTest extends \PHPUnit_Framework_TestCase
+class OperationsTest extends TestCase
 {
     /**
      * Set up global environment.
@@ -41,6 +40,7 @@ class OperationsTest extends \PHPUnit_Framework_TestCase
         $GLOBALS['col_priv'] = true;
         $GLOBALS['proc_priv'] = true;
         $GLOBALS['flush_priv'] = true;
+        $GLOBALS['cfg']['Server']['DisableIS'] = false;
     }
 
     /**

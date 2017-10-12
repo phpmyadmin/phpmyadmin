@@ -4,22 +4,19 @@
  *
  * @package PhpMyAdmin-test
  */
-
-/*
- * Include to test.
- */
+namespace PhpMyAdmin\Tests;
 
 use PhpMyAdmin\ErrorHandler;
+use PhpMyAdmin\Tests\PmaTestCase;
 use PhpMyAdmin\Theme;
-
-require_once 'test/PMATestCase.php';
+use ReflectionClass;
 
 /**
  * Test for PhpMyAdmin\ErrorHandler class.
  *
  * @package PhpMyAdmin-test
  */
-class ErrorHandlerTest extends PMATestCase
+class ErrorHandlerTest extends PmaTestCase
 {
     /**
      * @access protected
@@ -36,7 +33,6 @@ class ErrorHandlerTest extends PMATestCase
     protected function setUp()
     {
         $this->object = new ErrorHandler();
-
     }
 
     /**

@@ -6,25 +6,20 @@
  * @package PhpMyAdmin-Setup
  */
 
-use PhpMyAdmin\Setup\ConfigGenerator;
+use PhpMyAdmin\Config\FormDisplayTemplate;
 use PhpMyAdmin\Core;
+use PhpMyAdmin\Setup\ConfigGenerator;
 
 if (!defined('PHPMYADMIN')) {
     exit;
 }
 
-/**
- * Core libraries.
- */
-require_once './libraries/config/FormDisplay.tpl.php';
-require_once './setup/lib/index.lib.php';
-
 echo '<h2>' , __('Configuration file') , '</h2>';
 
-echo PMA_displayFormTop('config.php');
+echo FormDisplayTemplate::displayFormTop('config.php');
 echo '<input type="hidden" name="eol" value="'
     , htmlspecialchars(Core::ifSetOr($_GET['eol'], 'unix')) , '" />';
-echo PMA_displayFieldsetTop('config.inc.php', '', null, array('class' => 'simple'));
+echo FormDisplayTemplate::displayFieldsetTop('config.inc.php', '', null, array('class' => 'simple'));
 echo '<tr>';
 echo '<td>';
 echo '<textarea cols="50" rows="20" name="textconfig" '
@@ -40,5 +35,5 @@ echo '<input type="submit" name="submit_download" value="'
 echo '</td>';
 echo '</tr>';
 
-echo PMA_displayFieldsetBottomSimple();
-echo PMA_displayFormBottom();
+echo FormDisplayTemplate::displayFieldsetBottomSimple();
+echo FormDisplayTemplate::displayFormBottom();

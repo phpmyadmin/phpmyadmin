@@ -1,5 +1,5 @@
-var designer_tables = [{name: "pdf_pages", key: "pg_nr", auto_inc: true},
-                       {name: "table_coords", key: "id", auto_inc: true}];
+var designer_tables = [{ name: 'pdf_pages', key: 'pg_nr', auto_inc: true },
+    { name: 'table_coords', key: 'id', auto_inc: true }];
 
 var DesignerOfflineDB = (function () {
     var designerDB = {};
@@ -7,7 +7,7 @@ var DesignerOfflineDB = (function () {
 
     designerDB.open = function (callback) {
         var version = 1;
-        var request = window.indexedDB.open("pma_designer", version);
+        var request = window.indexedDB.open('pma_designer', version);
 
         request.onupgradeneeded = function (e) {
             var db = e.target.result;
@@ -74,7 +74,7 @@ var DesignerOfflineDB = (function () {
         cursorRequest.onerror = designerDB.onerror;
     };
 
-    designerDB.loadFirstObject = function(table, callback) {
+    designerDB.loadFirstObject = function (table, callback) {
         var db = datastore;
         var transaction = db.transaction([table], 'readwrite');
         var objStore = transaction.objectStore(table);
@@ -82,11 +82,11 @@ var DesignerOfflineDB = (function () {
         var cursorRequest = objStore.openCursor(keyRange);
         var firstResult = null;
 
-        transaction.oncomplete = function(e) {
+        transaction.oncomplete = function (e) {
             callback(firstResult);
         };
 
-        cursorRequest.onsuccess = function(e) {
+        cursorRequest.onsuccess = function (e) {
             var result = e.target.result;
             if (Boolean(result) === false) {
                 return;
@@ -97,13 +97,13 @@ var DesignerOfflineDB = (function () {
         cursorRequest.onerror = designerDB.onerror;
     };
 
-    designerDB.addObject = function(table, obj, callback) {
+    designerDB.addObject = function (table, obj, callback) {
         var db = datastore;
         var transaction = db.transaction([table], 'readwrite');
         var objStore = transaction.objectStore(table);
         var request = objStore.put(obj);
 
-        request.onsuccess = function(e) {
+        request.onsuccess = function (e) {
             if (typeof callback !== 'undefined' && callback !== null) {
                 callback(e.currentTarget.result);
             }
@@ -112,13 +112,13 @@ var DesignerOfflineDB = (function () {
         request.onerror = designerDB.onerror;
     };
 
-    designerDB.deleteObject = function(table, id, callback) {
+    designerDB.deleteObject = function (table, id, callback) {
         var db = datastore;
         var transaction = db.transaction([table], 'readwrite');
         var objStore = transaction.objectStore(table);
         var request = objStore.delete(parseInt(id));
 
-        request.onsuccess = function(e) {
+        request.onsuccess = function (e) {
             if (typeof callback !== 'undefined' && callback !== null) {
                 callback(true);
             }
@@ -127,7 +127,7 @@ var DesignerOfflineDB = (function () {
         request.onerror = designerDB.onerror;
     };
 
-    designerDB.onerror = function(e) {
+    designerDB.onerror = function (e) {
         console.log(e);
     };
 

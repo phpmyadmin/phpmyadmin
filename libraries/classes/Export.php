@@ -7,8 +7,10 @@
  */
 namespace PhpMyAdmin;
 
+use PhpMyAdmin\Core;
 use PhpMyAdmin\Encoding;
 use PhpMyAdmin\Message;
+use PhpMyAdmin\Plugins;
 use PhpMyAdmin\Plugins\ExportPlugin;
 use PhpMyAdmin\Sanitize;
 use PhpMyAdmin\Table;
@@ -187,19 +189,22 @@ class Export
     /**
      * Returns HTML containing the footer for a displayed export
      *
-     * @param string $back_button the link for going Back
+     * @param string $back_button   the link for going Back
+     * @param string $refreshButton the link for refreshing page
      *
      * @return string $html the HTML output
      */
-    public static function getHtmlForDisplayedExportFooter($back_button)
+    public static function getHtmlForDisplayedExportFooter($back_button, $refreshButton)
     {
         /**
          * Close the html tags and add the footers for on-screen export
          */
         $html = '</textarea>'
             . '    </form>'
+            . '<br />'
             // bottom back button
             . $back_button
+            . $refreshButton
             . '</div>'
             . '<script type="text/javascript">' . "\n"
             . '//<![CDATA[' . "\n"
@@ -460,13 +465,13 @@ class Export
      */
     public static function getHtmlForDisplayedExportHeader($export_type, $db, $table)
     {
-        $html = '<div style="text-align: ' . $GLOBALS['cell_align_left'] . '">';
+        $html = '<div>';
 
         /**
          * Displays a back button with all the $_REQUEST data in the URL
          * (store in a variable to also display after the textarea)
          */
-        $back_button = '<p>[ <a href="';
+        $back_button = '<p id="export_back_button">[ <a href="';
         if ($export_type == 'server') {
             $back_button .= 'server_export.php' . Url::getCommon();
         } elseif ($export_type == 'database') {
@@ -507,13 +512,28 @@ class Export
             }
         }
         $back_button .= '&amp;repopulate=1">' . __('Back') . '</a> ]</p>';
-
-        $html .= $back_button
+        $html .= '<br />';
+        $html .= $back_button;
+        $refreshButton = '<form id="export_refresh_form" method="POST" action="export.php" class="disableAjax">';
+        $refreshButton .= '[ <a class="disableAjax" onclick="$(this).parent().submit()">'. __('Refresh') .'</a> ]';
+        foreach($_POST as $name => $value) {
+            if (is_array($value)) {
+                foreach($value as $val) {
+                    $refreshButton .= '<input type="hidden" name="' . $name . '[]" value="' . $val . '">';
+                }
+            }
+            else {
+                $refreshButton .= '<input type="hidden" name="' . $name . '" value="' . $value . '">';
+            }
+        }
+        $refreshButton .= '</form>';
+        $html .= $refreshButton
+            . '<br />'
             . '<form name="nofunction">'
             . '<textarea name="sqldump" cols="50" rows="30" '
             . 'id="textSQLDUMP" wrap="OFF">';
 
-        return array($html, $back_button);
+        return array($html, $back_button, $refreshButton);
     }
 
     /**
@@ -537,7 +557,7 @@ class Export
     public static function exportServer(
         $db_select, $whatStrucOrData, $export_plugin, $crlf, $err_url,
         $export_type, $do_relation, $do_comments, $do_mime, $do_dates,
-        $aliases, $separate_files
+        array $aliases, $separate_files
     ) {
         if (! empty($db_select)) {
             $tmp_select = implode($db_select, '|');
@@ -584,9 +604,9 @@ class Export
      * @return void
      */
     public static function exportDatabase(
-        $db, $tables, $whatStrucOrData, $table_structure, $table_data,
+        $db, array $tables, $whatStrucOrData, array $table_structure, array $table_data,
         $export_plugin, $crlf, $err_url, $export_type, $do_relation,
-        $do_comments, $do_mime, $do_dates, $aliases, $separate_files
+        $do_comments, $do_mime, $do_dates, array $aliases, $separate_files
     ) {
         $db_alias = !empty($aliases[$db]['alias'])
             ? $aliases[$db]['alias'] : '';
@@ -795,7 +815,7 @@ class Export
     public static function exportTable(
         $db, $table, $whatStrucOrData, $export_plugin, $crlf, $err_url,
         $export_type, $do_relation, $do_comments, $do_mime, $do_dates,
-        $allrows, $limit_to, $limit_from, $sql_query, $aliases
+        $allrows, $limit_to, $limit_from, $sql_query, array $aliases
     ) {
         $db_alias = !empty($aliases[$db]['alias'])
             ? $aliases[$db]['alias'] : '';
@@ -934,7 +954,7 @@ class Export
      *
      * @return array resultant merged aliases info
      */
-    public static function mergeAliases($aliases1, $aliases2)
+    public static function mergeAliases(array $aliases1, array $aliases2)
     {
         // First do a recursive array merge
         // on aliases arrays.
@@ -987,7 +1007,7 @@ class Export
      *
      * @return mixed result of the query
      */
-    public static function lockTables($db, $tables, $lockType = "WRITE")
+    public static function lockTables($db, array $tables, $lockType = "WRITE")
     {
         $locks = array();
         foreach ($tables as $table) {
@@ -1038,12 +1058,49 @@ class Export
      *
      * @return string the checked clause
      */
-    public static function getCheckedClause($key, $array)
+    public static function getCheckedClause($key, array $array)
     {
         if (in_array($key, $array)) {
             return ' checked="checked"';
         } else {
             return '';
         }
+    }
+
+    /**
+     * get all the export options and verify
+     * call and include the appropriate Schema Class depending on $export_type
+     *
+     * @param string $export_type format of the export
+     *
+     * @return void
+     */
+    public static function processExportSchema($export_type)
+    {
+        /**
+         * default is PDF, otherwise validate it's only letters a-z
+         */
+        if (! isset($export_type) || ! preg_match('/^[a-zA-Z]+$/', $export_type)) {
+            $export_type = 'pdf';
+        }
+
+        // sanitize this parameter which will be used below in a file inclusion
+        $export_type = Core::securePath($export_type);
+
+        // get the specific plugin
+        /* @var $export_plugin SchemaPlugin */
+        $export_plugin = Plugins::getPlugin(
+            "schema",
+            $export_type,
+            'libraries/classes/Plugins/Schema/'
+        );
+
+        // Check schema export type
+        if (! isset($export_plugin)) {
+            Core::fatalError(__('Bad type!'));
+        }
+
+        $GLOBALS['dbi']->selectDb($GLOBALS['db']);
+        $export_plugin->exportSchema($GLOBALS['db']);
     }
 }

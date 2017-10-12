@@ -67,6 +67,9 @@ unset($CFG);
 /* Ensure default langauge is active */
 PhpMyAdmin\LanguageManager::getInstance()->getLanguage('en')->activate();
 
+/* Load Database interface */
+PhpMyAdmin\DatabaseInterface::load();
+
 // Set proxy information from env, if available
 $http_proxy = getenv('http_proxy');
 if (PHP_SAPI == 'cli' && $http_proxy && ($url_info = parse_url($http_proxy))) {
@@ -87,7 +90,6 @@ $_SESSION[' PMA_token '] = 'token';
 $GLOBALS['PMA_Theme'] = PhpMyAdmin\Theme::load('./themes/pmahomme');
 $_SESSION['tmpval']['pftext'] = 'F';
 $GLOBALS['lang'] = 'en';
-$GLOBALS['cell_align_left'] = 'left';
 
 // Check whether we have runkit extension
 define('PMA_HAS_RUNKIT', function_exists('runkit_constant_redefine'));

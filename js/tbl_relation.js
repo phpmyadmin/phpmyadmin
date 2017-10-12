@@ -3,8 +3,7 @@
  * for tbl_relation.php
  *
  */
-function show_hide_clauses($thisDropdown)
-{
+function show_hide_clauses ($thisDropdown) {
     if ($thisDropdown.val() === '') {
         $thisDropdown.parent().nextAll('span').hide();
     } else {
@@ -17,13 +16,13 @@ function show_hide_clauses($thisDropdown)
 /**
  * Sets dropdown options to values
  */
-function setDropdownValues($dropdown, values, selectedValue) {
+function setDropdownValues ($dropdown, values, selectedValue) {
     $dropdown.empty();
     var optionsAsString = '';
     // add an empty string to the beginning for empty selection
     values.unshift('');
     $.each(values, function () {
-        optionsAsString += "<option value='" + escapeHtml(this) + "'" + (selectedValue == this ? " selected='selected'" : "") + ">" + escapeHtml(this) + "</option>";
+        optionsAsString += '<option value=\'' + escapeHtml(this) + '\'' + (selectedValue === this ? ' selected=\'selected\'' : '') + '>' + escapeHtml(this) + '</option>';
     });
     $dropdown.append($(optionsAsString));
 }
@@ -33,9 +32,12 @@ function setDropdownValues($dropdown, values, selectedValue) {
  *
  * @param $dropdown the dropdown whose value got changed
  */
-function getDropdownValues($dropdown) {
-    var foreignDb = null, foreignTable = null;
-    var $databaseDd, $tableDd, $columnDd;
+function getDropdownValues ($dropdown) {
+    var foreignDb = null;
+    var foreignTable = null;
+    var $databaseDd;
+    var $tableDd;
+    var $columnDd;
     var foreign = '';
     // if the changed dropdown is for foreign key constraints
     if ($dropdown.is('select[name^="destination_foreign"]')) {
@@ -61,7 +63,7 @@ function getDropdownValues($dropdown) {
     } else { // if a table selector
         foreignDb = $databaseDd.val();
         foreignTable = $dropdown.val();
-         // if no table is selected empty the column dropdown
+        // if no table is selected empty the column dropdown
         if (foreignTable === '') {
             setDropdownValues($columnDd, []);
             return;
@@ -126,7 +128,6 @@ AJAX.registerTeardown('tbl_relation.js', function () {
 });
 
 AJAX.registerOnload('tbl_relation.js', function () {
-
     /**
      * Ajax event handler to fetch table/column dropdown values.
      */
@@ -149,20 +150,20 @@ AJAX.registerOnload('tbl_relation.js', function () {
 
         // Add field.
         $(this)
-        .prev('span')
-        .clone(true, true)
-        .insertBefore($(this))
-        .find('select')
-        .val('');
+            .prev('span')
+            .clone(true, true)
+            .insertBefore($(this))
+            .find('select')
+            .val('');
 
         // Add foreign field.
         var $source_elem = $('select[name^="destination_foreign_column[' +
             $(this).attr('data-index') + ']"]:last').parent();
         $source_elem
-        .clone(true, true)
-        .insertAfter($source_elem)
-        .find('select')
-        .val('');
+            .clone(true, true)
+            .insertAfter($source_elem)
+            .find('select')
+            .val('');
     });
 
     /**
@@ -173,29 +174,31 @@ AJAX.registerOnload('tbl_relation.js', function () {
         event.stopPropagation();
 
         var $prev_row = $(this).closest('tr').prev('tr');
-        var $new_row = $prev_row.clone(true, true);
+        var $newRow = $prev_row.clone(true, true);
 
         // Update serial number.
-        var curr_index = $new_row
+        var curr_index = $newRow
             .find('a.add_foreign_key_field')
             .attr('data-index');
         var new_index = parseInt(curr_index) + 1;
-        $new_row.find('a.add_foreign_key_field').attr('data-index', new_index);
+        $newRow.find('a.add_foreign_key_field').attr('data-index', new_index);
 
         // Update form parameter names.
-        $new_row.find('select[name^="foreign_key_fields_name"]:not(:first), ' +
+        $newRow.find('select[name^="foreign_key_fields_name"]:not(:first), ' +
             'select[name^="destination_foreign_column"]:not(:first)'
         ).each(function () {
             $(this).parent().remove();
         });
-        $new_row.find('input, select').each(function () {
+        $newRow.find('input, select').each(function () {
             $(this).attr('name',
                 $(this).attr('name').replace(/\d/, new_index)
             );
         });
-
+        $newRow.find('input[type="text"]').each(function () {
+            $(this).val('');
+        });
         // Finally add the row.
-        $new_row.insertAfter($prev_row);
+        $newRow.insertAfter($prev_row);
     });
 
     /**
@@ -229,12 +232,12 @@ AJAX.registerOnload('tbl_relation.js', function () {
                         // Do nothing
                     });
                 } else {
-                    PMA_ajaxShowMessage(PMA_messages.strErrorProcessingRequest + " : " + data.error, false);
+                    PMA_ajaxShowMessage(PMA_messages.strErrorProcessingRequest + ' : ' + data.error, false);
                 }
             }); // end $.post()
         }); // end $.PMA_confirm()
-    }); //end Drop Foreign key
+    }); // end Drop Foreign key
 
     var windowwidth = $(window).width();
-    $('.jsresponsive').css('max-width', (windowwidth - 35 ) + 'px');
+    $('.jsresponsive').css('max-width', (windowwidth - 35) + 'px');
 });

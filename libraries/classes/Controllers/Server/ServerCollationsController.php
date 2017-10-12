@@ -11,6 +11,7 @@ namespace PhpMyAdmin\Controllers\Server;
 
 use PhpMyAdmin\Controllers\Controller;
 use PhpMyAdmin\Charsets;
+use PhpMyAdmin\Server\Common;
 use PhpMyAdmin\Template;
 
 /**
@@ -32,7 +33,7 @@ class ServerCollationsController extends Controller
          */
         include_once 'libraries/server_common.inc.php';
 
-        $this->response->addHTML(PMA_getHtmlForSubPageHeader('collations'));
+        $this->response->addHTML(Common::getHtmlForSubPageHeader('collations'));
         $this->response->addHTML(
             $this->_getHtmlForCharsets(
                 Charsets::getMySQLCharsets(),
@@ -53,8 +54,8 @@ class ServerCollationsController extends Controller
      *
      * @return string
      */
-    function _getHtmlForCharsets($mysqlCharsets, $mysqlCollations,
-        $mysqlCharsetsDesc, $mysqlDftCollations
+    function _getHtmlForCharsets(array $mysqlCharsets, array $mysqlCollations,
+        array $mysqlCharsetsDesc, array $mysqlDftCollations
     ) {
         return Template::get('server/collations/charsets')->render(
             array(

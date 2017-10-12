@@ -5,15 +5,18 @@
  *
  * @package PhpMyAdmin-test
  */
+namespace PhpMyAdmin\Tests;
 
 use PhpMyAdmin\Sql;
+use PHPUnit_Framework_TestCase as TestCase;
+use stdClass;
 
 /**
  * Tests for PhpMyAdmin\Sql
  *
  * @package PhpMyAdmin-test
  */
-class SqlTest extends PHPUnit_Framework_TestCase
+class SqlTest extends TestCase
 {
     /**
      * Test Sql::getSqlWithLimitClause

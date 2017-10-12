@@ -5,16 +5,18 @@
  *
  * @package PhpMyAdmin-test
  */
-use PhpMyAdmin\Theme;
+namespace PhpMyAdmin\Tests;
 
-require_once 'test/PMATestCase.php';
+use PhpMyAdmin\Config;
+use PhpMyAdmin\Tests\PmaTestCase;
+use PhpMyAdmin\Theme;
 
 /**
  * Test class for Theme.
  *
  * @package PhpMyAdmin-test
  */
-class ThemeTest extends PMATestCase
+class ThemeTest extends PmaTestCase
 {
     /**
      * @var Theme
@@ -37,7 +39,7 @@ class ThemeTest extends PMATestCase
         $this->object = new Theme();
         $this->backup = $GLOBALS['PMA_Theme'];
         $GLOBALS['PMA_Theme'] = $this->object;
-        $GLOBALS['PMA_Config'] = new PhpMyAdmin\Config();
+        $GLOBALS['PMA_Config'] = new Config();
         $GLOBALS['PMA_Config']->enableBc();
         $GLOBALS['text_dir'] = 'ltr';
         include 'themes/pmahomme/layout.inc.php';

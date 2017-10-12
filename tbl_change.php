@@ -16,8 +16,6 @@ use PhpMyAdmin\Url;
  * Gets the variables sent or posted to this script and displays the header
  */
 require_once 'libraries/common.inc.php';
-require_once 'libraries/config/user_preferences.forms.php';
-require_once 'libraries/config/page_settings.forms.php';
 
 PageSettings::showGroup('Edit');
 
@@ -39,10 +37,6 @@ list(
 if (!empty($unsaved_values) && count($rows) < count($unsaved_values)) {
     $rows = array_fill(0, count($unsaved_values), false);
 }
-/**
- * file listing
-*/
-require_once 'libraries/file_listing.lib.php';
 
 /**
  * Defines the url to return to in case of error in a sql statement

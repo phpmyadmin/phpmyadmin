@@ -8,6 +8,7 @@
  * @package PhpMyAdmin
  */
 use PhpMyAdmin\Config\PageSettings;
+use PhpMyAdmin\ParseAnalyze;
 use PhpMyAdmin\Response;
 use PhpMyAdmin\Sql;
 use PhpMyAdmin\Url;
@@ -17,9 +18,7 @@ use PhpMyAdmin\Util;
  * Gets some core libraries
  */
 require_once 'libraries/common.inc.php';
-require_once 'libraries/check_user_privileges.lib.php';
-require_once 'libraries/config/user_preferences.forms.php';
-require_once 'libraries/config/page_settings.forms.php';
+require_once 'libraries/check_user_privileges.inc.php';
 
 PageSettings::showGroup('Browse');
 
@@ -132,12 +131,11 @@ if (empty($sql_query) && strlen($table) > 0 && strlen($db) > 0) {
 /**
  * Parse and analyze the query
  */
-require_once 'libraries/parse_analyze.lib.php';
 list(
     $analyzed_sql_results,
     $db,
     $table_from_sql
-) = PMA_parseAnalyze($sql_query, $db);
+) = ParseAnalyze::sqlQuery($sql_query, $db);
 // @todo: possibly refactor
 extract($analyzed_sql_results);
 
@@ -154,7 +152,7 @@ if ($table != $table_from_sql && !empty($table_from_sql)) {
  * into account this case.
  */
 if (Sql::hasNoRightsToDropDatabase(
-    $analyzed_sql_results, $cfg['AllowUserDropDatabase'], $is_superuser
+    $analyzed_sql_results, $cfg['AllowUserDropDatabase'], $GLOBALS['dbi']->isSuperuser()
 )) {
     Util::mysqlDie(
         __('"DROP DATABASE" statements are disabled.'),

@@ -108,7 +108,7 @@ class Url
      *
      * @return string form fields of type hidden
      */
-    public static function getHiddenFields($values, $pre = '')
+    public static function getHiddenFields(array $values, $pre = '')
     {
         $fields = '';
 

@@ -5,24 +5,21 @@
  *
  * @package PhpMyAdmin-test
  */
+namespace PhpMyAdmin\Tests;
 
-/*
- * Include to test.
- */
+use PhpMyAdmin\Tests\PmaTestCase;
 use PhpMyAdmin\Tracker;
 use PhpMyAdmin\Util;
-
-require_once 'libraries/database_interface.inc.php';
-require_once 'test/PMATestCase.php';
+use PHPUnit_Framework_Assert as Assert;
+use ReflectionClass;
 
 /**
  * Tests for PhpMyAdmin\Tracker
  *
  * @package PhpMyAdmin-test
  */
-class TrackerTest extends PMATestCase
+class TrackerTest extends PmaTestCase
 {
-
     /**
      * Setup function for test cases
      *
@@ -66,7 +63,7 @@ class TrackerTest extends PMATestCase
     {
         Tracker::enable();
         $this->assertTrue(
-            PHPUnit_Framework_Assert::readAttribute('PhpMyAdmin\Tracker', 'enabled')
+            Assert::readAttribute('PhpMyAdmin\Tracker', 'enabled')
         );
     }
 
@@ -121,7 +118,7 @@ class TrackerTest extends PMATestCase
      */
     public function testGetTableName($string, $expected)
     {
-        $reflection = new \ReflectionClass('PhpMyAdmin\Tracker');
+        $reflection = new ReflectionClass('PhpMyAdmin\Tracker');
         $method = $reflection->getMethod("getTableName");
         $method->setAccessible(true);
 

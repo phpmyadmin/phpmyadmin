@@ -5,24 +5,24 @@
  *
  * @package PhpMyAdmin-test
  */
+namespace PhpMyAdmin\Tests;
 
-/*
- * Include to test.
- */
+use PhpMyAdmin\DatabaseInterface;
+use PhpMyAdmin\Dbi\DbiDummy;
+use PhpMyAdmin\Index;
 use PhpMyAdmin\Relation;
 use PhpMyAdmin\Table;
+use PhpMyAdmin\Tests\PmaTestCase;
 use PhpMyAdmin\Theme;
 use PhpMyAdmin\Util;
-
-require_once 'libraries/database_interface.inc.php';
-require_once 'test/PMATestCase.php';
+use ReflectionClass;
 
 /**
  * Tests behaviour of Table class
  *
  * @package PhpMyAdmin-test
  */
-class TableTest extends PMATestCase
+class TableTest extends PmaTestCase
 {
     /**
      * Configures environment
@@ -946,7 +946,7 @@ class TableTest extends PMATestCase
     {
         $db = "pma_db";
         $table = "pma_table";
-        $index = new PhpMyAdmin\Index();
+        $index = new Index();
         $error = false;
 
         $_REQUEST['old_index'] = "PRIMARY";
@@ -1212,8 +1212,8 @@ class TableTest extends PMATestCase
         $target_db = 'pma_test';
         $tbl_object = new Table($target_db, $target_table);
         $tbl_object->getStatusInfo(null, true);
-        $extension = new PhpMyAdmin\Dbi\DbiDummy();
-        $dbi = new PhpMyAdmin\DatabaseInterface($extension);
+        $extension = new DbiDummy();
+        $dbi = new DatabaseInterface($extension);
         $expect = '';
         $tbl_storage_engine = $dbi->getTable(
             $target_db,
@@ -1235,8 +1235,8 @@ class TableTest extends PMATestCase
         $target_db = 'pma_test';
         $tbl_object = new Table($target_db, $target_table);
         $tbl_object->getStatusInfo(null, true);
-        $extension = new PhpMyAdmin\Dbi\DbiDummy();
-        $dbi = new PhpMyAdmin\DatabaseInterface($extension);
+        $extension = new DbiDummy();
+        $dbi = new DatabaseInterface($extension);
         $expect = '';
         $show_comment = $dbi->getTable(
             $target_db,
@@ -1258,8 +1258,8 @@ class TableTest extends PMATestCase
         $target_db = 'pma_test';
         $tbl_object = new Table($target_db, $target_table);
         $tbl_object->getStatusInfo(null, true);
-        $extension = new PhpMyAdmin\Dbi\DbiDummy();
-        $dbi = new PhpMyAdmin\DatabaseInterface($extension);
+        $extension = new DbiDummy();
+        $dbi = new DatabaseInterface($extension);
         $expect = '';
         $tbl_collation = $dbi->getTable(
             $target_db,
@@ -1281,8 +1281,8 @@ class TableTest extends PMATestCase
         $target_db = 'pma_test';
         $tbl_object = new Table($target_db, $target_table);
         $tbl_object->getStatusInfo(null, true);
-        $extension = new PhpMyAdmin\Dbi\DbiDummy();
-        $dbi = new PhpMyAdmin\DatabaseInterface($extension);
+        $extension = new DbiDummy();
+        $dbi = new DatabaseInterface($extension);
         $expect = '';
         $row_format = $dbi->getTable(
             $target_db,
@@ -1304,8 +1304,8 @@ class TableTest extends PMATestCase
         $target_db = 'pma_test';
         $tbl_object = new Table($target_db, $target_table);
         $tbl_object->getStatusInfo(null, true);
-        $extension = new PhpMyAdmin\Dbi\DbiDummy();
-        $dbi = new PhpMyAdmin\DatabaseInterface($extension);
+        $extension = new DbiDummy();
+        $dbi = new DatabaseInterface($extension);
         $expect = '';
         $auto_increment = $dbi->getTable(
             $target_db,
@@ -1327,8 +1327,8 @@ class TableTest extends PMATestCase
         $target_db = 'pma_test';
         $tbl_object = new Table($target_db, $target_table);
         $tbl_object->getStatusInfo(null, true);
-        $extension = new PhpMyAdmin\Dbi\DbiDummy();
-        $dbi = new PhpMyAdmin\DatabaseInterface($extension);
+        $extension = new DbiDummy();
+        $dbi = new DatabaseInterface($extension);
         $expect = array('pack_keys' => 'DEFAULT');
         $create_options = $dbi->getTable(
             $target_db,

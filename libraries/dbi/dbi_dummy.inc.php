@@ -231,32 +231,31 @@ $GLOBALS['dummy_queries'] = array(
         ),
     ),
     array(
-        'query'   => 'SELECT * FROM information_schema.CHARACTER_SETS',
+        'query'   => 'SELECT `CHARACTER_SET_NAME` AS `Charset`,'
+            . ' `DESCRIPTION` AS `Description`'
+            . ' FROM `information_schema`.`CHARACTER_SETS`',
         'columns' => array(
-            'CHARACTER_SET_NAME',
-            'DEFAULT_COLLATE_NAME',
-            'DESCRIPTION',
-            'MAXLEN',
+            'Charset',
+            'Description',
         ),
         'result'  => array(
-            array('utf8', 'utf8_general_ci', 'UTF-8 Unicode', 3),
-            array('latin1', 'latin1_swedish_ci', 'cp1252 West European', 1),
+            array('utf8', 'UTF-8 Unicode'),
+            array('latin1', 'cp1252 West European'),
         ),
     ),
     array(
-        'query'   => 'SELECT * FROM information_schema.COLLATIONS',
+        'query'   => 'SELECT `CHARACTER_SET_NAME` AS `Charset`,'
+            . ' `COLLATION_NAME` AS `Collation`, `IS_DEFAULT` AS `Default`'
+            . ' FROM `information_schema`.`COLLATIONS`',
         'columns' => array(
-            'COLLATION_NAME',
-            'CHARACTER_SET_NAME',
-            'ID',
-            'IS_DEFAULT',
-            'IS_COMPILED',
-            'SORTLEN',
+            'Charset',
+            'Collation',
+            'Default',
         ),
         'result'  => array(
-            array('utf8_general_ci', 'utf8', 33, 'Yes', 'Yes', 1),
-            array('utf8_bin', 'utf8', 83, '', 'Yes', 1),
-            array('latin1_swedish_ci', 'latin1', 8, 'Yes', 'Yes', 1),
+            array('utf8', 'utf8_general_ci','Yes'),
+            array('utf8', 'utf8_bin', ''),
+            array('latin1', 'latin1_swedish_ci', 'Yes'),
         ),
     ),
     array(

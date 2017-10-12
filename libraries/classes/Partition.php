@@ -32,7 +32,7 @@ class Partition extends SubPartition
      *
      * @return void
      */
-    protected function loadData($row)
+    protected function loadData(array $row)
     {
         $this->name = $row['PARTITION_NAME'];
         $this->ordinal = $row['PARTITION_ORDINAL_POSITION'];

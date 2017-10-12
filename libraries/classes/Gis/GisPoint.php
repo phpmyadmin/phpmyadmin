@@ -82,7 +82,7 @@ class GisPoint extends GisGeometry
         $spatial,
         $label,
         $point_color,
-        $scale_data,
+        array $scale_data,
         $image
     ) {
         // allocate colors
@@ -145,7 +145,7 @@ class GisPoint extends GisGeometry
         $spatial,
         $label,
         $point_color,
-        $scale_data,
+        array $scale_data,
         $pdf
     ) {
         // allocate colors
@@ -196,7 +196,7 @@ class GisPoint extends GisGeometry
      * @return string the code related to a row in the GIS dataset
      * @access public
      */
-    public function prepareRowAsSvg($spatial, $label, $point_color, $scale_data)
+    public function prepareRowAsSvg($spatial, $label, $point_color, array $scale_data)
     {
         $point_options = array(
             'name'         => $label,
@@ -247,7 +247,7 @@ class GisPoint extends GisGeometry
         $srid,
         $label,
         $point_color,
-        $scale_data
+        array $scale_data
     ) {
         $style_options = array(
             'pointRadius'  => 3,
@@ -291,7 +291,7 @@ class GisPoint extends GisGeometry
      * @return string WKT with the set of parameters passed by the GIS editor
      * @access public
      */
-    public function generateWkt($gis_data, $index, $empty = '')
+    public function generateWkt(array $gis_data, $index, $empty = '')
     {
         return 'POINT('
         . ((isset($gis_data[$index]['POINT']['x'])
@@ -311,7 +311,7 @@ class GisPoint extends GisGeometry
      * @return string the WKT for the data from ESRI shape files
      * @access public
      */
-    public function getShape($row_data)
+    public function getShape(array $row_data)
     {
         return 'POINT(' . (isset($row_data['x']) ? $row_data['x'] : '')
         . ' ' . (isset($row_data['y']) ? $row_data['y'] : '') . ')';

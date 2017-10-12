@@ -7,15 +7,14 @@
  */
 use PhpMyAdmin\Config\PageSettings;
 use PhpMyAdmin\Response;
+use PhpMyAdmin\SqlQueryForm;
 
 /**
  *
  */
 require_once 'libraries/common.inc.php';
-require_once 'libraries/config/user_preferences.forms.php';
-require_once 'libraries/config/page_settings.forms.php';
 
-PageSettings::showGroup('Sql_queries');
+PageSettings::showGroup('Sql');
 
 /**
  * Runs common work
@@ -30,8 +29,6 @@ $scripts->addFile('sql.js');
 require 'libraries/tbl_common.inc.php';
 $url_query .= '&amp;goto=tbl_sql.php&amp;back=tbl_sql.php';
 
-require_once 'libraries/sql_query_form.lib.php';
-
 $err_url   = 'tbl_sql.php' . $err_url;
 // After a syntax error, we return to this script
 // with the typed query in the textarea.
@@ -42,7 +39,7 @@ $back = 'tbl_sql.php';
  * Query box, bookmark, insert data from textfile
  */
 $response->addHTML(
-    PMA_getHtmlForSqlQueryForm(
+    SqlQueryForm::getHtml(
         true, false,
         isset($_REQUEST['delimiter'])
         ? htmlspecialchars($_REQUEST['delimiter'])

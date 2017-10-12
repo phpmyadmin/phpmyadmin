@@ -5,16 +5,17 @@
  *
  * @package PhpMyAdmin
  */
+
+use PhpMyAdmin\ReplicationGui;
 use PhpMyAdmin\Response;
+use PhpMyAdmin\Server\Common;
 
 /**
  * include files
  */
 require_once 'libraries/common.inc.php';
 require_once 'libraries/server_common.inc.php';
-
 require_once 'libraries/replication.inc.php';
-require_once 'libraries/replication_gui.lib.php';
 
 /**
  * Does the common work
@@ -29,8 +30,8 @@ $scripts->addFile('vendor/zxcvbn.js');
 /**
  * Checks if the user is allowed to do what he tries to...
  */
-if (! $is_superuser) {
-    $html  = PMA_getHtmlForSubPageHeader('replication');
+if (! $GLOBALS['dbi']->isSuperuser()) {
+    $html  = Common::getHtmlForSubPageHeader('replication');
     $html .= PhpMyAdmin\Message::error(__('No Privileges'))->getDisplay();
     $response->addHTML($html);
     exit;
@@ -45,28 +46,28 @@ if (isset($_REQUEST['url_params']) && is_array($_REQUEST['url_params'])) {
 /**
  * Handling control requests
  */
-PMA_handleControlRequest();
+ReplicationGui::handleControlRequest();
 
 /**
  * start output
  */
 $response->addHTML('<div id="replication">');
-$response->addHTML(PMA_getHtmlForSubPageHeader('replication'));
+$response->addHTML(Common::getHtmlForSubPageHeader('replication'));
 
 // Display error messages
-$response->addHTML(PMA_getHtmlForErrorMessage());
+$response->addHTML(ReplicationGui::getHtmlForErrorMessage());
 
 if ($GLOBALS['replication_info']['master']['status']) {
-    $response->addHTML(PMA_getHtmlForMasterReplication());
+    $response->addHTML(ReplicationGui::getHtmlForMasterReplication());
 } elseif (! isset($_REQUEST['mr_configure'])
     && ! isset($_REQUEST['repl_clear_scr'])
 ) {
-    $response->addHTML(PMA_getHtmlForNotServerReplication());
+    $response->addHTML(ReplicationGui::getHtmlForNotServerReplication());
 }
 
 if (isset($_REQUEST['mr_configure'])) {
     // Render the 'Master configuration' section
-    $response->addHTML(PMA_getHtmlForMasterConfiguration());
+    $response->addHTML(ReplicationGui::getHtmlForMasterConfiguration());
     exit;
 }
 
@@ -75,12 +76,12 @@ $response->addHTML('</div>');
 if (! isset($_REQUEST['repl_clear_scr'])) {
     // Render the 'Slave configuration' section
     $response->addHTML(
-        PMA_getHtmlForSlaveConfiguration(
+        ReplicationGui::getHtmlForSlaveConfiguration(
             $GLOBALS['replication_info']['slave']['status'],
             $server_slave_replication
         )
     );
 }
 if (isset($_REQUEST['sl_configure'])) {
-    $response->addHTML(PMA_getHtmlForReplicationChangeMaster("slave_changemaster"));
+    $response->addHTML(ReplicationGui::getHtmlForReplicationChangeMaster("slave_changemaster"));
 }

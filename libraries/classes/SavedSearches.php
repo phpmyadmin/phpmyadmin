@@ -113,7 +113,7 @@ class SavedSearches
      *
      * @return static
      */
-    public function setConfig($config)
+    public function setConfig(array $config)
     {
         $this->_config = $config;
         return $this;
@@ -244,7 +244,7 @@ class SavedSearches
      *
      * @param array $config Global configuration
      */
-    public function __construct($config)
+    public function __construct(array $config)
     {
         $this->setConfig($config);
     }

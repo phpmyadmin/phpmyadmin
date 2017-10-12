@@ -576,14 +576,6 @@ table tr.marked:not(.nomarker) {
     color: <?php echo $GLOBALS['cfg']['BrowseMarkerColor']; ?>;
 }
 
-/* hovered items */
-table tbody:first-of-type tr:not(.nopointer):hover,
-table tbody:first-of-type tr:not(.nopointer):hover th,
-.hover:not(.nopointer) {
-    <?php echo $theme->getCssGradient('ced6df', 'b6c6d7'); ?>
-    color: <?php echo $GLOBALS['cfg']['BrowsePointerColor']; ?>;
-}
-
 /* hovered table rows */
 table tr.hover:not(.nopointer) th {
     <?php echo $theme->getCssGradient('ced6df', 'b6c6d7'); ?>
@@ -1576,6 +1568,7 @@ div#profilingchart {
     font-size: 1.7em;
 }
 #sectionlinks {
+    margin-bottom: 15px;
     padding: 16px;
     background: #f3f3f3;
     border: 1px solid #aaa;
@@ -1786,6 +1779,7 @@ div.sqlvalidate {
 
 .result_query div.sqlOuter {
     background: <?php echo $GLOBALS['cfg']['BgOne']; ?>;
+    text-align: <?php echo $left; ?>;
 }
 
 .result_query .success, .result_query .error {
@@ -2099,7 +2093,12 @@ select#table_select {
 .export_sub_options li {
     margin-bottom: 0;
 }
-
+#export_refresh_form {
+    margin-left: 20px;
+}
+#export_back_button {
+    display: inline;
+}
 #output_quick_export {
     display: none;
 }
@@ -2169,7 +2168,7 @@ input#input_import_file {
  */
 #index_frm .index_info input[type="text"],
 #index_frm .index_info select {
-    width: 14em;
+    width: 100%;
     margin: 0;
     box-sizing: border-box;
     -ms-box-sizing: border-box;
@@ -2214,7 +2213,7 @@ table#index_columns {
 
 table#index_columns select {
     width: 85%;
-    float: right;
+    float: <?php echo $left; ?>;
 }
 
 #move_columns_dialog div {
@@ -2922,6 +2921,10 @@ body .ui-widget {
 
 .ui-dialog fieldset legend a {
     color: #235A81;
+}
+
+.ui-draggable {
+    z-index: 801;
 }
 
 /* over-riding jqplot-yaxis class */

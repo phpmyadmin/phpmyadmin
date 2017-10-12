@@ -90,7 +90,7 @@ class GisPolygon extends GisGeometry
         $spatial,
         $label,
         $fill_color,
-        $scale_data,
+        array $scale_data,
         $image
     ) {
         // allocate colors
@@ -156,7 +156,7 @@ class GisPolygon extends GisGeometry
      * @return TCPDF the modified TCPDF instance
      * @access public
      */
-    public function prepareRowAsPdf($spatial, $label, $fill_color, $scale_data, $pdf)
+    public function prepareRowAsPdf($spatial, $label, $fill_color, array $scale_data, $pdf)
     {
         // allocate colors
         $red = hexdec(mb_substr($fill_color, 1, 2));
@@ -213,7 +213,7 @@ class GisPolygon extends GisGeometry
      * @return string the code related to a row in the GIS dataset
      * @access public
      */
-    public function prepareRowAsSvg($spatial, $label, $fill_color, $scale_data)
+    public function prepareRowAsSvg($spatial, $label, $fill_color, array $scale_data)
     {
         $polygon_options = array(
             'name'         => $label,
@@ -274,7 +274,7 @@ class GisPolygon extends GisGeometry
      * @return string JavaScript related to a row in the GIS dataset
      * @access public
      */
-    public function prepareRowAsOl($spatial, $srid, $label, $fill_color, $scale_data)
+    public function prepareRowAsOl($spatial, $srid, $label, $fill_color, array $scale_data)
     {
         $style_options = array(
             'strokeColor' => '#000000',
@@ -317,7 +317,7 @@ class GisPolygon extends GisGeometry
      * @return string the code to draw the ring
      * @access private
      */
-    private function _drawPath($polygon, $scale_data)
+    private function _drawPath($polygon, array $scale_data)
     {
         $points_arr = $this->extractPoints($polygon, $scale_data);
 
@@ -341,7 +341,7 @@ class GisPolygon extends GisGeometry
      * @return string WKT with the set of parameters passed by the GIS editor
      * @access public
      */
-    public function generateWkt($gis_data, $index, $empty = '')
+    public function generateWkt(array $gis_data, $index, $empty = '')
     {
         $no_of_lines = isset($gis_data[$index]['POLYGON']['no_of_lines'])
             ? $gis_data[$index]['POLYGON']['no_of_lines'] : 1;
@@ -395,7 +395,7 @@ class GisPolygon extends GisGeometry
      * @access public
      * @static
      */
-    public static function area($ring)
+    public static function area(array $ring)
     {
 
         $no_of_points = count($ring);
@@ -433,7 +433,7 @@ class GisPolygon extends GisGeometry
      * @access public
      * @static
      */
-    public static function isOuterRing($ring)
+    public static function isOuterRing(array $ring)
     {
         // If area is negative then it's in clockwise orientation,
         // i.e. it's an outer ring
@@ -454,7 +454,7 @@ class GisPolygon extends GisGeometry
      * @access public
      * @static
      */
-    public static function isPointInsidePolygon($point, $polygon)
+    public static function isPointInsidePolygon(array $point, array $polygon)
     {
         // If first point is repeated at the end remove it
         $last = count($polygon) - 1;
@@ -515,7 +515,7 @@ class GisPolygon extends GisGeometry
      * @access public
      * @static
      */
-    public static function getPointOnSurface($ring)
+    public static function getPointOnSurface(array $ring)
     {
         // Find two consecutive distinct points.
         for ($i = 0, $nb = count($ring) - 1; $i < $nb; $i++) {

@@ -9,24 +9,31 @@
 use PhpMyAdmin\Core;
 use PhpMyAdmin\Encoding;
 use PhpMyAdmin\Export;
+use PhpMyAdmin\Plugins;
 use PhpMyAdmin\Plugins\ExportPlugin;
 use PhpMyAdmin\Relation;
 use PhpMyAdmin\Sanitize;
 use PhpMyAdmin\Url;
 use PhpMyAdmin\Util;
+use PhpMyAdmin\Response;
 
 /**
  * Get the variables sent or posted to this script and a core script
  */
+include_once 'libraries/common.inc.php';
 /**
  * If we are sending the export file (as opposed to just displaying it
  * as text), we have to bypass the usual PhpMyAdmin\Response mechanism
  */
 if (isset($_POST['output_format']) && $_POST['output_format'] == 'sendit') {
-    define('PMA_BYPASS_GET_INSTANCE', 1);
+    $response = Response::getInstance();
+    $response->disable();
 }
-include_once 'libraries/common.inc.php';
-include_once 'libraries/plugin_interface.lib.php';
+
+$response = Response::getInstance();
+$header   = $response->getHeader();
+$scripts  = $header->getScripts();
+$scripts->addFile('export_output.js');
 
 //check if it's the GET request to check export time out
 if (isset($_GET['check_time_out'])) {
@@ -181,7 +188,7 @@ $what = Core::securePath($_POST['what']);
 
 // export class instance, not array of properties, as before
 /* @var $export_plugin ExportPlugin */
-$export_plugin = PMA_getPlugin(
+$export_plugin = Plugins::getPlugin(
     "export",
     $what,
     'libraries/classes/Plugins/Export/',
@@ -212,6 +219,7 @@ $onserver = false;
 $save_on_server = false;
 $buffer_needed = false;
 $back_button = '';
+$refreshButton = '';
 $save_filename = '';
 $file_handle = '';
 $err_url = '';
@@ -383,7 +391,7 @@ if ($save_on_server) {
                 exit();
             }
         }
-        list($html, $back_button) = Export::getHtmlForDisplayedExportHeader(
+        list($html, $back_button, $refreshButton) = Export::getHtmlForDisplayedExportHeader(
             $export_type, $db, $table
         );
         echo $html;
@@ -506,7 +514,7 @@ if ($save_on_server && ! empty($message)) {
  * Send the dump as a file...
  */
 if (empty($asfile)) {
-    echo Export::getHtmlForDisplayedExportFooter($back_button);
+    echo Export::getHtmlForDisplayedExportFooter($back_button, $refreshButton);
     return;
 } // end if
 

@@ -12,6 +12,7 @@ use PhpMyAdmin\Message;
 use PhpMyAdmin\Relation;
 use PhpMyAdmin\Response;
 use PhpMyAdmin\Sanitize;
+use PhpMyAdmin\SqlQueryForm;
 use PhpMyAdmin\Template;
 use PhpMyAdmin\Tracker;
 use PhpMyAdmin\Url;
@@ -35,7 +36,7 @@ class Tracking
      * @return array filtered entries
      */
     public static function filterTracking(
-        $data, $filter_ts_from, $filter_ts_to, $filter_users
+        array $data, $filter_ts_from, $filter_ts_to, array $filter_users
     ) {
         $tmp_entries = array();
         $id = 0;
@@ -70,7 +71,7 @@ class Tracking
      * @return string
      */
     public static function getHtmlForDataDefinitionAndManipulationStatements($url_query,
-        $last_version, $db, $selected, $type = 'both'
+        $last_version, $db, array $selected, $type = 'both'
     ) {
         $html  = '<div id="div_create_version">';
         $html .= '<form method="post" action="' . $url_query . '">';
@@ -282,7 +283,7 @@ class Tracking
      * @return string
      */
     public static function getHtmlForTableVersionDetails(
-        $sql_result, $last_version, $url_params,
+        $sql_result, $last_version, array $url_params,
         $url_query, $pmaThemeImage, $text_dir
     ) {
         $tracking_active = false;
@@ -473,9 +474,9 @@ class Tracking
      *
      * @return string
      */
-    public static function getHtmlForTrackingReport($url_query, $data, $url_params,
+    public static function getHtmlForTrackingReport($url_query, array $data, array $url_params,
         $selection_schema, $selection_data, $selection_both, $filter_ts_to,
-        $filter_ts_from, $filter_users
+        $filter_ts_from, array $filter_users
     ) {
         $html = '<h3>' . __('Tracking report')
             . '  [<a href="tbl_tracking.php' . $url_query . '">' . __('Close')
@@ -578,8 +579,8 @@ class Tracking
      * @return string HTML for form
      */
     public static function getHtmlForTrackingReportExportForm1(
-        $data, $url_params, $selection_schema, $selection_data, $selection_both,
-        $filter_ts_to, $filter_ts_from, $filter_users, $str1, $str2, $str3,
+        array $data, array $url_params, $selection_schema, $selection_data, $selection_both,
+        $filter_ts_to, $filter_ts_from, array $filter_users, $str1, $str2, $str3,
         $str4, $str5, $drop_image_or_text
     ) {
         $ddlog_count = 0;
@@ -633,7 +634,7 @@ class Tracking
      * @return string HTML for form
      */
     public static function getHtmlForTrackingReportExportForm2(
-        $url_params, $str1, $str2, $str3, $str4, $str5
+        array $url_params, $str1, $str2, $str3, $str4, $str5
     ) {
         $html = '<form method="post" action="tbl_tracking.php'
             . Url::getCommon(
@@ -697,8 +698,8 @@ class Tracking
      *
      * @return string
      */
-    public static function getHtmlForDataManipulationStatements($data, $filter_users,
-        $filter_ts_from, $filter_ts_to, $url_params, $ddlog_count,
+    public static function getHtmlForDataManipulationStatements(array $data, array $filter_users,
+        $filter_ts_from, $filter_ts_to, array $url_params, $ddlog_count,
         $drop_image_or_text
     ) {
         // no need for the secondth returned parameter
@@ -726,8 +727,8 @@ class Tracking
      *
      * @return string
      */
-    public static function getHtmlForOneStatement($entry, $filter_users,
-        $filter_ts_from, $filter_ts_to, $line_number, $url_params, $offset,
+    public static function getHtmlForOneStatement(array $entry, array $filter_users,
+        $filter_ts_from, $filter_ts_to, $line_number, array $url_params, $offset,
         $drop_image_or_text, $delete_param
     ) {
         $statement  = Util::formatSql($entry['statement'], true);
@@ -775,8 +776,8 @@ class Tracking
      *
      * @return array
      */
-    public static function getHtmlForDataDefinitionStatements($data, $filter_users,
-        $filter_ts_from, $filter_ts_to, $url_params, $drop_image_or_text
+    public static function getHtmlForDataDefinitionStatements(array $data, array $filter_users,
+        $filter_ts_from, $filter_ts_to, array $url_params, $drop_image_or_text
     ) {
         list($html, $line_number) = self::getHtmlForDataStatements(
             $data, $filter_users, $filter_ts_from, $filter_ts_to, $url_params,
@@ -803,8 +804,8 @@ class Tracking
      *
      * @return array
      */
-    public static function getHtmlForDataStatements($data, $filter_users,
-        $filter_ts_from, $filter_ts_to, $url_params, $drop_image_or_text,
+    public static function getHtmlForDataStatements(array $data, array $filter_users,
+        $filter_ts_from, $filter_ts_to, array $url_params, $drop_image_or_text,
         $which_log, $header_message, $line_number, $table_id
     ) {
         $offset = $line_number;
@@ -891,7 +892,7 @@ class Tracking
      *
      * @return string
      */
-    public static function getHtmlForColumns($columns)
+    public static function getHtmlForColumns(array $columns)
     {
         $html = '<h3>' . __('Structure') . '</h3>';
         $html .= '<table id="tablestructure" class="data">';
@@ -927,7 +928,7 @@ class Tracking
      *
      * @return string
      */
-    public static function getHtmlForField($index, $field)
+    public static function getHtmlForField($index, array $field)
     {
         $html = '<tr class="noclick">';
         $html .= '<td>' . $index . '</td>';
@@ -979,7 +980,7 @@ class Tracking
      *
      * @return string
      */
-    public static function getHtmlForIndexes($indexes)
+    public static function getHtmlForIndexes(array $indexes)
     {
         $html = '<h3>' . __('Indexes') . '</h3>';
         $html .= '<table id="tablestructure_indexes" class="data">';
@@ -1012,7 +1013,7 @@ class Tracking
      *
      * @return string
      */
-    public static function getHtmlForIndex($index)
+    public static function getHtmlForIndex(array $index)
     {
         if ($index['Non_unique'] == 0) {
             $str_unique = __('Yes');
@@ -1047,7 +1048,7 @@ class Tracking
      *
      * @return string HTML for the message
      */
-    public static function deleteTrackingReportRows(&$data)
+    public static function deleteTrackingReportRows(array &$data)
     {
         $html = '';
         if (isset($_REQUEST['delete_ddlog'])) {
@@ -1082,7 +1083,7 @@ class Tracking
      *
      * @return string HTML for the message
      */
-    public static function deleteFromTrackingReportLog(&$data, $which_log, $type, $message)
+    public static function deleteFromTrackingReportLog(array &$data, $which_log, $type, $message)
     {
         $html = '';
         $delete_id = $_REQUEST['delete_' . $which_log];
@@ -1115,7 +1116,7 @@ class Tracking
      *
      * @return string HTML SQL query form
      */
-    public static function exportAsSqlDump($entries)
+    public static function exportAsSqlDump(array $entries)
     {
         $html = '';
         $new_query = "# "
@@ -1142,9 +1143,8 @@ class Tracking
         $table_temp = $GLOBALS['table'];
 
         $GLOBALS['db'] = $GLOBALS['table'] = '';
-        include_once './libraries/sql_query_form.lib.php';
 
-        $html .= PMA_getHtmlForSqlQueryForm($new_query, 'sql');
+        $html .= SqlQueryForm::getHtml($new_query, 'sql');
 
         $GLOBALS['db'] = $db_temp;
         $GLOBALS['table'] = $table_temp;
@@ -1159,7 +1159,7 @@ class Tracking
      *
      * @return array
      */
-    public static function exportAsSqlExecution($entries)
+    public static function exportAsSqlExecution(array $entries)
     {
         $sql_result = array();
         foreach ($entries as $entry) {
@@ -1176,7 +1176,7 @@ class Tracking
      *
      * @return void
      */
-    public static function exportAsFileDownload($entries)
+    public static function exportAsFileDownload(array $entries)
     {
         @ini_set('url_rewriter.tags', '');
 
@@ -1357,7 +1357,7 @@ class Tracking
      *
      * @return void
      */
-    public static function createTrackingForMultipleTables($selected)
+    public static function createTrackingForMultipleTables(array $selected)
     {
         $tracking_set = self::getTrackingSet();
 
@@ -1382,7 +1382,7 @@ class Tracking
      *
      * @return array
      */
-    public static function getEntries($data, $filter_ts_from, $filter_ts_to, $filter_users)
+    public static function getEntries(array $data, $filter_ts_from, $filter_ts_to, array $filter_users)
     {
         $entries = array();
         // Filtering data definition statements
@@ -1433,7 +1433,7 @@ class Tracking
      *
      * @return string $version_status The status message
      */
-    public static function getVersionStatus($version)
+    public static function getVersionStatus(array $version)
     {
         if ($version['tracking_active'] == 1) {
             return __('active');
@@ -1454,7 +1454,7 @@ class Tracking
      * @return void
      */
     public static function displayUntrackedTables(
-        $db, $untracked_tables, $url_query, $pmaThemeImage, $text_dir
+        $db, array $untracked_tables, $url_query, $pmaThemeImage, $text_dir
     ) {
         ?>
         <h3><?php echo __('Untracked tables');?></h3>
@@ -1544,7 +1544,7 @@ class Tracking
      *
      * @return array $untracked_tables
      */
-    public static function extractTableNames($table_list, $db, $testing = false)
+    public static function extractTableNames(array $table_list, $db, $testing = false)
     {
         $untracked_tables = array();
         $sep = $GLOBALS['cfg']['NavigationTreeTableSeparator'];
@@ -1592,7 +1592,7 @@ class Tracking
      * @return void
      */
     public static function displayTrackedTables(
-        $db, $all_tables_result, $url_query, $pmaThemeImage, $text_dir, $cfgRelation
+        $db, $all_tables_result, $url_query, $pmaThemeImage, $text_dir, array $cfgRelation
     ) {
         ?>
         <div id="tracked_tables">
@@ -1717,7 +1717,7 @@ class Tracking
      *
      * @return void
      */
-    public static function displayStatusButton($version_data, $tbl_link)
+    public static function displayStatusButton(array $version_data, $tbl_link)
     {
         $state = self::getVersionStatus($version_data);
         $options = array(

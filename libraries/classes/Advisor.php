@@ -10,6 +10,8 @@ namespace PhpMyAdmin;
 
 use Exception;
 use PhpMyAdmin\Core;
+use PhpMyAdmin\DatabaseInterface;
+use PhpMyAdmin\SysInfo;
 use PhpMyAdmin\Url;
 use PhpMyAdmin\Util;
 use Symfony\Component\ExpressionLanguage\ExpressionLanguage;
@@ -21,6 +23,7 @@ use Symfony\Component\ExpressionLanguage\ExpressionLanguage;
  */
 class Advisor
 {
+    protected $dbi;
     protected $variables;
     protected $globals;
     protected $parseResult;
@@ -28,11 +31,15 @@ class Advisor
     protected $expression;
 
     /**
-     * Constructor.
+     * Constructor
+     *
+     * @param DatabaseInterface  $dbi        DatabaseInterface object
+     * @param ExpressionLanguage $expression ExpressionLanguage object
      */
-    public function __construct()
+    public function __construct(DatabaseInterface $dbi, ExpressionLanguage $expression)
     {
-        $this->expression = new ExpressionLanguage();
+        $this->dbi = $dbi;
+        $this->expression = $expression;
         /*
          * Register functions for ExpressionLanguage, we intentionally
          * do not implement support for compile as we do not use it.
@@ -99,7 +106,7 @@ class Advisor
         );
         /* Some global variables for advisor */
         $this->globals = array(
-            'PMA_MYSQL_INT_VERSION' => $GLOBALS['dbi']->getVersion(),
+            'PMA_MYSQL_INT_VERSION' => $this->dbi->getVersion(),
         );
 
     }
@@ -121,7 +128,7 @@ class Advisor
      *
      * @return Advisor
      */
-    public function setVariables($variables)
+    public function setVariables(array $variables)
     {
         $this->variables = $variables;
 
@@ -160,7 +167,7 @@ class Advisor
      *
      * @return Advisor
      */
-    public function setParseResult($parseResult)
+    public function setParseResult(array $parseResult)
     {
         $this->parseResult = $parseResult;
 
@@ -184,7 +191,7 @@ class Advisor
      *
      * @return Advisor
      */
-    public function setRunResult($runResult)
+    public function setRunResult(array $runResult)
     {
         $this->runResult = $runResult;
 
@@ -203,14 +210,13 @@ class Advisor
         // Step 1: Get some variables to evaluate on
         $this->setVariables(
             array_merge(
-                $GLOBALS['dbi']->fetchResult('SHOW GLOBAL STATUS', 0, 1),
-                $GLOBALS['dbi']->fetchResult('SHOW GLOBAL VARIABLES', 0, 1)
+                $this->dbi->fetchResult('SHOW GLOBAL STATUS', 0, 1),
+                $this->dbi->fetchResult('SHOW GLOBAL VARIABLES', 0, 1)
             )
         );
 
         // Add total memory to variables as well
-        include_once 'libraries/sysinfo.lib.php';
-        $sysinfo = PMA_getSysInfo();
+        $sysinfo = SysInfo::get();
         $memory  = $sysinfo->memory();
         $this->variables['system_memory']
             = isset($memory['MemTotal']) ? $memory['MemTotal'] : 0;
@@ -357,7 +363,7 @@ class Advisor
      *
      * @return string[]
      */
-    public static function splitJustification($rule)
+    public static function splitJustification(array $rule)
     {
         $jst = preg_split('/\s*\|\s*/', $rule['justification'], 2);
         if (count($jst) > 1) {
@@ -374,7 +380,7 @@ class Advisor
      *
      * @return void
      */
-    public function addRule($type, $rule)
+    public function addRule($type, array $rule)
     {
         switch ($type) {
         case 'notfired':
@@ -430,7 +436,7 @@ class Advisor
      *
      * @return string Replacement value
      */
-    private function replaceLinkURL($matches)
+    private function replaceLinkURL(array $matches)
     {
         return 'href="' . Core::linkURL($matches[2]) . '" target="_blank" rel="noopener noreferrer"';
     }
@@ -442,7 +448,7 @@ class Advisor
      *
      * @return string Replacement value
      */
-    private function replaceVariable($matches)
+    private function replaceVariable(array $matches)
     {
         return '<a href="server_variables.php' . Url::getCommon(array('filter' => $matches[1]))
                 . '">' . htmlspecialchars($matches[1]) . '</a>';

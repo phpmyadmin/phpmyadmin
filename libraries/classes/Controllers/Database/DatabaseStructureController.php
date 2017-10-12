@@ -1,31 +1,27 @@
 <?php
 /* vim: set expandtab sw=4 ts=4 sts=4: */
-
 /**
  * Holds the PhpMyAdmin\Controllers\Database\DatabaseStructureController
  *
  * @package PhpMyAdmin\Controllers
  */
-
 namespace PhpMyAdmin\Controllers\Database;
 
 use PhpMyAdmin\Charsets;
 use PhpMyAdmin\Config\PageSettings;
 use PhpMyAdmin\Controllers\DatabaseController;
 use PhpMyAdmin\Core;
+use PhpMyAdmin\Display\CreateTable;
 use PhpMyAdmin\Message;
 use PhpMyAdmin\RecentFavoriteTable;
 use PhpMyAdmin\Relation;
+use PhpMyAdmin\Replication;
 use PhpMyAdmin\Response;
 use PhpMyAdmin\Sanitize;
 use PhpMyAdmin\Template;
 use PhpMyAdmin\Tracker;
 use PhpMyAdmin\Util;
 use PhpMyAdmin\Url;
-
-require_once 'libraries/display_create_table.lib.php';
-require_once 'libraries/config/user_preferences.forms.php';
-require_once 'libraries/config/page_settings.forms.php';
 
 /**
  * Handles database structure logic
@@ -152,7 +148,7 @@ class DatabaseStructureController extends DatabaseController
                 Message::notice(__('No tables found in database.'))
             );
             if (empty($this->_db_is_system_schema)) {
-                $this->response->addHTML(PMA_getHtmlForCreateTable($this->db));
+                $this->response->addHTML(CreateTable::getHtml($this->db));
             }
             return;
         }
@@ -212,7 +208,7 @@ class DatabaseStructureController extends DatabaseController
         );
 
         if (empty($this->_db_is_system_schema)) {
-            $this->response->addHTML(PMA_getHtmlForCreateTable($this->db));
+            $this->response->addHTML(CreateTable::getHtml($this->db));
         }
     }
 
@@ -278,6 +274,12 @@ class DatabaseStructureController extends DatabaseController
             );
             return;
         }
+        // Check if current table is already in favorite list.
+        $favParams = array('db' => $this->db,
+            'ajax_request' => true,
+            'favorite_table' => $favorite_table,
+            (($already_favorite ? 'remove' : 'add') . '_favorite') => true
+        );
         $this->response->addJSON(
             array(
                 'user' => $user,
@@ -286,12 +288,11 @@ class DatabaseStructureController extends DatabaseController
                 'anchor' => Template::get('database/structure/favorite_anchor')
                     ->render(
                         array(
-                            'db' => $this->db,
-                            'current_table' => array(
-                                'TABLE_NAME' => $favorite_table
-                            ),
+                            'table_name_hash' => md5($favorite_table),
+                            'db_table_name_hash' => md5($this->db . "." . $favorite_table),
+                            'fav_params' => $favParams,
+                            'already_favorite' => $already_favorite,
                             'titles' => $titles,
-                            'already_favorite' => $already_favorite
                         )
                     )
             )
@@ -746,7 +747,7 @@ class DatabaseStructureController extends DatabaseController
      *
      * @return array
      */
-    protected function isRowCountApproximated($current_table, $table_is_view)
+    protected function isRowCountApproximated(array $current_table, $table_is_view)
     {
         $approx_rows = false;
         $show_superscript = '';
@@ -850,7 +851,7 @@ class DatabaseStructureController extends DatabaseController
     protected function synchronizeFavoriteTables(
         $fav_instance,
         $user,
-        $favorite_tables
+        array $favorite_tables
     ) {
         $fav_instance_tables = $fav_instance->getTables();
 
@@ -903,13 +904,13 @@ class DatabaseStructureController extends DatabaseController
      *
      * @return bool
      */
-    protected function hasTable($db, $truename)
+    protected function hasTable(array $db, $truename)
     {
         foreach ($db as $db_table) {
-            if ($this->db == PMA_extractDbOrTable($db_table)
+            if ($this->db == Replication::extractDbOrTable($db_table)
                 && preg_match(
                     "@^" .
-                    preg_quote(mb_substr(PMA_extractDbOrTable($db_table, 'table'), 0, -1)) . "@",
+                    preg_quote(mb_substr(Replication::extractDbOrTable($db_table, 'table'), 0, -1)) . "@",
                     $truename
                 )
             ) {
@@ -930,7 +931,7 @@ class DatabaseStructureController extends DatabaseController
      * @internal param bool $table_is_view whether table is view or not
      */
     protected function getStuffForEngineTypeTable(
-        $current_table, $sum_size, $overhead_size
+        array $current_table, $sum_size, $overhead_size
     ) {
         $formatted_size = '-';
         $unit = '';
@@ -1022,7 +1023,7 @@ class DatabaseStructureController extends DatabaseController
      * @return array
      */
     protected function getValuesForAriaTable(
-        $current_table, $sum_size, $overhead_size, $formatted_size, $unit,
+        array $current_table, $sum_size, $overhead_size, $formatted_size, $unit,
         $formatted_overhead, $overhead_unit
     ) {
         if ($this->_db_is_system_schema) {
@@ -1063,7 +1064,7 @@ class DatabaseStructureController extends DatabaseController
      * @return array
      */
     protected function getValuesForInnodbTable(
-        $current_table, $sum_size
+        array $current_table, $sum_size
     ) {
         $formatted_size = $unit = '';
 

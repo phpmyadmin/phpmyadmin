@@ -227,7 +227,7 @@ class Core
          * Avoid using Response class as config does not have to be loaded yet
          * (this can happen on early fatal error)
          */
-        if (isset($GLOBALS['PMA_Config']) && $GLOBALS['PMA_Config']->get('is_setup') === false && Response::getInstance()->isAjax()) {
+        if (!is_null($GLOBALS['dbi']) && isset($GLOBALS['PMA_Config']) && $GLOBALS['PMA_Config']->get('is_setup') === false && Response::getInstance()->isAjax()) {
             $response = Response::getInstance();
             $response->setRequestStatus(false);
             $response->addJSON('message', Message::error($error_message));
@@ -388,7 +388,7 @@ class Core
      *
      * @return boolean whether $page is valid or not (in $whitelist or not)
      */
-    public static function checkPageValidity(&$page, $whitelist)
+    public static function checkPageValidity(&$page, array $whitelist)
     {
         if (! isset($page) || !is_string($page)) {
             return false;
@@ -592,7 +592,7 @@ class Core
      *
      * @return mixed    array element or $default
      */
-    public static function arrayRead($path, $array, $default = null)
+    public static function arrayRead($path, array $array, $default = null)
     {
         $keys = explode('/', $path);
         $value =& $array;
@@ -614,7 +614,7 @@ class Core
      *
      * @return void
      */
-    public static function arrayWrite($path, &$array, $value)
+    public static function arrayWrite($path, array &$array, $value)
     {
         $keys = explode('/', $path);
         $last_key = array_pop($keys);
@@ -636,7 +636,7 @@ class Core
      *
      * @return void
      */
-    public static function arrayRemove($path, &$array)
+    public static function arrayRemove($path, array &$array)
     {
         $keys = explode('/', $path);
         $keys_last = array_pop($keys);
@@ -828,7 +828,7 @@ class Core
      *
      * @return void
      */
-    public static function setPostAsGlobal($post_patterns)
+    public static function setPostAsGlobal(array $post_patterns)
     {
         foreach (array_keys($_POST) as $post_key) {
             foreach ($post_patterns as $one_post_pattern) {
@@ -937,6 +937,13 @@ class Core
          */
         if (! function_exists('ctype_alpha')) {
             self::warnMissingExtension('ctype', true);
+        }
+
+        /**
+         * hash is required for cookie authentication.
+         */
+        if (! function_exists('hash_hmac')) {
+            self::warnMissingExtension('hash', true);
         }
     }
 
@@ -1171,5 +1178,41 @@ class Core
                 )
             );
         }
+    }
+
+    /**
+     * prints list item for main page
+     *
+     * @param string $name            displayed text
+     * @param string $listId          id, used for css styles
+     * @param string $url             make item as link with $url as target
+     * @param string $mysql_help_page display a link to MySQL's manual
+     * @param string $target          special target for $url
+     * @param string $a_id            id for the anchor,
+     *                                used for jQuery to hook in functions
+     * @param string $class           class for the li element
+     * @param string $a_class         class for the anchor element
+     *
+     * @return void
+     */
+    public static function printListItem($name, $listId = null, $url = null,
+        $mysql_help_page = null, $target = null, $a_id = null, $class = null,
+        $a_class = null
+    ) {
+        echo Template::get('list/item')
+            ->render(
+                array(
+                    'content' => $name,
+                    'id' => $listId,
+                    'class' => $class,
+                    'url' => array(
+                        'href' => $url,
+                        'target' => $target,
+                        'id' => $a_id,
+                        'class' => $a_class,
+                    ),
+                    'mysql_help_page' => $mysql_help_page,
+                )
+            );
     }
 }

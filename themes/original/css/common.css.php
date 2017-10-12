@@ -1101,6 +1101,15 @@ div#logTable table {
 
 /* end serverstatus */
 
+#sectionlinks {
+    margin-bottom: 15px;
+    padding: 10px;
+    border: 1px solid #CCC;
+}
+#sectionlinks a {
+    margin-<?php echo $right; ?>: 7px;
+}
+
 /* server variables */
 #serverVariables {
     width: 100%;
@@ -1354,6 +1363,10 @@ div.sqlvalidate  {
     border-top:         0;
     border-bottom:      0;
     background:         <?php echo $GLOBALS['cfg']['BgOne']; ?>;
+}
+
+.result_query div.sqlOuter {
+    text-align: <?php echo $left; ?>;
 }
 
 #PMA_slidingMessage code.sql {
@@ -2355,6 +2368,10 @@ body .ui-widget {
 
 .ui-dialog fieldset legend a {
     color: #0000FF;
+}
+
+.ui-draggable {
+    z-index: 801;
 }
 
 /* jqPlot */

@@ -69,7 +69,7 @@ class Linter
      *
      * @return array
      */
-    public static function findLineNumberAndColumn($lines, $pos)
+    public static function findLineNumberAndColumn(array $lines, $pos)
     {
         $line = 0;
         foreach ($lines as $lineNo => $lineStart) {

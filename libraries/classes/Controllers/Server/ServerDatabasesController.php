@@ -13,9 +13,10 @@ use PhpMyAdmin\Controllers\Controller;
 use PhpMyAdmin\Charsets;
 use PhpMyAdmin\Message;
 use PhpMyAdmin\Response;
+use PhpMyAdmin\Server\Common;
 use PhpMyAdmin\Template;
-use PhpMyAdmin\Util;
 use PhpMyAdmin\Url;
+use PhpMyAdmin\Util;
 
 /**
  * Handles viewing and creating and deleting databases
@@ -56,13 +57,13 @@ class ServerDatabasesController extends Controller
      */
     public function indexAction()
     {
-        include_once 'libraries/check_user_privileges.lib.php';
+        include_once 'libraries/check_user_privileges.inc.php';
 
         $response = Response::getInstance();
 
         if (isset($_REQUEST['drop_selected_dbs'])
             && $response->isAjax()
-            && ($GLOBALS['is_superuser'] || $GLOBALS['cfg']['AllowUserDropDatabase'])
+            && ($GLOBALS['dbi']->isSuperuser() || $GLOBALS['cfg']['AllowUserDropDatabase'])
         ) {
             $this->dropDatabasesAction();
             return;
@@ -91,14 +92,19 @@ class ServerDatabasesController extends Controller
          * Displays the sub-page heading
          */
         $header_type = $this->_dbstats ? "database_statistics" : "databases";
-        $this->response->addHTML(PMA_getHtmlForSubPageHeader($header_type));
+        $this->response->addHTML(Common::getHtmlForSubPageHeader($header_type));
 
         /**
          * Displays For Create database.
          */
         $html = '';
         if ($GLOBALS['cfg']['ShowCreateDb']) {
-            $html .= Template::get('server/databases/create')->render();
+            $html .= Template::get('server/databases/create')->render([
+                'is_create_db_priv' => $GLOBALS['is_create_db_priv'],
+                'dbstats' => $this->_dbstats,
+                'db_to_create' => $GLOBALS['db_to_create'],
+                'server_collation' => $GLOBALS['dbi']->getServerCollation(),
+            ]);
         }
 
         $html .= Template::get('filter')->render(array('filter_value'=>''));
@@ -261,9 +267,8 @@ class ServerDatabasesController extends Controller
      *
      * @return string
      */
-    private function _getHtmlForDatabases($replication_types)
+    private function _getHtmlForDatabases(array $replication_types)
     {
-
         $html = '<div id="tableslistcontainer">';
         $first_database = reset($this->_databases);
         // table col order
@@ -379,7 +384,7 @@ class ServerDatabasesController extends Controller
      */
     private function _getHtmlForTableFooterButtons()
     {
-        if (! $GLOBALS['is_superuser']
+        if (! $GLOBALS['dbi']->isSuperuser()
             && ! $GLOBALS['cfg']['AllowUserDropDatabase']
         ) {
             return '';
@@ -432,7 +437,7 @@ class ServerDatabasesController extends Controller
      *
      * @return string
      */
-    private function _getHtmlForTableBody($column_order, $replication_types)
+    private function _getHtmlForTableBody(array $column_order, array $replication_types)
     {
         $html = '<tbody>' . "\n";
 
@@ -469,8 +474,8 @@ class ServerDatabasesController extends Controller
      * @return array $column_order, $out
      */
     function _buildHtmlForDb(
-        $current, $column_order,
-        $replication_types, $replication_info, $tr_class = ''
+        array $current, array $column_order,
+        array $replication_types, array $replication_info, $tr_class = ''
     ) {
         $master_replication = $slave_replication = '';
         foreach ($replication_types as $type) {
@@ -534,7 +539,7 @@ class ServerDatabasesController extends Controller
      * @return string
      */
     private function _getHtmlForTableHeader(
-        $_url_params, $column_order, $first_database
+        array $_url_params, array $column_order, array $first_database
     ) {
         return Template::get('server/databases/table_header')->render(
             array(

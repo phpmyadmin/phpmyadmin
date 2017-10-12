@@ -93,7 +93,12 @@ abstract class PMA_SeleniumBase extends PHPUnit_Extensions_Selenium2TestCase
                 'port' => 80,
                 'timeout' => 30000,
                 'sessionStrategy' => $strategy,
-                'desiredCapabilities' => $capabilities,
+                'desiredCapabilities' => array_merge(
+                    $capabilities,
+                    array(
+                        'os' => 'Windows',
+                    )
+                )
             );
 
             /* Only one browser for continuous integration for speed */
@@ -334,7 +339,7 @@ abstract class PMA_SeleniumBase extends PHPUnit_Extensions_Selenium2TestCase
     {
         $e = $this->byPartialLinkText("Server: ");
         $e->click();
-        $this->waitForElementNotPresent('byCssSelector', 'div#loading_parent');
+        $this->waitAjax();
     }
 
     /**
@@ -385,6 +390,13 @@ abstract class PMA_SeleniumBase extends PHPUnit_Extensions_Selenium2TestCase
      */
     public function waitForElement($func, $arg)
     {
+        try {
+            return call_user_func_array(
+                array($this, $func), array($arg)
+            );
+        } catch(Exception $e) {
+            // Element not present, fall back to waiting
+        }
         $this->timeouts()->implicitWait(10000);
         $element = call_user_func_array(
             array($this, $func), array($arg)
@@ -540,16 +552,16 @@ abstract class PMA_SeleniumBase extends PHPUnit_Extensions_Selenium2TestCase
      * Type text in textarea (CodeMirror enabled)
      *
      * @param string $text  Text to type
-     * @param string $index Index of CodeMirror instance to write to
+     * @param int    $index Index of CodeMirror instance to write to
      *
      * @return void
      */
     public function typeInTextArea($text, $index=0)
     {
+        $this->waitForElement('byCssSelector', 'div.cm-s-default');
         $this->execute(
             array(
-                'script' => "var cm = $('.CodeMirror')[" . $index . "].CodeMirror;"
-                    . "cm.setValue('" . $text . "');",
+                'script' => "$('.cm-s-default')[$index].CodeMirror.setValue('" . $text . "');",
                 'args' => array()
             )
         );
@@ -603,10 +615,7 @@ abstract class PMA_SeleniumBase extends PHPUnit_Extensions_Selenium2TestCase
             "byXPath",
             "//th//a[contains(., '$table')]"
         )->click();
-        $this->waitForElementNotPresent('byCssSelector', 'ajax_message_num_1');
-
-        // Let table resize (uses JS)
-        sleep(1);
+        $this->waitAjax();
 
         $this->waitForElement(
             "byXPath",
@@ -629,17 +638,14 @@ abstract class PMA_SeleniumBase extends PHPUnit_Extensions_Selenium2TestCase
 
         // Go to server databases
         $this->waitForElement('byPartialLinkText','Databases')->click();
-        $this->waitForElementNotPresent('byCssSelector', 'div#loading_parent');
-
-        // Let the table resize (uses JS)
-        sleep(1);
+        $this->waitAjax();
 
         // go to specific database page
         $this->waitForElement(
             'byXPath',
             '//tr[(contains(@class, "db-row"))]//a[contains(., "' . $this->database_name . '")]'
         )->click();
-        $this->waitForElementNotPresent('byCssSelector', 'ajax_message_num_1');
+        $this->waitAjax();
 
         // Wait for it to load
         $this->waitForElement(
@@ -661,16 +667,12 @@ abstract class PMA_SeleniumBase extends PHPUnit_Extensions_Selenium2TestCase
         // 70pt offset by-default so that the topmenu does not cover the element
         $this->execute(
             array(
-                'script' => 'var element = document.getElementById("'
-                            . $element_id . '");'
-                            . 'var position = element.getBoundingClientRect();'
-                            . 'var x = position.left;'
-                            . 'var y = position.top;'
-                            . 'window.scrollTo(x, y-(' . $offset . '));',
+                'script' => 'var position = document.getElementById("'
+                            . $element_id . '").getBoundingClientRect();'
+                            . 'window.scrollBy(position.left, position.top-(' . $offset . '));',
                 'args'   => array()
             )
         );
-        sleep(1);
     }
 
     /**
@@ -686,7 +688,40 @@ abstract class PMA_SeleniumBase extends PHPUnit_Extensions_Selenium2TestCase
                 'args' => array()
             )
         );
-        sleep(1);
+    }
+
+    /**
+     * Wait for AJAX completion
+     *
+     * @return void
+     */
+    public function waitAjax()
+    {
+        /* Wait while code is loading */
+        while ($this->execute(array('script' => 'return AJAX.active;', 'args' => array()))) {
+            usleep(5000);
+        }
+    }
+
+    /**
+     * Wait for AJAX message disappear
+     *
+     * @return void
+     */
+    public function waitAjaxMessage()
+    {
+        /* Get current message count */
+        $ajax_message_count = $this->execute(
+            array(
+                'script' => 'return ajax_message_count;',
+                'args' => array()
+            )
+        );
+        /* Ensure the popup is gone */
+        $this->waitForElementNotPresent(
+            'byId',
+            'ajax_message_num_' . $ajax_message_count
+        );
     }
 
     /**

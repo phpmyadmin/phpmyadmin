@@ -5,16 +5,17 @@
  *
  * @package PhpMyAdmin-test
  */
-use PhpMyAdmin\Bookmark;
+namespace PhpMyAdmin\Tests;
 
-require_once 'libraries/database_interface.inc.php';
+use PhpMyAdmin\Bookmark;
+use PHPUnit_Framework_TestCase as TestCase;
 
 /**
  * Tests for Bookmark class
  *
  * @package PhpMyAdmin-test
  */
-class BookmarkTest extends PHPUnit_Framework_TestCase
+class BookmarkTest extends TestCase
 {
     /**
      * Sets up the fixture, for example, opens a network connection.

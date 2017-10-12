@@ -28,7 +28,7 @@ abstract class GisGeometry
      * @return string the code related to a row in the GIS dataset
      * @access public
      */
-    public abstract function prepareRowAsSvg($spatial, $label, $color, $scale_data);
+    public abstract function prepareRowAsSvg($spatial, $label, $color, array $scale_data);
 
     /**
      * Adds to the PNG image object, the data related to a row in the GIS dataset.
@@ -46,7 +46,7 @@ abstract class GisGeometry
         $spatial,
         $label,
         $color,
-        $scale_data,
+        array $scale_data,
         $image
     );
 
@@ -66,7 +66,7 @@ abstract class GisGeometry
         $spatial,
         $label,
         $color,
-        $scale_data,
+        array $scale_data,
         $pdf
     );
 
@@ -88,7 +88,7 @@ abstract class GisGeometry
         $srid,
         $label,
         $color,
-        $scale_data
+        array $scale_data
     );
 
     /**
@@ -111,7 +111,7 @@ abstract class GisGeometry
      * @return string WKT with the set of parameters passed by the GIS editor
      * @access public
      */
-    public abstract function generateWkt($gis_data, $index, $empty = '');
+    public abstract function generateWkt(array $gis_data, $index, $empty = '');
 
     /**
      * Returns OpenLayers.Bounds object that correspond to the bounds of GIS data.
@@ -123,7 +123,7 @@ abstract class GisGeometry
      *                correspond to the bounds of GIS data
      * @access protected
      */
-    protected function getBoundsForOl($srid, $scale_data)
+    protected function getBoundsForOl($srid, array $scale_data)
     {
         return 'bound = new OpenLayers.Bounds(); '
         . 'bound.extend(new OpenLayers.LonLat('
@@ -145,7 +145,7 @@ abstract class GisGeometry
      * @return array the updated min, max values
      * @access protected
      */
-    protected function setMinMax($point_set, $min_max)
+    protected function setMinMax($point_set, array $min_max)
     {
         // Separate each point
         $points = explode(",", $point_set);
@@ -204,9 +204,9 @@ abstract class GisGeometry
     /**
      * Extracts points, scales and returns them as an array.
      *
-     * @param string  $point_set  string of comma separated points
-     * @param array   $scale_data data related to scaling
-     * @param boolean $linear     if true, as a 1D array, else as a 2D array
+     * @param string     $point_set  string of comma separated points
+     * @param array|null $scale_data data related to scaling
+     * @param boolean    $linear     if true, as a 1D array, else as a 2D array
      *
      * @return array scaled points
      * @access protected
@@ -259,7 +259,7 @@ abstract class GisGeometry
      * @return string JavaScript for adding an array of polygons to OpenLayers
      * @access protected
      */
-    protected function getPolygonArrayForOpenLayers($polygons, $srid)
+    protected function getPolygonArrayForOpenLayers(array $polygons, $srid)
     {
         $ol_array = 'new Array(';
         foreach ($polygons as $polygon) {
@@ -287,7 +287,7 @@ abstract class GisGeometry
      * @return string JavaScript for adding points for OpenLayers polygon
      * @access protected
      */
-    protected function getPolygonForOpenLayers($polygon, $srid)
+    protected function getPolygonForOpenLayers(array $polygon, $srid)
     {
         return 'new OpenLayers.Geometry.Polygon('
         . $this->getLineArrayForOpenLayers($polygon, $srid, false)
@@ -307,7 +307,7 @@ abstract class GisGeometry
      * @access protected
      */
     protected function getLineArrayForOpenLayers(
-        $lines,
+        array $lines,
         $srid,
         $is_line_string = true
     ) {
@@ -344,7 +344,7 @@ abstract class GisGeometry
      * @access protected
      */
     protected function getLineForOpenLayers(
-        $points_arr,
+        array $points_arr,
         $srid,
         $is_line_string = true
     ) {
@@ -363,7 +363,7 @@ abstract class GisGeometry
      * @return string JavaScript for adding an array of points to OpenLayers
      * @access protected
      */
-    protected function getPointsArrayForOpenLayers($points_arr, $srid)
+    protected function getPointsArrayForOpenLayers(array $points_arr, $srid)
     {
         $ol_array = 'new Array(';
         foreach ($points_arr as $point) {
@@ -390,7 +390,7 @@ abstract class GisGeometry
      * @return string JavaScript for adding points to OpenLayers
      * @access protected
      */
-    protected function getPointForOpenLayers($point, $srid)
+    protected function getPointForOpenLayers(array $point, $srid)
     {
         return '(new OpenLayers.Geometry.Point(' . $point[0] . ',' . $point[1] . '))'
         . '.transform(new OpenLayers.Projection("EPSG:'

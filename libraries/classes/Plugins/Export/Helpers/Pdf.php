@@ -261,7 +261,7 @@ class Pdf extends PdfLib
      *
      * @return void
      */
-    public function setAttributes($attr = array())
+    public function setAttributes(array $attr = array())
     {
         foreach ($attr as $key => $val) {
             $this->$key = $val;
@@ -436,7 +436,7 @@ class Pdf extends PdfLib
         $do_comments,
         $do_mime,
         $view = false,
-        $aliases = array()
+        array $aliases = array()
     ) {
         // set $cfgRelation here, because there is a chance that it's modified
         // since the class initialization

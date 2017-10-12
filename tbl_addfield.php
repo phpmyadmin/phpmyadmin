@@ -6,6 +6,7 @@
  * @package PhpMyAdmin
  */
 
+use PhpMyAdmin\CreateAddField;
 use PhpMyAdmin\Response;
 use PhpMyAdmin\Transformations;
 use PhpMyAdmin\Url;
@@ -62,9 +63,7 @@ if (isset($_REQUEST['do_save_data'])) {
     //tbl_structure.php below
     unset($_REQUEST['do_save_data']);
 
-    include_once 'libraries/create_addfield.lib.php';
-
-    list($result, $sql_query) = PMA_tryColumnCreationQuery($db, $table, $err_url);
+    list($result, $sql_query) = CreateAddField::tryColumnCreationQuery($db, $table, $err_url);
 
     if ($result === true) {
         // Update comment table for mime types [MIME]

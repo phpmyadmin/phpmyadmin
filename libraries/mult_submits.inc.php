@@ -8,14 +8,13 @@
 
 use PhpMyAdmin\CentralColumns;
 use PhpMyAdmin\Message;
+use PhpMyAdmin\MultSubmits;
 use PhpMyAdmin\Response;
 use PhpMyAdmin\Sql;
 
 if (! defined('PHPMYADMIN')) {
     exit;
 }
-
-require_once 'libraries/mult_submits.lib.php';
 
 $request_params = array(
     'clause_is_unique',
@@ -92,17 +91,17 @@ if (! empty($submit_mult)
         case 'copy_tbl':
             $views = $GLOBALS['dbi']->getVirtualTables($db);
             list($full_query, $reload, $full_query_views)
-                = PMA_getQueryFromSelected(
+                = MultSubmits::getQueryFromSelected(
                     $submit_mult, $table, $selected, $views
                 );
-            $_url_params = PMA_getUrlParams(
+            $_url_params = MultSubmits::getUrlParams(
                 $submit_mult, $reload, $action, $db, $table, $selected, $views,
                 isset($original_sql_query)? $original_sql_query : null,
                 isset($original_url_query)? $original_url_query : null
             );
             $response->disable();
             $response->addHTML(
-                PMA_getHtmlForCopyMultipleTables($action, $_url_params)
+                MultSubmits::getHtmlForCopyMultipleTables($action, $_url_params)
             );
             exit;
         case 'show_create':
@@ -113,6 +112,7 @@ if (! empty($submit_mult)
                     array(
                         'db'         => $GLOBALS['db'],
                         'db_objects' => $selected,
+                        'dbi'        => $GLOBALS['dbi'],
                     )
                 );
             // Send response to client.
@@ -180,12 +180,12 @@ if (!empty($submit_mult) && !empty($what)) {
 
     // Builds the query
     list($full_query, $reload, $full_query_views)
-        = PMA_getQueryFromSelected(
+        = MultSubmits::getQueryFromSelected(
             $what, $table, $selected, $views
         );
 
     // Displays the confirmation form
-    $_url_params = PMA_getUrlParams(
+    $_url_params = MultSubmits::getUrlParams(
         $what, $reload, $action, $db, $table, $selected, $views,
         isset($original_sql_query)? $original_sql_query : null,
         isset($original_url_query)? $original_url_query : null
@@ -195,14 +195,14 @@ if (!empty($submit_mult) && !empty($what)) {
     if ($what == 'replace_prefix_tbl' || $what == 'copy_tbl_change_prefix') {
         $response->disable();
         $response->addHTML(
-            PMA_getHtmlForReplacePrefixTable($action, $_url_params)
+            MultSubmits::getHtmlForReplacePrefixTable($action, $_url_params)
         );
     } elseif ($what == 'add_prefix_tbl') {
         $response->disable();
-        $response->addHTML(PMA_getHtmlForAddPrefixTable($action, $_url_params));
+        $response->addHTML(MultSubmits::getHtmlForAddPrefixTable($action, $_url_params));
     } else {
         $response->addHTML(
-            PMA_getHtmlForOtherActions($what, $action, $_url_params, $full_query)
+            MultSubmits::getHtmlForOtherActions($what, $action, $_url_params, $full_query)
         );
     }
     exit;
@@ -211,13 +211,6 @@ if (!empty($submit_mult) && !empty($what)) {
     /**
      * Executes the query - dropping rows, columns/fields, tables or dbs
      */
-    if ($query_type == 'drop_db'
-        || $query_type == 'drop_tbl'
-        || $query_type == 'drop_fld'
-    ) {
-        include_once './libraries/relation_cleanup.lib.php';
-    }
-
     if ($query_type == 'primary_fld') {
         // Gets table primary key
         $GLOBALS['dbi']->selectDb($db);
@@ -244,7 +237,7 @@ if (!empty($submit_mult) && !empty($what)) {
     list(
         $result, $rebuild_database_list, $reload_ret,
         $run_parts, $execute_query_later, $sql_query, $sql_query_views
-    ) = PMA_buildOrExecuteQueryForMulti(
+    ) = MultSubmits::buildOrExecuteQueryForMulti(
         $query_type, $selected, $db, $table, $views,
         isset($primary) ? $primary : null,
         isset($from_prefix) ? $from_prefix : null,

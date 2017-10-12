@@ -53,12 +53,12 @@ class PMA_SeleniumTableOperationsTest extends PMA_SeleniumBase
         $this->login();
         $this->navigateTable('test_table');
 
-        $this->waitForElementNotPresent('byId', 'ajax_message_num_1');
+        $this->waitAjax();
 
         $this->expandMore();
         $this->byXPath("//a[contains(., 'Operations')]")->click();
 
-        $this->waitForElementNotPresent('byId', 'ajax_message_num_1');
+        $this->waitAjax();
         $this->waitForElement(
             "byXPath",
             "//legend[contains(., 'Table maintenance')]"
@@ -82,7 +82,7 @@ class PMA_SeleniumTableOperationsTest extends PMA_SeleniumBase
             "form#alterTableOrderby input[type='submit']"
         )->click();
 
-        $this->waitForElementNotPresent('byId', 'ajax_message_num_1');
+        $this->waitAjax();
 
         $this->waitForElement(
             "byXPath",
@@ -92,7 +92,7 @@ class PMA_SeleniumTableOperationsTest extends PMA_SeleniumBase
 
         $this->byPartialLinkText("Browse")->click();
 
-        $this->waitForElementNotPresent('byId', 'ajax_message_num_1');
+        $this->waitAjax();
         $this->waitForElement("byCssSelector", "table.table_results");
 
         $this->assertEquals(
@@ -114,7 +114,7 @@ class PMA_SeleniumTableOperationsTest extends PMA_SeleniumBase
             ->value("2");
 
         $this->byCssSelector("form#moveTableForm input[type='submit']")->click();
-        $this->waitForElementNotPresent('byId', 'ajax_message_num_1');
+        $this->waitAjax();
 
         $this->waitForElement(
             "byXPath",
@@ -148,7 +148,7 @@ class PMA_SeleniumTableOperationsTest extends PMA_SeleniumBase
 
         $this->scrollIntoView('tableOptionsForm');
         $this->byCssSelector("form#tableOptionsForm input[type='submit']")->click();
-        $this->waitForElementNotPresent('byId', 'ajax_message_num_1');
+        $this->waitAjax();
 
         $this->waitForElement(
             "byXPath",
@@ -178,7 +178,7 @@ class PMA_SeleniumTableOperationsTest extends PMA_SeleniumBase
         $this->byCssSelector("form#copyTable input[name='new_name']")->value("2");
         $this->byCssSelector("label[for='what_data']")->click();
         $this->byCssSelector("form#copyTable input[type='submit']")->click();
-        $this->waitForElementNotPresent('byId', 'ajax_message_num_1');
+        $this->waitAjax();
 
         $this->waitForElement(
             "byXPath",
@@ -209,7 +209,7 @@ class PMA_SeleniumTableOperationsTest extends PMA_SeleniumBase
 
         $this->byId("truncate_tbl_anchor")->click();
         $this->byCssSelector("button.submitOK")->click();
-        $this->waitForElementNotPresent('byId', 'ajax_message_num_1');
+        $this->waitAjax();
 
         $this->waitForElement(
             "byXPath",
@@ -238,7 +238,7 @@ class PMA_SeleniumTableOperationsTest extends PMA_SeleniumBase
 
         $this->byId("drop_tbl_anchor")->click();
         $this->byCssSelector("button.submitOK")->click();
-        $this->waitForElementNotPresent('byId', 'ajax_message_num_1');
+        $this->waitAjax();
 
         $this->waitForElement(
             "byXPath",

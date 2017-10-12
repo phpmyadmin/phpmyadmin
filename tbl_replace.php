@@ -376,10 +376,7 @@ if ($response->isAjax() && ! isset($_POST['ajax_page_request'])) {
      * If we are in grid editing, we need to process the relational and
      * transformed fields, if they were edited. After that, output the correct
      * link/transformed value and exit
-     *
-     * Logic taken from libraries/DisplayResults.php
      */
-
     if (isset($_REQUEST['rel_fields_list']) && $_REQUEST['rel_fields_list'] != '') {
 
         $map = Relation::getForeigners($db, $table, '', 'both');

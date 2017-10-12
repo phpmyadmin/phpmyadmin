@@ -1,48 +1,64 @@
 <?php
 /* vim: set expandtab sw=4 ts=4 sts=4: */
 /**
- * Hold PhpMyAdmin\SysInfo class
+ * Library for extracting information about system memory and cpu.
+ * Currently supports all Windows and Linux platforms
  *
- * @package PhpMyAdmin
+ * This code is based on the OS Classes from the phpsysinfo project
+ * (https://phpsysinfo.github.io/phpsysinfo/)
+ *
+ * @package PhpMyAdmin-sysinfo
  */
 namespace PhpMyAdmin;
 
+use PhpMyAdmin\SysInfoBase;
+
 /**
- * Basic sysinfo class not providing any real data.
+ * PhpMyAdmin\SysInfo class
  *
  * @package PhpMyAdmin
  */
 class SysInfo
 {
-    public $os = PHP_OS;
+    const MEMORY_REGEXP = '/^(MemTotal|MemFree|Cached|Buffers|SwapCached|SwapTotal|SwapFree):\s+(.*)\s*kB/im';
 
     /**
-     * Gets load information
+     * Returns OS type used for sysinfo class
      *
-     * @return array with load data
+     * @param string $php_os PHP_OS constant
+     *
+     * @return string
      */
-    public function loadavg()
+    public static function getOs($php_os = PHP_OS)
     {
-        return array('loadavg' => 0);
+        // look for common UNIX-like systems
+        $unix_like = array('FreeBSD', 'DragonFly');
+        if (in_array($php_os, $unix_like)) {
+            $php_os = 'Linux';
+        }
+
+        return ucfirst($php_os);
     }
 
     /**
-     * Gets information about memory usage
+     * Gets sysinfo class mathing current OS
      *
-     * @return array with memory usage data
+     * @return PhpMyAdmin\SysInfoBase|mixed sysinfo class
      */
-    public function memory()
+    public static function get()
     {
-        return array();
-    }
+        $php_os = self::getOs();
+        $supported = array('Linux', 'WINNT', 'SunOS');
 
-    /**
-     * Checks whether class is supported in this environment
-     *
-     * @return true on success
-     */
-    public function supported()
-    {
-        return true;
+        if (in_array($php_os, $supported)) {
+            $class_name = 'PhpMyAdmin\SysInfo' . $php_os;
+            /** @var PhpMyAdmin\SysInfoBase $ret */
+            $ret = new $class_name();
+            if ($ret->supported()) {
+                return $ret;
+            }
+        }
+
+        return new SysInfoBase();
     }
 }

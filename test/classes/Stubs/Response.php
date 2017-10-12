@@ -15,9 +15,6 @@ namespace PhpMyAdmin\Tests\Stubs;
 use PhpMyAdmin\Header;
 use PhpMyAdmin\Message;
 
-
-
-
 /**
  * Class Response
  *

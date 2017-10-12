@@ -10,6 +10,7 @@
 namespace PhpMyAdmin\Controllers\Server;
 
 use PhpMyAdmin\Controllers\Controller;
+use PhpMyAdmin\Server\Common;
 use PhpMyAdmin\StorageEngine;
 use PhpMyAdmin\Template;
 use PhpMyAdmin\Util;
@@ -36,7 +37,7 @@ class ServerEnginesController extends Controller
         /**
          * Displays the sub-page heading
          */
-        $this->response->addHTML(PMA_getHtmlForSubPageHeader('engines'));
+        $this->response->addHTML(Common::getHtmlForSubPageHeader('engines'));
 
         /**
          * Did the user request information about a certain storage engine?

@@ -12,11 +12,6 @@
 require_once 'libraries/common.inc.php';
 
 /**
- * Include all other files
- */
-require_once 'libraries/rte/rte_events.lib.php';
-
-/**
  * Do the magic
  */
 $_PMA_RTE = 'EVN';

@@ -479,7 +479,7 @@ class PdfRelationSchema extends ExportRelationSchema
      *
      * @return void
      */
-    public function dataDictionaryDoc($alltables)
+    public function dataDictionaryDoc(array $alltables)
     {
          // TOC
         $this->diagram->addpage($this->orientation);

@@ -5,19 +5,18 @@
  *
  * @package PhpMyAdmin-test
  */
-/*
- * Include to text.
- */
+namespace PhpMyAdmin\Tests;
+
 use PhpMyAdmin\Url;
+use PHPUnit_Framework_TestCase as TestCase;
 
 /**
  * Tests for methods in URL class
  *
  * @package PhpMyAdmin-test
  */
-class UrlTest extends PHPUnit_Framework_TestCase
+class UrlTest extends TestCase
 {
-
     /**
      * Sets up the fixture, for example, opens a network connection.
      * This method is called before a test is executed.
