@@ -6,6 +6,9 @@
         <label for="selected_page">
             <?= $operation == 'editPage' ? __("Page to open") : __("Page to delete"); ?>:
         </label>
-        <?= PhpMyAdmin\Database\Designer::getHtmlForPageSelector($cfgRelation, $db); ?>
+        <?= PhpMyAdmin\Template::get('database/designer/page_selector')->render([
+            'pdfwork' => $cfgRelation['pdfwork'],
+            'pages' => PhpMyAdmin\Database\Designer::getPageIdsAndNames($db),
+        ]); ?>
     </fieldset>
 </form>

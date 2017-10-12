@@ -13,7 +13,10 @@ $choices = array(
                 <tr>
                     <td>
                         <input type="hidden" name="operation" value="savePage" />
-                        <?= PhpMyAdmin\Database\Designer::getHtmlForPageSelector($cfgRelation, $db); ?>
+                        <?= PhpMyAdmin\Template::get('database/designer/page_selector')->render([
+                            'pdfwork' => $cfgRelation['pdfwork'],
+                            'pages' => PhpMyAdmin\Database\Designer::getPageIdsAndNames($db),
+                        ]); ?>
                     </td>
                 </tr>
                 <tr>

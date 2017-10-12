@@ -23,22 +23,6 @@ use PhpMyAdmin\Util;
 class Designer
 {
     /**
-     * Function to get html to display a page selector
-     *
-     * @param array  $cfgRelation information about the configuration storage
-     * @param string $db          database name
-     *
-     * @return string html content
-     */
-    public static function getHtmlForPageSelector(array $cfgRelation, $db)
-    {
-        return Template::get('database/designer/page_selector')->render([
-            'pdfwork' => $cfgRelation['pdfwork'],
-            'pages' => self::getPageIdsAndNames($db),
-        ]);
-    }
-
-    /**
      * Function to get html for displaying the page edit/delete form
      *
      * @param string $db        database name
