@@ -2158,7 +2158,12 @@ class Results
                 list($sort_order, $order_img) = $this->_getSortingUrlParams(
                     $sort_direction, $sort_order, $index
                 );
-                $order_img .= " <small>" . ($index + 1) . "</small>";
+                $status = explode(" ",$sort_order);
+                if ($status[4] == "DESC"){
+                    $order_img .= " <small>" . "ASC" . "</small>";
+                } else {
+                    $order_img .= " <small>" . "DESC" . "</small>";                    
+                }
             } else {
                 $sort_order .= strtoupper($sort_direction[$index]);
             }
