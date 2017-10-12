@@ -2162,7 +2162,7 @@ class Results
                 if ($status[4] == "DESC"){
                     $order_img .= " <small>" . "ASC" . "</small>";
                 } else {
-                    $order_img .= " <small>" . "DESC" . "</small>";                    
+                    $order_img .= " <small>" . "DESC" . "</small>";
                 }
             } else {
                 $sort_order .= strtoupper($sort_direction[$index]);
