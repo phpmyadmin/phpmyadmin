@@ -1132,7 +1132,6 @@ div#tablestatistics table {
     padding-<?php echo $left; ?>: 2.2em;
     text-shadow: 0 1px 0 #000;
     max-width: 100%;
-    max-height: 16px;
     overflow: hidden;
 }
 
