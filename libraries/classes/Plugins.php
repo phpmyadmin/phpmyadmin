@@ -206,7 +206,7 @@ class Plugins
      *
      * @return string  html select tag
      */
-    public static function getChoice($section, $name, array &$list, $cfgname = null)
+    public static function getChoice($section, $name, array $list, $cfgname = null)
     {
         if (! isset($cfgname)) {
             $cfgname = $name;
@@ -527,7 +527,7 @@ class Plugins
      *
      * @return string  html fieldset with plugin options
      */
-    public static function getOptions($section, array &$list)
+    public static function getOptions($section, array $list)
     {
         $ret = '';
         // Options for plugins that support them

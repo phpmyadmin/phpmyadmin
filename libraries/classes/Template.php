@@ -12,6 +12,7 @@ use PhpMyAdmin\Twig\CoreExtension;
 use PhpMyAdmin\Twig\I18nExtension;
 use PhpMyAdmin\Twig\MessageExtension;
 use PhpMyAdmin\Twig\PhpFunctionsExtension;
+use PhpMyAdmin\Twig\PluginsExtension;
 use PhpMyAdmin\Twig\RelationExtension;
 use PhpMyAdmin\Twig\SanitizeExtension;
 use PhpMyAdmin\Twig\ServerPrivilegesExtension;
@@ -69,6 +70,7 @@ class Template
             $twig->addExtension(new I18nExtension());
             $twig->addExtension(new MessageExtension());
             $twig->addExtension(new PhpFunctionsExtension());
+            $twig->addExtension(new PluginsExtension());
             $twig->addExtension(new RelationExtension());
             $twig->addExtension(new SanitizeExtension());
             $twig->addExtension(new ServerPrivilegesExtension());
