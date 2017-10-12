@@ -274,6 +274,12 @@ class DatabaseStructureController extends DatabaseController
             );
             return;
         }
+        // Check if current table is already in favorite list.
+        $favParams = array('db' => $this->db,
+            'ajax_request' => true,
+            'favorite_table' => $favorite_table,
+            (($already_favorite ? 'remove' : 'add') . '_favorite') => true
+        );
         $this->response->addJSON(
             array(
                 'user' => $user,
@@ -282,12 +288,11 @@ class DatabaseStructureController extends DatabaseController
                 'anchor' => Template::get('database/structure/favorite_anchor')
                     ->render(
                         array(
-                            'db' => $this->db,
-                            'current_table' => array(
-                                'TABLE_NAME' => $favorite_table
-                            ),
+                            'table_name_hash' => md5($favorite_table),
+                            'db_table_name_hash' => md5($this->db . "." . $favorite_table),
+                            'fav_params' => $favParams,
+                            'already_favorite' => $already_favorite,
                             'titles' => $titles,
-                            'already_favorite' => $already_favorite
                         )
                     )
             )

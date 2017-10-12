@@ -22,12 +22,21 @@
     ?>
     <?php if ($GLOBALS['cfg']['NumFavoriteTables'] > 0): ?>
         <td class="center print_ignore">
+            <?php
+            // Check if current table is already in favorite list.
+            $favParams = array('db' => $db,
+                'ajax_request' => true,
+                'favorite_table' => $current_table['TABLE_NAME'],
+                (($already_favorite ? 'remove' : 'add') . '_favorite') => true
+            );
+            ?>
             <?= PhpMyAdmin\Template::get('database/structure/favorite_anchor')->render(
                 array(
-                    'db' => $db,
-                    'current_table' => $current_table,
+                    'table_name_hash' => md5($current_table['TABLE_NAME']),
+                    'db_table_name_hash' => md5($db . "." . $current_table['TABLE_NAME']),
+                    'fav_params' => $favParams,
+                    'already_favorite' => $already_favorite,
                     'titles' => $titles,
-                    'already_favorite' => $already_favorite
                 )
             ); ?>
         </td>
