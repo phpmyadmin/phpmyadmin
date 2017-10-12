@@ -407,10 +407,14 @@ class Designer
     /**
      * Returns HTML for the query details panel
      *
+     * @param string $db Database name
+     *
      * @return string html
      */
-    public static function getQueryDetails()
+    public static function getQueryDetails($db)
     {
-        return Template::get('database/designer/query_details')->render();
+        return Template::get('database/designer/query_details')->render([
+            'db' => $db,
+        ]);
     }
 }

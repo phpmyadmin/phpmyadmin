@@ -206,7 +206,7 @@ if (isset($_REQUEST['query'])) {
     $response->addHTML(Designer::getHavingQueryPanel());
     $response->addHTML(Designer::getAggregateQueryPanel());
     $response->addHTML(Designer::getWhereQueryPanel());
-    $response->addHTML(Designer::getQueryDetails());
+    $response->addHTML(Designer::getQueryDetails($_GET['db']));
 }
 
 $response->addHTML('<div id="PMA_disable_floating_menubar"></div>');
