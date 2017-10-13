@@ -148,22 +148,20 @@ class Designer
      * Returns HTML for the menu bar of the designer page
      *
      * @param boolean $visualBuilder whether this is visual query builder
-     * @param string  $selected_page name of the selected page
-     * @param array   $params_array  array with class name for various buttons on side
-     *                               menu
+     * @param string  $selectedPage  name of the selected page
+     * @param array   $paramsArray   array with class name for various buttons
+     *                               on side menu
      *
      * @return string html
      */
-    public static function getPageMenu($visualBuilder, $selected_page, array $params_array)
+    public static function getPageMenu($visualBuilder, $selectedPage, array $paramsArray)
     {
-        return Template::get('database/designer/side_menu')
-            ->render(
-                array(
-                    'visualBuilder' => $visualBuilder,
-                    'selected_page' => $selected_page,
-                    'params_array' => $params_array
-                )
-            );
+        return Template::get('database/designer/side_menu')->render([
+            'visual_builder' => $visualBuilder,
+            'selected_page' => $selectedPage,
+            'params_array' => $paramsArray,
+            'theme' => $GLOBALS['PMA_Theme'],
+        ]);
     }
 
     /**

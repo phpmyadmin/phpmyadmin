@@ -61,6 +61,11 @@ class UtilExtension extends Twig_Extension
                 array('is_safe' => array('html'))
             ),
             new Twig_SimpleFunction(
+                'Util_getDocuLink',
+                'PhpMyAdmin\Util::getDocuLink',
+                array('is_safe' => array('html'))
+            ),
+            new Twig_SimpleFunction(
                 'Util_getDropdown',
                 'PhpMyAdmin\Util::getDropdown',
                 array('is_safe' => array('html'))
