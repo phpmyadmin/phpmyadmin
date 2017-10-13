@@ -32,13 +32,13 @@ class Designer
      */
     public static function getHtmlForEditOrDeletePages($db, $operation)
     {
-        return Template::get('database/designer/edit_delete_pages')
-            ->render(
-                array(
-                    'db' => $db,
-                    'operation' => $operation
-                )
-            );
+        $cfgRelation = Relation::getRelationsParam();
+        return Template::get('database/designer/edit_delete_pages')->render([
+            'db' => $db,
+            'operation' => $operation,
+            'pdfwork' => $cfgRelation['pdfwork'],
+            'pages' => self::getPageIdsAndNames($db),
+        ]);
     }
 
     /**
