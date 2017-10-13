@@ -50,12 +50,12 @@ class Designer
      */
     public static function getHtmlForPageSaveAs($db)
     {
-        return Template::get('database/designer/page_save_as')
-            ->render(
-                array(
-                    'db' => $db
-                )
-            );
+        $cfgRelation = Relation::getRelationsParam();
+        return Template::get('database/designer/page_save_as')->render([
+            'db' => $db,
+            'pdfwork' => $cfgRelation['pdfwork'],
+            'pages' => self::getPageIdsAndNames($db),
+        ]);
     }
 
     /**
