@@ -272,13 +272,15 @@ class Designer
      */
     public static function getHtmlTableList(array $tab_pos, $display_page)
     {
-        return Template::get('database/designer/table_list')
-            ->render(
-                array(
-                    'tab_pos' => $tab_pos,
-                    'display_page' => $display_page
-                )
-            );
+        return Template::get('database/designer/table_list')->render([
+            'tab_pos' => $tab_pos,
+            'display_page' => $display_page,
+            'theme' => $GLOBALS['PMA_Theme'],
+            'table_names' => $GLOBALS['PMD']['TABLE_NAME'],
+            'table_names_url' => $GLOBALS['PMD_URL']['TABLE_NAME'],
+            'table_names_small_url' => $GLOBALS['PMD_URL']['TABLE_NAME_SMALL'],
+            'table_names_out' => $GLOBALS['PMD_OUT']['TABLE_NAME'],
+        ]);
     }
 
     /**
