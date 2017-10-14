@@ -44,7 +44,7 @@
 {% elseif column_type starts with 'enum'
     or (column_type starts with 'set' and in_zoom_search_edit) %}
     {% set in_zoom_search_edit = false %}
-    {% set value = column_type|e|slice(5, -1)|replace({"'": ''})|split(', ') %}
+    {% set value = column_type|e|slice(5, -1)|replace({'&#039;': ''})|split(', ') %}
     {% set cnt_value = value|length %}
     {#
     Enum in edit mode   --> dropdown
