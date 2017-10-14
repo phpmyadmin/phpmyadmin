@@ -295,18 +295,30 @@ class Designer
      * @return string html
      */
     public static function getDatabaseTables(
-        array $tab_pos, $display_page, array $tab_column, array $tables_all_keys, array $tables_pk_or_unique_keys
+        array $tab_pos,
+        $display_page,
+        array $tab_column,
+        array $tables_all_keys,
+        array $tables_pk_or_unique_keys
     ) {
-        return Template::get('database/designer/database_tables')
-            ->render(
-                array(
-                    'tab_pos' => $tab_pos,
-                    'display_page' => $display_page,
-                    'tab_column' => $tab_column,
-                    'tables_all_keys' => $tables_all_keys,
-                    'tables_pk_or_unique_keys' => $tables_pk_or_unique_keys
-                )
-            );
+        return Template::get('database/designer/database_tables')->render([
+            'db' => $GLOBALS['db'],
+            'get_db' => $_GET['db'],
+            'query' => $_REQUEST['query'],
+            'tab_pos' => $tab_pos,
+            'display_page' => $display_page,
+            'tab_column' => $tab_column,
+            'tables_all_keys' => $tables_all_keys,
+            'tables_pk_or_unique_keys' => $tables_pk_or_unique_keys,
+            'table_names' => $GLOBALS['PMD']['TABLE_NAME'],
+            'table_names_url' => $GLOBALS['PMD_URL']['TABLE_NAME'],
+            'table_names_small' => $GLOBALS['PMD']['TABLE_NAME_SMALL'],
+            'table_names_small_url' => $GLOBALS['PMD_URL']['TABLE_NAME_SMALL'],
+            'table_names_small_out' => $GLOBALS['PMD_OUT']['TABLE_NAME_SMALL'],
+            'table_types' => $GLOBALS['PMD']['TABLE_TYPE'],
+            'owner_out' => $GLOBALS['PMD_OUT']['OWNER'],
+            'theme' => $GLOBALS['PMA_Theme'],
+        ]);
     }
 
     /**

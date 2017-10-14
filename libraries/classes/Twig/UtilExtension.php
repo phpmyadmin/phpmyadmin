@@ -109,6 +109,10 @@ class UtilExtension extends Twig_Extension
                 array('is_safe' => array('html'))
             ),
             new Twig_SimpleFunction(
+                'Util_isForeignKeySupported',
+                'PhpMyAdmin\Util::isForeignKeySupported'
+            ),
+            new Twig_SimpleFunction(
                 'Util_linkOrButton',
                 'PhpMyAdmin\Util::linkOrButton',
                 array('is_safe' => array('html'))
