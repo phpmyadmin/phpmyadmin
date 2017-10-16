@@ -2785,7 +2785,7 @@ jQuery.fn.PMA_confirm = function (question, url, callbackFn, openCallback) {
     }
 
     else {
-        var heading = 'Confirm';
+        var heading = PMA_messages.strConfirm;
     }
 
     $('<div/>', {'id': 'confirm_dialog', 'title': heading})
