@@ -24,7 +24,7 @@
 <td class="column_attribute nowrap">{{ attribute }}</td>
 <td>{{ row['Null'] == 'YES' ? 'Yes'|trans : 'No'|trans }}</td>
 <td class="nowrap">
-    {% if row['Default'] is defined %}
+    {% if row['Default'] is not null %}
         {% if extracted_columnspec['type'] == 'bit' %}
             {{ Util_convertBitDefaultValue(row['Default']) }}
         {% else %}
