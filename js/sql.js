@@ -283,7 +283,7 @@ AJAX.registerOnload('sql.js', function () {
 
         $('.sql pre').each(function () {
             textArea.value += $(this).text() + '\n\n';
-        }); 
+        });
 
         $('.table_results .column_heading a').each(function () {
             //document.getElementsByTagName("small")[38].innerHTML;
