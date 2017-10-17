@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.8.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2017-09-08 21:11+0200\n"
-"PO-Revision-Date: 2017-10-17 16:42+0000\n"
-"Last-Translator: anonymous <>\n"
+"PO-Revision-Date: 2017-10-18 02:39+0000\n"
+"Last-Translator: iF <info@if-matxikote.eus>\n"
 "Language-Team: Basque "
 "<https://hosted.weblate.org/projects/phpmyadmin/master/eu/>\n"
 "Language: eu\n"
@@ -407,10 +407,8 @@ msgid "Geometry %d:"
 msgstr "Geometria %d:"
 
 #: gis_data_editor.php:219
-#, fuzzy
-#| msgid "Point"
 msgid "Point:"
-msgstr "Puntu"
+msgstr "Puntu:"
 
 #: gis_data_editor.php:220 gis_data_editor.php:247 gis_data_editor.php:303
 #: gis_data_editor.php:376 js/messages.php:517
@@ -434,22 +432,18 @@ msgid "Add a point"
 msgstr "Puntua gehitu"
 
 #: gis_data_editor.php:275
-#, fuzzy, php-format
-#| msgid "Linestring"
+#, php-format
 msgid "Linestring %d:"
-msgstr "Lerro kateak"
+msgstr "%d Lerroa :"
 
 #: gis_data_editor.php:278 gis_data_editor.php:355
-#, fuzzy
-#| msgid "Outer Ring"
 msgid "Outer ring:"
-msgstr "Kanpo eraztuna"
+msgstr "Kanpo eraztuna:"
 
 #: gis_data_editor.php:280 gis_data_editor.php:357
-#, fuzzy, php-format
-#| msgid "Inner Ring"
+#, php-format
 msgid "Inner ring %d:"
-msgstr "Barne eraztuna"
+msgstr "%d barne eraztuna:"
 
 #: gis_data_editor.php:317
 msgid "Add a linestring"
@@ -460,10 +454,9 @@ msgid "Add an inner ring"
 msgstr "Gehitu barne eraztuna"
 
 #: gis_data_editor.php:339
-#, fuzzy, php-format
-#| msgid "Polygon"
+#, php-format
 msgid "Polygon %d:"
-msgstr "Poligono"
+msgstr "%d Poligonoa:"
 
 #: gis_data_editor.php:403
 msgid "Add a polygon"
@@ -525,34 +518,29 @@ msgid ""
 "Choose \"GeomFromText\" from the \"Function\" column and paste the string "
 "below into the \"Value\" field."
 msgstr ""
+"\"funtzio\" zutabetik \"GeomFromText\" hauta eta peko katea \"balorea\" "
+"eremuan itsatsi."
 
 #: import.php:64
-#, fuzzy
-#| msgid "Access denied!"
 msgid "Succeeded"
-msgstr "Sarbidea ukatua!"
+msgstr "Garaipena"
 
 #: import.php:68 js/messages.php:614
 msgid "Failed"
-msgstr ""
+msgstr "Porrota"
 
 #: import.php:72
-#, fuzzy
-#| msgid "Complete inserts"
 msgid "Incomplete params"
-msgstr "\"Insert\"ak osatu"
+msgstr "Osatu gabeko parametroa"
 
 #: import.php:196
-#, fuzzy, php-format
-#| msgid ""
-#| "You probably tried to upload too large file. Please refer to "
-#| "%sdocumentation%s for ways to workaround this limit."
+#, php-format
 msgid ""
 "You probably tried to upload a file that is too large. Please refer to "
 "%sdocumentation%s for a workaround for this limit."
 msgstr ""
-"Agian fitxategi haundiegia igotzen saiatu zara. Mesedez begiratu "
-"%sdocumentation%s tamaina mugak aldatzeko."
+"Fitxategi haundiegia igotzen saiatu zara agian. Mesedez, %sdokumentazioa%s-"
+"ra jo tamaina muga hau saihesteko."
 
 #: import.php:366 import.php:567
 msgid "Showing bookmark"
@@ -568,6 +556,9 @@ msgid ""
 "file size exceeded the maximum size permitted by your PHP configuration. See "
 "[doc@faq1-16]FAQ 1.16[/doc]."
 msgstr ""
+"Ez da inportaziorako inolako daturik jaso. Edo fitxategi izenik ez da eman, "
+"edo fitxategiaren pisuak PHPren konfigurazioak baimentzen duen muga "
+"gainditzen du. [doc@faq1-16]FAQ 1.16[/doc]-ra jo."
 
 #: import.php:528 libraries/classes/Display/Import.php:673
 msgid "Could not load import plugins, please check your installation!"
