@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.8.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2017-09-08 21:11+0200\n"
-"PO-Revision-Date: 2017-10-17 16:41+0000\n"
-"Last-Translator: iF <info@if-matxikote.eus>\n"
+"PO-Revision-Date: 2017-10-17 16:42+0000\n"
+"Last-Translator: anonymous <>\n"
 "Language-Team: Basque "
 "<https://hosted.weblate.org/projects/phpmyadmin/master/eu/>\n"
 "Language: eu\n"
@@ -376,11 +376,11 @@ msgstr ""
 
 #: error_report.php:81
 msgid "If you experience any problems please submit a bug report manually."
-msgstr ""
+msgstr "Arazo bat izanez gero, milesker bug bilduma eskuz igortzeagatik."
 
 #: error_report.php:85
 msgid "You may want to refresh the page."
-msgstr ""
+msgstr "Orrialdea birkargatu."
 
 #: export.php:279
 msgid "Bad parameters!"
