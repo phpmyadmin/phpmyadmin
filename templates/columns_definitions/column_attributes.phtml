@@ -138,12 +138,27 @@ $ci_offset = -1;
  <!-- column virtuality -->
 <?php if (PhpMyAdmin\Util::isVirtualColumnsSupported()): ?>
     <td class="center">
+        <?php
+        $options = array(
+            ''           =>  '',
+            'VIRTUAL'    => 'VIRTUAL',
+        );
+        $serverType = PhpMyAdmin\Util::getServerType();
+        if ($serverType == 'MariaDB') {
+            $options['PERSISTENT'] = 'PERSISTENT';
+        } else {
+            $options['STORED'] = 'STORED';
+        }
+        ?>
         <?= PhpMyAdmin\Template::get('columns_definitions/column_virtuality')
             ->render(array(
-                'columnNumber' => $columnNumber,
+                'column_number' => $columnNumber,
                 'ci' => $ci++,
                 'ci_offset' => $ci_offset,
-                'columnMeta' => isset($columnMeta) ? $columnMeta : null
+                'column_meta' => isset($columnMeta) ? $columnMeta : null,
+                'char_editing' => $GLOBALS['cfg']['CharEditing'],
+                'expression' => isset($columnMeta['Expression']) ? $columnMeta['Expression'] : '',
+                'options' => $options,
             )); ?>
     </td>
 <?php endif; ?>
