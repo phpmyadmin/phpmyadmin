@@ -66,12 +66,13 @@ $ci_offset = -1;
     <!-- column attribute -->
     <?= PhpMyAdmin\Template::get('columns_definitions/column_attribute')
         ->render(array(
-            'columnNumber' => $columnNumber,
+            'column_number' => $columnNumber,
             'ci' => $ci++,
             'ci_offset' => $ci_offset,
             'extracted_columnspec' => isset($extracted_columnspec) ? $extracted_columnspec : null,
-            'columnMeta' => isset($columnMeta) ? $columnMeta : null,
+            'column_meta' => isset($columnMeta) ? $columnMeta : null,
             'submit_attribute' => isset($submit_attribute) ? $submit_attribute : null,
+            'attribute_types' => $GLOBALS['dbi']->types->getAttributes(),
         )); ?>
 </td>
 <td class="center">
