@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.8.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2017-09-08 21:11+0200\n"
-"PO-Revision-Date: 2017-10-17 16:35+0000\n"
-"Last-Translator: anonymous <>\n"
+"PO-Revision-Date: 2017-10-17 16:39+0000\n"
+"Last-Translator: iF <info@if-matxikote.eus>\n"
 "Language-Team: Basque "
 "<https://hosted.weblate.org/projects/phpmyadmin/master/eu/>\n"
 "Language: eu\n"
@@ -301,6 +301,7 @@ msgstr "Datu-basearen izena hutsik dago!"
 #: db_operations.php:57
 msgid "Cannot copy database to the same name. Change the name and try again."
 msgstr ""
+"Ezin da Izen berdineko datu-basea kopiatu. Izena aldatu eta saiatu berriro."
 
 #: db_operations.php:146
 #, php-format
@@ -336,13 +337,15 @@ msgstr "Sarbidea ukatua!"
 
 #: db_tracking.php:55 db_tracking.php:80
 msgid "Tracking data deleted successfully."
-msgstr ""
+msgstr "Jarraipen datuak behar bezala ezabatuak izan dira."
 
 #: db_tracking.php:64
 #, php-format
 msgid ""
 "Version %1$s was created for selected tables, tracking is active for them."
 msgstr ""
+"Hautatutako taulentzako %1$s bertsioa sortua izan da, horien jarraipena "
+"aktibatuta dago."
 
 #: db_tracking.php:95
 msgid "No tables selected."
