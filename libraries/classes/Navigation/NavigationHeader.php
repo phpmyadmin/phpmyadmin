@@ -78,30 +78,35 @@ class NavigationHeader
      */
     private function _logo()
     {
-        // display Logo, depending on $GLOBALS['cfg']['NavigationDisplayLogo']
-        if (!$GLOBALS['cfg']['NavigationDisplayLogo']) {
-            return Template::get('navigation/logo')
-                ->render(array('displayLogo' => false));
+        $logo = 'phpMyAdmin';
+        if (isset($GLOBALS['pmaThemeImage'])) {
+            $imgTag = '<img src="%s%s" ' . 'alt="' . $logo . '" id="imgpmalogo" />';
+            if (@file_exists($GLOBALS['pmaThemeImage'] . 'logo_left.png')) {
+                $logo = sprintf($imgTag, $GLOBALS['pmaThemeImage'], 'logo_left.png');
+            } elseif (@file_exists($GLOBALS['pmaThemeImage'] . 'pma_logo2.png')) {
+                $logo = sprintf($imgTag, $GLOBALS['pmaThemeImage'], 'pma_logo2.png');
+            }
         }
 
-        $logo = 'phpMyAdmin';
-        if (@file_exists($GLOBALS['pmaThemeImage'] . 'logo_left.png')) {
-            $logo = '<img src="' . $GLOBALS['pmaThemeImage'] . 'logo_left.png" '
-                . 'alt="' . $logo . '" id="imgpmalogo" />';
-        } elseif (@file_exists($GLOBALS['pmaThemeImage'] . 'pma_logo2.png')) {
-            $logo = '<img src="' . $GLOBALS['pmaThemeImage'] . 'pma_logo2.png" '
-                . 'alt="' . $logo . '" id="imgpmalogo" />';
+        // display Logo, depending on $GLOBALS['cfg']['NavigationDisplayLogo']
+        if (!$GLOBALS['cfg']['NavigationDisplayLogo']) {
+            return Template::get('navigation/logo')->render([
+                'display_logo' => false,
+                'use_logo_link' => false,
+                'logo_link' => null,
+                'link_attribs' => null,
+                'logo' => $logo,
+            ]);
         }
 
         if (!$GLOBALS['cfg']['NavigationLogoLink']) {
-            return Template::get('navigation/logo')
-                ->render(
-                    array(
-                        'displayLogo' => true,
-                        'useLogoLink' => false,
-                        'logo'        => $logo,
-                    )
-                );
+            return Template::get('navigation/logo')->render([
+                'display_logo' => true,
+                'use_logo_link' => false,
+                'logo_link' => null,
+                'link_attribs' => null,
+                'logo' => $logo,
+            ]);
         }
 
         $useLogoLink = true;
@@ -131,16 +136,13 @@ class NavigationHeader
             }
         }
 
-        return Template::get('navigation/logo')
-            ->render(
-                array(
-                    'displayLogo' => true,
-                    'useLogoLink' => $useLogoLink,
-                    'logoLink'    => $logoLink,
-                    'linkAttribs' => $linkAttriks,
-                    'logo'        => $logo,
-                )
-            );
+        return Template::get('navigation/logo')->render([
+            'display_logo' => true,
+            'use_logo_link' => $useLogoLink,
+            'logo_link' => $logoLink,
+            'link_attribs' => $linkAttriks,
+            'logo' => $logo,
+        ]);
     }
 
     /**
