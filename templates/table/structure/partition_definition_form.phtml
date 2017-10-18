@@ -5,7 +5,7 @@
     <fieldset>
         <legend><?= __('Edit partitioning'); ?></legend>
         <?= PhpMyAdmin\Template::get('columns_definitions/partitions')
-            ->render(array('partitionDetails' => $partitionDetails)); ?>
+            ->render(array('partition_details' => $partitionDetails)); ?>
     </fieldset>
     <fieldset class="tblFooters">
         <input type="submit" name="save_partitioning" value="<?= __('Save'); ?>">
