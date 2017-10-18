@@ -31,6 +31,7 @@ class PhpFunctionsExtension extends Twig_Extension
             new Twig_SimpleFunction('preg_replace', 'preg_replace'),
             new Twig_SimpleFunction('strpos', 'strpos'),
             new Twig_SimpleFunction('strstr', 'strstr'),
+            new Twig_SimpleFunction('strtotime', 'strtotime'),
         );
     }
 }

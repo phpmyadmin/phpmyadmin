@@ -660,6 +660,14 @@ class DatabaseStructureController extends DatabaseController
                             'already_favorite'      => $this->checkFavoriteTable(
                                 $current_table['TABLE_NAME']
                             ),
+                            'num_favorite_tables'   => $GLOBALS['cfg']['NumFavoriteTables'],
+                            'properties_num_columns' => $GLOBALS['cfg']['PropertiesNumColumns'],
+                            'limit_chars'            => $GLOBALS['cfg']['LimitChars'],
+                            'show_charset'           => $GLOBALS['cfg']['ShowDbStructureCharset'],
+                            'show_comment'           => $GLOBALS['cfg']['ShowDbStructureComment'],
+                            'show_creation'          => $GLOBALS['cfg']['ShowDbStructureCreation'],
+                            'show_last_update'       => $GLOBALS['cfg']['ShowDbStructureLastUpdate'],
+                            'show_last_check'        => $GLOBALS['cfg']['ShowDbStructureLastCheck'],
                         )
                     )
             );
