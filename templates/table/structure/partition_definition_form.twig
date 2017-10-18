@@ -1,0 +1,14 @@
+<form action="tbl_structure.php" method="post">
+    {{ Url_getHiddenInputs(db, table) }}
+    <input type="hidden" name="edit_partitioning" value="true" />
+
+    <fieldset>
+        <legend>{% trans 'Edit partitioning' %}</legend>
+        {% include 'columns_definitions/partitions.twig' with {
+            'partition_details': partition_details
+        } only %}
+    </fieldset>
+    <fieldset class="tblFooters">
+        <input type="submit" name="save_partitioning" value="{% trans 'Save' %}">
+    </fieldset>
+</form>

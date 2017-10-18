@@ -4954,4 +4954,85 @@ class Util
         }
         return $array;
     }
+
+    /**
+     * Creates a clickable column header for table information
+     *
+     * @param string $title            Title to use for the link
+     * @param string $sort             Corresponds to sortable data name mapped
+     *                                 in Util::getDbInfo
+     * @param string $initialSortOrder Initial sort order
+     *
+     * @return string Link to be displayed in the table header
+     */
+    public static function sortableTableHeader($title, $sort, $initialSortOrder = 'ASC')
+    {
+        $requestedSort = 'table';
+        $requestedSortOrder = $futureSortOrder = $initialSortOrder;
+        // If the user requested a sort
+        if (isset($_REQUEST['sort'])) {
+            $requestedSort = $_REQUEST['sort'];
+            if (isset($_REQUEST['sort_order'])) {
+                $requestedSortOrder = $_REQUEST['sort_order'];
+            }
+        }
+        $orderImg = '';
+        $orderLinkParams = array();
+        $orderLinkParams['title'] = __('Sort');
+        // If this column was requested to be sorted.
+        if ($requestedSort == $sort) {
+            if ($requestedSortOrder == 'ASC') {
+                $futureSortOrder = 'DESC';
+                // current sort order is ASC
+                $orderImg = ' ' . self::getImage(
+                    's_asc.png',
+                    __('Ascending'),
+                    array('class' => 'sort_arrow', 'title' => '')
+                );
+                $orderImg .= ' ' . self::getImage(
+                    's_desc.png',
+                     __('Descending'),
+                    array('class' => 'sort_arrow hide', 'title' => '')
+                );
+                // but on mouse over, show the reverse order (DESC)
+                $orderLinkParams['onmouseover'] = "$('.sort_arrow').toggle();";
+                // on mouse out, show current sort order (ASC)
+                $orderLinkParams['onmouseout'] = "$('.sort_arrow').toggle();";
+            } else {
+                $futureSortOrder = 'ASC';
+                // current sort order is DESC
+                $orderImg = ' ' . self::getImage(
+                    's_asc.png',
+                    __('Ascending'),
+                    array('class' => 'sort_arrow hide', 'title' => '')
+                );
+                $orderImg .= ' ' . self::getImage(
+                    's_desc.png',
+                    __('Descending'),
+                    array('class' => 'sort_arrow', 'title' => '')
+                );
+                // but on mouse over, show the reverse order (ASC)
+                $orderLinkParams['onmouseover'] = "$('.sort_arrow').toggle();";
+                // on mouse out, show current sort order (DESC)
+                $orderLinkParams['onmouseout'] = "$('.sort_arrow').toggle();";
+            }
+        }
+        $urlParams = array(
+            'db' => $_REQUEST['db'],
+            'pos' => 0, // We set the position back to 0 every time they sort.
+            'sort' => $sort,
+            'sort_order' => $futureSortOrder,
+        );
+
+        if (Core::isValid($_REQUEST['tbl_type'], array('view', 'table'))) {
+            $urlParams['tbl_type'] = $_REQUEST['tbl_type'];
+        }
+        if (! empty($_REQUEST['tbl_group'])) {
+            $urlParams['tbl_group'] = $_REQUEST['tbl_group'];
+        }
+
+        $url = 'db_structure.php' . Url::getCommon($urlParams);
+
+        return self::linkOrButton($url, $title . $orderImg, $orderLinkParams);
+    }
 }

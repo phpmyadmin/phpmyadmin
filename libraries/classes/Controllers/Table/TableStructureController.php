@@ -537,7 +537,7 @@ class TableStructureController extends TableController
                     array(
                         'db' => $this->db,
                         'table' => $this->table,
-                        'partitionDetails' => $partitionDetails
+                        'partition_details' => $partitionDetails,
                     )
                 )
         );

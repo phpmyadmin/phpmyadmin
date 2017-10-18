@@ -1,0 +1,31 @@
+<select name="field_virtuality[{{ column_number }}]"
+    id="field_{{ column_number }}_{{ ci - ci_offset }}"
+    class="virtuality">
+    {% for key, value in options %}
+        <option value="{{ key }}"
+            {%- if column_meta['Extra'] is defined
+                and key != ''
+                and strpos(column_meta['Extra'], key) is same as(0) %}
+                selected="selected"
+            {%- endif %}>
+            {{ value }}
+        </option>
+    {% endfor %}
+</select>
+
+{% if char_editing == 'textarea' %}
+    {% spaceless %}
+    <textarea name="field_expression[{{ column_number }}]"
+        cols="15"
+        class="textfield expression">
+        {{ expression }}
+    </textarea>
+    {% endspaceless %}
+{% else %}
+    <input type="text"
+        name="field_expression[{{ column_number }}]"
+        size="12"
+        value="{{ expression }}"
+        placeholder="{% trans 'Expression' %}"
+        class="textfield expression" />
+{% endif %}

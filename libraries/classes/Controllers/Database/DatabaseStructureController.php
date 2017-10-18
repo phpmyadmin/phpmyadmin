@@ -696,15 +696,15 @@ class DatabaseStructureController extends DatabaseController
 
         //check all
         $this->response->addHTML(
-            Template::get('database/structure/check_all_tables')->render(
-                array(
-                    'pmaThemeImage' => $GLOBALS['pmaThemeImage'],
-                    'text_dir' => $GLOBALS['text_dir'],
-                    'overhead_check' => $overhead_check,
-                    'db_is_system_schema' => $this->_db_is_system_schema,
-                    'hidden_fields' => $hidden_fields
-                )
-            )
+            Template::get('database/structure/check_all_tables')->render([
+                'pma_theme_image' => $GLOBALS['pmaThemeImage'],
+                'text_dir' => $GLOBALS['text_dir'],
+                'overhead_check' => $overhead_check,
+                'db_is_system_schema' => $this->_db_is_system_schema,
+                'hidden_fields' => $hidden_fields,
+                'disable_multi_table' => $GLOBALS['cfg']['DisableMultiTableMaintenance'],
+                'central_columns_work' => $GLOBALS['cfgRelation']['centralcolumnswork'],
+            ])
         );
         $this->response->addHTML('</form>'); //end of form
     }
