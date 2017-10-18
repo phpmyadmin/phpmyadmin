@@ -931,11 +931,12 @@ class CentralColumns
             . Template::get('columns_definitions/column_default')
                 ->render(
                     array(
-                    'columnNumber' => $row_num,
+                    'column_number' => $row_num,
                     'ci' => 3,
                     'ci_offset' => 0,
                     'type_upper' => mb_strtoupper($row['col_type']),
-                    'columnMeta' => $meta
+                    'column_meta' => $meta,
+                    'char_editing' => $GLOBALS['cfg']['CharEditing'],
                     )
                 )
             . '</td>';
@@ -1072,11 +1073,12 @@ class CentralColumns
             . Template::get('columns_definitions/column_default')
                 ->render(
                     array(
-                    'columnNumber' => $row_num,
+                    'column_number' => $row_num,
                     'ci' => 3,
                     'ci_offset' => 0,
                     'type_upper' => mb_strtoupper($row['col_default']),
-                    'columnMeta' => $meta
+                    'column_meta' => $meta,
+                    'char_editing' => $GLOBALS['cfg']['CharEditing'],
                     )
                 )
             . '</td>';
@@ -1321,11 +1323,12 @@ class CentralColumns
             . Template::get('columns_definitions/column_default')
                 ->render(
                     array(
-                    'columnNumber' => 0,
+                    'column_number' => 0,
                     'ci' => 3,
                     'ci_offset' => 0,
                     'type_upper' => '',
-                    'columnMeta' => array()
+                    'column_meta' => array(),
+                    'char_editing' => $GLOBALS['cfg']['CharEditing'],
                     )
                 )
             . '</td>'
