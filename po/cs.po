@@ -6,16 +6,16 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.7.4-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2017-08-10 09:13-0400\n"
-"PO-Revision-Date: 2017-08-09 23:12+0000\n"
-"Last-Translator: Jiří Wolker <jiwopene@gmail.com>\n"
-"Language-Team: Czech <https://hosted.weblate.org/projects/phpmyadmin/4-7/cs/"
-">\n"
+"PO-Revision-Date: 2017-10-19 08:45+0000\n"
+"Last-Translator: David Kindl <mtwango@gmail.com>\n"
+"Language-Team: Czech <https://hosted.weblate.org/projects/phpmyadmin/4-7/cs/>"
+"\n"
 "Language: cs\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=(n==1) ? 0 : (n>=2 && n<=4) ? 1 : 2;\n"
-"X-Generator: Weblate 2.16-dev\n"
+"X-Generator: Weblate 2.17\n"
 
 #: ajax.php:16 ajax.php:33 export.php:192 schema_export.php:64
 msgid "Bad type!"
@@ -3163,29 +3163,21 @@ msgid "Czech"
 msgstr "Čeština"
 
 #: libraries/Charsets.php:387
-#, fuzzy
-#| msgid "Danish"
 msgctxt "Collation"
 msgid "Danish"
 msgstr "Dánština"
 
 #: libraries/Charsets.php:391
-#, fuzzy
-#| msgid "English"
 msgctxt "Collation"
 msgid "English"
 msgstr "Angličtina"
 
 #: libraries/Charsets.php:395
-#, fuzzy
-#| msgid "Esperanto"
 msgctxt "Collation"
 msgid "Esperanto"
 msgstr "Esperanto"
 
 #: libraries/Charsets.php:399
-#, fuzzy
-#| msgid "Estonian"
 msgctxt "Collation"
 msgid "Estonian"
 msgstr "Estonština"
@@ -3210,8 +3202,6 @@ msgid "Hungarian"
 msgstr "Maďarština"
 
 #: libraries/Charsets.php:418
-#, fuzzy
-#| msgid "Icelandic"
 msgctxt "Collation"
 msgid "Icelandic"
 msgstr "Islandština"
@@ -3238,7 +3228,7 @@ msgstr "Litevština"
 #: libraries/Charsets.php:441
 msgctxt "Collation"
 msgid "Burmese"
-msgstr ""
+msgstr "Barmština"
 
 #: libraries/Charsets.php:444
 #, fuzzy
@@ -3248,36 +3238,26 @@ msgid "Persian"
 msgstr "Perština"
 
 #: libraries/Charsets.php:448
-#, fuzzy
-#| msgid "Polish"
 msgctxt "Collation"
 msgid "Polish"
 msgstr "Polština"
 
 #: libraries/Charsets.php:455
-#, fuzzy
-#| msgid "Romanian"
 msgctxt "Collation"
 msgid "Romanian"
 msgstr "Rumunština"
 
 #: libraries/Charsets.php:459
-#, fuzzy
-#| msgid "Sinhalese"
 msgctxt "Collation"
 msgid "Sinhalese"
 msgstr "Sinhálština"
 
 #: libraries/Charsets.php:463
-#, fuzzy
-#| msgid "Slovak"
 msgctxt "Collation"
 msgid "Slovak"
 msgstr "Slovenština"
 
 #: libraries/Charsets.php:467
-#, fuzzy
-#| msgid "Slovenian"
 msgctxt "Collation"
 msgid "Slovenian"
 msgstr "Slovinština"
@@ -3818,7 +3798,7 @@ msgstr "Zaškrtnout vše"
 
 #: libraries/DisplayResults.php:5020
 msgid "Copy to clipboard"
-msgstr ""
+msgstr "Zkopírovat do schránky"
 
 #: libraries/DisplayResults.php:5076
 msgid "Query results operations"
