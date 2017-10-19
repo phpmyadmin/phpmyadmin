@@ -230,7 +230,7 @@ AJAX.registerOnload('sql.js', function () {
      * Attach Event Handler for 'Copy to clipbpard
      */
     $(document).on('click', '#copyToClipBoard', function (event) {
-        event.preventDefault();
+    	 event.preventDefault();
 
         var textArea = document.createElement('textarea');
 
@@ -274,19 +274,34 @@ AJAX.registerOnload('sql.js', function () {
 
         $('#serverinfo a').each(function () {
             textArea.value += $(this).text().split(':')[1].trim() + '/';
+           // alert('this  '+ $(this).text());
+          //  alert('text Area  '+ textArea.value);
         });
         textArea.value += '\t\t' + window.location.href;
         textArea.value += '\n';
         $('.success').each(function () {
             textArea.value += $(this).text() + '\n\n';
+            //alert('text Area  '+ textArea.value);
         });
 
         $('.sql pre').each(function () {
             textArea.value += $(this).text() + '\n\n';
+           // alert('text Area  '+ textArea.value);
         });
 
         $('.table_results .column_heading a').each(function () {
-            textArea.value += $(this).text() + '\t';
+        	var title_String =$(this).html();
+        	var pos = title_String.indexOf("<img");
+        	if(pos!= -1)
+        	{ 
+        	    title_String=title_String.substring(0,pos);
+        	    textArea.value += title_String + '\t';
+        	}
+        	else
+        	{
+        		textArea.value += $(this).text() + '\t';
+        	}       	
+           
         });
 
         textArea.value += '\n';
