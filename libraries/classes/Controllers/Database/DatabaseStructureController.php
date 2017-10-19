@@ -660,6 +660,14 @@ class DatabaseStructureController extends DatabaseController
                             'already_favorite'      => $this->checkFavoriteTable(
                                 $current_table['TABLE_NAME']
                             ),
+                            'num_favorite_tables'   => $GLOBALS['cfg']['NumFavoriteTables'],
+                            'properties_num_columns' => $GLOBALS['cfg']['PropertiesNumColumns'],
+                            'limit_chars'            => $GLOBALS['cfg']['LimitChars'],
+                            'show_charset'           => $GLOBALS['cfg']['ShowDbStructureCharset'],
+                            'show_comment'           => $GLOBALS['cfg']['ShowDbStructureComment'],
+                            'show_creation'          => $GLOBALS['cfg']['ShowDbStructureCreation'],
+                            'show_last_update'       => $GLOBALS['cfg']['ShowDbStructureLastUpdate'],
+                            'show_last_check'        => $GLOBALS['cfg']['ShowDbStructureLastCheck'],
                         )
                     )
             );
@@ -696,15 +704,15 @@ class DatabaseStructureController extends DatabaseController
 
         //check all
         $this->response->addHTML(
-            Template::get('database/structure/check_all_tables')->render(
-                array(
-                    'pmaThemeImage' => $GLOBALS['pmaThemeImage'],
-                    'text_dir' => $GLOBALS['text_dir'],
-                    'overhead_check' => $overhead_check,
-                    'db_is_system_schema' => $this->_db_is_system_schema,
-                    'hidden_fields' => $hidden_fields
-                )
-            )
+            Template::get('database/structure/check_all_tables')->render([
+                'pma_theme_image' => $GLOBALS['pmaThemeImage'],
+                'text_dir' => $GLOBALS['text_dir'],
+                'overhead_check' => $overhead_check,
+                'db_is_system_schema' => $this->_db_is_system_schema,
+                'hidden_fields' => $hidden_fields,
+                'disable_multi_table' => $GLOBALS['cfg']['DisableMultiTableMaintenance'],
+                'central_columns_work' => $GLOBALS['cfgRelation']['centralcolumnswork'],
+            ])
         );
         $this->response->addHTML('</form>'); //end of form
     }

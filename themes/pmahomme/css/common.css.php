@@ -1994,6 +1994,10 @@ select.invalid_value,
     vertical-align: middle;
 }
 
+.exportoptions h2 {
+    word-wrap: break-word;
+}
+
 .exportoptions h3,
 .importoptions h3 {
     border-bottom: 1px #999 solid;

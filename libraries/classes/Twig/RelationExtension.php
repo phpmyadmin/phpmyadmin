@@ -31,6 +31,11 @@ class RelationExtension extends Twig_Extension
                 array('is_safe' => array('html'))
             ),
             new Twig_SimpleFunction(
+                'Relation_getDisplayField',
+                'PhpMyAdmin\Relation::getDisplayField',
+                array('is_safe' => array('html'))
+            ),
+            new Twig_SimpleFunction(
                 'Relation_getForeignData',
                 'PhpMyAdmin\Relation::getForeignData'
             ),

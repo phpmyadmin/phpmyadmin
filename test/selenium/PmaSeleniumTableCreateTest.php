@@ -151,7 +151,7 @@ class PMA_SeleniumTableCreateTest extends PMA_SeleniumBase
         );
 
         $this->assertEquals(
-            "",
+            "None",
             $this->getCellByTableId('tablestructure', 1, 8)
         );
         $this->assertEquals(
