@@ -612,7 +612,7 @@ function adjustPrefsNotification () {
     var $prefsAutoShowing = ($prefsAutoLoad.css('display') !== 'none');
 
     if ($prefsAutoShowing && $tableNameControl.length) {
-        $tableNameControl.css('top', '120px');
+        $tableNameControl.css('top', '55px');
     }
 }
 
