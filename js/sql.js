@@ -274,19 +274,15 @@ AJAX.registerOnload('sql.js', function () {
 
         $('#serverinfo a').each(function () {
             textArea.value += $(this).text().split(':')[1].trim() + '/';
-           // alert('this  '+ $(this).text());
-          //  alert('text Area  '+ textArea.value);
         });
         textArea.value += '\t\t' + window.location.href;
         textArea.value += '\n';
         $('.success').each(function () {
             textArea.value += $(this).text() + '\n\n';
-            //alert('text Area  '+ textArea.value);
         });
 
         $('.sql pre').each(function () {
             textArea.value += $(this).text() + '\n\n';
-           // alert('text Area  '+ textArea.value);
         });
 
         $('.table_results .column_heading a').each(function () {
