@@ -2262,8 +2262,13 @@ class DatabaseInterface
 
         if ($mode == DatabaseInterface::CONNECT_USER) {
             $user = $cfg['Server']['user'];
-            $password = $cfg['Server']['password'];
+            $password = !$cfg['Server']['password'] ? $cfg['Server']['controlpass'] : $cfg['Server']['password'];
             $server = $cfg['Server'];
+            if (! empty($cfg['Server']['controlhost'])) {
+                $server['host'] = $cfg['Server']['controlhost'];
+            } else {
+                $server['host'] = $cfg['Server']['host'];
+            }
         } elseif ($mode == DatabaseInterface::CONNECT_CONTROL) {
             $user = $cfg['Server']['controluser'];
             $password = $cfg['Server']['controlpass'];
