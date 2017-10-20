@@ -1125,4 +1125,35 @@ class AuthenticationCookieTest extends PmaTestCase
             ),
         );
     }
+
+    /**
+     * Test for PhpMyAdmin\Plugins\Auth\AuthenticationCookie::authenticate
+     *
+     * @return void
+     */
+    public function testAuthenticate()
+    {
+        $GLOBALS['cfg']['CaptchaLoginPrivateKey'] = '';
+        $GLOBALS['cfg']['CaptchaLoginPublicKey'] = '';
+        $GLOBALS['cfg']['Server']['AllowRoot'] = false;
+        $GLOBALS['cfg']['Server']['AllowNoPassword'] = false;
+        $_REQUEST['old_usr'] = '';
+        $_REQUEST['pma_username'] = 'testUser';
+        $_REQUEST['pma_password'] = 'testPassword';
+
+        ob_start();
+        $this->object->authenticate();
+        $result = ob_get_clean();
+
+        /* Nothing should be printed */
+        $this->assertEquals('', $result);
+
+        /* Verify readCredentials worked */
+        $this->assertEquals('testUser', $this->object->user);
+        $this->assertEquals('testPassword', $this->object->password);
+
+        /* Verify storeCredentials worked */
+        $this->assertEquals('testUser', $GLOBALS['cfg']['Server']['user']);
+        $this->assertEquals('testPassword', $GLOBALS['cfg']['Server']['password']);
+    }
 }
