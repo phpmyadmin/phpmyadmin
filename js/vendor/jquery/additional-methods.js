@@ -1,9 +1,9 @@
 /*!
- * jQuery Validation Plugin v1.16.0
+ * jQuery Validation Plugin v1.17.0
  *
- * http://jqueryvalidation.org/
+ * https://jqueryvalidation.org/
  *
- * Copyright (c) 2016 Jörn Zaefferer
+ * Copyright (c) 2017 Jörn Zaefferer
  * Released under the MIT license
  */
 (function( factory ) {
@@ -59,7 +59,7 @@ $.validator.addMethod( "accept", function( value, element, param ) {
 	if ( $( element ).attr( "type" ) === "file" ) {
 
 		// Escape string to be used in the regex
-		// see: http://stackoverflow.com/questions/3446170/escape-string-for-use-in-javascript-regex
+		// see: https://stackoverflow.com/questions/3446170/escape-string-for-use-in-javascript-regex
 		// Escape also "/*" as "/.*" as a wildcard
 		typeParam = typeParam
 				.replace( /[\-\[\]\/\{\}\(\)\+\?\.\\\^\$\|]/g, "\\$&" )
@@ -191,8 +191,12 @@ $.validator.addMethod( "bic", function( value, element ) {
  *   S         Letter
  *
  */
-$.validator.addMethod( "cifES", function( value ) {
+$.validator.addMethod( "cifES", function( value, element ) {
 	"use strict";
+
+	if ( this.optional( element ) ) {
+		return true;
+	}
 
 	var cifRegEx = new RegExp( /^([ABCDEFGHJKLMNPQRSUVW])(\d{7})([0-9A-J])$/gi );
 	var letter  = value.substring( 0, 1 ), // [ T ]
@@ -245,13 +249,10 @@ $.validator.addMethod( "cifES", function( value ) {
 	// Control must be a letter
 	} else if ( letter.match( /[KPQS]/ ) ) {
 		return control === control_letter;
-
-	// Can be either
-	} else {
-		return control === control_digit || control === control_letter;
 	}
 
-	return false;
+	// Can be either
+	return control === control_digit || control === control_letter;
 
 }, "Please specify a valid CIF number." );
 
@@ -316,8 +317,8 @@ $.validator.addMethod( "cpfBR", function( value ) {
 
 }, "Please specify a valid CPF number" );
 
-// http://jqueryvalidation.org/creditcard-method/
-// based on http://en.wikipedia.org/wiki/Luhn_algorithm
+// https://jqueryvalidation.org/creditcard-method/
+// based on https://en.wikipedia.org/wiki/Luhn_algorithm
 $.validator.addMethod( "creditcard", function( value, element ) {
 	if ( this.optional( element ) ) {
 		return "dependency-mismatch";
@@ -336,7 +337,7 @@ $.validator.addMethod( "creditcard", function( value, element ) {
 	value = value.replace( /\D/g, "" );
 
 	// Basing min and max length on
-	// http://developer.ean.com/general_info/Valid_Credit_Card_Types
+	// https://developer.ean.com/general_info/Valid_Credit_Card_Types
 	if ( value.length < 13 || value.length > 19 ) {
 		return false;
 	}
@@ -705,6 +706,10 @@ $.validator.addMethod( "mobileUK", function( phone_number, element ) {
 		phone_number.match( /^(?:(?:(?:00\s?|\+)44\s?|0)7(?:[1345789]\d{2}|624)\s?\d{3}\s?\d{3})$/ );
 }, "Please specify a valid mobile number" );
 
+$.validator.addMethod( "netmask", function( value, element ) {
+    return this.optional( element ) || /^(254|252|248|240|224|192|128)\.0\.0\.0|255\.(254|252|248|240|224|192|128|0)\.0\.0|255\.255\.(254|252|248|240|224|192|128|0)\.0|255\.255\.255\.(254|252|248|240|224|192|128|0)/i.test( value );
+}, "Please enter a valid netmask." );
+
 /*
  * The NIE (Número de Identificación de Extranjero) is a Spanish tax identification number assigned by the Spanish
  * authorities to any foreigner.
@@ -713,8 +718,12 @@ $.validator.addMethod( "mobileUK", function( phone_number, element ) {
  * identification number. The CIF number (Certificado de Identificación Fiscal) is equivalent to the NIF, but applies to
  * companies rather than individuals. The NIE consists of an 'X' or 'Y' followed by 7 or 8 digits then another letter.
  */
-$.validator.addMethod( "nieES", function( value ) {
+$.validator.addMethod( "nieES", function( value, element ) {
 	"use strict";
+
+	if ( this.optional( element ) ) {
+		return true;
+	}
 
 	var nieRegEx = new RegExp( /^[MXYZ]{1}[0-9]{7,8}[TRWAGMYFPDXBNJZSQVHLCKET]{1}$/gi );
 	var validChars = "TRWAGMYFPDXBNJZSQVHLCKET",
@@ -744,8 +753,12 @@ $.validator.addMethod( "nieES", function( value ) {
 /*
  * The Número de Identificación Fiscal ( NIF ) is the way tax identification used in Spain for individuals
  */
-$.validator.addMethod( "nifES", function( value ) {
+$.validator.addMethod( "nifES", function( value, element ) {
 	"use strict";
+
+	if ( this.optional( element ) ) {
+		return true;
+	}
 
 	value = value.toUpperCase();
 
@@ -761,12 +774,35 @@ $.validator.addMethod( "nifES", function( value ) {
 
 	// Test specials NIF (starts with K, L or M)
 	if ( /^[KLM]{1}/.test( value ) ) {
-		return ( value[ 8 ] === String.fromCharCode( 64 ) );
+		return ( value[ 8 ] === "TRWAGMYFPDXBNJZSQVHLCKE".charAt( value.substring( 8, 1 ) % 23 ) );
 	}
 
 	return false;
 
 }, "Please specify a valid NIF number." );
+
+/*
+ * Numer identyfikacji podatkowej ( NIP ) is the way tax identification used in Poland for companies
+ */
+$.validator.addMethod( "nipPL", function( value ) {
+	"use strict";
+
+	value = value.replace( /[^0-9]/g, "" );
+
+	if ( value.length !== 10 ) {
+		return false;
+	}
+
+	var arrSteps = [ 6, 5, 7, 2, 3, 4, 5, 6, 7 ];
+	var intSum = 0;
+	for ( var i = 0; i < 9; i++ ) {
+		intSum += arrSteps[ i ] * value[ i ];
+	}
+	var int2 = intSum % 11;
+	var intControlNr = ( int2 === 10 ) ? 0 : int2;
+
+	return ( intControlNr === parseInt( value[ 9 ], 10 ) );
+}, "Please specify a valid NIP number." );
 
 $.validator.addMethod( "notEqualTo", function( value, element, param ) {
 	return this.optional( element ) || !$.validator.methods.equalTo.call( this, value, element, param );

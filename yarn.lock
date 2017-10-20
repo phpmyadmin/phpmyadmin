@@ -470,9 +470,9 @@ jquery-ui@1.12.1:
   version "1.12.1"
   resolved "https://registry.yarnpkg.com/jquery-ui/-/jquery-ui-1.12.1.tgz#bcb4045c8dd0539c134bc1488cdd3e768a7a9e51"
 
-jquery-validation@1.16.0:
-  version "1.16.0"
-  resolved "https://registry.yarnpkg.com/jquery-validation/-/jquery-validation-1.16.0.tgz#b6e5277ebbd67c1fabab213eb4454eea8a3095ca"
+jquery-validation@1.17.0:
+  version "1.17.0"
+  resolved "https://registry.yarnpkg.com/jquery-validation/-/jquery-validation-1.17.0.tgz#ab66b6b583d7740b9bbd148993e50e8ac041f35b"
   dependencies:
     jquery "^1.7 || ^2.0 || ^3.1"
 
