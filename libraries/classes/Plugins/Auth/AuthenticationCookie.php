@@ -386,11 +386,16 @@ class AuthenticationCookie extends AuthenticationPlugin
             return false;
         }
 
-        $this->user = $this->cookieDecrypt(
+        $value = $this->cookieDecrypt(
             $_COOKIE['pmaUser-' . $GLOBALS['server']],
             $this->_getEncryptionSecret()
         );
 
+        if ($value === false) {
+            return false;
+        }
+
+        $this->user = $value;
         // user was never logged in since session start
         if (empty($_SESSION['browser_access_time'])) {
             return false;
@@ -427,14 +432,15 @@ class AuthenticationCookie extends AuthenticationPlugin
         if (empty($_COOKIE['pmaAuth-' . $GLOBALS['server']])) {
             return false;
         }
-
-        $auth_data = json_decode(
-            $this->cookieDecrypt(
-                $_COOKIE['pmaAuth-' . $GLOBALS['server']],
-                $this->_getSessionEncryptionSecret()
-            ),
-            true
+        $value = $this->cookieDecrypt(
+            $_COOKIE['pmaAuth-' . $GLOBALS['server']],
+            $this->_getSessionEncryptionSecret()
         );
+        if ($value === false) {
+            return false;
+        }
+
+        $auth_data = json_decode($value, true);
 
         if (! is_array($auth_data) || ! isset($auth_data['password'])) {
             return false;
@@ -777,7 +783,7 @@ class AuthenticationCookie extends AuthenticationPlugin
      * @param string $encdata encrypted data
      * @param string $secret  the secret
      *
-     * @return string|bool original data, false on error
+     * @return string|false original data, false on error
      */
     public function cookieDecrypt($encdata, $secret)
     {

@@ -645,8 +645,13 @@ class AuthenticationCookieTest extends PmaTestCase
         // mock for blowfish function
         $this->object = $this->getMockBuilder('PhpMyAdmin\Plugins\Auth\AuthenticationCookie')
             ->disableOriginalConstructor()
-            ->setMethods(array('showFailure'))
+            ->setMethods(array('showFailure', 'cookieDecrypt'))
             ->getMock();
+
+        $this->object->expects($this->once())
+            ->method('cookieDecrypt')
+            ->will($this->returnValue('testBF'));
+
 
         $this->object->expects($this->once())
             ->method('showFailure');
