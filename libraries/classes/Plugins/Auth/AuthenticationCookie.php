@@ -835,7 +835,7 @@ class AuthenticationCookie extends AuthenticationPlugin
      * further decryption. I don't think necessary to have one iv
      * per server so I don't put the server number in the cookie name.
      *
-     * @return void
+     * @return string
      */
     public function createIV()
     {
