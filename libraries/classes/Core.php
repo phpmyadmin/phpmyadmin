@@ -1215,4 +1215,23 @@ class Core
                 )
             );
     }
+
+    /**
+     * Checks request and fails with fatal error if something problematic is found
+     *
+     * @return void
+     */
+    public static function checkRequest()
+    {
+        if (isset($_REQUEST['GLOBALS']) || isset($_FILES['GLOBALS'])) {
+            self::fatalError(__("GLOBALS overwrite attempt"));
+        }
+
+        /**
+         * protect against possible exploits - there is no need to have so much variables
+         */
+        if (count($_REQUEST) > 1000) {
+            self::fatalError(__('possible exploit'));
+        }
+    }
 }

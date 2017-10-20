@@ -427,7 +427,11 @@ $language->activate();
 $GLOBALS['PMA_Config']->checkPermissions();
 $GLOBALS['PMA_Config']->checkErrors();
 
+/* Check server configuration */
 Core::checkConfiguration();
+
+/* Check request for possible attacks */
+Core::checkRequest();
 
 /******************************************************************************/
 /* setup servers                                       LABEL_setup_servers    */
@@ -728,17 +732,6 @@ if (! defined('PMA_MINIMUM_COMMON')) {
 
 /* Tell tracker that it can actually work */
 Tracker::enable();
-
-if (isset($_REQUEST['GLOBALS']) || isset($_FILES['GLOBALS'])) {
-    Core::fatalError(__("GLOBALS overwrite attempt"));
-}
-
-/**
- * protect against possible exploits - there is no need to have so much variables
- */
-if (count($_REQUEST) > 1000) {
-    Core::fatalError(__('possible exploit'));
-}
 
 if (!empty($__redirect) && in_array($__redirect, $goto_whitelist)) {
     /**
