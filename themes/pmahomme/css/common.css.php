@@ -398,6 +398,9 @@ table td {
 }
 
 /* 3.4 */
+datatable {
+    table-layout: fixed;
+}
 table {
     border-collapse: collapse;
 }
