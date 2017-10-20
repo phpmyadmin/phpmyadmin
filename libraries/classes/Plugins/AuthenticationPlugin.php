@@ -8,6 +8,8 @@
 namespace PhpMyAdmin\Plugins;
 
 use PhpMyAdmin\Core;
+use PhpMyAdmin\IpAllowDeny;
+use PhpMyAdmin\Logging;
 use PhpMyAdmin\Sanitize;
 use PhpMyAdmin\Session;
 use PhpMyAdmin\Url;
@@ -210,6 +212,70 @@ abstract class AuthenticationPlugin
             $this->showLoginForm();
         } else {
             $this->storeCredentials();
+        }
+
+        $this->checkRules();
+    }
+
+    /**
+     * Check configuration defined restrictions for authentication
+     *
+     * @return void
+     */
+    public function checkRules()
+    {
+        global $cfg;
+
+        // Check IP-based Allow/Deny rules as soon as possible to reject the
+        // user based on mod_access in Apache
+        if (isset($cfg['Server']['AllowDeny'])
+            && isset($cfg['Server']['AllowDeny']['order'])
+        ) {
+            $allowDeny_forbidden         = false; // default
+            if ($cfg['Server']['AllowDeny']['order'] == 'allow,deny') {
+                $allowDeny_forbidden     = true;
+                if (IpAllowDeny::allowDeny('allow')) {
+                    $allowDeny_forbidden = false;
+                }
+                if (IpAllowDeny::allowDeny('deny')) {
+                    $allowDeny_forbidden = true;
+                }
+            } elseif ($cfg['Server']['AllowDeny']['order'] == 'deny,allow') {
+                if (IpAllowDeny::allowDeny('deny')) {
+                    $allowDeny_forbidden = true;
+                }
+                if (IpAllowDeny::allowDeny('allow')) {
+                    $allowDeny_forbidden = false;
+                }
+            } elseif ($cfg['Server']['AllowDeny']['order'] == 'explicit') {
+                if (IpAllowDeny::allowDeny('allow') && ! IpAllowDeny::allowDeny('deny')) {
+                    $allowDeny_forbidden = false;
+                } else {
+                    $allowDeny_forbidden = true;
+                }
+            } // end if ... elseif ... elseif
+
+            // Ejects the user if banished
+            if ($allowDeny_forbidden) {
+                Logging::logUser($cfg['Server']['user'], 'allow-denied');
+                $this->showFailure();
+            }
+        } // end if
+
+        // is root allowed?
+        if (! $cfg['Server']['AllowRoot'] && $cfg['Server']['user'] == 'root') {
+            $allowDeny_forbidden = true;
+            Logging::logUser($cfg['Server']['user'], 'root-denied');
+            $this->showFailure();
+        }
+
+        // is a login without password allowed?
+        if (! $cfg['Server']['AllowNoPassword']
+            && $cfg['Server']['password'] === ''
+        ) {
+            $login_without_password_is_forbidden = true;
+            Logging::logUser($cfg['Server']['user'], 'empty-denied');
+            $this->showFailure();
         }
     }
 }

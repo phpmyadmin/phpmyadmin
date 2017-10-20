@@ -36,7 +36,6 @@ use PhpMyAdmin\Core;
 use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Database\DatabaseList;
 use PhpMyAdmin\ErrorHandler;
-use PhpMyAdmin\IpAllowDeny;
 use PhpMyAdmin\LanguageManager;
 use PhpMyAdmin\Logging;
 use PhpMyAdmin\Message;
@@ -513,58 +512,6 @@ if (! defined('PMA_MINIMUM_COMMON')) {
         $auth_plugin = new $auth_class($plugin_manager);
 
         $auth_plugin->authenticate();
-
-        // Check IP-based Allow/Deny rules as soon as possible to reject the
-        // user based on mod_access in Apache
-        if (isset($cfg['Server']['AllowDeny'])
-            && isset($cfg['Server']['AllowDeny']['order'])
-        ) {
-            $allowDeny_forbidden         = false; // default
-            if ($cfg['Server']['AllowDeny']['order'] == 'allow,deny') {
-                $allowDeny_forbidden     = true;
-                if (IpAllowDeny::allowDeny('allow')) {
-                    $allowDeny_forbidden = false;
-                }
-                if (IpAllowDeny::allowDeny('deny')) {
-                    $allowDeny_forbidden = true;
-                }
-            } elseif ($cfg['Server']['AllowDeny']['order'] == 'deny,allow') {
-                if (IpAllowDeny::allowDeny('deny')) {
-                    $allowDeny_forbidden = true;
-                }
-                if (IpAllowDeny::allowDeny('allow')) {
-                    $allowDeny_forbidden = false;
-                }
-            } elseif ($cfg['Server']['AllowDeny']['order'] == 'explicit') {
-                if (IpAllowDeny::allowDeny('allow') && ! IpAllowDeny::allowDeny('deny')) {
-                    $allowDeny_forbidden = false;
-                } else {
-                    $allowDeny_forbidden = true;
-                }
-            } // end if ... elseif ... elseif
-
-            // Ejects the user if banished
-            if ($allowDeny_forbidden) {
-                Logging::logUser($cfg['Server']['user'], 'allow-denied');
-                $auth_plugin->showFailure();
-            }
-        } // end if
-
-        // is root allowed?
-        if (! $cfg['Server']['AllowRoot'] && $cfg['Server']['user'] == 'root') {
-            $allowDeny_forbidden = true;
-            Logging::logUser($cfg['Server']['user'], 'root-denied');
-            $auth_plugin->showFailure();
-        }
-
-        // is a login without password allowed?
-        if (! $cfg['Server']['AllowNoPassword']
-            && $cfg['Server']['password'] === ''
-        ) {
-            $login_without_password_is_forbidden = true;
-            Logging::logUser($cfg['Server']['user'], 'empty-denied');
-            $auth_plugin->showFailure();
-        }
 
         // Try to connect MySQL with the control user profile (will be used to
         // get the privileges list for the current user but the true user link
