@@ -186,9 +186,6 @@ class AuthenticationHttpTest extends PmaTestCase
     public function testAuthCheck($user, $pass, $userIndex, $passIndex,
         $expectedReturn, $expectedUser, $expectedPass, $old_usr = ''
     ) {
-        $GLOBALS['PHP_AUTH_USER'] = '';
-        $GLOBALS['PHP_AUTH_PW'] = '';
-
         $_SERVER[$userIndex] = $user;
         $_SERVER[$passIndex] = $pass;
 
@@ -201,12 +198,12 @@ class AuthenticationHttpTest extends PmaTestCase
 
         $this->assertEquals(
             $expectedUser,
-            $GLOBALS['PHP_AUTH_USER']
+            $this->object->user
         );
 
         $this->assertEquals(
             $expectedPass,
-            $GLOBALS['PHP_AUTH_PW']
+            $this->object->password
         );
 
         $_SERVER[$userIndex] = null;
@@ -279,8 +276,8 @@ class AuthenticationHttpTest extends PmaTestCase
     {
         // case 1
 
-        $GLOBALS['PHP_AUTH_USER'] = 'testUser';
-        $GLOBALS['PHP_AUTH_PW'] = 'testPass';
+        $this->object->user = 'testUser';
+        $this->object->password = 'testPass';
         $GLOBALS['server'] = 2;
         $GLOBALS['cfg']['Server']['user'] = 'testUser';
 
@@ -299,10 +296,6 @@ class AuthenticationHttpTest extends PmaTestCase
         );
 
         $this->assertFalse(
-            isset($GLOBALS['PHP_AUTH_PW'])
-        );
-
-        $this->assertFalse(
             isset($_SERVER['PHP_AUTH_PW'])
         );
 
@@ -312,8 +305,8 @@ class AuthenticationHttpTest extends PmaTestCase
         );
 
         // case 2
-        $GLOBALS['PHP_AUTH_USER'] = 'testUser';
-        $GLOBALS['PHP_AUTH_PW'] = 'testPass';
+        $this->object->user = 'testUser';
+        $this->object->password = 'testPass';
         $GLOBALS['cfg']['Servers'][1] = array(
             'host' => 'a',
             'user' => 'testUser',
@@ -345,8 +338,8 @@ class AuthenticationHttpTest extends PmaTestCase
 
         // case 3
         $GLOBALS['server'] = 3;
-        $GLOBALS['PHP_AUTH_USER'] = 'testUser';
-        $GLOBALS['PHP_AUTH_PW'] = 'testPass';
+        $this->object->user = 'testUser';
+        $this->object->password = 'testPass';
         $GLOBALS['cfg']['Servers'][1] = array(
             'host' => 'a',
             'user' => 'testUsers',

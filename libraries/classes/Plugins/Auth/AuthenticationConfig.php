@@ -54,6 +54,9 @@ class AuthenticationConfig extends AuthenticationPlugin
             return false;
         }
 
+        $this->user = $GLOBALS['cfg']['Server']['user'];
+        $this->password = $GLOBALS['cfg']['Server']['password'];
+
         return true;
     }
 

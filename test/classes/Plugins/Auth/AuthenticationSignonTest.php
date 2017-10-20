@@ -131,12 +131,12 @@ class AuthenticationSignonTest extends PmaTestCase
 
         $this->assertEquals(
             'user',
-            $GLOBALS['PHP_AUTH_USER']
+            $this->object->user
         );
 
         $this->assertEquals(
             'password',
-            $GLOBALS['PHP_AUTH_PW']
+            $this->object->password
         );
 
         $this->assertEquals(
@@ -230,12 +230,12 @@ class AuthenticationSignonTest extends PmaTestCase
 
         $this->assertEquals(
             'user123',
-            $GLOBALS['PHP_AUTH_USER']
+            $this->object->user
         );
 
         $this->assertEquals(
             'pass123',
-            $GLOBALS['PHP_AUTH_PW']
+            $this->object->password
         );
     }
 
@@ -246,8 +246,8 @@ class AuthenticationSignonTest extends PmaTestCase
      */
     public function testAuthSetUser()
     {
-        $GLOBALS['PHP_AUTH_USER'] = 'testUser123';
-        $GLOBALS['PHP_AUTH_PW'] = 'testPass123';
+        $this->object->user = 'testUser123';
+        $this->object->password = 'testPass123';
 
         $this->assertTrue(
             $this->object->storeCredentials()

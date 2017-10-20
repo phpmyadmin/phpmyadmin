@@ -109,7 +109,7 @@ class AuthenticationCookieTest extends PmaTestCase
         $_REQUEST['old_usr'] = '';
         $GLOBALS['cfg']['LoginCookieRecall'] = true;
         $GLOBALS['cfg']['blowfish_secret'] = 'secret';
-        $GLOBALS['PHP_AUTH_USER'] = 'pmauser';
+        $this->object->user = 'pmauser';
         $GLOBALS['pma_auth_server'] = 'localhost';
 
         // mock footer
@@ -474,12 +474,12 @@ class AuthenticationCookieTest extends PmaTestCase
 
         $this->assertEquals(
             'testPMAUser',
-            $GLOBALS['PHP_AUTH_USER']
+            $this->object->user
         );
 
         $this->assertEquals(
             'testPMAPSWD',
-            $GLOBALS['PHP_AUTH_PW']
+            $this->object->password
         );
 
         $this->assertEquals(
@@ -567,7 +567,7 @@ class AuthenticationCookieTest extends PmaTestCase
 
         $this->assertEquals(
             'testBF',
-            $GLOBALS['PHP_AUTH_USER']
+            $this->object->user
         );
     }
 
@@ -611,7 +611,7 @@ class AuthenticationCookieTest extends PmaTestCase
 
         $this->assertEquals(
             '',
-            $GLOBALS['PHP_AUTH_PW']
+            $this->object->password
         );
 
     }
@@ -656,7 +656,7 @@ class AuthenticationCookieTest extends PmaTestCase
      */
     public function testAuthSetUser()
     {
-        $GLOBALS['PHP_AUTH_USER'] = 'pmaUser2';
+        $this->object->user = 'pmaUser2';
         $arr = array(
             'host' => 'a',
             'port' => 1,
@@ -670,20 +670,12 @@ class AuthenticationCookieTest extends PmaTestCase
         $GLOBALS['cfg']['Servers'][1] = $arr;
         $GLOBALS['cfg']['AllowArbitraryServer'] = true;
         $GLOBALS['pma_auth_server'] = 'b 2';
-        $GLOBALS['PHP_AUTH_PW'] = $_SERVER['PHP_AUTH_PW'] = 'testPW';
+        $this->object->password = 'testPW';
         $GLOBALS['server'] = 2;
         $GLOBALS['cfg']['LoginCookieStore'] = true;
         $GLOBALS['from_cookie'] = true;
 
         $this->object->storeCredentials();
-
-        $this->assertFalse(
-            isset($GLOBALS['PHP_AUTH_PW'])
-        );
-
-        $this->assertFalse(
-            isset($_SERVER['PHP_AUTH_PW'])
-        );
 
         $this->object->rememberCredentials();
 
@@ -712,7 +704,7 @@ class AuthenticationCookieTest extends PmaTestCase
      */
     public function testAuthSetUserWithHeaders()
     {
-        $GLOBALS['PHP_AUTH_USER'] = 'pmaUser2';
+        $this->object->user = 'pmaUser2';
         $arr = array(
             'host' => 'a',
             'port' => 1,
@@ -727,7 +719,7 @@ class AuthenticationCookieTest extends PmaTestCase
         $GLOBALS['cfg']['Servers'][1] = $arr;
         $GLOBALS['cfg']['AllowArbitraryServer'] = true;
         $GLOBALS['pma_auth_server'] = 'b 2';
-        $GLOBALS['PHP_AUTH_PW'] = $_SERVER['PHP_AUTH_PW'] = 'testPW';
+        $this->object->password = 'testPW';
         $GLOBALS['server'] = 2;
         $GLOBALS['cfg']['LoginCookieStore'] = true;
         $GLOBALS['from_cookie'] = false;

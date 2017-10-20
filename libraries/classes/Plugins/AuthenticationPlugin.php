@@ -23,6 +23,20 @@ use PhpMyAdmin\Url;
 abstract class AuthenticationPlugin
 {
     /**
+     * Username
+     *
+     * @var string
+     */
+    public $user = '';
+
+    /**
+     * Password
+     *
+     * @var string
+     */
+    public $password = '';
+
+    /**
      * Displays authentication form
      *
      * @return boolean
@@ -43,7 +57,12 @@ abstract class AuthenticationPlugin
      */
     public function storeCredentials()
     {
+        global $cfg;
+
         $this->setSessionAccessTime();
+
+        $cfg['Server']['user']     = $this->user;
+        $cfg['Server']['password'] = $this->password;
 
         return true;
     }
@@ -66,8 +85,7 @@ abstract class AuthenticationPlugin
      */
     public function showFailure($failure)
     {
-        global $cfg;
-        Logging::logUser($cfg['Server']['user'], $failure);
+        Logging::logUser($this->user, $failure);
     }
 
     /**
@@ -77,8 +95,6 @@ abstract class AuthenticationPlugin
      */
     public function logOut()
     {
-        global $PHP_AUTH_USER, $PHP_AUTH_PW;
-
         /* Obtain redirect URL (before doing logout) */
         if (! empty($GLOBALS['cfg']['Server']['LogoutURL'])) {
             $redirect_url = $GLOBALS['cfg']['Server']['LogoutURL'];
@@ -87,8 +103,8 @@ abstract class AuthenticationPlugin
         }
 
         /* Clear credentials */
-        $PHP_AUTH_USER = '';
-        $PHP_AUTH_PW = '';
+        $this->user = '';
+        $this->password = '';
 
         /*
          * Get a logged-in server count in case of LoginCookieDeleteAll is disabled.

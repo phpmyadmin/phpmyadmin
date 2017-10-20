@@ -65,6 +65,10 @@ class AuthenticationConfigTest extends PmaTestCase
      */
     public function testAuthCheck()
     {
+        $GLOBALS['cfg']['Server'] = array(
+            'user' => 'username',
+            'password' => 'password',
+        );
         $this->assertTrue(
             $this->object->readCredentials()
         );

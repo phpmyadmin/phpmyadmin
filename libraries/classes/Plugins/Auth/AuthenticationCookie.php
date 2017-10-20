@@ -100,7 +100,7 @@ class AuthenticationCookie extends AuthenticationPlugin
         if ($GLOBALS['cfg']['LoginCookieRecall']
             && ! empty($GLOBALS['cfg']['blowfish_secret'])
         ) {
-            $default_user   = $GLOBALS['PHP_AUTH_USER'];
+            $default_user   = $this->user;
             $default_server = $GLOBALS['pma_auth_server'];
             $autocomplete   = '';
         } else {
@@ -298,7 +298,7 @@ class AuthenticationCookie extends AuthenticationPlugin
          */
         $GLOBALS['pma_auth_server'] = '';
 
-        $GLOBALS['PHP_AUTH_USER'] = $GLOBALS['PHP_AUTH_PW'] = '';
+        $this->user = $this->password = '';
         $GLOBALS['from_cookie'] = false;
 
         if (isset($_REQUEST['pma_username']) && strlen($_REQUEST['pma_username']) > 0) {
@@ -349,8 +349,8 @@ class AuthenticationCookie extends AuthenticationPlugin
             }
 
             // The user just logged in
-            $GLOBALS['PHP_AUTH_USER'] = Core::sanitizeMySQLUser($_REQUEST['pma_username']);
-            $GLOBALS['PHP_AUTH_PW'] = isset($_REQUEST['pma_password']) ? $_REQUEST['pma_password'] : '';
+            $this->user = Core::sanitizeMySQLUser($_REQUEST['pma_username']);
+            $this->password = isset($_REQUEST['pma_password']) ? $_REQUEST['pma_password'] : '';
             if ($GLOBALS['cfg']['AllowArbitraryServer']
                 && isset($_REQUEST['pma_servername'])
             ) {
@@ -378,15 +378,15 @@ class AuthenticationCookie extends AuthenticationPlugin
             return true;
         }
 
-        // At the end, try to set the $GLOBALS['PHP_AUTH_USER']
-        // and $GLOBALS['PHP_AUTH_PW'] variables from cookies
+        // At the end, try to set the $this->user
+        // and $this->password variables from cookies
 
         // check cookies
         if (empty($_COOKIE['pmaUser-' . $GLOBALS['server']])) {
             return false;
         }
 
-        $GLOBALS['PHP_AUTH_USER'] = $this->cookieDecrypt(
+        $this->user = $this->cookieDecrypt(
             $_COOKIE['pmaUser-' . $GLOBALS['server']],
             $this->_getEncryptionSecret()
         );
@@ -439,7 +439,7 @@ class AuthenticationCookie extends AuthenticationPlugin
         if (! is_array($auth_data) || ! isset($auth_data['password'])) {
             return false;
         }
-        $GLOBALS['PHP_AUTH_PW'] = $auth_data['password'];
+        $this->password = $auth_data['password'];
         if ($GLOBALS['cfg']['AllowArbitraryServer'] && ! empty($auth_data['server'])) {
             $GLOBALS['pma_auth_server'] = $auth_data['server'];
         }
@@ -478,12 +478,6 @@ class AuthenticationCookie extends AuthenticationPlugin
             }
             unset($tmp_host, $tmp_port, $parts);
         }
-        $cfg['Server']['user']     = $GLOBALS['PHP_AUTH_USER'];
-        $cfg['Server']['password'] = $GLOBALS['PHP_AUTH_PW'];
-
-        // Avoid showing the password in phpinfo()'s output
-        unset($GLOBALS['PHP_AUTH_PW']);
-        unset($_SERVER['PHP_AUTH_PW']);
 
         return parent::storeCredentials();
     }
