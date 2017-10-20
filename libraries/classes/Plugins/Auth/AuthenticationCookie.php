@@ -485,7 +485,8 @@ class AuthenticationCookie extends AuthenticationPlugin
         // Avoid showing the password in phpinfo()'s output
         unset($GLOBALS['PHP_AUTH_PW']);
         unset($_SERVER['PHP_AUTH_PW']);
-        $this->setSessionAccessTime();
+
+        return parent::authSetUser();
     }
 
     /**

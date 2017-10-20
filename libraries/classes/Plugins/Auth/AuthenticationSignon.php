@@ -221,7 +221,7 @@ class AuthenticationSignon extends AuthenticationPlugin
         $cfg['Server']['user'] = $PHP_AUTH_USER;
         $cfg['Server']['password'] = $PHP_AUTH_PW;
 
-        return true;
+        return parent::authSetUser();
     }
 
     /**

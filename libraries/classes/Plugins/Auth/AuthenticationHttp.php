@@ -205,9 +205,7 @@ class AuthenticationHttp extends AuthenticationPlugin
         unset($GLOBALS['PHP_AUTH_PW']);
         unset($_SERVER['PHP_AUTH_PW']);
 
-        $this->setSessionAccessTime();
-
-        return true;
+        return parent::authSetUser();
     }
 
     /**

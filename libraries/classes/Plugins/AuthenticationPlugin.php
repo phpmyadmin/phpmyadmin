@@ -38,7 +38,12 @@ abstract class AuthenticationPlugin
      *
      * @return boolean
      */
-    abstract public function authSetUser();
+    public function authSetUser();
+    {
+        $this->setSessionAccessTime();
+
+        return true;
+    }
 
     /**
      * Stores user credentials after successful login.

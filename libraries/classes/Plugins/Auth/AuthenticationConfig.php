@@ -58,18 +58,6 @@ class AuthenticationConfig extends AuthenticationPlugin
     }
 
     /**
-     * Set the user and password after last checkings if required
-     *
-     * @return boolean always true
-     */
-    public function authSetUser()
-    {
-        $this->setSessionAccessTime();
-
-        return true;
-    }
-
-    /**
      * User is not allowed to login to MySQL -> authentication failed
      *
      * @return boolean   always true (no return indeed)
