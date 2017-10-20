@@ -512,13 +512,7 @@ if (! defined('PMA_MINIMUM_COMMON')) {
         /** @var AuthenticationPlugin $auth_plugin */
         $auth_plugin = new $auth_class($plugin_manager);
 
-        if (! $auth_plugin->readCredentials()) {
-            /* Force generating of new session on login */
-            Session::secure();
-            $auth_plugin->showLoginForm();
-        } else {
-            $auth_plugin->storeCredentials();
-        }
+        $auth_plugin->authenticate();
 
         // Check IP-based Allow/Deny rules as soon as possible to reject the
         // user based on mod_access in Apache

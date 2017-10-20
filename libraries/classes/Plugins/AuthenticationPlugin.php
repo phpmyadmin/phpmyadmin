@@ -9,6 +9,7 @@ namespace PhpMyAdmin\Plugins;
 
 use PhpMyAdmin\Core;
 use PhpMyAdmin\Sanitize;
+use PhpMyAdmin\Session;
 use PhpMyAdmin\Url;
 
 /**
@@ -192,5 +193,23 @@ abstract class AuthenticationPlugin
             $time = time();
         }
         $_SESSION['browser_access_time'][$guid] = $time;
-     }
+    }
+
+    /**
+     * High level authentication interface
+     *
+     * Gets the credentials or shows login form if necessary
+     *
+     * @return void
+     */
+     public function authenticate()
+     {
+        if (! $this->readCredentials()) {
+            /* Force generating of new session on login */
+            Session::secure();
+            $this->showLoginForm();
+        } else {
+            $this->storeCredentials();
+        }
+    }
 }
