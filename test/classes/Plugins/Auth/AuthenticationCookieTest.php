@@ -91,13 +91,7 @@ class AuthenticationCookieTest extends PmaTestCase
         );
     }
 
-    /**
-     * Test for PhpMyAdmin\Plugins\Auth\AuthenticationConfig::showLoginForm
-     *
-     * @return void
-     * @group medium
-     */
-    public function testAuthError()
+    private function getAuthErrorMockResponse()
     {
         $mockResponse = $this->mockResponse();
 
@@ -105,12 +99,6 @@ class AuthenticationCookieTest extends PmaTestCase
             ->method('isAjax')
             ->with()
             ->will($this->returnValue(false));
-
-        $_REQUEST['old_usr'] = '';
-        $GLOBALS['cfg']['LoginCookieRecall'] = true;
-        $GLOBALS['cfg']['blowfish_secret'] = 'secret';
-        $this->object->user = 'pmauser';
-        $GLOBALS['pma_auth_server'] = 'localhost';
 
         // mock footer
         $mockFooter = $this->getMockBuilder('PhpMyAdmin\Footer')
@@ -165,17 +153,7 @@ class AuthenticationCookieTest extends PmaTestCase
             ->will($this->returnValue($mockHeader));
 
         $GLOBALS['pmaThemeImage'] = 'test';
-        $GLOBALS['conn_error'] = true;
-        $GLOBALS['cfg']['Lang'] = 'en';
-        $GLOBALS['cfg']['AllowArbitraryServer'] = true;
         $GLOBALS['cfg']['Servers'] = array(1, 2);
-        $GLOBALS['cfg']['CaptchaLoginPrivateKey'] = '';
-        $GLOBALS['cfg']['CaptchaLoginPublicKey'] = '';
-        $GLOBALS['target'] = 'testTarget';
-        $GLOBALS['db'] = 'testDb';
-        $GLOBALS['table'] = 'testTable';
-
-        file_put_contents('testlogo_right.png', '');
 
         // mock error handler
 
@@ -194,6 +172,35 @@ class AuthenticationCookieTest extends PmaTestCase
             ->with();
 
         $GLOBALS['error_handler'] = $mockErrorHandler;
+    }
+
+    /**
+     * Test for PhpMyAdmin\Plugins\Auth\AuthenticationConfig::showLoginForm
+     *
+     * @return void
+     * @group medium
+     */
+    public function testAuthError()
+    {
+        $this->getAuthErrorMockResponse();
+
+        $_REQUEST['old_usr'] = '';
+        $GLOBALS['cfg']['LoginCookieRecall'] = true;
+        $GLOBALS['cfg']['blowfish_secret'] = 'secret';
+        $this->object->user = 'pmauser';
+        $GLOBALS['pma_auth_server'] = 'localhost';
+
+
+        $GLOBALS['conn_error'] = true;
+        $GLOBALS['cfg']['Lang'] = 'en';
+        $GLOBALS['cfg']['AllowArbitraryServer'] = true;
+        $GLOBALS['cfg']['CaptchaLoginPrivateKey'] = '';
+        $GLOBALS['cfg']['CaptchaLoginPublicKey'] = '';
+        $GLOBALS['target'] = 'testTarget';
+        $GLOBALS['db'] = 'testDb';
+        $GLOBALS['table'] = 'testTable';
+
+        file_put_contents('testlogo_right.png', '');
 
         ob_start();
         $this->object->showLoginForm();
@@ -1155,5 +1162,171 @@ class AuthenticationCookieTest extends PmaTestCase
         /* Verify storeCredentials worked */
         $this->assertEquals('testUser', $GLOBALS['cfg']['Server']['user']);
         $this->assertEquals('testPassword', $GLOBALS['cfg']['Server']['password']);
+    }
+
+    /**
+     * Test for PhpMyAdmin\Plugins\Auth\AuthenticationCookie::checkRules
+     *
+     * @return void
+     *
+     * @dataProvider checkRulesProvider
+     */
+    public function testCheckRules($user, $pass, $ip, $root, $nopass, $rules, $expected)
+    {
+        $this->object->user = $user;
+        $this->object->password = $pass;
+        $this->object->storeCredentials();
+
+        $_SERVER['REMOTE_ADDR'] = $ip;
+
+        $GLOBALS['cfg']['Server']['AllowRoot'] = $root;
+        $GLOBALS['cfg']['Server']['AllowNoPassword'] = $nopass;
+        $GLOBALS['cfg']['Server']['AllowDeny'] = $rules;
+
+        if (! empty($expected)) {
+            $this->getAuthErrorMockResponse();
+        }
+
+        ob_start();
+        $this->object->checkRules();
+        $result = ob_get_clean();
+
+        if (empty($expected)) {
+            $this->assertEquals($expected, $result);
+        } else {
+            $this->assertContains($expected, $result);
+        }
+    }
+
+    public function checkRulesProvider()
+    {
+        return array(
+            'nopass-ok' => array(
+                'testUser',
+                '',
+                '1.2.3.4',
+                true,
+                true,
+                array(),
+                '',
+            ),
+            'nopass' => array(
+                'testUser',
+                '',
+                '1.2.3.4',
+                true,
+                false,
+                array(),
+                'Login without a password is forbidden',
+            ),
+            'root-ok' => array(
+                'root',
+                'root',
+                '1.2.3.4',
+                true,
+                true,
+                array(),
+                '',
+            ),
+            'root' => array(
+                'root',
+                'root',
+                '1.2.3.4',
+                false,
+                true,
+                array(),
+                'Access denied!',
+            ),
+            'rules-deny-allow-ok' => array(
+                'root',
+                'root',
+                '1.2.3.4',
+                true,
+                true,
+                array(
+                    'order' => 'deny,allow',
+                    'rules' => array(
+                        'allow root 1.2.3.4',
+                        'deny % from all',
+                    ),
+                ),
+                '',
+            ),
+            'rules-deny-allow-reject' => array(
+                'user',
+                'root',
+                '1.2.3.4',
+                true,
+                true,
+                array(
+                    'order' => 'deny,allow',
+                    'rules' => array(
+                        'allow root 1.2.3.4',
+                        'deny % from all',
+                    ),
+                ),
+                'Access denied!',
+            ),
+            'rules-allow-deny-ok' => array(
+                'root',
+                'root',
+                '1.2.3.4',
+                true,
+                true,
+                array(
+                    'order' => 'allow,deny',
+                    'rules' => array(
+                        'deny user from all',
+                        'allow root 1.2.3.4',
+                    ),
+                ),
+                '',
+            ),
+            'rules-allow-deny-reject' => array(
+                'user',
+                'root',
+                '1.2.3.4',
+                true,
+                true,
+                array(
+                    'order' => 'allow,deny',
+                    'rules' => array(
+                        'deny user from all',
+                        'allow root 1.2.3.4',
+                    ),
+                ),
+                'Access denied!',
+            ),
+            'rules-explicit-ok' => array(
+                'root',
+                'root',
+                '1.2.3.4',
+                true,
+                true,
+                array(
+                    'order' => 'explicit',
+                    'rules' => array(
+                        'deny user from all',
+                        'allow root 1.2.3.4',
+                    ),
+                ),
+                '',
+            ),
+            'rules-explicit-reject' => array(
+                'user',
+                'root',
+                '1.2.3.4',
+                true,
+                true,
+                array(
+                    'order' => 'explicit',
+                    'rules' => array(
+                        'deny user from all',
+                        'allow root 1.2.3.4',
+                    ),
+                ),
+                'Access denied!',
+            ),
+        );
     }
 }
