@@ -79,7 +79,7 @@ class AuthenticationCookie extends AuthenticationPlugin
      *
      * @return boolean|void
      */
-    public function auth()
+    public function showLoginForm()
     {
         global $conn_error;
 
@@ -272,22 +272,22 @@ class AuthenticationCookie extends AuthenticationPlugin
     }
 
     /**
-     * Gets advanced authentication settings
+     * Gets authentication credentials
      *
      * this function DOES NOT check authentication - it just checks/provides
      * authentication credentials required to connect to the MySQL server
      * usually with $GLOBALS['dbi']->connect()
      *
      * it returns false if something is missing - which usually leads to
-     * auth() which displays login form
+     * showLoginForm() which displays login form
      *
      * it returns true if all seems ok which usually leads to auth_set_user()
      *
-     * it directly switches to authFails() if user inactivity timeout is reached
+     * it directly switches to showFailure() if user inactivity timeout is reached
      *
      * @return boolean   whether we get authentication settings or not
      */
-    public function authCheck()
+    public function readCredentials()
     {
         global $conn_error;
 
@@ -416,7 +416,7 @@ class AuthenticationCookie extends AuthenticationPlugin
             Util::cacheUnset('proc_priv');
 
             $GLOBALS['no_activity'] = true;
-            $this->authFails();
+            $this->showFailure();
             if (! defined('TESTSUITE')) {
                 exit;
             } else {
@@ -455,7 +455,7 @@ class AuthenticationCookie extends AuthenticationPlugin
      *
      * @return boolean always true
      */
-    public function authSetUser()
+    public function storeCredentials()
     {
         global $cfg;
 
@@ -486,7 +486,7 @@ class AuthenticationCookie extends AuthenticationPlugin
         unset($GLOBALS['PHP_AUTH_PW']);
         unset($_SERVER['PHP_AUTH_PW']);
 
-        return parent::authSetUser();
+        return parent::storeCredentials();
     }
 
     /**
@@ -494,19 +494,17 @@ class AuthenticationCookie extends AuthenticationPlugin
      *
      * @return void|bool
      */
-    public function storeUserCredentials()
+    public function rememberCredentials()
     {
-        global $cfg;
-
         // Name and password cookies need to be refreshed each time
         // Duration = one month for username
-        $this->storeUsernameCookie($cfg['Server']['user']);
+        $this->storeUsernameCookie($this->user);
 
         // Duration = as configured
         // Do not store password cookie on password change as we will
         // set the cookie again after password has been changed
         if (! isset($_POST['change_pw'])) {
-            $this->storePasswordCookie($cfg['Server']['password']);
+            $this->storePasswordCookie($this->password);
         }
 
         // Set server cookies if required (once per session) and, in this case,
@@ -600,15 +598,15 @@ class AuthenticationCookie extends AuthenticationPlugin
     /**
      * User is not allowed to login to MySQL -> authentication failed
      *
-     * prepares error message and switches to auth() which display the error
+     * prepares error message and switches to showLoginForm() which display the error
      * and the login form
      *
      * this function MUST exit/quit the application,
-     * currently done by call to auth()
+     * currently done by call to showLoginForm()
      *
      * @return void
      */
-    public function authFails()
+    public function showFailure()
     {
         global $conn_error;
 
@@ -623,7 +621,7 @@ class AuthenticationCookie extends AuthenticationPlugin
         $response->header('Cache-Control: no-store, no-cache, must-revalidate');
         $response->header('Pragma: no-cache');
 
-        $this->auth();
+        $this->showLoginForm();
     }
 
     /**

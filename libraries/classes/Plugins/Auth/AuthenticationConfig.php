@@ -26,7 +26,7 @@ class AuthenticationConfig extends AuthenticationPlugin
      *
      * @return boolean always true
      */
-    public function auth()
+    public function showLoginForm()
     {
         $response = Response::getInstance();
         if ($response->isAjax()) {
@@ -44,11 +44,11 @@ class AuthenticationConfig extends AuthenticationPlugin
     }
 
     /**
-     * Gets advanced authentication settings
+     * Gets authentication credentials
      *
      * @return boolean always true
      */
-    public function authCheck()
+    public function readCredentials()
     {
         if ($GLOBALS['token_provided'] && $GLOBALS['token_mismatch']) {
             return false;
@@ -62,7 +62,7 @@ class AuthenticationConfig extends AuthenticationPlugin
      *
      * @return void
      */
-    public function authFails()
+    public function showFailure()
     {
         $conn_error = $GLOBALS['dbi']->getError();
         if (!$conn_error) {

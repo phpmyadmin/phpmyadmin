@@ -24,21 +24,21 @@ abstract class AuthenticationPlugin
      *
      * @return boolean
      */
-    abstract public function auth();
+    abstract public function showLoginForm();
 
     /**
-     * Gets advanced authentication settings
+     * Gets authentication credentials
      *
      * @return boolean
      */
-    abstract public function authCheck();
+    abstract public function readCredentials();
 
     /**
      * Set the user and password after last checkings if required
      *
      * @return boolean
      */
-    public function authSetUser()
+    public function storeCredentials()
     {
         $this->setSessionAccessTime();
 
@@ -50,7 +50,7 @@ abstract class AuthenticationPlugin
      *
      * @return void
      */
-    public function storeUserCredentials()
+    public function rememberCredentials()
     {
     }
 
@@ -59,7 +59,7 @@ abstract class AuthenticationPlugin
      *
      * @return void
      */
-    abstract public function authFails();
+    abstract public function showFailure();
 
     /**
      * Perform logout

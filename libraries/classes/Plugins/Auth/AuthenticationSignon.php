@@ -24,7 +24,7 @@ class AuthenticationSignon extends AuthenticationPlugin
      *
      * @return boolean   always true (no return indeed)
      */
-    public function auth()
+    public function showLoginForm()
     {
         unset($_SESSION['LAST_SIGNON_URL']);
         if (empty($GLOBALS['cfg']['Server']['SignonURL'])) {
@@ -41,14 +41,14 @@ class AuthenticationSignon extends AuthenticationPlugin
     }
 
     /**
-     * Gets advanced authentication settings
+     * Gets authentication credentials
      *
      * @global string $PHP_AUTH_USER the username
      * @global string $PHP_AUTH_PW   the password
      *
      * @return boolean   whether we get authentication settings or not
      */
-    public function authCheck()
+    public function readCredentials()
     {
         global $PHP_AUTH_USER, $PHP_AUTH_PW;
 
@@ -213,7 +213,7 @@ class AuthenticationSignon extends AuthenticationPlugin
      *
      * @return boolean   always true
      */
-    public function authSetUser()
+    public function storeCredentials()
     {
         global $cfg;
         global $PHP_AUTH_USER, $PHP_AUTH_PW;
@@ -221,7 +221,7 @@ class AuthenticationSignon extends AuthenticationPlugin
         $cfg['Server']['user'] = $PHP_AUTH_USER;
         $cfg['Server']['password'] = $PHP_AUTH_PW;
 
-        return parent::authSetUser();
+        return parent::storeCredentials();
     }
 
     /**
@@ -229,7 +229,7 @@ class AuthenticationSignon extends AuthenticationPlugin
      *
      * @return boolean   always true (no return indeed)
      */
-    public function authFails()
+    public function showFailure()
     {
         /* Session name */
         $session_name = $GLOBALS['cfg']['Server']['SignonSession'];
@@ -249,7 +249,7 @@ class AuthenticationSignon extends AuthenticationPlugin
             /* Set error message */
             $_SESSION['PMA_single_signon_error_message'] = $this->getErrorMessage();
         }
-        $this->auth();
+        $this->showLoginForm();
     }
 
     /**

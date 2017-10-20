@@ -512,12 +512,12 @@ if (! defined('PMA_MINIMUM_COMMON')) {
         /** @var AuthenticationPlugin $auth_plugin */
         $auth_plugin = new $auth_class($plugin_manager);
 
-        if (! $auth_plugin->authCheck()) {
+        if (! $auth_plugin->readCredentials()) {
             /* Force generating of new session on login */
             Session::secure();
-            $auth_plugin->auth();
+            $auth_plugin->showLoginForm();
         } else {
-            $auth_plugin->authSetUser();
+            $auth_plugin->storeCredentials();
         }
 
         // Check IP-based Allow/Deny rules as soon as possible to reject the
@@ -552,7 +552,7 @@ if (! defined('PMA_MINIMUM_COMMON')) {
             // Ejects the user if banished
             if ($allowDeny_forbidden) {
                 Logging::logUser($cfg['Server']['user'], 'allow-denied');
-                $auth_plugin->authFails();
+                $auth_plugin->showFailure();
             }
         } // end if
 
@@ -560,7 +560,7 @@ if (! defined('PMA_MINIMUM_COMMON')) {
         if (! $cfg['Server']['AllowRoot'] && $cfg['Server']['user'] == 'root') {
             $allowDeny_forbidden = true;
             Logging::logUser($cfg['Server']['user'], 'root-denied');
-            $auth_plugin->authFails();
+            $auth_plugin->showFailure();
         }
 
         // is a login without password allowed?
@@ -569,7 +569,7 @@ if (! defined('PMA_MINIMUM_COMMON')) {
         ) {
             $login_without_password_is_forbidden = true;
             Logging::logUser($cfg['Server']['user'], 'empty-denied');
-            $auth_plugin->authFails();
+            $auth_plugin->showFailure();
         }
 
         // Try to connect MySQL with the control user profile (will be used to
@@ -589,7 +589,7 @@ if (! defined('PMA_MINIMUM_COMMON')) {
 
         if ($userlink === false) {
             Logging::logUser($cfg['Server']['user'], 'mysql-denied');
-            $GLOBALS['auth_plugin']->authFails();
+            $GLOBALS['auth_plugin']->showFailure();
         }
 
         // Set timestamp for the session, if required.
@@ -633,7 +633,7 @@ if (! defined('PMA_MINIMUM_COMMON')) {
             $controllink = $GLOBALS['dbi']->connect(DatabaseInterface::CONNECT_USER);
         }
 
-        $auth_plugin->storeUserCredentials();
+        $auth_plugin->rememberCredentials();
 
         /* Log success */
         Logging::logUser($cfg['Server']['user']);

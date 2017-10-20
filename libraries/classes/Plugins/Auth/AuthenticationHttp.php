@@ -29,7 +29,7 @@ class AuthenticationHttp extends AuthenticationPlugin
      *
      * @return boolean   always true (no return indeed)
      */
-    public function auth()
+    public function showLoginForm()
     {
         $response = Response::getInstance();
         if ($response->isAjax()) {
@@ -100,14 +100,14 @@ class AuthenticationHttp extends AuthenticationPlugin
     }
 
     /**
-     * Gets advanced authentication settings
+     * Gets authentication credentials
      *
      * @global string $PHP_AUTH_USER the username
      * @global string $PHP_AUTH_PW   the password
      *
      * @return boolean   whether we get authentication settings or not
      */
-    public function authCheck()
+    public function readCredentials()
     {
         global $PHP_AUTH_USER, $PHP_AUTH_PW;
 
@@ -193,7 +193,7 @@ class AuthenticationHttp extends AuthenticationPlugin
      *
      * @return boolean   always true
      */
-    public function authSetUser()
+    public function storeCredentials()
     {
         global $cfg, $server;
         global $PHP_AUTH_USER, $PHP_AUTH_PW;
@@ -205,7 +205,7 @@ class AuthenticationHttp extends AuthenticationPlugin
         unset($GLOBALS['PHP_AUTH_PW']);
         unset($_SERVER['PHP_AUTH_PW']);
 
-        return parent::authSetUser();
+        return parent::storeCredentials();
     }
 
     /**
@@ -213,7 +213,7 @@ class AuthenticationHttp extends AuthenticationPlugin
      *
      * @return void
      */
-    public function authFails()
+    public function showFailure()
     {
         $error = $GLOBALS['dbi']->getError();
         if ($error && $GLOBALS['errno'] != 1045) {
