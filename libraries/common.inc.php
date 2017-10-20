@@ -494,18 +494,11 @@ if (! defined('PMA_MINIMUM_COMMON')) {
         // Gets the authentication library that fits the $cfg['Server'] settings
         // and run authentication
 
-        // to allow HTTP or http
-        $cfg['Server']['auth_type']
-            = mb_strtolower($cfg['Server']['auth_type']);
-
         /**
          * the required auth type plugin
          */
-        $auth_class = "Authentication" . ucfirst($cfg['Server']['auth_type']);
-        if (! @file_exists(
-            './libraries/classes/Plugins/Auth/'
-            . $auth_class . '.php'
-        )) {
+        $auth_class = 'PhpMyAdmin\\Plugins\\Auth\\Authentication' . ucfirst(strtolower($cfg['Server']['auth_type']));
+        if (! @class_exists($auth_class)) {
             Core::fatalError(
                 __('Invalid authentication method set in configuration:')
                 . ' ' . $cfg['Server']['auth_type']
@@ -514,11 +507,10 @@ if (! defined('PMA_MINIMUM_COMMON')) {
         if (isset($_REQUEST['pma_password']) && strlen($_REQUEST['pma_password']) > 256) {
             $_REQUEST['pma_password'] = substr($_REQUEST['pma_password'], 0, 256);
         }
-        $fqnAuthClass = 'PhpMyAdmin\Plugins\Auth\\' . $auth_class;
         // todo: add plugin manager
         $plugin_manager = null;
         /** @var AuthenticationPlugin $auth_plugin */
-        $auth_plugin = new $fqnAuthClass($plugin_manager);
+        $auth_plugin = new $auth_class($plugin_manager);
 
         if (! $auth_plugin->authCheck()) {
             /* Force generating of new session on login */
