@@ -273,8 +273,8 @@ class Bookmark
 
         $query = "SELECT * FROM " . Util::backquote($cfgBookmark['db'])
             . "." . Util::backquote($cfgBookmark['table'])
-            . " WHERE `user` = ''"
-            . " OR `user` = '" . $GLOBALS['dbi']->escapeString($cfgBookmark['user']) . "'";
+            . " WHERE ( `user` = ''"
+            . " OR `user` = '" . $GLOBALS['dbi']->escapeString($cfgBookmark['user']) . "' )";
         if ($db !== false) {
             $query .= " AND dbase = '" . $GLOBALS['dbi']->escapeString($db) . "'";
         }
