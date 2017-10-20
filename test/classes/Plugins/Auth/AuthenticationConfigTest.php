@@ -101,12 +101,8 @@ class AuthenticationConfigTest extends PmaTestCase
         $GLOBALS['dbi'] = $dbi;
 
         ob_start();
-        $result = $this->object->authFails();
+        $this->object->authFails();
         $html = ob_get_clean();
-
-        $this->assertTrue(
-            $result
-        );
 
         $this->assertContains(
             'You probably did not create a configuration file. You might want ' .

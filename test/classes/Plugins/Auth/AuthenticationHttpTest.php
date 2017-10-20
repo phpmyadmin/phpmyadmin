@@ -426,14 +426,10 @@ class AuthenticationHttpTest extends PmaTestCase
         $GLOBALS['cfg']['Server']['host'] = 'host';
         $GLOBALS['errno'] = 1045;
 
-        $this->assertTrue(
-            $this->object->authFails()
-        );
+        $this->object->authFails();
 
         // case 3
         $GLOBALS['errno'] = 1043;
-        $this->assertTrue(
-            $this->object->authFails()
-        );
+        $this->object->authFails();
     }
 }

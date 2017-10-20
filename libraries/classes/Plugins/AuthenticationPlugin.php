@@ -38,7 +38,7 @@ abstract class AuthenticationPlugin
      *
      * @return boolean
      */
-    public function authSetUser();
+    public function authSetUser()
     {
         $this->setSessionAccessTime();
 
@@ -57,7 +57,7 @@ abstract class AuthenticationPlugin
     /**
      * User is not allowed to login to MySQL -> authentication failed
      *
-     * @return boolean
+     * @return void
      */
     abstract public function authFails();
 

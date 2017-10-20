@@ -211,20 +211,16 @@ class AuthenticationHttp extends AuthenticationPlugin
     /**
      * User is not allowed to login to MySQL -> authentication failed
      *
-     * @return bool true
+     * @return void
      */
     public function authFails()
     {
         $error = $GLOBALS['dbi']->getError();
         if ($error && $GLOBALS['errno'] != 1045) {
             Core::fatalError($error);
-
-            return true;
+        } else {
+            $this->authForm();
         }
-
-        $this->authForm();
-
-        return true;
     }
 
     /**

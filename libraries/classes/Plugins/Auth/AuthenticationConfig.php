@@ -60,7 +60,7 @@ class AuthenticationConfig extends AuthenticationPlugin
     /**
      * User is not allowed to login to MySQL -> authentication failed
      *
-     * @return boolean   always true (no return indeed)
+     * @return void
      */
     public function authFails()
     {
@@ -160,7 +160,5 @@ class AuthenticationConfig extends AuthenticationPlugin
         if (!defined('TESTSUITE')) {
             exit;
         }
-
-        return true;
     }
 }
