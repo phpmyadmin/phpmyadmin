@@ -156,7 +156,7 @@ class Header
     {
         // Localised strings
         $this->_scripts->addFile('vendor/jquery/jquery.min.js');
-        $this->_scripts->addFile('vendor/jquery/jquery-migrate-3.0.0.js');
+        $this->_scripts->addFile('vendor/jquery/jquery-migrate.js');
         $this->_scripts->addFile('whitelist.php');
         $this->_scripts->addFile('vendor/sprintf.js');
         $this->_scripts->addFile('ajax.js');
