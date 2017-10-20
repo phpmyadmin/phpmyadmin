@@ -529,7 +529,7 @@ if (! defined('PMA_MINIMUM_COMMON')) {
         $userlink = $GLOBALS['dbi']->connect(DatabaseInterface::CONNECT_USER);
 
         if ($userlink === false) {
-            $GLOBALS['auth_plugin']->showFailure('mysql-denied');
+            $auth_plugin->showFailure('mysql-denied');
         }
 
         // Set timestamp for the session, if required.
