@@ -60,10 +60,13 @@ class AuthenticationConfig extends AuthenticationPlugin
     /**
      * User is not allowed to login to MySQL -> authentication failed
      *
+     * @param string $failure String describing why authentication has failed
+     *
      * @return void
      */
-    public function showFailure()
+    public function showFailure($failure)
     {
+        parent::showFailure($failure);
         $conn_error = $GLOBALS['dbi']->getError();
         if (!$conn_error) {
             $conn_error = __('Cannot connect: invalid settings.');

@@ -407,7 +407,7 @@ class AuthenticationHttpTest extends PmaTestCase
         $GLOBALS['errno'] = 31;
 
         ob_start();
-        $this->object->showFailure();
+        $this->object->showFailure('');
         $result = ob_get_clean();
 
         $this->assertContains(
@@ -426,10 +426,10 @@ class AuthenticationHttpTest extends PmaTestCase
         $GLOBALS['cfg']['Server']['host'] = 'host';
         $GLOBALS['errno'] = 1045;
 
-        $this->object->showFailure();
+        $this->object->showFailure('');
 
         // case 3
         $GLOBALS['errno'] = 1043;
-        $this->object->showFailure();
+        $this->object->showFailure('');
     }
 }

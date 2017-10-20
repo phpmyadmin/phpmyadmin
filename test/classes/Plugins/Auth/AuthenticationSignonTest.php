@@ -282,9 +282,7 @@ class AuthenticationSignonTest extends PmaTestCase
         $this->object->expects($this->exactly(1))
             ->method('showLoginForm');
 
-        $GLOBALS['login_without_password_is_forbidden'] = true;
-
-        $this->object->showFailure();
+        $this->object->showFailure('empty-denied');
 
         $this->assertEquals(
             'Login without a password is forbidden by configuration '
@@ -311,10 +309,7 @@ class AuthenticationSignonTest extends PmaTestCase
         $this->object->expects($this->exactly(1))
             ->method('showLoginForm');
 
-        $GLOBALS['login_without_password_is_forbidden'] = null;
-        $GLOBALS['allowDeny_forbidden'] = true;
-
-        $this->object->showFailure();
+        $this->object->showFailure('allow-denied');
 
         $this->assertEquals(
             'Access denied!',
@@ -340,11 +335,9 @@ class AuthenticationSignonTest extends PmaTestCase
         $this->object->expects($this->exactly(1))
             ->method('showLoginForm');
 
-        $GLOBALS['allowDeny_forbidden'] = null;
-        $GLOBALS['no_activity'] = true;
         $GLOBALS['cfg']['LoginCookieValidity'] = '1440';
 
-        $this->object->showFailure();
+        $this->object->showFailure('no-activity');
 
         $this->assertEquals(
             'No activity within 1440 seconds; please log in again.',
@@ -379,9 +372,8 @@ class AuthenticationSignonTest extends PmaTestCase
             ->will($this->returnValue('error<123>'));
 
         $GLOBALS['dbi'] = $dbi;
-        $GLOBALS['no_activity'] = null;
 
-        $this->object->showFailure();
+        $this->object->showFailure('');
 
         $this->assertEquals(
             'error&lt;123&gt;',
@@ -417,7 +409,7 @@ class AuthenticationSignonTest extends PmaTestCase
 
         $GLOBALS['dbi'] = $dbi;
 
-        $this->object->showFailure();
+        $this->object->showFailure('');
 
         $this->assertEquals(
             'Cannot log in to the MySQL server',

@@ -60,9 +60,15 @@ abstract class AuthenticationPlugin
     /**
      * User is not allowed to login to MySQL -> authentication failed
      *
+     * @param string $failure String describing why authentication has failed
+     *
      * @return void
      */
-    abstract public function showFailure();
+    public function showFailure($failure)
+    {
+        global $cfg;
+        Logging::logUser($cfg['Server']['user'], $failure);
+    }
 
     /**
      * Perform logout
@@ -129,18 +135,20 @@ abstract class AuthenticationPlugin
     /**
      * Returns error message for failed authentication.
      *
+     * @param string $failure String describing why authentication has failed
+     *
      * @return string
      */
-    public function getErrorMessage()
+    public function getErrorMessage($failure)
     {
-        if (!empty($GLOBALS['login_without_password_is_forbidden'])) {
+        if ($failure == 'empty-denied') {
             return __(
                 'Login without a password is forbidden by configuration'
                 . ' (see AllowNoPassword)'
             );
-        } elseif (!empty($GLOBALS['allowDeny_forbidden'])) {
+        } elseif ($failure == 'root-denied' || $failure == 'allow-denied') {
             return __('Access denied!');
-        } elseif (!empty($GLOBALS['no_activity'])) {
+        } elseif ($failure == 'no-activity') {
             return sprintf(
                 __('No activity within %s seconds; please log in again.'),
                 intval($GLOBALS['cfg']['LoginCookieValidity'])
@@ -257,25 +265,20 @@ abstract class AuthenticationPlugin
 
             // Ejects the user if banished
             if ($allowDeny_forbidden) {
-                Logging::logUser($cfg['Server']['user'], 'allow-denied');
-                $this->showFailure();
+                $this->showFailure('allow-denied');
             }
         } // end if
 
         // is root allowed?
         if (! $cfg['Server']['AllowRoot'] && $cfg['Server']['user'] == 'root') {
-            $allowDeny_forbidden = true;
-            Logging::logUser($cfg['Server']['user'], 'root-denied');
-            $this->showFailure();
+            $this->showFailure('root-denied');
         }
 
         // is a login without password allowed?
         if (! $cfg['Server']['AllowNoPassword']
             && $cfg['Server']['password'] === ''
         ) {
-            $login_without_password_is_forbidden = true;
-            Logging::logUser($cfg['Server']['user'], 'empty-denied');
-            $this->showFailure();
+            $this->showFailure('empty-denied');
         }
     }
 }

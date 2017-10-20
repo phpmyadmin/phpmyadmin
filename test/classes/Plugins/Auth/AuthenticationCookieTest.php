@@ -647,10 +647,6 @@ class AuthenticationCookieTest extends PmaTestCase
         $this->assertFalse(
             $this->object->readCredentials()
         );
-
-        $this->assertTrue(
-            $GLOBALS['no_activity']
-        );
     }
 
     /**
@@ -760,13 +756,11 @@ class AuthenticationCookieTest extends PmaTestCase
         $GLOBALS['server'] = 2;
         $_COOKIE['pmaAuth-2'] = 'pass';
 
-        $GLOBALS['login_without_password_is_forbidden'] = '1';
-
         $this->mockResponse(
             array('Cache-Control: no-store, no-cache, must-revalidate'),
             array('Pragma: no-cache')
         );
-        $this->object->showFailure();
+        $this->object->showFailure('empty-denied');
 
         $this->assertEquals(
             $GLOBALS['conn_error'],
@@ -786,14 +780,11 @@ class AuthenticationCookieTest extends PmaTestCase
         $GLOBALS['server'] = 2;
         $_COOKIE['pmaAuth-2'] = 'pass';
 
-        $GLOBALS['login_without_password_is_forbidden'] = '';
-        $GLOBALS['allowDeny_forbidden'] = '1';
-
         $this->mockResponse(
             array('Cache-Control: no-store, no-cache, must-revalidate'),
             array('Pragma: no-cache')
         );
-        $this->object->showFailure();
+        $this->object->showFailure('allow-denied');
 
         $this->assertEquals(
             $GLOBALS['conn_error'],
@@ -812,14 +803,13 @@ class AuthenticationCookieTest extends PmaTestCase
         $_COOKIE['pmaAuth-2'] = 'pass';
 
         $GLOBALS['allowDeny_forbidden'] = '';
-        $GLOBALS['no_activity'] = '1';
         $GLOBALS['cfg']['LoginCookieValidity'] = 10;
 
         $this->mockResponse(
             array('Cache-Control: no-store, no-cache, must-revalidate'),
             array('Pragma: no-cache')
         );
-        $this->object->showFailure();
+        $this->object->showFailure('no-activity');
 
         $this->assertEquals(
             $GLOBALS['conn_error'],
@@ -846,14 +836,13 @@ class AuthenticationCookieTest extends PmaTestCase
             ->will($this->returnValue(false));
 
         $GLOBALS['dbi'] = $dbi;
-        $GLOBALS['no_activity'] = '';
         $GLOBALS['errno'] = 42;
 
         $this->mockResponse(
             array('Cache-Control: no-store, no-cache, must-revalidate'),
             array('Pragma: no-cache')
         );
-        $this->object->showFailure();
+        $this->object->showFailure('');
 
         $this->assertEquals(
             $GLOBALS['conn_error'],
@@ -886,7 +875,7 @@ class AuthenticationCookieTest extends PmaTestCase
             array('Cache-Control: no-store, no-cache, must-revalidate'),
             array('Pragma: no-cache')
         );
-        $this->object->showFailure();
+        $this->object->showFailure('');
 
         $this->assertEquals(
             $GLOBALS['conn_error'],

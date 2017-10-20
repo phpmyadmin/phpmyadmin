@@ -101,7 +101,7 @@ class AuthenticationConfigTest extends PmaTestCase
         $GLOBALS['dbi'] = $dbi;
 
         ob_start();
-        $this->object->showFailure();
+        $this->object->showFailure('');
         $html = ob_get_clean();
 
         $this->assertContains(

@@ -211,10 +211,13 @@ class AuthenticationHttp extends AuthenticationPlugin
     /**
      * User is not allowed to login to MySQL -> authentication failed
      *
+     * @param string $failure String describing why authentication has failed
+     *
      * @return void
      */
-    public function showFailure()
+    public function showFailure($failure)
     {
+        parent::showFailure($failure);
         $error = $GLOBALS['dbi']->getError();
         if ($error && $GLOBALS['errno'] != 1045) {
             Core::fatalError($error);

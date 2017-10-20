@@ -415,8 +415,7 @@ class AuthenticationCookie extends AuthenticationPlugin
             Util::cacheUnset('table_priv');
             Util::cacheUnset('proc_priv');
 
-            $GLOBALS['no_activity'] = true;
-            $this->showFailure();
+            $this->showFailure('no-activity');
             if (! defined('TESTSUITE')) {
                 exit;
             } else {
@@ -604,16 +603,20 @@ class AuthenticationCookie extends AuthenticationPlugin
      * this function MUST exit/quit the application,
      * currently done by call to showLoginForm()
      *
+     * @param string $failure String describing why authentication has failed
+     *
      * @return void
      */
-    public function showFailure()
+    public function showFailure($failure)
     {
         global $conn_error;
+
+        parent::showFailure($failure);
 
         // Deletes password cookie and displays the login form
         $GLOBALS['PMA_Config']->removeCookie('pmaAuth-' . $GLOBALS['server']);
 
-        $conn_error = $this->getErrorMessage();
+        $conn_error = $this->getErrorMessage($failure);
 
         $response = Response::getInstance();
 

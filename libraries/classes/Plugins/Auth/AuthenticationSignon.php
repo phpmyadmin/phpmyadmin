@@ -227,10 +227,14 @@ class AuthenticationSignon extends AuthenticationPlugin
     /**
      * User is not allowed to login to MySQL -> authentication failed
      *
-     * @return boolean   always true (no return indeed)
+     * @param string $failure String describing why authentication has failed
+     *
+     * @return void
      */
-    public function showFailure()
+    public function showFailure($failure)
     {
+        parent::showFailure($failure);
+
         /* Session name */
         $session_name = $GLOBALS['cfg']['Server']['SignonSession'];
 
@@ -247,7 +251,7 @@ class AuthenticationSignon extends AuthenticationPlugin
             }
 
             /* Set error message */
-            $_SESSION['PMA_single_signon_error_message'] = $this->getErrorMessage();
+            $_SESSION['PMA_single_signon_error_message'] = $this->getErrorMessage($failure);
         }
         $this->showLoginForm();
     }
