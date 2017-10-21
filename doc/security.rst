@@ -32,7 +32,7 @@ nasty things.
 phpMyAdmin tries to escape all userdata before it is rendered into html for the
 browser.
 
-.. seealso:: 
+.. seealso::
 
     `Cross-site scripting on Wikipedia <https://en.wikipedia.org/wiki/Cross-site_scripting>`_
 
@@ -52,7 +52,7 @@ The token is regenerated for every login, so it's generally valid only for
 limited time, what makes it harder for attacker to obtain valid one.
 
 .. seealso::
-   
+
     `Cross-site request forgery on Wikipedia <https://en.wikipedia.org/wiki/Cross-site_request_forgery>`_
 
 SQL injection
@@ -82,7 +82,7 @@ fail2ban, this is more details described in :ref:`securing`.
 
 .. seealso::
 
-    `Brute force attach on Wikipedia <https://en.wikipedia.org/wiki/Brute-force_attack>`_
+    `Brute force attack on Wikipedia <https://en.wikipedia.org/wiki/Brute-force_attack>`_
 
 .. _reporting-security:
 
@@ -92,7 +92,7 @@ Reporting security issues
 Should you find a security issue in the phpMyAdmin programming code, please
 contact the `phpMyAdmin security team <mailto:security@phpmyadmin.net>`_ in
 advance before publishing it. This way we can prepare a fix and release the fix together with your
-announcement. You will be also given credit in our security announcement.  
+announcement. You will be also given credit in our security announcement.
 You can optionally encrypt your report with PGP key ID
 ``DA68AB39218AB947`` with following fingerprint:
 
@@ -103,11 +103,11 @@ You can optionally encrypt your report with PGP key ID
     uid                          phpMyAdmin Security Team &lt;security@phpmyadmin.net&gt;
     sub   4096R/5E4176FB497A31F7 2016-08-02
 
-The key can be either obtained from the keyserver or is available in 
+The key can be either obtained from the keyserver or is available in
 `phpMyAdmin keyring <https://files.phpmyadmin.net/phpmyadmin.keyring>`_
 available on our download server or using `Keybase <https://keybase.io/phpmyadmin_sec>`_.
 
 Should you have suggestion on improving phpMyAdmin to make it more secure, please
 report that to our `issue tracker <https://github.com/phpmyadmin/phpmyadmin/issues>`_.
-Existing improvement suggestions can be found by 
+Existing improvement suggestions can be found by
 `hardening label <https://github.com/phpmyadmin/phpmyadmin/labels/hardening>`_.
