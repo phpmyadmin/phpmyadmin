@@ -1,7 +1,7 @@
 phpMyAdmin - ChangeLog
 ======================
 
-4.7.5 (not yet released)
+4.7.5 (2017-10-23)
 - issue #13615 Avoid problems with browsing unknown query types
 - issue #13612 Integrate tooltip into datetime pickers
 - issue #13628 Fixed javascript error in server monitor
