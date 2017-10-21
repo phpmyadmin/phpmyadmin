@@ -2080,7 +2080,7 @@ function PMA_makegrid(t, enableResize, enableReorder, enableVisib, enableGridEdi
                 if ($(e.target).parents().index($(g.cEdit)) == -1 &&
                     !$(e.target).parents('.ui-datepicker-header').length &&
                     !$('.browse_foreign_modal.ui-dialog:visible').length &&
-                    !$(e.target).hasClass('error')
+                    !$(e.target).closest('.dismissable').length
                 ) {
                     g.hideEditCell();
                 }

@@ -51,7 +51,7 @@ copyright = u'2012 - 2017, The phpMyAdmin devel team'
 # built documents.
 #
 # The short X.Y version.
-version = '4.7.4'
+version = '4.7.5'
 # The full version, including alpha/beta/rc tags.
 release = version
 
@@ -307,3 +307,4 @@ lexers['php'] = PhpLexer(startinline=True)
 linkcheck_retries = 10
 linkcheck_timeout = 10
 linkcheck_anchors = False
+linkcheck_ignore = [r'https://software.opensuse.org/package/.*']

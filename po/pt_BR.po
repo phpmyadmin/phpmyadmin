@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.7.4-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2017-08-10 09:13-0400\n"
-"PO-Revision-Date: 2017-08-10 13:55+0000\n"
-"Last-Translator: George Bezerra <georgelione@gmail.com>\n"
+"PO-Revision-Date: 2017-10-23 11:32+0000\n"
+"Last-Translator: Rafael Campos de Brito <rafinhadebrito@gmail.com>\n"
 "Language-Team: Portuguese (Brazil) "
 "<https://hosted.weblate.org/projects/phpmyadmin/4-7/pt_BR/>\n"
 "Language: pt_BR\n"
@@ -13,7 +13,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n > 1;\n"
-"X-Generator: Weblate 2.16-dev\n"
+"X-Generator: Weblate 2.17\n"
 
 #: ajax.php:16 ajax.php:33 export.php:192 schema_export.php:64
 msgid "Bad type!"
@@ -34,7 +34,7 @@ msgstr "A lista central de colunas para o banco de dados atual está vazia."
 
 #: db_central_columns.php:133
 msgid "Click to sort."
-msgstr "Clique para organizar."
+msgstr "Clique para ordenar."
 
 #: db_central_columns.php:150
 #, php-format
@@ -1092,7 +1092,7 @@ msgstr "Fechar"
 
 #: js/messages.php:152
 msgid "Template was created."
-msgstr "Template foi criado."
+msgstr "O modelo foi criado."
 
 #: js/messages.php:153
 msgid "Template was loaded."
@@ -1100,11 +1100,11 @@ msgstr "O template foi carregado."
 
 #: js/messages.php:154
 msgid "Template was updated."
-msgstr "Template foi atualizado."
+msgstr "O modelo foi atualizado."
 
 #: js/messages.php:155
 msgid "Template was deleted."
-msgstr "Template foi excluído."
+msgstr "O modelo foi excluído."
 
 #. l10n: Other, small valued, queries
 #: js/messages.php:158 libraries/ServerStatusData.php:132
@@ -1194,7 +1194,7 @@ msgstr "Memória usada"
 
 #: js/messages.php:191
 msgid "Total swap"
-msgstr "Total swap"
+msgstr "Swap total"
 
 #: js/messages.php:192
 msgid "Cached swap"
@@ -2265,7 +2265,7 @@ msgstr "Sem título"
 
 #: js/messages.php:564
 msgid "Please select a page to continue"
-msgstr "Favor escolher uma página para editar"
+msgstr "Favor escolher uma página para continuar"
 
 #: js/messages.php:565
 msgid "Please enter a valid page name"
@@ -2963,7 +2963,7 @@ msgstr "Por favor, digite um data válida ou um tempo"
 
 #: js/messages.php:967
 msgid "Please enter a valid HEX input"
-msgstr "Por favor, digite um número HEXADECIMAL válido"
+msgstr "Por favor, digite um número hexadecimal válido!"
 
 #: js/messages.php:972 libraries/Message.php:190 libraries/Util.php:566
 #: libraries/core.lib.php:244 libraries/import.lib.php:80
@@ -3209,7 +3209,7 @@ msgstr "Alemão (ordem alfabética)"
 #: libraries/Charsets.php:405 libraries/Charsets.php:516
 msgctxt "Collation"
 msgid "German (phone book order)"
-msgstr "Alemão (ordem da agenda telefônica)"
+msgstr "Alemão (ordem de agenda telefônica)"
 
 #: libraries/Charsets.php:414
 msgctxt "Collation"
@@ -5398,7 +5398,8 @@ msgstr "Permitir usuários customizar esse valor"
 #: libraries/config/PageSettings.php:146
 msgid "Cannot save settings, submitted configuration form contains errors!"
 msgstr ""
-"As configurações não podem salvas, a configuração enviada contém erros!"
+"As configurações não podem ser salvas, o formulário de configuração "
+"submetido contém erros!"
 
 #: libraries/config/ServerConfigChecks.php:159
 msgid "You should use SSL connections if your database server supports it."
@@ -5822,11 +5823,11 @@ msgstr "Aba de tabela padrão"
 
 #: libraries/config/messages.inc.php:110
 msgid "Autocomplete of the table and column names in the SQL queries."
-msgstr "Autocomplete os nomes de tabelas e colunas nas consultas SQL."
+msgstr "Autocompletar os nomes das tabelas e colunas nas consultas SQL."
 
 #: libraries/config/messages.inc.php:113
 msgid "Enable autocomplete for table and column names"
-msgstr "Habilitar o preenchimento automático de nomes de tabelas e colunas"
+msgstr "Habilitar autocompletar para nomes de tabelas e colunas"
 
 #: libraries/config/messages.inc.php:116
 msgid "Whether the table structure actions should be hidden."
@@ -5882,7 +5883,7 @@ msgstr "Tempo máximo de execução"
 #: libraries/config/messages.inc.php:135 libraries/display_export.lib.php:797
 #, php-format
 msgid "Use %s statement"
-msgstr "Use a declaração %s"
+msgstr "Usar comando %s"
 
 #: libraries/config/messages.inc.php:137 prefs_manage.php:327
 msgid "Save as file"
@@ -6085,7 +6086,7 @@ msgid ""
 "Add IF NOT EXISTS (less efficient as indexes will be generated during table "
 "creation)"
 msgstr ""
-"Adicionar IF NOT EXISTS (menos eficiente como os índices serão gerados "
+"Adicionar IF NOT EXISTS (é menos eficiente, pois os índices serão gerados "
 "durante a criação da tabela)"
 
 #: libraries/config/messages.inc.php:214
@@ -6713,12 +6714,12 @@ msgid ""
 "The number of bytes a script is allowed to allocate, eg. [kbd]32M[/kbd] "
 "([kbd]-1[/kbd] for no limit and [kbd]0[/kbd] for no change)."
 msgstr ""
-"A quantidade de bytes que um script pode alocar, ex. [kbd]32M[/kbd] "
-"([kbd]-1[/kbd] para não haver limite e [kbd]0[/kbd] para não haver mudança)."
+"O número de bytes permitidos que um script pode alocar, p. ex. [kbd]32M[/kbd]"
+" ([kbd]-1[/kbd] para não haver limite e [kbd]0[/kbd] para não mudar)."
 
 #: libraries/config/messages.inc.php:463
 msgid "Memory limit"
-msgstr "Limite de memória"
+msgstr "Limite da memória"
 
 #: libraries/config/messages.inc.php:465
 msgid "In the navigation panel, replaces the database tree with a selector"
@@ -6727,17 +6728,16 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:468
 msgid "Show databases navigation as tree"
-msgstr "Mostrar a navegação por bases de dados como árvore"
+msgstr "Mostrar a navegação de bases de dados em formato de árvore"
 
 #: libraries/config/messages.inc.php:471
 msgid "Link with main panel by highlighting the current database or table."
 msgstr ""
-"Vincule com o painel principal selecionando a tabela ou o banco de dados "
-"atual."
+"Vincule ao painel principal selecionando a tabela ou o banco de dados atual."
 
 #: libraries/config/messages.inc.php:474
 msgid "Show logo in navigation panel."
-msgstr "Mostrar logo no painel de navegação."
+msgstr "Mostrar o logo no painel de navegação."
 
 #: libraries/config/messages.inc.php:475
 msgid "Display logo"
@@ -6745,11 +6745,11 @@ msgstr "Exibir logo"
 
 #: libraries/config/messages.inc.php:477
 msgid "URL where logo in the navigation panel will point to."
-msgstr "URL para onde a logo no painel de navegação vai direcionar."
+msgstr "URL para onde o logo no painel de navegação vai direcionar."
 
 #: libraries/config/messages.inc.php:478
 msgid "Logo link URL"
-msgstr "Link URL do logo"
+msgstr "URL com link do logo"
 
 #: libraries/config/messages.inc.php:480
 msgid ""
@@ -6773,11 +6773,11 @@ msgstr "Exibe seleção de servidores"
 
 #: libraries/config/messages.inc.php:487
 msgid "Target for quick access icon"
-msgstr "Alvo para ícone de acesso rápido"
+msgstr "Destino para o ícone de acesso rápido"
 
 #: libraries/config/messages.inc.php:489
 msgid "Target for second quick access icon"
-msgstr "Alvo para segundo ícone de acesso rápido"
+msgstr "Destino para o segundo ícone de acesso rápido"
 
 #: libraries/config/messages.inc.php:492
 msgid ""
@@ -6794,7 +6794,8 @@ msgstr "Número mínimo de itens para mostrar na caixa de filtro"
 #: libraries/config/messages.inc.php:498
 msgid "Minimum number of databases to display the database filter box"
 msgstr ""
-"Número mínimo de tabelas para mostrar a caixa de filtro de bancos de dados"
+"Número mínimo de bancos de dados para mostrar na caixa de filtro de bancos "
+"de dados"
 
 #: libraries/config/messages.inc.php:500
 msgid ""
@@ -7980,8 +7981,8 @@ msgid ""
 "Queries are executed by pressing Enter (instead of Ctrl+Enter). New lines "
 "will be inserted with Shift+Enter."
 msgstr ""
-"Queries são executadas pressionando Enter (no lugar de Ctrl + enter). Nova "
-"linhas serão inseridas com Shift + Enter."
+"Consultas são executadas pressionando Enter (ao invés de Ctrl+Enter). Novas "
+"linhas serão inseridas com Shift+Enter."
 
 #: libraries/config/messages.inc.php:983
 msgid "Enter executes queries in console"
@@ -8317,7 +8318,7 @@ msgstr ""
 
 #: libraries/dbi/DBIMysqli.php:158
 msgid "SSL connection enforced by server, automatically enabling it."
-msgstr "Conexão SSL executada pelo servidor, automaticamente habilitando-a."
+msgstr "Conexão SSL imposta pelo servidor, sendo automaticamente habilitada."
 
 #: libraries/display_change_password.lib.php:57
 #: libraries/replication_gui.lib.php:854
@@ -9330,7 +9331,7 @@ msgstr "Documentação do phpMyAdmin"
 
 #: libraries/navigation/NavigationHeader.php:210
 msgid "Navigation panel settings"
-msgstr "Configuração do painel de navegação"
+msgstr "Configurações do painel de navegação"
 
 #: libraries/navigation/NavigationHeader.php:221
 msgid "Reload navigation panel"
@@ -9876,7 +9877,7 @@ msgstr "Verificar tabela"
 #: libraries/operations.lib.php:1397
 #: templates/database/structure/check_all_tables.phtml:22
 msgid "Checksum table"
-msgstr "Checksum da tabela"
+msgstr "Tabela de checksum"
 
 #: libraries/operations.lib.php:1411
 msgid "Defragment table"
@@ -9948,7 +9949,7 @@ msgstr "Truncar"
 
 #: libraries/operations.lib.php:1579
 msgid "Coalesce"
-msgstr "Buscar valor NOTNULL"
+msgstr "Coalescer"
 
 #: libraries/operations.lib.php:1588
 msgid "Partition maintenance"
@@ -10313,7 +10314,7 @@ msgstr "Fazendo dump de dados"
 
 #: libraries/plugins/export/ExportPdf.php:288
 msgid "View structure"
-msgstr "Visualizar estrutura"
+msgstr "Ver estrutura"
 
 #: libraries/plugins/export/ExportPdf.php:291
 msgid "Stand in"

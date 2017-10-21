@@ -506,13 +506,8 @@ function PMA_saveDisplayField($db, $table, $field)
         return false;
     }
 
-    $disp = PMA_getDisplayField($db, $table);
-    if ($disp && $disp === $field) {
-        $field = '';
-    }
-
     $upd_query = new Table($table, $db, $GLOBALS['dbi']);
-    $upd_query->updateDisplayField($disp, $field, $cfgRelation);
+    $upd_query->updateDisplayField($field, $cfgRelation);
 
     return true;
 }

@@ -800,13 +800,20 @@ $(document).ajaxError(function (event, request, settings) {
     }
     // Don't handle aborted requests
     if (request.status !== 0 || request.statusText !== 'abort') {
-        var errorCode = PMA_sprintf(PMA_messages.strErrorCode, request.status);
-        var errorText = PMA_sprintf(PMA_messages.strErrorText, request.statusText);
+        var details = ''
+        var state = request.state();
+
+        if (request.status !== 0) {
+            details += '<div>' + escapeHtml(PMA_sprintf(PMA_messages.strErrorCode, request.status)) + '</div>';
+        }
+        details += '<div>' + escapeHtml(PMA_sprintf(PMA_messages.strErrorText, request.statusText + ' (' + state + ')')) + '</div>';
+        if (state == 'rejected' || state == 'timeout') {
+            details += '<div>' + escapeHtml(PMA_messages.strErrorConnection) + '</div>';
+        }
         PMA_ajaxShowMessage(
             '<div class="error">' +
             PMA_messages.strErrorProcessingRequest +
-            '<div>' + escapeHtml(errorCode) + '</div>' +
-            '<div>' + escapeHtml(errorText) + '</div>' +
+            details +
             '</div>',
             false
         );

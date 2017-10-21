@@ -4,16 +4,16 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.7.4-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2017-08-10 09:13-0400\n"
-"PO-Revision-Date: 2017-01-30 00:45+0000\n"
-"Last-Translator: Παναγιώτης Παπάζογλου <papaz_p@yahoo.com>\n"
-"Language-Team: Greek <https://hosted.weblate.org/projects/phpmyadmin/4-7/el/"
-">\n"
+"PO-Revision-Date: 2017-10-05 10:47+0000\n"
+"Last-Translator: dnhost.gr <jefaraz@gmail.com>\n"
+"Language-Team: Greek <https://hosted.weblate.org/projects/phpmyadmin/4-7/el/>"
+"\n"
 "Language: el\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 2.11-dev\n"
+"X-Generator: Weblate 2.17-dev\n"
 
 #: ajax.php:16 ajax.php:33 export.php:192 schema_export.php:64
 msgid "Bad type!"
@@ -609,6 +609,8 @@ msgid ""
 "You were logged out from one server, to logout completely from phpMyAdmin, "
 "you need to logout from all servers."
 msgstr ""
+"Έχετε αποσυνδεθεί από έναν διακομιστή, για να αποσυνθεθείτε πλήρως από το "
+"phpMyAdmin, πρέπει να αποσυνδεθείτε από όλους του διακομιστές."
 
 #: index.php:160 libraries/Footer.php:69
 msgid "phpMyAdmin Demo Server"
@@ -1538,22 +1540,16 @@ msgid "Chart"
 msgstr "Διάγραμμα"
 
 #: js/messages.php:298 libraries/display_export.lib.php:903
-#, fuzzy
-#| msgid "Database"
 msgctxt "Alias"
 msgid "Database"
-msgstr "Βάση"
+msgstr "Βάση δεδομένων"
 
 #: js/messages.php:299 libraries/display_export.lib.php:915
-#, fuzzy
-#| msgid "Table"
 msgctxt "Alias"
 msgid "Table"
 msgstr "Πίνακας"
 
 #: js/messages.php:300 libraries/display_export.lib.php:926
-#, fuzzy
-#| msgid "Column"
 msgctxt "Alias"
 msgid "Column"
 msgstr "Στήλη"
@@ -1703,7 +1699,7 @@ msgstr "Άκυρο"
 
 #: js/messages.php:357 libraries/Header.php:447
 msgid "Page-related settings"
-msgstr "Ρυθμίσεις σχετισμένες με σελίδα"
+msgstr "Ρυθμίσεις σχετικές με τη σελίδα"
 
 #: js/messages.php:358 libraries/config/FormDisplay.tpl.php:424
 msgid "Apply"
@@ -1716,19 +1712,19 @@ msgstr "Φόρτωση…"
 
 #: js/messages.php:362
 msgid "Request aborted!!"
-msgstr "Το Αίτημα διακόπηκε!!"
+msgstr "Το αίτημα διακόπηκε!!"
 
 #: js/messages.php:363
 msgid "Processing request"
-msgstr "Προώθηση αιτήματος"
+msgstr "Εκτέλεση αιτήματος"
 
 #: js/messages.php:364
 msgid "Request failed!!"
-msgstr "Το Αίτημα απέτυχε!!"
+msgstr "Το αίτημα απέτυχε!!"
 
 #: js/messages.php:365
 msgid "Error in processing request"
-msgstr "Σφάλμα στην προώθηση αιτημάτος"
+msgstr "Σφάλμα στην εκτέλεση του αιτήματος"
 
 #: js/messages.php:366
 #, php-format
@@ -3047,168 +3043,120 @@ msgid "Collation"
 msgstr "Σύνθεση"
 
 #: libraries/Charsets.php:244
-#, fuzzy
-#| msgid "unknown"
 msgid "Unknown"
-msgstr "άγνωστο"
+msgstr "Άγνωστο"
 
 #: libraries/Charsets.php:258
-#, fuzzy
-#| msgid "Binary"
 msgctxt "Collation"
 msgid "Binary"
 msgstr "Δυαδικό"
 
 #: libraries/Charsets.php:270 libraries/Charsets.php:500
-#, fuzzy
-#| msgid "Unicode"
 msgctxt "Collation"
 msgid "Unicode"
 msgstr "Unicode"
 
 #: libraries/Charsets.php:280 libraries/Charsets.php:451
-#, fuzzy
-#| msgid "West European"
 msgctxt "Collation"
 msgid "West European"
 msgstr "Δυτικής Ευρώπης"
 
 #: libraries/Charsets.php:287
-#, fuzzy
-#| msgid "Central European"
 msgctxt "Collation"
 msgid "Central European"
 msgstr "Κεντρικής Ευρώπης"
 
 #: libraries/Charsets.php:292
-#, fuzzy
-#| msgid "Russian"
 msgctxt "Collation"
 msgid "Russian"
 msgstr "Ρωσικά"
 
 #: libraries/Charsets.php:297
-#, fuzzy
-#| msgid "Simplified Chinese"
 msgctxt "Collation"
 msgid "Simplified Chinese"
 msgstr "Απλοποιημένα Κινέζικα"
 
 #: libraries/Charsets.php:304 libraries/Charsets.php:422
-#, fuzzy
-#| msgid "Japanese"
 msgctxt "Collation"
 msgid "Japanese"
 msgstr "Ιαπωνικά"
 
 #: libraries/Charsets.php:309
-#, fuzzy
-#| msgid "Baltic"
 msgctxt "Collation"
 msgid "Baltic"
 msgstr "Βαλτικής"
 
 #: libraries/Charsets.php:314
-#, fuzzy
-#| msgid "Armenian"
 msgctxt "Collation"
 msgid "Armenian"
 msgstr "Αρμενικά"
 
 #: libraries/Charsets.php:317
-#, fuzzy
-#| msgid "Traditional Chinese"
 msgctxt "Collation"
 msgid "Traditional Chinese"
 msgstr "Παραδοσιακά Κινέζικα"
 
 #: libraries/Charsets.php:320
-#, fuzzy
-#| msgid "Cyrillic"
 msgctxt "Collation"
 msgid "Cyrillic"
 msgstr "Κυριλλικά"
 
 #: libraries/Charsets.php:323
-#, fuzzy
-#| msgid "Arabic"
 msgctxt "Collation"
 msgid "Arabic"
 msgstr "Αραβικά"
 
 #: libraries/Charsets.php:326 libraries/Charsets.php:437
-#, fuzzy
-#| msgid "Korean"
 msgctxt "Collation"
 msgid "Korean"
 msgstr "Κορεατικά"
 
 #: libraries/Charsets.php:329
-#, fuzzy
-#| msgid "Hebrew"
 msgctxt "Collation"
 msgid "Hebrew"
 msgstr "Εβραϊκά"
 
 #: libraries/Charsets.php:332
-#, fuzzy
-#| msgid "Georgian"
 msgctxt "Collation"
 msgid "Georgian"
 msgstr "Γεωργιανά"
 
 #: libraries/Charsets.php:335
-#, fuzzy
-#| msgid "Greek"
 msgctxt "Collation"
 msgid "Greek"
 msgstr "Ελληνικά"
 
 #: libraries/Charsets.php:338
-#, fuzzy
-#| msgid "Czech-Slovak"
 msgctxt "Collation"
 msgid "Czech-Slovak"
 msgstr "Τσέχο-Σλοβάκικα"
 
 #: libraries/Charsets.php:341 libraries/Charsets.php:492
-#, fuzzy
-#| msgid "Ukrainian"
 msgctxt "Collation"
 msgid "Ukrainian"
 msgstr "Ουκρανικά"
 
 #: libraries/Charsets.php:344 libraries/Charsets.php:488
-#, fuzzy
-#| msgid "Turkish"
 msgctxt "Collation"
 msgid "Turkish"
 msgstr "Τουρκικά"
 
 #: libraries/Charsets.php:347 libraries/Charsets.php:480
-#, fuzzy
-#| msgid "Swedish"
 msgctxt "Collation"
 msgid "Swedish"
 msgstr "Σουηδικά"
 
 #: libraries/Charsets.php:350 libraries/Charsets.php:484
-#, fuzzy
-#| msgid "Thai"
 msgctxt "Collation"
 msgid "Thai"
 msgstr "Ταϊλανδικά"
 
 #: libraries/Charsets.php:353
-#, fuzzy
-#| msgid "unknown"
 msgctxt "Collation"
 msgid "Unknown"
-msgstr "άγνωστο"
+msgstr "Άγνωστο"
 
 #: libraries/Charsets.php:369
-#, fuzzy
-#| msgid "Bulgarian"
 msgctxt "Collation"
 msgid "Bulgarian"
 msgstr "Βουλγαρικά"
@@ -3216,72 +3164,54 @@ msgstr "Βουλγαρικά"
 #: libraries/Charsets.php:374
 msgctxt "Collation"
 msgid "Chinese"
-msgstr ""
+msgstr "Κινέζικα"
 
 #: libraries/Charsets.php:379
-#, fuzzy
-#| msgid "Croatian"
 msgctxt "Collation"
 msgid "Croatian"
 msgstr "Κροατικά"
 
 #: libraries/Charsets.php:383
-#, fuzzy
-#| msgid "Czech"
 msgctxt "Collation"
 msgid "Czech"
 msgstr "Τσεχικά"
 
 #: libraries/Charsets.php:387
-#, fuzzy
-#| msgid "Danish"
 msgctxt "Collation"
 msgid "Danish"
-msgstr "Δανικά"
+msgstr "Δανέζικα"
 
 #: libraries/Charsets.php:391
-#, fuzzy
-#| msgid "English"
 msgctxt "Collation"
 msgid "English"
 msgstr "Αγγλικά"
 
 #: libraries/Charsets.php:395
-#, fuzzy
-#| msgid "Esperanto"
 msgctxt "Collation"
 msgid "Esperanto"
 msgstr "Εσπεράντο"
 
 #: libraries/Charsets.php:399
-#, fuzzy
-#| msgid "Estonian"
 msgctxt "Collation"
 msgid "Estonian"
 msgstr "Εσθονικά"
 
 #: libraries/Charsets.php:402 libraries/Charsets.php:519
-#, fuzzy
-#| msgid "Data dictionary"
 msgctxt "Collation"
 msgid "German (dictionary order)"
-msgstr "Λεξικό δεδομένων"
+msgstr "Γερμανικά (ταξινόμηση λεξικού)"
 
 #: libraries/Charsets.php:405 libraries/Charsets.php:516
 msgctxt "Collation"
 msgid "German (phone book order)"
-msgstr ""
+msgstr "Γερμανικά (ταξινόμηση τηλεφωνικού καταλόγου)"
 
 #: libraries/Charsets.php:414
-#, fuzzy
-#| msgid "Hungarian"
 msgctxt "Collation"
 msgid "Hungarian"
 msgstr "Ουγγρικά"
 
 #: libraries/Charsets.php:418
-#, fuzzy
-#| msgid "Icelandic"
 msgctxt "Collation"
 msgid "Icelandic"
 msgstr "Ισλανδικά"
@@ -3289,131 +3219,97 @@ msgstr "Ισλανδικά"
 #: libraries/Charsets.php:425
 msgctxt "Collation"
 msgid "Classical Latin"
-msgstr ""
+msgstr "Κλασσικά Λατινικά"
 
 #: libraries/Charsets.php:429
-#, fuzzy
-#| msgid "Latvian"
 msgctxt "Collation"
 msgid "Latvian"
-msgstr "Λιθουανικά"
+msgstr "Λετονικά"
 
 #: libraries/Charsets.php:433
-#, fuzzy
-#| msgid "Lithuanian"
 msgctxt "Collation"
 msgid "Lithuanian"
 msgstr "Λιθουανικά"
 
 #: libraries/Charsets.php:441
-#, fuzzy
-#| msgid "Burmese"
 msgctxt "Collation"
 msgid "Burmese"
 msgstr "Μπουρμέζικα"
 
 #: libraries/Charsets.php:444
-#, fuzzy
-#| msgid "Persian"
 msgctxt "Collation"
 msgid "Persian"
 msgstr "Περσικά"
 
 #: libraries/Charsets.php:448
-#, fuzzy
-#| msgid "Polish"
 msgctxt "Collation"
 msgid "Polish"
 msgstr "Πολωνικά"
 
 #: libraries/Charsets.php:455
-#, fuzzy
-#| msgid "Romanian"
 msgctxt "Collation"
 msgid "Romanian"
 msgstr "Ρουμάνικα"
 
 #: libraries/Charsets.php:459
-#, fuzzy
-#| msgid "Sinhalese"
 msgctxt "Collation"
 msgid "Sinhalese"
 msgstr "Σινχαλέζικα"
 
 #: libraries/Charsets.php:463
-#, fuzzy
-#| msgid "Slovak"
 msgctxt "Collation"
 msgid "Slovak"
 msgstr "Σλοβάκικα"
 
 #: libraries/Charsets.php:467
-#, fuzzy
-#| msgid "Slovenian"
 msgctxt "Collation"
 msgid "Slovenian"
 msgstr "Σλοβένικα"
 
 #: libraries/Charsets.php:470 libraries/Charsets.php:530
-#, fuzzy
-#| msgid "Spanish"
 msgctxt "Collation"
 msgid "Spanish (modern)"
-msgstr "Ισπανικά"
+msgstr "Ισπανικά (μοντέρνα)"
 
 #: libraries/Charsets.php:477 libraries/Charsets.php:527
 msgctxt "Collation"
 msgid "Spanish (traditional)"
-msgstr ""
+msgstr "Ισπανικά (παραδοσιακά)"
 
 #: libraries/Charsets.php:496
-#, fuzzy
-#| msgid "Vietnamese"
 msgctxt "Collation"
 msgid "Vietnamese"
 msgstr "Βιετναμέζικα"
 
 #: libraries/Charsets.php:563
-#, fuzzy
-#| msgid "case-insensitive"
 msgctxt "Collation variant"
 msgid "case-insensitive"
 msgstr "χωρίς ταίριασμα πεζών-κεφαλαίων"
 
 #: libraries/Charsets.php:566
-#, fuzzy
-#| msgid "case-sensitive"
 msgctxt "Collation variant"
 msgid "case-sensitive"
 msgstr "ταίριασμα πεζών-κεφαλαίων"
 
 #: libraries/Charsets.php:569
-#, fuzzy
-#| msgid "case-insensitive"
 msgctxt "Collation variant"
 msgid "accent-insensitive"
-msgstr "χωρίς ταίριασμα πεζών-κεφαλαίων"
+msgstr "χωρίς ταίριασμα τονισμένων"
 
 #: libraries/Charsets.php:572
-#, fuzzy
-#| msgid "case-sensitive"
 msgctxt "Collation variant"
 msgid "accent-sensitive"
-msgstr "ταίριασμα πεζών-κεφαλαίων"
+msgstr "ταίριασμα τονισμένων"
 
 #: libraries/Charsets.php:576
-#, fuzzy
-#| msgid "multilingual"
 msgctxt "Collation variant"
 msgid "multi-level"
-msgstr "πολυγλωσσικό"
+msgstr "πολυεπίπεδο"
 
 #: libraries/Charsets.php:579
-#, fuzzy
-#| msgid "Binary"
 msgctxt "Collation variant"
 msgid "binary"
-msgstr "Δυαδικό"
+msgstr "δυαδικό"
 
 #: libraries/Config.php:1119
 #, php-format
@@ -3645,7 +3541,7 @@ msgstr[1] "<b>Σύνολο:</b> <i>%s</i> αποτελέσματα"
 #, php-format
 msgid "%1$s match in <strong>%2$s</strong>"
 msgid_plural "%1$s matches in <strong>%2$s</strong>"
-msgstr[0] "%1$s απατέλεσμα στο <strong>%2$s</strong>"
+msgstr[0] "%1$s αποτέλεσμα στο <strong>%2$s</strong>"
 msgstr[1] "%1$s αποτελέσματα στο <strong>%2$s</strong>"
 
 #: libraries/DbSearch.php:346 libraries/Menu.php:324 libraries/Util.php:3186
@@ -5222,18 +5118,12 @@ msgstr ""
 "μερικά δεδομένα!"
 
 #: libraries/common.inc.php:484
-#, fuzzy
-#| msgid ""
-#| "You have enabled mbstring.func_overload in your PHP configuration. This "
-#| "option is incompatible with phpMyAdmin and might cause some data to be "
-#| "corrupted!"
 msgid ""
 "You have disabled ini_get and/or ini_set in php.ini. This option is "
 "incompatible with phpMyAdmin!"
 msgstr ""
-"Έχετε ενεργή τη mbstring.func_overload στις ρυθμίσεις της PHP. Αυτή η "
-"επιλογή είναι ασύμβατη με το phpMyAdmin και ίσως προκαλέσει πρόβλημα με "
-"μερικά δεδομένα!"
+"Έχετε απενεργοποιήσει τα ini_get και/ή ini_set στο php.ini. Αυτή η επιλογή "
+"είναι ασύμβατη με το phpMyAdmin!"
 
 #: libraries/common.inc.php:517
 #, php-format
@@ -5548,9 +5438,10 @@ msgid ""
 "authentication, so a key was automatically generated for you. It is used to "
 "encrypt cookies; you don't need to remember it."
 msgstr ""
-"Δεν ορίσατε το μυστικό κολιτσίδας και ενεργοποιήσατε την επικύρωση "
+"Δεν ορίσατε τη μυστική φράση και ενεργοποιήσατε την επικύρωση "
 "[kbd]cookie[/kbd]. Έτσι δημιουργήθηκε αυτόματα ένα κλειδί για σας. "
-"Χρησιμοποιήθηκε για την κρυπτογράφηση cookies. Δεν χρειάζεται να το θυμάστε."
+"Χρησιμοποιείται για την κρυπτογράφηση των cookies και δε χρειάζεται να το "
+"θυμάστε."
 
 #: libraries/config/ServerConfigChecks.php:410
 #, php-format
@@ -8453,7 +8344,7 @@ msgstr ""
 
 #: libraries/dbi/DBIMysqli.php:158
 msgid "SSL connection enforced by server, automatically enabling it."
-msgstr ""
+msgstr "Ο διακομιστής δεσμεύει για σύνδεση SSL και ενεργοποιείται αυτόματα."
 
 #: libraries/display_change_password.lib.php:57
 #: libraries/replication_gui.lib.php:854
@@ -8682,7 +8573,7 @@ msgstr "Αγνόηση πινάκων μεγαλύτερων από"
 
 #: libraries/display_export.lib.php:895
 msgid "Defined aliases"
-msgstr ""
+msgstr "Ορισμένες ετικέτες"
 
 #: libraries/display_export.lib.php:1011
 msgid "Could not load export plugins, please check your installation!"
@@ -15304,33 +15195,27 @@ msgstr "Μπορείτε να εξετάστε τα δεδομένα στην α
 
 #: templates/export/alias_add.phtml:5
 msgid "Define new aliases"
-msgstr ""
+msgstr "Ορισμός νεών ετικετών"
 
 #: templates/export/alias_add.phtml:11
-#, fuzzy
-#| msgid "Select database"
 msgid "Select database:"
-msgstr "Επιλογή βάσης δεδομένων"
+msgstr "Επιλογή βάσης δεδομένων:"
 
 #: templates/export/alias_add.phtml:17
 msgid "New database name"
 msgstr "Νέο όνομα βάσης δεδομένων"
 
 #: templates/export/alias_add.phtml:26
-#, fuzzy
-#| msgid "Select table"
 msgid "Select table:"
-msgstr "Επιλογή πίνακα"
+msgstr "Επιλογή πίνακα:"
 
 #: templates/export/alias_add.phtml:32
 msgid "New table name"
 msgstr "Νέο όνομα πίνακα"
 
 #: templates/export/alias_add.phtml:41
-#, fuzzy
-#| msgid "Select a column."
 msgid "Select column:"
-msgstr "Επιλογή μιας στήλης."
+msgstr "Επιλογή στήλης:"
 
 #: templates/export/alias_add.phtml:47
 msgid "New column name"
@@ -15338,7 +15223,7 @@ msgstr "Νέο ονόμα στήλης"
 
 #: templates/export/alias_item.phtml:8
 msgid "Remove"
-msgstr ""
+msgstr "Απομάκρυνση"
 
 #: templates/prefs_autoload.phtml:8
 msgid ""

@@ -1558,7 +1558,7 @@ class Table
                     $value = Util::backquote($value);
                 }
 
-                if (strpos($column['Extra'], 'GENERATED') === false) {
+                if (strpos($column['Extra'], 'GENERATED') === false && strpos($column['Extra'], 'VIRTUAL') === false) {
                     array_push($ret, $value);
                 }
             }
@@ -1735,7 +1735,7 @@ class Table
                 }
             }
             // remove the property, since it no longer exists in database
-            $this->removeUiProp(self::PROP_SORTED_COLUMN);
+            $this->removeUiProp($property);
             return false;
         }
 
@@ -1753,7 +1753,7 @@ class Table
             }
 
             // remove the property, since the table has been modified
-            $this->removeUiProp(self::PROP_COLUMN_ORDER);
+            $this->removeUiProp($property);
             return false;
         }
 
@@ -2014,37 +2014,24 @@ class Table
     /**
      * Function to handle update for display field
      *
-     * @param string $disp          current display field
      * @param string $display_field display field
      * @param array  $cfgRelation   configuration relation
      *
      * @return boolean True on update succeed or False on failure
      */
-    public function updateDisplayField($disp, $display_field, $cfgRelation)
+    public function updateDisplayField($display_field, $cfgRelation)
     {
         $upd_query = false;
-        if ($disp) {
-            if ($display_field == '') {
-                $upd_query = 'DELETE FROM '
-                    . Util::backquote($GLOBALS['cfgRelation']['db'])
-                    . '.' . Util::backquote($cfgRelation['table_info'])
-                    . ' WHERE db_name  = \''
-                    . $GLOBALS['dbi']->escapeString($this->_db_name) . '\''
-                    . ' AND table_name = \''
-                    . $GLOBALS['dbi']->escapeString($this->_name) . '\'';
-            } elseif ($disp != $display_field) {
-                $upd_query = 'UPDATE '
-                    . Util::backquote($GLOBALS['cfgRelation']['db'])
-                    . '.' . Util::backquote($cfgRelation['table_info'])
-                    . ' SET display_field = \''
-                    . $GLOBALS['dbi']->escapeString($display_field) . '\''
-                    . ' WHERE db_name  = \''
-                    . $GLOBALS['dbi']->escapeString($this->_db_name) . '\''
-                    . ' AND table_name = \''
-                    . $GLOBALS['dbi']->escapeString($this->_name) . '\'';
-            }
-        } elseif ($display_field != '') {
-            $upd_query = 'INSERT INTO '
+        if ($display_field == '') {
+            $upd_query = 'DELETE FROM '
+                . Util::backquote($GLOBALS['cfgRelation']['db'])
+                . '.' . Util::backquote($cfgRelation['table_info'])
+                . ' WHERE db_name  = \''
+                . $GLOBALS['dbi']->escapeString($this->_db_name) . '\''
+                . ' AND table_name = \''
+                . $GLOBALS['dbi']->escapeString($this->_name) . '\'';
+        } else {
+            $upd_query = 'REPLACE INTO '
                 . Util::backquote($GLOBALS['cfgRelation']['db'])
                 . '.' . Util::backquote($cfgRelation['table_info'])
                 . '(db_name, table_name, display_field) VALUES('

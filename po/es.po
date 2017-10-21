@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.7.4-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2017-08-10 09:13-0400\n"
-"PO-Revision-Date: 2017-08-16 15:15+0000\n"
-"Last-Translator: Jamaro Ja Ma Ro <jamaropop@gmail.com>\n"
+"PO-Revision-Date: 2017-09-11 10:51+0000\n"
+"Last-Translator: Javier Muñoz Ferrara <javier.munoz@gmail.com>\n"
 "Language-Team: Spanish "
 "<https://hosted.weblate.org/projects/phpmyadmin/4-7/es/>\n"
 "Language: es\n"
@@ -17,7 +17,7 @@ msgstr ""
 
 #: ajax.php:16 ajax.php:33 export.php:192 schema_export.php:64
 msgid "Bad type!"
-msgstr "¡Tipo erróneo!"
+msgstr "¡Tipo incorrecto!"
 
 #: changelog.php:39 license.php:34
 #, php-format
@@ -25,8 +25,8 @@ msgid ""
 "The %s file is not available on this system, please visit %s for more "
 "information."
 msgstr ""
-"El archivo %s no está disponible en este sistema, visite %s para más "
-"información."
+"El archivo %s no está disponible en este sistema. Por favor, visite %s para "
+"más información."
 
 #: db_central_columns.php:108
 msgid "The central list of columns for the current database is empty."
@@ -39,7 +39,7 @@ msgstr "Pulsar para ordenar."
 #: db_central_columns.php:150
 #, php-format
 msgid "Showing rows %1$s - %2$s."
-msgstr "Mostrando fila(s) %1$s - %2$s."
+msgstr "Mostrando filas %1$s - %2$s."
 
 #: db_datadict.php:59 libraries/operations.lib.php:36
 msgid "Database comment"
@@ -3044,9 +3044,6 @@ msgid "Collation"
 msgstr "Cotejamiento"
 
 #: libraries/Charsets.php:244
-#, fuzzy
-#| msgctxt "Collation"
-#| msgid "Unknown"
 msgid "Unknown"
 msgstr "Desconocido"
 

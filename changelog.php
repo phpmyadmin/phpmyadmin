@@ -81,10 +81,6 @@ $replaces = array(
     '/(?:rfe|feature)\s*#?([0-9]{6,})/i'
     => '<a href="url.php?url=https://sourceforge.net/support/tracker.php?aid=\\1">RFE #\\1</a>',
 
-    // linking files
-    '/(\s+)([\\/a-z_0-9\.]+\.(?:php3?|html|pl|js|sh))/i'
-    => '\\1<a href="url.php?url=' . $github_url . 'commits/HEAD/\\2">\\2</a>',
-
     // FAQ entries
     '/FAQ ([0-9]+)\.([0-9a-z]+)/i'
     => '<a href="url.php?url=' . $faq_url . '#faq\\1-\\2">FAQ \\1.\\2</a>',

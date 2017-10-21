@@ -6,16 +6,16 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.7.4-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2017-08-10 09:13-0400\n"
-"PO-Revision-Date: 2017-07-20 23:46+0000\n"
-"Last-Translator: Bo Anderson <bo@toxicflames.co.uk>\n"
-"Language-Team: English (United Kingdom) <https://hosted.weblate.org/projects/"
-"phpmyadmin/4-7/en_GB/>\n"
+"PO-Revision-Date: 2017-08-31 12:01+0000\n"
+"Last-Translator: Michal Čihař <michal@cihar.com>\n"
+"Language-Team: English (United Kingdom) "
+"<https://hosted.weblate.org/projects/phpmyadmin/4-7/en_GB/>\n"
 "Language: en_GB\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 2.16-dev\n"
+"X-Generator: Weblate 2.17-dev\n"
 
 #: ajax.php:16 ajax.php:33 export.php:192 schema_export.php:64
 msgid "Bad type!"
@@ -16003,16 +16003,12 @@ msgid "Too many sorts are causing temporary tables."
 msgstr "Too many sorts are causing temporary tables."
 
 #: libraries/advisory_rules.txt:208 libraries/advisory_rules.txt:215
-#, fuzzy
-#| msgid ""
-#| "Consider increasing {sort_buffer_size} and/or {read_rnd_buffer_size}, "
-#| "depending on your system memory limits"
 msgid ""
 "Consider increasing {sort_buffer_size} and/or {read_rnd_buffer_size}, "
 "depending on your system memory limits."
 msgstr ""
 "Consider increasing {sort_buffer_size} and/or {read_rnd_buffer_size}, "
-"depending on your system memory limits"
+"depending on your system memory limits."
 
 #: libraries/advisory_rules.txt:209
 #, php-format
@@ -16043,12 +16039,6 @@ msgid "There are lots of rows being sorted."
 msgstr "There are lots of rows being sorted."
 
 #: libraries/advisory_rules.txt:222
-#, fuzzy
-#| msgid ""
-#| "While there is nothing wrong with a high amount of row sorting, you might "
-#| "want to make sure that the queries which require a lot of sorting use "
-#| "indexed columns in the ORDER BY clause, as this will result in much "
-#| "faster sorting"
 msgid ""
 "While there is nothing wrong with a high amount of row sorting, you might "
 "want to make sure that the queries which require a lot of sorting use "
@@ -16057,8 +16047,8 @@ msgid ""
 msgstr ""
 "While there is nothing wrong with a high amount of row sorting, you might "
 "want to make sure that the queries which require a lot of sorting use "
-"indexed fields in the ORDER BY clause, as this will result in much faster "
-"sorting"
+"indexed columns in the ORDER BY clause, as this will result in much faster "
+"sorting."
 
 #: libraries/advisory_rules.txt:223
 #, php-format
@@ -16074,17 +16064,12 @@ msgid "There are too many joins without indexes."
 msgstr "There are too many joins without indexes."
 
 #: libraries/advisory_rules.txt:230
-#, fuzzy
-#| msgid ""
-#| "This means that joins are doing full table scans. Adding indexes for the "
-#| "columns being used in the join conditions will greatly speed up table "
-#| "joins"
 msgid ""
 "This means that joins are doing full table scans. Adding indexes for the "
 "columns being used in the join conditions will greatly speed up table joins."
 msgstr ""
 "This means that joins are doing full table scans. Adding indexes for the "
-"fields being used in the join conditions will greatly speed up table joins"
+"columns being used in the join conditions will greatly speed up table joins."
 
 #: libraries/advisory_rules.txt:231
 #, php-format
@@ -16491,22 +16476,16 @@ msgid "Slow launch time"
 msgstr "Slow launch time"
 
 #: libraries/advisory_rules.txt:368
-#, fuzzy
-#| msgid "Slow_launch_time is above 2s"
 msgid "Slow_launch_time is above 2s."
-msgstr "Slow_launch_time is above 2s"
+msgstr "Slow_launch_time is above 2s."
 
 #: libraries/advisory_rules.txt:369
-#, fuzzy
-#| msgid ""
-#| "Set {slow_launch_time} to 1s or 2s to correctly count threads that are "
-#| "slow to launch"
 msgid ""
 "Set {slow_launch_time} to 1s or 2s to correctly count threads that are slow "
 "to launch."
 msgstr ""
 "Set {slow_launch_time} to 1s or 2s to correctly count threads that are slow "
-"to launch"
+"to launch."
 
 #: libraries/advisory_rules.txt:370
 #, php-format
@@ -16551,21 +16530,14 @@ msgid "Too many connections are aborted."
 msgstr "Too many connections are aborted."
 
 #: libraries/advisory_rules.txt:385 libraries/advisory_rules.txt:392
-#, fuzzy
-#| msgid ""
-#| "Connections are usually aborted when they cannot be authorized. <a href="
-#| "\"https://www.mysqlperformanceblog.com/2008/08/23/how-to-track-down-the-"
-#| "source-of-aborted_connects/\">This article</a> might help you track down "
-#| "the source."
 msgid ""
 "Connections are usually aborted when they cannot be authorized. <a href="
 "\"https://www.percona.com/blog/2008/08/23/how-to-track-down-the-source-of-"
 "aborted_connects/\">This article</a> might help you track down the source."
 msgstr ""
-"Connections are usually aborted when they cannot be authorised. <a href="
-"\"https://www.mysqlperformanceblog.com/2008/08/23/how-to-track-down-the-"
-"source-of-aborted_connects/\">This article</a> might help you track down the "
-"source."
+"Connections are usually aborted when they cannot be authorised. <a href=\""
+"https://www.percona.com/blog/2008/08/23/how-to-track-down-the-source-of-"
+"aborted_connects/\">This article</a> might help you track down the source."
 
 #: libraries/advisory_rules.txt:386
 #, php-format
@@ -16685,17 +16657,7 @@ msgid "The InnoDB log file size is inadequately large."
 msgstr "The InnoDB log file size is inadequately large."
 
 #: libraries/advisory_rules.txt:429
-#, fuzzy, php-format
-#| msgid ""
-#| "It is usually sufficient to set {innodb_log_file_size} to 25%% of the "
-#| "size of {innodb_buffer_pool_size}. A very big {innodb_log_file_size} "
-#| "slows down the recovery time after a database crash considerably. See "
-#| "also <a href=\"https://www.mysqlperformanceblog.com/2006/07/03/choosing-"
-#| "proper-innodb_log_file_size/\">this Article</a>. You need to shutdown the "
-#| "server, remove the InnoDB log files, set the new value in my.cnf, start "
-#| "the server, then check the error logs if everything went fine. See also "
-#| "<a href=\"https://mysqldatabaseadministration.blogspot.com/2007/01/"
-#| "increase-innodblogfilesize-proper-way.html\">this blog entry</a>"
+#, php-format
 msgid ""
 "It is usually sufficient to set {innodb_log_file_size} to 25%% of the size "
 "of {innodb_buffer_pool_size}. A very big {innodb_log_file_size} slows down "
@@ -16709,12 +16671,12 @@ msgid ""
 msgstr ""
 "It is usually sufficient to set {innodb_log_file_size} to 25%% of the size "
 "of {innodb_buffer_pool_size}. A very big {innodb_log_file_size} slows down "
-"the recovery time after a database crash considerably. See also <a href="
-"\"https://www.mysqlperformanceblog.com/2006/07/03/choosing-proper-"
-"innodb_log_file_size/\">this Article</a>. You need to shutdown the server, "
-"remove the InnoDB log files, set the new value in my.cnf, start the server, "
-"then check the error logs if everything went fine. See also <a href="
-"\"https://mysqldatabaseadministration.blogspot.com/2007/01/increase-"
+"the recovery time after a database crash considerably. See also <a href=\""
+"https://www.percona.com/blog/2006/07/03/choosing-proper-innodb_log_file_size/"
+"\">this Article</a>. You need to shutdown the server, remove the InnoDB log "
+"files, set the new value in my.cnf, start the server, then check the error "
+"logs if everything went fine. See also <a href=\""
+"https://mysqldatabaseadministration.blogspot.com/2007/01/increase-"
 "innodblogfilesize-proper-way.html\">this blog entry</a>"
 
 #: libraries/advisory_rules.txt:430
@@ -16731,18 +16693,7 @@ msgid "Your InnoDB buffer pool is fairly small."
 msgstr "Your InnoDB buffer pool is fairly small."
 
 #: libraries/advisory_rules.txt:436
-#, fuzzy, php-format
-#| msgid ""
-#| "The InnoDB buffer pool has a profound impact on performance for InnoDB "
-#| "tables. Assign all your remaining memory to this buffer. For database "
-#| "servers that use solely InnoDB as storage engine and have no other "
-#| "services (e.g. a web server) running, you may set this as high as 80%% of "
-#| "your available memory. If that is not the case, you need to carefully "
-#| "assess the memory consumption of your other services and non-InnoDB-"
-#| "Tables and set this variable accordingly. If it is set too high, your "
-#| "system will start swapping, which decreases performance significantly. "
-#| "See also <a href=\"https://www.mysqlperformanceblog.com/2007/11/03/"
-#| "choosing-innodb_buffer_pool_size/\">this article</a>"
+#, php-format
 msgid ""
 "The InnoDB buffer pool has a profound impact on performance for InnoDB "
 "tables. Assign all your remaining memory to this buffer. For database "
@@ -16757,14 +16708,14 @@ msgid ""
 msgstr ""
 "The InnoDB buffer pool has a profound impact on performance for InnoDB "
 "tables. Assign all your remaining memory to this buffer. For database "
-"servers that use solely InnoDB as storage engine and have no other services "
-"(e.g. a web server) running, you may set this as high as 80%% of your "
+"servers that use solely InnoDB as storage engine and have no other services ("
+"e.g. a web server) running, you may set this as high as 80%% of your "
 "available memory. If that is not the case, you need to carefully assess the "
 "memory consumption of your other services and non-InnoDB-Tables and set this "
 "variable accordingly. If it is set too high, your system will start "
-"swapping, which decreases performance significantly. See also <a href="
-"\"https://www.mysqlperformanceblog.com/2007/11/03/choosing-"
-"innodb_buffer_pool_size/\">this article</a>"
+"swapping, which decreases performance significantly. See also <a href=\""
+"https://www.percona.com/blog/2007/11/03/choosing-innodb_buffer_pool_size/\">"
+"this article</a>"
 
 #: libraries/advisory_rules.txt:437
 #, php-format

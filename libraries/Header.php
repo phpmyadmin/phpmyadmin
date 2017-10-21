@@ -177,7 +177,7 @@ class Header
         // Here would not be a good place to add CodeMirror because
         // the user preferences have not been merged at this point
 
-        $this->_scripts->addFile('messages.php');
+        $this->_scripts->addFile('messages.php', false, array('l' => $GLOBALS['lang']));
         // Append the theme id to this url to invalidate
         // the cache on a theme change. Though this might be
         // unavailable for fatal errors.

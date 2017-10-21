@@ -4,16 +4,16 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.7.4-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2017-08-10 09:13-0400\n"
-"PO-Revision-Date: 2017-05-14 17:04+0000\n"
-"Last-Translator: Balázs Úr <urbalazs@gmail.com>\n"
-"Language-Team: Hungarian <https://hosted.weblate.org/projects/phpmyadmin/4-7/"
-"hu/>\n"
+"PO-Revision-Date: 2017-08-24 14:56+0000\n"
+"Last-Translator: Józsa Csongor <jozsa.csongor@gmail.com>\n"
+"Language-Team: Hungarian "
+"<https://hosted.weblate.org/projects/phpmyadmin/4-7/hu/>\n"
 "Language: hu\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 2.14-dev\n"
+"X-Generator: Weblate 2.17-dev\n"
 
 #: ajax.php:16 ajax.php:33 export.php:192 schema_export.php:64
 msgid "Bad type!"
@@ -1526,22 +1526,16 @@ msgid "Chart"
 msgstr "Diagram"
 
 #: js/messages.php:298 libraries/display_export.lib.php:903
-#, fuzzy
-#| msgid "Database"
 msgctxt "Alias"
 msgid "Database"
 msgstr "Adatbázis"
 
 #: js/messages.php:299 libraries/display_export.lib.php:915
-#, fuzzy
-#| msgid "Table"
 msgctxt "Alias"
 msgid "Table"
 msgstr "Tábla"
 
 #: js/messages.php:300 libraries/display_export.lib.php:926
-#, fuzzy
-#| msgid "Column"
 msgctxt "Alias"
 msgid "Column"
 msgstr "Oszlop"
@@ -2611,19 +2605,19 @@ msgstr ""
 
 #: js/messages.php:737
 msgid "Very weak"
-msgstr ""
+msgstr "Nagyon gyenge"
 
 #: js/messages.php:738
 msgid "Weak"
-msgstr ""
+msgstr "Gyenge"
 
 #: js/messages.php:739
 msgid "Good"
-msgstr ""
+msgstr "Jó"
 
 #: js/messages.php:740
 msgid "Strong"
-msgstr ""
+msgstr "Erős"
 
 #: js/messages.php:769
 msgctxt "Previous month"
@@ -3030,126 +3024,90 @@ msgid "Collation"
 msgstr "Illesztés"
 
 #: libraries/Charsets.php:244
-#, fuzzy
-#| msgid "unknown"
 msgid "Unknown"
-msgstr "ismeretlen"
+msgstr "Ismeretlen"
 
 #: libraries/Charsets.php:258
-#, fuzzy
-#| msgid "Binary"
 msgctxt "Collation"
 msgid "Binary"
 msgstr "Bináris"
 
 #: libraries/Charsets.php:270 libraries/Charsets.php:500
-#, fuzzy
-#| msgid "Unicode"
 msgctxt "Collation"
 msgid "Unicode"
 msgstr "Unicode"
 
 #: libraries/Charsets.php:280 libraries/Charsets.php:451
-#, fuzzy
-#| msgid "West European"
 msgctxt "Collation"
 msgid "West European"
 msgstr "Nyugat-európai"
 
 #: libraries/Charsets.php:287
-#, fuzzy
-#| msgid "Central European"
 msgctxt "Collation"
 msgid "Central European"
 msgstr "Közép-európai"
 
 #: libraries/Charsets.php:292
-#, fuzzy
-#| msgid "Russian"
 msgctxt "Collation"
 msgid "Russian"
 msgstr "Orosz"
 
 #: libraries/Charsets.php:297
-#, fuzzy
-#| msgid "Simplified Chinese"
 msgctxt "Collation"
 msgid "Simplified Chinese"
 msgstr "Egyszerűsített kínai"
 
 #: libraries/Charsets.php:304 libraries/Charsets.php:422
-#, fuzzy
-#| msgid "Japanese"
 msgctxt "Collation"
 msgid "Japanese"
 msgstr "Japán"
 
 #: libraries/Charsets.php:309
-#, fuzzy
-#| msgid "Baltic"
 msgctxt "Collation"
 msgid "Baltic"
 msgstr "Balti"
 
 #: libraries/Charsets.php:314
-#, fuzzy
-#| msgid "Armenian"
 msgctxt "Collation"
 msgid "Armenian"
 msgstr "Örmény"
 
 #: libraries/Charsets.php:317
-#, fuzzy
-#| msgid "Traditional Chinese"
 msgctxt "Collation"
 msgid "Traditional Chinese"
 msgstr "Hagyományos kínai"
 
 #: libraries/Charsets.php:320
-#, fuzzy
-#| msgid "Cyrillic"
 msgctxt "Collation"
 msgid "Cyrillic"
 msgstr "Cirill"
 
 #: libraries/Charsets.php:323
-#, fuzzy
-#| msgid "Arabic"
 msgctxt "Collation"
 msgid "Arabic"
 msgstr "Arab"
 
 #: libraries/Charsets.php:326 libraries/Charsets.php:437
-#, fuzzy
-#| msgid "Korean"
 msgctxt "Collation"
 msgid "Korean"
 msgstr "Koreai"
 
 #: libraries/Charsets.php:329
-#, fuzzy
-#| msgid "Hebrew"
 msgctxt "Collation"
 msgid "Hebrew"
 msgstr "Héber"
 
 #: libraries/Charsets.php:332
-#, fuzzy
-#| msgid "Georgian"
 msgctxt "Collation"
 msgid "Georgian"
 msgstr "Grúz"
 
 #: libraries/Charsets.php:335
-#, fuzzy
-#| msgid "Greek"
 msgctxt "Collation"
 msgid "Greek"
 msgstr "Görög"
 
 #: libraries/Charsets.php:338
-#, fuzzy
-#| msgid "Czech-Slovak"
 msgctxt "Collation"
 msgid "Czech-Slovak"
 msgstr "Csehszlovák"

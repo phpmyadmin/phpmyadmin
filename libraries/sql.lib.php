@@ -1298,6 +1298,9 @@ function PMA_executeTheQuery($analyzed_sql_results, $full_sql_query, $is_gotofil
 function PMA_deleteTransformationInfo($db, $table, $analyzed_sql_results)
 {
     include_once 'libraries/transformations.lib.php';
+    if (! isset($analyzed_sql_results['statement'])) {
+        return;
+    }
     $statement = $analyzed_sql_results['statement'];
     if ($statement instanceof PhpMyAdmin\SqlParser\Statements\AlterStatement) {
         if (!empty($statement->altered[0])
@@ -1657,7 +1660,7 @@ function PMA_getHtmlForSqlQueryResultsTable($displayResultsObject,
         } while ($GLOBALS['dbi']->moreResults() && $GLOBALS['dbi']->nextResult());
 
     } else {
-        if (isset($result) && $result) {
+        if (isset($result) && $result !== false) {
             $fields_meta = $GLOBALS['dbi']->getFieldsMeta($result);
             $fields_cnt  = count($fields_meta);
         }

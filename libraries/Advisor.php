@@ -134,6 +134,7 @@ class Advisor
         $memory  = $sysinfo->memory();
         $this->variables['system_memory']
             = isset($memory['MemTotal']) ? $memory['MemTotal'] : 0;
+        $this->variables['PMA_MYSQL_INT_VERSION'] = PMA_MYSQL_INT_VERSION;
 
         // Step 2: Read and parse the list of rules
         $this->setParseResult(static::parseRulesFile());
@@ -401,13 +402,29 @@ class Advisor
      */
     private function ruleExprEvaluateVariable($matches)
     {
-        if (! isset($this->variables[$matches[1]])) {
-            return $matches[1];
+        $match = $matches[1];
+        /* Numbers */
+        if (is_numeric($match)) {
+            return $match;
         }
-        if (is_numeric($this->variables[$matches[1]])) {
-            return $this->variables[$matches[1]];
+        /* Functions */
+        $functions = array(
+            'round', 'substr', 'preg_match', 'array',
+            'ADVISOR_bytime', 'ADVISOR_timespanFormat',
+            'ADVISOR_formatByteDown'
+        );
+        if (in_array($match, $functions)) {
+            return $match;
+        }
+        /* Unknown variable */
+        if (! isset($this->variables[$match])) {
+            return $match;
+        }
+        /* Variable value */
+        if (is_numeric($this->variables[$match])) {
+            return $this->variables[$match];
         } else {
-            return '\'' . addslashes($this->variables[$matches[1]]) . '\'';
+            return '\'' . addslashes($this->variables[$match]) . '\'';
         }
     }
 

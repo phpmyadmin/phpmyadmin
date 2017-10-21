@@ -20,6 +20,9 @@ if (false === @include_once 'OpenID/RelyingParty.php') {
     exit;
 }
 
+/* Change this to true if using phpMyAdmin over https */
+$secure_cookie = false;
+
 /**
  * Map of authenticated users to MySQL user/password pairs.
  */
@@ -74,7 +77,7 @@ function Die_error($e)
 
 
 /* Need to have cookie visible from parent directory */
-session_set_cookie_params(0, '/', '', true, true);
+session_set_cookie_params(0, '/', '', $secure_cookie, true);
 /* Create signon session */
 $session_name = 'SignonSession';
 session_name($session_name);

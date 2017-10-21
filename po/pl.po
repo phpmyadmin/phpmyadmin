@@ -4,17 +4,17 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.7.4-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2017-08-10 09:13-0400\n"
-"PO-Revision-Date: 2017-08-03 20:58+0000\n"
-"Last-Translator: Marcin Wróblewski <marcinwroblewski@outlook.com>\n"
-"Language-Team: Polish <https://hosted.weblate.org/projects/phpmyadmin/4-7/pl/"
-">\n"
+"PO-Revision-Date: 2017-10-16 10:02+0000\n"
+"Last-Translator: Daria Szatan <bla_ke@tuta.io>\n"
+"Language-Team: Polish "
+"<https://hosted.weblate.org/projects/phpmyadmin/4-7/pl/>\n"
 "Language: pl\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=n==1 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 "
 "|| n%100>=20) ? 1 : 2;\n"
-"X-Generator: Weblate 2.16-dev\n"
+"X-Generator: Weblate 2.17\n"
 
 #: ajax.php:16 ajax.php:33 export.php:192 schema_export.php:64
 msgid "Bad type!"
@@ -35,7 +35,7 @@ msgstr "Centralna lista kolumn dla obecnej bazy danych jest pusta."
 
 #: db_central_columns.php:133
 msgid "Click to sort."
-msgstr "Kliknij, by posortować."
+msgstr "Kliknij, aby posortować."
 
 #: db_central_columns.php:150
 #, php-format
@@ -340,11 +340,12 @@ msgstr "Dane śledzenia zostały poprawnie usunięte."
 msgid ""
 "Version %1$s was created for selected tables, tracking is active for them."
 msgstr ""
-"Wersja %1$s została utworzona dla wybranej tabeli, śledzenie jest aktywne."
+"Dla wybranych tabel została stworzona wersja%1$s, śledzenie jest dla nich "
+"aktywne."
 
 #: db_tracking.php:93
 msgid "No tables selected."
-msgstr "Nie wybrano tabeli."
+msgstr "Nie wybrano żadnych tabel."
 
 #: db_tracking.php:150
 msgid "Database Log"
@@ -355,30 +356,30 @@ msgid ""
 "An error has been detected and an error report has been automatically "
 "submitted based on your settings."
 msgstr ""
-"Wykryto błąd. Zgłoszenie błędu zostało automatycznie wysłane, zgodnie z "
-"Twoimi ustawieniami."
+"Wykryto błąd. Na podstawie twoich ustawień został automatycznie wysłany "
+"raport na temat tego błędu."
 
 #: error_report.php:72
 msgid "Thank you for submitting this report."
-msgstr "Dziękujemy za wysłanie raportu."
+msgstr "Dziękujemy za wysłanie tego raportu."
 
 #: error_report.php:76
 msgid ""
 "An error has been detected and an error report has been generated but failed "
 "to be sent."
 msgstr ""
-"Wykryto błąd. Zgłoszenie błędu zostało automatycznie wysłane, zgodnie z "
-"Twoimi ustawieniami."
+"Wykryto błąd. Na podstawie twoich ustawień został automatycznie wysłany "
+"raport na temat tego błędu, lecz nie udało się go wysłać."
 
 #: error_report.php:81
 msgid "If you experience any problems please submit a bug report manually."
 msgstr ""
-"W przypadku jakichkolwiek problemów prosimy o przysłanie zgłoszenia błędu "
-"ręcznie."
+"Jeśli masz jakieś problemy, to prosimy o przesłanie raportu (ang. bug report)"
+" ręcznie."
 
 #: error_report.php:85
 msgid "You may want to refresh the page."
-msgstr "Możesz odświeżyć stronę."
+msgstr "Jeśli chcesz, możesz odświeżyć stronę."
 
 #: export.php:275
 msgid "Bad parameters!"
@@ -392,7 +393,7 @@ msgstr "Wartość dla kolumny \"%s\""
 #: gis_data_editor.php:147
 #: templates/table/gis_visualization/gis_visualization.phtml:38
 msgid "Use OpenStreetMaps as Base Layer"
-msgstr "Użyj OpenStreetMaps jako Podstawowej Warstwy"
+msgstr "Użyj OpenStreetMaps jako Warstwy Podstawowej"
 
 #. l10n: Spatial Reference System Identifier
 #: gis_data_editor.php:169
@@ -518,15 +519,15 @@ msgstr ""
 
 #: import.php:65
 msgid "Succeeded"
-msgstr "Sukces"
+msgstr "Udało się"
 
 #: import.php:69 js/messages.php:611
 msgid "Failed"
-msgstr "Nieudane"
+msgstr "Nie udało się"
 
 #: import.php:73
 msgid "Incomplete params"
-msgstr "Niekompletne parametry"
+msgstr "Parametry są niekompletne"
 
 #: import.php:197
 #, php-format
@@ -534,12 +535,12 @@ msgid ""
 "You probably tried to upload a file that is too large. Please refer to "
 "%sdocumentation%s for a workaround for this limit."
 msgstr ""
-"Prawdopodobnie nastąpiła próba załadowania zbyt dużego pliku. Proszę "
-"zapoznać się %sdokumentacją%s, aby obejść to ograniczenie."
+"Prawdopodobnie próbowano wczytać zbyt duży plik. Proszę zapoznać się z "
+"%sdokumentacją%s, aby obejść to ograniczenie."
 
 #: import.php:367 import.php:568
 msgid "Showing bookmark"
-msgstr "Wyświetlanie zakładki"
+msgstr "Pokazywanie zakładki"
 
 #: import.php:383 import.php:564
 msgid "The bookmark has been deleted."
@@ -552,7 +553,7 @@ msgid ""
 "[doc@faq1-16]FAQ 1.16[/doc]."
 msgstr ""
 "Nie otrzymano żadnych danych do importu. Albo nie dostarczono nazwy pliku, "
-"albo jego rozmiar przekroczył rozmiar maksymalny, dozwolony przez "
+"albo jego rozmiar przekroczył rozmiar maksymalny, dozwolony przez twoją "
 "konfigurację PHP. Zobacz [doc@faq1-16]FAQ 1.16[/doc]."
 
 #: import.php:529 libraries/display_import.lib.php:665
@@ -781,8 +782,8 @@ msgstr ""
 #: index.php:532
 msgid "The secret passphrase in configuration (blowfish_secret) is too short."
 msgstr ""
-"Tajna fraza kodująca (blowfish_secret) w pliku konfiguracyjnym jest za "
-"krótka."
+"Tajne wyrażenie hasłowe (ang. secret passphrase), podane w konfiguracji "
+"(blowfish_secret), jest zbyt krótkie."
 
 #: index.php:546
 msgid ""
@@ -803,15 +804,16 @@ msgid ""
 "The phpMyAdmin configuration storage is not completely configured, some "
 "extended features have been deactivated. %sFind out why%s. "
 msgstr ""
-"Przechowywania konfiguracji phpMyAdmin nie jest w pełni skonfigurowane, "
-"niektóre rozszerzone funkcje zostały wyłączone. %sDowiedz się dlaczego%s. "
+"Program phpMyAdmin nie ma w pełni skonfigurowanej przestrzeni do "
+"przechowywania danych, niektóre rozszerzone funkcje zostały wyłączone. Aby "
+"dowiedzieć się dlaczego kliknij %stutaj%s. "
 
 #: index.php:569
 msgid ""
 "Or alternately go to 'Operations' tab of any database to set it up there."
 msgstr ""
-"Możesz też przejść do karty 'Operacje' dowolnej bazy danych, by "
-"skonfigurować tą opcję tylko dla tej bazy."
+"Lub, alternatywnie, przejdź do zakładki 'Operacje', w dowolnej bazie danych, "
+"aby tam to skonfigurować."
 
 #: index.php:594
 #, php-format
@@ -1532,22 +1534,16 @@ msgid "Chart"
 msgstr "Wykres"
 
 #: js/messages.php:298 libraries/display_export.lib.php:903
-#, fuzzy
-#| msgid "Database"
 msgctxt "Alias"
 msgid "Database"
 msgstr "Baza danych"
 
 #: js/messages.php:299 libraries/display_export.lib.php:915
-#, fuzzy
-#| msgid "Table"
 msgctxt "Alias"
 msgid "Table"
 msgstr "Tabela"
 
 #: js/messages.php:300 libraries/display_export.lib.php:926
-#, fuzzy
-#| msgid "Column"
 msgctxt "Alias"
 msgid "Column"
 msgstr "Kolumna"
@@ -4929,6 +4925,8 @@ msgid ""
 "Stores and enables efficient access to data in JSON (JavaScript Object "
 "Notation) documents"
 msgstr ""
+"Przechowywanie i umożliwienie wydajnego dostępu do danych w dokumentach JSON "
+"(ang. JavaScript Object Notation)"
 
 #: libraries/TypesMySQL.php:479
 msgctxt "numeric types"
@@ -16352,8 +16350,6 @@ msgid "Reset zoom"
 msgstr "Reset powiększenia"
 
 #: templates/table/secondary_tabs.phtml:14
-#, fuzzy
-#| msgid "Relation view"
 msgid "Relation view"
 msgstr "Widok relacyjny"
 

@@ -4,16 +4,16 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.7.4-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2017-08-10 09:13-0400\n"
-"PO-Revision-Date: 2017-08-02 11:56+0000\n"
-"Last-Translator: Osoitz <oelkoro@gmail.com>\n"
-"Language-Team: Basque <https://hosted.weblate.org/projects/phpmyadmin/4-7/eu/"
-">\n"
+"PO-Revision-Date: 2017-10-18 17:44+0000\n"
+"Last-Translator: iF <info@if-matxikote.eus>\n"
+"Language-Team: Basque "
+"<https://hosted.weblate.org/projects/phpmyadmin/4-7/eu/>\n"
 "Language: eu\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 2.16-dev\n"
+"X-Generator: Weblate 2.17\n"
 
 #: ajax.php:16 ajax.php:33 export.php:192 schema_export.php:64
 msgid "Bad type!"
@@ -29,7 +29,7 @@ msgstr ""
 
 #: db_central_columns.php:108
 msgid "The central list of columns for the current database is empty."
-msgstr ""
+msgstr "Hautatutako datu-basearen zutabeen erdiko zerrenda hutsa da."
 
 #: db_central_columns.php:133
 msgid "Click to sort."
@@ -313,7 +313,7 @@ msgstr ""
 
 #: db_qbe.php:126
 msgid "You have to choose at least one column to display!"
-msgstr "Gutxienez bistaratzeko Zutabe bat hautatu duzu"
+msgstr "Gutxienez bistaratzeko Zutabe bat hautatu duzu!"
 
 #: db_qbe.php:144
 #, php-format
@@ -329,13 +329,15 @@ msgstr "Sarbidea ukatua!"
 
 #: db_tracking.php:53 db_tracking.php:78
 msgid "Tracking data deleted successfully."
-msgstr ""
+msgstr "Jarraipen datuak behar bezala ezabatuak izan dira."
 
 #: db_tracking.php:62
 #, php-format
 msgid ""
 "Version %1$s was created for selected tables, tracking is active for them."
 msgstr ""
+"Hautatutako taulentzako %1$s bertsioa sortua izan da, horien jarraipena "
+"aktibatuta dago."
 
 #: db_tracking.php:93
 msgid "No tables selected."
@@ -350,24 +352,27 @@ msgid ""
 "An error has been detected and an error report has been automatically "
 "submitted based on your settings."
 msgstr ""
+"Akats bat hauteman da eta akats bilduma automatikoki igorria izan da, zure "
+"ezarpenen arabera."
 
 #: error_report.php:72
 msgid "Thank you for submitting this report."
-msgstr ""
+msgstr "Milesker txostena igorri izanagatik."
 
 #: error_report.php:76
 msgid ""
 "An error has been detected and an error report has been generated but failed "
 "to be sent."
 msgstr ""
+"Akats bat hauteman eta akats bilduma bat sortu da, baina ezin izan da igorri."
 
 #: error_report.php:81
 msgid "If you experience any problems please submit a bug report manually."
-msgstr ""
+msgstr "Arazo bat izanez gero, milesker bug bilduma eskuz igortzeagatik."
 
 #: error_report.php:85
 msgid "You may want to refresh the page."
-msgstr ""
+msgstr "Orrialdea birkargatu."
 
 #: export.php:275
 msgid "Bad parameters!"
@@ -394,10 +399,8 @@ msgid "Geometry %d:"
 msgstr "Geometria %d:"
 
 #: gis_data_editor.php:217
-#, fuzzy
-#| msgid "Point"
 msgid "Point:"
-msgstr "Puntu"
+msgstr "Puntu:"
 
 #: gis_data_editor.php:218 gis_data_editor.php:245 gis_data_editor.php:301
 #: gis_data_editor.php:374 js/messages.php:515
@@ -421,22 +424,18 @@ msgid "Add a point"
 msgstr "Puntua gehitu"
 
 #: gis_data_editor.php:273
-#, fuzzy, php-format
-#| msgid "Linestring"
+#, php-format
 msgid "Linestring %d:"
-msgstr "Lerro kateak"
+msgstr "%d Lerroa :"
 
 #: gis_data_editor.php:276 gis_data_editor.php:353
-#, fuzzy
-#| msgid "Outer Ring"
 msgid "Outer ring:"
-msgstr "Kanpo eraztuna"
+msgstr "Kanpo eraztuna:"
 
 #: gis_data_editor.php:278 gis_data_editor.php:355
-#, fuzzy, php-format
-#| msgid "Inner Ring"
+#, php-format
 msgid "Inner ring %d:"
-msgstr "Barne eraztuna"
+msgstr "%d barne eraztuna:"
 
 #: gis_data_editor.php:315
 msgid "Add a linestring"
@@ -447,10 +446,9 @@ msgid "Add an inner ring"
 msgstr "Gehitu barne eraztuna"
 
 #: gis_data_editor.php:337
-#, fuzzy, php-format
-#| msgid "Polygon"
+#, php-format
 msgid "Polygon %d:"
-msgstr "Poligono"
+msgstr "%d Poligonoa:"
 
 #: gis_data_editor.php:401
 msgid "Add a polygon"
@@ -509,34 +507,29 @@ msgid ""
 "Choose \"GeomFromText\" from the \"Function\" column and paste the string "
 "below into the \"Value\" field."
 msgstr ""
+"\"funtzio\" zutabetik \"GeomFromText\" hauta eta peko katea \"balorea\" "
+"eremuan itsatsi."
 
 #: import.php:65
-#, fuzzy
-#| msgid "Access denied!"
 msgid "Succeeded"
-msgstr "Sarbidea ukatua!"
+msgstr "Garaipena"
 
 #: import.php:69 js/messages.php:611
 msgid "Failed"
-msgstr ""
+msgstr "Porrota"
 
 #: import.php:73
-#, fuzzy
-#| msgid "Complete inserts"
 msgid "Incomplete params"
-msgstr "\"Insert\"ak osatu"
+msgstr "Osatu gabeko parametroa"
 
 #: import.php:197
-#, fuzzy, php-format
-#| msgid ""
-#| "You probably tried to upload too large file. Please refer to "
-#| "%sdocumentation%s for ways to workaround this limit."
+#, php-format
 msgid ""
 "You probably tried to upload a file that is too large. Please refer to "
 "%sdocumentation%s for a workaround for this limit."
 msgstr ""
-"Agian fitxategi haundiegia igotzen saiatu zara. Mesedez begiratu "
-"%sdocumentation%s tamaina mugak aldatzeko."
+"Fitxategi haundiegia igotzen saiatu zara agian. Mesedez, %sdokumentazioa%s-"
+"ra jo tamaina muga hau saihesteko."
 
 #: import.php:367 import.php:568
 msgid "Showing bookmark"
@@ -552,6 +545,9 @@ msgid ""
 "file size exceeded the maximum size permitted by your PHP configuration. See "
 "[doc@faq1-16]FAQ 1.16[/doc]."
 msgstr ""
+"Ez da inportaziorako inolako daturik jaso. Edo fitxategi izenik ez da eman, "
+"edo fitxategiaren pisuak PHPren konfigurazioak baimentzen duen muga "
+"gainditzen du. [doc@faq1-16]FAQ 1.16[/doc]-ra jo."
 
 #: import.php:529 libraries/display_import.lib.php:665
 msgid "Could not load import plugins, please check your installation!"

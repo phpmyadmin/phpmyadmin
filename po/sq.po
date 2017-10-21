@@ -4,32 +4,29 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.7.4-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2017-08-10 09:13-0400\n"
-"PO-Revision-Date: 2016-11-18 10:31+0000\n"
-"Last-Translator: Michal Čihař <michal@cihar.com>\n"
-"Language-Team: Albanian <https://hosted.weblate.org/projects/phpmyadmin/"
-"master/sq/>\n"
+"PO-Revision-Date: 2017-09-20 19:44+0000\n"
+"Last-Translator: Adalen Vladi <adalenvladi@gmail.com>\n"
+"Language-Team: Albanian "
+"<https://hosted.weblate.org/projects/phpmyadmin/4-7/sq/>\n"
 "Language: sq\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 2.10-dev\n"
+"X-Generator: Weblate 2.17-dev\n"
 
 #: ajax.php:16 ajax.php:33 export.php:192 schema_export.php:64
 msgid "Bad type!"
 msgstr "Tip i keq!"
 
 #: changelog.php:39 license.php:34
-#, fuzzy, php-format
-#| msgid ""
-#| "The %s file is not available on this system, please visit www.phpmyadmin."
-#| "net for more information."
+#, php-format
 msgid ""
 "The %s file is not available on this system, please visit %s for more "
 "information."
 msgstr ""
-"Fili %s nuk është i vlefshëm në këtë sistem, ju lutem, vizito www.phpmyadmin."
-"net për më shumë informacion."
+"Skedari %s nuk është i vlefshëm në këtë sistem, ju lutem vizitoni %s për më "
+"shumë informacion."
 
 #: db_central_columns.php:108
 msgid "The central list of columns for the current database is empty."
@@ -612,6 +609,8 @@ msgid ""
 "You were logged out from one server, to logout completely from phpMyAdmin, "
 "you need to logout from all servers."
 msgstr ""
+"Ju dolet nga një server, për te dalë plotësisht nga phpMyAdmin, duhet të "
+"dilni nga të gjithë serverat."
 
 #: index.php:160 libraries/Footer.php:69
 msgid "phpMyAdmin Demo Server"
@@ -783,6 +782,8 @@ msgstr ""
 #: index.php:532
 msgid "The secret passphrase in configuration (blowfish_secret) is too short."
 msgstr ""
+"Shprehja e kalimit sekret në konfigurimin (blowfish_secret) është shumë e "
+"shkurtër."
 
 #: index.php:546
 msgid ""
@@ -838,6 +839,8 @@ msgstr "Jeni duke DESTROY (shkatërruar) një databazë të plotë!"
 #: js/messages.php:48
 msgid "Cannot rename database to the same name. Change the name and try again"
 msgstr ""
+"Nuk mund të riemërtoj bazën e të dhënave me të njëjtin emër. Ndrysho emrin "
+"dhe provo përsëri"
 
 #: js/messages.php:50
 msgid "You are about to DESTROY a complete table!"
@@ -1538,22 +1541,16 @@ msgid "Chart"
 msgstr "Grafik"
 
 #: js/messages.php:298 libraries/display_export.lib.php:903
-#, fuzzy
-#| msgid "Database"
 msgctxt "Alias"
 msgid "Database"
 msgstr "Databaza"
 
 #: js/messages.php:299 libraries/display_export.lib.php:915
-#, fuzzy
-#| msgid "Table"
 msgctxt "Alias"
 msgid "Table"
 msgstr "Tabela"
 
 #: js/messages.php:300 libraries/display_export.lib.php:926
-#, fuzzy
-#| msgid "Column"
 msgctxt "Alias"
 msgid "Column"
 msgstr "Kolona"
@@ -1838,6 +1835,8 @@ msgstr "Eksporti"
 #: js/messages.php:399
 msgid "No routine is exportable. Required privileges may be lacking."
 msgstr ""
+"Asnjë rutinë nuk mund të eksportohet. Mund të mungojnë privilegjet e "
+"kërkuara."
 
 #: js/messages.php:402 libraries/rte/rte_routines.lib.php:747
 msgid "ENUM/SET editor"
@@ -2200,12 +2199,16 @@ msgid ""
 "MySQL accepts additional values not selectable by the slider; key in those "
 "values directly if desired"
 msgstr ""
+"MySQL pranon vlera shtesë që nuk mund të selektohen nga slider; çelni në ato "
+"vlera drejtpërdrejt nëse dëshironi"
 
 #: js/messages.php:538
 msgid ""
 "MySQL accepts additional values not selectable by the datepicker; key in "
 "those values directly if desired"
 msgstr ""
+"MySQL pranon vlera shtesë që nuk mund të selektohen nga datapicker; çelni në "
+"ato vlera drejtpërdrejt nëse dëshironi"
 
 #: js/messages.php:544
 msgid ""
@@ -2625,23 +2628,23 @@ msgstr "Kopjo tabelën me prefiks"
 
 #: js/messages.php:736
 msgid "Extremely weak"
-msgstr ""
+msgstr "Jashtëzakonisht i dobët"
 
 #: js/messages.php:737
 msgid "Very weak"
-msgstr ""
+msgstr "Shumë i dobët"
 
 #: js/messages.php:738
 msgid "Weak"
-msgstr ""
+msgstr "Dobet"
 
 #: js/messages.php:739
 msgid "Good"
-msgstr ""
+msgstr "Mire"
 
 #: js/messages.php:740
 msgid "Strong"
-msgstr ""
+msgstr "Forte"
 
 #: js/messages.php:769
 msgctxt "Previous month"
@@ -3002,6 +3005,8 @@ msgstr "Dështoi në formattimn e vargut për rregullin '%s'."
 #, php-format
 msgid "Error in reading file: The file '%s' does not exist or is not readable!"
 msgstr ""
+"Gabim në leximin e skedarit: Skedari '%s' nuk ekziston ose nuk është i "
+"lexueshëm!"
 
 #: libraries/Advisor.php:511
 #, php-format
@@ -3047,168 +3052,120 @@ msgid "Collation"
 msgstr "Përshtatja"
 
 #: libraries/Charsets.php:244
-#, fuzzy
-#| msgid "unknown"
 msgid "Unknown"
-msgstr "e panjohur"
+msgstr "I panjohur"
 
 #: libraries/Charsets.php:258
-#, fuzzy
-#| msgid "Binary"
 msgctxt "Collation"
 msgid "Binary"
 msgstr "Binar"
 
 #: libraries/Charsets.php:270 libraries/Charsets.php:500
-#, fuzzy
-#| msgid "Unicode"
 msgctxt "Collation"
 msgid "Unicode"
 msgstr "Unikod"
 
 #: libraries/Charsets.php:280 libraries/Charsets.php:451
-#, fuzzy
-#| msgid "West European"
 msgctxt "Collation"
 msgid "West European"
 msgstr "Europian perëndimor"
 
 #: libraries/Charsets.php:287
-#, fuzzy
-#| msgid "Central European"
 msgctxt "Collation"
 msgid "Central European"
 msgstr "Evropiane qendrore"
 
 #: libraries/Charsets.php:292
-#, fuzzy
-#| msgid "Russian"
 msgctxt "Collation"
 msgid "Russian"
 msgstr "Rusisht"
 
 #: libraries/Charsets.php:297
-#, fuzzy
-#| msgid "Simplified Chinese"
 msgctxt "Collation"
 msgid "Simplified Chinese"
 msgstr "Kinisht e thjeshtëzuar"
 
 #: libraries/Charsets.php:304 libraries/Charsets.php:422
-#, fuzzy
-#| msgid "Japanese"
 msgctxt "Collation"
 msgid "Japanese"
 msgstr "Japonisht"
 
 #: libraries/Charsets.php:309
-#, fuzzy
-#| msgid "Baltic"
 msgctxt "Collation"
 msgid "Baltic"
 msgstr "Balltike"
 
 #: libraries/Charsets.php:314
-#, fuzzy
-#| msgid "Armenian"
 msgctxt "Collation"
 msgid "Armenian"
 msgstr "Armenisht"
 
 #: libraries/Charsets.php:317
-#, fuzzy
-#| msgid "Traditional Chinese"
 msgctxt "Collation"
 msgid "Traditional Chinese"
 msgstr "Kineze tradicionale"
 
 #: libraries/Charsets.php:320
-#, fuzzy
-#| msgid "Cyrillic"
 msgctxt "Collation"
 msgid "Cyrillic"
 msgstr "Cirilike"
 
 #: libraries/Charsets.php:323
-#, fuzzy
-#| msgid "Arabic"
 msgctxt "Collation"
 msgid "Arabic"
 msgstr "Arabisht"
 
 #: libraries/Charsets.php:326 libraries/Charsets.php:437
-#, fuzzy
-#| msgid "Korean"
 msgctxt "Collation"
 msgid "Korean"
 msgstr "Koreane"
 
 #: libraries/Charsets.php:329
-#, fuzzy
-#| msgid "Hebrew"
 msgctxt "Collation"
 msgid "Hebrew"
 msgstr "Hebraisht"
 
 #: libraries/Charsets.php:332
-#, fuzzy
-#| msgid "Georgian"
 msgctxt "Collation"
 msgid "Georgian"
 msgstr "Gjeorgjian"
 
 #: libraries/Charsets.php:335
-#, fuzzy
-#| msgid "Greek"
 msgctxt "Collation"
 msgid "Greek"
 msgstr "Greqisht"
 
 #: libraries/Charsets.php:338
-#, fuzzy
-#| msgid "Czech-Slovak"
 msgctxt "Collation"
 msgid "Czech-Slovak"
 msgstr "Çeko-Sllovakisht"
 
 #: libraries/Charsets.php:341 libraries/Charsets.php:492
-#, fuzzy
-#| msgid "Ukrainian"
 msgctxt "Collation"
 msgid "Ukrainian"
 msgstr "Ukrahinas"
 
 #: libraries/Charsets.php:344 libraries/Charsets.php:488
-#, fuzzy
-#| msgid "Turkish"
 msgctxt "Collation"
 msgid "Turkish"
 msgstr "Turqisht"
 
 #: libraries/Charsets.php:347 libraries/Charsets.php:480
-#, fuzzy
-#| msgid "Swedish"
 msgctxt "Collation"
 msgid "Swedish"
 msgstr "Suedisht"
 
 #: libraries/Charsets.php:350 libraries/Charsets.php:484
-#, fuzzy
-#| msgid "Thai"
 msgctxt "Collation"
 msgid "Thai"
 msgstr "Tailandisht"
 
 #: libraries/Charsets.php:353
-#, fuzzy
-#| msgid "unknown"
 msgctxt "Collation"
 msgid "Unknown"
-msgstr "e panjohur"
+msgstr "I panjohur"
 
 #: libraries/Charsets.php:369
-#, fuzzy
-#| msgid "Bulgarian"
 msgctxt "Collation"
 msgid "Bulgarian"
 msgstr "Bulgarisht"
@@ -3216,72 +3173,54 @@ msgstr "Bulgarisht"
 #: libraries/Charsets.php:374
 msgctxt "Collation"
 msgid "Chinese"
-msgstr ""
+msgstr "Kineze"
 
 #: libraries/Charsets.php:379
-#, fuzzy
-#| msgid "Croatian"
 msgctxt "Collation"
 msgid "Croatian"
 msgstr "Kroatisht"
 
 #: libraries/Charsets.php:383
-#, fuzzy
-#| msgid "Czech"
 msgctxt "Collation"
 msgid "Czech"
 msgstr "Çekisht"
 
 #: libraries/Charsets.php:387
-#, fuzzy
-#| msgid "Danish"
 msgctxt "Collation"
 msgid "Danish"
 msgstr "Danisht"
 
 #: libraries/Charsets.php:391
-#, fuzzy
-#| msgid "English"
 msgctxt "Collation"
 msgid "English"
 msgstr "Anglisht"
 
 #: libraries/Charsets.php:395
-#, fuzzy
-#| msgid "Esperanto"
 msgctxt "Collation"
 msgid "Esperanto"
 msgstr "Esperanto"
 
 #: libraries/Charsets.php:399
-#, fuzzy
-#| msgid "Estonian"
 msgctxt "Collation"
 msgid "Estonian"
 msgstr "Estonisht"
 
 #: libraries/Charsets.php:402 libraries/Charsets.php:519
-#, fuzzy
-#| msgid "Data dictionary"
 msgctxt "Collation"
 msgid "German (dictionary order)"
-msgstr "Fjalori i të dhënave"
+msgstr "Gjermanisht (rendi i fjalorit)"
 
 #: libraries/Charsets.php:405 libraries/Charsets.php:516
 msgctxt "Collation"
 msgid "German (phone book order)"
-msgstr ""
+msgstr "Gjermanisht (urdhër libri i telefonit)"
 
 #: libraries/Charsets.php:414
-#, fuzzy
-#| msgid "Hungarian"
 msgctxt "Collation"
 msgid "Hungarian"
 msgstr "Hungarisht"
 
 #: libraries/Charsets.php:418
-#, fuzzy
-#| msgid "Icelandic"
 msgctxt "Collation"
 msgid "Icelandic"
 msgstr "Islandisht"
@@ -3289,18 +3228,14 @@ msgstr "Islandisht"
 #: libraries/Charsets.php:425
 msgctxt "Collation"
 msgid "Classical Latin"
-msgstr ""
+msgstr "Latin klasik"
 
 #: libraries/Charsets.php:429
-#, fuzzy
-#| msgid "Latvian"
 msgctxt "Collation"
 msgid "Latvian"
 msgstr "Letonisht"
 
 #: libraries/Charsets.php:433
-#, fuzzy
-#| msgid "Lithuanian"
 msgctxt "Collation"
 msgid "Lithuanian"
 msgstr "Lituanisht"
@@ -3308,107 +3243,79 @@ msgstr "Lituanisht"
 #: libraries/Charsets.php:441
 msgctxt "Collation"
 msgid "Burmese"
-msgstr ""
+msgstr "Birmanez"
 
 #: libraries/Charsets.php:444
-#, fuzzy
-#| msgid "Persian"
 msgctxt "Collation"
 msgid "Persian"
 msgstr "Persisht"
 
 #: libraries/Charsets.php:448
-#, fuzzy
-#| msgid "Polish"
 msgctxt "Collation"
 msgid "Polish"
 msgstr "Polonisht"
 
 #: libraries/Charsets.php:455
-#, fuzzy
-#| msgid "Romanian"
 msgctxt "Collation"
 msgid "Romanian"
 msgstr "Rumanisht"
 
 #: libraries/Charsets.php:459
-#, fuzzy
-#| msgid "Sinhalese"
 msgctxt "Collation"
 msgid "Sinhalese"
 msgstr "Singalez"
 
 #: libraries/Charsets.php:463
-#, fuzzy
-#| msgid "Slovak"
 msgctxt "Collation"
 msgid "Slovak"
 msgstr "Sllovakisht"
 
 #: libraries/Charsets.php:467
-#, fuzzy
-#| msgid "Slovenian"
 msgctxt "Collation"
 msgid "Slovenian"
 msgstr "Sllovenisht"
 
 #: libraries/Charsets.php:470 libraries/Charsets.php:530
-#, fuzzy
-#| msgid "Spanish"
 msgctxt "Collation"
 msgid "Spanish (modern)"
-msgstr "Spanjisht"
+msgstr "Spanisht (modern)"
 
 #: libraries/Charsets.php:477 libraries/Charsets.php:527
 msgctxt "Collation"
 msgid "Spanish (traditional)"
-msgstr ""
+msgstr "Spanjisht (tradicionale)"
 
 #: libraries/Charsets.php:496
-#, fuzzy
-#| msgid "Vietnamese"
 msgctxt "Collation"
 msgid "Vietnamese"
 msgstr "Vietnamisht"
 
 #: libraries/Charsets.php:563
-#, fuzzy
-#| msgid "case-insensitive"
 msgctxt "Collation variant"
 msgid "case-insensitive"
-msgstr "kasë josensitive"
+msgstr "rast-josensitive"
 
 #: libraries/Charsets.php:566
-#, fuzzy
-#| msgid "case-sensitive"
 msgctxt "Collation variant"
 msgid "case-sensitive"
-msgstr "kasë sensitive"
+msgstr "rast-sensitive"
 
 #: libraries/Charsets.php:569
-#, fuzzy
-#| msgid "case-insensitive"
 msgctxt "Collation variant"
 msgid "accent-insensitive"
-msgstr "kasë josensitive"
+msgstr "acascent-pandjeshme"
 
 #: libraries/Charsets.php:572
-#, fuzzy
-#| msgid "case-sensitive"
 msgctxt "Collation variant"
 msgid "accent-sensitive"
 msgstr "kasë sensitive"
 
 #: libraries/Charsets.php:576
-#, fuzzy
-#| msgid "multilingual"
 msgctxt "Collation variant"
 msgid "multi-level"
 msgstr "shumëgjuhësor"
 
 #: libraries/Charsets.php:579
-#, fuzzy
-#| msgid "Binary"
 msgctxt "Collation variant"
 msgid "binary"
 msgstr "Binar"
@@ -3485,10 +3392,8 @@ msgid "Details…"
 msgstr "Detajet…"
 
 #: libraries/DatabaseInterface.php:2354
-#, fuzzy
-#| msgid "Missing parameter:"
 msgid "Missing connection parameters!"
-msgstr "Parametri që mungon:"
+msgstr "Parametrat e lidhjes së humbur!"
 
 #: libraries/DatabaseInterface.php:2378
 msgid "Connection for controluser as defined in your configuration failed."
@@ -3788,8 +3693,6 @@ msgid "Relational key"
 msgstr "Çelësi relacional"
 
 #: libraries/DisplayResults.php:1741
-#, fuzzy
-#| msgid "Display column for relations"
 msgid "Display column for relationships"
 msgstr "Shfaq kolonat për marrëdhëniet"
 
@@ -3964,7 +3867,7 @@ msgstr "Gabim i panjohur në ngarkimin e filit."
 
 #: libraries/File.php:445
 msgid "File is a symbolic link"
-msgstr ""
+msgstr "Skedari është një lidhje simbolike"
 
 #: libraries/File.php:450 libraries/File.php:542
 msgid "File could not be read!"
@@ -4115,7 +4018,7 @@ msgstr "Numri i faqes:"
 
 #: libraries/LanguageManager.php:898
 msgid "Ignoring unsupported language code."
-msgstr "Injoron kodin e gjuhës së pambuluar."
+msgstr "Injorimi i kodit të pambështetur të gjuhës."
 
 #: libraries/LanguageManager.php:925 libraries/LanguageManager.php:926
 #: setup/frames/index.inc.php:66
@@ -5021,12 +4924,12 @@ msgstr "%B %d, %Y në %I:%M %p"
 #: libraries/Util.php:1587
 msgctxt "AM/PM indication in time"
 msgid "PM"
-msgstr ""
+msgstr "MD"
 
 #: libraries/Util.php:1589
 msgctxt "AM/PM indication in time"
 msgid "AM"
-msgstr ""
+msgstr "PD"
 
 #: libraries/Util.php:1961
 #, php-format
@@ -5213,18 +5116,12 @@ msgstr ""
 "korruptohen!"
 
 #: libraries/common.inc.php:484
-#, fuzzy
-#| msgid ""
-#| "You have enabled mbstring.func_overload in your PHP configuration. This "
-#| "option is incompatible with phpMyAdmin and might cause some data to be "
-#| "corrupted!"
 msgid ""
 "You have disabled ini_get and/or ini_set in php.ini. This option is "
 "incompatible with phpMyAdmin!"
 msgstr ""
-"Keni aftësuar mbstring.func_overload në konfigurimin tuaj PHP. Ky opsion "
-"është jokompatibël me phpMyAdmin dhe mund të shkaktojë disa të dhëna, që të "
-"korruptohen!"
+"Ke çaktivizuar ini_get dhe / ose ini_set në php.ini. Ky opsion është i "
+"papajtueshëm me phpMyAdmin!"
 
 #: libraries/common.inc.php:517
 #, php-format
@@ -5505,10 +5402,8 @@ msgid "You allow for connecting to the server without a password."
 msgstr "Lejoheni për lidhjen me serverin pa një fjalëkalim."
 
 #: libraries/config/ServerConfigChecks.php:349
-#, fuzzy
-#| msgid "Key is too short, it should have at least 8 characters."
 msgid "Key is too short, it should have at least 32 characters."
-msgstr "Çelësi është tepër i shkurtër, duhet të ketë së paku 8 karaktere."
+msgstr "Çelësi është tepër i shkurtër, duhet të ketë së paku 32 karaktere."
 
 #: libraries/config/ServerConfigChecks.php:359
 msgid "Key should contain letters, numbers [em]and[/em] special characters."
@@ -5651,10 +5546,8 @@ msgid "Could not connect to the database server!"
 msgstr "Nuk mund të lidhej me serverin e databazës!"
 
 #: libraries/config/Validator.php:244
-#, fuzzy
-#| msgid "Authentication type"
 msgid "Invalid authentication type!"
-msgstr "Tipi i autentifikimit"
+msgstr "Lloji i vërtetimit të pavlefshëm!"
 
 #: libraries/config/Validator.php:251
 msgid "Empty username while using [kbd]config[/kbd] authentication method!"
@@ -6110,8 +6003,6 @@ msgstr "Tipi MIME"
 
 #: libraries/config/messages.inc.php:167 libraries/config/messages.inc.php:180
 #: libraries/config/messages.inc.php:221
-#, fuzzy
-#| msgid "Relations"
 msgid "Relationships"
 msgstr "Relacionet"
 
@@ -7015,10 +6906,8 @@ msgid "Show row links anyway"
 msgstr "Shfaq lidhjet e radhës megjithatë"
 
 #: libraries/config/messages.inc.php:546 libraries/config/messages.inc.php:547
-#, fuzzy
-#| msgid "Disable foreign key checks"
 msgid "Disable shortcut keys"
-msgstr "Pasivizo kontrollet e çelësave të huaj"
+msgstr "Çaktivizoni çelësat e shkurtoreve"
 
 #: libraries/config/messages.inc.php:549
 msgid "Use natural order for sorting table and database names."
@@ -7719,7 +7608,7 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:818
 msgid "Allow to display all the rows"
-msgstr "Lejo për të shfaqur të gjitha radhët"
+msgstr "Lejo të shfaq të gjitha rreshtat"
 
 #: libraries/config/messages.inc.php:820
 msgid ""
@@ -7782,17 +7671,12 @@ msgid "Show last check timestamp"
 msgstr "Shfaq vulën kohore të kontrolluar së fundi"
 
 #: libraries/config/messages.inc.php:843
-#, fuzzy
-#| msgid "Show or hide a column displaying the comments for all tables."
 msgid "Show or hide a column displaying the charset for all tables."
-msgstr ""
-"Shfaq ose fsheh një kolonë nga shfaqja e komenteve për të gjitha tabelat."
+msgstr "Trego ose fsheh një kolonë që shfaq pararojë për të gjitha tabelat."
 
 #: libraries/config/messages.inc.php:845
-#, fuzzy
-#| msgid "Show table comments"
 msgid "Show table charset"
-msgstr "Shfaq komentet e tabelës"
+msgstr "Shfaq karakteret e tabelës"
 
 #: libraries/config/messages.inc.php:847
 msgid ""
@@ -7823,16 +7707,12 @@ msgid "Show hint"
 msgstr "Shfaq idenë (hint)"
 
 #: libraries/config/messages.inc.php:858
-#, fuzzy
-#| msgid ""
-#| "Shows link to [a@https://secure.php.net/manual/function.phpinfo."
-#| "php]phpinfo()[/a] output."
 msgid ""
 "Shows link to [a@https://php.net/manual/function.phpinfo.php]phpinfo()[/a] "
 "output."
 msgstr ""
-"Shfaq lidhjen tek rezultati [a@https://secure.php.net/manual/function."
-"phpinfo.php]phpinfo()[/a]."
+"Shfaq lidhjen tek rezultati i [a@https://php.net/manual/function.phpinfo.php]"
+" [/a]."
 
 #: libraries/config/messages.inc.php:861
 msgid "Show phpinfo() link"
@@ -8318,10 +8198,8 @@ msgid "Display column was successfully updated."
 msgstr "Shfaqja e kolonës u aktualizua me sukses."
 
 #: libraries/controllers/table/TableRelationController.php:282
-#, fuzzy
-#| msgid "Internal relations were successfully updated."
 msgid "Internal relationships were successfully updated."
-msgstr "Relacionet e brendshme u aktualizuan me sukses."
+msgstr "Marrëdhëniet e brendshme u përditësuan me sukses."
 
 #: libraries/controllers/table/TableSearchController.php:768
 msgid "Table search"
@@ -8426,7 +8304,7 @@ msgstr ""
 
 #: libraries/dbi/DBIMysqli.php:158
 msgid "SSL connection enforced by server, automatically enabling it."
-msgstr ""
+msgstr "Lidhja SSL e imponuar nga serveri, duke mundësuar automatikisht atë."
 
 #: libraries/display_change_password.lib.php:57
 #: libraries/replication_gui.lib.php:854
@@ -8443,7 +8321,7 @@ msgstr "Fjalëkalimi:"
 
 #: libraries/display_change_password.lib.php:68
 msgid "Enter:"
-msgstr ""
+msgstr "Shkruani:"
 
 #: libraries/display_change_password.lib.php:75
 #: libraries/replication_gui.lib.php:865
@@ -8655,7 +8533,7 @@ msgstr "Shmang tabelat më të mëdha se"
 
 #: libraries/display_export.lib.php:895
 msgid "Defined aliases"
-msgstr ""
+msgstr "Emërtimet e përcaktuara"
 
 #: libraries/display_export.lib.php:1011
 msgid "Could not load export plugins, please check your installation!"
@@ -9436,10 +9314,8 @@ msgid "Log out"
 msgstr "Dalje"
 
 #: libraries/navigation/NavigationHeader.php:172
-#, fuzzy
-#| msgid "Dumping data"
 msgid "Empty session data"
-msgstr "Zbraz të dhënat"
+msgstr "Zbraz te dhënat e sesionit"
 
 #: libraries/navigation/NavigationHeader.php:190
 msgid "phpMyAdmin documentation"
@@ -10621,10 +10497,9 @@ msgid "Last check:"
 msgstr "Kontrolli i fundit:"
 
 #: libraries/plugins/export/ExportSql.php:1488
-#, fuzzy, php-format
-#| msgid "Table structure for table"
+#, php-format
 msgid "Error reading structure for table %s:"
-msgstr "Struktura e tabelës për tabelën"
+msgstr "Gabim në leximin e strukturës për tabelën %s:"
 
 #: libraries/plugins/export/ExportSql.php:1542
 msgid "It appears your database uses views;"
@@ -10659,8 +10534,6 @@ msgid "MIME TYPES FOR TABLE"
 msgstr "TIPET MIME PËR TABELËN"
 
 #: libraries/plugins/export/ExportSql.php:1878
-#, fuzzy
-#| msgid "RELATIONS FOR TABLE"
 msgid "RELATIONSHIPS FOR TABLE"
 msgstr "RELACIONET PËR TABELËN"
 
@@ -10678,10 +10551,9 @@ msgid "(See below for the actual view)"
 msgstr "(Shiko më poshtë pamjen aktuale)"
 
 #: libraries/plugins/export/ExportSql.php:2204
-#, fuzzy, php-format
-#| msgid "Error reading data:"
+#, php-format
 msgid "Error reading data for table %s:"
-msgstr "Gabim në leximin e të dhënave:"
+msgstr "Gabim gjatë leximit të të dhënave për tabelën %s:"
 
 #: libraries/plugins/export/ExportXml.php:97
 msgid "Object creation options (all are recommended)"
@@ -11136,22 +11008,16 @@ msgid "Formats text as XML with syntax highlighting."
 msgstr "Formaton tekstin si XML me sintaksë të theksuar."
 
 #: libraries/pmd_common.php:551
-#, fuzzy
-#| msgid "Error: relation already exists."
 msgid "Error: relationship already exists."
 msgstr "Gabim: relacioni ekziston ndërkohë."
 
 #: libraries/pmd_common.php:597
-#, fuzzy
-#| msgid "FOREIGN KEY relation has been added."
 msgid "FOREIGN KEY relationship has been added."
 msgstr "Relacioni FOREIGN KEY (çelës i huaj) është shtuar."
 
 #: libraries/pmd_common.php:603
-#, fuzzy
-#| msgid "Error: FOREIGN KEY relation could not be added!"
 msgid "Error: FOREIGN KEY relationship could not be added!"
-msgstr "Gabim: Relacioni i ÇELËSIT TË HUAJ nuk mund të shtohet!"
+msgstr "Gabim: Relacioni i FOREIGN KEY nuk mund të shtohet!"
 
 #: libraries/pmd_common.php:608
 msgid "Error: Missing index on column(s)."
@@ -11162,38 +11028,26 @@ msgid "Error: Relational features are disabled!"
 msgstr "Gabim: Tiparet relacionale janë pasivizuar!"
 
 #: libraries/pmd_common.php:635
-#, fuzzy
-#| msgid "Internal relation has been added."
 msgid "Internal relationship has been added."
-msgstr "Relacioni i brendshëm u shtua."
+msgstr "Është shtuar marrëdhënija e brendshme."
 
 #: libraries/pmd_common.php:641
-#, fuzzy
-#| msgid "Error: Internal relation could not be added!"
 msgid "Error: Internal relationship could not be added!"
-msgstr "Gabim: Relacioni i brendshëm nuk mund të shtohet!"
+msgstr "Gabim: Marrëdhënia e brendshme nuk mund të shtohej!"
 
 #: libraries/pmd_common.php:679
-#, fuzzy
-#| msgid "FOREIGN KEY relation has been removed."
 msgid "FOREIGN KEY relationship has been removed."
-msgstr "Relacioni ÇELËSI I HUAJ është larguar."
+msgstr "Relacioni FOREIGN KEY  është hequr."
 
 #: libraries/pmd_common.php:685
-#, fuzzy
-#| msgid "Error: FOREIGN KEY relation could not be removed!"
 msgid "Error: FOREIGN KEY relationship could not be removed!"
-msgstr "Gabim: Relacioni i ÇELËSIT TË HUAJ nuk mund të hiqet!"
+msgstr "Gabim: Relacioni i FOREIGN KEY  nuk mund të hiqet!"
 
 #: libraries/pmd_common.php:712
-#, fuzzy
-#| msgid "Error: Internal relation could not be removed!"
 msgid "Error: Internal relationship could not be removed!"
-msgstr "Gabim: Relacioni i brendshëm nuk mund të hiqet!"
+msgstr "Gabim: Marrëdhënia e brendshme nuk mund të hiqet!"
 
 #: libraries/pmd_common.php:716
-#, fuzzy
-#| msgid "Internal relation has been removed."
 msgid "Internal relationship has been removed."
 msgstr "Relacionet e brendshme janë hequr."
 
@@ -11632,6 +11486,8 @@ msgid ""
 "Connection to server is disabled, please enable $cfg['AllowArbitraryServer'] "
 "in phpMyAdmin configuration."
 msgstr ""
+"Lidhja me serverin është e çaktivizuar, ju lutemi të aktivizoni $ cfg "
+"['AllowArbitraryServer'] në konfigurimin phpMyAdmin."
 
 #: libraries/replication_gui.lib.php:914
 msgid "Replication started successfully."
@@ -11800,7 +11656,7 @@ msgstr "Gabim në proçesimin e kërkesës:"
 
 #: libraries/rte/rte_footer.lib.php:94
 msgid "OFF"
-msgstr "JO"
+msgstr "hequr"
 
 #: libraries/rte/rte_footer.lib.php:99
 msgid "ON"
@@ -12024,10 +11880,8 @@ msgid "routine"
 msgstr "rutinë"
 
 #: libraries/rte/rte_words.lib.php:32
-#, fuzzy
-#| msgid "You do not have the necessary privileges to create a routine"
 msgid "You do not have the necessary privileges to create a routine."
-msgstr "Nuk keni privilegjet e nevojshme për të krijuar një rutinë"
+msgstr "Ju nuk keni privilegjet e nevojshme për të krijuar një rutinë."
 
 #: libraries/rte/rte_words.lib.php:35
 #, php-format
@@ -12035,6 +11889,8 @@ msgid ""
 "No routine with name %1$s found in database %2$s. You might be lacking the "
 "necessary privileges to edit this routine."
 msgstr ""
+"Asnjë rutinë me emrin %1$s nuk gjendet në bazën e të dhënave %2$s. Mund t`ju "
+"mungojne privilegjet e nevojshme për të redaktuar këtë rutinë."
 
 #: libraries/rte/rte_words.lib.php:39
 #, php-format
@@ -12042,12 +11898,13 @@ msgid ""
 "No routine with name %1$s found in database %2$s. You might be lacking the "
 "necessary privileges to view/export this routine."
 msgstr ""
+"Asnjë rutinë me emrin %1$s nuk gjendet në bazën e të dhënave %2$s. Mund t`ju "
+"mungojnr privilegjet e nevojshme për të redaktuar këtë rutinë."
 
 #: libraries/rte/rte_words.lib.php:42
-#, fuzzy, php-format
-#| msgid "No routine with name %1$s found in database %2$s"
+#, php-format
 msgid "No routine with name %1$s found in database %2$s."
-msgstr "Nuk ka rutinë me emrin %1$s të gjetur në databazën %2$s"
+msgstr "Asnjë rutinë me emrin %1$s nuk gjendet në bazën e të dhënave %2$s."
 
 #: libraries/rte/rte_words.lib.php:43
 msgid "There are no routines to display."
@@ -12067,16 +11924,13 @@ msgid "trigger"
 msgstr "shkrehës"
 
 #: libraries/rte/rte_words.lib.php:54
-#, fuzzy
-#| msgid "You do not have the necessary privileges to create a trigger"
 msgid "You do not have the necessary privileges to create a trigger."
-msgstr "Nuk keni privilegjet e nevojshme për të krijuar një shkrehës"
+msgstr "Ju nuk keni privilegjet e nevojshme për të krijuar një shkrehes."
 
 #: libraries/rte/rte_words.lib.php:56
-#, fuzzy, php-format
-#| msgid "No trigger with name %1$s found in database %2$s"
+#, php-format
 msgid "No trigger with name %1$s found in database %2$s."
-msgstr "Nuk ka shkrehës me emrin %1$s të gjetur në databazën %2$s"
+msgstr "Nuk ka shkrehës me emrin %1$s të gjetur në databazën %2$s."
 
 #: libraries/rte/rte_words.lib.php:57
 msgid "There are no triggers to display."
@@ -12096,16 +11950,13 @@ msgid "event"
 msgstr "ngjarje"
 
 #: libraries/rte/rte_words.lib.php:68
-#, fuzzy
-#| msgid "You do not have the necessary privileges to create an event"
 msgid "You do not have the necessary privileges to create an event."
-msgstr "Nuk keni privilegjet e nevojshme për të krijuar një ngjarje"
+msgstr "Nuk keni privilegjet e nevojshme për të krijuar një ngjarje."
 
 #: libraries/rte/rte_words.lib.php:70
-#, fuzzy, php-format
-#| msgid "No event with name %1$s found in database %2$s"
+#, php-format
 msgid "No event with name %1$s found in database %2$s."
-msgstr "Nuk ka ngjarje me emrin %1$s që gjendet në databazë %2$s"
+msgstr "Nuk ka ngjarje me emrin %1$s që gjendet në databazë %2$s."
 
 #: libraries/rte/rte_words.lib.php:71
 msgid "There are no events to display."
@@ -12348,6 +12199,8 @@ msgid ""
 "Allows user to give to other users or remove from other users privileges "
 "that user possess on this routine."
 msgstr ""
+"Lejon përdoruesin t'i japë përdoruesve të tjerë ose të heqë nga privilegjet "
+"e përdoruesve të tjerë që përdoruesi ka në këtë rutinë."
 
 #: libraries/server_privileges.lib.php:934
 msgid "Allows altering and dropping this routine."
@@ -12409,6 +12262,8 @@ msgid ""
 "Allows user to give to other users or remove from other users the privileges "
 "that user possess yourself."
 msgstr ""
+"Lejon përdoruesin t'i japë përdoruesve të tjerë ose të largojë nga "
+"përdoruesit e tjerë privilegjet që përdoruesi zotëron vetë."
 
 #: libraries/server_privileges.lib.php:1422
 #: libraries/server_privileges.lib.php:1453
@@ -12492,10 +12347,9 @@ msgstr ""
 "(username\\_%)."
 
 #: libraries/server_privileges.lib.php:2176
-#, fuzzy, php-format
-#| msgid "Grant all privileges on database \"%s\"."
+#, php-format
 msgid "Grant all privileges on database %s."
-msgstr "Dhuro të gjithë privilegjet në databazën \"%s\"."
+msgstr "Dhuro të gjithë privilegjet në databazën  %s."
 
 #: libraries/server_privileges.lib.php:2338
 #: libraries/server_privileges.lib.php:2409
@@ -13873,7 +13727,7 @@ msgstr "Lejo çdo përdorues të hyjë në këtë faqeruajtës"
 
 #: libraries/sql.lib.php:792
 msgid "Bookmark not created!"
-msgstr "Faqeruajtësi nuk është krijuar!"
+msgstr "Bookmark nuk u krijua!"
 
 #: libraries/sql.lib.php:900
 #, php-format
@@ -14218,14 +14072,12 @@ msgid "Cannot save settings, submitted form contains errors!"
 msgstr "Nuk mund të ruajë rregullimet, formulari i paraqitur përmban gabime!"
 
 #: prefs_manage.php:52
-#, fuzzy
-#| msgid "Missing phpMyAdmin configuration storage tables"
 msgid "phpMyAdmin configuration snippet"
-msgstr "Mungojnë tabelat e ruajtjes së konfigurimit të phpMyAdmin"
+msgstr "fragmenti i konfigurimit phpMyAdmin"
 
 #: prefs_manage.php:53
 msgid "Paste it to your config.inc.php"
-msgstr ""
+msgstr "Ngjiteni në config.inc.php"
 
 #: prefs_manage.php:93
 msgid "Could not import configuration"
@@ -14277,10 +14129,8 @@ msgstr ""
 "përdor %sSkriptin e instalimit%s."
 
 #: prefs_manage.php:332
-#, fuzzy
-#| msgid "Save as file"
 msgid "Save as PHP file"
-msgstr "Ruaj si fil"
+msgstr "Ruaj si skedar PHP"
 
 #: prefs_manage.php:337
 msgid "Save to browser's storage"
@@ -14368,16 +14218,12 @@ msgstr ""
 "transferuar të pakriptuara!"
 
 #: setup/frames/index.inc.php:57
-#, fuzzy
-#| msgid ""
-#| "If your server is also configured to accept HTTPS requests follow [a@"
-#| "%s]this link[/a] to use a secure connection."
 msgid ""
 "If your server is also configured to accept HTTPS requests follow this link "
 "to use a secure connection."
 msgstr ""
-"Nëse serveri juaj është gjithashtu i konfiguruar për të marrë kërkesa HTTPS "
-"ndjek [a@%s]këtë lidhje[/a] për të përdorur lidhje të sigurtë."
+"Nëse serveri juaj është konfiguruar gjithashtu për të pranuar kërkesat e "
+"HTTPS ndiqni këtë lidhje për të përdorur një lidhje të sigurt."
 
 #: setup/frames/index.inc.php:61
 msgid "Insecure connection"
@@ -14397,10 +14243,8 @@ msgstr ""
 "përdorur atë."
 
 #: setup/frames/index.inc.php:100
-#, fuzzy
-#| msgid "Configuration saved."
 msgid "Configuration not saved!"
-msgstr "Konfigurimi u ruajt."
+msgstr "Konfigurimi nuk u ruajt!"
 
 #: setup/frames/index.inc.php:103
 msgid ""
@@ -14471,7 +14315,7 @@ msgstr "Shto një server të ri"
 
 #: setup/index.php:16
 msgid "Configuration already exists, setup is disabled!"
-msgstr ""
+msgstr "Konfigurimi tashmë ekziston, konfigurimi është i çaktivizuar!"
 
 #: setup/index.php:26
 msgid "Wrong GET file attribute value"
@@ -14533,7 +14377,7 @@ msgstr "Të dhëna gabim"
 #: setup/validate.php:30
 #, php-format
 msgid "Wrong data or no validation for %s"
-msgstr ""
+msgstr "Të dhëna të gabuara ose pa validim për %s"
 
 #: tbl_create.php:32 tbl_get_field.php:26
 #, php-format
@@ -14599,10 +14443,8 @@ msgid "Add"
 msgstr "Shto"
 
 #: templates/columns_definitions/column_definitions_form.phtml:66
-#, fuzzy
-#| msgid "Columns"
 msgid "column(s)"
-msgstr "Kolona"
+msgstr "Kolona(t)"
 
 #: templates/columns_definitions/column_definitions_form.phtml:93
 msgid "Collation:"
@@ -14910,10 +14752,8 @@ msgid "Show query history at start"
 msgstr "Shfaq historinë e pyetsorit në fillim"
 
 #: templates/console/display.phtml:189
-#, fuzzy
-#| msgid "Show current browsing query"
 msgid "Show current browsing query"
-msgstr "Shfaq pyetsorin aktual të shfletimit"
+msgstr "Trego pyetjen aktuale të shfletimit"
 
 #: templates/console/display.phtml:194
 msgid ""
@@ -14961,8 +14801,6 @@ msgid "See table structure"
 msgstr "Shiko strukturën e tabelës"
 
 #: templates/database/designer/delete_relation_panel.phtml:21
-#, fuzzy
-#| msgid "Delete relation"
 msgid "Delete relationship"
 msgstr "Fshij relacionin"
 
@@ -14991,15 +14829,11 @@ msgstr "nënpyetsor"
 #: templates/database/designer/new_relation_panel.phtml:22
 #: templates/database/designer/side_menu.phtml:84
 #: templates/database/designer/side_menu.phtml:87
-#, fuzzy
-#| msgid "Create relation"
 msgid "Create relationship"
 msgstr "Krijo relacion"
 
 #: templates/database/designer/options_panel.phtml:34
 #: templates/database/designer/options_panel.phtml:200
-#, fuzzy
-#| msgid "Relation operator"
 msgid "Relationship operator"
 msgstr "Operatori i relacionit"
 
@@ -15099,8 +14933,6 @@ msgstr "Shkëmbe e vogël/e madhe"
 
 #: templates/database/designer/side_menu.phtml:145
 #: templates/database/designer/side_menu.phtml:148
-#, fuzzy
-#| msgid "Toggle relation lines"
 msgid "Toggle relationship lines"
 msgstr "Shkëmbe rreshtat e relacionit"
 
@@ -15129,10 +14961,8 @@ msgid "Hide/Show all"
 msgstr "Fsheh/Shfaq të gjitha"
 
 #: templates/database/designer/table_list.phtml:14
-#, fuzzy
-#| msgid "Hide/Show Tables with no relation"
 msgid "Hide/Show Tables with no relationship"
-msgstr "Fsheh/Shfaq tabelat pa relacione"
+msgstr "Fshih/Shfaq tabelat pa relacione"
 
 #: templates/database/designer/table_list.phtml:59
 msgid "Number of tables:"
@@ -15261,33 +15091,27 @@ msgstr "Ju mund t'i shqyrtoni të dhënat në raportin e gabimit:"
 
 #: templates/export/alias_add.phtml:5
 msgid "Define new aliases"
-msgstr ""
+msgstr "Përcaktoni emërtime të reja"
 
 #: templates/export/alias_add.phtml:11
-#, fuzzy
-#| msgid "Select database"
 msgid "Select database:"
-msgstr "Zgjedh një databazë"
+msgstr "Zgjidh bazën e të dhënave:"
 
 #: templates/export/alias_add.phtml:17
 msgid "New database name"
 msgstr "Emër i ri databaze"
 
 #: templates/export/alias_add.phtml:26
-#, fuzzy
-#| msgid "Select table"
 msgid "Select table:"
-msgstr "Zgjedh tabelë"
+msgstr "Zgjidh tabelën:"
 
 #: templates/export/alias_add.phtml:32
 msgid "New table name"
 msgstr "Emër i ri tabele"
 
 #: templates/export/alias_add.phtml:41
-#, fuzzy
-#| msgid "Select a column."
 msgid "Select column:"
-msgstr "Zgjedh një kolonë."
+msgstr "Zgjidh kolonën:"
 
 #: templates/export/alias_add.phtml:47
 msgid "New column name"
@@ -15295,7 +15119,7 @@ msgstr "Emri i ri i kolonës"
 
 #: templates/export/alias_item.phtml:8
 msgid "Remove"
-msgstr ""
+msgstr "Heq"
 
 #: templates/prefs_autoload.phtml:8
 msgid ""
@@ -15306,10 +15130,8 @@ msgstr ""
 "importoni atë për sesionin aktual?"
 
 #: templates/prefs_autoload.phtml:14
-#, fuzzy
-#| msgid "Delete tracking"
 msgid "Delete settings "
-msgstr "Fshij gjurmimin"
+msgstr "FshFshij cilësimet "
 
 #: templates/privileges/add_privileges_database.phtml:2
 msgid "Add privileges on the following database(s):"
@@ -15574,6 +15396,9 @@ msgid ""
 "an index on it. Alternatively, you can define an index below, before "
 "creating the foreign key."
 msgstr ""
+"Krijimi i një çelës të jashtëm mbi një kolonë të pa indeksuar do të krijonte "
+"automatikisht një indeks në të. Përndryshe, mund të përcaktoni një indeks më "
+"poshtë, para se të krijohet kyç i huaj."
 
 #: templates/table/relation/common_form.phtml:20
 msgid ""
@@ -15592,10 +15417,8 @@ msgstr "+ Shto detyrim"
 
 #: templates/table/relation/common_form.phtml:76
 #: templates/table/relation/common_form.phtml:82
-#, fuzzy
-#| msgid "Internal relations"
 msgid "Internal relationships"
-msgstr "Relacion i brendshëm"
+msgstr "Marrëdhëniet e brendshme"
 
 #: templates/table/relation/common_form.phtml:86
 msgid "Internal relation"
@@ -15878,14 +15701,12 @@ msgid "The profile has been updated."
 msgstr "Profili është aktualizuar."
 
 #: user_password.php:127
-#, fuzzy
-#| msgid "Password Hashing:"
 msgid "Password is too long!"
-msgstr "Ngatërrimi i fjalëkalimit:"
+msgstr "Fjalëkalimi është shumë i gjatë!"
 
 #: view_create.php:48
 msgid "View name can not be empty!"
-msgstr ""
+msgstr "Shaqja e emrit nuk mund të jetë bosh!"
 
 #: view_create.php:253
 msgid "VIEW name"
@@ -16091,8 +15912,8 @@ msgid ""
 "You should upgrade, as recent versions of MySQL 5.1 have improved "
 "performance and MySQL 5.5 even more so."
 msgstr ""
-"Duhet ta aktualizoni, pasi versionet e fundit të MySQL 5.1 kanë përmirësuar "
-"performancën dhe MySQL 5.5 edhe më shumë."
+"Ju duhet të perditesoni, pasi versionet e fundit të MySQL 5.1 kanë "
+"përmirësuar performancën dhe MySQL 5.5 edhe më shumë."
 
 #: libraries/advisory_rules.txt:117
 msgid "Version less than 5.5.8 (the first GA release of 5.5)."
@@ -16423,8 +16244,8 @@ msgid ""
 "%s%% of all sorts cause temporary tables, this value should be lower than "
 "10%%."
 msgstr ""
-"%s%% prej të gjitha llojeve shkaktojnë tabela të përkohëshme, kjo vlerë "
-"duhet të jetë nën 10%%."
+"%s %% of all sorts cause temporary tables, this value should be lower than "
+"10 %%."
 
 #: libraries/advisory_rules.txt:211
 msgid "Rate of sorts that cause temporary tables"
@@ -16801,7 +16622,7 @@ msgstr "Norma e fileve të hapura"
 
 #: libraries/advisory_rules.txt:326
 msgid "The rate of opening files is high."
-msgstr "Shkalla e fileve që hapen është e lartë."
+msgstr "Shkalla e skedareve që hapen është e lartë."
 
 #: libraries/advisory_rules.txt:328
 #, php-format

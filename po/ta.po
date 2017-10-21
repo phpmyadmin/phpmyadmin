@@ -7,16 +7,16 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.7.4-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2017-08-10 09:13-0400\n"
-"PO-Revision-Date: 2016-10-10 19:29+0000\n"
-"Last-Translator: Michal Čihař <michal@cihar.com>\n"
-"Language-Team: Tamil <https://hosted.weblate.org/projects/phpmyadmin/master/"
-"ta/>\n"
+"PO-Revision-Date: 2017-09-22 00:25+0000\n"
+"Last-Translator: Maurício Meneghini Fauth <mauriciofauth@gmail.com>\n"
+"Language-Team: Tamil <https://hosted.weblate.org/projects/phpmyadmin/4-7/ta/>"
+"\n"
 "Language: ta\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 2.9-dev\n"
+"X-Generator: Weblate 2.17-dev\n"
 
 #: ajax.php:16 ajax.php:33 export.php:192 schema_export.php:64
 msgid "Bad type!"
@@ -335,10 +335,8 @@ msgid "Access denied!"
 msgstr "அணுகல் மறுக்கப்பட்டது!"
 
 #: db_tracking.php:53 db_tracking.php:78
-#, fuzzy
-#| msgid "The columns have been moved successfully."
 msgid "Tracking data deleted successfully."
-msgstr "நெடுவரிசைகள் வெற்றிகரமாக நகர்த்தப்பட்டன."
+msgstr "கண்காணிக்கும் தரவுகள் வெற்றிகரமாக அழிக்கப்பட்டது."
 
 #: db_tracking.php:62
 #, php-format
@@ -572,24 +570,20 @@ msgid "Bookmark %s has been created."
 msgstr "புத்தகக்குறி %s குறிக்கப்பட்டது."
 
 #: import.php:581
-#, fuzzy, php-format
-#| msgid "Import has been successfully finished, %d queries executed."
+#, php-format
 msgid "Import has been successfully finished, %d query executed."
 msgid_plural "Import has been successfully finished, %d queries executed."
-msgstr[0] "தரவிறக்கம் வெற்றிகரமாக முடிந்தது, %d வினவல்கள் செயல்படுத்தப்பட்டன."
-msgstr[1] "தரவிறக்கம் வெற்றிகரமாக முடிந்தது, %d வினவல்கள் செயல்படுத்தப்பட்டன."
+msgstr[0] "உள்ளேற்றம் வெற்றிகரமாக முடிந்தது, %d வினவல்கள் செயல்படுத்தப்பட்டன."
+msgstr[1] "உள்ளேற்றம் வெற்றிகரமாக முடிந்தது, %d வினவல்கள் செயல்படுத்தப்பட்டன."
 
 #: import.php:612
-#, fuzzy, php-format
-#| msgid ""
-#| "Script timeout passed, if you want to finish import, please resubmit same "
-#| "file and import will resume."
+#, php-format
 msgid ""
 "Script timeout passed, if you want to finish import, please %sresubmit the "
 "same file%s and import will resume."
 msgstr ""
-"செயல்நிரலுக்கான செயலாக்க நேரம் கடந்தது, தரவிறக்க செயல்பாட்டை மீளேற்றி முடிக்க "
-"அதேகோப்பினை மீண்டும் அனுப்புக."
+"செயல்நிரலுக்கான செயலாக்க நேரம் கடந்தது, உள்ளேற்ற செயல்பாட்டை மீளேற்றி முடிக்"
+"க %sஅதேகோப்பினை மீண்டும் அனுப்புக%s."
 
 #: import.php:622
 msgid ""
@@ -605,7 +599,7 @@ msgstr "\"DROP DATABASE\" கூற்றுகள் முடக்கப்�
 
 #: import_status.php:105
 msgid "Could not load the progress of the import."
-msgstr ""
+msgstr "இறக்குமதி தரவை ஏற்ற முடியவில்லை."
 
 #: import_status.php:114 js/messages.php:455 js/messages.php:619
 #: libraries/Util.php:689 libraries/export.lib.php:518
@@ -618,6 +612,8 @@ msgid ""
 "You were logged out from one server, to logout completely from phpMyAdmin, "
 "you need to logout from all servers."
 msgstr ""
+"நீங்கள் ஒரு சர்வரிலிருந்து வெளியேற்றப்பட்டிர்கள். முழுவதும் வெளியேற அனைத்து "
+"சர்வேரிலிருந்தும் வெளியேற வேண்டும்."
 
 #: index.php:160 libraries/Footer.php:69
 msgid "phpMyAdmin Demo Server"
@@ -630,9 +626,9 @@ msgid ""
 "change root, debian-sys-maint and pma users. More information is available "
 "at %s."
 msgstr ""
-"நீங்கள் செயல்விளக்க வழங்கியை பயன்படுத்துகிறீர்கள். இங்கு நீங்கள் ஏதும் செய்யலாம், அனால் "
-"தயவுசெய்து root, debian-sys-maint மற்றும் pma பயனர்களை மாற்றாதிருக்கவும். மேலதிக "
-"தகவல்கள் %sஇல் உள்ளன."
+"நீங்கள் செயல்விளக்க வழங்கியை பயன்படுத்துகிறீர்கள். இங்கு நீங்கள் ஏதும் "
+"செய்யலாம், அனால் தயவுசெய்து root, debian-sys-maint மற்றும் pma பயனர்களை "
+"மாற்றாதிருக்கவும். மேலதிக தகவல்கள் %s இல் உள்ளன."
 
 #: index.php:174
 #, fuzzy
@@ -684,7 +680,7 @@ msgstr "நெறிமுறை பதிப்பு:"
 
 #: index.php:318
 msgid "User:"
-msgstr "பயனர்:"
+msgstr "பயனாளர்:"
 
 #: index.php:323
 msgid "Server charset:"
@@ -696,7 +692,7 @@ msgstr "இணைய வழங்கி"
 
 #: index.php:347
 msgid "Database client version:"
-msgstr "தரவுத்தள பயனர் நிரல் பதிப்பு:"
+msgstr "தரவுத்தள பயனாளர் நிரல் பதிப்பு:"
 
 #: index.php:351
 msgid "PHP extension:"
@@ -759,6 +755,8 @@ msgid ""
 "The curl extension was not found and allow_url_fopen is disabled. Due to "
 "this some features such as error reporting or version check are disabled."
 msgstr ""
+"curl நீட்டிப்பு மற்றும் allow_url_fopen  முடக்கப்பட்டுள்ளது. இதனால் தவறு "
+"அறிக்கை, பதிப்பு சோதனை போன்ற அம்சங்கள் முடக்கப்பட்டுள்ளது."
 
 #: index.php:491
 #, fuzzy

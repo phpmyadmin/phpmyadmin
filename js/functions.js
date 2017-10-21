@@ -128,9 +128,17 @@ function PMA_addDatepicker($this_element, type, options)
                     });
                 }, 0);
             }
-            // Fix wrong timepicker z-index, doesn't work without timeout
             setTimeout(function () {
+                // Fix wrong timepicker z-index, doesn't work without timeout
                 $('#ui-timepicker-div').css('z-index', $('#ui-datepicker-div').css('z-index'));
+                // Integrate tooltip text into dialog
+                var tooltip = $this_element.tooltip('instance');
+                if(typeof tooltip !== 'undefined') {
+                    tooltip.disable();
+                    var $note = $('<p class="note"></div>');
+                    $note.text(tooltip.option('content'));
+                    $('div.ui-datepicker').append($note);
+                }
             }, 0);
         },
         onSelect: function() {
@@ -141,6 +149,10 @@ function PMA_addDatepicker($this_element, type, options)
             $this_element.data('comes_from', '');
             if (typeof $this_element.data('datepicker') !== 'undefined') {
                 $this_element.data('datepicker').inline = false;
+            }
+            var tooltip = $this_element.tooltip('instance');
+            if(typeof tooltip !== 'undefined') {
+                tooltip.enable();
             }
         }
     };
@@ -1057,7 +1069,7 @@ AJAX.registerOnload('functions.js', function () {
                 end = last_clicked_row;
             }
             $tr.parent().find('tr:not(.noclick)')
-                .slice(start, end + 1)
+                .slice(start, end)
                 .addClass('marked')
                 .find(':checkbox')
                 .prop('checked', true)

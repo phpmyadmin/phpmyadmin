@@ -9,6 +9,9 @@
  */
 use PMA\libraries\ServerStatusData;
 use PMA\libraries\Util;
+use PMA\libraries\Sanitize;
+
+require_once 'libraries/sysinfo.lib.php';
 
 /**
  * Prints html with monitor
@@ -42,7 +45,7 @@ function PMA_getHtmlForMonitor($ServerStatusData)
             if ($i++ > 0) {
                 $retval .= ", ";
             }
-            $retval .= "'" . $name . "'";
+            $retval .= Sanitize::formatJsVal($name);
         }
     }
     $retval .= '];';
@@ -342,7 +345,7 @@ function PMA_getHtmlForClientSideDataAndLinks($ServerStatusData)
     $input = '<input type="hidden" name="%s" value="%s" />';
     $form  = '<form id="js_data" class="hide">';
     $form .= sprintf($input, 'server_time', microtime(true) * 1000);
-    $form .= sprintf($input, 'server_os', PHP_OS);
+    $form .= sprintf($input, 'server_os', PMA_getSysInfoOs());
     $form .= sprintf($input, 'is_superuser', $GLOBALS['dbi']->isSuperuser());
     $form .= sprintf($input, 'server_db_isLocal', $ServerStatusData->db_isLocal);
     $form .= '</form>';
