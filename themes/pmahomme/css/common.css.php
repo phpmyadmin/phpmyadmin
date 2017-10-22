@@ -13,7 +13,6 @@ if (! defined('PMA_MINIMUM_COMMON') && ! defined('TESTSUITE')) {
 }
 ?>
 /******************************************************************************/
-
 /* general tags */
 html {
     font-size: <?php echo $theme->getFontSize(); ?>
@@ -382,8 +381,7 @@ fieldset legend {
     margin: 1.5em;
 }
 
-/* buttons in some browsers (eg. Konqueror) are block elements,
-   this breaks design */
+/* buttons in some browsers (eg. Konqueror) are block elements, this breaks design */
 button {
     display: inline;
 }
