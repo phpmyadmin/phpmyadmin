@@ -8,7 +8,6 @@
 namespace PhpMyAdmin\Tests;
 
 use PhpMyAdmin\MultSubmits;
-use PhpMyAdmin\Theme;
 use PhpMyAdmin\Url;
 use PHPUnit_Framework_TestCase as TestCase;
 

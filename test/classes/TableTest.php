@@ -13,8 +13,6 @@ use PhpMyAdmin\Index;
 use PhpMyAdmin\Relation;
 use PhpMyAdmin\Table;
 use PhpMyAdmin\Tests\PmaTestCase;
-use PhpMyAdmin\Theme;
-use PhpMyAdmin\Util;
 use ReflectionClass;
 
 /**
