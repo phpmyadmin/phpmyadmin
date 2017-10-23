@@ -68,6 +68,13 @@ class DatabaseInterface
     private $_extension;
 
     /**
+     * Opened database links
+     *
+     * @var array
+     */
+    private $_links;
+
+    /**
      * @var array Table data cache
      */
     private $_table_cache;
@@ -116,6 +123,7 @@ class DatabaseInterface
     public function __construct($ext)
     {
         $this->_extension = $ext;
+        $this->_links = array();
         $this->_table_cache = array();
         $this->_current_user = array();
         $this->types = new Types($this);
@@ -2437,6 +2445,7 @@ class DatabaseInterface
         $GLOBALS['error_handler']->setHideLocation(false);
 
         if ($result) {
+            $this->_links[$mode] = $result;
             /* Run post connect for user connections */
             if ($mode == DatabaseInterface::CONNECT_USER) {
                 $this->postConnect($result);
@@ -2817,7 +2826,9 @@ class DatabaseInterface
             return $link;
         }
 
-        if (isset($GLOBALS['userlink']) && !is_null($GLOBALS['userlink'])) {
+        if (isset($this->_links[DatabaseInterface::CONNECT_USER])) {
+            return $this->_links[DatabaseInterface::CONNECT_USER];
+        } elseif (isset($GLOBALS['userlink']) && !is_null($GLOBALS['userlink'])) {
             return $GLOBALS['userlink'];
         } else {
             return false;
