@@ -1496,7 +1496,7 @@ class DatabaseInterface
             if (! $this->tryQuery($sql_query_tz)) {
                 $error_message_tz = sprintf(
                     __(
-                        'Unable to use timezone %1$s for server %2$d. '
+                        'Unable to use timezone "%1$s" for server %2$d. '
                         . 'Please check your configuration setting for '
                         . '[em]$cfg[\'Servers\'][%3$d][\'SessionTimeZone\'][/em]. '
                         . 'phpMyAdmin is currently using the default time zone '
