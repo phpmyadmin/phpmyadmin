@@ -2431,12 +2431,17 @@ class DatabaseInterface
      * @param integer    $mode   Connection mode on of CONNECT_USER, CONNECT_CONTROL
      *                           or CONNECT_AUXILIARY.
      * @param array|null $server Server information like host/port/socket/persistent
+     * @param integer    $target How to store connection link, defaults to $mode
      *
      * @return mixed false on error or a connection object on success
      */
-    public function connect($mode, $server = null)
+    public function connect($mode, $server = null, $target = null)
     {
         list($user, $password, $server) = $this->getConnectionParams($mode, $server);
+
+        if (is_null($target)) {
+            $target = $mode;
+        }
 
         if (is_null($user) || is_null($password)) {
             trigger_error(
@@ -2454,9 +2459,9 @@ class DatabaseInterface
         $GLOBALS['error_handler']->setHideLocation(false);
 
         if ($result) {
-            $this->_links[$mode] = $result;
+            $this->_links[$target] = $result;
             /* Run post connect for user connections */
-            if ($mode == DatabaseInterface::CONNECT_USER) {
+            if ($target == DatabaseInterface::CONNECT_USER) {
                 $this->postConnect($result);
             }
             return $result;

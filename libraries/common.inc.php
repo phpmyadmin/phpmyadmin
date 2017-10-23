@@ -538,7 +538,11 @@ if (! defined('PMA_MINIMUM_COMMON')) {
              * and phpMyAdmin issuing queries to configuration storage, which
              * is not locked by that time.
              */
-            $controllink = $GLOBALS['dbi']->connect(DatabaseInterface::CONNECT_USER);
+            $controllink = $GLOBALS['dbi']->connect(
+                DatabaseInterface::CONNECT_USER,
+                null,
+                DatabaseInterface::CONNECT_CONTROL
+            );
         }
 
         $auth_plugin->rememberCredentials();
