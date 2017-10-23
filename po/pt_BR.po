@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.7.4-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2017-08-10 09:13-0400\n"
-"PO-Revision-Date: 2017-10-11 18:47+0000\n"
+"PO-Revision-Date: 2017-10-23 11:21+0000\n"
 "Last-Translator: George Bezerra <georgelione@gmail.com>\n"
 "Language-Team: Portuguese (Brazil) "
 "<https://hosted.weblate.org/projects/phpmyadmin/4-7/pt_BR/>\n"
@@ -13,7 +13,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n > 1;\n"
-"X-Generator: Weblate 2.17-dev\n"
+"X-Generator: Weblate 2.17\n"
 
 #: ajax.php:16 ajax.php:33 export.php:192 schema_export.php:64
 msgid "Bad type!"
@@ -10314,7 +10314,7 @@ msgstr "Fazendo dump de dados"
 
 #: libraries/plugins/export/ExportPdf.php:288
 msgid "View structure"
-msgstr "Visualizar estrutura"
+msgstr "Ver estrutura"
 
 #: libraries/plugins/export/ExportPdf.php:291
 msgid "Stand in"
