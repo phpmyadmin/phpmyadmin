@@ -1821,10 +1821,10 @@ class DatabaseInterface
     /**
      * returns the definition of a specific PROCEDURE, FUNCTION, EVENT or VIEW
      *
-     * @param string $db    db name
-     * @param string $which PROCEDURE | FUNCTION | EVENT | VIEW
-     * @param string $name  the procedure|function|event|view name
-     * @param object $link  MySQL link
+     * @param string  $db    db name
+     * @param string  $which PROCEDURE | FUNCTION | EVENT | VIEW
+     * @param string  $name  the procedure|function|event|view name
+     * @param integer $link  link type
      *
      * @return string the definition
      */
