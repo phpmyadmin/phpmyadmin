@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.7.4-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2017-08-10 09:13-0400\n"
-"PO-Revision-Date: 2017-10-23 11:32+0000\n"
-"Last-Translator: Rafael Campos de Brito <rafinhadebrito@gmail.com>\n"
+"PO-Revision-Date: 2017-10-23 13:36+0000\n"
+"Last-Translator: George Bezerra <georgelione@gmail.com>\n"
 "Language-Team: Portuguese (Brazil) "
 "<https://hosted.weblate.org/projects/phpmyadmin/4-7/pt_BR/>\n"
 "Language: pt_BR\n"
@@ -2963,7 +2963,7 @@ msgstr "Por favor, digite um data válida ou um tempo"
 
 #: js/messages.php:967
 msgid "Please enter a valid HEX input"
-msgstr "Por favor, digite um número hexadecimal válido!"
+msgstr "Por favor, digite um número hexadecimal válido"
 
 #: js/messages.php:972 libraries/Message.php:190 libraries/Util.php:566
 #: libraries/core.lib.php:244 libraries/import.lib.php:80
@@ -6065,8 +6065,7 @@ msgstr "Exportar vistas como tabelas"
 #: libraries/config/messages.inc.php:198
 msgid "Export related metadata from phpMyAdmin configuration storage"
 msgstr ""
-"Exportar metadados relacionados as configurações de armazenamento do "
-"phpMyAdmin"
+"Exportar metadados relacionados ao storage de configurações do phpMyAdmin"
 
 #: libraries/config/messages.inc.php:200 libraries/config/messages.inc.php:201
 #: libraries/config/messages.inc.php:203 libraries/config/messages.inc.php:205
