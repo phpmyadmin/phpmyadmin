@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.7.4-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2017-08-10 09:13-0400\n"
-"PO-Revision-Date: 2017-10-23 11:23+0000\n"
-"Last-Translator: Guilherme Souza Silva <g.szsilva@gmail.com>\n"
+"PO-Revision-Date: 2017-10-23 11:24+0000\n"
+"Last-Translator: anonymous <>\n"
 "Language-Team: Portuguese (Brazil) "
 "<https://hosted.weblate.org/projects/phpmyadmin/4-7/pt_BR/>\n"
 "Language: pt_BR\n"
@@ -8318,7 +8318,7 @@ msgstr ""
 
 #: libraries/dbi/DBIMysqli.php:158
 msgid "SSL connection enforced by server, automatically enabling it."
-msgstr "Conexão SSL executada pelo servidor, automaticamente habilitando-a."
+msgstr "Conexão SSL imposta pelo servidor, sendo automaticamente habilitada."
 
 #: libraries/display_change_password.lib.php:57
 #: libraries/replication_gui.lib.php:854
