@@ -26,7 +26,7 @@ class AuthenticationConfig extends AuthenticationPlugin
      *
      * @return boolean always true
      */
-    public function auth()
+    public function showLoginForm()
     {
         $response = Response::getInstance();
         if ($response->isAjax()) {
@@ -44,27 +44,18 @@ class AuthenticationConfig extends AuthenticationPlugin
     }
 
     /**
-     * Gets advanced authentication settings
+     * Gets authentication credentials
      *
      * @return boolean always true
      */
-    public function authCheck()
+    public function readCredentials()
     {
         if ($GLOBALS['token_provided'] && $GLOBALS['token_mismatch']) {
             return false;
         }
 
-        return true;
-    }
-
-    /**
-     * Set the user and password after last checkings if required
-     *
-     * @return boolean always true
-     */
-    public function authSetUser()
-    {
-        $this->setSessionAccessTime();
+        $this->user = $GLOBALS['cfg']['Server']['user'];
+        $this->password = $GLOBALS['cfg']['Server']['password'];
 
         return true;
     }
@@ -72,10 +63,13 @@ class AuthenticationConfig extends AuthenticationPlugin
     /**
      * User is not allowed to login to MySQL -> authentication failed
      *
-     * @return boolean   always true (no return indeed)
+     * @param string $failure String describing why authentication has failed
+     *
+     * @return void
      */
-    public function authFails()
+    public function showFailure($failure)
     {
+        parent::showFailure($failure);
         $conn_error = $GLOBALS['dbi']->getError();
         if (!$conn_error) {
             $conn_error = __('Cannot connect: invalid settings.');
@@ -172,7 +166,5 @@ class AuthenticationConfig extends AuthenticationPlugin
         if (!defined('TESTSUITE')) {
             exit;
         }
-
-        return true;
     }
 }

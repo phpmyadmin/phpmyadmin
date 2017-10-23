@@ -47,43 +47,47 @@ class AuthenticationConfigTest extends PmaTestCase
     }
 
     /**
-     * Test for PhpMyAdmin\Plugins\Auth\AuthenticationConfig::auth
+     * Test for PhpMyAdmin\Plugins\Auth\AuthenticationConfig::showLoginForm
      *
      * @return void
      */
     public function testAuth()
     {
         $this->assertTrue(
-            $this->object->auth()
+            $this->object->showLoginForm()
         );
     }
 
     /**
-     * Test for PhpMyAdmin\Plugins\Auth\AuthenticationConfig::authCheck
+     * Test for PhpMyAdmin\Plugins\Auth\AuthenticationConfig::readCredentials
      *
      * @return void
      */
     public function testAuthCheck()
     {
+        $GLOBALS['cfg']['Server'] = array(
+            'user' => 'username',
+            'password' => 'password',
+        );
         $this->assertTrue(
-            $this->object->authCheck()
+            $this->object->readCredentials()
         );
     }
 
     /**
-     * Test for PhpMyAdmin\Plugins\Auth\AuthenticationConfig::authSetUser
+     * Test for PhpMyAdmin\Plugins\Auth\AuthenticationConfig::storeCredentials
      *
      * @return void
      */
     public function testAuthSetUser()
     {
         $this->assertTrue(
-            $this->object->authSetUser()
+            $this->object->storeCredentials()
         );
     }
 
     /**
-     * Test for PhpMyAdmin\Plugins\Auth\AuthenticationConfig::authFails
+     * Test for PhpMyAdmin\Plugins\Auth\AuthenticationConfig::showFailure
      *
      * @return void
      */
@@ -101,12 +105,8 @@ class AuthenticationConfigTest extends PmaTestCase
         $GLOBALS['dbi'] = $dbi;
 
         ob_start();
-        $result = $this->object->authFails();
+        $this->object->showFailure('');
         $html = ob_get_clean();
-
-        $this->assertTrue(
-            $result
-        );
 
         $this->assertContains(
             'You probably did not create a configuration file. You might want ' .

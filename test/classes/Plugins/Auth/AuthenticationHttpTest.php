@@ -107,13 +107,13 @@ class AuthenticationHttpTest extends PmaTestCase
             $this->object->logOut();
         } else {
             $this->assertFalse(
-                $this->object->auth()
+                $this->object->showLoginForm()
             );
         }
     }
 
     /**
-     * Test for PhpMyAdmin\Plugins\Auth\AuthenticationHttp::auth
+     * Test for PhpMyAdmin\Plugins\Auth\AuthenticationHttp::showLoginForm
      *
      * @return void
      */
@@ -169,7 +169,7 @@ class AuthenticationHttpTest extends PmaTestCase
     }
 
     /**
-     * Test for PhpMyAdmin\Plugins\Auth\AuthenticationHttp::authCheck
+     * Test for PhpMyAdmin\Plugins\Auth\AuthenticationHttp::readCredentials
      *
      * @param string $user           test username
      * @param string $pass           test password
@@ -181,14 +181,11 @@ class AuthenticationHttpTest extends PmaTestCase
      * @param string $old_usr        value for $_REQUEST['old_usr']
      *
      * @return void
-     * @dataProvider authCheckProvider
+     * @dataProvider readCredentialsProvider
      */
     public function testAuthCheck($user, $pass, $userIndex, $passIndex,
         $expectedReturn, $expectedUser, $expectedPass, $old_usr = ''
     ) {
-        $GLOBALS['PHP_AUTH_USER'] = '';
-        $GLOBALS['PHP_AUTH_PW'] = '';
-
         $_SERVER[$userIndex] = $user;
         $_SERVER[$passIndex] = $pass;
 
@@ -196,17 +193,17 @@ class AuthenticationHttpTest extends PmaTestCase
 
         $this->assertEquals(
             $expectedReturn,
-            $this->object->authCheck()
+            $this->object->readCredentials()
         );
 
         $this->assertEquals(
             $expectedUser,
-            $GLOBALS['PHP_AUTH_USER']
+            $this->object->user
         );
 
         $this->assertEquals(
             $expectedPass,
-            $GLOBALS['PHP_AUTH_PW']
+            $this->object->password
         );
 
         $_SERVER[$userIndex] = null;
@@ -218,7 +215,7 @@ class AuthenticationHttpTest extends PmaTestCase
      *
      * @return array Test data
      */
-    public function authCheckProvider()
+    public function readCredentialsProvider()
     {
         return array(
             array(
@@ -271,7 +268,7 @@ class AuthenticationHttpTest extends PmaTestCase
     }
 
     /**
-     * Test for PhpMyAdmin\Plugins\Auth\AuthenticationHttp::authSetUser
+     * Test for PhpMyAdmin\Plugins\Auth\AuthenticationHttp::storeCredentials
      *
      * @return void
      */
@@ -279,13 +276,13 @@ class AuthenticationHttpTest extends PmaTestCase
     {
         // case 1
 
-        $GLOBALS['PHP_AUTH_USER'] = 'testUser';
-        $GLOBALS['PHP_AUTH_PW'] = 'testPass';
+        $this->object->user = 'testUser';
+        $this->object->password = 'testPass';
         $GLOBALS['server'] = 2;
         $GLOBALS['cfg']['Server']['user'] = 'testUser';
 
         $this->assertTrue(
-            $this->object->authSetUser()
+            $this->object->storeCredentials()
         );
 
         $this->assertEquals(
@@ -299,10 +296,6 @@ class AuthenticationHttpTest extends PmaTestCase
         );
 
         $this->assertFalse(
-            isset($GLOBALS['PHP_AUTH_PW'])
-        );
-
-        $this->assertFalse(
             isset($_SERVER['PHP_AUTH_PW'])
         );
 
@@ -312,8 +305,8 @@ class AuthenticationHttpTest extends PmaTestCase
         );
 
         // case 2
-        $GLOBALS['PHP_AUTH_USER'] = 'testUser';
-        $GLOBALS['PHP_AUTH_PW'] = 'testPass';
+        $this->object->user = 'testUser';
+        $this->object->password = 'testPass';
         $GLOBALS['cfg']['Servers'][1] = array(
             'host' => 'a',
             'user' => 'testUser',
@@ -326,7 +319,7 @@ class AuthenticationHttpTest extends PmaTestCase
         );
 
         $this->assertTrue(
-            $this->object->authSetUser()
+            $this->object->storeCredentials()
         );
 
         $this->assertEquals(
@@ -345,8 +338,8 @@ class AuthenticationHttpTest extends PmaTestCase
 
         // case 3
         $GLOBALS['server'] = 3;
-        $GLOBALS['PHP_AUTH_USER'] = 'testUser';
-        $GLOBALS['PHP_AUTH_PW'] = 'testPass';
+        $this->object->user = 'testUser';
+        $this->object->password = 'testPass';
         $GLOBALS['cfg']['Servers'][1] = array(
             'host' => 'a',
             'user' => 'testUsers',
@@ -359,7 +352,7 @@ class AuthenticationHttpTest extends PmaTestCase
         );
 
         $this->assertTrue(
-            $this->object->authSetUser()
+            $this->object->storeCredentials()
         );
 
         $this->assertEquals(
@@ -407,7 +400,7 @@ class AuthenticationHttpTest extends PmaTestCase
         $GLOBALS['errno'] = 31;
 
         ob_start();
-        $this->object->authFails();
+        $this->object->showFailure('');
         $result = ob_get_clean();
 
         $this->assertContains(
@@ -426,14 +419,10 @@ class AuthenticationHttpTest extends PmaTestCase
         $GLOBALS['cfg']['Server']['host'] = 'host';
         $GLOBALS['errno'] = 1045;
 
-        $this->assertTrue(
-            $this->object->authFails()
-        );
+        $this->object->showFailure('');
 
         // case 3
         $GLOBALS['errno'] = 1043;
-        $this->assertTrue(
-            $this->object->authFails()
-        );
+        $this->object->showFailure('');
     }
 }
