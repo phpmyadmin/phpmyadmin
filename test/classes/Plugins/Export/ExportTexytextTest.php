@@ -363,7 +363,6 @@ class ExportTexytextTest extends PmaTestCase
         $this->object = $this->getMockBuilder('PhpMyAdmin\Plugins\Export\ExportTexytext')
             ->setMethods(array('formatOneColumnDefinition'))
             ->getMock();
-        $GLOBALS['controllink'] = null;
 
         // case 1
 

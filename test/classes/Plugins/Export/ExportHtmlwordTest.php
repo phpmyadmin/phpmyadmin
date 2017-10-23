@@ -532,7 +532,6 @@ class ExportHtmlwordTest extends PmaTestCase
             ->will($this->returnValue(1));
 
         $GLOBALS['cfgRelation']['relation'] = true;
-        $GLOBALS['controllink'] = null;
         $_SESSION['relation'][0] = array(
             'PMA_VERSION' => PMA_VERSION,
             'relwork' => true,

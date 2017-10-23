@@ -7,6 +7,7 @@
  */
 namespace PhpMyAdmin;
 
+use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Message;
 use PhpMyAdmin\Relation;
 use PhpMyAdmin\Url;
@@ -129,7 +130,7 @@ class RecentFavoriteTable
                     json_encode($this->_tables)
                 ) . "')";
 
-        $success = $GLOBALS['dbi']->tryQuery($sql_query, $GLOBALS['controllink']);
+        $success = $GLOBALS['dbi']->tryQuery($sql_query, DatabaseInterface::CONNECT_CONTROL);
 
         if (! $success) {
             $error_msg = '';
@@ -145,7 +146,7 @@ class RecentFavoriteTable
             $message = Message::error($error_msg);
             $message->addMessage(
                 Message::rawError(
-                    $GLOBALS['dbi']->getError($GLOBALS['controllink'])
+                    $GLOBALS['dbi']->getError(DatabaseInterface::CONNECT_CONTROL)
                 ),
                 '<br /><br />'
             );

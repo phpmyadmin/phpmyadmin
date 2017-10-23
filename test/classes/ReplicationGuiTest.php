@@ -7,6 +7,7 @@
  */
 namespace PhpMyAdmin\Tests;
 
+use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\ReplicationGui;
 use PhpMyAdmin\Theme;
 use PHPUnit_Framework_TestCase as TestCase;
@@ -66,7 +67,7 @@ class ReplicationGuiTest extends TestCase
                 "SHOW SLAVE HOSTS",
                 null,
                 null,
-                null,
+                DatabaseInterface::CONNECT_USER,
                 0,
                 $slave_host
             ),

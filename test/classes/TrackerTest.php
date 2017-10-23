@@ -7,6 +7,7 @@
  */
 namespace PhpMyAdmin\Tests;
 
+use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Tests\PmaTestCase;
 use PhpMyAdmin\Tracker;
 use PhpMyAdmin\Util;
@@ -291,12 +292,10 @@ class TrackerTest extends PmaTestCase
         "\n',
         '11' )";
 
-        $GLOBALS['controllink'] = null;
-
         $queryResults = array(
             array(
                 $expectedMainQuery,
-                null,
+                DatabaseInterface::CONNECT_CONTROL,
                 0,
                 false,
                 'executed'
@@ -382,11 +381,9 @@ class TrackerTest extends PmaTestCase
         "\n',
         'CREATE DATABASE,ALTER DATABASE,DROP DATABASE' )";
 
-        $GLOBALS['controllink'] = null;
-
         $dbi->expects($this->exactly(1))
             ->method('query')
-            ->with($expectedMainQuery, null, 0, false)
+            ->with($expectedMainQuery, DatabaseInterface::CONNECT_CONTROL, 0, false)
             ->will($this->returnValue("executed"));
 
         $dbi->expects($this->any())->method('escapeString')
@@ -427,11 +424,9 @@ class TrackerTest extends PmaTestCase
         " AND `table_name` = '" . $tablename . "' " .
         " AND `version` = '" . $version . "' ";
 
-        $GLOBALS['controllink'] = null;
-
         $dbi->expects($this->exactly(1))
             ->method('query')
-            ->with($sql_query, null, 0, false)
+            ->with($sql_query, DatabaseInterface::CONNECT_CONTROL, 0, false)
             ->will($this->returnValue("executed"));
 
         $dbi->expects($this->any())->method('escapeString')
@@ -473,8 +468,6 @@ class TrackerTest extends PmaTestCase
             Tracker::changeTrackingData("", "", "", "", "")
         );
 
-        $GLOBALS['controllink'] = null;
-
         $dbi = $this->getMockBuilder('PhpMyAdmin\DatabaseInterface')
             ->disableOriginalConstructor()
             ->getMock();
@@ -509,8 +502,8 @@ class TrackerTest extends PmaTestCase
             ->will(
                 $this->returnValueMap(
                     array(
-                        array($sql_query_1, null, 0, false, "executed_1"),
-                        array($sql_query_2, null, 0, false, "executed_2")
+                        array($sql_query_1, DatabaseInterface::CONNECT_CONTROL, 0, false, "executed_1"),
+                        array($sql_query_2, DatabaseInterface::CONNECT_CONTROL, 0, false, "executed_2")
                     )
                 )
             );
@@ -577,8 +570,6 @@ class TrackerTest extends PmaTestCase
      */
     public function testGetTrackedData($fetchArrayReturn, $expectedArray)
     {
-        $GLOBALS['controllink'] = null;
-
         $dbi = $this->getMockBuilder('PhpMyAdmin\DatabaseInterface')
             ->disableOriginalConstructor()
             ->getMock();

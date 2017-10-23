@@ -744,7 +744,6 @@ class ExportOdtTest extends PmaTestCase
             'relation' => 'rel',
             'column_info' => 'col'
         );
-        $GLOBALS['controllink'] = null;
         $this->assertTrue(
             $this->object->getTableDef(
                 'database',

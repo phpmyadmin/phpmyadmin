@@ -48,14 +48,14 @@ class Relation
         if ($show_error) {
             $result = $GLOBALS['dbi']->query(
                 $sql,
-                $GLOBALS['controllink'],
+                DatabaseInterface::CONNECT_CONTROL,
                 $options,
                 $cache_affected_rows
             );
         } else {
             $result = @$GLOBALS['dbi']->tryQuery(
                 $sql,
-                $GLOBALS['controllink'],
+                DatabaseInterface::CONNECT_CONTROL,
                 $options,
                 $cache_affected_rows
             );
@@ -497,9 +497,8 @@ class Relation
 
         if ($GLOBALS['server'] == 0
             || empty($GLOBALS['cfg']['Server']['pmadb'])
-            || empty($GLOBALS['controllink'])
             || ! $GLOBALS['dbi']->selectDb(
-                $GLOBALS['cfg']['Server']['pmadb'], $GLOBALS['controllink']
+                $GLOBALS['cfg']['Server']['pmadb'], DatabaseInterface::CONNECT_CONTROL
             )
         ) {
             // No server selected -> no bookmark table
@@ -728,13 +727,13 @@ class Relation
                     ),
                     $query
                 );
-                $GLOBALS['dbi']->tryMultiQuery($query, $GLOBALS['controllink']);
+                $GLOBALS['dbi']->tryMultiQuery($query, DatabaseInterface::CONNECT_CONTROL);
                 // skips result sets of query as we are not interested in it
-                while ($GLOBALS['dbi']->moreResults($GLOBALS['controllink'])
-                    && $GLOBALS['dbi']->nextResult($GLOBALS['controllink'])
+                while ($GLOBALS['dbi']->moreResults(DatabaseInterface::CONNECT_CONTROL)
+                    && $GLOBALS['dbi']->nextResult(DatabaseInterface::CONNECT_CONTROL)
                 ) {
                 }
-                $error = $GLOBALS['dbi']->getError($GLOBALS['controllink']);
+                $error = $GLOBALS['dbi']->getError(DatabaseInterface::CONNECT_CONTROL);
                 // return true if no error exists otherwise false
                 return empty($error);
             }
@@ -778,7 +777,7 @@ class Relation
                     . '\'' . $GLOBALS['dbi']->escapeString($column) . '\'';
             }
             $foreign = $GLOBALS['dbi']->fetchResult(
-                $rel_query, 'master_field', null, $GLOBALS['controllink']
+                $rel_query, 'master_field', null, DatabaseInterface::CONNECT_CONTROL
             );
         }
 
@@ -854,7 +853,7 @@ class Relation
                 . '\'';
 
             $row = $GLOBALS['dbi']->fetchSingleRow(
-                $disp_query, 'ASSOC', $GLOBALS['controllink']
+                $disp_query, 'ASSOC', DatabaseInterface::CONNECT_CONTROL
             );
             if (isset($row['display_field'])) {
                 return $row['display_field'];
@@ -1146,7 +1145,7 @@ class Relation
            ORDER BY `id` DESC';
 
         return $GLOBALS['dbi']->fetchResult(
-            $hist_query, null, null, $GLOBALS['controllink']
+            $hist_query, null, null, DatabaseInterface::CONNECT_CONTROL
         );
     } // end of 'self::getHistory()' function
 
@@ -1182,7 +1181,7 @@ class Relation
             LIMIT ' . $GLOBALS['cfg']['QueryHistoryMax'] . ', 1';
 
         if ($max_time = $GLOBALS['dbi']->fetchValue(
-            $search_query, 0, 0, $GLOBALS['controllink']
+            $search_query, 0, 0, DatabaseInterface::CONNECT_CONTROL
         )) {
             self::queryAsControlUser(
                 'DELETE FROM '
@@ -1713,9 +1712,7 @@ class Relation
             . $GLOBALS['dbi']->escapeString($newpage) . '\')';
         self::queryAsControlUser($ins_query, false);
 
-        return $GLOBALS['dbi']->insertId(
-            isset($GLOBALS['controllink']) ? $GLOBALS['controllink'] : ''
-        );
+        return $GLOBALS['dbi']->insertId(DatabaseInterface::CONNECT_CONTROL);
     }
 
     /**
@@ -1939,7 +1936,7 @@ class Relation
             'pma__export_templates' => 'export_templates',
         );
 
-        $existingTables = $GLOBALS['dbi']->getTables($db, $GLOBALS['controllink']);
+        $existingTables = $GLOBALS['dbi']->getTables($db, DatabaseInterface::CONNECT_CONTROL);
 
         $createQueries = null;
         $foundOne = false;

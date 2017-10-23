@@ -279,7 +279,7 @@ class Transformations
                   OR `input_transformation` != \'\'
                   OR `input_transformation_options` != \'\'' : '') . ')';
         $result = $GLOBALS['dbi']->fetchResult(
-            $com_qry, 'column_name', null, $GLOBALS['controllink']
+            $com_qry, 'column_name', null, DatabaseInterface::CONNECT_CONTROL
         );
 
         foreach ($result as $column => $values) {

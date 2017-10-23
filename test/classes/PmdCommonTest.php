@@ -26,7 +26,6 @@ class PmdCommonTest extends TestCase
     public function setup()
     {
         $GLOBALS['server'] = 1;
-        $GLOBALS['controllink'] = 2;
         $_SESSION = array(
             'relation' => array(
                 '1' => array(
@@ -68,7 +67,7 @@ class PmdCommonTest extends TestCase
             WHERE pdf_page_number = " . $pg,
                 'name',
                 null,
-                2,
+                DatabaseInterface::CONNECT_CONTROL,
                 DatabaseInterface::QUERY_STORE
             );
         $GLOBALS['dbi'] = $dbi;
@@ -99,7 +98,7 @@ class PmdCommonTest extends TestCase
                 . " WHERE `page_nr` = " . $pg,
                 null,
                 null,
-                2,
+                DatabaseInterface::CONNECT_CONTROL,
                 DatabaseInterface::QUERY_STORE
             )
             ->will($this->returnValue(array($pageName)));
@@ -161,7 +160,7 @@ class PmdCommonTest extends TestCase
                 . " AND `page_descr` = '" . $db . "'",
                 null,
                 null,
-                2,
+                DatabaseInterface::CONNECT_CONTROL,
                 DatabaseInterface::QUERY_STORE
             )
             ->will($this->returnValue(array($default_pg)));
@@ -195,7 +194,7 @@ class PmdCommonTest extends TestCase
                 . " AND `page_descr` = '" . $db . "'",
                 null,
                 null,
-                2,
+                DatabaseInterface::CONNECT_CONTROL,
                 DatabaseInterface::QUERY_STORE
             )
             ->will($this->returnValue(array()));
@@ -230,7 +229,7 @@ class PmdCommonTest extends TestCase
                 . " AND `page_descr` = '" . $db . "'",
                 null,
                 null,
-                2,
+                DatabaseInterface::CONNECT_CONTROL,
                 DatabaseInterface::QUERY_STORE
             )
             ->will($this->returnValue(array($default_pg)));

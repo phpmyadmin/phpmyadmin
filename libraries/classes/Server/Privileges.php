@@ -537,7 +537,7 @@ class Privileges
             $sql_query = "SELECT `usergroup` FROM " . $userTable
                 . " WHERE `username` = '" . $GLOBALS['dbi']->escapeString($username) . "'";
             $userGroup = $GLOBALS['dbi']->fetchValue(
-                $sql_query, 0, 0, $GLOBALS['controllink']
+                $sql_query, 0, 0, DatabaseInterface::CONNECT_CONTROL
             );
         }
 
@@ -584,7 +584,7 @@ class Privileges
         $sql_query = "SELECT `usergroup` FROM " . $userTable
             . " WHERE `username` = '" . $GLOBALS['dbi']->escapeString($username) . "'";
         $oldUserGroup = $GLOBALS['dbi']->fetchValue(
-            $sql_query, 0, 0, $GLOBALS['controllink']
+            $sql_query, 0, 0, DatabaseInterface::CONNECT_CONTROL
         );
 
         if ($oldUserGroup === false) {
@@ -2862,7 +2862,7 @@ class Privileges
             . '.' . Util::backquote($cfgRelation['usergroups']);
         $sql_query = 'SELECT COUNT(*) FROM ' . $user_group_table;
         $user_group_count = $GLOBALS['dbi']->fetchValue(
-            $sql_query, 0, 0, $GLOBALS['controllink']
+            $sql_query, 0, 0, DatabaseInterface::CONNECT_CONTROL
         );
 
         return $user_group_count;
@@ -2892,7 +2892,7 @@ class Privileges
             . ' LIMIT 1';
 
         $usergroup = $GLOBALS['dbi']->fetchValue(
-            $sql_query, 0, 0, $GLOBALS['controllink']
+            $sql_query, 0, 0, DatabaseInterface::CONNECT_CONTROL
         );
 
         if ($usergroup === false) {
@@ -4864,7 +4864,7 @@ class Privileges
         $res = $GLOBALS['dbi']->query(
             'SELECT `Db`, `Table_name`, `Table_priv` FROM `mysql`.`tables_priv`'
             . $user_host_condition,
-            null,
+            DatabaseInterface::CONNECT_USER,
             DatabaseInterface::QUERY_STORE
         );
         while ($row = $GLOBALS['dbi']->fetchAssoc($res)) {

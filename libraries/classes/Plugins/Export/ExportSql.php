@@ -2198,7 +2198,7 @@ class ExportSql extends ExportPlugin
 
         $result = $GLOBALS['dbi']->tryQuery(
             $sql_query,
-            null,
+            DatabaseInterface::CONNECT_USER,
             DatabaseInterface::QUERY_UNBUFFERED
         );
         // a possible error: the table has crashed
