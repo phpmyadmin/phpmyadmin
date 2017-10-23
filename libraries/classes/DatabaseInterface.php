@@ -2218,8 +2218,6 @@ class DatabaseInterface
                 $is = (bool) $this->numRows($result);
             }
             $this->freeResult($result);
-
-            Util::cacheSet('is_' . $type . 'user', $is);
         } else {
             $is = false;
             $grants = $this->fetchResult(
@@ -2246,11 +2244,10 @@ class DatabaseInterface
                     }
                 }
             }
-
-            Util::cacheSet('is_' . $type . 'user', $is);
         }
 
-        return Util::cacheGet('is_' . $type . 'user');
+        Util::cacheSet('is_' . $type . 'user', $is);
+        return $is;
     }
 
     /**
