@@ -532,7 +532,7 @@ if (! defined('PMA_MINIMUM_COMMON')) {
             $auth_plugin->showFailure('mysql-denied');
         }
 
-        // Set timestamp for the session, if required.
+        // Set timezone for the session, if required.
         if ($cfg['Server']['SessionTimeZone'] != '') {
             $sql_query_tz = 'SET ' . Util::backquote('time_zone') . ' = '
                 . '\''
