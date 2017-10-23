@@ -1,6 +1,7 @@
 phpMyAdmin - ChangeLog
 ======================
 
+<<<<<<< HEAD
 4.8.0 (not yet released)
 - issue #12946 Allow to export JSON with unescaped unicode chars
 - issue #12983 Disable login button without solved reCaptcha
@@ -41,7 +42,9 @@ phpMyAdmin - ChangeLog
 - issue #13722 DisableIS is not fully honored
 - issue        Support JSON datatype on MariaDB 10.2.7 and newer
 
-4.7.5 (not yet released)
+4.7.6 (not yet released)
+
+4.7.5 (2017-10-23)
 - issue #13615 Avoid problems with browsing unknown query types
 - issue #13612 Integrate tooltip into datetime pickers
 - issue #13628 Fixed javascript error in server monitor
