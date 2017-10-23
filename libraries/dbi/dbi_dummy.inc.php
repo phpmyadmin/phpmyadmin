@@ -875,6 +875,5 @@ $GLOBALS['dummy_queries'] = array(
 $GLOBALS['dummy_db'] = '';
 
 /* Some basic setup for dummy driver */
-$GLOBALS['userlink'] = 1;
 $GLOBALS['controllink'] = 2;
 $GLOBALS['cfg']['DBG']['sql'] = false;

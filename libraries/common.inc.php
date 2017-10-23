@@ -564,8 +564,6 @@ if (! defined('PMA_MINIMUM_COMMON')) {
          * the DatabaseList class as a stub for the ListDatabase class
          */
         $dblist = new DatabaseList();
-        $dblist->userlink = $userlink;
-        $dblist->controllink = $controllink;
 
         /**
          * some resetting has to be done when switching servers

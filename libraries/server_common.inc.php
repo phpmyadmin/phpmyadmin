@@ -39,5 +39,5 @@ $GLOBALS['is_createuser'] = $GLOBALS['dbi']->isUserType('create');
 
 // now, select the mysql db
 if ($GLOBALS['dbi']->isSuperuser()) {
-    $GLOBALS['dbi']->selectDb('mysql', $GLOBALS['userlink']);
+    $GLOBALS['dbi']->selectDb('mysql');
 }

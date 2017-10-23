@@ -214,7 +214,6 @@ class DbiMysqliTest extends PmaTestCase
     {
         $this->markTestIncomplete('Not testing anything');
         //$link is empty
-        $GLOBALS['userlink'] = null;
         $this->assertEquals(
             false,
             $this->object->selectDb("PMA", null)

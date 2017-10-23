@@ -124,6 +124,10 @@ class DatabaseInterface
     {
         $this->_extension = $ext;
         $this->_links = array();
+        if (defined('TESTSUITE')) {
+            $this->_links[DatabaseInterface::CONNECT_USER] = 1;
+            $this->_links[DatabaseInterface::CONNECT_CONTROL] = 2;
+        }
         $this->_table_cache = array();
         $this->_current_user = array();
         $this->types = new Types($this);
@@ -2187,9 +2191,14 @@ class DatabaseInterface
         }
 
         // when connection failed we don't have a $userlink
-        if (! isset($GLOBALS['userlink'])) {
+        if (! isset($this->_links[DatabaseInterface::CONNECT_USER])) {
             Util::cacheSet('is_' . $type . 'user', false);
             return Util::cacheGet('is_' . $type . 'user');
+        }
+
+        // checking if user is logged in
+        if ($type === 'logged') {
+            return true;
         }
 
         if (! $GLOBALS['cfg']['Server']['DisableIS'] || $type === 'super') {
@@ -2220,7 +2229,7 @@ class DatabaseInterface
             $is = false;
             $result = $this->tryQuery(
                 $query,
-                $GLOBALS['userlink'],
+                null,
                 self::QUERY_STORE
             );
             if ($result) {
@@ -2235,7 +2244,7 @@ class DatabaseInterface
                 "SHOW GRANTS FOR CURRENT_USER();",
                 null,
                 null,
-                $GLOBALS['userlink'],
+                null,
                 self::QUERY_STORE
             );
             if ($grants) {
@@ -2828,8 +2837,6 @@ class DatabaseInterface
 
         if (isset($this->_links[DatabaseInterface::CONNECT_USER])) {
             return $this->_links[DatabaseInterface::CONNECT_USER];
-        } elseif (isset($GLOBALS['userlink']) && !is_null($GLOBALS['userlink'])) {
-            return $GLOBALS['userlink'];
         } else {
             return false;
         }

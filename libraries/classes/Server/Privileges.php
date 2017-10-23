@@ -134,7 +134,7 @@ class Privileges
     {
         $row1 = $GLOBALS['dbi']->fetchSingleRow(
             'SHOW COLUMNS FROM `mysql`.`tables_priv` LIKE \'Table_priv\';',
-            'ASSOC', $GLOBALS['userlink']
+            'ASSOC'
         );
         // note: in MySQL 5.0.3 we get "Create View', 'Show view';
         // the View for Create is spelled with uppercase V
@@ -3838,7 +3838,7 @@ class Privileges
             $drop_user_error = '';
             foreach ($queries as $sql_query) {
                 if ($sql_query{0} != '#') {
-                    if (! $GLOBALS['dbi']->tryQuery($sql_query, $GLOBALS['userlink'])) {
+                    if (! $GLOBALS['dbi']->tryQuery($sql_query)) {
                         $drop_user_error .= $GLOBALS['dbi']->getError() . "\n";
                     }
                 }
@@ -4864,7 +4864,7 @@ class Privileges
         $res = $GLOBALS['dbi']->query(
             'SELECT `Db`, `Table_name`, `Table_priv` FROM `mysql`.`tables_priv`'
             . $user_host_condition,
-            $GLOBALS['userlink'],
+            null,
             DatabaseInterface::QUERY_STORE
         );
         while ($row = $GLOBALS['dbi']->fetchAssoc($res)) {
