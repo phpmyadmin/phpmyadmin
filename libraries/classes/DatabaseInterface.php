@@ -1486,6 +1486,31 @@ class DatabaseInterface
             );
         }
 
+        // Set timezone for the session, if required.
+        if ($GLOBALS['cfg']['Server']['SessionTimeZone'] != '') {
+            $sql_query_tz = 'SET ' . Util::backquote('time_zone') . ' = '
+                . '\''
+                . $this->escapeString($GLOBALS['cfg']['Server']['SessionTimeZone'])
+                . '\'';
+
+            if (! $this->query($sql_query_tz)) {
+                $error_message_tz = sprintf(
+                    __(
+                        'Unable to use timezone %1$s for server %2$d. '
+                        . 'Please check your configuration setting for '
+                        . '[em]$cfg[\'Servers\'][%3$d][\'SessionTimeZone\'][/em]. '
+                        . 'phpMyAdmin is currently using the default time zone '
+                        . 'of the database server.'
+                    ),
+                    $GLOBALS['cfg']['Server']['SessionTimeZone'],
+                    $GLOBALS['server'],
+                    $GLOBALS['server']
+                );
+
+                trigger_error($error_message_tz, E_USER_WARNING);
+            }
+        }
+
         /* Loads closest context to this version. */
         \PhpMyAdmin\SqlParser\Context::loadClosest(
             ($this->_is_mariadb ? 'MariaDb' : 'MySql') . $this->_version_int

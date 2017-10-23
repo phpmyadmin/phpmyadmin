@@ -532,37 +532,6 @@ if (! defined('PMA_MINIMUM_COMMON')) {
             $auth_plugin->showFailure('mysql-denied');
         }
 
-        // Set timezone for the session, if required.
-        if ($cfg['Server']['SessionTimeZone'] != '') {
-            $sql_query_tz = 'SET ' . Util::backquote('time_zone') . ' = '
-                . '\''
-                . $GLOBALS['dbi']->escapeString($cfg['Server']['SessionTimeZone'])
-                . '\'';
-
-            if (! $userlink->query($sql_query_tz)) {
-                $error_message_tz = sprintf(
-                    __(
-                        'Unable to use timezone %1$s for server %2$d. '
-                        . 'Please check your configuration setting for '
-                        . '[em]$cfg[\'Servers\'][%3$d][\'SessionTimeZone\'][/em]. '
-                        . 'phpMyAdmin is currently using the default time zone '
-                        . 'of the database server.'
-                    ),
-                    $cfg['Servers'][$GLOBALS['server']]['SessionTimeZone'],
-                    $GLOBALS['server'],
-                    $GLOBALS['server']
-                );
-
-                $GLOBALS['error_handler']->addError(
-                    $error_message_tz,
-                    E_USER_WARNING,
-                    '',
-                    '',
-                    false
-                );
-            }
-        }
-
         if (! $controllink) {
             /*
              * Open separate connection for control queries, this is needed
