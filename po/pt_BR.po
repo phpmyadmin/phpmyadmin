@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.7.4-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2017-08-10 09:13-0400\n"
-"PO-Revision-Date: 2017-10-23 11:21+0000\n"
-"Last-Translator: George Bezerra <georgelione@gmail.com>\n"
+"PO-Revision-Date: 2017-10-23 11:23+0000\n"
+"Last-Translator: Guilherme Souza Silva <g.szsilva@gmail.com>\n"
 "Language-Team: Portuguese (Brazil) "
 "<https://hosted.weblate.org/projects/phpmyadmin/4-7/pt_BR/>\n"
 "Language: pt_BR\n"
@@ -9331,7 +9331,7 @@ msgstr "Documentação do phpMyAdmin"
 
 #: libraries/navigation/NavigationHeader.php:210
 msgid "Navigation panel settings"
-msgstr "Configuração do painel de navegação"
+msgstr "Configurações do painel de navegação"
 
 #: libraries/navigation/NavigationHeader.php:221
 msgid "Reload navigation panel"
@@ -9877,7 +9877,7 @@ msgstr "Verificar tabela"
 #: libraries/operations.lib.php:1397
 #: templates/database/structure/check_all_tables.phtml:22
 msgid "Checksum table"
-msgstr "Checksum da tabela"
+msgstr "Tabela de checksum"
 
 #: libraries/operations.lib.php:1411
 msgid "Defragment table"
@@ -9949,7 +9949,7 @@ msgstr "Truncar"
 
 #: libraries/operations.lib.php:1579
 msgid "Coalesce"
-msgstr "Buscar valor NOTNULL"
+msgstr "Coalesce"
 
 #: libraries/operations.lib.php:1588
 msgid "Partition maintenance"
