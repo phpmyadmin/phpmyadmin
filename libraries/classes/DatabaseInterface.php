@@ -1493,7 +1493,7 @@ class DatabaseInterface
                 . $this->escapeString($GLOBALS['cfg']['Server']['SessionTimeZone'])
                 . '\'';
 
-            if (! $this->query($sql_query_tz)) {
+            if (! $this->tryQuery($sql_query_tz)) {
                 $error_message_tz = sprintf(
                     __(
                         'Unable to use timezone %1$s for server %2$d. '
