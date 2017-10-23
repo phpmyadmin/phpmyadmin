@@ -15,6 +15,7 @@ use PhpMyAdmin\CreateAddField;
 use PhpMyAdmin\Index;
 use PhpMyAdmin\Message;
 use PhpMyAdmin\ParseAnalyze;
+use PhpMyAdmin\Partition;
 use PhpMyAdmin\Relation;
 use PhpMyAdmin\Sql;
 use PhpMyAdmin\SqlParser\Context;
@@ -23,6 +24,7 @@ use PhpMyAdmin\SqlParser\Statements\CreateStatement;
 use PhpMyAdmin\SqlParser\Utils\Table as SqlTable;
 use PhpMyAdmin\Table;
 use PhpMyAdmin\Template;
+use PhpMyAdmin\Tracker;
 use PhpMyAdmin\Transformations;
 use PhpMyAdmin\Url;
 use PhpMyAdmin\Util;
@@ -1259,7 +1261,7 @@ class TableStructureController extends TableController
 
         return Template::get('table/structure/display_structure')->render(
             array(
-                'HideStructureActions' => $HideStructureActions,
+                'hide_structure_actions' => $HideStructureActions,
                 'db' => $this->db,
                 'table' => $this->table,
                 'db_is_system_schema' => $this->_db_is_system_schema,
@@ -1272,11 +1274,23 @@ class TableStructureController extends TableController
                 'columns_with_unique_index' => $columns_with_unique_index,
                 'edit_view_url' => isset($edit_view_url) ? $edit_view_url : null,
                 'columns_list' => $columns_list,
-                'tablestats' => isset($tablestats) ? $tablestats : null,
+                'table_stats' => isset($tablestats) ? $tablestats : null,
                 'fields' => $fields,
                 'columns_with_index' => $columns_with_index,
                 'central_list' => $central_list,
-                'comments_map' => $comments_map
+                'comments_map' => $comments_map,
+                'browse_mime' => $GLOBALS['cfg']['BrowseMIME'],
+                'show_column_comments' => $GLOBALS['cfg']['ShowColumnComments'],
+                'show_stats' => $GLOBALS['cfg']['ShowStats'],
+                'relation_commwork' => $GLOBALS['cfgRelation']['commwork'],
+                'relation_mimework' => $GLOBALS['cfgRelation']['mimework'],
+                'central_columns_work' => $GLOBALS['cfgRelation']['centralcolumnswork'],
+                'mysql_int_version' => $GLOBALS['dbi']->getVersion(),
+                'pma_theme_image' => $GLOBALS['pmaThemeImage'],
+                'text_dir' => $GLOBALS['text_dir'],
+                'is_active' => Tracker::isActive(),
+                'have_partitioning' => Partition::havePartitioning(),
+                'partition_names' => Partition::getPartitionNames($this->db, $this->table),
             )
         );
     }
