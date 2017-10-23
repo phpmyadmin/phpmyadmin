@@ -494,21 +494,21 @@ class DatabaseInterface
      * @param string          $database     database
      * @param string|array    $table        table name(s)
      * @param boolean         $tbl_is_group $table is a table group
-     * @param integer         $link         link type
      * @param integer         $limit_offset zero-based offset for the count
      * @param boolean|integer $limit_count  number of tables to return
      * @param string          $sort_by      table attribute to sort by
      * @param string          $sort_order   direction to sort (ASC or DESC)
      * @param string          $table_type   whether table or view
+     * @param integer         $link         link type
      *
      * @todo    move into Table
      *
      * @return array           list of tables in given db(s)
      */
     public function getTablesFull($database, $table = '',
-        $tbl_is_group = false,  $link = DatabaseInterface::CONNECT_USER, $limit_offset = 0,
+        $tbl_is_group = false, $limit_offset = 0,
         $limit_count = false, $sort_by = 'Name', $sort_order = 'ASC',
-        $table_type = null
+        $table_type = null, $link = DatabaseInterface::CONNECT_USER
     ) {
         if (true === $limit_count) {
             $limit_count = $GLOBALS['cfg']['MaxTableList'];
