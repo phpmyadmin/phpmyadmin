@@ -306,13 +306,12 @@ class DatabaseInterface
         if (! isset($this->_links[$link])) {
             return false;
         }
-        $link = $this->_links[$link];
 
         if ($debug) {
             $time = microtime(true);
         }
 
-        $result = $this->_extension->realQuery($query, $link, $options);
+        $result = $this->_extension->realQuery($query, $this->_links[$link], $options);
 
         if ($cache_affected_rows) {
             $GLOBALS['cached_affected_rows'] = $this->affectedRows($link, false);
@@ -324,7 +323,7 @@ class DatabaseInterface
             if ($GLOBALS['cfg']['DBG']['sqllog']) {
                 if ($options & DatabaseInterface::QUERY_STORE == DatabaseInterface::QUERY_STORE) {
                     $tmp = $this->_extension->realQuery('
-                        SHOW COUNT(*) WARNINGS', $link, DatabaseInterface::QUERY_STORE
+                        SHOW COUNT(*) WARNINGS', $this->_links[$link], DatabaseInterface::QUERY_STORE
                     );
                     $warnings = $this->fetchRow($tmp);
                 } else {
@@ -362,9 +361,7 @@ class DatabaseInterface
         if (! isset($this->_links[$link])) {
             return false;
         }
-        $link = $this->_links[$link];
-
-        return $this->_extension->realMultiQuery($link, $multi_query);
+        return $this->_extension->realMultiQuery($this->_links[$link], $multi_query);
     }
 
     /**
@@ -1353,10 +1350,6 @@ class DatabaseInterface
     public function getVariable(
         $var, $type = self::GETVAR_SESSION, $link = DatabaseInterface::CONNECT_USER
     ) {
-        if (! isset($this->_links[$link])) {
-            return false;
-        }
-
         switch ($type) {
         case self::GETVAR_SESSION:
             $modifier = ' SESSION';
@@ -1383,9 +1376,6 @@ class DatabaseInterface
      */
     public function setVariable($var, $value, $link = DatabaseInterface::CONNECT_USER)
     {
-        if (! isset($this->_links[$link])) {
-            return false;
-        }
         $current_value = $this->getVariable(
             $var, self::GETVAR_SESSION, $link
         );
@@ -1802,11 +1792,6 @@ class DatabaseInterface
      */
     public function getWarnings($link = DatabaseInterface::CONNECT_USER)
     {
-        if (! isset($this->_links[$link])) {
-            return false;
-        }
-        $link = $this->_links[$link];
-
         return $this->fetchResult('SHOW WARNINGS', null, null, $link);
     }
 
@@ -2496,8 +2481,7 @@ class DatabaseInterface
         if (! isset($this->_links[$link])) {
             return false;
         }
-        $link = $this->_links[$link];
-        return $this->_extension->selectDb($dbname, $link);
+        return $this->_extension->selectDb($dbname, $this->_links[$link]);
     }
 
     /**
@@ -2573,8 +2557,7 @@ class DatabaseInterface
         if (! isset($this->_links[$link])) {
             return false;
         }
-        $link = $this->_links[$link];
-        return $this->_extension->moreResults($link);
+        return $this->_extension->moreResults($this->_links[$link]);
     }
 
     /**
@@ -2589,8 +2572,7 @@ class DatabaseInterface
         if (! isset($this->_links[$link])) {
             return false;
         }
-        $link = $this->_links[$link];
-        return $this->_extension->nextResult($link);
+        return $this->_extension->nextResult($this->_links[$link]);
     }
 
     /**
@@ -2605,8 +2587,7 @@ class DatabaseInterface
         if (! isset($this->_links[$link])) {
             return false;
         }
-        $link = $this->_links[$link];
-        return $this->_extension->storeResult($link);
+        return $this->_extension->storeResult($this->_links[$link]);
     }
 
     /**
@@ -2621,8 +2602,7 @@ class DatabaseInterface
         if (! isset($this->_links[$link])) {
             return false;
         }
-        $link = $this->_links[$link];
-        return $this->_extension->getHostInfo($link);
+        return $this->_extension->getHostInfo($this->_links[$link]);
     }
 
     /**
@@ -2637,8 +2617,7 @@ class DatabaseInterface
         if (! isset($this->_links[$link])) {
             return false;
         }
-        $link = $this->_links[$link];
-        return $this->_extension->getProtoInfo($link);
+        return $this->_extension->getProtoInfo($this->_links[$link]);
     }
 
     /**
@@ -2663,8 +2642,7 @@ class DatabaseInterface
         if (! isset($this->_links[$link])) {
             return false;
         }
-        $link = $this->_links[$link];
-        return $this->_extension->getError($link);
+        return $this->_extension->getError($this->_links[$link]);
     }
 
     /**
@@ -2689,10 +2667,6 @@ class DatabaseInterface
      */
     public function insertId($link = DatabaseInterface::CONNECT_USER)
     {
-        if (! isset($this->_links[$link])) {
-            return false;
-        }
-        $link = $this->_links[$link];
         // If the primary key is BIGINT we get an incorrect result
         // (sometimes negative, sometimes positive)
         // and in the present function we don't know if the PK is BIGINT
@@ -2717,12 +2691,11 @@ class DatabaseInterface
         if (! isset($this->_links[$link])) {
             return false;
         }
-        $link = $this->_links[$link];
 
         if ($get_from_cache) {
             return $GLOBALS['cached_affected_rows'];
         } else {
-            return $this->_extension->affectedRows($link);
+            return $this->_extension->affectedRows($this->_links[$link]);
         }
     }
 
@@ -2817,13 +2790,11 @@ class DatabaseInterface
      */
     public function escapeString($str, $link = DatabaseInterface::CONNECT_USER)
     {
-        $link = $this->_links[$link];
-
-        if ($this->_extension === null) {
+        if ($this->_extension === null || !isset($this->_links[$link])) {
             return $str;
         }
 
-        return $this->_extension->escapeString($link, $str);
+        return $this->_extension->escapeString($this->_links[$link], $str);
     }
 
     /**
