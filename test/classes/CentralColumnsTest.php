@@ -9,7 +9,6 @@ namespace PhpMyAdmin\Tests;
 
 use PhpMyAdmin\CentralColumns;
 use PhpMyAdmin\Config;
-use PhpMyAdmin\Theme;
 use PhpMyAdmin\Types;
 use PhpMyAdmin\Url;
 use PhpMyAdmin\Util;

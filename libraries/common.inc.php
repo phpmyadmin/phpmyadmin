@@ -45,7 +45,6 @@ use PhpMyAdmin\Response;
 use PhpMyAdmin\Session;
 use PhpMyAdmin\ThemeManager;
 use PhpMyAdmin\Tracker;
-use PhpMyAdmin\Types;
 use PhpMyAdmin\Util;
 
 /**

@@ -7,7 +7,6 @@
  */
 namespace PhpMyAdmin\Tests;
 
-use PhpMyAdmin\Theme;
 use PhpMyAdmin\Tracking;
 use PhpMyAdmin\Url;
 use PHPUnit_Framework_TestCase as TestCase;

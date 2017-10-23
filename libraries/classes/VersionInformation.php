@@ -8,7 +8,6 @@
 namespace PhpMyAdmin;
 
 use PhpMyAdmin\Util;
-use stdClass;
 
 /**
  * Responsible for retrieving version information and notifiying about latest version

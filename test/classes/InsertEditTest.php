@@ -12,8 +12,6 @@ use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\InsertEdit;
 use PhpMyAdmin\Response;
 use PhpMyAdmin\Table;
-use PhpMyAdmin\Theme;
-use PhpMyAdmin\Tracker;
 use PHPUnit_Framework_TestCase as TestCase;
 use ReflectionProperty;
 use stdClass;
