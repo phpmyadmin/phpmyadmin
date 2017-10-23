@@ -2175,8 +2175,7 @@ class DatabaseInterface
 
         // when connection failed we don't have a $userlink
         if (! isset($this->_links[DatabaseInterface::CONNECT_USER])) {
-            Util::cacheSet('is_' . $type . 'user', false);
-            return Util::cacheGet('is_' . $type . 'user');
+            return false;
         }
 
         // checking if user is logged in
