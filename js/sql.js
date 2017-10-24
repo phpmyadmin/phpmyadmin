@@ -286,6 +286,7 @@ AJAX.registerOnload('sql.js', function () {
         });
 
         $('.table_results .column_heading a').each(function () {
+        	//manipulate the title string no to print out order number 
         	var title_String =$(this).html();
         	var pos = title_String.indexOf("<img");
         	if(pos!= -1)
