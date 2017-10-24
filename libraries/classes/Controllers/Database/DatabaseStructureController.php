@@ -696,7 +696,16 @@ class DatabaseStructureController extends DatabaseController
                     'create_time_all' => $create_time_all,
                     'update_time_all' => $update_time_all,
                     'check_time_all' => $check_time_all,
-                    'approx_rows' => $overall_approx_rows
+                    'approx_rows' => $overall_approx_rows,
+                    'num_favorite_tables' => $GLOBALS['cfg']['NumFavoriteTables'],
+                    'db' => $GLOBALS['db'],
+                    'properties_num_columns' => $GLOBALS['cfg']['PropertiesNumColumns'],
+                    'dbi' => $GLOBALS['dbi'],
+                    'show_charset' => $GLOBALS['cfg']['ShowDbStructureCharset'],
+                    'show_comment' => $GLOBALS['cfg']['ShowDbStructureComment'],
+                    'show_creation' => $GLOBALS['cfg']['ShowDbStructureCreation'],
+                    'show_last_update' => $GLOBALS['cfg']['ShowDbStructureLastUpdate'],
+                    'show_last_check' => $GLOBALS['cfg']['ShowDbStructureLastCheck'],
                 )
             )
         );
