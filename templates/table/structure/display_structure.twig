@@ -72,7 +72,7 @@
                 'row': row,
                 'rownum': rownum,
                 'displayed_field_name': preg_replace(
-                    '/[\x00-\x1F]/',
+                    '/[\\x00-\\x1F]/',
                     '&#x2051;',
                     displayed_field_name
                 ),
