@@ -692,7 +692,7 @@ class Table
                     'SELECT 1 FROM ' . Util::backquote($db) . '.'
                     . Util::backquote($table) . ' LIMIT '
                     . $GLOBALS['cfg']['MaxExactCountViews'],
-                    null,
+                    DatabaseInterface::CONNECT_USER,
                     DatabaseInterface::QUERY_STORE
                 );
                 if (!$this->_dbi->getError()) {

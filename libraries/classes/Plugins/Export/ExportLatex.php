@@ -309,7 +309,7 @@ class ExportLatex extends ExportPlugin
 
         $result = $GLOBALS['dbi']->tryQuery(
             $sql_query,
-            null,
+            DatabaseInterface::CONNECT_USER,
             DatabaseInterface::QUERY_UNBUFFERED
         );
 

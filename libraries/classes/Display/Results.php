@@ -5370,7 +5370,7 @@ class Results
 
         $dispresult = $GLOBALS['dbi']->tryQuery(
             $dispsql,
-            null,
+            DatabaseInterface::CONNECT_USER,
             DatabaseInterface::QUERY_STORE
         );
 

@@ -122,7 +122,7 @@ class PmdCommon
         $i = 0;
         $alltab_rs = $GLOBALS['dbi']->query(
             'SHOW TABLES FROM ' . Util::backquote($GLOBALS['db']),
-            null,
+            DatabaseInterface::CONNECT_USER,
             DatabaseInterface::QUERY_STORE
         );
         while ($val = @$GLOBALS['dbi']->fetchRow($alltab_rs)) {

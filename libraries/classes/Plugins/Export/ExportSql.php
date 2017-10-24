@@ -1393,7 +1393,7 @@ class ExportSql extends ExportPlugin
         $result = $GLOBALS['dbi']->tryQuery(
             'SHOW TABLE STATUS FROM ' . Util::backquote($db)
             . ' WHERE Name = \'' . $GLOBALS['dbi']->escapeString($table) . '\'',
-            null,
+            DatabaseInterface::CONNECT_USER,
             DatabaseInterface::QUERY_STORE
         );
         if ($result != false) {

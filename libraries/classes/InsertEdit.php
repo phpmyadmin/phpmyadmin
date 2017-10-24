@@ -100,7 +100,9 @@ class InsertEdit
                 . Util::backquote($table)
                 . ' WHERE ' . $where_clause . ';';
             $result[$key_id] = $GLOBALS['dbi']->query(
-                $local_query, null, DatabaseInterface::QUERY_STORE
+                $local_query,
+                DatabaseInterface::CONNECT_USER,
+                DatabaseInterface::QUERY_STORE
             );
             $rows[$key_id]   = $GLOBALS['dbi']->fetchAssoc($result[$key_id]);
 
@@ -179,7 +181,7 @@ class InsertEdit
         $result = $GLOBALS['dbi']->query(
             'SELECT * FROM ' . Util::backquote($db)
             . '.' . Util::backquote($table) . ' LIMIT 1;',
-            null,
+            DatabaseInterface::CONNECT_USER,
             DatabaseInterface::QUERY_STORE
         );
         $rows = array_fill(0, $GLOBALS['cfg']['InsertRows'], false);
@@ -2105,7 +2107,9 @@ class InsertEdit
                 . ' WHERE ' . Util::backquote($foreigner['foreign_field'])
                 . $where_comparison;
             $dispresult  = $GLOBALS['dbi']->tryQuery(
-                $dispsql, null, DatabaseInterface::QUERY_STORE
+                $dispsql,
+                DatabaseInterface::CONNECT_USER,
+                DatabaseInterface::QUERY_STORE
             );
             if ($dispresult && $GLOBALS['dbi']->numRows($dispresult) > 0) {
                 list($dispval) = $GLOBALS['dbi']->fetchRow($dispresult, 0);

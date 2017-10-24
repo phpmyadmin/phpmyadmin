@@ -325,7 +325,7 @@ class TableRelationController extends TableController
                 . Util::backquote($_REQUEST['foreignDb']);
             $tables_rs = $this->dbi->query(
                 $query,
-                null,
+                DatabaseInterface::CONNECT_USER,
                 DatabaseInterface::QUERY_STORE
             );
 
@@ -341,7 +341,7 @@ class TableRelationController extends TableController
                 . Util::backquote($_REQUEST['foreignDb']);
             $tables_rs = $this->dbi->query(
                 $query,
-                null,
+                DatabaseInterface::CONNECT_USER,
                 DatabaseInterface::QUERY_STORE
             );
             while ($row = $this->dbi->fetchArray($tables_rs)) {

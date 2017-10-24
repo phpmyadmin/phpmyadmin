@@ -3456,7 +3456,7 @@ class Privileges
         } elseif ($type == 'table') {
             $result = @$GLOBALS['dbi']->tryQuery(
                 "SHOW TABLES FROM " . Util::backquote($dbname),
-                null,
+                DatabaseInterface::CONNECT_USER,
                 DatabaseInterface::QUERY_STORE
             );
 
@@ -3741,7 +3741,7 @@ class Privileges
         $initials = $GLOBALS['dbi']->tryQuery(
             'SELECT DISTINCT UPPER(LEFT(`User`,1)) FROM `user`'
             . ' ORDER BY UPPER(LEFT(`User`,1)) ASC',
-            null,
+            DatabaseInterface::CONNECT_USER,
             DatabaseInterface::QUERY_STORE
         );
         if ($initials) {
@@ -4623,10 +4623,14 @@ class Privileges
         $sql_query_all .= ' ;';
 
         $res = $GLOBALS['dbi']->tryQuery(
-            $sql_query, null, DatabaseInterface::QUERY_STORE
+            $sql_query,
+            DatabaseInterface::CONNECT_USER,
+            DatabaseInterface::QUERY_STORE
         );
         $res_all = $GLOBALS['dbi']->tryQuery(
-            $sql_query_all, null, DatabaseInterface::QUERY_STORE
+            $sql_query_all,
+            DatabaseInterface::CONNECT_USER,
+            DatabaseInterface::QUERY_STORE
         );
 
         if (! $res) {
@@ -4639,7 +4643,9 @@ class Privileges
             $GLOBALS['dbi']->freeResult($res_all);
             $sql_query = 'SELECT * FROM `mysql`.`user`';
             $res = $GLOBALS['dbi']->tryQuery(
-                $sql_query, null, DatabaseInterface::QUERY_STORE
+                $sql_query,
+                DatabaseInterface::CONNECT_USER,
+                DatabaseInterface::QUERY_STORE
             );
 
             if (! $res) {
@@ -4881,7 +4887,7 @@ class Privileges
                 . ' AND `Table_name`'
                 . ' = \'' . $GLOBALS['dbi']->escapeString($row['Table_name']) . "'"
                 . ';',
-                null,
+                DatabaseInterface::CONNECT_USER,
                 DatabaseInterface::QUERY_STORE
             );
 

@@ -310,7 +310,9 @@ class TableSearchController extends TableController
 
         //Query execution part
         $result = $this->dbi->query(
-            $sql_query . ";", null, DatabaseInterface::QUERY_STORE
+            $sql_query . ";",
+            DatabaseInterface::CONNECT_USER,
+            DatabaseInterface::QUERY_STORE
         );
         $fields_meta = $this->dbi->getFieldsMeta($result);
         $data = array();
@@ -411,7 +413,9 @@ class TableSearchController extends TableController
         $row_info_query = 'SELECT * FROM `' . $_REQUEST['db'] . '`.`'
             . $_REQUEST['table'] . '` WHERE ' .  $_REQUEST['where_clause'];
         $result = $this->dbi->query(
-            $row_info_query . ";", null, DatabaseInterface::QUERY_STORE
+            $row_info_query . ";",
+            DatabaseInterface::CONNECT_USER,
+            DatabaseInterface::QUERY_STORE
         );
         $fields_meta = $this->dbi->getFieldsMeta($result);
         while ($row = $this->dbi->fetchAssoc($result)) {
@@ -730,7 +734,9 @@ class TableSearchController extends TableController
             // is case sensitive
         }
         $this->dbi->query(
-            $sql_query, null, DatabaseInterface::QUERY_STORE
+            $sql_query,
+            DatabaseInterface::CONNECT_USER,
+            DatabaseInterface::QUERY_STORE
         );
         $GLOBALS['sql_query'] = $sql_query;
     }

@@ -157,7 +157,7 @@ class ExportYaml extends ExportPlugin
         $this->initAlias($aliases, $db_alias, $table_alias);
         $result = $GLOBALS['dbi']->query(
             $sql_query,
-            null,
+            DatabaseInterface::CONNECT_USER,
             DatabaseInterface::QUERY_UNBUFFERED
         );
 

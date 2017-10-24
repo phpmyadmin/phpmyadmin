@@ -447,7 +447,7 @@ class ExportOdtTest extends PmaTestCase
 
         $dbi->expects($this->once())
             ->method('query')
-            ->with('SELECT', null, DatabaseInterface::QUERY_UNBUFFERED)
+            ->with('SELECT', DatabaseInterface::CONNECT_USER, DatabaseInterface::QUERY_UNBUFFERED)
             ->will($this->returnValue(true));
 
         $dbi->expects($this->once())
@@ -521,7 +521,7 @@ class ExportOdtTest extends PmaTestCase
 
         $dbi->expects($this->once())
             ->method('query')
-            ->with('SELECT', null, DatabaseInterface::QUERY_UNBUFFERED)
+            ->with('SELECT', DatabaseInterface::CONNECT_USER, DatabaseInterface::QUERY_UNBUFFERED)
             ->will($this->returnValue(true));
 
         $dbi->expects($this->once())
@@ -582,7 +582,7 @@ class ExportOdtTest extends PmaTestCase
 
         $dbi->expects($this->once())
             ->method('query')
-            ->with('SELECT', null, DatabaseInterface::QUERY_UNBUFFERED)
+            ->with('SELECT', DatabaseInterface::CONNECT_USER, DatabaseInterface::QUERY_UNBUFFERED)
             ->will($this->returnValue(true));
 
         $dbi->expects($this->once())
