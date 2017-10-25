@@ -2501,6 +2501,13 @@ fieldset .disabled-field td {
     padding: 2px;
 }
 
+.clearright {
+    clear:right;
+}
+.displaynone {
+    display:none;
+}
+
 .wrapper {
     float: <?php echo $left; ?>;
     margin-bottom: 1.5em;
@@ -2586,6 +2593,13 @@ fieldset .disabled-field td {
     border: 1px solid #aaa;
     float: <?php echo $right; ?>;
     overflow: hidden;
+    width: 450px;
+    height: 300px;
+}
+
+#openlayersmap{
+    width: 450px;
+    height: 300px;
 }
 
 .placeholderDrag {
