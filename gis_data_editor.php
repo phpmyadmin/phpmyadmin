@@ -135,12 +135,12 @@ echo Url::getHiddenInputs();
 
 echo '<!-- Visualization section -->';
 echo '<div id="placeholder" '
-    , ($srid != 0 ? 'class="displaynone' : '') , '">';
+    , ($srid != 0 ? 'class="hide' : '') , '">';
 echo $visualization;
 echo '</div>';
 
 echo '<div id="openlayersmap" '
-    , ($srid == 0 ? 'class="displaynone' : '') , '">';
+    , ($srid == 0 ? 'class="hide' : '') , '">';
 echo '</div>';
 
 echo '<div class="choice floatright clearright">';
