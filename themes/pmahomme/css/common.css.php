@@ -3629,3 +3629,18 @@ body .ui-dialog .ui-dialog-buttonpane .ui-dialog-buttonset {
         width: 95% !important;
     }
 }
+/* templates/database/designer */
+/* side menu */
+#name-panel {
+    overflow:hidden;
+}
+
+#page_name {
+    border:none;
+}
+
+#saved_state {
+    border:none;
+}
+
+#
