@@ -371,18 +371,23 @@ class DatabaseStructureController extends DatabaseController
     {
         // filtering
         $this->response->addHTML(
-            Template::get('filter')->render(array('filter_value'=>''))
+            Template::get('filter')->render(array('filter_value' => ''))
         );
         // table form
         $this->response->addHTML(
-            Template::get('database/structure/table_header')
-                ->render(
-                    array(
-                        'db'                  => $this->db,
-                        'db_is_system_schema' => $this->_db_is_system_schema,
-                        'replication'         => $GLOBALS['replication_info']['slave']['status'],
-                    )
-                )
+            Template::get('database/structure/table_header')->render([
+                'db' => $this->db,
+                'db_is_system_schema' => $this->_db_is_system_schema,
+                'replication' => $GLOBALS['replication_info']['slave']['status'],
+                'properties_num_columns' => $GLOBALS['cfg']['PropertiesNumColumns'],
+                'is_show_stats' => $GLOBALS['is_show_stats'],
+                'show_charset' => $GLOBALS['cfg']['ShowDbStructureCharset'],
+                'show_comment' => $GLOBALS['cfg']['ShowDbStructureComment'],
+                'show_creation' => $GLOBALS['cfg']['ShowDbStructureCreation'],
+                'show_last_update' => $GLOBALS['cfg']['ShowDbStructureLastUpdate'],
+                'show_last_check' => $GLOBALS['cfg']['ShowDbStructureLastCheck'],
+                'num_favorite_tables' => $GLOBALS['cfg']['NumFavoriteTables'],
+            ])
         );
 
         $i = $sum_entries = 0;
@@ -604,13 +609,19 @@ class DatabaseStructureController extends DatabaseController
                 );
 
                 $this->response->addHTML(
-                    Template::get('database/structure/table_header')->render(
-                        array(
-                            'db' => $this->db,
-                            'db_is_system_schema' => $this->_db_is_system_schema,
-                            'replication' => $GLOBALS['replication_info']['slave']['status']
-                        )
-                    )
+                    Template::get('database/structure/table_header')->render([
+                        'db' => $this->db,
+                        'db_is_system_schema' => $this->_db_is_system_schema,
+                        'replication' => $GLOBALS['replication_info']['slave']['status'],
+                        'properties_num_columns' => $GLOBALS['cfg']['PropertiesNumColumns'],
+                        'is_show_stats' => $GLOBALS['is_show_stats'],
+                        'show_charset' => $GLOBALS['cfg']['ShowDbStructureCharset'],
+                        'show_comment' => $GLOBALS['cfg']['ShowDbStructureComment'],
+                        'show_creation' => $GLOBALS['cfg']['ShowDbStructureCreation'],
+                        'show_last_update' => $GLOBALS['cfg']['ShowDbStructureLastUpdate'],
+                        'show_last_check' => $GLOBALS['cfg']['ShowDbStructureLastCheck'],
+                        'num_favorite_tables' => $GLOBALS['cfg']['NumFavoriteTables'],
+                    ])
                 );
             }
 
@@ -654,7 +665,6 @@ class DatabaseStructureController extends DatabaseController
                             'is_show_stats'         => $this->_is_show_stats,
                             'ignored'               => $ignored,
                             'do'                    => $do,
-                            'colspan_for_structure' => $GLOBALS['colspan_for_structure'],
                             'approx_rows'           => $approx_rows,
                             'show_superscript'      => $show_superscript,
                             'already_favorite'      => $this->checkFavoriteTable(
@@ -696,7 +706,16 @@ class DatabaseStructureController extends DatabaseController
                     'create_time_all' => $create_time_all,
                     'update_time_all' => $update_time_all,
                     'check_time_all' => $check_time_all,
-                    'approx_rows' => $overall_approx_rows
+                    'approx_rows' => $overall_approx_rows,
+                    'num_favorite_tables' => $GLOBALS['cfg']['NumFavoriteTables'],
+                    'db' => $GLOBALS['db'],
+                    'properties_num_columns' => $GLOBALS['cfg']['PropertiesNumColumns'],
+                    'dbi' => $GLOBALS['dbi'],
+                    'show_charset' => $GLOBALS['cfg']['ShowDbStructureCharset'],
+                    'show_comment' => $GLOBALS['cfg']['ShowDbStructureComment'],
+                    'show_creation' => $GLOBALS['cfg']['ShowDbStructureCreation'],
+                    'show_last_update' => $GLOBALS['cfg']['ShowDbStructureLastUpdate'],
+                    'show_last_check' => $GLOBALS['cfg']['ShowDbStructureLastCheck'],
                 )
             )
         );

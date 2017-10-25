@@ -77,7 +77,7 @@ class UserPreferences
             . ' WHERE `username` = \''
             . $GLOBALS['dbi']->escapeString($cfgRelation['user'])
             . '\'';
-        $row = $GLOBALS['dbi']->fetchSingleRow($query, 'ASSOC', $GLOBALS['controllink']);
+        $row = $GLOBALS['dbi']->fetchSingleRow($query, 'ASSOC', DatabaseInterface::CONNECT_CONTROL);
 
         return array(
             'config_data' => $row ? (array)json_decode($row['config_data']) : array(),
@@ -119,7 +119,7 @@ class UserPreferences
             . '\'';
 
         $has_config = $GLOBALS['dbi']->fetchValue(
-            $query, 0, 0, $GLOBALS['controllink']
+            $query, 0, 0, DatabaseInterface::CONNECT_CONTROL
         );
         $config_data = json_encode($config_array);
         if ($has_config) {
@@ -140,11 +140,11 @@ class UserPreferences
         if (isset($_SESSION['cache'][$cache_key]['userprefs'])) {
             unset($_SESSION['cache'][$cache_key]['userprefs']);
         }
-        if (!$GLOBALS['dbi']->tryQuery($query, $GLOBALS['controllink'])) {
+        if (!$GLOBALS['dbi']->tryQuery($query, DatabaseInterface::CONNECT_CONTROL)) {
             $message = Message::error(__('Could not save configuration'));
             $message->addMessage(
                 Message::rawError(
-                    $GLOBALS['dbi']->getError($GLOBALS['controllink'])
+                    $GLOBALS['dbi']->getError(DatabaseInterface::CONNECT_CONTROL)
                 ),
                 '<br /><br />'
             );

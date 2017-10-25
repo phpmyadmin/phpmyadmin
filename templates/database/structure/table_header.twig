@@ -1,0 +1,67 @@
+<form method="post" action="db_structure.php" name="tablesForm" id="tablesForm">
+{{ Url_getHiddenInputs(db) }}
+<div class="responsivetable">
+<table id="structureTable" class="data">
+    <thead>
+        <tr>
+            <th class="print_ignore"></th>
+            <th>{{ Util_sortableTableHeader('Table'|trans, 'table') }}</th>
+            {% if replication %}
+                <th>{% trans 'Replication' %}</th>
+            {% endif %}
+
+            {% if db_is_system_schema %}
+                {% set action_colspan = 3 %}
+            {% else %}
+                {% set action_colspan = 6 %}
+            {% endif %}
+            {% if num_favorite_tables > 0 %}
+                {% set action_colspan = action_colspan + 1 %}
+            {% endif %}
+            <th colspan="{{ action_colspan }}" class="print_ignore">
+                {% trans 'Action' %}
+            </th>
+            {# larger values are more interesting so default sort order is DESC #}
+            <th>
+                {{ Util_sortableTableHeader('Rows'|trans, 'records', 'DESC') }}
+                {{ Util_showHint(Sanitize_sanitize(
+                    'May be approximate. Click on the number to get the exact count. See [doc@faq3-11]FAQ 3.11[/doc].'|trans
+                )) }}
+            </th>
+            {% if not (properties_num_columns > 1) %}
+                <th>{{ Util_sortableTableHeader('Type'|trans, 'type') }}</th>
+                <th>{{ Util_sortableTableHeader('Collation'|trans, 'collation') }}</th>
+            {% endif %}
+
+            {% if is_show_stats %}
+                {# larger values are more interesting so default sort order is DESC #}
+                <th>{{ Util_sortableTableHeader('Size'|trans, 'size', 'DESC') }}</th>
+                {# larger values are more interesting so default sort order is DESC #}
+                <th>{{ Util_sortableTableHeader('Overhead'|trans, 'overhead', 'DESC') }}</th>
+            {% endif %}
+
+            {% if show_charset %}
+                <th>{{ Util_sortableTableHeader('Charset'|trans, 'charset') }}</th>
+            {% endif %}
+
+            {% if show_comment %}
+                <th>{{ Util_sortableTableHeader('Comment'|trans, 'comment') }}</th>
+            {% endif %}
+
+            {% if show_creation %}
+                {# newer values are more interesting so default sort order is DESC #}
+                <th>{{ Util_sortableTableHeader('Creation'|trans, 'creation', 'DESC') }}</th>
+            {% endif %}
+
+            {% if show_last_update %}
+                {# newer values are more interesting so default sort order is DESC #}
+                <th>{{ Util_sortableTableHeader('Last update'|trans, 'last_update', 'DESC') }}</th>
+            {% endif %}
+
+            {% if show_last_check %}
+                {# newer values are more interesting so default sort order is DESC #}
+                <th>{{ Util_sortableTableHeader('Last check'|trans, 'last_check', 'DESC') }}</th>
+            {% endif %}
+        </tr>
+    </thead>
+    <tbody>

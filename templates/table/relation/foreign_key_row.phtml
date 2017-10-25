@@ -58,7 +58,7 @@ if ($foreign_db) {
 
     $tables_rs = $GLOBALS['dbi']->query(
         'SHOW TABLE STATUS FROM ' . Util::backquote($foreign_db),
-        null,
+        DatabaseInterface::CONNECT_USER,
         DatabaseInterface::QUERY_STORE
     );
     while ($row = $GLOBALS['dbi']->fetchRow($tables_rs)) {

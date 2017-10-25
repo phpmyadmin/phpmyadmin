@@ -278,13 +278,18 @@ function skipExtendingChars(str, pos, dir) {
 }
 
 // Returns the value from the range [`from`; `to`] that satisfies
-// `pred` and is closest to `from`. Assumes that at least `to` satisfies `pred`.
+// `pred` and is closest to `from`. Assumes that at least `to`
+// satisfies `pred`. Supports `from` being greater than `to`.
 function findFirst(pred, from, to) {
+  // At any point we are certain `to` satisfies `pred`, don't know
+  // whether `from` does.
+  var dir = from > to ? -1 : 1
   for (;;) {
-    if (Math.abs(from - to) <= 1) { return pred(from) ? from : to }
-    var mid = Math.floor((from + to) / 2)
+    if (from == to) { return from }
+    var midF = (from + to) / 2, mid = dir < 0 ? Math.ceil(midF) : Math.floor(midF)
+    if (mid == from) { return pred(mid) ? from : to }
     if (pred(mid)) { to = mid }
-    else { from = mid }
+    else { from = mid + dir }
   }
 }
 
@@ -897,12 +902,12 @@ function findMaxLine(cm) {
 // BIDI HELPERS
 
 function iterateBidiSections(order, from, to, f) {
-  if (!order) { return f(from, to, "ltr") }
+  if (!order) { return f(from, to, "ltr", 0) }
   var found = false
   for (var i = 0; i < order.length; ++i) {
     var part = order[i]
     if (part.from < to && part.to > from || from == to && part.to == from) {
-      f(Math.max(part.from, from), Math.min(part.to, to), part.level == 1 ? "rtl" : "ltr")
+      f(Math.max(part.from, from), Math.min(part.to, to), part.level == 1 ? "rtl" : "ltr", i)
       found = true
     }
   }
@@ -1103,112 +1108,6 @@ function getOrder(line, direction) {
   var order = line.order
   if (order == null) { order = line.order = bidiOrdering(line.text, direction) }
   return order
-}
-
-function moveCharLogically(line, ch, dir) {
-  var target = skipExtendingChars(line.text, ch + dir, dir)
-  return target < 0 || target > line.text.length ? null : target
-}
-
-function moveLogically(line, start, dir) {
-  var ch = moveCharLogically(line, start.ch, dir)
-  return ch == null ? null : new Pos(start.line, ch, dir < 0 ? "after" : "before")
-}
-
-function endOfLine(visually, cm, lineObj, lineNo, dir) {
-  if (visually) {
-    var order = getOrder(lineObj, cm.doc.direction)
-    if (order) {
-      var part = dir < 0 ? lst(order) : order[0]
-      var moveInStorageOrder = (dir < 0) == (part.level == 1)
-      var sticky = moveInStorageOrder ? "after" : "before"
-      var ch
-      // With a wrapped rtl chunk (possibly spanning multiple bidi parts),
-      // it could be that the last bidi part is not on the last visual line,
-      // since visual lines contain content order-consecutive chunks.
-      // Thus, in rtl, we are looking for the first (content-order) character
-      // in the rtl chunk that is on the last line (that is, the same line
-      // as the last (content-order) character).
-      if (part.level > 0) {
-        var prep = prepareMeasureForLine(cm, lineObj)
-        ch = dir < 0 ? lineObj.text.length - 1 : 0
-        var targetTop = measureCharPrepared(cm, prep, ch).top
-        ch = findFirst(function (ch) { return measureCharPrepared(cm, prep, ch).top == targetTop; }, (dir < 0) == (part.level == 1) ? part.from : part.to - 1, ch)
-        if (sticky == "before") { ch = moveCharLogically(lineObj, ch, 1) }
-      } else { ch = dir < 0 ? part.to : part.from }
-      return new Pos(lineNo, ch, sticky)
-    }
-  }
-  return new Pos(lineNo, dir < 0 ? lineObj.text.length : 0, dir < 0 ? "before" : "after")
-}
-
-function moveVisually(cm, line, start, dir) {
-  var bidi = getOrder(line, cm.doc.direction)
-  if (!bidi) { return moveLogically(line, start, dir) }
-  if (start.ch >= line.text.length) {
-    start.ch = line.text.length
-    start.sticky = "before"
-  } else if (start.ch <= 0) {
-    start.ch = 0
-    start.sticky = "after"
-  }
-  var partPos = getBidiPartAt(bidi, start.ch, start.sticky), part = bidi[partPos]
-  if (cm.doc.direction == "ltr" && part.level % 2 == 0 && (dir > 0 ? part.to > start.ch : part.from < start.ch)) {
-    // Case 1: We move within an ltr part in an ltr editor. Even with wrapped lines,
-    // nothing interesting happens.
-    return moveLogically(line, start, dir)
-  }
-
-  var mv = function (pos, dir) { return moveCharLogically(line, pos instanceof Pos ? pos.ch : pos, dir); }
-  var prep
-  var getWrappedLineExtent = function (ch) {
-    if (!cm.options.lineWrapping) { return {begin: 0, end: line.text.length} }
-    prep = prep || prepareMeasureForLine(cm, line)
-    return wrappedLineExtentChar(cm, line, prep, ch)
-  }
-  var wrappedLineExtent = getWrappedLineExtent(start.sticky == "before" ? mv(start, -1) : start.ch)
-
-  if (cm.doc.direction == "rtl" || part.level == 1) {
-    var moveInStorageOrder = (part.level == 1) == (dir < 0)
-    var ch = mv(start, moveInStorageOrder ? 1 : -1)
-    if (ch != null && (!moveInStorageOrder ? ch >= part.from && ch >= wrappedLineExtent.begin : ch <= part.to && ch <= wrappedLineExtent.end)) {
-      // Case 2: We move within an rtl part or in an rtl editor on the same visual line
-      var sticky = moveInStorageOrder ? "before" : "after"
-      return new Pos(start.line, ch, sticky)
-    }
-  }
-
-  // Case 3: Could not move within this bidi part in this visual line, so leave
-  // the current bidi part
-
-  var searchInVisualLine = function (partPos, dir, wrappedLineExtent) {
-    var getRes = function (ch, moveInStorageOrder) { return moveInStorageOrder
-      ? new Pos(start.line, mv(ch, 1), "before")
-      : new Pos(start.line, ch, "after"); }
-
-    for (; partPos >= 0 && partPos < bidi.length; partPos += dir) {
-      var part = bidi[partPos]
-      var moveInStorageOrder = (dir > 0) == (part.level != 1)
-      var ch = moveInStorageOrder ? wrappedLineExtent.begin : mv(wrappedLineExtent.end, -1)
-      if (part.from <= ch && ch < part.to) { return getRes(ch, moveInStorageOrder) }
-      ch = moveInStorageOrder ? part.from : mv(part.to, -1)
-      if (wrappedLineExtent.begin <= ch && ch < wrappedLineExtent.end) { return getRes(ch, moveInStorageOrder) }
-    }
-  }
-
-  // Case 3a: Look for other bidi parts on the same visual line
-  var res = searchInVisualLine(partPos + dir, dir, wrappedLineExtent)
-  if (res) { return res }
-
-  // Case 3b: Look for other bidi parts on the next visual line
-  var nextCh = dir > 0 ? wrappedLineExtent.end : mv(wrappedLineExtent.begin, -1)
-  if (nextCh != null && !(dir > 0 && nextCh == line.text.length)) {
-    res = searchInVisualLine(dir > 0 ? 0 : bidi.length - 1, dir, getWrappedLineExtent(nextCh))
-    if (res) { return res }
-  }
-
-  // Case 4: Nowhere to move
-  return null
 }
 
 // EVENT HANDLING
@@ -1493,12 +1392,13 @@ function startState(mode, a1, a2) {
 // Fed to the mode parsers, provides helper functions to make
 // parsers more succinct.
 
-var StringStream = function(string, tabSize) {
+var StringStream = function(string, tabSize, lineOracle) {
   this.pos = this.start = 0
   this.string = string
   this.tabSize = tabSize || 8
   this.lastColumnPos = this.lastColumnValue = 0
   this.lineStart = 0
+  this.lineOracle = lineOracle
 };
 
 StringStream.prototype.eol = function () {return this.pos >= this.string.length};
@@ -1565,23 +1465,65 @@ StringStream.prototype.hideFirstChars = function (n, inner) {
   try { return inner() }
   finally { this.lineStart -= n }
 };
+StringStream.prototype.lookAhead = function (n) {
+  var oracle = this.lineOracle
+  return oracle && oracle.lookAhead(n)
+};
+
+var SavedContext = function(state, lookAhead) {
+  this.state = state
+  this.lookAhead = lookAhead
+};
+
+var Context = function(doc, state, line, lookAhead) {
+  this.state = state
+  this.doc = doc
+  this.line = line
+  this.maxLookAhead = lookAhead || 0
+};
+
+Context.prototype.lookAhead = function (n) {
+  var line = this.doc.getLine(this.line + n)
+  if (line != null && n > this.maxLookAhead) { this.maxLookAhead = n }
+  return line
+};
+
+Context.prototype.nextLine = function () {
+  this.line++
+  if (this.maxLookAhead > 0) { this.maxLookAhead-- }
+};
+
+Context.fromSaved = function (doc, saved, line) {
+  if (saved instanceof SavedContext)
+    { return new Context(doc, copyState(doc.mode, saved.state), line, saved.lookAhead) }
+  else
+    { return new Context(doc, copyState(doc.mode, saved), line) }
+};
+
+Context.prototype.save = function (copy) {
+  var state = copy !== false ? copyState(this.doc.mode, this.state) : this.state
+  return this.maxLookAhead > 0 ? new SavedContext(state, this.maxLookAhead) : state
+};
+
 
 // Compute a style array (an array starting with a mode generation
 // -- for invalidation -- followed by pairs of end positions and
 // style strings), which is used to highlight the tokens on the
 // line.
-function highlightLine(cm, line, state, forceToEnd) {
+function highlightLine(cm, line, context, forceToEnd) {
   // A styles array always starts with a number identifying the
   // mode/overlays that it is based on (for easy invalidation).
   var st = [cm.state.modeGen], lineClasses = {}
   // Compute the base array of styles
-  runMode(cm, line.text, cm.doc.mode, state, function (end, style) { return st.push(end, style); },
-    lineClasses, forceToEnd)
+  runMode(cm, line.text, cm.doc.mode, context, function (end, style) { return st.push(end, style); },
+          lineClasses, forceToEnd)
+  var state = context.state
 
   // Run overlays, adjust style array.
   var loop = function ( o ) {
     var overlay = cm.state.overlays[o], i = 1, at = 0
-    runMode(cm, line.text, overlay.mode, true, function (end, style) {
+    context.state = true
+    runMode(cm, line.text, overlay.mode, context, function (end, style) {
       var start = i
       // Ensure there's a token end at the current position, and that i points at it
       while (at < end) {
@@ -1605,49 +1547,54 @@ function highlightLine(cm, line, state, forceToEnd) {
   };
 
   for (var o = 0; o < cm.state.overlays.length; ++o) loop( o );
+  context.state = state
 
   return {styles: st, classes: lineClasses.bgClass || lineClasses.textClass ? lineClasses : null}
 }
 
 function getLineStyles(cm, line, updateFrontier) {
   if (!line.styles || line.styles[0] != cm.state.modeGen) {
-    var state = getStateBefore(cm, lineNo(line))
-    var result = highlightLine(cm, line, line.text.length > cm.options.maxHighlightLength ? copyState(cm.doc.mode, state) : state)
-    line.stateAfter = state
+    var context = getContextBefore(cm, lineNo(line))
+    var resetState = line.text.length > cm.options.maxHighlightLength && copyState(cm.doc.mode, context.state)
+    var result = highlightLine(cm, line, context)
+    if (resetState) { context.state = resetState }
+    line.stateAfter = context.save(!resetState)
     line.styles = result.styles
     if (result.classes) { line.styleClasses = result.classes }
     else if (line.styleClasses) { line.styleClasses = null }
-    if (updateFrontier === cm.doc.frontier) { cm.doc.frontier++ }
+    if (updateFrontier === cm.doc.highlightFrontier)
+      { cm.doc.modeFrontier = Math.max(cm.doc.modeFrontier, ++cm.doc.highlightFrontier) }
   }
   return line.styles
 }
 
-function getStateBefore(cm, n, precise) {
+function getContextBefore(cm, n, precise) {
   var doc = cm.doc, display = cm.display
-  if (!doc.mode.startState) { return true }
-  var pos = findStartLine(cm, n, precise), state = pos > doc.first && getLine(doc, pos-1).stateAfter
-  if (!state) { state = startState(doc.mode) }
-  else { state = copyState(doc.mode, state) }
-  doc.iter(pos, n, function (line) {
-    processLine(cm, line.text, state)
-    var save = pos == n - 1 || pos % 5 == 0 || pos >= display.viewFrom && pos < display.viewTo
-    line.stateAfter = save ? copyState(doc.mode, state) : null
-    ++pos
+  if (!doc.mode.startState) { return new Context(doc, true, n) }
+  var start = findStartLine(cm, n, precise)
+  var saved = start > doc.first && getLine(doc, start - 1).stateAfter
+  var context = saved ? Context.fromSaved(doc, saved, start) : new Context(doc, startState(doc.mode), start)
+
+  doc.iter(start, n, function (line) {
+    processLine(cm, line.text, context)
+    var pos = context.line
+    line.stateAfter = pos == n - 1 || pos % 5 == 0 || pos >= display.viewFrom && pos < display.viewTo ? context.save() : null
+    context.nextLine()
   })
-  if (precise) { doc.frontier = pos }
-  return state
+  if (precise) { doc.modeFrontier = context.line }
+  return context
 }
 
 // Lightweight form of highlight -- proceed over this line and
 // update state, but don't save a style array. Used for lines that
 // aren't currently visible.
-function processLine(cm, text, state, startAt) {
+function processLine(cm, text, context, startAt) {
   var mode = cm.doc.mode
-  var stream = new StringStream(text, cm.options.tabSize)
+  var stream = new StringStream(text, cm.options.tabSize, context)
   stream.start = stream.pos = startAt || 0
-  if (text == "") { callBlankLine(mode, state) }
+  if (text == "") { callBlankLine(mode, context.state) }
   while (!stream.eol()) {
-    readToken(mode, stream, state)
+    readToken(mode, stream, context.state)
     stream.start = stream.pos
   }
 }
@@ -1668,26 +1615,26 @@ function readToken(mode, stream, state, inner) {
   throw new Error("Mode " + mode.name + " failed to advance stream.")
 }
 
+var Token = function(stream, type, state) {
+  this.start = stream.start; this.end = stream.pos
+  this.string = stream.current()
+  this.type = type || null
+  this.state = state
+};
+
 // Utility for getTokenAt and getLineTokens
 function takeToken(cm, pos, precise, asArray) {
-  var getObj = function (copy) { return ({
-    start: stream.start, end: stream.pos,
-    string: stream.current(),
-    type: style || null,
-    state: copy ? copyState(doc.mode, state) : state
-  }); }
-
   var doc = cm.doc, mode = doc.mode, style
   pos = clipPos(doc, pos)
-  var line = getLine(doc, pos.line), state = getStateBefore(cm, pos.line, precise)
-  var stream = new StringStream(line.text, cm.options.tabSize), tokens
+  var line = getLine(doc, pos.line), context = getContextBefore(cm, pos.line, precise)
+  var stream = new StringStream(line.text, cm.options.tabSize, context), tokens
   if (asArray) { tokens = [] }
   while ((asArray || stream.pos < pos.ch) && !stream.eol()) {
     stream.start = stream.pos
-    style = readToken(mode, stream, state)
-    if (asArray) { tokens.push(getObj(true)) }
+    style = readToken(mode, stream, context.state)
+    if (asArray) { tokens.push(new Token(stream, style, copyState(doc.mode, context.state))) }
   }
-  return asArray ? tokens : getObj()
+  return asArray ? tokens : new Token(stream, style, context.state)
 }
 
 function extractLineClasses(type, output) {
@@ -1705,21 +1652,21 @@ function extractLineClasses(type, output) {
 }
 
 // Run the given mode's parser over a line, calling f for each token.
-function runMode(cm, text, mode, state, f, lineClasses, forceToEnd) {
+function runMode(cm, text, mode, context, f, lineClasses, forceToEnd) {
   var flattenSpans = mode.flattenSpans
   if (flattenSpans == null) { flattenSpans = cm.options.flattenSpans }
   var curStart = 0, curStyle = null
-  var stream = new StringStream(text, cm.options.tabSize), style
+  var stream = new StringStream(text, cm.options.tabSize, context), style
   var inner = cm.options.addModeClass && [null]
-  if (text == "") { extractLineClasses(callBlankLine(mode, state), lineClasses) }
+  if (text == "") { extractLineClasses(callBlankLine(mode, context.state), lineClasses) }
   while (!stream.eol()) {
     if (stream.pos > cm.options.maxHighlightLength) {
       flattenSpans = false
-      if (forceToEnd) { processLine(cm, text, state, stream.pos) }
+      if (forceToEnd) { processLine(cm, text, context, stream.pos) }
       stream.pos = text.length
       style = null
     } else {
-      style = extractLineClasses(readToken(mode, stream, state, inner), lineClasses)
+      style = extractLineClasses(readToken(mode, stream, context.state, inner), lineClasses)
     }
     if (inner) {
       var mName = inner[0].name
@@ -1754,8 +1701,9 @@ function findStartLine(cm, n, precise) {
   var lim = precise ? -1 : n - (cm.doc.mode.innerMode ? 1000 : 100)
   for (var search = n; search > lim; --search) {
     if (search <= doc.first) { return doc.first }
-    var line = getLine(doc, search - 1)
-    if (line.stateAfter && (!precise || search <= doc.frontier)) { return search }
+    var line = getLine(doc, search - 1), after = line.stateAfter
+    if (after && (!precise || search + (after instanceof SavedContext ? after.lookAhead : 0) <= doc.modeFrontier))
+      { return search }
     var indented = countColumn(line.text, null, cm.options.tabSize)
     if (minline == null || minindent > indented) {
       minline = search - 1
@@ -1763,6 +1711,23 @@ function findStartLine(cm, n, precise) {
     }
   }
   return minline
+}
+
+function retreatFrontier(doc, n) {
+  doc.modeFrontier = Math.min(doc.modeFrontier, n)
+  if (doc.highlightFrontier < n - 10) { return }
+  var start = doc.first
+  for (var line = n - 1; line > start; line--) {
+    var saved = getLine(doc, line).stateAfter
+    // change is on 3
+    // state on line 1 looked ahead 2 -- so saw 3
+    // test 1 + 2 < 3 should cover this
+    if (saved && (!(saved instanceof SavedContext) || line + saved.lookAhead < n)) {
+      start = line + 1
+      break
+    }
+  }
+  doc.highlightFrontier = Math.min(doc.highlightFrontier, start)
 }
 
 // LINE DATA STRUCTURE
@@ -2653,15 +2618,22 @@ function pageScrollY() {
   return window.pageYOffset || (document.documentElement || document.body).scrollTop
 }
 
+function widgetTopHeight(lineObj) {
+  var height = 0
+  if (lineObj.widgets) { for (var i = 0; i < lineObj.widgets.length; ++i) { if (lineObj.widgets[i].above)
+    { height += widgetHeight(lineObj.widgets[i]) } } }
+  return height
+}
+
 // Converts a {top, bottom, left, right} box from line-local
 // coordinates into another coordinate system. Context may be one of
 // "line", "div" (display.lineDiv), "local"./null (editor), "window",
 // or "page".
 function intoCoordSystem(cm, lineObj, rect, context, includeWidgets) {
-  if (!includeWidgets && lineObj.widgets) { for (var i = 0; i < lineObj.widgets.length; ++i) { if (lineObj.widgets[i].above) {
-    var size = widgetHeight(lineObj.widgets[i])
-    rect.top += size; rect.bottom += size
-  } } }
+  if (!includeWidgets) {
+    var height = widgetTopHeight(lineObj)
+    rect.top += height; rect.bottom += height
+  }
   if (context == "line") { return rect }
   if (!context) { context = "local" }
   var yOff = heightAtLine(lineObj)
@@ -2736,7 +2708,7 @@ function cursorCoords(cm, pos, context, lineObj, preparedMeasure, varHeight) {
   if (!order) { return get(sticky == "before" ? ch - 1 : ch, sticky == "before") }
 
   function getBidi(ch, partPos, invert) {
-    var part = order[partPos], right = (part.level % 2) != 0
+    var part = order[partPos], right = part.level == 1
     return get(invert ? ch - 1 : ch, right != invert)
   }
   var partPos = getBidiPartAt(order, ch, sticky)
@@ -2794,67 +2766,146 @@ function coordsChar(cm, x, y) {
 }
 
 function wrappedLineExtent(cm, lineObj, preparedMeasure, y) {
-  var measure = function (ch) { return intoCoordSystem(cm, lineObj, measureCharPrepared(cm, preparedMeasure, ch), "line"); }
+  y -= widgetTopHeight(lineObj)
   var end = lineObj.text.length
-  var begin = findFirst(function (ch) { return measure(ch - 1).bottom <= y; }, end, 0)
-  end = findFirst(function (ch) { return measure(ch).top > y; }, begin, end)
+  var begin = findFirst(function (ch) { return measureCharPrepared(cm, preparedMeasure, ch - 1).bottom <= y; }, end, 0)
+  end = findFirst(function (ch) { return measureCharPrepared(cm, preparedMeasure, ch).top > y; }, begin, end)
   return {begin: begin, end: end}
 }
 
 function wrappedLineExtentChar(cm, lineObj, preparedMeasure, target) {
+  if (!preparedMeasure) { preparedMeasure = prepareMeasureForLine(cm, lineObj) }
   var targetTop = intoCoordSystem(cm, lineObj, measureCharPrepared(cm, preparedMeasure, target), "line").top
   return wrappedLineExtent(cm, lineObj, preparedMeasure, targetTop)
 }
 
+// Returns true if the given side of a box is after the given
+// coordinates, in top-to-bottom, left-to-right order.
+function boxIsAfter(box, x, y, left) {
+  return box.bottom <= y ? false : box.top > y ? true : (left ? box.left : box.right) > x
+}
+
 function coordsCharInner(cm, lineObj, lineNo, x, y) {
+  // Move y into line-local coordinate space
   y -= heightAtLine(lineObj)
-  var begin = 0, end = lineObj.text.length
   var preparedMeasure = prepareMeasureForLine(cm, lineObj)
-  var pos
+  // When directly calling `measureCharPrepared`, we have to adjust
+  // for the widgets at this line.
+  var widgetHeight = widgetTopHeight(lineObj)
+  var begin = 0, end = lineObj.text.length, ltr = true
+
   var order = getOrder(lineObj, cm.doc.direction)
+  // If the line isn't plain left-to-right text, first figure out
+  // which bidi section the coordinates fall into.
   if (order) {
-    if (cm.options.lineWrapping) {
-      ;var assign;
-      ((assign = wrappedLineExtent(cm, lineObj, preparedMeasure, y), begin = assign.begin, end = assign.end, assign))
-    }
-    pos = new Pos(lineNo, begin)
-    var beginLeft = cursorCoords(cm, pos, "line", lineObj, preparedMeasure).left
-    var dir = beginLeft < x ? 1 : -1
-    var prevDiff, diff = beginLeft - x, prevPos
-    do {
-      prevDiff = diff
-      prevPos = pos
-      pos = moveVisually(cm, lineObj, pos, dir)
-      if (pos == null || pos.ch < begin || end <= (pos.sticky == "before" ? pos.ch - 1 : pos.ch)) {
-        pos = prevPos
-        break
-      }
-      diff = cursorCoords(cm, pos, "line", lineObj, preparedMeasure).left - x
-    } while ((dir < 0) != (diff < 0) && (Math.abs(diff) <= Math.abs(prevDiff)))
-    if (Math.abs(diff) > Math.abs(prevDiff)) {
-      if ((diff < 0) == (prevDiff < 0)) { throw new Error("Broke out of infinite loop in coordsCharInner") }
-      pos = prevPos
-    }
-  } else {
-    var ch = findFirst(function (ch) {
-      var box = intoCoordSystem(cm, lineObj, measureCharPrepared(cm, preparedMeasure, ch), "line")
-      if (box.top > y) {
-        // For the cursor stickiness
-        end = Math.min(ch, end)
-        return true
-      }
-      else if (box.bottom <= y) { return false }
-      else if (box.left > x) { return true }
-      else if (box.right < x) { return false }
-      else { return (x - box.left < box.right - x) }
-    }, begin, end)
-    ch = skipExtendingChars(lineObj.text, ch, 1)
-    pos = new Pos(lineNo, ch, ch == end ? "before" : "after")
+    var part = (cm.options.lineWrapping ? coordsBidiPartWrapped : coordsBidiPart)
+                 (cm, lineObj, lineNo, preparedMeasure, order, x, y)
+    ltr = part.level != 1
+    // The awkward -1 offsets are needed because findFirst (called
+    // on these below) will treat its first bound as inclusive,
+    // second as exclusive, but we want to actually address the
+    // characters in the part's range
+    begin = ltr ? part.from : part.to - 1
+    end = ltr ? part.to : part.from - 1
   }
-  var coords = cursorCoords(cm, pos, "line", lineObj, preparedMeasure)
-  if (y < coords.top || coords.bottom < y) { pos.outside = true }
-  pos.xRel = x < coords.left ? -1 : (x > coords.right ? 1 : 0)
-  return pos
+
+  // A binary search to find the first character whose bounding box
+  // starts after the coordinates. If we run across any whose box wrap
+  // the coordinates, store that.
+  var chAround = null, boxAround = null
+  var ch = findFirst(function (ch) {
+    var box = measureCharPrepared(cm, preparedMeasure, ch)
+    box.top += widgetHeight; box.bottom += widgetHeight
+    if (!boxIsAfter(box, x, y, false)) { return false }
+    if (box.top <= y && box.left <= x) {
+      chAround = ch
+      boxAround = box
+    }
+    return true
+  }, begin, end)
+
+  var baseX, sticky, outside = false
+  // If a box around the coordinates was found, use that
+  if (boxAround) {
+    // Distinguish coordinates nearer to the left or right side of the box
+    var atLeft = x - boxAround.left < boxAround.right - x, atStart = atLeft == ltr
+    ch = chAround + (atStart ? 0 : 1)
+    sticky = atStart ? "after" : "before"
+    baseX = atLeft ? boxAround.left : boxAround.right
+  } else {
+    // (Adjust for extended bound, if necessary.)
+    if (!ltr && (ch == end || ch == begin)) { ch++ }
+    // To determine which side to associate with, get the box to the
+    // left of the character and compare it's vertical position to the
+    // coordinates
+    sticky = ch == 0 ? "after" : ch == lineObj.text.length ? "before" :
+      (measureCharPrepared(cm, preparedMeasure, ch - (ltr ? 1 : 0)).bottom + widgetHeight <= y) == ltr ?
+      "after" : "before"
+    // Now get accurate coordinates for this place, in order to get a
+    // base X position
+    var coords = cursorCoords(cm, Pos(lineNo, ch, sticky), "line", lineObj, preparedMeasure)
+    baseX = coords.left
+    outside = y < coords.top || y >= coords.bottom
+  }
+
+  ch = skipExtendingChars(lineObj.text, ch, 1)
+  return PosWithInfo(lineNo, ch, sticky, outside, x - baseX)
+}
+
+function coordsBidiPart(cm, lineObj, lineNo, preparedMeasure, order, x, y) {
+  // Bidi parts are sorted left-to-right, and in a non-line-wrapping
+  // situation, we can take this ordering to correspond to the visual
+  // ordering. This finds the first part whose end is after the given
+  // coordinates.
+  var index = findFirst(function (i) {
+    var part = order[i], ltr = part.level != 1
+    return boxIsAfter(cursorCoords(cm, Pos(lineNo, ltr ? part.to : part.from, ltr ? "before" : "after"),
+                                   "line", lineObj, preparedMeasure), x, y, true)
+  }, 0, order.length - 1)
+  var part = order[index]
+  // If this isn't the first part, the part's start is also after
+  // the coordinates, and the coordinates aren't on the same line as
+  // that start, move one part back.
+  if (index > 0) {
+    var ltr = part.level != 1
+    var start = cursorCoords(cm, Pos(lineNo, ltr ? part.from : part.to, ltr ? "after" : "before"),
+                             "line", lineObj, preparedMeasure)
+    if (boxIsAfter(start, x, y, true) && start.top > y)
+      { part = order[index - 1] }
+  }
+  return part
+}
+
+function coordsBidiPartWrapped(cm, lineObj, _lineNo, preparedMeasure, order, x, y) {
+  // In a wrapped line, rtl text on wrapping boundaries can do things
+  // that don't correspond to the ordering in our `order` array at
+  // all, so a binary search doesn't work, and we want to return a
+  // part that only spans one line so that the binary search in
+  // coordsCharInner is safe. As such, we first find the extent of the
+  // wrapped line, and then do a flat search in which we discard any
+  // spans that aren't on the line.
+  var ref = wrappedLineExtent(cm, lineObj, preparedMeasure, y);
+  var begin = ref.begin;
+  var end = ref.end;
+  var part = null, closestDist = null
+  for (var i = 0; i < order.length; i++) {
+    var p = order[i]
+    if (p.from >= end || p.to <= begin) { continue }
+    var ltr = p.level != 1
+    var endX = measureCharPrepared(cm, preparedMeasure, ltr ? Math.min(end, p.to) - 1 : Math.max(begin, p.from)).right
+    // Weigh against spans ending before this, so that they are only
+    // picked if nothing ends after
+    var dist = endX < x ? x - endX + 1e9 : endX - x
+    if (!part || closestDist > dist) {
+      part = p
+      closestDist = dist
+    }
+  }
+  if (!part) { part = order[order.length - 1] }
+  // Clip the part to the wrapped line.
+  if (part.from < begin) { part = {from: begin, to: part.to, level: part.level} }
+  if (part.to > end) { part = {from: part.from, to: end, level: part.level} }
+  return part
 }
 
 var measureText
@@ -2980,12 +3031,14 @@ function updateSelection(cm) {
 }
 
 function prepareSelection(cm, primary) {
+  if ( primary === void 0 ) primary = true;
+
   var doc = cm.doc, result = {}
   var curFragment = result.cursors = document.createDocumentFragment()
   var selFragment = result.selection = document.createDocumentFragment()
 
   for (var i = 0; i < doc.sel.ranges.length; i++) {
-    if (primary === false && i == doc.sel.primIndex) { continue }
+    if (!primary && i == doc.sel.primIndex) { continue }
     var range = doc.sel.ranges[i]
     if (range.from().line >= cm.display.viewTo || range.to().line < cm.display.viewFrom) { continue }
     var collapsed = range.empty()
@@ -3016,6 +3069,8 @@ function drawSelectionCursor(cm, head, output) {
   }
 }
 
+function cmpCoords(a, b) { return a.top - b.top || a.left - b.left }
+
 // Draws the given range as a highlighted selection
 function drawSelectionRange(cm, range, output) {
   var display = cm.display, doc = cm.doc
@@ -3038,30 +3093,48 @@ function drawSelectionRange(cm, range, output) {
       return charCoords(cm, Pos(line, ch), "div", lineObj, bias)
     }
 
-    iterateBidiSections(getOrder(lineObj, doc.direction), fromArg || 0, toArg == null ? lineLen : toArg, function (from, to, dir) {
-      var leftPos = coords(from, "left"), rightPos, left, right
-      if (from == to) {
-        rightPos = leftPos
-        left = right = leftPos.left
-      } else {
-        rightPos = coords(to - 1, "right")
-        if (dir == "rtl") { var tmp = leftPos; leftPos = rightPos; rightPos = tmp }
-        left = leftPos.left
-        right = rightPos.right
+    var order = getOrder(lineObj, doc.direction)
+    iterateBidiSections(order, fromArg || 0, toArg == null ? lineLen : toArg, function (from, to, dir, i) {
+      var fromPos = coords(from, dir == "ltr" ? "left" : "right")
+      var toPos = coords(to - 1, dir == "ltr" ? "right" : "left")
+      if (dir == "ltr") {
+        var fromLeft = fromArg == null && from == 0 ? leftSide : fromPos.left
+        var toRight = toArg == null && to == lineLen ? rightSide : toPos.right
+        if (toPos.top - fromPos.top <= 3) { // Single line
+          add(fromLeft, toPos.top, toRight - fromLeft, toPos.bottom)
+        } else { // Multiple lines
+          add(fromLeft, fromPos.top, null, fromPos.bottom)
+          if (fromPos.bottom < toPos.top) { add(leftSide, fromPos.bottom, null, toPos.top) }
+          add(leftSide, toPos.top, toPos.right, toPos.bottom)
+        }
+      } else if (from < to) { // RTL
+        var fromRight = fromArg == null && from == 0 ? rightSide : fromPos.right
+        var toLeft = toArg == null && to == lineLen ? leftSide : toPos.left
+        if (toPos.top - fromPos.top <= 3) { // Single line
+          add(toLeft, toPos.top, fromRight - toLeft, toPos.bottom)
+        } else { // Multiple lines
+          var topLeft = leftSide
+          if (i) {
+            var topEnd = wrappedLineExtentChar(cm, lineObj, null, from).end
+            // The coordinates returned for an RTL wrapped space tend to
+            // be complete bogus, so try to skip that here.
+            topLeft = coords(topEnd - (/\s/.test(lineObj.text.charAt(topEnd - 1)) ? 2 : 1), "left").left
+          }
+          add(topLeft, fromPos.top, fromRight - topLeft, fromPos.bottom)
+          if (fromPos.bottom < toPos.top) { add(leftSide, fromPos.bottom, null, toPos.top) }
+          var botWidth = null
+          if (i < order.length  - 1 || true) {
+            var botStart = wrappedLineExtentChar(cm, lineObj, null, to).begin
+            botWidth = coords(botStart, "right").right - toLeft
+          }
+          add(toLeft, toPos.top, botWidth, toPos.bottom)
+        }
       }
-      if (fromArg == null && from == 0) { left = leftSide }
-      if (rightPos.top - leftPos.top > 3) { // Different lines, draw top part
-        add(left, leftPos.top, null, leftPos.bottom)
-        left = leftSide
-        if (leftPos.bottom < rightPos.top) { add(left, leftPos.bottom, null, rightPos.top) }
-      }
-      if (toArg == null && to == lineLen) { right = rightSide }
-      if (!start || leftPos.top < start.top || leftPos.top == start.top && leftPos.left < start.left)
-        { start = leftPos }
-      if (!end || rightPos.bottom > end.bottom || rightPos.bottom == end.bottom && rightPos.right > end.right)
-        { end = rightPos }
-      if (left < leftSide + 1) { left = leftSide }
-      add(left, rightPos.top, right - left, rightPos.bottom)
+
+      if (!start || cmpCoords(fromPos, start) < 0) { start = fromPos }
+      if (cmpCoords(toPos, start) < 0) { start = toPos }
+      if (!end || cmpCoords(fromPos, end) < 0) { end = fromPos }
+      if (cmpCoords(toPos, end) < 0) { end = toPos }
     })
     return {start: start, end: end}
   }
@@ -3164,7 +3237,7 @@ function updateHeightsInViewport(cm) {
     }
     var diff = cur.line.height - height
     if (height < 2) { height = textHeight(display) }
-    if (diff > .001 || diff < -.001) {
+    if (diff > .005 || diff < -.005) {
       updateLineHeight(cur.line, height)
       updateWidgetHeight(cur.line)
       if (cur.rest) { for (var j = 0; j < cur.rest.length; j++)
@@ -3271,6 +3344,13 @@ function maybeScrollWindow(cm, rect) {
 function scrollPosIntoView(cm, pos, end, margin) {
   if (margin == null) { margin = 0 }
   var rect
+  if (!cm.options.lineWrapping && pos == end) {
+    // Set pos and end to the cursor positions around the character pos sticks to
+    // If pos.sticky == "before", that is around pos.ch - 1, otherwise around pos.ch
+    // If pos == Pos(_, 0, "before"), pos and end are unchanged
+    pos = pos.ch ? Pos(pos.line, pos.sticky == "before" ? pos.ch - 1 : pos.ch, "after") : pos
+    end = pos.sticky == "before" ? Pos(pos.line, pos.ch + 1, "before") : pos
+  }
   for (var limit = 0; limit < 5; limit++) {
     var changed = false
     var coords = cursorCoords(cm, pos)
@@ -3345,12 +3425,8 @@ function addToScrollTop(cm, top) {
 // shown.
 function ensureCursorVisible(cm) {
   resolveScrollToPos(cm)
-  var cur = cm.getCursor(), from = cur, to = cur
-  if (!cm.options.lineWrapping) {
-    from = cur.ch ? Pos(cur.line, cur.ch - 1) : cur
-    to = Pos(cur.line, cur.ch + 1)
-  }
-  cm.curOp.scrollToPos = {from: from, to: to, margin: cm.options.cursorScrollMargin}
+  var cur = cm.getCursor()
+  cm.curOp.scrollToPos = {from: cur, to: cur, margin: cm.options.cursorScrollMargin}
 }
 
 function scrollToCoords(cm, x, y) {
@@ -3688,7 +3764,7 @@ function endOperation_R2(op) {
   }
 
   if (op.updatedDisplay || op.selectionChanged)
-    { op.preparedSelection = display.input.prepareSelection(op.focus) }
+    { op.preparedSelection = display.input.prepareSelection() }
 }
 
 function endOperation_W2(op) {
@@ -3701,7 +3777,7 @@ function endOperation_W2(op) {
     cm.display.maxLineChanged = false
   }
 
-  var takeFocus = op.focus && op.focus == activeElt() && (!document.hasFocus || document.hasFocus())
+  var takeFocus = op.focus && op.focus == activeElt()
   if (op.preparedSelection)
     { cm.display.input.showSelection(op.preparedSelection, takeFocus) }
   if (op.updatedDisplay || op.startHeight != cm.doc.height)
@@ -3941,22 +4017,23 @@ function countDirtyView(cm) {
 // HIGHLIGHT WORKER
 
 function startWorker(cm, time) {
-  if (cm.doc.mode.startState && cm.doc.frontier < cm.display.viewTo)
+  if (cm.doc.highlightFrontier < cm.display.viewTo)
     { cm.state.highlight.set(time, bind(highlightWorker, cm)) }
 }
 
 function highlightWorker(cm) {
   var doc = cm.doc
-  if (doc.frontier < doc.first) { doc.frontier = doc.first }
-  if (doc.frontier >= cm.display.viewTo) { return }
+  if (doc.highlightFrontier >= cm.display.viewTo) { return }
   var end = +new Date + cm.options.workTime
-  var state = copyState(doc.mode, getStateBefore(cm, doc.frontier))
+  var context = getContextBefore(cm, doc.highlightFrontier)
   var changedLines = []
 
-  doc.iter(doc.frontier, Math.min(doc.first + doc.size, cm.display.viewTo + 500), function (line) {
-    if (doc.frontier >= cm.display.viewFrom) { // Visible
-      var oldStyles = line.styles, tooLong = line.text.length > cm.options.maxHighlightLength
-      var highlighted = highlightLine(cm, line, tooLong ? copyState(doc.mode, state) : state, true)
+  doc.iter(context.line, Math.min(doc.first + doc.size, cm.display.viewTo + 500), function (line) {
+    if (context.line >= cm.display.viewFrom) { // Visible
+      var oldStyles = line.styles
+      var resetState = line.text.length > cm.options.maxHighlightLength ? copyState(doc.mode, context.state) : null
+      var highlighted = highlightLine(cm, line, context, true)
+      if (resetState) { context.state = resetState }
       line.styles = highlighted.styles
       var oldCls = line.styleClasses, newCls = highlighted.classes
       if (newCls) { line.styleClasses = newCls }
@@ -3964,19 +4041,22 @@ function highlightWorker(cm) {
       var ischange = !oldStyles || oldStyles.length != line.styles.length ||
         oldCls != newCls && (!oldCls || !newCls || oldCls.bgClass != newCls.bgClass || oldCls.textClass != newCls.textClass)
       for (var i = 0; !ischange && i < oldStyles.length; ++i) { ischange = oldStyles[i] != line.styles[i] }
-      if (ischange) { changedLines.push(doc.frontier) }
-      line.stateAfter = tooLong ? state : copyState(doc.mode, state)
+      if (ischange) { changedLines.push(context.line) }
+      line.stateAfter = context.save()
+      context.nextLine()
     } else {
       if (line.text.length <= cm.options.maxHighlightLength)
-        { processLine(cm, line.text, state) }
-      line.stateAfter = doc.frontier % 5 == 0 ? copyState(doc.mode, state) : null
+        { processLine(cm, line.text, context) }
+      line.stateAfter = context.line % 5 == 0 ? context.save() : null
+      context.nextLine()
     }
-    ++doc.frontier
     if (+new Date > end) {
       startWorker(cm, cm.options.workDelay)
       return true
     }
   })
+  doc.highlightFrontier = context.line
+  doc.modeFrontier = Math.max(doc.modeFrontier, context.line)
   if (changedLines.length) { runInOp(cm, function () {
     for (var i = 0; i < changedLines.length; i++)
       { regLineChange(cm, changedLines[i], "text") }
@@ -4147,6 +4227,7 @@ function postUpdateDisplay(cm, update) {
     updateSelection(cm)
     updateScrollbars(cm, barMeasure)
     setDocumentHeight(cm, barMeasure)
+    update.force = false
   }
 
   update.signal(cm, "update", cm)
@@ -4509,7 +4590,7 @@ function resetModeState(cm) {
     if (line.stateAfter) { line.stateAfter = null }
     if (line.styles) { line.styles = null }
   })
-  cm.doc.frontier = cm.doc.first
+  cm.doc.modeFrontier = cm.doc.highlightFrontier = cm.doc.first
   startWorker(cm, 100)
   cm.state.modeGen++
   if (cm.curOp) { regChange(cm) }
@@ -4843,8 +4924,8 @@ function copyHistoryArray(events, newGroup, instantiateSel) {
 // include a given position (and optionally a second position).
 // Otherwise, simply returns the range between the given positions.
 // Used for cursor motion and such.
-function extendRange(doc, range, head, other) {
-  if (doc.cm && doc.cm.display.shift || doc.extend) {
+function extendRange(range, head, other, extend) {
+  if (extend) {
     var anchor = range.anchor
     if (other) {
       var posBefore = cmp(head, anchor) < 0
@@ -4862,16 +4943,18 @@ function extendRange(doc, range, head, other) {
 }
 
 // Extend the primary selection range, discard the rest.
-function extendSelection(doc, head, other, options) {
-  setSelection(doc, new Selection([extendRange(doc, doc.sel.primary(), head, other)], 0), options)
+function extendSelection(doc, head, other, options, extend) {
+  if (extend == null) { extend = doc.cm && (doc.cm.display.shift || doc.extend) }
+  setSelection(doc, new Selection([extendRange(doc.sel.primary(), head, other, extend)], 0), options)
 }
 
 // Extend all selections (pos is an array of selections with length
 // equal the number of selections)
 function extendSelections(doc, heads, options) {
   var out = []
+  var extend = doc.cm && (doc.cm.display.shift || doc.extend)
   for (var i = 0; i < doc.sel.ranges.length; i++)
-    { out[i] = extendRange(doc, doc.sel.ranges[i], heads[i], null) }
+    { out[i] = extendRange(doc.sel.ranges[i], heads[i], null, extend) }
   var newSel = normalizeSelection(out, doc.sel.primIndex)
   setSelection(doc, newSel, options)
 }
@@ -5077,7 +5160,7 @@ function makeChange(doc, change, ignoreReadOnly) {
   var split = sawReadOnlySpans && !ignoreReadOnly && removeReadOnlyRanges(doc, change.from, change.to)
   if (split) {
     for (var i = split.length - 1; i >= 0; --i)
-      { makeChangeInner(doc, {from: split[i].from, to: split[i].to, text: i ? [""] : change.text}) }
+      { makeChangeInner(doc, {from: split[i].from, to: split[i].to, text: i ? [""] : change.text, origin: change.origin}) }
   } else {
     makeChangeInner(doc, change)
   }
@@ -5255,8 +5338,7 @@ function makeChangeSingleDocInEditor(cm, change, spans) {
     if (recomputeMaxLength) { cm.curOp.updateMaxLine = true }
   }
 
-  // Adjust frontier, schedule worker
-  doc.frontier = Math.min(doc.frontier, from.line)
+  retreatFrontier(doc, from.line)
   startWorker(cm, 400)
 
   var lendiff = change.text.length - (to.line - from.line) - 1
@@ -5284,7 +5366,8 @@ function makeChangeSingleDocInEditor(cm, change, spans) {
 
 function replaceRange(doc, code, from, to, origin) {
   if (!to) { to = from }
-  if (cmp(to, from) < 0) { var tmp = to; to = from; from = tmp }
+  if (cmp(to, from) < 0) { var assign;
+    (assign = [to, from], from = assign[0], to = assign[1], assign) }
   if (typeof code == "string") { code = doc.splitLines(code) }
   makeChange(doc, {from: from, to: to, text: code, origin: origin})
 }
@@ -5366,7 +5449,7 @@ function changeLine(doc, handle, changeType, op) {
 //
 // See also http://marijnhaverbeke.nl/blog/codemirror-line-tree.html
 
-var LeafChunk = function(lines) {
+function LeafChunk(lines) {
   var this$1 = this;
 
   this.lines = lines
@@ -5377,47 +5460,49 @@ var LeafChunk = function(lines) {
     height += lines[i].height
   }
   this.height = height
-};
+}
 
-LeafChunk.prototype.chunkSize = function () { return this.lines.length };
+LeafChunk.prototype = {
+  chunkSize: function chunkSize() { return this.lines.length },
 
-// Remove the n lines at offset 'at'.
-LeafChunk.prototype.removeInner = function (at, n) {
+  // Remove the n lines at offset 'at'.
+  removeInner: function removeInner(at, n) {
     var this$1 = this;
 
-  for (var i = at, e = at + n; i < e; ++i) {
-    var line = this$1.lines[i]
-    this$1.height -= line.height
-    cleanUpLine(line)
-    signalLater(line, "delete")
+    for (var i = at, e = at + n; i < e; ++i) {
+      var line = this$1.lines[i]
+      this$1.height -= line.height
+      cleanUpLine(line)
+      signalLater(line, "delete")
+    }
+    this.lines.splice(at, n)
+  },
+
+  // Helper used to collapse a small branch into a single leaf.
+  collapse: function collapse(lines) {
+    lines.push.apply(lines, this.lines)
+  },
+
+  // Insert the given array of lines at offset 'at', count them as
+  // having the given height.
+  insertInner: function insertInner(at, lines, height) {
+    var this$1 = this;
+
+    this.height += height
+    this.lines = this.lines.slice(0, at).concat(lines).concat(this.lines.slice(at))
+    for (var i = 0; i < lines.length; ++i) { lines[i].parent = this$1 }
+  },
+
+  // Used to iterate over a part of the tree.
+  iterN: function iterN(at, n, op) {
+    var this$1 = this;
+
+    for (var e = at + n; at < e; ++at)
+      { if (op(this$1.lines[at])) { return true } }
   }
-  this.lines.splice(at, n)
-};
+}
 
-// Helper used to collapse a small branch into a single leaf.
-LeafChunk.prototype.collapse = function (lines) {
-  lines.push.apply(lines, this.lines)
-};
-
-// Insert the given array of lines at offset 'at', count them as
-// having the given height.
-LeafChunk.prototype.insertInner = function (at, lines, height) {
-    var this$1 = this;
-
-  this.height += height
-  this.lines = this.lines.slice(0, at).concat(lines).concat(this.lines.slice(at))
-  for (var i = 0; i < lines.length; ++i) { lines[i].parent = this$1 }
-};
-
-// Used to iterate over a part of the tree.
-LeafChunk.prototype.iterN = function (at, n, op) {
-    var this$1 = this;
-
-  for (var e = at + n; at < e; ++at)
-    { if (op(this$1.lines[at])) { return true } }
-};
-
-var BranchChunk = function(children) {
+function BranchChunk(children) {
   var this$1 = this;
 
   this.children = children
@@ -5430,106 +5515,108 @@ var BranchChunk = function(children) {
   this.size = size
   this.height = height
   this.parent = null
-};
+}
 
-BranchChunk.prototype.chunkSize = function () { return this.size };
+BranchChunk.prototype = {
+  chunkSize: function chunkSize() { return this.size },
 
-BranchChunk.prototype.removeInner = function (at, n) {
+  removeInner: function removeInner(at, n) {
     var this$1 = this;
 
-  this.size -= n
-  for (var i = 0; i < this.children.length; ++i) {
-    var child = this$1.children[i], sz = child.chunkSize()
-    if (at < sz) {
-      var rm = Math.min(n, sz - at), oldHeight = child.height
-      child.removeInner(at, rm)
-      this$1.height -= oldHeight - child.height
-      if (sz == rm) { this$1.children.splice(i--, 1); child.parent = null }
-      if ((n -= rm) == 0) { break }
-      at = 0
-    } else { at -= sz }
-  }
-  // If the result is smaller than 25 lines, ensure that it is a
-  // single leaf node.
-  if (this.size - n < 25 &&
-      (this.children.length > 1 || !(this.children[0] instanceof LeafChunk))) {
-    var lines = []
-    this.collapse(lines)
-    this.children = [new LeafChunk(lines)]
-    this.children[0].parent = this
-  }
-};
+    this.size -= n
+    for (var i = 0; i < this.children.length; ++i) {
+      var child = this$1.children[i], sz = child.chunkSize()
+      if (at < sz) {
+        var rm = Math.min(n, sz - at), oldHeight = child.height
+        child.removeInner(at, rm)
+        this$1.height -= oldHeight - child.height
+        if (sz == rm) { this$1.children.splice(i--, 1); child.parent = null }
+        if ((n -= rm) == 0) { break }
+        at = 0
+      } else { at -= sz }
+    }
+    // If the result is smaller than 25 lines, ensure that it is a
+    // single leaf node.
+    if (this.size - n < 25 &&
+        (this.children.length > 1 || !(this.children[0] instanceof LeafChunk))) {
+      var lines = []
+      this.collapse(lines)
+      this.children = [new LeafChunk(lines)]
+      this.children[0].parent = this
+    }
+  },
 
-BranchChunk.prototype.collapse = function (lines) {
+  collapse: function collapse(lines) {
     var this$1 = this;
 
-  for (var i = 0; i < this.children.length; ++i) { this$1.children[i].collapse(lines) }
-};
+    for (var i = 0; i < this.children.length; ++i) { this$1.children[i].collapse(lines) }
+  },
 
-BranchChunk.prototype.insertInner = function (at, lines, height) {
+  insertInner: function insertInner(at, lines, height) {
     var this$1 = this;
 
-  this.size += lines.length
-  this.height += height
-  for (var i = 0; i < this.children.length; ++i) {
-    var child = this$1.children[i], sz = child.chunkSize()
-    if (at <= sz) {
-      child.insertInner(at, lines, height)
-      if (child.lines && child.lines.length > 50) {
-        // To avoid memory thrashing when child.lines is huge (e.g. first view of a large file), it's never spliced.
-        // Instead, small slices are taken. They're taken in order because sequential memory accesses are fastest.
-        var remaining = child.lines.length % 25 + 25
-        for (var pos = remaining; pos < child.lines.length;) {
-          var leaf = new LeafChunk(child.lines.slice(pos, pos += 25))
-          child.height -= leaf.height
-          this$1.children.splice(++i, 0, leaf)
-          leaf.parent = this$1
+    this.size += lines.length
+    this.height += height
+    for (var i = 0; i < this.children.length; ++i) {
+      var child = this$1.children[i], sz = child.chunkSize()
+      if (at <= sz) {
+        child.insertInner(at, lines, height)
+        if (child.lines && child.lines.length > 50) {
+          // To avoid memory thrashing when child.lines is huge (e.g. first view of a large file), it's never spliced.
+          // Instead, small slices are taken. They're taken in order because sequential memory accesses are fastest.
+          var remaining = child.lines.length % 25 + 25
+          for (var pos = remaining; pos < child.lines.length;) {
+            var leaf = new LeafChunk(child.lines.slice(pos, pos += 25))
+            child.height -= leaf.height
+            this$1.children.splice(++i, 0, leaf)
+            leaf.parent = this$1
+          }
+          child.lines = child.lines.slice(0, remaining)
+          this$1.maybeSpill()
         }
-        child.lines = child.lines.slice(0, remaining)
-        this$1.maybeSpill()
+        break
       }
-      break
+      at -= sz
     }
-    at -= sz
-  }
-};
+  },
 
-// When a node has grown, check whether it should be split.
-BranchChunk.prototype.maybeSpill = function () {
-  if (this.children.length <= 10) { return }
-  var me = this
-  do {
-    var spilled = me.children.splice(me.children.length - 5, 5)
-    var sibling = new BranchChunk(spilled)
-    if (!me.parent) { // Become the parent node
-      var copy = new BranchChunk(me.children)
-      copy.parent = me
-      me.children = [copy, sibling]
-      me = copy
-   } else {
-      me.size -= sibling.size
-      me.height -= sibling.height
-      var myIndex = indexOf(me.parent.children, me)
-      me.parent.children.splice(myIndex + 1, 0, sibling)
-    }
-    sibling.parent = me.parent
-  } while (me.children.length > 10)
-  me.parent.maybeSpill()
-};
+  // When a node has grown, check whether it should be split.
+  maybeSpill: function maybeSpill() {
+    if (this.children.length <= 10) { return }
+    var me = this
+    do {
+      var spilled = me.children.splice(me.children.length - 5, 5)
+      var sibling = new BranchChunk(spilled)
+      if (!me.parent) { // Become the parent node
+        var copy = new BranchChunk(me.children)
+        copy.parent = me
+        me.children = [copy, sibling]
+        me = copy
+     } else {
+        me.size -= sibling.size
+        me.height -= sibling.height
+        var myIndex = indexOf(me.parent.children, me)
+        me.parent.children.splice(myIndex + 1, 0, sibling)
+      }
+      sibling.parent = me.parent
+    } while (me.children.length > 10)
+    me.parent.maybeSpill()
+  },
 
-BranchChunk.prototype.iterN = function (at, n, op) {
+  iterN: function iterN(at, n, op) {
     var this$1 = this;
 
-  for (var i = 0; i < this.children.length; ++i) {
-    var child = this$1.children[i], sz = child.chunkSize()
-    if (at < sz) {
-      var used = Math.min(n, sz - at)
-      if (child.iterN(at, used, op)) { return true }
-      if ((n -= used) == 0) { break }
-      at = 0
-    } else { at -= sz }
+    for (var i = 0; i < this.children.length; ++i) {
+      var child = this$1.children[i], sz = child.chunkSize()
+      if (at < sz) {
+        var used = Math.min(n, sz - at)
+        if (child.iterN(at, used, op)) { return true }
+        if ((n -= used) == 0) { break }
+        at = 0
+      } else { at -= sz }
+    }
   }
-};
+}
 
 // Line widgets are block elements displayed above or below a line.
 
@@ -5898,7 +5985,7 @@ var Doc = function(text, mode, firstLine, lineSep, direction) {
   this.scrollTop = this.scrollLeft = 0
   this.cantEdit = false
   this.cleanGeneration = 1
-  this.frontier = firstLine
+  this.modeFrontier = this.highlightFrontier = firstLine
   var start = Pos(firstLine, 0)
   this.sel = simpleSelection(start)
   this.history = new History(null)
@@ -6421,8 +6508,8 @@ function clearDragCursor(cm) {
 // garbage collected.
 
 function forEachCodeMirror(f) {
-  if (!document.body.getElementsByClassName) { return }
-  var byClass = document.body.getElementsByClassName("CodeMirror")
+  if (!document.getElementsByClassName) { return }
+  var byClass = document.getElementsByClassName("CodeMirror")
   for (var i = 0; i < byClass.length; i++) {
     var cm = byClass[i].CodeMirror
     if (cm) { f(cm) }
@@ -6596,16 +6683,21 @@ function isModifierKey(value) {
   return name == "Ctrl" || name == "Alt" || name == "Shift" || name == "Mod"
 }
 
-// Look up the name of a key as indicated by an event object.
-function keyName(event, noShift) {
-  if (presto && event.keyCode == 34 && event["char"]) { return false }
-  var base = keyNames[event.keyCode], name = base
-  if (name == null || event.altGraphKey) { return false }
+function addModifierNames(name, event, noShift) {
+  var base = name
   if (event.altKey && base != "Alt") { name = "Alt-" + name }
   if ((flipCtrlCmd ? event.metaKey : event.ctrlKey) && base != "Ctrl") { name = "Ctrl-" + name }
   if ((flipCtrlCmd ? event.ctrlKey : event.metaKey) && base != "Cmd") { name = "Cmd-" + name }
   if (!noShift && event.shiftKey && base != "Shift") { name = "Shift-" + name }
   return name
+}
+
+// Look up the name of a key as indicated by an event object.
+function keyName(event, noShift) {
+  if (presto && event.keyCode == 34 && event["char"]) { return false }
+  var name = keyNames[event.keyCode]
+  if (name == null || event.altGraphKey) { return false }
+  return addModifierNames(name, event, noShift)
 }
 
 function getKeyMap(val) {
@@ -6635,6 +6727,112 @@ function deleteNearSelection(cm, compute) {
       { replaceRange(cm.doc, "", kill[i].from, kill[i].to, "+delete") }
     ensureCursorVisible(cm)
   })
+}
+
+function moveCharLogically(line, ch, dir) {
+  var target = skipExtendingChars(line.text, ch + dir, dir)
+  return target < 0 || target > line.text.length ? null : target
+}
+
+function moveLogically(line, start, dir) {
+  var ch = moveCharLogically(line, start.ch, dir)
+  return ch == null ? null : new Pos(start.line, ch, dir < 0 ? "after" : "before")
+}
+
+function endOfLine(visually, cm, lineObj, lineNo, dir) {
+  if (visually) {
+    var order = getOrder(lineObj, cm.doc.direction)
+    if (order) {
+      var part = dir < 0 ? lst(order) : order[0]
+      var moveInStorageOrder = (dir < 0) == (part.level == 1)
+      var sticky = moveInStorageOrder ? "after" : "before"
+      var ch
+      // With a wrapped rtl chunk (possibly spanning multiple bidi parts),
+      // it could be that the last bidi part is not on the last visual line,
+      // since visual lines contain content order-consecutive chunks.
+      // Thus, in rtl, we are looking for the first (content-order) character
+      // in the rtl chunk that is on the last line (that is, the same line
+      // as the last (content-order) character).
+      if (part.level > 0) {
+        var prep = prepareMeasureForLine(cm, lineObj)
+        ch = dir < 0 ? lineObj.text.length - 1 : 0
+        var targetTop = measureCharPrepared(cm, prep, ch).top
+        ch = findFirst(function (ch) { return measureCharPrepared(cm, prep, ch).top == targetTop; }, (dir < 0) == (part.level == 1) ? part.from : part.to - 1, ch)
+        if (sticky == "before") { ch = moveCharLogically(lineObj, ch, 1) }
+      } else { ch = dir < 0 ? part.to : part.from }
+      return new Pos(lineNo, ch, sticky)
+    }
+  }
+  return new Pos(lineNo, dir < 0 ? lineObj.text.length : 0, dir < 0 ? "before" : "after")
+}
+
+function moveVisually(cm, line, start, dir) {
+  var bidi = getOrder(line, cm.doc.direction)
+  if (!bidi) { return moveLogically(line, start, dir) }
+  if (start.ch >= line.text.length) {
+    start.ch = line.text.length
+    start.sticky = "before"
+  } else if (start.ch <= 0) {
+    start.ch = 0
+    start.sticky = "after"
+  }
+  var partPos = getBidiPartAt(bidi, start.ch, start.sticky), part = bidi[partPos]
+  if (cm.doc.direction == "ltr" && part.level % 2 == 0 && (dir > 0 ? part.to > start.ch : part.from < start.ch)) {
+    // Case 1: We move within an ltr part in an ltr editor. Even with wrapped lines,
+    // nothing interesting happens.
+    return moveLogically(line, start, dir)
+  }
+
+  var mv = function (pos, dir) { return moveCharLogically(line, pos instanceof Pos ? pos.ch : pos, dir); }
+  var prep
+  var getWrappedLineExtent = function (ch) {
+    if (!cm.options.lineWrapping) { return {begin: 0, end: line.text.length} }
+    prep = prep || prepareMeasureForLine(cm, line)
+    return wrappedLineExtentChar(cm, line, prep, ch)
+  }
+  var wrappedLineExtent = getWrappedLineExtent(start.sticky == "before" ? mv(start, -1) : start.ch)
+
+  if (cm.doc.direction == "rtl" || part.level == 1) {
+    var moveInStorageOrder = (part.level == 1) == (dir < 0)
+    var ch = mv(start, moveInStorageOrder ? 1 : -1)
+    if (ch != null && (!moveInStorageOrder ? ch >= part.from && ch >= wrappedLineExtent.begin : ch <= part.to && ch <= wrappedLineExtent.end)) {
+      // Case 2: We move within an rtl part or in an rtl editor on the same visual line
+      var sticky = moveInStorageOrder ? "before" : "after"
+      return new Pos(start.line, ch, sticky)
+    }
+  }
+
+  // Case 3: Could not move within this bidi part in this visual line, so leave
+  // the current bidi part
+
+  var searchInVisualLine = function (partPos, dir, wrappedLineExtent) {
+    var getRes = function (ch, moveInStorageOrder) { return moveInStorageOrder
+      ? new Pos(start.line, mv(ch, 1), "before")
+      : new Pos(start.line, ch, "after"); }
+
+    for (; partPos >= 0 && partPos < bidi.length; partPos += dir) {
+      var part = bidi[partPos]
+      var moveInStorageOrder = (dir > 0) == (part.level != 1)
+      var ch = moveInStorageOrder ? wrappedLineExtent.begin : mv(wrappedLineExtent.end, -1)
+      if (part.from <= ch && ch < part.to) { return getRes(ch, moveInStorageOrder) }
+      ch = moveInStorageOrder ? part.from : mv(part.to, -1)
+      if (wrappedLineExtent.begin <= ch && ch < wrappedLineExtent.end) { return getRes(ch, moveInStorageOrder) }
+    }
+  }
+
+  // Case 3a: Look for other bidi parts on the same visual line
+  var res = searchInVisualLine(partPos + dir, dir, wrappedLineExtent)
+  if (res) { return res }
+
+  // Case 3b: Look for other bidi parts on the next visual line
+  var nextCh = dir > 0 ? wrappedLineExtent.end : mv(wrappedLineExtent.begin, -1)
+  if (nextCh != null && !(dir > 0 && nextCh == line.text.length)) {
+    res = searchInVisualLine(dir > 0 ? 0 : bidi.length - 1, dir, getWrappedLineExtent(nextCh))
+    if (res) { return res }
+  }
+
+  // Case 4: Nowhere to move
+  return null
 }
 
 // Commands are parameter-less actions that can be performed on an
@@ -6686,15 +6884,15 @@ var commands = {
     {origin: "+move", bias: -1}
   ); },
   goLineRight: function (cm) { return cm.extendSelectionsBy(function (range) {
-    var top = cm.charCoords(range.head, "div").top + 5
+    var top = cm.cursorCoords(range.head, "div").top + 5
     return cm.coordsChar({left: cm.display.lineDiv.offsetWidth + 100, top: top}, "div")
   }, sel_move); },
   goLineLeft: function (cm) { return cm.extendSelectionsBy(function (range) {
-    var top = cm.charCoords(range.head, "div").top + 5
+    var top = cm.cursorCoords(range.head, "div").top + 5
     return cm.coordsChar({left: 0, top: top}, "div")
   }, sel_move); },
   goLineLeftSmart: function (cm) { return cm.extendSelectionsBy(function (range) {
-    var top = cm.charCoords(range.head, "div").top + 5
+    var top = cm.cursorCoords(range.head, "div").top + 5
     var pos = cm.coordsChar({left: 0, top: top}, "div")
     if (pos.ch < cm.getLine(pos.line).search(/\S/)) { return lineStartSmart(cm, range.head) }
     return pos
@@ -6834,6 +7032,9 @@ function lookupKeyForEditor(cm, name, handle) {
     || lookupKey(name, cm.options.keyMap, handle, cm)
 }
 
+// Note that, despite the name, this function is also used to check
+// for bound mouse clicks.
+
 var stopSeq = new Delayed
 function dispatchKey(cm, name, e, handle) {
   var seq = cm.state.keySeq
@@ -6945,6 +7146,37 @@ function onKeyPress(e) {
   cm.display.input.onKeyPress(e)
 }
 
+var DOUBLECLICK_DELAY = 400
+
+var PastClick = function(time, pos, button) {
+  this.time = time
+  this.pos = pos
+  this.button = button
+};
+
+PastClick.prototype.compare = function (time, pos, button) {
+  return this.time + DOUBLECLICK_DELAY > time &&
+    cmp(pos, this.pos) == 0 && button == this.button
+};
+
+var lastClick;
+var lastDoubleClick;
+function clickRepeat(pos, button) {
+  var now = +new Date
+  if (lastDoubleClick && lastDoubleClick.compare(now, pos, button)) {
+    lastClick = lastDoubleClick = null
+    return "triple"
+  } else if (lastClick && lastClick.compare(now, pos, button)) {
+    lastDoubleClick = new PastClick(now, pos, button)
+    lastClick = null
+    return "double"
+  } else {
+    lastClick = new PastClick(now, pos, button)
+    lastDoubleClick = null
+    return "single"
+  }
+}
+
 // A mouse down can be a single click, double click, triple click,
 // start of selection drag, start of text drag, new cursor
 // (ctrl-click), rectangle drag (alt-drag), or xwin
@@ -6966,62 +7198,79 @@ function onMouseDown(e) {
     return
   }
   if (clickInGutter(cm, e)) { return }
-  var start = posFromMouse(cm, e)
+  var pos = posFromMouse(cm, e), button = e_button(e), repeat = pos ? clickRepeat(pos, button) : "single"
   window.focus()
 
-  switch (e_button(e)) {
-  case 1:
-    // #3261: make sure, that we're not starting a second selection
-    if (cm.state.selectingText)
-      { cm.state.selectingText(e) }
-    else if (start)
-      { leftButtonDown(cm, e, start) }
-    else if (e_target(e) == display.scroller)
-      { e_preventDefault(e) }
-    break
-  case 2:
-    if (webkit) { cm.state.lastMiddleDown = +new Date }
-    if (start) { extendSelection(cm.doc, start) }
+  // #3261: make sure, that we're not starting a second selection
+  if (button == 1 && cm.state.selectingText)
+    { cm.state.selectingText(e) }
+
+  if (pos && handleMappedButton(cm, button, pos, repeat, e)) { return }
+
+  if (button == 1) {
+    if (pos) { leftButtonDown(cm, pos, repeat, e) }
+    else if (e_target(e) == display.scroller) { e_preventDefault(e) }
+  } else if (button == 2) {
+    if (pos) { extendSelection(cm.doc, pos) }
     setTimeout(function () { return display.input.focus(); }, 20)
-    e_preventDefault(e)
-    break
-  case 3:
+  } else if (button == 3) {
     if (captureRightClick) { onContextMenu(cm, e) }
     else { delayBlurEvent(cm) }
-    break
   }
 }
 
-var lastClick;
-var lastDoubleClick;
-function leftButtonDown(cm, e, start) {
+function handleMappedButton(cm, button, pos, repeat, event) {
+  var name = "Click"
+  if (repeat == "double") { name = "Double" + name }
+  else if (repeat == "triple") { name = "Triple" + name }
+  name = (button == 1 ? "Left" : button == 2 ? "Middle" : "Right") + name
+
+  return dispatchKey(cm,  addModifierNames(name, event), event, function (bound) {
+    if (typeof bound == "string") { bound = commands[bound] }
+    if (!bound) { return false }
+    var done = false
+    try {
+      if (cm.isReadOnly()) { cm.state.suppressEdits = true }
+      done = bound(cm, pos) != Pass
+    } finally {
+      cm.state.suppressEdits = false
+    }
+    return done
+  })
+}
+
+function configureMouse(cm, repeat, event) {
+  var option = cm.getOption("configureMouse")
+  var value = option ? option(cm, repeat, event) : {}
+  if (value.unit == null) {
+    var rect = chromeOS ? event.shiftKey && event.metaKey : event.altKey
+    value.unit = rect ? "rectangle" : repeat == "single" ? "char" : repeat == "double" ? "word" : "line"
+  }
+  if (value.extend == null || cm.doc.extend) { value.extend = cm.doc.extend || event.shiftKey }
+  if (value.addNew == null) { value.addNew = mac ? event.metaKey : event.ctrlKey }
+  if (value.moveOnDrag == null) { value.moveOnDrag = !(mac ? event.altKey : event.ctrlKey) }
+  return value
+}
+
+function leftButtonDown(cm, pos, repeat, event) {
   if (ie) { setTimeout(bind(ensureFocus, cm), 0) }
   else { cm.curOp.focus = activeElt() }
 
-  var now = +new Date, type
-  if (lastDoubleClick && lastDoubleClick.time > now - 400 && cmp(lastDoubleClick.pos, start) == 0) {
-    type = "triple"
-  } else if (lastClick && lastClick.time > now - 400 && cmp(lastClick.pos, start) == 0) {
-    type = "double"
-    lastDoubleClick = {time: now, pos: start}
-  } else {
-    type = "single"
-    lastClick = {time: now, pos: start}
-  }
+  var behavior = configureMouse(cm, repeat, event)
 
-  var sel = cm.doc.sel, modifier = mac ? e.metaKey : e.ctrlKey, contained
+  var sel = cm.doc.sel, contained
   if (cm.options.dragDrop && dragAndDrop && !cm.isReadOnly() &&
-      type == "single" && (contained = sel.contains(start)) > -1 &&
-      (cmp((contained = sel.ranges[contained]).from(), start) < 0 || start.xRel > 0) &&
-      (cmp(contained.to(), start) > 0 || start.xRel < 0))
-    { leftButtonStartDrag(cm, e, start, modifier) }
+      repeat == "single" && (contained = sel.contains(pos)) > -1 &&
+      (cmp((contained = sel.ranges[contained]).from(), pos) < 0 || pos.xRel > 0) &&
+      (cmp(contained.to(), pos) > 0 || pos.xRel < 0))
+    { leftButtonStartDrag(cm, event, pos, behavior) }
   else
-    { leftButtonSelect(cm, e, start, type, modifier) }
+    { leftButtonSelect(cm, event, pos, behavior) }
 }
 
 // Start a text drag. When it ends, see if any dragging actually
 // happen, and treat as a click if it didn't.
-function leftButtonStartDrag(cm, e, start, modifier) {
+function leftButtonStartDrag(cm, event, pos, behavior) {
   var display = cm.display, moved = false
   var dragEnd = operation(cm, function (e) {
     if (webkit) { display.scroller.draggable = false }
@@ -7032,8 +7281,8 @@ function leftButtonStartDrag(cm, e, start, modifier) {
     off(display.scroller, "drop", dragEnd)
     if (!moved) {
       e_preventDefault(e)
-      if (!modifier)
-        { extendSelection(cm.doc, start) }
+      if (!behavior.addNew)
+        { extendSelection(cm.doc, pos, null, null, behavior.extend) }
       // Work around unexplainable focus problem in IE9 (#2127) and Chrome (#3081)
       if (webkit || ie && ie_version == 9)
         { setTimeout(function () {document.body.focus(); display.input.focus()}, 20) }
@@ -7042,13 +7291,13 @@ function leftButtonStartDrag(cm, e, start, modifier) {
     }
   })
   var mouseMove = function(e2) {
-    moved = moved || Math.abs(e.clientX - e2.clientX) + Math.abs(e.clientY - e2.clientY) >= 10
+    moved = moved || Math.abs(event.clientX - e2.clientX) + Math.abs(event.clientY - e2.clientY) >= 10
   }
   var dragStart = function () { return moved = true; }
   // Let the drag handler handle this.
   if (webkit) { display.scroller.draggable = true }
   cm.state.draggingText = dragEnd
-  dragEnd.copy = mac ? e.altKey : e.ctrlKey
+  dragEnd.copy = !behavior.moveOnDrag
   // IE's approach to draggable
   if (display.scroller.dragDrop) { display.scroller.dragDrop() }
   on(document, "mouseup", dragEnd)
@@ -7060,13 +7309,21 @@ function leftButtonStartDrag(cm, e, start, modifier) {
   setTimeout(function () { return display.input.focus(); }, 20)
 }
 
+function rangeForUnit(cm, pos, unit) {
+  if (unit == "char") { return new Range(pos, pos) }
+  if (unit == "word") { return cm.findWordAt(pos) }
+  if (unit == "line") { return new Range(Pos(pos.line, 0), clipPos(cm.doc, Pos(pos.line + 1, 0))) }
+  var result = unit(cm, pos)
+  return new Range(result.from, result.to)
+}
+
 // Normal selection, as opposed to text dragging.
-function leftButtonSelect(cm, e, start, type, addNew) {
+function leftButtonSelect(cm, event, start, behavior) {
   var display = cm.display, doc = cm.doc
-  e_preventDefault(e)
+  e_preventDefault(event)
 
   var ourRange, ourIndex, startSel = doc.sel, ranges = startSel.ranges
-  if (addNew && !e.shiftKey) {
+  if (behavior.addNew && !behavior.extend) {
     ourIndex = doc.sel.contains(start)
     if (ourIndex > -1)
       { ourRange = ranges[ourIndex] }
@@ -7077,28 +7334,19 @@ function leftButtonSelect(cm, e, start, type, addNew) {
     ourIndex = doc.sel.primIndex
   }
 
-  if (chromeOS ? e.shiftKey && e.metaKey : e.altKey) {
-    type = "rect"
-    if (!addNew) { ourRange = new Range(start, start) }
-    start = posFromMouse(cm, e, true, true)
+  if (behavior.unit == "rectangle") {
+    if (!behavior.addNew) { ourRange = new Range(start, start) }
+    start = posFromMouse(cm, event, true, true)
     ourIndex = -1
-  } else if (type == "double") {
-    var word = cm.findWordAt(start)
-    if (cm.display.shift || doc.extend)
-      { ourRange = extendRange(doc, ourRange, word.anchor, word.head) }
-    else
-      { ourRange = word }
-  } else if (type == "triple") {
-    var line = new Range(Pos(start.line, 0), clipPos(doc, Pos(start.line + 1, 0)))
-    if (cm.display.shift || doc.extend)
-      { ourRange = extendRange(doc, ourRange, line.anchor, line.head) }
-    else
-      { ourRange = line }
   } else {
-    ourRange = extendRange(doc, ourRange, start)
+    var range = rangeForUnit(cm, start, behavior.unit)
+    if (behavior.extend)
+      { ourRange = extendRange(ourRange, range.anchor, range.head, behavior.extend) }
+    else
+      { ourRange = range }
   }
 
-  if (!addNew) {
+  if (!behavior.addNew) {
     ourIndex = 0
     setSelection(doc, new Selection([ourRange], 0), sel_mouse)
     startSel = doc.sel
@@ -7106,7 +7354,7 @@ function leftButtonSelect(cm, e, start, type, addNew) {
     ourIndex = ranges.length
     setSelection(doc, normalizeSelection(ranges.concat([ourRange]), ourIndex),
                  {scroll: false, origin: "*mouse"})
-  } else if (ranges.length > 1 && ranges[ourIndex].empty() && type == "single" && !e.shiftKey) {
+  } else if (ranges.length > 1 && ranges[ourIndex].empty() && behavior.unit == "char" && !behavior.extend) {
     setSelection(doc, normalizeSelection(ranges.slice(0, ourIndex).concat(ranges.slice(ourIndex + 1)), 0),
                  {scroll: false, origin: "*mouse"})
     startSel = doc.sel
@@ -7119,7 +7367,7 @@ function leftButtonSelect(cm, e, start, type, addNew) {
     if (cmp(lastPos, pos) == 0) { return }
     lastPos = pos
 
-    if (type == "rect") {
+    if (behavior.unit == "rectangle") {
       var ranges = [], tabSize = cm.options.tabSize
       var startCol = countColumn(getLine(doc, start.line).text, start.ch, tabSize)
       var posCol = countColumn(getLine(doc, pos.line).text, pos.ch, tabSize)
@@ -7138,23 +7386,17 @@ function leftButtonSelect(cm, e, start, type, addNew) {
       cm.scrollIntoView(pos)
     } else {
       var oldRange = ourRange
-      var anchor = oldRange.anchor, head = pos
-      if (type != "single") {
-        var range
-        if (type == "double")
-          { range = cm.findWordAt(pos) }
-        else
-          { range = new Range(Pos(pos.line, 0), clipPos(doc, Pos(pos.line + 1, 0))) }
-        if (cmp(range.anchor, anchor) > 0) {
-          head = range.head
-          anchor = minPos(oldRange.from(), range.anchor)
-        } else {
-          head = range.anchor
-          anchor = maxPos(oldRange.to(), range.head)
-        }
+      var range = rangeForUnit(cm, pos, behavior.unit)
+      var anchor = oldRange.anchor, head
+      if (cmp(range.anchor, anchor) > 0) {
+        head = range.head
+        anchor = minPos(oldRange.from(), range.anchor)
+      } else {
+        head = range.anchor
+        anchor = maxPos(oldRange.to(), range.head)
       }
       var ranges$1 = startSel.ranges.slice(0)
-      ranges$1[ourIndex] = new Range(clipPos(doc, anchor), head)
+      ranges$1[ourIndex] = bidiSimplify(cm, new Range(clipPos(doc, anchor), head))
       setSelection(doc, normalizeSelection(ranges$1, ourIndex), sel_mouse)
     }
   }
@@ -7168,7 +7410,7 @@ function leftButtonSelect(cm, e, start, type, addNew) {
 
   function extend(e) {
     var curCount = ++counter
-    var cur = posFromMouse(cm, e, true, type == "rect")
+    var cur = posFromMouse(cm, e, true, behavior.unit == "rectangle")
     if (!cur) { return }
     if (cmp(cur, lastPos) != 0) {
       cm.curOp.focus = activeElt()
@@ -7206,13 +7448,52 @@ function leftButtonSelect(cm, e, start, type, addNew) {
   on(document, "mouseup", up)
 }
 
+// Used when mouse-selecting to adjust the anchor to the proper side
+// of a bidi jump depending on the visual position of the head.
+function bidiSimplify(cm, range) {
+  var anchor = range.anchor;
+  var head = range.head;
+  var anchorLine = getLine(cm.doc, anchor.line)
+  if (cmp(anchor, head) == 0 && anchor.sticky == head.sticky) { return range }
+  var order = getOrder(anchorLine)
+  if (!order) { return range }
+  var index = getBidiPartAt(order, anchor.ch, anchor.sticky), part = order[index]
+  if (part.from != anchor.ch && part.to != anchor.ch) { return range }
+  var boundary = index + ((part.from == anchor.ch) == (part.level != 1) ? 0 : 1)
+  if (boundary == 0 || boundary == order.length) { return range }
+
+  // Compute the relative visual position of the head compared to the
+  // anchor (<0 is to the left, >0 to the right)
+  var leftSide
+  if (head.line != anchor.line) {
+    leftSide = (head.line - anchor.line) * (cm.doc.direction == "ltr" ? 1 : -1) > 0
+  } else {
+    var headIndex = getBidiPartAt(order, head.ch, head.sticky)
+    var dir = headIndex - index || (head.ch - anchor.ch) * (part.level == 1 ? -1 : 1)
+    if (headIndex == boundary - 1 || headIndex == boundary)
+      { leftSide = dir < 0 }
+    else
+      { leftSide = dir > 0 }
+  }
+
+  var usePart = order[boundary + (leftSide ? -1 : 0)]
+  var from = leftSide == (usePart.level == 1)
+  var ch = from ? usePart.from : usePart.to, sticky = from ? "after" : "before"
+  return anchor.ch == ch && anchor.sticky == sticky ? range : new Range(new Pos(anchor.line, ch, sticky), head)
+}
+
 
 // Determines whether an event happened in the gutter, and fires the
 // handlers for the corresponding event.
 function gutterEvent(cm, e, type, prevent) {
   var mX, mY
-  try { mX = e.clientX; mY = e.clientY }
-  catch(e) { return false }
+  if (e.touches) {
+    mX = e.touches[0].clientX
+    mY = e.touches[0].clientY
+  } else {
+    try { mX = e.clientX; mY = e.clientY }
+    catch(e) { return false }
+  }
   if (mX >= Math.floor(cm.display.gutters.getBoundingClientRect().right)) { return false }
   if (prevent) { e_preventDefault(e) }
 
@@ -7334,6 +7615,7 @@ function defineOptions(CodeMirror) {
     if (next.attach) { next.attach(cm, prev || null) }
   })
   option("extraKeys", null)
+  option("configureMouse", null)
 
   option("lineWrapping", false, wrappingChanged, true)
   option("gutters", [], function (cm) {
@@ -7361,14 +7643,12 @@ function defineOptions(CodeMirror) {
 
   option("resetSelectionOnContextMenu", true)
   option("lineWiseCopyCut", true)
+  option("pasteLinesPerSelection", true)
 
   option("readOnly", false, function (cm, val) {
     if (val == "nocursor") {
       onBlur(cm)
       cm.display.input.blur()
-      cm.display.disabled = true
-    } else {
-      cm.display.disabled = false
     }
     cm.display.input.readOnlyChanged(val)
   })
@@ -7551,7 +7831,7 @@ function registerEventHandlers(cm) {
     return dx * dx + dy * dy > 20 * 20
   }
   on(d.scroller, "touchstart", function (e) {
-    if (!signalDOMEvent(cm, e) && !isMouseLikeTouchEvent(e)) {
+    if (!signalDOMEvent(cm, e) && !isMouseLikeTouchEvent(e) && !clickInGutter(cm, e)) {
       d.input.ensurePolled()
       clearTimeout(touchFinished)
       var now = +new Date
@@ -7633,7 +7913,7 @@ function indentLine(cm, n, how, aggressive) {
     // Fall back to "prev" when the mode doesn't have an indentation
     // method.
     if (!doc.mode.indent) { how = "prev" }
-    else { state = getStateBefore(cm, n) }
+    else { state = getContextBefore(cm, n).state }
   }
 
   var tabSize = cm.options.tabSize
@@ -7709,7 +7989,7 @@ function applyTextInput(cm, inserted, deleted, sel, origin) {
         for (var i = 0; i < lastCopied.text.length; i++)
           { multiPaste.push(doc.splitLines(lastCopied.text[i])) }
       }
-    } else if (textLines.length == sel.ranges.length) {
+    } else if (textLines.length == sel.ranges.length && cm.options.pasteLinesPerSelection) {
       multiPaste = map(textLines, function (l) { return [l]; })
     }
   }
@@ -7969,7 +8249,7 @@ function addEditorMethods(CodeMirror) {
     getStateAfter: function(line, precise) {
       var doc = this.doc
       line = clipLine(doc, line == null ? doc.first + doc.size - 1: line)
-      return getStateBefore(this, line + 1, precise)
+      return getContextBefore(this, line + 1, precise).state
     },
 
     cursorCoords: function(start, mode) {
@@ -8050,6 +8330,7 @@ function addEditorMethods(CodeMirror) {
     triggerOnKeyDown: methodOp(onKeyDown),
     triggerOnKeyPress: methodOp(onKeyPress),
     triggerOnKeyUp: onKeyUp,
+    triggerOnMouseDown: methodOp(onMouseDown),
 
     execCommand: function(cmd) {
       if (commands.hasOwnProperty(cmd))
@@ -8205,6 +8486,8 @@ function addEditorMethods(CodeMirror) {
     }),
 
     operation: function(f){return runInOp(this, f)},
+    startOperation: function(){return startOperation(this)},
+    endOperation: function(){return endOperation(this)},
 
     refresh: methodOp(function() {
       var oldHeight = this.display.cachedTextHeight
@@ -8748,7 +9031,7 @@ function domTextBetween(cm, from, to, fromLine, toLine) {
       var markerID = node.getAttribute("cm-marker"), range
       if (markerID) {
         var found = cm.findMarks(Pos(fromLine, 0), Pos(toLine + 1, 0), recognizeMarker(+markerID))
-        if (found.length && (range = found[0].find()))
+        if (found.length && (range = found[0].find(0)))
           { addText(getBetween(cm.doc, range.from, range.to).join(lineSep)) }
         return
       }
@@ -8857,9 +9140,6 @@ var TextareaInput = function(cm) {
   this.pollingFast = false
   // Self-resetting timeout for the poller
   this.polling = new Delayed()
-  // Tracks when input.reset has punted to just putting a short
-  // string into the textarea instead of the full selection.
-  this.inaccurateSelection = false
   // Used to work around IE issue with selection being forgotten when focus moves away from textarea
   this.hasSelection = false
   this.composing = null
@@ -8896,12 +9176,6 @@ TextareaInput.prototype.init = function (display) {
     if (signalDOMEvent(cm, e)) { return }
     if (cm.somethingSelected()) {
       setLastCopied({lineWise: false, text: cm.getSelections()})
-      if (input.inaccurateSelection) {
-        input.prevInput = ""
-        input.inaccurateSelection = false
-        te.value = lastCopied.text.join("\n")
-        selectInput(te)
-      }
     } else if (!cm.options.lineWiseCopyCut) {
       return
     } else {
@@ -8980,13 +9254,10 @@ TextareaInput.prototype.showSelection = function (drawn) {
 // when not typing and nothing is selected)
 TextareaInput.prototype.reset = function (typing) {
   if (this.contextMenuPending || this.composing) { return }
-  var minimal, selected, cm = this.cm, doc = cm.doc
+  var cm = this.cm
   if (cm.somethingSelected()) {
     this.prevInput = ""
-    var range = doc.sel.primary()
-    minimal = hasCopyEvent &&
-      (range.to().line - range.from().line > 100 || (selected = cm.getSelection()).length > 1000)
-    var content = minimal ? "-" : selected || cm.getSelection()
+    var content = cm.getSelection()
     this.textarea.value = content
     if (cm.state.focused) { selectInput(this.textarea) }
     if (ie && ie_version >= 9) { this.hasSelection = content }
@@ -8994,7 +9265,6 @@ TextareaInput.prototype.reset = function (typing) {
     this.prevInput = this.textarea.value = ""
     if (ie && ie_version >= 9) { this.hasSelection = null }
   }
-  this.inaccurateSelection = minimal
 };
 
 TextareaInput.prototype.getField = function () { return this.textarea };
@@ -9189,6 +9459,7 @@ TextareaInput.prototype.onContextMenu = function (e) {
 
 TextareaInput.prototype.readOnlyChanged = function (val) {
   if (!val) { this.reset() }
+  this.textarea.disabled = val == "nocursor"
 };
 
 TextareaInput.prototype.setUneditable = function () {};
@@ -9344,7 +9615,7 @@ CodeMirror.fromTextArea = fromTextArea
 
 addLegacyProps(CodeMirror)
 
-CodeMirror.version = "5.26.0"
+CodeMirror.version = "5.30.0"
 
 return CodeMirror;
 

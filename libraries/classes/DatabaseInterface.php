@@ -68,6 +68,13 @@ class DatabaseInterface
     private $_extension;
 
     /**
+     * Opened database links
+     *
+     * @var array
+     */
+    private $_links;
+
+    /**
      * @var array Table data cache
      */
     private $_table_cache;
@@ -116,6 +123,11 @@ class DatabaseInterface
     public function __construct($ext)
     {
         $this->_extension = $ext;
+        $this->_links = array();
+        if (defined('TESTSUITE')) {
+            $this->_links[DatabaseInterface::CONNECT_USER] = 1;
+            $this->_links[DatabaseInterface::CONNECT_CONTROL] = 2;
+        }
         $this->_table_cache = array();
         $this->_current_user = array();
         $this->types = new Types($this);
@@ -146,7 +158,7 @@ class DatabaseInterface
      *
      * @return mixed
      */
-    public function query($query, $link = null, $options = 0,
+    public function query($query, $link = DatabaseInterface::CONNECT_USER, $options = 0,
         $cache_affected_rows = true
     ) {
         $res = $this->tryQuery($query, $link, $options, $cache_affected_rows)
@@ -249,7 +261,7 @@ class DatabaseInterface
      * Stores query data into session data for debugging purposes
      *
      * @param string         $query  Query text
-     * @param object         $link   database link
+     * @param integer        $link   link type
      * @param object|boolean $result Query result
      * @param integer        $time   Time to execute query
      *
@@ -281,18 +293,17 @@ class DatabaseInterface
      * runs a query and returns the result
      *
      * @param string  $query               query to run
-     * @param object  $link                mysql link resource
+     * @param integer $link                link type
      * @param integer $options             query options
      * @param bool    $cache_affected_rows whether to cache affected row
      *
      * @return mixed
      */
-    public function tryQuery($query, $link = null, $options = 0,
+    public function tryQuery($query, $link = DatabaseInterface::CONNECT_USER, $options = 0,
         $cache_affected_rows = true
     ) {
         $debug = $GLOBALS['cfg']['DBG']['sql'];
-        $link = $this->getLink($link);
-        if ($link === false) {
+        if (! isset($this->_links[$link])) {
             return false;
         }
 
@@ -300,7 +311,7 @@ class DatabaseInterface
             $time = microtime(true);
         }
 
-        $result = $this->_extension->realQuery($query, $link, $options);
+        $result = $this->_extension->realQuery($query, $this->_links[$link], $options);
 
         if ($cache_affected_rows) {
             $GLOBALS['cached_affected_rows'] = $this->affectedRows($link, false);
@@ -312,7 +323,7 @@ class DatabaseInterface
             if ($GLOBALS['cfg']['DBG']['sqllog']) {
                 if ($options & DatabaseInterface::QUERY_STORE == DatabaseInterface::QUERY_STORE) {
                     $tmp = $this->_extension->realQuery('
-                        SHOW COUNT(*) WARNINGS', $link, DatabaseInterface::QUERY_STORE
+                        SHOW COUNT(*) WARNINGS', $this->_links[$link], DatabaseInterface::QUERY_STORE
                     );
                     $warnings = $this->fetchRow($tmp);
                 } else {
@@ -345,14 +356,12 @@ class DatabaseInterface
      *
      * @return mysqli_result collection | boolean(false)
      */
-    public function tryMultiQuery($multi_query = '', $link = null)
+    public function tryMultiQuery($multi_query = '', $link = DatabaseInterface::CONNECT_USER)
     {
-        $link = $this->getLink($link);
-        if ($link === false) {
+        if (! isset($this->_links[$link])) {
             return false;
         }
-
-        return $this->_extension->realMultiQuery($link, $multi_query);
+        return $this->_extension->realMultiQuery($this->_links[$link], $multi_query);
     }
 
     /**
@@ -363,7 +372,7 @@ class DatabaseInterface
      *
      * @return array   tables names
      */
-    public function getTables($database, $link = null)
+    public function getTables($database, $link = DatabaseInterface::CONNECT_USER)
     {
         $tables = $this->fetchResult(
             'SHOW TABLES FROM ' . Util::backquote($database) . ';',
@@ -485,21 +494,21 @@ class DatabaseInterface
      * @param string          $database     database
      * @param string|array    $table        table name(s)
      * @param boolean         $tbl_is_group $table is a table group
-     * @param mixed           $link         mysql link
      * @param integer         $limit_offset zero-based offset for the count
      * @param boolean|integer $limit_count  number of tables to return
      * @param string          $sort_by      table attribute to sort by
      * @param string          $sort_order   direction to sort (ASC or DESC)
      * @param string          $table_type   whether table or view
+     * @param integer         $link         link type
      *
      * @todo    move into Table
      *
      * @return array           list of tables in given db(s)
      */
     public function getTablesFull($database, $table = '',
-        $tbl_is_group = false,  $link = null, $limit_offset = 0,
+        $tbl_is_group = false, $limit_offset = 0,
         $limit_count = false, $sort_by = 'Name', $sort_order = 'ASC',
-        $table_type = null
+        $table_type = null, $link = DatabaseInterface::CONNECT_USER
     ) {
         if (true === $limit_count) {
             $limit_count = $GLOBALS['cfg']['MaxTableList'];
@@ -798,7 +807,7 @@ class DatabaseInterface
      *
      * @param string   $database     database
      * @param boolean  $force_stats  retrieve stats also for MySQL < 5
-     * @param object   $link         mysql link
+     * @param integer  $link         link type
      * @param string   $sort_by      column to order by
      * @param string   $sort_order   ASC or DESC
      * @param integer  $limit_offset starting offset for LIMIT
@@ -810,7 +819,7 @@ class DatabaseInterface
      * @return array $databases
      */
     public function getDatabasesFull($database = null, $force_stats = false,
-        $link = null, $sort_by = 'SCHEMA_NAME', $sort_order = 'ASC',
+        $link = DatabaseInterface::CONNECT_USER, $sort_by = 'SCHEMA_NAME', $sort_order = 'ASC',
         $limit_offset = 0, $limit_count = false
     ) {
         $sort_order = strtoupper($sort_order);
@@ -1065,7 +1074,7 @@ class DatabaseInterface
      * @return array
      */
     public function getColumnsFull($database = null, $table = null,
-        $column = null, $link = null
+        $column = null, $link = DatabaseInterface::CONNECT_USER
     ) {
         if (! $GLOBALS['cfg']['Server']['DisableIS']) {
             $sql_wheres = array();
@@ -1228,13 +1237,13 @@ class DatabaseInterface
      * @param string  $table    name of table to retrieve columns from
      * @param string  $column   name of column, null to show all columns
      * @param boolean $full     whether to return full info or only column names
-     * @param mixed   $link     mysql link resource
+     * @param integer $link     link type
      *
      * @return array array indexed by column names or,
      *               if $column is given, flat array description
      */
     public function getColumns($database, $table, $column = null, $full = false,
-        $link = null
+        $link = DatabaseInterface::CONNECT_USER
     ) {
         $sql = $this->getColumnsSql($database, $table, $column, $full);
         $fields = $this->fetchResult($sql, 'Field', null, $link);
@@ -1277,7 +1286,7 @@ class DatabaseInterface
      *
      * @return null|array
      */
-    public function getColumnNames($database, $table, $link = null)
+    public function getColumnNames($database, $table, $link = DatabaseInterface::CONNECT_USER)
     {
         $sql = $this->getColumnsSql($database, $table);
         // We only need the 'Field' column which contains the table's column names
@@ -1317,7 +1326,7 @@ class DatabaseInterface
      *
      * @return array   $indexes
      */
-    public function getTableIndexes($database, $table, $link = null)
+    public function getTableIndexes($database, $table, $link = DatabaseInterface::CONNECT_USER)
     {
         $sql = $this->getTableIndexesSql($database, $table);
         $indexes = $this->fetchResult($sql, null, null, $link);
@@ -1339,13 +1348,8 @@ class DatabaseInterface
      * @return mixed   value for mysql server variable
      */
     public function getVariable(
-        $var, $type = self::GETVAR_SESSION, $link = null
+        $var, $type = self::GETVAR_SESSION, $link = DatabaseInterface::CONNECT_USER
     ) {
-        $link = $this->getLink($link);
-        if ($link === false) {
-            return false;
-        }
-
         switch ($type) {
         case self::GETVAR_SESSION:
             $modifier = ' SESSION';
@@ -1370,12 +1374,8 @@ class DatabaseInterface
      *
      * @return bool whether query was a successful
      */
-    public function setVariable($var, $value, $link = null)
+    public function setVariable($var, $value, $link = DatabaseInterface::CONNECT_USER)
     {
-        $link = $this->getLink($link);
-        if ($link === false) {
-            return false;
-        }
         $current_value = $this->getVariable(
             $var, self::GETVAR_SESSION, $link
         );
@@ -1404,7 +1404,7 @@ class DatabaseInterface
      * been established. It sets the connection collation, and determines the
      * version of MySQL which is running.
      *
-     * @param mixed $link mysql link resource|object
+     * @param integer $link link type
      *
      * @return void
      */
@@ -1486,6 +1486,31 @@ class DatabaseInterface
             );
         }
 
+        // Set timezone for the session, if required.
+        if ($GLOBALS['cfg']['Server']['SessionTimeZone'] != '') {
+            $sql_query_tz = 'SET ' . Util::backquote('time_zone') . ' = '
+                . '\''
+                . $this->escapeString($GLOBALS['cfg']['Server']['SessionTimeZone'])
+                . '\'';
+
+            if (! $this->tryQuery($sql_query_tz)) {
+                $error_message_tz = sprintf(
+                    __(
+                        'Unable to use timezone "%1$s" for server %2$d. '
+                        . 'Please check your configuration setting for '
+                        . '[em]$cfg[\'Servers\'][%3$d][\'SessionTimeZone\'][/em]. '
+                        . 'phpMyAdmin is currently using the default time zone '
+                        . 'of the database server.'
+                    ),
+                    $GLOBALS['cfg']['Server']['SessionTimeZone'],
+                    $GLOBALS['server'],
+                    $GLOBALS['server']
+                );
+
+                trigger_error($error_message_tz, E_USER_WARNING);
+            }
+        }
+
         /* Loads closest context to this version. */
         \PhpMyAdmin\SqlParser\Context::loadClosest(
             ($this->_is_mariadb ? 'MariaDb' : 'MySql') . $this->_version_int
@@ -1509,12 +1534,12 @@ class DatabaseInterface
      *                                   starting at 0, with 0 being default
      * @param integer|string $field      field to fetch the value from,
      *                                   starting at 0, with 0 being default
-     * @param object         $link       mysql link
+     * @param integer        $link       link type
      *
      * @return mixed value of first field in first row from result
      *               or false if not found
      */
-    public function fetchValue($query, $row_number = 0, $field = 0, $link = null)
+    public function fetchValue($query, $row_number = 0, $field = 0, $link = DatabaseInterface::CONNECT_USER)
     {
         $value = false;
 
@@ -1568,12 +1593,12 @@ class DatabaseInterface
      * @param string $query The query to execute
      * @param string $type  NUM|ASSOC|BOTH returned array should either
      *                      numeric associative or both
-     * @param object $link  mysql link
+     * @param integer $link  link type
      *
      * @return array|boolean first row from result
      *                       or false if result is empty
      */
-    public function fetchSingleRow($query, $type = 'ASSOC', $link = null)
+    public function fetchSingleRow($query, $type = 'ASSOC', $link = DatabaseInterface::CONNECT_USER)
     {
         $result = $this->tryQuery(
             $query,
@@ -1673,13 +1698,13 @@ class DatabaseInterface
      *                                      or array of those
      * @param string|integer       $value   value-name or offset
      *                                      used as value for array
-     * @param object               $link    mysql link
+     * @param integer              $link    link type
      * @param integer              $options query options
      *
      * @return array resultrows or values indexed by $key
      */
     public function fetchResult($query, $key = null, $value = null,
-        $link = null, $options = 0
+        $link = DatabaseInterface::CONNECT_USER, $options = 0
     ) {
         $resultrows = array();
 
@@ -1761,17 +1786,12 @@ class DatabaseInterface
     /**
      * returns warnings for last query
      *
-     * @param object $link mysql link resource
+     * @param integer $link link type
      *
      * @return array warnings
      */
-    public function getWarnings($link = null)
+    public function getWarnings($link = DatabaseInterface::CONNECT_USER)
     {
-        $link = $this->getLink($link);
-        if ($link === false) {
-            return false;
-        }
-
         return $this->fetchResult('SHOW WARNINGS', null, null, $link);
     }
 
@@ -1780,11 +1800,11 @@ class DatabaseInterface
      *
      * @param string $db    db name
      * @param string $which PROCEDURE | FUNCTION
-     * @param object $link  mysql link
+     * @param integer $link  link type
      *
      * @return array the procedure names or function names
      */
-    public function getProceduresOrFunctions($db, $which, $link = null)
+    public function getProceduresOrFunctions($db, $which, $link = DatabaseInterface::CONNECT_USER)
     {
         $shows = $this->fetchResult(
             'SHOW ' . $which . ' STATUS;', null, null, $link
@@ -1801,14 +1821,14 @@ class DatabaseInterface
     /**
      * returns the definition of a specific PROCEDURE, FUNCTION, EVENT or VIEW
      *
-     * @param string $db    db name
-     * @param string $which PROCEDURE | FUNCTION | EVENT | VIEW
-     * @param string $name  the procedure|function|event|view name
-     * @param object $link  MySQL link
+     * @param string  $db    db name
+     * @param string  $which PROCEDURE | FUNCTION | EVENT | VIEW
+     * @param string  $name  the procedure|function|event|view name
+     * @param integer $link  link type
      *
      * @return string the definition
      */
-    public function getDefinition($db, $which, $name, $link = null)
+    public function getDefinition($db, $which, $name, $link = DatabaseInterface::CONNECT_USER)
     {
         $returned_field = array(
             'PROCEDURE' => 'Create Procedure',
@@ -2154,9 +2174,13 @@ class DatabaseInterface
         }
 
         // when connection failed we don't have a $userlink
-        if (! isset($GLOBALS['userlink'])) {
-            Util::cacheSet('is_' . $type . 'user', false);
-            return Util::cacheGet('is_' . $type . 'user');
+        if (! isset($this->_links[DatabaseInterface::CONNECT_USER])) {
+            return false;
+        }
+
+        // checking if user is logged in
+        if ($type === 'logged') {
+            return true;
         }
 
         if (! $GLOBALS['cfg']['Server']['DisableIS'] || $type === 'super') {
@@ -2187,22 +2211,20 @@ class DatabaseInterface
             $is = false;
             $result = $this->tryQuery(
                 $query,
-                $GLOBALS['userlink'],
+                self::CONNECT_USER,
                 self::QUERY_STORE
             );
             if ($result) {
                 $is = (bool) $this->numRows($result);
             }
             $this->freeResult($result);
-
-            Util::cacheSet('is_' . $type . 'user', $is);
         } else {
             $is = false;
             $grants = $this->fetchResult(
                 "SHOW GRANTS FOR CURRENT_USER();",
                 null,
                 null,
-                $GLOBALS['userlink'],
+                self::CONNECT_USER,
                 self::QUERY_STORE
             );
             if ($grants) {
@@ -2222,11 +2244,10 @@ class DatabaseInterface
                     }
                 }
             }
-
-            Util::cacheSet('is_' . $type . 'user', $is);
         }
 
-        return Util::cacheGet('is_' . $type . 'user');
+        Util::cacheSet('is_' . $type . 'user', $is);
+        return $is;
     }
 
     /**
@@ -2389,12 +2410,17 @@ class DatabaseInterface
      * @param integer    $mode   Connection mode on of CONNECT_USER, CONNECT_CONTROL
      *                           or CONNECT_AUXILIARY.
      * @param array|null $server Server information like host/port/socket/persistent
+     * @param integer    $target How to store connection link, defaults to $mode
      *
      * @return mixed false on error or a connection object on success
      */
-    public function connect($mode, $server = null)
+    public function connect($mode, $server = null, $target = null)
     {
         list($user, $password, $server) = $this->getConnectionParams($mode, $server);
+
+        if (is_null($target)) {
+            $target = $mode;
+        }
 
         if (is_null($user) || is_null($password)) {
             trigger_error(
@@ -2412,9 +2438,10 @@ class DatabaseInterface
         $GLOBALS['error_handler']->setHideLocation(false);
 
         if ($result) {
+            $this->_links[$target] = $result;
             /* Run post connect for user connections */
-            if ($mode == DatabaseInterface::CONNECT_USER) {
-                $this->postConnect($result);
+            if ($target == DatabaseInterface::CONNECT_USER) {
+                $this->postConnect(DatabaseInterface::CONNECT_USER);
             }
             return $result;
         }
@@ -2441,17 +2468,16 @@ class DatabaseInterface
      * selects given database
      *
      * @param string $dbname database name to select
-     * @param object $link   connection object
+     * @param integer $link   link type
      *
      * @return boolean
      */
-    public function selectDb($dbname, $link = null)
+    public function selectDb($dbname, $link = DatabaseInterface::CONNECT_USER)
     {
-        $link = $this->getLink($link);
-        if ($link === false) {
+        if (! isset($this->_links[$link])) {
             return false;
         }
-        return $this->_extension->selectDb($dbname, $link);
+        return $this->_extension->selectDb($dbname, $this->_links[$link]);
     }
 
     /**
@@ -2518,81 +2544,76 @@ class DatabaseInterface
     /**
      * Check if there are any more query results from a multi query
      *
-     * @param object $link the connection object
+     * @param integer $link link type
      *
      * @return bool true or false
      */
-    public function moreResults($link = null)
+    public function moreResults($link = DatabaseInterface::CONNECT_USER)
     {
-        $link = $this->getLink($link);
-        if ($link === false) {
+        if (! isset($this->_links[$link])) {
             return false;
         }
-        return $this->_extension->moreResults($link);
+        return $this->_extension->moreResults($this->_links[$link]);
     }
 
     /**
      * Prepare next result from multi_query
      *
-     * @param object $link the connection object
+     * @param integer $link link type
      *
      * @return bool true or false
      */
-    public function nextResult($link = null)
+    public function nextResult($link = DatabaseInterface::CONNECT_USER)
     {
-        $link = $this->getLink($link);
-        if ($link === false) {
+        if (! isset($this->_links[$link])) {
             return false;
         }
-        return $this->_extension->nextResult($link);
+        return $this->_extension->nextResult($this->_links[$link]);
     }
 
     /**
      * Store the result returned from multi query
      *
-     * @param object $link the connection object
+     * @param integer $link link type
      *
      * @return mixed false when empty results / result set when not empty
      */
-    public function storeResult($link = null)
+    public function storeResult($link = DatabaseInterface::CONNECT_USER)
     {
-        $link = $this->getLink($link);
-        if ($link === false) {
+        if (! isset($this->_links[$link])) {
             return false;
         }
-        return $this->_extension->storeResult($link);
+        return $this->_extension->storeResult($this->_links[$link]);
     }
 
     /**
      * Returns a string representing the type of connection used
      *
-     * @param object $link mysql link
+     * @param integer $link link type
      *
      * @return string type of connection used
      */
-    public function getHostInfo($link = null)
+    public function getHostInfo($link = DatabaseInterface::CONNECT_USER)
     {
-        $link = $this->getLink($link);
-        if ($link === false) {
+        if (! isset($this->_links[$link])) {
             return false;
         }
-        return $this->_extension->getHostInfo($link);
+        return $this->_extension->getHostInfo($this->_links[$link]);
     }
 
     /**
      * Returns the version of the MySQL protocol used
      *
-     * @param object $link mysql link
+     * @param integer $link link type
      *
      * @return integer version of the MySQL protocol used
      */
-    public function getProtoInfo($link = null)
+    public function getProtoInfo($link = DatabaseInterface::CONNECT_USER)
     {
-        $link = $this->getLink($link);
-        if ($link === false) {
+        if (! isset($this->_links[$link])) {
             return false;
         }
-        return $this->_extension->getProtoInfo($link);
+        return $this->_extension->getProtoInfo($this->_links[$link]);
     }
 
     /**
@@ -2608,14 +2629,16 @@ class DatabaseInterface
     /**
      * returns last error message or false if no errors occurred
      *
-     * @param object $link connection link
+     * @param integer $link link type
      *
      * @return string|bool $error or false
      */
-    public function getError($link = null)
+    public function getError($link = DatabaseInterface::CONNECT_USER)
     {
-        $link = $this->getLink($link);
-        return $this->_extension->getError($link);
+        if (! isset($this->_links[$link])) {
+            return false;
+        }
+        return $this->_extension->getError($this->_links[$link]);
     }
 
     /**
@@ -2634,16 +2657,12 @@ class DatabaseInterface
      * returns last inserted auto_increment id for given $link
      * or $GLOBALS['userlink']
      *
-     * @param object $link the connection object
+     * @param integer $link link type
      *
      * @return int|boolean
      */
-    public function insertId($link = null)
+    public function insertId($link = DatabaseInterface::CONNECT_USER)
     {
-        $link = $this->getLink($link);
-        if ($link === false) {
-            return false;
-        }
         // If the primary key is BIGINT we get an incorrect result
         // (sometimes negative, sometimes positive)
         // and in the present function we don't know if the PK is BIGINT
@@ -2658,22 +2677,21 @@ class DatabaseInterface
     /**
      * returns the number of rows affected by last query
      *
-     * @param object $link           the connection object
+     * @param integer $link           link type
      * @param bool   $get_from_cache whether to retrieve from cache
      *
      * @return int|boolean
      */
-    public function affectedRows($link = null, $get_from_cache = true)
+    public function affectedRows($link = DatabaseInterface::CONNECT_USER, $get_from_cache = true)
     {
-        $link = $this->getLink($link);
-        if ($link === false) {
+        if (! isset($this->_links[$link])) {
             return false;
         }
 
         if ($get_from_cache) {
             return $GLOBALS['cached_affected_rows'];
         } else {
-            return $this->_extension->affectedRows($link);
+            return $this->_extension->affectedRows($this->_links[$link]);
         }
     }
 
@@ -2766,37 +2784,13 @@ class DatabaseInterface
      *
      * @return string a MySQL escaped string
      */
-    public function escapeString($str, $link = null)
+    public function escapeString($str, $link = DatabaseInterface::CONNECT_USER)
     {
-        if ($link === null) {
-            $link = $this->getLink();
-        }
-
-        if ($this->_extension === null) {
+        if ($this->_extension === null || !isset($this->_links[$link])) {
             return $str;
         }
 
-        return $this->_extension->escapeString($link, $str);
-    }
-
-    /**
-     * Gets correct link object.
-     *
-     * @param object $link optional database link to use
-     *
-     * @return object|boolean
-     */
-    public function getLink($link = null)
-    {
-        if (! is_null($link) && $link !== false) {
-            return $link;
-        }
-
-        if (isset($GLOBALS['userlink']) && !is_null($GLOBALS['userlink'])) {
-            return $GLOBALS['userlink'];
-        } else {
-            return false;
-        }
+        return $this->_extension->escapeString($this->_links[$link], $str);
     }
 
     /**

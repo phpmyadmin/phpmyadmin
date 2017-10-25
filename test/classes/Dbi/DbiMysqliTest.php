@@ -8,7 +8,6 @@ namespace PhpMyAdmin\Tests\Dbi;
 
 use PhpMyAdmin\Dbi\DbiMysqli;
 use PhpMyAdmin\Tests\PmaTestCase;
-use PhpMyAdmin\Theme;
 
 /**
  * Tests for PhpMyAdmin\Dbi\DbiMysqli class
@@ -215,7 +214,6 @@ class DbiMysqliTest extends PmaTestCase
     {
         $this->markTestIncomplete('Not testing anything');
         //$link is empty
-        $GLOBALS['userlink'] = null;
         $this->assertEquals(
             false,
             $this->object->selectDb("PMA", null)

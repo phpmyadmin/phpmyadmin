@@ -1,0 +1,95 @@
+<tbody id="tbl_summary_row">
+<tr>
+    <th class="print_ignore"></th>
+    <th class="tbl_num nowrap">
+        {% set num_tables_trans -%}
+            {% trans %}%s table{% plural num_tables %}%s tables{% endtrans %}
+        {%- endset %}
+        {{ num_tables_trans|format(Util_formatNumber(num_tables, 0)) }}
+    </th>
+    {% if server_slave_status %}
+        <th>{% trans 'Replication' %}</th>
+    {% endif %}
+    {% set sum_colspan = db_is_system_schema ? 4 : 7 %}
+    {% if num_favorite_tables == 0 %}
+        {% set sum_colspan = sum_colspan - 1 %}
+    {% endif %}
+    <th colspan="{{ sum_colspan }}" class="print_ignore">{% trans 'Sum' %}</th>
+    {% set row_count_sum = Util_formatNumber(sum_entries, 0) %}
+    {# If a table shows approximate rows count, display update-all-real-count anchor. #}
+    {% set row_sum_url = [] %}
+    {% if approx_rows is defined %}
+        {% set row_sum_url = {
+            'ajax_request': true,
+            'db': db,
+            'real_row_count': 'true',
+            'real_row_count_all': 'true'
+        } %}
+    {% endif %}
+    {% if approx_rows %}
+        {% set cell_text -%}
+            <a href="db_structure.php
+                {{- Url_getCommon(row_sum_url) }}" class="ajax row_count_sum">~
+                {{- row_count_sum -}}
+            </a>
+        {%- endset %}
+    {% else %}
+        {% set cell_text = row_count_sum %}
+    {% endif %}
+    <th class="value tbl_rows">{{ cell_text }}</th>
+    {% if not (properties_num_columns > 1) %}
+        {# MySQL <= 5.5.2 #}
+        {% set default_engine = dbi.fetchValue('SELECT @@storage_engine;') %}
+        {% if default_engine is empty %}
+            {# MySQL >= 5.5.3 #}
+            {% set default_engine = dbi.fetchValue('SELECT @@default_storage_engine;') %}
+        {% endif %}
+        <th class="center">
+            <dfn title="{{ '%s is the default storage engine on this MySQL server.'|trans|format(default_engine) }}">
+                {{ default_engine }}
+            </dfn>
+        </th>
+        <th>
+            {% if db_collation is not empty %}
+                <dfn title="{{ Charsets_getCollationDescr(db_collation) }} ({% trans 'Default' %})">
+                    {{ db_collation }}
+                </dfn>
+            {% endif %}
+        </th>
+    {% endif %}
+
+    {% if is_show_stats %}
+        {% set sum = Util_formatByteDown(sum_size, 3, 1) %}
+        {% set sum_formatted = sum[0] %}
+        {% set sum_unit = sum[1] %}
+        <th class="value tbl_size">{{ sum_formatted }} {{ sum_unit }}</th>
+
+        {% set overhead = Util_formatByteDown(overhead_size, 3, 1) %}
+        {% set overhead_formatted = overhead[0] %}
+        {% set overhead_unit = overhead[1] %}
+        <th class="value tbl_overhead">{{ overhead_formatted }} {{ overhead_unit }}</th>
+    {% endif %}
+
+    {% if show_charset %}
+        <th>{{ db_charset }}</th>
+    {% endif %}
+    {% if show_comment %}
+        <th></th>
+    {% endif %}
+    {% if show_creation %}
+        <th class="value tbl_creation">
+            {{ create_time_all ? Util_localisedDate(strtotime(create_time_all)) : '-' }}
+        </th>
+    {% endif %}
+    {% if show_last_update %}
+        <th class="value tbl_last_update">
+            {{ update_time_all ? Util_localisedDate(strtotime(update_time_all)) : '-' }}
+        </th>
+    {% endif %}
+    {% if show_last_check %}
+        <th class="value tbl_last_check">
+            {{ check_time_all ? Util_localisedDate(strtotime(check_time_all)) : '-' }}
+        </th>
+    {% endif %}
+</tr>
+</tbody>

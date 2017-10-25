@@ -15,6 +15,9 @@ var _oldTraceKit = window.TraceKit;
 var _slice = [].slice;
 var UNKNOWN_FUNCTION = '?';
 
+// https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Error#Error_types
+var ERROR_TYPES_RE = /^(?:[Uu]ncaught (?:exception: )?)?(?:((?:Eval|Internal|Range|Reference|Syntax|Type|URI|)Error): )?(.*)$/;
+
 /**
  * A better form of hasOwnProperty<br/>
  * Example: `_has(MainHostObject, property) === true/false`
@@ -115,7 +118,6 @@ TraceKit.wrap = function traceKitWrapper(func) {
  */
 TraceKit.report = (function reportModuleWrapper() {
     var handlers = [],
-        lastArgs = null,
         lastException = null,
         lastExceptionStack = null;
 
@@ -140,16 +142,22 @@ TraceKit.report = (function reportModuleWrapper() {
                 handlers.splice(i, 1);
             }
         }
+
+        if (handlers.length === 0) {
+            window.onerror = _oldOnerrorHandler;
+            _onErrorHandlerInstalled = false;
+        }
     }
 
     /**
      * Dispatch stack information to all handlers.
      * @param {TraceKit.StackTrace} stack
      * @param {boolean} isWindowError Is this a top-level window error?
+     * @param {Error=} error The error that's being handled (if available, null otherwise)
      * @memberof TraceKit.report
      * @throws An exception if an error occurs while calling an handler.
      */
-    function notifyHandlers(stack, isWindowError) {
+    function notifyHandlers(stack, isWindowError, error) {
         var exception = null;
         if (isWindowError && !TraceKit.collectWindowErrors) {
           return;
@@ -157,7 +165,7 @@ TraceKit.report = (function reportModuleWrapper() {
         for (var i in handlers) {
             if (_has(handlers, i)) {
                 try {
-                    handlers[i].apply(null, [stack].concat(_slice.call(arguments, 2)));
+                    handlers[i](stack, isWindowError, error);
                 } catch (inner) {
                     exception = inner;
                 }
@@ -187,24 +195,36 @@ TraceKit.report = (function reportModuleWrapper() {
         if (lastExceptionStack) {
             TraceKit.computeStackTrace.augmentStackTraceWithInitialElement(lastExceptionStack, url, lineNo, message);
     	    processLastException();
-	    } else if (errorObj) {
+        } else if (errorObj) {
             stack = TraceKit.computeStackTrace(errorObj);
-            notifyHandlers(stack, true);
+            notifyHandlers(stack, true, errorObj);
         } else {
             var location = {
               'url': url,
               'line': lineNo,
               'column': columnNo
             };
+
+            var name;
+            var msg = message; // must be new var or will modify original `arguments`
+            if ({}.toString.call(message) === '[object String]') {
+                var groups = message.match(ERROR_TYPES_RE);
+                if (groups) {
+                    name = groups[1];
+                    msg = groups[2];
+                }
+            }
+
             location.func = TraceKit.computeStackTrace.guessFunctionName(location.url, location.line);
             location.context = TraceKit.computeStackTrace.gatherContext(location.url, location.line);
             stack = {
-              'mode': 'onerror',
-              'message': message,
-              'stack': [location]
+                'name': name,
+                'message': msg,
+                'mode': 'onerror',
+                'stack': [location]
             };
 
-            notifyHandlers(stack, true);
+            notifyHandlers(stack, true, null);
         }
 
         if (_oldOnerrorHandler) {
@@ -218,10 +238,11 @@ TraceKit.report = (function reportModuleWrapper() {
      * Install a global onerror handler
      * @memberof TraceKit.report
      */
-    function installGlobalHandler () {
+    function installGlobalHandler() {
         if (_onErrorHandlerInstalled === true) {
             return;
         }
+
         _oldOnerrorHandler = window.onerror;
         window.onerror = traceKitWindowOnError;
         _onErrorHandlerInstalled = true;
@@ -233,11 +254,10 @@ TraceKit.report = (function reportModuleWrapper() {
      */
     function processLastException() {
         var _lastExceptionStack = lastExceptionStack,
-            _lastArgs = lastArgs;
-        lastArgs = null;
+            _lastException = lastException;
         lastExceptionStack = null;
         lastException = null;
-        notifyHandlers.apply(null, [_lastExceptionStack, false].concat(_lastArgs));
+        notifyHandlers(_lastExceptionStack, false, _lastException);
     }
 
     /**
@@ -258,13 +278,12 @@ TraceKit.report = (function reportModuleWrapper() {
         var stack = TraceKit.computeStackTrace(ex);
         lastExceptionStack = stack;
         lastException = ex;
-        lastArgs = _slice.call(arguments, 1);
 
         // If the stack trace is incomplete, wait for 2 seconds for
         // slow slow IE to see if onerror occurs or not before reporting
         // this exception; otherwise, we will end up with an incomplete
         // stack trace
-        window.setTimeout(function () {
+        setTimeout(function () {
             if (lastException === ex) {
                 processLastException();
             }
@@ -473,8 +492,7 @@ TraceKit.computeStackTrace = (function computeStackTraceWrapper() {
     /**
      * Retrieves the surrounding lines from where an exception occurred.
      * @param {string} url URL of source code.
-     * @param {(string|number)} line Line number in source code to centre
-     * around for context.
+     * @param {(string|number)} line Line number in source code to center around for context.
      * @return {?Array.<string>} Lines of source code.
      * @memberof TraceKit.computeStackTrace
      */
@@ -540,11 +558,9 @@ TraceKit.computeStackTrace = (function computeStackTraceWrapper() {
     function findSourceInUrls(re, urls) {
         var source, m;
         for (var i = 0, j = urls.length; i < j; ++i) {
-            // console.log('searching', urls[i]);
             if ((source = getSource(urls[i])).length) {
                 source = source.join('\n');
                 if ((m = re.exec(source))) {
-                    // console.log('Found function in ' + urls[i]);
 
                     return {
                         'url': urls[i],
@@ -554,8 +570,6 @@ TraceKit.computeStackTrace = (function computeStackTraceWrapper() {
                 }
             }
         }
-
-        // console.log('no match');
 
         return null;
     }
@@ -704,18 +718,32 @@ TraceKit.computeStackTrace = (function computeStackTraceWrapper() {
             return null;
         }
 
-        var chrome = /^\s*at (.*?) ?\(((?:file|https?|blob|chrome-extension|native|webpack|eval).*?)(?::(\d+))?(?::(\d+))?\)?\s*$/i,
-            gecko = /^\s*(.*?)(?:\((.*?)\))?(?:^|@)((?:file|https?|blob|chrome|webpack|\[native).*?)(?::(\d+))?(?::(\d+))?\s*$/i,
-            winjs = /^\s*at (?:((?:\[object object\])?.+) )?\(?((?:ms-appx|https?|webpack|blob):.*?):(\d+)(?::(\d+))?\)?\s*$/i,
+        var chrome = /^\s*at (.*?) ?\(((?:file|https?|blob|chrome-extension|native|eval|webpack|<anonymous>|\/).*?)(?::(\d+))?(?::(\d+))?\)?\s*$/i,
+            gecko = /^\s*(.*?)(?:\((.*?)\))?(?:^|@)((?:file|https?|blob|chrome|webpack|resource|\[native).*?|[^@]*bundle)(?::(\d+))?(?::(\d+))?\s*$/i,
+            winjs = /^\s*at (?:((?:\[object object\])?.+) )?\(?((?:file|ms-appx|https?|webpack|blob):.*?):(\d+)(?::(\d+))?\)?\s*$/i,
+
+            // Used to additionally parse URL/line/column from eval frames
+            isEval,
+            geckoEval = /(\S+) line (\d+)(?: > eval line \d+)* > eval/i,
+            chromeEval = /\((\S*)(?::(\d+))(?::(\d+))\)/,
+
             lines = ex.stack.split('\n'),
             stack = [],
+            submatch,
             parts,
             element,
             reference = /^(.*) is undefined$/.exec(ex.message);
 
         for (var i = 0, j = lines.length; i < j; ++i) {
             if ((parts = chrome.exec(lines[i]))) {
-                var isNative = parts[2] && parts[2].indexOf('native') !== -1;
+                var isNative = parts[2] && parts[2].indexOf('native') === 0; // start of line
+                isEval = parts[2] && parts[2].indexOf('eval') === 0; // start of line
+                if (isEval && (submatch = chromeEval.exec(parts[2]))) {
+                    // throw out eval line/column and use top-most line/column number
+                    parts[2] = submatch[1]; // url
+                    parts[3] = submatch[2]; // line
+                    parts[4] = submatch[3]; // column
+                }
                 element = {
                     'url': !isNative ? parts[2] : null,
                     'func': parts[1] || UNKNOWN_FUNCTION,
@@ -732,6 +760,19 @@ TraceKit.computeStackTrace = (function computeStackTraceWrapper() {
                     'column': parts[4] ? +parts[4] : null
                 };
             } else if ((parts = gecko.exec(lines[i]))) {
+                isEval = parts[3] && parts[3].indexOf(' > eval') > -1;
+                if (isEval && (submatch = geckoEval.exec(parts[3]))) {
+                    // throw out eval line/column and use top-most line number
+                    parts[3] = submatch[1];
+                    parts[4] = submatch[2];
+                    parts[5] = null; // no column when eval
+                } else if (i === 0 && !parts[5] && !_isUndefined(ex.columnNumber)) {
+                    // FireFox uses this awesome columnNumber property for its top frame
+                    // Also note, Firefox's column number is 0-based and everything else expects 1-based,
+                    // so adding 1
+                    // NOTE: this hack doesn't work if top-most frame is eval
+                    stack[0].column = ex.columnNumber + 1;
+                }
                 element = {
                     'url': parts[3],
                     'func': parts[1] || UNKNOWN_FUNCTION,
@@ -747,10 +788,7 @@ TraceKit.computeStackTrace = (function computeStackTraceWrapper() {
                 element.func = guessFunctionName(element.url, element.line);
             }
 
-            if (element.line) {
-                element.context = gatherContext(element.url, element.line);
-            }
-
+            element.context = element.line ? gatherContext(element.url, element.line) : null;
             stack.push(element);
         }
 
@@ -760,11 +798,6 @@ TraceKit.computeStackTrace = (function computeStackTraceWrapper() {
 
         if (stack[0] && stack[0].line && !stack[0].column && reference) {
             stack[0].column = findSourceInLine(reference[1], stack[0].url, stack[0].line);
-        } else if (!stack[0].column && !_isUndefined(ex.columnNumber)) {
-            // FireFox uses this awesome columnNumber property for its top frame
-            // Also note, Firefox's column number is 0-based and everything else expects 1-based,
-            // so adding 1
-            stack[0].column = ex.columnNumber + 1;
         }
 
         return {
@@ -1041,7 +1074,6 @@ TraceKit.computeStackTrace = (function computeStackTraceWrapper() {
 
         for (var curr = computeStackTraceByWalkingCallerChain.caller; curr && !recursion; curr = curr.caller) {
             if (curr === computeStackTrace || curr === TraceKit.report) {
-                // console.log('skipping internal function');
                 continue;
             }
 
@@ -1089,8 +1121,6 @@ TraceKit.computeStackTrace = (function computeStackTraceWrapper() {
         }
 
         if (depth) {
-            // console.log('depth is ' + depth);
-            // console.log('stack is ' + stack.length);
             stack.splice(0, depth);
         }
 
@@ -1162,6 +1192,8 @@ TraceKit.computeStackTrace = (function computeStackTraceWrapper() {
         }
 
         return {
+            'name': ex.name,
+            'message': ex.message,
             'mode': 'failed'
         };
     }
@@ -1182,6 +1214,7 @@ TraceKit.computeStackTrace = (function computeStackTraceWrapper() {
     }
 
     computeStackTrace.augmentStackTraceWithInitialElement = augmentStackTraceWithInitialElement;
+    computeStackTrace.computeStackTraceFromStackProp = computeStackTraceFromStackProp;
     computeStackTrace.guessFunctionName = guessFunctionName;
     computeStackTrace.gatherContext = gatherContext;
     computeStackTrace.ofCaller = computeStackTraceOfCaller;
@@ -1233,10 +1266,10 @@ if (!TraceKit.linesOfContext || TraceKit.linesOfContext < 1) {
 }
 
 // UMD export
-if (typeof module !== 'undefined' && module.exports && window.module !== module) {
-    module.exports = TraceKit;
-} else if (typeof define === 'function' && define.amd) {
+if (typeof define === 'function' && define.amd) {
     define('TraceKit', [], TraceKit);
+} else if (typeof module !== 'undefined' && module.exports && window.module !== module) {
+    module.exports = TraceKit;
 } else {
     window.TraceKit = TraceKit;
 }

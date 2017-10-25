@@ -42,7 +42,6 @@ class EpsRelationSchemaTest extends PmaTestCase
         $_REQUEST['t_y'] = array('information_schema.files' => 0);
 
         $GLOBALS['server'] = 1;
-        $GLOBALS['controllink'] = null;
         $GLOBALS['db'] = 'information_schema';
         $GLOBALS['cfg']['Server']['table_coords'] = "table_name";
 

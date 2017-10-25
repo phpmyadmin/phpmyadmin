@@ -9,7 +9,7 @@ namespace PhpMyAdmin\Tests;
 
 use PhpMyAdmin\CentralColumns;
 use PhpMyAdmin\Config;
-use PhpMyAdmin\Theme;
+use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Types;
 use PhpMyAdmin\Url;
 use PhpMyAdmin\Util;
@@ -181,7 +181,7 @@ class CentralColumnsTest extends TestCase
             ->with(
                 "SELECT count(db_name) FROM `pma_central_columns` "
                 . "WHERE db_name = 'phpmyadmin';",
-                null, null, $GLOBALS['controllink']
+                null, null, DatabaseInterface::CONNECT_CONTROL
             )
             ->will(
                 $this->returnValue(array(3))
@@ -224,7 +224,7 @@ class CentralColumnsTest extends TestCase
             ->with(
                 "SELECT col_name FROM `pma_central_columns` "
                 . "WHERE db_name = 'PMA_db' AND col_name IN ('col1');",
-                null, null, $GLOBALS['controllink']
+                null, null, DatabaseInterface::CONNECT_CONTROL
             )
             ->will(
                 $this->returnValue(array('col1'))
@@ -235,7 +235,7 @@ class CentralColumnsTest extends TestCase
             ->with(
                 "DELETE FROM `pma_central_columns` "
                 . "WHERE db_name = 'PMA_db' AND col_name IN ('col1');",
-                $GLOBALS['controllink']
+                DatabaseInterface::CONNECT_CONTROL
             )
             ->will(
                 $this->returnValue(array('col1'))
@@ -292,7 +292,7 @@ class CentralColumnsTest extends TestCase
             ->with(
                 "SELECT col_name FROM `pma_central_columns` "
                 . "WHERE db_name = 'PMA_db' AND col_name IN ('id','col1','col2');",
-                null, null, $GLOBALS['controllink']
+                null, null, DatabaseInterface::CONNECT_CONTROL
             )
             ->will(
                 $this->returnValue(array('id','col1'))
@@ -318,7 +318,7 @@ class CentralColumnsTest extends TestCase
             ->with(
                 "SELECT * FROM `pma_central_columns` "
                 . "WHERE db_name = 'PMA_db' AND col_name IN ('id','col1','col2');",
-                null, null, $GLOBALS['controllink']
+                null, null, DatabaseInterface::CONNECT_CONTROL
             )
             ->will(
                 $this->returnValue(array_slice($this->_columnData, 0, 2))
@@ -382,7 +382,7 @@ class CentralColumnsTest extends TestCase
             ->with(
                 "SELECT * FROM `pma_central_columns` "
                 . "WHERE db_name = 'phpmyadmin' AND col_name IN ('col1','col2');",
-                null, null, $GLOBALS['controllink']
+                null, null, DatabaseInterface::CONNECT_CONTROL
             )
             ->will(
                 $this->returnValue($this->_columnData)
@@ -486,7 +486,7 @@ class CentralColumnsTest extends TestCase
             ->with(
                 "SELECT * FROM `pma_central_columns` "
                 . "WHERE db_name = 'phpmyadmin';",
-                null, null, $GLOBALS['controllink']
+                null, null, DatabaseInterface::CONNECT_CONTROL
             )
             ->will(
                 $this->returnValue($this->_columnData)
@@ -510,7 +510,7 @@ class CentralColumnsTest extends TestCase
                 "SELECT * FROM `pma_central_columns` "
                 . "WHERE db_name = 'phpmyadmin' AND col_name "
                 . "NOT IN ('id','col1','col2');",
-                null, null, $GLOBALS['controllink']
+                null, null, DatabaseInterface::CONNECT_CONTROL
             )
             ->will(
                 $this->returnValue($this->_columnData)
@@ -573,7 +573,7 @@ class CentralColumnsTest extends TestCase
             ->with(
                 "SELECT * FROM `pma_central_columns` WHERE db_name = 'phpmyadmin'"
                 . " AND col_name IN ('col1');",
-                null, null, $GLOBALS['controllink']
+                null, null, DatabaseInterface::CONNECT_CONTROL
             )
             ->will(
                 $this->returnValue(array_slice($this->_columnData, 1, 1))

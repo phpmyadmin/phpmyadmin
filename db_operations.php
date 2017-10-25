@@ -294,19 +294,3 @@ if (!$is_information_schema) {
         }
     } // end if
 } // end if (!$is_information_schema)
-
-// not sure about displaying the PDF dialog in case db is information_schema
-if ($cfgRelation['pdfwork'] && $num_tables > 0) {
-    // We only show this if we find something in the new pdf_pages table
-    $test_query = '
-        SELECT *
-        FROM ' . Util::backquote($GLOBALS['cfgRelation']['db'])
-        . '.' . Util::backquote($cfgRelation['pdf_pages']) . '
-        WHERE db_name = \'' . $GLOBALS['dbi']->escapeString($GLOBALS['db'])
-        . '\'';
-    $test_rs = Relation::queryAsControlUser(
-        $test_query,
-        false,
-        DatabaseInterface::QUERY_STORE
-    );
-} // end if

@@ -7,6 +7,7 @@
  */
 namespace PhpMyAdmin\Tests;
 
+use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Normalization;
 use PhpMyAdmin\Theme;
 use PhpMyAdmin\Types;
@@ -67,13 +68,13 @@ class NormalizationTest extends TestCase
             ->method('getColumnNames')
             ->will($this->returnValue(array("id", "col1", "col2")));
         $map = array(
-          array('PMA_db', 'PMA_table1', null, array()),
+          array('PMA_db', 'PMA_table1', DatabaseInterface::CONNECT_USER, array()),
           array(
-            'PMA_db', 'PMA_table', null,
+            'PMA_db', 'PMA_table', DatabaseInterface::CONNECT_USER,
             array(array('Key_name'=>'PRIMARY', 'Column_name'=>'id'))
           ),
           array(
-              'PMA_db', 'PMA_table2', null,
+              'PMA_db', 'PMA_table2', DatabaseInterface::CONNECT_USER,
               array(
                 array('Key_name'=>'PRIMARY', 'Column_name'=>'id'),
                 array('Key_name'=>'PRIMARY', 'Column_name'=>'col1')

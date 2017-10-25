@@ -323,7 +323,7 @@ class Qbe
         } // end if
         $all_tables = $GLOBALS['dbi']->query(
             'SHOW TABLES FROM ' . Util::backquote($this->_db) . ';',
-            null,
+            DatabaseInterface::CONNECT_USER,
             DatabaseInterface::QUERY_STORE
         );
         $all_tables_count = $GLOBALS['dbi']->numRows($all_tables);

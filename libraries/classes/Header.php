@@ -156,7 +156,7 @@ class Header
     {
         // Localised strings
         $this->_scripts->addFile('vendor/jquery/jquery.min.js');
-        $this->_scripts->addFile('vendor/jquery/jquery-migrate-3.0.0.js');
+        $this->_scripts->addFile('vendor/jquery/jquery-migrate.js');
         $this->_scripts->addFile('whitelist.php');
         $this->_scripts->addFile('vendor/sprintf.js');
         $this->_scripts->addFile('ajax.js');
@@ -252,7 +252,7 @@ class Header
             'confirm' => $GLOBALS['cfg']['Confirm'],
             'LoginCookieValidity' => $GLOBALS['cfg']['LoginCookieValidity'],
             'session_gc_maxlifetime' => (int)@ini_get('session.gc_maxlifetime'),
-            'logged_in' => isset($GLOBALS['userlink']) ? true : false,
+            'logged_in' => $GLOBALS['dbi']->isUserType('logged'),
             'is_https' => $GLOBALS['PMA_Config']->isHttps(),
             'rootPath' => $GLOBALS['PMA_Config']->getRootPath(),
             'PMA_VERSION' => PMA_VERSION

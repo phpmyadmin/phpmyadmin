@@ -135,7 +135,7 @@ echo FormDisplayTemplate::displayFormTop(
 );
 echo '<div class="form">';
 if ($cf->getServerCount() > 0) {
-    echo '<table cellspacing="0" class="datatable" style="table-layout: fixed">';
+    echo '<table cellspacing="0" class="datatable">';
     echo '<tr>';
     echo '<th>#</th>';
     echo '<th>' , __('Name') , '</th>';
@@ -151,7 +151,7 @@ if ($cf->getServerCount() > 0) {
             , htmlspecialchars($cf->getValue("Servers/$id/auth_type"))
             ,  '</td>';
         echo '<td>' , htmlspecialchars($cf->getServerDSN($id)) , '</td>';
-        echo '<td style="white-space: nowrap">';
+        echo '<td class="nowrap">';
         echo '<small>';
         echo '<a href="' , Url::getCommon(array('page' => 'servers', 'mode' => 'edit', 'id' => $id)), '">'
             , __('Edit') , '</a>';
@@ -175,7 +175,7 @@ if ($cf->getServerCount() > 0) {
 
 echo '<table width="100%">';
 echo '<tr>';
-echo '<td class="lastrow" style="text-align: left">';
+echo '<td class="lastrow left">';
 echo '<input type="submit" name="submit" value="' , __('New server') , '" />';
 echo '</td>';
 echo '</tr>';
@@ -247,7 +247,7 @@ echo FormDisplayTemplate::displayInput(
 );
 
 echo '<tr>';
-echo '<td colspan="2" class="lastrow" style="text-align: left">';
+echo '<td colspan="2" class="lastrow left">';
 echo '<input type="submit" name="submit_display" value="' , __('Display') , '" />';
 echo '<input type="submit" name="submit_download" value="' , __('Download') , '" />';
 echo '&nbsp; &nbsp;';

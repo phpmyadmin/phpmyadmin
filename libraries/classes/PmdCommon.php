@@ -90,10 +90,10 @@ class PmdCommon
                 $GLOBALS['dbi']->getColumnsSql(
                     $GLOBALS['db'],
                     $GLOBALS['PMD_URL']["TABLE_NAME_SMALL"][$i],
-                    null,
+                    DatabaseInterface::CONNECT_USER,
                     true
                 ),
-                null,
+                DatabaseInterface::CONNECT_USER,
                 DatabaseInterface::QUERY_STORE
             );
             $tbl_name_i = $GLOBALS['PMD']['TABLE_NAME'][$i];
@@ -122,7 +122,7 @@ class PmdCommon
         $i = 0;
         $alltab_rs = $GLOBALS['dbi']->query(
             'SHOW TABLES FROM ' . Util::backquote($GLOBALS['db']),
-            null,
+            DatabaseInterface::CONNECT_USER,
             DatabaseInterface::QUERY_STORE
         );
         while ($val = @$GLOBALS['dbi']->fetchRow($alltab_rs)) {
@@ -269,7 +269,7 @@ class PmdCommon
             $query,
             'name',
             null,
-            $GLOBALS['controllink'],
+            DatabaseInterface::CONNECT_CONTROL,
             DatabaseInterface::QUERY_STORE
         );
         return $tab_pos;
@@ -297,7 +297,7 @@ class PmdCommon
             $query,
             null,
             null,
-            $GLOBALS['controllink'],
+            DatabaseInterface::CONNECT_CONTROL,
             DatabaseInterface::QUERY_STORE
         );
         return count($page_name) ? $page_name[0] : null;
@@ -361,7 +361,7 @@ class PmdCommon
             $query,
             null,
             null,
-            $GLOBALS['controllink'],
+            DatabaseInterface::CONNECT_CONTROL,
             DatabaseInterface::QUERY_STORE
         );
 
@@ -401,7 +401,7 @@ class PmdCommon
                 $query,
                 null,
                 null,
-                $GLOBALS['controllink'],
+                DatabaseInterface::CONNECT_CONTROL,
                 DatabaseInterface::QUERY_STORE
             );
             if (count($min_page_no[0])) {
@@ -634,7 +634,7 @@ class PmdCommon
             return array(true, __('Internal relationship has been added.'));
         }
 
-        $error = $GLOBALS['dbi']->getError($GLOBALS['controllink']);
+        $error = $GLOBALS['dbi']->getError(DatabaseInterface::CONNECT_CONTROL);
         return array(
             false,
             __('Error: Internal relationship could not be added!')
@@ -705,7 +705,7 @@ class PmdCommon
         );
 
         if (!$result) {
-            $error = $GLOBALS['dbi']->getError($GLOBALS['controllink']);
+            $error = $GLOBALS['dbi']->getError(DatabaseInterface::CONNECT_CONTROL);
             return array(
                 false,
                 __('Error: Internal relationship could not be removed!') . "<br/>" . $error
@@ -742,7 +742,7 @@ class PmdCommon
                 . $GLOBALS['dbi']->escapeString($cfgDesigner['user']) . "';";
 
             $orig_data = $GLOBALS['dbi']->fetchSingleRow(
-                $orig_data_query, 'ASSOC', $GLOBALS['controllink']
+                $orig_data_query, 'ASSOC', DatabaseInterface::CONNECT_CONTROL
             );
 
             if (! empty($orig_data)) {

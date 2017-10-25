@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.8.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2017-09-08 21:11+0200\n"
-"PO-Revision-Date: 2017-10-11 13:00+0000\n"
+"PO-Revision-Date: 2017-10-23 13:32+0000\n"
 "Last-Translator: George Bezerra <georgelione@gmail.com>\n"
 "Language-Team: Portuguese (Brazil) "
 "<https://hosted.weblate.org/projects/phpmyadmin/master/pt_BR/>\n"
@@ -13,7 +13,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n > 1;\n"
-"X-Generator: Weblate 2.17-dev\n"
+"X-Generator: Weblate 2.17\n"
 
 #: ajax.php:17 ajax.php:34 export.php:196 schema_export.php:67
 msgid "Bad type!"
@@ -3013,7 +3013,7 @@ msgstr "Por favor, digite um data válida ou um tempo"
 
 #: js/messages.php:970
 msgid "Please enter a valid HEX input"
-msgstr "Por favor, digite um número HEXADECIMAL válido"
+msgstr "Por favor, digite um número hexadecimal válido"
 
 #: js/messages.php:975 libraries/classes/Core.php:245
 #: libraries/classes/Import.php:112 libraries/classes/InsertEdit.php:1245
@@ -4111,8 +4111,7 @@ msgstr "Exportar vistas como tabelas"
 #: libraries/classes/Config/Descriptions.php:368
 msgid "Export related metadata from phpMyAdmin configuration storage"
 msgstr ""
-"Exportar metadados relacionados as configurações de armazenamento do "
-"phpMyAdmin"
+"Exportar metadados relacionados ao storage de configurações do phpMyAdmin"
 
 #: libraries/classes/Config/Descriptions.php:370
 #: libraries/classes/Config/Descriptions.php:372
@@ -6104,8 +6103,8 @@ msgid ""
 "Queries are executed by pressing Enter (instead of Ctrl+Enter). New lines "
 "will be inserted with Shift+Enter."
 msgstr ""
-"Queries são executadas pressionando Enter (no lugar de Ctrl + enter). Nova "
-"linhas serão inseridas com Shift + Enter."
+"Consultas são executadas pressionando Enter (ao invés de Ctrl+Enter). Novas "
+"linhas serão inseridas com Shift+Enter."
 
 #: libraries/classes/Config/Descriptions.php:1450
 msgid "Enter executes queries in console"
@@ -7052,7 +7051,7 @@ msgstr "Dentro do campo:"
 
 #: libraries/classes/Dbi/DbiMysqli.php:167
 msgid "SSL connection enforced by server, automatically enabling it."
-msgstr "Conexão SSL executada pelo servidor, automaticamente habilitando-a."
+msgstr "Conexão SSL imposta pelo servidor, sendo automaticamente habilitada."
 
 #: libraries/classes/Display/ChangePassword.php:68
 #: libraries/classes/Server/Privileges.php:1679
@@ -8551,7 +8550,7 @@ msgstr "Documentação do phpMyAdmin"
 
 #: libraries/classes/Navigation/NavigationHeader.php:210
 msgid "Navigation panel settings"
-msgstr "Configuração do painel de navegação"
+msgstr "Configurações do painel de navegação"
 
 #: libraries/classes/Navigation/NavigationHeader.php:221
 msgid "Reload navigation panel"
@@ -9139,7 +9138,7 @@ msgstr "Verificar tabela"
 #: libraries/classes/Operations.php:1407
 #: templates/database/structure/check_all_tables.phtml:22
 msgid "Checksum table"
-msgstr "Checksum da tabela"
+msgstr "Tabela de checksum"
 
 #: libraries/classes/Operations.php:1421
 msgid "Defragment table"
@@ -9211,7 +9210,7 @@ msgstr "Truncar"
 
 #: libraries/classes/Operations.php:1589
 msgid "Coalesce"
-msgstr "Buscar valor NOTNULL"
+msgstr "Coalescer"
 
 #: libraries/classes/Operations.php:1598
 msgid "Partition maintenance"
@@ -9620,7 +9619,7 @@ msgstr "Fazendo dump de dados"
 
 #: libraries/classes/Plugins/Export/ExportPdf.php:287
 msgid "View structure"
-msgstr "Visualizar estrutura"
+msgstr "Ver estrutura"
 
 #: libraries/classes/Plugins/Export/ExportPdf.php:290
 msgid "Stand in"

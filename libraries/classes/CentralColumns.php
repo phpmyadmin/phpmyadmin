@@ -8,6 +8,7 @@
 namespace PhpMyAdmin;
 
 use PhpMyAdmin\Charsets;
+use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Message;
 use PhpMyAdmin\Relation;
 use PhpMyAdmin\Template;
@@ -68,7 +69,7 @@ class CentralColumns
             return array();
         }
         $pmadb = $cfgCentralColumns['db'];
-        $GLOBALS['dbi']->selectDb($pmadb, $GLOBALS['controllink']);
+        $GLOBALS['dbi']->selectDb($pmadb, DatabaseInterface::CONNECT_CONTROL);
         $central_list_table = $cfgCentralColumns['table'];
         //get current values of $db from central column list
         if ($num == 0) {
@@ -80,7 +81,7 @@ class CentralColumns
                 . 'LIMIT ' . $from . ', ' . $num . ';';
         }
         $has_list = (array) $GLOBALS['dbi']->fetchResult(
-            $query, null, null, $GLOBALS['controllink']
+            $query, null, null, DatabaseInterface::CONNECT_CONTROL
         );
         self::handleColumnExtra($has_list);
         return $has_list;
@@ -100,13 +101,13 @@ class CentralColumns
             return 0;
         }
         $pmadb = $cfgCentralColumns['db'];
-        $GLOBALS['dbi']->selectDb($pmadb, $GLOBALS['controllink']);
+        $GLOBALS['dbi']->selectDb($pmadb, DatabaseInterface::CONNECT_CONTROL);
         $central_list_table = $cfgCentralColumns['table'];
         $query = 'SELECT count(db_name) FROM ' .
             Util::backquote($central_list_table) . ' '
             . 'WHERE db_name = \'' . $GLOBALS['dbi']->escapeString($db) . '\';';
         $res = $GLOBALS['dbi']->fetchResult(
-            $query, null, null, $GLOBALS['controllink']
+            $query, null, null, DatabaseInterface::CONNECT_CONTROL
         );
         if (isset($res[0])) {
             return $res[0];
@@ -131,13 +132,13 @@ class CentralColumns
             return array();
         }
         $pmadb = $cfgCentralColumns['db'];
-        $GLOBALS['dbi']->selectDb($pmadb, $GLOBALS['controllink']);
+        $GLOBALS['dbi']->selectDb($pmadb, DatabaseInterface::CONNECT_CONTROL);
         $central_list_table = $cfgCentralColumns['table'];
         if ($allFields) {
             $query = 'SELECT * FROM ' . Util::backquote($central_list_table) . ' '
                 . 'WHERE db_name = \'' . $GLOBALS['dbi']->escapeString($db) . '\' AND col_name IN (' . $cols . ');';
             $has_list = (array) $GLOBALS['dbi']->fetchResult(
-                $query, null, null, $GLOBALS['controllink']
+                $query, null, null, DatabaseInterface::CONNECT_CONTROL
             );
             self::handleColumnExtra($has_list);
         } else {
@@ -145,7 +146,7 @@ class CentralColumns
                 . Util::backquote($central_list_table) . ' '
                 . 'WHERE db_name = \'' . $GLOBALS['dbi']->escapeString($db) . '\' AND col_name IN (' . $cols . ');';
             $has_list = (array) $GLOBALS['dbi']->fetchResult(
-                $query, null, null, $GLOBALS['controllink']
+                $query, null, null, DatabaseInterface::CONNECT_CONTROL
             );
         }
 
@@ -233,7 +234,7 @@ class CentralColumns
         $db = $_REQUEST['db'];
         $pmadb = $cfgCentralColumns['db'];
         $central_list_table = $cfgCentralColumns['table'];
-        $GLOBALS['dbi']->selectDb($db, $GLOBALS['userlink']);
+        $GLOBALS['dbi']->selectDb($db);
         $existingCols = array();
         $cols = "";
         $insQuery = array();
@@ -242,7 +243,7 @@ class CentralColumns
         if ($isTable) {
             foreach ($field_select as $table) {
                 $fields[$table] = (array) $GLOBALS['dbi']->getColumns(
-                    $db, $table, null, true, $GLOBALS['userlink']
+                    $db, $table, null, true
                 );
                 foreach ($fields[$table] as $field => $def) {
                     $cols .= "'" . $GLOBALS['dbi']->escapeString($field) . "',";
@@ -275,7 +276,7 @@ class CentralColumns
                     $has_list[] = $column;
                     $field = (array) $GLOBALS['dbi']->getColumns(
                         $db, $table, $column,
-                        true, $GLOBALS['userlink']
+                        true
                     );
                     $insQuery[] = self::getInsertQuery(
                         $column, $field, $db, $central_list_table
@@ -301,14 +302,14 @@ class CentralColumns
                 )
             );
         }
-        $GLOBALS['dbi']->selectDb($pmadb, $GLOBALS['controllink']);
+        $GLOBALS['dbi']->selectDb($pmadb, DatabaseInterface::CONNECT_CONTROL);
         if (! empty($insQuery)) {
             foreach ($insQuery as $query) {
-                if (!$GLOBALS['dbi']->tryQuery($query, $GLOBALS['controllink'])) {
+                if (!$GLOBALS['dbi']->tryQuery($query, DatabaseInterface::CONNECT_CONTROL)) {
                     $message = Message::error(__('Could not add columns!'));
                     $message->addMessage(
                         Message::rawError(
-                            $GLOBALS['dbi']->getError($GLOBALS['controllink'])
+                            $GLOBALS['dbi']->getError(DatabaseInterface::CONNECT_CONTROL)
                         )
                     );
                     break;
@@ -338,7 +339,7 @@ class CentralColumns
         $db = $_REQUEST['db'];
         $pmadb = $cfgCentralColumns['db'];
         $central_list_table = $cfgCentralColumns['table'];
-        $GLOBALS['dbi']->selectDb($db, $GLOBALS['userlink']);
+        $GLOBALS['dbi']->selectDb($db);
         $message = true;
         $colNotExist = array();
         $fields = array();
@@ -346,7 +347,7 @@ class CentralColumns
             $cols = '';
             foreach ($field_select as $table) {
                 $fields[$table] = (array) $GLOBALS['dbi']->getColumnNames(
-                    $db, $table, $GLOBALS['userlink']
+                    $db, $table
                 );
                 foreach ($fields[$table] as $col_select) {
                     $cols .= '\'' . $GLOBALS['dbi']->escapeString($col_select) . '\',';
@@ -386,17 +387,17 @@ class CentralColumns
                 )
             );
         }
-        $GLOBALS['dbi']->selectDb($pmadb, $GLOBALS['controllink']);
+        $GLOBALS['dbi']->selectDb($pmadb, DatabaseInterface::CONNECT_CONTROL);
 
         $query = 'DELETE FROM ' . Util::backquote($central_list_table) . ' '
             . 'WHERE db_name = \'' . $GLOBALS['dbi']->escapeString($db) . '\' AND col_name IN (' . $cols . ');';
 
-        if (!$GLOBALS['dbi']->tryQuery($query, $GLOBALS['controllink'])) {
+        if (!$GLOBALS['dbi']->tryQuery($query, DatabaseInterface::CONNECT_CONTROL)) {
             $message = Message::error(__('Could not remove columns!'));
             $message->addHtml('<br />' . htmlspecialchars($cols) . '<br />');
             $message->addMessage(
                 Message::rawError(
-                    $GLOBALS['dbi']->getError($GLOBALS['controllink'])
+                    $GLOBALS['dbi']->getError(DatabaseInterface::CONNECT_CONTROL)
                 )
             );
         }
@@ -418,7 +419,7 @@ class CentralColumns
         foreach ($selected_tables as $table) {
             $query = 'ALTER TABLE ' . Util::backquote($table);
             $has_list = self::getFromTable($db, $table, true);
-            $GLOBALS['dbi']->selectDb($db, $GLOBALS['userlink']);
+            $GLOBALS['dbi']->selectDb($db);
             foreach ($has_list as $column) {
                 $column_status = Relation::checkChildForeignReferences(
                     $db, $table, $column['col_name']
@@ -455,14 +456,14 @@ class CentralColumns
                 }
             }
             $query = trim($query, " ,") . ";";
-            if (!$GLOBALS['dbi']->tryQuery($query, $GLOBALS['userlink'])) {
+            if (!$GLOBALS['dbi']->tryQuery($query)) {
                 if ($message === true) {
                     $message = Message::error(
-                        $GLOBALS['dbi']->getError($GLOBALS['userlink'])
+                        $GLOBALS['dbi']->getError()
                     );
                 } else {
                     $message->addText(
-                        $GLOBALS['dbi']->getError($GLOBALS['userlink']),
+                        $GLOBALS['dbi']->getError(),
                         '<br />'
                     );
                 }
@@ -488,9 +489,9 @@ class CentralColumns
         if (empty($cfgCentralColumns)) {
             return array();
         }
-        $GLOBALS['dbi']->selectDb($db, $GLOBALS['userlink']);
+        $GLOBALS['dbi']->selectDb($db);
         $fields = (array) $GLOBALS['dbi']->getColumnNames(
-            $db, $table, $GLOBALS['userlink']
+            $db, $table
         );
         $cols = '';
         foreach ($fields as $col_select) {
@@ -529,7 +530,7 @@ class CentralColumns
             return self::configErrorMessage();
         }
         $centralTable = $cfgCentralColumns['table'];
-        $GLOBALS['dbi']->selectDb($cfgCentralColumns['db'], $GLOBALS['controllink']);
+        $GLOBALS['dbi']->selectDb($cfgCentralColumns['db'], DatabaseInterface::CONNECT_CONTROL);
         if ($orig_col_name == "") {
             $def = array();
             $def['Type'] = $col_type;
@@ -556,9 +557,9 @@ class CentralColumns
                 . 'AND col_name = \'' . $GLOBALS['dbi']->escapeString($orig_col_name)
                 . '\'';
         }
-        if (!$GLOBALS['dbi']->tryQuery($query, $GLOBALS['controllink'])) {
+        if (!$GLOBALS['dbi']->tryQuery($query, DatabaseInterface::CONNECT_CONTROL)) {
             return Message::error(
-                $GLOBALS['dbi']->getError($GLOBALS['controllink'])
+                $GLOBALS['dbi']->getError(DatabaseInterface::CONNECT_CONTROL)
             );
         }
         return true;
@@ -753,8 +754,8 @@ class CentralColumns
      */
     public static function getHtmlForTableDropdown($db)
     {
-        $GLOBALS['dbi']->selectDb($db, $GLOBALS['userlink']);
-        $tables = $GLOBALS['dbi']->getTables($db, $GLOBALS['userlink']);
+        $GLOBALS['dbi']->selectDb($db);
+        $tables = $GLOBALS['dbi']->getTables($db);
         $selectHtml = '<select name="table-select" id="table-select">'
             . '<option value="" disabled="disabled" selected="selected">'
             . __('Select a table') . '</option>';
@@ -778,9 +779,9 @@ class CentralColumns
     public static function getHtmlForColumnDropdown($db, $selected_tbl)
     {
         $existing_cols = self::getFromTable($db, $selected_tbl);
-        $GLOBALS['dbi']->selectDb($db, $GLOBALS['userlink']);
+        $GLOBALS['dbi']->selectDb($db);
         $columns = (array) $GLOBALS['dbi']->getColumnNames(
-            $db, $selected_tbl, $GLOBALS['userlink']
+            $db, $selected_tbl
         );
         $selectColHtml = "";
         foreach ($columns as $column) {
@@ -1157,9 +1158,9 @@ class CentralColumns
             $query = 'SELECT * FROM ' . Util::backquote($centralTable) . ' '
                 . 'WHERE db_name = \'' . $GLOBALS['dbi']->escapeString($db) . '\';';
         } else {
-            $GLOBALS['dbi']->selectDb($db, $GLOBALS['userlink']);
+            $GLOBALS['dbi']->selectDb($db);
             $columns = (array) $GLOBALS['dbi']->getColumnNames(
-                $db, $table, $GLOBALS['userlink']
+                $db, $table
             );
             $cols = '';
             foreach ($columns as $col_select) {
@@ -1173,9 +1174,9 @@ class CentralColumns
             }
             $query .= ';';
         }
-        $GLOBALS['dbi']->selectDb($cfgCentralColumns['db'], $GLOBALS['controllink']);
+        $GLOBALS['dbi']->selectDb($cfgCentralColumns['db'], DatabaseInterface::CONNECT_CONTROL);
         $columns_list = (array)$GLOBALS['dbi']->fetchResult(
-            $query, null, null, $GLOBALS['controllink']
+            $query, null, null, DatabaseInterface::CONNECT_CONTROL
         );
         self::handleColumnExtra($columns_list);
         return json_encode($columns_list);

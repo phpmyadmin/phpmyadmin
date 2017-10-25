@@ -1,0 +1,24 @@
+<table id="initials_table" cellspacing="5">
+    <tr>
+        {% for tmp_initial, initial_was_found in array_initials if tmp_initial is not same as(null) %}
+            {% if initial_was_found %}
+                <td>
+                    <a class="ajax
+                        {{- initial is defined and initial is same as(tmp_initial) ? ' active' -}}
+                        " href="server_privileges.php
+                        {{- Url_getCommon({'initial': tmp_initial}) }}">
+                        {{- tmp_initial|raw -}}
+                    </a>
+                </td>
+            {% else %}
+                <td>{{ tmp_initial|raw }}</td>
+            {% endif %}
+        {% endfor %}
+        <td>
+            <a href="server_privileges.php
+                {{- Url_getCommon({'showall': 1}) }}" class="nowrap">
+                {% trans 'Show all' %}
+            </a>
+        </td>
+    </tr>
+</table>

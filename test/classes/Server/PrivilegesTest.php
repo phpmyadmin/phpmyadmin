@@ -10,7 +10,6 @@ namespace PhpMyAdmin\Tests\Server;
 use PhpMyAdmin\Core;
 use PhpMyAdmin\Server\Privileges;
 use PhpMyAdmin\Template;
-use PhpMyAdmin\Theme;
 use PhpMyAdmin\Url;
 use PhpMyAdmin\Util;
 use PHPUnit_Framework_TestCase as TestCase;
@@ -39,6 +38,7 @@ class PrivilegesTest extends TestCase
         //$_REQUEST
         $_REQUEST['log'] = "index1";
         $_REQUEST['pos'] = 3;
+        $_REQUEST['initial'] = null;
 
         //$GLOBALS
         $GLOBALS['lang'] = 'en';

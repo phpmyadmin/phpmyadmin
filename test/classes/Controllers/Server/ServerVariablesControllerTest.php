@@ -8,10 +8,10 @@
 namespace PhpMyAdmin\Tests\Controllers\Server;
 
 use PhpMyAdmin\Core;
+use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Di\Container;
 use PhpMyAdmin\Tests\PmaTestCase;
 use PhpMyAdmin\Tests\Stubs\Response as ResponseStub;
-use PhpMyAdmin\Theme;
 use PhpMyAdmin\Url;
 use PhpMyAdmin\Util;
 use ReflectionClass;
@@ -70,7 +70,7 @@ class ServerVariablesControllerTest extends PmaTestCase
                 "SHOW SESSION VARIABLES;",
                 0,
                 1,
-                null,
+                DatabaseInterface::CONNECT_USER,
                 0,
                 $server_session_variable
             ),
@@ -78,7 +78,7 @@ class ServerVariablesControllerTest extends PmaTestCase
                 "SHOW GLOBAL VARIABLES;",
                 0,
                 1,
-                null,
+                DatabaseInterface::CONNECT_USER,
                 0,
                 $server_global_variables
             )

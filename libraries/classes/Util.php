@@ -21,7 +21,6 @@ use PhpMyAdmin\SqlParser\Token;
 use PhpMyAdmin\SqlParser\Utils\Error as ParserError;
 use PhpMyAdmin\Template;
 use PhpMyAdmin\Url;
-use stdClass;
 
 /**
  * Misc functions used all over the scripts.
@@ -752,7 +751,6 @@ class Util
                 $db,
                 '',
                 false,
-                null,
                 $limit_offset,
                 $limit_count
             );
@@ -4507,7 +4505,7 @@ class Util
                     // include the table with the exact name of the group if such
                     // exists
                     $groupTable = $GLOBALS['dbi']->getTablesFull(
-                        $db, $tbl_group, false, null, $limit_offset,
+                        $db, $tbl_group, false, $limit_offset,
                         $limit_count, $sort, $sort_order, $tbl_type
                     );
                     $groupWithSeparator = $tbl_group
@@ -4536,7 +4534,7 @@ class Util
             $tables = array_merge(
                 $groupTable,
                 $GLOBALS['dbi']->getTablesFull(
-                    $db, $groupWithSeparator, ($groupWithSeparator !== false), null,
+                    $db, $groupWithSeparator, ($groupWithSeparator !== false),
                     $limit_offset, $limit_count, $sort, $sort_order, $tbl_type
                 )
             );

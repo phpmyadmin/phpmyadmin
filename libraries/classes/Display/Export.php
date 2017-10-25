@@ -8,6 +8,7 @@
 namespace PhpMyAdmin\Display;
 
 use PhpMyAdmin\Core;
+use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Encoding;
 use PhpMyAdmin\Message;
 use PhpMyAdmin\Plugins;
@@ -274,7 +275,7 @@ class Export
             return $ret;
         }
 
-        while ($row = $GLOBALS['dbi']->fetchAssoc($result, $GLOBALS['controllink'])) {
+        while ($row = $GLOBALS['dbi']->fetchAssoc($result, DatabaseInterface::CONNECT_CONTROL)) {
             $ret .= '<option value="' . htmlspecialchars($row['id']) . '"';
             if (!empty($_GET['template_id']) && $_GET['template_id'] == $row['id']) {
                 $ret .= ' selected="selected"';
@@ -1110,7 +1111,7 @@ class Export
 
         $response = Response::getInstance();
         if (! $result) {
-            $error = $GLOBALS['dbi']->getError($GLOBALS['controllink']);
+            $error = $GLOBALS['dbi']->getError(DatabaseInterface::CONNECT_CONTROL);
             $response->setRequestStatus(false);
             $response->addJSON('message', $error);
             exit;
@@ -1125,7 +1126,7 @@ class Export
         } elseif ('load' == $_REQUEST['templateAction']) {
             $data = null;
             while ($row = $GLOBALS['dbi']->fetchAssoc(
-                $result, $GLOBALS['controllink']
+                $result, DatabaseInterface::CONNECT_CONTROL
             )) {
                 $data = $row['template_data'];
             }

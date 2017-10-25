@@ -36,7 +36,6 @@ use PhpMyAdmin\Core;
 use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Database\DatabaseList;
 use PhpMyAdmin\ErrorHandler;
-use PhpMyAdmin\IpAllowDeny;
 use PhpMyAdmin\LanguageManager;
 use PhpMyAdmin\Logging;
 use PhpMyAdmin\Message;
@@ -46,7 +45,6 @@ use PhpMyAdmin\Response;
 use PhpMyAdmin\Session;
 use PhpMyAdmin\ThemeManager;
 use PhpMyAdmin\Tracker;
-use PhpMyAdmin\Types;
 use PhpMyAdmin\Util;
 
 /**
@@ -427,7 +425,11 @@ $language->activate();
 $GLOBALS['PMA_Config']->checkPermissions();
 $GLOBALS['PMA_Config']->checkErrors();
 
+/* Check server configuration */
 Core::checkConfiguration();
+
+/* Check request for possible attacks */
+Core::checkRequest();
 
 /******************************************************************************/
 /* setup servers                                       LABEL_setup_servers    */
@@ -490,18 +492,11 @@ if (! defined('PMA_MINIMUM_COMMON')) {
         // Gets the authentication library that fits the $cfg['Server'] settings
         // and run authentication
 
-        // to allow HTTP or http
-        $cfg['Server']['auth_type']
-            = mb_strtolower($cfg['Server']['auth_type']);
-
         /**
          * the required auth type plugin
          */
-        $auth_class = "Authentication" . ucfirst($cfg['Server']['auth_type']);
-        if (! @file_exists(
-            './libraries/classes/Plugins/Auth/'
-            . $auth_class . '.php'
-        )) {
+        $auth_class = 'PhpMyAdmin\\Plugins\\Auth\\Authentication' . ucfirst(strtolower($cfg['Server']['auth_type']));
+        if (! @class_exists($auth_class)) {
             Core::fatalError(
                 __('Invalid authentication method set in configuration:')
                 . ' ' . $cfg['Server']['auth_type']
@@ -510,71 +505,12 @@ if (! defined('PMA_MINIMUM_COMMON')) {
         if (isset($_REQUEST['pma_password']) && strlen($_REQUEST['pma_password']) > 256) {
             $_REQUEST['pma_password'] = substr($_REQUEST['pma_password'], 0, 256);
         }
-        $fqnAuthClass = 'PhpMyAdmin\Plugins\Auth\\' . $auth_class;
         // todo: add plugin manager
         $plugin_manager = null;
         /** @var AuthenticationPlugin $auth_plugin */
-        $auth_plugin = new $fqnAuthClass($plugin_manager);
+        $auth_plugin = new $auth_class($plugin_manager);
 
-        if (! $auth_plugin->authCheck()) {
-            /* Force generating of new session on login */
-            Session::secure();
-            $auth_plugin->auth();
-        } else {
-            $auth_plugin->authSetUser();
-        }
-
-        // Check IP-based Allow/Deny rules as soon as possible to reject the
-        // user based on mod_access in Apache
-        if (isset($cfg['Server']['AllowDeny'])
-            && isset($cfg['Server']['AllowDeny']['order'])
-        ) {
-            $allowDeny_forbidden         = false; // default
-            if ($cfg['Server']['AllowDeny']['order'] == 'allow,deny') {
-                $allowDeny_forbidden     = true;
-                if (IpAllowDeny::allowDeny('allow')) {
-                    $allowDeny_forbidden = false;
-                }
-                if (IpAllowDeny::allowDeny('deny')) {
-                    $allowDeny_forbidden = true;
-                }
-            } elseif ($cfg['Server']['AllowDeny']['order'] == 'deny,allow') {
-                if (IpAllowDeny::allowDeny('deny')) {
-                    $allowDeny_forbidden = true;
-                }
-                if (IpAllowDeny::allowDeny('allow')) {
-                    $allowDeny_forbidden = false;
-                }
-            } elseif ($cfg['Server']['AllowDeny']['order'] == 'explicit') {
-                if (IpAllowDeny::allowDeny('allow') && ! IpAllowDeny::allowDeny('deny')) {
-                    $allowDeny_forbidden = false;
-                } else {
-                    $allowDeny_forbidden = true;
-                }
-            } // end if ... elseif ... elseif
-
-            // Ejects the user if banished
-            if ($allowDeny_forbidden) {
-                Logging::logUser($cfg['Server']['user'], 'allow-denied');
-                $auth_plugin->authFails();
-            }
-        } // end if
-
-        // is root allowed?
-        if (! $cfg['Server']['AllowRoot'] && $cfg['Server']['user'] == 'root') {
-            $allowDeny_forbidden = true;
-            Logging::logUser($cfg['Server']['user'], 'root-denied');
-            $auth_plugin->authFails();
-        }
-
-        // is a login without password allowed?
-        if (! $cfg['Server']['AllowNoPassword']
-            && $cfg['Server']['password'] === ''
-        ) {
-            $login_without_password_is_forbidden = true;
-            Logging::logUser($cfg['Server']['user'], 'empty-denied');
-            $auth_plugin->authFails();
-        }
+        $auth_plugin->authenticate();
 
         // Try to connect MySQL with the control user profile (will be used to
         // get the privileges list for the current user but the true user link
@@ -592,39 +528,7 @@ if (! defined('PMA_MINIMUM_COMMON')) {
         $userlink = $GLOBALS['dbi']->connect(DatabaseInterface::CONNECT_USER);
 
         if ($userlink === false) {
-            Logging::logUser($cfg['Server']['user'], 'mysql-denied');
-            $GLOBALS['auth_plugin']->authFails();
-        }
-
-        // Set timestamp for the session, if required.
-        if ($cfg['Server']['SessionTimeZone'] != '') {
-            $sql_query_tz = 'SET ' . Util::backquote('time_zone') . ' = '
-                . '\''
-                . $GLOBALS['dbi']->escapeString($cfg['Server']['SessionTimeZone'])
-                . '\'';
-
-            if (! $userlink->query($sql_query_tz)) {
-                $error_message_tz = sprintf(
-                    __(
-                        'Unable to use timezone %1$s for server %2$d. '
-                        . 'Please check your configuration setting for '
-                        . '[em]$cfg[\'Servers\'][%3$d][\'SessionTimeZone\'][/em]. '
-                        . 'phpMyAdmin is currently using the default time zone '
-                        . 'of the database server.'
-                    ),
-                    $cfg['Servers'][$GLOBALS['server']]['SessionTimeZone'],
-                    $GLOBALS['server'],
-                    $GLOBALS['server']
-                );
-
-                $GLOBALS['error_handler']->addError(
-                    $error_message_tz,
-                    E_USER_WARNING,
-                    '',
-                    '',
-                    false
-                );
-            }
+            $auth_plugin->showFailure('mysql-denied');
         }
 
         if (! $controllink) {
@@ -634,10 +538,14 @@ if (! defined('PMA_MINIMUM_COMMON')) {
              * and phpMyAdmin issuing queries to configuration storage, which
              * is not locked by that time.
              */
-            $controllink = $GLOBALS['dbi']->connect(DatabaseInterface::CONNECT_USER);
+            $controllink = $GLOBALS['dbi']->connect(
+                DatabaseInterface::CONNECT_USER,
+                null,
+                DatabaseInterface::CONNECT_CONTROL
+            );
         }
 
-        $auth_plugin->storeUserCredentials();
+        $auth_plugin->rememberCredentials();
 
         /* Log success */
         Logging::logUser($cfg['Server']['user']);
@@ -660,8 +568,6 @@ if (! defined('PMA_MINIMUM_COMMON')) {
          * the DatabaseList class as a stub for the ListDatabase class
          */
         $dblist = new DatabaseList();
-        $dblist->userlink = $userlink;
-        $dblist->controllink = $controllink;
 
         /**
          * some resetting has to be done when switching servers
@@ -728,17 +634,6 @@ if (! defined('PMA_MINIMUM_COMMON')) {
 
 /* Tell tracker that it can actually work */
 Tracker::enable();
-
-if (isset($_REQUEST['GLOBALS']) || isset($_FILES['GLOBALS'])) {
-    Core::fatalError(__("GLOBALS overwrite attempt"));
-}
-
-/**
- * protect against possible exploits - there is no need to have so much variables
- */
-if (count($_REQUEST) > 1000) {
-    Core::fatalError(__('possible exploit'));
-}
 
 if (!empty($__redirect) && in_array($__redirect, $goto_whitelist)) {
     /**

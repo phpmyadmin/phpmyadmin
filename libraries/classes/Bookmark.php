@@ -105,13 +105,9 @@ class Bookmark
      * @return boolean whether the INSERT succeeds or not
      *
      * @access public
-     *
-     * @global resource $controllink the controluser db connection handle
      */
     public function save()
     {
-        global $controllink;
-
         $cfgBookmark = self::getParams();
         if (empty($cfgBookmark)) {
             return false;
@@ -124,7 +120,7 @@ class Bookmark
             . "'" . $GLOBALS['dbi']->escapeString($this->_user) . "', "
             . "'" . $GLOBALS['dbi']->escapeString($this->_query) . "', "
             . "'" . $GLOBALS['dbi']->escapeString($this->_label) . "')";
-        return $GLOBALS['dbi']->query($query, $controllink);
+        return $GLOBALS['dbi']->query($query, DatabaseInterface::CONNECT_CONTROL);
     }
 
     /**
@@ -133,13 +129,9 @@ class Bookmark
      * @return bool true if successful
      *
      * @access public
-     *
-     * @global resource $controllink the controluser db connection handle
      */
     public function delete()
     {
-        global $controllink;
-
         $cfgBookmark = self::getParams();
         if (empty($cfgBookmark)) {
             return false;
@@ -148,7 +140,7 @@ class Bookmark
         $query  = "DELETE FROM " . Util::backquote($cfgBookmark['db'])
             . "." . Util::backquote($cfgBookmark['table'])
             . " WHERE id = " . $this->_id;
-        return $GLOBALS['dbi']->tryQuery($query, $controllink);
+        return $GLOBALS['dbi']->tryQuery($query, DatabaseInterface::CONNECT_CONTROL);
     }
 
     /**
@@ -259,13 +251,9 @@ class Bookmark
      * @return Bookmark[] the bookmarks list
      *
      * @access public
-     *
-     * @global resource $controllink the controluser db connection handle
      */
     public static function getList($db = false)
     {
-        global $controllink;
-
         $cfgBookmark = self::getParams();
         if (empty($cfgBookmark)) {
             return array();
@@ -273,8 +261,8 @@ class Bookmark
 
         $query = "SELECT * FROM " . Util::backquote($cfgBookmark['db'])
             . "." . Util::backquote($cfgBookmark['table'])
-            . " WHERE `user` = ''"
-            . " OR `user` = '" . $GLOBALS['dbi']->escapeString($cfgBookmark['user']) . "'";
+            . " WHERE ( `user` = ''"
+            . " OR `user` = '" . $GLOBALS['dbi']->escapeString($cfgBookmark['user']) . "' )";
         if ($db !== false) {
             $query .= " AND dbase = '" . $GLOBALS['dbi']->escapeString($db) . "'";
         }
@@ -284,7 +272,7 @@ class Bookmark
             $query,
             null,
             null,
-            $controllink,
+            DatabaseInterface::CONNECT_CONTROL,
             DatabaseInterface::QUERY_STORE
         );
 
@@ -320,14 +308,10 @@ class Bookmark
      *
      * @access  public
      *
-     * @global  resource $controllink the controluser db connection handle
-     *
      */
     public static function get($db, $id, $id_field = 'id',
         $action_bookmark_all = false, $exact_user_match = false
     ) {
-        global $controllink;
-
         $cfgBookmark = self::getParams();
         if (empty($cfgBookmark)) {
             return null;
@@ -347,7 +331,7 @@ class Bookmark
         $query .= " AND " . Util::backquote($id_field)
             . " = " . $GLOBALS['dbi']->escapeString($id) . " LIMIT 1";
 
-        $result = $GLOBALS['dbi']->fetchSingleRow($query, 'ASSOC', $controllink);
+        $result = $GLOBALS['dbi']->fetchSingleRow($query, 'ASSOC', DatabaseInterface::CONNECT_CONTROL);
         if (! empty($result)) {
             $bookmark = new Bookmark();
             $bookmark->_id = $result['id'];

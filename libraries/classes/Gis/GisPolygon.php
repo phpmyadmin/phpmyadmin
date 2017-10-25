@@ -7,7 +7,6 @@
  */
 namespace PhpMyAdmin\Gis;
 
-use PhpMyAdmin\Util;
 use TCPDF;
 
 /**

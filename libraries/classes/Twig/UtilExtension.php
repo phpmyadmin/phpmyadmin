@@ -38,6 +38,10 @@ class UtilExtension extends Twig_Extension
                 'PhpMyAdmin\Util::escapeMysqlWildcards'
             ),
             new Twig_SimpleFunction(
+                'Util_extractColumnSpec',
+                'PhpMyAdmin\Util::extractColumnSpec'
+            ),
+            new Twig_SimpleFunction(
                 'Util_formatByteDown',
                 'PhpMyAdmin\Util::formatByteDown'
             ),
@@ -53,6 +57,11 @@ class UtilExtension extends Twig_Extension
             new Twig_SimpleFunction(
                 'Util_getButtonOrImage',
                 'PhpMyAdmin\Util::getButtonOrImage',
+                array('is_safe' => array('html'))
+            ),
+            new Twig_SimpleFunction(
+                'Util_getClassForType',
+                'PhpMyAdmin\Util::getClassForType',
                 array('is_safe' => array('html'))
             ),
             new Twig_SimpleFunction(
@@ -133,6 +142,11 @@ class UtilExtension extends Twig_Extension
             new Twig_SimpleFunction(
                 'Util_showMySQLDocu',
                 'PhpMyAdmin\Util::showMySQLDocu',
+                array('is_safe' => array('html'))
+            ),
+            new Twig_SimpleFunction(
+                'Util_sortableTableHeader',
+                'PhpMyAdmin\Util::sortableTableHeader',
                 array('is_safe' => array('html'))
             ),
         );

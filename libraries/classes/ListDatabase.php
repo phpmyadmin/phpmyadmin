@@ -16,7 +16,7 @@ require_once './libraries/check_user_privileges.inc.php';
  * handles database lists
  *
  * <code>
- * $ListDatabase = new ListDatabase($userlink);
+ * $ListDatabase = new ListDatabase();
  * </code>
  *
  * @todo this object should be attached to the PMA_Server object
@@ -27,27 +27,10 @@ require_once './libraries/check_user_privileges.inc.php';
 class ListDatabase extends ListAbstract
 {
     /**
-     * @var mixed   database link resource|object to be used
-     * @access protected
-     */
-    protected $db_link = null;
-
-    /**
-     * @var mixed   user database link resource|object
-     * @access protected
-     */
-    protected $db_link_user = null;
-
-    /**
      * Constructor
-     *
-     * @param mixed $db_link_user user database link resource|object
      */
-    public function __construct($db_link_user = null)
+    public function __construct()
     {
-        $this->db_link = $db_link_user;
-        $this->db_link_user = $db_link_user;
-
         parent::__construct();
         $this->build();
     }
@@ -103,7 +86,7 @@ class ListDatabase extends ListAbstract
 
         if ($command) {
             $database_list = $GLOBALS['dbi']->fetchResult(
-                $command, null, null, $this->db_link
+                $command, null, null
             );
         }
 

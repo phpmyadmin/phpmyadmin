@@ -63,7 +63,7 @@ class DesignerTest extends TestCase
             ->with(
                 "SELECT `page_nr`, `page_descr` FROM `pmadb`.`pdf_pages`"
                 . " WHERE db_name = '" . $db . "' ORDER BY `page_descr`",
-                2,
+                DatabaseInterface::CONNECT_CONTROL,
                 DatabaseInterface::QUERY_STORE,
                 false
             )

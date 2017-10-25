@@ -30,6 +30,11 @@ class SanitizeExtension extends Twig_Extension
                 'PhpMyAdmin\Sanitize::escapeJsString',
                 array('is_safe' => array('html'))
             ),
+            new Twig_SimpleFunction(
+                'Sanitize_sanitize',
+                'PhpMyAdmin\Sanitize::sanitize',
+                array('is_safe' => array('html'))
+            ),
         );
     }
 }

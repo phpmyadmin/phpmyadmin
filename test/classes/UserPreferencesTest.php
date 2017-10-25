@@ -8,6 +8,7 @@
 namespace PhpMyAdmin\Tests;
 
 use PhpMyAdmin\Config\ConfigFile;
+use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Tests\PmaTestCase;
 use PhpMyAdmin\UserPreferences;
 
@@ -29,6 +30,7 @@ class UserPreferencesTest extends PmaTestCase
         include 'libraries/config.default.php';
         $GLOBALS['server'] = 0;
         $GLOBALS['PMA_PHP_SELF'] = '/phpmyadmin/';
+        $GLOBALS['collation_connection'] = 'utf8_general_ci';
     }
 
     /**
@@ -100,7 +102,6 @@ class UserPreferencesTest extends PmaTestCase
         $_SESSION['relation'][$GLOBALS['server']]['db'] = "pma'db";
         $_SESSION['relation'][$GLOBALS['server']]['userconfig'] = "testconf";
         $_SESSION['relation'][$GLOBALS['server']]['user'] = "user";
-        $GLOBALS['controllink'] = null;
 
         $dbi = $this->getMockBuilder('PhpMyAdmin\DatabaseInterface')
             ->disableOriginalConstructor()
@@ -111,7 +112,7 @@ class UserPreferencesTest extends PmaTestCase
 
         $dbi->expects($this->once())
             ->method('fetchSingleRow')
-            ->with($query, 'ASSOC', null)
+            ->with($query, 'ASSOC', DatabaseInterface::CONNECT_CONTROL)
             ->will(
                 $this->returnValue(
                     array(
@@ -189,7 +190,6 @@ class UserPreferencesTest extends PmaTestCase
         $_SESSION['relation'][$GLOBALS['server']]['db'] = "pmadb";
         $_SESSION['relation'][$GLOBALS['server']]['userconfig'] = "testconf";
         $_SESSION['relation'][$GLOBALS['server']]['user'] = "user";
-        $GLOBALS['controllink'] = null;
 
         $query1 = 'SELECT `username` FROM `pmadb`.`testconf` '
             . 'WHERE `username` = \'user\'';
@@ -203,12 +203,12 @@ class UserPreferencesTest extends PmaTestCase
 
         $dbi->expects($this->once())
             ->method('fetchValue')
-            ->with($query1, 0, 0, null)
+            ->with($query1, 0, 0, DatabaseInterface::CONNECT_CONTROL)
             ->will($this->returnValue(true));
 
         $dbi->expects($this->once())
             ->method('tryQuery')
-            ->with($query2, null)
+            ->with($query2, DatabaseInterface::CONNECT_CONTROL)
             ->will($this->returnValue(true));
 
         $dbi->expects($this->any())
@@ -234,17 +234,17 @@ class UserPreferencesTest extends PmaTestCase
 
         $dbi->expects($this->once())
             ->method('fetchValue')
-            ->with($query1, 0, 0, null)
+            ->with($query1, 0, 0, DatabaseInterface::CONNECT_CONTROL)
             ->will($this->returnValue(false));
 
         $dbi->expects($this->once())
             ->method('tryQuery')
-            ->with($query2, null)
+            ->with($query2, DatabaseInterface::CONNECT_CONTROL)
             ->will($this->returnValue(false));
 
         $dbi->expects($this->once())
             ->method('getError')
-            ->with(null)
+            ->with(DatabaseInterface::CONNECT_CONTROL)
             ->will($this->returnValue("err1"));
         $dbi->expects($this->any())
             ->method('escapeString')
@@ -355,7 +355,7 @@ class UserPreferencesTest extends PmaTestCase
     {
         $GLOBALS['lang'] = '';
 
-        $this->mockResponse('Location: /phpmyadmin/file.html?a=b&saved=1&server=0#h+ash');
+        $this->mockResponse('Location: /phpmyadmin/file.html?a=b&saved=1&server=0&collation_connection=utf8_general_ci#h+ash');
 
         $GLOBALS['PMA_Config']->set('PmaAbsoluteUri', '');
         $GLOBALS['PMA_Config']->set('PMA_IS_IIS', false);
