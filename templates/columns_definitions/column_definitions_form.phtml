@@ -79,7 +79,16 @@ use PhpMyAdmin\Url;
             'is_backup' => $is_backup,
             'fields_meta' => $fields_meta,
             'mimework' => $mimework,
-            'content_cells' => $content_cells
+            'content_cells' => $content_cells,
+            'change_column' => $_REQUEST['change_column'],
+            'is_virtual_columns_supported' => PhpMyAdmin\Util::isVirtualColumnsSupported(),
+            'browse_mime' => $GLOBALS['cfg']['BrowseMIME'],
+            'server_type' => PhpMyAdmin\Util::getServerType(),
+            'max_rows' => intval($GLOBALS['cfg']['MaxRows']),
+            'char_editing' => $GLOBALS['cfg']['CharEditing'],
+            'attribute_types' => $GLOBALS['dbi']->types->getAttributes(),
+            'privs_available' => $GLOBALS['col_priv'] && $GLOBALS['is_reload_priv'],
+            'max_length' => $GLOBALS['dbi']->getVersion() >= 50503 ? 1024 : 255,
         )); ?>
     <?php endif; ?>
     <?php if ($action == 'tbl_create.php'): ?>

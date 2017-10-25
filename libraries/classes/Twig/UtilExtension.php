@@ -136,6 +136,11 @@ class UtilExtension extends Twig_Extension
                 array('is_safe' => array('html'))
             ),
             new Twig_SimpleFunction(
+                'Util_showDocu',
+                'PhpMyAdmin\Util::showDocu',
+                array('is_safe' => array('html'))
+            ),
+            new Twig_SimpleFunction(
                 'Util_showIcons',
                 'PhpMyAdmin\Util::showIcons'
             ),

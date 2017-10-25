@@ -122,7 +122,16 @@ class Normalization
                 'is_backup' => true,
                 'fields_meta' => null,
                 'mimework' => $cfgRelation['mimework'],
-                'content_cells' => $content_cells
+                'content_cells' => $content_cells,
+                'change_column' => $_REQUEST['change_column'],
+                'is_virtual_columns_supported' => Util::isVirtualColumnsSupported(),
+                'browse_mime' => $GLOBALS['cfg']['BrowseMIME'],
+                'server_type' => Util::getServerType(),
+                'max_rows' => intval($GLOBALS['cfg']['MaxRows']),
+                'char_editing' => $GLOBALS['cfg']['CharEditing'],
+                'attribute_types' => $GLOBALS['dbi']->types->getAttributes(),
+                'privs_available' => $GLOBALS['col_priv'] && $GLOBALS['is_reload_priv'],
+                'max_length' => $GLOBALS['dbi']->getVersion() >= 50503 ? 1024 : 255,
                 )
             );
     }
