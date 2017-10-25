@@ -8,6 +8,7 @@
  */
 
 use PhpMyAdmin\Di\Container;
+use PhpMyAdmin\Partition;
 use PhpMyAdmin\Relation;
 use PhpMyAdmin\Response;
 use PhpMyAdmin\Table;
@@ -392,18 +393,35 @@ for ($columnNumber = 0; $columnNumber < $num_fields; $columnNumber++) {
 } // end for
 
 include 'libraries/tbl_partition_definition.inc.php';
-$html = Template::get('columns_definitions/column_definitions_form')
-    ->render(
-        array(
-            'is_backup'        => $is_backup,
-            'fields_meta'      => isset($fields_meta) ? $fields_meta : null,
-            'mimework'         => $cfgRelation['mimework'],
-            'action'           => $action,
-            'form_params'      => $form_params,
-            'content_cells'    => $content_cells,
-            'partitionDetails' => $partitionDetails
-        )
-    );
+$html = Template::get('columns_definitions/column_definitions_form')->render([
+    'is_backup' => $is_backup,
+    'fields_meta' => isset($fields_meta) ? $fields_meta : null,
+    'mimework' => $cfgRelation['mimework'],
+    'action' => $action,
+    'form_params' => $form_params,
+    'content_cells' => $content_cells,
+    'partition_details' => $partitionDetails,
+    'primary_indexes' => $_REQUEST['primary_indexes'],
+    'unique_indexes' => $_REQUEST['unique_indexes'],
+    'indexes' => $_REQUEST['indexes'],
+    'fulltext_indexes' => $_REQUEST['fulltext_indexes'],
+    'spatial_indexes' => $_REQUEST['spatial_indexes'],
+    'table' => $_REQUEST['table'],
+    'comment' => $_REQUEST['comment'],
+    'tbl_collation' => $_REQUEST['tbl_collation'],
+    'tbl_storage_engine' => $_REQUEST['tbl_storage_engine'],
+    'connection' => $_REQUEST['connection'],
+    'change_column' => $_REQUEST['change_column'],
+    'is_virtual_columns_supported' => Util::isVirtualColumnsSupported(),
+    'browse_mime' => $GLOBALS['cfg']['BrowseMIME'],
+    'server_type' => Util::getServerType(),
+    'max_rows' => intval($GLOBALS['cfg']['MaxRows']),
+    'char_editing' => $GLOBALS['cfg']['CharEditing'],
+    'attribute_types' => $GLOBALS['dbi']->types->getAttributes(),
+    'privs_available' => $GLOBALS['col_priv'] && $GLOBALS['is_reload_priv'],
+    'max_length' => $GLOBALS['dbi']->getVersion() >= 50503 ? 1024 : 255,
+    'have_partitioning' => Partition::havePartitioning(),
+]);
 
 unset($form_params);
 
