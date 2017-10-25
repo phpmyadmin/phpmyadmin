@@ -38,6 +38,7 @@ class PrivilegesTest extends TestCase
         //$_REQUEST
         $_REQUEST['log'] = "index1";
         $_REQUEST['pos'] = 3;
+        $_REQUEST['initial'] = null;
 
         //$GLOBALS
         $GLOBALS['lang'] = 'en';
