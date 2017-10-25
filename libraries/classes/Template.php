@@ -19,6 +19,7 @@ use PhpMyAdmin\Twig\RelationExtension;
 use PhpMyAdmin\Twig\SanitizeExtension;
 use PhpMyAdmin\Twig\ServerPrivilegesExtension;
 use PhpMyAdmin\Twig\StorageEngineExtension;
+use PhpMyAdmin\Twig\TransformationsExtension;
 use PhpMyAdmin\Twig\UrlExtension;
 use PhpMyAdmin\Twig\UtilExtension;
 use Twig_Environment;
@@ -80,6 +81,7 @@ class Template
             $twig->addExtension(new SanitizeExtension());
             $twig->addExtension(new ServerPrivilegesExtension());
             $twig->addExtension(new StorageEngineExtension());
+            $twig->addExtension(new TransformationsExtension());
             $twig->addExtension(new UrlExtension());
             $twig->addExtension(new UtilExtension());
         }

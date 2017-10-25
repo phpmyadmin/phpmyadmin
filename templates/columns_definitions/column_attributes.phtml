@@ -203,11 +203,11 @@ $ci_offset = -1;
         <!-- Column Browser transformation -->
         <?= PhpMyAdmin\Template::get('columns_definitions/transformation')
             ->render(array(
-                'columnNumber' => $columnNumber,
+                'column_number' => $columnNumber,
                 'ci' => $ci++,
                 'ci_offset' => $ci_offset,
                 'available_mime' => $available_mime,
-                'columnMeta' => $columnMeta,
+                'column_meta' => $columnMeta,
                 'mime_map' => $mime_map,
                 'type' => 'transformation'
             )); ?>
@@ -228,11 +228,11 @@ $ci_offset = -1;
         <!-- Column Input transformation -->
         <?= PhpMyAdmin\Template::get('columns_definitions/transformation')
             ->render(array(
-                'columnNumber' => $columnNumber,
+                'column_number' => $columnNumber,
                 'ci' => $ci++,
                 'ci_offset' => $ci_offset,
                 'available_mime' => $available_mime,
-                'columnMeta' => $columnMeta,
+                'column_meta' => $columnMeta,
                 'mime_map' => $mime_map,
                 'type' => 'input_transformation'
             )); ?>
