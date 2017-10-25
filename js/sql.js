@@ -230,7 +230,7 @@ AJAX.registerOnload('sql.js', function () {
      * Attach Event Handler for 'Copy to clipbpard
      */
     $(document).on('click', '#copyToClipBoard', function (event) {
-    	 event.preventDefault();
+        event.preventDefault();
 
         var textArea = document.createElement('textarea');
 
@@ -286,7 +286,7 @@ AJAX.registerOnload('sql.js', function () {
         });
 
         $('.table_results .column_heading a').each(function () {
-        	//manipulate the title string no to print out order number 
+        	//manipulate the title string not to print out order number 
         	var title_String =$(this).html();
         	var pos = title_String.indexOf("<img");
         	if(pos!= -1)
@@ -296,9 +296,8 @@ AJAX.registerOnload('sql.js', function () {
         	}
         	else
         	{
-        		textArea.value += $(this).text() + '\t';
+                textArea.value += $(this).text() + '\t';
         	}       	
-           
         });
 
         textArea.value += '\n';
