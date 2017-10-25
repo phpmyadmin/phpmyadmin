@@ -122,10 +122,35 @@
             </th>
         <?php endif; ?>
     </tr>
+    <?php
+    $options = array(
+        ''           =>  '',
+        'VIRTUAL'    => 'VIRTUAL',
+    );
+    $serverType = PhpMyAdmin\Util::getServerType();
+    if ($serverType == 'MariaDB') {
+        $options['PERSISTENT'] = 'PERSISTENT';
+    } else {
+        $options['STORED'] = 'STORED';
+    }
+    ?>
     <?php foreach($content_cells as $content_row): ?>
         <tr>
             <?= PhpMyAdmin\Template::get('columns_definitions/column_attributes')
-                ->render($content_row); ?>
+                ->render(array_merge(
+                    $content_row,
+                    [
+                        'max_rows' => intval($GLOBALS['cfg']['MaxRows']),
+                        'char_editing' => $GLOBALS['cfg']['CharEditing'],
+                        'attribute_types' => $GLOBALS['dbi']->types->getAttributes(),
+                        'change_column' => $_REQUEST['change_column'],
+                        'privs_available' => $GLOBALS['col_priv'] && $GLOBALS['is_reload_priv'],
+                        'max_length' => $GLOBALS['dbi']->getVersion() >= 50503 ? 1024 : 255,
+                        'is_virtual_columns_supported' => \PhpMyAdmin\Util::isVirtualColumnsSupported(),
+                        'options' => $options,
+                        'browse_mime' => $GLOBALS['cfg']['BrowseMIME'],
+                    ]
+                )); ?>
         </tr>
     <?php endforeach; ?>
 </table>

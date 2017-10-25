@@ -374,8 +374,8 @@ for ($columnNumber = 0; $columnNumber < $num_fields; $columnNumber++) {
     }
 
     $content_cells[$columnNumber] = array(
-        'columnNumber' => $columnNumber,
-        'columnMeta' => $columnMeta,
+        'column_number' => $columnNumber,
+        'column_meta' => $columnMeta,
         'type_upper' => mb_strtoupper($type),
         'length_values_input_size' => $length_values_input_size,
         'length' => $length,
@@ -385,7 +385,7 @@ for ($columnNumber = 0; $columnNumber < $num_fields; $columnNumber++) {
         'fields_meta' => isset($fields_meta) ? $fields_meta : null,
         'is_backup' => $is_backup,
         'move_columns' => $move_columns,
-        'cfgRelation' => $cfgRelation,
+        'cfg_relation' => $cfgRelation,
         'available_mime' => $available_mime,
         'mime_map' => isset($mime_map) ? $mime_map : array()
     );
