@@ -289,15 +289,12 @@ AJAX.registerOnload('sql.js', function () {
         	//manipulate the title string not to print out order number 
         	var title_String =$(this).html();
         	var pos = title_String.indexOf("<img");
-        	if(pos!= -1)
-        	{ 
-        	    title_String=title_String.substring(0,pos);
+        	if(pos!= -1){ 
+        		title_String=title_String.substring(0,pos);
         	    textArea.value += title_String + '\t';
-        	}
-        	else
-        	{
+        	}else{
                 textArea.value += $(this).text() + '\t';
-        	}       	
+            }       	
         });
 
         textArea.value += '\n';
