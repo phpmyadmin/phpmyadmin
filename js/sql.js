@@ -286,8 +286,23 @@ AJAX.registerOnload('sql.js', function () {
         });
 
         $('.table_results .column_heading a').each(function () {
-            textArea.value += $(this).text() + '\t';
-        });
+            //document.getElementsByTagName("small")[38].innerHTML;
+            var res = $(this).text().split("   1");
+                if (typeof res[1] === 'undefined'){
+                    textArea.value += res + '\t';
+                }
+                else {
+                    var order = $(".soimg").attr("alt");
+                        if (order == "Ascending"){
+                            order = "Asc";
+                        }
+                        else {
+                            order = "Desc";
+                        }
+                    res = res[0] + " [" + order + "] " + res[1];
+                    textArea.value += res + '\t';
+                }
+        }); 
 
         textArea.value += '\n';
         $('.table_results tbody tr').each(function () {
