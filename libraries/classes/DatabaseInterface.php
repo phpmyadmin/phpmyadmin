@@ -1383,7 +1383,7 @@ class DatabaseInterface
             return true;
         }
 
-        return $this->query("SET " . $var . " = " . $value . ';', $this->_links[$link]);
+        return $this->query("SET " . $var . " = " . $value . ';', $link);
     }
 
     /**
