@@ -144,6 +144,11 @@ class UtilExtension extends Twig_Extension
                 'PhpMyAdmin\Util::showMySQLDocu',
                 array('is_safe' => array('html'))
             ),
+            new Twig_SimpleFunction(
+                'Util_sortableTableHeader',
+                'PhpMyAdmin\Util::sortableTableHeader',
+                array('is_safe' => array('html'))
+            ),
         );
     }
 }

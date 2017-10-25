@@ -3759,7 +3759,8 @@ class Privileges
         $html_output = Template::get('privileges/initials_row')
             ->render(
                 array(
-                    'array_initials' => $array_initials
+                    'array_initials' => $array_initials,
+                    'initial' => $_REQUEST['initial'],
                 )
             );
 

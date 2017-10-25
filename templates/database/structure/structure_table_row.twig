@@ -184,6 +184,39 @@
         {% endif %}
 
     {% else %}
+        {% set count = 0 %}
+        {% if properties_num_columns %}
+            {% set count = count + 2 %}
+        {% endif %}
+        {% if is_show_stats %}
+            {% set count = count + 2 %}
+        {% endif %}
+        {% if show_charset %}
+            {% set count = count + 1 %}
+        {% endif %}
+        {% if show_comment %}
+            {% set count = count + 1 %}
+        {% endif %}
+        {% if show_creation %}
+            {% set count = count + 1 %}
+        {% endif %}
+        {% if show_last_update %}
+            {% set count = count + 1 %}
+        {% endif %}
+        {% if show_last_check %}
+            {% set count = count + 1 %}
+        {% endif %}
+
+        {% if db_is_system_schema %}
+            {% set action_colspan = 3 %}
+        {% else %}
+            {% set action_colspan = 6 %}
+        {% endif %}
+        {% if num_favorite_tables > 0 %}
+            {% set action_colspan = action_colspan + 1 %}
+        {% endif %}
+
+        {% set colspan_for_structure = action_colspan + 3 %}
         <td colspan="{{ colspan_for_structure - db_is_system_schema ? 6 : 9 }}"
             class="center">
             {% trans 'in use' %}
