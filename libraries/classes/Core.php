@@ -331,7 +331,8 @@ class Core
     {
         $tables = $GLOBALS['dbi']->tryQuery(
             'SHOW TABLES FROM ' . Util::backquote($db) . ';',
-            null, DatabaseInterface::QUERY_STORE
+            DatabaseInterface::CONNECT_USER,
+            DatabaseInterface::QUERY_STORE
         );
         if ($tables) {
             $num_tables = $GLOBALS['dbi']->numRows($tables);

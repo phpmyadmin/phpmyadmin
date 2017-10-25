@@ -42,7 +42,6 @@ class ExportSqlTest extends PmaTestCase
         $GLOBALS['plugin_param']['export_type'] = 'table';
         $GLOBALS['plugin_param']['single_table'] = false;
         $GLOBALS['cfgRelation']['relation'] = true;
-        $GLOBALS['controllink'] = null;
         $this->object = new ExportSql();
     }
 
@@ -712,8 +711,8 @@ class ExportSqlTest extends PmaTestCase
             ->will(
                 $this->returnValueMap(
                     array(
-                        array('db', 'EVENT', 'f1', null, 'f1event'),
-                        array('db', 'EVENT', 'f2', null, 'f2event')
+                        array('db', 'EVENT', 'f1', DatabaseInterface::CONNECT_USER, 'f1event'),
+                        array('db', 'EVENT', 'f2', DatabaseInterface::CONNECT_USER, 'f2event')
                     )
                 )
             );
@@ -1481,7 +1480,7 @@ class ExportSqlTest extends PmaTestCase
             ->method('tryQuery')
             ->with(
                 "SELECT a FROM b WHERE 1",
-                null,
+                DatabaseInterface::CONNECT_USER,
                 DatabaseInterface::QUERY_UNBUFFERED
             )
             ->will($this->returnValue('res'));
@@ -1612,7 +1611,7 @@ class ExportSqlTest extends PmaTestCase
             ->method('tryQuery')
             ->with(
                 "SELECT a FROM b WHERE 1",
-                null,
+                DatabaseInterface::CONNECT_USER,
                 DatabaseInterface::QUERY_UNBUFFERED
             )
             ->will($this->returnValue('res'));

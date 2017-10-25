@@ -37,7 +37,7 @@ class ServerBinlogController extends Controller
             'SHOW MASTER LOGS',
             'Log_name',
             null,
-            null,
+            DatabaseInterface::CONNECT_USER,
             DatabaseInterface::QUERY_STORE
         );
     }

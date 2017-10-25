@@ -7,6 +7,7 @@
  */
 namespace PhpMyAdmin\Navigation\Nodes;
 
+use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Relation;
 use PhpMyAdmin\Util;
 
@@ -823,7 +824,7 @@ class Node
                 $sqlQuery,
                 'db_name',
                 'count',
-                $GLOBALS['controllink']
+                DatabaseInterface::CONNECT_CONTROL
             );
 
             return $counts;

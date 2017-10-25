@@ -242,10 +242,8 @@ class Footer
         if (! Core::isValid($_REQUEST['no_history'])
             && empty($GLOBALS['error_message'])
             && ! empty($GLOBALS['sql_query'])
-            && (isset($GLOBALS['dbi'])
-            && ($GLOBALS['dbi']->getLink()
-            || isset($GLOBALS['controllink'])
-            && $GLOBALS['controllink']))
+            && isset($GLOBALS['dbi'])
+            && $GLOBALS['dbi']->isUserType('logged')
         ) {
             Relation::setHistory(
                 Core::ifSetOr($GLOBALS['db'], ''),

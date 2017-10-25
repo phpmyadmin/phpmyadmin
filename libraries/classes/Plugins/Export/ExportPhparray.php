@@ -182,7 +182,7 @@ class ExportPhparray extends ExportPlugin
 
         $result = $GLOBALS['dbi']->query(
             $sql_query,
-            null,
+            DatabaseInterface::CONNECT_USER,
             DatabaseInterface::QUERY_UNBUFFERED
         );
 

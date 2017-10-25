@@ -11,6 +11,7 @@ namespace PhpMyAdmin\Controllers\Server;
 
 use PhpMyAdmin\Controllers\Controller;
 use PhpMyAdmin\Charsets;
+use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Message;
 use PhpMyAdmin\Response;
 use PhpMyAdmin\Server\Common;
@@ -114,7 +115,7 @@ class ServerDatabasesController extends Controller
          */
         if ($GLOBALS['server'] > 0) {
             $this->_databases = $this->dbi->getDatabasesFull(
-                null, $this->_dbstats, null, $this->_sort_by,
+                null, $this->_dbstats, DatabaseInterface::CONNECT_USER, $this->_sort_by,
                 $this->_sort_order, $this->_pos, true
             );
             $this->_database_count = count($GLOBALS['dblist']->databases);

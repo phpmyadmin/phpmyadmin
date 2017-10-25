@@ -134,7 +134,7 @@ class Privileges
     {
         $row1 = $GLOBALS['dbi']->fetchSingleRow(
             'SHOW COLUMNS FROM `mysql`.`tables_priv` LIKE \'Table_priv\';',
-            'ASSOC', $GLOBALS['userlink']
+            'ASSOC'
         );
         // note: in MySQL 5.0.3 we get "Create View', 'Show view';
         // the View for Create is spelled with uppercase V
@@ -537,7 +537,7 @@ class Privileges
             $sql_query = "SELECT `usergroup` FROM " . $userTable
                 . " WHERE `username` = '" . $GLOBALS['dbi']->escapeString($username) . "'";
             $userGroup = $GLOBALS['dbi']->fetchValue(
-                $sql_query, 0, 0, $GLOBALS['controllink']
+                $sql_query, 0, 0, DatabaseInterface::CONNECT_CONTROL
             );
         }
 
@@ -584,7 +584,7 @@ class Privileges
         $sql_query = "SELECT `usergroup` FROM " . $userTable
             . " WHERE `username` = '" . $GLOBALS['dbi']->escapeString($username) . "'";
         $oldUserGroup = $GLOBALS['dbi']->fetchValue(
-            $sql_query, 0, 0, $GLOBALS['controllink']
+            $sql_query, 0, 0, DatabaseInterface::CONNECT_CONTROL
         );
 
         if ($oldUserGroup === false) {
@@ -2862,7 +2862,7 @@ class Privileges
             . '.' . Util::backquote($cfgRelation['usergroups']);
         $sql_query = 'SELECT COUNT(*) FROM ' . $user_group_table;
         $user_group_count = $GLOBALS['dbi']->fetchValue(
-            $sql_query, 0, 0, $GLOBALS['controllink']
+            $sql_query, 0, 0, DatabaseInterface::CONNECT_CONTROL
         );
 
         return $user_group_count;
@@ -2892,7 +2892,7 @@ class Privileges
             . ' LIMIT 1';
 
         $usergroup = $GLOBALS['dbi']->fetchValue(
-            $sql_query, 0, 0, $GLOBALS['controllink']
+            $sql_query, 0, 0, DatabaseInterface::CONNECT_CONTROL
         );
 
         if ($usergroup === false) {
@@ -3456,7 +3456,7 @@ class Privileges
         } elseif ($type == 'table') {
             $result = @$GLOBALS['dbi']->tryQuery(
                 "SHOW TABLES FROM " . Util::backquote($dbname),
-                null,
+                DatabaseInterface::CONNECT_USER,
                 DatabaseInterface::QUERY_STORE
             );
 
@@ -3741,7 +3741,7 @@ class Privileges
         $initials = $GLOBALS['dbi']->tryQuery(
             'SELECT DISTINCT UPPER(LEFT(`User`,1)) FROM `user`'
             . ' ORDER BY UPPER(LEFT(`User`,1)) ASC',
-            null,
+            DatabaseInterface::CONNECT_USER,
             DatabaseInterface::QUERY_STORE
         );
         if ($initials) {
@@ -3838,7 +3838,7 @@ class Privileges
             $drop_user_error = '';
             foreach ($queries as $sql_query) {
                 if ($sql_query{0} != '#') {
-                    if (! $GLOBALS['dbi']->tryQuery($sql_query, $GLOBALS['userlink'])) {
+                    if (! $GLOBALS['dbi']->tryQuery($sql_query)) {
                         $drop_user_error .= $GLOBALS['dbi']->getError() . "\n";
                     }
                 }
@@ -4623,10 +4623,14 @@ class Privileges
         $sql_query_all .= ' ;';
 
         $res = $GLOBALS['dbi']->tryQuery(
-            $sql_query, null, DatabaseInterface::QUERY_STORE
+            $sql_query,
+            DatabaseInterface::CONNECT_USER,
+            DatabaseInterface::QUERY_STORE
         );
         $res_all = $GLOBALS['dbi']->tryQuery(
-            $sql_query_all, null, DatabaseInterface::QUERY_STORE
+            $sql_query_all,
+            DatabaseInterface::CONNECT_USER,
+            DatabaseInterface::QUERY_STORE
         );
 
         if (! $res) {
@@ -4639,7 +4643,9 @@ class Privileges
             $GLOBALS['dbi']->freeResult($res_all);
             $sql_query = 'SELECT * FROM `mysql`.`user`';
             $res = $GLOBALS['dbi']->tryQuery(
-                $sql_query, null, DatabaseInterface::QUERY_STORE
+                $sql_query,
+                DatabaseInterface::CONNECT_USER,
+                DatabaseInterface::QUERY_STORE
             );
 
             if (! $res) {
@@ -4864,7 +4870,7 @@ class Privileges
         $res = $GLOBALS['dbi']->query(
             'SELECT `Db`, `Table_name`, `Table_priv` FROM `mysql`.`tables_priv`'
             . $user_host_condition,
-            $GLOBALS['userlink'],
+            DatabaseInterface::CONNECT_USER,
             DatabaseInterface::QUERY_STORE
         );
         while ($row = $GLOBALS['dbi']->fetchAssoc($res)) {
@@ -4881,7 +4887,7 @@ class Privileges
                 . ' AND `Table_name`'
                 . ' = \'' . $GLOBALS['dbi']->escapeString($row['Table_name']) . "'"
                 . ';',
-                null,
+                DatabaseInterface::CONNECT_USER,
                 DatabaseInterface::QUERY_STORE
             );
 

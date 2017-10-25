@@ -8,6 +8,7 @@
 namespace PhpMyAdmin\Tests\Server;
 
 use PhpMyAdmin\Core;
+use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Server\Status;
 use PhpMyAdmin\Server\Status\Data;
 use PhpMyAdmin\Theme;
@@ -77,7 +78,7 @@ class StatusTest extends TestCase
                 "SHOW GLOBAL STATUS",
                 0,
                 1,
-                null,
+                DatabaseInterface::CONNECT_USER,
                 0,
                 $server_status
             ),
@@ -85,7 +86,7 @@ class StatusTest extends TestCase
                 "SHOW GLOBAL VARIABLES",
                 0,
                 1,
-                null,
+                DatabaseInterface::CONNECT_USER,
                 0,
                 $server_variables
             ),
@@ -94,7 +95,7 @@ class StatusTest extends TestCase
                     . "FROM data_dictionary.GLOBAL_STATEMENTS",
                 0,
                 1,
-                null,
+                DatabaseInterface::CONNECT_USER,
                 0,
                 $server_status
             ),

@@ -67,7 +67,8 @@ if (empty($is_table)
             $_result = $GLOBALS['dbi']->tryQuery(
                 'SHOW TABLES LIKE \''
                 . $GLOBALS['dbi']->escapeString($table) . '\';',
-                null, PhpMyAdmin\DatabaseInterface::QUERY_STORE
+                PhpMyAdmin\DatabaseInterface::CONNECT_USER,
+                PhpMyAdmin\DatabaseInterface::QUERY_STORE
             );
             $is_table = @$GLOBALS['dbi']->numRows($_result);
             $GLOBALS['dbi']->freeResult($_result);
@@ -90,7 +91,7 @@ if (empty($is_table)
                 $_result = $GLOBALS['dbi']->tryQuery(
                     'SELECT COUNT(*) FROM ' . PhpMyAdmin\Util::backquote($table)
                     . ';',
-                    null,
+                    PhpMyAdmin\DatabaseInterface::CONNECT_USER,
                     PhpMyAdmin\DatabaseInterface::QUERY_STORE
                 );
                 $is_table = ($_result && @$GLOBALS['dbi']->numRows($_result));

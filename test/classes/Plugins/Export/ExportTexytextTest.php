@@ -242,7 +242,7 @@ class ExportTexytextTest extends PmaTestCase
 
         $dbi->expects($this->once())
             ->method('query')
-            ->with('SELECT', null, DatabaseInterface::QUERY_UNBUFFERED)
+            ->with('SELECT', DatabaseInterface::CONNECT_USER, DatabaseInterface::QUERY_UNBUFFERED)
             ->will($this->returnValue(true));
 
         $dbi->expects($this->once())
@@ -363,7 +363,6 @@ class ExportTexytextTest extends PmaTestCase
         $this->object = $this->getMockBuilder('PhpMyAdmin\Plugins\Export\ExportTexytext')
             ->setMethods(array('formatOneColumnDefinition'))
             ->getMock();
-        $GLOBALS['controllink'] = null;
 
         // case 1
 

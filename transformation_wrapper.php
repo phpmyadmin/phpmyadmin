@@ -65,14 +65,14 @@ if (isset($where_clause)) {
     $result = $GLOBALS['dbi']->query(
         'SELECT * FROM ' . PhpMyAdmin\Util::backquote($table)
         . ' WHERE ' . $where_clause . ';',
-        null,
+        PhpMyAdmin\DatabaseInterface::CONNECT_USER,
         PhpMyAdmin\DatabaseInterface::QUERY_STORE
     );
     $row = $GLOBALS['dbi']->fetchAssoc($result);
 } else {
     $result = $GLOBALS['dbi']->query(
         'SELECT * FROM ' . PhpMyAdmin\Util::backquote($table) . ' LIMIT 1;',
-        null,
+        PhpMyAdmin\DatabaseInterface::CONNECT_USER,
         PhpMyAdmin\DatabaseInterface::QUERY_STORE
     );
     $row = $GLOBALS['dbi']->fetchAssoc($result);

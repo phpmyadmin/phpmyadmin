@@ -85,7 +85,7 @@ class TableTest extends PmaTestCase
                 $sql_isView_true,
                 null,
                 null,
-                null,
+                DatabaseInterface::CONNECT_USER,
                 0,
                 true
             ),
@@ -93,7 +93,7 @@ class TableTest extends PmaTestCase
                 $sql_copy_data,
                 null,
                 null,
-                null,
+                DatabaseInterface::CONNECT_USER,
                 0,
                 false
             ),
@@ -101,7 +101,7 @@ class TableTest extends PmaTestCase
                 $sql_isView_false,
                 null,
                 null,
-                null,
+                DatabaseInterface::CONNECT_USER,
                 0,
                 false
             ),
@@ -109,7 +109,7 @@ class TableTest extends PmaTestCase
                 $sql_isUpdatableView_true,
                 null,
                 null,
-                null,
+                DatabaseInterface::CONNECT_USER,
                 0,
                 true
             ),
@@ -117,7 +117,7 @@ class TableTest extends PmaTestCase
                 $sql_isUpdatableView_false,
                 null,
                 null,
-                null,
+                DatabaseInterface::CONNECT_USER,
                 0,
                 false
             ),
@@ -125,7 +125,7 @@ class TableTest extends PmaTestCase
                 $sql_analyzeStructure_true,
                 null,
                 null,
-                null,
+                DatabaseInterface::CONNECT_USER,
                 0,
                 array(
                     array('COLUMN_NAME'=>'COLUMN_NAME', 'DATA_TYPE'=>'DATA_TYPE')
@@ -135,7 +135,7 @@ class TableTest extends PmaTestCase
                 $getUniqueColumns_sql,
                 array('Key_name', null),
                 'Column_name',
-                null,
+                DatabaseInterface::CONNECT_USER,
                 0,
                 array(
                     array('index1'),
@@ -147,7 +147,7 @@ class TableTest extends PmaTestCase
                 $getUniqueColumns_sql,
                 'Column_name',
                 'Column_name',
-                null,
+                DatabaseInterface::CONNECT_USER,
                 0,
                 array(
                     'column1',
@@ -162,7 +162,7 @@ class TableTest extends PmaTestCase
                 'SHOW COLUMNS FROM `PMA`.`PMA_BookMark`',
                 'Field',
                 'Field',
-                null,
+                DatabaseInterface::CONNECT_USER,
                 0,
                 array(
                     'column1',
@@ -177,7 +177,7 @@ class TableTest extends PmaTestCase
                 'SHOW COLUMNS FROM `PMA`.`PMA_BookMark`',
                 null,
                 null,
-                null,
+                DatabaseInterface::CONNECT_USER,
                 0,
                 array(
                     array(

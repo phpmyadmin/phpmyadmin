@@ -7,6 +7,7 @@
  */
 namespace PhpMyAdmin\Tests\Rte;
 
+use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Response;
 use PhpMyAdmin\Rte\Routines;
 use PhpMyAdmin\Types;
@@ -1106,9 +1107,9 @@ class RoutinesTest extends TestCase
             ->will(
                 $this->returnValueMap(
                     array(
-                        array('foo', null, 'foo'),
-                        array("foo's bar", null, "foo\'s bar"),
-                        array('', null, '')
+                        array('foo', DatabaseInterface::CONNECT_USER, 'foo'),
+                        array("foo's bar", DatabaseInterface::CONNECT_USER, "foo\'s bar"),
+                        array('', DatabaseInterface::CONNECT_USER, '')
                     )
                 )
             );

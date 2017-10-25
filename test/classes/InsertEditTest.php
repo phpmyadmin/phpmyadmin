@@ -236,7 +236,7 @@ class InsertEditTest extends TestCase
             ->method('query')
             ->with(
                 'SELECT * FROM `db`.`table` LIMIT 1;',
-                null,
+                DatabaseInterface::CONNECT_USER,
                 DatabaseInterface::QUERY_STORE
             )
             ->will($this->returnValue('result1'));
@@ -2232,7 +2232,7 @@ class InsertEditTest extends TestCase
             ->with(
                 'SELECT `TABLE_COMMENT` FROM `information_schema`.`TABLES` WHERE '
                 . '`f`=1',
-                null,
+                DatabaseInterface::CONNECT_USER,
                 DatabaseInterface::QUERY_STORE
             )
             ->will($this->returnValue('r1'));

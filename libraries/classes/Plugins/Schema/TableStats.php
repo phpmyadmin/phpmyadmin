@@ -83,7 +83,9 @@ abstract class TableStats
     {
         $sql = 'DESCRIBE ' . Util::backquote($this->tableName);
         $result = $GLOBALS['dbi']->tryQuery(
-            $sql, null, DatabaseInterface::QUERY_STORE
+            $sql,
+            DatabaseInterface::CONNECT_USER,
+            DatabaseInterface::QUERY_STORE
         );
         if (! $result || ! $GLOBALS['dbi']->numRows($result)) {
             $this->showMissingTableError();
@@ -149,7 +151,8 @@ abstract class TableStats
     {
         $result = $GLOBALS['dbi']->query(
             'SHOW INDEX FROM ' . Util::backquote($this->tableName) . ';',
-            null, DatabaseInterface::QUERY_STORE
+            DatabaseInterface::CONNECT_USER,
+            DatabaseInterface::QUERY_STORE
         );
         if ($GLOBALS['dbi']->numRows($result) > 0) {
             while ($row = $GLOBALS['dbi']->fetchAssoc($result)) {

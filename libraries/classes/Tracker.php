@@ -7,6 +7,7 @@
  */
 namespace PhpMyAdmin;
 
+use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Plugins;
 use PhpMyAdmin\Plugins\Export\ExportSql;
 use PhpMyAdmin\Relation;
@@ -148,7 +149,7 @@ class Tracker
         " AND table_name = '" . $GLOBALS['dbi']->escapeString($tablename) . "' " .
         " ORDER BY version DESC LIMIT 1";
 
-        $result = $GLOBALS['dbi']->fetchValue($sql_query, 0, 0, $GLOBALS['controllink']) == 1;
+        $result = $GLOBALS['dbi']->fetchValue($sql_query, 0, 0, DatabaseInterface::CONNECT_CONTROL) == 1;
 
         self::$_tracking_cache[$dbname][$tablename] = $result;
 

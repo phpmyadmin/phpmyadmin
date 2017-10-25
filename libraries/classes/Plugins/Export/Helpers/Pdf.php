@@ -673,7 +673,7 @@ class Pdf extends PdfLib
          */
         $this->results = $GLOBALS['dbi']->query(
             $query,
-            null,
+            DatabaseInterface::CONNECT_USER,
             DatabaseInterface::QUERY_UNBUFFERED
         );
         $this->numFields = $GLOBALS['dbi']->numFields($this->results);
@@ -802,7 +802,7 @@ class Pdf extends PdfLib
 
         $this->results = $GLOBALS['dbi']->query(
             $query,
-            null,
+            DatabaseInterface::CONNECT_USER,
             DatabaseInterface::QUERY_UNBUFFERED
         );
         $this->setY($this->tMargin);

@@ -692,7 +692,7 @@ class Table
                     'SELECT 1 FROM ' . Util::backquote($db) . '.'
                     . Util::backquote($table) . ' LIMIT '
                     . $GLOBALS['cfg']['MaxExactCountViews'],
-                    null,
+                    DatabaseInterface::CONNECT_USER,
                     DatabaseInterface::QUERY_STORE
                 );
                 if (!$this->_dbi->getError()) {
@@ -1716,7 +1716,7 @@ class Table
             . "', '" . $GLOBALS['dbi']->escapeString($this->_name) . "', '"
             . $GLOBALS['dbi']->escapeString(json_encode($this->uiprefs)) . "')";
 
-        $success = $this->_dbi->tryQuery($sql_query, $GLOBALS['controllink']);
+        $success = $this->_dbi->tryQuery($sql_query, DatabaseInterface::CONNECT_CONTROL);
 
         if (!$success) {
             $message = Message::error(
@@ -1724,7 +1724,7 @@ class Table
             );
             $message->addMessage(
                 Message::rawError(
-                    $this->_dbi->getError($GLOBALS['controllink'])
+                    $this->_dbi->getError(DatabaseInterface::CONNECT_CONTROL)
                 ),
                 '<br /><br />'
             );
@@ -1743,7 +1743,7 @@ class Table
                 ' ORDER BY last_update ASC' .
                 ' LIMIT ' . $num_rows_to_delete;
             $success = $this->_dbi->tryQuery(
-                $sql_query, $GLOBALS['controllink']
+                $sql_query, DatabaseInterface::CONNECT_CONTROL
             );
 
             if (!$success) {
@@ -1758,7 +1758,7 @@ class Table
                 );
                 $message->addMessage(
                     Message::rawError(
-                        $this->_dbi->getError($GLOBALS['controllink'])
+                        $this->_dbi->getError(DatabaseInterface::CONNECT_CONTROL)
                     ),
                     '<br /><br />'
                 );
@@ -2147,7 +2147,7 @@ class Table
         if ($upd_query) {
             $this->_dbi->query(
                 $upd_query,
-                $GLOBALS['controllink'],
+                DatabaseInterface::CONNECT_CONTROL,
                 0,
                 false
             );
@@ -2232,7 +2232,7 @@ class Table
             if (isset($upd_query)) {
                 $this->_dbi->query(
                     $upd_query,
-                    $GLOBALS['controllink'],
+                    DatabaseInterface::CONNECT_CONTROL,
                     0,
                     false
                 );

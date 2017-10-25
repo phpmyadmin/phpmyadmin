@@ -42,10 +42,10 @@ class Normalization
             $types = $GLOBALS['dbi']->types->getColumns();
             $columnTypeList = $types[$colTypeCategory];
         }
-        $GLOBALS['dbi']->selectDb($db, $GLOBALS['userlink']);
+        $GLOBALS['dbi']->selectDb($db);
         $columns = $GLOBALS['dbi']->getColumns(
             $db, $table, null,
-            true, $GLOBALS['userlink']
+            true
         );
         $type = "";
         $selectColHtml = "";
@@ -341,9 +341,9 @@ class Normalization
         }
         $key = implode(', ', $pk);
         if (count($primarycols) > 1) {
-            $GLOBALS['dbi']->selectDb($db, $GLOBALS['userlink']);
+            $GLOBALS['dbi']->selectDb($db);
             $columns = (array) $GLOBALS['dbi']->getColumnNames(
-                $db, $table, $GLOBALS['userlink']
+                $db, $table
             );
             if (count($pk) == count($columns)) {
                 $headText = sprintf(
@@ -465,7 +465,7 @@ class Normalization
             );
         }
         $message = '';
-        $GLOBALS['dbi']->selectDb($db, $GLOBALS['userlink']);
+        $GLOBALS['dbi']->selectDb($db);
         foreach ($partialDependencies as $key=>$dependents) {
             if ($tablesName->$key != $table) {
                 $backquotedKey = implode(', ', Util::backquote(explode(', ', $key)));
@@ -494,11 +494,11 @@ class Normalization
             $queries[] = 'DROP TABLE ' . Util::backquote($table);
         }
         foreach ($queries as $query) {
-            if (!$GLOBALS['dbi']->tryQuery($query, $GLOBALS['userlink'])) {
+            if (!$GLOBALS['dbi']->tryQuery($query)) {
                 $message = Message::error(__('Error in processing!'));
                 $message->addMessage(
                     Message::rawError(
-                        $GLOBALS['dbi']->getError($GLOBALS['userlink'])
+                        $GLOBALS['dbi']->getError()
                     ),
                     '<br /><br />'
                 );
@@ -597,7 +597,7 @@ class Normalization
             );
         }
         $message = '';
-        $GLOBALS['dbi']->selectDb($db, $GLOBALS['userlink']);
+        $GLOBALS['dbi']->selectDb($db);
         foreach ($newTables as $originalTable=>$tablesList) {
             foreach ($tablesList as $table=>$cols) {
                 if ($table != $originalTable) {
@@ -619,7 +619,7 @@ class Normalization
             }
             if ($dropCols) {
                 $columns = (array) $GLOBALS['dbi']->getColumnNames(
-                    $db, $originalTable, $GLOBALS['userlink']
+                    $db, $originalTable
                 );
                 $colPresent = array_merge(
                     explode(', ', $dropCols->pk), explode(', ', $dropCols->nonpk)
@@ -639,11 +639,11 @@ class Normalization
             $dropCols = false;
         }
         foreach ($queries as $query) {
-            if (!$GLOBALS['dbi']->tryQuery($query, $GLOBALS['userlink'])) {
+            if (!$GLOBALS['dbi']->tryQuery($query)) {
                 $message = Message::error(__('Error in processing!'));
                 $message->addMessage(
                     Message::rawError(
-                        $GLOBALS['dbi']->getError($GLOBALS['userlink'])
+                        $GLOBALS['dbi']->getError()
                     ),
                     '<br /><br />'
                 );
@@ -703,13 +703,13 @@ class Normalization
         }
         $query2 = trim($query2, ',');
         $queries = array($query1, $query2);
-        $GLOBALS['dbi']->selectDb($db, $GLOBALS['userlink']);
+        $GLOBALS['dbi']->selectDb($db);
         foreach ($queries as $query) {
-            if (!$GLOBALS['dbi']->tryQuery($query, $GLOBALS['userlink'])) {
+            if (!$GLOBALS['dbi']->tryQuery($query)) {
                 $message = Message::error(__('Error in processing!'));
                 $message->addMessage(
                     Message::rawError(
-                        $GLOBALS['dbi']->getError($GLOBALS['userlink'])
+                        $GLOBALS['dbi']->getError()
                     ),
                     '<br /><br />'
                 );
@@ -755,9 +755,9 @@ class Normalization
             foreach ($primarycols as $col) {
                 $pk[] = $col->getName();
             }
-            $GLOBALS['dbi']->selectDb($db, $GLOBALS['userlink']);
+            $GLOBALS['dbi']->selectDb($db);
             $columns = (array) $GLOBALS['dbi']->getColumnNames(
-                $db, $table, $GLOBALS['userlink']
+                $db, $table
             );
             if (count($columns) - count($pk) <= 1) {
                 continue;
@@ -851,9 +851,9 @@ class Normalization
     public static function findPartialDependencies($table, $db)
     {
         $dependencyList = array();
-        $GLOBALS['dbi']->selectDb($db, $GLOBALS['userlink']);
+        $GLOBALS['dbi']->selectDb($db);
         $columns = (array) $GLOBALS['dbi']->getColumnNames(
-            $db, $table, $GLOBALS['userlink']
+            $db, $table
         );
         $columns = (array)Util::backquote($columns);
         $totalRowsRes = $GLOBALS['dbi']->fetchResult(
@@ -932,7 +932,7 @@ class Normalization
             . 'COUNT(DISTINCT ' . $partialKey . ',' . $column . ') as pkColCnt '
             . 'FROM (SELECT * FROM ' . Util::backquote($table)
             . ' LIMIT 500) as dt'  . ';';
-        $res = $GLOBALS['dbi']->fetchResult($query, null, null, $GLOBALS['userlink']);
+        $res = $GLOBALS['dbi']->fetchResult($query, null, null);
         $pkColCnt = $res[0];
         if ($pkCnt && $pkCnt == $colCnt && $colCnt == $pkColCnt) {
             return true;
@@ -965,7 +965,7 @@ class Normalization
         $query = trim($query, ', ');
         $query .= ' FROM (SELECT * FROM ' . Util::backquote($table)
             . ' LIMIT 500) as dt' . ';';
-        $res = $GLOBALS['dbi']->fetchResult($query, null, null, $GLOBALS['userlink']);
+        $res = $GLOBALS['dbi']->fetchResult($query, null, null);
         foreach ($columns as $column) {
             if ($column) {
                 $result[$column] = $res[0][$column . '_cnt'];

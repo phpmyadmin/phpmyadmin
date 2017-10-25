@@ -503,7 +503,7 @@ EOT;
             $field_info_query,
             null,
             null,
-            null,
+            DatabaseInterface::CONNECT_USER,
             DatabaseInterface::QUERY_STORE
         );
 
@@ -1033,7 +1033,7 @@ EOT;
         $querytime_before = array_sum(explode(' ', microtime()));
 
         $result = @$GLOBALS['dbi']->tryQuery(
-            $full_sql_query, null, DatabaseInterface::QUERY_STORE
+            $full_sql_query, DatabaseInterface::CONNECT_USER, DatabaseInterface::QUERY_STORE
         );
         $querytime_after = array_sum(explode(' ', microtime()));
 

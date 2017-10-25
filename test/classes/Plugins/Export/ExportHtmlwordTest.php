@@ -339,7 +339,7 @@ class ExportHtmlwordTest extends PmaTestCase
 
         $dbi->expects($this->once())
             ->method('query')
-            ->with('test', null, DatabaseInterface::QUERY_UNBUFFERED)
+            ->with('test', DatabaseInterface::CONNECT_USER, DatabaseInterface::QUERY_UNBUFFERED)
             ->will($this->returnValue(true));
 
         $dbi->expects($this->once())
@@ -532,7 +532,6 @@ class ExportHtmlwordTest extends PmaTestCase
             ->will($this->returnValue(1));
 
         $GLOBALS['cfgRelation']['relation'] = true;
-        $GLOBALS['controllink'] = null;
         $_SESSION['relation'][0] = array(
             'PMA_VERSION' => PMA_VERSION,
             'relwork' => true,
