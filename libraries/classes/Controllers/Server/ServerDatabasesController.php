@@ -419,15 +419,15 @@ class ServerDatabasesController extends Controller
      */
     private function _getHtmlForTableFooter($column_order, $first_database)
     {
-        return Template::get('server/databases/table_footer')->render(
-            array(
-                'column_order' => $column_order,
-                'first_database' => $first_database,
-                'master_replication' => $GLOBALS['replication_info']['master']['status'],
-                'slave_replication' => $GLOBALS['replication_info']['slave']['status'],
-                'databaseCount' => $this->_database_count,
-            )
-        );
+        return Template::get('server/databases/table_footer')->render([
+            'column_order' => $column_order,
+            'first_database' => $first_database,
+            'master_replication' => $GLOBALS['replication_info']['master']['status'],
+            'slave_replication' => $GLOBALS['replication_info']['slave']['status'],
+            'database_count' => $this->_database_count,
+            'is_superuser' => $GLOBALS['dbi']->isSuperuser(),
+            'allow_user_drop_database' => $GLOBALS['cfg']['AllowUserDropDatabase'],
+        ]);
     }
 
     /**
