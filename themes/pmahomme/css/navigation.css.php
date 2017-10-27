@@ -140,6 +140,7 @@ if (! defined('PMA_MINIMUM_COMMON') && ! defined('TESTSUITE')) {
 #pma_navigation_tree_content a.hover_show_full {
     position: relative;
     z-index: 100;
+    vertical-align: sub;
 }
 #pma_navigation_tree a {
     color: <?php echo $GLOBALS['cfg']['NaviColor']; ?>;
