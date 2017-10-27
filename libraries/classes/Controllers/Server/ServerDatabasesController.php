@@ -542,21 +542,19 @@ class ServerDatabasesController extends Controller
     private function _getHtmlForTableHeader(
         array $_url_params, array $column_order, array $first_database
     ) {
-        return Template::get('server/databases/table_header')->render(
-            array(
-                '_url_params' => $_url_params,
-                'sort_by' => $this->_sort_by,
-                'sort_order' => $this->_sort_order,
-                'sort_order_text' => ($this->_sort_order == 'asc'
-                    ? __('Ascending') : __('Descending')),
-                'column_order' => $column_order,
-                'first_database' => $first_database,
-                'master_replication'
-                    => $GLOBALS['replication_info']['master']['status'],
-                'slave_replication'
-                    => $GLOBALS['replication_info']['slave']['status'],
-            )
-        );
+        return Template::get('server/databases/table_header')->render([
+            'url_params' => $_url_params,
+            'sort_by' => $this->_sort_by,
+            'sort_order' => $this->_sort_order,
+            'sort_order_text' => ($this->_sort_order == 'asc'
+                ? __('Ascending') : __('Descending')),
+            'column_order' => $column_order,
+            'first_database' => $first_database,
+            'master_replication' => $GLOBALS['replication_info']['master']['status'],
+            'slave_replication' => $GLOBALS['replication_info']['slave']['status'],
+            'is_superuser' => $GLOBALS['dbi']->isSuperuser(),
+            'allow_user_drop_database' => $GLOBALS['cfg']['AllowUserDropDatabase'],
+        ]);
     }
 
 
