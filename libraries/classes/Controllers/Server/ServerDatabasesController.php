@@ -515,19 +515,19 @@ class ServerDatabasesController extends Controller
             }
         }
 
-        return Template::get('server/databases/table_row')->render(
-            array(
-                'current' => $current,
-                'tr_class' => $tr_class,
-                'column_order' => $column_order,
-                'master_replication_status'
-                    => $GLOBALS['replication_info']['master']['status'],
-                'master_replication' => $master_replication,
-                'slave_replication_status'
-                    => $GLOBALS['replication_info']['slave']['status'],
-                'slave_replication' => $slave_replication,
-            )
-        );
+        return Template::get('server/databases/table_row')->render([
+            'current' => $current,
+            'tr_class' => $tr_class,
+            'column_order' => $column_order,
+            'master_replication_status' => $GLOBALS['replication_info']['master']['status'],
+            'master_replication' => $master_replication,
+            'slave_replication_status' => $GLOBALS['replication_info']['slave']['status'],
+            'slave_replication' => $slave_replication,
+            'is_superuser' => $GLOBALS['dbi']->isSuperuser(),
+            'allow_user_drop_database' => $GLOBALS['cfg']['AllowUserDropDatabase'],
+            'is_system_schema' => $GLOBALS['dbi']->isSystemSchema($current['SCHEMA_NAME'], true),
+            'default_tab_database' => $GLOBALS['cfg']['DefaultTabDatabase'],
+        ]);
     }
 
     /**

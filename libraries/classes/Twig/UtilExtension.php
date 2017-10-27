@@ -108,6 +108,11 @@ class UtilExtension extends Twig_Extension
                 array('is_safe' => array('html'))
             ),
             new Twig_SimpleFunction(
+                'Util_getScriptNameForOption',
+                'PhpMyAdmin\Util::getScriptNameForOption',
+                array('is_safe' => array('html'))
+            ),
+            new Twig_SimpleFunction(
                 'Util_getStartAndNumberOfRowsPanel',
                 'PhpMyAdmin\Util::getStartAndNumberOfRowsPanel',
                 array('is_safe' => array('html'))
