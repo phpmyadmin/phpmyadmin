@@ -35,17 +35,31 @@
                     <th><?= __('Table'); ?></th>
                     <th><?= __('Column'); ?></th>
                 </tr></thead>
+                <?php
+                $column_array = array();
+                $column_array[''] = '';
+                foreach ($columns as $column) {
+                    if (strtoupper($tbl_storage_engine) == 'INNODB'
+                        || ! empty($column['Key'])
+                    ) {
+                        $column_array[$column['Field']] = $column['Field'];
+                    }
+                }
+                if ($GLOBALS['cfg']['NaturalOrder']) {
+                    uksort($column_array, 'strnatcasecmp');
+                } ?>
                 <?php $i = 0; ?>
                 <?php if (! empty($existrel_foreign)): ?>
                     <?php foreach ($existrel_foreign as $key => $one_key): ?>
                         <?= PhpMyAdmin\Template::get('table/relation/foreign_key_row')->render(
                             array(
                                 'one_key' => $one_key,
-                                'columns' => $columns,
+                                'column_array' => $column_array,
                                 'i' => $i++,
                                 'options_array' => $options_array,
                                 'tbl_storage_engine' => $tbl_storage_engine,
-                                'db' => $db
+                                'db' => $db,
+                                'table' => $table,
                             )
                         );
                         ?>
@@ -54,11 +68,12 @@
                 <?= PhpMyAdmin\Template::get('table/relation/foreign_key_row')->render(
                     array(
                         'one_key' => array(),
-                        'columns' => $columns,
+                        'column_array' => $column_array,
                         'i' => $i++,
                         'options_array' => $options_array,
                         'tbl_storage_engine' => $tbl_storage_engine,
-                        'db' => $db
+                        'db' => $db,
+                        'table' => $table,
                     )
                 ); ?>
                 <tr>

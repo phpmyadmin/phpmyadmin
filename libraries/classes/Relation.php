@@ -2094,4 +2094,31 @@ class Relation
             return true;
         }
     }
+
+    /**
+     * Get tables for foreign key constraint
+     *
+     * @param string $foreignDb        Database name
+     * @param string $tblStorageEngine Table storage engine
+     *
+     * @return array Table names
+     */
+    public static function getTables($foreignDb, $tblStorageEngine)
+    {
+        $tables = array();
+        $tablesRows = $GLOBALS['dbi']->query(
+            'SHOW TABLE STATUS FROM ' . Util::backquote($foreignDb),
+            DatabaseInterface::CONNECT_USER,
+            DatabaseInterface::QUERY_STORE
+        );
+        while ($row = $GLOBALS['dbi']->fetchRow($tablesRows)) {
+            if (isset($row[1]) && mb_strtoupper($row[1]) == $tblStorageEngine) {
+                $tables[] = $row[0];
+            }
+        }
+        if ($GLOBALS['cfg']['NaturalOrder']) {
+            usort($tables, 'strnatcasecmp');
+        }
+        return $tables;
+    }
 }
