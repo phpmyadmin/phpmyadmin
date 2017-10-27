@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.7.4-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2017-08-10 09:13-0400\n"
-"PO-Revision-Date: 2017-10-23 13:36+0000\n"
-"Last-Translator: George Bezerra <georgelione@gmail.com>\n"
+"PO-Revision-Date: 2017-10-28 00:49+0000\n"
+"Last-Translator: Maurício Meneghini Fauth <mauriciofauth@gmail.com>\n"
 "Language-Team: Portuguese (Brazil) "
 "<https://hosted.weblate.org/projects/phpmyadmin/4-7/pt_BR/>\n"
 "Language: pt_BR\n"
@@ -6871,7 +6871,7 @@ msgstr "Mostrar funções em árvore"
 
 #: libraries/config/messages.inc.php:527
 msgid "Whether to show functions under database in the navigation tree"
-msgstr "Mostrar funções do banco de dados na árvore de navegação"
+msgstr "Se deve mostrar funções sob o banco de dados na árvore de navegação"
 
 #: libraries/config/messages.inc.php:528
 msgid "Show procedures in tree"
@@ -6887,7 +6887,7 @@ msgstr "Mostrar eventos"
 
 #: libraries/config/messages.inc.php:533
 msgid "Whether to show events under database in the navigation tree"
-msgstr "Mostrar eventos do banco de dados na árvore de navegação"
+msgstr "Se os eventos do banco de dados devem ser exibidos em árvore"
 
 #: libraries/config/messages.inc.php:535
 msgid "Maximum number of recently used tables; set 0 to disable."
@@ -6917,7 +6917,7 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:545
 msgid "Show row links anyway"
-msgstr "Forçar exibição de links de linha"
+msgstr "Mostrar os links das linhas de qualquer maneira"
 
 #: libraries/config/messages.inc.php:546 libraries/config/messages.inc.php:547
 msgid "Disable shortcut keys"
@@ -7985,7 +7985,7 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:983
 msgid "Enter executes queries in console"
-msgstr "A tecla Enter executa consultas no console"
+msgstr "Enter executa consultas no console"
 
 #: libraries/config/messages.inc.php:986
 msgid ""
