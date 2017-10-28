@@ -47,7 +47,22 @@
                 }
                 if ($GLOBALS['cfg']['NaturalOrder']) {
                     uksort($column_array, 'strnatcasecmp');
-                } ?>
+                }
+
+                // foreign database dropdown
+                $foreign_db = (isset($one_key['ref_db_name']))
+                    ? $one_key['ref_db_name'] : $db;
+                $foreign_table = false;
+                if ($foreign_db) {
+                    $foreign_table = isset($one_key['ref_table_name'])
+                        ? $one_key['ref_table_name'] : false;
+                }
+                $unique_columns = [];
+                if ($foreign_db && $foreign_table) {
+                    $table_obj = new Table($foreign_table, $foreign_db);
+                    $unique_columns = $table_obj->getUniqueColumns(false, false);
+                }
+                ?>
                 <?php $i = 0; ?>
                 <?php if (! empty($existrel_foreign)): ?>
                     <?php foreach ($existrel_foreign as $key => $one_key): ?>
@@ -60,6 +75,11 @@
                                 'tbl_storage_engine' => $tbl_storage_engine,
                                 'db' => $db,
                                 'table' => $table,
+                                'url_params' => $GLOBALS['url_params'],
+                                'databases' => $GLOBALS['dblist']->databases,
+                                'foreign_db' => $foreign_db,
+                                'foreign_table' => $foreign_table,
+                                'unique_columns' => $unique_columns,
                             )
                         );
                         ?>
@@ -74,6 +94,11 @@
                         'tbl_storage_engine' => $tbl_storage_engine,
                         'db' => $db,
                         'table' => $table,
+                        'url_params' => $GLOBALS['url_params'],
+                        'databases' => $GLOBALS['dblist']->databases,
+                        'foreign_db' => $foreign_db,
+                        'foreign_table' => $foreign_table,
+                        'unique_columns' => $unique_columns,
                     )
                 ); ?>
                 <tr>
