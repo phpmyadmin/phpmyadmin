@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.7.4-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2017-08-10 09:13-0400\n"
-"PO-Revision-Date: 2017-09-12 00:04+0000\n"
-"Last-Translator: Petri Ikonen <kuopassa123@gmail.com>\n"
+"PO-Revision-Date: 2017-10-29 04:45+0000\n"
+"Last-Translator: Pyscowicz <janne.ertman@gmail.com>\n"
 "Language-Team: Finnish "
 "<https://hosted.weblate.org/projects/phpmyadmin/4-7/fi/>\n"
 "Language: fi\n"
@@ -13,7 +13,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 2.17-dev\n"
+"X-Generator: Weblate 2.17\n"
 
 #: ajax.php:16 ajax.php:33 export.php:192 schema_export.php:64
 msgid "Bad type!"
@@ -3202,7 +3202,7 @@ msgstr "Islantilainen"
 #: libraries/Charsets.php:425
 msgctxt "Collation"
 msgid "Classical Latin"
-msgstr ""
+msgstr "Klassinen Latina"
 
 #: libraries/Charsets.php:429
 msgctxt "Collation"
