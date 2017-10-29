@@ -105,54 +105,31 @@ class Template
     /**
      * Render template
      *
-     * @param array $data            Variables to be provided to the template
+     * @param array $data Variables to be provided to the template
      *
      * @return string
      */
     public function render(array $data = array())
     {
-        $template = static::BASE_PATH . $this->name;
-
-        if (file_exists($template . '.twig')) {
-            try {
-                $template = $this->twig->load($this->name . '.twig');
-            } catch (\RuntimeException $e) {
-                /* Retry with disabled cache */
-                $this->twig->setCache(false);
-                $template = $this->twig->load($this->name . '.twig');
-                /*
-                 * The trigger error is intentionally after second load
-                 * to avoid triggering error when disabling cache does not
-                 * solve it.
-                 */
-                trigger_error(
-                    sprintf(
-                        __('Error while working with template cache: %s'),
-                        $e->getMessage()
-                    ),
-                    E_USER_WARNING
-                );
-            }
-            return $template->render($data);
-        }
-
-        $template = $template . '.phtml';
         try {
-            extract($data);
-            ob_start();
-            if (@file_exists($template)) {
-                include $template;
-            } else {
-                throw new \LogicException(
-                    'The template "' . $template . '" not found.'
-                );
-            }
-            $content = ob_get_clean();
-
-            return $content;
-        } catch (\LogicException $e) {
-            ob_end_clean();
-            throw new \LogicException($e->getMessage());
+            $template = $this->twig->load($this->name . '.twig');
+        } catch (\RuntimeException $e) {
+            /* Retry with disabled cache */
+            $this->twig->setCache(false);
+            $template = $this->twig->load($this->name . '.twig');
+            /*
+             * The trigger error is intentionally after second load
+             * to avoid triggering error when disabling cache does not
+             * solve it.
+             */
+            trigger_error(
+                sprintf(
+                    __('Error while working with template cache: %s'),
+                    $e->getMessage()
+                ),
+                E_USER_WARNING
+            );
         }
+        return $template->render($data);
     }
 }

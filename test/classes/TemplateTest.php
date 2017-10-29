@@ -47,7 +47,6 @@ class TemplateTest extends PmaTestCase
     public function providerTestSet()
     {
         return [
-            ['test/add_data'],
             ['test/add_data_twig'],
         ];
     }
@@ -79,7 +78,6 @@ class TemplateTest extends PmaTestCase
     public function providerTestDynamicRender()
     {
         return [
-            ['test/echo', 'variable', 'value'],
             ['test/echo_twig', 'variable', 'value'],
         ];
     }
@@ -91,7 +89,7 @@ class TemplateTest extends PmaTestCase
      */
     public function testRenderTemplateNotFound()
     {
-        $this->setExpectedException('LogicException');
+        $this->setExpectedException('Twig_Error_Loader');
         Template::get('template not found')->render();
     }
 
@@ -121,7 +119,6 @@ class TemplateTest extends PmaTestCase
     public function providerTestRender()
     {
         return [
-            ['test/static', 'static content'],
             ['test/static_twig', 'static content'],
         ];
     }
@@ -153,9 +150,7 @@ class TemplateTest extends PmaTestCase
     public function providerTestRenderGettext()
     {
         return [
-            ['test/gettext/gettext', [], 'Text'],
             ['test/gettext/gettext_twig', [], 'Text'],
-            ['test/gettext/pgettext', [], 'Text'],
             ['test/gettext/pgettext_twig', [], 'Text'],
             ['test/gettext/notes_twig', [], 'Text'],
             ['test/gettext/plural_twig', ['table_count' => 1], 'One table'],
