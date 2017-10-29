@@ -19,6 +19,7 @@ use PhpMyAdmin\Twig\RelationExtension;
 use PhpMyAdmin\Twig\SanitizeExtension;
 use PhpMyAdmin\Twig\ServerPrivilegesExtension;
 use PhpMyAdmin\Twig\StorageEngineExtension;
+use PhpMyAdmin\Twig\TableExtension;
 use PhpMyAdmin\Twig\TransformationsExtension;
 use PhpMyAdmin\Twig\UrlExtension;
 use PhpMyAdmin\Twig\UtilExtension;
@@ -81,6 +82,7 @@ class Template
             $twig->addExtension(new SanitizeExtension());
             $twig->addExtension(new ServerPrivilegesExtension());
             $twig->addExtension(new StorageEngineExtension());
+            $twig->addExtension(new TableExtension());
             $twig->addExtension(new TransformationsExtension());
             $twig->addExtension(new UrlExtension());
             $twig->addExtension(new UtilExtension());
@@ -91,7 +93,7 @@ class Template
     /**
      * Template getter
      *
-     * @param string $name            Template name
+     * @param string $name Template name
      *
      * @return Template
      */
