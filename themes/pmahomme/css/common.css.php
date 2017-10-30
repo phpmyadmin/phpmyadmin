@@ -2501,10 +2501,6 @@ fieldset .disabled-field td {
     padding: 2px;
 }
 
-.clearright {
-    clear:right;
-}
-
 .wrapper {
     float: <?php echo $left; ?>;
     margin-bottom: 1.5em;

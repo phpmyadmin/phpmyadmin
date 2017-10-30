@@ -143,7 +143,7 @@ echo '<div id="openlayersmap" '
     , ($srid == 0 ? 'class="hide' : '') , '">';
 echo '</div>';
 
-echo '<div class="choice floatright clearright">';
+echo '<div class="choice floatright">';
 echo '<input type="checkbox" id="choice" value="useBaseLayer"'
     , ($srid != 0 ? ' checked="checked"' : '') , '/>';
 echo '<label for="choice">' ,  __("Use OpenStreetMaps as Base Layer") , '</label>';
