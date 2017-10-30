@@ -3391,8 +3391,3 @@ body .ui-dialog .ui-button-text-only .ui-button-text {
 #saved_state {
     border:none;
 }
-
-/* database_tables */
-.pmd_tabstyle {
-
-}

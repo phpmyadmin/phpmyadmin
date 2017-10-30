@@ -3635,8 +3635,3 @@ body .ui-dialog .ui-dialog-buttonpane .ui-dialog-buttonset {
 #saved_state {
     border:none;
 }
-
-/* database_tables */
-.pmd_tabstyle {
-
-}
