@@ -1,4 +1,4 @@
-<tr <?= $tr_class ? ('class="' . $tr_class . '"') : ''; ?>>
+<tr <?= $tr_class ? ('class="' . $tr_class . '"') : ''; ?> data-filter-row="<?= htmlspecialchars(mb_strtoupper($current['SCHEMA_NAME'])); ?>">
     <?php if ($GLOBALS['dbi']->isSuperuser() || $GLOBALS['cfg']['AllowUserDropDatabase']): ?>
         <td class="tool">
             <input type="checkbox" name="selected_dbs[]" class="checkall"

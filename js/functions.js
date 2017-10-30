@@ -4707,6 +4707,42 @@ $(document).on('change', 'input.sub_checkall_box', function () {
 });
 
 /**
+ * Rows filtering
+ *
+ * - rows to filter are identified by data-filter-row attribute
+ *   which contains uppercase string to filter
+ * - it is simple substring case insensitive search
+ * - optionally number of matching rows is written to element with
+ *   id filter-rows-count
+ */
+$(document).on('keyup', '#filterText', function () {
+    var filterInput = $(this).val().toUpperCase();
+    var count = 0;
+    $('[data-filter-row]').each(function () {
+        var $row = $(this);
+        console.log($row);
+        /* Can not use data() here as it does magic conversion to int for numeric values */
+        if ($row.attr('data-filter-row').indexOf(filterInput) > -1) {
+            count += 1;
+            $row.show();
+            $row.find('input.checkall').removeClass('row-hidden').trigger('change');
+        } else {
+            $row.hide();
+            $row.find('input.checkall').addClass('row-hidden').prop('checked', false).trigger('change');
+            $row.removeClass('marked');
+        }
+    });
+    $('#filter-rows-count').html(count);
+});
+AJAX.registerOnload('functions.js', function () {
+    /* Trigger filtering of the list based on incoming database name */
+    var $filter = $('#filterText');
+    if ($filter.val()) {
+        $filter.trigger('keyup').select();
+    }
+});
+
+/**
  * Formats a byte number to human-readable form
  *
  * @param bytes the bytes to format

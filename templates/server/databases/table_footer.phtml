@@ -4,7 +4,7 @@
             <th></th>
         <?php endif; ?>
         <th>
-            <?= __('Total'); ?>: <span id="databases_count"><?= $databaseCount; ?></span>
+            <?= __('Total'); ?>: <span id="filter-rows-count"><?= $databaseCount; ?></span>
         </th>
         <?php foreach ($column_order as $stat_name => $stat):
             if (! array_key_exists($stat_name, $first_database)) {

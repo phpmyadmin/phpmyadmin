@@ -30,7 +30,6 @@ AJAX.registerTeardown('db_structure.js', function () {
     $('a.real_row_count').off('click');
     $('a.row_count_sum').off('click');
     $('select[name=submit_mult]').off('change');
-    $('#filterText').off('keyup');
 });
 
 /**
@@ -211,29 +210,6 @@ AJAX.registerOnload('db_structure.js', function () {
             buttons: buttonOptions
         });
     };
-
-    /**
-* Filtering tables on table listing of particular database
-*
-*/
-    $('#filterText').keyup(function () {
-        var filterInput = $(this).val().toUpperCase();
-        var structureTable = $('#structureTable')[0];
-        $('#structureTable tbody tr').each(function () {
-            var tr = $(this);
-            var a = tr.find('a')[0];
-            if (a) {
-                if (a.text.trim().toUpperCase().indexOf(filterInput) > -1) {
-                    tr[0].style.display = '';
-                    tr.find('input.checkall').removeClass('row-hidden').trigger('change');
-                } else {
-                    tr[0].style.display = 'none';
-                    tr.find('input.checkall').addClass('row-hidden').prop('checked', false).trigger('change');
-                    tr.removeClass('marked');
-                }
-            }
-        });
-    });
 
     /**
  *  Event handler on select of "Make consistent with central list"

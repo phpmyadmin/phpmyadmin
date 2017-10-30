@@ -1,4 +1,4 @@
-<tr class="var-row {{ row_class }}">
+<tr class="var-row {{ row_class }}" data-filter-row="{{ name | upper }}">
     <td class="var-action">
     {% if editable %}
         <a href="#" data-variable="{{ name }}" class="editLink">{{ Util_getIcon('b_edit.png', 'Edit'|trans) }}</a>
