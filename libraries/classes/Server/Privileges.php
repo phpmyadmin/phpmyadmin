@@ -3760,7 +3760,7 @@ class Privileges
             ->render(
                 array(
                     'array_initials' => $array_initials,
-                    'initial' => $_REQUEST['initial'],
+                    'initial' => isset($_REQUEST['initial']) ? $_REQUEST['initial'] : null,
                 )
             );
 
