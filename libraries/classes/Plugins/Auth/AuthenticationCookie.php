@@ -84,10 +84,7 @@ class AuthenticationCookie extends AuthenticationPlugin
         global $conn_error;
 
         $response = Response::getInstance();
-        if ($response->isAjax()) {
-            $response->setRequestStatus(false);
-            // redirect_flag redirects to the login page
-            $response->addJSON('redirect_flag', '1');
+        if ($response->loginPage()) {
             if (defined('TESTSUITE')) {
                 return true;
             } else {
@@ -109,13 +106,6 @@ class AuthenticationCookie extends AuthenticationPlugin
             // skip the IE autocomplete feature.
             $autocomplete   = ' autocomplete="off"';
         }
-
-        $response->getFooter()->setMinimal();
-        $header = $response->getHeader();
-        $header->setBodyId('loginform');
-        $header->setTitle('phpMyAdmin');
-        $header->disableMenuAndConsole();
-        $header->disableWarnings();
 
         echo '
     <div class="container">
