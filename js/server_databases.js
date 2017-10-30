@@ -175,8 +175,11 @@ AJAX.registerOnload('server_databases.js', function () {
             ) {
                 $row.css('display', '');
                 databasesCount += 1;
+                $row.find('input.checkall').removeClass('row-hidden').trigger('change');
             } else {
                 $row.css('display', 'none');
+                $row.find('input.checkall').addClass('row-hidden').prop('checked', false).trigger('change');
+                $row.removeClass('marked');
             }
             $('#databases_count').html(databasesCount);
         });
