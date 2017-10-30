@@ -4656,7 +4656,6 @@ $(document).on('change', 'input.checkall_box', function () {
 $(document).on('click', '.checkall-filter', function () {
     var $this = $(this);
     var selector = $this.data('checkall-selector');
-    console.log(selector);
     $('input.checkall_box').prop('checked', false);
     $this.parents('form').find(checkboxes_sel).filter(selector).prop('checked', true).trigger('change')
         .parents('tr').toggleClass('marked', true);
