@@ -1,9 +1,9 @@
 {% if not visual_builder %}
-    <div id="name-panel" style="overflow:hidden">
-        <span id="page_name" style="border:none">
+    <div id="name-panel">
+        <span id="page_name">
             {{ selected_page == null ? 'Untitled'|trans : selected_page }}
         </span>
-        <span id="saved_state" style="border:none">
+        <span id="saved_state">
             {{ selected_page == null ? '*' : '' }}
         </span>
     </div>

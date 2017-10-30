@@ -134,16 +134,16 @@ if (isset($_REQUEST['input_name'])) {
 echo Url::getHiddenInputs();
 
 echo '<!-- Visualization section -->';
-echo '<div id="placeholder" style="width:450px;height:300px;'
-    , ($srid != 0 ? 'display:none;' : '') , '">';
+echo '<div id="placeholder" '
+    , ($srid != 0 ? 'class="hide' : '') , '">';
 echo $visualization;
 echo '</div>';
 
-echo '<div id="openlayersmap" style="width:450px;height:300px;'
-    , ($srid == 0 ? 'display:none;' : '') , '">';
+echo '<div id="openlayersmap" '
+    , ($srid == 0 ? 'class="hide' : '') , '">';
 echo '</div>';
 
-echo '<div class="choice floatright" style="clear:right;">';
+echo '<div class="choice floatright clearright">';
 echo '<input type="checkbox" id="choice" value="useBaseLayer"'
     , ($srid != 0 ? ' checked="checked"' : '') , '/>';
 echo '<label for="choice">' ,  __("Use OpenStreetMaps as Base Layer") , '</label>';
