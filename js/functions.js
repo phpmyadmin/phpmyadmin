@@ -1092,18 +1092,6 @@ AJAX.registerOnload('functions.js', function () {
 });
 
 /**
- * Row highlighting in horizontal mode (use "on"
- * so that it works also for pages reached via AJAX)
- */
-/* AJAX.registerOnload('functions.js', function () {
-    $(document).on('hover', 'tr',function (event) {
-        var $tr = $(this);
-        $tr.toggleClass('hover',event.type=='mouseover');
-        $tr.children().toggleClass('hover',event.type=='mouseover');
-    });
-})*/
-
-/**
  * marks all rows and selects its first checkbox inside the given element
  * the given element is usually a table or a div containing the table or tables
  *
