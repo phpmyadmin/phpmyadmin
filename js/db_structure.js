@@ -224,8 +224,11 @@ AJAX.registerOnload('db_structure.js', function () {
             if (a) {
                 if (a.text.trim().toUpperCase().indexOf(filterInput) > -1) {
                     tr[0].style.display = "";
+                    tr.find('input.checkall').removeClass('row-hidden').trigger('change');
                 } else {
                     tr[0].style.display = "none";
+                    tr.find('input.checkall').addClass('row-hidden').prop('checked', false).trigger('change');
+                    tr.removeClass('marked');
                 }
             }
         });
