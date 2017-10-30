@@ -3058,6 +3058,13 @@ $cfg['DBG']['sqllog'] = false;
  */
 $cfg['DBG']['demo'] = false;
 
+/**
+ * Enable Simple second factor
+ *
+ * @global boolean $cfg['DBG']['simple2fa']
+ */
+$cfg['DBG']['simple2fa'] = false;
+
 
 /*******************************************************************************
  * MySQL settings

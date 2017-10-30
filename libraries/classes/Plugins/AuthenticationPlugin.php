@@ -7,11 +7,16 @@
  */
 namespace PhpMyAdmin\Plugins;
 
+use PhpMyAdmin\Config;
 use PhpMyAdmin\Core;
 use PhpMyAdmin\IpAllowDeny;
 use PhpMyAdmin\Logging;
+use PhpMyAdmin\Message;
+use PhpMyAdmin\Response;
 use PhpMyAdmin\Sanitize;
+use PhpMyAdmin\SecondFactor;
 use PhpMyAdmin\Session;
+use PhpMyAdmin\Template;
 use PhpMyAdmin\Url;
 
 /**
@@ -295,6 +300,41 @@ abstract class AuthenticationPlugin
             && $cfg['Server']['password'] === ''
         ) {
             $this->showFailure('empty-denied');
+        }
+    }
+
+    /**
+     * Checks whether two factor authentication is active
+     * for given user and performs it.
+     *
+     * @return void
+     */
+    public function checkSecondFactor()
+    {
+        $second = new SecondFactor($this->user);
+
+        /* Do we need to show the form? */
+        if ($second->check()) {
+            return;
+        }
+
+        $response = Response::getInstance();
+        if ($response->loginPage()) {
+            if (defined('TESTSUITE')) {
+                return true;
+            } else {
+                exit;
+            }
+        }
+        echo Template::get('login/header')->render(['theme' => $GLOBALS['PMA_Theme']]);
+        Message::rawNotice(
+            __('You have enabled two factor authentication, please confirm your login.')
+        )->display();
+        echo Template::get('login/second')->render(['form' => $second->render()]);
+        echo Template::get('login/footer')->render();
+        echo Config::renderFooter();
+        if (! defined('TESTSUITE')) {
+            exit;
         }
     }
 }

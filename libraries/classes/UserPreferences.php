@@ -173,6 +173,7 @@ class UserPreferences
         $whitelist['collation_connection'] = true;
         $whitelist['Server/hide_db'] = true;
         $whitelist['Server/only_db'] = true;
+        $whitelist['2fa'] = true;
         foreach ($config_data as $path => $value) {
             if (! isset($whitelist[$path]) || isset($blacklist[$path])) {
                 continue;
