@@ -23,7 +23,7 @@
     {% if is_html_formatted == false %}
         {{ value|e|replace({',': ',&#8203;'})|raw }}
     {% else %}
-        {{ value }}
+        {{ value|raw }}
     {% endif %}
     </td>
 </tr>
