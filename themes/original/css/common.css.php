@@ -3383,11 +3383,3 @@ body .ui-dialog .ui-button-text-only .ui-button-text {
 #name-panel {
     overflow:hidden;
 }
-
-#page_name {
-    border:none;
-}
-
-#saved_state {
-    border:none;
-}

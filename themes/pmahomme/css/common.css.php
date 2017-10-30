@@ -3627,11 +3627,3 @@ body .ui-dialog .ui-dialog-buttonpane .ui-dialog-buttonset {
 #name-panel {
     overflow:hidden;
 }
-
-#page_name {
-    border:none;
-}
-
-#saved_state {
-    border:none;
-}
