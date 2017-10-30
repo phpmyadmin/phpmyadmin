@@ -391,7 +391,7 @@ class DatabaseStructureController extends DatabaseController
         );
 
         $i = $sum_entries = 0;
-        $overhead_check = '';
+        $overhead_check = false;
         $create_time_all = '';
         $update_time_all = '';
         $check_time_all = '';
@@ -410,6 +410,7 @@ class DatabaseStructureController extends DatabaseController
             $drop_query = '';
             $drop_message = '';
             $overhead = '';
+            $input_class = ['checkall'];
 
             $table_is_view = false;
             // Sets parameters for links
@@ -445,8 +446,8 @@ class DatabaseStructureController extends DatabaseController
                         . '<span>' . $formatted_overhead . '</span>&nbsp;'
                         . '<span class="unit">' . $overhead_unit . '</span>'
                         . '</a>' . "\n";
-                    $overhead_check .=
-                        "markAllRows('row_tbl_" . ($i + 1) . "');";
+                    $overhead_check = true;
+                    $input_class[] = 'tbl-overhead';
                 } else {
                     $overhead = '-';
                 }
@@ -637,6 +638,7 @@ class DatabaseStructureController extends DatabaseController
                         array(
                             'db'                    => $this->db,
                             'curr'                  => $i,
+                            'input_class'           => implode(' ', $input_class),
                             'table_is_view'         => $table_is_view,
                             'current_table'         => $current_table,
                             'browse_table_label'    => $browse_table_label,

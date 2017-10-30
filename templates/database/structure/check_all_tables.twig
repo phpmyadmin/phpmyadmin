@@ -3,7 +3,7 @@
     <input type="checkbox" id="tablesForm_checkall" class="checkall_box" title="{% trans 'Check all' %}" />
     <label for="tablesForm_checkall">{% trans 'Check all' %}</label>
     {% if overhead_check != '' %}
-        / <a href="#" onclick="unMarkAllRows('tablesForm'); {{ overhead_check }} return false;">{% trans 'Check tables having overhead' %}</a>
+        / <a href="#" class="checkall-filter" data-checkall-selector=".tbl-overhead">{% trans 'Check tables having overhead' %}</a>
     {% endif %}
     <select name="submit_mult" style="margin: 0 3em 0 3em;">
         <option value="{% trans 'With selected:' %}" selected="selected">{% trans 'With selected:' %}</option>

@@ -1092,32 +1092,6 @@ AJAX.registerOnload('functions.js', function () {
 });
 
 /**
- * marks all rows and selects its first checkbox inside the given element
- * the given element is usually a table or a div containing the table or tables
- *
- * @param container    DOM element
- */
-function markAllRows (container_id) {
-    $('#' + container_id).find('input:checkbox:enabled').prop('checked', true)
-        .trigger('change')
-        .parents('tr').addClass('marked');
-    return true;
-}
-
-/**
- * marks all rows and selects its first checkbox inside the given element
- * the given element is usually a table or a div containing the table or tables
- *
- * @param container    DOM element
- */
-function unMarkAllRows (container_id) {
-    $('#' + container_id).find('input:checkbox:enabled').prop('checked', false)
-        .trigger('change')
-        .parents('tr').removeClass('marked');
-    return true;
-}
-
-/**
   * Checks/unchecks all options of a <select> element
   *
   * @param string   the form name
@@ -4677,6 +4651,16 @@ $(document).on('change', 'input.checkall_box', function () {
     var is_checked = $(this).is(':checked');
     $(this.form).find(checkboxes_sel).not('.row-hidden').prop('checked', is_checked)
         .parents('tr').toggleClass('marked', is_checked);
+});
+
+$(document).on('click', '.checkall-filter', function () {
+    var $this = $(this);
+    var selector = $this.data('checkall-selector');
+    console.log(selector);
+    $('input.checkall_box').prop('checked', false);
+    $this.parents('form').find(checkboxes_sel).filter(selector).prop('checked', true).trigger('change')
+        .parents('tr').toggleClass('marked', true);
+    return false;
 });
 
 /**
