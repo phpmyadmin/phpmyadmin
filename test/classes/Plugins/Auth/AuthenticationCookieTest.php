@@ -199,8 +199,6 @@ class AuthenticationCookieTest extends PmaTestCase
         $GLOBALS['db'] = 'testDb';
         $GLOBALS['table'] = 'testTable';
 
-        file_put_contents('testlogo_right.png', '');
-
         ob_start();
         $this->object->showLoginForm();
         $result = ob_get_clean();
@@ -208,7 +206,7 @@ class AuthenticationCookieTest extends PmaTestCase
         // assertions
 
         $this->assertContains(
-            '<img src="testlogo_right.png" id="imLogo"',
+            ' id="imLogo"',
             $result
         );
 
@@ -262,8 +260,6 @@ class AuthenticationCookieTest extends PmaTestCase
             '<input type="hidden" name="table" value="testTable" />',
             $result
         );
-
-        @unlink('testlogo_right.png');
     }
 
     /**
@@ -310,10 +306,7 @@ class AuthenticationCookieTest extends PmaTestCase
 
         // assertions
 
-        $this->assertContains(
-            '<img name="imLogo" id="imLogo" src="testpma_logo.png"',
-            $result
-        );
+        $this->assertContains('id="imLogo"', $result);
 
         // Check for language selection if locales are there
         $loc = LOCALE_PATH . '/cs/LC_MESSAGES/phpmyadmin.mo';

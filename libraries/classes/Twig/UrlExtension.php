@@ -39,7 +39,11 @@ class UrlExtension extends Twig_Extension
                 'Url_getCommon',
                 'PhpMyAdmin\Url::getCommon',
                 array('is_safe' => array('html'))
-            )
+            ),
+            new Twig_SimpleFunction(
+                'Url_link',
+                'PhpMyAdmin\Core::linkURL'
+            ),
         );
     }
 }
