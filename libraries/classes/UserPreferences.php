@@ -80,7 +80,7 @@ class UserPreferences
         $row = $GLOBALS['dbi']->fetchSingleRow($query, 'ASSOC', DatabaseInterface::CONNECT_CONTROL);
 
         return array(
-            'config_data' => $row ? (array)json_decode($row['config_data']) : array(),
+            'config_data' => $row ? json_decode($row['config_data'], true) : array(),
             'mtime' => $row ? $row['ts'] : time(),
             'type' => 'db');
     }
