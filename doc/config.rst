@@ -3345,6 +3345,13 @@ Developer
     * The setup script is enabled even with existing configuration.
     * The setup does not try to connect to the MySQL server.
 
+.. config:option:: $cfg['DBG']['simple2fa']
+
+    :type: boolean
+    :default: false
+
+    Can be used for testing second authentication factor.
+
 .. _config-examples:
 
 Examples
