@@ -109,4 +109,18 @@ class SecondFactorTest extends PmaTestCase
         );
         $this->assertTrue($object->configure('application'));
     }
+
+    public function testKey()
+    {
+        $object = new SecondFactor('user');
+        if (! in_array('key', $object->available)) {
+            $this->markTestSkipped('u2f-php-server not available');
+        }
+        /* Without providing code this should fail */
+        $this->assertFalse($object->configure('key'));
+
+        /* Invalid code */
+        $_POST['u2f_registration_response'] = 'invalid';
+        $this->assertFalse($object->configure('key'));
+    }
 }

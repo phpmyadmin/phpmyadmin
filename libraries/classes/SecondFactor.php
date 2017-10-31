@@ -110,6 +110,9 @@ class SecondFactor
         if (class_exists('PragmaRX\Google2FA\Google2FA') && class_exists('BaconQrCode\Renderer\Image\Png')) {
             $result[] = 'application';
         }
+        if (class_exists('Samyoul\U2F\U2FServer\U2FServer')) {
+            $result[] = 'key';
+        }
         return $result;
     }
 

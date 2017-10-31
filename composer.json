@@ -59,7 +59,8 @@
     "conflict": {
         "tecnickcom/tcpdf": "<6.2",
         "pragmarx/google2fa": "<2.0",
-        "bacon/bacon-qr-code": "<1.0"
+        "bacon/bacon-qr-code": "<1.0",
+        "samyoul/u2f-php-server": "<1.1"
     },
     "suggest": {
         "ext-openssl": "Cookie encryption",
@@ -72,7 +73,8 @@
         "ext-mbstring": "For best performance",
         "tecnickcom/tcpdf": "For PDF support",
         "pragmarx/google2fa": "For 2FA authentication",
-        "bacon/bacon-qr-code": "For 2FA authentication"
+        "bacon/bacon-qr-code": "For 2FA authentication",
+        "samyoul/u2f-php-server": "For FIDO U2F authentication"
     },
     "require-dev": {
         "phpunit/phpunit": "~4.1",

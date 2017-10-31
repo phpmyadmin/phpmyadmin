@@ -3,4 +3,4 @@
 ./test/install-runkit
 composer install --no-interaction
 # Install optional deps
-composer require tecnickcom/tcpdf pragmarx/google2fa bacon/bacon-qr-code
+composer require tecnickcom/tcpdf pragmarx/google2fa bacon/bacon-qr-code samyoul/u2f-php-server

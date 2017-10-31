@@ -228,7 +228,7 @@ if [ ! -d libraries/tcpdf ] ; then
     # suggested package. Let's require it and then revert
     # composer.json to original state.
     cp composer.json composer.json.backup
-    composer require --update-no-dev tecnickcom/tcpdf pragmarx/google2fa bacon/bacon-qr-code
+    composer require --update-no-dev tecnickcom/tcpdf pragmarx/google2fa bacon/bacon-qr-code samyoul/u2f-php-server
     mv composer.json.backup composer.json
     echo "* Cleanup of composer packages"
     rm -rf \
