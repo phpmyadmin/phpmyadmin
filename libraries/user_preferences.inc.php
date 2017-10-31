@@ -9,6 +9,7 @@ use PhpMyAdmin\Config\Forms\User\UserFormList;
 use PhpMyAdmin\Message;
 use PhpMyAdmin\Relation;
 use PhpMyAdmin\Sanitize;
+use PhpMyAdmin\SecondFactor;
 
 if (!defined('PHPMYADMIN')) {
     exit;
@@ -28,6 +29,13 @@ $content = PhpMyAdmin\Util::getHtmlTab(
     array(
         'link' => 'prefs_manage.php',
         'text' => __('Manage your settings')
+    )
+) . "\n";
+/* Second authentication factor */
+$content .= PhpMyAdmin\Util::getHtmlTab(
+    array(
+        'link' => 'prefs_second.php',
+        'text' => __('Two-factor authentication')
     )
 ) . "\n";
 $script_name = basename($GLOBALS['PMA_PHP_SELF']);
