@@ -91,6 +91,8 @@ class SecondFactor
                 return $this->_available;
             case 'writable':
                 return $this->_writable;
+            case 'config':
+                return $this->_config;
         }
     }
 

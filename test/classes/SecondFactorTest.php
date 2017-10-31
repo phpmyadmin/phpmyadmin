@@ -87,4 +87,26 @@ class SecondFactorTest extends PmaTestCase
         $object = new SecondFactor('user');
         $this->assertFalse($object->configure('simple'));
     }
+
+    public function testApplication()
+    {
+        $object = new SecondFactor('user');
+        if (! in_array('application', $object->available)) {
+            $this->markTestSkipped('google2fa not available');
+        }
+        /* Without providing code this should fail */
+        $this->assertFalse($object->configure('application'));
+
+        /* Invalid code */
+        $_POST['2fa_code'] = 'invalid';
+        $this->assertFalse($object->configure('application'));
+
+        /* Generate valid code */
+        $google2fa = $object->backend->google2fa;
+        $_POST['2fa_code'] = $google2fa->oathHotp(
+            $object->backend->config['secret'],
+            $google2fa->getTimestamp()
+        );
+        $this->assertTrue($object->configure('application'));
+    }
 }
