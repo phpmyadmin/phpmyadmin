@@ -13,7 +13,6 @@ if (! defined('PMA_MINIMUM_COMMON') && ! defined('TESTSUITE')) {
 }
 ?>
 /******************************************************************************/
-
 /* general tags */
 html {
     font-size: <?php echo $theme->getFontSize(); ?>
@@ -382,8 +381,7 @@ fieldset legend {
     margin: 1.5em;
 }
 
-/* buttons in some browsers (eg. Konqueror) are block elements,
-   this breaks design */
+/* buttons in some browsers (eg. Konqueror) are block elements, this breaks design */
 button {
     display: inline;
 }
@@ -2588,6 +2586,13 @@ fieldset .disabled-field td {
     border: 1px solid #aaa;
     float: <?php echo $right; ?>;
     overflow: hidden;
+    width: 450px;
+    height: 300px;
+}
+
+#openlayersmap{
+    width: 450px;
+    height: 300px;
 }
 
 .placeholderDrag {
@@ -3616,4 +3621,9 @@ body .ui-dialog .ui-dialog-buttonpane .ui-dialog-buttonset {
         margin: 1%;
         width: 95% !important;
     }
+}
+/* templates/database/designer */
+/* side menu */
+#name-panel {
+    overflow:hidden;
 }

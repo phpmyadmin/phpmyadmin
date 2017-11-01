@@ -343,17 +343,18 @@ class ThemeTest extends PmaTestCase
     /**
      * Test for getImgPath
      *
-     * @param string $file   file name for image
-     * @param string $output expected output
+     * @param string $file     file name for image
+     * @param string $fallback fallback image
+     * @param string $output   expected output
      *
      * @return void
      *
      * @dataProvider providerForGetImgPath
      */
-    public function testGetImgPath($file, $output)
+    public function testGetImgPath($file, $fallback, $output)
     {
         $this->assertEquals(
-            $this->object->getImgPath($file),
+            $this->object->getImgPath($file, $fallback),
             $output
         );
     }
@@ -368,17 +369,24 @@ class ThemeTest extends PmaTestCase
         return array(
             array(
                 null,
+                null,
                 ''
             ),
             array(
                 'screen.png',
+                null,
                 './themes/pmahomme/img/screen.png'
             ),
             array(
                 'arrow_ltr.png',
+                null,
                 './themes/pmahomme/img/arrow_ltr.png'
-            )
-
+            ),
+            array(
+                'logo_right.png',
+                'pma_logo.png',
+                './themes/pmahomme/img/pma_logo.png'
+            ),
         );
     }
 }

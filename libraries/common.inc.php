@@ -505,10 +505,7 @@ if (! defined('PMA_MINIMUM_COMMON')) {
         if (isset($_REQUEST['pma_password']) && strlen($_REQUEST['pma_password']) > 256) {
             $_REQUEST['pma_password'] = substr($_REQUEST['pma_password'], 0, 256);
         }
-        // todo: add plugin manager
-        $plugin_manager = null;
-        /** @var AuthenticationPlugin $auth_plugin */
-        $auth_plugin = new $auth_class($plugin_manager);
+        $auth_plugin = new $auth_class();
 
         $auth_plugin->authenticate();
 

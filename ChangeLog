@@ -43,6 +43,7 @@ phpMyAdmin - ChangeLog
 - issue        Support JSON datatype on MariaDB 10.2.7 and newer
 
 4.7.6 (not yet released)
+- issue #13517 Fixed check all interaction with filtering
 
 4.7.5 (2017-10-23)
 - issue #13615 Avoid problems with browsing unknown query types

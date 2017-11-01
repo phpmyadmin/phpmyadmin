@@ -16,6 +16,7 @@ use PhpMyAdmin\Plugins\AuthenticationPlugin;
 use PhpMyAdmin\Response;
 use PhpMyAdmin\Server\Select;
 use PhpMyAdmin\Session;
+use PhpMyAdmin\Template;
 use PhpMyAdmin\Util;
 use PhpMyAdmin\Url;
 use phpseclib\Crypt;
@@ -84,10 +85,7 @@ class AuthenticationCookie extends AuthenticationPlugin
         global $conn_error;
 
         $response = Response::getInstance();
-        if ($response->isAjax()) {
-            $response->setRequestStatus(false);
-            // redirect_flag redirects to the login page
-            $response->addJSON('redirect_flag', '1');
+        if ($response->loginPage()) {
             if (defined('TESTSUITE')) {
                 return true;
             } else {
@@ -110,34 +108,7 @@ class AuthenticationCookie extends AuthenticationPlugin
             $autocomplete   = ' autocomplete="off"';
         }
 
-        $response->getFooter()->setMinimal();
-        $header = $response->getHeader();
-        $header->setBodyId('loginform');
-        $header->setTitle('phpMyAdmin');
-        $header->disableMenuAndConsole();
-        $header->disableWarnings();
-
-        echo '
-    <div class="container">
-    <a href="';
-        echo Core::linkURL('https://www.phpmyadmin.net/');
-        echo '" target="_blank" rel="noopener noreferrer" class="logo">';
-        $logo_image = $GLOBALS['pmaThemeImage'] . 'logo_right.png';
-        if (@file_exists($logo_image)) {
-            echo '<img src="' , $logo_image
-                , '" id="imLogo" name="imLogo" alt="phpMyAdmin" border="0" />';
-        } else {
-            echo '<img name="imLogo" id="imLogo" src="'
-                , $GLOBALS['pmaThemeImage'] , 'pma_logo.png' , '" '
-                , 'border="0" width="88" height="31" alt="phpMyAdmin" />';
-        }
-        echo '</a>
-       <h1>';
-        echo sprintf(
-            __('Welcome to %s'),
-            '<bdo dir="ltr" lang="en">phpMyAdmin</bdo>'
-        );
-        echo "</h1>";
+        echo Template::get('login/header')->render(['theme' => $GLOBALS['PMA_Theme']]);
 
         // Show error message
         if (! empty($conn_error)) {
@@ -149,18 +120,6 @@ class AuthenticationCookie extends AuthenticationPlugin
                 __('Your session has expired. Please log in again.')
             )->display();
         }
-
-        echo "<noscript>\n";
-        Message::error(
-            __("Javascript must be enabled past this point!")
-        )->display();
-        echo "</noscript>\n";
-
-        echo '<div class="hide" id="js-https-mismatch">';
-        Message::error(
-            __("There is mismatch between HTTPS indicated on the server and client. This can lead to non working phpMyAdmin or a security risk. Please fix your server configuration to indicate HTTPS properly.")
-        )->display();
-        echo '</div>';
 
         // Displays the languages form
         $language_manager = LanguageManager::getInstance();
@@ -262,7 +221,7 @@ class AuthenticationCookie extends AuthenticationPlugin
             $GLOBALS['error_handler']->dispErrors();
             echo '</div>';
         }
-        echo '</div>';
+        echo Template::get('login/footer')->render();
         echo Config::renderFooter();
         if (! defined('TESTSUITE')) {
             exit;

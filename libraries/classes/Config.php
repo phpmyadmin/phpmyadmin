@@ -1025,18 +1025,19 @@ class Config
      * @param mixed  $new_cfg_value new value
      * @param mixed  $default_value default value
      *
-     * @return void
+     * @return true|PhpMyAdmin\Message
      */
     public function setUserValue($cookie_name, $cfg_path, $new_cfg_value,
         $default_value = null
     ) {
+        $result = true;
         // use permanent user preferences if possible
         $prefs_type = $this->get('user_preferences');
         if ($prefs_type) {
             if ($default_value === null) {
                 $default_value = Core::arrayRead($cfg_path, $this->default);
             }
-            UserPreferences::persistOption($cfg_path, $new_cfg_value, $default_value);
+            $result = UserPreferences::persistOption($cfg_path, $new_cfg_value, $default_value);
         }
         if ($prefs_type != 'db' && $cookie_name) {
             // fall back to cookies
@@ -1047,6 +1048,7 @@ class Config
         }
         Core::arrayWrite($cfg_path, $GLOBALS['cfg'], $new_cfg_value);
         Core::arrayWrite($cfg_path, $this->settings, $new_cfg_value);
+        return $result;
     }
 
     /**

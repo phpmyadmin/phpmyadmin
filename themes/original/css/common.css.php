@@ -2069,6 +2069,13 @@ fieldset .disabled-field td {
     border: 1px solid #aaa;
     float: <?php echo $right; ?>;
     overflow: hidden;
+    width: 450px;
+    height: 300px;
+}
+
+#openlayersmap{
+    width: 450px;
+    height: 300px;
 }
 
 .placeholderDrag {
@@ -3369,4 +3376,10 @@ body .ui-dialog .ui-button-text-only .ui-button-text {
     #serverinfo .item {
         margin: 4px;
     }
+}
+
+/* templates/database/designer */
+/* side menu */
+#name-panel {
+    overflow:hidden;
 }

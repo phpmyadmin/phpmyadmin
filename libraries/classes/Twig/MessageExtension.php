@@ -33,6 +33,13 @@ class MessageExtension extends Twig_Extension
                 },
                 array('is_safe' => array('html'))
             ),
+            new Twig_SimpleFunction(
+                'Message_error',
+                function ($string) {
+                    return Message::error($string)->getDisplay();
+                },
+                array('is_safe' => array('html'))
+            ),
         );
     }
 }

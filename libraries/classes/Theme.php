@@ -328,12 +328,13 @@ class Theme
      * If filename is given, it possibly fallbacks to fallback
      * theme for it if image does not exist.
      *
-     * @param string $file file name for image
+     * @param string $file     file name for image
+     * @param string $fallback fallback image
      *
      * @access public
      * @return string image path for this theme
      */
-    public function getImgPath($file = null)
+    public function getImgPath($file = null, $fallback = null)
     {
         if (is_null($file)) {
             return $this->img_path;
@@ -341,6 +342,10 @@ class Theme
 
         if (is_readable($this->img_path . $file)) {
             return $this->img_path . $file;
+        }
+
+        if (! is_null($fallback)) {
+            return $this->getImgPath($fallback);
         }
 
         return './themes/' . ThemeManager::FALLBACK_THEME . '/img/' . $file;

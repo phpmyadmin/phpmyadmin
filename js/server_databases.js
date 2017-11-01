@@ -14,7 +14,6 @@
 AJAX.registerTeardown('server_databases.js', function () {
     $(document).off('submit', '#dbStatsForm');
     $(document).off('submit', '#create_database_form.ajax');
-    $('#filterText').off('keyup');
 });
 
 /**
@@ -71,7 +70,7 @@ AJAX.registerOnload('server_databases.js', function () {
                         PMA_ajaxShowMessage(data.message);
 
                         var $rowsToRemove = $form.find('tr.removeMe');
-                        var $databasesCount = $('#databases_count');
+                        var $databasesCount = $('#filter-rows-count');
                         var newCount = parseInt($databasesCount.text(), 10) - $rowsToRemove.length;
                         $databasesCount.text(newCount);
 
@@ -115,7 +114,7 @@ AJAX.registerOnload('server_databases.js', function () {
             if (typeof data !== 'undefined' && data.success === true) {
                 PMA_ajaxShowMessage(data.message);
 
-                var $databases_count_object = $('#databases_count');
+                var $databases_count_object = $('#filter-rows-count');
                 var databases_count = parseInt($databases_count_object.text(), 10) + 1;
                 $databases_count_object.text(databases_count);
                 PMA_reloadNavigation();
@@ -135,51 +134,9 @@ AJAX.registerOnload('server_databases.js', function () {
     }); // end $(document).on()
 
     /* Don't show filter if number of databases are very few */
-    var databasesCount = $('#databases_count').html();
+    var databasesCount = $('#filter-rows-count').html();
     if (databasesCount <= 10) {
         $('#tableFilter').hide();
-    }
-
-    var $filterField = $('#filterText');
-    /* Event handler for database filter */
-    $filterField.keyup(function () {
-        var textFilter = null;
-        var val = $(this).val();
-        if (val.length !== 0) {
-            try {
-                textFilter = new RegExp(val.replace(/_/g, ' '), 'i');
-                $(this).removeClass('error');
-            } catch (e) {
-                if (e instanceof SyntaxError) {
-                    $(this).addClass('error');
-                    textFilter = null;
-                }
-            }
-        }
-        filterVariables(textFilter);
-    });
-
-    /* Trigger filtering of the list based on incoming database name */
-    if ($filterField.val()) {
-        $filterField.trigger('keyup').select();
-    }
-
-    /* Filters the rows by the user given regexp */
-    function filterVariables (textFilter) {
-        var $row;
-        var databasesCount = 0;
-        $('#tabledatabases').find('.db-row').each(function () {
-            $row = $(this);
-            if (textFilter === null ||
-                textFilter.exec($row.find('.name').text())
-            ) {
-                $row.css('display', '');
-                databasesCount += 1;
-            } else {
-                $row.css('display', 'none');
-            }
-            $('#databases_count').html(databasesCount);
-        });
     }
 
     var tableRows = $('.server_databases');

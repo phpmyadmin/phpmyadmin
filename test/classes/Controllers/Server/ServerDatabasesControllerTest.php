@@ -155,7 +155,7 @@ class ServerDatabasesControllerTest extends PmaTestCase
 
         //validate 5: PMA_getHtmlForTableFooter
         $this->assertContains(
-            'Total: <span id="databases_count">5</span>',
+            'Total: <span id="filter-rows-count">5</span>',
             $html
         );
 

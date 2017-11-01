@@ -1092,44 +1092,6 @@ AJAX.registerOnload('functions.js', function () {
 });
 
 /**
- * Row highlighting in horizontal mode (use "on"
- * so that it works also for pages reached via AJAX)
- */
-/* AJAX.registerOnload('functions.js', function () {
-    $(document).on('hover', 'tr',function (event) {
-        var $tr = $(this);
-        $tr.toggleClass('hover',event.type=='mouseover');
-        $tr.children().toggleClass('hover',event.type=='mouseover');
-    });
-})*/
-
-/**
- * marks all rows and selects its first checkbox inside the given element
- * the given element is usually a table or a div containing the table or tables
- *
- * @param container    DOM element
- */
-function markAllRows (container_id) {
-    $('#' + container_id).find('input:checkbox:enabled').prop('checked', true)
-        .trigger('change')
-        .parents('tr').addClass('marked');
-    return true;
-}
-
-/**
- * marks all rows and selects its first checkbox inside the given element
- * the given element is usually a table or a div containing the table or tables
- *
- * @param container    DOM element
- */
-function unMarkAllRows (container_id) {
-    $('#' + container_id).find('input:checkbox:enabled').prop('checked', false)
-        .trigger('change')
-        .parents('tr').removeClass('marked');
-    return true;
-}
-
-/**
   * Checks/unchecks all options of a <select> element
   *
   * @param string   the form name
@@ -4687,8 +4649,17 @@ $(document).on('change', checkboxes_sel, checkboxes_changed);
 
 $(document).on('change', 'input.checkall_box', function () {
     var is_checked = $(this).is(':checked');
-    $(this.form).find(checkboxes_sel).prop('checked', is_checked)
+    $(this.form).find(checkboxes_sel).not('.row-hidden').prop('checked', is_checked)
         .parents('tr').toggleClass('marked', is_checked);
+});
+
+$(document).on('click', '.checkall-filter', function () {
+    var $this = $(this);
+    var selector = $this.data('checkall-selector');
+    $('input.checkall_box').prop('checked', false);
+    $this.parents('form').find(checkboxes_sel).filter(selector).prop('checked', true).trigger('change')
+        .parents('tr').toggleClass('marked', true);
+    return false;
 });
 
 /**
@@ -4716,6 +4687,42 @@ $(document).on('change', 'input.sub_checkall_box', function () {
     var $form = $(this).parent().parent();
     $form.find(checkboxes_sel).prop('checked', is_checked)
         .parents('tr').toggleClass('marked', is_checked);
+});
+
+/**
+ * Rows filtering
+ *
+ * - rows to filter are identified by data-filter-row attribute
+ *   which contains uppercase string to filter
+ * - it is simple substring case insensitive search
+ * - optionally number of matching rows is written to element with
+ *   id filter-rows-count
+ */
+$(document).on('keyup', '#filterText', function () {
+    var filterInput = $(this).val().toUpperCase();
+    var count = 0;
+    $('[data-filter-row]').each(function () {
+        var $row = $(this);
+        console.log($row);
+        /* Can not use data() here as it does magic conversion to int for numeric values */
+        if ($row.attr('data-filter-row').indexOf(filterInput) > -1) {
+            count += 1;
+            $row.show();
+            $row.find('input.checkall').removeClass('row-hidden').trigger('change');
+        } else {
+            $row.hide();
+            $row.find('input.checkall').addClass('row-hidden').prop('checked', false).trigger('change');
+            $row.removeClass('marked');
+        }
+    });
+    $('#filter-rows-count').html(count);
+});
+AJAX.registerOnload('functions.js', function () {
+    /* Trigger filtering of the list based on incoming database name */
+    var $filter = $('#filterText');
+    if ($filter.val()) {
+        $filter.trigger('keyup').select();
+    }
 });
 
 /**

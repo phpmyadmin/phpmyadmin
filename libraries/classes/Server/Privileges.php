@@ -2732,12 +2732,12 @@ class Privileges
 
             // action
             $html_output .= '<td>';
+            $specific_db = (isset($current['Db']) && $current['Db'] != '*')
+                ? $current['Db'] : '';
+            $specific_table = (isset($current['Table_name'])
+                && $current['Table_name'] != '*')
+                ? $current['Table_name'] : '';
             if ($GLOBALS['is_grantuser']) {
-                $specific_db = (isset($current['Db']) && $current['Db'] != '*')
-                    ? $current['Db'] : '';
-                $specific_table = (isset($current['Table_name'])
-                    && $current['Table_name'] != '*')
-                    ? $current['Table_name'] : '';
                 $html_output .= self::getUserLink(
                     'edit',
                     $current_user,
@@ -3760,7 +3760,7 @@ class Privileges
             ->render(
                 array(
                     'array_initials' => $array_initials,
-                    'initial' => $_REQUEST['initial'],
+                    'initial' => isset($_REQUEST['initial']) ? $_REQUEST['initial'] : null,
                 )
             );
 
