@@ -167,7 +167,7 @@ class Key extends SecondFactorPlugin
     public function configure()
     {
         $this->_provided = false;
-        if (! isset($_POST['u2f_registration_response'])) {
+        if (! isset($_POST['u2f_registration_response']) || ! isset($_SESSION['registrationRequest'])) {
             return false;
         }
         $this->_provided = true;
