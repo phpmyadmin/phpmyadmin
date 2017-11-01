@@ -64,6 +64,13 @@ class SecondFactorTest extends PmaTestCase
         $backend = $object->backend;
         $this->assertEquals('simple', $backend::$id);
         $GLOBALS['cfg']['DBG']['simple2fa'] = false;
+
+        unset($_POST['2fa_confirm']);
+        $this->assertFalse($object->check());
+
+        $_POST['2fa_confirm'] = 1;
+        $this->assertTrue($object->check());
+        unset($_POST['2fa_confirm']);
     }
 
     public function testLoad()
@@ -95,6 +102,7 @@ class SecondFactorTest extends PmaTestCase
             $this->markTestSkipped('google2fa not available');
         }
         /* Without providing code this should fail */
+        unset($_POST['2fa_code']);
         $this->assertFalse($object->configure('application'));
 
         /* Invalid code */
@@ -108,6 +116,7 @@ class SecondFactorTest extends PmaTestCase
             $google2fa->getTimestamp()
         );
         $this->assertTrue($object->configure('application'));
+        unset($_POST['2fa_code']);
     }
 
     public function testKey()
@@ -117,6 +126,7 @@ class SecondFactorTest extends PmaTestCase
             $this->markTestSkipped('u2f-php-server not available');
         }
         /* Without providing code this should fail */
+        unset($_POST['u2f_registration_response']);
         $this->assertFalse($object->configure('key'));
 
         /* Invalid code */
