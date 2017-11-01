@@ -7,6 +7,7 @@
  */
 namespace PhpMyAdmin\Plugins;
 
+use PhpMyAdmin\Message;
 use PhpMyAdmin\SecondFactor;
 
 /**
@@ -29,6 +30,11 @@ class SecondFactorPlugin
     protected $_second;
 
     /**
+     * @var boolean
+     */
+    protected $_provided;
+
+    /**
      * Creates object
      *
      * @param SecondFactor $second SecondFactor instance
@@ -36,6 +42,22 @@ class SecondFactorPlugin
     public function __construct(SecondFactor $second)
     {
         $this->_second = $second;
+        $this->_provided = false;
+    }
+
+    /**
+     * Returns authentication error message
+     *
+     * @return string
+     */
+    public function getError()
+    {
+        if ($this->_provided) {
+            return Message::rawError(
+                __('Two-factor authentication failed.')
+            )->getDisplay();
+        }
+        return '';
     }
 
     /**

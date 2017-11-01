@@ -71,6 +71,10 @@ class SecondFactorTest extends PmaTestCase
         $_POST['2fa_confirm'] = 1;
         $this->assertTrue($object->check());
         unset($_POST['2fa_confirm']);
+
+        /* Test rendering */
+        $this->assertNotEquals('', $object->render());
+        $this->assertEquals('', $object->setup());
     }
 
     public function testLoad()
@@ -117,6 +121,10 @@ class SecondFactorTest extends PmaTestCase
         );
         $this->assertTrue($object->configure('application'));
         unset($_POST['2fa_code']);
+
+        /* Test rendering */
+        $this->assertNotEquals('', $object->render());
+        $this->assertNotEquals('', $object->setup());
     }
 
     public function testKey()
@@ -132,6 +140,10 @@ class SecondFactorTest extends PmaTestCase
         /* Invalid code */
         $_POST['u2f_registration_response'] = 'invalid';
         $this->assertFalse($object->configure('key'));
+
+        /* Test rendering */
+        $this->assertNotEquals('', $object->render());
+        $this->assertNotEquals('', $object->setup());
     }
 
     /**

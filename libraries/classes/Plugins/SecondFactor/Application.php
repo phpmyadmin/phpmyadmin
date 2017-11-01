@@ -7,7 +7,6 @@
  */
 namespace PhpMyAdmin\Plugins\SecondFactor;
 
-use PhpMyAdmin\Message;
 use PhpMyAdmin\SecondFactor;
 use PhpMyAdmin\Template;
 use PhpMyAdmin\Plugins\SecondFactorPlugin;
@@ -24,8 +23,6 @@ class Application extends SecondFactorPlugin
      * @var string
      */
     public static $id = 'application';
-
-    protected $_provided = false;
 
     protected $_google2fa;
 
@@ -83,11 +80,6 @@ class Application extends SecondFactorPlugin
      */
     public function render()
     {
-        if ($this->_provided) {
-            Message::rawError(
-                __('Two-factor authentication failed.')
-            )->display();
-        }
         return Template::get('login/second/application')->render();
     }
 
@@ -98,11 +90,6 @@ class Application extends SecondFactorPlugin
      */
     public function setup()
     {
-        if ($this->_provided) {
-            Message::rawError(
-                __('Two-factor authentication failed.')
-            )->display();
-        }
         $inlineUrl = $this->_google2fa->getQRCodeInline(
             'phpMyAdmin',
             $this->_second->user,

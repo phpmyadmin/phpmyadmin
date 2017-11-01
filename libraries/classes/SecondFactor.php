@@ -166,7 +166,7 @@ class SecondFactor
      */
     public function render()
     {
-        return $this->_backend->render();
+        return $this->_backend->getError() . $this->_backend->render();
     }
 
     /**
@@ -176,7 +176,7 @@ class SecondFactor
      */
     public function setup()
     {
-        return $this->_backend->setup();
+        return $this->_backend->getError() . $this->_backend->setup();
     }
 
     /**

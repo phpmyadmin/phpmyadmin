@@ -8,7 +8,6 @@
 namespace PhpMyAdmin\Plugins\SecondFactor;
 
 use PhpMyAdmin\Core;
-use PhpMyAdmin\Message;
 use PhpMyAdmin\Response;
 use PhpMyAdmin\SecondFactor;
 use PhpMyAdmin\Template;
@@ -26,8 +25,6 @@ class Key extends SecondFactorPlugin
      * @var string
      */
     public static $id = 'key';
-
-    protected $_provided = false;
 
     /**
      * Creates object
@@ -131,11 +128,6 @@ class Key extends SecondFactorPlugin
      */
     public function render()
     {
-        if ($this->_provided) {
-            Message::rawError(
-                __('Two-factor authentication failed.')
-            )->display();
-        }
         $request = U2FServer::makeAuthentication(
             $this->getRegistrations(),
             $this->getAppId()
@@ -154,11 +146,6 @@ class Key extends SecondFactorPlugin
      */
     public function setup()
     {
-        if ($this->_provided) {
-            Message::rawError(
-                __('Two-factor authentication failed.')
-            )->display();
-        }
         $registrationData = U2FServer::makeRegistration(
             $this->getAppId(),
             $this->getRegistrations()
