@@ -47,12 +47,13 @@ class Key extends SecondFactorPlugin
     public function getRegistrations()
     {
         $result = [];
-        foreach ($this->_second->config['settings']['registrations'] as $data) {
+        foreach ($this->_second->config['settings']['registrations'] as $index => $data) {
             $reg = new \StdClass;
             $reg->keyHandle = $data['keyHandle'];
             $reg->publicKey = $data['publicKey'];
             $reg->certificate = $data['certificate'];
             $reg->counter = $data['counter'];
+            $reg->index = $index;
             $result[] = $reg;
         }
         return $result;
@@ -101,7 +102,8 @@ class Key extends SecondFactorPlugin
                 $this->getRegistrations(),
                 $response
             );
-            // TODO: Store counter
+            $this->_second->config['settings']['registrations'][$authentication->index]['counter'] = $authentication->counter;
+            $this->_second->save();
             return true;
         } catch (\Exception $e) {
             return false;

@@ -180,6 +180,16 @@ class SecondFactor
     }
 
     /**
+     * Saves current configuration.
+     *
+     * @return true|PhpMyAdmin\Message
+     */
+    public function save()
+    {
+        return UserPreferences::persistOption('2fa', $this->config, null);
+    }
+
+    /**
      * Changes second factor settings
      *
      * The object might stay in partialy changed setup
@@ -209,7 +219,7 @@ class SecondFactor
                 return false;
             }
         }
-        $result = UserPreferences::persistOption('2fa', $this->config, null);
+        $result = $this->save();
         if ($result !== true) {
             $result->display();
         }
