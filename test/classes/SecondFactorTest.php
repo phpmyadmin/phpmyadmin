@@ -182,12 +182,33 @@ class SecondFactorTest extends PmaTestCase
     }
 
     /**
+     * Test getting AppId
+     */
+    public function testKeyAppId()
+    {
+        $object = new SecondFactor('user');
+        $GLOBALS['PMA_Config']->set('PmaAbsoluteUri', 'http://demo.example.com');
+        $this->assertEquals('http://demo.example.com', $object->backend->getAppId(true));
+        $this->assertEquals('demo.example.com', $object->backend->getAppId(false));
+        $GLOBALS['PMA_Config']->set('PmaAbsoluteUri', 'https://demo.example.com:123');
+        $this->assertEquals('https://demo.example.com:123', $object->backend->getAppId(true));
+        $this->assertEquals('demo.example.com', $object->backend->getAppId(false));
+        $GLOBALS['PMA_Config']->set('PmaAbsoluteUri', '');
+        $GLOBALS['PMA_Config']->set('is_https', true);
+        $_SERVER['HTTP_HOST'] = 'pma.example.com';
+        $this->assertEquals('https://pma.example.com', $object->backend->getAppId(true));
+        $this->assertEquals('pma.example.com', $object->backend->getAppId(false));
+        $GLOBALS['PMA_Config']->set('is_https', false);
+        $this->assertEquals('http://pma.example.com', $object->backend->getAppId(true));
+        $this->assertEquals('pma.example.com', $object->backend->getAppId(false));
+    }
+
+    /**
      * Test based on upstream test data:
      * https://github.com/Yubico/php-u2flib-server
      */
     public function testKeyAuthentication()
     {
-        $GLOBALS['PMA_Config']->set('PmaAbsoluteUri', 'http://demo.example.com');
         $object = new SecondFactor('user');
         if (! in_array('key', $object->available)) {
             $this->markTestSkipped('u2f-php-server not available');

@@ -91,7 +91,7 @@ class Application extends SecondFactorPlugin
     public function setup()
     {
         $inlineUrl = $this->_google2fa->getQRCodeInline(
-            'phpMyAdmin',
+            'phpMyAdmin (' . $this->getAppId(false) . ')',
             $this->_second->user,
             $this->_second->config['settings']['secret']
         );

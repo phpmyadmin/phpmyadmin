@@ -7,7 +7,6 @@
  */
 namespace PhpMyAdmin\Plugins\SecondFactor;
 
-use PhpMyAdmin\Core;
 use PhpMyAdmin\Response;
 use PhpMyAdmin\SecondFactor;
 use PhpMyAdmin\Template;
@@ -58,27 +57,6 @@ class Key extends SecondFactorPlugin
             $result[] = $reg;
         }
         return $result;
-    }
-
-    /**
-     * Return FIDO U2F Application ID
-     *
-     * It has to be URL with hostname only, having https protocol
-     *
-     * @return string
-     */
-    public function getAppId()
-    {
-        global $PMA_Config;
-
-        $url = $PMA_Config->get('PmaAbsoluteUri');
-        if (!empty($url)) {
-            $parsed = parse_url($url);
-            if (isset($parsed['scheme']) && isset($parsed['host'])) {
-                return $parsed['scheme'] . '://' . $parsed['host'] . (!empty($parsed['port']) ? ':' . $parsed['port'] : '');
-            }
-        }
-        return ($PMA_Config->isHttps() ? 'https://' : 'http://') . Core::getenv('HTTP_HOST');
     }
 
     /**
@@ -134,7 +112,7 @@ class Key extends SecondFactorPlugin
     {
         $request = U2FServer::makeAuthentication(
             $this->getRegistrations(),
-            $this->getAppId()
+            $this->getAppId(true)
         );
         $_SESSION['authenticationRequest'] = $request;
         $this->loadScripts();
@@ -151,7 +129,7 @@ class Key extends SecondFactorPlugin
     public function setup()
     {
         $registrationData = U2FServer::makeRegistration(
-            $this->getAppId(),
+            $this->getAppId(true),
             $this->getRegistrations()
         );
         $_SESSION['registrationRequest'] = $registrationData['request'];

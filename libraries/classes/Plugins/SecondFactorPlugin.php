@@ -7,6 +7,7 @@
  */
 namespace PhpMyAdmin\Plugins;
 
+use PhpMyAdmin\Core;
 use PhpMyAdmin\Message;
 use PhpMyAdmin\SecondFactor;
 
@@ -129,5 +130,36 @@ class SecondFactorPlugin
     public static function getDescription()
     {
         return __('Login using password only.');
+    }
+
+    /**
+     * Return an applicaiton ID
+     *
+     * Either hostname or hostname with scheme.
+     *
+     * @param boolean $return_url Whether to generate URL
+     *
+     * @return string
+     */
+    public function getAppId($return_url)
+    {
+        global $PMA_Config;
+
+        $url = $PMA_Config->get('PmaAbsoluteUri');
+        $parsed = [];
+        if (!empty($url)) {
+            $parsed = parse_url($url);
+        }
+        if (empty($parsed['scheme'])) {
+            $parsed['scheme'] = $PMA_Config->isHttps() ? 'https' : 'http';
+        }
+        if (empty($parsed['host'])) {
+            $parsed['host'] = Core::getenv('HTTP_HOST');
+        }
+        if ($return_url) {
+            return $parsed['scheme'] . '://' . $parsed['host'] . (!empty($parsed['port']) ? ':' . $parsed['port'] : '');
+        } else {
+            return $parsed['host'];
+        }
     }
 }
