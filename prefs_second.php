@@ -40,18 +40,6 @@ if (isset($_POST['2fa_remove'])) {
     }
 }
 
-$all = array_merge([''], $second_factor->available);
-$backends = [];
-foreach ($all as $name) {
-    $cls = $second_factor->getBackendClass($name);
-    $backends[] = [
-        'id' => $cls::$id,
-        'name' => $cls::getName(),
-        'description' => $cls::getDescription(),
-    ];
-}
-
-
 $backend = $second_factor->backend;
 echo Template::get('prefs_second')->render([
     'enabled' => $second_factor->writable,
@@ -59,5 +47,5 @@ echo Template::get('prefs_second')->render([
     'backend_id' => $backend::$id,
     'backend_name' => $backend::getName(),
     'backend_description' => $backend::getDescription(),
-    'backends' => $backends,
+    'backends' => $second_factor->getAllBackends(),
 ]);

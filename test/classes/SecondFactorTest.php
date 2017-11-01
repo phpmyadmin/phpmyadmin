@@ -133,4 +133,19 @@ class SecondFactorTest extends PmaTestCase
         $_POST['u2f_registration_response'] = 'invalid';
         $this->assertFalse($object->configure('key'));
     }
+
+    /**
+     * Test listing of available backends.
+     */
+    public function testBackends()
+    {
+        $GLOBALS['cfg']['DBG']['simple2fa'] = true;
+        $object = new SecondFactor('user');
+        $backends = $object->getAllBackends();
+        $this->assertEquals(
+            count($object->available) + 1,
+            count($backends)
+        );
+        $GLOBALS['cfg']['DBG']['simple2fa'] = false;
+    }
 }

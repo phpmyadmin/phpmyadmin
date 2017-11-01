@@ -215,4 +215,24 @@ class SecondFactor
         }
         return true;
     }
+
+    /**
+     * Returns array with all available backends
+     *
+     * @return array
+     */
+    public function getAllBackends()
+    {
+        $all = array_merge([''], $this->available);
+        $backends = [];
+        foreach ($all as $name) {
+            $cls = $this->getBackendClass($name);
+            $backends[] = [
+                'id' => $cls::$id,
+                'name' => $cls::getName(),
+                'description' => $cls::getDescription(),
+            ];
+        }
+        return $backends;
+    }
 }
