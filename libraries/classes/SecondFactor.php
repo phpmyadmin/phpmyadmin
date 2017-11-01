@@ -17,12 +17,12 @@ class SecondFactor
     /**
      * @var string
      */
-    protected $_user;
+    public $user;
 
     /**
      * @var array
      */
-    protected $_config;
+    public $config;
 
     /**
      * @var boolean
@@ -46,10 +46,10 @@ class SecondFactor
      */
     public function __construct($user)
     {
-        $this->_user = $user;
+        $this->user = $user;
         $this->_available = $this->getAvailable();
-        $this->_config = $this->readConfig();
-        $this->_writable = ($this->_config['type'] == 'db');
+        $this->config = $this->readConfig();
+        $this->_writable = ($this->config['type'] == 'db');
         $this->_backend = $this->getBackend();
     }
 
@@ -91,8 +91,6 @@ class SecondFactor
                 return $this->_available;
             case 'writable':
                 return $this->_writable;
-            case 'config':
-                return $this->_config;
         }
     }
 
@@ -139,8 +137,8 @@ class SecondFactor
      */
     public function getBackend()
     {
-        $name = $this->getBackendClass($this->_config['backend']);
-        return new $name($this->_user, $this->_config['settings']);
+        $name = $this->getBackendClass($this->config['backend']);
+        return new $name($this);
     }
 
     /**
@@ -193,29 +191,28 @@ class SecondFactor
      */
     public function configure($name)
     {
-        $config = [
+        $this->config = [
             'backend' => $name
         ];
         if ($name === '') {
             $cls = $this->getBackendClass($name);
-            $this->_backend = new $cls($this->_user, []);
-            $config['settings'] = [];
+            $this->config['settings'] = [];
+            $this->_backend = new $cls($this);
         } else {
             if (! in_array($name, $this->_available)) {
                 return false;
             }
             $cls = $this->getBackendClass($name);
-            $this->_backend = new $cls($this->_user, []);
+            $this->config['settings'] = [];
+            $this->_backend = new $cls($this);
             if (! $this->_backend->configure()) {
                 return false;
             }
-            $config['settings'] = $this->_backend->getConfig();
         }
-        $result = UserPreferences::persistOption('2fa', $config, null);
+        $result = UserPreferences::persistOption('2fa', $this->config, null);
         if ($result !== true) {
             $result->display();
         }
-        $this->_config = $config['settings'];
         return true;
     }
 }

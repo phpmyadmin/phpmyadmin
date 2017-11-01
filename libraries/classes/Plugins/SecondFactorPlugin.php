@@ -7,6 +7,8 @@
  */
 namespace PhpMyAdmin\Plugins;
 
+use PhpMyAdmin\SecondFactor;
+
 /**
  * Second factor authentication plugin class
  *
@@ -22,24 +24,18 @@ class SecondFactorPlugin
     public static $id = '';
 
     /**
-     * @var string
+     * @var SecondFactor
      */
-    protected $_user;
-    /**
-     * @var array
-     */
-    protected $_config;
+    protected $_second;
 
     /**
      * Creates object
      *
-     * @param string $user   User name
-     * @param array  $config Second factor configuration
+     * @param SecondFactor $second SecondFactor instance
      */
-    public function __construct($user, $config)
+    public function __construct(SecondFactor $second)
     {
-        $this->_user = $user;
-        $this->_config = $config;
+        $this->_second = $second;
     }
 
     /**
@@ -80,16 +76,6 @@ class SecondFactorPlugin
     public function configure()
     {
         return true;
-    }
-
-    /**
-     * Return current configuration
-     *
-     * @return array
-     */
-    public function getConfig()
-    {
-        return $this->_config;
     }
 
     /**

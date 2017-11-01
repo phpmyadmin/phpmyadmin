@@ -10,6 +10,7 @@ namespace PhpMyAdmin\Plugins\SecondFactor;
 use PhpMyAdmin\Core;
 use PhpMyAdmin\Message;
 use PhpMyAdmin\Response;
+use PhpMyAdmin\SecondFactor;
 use PhpMyAdmin\Template;
 use PhpMyAdmin\Plugins\SecondFactorPlugin;
 use Samyoul\U2F\U2FServer\U2FServer;
@@ -31,29 +32,13 @@ class Key extends SecondFactorPlugin
     /**
      * Creates object
      *
-     * @param string $user   User name
-     * @param array  $config Second factor configuration
+     * @param SecondFactor $second SecondFactor instance
      */
-    public function __construct($user, $config)
+    public function __construct(SecondFactor $second)
     {
-        if (!isset($config['registrations'])) {
-            $config['registrations'] = [];
-        }
-        parent::__construct($user, $config);
-    }
-
-    /**
-     * Get any property of this class
-     *
-     * @param string $property name of the property
-     *
-     * @return mixed|void if property exist, value of the relevant property
-     */
-    public function __get($property)
-    {
-        switch ($property) {
-            case 'config':
-                return $this->_config;
+        parent::__construct($second);
+        if (!isset($this->_second->config['settings']['registrations'])) {
+            $this->_second->config['settings']['registrations'] = [];
         }
     }
 
@@ -65,7 +50,7 @@ class Key extends SecondFactorPlugin
     public function getRegistrations()
     {
         $result = [];
-        foreach ($this->_config['registrations'] as $data) {
+        foreach ($this->_second->config['settings']['registrations'] as $data) {
             $reg = new \StdClass;
             $reg->keyHandle = $data['keyHandle'];
             $reg->publicKey = $data['publicKey'];
@@ -207,7 +192,7 @@ class Key extends SecondFactorPlugin
             $registration = U2FServer::register(
                 $_SESSION['registrationRequest'], $response
             );
-            $this->_config['registrations'][] = [
+            $this->_second->config['settings']['registrations'][] = [
                 'keyHandle' => $registration->getKeyHandle(),
                 'publicKey' => $registration->getPublicKey(),
                 'certificate' => $registration->getCertificate(),

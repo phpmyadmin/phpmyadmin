@@ -104,7 +104,7 @@ class SecondFactorTest extends PmaTestCase
         /* Generate valid code */
         $google2fa = $object->backend->google2fa;
         $_POST['2fa_code'] = $google2fa->oathHotp(
-            $object->backend->config['secret'],
+            $object->config['settings']['secret'],
             $google2fa->getTimestamp()
         );
         $this->assertTrue($object->configure('application'));

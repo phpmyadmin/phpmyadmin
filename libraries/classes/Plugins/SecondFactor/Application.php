@@ -8,6 +8,7 @@
 namespace PhpMyAdmin\Plugins\SecondFactor;
 
 use PhpMyAdmin\Message;
+use PhpMyAdmin\SecondFactor;
 use PhpMyAdmin\Template;
 use PhpMyAdmin\Plugins\SecondFactorPlugin;
 use PragmaRX\Google2FA\Google2FA;
@@ -31,14 +32,16 @@ class Application extends SecondFactorPlugin
     /**
      * Creates object
      *
-     * @param string $user   User name
-     * @param array  $config Second factor configuration
+     * @param SecondFactor $second SecondFactor instance
      */
-    public function __construct($user, $config)
+    public function __construct(SecondFactor $second)
     {
-        parent::__construct($user, $config);
+        parent::__construct($second);
         $this->_google2fa = new Google2FA();
         $this->_google2fa->setWindow(8);
+        if (!isset($this->_second->config['settings']['secret'])) {
+            $this->_second->config['settings']['secret'] = '';
+        }
     }
 
     /**
@@ -53,8 +56,6 @@ class Application extends SecondFactorPlugin
         switch ($property) {
             case 'google2fa':
                 return $this->_google2fa;
-            case 'config':
-                return $this->_config;
         }
     }
 
@@ -66,12 +67,12 @@ class Application extends SecondFactorPlugin
     public function check()
     {
         $this->_provided = false;
-        if (!isset($_POST['2fa_code']) || !isset($this->_config['secret'])) {
+        if (!isset($_POST['2fa_code'])) {
             return false;
         }
         $this->_provided = true;
         return $this->_google2fa->verifyKey(
-            $this->_config['secret'], $_POST['2fa_code']
+            $this->_second->config['settings']['secret'], $_POST['2fa_code']
         );
     }
 
@@ -104,8 +105,8 @@ class Application extends SecondFactorPlugin
         }
         $inlineUrl = $this->_google2fa->getQRCodeInline(
             'phpMyAdmin',
-            $this->_user,
-            $this->_config['secret']
+            $this->_second->user,
+            $this->_second->config['settings']['secret']
         );
         return Template::get('login/second/application_configure')->render([
             'image' => $inlineUrl,
@@ -122,7 +123,7 @@ class Application extends SecondFactorPlugin
         if (! isset($_SESSION['2fa_application_key'])) {
             $_SESSION['2fa_application_key'] = $this->_google2fa->generateSecretKey();
         }
-        $this->_config['secret'] = $_SESSION['2fa_application_key'];
+        $this->_second->config['settings']['secret'] = $_SESSION['2fa_application_key'];
 
         $result = $this->check();
         if ($result) {
