@@ -312,6 +312,7 @@ linkcheck_ignore = [
     r'https://software.opensuse.org/package/.*',
     # They have messed up SSL setup
     r'https://php-myadmin.ru/.*',
-    # There seems to be some problem with SNI on readthedocs.org
+    # There seems to be some problem with SNI on Travis CI
     r'https://www.phpmyadmin.net/.*',
+    r'https://files.phpmyadmin.net/.*',
 ]
