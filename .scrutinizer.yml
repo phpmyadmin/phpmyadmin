@@ -10,6 +10,7 @@ build:
     dependencies:
         before:
             - composer install
+            - composer require tecnickcom/tcpdf pragmarx/google2fa bacon/bacon-qr-code samyoul/u2f-php-server
             - ./vendor/bin/phpcs --config-set installed_paths `pwd`/vendor/phpmyadmin/coding-standard
     tests:
         override:
