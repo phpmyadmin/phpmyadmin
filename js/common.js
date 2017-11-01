@@ -547,3 +547,10 @@ $(document).on('click', '.pma_sql_import_status h2 .close', function () {
 $(document).on('click', '.pma_drop_result h2 .close', function () {
     $(this).parent('h2').parent('div').remove();
 });
+
+// focus table search box on Ctrl+shift+f
+$(document).on('keypress', function(event){
+  if(event.which == 6 ) {
+      $('.searchClause').focus();
+  }
+});
