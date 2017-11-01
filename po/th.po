@@ -4,16 +4,16 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.7.4-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2017-08-10 09:13-0400\n"
-"PO-Revision-Date: 2016-07-07 16:12+0000\n"
-"Last-Translator: Phongphan A Bunlom <phongphan117@hotmail.co.th>\n"
-"Language-Team: Thai <https://hosted.weblate.org/projects/phpmyadmin/master/"
-"th/>\n"
+"PO-Revision-Date: 2017-11-01 09:24+0000\n"
+"Last-Translator: Jira Aphisitworachorch <totoasanan21914@hotmail.com>\n"
+"Language-Team: Thai <https://hosted.weblate.org/projects/phpmyadmin/4-7/th/>"
+"\n"
 "Language: th\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Weblate 2.7-dev\n"
+"X-Generator: Weblate 2.17\n"
 
 #: ajax.php:16 ajax.php:33 export.php:192 schema_export.php:64
 msgid "Bad type!"
@@ -29,7 +29,7 @@ msgstr ""
 
 #: db_central_columns.php:108
 msgid "The central list of columns for the current database is empty."
-msgstr "ไม่พบรายการสดมภ์ของฐานข้อมูลปัจจุบัน"
+msgstr "ไม่พบรายการกลางของฐานข้อมูลปัจจุบัน"
 
 #: db_central_columns.php:133
 #, fuzzy
