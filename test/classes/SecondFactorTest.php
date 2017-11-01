@@ -53,7 +53,11 @@ class SecondFactorTest extends PmaTestCase
         $object = $this->getSecondFactorMock('user', ['type' => 'db']);
         $backend = $object->backend;
         $this->assertEquals('', $backend::$id);
+        // Is always valid
         $this->assertTrue($object->check(true));
+        // Test session persistence
+        $this->assertTrue($object->check());
+        $this->assertTrue($object->check());
         $this->assertEquals('', $object->render());
         $this->assertTrue($object->configure(''));
         $this->assertEquals('', $object->setup());
@@ -68,10 +72,10 @@ class SecondFactorTest extends PmaTestCase
         $GLOBALS['cfg']['DBG']['simple2fa'] = false;
 
         unset($_POST['2fa_confirm']);
-        $this->assertFalse($object->check());
+        $this->assertFalse($object->check(true));
 
         $_POST['2fa_confirm'] = 1;
-        $this->assertTrue($object->check());
+        $this->assertTrue($object->check(true));
         unset($_POST['2fa_confirm']);
 
         /* Test rendering */
@@ -126,14 +130,14 @@ class SecondFactorTest extends PmaTestCase
 
         /* Check code */
         unset($_POST['2fa_code']);
-        $this->assertFalse($object->check());
+        $this->assertFalse($object->check(true));
         $_POST['2fa_code'] = 'invalid';
-        $this->assertFalse($object->check());
+        $this->assertFalse($object->check(true));
         $_POST['2fa_code'] = $google2fa->oathHotp(
             $object->config['settings']['secret'],
             $google2fa->getTimestamp()
         );
-        $this->assertTrue($object->check());
+        $this->assertTrue($object->check(true));
         unset($_POST['2fa_code']);
 
         /* Test rendering */
@@ -162,15 +166,15 @@ class SecondFactorTest extends PmaTestCase
 
         /* Without providing code this should fail */
         unset($_POST['u2f_authentication_response']);
-        $this->assertFalse($object->check());
+        $this->assertFalse($object->check(true));
 
         /* Invalid code */
         $_POST['u2f_authentication_response'] = 'invalid';
-        $this->assertFalse($object->check());
+        $this->assertFalse($object->check(true));
 
         /* Invalid code */
         $_POST['u2f_authentication_response'] = '[]';
-        $this->assertFalse($object->check());
+        $this->assertFalse($object->check(true));
 
         /* Test rendering */
         $this->assertNotEquals('', $object->render());
@@ -209,9 +213,9 @@ class SecondFactorTest extends PmaTestCase
             'keyHandle' => 'CTUayZo8hCBeC-sGQJChC0wW-bBg99bmOlGCgw8XGq4dLsxO3yWh9mRYArZxocP5hBB1pEGB3bbJYiM-5acc5w',
             'appId' => 'http://demo.example.com'
         ])];
-        $this->assertFalse($object->check());
+        $this->assertFalse($object->check(true));
         $_POST['u2f_authentication_response'] = '{ "signatureData": "AQAAAAQwRQIhAI6FSrMD3KUUtkpiP0jpIEakql-HNhwWFngyw553pS1CAiAKLjACPOhxzZXuZsVO8im-HStEcYGC50PKhsGp_SUAng==", "clientData": "eyAiY2hhbGxlbmdlIjogImZFbmM5b1Y3OUVhQmdLNUJvTkVSVTVnUEtNMlhHWVdyejRmVWpnYzBRN2ciLCAib3JpZ2luIjogImh0dHA6XC9cL2RlbW8uZXhhbXBsZS5jb20iLCAidHlwIjogIm5hdmlnYXRvci5pZC5nZXRBc3NlcnRpb24iIH0=", "keyHandle": "CTUayZo8hCBeC-sGQJChC0wW-bBg99bmOlGCgw8XGq4dLsxO3yWh9mRYArZxocP5hBB1pEGB3bbJYiM-5acc5w", "errorCode": 0 }';
-        $this->assertTrue($object->check());
+        $this->assertTrue($object->check(true));
     }
 
     /**
