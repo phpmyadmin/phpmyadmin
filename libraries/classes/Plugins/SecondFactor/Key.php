@@ -13,6 +13,7 @@ use PhpMyAdmin\SecondFactor;
 use PhpMyAdmin\Template;
 use PhpMyAdmin\Plugins\SecondFactorPlugin;
 use Samyoul\U2F\U2FServer\U2FServer;
+use Samyoul\U2F\U2FServer\U2FException;
 
 /**
  * Hardware key based second factor
@@ -105,7 +106,8 @@ class Key extends SecondFactorPlugin
             $this->_second->config['settings']['registrations'][$authentication->index]['counter'] = $authentication->counter;
             $this->_second->save();
             return true;
-        } catch (\Exception $e) {
+        } catch (U2FException $e) {
+            $this->_message = $e->getMessage();
             return false;
         }
     }
@@ -188,7 +190,8 @@ class Key extends SecondFactorPlugin
                 'counter' => $registration->getCounter(),
             ];
             return true;
-        } catch (\Exception $e) {
+        } catch (U2FException $e) {
+            $this->_message = $e->getMessage();
             return false;
         }
     }

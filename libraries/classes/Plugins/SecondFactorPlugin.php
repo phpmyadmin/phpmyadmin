@@ -35,6 +35,11 @@ class SecondFactorPlugin
     protected $_provided;
 
     /**
+     * @var string
+     */
+    protected $_message;
+
+    /**
      * Creates object
      *
      * @param SecondFactor $second SecondFactor instance
@@ -43,6 +48,7 @@ class SecondFactorPlugin
     {
         $this->_second = $second;
         $this->_provided = false;
+        $this->_message = '';
     }
 
     /**
@@ -53,6 +59,11 @@ class SecondFactorPlugin
     public function getError()
     {
         if ($this->_provided) {
+            if (!empty($this->_message)) {
+                return Message::rawError(
+                    sprintf(__('Two-factor authentication failed: %s'), $this->_message)
+                )->getDisplay();
+            }
             return Message::rawError(
                 __('Two-factor authentication failed.')
             )->getDisplay();
