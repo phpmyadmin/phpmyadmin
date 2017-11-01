@@ -7,7 +7,6 @@
 
 <td class="center">
     {# column name #}
-    {% set ci = ci + 1 %}
     {% include 'columns_definitions/column_name.twig' with {
         'column_number': column_number,
         'ci': ci,
@@ -16,10 +15,10 @@
         'cfg_relation': cfg_relation,
         'max_rows': max_rows
     } only %}
+    {% set ci = ci + 1 %}
 </td>
 <td class="center">
     {# column type #}
-    {% set ci = ci + 1 %}
     {% include 'columns_definitions/column_type.twig' with {
         'column_number': column_number,
         'ci': ci,
@@ -27,10 +26,10 @@
         'column_meta': column_meta,
         'type_upper': type_upper
     } only %}
+    {% set ci = ci + 1 %}
 </td>
 <td class="center">
     {# column length #}
-    {% set ci = ci + 1 %}
     {% include 'columns_definitions/column_length.twig' with {
         'column_number': column_number,
         'ci': ci,
@@ -38,10 +37,10 @@
         'length_values_input_size': length_values_input_size,
         'length_to_display': length_to_display
     } only %}
+    {% set ci = ci + 1 %}
 </td>
 <td class="center">
     {# column default #}
-    {% set ci = ci + 1 %}
     {% include 'columns_definitions/column_default.twig' with {
         'column_number': column_number,
         'ci': ci,
@@ -50,6 +49,7 @@
         'type_upper': type_upper,
         'char_editing': char_editing
     } only %}
+    {% set ci = ci + 1 %}
 </td>
 <td class="center">
     {# column collation #}
@@ -62,7 +62,6 @@
 </td>
 <td class="center">
     {# column attribute #}
-    {% set ci = ci + 1 %}
     {% include 'columns_definitions/column_attribute.twig' with {
         'column_number': column_number,
         'ci': ci,
@@ -72,54 +71,54 @@
         'submit_attribute': submit_attribute,
         'attribute_types': attribute_types
     } only %}
+    {% set ci = ci + 1 %}
 </td>
 <td class="center">
     {# column NULL #}
-    {% set ci = ci + 1 %}
     {% include 'columns_definitions/column_null.twig' with {
         'column_number': column_number,
         'ci': ci,
         'ci_offset': ci_offset,
         'column_meta': column_meta
     } only %}
+    {% set ci = ci + 1 %}
 </td>
 {% if change_column is defined and change_column is not empty %}
     {# column Adjust privileges, Only for 'Edit' Column(s) #}
     <td class="center">
-        {% set ci = ci + 1 %}
         {% include 'columns_definitions/column_adjust_privileges.twig' with {
             'column_number': column_number,
             'ci': ci,
             'ci_offset': ci_offset,
             'privs_available': privs_available
         } only %}
+        {% set ci = ci + 1 %}
     </td>
 {% endif %}
 {% if not is_backup %}
     {# column indexes, See my other comment about  this 'if'. #}
     <td class="center">
-        {% set ci = ci + 1 %}
         {% include 'columns_definitions/column_indexes.twig' with {
             'column_number': column_number,
             'ci': ci,
             'ci_offset': ci_offset,
             'column_meta': column_meta
         } only %}
+        {% set ci = ci + 1 %}
     </td>
 {% endif %}
 <td class="center">
     {# column auto_increment #}
-    {% set ci = ci + 1 %}
     {% include 'columns_definitions/column_auto_increment.twig' with {
         'column_number': column_number,
         'ci': ci,
         'ci_offset': ci_offset,
         'column_meta': column_meta
     } only %}
+    {% set ci = ci + 1 %}
 </td>
 <td class="center">
     {# column comments #}
-    {% set ci = ci + 1 %}
     {% include 'columns_definitions/column_comment.twig' with {
         'column_number': column_number,
         'ci': ci,
@@ -130,11 +129,11 @@
             and comments_map[column_meta['Field']] is defined
             ? comments_map[column_meta['Field']]|e
     } only %}
+    {% set ci = ci + 1 %}
 </td>
  {# column virtuality #}
 {% if is_virtual_columns_supported %}
     <td class="center">
-        {% set ci = ci + 1 %}
         {% include 'columns_definitions/column_virtuality.twig' with {
             'column_number': column_number,
             'ci': ci,
@@ -144,6 +143,7 @@
             'expression': column_meta['Expression'] is defined ? column_meta['Expression'],
             'options': options
         } only %}
+        {% set ci = ci + 1 %}
     </td>
 {% endif %}
 {# move column #}
@@ -157,7 +157,6 @@
     {% endfor %}
 
     <td class="center">
-        {% set ci = ci + 1 %}
         {% include 'columns_definitions/move_column.twig' with {
             'column_number': column_number,
             'ci': ci,
@@ -166,13 +165,13 @@
             'move_columns': move_columns,
             'current_index': current_index
         } only %}
+        {% set ci = ci + 1 %}
     </td>
 {% endif %}
 
 {% if cfg_relation['mimework'] and browse_mime and cfg_relation['commwork'] %}
     <td class="center">
         {# Column Mime-type #}
-        {% set ci = ci + 1 %}
         {% include 'columns_definitions/mime_type.twig' with {
             'column_number': column_number,
             'ci': ci,
@@ -181,10 +180,10 @@
             'available_mime': available_mime,
             'mime_map': mime_map
         } only %}
+        {% set ci = ci + 1 %}
     </td>
     <td class="center">
         {# Column Browser transformation #}
-        {% set ci = ci + 1 %}
         {% include 'columns_definitions/transformation.twig' with {
             'column_number': column_number,
             'ci': ci,
@@ -194,10 +193,10 @@
             'mime_map': mime_map,
             'type': 'transformation'
         } only %}
+        {% set ci = ci + 1 %}
     </td>
     <td class="center">
         {# column Transformation options #}
-        {% set ci = ci + 1 %}
         {% include 'columns_definitions/transformation_option.twig' with {
             'column_number': column_number,
             'ci': ci,
@@ -206,10 +205,10 @@
             'mime_map': mime_map,
             'type_prefix': ''
         } only %}
+        {% set ci = ci + 1 %}
     </td>
     <td class="center">
         {# Column Input transformation #}
-        {% set ci = ci + 1 %}
         {% include 'columns_definitions/transformation.twig' with {
             'column_number': column_number,
             'ci': ci,
@@ -219,10 +218,10 @@
             'mime_map': mime_map,
             'type': 'input_transformation'
         } only %}
+        {% set ci = ci + 1 %}
     </td>
     <td class="center">
         {# column Input transformation options #}
-        {% set ci = ci + 1 %}
         {% include 'columns_definitions/transformation_option.twig' with {
             'column_number': column_number,
             'ci': ci,
@@ -231,5 +230,6 @@
             'mime_map': mime_map,
             'type_prefix': 'input_'
         } only %}
+        {% set ci = ci + 1 %}
     </td>
 {% endif %}

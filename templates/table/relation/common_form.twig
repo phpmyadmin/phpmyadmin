@@ -57,7 +57,6 @@
                 {% set i = 0 %}
                 {% if existrel_foreign is not empty %}
                     {% for key, one_key in existrel_foreign %}
-                        {% set i = i + 1 %}
                         {% include 'table/relation/foreign_key_row.twig' with {
                             'i': i,
                             'one_key': one_key,
@@ -72,9 +71,9 @@
                             'foreign_table': foreign_table,
                             'unique_columns': unique_columns
                         } only %}
+                        {% set i = i + 1 %}
                     {% endfor %}
                 {% endif %}
-                {% set i = i + 1 %}
                 {% include 'table/relation/foreign_key_row.twig' with {
                     'i': i,
                     'one_key': [],
@@ -89,6 +88,7 @@
                     'foreign_table': foreign_table,
                     'unique_columns': unique_columns
                 } only %}
+                {% set i = i + 1 %}
                 <tr>
                     <th colspan="6">
                         <a class="formelement clearfloat add_foreign_key" href="">
