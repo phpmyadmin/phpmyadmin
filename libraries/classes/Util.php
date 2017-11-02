@@ -136,7 +136,7 @@ class Util
         $class = str_replace(array('.gif','.png'), '', $image);
         if (array_key_exists($class, $sprites)) {
             $is_sprite = true;
-            $url = (defined('PMA_TEST_THEME') ? '../' : '') . 'themes/dot.gif';
+            $url = 'themes/dot.gif';
         } elseif (isset($GLOBALS['pmaThemeImage'])) {
             $url = $GLOBALS['pmaThemeImage'] . $image;
         } else {
