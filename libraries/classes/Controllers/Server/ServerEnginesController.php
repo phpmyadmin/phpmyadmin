@@ -37,7 +37,11 @@ class ServerEnginesController extends Controller
         /**
          * Displays the sub-page heading
          */
-        $this->response->addHTML(Common::getHtmlForSubPageHeader('engines'));
+        $this->response->addHTML(
+            Template::get('server/sub_page_header')->render([
+                'type' => 'engines',
+            ])
+        );
 
         /**
          * Did the user request information about a certain storage engine?

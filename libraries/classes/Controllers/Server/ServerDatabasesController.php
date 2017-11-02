@@ -93,7 +93,11 @@ class ServerDatabasesController extends Controller
          * Displays the sub-page heading
          */
         $header_type = $this->_dbstats ? "database_statistics" : "databases";
-        $this->response->addHTML(Common::getHtmlForSubPageHeader($header_type));
+        $this->response->addHTML(
+            Template::get('server/sub_page_header')->render([
+                'type' => $header_type,
+            ])
+        );
 
         /**
          * Gets the databases list

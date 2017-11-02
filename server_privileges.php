@@ -13,6 +13,7 @@ use PhpMyAdmin\Response;
 use PhpMyAdmin\Server\Common;
 use PhpMyAdmin\Server\Privileges;
 use PhpMyAdmin\Server\Users;
+use PhpMyAdmin\Template;
 
 /**
  * include common file
@@ -132,7 +133,12 @@ list(
 if (!$GLOBALS['dbi']->isSuperuser() && !$GLOBALS['is_grantuser']
     && !$GLOBALS['is_createuser']
 ) {
-    $response->addHTML(Common::getHtmlForSubPageHeader('privileges', '', false));
+    $response->addHTML(
+        Template::get('server/sub_page_header')->render([
+            'type' => 'privileges',
+            'is_image' => false,
+        ])
+    );
     $response->addHTML(
         Message::error(__('No Privileges'))
             ->getDisplay()
