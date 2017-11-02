@@ -33,23 +33,24 @@
                     <th>{% trans 'Table' %}</th>
                     <th>{% trans 'Column' %}</th>
                 </tr></thead>
-                {# Foreign database dropdown #}
-                {% set foreign_db = one_key['ref_db_name'] is defined
-                    ? one_key['ref_db_name'] : db %}
-                {% set foreign_table = false %}
-                {% if foreign_db %}
-                    {% set foreign_table = one_key['ref_table_name'] is defined
-                        ? one_key['ref_table_name'] : false %}
-                {% endif %}
-                {% set unique_columns = [] %}
-                {% if foreign_db and foreign_table %}
-                    {% set table_obj = Table_get(foreign_table, foreign_db) %}
-                    {% set unique_columns = table_obj.getUniqueColumns(false, false) %}
-                {% endif %}
-
                 {% set i = 0 %}
                 {% if existrel_foreign is not empty %}
                     {% for key, one_key in existrel_foreign %}
+                        {# Foreign database dropdown #}
+                        {% set foreign_db = one_key['ref_db_name'] is defined
+                            and one_key['ref_db_name'] is not null
+                            ? one_key['ref_db_name'] : db %}
+                        {% set foreign_table = false %}
+                        {% if foreign_db %}
+                            {% set foreign_table = one_key['ref_table_name'] is defined
+                                and one_key['ref_table_name'] is not null
+                                ? one_key['ref_table_name'] : false %}
+                        {% endif %}
+                        {% set unique_columns = [] %}
+                        {% if foreign_db and foreign_table %}
+                            {% set table_obj = Table_get(foreign_table, foreign_db) %}
+                            {% set unique_columns = table_obj.getUniqueColumns(false, false) %}
+                        {% endif %}
                         {% include 'table/relation/foreign_key_row.twig' with {
                             'i': i,
                             'one_key': one_key,
