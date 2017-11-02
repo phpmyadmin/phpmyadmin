@@ -48,7 +48,6 @@ class TemplateTest extends PmaTestCase
     {
         return [
             ['test/add_data'],
-            ['test/add_data_twig'],
         ];
     }
 
@@ -80,7 +79,6 @@ class TemplateTest extends PmaTestCase
     {
         return [
             ['test/echo', 'variable', 'value'],
-            ['test/echo_twig', 'variable', 'value'],
         ];
     }
 
@@ -91,7 +89,7 @@ class TemplateTest extends PmaTestCase
      */
     public function testRenderTemplateNotFound()
     {
-        $this->setExpectedException('LogicException');
+        $this->setExpectedException('Twig_Error_Loader');
         Template::get('template not found')->render();
     }
 
@@ -122,7 +120,6 @@ class TemplateTest extends PmaTestCase
     {
         return [
             ['test/static', 'static content'],
-            ['test/static_twig', 'static content'],
         ];
     }
 
@@ -154,14 +151,12 @@ class TemplateTest extends PmaTestCase
     {
         return [
             ['test/gettext/gettext', [], 'Text'],
-            ['test/gettext/gettext_twig', [], 'Text'],
             ['test/gettext/pgettext', [], 'Text'],
-            ['test/gettext/pgettext_twig', [], 'Text'],
-            ['test/gettext/notes_twig', [], 'Text'],
-            ['test/gettext/plural_twig', ['table_count' => 1], 'One table'],
-            ['test/gettext/plural_twig', ['table_count' => 2], '2 tables'],
-            ['test/gettext/plural_notes_twig', ['table_count' => 1], 'One table'],
-            ['test/gettext/plural_notes_twig', ['table_count' => 2], '2 tables'],
+            ['test/gettext/notes', [], 'Text'],
+            ['test/gettext/plural', ['table_count' => 1], 'One table'],
+            ['test/gettext/plural', ['table_count' => 2], '2 tables'],
+            ['test/gettext/plural_notes', ['table_count' => 1], 'One table'],
+            ['test/gettext/plural_notes', ['table_count' => 2], '2 tables'],
         ];
     }
 }

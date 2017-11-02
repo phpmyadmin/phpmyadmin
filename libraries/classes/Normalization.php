@@ -97,8 +97,8 @@ class Normalization
         $comments_map = Relation::getComments($db, $table);
         for ($columnNumber = 0; $columnNumber < $num_fields; $columnNumber++) {
             $content_cells[$columnNumber] = array(
-                'columnNumber' => $columnNumber,
-                'columnMeta' => $columnMeta,
+                'column_number' => $columnNumber,
+                'column_meta' => $columnMeta,
                 'type_upper' => '',
                 'length_values_input_size' => 8,
                 'length' => '',
@@ -108,7 +108,7 @@ class Normalization
                 'fields_meta' => null,
                 'is_backup' => true,
                 'move_columns' => array(),
-                'cfgRelation' => $cfgRelation,
+                'cfg_relation' => $cfgRelation,
                 'available_mime' => isset($available_mime)?$available_mime:array(),
                 'mime_map' => $mime_map
             );
@@ -122,7 +122,16 @@ class Normalization
                 'is_backup' => true,
                 'fields_meta' => null,
                 'mimework' => $cfgRelation['mimework'],
-                'content_cells' => $content_cells
+                'content_cells' => $content_cells,
+                'change_column' => $_REQUEST['change_column'],
+                'is_virtual_columns_supported' => Util::isVirtualColumnsSupported(),
+                'browse_mime' => $GLOBALS['cfg']['BrowseMIME'],
+                'server_type' => Util::getServerType(),
+                'max_rows' => intval($GLOBALS['cfg']['MaxRows']),
+                'char_editing' => $GLOBALS['cfg']['CharEditing'],
+                'attribute_types' => $GLOBALS['dbi']->types->getAttributes(),
+                'privs_available' => $GLOBALS['col_priv'] && $GLOBALS['is_reload_priv'],
+                'max_length' => $GLOBALS['dbi']->getVersion() >= 50503 ? 1024 : 255,
                 )
             );
     }

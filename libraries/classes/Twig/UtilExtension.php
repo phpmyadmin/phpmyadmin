@@ -113,6 +113,11 @@ class UtilExtension extends Twig_Extension
                 array('is_safe' => array('html'))
             ),
             new Twig_SimpleFunction(
+                'Util_getScriptNameForOption',
+                'PhpMyAdmin\Util::getScriptNameForOption',
+                array('is_safe' => array('html'))
+            ),
+            new Twig_SimpleFunction(
                 'Util_getStartAndNumberOfRowsPanel',
                 'PhpMyAdmin\Util::getStartAndNumberOfRowsPanel',
                 array('is_safe' => array('html'))
@@ -138,6 +143,11 @@ class UtilExtension extends Twig_Extension
             new Twig_SimpleFunction(
                 'Util_showHint',
                 'PhpMyAdmin\Util::showHint',
+                array('is_safe' => array('html'))
+            ),
+            new Twig_SimpleFunction(
+                'Util_showDocu',
+                'PhpMyAdmin\Util::showDocu',
                 array('is_safe' => array('html'))
             ),
             new Twig_SimpleFunction(

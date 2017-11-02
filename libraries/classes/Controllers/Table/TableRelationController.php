@@ -161,21 +161,36 @@ class TableRelationController extends TableController
         // in mysqli
         $columns = $this->dbi->getColumns($this->db, $this->table);
 
+        $column_array = array();
+        $column_array[''] = '';
+        foreach ($columns as $column) {
+            if (strtoupper($this->tbl_storage_engine) == 'INNODB'
+                || ! empty($column['Key'])
+            ) {
+                $column_array[$column['Field']] = $column['Field'];
+            }
+        }
+        if ($GLOBALS['cfg']['NaturalOrder']) {
+            uksort($column_array, 'strnatcasecmp');
+        }
+
         // common form
         $this->response->addHTML(
-            Template::get('table/relation/common_form')->render(
-                array(
-                    'db' => $this->db,
-                    'table' => $this->table,
-                    'columns' => $columns,
-                    'cfgRelation' => $this->cfgRelation,
-                    'tbl_storage_engine' => $this->tbl_storage_engine,
-                    'existrel' => isset($this->existrel) ? $this->existrel : array(),
-                    'existrel_foreign' => isset($this->existrel_foreign)
-                        ? $this->existrel_foreign['foreign_keys_data'] : array(),
-                    'options_array' => $this->options_array
-                )
-            )
+            Template::get('table/relation/common_form')->render([
+                'db' => $this->db,
+                'table' => $this->table,
+                'cfg_relation' => $this->cfgRelation,
+                'tbl_storage_engine' => $this->tbl_storage_engine,
+                'existrel' => isset($this->existrel) ? $this->existrel : array(),
+                'existrel_foreign' => isset($this->existrel_foreign)
+                    ? $this->existrel_foreign['foreign_keys_data'] : array(),
+                'options_array' => $this->options_array,
+                'column_array' => $column_array,
+                'save_row' => array_values($columns),
+                'url_params' => $GLOBALS['url_params'],
+                'databases' => $GLOBALS['dblist']->databases,
+                'dbi' => $GLOBALS['dbi'],
+            ])
         );
 
         if (Util::isForeignKeySupported($this->tbl_storage_engine)) {

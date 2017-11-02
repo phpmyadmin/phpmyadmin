@@ -419,15 +419,15 @@ class ServerDatabasesController extends Controller
      */
     private function _getHtmlForTableFooter($column_order, $first_database)
     {
-        return Template::get('server/databases/table_footer')->render(
-            array(
-                'column_order' => $column_order,
-                'first_database' => $first_database,
-                'master_replication' => $GLOBALS['replication_info']['master']['status'],
-                'slave_replication' => $GLOBALS['replication_info']['slave']['status'],
-                'databaseCount' => $this->_database_count,
-            )
-        );
+        return Template::get('server/databases/table_footer')->render([
+            'column_order' => $column_order,
+            'first_database' => $first_database,
+            'master_replication' => $GLOBALS['replication_info']['master']['status'],
+            'slave_replication' => $GLOBALS['replication_info']['slave']['status'],
+            'database_count' => $this->_database_count,
+            'is_superuser' => $GLOBALS['dbi']->isSuperuser(),
+            'allow_user_drop_database' => $GLOBALS['cfg']['AllowUserDropDatabase'],
+        ]);
     }
 
     /**
@@ -515,19 +515,19 @@ class ServerDatabasesController extends Controller
             }
         }
 
-        return Template::get('server/databases/table_row')->render(
-            array(
-                'current' => $current,
-                'tr_class' => $tr_class,
-                'column_order' => $column_order,
-                'master_replication_status'
-                    => $GLOBALS['replication_info']['master']['status'],
-                'master_replication' => $master_replication,
-                'slave_replication_status'
-                    => $GLOBALS['replication_info']['slave']['status'],
-                'slave_replication' => $slave_replication,
-            )
-        );
+        return Template::get('server/databases/table_row')->render([
+            'current' => $current,
+            'tr_class' => $tr_class,
+            'column_order' => $column_order,
+            'master_replication_status' => $GLOBALS['replication_info']['master']['status'],
+            'master_replication' => $master_replication,
+            'slave_replication_status' => $GLOBALS['replication_info']['slave']['status'],
+            'slave_replication' => $slave_replication,
+            'is_superuser' => $GLOBALS['dbi']->isSuperuser(),
+            'allow_user_drop_database' => $GLOBALS['cfg']['AllowUserDropDatabase'],
+            'is_system_schema' => $GLOBALS['dbi']->isSystemSchema($current['SCHEMA_NAME'], true),
+            'default_tab_database' => $GLOBALS['cfg']['DefaultTabDatabase'],
+        ]);
     }
 
     /**
@@ -542,21 +542,19 @@ class ServerDatabasesController extends Controller
     private function _getHtmlForTableHeader(
         array $_url_params, array $column_order, array $first_database
     ) {
-        return Template::get('server/databases/table_header')->render(
-            array(
-                '_url_params' => $_url_params,
-                'sort_by' => $this->_sort_by,
-                'sort_order' => $this->_sort_order,
-                'sort_order_text' => ($this->_sort_order == 'asc'
-                    ? __('Ascending') : __('Descending')),
-                'column_order' => $column_order,
-                'first_database' => $first_database,
-                'master_replication'
-                    => $GLOBALS['replication_info']['master']['status'],
-                'slave_replication'
-                    => $GLOBALS['replication_info']['slave']['status'],
-            )
-        );
+        return Template::get('server/databases/table_header')->render([
+            'url_params' => $_url_params,
+            'sort_by' => $this->_sort_by,
+            'sort_order' => $this->_sort_order,
+            'sort_order_text' => ($this->_sort_order == 'asc'
+                ? __('Ascending') : __('Descending')),
+            'column_order' => $column_order,
+            'first_database' => $first_database,
+            'master_replication' => $GLOBALS['replication_info']['master']['status'],
+            'slave_replication' => $GLOBALS['replication_info']['slave']['status'],
+            'is_superuser' => $GLOBALS['dbi']->isSuperuser(),
+            'allow_user_drop_database' => $GLOBALS['cfg']['AllowUserDropDatabase'],
+        ]);
     }
 
 

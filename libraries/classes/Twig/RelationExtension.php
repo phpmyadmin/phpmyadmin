@@ -40,6 +40,10 @@ class RelationExtension extends Twig_Extension
                 'PhpMyAdmin\Relation::getForeignData'
             ),
             new Twig_SimpleFunction(
+                'Relation_getTables',
+                'PhpMyAdmin\Relation::getTables'
+            ),
+            new Twig_SimpleFunction(
                 'Relation_searchColumnInForeigners',
                 'PhpMyAdmin\Relation::searchColumnInForeigners'
             ),

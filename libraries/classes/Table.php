@@ -105,6 +105,20 @@ class Table
     }
 
     /**
+     * Table getter
+     *
+     * @param string            $table_name table name
+     * @param string            $db_name    database name
+     * @param DatabaseInterface $dbi        database interface for the table
+     *
+     * @return Table
+     */
+    public static function get($table_name, $db_name, DatabaseInterface $dbi = null)
+    {
+        return new Table($table_name, $db_name, $dbi);
+    }
+
+    /**
      * return the last error
      *
      * @return string the last error
