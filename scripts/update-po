@@ -31,7 +31,7 @@ xgettext \
     `find \( -name '*.php' -o -name '*.phtml' \) -not -path './test/*' -not -path './po/*' -not -path './tmp/*' -not -path './release/*' -not -path './vendor/*' | sort`
 
 # Fixup filenames for Twig templates
-sed -i -f twig-templates/replace.sed po/phpmyadmin.pot
+php scripts/fix-po-twig
 
 # Remote twig templates
 rm -rf twig-templates/

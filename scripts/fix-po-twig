@@ -1,0 +1,32 @@
+<?php
+/* vim: set expandtab sw=4 ts=4 sts=4 ft=php: */
+
+$tmpDir = dirname(__FILE__) . '/../twig-templates';
+$potName = 'po/phpmyadmin.pot';
+$replacements = json_decode(file_get_contents($tmpDir . '/replace.json'), true);
+
+/* Read pot file */
+$pot = file_get_contents($potName);
+
+/* Do the replacements */
+$pot = preg_replace_callback(
+    '@(twig-templates[0-9a-f/]*.php):([0-9]*)@',
+    function ($matches) {
+        global $replacements;
+        $filename = $matches[1];
+        $line = intval($matches[2]);
+        $replace = $replacements[$filename];
+        foreach ($replace[1] as $cacheline => $result) {
+            if ($line >= $cacheline) {
+                return $replace[0] . ':' . $result;
+            }
+        }
+        return $replace[0] . ':0';
+    },
+    $pot
+);
+
+/* Write fixed file */
+$handle = fopen($potName, 'w');
+fwrite($handle, $pot);
+fclose($handle);
