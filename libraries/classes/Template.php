@@ -43,7 +43,7 @@ class Template
     /**
      * Twig environment
      */
-    protected $twig;
+    static protected $twig;
 
     const BASE_PATH = 'templates/';
 
@@ -54,11 +54,9 @@ class Template
      */
     protected function __construct($name)
     {
-        static $twig = null;
-
         $this->name = $name;
 
-        if (is_null($twig)) {
+        if (is_null($this::$twig)) {
             $loader = new Twig_Loader_Filesystem(static::BASE_PATH);
             $cache_dir = $GLOBALS['PMA_Config']->getTempDir('twig');
             /* Twig expects false when cache is not configured */
@@ -86,8 +84,8 @@ class Template
             $twig->addExtension(new TransformationsExtension());
             $twig->addExtension(new UrlExtension());
             $twig->addExtension(new UtilExtension());
+            $this::$twig = $twig;
         }
-        $this->twig = $twig;
     }
 
     /**
@@ -112,11 +110,11 @@ class Template
     public function render(array $data = array())
     {
         try {
-            $template = $this->twig->load($this->name . '.twig');
+            $template = $this::$twig->load($this->name . '.twig');
         } catch (\RuntimeException $e) {
             /* Retry with disabled cache */
-            $this->twig->setCache(false);
-            $template = $this->twig->load($this->name . '.twig');
+            $this::$twig->setCache(false);
+            $template = $this::$twig->load($this->name . '.twig');
             /*
              * The trigger error is intentionally after second load
              * to avoid triggering error when disabling cache does not
