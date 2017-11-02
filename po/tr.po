@@ -4,16 +4,16 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.7.6-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2017-11-02 14:03+0100\n"
-"PO-Revision-Date: 2017-08-10 16:16+0000\n"
+"PO-Revision-Date: 2017-11-03 06:16+0000\n"
 "Last-Translator: Burak Yavuz <hitowerdigit@hotmail.com>\n"
-"Language-Team: Turkish <https://hosted.weblate.org/projects/phpmyadmin/4-7/"
-"tr/>\n"
+"Language-Team: Turkish "
+"<https://hosted.weblate.org/projects/phpmyadmin/4-7/tr/>\n"
 "Language: tr\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n > 1;\n"
-"X-Generator: Weblate 2.16-dev\n"
+"X-Generator: Weblate 2.18-dev\n"
 
 #: ajax.php:16 ajax.php:33 export.php:192 schema_export.php:64
 msgid "Bad type!"
@@ -10955,11 +10955,11 @@ msgstr ""
 
 #: libraries/plugins/transformations/output/Text_Plain_Json.php:47
 msgid "Formats text as JSON with syntax highlighting."
-msgstr "Sözdizimi vurgulamalı JSON gibi metni biçimlendirir."
+msgstr "Sözdizimi vurgulaması ile JSON olarak metni biçimlendirir."
 
 #: libraries/plugins/transformations/output/Text_Plain_Xml.php:47
 msgid "Formats text as XML with syntax highlighting."
-msgstr "Sözdizimi vurgulamalı XML gibi metni biçimlendirir."
+msgstr "Sözdizimi vurgulaması ile XML olarak metni biçimlendirir."
 
 #: libraries/pmd_common.php:546
 msgid "Error: relationship already exists."
