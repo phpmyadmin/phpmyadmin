@@ -14,9 +14,10 @@ Authentication Application
 --------------------------
 
 Using application for authentication is quite common approach based on HOTP and
-TOTP. It is based on transmitting private key from phpMyAdmin to the
-authentication application and the application is then able to generate one
-time codes based on this key.
+`TOTP <https://en.wikipedia.org/wiki/Time-based_One-time_Password_Algorithm>`_.
+It is based on transmitting private key from phpMyAdmin to the authentication
+application and the application is then able to generate one time codes based
+on this key.
 
 There are dozens of applications available for mobile phones to implement these
 standards, the most widely used include:
