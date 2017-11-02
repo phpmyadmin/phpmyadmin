@@ -177,8 +177,8 @@ class FormDisplayTemplateTest extends TestCase
         );
 
         $this->assertContains(
-            '<img src="themes/dot.gif" title="Documentation" ' .
-            'alt="Documentation" class="icon ic_b_help" /',
+            '<img src="./themes/pmahomme/b_help.png" title="Documentation" ' .
+            'alt="Documentation" /',
             $result
         );
 

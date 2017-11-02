@@ -1408,7 +1408,7 @@ class UtilTest extends PmaTestCase
         $GLOBALS['cfg']['ActionLinksMode'] = 'icons';
 
         $this->assertEquals(
-            '<span class="nowrap"><img src="themes/dot.gif" title="" alt="" class="icon ic_b_comment" /></span>',
+            '<span class="nowrap"><img src="./themes/pmahomme/b_comment.png" title="" alt="" /></span>',
             Util::getIcon('b_comment.png')
         );
     }
@@ -1426,9 +1426,9 @@ class UtilTest extends PmaTestCase
         $alternate_text = 'alt_str';
 
         $this->assertEquals(
-            '<span class="nowrap"><img src="themes/dot.gif" title="'
+            '<span class="nowrap"><img src="./themes/pmahomme/b_comment.png" title="'
             . $alternate_text . '" alt="' . $alternate_text
-            . '" class="icon ic_b_comment" /></span>',
+            . '" /></span>',
             Util::getIcon('b_comment.png', $alternate_text)
         );
     }
@@ -1448,9 +1448,9 @@ class UtilTest extends PmaTestCase
         // Here we are checking for an icon embedded inside a span (i.e not a menu
         // bar icon
         $this->assertEquals(
-            '<span class="nowrap"><img src="themes/dot.gif" title="'
+            '<span class="nowrap"><img src="./themes/pmahomme/b_comment.png" title="'
             . $alternate_text . '" alt="' . $alternate_text
-            . '" class="icon ic_b_comment" />&nbsp;' . $alternate_text . '</span>',
+            . '" />&nbsp;' . $alternate_text . '</span>',
             Util::getIcon('b_comment.png', $alternate_text, true, false)
         );
     }
@@ -2065,7 +2065,7 @@ class UtilTest extends PmaTestCase
         $GLOBALS['cfg']['ServerDefault'] = 1;
 
         $this->assertEquals(
-            '<a href="./url.php?url=https%3A%2F%2Fdocs.phpmyadmin.net%2Fen%2Flatest%2Fpage.html%23anchor" target="documentation"><img src="themes/dot.gif" title="Documentation" alt="Documentation" class="icon ic_b_help" /></a>',
+            '<a href="./url.php?url=https%3A%2F%2Fdocs.phpmyadmin.net%2Fen%2Flatest%2Fpage.html%23anchor" target="documentation"><img src="./themes/pmahomme/b_help.png" title="Documentation" alt="Documentation" /></a>',
             Util::showDocu('page', 'anchor')
         );
     }
@@ -2086,8 +2086,8 @@ class UtilTest extends PmaTestCase
         $lang = _pgettext('PHP documentation language', 'en');
         $expected = '<a href="./url.php?url=https%3A%2F%2Fsecure.php.net%2Fmanual%2F' . $lang
             . '%2F' . $target . '" target="documentation">'
-            . '<img src="themes/dot.gif" title="' . __('Documentation') . '" alt="'
-            . __('Documentation') . '" class="icon ic_b_help" /></a>';
+            . '<img src="./themes/pmahomme/b_help.png" title="Documentation" alt="Documentation" />'
+            . '</a>';
 
         $this->assertEquals(
             $expected, Util::showPHPDocu($target)
