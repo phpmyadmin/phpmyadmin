@@ -4,16 +4,16 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.8.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2017-11-02 14:01+0100\n"
-"PO-Revision-Date: 2017-09-08 20:00+0000\n"
+"PO-Revision-Date: 2017-11-02 20:13+0000\n"
 "Last-Translator: Burak Yavuz <hitowerdigit@hotmail.com>\n"
-"Language-Team: Turkish <https://hosted.weblate.org/projects/phpmyadmin/"
-"master/tr/>\n"
+"Language-Team: Turkish "
+"<https://hosted.weblate.org/projects/phpmyadmin/master/tr/>\n"
 "Language: tr\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n > 1;\n"
-"X-Generator: Weblate 2.17-dev\n"
+"X-Generator: Weblate 2.18-dev\n"
 
 #: ajax.php:17 ajax.php:34 export.php:203 libraries/classes/Export.php:1100
 msgid "Bad type!"
@@ -2679,12 +2679,12 @@ msgstr "Güçlü"
 
 #: js/messages.php:746
 msgid "Timed out waiting for security key activation."
-msgstr ""
+msgstr "Güvenlik anahtarı etkinleştirme için beklenirken zaman aşımına uğradı."
 
 #: js/messages.php:747
 #, php-format
 msgid "Failed security key activation (%s)."
-msgstr ""
+msgstr "Güvenlik anahtarı etkinleştirme başarısız (%s)."
 
 #: js/messages.php:776
 msgctxt "Previous month"
@@ -7026,21 +7026,16 @@ msgid "Failed to set configured collation connection!"
 msgstr "Yapılandırılmış karşılaştırma bağlantısı ayarlama başarısız!"
 
 #: libraries/classes/DatabaseInterface.php:1499
-#, fuzzy, php-format
-#| msgid ""
-#| "Unable to use timezone %1$s for server %2$d. Please check your "
-#| "configuration setting for [em]$cfg['Servers'][%3$d]['SessionTimeZone'][/"
-#| "em]. phpMyAdmin is currently using the default time zone of the database "
-#| "server."
+#, php-format
 msgid ""
 "Unable to use timezone \"%1$s\" for server %2$d. Please check your "
 "configuration setting for [em]$cfg['Servers'][%3$d]['SessionTimeZone'][/em]. "
 "phpMyAdmin is currently using the default time zone of the database server."
 msgstr ""
-"%1$s saat dilimi sunucu %2$d için kullanılamaz. Lütfen [em]$cfg['Servers']"
-"[%3$d]['SessionTimeZone'][/em] için yapılandırma ayarlarınızı kontrol edin. "
-"phpMyAdmin, veritabanı sunucusunun şu anki varsayılan saat dilimini "
-"kullanıyor."
+"\"%1$s\" saat dilimi sunucu %2$d için kullanılamaz. Lütfen "
+"[em]$cfg['Servers'][%3$d]['SessionTimeZone'][/em] için yapılandırma "
+"ayarlarınızı kontrol edin. phpMyAdmin, veritabanı sunucusunun şu anki "
+"varsayılan saat dilimini kullanıyor."
 
 #: libraries/classes/DatabaseInterface.php:2097
 msgid ""
@@ -9127,16 +9122,12 @@ msgid "Switch to copied database"
 msgstr "Kopyalanmış veritabanına geç"
 
 #: libraries/classes/Operations.php:311
-#, fuzzy
-#| msgid "Change all column collations"
 msgid "Change all tables collations"
-msgstr "Tüm sütun karşılaştırmalarını değiştir"
+msgstr "Tüm tablo karşılaştırmalarını değiştir"
 
 #: libraries/classes/Operations.php:317
-#, fuzzy
-#| msgid "Change all column collations"
 msgid "Change all tables columns collations"
-msgstr "Tüm sütun karşılaştırmalarını değiştir"
+msgstr "Tüm tablo sütunları karşılaştırmalarını değiştir"
 
 #: libraries/classes/Operations.php:797
 msgid "Alter table order by"
@@ -9434,6 +9425,8 @@ msgstr "MySQL sunucusuna oturum açılamıyor"
 #: libraries/classes/Plugins/AuthenticationPlugin.php:331
 msgid "You have enabled two factor authentication, please confirm your login."
 msgstr ""
+"İki etkenli kimlik doğrulamasını etkinleştirdiniz, lütfen oturum açma "
+"bilgilerinizi onaylayın."
 
 #: libraries/classes/Plugins/Export/ExportCsv.php:63
 #: libraries/classes/Plugins/Import/AbstractImportCsv.php:58
@@ -10384,17 +10377,15 @@ msgstr ""
 
 #: libraries/classes/Plugins/Transformations/Output/Text_Plain_Json.php:47
 msgid "Formats text as JSON with syntax highlighting."
-msgstr "Sözdizimi vurgulamalı JSON gibi metni biçimlendirir."
+msgstr "Sözdizimi vurgulaması ile JSON olarak metni biçimlendirir."
 
 #: libraries/classes/Plugins/Transformations/Output/Text_Plain_Xml.php:47
 msgid "Formats text as XML with syntax highlighting."
-msgstr "Sözdizimi vurgulamalı XML gibi metni biçimlendirir."
+msgstr "Sözdizimi vurgulaması ile XML olarak metni biçimlendirir."
 
 #: libraries/classes/Plugins/TwoFactor/Application.php:129
-#, fuzzy
-#| msgid "Authentication Plugin"
 msgid "Authentication Application (2FA)"
-msgstr "Kimlik Doğrulama Eklentisi"
+msgstr "Kimlik Doğrulama Uygulaması (2FA)"
 
 #: libraries/classes/Plugins/TwoFactor/Application.php:139
 msgid ""
