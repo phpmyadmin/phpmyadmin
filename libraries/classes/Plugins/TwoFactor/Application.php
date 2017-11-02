@@ -5,19 +5,19 @@
  *
  * @package PhpMyAdmin
  */
-namespace PhpMyAdmin\Plugins\SecondFactor;
+namespace PhpMyAdmin\Plugins\TwoFactor;
 
-use PhpMyAdmin\SecondFactor;
+use PhpMyAdmin\TwoFactor;
 use PhpMyAdmin\Template;
-use PhpMyAdmin\Plugins\SecondFactorPlugin;
+use PhpMyAdmin\Plugins\TwoFactorPlugin;
 use PragmaRX\Google2FA\Google2FA;
 
 /**
- * HOTP and TOTP based second factor
+ * HOTP and TOTP based two-factor authentication
  *
  * Also known as Google, Authy, or OTP
  */
-class Application extends SecondFactorPlugin
+class Application extends TwoFactorPlugin
 {
     /**
      * @var string
@@ -29,15 +29,15 @@ class Application extends SecondFactorPlugin
     /**
      * Creates object
      *
-     * @param SecondFactor $second SecondFactor instance
+     * @param TwoFactor $twofactor TwoFactor instance
      */
-    public function __construct(SecondFactor $second)
+    public function __construct(TwoFactor $twofactor)
     {
-        parent::__construct($second);
+        parent::__construct($twofactor);
         $this->_google2fa = new Google2FA();
         $this->_google2fa->setWindow(8);
-        if (!isset($this->_second->config['settings']['secret'])) {
-            $this->_second->config['settings']['secret'] = '';
+        if (!isset($this->_twofactor->config['settings']['secret'])) {
+            $this->_twofactor->config['settings']['secret'] = '';
         }
     }
 
@@ -69,22 +69,22 @@ class Application extends SecondFactorPlugin
         }
         $this->_provided = true;
         return $this->_google2fa->verifyKey(
-            $this->_second->config['settings']['secret'], $_POST['2fa_code']
+            $this->_twofactor->config['settings']['secret'], $_POST['2fa_code']
         );
     }
 
     /**
-     * Renders user interface to enter second factor
+     * Renders user interface to enter two-factor authentication
      *
      * @return string HTML code
      */
     public function render()
     {
-        return Template::get('login/second/application')->render();
+        return Template::get('login/twofactor/application')->render();
     }
 
     /**
-     * Renders user interface to configure second factor
+     * Renders user interface to configure two-factor authentication
      *
      * @return string HTML code
      */
@@ -92,10 +92,10 @@ class Application extends SecondFactorPlugin
     {
         $inlineUrl = $this->_google2fa->getQRCodeInline(
             'phpMyAdmin (' . $this->getAppId(false) . ')',
-            $this->_second->user,
-            $this->_second->config['settings']['secret']
+            $this->_twofactor->user,
+            $this->_twofactor->config['settings']['secret']
         );
-        return Template::get('login/second/application_configure')->render([
+        return Template::get('login/twofactor/application_configure')->render([
             'image' => $inlineUrl,
         ]);
     }
@@ -110,7 +110,7 @@ class Application extends SecondFactorPlugin
         if (! isset($_SESSION['2fa_application_key'])) {
             $_SESSION['2fa_application_key'] = $this->_google2fa->generateSecretKey();
         }
-        $this->_second->config['settings']['secret'] = $_SESSION['2fa_application_key'];
+        $this->_twofactor->config['settings']['secret'] = $_SESSION['2fa_application_key'];
 
         $result = $this->check();
         if ($result) {
@@ -126,7 +126,7 @@ class Application extends SecondFactorPlugin
      */
     public static function getName()
     {
-        return __('Authentication application');
+        return __('Authentication Application (2FA)');
     }
 
     /**

@@ -5,21 +5,21 @@
  *
  * @package PhpMyAdmin
  */
-namespace PhpMyAdmin\Plugins\SecondFactor;
+namespace PhpMyAdmin\Plugins\TwoFactor;
 
 use PhpMyAdmin\Response;
-use PhpMyAdmin\SecondFactor;
+use PhpMyAdmin\TwoFactor;
 use PhpMyAdmin\Template;
-use PhpMyAdmin\Plugins\SecondFactorPlugin;
+use PhpMyAdmin\Plugins\TwoFactorPlugin;
 use Samyoul\U2F\U2FServer\U2FServer;
 use Samyoul\U2F\U2FServer\U2FException;
 
 /**
- * Hardware key based second factor
+ * Hardware key based two-factor authentication
  *
  * Supports FIDO U2F tokens
  */
-class Key extends SecondFactorPlugin
+class Key extends TwoFactorPlugin
 {
     /**
      * @var string
@@ -29,13 +29,13 @@ class Key extends SecondFactorPlugin
     /**
      * Creates object
      *
-     * @param SecondFactor $second SecondFactor instance
+     * @param TwoFactor $twofactor TwoFactor instance
      */
-    public function __construct(SecondFactor $second)
+    public function __construct(TwoFactor $twofactor)
     {
-        parent::__construct($second);
-        if (!isset($this->_second->config['settings']['registrations'])) {
-            $this->_second->config['settings']['registrations'] = [];
+        parent::__construct($twofactor);
+        if (!isset($this->_twofactor->config['settings']['registrations'])) {
+            $this->_twofactor->config['settings']['registrations'] = [];
         }
     }
 
@@ -47,7 +47,7 @@ class Key extends SecondFactorPlugin
     public function getRegistrations()
     {
         $result = [];
-        foreach ($this->_second->config['settings']['registrations'] as $index => $data) {
+        foreach ($this->_twofactor->config['settings']['registrations'] as $index => $data) {
             $reg = new \StdClass;
             $reg->keyHandle = $data['keyHandle'];
             $reg->publicKey = $data['publicKey'];
@@ -81,8 +81,8 @@ class Key extends SecondFactorPlugin
                 $this->getRegistrations(),
                 $response
             );
-            $this->_second->config['settings']['registrations'][$authentication->index]['counter'] = $authentication->counter;
-            $this->_second->save();
+            $this->_twofactor->config['settings']['registrations'][$authentication->index]['counter'] = $authentication->counter;
+            $this->_twofactor->save();
             return true;
         } catch (U2FException $e) {
             $this->_message = $e->getMessage();
@@ -104,7 +104,7 @@ class Key extends SecondFactorPlugin
     }
 
     /**
-     * Renders user interface to enter second factor
+     * Renders user interface to enter two-factor authentication
      *
      * @return string HTML code
      */
@@ -116,13 +116,13 @@ class Key extends SecondFactorPlugin
         );
         $_SESSION['authenticationRequest'] = $request;
         $this->loadScripts();
-        return Template::get('login/second/key')->render([
+        return Template::get('login/twofactor/key')->render([
             'request' => json_encode($request),
         ]);
     }
 
     /**
-     * Renders user interface to configure second factor
+     * Renders user interface to configure two-factor authentication
      *
      * @return string HTML code
      */
@@ -135,7 +135,7 @@ class Key extends SecondFactorPlugin
         $_SESSION['registrationRequest'] = $registrationData['request'];
 
         $this->loadScripts();
-        return Template::get('login/second/key_configure')->render([
+        return Template::get('login/twofactor/key_configure')->render([
             'request' => json_encode($registrationData['request']),
             'signatures' => json_encode($registrationData['signatures']),
         ]);
@@ -161,7 +161,7 @@ class Key extends SecondFactorPlugin
             $registration = U2FServer::register(
                 $_SESSION['registrationRequest'], $response
             );
-            $this->_second->config['settings']['registrations'][] = [
+            $this->_twofactor->config['settings']['registrations'][] = [
                 'keyHandle' => $registration->getKeyHandle(),
                 'publicKey' => $registration->getPublicKey(),
                 'certificate' => $registration->getCertificate(),
@@ -181,7 +181,7 @@ class Key extends SecondFactorPlugin
      */
     public static function getName()
     {
-        return __('Security key');
+        return __('Hardware Security Key (FIDO U2F)');
     }
 
     /**

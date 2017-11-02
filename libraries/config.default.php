@@ -3059,7 +3059,7 @@ $cfg['DBG']['sqllog'] = false;
 $cfg['DBG']['demo'] = false;
 
 /**
- * Enable Simple second factor
+ * Enable Simple two-factor authentication
  *
  * @global boolean $cfg['DBG']['simple2fa']
  */

@@ -14,7 +14,7 @@ use PhpMyAdmin\Logging;
 use PhpMyAdmin\Message;
 use PhpMyAdmin\Response;
 use PhpMyAdmin\Sanitize;
-use PhpMyAdmin\SecondFactor;
+use PhpMyAdmin\TwoFactor;
 use PhpMyAdmin\Session;
 use PhpMyAdmin\Template;
 use PhpMyAdmin\Url;
@@ -309,12 +309,12 @@ abstract class AuthenticationPlugin
      *
      * @return void
      */
-    public function checkSecondFactor()
+    public function checkTwoFactor()
     {
-        $second = new SecondFactor($this->user);
+        $twofactor = new TwoFactor($this->user);
 
         /* Do we need to show the form? */
-        if ($second->check()) {
+        if ($twofactor->check()) {
             return;
         }
 
@@ -330,7 +330,7 @@ abstract class AuthenticationPlugin
         Message::rawNotice(
             __('You have enabled two factor authentication, please confirm your login.')
         )->display();
-        echo Template::get('login/second')->render(['form' => $second->render()]);
+        echo Template::get('login/twofactor')->render(['form' => $twofactor->render()]);
         echo Template::get('login/footer')->render();
         echo Config::renderFooter();
         if (! defined('TESTSUITE')) {

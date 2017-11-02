@@ -5,17 +5,17 @@
  *
  * @package PhpMyAdmin
  */
-namespace PhpMyAdmin\Plugins\SecondFactor;
+namespace PhpMyAdmin\Plugins\TwoFactor;
 
-use PhpMyAdmin\Plugins\SecondFactorPlugin;
+use PhpMyAdmin\Plugins\TwoFactorPlugin;
 use PhpMyAdmin\Template;
 
 /**
- * Simple second factor auth asking just for confirmation.
+ * Simple two-factor authentication auth asking just for confirmation.
  *
  * This has no practical use, but can be used for testing.
  */
-class Simple extends SecondFactorPlugin
+class Simple extends TwoFactorPlugin
 {
     /**
      * @var string
@@ -33,13 +33,13 @@ class Simple extends SecondFactorPlugin
     }
 
     /**
-     * Renders user interface to enter second factor
+     * Renders user interface to enter two-factor authentication
      *
      * @return string HTML code
      */
     public function render()
     {
-        return Template::get('login/second/simple')->render();
+        return Template::get('login/twofactor/simple')->render();
     }
 
     /**
@@ -49,7 +49,7 @@ class Simple extends SecondFactorPlugin
      */
     public static function getName()
     {
-        return __('Simple second factor');
+        return __('Simple two-factor authentication');
     }
 
     /**

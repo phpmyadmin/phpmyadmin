@@ -6,7 +6,7 @@
  * @package PhpMyAdmin
  */
 use PhpMyAdmin\Message;
-use PhpMyAdmin\SecondFactor;
+use PhpMyAdmin\TwoFactor;
 use PhpMyAdmin\Template;
 
 /**
@@ -16,22 +16,22 @@ require_once 'libraries/common.inc.php';
 
 require 'libraries/user_preferences.inc.php';
 
-$second_factor = new SecondFactor($GLOBALS['cfg']['Server']['user']);
+$two_factor = new TwoFactor($GLOBALS['cfg']['Server']['user']);
 
 if (isset($_POST['2fa_remove'])) {
-    if (! $second_factor->check(true)) {
+    if (! $two_factor->check(true)) {
         echo Template::get('prefs_second_confirm')->render([
-            'form' => $second_factor->render(),
+            'form' => $two_factor->render(),
         ]);
         exit;
     } else {
-        $second_factor->configure('');
+        $two_factor->configure('');
         Message::rawNotice(__('Two-factor authentication has been removed.'))->display();
     }
 } elseif (isset($_POST['2fa_configure'])) {
-    if (! $second_factor->configure($_POST['2fa_configure'])) {
+    if (! $two_factor->configure($_POST['2fa_configure'])) {
         echo Template::get('prefs_second_configure')->render([
-            'form' => $second_factor->setup(),
+            'form' => $two_factor->setup(),
             'configure' => $_POST['2fa_configure'],
         ]);
         exit;
@@ -40,12 +40,12 @@ if (isset($_POST['2fa_remove'])) {
     }
 }
 
-$backend = $second_factor->backend;
+$backend = $two_factor->backend;
 echo Template::get('prefs_second')->render([
-    'enabled' => $second_factor->writable,
-    'num_backends' => count($second_factor->available),
+    'enabled' => $two_factor->writable,
+    'num_backends' => count($two_factor->available),
     'backend_id' => $backend::$id,
     'backend_name' => $backend::getName(),
     'backend_description' => $backend::getDescription(),
-    'backends' => $second_factor->getAllBackends(),
+    'backends' => $two_factor->getAllBackends(),
 ]);

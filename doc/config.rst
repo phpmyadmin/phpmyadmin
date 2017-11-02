@@ -3350,7 +3350,7 @@ Developer
     :type: boolean
     :default: false
 
-    Can be used for testing second authentication factor.
+    Can be used for testing two-factor authentication using :ref:`simple2fa`.
 
 .. _config-examples:
 

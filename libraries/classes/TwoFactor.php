@@ -1,7 +1,7 @@
 <?php
 /* vim: set expandtab sw=4 ts=4 sts=4: */
 /**
- * Second authentication factor handling
+ * Two authentication factor handling
  *
  * @package PhpMyAdmin
  */
@@ -10,9 +10,9 @@ namespace PhpMyAdmin;
 use PhpMyAdmin\UserPreferences;
 
 /**
- * Second factor authentication wrapper class
+ * Two factor authentication wrapper class
  */
-class SecondFactor
+class TwoFactor
 {
     /**
      * @var string
@@ -30,7 +30,7 @@ class SecondFactor
     protected $_writable;
 
     /**
-     * @var PhpMyAdmin\Plugins\SecondFactorPlugin
+     * @var PhpMyAdmin\Plugins\TwoFactorPlugin
      */
     protected $_backend;
 
@@ -40,7 +40,7 @@ class SecondFactor
     protected $_available;
 
     /**
-     * Creates new SecondFactor object
+     * Creates new TwoFactor object
      *
      * @param string $user User name
      */
@@ -123,9 +123,9 @@ class SecondFactor
      */
     public function getBackendClass($name)
     {
-        $result = 'PhpMyAdmin\\Plugins\\SecondFactorPlugin';
+        $result = 'PhpMyAdmin\\Plugins\\TwoFactorPlugin';
         if (in_array($name, $this->_available)) {
-            $result = 'PhpMyAdmin\\Plugins\\SecondFactor\\' . ucfirst($name);
+            $result = 'PhpMyAdmin\\Plugins\\TwoFactor\\' . ucfirst($name);
         }
         return $result;
     }
@@ -133,7 +133,7 @@ class SecondFactor
     /**
      * Returns backend for current user
      *
-     * @return PhpMyAdmin\Plugins\SecondFactorPlugin
+     * @return PhpMyAdmin\Plugins\TwoFactorPlugin
      */
     public function getBackend()
     {
@@ -153,14 +153,14 @@ class SecondFactor
         if ($skip_session) {
             return $this->_backend->check();
         }
-        if (empty($_SESSION['second_factor_check'])) {
-            $_SESSION['second_factor_check'] = $this->_backend->check();
+        if (empty($_SESSION['two_factor_check'])) {
+            $_SESSION['two_factor_check'] = $this->_backend->check();
         }
-        return $_SESSION['second_factor_check'];
+        return $_SESSION['two_factor_check'];
     }
 
     /**
-     * Renders user interface to enter second factor
+     * Renders user interface to enter two-factor authentication
      *
      * @return string HTML code
      */
@@ -170,7 +170,7 @@ class SecondFactor
     }
 
     /**
-     * Renders user interface to configure second factor
+     * Renders user interface to configure two-factor authentication
      *
      * @return string HTML code
      */
@@ -190,7 +190,7 @@ class SecondFactor
     }
 
     /**
-     * Changes second factor settings
+     * Changes two-factor authentication settings
      *
      * The object might stay in partialy changed setup
      * if configuration fails.

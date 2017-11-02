@@ -9,7 +9,7 @@ use PhpMyAdmin\Config\Forms\User\UserFormList;
 use PhpMyAdmin\Message;
 use PhpMyAdmin\Relation;
 use PhpMyAdmin\Sanitize;
-use PhpMyAdmin\SecondFactor;
+use PhpMyAdmin\TwoFactor;
 
 if (!defined('PHPMYADMIN')) {
     exit;

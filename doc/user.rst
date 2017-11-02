@@ -5,7 +5,7 @@ User Guide
     :maxdepth: 2
 
     settings
-    second_factor
+    two_factor
     transformations
     bookmarks
     privileges

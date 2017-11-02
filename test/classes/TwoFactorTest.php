@@ -1,22 +1,22 @@
 <?php
 /* vim: set expandtab sw=4 ts=4 sts=4: */
 /**
- * tests for SecondFactor class
+ * tests for TwoFactor class
  *
  * @package PhpMyAdmin-test
  */
 namespace PhpMyAdmin\Tests;
 
-use PhpMyAdmin\SecondFactor;
+use PhpMyAdmin\TwoFactor;
 use Samyoul\U2F\U2FServer\RegistrationRequest;
 use Samyoul\U2F\U2FServer\SignRequest;
 
 /**
- * Tests behaviour of SecondFactor class
+ * Tests behaviour of TwoFactor class
  *
  * @package PhpMyAdmin-test
  */
-class SecondFactorTest extends PmaTestCase
+class TwoFactorTest extends PmaTestCase
 {
     public function setUp()
     {
@@ -24,14 +24,14 @@ class SecondFactorTest extends PmaTestCase
     }
 
     /**
-     * Creates SecondFactor mock with custom configuration
+     * Creates TwoFactor mock with custom configuration
      *
      * @param string $user   Username
-     * @param array  $config Second factor authentication configuraiton
+     * @param array  $config Two factor authentication configuration
      *
-     * @return SecondFactor
+     * @return TwoFactor
      */
-    public function getSecondFactorMock($user, $config)
+    public function getTwoFactorMock($user, $config)
     {
         if (! isset($config['backend'])) {
             $config['backend'] = '';
@@ -39,7 +39,7 @@ class SecondFactorTest extends PmaTestCase
         if (! isset($config['settings'])) {
             $config['settings'] = [];
         }
-        $result = $this->getMockbuilder('PhpMyAdmin\SecondFactor')
+        $result = $this->getMockbuilder('PhpMyAdmin\TwoFactor')
             ->setMethods(['readConfig'])
             ->disableOriginalConstructor()
             ->getMock();
@@ -50,7 +50,7 @@ class SecondFactorTest extends PmaTestCase
 
     public function testNone()
     {
-        $object = $this->getSecondFactorMock('user', ['type' => 'db']);
+        $object = $this->getTwoFactorMock('user', ['type' => 'db']);
         $backend = $object->backend;
         $this->assertEquals('', $backend::$id);
         // Is always valid
@@ -66,7 +66,7 @@ class SecondFactorTest extends PmaTestCase
     public function testSimple()
     {
         $GLOBALS['cfg']['DBG']['simple2fa'] = true;
-        $object = $this->getSecondFactorMock('user', ['type' => 'db', 'backend' => 'simple']);
+        $object = $this->getTwoFactorMock('user', ['type' => 'db', 'backend' => 'simple']);
         $backend = $object->backend;
         $this->assertEquals('simple', $backend::$id);
         $GLOBALS['cfg']['DBG']['simple2fa'] = false;
@@ -85,7 +85,7 @@ class SecondFactorTest extends PmaTestCase
 
     public function testLoad()
     {
-        $object = new SecondFactor('user');
+        $object = new TwoFactor('user');
         $backend = $object->backend;
         $this->assertEquals('', $backend::$id);
     }
@@ -93,7 +93,7 @@ class SecondFactorTest extends PmaTestCase
     public function testConfigureSimple()
     {
         $GLOBALS['cfg']['DBG']['simple2fa'] = true;
-        $object = new SecondFactor('user');
+        $object = new TwoFactor('user');
         $this->assertTrue($object->configure('simple'));
         $backend = $object->backend;
         $this->assertEquals('simple', $backend::$id);
@@ -101,13 +101,13 @@ class SecondFactorTest extends PmaTestCase
         $backend = $object->backend;
         $this->assertEquals('', $backend::$id);
         $GLOBALS['cfg']['DBG']['simple2fa'] = false;
-        $object = new SecondFactor('user');
+        $object = new TwoFactor('user');
         $this->assertFalse($object->configure('simple'));
     }
 
     public function testApplication()
     {
-        $object = new SecondFactor('user');
+        $object = new TwoFactor('user');
         if (! in_array('application', $object->available)) {
             $this->markTestSkipped('google2fa not available');
         }
@@ -147,7 +147,7 @@ class SecondFactorTest extends PmaTestCase
 
     public function testKey()
     {
-        $object = new SecondFactor('user');
+        $object = new TwoFactor('user');
         if (! in_array('key', $object->available)) {
             $this->markTestSkipped('u2f-php-server not available');
         }
@@ -186,7 +186,7 @@ class SecondFactorTest extends PmaTestCase
      */
     public function testKeyAppId()
     {
-        $object = new SecondFactor('user');
+        $object = new TwoFactor('user');
         $GLOBALS['PMA_Config']->set('PmaAbsoluteUri', 'http://demo.example.com');
         $this->assertEquals('http://demo.example.com', $object->backend->getAppId(true));
         $this->assertEquals('demo.example.com', $object->backend->getAppId(false));
@@ -209,7 +209,7 @@ class SecondFactorTest extends PmaTestCase
      */
     public function testKeyAuthentication()
     {
-        $object = new SecondFactor('user');
+        $object = new TwoFactor('user');
         if (! in_array('key', $object->available)) {
             $this->markTestSkipped('u2f-php-server not available');
         }
@@ -245,7 +245,7 @@ class SecondFactorTest extends PmaTestCase
     public function testBackends()
     {
         $GLOBALS['cfg']['DBG']['simple2fa'] = true;
-        $object = new SecondFactor('user');
+        $object = new TwoFactor('user');
         $backends = $object->getAllBackends();
         $this->assertEquals(
             count($object->available) + 1,

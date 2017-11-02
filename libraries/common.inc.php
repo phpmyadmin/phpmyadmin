@@ -544,7 +544,7 @@ if (! defined('PMA_MINIMUM_COMMON')) {
 
         $auth_plugin->rememberCredentials();
 
-        $auth_plugin->checkSecondFactor();
+        $auth_plugin->checkTwoFactor();
 
         /* Log success */
         Logging::logUser($cfg['Server']['user']);

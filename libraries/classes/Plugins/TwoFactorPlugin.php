@@ -1,7 +1,7 @@
 <?php
 /* vim: set expandtab sw=4 ts=4 sts=4: */
 /**
- * Second authentication factor handling
+ * Two authentication factor handling
  *
  * @package PhpMyAdmin
  */
@@ -9,16 +9,16 @@ namespace PhpMyAdmin\Plugins;
 
 use PhpMyAdmin\Core;
 use PhpMyAdmin\Message;
-use PhpMyAdmin\SecondFactor;
+use PhpMyAdmin\TwoFactor;
 
 /**
- * Second factor authentication plugin class
+ * Two factor authentication plugin class
  *
  * This is basic implementation which does no
  * additional authentication, subclasses are expected
  * to implement this.
  */
-class SecondFactorPlugin
+class TwoFactorPlugin
 {
     /**
      * @var string
@@ -26,9 +26,9 @@ class SecondFactorPlugin
     public static $id = '';
 
     /**
-     * @var SecondFactor
+     * @var TwoFactor
      */
-    protected $_second;
+    protected $_twofactor;
 
     /**
      * @var boolean
@@ -43,11 +43,11 @@ class SecondFactorPlugin
     /**
      * Creates object
      *
-     * @param SecondFactor $second SecondFactor instance
+     * @param TwoFactor $twofactor TwoFactor instance
      */
-    public function __construct(SecondFactor $second)
+    public function __construct(TwoFactor $twofactor)
     {
-        $this->_second = $second;
+        $this->_twofactor = $twofactor;
         $this->_provided = false;
         $this->_message = '';
     }
@@ -83,7 +83,7 @@ class SecondFactorPlugin
     }
 
     /**
-     * Renders user interface to enter second factor
+     * Renders user interface to enter two-factor authentication
      *
      * @return string HTML code
      */
@@ -93,7 +93,7 @@ class SecondFactorPlugin
     }
 
     /**
-     * Renders user interface to configure second factor
+     * Renders user interface to configure two-factor authentication
      *
      * @return string HTML code
      */
