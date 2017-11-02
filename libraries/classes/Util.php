@@ -113,22 +113,13 @@ class Util
      */
     public static function getImage($image, $alternate = '', array $attributes = array())
     {
-        static $sprites; // cached list of available sprites (if any)
-        if (defined('TESTSUITE')) {
-            // prevent caching in testsuite
-            unset($sprites);
-        }
-
         $is_sprite = false;
         $alternate = htmlspecialchars($alternate);
 
-        // If it's the first time this function is called
-        if (! isset($sprites)) {
-            $sprites = array();
-            // Try to load the list of sprites
-            if (isset($GLOBALS['PMA_Theme'])) {
-                $sprites = $GLOBALS['PMA_Theme']->getSpriteData();
-            }
+        $sprites = array();
+        // Try to load the list of sprites
+        if (isset($GLOBALS['PMA_Theme'])) {
+            $sprites = $GLOBALS['PMA_Theme']->getSpriteData();
         }
 
         // Check if we have the requested image as a sprite
@@ -423,18 +414,16 @@ class Util
             $url .= '#' . $anchor;
         }
 
-        /* Check if we have built local documentation */
-        if (defined('TESTSUITE')) {
-            /* Provide consistent URL for testsuite */
-            return Core::linkURL('https://docs.phpmyadmin.net/en/latest/' . $url);
-        } elseif (@file_exists('doc/html/index.html')) {
+        /* Check if we have built local documentation, however
+         * provide consistent URL for testsuite
+         */
+        if (! defined('TESTSUITE') && @file_exists('doc/html/index.html')) {
             if ($GLOBALS['PMA_Config']->get('is_setup')) {
                 return '../doc/html/' . $url;
             } else {
                 return './doc/html/' . $url;
             }
         } else {
-            /* TODO: Should link to correct branch for released versions */
             return Core::linkURL('https://docs.phpmyadmin.net/en/latest/' . $url);
         }
     }
