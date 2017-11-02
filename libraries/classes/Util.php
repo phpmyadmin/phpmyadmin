@@ -423,18 +423,16 @@ class Util
             $url .= '#' . $anchor;
         }
 
-        /* Check if we have built local documentation */
-        if (defined('TESTSUITE')) {
-            /* Provide consistent URL for testsuite */
-            return Core::linkURL('https://docs.phpmyadmin.net/en/latest/' . $url);
-        } elseif (@file_exists('doc/html/index.html')) {
+        /* Check if we have built local documentation, however
+         * provide consistent URL for testsuite
+         */
+        if (! defined('TESTSUITE') && @file_exists('doc/html/index.html')) {
             if ($GLOBALS['PMA_Config']->get('is_setup')) {
                 return '../doc/html/' . $url;
             } else {
                 return './doc/html/' . $url;
             }
         } else {
-            /* TODO: Should link to correct branch for released versions */
             return Core::linkURL('https://docs.phpmyadmin.net/en/latest/' . $url);
         }
     }
