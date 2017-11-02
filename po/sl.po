@@ -4,17 +4,17 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.8.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2017-11-02 14:01+0100\n"
-"PO-Revision-Date: 2017-09-08 23:21+0000\n"
+"PO-Revision-Date: 2017-11-03 00:28+0000\n"
 "Last-Translator: Domen <mitenem@outlook.com>\n"
-"Language-Team: Slovenian <https://hosted.weblate.org/projects/phpmyadmin/"
-"master/sl/>\n"
+"Language-Team: Slovenian "
+"<https://hosted.weblate.org/projects/phpmyadmin/master/sl/>\n"
 "Language: sl\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=4; plural=n%100==1 ? 0 : n%100==2 ? 1 : n%100==3 || n"
-"%100==4 ? 2 : 3;\n"
-"X-Generator: Weblate 2.17-dev\n"
+"Plural-Forms: nplurals=4; plural=n%100==1 ? 0 : n%100==2 ? 1 : n%100==3 || "
+"n%100==4 ? 2 : 3;\n"
+"X-Generator: Weblate 2.18-dev\n"
 
 #: ajax.php:17 ajax.php:34 export.php:203 libraries/classes/Export.php:1100
 msgid "Bad type!"
@@ -7016,21 +7016,16 @@ msgid "Failed to set configured collation connection!"
 msgstr "Ne morem nastaviti povezave konfiguriranega razvrščanja znakov!"
 
 #: libraries/classes/DatabaseInterface.php:1499
-#, fuzzy, php-format
-#| msgid ""
-#| "Unable to use timezone %1$s for server %2$d. Please check your "
-#| "configuration setting for [em]$cfg['Servers'][%3$d]['SessionTimeZone'][/"
-#| "em]. phpMyAdmin is currently using the default time zone of the database "
-#| "server."
+#, php-format
 msgid ""
 "Unable to use timezone \"%1$s\" for server %2$d. Please check your "
 "configuration setting for [em]$cfg['Servers'][%3$d]['SessionTimeZone'][/em]. "
 "phpMyAdmin is currently using the default time zone of the database server."
 msgstr ""
-"Ne morem uporabiti čaovnega pasu %1$s na strežniku %2$d. Prosimo, preverite "
-"svojo nastavitev konfiguracije za [em]$cfg['Servers'][%3$d]"
-"['SessionTimeZone'][/em]. phpMyAdmin trenutno uporalja privzeti časovni pas "
-"strežnika zbirke podatkov."
+"Ne morem uporabiti čaovnega pasu \"%1$s\" na strežniku %2$d. Prosimo, "
+"preverite svojo nastavitev konfiguracije za "
+"[em]$cfg['Servers'][%3$d]['SessionTimeZone'][/em]. phpMyAdmin trenutno "
+"uporalja privzeti časovni pas strežnika zbirke podatkov."
 
 #: libraries/classes/DatabaseInterface.php:2097
 msgid ""
@@ -9118,16 +9113,12 @@ msgid "Switch to copied database"
 msgstr "Preklopi na kopirano zbirko podatkov"
 
 #: libraries/classes/Operations.php:311
-#, fuzzy
-#| msgid "Change all column collations"
 msgid "Change all tables collations"
-msgstr "Spremeni vsa pravila za razvrščanje znakov v stolpcih"
+msgstr "Spremeni vsa pravila za razvrščanje znakov v tabelah"
 
 #: libraries/classes/Operations.php:317
-#, fuzzy
-#| msgid "Change all column collations"
 msgid "Change all tables columns collations"
-msgstr "Spremeni vsa pravila za razvrščanje znakov v stolpcih"
+msgstr "Spremeni vsa pravila za razvrščanje znakov v stolpcih tabele"
 
 #: libraries/classes/Operations.php:797
 msgid "Alter table order by"
@@ -9419,6 +9410,7 @@ msgstr "Ne morem se prijaviti v strežnik MySQL"
 #: libraries/classes/Plugins/AuthenticationPlugin.php:331
 msgid "You have enabled two factor authentication, please confirm your login."
 msgstr ""
+"Omogočili ste dvostopenjsko overovitev; prosimo, potrdite svojo prijavo."
 
 #: libraries/classes/Plugins/Export/ExportCsv.php:63
 #: libraries/classes/Plugins/Import/AbstractImportCsv.php:58
@@ -10373,10 +10365,8 @@ msgid "Formats text as XML with syntax highlighting."
 msgstr "Oblikuje besedilo kot XML z označevanjem skladnje."
 
 #: libraries/classes/Plugins/TwoFactor/Application.php:129
-#, fuzzy
-#| msgid "Authentication Plugin"
 msgid "Authentication Application (2FA)"
-msgstr "Vtičnik za overovitev"
+msgstr "Aplikacija za overovitev (2FA)"
 
 #: libraries/classes/Plugins/TwoFactor/Application.php:139
 msgid ""
@@ -10386,34 +10376,30 @@ msgstr ""
 
 #: libraries/classes/Plugins/TwoFactor/Key.php:184
 msgid "Hardware Security Key (FIDO U2F)"
-msgstr ""
+msgstr "Varnostni ključ strojne opreme (FIDO U2F)"
 
 #: libraries/classes/Plugins/TwoFactor/Key.php:194
 msgid ""
 "Provides authentication using hardware security tokens supporting FIDO U2F."
 msgstr ""
+"Nudi overovitev z žetoni varnosti strojne opreme, ki podpirajo FIDO U2F."
 
 #: libraries/classes/Plugins/TwoFactor/Simple.php:52
-#, fuzzy
-#| msgid "Signon authentication"
 msgid "Simple two-factor authentication"
-msgstr "Overitev s signon"
+msgstr "Preprosta dvostopenjska overovitev"
 
 #: libraries/classes/Plugins/TwoFactor/Simple.php:62
 msgid "For testing purposes only!"
-msgstr ""
+msgstr "Samo za namene preizkušanja!"
 
 #: libraries/classes/Plugins/TwoFactorPlugin.php:65
-#, fuzzy, php-format
-#| msgid "Hardware authentication failed!"
+#, php-format
 msgid "Two-factor authentication failed: %s"
-msgstr "Overitev strojne opreme je spodletelo!"
+msgstr "Dvostopenjska overovitev je spodletela: %s"
 
 #: libraries/classes/Plugins/TwoFactorPlugin.php:69
-#, fuzzy
-#| msgid "Hardware authentication failed!"
 msgid "Two-factor authentication failed."
-msgstr "Overitev strojne opreme je spodletelo!"
+msgstr "Dvostopenjska overovitev je spodletela."
 
 #: libraries/classes/Plugins/TwoFactorPlugin.php:122
 msgid "None two-factor"
@@ -10421,7 +10407,7 @@ msgstr ""
 
 #: libraries/classes/Plugins/TwoFactorPlugin.php:132
 msgid "Login using password only."
-msgstr ""
+msgstr "Prijava samo z geslom."
 
 #: libraries/classes/PmdCommon.php:550
 msgid "Error: relationship already exists."
@@ -14324,10 +14310,8 @@ msgid "Manage your settings"
 msgstr "Upravljajte svoje nastavitve"
 
 #: libraries/user_preferences.inc.php:38
-#, fuzzy
-#| msgid "Config authentication"
 msgid "Two-factor authentication"
-msgstr "Overitev s konfiguracijo"
+msgstr "Dvostopenjska overovitev"
 
 #: libraries/user_preferences.inc.php:63 prefs_manage.php:309
 msgid "Configuration has been saved."
@@ -14434,16 +14418,12 @@ msgstr ""
 "vrednosti."
 
 #: prefs_second.php:29
-#, fuzzy
-#| msgid "Internal relationship has been removed."
 msgid "Two-factor authentication has been removed."
-msgstr "Odstranili smo notranje razmerje."
+msgstr "Odstranili smo dvostopenjsko overovitev."
 
 #: prefs_second.php:39
-#, fuzzy
-#| msgid "Invalid authentication method set in configuration:"
 msgid "Two-factor authentication has been configured."
-msgstr "Neveljaven način overitve določen v konfiguracijski datoteki:"
+msgstr "Nastavili smo dvostopenjsko overovitev."
 
 #: server_export.php:25
 msgid "View dump (schema) of databases"
@@ -15074,10 +15054,8 @@ msgstr "Ponastavi povečavo"
 
 #: templates/login/twofactor/application.twig:2
 #: templates/login/twofactor/application_configure.twig:9
-#, fuzzy
-#| msgid "Authentication"
 msgid "Authentication code:"
-msgstr "Overovitev"
+msgstr "Overovitvena koda:"
 
 #: templates/login/twofactor/application.twig:4
 msgid ""
@@ -15106,7 +15084,7 @@ msgstr "Izvedi \"query by example\" (nadomestni znak: \"%\")"
 
 #: templates/login/twofactor.twig:4
 msgid "Verify"
-msgstr ""
+msgstr "Preveri"
 
 #: templates/server/variables/session_variable_row.twig:3
 msgid "Session value"
@@ -15248,10 +15226,9 @@ msgid "Save chart as image"
 msgstr "Shrani grafikon kot sliko"
 
 #: templates/database/structure/show_create_row.twig:7
-#, fuzzy, php-format
-#| msgid "Create User"
+#, php-format
 msgid "Create %s"
-msgstr "Ustvari uporabnika"
+msgstr "Ustvari %s"
 
 #: templates/server/variables/variable_row.twig:6
 msgid "This is a read-only variable and can not be edited"
@@ -15301,10 +15278,9 @@ msgid "Column names"
 msgstr "Imena stolpcev"
 
 #: templates/server/databases/table_row.twig:13
-#, fuzzy, php-format
-#| msgid "Jump to database"
+#, php-format
 msgid "Jump to database '%s'"
-msgstr "Pojdi v zbirko podatkov"
+msgstr "Pojdi v zbirko podatkov '%s'"
 
 #: templates/server/databases/table_row.twig:61
 #, php-format
@@ -15329,10 +15305,8 @@ msgid "Index choice:"
 msgstr "Izbira indeksa:"
 
 #: templates/table/index_form.twig:42
-#, fuzzy
-#| msgid "Active options"
 msgid "Advanced Options"
-msgstr "Dejavne možnosti"
+msgstr "Napredne možnosti"
 
 #: templates/table/index_form.twig:48
 msgid "Key block size:"
@@ -15384,10 +15358,8 @@ msgid "None"
 msgstr "Brez"
 
 #: templates/prefs_second.twig:3
-#, fuzzy
-#| msgid "Authentication settings."
 msgid "Two-factor authentication status"
-msgstr "Nastavitve overovitve."
+msgstr "Stanje dvostopenjske overovitve"
 
 #: templates/prefs_second.twig:9
 msgid ""
@@ -15405,29 +15377,25 @@ msgid ""
 msgstr ""
 
 #: templates/prefs_second.twig:18
-#, fuzzy
-#| msgid "%sCreate%s missing phpMyAdmin configuration storage tables."
 msgid ""
 "Two-factor authentication is not available, enable phpMyAdmin configuration "
 "storage to use it."
-msgstr "%sUstvari%s manjkajoče tabele hrambe konfiguracije phpMyAdmin."
+msgstr ""
+"Dvostopenjska overovitev ni na voljo; za njeno uporabo omogočite hrambo "
+"konfiguracije phpMyAdmin."
 
 #: templates/prefs_second.twig:27
 msgid "You have enabled two factor authentication."
-msgstr ""
+msgstr "Omogočili ste dvostopenjsko overovitev."
 
 #: templates/prefs_second.twig:31 templates/prefs_second_confirm.twig:9
-#, fuzzy
-#| msgid "Config authentication"
 msgid "Disable two-factor authentication"
-msgstr "Overitev s konfiguracijo"
+msgstr "Onemogoči dvostopenjsko overovitev"
 
 #: templates/prefs_second.twig:37 templates/prefs_second.twig:49
 #: templates/prefs_second_configure.twig:2
-#, fuzzy
-#| msgid "Config authentication"
 msgid "Configure two-factor authentication"
-msgstr "Overitev s konfiguracijo"
+msgstr "Nastavi dvostopenjsko overovitev"
 
 #: templates/columns_definitions/column_virtuality.twig:29
 #: templates/table/structure/display_partitions.twig:26
@@ -15463,10 +15431,8 @@ msgid "Next autoindex"
 msgstr "Naslednji samodejni indeks"
 
 #: templates/prefs_second_confirm.twig:2
-#, fuzzy
-#| msgid "Config authentication"
 msgid "Confirm disabling two-factor authentication"
-msgstr "Overitev s konfiguracijo"
+msgstr "Potrdi onemogočitev dvostopenjske overovitve"
 
 #: templates/prefs_second_confirm.twig:5
 msgid ""
@@ -15513,10 +15479,8 @@ msgid "in use"
 msgstr "v uporabi"
 
 #: templates/prefs_second_configure.twig:8
-#, fuzzy
-#| msgid "Config authentication"
 msgid "Enable two-factor authentication"
-msgstr "Overitev s konfiguracijo"
+msgstr "Omogoči dvostopenjsko overovitev"
 
 #: templates/privileges/privileges_summary.twig:20
 msgid "Column-specific privileges"
@@ -15689,8 +15653,6 @@ msgid "Hide/Show all"
 msgstr "Skrij/Pokaži vse"
 
 #: templates/database/designer/table_list.twig:14
-#, fuzzy
-#| msgid "Hide/Show Tables with no relationship"
 msgid "Hide/Show tables with no relationship"
 msgstr "Skrij/Pokaži tabele brez razmerij"
 
@@ -16004,12 +15966,6 @@ msgid ""
 msgstr ""
 
 #: templates/columns_definitions/table_fields_definitions.twig:17
-#, fuzzy
-#| msgid ""
-#| "If column type is \"enum\" or \"set\", please enter the values using this "
-#| "format: 'a','b','c'…<br />If you ever need to put a backslash (\"\\\") or "
-#| "a single quote (\"'\") amongst those values, precede it with a backslash "
-#| "(for example '\\\\xyz' or 'a\\'b')."
 msgid ""
 "If column type is \"enum\" or \"set\", please enter the values using this "
 "format: 'a','b','c'…<br />If you ever need to put a backslash (\"\") or a "
@@ -16048,20 +16004,14 @@ msgstr "Možnosti pretvorbe brskalnikovega prikaza"
 
 #: templates/columns_definitions/table_fields_definitions.twig:83
 #: templates/columns_definitions/table_fields_definitions.twig:94
-#, fuzzy
-#| msgid ""
-#| "Please enter the values for transformation options using this format: "
-#| "'a', 100, b,'c'…<br />If you ever need to put a backslash (\"\\\") or a "
-#| "single quote (\"'\") amongst those values, precede it with a backslash "
-#| "(for example '\\\\xyz' or 'a\\'b')."
 msgid ""
 "Please enter the values for transformation options using this format: 'a', "
 "100, b,'c'…<br />If you ever need to put a backslash (\"\") or a single "
 "quote (\"'\") amongst those values, precede it with a backslash (for example "
 "'\\\\xyz' or 'a\\'b')."
 msgstr ""
-"Vrednosti za možnosti pretvorbe vnesite v naslednji obliki: 'a', 100, b,'c'…"
-"<br />Če želite med vrednosti vnesti poševnico nazaj (\"\\\") ali enojni "
+"Vrednosti za možnosti pretvorbe vnesite v naslednji obliki: 'a', 100, b,'c'…<"
+"br />Če želite med vrednosti vnesti poševnico nazaj (\"\\\") ali enojni "
 "narekovaj (\"'\"), morate pred znak postaviti (še eno) poševnico nazaj (npr. "
 "'\\\\xyz' ali 'a\\'b')."
 
