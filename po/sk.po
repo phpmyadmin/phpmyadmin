@@ -1,9 +1,9 @@
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: phpMyAdmin 4.7.4-dev\n"
+"Project-Id-Version: phpMyAdmin 4.7.6-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
-"POT-Creation-Date: 2017-08-10 09:13-0400\n"
+"POT-Creation-Date: 2017-11-02 14:03+0100\n"
 "PO-Revision-Date: 2016-11-18 10:30+0000\n"
 "Last-Translator: Michal Čihař <michal@cihar.com>\n"
 "Language-Team: Slovak <https://hosted.weblate.org/projects/phpmyadmin/master/"
@@ -172,8 +172,8 @@ msgid "Comments"
 msgstr "Komentáre"
 
 #: db_datadict.php:154
-#: libraries/controllers/table/TableStructureController.php:1184
-#: libraries/controllers/table/TableStructureController.php:1189
+#: libraries/controllers/table/TableStructureController.php:1194
+#: libraries/controllers/table/TableStructureController.php:1199
 #: libraries/tracking.lib.php:925
 #: templates/columns_definitions/column_indexes.phtml:6
 #: templates/table/structure/check_all_table_column.phtml:28
@@ -181,7 +181,7 @@ msgstr "Komentáre"
 msgid "Primary"
 msgstr "Primárny"
 
-#: db_datadict.php:164 js/messages.php:378 libraries/Index.php:565
+#: db_datadict.php:164 js/messages.php:382 libraries/Index.php:565
 #: libraries/Index.php:593 libraries/IndexColumn.php:141
 #: libraries/central_columns.lib.php:963
 #: libraries/config/FormDisplay.tpl.php:282 libraries/mult_submits.lib.php:450
@@ -205,16 +205,16 @@ msgstr "Primárny"
 msgid "No"
 msgstr "Nie"
 
-#: db_datadict.php:164 js/messages.php:526 libraries/Index.php:592
+#: db_datadict.php:164 js/messages.php:530 libraries/Index.php:592
 #: libraries/IndexColumn.php:143 libraries/central_columns.lib.php:963
 #: libraries/config/FormDisplay.tpl.php:282
 #: libraries/controllers/server/ServerDatabasesController.php:200
-#: libraries/controllers/table/TableStructureController.php:757
-#: libraries/controllers/table/TableStructureController.php:1434
-#: libraries/controllers/table/TableStructureController.php:1443
-#: libraries/controllers/table/TableStructureController.php:1448
+#: libraries/controllers/table/TableStructureController.php:767
+#: libraries/controllers/table/TableStructureController.php:1444
 #: libraries/controllers/table/TableStructureController.php:1453
 #: libraries/controllers/table/TableStructureController.php:1458
+#: libraries/controllers/table/TableStructureController.php:1463
+#: libraries/controllers/table/TableStructureController.php:1468
 #: libraries/mult_submits.inc.php:85 libraries/mult_submits.inc.php:213
 #: libraries/mult_submits.lib.php:359 libraries/mult_submits.lib.php:392
 #: libraries/mult_submits.lib.php:421 libraries/mult_submits.lib.php:448
@@ -259,8 +259,8 @@ msgid "Tables"
 msgstr "Tabuľky"
 
 #: db_export.php:66 libraries/Menu.php:330 libraries/Menu.php:437
-#: libraries/Util.php:3182 libraries/Util.php:3192 libraries/Util.php:3198
-#: libraries/Util.php:3478 libraries/Util.php:4111 libraries/Util.php:4128
+#: libraries/Util.php:3183 libraries/Util.php:3193 libraries/Util.php:3199
+#: libraries/Util.php:3479 libraries/Util.php:4112 libraries/Util.php:4129
 #: libraries/central_columns.lib.php:727 libraries/config.values.php:38
 #: libraries/config.values.php:46 libraries/config.values.php:109
 #: libraries/config.values.php:115 libraries/config/setup.forms.php:316
@@ -410,23 +410,23 @@ msgid "Point:"
 msgstr "Bod:"
 
 #: gis_data_editor.php:218 gis_data_editor.php:245 gis_data_editor.php:301
-#: gis_data_editor.php:374 js/messages.php:515
+#: gis_data_editor.php:374 js/messages.php:519
 msgid "X"
 msgstr "X"
 
 #: gis_data_editor.php:221 gis_data_editor.php:249 gis_data_editor.php:305
-#: gis_data_editor.php:380 js/messages.php:516
+#: gis_data_editor.php:380 js/messages.php:520
 msgid "Y"
 msgstr "Y"
 
 #: gis_data_editor.php:243 gis_data_editor.php:299 gis_data_editor.php:372
-#: js/messages.php:518
+#: js/messages.php:522
 #, php-format
 msgid "Point %d"
 msgstr "Bod %d"
 
 #: gis_data_editor.php:256 gis_data_editor.php:312 gis_data_editor.php:390
-#: js/messages.php:524
+#: js/messages.php:528
 msgid "Add a point"
 msgstr "Pridať bod"
 
@@ -448,7 +448,7 @@ msgstr "Vnútorný obrys %d:"
 msgid "Add a linestring"
 msgstr "Pridať linku"
 
-#: gis_data_editor.php:316 gis_data_editor.php:395 js/messages.php:525
+#: gis_data_editor.php:316 gis_data_editor.php:395 js/messages.php:529
 msgid "Add an inner ring"
 msgstr "Pridať vnútorný obrys"
 
@@ -466,7 +466,7 @@ msgid "Add geometry"
 msgstr "Pridať geometriu"
 
 #: gis_data_editor.php:413 js/messages.php:353 libraries/DbSearch.php:455
-#: libraries/DisplayResults.php:1811 libraries/browse_foreigners.lib.php:137
+#: libraries/DisplayResults.php:1813 libraries/browse_foreigners.lib.php:137
 #: libraries/display_change_password.lib.php:148
 #: libraries/display_export.lib.php:403 libraries/display_export.lib.php:409
 #: libraries/display_import.lib.php:399 libraries/index.lib.php:34
@@ -521,7 +521,7 @@ msgstr ""
 msgid "Succeeded"
 msgstr "Úspešný"
 
-#: import.php:69 js/messages.php:611
+#: import.php:69 js/messages.php:615
 msgid "Failed"
 msgstr "Neúspešný"
 
@@ -562,7 +562,7 @@ msgstr ""
 "Nebolo možné načítať importovacie pluginy, skontrolujte prosím vašu "
 "inštaláciu!"
 
-#: import.php:571 libraries/sql.lib.php:788 libraries/sql.lib.php:1564
+#: import.php:571 libraries/sql.lib.php:788 libraries/sql.lib.php:1567
 #, php-format
 msgid "Bookmark %s has been created."
 msgstr "Príkaz %s bol zaradený medzi obľúbené."
@@ -601,7 +601,7 @@ msgstr "Príkaz \"DROP DATABASE\" je zakázaný."
 msgid "Could not load the progress of the import."
 msgstr "Nemôžem načítať priebeh importu."
 
-#: import_status.php:114 js/messages.php:455 js/messages.php:619
+#: import_status.php:114 js/messages.php:459 js/messages.php:623
 #: libraries/Util.php:689 libraries/export.lib.php:518
 #: libraries/plugins/schema/ExportRelationSchema.php:298 user_password.php:299
 msgid "Back"
@@ -631,7 +631,7 @@ msgstr ""
 msgid "General settings"
 msgstr "Všeobecné nastavenia"
 
-#: index.php:204 js/messages.php:644
+#: index.php:204 js/messages.php:648
 #: libraries/display_change_password.lib.php:47
 #: libraries/display_change_password.lib.php:50 user_password.php:293
 msgid "Change password"
@@ -1210,14 +1210,14 @@ msgstr "B"
 
 #. l10n: shortcuts for Kilobyte
 #: js/messages.php:203 libraries/Util.php:1310
-#: libraries/server_status_monitor.lib.php:213
+#: libraries/server_status_monitor.lib.php:216
 msgid "KiB"
 msgstr "KiB"
 
 #. l10n: shortcuts for Megabyte
 #: js/messages.php:204 libraries/Util.php:1312
 #: libraries/display_export.lib.php:843
-#: libraries/server_status_monitor.lib.php:214
+#: libraries/server_status_monitor.lib.php:217
 msgid "MiB"
 msgstr "MiB"
 
@@ -1255,8 +1255,8 @@ msgstr "Dopyty"
 msgid "Traffic"
 msgstr "Vyťaženie"
 
-#: js/messages.php:214 libraries/Menu.php:592 libraries/Util.php:4102
-#: libraries/server_status_monitor.lib.php:253
+#: js/messages.php:214 libraries/Menu.php:592 libraries/Util.php:4103
+#: libraries/server_status_monitor.lib.php:256
 msgid "Settings"
 msgstr "Nastavenia"
 
@@ -1268,11 +1268,11 @@ msgstr "Pridať graf do mriežky"
 msgid "Please add at least one variable to the series!"
 msgstr "Pridajte prosím aspoň jednu hodnotu do série!"
 
-#: js/messages.php:219 libraries/DisplayResults.php:1490
+#: js/messages.php:219 libraries/DisplayResults.php:1488
 #: libraries/config.values.php:68 libraries/display_export.lib.php:692
 #: libraries/plugins/export/ExportSql.php:2185
 #: libraries/plugins/schema/SchemaPdf.php:103
-#: libraries/server_status_monitor.lib.php:232
+#: libraries/server_status_monitor.lib.php:235
 #: libraries/server_status_processes.lib.php:285
 #: templates/columns_definitions/transformation.phtml:4
 #: templates/database/designer/options_panel.phtml:178
@@ -1475,7 +1475,7 @@ msgstr "Analyzujem…"
 msgid "Explain output"
 msgstr "Vysvetliť výstup"
 
-#: js/messages.php:291 libraries/Menu.php:558 libraries/Util.php:4098
+#: js/messages.php:291 libraries/Menu.php:558 libraries/Util.php:4099
 #: libraries/config.values.php:104 libraries/rte/rte_events.lib.php:399
 #: libraries/rte/rte_list.lib.php:107
 #: libraries/server_status_processes.lib.php:92 libraries/tracking.lib.php:287
@@ -1483,7 +1483,7 @@ msgstr "Vysvetliť výstup"
 msgid "Status"
 msgstr "Stav"
 
-#: js/messages.php:292 js/messages.php:896
+#: js/messages.php:292 js/messages.php:900
 #: libraries/plugins/export/ExportHtmlword.php:486
 #: libraries/plugins/export/ExportOdt.php:605
 #: libraries/plugins/export/ExportTexytext.php:447
@@ -1597,10 +1597,10 @@ msgstr ""
 "nastavenia…"
 
 #: js/messages.php:329 libraries/Menu.php:365 libraries/Menu.php:467
-#: libraries/Menu.php:588 libraries/Util.php:4101 libraries/Util.php:4116
-#: libraries/Util.php:4133 libraries/config/messages.inc.php:257
+#: libraries/Menu.php:588 libraries/Util.php:4102 libraries/Util.php:4117
+#: libraries/Util.php:4134 libraries/config/messages.inc.php:257
 #: libraries/display_import.lib.php:107
-#: libraries/server_status_monitor.lib.php:313 prefs_manage.php:246
+#: libraries/server_status_monitor.lib.php:316 prefs_manage.php:246
 #: setup/frames/menu.inc.php:26
 msgid "Import"
 msgstr "Import"
@@ -1682,7 +1682,7 @@ msgid "Apply"
 msgstr "Použiť"
 
 #: js/messages.php:361 libraries/navigation/NavigationHeader.php:60
-#: libraries/server_status_monitor.lib.php:119
+#: libraries/server_status_monitor.lib.php:122
 msgid "Loading…"
 msgstr "Načítanie…"
 
@@ -1712,21 +1712,27 @@ msgstr "Číslo chyby: %s"
 msgid "Error text: %s"
 msgstr "Text chyby: %s"
 
-#: js/messages.php:368
+#: js/messages.php:369
+msgid ""
+"It seems that the connection to server has been lost. Please check your "
+"network connectivity and server status."
+msgstr ""
+
+#: js/messages.php:372
 #: libraries/controllers/server/ServerDatabasesController.php:194
 #: libraries/db_common.inc.php:69 libraries/db_table_exists.inc.php:32
 msgid "No databases selected."
 msgstr "Neboli vybrané žiadne databázy."
 
-#: js/messages.php:369
+#: js/messages.php:373
 msgid "Dropping column"
 msgstr "Odstraňujem stĺpec"
 
-#: js/messages.php:370
+#: js/messages.php:374
 msgid "Adding primary key"
 msgstr "Pridávam primárny kľúč"
 
-#: js/messages.php:371
+#: js/messages.php:375
 #: templates/database/designer/aggregate_query_panel.phtml:59
 #: templates/database/designer/having_query_panel.phtml:113
 #: templates/database/designer/new_relation_panel.phtml:87
@@ -1736,119 +1742,119 @@ msgstr "Pridávam primárny kľúč"
 msgid "OK"
 msgstr "OK"
 
-#: js/messages.php:372
+#: js/messages.php:376
 msgid "Click to dismiss this notification"
 msgstr "Kliknutím zatvoríte túto správu"
 
-#: js/messages.php:375
+#: js/messages.php:379
 msgid "Renaming databases"
 msgstr "Premenovávam databázy"
 
-#: js/messages.php:376
+#: js/messages.php:380
 msgid "Copying database"
 msgstr "Kopírujem databázu"
 
-#: js/messages.php:377
+#: js/messages.php:381
 msgid "Changing charset"
 msgstr "Mením znakovú sadu"
 
-#: js/messages.php:381 libraries/Util.php:3081
+#: js/messages.php:385 libraries/Util.php:3082
 msgid "Enable foreign key checks"
 msgstr "Povoliť kontrolu cudzích kľúčov"
 
-#: js/messages.php:384
+#: js/messages.php:388
 msgid "Failed to get real row count."
 msgstr "Nepodarilo sa zístiť skutočný počet riadkov."
 
-#: js/messages.php:387
+#: js/messages.php:391
 msgid "Searching"
 msgstr "Vyhľadávam"
 
-#: js/messages.php:388
+#: js/messages.php:392
 msgid "Hide search results"
 msgstr "Skryť výsledky vyhľadávania"
 
-#: js/messages.php:389
+#: js/messages.php:393
 msgid "Show search results"
 msgstr "Zobraziť výsledky vyhľadávania"
 
-#: js/messages.php:390
+#: js/messages.php:394
 msgid "Browsing"
 msgstr "Prechádzať"
 
-#: js/messages.php:391
+#: js/messages.php:395
 msgid "Deleting"
 msgstr "Odstraňujem"
 
-#: js/messages.php:392
+#: js/messages.php:396
 #, php-format
 msgid "Delete the matches for the %s table?"
 msgstr "Odstrániť nájdené záznamy z tabuľky %s?"
 
-#: js/messages.php:396
+#: js/messages.php:400
 msgid "The definition of a stored function must contain a RETURN statement!"
 msgstr "Definícia uloženej funkcie musí obsahovať príkaz RETURN!"
 
-#: js/messages.php:397 libraries/DisplayResults.php:4868
-#: libraries/DisplayResults.php:5151 libraries/Menu.php:357
-#: libraries/Menu.php:458 libraries/Menu.php:584 libraries/Util.php:3485
-#: libraries/Util.php:3486 libraries/Util.php:4100 libraries/Util.php:4115
-#: libraries/Util.php:4132 libraries/config/messages.inc.php:251
+#: js/messages.php:401 libraries/DisplayResults.php:4884
+#: libraries/DisplayResults.php:5167 libraries/Menu.php:357
+#: libraries/Menu.php:458 libraries/Menu.php:584 libraries/Util.php:3486
+#: libraries/Util.php:3487 libraries/Util.php:4101 libraries/Util.php:4116
+#: libraries/Util.php:4133 libraries/config/messages.inc.php:251
 #: libraries/display_export.lib.php:172 libraries/rte/rte_list.lib.php:159
 #: libraries/server_privileges.lib.php:2366
 #: libraries/server_privileges.lib.php:2450
 #: libraries/server_privileges.lib.php:2794
 #: libraries/server_privileges.lib.php:3521
-#: libraries/server_status_monitor.lib.php:317 prefs_manage.php:312
+#: libraries/server_status_monitor.lib.php:320 prefs_manage.php:312
 #: setup/frames/menu.inc.php:27
 #: templates/database/structure/check_all_tables.phtml:12
 msgid "Export"
 msgstr "Exportovať"
 
-#: js/messages.php:399
+#: js/messages.php:403
 msgid "No routine is exportable. Required privileges may be lacking."
 msgstr ""
 
-#: js/messages.php:402 libraries/rte/rte_routines.lib.php:747
+#: js/messages.php:406 libraries/rte/rte_routines.lib.php:747
 msgid "ENUM/SET editor"
 msgstr "Upraviť ENUM/SET"
 
-#: js/messages.php:403
+#: js/messages.php:407
 #, php-format
 msgid "Values for column %s"
 msgstr "Hodnoty pre pole %s"
 
-#: js/messages.php:404
+#: js/messages.php:408
 msgid "Values for a new column"
 msgstr "Hodnoty pre nový stĺpec"
 
-#: js/messages.php:405
+#: js/messages.php:409
 msgid "Enter each value in a separate field."
 msgstr "Zadajte každú hodnotu do samostatného poľa."
 
-#: js/messages.php:406
+#: js/messages.php:410
 #, php-format
 msgid "Add %d value(s)"
 msgstr "Pridať %d hodnôt"
 
-#: js/messages.php:410
+#: js/messages.php:414
 msgid ""
 "Note: If the file contains multiple tables, they will be combined into one."
 msgstr ""
 "Poznámka: Ak súbor obsahuje viac tabuliek, tieto budú spojené do jednej."
 
-#: js/messages.php:414
+#: js/messages.php:418
 msgid "Hide query box"
 msgstr "Skryť vyhľadávacie pole"
 
-#: js/messages.php:415
+#: js/messages.php:419
 msgid "Show query box"
 msgstr "Zobrazit vyhľadávacie pole"
 
-#: js/messages.php:416 libraries/DisplayResults.php:3489
-#: libraries/DisplayResults.php:4852 libraries/Index.php:709
-#: libraries/Util.php:619 libraries/Util.php:1105 libraries/Util.php:3483
-#: libraries/Util.php:3484 libraries/central_columns.lib.php:848
+#: js/messages.php:420 libraries/DisplayResults.php:3501
+#: libraries/DisplayResults.php:4868 libraries/Index.php:709
+#: libraries/Util.php:619 libraries/Util.php:1105 libraries/Util.php:3484
+#: libraries/Util.php:3485 libraries/central_columns.lib.php:848
 #: libraries/central_columns.lib.php:1195 libraries/config/messages.inc.php:879
 #: libraries/server_user_groups.lib.php:117 setup/frames/index.inc.php:160
 #: templates/console/bookmark_content.phtml:17
@@ -1858,8 +1864,8 @@ msgstr "Zobrazit vyhľadávacie pole"
 msgid "Edit"
 msgstr "Upraviť"
 
-#: js/messages.php:417 libraries/DbSearch.php:353
-#: libraries/DisplayResults.php:3558 libraries/DisplayResults.php:4836
+#: js/messages.php:421 libraries/DbSearch.php:353
+#: libraries/DisplayResults.php:3570 libraries/DisplayResults.php:4852
 #: libraries/central_columns.lib.php:850 libraries/central_columns.lib.php:1199
 #: libraries/display_export.lib.php:227
 #: libraries/server_user_groups.lib.php:127
@@ -1869,56 +1875,56 @@ msgstr "Upraviť"
 msgid "Delete"
 msgstr "Zmazať"
 
-#: js/messages.php:418 libraries/DisplayResults.php:925
+#: js/messages.php:422 libraries/DisplayResults.php:925
 #: libraries/DisplayResults.php:933
 #, php-format
 msgid "%d is not valid row number."
 msgstr "%d nie je platné číslo riadku."
 
-#: js/messages.php:419
+#: js/messages.php:423
 #: libraries/controllers/table/TableSearchController.php:357
 #: libraries/controllers/table/TableSearchController.php:844
 #: libraries/sql.lib.php:195 tbl_change.php:151
 msgid "Browse foreign values"
 msgstr "Prejsť hodnoty cudzích kľúčov"
 
-#: js/messages.php:420
+#: js/messages.php:424
 msgid "No auto-saved query"
 msgstr "Žiadny automaticky uložený dopyt"
 
-#: js/messages.php:421
+#: js/messages.php:425
 #, php-format
 msgid "Variable %d:"
 msgstr "Premenná %d:"
 
-#: js/messages.php:424 libraries/normalization.lib.php:884
+#: js/messages.php:428 libraries/normalization.lib.php:884
 msgid "Pick"
 msgstr "Zvoliť"
 
-#: js/messages.php:425
+#: js/messages.php:429
 msgid "Column selector"
 msgstr "Volič stĺpcov"
 
-#: js/messages.php:426
+#: js/messages.php:430
 msgid "Search this list"
 msgstr "Hľadať v tomto zozname"
 
-#: js/messages.php:428
+#: js/messages.php:432
 #, php-format
 msgid ""
 "No columns in the central list. Make sure the Central columns list for "
 "database %s has columns that are not present in the current table."
 msgstr ""
 
-#: js/messages.php:431
+#: js/messages.php:435
 msgid "See more"
 msgstr "Zobraziť viac"
 
-#: js/messages.php:432
+#: js/messages.php:436
 msgid "Are you sure?"
 msgstr "Ste si istí?"
 
-#: js/messages.php:434
+#: js/messages.php:438
 msgid ""
 "This action may change some of the columns definition.<br/>Are you sure you "
 "want to continue?"
@@ -1926,51 +1932,51 @@ msgstr ""
 "Táto akcia môže zmeniť niektoré definície stĺpcov. <br/>Naozaj chcete "
 "pokračovať?"
 
-#: js/messages.php:437
+#: js/messages.php:441
 msgid "Continue"
 msgstr "Pokračovať"
 
-#: js/messages.php:440
+#: js/messages.php:444
 msgid "Add primary key"
 msgstr "Pridať primárny kľúč"
 
-#: js/messages.php:441
+#: js/messages.php:445
 msgid "Primary key added."
 msgstr "Bol pridaný primárny kľúč."
 
-#: js/messages.php:442 libraries/normalization.lib.php:189
+#: js/messages.php:446 libraries/normalization.lib.php:189
 msgid "Taking you to next step…"
 msgstr "Vezmeme vás na ďalší krok…"
 
-#: js/messages.php:444
+#: js/messages.php:448
 #, php-format
 msgid "The first step of normalization is complete for table '%s'."
 msgstr "Prvý krok normalizácie je kompletný pre tabuľku '%s'."
 
-#: js/messages.php:445 libraries/normalization.lib.php:450
+#: js/messages.php:449 libraries/normalization.lib.php:450
 #: libraries/normalization.lib.php:497 libraries/normalization.lib.php:582
 #: libraries/normalization.lib.php:642
 msgid "End of step"
 msgstr "Koniec kroku"
 
-#: js/messages.php:446
+#: js/messages.php:450
 msgid "Second step of normalization (2NF)"
 msgstr "Druhý krok normalizácie (2NF)"
 
 #. l10n: Display text for calendar close link
-#: js/messages.php:447 js/messages.php:765 libraries/normalization.lib.php:286
+#: js/messages.php:451 js/messages.php:769 libraries/normalization.lib.php:286
 msgid "Done"
 msgstr "Hotovo"
 
-#: js/messages.php:448
+#: js/messages.php:452
 msgid "Confirm partial dependencies"
 msgstr "Potvrdiť čiastočné závislosti"
 
-#: js/messages.php:449
+#: js/messages.php:453
 msgid "Selected partial dependencies are as follows:"
 msgstr "Vybrané čiastočné závislostí sú nasledovné:"
 
-#: js/messages.php:451
+#: js/messages.php:455
 msgid ""
 "Note: a, b -> d,f implies values of columns a and b combined together can "
 "determine values of column d and column f."
@@ -1978,19 +1984,19 @@ msgstr ""
 "Poznámka:  a, b -> d,f znamená, že kombinované hodnoty v stĺpcoch a a b "
 "spolu môžu určovať hodnoty stĺpcov d a f."
 
-#: js/messages.php:454
+#: js/messages.php:458
 msgid "No partial dependencies selected!"
 msgstr "Neboli vybrané žiadne čiastkové závislosti!"
 
-#: js/messages.php:457
+#: js/messages.php:461
 msgid "Show me the possible partial dependencies based on data in the table"
 msgstr "Ukáž mi možné čiastočné závislosti na základe údajov v tabuľke"
 
-#: js/messages.php:458
+#: js/messages.php:462
 msgid "Hide partial dependencies list"
 msgstr "Skryť zoznam čiastočných závislostí"
 
-#: js/messages.php:460
+#: js/messages.php:464
 msgid ""
 "Sit tight! It may take few seconds depending on data size and column count "
 "of the table."
@@ -1998,40 +2004,40 @@ msgstr ""
 "Posaďte sa! Môže to trvať niekoľko sekúnd v závislosti od veľkosti dát a "
 "počtu stĺpcov tabuľky."
 
-#: js/messages.php:463
+#: js/messages.php:467
 msgid "Step"
 msgstr "Krok"
 
-#: js/messages.php:465
+#: js/messages.php:469
 msgid "The following actions will be performed:"
 msgstr "Vykonajú sa nasledovné akcie:"
 
-#: js/messages.php:466
+#: js/messages.php:470
 #, php-format
 msgid "DROP columns %s from the table %s"
 msgstr "Odstrániť stĺpce %s z tabuľky %s"
 
-#: js/messages.php:467
+#: js/messages.php:471
 msgid "Create the following table"
 msgstr "Vytvoriť nasledujúcu tabuľku"
 
-#: js/messages.php:470
+#: js/messages.php:474
 msgid "Third step of normalization (3NF)"
 msgstr "Tretí krok normalizácie (3NF)"
 
-#: js/messages.php:471
+#: js/messages.php:475
 msgid "Confirm transitive dependencies"
 msgstr "Potvrdiť prechodné závislostí"
 
-#: js/messages.php:472
+#: js/messages.php:476
 msgid "Selected dependencies are as follows:"
 msgstr "Boli zvolené nasledujúce závislosti:"
 
-#: js/messages.php:473
+#: js/messages.php:477
 msgid "No dependencies selected!"
 msgstr "Neboli vybrané žiadne závislosti!"
 
-#: js/messages.php:476 libraries/central_columns.lib.php:1215
+#: js/messages.php:480 libraries/central_columns.lib.php:1215
 #: libraries/insert_edit.lib.php:1527
 #: templates/columns_definitions/column_definitions_form.phtml:166
 #: templates/server/variables/link_template.phtml:2
@@ -2041,134 +2047,134 @@ msgstr "Neboli vybrané žiadne závislosti!"
 msgid "Save"
 msgstr "Uložiť"
 
-#: js/messages.php:479
+#: js/messages.php:483
 msgid "Hide search criteria"
 msgstr "Skryť parametre vyhľadávania"
 
-#: js/messages.php:480
+#: js/messages.php:484
 msgid "Show search criteria"
 msgstr "Zobraziť parametre vyhľadávania"
 
-#: js/messages.php:481
+#: js/messages.php:485
 msgid "Range search"
 msgstr "Rozsah vyhľadávania"
 
-#: js/messages.php:482
+#: js/messages.php:486
 msgid "Column maximum:"
 msgstr "Najväčšia hodnota stĺpca:"
 
-#: js/messages.php:483
+#: js/messages.php:487
 msgid "Column minimum:"
 msgstr "Najmenšia hodnota stĺpca:"
 
-#: js/messages.php:484
+#: js/messages.php:488
 msgid "Minimum value:"
 msgstr "Minimálna hodnota:"
 
-#: js/messages.php:485
+#: js/messages.php:489
 msgid "Maximum value:"
 msgstr "Maximálna hodnota:"
 
-#: js/messages.php:488
+#: js/messages.php:492
 msgid "Hide find and replace criteria"
 msgstr "Skryť kritériá vyhľadávania"
 
-#: js/messages.php:489
+#: js/messages.php:493
 msgid "Show find and replace criteria"
 msgstr "Zobraziť kritériá vyhľadávania"
 
-#: js/messages.php:493
+#: js/messages.php:497
 msgid "Each point represents a data row."
 msgstr "Každý bod reprezentuje riadok dát."
 
-#: js/messages.php:495
+#: js/messages.php:499
 msgid "Hovering over a point will show its label."
 msgstr "Pohybom myši nad bodom zobrazíte jeho názov."
 
-#: js/messages.php:497
+#: js/messages.php:501
 msgid "To zoom in, select a section of the plot with the mouse."
 msgstr "Pre priblíženie kliknite na sekciu grafu."
 
-#: js/messages.php:499
+#: js/messages.php:503
 msgid "Click reset zoom button to come back to original state."
 msgstr "Kliknite na tlačidlo Obnoviť zoom na návrat do pôvodného stavu."
 
-#: js/messages.php:501
+#: js/messages.php:505
 msgid "Click a data point to view and possibly edit the data row."
 msgstr "Kliknite na dátový bod pre zobrazenie a prípadnú úpravu dát."
 
-#: js/messages.php:503
+#: js/messages.php:507
 msgid "The plot can be resized by dragging it along the bottom right corner."
 msgstr "Graf môžete zväčšiť potiahnutím za pravý dolný roh."
 
-#: js/messages.php:506
+#: js/messages.php:510
 msgid "Select two columns"
 msgstr "Zvoľte dva stĺpce"
 
-#: js/messages.php:508
+#: js/messages.php:512
 msgid "Select two different columns"
 msgstr "Zvoľte dva rôzne stĺpce"
 
-#: js/messages.php:510
+#: js/messages.php:514
 msgid "Data point content"
 msgstr "Obsah datového bodu"
 
-#: js/messages.php:513 js/messages.php:679 js/messages.php:696
+#: js/messages.php:517 js/messages.php:683 js/messages.php:700
 #: libraries/ErrorHandler.php:370 libraries/insert_edit.lib.php:2648
 #: templates/table/index_form.phtml:154 templates/table/index_form.phtml:198
 msgid "Ignore"
 msgstr "Ignorovať"
 
-#: js/messages.php:514 libraries/DisplayResults.php:3492
-#: libraries/DisplayResults.php:4857
+#: js/messages.php:518 libraries/DisplayResults.php:3504
+#: libraries/DisplayResults.php:4873
 msgid "Copy"
 msgstr "Kopírovať"
 
-#: js/messages.php:517
+#: js/messages.php:521
 msgid "Point"
 msgstr "Bod"
 
-#: js/messages.php:519
+#: js/messages.php:523
 msgid "Linestring"
 msgstr "Linka"
 
-#: js/messages.php:520
+#: js/messages.php:524
 msgid "Polygon"
 msgstr "Polygón"
 
-#: js/messages.php:521 libraries/DisplayResults.php:1795
+#: js/messages.php:525 libraries/DisplayResults.php:1797
 msgid "Geometry"
 msgstr "Geometria"
 
-#: js/messages.php:522
+#: js/messages.php:526
 msgid "Inner ring"
 msgstr "Vnútorný obrys"
 
-#: js/messages.php:523
+#: js/messages.php:527
 msgid "Outer ring"
 msgstr "Vonkajší obrys"
 
-#: js/messages.php:527
+#: js/messages.php:531
 msgid "Do you want to copy encryption key?"
 msgstr "Chcete skopírovať šifrovací kľúč?"
 
-#: js/messages.php:528
+#: js/messages.php:532
 msgid "Encryption key"
 msgstr "Šifrovací kľúč"
 
-#: js/messages.php:532
+#: js/messages.php:536
 msgid ""
 "MySQL accepts additional values not selectable by the slider; key in those "
 "values directly if desired"
 msgstr ""
 
-#: js/messages.php:538
+#: js/messages.php:542
 msgid ""
 "MySQL accepts additional values not selectable by the datepicker; key in "
 "those values directly if desired"
 msgstr ""
 
-#: js/messages.php:544
+#: js/messages.php:548
 msgid ""
 "Indicates that you have made changes to this page; you will be prompted for "
 "confirmation before abandoning changes"
@@ -2176,24 +2182,24 @@ msgstr ""
 "Hovorí, že ste vykonali zmeny na tejto stránke; budete vyzvaní k potvrdeniu "
 "pred zahodením zmien"
 
-#: js/messages.php:549
+#: js/messages.php:553
 msgid "Select referenced key"
 msgstr "Zvoliť odkazovaný kľúč"
 
-#: js/messages.php:550
+#: js/messages.php:554
 msgid "Select Foreign Key"
 msgstr "Zvoliť cudzí kľúč"
 
-#: js/messages.php:552
+#: js/messages.php:556
 msgid "Please select the primary key or a unique key!"
 msgstr "Zvoľte, prosím, primárny alebo unikátny kľúč!"
 
-#: js/messages.php:553 templates/database/designer/side_menu.phtml:91
+#: js/messages.php:557 templates/database/designer/side_menu.phtml:91
 #: templates/database/designer/side_menu.phtml:94
 msgid "Choose column to display"
 msgstr "Zvoľte, ktoré polia zobraziť"
 
-#: js/messages.php:555
+#: js/messages.php:559
 msgid ""
 "You haven't saved the changes in the layout. They will be lost if you don't "
 "save them. Do you want to continue?"
@@ -2201,117 +2207,117 @@ msgstr ""
 "Neuložili ste zmeny v schéme. Ak ich neuložíte, tieto zmeny budú stratené. "
 "Chcete pokračovať?"
 
-#: js/messages.php:558
+#: js/messages.php:562
 msgid "Page name"
 msgstr "Názov stránky"
 
-#: js/messages.php:559 templates/database/designer/side_menu.phtml:56
+#: js/messages.php:563 templates/database/designer/side_menu.phtml:56
 #: templates/database/designer/side_menu.phtml:59
 msgid "Save page"
 msgstr "Uložiť stránku"
 
-#: js/messages.php:560 templates/database/designer/side_menu.phtml:63
+#: js/messages.php:564 templates/database/designer/side_menu.phtml:63
 #: templates/database/designer/side_menu.phtml:66
 msgid "Save page as"
 msgstr "Uložiť stránku ako"
 
-#: js/messages.php:561 templates/database/designer/side_menu.phtml:49
+#: js/messages.php:565 templates/database/designer/side_menu.phtml:49
 #: templates/database/designer/side_menu.phtml:52
 msgid "Open page"
 msgstr "Otvoriť stránku"
 
-#: js/messages.php:562
+#: js/messages.php:566
 msgid "Delete page"
 msgstr "Zmazať stránku"
 
-#: js/messages.php:563 templates/database/designer/side_menu.phtml:10
+#: js/messages.php:567 templates/database/designer/side_menu.phtml:10
 msgid "Untitled"
 msgstr "Nepomenovaná"
 
-#: js/messages.php:564
+#: js/messages.php:568
 msgid "Please select a page to continue"
 msgstr "Prosím zvoľte si stránku, kde chcete pokračovať"
 
-#: js/messages.php:565
+#: js/messages.php:569
 msgid "Please enter a valid page name"
 msgstr "Prosím zadajte platný názov stránky"
 
-#: js/messages.php:567
+#: js/messages.php:571
 msgid "Do you want to save the changes to the current page?"
 msgstr "Chcete uložiť zmeny aktuálnej stránky?"
 
-#: js/messages.php:568
+#: js/messages.php:572
 msgid "Successfully deleted the page"
 msgstr "Stránka bola odstránená"
 
-#: js/messages.php:569
+#: js/messages.php:573
 msgid "Export relational schema"
 msgstr "Exportovať relačnú schému"
 
-#: js/messages.php:570
+#: js/messages.php:574
 msgid "Modifications have been saved"
 msgstr "Zmeny boli uložené"
 
-#: js/messages.php:573
+#: js/messages.php:577
 #, php-format
 msgid "Add an option for column \"%s\"."
 msgstr "Pridať voľbu pre stĺpec \"%s\"."
 
-#: js/messages.php:574
+#: js/messages.php:578
 #, php-format
 msgid "%d object(s) created."
 msgstr "Bolo vytvorených %d objektov."
 
-#: js/messages.php:575 libraries/sql_query_form.lib.php:414
+#: js/messages.php:579 libraries/sql_query_form.lib.php:414
 msgid "Submit"
 msgstr "Odošli"
 
-#: js/messages.php:578
+#: js/messages.php:582
 msgid "Press escape to cancel editing."
 msgstr "Klávesou ESC ukončíte upravovanie."
 
-#: js/messages.php:580
+#: js/messages.php:584
 msgid ""
 "You have edited some data and they have not been saved. Are you sure you "
 "want to leave this page before saving the data?"
 msgstr "Na stránke sú neuložené zmeny. Naozaj ju chcete opustiť?"
 
-#: js/messages.php:583
+#: js/messages.php:587
 msgid "Drag to reorder."
 msgstr "Usporiadajte pretiahnutím."
 
-#: js/messages.php:584
+#: js/messages.php:588
 msgid "Click to sort results by this column."
 msgstr "Kliknutím zoradíte výsledky podľa tohto stĺpca."
 
-#: js/messages.php:586
+#: js/messages.php:590
 msgid ""
 "Shift+Click to add this column to ORDER BY clause or to toggle ASC/DESC.<br /"
 ">- Ctrl+Click or Alt+Click (Mac: Shift+Option+Click) to remove column from "
 "ORDER BY clause"
 msgstr ""
 
-#: js/messages.php:590
+#: js/messages.php:594
 msgid "Click to mark/unmark."
 msgstr "Kliknite pre označenie/odznačenie."
 
-#: js/messages.php:591
+#: js/messages.php:595
 msgid "Double-click to copy column name."
 msgstr "Dvakrát kliknite pre skopírovanie názvu stĺpca."
 
-#: js/messages.php:593
+#: js/messages.php:597
 msgid "Click the drop-down arrow<br />to toggle column's visibility."
 msgstr ""
 "Kliknite na šípku rozbaľovacieho zoznamu<br />pre zmenu viditeľnosti stĺpca."
 
-#: js/messages.php:595 libraries/DisplayResults.php:1032
+#: js/messages.php:599 libraries/DisplayResults.php:1032
 #: libraries/browse_foreigners.lib.php:283
 #: libraries/browse_foreigners.lib.php:336
 #: templates/privileges/initials_row.phtml:24
 msgid "Show all"
 msgstr "Zobraziť všetko"
 
-#: js/messages.php:597
+#: js/messages.php:601
 msgid ""
 "This table does not contain a unique column. Features related to the grid "
 "edit, checkbox, Edit, Copy and Delete links may not work after saving."
@@ -2320,11 +2326,11 @@ msgstr ""
 "zaškrtávanie, úprava, kopírovanie a mazanie liniek nemusí fungovať po "
 "uložení."
 
-#: js/messages.php:601
+#: js/messages.php:605
 msgid "Please enter a valid hexadecimal string. Valid characters are 0-9, A-F."
 msgstr "Zadajte platný šestnástkový reťazec. Platné znaky sú 0-9, A-F."
 
-#: js/messages.php:603
+#: js/messages.php:607
 msgid ""
 "Do you really want to see all of the rows? For a big table this could crash "
 "the browser."
@@ -2332,100 +2338,100 @@ msgstr ""
 "Skutočne chcete zobraziť všetky riadky? Pri veľkej tabuľke môže dôjsť k pádu "
 "prehliadača."
 
-#: js/messages.php:606
+#: js/messages.php:610
 msgid "Original length"
 msgstr "Originálna dĺžka"
 
-#: js/messages.php:609
+#: js/messages.php:613
 msgid "cancel"
 msgstr "zrušiť"
 
-#: js/messages.php:610 libraries/server_status.lib.php:277
+#: js/messages.php:614 libraries/server_status.lib.php:277
 msgid "Aborted"
 msgstr "Prerušené"
 
-#: js/messages.php:612
+#: js/messages.php:616
 msgid "Success"
 msgstr "Úspech"
 
-#: js/messages.php:613
+#: js/messages.php:617
 msgid "Import status"
 msgstr "Stav importu"
 
-#: js/messages.php:614 libraries/navigation/Navigation.php:113
+#: js/messages.php:618 libraries/navigation/Navigation.php:113
 msgid "Drop files here"
 msgstr "Presuňte súbory sem"
 
-#: js/messages.php:615
+#: js/messages.php:619
 msgid "Select database first"
 msgstr "Najprv vyberte databázu"
 
-#: js/messages.php:618 libraries/DisplayResults.php:5043
-#: libraries/Util.php:3993
+#: js/messages.php:622 libraries/DisplayResults.php:5059
+#: libraries/Util.php:3994
 #: templates/database/structure/print_view_data_dictionary_link.phtml:3
 #: templates/table/structure/optional_action_links.phtml:6
 msgid "Print"
 msgstr "Vytlačiť"
 
-#: js/messages.php:625
+#: js/messages.php:629
 msgid "You can also edit most values<br />by double-clicking directly on them."
 msgstr "Väčšinu stĺpcov môžete upraviť<br />dvojkliknutím na ich obsah."
 
-#: js/messages.php:630
+#: js/messages.php:634
 msgid "You can also edit most values<br />by clicking directly on them."
 msgstr "Väčšinu stĺpcov môžete upraviť<br />kliknutím na ich obsah."
 
-#: js/messages.php:636
+#: js/messages.php:640
 msgid "Go to link:"
 msgstr "Prejsť na odkaz:"
 
-#: js/messages.php:637
+#: js/messages.php:641
 msgid "Copy column name."
 msgstr "Kopírovať názov stĺpca."
 
-#: js/messages.php:639
+#: js/messages.php:643
 msgid "Right-click the column name to copy it to your clipboard."
 msgstr ""
 "Kliknutím pravým tlačidlom myši na názov stĺpca ho skopírujete do schránky."
 
-#: js/messages.php:642
+#: js/messages.php:646
 msgid "Generate password"
 msgstr "Vytvoriť heslo"
 
-#: js/messages.php:643 libraries/replication_gui.lib.php:877
+#: js/messages.php:647 libraries/replication_gui.lib.php:877
 msgid "Generate"
 msgstr "Vytvoriť"
 
-#: js/messages.php:647
+#: js/messages.php:651
 msgid "More"
 msgstr "Viac"
 
-#: js/messages.php:650
+#: js/messages.php:654
 msgid "Show panel"
 msgstr "Zobraziť panel"
 
-#: js/messages.php:651
+#: js/messages.php:655
 msgid "Hide panel"
 msgstr "Skryť panel"
 
-#: js/messages.php:652
+#: js/messages.php:656
 msgid "Show hidden navigation tree items."
 msgstr "Zobraziť skryté položky navigácie."
 
-#: js/messages.php:653 libraries/config/messages.inc.php:473
+#: js/messages.php:657 libraries/config/messages.inc.php:473
 #: libraries/navigation/NavigationTree.php:1431
 msgid "Link with main panel"
 msgstr "Prepojiť s hlavným panelom"
 
-#: js/messages.php:654 libraries/navigation/NavigationTree.php:1434
+#: js/messages.php:658 libraries/navigation/NavigationTree.php:1434
 msgid "Unlink from main panel"
 msgstr "Zrušiť prepojenie s hlavným panelom"
 
-#: js/messages.php:658
+#: js/messages.php:662
 msgid "The requested page was not found in the history, it may have expired."
 msgstr "Zvolená stránka sa nenašla v histórii, pravdepodobne bola zrušená."
 
-#: js/messages.php:662 setup/lib/index.lib.php:165
+#: js/messages.php:666 setup/lib/index.lib.php:165
 #, php-format
 msgid ""
 "A newer version of phpMyAdmin is available and you should consider "
@@ -2435,41 +2441,41 @@ msgstr ""
 "Najnovšia verzia je %s a bola vydaná %s."
 
 #. l10n: Latest available phpMyAdmin version
-#: js/messages.php:666
+#: js/messages.php:670
 msgid ", latest stable version:"
 msgstr ", posledná stabilná verzia:"
 
-#: js/messages.php:667
+#: js/messages.php:671
 msgid "up to date"
 msgstr "aktuálna"
 
-#: js/messages.php:669 libraries/DisplayResults.php:4974 view_create.php:206
+#: js/messages.php:673 libraries/DisplayResults.php:4990 view_create.php:206
 msgid "Create view"
 msgstr "Vytvoriť pohľad"
 
-#: js/messages.php:672
+#: js/messages.php:676
 msgid "Send error report"
 msgstr "Poslať chybové hlásenie"
 
-#: js/messages.php:673
+#: js/messages.php:677
 msgid "Submit error report"
 msgstr "Odoslať chybové hlásenie"
 
-#: js/messages.php:675
+#: js/messages.php:679
 msgid ""
 "A fatal JavaScript error has occurred. Would you like to send an error "
 "report?"
 msgstr "Vyskytla sa chyba JavaScriptu. Chcete odoslať chybové hlásenie?"
 
-#: js/messages.php:677
+#: js/messages.php:681
 msgid "Change report settings"
 msgstr "Zmeniť nastavenia hlásení"
 
-#: js/messages.php:678
+#: js/messages.php:682
 msgid "Show report details"
 msgstr "Zobraziť podrobnosti hlásenia"
 
-#: js/messages.php:681
+#: js/messages.php:685
 msgid ""
 "Your export is incomplete, due to a low execution time limit at the PHP "
 "level!"
@@ -2477,7 +2483,7 @@ msgstr ""
 "Export nie je kompletný kvôli krátkemu času vykonávania (execution time) v "
 "nastaveniach PHP!"
 
-#: js/messages.php:685
+#: js/messages.php:689
 #, php-format
 msgid ""
 "Warning: a form on this page has more than %d fields. On submission, some of "
@@ -2486,58 +2492,58 @@ msgstr ""
 "Varovanie: formulár na tejto stránke má viac než %d polí. Pri odoslaní, "
 "niektoré polia môžu byť ignorované kvôli nastaveniu PHP max_input_vars."
 
-#: js/messages.php:691 js/messages.php:704
+#: js/messages.php:695 js/messages.php:708
 msgid "Some errors have been detected on the server!"
 msgstr "Na serveri boli zistené chyby!"
 
-#: js/messages.php:693
+#: js/messages.php:697
 msgid "Please look at the bottom of this window."
 msgstr "Prosím, pozrite sa na spodnú časť okna."
 
-#: js/messages.php:699 libraries/ErrorHandler.php:374
+#: js/messages.php:703 libraries/ErrorHandler.php:374
 msgid "Ignore All"
 msgstr "Ignorovať všetko"
 
-#: js/messages.php:707
+#: js/messages.php:711
 msgid ""
 "As per your settings, they are being submitted currently, please be patient."
 msgstr ""
 
-#: js/messages.php:717
+#: js/messages.php:721
 msgid "Execute this query again?"
 msgstr "Vykonať tento dopyt znovu?"
 
-#: js/messages.php:719
+#: js/messages.php:723
 msgid "Do you really want to delete this bookmark?"
 msgstr "Naozaj chcete odstrániť túto záložku?"
 
-#: js/messages.php:721
+#: js/messages.php:725
 msgid "Some error occurred while getting SQL debug info."
 msgstr ""
 
-#: js/messages.php:723
+#: js/messages.php:727
 #, php-format
 msgid "%s queries executed %s times in %s seconds."
 msgstr "%s dopytov bolo vykonaných %s krát za %s sekúnd."
 
-#: js/messages.php:724
+#: js/messages.php:728
 #, php-format
 msgid "%s argument(s) passed"
 msgstr ""
 
-#: js/messages.php:725
+#: js/messages.php:729
 msgid "Show arguments"
 msgstr "Zobraziť argumenty"
 
-#: js/messages.php:726
+#: js/messages.php:730
 msgid "Hide arguments"
 msgstr "Skryť argumenty"
 
-#: js/messages.php:727
+#: js/messages.php:731
 msgid "Time taken:"
 msgstr "Ubehnutý čas:"
 
-#: js/messages.php:728
+#: js/messages.php:732
 msgid ""
 "There was a problem accessing your browser storage, some features may not "
 "work properly for you. It is likely that the browser doesn't support storage "
@@ -2546,403 +2552,403 @@ msgid ""
 "Safari, such problem is commonly caused by \"Private Mode Browsing\"."
 msgstr ""
 
-#: js/messages.php:730
+#: js/messages.php:734
 msgid "Copy tables to"
 msgstr "Skopírovať tabuľky do"
 
-#: js/messages.php:731
+#: js/messages.php:735
 msgid "Add table prefix"
 msgstr "Pridať prefix tabuľky"
 
-#: js/messages.php:732
+#: js/messages.php:736
 msgid "Replace table with prefix"
 msgstr "Nahradiť predponu tabuľky"
 
-#: js/messages.php:733 templates/database/structure/check_all_tables.phtml:29
+#: js/messages.php:737 templates/database/structure/check_all_tables.phtml:29
 msgid "Copy table with prefix"
 msgstr "Skopírovať tabuľku s predponou"
 
-#: js/messages.php:736
+#: js/messages.php:740
 msgid "Extremely weak"
 msgstr ""
 
-#: js/messages.php:737
+#: js/messages.php:741
 msgid "Very weak"
 msgstr ""
 
-#: js/messages.php:738
+#: js/messages.php:742
 msgid "Weak"
 msgstr ""
 
-#: js/messages.php:739
+#: js/messages.php:743
 msgid "Good"
 msgstr ""
 
-#: js/messages.php:740
+#: js/messages.php:744
 msgid "Strong"
 msgstr ""
 
-#: js/messages.php:769
+#: js/messages.php:773
 msgctxt "Previous month"
 msgid "Prev"
 msgstr "Predchádzajúci"
 
-#: js/messages.php:774
+#: js/messages.php:778
 msgctxt "Next month"
 msgid "Next"
 msgstr "Ďalší"
 
 #. l10n: Display text for current month link in calendar
-#: js/messages.php:777
+#: js/messages.php:781
 msgid "Today"
 msgstr "Dnes"
 
-#: js/messages.php:781
+#: js/messages.php:785
 msgid "January"
 msgstr "Január"
 
-#: js/messages.php:782
+#: js/messages.php:786
 msgid "February"
 msgstr "Február"
 
-#: js/messages.php:783
+#: js/messages.php:787
 msgid "March"
 msgstr "Marec"
 
-#: js/messages.php:784
+#: js/messages.php:788
 msgid "April"
 msgstr "Apríl"
 
-#: js/messages.php:785
+#: js/messages.php:789
 msgid "May"
 msgstr "Máj"
 
-#: js/messages.php:786
+#: js/messages.php:790
 msgid "June"
 msgstr "Jún"
 
-#: js/messages.php:787
+#: js/messages.php:791
 msgid "July"
 msgstr "Júl"
 
-#: js/messages.php:788
+#: js/messages.php:792
 msgid "August"
 msgstr "August"
 
-#: js/messages.php:789
+#: js/messages.php:793
 msgid "September"
 msgstr "September"
 
-#: js/messages.php:790
+#: js/messages.php:794
 msgid "October"
 msgstr "Október"
 
-#: js/messages.php:791
+#: js/messages.php:795
 msgid "November"
 msgstr "November"
 
-#: js/messages.php:792
+#: js/messages.php:796
 msgid "December"
 msgstr "December"
 
 #. l10n: Short month name
-#: js/messages.php:799 libraries/Util.php:1525
+#: js/messages.php:803 libraries/Util.php:1525
 msgid "Jan"
 msgstr "Jan"
 
 #. l10n: Short month name
-#: js/messages.php:801 libraries/Util.php:1527
+#: js/messages.php:805 libraries/Util.php:1527
 msgid "Feb"
 msgstr "Feb"
 
 #. l10n: Short month name
-#: js/messages.php:803 libraries/Util.php:1529
+#: js/messages.php:807 libraries/Util.php:1529
 msgid "Mar"
 msgstr "Mar"
 
 #. l10n: Short month name
-#: js/messages.php:805 libraries/Util.php:1531
+#: js/messages.php:809 libraries/Util.php:1531
 msgid "Apr"
 msgstr "Apr"
 
 #. l10n: Short month name
-#: js/messages.php:807 libraries/Util.php:1533
+#: js/messages.php:811 libraries/Util.php:1533
 msgctxt "Short month name"
 msgid "May"
 msgstr "Máj"
 
 #. l10n: Short month name
-#: js/messages.php:809 libraries/Util.php:1535
+#: js/messages.php:813 libraries/Util.php:1535
 msgid "Jun"
 msgstr "Jún"
 
 #. l10n: Short month name
-#: js/messages.php:811 libraries/Util.php:1537
+#: js/messages.php:815 libraries/Util.php:1537
 msgid "Jul"
 msgstr "Júl"
 
 #. l10n: Short month name
-#: js/messages.php:813 libraries/Util.php:1539
+#: js/messages.php:817 libraries/Util.php:1539
 msgid "Aug"
 msgstr "Aug"
 
 #. l10n: Short month name
-#: js/messages.php:815 libraries/Util.php:1541
+#: js/messages.php:819 libraries/Util.php:1541
 msgid "Sep"
 msgstr "Sep"
 
 #. l10n: Short month name
-#: js/messages.php:817 libraries/Util.php:1543
+#: js/messages.php:821 libraries/Util.php:1543
 msgid "Oct"
 msgstr "Okt"
 
 #. l10n: Short month name
-#: js/messages.php:819 libraries/Util.php:1545
+#: js/messages.php:823 libraries/Util.php:1545
 msgid "Nov"
 msgstr "Nov"
 
 #. l10n: Short month name
-#: js/messages.php:821 libraries/Util.php:1547
+#: js/messages.php:825 libraries/Util.php:1547
 msgid "Dec"
 msgstr "Dec"
 
-#: js/messages.php:827
+#: js/messages.php:831
 msgid "Sunday"
 msgstr "Nedeľa"
 
-#: js/messages.php:828
+#: js/messages.php:832
 msgid "Monday"
 msgstr "Pondelok"
 
-#: js/messages.php:829
+#: js/messages.php:833
 msgid "Tuesday"
 msgstr "Utorok"
 
-#: js/messages.php:830
+#: js/messages.php:834
 msgid "Wednesday"
 msgstr "Streda"
 
-#: js/messages.php:831
+#: js/messages.php:835
 msgid "Thursday"
 msgstr "Štvrtok"
 
-#: js/messages.php:832
+#: js/messages.php:836
 msgid "Friday"
 msgstr "Piatok"
 
-#: js/messages.php:833
+#: js/messages.php:837
 msgid "Saturday"
 msgstr "Sobota"
 
 #. l10n: Short week day name
-#: js/messages.php:840
+#: js/messages.php:844
 msgid "Sun"
 msgstr "Ned"
 
 #. l10n: Short week day name
-#: js/messages.php:842 libraries/Util.php:1552
+#: js/messages.php:846 libraries/Util.php:1552
 msgid "Mon"
 msgstr "Po"
 
 #. l10n: Short week day name
-#: js/messages.php:844 libraries/Util.php:1554
+#: js/messages.php:848 libraries/Util.php:1554
 msgid "Tue"
 msgstr "Út"
 
 #. l10n: Short week day name
-#: js/messages.php:846 libraries/Util.php:1556
+#: js/messages.php:850 libraries/Util.php:1556
 msgid "Wed"
 msgstr "St"
 
 #. l10n: Short week day name
-#: js/messages.php:848 libraries/Util.php:1558
+#: js/messages.php:852 libraries/Util.php:1558
 msgid "Thu"
 msgstr "Št"
 
 #. l10n: Short week day name
-#: js/messages.php:850 libraries/Util.php:1560
+#: js/messages.php:854 libraries/Util.php:1560
 msgid "Fri"
 msgstr "Pi"
 
 #. l10n: Short week day name
-#: js/messages.php:852 libraries/Util.php:1562
+#: js/messages.php:856 libraries/Util.php:1562
 msgid "Sat"
 msgstr "So"
 
 #. l10n: Minimal week day name
-#: js/messages.php:859
+#: js/messages.php:863
 msgid "Su"
 msgstr "Ne"
 
 #. l10n: Minimal week day name
-#: js/messages.php:861
+#: js/messages.php:865
 msgid "Mo"
 msgstr "Po"
 
 #. l10n: Minimal week day name
-#: js/messages.php:863
+#: js/messages.php:867
 msgid "Tu"
 msgstr "Ut"
 
 #. l10n: Minimal week day name
-#: js/messages.php:865
+#: js/messages.php:869
 msgid "We"
 msgstr "St"
 
 #. l10n: Minimal week day name
-#: js/messages.php:867
+#: js/messages.php:871
 msgid "Th"
 msgstr "Št"
 
 #. l10n: Minimal week day name
-#: js/messages.php:869
+#: js/messages.php:873
 msgid "Fr"
 msgstr "Pi"
 
 #. l10n: Minimal week day name
-#: js/messages.php:871
+#: js/messages.php:875
 msgid "Sa"
 msgstr "So"
 
 #. l10n: Column header for week of the year in calendar
-#: js/messages.php:875
+#: js/messages.php:879
 msgid "Wk"
 msgstr "Týž"
 
 #. l10n: Month-year order for calendar, use either "calendar-month-year"
 #. * or "calendar-year-month".
 #.
-#: js/messages.php:882
+#: js/messages.php:886
 msgid "calendar-month-year"
 msgstr "kalendár-mesiac-rok"
 
 #. l10n: Year suffix for calendar, "none" is empty.
-#: js/messages.php:885
+#: js/messages.php:889
 msgctxt "Year suffix"
 msgid "none"
 msgstr "žiadny"
 
-#: js/messages.php:897
+#: js/messages.php:901
 msgid "Hour"
 msgstr "Hodiny"
 
-#: js/messages.php:898
+#: js/messages.php:902
 msgid "Minute"
 msgstr "Minúty"
 
-#: js/messages.php:899
+#: js/messages.php:903
 msgid "Second"
 msgstr "Sekundy"
 
-#: js/messages.php:910
+#: js/messages.php:914
 msgid "This field is required"
 msgstr "Toto pole je povinné"
 
-#: js/messages.php:911
+#: js/messages.php:915
 msgid "Please fix this field"
 msgstr "Prosím opravte toto pole"
 
-#: js/messages.php:912
+#: js/messages.php:916
 msgid "Please enter a valid email address"
 msgstr "Prosím zadajte platnú emailovú adresu"
 
-#: js/messages.php:913
+#: js/messages.php:917
 msgid "Please enter a valid URL"
 msgstr "Prosím zdajte platnú adresu URL"
 
-#: js/messages.php:914
+#: js/messages.php:918
 msgid "Please enter a valid date"
 msgstr "Prosím zadajte platný dátum"
 
-#: js/messages.php:917
+#: js/messages.php:921
 msgid "Please enter a valid date ( ISO )"
 msgstr "Prosím zadajte platný dátum ( ISO )"
 
-#: js/messages.php:919
+#: js/messages.php:923
 msgid "Please enter a valid number"
 msgstr "Prosím zadajte platné číslo"
 
-#: js/messages.php:922
+#: js/messages.php:926
 msgid "Please enter a valid credit card number"
 msgstr "Prosím zadajte platné číslo kreditnej karty"
 
-#: js/messages.php:924
+#: js/messages.php:928
 msgid "Please enter only digits"
 msgstr "Prosím zadajte iba čísla"
 
-#: js/messages.php:927
+#: js/messages.php:931
 msgid "Please enter the same value again"
 msgstr "Prosím zadajte tú istú hodnotu ešte raz"
 
-#: js/messages.php:931
+#: js/messages.php:935
 msgid "Please enter no more than {0} characters"
 msgstr "Prosím zadajte nie viac ako {0} znakov"
 
-#: js/messages.php:936
+#: js/messages.php:940
 msgid "Please enter at least {0} characters"
 msgstr "Prosím zadajte najmenej {0} znakov"
 
-#: js/messages.php:941
+#: js/messages.php:945
 msgid "Please enter a value between {0} and {1} characters long"
 msgstr "Prosím zadajte počet znakov medzi {0} a {1}"
 
-#: js/messages.php:946
+#: js/messages.php:950
 msgid "Please enter a value between {0} and {1}"
 msgstr "Prosím zadajte hodnotu medzi {0} a {1}"
 
-#: js/messages.php:951
+#: js/messages.php:955
 msgid "Please enter a value less than or equal to {0}"
 msgstr "Prosím zadajte hodnotu menšiu alebo rovnú {0}"
 
-#: js/messages.php:956
+#: js/messages.php:960
 msgid "Please enter a value greater than or equal to {0}"
 msgstr "Prosím zadajte hodnotu väčšiu alebo rovnú {0}"
 
-#: js/messages.php:962
+#: js/messages.php:966
 msgid "Please enter a valid date or time"
 msgstr "Prosím zadajte platný dátum alebo čas"
 
-#: js/messages.php:967
+#: js/messages.php:971
 msgid "Please enter a valid HEX input"
 msgstr "Prosím zdajte platný HEX vstup"
 
-#: js/messages.php:972 libraries/Message.php:190 libraries/Util.php:566
+#: js/messages.php:976 libraries/Message.php:190 libraries/Util.php:566
 #: libraries/core.lib.php:244 libraries/import.lib.php:80
 #: libraries/insert_edit.lib.php:1232 view_operations.php:78
 msgid "Error"
 msgstr "Chyba"
 
-#: libraries/Advisor.php:163
+#: libraries/Advisor.php:164
 #, php-format
 msgid "PHP threw following error: %s"
 msgstr "PHP vrátilo nasledovnú chybu: %s"
 
-#: libraries/Advisor.php:194
+#: libraries/Advisor.php:195
 #, php-format
 msgid "Failed evaluating precondition for rule '%s'."
 msgstr "Zlyhalo vyhodnotenie predpokladov pre pravidlo '%s'."
 
-#: libraries/Advisor.php:211
+#: libraries/Advisor.php:212
 #, php-format
 msgid "Failed calculating value for rule '%s'."
 msgstr "Zlyhal výpočet hodnoty pre pravidlo '%s'."
 
-#: libraries/Advisor.php:230
+#: libraries/Advisor.php:231
 #, php-format
 msgid "Failed running test for rule '%s'."
 msgstr "Zlyhal beh testu pre pravidlo '%s'."
 
-#: libraries/Advisor.php:310
+#: libraries/Advisor.php:311
 #, php-format
 msgid "Failed formatting string for rule '%s'."
 msgstr "Chyba pri formátovaní textu v pravidle '%s'."
 
-#: libraries/Advisor.php:486
+#: libraries/Advisor.php:503
 #, php-format
 msgid "Error in reading file: The file '%s' does not exist or is not readable!"
 msgstr ""
 
-#: libraries/Advisor.php:511
+#: libraries/Advisor.php:528
 #, php-format
 msgid ""
 "Invalid rule declaration on line %1$s, expected line %2$s of previous rule."
@@ -2950,17 +2956,17 @@ msgstr ""
 "Nesprávna deklarácia pravidla na riadku %1$s, očakávaný riadok %2$s "
 "predošlého pravidla."
 
-#: libraries/Advisor.php:530
+#: libraries/Advisor.php:547
 #, php-format
 msgid "Invalid rule declaration on line %s."
 msgstr "Chybná deklarácia pravidla na riadku %s."
 
-#: libraries/Advisor.php:538
+#: libraries/Advisor.php:555
 #, php-format
 msgid "Unexpected characters on line %s."
 msgstr "Neočakávané znaky na riadku %s."
 
-#: libraries/Advisor.php:553
+#: libraries/Advisor.php:570
 #, php-format
 msgid "Unexpected character on line %1$s. Expected tab, but found \"%2$s\"."
 msgstr ""
@@ -3434,8 +3440,8 @@ msgstr "Chýbajúci parameter:"
 msgid "Connection for controluser as defined in your configuration failed."
 msgstr "Nepodarilo sa pripojiť ku controluser podľa nastavení z konfigurácie."
 
-#: libraries/DbQbe.php:406 libraries/DisplayResults.php:2277
-#: libraries/DisplayResults.php:2283 libraries/config.values.php:69
+#: libraries/DbQbe.php:406 libraries/DisplayResults.php:2279
+#: libraries/DisplayResults.php:2285 libraries/config.values.php:69
 #: libraries/controllers/server/ServerDatabasesController.php:550
 #: libraries/operations.lib.php:787
 #: libraries/server_status_processes.lib.php:167
@@ -3445,8 +3451,8 @@ msgstr "Nepodarilo sa pripojiť ku controluser podľa nastavení z konfigurácie
 msgid "Ascending"
 msgstr "Vzostupne"
 
-#: libraries/DbQbe.php:409 libraries/DisplayResults.php:2273
-#: libraries/DisplayResults.php:2287 libraries/config.values.php:70
+#: libraries/DbQbe.php:409 libraries/DisplayResults.php:2275
+#: libraries/DisplayResults.php:2289 libraries/config.values.php:70
 #: libraries/controllers/server/ServerDatabasesController.php:550
 #: libraries/operations.lib.php:790
 #: libraries/server_status_processes.lib.php:164
@@ -3590,9 +3596,9 @@ msgstr[0] "%1$s výskyt v <strong>%2$s</strong>"
 msgstr[1] "%1$s výskyty v <strong>%2$s</strong>"
 msgstr[2] "%1$s výskytov v <strong>%2$s</strong>"
 
-#: libraries/DbSearch.php:346 libraries/Menu.php:324 libraries/Util.php:3186
-#: libraries/Util.php:3196 libraries/Util.php:3472 libraries/Util.php:3473
-#: libraries/Util.php:4127 libraries/config.values.php:42
+#: libraries/DbSearch.php:346 libraries/Menu.php:324 libraries/Util.php:3187
+#: libraries/Util.php:3197 libraries/Util.php:3473 libraries/Util.php:3474
+#: libraries/Util.php:4128 libraries/config.values.php:42
 #: libraries/config.values.php:50 libraries/config.values.php:119
 #: libraries/navigation/nodes/NodeTable.php:311
 #: templates/table/structure/check_all_table_column.phtml:12
@@ -3644,30 +3650,30 @@ msgstr "Filtrovať riadky"
 msgid "Search this table"
 msgstr "Hľadať v tabuľke"
 
-#: libraries/DisplayResults.php:989 libraries/Util.php:2439
-#: libraries/Util.php:2442
+#: libraries/DisplayResults.php:989 libraries/Util.php:2440
+#: libraries/Util.php:2443
 msgctxt "First page"
 msgid "Begin"
 msgstr "Začiatok"
 
-#: libraries/DisplayResults.php:992 libraries/Util.php:2440
-#: libraries/Util.php:2443
+#: libraries/DisplayResults.php:992 libraries/Util.php:2441
+#: libraries/Util.php:2444
 #: libraries/controllers/server/ServerBinlogController.php:194
 #: libraries/controllers/server/ServerBinlogController.php:196
 msgctxt "Previous page"
 msgid "Previous"
 msgstr "Predchádzajúci"
 
-#: libraries/DisplayResults.php:1058 libraries/Util.php:2471
-#: libraries/Util.php:2481
+#: libraries/DisplayResults.php:1058 libraries/Util.php:2472
+#: libraries/Util.php:2482
 #: libraries/controllers/server/ServerBinlogController.php:228
 #: libraries/controllers/server/ServerBinlogController.php:230
 msgctxt "Next page"
 msgid "Next"
 msgstr "Ďalší"
 
-#: libraries/DisplayResults.php:1088 libraries/Util.php:2472
-#: libraries/Util.php:2482
+#: libraries/DisplayResults.php:1088 libraries/Util.php:2473
+#: libraries/Util.php:2483
 msgctxt "Last page"
 msgid "End"
 msgstr "Koniec"
@@ -3681,11 +3687,11 @@ msgstr "Všetko"
 msgid "Number of rows:"
 msgstr "Počet riadkov:"
 
-#: libraries/DisplayResults.php:1434
+#: libraries/DisplayResults.php:1432
 msgid "Sort by key"
 msgstr "Zoradiť podľa kľúča"
 
-#: libraries/DisplayResults.php:1717 libraries/import.lib.php:1216
+#: libraries/DisplayResults.php:1719 libraries/import.lib.php:1216
 #: libraries/import.lib.php:1251 libraries/mult_submits.lib.php:343
 #: libraries/plugins/export/ExportCodegen.php:84
 #: libraries/plugins/export/ExportCsv.php:48
@@ -3715,66 +3721,66 @@ msgstr "Zoradiť podľa kľúča"
 msgid "Options"
 msgstr "Nastavenia"
 
-#: libraries/DisplayResults.php:1723 libraries/DisplayResults.php:1844
+#: libraries/DisplayResults.php:1725 libraries/DisplayResults.php:1846
 msgid "Partial texts"
 msgstr "Čiastočné texty"
 
-#: libraries/DisplayResults.php:1724 libraries/DisplayResults.php:1848
+#: libraries/DisplayResults.php:1726 libraries/DisplayResults.php:1850
 msgid "Full texts"
 msgstr "Plné texty"
 
-#: libraries/DisplayResults.php:1740
+#: libraries/DisplayResults.php:1742
 msgid "Relational key"
 msgstr "Relačný kľúč"
 
-#: libraries/DisplayResults.php:1741
+#: libraries/DisplayResults.php:1743
 #, fuzzy
 #| msgid "Display column for relations"
 msgid "Display column for relationships"
 msgstr "Zobraziť stĺpec so vzťahmi"
 
-#: libraries/DisplayResults.php:1757
+#: libraries/DisplayResults.php:1759
 msgid "Show binary contents"
 msgstr "Zobraziť binárny obsah"
 
-#: libraries/DisplayResults.php:1768
+#: libraries/DisplayResults.php:1770
 msgid "Show BLOB contents"
 msgstr "Zobraziť obsah BLOBu"
 
-#: libraries/DisplayResults.php:1785
+#: libraries/DisplayResults.php:1787
 msgid "Hide browser transformation"
 msgstr "Skryť transformácie prehliadača"
 
-#: libraries/DisplayResults.php:1796
+#: libraries/DisplayResults.php:1798
 msgid "Well Known Text"
 msgstr "Text (Well Known Text)"
 
-#: libraries/DisplayResults.php:1797
+#: libraries/DisplayResults.php:1799
 msgid "Well Known Binary"
 msgstr "Well Known Binary"
 
-#: libraries/DisplayResults.php:3534 libraries/DisplayResults.php:3549
+#: libraries/DisplayResults.php:3546 libraries/DisplayResults.php:3561
 msgid "The row has been deleted."
 msgstr "Riadok bol zmazaný."
 
-#: libraries/DisplayResults.php:3582 libraries/DisplayResults.php:4836
+#: libraries/DisplayResults.php:3594 libraries/DisplayResults.php:4852
 #: libraries/server_status_processes.lib.php:279
 msgid "Kill"
 msgstr "Zabiť"
 
-#: libraries/DisplayResults.php:4274
+#: libraries/DisplayResults.php:4290
 msgid "May be approximate. See [doc@faq3-11]FAQ 3.11[/doc]."
 msgstr "Môže byť nepresné. Viď [doc@faq3-11]FAQ 3.11[/doc]."
 
-#: libraries/DisplayResults.php:4347 libraries/Message.php:171
-#: libraries/controllers/table/TableRelationController.php:253
+#: libraries/DisplayResults.php:4363 libraries/Message.php:171
+#: libraries/controllers/table/TableRelationController.php:242
 #: libraries/controllers/table/TableSearchController.php:570
 #: libraries/rte/rte_routines.lib.php:1445 libraries/sql_query_form.lib.php:92
 #: tbl_row_action.php:141 view_operations.php:75
 msgid "Your SQL query has been executed successfully."
 msgstr "SQL dopyt bol úspešne vykonaný."
 
-#: libraries/DisplayResults.php:4694
+#: libraries/DisplayResults.php:4710
 #: libraries/controllers/database/DatabaseStructureController.php:785
 #, php-format
 msgid ""
@@ -3783,27 +3789,27 @@ msgid ""
 msgstr ""
 "Tento pohľad má aspoň toľko riadok. Podrobnosti nájdete v %sdokumentaci%s."
 
-#: libraries/DisplayResults.php:4707
+#: libraries/DisplayResults.php:4723
 #, php-format
 msgid "Showing rows %1s - %2s"
 msgstr "Zobrazené riadky %1s - %2s"
 
-#: libraries/DisplayResults.php:4722
+#: libraries/DisplayResults.php:4738
 #, php-format
 msgid "%1$d total, %2$d in query"
 msgstr "%1$d celkom, %2$d v dotaze"
 
-#: libraries/DisplayResults.php:4727
+#: libraries/DisplayResults.php:4743
 #, php-format
 msgid "%d total"
 msgstr "celkom %d"
 
-#: libraries/DisplayResults.php:4739 libraries/sql.lib.php:1380
+#: libraries/DisplayResults.php:4755 libraries/sql.lib.php:1383
 #, php-format
 msgid "Query took %01.4f seconds."
 msgstr "Dopyt zabral %01.4f sekúnd."
 
-#: libraries/DisplayResults.php:4841 libraries/DisplayResults.php:4848
+#: libraries/DisplayResults.php:4857 libraries/DisplayResults.php:4864
 #: libraries/mult_submits.inc.php:53
 #: templates/database/structure/check_all_tables.phtml:2
 #: templates/database/structure/check_all_tables.phtml:9
@@ -3811,7 +3817,7 @@ msgstr "Dopyt zabral %01.4f sekúnd."
 msgid "With selected:"
 msgstr "Výber:"
 
-#: libraries/DisplayResults.php:4845 libraries/DisplayResults.php:4847
+#: libraries/DisplayResults.php:4861 libraries/DisplayResults.php:4863
 #: libraries/server_privileges.lib.php:1164
 #: libraries/server_privileges.lib.php:1165
 #: libraries/server_user_groups.lib.php:230
@@ -3822,23 +3828,23 @@ msgstr "Výber:"
 msgid "Check all"
 msgstr "Označiť všetko"
 
-#: libraries/DisplayResults.php:5020
+#: libraries/DisplayResults.php:5036
 msgid "Copy to clipboard"
 msgstr ""
 
-#: libraries/DisplayResults.php:5076
+#: libraries/DisplayResults.php:5092
 msgid "Query results operations"
 msgstr "Operácie s výsledkami dopytu"
 
-#: libraries/DisplayResults.php:5164 templates/table/chart/tbl_chart.phtml:11
+#: libraries/DisplayResults.php:5180 templates/table/chart/tbl_chart.phtml:11
 msgid "Display chart"
 msgstr "Zobraziť graf"
 
-#: libraries/DisplayResults.php:5189
+#: libraries/DisplayResults.php:5205
 msgid "Visualize GIS data"
 msgstr "Zobraziť GIS data"
 
-#: libraries/DisplayResults.php:5375
+#: libraries/DisplayResults.php:5391
 msgid "Link not found!"
 msgstr "Odkaz nebol nájdený!"
 
@@ -3992,8 +3998,8 @@ msgid "Keyname"
 msgstr "Kľúčový názov"
 
 #: libraries/Index.php:684
-#: libraries/controllers/table/TableStructureController.php:1186
-#: libraries/controllers/table/TableStructureController.php:1191
+#: libraries/controllers/table/TableStructureController.php:1196
+#: libraries/controllers/table/TableStructureController.php:1201
 #: libraries/tracking.lib.php:978
 #: templates/columns_definitions/column_indexes.phtml:11
 #: templates/table/structure/check_all_table_column.phtml:32
@@ -4026,10 +4032,10 @@ msgstr "Primárny kľúč bol zrušený."
 msgid "Index %s has been dropped."
 msgstr "Index pre %s bol odstránený."
 
-#: libraries/Index.php:736 libraries/Util.php:3479 libraries/Util.php:3480
+#: libraries/Index.php:736 libraries/Util.php:3480 libraries/Util.php:3481
 #: libraries/controllers/server/ServerDatabasesController.php:402
-#: libraries/controllers/table/TableStructureController.php:1182
-#: libraries/controllers/table/TableStructureController.php:1183
+#: libraries/controllers/table/TableStructureController.php:1192
+#: libraries/controllers/table/TableStructureController.php:1193
 #: libraries/operations.lib.php:1577 libraries/rte/rte_list.lib.php:163
 #: templates/database/structure/check_all_tables.phtml:17
 #: templates/table/relation/foreign_key_row.phtml:85
@@ -4047,7 +4053,7 @@ msgstr ""
 "Indexy %1$s a %2$s vyzerajú rovnaké a jeden z nich môže byť pravdepodobne "
 "odstránený."
 
-#: libraries/Language.php:194 libraries/PDF.php:69 libraries/Util.php:2428
+#: libraries/Language.php:194 libraries/PDF.php:69 libraries/Util.php:2429
 #: libraries/browse_foreigners.lib.php:320
 #: libraries/plugins/schema/pdf/PdfRelationSchema.php:495
 #: libraries/plugins/schema/pdf/PdfRelationSchema.php:520
@@ -4123,8 +4129,8 @@ msgid "Table"
 msgstr "Tabuľka"
 
 #: libraries/Menu.php:338 libraries/Menu.php:441 libraries/Menu.php:554
-#: libraries/Util.php:3183 libraries/Util.php:3193 libraries/Util.php:3199
-#: libraries/Util.php:4097 libraries/Util.php:4112 libraries/Util.php:4129
+#: libraries/Util.php:3184 libraries/Util.php:3194 libraries/Util.php:3200
+#: libraries/Util.php:4098 libraries/Util.php:4113 libraries/Util.php:4130
 #: libraries/config.values.php:39 libraries/config.values.php:47
 #: libraries/config.values.php:110 libraries/config.values.php:116
 #: libraries/config/messages.inc.php:320
@@ -4132,25 +4138,25 @@ msgstr "Tabuľka"
 msgid "SQL"
 msgstr "SQL"
 
-#: libraries/Menu.php:341 libraries/Menu.php:444 libraries/Util.php:3184
-#: libraries/Util.php:3194 libraries/Util.php:3200 libraries/Util.php:3474
-#: libraries/Util.php:3475 libraries/Util.php:4113 libraries/Util.php:4130
+#: libraries/Menu.php:341 libraries/Menu.php:444 libraries/Util.php:3185
+#: libraries/Util.php:3195 libraries/Util.php:3201 libraries/Util.php:3475
+#: libraries/Util.php:3476 libraries/Util.php:4114 libraries/Util.php:4131
 #: libraries/config.values.php:40 libraries/config.values.php:48
 #: libraries/config.values.php:111 libraries/config.values.php:117
 #: libraries/navigation/nodes/NodeTable.php:296
 msgid "Search"
 msgstr "Hľadať"
 
-#: libraries/Menu.php:351 libraries/Util.php:3185 libraries/Util.php:3195
-#: libraries/Util.php:3476 libraries/Util.php:3477 libraries/Util.php:4131
+#: libraries/Menu.php:351 libraries/Util.php:3186 libraries/Util.php:3196
+#: libraries/Util.php:3477 libraries/Util.php:3478 libraries/Util.php:4132
 #: libraries/config.values.php:41 libraries/config.values.php:49
 #: libraries/config.values.php:118 libraries/navigation/nodes/NodeTable.php:302
 #: libraries/sql_query_form.lib.php:289 libraries/sql_query_form.lib.php:292
 msgid "Insert"
 msgstr "Vložiť"
 
-#: libraries/Menu.php:375 libraries/Menu.php:479 libraries/Util.php:4118
-#: libraries/Util.php:4134 libraries/config.values.php:106
+#: libraries/Menu.php:375 libraries/Menu.php:479 libraries/Util.php:4119
+#: libraries/Util.php:4135 libraries/config.values.php:106
 #: libraries/server_common.lib.php:48 libraries/server_privileges.lib.php:2530
 #: libraries/server_privileges.lib.php:4377
 #: templates/privileges/privileges_summary.phtml:16
@@ -4158,19 +4164,19 @@ msgid "Privileges"
 msgstr "Oprávnenia"
 
 #: libraries/Menu.php:384 libraries/Menu.php:392 libraries/Menu.php:471
-#: libraries/Util.php:3187 libraries/Util.php:3201 libraries/Util.php:4117
-#: libraries/Util.php:4135 libraries/config.values.php:112
+#: libraries/Util.php:3188 libraries/Util.php:3202 libraries/Util.php:4118
+#: libraries/Util.php:4136 libraries/config.values.php:112
 #: view_operations.php:107
 msgid "Operations"
 msgstr "Operácie"
 
-#: libraries/Menu.php:397 libraries/Menu.php:501 libraries/Util.php:4122
-#: libraries/Util.php:4136 libraries/relation.lib.php:264
+#: libraries/Menu.php:397 libraries/Menu.php:501 libraries/Util.php:4123
+#: libraries/Util.php:4137 libraries/relation.lib.php:264
 msgid "Tracking"
 msgstr "Sledovanie"
 
-#: libraries/Menu.php:409 libraries/Menu.php:495 libraries/Util.php:4121
-#: libraries/Util.php:4137
+#: libraries/Menu.php:409 libraries/Menu.php:495 libraries/Util.php:4122
+#: libraries/Util.php:4138
 #: libraries/navigation/nodes/NodeTriggerContainer.php:25
 #: libraries/plugins/export/ExportHtmlword.php:578
 #: libraries/plugins/export/ExportOdt.php:713
@@ -4186,16 +4192,16 @@ msgstr "Spúšťače"
 msgid "Database seems to be empty!"
 msgstr "Databáza vyzerá prázdna!"
 
-#: libraries/Menu.php:451 libraries/Util.php:4114
+#: libraries/Menu.php:451 libraries/Util.php:4115
 msgid "Query"
 msgstr "Dopyt podľa príkladu"
 
-#: libraries/Menu.php:484 libraries/Util.php:4119
+#: libraries/Menu.php:484 libraries/Util.php:4120
 #: libraries/rte/rte_words.lib.php:44
 msgid "Routines"
 msgstr "Rutiny"
 
-#: libraries/Menu.php:489 libraries/Util.php:4120
+#: libraries/Menu.php:489 libraries/Util.php:4121
 #: libraries/navigation/nodes/NodeEventContainer.php:25
 #: libraries/plugins/export/ExportSql.php:961
 #: libraries/plugins/export/ExportXml.php:103
@@ -4203,16 +4209,16 @@ msgstr "Rutiny"
 msgid "Events"
 msgstr "Udalosti"
 
-#: libraries/Menu.php:507 libraries/Util.php:4123
+#: libraries/Menu.php:507 libraries/Util.php:4124
 msgid "Designer"
 msgstr "Dizajnér"
 
-#: libraries/Menu.php:516 libraries/Util.php:4124
+#: libraries/Menu.php:516 libraries/Util.php:4125
 #: templates/database/structure/check_all_tables.phtml:34
 msgid "Central columns"
 msgstr "Centrálne stĺpce"
 
-#: libraries/Menu.php:550 libraries/Util.php:4096
+#: libraries/Menu.php:550 libraries/Util.php:4097
 #: libraries/config.values.php:103 libraries/config/messages.inc.php:265
 #: libraries/config/messages.inc.php:340
 #: libraries/navigation/NavigationTree.php:1274
@@ -4225,34 +4231,34 @@ msgid "User accounts"
 msgstr "Užívateľské účty"
 
 #: libraries/Menu.php:601 libraries/ServerStatusData.php:121
-#: libraries/Util.php:4103 libraries/server_common.lib.php:33
+#: libraries/Util.php:4104 libraries/server_common.lib.php:33
 msgid "Binary log"
 msgstr "Binárny log"
 
 #: libraries/Menu.php:607 libraries/ServerStatusData.php:126
-#: libraries/Util.php:4104 libraries/server_common.lib.php:39
+#: libraries/Util.php:4105 libraries/server_common.lib.php:39
 #: templates/database/structure/body_for_table_summary.phtml:10
 #: templates/database/structure/table_header.phtml:27
 msgid "Replication"
 msgstr "Replikácia"
 
 #: libraries/Menu.php:612 libraries/ServerStatusData.php:193
-#: libraries/Util.php:4105 libraries/config.values.php:105
+#: libraries/Util.php:4106 libraries/config.values.php:105
 #: libraries/sql_query_form.lib.php:427
 #: templates/server/engines/engine.phtml:15
 #: templates/server/engines/engine.phtml:18
 msgid "Variables"
 msgstr "Premenné"
 
-#: libraries/Menu.php:616 libraries/Util.php:4106
+#: libraries/Menu.php:616 libraries/Util.php:4107
 msgid "Charsets"
 msgstr "Znakové sady"
 
-#: libraries/Menu.php:620 libraries/Util.php:4108
+#: libraries/Menu.php:620 libraries/Util.php:4109
 msgid "Engines"
 msgstr "Systémy"
 
-#: libraries/Menu.php:624 libraries/Util.php:4107
+#: libraries/Menu.php:624 libraries/Util.php:4108
 #: libraries/server_common.lib.php:30
 msgid "Plugins"
 msgstr "Rozšírenia"
@@ -4546,7 +4552,7 @@ msgstr "Nie je možné premenovať index na PRIMARY!"
 msgid "No index parts defined!"
 msgstr "Časti indexu neboli definované!"
 
-#: libraries/Table.php:2292
+#: libraries/Table.php:2279
 #, php-format
 msgid "Error creating foreign key on %1$s (check data types)"
 msgstr ""
@@ -4962,52 +4968,52 @@ msgctxt "AM/PM indication in time"
 msgid "AM"
 msgstr ""
 
-#: libraries/Util.php:1961
+#: libraries/Util.php:1962
 #, php-format
 msgid "%s days, %s hours, %s minutes and %s seconds"
 msgstr "%s dní, %s hodín, %s minút a %s sekúnd"
 
-#: libraries/Util.php:2008
+#: libraries/Util.php:2009
 msgid "Missing parameter:"
 msgstr "Chýbajúci parameter:"
 
-#: libraries/Util.php:2552
+#: libraries/Util.php:2553
 #, php-format
 msgid "Jump to database \"%s\"."
 msgstr "Prejsť na databázu \"%s\"."
 
-#: libraries/Util.php:2577
+#: libraries/Util.php:2578
 #, php-format
 msgid "The %s functionality is affected by a known bug, see %s"
 msgstr "Funkčnosť %s je ovplyvnená známou chybou, pozri %s"
 
-#: libraries/Util.php:3391 prefs_manage.php:256
+#: libraries/Util.php:3392 prefs_manage.php:256
 msgid "Browse your computer:"
 msgstr "Prechádzať váš počítač:"
 
-#: libraries/Util.php:3416
+#: libraries/Util.php:3417
 #, php-format
 msgid "Select from the web server upload directory <b>%s</b>:"
 msgstr "Zvoľte súbor z upload adresára <b>%s</b> web servera:"
 
-#: libraries/Util.php:3445 libraries/insert_edit.lib.php:1233
+#: libraries/Util.php:3446 libraries/insert_edit.lib.php:1233
 msgid "The directory you set for upload work cannot be reached."
 msgstr "Adresár určený pre upload súborov sa nedá otvoriť."
 
-#: libraries/Util.php:3456
+#: libraries/Util.php:3457
 msgid "There are no files to upload!"
 msgstr "Žiadny súbor pre nahrávanie!"
 
-#: libraries/Util.php:3481 libraries/Util.php:3482
+#: libraries/Util.php:3482 libraries/Util.php:3483
 #: templates/database/structure/check_all_tables.phtml:16
 msgid "Empty"
 msgstr "Vyprázdniť"
 
-#: libraries/Util.php:3487 libraries/Util.php:3488
+#: libraries/Util.php:3488 libraries/Util.php:3489
 msgid "Execute"
 msgstr "Spustiť"
 
-#: libraries/Util.php:4099
+#: libraries/Util.php:4100
 msgid "Users"
 msgstr "Používatelia"
 
@@ -5181,15 +5187,15 @@ msgstr ""
 msgid "You should upgrade to %s %s or later."
 msgstr "Mali by ste aktualizovať %s na verziu %s alebo vyššiu."
 
-#: libraries/common.inc.php:884
+#: libraries/common.inc.php:886
 msgid "Error: Token mismatch"
 msgstr "Chyba: Nesprávny token"
 
-#: libraries/common.inc.php:902
+#: libraries/common.inc.php:904
 msgid "GLOBALS overwrite attempt"
 msgstr "Pokus o prepísanie GLOBALS"
 
-#: libraries/common.inc.php:909
+#: libraries/common.inc.php:911
 msgid "possible exploit"
 msgstr "možný pokus o exploit"
 
@@ -8171,18 +8177,18 @@ msgid "No data to display"
 msgstr "Žiadne dáta"
 
 #: libraries/controllers/table/TableIndexesController.php:155
-#: libraries/controllers/table/TableStructureController.php:718
-#: libraries/controllers/table/TableStructureController.php:967
+#: libraries/controllers/table/TableStructureController.php:728
+#: libraries/controllers/table/TableStructureController.php:977
 #: tbl_addfield.php:95
 #, php-format
 msgid "Table %1$s has been altered successfully."
 msgstr "Tabuľka %1$s bola úspešné upravená."
 
-#: libraries/controllers/table/TableRelationController.php:212
+#: libraries/controllers/table/TableRelationController.php:201
 msgid "Display column was successfully updated."
 msgstr "Zobrazený stĺpec bol aktualizovný."
 
-#: libraries/controllers/table/TableRelationController.php:282
+#: libraries/controllers/table/TableRelationController.php:271
 #, fuzzy
 #| msgid "Internal relations were successfully updated."
 msgid "Internal relationships were successfully updated."
@@ -8217,25 +8223,31 @@ msgstr "Nebol vybraný žiadny stĺpec."
 msgid "The columns have been moved successfully."
 msgstr "Stĺpce boli úspešne presunuté."
 
-#: libraries/controllers/table/TableStructureController.php:729
-#: libraries/controllers/table/TableStructureController.php:1016
+#: libraries/controllers/table/TableStructureController.php:501
+#, fuzzy, php-format
+#| msgid "Failed to get real row count."
+msgid "Failed to get description of column %s!"
+msgstr "Nepodarilo sa zístiť skutočný počet riadkov."
+
+#: libraries/controllers/table/TableStructureController.php:739
+#: libraries/controllers/table/TableStructureController.php:1026
 #: libraries/tracking.lib.php:1092
 msgid "Query error"
 msgstr "Chyba dopytu"
 
-#: libraries/controllers/table/TableStructureController.php:961
+#: libraries/controllers/table/TableStructureController.php:971
 #, php-format
 msgid ""
 "Table %1$s has been altered successfully. Privileges have been adjusted."
 msgstr "Tabuľka %1$s bola úspešné upravená. Oprávnenia boli upravené."
 
-#: libraries/controllers/table/TableStructureController.php:1181
+#: libraries/controllers/table/TableStructureController.php:1191
 #: templates/table/structure/check_all_table_column.phtml:18
 msgid "Change"
 msgstr "Zmeniť"
 
-#: libraries/controllers/table/TableStructureController.php:1185
-#: libraries/controllers/table/TableStructureController.php:1190
+#: libraries/controllers/table/TableStructureController.php:1195
+#: libraries/controllers/table/TableStructureController.php:1200
 #: libraries/navigation/nodes/NodeIndex.php:30 libraries/tracking.lib.php:929
 #: templates/columns_definitions/column_indexes.phtml:16
 #: templates/columns_definitions/table_fields_definitions.phtml:57
@@ -8245,20 +8257,20 @@ msgstr "Zmeniť"
 msgid "Index"
 msgstr "Index"
 
-#: libraries/controllers/table/TableStructureController.php:1187
-#: libraries/controllers/table/TableStructureController.php:1192
+#: libraries/controllers/table/TableStructureController.php:1197
+#: libraries/controllers/table/TableStructureController.php:1202
 #: templates/columns_definitions/column_indexes.phtml:26
 msgid "Spatial"
 msgstr ""
 
-#: libraries/controllers/table/TableStructureController.php:1188
-#: libraries/controllers/table/TableStructureController.php:1193
+#: libraries/controllers/table/TableStructureController.php:1198
+#: libraries/controllers/table/TableStructureController.php:1203
 #: templates/columns_definitions/column_indexes.phtml:21
 #: templates/table/structure/check_all_table_column.phtml:45
 msgid "Fulltext"
 msgstr "Celý text"
 
-#: libraries/controllers/table/TableStructureController.php:1196
+#: libraries/controllers/table/TableStructureController.php:1206
 msgid "Distinct values"
 msgstr "Odlišné hodnoty"
 
@@ -8999,12 +9011,12 @@ msgid "Dump has been saved to file %s."
 msgstr "Výpis bol uložený do súboru %s."
 
 #: libraries/import.lib.php:98 libraries/insert_edit.lib.php:125
-#: libraries/rte/rte_routines.lib.php:1466 libraries/sql.lib.php:1374
+#: libraries/rte/rte_routines.lib.php:1466 libraries/sql.lib.php:1377
 #: tbl_get_field.php:45
 msgid "MySQL returned an empty result set (i.e. zero rows)."
 msgstr "MySQL vrátil prázdny výsledok (tj. nulový počet riadkov)."
 
-#: libraries/import.lib.php:258 libraries/sql.lib.php:1388
+#: libraries/import.lib.php:258 libraries/sql.lib.php:1391
 msgid "[ROLLBACK occurred.]"
 msgstr ""
 
@@ -9164,11 +9176,11 @@ msgstr ""
 msgid "Value"
 msgstr "Hodnota"
 
-#: libraries/insert_edit.lib.php:2008 libraries/sql.lib.php:1371
+#: libraries/insert_edit.lib.php:2008 libraries/sql.lib.php:1374
 msgid "Showing SQL query"
 msgstr "Zobrazujem SQL dotaz"
 
-#: libraries/insert_edit.lib.php:2033 libraries/sql.lib.php:1349
+#: libraries/insert_edit.lib.php:2033 libraries/sql.lib.php:1352
 #, php-format
 msgid "Inserted row id: %1$d"
 msgstr "Vložený riadok id: %1$d"
@@ -10850,63 +10862,63 @@ msgstr "Formátuje text ako JSON so zvýrazňovaním syntaxe."
 msgid "Formats text as XML with syntax highlighting."
 msgstr "Formátuje text ako XML so zvýrazňovaním syntaxe."
 
-#: libraries/pmd_common.php:551
+#: libraries/pmd_common.php:546
 #, fuzzy
 #| msgid "Primary key already exists."
 msgid "Error: relationship already exists."
 msgstr "Primárny kľúč už existuje."
 
-#: libraries/pmd_common.php:597
+#: libraries/pmd_common.php:592
 #, fuzzy
 #| msgid "FOREIGN KEY relation has been added."
 msgid "FOREIGN KEY relationship has been added."
 msgstr "Bol pridaný FOREIGN KEY vzťah."
 
-#: libraries/pmd_common.php:603
+#: libraries/pmd_common.php:598
 #, fuzzy
 #| msgid "Error: FOREIGN KEY relation could not be added!"
 msgid "Error: FOREIGN KEY relationship could not be added!"
 msgstr "Chyba: FOREIGN KEY vzťah nemohol byť pridaný!"
 
-#: libraries/pmd_common.php:608
+#: libraries/pmd_common.php:603
 msgid "Error: Missing index on column(s)."
 msgstr ""
 
-#: libraries/pmd_common.php:613
+#: libraries/pmd_common.php:608
 msgid "Error: Relational features are disabled!"
 msgstr ""
 
-#: libraries/pmd_common.php:635
+#: libraries/pmd_common.php:630
 #, fuzzy
 #| msgid "Internal relation has been added."
 msgid "Internal relationship has been added."
 msgstr "Bol pridaný interný vzťah."
 
-#: libraries/pmd_common.php:641
+#: libraries/pmd_common.php:636
 #, fuzzy
 #| msgid "Error: Internal relation could not be added!"
 msgid "Error: Internal relationship could not be added!"
 msgstr "Chyba: Interný vzťah nemohol byť pridaný!"
 
-#: libraries/pmd_common.php:679
+#: libraries/pmd_common.php:674
 #, fuzzy
 #| msgid "FOREIGN KEY relation has been removed."
 msgid "FOREIGN KEY relationship has been removed."
 msgstr "FOREIGN KEY vzťah bol odstránený."
 
-#: libraries/pmd_common.php:685
+#: libraries/pmd_common.php:680
 #, fuzzy
 #| msgid "Error: FOREIGN KEY relation could not be removed!"
 msgid "Error: FOREIGN KEY relationship could not be removed!"
 msgstr "Chyba: FOREIGN KEY vzťah nehomol byť odstránený!"
 
-#: libraries/pmd_common.php:712
+#: libraries/pmd_common.php:707
 #, fuzzy
 #| msgid "Error: Internal relation could not be removed!"
 msgid "Error: Internal relationship could not be removed!"
 msgstr "Chyba: Vnútorný vzťah nemôže byť odstránený!"
 
-#: libraries/pmd_common.php:716
+#: libraries/pmd_common.php:711
 #, fuzzy
 #| msgid "Internal relation has been removed."
 msgid "Internal relationship has been removed."
@@ -12476,39 +12488,39 @@ msgid ""
 "no clearly measurable improvement."
 msgstr ""
 
-#: libraries/server_status_monitor.lib.php:62
+#: libraries/server_status_monitor.lib.php:65
 msgid "Log statistics"
 msgstr ""
 
-#: libraries/server_status_monitor.lib.php:63
+#: libraries/server_status_monitor.lib.php:66
 msgid "Selected time range:"
 msgstr "Zvolený časový rozsah:"
 
-#: libraries/server_status_monitor.lib.php:71
+#: libraries/server_status_monitor.lib.php:74
 msgid "Only retrieve SELECT,INSERT,UPDATE and DELETE Statements"
 msgstr ""
 
-#: libraries/server_status_monitor.lib.php:77
+#: libraries/server_status_monitor.lib.php:80
 msgid "Remove variable data in INSERT statements for better grouping"
 msgstr ""
 
-#: libraries/server_status_monitor.lib.php:81
+#: libraries/server_status_monitor.lib.php:84
 msgid "Choose from which log you want the statistics to be generated from."
 msgstr ""
 
-#: libraries/server_status_monitor.lib.php:85
+#: libraries/server_status_monitor.lib.php:88
 msgid "Results are grouped by query text."
 msgstr ""
 
-#: libraries/server_status_monitor.lib.php:89
+#: libraries/server_status_monitor.lib.php:92
 msgid "Query analyzer"
 msgstr "Analyzátor dopytov"
 
-#: libraries/server_status_monitor.lib.php:106
+#: libraries/server_status_monitor.lib.php:109
 msgid "Monitor Instructions"
 msgstr "Monitor inštrukcie"
 
-#: libraries/server_status_monitor.lib.php:108
+#: libraries/server_status_monitor.lib.php:111
 msgid ""
 "The phpMyAdmin Monitor can assist you in optimizing the server configuration "
 "and track down time intensive queries. For the latter you will need to set "
@@ -12517,18 +12529,18 @@ msgid ""
 "increases server load by up to 15%."
 msgstr ""
 
-#: libraries/server_status_monitor.lib.php:124
+#: libraries/server_status_monitor.lib.php:127
 msgid "Using the monitor:"
 msgstr ""
 
-#: libraries/server_status_monitor.lib.php:127
+#: libraries/server_status_monitor.lib.php:130
 msgid ""
 "Your browser will refresh all displayed charts in a regular interval. You "
 "may add charts and change the refresh rate under 'Settings', or remove any "
 "chart using the cog icon on each respective chart."
 msgstr ""
 
-#: libraries/server_status_monitor.lib.php:133
+#: libraries/server_status_monitor.lib.php:136
 msgid ""
 "To display queries from the logs, select the relevant time span on any chart "
 "by holding down the left mouse button and panning over the chart. Once "
@@ -12536,11 +12548,11 @@ msgid ""
 "any occurring SELECT statements to further analyze them."
 msgstr ""
 
-#: libraries/server_status_monitor.lib.php:143
+#: libraries/server_status_monitor.lib.php:146
 msgid "Please note:"
 msgstr ""
 
-#: libraries/server_status_monitor.lib.php:146
+#: libraries/server_status_monitor.lib.php:149
 msgid ""
 "Enabling the general_log may increase the server load by 5-15%. Also be "
 "aware that generating statistics from the logs is a load intensive task, so "
@@ -12548,95 +12560,95 @@ msgid ""
 "general_log and empty its table once monitoring is not required any more."
 msgstr ""
 
-#: libraries/server_status_monitor.lib.php:167
-#: libraries/server_status_monitor.lib.php:275
+#: libraries/server_status_monitor.lib.php:170
+#: libraries/server_status_monitor.lib.php:278
 msgid "Add chart"
 msgstr "Pridať graf"
 
-#: libraries/server_status_monitor.lib.php:170
+#: libraries/server_status_monitor.lib.php:173
 msgid "Chart Title"
 msgstr "Názov grafu"
 
-#: libraries/server_status_monitor.lib.php:173
+#: libraries/server_status_monitor.lib.php:176
 msgid "Preset chart"
 msgstr ""
 
-#: libraries/server_status_monitor.lib.php:178
+#: libraries/server_status_monitor.lib.php:181
 msgid "Status variable(s)"
 msgstr ""
 
-#: libraries/server_status_monitor.lib.php:181
+#: libraries/server_status_monitor.lib.php:184
 msgid "Select series:"
 msgstr "Vybrať série:"
 
-#: libraries/server_status_monitor.lib.php:183
+#: libraries/server_status_monitor.lib.php:186
 msgid "Commonly monitored"
 msgstr ""
 
-#: libraries/server_status_monitor.lib.php:199
+#: libraries/server_status_monitor.lib.php:202
 msgid "or type variable name:"
 msgstr "alebo zadajte meno premennej:"
 
-#: libraries/server_status_monitor.lib.php:206
+#: libraries/server_status_monitor.lib.php:209
 msgid "Display as differential value"
 msgstr ""
 
-#: libraries/server_status_monitor.lib.php:210
+#: libraries/server_status_monitor.lib.php:213
 msgid "Apply a divisor"
 msgstr ""
 
-#: libraries/server_status_monitor.lib.php:218
+#: libraries/server_status_monitor.lib.php:221
 msgid "Append unit to data values"
 msgstr ""
 
-#: libraries/server_status_monitor.lib.php:224
+#: libraries/server_status_monitor.lib.php:227
 msgid "Add this series"
 msgstr "Pridať túto sériu"
 
-#: libraries/server_status_monitor.lib.php:226
+#: libraries/server_status_monitor.lib.php:229
 msgid "Clear series"
 msgstr ""
 
-#: libraries/server_status_monitor.lib.php:229
+#: libraries/server_status_monitor.lib.php:232
 msgid "Series in chart:"
 msgstr "Série v grafe:"
 
-#: libraries/server_status_monitor.lib.php:250
+#: libraries/server_status_monitor.lib.php:253
 msgid "Start Monitor"
 msgstr "Spustiť monitor"
 
-#: libraries/server_status_monitor.lib.php:256
+#: libraries/server_status_monitor.lib.php:259
 msgid "Instructions/Setup"
 msgstr "Pokyny/Nastavenie"
 
-#: libraries/server_status_monitor.lib.php:259
+#: libraries/server_status_monitor.lib.php:262
 msgid "Done dragging (rearranging) charts"
 msgstr ""
 
-#: libraries/server_status_monitor.lib.php:279
+#: libraries/server_status_monitor.lib.php:282
 msgid "Enable charts dragging"
 msgstr "Povoliť presúvanie grafov"
 
-#: libraries/server_status_monitor.lib.php:283
+#: libraries/server_status_monitor.lib.php:286
 #: libraries/server_status_processes.lib.php:29
 msgid "Refresh rate"
 msgstr "Obnovovacia frekvencia"
 
-#: libraries/server_status_monitor.lib.php:292
+#: libraries/server_status_monitor.lib.php:295
 msgid "Chart columns"
 msgstr "Stĺpce grafu"
 
-#: libraries/server_status_monitor.lib.php:304
+#: libraries/server_status_monitor.lib.php:307
 msgid "Chart arrangement"
 msgstr ""
 
-#: libraries/server_status_monitor.lib.php:307
+#: libraries/server_status_monitor.lib.php:310
 msgid ""
 "The arrangement of the charts is stored to the browsers local storage. You "
 "may want to export it if you have a complicated set up."
 msgstr ""
 
-#: libraries/server_status_monitor.lib.php:321
+#: libraries/server_status_monitor.lib.php:324
 msgid "Reset to default"
 msgstr "Obnoviť predvolené"
 
@@ -13508,11 +13520,11 @@ msgstr "Záložka nebola vytvorená!"
 msgid "Using bookmark \"%s\" as default browse query."
 msgstr ""
 
-#: libraries/sql.lib.php:1368
+#: libraries/sql.lib.php:1371
 msgid "Showing as PHP code"
 msgstr "Zobrazujem ako PHP kód"
 
-#: libraries/sql.lib.php:1739
+#: libraries/sql.lib.php:1742
 #, php-format
 msgid ""
 "Current selection does not contain a unique column. Grid edit, checkbox, "
@@ -13521,7 +13533,7 @@ msgstr ""
 "Aktuálny výber neobsahuje unikátny stĺpec. Úprava gridu, zaškrtávanie, "
 "editácia, kopírovanie a mazanie nie sú dostupné. %s"
 
-#: libraries/sql.lib.php:1753
+#: libraries/sql.lib.php:1756
 #, fuzzy, php-format
 #| msgid ""
 #| "Current selection does not contain a unique column. Grid edit, checkbox, "
@@ -13533,7 +13545,7 @@ msgstr ""
 "Aktuálny výber neobsahuje unikátny stĺpec. Úprava gridu, zaškrtávanie, "
 "editácia, kopírovanie a mazanie nie sú dostupné."
 
-#: libraries/sql.lib.php:1795
+#: libraries/sql.lib.php:1798
 #, php-format
 msgid "Problems with indexes of table `%s`"
 msgstr "Problémy s indexami v tabuľke `%s`"

@@ -6,9 +6,9 @@
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: phpMyAdmin 4.7.4-dev\n"
+"Project-Id-Version: phpMyAdmin 4.7.6-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
-"POT-Creation-Date: 2017-08-10 09:13-0400\n"
+"POT-Creation-Date: 2017-11-02 14:03+0100\n"
 "PO-Revision-Date: 2017-03-25 13:25+0000\n"
 "Last-Translator: Vuong Phan <thevuong@live.com>\n"
 "Language-Team: Vietnamese <https://hosted.weblate.org/projects/"
@@ -174,8 +174,8 @@ msgid "Comments"
 msgstr "Ghi chú"
 
 #: db_datadict.php:154
-#: libraries/controllers/table/TableStructureController.php:1184
-#: libraries/controllers/table/TableStructureController.php:1189
+#: libraries/controllers/table/TableStructureController.php:1194
+#: libraries/controllers/table/TableStructureController.php:1199
 #: libraries/tracking.lib.php:925
 #: templates/columns_definitions/column_indexes.phtml:6
 #: templates/table/structure/check_all_table_column.phtml:28
@@ -183,7 +183,7 @@ msgstr "Ghi chú"
 msgid "Primary"
 msgstr "Chính"
 
-#: db_datadict.php:164 js/messages.php:378 libraries/Index.php:565
+#: db_datadict.php:164 js/messages.php:382 libraries/Index.php:565
 #: libraries/Index.php:593 libraries/IndexColumn.php:141
 #: libraries/central_columns.lib.php:963
 #: libraries/config/FormDisplay.tpl.php:282 libraries/mult_submits.lib.php:450
@@ -207,16 +207,16 @@ msgstr "Chính"
 msgid "No"
 msgstr "Không"
 
-#: db_datadict.php:164 js/messages.php:526 libraries/Index.php:592
+#: db_datadict.php:164 js/messages.php:530 libraries/Index.php:592
 #: libraries/IndexColumn.php:143 libraries/central_columns.lib.php:963
 #: libraries/config/FormDisplay.tpl.php:282
 #: libraries/controllers/server/ServerDatabasesController.php:200
-#: libraries/controllers/table/TableStructureController.php:757
-#: libraries/controllers/table/TableStructureController.php:1434
-#: libraries/controllers/table/TableStructureController.php:1443
-#: libraries/controllers/table/TableStructureController.php:1448
+#: libraries/controllers/table/TableStructureController.php:767
+#: libraries/controllers/table/TableStructureController.php:1444
 #: libraries/controllers/table/TableStructureController.php:1453
 #: libraries/controllers/table/TableStructureController.php:1458
+#: libraries/controllers/table/TableStructureController.php:1463
+#: libraries/controllers/table/TableStructureController.php:1468
 #: libraries/mult_submits.inc.php:85 libraries/mult_submits.inc.php:213
 #: libraries/mult_submits.lib.php:359 libraries/mult_submits.lib.php:392
 #: libraries/mult_submits.lib.php:421 libraries/mult_submits.lib.php:448
@@ -261,8 +261,8 @@ msgid "Tables"
 msgstr "Các bảng"
 
 #: db_export.php:66 libraries/Menu.php:330 libraries/Menu.php:437
-#: libraries/Util.php:3182 libraries/Util.php:3192 libraries/Util.php:3198
-#: libraries/Util.php:3478 libraries/Util.php:4111 libraries/Util.php:4128
+#: libraries/Util.php:3183 libraries/Util.php:3193 libraries/Util.php:3199
+#: libraries/Util.php:3479 libraries/Util.php:4112 libraries/Util.php:4129
 #: libraries/central_columns.lib.php:727 libraries/config.values.php:38
 #: libraries/config.values.php:46 libraries/config.values.php:109
 #: libraries/config.values.php:115 libraries/config/setup.forms.php:316
@@ -410,23 +410,23 @@ msgid "Point:"
 msgstr "Tọa độ:"
 
 #: gis_data_editor.php:218 gis_data_editor.php:245 gis_data_editor.php:301
-#: gis_data_editor.php:374 js/messages.php:515
+#: gis_data_editor.php:374 js/messages.php:519
 msgid "X"
 msgstr "X"
 
 #: gis_data_editor.php:221 gis_data_editor.php:249 gis_data_editor.php:305
-#: gis_data_editor.php:380 js/messages.php:516
+#: gis_data_editor.php:380 js/messages.php:520
 msgid "Y"
 msgstr "Y"
 
 #: gis_data_editor.php:243 gis_data_editor.php:299 gis_data_editor.php:372
-#: js/messages.php:518
+#: js/messages.php:522
 #, php-format
 msgid "Point %d"
 msgstr "Điểm %d"
 
 #: gis_data_editor.php:256 gis_data_editor.php:312 gis_data_editor.php:390
-#: js/messages.php:524
+#: js/messages.php:528
 msgid "Add a point"
 msgstr "Thêm điểm"
 
@@ -448,7 +448,7 @@ msgstr "Vòng trong %d:"
 msgid "Add a linestring"
 msgstr "Thêm một chuỗi-dòng"
 
-#: gis_data_editor.php:316 gis_data_editor.php:395 js/messages.php:525
+#: gis_data_editor.php:316 gis_data_editor.php:395 js/messages.php:529
 msgid "Add an inner ring"
 msgstr "Thêm một vòng trong"
 
@@ -466,7 +466,7 @@ msgid "Add geometry"
 msgstr "Thêm dạng hình"
 
 #: gis_data_editor.php:413 js/messages.php:353 libraries/DbSearch.php:455
-#: libraries/DisplayResults.php:1811 libraries/browse_foreigners.lib.php:137
+#: libraries/DisplayResults.php:1813 libraries/browse_foreigners.lib.php:137
 #: libraries/display_change_password.lib.php:148
 #: libraries/display_export.lib.php:403 libraries/display_export.lib.php:409
 #: libraries/display_import.lib.php:399 libraries/index.lib.php:34
@@ -521,7 +521,7 @@ msgstr ""
 msgid "Succeeded"
 msgstr "Thành công"
 
-#: import.php:69 js/messages.php:611
+#: import.php:69 js/messages.php:615
 msgid "Failed"
 msgstr "Thất bại"
 
@@ -562,7 +562,7 @@ msgstr ""
 "Không thể tải phần bổ sung nhập dữ liệu, vui lòng kiểm tra bản cài đặt của "
 "bạn!"
 
-#: import.php:571 libraries/sql.lib.php:788 libraries/sql.lib.php:1564
+#: import.php:571 libraries/sql.lib.php:788 libraries/sql.lib.php:1567
 #, php-format
 msgid "Bookmark %s has been created."
 msgstr "Đánh dấu %s đã được tạo ra."
@@ -600,7 +600,7 @@ msgstr "Câu lệnh \"DROP DATABASE\" bị tăt."
 msgid "Could not load the progress of the import."
 msgstr "Không thể tải tiến trình của nhập khẩu."
 
-#: import_status.php:114 js/messages.php:455 js/messages.php:619
+#: import_status.php:114 js/messages.php:459 js/messages.php:623
 #: libraries/Util.php:689 libraries/export.lib.php:518
 #: libraries/plugins/schema/ExportRelationSchema.php:298 user_password.php:299
 msgid "Back"
@@ -631,7 +631,7 @@ msgstr ""
 msgid "General settings"
 msgstr "Cài đặt cơ bản"
 
-#: index.php:204 js/messages.php:644
+#: index.php:204 js/messages.php:648
 #: libraries/display_change_password.lib.php:47
 #: libraries/display_change_password.lib.php:50 user_password.php:293
 msgid "Change password"
@@ -1212,14 +1212,14 @@ msgstr "B"
 
 #. l10n: shortcuts for Kilobyte
 #: js/messages.php:203 libraries/Util.php:1310
-#: libraries/server_status_monitor.lib.php:213
+#: libraries/server_status_monitor.lib.php:216
 msgid "KiB"
 msgstr "KiB"
 
 #. l10n: shortcuts for Megabyte
 #: js/messages.php:204 libraries/Util.php:1312
 #: libraries/display_export.lib.php:843
-#: libraries/server_status_monitor.lib.php:214
+#: libraries/server_status_monitor.lib.php:217
 msgid "MiB"
 msgstr "MiB"
 
@@ -1257,8 +1257,8 @@ msgstr "Câu hỏi"
 msgid "Traffic"
 msgstr "Lưu lượng"
 
-#: js/messages.php:214 libraries/Menu.php:592 libraries/Util.php:4102
-#: libraries/server_status_monitor.lib.php:253
+#: js/messages.php:214 libraries/Menu.php:592 libraries/Util.php:4103
+#: libraries/server_status_monitor.lib.php:256
 msgid "Settings"
 msgstr "Cài đặt"
 
@@ -1270,11 +1270,11 @@ msgstr "Thêm vào màu người dùng"
 msgid "Please add at least one variable to the series!"
 msgstr "Vui lòng thêm ít nhất là một biến vào sê-ri!"
 
-#: js/messages.php:219 libraries/DisplayResults.php:1490
+#: js/messages.php:219 libraries/DisplayResults.php:1488
 #: libraries/config.values.php:68 libraries/display_export.lib.php:692
 #: libraries/plugins/export/ExportSql.php:2185
 #: libraries/plugins/schema/SchemaPdf.php:103
-#: libraries/server_status_monitor.lib.php:232
+#: libraries/server_status_monitor.lib.php:235
 #: libraries/server_status_processes.lib.php:285
 #: templates/columns_definitions/transformation.phtml:4
 #: templates/database/designer/options_panel.phtml:178
@@ -1478,7 +1478,7 @@ msgstr "Đang phân tích…"
 msgid "Explain output"
 msgstr "Xuất vùng chọn:"
 
-#: js/messages.php:291 libraries/Menu.php:558 libraries/Util.php:4098
+#: js/messages.php:291 libraries/Menu.php:558 libraries/Util.php:4099
 #: libraries/config.values.php:104 libraries/rte/rte_events.lib.php:399
 #: libraries/rte/rte_list.lib.php:107
 #: libraries/server_status_processes.lib.php:92 libraries/tracking.lib.php:287
@@ -1486,7 +1486,7 @@ msgstr "Xuất vùng chọn:"
 msgid "Status"
 msgstr "Tình trạng"
 
-#: js/messages.php:292 js/messages.php:896
+#: js/messages.php:292 js/messages.php:900
 #: libraries/plugins/export/ExportHtmlword.php:486
 #: libraries/plugins/export/ExportOdt.php:605
 #: libraries/plugins/export/ExportTexytext.php:447
@@ -1600,10 +1600,10 @@ msgstr ""
 "thành cấu hình mặc định…"
 
 #: js/messages.php:329 libraries/Menu.php:365 libraries/Menu.php:467
-#: libraries/Menu.php:588 libraries/Util.php:4101 libraries/Util.php:4116
-#: libraries/Util.php:4133 libraries/config/messages.inc.php:257
+#: libraries/Menu.php:588 libraries/Util.php:4102 libraries/Util.php:4117
+#: libraries/Util.php:4134 libraries/config/messages.inc.php:257
 #: libraries/display_import.lib.php:107
-#: libraries/server_status_monitor.lib.php:313 prefs_manage.php:246
+#: libraries/server_status_monitor.lib.php:316 prefs_manage.php:246
 #: setup/frames/menu.inc.php:26
 msgid "Import"
 msgstr "Nhập"
@@ -1685,7 +1685,7 @@ msgid "Apply"
 msgstr "Áp dụng"
 
 #: js/messages.php:361 libraries/navigation/NavigationHeader.php:60
-#: libraries/server_status_monitor.lib.php:119
+#: libraries/server_status_monitor.lib.php:122
 msgid "Loading…"
 msgstr "Đang tải…"
 
@@ -1715,21 +1715,27 @@ msgstr "Mã lỗi sai: %s"
 msgid "Error text: %s"
 msgstr "Chuỗi lỗi: %s"
 
-#: js/messages.php:368
+#: js/messages.php:369
+msgid ""
+"It seems that the connection to server has been lost. Please check your "
+"network connectivity and server status."
+msgstr ""
+
+#: js/messages.php:372
 #: libraries/controllers/server/ServerDatabasesController.php:194
 #: libraries/db_common.inc.php:69 libraries/db_table_exists.inc.php:32
 msgid "No databases selected."
 msgstr "Chưa chọn cơ sở dữ liệu."
 
-#: js/messages.php:369
+#: js/messages.php:373
 msgid "Dropping column"
 msgstr "Xóa cột"
 
-#: js/messages.php:370
+#: js/messages.php:374
 msgid "Adding primary key"
 msgstr "Thêm khóa chính"
 
-#: js/messages.php:371
+#: js/messages.php:375
 #: templates/database/designer/aggregate_query_panel.phtml:59
 #: templates/database/designer/having_query_panel.phtml:113
 #: templates/database/designer/new_relation_panel.phtml:87
@@ -1739,118 +1745,118 @@ msgstr "Thêm khóa chính"
 msgid "OK"
 msgstr "Tốt"
 
-#: js/messages.php:372
+#: js/messages.php:376
 msgid "Click to dismiss this notification"
 msgstr "Bấm chuột vào để bãi bỏ cảnh báo này"
 
-#: js/messages.php:375
+#: js/messages.php:379
 msgid "Renaming databases"
 msgstr "Đang đổi tên cơ sở dữ liệu"
 
-#: js/messages.php:376
+#: js/messages.php:380
 msgid "Copying database"
 msgstr "Đang chép cơ sở dữ liệu"
 
-#: js/messages.php:377
+#: js/messages.php:381
 msgid "Changing charset"
 msgstr "Đang đổi bảng mã"
 
-#: js/messages.php:381 libraries/Util.php:3081
+#: js/messages.php:385 libraries/Util.php:3082
 msgid "Enable foreign key checks"
 msgstr "Bật kiểm tra khóa ngoại"
 
-#: js/messages.php:384
+#: js/messages.php:388
 msgid "Failed to get real row count."
 msgstr "Gặp lỗi khi lấy số lượng hàng thực tế."
 
-#: js/messages.php:387
+#: js/messages.php:391
 msgid "Searching"
 msgstr "Đang tìm kiếm"
 
-#: js/messages.php:388
+#: js/messages.php:392
 msgid "Hide search results"
 msgstr "Ẩn kết quả tìm kiếm"
 
-#: js/messages.php:389
+#: js/messages.php:393
 msgid "Show search results"
 msgstr "Hiển thị kết quả tìm kiếm"
 
-#: js/messages.php:390
+#: js/messages.php:394
 msgid "Browsing"
 msgstr "Đang duyệt"
 
-#: js/messages.php:391
+#: js/messages.php:395
 msgid "Deleting"
 msgstr "Đang xóa"
 
-#: js/messages.php:392
+#: js/messages.php:396
 #, php-format
 msgid "Delete the matches for the %s table?"
 msgstr "Xóa những cái khớp cho bảng %s không?"
 
-#: js/messages.php:396
+#: js/messages.php:400
 msgid "The definition of a stored function must contain a RETURN statement!"
 msgstr "Định nghĩa hàm lưu trữ phải có chứa lệnh RETURN!"
 
-#: js/messages.php:397 libraries/DisplayResults.php:4868
-#: libraries/DisplayResults.php:5151 libraries/Menu.php:357
-#: libraries/Menu.php:458 libraries/Menu.php:584 libraries/Util.php:3485
-#: libraries/Util.php:3486 libraries/Util.php:4100 libraries/Util.php:4115
-#: libraries/Util.php:4132 libraries/config/messages.inc.php:251
+#: js/messages.php:401 libraries/DisplayResults.php:4884
+#: libraries/DisplayResults.php:5167 libraries/Menu.php:357
+#: libraries/Menu.php:458 libraries/Menu.php:584 libraries/Util.php:3486
+#: libraries/Util.php:3487 libraries/Util.php:4101 libraries/Util.php:4116
+#: libraries/Util.php:4133 libraries/config/messages.inc.php:251
 #: libraries/display_export.lib.php:172 libraries/rte/rte_list.lib.php:159
 #: libraries/server_privileges.lib.php:2366
 #: libraries/server_privileges.lib.php:2450
 #: libraries/server_privileges.lib.php:2794
 #: libraries/server_privileges.lib.php:3521
-#: libraries/server_status_monitor.lib.php:317 prefs_manage.php:312
+#: libraries/server_status_monitor.lib.php:320 prefs_manage.php:312
 #: setup/frames/menu.inc.php:27
 #: templates/database/structure/check_all_tables.phtml:12
 msgid "Export"
 msgstr "Xuất"
 
-#: js/messages.php:399
+#: js/messages.php:403
 msgid "No routine is exportable. Required privileges may be lacking."
 msgstr ""
 
-#: js/messages.php:402 libraries/rte/rte_routines.lib.php:747
+#: js/messages.php:406 libraries/rte/rte_routines.lib.php:747
 msgid "ENUM/SET editor"
 msgstr "Bộ sửa ENUM/SET"
 
-#: js/messages.php:403
+#: js/messages.php:407
 #, php-format
 msgid "Values for column %s"
 msgstr "Giá trị cho cột %s"
 
-#: js/messages.php:404
+#: js/messages.php:408
 msgid "Values for a new column"
 msgstr "Giá trị cho cho cột mới"
 
-#: js/messages.php:405
+#: js/messages.php:409
 msgid "Enter each value in a separate field."
 msgstr "Nhập vào từng giá trị trong một trường ngăn cách."
 
-#: js/messages.php:406
+#: js/messages.php:410
 #, php-format
 msgid "Add %d value(s)"
 msgstr "Thêm %d giá trị"
 
-#: js/messages.php:410
+#: js/messages.php:414
 msgid ""
 "Note: If the file contains multiple tables, they will be combined into one."
 msgstr "Chú ý: Nếu tập tin chứa nhiều bảng, chũng sẽ được tổ hợp thành một."
 
-#: js/messages.php:414
+#: js/messages.php:418
 msgid "Hide query box"
 msgstr "Ẩn hộp truy vấn"
 
-#: js/messages.php:415
+#: js/messages.php:419
 msgid "Show query box"
 msgstr "Hiện hộp truy vấn"
 
-#: js/messages.php:416 libraries/DisplayResults.php:3489
-#: libraries/DisplayResults.php:4852 libraries/Index.php:709
-#: libraries/Util.php:619 libraries/Util.php:1105 libraries/Util.php:3483
-#: libraries/Util.php:3484 libraries/central_columns.lib.php:848
+#: js/messages.php:420 libraries/DisplayResults.php:3501
+#: libraries/DisplayResults.php:4868 libraries/Index.php:709
+#: libraries/Util.php:619 libraries/Util.php:1105 libraries/Util.php:3484
+#: libraries/Util.php:3485 libraries/central_columns.lib.php:848
 #: libraries/central_columns.lib.php:1195 libraries/config/messages.inc.php:879
 #: libraries/server_user_groups.lib.php:117 setup/frames/index.inc.php:160
 #: templates/console/bookmark_content.phtml:17
@@ -1860,8 +1866,8 @@ msgstr "Hiện hộp truy vấn"
 msgid "Edit"
 msgstr "Sửa"
 
-#: js/messages.php:417 libraries/DbSearch.php:353
-#: libraries/DisplayResults.php:3558 libraries/DisplayResults.php:4836
+#: js/messages.php:421 libraries/DbSearch.php:353
+#: libraries/DisplayResults.php:3570 libraries/DisplayResults.php:4852
 #: libraries/central_columns.lib.php:850 libraries/central_columns.lib.php:1199
 #: libraries/display_export.lib.php:227
 #: libraries/server_user_groups.lib.php:127
@@ -1871,41 +1877,41 @@ msgstr "Sửa"
 msgid "Delete"
 msgstr "Xóa bỏ"
 
-#: js/messages.php:418 libraries/DisplayResults.php:925
+#: js/messages.php:422 libraries/DisplayResults.php:925
 #: libraries/DisplayResults.php:933
 #, php-format
 msgid "%d is not valid row number."
 msgstr "%d không phải là số hàng hợp lệ."
 
-#: js/messages.php:419
+#: js/messages.php:423
 #: libraries/controllers/table/TableSearchController.php:357
 #: libraries/controllers/table/TableSearchController.php:844
 #: libraries/sql.lib.php:195 tbl_change.php:151
 msgid "Browse foreign values"
 msgstr "Duyệt giá trị khóa ngoại"
 
-#: js/messages.php:420
+#: js/messages.php:424
 msgid "No auto-saved query"
 msgstr "Không có truy vấn tự-ghi"
 
-#: js/messages.php:421
+#: js/messages.php:425
 #, php-format
 msgid "Variable %d:"
 msgstr "Biến %d:"
 
-#: js/messages.php:424 libraries/normalization.lib.php:884
+#: js/messages.php:428 libraries/normalization.lib.php:884
 msgid "Pick"
 msgstr "Chọn"
 
-#: js/messages.php:425
+#: js/messages.php:429
 msgid "Column selector"
 msgstr "Bộ chọn cột"
 
-#: js/messages.php:426
+#: js/messages.php:430
 msgid "Search this list"
 msgstr "Tìm kiếm danh sách này"
 
-#: js/messages.php:428
+#: js/messages.php:432
 #, php-format
 msgid ""
 "No columns in the central list. Make sure the Central columns list for "
@@ -1915,15 +1921,15 @@ msgstr ""
 "cột trung tâm cho cơ sở dữ liệu %s có các cột mà không hiện diện trong bảng "
 "hiện tại."
 
-#: js/messages.php:431
+#: js/messages.php:435
 msgid "See more"
 msgstr "Xem thêm"
 
-#: js/messages.php:432
+#: js/messages.php:436
 msgid "Are you sure?"
 msgstr "Bạn có chắc không?"
 
-#: js/messages.php:434
+#: js/messages.php:438
 msgid ""
 "This action may change some of the columns definition.<br/>Are you sure you "
 "want to continue?"
@@ -1931,51 +1937,51 @@ msgstr ""
 "Thao tác này có thể thay đổi một số định nghĩa các cột.<br/>Bạn có chắc muốn "
 "tiếp tục không?"
 
-#: js/messages.php:437
+#: js/messages.php:441
 msgid "Continue"
 msgstr "Tiếp tục"
 
-#: js/messages.php:440
+#: js/messages.php:444
 msgid "Add primary key"
 msgstr "Thêm khóa chính"
 
-#: js/messages.php:441
+#: js/messages.php:445
 msgid "Primary key added."
 msgstr "Đã thêm khóa chính."
 
-#: js/messages.php:442 libraries/normalization.lib.php:189
+#: js/messages.php:446 libraries/normalization.lib.php:189
 msgid "Taking you to next step…"
 msgstr "Đưa bạn đến bước kế tiếp…"
 
-#: js/messages.php:444
+#: js/messages.php:448
 #, php-format
 msgid "The first step of normalization is complete for table '%s'."
 msgstr "Bước đầu của việc tiêu chuẩn hóa là đủ cho bảng '%s'."
 
-#: js/messages.php:445 libraries/normalization.lib.php:450
+#: js/messages.php:449 libraries/normalization.lib.php:450
 #: libraries/normalization.lib.php:497 libraries/normalization.lib.php:582
 #: libraries/normalization.lib.php:642
 msgid "End of step"
 msgstr "Bước cuối"
 
-#: js/messages.php:446
+#: js/messages.php:450
 msgid "Second step of normalization (2NF)"
 msgstr "Bước thứ hai của việc tiêu chuẩn hóa (2NF)"
 
 #. l10n: Display text for calendar close link
-#: js/messages.php:447 js/messages.php:765 libraries/normalization.lib.php:286
+#: js/messages.php:451 js/messages.php:769 libraries/normalization.lib.php:286
 msgid "Done"
 msgstr "Xong"
 
-#: js/messages.php:448
+#: js/messages.php:452
 msgid "Confirm partial dependencies"
 msgstr "Xác nhận các phần phục thuộc một phần"
 
-#: js/messages.php:449
+#: js/messages.php:453
 msgid "Selected partial dependencies are as follows:"
 msgstr "Chọn các phần phục thuộc một phần được hiển thị ở dưới đây:"
 
-#: js/messages.php:451
+#: js/messages.php:455
 msgid ""
 "Note: a, b -> d,f implies values of columns a and b combined together can "
 "determine values of column d and column f."
@@ -1983,59 +1989,59 @@ msgstr ""
 "Chú ý: a, b -> d,f ngầm ý là giá trị của các cột a và biến kết hợp cùng nhau "
 "có thể xác định các giá trị của cột d và cột f."
 
-#: js/messages.php:454
+#: js/messages.php:458
 msgid "No partial dependencies selected!"
 msgstr "Chưa chọn cơ sở dữ liệu."
 
-#: js/messages.php:457
+#: js/messages.php:461
 msgid "Show me the possible partial dependencies based on data in the table"
 msgstr ""
 "Hiển thị cho tôi xem các phần phụ thuộc một phần trên dữ liệu trong bảng"
 
-#: js/messages.php:458
+#: js/messages.php:462
 msgid "Hide partial dependencies list"
 msgstr "Ẩn danh sách các phần phục thuộc một phần"
 
-#: js/messages.php:460
+#: js/messages.php:464
 msgid ""
 "Sit tight! It may take few seconds depending on data size and column count "
 "of the table."
 msgstr ""
 
-#: js/messages.php:463
+#: js/messages.php:467
 msgid "Step"
 msgstr "Bước"
 
-#: js/messages.php:465
+#: js/messages.php:469
 msgid "The following actions will be performed:"
 msgstr "Những thao tác sau đây sẽ được thực hiện:"
 
-#: js/messages.php:466
+#: js/messages.php:470
 #, php-format
 msgid "DROP columns %s from the table %s"
 msgstr "DROP cột %s từ bảng %s"
 
-#: js/messages.php:467
+#: js/messages.php:471
 msgid "Create the following table"
 msgstr "Tạo ra bảng sau đây"
 
-#: js/messages.php:470
+#: js/messages.php:474
 msgid "Third step of normalization (3NF)"
 msgstr "Bước thứ ba của việc tiêu chuẩn hóa (3NF)"
 
-#: js/messages.php:471
+#: js/messages.php:475
 msgid "Confirm transitive dependencies"
 msgstr ""
 
-#: js/messages.php:472
+#: js/messages.php:476
 msgid "Selected dependencies are as follows:"
 msgstr ""
 
-#: js/messages.php:473
+#: js/messages.php:477
 msgid "No dependencies selected!"
 msgstr "Chưa chọn ô điều khiển."
 
-#: js/messages.php:476 libraries/central_columns.lib.php:1215
+#: js/messages.php:480 libraries/central_columns.lib.php:1215
 #: libraries/insert_edit.lib.php:1527
 #: templates/columns_definitions/column_definitions_form.phtml:166
 #: templates/server/variables/link_template.phtml:2
@@ -2045,134 +2051,134 @@ msgstr "Chưa chọn ô điều khiển."
 msgid "Save"
 msgstr "Ghi lại"
 
-#: js/messages.php:479
+#: js/messages.php:483
 msgid "Hide search criteria"
 msgstr "Ẩn kết quả tìm kiếm"
 
-#: js/messages.php:480
+#: js/messages.php:484
 msgid "Show search criteria"
 msgstr "Hiển thị kết quả tìm kiếm"
 
-#: js/messages.php:481
+#: js/messages.php:485
 msgid "Range search"
 msgstr "Vùng tìm kiếm"
 
-#: js/messages.php:482
+#: js/messages.php:486
 msgid "Column maximum:"
 msgstr "Giá trị tối đa"
 
-#: js/messages.php:483
+#: js/messages.php:487
 msgid "Column minimum:"
 msgstr "Chiều cao nhỏ nhất"
 
-#: js/messages.php:484
+#: js/messages.php:488
 msgid "Minimum value:"
 msgstr "Giá trị tối thiểu"
 
-#: js/messages.php:485
+#: js/messages.php:489
 msgid "Maximum value:"
 msgstr "Giá trị tối đa"
 
-#: js/messages.php:488
+#: js/messages.php:492
 msgid "Hide find and replace criteria"
 msgstr "Ẩn kết quả tìm kiếm"
 
-#: js/messages.php:489
+#: js/messages.php:493
 msgid "Show find and replace criteria"
 msgstr "Hiển thị hộp thoại tìm kiếm."
 
-#: js/messages.php:493
+#: js/messages.php:497
 msgid "Each point represents a data row."
 msgstr "Mỗi điểm biểu diễn một dòng dữ liệu."
 
-#: js/messages.php:495
+#: js/messages.php:499
 msgid "Hovering over a point will show its label."
 msgstr "Di chuột lên trên một điểm sẽ hiển thị nhãn của nó."
 
-#: js/messages.php:497
+#: js/messages.php:501
 msgid "To zoom in, select a section of the plot with the mouse."
 msgstr "Để phóng to, chọn một vùng của biểu đồ bằng chuột."
 
-#: js/messages.php:499
+#: js/messages.php:503
 msgid "Click reset zoom button to come back to original state."
 msgstr "Bấm chuột vào nút đặt lại phóng to để trở lại trạng thái ban đầu."
 
-#: js/messages.php:501
+#: js/messages.php:505
 msgid "Click a data point to view and possibly edit the data row."
 msgstr "Bấm vào điểm dữ liệu để xem và gần như chắc là sửa dòng dữ liệu."
 
-#: js/messages.php:503
+#: js/messages.php:507
 msgid "The plot can be resized by dragging it along the bottom right corner."
 msgstr "Biểu đồ có thể được thay đổi cỡ bằng cách kéo nó ở góc phải dưới."
 
-#: js/messages.php:506
+#: js/messages.php:510
 msgid "Select two columns"
 msgstr "Chọn hai cột"
 
-#: js/messages.php:508
+#: js/messages.php:512
 msgid "Select two different columns"
 msgstr "Phải chọn hai cột khác nhau"
 
-#: js/messages.php:510
+#: js/messages.php:514
 msgid "Data point content"
 msgstr "bài tóm tắt diễn tả nội dung của dữ liệu này"
 
-#: js/messages.php:513 js/messages.php:679 js/messages.php:696
+#: js/messages.php:517 js/messages.php:683 js/messages.php:700
 #: libraries/ErrorHandler.php:370 libraries/insert_edit.lib.php:2648
 #: templates/table/index_form.phtml:154 templates/table/index_form.phtml:198
 msgid "Ignore"
 msgstr "Bỏ qua"
 
-#: js/messages.php:514 libraries/DisplayResults.php:3492
-#: libraries/DisplayResults.php:4857
+#: js/messages.php:518 libraries/DisplayResults.php:3504
+#: libraries/DisplayResults.php:4873
 msgid "Copy"
 msgstr "Chép"
 
-#: js/messages.php:517
+#: js/messages.php:521
 msgid "Point"
 msgstr "Điểm"
 
-#: js/messages.php:519
+#: js/messages.php:523
 msgid "Linestring"
 msgstr "Chuỗi-dòng"
 
-#: js/messages.php:520
+#: js/messages.php:524
 msgid "Polygon"
 msgstr "Hình đa giác"
 
-#: js/messages.php:521 libraries/DisplayResults.php:1795
+#: js/messages.php:525 libraries/DisplayResults.php:1797
 msgid "Geometry"
 msgstr "Hình dạng"
 
-#: js/messages.php:522
+#: js/messages.php:526
 msgid "Inner ring"
 msgstr "Vòng trong"
 
-#: js/messages.php:523
+#: js/messages.php:527
 msgid "Outer ring"
 msgstr "Vòng ngoài"
 
-#: js/messages.php:527
+#: js/messages.php:531
 msgid "Do you want to copy encryption key?"
 msgstr "Bạn có thực sự muốn chép khóa mã hóa?"
 
-#: js/messages.php:528
+#: js/messages.php:532
 msgid "Encryption key"
 msgstr "Khóa mã hóa"
 
-#: js/messages.php:532
+#: js/messages.php:536
 msgid ""
 "MySQL accepts additional values not selectable by the slider; key in those "
 "values directly if desired"
 msgstr ""
 
-#: js/messages.php:538
+#: js/messages.php:542
 msgid ""
 "MySQL accepts additional values not selectable by the datepicker; key in "
 "those values directly if desired"
 msgstr ""
 
-#: js/messages.php:544
+#: js/messages.php:548
 msgid ""
 "Indicates that you have made changes to this page; you will be prompted for "
 "confirmation before abandoning changes"
@@ -2180,24 +2186,24 @@ msgstr ""
 "Thấy rằng bạn đã thay đổi trang này; bạn sẽ được nhắc xác nhận trước khi bỏ "
 "phí những thay đổi"
 
-#: js/messages.php:549
+#: js/messages.php:553
 msgid "Select referenced key"
 msgstr "Chọn Khóa tham chiếu"
 
-#: js/messages.php:550
+#: js/messages.php:554
 msgid "Select Foreign Key"
 msgstr "Chọn Khóa Ngoại"
 
-#: js/messages.php:552
+#: js/messages.php:556
 msgid "Please select the primary key or a unique key!"
 msgstr "Vui lòng chọn khóa chính hoặc một khóa có giá trị độc nhất!"
 
-#: js/messages.php:553 templates/database/designer/side_menu.phtml:91
+#: js/messages.php:557 templates/database/designer/side_menu.phtml:91
 #: templates/database/designer/side_menu.phtml:94
 msgid "Choose column to display"
 msgstr "Chọn cột bạn muốn hiển thị"
 
-#: js/messages.php:555
+#: js/messages.php:559
 msgid ""
 "You haven't saved the changes in the layout. They will be lost if you don't "
 "save them. Do you want to continue?"
@@ -2205,76 +2211,76 @@ msgstr ""
 "Bạn chưa lưu các thay đổi trong bố cục. Chúng sẽ mất nếu bạn không lưu lại. "
 "Bạn vẫn muốn tiếp tục chứ?"
 
-#: js/messages.php:558
+#: js/messages.php:562
 msgid "Page name"
 msgstr "Tên trang"
 
-#: js/messages.php:559 templates/database/designer/side_menu.phtml:56
+#: js/messages.php:563 templates/database/designer/side_menu.phtml:56
 #: templates/database/designer/side_menu.phtml:59
 msgid "Save page"
 msgstr "Ghi lại trang"
 
-#: js/messages.php:560 templates/database/designer/side_menu.phtml:63
+#: js/messages.php:564 templates/database/designer/side_menu.phtml:63
 #: templates/database/designer/side_menu.phtml:66
 msgid "Save page as"
 msgstr "Ghi trang bằng tên mới"
 
-#: js/messages.php:561 templates/database/designer/side_menu.phtml:49
+#: js/messages.php:565 templates/database/designer/side_menu.phtml:49
 #: templates/database/designer/side_menu.phtml:52
 msgid "Open page"
 msgstr "Mở trang"
 
-#: js/messages.php:562
+#: js/messages.php:566
 msgid "Delete page"
 msgstr "Xóa trang"
 
-#: js/messages.php:563 templates/database/designer/side_menu.phtml:10
+#: js/messages.php:567 templates/database/designer/side_menu.phtml:10
 msgid "Untitled"
 msgstr "Chưa đặt tên"
 
-#: js/messages.php:564
+#: js/messages.php:568
 msgid "Please select a page to continue"
 msgstr "Xin hãy chọn trang bạn muốn hiển thị:"
 
-#: js/messages.php:565
+#: js/messages.php:569
 msgid "Please enter a valid page name"
 msgstr "Vui lòng nhập vào tên trang hợp lệ"
 
-#: js/messages.php:567
+#: js/messages.php:571
 msgid "Do you want to save the changes to the current page?"
 msgstr "Bạn có thực sự muốn lưu các thay đổi vào trang hiện tại không?"
 
-#: js/messages.php:568
+#: js/messages.php:572
 msgid "Successfully deleted the page"
 msgstr "Trang đã được xóa thành công"
 
-#: js/messages.php:569
+#: js/messages.php:573
 msgid "Export relational schema"
 msgstr "Lược đồ quan hệ"
 
-#: js/messages.php:570
+#: js/messages.php:574
 msgid "Modifications have been saved"
 msgstr "Các thay đổi đã được ghi lại"
 
-#: js/messages.php:573
+#: js/messages.php:577
 #, php-format
 msgid "Add an option for column \"%s\"."
 msgstr "Thêm tùy-chọn cho cột \"%s\"."
 
-#: js/messages.php:574
+#: js/messages.php:578
 #, php-format
 msgid "%d object(s) created."
 msgstr "%d đối tượng đã được tạo."
 
-#: js/messages.php:575 libraries/sql_query_form.lib.php:414
+#: js/messages.php:579 libraries/sql_query_form.lib.php:414
 msgid "Submit"
 msgstr "Gửi"
 
-#: js/messages.php:578
+#: js/messages.php:582
 msgid "Press escape to cancel editing."
 msgstr "Nhấn vào Esc để hủy sửa chữa."
 
-#: js/messages.php:580
+#: js/messages.php:584
 msgid ""
 "You have edited some data and they have not been saved. Are you sure you "
 "want to leave this page before saving the data?"
@@ -2282,15 +2288,15 @@ msgstr ""
 "Bạn đã sửa một số dữ liệu và chúng chưa được lưu lại. Bạn có thực sự muốn "
 "rời trang này trước khi ghi lại dữ liệu hay không?"
 
-#: js/messages.php:583
+#: js/messages.php:587
 msgid "Drag to reorder."
 msgstr "Kéo thả để thay đổi thứ tự."
 
-#: js/messages.php:584
+#: js/messages.php:588
 msgid "Click to sort results by this column."
 msgstr "Bấm để sắp xếp kết quả theo cột này."
 
-#: js/messages.php:586
+#: js/messages.php:590
 msgid ""
 "Shift+Click to add this column to ORDER BY clause or to toggle ASC/DESC.<br /"
 ">- Ctrl+Click or Alt+Click (Mac: Shift+Option+Click) to remove column from "
@@ -2300,26 +2306,26 @@ msgstr ""
 "<br />- Ctrl+Click hay Alt+Click (Mac: Shift+Option+Click) để xóa cột khỏi "
 "mệnh đề ORDER BY"
 
-#: js/messages.php:590
+#: js/messages.php:594
 msgid "Click to mark/unmark."
 msgstr "Bấm chuột để đánh/bỏ đánh dấu"
 
-#: js/messages.php:591
+#: js/messages.php:595
 msgid "Double-click to copy column name."
 msgstr "Bấm đúp chuột để sao chép tên cột"
 
-#: js/messages.php:593
+#: js/messages.php:597
 msgid "Click the drop-down arrow<br />to toggle column's visibility."
 msgstr "Bấm vào mũi tên chỉ xuống<br /> để bật/tắt tính khả kiến của cột."
 
-#: js/messages.php:595 libraries/DisplayResults.php:1032
+#: js/messages.php:599 libraries/DisplayResults.php:1032
 #: libraries/browse_foreigners.lib.php:283
 #: libraries/browse_foreigners.lib.php:336
 #: templates/privileges/initials_row.phtml:24
 msgid "Show all"
 msgstr "Hiện tất"
 
-#: js/messages.php:597
+#: js/messages.php:601
 msgid ""
 "This table does not contain a unique column. Features related to the grid "
 "edit, checkbox, Edit, Copy and Delete links may not work after saving."
@@ -2328,12 +2334,12 @@ msgstr ""
 "lưới, dấu kiểm, Sửa, Chép hay Xóa liên kết sẽ không hoạt động sau khi ghi "
 "lại."
 
-#: js/messages.php:601
+#: js/messages.php:605
 msgid "Please enter a valid hexadecimal string. Valid characters are 0-9, A-F."
 msgstr ""
 "Vui lòng nhập vào chuỗi thập lục phân hợp lệ. Các ký tự hợp lệ là 0-9, A-F."
 
-#: js/messages.php:603
+#: js/messages.php:607
 msgid ""
 "Do you really want to see all of the rows? For a big table this could crash "
 "the browser."
@@ -2341,103 +2347,103 @@ msgstr ""
 "Bạn có thực sự muốn xem tất cả các dòng? Với các bảng lớn, việc này có thể "
 "làm treo trình duyệt."
 
-#: js/messages.php:606
+#: js/messages.php:610
 msgid "Original length"
 msgstr "Chiều dài gốc"
 
-#: js/messages.php:609
+#: js/messages.php:613
 msgid "cancel"
 msgstr "thôi"
 
-#: js/messages.php:610 libraries/server_status.lib.php:277
+#: js/messages.php:614 libraries/server_status.lib.php:277
 msgid "Aborted"
 msgstr "Bị hủy bỏ"
 
-#: js/messages.php:612
+#: js/messages.php:616
 msgid "Success"
 msgstr "Thành công"
 
-#: js/messages.php:613
+#: js/messages.php:617
 msgid "Import status"
 msgstr "Trạng thái nhập vào"
 
-#: js/messages.php:614 libraries/navigation/Navigation.php:113
+#: js/messages.php:618 libraries/navigation/Navigation.php:113
 msgid "Drop files here"
 msgstr "Thả tập tin vào đây"
 
-#: js/messages.php:615
+#: js/messages.php:619
 msgid "Select database first"
 msgstr "Hãy chọn cơ sở dữ liệu trước"
 
-#: js/messages.php:618 libraries/DisplayResults.php:5043
-#: libraries/Util.php:3993
+#: js/messages.php:622 libraries/DisplayResults.php:5059
+#: libraries/Util.php:3994
 #: templates/database/structure/print_view_data_dictionary_link.phtml:3
 #: templates/table/structure/optional_action_links.phtml:6
 msgid "Print"
 msgstr "In"
 
-#: js/messages.php:625
+#: js/messages.php:629
 msgid "You can also edit most values<br />by double-clicking directly on them."
 msgstr ""
 "Bạn cũng có thể sửa phần lớn các giá trị<br />bằng cách bấm đúp chuột trực "
 "tiếp vào chúng."
 
-#: js/messages.php:630
+#: js/messages.php:634
 msgid "You can also edit most values<br />by clicking directly on them."
 msgstr ""
 "Bạn cũng có thể sửa phần lớn các giá trị<br />bằng cách bấm chuột trực tiếp "
 "vào chúng."
 
-#: js/messages.php:636
+#: js/messages.php:640
 msgid "Go to link:"
 msgstr "Nhảy đến liên kết:"
 
-#: js/messages.php:637
+#: js/messages.php:641
 msgid "Copy column name."
 msgstr "Chép tên cột."
 
-#: js/messages.php:639
+#: js/messages.php:643
 msgid "Right-click the column name to copy it to your clipboard."
 msgstr "Bấm chuột phải vào tên cột để chép nó vào clipboard của bạn."
 
-#: js/messages.php:642
+#: js/messages.php:646
 msgid "Generate password"
 msgstr "Tạo mật khẩu"
 
-#: js/messages.php:643 libraries/replication_gui.lib.php:877
+#: js/messages.php:647 libraries/replication_gui.lib.php:877
 msgid "Generate"
 msgstr "Tạo"
 
-#: js/messages.php:647
+#: js/messages.php:651
 msgid "More"
 msgstr "Thêm"
 
-#: js/messages.php:650
+#: js/messages.php:654
 msgid "Show panel"
 msgstr "Hiển thị bảng điều khiển"
 
-#: js/messages.php:651
+#: js/messages.php:655
 msgid "Hide panel"
 msgstr "Ẩn bảng điều khiển"
 
-#: js/messages.php:652
+#: js/messages.php:656
 msgid "Show hidden navigation tree items."
 msgstr "Hiển thị các mục ẩn cây điều hướng."
 
-#: js/messages.php:653 libraries/config/messages.inc.php:473
+#: js/messages.php:657 libraries/config/messages.inc.php:473
 #: libraries/navigation/NavigationTree.php:1431
 msgid "Link with main panel"
 msgstr "Liên kết với bảng điều khiển chính"
 
-#: js/messages.php:654 libraries/navigation/NavigationTree.php:1434
+#: js/messages.php:658 libraries/navigation/NavigationTree.php:1434
 msgid "Unlink from main panel"
 msgstr "Bỏ liên kết với bảng điều khiển chính"
 
-#: js/messages.php:658
+#: js/messages.php:662
 msgid "The requested page was not found in the history, it may have expired."
 msgstr "Trang đã yêu cầu không tìm thấy trong lịch sử, nó có lẽ đã hết hạn."
 
-#: js/messages.php:662 setup/lib/index.lib.php:165
+#: js/messages.php:666 setup/lib/index.lib.php:165
 #, php-format
 msgid ""
 "A newer version of phpMyAdmin is available and you should consider "
@@ -2447,49 +2453,49 @@ msgstr ""
 "bản mới nhất là %s, phát hành vào %s."
 
 #. l10n: Latest available phpMyAdmin version
-#: js/messages.php:666
+#: js/messages.php:670
 msgid ", latest stable version:"
 msgstr ", phiên bản ổn định mới nhất:"
 
-#: js/messages.php:667
+#: js/messages.php:671
 msgid "up to date"
 msgstr "đã cập nhật"
 
-#: js/messages.php:669 libraries/DisplayResults.php:4974 view_create.php:206
+#: js/messages.php:673 libraries/DisplayResults.php:4990 view_create.php:206
 msgid "Create view"
 msgstr "Tạo view"
 
-#: js/messages.php:672
+#: js/messages.php:676
 msgid "Send error report"
 msgstr "Gửi báo cáo lỗi"
 
-#: js/messages.php:673
+#: js/messages.php:677
 msgid "Submit error report"
 msgstr "Gửi báo cáo lỗi"
 
-#: js/messages.php:675
+#: js/messages.php:679
 msgid ""
 "A fatal JavaScript error has occurred. Would you like to send an error "
 "report?"
 msgstr ""
 "Có lỗi JavaScript nghiêm trọng đã xảy ra. Bạn có muốn gửi báo cáo lỗi không?"
 
-#: js/messages.php:677
+#: js/messages.php:681
 msgid "Change report settings"
 msgstr "Thay đổi các cài đặt báo cáo"
 
-#: js/messages.php:678
+#: js/messages.php:682
 msgid "Show report details"
 msgstr "Hiển thị chi tiết báo cáo"
 
-#: js/messages.php:681
+#: js/messages.php:685
 msgid ""
 "Your export is incomplete, due to a low execution time limit at the PHP "
 "level!"
 msgstr ""
 "Việc xuất của bạn chưa hoàn tất, bởi vì giới hạn thực thi thấp ở mức PHP!"
 
-#: js/messages.php:685
+#: js/messages.php:689
 #, php-format
 msgid ""
 "Warning: a form on this page has more than %d fields. On submission, some of "
@@ -2498,59 +2504,59 @@ msgstr ""
 "Cảnh báo: mẫu đơn trên trang này có nhiều hơn %d trường. Khi được gửi đi, "
 "một số trường có thể bị bỏ qua, bởi vì phần cấu hình max_input_vars của PHP."
 
-#: js/messages.php:691 js/messages.php:704
+#: js/messages.php:695 js/messages.php:708
 msgid "Some errors have been detected on the server!"
 msgstr "Một số lỗi đã thấy trên máy phục vụ!"
 
-#: js/messages.php:693
+#: js/messages.php:697
 msgid "Please look at the bottom of this window."
 msgstr "Vui lòng xem ở phần dưới của cửa sổ này."
 
-#: js/messages.php:699 libraries/ErrorHandler.php:374
+#: js/messages.php:703 libraries/ErrorHandler.php:374
 msgid "Ignore All"
 msgstr "Bỏ qua tất"
 
-#: js/messages.php:707
+#: js/messages.php:711
 msgid ""
 "As per your settings, they are being submitted currently, please be patient."
 msgstr ""
 "Với mỗi cài đặt của bạn, chúng hiện đang được gửi đi, vui lòng nhẫn nại."
 
-#: js/messages.php:717
+#: js/messages.php:721
 msgid "Execute this query again?"
 msgstr "Thực hiện truy vấn này lần nữa?"
 
-#: js/messages.php:719
+#: js/messages.php:723
 msgid "Do you really want to delete this bookmark?"
 msgstr "Bạn có thực sự muốn xóa đánh dấu này?"
 
-#: js/messages.php:721
+#: js/messages.php:725
 msgid "Some error occurred while getting SQL debug info."
 msgstr "Đã có một số lỗi xảy ra khi lấy thông tin gỡ lỗi SQL."
 
-#: js/messages.php:723
+#: js/messages.php:727
 #, php-format
 msgid "%s queries executed %s times in %s seconds."
 msgstr "các truy vấn %s thực thi %s lần trong %s giây."
 
-#: js/messages.php:724
+#: js/messages.php:728
 #, php-format
 msgid "%s argument(s) passed"
 msgstr "đã chuyển qua %s tham số"
 
-#: js/messages.php:725
+#: js/messages.php:729
 msgid "Show arguments"
 msgstr "Hiển thị các đối số"
 
-#: js/messages.php:726
+#: js/messages.php:730
 msgid "Hide arguments"
 msgstr "Ẩn các đối số"
 
-#: js/messages.php:727
+#: js/messages.php:731
 msgid "Time taken:"
 msgstr "Thời gian cần:"
 
-#: js/messages.php:728
+#: js/messages.php:732
 msgid ""
 "There was a problem accessing your browser storage, some features may not "
 "work properly for you. It is likely that the browser doesn't support storage "
@@ -2559,424 +2565,424 @@ msgid ""
 "Safari, such problem is commonly caused by \"Private Mode Browsing\"."
 msgstr ""
 
-#: js/messages.php:730
+#: js/messages.php:734
 msgid "Copy tables to"
 msgstr "Chép các bảng sang"
 
-#: js/messages.php:731
+#: js/messages.php:735
 #, fuzzy
 #| msgid "Add table prefix:"
 msgid "Add table prefix"
 msgstr "Thêm tiền tố cho bảng:"
 
-#: js/messages.php:732
+#: js/messages.php:736
 #, fuzzy
 #| msgid "Replace table prefix"
 msgid "Replace table with prefix"
 msgstr "Thêm tiền tố cho bảng"
 
-#: js/messages.php:733 templates/database/structure/check_all_tables.phtml:29
+#: js/messages.php:737 templates/database/structure/check_all_tables.phtml:29
 msgid "Copy table with prefix"
 msgstr "Chép bảng với tiền tố"
 
-#: js/messages.php:736
+#: js/messages.php:740
 msgid "Extremely weak"
 msgstr ""
 
-#: js/messages.php:737
+#: js/messages.php:741
 msgid "Very weak"
 msgstr ""
 
-#: js/messages.php:738
+#: js/messages.php:742
 msgid "Weak"
 msgstr ""
 
-#: js/messages.php:739
+#: js/messages.php:743
 msgid "Good"
 msgstr ""
 
-#: js/messages.php:740
+#: js/messages.php:744
 msgid "Strong"
 msgstr ""
 
-#: js/messages.php:769
+#: js/messages.php:773
 msgctxt "Previous month"
 msgid "Prev"
 msgstr "Trước"
 
-#: js/messages.php:774
+#: js/messages.php:778
 msgctxt "Next month"
 msgid "Next"
 msgstr "Tiếp theo"
 
 #. l10n: Display text for current month link in calendar
-#: js/messages.php:777
+#: js/messages.php:781
 msgid "Today"
 msgstr "Hôm nay"
 
-#: js/messages.php:781
+#: js/messages.php:785
 msgid "January"
 msgstr "Tháng giêng"
 
-#: js/messages.php:782
+#: js/messages.php:786
 msgid "February"
 msgstr "Tháng hai"
 
-#: js/messages.php:783
+#: js/messages.php:787
 msgid "March"
 msgstr "Tháng ba"
 
-#: js/messages.php:784
+#: js/messages.php:788
 msgid "April"
 msgstr "Tháng tư"
 
-#: js/messages.php:785
+#: js/messages.php:789
 msgid "May"
 msgstr "Tháng năm"
 
-#: js/messages.php:786
+#: js/messages.php:790
 msgid "June"
 msgstr "Tháng sáu"
 
-#: js/messages.php:787
+#: js/messages.php:791
 msgid "July"
 msgstr "Tháng bảy"
 
-#: js/messages.php:788
+#: js/messages.php:792
 msgid "August"
 msgstr "Tháng tám"
 
-#: js/messages.php:789
+#: js/messages.php:793
 msgid "September"
 msgstr "Tháng chín"
 
-#: js/messages.php:790
+#: js/messages.php:794
 msgid "October"
 msgstr "Tháng mười"
 
-#: js/messages.php:791
+#: js/messages.php:795
 msgid "November"
 msgstr "Tháng mười một"
 
-#: js/messages.php:792
+#: js/messages.php:796
 msgid "December"
 msgstr "Tháng mười hai"
 
 #. l10n: Short month name
-#: js/messages.php:799 libraries/Util.php:1525
+#: js/messages.php:803 libraries/Util.php:1525
 msgid "Jan"
 msgstr "Th1"
 
 #. l10n: Short month name
-#: js/messages.php:801 libraries/Util.php:1527
+#: js/messages.php:805 libraries/Util.php:1527
 msgid "Feb"
 msgstr "Th2"
 
 #. l10n: Short month name
-#: js/messages.php:803 libraries/Util.php:1529
+#: js/messages.php:807 libraries/Util.php:1529
 msgid "Mar"
 msgstr "Th3"
 
 #. l10n: Short month name
-#: js/messages.php:805 libraries/Util.php:1531
+#: js/messages.php:809 libraries/Util.php:1531
 msgid "Apr"
 msgstr "Th4"
 
 #. l10n: Short month name
-#: js/messages.php:807 libraries/Util.php:1533
+#: js/messages.php:811 libraries/Util.php:1533
 msgctxt "Short month name"
 msgid "May"
 msgstr "Th5"
 
 #. l10n: Short month name
-#: js/messages.php:809 libraries/Util.php:1535
+#: js/messages.php:813 libraries/Util.php:1535
 msgid "Jun"
 msgstr "Th6"
 
 #. l10n: Short month name
-#: js/messages.php:811 libraries/Util.php:1537
+#: js/messages.php:815 libraries/Util.php:1537
 msgid "Jul"
 msgstr "Th7"
 
 #. l10n: Short month name
-#: js/messages.php:813 libraries/Util.php:1539
+#: js/messages.php:817 libraries/Util.php:1539
 msgid "Aug"
 msgstr "Th8"
 
 #. l10n: Short month name
-#: js/messages.php:815 libraries/Util.php:1541
+#: js/messages.php:819 libraries/Util.php:1541
 msgid "Sep"
 msgstr "Th9"
 
 #. l10n: Short month name
-#: js/messages.php:817 libraries/Util.php:1543
+#: js/messages.php:821 libraries/Util.php:1543
 msgid "Oct"
 msgstr "Th10"
 
 #. l10n: Short month name
-#: js/messages.php:819 libraries/Util.php:1545
+#: js/messages.php:823 libraries/Util.php:1545
 msgid "Nov"
 msgstr "Th10"
 
 #. l10n: Short month name
-#: js/messages.php:821 libraries/Util.php:1547
+#: js/messages.php:825 libraries/Util.php:1547
 msgid "Dec"
 msgstr "Th12"
 
-#: js/messages.php:827
+#: js/messages.php:831
 msgid "Sunday"
 msgstr "Chủ nhật"
 
-#: js/messages.php:828
+#: js/messages.php:832
 msgid "Monday"
 msgstr "Thứ hai"
 
-#: js/messages.php:829
+#: js/messages.php:833
 msgid "Tuesday"
 msgstr "Thứ ba"
 
-#: js/messages.php:830
+#: js/messages.php:834
 msgid "Wednesday"
 msgstr "Thứ tư"
 
-#: js/messages.php:831
+#: js/messages.php:835
 msgid "Thursday"
 msgstr "Thứ năm"
 
-#: js/messages.php:832
+#: js/messages.php:836
 msgid "Friday"
 msgstr "Thứ sáu"
 
-#: js/messages.php:833
+#: js/messages.php:837
 msgid "Saturday"
 msgstr "Thứ bảy"
 
 #. l10n: Short week day name
-#: js/messages.php:840
+#: js/messages.php:844
 msgid "Sun"
 msgstr "CN"
 
 #. l10n: Short week day name
-#: js/messages.php:842 libraries/Util.php:1552
+#: js/messages.php:846 libraries/Util.php:1552
 msgid "Mon"
 msgstr "T2"
 
 #. l10n: Short week day name
-#: js/messages.php:844 libraries/Util.php:1554
+#: js/messages.php:848 libraries/Util.php:1554
 msgid "Tue"
 msgstr "T3"
 
 #. l10n: Short week day name
-#: js/messages.php:846 libraries/Util.php:1556
+#: js/messages.php:850 libraries/Util.php:1556
 msgid "Wed"
 msgstr "T4"
 
 #. l10n: Short week day name
-#: js/messages.php:848 libraries/Util.php:1558
+#: js/messages.php:852 libraries/Util.php:1558
 msgid "Thu"
 msgstr "T5"
 
 #. l10n: Short week day name
-#: js/messages.php:850 libraries/Util.php:1560
+#: js/messages.php:854 libraries/Util.php:1560
 msgid "Fri"
 msgstr "T6"
 
 #. l10n: Short week day name
-#: js/messages.php:852 libraries/Util.php:1562
+#: js/messages.php:856 libraries/Util.php:1562
 msgid "Sat"
 msgstr "T7"
 
 #. l10n: Minimal week day name
-#: js/messages.php:859
+#: js/messages.php:863
 msgid "Su"
 msgstr "CN"
 
 #. l10n: Minimal week day name
-#: js/messages.php:861
+#: js/messages.php:865
 msgid "Mo"
 msgstr "T2"
 
 #. l10n: Minimal week day name
-#: js/messages.php:863
+#: js/messages.php:867
 msgid "Tu"
 msgstr "T3"
 
 #. l10n: Minimal week day name
-#: js/messages.php:865
+#: js/messages.php:869
 msgid "We"
 msgstr "T4"
 
 #. l10n: Minimal week day name
-#: js/messages.php:867
+#: js/messages.php:871
 msgid "Th"
 msgstr "T5"
 
 #. l10n: Minimal week day name
-#: js/messages.php:869
+#: js/messages.php:873
 msgid "Fr"
 msgstr "T6"
 
 #. l10n: Minimal week day name
-#: js/messages.php:871
+#: js/messages.php:875
 msgid "Sa"
 msgstr "T7"
 
 #. l10n: Column header for week of the year in calendar
-#: js/messages.php:875
+#: js/messages.php:879
 msgid "Wk"
 msgstr "Tuần"
 
 #. l10n: Month-year order for calendar, use either "calendar-month-year"
 #. * or "calendar-year-month".
 #.
-#: js/messages.php:882
+#: js/messages.php:886
 msgid "calendar-month-year"
 msgstr "calendar-month-year"
 
 #. l10n: Year suffix for calendar, "none" is empty.
-#: js/messages.php:885
+#: js/messages.php:889
 msgctxt "Year suffix"
 msgid "none"
 msgstr "không"
 
-#: js/messages.php:897
+#: js/messages.php:901
 msgid "Hour"
 msgstr "Giờ"
 
-#: js/messages.php:898
+#: js/messages.php:902
 msgid "Minute"
 msgstr "Phút"
 
-#: js/messages.php:899
+#: js/messages.php:903
 msgid "Second"
 msgstr "Giây"
 
-#: js/messages.php:910
+#: js/messages.php:914
 msgid "This field is required"
 msgstr "Trường này là bắt buộc"
 
-#: js/messages.php:911
+#: js/messages.php:915
 msgid "Please fix this field"
 msgstr "Vui lòng sửa trường này"
 
-#: js/messages.php:912
+#: js/messages.php:916
 msgid "Please enter a valid email address"
 msgstr "Vui lòng nhập một địa chỉ thư hợp lệ"
 
-#: js/messages.php:913
+#: js/messages.php:917
 msgid "Please enter a valid URL"
 msgstr "Vui lòng nhập một địa chỉ URL hợp lệ"
 
-#: js/messages.php:914
+#: js/messages.php:918
 msgid "Please enter a valid date"
 msgstr "Vui lòng nhập ngày tháng hợp lệ"
 
-#: js/messages.php:917
+#: js/messages.php:921
 msgid "Please enter a valid date ( ISO )"
 msgstr "Vui lòng nhập ngày tháng hợp lệ ( ISO )"
 
-#: js/messages.php:919
+#: js/messages.php:923
 msgid "Please enter a valid number"
 msgstr "Vui lòng nhập con số hợp lệ"
 
-#: js/messages.php:922
+#: js/messages.php:926
 msgid "Please enter a valid credit card number"
 msgstr "Vui lòng nhập thẻ tín dụng hợp lệ"
 
-#: js/messages.php:924
+#: js/messages.php:928
 msgid "Please enter only digits"
 msgstr "Vui lòng chỉ nhập số"
 
-#: js/messages.php:927
+#: js/messages.php:931
 msgid "Please enter the same value again"
 msgstr "Vui lòng nhập lại giá trị đó một lần nữa"
 
-#: js/messages.php:931
+#: js/messages.php:935
 msgid "Please enter no more than {0} characters"
 msgstr "Vui lòng nhập vào nhiều hơn {0} ký tự"
 
-#: js/messages.php:936
+#: js/messages.php:940
 msgid "Please enter at least {0} characters"
 msgstr "Vui lòng nhập vào ít nhất {0} ký tự"
 
-#: js/messages.php:941
+#: js/messages.php:945
 msgid "Please enter a value between {0} and {1} characters long"
 msgstr "Vui lòng nhập vào một giá trị độ dài giữa {0} và {1} ký tự"
 
-#: js/messages.php:946
+#: js/messages.php:950
 msgid "Please enter a value between {0} and {1}"
 msgstr "Vui lòng nhập vào một giá trị giữa {0} và {1}"
 
-#: js/messages.php:951
+#: js/messages.php:955
 msgid "Please enter a value less than or equal to {0}"
 msgstr "Vui lòng nhập vào một giá trị nhỏ hơn hoặc bằng {0}"
 
-#: js/messages.php:956
+#: js/messages.php:960
 msgid "Please enter a value greater than or equal to {0}"
 msgstr "Vui lòng nhập vào một giá trị lớn hơn hoặc bằng {0}"
 
-#: js/messages.php:962
+#: js/messages.php:966
 msgid "Please enter a valid date or time"
 msgstr "Vui lòng nhập vào một ngày tháng hay thời gian hợp lệ"
 
-#: js/messages.php:967
+#: js/messages.php:971
 msgid "Please enter a valid HEX input"
 msgstr "Vui lòng nhập vào một HEX hợp lệ"
 
-#: js/messages.php:972 libraries/Message.php:190 libraries/Util.php:566
+#: js/messages.php:976 libraries/Message.php:190 libraries/Util.php:566
 #: libraries/core.lib.php:244 libraries/import.lib.php:80
 #: libraries/insert_edit.lib.php:1232 view_operations.php:78
 msgid "Error"
 msgstr "Lỗi"
 
-#: libraries/Advisor.php:163
+#: libraries/Advisor.php:164
 #, php-format
 msgid "PHP threw following error: %s"
 msgstr "PHP đã đưa ra lỗi sau đây: %s"
 
-#: libraries/Advisor.php:194
+#: libraries/Advisor.php:195
 #, php-format
 msgid "Failed evaluating precondition for rule '%s'."
 msgstr "Gặp lỗi khi chạy kiểm tra cho quy tắc “%s”."
 
-#: libraries/Advisor.php:211
+#: libraries/Advisor.php:212
 #, php-format
 msgid "Failed calculating value for rule '%s'."
 msgstr "Gặp lỗi khi chạy kiểm tra cho quy tắc “%s”."
 
-#: libraries/Advisor.php:230
+#: libraries/Advisor.php:231
 #, php-format
 msgid "Failed running test for rule '%s'."
 msgstr "Gặp lỗi khi chạy kiểm tra cho quy tắc “%s”."
 
-#: libraries/Advisor.php:310
+#: libraries/Advisor.php:311
 #, php-format
 msgid "Failed formatting string for rule '%s'."
 msgstr "Gặp lỗi khi định dạng chuỗi cho quy tắc “%s”."
 
-#: libraries/Advisor.php:486
+#: libraries/Advisor.php:503
 #, php-format
 msgid "Error in reading file: The file '%s' does not exist or is not readable!"
 msgstr ""
 
-#: libraries/Advisor.php:511
+#: libraries/Advisor.php:528
 #, php-format
 msgid ""
 "Invalid rule declaration on line %1$s, expected line %2$s of previous rule."
 msgstr ""
 "Quy tắc khai báo tại dòng %1$s không hợp lệ, cần dòng %2$s của quy tắc trước"
 
-#: libraries/Advisor.php:530
+#: libraries/Advisor.php:547
 #, php-format
 msgid "Invalid rule declaration on line %s."
 msgstr "Khai báo quy tắc không hợp lệ trên dòng %s."
 
-#: libraries/Advisor.php:538
+#: libraries/Advisor.php:555
 #, php-format
 msgid "Unexpected characters on line %s."
 msgstr "Gặp ký tự không cần trên dòng %s."
 
-#: libraries/Advisor.php:553
+#: libraries/Advisor.php:570
 #, php-format
 msgid "Unexpected character on line %1$s. Expected tab, but found \"%2$s\"."
 msgstr ""
@@ -3449,8 +3455,8 @@ msgstr "Thiếu tham số:"
 msgid "Connection for controluser as defined in your configuration failed."
 msgstr ""
 
-#: libraries/DbQbe.php:406 libraries/DisplayResults.php:2277
-#: libraries/DisplayResults.php:2283 libraries/config.values.php:69
+#: libraries/DbQbe.php:406 libraries/DisplayResults.php:2279
+#: libraries/DisplayResults.php:2285 libraries/config.values.php:69
 #: libraries/controllers/server/ServerDatabasesController.php:550
 #: libraries/operations.lib.php:787
 #: libraries/server_status_processes.lib.php:167
@@ -3460,8 +3466,8 @@ msgstr ""
 msgid "Ascending"
 msgstr "Tăng dần"
 
-#: libraries/DbQbe.php:409 libraries/DisplayResults.php:2273
-#: libraries/DisplayResults.php:2287 libraries/config.values.php:70
+#: libraries/DbQbe.php:409 libraries/DisplayResults.php:2275
+#: libraries/DisplayResults.php:2289 libraries/config.values.php:70
 #: libraries/controllers/server/ServerDatabasesController.php:550
 #: libraries/operations.lib.php:790
 #: libraries/server_status_processes.lib.php:164
@@ -3601,9 +3607,9 @@ msgid "%1$s match in <strong>%2$s</strong>"
 msgid_plural "%1$s matches in <strong>%2$s</strong>"
 msgstr[0] "%1$s khớp trong <strong>%2$s</strong>"
 
-#: libraries/DbSearch.php:346 libraries/Menu.php:324 libraries/Util.php:3186
-#: libraries/Util.php:3196 libraries/Util.php:3472 libraries/Util.php:3473
-#: libraries/Util.php:4127 libraries/config.values.php:42
+#: libraries/DbSearch.php:346 libraries/Menu.php:324 libraries/Util.php:3187
+#: libraries/Util.php:3197 libraries/Util.php:3473 libraries/Util.php:3474
+#: libraries/Util.php:4128 libraries/config.values.php:42
 #: libraries/config.values.php:50 libraries/config.values.php:119
 #: libraries/navigation/nodes/NodeTable.php:311
 #: templates/table/structure/check_all_table_column.phtml:12
@@ -3655,30 +3661,30 @@ msgstr "Số hàng"
 msgid "Search this table"
 msgstr "Tìm kiếm trong bảng này"
 
-#: libraries/DisplayResults.php:989 libraries/Util.php:2439
-#: libraries/Util.php:2442
+#: libraries/DisplayResults.php:989 libraries/Util.php:2440
+#: libraries/Util.php:2443
 msgctxt "First page"
 msgid "Begin"
 msgstr "Bắt đầu"
 
-#: libraries/DisplayResults.php:992 libraries/Util.php:2440
-#: libraries/Util.php:2443
+#: libraries/DisplayResults.php:992 libraries/Util.php:2441
+#: libraries/Util.php:2444
 #: libraries/controllers/server/ServerBinlogController.php:194
 #: libraries/controllers/server/ServerBinlogController.php:196
 msgctxt "Previous page"
 msgid "Previous"
 msgstr "Kế trước"
 
-#: libraries/DisplayResults.php:1058 libraries/Util.php:2471
-#: libraries/Util.php:2481
+#: libraries/DisplayResults.php:1058 libraries/Util.php:2472
+#: libraries/Util.php:2482
 #: libraries/controllers/server/ServerBinlogController.php:228
 #: libraries/controllers/server/ServerBinlogController.php:230
 msgctxt "Next page"
 msgid "Next"
 msgstr "Kế tiếp"
 
-#: libraries/DisplayResults.php:1088 libraries/Util.php:2472
-#: libraries/Util.php:2482
+#: libraries/DisplayResults.php:1088 libraries/Util.php:2473
+#: libraries/Util.php:2483
 msgctxt "Last page"
 msgid "End"
 msgstr "Cuối"
@@ -3692,11 +3698,11 @@ msgstr "Tất cả"
 msgid "Number of rows:"
 msgstr "Số hàng:"
 
-#: libraries/DisplayResults.php:1434
+#: libraries/DisplayResults.php:1432
 msgid "Sort by key"
 msgstr "Sắp xếp theo khóa"
 
-#: libraries/DisplayResults.php:1717 libraries/import.lib.php:1216
+#: libraries/DisplayResults.php:1719 libraries/import.lib.php:1216
 #: libraries/import.lib.php:1251 libraries/mult_submits.lib.php:343
 #: libraries/plugins/export/ExportCodegen.php:84
 #: libraries/plugins/export/ExportCsv.php:48
@@ -3726,66 +3732,66 @@ msgstr "Sắp xếp theo khóa"
 msgid "Options"
 msgstr "Tùy chọn"
 
-#: libraries/DisplayResults.php:1723 libraries/DisplayResults.php:1844
+#: libraries/DisplayResults.php:1725 libraries/DisplayResults.php:1846
 msgid "Partial texts"
 msgstr "Các chữ riêng"
 
-#: libraries/DisplayResults.php:1724 libraries/DisplayResults.php:1848
+#: libraries/DisplayResults.php:1726 libraries/DisplayResults.php:1850
 msgid "Full texts"
 msgstr "Toàn văn"
 
-#: libraries/DisplayResults.php:1740
+#: libraries/DisplayResults.php:1742
 msgid "Relational key"
 msgstr "Khóa quan hệ"
 
-#: libraries/DisplayResults.php:1741
+#: libraries/DisplayResults.php:1743
 #, fuzzy
 #| msgid "Display column for relations"
 msgid "Display column for relationships"
 msgstr "Hiển thị cột cho các quan hệ"
 
-#: libraries/DisplayResults.php:1757
+#: libraries/DisplayResults.php:1759
 msgid "Show binary contents"
 msgstr "Hiển thị nội dung dạng nhị phân"
 
-#: libraries/DisplayResults.php:1768
+#: libraries/DisplayResults.php:1770
 msgid "Show BLOB contents"
 msgstr "Hiển thị nội dung của một BLOB"
 
-#: libraries/DisplayResults.php:1785
+#: libraries/DisplayResults.php:1787
 msgid "Hide browser transformation"
 msgstr ""
 
-#: libraries/DisplayResults.php:1796
+#: libraries/DisplayResults.php:1798
 msgid "Well Known Text"
 msgstr ""
 
-#: libraries/DisplayResults.php:1797
+#: libraries/DisplayResults.php:1799
 msgid "Well Known Binary"
 msgstr ""
 
-#: libraries/DisplayResults.php:3534 libraries/DisplayResults.php:3549
+#: libraries/DisplayResults.php:3546 libraries/DisplayResults.php:3561
 msgid "The row has been deleted."
 msgstr "Hàng đã bị xóa bỏ."
 
-#: libraries/DisplayResults.php:3582 libraries/DisplayResults.php:4836
+#: libraries/DisplayResults.php:3594 libraries/DisplayResults.php:4852
 #: libraries/server_status_processes.lib.php:279
 msgid "Kill"
 msgstr "Giết"
 
-#: libraries/DisplayResults.php:4274
+#: libraries/DisplayResults.php:4290
 msgid "May be approximate. See [doc@faq3-11]FAQ 3.11[/doc]."
 msgstr "Có thể chỉ là ước đoán. Xem [doc@faq3-11]FAQ 3.11[/doc]."
 
-#: libraries/DisplayResults.php:4347 libraries/Message.php:171
-#: libraries/controllers/table/TableRelationController.php:253
+#: libraries/DisplayResults.php:4363 libraries/Message.php:171
+#: libraries/controllers/table/TableRelationController.php:242
 #: libraries/controllers/table/TableSearchController.php:570
 #: libraries/rte/rte_routines.lib.php:1445 libraries/sql_query_form.lib.php:92
 #: tbl_row_action.php:141 view_operations.php:75
 msgid "Your SQL query has been executed successfully."
 msgstr "Truy vấn SQL của bạn đã được thực hiện thành công."
 
-#: libraries/DisplayResults.php:4694
+#: libraries/DisplayResults.php:4710
 #: libraries/controllers/database/DatabaseStructureController.php:785
 #, php-format
 msgid ""
@@ -3794,27 +3800,27 @@ msgid ""
 msgstr ""
 "View này có ít nhất số lượng dòng này. Vui lòng tham khảo %stài liệu%s."
 
-#: libraries/DisplayResults.php:4707
+#: libraries/DisplayResults.php:4723
 #, php-format
 msgid "Showing rows %1s - %2s"
 msgstr "Hiển thị các hàng %1s - %2s"
 
-#: libraries/DisplayResults.php:4722
+#: libraries/DisplayResults.php:4738
 #, php-format
 msgid "%1$d total, %2$d in query"
 msgstr "Tổng %1$d, %2$d trong truy vấn"
 
-#: libraries/DisplayResults.php:4727
+#: libraries/DisplayResults.php:4743
 #, php-format
 msgid "%d total"
 msgstr "tổng %d"
 
-#: libraries/DisplayResults.php:4739 libraries/sql.lib.php:1380
+#: libraries/DisplayResults.php:4755 libraries/sql.lib.php:1383
 #, php-format
 msgid "Query took %01.4f seconds."
 msgstr "Truy vấn cần %01.4f giây."
 
-#: libraries/DisplayResults.php:4841 libraries/DisplayResults.php:4848
+#: libraries/DisplayResults.php:4857 libraries/DisplayResults.php:4864
 #: libraries/mult_submits.inc.php:53
 #: templates/database/structure/check_all_tables.phtml:2
 #: templates/database/structure/check_all_tables.phtml:9
@@ -3822,7 +3828,7 @@ msgstr "Truy vấn cần %01.4f giây."
 msgid "With selected:"
 msgstr "Lưu mục đã chọn"
 
-#: libraries/DisplayResults.php:4845 libraries/DisplayResults.php:4847
+#: libraries/DisplayResults.php:4861 libraries/DisplayResults.php:4863
 #: libraries/server_privileges.lib.php:1164
 #: libraries/server_privileges.lib.php:1165
 #: libraries/server_user_groups.lib.php:230
@@ -3833,23 +3839,23 @@ msgstr "Lưu mục đã chọn"
 msgid "Check all"
 msgstr "Theo dõi bảng"
 
-#: libraries/DisplayResults.php:5020
+#: libraries/DisplayResults.php:5036
 msgid "Copy to clipboard"
 msgstr "Chép vào clipboard"
 
-#: libraries/DisplayResults.php:5076
+#: libraries/DisplayResults.php:5092
 msgid "Query results operations"
 msgstr "Kết quả truy vấn các thao tác"
 
-#: libraries/DisplayResults.php:5164 templates/table/chart/tbl_chart.phtml:11
+#: libraries/DisplayResults.php:5180 templates/table/chart/tbl_chart.phtml:11
 msgid "Display chart"
 msgstr "Hiển thị biểu đồ"
 
-#: libraries/DisplayResults.php:5189
+#: libraries/DisplayResults.php:5205
 msgid "Visualize GIS data"
 msgstr "Định dạng dữ liệu chưa rõ"
 
-#: libraries/DisplayResults.php:5375
+#: libraries/DisplayResults.php:5391
 msgid "Link not found!"
 msgstr "Không tìm thấy liên kết!"
 
@@ -4001,8 +4007,8 @@ msgid "Keyname"
 msgstr "Tên khóa"
 
 #: libraries/Index.php:684
-#: libraries/controllers/table/TableStructureController.php:1186
-#: libraries/controllers/table/TableStructureController.php:1191
+#: libraries/controllers/table/TableStructureController.php:1196
+#: libraries/controllers/table/TableStructureController.php:1201
 #: libraries/tracking.lib.php:978
 #: templates/columns_definitions/column_indexes.phtml:11
 #: templates/table/structure/check_all_table_column.phtml:32
@@ -4035,10 +4041,10 @@ msgstr "Khóa chính đã được xóa bỏ"
 msgid "Index %s has been dropped."
 msgstr "Chỉ mục %s đã được xóa bỏ."
 
-#: libraries/Index.php:736 libraries/Util.php:3479 libraries/Util.php:3480
+#: libraries/Index.php:736 libraries/Util.php:3480 libraries/Util.php:3481
 #: libraries/controllers/server/ServerDatabasesController.php:402
-#: libraries/controllers/table/TableStructureController.php:1182
-#: libraries/controllers/table/TableStructureController.php:1183
+#: libraries/controllers/table/TableStructureController.php:1192
+#: libraries/controllers/table/TableStructureController.php:1193
 #: libraries/operations.lib.php:1577 libraries/rte/rte_list.lib.php:163
 #: templates/database/structure/check_all_tables.phtml:17
 #: templates/table/relation/foreign_key_row.phtml:85
@@ -4056,7 +4062,7 @@ msgstr ""
 "Các chỉ mục %1$s và %2$s dường như là giống nhau và một trong số chúng có "
 "thể gần như chắc chắn nên được xóa bỏ."
 
-#: libraries/Language.php:194 libraries/PDF.php:69 libraries/Util.php:2428
+#: libraries/Language.php:194 libraries/PDF.php:69 libraries/Util.php:2429
 #: libraries/browse_foreigners.lib.php:320
 #: libraries/plugins/schema/pdf/PdfRelationSchema.php:495
 #: libraries/plugins/schema/pdf/PdfRelationSchema.php:520
@@ -4134,8 +4140,8 @@ msgid "Table"
 msgstr "Bảng"
 
 #: libraries/Menu.php:338 libraries/Menu.php:441 libraries/Menu.php:554
-#: libraries/Util.php:3183 libraries/Util.php:3193 libraries/Util.php:3199
-#: libraries/Util.php:4097 libraries/Util.php:4112 libraries/Util.php:4129
+#: libraries/Util.php:3184 libraries/Util.php:3194 libraries/Util.php:3200
+#: libraries/Util.php:4098 libraries/Util.php:4113 libraries/Util.php:4130
 #: libraries/config.values.php:39 libraries/config.values.php:47
 #: libraries/config.values.php:110 libraries/config.values.php:116
 #: libraries/config/messages.inc.php:320
@@ -4143,25 +4149,25 @@ msgstr "Bảng"
 msgid "SQL"
 msgstr "SQL"
 
-#: libraries/Menu.php:341 libraries/Menu.php:444 libraries/Util.php:3184
-#: libraries/Util.php:3194 libraries/Util.php:3200 libraries/Util.php:3474
-#: libraries/Util.php:3475 libraries/Util.php:4113 libraries/Util.php:4130
+#: libraries/Menu.php:341 libraries/Menu.php:444 libraries/Util.php:3185
+#: libraries/Util.php:3195 libraries/Util.php:3201 libraries/Util.php:3475
+#: libraries/Util.php:3476 libraries/Util.php:4114 libraries/Util.php:4131
 #: libraries/config.values.php:40 libraries/config.values.php:48
 #: libraries/config.values.php:111 libraries/config.values.php:117
 #: libraries/navigation/nodes/NodeTable.php:296
 msgid "Search"
 msgstr "Tìm kiếm"
 
-#: libraries/Menu.php:351 libraries/Util.php:3185 libraries/Util.php:3195
-#: libraries/Util.php:3476 libraries/Util.php:3477 libraries/Util.php:4131
+#: libraries/Menu.php:351 libraries/Util.php:3186 libraries/Util.php:3196
+#: libraries/Util.php:3477 libraries/Util.php:3478 libraries/Util.php:4132
 #: libraries/config.values.php:41 libraries/config.values.php:49
 #: libraries/config.values.php:118 libraries/navigation/nodes/NodeTable.php:302
 #: libraries/sql_query_form.lib.php:289 libraries/sql_query_form.lib.php:292
 msgid "Insert"
 msgstr "Chèn"
 
-#: libraries/Menu.php:375 libraries/Menu.php:479 libraries/Util.php:4118
-#: libraries/Util.php:4134 libraries/config.values.php:106
+#: libraries/Menu.php:375 libraries/Menu.php:479 libraries/Util.php:4119
+#: libraries/Util.php:4135 libraries/config.values.php:106
 #: libraries/server_common.lib.php:48 libraries/server_privileges.lib.php:2530
 #: libraries/server_privileges.lib.php:4377
 #: templates/privileges/privileges_summary.phtml:16
@@ -4169,19 +4175,19 @@ msgid "Privileges"
 msgstr "Đặc quyền"
 
 #: libraries/Menu.php:384 libraries/Menu.php:392 libraries/Menu.php:471
-#: libraries/Util.php:3187 libraries/Util.php:3201 libraries/Util.php:4117
-#: libraries/Util.php:4135 libraries/config.values.php:112
+#: libraries/Util.php:3188 libraries/Util.php:3202 libraries/Util.php:4118
+#: libraries/Util.php:4136 libraries/config.values.php:112
 #: view_operations.php:107
 msgid "Operations"
 msgstr "Thao tác"
 
-#: libraries/Menu.php:397 libraries/Menu.php:501 libraries/Util.php:4122
-#: libraries/Util.php:4136 libraries/relation.lib.php:264
+#: libraries/Menu.php:397 libraries/Menu.php:501 libraries/Util.php:4123
+#: libraries/Util.php:4137 libraries/relation.lib.php:264
 msgid "Tracking"
 msgstr "Theo dõi"
 
-#: libraries/Menu.php:409 libraries/Menu.php:495 libraries/Util.php:4121
-#: libraries/Util.php:4137
+#: libraries/Menu.php:409 libraries/Menu.php:495 libraries/Util.php:4122
+#: libraries/Util.php:4138
 #: libraries/navigation/nodes/NodeTriggerContainer.php:25
 #: libraries/plugins/export/ExportHtmlword.php:578
 #: libraries/plugins/export/ExportOdt.php:713
@@ -4197,16 +4203,16 @@ msgstr "Bẫy"
 msgid "Database seems to be empty!"
 msgstr "Cơ sở dữ liệu có vẻ là đang trống rỗng!"
 
-#: libraries/Menu.php:451 libraries/Util.php:4114
+#: libraries/Menu.php:451 libraries/Util.php:4115
 msgid "Query"
 msgstr "Truy vấn"
 
-#: libraries/Menu.php:484 libraries/Util.php:4119
+#: libraries/Menu.php:484 libraries/Util.php:4120
 #: libraries/rte/rte_words.lib.php:44
 msgid "Routines"
 msgstr "Thủ tục"
 
-#: libraries/Menu.php:489 libraries/Util.php:4120
+#: libraries/Menu.php:489 libraries/Util.php:4121
 #: libraries/navigation/nodes/NodeEventContainer.php:25
 #: libraries/plugins/export/ExportSql.php:961
 #: libraries/plugins/export/ExportXml.php:103
@@ -4214,16 +4220,16 @@ msgstr "Thủ tục"
 msgid "Events"
 msgstr "Sự kiện"
 
-#: libraries/Menu.php:507 libraries/Util.php:4123
+#: libraries/Menu.php:507 libraries/Util.php:4124
 msgid "Designer"
 msgstr "Bộ thiết kế"
 
-#: libraries/Menu.php:516 libraries/Util.php:4124
+#: libraries/Menu.php:516 libraries/Util.php:4125
 #: templates/database/structure/check_all_tables.phtml:34
 msgid "Central columns"
 msgstr "Các cột trung tâm"
 
-#: libraries/Menu.php:550 libraries/Util.php:4096
+#: libraries/Menu.php:550 libraries/Util.php:4097
 #: libraries/config.values.php:103 libraries/config/messages.inc.php:265
 #: libraries/config/messages.inc.php:340
 #: libraries/navigation/NavigationTree.php:1274
@@ -4236,34 +4242,34 @@ msgid "User accounts"
 msgstr "Các tài khoản người dùng"
 
 #: libraries/Menu.php:601 libraries/ServerStatusData.php:121
-#: libraries/Util.php:4103 libraries/server_common.lib.php:33
+#: libraries/Util.php:4104 libraries/server_common.lib.php:33
 msgid "Binary log"
 msgstr "Nhật ký nhị phân"
 
 #: libraries/Menu.php:607 libraries/ServerStatusData.php:126
-#: libraries/Util.php:4104 libraries/server_common.lib.php:39
+#: libraries/Util.php:4105 libraries/server_common.lib.php:39
 #: templates/database/structure/body_for_table_summary.phtml:10
 #: templates/database/structure/table_header.phtml:27
 msgid "Replication"
 msgstr "Bản sao"
 
 #: libraries/Menu.php:612 libraries/ServerStatusData.php:193
-#: libraries/Util.php:4105 libraries/config.values.php:105
+#: libraries/Util.php:4106 libraries/config.values.php:105
 #: libraries/sql_query_form.lib.php:427
 #: templates/server/engines/engine.phtml:15
 #: templates/server/engines/engine.phtml:18
 msgid "Variables"
 msgstr "Biến"
 
-#: libraries/Menu.php:616 libraries/Util.php:4106
+#: libraries/Menu.php:616 libraries/Util.php:4107
 msgid "Charsets"
 msgstr "Bảng mã"
 
-#: libraries/Menu.php:620 libraries/Util.php:4108
+#: libraries/Menu.php:620 libraries/Util.php:4109
 msgid "Engines"
 msgstr "Bộ máy"
 
-#: libraries/Menu.php:624 libraries/Util.php:4107
+#: libraries/Menu.php:624 libraries/Util.php:4108
 #: libraries/server_common.lib.php:30
 msgid "Plugins"
 msgstr "Phần bổ sung"
@@ -4545,7 +4551,7 @@ msgstr "Không thể đổi tên chỉ mục thành PRIMARY!"
 msgid "No index parts defined!"
 msgstr "Chưa định nghĩa bộ phận chỉ mục nào!"
 
-#: libraries/Table.php:2292
+#: libraries/Table.php:2279
 #, php-format
 msgid "Error creating foreign key on %1$s (check data types)"
 msgstr "Gặp lỗi khi tạo khóa ngoại trên %1$s (kiểm tra lại kiểu dữ liệu)"
@@ -4913,52 +4919,52 @@ msgctxt "AM/PM indication in time"
 msgid "AM"
 msgstr ""
 
-#: libraries/Util.php:1961
+#: libraries/Util.php:1962
 #, php-format
 msgid "%s days, %s hours, %s minutes and %s seconds"
 msgstr "%s ngày, %s giờ, %s phút và %s giây"
 
-#: libraries/Util.php:2008
+#: libraries/Util.php:2009
 msgid "Missing parameter:"
 msgstr "Thiếu tham số:"
 
-#: libraries/Util.php:2552
+#: libraries/Util.php:2553
 #, php-format
 msgid "Jump to database \"%s\"."
 msgstr "Nhảy tới cơ sở dữ liệu \"%s\"."
 
-#: libraries/Util.php:2577
+#: libraries/Util.php:2578
 #, php-format
 msgid "The %s functionality is affected by a known bug, see %s"
 msgstr "Hàm %s bị ảnh hưởng bởi lỗi đã biết, xem %s"
 
-#: libraries/Util.php:3391 prefs_manage.php:256
+#: libraries/Util.php:3392 prefs_manage.php:256
 msgid "Browse your computer:"
 msgstr "Duyệt máy tính của bạn:"
 
-#: libraries/Util.php:3416
+#: libraries/Util.php:3417
 #, php-format
 msgid "Select from the web server upload directory <b>%s</b>:"
 msgstr "Chọn từ thư mục tải lên của máy phục vụ web <b>%s</b>:"
 
-#: libraries/Util.php:3445 libraries/insert_edit.lib.php:1233
+#: libraries/Util.php:3446 libraries/insert_edit.lib.php:1233
 msgid "The directory you set for upload work cannot be reached."
 msgstr "Thư mục bạn đặt cho việc tải lên không thể tiếp cận được."
 
-#: libraries/Util.php:3456
+#: libraries/Util.php:3457
 msgid "There are no files to upload!"
 msgstr "Không có tập tin nào để tải lên!"
 
-#: libraries/Util.php:3481 libraries/Util.php:3482
+#: libraries/Util.php:3482 libraries/Util.php:3483
 #: templates/database/structure/check_all_tables.phtml:16
 msgid "Empty"
 msgstr "Rỗng"
 
-#: libraries/Util.php:3487 libraries/Util.php:3488
+#: libraries/Util.php:3488 libraries/Util.php:3489
 msgid "Execute"
 msgstr "Thi hành"
 
-#: libraries/Util.php:4099
+#: libraries/Util.php:4100
 msgid "Users"
 msgstr "Người dùng"
 
@@ -5123,15 +5129,15 @@ msgstr ""
 msgid "You should upgrade to %s %s or later."
 msgstr "Bạn nên nâng cấp lên %s %s hay bản mới hơn."
 
-#: libraries/common.inc.php:884
+#: libraries/common.inc.php:886
 msgid "Error: Token mismatch"
 msgstr "Lỗi: Không khớp thẻ"
 
-#: libraries/common.inc.php:902
+#: libraries/common.inc.php:904
 msgid "GLOBALS overwrite attempt"
 msgstr "Cố gắng kết nối gặp lỗi"
 
-#: libraries/common.inc.php:909
+#: libraries/common.inc.php:911
 msgid "possible exploit"
 msgstr "Kết quả có thể"
 
@@ -8037,18 +8043,18 @@ msgid "No data to display"
 msgstr "Không có dữ liệu để hiển thị"
 
 #: libraries/controllers/table/TableIndexesController.php:155
-#: libraries/controllers/table/TableStructureController.php:718
-#: libraries/controllers/table/TableStructureController.php:967
+#: libraries/controllers/table/TableStructureController.php:728
+#: libraries/controllers/table/TableStructureController.php:977
 #: tbl_addfield.php:95
 #, php-format
 msgid "Table %1$s has been altered successfully."
 msgstr "Bảng %1$s đã thay đổi thành công."
 
-#: libraries/controllers/table/TableRelationController.php:212
+#: libraries/controllers/table/TableRelationController.php:201
 msgid "Display column was successfully updated."
 msgstr "Cột trình bày đã được cập nhật thành công."
 
-#: libraries/controllers/table/TableRelationController.php:282
+#: libraries/controllers/table/TableRelationController.php:271
 #, fuzzy
 #| msgid "Internal relations were successfully updated."
 msgid "Internal relationships were successfully updated."
@@ -8081,25 +8087,31 @@ msgstr "Chưa chọn cột nào."
 msgid "The columns have been moved successfully."
 msgstr "Các cột được di chuyển thành công."
 
-#: libraries/controllers/table/TableStructureController.php:729
-#: libraries/controllers/table/TableStructureController.php:1016
+#: libraries/controllers/table/TableStructureController.php:501
+#, fuzzy, php-format
+#| msgid "Failed to get real row count."
+msgid "Failed to get description of column %s!"
+msgstr "Gặp lỗi khi lấy số lượng hàng thực tế."
+
+#: libraries/controllers/table/TableStructureController.php:739
+#: libraries/controllers/table/TableStructureController.php:1026
 #: libraries/tracking.lib.php:1092
 msgid "Query error"
 msgstr "Lỗi truy vấn"
 
-#: libraries/controllers/table/TableStructureController.php:961
+#: libraries/controllers/table/TableStructureController.php:971
 #, php-format
 msgid ""
 "Table %1$s has been altered successfully. Privileges have been adjusted."
 msgstr "Bảng %1$s đã được thay đổi thành công. Đặc quyền đã được chỉnh sửa."
 
-#: libraries/controllers/table/TableStructureController.php:1181
+#: libraries/controllers/table/TableStructureController.php:1191
 #: templates/table/structure/check_all_table_column.phtml:18
 msgid "Change"
 msgstr "Thay đổi"
 
-#: libraries/controllers/table/TableStructureController.php:1185
-#: libraries/controllers/table/TableStructureController.php:1190
+#: libraries/controllers/table/TableStructureController.php:1195
+#: libraries/controllers/table/TableStructureController.php:1200
 #: libraries/navigation/nodes/NodeIndex.php:30 libraries/tracking.lib.php:929
 #: templates/columns_definitions/column_indexes.phtml:16
 #: templates/columns_definitions/table_fields_definitions.phtml:57
@@ -8109,20 +8121,20 @@ msgstr "Thay đổi"
 msgid "Index"
 msgstr "Chỉ mục"
 
-#: libraries/controllers/table/TableStructureController.php:1187
-#: libraries/controllers/table/TableStructureController.php:1192
+#: libraries/controllers/table/TableStructureController.php:1197
+#: libraries/controllers/table/TableStructureController.php:1202
 #: templates/columns_definitions/column_indexes.phtml:26
 msgid "Spatial"
 msgstr "Spatial"
 
-#: libraries/controllers/table/TableStructureController.php:1188
-#: libraries/controllers/table/TableStructureController.php:1193
+#: libraries/controllers/table/TableStructureController.php:1198
+#: libraries/controllers/table/TableStructureController.php:1203
 #: templates/columns_definitions/column_indexes.phtml:21
 #: templates/table/structure/check_all_table_column.phtml:45
 msgid "Fulltext"
 msgstr "Toàn văn"
 
-#: libraries/controllers/table/TableStructureController.php:1196
+#: libraries/controllers/table/TableStructureController.php:1206
 msgid "Distinct values"
 msgstr "Giá trị Distinct"
 
@@ -8846,12 +8858,12 @@ msgid "Dump has been saved to file %s."
 msgstr "Đổ đã được lưu vào tập tin %s."
 
 #: libraries/import.lib.php:98 libraries/insert_edit.lib.php:125
-#: libraries/rte/rte_routines.lib.php:1466 libraries/sql.lib.php:1374
+#: libraries/rte/rte_routines.lib.php:1466 libraries/sql.lib.php:1377
 #: tbl_get_field.php:45
 msgid "MySQL returned an empty result set (i.e. zero rows)."
 msgstr "MySQL trả về kết quả là trống rỗng (vd. không có hàng nào)."
 
-#: libraries/import.lib.php:258 libraries/sql.lib.php:1388
+#: libraries/import.lib.php:258 libraries/sql.lib.php:1391
 msgid "[ROLLBACK occurred.]"
 msgstr "[đã nảy sinh ROLLBACK.]"
 
@@ -9013,11 +9025,11 @@ msgstr ""
 msgid "Value"
 msgstr "Giá trị"
 
-#: libraries/insert_edit.lib.php:2008 libraries/sql.lib.php:1371
+#: libraries/insert_edit.lib.php:2008 libraries/sql.lib.php:1374
 msgid "Showing SQL query"
 msgstr "Hiện truy vấn SQL"
 
-#: libraries/insert_edit.lib.php:2033 libraries/sql.lib.php:1349
+#: libraries/insert_edit.lib.php:2033 libraries/sql.lib.php:1352
 #, php-format
 msgid "Inserted row id: %1$d"
 msgstr "Chỉ số id người dùng kép: %1$d"
@@ -10676,63 +10688,63 @@ msgstr "Định dạng văn bản là JSON có tô sáng cú pháp."
 msgid "Formats text as XML with syntax highlighting."
 msgstr "Định dạng văn bản là XML có tô sáng cú pháp."
 
-#: libraries/pmd_common.php:551
+#: libraries/pmd_common.php:546
 #, fuzzy
 #| msgid "Error: relation already exists."
 msgid "Error: relationship already exists."
 msgstr "Lỗi: quan hệ đã sẵn có"
 
-#: libraries/pmd_common.php:597
+#: libraries/pmd_common.php:592
 #, fuzzy
 #| msgid "FOREIGN KEY relation has been added."
 msgid "FOREIGN KEY relationship has been added."
 msgstr "Quan hệ KHÓA NGOẠI đã được thêm vào."
 
-#: libraries/pmd_common.php:603
+#: libraries/pmd_common.php:598
 #, fuzzy
 #| msgid "Error: FOREIGN KEY relation could not be added!"
 msgid "Error: FOREIGN KEY relationship could not be added!"
 msgstr "Lỗi: Quan hệ KHÓA NGOẠI không thể được thêm vào!"
 
-#: libraries/pmd_common.php:608
+#: libraries/pmd_common.php:603
 msgid "Error: Missing index on column(s)."
 msgstr "Lỗi: Thiếu chỉ mục trên các cột."
 
-#: libraries/pmd_common.php:613
+#: libraries/pmd_common.php:608
 msgid "Error: Relational features are disabled!"
 msgstr "Mối quan hệ profile không tìm thấy"
 
-#: libraries/pmd_common.php:635
+#: libraries/pmd_common.php:630
 #, fuzzy
 #| msgid "Internal relation has been added."
 msgid "Internal relationship has been added."
 msgstr "Quan hệ nội tại đã được thêm."
 
-#: libraries/pmd_common.php:641
+#: libraries/pmd_common.php:636
 #, fuzzy
 #| msgid "Error: Internal relation could not be added!"
 msgid "Error: Internal relationship could not be added!"
 msgstr "Lỗi: Quan hệ nội bộ không thể được thêm vào!"
 
-#: libraries/pmd_common.php:679
+#: libraries/pmd_common.php:674
 #, fuzzy
 #| msgid "FOREIGN KEY relation has been removed."
 msgid "FOREIGN KEY relationship has been removed."
 msgstr "Quan hệ KHÓA NGOẠI đã được xóa bỏ."
 
-#: libraries/pmd_common.php:685
+#: libraries/pmd_common.php:680
 #, fuzzy
 #| msgid "Error: FOREIGN KEY relation could not be removed!"
 msgid "Error: FOREIGN KEY relationship could not be removed!"
 msgstr "Lỗi: Quan hệ KHÓA NGOẠI không thể xóa bỏ được!"
 
-#: libraries/pmd_common.php:712
+#: libraries/pmd_common.php:707
 #, fuzzy
 #| msgid "Error: Internal relation could not be removed!"
 msgid "Error: Internal relationship could not be removed!"
 msgstr "Lỗi: Quan hệ nội bộ không thể xóa bỏ được!"
 
-#: libraries/pmd_common.php:716
+#: libraries/pmd_common.php:711
 #, fuzzy
 #| msgid "Internal relation has been removed."
 msgid "Internal relationship has been removed."
@@ -12297,39 +12309,39 @@ msgid ""
 "no clearly measurable improvement."
 msgstr ""
 
-#: libraries/server_status_monitor.lib.php:62
+#: libraries/server_status_monitor.lib.php:65
 msgid "Log statistics"
 msgstr "Thống kê nhật ký"
 
-#: libraries/server_status_monitor.lib.php:63
+#: libraries/server_status_monitor.lib.php:66
 msgid "Selected time range:"
 msgstr "Vùng thời gian đã chọn:"
 
-#: libraries/server_status_monitor.lib.php:71
+#: libraries/server_status_monitor.lib.php:74
 msgid "Only retrieve SELECT,INSERT,UPDATE and DELETE Statements"
 msgstr "Chỉ truy hồi các lệnh SELECT,INSERT,UPDATE và DELETE"
 
-#: libraries/server_status_monitor.lib.php:77
+#: libraries/server_status_monitor.lib.php:80
 msgid "Remove variable data in INSERT statements for better grouping"
 msgstr "Xóa bỏ dữ liệu biến trong lệnh INSERT để nhóm tốt hơn"
 
-#: libraries/server_status_monitor.lib.php:81
+#: libraries/server_status_monitor.lib.php:84
 msgid "Choose from which log you want the statistics to be generated from."
 msgstr "Chọn xem nhật ký nào bạn muốn thống kê để mà tạo."
 
-#: libraries/server_status_monitor.lib.php:85
+#: libraries/server_status_monitor.lib.php:88
 msgid "Results are grouped by query text."
 msgstr "Kết quả được nhóm theo chữ truy vấn."
 
-#: libraries/server_status_monitor.lib.php:89
+#: libraries/server_status_monitor.lib.php:92
 msgid "Query analyzer"
 msgstr "Bộ phân tích truy vấn"
 
-#: libraries/server_status_monitor.lib.php:106
+#: libraries/server_status_monitor.lib.php:109
 msgid "Monitor Instructions"
 msgstr "Chỉ lệnh theo dõi"
 
-#: libraries/server_status_monitor.lib.php:108
+#: libraries/server_status_monitor.lib.php:111
 msgid ""
 "The phpMyAdmin Monitor can assist you in optimizing the server configuration "
 "and track down time intensive queries. For the latter you will need to set "
@@ -12338,18 +12350,18 @@ msgid ""
 "increases server load by up to 15%."
 msgstr ""
 
-#: libraries/server_status_monitor.lib.php:124
+#: libraries/server_status_monitor.lib.php:127
 msgid "Using the monitor:"
 msgstr "Dùng theo dõi:"
 
-#: libraries/server_status_monitor.lib.php:127
+#: libraries/server_status_monitor.lib.php:130
 msgid ""
 "Your browser will refresh all displayed charts in a regular interval. You "
 "may add charts and change the refresh rate under 'Settings', or remove any "
 "chart using the cog icon on each respective chart."
 msgstr ""
 
-#: libraries/server_status_monitor.lib.php:133
+#: libraries/server_status_monitor.lib.php:136
 msgid ""
 "To display queries from the logs, select the relevant time span on any chart "
 "by holding down the left mouse button and panning over the chart. Once "
@@ -12357,11 +12369,11 @@ msgid ""
 "any occurring SELECT statements to further analyze them."
 msgstr ""
 
-#: libraries/server_status_monitor.lib.php:143
+#: libraries/server_status_monitor.lib.php:146
 msgid "Please note:"
 msgstr "Xin hãy chú ý:"
 
-#: libraries/server_status_monitor.lib.php:146
+#: libraries/server_status_monitor.lib.php:149
 msgid ""
 "Enabling the general_log may increase the server load by 5-15%. Also be "
 "aware that generating statistics from the logs is a load intensive task, so "
@@ -12369,89 +12381,89 @@ msgid ""
 "general_log and empty its table once monitoring is not required any more."
 msgstr ""
 
-#: libraries/server_status_monitor.lib.php:167
-#: libraries/server_status_monitor.lib.php:275
+#: libraries/server_status_monitor.lib.php:170
+#: libraries/server_status_monitor.lib.php:278
 msgid "Add chart"
 msgstr "Thêm biểu đồ"
 
-#: libraries/server_status_monitor.lib.php:170
+#: libraries/server_status_monitor.lib.php:173
 msgid "Chart Title"
 msgstr "Tiêu đề của biểu đồ"
 
-#: libraries/server_status_monitor.lib.php:173
+#: libraries/server_status_monitor.lib.php:176
 msgid "Preset chart"
 msgstr "Biểu đồ hoạt động"
 
-#: libraries/server_status_monitor.lib.php:178
+#: libraries/server_status_monitor.lib.php:181
 msgid "Status variable(s)"
 msgstr "Các biến trạng thái"
 
-#: libraries/server_status_monitor.lib.php:181
+#: libraries/server_status_monitor.lib.php:184
 msgid "Select series:"
 msgstr "Chọn sê-ri:"
 
-#: libraries/server_status_monitor.lib.php:183
+#: libraries/server_status_monitor.lib.php:186
 msgid "Commonly monitored"
 msgstr "Được theo dõi chung"
 
-#: libraries/server_status_monitor.lib.php:199
+#: libraries/server_status_monitor.lib.php:202
 msgid "or type variable name:"
 msgstr "hoặc tên kiểu biến:"
 
-#: libraries/server_status_monitor.lib.php:206
+#: libraries/server_status_monitor.lib.php:209
 msgid "Display as differential value"
 msgstr "hiển thị các tham số về đường dẫn"
 
-#: libraries/server_status_monitor.lib.php:210
+#: libraries/server_status_monitor.lib.php:213
 msgid "Apply a divisor"
 msgstr "Áp dụng một phép chia"
 
-#: libraries/server_status_monitor.lib.php:218
+#: libraries/server_status_monitor.lib.php:221
 msgid "Append unit to data values"
 msgstr "Thêm đơn vị vào các giá trị dữ liệu"
 
-#: libraries/server_status_monitor.lib.php:224
+#: libraries/server_status_monitor.lib.php:227
 msgid "Add this series"
 msgstr "Thêm sê-ri này"
 
-#: libraries/server_status_monitor.lib.php:226
+#: libraries/server_status_monitor.lib.php:229
 msgid "Clear series"
 msgstr "Xóa sê-ri"
 
-#: libraries/server_status_monitor.lib.php:229
+#: libraries/server_status_monitor.lib.php:232
 msgid "Series in chart:"
 msgstr "Sê-ri trong biểu đồ:"
 
-#: libraries/server_status_monitor.lib.php:250
+#: libraries/server_status_monitor.lib.php:253
 msgid "Start Monitor"
 msgstr "Bắt đầu theo dõi"
 
-#: libraries/server_status_monitor.lib.php:256
+#: libraries/server_status_monitor.lib.php:259
 msgid "Instructions/Setup"
 msgstr "Quy trình/Cài đặt"
 
-#: libraries/server_status_monitor.lib.php:259
+#: libraries/server_status_monitor.lib.php:262
 msgid "Done dragging (rearranging) charts"
 msgstr ""
 
-#: libraries/server_status_monitor.lib.php:279
+#: libraries/server_status_monitor.lib.php:282
 msgid "Enable charts dragging"
 msgstr "Bật kéo thả biểu đồ"
 
-#: libraries/server_status_monitor.lib.php:283
+#: libraries/server_status_monitor.lib.php:286
 #: libraries/server_status_processes.lib.php:29
 msgid "Refresh rate"
 msgstr "Tốc độ làm tươi"
 
-#: libraries/server_status_monitor.lib.php:292
+#: libraries/server_status_monitor.lib.php:295
 msgid "Chart columns"
 msgstr "Các cột đồ thị"
 
-#: libraries/server_status_monitor.lib.php:304
+#: libraries/server_status_monitor.lib.php:307
 msgid "Chart arrangement"
 msgstr "Bố trí đồ thị"
 
-#: libraries/server_status_monitor.lib.php:307
+#: libraries/server_status_monitor.lib.php:310
 msgid ""
 "The arrangement of the charts is stored to the browsers local storage. You "
 "may want to export it if you have a complicated set up."
@@ -12459,7 +12471,7 @@ msgstr ""
 "Bố trí các biểu đồ được lưu trong phần kho chứa nội bộ của trình duyệt. Bạn "
 "có thể muốn xuất nó ra nếu bạn có một cài đặt tinh vi."
 
-#: libraries/server_status_monitor.lib.php:321
+#: libraries/server_status_monitor.lib.php:324
 msgid "Reset to default"
 msgstr "Đặt lại thành mặc định"
 
@@ -13221,11 +13233,11 @@ msgstr "Chưa tạo đánh dấu!"
 msgid "Using bookmark \"%s\" as default browse query."
 msgstr "Dùng đánh dấu \"%s\" như là truy vấn duyệt mặc định."
 
-#: libraries/sql.lib.php:1368
+#: libraries/sql.lib.php:1371
 msgid "Showing as PHP code"
 msgstr "Hiện dạng mã PHP"
 
-#: libraries/sql.lib.php:1739
+#: libraries/sql.lib.php:1742
 #, php-format
 msgid ""
 "Current selection does not contain a unique column. Grid edit, checkbox, "
@@ -13234,7 +13246,7 @@ msgstr ""
 "Chọn lựa hiện nay không chứa một cột duy nhất. Tính năng sửa lưới, dấu kiểm, "
 "Sửa, Chép và Xóa không sẵn có. %s"
 
-#: libraries/sql.lib.php:1753
+#: libraries/sql.lib.php:1756
 #, php-format
 msgid ""
 "Current selection does not contain a unique column. Grid edit, Edit, Copy "
@@ -13243,7 +13255,7 @@ msgstr ""
 "Chọn lựa hiện nay không chứa một cột duy nhất. Tính năng sửa lưới, dấu kiểm, "
 "Sửa, Chép và Xóa có lẽ có kết quả trong ứng xử không đòi hỏi. %s"
 
-#: libraries/sql.lib.php:1795
+#: libraries/sql.lib.php:1798
 #, php-format
 msgid "Problems with indexes of table `%s`"
 msgstr "Trục trặc với chỉ mục của bảng “%s“"
