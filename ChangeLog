@@ -1,7 +1,6 @@
 phpMyAdmin - ChangeLog
 ======================
 
-<<<<<<< HEAD
 4.8.0 (not yet released)
 - issue #12946 Allow to export JSON with unescaped unicode chars
 - issue #12983 Disable login button without solved reCaptcha
@@ -41,6 +40,7 @@ phpMyAdmin - ChangeLog
 - issue #13711 Lower default value for $cfg['MaxExactCount']
 - issue #13722 DisableIS is not fully honored
 - issue        Support JSON datatype on MariaDB 10.2.7 and newer
+- issue #6197  Added support for authentication using U2F and 2FA
 
 4.7.6 (not yet released)
 - issue #13517 Fixed check all interaction with filtering
