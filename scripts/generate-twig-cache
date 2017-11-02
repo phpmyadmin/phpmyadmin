@@ -23,6 +23,7 @@ use PhpMyAdmin\Twig\UtilExtension;
 
 $tplDir = dirname(__FILE__) . '/../templates';
 $tmpDir = dirname(__FILE__) . '/../twig-templates';
+mkdir($tmpDir);
 $loader = new Twig_Loader_Filesystem($tplDir);
 
 // force auto-reload to always have the latest version of the template
@@ -47,6 +48,8 @@ $twig->addExtension(new TransformationsExtension());
 $twig->addExtension(new UrlExtension());
 $twig->addExtension(new UtilExtension());
 
+$replacements = fopen($tmpDir . '/replace.sed', 'w');
+
 // iterate over all templates
 foreach (new RecursiveIteratorIterator(
     new RecursiveDirectoryIterator($tplDir),
@@ -58,6 +61,15 @@ foreach (new RecursiveIteratorIterator(
     }
     // force compilation
     if ($file->isFile() && $file->getExtension() == 'twig') {
-        $twig->loadTemplate(str_replace($tplDir.'/', '', $file));
+        $name = str_replace($tplDir.'/', '', $file);
+        $template = $twig->loadTemplate($name);
+
+        // Generate line map
+        $template_file = 'templates/' . $name;
+        $cache_file = str_replace($tmpDir, 'twig-templates', $twig->getCacheFilename($name));
+        foreach ($template->getDebugInfo() as $from => $to) {
+            fwrite($replacements, "s@$cache_file:$from@$template_file:$to@g\n");
+        }
     }
 }
+fclose($replacements);

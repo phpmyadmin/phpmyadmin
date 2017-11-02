@@ -31,14 +31,7 @@ xgettext \
     `find \( -name '*.php' -o -name '*.phtml' \) -not -path './test/*' -not -path './po/*' -not -path './tmp/*' -not -path './release/*' -not -path './vendor/*' | sort`
 
 # Fixup filenames for Twig templates
-find twig-templates -type f | while read name ; do
-    original=`sed -n 's@.*Twig_Source.*templates/\([^\"]*\)".*@\1@p' $name`
-    if [ -z "$original" ] ; then
-        echo "Failed to figure our original name of $name!" >&2
-    else
-        sed -i "s@$name@templates/$original@g" po/phpmyadmin.pot
-    fi
-done
+sed -i -f twig-templates/replace.sed po/phpmyadmin.pot
 
 # Remote twig templates
 rm -rf twig-templates/
