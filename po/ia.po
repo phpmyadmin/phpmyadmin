@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.8.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2017-11-02 14:01+0100\n"
-"PO-Revision-Date: 2017-11-02 13:54+0000\n"
+"PO-Revision-Date: 2017-11-03 00:28+0000\n"
 "Last-Translator: Giovanni Sora <g.sora@tiscali.it>\n"
 "Language-Team: Interlingua "
 "<https://hosted.weblate.org/projects/phpmyadmin/master/ia/>\n"
@@ -17,7 +17,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 2.17\n"
+"X-Generator: Weblate 2.18-dev\n"
 
 #: ajax.php:17 ajax.php:34 export.php:203 libraries/classes/Export.php:1100
 msgid "Bad type!"
@@ -3895,22 +3895,16 @@ msgid "Default transformations for DateFormat"
 msgstr "Transformationes predefinite per DateFormat"
 
 #: libraries/classes/Config/Descriptions.php:219
-#, fuzzy
-#| msgid "Input transformation options"
 msgid "Default transformations for Inline"
-msgstr "Optiones de transformation de ingresso"
+msgstr "Transformationes predefinite per Inline"
 
 #: libraries/classes/Config/Descriptions.php:223
-#, fuzzy
-#| msgid "Input transformation options"
 msgid "Default transformations for TextImageLink"
-msgstr "Optiones de transformation de ingresso"
+msgstr "Transformationes predefinite per TextImageLink"
 
 #: libraries/classes/Config/Descriptions.php:227
-#, fuzzy
-#| msgid "Input transformation options"
 msgid "Default transformations for TextLink"
-msgstr "Optiones de transformation de ingresso"
+msgstr "Transformationes predefinite per TextLink"
 
 #: libraries/classes/Config/Descriptions.php:232
 msgid "Show server listing as a list instead of a drop down."
@@ -6311,10 +6305,8 @@ msgid "CSV using LOAD DATA"
 msgstr "CSV usante LOAD DATA"
 
 #: libraries/classes/Config/Forms/User/MainForm.php:32
-#, fuzzy
-#| msgid "Input transformation"
 msgid "Default transformations"
-msgstr "Transformation de ingresso"
+msgstr "Transformationes predefinite"
 
 #: libraries/classes/Config/PageSettings.php:134
 msgid "Cannot save settings, submitted configuration form contains errors!"
@@ -6353,12 +6345,6 @@ msgstr ""
 "Tu deberea usar connexiones SSL si tu servitor de base de datos supporta los."
 
 #: libraries/classes/Config/ServerConfigChecks.php:176
-#, fuzzy
-#| msgid ""
-#| "If you feel this is necessary, use additional protection settings - "
-#| "%shost authentication%s settings and %strusted proxies list%s. However, "
-#| "IP-based protection may not be reliable if your IP belongs to an ISP "
-#| "where thousands of users, including you, are connected to."
 msgid ""
 "If you feel this is necessary, use additional protection settings - %1$shost "
 "authentication%2$s settings and %3$strusted proxies list%4%s. However, IP-"
@@ -6366,19 +6352,13 @@ msgid ""
 "thousands of users, including you, are connected to."
 msgstr ""
 "Si tu crede que isto es necessari, usa preferentias additional de protection "
-"- preferentias de %sauthentication de ospite%s e %slista de proxy digne de "
-"fide%s. Totevia, le protection basate sur IP poterea non esser digne de "
-"fide, si tu IP pertine a un ISP ubi milles de usatores, includente te, es "
-"connectite."
+"- preferentias de %1$sauthentication de ospite%2$s e %%3$slista de proxy "
+"digne de fide%4%s. Totevia, le protection basate sur IP poterea non esser "
+"digne de fide, si tu IP pertine a un ISP ubi milles de usatores, includente "
+"te, es connectite."
 
 #: libraries/classes/Config/ServerConfigChecks.php:203
-#, fuzzy, php-format
-#| msgid ""
-#| "You set the [kbd]config[/kbd] authentication type and included username "
-#| "and password for auto-login, which is not a desirable option for live "
-#| "hosts. Anyone who knows or guesses your phpMyAdmin URL can directly "
-#| "access your phpMyAdmin panel. Set %sauthentication type%s to [kbd]cookie[/"
-#| "kbd] or [kbd]http[/kbd]."
+#, php-format
 msgid ""
 "You set the [kbd]config[/kbd] authentication type and included username and "
 "password for auto-login, which is not a desirable option for live hosts. "
@@ -6386,12 +6366,12 @@ msgid ""
 "phpMyAdmin panel. Set %1$sauthentication type%2$s to [kbd]cookie[/kbd] or "
 "[kbd]http[/kbd]."
 msgstr ""
-"Tu fixava le typo de authentication [kbd]config[/kbd] e includeva le nomine "
-"de usator e contrasigno pro le auto-login (accesso automatic de "
+"Tu fixava le typo de authentication  [kbd]config[/kbd]   e includeva le "
+"nomine de usator e contrasigno pro le auto-login (accesso automatic de "
 "authentication), isto non es desirabile pro hospite de uso ab vivo (live). "
 "Ulle qui sape o conjectura  tu URL de phpMyAdmin pote acceder directemente a "
-"tu pannello de phpMyAdmin. Fixa %stypo de authentication%s a [kbd]cookie[/"
-"kbd] o [kbd]http[/kbd]."
+"tu pannello de phpMyAdmin. Fixa %1$stypo de authentication%2$s  a "
+"[kbd]cookie[/kbd] o [kbd]http[/kbd]."
 
 #: libraries/classes/Config/ServerConfigChecks.php:230
 msgid "You allow for connecting to the server without a password."
@@ -6435,19 +6415,15 @@ msgstr ""
 "Le clave deberea continer litteras, numeros [em]e[/em] characteres special."
 
 #: libraries/classes/Config/ServerConfigChecks.php:418
-#, fuzzy, php-format
-#| msgid ""
-#| "%sLogin cookie validity%s greater than %ssession.gc_maxlifetime%s may "
-#| "cause random session invalidation (currently session.gc_maxlifetime is "
-#| "%d)."
+#, php-format
 msgid ""
 "%1$sLogin cookie validity%2$s greater than %3$ssession.gc_maxlifetime%4$s "
 "may cause random session invalidation (currently session.gc_maxlifetime is "
 "%5$d)."
 msgstr ""
-"%sValiditate de cookie de authentication%s major que %ssession.gc_maxlifetime"
-"%s pote causar mal validation casual de session (currentemente session."
-"gc_maxlifetime es %d)."
+"%1$sValiditate de cookie de authentication%2$s major que "
+"%3$ssession.gc_maxlifetime%4$s pote causar mal validation casual de session ("
+"currentemente session.gc_maxlifetime es %5$d)."
 
 #: libraries/classes/Config/ServerConfigChecks.php:442
 #, php-format
@@ -6470,28 +6446,22 @@ msgstr ""
 "equal a illo."
 
 #: libraries/classes/Config/ServerConfigChecks.php:506
-#, fuzzy, php-format
-#| msgid ""
-#| "%sBzip2 compression and decompression%s requires functions (%s) which are "
-#| "unavailable on this system."
+#, php-format
 msgid ""
 "%1$sBzip2 compression and decompression%2$s requires functions (%3$s) which "
 "are unavailable on this system."
 msgstr ""
-"Le compression %sBzip2 e le decompression %s require functiones (%s) que non "
-"es disponibile sur iste systema."
+"Le compression %1$sBzip2 e le decompression %2$s require functiones (%3$s) "
+"que non es disponibile sur iste systema."
 
 #: libraries/classes/Config/ServerConfigChecks.php:538
-#, fuzzy, php-format
-#| msgid ""
-#| "%sGZip compression and decompression%s requires functions (%s) which are "
-#| "unavailable on this system."
+#, php-format
 msgid ""
 "%1$sGZip compression and decompression%2$s requires functions (%3$s) which "
 "are unavailable on this system."
 msgstr ""
-"Le compression %sGZip e decompression%s require functiones (%s) que non es "
-"disponibile sur iste systema."
+"Le compression %1$sGZip e decompression%2$s require functiones (%3$s) que "
+"non es disponibile sur iste systema."
 
 #: libraries/classes/Config/Validator.php:210
 #: libraries/classes/Config/Validator.php:217
@@ -7129,21 +7099,16 @@ msgid "Failed to set configured collation connection!"
 msgstr "Il falleva fixar connexion de collation configurate!"
 
 #: libraries/classes/DatabaseInterface.php:1499
-#, fuzzy, php-format
-#| msgid ""
-#| "Unable to use timezone %1$s for server %2$d. Please check your "
-#| "configuration setting for [em]$cfg['Servers'][%3$d]['SessionTimeZone'][/"
-#| "em]. phpMyAdmin is currently using the default time zone of the database "
-#| "server."
+#, php-format
 msgid ""
 "Unable to use timezone \"%1$s\" for server %2$d. Please check your "
 "configuration setting for [em]$cfg['Servers'][%3$d]['SessionTimeZone'][/em]. "
 "phpMyAdmin is currently using the default time zone of the database server."
 msgstr ""
-"Incapace a usar fuso horari %1$s pro servitor %2$d. Pro verifica tu "
-"preferentias de configuration per [em]$cfg['Servers'][%3$d]"
-"['SessionTimeZone'][/em]. phpMyAdmin es currentemente usante le fuso horari "
-"predefinite de servitor de base de datos."
+"Incapace a usar fuso horari \"%1$s\" pro servitor %2$d. Pro verifica tu "
+"preferentias de configuration per "
+"[em]$cfg['Servers'][%3$d]['SessionTimeZone'][/em]. phpMyAdmin es "
+"currentemente usante le fuso horari predefinite de servitor de base de datos."
 
 #: libraries/classes/DatabaseInterface.php:2097
 msgid ""
@@ -9251,16 +9216,12 @@ msgid "Switch to copied database"
 msgstr "Commuta al base de datos copiate"
 
 #: libraries/classes/Operations.php:311
-#, fuzzy
-#| msgid "Change all column collations"
 msgid "Change all tables collations"
-msgstr "Modifica omne collation de columna"
+msgstr "Modifica omne collationes de columnas"
 
 #: libraries/classes/Operations.php:317
-#, fuzzy
-#| msgid "Change all column collations"
 msgid "Change all tables columns collations"
-msgstr "Modifica omne collation de columna"
+msgstr "Modifica omne collationes de columnas de tabellas"
 
 #: libraries/classes/Operations.php:797
 msgid "Alter table order by"
@@ -10464,10 +10425,8 @@ msgid "Formats text as XML with syntax highlighting."
 msgstr "Formata texto como XML con evidentia de syntaxe."
 
 #: libraries/classes/Plugins/TwoFactor/Application.php:129
-#, fuzzy
-#| msgid "Authentication Plugin"
 msgid "Authentication Application (2FA)"
-msgstr "Plugin de Authentication"
+msgstr "Application de Authentication (2FA)"
 
 #: libraries/classes/Plugins/TwoFactor/Application.php:139
 msgid ""
@@ -10485,26 +10444,21 @@ msgid ""
 msgstr ""
 
 #: libraries/classes/Plugins/TwoFactor/Simple.php:52
-#, fuzzy
-#| msgid "Signon authentication"
 msgid "Simple two-factor authentication"
-msgstr "Authentication via signon"
+msgstr "Authentication de duo factores simple"
 
 #: libraries/classes/Plugins/TwoFactor/Simple.php:62
 msgid "For testing purposes only!"
 msgstr ""
 
 #: libraries/classes/Plugins/TwoFactorPlugin.php:65
-#, fuzzy, php-format
-#| msgid "Hardware authentication failed!"
+#, php-format
 msgid "Two-factor authentication failed: %s"
-msgstr "Authentication hardware falleva!"
+msgstr "Authentication de duo factores falleva. %s"
 
 #: libraries/classes/Plugins/TwoFactorPlugin.php:69
-#, fuzzy
-#| msgid "Hardware authentication failed!"
 msgid "Two-factor authentication failed."
-msgstr "Authentication hardware falleva!"
+msgstr "Authentication de duo factores falleva."
 
 #: libraries/classes/Plugins/TwoFactorPlugin.php:122
 msgid "None two-factor"
@@ -14179,10 +14133,8 @@ msgid "Manage your settings"
 msgstr ""
 
 #: libraries/user_preferences.inc.php:38
-#, fuzzy
-#| msgid "Config authentication"
 msgid "Two-factor authentication"
-msgstr "Authentication via Config"
+msgstr "Authentication de duo factores"
 
 #: libraries/user_preferences.inc.php:63 prefs_manage.php:309
 msgid "Configuration has been saved."
@@ -14284,16 +14236,12 @@ msgid "You can reset all your settings and restore them to default values."
 msgstr ""
 
 #: prefs_second.php:29
-#, fuzzy
-#| msgid "Internal relationship has been removed."
 msgid "Two-factor authentication has been removed."
-msgstr "Relation interne ha essite removite."
+msgstr "Authentication de duo factores  ha essite removite."
 
 #: prefs_second.php:39
-#, fuzzy
-#| msgid "Invalid authentication method set in configuration:"
 msgid "Two-factor authentication has been configured."
-msgstr "Methodo de authentication invalide fixate in le configuration:"
+msgstr "Authentication de duo factores ha essite configurate."
 
 #: server_export.php:25
 msgid "View dump (schema) of databases"
@@ -14907,10 +14855,8 @@ msgstr "Refixa le zoom"
 
 #: templates/login/twofactor/application.twig:2
 #: templates/login/twofactor/application_configure.twig:9
-#, fuzzy
-#| msgid "Authentication"
 msgid "Authentication code:"
-msgstr "Authentication"
+msgstr "Codice de authentication:"
 
 #: templates/login/twofactor/application.twig:4
 msgid ""
@@ -15081,10 +15027,9 @@ msgid "Save chart as image"
 msgstr "Salveguarda diagramma como imagine"
 
 #: templates/database/structure/show_create_row.twig:7
-#, fuzzy, php-format
-#| msgid "Create"
+#, php-format
 msgid "Create %s"
-msgstr "Crea"
+msgstr "Crea %s"
 
 #: templates/server/variables/variable_row.twig:6
 msgid "This is a read-only variable and can not be edited"
@@ -15131,10 +15076,9 @@ msgid "Column names"
 msgstr ""
 
 #: templates/server/databases/table_row.twig:13
-#, fuzzy, php-format
-#| msgid "Jump to database"
+#, php-format
 msgid "Jump to database '%s'"
-msgstr "Va al base da datos"
+msgstr "Va al base da datos '%s'"
 
 #: templates/server/databases/table_row.twig:61
 #, php-format
@@ -15159,10 +15103,8 @@ msgid "Index choice:"
 msgstr "Selection de indice:"
 
 #: templates/table/index_form.twig:42
-#, fuzzy
-#| msgid "Active options"
 msgid "Advanced Options"
-msgstr "Optiones active"
+msgstr "Optiones avantiate"
 
 #: templates/table/index_form.twig:48
 msgid "Key block size:"
@@ -15212,10 +15154,8 @@ msgid "None"
 msgstr "Necun"
 
 #: templates/prefs_second.twig:3
-#, fuzzy
-#| msgid "Authentication settings."
 msgid "Two-factor authentication status"
-msgstr "Preferentias de authentication."
+msgstr "Status de authentication de duo factores"
 
 #: templates/prefs_second.twig:9
 msgid ""
@@ -15233,31 +15173,25 @@ msgid ""
 msgstr ""
 
 #: templates/prefs_second.twig:18
-#, fuzzy
-#| msgid "%sCreate%s missing phpMyAdmin configuration storage tables."
 msgid ""
 "Two-factor authentication is not available, enable phpMyAdmin configuration "
 "storage to use it."
 msgstr ""
-"%sCreate%s mancante de tabellas de immagazinage de configuration de "
-"phpMyAdmin."
+"Authentication de duo factores non es disponibile, activa immagazinage de "
+"configuration de phpMyAdmin per usar lo."
 
 #: templates/prefs_second.twig:27
 msgid "You have enabled two factor authentication."
 msgstr ""
 
 #: templates/prefs_second.twig:31 templates/prefs_second_confirm.twig:9
-#, fuzzy
-#| msgid "Config authentication"
 msgid "Disable two-factor authentication"
-msgstr "Authentication via Config"
+msgstr "De-activa Authentication de duo factores"
 
 #: templates/prefs_second.twig:37 templates/prefs_second.twig:49
 #: templates/prefs_second_configure.twig:2
-#, fuzzy
-#| msgid "Config authentication"
 msgid "Configure two-factor authentication"
-msgstr "Authentication via Config"
+msgstr "Configura Authentication de duo factores"
 
 #: templates/columns_definitions/column_virtuality.twig:29
 #: templates/table/structure/display_partitions.twig:26
@@ -15293,10 +15227,8 @@ msgid "Next autoindex"
 msgstr ""
 
 #: templates/prefs_second_confirm.twig:2
-#, fuzzy
-#| msgid "Config authentication"
 msgid "Confirm disabling two-factor authentication"
-msgstr "Authentication via Config"
+msgstr "Confirma deactivation de Authentication de duo factores"
 
 #: templates/prefs_second_confirm.twig:5
 msgid ""
@@ -15339,10 +15271,8 @@ msgid "in use"
 msgstr "in uso"
 
 #: templates/prefs_second_configure.twig:8
-#, fuzzy
-#| msgid "Config authentication"
 msgid "Enable two-factor authentication"
-msgstr "Authentication via Config"
+msgstr "Activa Authentication de duo factores"
 
 #: templates/privileges/privileges_summary.twig:20
 msgid "Column-specific privileges"
@@ -15511,8 +15441,6 @@ msgid "Hide/Show all"
 msgstr "Cela/monstra toto"
 
 #: templates/database/designer/table_list.twig:14
-#, fuzzy
-#| msgid "Hide/Show Tables with no relationship"
 msgid "Hide/Show tables with no relationship"
 msgstr "Cela/Monstra tabellas con necun relation"
 
