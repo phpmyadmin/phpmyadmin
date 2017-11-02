@@ -113,22 +113,13 @@ class Util
      */
     public static function getImage($image, $alternate = '', array $attributes = array())
     {
-        static $sprites; // cached list of available sprites (if any)
-        if (defined('TESTSUITE')) {
-            // prevent caching in testsuite
-            unset($sprites);
-        }
-
         $is_sprite = false;
         $alternate = htmlspecialchars($alternate);
 
-        // If it's the first time this function is called
-        if (! isset($sprites)) {
-            $sprites = array();
-            // Try to load the list of sprites
-            if (isset($GLOBALS['PMA_Theme'])) {
-                $sprites = $GLOBALS['PMA_Theme']->getSpriteData();
-            }
+        $sprites = array();
+        // Try to load the list of sprites
+        if (isset($GLOBALS['PMA_Theme'])) {
+            $sprites = $GLOBALS['PMA_Theme']->getSpriteData();
         }
 
         // Check if we have the requested image as a sprite

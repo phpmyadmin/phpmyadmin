@@ -82,6 +82,11 @@ class Theme
     );
 
     /**
+     * Sprite data
+     */
+    private $sprites;
+
+    /**
      * Loads theme information
      *
      * @return boolean whether loading them info was successful or not
@@ -440,19 +445,22 @@ class Theme
      */
     public function getSpriteData()
     {
-        $sprites = array();
-        $filename = $this->getPath() . '/sprites.lib.php';
-        if (is_readable($filename)) {
+        if (is_null($this->sprites)) {
+            $sprites = array();
+            $filename = $this->getPath() . '/sprites.lib.php';
+            if (is_readable($filename)) {
 
-            // This defines sprites array
-            include $filename;
+                // This defines sprites array
+                include $filename;
 
-            // Backwards compatibility for themes from 4.6 and older
-            if (function_exists('PMA_sprites')) {
-                $sprites = PMA_sprites();
+                // Backwards compatibility for themes from 4.6 and older
+                if (function_exists('PMA_sprites')) {
+                    $sprites = PMA_sprites();
+                }
             }
+            $this->sprites = $sprites;
         }
-        return $sprites;
+        return $this->sprites;
     }
 
     /**
