@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.8.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2017-11-02 14:01+0100\n"
-"PO-Revision-Date: 2017-11-02 13:40+0000\n"
+"PO-Revision-Date: 2017-11-02 13:54+0000\n"
 "Last-Translator: Giovanni Sora <g.sora@tiscali.it>\n"
 "Language-Team: Interlingua "
 "<https://hosted.weblate.org/projects/phpmyadmin/master/ia/>\n"
@@ -3876,31 +3876,23 @@ msgstr ""
 
 #: libraries/classes/Config/Descriptions.php:199
 msgid "Default transformations for Substring"
-msgstr "Transformationes predefinite per subcatena"
+msgstr "Transformationes predefinite per Substring (subcatenas)"
 
 #: libraries/classes/Config/Descriptions.php:203
-#, fuzzy
-#| msgid "Default sorting order"
 msgid "Default transformations for Bool2Text"
-msgstr "Modo de ordinar predefinite"
+msgstr "Transformationes predefinite per Bool2Text"
 
 #: libraries/classes/Config/Descriptions.php:207
-#, fuzzy
-#| msgid "Default sorting order"
 msgid "Default transformations for External"
-msgstr "Modo de ordinar predefinite"
+msgstr "Transformationes predefinite per External"
 
 #: libraries/classes/Config/Descriptions.php:211
-#, fuzzy
-#| msgid "Input transformation options"
 msgid "Default transformations for PreApPend"
-msgstr "Optiones de transformation de ingresso"
+msgstr "Transformationes predefinite per PreApPend"
 
 #: libraries/classes/Config/Descriptions.php:215
-#, fuzzy
-#| msgid "Default sorting order"
 msgid "Default transformations for DateFormat"
-msgstr "Modo de ordinar predefinite"
+msgstr "Transformationes predefinite per DateFormat"
 
 #: libraries/classes/Config/Descriptions.php:219
 #, fuzzy
