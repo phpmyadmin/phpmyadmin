@@ -8,16 +8,16 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.8.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2017-11-02 14:01+0100\n"
-"PO-Revision-Date: 2017-07-18 12:09+0000\n"
+"PO-Revision-Date: 2017-11-02 13:40+0000\n"
 "Last-Translator: Giovanni Sora <g.sora@tiscali.it>\n"
-"Language-Team: Interlingua <https://hosted.weblate.org/projects/phpmyadmin/"
-"master/ia/>\n"
+"Language-Team: Interlingua "
+"<https://hosted.weblate.org/projects/phpmyadmin/master/ia/>\n"
 "Language: ia\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 2.16-dev\n"
+"X-Generator: Weblate 2.17\n"
 
 #: ajax.php:17 ajax.php:34 export.php:203 libraries/classes/Export.php:1100
 msgid "Bad type!"
@@ -686,10 +686,8 @@ msgid "Server type:"
 msgstr "Typo de servitor:"
 
 #: index.php:308
-#, fuzzy
-#| msgid "Master connection:"
 msgid "Server connection:"
-msgstr "Connexion Master:"
+msgstr "Connexion de servitor:"
 
 #: index.php:312 libraries/classes/Plugins/Export/ExportLatex.php:223
 #: libraries/classes/Plugins/Export/ExportSql.php:704
@@ -1782,10 +1780,8 @@ msgid "No databases selected."
 msgstr "Necun base de datos seligite."
 
 #: js/messages.php:370
-#, fuzzy
-#| msgid "No column selected."
 msgid "No accounts selected."
-msgstr "Necun columna seligite."
+msgstr "Necun conto seligite."
 
 #: js/messages.php:371
 msgid "Dropping column"
@@ -2298,10 +2294,8 @@ msgstr ""
 
 #: js/messages.php:560 templates/database/designer/side_menu.twig:34
 #: templates/database/designer/side_menu.twig:37
-#, fuzzy
-#| msgid "No tables found in database."
 msgid "Add tables from other databases"
-msgstr "Il non ha tabulas in le base de datos."
+msgstr "Adde tabulas ex altere bases de datos"
 
 #: js/messages.php:561
 msgid "Page name"
@@ -3302,9 +3296,6 @@ msgid "Charset"
 msgstr "Insimul de characteres"
 
 #: libraries/classes/Charsets.php:278
-#, fuzzy
-#| msgctxt "Collation"
-#| msgid "Unknown"
 msgid "Unknown"
 msgstr "Incognite"
 
@@ -3866,10 +3857,8 @@ msgid "Hide table structure actions"
 msgstr "Cela actiones de  structura de tabella"
 
 #: libraries/classes/Config/Descriptions.php:195
-#, fuzzy
-#| msgid "Default sorting order"
 msgid "Default transformations for Hex"
-msgstr "Modo de ordinar predefinite"
+msgstr "Transformationes predefinite per Hex"
 
 #: libraries/classes/Config/Descriptions.php:197
 #: libraries/classes/Config/Descriptions.php:201
@@ -3886,10 +3875,8 @@ msgid ""
 msgstr ""
 
 #: libraries/classes/Config/Descriptions.php:199
-#, fuzzy
-#| msgid "Input transformation options"
 msgid "Default transformations for Substring"
-msgstr "Optiones de transformation de ingresso"
+msgstr "Transformationes predefinite per subcatena"
 
 #: libraries/classes/Config/Descriptions.php:203
 #, fuzzy
@@ -6855,10 +6842,9 @@ msgid "The columns have been moved successfully."
 msgstr "La columnas ha essite movite successosemente."
 
 #: libraries/classes/Controllers/Table/TableStructureController.php:497
-#, fuzzy, php-format
-#| msgid "Failed to get real row count."
+#, php-format
 msgid "Failed to get description of column %s!"
-msgstr "Il falleva obtener ver computo de rango."
+msgstr "Il falleva obtener description de  columna  %s!"
 
 #: libraries/classes/Controllers/Table/TableStructureController.php:734
 #: libraries/classes/Controllers/Table/TableStructureController.php:1018
