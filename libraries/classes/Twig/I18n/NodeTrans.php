@@ -88,7 +88,7 @@ class NodeTrans extends Twig_Extensions_Node_Trans
 
             // line breaks are not allowed cause we want a single line comment
             $message = str_replace(array("\n", "\r"), ' ', $message);
-            $compiler->write("// notes: {$message}\n");
+            $compiler->write("// l10n: {$message}\n");
         }
 
         if ($vars) {
