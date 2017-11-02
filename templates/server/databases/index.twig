@@ -1,0 +1,18 @@
+{# Displays For Create database #}
+{% if show_create_db %}
+    {% include 'server/databases/create.twig' with {
+        'is_create_db_priv': is_create_db_priv,
+        'dbstats': dbstats,
+        'db_to_create': db_to_create,
+        'server_collation': server_collation
+    } only %}
+{% endif %}
+
+{% include 'filter.twig' with {'filter_value': ''} only %}
+
+{# Displays the page #}
+{% if databases is not null %}
+    {{ databases|raw }}
+{% else %}
+    <p>{% trans 'No databases' %}</p>
+{% endif %}
