@@ -45,6 +45,11 @@ class Template
      */
     static protected $twig;
 
+    /**
+     * Loader cache
+     */
+    static protected $cache = [];
+
     const BASE_PATH = 'templates/';
 
     /**
@@ -97,7 +102,10 @@ class Template
      */
     public static function get($name)
     {
-        return new Template($name);
+        if (! isset(self::$cache[$name])) {
+            self::$cache[$name] = new Template($name);
+        }
+        return self::$cache[$name];
     }
 
     /**
