@@ -4,17 +4,17 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.8.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2017-11-02 14:01+0100\n"
-"PO-Revision-Date: 2017-09-12 00:14+0000\n"
+"PO-Revision-Date: 2017-11-02 20:13+0000\n"
 "Last-Translator: Viktar Vauchkevich <victorenator@gmail.com>\n"
-"Language-Team: Belarusian <https://hosted.weblate.org/projects/phpmyadmin/"
-"master/be/>\n"
+"Language-Team: Belarusian "
+"<https://hosted.weblate.org/projects/phpmyadmin/master/be/>\n"
 "Language: be\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=3; plural=n%10==1 && n%100!=11 ? 0 : n%10>=2 && n"
-"%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
-"X-Generator: Weblate 2.17-dev\n"
+"Plural-Forms: nplurals=3; plural=n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%10<="
+"4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
+"X-Generator: Weblate 2.18-dev\n"
 
 #: ajax.php:17 ajax.php:34 export.php:203 libraries/classes/Export.php:1100
 msgid "Bad type!"
@@ -8662,10 +8662,8 @@ msgid "Switch to copied database"
 msgstr "Перайсьці да скапіяванай базы дадзеных"
 
 #: libraries/classes/Operations.php:311
-#, fuzzy
-#| msgid "Continued table caption"
 msgid "Change all tables collations"
-msgstr "Працягнуты загаловак табліцы"
+msgstr "Змяніць параўноўванні ўсіх табліц"
 
 #: libraries/classes/Operations.php:317
 msgid "Change all tables columns collations"
@@ -9868,10 +9866,8 @@ msgid "Formats text as XML with syntax highlighting."
 msgstr "Фарматуе тэкст як XML з падсвечаным сінтаксісам."
 
 #: libraries/classes/Plugins/TwoFactor/Application.php:129
-#, fuzzy
-#| msgid "Authentication Plugin"
 msgid "Authentication Application (2FA)"
-msgstr "Плагін аўтэнтыфікацыі"
+msgstr "Праграма аўтэнтыфікацыі (2FA)"
 
 #: libraries/classes/Plugins/TwoFactor/Application.php:139
 msgid ""
@@ -9889,26 +9885,21 @@ msgid ""
 msgstr ""
 
 #: libraries/classes/Plugins/TwoFactor/Simple.php:52
-#, fuzzy
-#| msgid "Signon authentication"
 msgid "Simple two-factor authentication"
-msgstr "Signon-аўтэнтыфікацыя"
+msgstr "Простая двух-фактарная аўтэнтыфікацыя"
 
 #: libraries/classes/Plugins/TwoFactor/Simple.php:62
 msgid "For testing purposes only!"
 msgstr ""
 
 #: libraries/classes/Plugins/TwoFactorPlugin.php:65
-#, fuzzy, php-format
-#| msgid "Hardware authentication failed!"
+#, php-format
 msgid "Two-factor authentication failed: %s"
-msgstr "Апаратная аўтэнтыфікацыя скончылася няўдала!"
+msgstr "Двух-фактарная аўтэнтыфікацыя скончылася няўдала: %s"
 
 #: libraries/classes/Plugins/TwoFactorPlugin.php:69
-#, fuzzy
-#| msgid "Hardware authentication failed!"
 msgid "Two-factor authentication failed."
-msgstr "Апаратная аўтэнтыфікацыя скончылася няўдала!"
+msgstr "Двух-фактарная аўтэнтыфікацыя скончылася няўдала."
 
 #: libraries/classes/Plugins/TwoFactorPlugin.php:122
 msgid "None two-factor"
@@ -13664,10 +13655,8 @@ msgid "Manage your settings"
 msgstr "Кіраваць наладамі"
 
 #: libraries/user_preferences.inc.php:38
-#, fuzzy
-#| msgid "Config authentication"
 msgid "Two-factor authentication"
-msgstr "Аўтэнтыфікацыя праз файл канфігурацыі"
+msgstr "Двух-фактарная аўтэнтыфікацыя"
 
 #: libraries/user_preferences.inc.php:63 prefs_manage.php:309
 msgid "Configuration has been saved."
@@ -13768,16 +13757,12 @@ msgid "You can reset all your settings and restore them to default values."
 msgstr ""
 
 #: prefs_second.php:29
-#, fuzzy
-#| msgid "Internal relationship has been removed."
 msgid "Two-factor authentication has been removed."
-msgstr "Унутраная сувязь выдаленая."
+msgstr "Двух-фактарная аўтэнтыфікацыя выдаленая."
 
 #: prefs_second.php:39
-#, fuzzy
-#| msgid "Invalid authentication method set in configuration:"
 msgid "Two-factor authentication has been configured."
-msgstr "У канфігурацыі вызначаны некарэктны мэтад аўтэнтыфікацыі:"
+msgstr "Двух-фактарная аўтэнтыфікацыя сканфігураваная."
 
 #: server_export.php:25
 msgid "View dump (schema) of databases"
@@ -14389,10 +14374,8 @@ msgstr "Скінуць маштабаванне"
 
 #: templates/login/twofactor/application.twig:2
 #: templates/login/twofactor/application_configure.twig:9
-#, fuzzy
-#| msgid "Authentication"
 msgid "Authentication code:"
-msgstr "Аўтэнтыфікацыя"
+msgstr "Код аўтэнтыфікацыі:"
 
 #: templates/login/twofactor/application.twig:4
 msgid ""
@@ -14563,10 +14546,9 @@ msgid "Save chart as image"
 msgstr "Захаваць дыяграму як выяву"
 
 #: templates/database/structure/show_create_row.twig:7
-#, fuzzy, php-format
-#| msgid "Create User"
+#, php-format
 msgid "Create %s"
-msgstr "Стварыць сувязь"
+msgstr "Стварыць %s"
 
 #: templates/server/variables/variable_row.twig:6
 msgid "This is a read-only variable and can not be edited"
@@ -14613,10 +14595,9 @@ msgid "Column names"
 msgstr "Назвы калёнак"
 
 #: templates/server/databases/table_row.twig:13
-#, fuzzy, php-format
-#| msgid "Jump to database"
+#, php-format
 msgid "Jump to database '%s'"
-msgstr "Перайсці ў базу даных"
+msgstr "Перайсці ў базу даных «%s»"
 
 #: templates/server/databases/table_row.twig:61
 #, php-format
@@ -14642,10 +14623,8 @@ msgid "Index choice:"
 msgstr "Выбар індэксу:"
 
 #: templates/table/index_form.twig:42
-#, fuzzy
-#| msgid "Active options"
 msgid "Advanced Options"
-msgstr "Актыўная опцыі"
+msgstr "Дадатковыя параметры"
 
 #: templates/table/index_form.twig:48
 msgid "Key block size:"
@@ -14697,10 +14676,8 @@ msgid "None"
 msgstr "Няма"
 
 #: templates/prefs_second.twig:3
-#, fuzzy
-#| msgid "Authentication settings."
 msgid "Two-factor authentication status"
-msgstr "Налады аўтэнтыфікацыі."
+msgstr "Стан двух-фактарнай аўтэнтыфікацыі"
 
 #: templates/prefs_second.twig:9
 msgid ""
@@ -14728,17 +14705,13 @@ msgid "You have enabled two factor authentication."
 msgstr ""
 
 #: templates/prefs_second.twig:31 templates/prefs_second_confirm.twig:9
-#, fuzzy
-#| msgid "Config authentication"
 msgid "Disable two-factor authentication"
-msgstr "Аўтэнтыфікацыя праз файл канфігурацыі"
+msgstr "Адключыць двух-фактарную аўтэнтыфікацыю"
 
 #: templates/prefs_second.twig:37 templates/prefs_second.twig:49
 #: templates/prefs_second_configure.twig:2
-#, fuzzy
-#| msgid "Config authentication"
 msgid "Configure two-factor authentication"
-msgstr "Аўтэнтыфікацыя праз файл канфігурацыі"
+msgstr "Наладзіць двух-фактарную аўтэнтыфікацыю"
 
 #: templates/columns_definitions/column_virtuality.twig:29
 #: templates/table/structure/display_partitions.twig:26
@@ -14774,10 +14747,8 @@ msgid "Next autoindex"
 msgstr ""
 
 #: templates/prefs_second_confirm.twig:2
-#, fuzzy
-#| msgid "Config authentication"
 msgid "Confirm disabling two-factor authentication"
-msgstr "Аўтэнтыфікацыя праз файл канфігурацыі"
+msgstr "Пацвердзіць адключэнне двух-фактарнай аўтэнтыфікацыі"
 
 #: templates/prefs_second_confirm.twig:5
 msgid ""
@@ -14817,10 +14788,8 @@ msgid "in use"
 msgstr "выкарыстоўваецца"
 
 #: templates/prefs_second_configure.twig:8
-#, fuzzy
-#| msgid "Config authentication"
 msgid "Enable two-factor authentication"
-msgstr "Аўтэнтыфікацыя праз файл канфігурацыі"
+msgstr "Уключыць двух-фактарную аўтэнтыфікацыю"
 
 #: templates/privileges/privileges_summary.twig:20
 msgid "Column-specific privileges"
@@ -14991,8 +14960,6 @@ msgid "Hide/Show all"
 msgstr "Схаваць/паказаць усе табліцы"
 
 #: templates/database/designer/table_list.twig:14
-#, fuzzy
-#| msgid "Hide/Show Tables with no relationship"
 msgid "Hide/Show tables with no relationship"
 msgstr "Схаваць/паказаць табліцы без сувязяў"
 
@@ -15305,12 +15272,6 @@ msgid ""
 msgstr ""
 
 #: templates/columns_definitions/table_fields_definitions.twig:17
-#, fuzzy
-#| msgid ""
-#| "If column type is \"enum\" or \"set\", please enter the values using this "
-#| "format: 'a','b','c'…<br />If you ever need to put a backslash (\"\\\") or "
-#| "a single quote (\"'\") amongst those values, precede it with a backslash "
-#| "(for example '\\\\xyz' or 'a\\'b')."
 msgid ""
 "If column type is \"enum\" or \"set\", please enter the values using this "
 "format: 'a','b','c'…<br />If you ever need to put a backslash (\"\") or a "
@@ -15349,12 +15310,6 @@ msgstr "Параметры пераўтварэння адлюстравання
 
 #: templates/columns_definitions/table_fields_definitions.twig:83
 #: templates/columns_definitions/table_fields_definitions.twig:94
-#, fuzzy
-#| msgid ""
-#| "Please enter the values for transformation options using this format: "
-#| "'a', 100, b,'c'…<br />If you ever need to put a backslash (\"\\\") or a "
-#| "single quote (\"'\") amongst those values, precede it with a backslash "
-#| "(for example '\\\\xyz' or 'a\\'b')."
 msgid ""
 "Please enter the values for transformation options using this format: 'a', "
 "100, b,'c'…<br />If you ever need to put a backslash (\"\") or a single "
@@ -15363,8 +15318,8 @@ msgid ""
 msgstr ""
 "Калі ласка, уводзьце значэньні опцыяў пераўтварэньня выкарыстоўваючы гэты "
 "фармат: 'a', 100, b,'c'…<br />Калі вам трэба ўжыць зваротны слэш (\"\\\") "
-"або апостраф (\"'\") у гэтых значэньнях, устаўце зваротны слэш перад імі "
-"(напрыклад, '\\\\xyz' або 'a\\'b')."
+"або апостраф (\"'\") у гэтых значэньнях, устаўце зваротны слэш перад імі ("
+"напрыклад, '\\\\xyz' або 'a\\'b')."
 
 #: templates/columns_definitions/table_fields_definitions.twig:93
 msgid "Input transformation options"
