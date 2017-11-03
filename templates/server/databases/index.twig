@@ -1,3 +1,8 @@
+{# Displays the sub-page heading #}
+{% include 'server/sub_page_header.twig' with {
+    'type': dbstats ? 'database_statistics' : 'databases'
+} only %}
+
 {# Displays For Create database #}
 {% if show_create_db %}
     {% include 'server/databases/create.twig' with {

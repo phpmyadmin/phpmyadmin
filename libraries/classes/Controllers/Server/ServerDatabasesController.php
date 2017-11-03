@@ -90,16 +90,6 @@ class ServerDatabasesController extends Controller
         $this->_pos     = empty($_REQUEST['pos']) ? 0 : (int) $_REQUEST['pos'];
 
         /**
-         * Displays the sub-page heading
-         */
-        $header_type = $this->_dbstats ? "database_statistics" : "databases";
-        $this->response->addHTML(
-            Template::get('server/sub_page_header')->render([
-                'type' => $header_type,
-            ])
-        );
-
-        /**
          * Gets the databases list
          */
         if ($GLOBALS['server'] > 0) {
