@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.8.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2017-11-02 14:01+0100\n"
-"PO-Revision-Date: 2017-11-02 20:13+0000\n"
+"PO-Revision-Date: 2017-11-03 18:46+0000\n"
 "Last-Translator: Burak Yavuz <hitowerdigit@hotmail.com>\n"
 "Language-Team: Turkish "
 "<https://hosted.weblate.org/projects/phpmyadmin/master/tr/>\n"
@@ -10392,45 +10392,44 @@ msgid ""
 "Provides authentication using HOTP and TOTP applications such as FreeOTP, "
 "Google Authenticator or Authy."
 msgstr ""
+"FreeOTP, Google Authenticator veya Authy gibi HOTP ve TOTP uygulamalarını "
+"kullanarak kimlik doğrulaması sağlar."
 
 #: libraries/classes/Plugins/TwoFactor/Key.php:184
 msgid "Hardware Security Key (FIDO U2F)"
-msgstr ""
+msgstr "Donanım Güvenlik Anahtarı (FIDO U2F)"
 
 #: libraries/classes/Plugins/TwoFactor/Key.php:194
 msgid ""
 "Provides authentication using hardware security tokens supporting FIDO U2F."
 msgstr ""
+"FIDO U2F destekleyen donanım güvenlik belirteçleri kullanarak kimlik "
+"doğrulaması sağlar."
 
 #: libraries/classes/Plugins/TwoFactor/Simple.php:52
-#, fuzzy
-#| msgid "Signon authentication"
 msgid "Simple two-factor authentication"
-msgstr "Oturumu açma kimlik doğrulaması"
+msgstr "Basit iki etkenli kimlik doğrulaması"
 
 #: libraries/classes/Plugins/TwoFactor/Simple.php:62
 msgid "For testing purposes only!"
-msgstr ""
+msgstr "Yalnızca deneme amaçlı!"
 
 #: libraries/classes/Plugins/TwoFactorPlugin.php:65
-#, fuzzy, php-format
-#| msgid "Hardware authentication failed!"
+#, php-format
 msgid "Two-factor authentication failed: %s"
-msgstr "Donanım kimlik doğrulaması başarısız oldu!"
+msgstr "İki etkenli kimlik doğrulaması başarısız oldu: %s"
 
 #: libraries/classes/Plugins/TwoFactorPlugin.php:69
-#, fuzzy
-#| msgid "Hardware authentication failed!"
 msgid "Two-factor authentication failed."
-msgstr "Donanım kimlik doğrulaması başarısız oldu!"
+msgstr "İki etkenli kimlik doğrulaması başarısız oldu."
 
 #: libraries/classes/Plugins/TwoFactorPlugin.php:122
 msgid "None two-factor"
-msgstr ""
+msgstr "İki etkenli olmayan"
 
 #: libraries/classes/Plugins/TwoFactorPlugin.php:132
 msgid "Login using password only."
-msgstr ""
+msgstr "Sadece parola kullanarak oturum açın."
 
 #: libraries/classes/PmdCommon.php:550
 msgid "Error: relationship already exists."
@@ -14334,10 +14333,8 @@ msgid "Manage your settings"
 msgstr "Ayarlarınızı yönetin"
 
 #: libraries/user_preferences.inc.php:38
-#, fuzzy
-#| msgid "Config authentication"
 msgid "Two-factor authentication"
-msgstr "Yapılandırma kimlik doğrulaması"
+msgstr "İki etkenli kimlik doğrulaması"
 
 #: libraries/user_preferences.inc.php:63 prefs_manage.php:309
 msgid "Configuration has been saved."
@@ -14444,16 +14441,12 @@ msgstr ""
 "yükleyebilirsiniz."
 
 #: prefs_second.php:29
-#, fuzzy
-#| msgid "Internal relationship has been removed."
 msgid "Two-factor authentication has been removed."
-msgstr "İç ilişki kaldırıldı."
+msgstr "İki etkenli kimlik doğrulaması kaldırıldı."
 
 #: prefs_second.php:39
-#, fuzzy
-#| msgid "Invalid authentication method set in configuration:"
 msgid "Two-factor authentication has been configured."
-msgstr "Yapılandırma içinde geçersiz kimlik doğrulaması yöntemi ayarı:"
+msgstr "İki etkenli kimlik doğrulaması yapılandırıldı."
 
 #: server_export.php:25
 msgid "View dump (schema) of databases"
@@ -15084,16 +15077,16 @@ msgstr "Odaklamayı sıfırla"
 
 #: templates/login/twofactor/application.twig:2
 #: templates/login/twofactor/application_configure.twig:9
-#, fuzzy
-#| msgid "Authentication"
 msgid "Authentication code:"
-msgstr "Kimlik doğrulaması"
+msgstr "Kimlik doğrulama kodu:"
 
 #: templates/login/twofactor/application.twig:4
 msgid ""
 "Open the two-factor authentication app on your device to view your "
 "authentication code and verify your identity."
 msgstr ""
+"Kimlik doğrulama kodunuzu görüntülemek ve kimliğinizi doğrulamak için iki "
+"etkenli kimlik doğrulama uygulamasını cihazınızda açın."
 
 #: templates/database/designer/rename_to_panel.twig:22
 #: templates/database/designer/options_panel.twig:85
@@ -15115,7 +15108,7 @@ msgstr "\"Örnekle sorgulama\" yap. (joker: \"%\")"
 
 #: templates/login/twofactor.twig:4
 msgid "Verify"
-msgstr ""
+msgstr "Doğrula"
 
 #: templates/server/variables/session_variable_row.twig:3
 msgid "Session value"
@@ -15256,10 +15249,9 @@ msgid "Save chart as image"
 msgstr "Çizelgeyi resim olarak kaydet"
 
 #: templates/database/structure/show_create_row.twig:7
-#, fuzzy, php-format
-#| msgid "Create User"
+#, php-format
 msgid "Create %s"
-msgstr "Kullanıcı Oluştur"
+msgstr "%s Oluştur"
 
 #: templates/server/variables/variable_row.twig:6
 msgid "This is a read-only variable and can not be edited"
@@ -15309,10 +15301,9 @@ msgid "Column names"
 msgstr "Sütun adları"
 
 #: templates/server/databases/table_row.twig:13
-#, fuzzy, php-format
-#| msgid "Jump to database"
+#, php-format
 msgid "Jump to database '%s'"
-msgstr "Veritabanına git"
+msgstr "'%s' veritabanına atla"
 
 #: templates/server/databases/table_row.twig:61
 #, php-format
@@ -15339,10 +15330,8 @@ msgid "Index choice:"
 msgstr "İndeks tercihi:"
 
 #: templates/table/index_form.twig:42
-#, fuzzy
-#| msgid "Active options"
 msgid "Advanced Options"
-msgstr "Aktif seçenekler"
+msgstr "Gelişmiş Seçenekler"
 
 #: templates/table/index_form.twig:48
 msgid "Key block size:"
@@ -15392,50 +15381,50 @@ msgid "None"
 msgstr "Yok"
 
 #: templates/prefs_second.twig:3
-#, fuzzy
-#| msgid "Authentication settings."
 msgid "Two-factor authentication status"
-msgstr "Kimlik doğrulaması ayarları."
+msgstr "İki etkenli kimlik doğrulaması durumu"
 
 #: templates/prefs_second.twig:9
 msgid ""
 "Two-factor authentication is not available, please install optional "
 "dependencies to enable authentication backends."
 msgstr ""
+"İki etkenli kimlik doğrulaması kullanılamaz, lütfen kimlik doğrulaması arka "
+"uçlarını etkinleştirmek için isteğe bağlı bağımlılıklar yükleyin."
 
 #: templates/prefs_second.twig:12
 msgid "Two-factor authentication is available and configured for this account."
 msgstr ""
+"İki etkenli kimlik doğrulaması kullanılabilir ve bu hesap için "
+"yapılandırılmış."
 
 #: templates/prefs_second.twig:14
 msgid ""
 "Two-factor authentication is available, but not configured for this account."
 msgstr ""
+"İki etkenli kimlik doğrulaması kullanılabilir, ancak bu hesap için "
+"yapılandırılmamış."
 
 #: templates/prefs_second.twig:18
-#, fuzzy
-#| msgid "%sCreate%s missing phpMyAdmin configuration storage tables."
 msgid ""
 "Two-factor authentication is not available, enable phpMyAdmin configuration "
 "storage to use it."
-msgstr "Eksik phpMyAdmin yapılandırma depolama tablolarını %soluşturun%s."
+msgstr ""
+"İki etkenli kimlik doğrulaması kullanılamaz, kullanmak için phpMyAdmin "
+"yapılandırma depolamasını etkinleştirin."
 
 #: templates/prefs_second.twig:27
 msgid "You have enabled two factor authentication."
-msgstr ""
+msgstr "İki etkenli kimlik doğrulamasını etkinleştirdiniz."
 
 #: templates/prefs_second.twig:31 templates/prefs_second_confirm.twig:9
-#, fuzzy
-#| msgid "Config authentication"
 msgid "Disable two-factor authentication"
-msgstr "Yapılandırma kimlik doğrulaması"
+msgstr "İki etkenli kimlik doğrulamasını etkisizleştir"
 
 #: templates/prefs_second.twig:37 templates/prefs_second.twig:49
 #: templates/prefs_second_configure.twig:2
-#, fuzzy
-#| msgid "Config authentication"
 msgid "Configure two-factor authentication"
-msgstr "Yapılandırma kimlik doğrulaması"
+msgstr "İki etkenli kimlik doğrulamasını yapılandır"
 
 #: templates/columns_definitions/column_virtuality.twig:29
 #: templates/table/structure/display_partitions.twig:26
@@ -15471,16 +15460,16 @@ msgid "Next autoindex"
 msgstr "Sonraki otoindeks"
 
 #: templates/prefs_second_confirm.twig:2
-#, fuzzy
-#| msgid "Config authentication"
 msgid "Confirm disabling two-factor authentication"
-msgstr "Yapılandırma kimlik doğrulaması"
+msgstr "İki etkenli kimlik doğrulamasını etkisizleştirmeyi onayla"
 
 #: templates/prefs_second_confirm.twig:5
 msgid ""
 "By disabling two factor authentication you will be again able to login using "
 "password only."
 msgstr ""
+"İki etkenli kimlik doğrulamasını etkisizleştirerek, yine sadece parola "
+"kullanarak oturum açabileceksiniz."
 
 #: templates/prefs_autoload.twig:7
 msgid ""
@@ -15521,10 +15510,8 @@ msgid "in use"
 msgstr "kullanımda"
 
 #: templates/prefs_second_configure.twig:8
-#, fuzzy
-#| msgid "Config authentication"
 msgid "Enable two-factor authentication"
-msgstr "Yapılandırma kimlik doğrulaması"
+msgstr "İki etkenli kimlik doğrulamasını etkinleştir"
 
 #: templates/privileges/privileges_summary.twig:20
 msgid "Column-specific privileges"
@@ -15685,6 +15672,8 @@ msgid ""
 "Please connect your FIDO U2F device into your computer's USB port. Then "
 "confirm login on the device."
 msgstr ""
+"Lütfen FIDO U2F aygıtınızı bilgisayarınızın USB bağlantı noktasına bağlayın. "
+"Ondan sonra aygıta oturum açmayı onaylayın."
 
 #: templates/table/search/search_and_replace.twig:3
 msgid "Replace with:"
@@ -15699,10 +15688,8 @@ msgid "Hide/Show all"
 msgstr "Tümünü gizle/göster"
 
 #: templates/database/designer/table_list.twig:14
-#, fuzzy
-#| msgid "Hide/Show Tables with no relationship"
 msgid "Hide/Show tables with no relationship"
-msgstr "İlişkisi olmayan Tabloları gizle/göster"
+msgstr "İlişkisi olmayan tabloları gizle/göster"
 
 #: templates/database/designer/table_list.twig:55
 msgid "Number of tables:"
@@ -16010,14 +15997,10 @@ msgid ""
 "Please connect your FIDO U2F device into your computer's USB port. Then "
 "confirm registration on the device."
 msgstr ""
+"Lütfen FIDO U2F aygıtınızı bilgisayarınızın USB bağlantı noktasına bağlayın. "
+"Ondan sonra aygıta kaydolmayı onaylayın."
 
 #: templates/columns_definitions/table_fields_definitions.twig:17
-#, fuzzy
-#| msgid ""
-#| "If column type is \"enum\" or \"set\", please enter the values using this "
-#| "format: 'a','b','c'…<br />If you ever need to put a backslash (\"\\\") or "
-#| "a single quote (\"'\") amongst those values, precede it with a backslash "
-#| "(for example '\\\\xyz' or 'a\\'b')."
 msgid ""
 "If column type is \"enum\" or \"set\", please enter the values using this "
 "format: 'a','b','c'…<br />If you ever need to put a backslash (\"\") or a "
@@ -16026,8 +16009,8 @@ msgid ""
 msgstr ""
 "Eğer sütun türü \"enum\" veya \"set\" ise lütfen değerleri bu biçimi "
 "kullanarak girin: 'a','b','c'…<br />Eğer bu değerler arasına hep ters eğik "
-"çizgi (\"\\\") veya tek tırnak (\"'\") koymanız gerekirse, önlerine ters "
-"eğik çizgi koyun (örneğin '\\\\xyz' veya 'a\\'b')."
+"çizgi (\"\") veya tek tırnak (\"'\") koymanız gerekirse, önlerine ters eğik "
+"çizgi koyun (örneğin '\\\\xyz' veya 'a\\'b')."
 
 #: templates/columns_definitions/table_fields_definitions.twig:21
 msgid ""
@@ -16056,12 +16039,6 @@ msgstr "Tarayıcı görüntüleme dönüşümü seçenekleri"
 
 #: templates/columns_definitions/table_fields_definitions.twig:83
 #: templates/columns_definitions/table_fields_definitions.twig:94
-#, fuzzy
-#| msgid ""
-#| "Please enter the values for transformation options using this format: "
-#| "'a', 100, b,'c'…<br />If you ever need to put a backslash (\"\\\") or a "
-#| "single quote (\"'\") amongst those values, precede it with a backslash "
-#| "(for example '\\\\xyz' or 'a\\'b')."
 msgid ""
 "Please enter the values for transformation options using this format: 'a', "
 "100, b,'c'…<br />If you ever need to put a backslash (\"\") or a single "
@@ -16069,9 +16046,9 @@ msgid ""
 "'\\\\xyz' or 'a\\'b')."
 msgstr ""
 "Lütfen dönüşüm seçenekleri için değerleri bu biçimi kullanarak giriniz: 'a', "
-"100, b,'c'…<br />Eğer bu değerler arasına hep ters eğik çizgi (\"\\\") veya "
-"tek tırnak (\"'\") koymanız gerekirse, önlerine ters eğik çizgi koyun "
-"(örneğin '\\\\xyz' veya 'a\\'b')."
+"100, b,'c'…<br />Eğer bu değerler arasına hep ters eğik çizgi (\"\") veya "
+"tek tırnak (\"'\") koymanız gerekirse, önlerine ters eğik çizgi koyun ("
+"örneğin '\\\\xyz' veya 'a\\'b')."
 
 #: templates/columns_definitions/table_fields_definitions.twig:93
 msgid "Input transformation options"
@@ -16106,6 +16083,8 @@ msgid ""
 "Please scan following QR code into the two-factor authentication app on your "
 "device and enter authentication code it generates."
 msgstr ""
+"Lütfen aşağıdaki QR kodu cihazınızdaki iki etkenli kimlik doğrulaması "
+"uygulaması içinde taratın ve oluşturduğu kimlik doğrulama kodunu girin."
 
 #: templates/columns_definitions/column_default.twig:3
 msgctxt "for default"
