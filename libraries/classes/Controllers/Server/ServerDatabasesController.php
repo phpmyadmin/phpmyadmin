@@ -251,33 +251,9 @@ class ServerDatabasesController extends Controller
      */
     private function _getHtmlForDatabases(array $replication_types)
     {
-        $html = '<div id="tableslistcontainer">';
         $first_database = reset($this->_databases);
         // table col order
         $column_order = $this->_getColumnOrder();
-
-        $_url_params = array(
-            'pos' => $this->_pos,
-            'dbstats' => $this->_dbstats,
-            'sort_by' => $this->_sort_by,
-            'sort_order' => $this->_sort_order,
-        );
-
-        $html .= Util::getListNavigator(
-            $this->_database_count, $this->_pos, $_url_params,
-            'server_databases.php', 'frame_content', $GLOBALS['cfg']['MaxDbList']
-        );
-
-        $_url_params['pos'] = $this->_pos;
-
-        $html .= '<form class="ajax" action="server_databases.php" ';
-        $html .= 'method="post" name="dbStatsForm" id="dbStatsForm">' . "\n";
-        $html .= Url::getHiddenInputs($_url_params);
-
-        $_url_params['sort_by'] = 'SCHEMA_NAME';
-        $_url_params['sort_order']
-            = ($this->_sort_by == 'SCHEMA_NAME' && $this->_sort_order == 'asc')
-            ? 'desc' : 'asc';
 
         // calculate aggregate stats to display in footer
         foreach ($this->_databases as $current) {
@@ -290,23 +266,42 @@ class ServerDatabasesController extends Controller
             }
         }
 
-        // database table
-        $html .= '<div class="responsivetable"><table id="tabledatabases" class="data">' . "\n";
-        $html .= $this->_getHtmlForTableHeader(
-            $_url_params, $column_order, $first_database
+        $_url_params = array(
+            'pos' => $this->_pos,
+            'dbstats' => $this->_dbstats,
+            'sort_by' => $this->_sort_by,
+            'sort_order' => $this->_sort_order,
         );
+
+        $html = Template::get('server/databases/databases_header')->render([
+            'database_count' => $this->_database_count,
+            'pos' => $this->_pos,
+            'url_params' => $_url_params,
+            'max_db_list' => $GLOBALS['cfg']['MaxDbList'],
+            'sort_by' => $this->_sort_by,
+            'sort_order' => $this->_sort_order,
+            'column_order' => $column_order,
+            'first_database' => $first_database,
+            'master_replication' => $GLOBALS['replication_info']['master']['status'],
+            'slave_replication' => $GLOBALS['replication_info']['slave']['status'],
+            'is_superuser' => $GLOBALS['dbi']->isSuperuser(),
+            'allow_user_drop_database' => $GLOBALS['cfg']['AllowUserDropDatabase'],
+        ]);
+
         $html .= $this->_getHtmlForTableBody($column_order, $replication_types);
-        $html .= $this->_getHtmlForTableFooter($column_order, $first_database);
-        $html .= '</table></div>' . "\n";
 
-        $html .= $this->_getHtmlForTableFooterButtons();
-
-        if (empty($this->_dbstats)) {
-            //we should put notice above database list
-            $html .= $this->_getHtmlForNoticeEnableStatistics();
-        }
-        $html .= '</form>';
-        $html .= '</div>';
+        $html .= Template::get('server/databases/databases_footer')->render([
+            'column_order' => $column_order,
+            'first_database' => $first_database,
+            'master_replication' => $GLOBALS['replication_info']['master']['status'],
+            'slave_replication' => $GLOBALS['replication_info']['slave']['status'],
+            'database_count' => $this->_database_count,
+            'is_superuser' => $GLOBALS['dbi']->isSuperuser(),
+            'allow_user_drop_database' => $GLOBALS['cfg']['AllowUserDropDatabase'],
+            'pma_theme_image' => $GLOBALS['pmaThemeImage'],
+            'text_dir' => $GLOBALS['text_dir'],
+            'dbstats' => $this->_dbstats,
+        ]);
 
         return $html;
     }
@@ -357,58 +352,6 @@ class ServerDatabasesController extends Controller
         );
 
         return $column_order;
-    }
-
-    /**
-     * Returns the html for Table footer buttons
-     *
-     * @return string
-     */
-    private function _getHtmlForTableFooterButtons()
-    {
-        if (! $GLOBALS['dbi']->isSuperuser()
-            && ! $GLOBALS['cfg']['AllowUserDropDatabase']
-        ) {
-            return '';
-        }
-
-        $html = Template::get('select_all')
-            ->render(
-                array(
-                    'pma_theme_image' => $GLOBALS['pmaThemeImage'],
-                    'text_dir'        => $GLOBALS['text_dir'],
-                    'form_name'       => 'dbStatsForm',
-                )
-            );
-
-        $html .= Util::getButtonOrImage(
-            '',
-            'mult_submit' . ' ajax',
-            __('Drop'), 'b_deltbl.png'
-        );
-
-        return $html;
-    }
-
-    /**
-     * Returns the html for Table footer
-     *
-     * @param string $column_order   column order
-     * @param string $first_database first database
-     *
-     * @return string
-     */
-    private function _getHtmlForTableFooter($column_order, $first_database)
-    {
-        return Template::get('server/databases/table_footer')->render([
-            'column_order' => $column_order,
-            'first_database' => $first_database,
-            'master_replication' => $GLOBALS['replication_info']['master']['status'],
-            'slave_replication' => $GLOBALS['replication_info']['slave']['status'],
-            'database_count' => $this->_database_count,
-            'is_superuser' => $GLOBALS['dbi']->isSuperuser(),
-            'allow_user_drop_database' => $GLOBALS['cfg']['AllowUserDropDatabase'],
-        ]);
     }
 
     /**
@@ -509,70 +452,5 @@ class ServerDatabasesController extends Controller
             'is_system_schema' => $GLOBALS['dbi']->isSystemSchema($current['SCHEMA_NAME'], true),
             'default_tab_database' => $GLOBALS['cfg']['DefaultTabDatabase'],
         ]);
-    }
-
-    /**
-     * Returns the html for table header
-     *
-     * @param array $_url_params    url params
-     * @param array $column_order   column order
-     * @param array $first_database database to show
-     *
-     * @return string
-     */
-    private function _getHtmlForTableHeader(
-        array $_url_params, array $column_order, array $first_database
-    ) {
-        return Template::get('server/databases/table_header')->render([
-            'url_params' => $_url_params,
-            'sort_by' => $this->_sort_by,
-            'sort_order' => $this->_sort_order,
-            'sort_order_text' => ($this->_sort_order == 'asc'
-                ? __('Ascending') : __('Descending')),
-            'column_order' => $column_order,
-            'first_database' => $first_database,
-            'master_replication' => $GLOBALS['replication_info']['master']['status'],
-            'slave_replication' => $GLOBALS['replication_info']['slave']['status'],
-            'is_superuser' => $GLOBALS['dbi']->isSuperuser(),
-            'allow_user_drop_database' => $GLOBALS['cfg']['AllowUserDropDatabase'],
-        ]);
-    }
-
-
-    /**
-     * Returns the html for Enable Statistics
-     *
-     * @return string
-     */
-    private function _getHtmlForNoticeEnableStatistics()
-    {
-        $html = '';
-
-        $notice = Message::notice(
-            __(
-                'Note: Enabling the database statistics here might cause '
-                . 'heavy traffic between the web server and the MySQL server.'
-            )
-        )->getDisplay();
-        $html .= $notice;
-
-        $items = array();
-        $items[] = array(
-            'content' => '<strong>' . "\n"
-                . __('Enable statistics')
-                . '</strong><br />' . "\n",
-            'class' => 'li_switch_dbstats',
-            'url' => array(
-                'href' => 'server_databases.php'
-                    . Url::getCommon(array('dbstats' => '1')),
-                'title' => __('Enable statistics')
-            ),
-        );
-
-        $html .= Template::get('list/unordered')->render(
-            array('items' => $items,)
-        );
-
-        return $html;
     }
 }

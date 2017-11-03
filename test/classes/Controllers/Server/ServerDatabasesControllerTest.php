@@ -153,19 +153,19 @@ class ServerDatabasesControllerTest extends PmaTestCase
             $html
         );
 
-        //validate 5: PMA_getHtmlForTableFooter
+        //validate 5: table footer
         $this->assertContains(
             'Total: <span id="filter-rows-count">5</span>',
             $html
         );
 
-        //validate 6: PMA_getHtmlForTableFooterButtons
+        //validate 6: footer buttons
         $this->assertContains(
             'Check all',
             $html
         );
 
-        //validate 7: PMA_getHtmlForNoticeEnableStatistics
+        //validate 7: enable statistics
         $this->assertContains(
             'Note: Enabling the database statistics here might cause heavy traffic',
             $html
