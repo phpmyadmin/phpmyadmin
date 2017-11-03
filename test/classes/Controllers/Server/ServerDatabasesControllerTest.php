@@ -94,7 +94,7 @@ class ServerDatabasesControllerTest extends PmaTestCase
 
         $property = $class->getProperty('_dbstats');
         $property->setAccessible(true);
-        $property->setValue($ctrl, 0);
+        $property->setValue($ctrl, false);
 
         $property = $class->getProperty('_sort_by');
         $property->setAccessible(true);
