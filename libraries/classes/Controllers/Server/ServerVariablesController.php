@@ -72,9 +72,11 @@ class ServerVariablesController extends Controller
         /**
          * Displays the sub-page heading
          */
-        $doc_link = Util::showMySQLDocu('server_system_variables');
-        $this->response->addHtml(
-            Common::getHtmlForSubPageHeader('variables', $doc_link)
+        $this->response->addHTML(
+            Template::get('server/sub_page_header')->render([
+                'type' => 'variables',
+                'link' => 'server_system_variables',
+            ])
         );
 
         /**

@@ -67,7 +67,11 @@ class ServerBinlogController extends Controller
             $url_params['dontlimitchars'] = 1;
         }
 
-        $this->response->addHTML(Common::getHtmlForSubPageHeader('binlog'));
+        $this->response->addHTML(
+            Template::get('server/sub_page_header')->render([
+                'type' => 'binlog',
+            ])
+        );
         $this->response->addHTML($this->_getLogSelector($url_params));
         $this->response->addHTML($this->_getLogInfo($url_params));
     }

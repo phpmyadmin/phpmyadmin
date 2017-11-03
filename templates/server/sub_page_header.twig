@@ -1,0 +1,48 @@
+{# array contains Sub page icon and text #}
+{% set header = {
+    'variables': {
+        'image': 's_vars.png',
+        'text': 'Server variables and settings'|trans
+    },
+    'engines': {
+        'image': 'b_engine.png',
+        'text': 'Storage engines'|trans
+    },
+    'plugins': {
+        'image': 'b_engine.png',
+        'text': 'Plugins'|trans
+    },
+    'binlog': {
+        'image': 's_tbl.png',
+        'text': 'Binary log'|trans
+    },
+    'collations': {
+        'image': 's_asci.png',
+        'text': 'Character sets and collations'|trans
+    },
+    'replication': {
+        'image': 's_replication.png',
+        'text': 'Replication'|trans
+    },
+    'database_statistics': {
+        'image': 's_db.png',
+        'text': 'Databases statistics'|trans
+    },
+    'databases': {
+        'image': 's_db.png',
+        'text': 'Databases'|trans
+    },
+    'privileges': {
+        'image': 'b_usrlist.png',
+        'text': 'Privileges'|trans
+    }
+} %}
+<h2>
+    {% if is_image|default(true) %}
+        {{ Util_getImage(header[type]['image']) }}
+    {% else %}
+        {{ Util_getIcon(header[type]['image']) }}
+    {% endif %}
+    {{ header[type]['text'] }}
+    {{ link is defined ? Util_showMySQLDocu(link) }}
+</h2>

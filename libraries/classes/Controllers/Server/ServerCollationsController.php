@@ -33,7 +33,11 @@ class ServerCollationsController extends Controller
          */
         include_once 'libraries/server_common.inc.php';
 
-        $this->response->addHTML(Common::getHtmlForSubPageHeader('collations'));
+        $this->response->addHTML(
+            Template::get('server/sub_page_header')->render([
+                'type' => 'collations',
+            ])
+        );
         $this->response->addHTML(
             $this->_getHtmlForCharsets(
                 Charsets::getMySQLCharsets(),

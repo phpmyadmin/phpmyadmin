@@ -90,27 +90,6 @@ class ServerDatabasesController extends Controller
         $this->_pos     = empty($_REQUEST['pos']) ? 0 : (int) $_REQUEST['pos'];
 
         /**
-         * Displays the sub-page heading
-         */
-        $header_type = $this->_dbstats ? "database_statistics" : "databases";
-        $this->response->addHTML(Common::getHtmlForSubPageHeader($header_type));
-
-        /**
-         * Displays For Create database.
-         */
-        $html = '';
-        if ($GLOBALS['cfg']['ShowCreateDb']) {
-            $html .= Template::get('server/databases/create')->render([
-                'is_create_db_priv' => $GLOBALS['is_create_db_priv'],
-                'dbstats' => $this->_dbstats,
-                'db_to_create' => $GLOBALS['db_to_create'],
-                'server_collation' => $GLOBALS['dbi']->getServerCollation(),
-            ]);
-        }
-
-        $html .= Template::get('filter')->render(array('filter_value'=>''));
-
-        /**
          * Gets the databases list
          */
         if ($GLOBALS['server'] > 0) {
@@ -123,16 +102,18 @@ class ServerDatabasesController extends Controller
             $this->_database_count = 0;
         }
 
-        /**
-         * Displays the page
-         */
         if ($this->_database_count > 0 && ! empty($this->_databases)) {
-            $html .= $this->_getHtmlForDatabases($replication_types);
-        } else {
-            $html .= __('No databases');
+            $databases = $this->_getHtmlForDatabases($replication_types);
         }
 
-        $this->response->addHTML($html);
+        $this->response->addHTML(Template::get('server/databases/index')->render([
+            'show_create_db' => $GLOBALS['cfg']['ShowCreateDb'],
+            'is_create_db_priv' => $GLOBALS['is_create_db_priv'],
+            'dbstats' => $this->_dbstats,
+            'db_to_create' => $GLOBALS['db_to_create'],
+            'server_collation' => $GLOBALS['dbi']->getServerCollation(),
+            'databases' => isset($databases) ? $databases : null,
+        ]));
     }
 
     /**

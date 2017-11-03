@@ -9,6 +9,7 @@
 use PhpMyAdmin\ReplicationGui;
 use PhpMyAdmin\Response;
 use PhpMyAdmin\Server\Common;
+use PhpMyAdmin\Template;
 
 /**
  * include files
@@ -31,7 +32,9 @@ $scripts->addFile('vendor/zxcvbn.js');
  * Checks if the user is allowed to do what he tries to...
  */
 if (! $GLOBALS['dbi']->isSuperuser()) {
-    $html  = Common::getHtmlForSubPageHeader('replication');
+    $html = Template::get('server/sub_page_header')->render([
+        'type' => 'replication',
+    ]);
     $html .= PhpMyAdmin\Message::error(__('No Privileges'))->getDisplay();
     $response->addHTML($html);
     exit;
@@ -52,7 +55,9 @@ ReplicationGui::handleControlRequest();
  * start output
  */
 $response->addHTML('<div id="replication">');
-$response->addHTML(Common::getHtmlForSubPageHeader('replication'));
+$response->addHTML(Template::get('server/sub_page_header')->render([
+    'type' => 'replication',
+]));
 
 // Display error messages
 $response->addHTML(ReplicationGui::getHtmlForErrorMessage());
