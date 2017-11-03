@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.7.6-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2017-11-02 14:03+0100\n"
-"PO-Revision-Date: 2017-11-03 06:16+0000\n"
+"PO-Revision-Date: 2017-11-04 06:13+0000\n"
 "Last-Translator: Burak Yavuz <hitowerdigit@hotmail.com>\n"
 "Language-Team: Turkish "
 "<https://hosted.weblate.org/projects/phpmyadmin/4-7/tr/>\n"
@@ -554,7 +554,7 @@ msgstr ""
 
 #: import.php:529 libraries/display_import.lib.php:665
 msgid "Could not load import plugins, please check your installation!"
-msgstr "İçe aktarma eklentileri yüklenemedi, lütfen kurulumunuzu kontrol edin!"
+msgstr "İçe aktarma eklentileri yüklenemedi, lütfen kurulumunuzu denetleyin!"
 
 #: import.php:571 libraries/sql.lib.php:788 libraries/sql.lib.php:1567
 #, php-format
@@ -743,7 +743,7 @@ msgid ""
 "this some features such as error reporting or version check are disabled."
 msgstr ""
 "Curl uzantısı bulunamadı ve allow_url_fopen etkisizleştirildi. Bu nedenle "
-"hata raporlama veya sürüm kontrolü gibi bazı özellikler etkisizleştirildi."
+"hata raporlama veya sürüm denetleme gibi bazı özellikler etkisizleştirildi."
 
 #: index.php:491
 msgid ""
@@ -921,7 +921,7 @@ msgstr "Bölümlemeyi gerçekten kaldırmak istiyor musunuz?"
 
 #: js/messages.php:86
 msgid "Do you really want to RESET SLAVE?"
-msgstr "SLAVE'i SIFIRLAMAK istediğinize emin misiniz?"
+msgstr "BAĞIMLI SUNUCUYU SIFIRLAMAK istediğinize emin misiniz?"
 
 #: js/messages.php:88
 msgid ""
@@ -1767,7 +1767,7 @@ msgstr "Karakter grubu değiştiriliyor"
 
 #: js/messages.php:385 libraries/Util.php:3082
 msgid "Enable foreign key checks"
-msgstr "Dış anahtar kontrollerini etkinleştir"
+msgstr "Dış anahtar denetlemelerini etkinleştir"
 
 #: js/messages.php:388
 msgid "Failed to get real row count."
@@ -3321,7 +3321,7 @@ msgid ""
 "shown below."
 msgstr ""
 "Bu genellikle bir sözdizimi hatası var anlamına gelir, lütfen aşağıda "
-"gösterilen her hatayı kontrol edin."
+"gösterilen her hatayı denetleyin."
 
 #: libraries/Config.php:1558
 msgid "Font size"
@@ -3360,7 +3360,7 @@ msgstr "Sunucu yanıt vermiyor."
 
 #: libraries/DatabaseInterface.php:2041
 msgid "Please check privileges of directory containing database."
-msgstr "Lütfen veritabanını içeren dizinin yetkilerini kontrol edin."
+msgstr "Lütfen veritabanını içeren dizinin yetkilerini denetleyin."
 
 #: libraries/DatabaseInterface.php:2052
 msgid "Details…"
@@ -4294,7 +4294,7 @@ msgstr "Sorgu önbelleği"
 
 #: libraries/ServerStatusData.php:120
 msgid "Threads"
-msgstr "İşlemler"
+msgstr "İş Parçacıkları"
 
 #: libraries/ServerStatusData.php:122
 msgid "Temporary data"
@@ -4335,15 +4335,15 @@ msgstr "Açık tabloları göster"
 
 #: libraries/ServerStatusData.php:161
 msgid "Show slave hosts"
-msgstr "Slave anamakineleri göster"
+msgstr "Bağımlı sunucu anamakinelerini göster"
 
 #: libraries/ServerStatusData.php:168 libraries/replication_gui.lib.php:50
 msgid "Show master status"
-msgstr "Master durumunu göster"
+msgstr "Asıl sunucu durumunu göster"
 
 #: libraries/ServerStatusData.php:171
 msgid "Show slave status"
-msgstr "Slave durumunu göster"
+msgstr "Bağımlı sunucu durumunu göster"
 
 #: libraries/ServerStatusData.php:176
 msgid "Flush query cache"
@@ -4463,7 +4463,7 @@ msgid ""
 msgstr ""
 "KA özelliği \"%s\" kaydedilemiyor. Yapılan değişiklikler bu sayfayı "
 "yenilemenizden sonra kalıcı olmayacaktır. Eğer tablo yapısı değiştirilmişse "
-"lütfen kontrol edin."
+"lütfen denetleyin."
 
 #: libraries/Table.php:1938
 msgid "The name of the primary key must be \"PRIMARY\"!"
@@ -4480,8 +4480,7 @@ msgstr "Tanımlı indeks kısımları yok!"
 #: libraries/Table.php:2279
 #, php-format
 msgid "Error creating foreign key on %1$s (check data types)"
-msgstr ""
-"%1$s üzerinde dış anahtar oluşturma hatası (veri türlerini kontrol edin)"
+msgstr "%1$s üzerinde dış anahtar oluşturma hatası (veri türlerini denetleyin)"
 
 #: libraries/Theme.php:168
 #, php-format
@@ -5419,7 +5418,7 @@ msgid ""
 msgstr ""
 "Sunucunuzdaki diğer kullanıcılar tarafından bu dizinin ne kelime erişimi ne "
 "de okunabilir veya yazılabilir olmadığına emin olmak için bu değer iki defa "
-"kontrol edilmelidir."
+"denetlenmelidir."
 
 #: libraries/config/ServerConfigChecks.php:425
 #, php-format
@@ -5716,7 +5715,7 @@ msgstr "CHAR metin alanı satırları"
 
 #: libraries/config/messages.inc.php:84
 msgid "Check config file permissions"
-msgstr "Yapılandırma dosyası izinlerini kontrol et"
+msgstr "Yapılandırma dosyası izinlerini denetle"
 
 #: libraries/config/messages.inc.php:86
 msgid ""
@@ -6014,7 +6013,7 @@ msgstr "Gecikmiş eklemeleri kullan"
 #: libraries/config/messages.inc.php:195
 #: libraries/plugins/export/ExportSql.php:151
 msgid "Disable foreign key checks"
-msgstr "Dış anahtar kontrollerini etkisizleştir"
+msgstr "Dış anahtar denetlemelerini etkisizleştir"
 
 #: libraries/config/messages.inc.php:196
 #: libraries/plugins/export/ExportSql.php:165
@@ -6095,12 +6094,11 @@ msgstr "Dış anahtar sınırı"
 #: libraries/config/messages.inc.php:238
 msgid "Default value for foreign key checks checkbox for some queries."
 msgstr ""
-"Dış anahtar için varsayılan değer bazı sorgular için onay kutusunu kontrol "
-"eder."
+"Dış anahtar için varsayılan değer bazı sorgular için onay kutusunu denetler."
 
 #: libraries/config/messages.inc.php:240
 msgid "Foreign key checks"
-msgstr "Dış anahtar kontrolleri"
+msgstr "Dış anahtar denetlemeleri"
 
 #: libraries/config/messages.inc.php:241
 msgid "Browse mode"
@@ -7628,12 +7626,12 @@ msgstr "Son güncelleme zaman damgasını göster"
 msgid ""
 "Show or hide a column displaying the Last check timestamp for all tables."
 msgstr ""
-"Tüm tablolar için Son kontrol zaman damgasını görüntüleyen sütunu gösterin "
+"Tüm tablolar için Son denetleme zaman damgasını görüntüleyen sütunu gösterin "
 "veya gizleyin."
 
 #: libraries/config/messages.inc.php:841
 msgid "Show last check timestamp"
-msgstr "Son kontrol zaman damgasını göster"
+msgstr "Son denetleme zaman damgasını göster"
 
 #: libraries/config/messages.inc.php:843
 msgid "Show or hide a column displaying the charset for all tables."
@@ -7847,18 +7845,18 @@ msgstr "Ayarlarda Geliştirici sekmesini etkinleştir"
 
 #: libraries/config/messages.inc.php:938 setup/frames/index.inc.php:271
 msgid "Check for latest version"
-msgstr "Son sürümü kontrol et"
+msgstr "En son sürümü denetle"
 
 #: libraries/config/messages.inc.php:940
 msgid "Enables check for latest version on main phpMyAdmin page."
-msgstr "Ana phpMyAdmin sayfasında son sürümü kontrol etmeyi etkinleştirir."
+msgstr "Ana phpMyAdmin sayfasında son sürümü denetlemeyi etkinleştirir."
 
 #: libraries/config/messages.inc.php:942 setup/lib/index.lib.php:116
 #: setup/lib/index.lib.php:139 setup/lib/index.lib.php:152
 #: setup/lib/index.lib.php:164 setup/lib/index.lib.php:172
 #: setup/lib/index.lib.php:179
 msgid "Version check"
-msgstr "Sürüm kontrolü"
+msgstr "Sürüm denetleme"
 
 #: libraries/config/messages.inc.php:944
 msgid ""
@@ -8248,7 +8246,7 @@ msgstr "Belirgin değerler"
 #: libraries/core.lib.php:297
 #, php-format
 msgid "The %s extension is missing. Please check your PHP configuration."
-msgstr "%s uzantısı eksik. Lütfen PHP yapılandırmanızı kontrol edin."
+msgstr "%s uzantısı eksik. Lütfen PHP yapılandırmanızı denetleyin."
 
 #: libraries/core.lib.php:789 libraries/mult_submits.inc.php:329
 #: tbl_operations.php:201 tbl_replace.php:314 templates/preview_sql.phtml:3
@@ -8270,7 +8268,7 @@ msgstr ""
 
 #: libraries/db_designer.lib.php:119
 msgid "Could not load schema plugins, please check your installation!"
-msgstr "Şema eklentileri yüklenemedi, lütfen kurulumunuzu kontrol edin!"
+msgstr "Şema eklentileri yüklenemedi, lütfen kurulumunuzu denetleyin!"
 
 #: libraries/dbi/DBIMysqli.php:158
 msgid "SSL connection enforced by server, automatically enabling it."
@@ -8507,8 +8505,7 @@ msgstr "Tanımlı kod adları"
 
 #: libraries/display_export.lib.php:1011
 msgid "Could not load export plugins, please check your installation!"
-msgstr ""
-"Dışa aktarma eklentileri yüklenemedi, lütfen kurulumunuzu kontrol edin!"
+msgstr "Dışa aktarma eklentileri yüklenemedi, lütfen kurulumunuzu denetleyin!"
 
 #: libraries/display_git_revision.lib.php:54
 #, php-format
@@ -8805,7 +8802,7 @@ msgstr ""
 
 #: libraries/engines/Myisam.php:61
 msgid "Repair threads"
-msgstr "İşlemleri onar"
+msgstr "İş parçacıklarını onar"
 
 #: libraries/engines/Myisam.php:63
 msgid ""
@@ -8813,8 +8810,8 @@ msgid ""
 "parallel (each index in its own thread) during the repair by sorting process."
 msgstr ""
 "Eğer bu değer 1'den büyükse, sıralama işlemi tarafından yapılan onarma "
-"sırasında, MyISAM tablosu indeksleri (her bir indeks kendi işlemi içinde) "
-"paralel olarak oluşturulur."
+"sırasında, MyISAM tablosu indeksleri (her bir indeks kendi iş parçacığı "
+"içinde) paralel olarak oluşturulur."
 
 #: libraries/engines/Myisam.php:70
 msgid "Sort buffer size"
@@ -8895,14 +8892,14 @@ msgstr ""
 
 #: libraries/engines/Pbxt.php:74
 msgid "Checkpoint frequency"
-msgstr "Kontrol noktası sıklığı"
+msgstr "Denetim noktası sıklığı"
 
 #: libraries/engines/Pbxt.php:76
 msgid ""
 "The amount of data written to the transaction log before a checkpoint is "
 "performed. The default value is 24MB."
 msgstr ""
-"Kontrol noktası oluşturulmadan önce işlem günlüğüne yazılan veri miktarı. "
+"Denetim noktası oluşturulmadan önce işlem günlüğüne yazılan veri miktarı. "
 "Varsayılan değer 24MB'tır."
 
 #: libraries/engines/Pbxt.php:83
@@ -8944,8 +8941,8 @@ msgid ""
 "required to write a data log."
 msgstr ""
 "Veri günlüğü yazıldığında kullanılacak arabellek boyutu. Varsayılan "
-"256MB'tır. Motor işlem öncesi bir arabellek hesaplar ama sadece işlemin veri "
-"günlüğü yazmasını gerektirirse."
+"256MB'tır. Motor, iş parçacığı başına bir arabellek ayırır, ancak sadece iş "
+"parçacığının veri günlüğü yazmasını gerektirirse."
 
 #: libraries/engines/Pbxt.php:113
 msgid "Data file grow size"
@@ -9517,7 +9514,7 @@ msgid ""
 "Check the columns which are redundant and click on remove. If no redundant "
 "column, click on 'No redundant column'"
 msgstr ""
-"Gereksiz sütunları kontrol edin ve kaldır seçeneğine tıklayın. Eğer gereksiz "
+"Gereksiz sütunları denetleyin ve kaldır seçeneğine tıklayın. Eğer gereksiz "
 "sütun yoksa, 'Gereksiz sütun yok' seçeneğine tıklayın"
 
 #: libraries/normalization.lib.php:246
@@ -9551,7 +9548,7 @@ msgid ""
 "Check the columns which form a repeating group. If no such group, click on "
 "'No repeating group'"
 msgstr ""
-"Tekrarlayan bir gruptan olan sütunları kontrol edin. Eğer böyle bir grup "
+"Tekrarlayan bir gruptan olan sütunları denetleyin. Eğer böyle bir grup "
 "yoksa, 'Tekrarlayan grup yok' seçeneğine tıklayın"
 
 #: libraries/normalization.lib.php:287
@@ -9821,7 +9818,7 @@ msgstr "Tabloyu çözümle"
 #: libraries/operations.lib.php:1383
 #: templates/database/structure/check_all_tables.phtml:21
 msgid "Check table"
-msgstr "Tabloyu kontrol et"
+msgstr "Tabloyu denetleyin"
 
 #: libraries/operations.lib.php:1397
 #: templates/database/structure/check_all_tables.phtml:22
@@ -9916,7 +9913,7 @@ msgstr "Bölümlemeyi kaldır"
 
 #: libraries/operations.lib.php:1649
 msgid "Check referential integrity:"
-msgstr "İlgili bütünlük kontrolü:"
+msgstr "Bilgi tutarlılığı denetimi:"
 
 #: libraries/operations.lib.php:2034
 msgid "Can't move table to same one!"
@@ -10006,9 +10003,9 @@ msgid ""
 "configuration and make sure that they correspond to the information given by "
 "the administrator of the MySQL server."
 msgstr ""
-"phpMyAdmin MySQL sunucusuna bağlanmayı denedi ama sunucu bağlantıyı "
+"phpMyAdmin MySQL sunucusuna bağlanmayı denedi, abcak sunucu bağlantıyı "
 "reddetti. Yapılandırma dosyanızdaki anamakine (host), kullanıcı adı ve "
-"parolayı kontrol edin ve MySQL sunucusu yöneticisi tarafından verilen "
+"parolayı denetlemelisiniz ve MySQL sunucusu yöneticisi tarafından verilen "
 "bilgiye uyduğundan emin olun."
 
 #: libraries/plugins/auth/AuthenticationConfig.php:158
@@ -10452,7 +10449,7 @@ msgstr "Son güncelleme:"
 #: libraries/plugins/export/ExportSql.php:1441
 #: libraries/plugins/schema/pdf/PdfRelationSchema.php:617
 msgid "Last check:"
-msgstr "Son kontrol:"
+msgstr "Son denetleme:"
 
 #: libraries/plugins/export/ExportSql.php:1488
 #, php-format
@@ -11162,24 +11159,24 @@ msgstr "Eksik phpMyAdmin yapılandırma depolama tablolarını %soluşturun%s."
 #: libraries/replication_gui.lib.php:46 libraries/replication_gui.lib.php:345
 #: templates/server/databases/table_header.phtml:28
 msgid "Master replication"
-msgstr "Master kopya etme"
+msgstr "Asıl sunucu kopya etme"
 
 #: libraries/replication_gui.lib.php:47
 msgid "This server is configured as master in a replication process."
 msgstr ""
-"Bu sunucu kopya etme işlemi sırasında master sunucu olarak yapılandırıldı."
+"Bu sunucu, kopya etme işlemi sırasında asıl sunucu olarak yapılandırılır."
 
 #: libraries/replication_gui.lib.php:55
 msgid "Show connected slaves"
-msgstr "Bağlı slave'leri göster"
+msgstr "Bağlı bağımlı sunucuları göster"
 
 #: libraries/replication_gui.lib.php:66 libraries/replication_gui.lib.php:693
 msgid "Add slave replication user"
-msgstr "Slave kopya etme kullanıcısı ekle"
+msgstr "Bağımlı sunucu kopya etme kullanıcısı ekle"
 
 #: libraries/replication_gui.lib.php:88
 msgid "Master configuration"
-msgstr "Master yapılandırması"
+msgstr "Asıl sunucu yapılandırması"
 
 #: libraries/replication_gui.lib.php:90
 msgid ""
@@ -11189,7 +11186,7 @@ msgid ""
 "can choose to ignore all databases by default and allow only certain "
 "databases to be replicated. Please select the mode:"
 msgstr ""
-"Bu sunucu, kopya etme işlemi sırasında master sunucu olarak yapılandırılmaz. "
+"Bu sunucu, kopya etme işlemi sırasında asıl sunucu olarak yapılandırılmaz. "
 "Ya tüm veritabanlarının kopya etmeyi ve bazılarını yoksaymayı (eğer "
 "veritabanlarının çoğunluğunu kopya etmek isterseniz faydalıdır) "
 "seçebilirsiniz ya da varsayılan olarak tüm veritabanlarını yoksaymayı ve "
@@ -11223,40 +11220,40 @@ msgid ""
 "master."
 msgstr ""
 "MySQL sunucusunu bir kez yeniden başlattığınızda, lütfen Git düğmesine "
-"tıklayın. Ondan sonra bu sunucunun master olarak <b>yapılandırıldığını</b> "
-"gösteren, sizi uyaran bir mesaj görmelisiniz."
+"tıklayın. Ondan sonra bu sunucunun asıl sunucu olarak "
+"<b>yapılandırıldığını</b> gösteren, sizi uyaran bir ileti görmelisiniz."
 
 #: libraries/replication_gui.lib.php:141
 #: templates/server/databases/table_header.phtml:33
 msgid "Slave replication"
-msgstr "Slave kopya etme"
+msgstr "Bağımlı sunucu kopya etme"
 
 #: libraries/replication_gui.lib.php:149
 msgid "Master connection:"
-msgstr "Master bağlantısı:"
+msgstr "Asıl sunucu bağlantısı:"
 
 #: libraries/replication_gui.lib.php:216
 msgid "Slave SQL Thread not running!"
-msgstr "Slave SQL işlemi çalışmıyor!"
+msgstr "Bağımlı Sunucu SQL İş Parçacığı çalışmıyor!"
 
 #: libraries/replication_gui.lib.php:221
 msgid "Slave IO Thread not running!"
-msgstr "Slave G/Ç işlemi çalışmıyor!"
+msgstr "Bağımlı Sunucu G/Ç İş Parçacığı çalışmıyor!"
 
 #: libraries/replication_gui.lib.php:233
 msgid ""
 "Server is configured as slave in a replication process. Would you like to:"
 msgstr ""
-"Sunucu kopya etme işlemi sırasında slave sunucu olarak yapılandırılır. Bunu "
-"istiyor musunuz:"
+"Sunucu, kopya etme işlemi sırasında bağımlı sunucu olarak yapılandırılır. "
+"Bunu ister misiniz:"
 
 #: libraries/replication_gui.lib.php:239
 msgid "See slave status table"
-msgstr "Slave durum tablosuna bak"
+msgstr "Bağımlı sunucu durum tablosuna bak"
 
 #: libraries/replication_gui.lib.php:244
 msgid "Control slave:"
-msgstr "Slave'i kontrol et:"
+msgstr "Bağımlı sunucuyu denetle:"
 
 #: libraries/replication_gui.lib.php:250
 msgid "Full start"
@@ -11268,27 +11265,27 @@ msgstr "Tam durdur"
 
 #: libraries/replication_gui.lib.php:254
 msgid "Reset slave"
-msgstr "Slave'i sıfırla"
+msgstr "Bağımlı sunucuyu sıfırla"
 
 #: libraries/replication_gui.lib.php:257
 msgid "Start SQL Thread only"
-msgstr "Sadece SQL İşlemini başlat"
+msgstr "Sadece SQL İş Parçacığını başlat"
 
 #: libraries/replication_gui.lib.php:260
 msgid "Stop SQL Thread only"
-msgstr "Sadece SQL İşlemini durdur"
+msgstr "Sadece SQL İş Parçacığını durdur"
 
 #: libraries/replication_gui.lib.php:264
 msgid "Start IO Thread only"
-msgstr "Sadece G/Ç İşlemini başlat"
+msgstr "Sadece G/Ç İş Parçacığını başlat"
 
 #: libraries/replication_gui.lib.php:267
 msgid "Stop IO Thread only"
-msgstr "Sadece G/Ç İşlemini durdur"
+msgstr "Sadece G/Ç İş Parçacığını durdur"
 
 #: libraries/replication_gui.lib.php:276 libraries/replication_gui.lib.php:403
 msgid "Change or reconfigure master server"
-msgstr "Master sunucuyu değiştir veya yeniden yapılandır"
+msgstr "Asıl sunucuyu değiştir veya yeniden yapılandır"
 
 #: libraries/replication_gui.lib.php:287
 #, php-format
@@ -11296,8 +11293,8 @@ msgid ""
 "This server is not configured as slave in a replication process. Would you "
 "like to <a href=\"%s\">configure</a> it?"
 msgstr ""
-"Bu sunucu, kopya etme işlemi sırasında slave sunucu olarak yapılandırılmaz. "
-"Bunu <a href=\"%s\">yapılandırmak</a> istiyor musunuz?"
+"Bu sunucu, kopya etme işlemi sırasında bağımlı sunucu olarak "
+"yapılandırılmaz. Bunu <a href=\"%s\">yapılandırmak</a> ister misiniz?"
 
 #: libraries/replication_gui.lib.php:309
 msgid "Error management:"
@@ -11305,7 +11302,7 @@ msgstr "Hata yönetimi:"
 
 #: libraries/replication_gui.lib.php:312
 msgid "Skipping errors might lead into unsynchronized master and slave!"
-msgstr "Hataları atlamak master ve slave'i eşitlenmemeye sürükleyebilir!"
+msgstr "Hataları atlamak eşitlenmemiş asıl ve bağımlı sunucuya neden olabilir!"
 
 #: libraries/replication_gui.lib.php:316
 msgid "Skip current error"
@@ -11322,12 +11319,12 @@ msgid ""
 "This server is not configured as master in a replication process. Would you "
 "like to <a href=\"%s\">configure</a> it?"
 msgstr ""
-"Bu sunucu, kopya etme işlemi sırasında master sunucu olarak yapılandırılmaz. "
-"Bunu <a href=\"%s\">yapılandırmak</a> istiyor musunuz?"
+"Bu sunucu, kopya etme işlemi sırasında asıl sunucu olarak yapılandırılmaz. "
+"Bunu <a href=\"%s\">yapılandırmak</a> ister misiniz?"
 
 #: libraries/replication_gui.lib.php:402
 msgid "Slave configuration"
-msgstr "Slave yapılandırması"
+msgstr "Bağımlı sunucu yapılandırması"
 
 #: libraries/replication_gui.lib.php:405
 msgid ""
@@ -11365,11 +11362,11 @@ msgstr "B.Noktası:"
 
 #: libraries/replication_gui.lib.php:531
 msgid "Master status"
-msgstr "Master durumu"
+msgstr "Asıl sunucu durumu"
 
 #: libraries/replication_gui.lib.php:534
 msgid "Slave status"
-msgstr "Slave durumu"
+msgstr "Bağımlı sunucu durumu"
 
 #: libraries/replication_gui.lib.php:543
 #: libraries/server_status_variables.lib.php:217
@@ -11388,8 +11385,8 @@ msgid ""
 "Only slaves started with the --report-host=host_name option are visible in "
 "this list."
 msgstr ""
-"Sadece slave'ler, bu listede --report-host=host_name seçeneğiyle görünen bu "
-"şekilde başlar."
+"Sadece bağımlı sunucular, bu listede --report-host=host_name seçeneğiyle "
+"görünen bu şekilde başlar."
 
 #: libraries/replication_gui.lib.php:739
 #: libraries/server_privileges.lib.php:1593
@@ -11487,21 +11484,21 @@ msgstr "Bilinmeyen hata"
 #: libraries/replication_gui.lib.php:982
 #, php-format
 msgid "Unable to connect to master %s."
-msgstr "Master %s sunucusuna bağlanılamıyor."
+msgstr "Asıl %s sunucusuna bağlanılamıyor."
 
 #: libraries/replication_gui.lib.php:993
 msgid ""
 "Unable to read master log position. Possible privilege problem on master."
-msgstr "Master günlük konumu okunamıyor. Master üzerinde olası yetki sorunu."
+msgstr "Asıl sunucu günlük konumu okunamıyor. Asıl sunucuda olası yetki sorunu."
 
 #: libraries/replication_gui.lib.php:1011
 msgid "Unable to change master!"
-msgstr "Master değiştirilemiyor!"
+msgstr "Asıl sunucu değiştirilemiyor!"
 
 #: libraries/replication_gui.lib.php:1015
 #, php-format
 msgid "Master server changed successfully to %s."
-msgstr "Master sunucu %s olarak başarılı bir şekilde değiştirildi."
+msgstr "Asıl sunucu, %s olarak başarılı olarak değiştirildi."
 
 #: libraries/rte/rte_events.lib.php:110 libraries/rte/rte_events.lib.php:119
 #: libraries/rte/rte_events.lib.php:150 libraries/rte/rte_routines.lib.php:226
@@ -12030,8 +12027,8 @@ msgid ""
 "killing threads of other users."
 msgstr ""
 "En fazla bağlantı sayısı aşılsa bile bağlanmasına izin verir; genel "
-"değişkenleri ayarlamak veya diğer kullanıcıların işlemlerini sonlandırmak "
-"gibi pek çok yönetimsel işlemler için gereklidir."
+"değişkenleri ayarlamak veya diğer kullanıcıların iş parçacıklarını "
+"sonlandırmak gibi pek çok yönetimsel işlemler için gereklidir."
 
 #: libraries/server_privileges.lib.php:370
 #: libraries/server_privileges.lib.php:1244 server_privileges.php:64
@@ -12041,18 +12038,19 @@ msgstr "Geçici tablolar oluşturulmasına izin verir."
 #: libraries/server_privileges.lib.php:375
 #: libraries/server_privileges.lib.php:1346 server_privileges.php:79
 msgid "Allows locking tables for the current thread."
-msgstr "Şu anki işlem için tabloların kilitlenmesine izin verir."
+msgstr "Şu anki iş parçacığı için tabloların kilitlenmesine izin verir."
 
 #: libraries/server_privileges.lib.php:380
 #: libraries/server_privileges.lib.php:1359 server_privileges.php:101
 msgid "Needed for the replication slaves."
-msgstr "Kopya edilen slave'ler için gereklidir."
+msgstr "Kopya edilen bağımlı sunucular için gereklidir."
 
 #: libraries/server_privileges.lib.php:385
 #: libraries/server_privileges.lib.php:1355 server_privileges.php:99
 msgid "Allows the user to ask where the slaves / masters are."
 msgstr ""
-"Kullanıcılara slave / master'ların nerede olduğunu sormasına izin verir."
+"Kullanıcılara bağımlı / asıl sunucuların nerede olduğunu sormasına izin "
+"verir."
 
 #: libraries/server_privileges.lib.php:390
 #: libraries/server_privileges.lib.php:406
@@ -12531,20 +12529,20 @@ msgid ""
 "This MySQL server works as <b>master</b> and <b>slave</b> in <b>replication</"
 "b> process."
 msgstr ""
-"Bu MySQL sunucusu <b>kopya etme</b> işlemi sırasında <b>master</b> ve "
-"<b>slave</b> olarak çalışır."
+"Bu MySQL sunucusu <b>kopya etme</b> işlemi sırasında <b>asıl sunucu</b> ve "
+"<b>bağımlı sunucu</b> olarak çalışır."
 
 #: libraries/server_status.lib.php:96
 msgid "This MySQL server works as <b>master</b> in <b>replication</b> process."
 msgstr ""
-"Bu MySQL sunucusu <b>kopya etme</b> işlemi sırasında <b>master</b> olarak "
-"çalışır."
+"Bu MySQL sunucusu <b>kopya etme</b> işlemi sırasında <b>asıl sunucu</b> "
+"olarak çalışır."
 
 #: libraries/server_status.lib.php:101
 msgid "This MySQL server works as <b>slave</b> in <b>replication</b> process."
 msgstr ""
-"Bu MySQL sunucusu <b>kopya etme</b> işlemi sırasında <b>slave</b> olarak "
-"çalışır."
+"Bu MySQL sunucusu <b>kopya etme</b> işlemi sırasında <b>bağımlı sunucu</b> "
+"olarak çalışır."
 
 #: libraries/server_status.lib.php:113
 msgid "Replication status"
@@ -12945,8 +12943,8 @@ msgid ""
 "The number of INSERT DELAYED handler threads in use. Every different table "
 "on which one uses INSERT DELAYED gets its own thread."
 msgstr ""
-"Kullanımda olan INSERT DELAYED işleticisi işlem sayısı. INSERT DELAYED "
-"komutunu kullanan her farklı tablodan biri kendi işlemini alır."
+"Kullanımda olan INSERT DELAYED işleticisi iş parçacığı sayısı. INSERT "
+"DELAYED komutunu kullanan her farklı tablodan biri kendi iş parçacığını alır."
 
 #: libraries/server_status_variables.lib.php:370
 msgid "The number of INSERT DELAYED rows written."
@@ -13438,7 +13436,7 @@ msgid ""
 "should carefully check the indexes of your tables."
 msgstr ""
 "İndeksler kullanmayan birleştirme sayısıdır. Eğer bu değer 0 değilse, "
-"tablolarınızın indekslerini dikkatli olarak kontrol etmelisiniz."
+"tablolarınızın indekslerini dikkatlice denetlemelisiniz."
 
 #: libraries/server_status_variables.lib.php:684
 msgid "The number of joins that used a range search on a reference table."
@@ -13449,9 +13447,9 @@ msgid ""
 "The number of joins without keys that check for key usage after each row. "
 "(If this is not 0, you should carefully check the indexes of your tables.)"
 msgstr ""
-"Her bir satırdan sonra anahtar kullanımını kontrol eden anahtarsız "
-"birleştirme sayısıdır. (Eğer bu değer 0 değilse, tablolarınızın indekslerini "
-"dikkatli olarak kontrol etmelisiniz.)"
+"Her bir satırdan sonra anahtar kullanımını denetleyen anahtarsız birleştirme "
+"sayısıdır. (Eğer bu değer 0 değilse, tablolarınızın indekslerini dikkatlice "
+"denetlemelisiniz.)"
 
 #: libraries/server_status_variables.lib.php:692
 msgid ""
@@ -13467,27 +13465,29 @@ msgstr "İlk tablonun tam taramasının yapıldığı birleştirme sayısıdır.
 
 #: libraries/server_status_variables.lib.php:699
 msgid "The number of temporary tables currently open by the slave SQL thread."
-msgstr "Slave SQL işlemi tarafından şu anki açık geçici tablo sayısıdır."
+msgstr ""
+"Bağımlı Sunucu SQL iş parçacığı tarafından şu anki açık geçici tablo "
+"sayısıdır."
 
 #: libraries/server_status_variables.lib.php:703
 msgid ""
 "Total (since startup) number of times the replication slave SQL thread has "
 "retried transactions."
 msgstr ""
-"Kopya edilen slave SQL işleminin yeniden denediği işlerin toplam "
-"(başlangıçtan beri) süre sayısıdır."
+"Kopya edilen bağımlı sunucu SQL iş parçacığının yeniden denediği işlemlerin "
+"toplam (başlangıçtan beri) süre sayısıdır."
 
 #: libraries/server_status_variables.lib.php:707
 msgid "This is ON if this server is a slave that is connected to a master."
-msgstr "Eğer sunucu master'a bağlı slave ise, bu AÇIKTIR."
+msgstr "Eğer sunucu asıl sunucuya bağlı bir bağımlı sunucu ise, bu AÇIKTIR."
 
 #: libraries/server_status_variables.lib.php:710
 msgid ""
 "The number of threads that have taken more than slow_launch_time seconds to "
 "create."
 msgstr ""
-"Oluşturmak için slow_launch_time saniyeden daha uzun zaman almış işlem "
-"sayısıdır."
+"Oluşturmak için slow_launch_time saniyeden daha uzun zaman almış iş "
+"parçacığı sayısıdır."
 
 #: libraries/server_status_variables.lib.php:714
 msgid ""
@@ -13538,9 +13538,9 @@ msgid ""
 "calculated as Threads_created/Connections. If this value is red you should "
 "raise your thread_cache_size."
 msgstr ""
-"İşlem önbelleği içinde işlem sayısıdır. Önbelleğe ulaşma hızı "
-"Threads_created/Bağlantılar olarak hesaplanabilir. Eğer bu değer kırmızı "
-"ise, thread_cache_size boyutunuzu yükseltmelisiniz."
+"İş parçacığı önbelleği içindeki iş parçacığı sayısıdır. Önbelleğe ulaşma "
+"hızı Threads_created/Bağlantılar olarak hesaplanabilir. Eğer bu değer "
+"kırmızı ise, thread_cache_size değerini yükseltmelisiniz."
 
 #: libraries/server_status_variables.lib.php:746
 msgid "The number of currently open connections."
@@ -13554,17 +13554,17 @@ msgid ""
 "implementation.)"
 msgstr ""
 "Bağlantıları işlemek için oluşturulmuş işlem sayısıdır. Eğer Threads_created "
-"değeri büyük ise, thread_cache_size değerini arttırmak isteyebilirsiniz. "
-"(eğer iyi bir işlem uygulamasına sahipseniz, normal olarak bu, dikkate değer "
-"bir performans artışı vermez.)"
+"değeri büyük ise, thread_cache_size değerini arttırmak isteyebilirsiniz. ("
+"eğer iyi bir iş parçacığı uygulamasına sahipseniz, normal olarak bu, dikkate "
+"değer bir performans artışı vermez.)"
 
 #: libraries/server_status_variables.lib.php:756
 msgid "Thread cache hit rate (calculated value)"
-msgstr "İşlem önbelleği tavan oranı (hesaplanmış değer)"
+msgstr "İş parçacığı önbelleği tavan oranı (hesaplanmış değer)"
 
 #: libraries/server_status_variables.lib.php:759
 msgid "The number of threads that are not sleeping."
-msgstr "Hala faaliyette olan işlemler sayısıdır."
+msgstr "Hala faaliyette olan iş parçacığı sayısıdır."
 
 #: libraries/server_user_groups.lib.php:20
 #, php-format
@@ -14124,13 +14124,14 @@ msgstr "Danışmanı görüntülemek için yetersiz yetki."
 #: server_status_processes.php:34
 #, php-format
 msgid "Thread %s was successfully killed."
-msgstr "%s işlemi başarılı olarak sonlandırıldı."
+msgstr "%s iş parçacığı başarılı olarak sonlandırıldı."
 
 #: server_status_processes.php:40
 #, php-format
 msgid ""
 "phpMyAdmin was unable to kill thread %s. It probably has already been closed."
-msgstr "phpMyAdmin %s işlemini sonlandıramadı. Muhtemelen zaten kapatılmış."
+msgstr ""
+"phpMyAdmin %s iş parçacığını sonlandıramadı. Muhtemelen zaten kapatılmış."
 
 #: server_status_queries.php:43
 msgid "Not enough privilege to view query statistics."
@@ -14921,7 +14922,7 @@ msgstr "Toplam"
 
 #: templates/database/structure/check_all_tables.phtml:6
 msgid "Check tables having overhead"
-msgstr "Ek yükü olan tabloları kontrol et"
+msgstr "Ek yükü olan tabloları denetle"
 
 #: templates/database/structure/check_all_tables.phtml:10
 msgid "Copy table"
@@ -14997,7 +14998,7 @@ msgstr "Son güncelleme"
 #: templates/database/structure/table_header.phtml:127
 #: templates/table/structure/row_stats_table.phtml:93
 msgid "Last check"
-msgstr "Son kontrol"
+msgstr "Son denetleme"
 
 #: templates/database/structure/tracking_icon.phtml:4
 msgid "Tracking is active."
@@ -15142,11 +15143,11 @@ msgstr "Veritabanına git"
 #: templates/server/databases/table_row.phtml:61
 #, php-format
 msgid "Check privileges for database \"%s\"."
-msgstr "\"%s\" veritabanı için yetkileri kontrol et."
+msgstr "\"%s\" veritabanı için yetkileri denetle."
 
 #: templates/server/databases/table_row.phtml:62
 msgid "Check privileges"
-msgstr "Yetkileri kontrol et"
+msgstr "Yetkileri denetle"
 
 #: templates/server/plugins/section.phtml:8
 msgid "Plugin"
@@ -15953,9 +15954,10 @@ msgid ""
 "cache, especially if you have multiple slaves."
 msgstr ""
 "Oldukça yüksek trafikli veritabanı ile MySQL Sorgu önbelleği "
-"kullanıyorsunuz. MySQL Sorgu önbelleği yerine <a href=\"https://dev.mysql."
-"com/doc/refman/5.5/en/ha-memcached.html\">memcached</a> kullanmayı düşünmek "
-"değebilir, özellikle de çoklu slave'lere sahipseniz."
+"kullanıyorsunuz. MySQL Sorgu önbelleği yerine <a href=\""
+"https://dev.mysql.com/doc/refman/5.5/en/ha-memcached.html\">memcached</a> "
+"kullanmayı düşünmek değebilir, özellikle de çoklu bağımlı sunuculara "
+"sahipseniz."
 
 #: libraries/advisory_rules.txt:158
 #, php-format
@@ -16513,7 +16515,7 @@ msgid ""
 "restarting after changing {open_files_limit}."
 msgstr ""
 "{open_files_limit} artışını dikkate alın ve {open_files_limit} değerini "
-"değiştirdikten sonra yeniden başlatıldığında hata günlüğünü kontrol edin."
+"değiştirdikten sonra yeniden başlatıldığında hata günlüğünü denetleyin."
 
 #: libraries/advisory_rules.txt:321
 #, php-format
@@ -16564,32 +16566,33 @@ msgstr "Tablo kilit bekleme oranı: %s, bu değer saat başına 1'den az olmalı
 
 #: libraries/advisory_rules.txt:344
 msgid "Thread cache"
-msgstr "İşlem önbelleği"
+msgstr "İş parçacığı önbelleği"
 
 #: libraries/advisory_rules.txt:347
 msgid ""
 "Thread cache is disabled, resulting in more overhead from new connections to "
 "MySQL."
 msgstr ""
-"İşlem önbelleği etkisizleştirildi, yeni bağlantılardan MySQL'e daha fazla ek "
-"yük olarak sonuçlanır."
+"İş parçacığı önbelleği etkisizleştirildi, yeni bağlantılardan MySQL'e daha "
+"fazla ek yük olarak sonuçlanır."
 
 #: libraries/advisory_rules.txt:348
 msgid "Enable the thread cache by setting {thread_cache_size} > 0."
-msgstr "{thread_cache_size} > 0 ayarlayarak işlem önbelleğini etkinleştirin."
+msgstr ""
+"{thread_cache_size} > 0 ayarlayarak iş parçacığı önbelleğini etkinleştirin."
 
 #: libraries/advisory_rules.txt:349
 msgid "The thread cache is set to 0"
-msgstr "İşlem önbelleği 0'a ayarlı"
+msgstr "İş parçacığı önbelleği 0'a ayarlı"
 
 #: libraries/advisory_rules.txt:351
 #, php-format
 msgid "Thread cache hit rate %%"
-msgstr "İşlem önbelleği tavan oranı %%"
+msgstr "İş parçacığı önbelleği tavan oranı %%"
 
 #: libraries/advisory_rules.txt:354
 msgid "Thread cache is not efficient."
-msgstr "İşlem önbelleği verimli değil."
+msgstr "İş parçacığı önbelleği verimli değil."
 
 #: libraries/advisory_rules.txt:355
 msgid "Increase {thread_cache_size}."
@@ -16598,15 +16601,16 @@ msgstr "{thread_cache_size} değerini arttır."
 #: libraries/advisory_rules.txt:356
 #, php-format
 msgid "Thread cache hitrate: %s%%, this value should be above 80%%"
-msgstr "İşlem önbelleği tavan oranı: %%%s, bu değer %%80'in üzerinde olmalıdır"
+msgstr ""
+"İş parçacığı önbelleği tavan oranı: %%%s, bu değer %%80'in üzerinde olmalıdır"
 
 #: libraries/advisory_rules.txt:358
 msgid "Threads that are slow to launch"
-msgstr "İşlemler çalıştırmak için yavaş"
+msgstr "Çalıştırmak için yavaş olan iş parçacıkları"
 
 #: libraries/advisory_rules.txt:361
 msgid "There are too many threads that are slow to launch."
-msgstr "Çalıştırmak için yavaş olan çok fazla işlem var."
+msgstr "Çalıştırmak için yavaş olan çok fazla iş parçacığı var."
 
 #: libraries/advisory_rules.txt:362
 msgid ""
@@ -16620,7 +16624,8 @@ msgstr ""
 #, php-format
 msgid "%s thread(s) took longer than %s seconds to start, it should be 0"
 msgstr ""
-"%s işlem başlamak için %s saniyeden daha uzun zaman aldı, bu 0 olmalıdır"
+"%s iş parçacığı, başlamak için %s saniyeden daha uzun zaman aldı, bu 0 "
+"olmalıdır"
 
 #: libraries/advisory_rules.txt:365
 msgid "Slow launch time"
@@ -16635,7 +16640,7 @@ msgid ""
 "Set {slow_launch_time} to 1s or 2s to correctly count threads that are slow "
 "to launch."
 msgstr ""
-"Çalıştırması yavaş olan işlemleri doğru olarak saymak için "
+"Çalıştırması yavaş olan iş parçacıklarını doğru olarak saymak için "
 "{slow_launch_time} değerini 1s veya 2s olarak ayarlayın."
 
 #: libraries/advisory_rules.txt:370
@@ -16725,7 +16730,7 @@ msgstr ""
 "İstemciler genellikle bağlantıları MySQL'e düzgün bir şekilde "
 "yaklaşmadıklarında durdurulurlar. Bu ağ sorunlarından veya kodun veritabanı "
 "işleyicisine düzgün bir şekilde yaklaşmadığından dolayı olabilir. Ağınızı ve "
-"kodunuzu kontrol edin."
+"kodunuzu denetleyin."
 
 #: libraries/advisory_rules.txt:400
 #, php-format
@@ -16791,9 +16796,9 @@ msgstr ""
 "değişkenin değerini basitçe değiştiremezsiniz. Sunucuyu kapatmanız, InnoDB "
 "günlük dosyalarını kaldırmanız, my.cnf içindeki yeni değeri ayarlamanız, "
 "sunucuyu başlatmanız gerekir, ondan sonra herşeyin iyi gittiğini anlamak "
-"için hata günlüklerini kontrol etmelisiniz. Aynı zamanda <a href=\"https://"
-"mysqldatabaseadministration.blogspot.com/2007/01/increase-innodblogfilesize-"
-"proper-way.html\">bu blog girişine</a> bakın"
+"için hata günlüklerini denetlemelisiniz. Aynı zamanda <a href=\""
+"https://mysqldatabaseadministration.blogspot.com/2007/01/increase-"
+"innodblogfilesize-proper-way.html\">bu blog girişine</a> bakın"
 
 #: libraries/advisory_rules.txt:423
 #, php-format
@@ -16832,9 +16837,9 @@ msgstr ""
 "innodb_log_file_size/\">bu Makaleye</a> bakın. Sunucuyu kapatmanız, InnoDB "
 "günlük dosyalarını kaldırmanız, my.cnf içindeki yeni değeri ayarlamanız, "
 "sunucuyu başlatmanız gerekir, ondan sonra herşeyin iyi gittiğini anlamak "
-"için hata günlüklerini kontrol etmelisiniz. Aynı zamanda <a href=\"https://"
-"mysqldatabaseadministration.blogspot.com/2007/01/increase-innodblogfilesize-"
-"proper-way.html\">bu blog girişine</a> bakın"
+"için hata günlüklerini denetlemelisiniz. Aynı zamanda <a href=\""
+"https://mysqldatabaseadministration.blogspot.com/2007/01/increase-"
+"innodblogfilesize-proper-way.html\">bu blog girişine</a> bakın"
 
 #: libraries/advisory_rules.txt:430
 #, php-format
