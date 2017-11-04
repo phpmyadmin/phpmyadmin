@@ -4,17 +4,17 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.8.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2017-11-02 14:01+0100\n"
-"PO-Revision-Date: 2017-09-10 20:22+0000\n"
+"PO-Revision-Date: 2017-11-04 10:06+0000\n"
 "Last-Translator: Володимир Бриняк <bardvv@gmail.com>\n"
-"Language-Team: Ukrainian <https://hosted.weblate.org/projects/phpmyadmin/"
-"master/uk/>\n"
+"Language-Team: Ukrainian "
+"<https://hosted.weblate.org/projects/phpmyadmin/master/uk/>\n"
 "Language: uk\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=3; plural=n%10==1 && n%100!=11 ? 0 : n%10>=2 && n"
-"%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
-"X-Generator: Weblate 2.17-dev\n"
+"Plural-Forms: nplurals=3; plural=n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%10<="
+"4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
+"X-Generator: Weblate 2.18-dev\n"
 
 #: ajax.php:17 ajax.php:34 export.php:203 libraries/classes/Export.php:1100
 msgid "Bad type!"
@@ -2675,12 +2675,12 @@ msgstr "Надійний"
 
 #: js/messages.php:746
 msgid "Timed out waiting for security key activation."
-msgstr ""
+msgstr "Час очікування активації ключа безпеки."
 
 #: js/messages.php:747
 #, php-format
 msgid "Failed security key activation (%s)."
-msgstr ""
+msgstr "Не вдалося активізувати ключ безпеки (%s)."
 
 #: js/messages.php:776
 msgctxt "Previous month"
@@ -7019,21 +7019,16 @@ msgid "Failed to set configured collation connection!"
 msgstr "Не вдалося встановити конфігурацію співставлення підключення!"
 
 #: libraries/classes/DatabaseInterface.php:1499
-#, fuzzy, php-format
-#| msgid ""
-#| "Unable to use timezone %1$s for server %2$d. Please check your "
-#| "configuration setting for [em]$cfg['Servers'][%3$d]['SessionTimeZone'][/"
-#| "em]. phpMyAdmin is currently using the default time zone of the database "
-#| "server."
+#, php-format
 msgid ""
 "Unable to use timezone \"%1$s\" for server %2$d. Please check your "
 "configuration setting for [em]$cfg['Servers'][%3$d]['SessionTimeZone'][/em]. "
 "phpMyAdmin is currently using the default time zone of the database server."
 msgstr ""
-"Не вдається застосувати часовий пояс %1$s для сервера %2$d. Будь ласка, "
-"перевірте налаштування конфігурації для [em]$cfg['Servers'][%3$d]"
-"['SessionTimeZone'][/em]. phpMyAdmin в даний час використовує стандартний "
-"часовий пояс сервера бази даних."
+"Не вдається застосувати часовий пояс \"%1$s\" для сервера %2$d. Будь ласка, "
+"перевірте налаштування конфігурації для "
+"[em]$cfg['Servers'][%3$d]['SessionTimeZone'][/em]. phpMyAdmin в даний час "
+"використовує стандартний часовий пояс сервера бази даних."
 
 #: libraries/classes/DatabaseInterface.php:2097
 msgid ""
@@ -9125,16 +9120,12 @@ msgid "Switch to copied database"
 msgstr "Перейти до скопійованої бази даних"
 
 #: libraries/classes/Operations.php:311
-#, fuzzy
-#| msgid "Change all column collations"
 msgid "Change all tables collations"
-msgstr "Змінити співставлення всіх стовпців"
+msgstr "Змінити всі зіставлення таблиць"
 
 #: libraries/classes/Operations.php:317
-#, fuzzy
-#| msgid "Change all column collations"
 msgid "Change all tables columns collations"
-msgstr "Змінити співставлення всіх стовпців"
+msgstr "Змінити всі співставлення стовпців таблиць"
 
 #: libraries/classes/Operations.php:797
 msgid "Alter table order by"
@@ -9426,6 +9417,7 @@ msgstr "Не можу зареєструватися на MySQL сервері"
 #: libraries/classes/Plugins/AuthenticationPlugin.php:331
 msgid "You have enabled two factor authentication, please confirm your login."
 msgstr ""
+"Ви ввімкнули двофакторну аутентифікацію, будь ласка, підтвердіть свій логін."
 
 #: libraries/classes/Plugins/Export/ExportCsv.php:63
 #: libraries/classes/Plugins/Import/AbstractImportCsv.php:58
@@ -10383,55 +10375,52 @@ msgid "Formats text as XML with syntax highlighting."
 msgstr "Форматування тексту як XML з підсвічуванням синтаксису."
 
 #: libraries/classes/Plugins/TwoFactor/Application.php:129
-#, fuzzy
-#| msgid "Authentication Plugin"
 msgid "Authentication Application (2FA)"
-msgstr "Плагін аутентифікації"
+msgstr "Застосунок автентифікації (2FA)"
 
 #: libraries/classes/Plugins/TwoFactor/Application.php:139
 msgid ""
 "Provides authentication using HOTP and TOTP applications such as FreeOTP, "
 "Google Authenticator or Authy."
 msgstr ""
+"Забезпечує автентифікацію за допомогою програм HOTP та TOTP, таких як "
+"FreeOTP, Google Authenticator або Authy."
 
 #: libraries/classes/Plugins/TwoFactor/Key.php:184
 msgid "Hardware Security Key (FIDO U2F)"
-msgstr ""
+msgstr "Ключ безпеки устаткування (FIDO U2F)"
 
 #: libraries/classes/Plugins/TwoFactor/Key.php:194
 msgid ""
 "Provides authentication using hardware security tokens supporting FIDO U2F."
 msgstr ""
+"Забезпечує автентифікацію за допомогою жетонів безпеки апаратного "
+"забезпечення, що підтримує FIDO U2F."
 
 #: libraries/classes/Plugins/TwoFactor/Simple.php:52
-#, fuzzy
-#| msgid "Signon authentication"
 msgid "Simple two-factor authentication"
-msgstr "Авторизація за допомогою Signon"
+msgstr "Проста двофакторна аутентифікація"
 
 #: libraries/classes/Plugins/TwoFactor/Simple.php:62
 msgid "For testing purposes only!"
-msgstr ""
+msgstr "Для цілей тестування!"
 
 #: libraries/classes/Plugins/TwoFactorPlugin.php:65
-#, fuzzy, php-format
-#| msgid "Hardware authentication failed!"
+#, php-format
 msgid "Two-factor authentication failed: %s"
-msgstr "Апаратна аутентифікація не вдалася!"
+msgstr "Двофакторна автентифікація не виконана: %s"
 
 #: libraries/classes/Plugins/TwoFactorPlugin.php:69
-#, fuzzy
-#| msgid "Hardware authentication failed!"
 msgid "Two-factor authentication failed."
-msgstr "Апаратна аутентифікація не вдалася!"
+msgstr "Двофакторна автентифікація не виконана."
 
 #: libraries/classes/Plugins/TwoFactorPlugin.php:122
 msgid "None two-factor"
-msgstr ""
+msgstr "Жодна двофакторна"
 
 #: libraries/classes/Plugins/TwoFactorPlugin.php:132
 msgid "Login using password only."
-msgstr ""
+msgstr "Увійти за допомогою пароля."
 
 #: libraries/classes/PmdCommon.php:550
 msgid "Error: relationship already exists."
@@ -14344,10 +14333,8 @@ msgid "Manage your settings"
 msgstr "Керування налаштуваннями"
 
 #: libraries/user_preferences.inc.php:38
-#, fuzzy
-#| msgid "Config authentication"
 msgid "Two-factor authentication"
-msgstr "Авторизація через файл конфігурації"
+msgstr "Двофакторна аутентифікація"
 
 #: libraries/user_preferences.inc.php:63 prefs_manage.php:309
 msgid "Configuration has been saved."
@@ -14455,16 +14442,12 @@ msgstr ""
 "замовчуванню."
 
 #: prefs_second.php:29
-#, fuzzy
-#| msgid "Internal relationship has been removed."
 msgid "Two-factor authentication has been removed."
-msgstr "Внутрішні зв'язки будуть видалені."
+msgstr "Двофакторна автентифікація була вилучена."
 
 #: prefs_second.php:39
-#, fuzzy
-#| msgid "Invalid authentication method set in configuration:"
 msgid "Two-factor authentication has been configured."
-msgstr "Невірний метод аутентифікації встановленний в налаштуваннях:"
+msgstr "Двофакторна автентифікація налаштована."
 
 #: server_export.php:25
 msgid "View dump (schema) of databases"
@@ -15095,16 +15078,16 @@ msgstr "Скидання масштабу"
 
 #: templates/login/twofactor/application.twig:2
 #: templates/login/twofactor/application_configure.twig:9
-#, fuzzy
-#| msgid "Authentication"
 msgid "Authentication code:"
-msgstr "Аутентифікація"
+msgstr "Код аутентифікації:"
 
 #: templates/login/twofactor/application.twig:4
 msgid ""
 "Open the two-factor authentication app on your device to view your "
 "authentication code and verify your identity."
 msgstr ""
+"Відкрийте на своєму пристрої двофакторну програму автентифікації, щоб "
+"переглянути код автентифікації та підтвердити свою особу."
 
 #: templates/database/designer/rename_to_panel.twig:22
 #: templates/database/designer/options_panel.twig:85
@@ -15128,7 +15111,7 @@ msgstr "Виконати \"запит згідно прикладу\" (симв�
 
 #: templates/login/twofactor.twig:4
 msgid "Verify"
-msgstr ""
+msgstr "Перевірити"
 
 #: templates/server/variables/session_variable_row.twig:3
 msgid "Session value"
@@ -15269,10 +15252,9 @@ msgid "Save chart as image"
 msgstr "Зберегти графік, як зображення"
 
 #: templates/database/structure/show_create_row.twig:7
-#, fuzzy, php-format
-#| msgid "Create User"
+#, php-format
 msgid "Create %s"
-msgstr "Створити користувача"
+msgstr "Створити %s"
 
 #: templates/server/variables/variable_row.twig:6
 msgid "This is a read-only variable and can not be edited"
@@ -15322,10 +15304,9 @@ msgid "Column names"
 msgstr "Ім'я стовпців"
 
 #: templates/server/databases/table_row.twig:13
-#, fuzzy, php-format
-#| msgid "Jump to database"
+#, php-format
 msgid "Jump to database '%s'"
-msgstr "Перейти до бази даних"
+msgstr "Перейти до бази даних '%s'"
 
 #: templates/server/databases/table_row.twig:61
 #, php-format
@@ -15350,10 +15331,8 @@ msgid "Index choice:"
 msgstr "Вибір індексу:"
 
 #: templates/table/index_form.twig:42
-#, fuzzy
-#| msgid "Active options"
 msgid "Advanced Options"
-msgstr "Активовані опції"
+msgstr "Розширені опції"
 
 #: templates/table/index_form.twig:48
 msgid "Key block size:"
@@ -15405,50 +15384,50 @@ msgid "None"
 msgstr "Немає"
 
 #: templates/prefs_second.twig:3
-#, fuzzy
-#| msgid "Authentication settings."
 msgid "Two-factor authentication status"
-msgstr "Параметри аутентифікації."
+msgstr "Двофакторний статус автентифікації"
 
 #: templates/prefs_second.twig:9
 msgid ""
 "Two-factor authentication is not available, please install optional "
 "dependencies to enable authentication backends."
 msgstr ""
+"Двофакторна автентифікація недоступна, будь ласка, встановіть необов'язкові "
+"залежності, щоб увімкнути автентифікації автентичності."
 
 #: templates/prefs_second.twig:12
 msgid "Two-factor authentication is available and configured for this account."
 msgstr ""
+"Двофакторна аутентифікація є доступна і настроєна для цього облікового "
+"запису."
 
 #: templates/prefs_second.twig:14
 msgid ""
 "Two-factor authentication is available, but not configured for this account."
 msgstr ""
+"Двофакторна аутентифікація є доступна, але не настроєна для цього облікового "
+"запису."
 
 #: templates/prefs_second.twig:18
-#, fuzzy
-#| msgid "%sCreate%s missing phpMyAdmin configuration storage tables."
 msgid ""
 "Two-factor authentication is not available, enable phpMyAdmin configuration "
 "storage to use it."
-msgstr "%sСтворити%s відсутні таблиці зберігання конфігурації phpMyAdmin."
+msgstr ""
+"Двофакторна автентифікація недоступна, увімкніть сховище конфігурації "
+"phpMyAdmin для використання цього."
 
 #: templates/prefs_second.twig:27
 msgid "You have enabled two factor authentication."
-msgstr ""
+msgstr "Ви ввімкнули двофакторну автентифікацію."
 
 #: templates/prefs_second.twig:31 templates/prefs_second_confirm.twig:9
-#, fuzzy
-#| msgid "Config authentication"
 msgid "Disable two-factor authentication"
-msgstr "Авторизація через файл конфігурації"
+msgstr "Вимкнути двофакторну аутентифікацію"
 
 #: templates/prefs_second.twig:37 templates/prefs_second.twig:49
 #: templates/prefs_second_configure.twig:2
-#, fuzzy
-#| msgid "Config authentication"
 msgid "Configure two-factor authentication"
-msgstr "Авторизація через файл конфігурації"
+msgstr "Налаштувати двофакторну аутентифікацію"
 
 #: templates/columns_definitions/column_virtuality.twig:29
 #: templates/table/structure/display_partitions.twig:26
@@ -15484,16 +15463,16 @@ msgid "Next autoindex"
 msgstr "Наступний автоіндекс"
 
 #: templates/prefs_second_confirm.twig:2
-#, fuzzy
-#| msgid "Config authentication"
 msgid "Confirm disabling two-factor authentication"
-msgstr "Авторизація через файл конфігурації"
+msgstr "Підтвердьте відключення двофакторної аутентифікації"
 
 #: templates/prefs_second_confirm.twig:5
 msgid ""
 "By disabling two factor authentication you will be again able to login using "
 "password only."
 msgstr ""
+"Вимкнувши двофакторну автентифікацію, ви знову зможете ввійти, "
+"використовуючи лише пароль."
 
 #: templates/prefs_autoload.twig:7
 msgid ""
@@ -15534,10 +15513,8 @@ msgid "in use"
 msgstr "використовується"
 
 #: templates/prefs_second_configure.twig:8
-#, fuzzy
-#| msgid "Config authentication"
 msgid "Enable two-factor authentication"
-msgstr "Авторизація через файл конфігурації"
+msgstr "Увімкнути двофакторну аутентифікацію"
 
 #: templates/privileges/privileges_summary.twig:20
 msgid "Column-specific privileges"
@@ -15699,6 +15676,8 @@ msgid ""
 "Please connect your FIDO U2F device into your computer's USB port. Then "
 "confirm login on the device."
 msgstr ""
+"Будь ласка, підключіть пристрій FIDO U2F до USB-порту комп'ютера. Потім "
+"підтвердіть логін на пристрої."
 
 #: templates/table/search/search_and_replace.twig:3
 msgid "Replace with:"
@@ -15713,8 +15692,6 @@ msgid "Hide/Show all"
 msgstr "Сховати/Показати все"
 
 #: templates/database/designer/table_list.twig:14
-#, fuzzy
-#| msgid "Hide/Show Tables with no relationship"
 msgid "Hide/Show tables with no relationship"
 msgstr "Сховати/Показати таблиці, які не мають зв'язків"
 
@@ -16025,14 +16002,10 @@ msgid ""
 "Please connect your FIDO U2F device into your computer's USB port. Then "
 "confirm registration on the device."
 msgstr ""
+"Будь ласка, підключіть пристрій FIDO U2F до USB-порту комп'ютера. Потім "
+"підтвердіть реєстрацію на пристрої."
 
 #: templates/columns_definitions/table_fields_definitions.twig:17
-#, fuzzy
-#| msgid ""
-#| "If column type is \"enum\" or \"set\", please enter the values using this "
-#| "format: 'a','b','c'…<br />If you ever need to put a backslash (\"\\\") or "
-#| "a single quote (\"'\") amongst those values, precede it with a backslash "
-#| "(for example '\\\\xyz' or 'a\\'b')."
 msgid ""
 "If column type is \"enum\" or \"set\", please enter the values using this "
 "format: 'a','b','c'…<br />If you ever need to put a backslash (\"\") or a "
@@ -16040,7 +16013,7 @@ msgid ""
 "example '\\\\xyz' or 'a\\'b')."
 msgstr ""
 "Для типів поля \"enum\" або \"set\", введіть значення в такому форматі: "
-"'a','b','c'…<br />Якщо вам буде потрібно ввести зворотню косу риску (\"\\\") "
+"'a','b','c'…<br />Якщо вам буде потрібно ввести зворотню косу риску (\"\") "
 "або поодинокі лапки (\"'\") посеред цих значень, поставте перед ними "
 "зворотню косу риску (наприклад, '\\\\xyz' чи 'a\\'b')."
 
@@ -16071,22 +16044,16 @@ msgstr "Параметри перетворення відображення б�
 
 #: templates/columns_definitions/table_fields_definitions.twig:83
 #: templates/columns_definitions/table_fields_definitions.twig:94
-#, fuzzy
-#| msgid ""
-#| "Please enter the values for transformation options using this format: "
-#| "'a', 100, b,'c'…<br />If you ever need to put a backslash (\"\\\") or a "
-#| "single quote (\"'\") amongst those values, precede it with a backslash "
-#| "(for example '\\\\xyz' or 'a\\'b')."
 msgid ""
 "Please enter the values for transformation options using this format: 'a', "
 "100, b,'c'…<br />If you ever need to put a backslash (\"\") or a single "
 "quote (\"'\") amongst those values, precede it with a backslash (for example "
 "'\\\\xyz' or 'a\\'b')."
 msgstr ""
-"Введіть значення опцій перетворення у такому форматі: 'a', 100, b,'c'…<br /"
-">Якщо необхідно ввести зворотній слеш (\"\\\") чи поодинокі лапки (\"'\") у "
-"цих значеннях, поставте перед ними додатковий зворотній слеш (наприклад '\\"
-"\\xyz' чи 'a\\'b')."
+"Введіть значення опцій перетворення у такому форматі: 'a', 100, b,'c'…<br />"
+"Якщо необхідно ввести зворотній слеш (\"\") чи поодинокі лапки (\"'\") у цих "
+"значеннях, поставте перед ними додатковий зворотній слеш (наприклад '\\\\"
+"xyz' чи 'a\\'b')."
 
 #: templates/columns_definitions/table_fields_definitions.twig:93
 msgid "Input transformation options"
@@ -16121,6 +16088,8 @@ msgid ""
 "Please scan following QR code into the two-factor authentication app on your "
 "device and enter authentication code it generates."
 msgstr ""
+"Перегляньте QR-код у застосунку із двофакторною автентифікацією на своєму "
+"пристрої та введіть код, який він генерує."
 
 #: templates/columns_definitions/column_default.twig:3
 msgctxt "for default"
