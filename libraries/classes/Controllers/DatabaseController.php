@@ -22,9 +22,9 @@ abstract class DatabaseController extends Controller
     /**
      * Constructor
      */
-    public function __construct()
+    public function __construct($response, $dbi, $db)
     {
-        parent::__construct();
-        $this->db = $this->container->get('db');
+        parent::__construct($response, $dbi);
+        $this->db = $db;
     }
 }

@@ -81,7 +81,10 @@ class ServerPluginsControllerTest extends PmaTestCase
         $method = $class->getMethod('_getPluginsHtml');
         $method->setAccessible(true);
 
-        $ctrl = new ServerPluginsController();
+        $ctrl = new ServerPluginsController(
+            $container->get('response'),
+            $container->get('dbi')
+        );
         $html = $method->invoke($ctrl);
 
         //validate 1:Items

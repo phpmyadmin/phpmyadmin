@@ -28,9 +28,9 @@ class ServerPluginsController extends Controller
     /**
      * Constructs ServerPluginsController
      */
-    public function __construct()
+    public function __construct($response, $dbi)
     {
-        parent::__construct();
+        parent::__construct($response, $dbi);
         $this->_setServerPlugins();
     }
 

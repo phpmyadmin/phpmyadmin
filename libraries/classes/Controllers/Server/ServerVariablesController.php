@@ -32,9 +32,9 @@ class ServerVariablesController extends Controller
     /**
      * Constructs ServerVariablesController
      */
-    public function __construct()
+    public function __construct($response, $dbi)
     {
-        parent::__construct();
+        parent::__construct($response, $dbi);
 
         $this->variable_doc_links = $this->_getDocumentLinks();
     }

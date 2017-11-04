@@ -8,6 +8,7 @@
 namespace PhpMyAdmin\Tests\Controllers\Server;
 
 use PhpMyAdmin\Controllers\Server\ServerEnginesController;
+use PhpMyAdmin\Di\Container;
 use PhpMyAdmin\StorageEngine;
 use PhpMyAdmin\Tests\PmaTestCase;
 use PhpMyAdmin\Theme;
@@ -51,7 +52,12 @@ class ServerEnginesControllerTest extends PmaTestCase
         $method = $class->getMethod('_getHtmlForAllServerEngines');
         $method->setAccessible(true);
 
-        $ctrl = new ServerEnginesController();
+        $container = Container::getDefaultContainer();
+
+        $ctrl = new ServerEnginesController(
+            $container->get('response'),
+            $container->get('dbi')
+        );
         $html = $method->invoke($ctrl);
 
         //validate 1: Item header
@@ -112,8 +118,13 @@ class ServerEnginesControllerTest extends PmaTestCase
         $method = $class->getMethod('_getHtmlForServerEngine');
         $method->setAccessible(true);
 
+        $container = Container::getDefaultContainer();
+
         $engine_plugin = StorageEngine::getEngine("Pbxt");
-        $ctrl = new ServerEnginesController();
+        $ctrl = new ServerEnginesController(
+            $container->get('response'),
+            $container->get('dbi')
+        );
         $html = $method->invoke($ctrl, $engine_plugin);
 
         //validate 1: Engine title

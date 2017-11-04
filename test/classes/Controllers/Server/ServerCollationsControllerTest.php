@@ -9,6 +9,7 @@ namespace PhpMyAdmin\Tests\Controllers\Server;
 
 use PhpMyAdmin\Controllers\Server\ServerCollationsController;
 use PhpMyAdmin\Core;
+use PhpMyAdmin\Di\Container;
 use PhpMyAdmin\Tests\PmaTestCase;
 use PhpMyAdmin\Theme;
 use ReflectionClass;
@@ -84,11 +85,16 @@ class ServerCollationsControllerTest extends PmaTestCase
             "binary" => true,
         );
 
+        $container = Container::getDefaultContainer();
+
         $class = new ReflectionClass('\PhpMyAdmin\Controllers\Server\ServerCollationsController');
         $method = $class->getMethod('_getHtmlForCharsets');
         $method->setAccessible(true);
 
-        $ctrl = new ServerCollationsController();
+        $ctrl = new ServerCollationsController(
+            $container->get('response'),
+            $container->get('dbi')
+        );
         $html = $method->invoke(
             $ctrl,
             $mysql_charsets,

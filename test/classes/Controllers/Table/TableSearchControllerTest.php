@@ -114,7 +114,16 @@ class TableSearchControllerTest extends PmaTestCase
      */
     public function testReplace()
     {
-        $tableSearch = new TableSearchController("zoom", null);
+        $container = Container::getDefaultContainer();
+
+        $tableSearch = new TableSearchController(
+            $container->get('response'),
+            $container->get('dbi'),
+            $container->get('db'),
+            $container->get('table'),
+            "zoom",
+            null
+        );
         $columnIndex = 0;
         $find = "Field";
         $replaceWith = "Column";
@@ -148,10 +157,19 @@ class TableSearchControllerTest extends PmaTestCase
         $_POST['order'] = "asc";
         $_POST['customWhereClause'] = "name='pma'";
 
+        $container = Container::getDefaultContainer();
+
         $class = new ReflectionClass('PhpMyAdmin\Controllers\Table\TableSearchController');
         $method = $class->getMethod('_buildSqlQuery');
         $method->setAccessible(true);
-        $tableSearch = new TableSearchController("zoom", null);
+        $tableSearch = new TableSearchController(
+            $container->get('response'),
+            $container->get('dbi'),
+            $container->get('db'),
+            $container->get('table'),
+            "zoom",
+            null
+        );
 
         $sql = $method->invoke($tableSearch);
         $result = "SELECT DISTINCT *  FROM `PMA` WHERE name='pma' "

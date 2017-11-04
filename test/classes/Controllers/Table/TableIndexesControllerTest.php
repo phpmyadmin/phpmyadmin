@@ -100,7 +100,13 @@ class TableIndexesControllerTest extends PmaTestCase
         $container->set('PhpMyAdmin\Response', $response);
         $container->alias('response', 'PhpMyAdmin\Response');
 
-        $ctrl = new TableIndexesController(null);
+        $ctrl = new TableIndexesController(
+            $container->get('response'),
+            $container->get('dbi'),
+            $container->get('db'),
+            $container->get('table'),
+            null
+        );
 
         // Preview SQL
         $_REQUEST['preview_sql'] = true;
@@ -153,7 +159,13 @@ class TableIndexesControllerTest extends PmaTestCase
         $container->alias('response', 'PhpMyAdmin\Response');
         $index = new Index();
 
-        $ctrl = new TableIndexesController($index);
+        $ctrl = new TableIndexesController(
+            $container->get('response'),
+            $container->get('dbi'),
+            $container->get('db'),
+            $container->get('table'),
+            $index
+        );
 
         $_REQUEST['create_index'] = true;
         $_REQUEST['added_fields'] = 3;
