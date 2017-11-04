@@ -103,7 +103,7 @@ class SqlQueryForm
 
         // Bookmark Support
         if ($display_tab === 'full') {
-            $cfgBookmark = Bookmark::getParams();
+            $cfgBookmark = Bookmark::getParams($GLOBALS['cfg']['Server']['user']);
             if ($cfgBookmark) {
                 $html .= self::getHtmlForBookmark();
             }
@@ -300,7 +300,7 @@ class SqlQueryForm
         $html .= '<div class="clearfloat"></div>' . "\n";
         $html .= '</div>' . "\n";
 
-        $cfgBookmark = Bookmark::getParams();
+        $cfgBookmark = Bookmark::getParams($GLOBALS['cfg']['Server']['user']);
         if ($cfgBookmark) {
             $html .= '<div id="bookmarkoptions">';
             $html .= '<div class="formelement">';
@@ -387,7 +387,11 @@ class SqlQueryForm
      */
     public static function getHtmlForBookmark()
     {
-        $bookmark_list = Bookmark::getList($GLOBALS['db']);
+        $bookmark_list = Bookmark::getList(
+            $GLOBALS['dbi'],
+            $GLOBALS['cfg']['Server']['user'],
+            $GLOBALS['db']
+        );
         if (empty($bookmark_list) || count($bookmark_list) < 1) {
             return null;
         }

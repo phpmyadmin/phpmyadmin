@@ -41,7 +41,7 @@ class BookmarkTest extends TestCase
     {
         $this->assertEquals(
             false,
-            Bookmark::getParams()
+            Bookmark::getParams($GLOBALS['cfg']['Server']['user'])
         );
     }
 
@@ -54,7 +54,11 @@ class BookmarkTest extends TestCase
     {
         $this->assertEquals(
             array(),
-            Bookmark::getList('phpmyadmin')
+            Bookmark::getList(
+                $GLOBALS['dbi'],
+                $GLOBALS['cfg']['Server']['user'],
+                'phpmyadmin'
+            )
         );
     }
 
@@ -66,7 +70,12 @@ class BookmarkTest extends TestCase
     public function testGet()
     {
         $this->assertNull(
-            Bookmark::get('phpmyadmin', '1')
+            Bookmark::get(
+                $GLOBALS['dbi'],
+                $GLOBALS['cfg']['Server']['user'],
+                'phpmyadmin',
+                '1'
+            )
         );
     }
 
@@ -84,7 +93,11 @@ class BookmarkTest extends TestCase
             'bkm_label' => 'bookmark1',
         );
 
-        $bookmark = Bookmark::createBookmark($bookmarkData);
+        $bookmark = Bookmark::createBookmark(
+            $GLOBALS['dbi'],
+            $GLOBALS['cfg']['Server']['user'],
+            $bookmarkData
+        );
         $this->assertfalse($bookmark->save());
     }
 }

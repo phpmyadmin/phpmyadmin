@@ -74,9 +74,12 @@ class Console
      */
     public static function getBookmarkContent()
     {
-        $cfgBookmark = Bookmark::getParams();
+        $cfgBookmark = Bookmark::getParams($GLOBALS['cfg']['Server']['user']);
         if ($cfgBookmark) {
-            $bookmarks = Bookmark::getList();
+            $bookmarks = Bookmark::getList(
+                $GLOBALS['dbi'],
+                $GLOBALS['cfg']['Server']['user']
+            );
             $count_bookmarks = count($bookmarks);
             if ($count_bookmarks > 0) {
                 $welcomeMessage = sprintf(
@@ -121,7 +124,7 @@ class Console
     public function getDisplay()
     {
         if ((! $this->_isAjax) && $this->_isEnabled) {
-            $cfgBookmark = Bookmark::getParams();
+            $cfgBookmark = Bookmark::getParams($GLOBALS['cfg']['Server']['user']);
 
             $image = Util::getImage('console.png', __('SQL Query Console'));
             $_sql_history = Relation::getHistory($GLOBALS['cfg']['Server']['user']);

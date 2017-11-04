@@ -793,6 +793,8 @@ EOT;
     public static function addBookmark($goto)
     {
         $bookmark = Bookmark::createBookmark(
+            $GLOBALS['dbi'],
+            $GLOBALS['cfg']['Server']['user'],
             $_POST['bkm_fields'],
             (isset($_POST['bkm_all_users'])
                 && $_POST['bkm_all_users'] == 'true' ? true : false
@@ -905,6 +907,8 @@ EOT;
     public static function getDefaultSqlQueryForBrowse($db, $table)
     {
         $bookmark = Bookmark::get(
+            $GLOBALS['dbi'],
+            $GLOBALS['cfg']['Server']['user'],
             $db,
             $table,
             'label',
@@ -1005,7 +1009,11 @@ EOT;
 
         // Should we replace bookmark?
         if (isset($bkm_replace)) {
-            $bookmarks = Bookmark::getList($db);
+            $bookmarks = Bookmark::getList(
+                $GLOBALS['dbi'],
+                $GLOBALS['cfg']['Server']['user'],
+                $db
+            );
             foreach ($bookmarks as $bookmark) {
                 if ($bookmark->getLabel() == $bkm_label) {
                     $bookmark->delete();
@@ -1013,7 +1021,12 @@ EOT;
             }
         }
 
-        $bookmark = Bookmark::createBookmark($bfields, isset($_POST['bkm_all_users']));
+        $bookmark = Bookmark::createBookmark(
+            $GLOBALS['dbi'],
+            $GLOBALS['cfg']['Server']['user'],
+            $bfields,
+            isset($_POST['bkm_all_users'])
+        );
         $bookmark->save();
     }
 
@@ -1248,7 +1261,7 @@ EOT;
             // If there are no errors and bookmarklabel was given,
             // store the query as a bookmark
             if (! empty($_POST['bkm_label']) && ! empty($sql_query_for_bookmark)) {
-                $cfgBookmark = Bookmark::getParams();
+                $cfgBookmark = Bookmark::getParams($GLOBALS['cfg']['Server']['user']);
                 self::storeTheQueryAsBookmark(
                     $db, $cfgBookmark['user'],
                     $sql_query_for_bookmark, $_POST['bkm_label'],
@@ -1498,7 +1511,7 @@ EOT;
                     $analyzed_sql_results
                 );
 
-                $cfgBookmark = Bookmark::getParams();
+                $cfgBookmark = Bookmark::getParams($GLOBALS['cfg']['Server']['user']);
                 if ($cfgBookmark) {
                     $html_output .= self::getHtmlForBookmark(
                         $displayParts,
@@ -2002,7 +2015,7 @@ EOT;
             isset($selectedTables) ? $selectedTables : null, $db
         );
 
-        $cfgBookmark = Bookmark::getParams();
+        $cfgBookmark = Bookmark::getParams($GLOBALS['cfg']['Server']['user']);
         if ($cfgBookmark) {
             $bookmark_support_html = self::getHtmlForBookmark(
                 $displayParts,
