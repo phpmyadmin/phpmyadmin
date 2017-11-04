@@ -49,124 +49,137 @@ if (strlen($GLOBALS['db']) > 0
     if (! isset($_REQUEST['newname']) || strlen($_REQUEST['newname']) === 0) {
         $message = PMA\libraries\Message::error(__('The database name is empty!'));
     } else {
-        $_error = false;
-        if ($move || ! empty($_REQUEST['create_database_before_copying'])) {
-            PMA_createDbBeforeCopy();
-        }
-
-        // here I don't use DELIMITER because it's not part of the
-        // language; I have to send each statement one by one
-
-        // to avoid selecting alternatively the current and new db
-        // we would need to modify the CREATE definitions to qualify
-        // the db name
-        PMA_runProcedureAndFunctionDefinitions($GLOBALS['db']);
-
-        // go back to current db, just in case
-        $GLOBALS['dbi']->selectDb($GLOBALS['db']);
-
-        $tables_full = $GLOBALS['dbi']->getTablesFull($GLOBALS['db']);
-
-        include_once "libraries/plugin_interface.lib.php";
-        // remove all foreign key constraints, otherwise we can get errors
-        /* @var $export_sql_plugin ExportSql */
-        $export_sql_plugin = PMA_getPlugin(
-            "export",
-            "sql",
-            'libraries/plugins/export/',
-            array(
-                'single_table' => isset($single_table),
-                'export_type'  => 'database'
-            )
-        );
-
-        // create stand-in tables for views
-        $views = PMA_getViewsAndCreateSqlViewStandIn(
-            $tables_full, $export_sql_plugin, $GLOBALS['db']
-        );
-
-        // copy tables
-        $sqlConstratints = PMA_copyTables(
-            $tables_full, $move, $GLOBALS['db']
-        );
-
-        // handle the views
-        if (! $_error) {
-            PMA_handleTheViews($views, $move, $GLOBALS['db']);
-        }
-        unset($views);
-
-        // now that all tables exist, create all the accumulated constraints
-        if (! $_error && count($sqlConstratints) > 0) {
-            PMA_createAllAccumulatedConstraints($sqlConstratints);
-        }
-        unset($sqlConstratints);
-
-        if (PMA_MYSQL_INT_VERSION >= 50100) {
-            // here DELIMITER is not used because it's not part of the
-            // language; each statement is sent one by one
-
-            PMA_runEventDefinitionsForDb($GLOBALS['db']);
-        }
-
-        // go back to current db, just in case
-        $GLOBALS['dbi']->selectDb($GLOBALS['db']);
-
-        // Duplicate the bookmarks for this db (done once for each db)
-        PMA_duplicateBookmarks($_error, $GLOBALS['db']);
-
-        if (! $_error && $move) {
-            if (isset($_REQUEST['adjust_privileges'])
-                && ! empty($_REQUEST['adjust_privileges'])
-            ) {
-                PMA_AdjustPrivileges_moveDB($GLOBALS['db'], $_REQUEST['newname']);
-            }
-
-            /**
-             * cleanup pmadb stuff for this db
-             */
-            include_once 'libraries/relation_cleanup.lib.php';
-            PMA_relationsCleanupDatabase($GLOBALS['db']);
-
-            // if someday the RENAME DATABASE reappears, do not DROP
-            $local_query = 'DROP DATABASE '
-                . PMA\libraries\Util::backquote($GLOBALS['db']) . ';';
-            $sql_query .= "\n" . $local_query;
-            $GLOBALS['dbi']->query($local_query);
-
-            $message = PMA\libraries\Message::success(
-                __('Database %1$s has been renamed to %2$s.')
+        // lower_case_table_names=1 `DB` becomes `db`
+        if ($GLOBALS['dbi']->getLowerCaseNames() === '1') {
+            $_REQUEST['newname'] = mb_strtolower(
+                $_REQUEST['newname']
             );
-            $message->addParam($GLOBALS['db']);
-            $message->addParam($_REQUEST['newname']);
-        } elseif (! $_error) {
-            if (isset($_REQUEST['adjust_privileges'])
-                && ! empty($_REQUEST['adjust_privileges'])
-            ) {
-                PMA_AdjustPrivileges_copyDB($GLOBALS['db'], $_REQUEST['newname']);
-            }
+        }
 
-            $message = PMA\libraries\Message::success(
-                __('Database %1$s has been copied to %2$s.')
+        if ($_REQUEST['newname'] === $_REQUEST['db']) {
+            $message = PMA\libraries\Message::error(
+                __('Cannot copy database to the same name. Change the name and try again.')
             );
-            $message->addParam($GLOBALS['db']);
-            $message->addParam($_REQUEST['newname']);
         } else {
-            $message = PMA\libraries\Message::error();
-        }
-        $reload     = true;
+            $_error = false;
+            if ($move || ! empty($_REQUEST['create_database_before_copying'])) {
+                PMA_createDbBeforeCopy();
+            }
 
-        /* Change database to be used */
-        if (! $_error && $move) {
-            $GLOBALS['db'] = $_REQUEST['newname'];
-        } elseif (! $_error) {
-            if (isset($_REQUEST['switch_to_new'])
-                && $_REQUEST['switch_to_new'] == 'true'
-            ) {
-                $GLOBALS['PMA_Config']->setCookie('pma_switch_to_new', 'true');
-                $GLOBALS['db'] = $_REQUEST['newname'];
+            // here I don't use DELIMITER because it's not part of the
+            // language; I have to send each statement one by one
+
+            // to avoid selecting alternatively the current and new db
+            // we would need to modify the CREATE definitions to qualify
+            // the db name
+            PMA_runProcedureAndFunctionDefinitions($GLOBALS['db']);
+
+            // go back to current db, just in case
+            $GLOBALS['dbi']->selectDb($GLOBALS['db']);
+
+            $tables_full = $GLOBALS['dbi']->getTablesFull($GLOBALS['db']);
+
+            include_once "libraries/plugin_interface.lib.php";
+            // remove all foreign key constraints, otherwise we can get errors
+            /* @var $export_sql_plugin ExportSql */
+            $export_sql_plugin = PMA_getPlugin(
+                "export",
+                "sql",
+                'libraries/plugins/export/',
+                array(
+                    'single_table' => isset($single_table),
+                    'export_type'  => 'database'
+                )
+            );
+
+            // create stand-in tables for views
+            $views = PMA_getViewsAndCreateSqlViewStandIn(
+                $tables_full, $export_sql_plugin, $GLOBALS['db']
+            );
+
+            // copy tables
+            $sqlConstratints = PMA_copyTables(
+                $tables_full, $move, $GLOBALS['db']
+            );
+
+            // handle the views
+            if (! $_error) {
+                PMA_handleTheViews($views, $move, $GLOBALS['db']);
+            }
+            unset($views);
+
+            // now that all tables exist, create all the accumulated constraints
+            if (! $_error && count($sqlConstratints) > 0) {
+                PMA_createAllAccumulatedConstraints($sqlConstratints);
+            }
+            unset($sqlConstratints);
+
+            if (PMA_MYSQL_INT_VERSION >= 50100) {
+                // here DELIMITER is not used because it's not part of the
+                // language; each statement is sent one by one
+
+                PMA_runEventDefinitionsForDb($GLOBALS['db']);
+            }
+
+            // go back to current db, just in case
+            $GLOBALS['dbi']->selectDb($GLOBALS['db']);
+
+            // Duplicate the bookmarks for this db (done once for each db)
+            PMA_duplicateBookmarks($_error, $GLOBALS['db']);
+
+            if (! $_error && $move) {
+                if (isset($_REQUEST['adjust_privileges'])
+                    && ! empty($_REQUEST['adjust_privileges'])
+                ) {
+                    PMA_AdjustPrivileges_moveDB($GLOBALS['db'], $_REQUEST['newname']);
+                }
+
+                /**
+                 * cleanup pmadb stuff for this db
+                 */
+                include_once 'libraries/relation_cleanup.lib.php';
+                PMA_relationsCleanupDatabase($GLOBALS['db']);
+
+                // if someday the RENAME DATABASE reappears, do not DROP
+                $local_query = 'DROP DATABASE '
+                    . PMA\libraries\Util::backquote($GLOBALS['db']) . ';';
+                $sql_query .= "\n" . $local_query;
+                $GLOBALS['dbi']->query($local_query);
+
+                $message = PMA\libraries\Message::success(
+                    __('Database %1$s has been renamed to %2$s.')
+                );
+                $message->addParam($GLOBALS['db']);
+                $message->addParam($_REQUEST['newname']);
+            } elseif (! $_error) {
+                if (isset($_REQUEST['adjust_privileges'])
+                    && ! empty($_REQUEST['adjust_privileges'])
+                ) {
+                    PMA_AdjustPrivileges_copyDB($GLOBALS['db'], $_REQUEST['newname']);
+                }
+
+                $message = PMA\libraries\Message::success(
+                    __('Database %1$s has been copied to %2$s.')
+                );
+                $message->addParam($GLOBALS['db']);
+                $message->addParam($_REQUEST['newname']);
             } else {
-                $GLOBALS['PMA_Config']->setCookie('pma_switch_to_new', '');
+                $message = PMA\libraries\Message::error();
+            }
+            $reload     = true;
+
+            /* Change database to be used */
+            if (! $_error && $move) {
+                $GLOBALS['db'] = $_REQUEST['newname'];
+            } elseif (! $_error) {
+                if (isset($_REQUEST['switch_to_new'])
+                    && $_REQUEST['switch_to_new'] == 'true'
+                ) {
+                    $GLOBALS['PMA_Config']->setCookie('pma_switch_to_new', 'true');
+                    $GLOBALS['db'] = $_REQUEST['newname'];
+                } else {
+                    $GLOBALS['PMA_Config']->setCookie('pma_switch_to_new', '');
+                }
             }
         }
     }

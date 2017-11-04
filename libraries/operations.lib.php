@@ -353,13 +353,6 @@ function PMA_runProcedureAndFunctionDefinitions($db)
  */
 function PMA_createDbBeforeCopy()
 {
-    // lower_case_table_names=1 `DB` becomes `db`
-    if ($GLOBALS['dbi']->getLowerCaseNames() === '1') {
-        $_REQUEST['newname'] = mb_strtolower(
-            $_REQUEST['newname']
-        );
-    }
-
     $local_query = 'CREATE DATABASE IF NOT EXISTS '
         . Util::backquote($_REQUEST['newname']);
     if (isset($_REQUEST['db_collation'])) {
