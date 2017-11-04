@@ -543,7 +543,6 @@ class TableStructureController extends TableController
             $partitionDetails = $this->_extractPartitionDetails();
         }
 
-        include_once 'libraries/StorageEngine.php';
         include 'libraries/tbl_partition_definition.inc.php';
         $this->response->addHTML(
             Template::get('table/structure/partition_definition_form')
