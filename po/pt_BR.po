@@ -4,16 +4,16 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.8.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2017-11-02 14:01+0100\n"
-"PO-Revision-Date: 2017-10-28 00:49+0000\n"
-"Last-Translator: Guilherme Souza Silva <g.szsilva@gmail.com>\n"
-"Language-Team: Portuguese (Brazil) <https://hosted.weblate.org/projects/"
-"phpmyadmin/master/pt_BR/>\n"
+"PO-Revision-Date: 2017-11-05 00:05+0000\n"
+"Last-Translator: George Bezerra <georgelione@gmail.com>\n"
+"Language-Team: Portuguese (Brazil) "
+"<https://hosted.weblate.org/projects/phpmyadmin/master/pt_BR/>\n"
 "Language: pt_BR\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n > 1;\n"
-"X-Generator: Weblate 2.17\n"
+"X-Generator: Weblate 2.18-dev\n"
 
 #: ajax.php:17 ajax.php:34 export.php:203 libraries/classes/Export.php:1100
 msgid "Bad type!"
@@ -7068,21 +7068,16 @@ msgid "Failed to set configured collation connection!"
 msgstr "Falha ao definir conexão do agrupamento configurado!"
 
 #: libraries/classes/DatabaseInterface.php:1499
-#, fuzzy, php-format
-#| msgid ""
-#| "Unable to use timezone %1$s for server %2$d. Please check your "
-#| "configuration setting for [em]$cfg['Servers'][%3$d]['SessionTimeZone'][/"
-#| "em]. phpMyAdmin is currently using the default time zone of the database "
-#| "server."
+#, php-format
 msgid ""
 "Unable to use timezone \"%1$s\" for server %2$d. Please check your "
 "configuration setting for [em]$cfg['Servers'][%3$d]['SessionTimeZone'][/em]. "
 "phpMyAdmin is currently using the default time zone of the database server."
 msgstr ""
-"Não é possível usar o fuso horário de %1$s para o servidor %2$d. Por favor, "
-"verifique sua configuração em [em]$cfg['Servers'][%3$d]['SessionTimeZone'][/"
-"em]. O phpMyAdmin está atualmente usando o fuso horário padrão do servidor "
-"de banco de dados."
+"Não é possível usar o fuso horário de \"%1$s\" para o servidor %2$d. Por "
+"favor, verifique sua configuração em "
+"[em]$cfg['Servers'][%3$d]['SessionTimeZone'][/em]. O phpMyAdmin está "
+"atualmente usando o fuso horário padrão do servidor de banco de dados."
 
 #: libraries/classes/DatabaseInterface.php:2097
 msgid ""
@@ -9182,10 +9177,8 @@ msgid "Switch to copied database"
 msgstr "Mudar para o banco de dados copiado"
 
 #: libraries/classes/Operations.php:311
-#, fuzzy
-#| msgid "Change all column collations"
 msgid "Change all tables collations"
-msgstr "Mudar colação de todas as colunas"
+msgstr "Mudar colação de todas as tabelas"
 
 #: libraries/classes/Operations.php:317
 #, fuzzy
@@ -10447,10 +10440,8 @@ msgid "Formats text as XML with syntax highlighting."
 msgstr "Formata o texto como XML destacando a sintaxe."
 
 #: libraries/classes/Plugins/TwoFactor/Application.php:129
-#, fuzzy
-#| msgid "Authentication Plugin"
 msgid "Authentication Application (2FA)"
-msgstr "Plugin de autenticação"
+msgstr "Aplicativo de Autenticação (2FA)"
 
 #: libraries/classes/Plugins/TwoFactor/Application.php:139
 msgid ""
@@ -10460,7 +10451,7 @@ msgstr ""
 
 #: libraries/classes/Plugins/TwoFactor/Key.php:184
 msgid "Hardware Security Key (FIDO U2F)"
-msgstr ""
+msgstr "Chave de Segurança de Hardware (FIDO U2F)"
 
 #: libraries/classes/Plugins/TwoFactor/Key.php:194
 msgid ""
@@ -10468,10 +10459,8 @@ msgid ""
 msgstr ""
 
 #: libraries/classes/Plugins/TwoFactor/Simple.php:52
-#, fuzzy
-#| msgid "Signon authentication"
 msgid "Simple two-factor authentication"
-msgstr "Autenticação Signon"
+msgstr "Autenticação de dois fatores simples"
 
 #: libraries/classes/Plugins/TwoFactor/Simple.php:62
 msgid "For testing purposes only!"
@@ -14421,10 +14410,8 @@ msgid "Manage your settings"
 msgstr "Gerencie suas configurações"
 
 #: libraries/user_preferences.inc.php:38
-#, fuzzy
-#| msgid "Config authentication"
 msgid "Two-factor authentication"
-msgstr "Configurar autenticação"
+msgstr "Autenticação de dois fatores"
 
 #: libraries/user_preferences.inc.php:63 prefs_manage.php:309
 msgid "Configuration has been saved."
