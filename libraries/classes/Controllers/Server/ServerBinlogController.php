@@ -30,9 +30,9 @@ class ServerBinlogController extends Controller
     /**
      * Constructs ServerBinlogController
      */
-    public function __construct()
+    public function __construct($response, $dbi)
     {
-        parent::__construct();
+        parent::__construct($response, $dbi);
         $this->binary_logs = $this->dbi->fetchResult(
             'SHOW MASTER LOGS',
             'Log_name',

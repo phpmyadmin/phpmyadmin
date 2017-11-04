@@ -86,9 +86,15 @@ class TableSearchController extends TableController
      * @param string $searchType Search type
      * @param string $url_query  URL query
      */
-    public function __construct($searchType, $url_query)
-    {
-        parent::__construct();
+    public function __construct(
+        $response,
+        $dbi,
+        $db,
+        $table,
+        $searchType,
+        $url_query
+    ) {
+        parent::__construct($response, $dbi, $db, $table);
 
         $this->url_query = $url_query;
         $this->_searchType = $searchType;

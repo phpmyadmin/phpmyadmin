@@ -63,10 +63,19 @@ class TableRelationController extends TableController
      * @param array|null $existrel_foreign   External relations
      * @param string     $upd_query          Update query
      */
-    public function __construct($options_array, $cfgRelation, $tbl_storage_engine,
-        $existrel, $existrel_foreign, $upd_query
+    public function __construct(
+        $response,
+        $dbi,
+        $db,
+        $table,
+        $options_array,
+        $cfgRelation,
+        $tbl_storage_engine,
+        $existrel,
+        $existrel_foreign,
+        $upd_query
     ) {
-        parent::__construct();
+        parent::__construct($response, $dbi, $db, $table);
 
         $this->options_array = $options_array;
         $this->cfgRelation = $cfgRelation;

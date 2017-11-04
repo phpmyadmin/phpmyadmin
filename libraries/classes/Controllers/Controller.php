@@ -8,7 +8,6 @@
 namespace PhpMyAdmin\Controllers;
 
 use PhpMyAdmin\DatabaseInterface;
-use PhpMyAdmin\Di\Container;
 use PhpMyAdmin\Response;
 
 /**
@@ -30,18 +29,11 @@ abstract class Controller
     protected $dbi;
 
     /**
-     * @var \PhpMyAdmin\Di\Container
-     */
-    protected $container;
-
-    /**
      * Constructor
      */
-    public function __construct()
+    public function __construct($response, $dbi)
     {
-        $container = Container::getDefaultContainer();
-        $this->container = $container;
-        $this->dbi = $this->container->get('dbi');
-        $this->response = $this->container->get('response');
+        $this->response = $response;
+        $this->dbi = $dbi;
     }
 }

@@ -99,7 +99,9 @@ class DatabaseStructureControllerTest extends PmaTestCase
         $method = $class->getMethod('getValuesForInnodbTable');
         $method->setAccessible(true);
         $ctrl = new DatabaseStructureController(
-            $GLOBALS['db'], null
+            $container->get('response'),
+            $container->get('dbi'),
+            $container->get('db')
         );
         // Showing statistics
         $property = $class->getProperty('_is_show_stats');
@@ -145,7 +147,9 @@ class DatabaseStructureControllerTest extends PmaTestCase
         // Not showing statistics
         $is_show_stats = false;
         $ctrl = new DatabaseStructureController(
-            $GLOBALS['db'], null
+            $container->get('response'),
+            $container->get('dbi'),
+            $container->get('db')
         );
 
         $current_table['ENGINE'] = 'InnoDB';
@@ -181,12 +185,15 @@ class DatabaseStructureControllerTest extends PmaTestCase
      */
     public function testGetValuesForAriaTable()
     {
+        $container = Container::getDefaultContainer();
         $class = new ReflectionClass('PhpMyAdmin\Controllers\Database\DatabaseStructureController');
         $method = $class->getMethod('getValuesForAriaTable');
         $method->setAccessible(true);
 
         $ctrl = new DatabaseStructureController(
-            $GLOBALS['db'], null
+            $container->get('response'),
+            $container->get('dbi'),
+            $container->get('db')
         );
         // Showing statistics
         $property = $class->getProperty('_is_show_stats');
@@ -224,7 +231,9 @@ class DatabaseStructureControllerTest extends PmaTestCase
 
         $is_show_stats = false;
         $ctrl = new DatabaseStructureController(
-            $GLOBALS['db'], null
+            $container->get('response'),
+            $container->get('dbi'),
+            $container->get('db')
         );
         list($current_table,,,,,, $sum_size)
             = $method->invokeArgs($ctrl, array($current_table, 0, 0, 0, 0, 0, 0));
@@ -232,7 +241,9 @@ class DatabaseStructureControllerTest extends PmaTestCase
 
         $db_is_system_schema = false;
         $ctrl = new DatabaseStructureController(
-            $GLOBALS['db'], null
+            $container->get('response'),
+            $container->get('dbi'),
+            $container->get('db')
         );
         list($current_table,,,,,,)
             = $method->invokeArgs($ctrl, array($current_table, 0, 0, 0, 0, 0, 0,));
@@ -247,12 +258,15 @@ class DatabaseStructureControllerTest extends PmaTestCase
      */
     public function testHasTable()
     {
+        $container = Container::getDefaultContainer();
         $class = new ReflectionClass('PhpMyAdmin\Controllers\Database\DatabaseStructureController');
         $method = $class->getMethod('hasTable');
         $method->setAccessible(true);
 
         $ctrl = new DatabaseStructureController(
-            $GLOBALS['db'], null
+            $container->get('response'),
+            $container->get('dbi'),
+            $container->get('db')
         );
 
         // When parameter $db is empty
@@ -288,12 +302,15 @@ class DatabaseStructureControllerTest extends PmaTestCase
      */
     public function testCheckFavoriteTable()
     {
+        $container = Container::getDefaultContainer();
         $class = new ReflectionClass('PhpMyAdmin\Controllers\Database\DatabaseStructureController');
         $method = $class->getMethod('checkFavoriteTable');
         $method->setAccessible(true);
 
         $ctrl = new DatabaseStructureController(
-            $GLOBALS['db'], null
+            $container->get('response'),
+            $container->get('dbi'),
+            $container->get('db')
         );
 
         $_SESSION['tmpval']['favorite_tables'][$GLOBALS['server']] = array(
@@ -319,6 +336,7 @@ class DatabaseStructureControllerTest extends PmaTestCase
      */
     public function testSynchronizeFavoriteTables()
     {
+        $container = Container::getDefaultContainer();
         $fav_instance = $this->getMockBuilder('PhpMyAdmin\RecentFavoriteTable')
             ->disableOriginalConstructor()
             ->getMock();
@@ -339,7 +357,9 @@ class DatabaseStructureControllerTest extends PmaTestCase
         $method->setAccessible(true);
 
         $ctrl = new DatabaseStructureController(
-            $GLOBALS['db'], null
+            $container->get('response'),
+            $container->get('dbi'),
+            $container->get('db')
         );
 
         // The user hash for test
@@ -365,10 +385,13 @@ class DatabaseStructureControllerTest extends PmaTestCase
      */
     public function testHandleRealRowCountRequestAction()
     {
+        $container = Container::getDefaultContainer();
         $_REQUEST['table'] = 'table';
 
         $ctrl = new DatabaseStructureController(
-            $GLOBALS['db'], null
+            $container->get('response'),
+            $container->get('dbi'),
+            $container->get('db')
         );
         // Showing statistics
         $class = new ReflectionClass('PhpMyAdmin\Controllers\Database\DatabaseStructureController');

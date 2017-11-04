@@ -71,9 +71,9 @@ class TableStructureController extends TableController
     /**
      * TableStructureController constructor
      *
-     * @param string $type                Indicate the db_structure or tbl_structure
      * @param string $db                  DB name
      * @param string $table               Table name
+     * @param string $type                Indicate the db_structure or tbl_structure
      * @param int    $num_tables          Number of tables
      * @param int    $pos                 Current position in the list
      * @param bool   $db_is_system_schema DB is information_schema
@@ -87,11 +87,24 @@ class TableStructureController extends TableController
      * @param array  $showtable           Show table info
      */
     public function __construct(
-        $type, $db, $table, $num_tables, $pos, $db_is_system_schema,
-        $total_num_tables, $tables, $is_show_stats, $tbl_is_view,
-        $tbl_storage_engine, $table_info_num_rows, $tbl_collation, $showtable
+        $response,
+        $dbi,
+        $db,
+        $table,
+        $type,
+        $num_tables,
+        $pos,
+        $db_is_system_schema,
+        $total_num_tables,
+        $tables,
+        $is_show_stats,
+        $tbl_is_view,
+        $tbl_storage_engine,
+        $table_info_num_rows,
+        $tbl_collation,
+        $showtable
     ) {
-        parent::__construct();
+        parent::__construct($response, $dbi, $db, $table);
 
         $this->_db_is_system_schema = $db_is_system_schema;
         $this->_url_query = Url::getCommonRaw(array('db' => $db, 'table' => $table));

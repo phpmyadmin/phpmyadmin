@@ -71,6 +71,8 @@ class ServerBinlogControllerTest extends PmaTestCase
      */
     public function testGetLogSelector()
     {
+        $container = Container::getDefaultContainer();
+
         $url_params = array();
         $url_params['log'] = "log";
         $url_params['dontlimitchars'] = 1;
@@ -79,7 +81,10 @@ class ServerBinlogControllerTest extends PmaTestCase
         $method = $class->getMethod('_getLogSelector');
         $method->setAccessible(true);
 
-        $ctrl = new ServerBinlogController();
+        $ctrl = new ServerBinlogController(
+            $container->get('response'),
+            $container->get('dbi')
+        );
         $html = $method->invoke(
             $ctrl,
             $url_params
@@ -107,14 +112,16 @@ class ServerBinlogControllerTest extends PmaTestCase
      */
     public function testGetLogInfo()
     {
+        $container = Container::getDefaultContainer();
+        $dbi = $container->get('dbi');
+
         $class = new ReflectionClass('\PhpMyAdmin\Controllers\Server\ServerBinlogController');
         $method = $class->getMethod('_getLogInfo');
         $method->setAccessible(true);
-        $ctrl = new ServerBinlogController();
-
-        //Mock DBI
-        $container = Container::getDefaultContainer();
-        $dbi = $container->get('dbi');
+        $ctrl = new ServerBinlogController(
+            $container->get('response'),
+            $dbi
+        );
 
         //expects return value
         $result = array(
@@ -220,14 +227,16 @@ class ServerBinlogControllerTest extends PmaTestCase
      */
     public function testGetAllLogItemInfo()
     {
+        $container = Container::getDefaultContainer();
+        $dbi = $container->get('dbi');
+
         $class = new ReflectionClass('\PhpMyAdmin\Controllers\Server\ServerBinlogController');
         $method = $class->getMethod('_getAllLogItemInfo');
         $method->setAccessible(true);
-        $ctrl = new ServerBinlogController();
-
-        //Mock DBI
-        $container = Container::getDefaultContainer();
-        $dbi = $container->get('dbi');
+        $ctrl = new ServerBinlogController(
+            $container->get('response'),
+            $dbi
+        );
 
         $fetchAssoc = array(
             'Info' => 'Info',

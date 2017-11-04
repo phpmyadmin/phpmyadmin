@@ -31,9 +31,14 @@ class TableIndexesController extends TableController
      *
      * @param Index $index Index
      */
-    public function __construct($index)
-    {
-        parent::__construct();
+    public function __construct(
+        $response,
+        $dbi,
+        $db,
+        $table,
+        $index
+    ) {
+        parent::__construct($response, $dbi, $db, $table);
 
         $this->index = $index;
     }
