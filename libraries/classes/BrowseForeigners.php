@@ -30,8 +30,17 @@ class BrowseForeigners
      *
      * @return string $html the generated html
      */
-    public static function getHtmlForOneKey($horizontal_count, $header, array $keys,
-        $indexByKeyname, array $descriptions, $indexByDescription, $current_value
+    public static function getHtmlForOneKey(
+        $repeatCells,
+        $pmaThemeImage,
+        $limitChars,
+        $horizontal_count,
+        $header,
+        array $keys,
+        $indexByKeyname,
+        array $descriptions,
+        $indexByDescription,
+        $current_value
     ) {
         $horizontal_count++;
         $output = '';
@@ -40,9 +49,7 @@ class BrowseForeigners
         $rightKeynameIsSelected = false;
         $leftKeynameIsSelected = false;
 
-        if ($GLOBALS['cfg']['RepeatCells'] > 0
-            && $horizontal_count > $GLOBALS['cfg']['RepeatCells']
-        ) {
+        if ($repeatCells > 0 && $horizontal_count > $repeatCells) {
             $output .= $header;
             $horizontal_count = 0;
         }
@@ -53,7 +60,10 @@ class BrowseForeigners
         list(
             $leftDescription,
             $leftDescriptionTitle
-        ) = self::getDescriptionAndTitle($descriptions[$indexByKeyname]);
+        ) = self::getDescriptionAndTitle(
+            $limitChars,
+            $descriptions[$indexByKeyname]
+        );
 
         // key names and descriptions for the right section,
         // sorted by descriptions
@@ -61,7 +71,10 @@ class BrowseForeigners
         list(
             $rightDescription,
             $rightDescriptionTitle
-        ) = self::getDescriptionAndTitle($descriptions[$indexByDescription]);
+        ) = self::getDescriptionAndTitle(
+            $limitChars,
+            $descriptions[$indexByDescription]
+        );
 
         $indexByDescription++;
 
@@ -84,7 +97,7 @@ class BrowseForeigners
         );
 
         $output .= '<td width="20%">'
-            . '<img src="' . $GLOBALS['pmaThemeImage'] . 'spacer.png" alt=""'
+            . '<img src="' . $pmaThemeImage . 'spacer.png" alt=""'
             . ' width="1" height="1" /></td>';
 
         $output .= self::getHtmlForColumnElement(
@@ -114,11 +127,21 @@ class BrowseForeigners
      *
      * @return string
      */
-    public static function getHtmlForRelationalFieldSelection($db, $table, $field, array $foreignData,
-        $fieldkey, $current_value
+    public static function getHtmlForRelationalFieldSelection(
+        $repeatCells,
+        $pmaThemeImage,
+        $maxRows,
+        $showAll,
+        $limitChars,
+        $db,
+        $table,
+        $field,
+        array $foreignData,
+        $fieldkey,
+        $current_value
     ) {
-        $gotopage = self::getHtmlForGotoPage($foreignData);
-        $showall = self::getHtmlForShowAll($foreignData);
+        $gotopage = self::getHtmlForGotoPage($maxRows, $foreignData);
+        $foreignShowAll = self::getHtmlForShowAll($showAll, $maxRows, $foreignData);
 
         $output = '<form class="ajax" '
             . 'id="browse_foreign_form" name="browse_foreign_from" '
@@ -147,7 +170,7 @@ class BrowseForeigners
             .  __('Go') . '" />'
             . '</span>'
             . '<span class="formelement">' . $gotopage . '</span>'
-            . '<span class="formelement">' . $showall . '</span>'
+            . '<span class="formelement">' . $foreignShowAll . '</span>'
             . '</fieldset>'
             . '</form>';
 
@@ -195,8 +218,16 @@ class BrowseForeigners
                 $horizontal_count,
                 $indexByDescription
             ) = self::getHtmlForOneKey(
-                $horizontal_count, $header, $keys, $indexByKeyname,
-                $descriptions, $indexByDescription, $current_value
+                $repeatCells,
+                $pmaThemeImage,
+                $limitChars,
+                $horizontal_count,
+                $header,
+                $keys,
+                $indexByKeyname,
+                $descriptions,
+                $indexByDescription,
+                $current_value
             );
             $output .= $html;
         }
@@ -214,9 +245,8 @@ class BrowseForeigners
      *
      * @return array the new description and title
      */
-    public static function getDescriptionAndTitle($description)
+    public static function getDescriptionAndTitle($limitChars, $description)
     {
-        $limitChars = $GLOBALS['cfg']['LimitChars'];
         if (mb_strlen($description) <= $limitChars) {
             $description = htmlspecialchars(
                 $description
@@ -281,20 +311,18 @@ class BrowseForeigners
      *
      * @return string
      */
-    public static function getHtmlForShowAll($foreignData)
+    public static function getHtmlForShowAll($showAll, $maxRows, $foreignData)
     {
-        $showall = '';
+        $return = '';
         if (is_array($foreignData['disp_row'])) {
-            if ($GLOBALS['cfg']['ShowAll']
-                && ($foreignData['the_total'] > $GLOBALS['cfg']['MaxRows'])
-            ) {
-                $showall = '<input type="submit" id="foreign_showAll" '
+            if ($showAll && ($foreignData['the_total'] > $maxRows)) {
+                $return = '<input type="submit" id="foreign_showAll" '
                     . 'name="foreign_showAll" '
                     . 'value="' . __('Show all') . '" />';
             }
         }
 
-        return $showall;
+        return $return;
     }
 
     /**
@@ -304,7 +332,7 @@ class BrowseForeigners
      *
      * @return string
      */
-    public static function getHtmlForGotoPage($foreignData)
+    public static function getHtmlForGotoPage($maxRows, $foreignData)
     {
         $gotopage = '';
         isset($_REQUEST['pos']) ? $pos = $_REQUEST['pos'] : $pos = 0;
@@ -312,14 +340,13 @@ class BrowseForeigners
             return $gotopage;
         }
 
-        $session_max_rows = $GLOBALS['cfg']['MaxRows'];
-        $pageNow = @floor($pos / $session_max_rows) + 1;
-        $nbTotalPage = @ceil($foreignData['the_total'] / $session_max_rows);
+        $pageNow = @floor($pos / $maxRows) + 1;
+        $nbTotalPage = @ceil($foreignData['the_total'] / $maxRows);
 
-        if ($foreignData['the_total'] > $GLOBALS['cfg']['MaxRows']) {
+        if ($foreignData['the_total'] > $maxRows) {
             $gotopage = Util::pageselector(
                 'pos',
-                $session_max_rows,
+                $maxRows,
                 $pageNow,
                 $nbTotalPage,
                 200,
@@ -337,16 +364,16 @@ class BrowseForeigners
     /**
      * Function to get foreign limit
      *
-     * @param string $foreign_showAll foreign navigation
+     * @param string $foreignShowAll foreign navigation
      *
      * @return string
      */
-    public static function getForeignLimit($foreign_showAll)
+    public static function getForeignLimit($maxRows, $foreignShowAll)
     {
-        if (isset($foreign_showAll) && $foreign_showAll == __('Show all')) {
+        if (isset($foreignShowAll) && $foreignShowAll == __('Show all')) {
             return null;
         }
         isset($_REQUEST['pos']) ? $pos = $_REQUEST['pos'] : $pos = 0;
-        return 'LIMIT ' . $pos . ', ' . intval($GLOBALS['cfg']['MaxRows']) . ' ';
+        return 'LIMIT ' . $pos . ', ' . intval($maxRows) . ' ';
     }
 }

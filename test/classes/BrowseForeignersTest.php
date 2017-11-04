@@ -25,6 +25,7 @@ class BrowseForeignersTest extends TestCase
     public function setup()
     {
         $GLOBALS['cfg']['MaxRows'] = 25;
+        $GLOBALS['pmaThemeImage'] = '';
     }
 
     /**
@@ -35,31 +36,46 @@ class BrowseForeignersTest extends TestCase
     function testGetForeignLimit()
     {
         $this->assertNull(
-            BrowseForeigners::getForeignLimit('Show all')
+            BrowseForeigners::getForeignLimit(
+                $GLOBALS['cfg']['MaxRows'],
+                'Show all'
+            )
         );
 
         $this->assertEquals(
             'LIMIT 0, 25 ',
-            BrowseForeigners::getForeignLimit(null)
+            BrowseForeigners::getForeignLimit(
+                $GLOBALS['cfg']['MaxRows'],
+                null
+            )
         );
 
         $_REQUEST['pos'] = 10;
 
         $this->assertEquals(
             'LIMIT 10, 25 ',
-            BrowseForeigners::getForeignLimit(null)
+            BrowseForeigners::getForeignLimit(
+                $GLOBALS['cfg']['MaxRows'],
+                null
+            )
         );
 
         $GLOBALS['cfg']['MaxRows'] = 50;
 
         $this->assertEquals(
             'LIMIT 10, 50 ',
-            BrowseForeigners::getForeignLimit(null)
+            BrowseForeigners::getForeignLimit(
+                $GLOBALS['cfg']['MaxRows'],
+                null
+            )
         );
 
         $this->assertEquals(
             'LIMIT 10, 50 ',
-            BrowseForeigners::getForeignLimit('xyz')
+            BrowseForeigners::getForeignLimit(
+                $GLOBALS['cfg']['MaxRows'],
+                'xyz'
+            )
         );
     }
 
@@ -72,7 +88,11 @@ class BrowseForeignersTest extends TestCase
     {
         $this->assertEquals(
             '',
-            BrowseForeigners::getHtmlForShowAll(null)
+            BrowseForeigners::getHtmlForShowAll(
+                $GLOBALS['cfg']['ShowAll'],
+                $GLOBALS['cfg']['MaxRows'],
+                null
+            )
         );
 
         $foreignData = array();
@@ -81,7 +101,11 @@ class BrowseForeignersTest extends TestCase
 
         $this->assertEquals(
             '',
-            BrowseForeigners::getHtmlForShowAll($foreignData)
+            BrowseForeigners::getHtmlForShowAll(
+                $GLOBALS['cfg']['ShowAll'],
+                $GLOBALS['cfg']['MaxRows'],
+                $foreignData
+            )
         );
 
         $GLOBALS['cfg']['ShowAll'] = true;
@@ -89,7 +113,11 @@ class BrowseForeignersTest extends TestCase
 
         $this->assertEquals(
             '',
-            BrowseForeigners::getHtmlForShowAll($foreignData)
+            BrowseForeigners::getHtmlForShowAll(
+                $GLOBALS['cfg']['ShowAll'],
+                $GLOBALS['cfg']['MaxRows'],
+                $foreignData
+            )
         );
 
         $foreignData['the_total'] = 30;
@@ -98,7 +126,11 @@ class BrowseForeignersTest extends TestCase
             '<input type="submit" id="foreign_showAll" '
             . 'name="foreign_showAll" '
             . 'value="' . 'Show all' . '" />',
-            BrowseForeigners::getHtmlForShowAll($foreignData)
+            BrowseForeigners::getHtmlForShowAll(
+                $GLOBALS['cfg']['ShowAll'],
+                $GLOBALS['cfg']['MaxRows'],
+                $foreignData
+            )
         );
     }
 
@@ -111,7 +143,10 @@ class BrowseForeignersTest extends TestCase
     {
         $this->assertEquals(
             '',
-            BrowseForeigners::getHtmlForGotoPage(null)
+            BrowseForeigners::getHtmlForGotoPage(
+                $GLOBALS['cfg']['MaxRows'],
+                null
+            )
         );
 
         $_REQUEST['pos'] = 15;
@@ -121,11 +156,17 @@ class BrowseForeignersTest extends TestCase
 
         $this->assertEquals(
             '',
-            BrowseForeigners::getHtmlForGotoPage($foreignData)
+            BrowseForeigners::getHtmlForGotoPage(
+                $GLOBALS['cfg']['MaxRows'],
+                $foreignData
+            )
         );
 
         $foreignData['the_total'] = 30;
-        $result = BrowseForeigners::getHtmlForGotoPage($foreignData);
+        $result = BrowseForeigners::getHtmlForGotoPage(
+            $GLOBALS['cfg']['MaxRows'],
+            $foreignData
+        );
 
         $this->assertStringStartsWith(
             'Page number:',
@@ -220,14 +261,20 @@ class BrowseForeignersTest extends TestCase
 
         $this->assertEquals(
             array('foobar&lt;baz', ''),
-            BrowseForeigners::getDescriptionAndTitle($desc)
+            BrowseForeigners::getDescriptionAndTitle(
+                $GLOBALS['cfg']['LimitChars'],
+                $desc
+            )
         );
 
         $GLOBALS['cfg']['LimitChars'] = 5;
 
         $this->assertEquals(
             array('fooba...', 'foobar&lt;baz'),
-            BrowseForeigners::getDescriptionAndTitle($desc)
+            BrowseForeigners::getDescriptionAndTitle(
+                $GLOBALS['cfg']['LimitChars'],
+                $desc
+            )
         );
     }
 
@@ -248,7 +295,17 @@ class BrowseForeignersTest extends TestCase
         $_REQUEST['rownumber'] = 1;
         $_REQUEST['foreign_filter'] = '5';
         $result = BrowseForeigners::getHtmlForRelationalFieldSelection(
-            $db, $table, $field, $foreignData, $fieldkey, $current_value
+            $GLOBALS['cfg']['RepeatCells'],
+            $GLOBALS['pmaThemeImage'],
+            $GLOBALS['cfg']['MaxRows'],
+            $GLOBALS['cfg']['ShowAll'],
+            $GLOBALS['cfg']['LimitChars'],
+            $db,
+            $table,
+            $field,
+            $foreignData,
+            $fieldkey,
+            $current_value
         );
 
         $this->assertContains(
@@ -315,7 +372,17 @@ class BrowseForeignersTest extends TestCase
         $foreignData['the_total'] = 5;
         $GLOBALS['cfg']['ShowAll'] = false;
         $result = BrowseForeigners::getHtmlForRelationalFieldSelection(
-            $db, $table, $field, $foreignData, $fieldkey, $current_value
+            $GLOBALS['cfg']['RepeatCells'],
+            $GLOBALS['pmaThemeImage'],
+            $GLOBALS['cfg']['MaxRows'],
+            $GLOBALS['cfg']['ShowAll'],
+            $GLOBALS['cfg']['LimitChars'],
+            $db,
+            $table,
+            $field,
+            $foreignData,
+            $fieldkey,
+            $current_value
         );
 
         $this->assertContains(
