@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.7.6-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2017-11-02 14:03+0100\n"
-"PO-Revision-Date: 2017-11-05 10:57+0000\n"
+"PO-Revision-Date: 2017-11-06 11:45+0000\n"
 "Last-Translator: dingo thirteen <dingo13@gmail.com>\n"
 "Language-Team: Dutch <https://hosted.weblate.org/projects/phpmyadmin/4-7/nl/>"
 "\n"
@@ -6244,7 +6244,7 @@ msgstr "Navigatieboom"
 
 #: libraries/config/messages.inc.php:270
 msgid "Customize the navigation tree."
-msgstr "Aanpassen van de navigatieboom"
+msgstr "Aanpassen van de navigatieboom."
 
 #: libraries/config/messages.inc.php:271 libraries/select_server.lib.php:47
 #: setup/frames/index.inc.php:126
