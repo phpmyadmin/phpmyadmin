@@ -6,16 +6,16 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.8.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2017-11-02 14:01+0100\n"
-"PO-Revision-Date: 2017-09-10 07:36+0000\n"
+"PO-Revision-Date: 2017-11-05 09:36+0000\n"
 "Last-Translator: Kristjan Räts <kristjanrats@gmail.com>\n"
-"Language-Team: Estonian <https://hosted.weblate.org/projects/phpmyadmin/"
-"master/et/>\n"
+"Language-Team: Estonian "
+"<https://hosted.weblate.org/projects/phpmyadmin/master/et/>\n"
 "Language: et\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 2.17-dev\n"
+"X-Generator: Weblate 2.18-dev\n"
 
 #: ajax.php:17 ajax.php:34 export.php:203 libraries/classes/Export.php:1100
 msgid "Bad type!"
@@ -2666,12 +2666,12 @@ msgstr "Tugev"
 
 #: js/messages.php:746
 msgid "Timed out waiting for security key activation."
-msgstr ""
+msgstr "Turvavõtme aktiveerimine aegus."
 
 #: js/messages.php:747
 #, php-format
 msgid "Failed security key activation (%s)."
-msgstr ""
+msgstr "Turvavõtme aktiveerimine nurjus (%s)."
 
 #: js/messages.php:776
 msgctxt "Previous month"
@@ -6952,20 +6952,15 @@ msgid "Failed to set configured collation connection!"
 msgstr "Seadistatud sortimise ühenduse määramine ebaõnnestus!"
 
 #: libraries/classes/DatabaseInterface.php:1499
-#, fuzzy, php-format
-#| msgid ""
-#| "Unable to use timezone %1$s for server %2$d. Please check your "
-#| "configuration setting for [em]$cfg['Servers'][%3$d]['SessionTimeZone'][/"
-#| "em]. phpMyAdmin is currently using the default time zone of the database "
-#| "server."
+#, php-format
 msgid ""
 "Unable to use timezone \"%1$s\" for server %2$d. Please check your "
 "configuration setting for [em]$cfg['Servers'][%3$d]['SessionTimeZone'][/em]. "
 "phpMyAdmin is currently using the default time zone of the database server."
 msgstr ""
-"Ajatsooni %1$s kasutamine serveriga %2$d ei ole võimalik. Palun kontrolli "
-"häälestuses sätet [em]$cfg['Servers'][%3$d]['SessionTimeZone'][/em]. "
-"phpMyAdmin kasutab hetkel andmebaasi serveri vaikimisi ajatsooni."
+"Ajatsooni \"%1$s\" kasutamine serveriga %2$d ei ole võimalik. Palun "
+"kontrolli häälestuses sätet [em]$cfg['Servers'][%3$d]['SessionTimeZone'][/em]"
+". phpMyAdmin kasutab hetkel andmebaasi serveri vaikimisi ajatsooni."
 
 #: libraries/classes/DatabaseInterface.php:2097
 msgid ""
@@ -9038,16 +9033,12 @@ msgid "Switch to copied database"
 msgstr "Mine kopeeritud andmebaasile"
 
 #: libraries/classes/Operations.php:311
-#, fuzzy
-#| msgid "Change all column collations"
 msgid "Change all tables collations"
-msgstr "Vaheta kõigi veergude sortimist"
+msgstr "Vaheta kõigi tabelite sortimist"
 
 #: libraries/classes/Operations.php:317
-#, fuzzy
-#| msgid "Change all column collations"
 msgid "Change all tables columns collations"
-msgstr "Vaheta kõigi veergude sortimist"
+msgstr "Vaheta kõigi tabelite veergude sortimist"
 
 #: libraries/classes/Operations.php:797
 msgid "Alter table order by"
@@ -9339,7 +9330,7 @@ msgstr "Ei saa MySQL serverisse sisse logida"
 
 #: libraries/classes/Plugins/AuthenticationPlugin.php:331
 msgid "You have enabled two factor authentication, please confirm your login."
-msgstr ""
+msgstr "Oled lubanud kaheastmelise autentimise, palun kinnita oma meldimine."
 
 #: libraries/classes/Plugins/Export/ExportCsv.php:63
 #: libraries/classes/Plugins/Import/AbstractImportCsv.php:58
@@ -10294,55 +10285,51 @@ msgid "Formats text as XML with syntax highlighting."
 msgstr "Vormindab teksti süntaksi esiletõstuga XML failiks."
 
 #: libraries/classes/Plugins/TwoFactor/Application.php:129
-#, fuzzy
-#| msgid "Authentication Plugin"
 msgid "Authentication Application (2FA)"
-msgstr "Autentimise pistik"
+msgstr "Autentimise rakendus (2AA)"
 
 #: libraries/classes/Plugins/TwoFactor/Application.php:139
 msgid ""
 "Provides authentication using HOTP and TOTP applications such as FreeOTP, "
 "Google Authenticator or Authy."
 msgstr ""
+"Võimaldab autentimist kasutades rakendusi HOTP ja TOTP; näiteks FreeOTP, "
+"Google Authenticator ja Authy."
 
 #: libraries/classes/Plugins/TwoFactor/Key.php:184
 msgid "Hardware Security Key (FIDO U2F)"
-msgstr ""
+msgstr "Riistvaraline turvavõti (FIDO U2F)"
 
 #: libraries/classes/Plugins/TwoFactor/Key.php:194
 msgid ""
 "Provides authentication using hardware security tokens supporting FIDO U2F."
 msgstr ""
+"Võimaldab autentimist kasutades FIDO U2F toega riistvaralisi turvamärke."
 
 #: libraries/classes/Plugins/TwoFactor/Simple.php:52
-#, fuzzy
-#| msgid "Signon authentication"
 msgid "Simple two-factor authentication"
-msgstr "Sisselogimise (signon) autentimine"
+msgstr "Lihtne kaheastmeline autentimine"
 
 #: libraries/classes/Plugins/TwoFactor/Simple.php:62
 msgid "For testing purposes only!"
-msgstr ""
+msgstr "Ainult testimiseks!"
 
 #: libraries/classes/Plugins/TwoFactorPlugin.php:65
-#, fuzzy, php-format
-#| msgid "Hardware authentication failed!"
+#, php-format
 msgid "Two-factor authentication failed: %s"
-msgstr "Riistvara autentimine ebaõnnestus!"
+msgstr "Kaheastmeline autentimine nurjus: %s"
 
 #: libraries/classes/Plugins/TwoFactorPlugin.php:69
-#, fuzzy
-#| msgid "Hardware authentication failed!"
 msgid "Two-factor authentication failed."
-msgstr "Riistvara autentimine ebaõnnestus!"
+msgstr "Kaheastmeline autentimine nurjus."
 
 #: libraries/classes/Plugins/TwoFactorPlugin.php:122
 msgid "None two-factor"
-msgstr ""
+msgstr "Mitte ükski kaheastmeline"
 
 #: libraries/classes/Plugins/TwoFactorPlugin.php:132
 msgid "Login using password only."
-msgstr ""
+msgstr "Ainult parooliga meldimine."
 
 #: libraries/classes/PmdCommon.php:550
 msgid "Error: relationship already exists."
@@ -14207,10 +14194,8 @@ msgid "Manage your settings"
 msgstr "Halda oma sätteid"
 
 #: libraries/user_preferences.inc.php:38
-#, fuzzy
-#| msgid "Config authentication"
 msgid "Two-factor authentication"
-msgstr "Config autentimine"
+msgstr "Kaheastmeline autentimine"
 
 #: libraries/user_preferences.inc.php:63 prefs_manage.php:309
 msgid "Configuration has been saved."
@@ -14315,16 +14300,12 @@ msgid "You can reset all your settings and restore them to default values."
 msgstr "Saad lähtestada kõik sätted ja taastada nende vaikeväärtused."
 
 #: prefs_second.php:29
-#, fuzzy
-#| msgid "Internal relationship has been removed."
 msgid "Two-factor authentication has been removed."
-msgstr "Siseseos on kustutatud."
+msgstr "Kaheastmeline autentimine eemaldatud."
 
 #: prefs_second.php:39
-#, fuzzy
-#| msgid "Invalid authentication method set in configuration:"
 msgid "Two-factor authentication has been configured."
-msgstr "Seadistuses on valitud vale autentimise meetod:"
+msgstr "Kaheastmeline autentimine seadistatud."
 
 #: server_export.php:25
 msgid "View dump (schema) of databases"
@@ -14956,16 +14937,16 @@ msgstr "Lähtesta suum"
 
 #: templates/login/twofactor/application.twig:2
 #: templates/login/twofactor/application_configure.twig:9
-#, fuzzy
-#| msgid "Authentication"
 msgid "Authentication code:"
-msgstr "Autentimine"
+msgstr "Autentimiskood:"
 
 #: templates/login/twofactor/application.twig:4
 msgid ""
 "Open the two-factor authentication app on your device to view your "
 "authentication code and verify your identity."
 msgstr ""
+"Ava kaheastmelise autentimise rakendus oma seadmel, et vaadata oma "
+"autentimiskoodi ja kinnitada oma identiteet."
 
 #: templates/database/designer/rename_to_panel.twig:22
 #: templates/database/designer/options_panel.twig:85
@@ -14988,7 +14969,7 @@ msgstr "Teosta \"päring näite alusel\" (metamärk: \"%\")"
 
 #: templates/login/twofactor.twig:4
 msgid "Verify"
-msgstr ""
+msgstr "Kinnita"
 
 #: templates/server/variables/session_variable_row.twig:3
 msgid "Session value"
@@ -15130,10 +15111,9 @@ msgid "Save chart as image"
 msgstr "Salvesta graafik pildina"
 
 #: templates/database/structure/show_create_row.twig:7
-#, fuzzy, php-format
-#| msgid "Create User"
+#, php-format
 msgid "Create %s"
-msgstr "Loo kasutaja"
+msgstr "Loo %s"
 
 #: templates/server/variables/variable_row.twig:6
 msgid "This is a read-only variable and can not be edited"
@@ -15183,10 +15163,9 @@ msgid "Column names"
 msgstr "Veergude nimed"
 
 #: templates/server/databases/table_row.twig:13
-#, fuzzy, php-format
-#| msgid "Jump to database"
+#, php-format
 msgid "Jump to database '%s'"
-msgstr "Mine andmebaasi"
+msgstr "Mine andmebaasi '%s'"
 
 #: templates/server/databases/table_row.twig:61
 #, php-format
@@ -15211,10 +15190,8 @@ msgid "Index choice:"
 msgstr "Indeksi valik:"
 
 #: templates/table/index_form.twig:42
-#, fuzzy
-#| msgid "Active options"
 msgid "Advanced Options"
-msgstr "Aktiivsed valikud"
+msgstr "Täiendavad sätted"
 
 #: templates/table/index_form.twig:48
 msgid "Key block size:"
@@ -15266,50 +15243,48 @@ msgid "None"
 msgstr "Puudub"
 
 #: templates/prefs_second.twig:3
-#, fuzzy
-#| msgid "Authentication settings."
 msgid "Two-factor authentication status"
-msgstr "Autentimise sätted."
+msgstr "Kaheastmelise autentimise olek"
 
 #: templates/prefs_second.twig:9
 msgid ""
 "Two-factor authentication is not available, please install optional "
 "dependencies to enable authentication backends."
 msgstr ""
+"Kaheastmeline autentimine pole saadaval; palun paigalda täiendavad "
+"sõltuvused, et lubada autentimise taustprogrammid."
 
 #: templates/prefs_second.twig:12
 msgid "Two-factor authentication is available and configured for this account."
-msgstr ""
+msgstr "Kaheastmeline autentimine on saadaval ja selle konto jaoks häälestatud."
 
 #: templates/prefs_second.twig:14
 msgid ""
 "Two-factor authentication is available, but not configured for this account."
 msgstr ""
+"Kaheastmeline autentimine on saadaval, kuid pole selle konto jaoks "
+"häälestatud."
 
 #: templates/prefs_second.twig:18
-#, fuzzy
-#| msgid "%sCreate%s missing phpMyAdmin configuration storage tables."
 msgid ""
 "Two-factor authentication is not available, enable phpMyAdmin configuration "
 "storage to use it."
-msgstr "%sLoo%s puuduvad phpMyAdmini seadistuse salvestuse tabelid."
+msgstr ""
+"Kaheastmeline autentimine ei ole kasutatav. Selle kasutamieks luba "
+"phpMyAdmini häälestuse salvestuskoht."
 
 #: templates/prefs_second.twig:27
 msgid "You have enabled two factor authentication."
-msgstr ""
+msgstr "Oled lubanud kaheastmelise autentimise."
 
 #: templates/prefs_second.twig:31 templates/prefs_second_confirm.twig:9
-#, fuzzy
-#| msgid "Config authentication"
 msgid "Disable two-factor authentication"
-msgstr "Config autentimine"
+msgstr "Keela kaheastmeline autentimine"
 
 #: templates/prefs_second.twig:37 templates/prefs_second.twig:49
 #: templates/prefs_second_configure.twig:2
-#, fuzzy
-#| msgid "Config authentication"
 msgid "Configure two-factor authentication"
-msgstr "Config autentimine"
+msgstr "Seadista kaheastmeline autentimine"
 
 #: templates/columns_definitions/column_virtuality.twig:29
 #: templates/table/structure/display_partitions.twig:26
@@ -15345,16 +15320,14 @@ msgid "Next autoindex"
 msgstr "Järgmine automaatne indeks"
 
 #: templates/prefs_second_confirm.twig:2
-#, fuzzy
-#| msgid "Config authentication"
 msgid "Confirm disabling two-factor authentication"
-msgstr "Config autentimine"
+msgstr "Kinnita kaheastmelise autentimise keelamine"
 
 #: templates/prefs_second_confirm.twig:5
 msgid ""
 "By disabling two factor authentication you will be again able to login using "
 "password only."
-msgstr ""
+msgstr "Keelates kaheastmelise autentimise saad jälle meldida ainult parooliga."
 
 #: templates/prefs_autoload.twig:7
 msgid ""
@@ -15394,10 +15367,8 @@ msgid "in use"
 msgstr "kasutusel"
 
 #: templates/prefs_second_configure.twig:8
-#, fuzzy
-#| msgid "Config authentication"
 msgid "Enable two-factor authentication"
-msgstr "Config autentimine"
+msgstr "Luba kaheastmeline autentimine"
 
 #: templates/privileges/privileges_summary.twig:20
 msgid "Column-specific privileges"
@@ -15557,6 +15528,8 @@ msgid ""
 "Please connect your FIDO U2F device into your computer's USB port. Then "
 "confirm login on the device."
 msgstr ""
+"Palun ühenda oma FIDO U2F seade arvuti USB porti ning kinnita meldimine "
+"seadmega."
 
 #: templates/table/search/search_and_replace.twig:3
 msgid "Replace with:"
@@ -15571,8 +15544,6 @@ msgid "Hide/Show all"
 msgstr "Peida/Näita kõiki"
 
 #: templates/database/designer/table_list.twig:14
-#, fuzzy
-#| msgid "Hide/Show Tables with no relationship"
 msgid "Hide/Show tables with no relationship"
 msgstr "Peida/kuva seosteta tabelid"
 
@@ -15884,14 +15855,10 @@ msgid ""
 "Please connect your FIDO U2F device into your computer's USB port. Then "
 "confirm registration on the device."
 msgstr ""
+"Palun ühenda oma FIDO U2F seade arvuti USB porti ning kinnita seadme "
+"registreerimine."
 
 #: templates/columns_definitions/table_fields_definitions.twig:17
-#, fuzzy
-#| msgid ""
-#| "If column type is \"enum\" or \"set\", please enter the values using this "
-#| "format: 'a','b','c'…<br />If you ever need to put a backslash (\"\\\") or "
-#| "a single quote (\"'\") amongst those values, precede it with a backslash "
-#| "(for example '\\\\xyz' or 'a\\'b')."
 msgid ""
 "If column type is \"enum\" or \"set\", please enter the values using this "
 "format: 'a','b','c'…<br />If you ever need to put a backslash (\"\") or a "
@@ -15900,7 +15867,7 @@ msgid ""
 msgstr ""
 "Kui veeru tüüp on \"enum\" või \"set\", siis palun sisesta väärtused "
 "formaadis: 'a','b','c'…<br />Kui pead nende väärtuste vahele lisama "
-"kurakaldkriipsu (\"\\\") või jutumärgi (\"'\"), siis lisa selle ette "
+"kurakaldkriipsu (\"\\\") või ülakoma (\"'\"), siis lisa selle ette "
 "kurakaldkriips (nt '\\\\xyz' või 'a\\'b')."
 
 #: templates/columns_definitions/table_fields_definitions.twig:21
@@ -15930,21 +15897,15 @@ msgstr "Veebilehitseja kuva transformatsiooni sätted"
 
 #: templates/columns_definitions/table_fields_definitions.twig:83
 #: templates/columns_definitions/table_fields_definitions.twig:94
-#, fuzzy
-#| msgid ""
-#| "Please enter the values for transformation options using this format: "
-#| "'a', 100, b,'c'…<br />If you ever need to put a backslash (\"\\\") or a "
-#| "single quote (\"'\") amongst those values, precede it with a backslash "
-#| "(for example '\\\\xyz' or 'a\\'b')."
 msgid ""
 "Please enter the values for transformation options using this format: 'a', "
 "100, b,'c'…<br />If you ever need to put a backslash (\"\") or a single "
 "quote (\"'\") amongst those values, precede it with a backslash (for example "
 "'\\\\xyz' or 'a\\'b')."
 msgstr ""
-"Palun sisesta transformatsiooni valikute jaoks vajalikud väärtused, "
-"kasutades formaati: 'a', 100, b,'c'…<br />Kui pead nende väärtuste vahele "
-"lisama kurakaldkriipsu (\"\\\") või jutumärgi (\"'\"), siis lisa selle ette "
+"Palun sisesta teisenduse valikute jaoks vajalikud väärtused, kasutades "
+"formaati: 'a', 100, b,'c'…<br />Kui pead nende väärtuste vahele lisama "
+"kurakaldkriipsu (\"\\\") või ülakoma (\"'\"), siis lisa selle ette "
 "kurakaldkriips (nt '\\\\xyz' või 'a\\'b')."
 
 #: templates/columns_definitions/table_fields_definitions.twig:93
@@ -15980,6 +15941,8 @@ msgid ""
 "Please scan following QR code into the two-factor authentication app on your "
 "device and enter authentication code it generates."
 msgstr ""
+"Palun skanni järgmine QR kood kaheastmelise autentimise rakendusse oma "
+"seadmel ja sisesta genereeritud autentimise kood."
 
 #: templates/columns_definitions/column_default.twig:3
 msgctxt "for default"
