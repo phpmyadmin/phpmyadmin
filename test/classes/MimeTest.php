@@ -8,7 +8,7 @@
 namespace PhpMyAdmin\Tests;
 
 use PhpMyAdmin\Mime;
-use PHPUnit_Framework_TestCase as TestCase;
+use PHPUnit\Framework\TestCase;
 
 /**
  * Test for mime detection.

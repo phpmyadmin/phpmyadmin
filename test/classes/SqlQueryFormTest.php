@@ -13,7 +13,7 @@ use PhpMyAdmin\SqlQueryForm;
 use PhpMyAdmin\Theme;
 use PhpMyAdmin\Url;
 use PhpMyAdmin\Util;
-use PHPUnit_Framework_TestCase as TestCase;
+use PHPUnit\Framework\TestCase;
 
 //the following definition should be used globally
 $GLOBALS['server'] = 0;

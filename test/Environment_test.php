@@ -11,12 +11,14 @@
  */
 require_once 'config.sample.inc.php';
 
+use PHPUnit\Framework\TestCase;
+
 /**
  * Environment tests
  *
  * @package PhpMyAdmin-test
  */
-class Environment_Test extends PHPUnit_Framework_TestCase
+class Environment_Test extends TestCase
 {
     /**
      * Tests PHP version

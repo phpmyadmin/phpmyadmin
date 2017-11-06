@@ -7,7 +7,7 @@
  */
 namespace PhpMyAdmin\Tests\Gis;
 
-use PHPUnit_Framework_TestCase as TestCase;
+use PHPUnit\Framework\TestCase;
 
 /**
  * Abstract parent class for all GIS<Geom_type> test classes

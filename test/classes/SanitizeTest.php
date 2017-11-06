@@ -8,7 +8,7 @@
 namespace PhpMyAdmin\Tests;
 
 use PhpMyAdmin\Sanitize;
-use PHPUnit_Framework_TestCase as TestCase;
+use PHPUnit\Framework\TestCase;
 
 /**
  * Tests for methods in Sanitize class

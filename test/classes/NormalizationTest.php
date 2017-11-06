@@ -12,7 +12,7 @@ use PhpMyAdmin\Normalization;
 use PhpMyAdmin\Theme;
 use PhpMyAdmin\Types;
 use PhpMyAdmin\Util;
-use PHPUnit_Framework_TestCase as TestCase;
+use PHPUnit\Framework\TestCase;
 use stdClass;
 
 $GLOBALS['server'] = 1;

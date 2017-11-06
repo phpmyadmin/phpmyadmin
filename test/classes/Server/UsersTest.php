@@ -8,7 +8,7 @@
 namespace PhpMyAdmin\Tests\Server;
 
 use PhpMyAdmin\Server\Users;
-use PHPUnit_Framework_TestCase as TestCase;
+use PHPUnit\Framework\TestCase;
 
 /**
  * PhpMyAdmin\Tests\Server\UsersTest class

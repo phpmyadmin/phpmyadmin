@@ -8,7 +8,7 @@
 namespace PhpMyAdmin\Tests\Properties\Plugins;
 
 use PhpMyAdmin\Properties\Plugins\ImportPluginProperties;
-use PHPUnit_Framework_TestCase as TestCase;
+use PHPUnit\Framework\TestCase;
 
 /**
  * tests for PhpMyAdmin\Properties\Plugins\ImportPluginProperties class

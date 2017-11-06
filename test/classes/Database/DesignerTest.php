@@ -8,7 +8,7 @@ namespace PhpMyAdmin\Tests\Database;
 
 use PhpMyAdmin\Database\Designer;
 use PhpMyAdmin\DatabaseInterface;
-use PHPUnit_Framework_TestCase as TestCase;
+use PHPUnit\Framework\TestCase;
 
 /**
  * Tests for PhpMyAdmin\Database\Designer
