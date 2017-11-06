@@ -684,6 +684,7 @@ img.lightbulb {
 
 /* no extra space in table cells */
 td .icon {
+    image-rendering: pixelated;
     margin: 0;
 }
 

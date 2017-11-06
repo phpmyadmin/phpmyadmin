@@ -388,6 +388,7 @@ img.lightbulb {
 
 /* leave some space between icons and text */
 .icon {
+    image-rendering: pixelated;
     vertical-align:     middle;
     margin-<?php echo $left; ?>:        0.3em;
 }
