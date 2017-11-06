@@ -119,13 +119,23 @@ if (! empty($submit_mult)
             $response->addJSON('message', $show_create);
             exit;
         case 'sync_unique_columns_central_list':
-            $centralColsError = CentralColumns::syncUniqueColumns($selected);
+            $centralColsError = CentralColumns::syncUniqueColumns(
+                $GLOBALS['dbi'],
+                $GLOBALS['cfg']['Server']['user'],
+                $selected
+            );
             break;
         case 'delete_unique_columns_central_list':
-            $centralColsError = CentralColumns::deleteColumnsFromList($selected);
+            $centralColsError = CentralColumns::deleteColumnsFromList(
+                $GLOBALS['dbi'],
+                $GLOBALS['cfg']['Server']['user'],
+                $selected
+            );
             break;
         case 'make_consistent_with_central_list':
             $centralColsError = CentralColumns::makeConsistentWithList(
+                $GLOBALS['dbi'],
+                $GLOBALS['cfg']['Server']['user'],
                 $GLOBALS['db'],
                 $selected
             );

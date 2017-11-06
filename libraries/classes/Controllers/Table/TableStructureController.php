@@ -1186,7 +1186,12 @@ class TableStructureController extends TableController
                 $mime_map = Transformations::getMIME($this->db, $this->table, true);
             }
         }
-        $central_list = CentralColumns::getFromTable($this->db, $this->table);
+        $central_list = CentralColumns::getFromTable(
+            $GLOBALS['dbi'],
+            $GLOBALS['cfg']['Server']['user'],
+            $this->db,
+            $this->table
+        );
         $columns_list = array();
 
         $titles = array(
@@ -1483,10 +1488,20 @@ class TableStructureController extends TableController
             $mult_btn   = __('Yes');
             break;
         case 'add_to_central_columns':
-            $centralColsError = CentralColumns::syncUniqueColumns($selected, false);
+            $centralColsError = CentralColumns::syncUniqueColumns(
+                $GLOBALS['dbi'],
+                $GLOBALS['cfg']['Server']['user'],
+                $selected,
+                false
+            );
             break;
         case 'remove_from_central_columns':
-            $centralColsError = CentralColumns::deleteColumnsFromList($selected, false);
+            $centralColsError = CentralColumns::deleteColumnsFromList(
+                $GLOBALS['dbi'],
+                $GLOBALS['cfg']['Server']['user'],
+                $selected,
+                false
+            );
             break;
         case 'change':
             $this->displayHtmlForColumnChange($selected, $action);
