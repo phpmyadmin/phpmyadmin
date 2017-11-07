@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.7.6-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2017-11-02 14:03+0100\n"
-"PO-Revision-Date: 2017-11-08 13:48+0000\n"
+"PO-Revision-Date: 2017-11-26 16:07+0000\n"
 "Last-Translator: Kuba Niewiarowski <jakub@niewiarowski.it>\n"
 "Language-Team: Polish "
 "<https://hosted.weblate.org/projects/phpmyadmin/4-7/pl/>\n"
@@ -9834,14 +9834,12 @@ msgid ""
 msgstr ""
 
 #: libraries/navigation/NavigationTree.php:949
-#, fuzzy, php-format
-#| msgid "%s other result found"
-#| msgid_plural "%s other results found"
+#, php-format
 msgid "%s result found"
 msgid_plural "%s results found"
-msgstr[0] "Znaleziono %s inny wynik"
-msgstr[1] "Znaleziono %s inne wyniki"
-msgstr[2] "Znaleziono %s innych wyników"
+msgstr[0] "Znaleziono %s wynik"
+msgstr[1] "Znaleziono %s wyniki"
+msgstr[2] "Znaleziono %s wyników"
 
 #: libraries/navigation/NavigationTree.php:1366
 #: libraries/navigation/NavigationTree.php:1398
