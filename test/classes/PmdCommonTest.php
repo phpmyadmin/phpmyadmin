@@ -9,7 +9,7 @@ namespace PhpMyAdmin\Tests;
 use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\PmdCommon;
 use PhpMyAdmin\Relation;
-use PHPUnit_Framework_TestCase as TestCase;
+use PHPUnit\Framework\TestCase;
 
 /**
  * Tests for PhpMyAdmin\PmdCommon

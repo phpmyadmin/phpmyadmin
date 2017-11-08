@@ -11,7 +11,7 @@ use PhpMyAdmin\Config;
 use PhpMyAdmin\Display\ChangePassword;
 use PhpMyAdmin\Theme;
 use PhpMyAdmin\Url;
-use PHPUnit_Framework_TestCase as TestCase;
+use PHPUnit\Framework\TestCase;
 
 require_once 'libraries/config.default.php';
 

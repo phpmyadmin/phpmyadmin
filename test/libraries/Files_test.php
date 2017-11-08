@@ -10,13 +10,14 @@
  * Include to test.
  */
 
+use PHPUnit\Framework\TestCase;
 
 /**
  * tests for bookmark.lib.php
  *
  * @package PhpMyAdmin-test
  */
-class FilesTest extends PHPUnit_Framework_TestCase
+class FilesTest extends TestCase
 {
     /**
      * Sets up the fixture, for example, opens a network connection.

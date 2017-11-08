@@ -10,7 +10,7 @@ namespace PhpMyAdmin\Tests;
 use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\ReplicationGui;
 use PhpMyAdmin\Theme;
-use PHPUnit_Framework_TestCase as TestCase;
+use PHPUnit\Framework\TestCase;
 
 /*
 * Include to test.

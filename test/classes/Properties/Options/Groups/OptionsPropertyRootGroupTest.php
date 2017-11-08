@@ -8,7 +8,7 @@
 namespace PhpMyAdmin\Tests\Properties\Options\Groups;
 
 use PhpMyAdmin\Properties\Options\Groups\OptionsPropertyRootGroup;
-use PHPUnit_Framework_TestCase as TestCase;
+use PHPUnit\Framework\TestCase;
 
 /**
  * tests for PhpMyAdmin\Properties\Options\Groups\OptionsPropertyRootGroup class

@@ -8,7 +8,7 @@
 namespace PhpMyAdmin\Tests\Setup;
 
 use PhpMyAdmin\Setup\Index as SetupIndex;
-use PHPUnit_Framework_TestCase as TestCase;
+use PHPUnit\Framework\TestCase;
 
 /**
  * tests for methods under PhpMyAdmin\Setup\Index

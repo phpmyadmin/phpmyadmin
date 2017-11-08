@@ -9,7 +9,7 @@ namespace PhpMyAdmin\Tests;
 
 use PhpMyAdmin\Operations;
 use PhpMyAdmin\Theme;
-use PHPUnit_Framework_TestCase as TestCase;
+use PHPUnit\Framework\TestCase;
 
 /**
  * tests for operations

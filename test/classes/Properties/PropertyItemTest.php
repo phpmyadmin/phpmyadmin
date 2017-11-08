@@ -7,7 +7,7 @@
  */
 namespace PhpMyAdmin\Tests\Properties;
 
-use PHPUnit_Framework_TestCase as TestCase;
+use PHPUnit\Framework\TestCase;
 
 /**
  * Tests for PhpMyAdmin\Properties\PropertyItem class

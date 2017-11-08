@@ -10,7 +10,7 @@ namespace PhpMyAdmin\Tests\Server;
 use PhpMyAdmin\Server\UserGroups;
 use PhpMyAdmin\Theme;
 use PhpMyAdmin\Url;
-use PHPUnit_Framework_TestCase as TestCase;
+use PHPUnit\Framework\TestCase;
 
 /**
  * Tests for PhpMyAdmin\Server\UserGroups

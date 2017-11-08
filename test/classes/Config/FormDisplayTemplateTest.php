@@ -10,7 +10,7 @@ namespace PhpMyAdmin\Tests\Config;
 use PhpMyAdmin\Config;
 use PhpMyAdmin\Config\FormDisplayTemplate;
 use PhpMyAdmin\Theme;
-use PHPUnit_Framework_TestCase as TestCase;
+use PHPUnit\Framework\TestCase;
 
 /**
  * Tests for FromDisplay.tpl.php

@@ -8,7 +8,7 @@
 namespace PhpMyAdmin\Tests\Gis;
 
 use PhpMyAdmin\Gis\GisFactory;
-use PHPUnit_Framework_TestCase as TestCase;
+use PHPUnit\Framework\TestCase;
 
 /**
  * Test class for PhpMyAdmin\Gis\GisFactory

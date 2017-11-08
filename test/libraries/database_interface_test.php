@@ -10,12 +10,14 @@
  * Include to test.
  */
 
+ use PHPUnit\Framework\TestCase;
+
 /**
  * Tests basic functionality of dummy dbi driver
  *
  * @package PhpMyAdmin-test
  */
-class PMA_DBI_Test extends PHPUnit_Framework_TestCase
+class PMA_DBI_Test extends TestCase
 {
     /**
      * Configures test parameters.

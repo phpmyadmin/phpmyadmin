@@ -11,6 +11,7 @@
  * Include to test.
  */
 
+use PHPUnit\Framework\TestCase;
 
 /**
  ** Test for checkbox.phtml
@@ -18,7 +19,7 @@
  * @package PhpMyAdmin-test
  * @group common.lib-tests
  */
-class PMA_GetCheckboxTest extends PHPUnit_Framework_TestCase
+class PMA_GetCheckboxTest extends TestCase
 {
     /**
      * Test for checkbox.phtml

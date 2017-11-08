@@ -7,7 +7,7 @@
  */
 namespace PhpMyAdmin\Tests\Properties\Options;
 
-use PHPUnit_Framework_TestCase as TestCase;
+use PHPUnit\Framework\TestCase;
 
 /**
  * Tests for PhpMyAdmin\Properties\Options\OptionsPropertyOneItem class

@@ -9,7 +9,7 @@ namespace PhpMyAdmin\Tests;
 
 use PhpMyAdmin\MultSubmits;
 use PhpMyAdmin\Url;
-use PHPUnit_Framework_TestCase as TestCase;
+use PHPUnit\Framework\TestCase;
 
 /**
  * PhpMyAdmin\Tests\MultSubmitsTest class

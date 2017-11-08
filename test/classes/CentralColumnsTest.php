@@ -13,7 +13,7 @@ use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Types;
 use PhpMyAdmin\Url;
 use PhpMyAdmin\Util;
-use PHPUnit_Framework_TestCase as TestCase;
+use PHPUnit\Framework\TestCase;
 
 $GLOBALS['server'] = 1;
 

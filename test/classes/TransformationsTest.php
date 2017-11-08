@@ -9,7 +9,7 @@ namespace PhpMyAdmin\Tests;
 
 use PhpMyAdmin\Theme;
 use PhpMyAdmin\Transformations;
-use PHPUnit_Framework_TestCase as TestCase;
+use PHPUnit\Framework\TestCase;
 
 /**
  * tests for transformation wrappers

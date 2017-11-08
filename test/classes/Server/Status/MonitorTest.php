@@ -12,7 +12,7 @@ use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Server\Status\Monitor;
 use PhpMyAdmin\Server\Status\Data;
 use PhpMyAdmin\Theme;
-use PHPUnit_Framework_TestCase as TestCase;
+use PHPUnit\Framework\TestCase;
 
 /**
  * this class is for testing PhpMyAdmin\Server\Status\Monitor methods
