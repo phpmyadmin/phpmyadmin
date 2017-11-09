@@ -4,16 +4,16 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.8.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2017-11-02 14:01+0100\n"
-"PO-Revision-Date: 2017-09-20 14:06+0000\n"
-"Last-Translator: RD WebDesign <weblate@rdwebdesign.com.br>\n"
-"Language-Team: Portuguese <https://hosted.weblate.org/projects/phpmyadmin/"
-"master/pt/>\n"
+"PO-Revision-Date: 2017-11-09 17:30+0000\n"
+"Last-Translator: Vinicius Gonçalves <viniciusgoncalves21@gmail.com>\n"
+"Language-Team: Portuguese "
+"<https://hosted.weblate.org/projects/phpmyadmin/master/pt/>\n"
 "Language: pt\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 2.17-dev\n"
+"X-Generator: Weblate 2.18-dev\n"
 
 #: ajax.php:17 ajax.php:34 export.php:203 libraries/classes/Export.php:1100
 msgid "Bad type!"
@@ -1777,10 +1777,8 @@ msgid "No databases selected."
 msgstr "Nenhuma base de dados selecionada."
 
 #: js/messages.php:370
-#, fuzzy
-#| msgid "No column selected."
 msgid "No accounts selected."
-msgstr "Nenhuma coluna seleccionada."
+msgstr "Nenhuma conta selecionada."
 
 #: js/messages.php:371
 msgid "Dropping column"
@@ -2128,10 +2126,8 @@ msgid "Show search criteria"
 msgstr "Mostrar critérios de busca"
 
 #: js/messages.php:483
-#, fuzzy
-#| msgid "Table Search"
 msgid "Range search"
-msgstr "Intervalo de pesquisa"
+msgstr "Pesquisa por intervalo"
 
 #: js/messages.php:484
 msgid "Column maximum:"
@@ -2224,10 +2220,8 @@ msgid "Geometry"
 msgstr "Geometria"
 
 #: js/messages.php:524
-#, fuzzy
-#| msgid "Inner Ring"
 msgid "Inner ring"
-msgstr "Anel Interior"
+msgstr "Anel Interno"
 
 #: js/messages.php:525
 #, fuzzy
