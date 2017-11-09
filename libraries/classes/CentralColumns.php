@@ -932,6 +932,7 @@ class CentralColumns
         $row_num,
         $db
     ) {
+        $disableIs = $GLOBALS['cfg']['Server']['DisableIS'];
         $tableHtml = '<tr data-rownum="' . $row_num . '" id="f_' . $row_num . '">'
             . Url::getHiddenInputs(
                 $db
@@ -1034,7 +1035,7 @@ class CentralColumns
             . '<span>' . htmlspecialchars($row['col_collation']) . '</span>'
             . Charsets::getCollationDropdownBox(
                 $dbi,
-                $GLOBALS['cfg']['Server']['DisableIS'],
+                $disableIs,
                 'field_collation[' . $row_num . ']',
                 'field_' . $row_num . '_4', $row['col_collation'], false
             )
@@ -1112,6 +1113,7 @@ class CentralColumns
         array $row,
         $row_num
     ) {
+        $disableIs = $GLOBALS['cfg']['Server']['DisableIS'];
         $tableHtml = '<tr>'
             . '<input name="orig_col_name[' . $row_num . ']" type="hidden" '
             . 'value="' . htmlspecialchars($row['col_name']) . '">'
@@ -1185,7 +1187,7 @@ class CentralColumns
             '<td name="collation" class="nowrap">'
             . Charsets::getCollationDropdownBox(
                 $dbi,
-                $GLOBALS['cfg']['Server']['DisableIS'],
+                $disableIs,
                 'field_collation[' . $row_num . ']',
                 'field_' . $row_num . '_4', $row['col_collation'], false
             )
@@ -1385,6 +1387,7 @@ class CentralColumns
         $db,
         $total_rows
     ) {
+        $disableIs = $GLOBALS['cfg']['Server']['DisableIS'];
         $addNewColumn = '<div id="add_col_div" class="topmargin"><a href="#">'
             . '<span>+</span> ' . __('Add new column') . '</a>'
             . '<form id="add_new" class="new_central_col '
@@ -1450,7 +1453,7 @@ class CentralColumns
             . '<td name="collation" class="nowrap">'
             . Charsets::getCollationDropdownBox(
                 $dbi,
-                $GLOBALS['cfg']['Server']['DisableIS'],
+                $disableIs,
                 'field_collation[0]',
                 'field_0_4', null, false
             )
