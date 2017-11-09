@@ -423,6 +423,8 @@ $html = Template::get('columns_definitions/column_definitions_form')->render([
     ),
     'max_length' => $GLOBALS['dbi']->getVersion() >= 50503 ? 1024 : 255,
     'have_partitioning' => Partition::havePartitioning(),
+    'dbi' => $GLOBALS['dbi'],
+    'disable_is' => $GLOBALS['cfg']['Server']['DisableIS'],
 ]);
 
 unset($form_params);

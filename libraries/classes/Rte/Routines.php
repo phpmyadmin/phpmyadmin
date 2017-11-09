@@ -765,6 +765,8 @@ class Routines
         $retval .= "            <td class='hide no_len'>---</td>\n";
         $retval .= "            <td class='routine_param_opts_text'>\n";
         $retval .= Charsets::getCharsetDropdownBox(
+            $GLOBALS['dbi'],
+            $GLOBALS['cfg']['Server']['DisableIS'],
             "item_param_opts_text[$index]",
             null,
             $routine['item_param_opts_text'][$i]
@@ -982,6 +984,8 @@ class Routines
         $retval .= "    <td>" . __('Return options') . "</td>";
         $retval .= "    <td><div>";
         $retval .= Charsets::getCharsetDropdownBox(
+            $GLOBALS['dbi'],
+            $GLOBALS['cfg']['Server']['DisableIS'],
             "item_returnopts_text",
             null,
             $routine['item_returnopts_text']

@@ -28,6 +28,9 @@ class ServerCollationsController extends Controller
      */
     public function indexAction()
     {
+        $dbi = $GLOBALS['dbi'];
+        $disableIs = $GLOBALS['cfg']['Server']['DisableIS'];
+
         /**
          * Does the common work
          */
@@ -40,10 +43,10 @@ class ServerCollationsController extends Controller
         );
         $this->response->addHTML(
             $this->_getHtmlForCharsets(
-                Charsets::getMySQLCharsets(),
-                Charsets::getMySQLCollations(),
-                Charsets::getMySQLCharsetsDescriptions(),
-                Charsets::getMySQLCollationsDefault()
+                Charsets::getMySQLCharsets($dbi, $disableIs),
+                Charsets::getMySQLCollations($dbi, $disableIs),
+                Charsets::getMySQLCharsetsDescriptions($dbi, $disableIs),
+                Charsets::getMySQLCollationsDefault($dbi, $disableIs)
             )
         );
     }

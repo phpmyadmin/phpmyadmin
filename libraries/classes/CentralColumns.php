@@ -1033,6 +1033,8 @@ class CentralColumns
             '<td name="collation" class="nowrap">'
             . '<span>' . htmlspecialchars($row['col_collation']) . '</span>'
             . Charsets::getCollationDropdownBox(
+                $dbi,
+                $GLOBALS['cfg']['Server']['DisableIS'],
                 'field_collation[' . $row_num . ']',
                 'field_' . $row_num . '_4', $row['col_collation'], false
             )
@@ -1182,6 +1184,8 @@ class CentralColumns
         $tableHtml .=
             '<td name="collation" class="nowrap">'
             . Charsets::getCollationDropdownBox(
+                $dbi,
+                $GLOBALS['cfg']['Server']['DisableIS'],
                 'field_collation[' . $row_num . ']',
                 'field_' . $row_num . '_4', $row['col_collation'], false
             )
@@ -1445,6 +1449,8 @@ class CentralColumns
             . '</td>'
             . '<td name="collation" class="nowrap">'
             . Charsets::getCollationDropdownBox(
+                $dbi,
+                $GLOBALS['cfg']['Server']['DisableIS'],
                 'field_collation[0]',
                 'field_0_4', null, false
             )

@@ -132,6 +132,8 @@ class Normalization
                 'attribute_types' => $GLOBALS['dbi']->types->getAttributes(),
                 'privs_available' => $GLOBALS['col_priv'] && $GLOBALS['is_reload_priv'],
                 'max_length' => $GLOBALS['dbi']->getVersion() >= 50503 ? 1024 : 255,
+                'dbi' => $GLOBALS['dbi'],
+                'disable_is' => $GLOBALS['cfg']['Server']['DisableIS'],
                 )
             );
     }

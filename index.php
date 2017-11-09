@@ -225,6 +225,8 @@ if ($server > 0 || count($cfg['Servers']) > 1
            . '            </label>' . "\n"
 
            . Charsets::getCollationDropdownBox(
+               $GLOBALS['dbi'],
+               $GLOBALS['cfg']['Server']['DisableIS'],
                'collation_connection',
                'select_collation_connection',
                $collation_connection,
@@ -327,7 +329,10 @@ if ($server > 0 && $GLOBALS['cfg']['ShowServerInfo']) {
     echo '        ' , __('Server charset:') , ' '
        . '        <span lang="en" dir="ltr">';
     $unicode = Charsets::$mysql_charset_map['utf-8'];
-    $charsets = Charsets::getMySQLCharsetsDescriptions();
+    $charsets = Charsets::getMySQLCharsetsDescriptions(
+        $GLOBALS['dbi'],
+        $GLOBALS['cfg']['Server']['DisableIS']
+    );
     echo '           ' , $charsets[$unicode], ' (' . $unicode, ')';
     echo '        </span>'
        . '    </li>'

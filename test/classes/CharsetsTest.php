@@ -149,7 +149,10 @@ class CharsetsTest extends TestCase
      */
     public function testGetCollationDropdownBox()
     {
-        $result = Charsets::getCollationDropdownBox();
+        $result = Charsets::getCollationDropdownBox(
+            $GLOBALS['dbi'],
+            $GLOBALS['cfg']['Server']['DisableIS']
+        );
 
         $this->assertContains('name="collation"', $result);
         $this->assertNotContains('id="', $result);
@@ -172,7 +175,13 @@ class CharsetsTest extends TestCase
     public function testGetCharsetDropdownBox()
     {
         $result = Charsets::getCharsetDropdownBox(
-            null, "test_id", "latin1", false, true
+            $GLOBALS['dbi'],
+            $GLOBALS['cfg']['Server']['DisableIS'],
+            null,
+            "test_id",
+            "latin1",
+            false,
+            true
         );
         $this->assertContains('name="character_set"', $result);
         $this->assertNotContains('Charset</option>', $result);

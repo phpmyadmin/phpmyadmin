@@ -60,7 +60,9 @@
             'char_editing': char_editing,
             'attribute_types': attribute_types,
             'privs_available': privs_available,
-            'max_length': max_length
+            'max_length': max_length,
+            'dbi': dbi,
+            'disable_is': disable_is
         } only %}
     {% endif %}
     {% if action == 'tbl_create.php' %}
@@ -93,6 +95,8 @@
                 <td width="25">&nbsp;</td>
                 <td>
                     {{ Charsets_getCollationDropdownBox(
+                        dbi,
+                        disable_is,
                         'tbl_collation',
                         null,
                         tbl_collation,

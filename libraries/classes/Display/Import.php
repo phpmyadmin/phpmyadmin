@@ -205,6 +205,8 @@ class Import
             $html .= '<label for="charset_of_file">' . __('Character set of the file:')
                 . '</label>' . "\n";
             $html .= Charsets::getCharsetDropdownBox(
+                $GLOBALS['dbi'],
+                $GLOBALS['cfg']['Server']['DisableIS'],
                 'charset_of_file',
                 'charset_of_file',
                 'utf8',

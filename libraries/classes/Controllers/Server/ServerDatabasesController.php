@@ -113,6 +113,8 @@ class ServerDatabasesController extends Controller
             'db_to_create' => $GLOBALS['db_to_create'],
             'server_collation' => $GLOBALS['dbi']->getServerCollation(),
             'databases' => isset($databases) ? $databases : null,
+            'dbi' => $GLOBALS['dbi'],
+            'disable_is' => $GLOBALS['cfg']['Server']['DisableIS'],
         ]));
     }
 
@@ -129,8 +131,14 @@ class ServerDatabasesController extends Controller
         $sql_query = 'CREATE DATABASE ' . Util::backquote($_POST['new_db']);
         if (! empty($_POST['db_collation'])) {
             list($db_charset) = explode('_', $_POST['db_collation']);
-            $charsets = Charsets::getMySQLCharsets();
-            $collations = Charsets::getMySQLCollations();
+            $charsets = Charsets::getMySQLCharsets(
+                $GLOBALS['dbi'],
+                $GLOBALS['cfg']['Server']['DisableIS']
+            );
+            $collations = Charsets::getMySQLCollations(
+                $GLOBALS['dbi'],
+                $GLOBALS['cfg']['Server']['DisableIS']
+            );
             if (in_array($db_charset, $charsets)
                 && in_array($_POST['db_collation'], $collations[$db_charset])
             ) {
