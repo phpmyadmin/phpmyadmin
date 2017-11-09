@@ -20,6 +20,8 @@
                     maxlength="64" class="textfield" id="text_create_db" required
                     placeholder="{% trans 'Database name' %}" />
                 {{ Charsets_getCollationDropdownBox(
+                    dbi,
+                    disable_is,
                     'db_collation',
                     null,
                     server_collation,

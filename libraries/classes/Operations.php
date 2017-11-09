@@ -299,6 +299,8 @@ class Operations
             . '</label>' . "\n"
             . '</legend>' . "\n"
             . Charsets::getCollationDropdownBox(
+                $GLOBALS['dbi'],
+                $GLOBALS['cfg']['Server']['DisableIS'],
                 'db_collation',
                 'select_db_collation',
                 isset($_REQUEST['db_collation']) ? $_REQUEST['db_collation'] : '',
@@ -1066,7 +1068,12 @@ class Operations
         $html_output .= '<tr><td class="vmiddle">' . __('Collation') . '</td>'
             . '<td>'
             . Charsets::getCollationDropdownBox(
-                'tbl_collation', null, $tbl_collation, false
+                $GLOBALS['dbi'],
+                $GLOBALS['cfg']['Server']['DisableIS'],
+                'tbl_collation',
+                null,
+                $tbl_collation,
+                false
             )
             . '</td>'
             . '</tr>';

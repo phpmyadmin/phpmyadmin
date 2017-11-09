@@ -54,6 +54,8 @@
 <td class="center">
     {# column collation #}
     {{ Charsets_getCollationDropdownBox(
+        dbi,
+        disable_is,
         'field_collation[' ~ column_number ~ ']',
         'field_' ~ column_number ~ '_' ~ (ci - ci_offset),
         column_meta['Collation'] is not empty ? column_meta['Collation'] : null,
