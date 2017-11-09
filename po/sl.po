@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.8.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2017-11-02 14:01+0100\n"
-"PO-Revision-Date: 2017-11-03 00:28+0000\n"
+"PO-Revision-Date: 2017-11-09 23:51+0000\n"
 "Last-Translator: Domen <mitenem@outlook.com>\n"
 "Language-Team: Slovenian "
 "<https://hosted.weblate.org/projects/phpmyadmin/master/sl/>\n"
@@ -2681,12 +2681,12 @@ msgstr "Močno"
 
 #: js/messages.php:746
 msgid "Timed out waiting for security key activation."
-msgstr ""
+msgstr "Čas za čakanje na aktivacijo varnostnega ključa je potekel."
 
 #: js/messages.php:747
 #, php-format
 msgid "Failed security key activation (%s)."
-msgstr ""
+msgstr "Aktivacija varnostnega ključa je spodletela (%s)."
 
 #: js/messages.php:776
 msgctxt "Previous month"
@@ -10373,6 +10373,8 @@ msgid ""
 "Provides authentication using HOTP and TOTP applications such as FreeOTP, "
 "Google Authenticator or Authy."
 msgstr ""
+"Nudi overovitev z aplikacijami HOTP in TOTP, kot so FreeOTP, Google "
+"Authenticator ali Authy."
 
 #: libraries/classes/Plugins/TwoFactor/Key.php:184
 msgid "Hardware Security Key (FIDO U2F)"
@@ -10403,7 +10405,7 @@ msgstr "Dvostopenjska overovitev je spodletela."
 
 #: libraries/classes/Plugins/TwoFactorPlugin.php:122
 msgid "None two-factor"
-msgstr ""
+msgstr "Nobeno dvostopenjsko"
 
 #: libraries/classes/Plugins/TwoFactorPlugin.php:132
 msgid "Login using password only."
@@ -15062,6 +15064,8 @@ msgid ""
 "Open the two-factor authentication app on your device to view your "
 "authentication code and verify your identity."
 msgstr ""
+"Odprite aplikacijo za dvostopenjsko overovitev na svoji napravi, da si "
+"ogledate overovitveno kodo in preverite svojo istovetnost."
 
 #: templates/database/designer/rename_to_panel.twig:22
 #: templates/database/designer/options_panel.twig:85
@@ -15366,15 +15370,17 @@ msgid ""
 "Two-factor authentication is not available, please install optional "
 "dependencies to enable authentication backends."
 msgstr ""
+"Dvostopenjska overovitev ni na voljo; prosimo, namestite izbirne odvisnosti, "
+"da omogočite overovitveno zaledje."
 
 #: templates/prefs_second.twig:12
 msgid "Two-factor authentication is available and configured for this account."
-msgstr ""
+msgstr "Dvostopenjska overovitev je na voljo in nastavljena za ta račun."
 
 #: templates/prefs_second.twig:14
 msgid ""
 "Two-factor authentication is available, but not configured for this account."
-msgstr ""
+msgstr "Dvostopenjska overovitev je na voljo, ampak ni nastavljena za ta račun."
 
 #: templates/prefs_second.twig:18
 msgid ""
@@ -15439,6 +15445,8 @@ msgid ""
 "By disabling two factor authentication you will be again able to login using "
 "password only."
 msgstr ""
+"Če onemogočite dvostopenjsko overovitev, se boste ponovno lahko prijavili "
+"samo z geslom."
 
 #: templates/prefs_autoload.twig:7
 msgid ""
@@ -15639,6 +15647,8 @@ msgid ""
 "Please connect your FIDO U2F device into your computer's USB port. Then "
 "confirm login on the device."
 msgstr ""
+"Prosimo, povežite svojo napravo FIDO U2F v USB-vrata vašega računalnika. "
+"Nato potrdite prijavo na napravi."
 
 #: templates/table/search/search_and_replace.twig:3
 msgid "Replace with:"
@@ -15964,6 +15974,8 @@ msgid ""
 "Please connect your FIDO U2F device into your computer's USB port. Then "
 "confirm registration on the device."
 msgstr ""
+"Prosimo, povežite svojo napravo FIDO U2F v USB-vrata vašega računalnika. "
+"Nato potrdite registracijo na napravi."
 
 #: templates/columns_definitions/table_fields_definitions.twig:17
 msgid ""
@@ -16048,6 +16060,8 @@ msgid ""
 "Please scan following QR code into the two-factor authentication app on your "
 "device and enter authentication code it generates."
 msgstr ""
+"Prosimo, poskenirajte QR-kodo v aplikacijo za dvostopenjsko overovitev na "
+"vaši napravi in vnesite overovitveno kodo, ki jo ustvari."
 
 #: templates/columns_definitions/column_default.twig:3
 msgctxt "for default"
