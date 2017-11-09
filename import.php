@@ -602,7 +602,7 @@ if (! empty($id_bookmark) && $_REQUEST['action_bookmark'] == 2) {
         );
         $message->addParam($executed_queries);
 
-        if ($import_notice) {
+        if (! empty($import_notice)) {
             $message->addHtml($import_notice);
         }
         if (! empty($local_import_file)) {
