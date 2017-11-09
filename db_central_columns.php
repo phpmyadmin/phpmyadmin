@@ -97,6 +97,7 @@ if (isset($_REQUEST['edit_central_columns_page'])) {
         $GLOBALS['cfg']['Server']['user'],
         $GLOBALS['cfg']['MaxRows'],
         $GLOBALS['cfg']['CharEditing'],
+        $GLOBALS['cfg']['Server']['DisableIS'],
         $selected_fld,
         $selected_db
     );
@@ -141,6 +142,7 @@ $addNewColumn = CentralColumns::getHtmlForAddNewColumn(
     $GLOBALS['dbi'],
     $GLOBALS['cfg']['MaxRows'],
     $GLOBALS['cfg']['CharEditing'],
+    $GLOBALS['cfg']['Server']['DisableIS'],
     $db,
     $total_rows
 );
@@ -194,6 +196,7 @@ foreach ($result as $row) {
         $GLOBALS['dbi'],
         $GLOBALS['cfg']['MaxRows'],
         $GLOBALS['cfg']['CharEditing'],
+        $GLOBALS['cfg']['Server']['DisableIS'],
         $row,
         $row_num,
         $db

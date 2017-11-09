@@ -918,6 +918,7 @@ class CentralColumns
      * @param DatabaseInterface $dbi         DatabaseInterface instance
      * @param string            $maxRows     number of rows displayed when browsing a result set
      * @param string            $charEditing which editor should be used for CHAR/VARCHAR fields
+     * @param boolean           $disableIs   Disable use of INFORMATION_SCHEMA
      * @param array             $row         array contains complete information of a particular row of central list table
      * @param int               $row_num     position the row in the table
      * @param string            $db          current database
@@ -928,11 +929,11 @@ class CentralColumns
         DatabaseInterface $dbi,
         $maxRows,
         $charEditing,
+        $disableIs,
         array $row,
         $row_num,
         $db
     ) {
-        $disableIs = $GLOBALS['cfg']['Server']['DisableIS'];
         $tableHtml = '<tr data-rownum="' . $row_num . '" id="f_' . $row_num . '">'
             . Url::getHiddenInputs(
                 $db
@@ -1100,6 +1101,7 @@ class CentralColumns
      * @param DatabaseInterface $dbi         DatabaseInterface instance
      * @param string            $maxRows     number of rows displayed when browsing a result set
      * @param string            $charEditing which editor should be used for CHAR/VARCHAR fields
+     * @param boolean           $disableIs   Disable use of INFORMATION_SCHEMA
      * @param array             $row         array contains complete information
      *                                       of a particular row of central list table
      * @param int               $row_num     position the row in the table
@@ -1110,10 +1112,10 @@ class CentralColumns
         DatabaseInterface $dbi,
         $maxRows,
         $charEditing,
+        $disableIs,
         array $row,
         $row_num
     ) {
-        $disableIs = $GLOBALS['cfg']['Server']['DisableIS'];
         $tableHtml = '<tr>'
             . '<input name="orig_col_name[' . $row_num . ']" type="hidden" '
             . 'value="' . htmlspecialchars($row['col_name']) . '">'
@@ -1374,6 +1376,7 @@ class CentralColumns
      * @param DatabaseInterface $dbi         DatabaseInterface instance
      * @param string            $maxRows     number of rows displayed when browsing a result set
      * @param string            $charEditing which editor should be used for CHAR/VARCHAR fields
+     * @param boolean           $disableIs   Disable use of INFORMATION_SCHEMA
      * @param string            $db          current database
      * @param integer           $total_rows  number of rows in central columns
      *
@@ -1384,10 +1387,10 @@ class CentralColumns
         DatabaseInterface $dbi,
         $maxRows,
         $charEditing,
+        $disableIs,
         $db,
         $total_rows
     ) {
-        $disableIs = $GLOBALS['cfg']['Server']['DisableIS'];
         $addNewColumn = '<div id="add_col_div" class="topmargin"><a href="#">'
             . '<span>+</span> ' . __('Add new column') . '</a>'
             . '<form id="add_new" class="new_central_col '
@@ -1508,6 +1511,7 @@ class CentralColumns
      * @param string            $user         current user
      * @param string            $maxRows      number of rows displayed when browsing a result set
      * @param string            $charEditing  which editor should be used for CHAR/VARCHAR fields
+     * @param boolean           $disableIs   Disable use of INFORMATION_SCHEMA
      * @param array             $selected_fld Array containing the selected fields
      * @param string            $selected_db  String containing the name of database
      *
@@ -1518,6 +1522,7 @@ class CentralColumns
         $user,
         $maxRows,
         $charEditing,
+        $disableIs,
         array $selected_fld,
         $selected_db
     ) {
@@ -1540,6 +1545,7 @@ class CentralColumns
                 $dbi,
                 $maxRows,
                 $charEditing,
+                $disableIs,
                 $row,
                 $row_num
             );
