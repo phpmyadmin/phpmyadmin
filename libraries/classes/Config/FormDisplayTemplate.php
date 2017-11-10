@@ -94,7 +94,10 @@ class FormDisplayTemplate
      *
      * @return string
      */
-    public static function displayFieldsetTop($title = '', $description = '', $errors = null,
+    public static function displayFieldsetTop(
+        $title = '',
+        $description = '',
+        $errors = null,
         array $attributes = array()
     ) {
         global $_FormDisplayGroup;
@@ -102,25 +105,13 @@ class FormDisplayTemplate
         $_FormDisplayGroup = 0;
 
         $attributes = array_merge(array('class' => 'optbox'), $attributes);
-        foreach ($attributes as $k => &$attr) {
-            $attr = $k . '="' . htmlspecialchars($attr) . '"';
-        }
 
-        $htmlOutput = '<fieldset ' . implode(' ', $attributes) . '>';
-        $htmlOutput .= '<legend>' . $title . '</legend>';
-        if (!empty($description)) {
-            $htmlOutput .= '<p>' . $description . '</p>';
-        }
-        // this must match with displayErrors() in scripts.js
-        if (is_array($errors) && count($errors) > 0) {
-            $htmlOutput .= '<dl class="errors">';
-            foreach ($errors as $error) {
-                $htmlOutput .= '<dd>' . $error . '</dd>';
-            }
-            $htmlOutput .= '</dl>';
-        }
-        $htmlOutput .= '<table width="100%" cellspacing="0">';
-        return $htmlOutput;
+        return Template::get('config/form_display/fieldset_top')->render([
+            'attributes' => $attributes,
+            'title' => $title,
+            'description' => $description,
+            'errors' => $errors,
+        ]);
     }
 
     /**
