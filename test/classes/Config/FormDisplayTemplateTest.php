@@ -450,20 +450,6 @@ class FormDisplayTemplateTest extends TestCase
     }
 
     /**
-     * Test for FormDisplayTemplate::displayFieldsetBottomSimple()
-     *
-     * @return void
-     */
-    public function testDisplayFieldsetBottomSimple()
-    {
-        $result = FormDisplayTemplate::displayFieldsetBottomSimple();
-        $this->assertEquals(
-            '</table></fieldset>',
-            $result
-        );
-    }
-
-    /**
      * Test for FormDisplayTemplate::displayTabsBottom()
      *
      * @return void

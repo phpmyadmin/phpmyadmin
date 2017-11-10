@@ -414,18 +414,6 @@ class FormDisplayTemplate
     }
 
     /**
-     * Displays simple bottom part of a fieldset (without submit buttons)
-     *
-     * @return string
-     */
-    public static function displayFieldsetBottomSimple()
-    {
-        $htmlOutput = '</table>';
-        $htmlOutput .= '</fieldset>';
-        return $htmlOutput;
-    }
-
-    /**
      * Closes form tabs
      *
      * @return string

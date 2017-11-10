@@ -35,5 +35,5 @@ echo '<input type="submit" name="submit_download" value="'
 echo '</td>';
 echo '</tr>';
 
-echo FormDisplayTemplate::displayFieldsetBottomSimple();
+echo FormDisplayTemplate::displayFieldsetBottom(false);
 echo FormDisplayTemplate::displayFormBottom();
