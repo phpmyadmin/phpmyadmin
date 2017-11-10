@@ -24,12 +24,12 @@ class CreateAddField
      *
      * @return array An array of arrays which represents column keys for each index type
      */
-    public static function getIndexedColumns()
+    private static function getIndexedColumns()
     {
-        $field_cnt      = count($_REQUEST['field_name']);
-        $field_primary  = json_decode($_REQUEST['primary_indexes'], true);
-        $field_index    = json_decode($_REQUEST['indexes'], true);
-        $field_unique   = json_decode($_REQUEST['unique_indexes'], true);
+        $field_cnt = count($_REQUEST['field_name']);
+        $field_primary = json_decode($_REQUEST['primary_indexes'], true);
+        $field_index = json_decode($_REQUEST['indexes'], true);
+        $field_unique = json_decode($_REQUEST['unique_indexes'], true);
         $field_fulltext = json_decode($_REQUEST['fulltext_indexes'], true);
         $field_spatial = json_decode($_REQUEST['spatial_indexes'], true);
 
@@ -50,7 +50,7 @@ class CreateAddField
      * @return array  $definitions An array of initial sql statements
      *                             according to the request
      */
-    public static function buildColumnCreationStatement(
+    private static function buildColumnCreationStatement(
         $field_cnt, $is_create_tbl = true
     ) {
         $definitions = array();
@@ -106,7 +106,7 @@ class CreateAddField
      *
      * @return string $sql_suffix suffix
      */
-    public static function setColumnCreationStatementSuffix($current_field_num,
+    private static function setColumnCreationStatementSuffix($current_field_num,
         $is_create_tbl = true
     ) {
         // no suffix is needed if request is a table creation
@@ -148,7 +148,7 @@ class CreateAddField
      *
      * @return array an array of sql statements for indexes
      */
-    public static function buildIndexStatements(array $index, $index_choice,
+    private static function buildIndexStatements(array $index, $index_choice,
         $is_create_tbl = true
     ) {
         $statement = array();
@@ -214,7 +214,7 @@ class CreateAddField
      *
      * @return string $sql_prefix prefix
      */
-    public static function getStatementPrefix($is_create_tbl = true)
+    private static function getStatementPrefix($is_create_tbl = true)
     {
         $sql_prefix = " ";
         if (! $is_create_tbl) {
@@ -234,7 +234,7 @@ class CreateAddField
      *
      * @return array $index_definitions
      */
-    public static function mergeIndexStatements(
+    private static function mergeIndexStatements(
         array $definitions, $is_create_tbl, array $indexed_columns, $index_keyword
     ) {
         foreach ($indexed_columns as $index) {
@@ -255,7 +255,7 @@ class CreateAddField
      *
      * @return string sql statement
      */
-    public static function getColumnCreationStatements($is_create_tbl = true)
+    private static function getColumnCreationStatements($is_create_tbl = true)
     {
         $sql_statement = "";
         list($field_cnt, $field_primary, $field_index,
@@ -351,7 +351,7 @@ class CreateAddField
      *
      * @return string partition/subpartition definition
      */
-    public static function getPartitionDefinition(array $partition, $isSubPartition = false)
+    private static function getPartitionDefinition(array $partition, $isSubPartition = false)
     {
         $sql_query = " " . ($isSubPartition ? "SUB" : "") . "PARTITION ";
         $sql_query .= $partition['name'];
