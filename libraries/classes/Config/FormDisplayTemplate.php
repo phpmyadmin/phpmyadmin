@@ -413,30 +413,16 @@ class FormDisplayTemplate
     /**
      * Displays bottom part of a fieldset
      *
-     * @param bool $show_buttons whether show submit and reset button
+     * @param bool $showButtons Whether show submit and reset button
      *
      * @return string
      */
-    public static function displayFieldsetBottom($show_buttons = true)
+    public static function displayFieldsetBottom($showButtons = true)
     {
-        $colspan = 2;
-        if ($GLOBALS['PMA_Config']->get('is_setup')) {
-            $colspan++;
-        }
-        $htmlOutput = '';
-        if ($show_buttons) {
-            $htmlOutput .= '<tr>';
-            $htmlOutput .= '<td colspan="' . $colspan . '" class="lastrow">';
-            $htmlOutput .= '<input type="submit" name="submit_save" value="'
-                . __('Apply') . '" class="green" />';
-            $htmlOutput .= '<input type="button" name="submit_reset" value="'
-                . __('Reset') . '" />';
-            $htmlOutput .= '</td>';
-            $htmlOutput .= '</tr>';
-        }
-        $htmlOutput .= '</table>';
-        $htmlOutput .= '</fieldset>';
-        return $htmlOutput;
+        return Template::get('config/form_display/fieldset_bottom')->render([
+            'show_buttons' => $showButtons,
+            'is_setup' => $GLOBALS['PMA_Config']->get('is_setup'),
+        ]);
     }
 
     /**
