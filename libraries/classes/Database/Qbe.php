@@ -11,6 +11,7 @@ use PhpMyAdmin\Core;
 use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Relation;
 use PhpMyAdmin\Table;
+use PhpMyAdmin\Template;
 use PhpMyAdmin\Url;
 use PhpMyAdmin\Util;
 
@@ -374,20 +375,11 @@ class Qbe
      */
     private function _showColumnSelectCell($column_number, $selected = '')
     {
-        $html_output = '';
-        $html_output .= '<td class="center">';
-        $html_output .= '<select name="criteriaColumn[' . $column_number
-            . ']" size="1">';
-        $html_output .= '<option value="">&nbsp;</option>';
-        foreach ($this->_columnNames as $column) {
-            $html_output .= '<option value="' . htmlspecialchars($column) . '"'
-                . (($column === $selected) ? ' selected="selected"' : '') . '>'
-                . str_replace(' ', '&nbsp;', htmlspecialchars($column))
-                . '</option>';
-        }
-        $html_output .= '</select>';
-        $html_output .= '</td>';
-        return $html_output;
+        return Template::get('database/qbe/column_select_cell')->render([
+            'column_number' => $column_number,
+            'column_names' => $this->_columnNames,
+            'selected' => $selected,
+        ]);
     }
 
     /**
