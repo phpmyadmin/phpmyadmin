@@ -420,8 +420,7 @@ class FormDisplayTemplate
      */
     public static function displayTabsBottom()
     {
-        $htmlOutput = "</div>\n";
-        return $htmlOutput;
+        return Template::get('config/form_display/tabs_bottom')->render();
     }
 
     /**
