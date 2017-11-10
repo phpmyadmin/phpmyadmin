@@ -81,7 +81,7 @@ class CreateAddFieldTest extends TestCase
     {
         return [
             ['CREATE TABLE `db`.`table` ();', 'db', 'table', [
-                'field_name' => 0,
+                'field_name' => [],
                 'primary_indexes' => '{}',
                 'indexes' => '{}',
                 'unique_indexes' => '{}',
