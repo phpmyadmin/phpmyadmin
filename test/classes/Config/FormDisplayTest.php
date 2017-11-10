@@ -185,12 +185,11 @@ class FormDisplayTest extends PmaTestCase
 
         $result = $this->object->displayErrors();
 
-        $this->assertEquals(
-            '<dl><dt>Servers/1/test2</dt>' .
-            '<dd>e1</dd></dl><dl><dt>Form_foobar</dt><dd>' .
-            'e2</dd><dd>e3</dd></dl>',
-            $result
-        );
+        $this->assertContains('<dt>Servers/1/test2</dt>', $result);
+        $this->assertContains('<dd>e1</dd>', $result);
+        $this->assertContains('<dt>Form_foobar</dt>', $result);
+        $this->assertContains('<dd>e2</dd>', $result);
+        $this->assertContains('<dd>e3</dd>', $result);
     }
 
     /**

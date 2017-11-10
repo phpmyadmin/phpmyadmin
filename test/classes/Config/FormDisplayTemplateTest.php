@@ -558,11 +558,8 @@ class FormDisplayTemplateTest extends TestCase
 
         $result = FormDisplayTemplate::displayErrors('err"Name1"', $errors);
 
-        $this->assertEquals(
-            '<dl><dt>err&quot;Name1&quot;</dt>' .
-            '<dd>&lt;err1&gt;</dd><dd>&amp;err2</dd></dl>',
-            $result
-        );
-
+        $this->assertContains('<dt>err&quot;Name1&quot;</dt>', $result);
+        $this->assertContains('<dd>&lt;err1&gt;</dd>', $result);
+        $this->assertContains('<dd>&amp;err2</dd>', $result);
     }
 }

@@ -492,19 +492,16 @@ class FormDisplayTemplate
     /**
      * Displays error list
      *
-     * @param string $name       name of item with errors
-     * @param array  $error_list list of errors to show
+     * @param string $name      Name of item with errors
+     * @param array  $errorList List of errors to show
      *
      * @return string HTML for errors
      */
-    public static function displayErrors($name, array $error_list)
+    public static function displayErrors($name, array $errorList)
     {
-        $htmlOutput = '<dl>';
-        $htmlOutput .= '<dt>' . htmlspecialchars($name) . '</dt>';
-        foreach ($error_list as $error) {
-            $htmlOutput .= '<dd>' . htmlspecialchars($error) . '</dd>';
-        }
-        $htmlOutput .= '</dl>';
-        return $htmlOutput;
+        return Template::get('config/form_display/errors')->render([
+            'name' => $name,
+            'error_list' => $errorList,
+        ]);
     }
 }
