@@ -365,28 +365,25 @@ class FormDisplayTemplate
     /**
      * Display group header
      *
-     * @param string $header_text Text of header
+     * @param string $headerText Text of header
      *
      * @return string|void
      */
-    public static function displayGroupHeader($header_text)
+    public static function displayGroupHeader($headerText)
     {
         global $_FormDisplayGroup;
 
         $_FormDisplayGroup++;
-        if (! $header_text) {
+        if (! $headerText) {
             return null;
         }
-        $colspan = $GLOBALS['PMA_Config']->get('is_setup')
-            ? 3
-            : 2;
-        $htmlOutput = '<tr class="group-header group-header-' . $_FormDisplayGroup
-            . '">';
-        $htmlOutput .= '<th colspan="' . $colspan . '">';
-        $htmlOutput .= $header_text;
-        $htmlOutput .= '</th>';
-        $htmlOutput .= '</tr>';
-        return $htmlOutput;
+        $colspan = $GLOBALS['PMA_Config']->get('is_setup') ? 3 : 2;
+
+        return Template::get('config/form_display/group_header')->render([
+            'group' => $_FormDisplayGroup,
+            'colspan' => $colspan,
+            'header_text' => $headerText,
+        ]);
     }
 
     /**
