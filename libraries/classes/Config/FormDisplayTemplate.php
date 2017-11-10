@@ -430,8 +430,7 @@ class FormDisplayTemplate
      */
     public static function displayFormBottom()
     {
-        $htmlOutput = "</form>\n";
-        return $htmlOutput;
+        return Template::get('config/form_display/form_bottom')->render();
     }
 
     /**
