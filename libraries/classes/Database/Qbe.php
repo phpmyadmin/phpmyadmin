@@ -386,21 +386,18 @@ class Qbe
      * Provides select options list containing sort options (ASC/DESC)
      *
      * @param integer $columnNumber Column Number (0,1,2) or more
-     * @param string  $ascSelected  Selected criteria 'Ascending'
-     * @param string  $descSelected Selected criteria 'Descending'
+     * @param string  $selected     Selected criteria 'ASC' or 'DESC'
      *
      * @return string HTML for select options
      */
     private function _getSortSelectCell(
         $columnNumber,
-        $ascSelected = '',
-        $descSelected = ''
+        $selected = ''
     ) {
         return Template::get('database/qbe/sort_select_cell')->render([
             'real_width' => $this->_realwidth,
             'column_number' => $columnNumber,
-            'asc_selected' => $ascSelected,
-            'desc_selected' => $descSelected,
+            'selected' => $selected,
         ]);
     }
 
@@ -585,24 +582,22 @@ class Qbe
                 $_REQUEST['criteriaSort'][$colInd] = '';
             } //end if
 
-            $asc_selected = ''; $desc_selected = '';
+            $selected = '';
             if (isset($_REQUEST['criteriaSort'][$colInd])) {
                 $this->_formSorts[$new_column_count]
                     = $_REQUEST['criteriaSort'][$colInd];
-                // Set asc_selected
+
                 if ($_REQUEST['criteriaSort'][$colInd] == 'ASC') {
-                    $asc_selected = ' selected="selected"';
-                } // end if
-                // Set desc selected
-                if ($_REQUEST['criteriaSort'][$colInd] == 'DESC') {
-                    $desc_selected = ' selected="selected"';
-                } // end if
+                    $selected = 'ASC';
+                } elseif ($_REQUEST['criteriaSort'][$colInd] == 'DESC') {
+                    $selected = 'DESC';
+                }
             } else {
                 $this->_formSorts[$new_column_count] = '';
             }
 
             $html_output .= $this->_getSortSelectCell(
-                $new_column_count, $asc_selected, $desc_selected
+                $new_column_count, $selected
             );
             $new_column_count++;
         } // end for

@@ -112,7 +112,7 @@ class QbeTest extends PmaTestCase
             'value="ASC" selected="selected">',
             $this->_callProtectedFunction(
                 '_getSortSelectCell',
-                array(1, ' selected="selected"')
+                array(1, 'ASC')
             )
         );
     }
