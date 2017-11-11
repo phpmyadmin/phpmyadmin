@@ -385,28 +385,23 @@ class Qbe
     /**
      * Provides select options list containing sort options (ASC/DESC)
      *
-     * @param integer $column_number Column Number (0,1,2) or more
-     * @param string  $asc_selected  Selected criteria 'Ascending'
-     * @param string  $desc_selected Selected criteria 'Descending'
+     * @param integer $columnNumber Column Number (0,1,2) or more
+     * @param string  $ascSelected  Selected criteria 'Ascending'
+     * @param string  $descSelected Selected criteria 'Descending'
      *
      * @return string HTML for select options
      */
-    private function _getSortSelectCell($column_number, $asc_selected = '',
-        $desc_selected = ''
+    private function _getSortSelectCell(
+        $columnNumber,
+        $ascSelected = '',
+        $descSelected = ''
     ) {
-        $html_output = '<td class="center">';
-        $html_output .= '<select style="width: ' . $this->_realwidth
-            . '" name="criteriaSort[' . $column_number . ']" size="1">';
-        $html_output .= '<option value="">&nbsp;</option>';
-        $html_output .= '<option value="ASC"' . $asc_selected . '>'
-            . __('Ascending')
-            . '</option>';
-        $html_output .= '<option value="DESC"' . $desc_selected . '>'
-            . __('Descending')
-            . '</option>';
-        $html_output .= '</select>';
-        $html_output .= '</td>';
-        return $html_output;
+        return Template::get('database/qbe/sort_select_cell')->render([
+            'real_width' => $this->_realwidth,
+            'column_number' => $columnNumber,
+            'asc_selected' => $ascSelected,
+            'desc_selected' => $descSelected,
+        ]);
     }
 
     /**

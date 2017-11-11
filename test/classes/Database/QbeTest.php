@@ -94,14 +94,25 @@ class QbeTest extends PmaTestCase
      */
     public function testGetSortSelectCell()
     {
-        $this->assertEquals(
-            '<td class="center"><select style="width: 12ex" name="criteriaSort[1]" '
-            . 'size="1"><option value="">&nbsp;</option><option value="ASC">'
-            . 'Ascending</option><option value="DESC">Descending</option>'
-            . '</select></td>',
+        $this->assertContains(
+            'style="width:12ex" name="criteriaSort[1]"',
             $this->_callProtectedFunction(
                 '_getSortSelectCell',
                 array(1)
+            )
+        );
+        $this->assertNotContains(
+            'selected="selected"',
+            $this->_callProtectedFunction(
+                '_getSortSelectCell',
+                array(1)
+            )
+        );
+        $this->assertContains(
+            'value="ASC" selected="selected">',
+            $this->_callProtectedFunction(
+                '_getSortSelectCell',
+                array(1, ' selected="selected"')
             )
         );
     }
@@ -113,18 +124,29 @@ class QbeTest extends PmaTestCase
      */
     public function testGetSortRow()
     {
-        $this->assertEquals(
-            '<tr class="noclick"><th>Sort:</th><td class="center">'
-            . '<select style="width: 12ex" name="criteriaSort[0]" size="1">'
-            . '<option value="">&nbsp;</option><option value="ASC">Ascending'
-            . '</option><option value="DESC">Descending</option></select></td>'
-            . '<td class="center"><select style="width: 12ex" '
-            . 'name="criteriaSort[1]" size="1"><option value="">&nbsp;</option>'
-            . '<option value="ASC">Ascending</option><option value="DESC">'
-            . 'Descending</option></select></td><td class="center">'
-            . '<select style="width: 12ex" name="criteriaSort[2]" size="1">'
-            . '<option value="">&nbsp;</option><option value="ASC">Ascending'
-            . '</option><option value="DESC">Descending</option></select></td></tr>',
+        $this->assertContains(
+            '<th>Sort:</th>',
+            $this->_callProtectedFunction(
+                '_getSortRow',
+                array()
+            )
+        );
+        $this->assertContains(
+            'name="criteriaSort[0]"',
+            $this->_callProtectedFunction(
+                '_getSortRow',
+                array()
+            )
+        );
+        $this->assertContains(
+            'name="criteriaSort[1]"',
+            $this->_callProtectedFunction(
+                '_getSortRow',
+                array()
+            )
+        );
+        $this->assertContains(
+            'name="criteriaSort[2]"',
             $this->_callProtectedFunction(
                 '_getSortRow',
                 array()
