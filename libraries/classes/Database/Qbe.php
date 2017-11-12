@@ -768,21 +768,9 @@ class Qbe
      */
     private function _getFootersOptions($type)
     {
-        $html_output = '<div class="floatleft">';
-        $html_output .= (($type == 'row')
-            ? __('Add/Delete criteria rows') : __('Add/Delete columns'));
-        $html_output .= ':<select size="1" name="'
-            . (($type == 'row') ? 'criteriaRowAdd' : 'criteriaColumnAdd') . '">';
-        $html_output .= '<option value="-3">-3</option>';
-        $html_output .= '<option value="-2">-2</option>';
-        $html_output .= '<option value="-1">-1</option>';
-        $html_output .= '<option value="0" selected="selected">0</option>';
-        $html_output .= '<option value="1">1</option>';
-        $html_output .= '<option value="2">2</option>';
-        $html_output .= '<option value="3">3</option>';
-        $html_output .= '</select>';
-        $html_output .= '</div>';
-        return $html_output;
+        return Template::get('database/qbe/footer_options')->render([
+            'type' => $type,
+        ]);
     }
 
     /**
@@ -797,7 +785,7 @@ class Qbe
         $html_output .= $this->_getFootersOptions("column");
         $html_output .= '<div class="floatleft">';
         $html_output .= '<input type="submit" name="modify"'
-            . 'value="' . __('Update Query') . '" />';
+            . ' value="' . __('Update Query') . '" />';
         $html_output .= '</div>';
         $html_output .= '</fieldset>';
         return $html_output;

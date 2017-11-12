@@ -206,13 +206,22 @@ class QbeTest extends PmaTestCase
      */
     public function testGetFootersOptions()
     {
-        $this->assertEquals(
-            '<div class="floatleft">Add/Delete criteria rows:<select size="1" '
-            . 'name="criteriaRowAdd"><option value="-3">-3</option><option '
-            . 'value="-2">-2</option><option value="-1">-1</option><option '
-            . 'value="0" selected="selected">0</option><option value="1">1'
-            . '</option><option value="2">2</option><option value="3">3</option>'
-            . '</select></div>',
+        $this->assertContains(
+            'Add/Delete criteria rows',
+            $this->_callProtectedFunction(
+                '_getFootersOptions',
+                array('row')
+            )
+        );
+        $this->assertContains(
+            'name="criteriaRowAdd"',
+            $this->_callProtectedFunction(
+                '_getFootersOptions',
+                array('row')
+            )
+        );
+        $this->assertContains(
+            '<option value="0" selected="selected">0</option>',
             $this->_callProtectedFunction(
                 '_getFootersOptions',
                 array('row')
@@ -227,19 +236,22 @@ class QbeTest extends PmaTestCase
      */
     public function testGetTableFooters()
     {
-        $this->assertEquals(
-            '<fieldset class="tblFooters"><div class="floatleft">Add/Delete criteria'
-            . ' rows:<select size="1" name="criteriaRowAdd"><option value="-3">-3'
-            . '</option><option value="-2">-2</option><option value="-1">-1</option>'
-            . '<option value="0" selected="selected">0</option><option value="1">1'
-            . '</option><option value="2">2</option><option value="3">3</option>'
-            . '</select></div><div class="floatleft">Add/Delete columns:<select '
-            . 'size="1" name="criteriaColumnAdd"><option value="-3">-3</option>'
-            . '<option value="-2">-2</option><option value="-1">-1</option>'
-            . '<option value="0" selected="selected">0</option><option value="1">1'
-            . '</option><option value="2">2</option><option value="3">3</option>'
-            . '</select></div><div class="floatleft"><input type="submit" '
-            . 'name="modify"value="Update Query" /></div></fieldset>',
+        $this->assertContains(
+            'name="criteriaRowAdd"',
+            $this->_callProtectedFunction(
+                '_getTableFooters',
+                array()
+            )
+        );
+        $this->assertContains(
+            'name="criteriaColumnAdd"',
+            $this->_callProtectedFunction(
+                '_getTableFooters',
+                array()
+            )
+        );
+        $this->assertContains(
+            '<input type="submit" name="modify" value="Update Query" />',
             $this->_callProtectedFunction(
                 '_getTableFooters',
                 array()
