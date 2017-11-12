@@ -304,7 +304,7 @@ class Designer
         return Template::get('database/designer/database_tables')->render([
             'db' => $GLOBALS['db'],
             'get_db' => $_GET['db'],
-            'query' => $_REQUEST['query'],
+            'query' => isset($_REQUEST['query']) ? $_REQUEST['query'] : null,
             'tab_pos' => $tab_pos,
             'display_page' => $display_page,
             'tab_column' => $tab_column,

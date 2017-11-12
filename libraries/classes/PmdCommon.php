@@ -90,7 +90,7 @@ class PmdCommon
                 $GLOBALS['dbi']->getColumnsSql(
                     $GLOBALS['db'],
                     $GLOBALS['PMD_URL']["TABLE_NAME_SMALL"][$i],
-                    DatabaseInterface::CONNECT_USER,
+                    null,
                     true
                 ),
                 DatabaseInterface::CONNECT_USER,
