@@ -4,16 +4,16 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.8.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2017-11-02 14:01+0100\n"
-"PO-Revision-Date: 2017-09-14 18:08+0000\n"
-"Last-Translator: Jakob Bo Kristensen <jakobbo@gmail.com>\n"
-"Language-Team: Danish <https://hosted.weblate.org/projects/phpmyadmin/master/"
-"da/>\n"
+"PO-Revision-Date: 2017-11-13 11:25+0000\n"
+"Last-Translator: jan madsen <jsm@janz.dk>\n"
+"Language-Team: Danish "
+"<https://hosted.weblate.org/projects/phpmyadmin/master/da/>\n"
 "Language: da\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 2.17-dev\n"
+"X-Generator: Weblate 2.18-dev\n"
 
 #: ajax.php:17 ajax.php:34 export.php:203 libraries/classes/Export.php:1100
 msgid "Bad type!"
@@ -1755,8 +1755,8 @@ msgid ""
 "It seems that the connection to server has been lost. Please check your "
 "network connectivity and server status."
 msgstr ""
-"Det ser ud til at din forbindelse til serveren er tabt. Tjek venligst din "
-"netværksforbindelse og serverens status."
+"Det ser ud til, at forbindelsen til serveren er tabt. Check "
+"netværksforbindelse, og server status."
 
 #: js/messages.php:369
 #: libraries/classes/Controllers/Server/ServerDatabasesController.php:199
@@ -6984,20 +6984,16 @@ msgid "Failed to set configured collation connection!"
 msgstr "Kunne ikke indstille den konfigurerede sorteringsforbindelse!"
 
 #: libraries/classes/DatabaseInterface.php:1499
-#, fuzzy, php-format
-#| msgid ""
-#| "Unable to use timezone %1$s for server %2$d. Please check your "
-#| "configuration setting for [em]$cfg['Servers'][%3$d]['SessionTimeZone'][/"
-#| "em]. phpMyAdmin is currently using the default time zone of the database "
-#| "server."
+#, php-format
 msgid ""
 "Unable to use timezone \"%1$s\" for server %2$d. Please check your "
 "configuration setting for [em]$cfg['Servers'][%3$d]['SessionTimeZone'][/em]. "
 "phpMyAdmin is currently using the default time zone of the database server."
 msgstr ""
-"Kan ikke benytte tidszonen %1$s for serveren %2$d. Tjek venligst din "
-"konfigurationsindstilling for [em]$cfg['Servers'][%3$d]['SessionTimeZone'][/"
-"em]. phpMyAdmin anvender i øjeblikket databaseserverens standardtidszone."
+"Kan ikke benytte tidszonen \"%1$s\" for serveren %2$d. Tjek venligst din "
+"konfigurationsindstilling for "
+"[em]$cfg['Servers'][%3$d]['SessionTimeZone'][/em]. phpMyAdmin anvender i "
+"øjeblikket databaseserverens standardtidszone."
 
 #: libraries/classes/DatabaseInterface.php:2097
 msgid ""
@@ -9080,16 +9076,12 @@ msgid "Switch to copied database"
 msgstr "Skift til den kopierede database"
 
 #: libraries/classes/Operations.php:311
-#, fuzzy
-#| msgid "Change all column collations"
 msgid "Change all tables collations"
-msgstr "Skift alle kolonne collationer"
+msgstr "Skift alle tabeller collationer"
 
 #: libraries/classes/Operations.php:317
-#, fuzzy
-#| msgid "Change all column collations"
 msgid "Change all tables columns collations"
-msgstr "Skift alle kolonne collationer"
+msgstr "Skift alle tabelekolonner collationer"
 
 #: libraries/classes/Operations.php:797
 msgid "Alter table order by"
@@ -10340,10 +10332,8 @@ msgid "Formats text as XML with syntax highlighting."
 msgstr "Formatterer tekst som XML med syntaksfremhævning."
 
 #: libraries/classes/Plugins/TwoFactor/Application.php:129
-#, fuzzy
-#| msgid "Authentication Plugin"
 msgid "Authentication Application (2FA)"
-msgstr "Autentifikations plug-in"
+msgstr "Autentificeringsprogram (2FA)"
 
 #: libraries/classes/Plugins/TwoFactor/Application.php:139
 msgid ""
@@ -10352,8 +10342,9 @@ msgid ""
 msgstr ""
 
 #: libraries/classes/Plugins/TwoFactor/Key.php:184
+#, fuzzy
 msgid "Hardware Security Key (FIDO U2F)"
-msgstr ""
+msgstr "Hardware sikkerhedsnøgle (FIDO U2F)"
 
 #: libraries/classes/Plugins/TwoFactor/Key.php:194
 msgid ""
@@ -10361,30 +10352,25 @@ msgid ""
 msgstr ""
 
 #: libraries/classes/Plugins/TwoFactor/Simple.php:52
-#, fuzzy
-#| msgid "Signon authentication"
 msgid "Simple two-factor authentication"
-msgstr "Login autentifikation"
+msgstr "Simpel to-faktor autentificering"
 
 #: libraries/classes/Plugins/TwoFactor/Simple.php:62
 msgid "For testing purposes only!"
-msgstr ""
+msgstr "Kun til testformål!"
 
 #: libraries/classes/Plugins/TwoFactorPlugin.php:65
-#, fuzzy, php-format
-#| msgid "Hardware authentication failed!"
+#, php-format
 msgid "Two-factor authentication failed: %s"
-msgstr "Hardwareautentifikation mislykkedes!"
+msgstr "To-faktor-godkendelse mislykkedes: %s"
 
 #: libraries/classes/Plugins/TwoFactorPlugin.php:69
-#, fuzzy
-#| msgid "Hardware authentication failed!"
 msgid "Two-factor authentication failed."
-msgstr "Hardwareautentifikation mislykkedes!"
+msgstr "To-faktor-godkendelse mislykkedes."
 
 #: libraries/classes/Plugins/TwoFactorPlugin.php:122
 msgid "None two-factor"
-msgstr ""
+msgstr "Ingen to-faktor"
 
 #: libraries/classes/Plugins/TwoFactorPlugin.php:132
 msgid "Login using password only."
@@ -14284,10 +14270,8 @@ msgid "Manage your settings"
 msgstr "Administrer dine indstillinger"
 
 #: libraries/user_preferences.inc.php:38
-#, fuzzy
-#| msgid "Config authentication"
 msgid "Two-factor authentication"
-msgstr "Config autentifikation"
+msgstr "To-faktor autentificering"
 
 #: libraries/user_preferences.inc.php:63 prefs_manage.php:309
 msgid "Configuration has been saved."
@@ -14393,16 +14377,12 @@ msgstr ""
 "Du kan nulstille alle dine indstillinger og gendanne dem med standardværdier."
 
 #: prefs_second.php:29
-#, fuzzy
-#| msgid "Internal relationship has been removed."
 msgid "Two-factor authentication has been removed."
-msgstr "Den interne relation er blevet fjernet."
+msgstr "To-faktor autentificering er blevet fjernet."
 
 #: prefs_second.php:39
-#, fuzzy
-#| msgid "Invalid authentication method set in configuration:"
 msgid "Two-factor authentication has been configured."
-msgstr "Ugyldig autorisationsmetode sat i konfiguration:"
+msgstr "To-faktor autentificering er blevet konfigureret."
 
 #: server_export.php:25
 msgid "View dump (schema) of databases"
@@ -15033,10 +15013,8 @@ msgstr "Nulstil zoom"
 
 #: templates/login/twofactor/application.twig:2
 #: templates/login/twofactor/application_configure.twig:9
-#, fuzzy
-#| msgid "Authentication"
 msgid "Authentication code:"
-msgstr "Autentifikation"
+msgstr "Autentificeringkode:"
 
 #: templates/login/twofactor/application.twig:4
 msgid ""
@@ -15208,10 +15186,9 @@ msgid "Save chart as image"
 msgstr "Gem tabel som billede"
 
 #: templates/database/structure/show_create_row.twig:7
-#, fuzzy, php-format
-#| msgid "Create User"
+#, php-format
 msgid "Create %s"
-msgstr "Opret"
+msgstr "Opret %s"
 
 #: templates/server/variables/variable_row.twig:6
 msgid "This is a read-only variable and can not be edited"
@@ -15261,10 +15238,9 @@ msgid "Column names"
 msgstr "Kolonnenavne"
 
 #: templates/server/databases/table_row.twig:13
-#, fuzzy, php-format
-#| msgid "Jump to database"
+#, php-format
 msgid "Jump to database '%s'"
-msgstr "Gå til database"
+msgstr "Gå til database '%s'"
 
 #: templates/server/databases/table_row.twig:61
 #, php-format
@@ -15290,10 +15266,8 @@ msgid "Index choice:"
 msgstr "Indeksvalg:"
 
 #: templates/table/index_form.twig:42
-#, fuzzy
-#| msgid "Active options"
 msgid "Advanced Options"
-msgstr "Aktive indstillinger"
+msgstr "Avancerede indstillinger"
 
 #: templates/table/index_form.twig:48
 msgid "Key block size:"
@@ -15344,10 +15318,8 @@ msgid "None"
 msgstr "Ingen"
 
 #: templates/prefs_second.twig:3
-#, fuzzy
-#| msgid "Authentication settings."
 msgid "Two-factor authentication status"
-msgstr "Indstillinger for autentifikation."
+msgstr "To-faktor autentificering status"
 
 #: templates/prefs_second.twig:9
 msgid ""
@@ -15358,11 +15330,14 @@ msgstr ""
 #: templates/prefs_second.twig:12
 msgid "Two-factor authentication is available and configured for this account."
 msgstr ""
+"To-faktor autentificering er tilgængelig og konfigureret for denne konto."
 
 #: templates/prefs_second.twig:14
 msgid ""
 "Two-factor authentication is available, but not configured for this account."
 msgstr ""
+"To-faktor-autentificering er til rådighed, men er ikke konfigureret for "
+"denne konto."
 
 #: templates/prefs_second.twig:18
 #, fuzzy
@@ -15370,24 +15345,22 @@ msgstr ""
 msgid ""
 "Two-factor authentication is not available, enable phpMyAdmin configuration "
 "storage to use it."
-msgstr "%sOpret%s manglende tabeller for phpMyAdmin-konfigurationslager."
+msgstr ""
+"To-faktor autentificering ikke er til rådighed, aktiverer phpMyAdmin "
+"konfiguration storage til at bruge den."
 
 #: templates/prefs_second.twig:27
 msgid "You have enabled two factor authentication."
-msgstr ""
+msgstr "Du har aktiveret to faktor-autentificering."
 
 #: templates/prefs_second.twig:31 templates/prefs_second_confirm.twig:9
-#, fuzzy
-#| msgid "Config authentication"
 msgid "Disable two-factor authentication"
-msgstr "Config autentifikation"
+msgstr "Deaktiver to-faktor autentificering"
 
 #: templates/prefs_second.twig:37 templates/prefs_second.twig:49
 #: templates/prefs_second_configure.twig:2
-#, fuzzy
-#| msgid "Config authentication"
 msgid "Configure two-factor authentication"
-msgstr "Config autentifikation"
+msgstr "Konfigurere to-faktor autentificering"
 
 #: templates/columns_definitions/column_virtuality.twig:29
 #: templates/table/structure/display_partitions.twig:26
@@ -15423,10 +15396,8 @@ msgid "Next autoindex"
 msgstr "Næste autoindeks"
 
 #: templates/prefs_second_confirm.twig:2
-#, fuzzy
-#| msgid "Config authentication"
 msgid "Confirm disabling two-factor authentication"
-msgstr "Config autentifikation"
+msgstr "Bekræft deaktivering af to-faktor autentificering"
 
 #: templates/prefs_second_confirm.twig:5
 msgid ""
@@ -15473,10 +15444,8 @@ msgid "in use"
 msgstr "i brug"
 
 #: templates/prefs_second_configure.twig:8
-#, fuzzy
-#| msgid "Config authentication"
 msgid "Enable two-factor authentication"
-msgstr "Config autentifikation"
+msgstr "Aktiver to-faktor autentificering"
 
 #: templates/privileges/privileges_summary.twig:20
 msgid "Column-specific privileges"
@@ -15652,8 +15621,6 @@ msgid "Hide/Show all"
 msgstr "Skjul/Vis alle"
 
 #: templates/database/designer/table_list.twig:14
-#, fuzzy
-#| msgid "Hide/Show Tables with no relationship"
 msgid "Hide/Show tables with no relationship"
 msgstr "Skjul/Vis tabeller uden relation"
 
@@ -15966,12 +15933,6 @@ msgid ""
 msgstr ""
 
 #: templates/columns_definitions/table_fields_definitions.twig:17
-#, fuzzy
-#| msgid ""
-#| "If column type is \"enum\" or \"set\", please enter the values using this "
-#| "format: 'a','b','c'…<br />If you ever need to put a backslash (\"\\\") or "
-#| "a single quote (\"'\") amongst those values, precede it with a backslash "
-#| "(for example '\\\\xyz' or 'a\\'b')."
 msgid ""
 "If column type is \"enum\" or \"set\", please enter the values using this "
 "format: 'a','b','c'…<br />If you ever need to put a backslash (\"\") or a "
@@ -15979,8 +15940,8 @@ msgid ""
 "example '\\\\xyz' or 'a\\'b')."
 msgstr ""
 "Hvis et felt er af typen \"enum\" eller \"set\", skal værdierne angives på "
-"formen: 'a','b','c'…<br />Skulle du få brug for en backslash (\"\\\") eller "
-"et enkelt anførselstegn (\"'\") blandt disse værdier, så tilføj en ekstra "
+"formen: 'a','b','c'…<br />Skulle du få brug for en backslash (\"\") eller et "
+"enkelt anførselstegn (\"'\") blandt disse værdier, så tilføj en ekstra "
 "backslash (fx '\\\\xyz' eller 'a\\'b')."
 
 #: templates/columns_definitions/table_fields_definitions.twig:21
@@ -16010,12 +15971,6 @@ msgstr "Tilvalg for transformation af browservisning"
 
 #: templates/columns_definitions/table_fields_definitions.twig:83
 #: templates/columns_definitions/table_fields_definitions.twig:94
-#, fuzzy
-#| msgid ""
-#| "Please enter the values for transformation options using this format: "
-#| "'a', 100, b,'c'…<br />If you ever need to put a backslash (\"\\\") or a "
-#| "single quote (\"'\") amongst those values, precede it with a backslash "
-#| "(for example '\\\\xyz' or 'a\\'b')."
 msgid ""
 "Please enter the values for transformation options using this format: 'a', "
 "100, b,'c'…<br />If you ever need to put a backslash (\"\") or a single "
@@ -16023,9 +15978,9 @@ msgid ""
 "'\\\\xyz' or 'a\\'b')."
 msgstr ""
 "Indtast værdier for transformationsindstillinger ud fra følgende format: "
-"'a', 100, b,'c'…<br />Skulle du få brug for at indsætte en backslash (\"\\"
-"\") eller en apostrof (\"'\") i værdierne, backslash det (for eksempel '\\"
-"\\xyz' eller 'a\\'b')."
+"'a', 100, b,'c'…<br />Skulle du få brug for at indsætte en backslash (\"\") "
+"eller en apostrof (\"'\") i værdierne, backslash det (for eksempel '\\\\xyz' "
+"eller 'a\\'b')."
 
 #: templates/columns_definitions/table_fields_definitions.twig:93
 msgid "Input transformation options"
