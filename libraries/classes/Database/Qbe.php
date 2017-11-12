@@ -412,20 +412,11 @@ class Qbe
     private function _getSortOrderSelectCell($columnNumber, $sortOrder)
     {
         $totalColumnCount = $this->_getNewColumnCount();
-        $html_output  = '<td class="center">';
-        $html_output .= '<select name="criteriaSortOrder[' . $columnNumber . ']">';
-        $html_output .= '<option value="1000">'
-            . '&nbsp;</option>';
-        for ($a = 1; $a <= $totalColumnCount; $a++) {
-            $html_output .= '<option value="' . $a . '"';
-            if ($a == $sortOrder) {
-                $html_output .= ' selected="selected"';
-            }
-            $html_output .= '>' . $a . '</option>';
-        }
-        $html_output .= '</select>';
-        $html_output .= '</td>';
-        return $html_output;
+        return Template::get('database/qbe/sort_order_select_cell')->render([
+            'total_column_count' => $totalColumnCount,
+            'column_number' => $columnNumber,
+            'sort_order' => $sortOrder,
+        ]);
     }
 
     /**
