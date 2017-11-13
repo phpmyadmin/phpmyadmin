@@ -2,37 +2,37 @@
 <form action="" id="query_form">
     <input type="hidden" id="db_name" value="{{ db }}">
     <fieldset>
-        {% set tables_count = tables|length - 1 %}
-        {% for i in 0..tables_count %}
-            <div style="display:none" id="{{ md5(tables[i]) }}">
-                {% set table_fields = dbi.getColumns(db, tables[i]) %}
+        {% for table in tables %}
+            <div style="display:none" id="{{ table.hash }}">
                 <option value="*">*</option>
-                {% for key in table_fields|keys %}
-                    <option value="{{ key }}">{{ key }}</option>
+                {% for column in table.columns %}
+                    <option value="{{ column }}">{{ column }}</option>
                 {% endfor %}
             </div>
         {% endfor %}
 
-        <div style="display:none" id="new_column_layout">
-            {% include 'database/multi_table_query/new_column.twig' with {
-                'id': 0,
-                'tables': tables
-            } only %}
-        </div>
-
-        {% for i in 1..default_no_of_columns %}
+        {% for i in 0..default_no_of_columns %}
             {% include 'database/multi_table_query/new_column.twig' with {
                 'id': i,
                 'tables': tables
             } only %}
         {% endfor %}
+
         <fieldset style="display:inline">
             <input type="button" value="{% trans '+ Add column' %}" id="add_column_button">
-            <br> &nbsp;
         </fieldset>
 
         <fieldset>
-            <textarea cols="80" rows="4" style="float:left" name="sql_query" id="MultiSqlquery" dir="ltr"></textarea>
+            {% spaceless %}
+                <textarea
+                    cols="80"
+                    rows="4"
+                    style="float:left"
+                    name="sql_query"
+                    id="MultiSqlquery"
+                    dir="ltr">
+                </textarea>
+            {% endspaceless %}
         </fieldset>
     </fieldset>
 
@@ -41,5 +41,5 @@
         <input type="button" id="submit_query" value="{% trans 'Submit query' %}">
     </fieldset>
 </form>
-</div>
+</div>{# Slider div #}
 <div id="sql_results"></div>

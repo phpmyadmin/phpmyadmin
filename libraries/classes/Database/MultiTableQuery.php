@@ -73,12 +73,18 @@ class MultiTableQuery
      *
      * @return string Multi-Table query page HTML
      */
-    public function getFormHTML()
+    public function getFormHtml()
     {
+        $tables = [];
+        foreach($this->tables as $table) {
+            $tables[$table]['hash'] = md5($table);
+            $tables[$table]['columns'] = array_keys(
+                $this->dbi->getColumns($this->db, $table)
+            );
+        }
         return Template::get('database/multi_table_query/form')->render([
-            'dbi' => $this->dbi,
             'db' => $this->db,
-            'tables' => $this->tables,
+            'tables' => $tables,
             'default_no_of_columns' => $this->defaultNoOfColumns,
         ]);
     }

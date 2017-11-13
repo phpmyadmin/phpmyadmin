@@ -1,8 +1,9 @@
+{% if id == 0 %}<div style="display:none" id="new_column_layout">{% endif %}
 <fieldset style="display:inline" class="column_details">
     <select style="display:inline" class="tableNameSelect">
         <option value="">{% trans 'select table' %}</option>
-        {% for table in tables %}
-            <option value="{{ table }}"> {{ table }} </option>
+        {% for table in tables|keys %}
+            <option value="{{ table }}">{{ table }}</option>
         {% endfor %}
     </select>
     <span>.</span>
@@ -70,8 +71,8 @@
                 <td>
                     <select  class="tableNameSelect">
                         <option value="">{% trans 'select table' %}</option>
-                        {% for table in tables %}
-                            <option value="{{ table }}"> {{ table }} </option>
+                        {% for table in tables|keys %}
+                            <option value="{{ table }}">{{ table }}</option>
                         {% endfor %}
                     </select><span>.</span>
                 </td>
@@ -92,3 +93,4 @@
     </div>
     <a href="#" title="{% trans 'Remove this column' %}" style="float:right;color:red" class="removeColumn">X</a>
 </fieldset>
+{% if id == 0 %}</div>{% endif %}

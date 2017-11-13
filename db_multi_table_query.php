@@ -53,6 +53,6 @@ $scripts = $header->getScripts();
 $scripts->addFile('vendor/jquery/jquery.md5.js');
 $scripts->addFile('db_multi_table_query.js');
 
-$QueryInstance = new MultiTableQuery($GLOBALS['dbi'], $db);
+$queryInstance = new MultiTableQuery($GLOBALS['dbi'], $db);
 
-$response->addHTML($QueryInstance->getFormHTML());
+$response->addHTML($queryInstance->getFormHtml());
