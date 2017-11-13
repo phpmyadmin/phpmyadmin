@@ -113,34 +113,13 @@ class Util
      */
     public static function getImage($image, $alternate = '', array $attributes = array())
     {
-        $is_sprite = false;
         $alternate = htmlspecialchars($alternate);
 
-        $sprites = array();
-        // Try to load the list of sprites
-        if (isset($GLOBALS['PMA_Theme'])) {
-            $sprites = $GLOBALS['PMA_Theme']->getSpriteData();
-        }
-
-        // Check if we have the requested image as a sprite
-        //  and set $url accordingly
-        $class = str_replace(array('.gif','.png'), '', $image);
-        if (array_key_exists($class, $sprites)) {
-            $is_sprite = true;
-            $url = 'themes/dot.gif';
-        } elseif (isset($GLOBALS['pmaThemeImage'])) {
+        // Set $url accordingly
+        if (isset($GLOBALS['pmaThemeImage'])) {
             $url = $GLOBALS['pmaThemeImage'] . $image;
         } else {
             $url = './themes/pmahomme/' . $image;
-        }
-
-        // set class attribute
-        if ($is_sprite) {
-            if (isset($attributes['class'])) {
-                $attributes['class'] = "icon ic_$class " . $attributes['class'];
-            } else {
-                $attributes['class'] = "icon ic_$class";
-            }
         }
 
         // set all other attributes

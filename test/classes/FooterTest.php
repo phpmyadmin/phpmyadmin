@@ -182,9 +182,9 @@ class FooterTest extends PmaTestCase
             '<div id="selflink" class="print_ignore"><a href="index.php?db=&amp;'
             . 'table=&amp;server=1&amp;target=&amp;lang=en&amp;collation_connection='
             . 'utf8_general_ci" title="Open new phpMyAdmin window" '
-            . 'target="_blank" rel="noopener noreferrer"><img src="themes/dot.gif" title="Open new '
+            . 'target="_blank" rel="noopener noreferrer"><img src="./themes/pmahomme/window-new.png" title="Open new '
             . 'phpMyAdmin window" alt="Open new phpMyAdmin window" '
-            . 'class="icon ic_window-new" /></a></div>',
+            . '/></a></div>',
             $this->_callPrivateFunction(
                 '_getSelfLink',
                 array(
