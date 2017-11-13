@@ -42,45 +42,12 @@ class MultiTableQuery
     private function getColumnsHTML()
     {
         $tables = $GLOBALS['dbi']->getTables($this->_db);
-        $html_output = '<fieldset>';
-        for ($i = 0; $i < count($tables); $i++)
-        {
-            $html_output .= '<div style="display:none" id="' . md5($tables[$i]) . '">';
-            $table_fields = $GLOBALS['dbi']->getColumns($this->_db, $tables[$i]);
-            $html_output .= '<option value="*"> * </option>';
-            foreach ($table_fields as $key => $value)
-            {
-                $html_output .= '<option value="' . $key  . '">' . $key . '</option>';
-            }
-            $html_output .= '</div>';
-        }
-
-        $html_output .= '<div style="display:none" id="new_column_layout">';
-        $html_output .= Template::get('database/multi_table_query/new_column')->render(array(
-            'id'        => 0,
-            'tables'    => $tables
-        ));
-        $html_output .= '</div>';
-
-        for ($i = 1; $i <= $this->_default_no_of_columns; $i++)
-        {
-            $html_output .= Template::get('database/multi_table_query/new_column')->render(array(
-                'id'        => $i,
-                'tables'    => $tables
-            ));
-        }
-        $html_output .= '<fieldset style="display:inline">';
-        $html_output .= '<input type="button" value="' . __('+ Add column') . '" id="add_column_button">';
-        $html_output .= '<br> &nbsp;';
-        $html_output .= '</fieldset>';
-
-        $html_output .= '<fieldset>';
-        $html_output .= '<textarea cols="80" rows="4" style="float:left" name="sql_query" id="MultiSqlquery" dir="ltr"></textarea>';
-        $html_output .= '</fieldset>';
-
-        $html_output .= '</fieldset>';
-
-        return $html_output;
+        return Template::get('database/multi_table_query/columns')->render([
+            'tables' => $tables,
+            'dbi' => $GLOBALS['dbi'],
+            'db' => $this->_db,
+            'default_no_of_columns' => $this->_default_no_of_columns,
+        ]);
     }
 
     public function getFormHTML()
