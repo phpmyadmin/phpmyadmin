@@ -2596,7 +2596,9 @@ $cfg['AvailableCharsets'] = array(
     'euc-jp',
     'ks_c_5601-1987',
     'tis-620',
-    'SHIFT_JIS'
+    'SHIFT_JIS',
+    'SJIS',
+    'SJIS-win',
 );
 
 

@@ -44,6 +44,7 @@ phpMyAdmin - ChangeLog
 
 4.7.6 (not yet released)
 - issue #13517 Fixed check all interaction with filtering
+- issue #13803 Add SJIS-win to default list of allowed charsets
 
 4.7.5 (2017-10-23)
 - issue #13615 Avoid problems with browsing unknown query types
