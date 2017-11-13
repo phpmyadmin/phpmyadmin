@@ -193,7 +193,6 @@ class Header
         } else {
             $theme_id = 'default';
         }
-        $this->_scripts->addFile('get_image.js.php', false, array('theme' => $theme_id));
         $this->_scripts->addFile('config.js');
         $this->_scripts->addFile('doclinks.js');
         $this->_scripts->addFile('functions.js');
