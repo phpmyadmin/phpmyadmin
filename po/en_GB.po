@@ -6,16 +6,16 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.8.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2017-11-02 14:01+0100\n"
-"PO-Revision-Date: 2017-10-28 00:46+0000\n"
-"Last-Translator: monolifed <monolifed@gmail.com>\n"
-"Language-Team: English (United Kingdom) <https://hosted.weblate.org/projects/"
-"phpmyadmin/master/en_GB/>\n"
+"PO-Revision-Date: 2017-11-13 14:51+0000\n"
+"Last-Translator: M1ckm <mmmickmason2@gmail.com>\n"
+"Language-Team: English (United Kingdom) "
+"<https://hosted.weblate.org/projects/phpmyadmin/master/en_GB/>\n"
 "Language: en_GB\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 2.17\n"
+"X-Generator: Weblate 2.18-dev\n"
 
 #: ajax.php:17 ajax.php:34 export.php:203 libraries/classes/Export.php:1100
 msgid "Bad type!"
@@ -2656,12 +2656,12 @@ msgstr "Strong"
 
 #: js/messages.php:746
 msgid "Timed out waiting for security key activation."
-msgstr ""
+msgstr "Time machine."
 
 #: js/messages.php:747
 #, php-format
 msgid "Failed security key activation (%s)."
-msgstr ""
+msgstr "gcloud command line tool."
 
 #: js/messages.php:776
 msgctxt "Previous month"
@@ -9038,6 +9038,7 @@ msgid "CREATE DATABASE before copying"
 msgstr "CREATE DATABASE before copying"
 
 #: libraries/classes/Operations.php:265
+#, fuzzy
 msgid "Switch to copied database"
 msgstr "Switch to copied database"
 
