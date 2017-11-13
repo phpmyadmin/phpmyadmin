@@ -1,0 +1,11 @@
+{{ Util_getDivForSliderEffect('query_div', 'Query window'|trans, 'open') }}
+<form action="" id="query_form">
+    <input type="hidden" id="db_name" value="{{ db }}">
+    {{ columns|raw }}
+    <fieldset class="tblFooters">
+        <input type="button" id="update_query_button" value="{% trans 'Update query' %}">
+        <input type="button" id="submit_query" value="{% trans 'Submit query' %}">
+    </fieldset>
+</form>
+</div>
+<div id="sql_results"></div>
