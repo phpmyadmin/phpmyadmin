@@ -70,12 +70,12 @@ class MultiTableQuery
             ));
         }
         $html_output .= '<fieldset style="display:inline">';
-        $html_output .= '<input type="button" value="+ Add column" id="add_column_button">';
+        $html_output .= '<input type="button" value="' . __('+ Add column') . '" id="add_column_button">';
         $html_output .= '<br> &nbsp;';
         $html_output .= '</fieldset>';
 
         $html_output .= '<fieldset>';
-        $html_output .= '<textarea cols="80" rows="4" style="float:left" name="sql_query" id="MultiSqlquery" dir="ltr"> </textarea>';
+        $html_output .= '<textarea cols="80" rows="4" style="float:left" name="sql_query" id="MultiSqlquery" dir="ltr"></textarea>';
         $html_output .= '</fieldset>';
 
         $html_output .= '</fieldset>';
@@ -92,8 +92,8 @@ class MultiTableQuery
         $html_output .= $this->getColumnsHTML();
 
         $html_output .= '<fieldset class="tblFooters">';
-        $html_output .= '<input type="button" id="update_query_button" value="Update query">';
-        $html_output .= '<input type="button" id="submit_query" value="Submit query">';
+        $html_output .= '<input type="button" id="update_query_button" value="' . __('Update query') . '">';
+        $html_output .= '<input type="button" id="submit_query" value="' . __('Submit query') . '">';
         $html_output .= '</fieldset>';
 
         $html_output .= '</form>';
