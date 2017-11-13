@@ -10,7 +10,7 @@
         <option value="">{% trans 'select column' %}</option>
     </select>
     <br> <input type="checkbox" checked="checked" class="show_col"> <span>{% trans 'Show' %}</span>
-    <br> <input type="text" placeholder="Table alias" class="table_alias"> <input type="text" placeholder="Column alias" class="col_alias">
+    <br> <input type="text" placeholder="{% trans 'Table alias' %}" class="table_alias"> <input type="text" placeholder="{% trans 'Column alias' %}" class="col_alias">
     <br>
     <input type="checkbox" title="{% trans 'Use this column in criteria' %}" class="criteria_col">
     {% include 'div_for_slider_effect.twig' with {
