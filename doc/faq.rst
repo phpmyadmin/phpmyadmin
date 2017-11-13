@@ -215,7 +215,7 @@ The proper solution is to use the `mysqli extension
 <https://secure.php.net/mysqli>`_ with the proper client library to match
 your MySQL installation. More
 information (and several workarounds) are located in the `MySQL
-Documentation <https://dev.mysql.com/doc/refman/5.7/en/old-client.html>`_.
+Documentation <https://dev.mysql.com/doc/refman/5.7/en/common-errors.html>`_.
 
 .. _faq1_18:
 
