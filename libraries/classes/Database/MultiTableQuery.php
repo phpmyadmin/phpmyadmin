@@ -69,30 +69,17 @@ class MultiTableQuery
     }
 
     /**
-     * Get HTML for columns
+     * Get Multi-Table query page HTML
      *
-     * @return string HTML with columns
-     */
-    private function getColumnsHTML()
-    {
-        return Template::get('database/multi_table_query/columns')->render([
-            'tables' => $this->tables,
-            'dbi' => $this->dbi,
-            'db' => $this->db,
-            'default_no_of_columns' => $this->defaultNoOfColumns,
-        ]);
-    }
-
-    /**
-     * Get Multi Table Query page HTML
-     *
-     * @return string Multi Table Query page HTML
+     * @return string Multi-Table query page HTML
      */
     public function getFormHTML()
     {
         return Template::get('database/multi_table_query/form')->render([
+            'dbi' => $this->dbi,
             'db' => $this->db,
-            'columns' => $this->getColumnsHTML(),
+            'tables' => $this->tables,
+            'default_no_of_columns' => $this->defaultNoOfColumns,
         ]);
     }
 }
