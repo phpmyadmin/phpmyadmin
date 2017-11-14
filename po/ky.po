@@ -8,32 +8,29 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.8.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2017-11-02 14:01+0100\n"
-"PO-Revision-Date: 2015-10-15 11:03+0200\n"
-"Last-Translator: Michal Čihař <michal@cihar.com>\n"
-"Language-Team: Kyrgyz <https://hosted.weblate.org/projects/phpmyadmin/master/"
-"ky/>\n"
+"PO-Revision-Date: 2017-11-14 08:29+0000\n"
+"Last-Translator: Kylychbek Turdakunov <kylychbek_tk@yahoo.com>\n"
+"Language-Team: Kyrgyz "
+"<https://hosted.weblate.org/projects/phpmyadmin/master/ky/>\n"
 "Language: ky\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 2.5-dev\n"
+"X-Generator: Weblate 2.18-dev\n"
 
 #: ajax.php:17 ajax.php:34 export.php:203 libraries/classes/Export.php:1100
 msgid "Bad type!"
 msgstr "Туура эмес тип!"
 
 #: changelog.php:39 license.php:34
-#, fuzzy, php-format
-#| msgid ""
-#| "The %s file is not available on this system, please visit www.phpmyadmin."
-#| "net for more information."
+#, php-format
 msgid ""
 "The %s file is not available on this system, please visit %s for more "
 "information."
 msgstr ""
-"%s аттуу файл бул системде жок, кененирээк маалымат алуу үчүн www.phpmyadmin."
-"net баракчасына кайрылыңыз."
+"%s аттуу файл бул системде жок, кененирээк маалымат алуу үчүн %s баракчасына "
+"кайрылыңыз."
 
 #: db_central_columns.php:110
 msgid "The central list of columns for the current database is empty."
@@ -41,12 +38,12 @@ msgstr ""
 
 #: db_central_columns.php:135
 msgid "Click to sort."
-msgstr ""
+msgstr "Ирээттөө үчүн басыңыз."
 
 #: db_central_columns.php:152
 #, php-format
 msgid "Showing rows %1$s - %2$s."
-msgstr ""
+msgstr "%1$s - %2$s чейинки саптар көрсөтүлдү."
 
 #: db_datadict.php:59 libraries/classes/Operations.php:47
 msgid "Database comment"
@@ -184,8 +181,9 @@ msgstr "Коментарийлер"
 #: templates/table/structure/display_structure.twig:61
 #: templates/columns_definitions/column_indexes.twig:4
 #: templates/table/structure/check_all_table_column.twig:33
+#, fuzzy
 msgid "Primary"
-msgstr ""
+msgstr "Primary"
 
 #: db_datadict.php:164 js/messages.php:380
 #: libraries/classes/CentralColumns.php:974
@@ -265,7 +263,7 @@ msgstr "Берилиштер базасында жадыбал табылган 
 #: libraries/classes/Server/Status/Data.php:128
 #: templates/database/structure/show_create.twig:14
 msgid "Tables"
-msgstr ""
+msgstr "Жадыбалдар"
 
 #: db_export.php:69 libraries/classes/CentralColumns.php:739
 #: libraries/classes/Config/Forms/User/ExportForm.php:49
@@ -286,7 +284,7 @@ msgstr ""
 #: templates/database/designer/table_list.twig:24
 #: templates/columns_definitions/table_fields_definitions.twig:4
 msgid "Structure"
-msgstr ""
+msgstr "Структура"
 
 #: db_export.php:70 libraries/classes/Config/Forms/User/ExportForm.php:62
 #: libraries/classes/Config/Forms/User/ExportForm.php:101
@@ -296,7 +294,7 @@ msgstr ""
 #: libraries/classes/Server/Privileges.php:1143
 #: templates/table/structure/display_table_stats.twig:17
 msgid "Data"
-msgstr ""
+msgstr "Берилиш"
 
 #: db_export.php:73 libraries/classes/Database/Search.php:436
 #: libraries/classes/Display/Export.php:59
@@ -308,7 +306,7 @@ msgstr "Баарын танда"
 
 #: db_operations.php:56 tbl_create.php:27
 msgid "The database name is empty!"
-msgstr "Берилигтер базасынын аты бош калды!"
+msgstr "Берилиштер базасынын аты бош калды!"
 
 #: db_operations.php:59
 msgid "Cannot copy database to the same name. Change the name and try again."
@@ -334,8 +332,8 @@ msgstr "%1$s берилиштер базасы %2$s на(га) кочурулд�
 msgid ""
 "The phpMyAdmin configuration storage has been deactivated. %sFind out why%s."
 msgstr ""
-"пхпМенинАдминимдин конфигурацияларын сактоо очурулду. Табуу учун эмнеге "
-"%shere%s бастыныз."
+"phpMyAdmin конфигурацияларын сактоо өчүрүлдү. Табуу үчүн эмнеге %shere%s "
+"бастыныз."
 
 #: db_qbe.php:130
 msgid "You have to choose at least one column to display!"
