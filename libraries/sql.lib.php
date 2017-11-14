@@ -1287,7 +1287,7 @@ function PMA_executeTheQuery($analyzed_sql_results, $full_sql_query, $is_gotofil
     );
 }
 /**
- * Delete related tranformation information
+ * Delete related transformation information
  *
  * @param String $db                   current database
  * @param String $table                current table
