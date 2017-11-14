@@ -202,7 +202,7 @@ function PMA_getTransformationName($file)
 }
 
 /**
- * Fixups old MIME or tranformation name to new one
+ * Fixups old MIME or transformation name to new one
  *
  * - applies some hardcoded fixups
  * - adds spaces after _ and numbers
