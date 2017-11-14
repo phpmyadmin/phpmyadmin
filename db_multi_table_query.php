@@ -1,58 +1,30 @@
 <?php
 /* vim: set expandtab sw=4 ts=4 sts=4: */
 /**
- * query by example the whole database
+ * Handles database multi-table querying
  *
  * @package PhpMyAdmin
  */
 use PhpMyAdmin\Database\MultiTableQuery;
-use PhpMyAdmin\ParseAnalyze;
 use PhpMyAdmin\Response;
-use PhpMyAdmin\Sql;
 
 require_once 'libraries/common.inc.php';
 
 if (isset($_REQUEST['sql_query'])) {
-    $sql_query = $_REQUEST['sql_query'];
-    $db = $_REQUEST['db'];
-    list(
-        $analyzed_sql_results,
-        $db,
-        $table_from_sql
-    ) = ParseAnalyze::sqlQuery($sql_query, $db);
-
-    extract($analyzed_sql_results);
-    $goto = 'db_multi_table_query.php';
-    $html_output = Sql::executeQueryAndSendQueryResponse(
-        null, // analyzed_sql_results
-        false, // is_gotofile
-        $db, // db
-        null, // table
-        null, // find_real_end
-        null, // sql_query_for_bookmark - see below
-        null, // extra_data
-        null, // message_to_show
-        null, // message
-        null, // sql_data
-        $goto, // goto
-        $pmaThemeImage, // pmaThemeImage
-        null, // disp_query
-        null, // disp_message
-        null, // query_type
-        $sql_query, // sql_query
-        null, // selectedTables
-        null // complete_query
+    MultiTableQuery::displayResults(
+        $_REQUEST['sql_query'],
+        $_REQUEST['db'],
+        $pmaThemeImage
     );
-    exit;
+} else {
+    $response = Response::getInstance();
+
+    $header = $response->getHeader();
+    $scripts = $header->getScripts();
+    $scripts->addFile('vendor/jquery/jquery.md5.js');
+    $scripts->addFile('db_multi_table_query.js');
+
+    $queryInstance = new MultiTableQuery($GLOBALS['dbi'], $db);
+
+    $response->addHTML($queryInstance->getFormHtml());
 }
-
-$response = Response::getInstance();
-
-$header = $response->getHeader();
-$scripts = $header->getScripts();
-$scripts->addFile('vendor/jquery/jquery.md5.js');
-$scripts->addFile('db_multi_table_query.js');
-
-$QueryInstance = new MultiTableQuery($db);
-
-$response->addHTML($QueryInstance->getFormHTML());
