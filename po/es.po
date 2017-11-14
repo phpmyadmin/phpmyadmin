@@ -3859,7 +3859,7 @@ msgstr "Transformaciones predeterminadas para Hex"
 #: libraries/classes/Config/Descriptions.php:229
 msgid ""
 "Values for options list for default transformations. These will be "
-"overwritten if tranformation is filled in at table structure page."
+"overwritten if transformation is filled in at table structure page."
 msgstr ""
 "Valores de la lista de opciones para las transformaciones predeterminadas. "
 "Se sobrescribirán si la transformación se rellena en la página de estructura "

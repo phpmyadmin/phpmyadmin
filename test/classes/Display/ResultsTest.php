@@ -1590,7 +1590,7 @@ class ResultsTest extends PmaTestCase
     /**
      * Simple output transformation test
      *
-     * It mocks data needed to display two tranformations and asserts
+     * It mocks data needed to display two transformations and asserts
      * they are rendered.
      *
      * @return void

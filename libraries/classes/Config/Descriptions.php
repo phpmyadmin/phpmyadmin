@@ -194,39 +194,39 @@ class Descriptions
             case 'DefaultTransformations_Hex_name':
                 return __('Default transformations for Hex');
             case 'DefaultTransformations_Hex_desc':
-                return __('Values for options list for default transformations. These will be overwritten if tranformation is filled in at table structure page.');
+                return __('Values for options list for default transformations. These will be overwritten if transformation is filled in at table structure page.');
             case 'DefaultTransformations_Substring_name':
                 return __('Default transformations for Substring');
             case 'DefaultTransformations_Substring_desc':
-                return __('Values for options list for default transformations. These will be overwritten if tranformation is filled in at table structure page.');
+                return __('Values for options list for default transformations. These will be overwritten if transformation is filled in at table structure page.');
             case 'DefaultTransformations_Bool2Text_name':
                 return __('Default transformations for Bool2Text');
             case 'DefaultTransformations_Bool2Text_desc':
-                return __('Values for options list for default transformations. These will be overwritten if tranformation is filled in at table structure page.');
+                return __('Values for options list for default transformations. These will be overwritten if transformation is filled in at table structure page.');
             case 'DefaultTransformations_External_name':
                 return __('Default transformations for External');
             case 'DefaultTransformations_External_desc':
-                return __('Values for options list for default transformations. These will be overwritten if tranformation is filled in at table structure page.');
+                return __('Values for options list for default transformations. These will be overwritten if transformation is filled in at table structure page.');
             case 'DefaultTransformations_PreApPend_name':
                 return __('Default transformations for PreApPend');
             case 'DefaultTransformations_PreApPend_desc':
-                return __('Values for options list for default transformations. These will be overwritten if tranformation is filled in at table structure page.');
+                return __('Values for options list for default transformations. These will be overwritten if transformation is filled in at table structure page.');
             case 'DefaultTransformations_DateFormat_name':
                 return __('Default transformations for DateFormat');
             case 'DefaultTransformations_DateFormat_desc':
-                return __('Values for options list for default transformations. These will be overwritten if tranformation is filled in at table structure page.');
+                return __('Values for options list for default transformations. These will be overwritten if transformation is filled in at table structure page.');
             case 'DefaultTransformations_Inline_name':
                 return __('Default transformations for Inline');
             case 'DefaultTransformations_Inline_desc':
-                return __('Values for options list for default transformations. These will be overwritten if tranformation is filled in at table structure page.');
+                return __('Values for options list for default transformations. These will be overwritten if transformation is filled in at table structure page.');
             case 'DefaultTransformations_TextImageLink_name':
                 return __('Default transformations for TextImageLink');
             case 'DefaultTransformations_TextImageLink_desc':
-                return __('Values for options list for default transformations. These will be overwritten if tranformation is filled in at table structure page.');
+                return __('Values for options list for default transformations. These will be overwritten if transformation is filled in at table structure page.');
             case 'DefaultTransformations_TextLink_name':
                 return __('Default transformations for TextLink');
             case 'DefaultTransformations_TextLink_desc':
-                return __('Values for options list for default transformations. These will be overwritten if tranformation is filled in at table structure page.');
+                return __('Values for options list for default transformations. These will be overwritten if transformation is filled in at table structure page.');
 
             case 'DisplayServersList_desc':
                 return __('Show server listing as a list instead of a drop down.');

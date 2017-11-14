@@ -3855,7 +3855,7 @@ msgstr "Προεπιλεγμένες μετατροπές για Δεκαεξα�
 #: libraries/classes/Config/Descriptions.php:229
 msgid ""
 "Values for options list for default transformations. These will be "
-"overwritten if tranformation is filled in at table structure page."
+"overwritten if transformation is filled in at table structure page."
 msgstr ""
 "Τιμές για τη λίστα επιλογών για τις προεπιλεγμένες μετατροπές. Αυτά θα "
 "αντικατασταθούν η μετατροπή έχει συμπληρωθεί στη σελίδα δομής πίνακα."

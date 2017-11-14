@@ -3859,7 +3859,7 @@ msgstr "Transformações padrão para Hex"
 #: libraries/classes/Config/Descriptions.php:229
 msgid ""
 "Values for options list for default transformations. These will be "
-"overwritten if tranformation is filled in at table structure page."
+"overwritten if transformation is filled in at table structure page."
 msgstr ""
 "Valores para lista de opções para as transformações padrão. Estes serão "
 "substituídos se a transformação for preenchida na página de estrutura da "

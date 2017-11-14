@@ -1315,7 +1315,7 @@ EOT;
         );
     }
     /**
-     * Delete related tranformation information
+     * Delete related transformation information
      *
      * @param String $db                   current database
      * @param String $table                current table
