@@ -38,7 +38,7 @@
         }
     ],
     "require": {
-        "php": ">=5.5.0",
+        "php": ">=5.5.9",
         "ext-mysqli": "*",
         "ext-xml": "*",
         "ext-pcre": "*",
