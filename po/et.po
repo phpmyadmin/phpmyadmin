@@ -6,10 +6,10 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.8.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2017-11-14 09:29+0100\n"
-"PO-Revision-Date: 2017-11-05 09:36+0000\n"
+"PO-Revision-Date: 2017-11-14 19:33+0000\n"
 "Last-Translator: Kristjan Räts <kristjanrats@gmail.com>\n"
-"Language-Team: Estonian <https://hosted.weblate.org/projects/phpmyadmin/"
-"master/et/>\n"
+"Language-Team: Estonian "
+"<https://hosted.weblate.org/projects/phpmyadmin/master/et/>\n"
 "Language: et\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -2106,7 +2106,7 @@ msgstr "Peida otsingu kriteerium"
 
 #: js/messages.php:482
 msgid "Show search criteria"
-msgstr "Näita otsingu kriteeriumi"
+msgstr "Kuva otsingu kriteeriumi"
 
 #: js/messages.php:483
 msgid "Range search"
@@ -2134,7 +2134,7 @@ msgstr "Peida 'leia ja asenda' kriteerium"
 
 #: js/messages.php:491
 msgid "Show find and replace criteria"
-msgstr "Kuva 'leia ja asenda' kriteeriumi"
+msgstr "Kuva 'leia ja asenda' kriteerium"
 
 #: js/messages.php:495
 msgid "Each point represents a data row."
@@ -15194,14 +15194,10 @@ msgid "Server variables and settings"
 msgstr "Serveri muutujad ja sätted"
 
 #: templates/server/sub_page_header.twig:2
-#, fuzzy
-#| msgid "Storage Engines"
 msgid "Storage engines"
 msgstr "Salvestusmootorid"
 
 #: templates/server/sub_page_header.twig:2
-#, fuzzy
-#| msgid "Character Sets and Collations"
 msgid "Character sets and collations"
 msgstr "Märgitabelid ja kodeeringud"
 
@@ -15969,67 +15965,47 @@ msgstr "Päringuaken"
 
 #: templates/database/multi_table_query/form.twig:18
 #: templates/database/multi_table_query/form.twig:106
-#, fuzzy
-#| msgid "Select table:"
 msgid "select table"
-msgstr "Vali tabel:"
+msgstr "vali tabel"
 
 #: templates/database/multi_table_query/form.twig:25
 #: templates/database/multi_table_query/form.twig:114
-#, fuzzy
-#| msgid "Select column:"
 msgid "select column"
-msgstr "Vali veerg:"
+msgstr "vali veerg"
 
 #: templates/database/multi_table_query/form.twig:31
-#, fuzzy
-#| msgid "Tables"
 msgid "Table alias"
-msgstr "Tabelid"
+msgstr "Tabeli alias"
 
 #: templates/database/multi_table_query/form.twig:32
-#, fuzzy
-#| msgid "Column names"
 msgid "Column alias"
-msgstr "Veergude nimed"
+msgstr "Veergu alias"
 
 #: templates/database/multi_table_query/form.twig:35
-#, fuzzy
-#| msgid "Use this column to label each point"
 msgid "Use this column in criteria"
-msgstr "Kasuta seda veergu iga punkti nimetamiseks"
+msgstr "Kasuta seda veergu kriteeriumis"
 
 #: templates/database/multi_table_query/form.twig:38
-#, fuzzy
-#| msgid "Criteria:"
 msgid "criteria"
-msgstr "Kriteerium:"
+msgstr "kriteerium"
 
 #: templates/database/multi_table_query/form.twig:52
-#, fuzzy
-#| msgid "Add %s"
 msgid "Add as"
-msgstr "Lisa %s"
+msgstr "Lisa kui"
 
 #: templates/database/multi_table_query/form.twig:97
-#, fuzzy
-#| msgid "Alter column(s)"
 msgid "Another column"
-msgstr "Muuda veergu(sid)"
+msgstr "Veel üks veerg"
 
 #: templates/database/multi_table_query/form.twig:125
 msgid "Enter criteria as free text"
-msgstr ""
+msgstr "Sisesta kriteerium vabatekstina"
 
 #: templates/database/multi_table_query/form.twig:133
-#, fuzzy
-#| msgid "Remove redundant columns"
 msgid "Remove this column"
-msgstr "Liigsete veergude eemaldamine"
+msgstr "Eemalda see veerg"
 
 #: templates/database/multi_table_query/form.twig:160
-#, fuzzy
-#| msgid "Update Query"
 msgid "Update query"
 msgstr "Uuenda päringut"
 
