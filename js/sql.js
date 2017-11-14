@@ -286,7 +286,8 @@ AJAX.registerOnload('sql.js', function () {
         });
 
         $('.table_results .column_heading a').each(function () {
-            textArea.value += $(this).text() + '\t';
+        	//remove <small> elements which contains the number of ordered by columns        
+        	textArea.value +=($(this).remove("small")).text() + '\t';        	
         });
 
         textArea.value += '\n';
