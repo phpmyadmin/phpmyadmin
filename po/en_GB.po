@@ -6,8 +6,8 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.7.6-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2017-11-02 14:03+0100\n"
-"PO-Revision-Date: 2017-11-14 03:08+0000\n"
-"Last-Translator: M1ckm <mmmickmason2@gmail.com>\n"
+"PO-Revision-Date: 2017-11-14 08:25+0000\n"
+"Last-Translator: Maurício Meneghini Fauth <mauriciofauth@gmail.com>\n"
 "Language-Team: English (United Kingdom) "
 "<https://hosted.weblate.org/projects/phpmyadmin/4-7/en_GB/>\n"
 "Language: en_GB\n"
@@ -9678,27 +9678,27 @@ msgstr "CREATE DATABASE before copying"
 
 #: libraries/operations.lib.php:255
 msgid "Switch to copied database"
-msgstr "libraries/classes/Operations.php:265"
+msgstr "Switch to copied database"
 
 #: libraries/operations.lib.php:775
 msgid "Alter table order by"
-msgstr "libraries/classes/Operations.php:797"
+msgstr "Alter table order by"
 
 #: libraries/operations.lib.php:783
 msgid "(singly)"
-msgstr "(1)"
+msgstr "(singly)"
 
 #: libraries/operations.lib.php:819
 msgid "Move table to (database<b>.</b>table)"
-msgstr "<b>1.<b>2"
+msgstr "Move table to (database<b>.</b>table)"
 
 #: libraries/operations.lib.php:924
 msgid "Rename table to"
-msgstr "(gcloud)"
+msgstr "Rename table to"
 
 #: libraries/operations.lib.php:964
 msgid "Table comments"
-msgstr "“…-”"
+msgstr "Table comments"
 
 #: libraries/operations.lib.php:1033
 msgid "Table options"
