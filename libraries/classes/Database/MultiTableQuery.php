@@ -8,6 +8,8 @@
 namespace PhpMyAdmin\Database;
 
 use PhpMyAdmin\DatabaseInterface;
+use PhpMyAdmin\ParseAnalyze;
+use PhpMyAdmin\Sql;
 use PhpMyAdmin\Template;
 
 /**
@@ -87,5 +89,46 @@ class MultiTableQuery
             'tables' => $tables,
             'default_no_of_columns' => $this->defaultNoOfColumns,
         ]);
+    }
+
+    /**
+     * Displays multi-table query results
+     *
+     * @param string $sqlQuery      The query to parse
+     * @param string $db            The current database
+     * @param string $pmaThemeImage Uri of the PMA theme image
+     *
+     * @return void
+     */
+    public static function displayResults($sqlQuery, $db, $pmaThemeImage)
+    {
+        list(
+            $analyzedSqlResults,
+            $db,
+            $tableFromSql
+        ) = ParseAnalyze::sqlQuery($sqlQuery, $db);
+
+        extract($analyzedSqlResults);
+        $goto = 'db_multi_table_query.php';
+        Sql::executeQueryAndSendQueryResponse(
+            null, // analyzed_sql_results
+            false, // is_gotofile
+            $db, // db
+            null, // table
+            null, // find_real_end
+            null, // sql_query_for_bookmark - see below
+            null, // extra_data
+            null, // message_to_show
+            null, // message
+            null, // sql_data
+            $goto, // goto
+            $pmaThemeImage, // pmaThemeImage
+            null, // disp_query
+            null, // disp_message
+            null, // query_type
+            $sqlQuery, // sql_query
+            null, // selectedTables
+            null // complete_query
+        );
     }
 }
