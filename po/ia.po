@@ -8,10 +8,10 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.8.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2017-11-14 09:29+0100\n"
-"PO-Revision-Date: 2017-11-03 00:28+0000\n"
+"PO-Revision-Date: 2017-11-14 23:07+0000\n"
 "Last-Translator: Giovanni Sora <g.sora@tiscali.it>\n"
-"Language-Team: Interlingua <https://hosted.weblate.org/projects/phpmyadmin/"
-"master/ia/>\n"
+"Language-Team: Interlingua "
+"<https://hosted.weblate.org/projects/phpmyadmin/master/ia/>\n"
 "Language: ia\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -15105,16 +15105,12 @@ msgid "Server variables and settings"
 msgstr ""
 
 #: templates/server/sub_page_header.twig:2
-#, fuzzy
-#| msgid "Storage Engine"
 msgid "Storage engines"
-msgstr "Motor de immagazinage"
+msgstr "Motores de immagazinage"
 
 #: templates/server/sub_page_header.twig:2
-#, fuzzy
-#| msgid "Change all tables collations"
 msgid "Character sets and collations"
-msgstr "Modifica omne collationes de columnas"
+msgstr "Insimules de character e collationes"
 
 #: templates/server/sub_page_header.twig:2
 msgid "Databases statistics"
@@ -15848,69 +15844,49 @@ msgstr "Fenestra de query"
 
 #: templates/database/multi_table_query/form.twig:18
 #: templates/database/multi_table_query/form.twig:106
-#, fuzzy
-#| msgid "Select table:"
 msgid "select table"
-msgstr "Selige tabella:"
+msgstr "selige tabella"
 
 #: templates/database/multi_table_query/form.twig:25
 #: templates/database/multi_table_query/form.twig:114
-#, fuzzy
-#| msgid "Select column:"
 msgid "select column"
-msgstr "Selige columna:"
+msgstr "selige columna"
 
 #: templates/database/multi_table_query/form.twig:31
-#, fuzzy
-#| msgid "Tables"
 msgid "Table alias"
-msgstr "Tabellas"
+msgstr "Alias de tabella"
 
 #: templates/database/multi_table_query/form.twig:32
-#, fuzzy
-#| msgid "Columns"
 msgid "Column alias"
-msgstr "Columnas"
+msgstr "Alias de columnas"
 
 #: templates/database/multi_table_query/form.twig:35
-#, fuzzy
-#| msgid "Use this column to label each point"
 msgid "Use this column in criteria"
-msgstr "Usa iste columna pro etiquettar cata puncto"
+msgstr "Usa iste columna in criterios"
 
 #: templates/database/multi_table_query/form.twig:38
-#, fuzzy
-#| msgid "Criteria:"
 msgid "criteria"
-msgstr "Criterios:"
+msgstr "criterios"
 
 #: templates/database/multi_table_query/form.twig:52
-#, fuzzy
-#| msgid "Add %s"
 msgid "Add as"
-msgstr "Adde %s"
+msgstr "Adde como"
 
 #: templates/database/multi_table_query/form.twig:97
-#, fuzzy
-#| msgid "Move column"
 msgid "Another column"
-msgstr "Move columna"
+msgstr "Un altere columna"
 
 #: templates/database/multi_table_query/form.twig:125
 msgid "Enter criteria as free text"
 msgstr ""
 
 #: templates/database/multi_table_query/form.twig:133
-#, fuzzy
-#| msgid "Remove redundant columns"
 msgid "Remove this column"
-msgstr "Remove columnas redundante"
+msgstr "Remove iste columna"
 
 #: templates/database/multi_table_query/form.twig:160
-#, fuzzy
-#| msgid "Update Query"
 msgid "Update query"
-msgstr "Actualisa Query"
+msgstr "Actualisa query"
 
 #: templates/table/search/rows_zoom.twig:12
 msgid "Additional search criteria"
