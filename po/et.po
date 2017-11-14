@@ -6,7 +6,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.7.6-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2017-11-02 14:03+0100\n"
-"PO-Revision-Date: 2017-11-05 08:59+0000\n"
+"PO-Revision-Date: 2017-11-15 19:45+0000\n"
 "Last-Translator: Kristjan Räts <kristjanrats@gmail.com>\n"
 "Language-Team: Estonian "
 "<https://hosted.weblate.org/projects/phpmyadmin/4-7/et/>\n"
@@ -2060,7 +2060,7 @@ msgstr "Peida otsingu kriteerium"
 
 #: js/messages.php:484
 msgid "Show search criteria"
-msgstr "Näita otsingu kriteeriumi"
+msgstr "Kuva otsingu kriteeriumi"
 
 #: js/messages.php:485
 msgid "Range search"
@@ -2088,7 +2088,7 @@ msgstr "Peida 'leia ja asenda' kriteerium"
 
 #: js/messages.php:493
 msgid "Show find and replace criteria"
-msgstr "Kuva 'leia ja asenda' kriteeriumi"
+msgstr "Kuva 'leia ja asenda' kriteerium"
 
 #: js/messages.php:497
 msgid "Each point represents a data row."
