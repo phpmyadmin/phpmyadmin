@@ -528,7 +528,7 @@ function PMA_current_version (data) {
         var version_information_message_link = document.createElement('a');
         version_information_message_link.href = url;
         version_information_message_link.className = 'disableAjax';
-        version_information_message_link_text = document.createTextNode(data.version);
+        var version_information_message_link_text = document.createTextNode(data.version);
         version_information_message_link.appendChild(version_information_message_link_text);
         var prefix_message = document.createTextNode(PMA_messages.strLatestAvailable + ' ');
         version_information_message.appendChild(prefix_message);
@@ -551,7 +551,7 @@ function PMA_current_version (data) {
             var maincontainer_div_link = document.createElement('a');
             maincontainer_div_link.href = url;
             maincontainer_div_link.className = 'disableAjax';
-            maincontainer_div_link_text = document.createTextNode(message);
+            var maincontainer_div_link_text = document.createTextNode(message);
             maincontainer_div_link.appendChild(maincontainer_div_link_text);
             maincontainer_div.appendChild(maincontainer_div_link);
             $('#maincontainer').append($(maincontainer_div));
