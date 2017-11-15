@@ -4,10 +4,10 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.8.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2017-11-14 09:29+0100\n"
-"PO-Revision-Date: 2017-11-04 14:50+0000\n"
+"PO-Revision-Date: 2017-11-15 07:20+0000\n"
 "Last-Translator: Burak Yavuz <hitowerdigit@hotmail.com>\n"
-"Language-Team: Turkish <https://hosted.weblate.org/projects/phpmyadmin/"
-"master/tr/>\n"
+"Language-Team: Turkish "
+"<https://hosted.weblate.org/projects/phpmyadmin/master/tr/>\n"
 "Language: tr\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -15334,16 +15334,12 @@ msgid "Server variables and settings"
 msgstr "Sunucu değişkenleri ve ayarları"
 
 #: templates/server/sub_page_header.twig:2
-#, fuzzy
-#| msgid "Storage Engines"
 msgid "Storage engines"
-msgstr "Depolama Motorları"
+msgstr "Depolama motorları"
 
 #: templates/server/sub_page_header.twig:2
-#, fuzzy
-#| msgid "Character Sets and Collations"
 msgid "Character sets and collations"
-msgstr "Karakter Grupları ve Karşılaştırmalar"
+msgstr "Karakter grupları ve karşılaştırmalar"
 
 #: templates/server/sub_page_header.twig:2
 msgid "Databases statistics"
@@ -16111,69 +16107,49 @@ msgstr "Sorgu penceresi"
 
 #: templates/database/multi_table_query/form.twig:18
 #: templates/database/multi_table_query/form.twig:106
-#, fuzzy
-#| msgid "Select table:"
 msgid "select table"
-msgstr "Tablo seç:"
+msgstr "tablo seç"
 
 #: templates/database/multi_table_query/form.twig:25
 #: templates/database/multi_table_query/form.twig:114
-#, fuzzy
-#| msgid "Select column:"
 msgid "select column"
-msgstr "Sütun seç:"
+msgstr "sütun seç"
 
 #: templates/database/multi_table_query/form.twig:31
-#, fuzzy
-#| msgid "Tables"
 msgid "Table alias"
-msgstr "Tablolar"
+msgstr "Tablo kod adları"
 
 #: templates/database/multi_table_query/form.twig:32
-#, fuzzy
-#| msgid "Column names"
 msgid "Column alias"
-msgstr "Sütun adları"
+msgstr "Sütun kod adları"
 
 #: templates/database/multi_table_query/form.twig:35
-#, fuzzy
-#| msgid "Use this column to label each point"
 msgid "Use this column in criteria"
-msgstr "Bu sütunu her noktayı etiketlemek için kullan"
+msgstr "Bu sütunu kriter içinde kullan"
 
 #: templates/database/multi_table_query/form.twig:38
-#, fuzzy
-#| msgid "Criteria:"
 msgid "criteria"
-msgstr "Kriter:"
+msgstr "kriter"
 
 #: templates/database/multi_table_query/form.twig:52
-#, fuzzy
-#| msgid "Add %s"
 msgid "Add as"
-msgstr "%s ekle"
+msgstr "Farklı ekle"
 
 #: templates/database/multi_table_query/form.twig:97
-#, fuzzy
-#| msgid "Alter column(s)"
 msgid "Another column"
-msgstr "Sekme(leri)yi değiştir"
+msgstr "Başka bir sütun"
 
 #: templates/database/multi_table_query/form.twig:125
 msgid "Enter criteria as free text"
-msgstr ""
+msgstr "Kriteri serbest metin olarak girin"
 
 #: templates/database/multi_table_query/form.twig:133
-#, fuzzy
-#| msgid "Remove redundant columns"
 msgid "Remove this column"
-msgstr "Gereksiz sütunları kaldır"
+msgstr "Bu sütunu kaldır"
 
 #: templates/database/multi_table_query/form.twig:160
-#, fuzzy
-#| msgid "Update Query"
 msgid "Update query"
-msgstr "Sorguyu Güncelle"
+msgstr "Sorguyu güncelle"
 
 #: templates/table/search/rows_zoom.twig:12
 msgid "Additional search criteria"
