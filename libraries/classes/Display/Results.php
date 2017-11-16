@@ -1018,28 +1018,16 @@ class Results
     private function _getShowAllCheckboxForTableNavigation(
         $showing_all, $html_sql_query
     ) {
-        return "\n"
-            . '<td>'
-            . '<form action="sql.php" method="post">'
-            . Url::getHiddenInputs(
-                $this->__get('db'), $this->__get('table')
-            )
-            . '<input type="hidden" name="sql_query" value="'
-            . $html_sql_query . '" />'
-            . '<input type="hidden" name="pos" value="0" />'
-            . '<input type="hidden" name="is_browse_distinct" value="'
-            . $this->__get('is_browse_distinct') . '" />'
-            . '<input type="hidden" name="session_max_rows" value="'
-            . (! $showing_all ? 'all' : intval($GLOBALS['cfg']['MaxRows'])) . '" />'
-            . '<input type="hidden" name="goto" value="' . $this->__get('goto')
-            . '" />'
-            . '<input type="checkbox" name="navig"'
-            . ' id="showAll_' . $this->__get('unique_id') . '" class="showAllRows"'
-            . (! $showing_all ? '' : ' checked="checked"') . ' value="all" />'
-            . '<label for="showAll_' . $this->__get('unique_id') . '">'
-            . __('Show all') . '</label>'
-            . '</form>'
-            . '</td>';
+        return Template::get('display/results/show_all_checkbox')->render([
+            'db' => $this->__get('db'),
+            'table' => $this->__get('table'),
+            'is_browse_distinct' => $this->__get('is_browse_distinct'),
+            'goto' => $this->__get('goto'),
+            'unique_id' => $this->__get('unique_id'),
+            'html_sql_query' => $html_sql_query,
+            'showing_all' => $showing_all,
+            'max_rows' => intval($GLOBALS['cfg']['MaxRows']),
+        ]);
     } // end of the '_getShowAllButtonForTableNavigation()' function
 
 

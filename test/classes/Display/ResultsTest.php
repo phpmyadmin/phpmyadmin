@@ -1197,12 +1197,30 @@ class ResultsTest extends PmaTestCase
         $this->object->__set('goto', $goto);
         $this->object->__set('unique_id', $unique_id);
 
-        $this->assertEquals(
-            $output,
-            $this->_callPrivateFunction(
-                '_getShowAllCheckboxForTableNavigation',
-                array(false, $html_sql_query)
-            )
+        $result = $this->_callPrivateFunction(
+            '_getShowAllCheckboxForTableNavigation',
+            array(false, $html_sql_query)
+        );
+
+        $this->assertContains(
+            'name="db" value="' . $db . '"',
+            $result
+        );
+        $this->assertContains(
+            'name="table" value="' . $table . '"',
+            $result
+        );
+        $this->assertContains(
+            'name="sql_query" value="' . $html_sql_query . '"',
+            $result
+        );
+        $this->assertContains(
+            'name="goto" value="' . $goto . '"',
+            $result
+        );
+        $this->assertContains(
+            '<label for="showAll_' . $unique_id . '">Show all</label>',
+            $result
         );
     }
 
