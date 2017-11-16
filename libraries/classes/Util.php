@@ -1085,8 +1085,7 @@ class Util
                             __('Without PHP code'),
                             array(),
                             false,
-                            '',
-                            true
+                            ''
                         )
                         . '&nbsp;]';
 
@@ -1096,8 +1095,7 @@ class Util
                             __('Submit query'),
                             array(),
                             false,
-                            '',
-                            true
+                            ''
                         )
                         . '&nbsp;]';
                 } else {
@@ -1714,13 +1712,12 @@ class Util
      *                              array: additional tag params (f.e. style="")
      * @param boolean $strip_img    whether to strip the image
      * @param string  $target       target
-     * @param boolean $force_button use a button even when the URL is not too long
      *
      * @return string  the results to be echoed or saved in an array
      */
     public static function linkOrButton(
         $url, $message, $tag_params = array(),
-        $strip_img = false, $target = '', $force_button = false
+        $strip_img = false, $target = ''
     ) {
         $url_length = strlen($url);
 
@@ -1764,7 +1761,6 @@ class Util
         $tag_params_strings = array();
         if (($url_length > $GLOBALS['cfg']['LinkLengthLimit'])
             || ! $in_suhosin_limits
-            || $force_button
             || strpos($url, 'sql_query=') !== false
         ) {
             $parts = explode('?', $url, 2);
