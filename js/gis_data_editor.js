@@ -225,10 +225,6 @@ AJAX.registerTeardown('gis_data_editor.js', function () {
 });
 
 AJAX.registerOnload('gis_data_editor.js', function () {
-
-    // Remove the class that is added due to the URL being too long.
-    $('span.open_gis_editor a').removeClass('formLinkSubmit');
-
     /**
      * Prepares and insert the GIS data to the input field on clicking 'copy'.
      */

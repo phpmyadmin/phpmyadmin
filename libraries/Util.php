@@ -1819,89 +1819,28 @@ class Util
             }
         }
 
-        if (($url_length <= $GLOBALS['cfg']['LinkLengthLimit'])
-            && $in_suhosin_limits
-            && ! $force_button
+        $tag_params_strings = array();
+        if (($url_length > $GLOBALS['cfg']['LinkLengthLimit'])
+            || ! $in_suhosin_limits
+            || $force_button
         ) {
-            $tag_params_strings = array();
-            foreach ($tag_params as $par_name => $par_value) {
-                // htmlspecialchars() only on non javascript
-                $par_value = mb_substr($par_name, 0, 2) == 'on'
-                    ? $par_value
-                    : htmlspecialchars($par_value);
-                $tag_params_strings[] = $par_name . '="' . $par_value . '"';
-            }
+            $parts = explode('?', $url, 2);
+            /*
+             * The data-post indicates that client should do POST
+             * this is handled in js/ajax.js
+             */
+            $tag_params_strings[] = 'data-post="' . (isset($parts[1]) ? $parts[1] : '') . '"';
+            $url = $parts[0];
+        }
 
-            // no whitespace within an <a> else Safari will make it part of the link
-            $ret = '<a href="' . $url . '" '
-                . implode(' ', $tag_params_strings) . '>'
-                . $message . $displayed_message . '</a>';
-        } else {
-            // no spaces (line breaks) at all
-            // or after the hidden fields
-            // IE will display them all
+        foreach ($tag_params as $par_name => $par_value) {
+            $tag_params_strings[] = $par_name . '="' . htmlspecialchars($par_value) . '"';
+        }
 
-            if (! isset($query_parts)) {
-                $query_parts = self::splitURLQuery($url);
-            }
-            $url_parts   = parse_url($url);
-
-            if ($new_form) {
-                if ($target) {
-                    $target = ' target="' . $target . '"';
-                }
-                $ret = '<form action="' . $url_parts['path'] . '" class="link"'
-                     . ' method="post"' . $target . ' style="display: inline;">';
-                $ret .= URL::getHiddenInputs();
-                $subname_open   = '';
-                $subname_close  = '';
-                $submit_link    = '#';
-            } else {
-                $query_parts[] = 'redirect=' . $url_parts['path'];
-                $query_parts[] = 'token=' . $_SESSION[' PMA_token '];
-                if (empty($GLOBALS['subform_counter'])) {
-                    $GLOBALS['subform_counter'] = 0;
-                }
-                $GLOBALS['subform_counter']++;
-                $ret            = '';
-                $subname_open   = 'subform[' . $GLOBALS['subform_counter'] . '][';
-                $subname_close  = ']';
-                $submit_link    = '#usesubform[' . $GLOBALS['subform_counter']
-                    . ']=1';
-            }
-
-            foreach ($query_parts as $query_pair) {
-                list($eachvar, $eachval) = explode('=', $query_pair);
-                $ret .= '<input type="hidden" name="' . $subname_open . $eachvar
-                    . $subname_close . '" value="'
-                    . htmlspecialchars(urldecode($eachval)) . '" />';
-            } // end while
-
-            if (empty($tag_params['class'])) {
-                $tag_params['class'] = 'formLinkSubmit';
-            } else {
-                $tag_params['class'] .= ' formLinkSubmit';
-            }
-
-            $tag_params_strings = array();
-            foreach ($tag_params as $par_name => $par_value) {
-                // htmlspecialchars() only on non javascript
-                $par_value = mb_substr($par_name, 0, 2) == 'on'
-                    ? $par_value
-                    : htmlspecialchars($par_value);
-                $tag_params_strings[] = $par_name . '="' . $par_value . '"';
-            }
-
-            $ret .= "\n" . '<a href="' . $submit_link . '" '
-                . implode(' ', $tag_params_strings) . '>'
-                . $message . ' ' . $displayed_message . '</a>' . "\n";
-
-            if ($new_form) {
-                $ret .= '</form>';
-            }
-        } // end if... else...
-
-        return $ret;
+        // no whitespace within an <a> else Safari will make it part of the link
+        return '<a href="' . $url . '" '
+            . implode(' ', $tag_params_strings) . '>'
+            . $message . $displayed_message . '</a>';
     } // end of the 'linkOrButton()' function
 
     /**
