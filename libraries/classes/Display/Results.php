@@ -1863,9 +1863,7 @@ class Results
                      . $tmp_txt . '" title="' . $tmp_txt . '" />';
         $tmp_url = 'sql.php' . Url::getCommon($url_params_full_text);
 
-        return Util::linkOrButton(
-            $tmp_url, $tmp_image, array(), false
-        );
+        return Util::linkOrButton($tmp_url, $tmp_image);
 
     } // end of the '_getFullOrPartialTextButtonOrLink()' function
 
@@ -2324,8 +2322,7 @@ class Results
             . '<input type="hidden" value="' .  $multi_order_url . '" />';
 
         return Util::linkOrButton(
-            $order_url, $inner_link_content,
-            $order_link_params, false, true
+            $order_url, $inner_link_content, $order_link_params
         );
 
     } // end of the '_getSortOrderLink()' function
@@ -4978,7 +4975,7 @@ class Results
                     Util::getIcon(
                         'b_view_add.png', __('Create view'), true
                     ),
-                    array('class' => 'create_view' . $ajax_class), true, true, ''
+                    array('class' => 'create_view' . $ajax_class)
                 )
                 . '</span>' . "\n";
         }
@@ -5024,10 +5021,7 @@ class Results
             Util::getIcon(
                 'b_insrow.png', __('Copy to clipboard'), true
             ),
-            array('id' => 'copyToClipBoard'),
-            true,
-            true,
-            'copy_to_clip_board'
+            array('id' => 'copyToClipBoard')
         );
 
         return $html;
@@ -5048,8 +5042,6 @@ class Results
                 'b_print.png', __('Print'), true
             ),
             array('id' => 'printView'),
-            true,
-            true,
             'print_view'
         );
 
@@ -5154,11 +5146,7 @@ class Results
                 'tbl_export.php' . Url::getCommon($_url_params),
                 Util::getIcon(
                     'b_tblexport.png', __('Export'), true
-                ),
-                '',
-                true,
-                true,
-                ''
+                )
             )
             . "\n";
 
@@ -5167,11 +5155,7 @@ class Results
                 'tbl_chart.php' . Url::getCommon($_url_params),
                 Util::getIcon(
                     'b_chart.png', __('Display chart'), true
-                ),
-                '',
-                true,
-                true,
-                ''
+                )
             )
             . "\n";
 
@@ -5192,11 +5176,7 @@ class Results
                         . Url::getCommon($_url_params),
                         Util::getIcon(
                             'b_globe.gif', __('Visualize GIS data'), true
-                        ),
-                        '',
-                        true,
-                        true,
-                        ''
+                        )
                     )
                     . "\n";
             }
@@ -5621,9 +5601,7 @@ class Results
 
             $ret .= '<td class="' . $class . ' center print_ignore" '
                 . ' ><span class="nowrap">'
-                . Util::linkOrButton(
-                    $edit_url, $edit_str, array(), false
-                );
+                . Util::linkOrButton($edit_url, $edit_str);
             /*
              * Where clause for selecting this row uniquely is provided as
              * a hidden input. Used by jQuery scripts for handling grid editing
@@ -5668,9 +5646,7 @@ class Results
             }
 
             $ret .= 'center print_ignore" ' . ' ><span class="nowrap">'
-               . Util::linkOrButton(
-                   $copy_url, $copy_str, array(), false
-               );
+               . Util::linkOrButton($copy_url, $copy_str);
 
             /*
              * Where clause for selecting this row uniquely is provided as
@@ -5719,8 +5695,7 @@ class Results
             . Util::linkOrButton(
                 $del_url,
                 $del_str,
-                array('class' => 'delete_row requireConfirm' . $ajax),
-                false
+                array('class' => 'delete_row requireConfirm' . $ajax)
             )
             . '<div class="hide">' . $js_conf . '</div>'
             . '</td>';

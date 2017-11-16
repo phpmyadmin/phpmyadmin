@@ -1052,8 +1052,6 @@ class Util
                             htmlspecialchars('url.php?url=' . urlencode($url)),
                             sprintf(__('Analyze Explain at %s'), 'mariadb.org'),
                             array(),
-                            true,
-                            false,
                             '_blank'
                         ) . '&nbsp;]';
                 }
@@ -1083,34 +1081,23 @@ class Util
                     $php_link = ' [&nbsp;'
                         . self::linkOrButton(
                             'import.php' . Url::getCommon($url_params),
-                            __('Without PHP code'),
-                            array(),
-                            true,
-                            false,
-                            '',
-                            true
+                            __('Without PHP code')
                         )
                         . '&nbsp;]';
 
                     $php_link .= ' [&nbsp;'
                         . self::linkOrButton(
                             'import.php' . Url::getCommon($url_params),
-                            __('Submit query'),
-                            array(),
-                            true,
-                            false,
-                            '',
-                            true
+                            __('Submit query')
                         )
                         . '&nbsp;]';
                 } else {
                     $php_params = $url_params;
                     $php_params['show_as_php'] = 1;
-                    $_message = __('Create PHP code');
                     $php_link = ' [&nbsp;'
                         . self::linkOrButton(
                             'import.php' . Url::getCommon($php_params),
-                            $_message
+                            __('Create PHP code')
                         )
                         . '&nbsp;]';
                 }
@@ -1703,26 +1690,26 @@ class Util
     }
 
     /**
-     * Displays a link, or a button if the link's URL is too large, to
-     * accommodate some browsers' limitations
+     * Displays a link, or a link with code to trigger POST request.
+     *
+     * POST is used in following cases:
+     *
+     * - URL is too long
+     * - URL components are over Suhosin limits
+     * - There is SQL query in the parameters
      *
      * @param string  $url          the URL
      * @param string  $message      the link message
      * @param mixed   $tag_params   string: js confirmation
      *                              array: additional tag params (f.e. style="")
-     * @param boolean $new_form     we set this to false when we are already in
-     *                              a  form, to avoid generating nested forms
-     * @param boolean $strip_img    whether to strip the image
      * @param string  $target       target
-     * @param boolean $force_button use a button even when the URL is not too long
      *
      * @return string  the results to be echoed or saved in an array
      */
     public static function linkOrButton(
-        $url, $message, $tag_params = array(),
-        $new_form = true, $strip_img = false, $target = '', $force_button = false
+        $url, $message, $tag_params = array(), $target = ''
     ) {
-        $url_length = mb_strlen($url);
+        $url_length = strlen($url);
 
         if (! is_array($tag_params)) {
             $tmp = $tag_params;
@@ -1734,23 +1721,10 @@ class Util
             unset($tmp);
         }
         if (! empty($target)) {
-            $tag_params['target'] = htmlentities($target);
+            $tag_params['target'] = $target;
             if ($target === '_blank' && strncmp($url, 'url.php?', 8) == 0) {
                 $tag_params['rel'] = 'noopener noreferrer';
             }
-        }
-
-        $displayed_message = '';
-        // Add text if not already added
-        if (stristr($message, '<img')
-            && (! $strip_img || ($GLOBALS['cfg']['ActionLinksMode'] == 'icons'))
-            && (strip_tags($message) == $message)
-        ) {
-            $displayed_message = '<span>'
-                . htmlspecialchars(
-                    preg_replace('/^.*\salt="([^"]*)".*$/si', '\1', $message)
-                )
-                . '</span>';
         }
 
         // Suhosin: Check that each query parameter is not above maximum
@@ -1765,7 +1739,7 @@ class Util
                     }
 
                     list(, $eachval) = explode('=', $query_pair);
-                    if (mb_strlen($eachval) > $suhosin_get_MaxValueLength
+                    if (strlen($eachval) > $suhosin_get_MaxValueLength
                     ) {
                         $in_suhosin_limits = false;
                         break;
@@ -1774,81 +1748,28 @@ class Util
             }
         }
 
-        if (($url_length <= $GLOBALS['cfg']['LinkLengthLimit'])
-            && $in_suhosin_limits
-            && ! $force_button
+        $tag_params_strings = array();
+        if (($url_length > $GLOBALS['cfg']['LinkLengthLimit'])
+            || ! $in_suhosin_limits
+            || strpos($url, 'sql_query=') !== false
         ) {
-            $tag_params_strings = array();
-            foreach ($tag_params as $par_name => $par_value) {
-                $tag_params_strings[] = $par_name . '="' . htmlspecialchars($par_value) . '"';
-            }
+            $parts = explode('?', $url, 2);
+            /*
+             * The data-post indicates that client should do POST
+             * this is handled in js/ajax.js
+             */
+            $tag_params_strings[] = 'data-post="' . (isset($parts[1]) ? $parts[1] : '') . '"';
+            $url = $parts[0];
+        }
 
-            // no whitespace within an <a> else Safari will make it part of the link
-            $ret = '<a href="' . $url . '" '
-                . implode(' ', $tag_params_strings) . '>'
-                . $message . $displayed_message . '</a>';
-        } else {
-            // no spaces (line breaks) at all
-            // or after the hidden fields
-            // IE will display them all
+        foreach ($tag_params as $par_name => $par_value) {
+            $tag_params_strings[] = $par_name . '="' . htmlspecialchars($par_value) . '"';
+        }
 
-            if (! isset($query_parts)) {
-                $query_parts = self::splitURLQuery($url);
-            }
-            $url_parts   = parse_url($url);
-
-            if ($new_form) {
-                if ($target) {
-                    $target = ' target="' . $target . '"';
-                }
-                $ret = '<form action="' . $url_parts['path'] . '" class="link"'
-                     . ' method="post"' . $target . ' style="display: inline;">';
-                $ret .= Url::getHiddenInputs();
-                $subname_open   = '';
-                $subname_close  = '';
-                $submit_link    = '#';
-            } else {
-                $query_parts[] = 'redirect=' . $url_parts['path'];
-                $query_parts[] = 'token=' . $_SESSION[' PMA_token '];
-                if (empty($GLOBALS['subform_counter'])) {
-                    $GLOBALS['subform_counter'] = 0;
-                }
-                $GLOBALS['subform_counter']++;
-                $ret            = '';
-                $subname_open   = 'subform[' . $GLOBALS['subform_counter'] . '][';
-                $subname_close  = ']';
-                $submit_link    = '#usesubform[' . $GLOBALS['subform_counter']
-                    . ']=1';
-            }
-
-            foreach ($query_parts as $query_pair) {
-                list($eachvar, $eachval) = explode('=', $query_pair);
-                $ret .= '<input type="hidden" name="' . $subname_open . $eachvar
-                    . $subname_close . '" value="'
-                    . htmlspecialchars(urldecode($eachval)) . '" />';
-            } // end while
-
-            if (empty($tag_params['class'])) {
-                $tag_params['class'] = 'formLinkSubmit';
-            } else {
-                $tag_params['class'] .= ' formLinkSubmit';
-            }
-
-            $tag_params_strings = array();
-            foreach ($tag_params as $par_name => $par_value) {
-                $tag_params_strings[] = $par_name . '="' . htmlspecialchars($par_value) . '"';
-            }
-
-            $ret .= "\n" . '<a href="' . $submit_link . '" '
-                . implode(' ', $tag_params_strings) . '>'
-                . $message . ' ' . $displayed_message . '</a>' . "\n";
-
-            if ($new_form) {
-                $ret .= '</form>';
-            }
-        } // end if... else...
-
-        return $ret;
+        // no whitespace within an <a> else Safari will make it part of the link
+        return '<a href="' . $url . '" '
+            . implode(' ', $tag_params_strings) . '>'
+            . $message . '</a>';
     } // end of the 'linkOrButton()' function
 
     /**
