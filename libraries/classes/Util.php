@@ -1729,7 +1729,7 @@ class Util
             unset($tmp);
         }
         if (! empty($target)) {
-            $tag_params['target'] = htmlentities($target);
+            $tag_params['target'] = $target;
             if ($target === '_blank' && strncmp($url, 'url.php?', 8) == 0) {
                 $tag_params['rel'] = 'noopener noreferrer';
             }
