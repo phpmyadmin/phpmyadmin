@@ -1823,6 +1823,7 @@ class Util
         if (($url_length > $GLOBALS['cfg']['LinkLengthLimit'])
             || ! $in_suhosin_limits
             || $force_button
+            || strpos($url, 'sql_query=') !== false
         ) {
             $parts = explode('?', $url, 2);
             /*
