@@ -145,59 +145,6 @@ foreach (get_defined_vars() as $key => $value) {
 }
 unset($key, $value, $variables_whitelist);
 
-/**
- * Subforms - some functions need to be called by form, cause of the limited URL
- * length, but if this functions inside another form you cannot just open a new
- * form - so phpMyAdmin uses 'arrays' inside this form
- *
- * <code>
- * <form ...>
- * ... main form elements ...
- * <input type="hidden" name="subform[action1][id]" value="1" />
- * ... other subform data ...
- * <input type="submit" name="usesubform[action1]" value="do action1" />
- * ... other subforms ...
- * <input type="hidden" name="subform[actionX][id]" value="X" />
- * ... other subform data ...
- * <input type="submit" name="usesubform[actionX]" value="do actionX" />
- * ... main form elements ...
- * <input type="submit" name="main_action" value="submit form" />
- * </form>
- * </code>
- *
- * so we now check if a subform is submitted
- */
-$__redirect = null;
-if (isset($_POST['usesubform']) && ! defined('PMA_MINIMUM_COMMON')) {
-    // if a subform is present and should be used
-    // the rest of the form is deprecated
-    $subform_id = key($_POST['usesubform']);
-    $subform    = $_POST['subform'][$subform_id];
-    $_POST      = $subform;
-    $_REQUEST   = $subform;
-    /**
-     * some subforms need another page than the main form, so we will just
-     * include this page at the end of this script - we use $__redirect to
-     * track this
-     */
-    if (isset($_POST['redirect'])
-        && $_POST['redirect'] != basename($PMA_PHP_SELF)
-    ) {
-        $__redirect = $_POST['redirect'];
-        unset($_POST['redirect']);
-    }
-    unset($subform_id, $subform);
-} else {
-    // Note: here we overwrite $_REQUEST so that it does not contain cookies,
-    // because another application for the same domain could have set
-    // a cookie (with a compatible path) that overrides a variable
-    // we expect from GET or POST.
-    // We'll refer to cookies explicitly with the $_COOKIE syntax.
-    $_REQUEST = array_merge($_GET, $_POST);
-}
-// end check if a subform is submitted
-
-
 /******************************************************************************/
 /* parsing configuration file                  LABEL_parsing_config_file      */
 
@@ -299,13 +246,6 @@ $goto_whitelist = array(
     'transformation_wrapper.php',
     'user_password.php',
 );
-
-/**
- * check $__redirect against whitelist
- */
-if (! Core::checkPageValidity($__redirect, $goto_whitelist)) {
-    $__redirect = null;
-}
 
 /**
  * holds page that should be displayed
@@ -633,14 +573,6 @@ if (! defined('PMA_MINIMUM_COMMON')) {
 
 /* Tell tracker that it can actually work */
 Tracker::enable();
-
-if (!empty($__redirect) && in_array($__redirect, $goto_whitelist)) {
-    /**
-     * include subform target page
-     */
-    include $__redirect;
-    exit();
-}
 
 // If Zero configuration mode enabled, check PMA tables in current db.
 if (! defined('PMA_MINIMUM_COMMON')
