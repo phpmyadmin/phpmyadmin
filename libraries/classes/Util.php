@@ -1700,8 +1700,13 @@ class Util
     }
 
     /**
-     * Displays a link, or a button if the link's URL is too large, to
-     * accommodate some browsers' limitations
+     * Displays a link, or a link with code to trigger POST request.
+     *
+     * POST is used in following cases:
+     *
+     * - URL is too long
+     * - URL components are over Suhosin limits
+     * - There is SQL query in the parameters
      *
      * @param string  $url          the URL
      * @param string  $message      the link message
