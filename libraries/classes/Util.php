@@ -1717,7 +1717,7 @@ class Util
         $url, $message, $tag_params = array(),
         $strip_img = false, $target = '', $force_button = false
     ) {
-        $url_length = mb_strlen($url);
+        $url_length = strlen($url);
 
         if (! is_array($tag_params)) {
             $tmp = $tag_params;
@@ -1760,7 +1760,7 @@ class Util
                     }
 
                     list(, $eachval) = explode('=', $query_pair);
-                    if (mb_strlen($eachval) > $suhosin_get_MaxValueLength
+                    if (strlen($eachval) > $suhosin_get_MaxValueLength
                     ) {
                         $in_suhosin_limits = false;
                         break;
