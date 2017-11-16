@@ -1740,19 +1740,6 @@ class Util
             }
         }
 
-        $displayed_message = '';
-        // Add text if not already added
-        if (stristr($message, '<img')
-            && (! $strip_img || ($GLOBALS['cfg']['ActionLinksMode'] == 'icons'))
-            && (strip_tags($message) == $message)
-        ) {
-            $displayed_message = '<span>'
-                . htmlspecialchars(
-                    preg_replace('/^.*\salt="([^"]*)".*$/si', '\1', $message)
-                )
-                . '</span>';
-        }
-
         // Suhosin: Check that each query parameter is not above maximum
         $in_suhosin_limits = true;
         if ($url_length <= $GLOBALS['cfg']['LinkLengthLimit']) {
@@ -1796,7 +1783,7 @@ class Util
         // no whitespace within an <a> else Safari will make it part of the link
         return '<a href="' . $url . '" '
             . implode(' ', $tag_params_strings) . '>'
-            . $message . $displayed_message . '</a>';
+            . $message . '</a>';
     } // end of the 'linkOrButton()' function
 
     /**
