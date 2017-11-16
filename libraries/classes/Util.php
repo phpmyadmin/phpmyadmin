@@ -1052,7 +1052,6 @@ class Util
                             htmlspecialchars('url.php?url=' . urlencode($url)),
                             sprintf(__('Analyze Explain at %s'), 'mariadb.org'),
                             array(),
-                            true,
                             false,
                             '_blank'
                         ) . '&nbsp;]';
@@ -1085,7 +1084,6 @@ class Util
                             'import.php' . Url::getCommon($url_params),
                             __('Without PHP code'),
                             array(),
-                            true,
                             false,
                             '',
                             true
@@ -1097,7 +1095,6 @@ class Util
                             'import.php' . Url::getCommon($url_params),
                             __('Submit query'),
                             array(),
-                            true,
                             false,
                             '',
                             true
@@ -1710,8 +1707,6 @@ class Util
      * @param string  $message      the link message
      * @param mixed   $tag_params   string: js confirmation
      *                              array: additional tag params (f.e. style="")
-     * @param boolean $new_form     we set this to false when we are already in
-     *                              a  form, to avoid generating nested forms
      * @param boolean $strip_img    whether to strip the image
      * @param string  $target       target
      * @param boolean $force_button use a button even when the URL is not too long
@@ -1720,7 +1715,7 @@ class Util
      */
     public static function linkOrButton(
         $url, $message, $tag_params = array(),
-        $new_form = true, $strip_img = false, $target = '', $force_button = false
+        $strip_img = false, $target = '', $force_button = false
     ) {
         $url_length = mb_strlen($url);
 

@@ -1864,7 +1864,7 @@ class Results
         $tmp_url = 'sql.php' . Url::getCommon($url_params_full_text);
 
         return Util::linkOrButton(
-            $tmp_url, $tmp_image, array(), false
+            $tmp_url, $tmp_image, array()
         );
 
     } // end of the '_getFullOrPartialTextButtonOrLink()' function
@@ -2325,7 +2325,7 @@ class Results
 
         return Util::linkOrButton(
             $order_url, $inner_link_content,
-            $order_link_params, false, true
+            $order_link_params, true
         );
 
     } // end of the '_getSortOrderLink()' function
@@ -4978,7 +4978,7 @@ class Results
                     Util::getIcon(
                         'b_view_add.png', __('Create view'), true
                     ),
-                    array('class' => 'create_view' . $ajax_class), true, true, ''
+                    array('class' => 'create_view' . $ajax_class), true, ''
                 )
                 . '</span>' . "\n";
         }
@@ -5026,7 +5026,6 @@ class Results
             ),
             array('id' => 'copyToClipBoard'),
             true,
-            true,
             'copy_to_clip_board'
         );
 
@@ -5048,7 +5047,6 @@ class Results
                 'b_print.png', __('Print'), true
             ),
             array('id' => 'printView'),
-            true,
             true,
             'print_view'
         );
@@ -5157,7 +5155,6 @@ class Results
                 ),
                 '',
                 true,
-                true,
                 ''
             )
             . "\n";
@@ -5169,7 +5166,6 @@ class Results
                     'b_chart.png', __('Display chart'), true
                 ),
                 '',
-                true,
                 true,
                 ''
             )
@@ -5194,7 +5190,6 @@ class Results
                             'b_globe.gif', __('Visualize GIS data'), true
                         ),
                         '',
-                        true,
                         true,
                         ''
                     )
@@ -5622,7 +5617,7 @@ class Results
             $ret .= '<td class="' . $class . ' center print_ignore" '
                 . ' ><span class="nowrap">'
                 . Util::linkOrButton(
-                    $edit_url, $edit_str, array(), false
+                    $edit_url, $edit_str, array()
                 );
             /*
              * Where clause for selecting this row uniquely is provided as
@@ -5669,7 +5664,7 @@ class Results
 
             $ret .= 'center print_ignore" ' . ' ><span class="nowrap">'
                . Util::linkOrButton(
-                   $copy_url, $copy_str, array(), false
+                   $copy_url, $copy_str, array()
                );
 
             /*
@@ -5719,8 +5714,7 @@ class Results
             . Util::linkOrButton(
                 $del_url,
                 $del_str,
-                array('class' => 'delete_row requireConfirm' . $ajax),
-                false
+                array('class' => 'delete_row requireConfirm' . $ajax)
             )
             . '<div class="hide">' . $js_conf . '</div>'
             . '</td>';
