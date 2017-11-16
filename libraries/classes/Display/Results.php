@@ -1863,9 +1863,7 @@ class Results
                      . $tmp_txt . '" title="' . $tmp_txt . '" />';
         $tmp_url = 'sql.php' . Url::getCommon($url_params_full_text);
 
-        return Util::linkOrButton(
-            $tmp_url, $tmp_image, array()
-        );
+        return Util::linkOrButton($tmp_url, $tmp_image);
 
     } // end of the '_getFullOrPartialTextButtonOrLink()' function
 
@@ -4978,7 +4976,7 @@ class Results
                     Util::getIcon(
                         'b_view_add.png', __('Create view'), true
                     ),
-                    array('class' => 'create_view' . $ajax_class), true, ''
+                    array('class' => 'create_view' . $ajax_class), true
                 )
                 . '</span>' . "\n";
         }
@@ -5025,8 +5023,7 @@ class Results
                 'b_insrow.png', __('Copy to clipboard'), true
             ),
             array('id' => 'copyToClipBoard'),
-            true,
-            'copy_to_clip_board'
+            true
         );
 
         return $html;
@@ -5154,8 +5151,7 @@ class Results
                     'b_tblexport.png', __('Export'), true
                 ),
                 '',
-                true,
-                ''
+                true
             )
             . "\n";
 
@@ -5166,8 +5162,7 @@ class Results
                     'b_chart.png', __('Display chart'), true
                 ),
                 '',
-                true,
-                ''
+                true
             )
             . "\n";
 
@@ -5190,8 +5185,7 @@ class Results
                             'b_globe.gif', __('Visualize GIS data'), true
                         ),
                         '',
-                        true,
-                        ''
+                        true
                     )
                     . "\n";
             }
@@ -5616,9 +5610,7 @@ class Results
 
             $ret .= '<td class="' . $class . ' center print_ignore" '
                 . ' ><span class="nowrap">'
-                . Util::linkOrButton(
-                    $edit_url, $edit_str, array()
-                );
+                . Util::linkOrButton($edit_url, $edit_str);
             /*
              * Where clause for selecting this row uniquely is provided as
              * a hidden input. Used by jQuery scripts for handling grid editing
@@ -5663,9 +5655,7 @@ class Results
             }
 
             $ret .= 'center print_ignore" ' . ' ><span class="nowrap">'
-               . Util::linkOrButton(
-                   $copy_url, $copy_str, array()
-               );
+               . Util::linkOrButton($copy_url, $copy_str);
 
             /*
              * Where clause for selecting this row uniquely is provided as

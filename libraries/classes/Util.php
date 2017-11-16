@@ -1082,30 +1082,23 @@ class Util
                     $php_link = ' [&nbsp;'
                         . self::linkOrButton(
                             'import.php' . Url::getCommon($url_params),
-                            __('Without PHP code'),
-                            array(),
-                            false,
-                            ''
+                            __('Without PHP code')
                         )
                         . '&nbsp;]';
 
                     $php_link .= ' [&nbsp;'
                         . self::linkOrButton(
                             'import.php' . Url::getCommon($url_params),
-                            __('Submit query'),
-                            array(),
-                            false,
-                            ''
+                            __('Submit query')
                         )
                         . '&nbsp;]';
                 } else {
                     $php_params = $url_params;
                     $php_params['show_as_php'] = 1;
-                    $_message = __('Create PHP code');
                     $php_link = ' [&nbsp;'
                         . self::linkOrButton(
                             'import.php' . Url::getCommon($php_params),
-                            $_message
+                            __('Create PHP code')
                         )
                         . '&nbsp;]';
                 }
