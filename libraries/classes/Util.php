@@ -1780,11 +1780,7 @@ class Util
         ) {
             $tag_params_strings = array();
             foreach ($tag_params as $par_name => $par_value) {
-                // htmlspecialchars() only on non javascript
-                $par_value = mb_substr($par_name, 0, 2) == 'on'
-                    ? $par_value
-                    : htmlspecialchars($par_value);
-                $tag_params_strings[] = $par_name . '="' . $par_value . '"';
+                $tag_params_strings[] = $par_name . '="' . htmlspecialchars($par_value) . '"';
             }
 
             // no whitespace within an <a> else Safari will make it part of the link
@@ -1840,11 +1836,7 @@ class Util
 
             $tag_params_strings = array();
             foreach ($tag_params as $par_name => $par_value) {
-                // htmlspecialchars() only on non javascript
-                $par_value = mb_substr($par_name, 0, 2) == 'on'
-                    ? $par_value
-                    : htmlspecialchars($par_value);
-                $tag_params_strings[] = $par_name . '="' . $par_value . '"';
+                $tag_params_strings[] = $par_name . '="' . htmlspecialchars($par_value) . '"';
             }
 
             $ret .= "\n" . '<a href="' . $submit_link . '" '
