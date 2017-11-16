@@ -2214,12 +2214,12 @@ class UtilTest extends PmaTestCase
                 '<a href="index.php" data-post="some=parameter">text</a>',
             ],
             [
-                ['index.php', 'text', [], false, 'target'],
+                ['index.php', 'text', [], 'target'],
                 1000,
                 '<a href="index.php" target="target">text</a>',
             ],
             [
-                ['url.php?url=http://phpmyadmin.net/', 'text', [], false, '_blank'],
+                ['url.php?url=http://phpmyadmin.net/', 'text', [], '_blank'],
                 1000,
                 '<a href="url.php?url=http://phpmyadmin.net/" target="_blank" rel="noopener noreferrer">text</a>',
             ],

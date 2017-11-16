@@ -2322,8 +2322,7 @@ class Results
             . '<input type="hidden" value="' .  $multi_order_url . '" />';
 
         return Util::linkOrButton(
-            $order_url, $inner_link_content,
-            $order_link_params, true
+            $order_url, $inner_link_content, $order_link_params
         );
 
     } // end of the '_getSortOrderLink()' function
@@ -4976,7 +4975,7 @@ class Results
                     Util::getIcon(
                         'b_view_add.png', __('Create view'), true
                     ),
-                    array('class' => 'create_view' . $ajax_class), true
+                    array('class' => 'create_view' . $ajax_class)
                 )
                 . '</span>' . "\n";
         }
@@ -5022,8 +5021,7 @@ class Results
             Util::getIcon(
                 'b_insrow.png', __('Copy to clipboard'), true
             ),
-            array('id' => 'copyToClipBoard'),
-            true
+            array('id' => 'copyToClipBoard')
         );
 
         return $html;
@@ -5044,7 +5042,6 @@ class Results
                 'b_print.png', __('Print'), true
             ),
             array('id' => 'printView'),
-            true,
             'print_view'
         );
 
@@ -5149,9 +5146,7 @@ class Results
                 'tbl_export.php' . Url::getCommon($_url_params),
                 Util::getIcon(
                     'b_tblexport.png', __('Export'), true
-                ),
-                '',
-                true
+                )
             )
             . "\n";
 
@@ -5160,9 +5155,7 @@ class Results
                 'tbl_chart.php' . Url::getCommon($_url_params),
                 Util::getIcon(
                     'b_chart.png', __('Display chart'), true
-                ),
-                '',
-                true
+                )
             )
             . "\n";
 
@@ -5183,9 +5176,7 @@ class Results
                         . Url::getCommon($_url_params),
                         Util::getIcon(
                             'b_globe.gif', __('Visualize GIS data'), true
-                        ),
-                        '',
-                        true
+                        )
                     )
                     . "\n";
             }

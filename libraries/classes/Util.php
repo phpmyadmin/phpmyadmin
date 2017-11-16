@@ -1052,7 +1052,6 @@ class Util
                             htmlspecialchars('url.php?url=' . urlencode($url)),
                             sprintf(__('Analyze Explain at %s'), 'mariadb.org'),
                             array(),
-                            false,
                             '_blank'
                         ) . '&nbsp;]';
                 }
@@ -1703,14 +1702,12 @@ class Util
      * @param string  $message      the link message
      * @param mixed   $tag_params   string: js confirmation
      *                              array: additional tag params (f.e. style="")
-     * @param boolean $strip_img    whether to strip the image
      * @param string  $target       target
      *
      * @return string  the results to be echoed or saved in an array
      */
     public static function linkOrButton(
-        $url, $message, $tag_params = array(),
-        $strip_img = false, $target = ''
+        $url, $message, $tag_params = array(), $target = ''
     ) {
         $url_length = strlen($url);
 

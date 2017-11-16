@@ -38,7 +38,7 @@
         {% set edit_url = 'gis_data_editor.php' ~ Url_getCommon() %}
         {% set edit_str = Util_getIcon('b_edit.png', 'Edit/Insert'|trans) %}
         <span class="open_search_gis_editor">
-            {{ Util_linkOrButton(edit_url, edit_str, [], false, '_blank') }}
+            {{ Util_linkOrButton(edit_url, edit_str, [], '_blank') }}
         </span>
     {% endif %}
 {% elseif column_type starts with 'enum'
