@@ -77,7 +77,7 @@ class ServerEnginesController extends Controller
      */
     private function _getHtmlForServerEngine(StorageEngine $engine)
     {
-        $page = $_REQUEST['page'];
+        $page = isset($_REQUEST['page']) ? $_REQUEST['page'] : '';
         $pageOutput = ! empty($page) ? $engine->getPage($page) : '';
 
         /**
