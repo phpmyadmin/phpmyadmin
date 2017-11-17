@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<phpunit bootstrap="test/bootstrap-dist.php"
+         backupGlobals="true"
+         backupStaticAttributes="false"
+         colors="true"
+         verbose="true">
+
+    <selenium>
+        <browser name="Firefox on localhost"
+                 browser="firefox"
+                 host="127.0.0.1"
+                 port="4444"
+                 timeout="30000"/>
+    </selenium>
+
+    <testsuites>
+        <testsuite name="Classes">
+            <directory suffix="Test.php">test/classes</directory>
+        </testsuite>
+        <testsuite name="Engines">
+            <directory suffix="_test.php">test/engines</directory>
+        </testsuite>
+        <testsuite name="Unit">
+            <file>test/Environment_test.php</file>
+            <directory suffix="_test.php">test/libraries/core</directory>
+            <directory suffix="_test.php">test/libraries/common</directory>
+            <directory suffix="_test.php">test/libraries/rte</directory>
+            <directory suffix="_test.php">test/libraries</directory>
+        </testsuite>
+        <testsuite name="Selenium">
+            <directory suffix="Test.php">test/selenium</directory>
+        </testsuite>
+    </testsuites>
+
+    <logging>
+        <log type="coverage-clover" target="build/logs/clover.xml"/>
+        <log type="junit" target="build/logs/junit.xml" logIncompleteSkipped="false"/>
+        <log type="json" target="build/logs/phpunit.json" />
+    </logging>
+
+    <filter>
+        <whitelist addUncoveredFilesFromWhitelist="true">
+            <directory suffix=".php">.</directory>
+            <exclude>
+                <!-- composer packages -->
+                <directory>vendor/</directory>
+                <!-- excluding the tests from the coverage -->
+                <directory>test/</directory>
+                <!-- excluding the twig cache from the coverage -->
+                <directory>tmp/</directory>
+                <!-- examples for users -->
+                <directory suffix=".php">examples</directory>
+            </exclude>
+        </whitelist>
+    </filter>
+</phpunit>

@@ -1,0 +1,26 @@
+<div id="div_mysql_charset_collations">
+    <table class="data noclick">
+        <thead>
+            <tr>
+                <th id="collationHeader">{% trans 'Collation' %}</th>
+                <th>{% trans 'Description' %}</th>
+            </tr>
+        </thead>
+        {% for current_charset in mysql_charsets %}
+            <tr>
+                <th colspan="2" class="right">
+                    {{ current_charset }}
+                    {% if mysql_charsets_desc[current_charset] is not empty %}
+                        (<em>{{ mysql_charsets_desc[current_charset] }}</em>)
+                    {% endif %}
+                </th>
+            </tr>
+            {% for current_collation in mysql_collations[current_charset] %}
+                <tr class="{{ mysql_dft_collations[current_charset] == current_collation ? ' marked' }}">
+                    <td>{{ current_collation }}</td>
+                    <td>{{ Charsets_getCollationDescr(current_collation) }}</td>
+                </tr>
+            {% endfor %}
+        {% endfor %}
+    </table>
+</div>

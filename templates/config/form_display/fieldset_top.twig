@@ -1,0 +1,17 @@
+<fieldset
+    {%- for key, value in attributes -%}
+        {{- ' ' }}{{ key }}="{{ value }}"
+    {%- endfor %}>
+<legend>{{ title }}</legend>
+{% if description is not empty %}
+    <p>{{ description }}</p>
+{% endif %}
+{# This must match with displayErrors() in scripts.js #}
+{% if errors is iterable and errors|length > 0 %}
+    <dl class="errors">
+        {% for error in errors %}
+            <dd>{{ error }}</dd>
+        {% endfor %}
+    </dl>
+{% endif %}
+<table width="100%" cellspacing="0">

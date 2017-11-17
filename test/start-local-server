@@ -1,0 +1,31 @@
+#!/bin/sh
+
+# Do not run as CGI
+if [ -n "$GATEWAY_INTERFACE" ] ; then
+    echo 'Can not invoke as CGI!'
+    exit 1
+fi
+
+set -e
+set -x
+
+if [ "$CI_MODE" != "selenium" -o -z "$TESTSUITE_BROWSERSTACK_KEY" ] ; then
+    exit 0
+fi
+
+# Start php-fpm + nginx in temporary dir
+DIR=`mktemp -d`
+CURRENT=`pwd`
+PHP_VERSION=$(phpenv version-name)
+
+# Create configuration with correct paths
+cp test/nginx.conf test/php-fpm.conf test/php.ini $DIR/
+sed -i -e "s@%DIR%@$DIR@" -e "s@%ROOT%@$CURRENT@" $DIR/*
+mkdir $DIR/sessions
+
+# Start servers
+$HOME/.phpenv/versions/$PHP_VERSION/sbin/php-fpm --fpm-config $DIR/php-fpm.conf -c $DIR/php.ini
+nginx -c $DIR/nginx.conf
+
+# Start BrowserStack Local forwarder
+~/browserstack/BrowserStackLocal -localIdentifier "travis-$TRAVIS_JOB_NUMBER" -onlyAutomate "$TESTSUITE_BROWSERSTACK_KEY" 127.0.0.1,8000,0 & 

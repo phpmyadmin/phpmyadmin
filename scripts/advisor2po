@@ -1,0 +1,68 @@
+<?php
+/* vim: set expandtab sw=4 ts=4 sts=4 ft=php: */
+/**
+ * Script to parse advisor rules and output them as Gettext POT formatted
+ * strings for translation.
+ */
+
+$messages = array();
+$locations = array();
+
+/**
+ * Processes single advisor message and stores data in global array.
+ */
+function add_message($rules, $idx, $type) {
+    global $messages, $locations;
+    // Get message text
+    if ($type == 'justification') {
+        $msgs = PhpMyAdmin\Advisor::splitJustification($rules['rules'][$idx]);
+        $msg = $msgs[0];
+    } else {
+        $msg = $rules['rules'][$idx][$type];
+    }
+    $line = 'libraries/advisory_rules.txt:' . $rules['lines'][$idx][$type];
+    // Avoid duplicate mesages
+    $pos = array_search($msg, $messages);
+    if ($pos === false) {
+        $messages[] = $msg;
+        $locations[] = array($line);
+    } else {
+        $locations[$pos][] = $line;
+    }
+}
+
+/**
+ * Prints message at given location as Gettext string for translation.
+ */
+function print_message($idx) {
+    global $messages, $locations;
+    echo "\n";
+    echo '#: ' . implode(' ', $locations[$idx]);
+    echo "\n";
+    if (strstr($messages[$idx], '%') !== false) {
+        echo '#, php-format';
+        echo "\n";
+    }
+    echo 'msgid "' . addcslashes(PhpMyAdmin\Advisor::escapePercent($messages[$idx]), '"\\') . '"';
+    echo "\n";
+    echo 'msgstr ""';
+    echo "\n";
+}
+
+define('PHPMYADMIN', 1);
+require_once 'libraries/vendor_config.php';
+require_once AUTOLOAD_FILE;
+
+$rules = PhpMyAdmin\Advisor::parseRulesFile();
+
+foreach($rules['rules'] as $idx => $rule) {
+    add_message($rules, $idx, 'name');
+    add_message($rules, $idx, 'issue');
+    add_message($rules, $idx, 'recommendation');
+    add_message($rules, $idx, 'justification');
+}
+
+foreach($messages as $idx => $rule) {
+    print_message($idx);
+}
+?>

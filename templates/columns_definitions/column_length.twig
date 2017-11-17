@@ -1,0 +1,11 @@
+<input id="field_{{ column_number }}_{{ ci - ci_offset }}"
+    type="text"
+    name="field_length[{{ column_number }}]"
+    size="{{ length_values_input_size }}"
+    value="{{ length_to_display }}"
+    class="textfield" />
+<p class="enum_notice" id="enum_notice_{{ column_number }}_{{ ci - ci_offset }}">
+    <a href="#" class="open_enum_editor">
+        {% trans 'Edit ENUM/SET values' %}
+    </a>
+</p>

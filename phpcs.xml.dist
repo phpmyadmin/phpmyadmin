@@ -1,0 +1,15 @@
+<?xml version="1.0"?>
+<ruleset name="phpMyAdmin Coding Standard">
+    <rule ref="./vendor/phpmyadmin/coding-standard/PMAStandard/ruleset.xml"/>
+
+    <arg value="sp"/>
+    <arg name="colors"/>
+    <arg name="extensions" value="php"/>
+
+    <exclude-pattern>*/build/*</exclude-pattern>
+    <exclude-pattern>*/node_modules/*</exclude-pattern>
+    <exclude-pattern>*/tmp/*</exclude-pattern>
+    <exclude-pattern>*/vendor/*</exclude-pattern>
+
+    <file>.</file>
+</ruleset>

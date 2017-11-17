@@ -1,0 +1,27 @@
+#!/bin/bash
+set -e
+
+# Do not run as CGI
+if [ -n "$GATEWAY_INTERFACE" ] ; then
+    echo 'Can not invoke as CGI!'
+    exit 1
+fi
+
+# These do not support runkit
+case "$TRAVIS_PHP_VERSION" in
+    hhvm*|nightly)
+        exit 0
+        ;;
+    7.*)
+        exit 0
+        # Disabled for now as it causes PHP crashes, we should retry with newer version
+        RVERSION=1.0.5b1
+        wget https://github.com/runkit7/runkit7/releases/download/$RVERSION/runkit-$RVERSION.tgz
+        pecl install ./runkit-$RVERSION.tgz
+        ;;
+    *)
+        pecl install runkit
+        ;;
+esac
+
+phpenv config-add test/php-runkit.ini

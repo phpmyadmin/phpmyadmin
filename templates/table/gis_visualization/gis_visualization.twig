@@ -1,0 +1,80 @@
+<div id="div_view_options">
+    <fieldset>
+        <legend>{% trans 'Display GIS Visualization' %}</legend>
+        <div id="gis_div" style="position:relative;">
+            <form method="post" action="tbl_gis_visualization.php">
+                {{ Url_getHiddenInputs(url_params) }}
+                <label for="labelColumn">
+                    {% trans "Label column" %}
+                </label>
+                <select name="visualizationSettings[labelColumn]" id="labelColumn" class="autosubmit">
+                    <option value="">{% trans "-- None --" %}</option>
+                    {% for value in label_candidates %}
+                        <option value="{{ value }}"{{ value == visualization_settings['labelColumn'] ? ' selected="selected"' }}>
+                            {{ value }}
+                        </option>
+                    {% endfor %}
+                </select>
+                <label for="spatialColumn">
+                    {% trans "Spatial column" %}
+                </label>
+                <select name="visualizationSettings[spatialColumn]" id="spatialColumn" class="autosubmit">
+                    {% for value in spatial_candidates %}
+                        <option value="{{ value }}"{{ value == visualization_settings['spatialColumn'] ? ' selected="selected"' }}>
+                            {{ value }}
+                        </option>
+                    {% endfor %}
+                </select>
+                <input type="hidden" name="displayVisualization" value="redraw">
+                    <tr>
+                        <td class="choice" colspan="2">
+                            <input type="checkbox"
+                                   name="visualizationSettings[choice]"
+                                   id="choice" value="useBaseLayer"
+                                   {% if visualization_settings['choice'] is defined %}
+                                        checked="checked"
+                                   {% endif %}/>
+                            <label for="choice" id="labelChoice">
+                                {% trans "Use OpenStreetMaps as Base Layer" %}
+                            </label>
+                        </td>
+                    </tr>
+                {{ Util_getStartAndNumberOfRowsPanel(sql_query) }}
+            </form>
+
+            <div class="pma_quick_warp" style="width: 50px; position: absolute; right: 0; top: 0; cursor: pointer;">
+                <div class="drop_list">
+                    <span class="drop_button" style="padding: 0; border: 0;">
+                        {{ Util_getImage('b_saveimage', 'Save'|trans) }}
+                    </span>
+                    <ul>
+                        <li class="warp_link">
+                            <a href="{{ download_url }}&fileFormat=png" class="disableAjax">PNG</a>
+                        </li>
+                        <li class="warp_link">
+                            <a href="{{ download_url }}&fileFormat=pdf" class="disableAjax">PDF</a>
+                        </li>
+                        <li class="warp_link">
+                            <a href="{{ download_url }}&fileFormat=svg" class="disableAjax">SVG</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="clearfloat"></div>
+
+        <div id="placeholder"
+             style="width:{{ visualization_settings['width'] }}px;height:{{ visualization_settings['height'] }}px;">
+            {{ visualization|raw }}
+        </div>
+        <div id="openlayersmap"></div>
+        <input type="hidden" id="pmaThemeImage" value="{{ pma_theme_image }}" />
+        <script language="javascript" type="text/javascript">
+            function drawOpenLayers()
+            {
+                {{ draw_ol|raw }}
+            }
+        </script>
+    </fieldset>
+</div>

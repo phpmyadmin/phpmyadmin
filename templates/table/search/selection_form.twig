@@ -1,0 +1,102 @@
+{% if search_type == 'zoom' %}
+    {% include 'table/search/form_tag.twig' with {
+        'script_name': 'tbl_zoom_select.php',
+        'form_id': 'zoom_search_form',
+        'db': db,
+        'table': table,
+        'goto': goto
+    } only %}
+    <fieldset id="fieldset_zoom_search">
+        <fieldset id="inputSection">
+            <legend>
+                {% trans 'Do a "query by example" (wildcard: "%") for two different columns' %}
+            </legend>
+            {% include 'table/search/fields_table.twig' with {
+                'self': self,
+                'search_type': search_type,
+                'geom_column_flag': geom_column_flag,
+                'column_names': column_names,
+                'column_types': column_types,
+                'column_collations': column_collations,
+                'criteria_column_names': criteria_column_names,
+                'criteria_column_types': criteria_column_types
+            } only %}
+            {% include 'table/search/options_zoom.twig' with {
+                'data_label': data_label,
+                'column_names': column_names,
+                'max_plot_limit': max_plot_limit
+            } only %}
+        </fieldset>
+    </fieldset>
+{% elseif search_type == 'normal' %}
+    {% include 'table/search/form_tag.twig' with {
+        'script_name': 'tbl_select.php',
+        'form_id': 'tbl_search_form',
+        'db': db,
+        'table': table,
+        'goto': goto
+    } only %}
+    <fieldset id="fieldset_table_search">
+        <fieldset id="fieldset_table_qbe">
+            <legend>
+                {% trans 'Do a "query by example" (wildcard: "%")' %}
+            </legend>
+            <div class="responsivetable jsresponsive">
+                {% include 'table/search/fields_table.twig' with {
+                    'self': self,
+                    'search_type': search_type,
+                    'geom_column_flag': geom_column_flag,
+                    'column_names': column_names,
+                    'column_types': column_types,
+                    'column_collations': column_collations,
+                    'criteria_column_names': criteria_column_names,
+                    'criteria_column_types': criteria_column_types
+                } only %}
+            </div>
+            <div id="gis_editor"></div>
+            <div id="popup_background"></div>
+        </fieldset>
+        {% include 'table/search/options.twig' with {
+            'column_names': column_names,
+            'max_rows': max_rows
+        } only %}
+    </fieldset>
+{% elseif search_type == 'replace' %}
+    {% include 'table/search/form_tag.twig' with {
+        'script_name': 'tbl_find_replace.php',
+        'form_id': 'find_replace_form',
+        'db': db,
+        'table': table,
+        'goto': goto
+    } only %}
+    <fieldset id="fieldset_find_replace">
+        <fieldset id="fieldset_find">
+            <legend>
+                {% trans 'Find and replace' %}
+            </legend>
+            {% include 'table/search/search_and_replace.twig' with {
+                'column_names': column_names,
+                'column_types': column_types,
+                'sql_types': sql_types
+            } only %}
+        </fieldset>
+    </fieldset>
+{% else %}
+    {% include 'table/search/form_tag.twig' with {
+        'script_name': '',
+        'form_id': '',
+        'db': db,
+        'table': table,
+        'goto': goto
+    } only %}
+{% endif %}
+
+{# Displays selection form's footer elements #}
+    <fieldset class="tblFooters">
+        <input type="submit"
+            name="{{ search_type == 'zoom' ? 'zoom_submit' : 'submit' }}"
+            {{ search_type == 'zoom' ? 'id="inputFormSubmitId"' }}
+            value="{% trans 'Go' %}" />
+    </fieldset>
+</form>
+<div id="sqlqueryresultsouter"></div>

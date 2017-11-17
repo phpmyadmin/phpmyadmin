@@ -1,0 +1,6 @@
+*.swp
+/_build
+/doctrees
+/html
+/locale
+*.pyc

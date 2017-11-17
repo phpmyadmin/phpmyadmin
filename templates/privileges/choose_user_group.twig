@@ -1,0 +1,9 @@
+<form class="ajax" id="changeUserGroupForm" action="server_privileges.php" method="post">
+    {{ Url_getHiddenInputs(params) }}
+    <fieldset id="fieldset_user_group_selection">
+        <legend>{% trans 'User group' %}</legend>
+        {% trans 'User group' %}:
+        {{ Util_getDropdown('userGroup', all_user_groups, user_group, 'userGroup_select') }}
+        <input type="hidden" name="changeUserGroup" value="1">
+    </fieldset>
+</form>

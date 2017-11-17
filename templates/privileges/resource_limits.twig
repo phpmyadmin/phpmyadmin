@@ -1,0 +1,13 @@
+<fieldset>
+    <legend>{% trans 'Resource limits' %}</legend>
+    <p>
+        <small>
+            <em>{% trans 'Note: Setting these options to 0 (zero) removes the limit.' %}</em>
+        </small>
+    </p>
+    {% for limit in limits %}
+        {% include 'privileges/resource_limit_item.twig' with {
+            'limit': limit
+        } only %}
+    {% endfor %}
+</fieldset>
