@@ -723,10 +723,15 @@ class Results
      *          _getMoveForwardButtonsForTableNavigation()
      */
     private function _getTableNavigationButton(
-        $caption, $title, $pos, $html_sql_query, $back, $onsubmit = '',
-        $input_for_real_end = '', $onclick = ''
+        $caption,
+        $title,
+        $pos,
+        $html_sql_query,
+        $back,
+        $onsubmit = '',
+        $input_for_real_end = '',
+        $onclick = ''
     ) {
-
         $caption_output = '';
         if ($back) {
             if (Util::showIcons('TableNavigationLinksMode')) {
@@ -743,29 +748,21 @@ class Results
                 $caption_output .= '&nbsp;' . $caption;
             }
         }
-        $title_output = ' title="' . $title . '"';
 
-        return '<td>'
-            . '<form action="sql.php" method="post" ' . $onsubmit . '>'
-            . Url::getHiddenInputs(
-                $this->__get('db'), $this->__get('table')
-            )
-            . '<input type="hidden" name="sql_query" value="'
-            . $html_sql_query . '" />'
-            . '<input type="hidden" name="pos" value="' . $pos . '" />'
-            . '<input type="hidden" name="is_browse_distinct" value="'
-            . $this->__get('is_browse_distinct') . '" />'
-            . '<input type="hidden" name="goto" value="' . $this->__get('goto')
-            . '" />'
-            . $input_for_real_end
-            . '<input type="submit" name="navig"'
-            . ' class="ajax" '
-            . 'value="' . $caption_output . '" ' . $title_output . $onclick . ' />'
-            . '</form>'
-            . '</td>';
-
-    } // end function _getTableNavigationButton()
-
+        return Template::get('display/results/table_navigation_button')->render([
+            'db' => $this->__get('db'),
+            'table' => $this->__get('table'),
+            'sql_query' => $html_sql_query,
+            'pos' => $pos,
+            'is_browse_distinct' => $this->__get('is_browse_distinct'),
+            'goto' => $this->__get('goto'),
+            'input_for_real_end' => $input_for_real_end,
+            'caption_output' => $caption_output,
+            'title' => $title,
+            'onsubmit' => $onsubmit,
+            'onclick' => $onclick,
+        ]);
+    }
 
     /**
      * Possibly return a page selector for table navigation

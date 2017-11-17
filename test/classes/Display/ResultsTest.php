@@ -111,25 +111,37 @@ class ResultsTest extends PmaTestCase
      * @param string  $title          text for button
      * @param integer $pos            position for next query
      * @param string  $html_sql_query query ready for display
-     * @param string  $output         output from the _getTableNavigationButton
-     *                                method
      *
      * @return void
      *
      * @dataProvider providerForTestGetTableNavigationButton
      */
     public function testGetTableNavigationButton(
-        $caption, $title, $pos, $html_sql_query, $output
+        $caption, $title, $pos, $html_sql_query
     ) {
         $GLOBALS['cfg']['TableNavigationLinksMode'] = 'icons';
         $_SESSION[' PMA_token '] = 'token';
 
-        $this->assertEquals(
-            $output,
-            $this->_callPrivateFunction(
-                '_getTableNavigationButton',
-                array(&$caption, $title, $pos, $html_sql_query, true)
-            )
+        $actual = $this->_callPrivateFunction(
+            '_getTableNavigationButton',
+            array(&$caption, $title, $pos, $html_sql_query, true)
+        );
+
+        $this->assertContains(
+            '<form action="sql.php" method="post">',
+            $actual
+        );
+        $this->assertContains(
+            'name="sql_query" value="SELECT * FROM `pma_bookmark` WHERE 1"',
+            $actual
+        );
+        $this->assertContains(
+            'name="pos" value="1"',
+            $actual
+        );
+        $this->assertContains(
+            'value="btn" title="Submit"',
+            $actual
         );
     }
 
@@ -146,18 +158,6 @@ class ResultsTest extends PmaTestCase
                 'Submit',
                 1,
                 'SELECT * FROM `pma_bookmark` WHERE 1',
-                '<td><form action="sql.php" method="post" >'
-                . '<input type="hidden" name="db" value="as" />'
-                . '<input type="hidden" name="lang" value="en" />'
-                . '<input type="hidden" name="collation_connection" value="utf-8" />'
-                . '<input type="hidden" name="token" value="token" />'
-                . '<input type="hidden" name="sql_query" value="SELECT * '
-                . 'FROM `pma_bookmark` WHERE 1" />'
-                . '<input type="hidden" name="pos" value="1" />'
-                . '<input type="hidden" name="is_browse_distinct" value="" />'
-                . '<input type="hidden" name="goto" value="" />'
-                . '<input type="submit" name="navig" class="ajax" '
-                . 'value="btn"  title="Submit" /></form></td>'
             )
         );
     }
