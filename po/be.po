@@ -4,16 +4,16 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.8.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2017-11-14 09:29+0100\n"
-"PO-Revision-Date: 2017-11-02 20:13+0000\n"
+"PO-Revision-Date: 2017-11-18 05:44+0000\n"
 "Last-Translator: Viktar Vauchkevich <victorenator@gmail.com>\n"
-"Language-Team: Belarusian <https://hosted.weblate.org/projects/phpmyadmin/"
-"master/be/>\n"
+"Language-Team: Belarusian "
+"<https://hosted.weblate.org/projects/phpmyadmin/master/be/>\n"
 "Language: be\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=3; plural=n%10==1 && n%100!=11 ? 0 : n%10>=2 && n"
-"%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
+"Plural-Forms: nplurals=3; plural=n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%10<="
+"4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
 "X-Generator: Weblate 2.18-dev\n"
 
 #: ajax.php:17 ajax.php:34 export.php:203 libraries/classes/Export.php:1100
@@ -14627,16 +14627,12 @@ msgid "Server variables and settings"
 msgstr "Налады і зьменныя сэрвэра"
 
 #: templates/server/sub_page_header.twig:2
-#, fuzzy
-#| msgid "Storage Engines"
 msgid "Storage engines"
-msgstr "Машыны захаваньня дадзеных"
+msgstr "Рухавікі захаваньня дадзеных"
 
 #: templates/server/sub_page_header.twig:2
-#, fuzzy
-#| msgid "Character Sets and Collations"
 msgid "Character sets and collations"
-msgstr "Раскладкі і супастаўленьні"
+msgstr "Наборы сімвалаў і супастаўленьні"
 
 #: templates/server/sub_page_header.twig:2
 msgid "Databases statistics"
@@ -15378,65 +15374,47 @@ msgstr "Акно запыту"
 
 #: templates/database/multi_table_query/form.twig:18
 #: templates/database/multi_table_query/form.twig:106
-#, fuzzy
-#| msgid "Select table:"
 msgid "select table"
-msgstr "Выберыце табліцу:"
+msgstr "выберыце табліцу"
 
 #: templates/database/multi_table_query/form.twig:25
 #: templates/database/multi_table_query/form.twig:114
-#, fuzzy
-#| msgid "Select column:"
 msgid "select column"
-msgstr "Выберыце слупок:"
+msgstr "выберыце слупок"
 
 #: templates/database/multi_table_query/form.twig:31
-#, fuzzy
-#| msgid "Tables"
 msgid "Table alias"
-msgstr "Табліцы"
+msgstr "псеўданімы табліцы"
 
 #: templates/database/multi_table_query/form.twig:32
-#, fuzzy
-#| msgid "Column names"
 msgid "Column alias"
-msgstr "Назвы калёнак"
+msgstr "Псеўданімы слупка"
 
 #: templates/database/multi_table_query/form.twig:35
 msgid "Use this column in criteria"
 msgstr ""
 
 #: templates/database/multi_table_query/form.twig:38
-#, fuzzy
-#| msgid "Criteria:"
 msgid "criteria"
-msgstr "Крытэрый:"
+msgstr "крытэрый"
 
 #: templates/database/multi_table_query/form.twig:52
-#, fuzzy
-#| msgid "Add %s"
 msgid "Add as"
-msgstr "Дадаць %s"
+msgstr "Дадаць як"
 
 #: templates/database/multi_table_query/form.twig:97
-#, fuzzy
-#| msgid "Move column"
 msgid "Another column"
-msgstr "Перамясціць слупок"
+msgstr "Іншы слупок"
 
 #: templates/database/multi_table_query/form.twig:125
 msgid "Enter criteria as free text"
 msgstr ""
 
 #: templates/database/multi_table_query/form.twig:133
-#, fuzzy
-#| msgid "Remove redundant columns"
 msgid "Remove this column"
-msgstr "Выдаліць залішнія слупкі"
+msgstr "Выдаліць гэты слупок"
 
 #: templates/database/multi_table_query/form.twig:160
-#, fuzzy
-#| msgid "Update Query"
 msgid "Update query"
 msgstr "Абнавіць запыт"
 
