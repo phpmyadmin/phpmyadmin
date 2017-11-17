@@ -1098,30 +1098,16 @@ class Results
      * Prepare fields for table navigation
      * Number of rows
      *
-     * @param string $html_sql_query the sql encoded by htmlspecialchars()
+     * @param string $sqlQuery the sql encoded by htmlspecialchars()
      *
-     * @return  string  $additional_fields_html html content
+     * @return string html content
      *
      * @access  private
      *
      * @see     _getTableNavigation()
      */
-    private function _getAdditionalFieldsForTableNavigation(
-        $html_sql_query
-    ) {
-
-        $additional_fields_html = '';
-
-        $additional_fields_html .= '<input type="hidden" name="sql_query" '
-            . 'value="' . $html_sql_query . '" />'
-            . '<input type="hidden" name="goto" value="' . $this->__get('goto')
-            . '" />'
-            . '<input type="hidden" name="pos" size="3" value="'
-            // Do not change the position when changing the number of rows
-            . $_SESSION['tmpval']['pos'] . '" />'
-            . '<input type="hidden" name="is_browse_distinct" value="'
-            . $this->__get('is_browse_distinct') . '" />'  ;
-
+    private function _getAdditionalFieldsForTableNavigation($sqlQuery)
+    {
         $numberOfRowsPlaceholder = null;
         if ($_SESSION['tmpval']['max_rows'] == self::ALL_ROWS) {
             $numberOfRowsPlaceholder = __('All');
@@ -1134,17 +1120,17 @@ class Results
             '250' => 250,
             '500' => 500
         );
-        $additional_fields_html .= __('Number of rows:') . ' ';
-        $additional_fields_html .= Util::getDropdown(
-            'session_max_rows', $numberOfRowsChoices,
-            $_SESSION['tmpval']['max_rows'], '',
-            'autosubmit', $numberOfRowsPlaceholder
-        );
 
-        return $additional_fields_html;
-
-    } // end of the '_getAdditionalFieldsForTableNavigation()' function
-
+        return Template::get('display/results/additional_fields')->render([
+            'goto' => $this->__get('goto'),
+            'is_browse_distinct' => $this->__get('is_browse_distinct'),
+            'sql_query' => $sqlQuery,
+            'number_of_rows_choices' => $numberOfRowsChoices,
+            'number_of_rows_placeholder' => $numberOfRowsPlaceholder,
+            'pos' => $_SESSION['tmpval']['pos'],
+            'max_rows' => $_SESSION['tmpval']['max_rows'],
+        ]);
+    }
 
     /**
      * Get the headers of the results table, for all of the columns
