@@ -1735,7 +1735,7 @@ class Results
     /**
      * Prepare html form for multi row operations
      *
-     * @param string $del_lnk the delete link of current row
+     * @param string $deleteLink the delete link of current row
      *
      * @return  string  $form_html          html content
      *
@@ -1743,34 +1743,17 @@ class Results
      *
      * @see     _getTableHeaders()
      */
-    private function _getFormForMultiRowOperations($del_lnk)
+    private function _getFormForMultiRowOperations($deleteLink)
     {
-
-        $form_html = '';
-
-        if (($del_lnk == self::DELETE_ROW) || ($del_lnk == self::KILL_PROCESS)) {
-
-            $form_html .= '<form method="post" action="tbl_row_action.php" '
-                . 'name="resultsForm"'
-                . ' id="resultsForm_' . $this->__get('unique_id') . '"';
-
-            $form_html .= ' class="ajax" ';
-
-            $form_html .= '>'
-                . Url::getHiddenInputs(
-                    $this->__get('db'), $this->__get('table'), 1
-                )
-                . '<input type="hidden" name="goto" value="sql.php" />';
-        }
-
-        $form_html .= '<div class="responsivetable"><table class="table_results data ajax"';
-        $form_html .= ' data-uniqueId="' . $this->__get('unique_id') . '"';
-        $form_html .= '>';
-
-        return $form_html;
-
-    } // end of the '_getFormForMultiRowOperations()' function
-
+        return Template::get('display/results/multi_row_operations_form')->render([
+            'delete_link' => $deleteLink,
+            'delete_row' => self::DELETE_ROW,
+            'kill_process' => self::KILL_PROCESS,
+            'unique_id' => $this->__get('unique_id'),
+            'db' => $this->__get('db'),
+            'table' => $this->__get('table'),
+        ]);
+    }
 
     /**
      * Get comment for row
