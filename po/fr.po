@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin-docs 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2017-11-02 14:03+0100\n"
-"PO-Revision-Date: 2017-11-14 08:22+0000\n"
-"Last-Translator: Michal Čihař <michal@cihar.com>\n"
+"PO-Revision-Date: 2017-11-18 12:44+0000\n"
+"Last-Translator: tmtisfree <tmtisfree@free.fr>\n"
 "Language-Team: French "
 "<https://hosted.weblate.org/projects/phpmyadmin/4-7/fr/>\n"
 "Language: fr\n"
@@ -11091,7 +11091,7 @@ msgstr "Erreur : relation déjà existante."
 
 #: libraries/pmd_common.php:592
 msgid "FOREIGN KEY relationship has been added."
-msgstr "Relation de clé étrangère ajoutée."
+msgstr "La relation avec clé étrangère a été ajoutée."
 
 #: libraries/pmd_common.php:598
 msgid "Error: FOREIGN KEY relationship could not be added!"
@@ -15627,12 +15627,12 @@ msgstr "Utiliser une expression régulière"
 #: templates/table/search/selection_form.phtml:12
 msgid "Do a \"query by example\" (wildcard: \"%\") for two different columns"
 msgstr ""
-"Effectuer une recherche « par valeur » (passe-partout : « % ») sur deux "
-"colonnes différentes"
+"Effectuer une recherche « par valeur » (joker : « % ») sur deux colonnes "
+"différentes"
 
 #: templates/table/search/selection_form.phtml:35
 msgid "Do a \"query by example\" (wildcard: \"%\")"
-msgstr "Rechercher « par valeur » (passe-partout : « % »)"
+msgstr "Rechercher « par valeur » (joker : « % »)"
 
 #: templates/table/search/zoom_result_form.phtml:7
 msgid "Browse/Edit the points"
