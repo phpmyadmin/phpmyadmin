@@ -4,16 +4,16 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin-docs 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2017-11-14 09:29+0100\n"
-"PO-Revision-Date: 2017-09-09 17:57+0000\n"
+"PO-Revision-Date: 2017-11-18 12:45+0000\n"
 "Last-Translator: tmtisfree <tmtisfree@free.fr>\n"
-"Language-Team: French <https://hosted.weblate.org/projects/phpmyadmin/master/"
-"fr/>\n"
+"Language-Team: French "
+"<https://hosted.weblate.org/projects/phpmyadmin/master/fr/>\n"
 "Language: fr\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n > 1;\n"
-"X-Generator: Weblate 2.17-dev\n"
+"X-Generator: Weblate 2.18-dev\n"
 
 #: ajax.php:17 ajax.php:34 export.php:203 libraries/classes/Export.php:1100
 msgid "Bad type!"
@@ -2711,12 +2711,12 @@ msgstr "Fort"
 
 #: js/messages.php:746
 msgid "Timed out waiting for security key activation."
-msgstr ""
+msgstr "Délai de l'attente pour l'activation de la clé de sécurité dépassé."
 
 #: js/messages.php:747
 #, php-format
 msgid "Failed security key activation (%s)."
-msgstr ""
+msgstr "Activation de la clé de sécurité échouée (%s)."
 
 #: js/messages.php:776
 msgctxt "Previous month"
@@ -9511,6 +9511,8 @@ msgstr "Impossible de se connecter au serveur MySQL"
 #: libraries/classes/Plugins/AuthenticationPlugin.php:331
 msgid "You have enabled two factor authentication, please confirm your login."
 msgstr ""
+"L'authentification à deux facteurs est activée, merci de confirmer votre "
+"connexion."
 
 #: libraries/classes/Plugins/Export/ExportCsv.php:63
 #: libraries/classes/Plugins/Import/AbstractImportCsv.php:58
@@ -10490,15 +10492,19 @@ msgid ""
 "Provides authentication using HOTP and TOTP applications such as FreeOTP, "
 "Google Authenticator or Authy."
 msgstr ""
+"Fournit une authentification avec des applications HOTP et TOTP comme "
+"FreeOTP, Google Authenticator ou Authy."
 
 #: libraries/classes/Plugins/TwoFactor/Key.php:184
 msgid "Hardware Security Key (FIDO U2F)"
-msgstr ""
+msgstr "Clé de sécurité matérielle (FIDO U2F)"
 
 #: libraries/classes/Plugins/TwoFactor/Key.php:194
 msgid ""
 "Provides authentication using hardware security tokens supporting FIDO U2F."
 msgstr ""
+"Fournit une authentification avec des jetons de sécurité matériels prenant "
+"en charge FIDO U2F."
 
 #: libraries/classes/Plugins/TwoFactor/Simple.php:52
 #, fuzzy
@@ -10508,27 +10514,24 @@ msgstr "Mode d'authentification « signon »"
 
 #: libraries/classes/Plugins/TwoFactor/Simple.php:62
 msgid "For testing purposes only!"
-msgstr ""
+msgstr "Seulement pour test !"
 
 #: libraries/classes/Plugins/TwoFactorPlugin.php:65
-#, fuzzy, php-format
-#| msgid "Hardware authentication failed!"
+#, php-format
 msgid "Two-factor authentication failed: %s"
-msgstr "L'authentification matérielle a échoué !"
+msgstr "Authentification à deux facteurs échouée : %s"
 
 #: libraries/classes/Plugins/TwoFactorPlugin.php:69
-#, fuzzy
-#| msgid "Hardware authentication failed!"
 msgid "Two-factor authentication failed."
-msgstr "L'authentification matérielle a échoué !"
+msgstr "L'authentification à deux facteurs a échoué."
 
 #: libraries/classes/Plugins/TwoFactorPlugin.php:122
 msgid "None two-factor"
-msgstr ""
+msgstr "Aucun des deux facteurs"
 
 #: libraries/classes/Plugins/TwoFactorPlugin.php:132
 msgid "Login using password only."
-msgstr ""
+msgstr "Identification avec mot de passe seul."
 
 #: libraries/classes/PmdCommon.php:550
 msgid "Error: relationship already exists."
@@ -10536,7 +10539,7 @@ msgstr "Erreur : relation déjà existante."
 
 #: libraries/classes/PmdCommon.php:596
 msgid "FOREIGN KEY relationship has been added."
-msgstr "Relation de clé étrangère ajoutée."
+msgstr "La relation avec clé étrangère a été ajoutée."
 
 #: libraries/classes/PmdCommon.php:602
 msgid "Error: FOREIGN KEY relationship could not be added!"
@@ -15251,6 +15254,8 @@ msgid ""
 "Open the two-factor authentication app on your device to view your "
 "authentication code and verify your identity."
 msgstr ""
+"Ouvrir l'application d'authentification à deux facteurs sur votre appareil "
+"pour voir votre code d'authentification et vérifier votre identité."
 
 #: templates/database/designer/rename_to_panel.twig:22
 #: templates/database/designer/options_panel.twig:85
@@ -15265,16 +15270,16 @@ msgstr "Nouveau nom"
 #: templates/table/search/selection_form.twig:12
 msgid "Do a \"query by example\" (wildcard: \"%\") for two different columns"
 msgstr ""
-"Effectuer une recherche « par valeur » (passe-partout : « % ») sur deux "
-"colonnes différentes"
+"Effectuer une recherche « par valeur » (joker : « % ») sur deux colonnes "
+"différentes"
 
 #: templates/table/search/selection_form.twig:42
 msgid "Do a \"query by example\" (wildcard: \"%\")"
-msgstr "Rechercher « par valeur » (passe-partout : « % »)"
+msgstr "Rechercher « par valeur » (joker : « % »)"
 
 #: templates/login/twofactor.twig:4
 msgid "Verify"
-msgstr ""
+msgstr "Vérifier"
 
 #: templates/server/variables/session_variable_row.twig:3
 msgid "Session value"
@@ -15582,15 +15587,21 @@ msgid ""
 "Two-factor authentication is not available, please install optional "
 "dependencies to enable authentication backends."
 msgstr ""
+"L'authentification à deux facteurs n'est pas disponible, merci d'installer "
+"les dépendances optionnelles pour activer les méthodes d'authentification."
 
 #: templates/prefs_second.twig:12
 msgid "Two-factor authentication is available and configured for this account."
 msgstr ""
+"L'authentification à deux facteurs est disponible et configurée pour ce "
+"compte."
 
 #: templates/prefs_second.twig:14
 msgid ""
 "Two-factor authentication is available, but not configured for this account."
 msgstr ""
+"L'authentification à deux facteurs est disponible mais pas configurée pour "
+"ce compte."
 
 #: templates/prefs_second.twig:18
 #, fuzzy
@@ -15604,20 +15615,16 @@ msgstr ""
 
 #: templates/prefs_second.twig:27
 msgid "You have enabled two factor authentication."
-msgstr ""
+msgstr "L'authentification à deux facteurs est activée."
 
 #: templates/prefs_second.twig:31 templates/prefs_second_confirm.twig:9
-#, fuzzy
-#| msgid "Config authentication"
 msgid "Disable two-factor authentication"
-msgstr "Mode d'authentification « config »"
+msgstr "Désactiver l'authentification à deux facteurs"
 
 #: templates/prefs_second.twig:37 templates/prefs_second.twig:49
 #: templates/prefs_second_configure.twig:2
-#, fuzzy
-#| msgid "Config authentication"
 msgid "Configure two-factor authentication"
-msgstr "Mode d'authentification « config »"
+msgstr "Configurer l'authentification à deux facteurs"
 
 #: templates/columns_definitions/column_virtuality.twig:29
 #: templates/table/structure/display_partitions.twig:26
@@ -15663,6 +15670,8 @@ msgid ""
 "By disabling two factor authentication you will be again able to login using "
 "password only."
 msgstr ""
+"En désactivant l'authentification à deux facteurs, l'identification par mot "
+"de passe seul sera de nouveau possible."
 
 #: templates/prefs_autoload.twig:7
 msgid ""
@@ -15877,6 +15886,8 @@ msgid ""
 "Please connect your FIDO U2F device into your computer's USB port. Then "
 "confirm login on the device."
 msgstr ""
+"Merci de connecter le périphérique FIDO U2F à un port USB de l'ordinateur, "
+"puis de confirmer l'identification sur l'appareil."
 
 #: templates/table/search/search_and_replace.twig:3
 msgid "Replace with:"
@@ -16222,6 +16233,8 @@ msgid ""
 "Please connect your FIDO U2F device into your computer's USB port. Then "
 "confirm registration on the device."
 msgstr ""
+"Merci de connecter le périphérique FIDO U2F à un port USB de l'ordinateur, "
+"puis de confirmer l'enregistrement sur l'appareil."
 
 #: templates/columns_definitions/table_fields_definitions.twig:17
 #, fuzzy
@@ -16318,6 +16331,9 @@ msgid ""
 "Please scan following QR code into the two-factor authentication app on your "
 "device and enter authentication code it generates."
 msgstr ""
+"Merci de capturer le code QR suivant dans l'application d'authentification à "
+"deux facteurs sur votre appareil et de saisir le code d'authentification "
+"généré."
 
 #: templates/columns_definitions/column_default.twig:3
 msgctxt "for default"
@@ -16384,7 +16400,7 @@ msgstr "Modifier des colonnes"
 
 #: templates/database/multi_table_query/form.twig:125
 msgid "Enter criteria as free text"
-msgstr ""
+msgstr "Saisir le critère en texte libre"
 
 #: templates/database/multi_table_query/form.twig:133
 #, fuzzy
