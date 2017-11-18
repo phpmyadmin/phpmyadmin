@@ -153,15 +153,17 @@ class DbiMysqli implements DbiExtension
 
         if ($return_value === false || is_null($return_value)) {
             /*
-             * Switch to SSL if server asked us to do so
+             * Switch to SSL if server asked us to do so, unfortunately
+             * there are more ways MySQL server can tell this:
              *
              * - MySQL 8.0 and newer should return error 3159
-             * - older use #2001 - SSL Connection is required. Please specify SSL options and retry.
+             * - #2001 - SSL Connection is required. Please specify SSL options and retry.
+             * - #9002 - SSL connection is required. Please specify SSL options and retry.
              */
             $error_number = mysqli_connect_errno();
             $error_message = mysqli_connect_error();
             if (! $server['ssl'] && ($error_number == 3159 ||
-                ($error_number == 2001 && stripos($error_message, 'SSL Connection is required') !== false))
+                (($error_number == 2001 || $error_number == 9002) && stripos($error_message, 'SSL Connection is required') !== false))
             ) {
                     trigger_error(
                         _('SSL connection enforced by server, automatically enabling it.'),
