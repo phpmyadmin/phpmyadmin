@@ -1667,137 +1667,30 @@ class Results
     /**
      * Prepare option fields block
      *
-     * @return  string  $options_html   html content
+     * @return string html content
      *
-     * @access  private
+     * @access private
      *
-     * @see     _getTableHeaders()
+     * @see _getTableHeaders()
      */
     private function _getOptionsBlock()
     {
-
-        $options_html = '';
-
-        $options_html .= '<form method="post" action="sql.php" '
-            . 'name="displayOptionsForm"';
-
-        $options_html .= ' class="ajax print_ignore" ';
-
-        $options_html .= '>';
-        $url_params = array(
+        return Template::get('display/results/options_block')->render([
+            'unique_id' => $this->__get('unique_id'),
+            'geo_option' => $_SESSION['tmpval']['geoOption'],
+            'hide_transformation' => $_SESSION['tmpval']['hide_transformation'],
+            'display_blob' => $_SESSION['tmpval']['display_blob'],
+            'display_binary' => $_SESSION['tmpval']['display_binary'],
+            'relational_display' => $_SESSION['tmpval']['relational_display'],
+            'displaywork' => $GLOBALS['cfgRelation']['displaywork'],
+            'relwork' => $GLOBALS['cfgRelation']['relwork'],
+            'pftext' => $_SESSION['tmpval']['pftext'],
             'db' => $this->__get('db'),
             'table' => $this->__get('table'),
             'sql_query' => $this->__get('sql_query'),
             'goto' => $this->__get('goto'),
-            'display_options_form' => 1
-        );
-
-        $options_html .= Url::getHiddenInputs($url_params)
-            . '<br />'
-            . Util::getDivForSliderEffect(
-                '', __('Options')
-            )
-            . '<fieldset>';
-
-        $options_html .= '<div class="formelement">';
-        $choices = array(
-            'P'   => __('Partial texts'),
-            'F'   => __('Full texts')
-        );
-
-        // pftext means "partial or full texts" (done to reduce line lengths)
-        $options_html .= Util::getRadioFields(
-            'pftext', $choices,
-            $_SESSION['tmpval']['pftext'],
-            true, true, '', 'pftext_' . $this->__get('unique_id')
-        )
-        . '</div>';
-
-        if ($GLOBALS['cfgRelation']['relwork']
-            && $GLOBALS['cfgRelation']['displaywork']
-        ) {
-            $options_html .= '<div class="formelement">';
-            $choices = array(
-                'K'   => __('Relational key'),
-                'D'   => __('Display column for relationships')
-            );
-
-            $options_html .= Util::getRadioFields(
-                'relational_display', $choices,
-                $_SESSION['tmpval']['relational_display'],
-                true, true, '', 'relational_display_' . $this->__get('unique_id')
-            )
-            . '</div>';
-        }
-
-        $options_html .= '<div class="formelement">'
-            . Template::get('checkbox')
-            ->render(
-                array(
-                    'html_field_name'   => 'display_binary',
-                    'label'             => __('Show binary contents'),
-                    'checked'           => ! empty($_SESSION['tmpval']['display_binary']),
-                    'onclick'           => false,
-                    'html_field_id'     => 'display_binary_' . $this->__get('unique_id'),
-                )
-            )
-            . '<br />'
-            . Template::get('checkbox')
-            ->render(
-                array(
-                    'html_field_name'   => 'display_blob',
-                    'label'             => __('Show BLOB contents'),
-                    'checked'           => ! empty($_SESSION['tmpval']['display_blob']),
-                    'onclick'           => false,
-                    'html_field_id'     => 'display_blob_' . $this->__get('unique_id'),
-                )
-            )
-            . '</div>';
-
-        // I would have preferred to name this "display_transformation".
-        // This is the only way I found to be able to keep this setting sticky
-        // per SQL query, and at the same time have a default that displays
-        // the transformations.
-        $options_html .= '<div class="formelement">'
-            . Template::get('checkbox')
-            ->render(
-                array(
-                    'html_field_name'   => 'hide_transformation',
-                    'label'             => __('Hide browser transformation'),
-                    'checked'           => ! empty($_SESSION['tmpval']['hide_transformation']),
-                    'onclick'           => false,
-                    'html_field_id'     => 'hide_transformation_' . $this->__get('unique_id'),
-                )
-            )
-            . '</div>';
-
-        $options_html .= '<div class="formelement">';
-        $choices = array(
-            'GEOM'  => __('Geometry'),
-            'WKT'   => __('Well Known Text'),
-            'WKB'   => __('Well Known Binary')
-        );
-
-        $options_html .= Util::getRadioFields(
-            'geoOption', $choices,
-            $_SESSION['tmpval']['geoOption'],
-            true, true, '', 'geoOption_' . $this->__get('unique_id')
-        );
-        $options_html .= '</div>';
-
-        $options_html .= '<div class="clearfloat"></div>'
-            . '</fieldset>';
-
-        $options_html .= '<fieldset class="tblFooters">'
-            . '<input type="submit" value="' . __('Go') . '" />'
-            . '</fieldset>'
-            . '</div>'
-            . '</form>';
-
-        return $options_html;
-
-    } // end of the '_getOptionsBlock()' function
-
+        ]);
+    }
 
     /**
      * Get full/partial text button or link
