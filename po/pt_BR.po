@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.8.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2017-11-14 09:29+0100\n"
-"PO-Revision-Date: 2017-11-14 23:07+0000\n"
+"PO-Revision-Date: 2017-11-19 03:27+0000\n"
 "Last-Translator: Maurício Meneghini Fauth <mauriciofauth@gmail.com>\n"
 "Language-Team: Portuguese (Brazil) "
 "<https://hosted.weblate.org/projects/phpmyadmin/master/pt_BR/>\n"
@@ -15350,10 +15350,9 @@ msgid "Column names"
 msgstr "Nome das colunas"
 
 #: templates/server/databases/table_row.twig:13
-#, fuzzy, php-format
-#| msgid "Jump to database"
+#, php-format
 msgid "Jump to database '%s'"
-msgstr "Ir para banco de dados"
+msgstr "Ir para banco de dados '%s'"
 
 #: templates/server/databases/table_row.twig:61
 #, php-format
@@ -15379,10 +15378,8 @@ msgid "Index choice:"
 msgstr "Escolha de índice:"
 
 #: templates/table/index_form.twig:42
-#, fuzzy
-#| msgid "Active options"
 msgid "Advanced Options"
-msgstr "Opções ativas"
+msgstr "Opções Avançadas"
 
 #: templates/table/index_form.twig:48
 msgid "Key block size:"
@@ -15423,16 +15420,12 @@ msgid "Server variables and settings"
 msgstr "Variáveis e configurações do servidor"
 
 #: templates/server/sub_page_header.twig:2
-#, fuzzy
-#| msgid "Storage Engines"
 msgid "Storage engines"
-msgstr "Mecanismos de Armazenamento"
+msgstr "Mecanismos de armazenamento"
 
 #: templates/server/sub_page_header.twig:2
-#, fuzzy
-#| msgid "Character Sets and Collations"
 msgid "Character sets and collations"
-msgstr "Conjuntos de caracteres e Collations"
+msgstr "Conjuntos de caracteres e collations"
 
 #: templates/server/sub_page_header.twig:2
 msgid "Databases statistics"
@@ -15773,8 +15766,6 @@ msgid "Hide/Show all"
 msgstr "Ocultar/Exibir tudo"
 
 #: templates/database/designer/table_list.twig:14
-#, fuzzy
-#| msgid "Hide/Show Tables with no relationship"
 msgid "Hide/Show tables with no relationship"
 msgstr "Ocultar/Exibir tabelas sem relacionamento"
 
