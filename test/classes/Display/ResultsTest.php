@@ -111,25 +111,37 @@ class ResultsTest extends PmaTestCase
      * @param string  $title          text for button
      * @param integer $pos            position for next query
      * @param string  $html_sql_query query ready for display
-     * @param string  $output         output from the _getTableNavigationButton
-     *                                method
      *
      * @return void
      *
      * @dataProvider providerForTestGetTableNavigationButton
      */
     public function testGetTableNavigationButton(
-        $caption, $title, $pos, $html_sql_query, $output
+        $caption, $title, $pos, $html_sql_query
     ) {
         $GLOBALS['cfg']['TableNavigationLinksMode'] = 'icons';
         $_SESSION[' PMA_token '] = 'token';
 
-        $this->assertEquals(
-            $output,
-            $this->_callPrivateFunction(
-                '_getTableNavigationButton',
-                array(&$caption, $title, $pos, $html_sql_query, true)
-            )
+        $actual = $this->_callPrivateFunction(
+            '_getTableNavigationButton',
+            array(&$caption, $title, $pos, $html_sql_query, true)
+        );
+
+        $this->assertContains(
+            '<form action="sql.php" method="post">',
+            $actual
+        );
+        $this->assertContains(
+            'name="sql_query" value="SELECT * FROM `pma_bookmark` WHERE 1"',
+            $actual
+        );
+        $this->assertContains(
+            'name="pos" value="1"',
+            $actual
+        );
+        $this->assertContains(
+            'value="btn" title="Submit"',
+            $actual
         );
     }
 
@@ -146,18 +158,6 @@ class ResultsTest extends PmaTestCase
                 'Submit',
                 1,
                 'SELECT * FROM `pma_bookmark` WHERE 1',
-                '<td><form action="sql.php" method="post" >'
-                . '<input type="hidden" name="db" value="as" />'
-                . '<input type="hidden" name="lang" value="en" />'
-                . '<input type="hidden" name="collation_connection" value="utf-8" />'
-                . '<input type="hidden" name="token" value="token" />'
-                . '<input type="hidden" name="sql_query" value="SELECT * '
-                . 'FROM `pma_bookmark` WHERE 1" />'
-                . '<input type="hidden" name="pos" value="1" />'
-                . '<input type="hidden" name="is_browse_distinct" value="" />'
-                . '<input type="hidden" name="goto" value="" />'
-                . '<input type="submit" name="navig" class="ajax" '
-                . 'value="btn"  title="Submit" /></form></td>'
             )
         );
     }
@@ -1197,12 +1197,30 @@ class ResultsTest extends PmaTestCase
         $this->object->__set('goto', $goto);
         $this->object->__set('unique_id', $unique_id);
 
-        $this->assertEquals(
-            $output,
-            $this->_callPrivateFunction(
-                '_getShowAllCheckboxForTableNavigation',
-                array(false, $html_sql_query)
-            )
+        $result = $this->_callPrivateFunction(
+            '_getShowAllCheckboxForTableNavigation',
+            array(false, $html_sql_query)
+        );
+
+        $this->assertContains(
+            'name="db" value="' . $db . '"',
+            $result
+        );
+        $this->assertContains(
+            'name="table" value="' . $table . '"',
+            $result
+        );
+        $this->assertContains(
+            'name="sql_query" value="' . $html_sql_query . '"',
+            $result
+        );
+        $this->assertContains(
+            'name="goto" value="' . $goto . '"',
+            $result
+        );
+        $this->assertContains(
+            '<label for="showAll_' . $unique_id . '">Show all</label>',
+            $result
         );
     }
 
@@ -1473,11 +1491,13 @@ class ResultsTest extends PmaTestCase
                 array(),
                 0,
                 'binary',
-                '<td class="left   hex"><a href="tbl_get_field.php?'
+                '<td class="left   hex">' . PHP_EOL
+                . '    <a href="tbl_get_field.php?'
                 . 'db=foo&amp;table=tbl&amp;server=0&amp;lang=en'
                 . '&amp;collation_connection=utf-8'
                 . '" '
-                . 'class="disableAjax">[BLOB - 4 B]</a></td>'
+                . 'class="disableAjax">[BLOB - 4 B]</a>' . PHP_EOL
+                . '</td>' . PHP_EOL
             ),
             array(
                 'noblob',
@@ -1494,8 +1514,9 @@ class ResultsTest extends PmaTestCase
                 array(),
                 0,
                 'binary',
-                '<td class="left grid_edit  transformed hex">'
-                . '1001</td>'
+                '<td class="left grid_edit  transformed hex">' . PHP_EOL
+                . '    1001' . PHP_EOL
+                . '</td>' . PHP_EOL
             ),
             array(
                 'noblob',
@@ -1512,8 +1533,12 @@ class ResultsTest extends PmaTestCase
                 array(),
                 0,
                 0,
-                '<td  data-decimals="0" data-type="string"  '
-                . 'class="grid_edit  null"><i>NULL</i></td>'
+                '<td ' . PHP_EOL
+                . '    data-decimals="0"' . PHP_EOL
+                . '    data-type="string"' . PHP_EOL
+                . '        class="grid_edit  null">' . PHP_EOL
+                . '    <em>NULL</em>' . PHP_EOL
+                . '</td>' . PHP_EOL
             ),
             array(
                 'all',
