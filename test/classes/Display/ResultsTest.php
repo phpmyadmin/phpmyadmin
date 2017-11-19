@@ -1533,8 +1533,12 @@ class ResultsTest extends PmaTestCase
                 array(),
                 0,
                 0,
-                '<td  data-decimals="0" data-type="string"  '
-                . 'class="grid_edit  null"><i>NULL</i></td>'
+                '<td ' . PHP_EOL
+                . '    data-decimals="0"' . PHP_EOL
+                . '    data-type="string"' . PHP_EOL
+                . '        class="grid_edit  null">' . PHP_EOL
+                . '    <em>NULL</em>' . PHP_EOL
+                . '</td>' . PHP_EOL
             ),
             array(
                 'all',

@@ -2362,10 +2362,10 @@ class Results
     /**
      * Prepares the display for a null value
      *
-     * @param string $class           class of table cell
-     * @param bool   $condition_field whether to add CSS class condition
-     * @param object $meta            the meta-information about this field
-     * @param string $align           cell alignment
+     * @param string $class          class of table cell
+     * @param bool   $conditionField whether to add CSS class condition
+     * @param object $meta           the meta-information about this field
+     * @param string $align          cell alignment
      *
      * @return string  the td
      *
@@ -2375,18 +2375,16 @@ class Results
      *          _getDataCellForGeometryColumns(),
      *          _getDataCellForNonNumericColumns()
      */
-    private function _buildNullDisplay($class, $condition_field, $meta, $align = '')
+    private function _buildNullDisplay($class, $conditionField, $meta, $align = '')
     {
-        // the null class is needed for grid editing
-        $decimals = isset($meta->decimals) ? $meta->decimals : '-1';
-        return '<td ' . $align . ' data-decimals="' . $decimals
-            . '" data-type="' . $meta->type . '"  class="'
-            . $this->_addClass(
-                $class, $condition_field, $meta, ''
-            )
-            . ' null"><i>NULL</i></td>';
-    } // end of the '_buildNullDisplay()' function
+        $classes = $this->_addClass($class, $conditionField, $meta, '');
 
+        return Template::get('display/results/null_display')->render([
+            'align' => $align,
+            'meta' => $meta,
+            'classes' => $classes,
+        ]);
+    }
 
     /**
      * Prepares the display for an empty value
