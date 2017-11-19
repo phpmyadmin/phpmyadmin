@@ -1491,11 +1491,13 @@ class ResultsTest extends PmaTestCase
                 array(),
                 0,
                 'binary',
-                '<td class="left   hex"><a href="tbl_get_field.php?'
+                '<td class="left   hex">' . PHP_EOL
+                . '    <a href="tbl_get_field.php?'
                 . 'db=foo&amp;table=tbl&amp;server=0&amp;lang=en'
                 . '&amp;collation_connection=utf-8'
                 . '" '
-                . 'class="disableAjax">[BLOB - 4 B]</a></td>'
+                . 'class="disableAjax">[BLOB - 4 B]</a>' . PHP_EOL
+                . '</td>' . PHP_EOL
             ),
             array(
                 'noblob',
@@ -1512,8 +1514,9 @@ class ResultsTest extends PmaTestCase
                 array(),
                 0,
                 'binary',
-                '<td class="left grid_edit  transformed hex">'
-                . '1001</td>'
+                '<td class="left grid_edit  transformed hex">' . PHP_EOL
+                . '    1001' . PHP_EOL
+                . '</td>' . PHP_EOL
             ),
             array(
                 'noblob',

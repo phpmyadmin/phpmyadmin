@@ -2339,9 +2339,9 @@ class Results
     /**
      * Prepares the display for a value
      *
-     * @param string $class           class of table cell
-     * @param bool   $condition_field whether to add CSS class condition
-     * @param string $value           value to display
+     * @param string $class          class of table cell
+     * @param bool   $conditionField whether to add CSS class condition
+     * @param string $value          value to display
      *
      * @return string  the td
      *
@@ -2350,12 +2350,14 @@ class Results
      * @see     _getDataCellForGeometryColumns(),
      *          _getDataCellForNonNumericColumns()
      */
-    private function _buildValueDisplay($class, $condition_field, $value)
+    private function _buildValueDisplay($class, $conditionField, $value)
     {
-        return '<td class="left ' . $class . ($condition_field ? ' condition' : '')
-            . '">' . $value . '</td>';
-    } // end of the '_buildValueDisplay()' function
-
+        return Template::get('display/results/value_display')->render([
+            'class' => $class,
+            'condition_field' => $conditionField,
+            'value' => $value,
+        ]);
+    }
 
     /**
      * Prepares the display for a null value
