@@ -1758,39 +1758,23 @@ class Results
     /**
      * Get comment for row
      *
-     * @param array $comments_map comments array
-     * @param array $fields_meta  set of field properties
+     * @param array $commentsMap comments array
+     * @param array $fieldsMeta  set of field properties
      *
-     * @return  string  $comment        html content
+     * @return string html content
      *
-     * @access  private
+     * @access private
      *
-     * @see     _getTableHeaders()
+     * @see _getTableHeaders()
      */
-    private function _getCommentForRow(array $comments_map, $fields_meta)
+    private function _getCommentForRow(array $commentsMap, $fieldsMeta)
     {
-        $comments = '';
-        if (isset($comments_map[$fields_meta->table])
-            && isset($comments_map[$fields_meta->table][$fields_meta->name])
-        ) {
-            $sanitized_comments = htmlspecialchars(
-                $comments_map[$fields_meta->table][$fields_meta->name]
-            );
-
-            $comments = '<span class="tblcomment" title="'
-                . $sanitized_comments . '">';
-            $limitChars = $GLOBALS['cfg']['LimitChars'];
-            if (mb_strlen($sanitized_comments) > $limitChars) {
-                $sanitized_comments = mb_substr(
-                    $sanitized_comments, 0, $limitChars
-                ) . '…';
-            }
-            $comments .= $sanitized_comments;
-            $comments .= '</span>';
-        }
-        return $comments;
-    } // end of the '_getCommentForRow()' function
-
+        return Template::get('display/results/comment_for_row')->render([
+            'comments_map' => $commentsMap,
+            'fields_meta' => $fieldsMeta,
+            'limit_chars' => $GLOBALS['cfg']['LimitChars'],
+        ]);
+    }
 
     /**
      * Prepare parameters and html for sorted table header fields
