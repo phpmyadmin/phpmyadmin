@@ -2389,10 +2389,10 @@ class Results
     /**
      * Prepares the display for an empty value
      *
-     * @param string $class           class of table cell
-     * @param bool   $condition_field whether to add CSS class condition
-     * @param object $meta            the meta-information about this field
-     * @param string $align           cell alignment
+     * @param string $class          class of table cell
+     * @param bool   $conditionField whether to add CSS class condition
+     * @param object $meta           the meta-information about this field
+     * @param string $align          cell alignment
      *
      * @return string  the td
      *
@@ -2402,15 +2402,15 @@ class Results
      *          _getDataCellForGeometryColumns(),
      *          _getDataCellForNonNumericColumns()
      */
-    private function _buildEmptyDisplay($class, $condition_field, $meta, $align = '')
+    private function _buildEmptyDisplay($class, $conditionField, $meta, $align = '')
     {
-        return '<td ' . $align . ' class="'
-            . $this->_addClass(
-                $class, $condition_field, $meta, 'nowrap'
-            )
-            . '"></td>';
-    } // end of the '_buildEmptyDisplay()' function
+        $classes = $this->_addClass($class, $conditionField, $meta, 'nowrap');
 
+        return Template::get('display/results/empty_display')->render([
+            'align' => $align,
+            'classes' => $classes,
+        ]);
+    }
 
     /**
      * Adds the relevant classes.
