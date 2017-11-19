@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.8.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2017-11-14 09:29+0100\n"
-"PO-Revision-Date: 2017-11-19 03:27+0000\n"
+"PO-Revision-Date: 2017-11-20 03:48+0000\n"
 "Last-Translator: Maurício Meneghini Fauth <mauriciofauth@gmail.com>\n"
 "Language-Team: Portuguese (Brazil) "
 "<https://hosted.weblate.org/projects/phpmyadmin/master/pt_BR/>\n"
@@ -16204,17 +16204,13 @@ msgstr "Janela de query"
 
 #: templates/database/multi_table_query/form.twig:18
 #: templates/database/multi_table_query/form.twig:106
-#, fuzzy
-#| msgid "Select table:"
 msgid "select table"
-msgstr "Selecionar tabela:"
+msgstr "selecionar tabela"
 
 #: templates/database/multi_table_query/form.twig:25
 #: templates/database/multi_table_query/form.twig:114
-#, fuzzy
-#| msgid "Select column:"
 msgid "select column"
-msgstr "Selecionar campo:"
+msgstr "selecionar coluna"
 
 #: templates/database/multi_table_query/form.twig:31
 #, fuzzy
@@ -16235,36 +16231,26 @@ msgid "Use this column in criteria"
 msgstr "Use esta coluna para rotular cada ponto"
 
 #: templates/database/multi_table_query/form.twig:38
-#, fuzzy
-#| msgid "Criteria:"
 msgid "criteria"
-msgstr "Critério:"
+msgstr "critério"
 
 #: templates/database/multi_table_query/form.twig:52
-#, fuzzy
-#| msgid "Add %s"
 msgid "Add as"
-msgstr "Adicionar %s"
+msgstr "Adicionar como"
 
 #: templates/database/multi_table_query/form.twig:97
-#, fuzzy
-#| msgid "Alter column(s)"
 msgid "Another column"
-msgstr "Alterar coluna(s)"
+msgstr "Outra coluna"
 
 #: templates/database/multi_table_query/form.twig:125
 msgid "Enter criteria as free text"
 msgstr ""
 
 #: templates/database/multi_table_query/form.twig:133
-#, fuzzy
-#| msgid "Remove redundant columns"
 msgid "Remove this column"
-msgstr "Remover colunas redundantes"
+msgstr "Remover esta coluna"
 
 #: templates/database/multi_table_query/form.twig:160
-#, fuzzy
-#| msgid "Update Query"
 msgid "Update query"
 msgstr "Atualizar query"
 
