@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.7.6-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2017-11-02 14:03+0100\n"
-"PO-Revision-Date: 2017-11-06 11:45+0000\n"
+"PO-Revision-Date: 2017-11-21 19:45+0000\n"
 "Last-Translator: dingo thirteen <dingo13@gmail.com>\n"
 "Language-Team: Dutch <https://hosted.weblate.org/projects/phpmyadmin/4-7/nl/>"
 "\n"
@@ -8330,7 +8330,7 @@ msgstr ""
 
 #: libraries/dbi/DBIMysqli.php:158
 msgid "SSL connection enforced by server, automatically enabling it."
-msgstr "SSL connectie afgedwongen door server, automatisch ingeschakeld."
+msgstr "SSL-verbinding afgedwongen door de server en  automatisch geactiveerd."
 
 #: libraries/display_change_password.lib.php:57
 #: libraries/replication_gui.lib.php:854
