@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.7.6-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2017-11-02 14:03+0100\n"
-"PO-Revision-Date: 2017-11-20 18:09+0000\n"
-"Last-Translator: Renato dos Santos <shazaum@gmail.com>\n"
+"PO-Revision-Date: 2017-11-21 14:43+0000\n"
+"Last-Translator: Airon Luis Pereira <airon.pereira@gmail.com>\n"
 "Language-Team: Portuguese (Brazil) "
 "<https://hosted.weblate.org/projects/phpmyadmin/4-7/pt_BR/>\n"
 "Language: pt_BR\n"
@@ -1116,7 +1116,7 @@ msgstr "Outro"
 #: js/messages.php:160 libraries/Util.php:1397 libraries/Util.php:1465
 #: libraries/Util.php:1479
 msgid ","
-msgstr ","
+msgstr "."
 
 #. l10n: Decimal separator
 #: js/messages.php:162 libraries/Util.php:1395 libraries/Util.php:1463
@@ -2261,7 +2261,7 @@ msgstr "Salvar página como"
 #: js/messages.php:565 templates/database/designer/side_menu.phtml:49
 #: templates/database/designer/side_menu.phtml:52
 msgid "Open page"
-msgstr "Páginas livres"
+msgstr "Páginas abertas"
 
 #: js/messages.php:566
 msgid "Delete page"
@@ -4037,7 +4037,7 @@ msgid ""
 "Linting is disabled for this query because it exceeds the maximum length."
 msgstr ""
 "A análise está desativada para esta consulta porque excede o comprimento "
-"máximo.."
+"máximo."
 
 #: libraries/Linter.php:165
 #, php-format
@@ -4960,7 +4960,7 @@ msgstr "Parâmetro ausente:"
 #: libraries/Util.php:2553
 #, php-format
 msgid "Jump to database \"%s\"."
-msgstr "Ir para o banco de dados '%s'."
+msgstr "Ir para o banco de dados \"%s\"."
 
 #: libraries/Util.php:2578
 #, php-format
@@ -5434,12 +5434,12 @@ msgid ""
 "protection with trusted proxies list may not be reliable if your IP belongs "
 "to an ISP where thousands of users, including you, are connected to."
 msgstr ""
-"Esta %soption%s deveria ser desabilitada pois ela permite que invasores "
-"fazer login por força bruta em qualquer servidor MySQL. Se você acha que ela "
-"é necessária, use %srestrict login to MySQL server%s ou %strusted proxies "
-"list%s. Entretanto, proteções baseadas no protocolo IP podem não ser "
-"confiáveis se seu endereço IP pertence a um PROVEDOR onde centenas de "
-"usuários, incluindo você, estão conectados."
+"Esta %s opção %s deveria ser desabilitada pois ela permite que invasores "
+"façam login por força bruta em qualquer servidor MySQL. Se você acha que ela "
+"é necessária, use %s login restrito pra servidor MySQL %s ou %s lista de "
+"proxies confiáveis %s. Entretanto, proteções baseadas no protocolo IP podem "
+"não ser confiáveis se seu endereço IP pertence a um PROVEDOR onde centenas "
+"de usuários, incluindo você, estão conectados."
 
 #: libraries/config/ServerConfigChecks.php:404
 msgid ""
@@ -14975,7 +14975,7 @@ msgstr "Mover Menu"
 #: templates/database/designer/side_menu.phtml:181
 #: templates/database/designer/side_menu.phtml:186
 msgid "Pin text"
-msgstr "Texto fixado"
+msgstr "Texto fixo"
 
 #: templates/database/designer/table_list.phtml:4
 msgid "Hide/Show all"
