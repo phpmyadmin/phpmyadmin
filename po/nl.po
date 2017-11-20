@@ -4,10 +4,10 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.8.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2017-11-14 09:29+0100\n"
-"PO-Revision-Date: 2017-11-06 00:23+0000\n"
+"PO-Revision-Date: 2017-11-20 19:14+0000\n"
 "Last-Translator: dingo thirteen <dingo13@gmail.com>\n"
-"Language-Team: Dutch <https://hosted.weblate.org/projects/phpmyadmin/master/"
-"nl/>\n"
+"Language-Team: Dutch "
+"<https://hosted.weblate.org/projects/phpmyadmin/master/nl/>\n"
 "Language: nl\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -2292,10 +2292,8 @@ msgstr ""
 
 #: js/messages.php:560 templates/database/designer/side_menu.twig:34
 #: templates/database/designer/side_menu.twig:37
-#, fuzzy
-#| msgid "No tables found in database."
 msgid "Add tables from other databases"
-msgstr "Geen tabellen gevonden in de database."
+msgstr "Tabellen uit andere databases toevoegen"
 
 #: js/messages.php:561
 msgid "Page name"
@@ -2701,12 +2699,12 @@ msgstr "Sterk"
 
 #: js/messages.php:746
 msgid "Timed out waiting for security key activation."
-msgstr ""
+msgstr "Wachttijd verstreken voor activatie beveiligingssleutel."
 
 #: js/messages.php:747
 #, php-format
 msgid "Failed security key activation (%s)."
-msgstr ""
+msgstr "Activatie (%s) beveiligingssleutel gefaald."
 
 #: js/messages.php:776
 msgctxt "Previous month"
@@ -6322,31 +6320,19 @@ msgid "You should use SSL connections if your database server supports it."
 msgstr "Gebruik SSL-verbindingen als uw databaseserver dit ondersteunt."
 
 #: libraries/classes/Config/ServerConfigChecks.php:176
-#, fuzzy
-#| msgid ""
-#| "If you feel this is necessary, use additional protection settings - "
-#| "%shost authentication%s settings and %strusted proxies list%s. However, "
-#| "IP-based protection may not be reliable if your IP belongs to an ISP "
-#| "where thousands of users, including you, are connected to."
 msgid ""
 "If you feel this is necessary, use additional protection settings - %1$shost "
 "authentication%2$s settings and %3$strusted proxies list%4%s. However, IP-"
 "based protection may not be reliable if your IP belongs to an ISP where "
 "thousands of users, including you, are connected to."
 msgstr ""
-"Indien toch noodzakelijk gebruik dan tevens %shostauthenticatie%s-"
-"instellingen en %svertrouwde proxyservers%s. Echter, IP-adresgebaseerde "
+"Indien toch noodzakelijk gebruik dan tevens %1$shost authentication%2$s-"
+"instellingen en %3$svertrouwde proxyservers%4%s. Echter, IP-adresgebaseerde "
 "beveiliging is mogelijk niet betrouwbaar wanneer uw IP-adres uit het netwerk "
 "van uw provider komt, waar ook vele andere klanten gebruik van maken."
 
 #: libraries/classes/Config/ServerConfigChecks.php:203
-#, fuzzy, php-format
-#| msgid ""
-#| "You set the [kbd]config[/kbd] authentication type and included username "
-#| "and password for auto-login, which is not a desirable option for live "
-#| "hosts. Anyone who knows or guesses your phpMyAdmin URL can directly "
-#| "access your phpMyAdmin panel. Set %sauthentication type%s to [kbd]cookie[/"
-#| "kbd] or [kbd]http[/kbd]."
+#, php-format
 msgid ""
 "You set the [kbd]config[/kbd] authentication type and included username and "
 "password for auto-login, which is not a desirable option for live hosts. "
@@ -6357,8 +6343,8 @@ msgstr ""
 "U gebruikt het [kbd]config[/kbd]-authenticatietype en heeft de te gebruiken "
 "gebruikersnaam en wachtwoord hierbij opgegeven voor automatisch aanmelden. "
 "Dit is niet aanbevolen voor productiesystemen gezien iemand die het URL van "
-"phpMyAdmin achterhaald direct toegang heeft. Gebruik het %sauthenticatietype"
-"%s [kbd]cookie[/kbd] of [kbd]http[/kbd]."
+"phpMyAdmin achterhaald direct toegang heeft. Gebruik het "
+"%1$sauthenticatietype%2$s [kbd]cookie[/kbd] of [kbd]http[/kbd]."
 
 #: libraries/classes/Config/ServerConfigChecks.php:230
 msgid "You allow for connecting to the server without a password."
@@ -6402,19 +6388,15 @@ msgstr ""
 "Sleutel hoort letters, cijfers [em]en[/em] speciale tekens te bevatten."
 
 #: libraries/classes/Config/ServerConfigChecks.php:418
-#, fuzzy, php-format
-#| msgid ""
-#| "%sLogin cookie validity%s greater than %ssession.gc_maxlifetime%s may "
-#| "cause random session invalidation (currently session.gc_maxlifetime is "
-#| "%d)."
+#, php-format
 msgid ""
 "%1$sLogin cookie validity%2$s greater than %3$ssession.gc_maxlifetime%4$s "
 "may cause random session invalidation (currently session.gc_maxlifetime is "
 "%5$d)."
 msgstr ""
-"%sAanmeldingscookiegeldigheid%s groter dan %ssession.gc_maxlifetime%s kan "
-"willekeurige sessieproblemen veroorzaken (huidige waarde van session."
-"gc_maxlifetime is %d)."
+"%1$sAanmeldingscookiegeldigheid%2$s groter dan %3$ssession.gc_maxlifetime%4$"
+"s kan willekeurige sessieproblemen veroorzaken (huidige waarde van "
+"session.gc_maxlifetime is %5$d)."
 
 #: libraries/classes/Config/ServerConfigChecks.php:442
 #, php-format
@@ -6437,27 +6419,21 @@ msgstr ""
 "waarde hebben die kleiner of gelijk is."
 
 #: libraries/classes/Config/ServerConfigChecks.php:506
-#, fuzzy, php-format
-#| msgid ""
-#| "%sBzip2 compression and decompression%s requires functions (%s) which are "
-#| "unavailable on this system."
+#, php-format
 msgid ""
 "%1$sBzip2 compression and decompression%2$s requires functions (%3$s) which "
 "are unavailable on this system."
 msgstr ""
-"%sBzip2-compressie en decompressie%s vereisen functies (%s) die niet "
+"%1$sBzip2-compressie en decompressie%2$s vereisen functies (%3$s) die niet "
 "beschikbaar zijn op dit systeem."
 
 #: libraries/classes/Config/ServerConfigChecks.php:538
-#, fuzzy, php-format
-#| msgid ""
-#| "%sGZip compression and decompression%s requires functions (%s) which are "
-#| "unavailable on this system."
+#, php-format
 msgid ""
 "%1$sGZip compression and decompression%2$s requires functions (%3$s) which "
 "are unavailable on this system."
 msgstr ""
-"%sGZip-compressie en decompressie%s vereisen functies (%s) welke niet "
+"%1$sGZip-compressie en decompressie%2$s vereisen functies (%3$s) welke niet "
 "beschikbaar zijn op dit systeem."
 
 #: libraries/classes/Config/Validator.php:210
@@ -7040,21 +7016,16 @@ msgid "Failed to set configured collation connection!"
 msgstr "Instellen van geconfigureerde vergelijking verbinding mislukt!"
 
 #: libraries/classes/DatabaseInterface.php:1499
-#, fuzzy, php-format
-#| msgid ""
-#| "Unable to use timezone %1$s for server %2$d. Please check your "
-#| "configuration setting for [em]$cfg['Servers'][%3$d]['SessionTimeZone'][/"
-#| "em]. phpMyAdmin is currently using the default time zone of the database "
-#| "server."
+#, php-format
 msgid ""
 "Unable to use timezone \"%1$s\" for server %2$d. Please check your "
 "configuration setting for [em]$cfg['Servers'][%3$d]['SessionTimeZone'][/em]. "
 "phpMyAdmin is currently using the default time zone of the database server."
 msgstr ""
-"Het is niet mogelijk om tijdzone %1$s voor deze server %2$d te gebruiken. "
-"Controleer a.u.b. uw instelling voor [em]$cfg['Servers'][%3$d]"
-"['SessionTimeZone'][/em]. phpMyAdmin gebruikt nu de standaard tijdzone van "
-"de database server."
+"Het is niet mogelijk om tijdzone %1$s voor server %2$d te gebruiken. "
+"Controleer a.u.b. uw instelling voor "
+"[em]$cfg['Servers'][%3$d]['SessionTimeZone'][/em]. phpMyAdmin gebruikt nu de "
+"standaard tijdzone van de database server."
 
 #: libraries/classes/DatabaseInterface.php:2097
 msgid ""
@@ -9192,16 +9163,12 @@ msgid "Switch to copied database"
 msgstr "Overschakelen naar de gekopieerde database"
 
 #: libraries/classes/Operations.php:313
-#, fuzzy
-#| msgid "Change all column collations"
 msgid "Change all tables collations"
-msgstr "Wijzig alle kolomcollaties"
+msgstr "Wijzig alle tabelcollaties"
 
 #: libraries/classes/Operations.php:319
-#, fuzzy
-#| msgid "Change all column collations"
 msgid "Change all tables columns collations"
-msgstr "Wijzig alle kolomcollaties"
+msgstr "Wijzig alle tabelcollaties"
 
 #: libraries/classes/Operations.php:792
 msgid "Alter table order by"
@@ -9498,7 +9465,7 @@ msgstr "Kan niet aanmelden op de MySQL-server"
 
 #: libraries/classes/Plugins/AuthenticationPlugin.php:331
 msgid "You have enabled two factor authentication, please confirm your login."
-msgstr ""
+msgstr "U hebt tweeweg autorisatie ingeschakeld, bevestig a.u.b. uw aanmelding."
 
 #: libraries/classes/Plugins/Export/ExportCsv.php:63
 #: libraries/classes/Plugins/Import/AbstractImportCsv.php:58
@@ -10462,55 +10429,52 @@ msgid "Formats text as XML with syntax highlighting."
 msgstr "Maakt de tekst op in XML met syntaxiskleuring."
 
 #: libraries/classes/Plugins/TwoFactor/Application.php:129
-#, fuzzy
-#| msgid "Authentication Plugin"
 msgid "Authentication Application (2FA)"
-msgstr "Authenticatie Plugin"
+msgstr "Authentificatie Applicatie (2FA)"
 
 #: libraries/classes/Plugins/TwoFactor/Application.php:139
 msgid ""
 "Provides authentication using HOTP and TOTP applications such as FreeOTP, "
 "Google Authenticator or Authy."
 msgstr ""
+"Levert authentificatie door HOTP en TOTP applicaties zoals FreeOTP, Google "
+"Authenticator of Authy."
 
 #: libraries/classes/Plugins/TwoFactor/Key.php:184
 msgid "Hardware Security Key (FIDO U2F)"
-msgstr ""
+msgstr "Hardwarematige beveiligingssleutel (FIDO U2F)"
 
 #: libraries/classes/Plugins/TwoFactor/Key.php:194
 msgid ""
 "Provides authentication using hardware security tokens supporting FIDO U2F."
 msgstr ""
+"Levert authentificatie door hardwarematige beveiligingssleutels met FIDO U2F "
+"ondersteuning."
 
 #: libraries/classes/Plugins/TwoFactor/Simple.php:52
-#, fuzzy
-#| msgid "Signon authentication"
 msgid "Simple two-factor authentication"
-msgstr "Signon-authenticatie"
+msgstr "Eenvoudige tweeweg authenticatie"
 
 #: libraries/classes/Plugins/TwoFactor/Simple.php:62
 msgid "For testing purposes only!"
-msgstr ""
+msgstr "Alleen voor testdoeleinden!"
 
 #: libraries/classes/Plugins/TwoFactorPlugin.php:65
-#, fuzzy, php-format
-#| msgid "Hardware authentication failed!"
+#, php-format
 msgid "Two-factor authentication failed: %s"
-msgstr "Hardware-authenticatie mislukt!"
+msgstr "Tweeweg authentificatie gefaald: %s"
 
 #: libraries/classes/Plugins/TwoFactorPlugin.php:69
-#, fuzzy
-#| msgid "Hardware authentication failed!"
 msgid "Two-factor authentication failed."
-msgstr "Hardware-authenticatie mislukt!"
+msgstr "Tweeweg authentificatie gefaald."
 
 #: libraries/classes/Plugins/TwoFactorPlugin.php:122
 msgid "None two-factor"
-msgstr ""
+msgstr "Geen tweeweg authentificatie"
 
 #: libraries/classes/Plugins/TwoFactorPlugin.php:132
 msgid "Login using password only."
-msgstr ""
+msgstr "Aanmelden alleen met wachtwoord."
 
 #: libraries/classes/PmdCommon.php:550
 msgid "Error: relationship already exists."
@@ -14450,10 +14414,8 @@ msgid "Manage your settings"
 msgstr "Uw instellingen beheren"
 
 #: libraries/user_preferences.inc.php:38
-#, fuzzy
-#| msgid "Config authentication"
 msgid "Two-factor authentication"
-msgstr "Configuratieauthenticatie"
+msgstr "Tweeweg authenticatie"
 
 #: libraries/user_preferences.inc.php:63 prefs_manage.php:309
 msgid "Configuration has been saved."
@@ -14474,7 +14436,7 @@ msgstr "Fatale fout: de navigatie is alleen toegankelijk via AJAX"
 
 #: prefs_forms.php:28 setup/frames/form.inc.php:21
 msgid "Incorrect form specified!"
-msgstr ""
+msgstr "Onjuist formulier gespecificeerd!"
 
 #: prefs_forms.php:80
 msgid "Cannot save settings, submitted form contains errors!"
@@ -14562,16 +14524,12 @@ msgid "You can reset all your settings and restore them to default values."
 msgstr "U kan al uw instellingen terugzetten op de standaardwaarden."
 
 #: prefs_second.php:29
-#, fuzzy
-#| msgid "Internal relationship has been removed."
 msgid "Two-factor authentication has been removed."
-msgstr "Interne relatie is verwijderd."
+msgstr "Tweeweg authentificatie is verwijderd."
 
 #: prefs_second.php:39
-#, fuzzy
-#| msgid "Invalid authentication method set in configuration:"
 msgid "Two-factor authentication has been configured."
-msgstr "Ongeldige authenticatiemethode opgegeven in configuratie:"
+msgstr "Tweeweg authenticatie is geconfigureerd."
 
 #: server_export.php:25
 msgid "View dump (schema) of databases"
@@ -15206,16 +15164,16 @@ msgstr "Herstel zoom"
 
 #: templates/login/twofactor/application.twig:2
 #: templates/login/twofactor/application_configure.twig:9
-#, fuzzy
-#| msgid "Authentication"
 msgid "Authentication code:"
-msgstr "Authenticatie"
+msgstr "Authenticatie code:"
 
 #: templates/login/twofactor/application.twig:4
 msgid ""
 "Open the two-factor authentication app on your device to view your "
 "authentication code and verify your identity."
 msgstr ""
+"Open de tweeweg authentificatie app op uw apparaat voor uw authentificatie "
+"code en verifieer uw identiteit."
 
 #: templates/database/designer/rename_to_panel.twig:22
 #: templates/database/designer/options_panel.twig:85
@@ -15239,7 +15197,7 @@ msgstr "Voer een query op basis van een vergelijking uit (wildcard: \"%\")"
 
 #: templates/login/twofactor.twig:4
 msgid "Verify"
-msgstr ""
+msgstr "Verifieer"
 
 #: templates/server/variables/session_variable_row.twig:3
 msgid "Session value"
@@ -15383,10 +15341,9 @@ msgid "Save chart as image"
 msgstr "Sla grafiek op als afbeelding"
 
 #: templates/database/structure/show_create_row.twig:7
-#, fuzzy, php-format
-#| msgid "Create User"
+#, php-format
 msgid "Create %s"
-msgstr "Gebruiker aanmaken"
+msgstr "Maak %s aan"
 
 #: templates/server/variables/variable_row.twig:6
 msgid "This is a read-only variable and can not be edited"
@@ -15436,10 +15393,9 @@ msgid "Column names"
 msgstr "Kolomnamen"
 
 #: templates/server/databases/table_row.twig:13
-#, fuzzy, php-format
-#| msgid "Jump to database"
+#, php-format
 msgid "Jump to database '%s'"
-msgstr "Ga naar database"
+msgstr "Ga naar database '%s'"
 
 #: templates/server/databases/table_row.twig:61
 #, php-format
@@ -15466,10 +15422,8 @@ msgid "Index choice:"
 msgstr "Index keuze:"
 
 #: templates/table/index_form.twig:42
-#, fuzzy
-#| msgid "Active options"
 msgid "Advanced Options"
-msgstr "Actieve opties"
+msgstr "Geavanceerde Opties"
 
 #: templates/table/index_form.twig:48
 msgid "Key block size:"
@@ -15510,14 +15464,10 @@ msgid "Server variables and settings"
 msgstr "Servervariabelen en -instellingen"
 
 #: templates/server/sub_page_header.twig:2
-#, fuzzy
-#| msgid "Storage Engines"
 msgid "Storage engines"
 msgstr "Opslag-engines"
 
 #: templates/server/sub_page_header.twig:2
-#, fuzzy
-#| msgid "Character Sets and Collations"
 msgid "Character sets and collations"
 msgstr "Karaktersets en collaties"
 
@@ -15541,50 +15491,49 @@ msgid "None"
 msgstr "Geen"
 
 #: templates/prefs_second.twig:3
-#, fuzzy
-#| msgid "Authentication settings."
 msgid "Two-factor authentication status"
-msgstr "Authenticatie-instellingen."
+msgstr "Tweeweg authentificatie status"
 
 #: templates/prefs_second.twig:9
 msgid ""
 "Two-factor authentication is not available, please install optional "
 "dependencies to enable authentication backends."
 msgstr ""
+"Tweeweg authentificatie is niet beschikbaar, installeer a.u.b. de optionele "
+"afhankelijkheden om authentificatie backends beschikbaar te maken."
 
 #: templates/prefs_second.twig:12
 msgid "Two-factor authentication is available and configured for this account."
 msgstr ""
+"Tweeweg authentificatie is beschikbaar en geconfigureerd voor dit account."
 
 #: templates/prefs_second.twig:14
 msgid ""
 "Two-factor authentication is available, but not configured for this account."
 msgstr ""
+"Tweeweg authentificatie is beschikbaar, maar niet geconfigureerd voor dit "
+"account."
 
 #: templates/prefs_second.twig:18
-#, fuzzy
-#| msgid "%sCreate%s missing phpMyAdmin configuration storage tables."
 msgid ""
 "Two-factor authentication is not available, enable phpMyAdmin configuration "
 "storage to use it."
-msgstr "%sCreate%s ontbrekende phpMyAdmin configuratie opslag tabellen."
+msgstr ""
+"Tweeweg authentificatie is niet beschikbaar, activeer phpMyAdmin "
+"configuratieopslag om het te gebruiken."
 
 #: templates/prefs_second.twig:27
 msgid "You have enabled two factor authentication."
-msgstr ""
+msgstr "U hebt tweeweg authentificatie geactiveerd."
 
 #: templates/prefs_second.twig:31 templates/prefs_second_confirm.twig:9
-#, fuzzy
-#| msgid "Config authentication"
 msgid "Disable two-factor authentication"
-msgstr "Configuratieauthenticatie"
+msgstr "Deactiveer tweeweg authentificatie"
 
 #: templates/prefs_second.twig:37 templates/prefs_second.twig:49
 #: templates/prefs_second_configure.twig:2
-#, fuzzy
-#| msgid "Config authentication"
 msgid "Configure two-factor authentication"
-msgstr "Configuratieauthenticatie"
+msgstr "Configureer tweeweg authenticatie"
 
 #: templates/columns_definitions/column_virtuality.twig:29
 #: templates/table/structure/display_partitions.twig:26
@@ -15620,16 +15569,16 @@ msgid "Next autoindex"
 msgstr "Volgende automatische indexwaarde"
 
 #: templates/prefs_second_confirm.twig:2
-#, fuzzy
-#| msgid "Config authentication"
 msgid "Confirm disabling two-factor authentication"
-msgstr "Configuratieauthenticatie"
+msgstr "Bevestig deactivatie tweeweg authentificatie"
 
 #: templates/prefs_second_confirm.twig:5
 msgid ""
 "By disabling two factor authentication you will be again able to login using "
 "password only."
 msgstr ""
+"Door tweeweg authentificatie te deactiveren kunt u weer aanmelden met alleen "
+"een wachtwoord."
 
 #: templates/prefs_autoload.twig:7
 msgid ""
@@ -15670,10 +15619,8 @@ msgid "in use"
 msgstr "in gebruik"
 
 #: templates/prefs_second_configure.twig:8
-#, fuzzy
-#| msgid "Config authentication"
 msgid "Enable two-factor authentication"
-msgstr "Configuratieauthenticatie"
+msgstr "Activeer tweeweg authentificatie"
 
 #: templates/privileges/privileges_summary.twig:20
 msgid "Column-specific privileges"
@@ -15844,6 +15791,8 @@ msgid ""
 "Please connect your FIDO U2F device into your computer's USB port. Then "
 "confirm login on the device."
 msgstr ""
+"Sluit a.u.b. uw FIDO U2F apparaat aan op uw computer USB-poort. Bevestig dan "
+"uw aanmelding op het apparaat."
 
 #: templates/table/search/search_and_replace.twig:3
 msgid "Replace with:"
@@ -15858,10 +15807,8 @@ msgid "Hide/Show all"
 msgstr "Alles tonen/verbergen"
 
 #: templates/database/designer/table_list.twig:14
-#, fuzzy
-#| msgid "Hide/Show Tables with no relationship"
 msgid "Hide/Show tables with no relationship"
-msgstr "Verberg/Toon Tabellen zonder relaties"
+msgstr "Verberg/Toon tabellen zonder relaties"
 
 #: templates/database/designer/table_list.twig:55
 msgid "Number of tables:"
@@ -16187,14 +16134,10 @@ msgid ""
 "Please connect your FIDO U2F device into your computer's USB port. Then "
 "confirm registration on the device."
 msgstr ""
+"Sluit a.u.b. uw FIDO U2F apparaat aan op uw computer USB-poort. Bevestig dan "
+"uw registratie op het apparaat."
 
 #: templates/columns_definitions/table_fields_definitions.twig:17
-#, fuzzy
-#| msgid ""
-#| "If column type is \"enum\" or \"set\", please enter the values using this "
-#| "format: 'a','b','c'…<br />If you ever need to put a backslash (\"\\\") or "
-#| "a single quote (\"'\") amongst those values, precede it with a backslash "
-#| "(for example '\\\\xyz' or 'a\\'b')."
 msgid ""
 "If column type is \"enum\" or \"set\", please enter the values using this "
 "format: 'a','b','c'…<br />If you ever need to put a backslash (\"\") or a "
@@ -16233,12 +16176,6 @@ msgstr "Browserweergavetransformatieopties"
 
 #: templates/columns_definitions/table_fields_definitions.twig:83
 #: templates/columns_definitions/table_fields_definitions.twig:94
-#, fuzzy
-#| msgid ""
-#| "Please enter the values for transformation options using this format: "
-#| "'a', 100, b,'c'…<br />If you ever need to put a backslash (\"\\\") or a "
-#| "single quote (\"'\") amongst those values, precede it with a backslash "
-#| "(for example '\\\\xyz' or 'a\\'b')."
 msgid ""
 "Please enter the values for transformation options using this format: 'a', "
 "100, b,'c'…<br />If you ever need to put a backslash (\"\") or a single "
@@ -16246,9 +16183,9 @@ msgid ""
 "'\\\\xyz' or 'a\\'b')."
 msgstr ""
 "Voeg de waardes voor transformatieoptie in het volgende formaat in: 'a', "
-"100, b,'c'…<br />Wanneer u een backslash (\"\\\") of een enkele quote "
-"(\"'\") moet invoegen in deze waardes, plaats er dan een backslash voor "
-"(bijvoorbeeld '\\\\xyz' of 'a\\'b')."
+"100, b,'c'…<br />Wanneer u een backslash (\"\\\") of een enkele quote (\"'\")"
+" moet invoegen in deze waardes, plaats er dan een backslash voor ("
+"bijvoorbeeld '\\\\xyz' of 'a\\'b')."
 
 #: templates/columns_definitions/table_fields_definitions.twig:93
 msgid "Input transformation options"
@@ -16283,6 +16220,8 @@ msgid ""
 "Please scan following QR code into the two-factor authentication app on your "
 "device and enter authentication code it generates."
 msgstr ""
+"Scan a.u.b. de volgende QR code in de tweeweg authentificatie app op uw "
+"apparaat en geef de gegenereerde authentificatie code in ."
 
 # "Geen" of indien telbaar: "Geen enkele".
 #: templates/columns_definitions/column_default.twig:3
@@ -16300,69 +16239,49 @@ msgstr "Query-venster"
 
 #: templates/database/multi_table_query/form.twig:18
 #: templates/database/multi_table_query/form.twig:106
-#, fuzzy
-#| msgid "Select table:"
 msgid "select table"
-msgstr "Selecteer tabel:"
+msgstr "selecteer tabel"
 
 #: templates/database/multi_table_query/form.twig:25
 #: templates/database/multi_table_query/form.twig:114
-#, fuzzy
-#| msgid "Select column:"
 msgid "select column"
-msgstr "Selecteer kolom:"
+msgstr "selecteer kolom"
 
 #: templates/database/multi_table_query/form.twig:31
-#, fuzzy
-#| msgid "Tables"
 msgid "Table alias"
-msgstr "Tabellen"
+msgstr "Tabel alias"
 
 #: templates/database/multi_table_query/form.twig:32
-#, fuzzy
-#| msgid "Column names"
 msgid "Column alias"
-msgstr "Kolomnamen"
+msgstr "Kolom alias"
 
 #: templates/database/multi_table_query/form.twig:35
-#, fuzzy
-#| msgid "Use this column to label each point"
 msgid "Use this column in criteria"
-msgstr "Gebruik deze kolom om ieder punt een naam te geven"
+msgstr "Gebruik deze kolom in criteria"
 
 #: templates/database/multi_table_query/form.twig:38
-#, fuzzy
-#| msgid "Criteria:"
 msgid "criteria"
-msgstr "Criteria:"
+msgstr "criteria"
 
 #: templates/database/multi_table_query/form.twig:52
-#, fuzzy
-#| msgid "Add %s"
 msgid "Add as"
-msgstr "Voeg %s toe"
+msgstr "Voeg toe als"
 
 #: templates/database/multi_table_query/form.twig:97
-#, fuzzy
-#| msgid "Alter column(s)"
 msgid "Another column"
-msgstr "Kolom(men) wijzigen"
+msgstr "Andere kolom"
 
 #: templates/database/multi_table_query/form.twig:125
 msgid "Enter criteria as free text"
-msgstr ""
+msgstr "Geef criteria in als vrije tekst"
 
 #: templates/database/multi_table_query/form.twig:133
-#, fuzzy
-#| msgid "Remove redundant columns"
 msgid "Remove this column"
-msgstr "Verwijder overbodige kolommen"
+msgstr "Verwijder deze kolom"
 
 #: templates/database/multi_table_query/form.twig:160
-#, fuzzy
-#| msgid "Update Query"
 msgid "Update query"
-msgstr "Wijzig Query"
+msgstr "Werk query bij"
 
 #: templates/table/search/rows_zoom.twig:12
 msgid "Additional search criteria"
