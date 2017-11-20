@@ -1433,7 +1433,7 @@ class InsertEdit
         $edit_str = Util::getIcon('b_edit.png', __('Edit/Insert'));
         return '<span class="open_gis_editor">'
             . Util::linkOrButton(
-                '#', $edit_str, array(), false, false, '_blank'
+                '#', $edit_str, array(), '_blank'
             )
             . '</span>';
     }

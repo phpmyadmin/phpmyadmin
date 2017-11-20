@@ -276,6 +276,9 @@ var AJAX = {
         var params = 'ajax_request=true&ajax_page_request=true';
         if (! isLink) {
             params += '&' + $(this).serialize();
+        } else if (AJAX.source.attr('data-post')) {
+            params += '&' + AJAX.source.attr('data-post');
+            isLink = false;
         }
         if (! (history && history.pushState)) {
             // Add a list of menu hashes that we have in the cache to the request

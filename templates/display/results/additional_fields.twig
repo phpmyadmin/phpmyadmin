@@ -1,0 +1,14 @@
+<input type="hidden" name="sql_query" value="{{ sql_query|raw }}" />
+<input type="hidden" name="goto" value="{{ goto }}" />
+{# Do not change the position when changing the number of rows #}
+<input type="hidden" name="pos" size="3" value="{{ pos }}" />
+<input type="hidden" name="is_browse_distinct" value="{{ is_browse_distinct }}" />
+{% trans 'Number of rows:' %}
+{{ Util_getDropdown(
+    'session_max_rows',
+    number_of_rows_choices,
+    max_rows,
+    '',
+    'autosubmit',
+    number_of_rows_placeholder
+) }}

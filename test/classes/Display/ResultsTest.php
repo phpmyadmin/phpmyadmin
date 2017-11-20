@@ -111,25 +111,37 @@ class ResultsTest extends PmaTestCase
      * @param string  $title          text for button
      * @param integer $pos            position for next query
      * @param string  $html_sql_query query ready for display
-     * @param string  $output         output from the _getTableNavigationButton
-     *                                method
      *
      * @return void
      *
      * @dataProvider providerForTestGetTableNavigationButton
      */
     public function testGetTableNavigationButton(
-        $caption, $title, $pos, $html_sql_query, $output
+        $caption, $title, $pos, $html_sql_query
     ) {
         $GLOBALS['cfg']['TableNavigationLinksMode'] = 'icons';
         $_SESSION[' PMA_token '] = 'token';
 
-        $this->assertEquals(
-            $output,
-            $this->_callPrivateFunction(
-                '_getTableNavigationButton',
-                array(&$caption, $title, $pos, $html_sql_query, true)
-            )
+        $actual = $this->_callPrivateFunction(
+            '_getTableNavigationButton',
+            array(&$caption, $title, $pos, $html_sql_query, true)
+        );
+
+        $this->assertContains(
+            '<form action="sql.php" method="post">',
+            $actual
+        );
+        $this->assertContains(
+            'name="sql_query" value="SELECT * FROM `pma_bookmark` WHERE 1"',
+            $actual
+        );
+        $this->assertContains(
+            'name="pos" value="1"',
+            $actual
+        );
+        $this->assertContains(
+            'value="btn" title="Submit"',
+            $actual
         );
     }
 
@@ -146,18 +158,6 @@ class ResultsTest extends PmaTestCase
                 'Submit',
                 1,
                 'SELECT * FROM `pma_bookmark` WHERE 1',
-                '<td><form action="sql.php" method="post" >'
-                . '<input type="hidden" name="db" value="as" />'
-                . '<input type="hidden" name="lang" value="en" />'
-                . '<input type="hidden" name="collation_connection" value="utf-8" />'
-                . '<input type="hidden" name="token" value="token" />'
-                . '<input type="hidden" name="sql_query" value="SELECT * '
-                . 'FROM `pma_bookmark` WHERE 1" />'
-                . '<input type="hidden" name="pos" value="1" />'
-                . '<input type="hidden" name="is_browse_distinct" value="" />'
-                . '<input type="hidden" name="goto" value="" />'
-                . '<input type="submit" name="navig" class="ajax" '
-                . 'value="btn"  title="Submit" /></form></td>'
             )
         );
     }
@@ -438,11 +438,11 @@ class ResultsTest extends PmaTestCase
                 '%60customer%60.%60id%60+%3D+1',
                 '<td class="klass edit_row_anchor center print_ignore"  >'
                 . '<span class="nowrap">'
-                . '<a href="tbl_change.php?db=Data&amp;table=customer&amp;where_'
+                . '<a href="tbl_change.php" data-post="db=Data&amp;table=customer&amp;where_'
                 . 'clause=%60customer%60.%60id%60+%3D+1&amp;clause_is_unique=1&amp;'
                 . 'sql_query=SELECT+%2A+FROM+%60customer%60&amp;goto=sql.php&amp;'
                 . 'default_action=update"'
-                . ' ><span class="nowrap"><img src="themes/dot.gif" title="Edit" '
+                . '><span class="nowrap"><img src="themes/dot.gif" title="Edit" '
                 . 'alt="Edit" class="icon ic_b_edit" /> Edit</span></a>'
                 . '<input type="hidden" class="where_clause" value ="%60customer'
                 . '%60.%60id%60+%3D+1" /></span></td>'
@@ -501,11 +501,11 @@ class ResultsTest extends PmaTestCase
                 'klass',
                 '<td class="klass center print_ignore"  ><span class='
                 . '"nowrap">'
-                . '<a href="tbl_change.php?db=Data&amp;table=customer&amp;where_'
+                . '<a href="tbl_change.php" data-post="db=Data&amp;table=customer&amp;where_'
                 . 'clause=%60customer%60.%60id%60+%3D+1&amp;clause_is_unique=1&amp;'
                 . 'sql_query=SELECT+%2A+FROM+%60customer%60&amp;goto=sql.php&amp;'
                 . 'default_action=insert"'
-                . ' ><span class="nowrap"><img src="themes/dot.gif" title="Copy" '
+                . '><span class="nowrap"><img src="themes/dot.gif" title="Copy" '
                 . 'alt="Copy" class="icon ic_b_insrow" /> Copy</span></a>'
                 . '<input type="hidden" class="where_clause" value="%60customer%60'
                 . '.%60id%60+%3D+1" /></span></td>'
@@ -564,7 +564,7 @@ class ResultsTest extends PmaTestCase
                 'DELETE FROM `Data`.`customer` WHERE `customer`.`id` = 1',
                 'klass',
                 '<td class="klass center print_ignore"  >'
-                . '<a href="sql.php?db=Data&amp;table=customer&amp;sql_query=DELETE'
+                . '<a href="sql.php" data-post="db=Data&amp;table=customer&amp;sql_query=DELETE'
                 . '+FROM+%60Data%60.%60customer%60+WHERE+%60customer%60.%60id%60+%3D'
                 . '+1&amp;message_to_show=The+row+has+been+deleted&amp;goto=sql.php'
                 . '%3Fdb%3DData%26table%3Dcustomer%26sql_query%3DSELECT%2B%252A%2B'
@@ -660,24 +660,24 @@ class ResultsTest extends PmaTestCase
                 . '"condition_array" value="{&quot;`new`.`id`&quot;:&quot;= 1&quot;'
                 . '}" />    </td><td class="edit_row_anchor center print_ignore"  ><span class='
                 . '"nowrap">'
-                . '<a href="tbl_change.php?db=data&amp;table=new&amp;where_'
+                . '<a href="tbl_change.php" data-post="db=data&amp;table=new&amp;where_'
                 . 'clause=%60new%60.%60id%60+%3D+1&amp;clause_is_unique=1&amp;'
                 . 'sql_query=SELECT+%2A+FROM+%60new%60&amp;goto=sql.php&amp;default'
-                . '_action=update" >'
+                . '_action=update">'
                 . '<span class="nowrap"><img src="themes/dot.gif" title="Edit" '
                 . 'alt="Edit" class="icon ic_b_edit" /> Edit</span></a>'
                 . '<input type="hidden" class="where_clause" value ="%60new%60.%60'
                 . 'id%60+%3D+1" /></span></td><td class="center print_ignore"  ><span class'
                 . '="nowrap">'
-                . '<a href="tbl_change.php?db=data&amp;table=new&amp;where_clause'
+                . '<a href="tbl_change.php" data-post="db=data&amp;table=new&amp;where_clause'
                 . '=%60new%60.%60id%60+%3D+1&amp;clause_is_unique=1&amp;sql_query='
                 . 'SELECT+%2A+FROM+%60new%60&amp;goto=sql.php&amp;default_action='
-                . 'insert" ><span class'
+                . 'insert"><span class'
                 . '="nowrap"><img src="themes/dot.gif" title="Copy" alt="Copy" '
                 . 'class="icon ic_b_insrow" /> Copy</span></a>'
                 . '<input type="hidden" class="where_clause" value="%60new%60.%60id'
                 . '%60+%3D+1" /></span></td><td class="center print_ignore"  >'
-                . '<a href="sql.php?db=data&amp;table=new&amp;sql_query=DELETE+'
+                . '<a href="sql.php" data-post="db=data&amp;table=new&amp;sql_query=DELETE+'
                 . 'FROM+%60data%60.%60new%60+WHERE+%60new%60.%60id%60+%3D+1&amp;'
                 . 'message_to_show=The+row+has+been+deleted&amp;goto=sql.php%3F'
                 . 'db%3Ddata%26table%3Dnew%26sql_query%3DSELECT%2B%252A%2BFROM%2B'
@@ -727,7 +727,7 @@ class ResultsTest extends PmaTestCase
                 . 'alt="Delete" class="icon ic_b_drop" /> Delete</span>',
                 'DELETE FROM `data`.`new` WHERE `new`.`id` = 1',
                 '<td class="center print_ignore"  >'
-                . '<a href="sql.php?db=data&amp;table=new&amp;sql_query=DELETE+'
+                . '<a href="sql.php" data-post="db=data&amp;table=new&amp;sql_query=DELETE+'
                 . 'FROM+%60data%60.%60new%60+WHERE+%60new%60.%60id%60+%3D+1&amp;'
                 . 'message_to_show=The+row+has+been+deleted&amp;goto=sql.php%3Fdb'
                 . '%3Ddata%26table%3Dnew%26sql_query%3DSELECT%2B%252A%2BFROM%2B%25'
@@ -737,19 +737,19 @@ class ResultsTest extends PmaTestCase
                 . '"Delete" alt="Delete" class="icon ic_b_drop" /> Delete</span></a>'
                 . '<div class="hide">DELETE FROM `data`.`new` WHERE `new`.'
                 . '`id` = 1</div></td><td class="center print_ignore"  ><span class="nowrap">'
-                . '<a href="tbl_change.php?db=data&amp;table=new&amp;where_'
+                . '<a href="tbl_change.php" data-post="db=data&amp;table=new&amp;where_'
                 . 'clause=%60new%60.%60id%60+%3D+1&amp;clause_is_unique=1&amp;sql_'
                 . 'query=SELECT+%2A+FROM+%60new%60&amp;goto=sql.php&amp;default_'
-                . 'action=insert" ><span '
+                . 'action=insert"><span '
                 . 'class="nowrap"><img src="themes/dot.gif" title="Copy" alt="Copy" '
                 . 'class="icon ic_b_insrow" /> Copy</span></a>'
                 . '<input type="hidden" class="where_clause" value="%60new%60.%60id'
                 . '%60+%3D+1" /></span></td><td class="edit_row_anchor center print_ignore"  >'
                 . '<span class="nowrap">'
-                . '<a href="tbl_change.php?db=data&amp;table=new&amp;where_clause'
+                . '<a href="tbl_change.php" data-post="db=data&amp;table=new&amp;where_clause'
                 . '=%60new%60.%60id%60+%3D+1&amp;clause_is_unique=1&amp;sql_query='
                 . 'SELECT+%2A+FROM+%60new%60&amp;goto=sql.php&amp;default_action='
-                . 'update" ><span class='
+                . 'update"><span class='
                 . '"nowrap"><img src="themes/dot.gif" title="Edit" alt="Edit" class'
                 . '="icon ic_b_edit" /> Edit</span></a>'
                 . '<input type="hidden" class="where_clause" value ="%60new%60.%60'
@@ -882,7 +882,7 @@ class ResultsTest extends PmaTestCase
                 'tbl_change.php?db=data&amp;table=new&amp;where_clause=%60new%60.%60'
                 . 'id%60+%3D+1&amp;clause_is_unique=1&amp;sql_query=SELECT+%2A+FROM+'
                 . '%60new%60&amp;goto=sql.php&amp;default_action=update',
-                'tbl_change.php?db=data&amp;table=new&amp;where_clause=%60new%60.%60'
+                '/tbl_change.php?db=data&amp;table=new&amp;where_clause=%60new%60.%60'
                 . 'id%60+%3D+1&amp;clause_is_unique=1&amp;sql_query=SELECT+%2A+FROM+'
                 . '%60new%60&amp;goto=sql.php&amp;default_action=insert',
                 'edit_row_anchor',
@@ -1197,12 +1197,30 @@ class ResultsTest extends PmaTestCase
         $this->object->__set('goto', $goto);
         $this->object->__set('unique_id', $unique_id);
 
-        $this->assertEquals(
-            $output,
-            $this->_callPrivateFunction(
-                '_getShowAllCheckboxForTableNavigation',
-                array(false, $html_sql_query)
-            )
+        $result = $this->_callPrivateFunction(
+            '_getShowAllCheckboxForTableNavigation',
+            array(false, $html_sql_query)
+        );
+
+        $this->assertContains(
+            'name="db" value="' . $db . '"',
+            $result
+        );
+        $this->assertContains(
+            'name="table" value="' . $table . '"',
+            $result
+        );
+        $this->assertContains(
+            'name="sql_query" value="' . $html_sql_query . '"',
+            $result
+        );
+        $this->assertContains(
+            'name="goto" value="' . $goto . '"',
+            $result
+        );
+        $this->assertContains(
+            '<label for="showAll_' . $unique_id . '">Show all</label>',
+            $result
         );
     }
 
@@ -1473,11 +1491,13 @@ class ResultsTest extends PmaTestCase
                 array(),
                 0,
                 'binary',
-                '<td class="left   hex"><a href="tbl_get_field.php?'
+                '<td class="left   hex">' . PHP_EOL
+                . '    <a href="tbl_get_field.php?'
                 . 'db=foo&amp;table=tbl&amp;server=0&amp;lang=en'
                 . '&amp;collation_connection=utf-8'
                 . '" '
-                . 'class="disableAjax">[BLOB - 4 B]</a></td>'
+                . 'class="disableAjax">[BLOB - 4 B]</a>' . PHP_EOL
+                . '</td>' . PHP_EOL
             ),
             array(
                 'noblob',
@@ -1494,8 +1514,9 @@ class ResultsTest extends PmaTestCase
                 array(),
                 0,
                 'binary',
-                '<td class="left grid_edit  transformed hex">'
-                . '1001</td>'
+                '<td class="left grid_edit  transformed hex">' . PHP_EOL
+                . '    1001' . PHP_EOL
+                . '</td>' . PHP_EOL
             ),
             array(
                 'noblob',
@@ -1512,8 +1533,12 @@ class ResultsTest extends PmaTestCase
                 array(),
                 0,
                 0,
-                '<td  data-decimals="0" data-type="string"  '
-                . 'class="grid_edit  null"><i>NULL</i></td>'
+                '<td ' . PHP_EOL
+                . '    data-decimals="0"' . PHP_EOL
+                . '    data-type="string"' . PHP_EOL
+                . '        class="grid_edit  null">' . PHP_EOL
+                . '    <em>NULL</em>' . PHP_EOL
+                . '</td>' . PHP_EOL
             ),
             array(
                 'all',

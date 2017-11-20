@@ -723,10 +723,15 @@ class Results
      *          _getMoveForwardButtonsForTableNavigation()
      */
     private function _getTableNavigationButton(
-        $caption, $title, $pos, $html_sql_query, $back, $onsubmit = '',
-        $input_for_real_end = '', $onclick = ''
+        $caption,
+        $title,
+        $pos,
+        $html_sql_query,
+        $back,
+        $onsubmit = '',
+        $input_for_real_end = '',
+        $onclick = ''
     ) {
-
         $caption_output = '';
         if ($back) {
             if (Util::showIcons('TableNavigationLinksMode')) {
@@ -743,29 +748,21 @@ class Results
                 $caption_output .= '&nbsp;' . $caption;
             }
         }
-        $title_output = ' title="' . $title . '"';
 
-        return '<td>'
-            . '<form action="sql.php" method="post" ' . $onsubmit . '>'
-            . Url::getHiddenInputs(
-                $this->__get('db'), $this->__get('table')
-            )
-            . '<input type="hidden" name="sql_query" value="'
-            . $html_sql_query . '" />'
-            . '<input type="hidden" name="pos" value="' . $pos . '" />'
-            . '<input type="hidden" name="is_browse_distinct" value="'
-            . $this->__get('is_browse_distinct') . '" />'
-            . '<input type="hidden" name="goto" value="' . $this->__get('goto')
-            . '" />'
-            . $input_for_real_end
-            . '<input type="submit" name="navig"'
-            . ' class="ajax" '
-            . 'value="' . $caption_output . '" ' . $title_output . $onclick . ' />'
-            . '</form>'
-            . '</td>';
-
-    } // end function _getTableNavigationButton()
-
+        return Template::get('display/results/table_navigation_button')->render([
+            'db' => $this->__get('db'),
+            'table' => $this->__get('table'),
+            'sql_query' => $html_sql_query,
+            'pos' => $pos,
+            'is_browse_distinct' => $this->__get('is_browse_distinct'),
+            'goto' => $this->__get('goto'),
+            'input_for_real_end' => $input_for_real_end,
+            'caption_output' => $caption_output,
+            'title' => $title,
+            'onsubmit' => $onsubmit,
+            'onclick' => $onclick,
+        ]);
+    }
 
     /**
      * Possibly return a page selector for table navigation
@@ -1018,28 +1015,16 @@ class Results
     private function _getShowAllCheckboxForTableNavigation(
         $showing_all, $html_sql_query
     ) {
-        return "\n"
-            . '<td>'
-            . '<form action="sql.php" method="post">'
-            . Url::getHiddenInputs(
-                $this->__get('db'), $this->__get('table')
-            )
-            . '<input type="hidden" name="sql_query" value="'
-            . $html_sql_query . '" />'
-            . '<input type="hidden" name="pos" value="0" />'
-            . '<input type="hidden" name="is_browse_distinct" value="'
-            . $this->__get('is_browse_distinct') . '" />'
-            . '<input type="hidden" name="session_max_rows" value="'
-            . (! $showing_all ? 'all' : intval($GLOBALS['cfg']['MaxRows'])) . '" />'
-            . '<input type="hidden" name="goto" value="' . $this->__get('goto')
-            . '" />'
-            . '<input type="checkbox" name="navig"'
-            . ' id="showAll_' . $this->__get('unique_id') . '" class="showAllRows"'
-            . (! $showing_all ? '' : ' checked="checked"') . ' value="all" />'
-            . '<label for="showAll_' . $this->__get('unique_id') . '">'
-            . __('Show all') . '</label>'
-            . '</form>'
-            . '</td>';
+        return Template::get('display/results/show_all_checkbox')->render([
+            'db' => $this->__get('db'),
+            'table' => $this->__get('table'),
+            'is_browse_distinct' => $this->__get('is_browse_distinct'),
+            'goto' => $this->__get('goto'),
+            'unique_id' => $this->__get('unique_id'),
+            'html_sql_query' => $html_sql_query,
+            'showing_all' => $showing_all,
+            'max_rows' => intval($GLOBALS['cfg']['MaxRows']),
+        ]);
     } // end of the '_getShowAllButtonForTableNavigation()' function
 
 
@@ -1110,30 +1095,16 @@ class Results
      * Prepare fields for table navigation
      * Number of rows
      *
-     * @param string $html_sql_query the sql encoded by htmlspecialchars()
+     * @param string $sqlQuery the sql encoded by htmlspecialchars()
      *
-     * @return  string  $additional_fields_html html content
+     * @return string html content
      *
      * @access  private
      *
      * @see     _getTableNavigation()
      */
-    private function _getAdditionalFieldsForTableNavigation(
-        $html_sql_query
-    ) {
-
-        $additional_fields_html = '';
-
-        $additional_fields_html .= '<input type="hidden" name="sql_query" '
-            . 'value="' . $html_sql_query . '" />'
-            . '<input type="hidden" name="goto" value="' . $this->__get('goto')
-            . '" />'
-            . '<input type="hidden" name="pos" size="3" value="'
-            // Do not change the position when changing the number of rows
-            . $_SESSION['tmpval']['pos'] . '" />'
-            . '<input type="hidden" name="is_browse_distinct" value="'
-            . $this->__get('is_browse_distinct') . '" />'  ;
-
+    private function _getAdditionalFieldsForTableNavigation($sqlQuery)
+    {
         $numberOfRowsPlaceholder = null;
         if ($_SESSION['tmpval']['max_rows'] == self::ALL_ROWS) {
             $numberOfRowsPlaceholder = __('All');
@@ -1146,17 +1117,17 @@ class Results
             '250' => 250,
             '500' => 500
         );
-        $additional_fields_html .= __('Number of rows:') . ' ';
-        $additional_fields_html .= Util::getDropdown(
-            'session_max_rows', $numberOfRowsChoices,
-            $_SESSION['tmpval']['max_rows'], '',
-            'autosubmit', $numberOfRowsPlaceholder
-        );
 
-        return $additional_fields_html;
-
-    } // end of the '_getAdditionalFieldsForTableNavigation()' function
-
+        return Template::get('display/results/additional_fields')->render([
+            'goto' => $this->__get('goto'),
+            'is_browse_distinct' => $this->__get('is_browse_distinct'),
+            'sql_query' => $sqlQuery,
+            'number_of_rows_choices' => $numberOfRowsChoices,
+            'number_of_rows_placeholder' => $numberOfRowsPlaceholder,
+            'pos' => $_SESSION['tmpval']['pos'],
+            'max_rows' => $_SESSION['tmpval']['max_rows'],
+        ]);
+    }
 
     /**
      * Get the headers of the results table, for all of the columns
@@ -1696,137 +1667,30 @@ class Results
     /**
      * Prepare option fields block
      *
-     * @return  string  $options_html   html content
+     * @return string html content
      *
-     * @access  private
+     * @access private
      *
-     * @see     _getTableHeaders()
+     * @see _getTableHeaders()
      */
     private function _getOptionsBlock()
     {
-
-        $options_html = '';
-
-        $options_html .= '<form method="post" action="sql.php" '
-            . 'name="displayOptionsForm"';
-
-        $options_html .= ' class="ajax print_ignore" ';
-
-        $options_html .= '>';
-        $url_params = array(
+        return Template::get('display/results/options_block')->render([
+            'unique_id' => $this->__get('unique_id'),
+            'geo_option' => $_SESSION['tmpval']['geoOption'],
+            'hide_transformation' => $_SESSION['tmpval']['hide_transformation'],
+            'display_blob' => $_SESSION['tmpval']['display_blob'],
+            'display_binary' => $_SESSION['tmpval']['display_binary'],
+            'relational_display' => $_SESSION['tmpval']['relational_display'],
+            'displaywork' => $GLOBALS['cfgRelation']['displaywork'],
+            'relwork' => $GLOBALS['cfgRelation']['relwork'],
+            'pftext' => $_SESSION['tmpval']['pftext'],
             'db' => $this->__get('db'),
             'table' => $this->__get('table'),
             'sql_query' => $this->__get('sql_query'),
             'goto' => $this->__get('goto'),
-            'display_options_form' => 1
-        );
-
-        $options_html .= Url::getHiddenInputs($url_params)
-            . '<br />'
-            . Util::getDivForSliderEffect(
-                '', __('Options')
-            )
-            . '<fieldset>';
-
-        $options_html .= '<div class="formelement">';
-        $choices = array(
-            'P'   => __('Partial texts'),
-            'F'   => __('Full texts')
-        );
-
-        // pftext means "partial or full texts" (done to reduce line lengths)
-        $options_html .= Util::getRadioFields(
-            'pftext', $choices,
-            $_SESSION['tmpval']['pftext'],
-            true, true, '', 'pftext_' . $this->__get('unique_id')
-        )
-        . '</div>';
-
-        if ($GLOBALS['cfgRelation']['relwork']
-            && $GLOBALS['cfgRelation']['displaywork']
-        ) {
-            $options_html .= '<div class="formelement">';
-            $choices = array(
-                'K'   => __('Relational key'),
-                'D'   => __('Display column for relationships')
-            );
-
-            $options_html .= Util::getRadioFields(
-                'relational_display', $choices,
-                $_SESSION['tmpval']['relational_display'],
-                true, true, '', 'relational_display_' . $this->__get('unique_id')
-            )
-            . '</div>';
-        }
-
-        $options_html .= '<div class="formelement">'
-            . Template::get('checkbox')
-            ->render(
-                array(
-                    'html_field_name'   => 'display_binary',
-                    'label'             => __('Show binary contents'),
-                    'checked'           => ! empty($_SESSION['tmpval']['display_binary']),
-                    'onclick'           => false,
-                    'html_field_id'     => 'display_binary_' . $this->__get('unique_id'),
-                )
-            )
-            . '<br />'
-            . Template::get('checkbox')
-            ->render(
-                array(
-                    'html_field_name'   => 'display_blob',
-                    'label'             => __('Show BLOB contents'),
-                    'checked'           => ! empty($_SESSION['tmpval']['display_blob']),
-                    'onclick'           => false,
-                    'html_field_id'     => 'display_blob_' . $this->__get('unique_id'),
-                )
-            )
-            . '</div>';
-
-        // I would have preferred to name this "display_transformation".
-        // This is the only way I found to be able to keep this setting sticky
-        // per SQL query, and at the same time have a default that displays
-        // the transformations.
-        $options_html .= '<div class="formelement">'
-            . Template::get('checkbox')
-            ->render(
-                array(
-                    'html_field_name'   => 'hide_transformation',
-                    'label'             => __('Hide browser transformation'),
-                    'checked'           => ! empty($_SESSION['tmpval']['hide_transformation']),
-                    'onclick'           => false,
-                    'html_field_id'     => 'hide_transformation_' . $this->__get('unique_id'),
-                )
-            )
-            . '</div>';
-
-        $options_html .= '<div class="formelement">';
-        $choices = array(
-            'GEOM'  => __('Geometry'),
-            'WKT'   => __('Well Known Text'),
-            'WKB'   => __('Well Known Binary')
-        );
-
-        $options_html .= Util::getRadioFields(
-            'geoOption', $choices,
-            $_SESSION['tmpval']['geoOption'],
-            true, true, '', 'geoOption_' . $this->__get('unique_id')
-        );
-        $options_html .= '</div>';
-
-        $options_html .= '<div class="clearfloat"></div>'
-            . '</fieldset>';
-
-        $options_html .= '<fieldset class="tblFooters">'
-            . '<input type="submit" value="' . __('Go') . '" />'
-            . '</fieldset>'
-            . '</div>'
-            . '</form>';
-
-        return $options_html;
-
-    } // end of the '_getOptionsBlock()' function
-
+        ]);
+    }
 
     /**
      * Get full/partial text button or link
@@ -1863,9 +1727,7 @@ class Results
                      . $tmp_txt . '" title="' . $tmp_txt . '" />';
         $tmp_url = 'sql.php' . Url::getCommon($url_params_full_text);
 
-        return Util::linkOrButton(
-            $tmp_url, $tmp_image, array(), false
-        );
+        return Util::linkOrButton($tmp_url, $tmp_image);
 
     } // end of the '_getFullOrPartialTextButtonOrLink()' function
 
@@ -1873,7 +1735,7 @@ class Results
     /**
      * Prepare html form for multi row operations
      *
-     * @param string $del_lnk the delete link of current row
+     * @param string $deleteLink the delete link of current row
      *
      * @return  string  $form_html          html content
      *
@@ -1881,71 +1743,38 @@ class Results
      *
      * @see     _getTableHeaders()
      */
-    private function _getFormForMultiRowOperations($del_lnk)
+    private function _getFormForMultiRowOperations($deleteLink)
     {
-
-        $form_html = '';
-
-        if (($del_lnk == self::DELETE_ROW) || ($del_lnk == self::KILL_PROCESS)) {
-
-            $form_html .= '<form method="post" action="tbl_row_action.php" '
-                . 'name="resultsForm"'
-                . ' id="resultsForm_' . $this->__get('unique_id') . '"';
-
-            $form_html .= ' class="ajax" ';
-
-            $form_html .= '>'
-                . Url::getHiddenInputs(
-                    $this->__get('db'), $this->__get('table'), 1
-                )
-                . '<input type="hidden" name="goto" value="sql.php" />';
-        }
-
-        $form_html .= '<div class="responsivetable"><table class="table_results data ajax"';
-        $form_html .= ' data-uniqueId="' . $this->__get('unique_id') . '"';
-        $form_html .= '>';
-
-        return $form_html;
-
-    } // end of the '_getFormForMultiRowOperations()' function
-
+        return Template::get('display/results/multi_row_operations_form')->render([
+            'delete_link' => $deleteLink,
+            'delete_row' => self::DELETE_ROW,
+            'kill_process' => self::KILL_PROCESS,
+            'unique_id' => $this->__get('unique_id'),
+            'db' => $this->__get('db'),
+            'table' => $this->__get('table'),
+        ]);
+    }
 
     /**
      * Get comment for row
      *
-     * @param array $comments_map comments array
-     * @param array $fields_meta  set of field properties
+     * @param array $commentsMap comments array
+     * @param array $fieldsMeta  set of field properties
      *
-     * @return  string  $comment        html content
+     * @return string html content
      *
-     * @access  private
+     * @access private
      *
-     * @see     _getTableHeaders()
+     * @see _getTableHeaders()
      */
-    private function _getCommentForRow(array $comments_map, $fields_meta)
+    private function _getCommentForRow(array $commentsMap, $fieldsMeta)
     {
-        $comments = '';
-        if (isset($comments_map[$fields_meta->table])
-            && isset($comments_map[$fields_meta->table][$fields_meta->name])
-        ) {
-            $sanitized_comments = htmlspecialchars(
-                $comments_map[$fields_meta->table][$fields_meta->name]
-            );
-
-            $comments = '<span class="tblcomment" title="'
-                . $sanitized_comments . '">';
-            $limitChars = $GLOBALS['cfg']['LimitChars'];
-            if (mb_strlen($sanitized_comments) > $limitChars) {
-                $sanitized_comments = mb_substr(
-                    $sanitized_comments, 0, $limitChars
-                ) . '…';
-            }
-            $comments .= $sanitized_comments;
-            $comments .= '</span>';
-        }
-        return $comments;
-    } // end of the '_getCommentForRow()' function
-
+        return Template::get('display/results/comment_for_row')->render([
+            'comments_map' => $commentsMap,
+            'fields_meta' => $fieldsMeta,
+            'limit_chars' => $GLOBALS['cfg']['LimitChars'],
+        ]);
+    }
 
     /**
      * Prepare parameters and html for sorted table header fields
@@ -2324,8 +2153,7 @@ class Results
             . '<input type="hidden" value="' .  $multi_order_url . '" />';
 
         return Util::linkOrButton(
-            $order_url, $inner_link_content,
-            $order_link_params, false, true
+            $order_url, $inner_link_content, $order_link_params
         );
 
     } // end of the '_getSortOrderLink()' function
@@ -2511,9 +2339,9 @@ class Results
     /**
      * Prepares the display for a value
      *
-     * @param string $class           class of table cell
-     * @param bool   $condition_field whether to add CSS class condition
-     * @param string $value           value to display
+     * @param string $class          class of table cell
+     * @param bool   $conditionField whether to add CSS class condition
+     * @param string $value          value to display
      *
      * @return string  the td
      *
@@ -2522,20 +2350,22 @@ class Results
      * @see     _getDataCellForGeometryColumns(),
      *          _getDataCellForNonNumericColumns()
      */
-    private function _buildValueDisplay($class, $condition_field, $value)
+    private function _buildValueDisplay($class, $conditionField, $value)
     {
-        return '<td class="left ' . $class . ($condition_field ? ' condition' : '')
-            . '">' . $value . '</td>';
-    } // end of the '_buildValueDisplay()' function
-
+        return Template::get('display/results/value_display')->render([
+            'class' => $class,
+            'condition_field' => $conditionField,
+            'value' => $value,
+        ]);
+    }
 
     /**
      * Prepares the display for a null value
      *
-     * @param string $class           class of table cell
-     * @param bool   $condition_field whether to add CSS class condition
-     * @param object $meta            the meta-information about this field
-     * @param string $align           cell alignment
+     * @param string $class          class of table cell
+     * @param bool   $conditionField whether to add CSS class condition
+     * @param object $meta           the meta-information about this field
+     * @param string $align          cell alignment
      *
      * @return string  the td
      *
@@ -2545,26 +2375,24 @@ class Results
      *          _getDataCellForGeometryColumns(),
      *          _getDataCellForNonNumericColumns()
      */
-    private function _buildNullDisplay($class, $condition_field, $meta, $align = '')
+    private function _buildNullDisplay($class, $conditionField, $meta, $align = '')
     {
-        // the null class is needed for grid editing
-        $decimals = isset($meta->decimals) ? $meta->decimals : '-1';
-        return '<td ' . $align . ' data-decimals="' . $decimals
-            . '" data-type="' . $meta->type . '"  class="'
-            . $this->_addClass(
-                $class, $condition_field, $meta, ''
-            )
-            . ' null"><i>NULL</i></td>';
-    } // end of the '_buildNullDisplay()' function
+        $classes = $this->_addClass($class, $conditionField, $meta, '');
 
+        return Template::get('display/results/null_display')->render([
+            'align' => $align,
+            'meta' => $meta,
+            'classes' => $classes,
+        ]);
+    }
 
     /**
      * Prepares the display for an empty value
      *
-     * @param string $class           class of table cell
-     * @param bool   $condition_field whether to add CSS class condition
-     * @param object $meta            the meta-information about this field
-     * @param string $align           cell alignment
+     * @param string $class          class of table cell
+     * @param bool   $conditionField whether to add CSS class condition
+     * @param object $meta           the meta-information about this field
+     * @param string $align          cell alignment
      *
      * @return string  the td
      *
@@ -2574,15 +2402,15 @@ class Results
      *          _getDataCellForGeometryColumns(),
      *          _getDataCellForNonNumericColumns()
      */
-    private function _buildEmptyDisplay($class, $condition_field, $meta, $align = '')
+    private function _buildEmptyDisplay($class, $conditionField, $meta, $align = '')
     {
-        return '<td ' . $align . ' class="'
-            . $this->_addClass(
-                $class, $condition_field, $meta, 'nowrap'
-            )
-            . '"></td>';
-    } // end of the '_buildEmptyDisplay()' function
+        $classes = $this->_addClass($class, $conditionField, $meta, 'nowrap');
 
+        return Template::get('display/results/empty_display')->render([
+            'align' => $align,
+            'classes' => $classes,
+        ]);
+    }
 
     /**
      * Adds the relevant classes.
@@ -4978,7 +4806,7 @@ class Results
                     Util::getIcon(
                         'b_view_add.png', __('Create view'), true
                     ),
-                    array('class' => 'create_view' . $ajax_class), true, true, ''
+                    array('class' => 'create_view' . $ajax_class)
                 )
                 . '</span>' . "\n";
         }
@@ -5024,10 +4852,7 @@ class Results
             Util::getIcon(
                 'b_insrow.png', __('Copy to clipboard'), true
             ),
-            array('id' => 'copyToClipBoard'),
-            true,
-            true,
-            'copy_to_clip_board'
+            array('id' => 'copyToClipBoard')
         );
 
         return $html;
@@ -5048,8 +4873,6 @@ class Results
                 'b_print.png', __('Print'), true
             ),
             array('id' => 'printView'),
-            true,
-            true,
             'print_view'
         );
 
@@ -5154,11 +4977,7 @@ class Results
                 'tbl_export.php' . Url::getCommon($_url_params),
                 Util::getIcon(
                     'b_tblexport.png', __('Export'), true
-                ),
-                '',
-                true,
-                true,
-                ''
+                )
             )
             . "\n";
 
@@ -5167,11 +4986,7 @@ class Results
                 'tbl_chart.php' . Url::getCommon($_url_params),
                 Util::getIcon(
                     'b_chart.png', __('Display chart'), true
-                ),
-                '',
-                true,
-                true,
-                ''
+                )
             )
             . "\n";
 
@@ -5192,11 +5007,7 @@ class Results
                         . Url::getCommon($_url_params),
                         Util::getIcon(
                             'b_globe.gif', __('Visualize GIS data'), true
-                        ),
-                        '',
-                        true,
-                        true,
-                        ''
+                        )
                     )
                     . "\n";
             }
@@ -5621,9 +5432,7 @@ class Results
 
             $ret .= '<td class="' . $class . ' center print_ignore" '
                 . ' ><span class="nowrap">'
-                . Util::linkOrButton(
-                    $edit_url, $edit_str, array(), false
-                );
+                . Util::linkOrButton($edit_url, $edit_str);
             /*
              * Where clause for selecting this row uniquely is provided as
              * a hidden input. Used by jQuery scripts for handling grid editing
@@ -5668,9 +5477,7 @@ class Results
             }
 
             $ret .= 'center print_ignore" ' . ' ><span class="nowrap">'
-               . Util::linkOrButton(
-                   $copy_url, $copy_str, array(), false
-               );
+               . Util::linkOrButton($copy_url, $copy_str);
 
             /*
              * Where clause for selecting this row uniquely is provided as
@@ -5719,8 +5526,7 @@ class Results
             . Util::linkOrButton(
                 $del_url,
                 $del_str,
-                array('class' => 'delete_row requireConfirm' . $ajax),
-                false
+                array('class' => 'delete_row requireConfirm' . $ajax)
             )
             . '<div class="hide">' . $js_conf . '</div>'
             . '</td>';

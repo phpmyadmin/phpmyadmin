@@ -7,51 +7,42 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.8.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2017-11-14 09:29+0100\n"
-"PO-Revision-Date: 2015-10-15 11:04+0200\n"
+"PO-Revision-Date: 2017-11-16 16:14+0000\n"
 "Last-Translator: Michal Čihař <michal@cihar.com>\n"
-"Language-Team: Welsh <https://hosted.weblate.org/projects/phpmyadmin/master/"
-"cy/>\n"
+"Language-Team: Welsh "
+"<https://hosted.weblate.org/projects/phpmyadmin/master/cy/>\n"
 "Language: cy\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=6; plural=(n==0) ? 0 : (n==1) ? 1 : (n==2) ? 2 : "
 "(n==3) ? 3 :(n==6) ? 4 : 5;\n"
-"X-Generator: Weblate 2.5-dev\n"
+"X-Generator: Weblate 2.18-dev\n"
 
 #: ajax.php:17 ajax.php:34 export.php:203 libraries/classes/Export.php:1100
-#, fuzzy
-#| msgid "Bar type"
 msgid "Bad type!"
-msgstr "Allforio"
+msgstr "Math ddrwg!"
 
 #: changelog.php:39 license.php:34
-#, fuzzy, php-format
-#| msgid ""
-#| "The %s file is not available on this system, please visit www.phpmyadmin."
-#| "net for more information."
+#, php-format
 msgid ""
 "The %s file is not available on this system, please visit %s for more "
 "information."
 msgstr ""
-"Dyw'r ffeil %s ddim ar gael ar y system hon, ewch i www.phpmyadmin.net am "
-"wybodaeth bellach."
+"Dyw'r ffeil %s ddim ar gael ar y system hon. Ewch i %s am wybodaeth bellach."
 
 #: db_central_columns.php:153
 msgid "The central list of columns for the current database is empty."
 msgstr ""
 
 #: db_central_columns.php:183
-#, fuzzy
-#| msgid "Click to select"
 msgid "Click to sort."
-msgstr "Pwyso i ddewis"
+msgstr "Clicia i drefnu."
 
 #: db_central_columns.php:212
-#, fuzzy, php-format
-#| msgid "Showing rows"
+#, php-format
 msgid "Showing rows %1$s - %2$s."
-msgstr "Yn dangos rhesi"
+msgstr "Yn dangos rhesi %1$s i %2$s."
 
 #: db_datadict.php:59 libraries/classes/Operations.php:47
 msgid "Database comment"
@@ -61,10 +52,8 @@ msgstr "Sylw cronfa ddata"
 #: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php:596
 #: templates/table/structure/display_table_stats.twig:6
 #: templates/columns_definitions/column_definitions_form.twig:72
-#, fuzzy
-#| msgid "Table comments"
 msgid "Table comments:"
-msgstr "Sylwadau tabl"
+msgstr "Sylwadau tabl:"
 
 #: db_datadict.php:115 libraries/classes/Index.php:723
 #: libraries/classes/InsertEdit.php:1653
@@ -138,7 +127,7 @@ msgstr "Math"
 #: templates/table/structure/table_structure_header.twig:9
 #: templates/columns_definitions/table_fields_definitions.twig:30
 msgid "Null"
-msgstr "Null"
+msgstr "Nyl"
 
 #: db_datadict.php:118 libraries/classes/CentralColumns.php:778
 #: libraries/classes/CentralColumns.php:1531
@@ -167,7 +156,7 @@ msgstr "Diofyn"
 #: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php:635
 #: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php:658
 msgid "Links to"
-msgstr "Cysylltu i"
+msgstr "Yn cysylltu gyda"
 
 #: db_datadict.php:122 libraries/classes/Config/Descriptions.php:302
 #: libraries/classes/Config/Descriptions.php:332

@@ -4,16 +4,16 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.8.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2017-11-14 09:29+0100\n"
-"PO-Revision-Date: 2017-11-09 23:51+0000\n"
+"PO-Revision-Date: 2017-11-16 10:32+0000\n"
 "Last-Translator: Domen <mitenem@outlook.com>\n"
-"Language-Team: Slovenian <https://hosted.weblate.org/projects/phpmyadmin/"
-"master/sl/>\n"
+"Language-Team: Slovenian "
+"<https://hosted.weblate.org/projects/phpmyadmin/master/sl/>\n"
 "Language: sl\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=4; plural=n%100==1 ? 0 : n%100==2 ? 1 : n%100==3 || n"
-"%100==4 ? 2 : 3;\n"
+"Plural-Forms: nplurals=4; plural=n%100==1 ? 0 : n%100==2 ? 1 : n%100==3 || "
+"n%100==4 ? 2 : 3;\n"
 "X-Generator: Weblate 2.18-dev\n"
 
 #: ajax.php:17 ajax.php:34 export.php:203 libraries/classes/Export.php:1100
@@ -15313,14 +15313,10 @@ msgid "Server variables and settings"
 msgstr "Spremenljivke in nastavitve strežnika"
 
 #: templates/server/sub_page_header.twig:2
-#, fuzzy
-#| msgid "Storage Engines"
 msgid "Storage engines"
 msgstr "Pogoni skladiščenja"
 
 #: templates/server/sub_page_header.twig:2
-#, fuzzy
-#| msgid "Character Sets and Collations"
 msgid "Character sets and collations"
 msgstr "Nabori znakov in pravila za razvrščanje znakov"
 
@@ -16087,69 +16083,49 @@ msgstr "Okno za poizvedbe"
 
 #: templates/database/multi_table_query/form.twig:18
 #: templates/database/multi_table_query/form.twig:106
-#, fuzzy
-#| msgid "Select table:"
 msgid "select table"
-msgstr "Izberite tabelo:"
+msgstr "izberite tabelo"
 
 #: templates/database/multi_table_query/form.twig:25
 #: templates/database/multi_table_query/form.twig:114
-#, fuzzy
-#| msgid "Select column:"
 msgid "select column"
-msgstr "Izberite stolpec:"
+msgstr "izberite stolpec"
 
 #: templates/database/multi_table_query/form.twig:31
-#, fuzzy
-#| msgid "Tables"
 msgid "Table alias"
-msgstr "Tabele"
+msgstr "Vzdevek tabele"
 
 #: templates/database/multi_table_query/form.twig:32
-#, fuzzy
-#| msgid "Column names"
 msgid "Column alias"
-msgstr "Imena stolpcev"
+msgstr "Vzdevek stolpca"
 
 #: templates/database/multi_table_query/form.twig:35
-#, fuzzy
-#| msgid "Use this column to label each point"
 msgid "Use this column in criteria"
-msgstr "Uporabite ta stolpec za označevanje vsake točke"
+msgstr "Uporabite ta stolpec v pogoju"
 
 #: templates/database/multi_table_query/form.twig:38
-#, fuzzy
-#| msgid "Criteria:"
 msgid "criteria"
-msgstr "Merila:"
+msgstr "pogoji"
 
 #: templates/database/multi_table_query/form.twig:52
-#, fuzzy
-#| msgid "Add %s"
 msgid "Add as"
-msgstr "Dodaj %s"
+msgstr "Dodaj kot"
 
 #: templates/database/multi_table_query/form.twig:97
-#, fuzzy
-#| msgid "Alter column(s)"
 msgid "Another column"
-msgstr "Spremeni stolpec(-ce)"
+msgstr "Še en stolpec"
 
 #: templates/database/multi_table_query/form.twig:125
 msgid "Enter criteria as free text"
-msgstr ""
+msgstr "Vnesite pogoj kot prosto beseilo"
 
 #: templates/database/multi_table_query/form.twig:133
-#, fuzzy
-#| msgid "Remove redundant columns"
 msgid "Remove this column"
-msgstr "Odstrani odvečne stolpce"
+msgstr "Odstrani stolpec"
 
 #: templates/database/multi_table_query/form.twig:160
-#, fuzzy
-#| msgid "Update Query"
 msgid "Update query"
-msgstr "Osveži poizvedbo"
+msgstr "Posodobi poizvedbo"
 
 #: templates/table/search/rows_zoom.twig:12
 msgid "Additional search criteria"
