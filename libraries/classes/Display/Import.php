@@ -15,6 +15,7 @@ use PhpMyAdmin\Message;
 use PhpMyAdmin\Plugins;
 use PhpMyAdmin\Plugins\ImportPlugin;
 use PhpMyAdmin\Sanitize;
+use PhpMyAdmin\Template;
 use PhpMyAdmin\Url;
 use PhpMyAdmin\Util;
 
@@ -305,14 +306,7 @@ class Import
      */
     public static function getHtmlForImportOptionsOther()
     {
-        $html  = '   <div class="importoptions">';
-        $html .= '       <h3>' . __('Other options:') . '</h3>';
-        $html .= '       <div class="formelementrow">';
-        $html .= Util::getFKCheckbox();
-        $html .= '       </div>';
-        $html .= '   </div>';
-
-        return $html;
+        return Template::get('display/import/other_option')->render();
     }
 
     /**

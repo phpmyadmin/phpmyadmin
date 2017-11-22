@@ -90,6 +90,11 @@ class UtilExtension extends Twig_Extension
                 array('is_safe' => array('html'))
             ),
             new Twig_SimpleFunction(
+                'Util_getFKCheckbox',
+                'PhpMyAdmin\Util::getFKCheckbox',
+                array('is_safe' => array('html'))
+            ),
+            new Twig_SimpleFunction(
                 'Util_getGISDatatypes',
                 'PhpMyAdmin\Util::getGISDatatypes'
             ),
