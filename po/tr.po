@@ -10397,7 +10397,7 @@ msgid "Two-factor authentication failed."
 msgstr "İki etkenli kimlik doğrulaması başarısız oldu."
 
 #: libraries/classes/Plugins/TwoFactorPlugin.php:122
-msgid "None two-factor"
+msgid "No Two-Factor"
 msgstr "İki etkenli olmayan"
 
 #: libraries/classes/Plugins/TwoFactorPlugin.php:132

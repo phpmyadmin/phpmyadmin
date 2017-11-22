@@ -10153,7 +10153,7 @@ msgid "Two-factor authentication failed."
 msgstr "하드웨어 인증 실패!"
 
 #: libraries/classes/Plugins/TwoFactorPlugin.php:122
-msgid "None two-factor"
+msgid "No Two-Factor"
 msgstr ""
 
 #: libraries/classes/Plugins/TwoFactorPlugin.php:132

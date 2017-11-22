@@ -10299,7 +10299,7 @@ msgid "Two-factor authentication failed."
 msgstr "Kaheastmeline autentimine nurjus."
 
 #: libraries/classes/Plugins/TwoFactorPlugin.php:122
-msgid "None two-factor"
+msgid "No Two-Factor"
 msgstr "Mitte ükski kaheastmeline"
 
 #: libraries/classes/Plugins/TwoFactorPlugin.php:132

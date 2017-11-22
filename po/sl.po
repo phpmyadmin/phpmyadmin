@@ -10379,7 +10379,7 @@ msgid "Two-factor authentication failed."
 msgstr "Dvostopenjska overovitev je spodletela."
 
 #: libraries/classes/Plugins/TwoFactorPlugin.php:122
-msgid "None two-factor"
+msgid "No Two-Factor"
 msgstr "Nobeno dvostopenjsko"
 
 #: libraries/classes/Plugins/TwoFactorPlugin.php:132

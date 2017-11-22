@@ -10408,7 +10408,7 @@ msgid "Two-factor authentication failed."
 msgstr "Ошибка аппаратной идентификации!"
 
 #: libraries/classes/Plugins/TwoFactorPlugin.php:122
-msgid "None two-factor"
+msgid "No Two-Factor"
 msgstr ""
 
 #: libraries/classes/Plugins/TwoFactorPlugin.php:132

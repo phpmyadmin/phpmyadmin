@@ -11102,7 +11102,7 @@ msgid "Two-factor authentication failed."
 msgstr "हार्डवेयर प्रमाणीकरण असफल!"
 
 #: libraries/classes/Plugins/TwoFactorPlugin.php:122
-msgid "None two-factor"
+msgid "No Two-Factor"
 msgstr ""
 
 #: libraries/classes/Plugins/TwoFactorPlugin.php:132

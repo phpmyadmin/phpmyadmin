@@ -10390,7 +10390,7 @@ msgid "Two-factor authentication failed."
 msgstr "Двофакторна автентифікація не виконана."
 
 #: libraries/classes/Plugins/TwoFactorPlugin.php:122
-msgid "None two-factor"
+msgid "No Two-Factor"
 msgstr "Жодна двофакторна"
 
 #: libraries/classes/Plugins/TwoFactorPlugin.php:132

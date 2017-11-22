@@ -10513,7 +10513,7 @@ msgid "Two-factor authentication failed."
 msgstr "Error a l'autenticació de maquinari!"
 
 #: libraries/classes/Plugins/TwoFactorPlugin.php:122
-msgid "None two-factor"
+msgid "No Two-Factor"
 msgstr ""
 
 #: libraries/classes/Plugins/TwoFactorPlugin.php:132

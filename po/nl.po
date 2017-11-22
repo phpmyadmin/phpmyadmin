@@ -10469,7 +10469,7 @@ msgid "Two-factor authentication failed."
 msgstr "Tweeweg authentificatie gefaald."
 
 #: libraries/classes/Plugins/TwoFactorPlugin.php:122
-msgid "None two-factor"
+msgid "No Two-Factor"
 msgstr "Geen tweeweg authentificatie"
 
 #: libraries/classes/Plugins/TwoFactorPlugin.php:132

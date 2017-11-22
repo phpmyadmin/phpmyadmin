@@ -10343,7 +10343,7 @@ msgid "Two-factor authentication failed."
 msgstr "To-faktor-godkendelse mislykkedes."
 
 #: libraries/classes/Plugins/TwoFactorPlugin.php:122
-msgid "None two-factor"
+msgid "No Two-Factor"
 msgstr "Ingen to-faktor"
 
 #: libraries/classes/Plugins/TwoFactorPlugin.php:132

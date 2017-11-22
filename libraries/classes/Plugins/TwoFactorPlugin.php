@@ -119,7 +119,7 @@ class TwoFactorPlugin
      */
     public static function getName()
     {
-        return __('None two-factor');
+        return __('No Two-Factor');
     }
 
     /**

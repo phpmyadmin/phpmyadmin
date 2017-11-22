@@ -10788,7 +10788,7 @@ msgid "Two-factor authentication failed."
 msgstr "C'hwitet eo bet dilesadur ar periant !"
 
 #: libraries/classes/Plugins/TwoFactorPlugin.php:122
-msgid "None two-factor"
+msgid "No Two-Factor"
 msgstr ""
 
 #: libraries/classes/Plugins/TwoFactorPlugin.php:132

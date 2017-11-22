@@ -10514,7 +10514,7 @@ msgid "Two-factor authentication failed."
 msgstr "L'authentification à deux facteurs a échoué."
 
 #: libraries/classes/Plugins/TwoFactorPlugin.php:122
-msgid "None two-factor"
+msgid "No Two-Factor"
 msgstr "Aucun des deux facteurs"
 
 #: libraries/classes/Plugins/TwoFactorPlugin.php:132

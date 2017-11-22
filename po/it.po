@@ -10530,7 +10530,7 @@ msgid "Two-factor authentication failed."
 msgstr "Autenticazione a due fattori fallita."
 
 #: libraries/classes/Plugins/TwoFactorPlugin.php:122
-msgid "None two-factor"
+msgid "No Two-Factor"
 msgstr "Nessun due-fattori"
 
 #: libraries/classes/Plugins/TwoFactorPlugin.php:132
