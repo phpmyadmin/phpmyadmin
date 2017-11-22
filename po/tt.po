@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 4.8.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
-"POT-Creation-Date: 2017-11-14 09:29+0100\n"
+"POT-Creation-Date: 2017-11-22 15:57-0500\n"
 "PO-Revision-Date: 2015-10-15 11:22+0200\n"
 "Last-Translator: Michal Čihař <michal@cihar.com>\n"
 "Language-Team: Tatar <https://hosted.weblate.org/projects/phpmyadmin/master/"
@@ -48,8 +48,8 @@ msgstr "Biremlek açıqlaması"
 
 #: db_datadict.php:106
 #: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php:596
-#: templates/table/structure/display_table_stats.twig:6
 #: templates/columns_definitions/column_definitions_form.twig:72
+#: templates/table/structure/display_table_stats.twig:6
 #, fuzzy
 #| msgid "Table comments"
 msgid "Table comments:"
@@ -69,17 +69,17 @@ msgstr "Tüşämä açıqlaması"
 #: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php:629
 #: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php:652
 #: libraries/classes/Tracking.php:902 libraries/classes/Tracking.php:993
-#: templates/table/search/zoom_result_form.twig:34
-#: templates/table/index_form.twig:115
-#: templates/table/relation/internal_relational_row.twig:24
-#: templates/table/relation/foreign_key_row.twig:123
-#: templates/table/relation/foreign_key_row.twig:133
 #: templates/table/relation/common_form.twig:14
 #: templates/table/relation/common_form.twig:19
 #: templates/table/relation/common_form.twig:34
 #: templates/table/relation/common_form.twig:109
 #: templates/table/search/table_header.twig:6
+#: templates/table/relation/foreign_key_row.twig:123
+#: templates/table/relation/foreign_key_row.twig:133
 #: templates/columns_definitions/column_name.twig:16
+#: templates/table/relation/internal_relational_row.twig:24
+#: templates/table/index_form.twig:115
+#: templates/table/search/zoom_result_form.twig:34
 #, fuzzy
 #| msgid "Column names"
 msgid "Column"
@@ -104,9 +104,9 @@ msgstr "Alan iseme"
 #: libraries/classes/Rte/RteList.php:118
 #: libraries/classes/Server/Privileges.php:2554
 #: libraries/classes/Tracking.php:903 libraries/classes/Tracking.php:990
-#: templates/database/structure/table_header.twig:32
 #: templates/table/structure/table_structure_header.twig:6
 #: templates/table/search/table_header.twig:7
+#: templates/database/structure/table_header.twig:32
 #: templates/columns_definitions/table_fields_definitions.twig:12
 msgid "Type"
 msgstr "Töre"
@@ -125,9 +125,9 @@ msgstr "Töre"
 #: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php:632
 #: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php:655
 #: libraries/classes/Tracking.php:905 libraries/classes/Tracking.php:996
-#: templates/table/search/zoom_result_form.twig:35
 #: templates/table/structure/table_structure_header.twig:9
 #: templates/columns_definitions/table_fields_definitions.twig:30
+#: templates/table/search/zoom_result_form.twig:35
 msgid "Null"
 msgstr "Buş"
 
@@ -145,8 +145,8 @@ msgstr "Buş"
 #: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php:656
 #: libraries/classes/ReplicationGui.php:165 libraries/classes/Tracking.php:906
 #: templates/table/structure/table_structure_header.twig:10
-#: templates/database/structure/body_for_table_summary.twig:54
 #: templates/columns_definitions/table_fields_definitions.twig:20
+#: templates/database/structure/body_for_table_summary.twig:54
 msgid "Default"
 msgstr "Töpcay"
 
@@ -180,8 +180,8 @@ msgstr "Açıqlama"
 #: libraries/classes/Controllers/Table/TableStructureController.php:1206
 #: libraries/classes/Tracking.php:938
 #: templates/table/structure/display_structure.twig:61
-#: templates/columns_definitions/column_indexes.twig:4
 #: templates/table/structure/check_all_table_column.twig:33
+#: templates/columns_definitions/column_indexes.twig:4
 msgid "Primary"
 msgstr "Töp"
 
@@ -275,14 +275,14 @@ msgstr "Tüşämä"
 #: libraries/classes/Navigation/Nodes/NodeDatabase.php:54
 #: libraries/classes/Navigation/Nodes/NodeTable.php:290
 #: libraries/classes/Server/Privileges.php:1144
-#: libraries/classes/Tracking.php:897 libraries/classes/Util.php:3107
-#: libraries/classes/Util.php:3117 libraries/classes/Util.php:3123
-#: libraries/classes/Util.php:3403 libraries/classes/Util.php:4059
-#: libraries/classes/Util.php:4076 libraries/config.values.php:38
+#: libraries/classes/Tracking.php:897 libraries/classes/Util.php:3020
+#: libraries/classes/Util.php:3030 libraries/classes/Util.php:3036
+#: libraries/classes/Util.php:3316 libraries/classes/Util.php:3972
+#: libraries/classes/Util.php:3989 libraries/config.values.php:38
 #: libraries/config.values.php:46 libraries/config.values.php:109
 #: libraries/config.values.php:115
-#: templates/database/designer/table_list.twig:24
 #: templates/columns_definitions/table_fields_definitions.twig:4
+#: templates/database/designer/table_list.twig:24
 msgid "Structure"
 msgstr "Tözeleş"
 
@@ -503,8 +503,7 @@ msgstr "Yaña qullanuçı östäw"
 #: libraries/classes/Display/ChangePassword.php:159
 #: libraries/classes/Display/Export.php:416
 #: libraries/classes/Display/Export.php:422
-#: libraries/classes/Display/Import.php:411
-#: libraries/classes/Display/Results.php:1821 libraries/classes/Index.php:664
+#: libraries/classes/Display/Import.php:357 libraries/classes/Index.php:664
 #: libraries/classes/InsertEdit.php:1631 libraries/classes/InsertEdit.php:1669
 #: libraries/classes/Normalization.php:187
 #: libraries/classes/Normalization.php:846 libraries/classes/Operations.php:54
@@ -530,17 +529,17 @@ msgstr "Yaña qullanuçı östäw"
 #: libraries/classes/SqlQueryForm.php:440 libraries/classes/Tracking.php:557
 #: libraries/classes/Tracking.php:680 prefs_manage.php:278 prefs_manage.php:362
 #: server_privileges.php:321 templates/table/search/selection_form.twig:99
-#: templates/view_create.twig:114 templates/table/index_form.twig:217
-#: templates/server/binlog/log_selector.twig:27
+#: templates/privileges/delete_user_fieldset.twig:16
+#: templates/display/results/options_block.twig:96
 #: templates/start_and_number_of_rows_panel.twig:14
-#: templates/privileges/edit_routine_privileges.twig:23
+#: templates/columns_definitions/column_definitions_form.twig:43
 #: templates/header_location.twig:18
+#: templates/server/binlog/log_selector.twig:27
+#: templates/table/structure/add_column.twig:23 templates/view_create.twig:114
+#: templates/table/index_form.twig:217
 #: templates/privileges/privileges_summary.twig:60
 #: templates/database/create_table.twig:21
-#: templates/privileges/delete_user_fieldset.twig:16
-#: templates/table/structure/add_column.twig:23
-#: templates/columns_definitions/column_definitions_form.twig:43
-#: view_operations.php:113
+#: templates/privileges/edit_routine_privileges.twig:23 view_operations.php:113
 msgid "Go"
 msgstr "Äydä"
 
@@ -592,7 +591,7 @@ msgid ""
 "[doc@faq1-16]FAQ 1.16[/doc]."
 msgstr ""
 
-#: import.php:545 libraries/classes/Display/Import.php:674
+#: import.php:545 libraries/classes/Display/Import.php:620
 msgid "Could not load import plugins, please check your installation!"
 msgstr "Totaşmalar yökläp bulmadı, quyılışın tikşerep alası!"
 
@@ -1127,9 +1126,9 @@ msgid "Please select column(s) for the index."
 msgstr "%s alan östäw"
 
 #: js/messages.php:129 libraries/classes/InsertEdit.php:1633
-#: templates/table/index_form.twig:216
 #: templates/table/relation/common_form.twig:188
 #: templates/columns_definitions/column_definitions_form.twig:146
+#: templates/table/index_form.twig:216
 msgid "Preview SQL"
 msgstr ""
 
@@ -1214,14 +1213,14 @@ msgid "Other"
 msgstr ""
 
 #. l10n: Thousands separator
-#: js/messages.php:157 libraries/classes/Util.php:1357
-#: libraries/classes/Util.php:1425 libraries/classes/Util.php:1439
+#: js/messages.php:157 libraries/classes/Util.php:1344
+#: libraries/classes/Util.php:1412 libraries/classes/Util.php:1426
 msgid ","
 msgstr ","
 
 #. l10n: Decimal separator
-#: js/messages.php:159 libraries/classes/Util.php:1355
-#: libraries/classes/Util.php:1423 libraries/classes/Util.php:1437
+#: js/messages.php:159 libraries/classes/Util.php:1342
+#: libraries/classes/Util.php:1410 libraries/classes/Util.php:1424
 msgid "."
 msgstr "."
 
@@ -1347,40 +1346,40 @@ msgid "Processes"
 msgstr "Proseslar"
 
 #. l10n: shortcuts for Byte
-#: js/messages.php:199 libraries/classes/Util.php:1268
+#: js/messages.php:199 libraries/classes/Util.php:1255
 msgid "B"
 msgstr "Bayt"
 
 #. l10n: shortcuts for Kilobyte
 #: js/messages.php:200 libraries/classes/Server/Status/Monitor.php:224
-#: libraries/classes/Util.php:1270
+#: libraries/classes/Util.php:1257
 msgid "KiB"
 msgstr "KB"
 
 #. l10n: shortcuts for Megabyte
 #: js/messages.php:201 libraries/classes/Display/Export.php:857
 #: libraries/classes/Server/Status/Monitor.php:225
-#: libraries/classes/Util.php:1272
+#: libraries/classes/Util.php:1259
 msgid "MiB"
 msgstr "MB"
 
 #. l10n: shortcuts for Gigabyte
-#: js/messages.php:202 libraries/classes/Util.php:1274
+#: js/messages.php:202 libraries/classes/Util.php:1261
 msgid "GiB"
 msgstr "GB"
 
 #. l10n: shortcuts for Terabyte
-#: js/messages.php:203 libraries/classes/Util.php:1276
+#: js/messages.php:203 libraries/classes/Util.php:1263
 msgid "TiB"
 msgstr "TB"
 
 #. l10n: shortcuts for Petabyte
-#: js/messages.php:204 libraries/classes/Util.php:1278
+#: js/messages.php:204 libraries/classes/Util.php:1265
 msgid "PiB"
 msgstr "PB"
 
 #. l10n: shortcuts for Exabyte
-#: js/messages.php:205 libraries/classes/Util.php:1280
+#: js/messages.php:205 libraries/classes/Util.php:1267
 msgid "EiB"
 msgstr "EB"
 
@@ -1402,7 +1401,7 @@ msgstr "Taşım"
 
 #: js/messages.php:211 libraries/classes/Menu.php:612
 #: libraries/classes/Server/Status/Monitor.php:264
-#: libraries/classes/Util.php:4050
+#: libraries/classes/Util.php:3963
 #, fuzzy
 #| msgid "General relation features"
 msgid "Settings"
@@ -1417,16 +1416,15 @@ msgid "Please add at least one variable to the series!"
 msgstr ""
 
 #: js/messages.php:216 libraries/classes/Display/Export.php:706
-#: libraries/classes/Display/Results.php:1496
+#: libraries/classes/Display/Results.php:1467
 #: libraries/classes/Plugins/Export/ExportSql.php:2188
 #: libraries/classes/Plugins/Schema/SchemaPdf.php:103
 #: libraries/classes/Server/Status/Monitor.php:243
 #: libraries/classes/Server/Status/Processes.php:291
-#: libraries/config.values.php:68
+#: libraries/config.values.php:68 templates/table/search/options_zoom.twig:12
+#: templates/database/designer/options_panel.twig:178
 #: templates/columns_definitions/transformation.twig:4
 #: templates/privileges/privileges_summary.twig:30
-#: templates/table/search/options_zoom.twig:12
-#: templates/database/designer/options_panel.twig:178
 #: templates/table/search/rows_zoom.twig:20
 msgid "None"
 msgstr "Buş"
@@ -1630,7 +1628,7 @@ msgstr "SQL Centekläw"
 #: libraries/classes/Rte/Events.php:411 libraries/classes/Rte/RteList.php:116
 #: libraries/classes/Server/Status/Processes.php:101
 #: libraries/classes/Tracking.php:301 libraries/classes/Tracking.php:1614
-#: libraries/classes/Util.php:4046 libraries/config.values.php:104
+#: libraries/classes/Util.php:3959 libraries/config.values.php:104
 msgid "Status"
 msgstr "Torış"
 
@@ -1758,11 +1756,11 @@ msgid ""
 msgstr ""
 
 #: js/messages.php:326 libraries/classes/Config/Forms/User/ImportForm.php:58
-#: libraries/classes/Display/Import.php:117 libraries/classes/Menu.php:385
+#: libraries/classes/Display/Import.php:118 libraries/classes/Menu.php:385
 #: libraries/classes/Menu.php:487 libraries/classes/Menu.php:608
 #: libraries/classes/Server/Status/Monitor.php:324
-#: libraries/classes/Util.php:4049 libraries/classes/Util.php:4064
-#: libraries/classes/Util.php:4081 prefs_manage.php:239
+#: libraries/classes/Util.php:3962 libraries/classes/Util.php:3977
+#: libraries/classes/Util.php:3994 prefs_manage.php:239
 msgid "Import"
 msgstr "Yökläw"
 
@@ -1832,14 +1830,14 @@ msgstr ""
 msgid "No parameters found!"
 msgstr "Biremlekne bolay atap quy"
 
-#: js/messages.php:351 templates/database/designer/rename_to_panel.twig:45
-#: templates/database/designer/aggregate_query_panel.twig:64
+#: js/messages.php:351 templates/database/designer/having_query_panel.twig:118
+#: templates/database/designer/delete_relation_panel.twig:30
 #: templates/database/designer/where_query_panel.twig:85
 #: templates/server/variables/link_template.twig:5
-#: templates/database/designer/delete_relation_panel.twig:30
-#: templates/database/designer/new_relation_panel.twig:90
-#: templates/database/designer/having_query_panel.twig:118
+#: templates/database/designer/aggregate_query_panel.twig:64
 #: templates/database/designer/options_panel.twig:255
+#: templates/database/designer/rename_to_panel.twig:45
+#: templates/database/designer/new_relation_panel.twig:90
 msgid "Cancel"
 msgstr ""
 
@@ -1921,13 +1919,13 @@ msgstr "Proseslar"
 msgid "Adding primary key"
 msgstr "%s alan östäw"
 
-#: js/messages.php:373 templates/console/display.twig:129
-#: templates/database/designer/rename_to_panel.twig:41
-#: templates/database/designer/aggregate_query_panel.twig:60
+#: js/messages.php:373 templates/database/designer/having_query_panel.twig:114
 #: templates/database/designer/where_query_panel.twig:83
-#: templates/database/designer/new_relation_panel.twig:88
-#: templates/database/designer/having_query_panel.twig:114
+#: templates/database/designer/aggregate_query_panel.twig:60
 #: templates/database/designer/options_panel.twig:253
+#: templates/database/designer/rename_to_panel.twig:41
+#: templates/console/display.twig:129
+#: templates/database/designer/new_relation_panel.twig:88
 msgid "OK"
 msgstr "OK"
 
@@ -1953,7 +1951,7 @@ msgstr "Biremlekne boña kübäyt"
 msgid "Changing charset"
 msgstr "Bilgelämä"
 
-#: js/messages.php:383 libraries/classes/Util.php:3006
+#: js/messages.php:383 libraries/classes/Util.php:2919
 #, fuzzy
 #| msgid "Disable foreign key checks"
 msgid "Enable foreign key checks"
@@ -2003,8 +2001,8 @@ msgstr ""
 
 #: js/messages.php:399 libraries/classes/Config/Forms/User/ExportForm.php:140
 #: libraries/classes/Display/Export.php:185
-#: libraries/classes/Display/Results.php:4873
-#: libraries/classes/Display/Results.php:5156 libraries/classes/Menu.php:377
+#: libraries/classes/Display/Results.php:4701
+#: libraries/classes/Display/Results.php:4979 libraries/classes/Menu.php:377
 #: libraries/classes/Menu.php:478 libraries/classes/Menu.php:604
 #: libraries/classes/Rte/RteList.php:168
 #: libraries/classes/Server/Privileges.php:2389
@@ -2012,9 +2010,9 @@ msgstr ""
 #: libraries/classes/Server/Privileges.php:2828
 #: libraries/classes/Server/Privileges.php:3556
 #: libraries/classes/Server/Status/Monitor.php:328
-#: libraries/classes/Util.php:3410 libraries/classes/Util.php:3411
-#: libraries/classes/Util.php:4048 libraries/classes/Util.php:4063
-#: libraries/classes/Util.php:4080 prefs_manage.php:305
+#: libraries/classes/Util.php:3323 libraries/classes/Util.php:3324
+#: libraries/classes/Util.php:3961 libraries/classes/Util.php:3976
+#: libraries/classes/Util.php:3993 prefs_manage.php:305
 #: templates/database/structure/check_all_tables.twig:12
 msgid "Export"
 msgstr "Export"
@@ -2064,15 +2062,15 @@ msgstr "SQL-soraw"
 #: js/messages.php:418 libraries/classes/CentralColumns.php:948
 #: libraries/classes/CentralColumns.php:1315
 #: libraries/classes/Config/Descriptions.php:1323
-#: libraries/classes/Display/Results.php:3498
-#: libraries/classes/Display/Results.php:4857 libraries/classes/Index.php:746
+#: libraries/classes/Display/Results.php:3326
+#: libraries/classes/Display/Results.php:4685 libraries/classes/Index.php:746
 #: libraries/classes/Server/UserGroups.php:128 libraries/classes/Util.php:588
-#: libraries/classes/Util.php:1072 libraries/classes/Util.php:3408
-#: libraries/classes/Util.php:3409 setup/frames/index.inc.php:157
-#: templates/console/display.twig:31 templates/console/display.twig:175
+#: libraries/classes/Util.php:1070 libraries/classes/Util.php:3321
+#: libraries/classes/Util.php:3322 setup/frames/index.inc.php:157
+#: templates/console/bookmark_content.twig:7
 #: templates/server/variables/variable_row.twig:4
 #: templates/server/variables/variable_row.twig:7
-#: templates/console/bookmark_content.twig:7
+#: templates/console/display.twig:31 templates/console/display.twig:175
 msgid "Edit"
 msgstr "Tözätü"
 
@@ -2080,17 +2078,18 @@ msgstr "Tözätü"
 #: libraries/classes/CentralColumns.php:1319
 #: libraries/classes/Database/Search.php:354
 #: libraries/classes/Display/Export.php:240
-#: libraries/classes/Display/Results.php:3567
-#: libraries/classes/Display/Results.php:4841
+#: libraries/classes/Display/Results.php:3395
+#: libraries/classes/Display/Results.php:4669
 #: libraries/classes/Server/UserGroups.php:138
 #: libraries/classes/SqlQueryForm.php:427 libraries/classes/Tracking.php:501
-#: setup/frames/index.inc.php:160 templates/console/bookmark_content.twig:7
+#: setup/frames/index.inc.php:160
 #: templates/database/designer/delete_relation_panel.twig:28
+#: templates/console/bookmark_content.twig:7
 msgid "Delete"
 msgstr "Sal"
 
-#: js/messages.php:420 libraries/classes/Display/Results.php:933
-#: libraries/classes/Display/Results.php:941
+#: js/messages.php:420 libraries/classes/Display/Results.php:930
+#: libraries/classes/Display/Results.php:938
 #, php-format
 msgid "%d is not valid row number."
 msgstr "%d digäne yazma sanı öçen kileşmi."
@@ -2269,11 +2268,11 @@ msgstr "Biremlek saylanmağan."
 
 #: js/messages.php:478 libraries/classes/CentralColumns.php:1335
 #: libraries/classes/InsertEdit.php:1543
-#: templates/table/gis_visualization/gis_visualization.twig:48
 #: templates/table/relation/common_form.twig:189
+#: templates/columns_definitions/column_definitions_form.twig:149
 #: templates/server/variables/link_template.twig:2
 #: templates/table/structure/partition_definition_form.twig:12
-#: templates/columns_definitions/column_definitions_form.twig:149
+#: templates/table/gis_visualization/gis_visualization.twig:48
 msgid "Save"
 msgstr "Saqla"
 
@@ -2370,8 +2369,8 @@ msgstr "Data pointer olılığı"
 msgid "Ignore"
 msgstr "Qarama"
 
-#: js/messages.php:516 libraries/classes/Display/Results.php:3501
-#: libraries/classes/Display/Results.php:4862
+#: js/messages.php:516 libraries/classes/Display/Results.php:3329
+#: libraries/classes/Display/Results.php:4690
 msgid "Copy"
 msgstr ""
 
@@ -2389,7 +2388,7 @@ msgstr "Yul ara bilgese"
 msgid "Polygon"
 msgstr ""
 
-#: js/messages.php:523 libraries/classes/Display/Results.php:1805
+#: js/messages.php:523 templates/display/results/options_block.twig:77
 msgid "Geometry"
 msgstr ""
 
@@ -2586,8 +2585,8 @@ msgstr ""
 
 #: js/messages.php:598 libraries/classes/BrowseForeigners.php:321
 #: libraries/classes/BrowseForeigners.php:373
-#: libraries/classes/Display/Results.php:1040
 #: templates/privileges/initials_row.twig:20
+#: templates/display/results/show_all_checkbox.twig:11
 msgid "Show all"
 msgstr "Barısın kürsät"
 
@@ -2640,8 +2639,8 @@ msgstr ""
 msgid "Select database first"
 msgstr "Tüşämä Saylaw"
 
-#: js/messages.php:621 libraries/classes/Display/Results.php:5048
-#: libraries/classes/Util.php:3941
+#: js/messages.php:621 libraries/classes/Display/Results.php:4873
+#: libraries/classes/Util.php:3854
 #: templates/table/structure/optional_action_links.twig:1
 #: templates/database/structure/print_view_data_dictionary_link.twig:3
 msgid "Print"
@@ -2739,7 +2738,7 @@ msgstr "Server söreme"
 msgid "up to date"
 msgstr "Biremleklär yuq"
 
-#: js/messages.php:672 libraries/classes/Display/Results.php:4979
+#: js/messages.php:672 libraries/classes/Display/Results.php:4807
 #: templates/view_create.twig:11
 #, fuzzy
 msgid "Create view"
@@ -2992,27 +2991,27 @@ msgid "December"
 msgstr ""
 
 #. l10n: Short month name
-#: js/messages.php:806 libraries/classes/Util.php:1485
+#: js/messages.php:806 libraries/classes/Util.php:1472
 msgid "Jan"
 msgstr "Ğın"
 
 #. l10n: Short month name
-#: js/messages.php:808 libraries/classes/Util.php:1487
+#: js/messages.php:808 libraries/classes/Util.php:1474
 msgid "Feb"
 msgstr "Feb"
 
 #. l10n: Short month name
-#: js/messages.php:810 libraries/classes/Util.php:1489
+#: js/messages.php:810 libraries/classes/Util.php:1476
 msgid "Mar"
 msgstr "Mar"
 
 #. l10n: Short month name
-#: js/messages.php:812 libraries/classes/Util.php:1491
+#: js/messages.php:812 libraries/classes/Util.php:1478
 msgid "Apr"
 msgstr "Äpr"
 
 #. l10n: Short month name
-#: js/messages.php:814 libraries/classes/Util.php:1493
+#: js/messages.php:814 libraries/classes/Util.php:1480
 #, fuzzy
 #| msgid "May"
 msgctxt "Short month name"
@@ -3020,37 +3019,37 @@ msgid "May"
 msgstr "May"
 
 #. l10n: Short month name
-#: js/messages.php:816 libraries/classes/Util.php:1495
+#: js/messages.php:816 libraries/classes/Util.php:1482
 msgid "Jun"
 msgstr "Yün"
 
 #. l10n: Short month name
-#: js/messages.php:818 libraries/classes/Util.php:1497
+#: js/messages.php:818 libraries/classes/Util.php:1484
 msgid "Jul"
 msgstr "Yül"
 
 #. l10n: Short month name
-#: js/messages.php:820 libraries/classes/Util.php:1499
+#: js/messages.php:820 libraries/classes/Util.php:1486
 msgid "Aug"
 msgstr "Aug"
 
 #. l10n: Short month name
-#: js/messages.php:822 libraries/classes/Util.php:1501
+#: js/messages.php:822 libraries/classes/Util.php:1488
 msgid "Sep"
 msgstr "Sen"
 
 #. l10n: Short month name
-#: js/messages.php:824 libraries/classes/Util.php:1503
+#: js/messages.php:824 libraries/classes/Util.php:1490
 msgid "Oct"
 msgstr "Ökt"
 
 #. l10n: Short month name
-#: js/messages.php:826 libraries/classes/Util.php:1505
+#: js/messages.php:826 libraries/classes/Util.php:1492
 msgid "Nov"
 msgstr "Nöy"
 
 #. l10n: Short month name
-#: js/messages.php:828 libraries/classes/Util.php:1507
+#: js/messages.php:828 libraries/classes/Util.php:1494
 msgid "Dec"
 msgstr "Dek"
 
@@ -3099,32 +3098,32 @@ msgid "Sun"
 msgstr "Ykş"
 
 #. l10n: Short week day name
-#: js/messages.php:849 libraries/classes/Util.php:1512
+#: js/messages.php:849 libraries/classes/Util.php:1499
 msgid "Mon"
 msgstr "Dşm"
 
 #. l10n: Short week day name
-#: js/messages.php:851 libraries/classes/Util.php:1514
+#: js/messages.php:851 libraries/classes/Util.php:1501
 msgid "Tue"
 msgstr "Sşm"
 
 #. l10n: Short week day name
-#: js/messages.php:853 libraries/classes/Util.php:1516
+#: js/messages.php:853 libraries/classes/Util.php:1503
 msgid "Wed"
 msgstr "Çrş"
 
 #. l10n: Short week day name
-#: js/messages.php:855 libraries/classes/Util.php:1518
+#: js/messages.php:855 libraries/classes/Util.php:1505
 msgid "Thu"
 msgstr "Pnc"
 
 #. l10n: Short week day name
-#: js/messages.php:857 libraries/classes/Util.php:1520
+#: js/messages.php:857 libraries/classes/Util.php:1507
 msgid "Fri"
 msgstr "Cmğ"
 
 #. l10n: Short week day name
-#: js/messages.php:859 libraries/classes/Util.php:1522
+#: js/messages.php:859 libraries/classes/Util.php:1509
 msgid "Sat"
 msgstr "Şmb"
 
@@ -3408,9 +3407,9 @@ msgstr "Tezeş adı"
 #: libraries/classes/BrowseForeigners.php:188
 #: libraries/classes/BrowseForeigners.php:190
 #: libraries/classes/Server/Status/Variables.php:229
+#: templates/server/plugins/section.twig:10
 #: templates/server/collations/charsets.twig:6
 #: templates/server/engines/engines.twig:5
-#: templates/server/plugins/section.twig:10
 msgid "Description"
 msgstr "Açıqlama"
 
@@ -3422,7 +3421,7 @@ msgstr "Bu bäyä belän"
 #: libraries/classes/Language.php:193 libraries/classes/Pdf.php:74
 #: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php:495
 #: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php:520
-#: libraries/classes/Util.php:2372
+#: libraries/classes/Util.php:2285
 msgid "Page number:"
 msgstr "Bitneñ sanı:"
 
@@ -3464,13 +3463,13 @@ msgid "NO"
 msgstr ""
 
 #: libraries/classes/CentralColumns.php:739
-#: libraries/classes/Display/Results.php:964
+#: libraries/classes/Display/Results.php:961
 #, fuzzy
 msgid "Filter rows"
 msgstr "Alan"
 
 #: libraries/classes/CentralColumns.php:741
-#: libraries/classes/Display/Results.php:966
+#: libraries/classes/Display/Results.php:963
 #, fuzzy
 #| msgid "Search in database"
 msgid "Search this table"
@@ -3484,12 +3483,12 @@ msgstr "Biremlektä ezläw"
 #: libraries/classes/Server/UserGroups.php:91
 #: libraries/classes/Tracking.php:302 libraries/classes/Tracking.php:819
 #: libraries/classes/Tracking.php:1471 libraries/classes/Tracking.php:1615
-#: templates/database/structure/table_header.twig:22
-#: templates/server/variables/variable_table_head.twig:3
 #: templates/table/structure/table_structure_header.twig:18
-#: templates/privileges/privileges_summary.twig:22
+#: templates/database/structure/table_header.twig:22
 #: templates/table/structure/display_partitions.twig:33
+#: templates/server/variables/variable_table_head.twig:3
 #: templates/server/databases/table_header.twig:37
+#: templates/privileges/privileges_summary.twig:22
 msgid "Action"
 msgstr "Eş"
 
@@ -3504,8 +3503,8 @@ msgstr "Eş"
 #: libraries/classes/Rte/RteList.php:100 libraries/classes/Rte/RteList.php:115
 #: setup/frames/index.inc.php:141
 #: templates/table/structure/table_structure_header.twig:5
-#: templates/database/create_table.twig:11
 #: templates/columns_definitions/table_fields_definitions.twig:9
+#: templates/database/create_table.twig:11
 msgid "Name"
 msgstr "Adı"
 
@@ -3522,12 +3521,12 @@ msgstr "Ozınlıq/Bäyä*"
 #: libraries/classes/Index.php:725 libraries/classes/Operations.php:298
 #: libraries/classes/Operations.php:1068 libraries/classes/Tracking.php:904
 #: libraries/classes/Tracking.php:995
-#: templates/database/structure/table_header.twig:33
-#: templates/server/collations/charsets.twig:5
-#: templates/table/structure/row_stats_table.twig:30
 #: templates/table/structure/table_structure_header.twig:7
 #: templates/table/search/table_header.twig:8
+#: templates/database/structure/table_header.twig:33
 #: templates/columns_definitions/table_fields_definitions.twig:24
+#: templates/table/structure/row_stats_table.twig:30
+#: templates/server/collations/charsets.twig:5
 msgid "Collation"
 msgstr "Tezü cayı"
 
@@ -4734,7 +4733,7 @@ msgstr "LaTeX"
 #: libraries/classes/Config/Descriptions.php:474
 #: libraries/classes/Config/Descriptions.php:589 libraries/classes/Menu.php:570
 #: libraries/classes/Navigation/NavigationTree.php:1274
-#: libraries/classes/Server/Privileges.php:4526 libraries/classes/Util.php:4044
+#: libraries/classes/Server/Privileges.php:4526 libraries/classes/Util.php:3957
 #: libraries/config.values.php:103 templates/server/sub_page_header.twig:2
 msgid "Databases"
 msgstr "Biremleklär"
@@ -4875,9 +4874,9 @@ msgstr ""
 #: libraries/classes/Config/Descriptions.php:553 libraries/classes/Menu.php:358
 #: libraries/classes/Menu.php:461 libraries/classes/Menu.php:574
 #: libraries/classes/Navigation/Nodes/NodeTable.php:306
-#: libraries/classes/Util.php:3108 libraries/classes/Util.php:3118
-#: libraries/classes/Util.php:3124 libraries/classes/Util.php:4045
-#: libraries/classes/Util.php:4060 libraries/classes/Util.php:4077
+#: libraries/classes/Util.php:3021 libraries/classes/Util.php:3031
+#: libraries/classes/Util.php:3037 libraries/classes/Util.php:3958
+#: libraries/classes/Util.php:3973 libraries/classes/Util.php:3990
 #: libraries/config.values.php:39 libraries/config.values.php:47
 #: libraries/config.values.php:110 libraries/config.values.php:116
 msgid "SQL"
@@ -6288,12 +6287,12 @@ msgstr "SQL Centekläw"
 #: libraries/classes/Export.php:518
 #: libraries/classes/Server/Status/Processes.php:239
 #: libraries/classes/Server/Status/Variables.php:50
-#: libraries/classes/Util.php:1128 templates/console/display.twig:99
+#: libraries/classes/Util.php:1115 templates/console/display.twig:99
 msgid "Refresh"
 msgstr "Yañart"
 
 #: libraries/classes/Config/Descriptions.php:1329
-#: libraries/classes/Util.php:1109
+#: libraries/classes/Util.php:1100
 #, fuzzy
 #| msgid "Create PHP Code"
 msgid "Create PHP code"
@@ -6357,12 +6356,12 @@ msgstr ""
 #: libraries/classes/Server/Privileges.php:3325
 #: libraries/classes/Server/Privileges.php:4526
 #: libraries/classes/Server/Status/Processes.php:89
-#: templates/console/display.twig:40 templates/console/display.twig:184
+#: templates/table/relation/common_form.twig:32
+#: templates/table/relation/foreign_key_row.twig:101
 #: templates/console/bookmark_content.twig:7
 #: templates/table/relation/internal_relational_row.twig:10
-#: templates/table/relation/foreign_key_row.twig:101
-#: templates/table/relation/common_form.twig:32
 #: templates/server/databases/table_header.twig:8
+#: templates/console/display.twig:40 templates/console/display.twig:184
 msgid "Database"
 msgstr "Biremlek"
 
@@ -6399,10 +6398,10 @@ msgstr ""
 #: libraries/classes/Server/Privileges.php:3331
 #: libraries/classes/Server/Privileges.php:4540
 #: libraries/classes/Tracking.php:1470 libraries/classes/Tracking.php:1610
-#: templates/database/structure/table_header.twig:8
-#: templates/table/relation/internal_relational_row.twig:17
-#: templates/table/relation/foreign_key_row.twig:111
 #: templates/table/relation/common_form.twig:33
+#: templates/database/structure/table_header.twig:8
+#: templates/table/relation/foreign_key_row.twig:111
+#: templates/table/relation/internal_relational_row.twig:17
 msgid "Table"
 msgstr "Tüşämä"
 
@@ -6882,7 +6881,7 @@ msgid "Table %s has been dropped."
 msgstr "\"%s\" atlı tüşämä beterelde"
 
 #: libraries/classes/Controllers/Database/DatabaseStructureController.php:805
-#: libraries/classes/Display/Results.php:4702
+#: libraries/classes/Display/Results.php:4530
 #, php-format
 msgid ""
 "This view has at least this number of rows. Please refer to %sdocumentation"
@@ -6922,8 +6921,8 @@ msgstr "Beleşmä"
 
 #: libraries/classes/Controllers/Server/ServerBinlogController.php:198
 #: libraries/classes/Controllers/Server/ServerBinlogController.php:200
-#: libraries/classes/Display/Results.php:1000 libraries/classes/Util.php:2384
-#: libraries/classes/Util.php:2387
+#: libraries/classes/Display/Results.php:997 libraries/classes/Util.php:2297
+#: libraries/classes/Util.php:2300
 #, fuzzy
 #| msgid "Previous"
 msgctxt "Previous page"
@@ -6942,8 +6941,8 @@ msgstr "Tulı Sorawlar Kürsät"
 
 #: libraries/classes/Controllers/Server/ServerBinlogController.php:232
 #: libraries/classes/Controllers/Server/ServerBinlogController.php:234
-#: libraries/classes/Display/Results.php:1066 libraries/classes/Util.php:2415
-#: libraries/classes/Util.php:2425
+#: libraries/classes/Display/Results.php:1051 libraries/classes/Util.php:2328
+#: libraries/classes/Util.php:2338
 #, fuzzy
 #| msgid "Next"
 msgctxt "Next page"
@@ -6966,8 +6965,8 @@ msgstr[0] "\"%s\" biremlegen beterü uñışlı uzdı."
 #: libraries/classes/Import.php:122
 #: templates/database/structure/table_header.twig:26
 #: templates/table/structure/row_stats_table.twig:41
-#: templates/table/structure/actions_in_table_structure.twig:109
 #: templates/table/structure/display_partitions.twig:28
+#: templates/table/structure/actions_in_table_structure.twig:109
 msgid "Rows"
 msgstr "Kerem"
 
@@ -6983,8 +6982,8 @@ msgstr "Tezeşlär"
 #: libraries/classes/Engines/Innodb.php:169
 #: libraries/classes/Server/Status.php:203
 #: libraries/classes/Server/Status.php:315
-#: templates/table/structure/display_table_stats.twig:45
 #: templates/server/databases/databases_footer.twig:7
+#: templates/table/structure/display_table_stats.twig:45
 msgid "Total"
 msgstr "Tulayım"
 
@@ -7046,7 +7045,7 @@ msgstr "%s cebe uñışlı üterelgän buldı."
 
 #: libraries/classes/Controllers/Table/TableRelationController.php:265
 #: libraries/classes/Controllers/Table/TableSearchController.php:580
-#: libraries/classes/Display/Results.php:4355 libraries/classes/Message.php:172
+#: libraries/classes/Display/Results.php:4183 libraries/classes/Message.php:172
 #: libraries/classes/Rte/Routines.php:1462
 #: libraries/classes/SqlQueryForm.php:93 tbl_row_action.php:142
 #: view_operations.php:67
@@ -7124,12 +7123,12 @@ msgstr "Üzgärt"
 #: libraries/classes/Controllers/Table/TableStructureController.php:1199
 #: libraries/classes/Controllers/Table/TableStructureController.php:1200
 #: libraries/classes/Index.php:773 libraries/classes/Operations.php:1599
-#: libraries/classes/Rte/RteList.php:172 libraries/classes/Util.php:3404
-#: libraries/classes/Util.php:3405
-#: templates/table/structure/display_structure.twig:187
+#: libraries/classes/Rte/RteList.php:172 libraries/classes/Util.php:3317
+#: libraries/classes/Util.php:3318
 #: templates/table/relation/foreign_key_row.twig:31
-#: templates/database/structure/check_all_tables.twig:16
 #: templates/server/databases/databases_footer.twig:55
+#: templates/database/structure/check_all_tables.twig:16
+#: templates/table/structure/display_structure.twig:187
 #: templates/table/structure/check_all_table_column.twig:24
 msgid "Drop"
 msgstr "Beter"
@@ -7138,19 +7137,19 @@ msgstr "Beter"
 #: libraries/classes/Controllers/Table/TableStructureController.php:1207
 #: libraries/classes/Navigation/Nodes/NodeIndex.php:30
 #: libraries/classes/Tracking.php:942
+#: templates/columns_definitions/table_fields_definitions.twig:46
 #: templates/table/structure/display_table_stats.twig:24
 #: templates/table/structure/display_structure.twig:66
-#: templates/columns_definitions/column_indexes.twig:12
 #: templates/table/structure/check_all_table_column.twig:47
-#: templates/columns_definitions/table_fields_definitions.twig:46
+#: templates/columns_definitions/column_indexes.twig:12
 msgid "Index"
 msgstr "Tezeş"
 
 #: libraries/classes/Controllers/Table/TableStructureController.php:1203
 #: libraries/classes/Controllers/Table/TableStructureController.php:1208
 #: libraries/classes/Index.php:721 libraries/classes/Tracking.php:991
-#: templates/columns_definitions/column_indexes.twig:8
 #: templates/table/structure/check_all_table_column.twig:40
+#: templates/columns_definitions/column_indexes.twig:8
 msgid "Unique"
 msgstr "Qabatsız"
 
@@ -7162,9 +7161,9 @@ msgstr ""
 
 #: libraries/classes/Controllers/Table/TableStructureController.php:1205
 #: libraries/classes/Controllers/Table/TableStructureController.php:1210
-#: templates/columns_definitions/column_indexes.twig:16
 #: templates/table/structure/check_all_table_column.twig:54
 #: templates/table/structure/check_all_table_column.twig:66
+#: templates/columns_definitions/column_indexes.twig:16
 msgid "Fulltext"
 msgstr "Tulımäten"
 
@@ -7383,9 +7382,9 @@ msgstr[0] "%s kileşü bar, <i>%s</i> atlı tüşämädä"
 
 #: libraries/classes/Database/Search.php:347 libraries/classes/Menu.php:344
 #: libraries/classes/Navigation/Nodes/NodeTable.php:311
-#: libraries/classes/Util.php:3111 libraries/classes/Util.php:3121
-#: libraries/classes/Util.php:3397 libraries/classes/Util.php:3398
-#: libraries/classes/Util.php:4075 libraries/config.values.php:42
+#: libraries/classes/Util.php:3024 libraries/classes/Util.php:3034
+#: libraries/classes/Util.php:3310 libraries/classes/Util.php:3311
+#: libraries/classes/Util.php:3988 libraries/config.values.php:42
 #: libraries/config.values.php:50 libraries/config.values.php:119
 #: templates/table/structure/check_all_table_column.twig:8
 msgid "Browse"
@@ -7492,7 +7491,7 @@ msgid ""
 "consider installing the mysqli extension."
 msgstr ""
 
-#: libraries/classes/Dbi/DbiMysqli.php:167
+#: libraries/classes/Dbi/DbiMysqli.php:169
 msgid "SSL connection enforced by server, automatically enabling it."
 msgstr ""
 
@@ -7629,7 +7628,7 @@ msgid "Tables:"
 msgstr "Tüşämä"
 
 #: libraries/classes/Display/Export.php:375
-#: libraries/classes/Display/Import.php:376
+#: libraries/classes/Display/Import.php:322
 #: libraries/classes/Plugins/Export/ExportCodegen.php:101
 #, fuzzy
 #| msgid "Format"
@@ -7637,7 +7636,7 @@ msgid "Format:"
 msgstr "Tözeleş"
 
 #: libraries/classes/Display/Export.php:391
-#: libraries/classes/Display/Import.php:382
+#: libraries/classes/Display/Import.php:328
 #, fuzzy
 #| msgid "Transformation options"
 msgid "Format-specific options:"
@@ -7650,7 +7649,7 @@ msgid ""
 msgstr ""
 
 #: libraries/classes/Display/Export.php:404
-#: libraries/classes/Display/Import.php:393
+#: libraries/classes/Display/Import.php:339
 #, fuzzy
 msgid "Encoding Conversion:"
 msgstr "MySQL belän totaştırğıç söreme"
@@ -7666,7 +7665,7 @@ msgid "Dump some row(s)"
 msgstr ""
 
 #: libraries/classes/Display/Export.php:452
-#: libraries/classes/Display/Results.php:1149
+#: templates/display/results/additional_fields.twig:6
 #: templates/start_and_number_of_rows_panel.twig:10
 #, fuzzy
 #| msgid "Number of fields"
@@ -7724,8 +7723,8 @@ msgid "use this for future exports"
 msgstr ""
 
 #: libraries/classes/Display/Export.php:654
-#: libraries/classes/Display/Import.php:191
-#: libraries/classes/Display/Import.php:205
+#: libraries/classes/Display/Import.php:192
+#: libraries/classes/Display/Import.php:206
 msgid "Character set of the file:"
 msgstr "Şul biremneñ bilgelämäse:"
 
@@ -7812,341 +7811,248 @@ msgstr "Server söreme"
 msgid "authored on %1$s by %2$s"
 msgstr "Server söreme"
 
-#: libraries/classes/Display/Import.php:83
+#: libraries/classes/Display/Import.php:84
 msgid ""
 "Please be patient, the file is being uploaded. Details about the upload are "
 "not available."
 msgstr ""
 
-#: libraries/classes/Display/Import.php:120
+#: libraries/classes/Display/Import.php:121
 #, fuzzy
 #| msgid "Cannot log in to the MySQL server"
 msgid "Importing into the current server"
 msgstr "MySQL servergä totaşılıp bulmadı"
 
-#: libraries/classes/Display/Import.php:123
+#: libraries/classes/Display/Import.php:124
 #, fuzzy, php-format
 msgid "Importing into the database \"%s\""
 msgstr "Biremleklär yuq"
 
-#: libraries/classes/Display/Import.php:129
+#: libraries/classes/Display/Import.php:130
 #, fuzzy, php-format
 msgid "Importing into the table \"%s\""
 msgstr "Biremleklär yuq"
 
-#: libraries/classes/Display/Import.php:165
+#: libraries/classes/Display/Import.php:166
 #, php-format
 msgid "File may be compressed (%s) or uncompressed."
 msgstr ""
 
-#: libraries/classes/Display/Import.php:171
+#: libraries/classes/Display/Import.php:172
 msgid ""
 "A compressed file's name must end in <b>.[format].[compression]</b>. "
 "Example: <b>.sql.zip</b>"
 msgstr ""
 
-#: libraries/classes/Display/Import.php:236
+#: libraries/classes/Display/Import.php:237
 #, fuzzy
 #| msgid "File to import"
 msgid "File to import:"
 msgstr "Yöklise birem"
 
-#: libraries/classes/Display/Import.php:246
-#: libraries/classes/Display/Import.php:266
+#: libraries/classes/Display/Import.php:247
+#: libraries/classes/Display/Import.php:267
 msgid "You may also drag and drop a file on any page."
 msgstr ""
 
-#: libraries/classes/Display/Import.php:269
+#: libraries/classes/Display/Import.php:270
 msgid "File uploads are not allowed on this server."
 msgstr ""
 
-#: libraries/classes/Display/Import.php:296
-#, fuzzy
-#| msgid "Partial import"
-msgid "Partial import:"
-msgstr "Öleşçä yökläw"
-
-#: libraries/classes/Display/Import.php:303
-#, php-format
-msgid ""
-"Previous import timed out, after resubmitting will continue from position %d."
-msgstr ""
-
-#: libraries/classes/Display/Import.php:317
-msgid ""
-"Allow the interruption of an import in case the script detects it is close "
-"to the PHP timeout limit. <i>(This might be a good way to import large "
-"files, however it can break transactions.)</i>"
-msgstr ""
-
-#: libraries/classes/Display/Import.php:327
-#, fuzzy
-#| msgid "Number of records (queries) to skip from start"
-msgid "Skip this number of queries (for SQL) starting from the first one:"
-msgstr "Baştan ütep kitäse yazma sanı"
-
-#: libraries/classes/Display/Import.php:357
-#, fuzzy
-msgid "Other options:"
-msgstr "Eşkärtü"
-
-#: libraries/classes/Display/Import.php:495
+#: libraries/classes/Display/Import.php:441
 msgid ""
 "The file being uploaded is probably larger than the maximum allowed size or "
 "this is a known bug in webkit based (Safari, Google Chrome, Arora etc.) "
 "browsers."
 msgstr ""
 
-#: libraries/classes/Display/Import.php:501
+#: libraries/classes/Display/Import.php:447
 #, php-format
 msgid "%s of %s"
 msgstr ""
 
-#: libraries/classes/Display/Import.php:502
+#: libraries/classes/Display/Import.php:448
 #, fuzzy
 #| msgid "Format of imported file"
 msgid "Uploading your import file…"
 msgstr "Yöklänğan birem tözeleşe"
 
-#: libraries/classes/Display/Import.php:503
+#: libraries/classes/Display/Import.php:449
 #, php-format
 msgid "%s/sec."
 msgstr ""
 
-#: libraries/classes/Display/Import.php:504
+#: libraries/classes/Display/Import.php:450
 msgid "About %MIN min. %SEC sec. remaining."
 msgstr ""
 
-#: libraries/classes/Display/Import.php:505
+#: libraries/classes/Display/Import.php:451
 msgid "About %SEC sec. remaining."
 msgstr ""
 
-#: libraries/classes/Display/Import.php:507
+#: libraries/classes/Display/Import.php:453
 msgid "The file is being processed, please be patient."
 msgstr ""
 
-#: libraries/classes/Display/Results.php:910
+#: libraries/classes/Display/Results.php:907
 #, fuzzy
 msgid "Save edited data"
 msgstr "Biremnär törgäge"
 
-#: libraries/classes/Display/Results.php:916
+#: libraries/classes/Display/Results.php:913
 #, fuzzy
 #| msgid "Add/Delete Field Columns"
 msgid "Restore column order"
 msgstr "Add/Delete Field Columns"
 
-#: libraries/classes/Display/Results.php:997 libraries/classes/Util.php:2383
-#: libraries/classes/Util.php:2386
+#: libraries/classes/Display/Results.php:994 libraries/classes/Util.php:2296
+#: libraries/classes/Util.php:2299
 #, fuzzy
 #| msgid "Begin"
 msgctxt "First page"
 msgid "Begin"
 msgstr "Başlawğa"
 
-#: libraries/classes/Display/Results.php:1096 libraries/classes/Util.php:2416
-#: libraries/classes/Util.php:2426
+#: libraries/classes/Display/Results.php:1081 libraries/classes/Util.php:2329
+#: libraries/classes/Util.php:2339
 #, fuzzy
 #| msgid "End"
 msgctxt "Last page"
 msgid "End"
 msgstr "Azaq"
 
-#: libraries/classes/Display/Results.php:1139
+#: libraries/classes/Display/Results.php:1110
 msgid "All"
 msgstr "Barısı"
 
-#: libraries/classes/Display/Results.php:1440
+#: libraries/classes/Display/Results.php:1411
 msgid "Sort by key"
 msgstr "Qullanası tezeş"
 
-#: libraries/classes/Display/Results.php:1727 libraries/classes/Import.php:1221
-#: libraries/classes/Import.php:1256 libraries/classes/MultSubmits.php:356
-#: libraries/classes/Plugins/Export/ExportCodegen.php:85
-#: libraries/classes/Plugins/Export/ExportCsv.php:49
-#: libraries/classes/Plugins/Export/ExportExcel.php:38
-#: libraries/classes/Plugins/Export/ExportHtmlword.php:52
-#: libraries/classes/Plugins/Export/ExportJson.php:72
-#: libraries/classes/Plugins/Export/ExportLatex.php:75
-#: libraries/classes/Plugins/Export/ExportMediawiki.php:49
-#: libraries/classes/Plugins/Export/ExportOds.php:53
-#: libraries/classes/Plugins/Export/ExportOdt.php:64
-#: libraries/classes/Plugins/Export/ExportPdf.php:85
-#: libraries/classes/Plugins/Export/ExportPhparray.php:48
-#: libraries/classes/Plugins/Export/ExportSql.php:85
-#: libraries/classes/Plugins/Export/ExportTexytext.php:51
-#: libraries/classes/Plugins/Export/ExportXml.php:79
-#: libraries/classes/Plugins/Export/ExportYaml.php:48
-#: libraries/classes/Plugins/Import/AbstractImportCsv.php:35
-#: libraries/classes/Plugins/Import/ImportMediawiki.php:57
-#: libraries/classes/Plugins/Import/ImportOds.php:49
-#: libraries/classes/Plugins/Import/ImportShp.php:51
-#: libraries/classes/Plugins/Import/ImportSql.php:47
-#: libraries/classes/Plugins/Import/ImportXml.php:49
-#: libraries/classes/Rte/Routines.php:946 templates/console/display.twig:7
-#: templates/console/display.twig:140
-#: templates/table/structure/row_stats_table.twig:19
-#: templates/table/search/options.twig:1
-#, fuzzy
-msgid "Options"
-msgstr "Eşkärtü"
-
-#: libraries/classes/Display/Results.php:1733
-#: libraries/classes/Display/Results.php:1854
+#: libraries/classes/Display/Results.php:1718
+#: templates/display/results/options_block.twig:14
 #, fuzzy
 #| msgid "Partial Texts"
 msgid "Partial texts"
 msgstr "Partial Texts"
 
-#: libraries/classes/Display/Results.php:1734
-#: libraries/classes/Display/Results.php:1858
+#: libraries/classes/Display/Results.php:1722
+#: templates/display/results/options_block.twig:14
 #, fuzzy
 #| msgid "Full Texts"
 msgid "Full texts"
 msgstr "Tulı Mätennär"
 
-#: libraries/classes/Display/Results.php:1750
-#, fuzzy
-msgid "Relational key"
-msgstr "Bäyläneşlär sxeme"
-
-#: libraries/classes/Display/Results.php:1751
-#, fuzzy
-#| msgid "Disable foreign key checks"
-msgid "Display column for relationships"
-msgstr "Yat tezeş tikşerüen sünderep"
-
-#: libraries/classes/Display/Results.php:1767
-msgid "Show binary contents"
-msgstr ""
-
-#: libraries/classes/Display/Results.php:1778
-msgid "Show BLOB contents"
-msgstr ""
-
-#: libraries/classes/Display/Results.php:1795
-#, fuzzy
-#| msgid "Browser transformation"
-msgid "Hide browser transformation"
-msgstr "Browser transformation"
-
-#: libraries/classes/Display/Results.php:1806
-msgid "Well Known Text"
-msgstr ""
-
-#: libraries/classes/Display/Results.php:1807
-msgid "Well Known Binary"
-msgstr ""
-
-#: libraries/classes/Display/Results.php:2279
-#: libraries/classes/Display/Results.php:2293
+#: libraries/classes/Display/Results.php:2108
+#: libraries/classes/Display/Results.php:2122
 #: libraries/classes/Operations.php:807
 #: libraries/classes/Server/Status/Processes.php:169
-#: libraries/classes/Util.php:4960 libraries/classes/Util.php:4977
+#: libraries/classes/Util.php:4873 libraries/classes/Util.php:4890
 #: libraries/config.values.php:70
 #: templates/database/qbe/sort_select_cell.twig:7
-#: templates/table/search/options.twig:54
 #: templates/server/databases/databases_header.twig:22
+#: templates/table/search/options.twig:54
 #: templates/database/multi_table_query/form.twig:48
 msgid "Descending"
 msgstr "Kimep"
 
-#: libraries/classes/Display/Results.php:2283
-#: libraries/classes/Display/Results.php:2289
+#: libraries/classes/Display/Results.php:2112
+#: libraries/classes/Display/Results.php:2118
 #: libraries/classes/Operations.php:804
 #: libraries/classes/Server/Status/Processes.php:172
-#: libraries/classes/Util.php:4955 libraries/classes/Util.php:4972
+#: libraries/classes/Util.php:4868 libraries/classes/Util.php:4885
 #: libraries/config.values.php:69
 #: templates/database/qbe/sort_select_cell.twig:5
-#: templates/table/search/options.twig:54
 #: templates/server/databases/databases_header.twig:22
+#: templates/table/search/options.twig:54
 #: templates/database/multi_table_query/form.twig:47
 msgid "Ascending"
 msgstr "Artıp"
 
-#: libraries/classes/Display/Results.php:3543
-#: libraries/classes/Display/Results.php:3558
+#: libraries/classes/Display/Results.php:3371
+#: libraries/classes/Display/Results.php:3386
 #, fuzzy
 #| msgid "The row has been deleted."
 msgid "The row has been deleted."
 msgstr "Bu yazma salınğan buldı"
 
-#: libraries/classes/Display/Results.php:3591
-#: libraries/classes/Display/Results.php:4841
+#: libraries/classes/Display/Results.php:3419
+#: libraries/classes/Display/Results.php:4669
 #: libraries/classes/Server/Status/Processes.php:285
 msgid "Kill"
 msgstr "Üter"
 
-#: libraries/classes/Display/Results.php:4282
+#: libraries/classes/Display/Results.php:4110
 #, fuzzy
 #| msgid "May be approximate. See [doc@faq3-11]FAQ 3.11[/doc]"
 msgid "May be approximate. See [doc@faq3-11]FAQ 3.11[/doc]."
 msgstr "Törle buluı bar. [doc@faq3-11]YBS 3.11[/doc] qarísı"
 
-#: libraries/classes/Display/Results.php:4715
+#: libraries/classes/Display/Results.php:4543
 #, fuzzy, php-format
 #| msgid "Showing rows"
 msgid "Showing rows %1s - %2s"
 msgstr "Yazma sanı"
 
-#: libraries/classes/Display/Results.php:4730
+#: libraries/classes/Display/Results.php:4558
 #, php-format
 msgid "%1$d total, %2$d in query"
 msgstr ""
 
-#: libraries/classes/Display/Results.php:4735
+#: libraries/classes/Display/Results.php:4563
 #, fuzzy, php-format
 #| msgid "total"
 msgid "%d total"
 msgstr "tulayım"
 
-#: libraries/classes/Display/Results.php:4747 libraries/classes/Sql.php:1410
+#: libraries/classes/Display/Results.php:4575 libraries/classes/Sql.php:1410
 #, fuzzy, php-format
 #| msgid "Query took %01.4f sec"
 msgid "Query took %01.4f seconds."
 msgstr "Soraw eşkärtü %01.4f sek aldı"
 
-#: libraries/classes/Display/Results.php:4846
-#: libraries/classes/Display/Results.php:4853 libraries/mult_submits.inc.php:53
-#: templates/select_all.twig:2 templates/select_all.twig:6
+#: libraries/classes/Display/Results.php:4674
+#: libraries/classes/Display/Results.php:4681 libraries/mult_submits.inc.php:53
 #: templates/database/structure/check_all_tables.twig:2
 #: templates/database/structure/check_all_tables.twig:9
+#: templates/select_all.twig:2 templates/select_all.twig:6
 msgid "With selected:"
 msgstr "Saylanğannı:"
 
-#: libraries/classes/Display/Results.php:4850
-#: libraries/classes/Display/Results.php:4852
+#: libraries/classes/Display/Results.php:4678
+#: libraries/classes/Display/Results.php:4680
 #: libraries/classes/Server/Privileges.php:1177
 #: libraries/classes/Server/Privileges.php:1178
-#: libraries/classes/Server/UserGroups.php:241 templates/select_all.twig:4
-#: templates/select_all.twig:5 templates/privileges/global_priv_table.twig:5
+#: libraries/classes/Server/UserGroups.php:241
+#: templates/privileges/global_priv_table.twig:5
 #: templates/database/structure/check_all_tables.twig:3
 #: templates/database/structure/check_all_tables.twig:4
+#: templates/select_all.twig:4 templates/select_all.twig:5
 #, fuzzy
 #| msgid "Check All"
 msgid "Check all"
 msgstr "Saylap Beter"
 
-#: libraries/classes/Display/Results.php:5025
+#: libraries/classes/Display/Results.php:4853
 msgid "Copy to clipboard"
 msgstr ""
 
-#: libraries/classes/Display/Results.php:5081
+#: libraries/classes/Display/Results.php:4904
 msgid "Query results operations"
 msgstr "Soraw qaytarmasın eşkärtü"
 
-#: libraries/classes/Display/Results.php:5169
+#: libraries/classes/Display/Results.php:4988
 #: templates/table/chart/tbl_chart.twig:10
 #, fuzzy
 #| msgid "Display PDF schema"
 msgid "Display chart"
 msgstr "PDF schema kürsätü"
 
-#: libraries/classes/Display/Results.php:5194
+#: libraries/classes/Display/Results.php:5009
 msgid "Visualize GIS data"
 msgstr ""
 
-#: libraries/classes/Display/Results.php:5380
+#: libraries/classes/Display/Results.php:5191
 #, fuzzy
 #| msgid "Link not found"
 msgid "Link not found!"
@@ -8638,6 +8544,38 @@ msgstr ""
 msgid "Edit structure by following the \"Structure\" link."
 msgstr ""
 
+#: libraries/classes/Import.php:1221 libraries/classes/Import.php:1256
+#: libraries/classes/MultSubmits.php:356
+#: libraries/classes/Plugins/Export/ExportCodegen.php:85
+#: libraries/classes/Plugins/Export/ExportCsv.php:49
+#: libraries/classes/Plugins/Export/ExportExcel.php:38
+#: libraries/classes/Plugins/Export/ExportHtmlword.php:52
+#: libraries/classes/Plugins/Export/ExportJson.php:72
+#: libraries/classes/Plugins/Export/ExportLatex.php:75
+#: libraries/classes/Plugins/Export/ExportMediawiki.php:49
+#: libraries/classes/Plugins/Export/ExportOds.php:53
+#: libraries/classes/Plugins/Export/ExportOdt.php:64
+#: libraries/classes/Plugins/Export/ExportPdf.php:85
+#: libraries/classes/Plugins/Export/ExportPhparray.php:48
+#: libraries/classes/Plugins/Export/ExportSql.php:85
+#: libraries/classes/Plugins/Export/ExportTexytext.php:51
+#: libraries/classes/Plugins/Export/ExportXml.php:79
+#: libraries/classes/Plugins/Export/ExportYaml.php:48
+#: libraries/classes/Plugins/Import/AbstractImportCsv.php:35
+#: libraries/classes/Plugins/Import/ImportMediawiki.php:57
+#: libraries/classes/Plugins/Import/ImportOds.php:49
+#: libraries/classes/Plugins/Import/ImportShp.php:51
+#: libraries/classes/Plugins/Import/ImportSql.php:47
+#: libraries/classes/Plugins/Import/ImportXml.php:49
+#: libraries/classes/Rte/Routines.php:946
+#: templates/display/results/options_block.twig:10
+#: templates/table/structure/row_stats_table.twig:19
+#: templates/table/search/options.twig:1 templates/console/display.twig:7
+#: templates/console/display.twig:140
+#, fuzzy
+msgid "Options"
+msgstr "Eşkärtü"
+
 #: libraries/classes/Import.php:1224
 #, fuzzy, php-format
 msgid "Go to database: %s"
@@ -8697,8 +8635,8 @@ msgstr "Qabatlanu sanı"
 #: libraries/classes/Rte/Routines.php:1071 libraries/classes/Tracking.php:908
 #: libraries/classes/Tracking.php:997
 #: templates/database/structure/table_header.twig:48
-#: templates/columns_definitions/partitions.twig:85
 #: templates/table/structure/display_partitions.twig:31
+#: templates/columns_definitions/partitions.twig:85
 #, fuzzy
 msgid "Comment"
 msgstr "Açıqlama"
@@ -8746,7 +8684,7 @@ msgstr "Because of its length,<br /> this field might not be editable"
 msgid "Binary - do not edit"
 msgstr "Binar - üzgärtmäslek"
 
-#: libraries/classes/InsertEdit.php:1249 libraries/classes/Util.php:3370
+#: libraries/classes/InsertEdit.php:1249 libraries/classes/Util.php:3283
 msgid "The directory you set for upload work cannot be reached."
 msgstr "Yökläw öçen bigelängän törgäkne uqıp bulmí."
 
@@ -8820,13 +8758,13 @@ msgstr ""
 #: libraries/classes/ReplicationGui.php:556
 #: libraries/classes/Rte/Routines.php:1625
 #: libraries/classes/Server/Status/Variables.php:228
-#: templates/table/search/zoom_result_form.twig:36
+#: templates/database/designer/having_query_panel.twig:100
+#: templates/table/search/table_header.twig:10
 #: templates/database/designer/where_query_panel.twig:69
 #: templates/server/variables/variable_table_head.twig:5
-#: templates/table/search/table_header.twig:10
-#: templates/database/designer/having_query_panel.twig:100
 #: templates/database/designer/options_panel.twig:73
 #: templates/database/designer/options_panel.twig:239
+#: templates/table/search/zoom_result_form.twig:36
 msgid "Value"
 msgstr "Bäyä"
 
@@ -8874,10 +8812,10 @@ msgstr ""
 
 #: libraries/classes/Menu.php:361 libraries/classes/Menu.php:464
 #: libraries/classes/Navigation/Nodes/NodeTable.php:296
-#: libraries/classes/Util.php:3109 libraries/classes/Util.php:3119
-#: libraries/classes/Util.php:3125 libraries/classes/Util.php:3399
-#: libraries/classes/Util.php:3400 libraries/classes/Util.php:4061
-#: libraries/classes/Util.php:4078 libraries/config.values.php:40
+#: libraries/classes/Util.php:3022 libraries/classes/Util.php:3032
+#: libraries/classes/Util.php:3038 libraries/classes/Util.php:3312
+#: libraries/classes/Util.php:3313 libraries/classes/Util.php:3974
+#: libraries/classes/Util.php:3991 libraries/config.values.php:40
 #: libraries/config.values.php:48 libraries/config.values.php:111
 #: libraries/config.values.php:117
 msgid "Search"
@@ -8886,9 +8824,9 @@ msgstr "Ezläw"
 #: libraries/classes/Menu.php:371
 #: libraries/classes/Navigation/Nodes/NodeTable.php:302
 #: libraries/classes/SqlQueryForm.php:290
-#: libraries/classes/SqlQueryForm.php:293 libraries/classes/Util.php:3110
-#: libraries/classes/Util.php:3120 libraries/classes/Util.php:3401
-#: libraries/classes/Util.php:3402 libraries/classes/Util.php:4079
+#: libraries/classes/SqlQueryForm.php:293 libraries/classes/Util.php:3023
+#: libraries/classes/Util.php:3033 libraries/classes/Util.php:3314
+#: libraries/classes/Util.php:3315 libraries/classes/Util.php:3992
 #: libraries/config.values.php:41 libraries/config.values.php:49
 #: libraries/config.values.php:118
 msgid "Insert"
@@ -8896,24 +8834,24 @@ msgstr "Östäw"
 
 #: libraries/classes/Menu.php:395 libraries/classes/Menu.php:499
 #: libraries/classes/Server/Privileges.php:2555
-#: libraries/classes/Server/Privileges.php:4414 libraries/classes/Util.php:4066
-#: libraries/classes/Util.php:4082 libraries/config.values.php:106
+#: libraries/classes/Server/Privileges.php:4414 libraries/classes/Util.php:3979
+#: libraries/classes/Util.php:3995 libraries/config.values.php:106
 #: templates/server/sub_page_header.twig:2
 #: templates/privileges/privileges_summary.twig:15
 msgid "Privileges"
 msgstr "Xoquqlar"
 
 #: libraries/classes/Menu.php:404 libraries/classes/Menu.php:412
-#: libraries/classes/Menu.php:491 libraries/classes/Util.php:3112
-#: libraries/classes/Util.php:3126 libraries/classes/Util.php:4065
-#: libraries/classes/Util.php:4083 libraries/config.values.php:112
+#: libraries/classes/Menu.php:491 libraries/classes/Util.php:3025
+#: libraries/classes/Util.php:3039 libraries/classes/Util.php:3978
+#: libraries/classes/Util.php:3996 libraries/config.values.php:112
 #: view_operations.php:99
 msgid "Operations"
 msgstr "Eşkärtü"
 
 #: libraries/classes/Menu.php:417 libraries/classes/Menu.php:521
-#: libraries/classes/Relation.php:279 libraries/classes/Util.php:4070
-#: libraries/classes/Util.php:4084
+#: libraries/classes/Relation.php:279 libraries/classes/Util.php:3983
+#: libraries/classes/Util.php:3997
 msgid "Tracking"
 msgstr ""
 
@@ -8925,8 +8863,8 @@ msgstr ""
 #: libraries/classes/Plugins/Export/ExportSql.php:2036
 #: libraries/classes/Plugins/Export/ExportTexytext.php:536
 #: libraries/classes/Plugins/Export/ExportXml.php:124
-#: libraries/classes/Rte/Words.php:63 libraries/classes/Util.php:4069
-#: libraries/classes/Util.php:4085
+#: libraries/classes/Rte/Words.php:63 libraries/classes/Util.php:3982
+#: libraries/classes/Util.php:3998
 msgid "Triggers"
 msgstr ""
 
@@ -8935,12 +8873,12 @@ msgstr ""
 msgid "Database seems to be empty!"
 msgstr ""
 
-#: libraries/classes/Menu.php:471 libraries/classes/Util.php:4062
+#: libraries/classes/Menu.php:471 libraries/classes/Util.php:3975
 msgid "Query"
 msgstr "Soraw"
 
 #: libraries/classes/Menu.php:504 libraries/classes/Rte/Words.php:49
-#: libraries/classes/Util.php:4067
+#: libraries/classes/Util.php:3980
 msgid "Routines"
 msgstr ""
 
@@ -8948,16 +8886,16 @@ msgstr ""
 #: libraries/classes/Navigation/Nodes/NodeEventContainer.php:25
 #: libraries/classes/Plugins/Export/ExportSql.php:964
 #: libraries/classes/Plugins/Export/ExportXml.php:104
-#: libraries/classes/Rte/Words.php:77 libraries/classes/Util.php:4068
+#: libraries/classes/Rte/Words.php:77 libraries/classes/Util.php:3981
 #, fuzzy
 msgid "Events"
 msgstr "Cibärelde"
 
-#: libraries/classes/Menu.php:527 libraries/classes/Util.php:4071
+#: libraries/classes/Menu.php:527 libraries/classes/Util.php:3984
 msgid "Designer"
 msgstr ""
 
-#: libraries/classes/Menu.php:536 libraries/classes/Util.php:4072
+#: libraries/classes/Menu.php:536 libraries/classes/Util.php:3985
 #: templates/database/structure/check_all_tables.twig:32
 #, fuzzy
 #| msgid "Add/Delete Field Columns"
@@ -8971,35 +8909,35 @@ msgid "User accounts"
 msgstr "Qullanuçı"
 
 #: libraries/classes/Menu.php:621 libraries/classes/Server/Status/Data.php:121
-#: libraries/classes/Util.php:4051 templates/server/sub_page_header.twig:2
+#: libraries/classes/Util.php:3964 templates/server/sub_page_header.twig:2
 msgid "Binary log"
 msgstr "Binar köndälek"
 
 #: libraries/classes/Menu.php:627 libraries/classes/Server/Status/Data.php:126
-#: libraries/classes/Util.php:4052
+#: libraries/classes/Util.php:3965
 #: templates/database/structure/table_header.twig:10
-#: templates/server/sub_page_header.twig:2
 #: templates/database/structure/body_for_table_summary.twig:11
+#: templates/server/sub_page_header.twig:2
 #, fuzzy
 msgid "Replication"
 msgstr "Bäyläneşlär"
 
 #: libraries/classes/Menu.php:632 libraries/classes/Server/Status/Data.php:193
-#: libraries/classes/SqlQueryForm.php:432 libraries/classes/Util.php:4053
+#: libraries/classes/SqlQueryForm.php:432 libraries/classes/Util.php:3966
 #: libraries/config.values.php:105 templates/server/engines/engine.twig:12
 #: templates/server/engines/engine.twig:16
 msgid "Variables"
 msgstr "Üzgärmälär"
 
-#: libraries/classes/Menu.php:636 libraries/classes/Util.php:4054
+#: libraries/classes/Menu.php:636 libraries/classes/Util.php:3967
 msgid "Charsets"
 msgstr "Bilgelämä"
 
-#: libraries/classes/Menu.php:640 libraries/classes/Util.php:4056
+#: libraries/classes/Menu.php:640 libraries/classes/Util.php:3969
 msgid "Engines"
 msgstr "Engine"
 
-#: libraries/classes/Menu.php:644 libraries/classes/Util.php:4055
+#: libraries/classes/Menu.php:644 libraries/classes/Util.php:3968
 #: templates/server/sub_page_header.twig:2
 msgid "Plugins"
 msgstr ""
@@ -9720,8 +9658,8 @@ msgid "Flush the table (FLUSH)"
 msgstr "Tüşäwne awdar (\"FLUSH\")"
 
 #: libraries/classes/Operations.php:1465
-#: templates/table/structure/display_table_stats.twig:61
 #: templates/database/structure/check_all_tables.twig:22
+#: templates/table/structure/display_table_stats.twig:61
 msgid "Optimize table"
 msgstr ""
 
@@ -10784,7 +10722,7 @@ msgstr ""
 
 #. l10n: See https://secure.php.net/manual/en/function.strftime.php
 #: libraries/classes/Plugins/Transformations/Abs/DateFormatTransformationsPlugin.php:62
-#: libraries/classes/Util.php:1526
+#: libraries/classes/Util.php:1513
 msgid "%B %d, %Y at %I:%M %p"
 msgstr "%Y.%m.%d, %H:%M"
 
@@ -13924,7 +13862,7 @@ msgstr "Qullanuçı biremlege"
 msgid "Table-level tabs"
 msgstr "tüşämä adı"
 
-#: libraries/classes/Sql.php:248 libraries/classes/Util.php:1151
+#: libraries/classes/Sql.php:248 libraries/classes/Util.php:1138
 #: templates/console/display.twig:31 templates/console/display.twig:175
 msgid "Profiling"
 msgstr ""
@@ -14737,20 +14675,20 @@ msgstr "SQL Centeklämäskä"
 msgid "Analyze Explain at %s"
 msgstr ""
 
-#: libraries/classes/Util.php:1086
+#: libraries/classes/Util.php:1084
 #, fuzzy
 #| msgid "Without PHP Code"
 msgid "Without PHP code"
 msgstr "PHP Kodısız"
 
-#: libraries/classes/Util.php:1098
+#: libraries/classes/Util.php:1091
 #: templates/database/multi_table_query/form.twig:161
 #, fuzzy
 #| msgid "Submit Query"
 msgid "Submit query"
 msgstr "Sorawnı Yulla"
 
-#: libraries/classes/Util.php:1170
+#: libraries/classes/Util.php:1157
 #, fuzzy
 #| msgid "Print view"
 msgctxt "Inline edit query"
@@ -14758,88 +14696,88 @@ msgid "Edit inline"
 msgstr "Bastıru küreneşe"
 
 #. l10n: Short week day name
-#: libraries/classes/Util.php:1510
+#: libraries/classes/Util.php:1497
 msgctxt "Short week day name"
 msgid "Sun"
 msgstr "Ykş"
 
-#: libraries/classes/Util.php:1547
+#: libraries/classes/Util.php:1534
 msgctxt "AM/PM indication in time"
 msgid "PM"
 msgstr ""
 
-#: libraries/classes/Util.php:1549
+#: libraries/classes/Util.php:1536
 msgctxt "AM/PM indication in time"
 msgid "AM"
 msgstr ""
 
-#: libraries/classes/Util.php:1917
+#: libraries/classes/Util.php:1830
 #, php-format
 msgid "%s days, %s hours, %s minutes and %s seconds"
 msgstr "%s kön, %s säğät, %s minut ta %s sekund"
 
-#: libraries/classes/Util.php:1952
+#: libraries/classes/Util.php:1865
 msgid "Missing parameter:"
 msgstr ""
 
-#: libraries/classes/Util.php:2496
+#: libraries/classes/Util.php:2409
 #, fuzzy, php-format
 #| msgid "Jump to database \"%s\"."
 msgid "Jump to database “%s”."
 msgstr "\"%s\" biremlegenä küç."
 
-#: libraries/classes/Util.php:2521
+#: libraries/classes/Util.php:2434
 #, php-format
 msgid "The %s functionality is affected by a known bug, see %s"
 msgstr ""
 
-#: libraries/classes/Util.php:3316 prefs_manage.php:249
+#: libraries/classes/Util.php:3229 prefs_manage.php:249
 msgid "Browse your computer:"
 msgstr ""
 
-#: libraries/classes/Util.php:3341
+#: libraries/classes/Util.php:3254
 #, fuzzy, php-format
 #| msgid "web server upload directory"
 msgid "Select from the web server upload directory <b>%s</b>:"
 msgstr "web-server'neñ yökläw törgäge"
 
-#: libraries/classes/Util.php:3381
+#: libraries/classes/Util.php:3294
 #, fuzzy
 msgid "There are no files to upload!"
 msgstr "Tüşämä tikşerü"
 
-#: libraries/classes/Util.php:3406 libraries/classes/Util.php:3407
+#: libraries/classes/Util.php:3319 libraries/classes/Util.php:3320
 #: templates/database/structure/check_all_tables.twig:15
 msgid "Empty"
 msgstr "Buşat"
 
-#: libraries/classes/Util.php:3412 libraries/classes/Util.php:3413
+#: libraries/classes/Util.php:3325 libraries/classes/Util.php:3326
 msgid "Execute"
 msgstr ""
 
-#: libraries/classes/Util.php:3916
+#: libraries/classes/Util.php:3829
 msgid "SSL is not being used"
 msgstr ""
 
-#: libraries/classes/Util.php:3921
+#: libraries/classes/Util.php:3834
 msgid "SSL is used with disabled verification"
 msgstr ""
 
-#: libraries/classes/Util.php:3923
+#: libraries/classes/Util.php:3836
 msgid "SSL is used without certification authority"
 msgstr ""
 
-#: libraries/classes/Util.php:3926
+#: libraries/classes/Util.php:3839
 msgid "SSL is used"
 msgstr ""
 
-#: libraries/classes/Util.php:4047
+#: libraries/classes/Util.php:3960
 #, fuzzy
 #| msgid "User"
 msgid "Users"
 msgstr "Qullanuçı"
 
-#: libraries/classes/Util.php:4947
+#: libraries/classes/Util.php:4860
 #: templates/database/multi_table_query/form.twig:46
 msgid "Sort"
 msgstr "Tezü"
@@ -14852,16 +14790,16 @@ msgstr "ZIP-tuplama eçendä biremnär tabılmadı!"
 msgid "Error in ZIP archive:"
 msgstr "ZIP-tuplama eçendä xata:"
 
-#: libraries/common.inc.php:501
+#: libraries/common.inc.php:441
 msgid "Invalid authentication method set in configuration:"
 msgstr ""
 
-#: libraries/common.inc.php:554
+#: libraries/common.inc.php:494
 #, php-format
 msgid "You should upgrade to %s %s or later."
 msgstr ""
 
-#: libraries/common.inc.php:625
+#: libraries/common.inc.php:565
 msgid "Error: Token mismatch"
 msgstr ""
 
@@ -15445,6 +15383,236 @@ msgctxt "for MIME transformation"
 msgid "Description"
 msgstr "Açıqlama"
 
+#: templates/table/search/selection_form.twig:12
+#, fuzzy
+#| msgid "Do a \"query by example\" (wildcard: \"%\")"
+msgid "Do a \"query by example\" (wildcard: \"%\") for two different columns"
+msgstr "\"Ürnäk buyınça soraw\" eşkärtü (almaştırma: \"%\")"
+
+#: templates/table/search/selection_form.twig:42
+msgid "Do a \"query by example\" (wildcard: \"%\")"
+msgstr "\"Ürnäk buyınça soraw\" eşkärtü (almaştırma: \"%\")"
+
+#: templates/table/search/options_zoom.twig:6
+msgid "Use this column to label each point"
+msgstr ""
+
+#: templates/table/search/options_zoom.twig:32
+msgid "Maximum rows to plot"
+msgstr ""
+
+#: templates/table/structure/table_structure_row.twig:55
+#, fuzzy, php-format
+#| msgid "Table %s has been dropped."
+msgid "Column %s has been dropped."
+msgstr "\"%s\" atlı tüşämä beterelde"
+
+#: templates/prefs_second.twig:3
+#, fuzzy
+msgid "Two-factor authentication status"
+msgstr "Bäyläneşlär"
+
+#: templates/prefs_second.twig:9
+msgid ""
+"Two-factor authentication is not available, please install optional "
+"dependencies to enable authentication backends."
+msgstr ""
+
+#: templates/prefs_second.twig:12
+msgid "Two-factor authentication is available and configured for this account."
+msgstr ""
+
+#: templates/prefs_second.twig:14
+msgid ""
+"Two-factor authentication is available, but not configured for this account."
+msgstr ""
+
+#: templates/prefs_second.twig:18
+msgid ""
+"Two-factor authentication is not available, enable phpMyAdmin configuration "
+"storage to use it."
+msgstr ""
+
+#: templates/prefs_second.twig:27
+msgid "You have enabled two factor authentication."
+msgstr ""
+
+#: templates/prefs_second.twig:31 templates/prefs_second_confirm.twig:9
+#, fuzzy
+#| msgid "Change password"
+msgid "Disable two-factor authentication"
+msgstr "Sersüz üzgärtü"
+
+#: templates/prefs_second.twig:37 templates/prefs_second.twig:49
+#: templates/prefs_second_configure.twig:2
+msgid "Configure two-factor authentication"
+msgstr ""
+
+#: templates/privileges/add_user_fieldset.twig:2
+msgctxt "Create new user"
+msgid "New"
+msgstr ""
+
+#: templates/login/twofactor.twig:4
+msgid "Verify"
+msgstr ""
+
+#: templates/database/designer/having_query_panel.twig:30
+#: templates/database/designer/having_query_panel.twig:61
+#: templates/table/search/table_header.twig:9
+#: templates/database/designer/where_query_panel.twig:30
+#: templates/database/designer/aggregate_query_panel.twig:30
+#: templates/database/designer/options_panel.twig:106
+#: templates/database/designer/options_panel.twig:170
+msgid "Operator"
+msgstr "Operator"
+
+#: templates/database/designer/having_query_panel.twig:90
+#: templates/database/designer/where_query_panel.twig:59
+#: templates/database/designer/options_panel.twig:63
+#: templates/database/designer/options_panel.twig:229
+#, fuzzy
+#| msgid "Export"
+msgid "Except"
+msgstr "Export"
+
+#: templates/database/designer/having_query_panel.twig:102
+#: templates/database/designer/where_query_panel.twig:71
+#: templates/database/designer/options_panel.twig:75
+#: templates/database/designer/options_panel.twig:241
+#, fuzzy
+#| msgid "in query"
+msgid "subquery"
+msgstr "sorawda"
+
+#: templates/columns_definitions/column_length.twig:9
+msgid "Edit ENUM/SET values"
+msgstr ""
+
+#: templates/server/plugins/section.twig:9
+msgid "Plugin"
+msgstr ""
+
+#: templates/server/plugins/section.twig:12
+msgid "Author"
+msgstr ""
+
+#: templates/server/plugins/section.twig:23
+#, fuzzy
+#| msgid "Disabled"
+msgid "disabled"
+msgstr "Sünek"
+
+#: templates/database/structure/favorite_anchor.twig:4
+#, fuzzy
+msgid "Add to Favorites"
+msgstr "Yaña qullanuçı östäw"
+
+#: templates/table/structure/move_columns_dialog.twig:1
+#: templates/table/structure/optional_action_links.twig:19
+#, fuzzy
+#| msgid "Add %s field(s)"
+msgid "Move columns"
+msgstr "%s alan östäw"
+
+#: templates/table/structure/move_columns_dialog.twig:2
+msgid "Move the columns by dragging them up and down."
+msgstr ""
+
+#: templates/error/report_form.twig:6
+msgid ""
+"This report automatically includes data about the error and information "
+"about relevant configuration settings. It will be sent to the phpMyAdmin "
+"team for debugging the error."
+msgstr ""
+
+#: templates/error/report_form.twig:12
+msgid ""
+"Can you tell us the steps leading to this error? It decisively helps in "
+"debugging:"
+msgstr ""
+
+#: templates/error/report_form.twig:19
+msgid "You may examine the data in the error report:"
+msgstr ""
+
+#: templates/table/relation/common_form.twig:6
+#, fuzzy
+#| msgid "Disable foreign key checks"
+msgid "Foreign key constraints"
+msgstr "Yat tezeş tikşerüen sünderep"
+
+#: templates/table/relation/common_form.twig:10
+msgid "Actions"
+msgstr "Eş"
+
+#: templates/table/relation/common_form.twig:11
+#, fuzzy
+#| msgid "Column names"
+msgid "Constraint properties"
+msgstr "Alan iseme"
+
+#: templates/table/relation/common_form.twig:15
+msgid ""
+"Creating a foreign key over a non-indexed column would automatically create "
+"an index on it. Alternatively, you can define an index below, before "
+"creating the foreign key."
+msgstr ""
+
+#: templates/table/relation/common_form.twig:20
+msgid ""
+"Only columns with index will be displayed. You can define an index below."
+msgstr ""
+
+#: templates/table/relation/common_form.twig:24
+msgid "Foreign key constraint"
+msgstr ""
+
+#: templates/table/relation/common_form.twig:89
+#, fuzzy
+#| msgid "Add constraints"
+msgid "+ Add constraint"
+msgstr "Çikläwlär östise"
+
+#: templates/table/relation/common_form.twig:99
+#: templates/table/relation/common_form.twig:104
+#, fuzzy
+#| msgid "Internal relations"
+msgid "Internal relationships"
+msgstr "Eçke bäyläneş"
+
+#: templates/table/relation/common_form.twig:110
+#, fuzzy
+#| msgid "Internal relations"
+msgid "Internal relation"
+msgstr "Eçke bäyläneş"
+
+#: templates/table/relation/common_form.twig:112
+msgid ""
+"An internal relation is not necessary when a corresponding FOREIGN KEY "
+"relation exists."
+msgstr ""
+
+#: templates/table/relation/common_form.twig:172
+#, fuzzy
+#| msgid "Choose field to display"
+msgid "Choose column to display:"
+msgstr "Kürsätäse Alan saylaw"
+
+#: templates/database/designer/delete_relation_panel.twig:21
+#, fuzzy
+msgid "Delete relationship"
+msgstr "Server söreme"
+
+#: templates/display/import/other_option.twig:2
+#, fuzzy
+msgid "Other options:"
+msgstr "Eşkärtü"
+
+#: templates/database/designer/schema_export.twig:4
+msgid "Select Export Relational Type"
+msgstr ""
+
 #: templates/database/structure/table_header.twig:27
 #, fuzzy
 #| msgid "May be approximate. See [doc@faq3-11]FAQ 3.11[/doc]"
@@ -15472,6 +15640,1113 @@ msgstr "Soñğı yañartılu"
 #: templates/table/structure/row_stats_table.twig:90
 msgid "Last check"
 msgstr "Soñğı tikşerü"
+
+#: templates/table/search/search_and_replace.twig:3
+#, fuzzy
+#| msgid "Replace NULL by"
+msgid "Replace with:"
+msgstr "NULL'nı almaştırası:"
+
+#: templates/table/search/search_and_replace.twig:19
+#, fuzzy
+#| msgid "as regular expression"
+msgid "Use regular expression"
+msgstr "regexp kileş"
+
+#: templates/columns_definitions/table_fields_definitions.twig:17
+#, fuzzy
+#| msgid ""
+#| "field type is \"enum\" or \"set\", please enter the values using this "
+#| "mat: 'a','b','c'…<br />If you ever need to put a backslash (\"\\\") a "
+#| "single quote (\"'\") amongst those values, precede it with a kslash (for "
+#| "example '\\\\xyz' or 'a\\'b')."
+msgid ""
+"If column type is \"enum\" or \"set\", please enter the values using this "
+"format: 'a','b','c'…<br />If you ever need to put a backslash (\"\") or a "
+"single quote (\"'\") amongst those values, precede it with a backslash (for "
+"example '\\\\xyz' or 'a\\'b')."
+msgstr ""
+"Alan töre \"enum/set\" bulsa, bäyäsen bolayraq kertäse: 'a','b','c'…<br /"
+">Bäyä eçenä kireawış (\"\\\") yä sıñarquote (\"'\") kertäse bulsa, anı "
+"kireawıştırası bula (ürnäk: '\\\\xyz' yä ki 'a\\'b')."
+
+#: templates/columns_definitions/table_fields_definitions.twig:21
+msgid ""
+"For default values, please enter just a single value, without backslash "
+"escaping or quotes, using this format: a"
+msgstr ""
+"Töpcay bäyäsen kertkändä, kireawışlar qullanmasqa, cäyä eçenä da salmasqa. "
+"Bolayraq kertäse: a"
+
+#: templates/columns_definitions/table_fields_definitions.twig:59
+msgid "Virtuality"
+msgstr ""
+
+#: templates/columns_definitions/table_fields_definitions.twig:65
+#, fuzzy
+#| msgid "Add/Delete Field Columns"
+msgid "Move column"
+msgstr "Add/Delete Field Columns"
+
+#: templates/columns_definitions/table_fields_definitions.twig:76
+#: templates/columns_definitions/table_fields_definitions.twig:87
+msgid "List of available transformations and their options"
+msgstr ""
+
+#: templates/columns_definitions/table_fields_definitions.twig:82
+#, fuzzy
+#| msgid "Browser transformation"
+msgid "Browser display transformation options"
+msgstr "Browser transformation"
+
+#: templates/columns_definitions/table_fields_definitions.twig:83
+#: templates/columns_definitions/table_fields_definitions.twig:94
+#, fuzzy
+#| msgid ""
+#| "Please enter the values for transformation options using this format: "
+#| "'a', 100, b,'c'…<br />If you ever need to put a backslash (\"\\\") or a "
+#| "single quote (\"'\") amongst those values, precede it with a backslash "
+#| "(for example '\\\\xyz' or 'a\\'b')."
+msgid ""
+"Please enter the values for transformation options using this format: 'a', "
+"100, b,'c'…<br />If you ever need to put a backslash (\"\\\") or a single "
+"quote (\"'\") amongst those values, precede it with a backslash (for example "
+"'\\\\xyz' or 'a\\'b')."
+msgstr ""
+"Please enter the values for transformation options using this format: 'a', "
+"100, b,'c'…<br />If you ever need to put a backslash (\"\\\") or a single "
+"quote (\"'\") amongst those values, backslash it (for example '\\\\xyz' or 'a"
+"\\'b')."
+
+#: templates/columns_definitions/table_fields_definitions.twig:93
+#, fuzzy
+#| msgid "Transformation options"
+msgid "Input transformation options"
+msgstr "Transformation options"
+
+#: templates/privileges/add_privileges_database.twig:1
+#, fuzzy
+#| msgid "Add privileges on the following database"
+msgid "Add privileges on the following database(s):"
+msgstr "Kiläse biremlek öçen xoquqlar östäw"
+
+#: templates/privileges/add_privileges_database.twig:14
+msgid "Wildcards % and _ should be escaped with a \\ to use them literally."
+msgstr ""
+"_ belän % bilgelären şul kileş kenä qullanu öçen \\ belän ütkärergä kiräk."
+
+#: templates/table/relation/foreign_key_row.twig:15
+#, fuzzy, php-format
+#| msgid "Disable foreign key checks"
+msgid "Foreign key constraint %s has been dropped"
+msgstr "Yat tezeş tikşerüen sünderep"
+
+#: templates/table/relation/foreign_key_row.twig:39
+#, fuzzy
+#| msgid "Column names"
+msgid "Constraint name"
+msgstr "Alan iseme"
+
+#: templates/table/relation/foreign_key_row.twig:91
+#: templates/database/multi_table_query/form.twig:143
+#, fuzzy
+#| msgid "Add %s field(s)"
+msgid "+ Add column"
+msgstr "%s alan östäw"
+
+#: templates/privileges/delete_user_fieldset.twig:3
+#, fuzzy
+#| msgid "Remove selected users"
+msgid "Remove selected user accounts"
+msgstr "Saylanğan qullanuçı beterü"
+
+#: templates/privileges/delete_user_fieldset.twig:6
+msgid "Revoke all active privileges from the users and delete them afterwards."
+msgstr "Qullanuçı xoquqların awdarıp beteräse."
+
+#: templates/privileges/delete_user_fieldset.twig:7
+#: templates/privileges/delete_user_fieldset.twig:10
+#: templates/privileges/delete_user_fieldset.twig:11
+msgid "Drop the databases that have the same names as the users."
+msgstr "Bu qullanuçılar kebek atalğan biremleklärne beteräse."
+
+#: templates/table/structure/optional_action_links.twig:6
+msgid "Propose table structure"
+msgstr "Tüşämä tözeleşenä küzätü"
+
+#: templates/table/structure/optional_action_links.twig:22
+msgid "Normalize"
+msgstr ""
+
+#: templates/table/structure/optional_action_links.twig:28
+#, fuzzy
+msgid "Track view"
+msgstr "Tüşämä tikşerü"
+
+#: templates/database/designer/table_list.twig:4
+#, fuzzy
+msgid "Hide/Show all"
+msgstr "Barısın kürsät"
+
+#: templates/database/designer/table_list.twig:14
+#, fuzzy
+#| msgid "Propose table structure"
+msgid "Hide/Show tables with no relationship"
+msgstr "Tüşämä tözeleşenä küzätü"
+
+#: templates/database/designer/table_list.twig:55
+#, fuzzy
+msgid "Number of tables:"
+msgstr "Alannar sanı"
+
+#: templates/display/results/options_block.twig:30
+#, fuzzy
+msgid "Relational key"
+msgstr "Bäyläneşlär sxeme"
+
+#: templates/display/results/options_block.twig:30
+#, fuzzy
+#| msgid "Disable foreign key checks"
+msgid "Display column for relationships"
+msgstr "Yat tezeş tikşerüen sünderep"
+
+#: templates/display/results/options_block.twig:46
+msgid "Show binary contents"
+msgstr ""
+
+#: templates/display/results/options_block.twig:53
+msgid "Show BLOB contents"
+msgstr ""
+
+#: templates/display/results/options_block.twig:67
+#, fuzzy
+#| msgid "Browser transformation"
+msgid "Hide browser transformation"
+msgstr "Browser transformation"
+
+#: templates/display/results/options_block.twig:77
+msgid "Well Known Text"
+msgstr ""
+
+#: templates/display/results/options_block.twig:77
+msgid "Well Known Binary"
+msgstr ""
+
+#: templates/start_and_number_of_rows_panel.twig:3
+#, fuzzy
+#| msgid "Start"
+msgid "Start row:"
+msgstr "Şmb"
+
+#: templates/columns_definitions/column_definitions_form.twig:23
+#, fuzzy
+msgid "Table name"
+msgstr "tüşämä adı"
+
+#: templates/columns_definitions/column_definitions_form.twig:32
+#: templates/export/alias_add.twig:18 templates/export/alias_add.twig:32
+#: templates/export/alias_add.twig:46 templates/console/display.twig:99
+#, fuzzy
+#| msgid "And"
+msgid "Add"
+msgstr "Wä"
+
+#: templates/columns_definitions/column_definitions_form.twig:40
+#, fuzzy
+#| msgid "Column names"
+msgid "column(s)"
+msgstr "Alan iseme"
+
+#: templates/columns_definitions/column_definitions_form.twig:74
+#, fuzzy
+#| msgid "Collation"
+msgid "Collation:"
+msgstr "Tezü cayı"
+
+#: templates/columns_definitions/column_definitions_form.twig:77
+#, fuzzy
+#| msgid "Storage Engine"
+msgid "Storage Engine:"
+msgstr "Saqlaw Isulı"
+
+#: templates/columns_definitions/column_definitions_form.twig:82
+#, fuzzy
+#| msgid "Connections"
+msgid "Connection:"
+msgstr "Totaşular"
+
+#: templates/columns_definitions/column_definitions_form.twig:128
+msgid "PARTITION definition:"
+msgstr ""
+
+#: templates/display/import/partial_import_option.twig:2
+#, fuzzy
+#| msgid "Partial import"
+msgid "Partial import:"
+msgstr "Öleşçä yökläw"
+
+#: templates/display/import/partial_import_option.twig:7
+#, php-format
+msgid ""
+"Previous import timed out, after resubmitting will continue from position %d."
+msgstr ""
+
+#: templates/display/import/partial_import_option.twig:15
+msgid ""
+"Allow the interruption of an import in case the script detects it is close "
+"to the PHP timeout limit. <em>(This might be a good way to import large "
+"files, however it can break transactions.)</em>"
+msgstr ""
+
+#: templates/display/import/partial_import_option.twig:22
+#, fuzzy
+#| msgid "Number of records (queries) to skip from start"
+msgid "Skip this number of queries (for SQL) starting from the first one:"
+msgstr "Baştan ütep kitäse yazma sanı"
+
+#: templates/server/databases/table_row.twig:13
+#, fuzzy, php-format
+msgid "Jump to database '%s'"
+msgstr "Biremleklär yuq"
+
+#: templates/server/databases/table_row.twig:61
+#, php-format
+msgid "Check privileges for database \"%s\"."
+msgstr "\"%s\" biremlege öçen xoquqlar tikşerü."
+
+#: templates/server/databases/table_row.twig:62
+#, fuzzy
+#| msgid "Check Privileges"
+msgid "Check privileges"
+msgstr "Xoquqlar tikşerü"
+
+#: templates/database/designer/page_save_as.twig:17
+#, fuzzy
+#| msgid "No rows selected"
+msgid "Save to selected page"
+msgstr "Kertemnär sayladı"
+
+#: templates/database/designer/page_save_as.twig:17
+#, fuzzy
+#| msgid "Create a new index"
+msgid "Create a page and save to it"
+msgstr "Yaña tezeş yaratu"
+
+#: templates/database/designer/page_save_as.twig:30
+#, fuzzy
+#| msgid "User name"
+msgid "New page name"
+msgstr "İreşü iseme"
+
+#: templates/database/designer/query_details.twig:6
+#, fuzzy
+#| msgid "Table options"
+msgid "Active options"
+msgstr "Tüşämä köyläneşe"
+
+#: templates/database/designer/edit_delete_pages.twig:6
+#, fuzzy
+#| msgid "Page number:"
+msgid "Page to open"
+msgstr "Bitneñ sanı:"
+
+#: templates/database/designer/edit_delete_pages.twig:6
+#, fuzzy
+msgid "Page to delete"
+msgstr "Bäyläneşkä küzätü"
+
+#: templates/columns_definitions/column_name.twig:4
+#, php-format
+msgid "Referenced by %s."
+msgstr ""
+
+#: templates/columns_definitions/column_name.twig:12
+#, fuzzy
+#| msgid "Disable foreign key checks"
+msgid "Is a foreign key."
+msgstr "Yat tezeş tikşerüen sünderep"
+
+#: templates/columns_definitions/column_name.twig:40
+#, fuzzy
+#| msgid "Rename database to"
+msgid "Pick from Central Columns"
+msgstr "Biremlekne bolay atap quy"
+
+#: templates/console/bookmark_content.twig:7 templates/console/display.twig:31
+#: templates/console/display.twig:84 templates/console/display.twig:175
+msgid "Collapse"
+msgstr ""
+
+#: templates/console/bookmark_content.twig:7 templates/console/display.twig:31
+#: templates/console/display.twig:84 templates/console/display.twig:175
+msgid "Expand"
+msgstr ""
+
+#: templates/console/bookmark_content.twig:7 templates/console/display.twig:31
+#: templates/console/display.twig:175
+#, fuzzy
+#| msgid "in query"
+msgid "Requery"
+msgstr "sorawda"
+
+#: templates/database/structure/body_for_table_summary.twig:6
+#, fuzzy, php-format
+#| msgid "%s table(s)"
+msgid "%s table"
+msgid_plural "%s tables"
+msgstr[0] "%s tüşämä"
+
+#: templates/database/structure/body_for_table_summary.twig:17
+msgid "Sum"
+msgstr "Sum"
+
+#: templates/database/designer/database_tables.twig:31
+#, fuzzy
+#| msgid "Add %s field(s)"
+msgid "Show/hide columns"
+msgstr "%s alan östäw"
+
+#: templates/database/designer/database_tables.twig:39
+#, fuzzy
+#| msgid "Database for user"
+msgid "See table structure"
+msgstr "Qullanuçı biremlege"
+
+#: templates/server/databases/databases_footer.twig:65
+msgid ""
+"Note: Enabling the database statistics here might cause heavy traffic "
+"between the web server and the MySQL server."
+msgstr ""
+"Note: Enabling the Database statistics here might cause heavy traffic "
+"between the webserver and the MySQL one."
+
+#: templates/server/databases/databases_footer.twig:68
+#: templates/server/databases/databases_footer.twig:71
+#, fuzzy
+#| msgid "Enable Statistics"
+msgid "Enable statistics"
+msgstr "Nöfüsne Cibärü"
+
+#: templates/privileges/add_privileges_routine.twig:3
+#, fuzzy
+#| msgid "Add privileges on the following table"
+msgid "Add privileges on the following routine:"
+msgstr "Kiläse tüşämä öçen xoquqlar östäw"
+
+#: templates/privileges/column_privileges.twig:21
+#: templates/privileges/column_privileges.twig:22
+#, fuzzy
+#| msgid "None"
+msgctxt "None privileges"
+msgid "None"
+msgstr "Buş"
+
+#: templates/table/structure/row_stats_table.twig:2
+#, fuzzy
+#| msgid "Row Statistics"
+msgid "Row statistics"
+msgstr "Kerem Nöfüse"
+
+#: templates/table/structure/row_stats_table.twig:8
+msgid "static"
+msgstr ""
+
+#: templates/table/structure/row_stats_table.twig:10
+msgid "dynamic"
+msgstr "üzgärüçän"
+
+#: templates/table/structure/row_stats_table.twig:21
+msgid "partitioned"
+msgstr ""
+
+#: templates/table/structure/row_stats_table.twig:50
+msgid "Row length"
+msgstr "Kerem ozınlığı"
+
+#: templates/table/structure/row_stats_table.twig:62
+msgid "Row size"
+msgstr "Kerem olılığı"
+
+#: templates/table/structure/row_stats_table.twig:69
+msgid "Next autoindex"
+msgstr ""
+
+#: templates/database/structure/show_create_row.twig:7
+#, fuzzy, php-format
+#| msgid "Create User"
+msgid "Create %s"
+msgstr "Server söreme"
+
+#: templates/server/binlog/log_selector.twig:5
+msgid "Select binary log to view"
+msgstr "Qaraw öçen binar köndälek saylaw"
+
+#: templates/table/search/options.twig:6
+#, fuzzy
+#| msgid "Select fields (at least one):"
+msgid "Select columns (at least one):"
+msgstr "Alannar saylísı (iñ kimendä ber):"
+
+#: templates/table/search/options.twig:26
+msgid "Add search conditions (body of the \"where\" clause):"
+msgstr "Ezläw şartın östäw (\"WHERE\" eçtälege):"
+
+#: templates/table/search/options.twig:34
+msgid "Number of rows per page"
+msgstr "Bit sayın Kertem sanı"
+
+#: templates/table/search/options.twig:45
+msgid "Display order:"
+msgstr "Kürsätü tärtibe:"
+
+#: templates/export/alias_add.twig:4
+msgid "Define new aliases"
+msgstr ""
+
+#: templates/export/alias_add.twig:9
+#, fuzzy
+#| msgid "Select Tables"
+msgid "Select database:"
+msgstr "Tüşämä Saylaw"
+
+#: templates/export/alias_add.twig:15
+#, fuzzy
+#| msgid "database name"
+msgid "New database name"
+msgstr "biremlek adı"
+
+#: templates/export/alias_add.twig:23
+#, fuzzy
+#| msgid "Select Tables"
+msgid "Select table:"
+msgstr "Tüşämä Saylaw"
+
+#: templates/export/alias_add.twig:29
+#, fuzzy
+#| msgid "New table"
+msgid "New table name"
+msgstr "Berär genä dä tüşämä yuq"
+
+#: templates/export/alias_add.twig:37
+#, fuzzy
+#| msgid "Add/Delete Field Columns"
+msgid "Select column:"
+msgstr "Add/Delete Field Columns"
+
+#: templates/export/alias_add.twig:43
+#, fuzzy
+#| msgid "Column names"
+msgid "New column name"
+msgstr "Alan iseme"
+
+#: templates/table/structure/display_partitions.twig:4
+#: templates/table/structure/display_structure.twig:190
+#, fuzzy
+#| msgid "Position"
+msgid "Partitions"
+msgstr "Urın"
+
+#: templates/table/structure/display_partitions.twig:8
+#, fuzzy
+#| msgid "No index defined!"
+msgid "No partitioning defined!"
+msgstr "Açqıç bilgelänmäde!"
+
+#: templates/table/structure/display_partitions.twig:11
+msgid "Partitioned by:"
+msgstr ""
+
+#: templates/table/structure/display_partitions.twig:16
+msgid "Sub partitioned by:"
+msgstr ""
+
+#: templates/table/structure/display_partitions.twig:24
+#: templates/columns_definitions/partitions.twig:76
+#, fuzzy
+#| msgid "Position"
+msgid "Partition"
+msgstr "Urın"
+
+#: templates/table/structure/display_partitions.twig:26
+#: templates/columns_definitions/column_virtuality.twig:29
+#, fuzzy
+#| msgid "Compression"
+msgid "Expression"
+msgstr "Qısu"
+
+#: templates/table/structure/display_partitions.twig:29
+#, fuzzy
+#| msgid "Row length"
+msgid "Data length"
+msgstr "Kerem ozınlığı"
+
+#: templates/table/structure/display_partitions.twig:30
+#, fuzzy
+#| msgid "Row length"
+msgid "Index length"
+msgstr "Kerem ozınlığı"
+
+#: templates/table/structure/display_partitions.twig:135
+#, fuzzy
+#| msgid "Position"
+msgid "Partition table"
+msgstr "Urın"
+
+#: templates/table/structure/display_partitions.twig:141
+#: templates/table/structure/partition_definition_form.twig:6
+#, fuzzy
+#| msgid "Print view"
+msgid "Edit partitioning"
+msgstr "Bastıru küreneşe"
+
+#: templates/server/variables/session_variable_row.twig:3
+msgid "Session value"
+msgstr "Sessi bäyäse"
+
+#: templates/table/structure/add_column.twig:9
+#, fuzzy, php-format
+#| msgid "Add %s field(s)"
+msgid "Add %s column(s)"
+msgstr "%s alan östäw"
+
+#: templates/table/structure/add_column.twig:14
+#, fuzzy
+#| msgid "At Beginning of Table"
+msgid "at beginning of table"
+msgstr "Tüşämä Başına"
+
+#: templates/table/structure/add_column.twig:19
+#: templates/columns_definitions/move_column.twig:12
+#, fuzzy, php-format
+#| msgid "After %s"
+msgid "after %s"
+msgstr "%s artınnan"
+
+#: templates/login/twofactor/application_configure.twig:3
+msgid ""
+"Please scan following QR code into the two-factor authentication app on your "
+"device and enter authentication code it generates."
+msgstr ""
+
+#: templates/login/twofactor/application_configure.twig:9
+#: templates/login/twofactor/application.twig:2
+#, fuzzy
+#| msgid "Documentation"
+msgid "Authentication code:"
+msgstr "Qullanma"
+
+#: templates/database/structure/check_all_tables.twig:6
+msgid "Check tables having overhead"
+msgstr "Check overheaded"
+
+#: templates/database/structure/check_all_tables.twig:10
+#, fuzzy
+#| msgid "No tables"
+msgid "Copy table"
+msgstr "Berär genä dä tüşämä yuq"
+
+#: templates/database/structure/check_all_tables.twig:11
+#, fuzzy
+#| msgid "Show color"
+msgid "Show create"
+msgstr "Tösle kürsät"
+
+#: templates/database/structure/check_all_tables.twig:25
+msgid "Prefix"
+msgstr ""
+
+#: templates/database/structure/check_all_tables.twig:26
+#, fuzzy
+msgid "Add prefix to table"
+msgstr "Biremleklär yuq"
+
+#: templates/database/structure/check_all_tables.twig:27
+#, fuzzy
+#| msgid "Replace table data with file"
+msgid "Replace table prefix"
+msgstr "Tüşämä eçtälegen bu biremlektäge belän alamştırası"
+
+#: templates/database/structure/check_all_tables.twig:33
+#, fuzzy
+#| msgid "Add %s field(s)"
+msgid "Add columns to central list"
+msgstr "%s alan östäw"
+
+#: templates/database/structure/check_all_tables.twig:34
+msgid "Remove columns from central list"
+msgstr ""
+
+#: templates/database/structure/check_all_tables.twig:35
+#, fuzzy
+#| msgid "Add %s field(s)"
+msgid "Make consistent with central list"
+msgstr "%s alan östäw"
+
+#: templates/database/structure/tracking_icon.twig:3
+msgid "Tracking is active."
+msgstr ""
+
+#: templates/database/structure/tracking_icon.twig:5
+msgid "Tracking is not active."
+msgstr ""
+
+#: templates/export/alias_item.twig:8
+msgid "Remove"
+msgstr ""
+
+#: templates/database/structure/structure_table_row.twig:222
+msgid "in use"
+msgstr "totıla"
+
+#: templates/login/header.twig:12
+msgid ""
+"There is mismatch between HTTPS indicated on the server and client. This can "
+"lead to non working phpMyAdmin or a security risk. Please fix your server "
+"configuration to indicate HTTPS properly."
+msgstr ""
+
+#: templates/prefs_autoload.twig:7
+msgid ""
+"Your browser has phpMyAdmin configuration for this domain. Would you like to "
+"import it for current session?"
+msgstr ""
+
+#: templates/prefs_autoload.twig:13
+#, fuzzy
+#| msgid "Allows inserting and replacing data."
+msgid "Delete settings"
+msgstr "Eçtälek östäw/almaştıru xoquqı."
+
+#: templates/database/designer/aggregate_query_panel.twig:22
+#: templates/database/designer/options_panel.twig:100
+#, fuzzy
+#| msgid "Create"
+msgid "Aggregate"
+msgstr "Yarat"
+
+#: templates/columns_definitions/column_default.twig:3
+#, fuzzy
+#| msgid "None"
+msgctxt "for default"
+msgid "None"
+msgstr "Buş"
+
+#: templates/columns_definitions/column_default.twig:5
+msgid "As defined:"
+msgstr ""
+
+#: templates/view_create.twig:13
+#: templates/table/structure/display_structure.twig:136
+#, fuzzy
+#| msgid "Print view"
+msgid "Edit view"
+msgstr "Bastıru küreneşe"
+
+#: templates/view_create.twig:65
+msgid "VIEW name"
+msgstr ""
+
+#: templates/view_create.twig:79
+msgid "Column names"
+msgstr "Alan iseme"
+
+#: templates/table/structure/display_table_stats.twig:14
+msgid "Space usage"
+msgstr "Totılğan Alan"
+
+#: templates/table/structure/display_table_stats.twig:37
+msgid "Effective"
+msgstr "Uñışlı"
+
+#: templates/database/structure/show_create.twig:2
+#, fuzzy
+msgid "Showing create queries"
+msgstr "Tulı Sorawlar Kürsät"
+
+#: templates/columns_definitions/move_column.twig:7
+msgid "first"
+msgstr ""
+
+#: templates/table/structure/actions_in_table_structure.twig:10
+#, php-format
+msgid "A primary key has been added on %s."
+msgstr "\"%s\" öçen töp açqıç qorıldı."
+
+#: templates/table/structure/actions_in_table_structure.twig:28
+#: templates/table/structure/actions_in_table_structure.twig:46
+#: templates/table/structure/actions_in_table_structure.twig:75
+#: templates/table/structure/actions_in_table_structure.twig:98
+#, php-format
+msgid "An index has been added on %s."
+msgstr "\"%s\" öçen ber açqıç qorıldı."
+
+#: templates/table/structure/actions_in_table_structure.twig:122
+#: templates/table/structure/check_all_table_column.twig:83
+#, fuzzy
+#| msgid "Rename database to"
+msgid "Remove from central columns"
+msgstr "Biremlekne bolay atap quy"
+
+#: templates/table/structure/actions_in_table_structure.twig:126
+#: templates/table/structure/check_all_table_column.twig:76
+#, fuzzy
+#| msgid "Add %s field(s)"
+msgid "Add to central columns"
+msgstr "%s alan östäw"
+
+#: templates/database/designer/page_selector.twig:2
+#, fuzzy
+#| msgid "Select Tables"
+msgid "Select page"
+msgstr "Tüşämä Saylaw"
+
+#: templates/server/databases/index.twig:24
+msgid "No databases"
+msgstr "Biremleklär yuq"
+
+#: templates/login/twofactor/key_configure.twig:2
+msgid ""
+"Please connect your FIDO U2F device into your computer's USB port. Then "
+"confirm registration on the device."
+msgstr ""
+
+#: templates/server/databases/create.twig:8
+#: templates/server/databases/create.twig:36
+#, fuzzy
+#| msgid "Create new database"
+msgid "Create database"
+msgstr "Yaña biremlek yaratu"
+
+#: templates/database/multi_table_query/form.twig:1
+msgid "Query window"
+msgstr "Soraw täräzäse"
+
+#: templates/database/multi_table_query/form.twig:18
+#: templates/database/multi_table_query/form.twig:106
+#, fuzzy
+#| msgid "Select Tables"
+msgid "select table"
+msgstr "Tüşämä Saylaw"
+
+#: templates/database/multi_table_query/form.twig:25
+#: templates/database/multi_table_query/form.twig:114
+#, fuzzy
+#| msgid "Add/Delete Field Columns"
+msgid "select column"
+msgstr "Add/Delete Field Columns"
+
+#: templates/database/multi_table_query/form.twig:31
+#, fuzzy
+#| msgid "Tables"
+msgid "Table alias"
+msgstr "Tüşämä"
+
+#: templates/database/multi_table_query/form.twig:32
+#, fuzzy
+#| msgid "Column names"
+msgid "Column alias"
+msgstr "Alan iseme"
+
+#: templates/database/multi_table_query/form.twig:35
+msgid "Use this column in criteria"
+msgstr ""
+
+#: templates/database/multi_table_query/form.twig:38
+#, fuzzy
+#| msgid "Criteria"
+msgid "criteria"
+msgstr "Şart"
+
+#: templates/database/multi_table_query/form.twig:52
+#, fuzzy
+#| msgid "Add %s"
+msgid "Add as"
+msgstr "%s östäw"
+
+#: templates/database/multi_table_query/form.twig:97
+#, fuzzy
+#| msgid "Add/Delete Field Columns"
+msgid "Another column"
+msgstr "Add/Delete Field Columns"
+
+#: templates/database/multi_table_query/form.twig:125
+msgid "Enter criteria as free text"
+msgstr ""
+
+#: templates/database/multi_table_query/form.twig:133
+#, fuzzy
+#| msgid "Rename database to"
+msgid "Remove this column"
+msgstr "Biremlekne bolay atap quy"
+
+#: templates/database/multi_table_query/form.twig:160
+#, fuzzy
+#| msgid "Update Query"
+msgid "Update query"
+msgstr "Sorawnı Yañart"
+
+#: templates/server/variables/variable_row.twig:6
+msgid "This is a read-only variable and can not be edited"
+msgstr ""
+
+#: templates/prefs_second_configure.twig:8
+#, fuzzy
+#| msgid "Change password"
+msgid "Enable two-factor authentication"
+msgstr "Sersüz üzgärtü"
+
+#: templates/privileges/resource_limits.twig:2
+msgid "Resource limits"
+msgstr "Resurs çikläwläre"
+
+#: templates/privileges/resource_limits.twig:5
+msgid "Note: Setting these options to 0 (zero) removes the limit."
+msgstr "Beläse: 0 (nül) kertelgän çaqta çikläwe beterelä."
+
+#: templates/database/qbe/footer_options.twig:3
+#, fuzzy
+#| msgid "Add/Delete Criteria Row"
+msgid "Add/Delete criteria rows"
+msgstr "Add/Delete Criteria Row"
+
+#: templates/database/qbe/footer_options.twig:5
+#, fuzzy
+#| msgid "Add/Delete Field Columns"
+msgid "Add/Delete columns"
+msgstr "Add/Delete Field Columns"
+
+#: templates/database/designer/options_panel.twig:34
+#: templates/database/designer/options_panel.twig:200
+#, fuzzy
+msgid "Relationship operator"
+msgstr "Bäyläneşkä küzätü"
+
+#: templates/database/designer/options_panel.twig:85
+#: templates/database/designer/rename_to_panel.twig:22
+#, fuzzy
+msgid "Rename to"
+msgstr "Tüşämä adın üzgärtü"
+
+#: templates/database/designer/options_panel.twig:91
+#: templates/database/designer/rename_to_panel.twig:30
+#, fuzzy
+#| msgid "User name"
+msgid "New name"
+msgstr "İreşü iseme"
+
+#: templates/login/twofactor/key.twig:2
+msgid ""
+"Please connect your FIDO U2F device into your computer's USB port. Then "
+"confirm login on the device."
+msgstr ""
+
+#: templates/table/search/replace_preview.twig:13
+msgid "Find and replace - preview"
+msgstr ""
+
+#: templates/table/search/replace_preview.twig:17
+#: templates/console/display.twig:64 templates/console/display.twig:84
+#, fuzzy
+#| msgid "Column names"
+msgid "Count"
+msgstr "Alan iseme"
+
+#: templates/table/search/replace_preview.twig:18
+#, fuzzy
+#| msgid "Original position"
+msgid "Original string"
+msgstr "Tärtip buyınça urın"
+
+#: templates/table/search/replace_preview.twig:19
+#, fuzzy
+#| msgid "Relations"
+msgid "Replaced string"
+msgstr "Bäyläneşlär"
+
+#: templates/table/search/replace_preview.twig:37
+#, fuzzy
+msgid "Replace"
+msgstr "Bäyläneşlär"
+
+#: templates/table/index_form.twig:15
+msgid "Index name:"
+msgstr "Tezeş adı&nbsp;:"
+
+#: templates/table/index_form.twig:16
+msgid ""
+"\"PRIMARY\" <b>must</b> be the name of and <b>only of</b> a primary key!"
+msgstr "Töp açqıçnıñ <b>ğına</b> adı \"PRIMARY\" bulırğa <b>tieş</b>!"
+
+#: templates/table/index_form.twig:34
+#, fuzzy
+#| msgid "Index name:"
+msgid "Index choice:"
+msgstr "Tezeş adı&nbsp;:"
+
+#: templates/table/index_form.twig:42
+#, fuzzy
+#| msgid "Table options"
+msgid "Advanced Options"
+msgstr "Tüşämä köyläneşe"
+
+#: templates/table/index_form.twig:48
+msgid "Key block size:"
+msgstr ""
+
+#: templates/table/index_form.twig:65
+msgid "Index type:"
+msgstr "Tezeş töre&nbsp;:"
+
+#: templates/table/index_form.twig:77
+#, fuzzy
+#| msgid "User"
+msgid "Parser:"
+msgstr "Qullanuçı"
+
+#: templates/table/index_form.twig:93
+#, fuzzy
+msgid "Comment:"
+msgstr "Açıqlama"
+
+#: templates/table/index_form.twig:136 templates/table/index_form.twig:173
+msgid "Drag to reorder"
+msgstr ""
+
+#: templates/prefs_second_confirm.twig:2
+msgid "Confirm disabling two-factor authentication"
+msgstr ""
+
+#: templates/prefs_second_confirm.twig:5
+msgid ""
+"By disabling two factor authentication you will be again able to login using "
+"password only."
+msgstr ""
+
+#: templates/table/chart/tbl_chart.twig:15
+#, fuzzy
+#| msgid "Mar"
+msgctxt "Chart type"
+msgid "Bar"
+msgstr "Mar"
+
+#: templates/table/chart/tbl_chart.twig:19
+#, fuzzy
+#| msgid "Column names"
+msgctxt "Chart type"
+msgid "Column"
+msgstr "Alan iseme"
+
+#: templates/table/chart/tbl_chart.twig:23
+msgctxt "Chart type"
+msgid "Line"
+msgstr ""
+
+#: templates/table/chart/tbl_chart.twig:27
+#, fuzzy
+#| msgid "Engines"
+msgctxt "Chart type"
+msgid "Spline"
+msgstr "Engine"
+
+#: templates/table/chart/tbl_chart.twig:31
+msgctxt "Chart type"
+msgid "Area"
+msgstr ""
+
+#: templates/table/chart/tbl_chart.twig:35
+#, fuzzy
+#| msgid "PiB"
+msgctxt "Chart type"
+msgid "Pie"
+msgstr "PB"
+
+#: templates/table/chart/tbl_chart.twig:39
+#, fuzzy
+#| msgid "Time"
+msgctxt "Chart type"
+msgid "Timeline"
+msgstr "Waqıt"
+
+#: templates/table/chart/tbl_chart.twig:43
+msgctxt "Chart type"
+msgid "Scatter"
+msgstr ""
+
+#: templates/table/chart/tbl_chart.twig:48
+msgid "Stacked"
+msgstr ""
+
+#: templates/table/chart/tbl_chart.twig:51
+#, fuzzy
+#| msgid "Report title"
+msgid "Chart title:"
+msgstr "Yomğaq başlığı"
+
+#: templates/table/chart/tbl_chart.twig:56
+msgid "X-Axis:"
+msgstr ""
+
+#: templates/table/chart/tbl_chart.twig:71
+#, fuzzy
+msgid "Series:"
+msgstr "SQL-soraw"
+
+#: templates/table/chart/tbl_chart.twig:102
+msgid "X-Axis label:"
+msgstr ""
+
+#: templates/table/chart/tbl_chart.twig:104
+#, fuzzy
+#| msgid "Value"
+msgid "X Values"
+msgstr "Bäyä"
+
+#: templates/table/chart/tbl_chart.twig:107
+msgid "Y-Axis label:"
+msgstr ""
+
+#: templates/table/chart/tbl_chart.twig:109
+#, fuzzy
+#| msgid "Value"
+msgid "Y Values"
+msgstr "Bäyä"
+
+#: templates/table/chart/tbl_chart.twig:115
+msgid "Series names are in a column"
+msgstr ""
+
+#: templates/table/chart/tbl_chart.twig:118
+#, fuzzy
+#| msgid "Inside table(s):"
+msgid "Series column:"
+msgstr "Kiläse tüşämä eçendä:"
+
+#: templates/table/chart/tbl_chart.twig:132
+#, fuzzy
+#| msgid "Number of fields"
+msgid "Value Column:"
+msgstr "Alannar sanı"
+
+#: templates/table/chart/tbl_chart.twig:153
+#, fuzzy
+#| msgid "Save as file"
+msgid "Save chart as image"
+msgstr "Biremgä saqlıysı"
+
+#: templates/table/search/zoom_result_form.twig:7
+msgid "Browse/Edit the points"
+msgstr ""
+
+#: templates/table/search/zoom_result_form.twig:15
+#, fuzzy
+msgid "How to use"
+msgstr "PHP Söreme"
+
+#: templates/table/search/zoom_result_form.twig:23
+#, fuzzy
+#| msgid "Reset"
+msgid "Reset zoom"
+msgstr "Awdar"
 
 #: templates/database/designer/side_menu.twig:13
 #: templates/database/designer/side_menu.twig:19
@@ -15614,23 +16889,6 @@ msgstr "Tamğalanğan soraw cibärü"
 msgid "Press Enter to execute query"
 msgstr "Tamğalanğan soraw cibärü"
 
-#: templates/console/display.twig:31 templates/console/display.twig:84
-#: templates/console/display.twig:175 templates/console/bookmark_content.twig:7
-msgid "Collapse"
-msgstr ""
-
-#: templates/console/display.twig:31 templates/console/display.twig:84
-#: templates/console/display.twig:175 templates/console/bookmark_content.twig:7
-msgid "Expand"
-msgstr ""
-
-#: templates/console/display.twig:31 templates/console/display.twig:175
-#: templates/console/bookmark_content.twig:7
-#, fuzzy
-#| msgid "in query"
-msgid "Requery"
-msgstr "sorawda"
-
 #: templates/console/display.twig:31 templates/console/display.twig:175
 #, fuzzy
 #| msgid "Explain SQL"
@@ -15673,13 +16931,6 @@ msgstr "Kimep"
 msgid "Order:"
 msgstr ""
 
-#: templates/console/display.twig:64 templates/console/display.twig:84
-#: templates/table/search/replace_preview.twig:17
-#, fuzzy
-#| msgid "Column names"
-msgid "Count"
-msgstr "Alan iseme"
-
 #: templates/console/display.twig:64
 #, fuzzy
 #| msgid "Execute bookmarked query"
@@ -15715,15 +16966,6 @@ msgstr "Tösle kürsät"
 #| msgid "Indexes"
 msgid "Hide trace"
 msgstr "Tezeşlär"
-
-#: templates/console/display.twig:99
-#: templates/columns_definitions/column_definitions_form.twig:32
-#: templates/export/alias_add.twig:18 templates/export/alias_add.twig:32
-#: templates/export/alias_add.twig:46
-#, fuzzy
-#| msgid "And"
-msgid "Add"
-msgstr "Wä"
 
 #: templates/console/display.twig:112
 #, fuzzy
@@ -15779,393 +17021,11 @@ msgstr ""
 msgid "Switch to dark theme"
 msgstr "Kübäytelgän tüşämägä küçäse"
 
-#: templates/columns_definitions/move_column.twig:7
-msgid "first"
-msgstr ""
-
-#: templates/columns_definitions/move_column.twig:12
-#: templates/table/structure/add_column.twig:19
-#, fuzzy, php-format
-#| msgid "After %s"
-msgid "after %s"
-msgstr "%s artınnan"
-
-#: templates/export/alias_item.twig:8
-msgid "Remove"
-msgstr ""
-
-#: templates/table/gis_visualization/gis_visualization.twig:3
-msgid "Display GIS Visualization"
-msgstr ""
-
-#: templates/table/gis_visualization/gis_visualization.twig:8
+#: templates/privileges/add_privileges_table.twig:3
 #, fuzzy
-#| msgid "Add/Delete Field Columns"
-msgid "Label column"
-msgstr "Add/Delete Field Columns"
-
-#: templates/table/gis_visualization/gis_visualization.twig:11
-msgid "-- None --"
-msgstr ""
-
-#: templates/table/gis_visualization/gis_visualization.twig:19
-#, fuzzy
-#| msgid "Total"
-msgid "Spatial column"
-msgstr "Tulayım"
-
-#: templates/table/search/zoom_result_form.twig:7
-msgid "Browse/Edit the points"
-msgstr ""
-
-#: templates/table/search/zoom_result_form.twig:15
-#, fuzzy
-msgid "How to use"
-msgstr "PHP Söreme"
-
-#: templates/table/search/zoom_result_form.twig:23
-#, fuzzy
-#| msgid "Reset"
-msgid "Reset zoom"
-msgstr "Awdar"
-
-#: templates/login/twofactor/application.twig:2
-#: templates/login/twofactor/application_configure.twig:9
-#, fuzzy
-#| msgid "Documentation"
-msgid "Authentication code:"
-msgstr "Qullanma"
-
-#: templates/login/twofactor/application.twig:4
-msgid ""
-"Open the two-factor authentication app on your device to view your "
-"authentication code and verify your identity."
-msgstr ""
-
-#: templates/database/designer/rename_to_panel.twig:22
-#: templates/database/designer/options_panel.twig:85
-#, fuzzy
-msgid "Rename to"
-msgstr "Tüşämä adın üzgärtü"
-
-#: templates/database/designer/rename_to_panel.twig:30
-#: templates/database/designer/options_panel.twig:91
-#, fuzzy
-#| msgid "User name"
-msgid "New name"
-msgstr "İreşü iseme"
-
-#: templates/table/search/selection_form.twig:12
-#, fuzzy
-#| msgid "Do a \"query by example\" (wildcard: \"%\")"
-msgid "Do a \"query by example\" (wildcard: \"%\") for two different columns"
-msgstr "\"Ürnäk buyınça soraw\" eşkärtü (almaştırma: \"%\")"
-
-#: templates/table/search/selection_form.twig:42
-msgid "Do a \"query by example\" (wildcard: \"%\")"
-msgstr "\"Ürnäk buyınça soraw\" eşkärtü (almaştırma: \"%\")"
-
-#: templates/login/twofactor.twig:4
-msgid "Verify"
-msgstr ""
-
-#: templates/server/variables/session_variable_row.twig:3
-msgid "Session value"
-msgstr "Sessi bäyäse"
-
-#: templates/privileges/resource_limits.twig:2
-msgid "Resource limits"
-msgstr "Resurs çikläwläre"
-
-#: templates/privileges/resource_limits.twig:5
-msgid "Note: Setting these options to 0 (zero) removes the limit."
-msgstr "Beläse: 0 (nül) kertelgän çaqta çikläwe beterelä."
-
-#: templates/database/designer/aggregate_query_panel.twig:22
-#: templates/database/designer/options_panel.twig:100
-#, fuzzy
-#| msgid "Create"
-msgid "Aggregate"
-msgstr "Yarat"
-
-#: templates/database/designer/aggregate_query_panel.twig:30
-#: templates/database/designer/where_query_panel.twig:30
-#: templates/table/search/table_header.twig:9
-#: templates/database/designer/having_query_panel.twig:30
-#: templates/database/designer/having_query_panel.twig:61
-#: templates/database/designer/options_panel.twig:106
-#: templates/database/designer/options_panel.twig:170
-msgid "Operator"
-msgstr "Operator"
-
-#: templates/table/structure/table_structure_row.twig:55
-#, fuzzy, php-format
-#| msgid "Table %s has been dropped."
-msgid "Column %s has been dropped."
-msgstr "\"%s\" atlı tüşämä beterelde"
-
-#: templates/database/designer/where_query_panel.twig:59
-#: templates/database/designer/having_query_panel.twig:90
-#: templates/database/designer/options_panel.twig:63
-#: templates/database/designer/options_panel.twig:229
-#, fuzzy
-#| msgid "Export"
-msgid "Except"
-msgstr "Export"
-
-#: templates/database/designer/where_query_panel.twig:71
-#: templates/database/designer/having_query_panel.twig:102
-#: templates/database/designer/options_panel.twig:75
-#: templates/database/designer/options_panel.twig:241
-#, fuzzy
-#| msgid "in query"
-msgid "subquery"
-msgstr "sorawda"
-
-#: templates/toggle_button.twig:4
-msgid "Click to toggle"
-msgstr ""
-
-#: templates/table/chart/tbl_chart.twig:15
-#, fuzzy
-#| msgid "Mar"
-msgctxt "Chart type"
-msgid "Bar"
-msgstr "Mar"
-
-#: templates/table/chart/tbl_chart.twig:19
-#, fuzzy
-#| msgid "Column names"
-msgctxt "Chart type"
-msgid "Column"
-msgstr "Alan iseme"
-
-#: templates/table/chart/tbl_chart.twig:23
-msgctxt "Chart type"
-msgid "Line"
-msgstr ""
-
-#: templates/table/chart/tbl_chart.twig:27
-#, fuzzy
-#| msgid "Engines"
-msgctxt "Chart type"
-msgid "Spline"
-msgstr "Engine"
-
-#: templates/table/chart/tbl_chart.twig:31
-msgctxt "Chart type"
-msgid "Area"
-msgstr ""
-
-#: templates/table/chart/tbl_chart.twig:35
-#, fuzzy
-#| msgid "PiB"
-msgctxt "Chart type"
-msgid "Pie"
-msgstr "PB"
-
-#: templates/table/chart/tbl_chart.twig:39
-#, fuzzy
-#| msgid "Time"
-msgctxt "Chart type"
-msgid "Timeline"
-msgstr "Waqıt"
-
-#: templates/table/chart/tbl_chart.twig:43
-msgctxt "Chart type"
-msgid "Scatter"
-msgstr ""
-
-#: templates/table/chart/tbl_chart.twig:48
-msgid "Stacked"
-msgstr ""
-
-#: templates/table/chart/tbl_chart.twig:51
-#, fuzzy
-#| msgid "Report title"
-msgid "Chart title:"
-msgstr "Yomğaq başlığı"
-
-#: templates/table/chart/tbl_chart.twig:56
-msgid "X-Axis:"
-msgstr ""
-
-#: templates/table/chart/tbl_chart.twig:71
-#, fuzzy
-msgid "Series:"
-msgstr "SQL-soraw"
-
-#: templates/table/chart/tbl_chart.twig:102
-msgid "X-Axis label:"
-msgstr ""
-
-#: templates/table/chart/tbl_chart.twig:104
-#, fuzzy
-#| msgid "Value"
-msgid "X Values"
-msgstr "Bäyä"
-
-#: templates/table/chart/tbl_chart.twig:107
-msgid "Y-Axis label:"
-msgstr ""
-
-#: templates/table/chart/tbl_chart.twig:109
-#, fuzzy
-#| msgid "Value"
-msgid "Y Values"
-msgstr "Bäyä"
-
-#: templates/table/chart/tbl_chart.twig:115
-msgid "Series names are in a column"
-msgstr ""
-
-#: templates/table/chart/tbl_chart.twig:118
-#, fuzzy
-#| msgid "Inside table(s):"
-msgid "Series column:"
-msgstr "Kiläse tüşämä eçendä:"
-
-#: templates/table/chart/tbl_chart.twig:132
-#, fuzzy
-#| msgid "Number of fields"
-msgid "Value Column:"
-msgstr "Alannar sanı"
-
-#: templates/table/chart/tbl_chart.twig:153
-#, fuzzy
-#| msgid "Save as file"
-msgid "Save chart as image"
-msgstr "Biremgä saqlıysı"
-
-#: templates/database/structure/show_create_row.twig:7
-#, fuzzy, php-format
-#| msgid "Create User"
-msgid "Create %s"
-msgstr "Server söreme"
-
-#: templates/server/variables/variable_row.twig:6
-msgid "This is a read-only variable and can not be edited"
-msgstr ""
-
-#: templates/table/structure/display_table_stats.twig:14
-msgid "Space usage"
-msgstr "Totılğan Alan"
-
-#: templates/table/structure/display_table_stats.twig:37
-msgid "Effective"
-msgstr "Uñışlı"
-
-#: templates/columns_definitions/column_length.twig:9
-msgid "Edit ENUM/SET values"
-msgstr ""
-
-#: templates/database/structure/show_create.twig:2
-#, fuzzy
-msgid "Showing create queries"
-msgstr "Tulı Sorawlar Kürsät"
-
-#: templates/login/header.twig:12
-msgid ""
-"There is mismatch between HTTPS indicated on the server and client. This can "
-"lead to non working phpMyAdmin or a security risk. Please fix your server "
-"configuration to indicate HTTPS properly."
-msgstr ""
-
-#: templates/table/secondary_tabs.twig:9
-#, fuzzy
-#| msgid "Relation view"
-msgid "Relation view"
-msgstr "Bäyläneşkä küzätü"
-
-#: templates/view_create.twig:13
-#: templates/table/structure/display_structure.twig:136
-#, fuzzy
-#| msgid "Print view"
-msgid "Edit view"
-msgstr "Bastıru küreneşe"
-
-#: templates/view_create.twig:65
-msgid "VIEW name"
-msgstr ""
-
-#: templates/view_create.twig:79
-msgid "Column names"
-msgstr "Alan iseme"
-
-#: templates/server/databases/table_row.twig:13
-#, fuzzy, php-format
-msgid "Jump to database '%s'"
-msgstr "Biremleklär yuq"
-
-#: templates/server/databases/table_row.twig:61
-#, php-format
-msgid "Check privileges for database \"%s\"."
-msgstr "\"%s\" biremlege öçen xoquqlar tikşerü."
-
-#: templates/server/databases/table_row.twig:62
-#, fuzzy
-#| msgid "Check Privileges"
-msgid "Check privileges"
-msgstr "Xoquqlar tikşerü"
-
-#: templates/table/index_form.twig:15
-msgid "Index name:"
-msgstr "Tezeş adı&nbsp;:"
-
-#: templates/table/index_form.twig:16
-msgid ""
-"\"PRIMARY\" <b>must</b> be the name of and <b>only of</b> a primary key!"
-msgstr "Töp açqıçnıñ <b>ğına</b> adı \"PRIMARY\" bulırğa <b>tieş</b>!"
-
-#: templates/table/index_form.twig:34
-#, fuzzy
-#| msgid "Index name:"
-msgid "Index choice:"
-msgstr "Tezeş adı&nbsp;:"
-
-#: templates/table/index_form.twig:42
-#, fuzzy
-#| msgid "Table options"
-msgid "Advanced Options"
-msgstr "Tüşämä köyläneşe"
-
-#: templates/table/index_form.twig:48
-msgid "Key block size:"
-msgstr ""
-
-#: templates/table/index_form.twig:65
-msgid "Index type:"
-msgstr "Tezeş töre&nbsp;:"
-
-#: templates/table/index_form.twig:77
-#, fuzzy
-#| msgid "User"
-msgid "Parser:"
-msgstr "Qullanuçı"
-
-#: templates/table/index_form.twig:93
-#, fuzzy
-msgid "Comment:"
-msgstr "Açıqlama"
-
-#: templates/table/index_form.twig:136 templates/table/index_form.twig:173
-msgid "Drag to reorder"
-msgstr ""
-
-#: templates/server/binlog/log_selector.twig:5
-msgid "Select binary log to view"
-msgstr "Qaraw öçen binar köndälek saylaw"
-
-#: templates/privileges/add_privileges_database.twig:1
-#, fuzzy
-#| msgid "Add privileges on the following database"
-msgid "Add privileges on the following database(s):"
-msgstr "Kiläse biremlek öçen xoquqlar östäw"
-
-#: templates/privileges/add_privileges_database.twig:14
-msgid "Wildcards % and _ should be escaped with a \\ to use them literally."
-msgstr ""
-"_ belän % bilgelären şul kileş kenä qullanu öçen \\ belän ütkärergä kiräk."
+#| msgid "Add privileges on the following table"
+msgid "Add privileges on the following table:"
+msgstr "Kiläse tüşämä öçen xoquqlar östäw"
 
 #: templates/server/sub_page_header.twig:2
 msgid "Server variables and settings"
@@ -16187,477 +17047,15 @@ msgstr "Bilgelämä &amp; Tezü cayı"
 msgid "Databases statistics"
 msgstr "Biremlek nöfüsläre"
 
-#: templates/start_and_number_of_rows_panel.twig:3
-#, fuzzy
-#| msgid "Start"
-msgid "Start row:"
-msgstr "Şmb"
-
-#: templates/table/structure/display_structure.twig:190
-#: templates/table/structure/display_partitions.twig:4
-#, fuzzy
-#| msgid "Position"
-msgid "Partitions"
-msgstr "Urın"
-
-#: templates/privileges/column_privileges.twig:21
-#: templates/privileges/column_privileges.twig:22
-#, fuzzy
-#| msgid "None"
-msgctxt "None privileges"
-msgid "None"
-msgstr "Buş"
-
-#: templates/prefs_second.twig:3
-#, fuzzy
-msgid "Two-factor authentication status"
-msgstr "Bäyläneşlär"
-
-#: templates/prefs_second.twig:9
-msgid ""
-"Two-factor authentication is not available, please install optional "
-"dependencies to enable authentication backends."
-msgstr ""
-
-#: templates/prefs_second.twig:12
-msgid "Two-factor authentication is available and configured for this account."
-msgstr ""
-
-#: templates/prefs_second.twig:14
-msgid ""
-"Two-factor authentication is available, but not configured for this account."
-msgstr ""
-
-#: templates/prefs_second.twig:18
-msgid ""
-"Two-factor authentication is not available, enable phpMyAdmin configuration "
-"storage to use it."
-msgstr ""
-
-#: templates/prefs_second.twig:27
-msgid "You have enabled two factor authentication."
-msgstr ""
-
-#: templates/prefs_second.twig:31 templates/prefs_second_confirm.twig:9
-#, fuzzy
-#| msgid "Change password"
-msgid "Disable two-factor authentication"
-msgstr "Sersüz üzgärtü"
-
-#: templates/prefs_second.twig:37 templates/prefs_second.twig:49
-#: templates/prefs_second_configure.twig:2
-msgid "Configure two-factor authentication"
-msgstr ""
-
-#: templates/columns_definitions/column_virtuality.twig:29
-#: templates/table/structure/display_partitions.twig:26
-#, fuzzy
-#| msgid "Compression"
-msgid "Expression"
-msgstr "Qısu"
-
-#: templates/table/structure/row_stats_table.twig:2
-#, fuzzy
-#| msgid "Row Statistics"
-msgid "Row statistics"
-msgstr "Kerem Nöfüse"
-
-#: templates/table/structure/row_stats_table.twig:8
-msgid "static"
-msgstr ""
-
-#: templates/table/structure/row_stats_table.twig:10
-msgid "dynamic"
-msgstr "üzgärüçän"
-
-#: templates/table/structure/row_stats_table.twig:21
-msgid "partitioned"
-msgstr ""
-
-#: templates/table/structure/row_stats_table.twig:50
-msgid "Row length"
-msgstr "Kerem ozınlığı"
-
-#: templates/table/structure/row_stats_table.twig:62
-msgid "Row size"
-msgstr "Kerem olılığı"
-
-#: templates/table/structure/row_stats_table.twig:69
-msgid "Next autoindex"
-msgstr ""
-
-#: templates/prefs_second_confirm.twig:2
-msgid "Confirm disabling two-factor authentication"
-msgstr ""
-
-#: templates/prefs_second_confirm.twig:5
-msgid ""
-"By disabling two factor authentication you will be again able to login using "
-"password only."
-msgstr ""
-
-#: templates/prefs_autoload.twig:7
-msgid ""
-"Your browser has phpMyAdmin configuration for this domain. Would you like to "
-"import it for current session?"
-msgstr ""
-
-#: templates/prefs_autoload.twig:13
-#, fuzzy
-#| msgid "Allows inserting and replacing data."
-msgid "Delete settings"
-msgstr "Eçtälek östäw/almaştıru xoquqı."
-
-#: templates/error/report_form.twig:6
-msgid ""
-"This report automatically includes data about the error and information "
-"about relevant configuration settings. It will be sent to the phpMyAdmin "
-"team for debugging the error."
-msgstr ""
-
-#: templates/error/report_form.twig:12
-msgid ""
-"Can you tell us the steps leading to this error? It decisively helps in "
-"debugging:"
-msgstr ""
-
-#: templates/error/report_form.twig:19
-msgid "You may examine the data in the error report:"
-msgstr ""
-
-#: templates/database/structure/structure_table_row.twig:222
-msgid "in use"
-msgstr "totıla"
-
-#: templates/prefs_second_configure.twig:8
-#, fuzzy
-#| msgid "Change password"
-msgid "Enable two-factor authentication"
-msgstr "Sersüz üzgärtü"
-
 #: templates/privileges/privileges_summary.twig:20
 msgid "Column-specific privileges"
 msgstr "Berär bağana öçen xoquqlar"
 
-#: templates/privileges/add_user_fieldset.twig:2
-msgctxt "Create new user"
-msgid "New"
-msgstr ""
-
-#: templates/table/search/options.twig:6
+#: templates/table/secondary_tabs.twig:9
 #, fuzzy
-#| msgid "Select fields (at least one):"
-msgid "Select columns (at least one):"
-msgstr "Alannar saylísı (iñ kimendä ber):"
-
-#: templates/table/search/options.twig:26
-msgid "Add search conditions (body of the \"where\" clause):"
-msgstr "Ezläw şartın östäw (\"WHERE\" eçtälege):"
-
-#: templates/table/search/options.twig:34
-msgid "Number of rows per page"
-msgstr "Bit sayın Kertem sanı"
-
-#: templates/table/search/options.twig:45
-msgid "Display order:"
-msgstr "Kürsätü tärtibe:"
-
-#: templates/database/designer/page_selector.twig:2
-#, fuzzy
-#| msgid "Select Tables"
-msgid "Select page"
-msgstr "Tüşämä Saylaw"
-
-#: templates/database/structure/favorite_anchor.twig:4
-#, fuzzy
-msgid "Add to Favorites"
-msgstr "Yaña qullanuçı östäw"
-
-#: templates/table/relation/foreign_key_row.twig:15
-#, fuzzy, php-format
-#| msgid "Disable foreign key checks"
-msgid "Foreign key constraint %s has been dropped"
-msgstr "Yat tezeş tikşerüen sünderep"
-
-#: templates/table/relation/foreign_key_row.twig:39
-#, fuzzy
-#| msgid "Column names"
-msgid "Constraint name"
-msgstr "Alan iseme"
-
-#: templates/table/relation/foreign_key_row.twig:91
-#: templates/database/multi_table_query/form.twig:143
-#, fuzzy
-#| msgid "Add %s field(s)"
-msgid "+ Add column"
-msgstr "%s alan östäw"
-
-#: templates/database/designer/edit_delete_pages.twig:6
-#, fuzzy
-#| msgid "Page number:"
-msgid "Page to open"
-msgstr "Bitneñ sanı:"
-
-#: templates/database/designer/edit_delete_pages.twig:6
-#, fuzzy
-msgid "Page to delete"
+#| msgid "Relation view"
+msgid "Relation view"
 msgstr "Bäyläneşkä küzätü"
-
-#: templates/table/search/replace_preview.twig:13
-msgid "Find and replace - preview"
-msgstr ""
-
-#: templates/table/search/replace_preview.twig:18
-#, fuzzy
-#| msgid "Original position"
-msgid "Original string"
-msgstr "Tärtip buyınça urın"
-
-#: templates/table/search/replace_preview.twig:19
-#, fuzzy
-#| msgid "Relations"
-msgid "Replaced string"
-msgstr "Bäyläneşlär"
-
-#: templates/table/search/replace_preview.twig:37
-#, fuzzy
-msgid "Replace"
-msgstr "Bäyläneşlär"
-
-#: templates/database/create_table.twig:15
-#, fuzzy
-#| msgid "Number of fields"
-msgid "Number of columns"
-msgstr "Alannar sanı"
-
-#: templates/table/relation/common_form.twig:6
-#, fuzzy
-#| msgid "Disable foreign key checks"
-msgid "Foreign key constraints"
-msgstr "Yat tezeş tikşerüen sünderep"
-
-#: templates/table/relation/common_form.twig:10
-msgid "Actions"
-msgstr "Eş"
-
-#: templates/table/relation/common_form.twig:11
-#, fuzzy
-#| msgid "Column names"
-msgid "Constraint properties"
-msgstr "Alan iseme"
-
-#: templates/table/relation/common_form.twig:15
-msgid ""
-"Creating a foreign key over a non-indexed column would automatically create "
-"an index on it. Alternatively, you can define an index below, before "
-"creating the foreign key."
-msgstr ""
-
-#: templates/table/relation/common_form.twig:20
-msgid ""
-"Only columns with index will be displayed. You can define an index below."
-msgstr ""
-
-#: templates/table/relation/common_form.twig:24
-msgid "Foreign key constraint"
-msgstr ""
-
-#: templates/table/relation/common_form.twig:89
-#, fuzzy
-#| msgid "Add constraints"
-msgid "+ Add constraint"
-msgstr "Çikläwlär östise"
-
-#: templates/table/relation/common_form.twig:99
-#: templates/table/relation/common_form.twig:104
-#, fuzzy
-#| msgid "Internal relations"
-msgid "Internal relationships"
-msgstr "Eçke bäyläneş"
-
-#: templates/table/relation/common_form.twig:110
-#, fuzzy
-#| msgid "Internal relations"
-msgid "Internal relation"
-msgstr "Eçke bäyläneş"
-
-#: templates/table/relation/common_form.twig:112
-msgid ""
-"An internal relation is not necessary when a corresponding FOREIGN KEY "
-"relation exists."
-msgstr ""
-
-#: templates/table/relation/common_form.twig:172
-#, fuzzy
-#| msgid "Choose field to display"
-msgid "Choose column to display:"
-msgstr "Kürsätäse Alan saylaw"
-
-#: templates/database/qbe/footer_options.twig:3
-#, fuzzy
-#| msgid "Add/Delete Criteria Row"
-msgid "Add/Delete criteria rows"
-msgstr "Add/Delete Criteria Row"
-
-#: templates/database/qbe/footer_options.twig:5
-#, fuzzy
-#| msgid "Add/Delete Field Columns"
-msgid "Add/Delete columns"
-msgstr "Add/Delete Field Columns"
-
-#: templates/table/structure/actions_in_table_structure.twig:10
-#, php-format
-msgid "A primary key has been added on %s."
-msgstr "\"%s\" öçen töp açqıç qorıldı."
-
-#: templates/table/structure/actions_in_table_structure.twig:28
-#: templates/table/structure/actions_in_table_structure.twig:46
-#: templates/table/structure/actions_in_table_structure.twig:75
-#: templates/table/structure/actions_in_table_structure.twig:98
-#, php-format
-msgid "An index has been added on %s."
-msgstr "\"%s\" öçen ber açqıç qorıldı."
-
-#: templates/table/structure/actions_in_table_structure.twig:122
-#: templates/table/structure/check_all_table_column.twig:83
-#, fuzzy
-#| msgid "Rename database to"
-msgid "Remove from central columns"
-msgstr "Biremlekne bolay atap quy"
-
-#: templates/table/structure/actions_in_table_structure.twig:126
-#: templates/table/structure/check_all_table_column.twig:76
-#, fuzzy
-#| msgid "Add %s field(s)"
-msgid "Add to central columns"
-msgstr "%s alan östäw"
-
-#: templates/login/twofactor/key.twig:2
-msgid ""
-"Please connect your FIDO U2F device into your computer's USB port. Then "
-"confirm login on the device."
-msgstr ""
-
-#: templates/table/search/search_and_replace.twig:3
-#, fuzzy
-#| msgid "Replace NULL by"
-msgid "Replace with:"
-msgstr "NULL'nı almaştırası:"
-
-#: templates/table/search/search_and_replace.twig:19
-#, fuzzy
-#| msgid "as regular expression"
-msgid "Use regular expression"
-msgstr "regexp kileş"
-
-#: templates/database/designer/table_list.twig:4
-#, fuzzy
-msgid "Hide/Show all"
-msgstr "Barısın kürsät"
-
-#: templates/database/designer/table_list.twig:14
-#, fuzzy
-#| msgid "Propose table structure"
-msgid "Hide/Show tables with no relationship"
-msgstr "Tüşämä tözeleşenä küzätü"
-
-#: templates/database/designer/table_list.twig:55
-#, fuzzy
-msgid "Number of tables:"
-msgstr "Alannar sanı"
-
-#: templates/table/search/options_zoom.twig:6
-msgid "Use this column to label each point"
-msgstr ""
-
-#: templates/table/search/options_zoom.twig:32
-msgid "Maximum rows to plot"
-msgstr ""
-
-#: templates/database/designer/delete_relation_panel.twig:21
-#, fuzzy
-msgid "Delete relationship"
-msgstr "Server söreme"
-
-#: templates/columns_definitions/column_name.twig:4
-#, php-format
-msgid "Referenced by %s."
-msgstr ""
-
-#: templates/columns_definitions/column_name.twig:12
-#, fuzzy
-#| msgid "Disable foreign key checks"
-msgid "Is a foreign key."
-msgstr "Yat tezeş tikşerüen sünderep"
-
-#: templates/columns_definitions/column_name.twig:40
-#, fuzzy
-#| msgid "Rename database to"
-msgid "Pick from Central Columns"
-msgstr "Biremlekne bolay atap quy"
-
-#: templates/database/structure/check_all_tables.twig:6
-msgid "Check tables having overhead"
-msgstr "Check overheaded"
-
-#: templates/database/structure/check_all_tables.twig:10
-#, fuzzy
-#| msgid "No tables"
-msgid "Copy table"
-msgstr "Berär genä dä tüşämä yuq"
-
-#: templates/database/structure/check_all_tables.twig:11
-#, fuzzy
-#| msgid "Show color"
-msgid "Show create"
-msgstr "Tösle kürsät"
-
-#: templates/database/structure/check_all_tables.twig:25
-msgid "Prefix"
-msgstr ""
-
-#: templates/database/structure/check_all_tables.twig:26
-#, fuzzy
-msgid "Add prefix to table"
-msgstr "Biremleklär yuq"
-
-#: templates/database/structure/check_all_tables.twig:27
-#, fuzzy
-#| msgid "Replace table data with file"
-msgid "Replace table prefix"
-msgstr "Tüşämä eçtälegen bu biremlektäge belän alamştırası"
-
-#: templates/database/structure/check_all_tables.twig:33
-#, fuzzy
-#| msgid "Add %s field(s)"
-msgid "Add columns to central list"
-msgstr "%s alan östäw"
-
-#: templates/database/structure/check_all_tables.twig:34
-msgid "Remove columns from central list"
-msgstr ""
-
-#: templates/database/structure/check_all_tables.twig:35
-#, fuzzy
-#| msgid "Add %s field(s)"
-msgid "Make consistent with central list"
-msgstr "%s alan östäw"
-
-#: templates/privileges/delete_user_fieldset.twig:3
-#, fuzzy
-#| msgid "Remove selected users"
-msgid "Remove selected user accounts"
-msgstr "Saylanğan qullanuçı beterü"
-
-#: templates/privileges/delete_user_fieldset.twig:6
-msgid "Revoke all active privileges from the users and delete them afterwards."
-msgstr "Qullanuçı xoquqların awdarıp beteräse."
-
-#: templates/privileges/delete_user_fieldset.twig:7
-#: templates/privileges/delete_user_fieldset.twig:10
-#: templates/privileges/delete_user_fieldset.twig:11
-msgid "Drop the databases that have the same names as the users."
-msgstr "Bu qullanuçılar kebek atalğan biremleklärne beteräse."
 
 #: templates/columns_definitions/partitions.twig:17
 #, fuzzy
@@ -16688,13 +17086,6 @@ msgstr "Urın"
 #, fuzzy
 #| msgid "Position"
 msgid "Subpartitions:"
-msgstr "Urın"
-
-#: templates/columns_definitions/partitions.twig:76
-#: templates/table/structure/display_partitions.twig:24
-#, fuzzy
-#| msgid "Position"
-msgid "Partition"
 msgstr "Urın"
 
 #: templates/columns_definitions/partitions.twig:78
@@ -16750,437 +17141,46 @@ msgstr "Ezläw"
 msgid "Node group"
 msgstr "Qullanuçı"
 
-#: templates/table/structure/add_column.twig:9
-#, fuzzy, php-format
-#| msgid "Add %s field(s)"
-msgid "Add %s column(s)"
-msgstr "%s alan östäw"
-
-#: templates/table/structure/add_column.twig:14
+#: templates/database/create_table.twig:15
 #, fuzzy
-#| msgid "At Beginning of Table"
-msgid "at beginning of table"
-msgstr "Tüşämä Başına"
+#| msgid "Number of fields"
+msgid "Number of columns"
+msgstr "Alannar sanı"
 
-#: templates/server/databases/index.twig:24
-msgid "No databases"
-msgstr "Biremleklär yuq"
-
-#: templates/table/structure/partition_definition_form.twig:6
-#: templates/table/structure/display_partitions.twig:141
-#, fuzzy
-#| msgid "Print view"
-msgid "Edit partitioning"
-msgstr "Bastıru küreneşe"
-
-#: templates/table/structure/optional_action_links.twig:6
-msgid "Propose table structure"
-msgstr "Tüşämä tözeleşenä küzätü"
-
-#: templates/table/structure/optional_action_links.twig:19
-#: templates/table/structure/move_columns_dialog.twig:1
-#, fuzzy
-#| msgid "Add %s field(s)"
-msgid "Move columns"
-msgstr "%s alan östäw"
-
-#: templates/table/structure/optional_action_links.twig:22
-msgid "Normalize"
+#: templates/table/gis_visualization/gis_visualization.twig:3
+msgid "Display GIS Visualization"
 msgstr ""
 
-#: templates/table/structure/optional_action_links.twig:28
-#, fuzzy
-msgid "Track view"
-msgstr "Tüşämä tikşerü"
-
-#: templates/columns_definitions/column_definitions_form.twig:23
-#, fuzzy
-msgid "Table name"
-msgstr "tüşämä adı"
-
-#: templates/columns_definitions/column_definitions_form.twig:40
-#, fuzzy
-#| msgid "Column names"
-msgid "column(s)"
-msgstr "Alan iseme"
-
-#: templates/columns_definitions/column_definitions_form.twig:74
-#, fuzzy
-#| msgid "Collation"
-msgid "Collation:"
-msgstr "Tezü cayı"
-
-#: templates/columns_definitions/column_definitions_form.twig:77
-#, fuzzy
-#| msgid "Storage Engine"
-msgid "Storage Engine:"
-msgstr "Saqlaw Isulı"
-
-#: templates/columns_definitions/column_definitions_form.twig:82
-#, fuzzy
-#| msgid "Connections"
-msgid "Connection:"
-msgstr "Totaşular"
-
-#: templates/columns_definitions/column_definitions_form.twig:128
-msgid "PARTITION definition:"
-msgstr ""
-
-#: templates/database/designer/schema_export.twig:4
-msgid "Select Export Relational Type"
-msgstr ""
-
-#: templates/database/structure/body_for_table_summary.twig:6
-#, fuzzy, php-format
-#| msgid "%s table(s)"
-msgid "%s table"
-msgid_plural "%s tables"
-msgstr[0] "%s tüşämä"
-
-#: templates/database/structure/body_for_table_summary.twig:17
-msgid "Sum"
-msgstr "Sum"
-
-#: templates/server/databases/create.twig:8
-#: templates/server/databases/create.twig:36
-#, fuzzy
-#| msgid "Create new database"
-msgid "Create database"
-msgstr "Yaña biremlek yaratu"
-
-#: templates/server/databases/databases_footer.twig:65
-msgid ""
-"Note: Enabling the database statistics here might cause heavy traffic "
-"between the web server and the MySQL server."
-msgstr ""
-"Note: Enabling the Database statistics here might cause heavy traffic "
-"between the webserver and the MySQL one."
-
-#: templates/server/databases/databases_footer.twig:68
-#: templates/server/databases/databases_footer.twig:71
-#, fuzzy
-#| msgid "Enable Statistics"
-msgid "Enable statistics"
-msgstr "Nöfüsne Cibärü"
-
-#: templates/privileges/add_privileges_routine.twig:3
-#, fuzzy
-#| msgid "Add privileges on the following table"
-msgid "Add privileges on the following routine:"
-msgstr "Kiläse tüşämä öçen xoquqlar östäw"
-
-#: templates/privileges/add_privileges_table.twig:3
-#, fuzzy
-#| msgid "Add privileges on the following table"
-msgid "Add privileges on the following table:"
-msgstr "Kiläse tüşämä öçen xoquqlar östäw"
-
-#: templates/server/plugins/section.twig:9
-msgid "Plugin"
-msgstr ""
-
-#: templates/server/plugins/section.twig:12
-msgid "Author"
-msgstr ""
-
-#: templates/server/plugins/section.twig:23
-#, fuzzy
-#| msgid "Disabled"
-msgid "disabled"
-msgstr "Sünek"
-
-#: templates/database/designer/database_tables.twig:31
-#, fuzzy
-#| msgid "Add %s field(s)"
-msgid "Show/hide columns"
-msgstr "%s alan östäw"
-
-#: templates/database/designer/database_tables.twig:39
-#, fuzzy
-#| msgid "Database for user"
-msgid "See table structure"
-msgstr "Qullanuçı biremlege"
-
-#: templates/table/structure/move_columns_dialog.twig:2
-msgid "Move the columns by dragging them up and down."
-msgstr ""
-
-#: templates/database/designer/page_save_as.twig:17
-#, fuzzy
-#| msgid "No rows selected"
-msgid "Save to selected page"
-msgstr "Kertemnär sayladı"
-
-#: templates/database/designer/page_save_as.twig:17
-#, fuzzy
-#| msgid "Create a new index"
-msgid "Create a page and save to it"
-msgstr "Yaña tezeş yaratu"
-
-#: templates/database/designer/page_save_as.twig:30
-#, fuzzy
-#| msgid "User name"
-msgid "New page name"
-msgstr "İreşü iseme"
-
-#: templates/export/alias_add.twig:4
-msgid "Define new aliases"
-msgstr ""
-
-#: templates/export/alias_add.twig:9
-#, fuzzy
-#| msgid "Select Tables"
-msgid "Select database:"
-msgstr "Tüşämä Saylaw"
-
-#: templates/export/alias_add.twig:15
-#, fuzzy
-#| msgid "database name"
-msgid "New database name"
-msgstr "biremlek adı"
-
-#: templates/export/alias_add.twig:23
-#, fuzzy
-#| msgid "Select Tables"
-msgid "Select table:"
-msgstr "Tüşämä Saylaw"
-
-#: templates/export/alias_add.twig:29
-#, fuzzy
-#| msgid "New table"
-msgid "New table name"
-msgstr "Berär genä dä tüşämä yuq"
-
-#: templates/export/alias_add.twig:37
+#: templates/table/gis_visualization/gis_visualization.twig:8
 #, fuzzy
 #| msgid "Add/Delete Field Columns"
-msgid "Select column:"
+msgid "Label column"
 msgstr "Add/Delete Field Columns"
 
-#: templates/export/alias_add.twig:43
-#, fuzzy
-#| msgid "Column names"
-msgid "New column name"
-msgstr "Alan iseme"
-
-#: templates/database/designer/options_panel.twig:34
-#: templates/database/designer/options_panel.twig:200
-#, fuzzy
-msgid "Relationship operator"
-msgstr "Bäyläneşkä küzätü"
-
-#: templates/database/structure/tracking_icon.twig:3
-msgid "Tracking is active."
+#: templates/table/gis_visualization/gis_visualization.twig:11
+msgid "-- None --"
 msgstr ""
 
-#: templates/database/structure/tracking_icon.twig:5
-msgid "Tracking is not active."
-msgstr ""
-
-#: templates/login/twofactor/key_configure.twig:2
-msgid ""
-"Please connect your FIDO U2F device into your computer's USB port. Then "
-"confirm registration on the device."
-msgstr ""
-
-#: templates/columns_definitions/table_fields_definitions.twig:17
+#: templates/table/gis_visualization/gis_visualization.twig:19
 #, fuzzy
-#| msgid ""
-#| "field type is \"enum\" or \"set\", please enter the values using this "
-#| "mat: 'a','b','c'…<br />If you ever need to put a backslash (\"\\\") a "
-#| "single quote (\"'\") amongst those values, precede it with a kslash (for "
-#| "example '\\\\xyz' or 'a\\'b')."
-msgid ""
-"If column type is \"enum\" or \"set\", please enter the values using this "
-"format: 'a','b','c'…<br />If you ever need to put a backslash (\"\") or a "
-"single quote (\"'\") amongst those values, precede it with a backslash (for "
-"example '\\\\xyz' or 'a\\'b')."
-msgstr ""
-"Alan töre \"enum/set\" bulsa, bäyäsen bolayraq kertäse: 'a','b','c'…<br /"
-">Bäyä eçenä kireawış (\"\\\") yä sıñarquote (\"'\") kertäse bulsa, anı "
-"kireawıştırası bula (ürnäk: '\\\\xyz' yä ki 'a\\'b')."
-
-#: templates/columns_definitions/table_fields_definitions.twig:21
-msgid ""
-"For default values, please enter just a single value, without backslash "
-"escaping or quotes, using this format: a"
-msgstr ""
-"Töpcay bäyäsen kertkändä, kireawışlar qullanmasqa, cäyä eçenä da salmasqa. "
-"Bolayraq kertäse: a"
-
-#: templates/columns_definitions/table_fields_definitions.twig:59
-msgid "Virtuality"
-msgstr ""
-
-#: templates/columns_definitions/table_fields_definitions.twig:65
-#, fuzzy
-#| msgid "Add/Delete Field Columns"
-msgid "Move column"
-msgstr "Add/Delete Field Columns"
-
-#: templates/columns_definitions/table_fields_definitions.twig:76
-#: templates/columns_definitions/table_fields_definitions.twig:87
-msgid "List of available transformations and their options"
-msgstr ""
-
-#: templates/columns_definitions/table_fields_definitions.twig:82
-#, fuzzy
-#| msgid "Browser transformation"
-msgid "Browser display transformation options"
-msgstr "Browser transformation"
-
-#: templates/columns_definitions/table_fields_definitions.twig:83
-#: templates/columns_definitions/table_fields_definitions.twig:94
-#, fuzzy
-#| msgid ""
-#| "Please enter the values for transformation options using this format: "
-#| "'a', 100, b,'c'…<br />If you ever need to put a backslash (\"\\\") or a "
-#| "single quote (\"'\") amongst those values, precede it with a backslash "
-#| "(for example '\\\\xyz' or 'a\\'b')."
-msgid ""
-"Please enter the values for transformation options using this format: 'a', "
-"100, b,'c'…<br />If you ever need to put a backslash (\"\") or a single "
-"quote (\"'\") amongst those values, precede it with a backslash (for example "
-"'\\\\xyz' or 'a\\'b')."
-msgstr ""
-"Please enter the values for transformation options using this format: 'a', "
-"100, b,'c'…<br />If you ever need to put a backslash (\"\\\") or a single "
-"quote (\"'\") amongst those values, backslash it (for example '\\\\xyz' or 'a"
-"\\'b')."
-
-#: templates/columns_definitions/table_fields_definitions.twig:93
-#, fuzzy
-#| msgid "Transformation options"
-msgid "Input transformation options"
-msgstr "Transformation options"
-
-#: templates/table/structure/display_partitions.twig:8
-#, fuzzy
-#| msgid "No index defined!"
-msgid "No partitioning defined!"
-msgstr "Açqıç bilgelänmäde!"
-
-#: templates/table/structure/display_partitions.twig:11
-msgid "Partitioned by:"
-msgstr ""
-
-#: templates/table/structure/display_partitions.twig:16
-msgid "Sub partitioned by:"
-msgstr ""
-
-#: templates/table/structure/display_partitions.twig:29
-#, fuzzy
-#| msgid "Row length"
-msgid "Data length"
-msgstr "Kerem ozınlığı"
-
-#: templates/table/structure/display_partitions.twig:30
-#, fuzzy
-#| msgid "Row length"
-msgid "Index length"
-msgstr "Kerem ozınlığı"
-
-#: templates/table/structure/display_partitions.twig:135
-#, fuzzy
-#| msgid "Position"
-msgid "Partition table"
-msgstr "Urın"
-
-#: templates/login/twofactor/application_configure.twig:3
-msgid ""
-"Please scan following QR code into the two-factor authentication app on your "
-"device and enter authentication code it generates."
-msgstr ""
-
-#: templates/columns_definitions/column_default.twig:3
-#, fuzzy
-#| msgid "None"
-msgctxt "for default"
-msgid "None"
-msgstr "Buş"
-
-#: templates/columns_definitions/column_default.twig:5
-msgid "As defined:"
-msgstr ""
-
-#: templates/database/multi_table_query/form.twig:1
-msgid "Query window"
-msgstr "Soraw täräzäse"
-
-#: templates/database/multi_table_query/form.twig:18
-#: templates/database/multi_table_query/form.twig:106
-#, fuzzy
-#| msgid "Select Tables"
-msgid "select table"
-msgstr "Tüşämä Saylaw"
-
-#: templates/database/multi_table_query/form.twig:25
-#: templates/database/multi_table_query/form.twig:114
-#, fuzzy
-#| msgid "Add/Delete Field Columns"
-msgid "select column"
-msgstr "Add/Delete Field Columns"
-
-#: templates/database/multi_table_query/form.twig:31
-#, fuzzy
-#| msgid "Tables"
-msgid "Table alias"
-msgstr "Tüşämä"
-
-#: templates/database/multi_table_query/form.twig:32
-#, fuzzy
-#| msgid "Column names"
-msgid "Column alias"
-msgstr "Alan iseme"
-
-#: templates/database/multi_table_query/form.twig:35
-msgid "Use this column in criteria"
-msgstr ""
-
-#: templates/database/multi_table_query/form.twig:38
-#, fuzzy
-#| msgid "Criteria"
-msgid "criteria"
-msgstr "Şart"
-
-#: templates/database/multi_table_query/form.twig:52
-#, fuzzy
-#| msgid "Add %s"
-msgid "Add as"
-msgstr "%s östäw"
-
-#: templates/database/multi_table_query/form.twig:97
-#, fuzzy
-#| msgid "Add/Delete Field Columns"
-msgid "Another column"
-msgstr "Add/Delete Field Columns"
-
-#: templates/database/multi_table_query/form.twig:125
-msgid "Enter criteria as free text"
-msgstr ""
-
-#: templates/database/multi_table_query/form.twig:133
-#, fuzzy
-#| msgid "Rename database to"
-msgid "Remove this column"
-msgstr "Biremlekne bolay atap quy"
-
-#: templates/database/multi_table_query/form.twig:160
-#, fuzzy
-#| msgid "Update Query"
-msgid "Update query"
-msgstr "Sorawnı Yañart"
+#| msgid "Total"
+msgid "Spatial column"
+msgstr "Tulayım"
 
 #: templates/table/search/rows_zoom.twig:12
 #, fuzzy
 msgid "Additional search criteria"
 msgstr "SQL-soraw"
 
-#: templates/database/designer/query_details.twig:6
-#, fuzzy
-#| msgid "Table options"
-msgid "Active options"
-msgstr "Tüşämä köyläneşe"
+#: templates/login/twofactor/application.twig:4
+msgid ""
+"Open the two-factor authentication app on your device to view your "
+"authentication code and verify your identity."
+msgstr ""
+
+#: templates/toggle_button.twig:4
+msgid "Click to toggle"
+msgstr ""
 
 #: url.php:41
 #, fuzzy
