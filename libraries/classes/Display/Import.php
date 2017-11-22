@@ -312,38 +312,17 @@ class Import
     /**
      * Prints Html For Display Import options : Format
      *
-     * @param ImportPlugin[] $import_list import list
+     * @param ImportPlugin[] $importList import list
      *
      * @return string
      */
-    public static function getHtmlForImportOptionsFormat($import_list)
+    public static function getHtmlForImportOptionsFormat($importList)
     {
-        $html  = '   <div class="importoptions">';
-        $html .= '       <h3>' . __('Format:') . '</h3>';
-        $html .= Plugins::getChoice('Import', 'format', $import_list);
-        $html .= '       <div id="import_notification"></div>';
-        $html .= '   </div>';
-
-        $html .= '    <div class="importoptions" id="format_specific_opts">';
-        $html .= '        <h3>' . __('Format-specific options:') . '</h3>';
-        $html .= '        <p class="no_js_msg" id="scroll_to_options_msg">'
-            . 'Scroll down to fill in the options for the selected format '
-            . 'and ignore the options for other formats.</p>';
-        $html .= Plugins::getOptions('Import', $import_list);
-        $html .= '    </div>';
-        $html .= '        <div class="clearfloat"></div>';
-
-        // Japanese encoding setting
-        if (Encoding::canConvertKanji()) {
-            $html .= '        <div class="importoptions" id="kanji_encoding">';
-            $html .= '            <h3>' . __('Encoding Conversion:') . '</h3>';
-            $html .= Encoding::kanjiEncodingForm();
-            $html .= '        </div>';
-
-        }
-        $html .= "\n";
-
-        return $html;
+        return Template::get('display/import/format_option')->render([
+            'import_list' => $importList,
+            'can_convert_kanji' => Encoding::canConvertKanji(),
+            'kanji_encoding_form' => Encoding::kanjiEncodingForm(),
+        ]);
     }
 
     /**
