@@ -26,8 +26,18 @@ class PluginsExtension extends Twig_Extension
     {
         return array(
             new Twig_SimpleFunction(
+                'Plugins_checkboxCheck',
+                'PhpMyAdmin\Plugins::checkboxCheck',
+                array('is_safe' => array('html'))
+            ),
+            new Twig_SimpleFunction(
                 'Plugins_getChoice',
                 'PhpMyAdmin\Plugins::getChoice',
+                array('is_safe' => array('html'))
+            ),
+            new Twig_SimpleFunction(
+                'Plugins_getDefault',
+                'PhpMyAdmin\Plugins::getDefault',
                 array('is_safe' => array('html'))
             ),
             new Twig_SimpleFunction(

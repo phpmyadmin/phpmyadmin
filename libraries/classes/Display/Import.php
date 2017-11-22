@@ -292,58 +292,10 @@ class Import
      */
     public static function getHtmlForImportOptionsPartialImport($timeout_passed, $offset)
     {
-        $html  = '    <div class="importoptions">';
-        $html .= '        <h3>' . __('Partial import:') . '</h3>';
-
-        if (isset($timeout_passed) && $timeout_passed) {
-            $html .= '<div class="formelementrow">' . "\n";
-            $html .= '<input type="hidden" name="skip" value="' . $offset . '" />';
-            $html .= sprintf(
-                __(
-                    'Previous import timed out, after resubmitting '
-                    . 'will continue from position %d.'
-                ),
-                $offset
-            );
-            $html .= '</div>' . "\n";
-        }
-
-        $html .= '        <div class="formelementrow">';
-        $html .= '           <input type="checkbox" name="allow_interrupt" value="yes"';
-        $html .= '                  id="checkbox_allow_interrupt" '
-            . Plugins::checkboxCheck('Import', 'allow_interrupt') . '/>';
-        $html .= '            <label for="checkbox_allow_interrupt">'
-            . __(
-                'Allow the interruption of an import in case the script detects '
-                . 'it is close to the PHP timeout limit. <i>(This might be a good way'
-                . ' to import large files, however it can break transactions.)</i>'
-            ) . '</label><br />';
-        $html .= '        </div>';
-
-        if (! (isset($timeout_passed) && $timeout_passed)) {
-            $html .= '        <div class="formelementrow">';
-            $html .= '            <label for="text_skip_queries">'
-                .  __(
-                    'Skip this number of queries (for SQL) starting from the first one:'
-                )
-                . '</label>';
-            $html .= '            <input type="number" name="skip_queries" value="'
-                . Plugins::getDefault('Import', 'skip_queries')
-                . '" id="text_skip_queries" min="0" />';
-            $html .= '        </div>';
-
-        } else {
-            // If timeout has passed,
-            // do not show the Skip dialog to avoid the risk of someone
-            // entering a value here that would interfere with "skip"
-            $html .= '         <input type="hidden" name="skip_queries" value="'
-                . Plugins::getDefault('Import', 'skip_queries')
-                . '" id="text_skip_queries" />';
-        }
-
-        $html .= '    </div>';
-
-        return $html;
+        return Template::get('display/import/partial_import_option')->render([
+            'timeout_passed' => isset($timeout_passed) ? $timeout_passed : null,
+            'offset' => $offset,
+        ]);
     }
 
     /**
