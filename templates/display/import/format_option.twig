@@ -17,6 +17,6 @@
 {% if can_convert_kanji %}
     <div class="importoptions" id="kanji_encoding">
         <h3>{% trans 'Encoding Conversion:' %}</h3>
-        {{ kanji_encoding_form|raw }}
+        {% include 'encoding/kanji_encoding_form.twig' %}
     </div>
 {% endif %}

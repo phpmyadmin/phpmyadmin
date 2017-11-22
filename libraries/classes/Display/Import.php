@@ -321,7 +321,6 @@ class Import
         return Template::get('display/import/format_option')->render([
             'import_list' => $importList,
             'can_convert_kanji' => Encoding::canConvertKanji(),
-            'kanji_encoding_form' => Encoding::kanjiEncodingForm(),
         ]);
     }
 
