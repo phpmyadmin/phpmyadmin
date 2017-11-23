@@ -82,6 +82,9 @@
         "phpunit/phpunit-selenium": "~1.2",
         "squizlabs/php_codesniffer": "^3.0",
         "tecnickcom/tcpdf": "^6.2",
+        "pragmarx/google2fa": "^2.0",
+        "bacon/bacon-qr-code": "^1.0",
+        "samyoul/u2f-php-server": "^1.1",
         "phpmyadmin/coding-standard": "^0.3"
     },
     "extra": {
