@@ -6,10 +6,10 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.8.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2017-11-22 15:57-0500\n"
-"PO-Revision-Date: 2017-11-14 19:33+0000\n"
+"PO-Revision-Date: 2017-11-23 18:41+0000\n"
 "Last-Translator: Kristjan Räts <kristjanrats@gmail.com>\n"
-"Language-Team: Estonian <https://hosted.weblate.org/projects/phpmyadmin/"
-"master/et/>\n"
+"Language-Team: Estonian "
+"<https://hosted.weblate.org/projects/phpmyadmin/master/et/>\n"
 "Language: et\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -14817,12 +14817,6 @@ msgstr "Veebilehitseja kuva transformatsiooni sätted"
 
 #: templates/columns_definitions/table_fields_definitions.twig:83
 #: templates/columns_definitions/table_fields_definitions.twig:94
-#, fuzzy
-#| msgid ""
-#| "Please enter the values for transformation options using this format: "
-#| "'a', 100, b,'c'…<br />If you ever need to put a backslash (\"\") or a "
-#| "single quote (\"'\") amongst those values, precede it with a backslash "
-#| "(for example '\\\\xyz' or 'a\\'b')."
 msgid ""
 "Please enter the values for transformation options using this format: 'a', "
 "100, b,'c'…<br />If you ever need to put a backslash (\"\\\") or a single "
@@ -14975,19 +14969,14 @@ msgid ""
 msgstr "Eelmine import aegus, uuesti saatmisel jätkub see kohast %d."
 
 #: templates/display/import/partial_import_option.twig:15
-#, fuzzy
-#| msgid ""
-#| "Allow the interruption of an import in case the script detects it is "
-#| "close to the PHP timeout limit. <i>(This might be a good way to import "
-#| "large files, however it can break transactions.)</i>"
 msgid ""
 "Allow the interruption of an import in case the script detects it is close "
 "to the PHP timeout limit. <em>(This might be a good way to import large "
 "files, however it can break transactions.)</em>"
 msgstr ""
 "Luba katkestada import, kui skript tuvastab, et ooteaeg läheneb PHP ooteaja "
-"piirangule. <i>(See on hea moodus importida suuri faile, kuid siiski võib "
-"see katkestada ülekanded.)</i>"
+"piirangule. <em>(See on hea moodus importida suuri faile, kuid siiski võib "
+"see katkestada ülekanded.)</em>"
 
 #: templates/display/import/partial_import_option.twig:22
 msgid "Skip this number of queries (for SQL) starting from the first one:"
