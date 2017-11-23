@@ -376,171 +376,24 @@ class Import
     /**
      * Prints javascript for upload with plugin, upload process bar
      *
-     * @param int $upload_id The selected upload id
+     * @param int $uploadId The selected upload id
      *
      * @return string
      */
-    public static function getHtmlForImportWithPlugin($upload_id)
+    public static function getHtmlForImportWithPlugin($uploadId)
     {
-        //some variable for javascript
-        $ajax_url = "import_status.php?id=" . $upload_id . "&"
-            . Url::getCommonRaw(array('import_status'=>1));
-        $promot_str = Sanitize::jsFormat(
-            __(
-                'The file being uploaded is probably larger than '
-                . 'the maximum allowed size or this is a known bug in webkit '
-                . 'based (Safari, Google Chrome, Arora etc.) browsers.'
-            ),
-            false
-        );
-        $statustext_str = Sanitize::escapeJsString(__('%s of %s'));
-        $upload_str = Sanitize::jsFormat(__('Uploading your import file…'), false);
-        $second_str = Sanitize::jsFormat(__('%s/sec.'), false);
-        $remaining_min = Sanitize::jsFormat(__('About %MIN min. %SEC sec. remaining.'), false);
-        $remaining_second = Sanitize::jsFormat(__('About %SEC sec. remaining.'), false);
-        $processed_str = Sanitize::jsFormat(
-            __('The file is being processed, please be patient.'),
-            false
-        );
-        $import_url = Url::getCommonRaw(array('import_status'=>1));
-
-        //start output
-        $html  = 'var finished = false; ';
-        $html .= 'var percent  = 0.0; ';
-        $html .= 'var total    = 0; ';
-        $html .= 'var complete = 0; ';
-        $html .= 'var original_title = '
-            . 'parent && parent.document ? parent.document.title : false; ';
-        $html .= 'var import_start; ';
-
-        $html .= 'var perform_upload = function () { ';
-        $html .= 'new $.getJSON( ';
-        $html .= '        "' . $ajax_url . '", ';
-        $html .= '        {}, ';
-        $html .= '        function(response) { ';
-        $html .= '            finished = response.finished; ';
-        $html .= '            percent = response.percent; ';
-        $html .= '            total = response.total; ';
-        $html .= '            complete = response.complete; ';
-
-        $html .= '            if (total==0 && complete==0 && percent==0) { ';
-        $img_tag = '<img src="' . $GLOBALS['pmaThemeImage'] . 'ajax_clock_small.gif"';
-        $html .= '                $("#upload_form_status_info").html(\''
-            . $img_tag . ' width="16" height="16" alt="ajax clock" /> '
-            . $promot_str . '\'); ';
-        $html .= '                $("#upload_form_status").css("display", "none"); ';
-        $html .= '            } else { ';
-        $html .= '                var now = new Date(); ';
-        $html .= '                now = Date.UTC( ';
-        $html .= '                    now.getFullYear(), ';
-        $html .= '                    now.getMonth(), ';
-        $html .= '                    now.getDate(), ';
-        $html .= '                    now.getHours(), ';
-        $html .= '                    now.getMinutes(), ';
-        $html .= '                    now.getSeconds()) ';
-        $html .= '                    + now.getMilliseconds() - 1000; ';
-        $html .= '                var statustext = PMA_sprintf(';
-        $html .= '                    "' . $statustext_str . '", ';
-        $html .= '                    formatBytes( ';
-        $html .= '                        complete, 1, PMA_messages.strDecimalSeparator';
-        $html .= '                    ), ';
-        $html .= '                    formatBytes(';
-        $html .= '                        total, 1, PMA_messages.strDecimalSeparator';
-        $html .= '                    ) ';
-        $html .= '                ); ';
-
-        $html .= '                if ($("#importmain").is(":visible")) { ';
-        // show progress UI
-        $html .= '                    $("#importmain").hide(); ';
-        $html .= '                    $("#import_form_status") ';
-        $html .= '                    .html(\'<div class="upload_progress">'
-            . '<div class="upload_progress_bar_outer"><div class="percentage">'
-            . '</div><div id="status" class="upload_progress_bar_inner">'
-            . '<div class="percentage"></div></div></div><div>'
-            . '<img src="' . $GLOBALS['pmaThemeImage']
-            . 'ajax_clock_small.gif" width="16" height="16" alt="ajax clock" /> '
-            . $upload_str . '</div><div id="statustext"></div></div>\') ';
-        $html .= '                    .show(); ';
-        $html .= '                    import_start = now; ';
-        $html .= '                } ';
-        $html .= '                else if (percent > 9 || complete > 2000000) { ';
-        // calculate estimated time
-        $html .= '                    var used_time = now - import_start; ';
-        $html .= '                    var seconds = '
-            . 'parseInt(((total - complete) / complete) * used_time / 1000); ';
-        $html .= '                    var speed = PMA_sprintf("' . $second_str . '"';
-        $html .= '                       , formatBytes(complete / used_time * 1000, 1,'
-            . ' PMA_messages.strDecimalSeparator)); ';
-
-        $html .= '                    var minutes = parseInt(seconds / 60); ';
-        $html .= '                    seconds %= 60; ';
-        $html .= '                    var estimated_time; ';
-        $html .= '                    if (minutes > 0) { ';
-        $html .= '                        estimated_time = "' . $remaining_min . '"';
-        $html .= '                            .replace("%MIN", minutes)';
-        $html .= '                            .replace("%SEC", seconds); ';
-        $html .= '                    } ';
-        $html .= '                    else { ';
-        $html .= '                        estimated_time = "' . $remaining_second . '"';
-        $html .= '                        .replace("%SEC", seconds); ';
-        $html .= '                    } ';
-
-        $html .= '                    statustext += "<br />" + speed + "<br /><br />" '
-            . '+ estimated_time; ';
-        $html .= '                } ';
-
-        $html .= '                var percent_str = Math.round(percent) + "%"; ';
-        $html .= '                $("#status").animate({width: percent_str}, 150); ';
-        $html .= '                $(".percentage").text(percent_str); ';
-
-        // show percent in window title
-        $html .= '                if (original_title !== false) { ';
-        $html .= '                    parent.document.title ';
-        $html .= '                        = percent_str + " - " + original_title; ';
-        $html .= '                } ';
-        $html .= '                else { ';
-        $html .= '                    document.title ';
-        $html .= '                        = percent_str + " - " + original_title; ';
-        $html .= '                } ';
-        $html .= '                $("#statustext").html(statustext); ';
-        $html .= '            }  ';
-
-        $html .= '            if (finished == true) { ';
-        $html .= '                if (original_title !== false) { ';
-        $html .= '                    parent.document.title = original_title; ';
-        $html .= '                } ';
-        $html .= '                else { ';
-        $html .= '                    document.title = original_title; ';
-        $html .= '                } ';
-        $html .= '                $("#importmain").hide(); ';
-        // loads the message, either success or mysql error
-        $html .= '                $("#import_form_status") ';
-        $html .= '                .html(\'<img src="' . $GLOBALS['pmaThemeImage']
-            . 'ajax_clock_small.gif" width="16" height="16" alt="ajax clock" /> '
-            . $processed_str . '\')';
-        $html .= '                .show(); ';
-        $html .= '                $("#import_form_status").load("import_status.php?'
-            . 'message=true&' . $import_url . '"); ';
-        $html .= '                PMA_reloadNavigation(); ';
-
-        // if finished
-        $html .= '            } ';
-        $html .= '            else { ';
-        $html .= '              setTimeout(perform_upload, 1000); ';
-        $html .= '         } ';
-        $html .= '}); ';
-        $html .= '}; ';
-        $html .= 'setTimeout(perform_upload, 1000); ';
-
-        return $html;
+        return Template::get('display/import/with_plugin')->render([
+            'upload_id' => $uploadId,
+            'pma_theme_image' => $GLOBALS['pmaThemeImage'],
+        ]);
     }
 
     /**
      * Gets HTML to display import dialogs
      *
-     * @param String $import_type     Import type: server|database|table
-     * @param String $db              Selected DB
-     * @param String $table           Selected Table
+     * @param string $import_type     Import type: server|database|table
+     * @param string $db              Selected DB
+     * @param string $table           Selected Table
      * @param int    $max_upload_size Max upload size
      *
      * @return string $html

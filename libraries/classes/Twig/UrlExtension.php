@@ -41,6 +41,11 @@ class UrlExtension extends Twig_Extension
                 array('is_safe' => array('html'))
             ),
             new Twig_SimpleFunction(
+                'Url_getCommonRaw',
+                'PhpMyAdmin\Url::getCommonRaw',
+                array('is_safe' => array('html'))
+            ),
+            new Twig_SimpleFunction(
                 'Url_link',
                 'PhpMyAdmin\Core::linkURL'
             ),
