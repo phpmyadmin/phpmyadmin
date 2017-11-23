@@ -99,7 +99,7 @@ class Key extends TwoFactorPlugin
     {
         $response = Response::getInstance();
         $scripts = $response->getHeader()->getScripts();
-        $scripts->addFile('vendor/u2f-api.js');
+        $scripts->addFile('vendor/u2f-api-polyfill.js');
         $scripts->addFile('u2f.js');
     }
 
