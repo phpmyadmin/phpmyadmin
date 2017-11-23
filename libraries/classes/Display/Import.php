@@ -105,37 +105,19 @@ class Import
     /**
      * Prints Html For Display Export options
      *
-     * @param String $import_type Import type: server, database, table
-     * @param String $db          Selected DB
-     * @param String $table       Selected Table
+     * @param String $importType Import type: server, database, table
+     * @param String $db         Selected DB
+     * @param String $table      Selected Table
      *
      * @return string
      */
-    public static function getHtmlForImportOptions($import_type, $db, $table)
+    public static function getHtmlForImportOptions($importType, $db, $table)
     {
-        $html  = '    <div class="exportoptions" id="header">';
-        $html .= '        <h2>';
-        $html .= Util::getImage('b_import.png', __('Import'));
-
-        if ($import_type == 'server') {
-            $html .= __('Importing into the current server');
-        } elseif ($import_type == 'database') {
-            $import_str = sprintf(
-                __('Importing into the database "%s"'),
-                htmlspecialchars($db)
-            );
-            $html .= $import_str;
-        } else {
-            $import_str = sprintf(
-                __('Importing into the table "%s"'),
-                htmlspecialchars($table)
-            );
-            $html .= $import_str;
-        }
-        $html .= '        </h2>';
-        $html .= '    </div>';
-
-        return $html;
+        return Template::get('display/import/options')->render([
+            'import_type' => $importType,
+            'db' => $db,
+            'table' => $table,
+        ]);
     }
 
     /**
