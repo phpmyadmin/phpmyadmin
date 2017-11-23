@@ -118,6 +118,7 @@ class Key extends TwoFactorPlugin
         $this->loadScripts();
         return Template::get('login/twofactor/key')->render([
             'request' => json_encode($request),
+            'is_https' => $GLOBALS['PMA_Config']->isHttps(),
         ]);
     }
 
@@ -138,6 +139,7 @@ class Key extends TwoFactorPlugin
         return Template::get('login/twofactor/key_configure')->render([
             'request' => json_encode($registrationData['request']),
             'signatures' => json_encode($registrationData['signatures']),
+            'is_https' => $GLOBALS['PMA_Config']->isHttps(),
         ]);
     }
 
