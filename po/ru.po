@@ -4,16 +4,16 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.8.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2017-11-22 15:57-0500\n"
-"PO-Revision-Date: 2017-11-18 08:12+0000\n"
-"Last-Translator: Андрей <andreyvlasov666@gmail.com>\n"
-"Language-Team: Russian <https://hosted.weblate.org/projects/phpmyadmin/"
-"master/ru/>\n"
+"PO-Revision-Date: 2017-11-23 12:57+0000\n"
+"Last-Translator: Andrey Balamut <balamut.andrey@gmail.com>\n"
+"Language-Team: Russian "
+"<https://hosted.weblate.org/projects/phpmyadmin/master/ru/>\n"
 "Language: ru\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=3; plural=n%10==1 && n%100!=11 ? 0 : n%10>=2 && n"
-"%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
+"Plural-Forms: nplurals=3; plural=n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%10<="
+"4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
 "X-Generator: Weblate 2.18-dev\n"
 
 #: ajax.php:17 ajax.php:34 export.php:203 libraries/classes/Export.php:1100
@@ -9347,6 +9347,7 @@ msgstr "Невозможно подключиться к серверу MySQL"
 #: libraries/classes/Plugins/AuthenticationPlugin.php:331
 msgid "You have enabled two factor authentication, please confirm your login."
 msgstr ""
+"Вы включили двухфакторную аутентификацию, пожалуйста, подтвердите свой логин."
 
 #: libraries/classes/Plugins/Export/ExportCsv.php:63
 #: libraries/classes/Plugins/Import/AbstractImportCsv.php:58
@@ -10318,15 +10319,19 @@ msgid ""
 "Provides authentication using HOTP and TOTP applications such as FreeOTP, "
 "Google Authenticator or Authy."
 msgstr ""
+"Обеспечивает аутентификацию с помощью HOTP и TOTP приложений, таких как "
+"FreeOTP, Google Authenticator или Authy."
 
 #: libraries/classes/Plugins/TwoFactor/Key.php:184
 msgid "Hardware Security Key (FIDO U2F)"
-msgstr ""
+msgstr "Аппаратный ключ безопасности (FIDO U2F)"
 
 #: libraries/classes/Plugins/TwoFactor/Key.php:194
 msgid ""
 "Provides authentication using hardware security tokens supporting FIDO U2F."
 msgstr ""
+"Обеспечивает аутентификацию с помощью аппаратных токенов безопасности, "
+"поддерживающих FIDO U2F."
 
 #: libraries/classes/Plugins/TwoFactor/Simple.php:52
 #, fuzzy
@@ -10336,27 +10341,25 @@ msgstr "Авторизация с помощью Signon"
 
 #: libraries/classes/Plugins/TwoFactor/Simple.php:62
 msgid "For testing purposes only!"
-msgstr ""
+msgstr "Только для тестирования!"
 
 #: libraries/classes/Plugins/TwoFactorPlugin.php:65
-#, fuzzy, php-format
-#| msgid "Hardware authentication failed!"
+#, php-format
 msgid "Two-factor authentication failed: %s"
-msgstr "Ошибка аппаратной идентификации!"
+msgstr "Ошибка двухфакторной аутентификации: %s"
 
 #: libraries/classes/Plugins/TwoFactorPlugin.php:69
-#, fuzzy
-#| msgid "Hardware authentication failed!"
 msgid "Two-factor authentication failed."
-msgstr "Ошибка аппаратной идентификации!"
+msgstr "Ошибка двухфакторной аутентификации."
 
 #: libraries/classes/Plugins/TwoFactorPlugin.php:122
+#, fuzzy
 msgid "No Two-Factor"
-msgstr ""
+msgstr "Не двухфакторная аутентификация"
 
 #: libraries/classes/Plugins/TwoFactorPlugin.php:132
 msgid "Login using password only."
-msgstr ""
+msgstr "Войти, используя только пароль."
 
 #: libraries/classes/PmdCommon.php:550
 msgid "Error: relationship already exists."
