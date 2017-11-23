@@ -8,7 +8,8 @@ AJAX.registerOnload('u2f.js', function () {
         $formReg.find('input[type=submit]').hide();
         setTimeout(function() {
             // A magic JS function that talks to the USB device. This function will keep polling for the USB device until it finds one.
-            u2f.register([JSON.parse($inputReg.attr('data-request'))], JSON.parse($inputReg.attr('data-signatures')), function(data) {
+            var request = JSON.parse($inputReg.attr('data-request'));
+            u2f.register(request.appId, [request], JSON.parse($inputReg.attr('data-signatures')), function(data) {
                 // Handle returning error data
                 if(data.errorCode && data.errorCode !== 0) {
                     if (data.errorCode === 5) {
@@ -33,7 +34,10 @@ AJAX.registerOnload('u2f.js', function () {
         $formAuth.find('input[type=submit]').hide();
         setTimeout(function() {
             // Magic JavaScript talking to your HID
-            u2f.sign(JSON.parse($inputAuth.attr('data-request')), function(data) {
+            // appid, challenge, authenticateRequests
+            var request = JSON.parse($inputAuth.attr('data-request'));
+            var handles = [request[0].keyHandle];
+            u2f.sign(request[0].appId, request[0].challenge, request, function(data) {
                 // Handle returning error data
                 if(data.errorCode && data.errorCode !== 0) {
                     if (data.errorCode === 5) {
