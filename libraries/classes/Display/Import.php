@@ -331,11 +331,7 @@ class Import
      */
     public static function getHtmlForImportOptionsSubmit()
     {
-        $html  = '    <div class="importoptions" id="submit">';
-        $html .= '       <input type="submit" value="' . __('Go') . '" id="buttonGo" />';
-        $html .= '   </div>';
-
-        return $html;
+        return Template::get('display/import/submit_option')->render();
     }
 
     /**
