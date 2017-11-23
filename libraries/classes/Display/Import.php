@@ -67,7 +67,10 @@ class Import
 
         if ($_SESSION[$SESSION_KEY]["handler"] != 'PhpMyAdmin\Plugins\Import\Upload\UploadNoplugin') {
 
-            $html .= self::getHtmlForImportWithPlugin($upload_id);
+            $html .= Template::get('display/import/with_plugin')->render([
+                'upload_id' => $uploadId,
+                'pma_theme_image' => $GLOBALS['pmaThemeImage'],
+            ]);
 
         } else { // no plugin available
             $image_tag = '<img src="' . $GLOBALS['pmaThemeImage']
@@ -371,21 +374,6 @@ class Import
         $html .= '</div>';
 
         return $html;
-    }
-
-    /**
-     * Prints javascript for upload with plugin, upload process bar
-     *
-     * @param int $uploadId The selected upload id
-     *
-     * @return string
-     */
-    public static function getHtmlForImportWithPlugin($uploadId)
-    {
-        return Template::get('display/import/with_plugin')->render([
-            'upload_id' => $uploadId,
-            'pma_theme_image' => $GLOBALS['pmaThemeImage'],
-        ]);
     }
 
     /**
