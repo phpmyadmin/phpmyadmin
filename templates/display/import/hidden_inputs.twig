@@ -1,0 +1,8 @@
+{% if import_type == 'server' %}
+    {{ Url_getHiddenInputs('', '', 1) }}
+{% elseif import_type == 'database' %}
+    {{ Url_getHiddenInputs(db, '', 1) }}
+{% else %}
+    {{ Url_getHiddenInputs(db, table, 1) }}
+{% endif %}
+<input type="hidden" name="import_type" value="{{ import_type }}" />

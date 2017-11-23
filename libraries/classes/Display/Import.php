@@ -29,26 +29,19 @@ class Import
     /**
      * Prints Html For Display Import Hidden Input
      *
-     * @param String $import_type Import type: server, database, table
-     * @param String $db          Selected DB
-     * @param String $table       Selected Table
+     * @param String $importType Import type: server, database, table
+     * @param String $db         Selected DB
+     * @param String $table      Selected Table
      *
      * @return string
      */
-    public static function getHtmlForHiddenInputs($import_type, $db, $table)
+    public static function getHtmlForHiddenInputs($importType, $db, $table)
     {
-        $html  = '';
-        if ($import_type == 'server') {
-            $html .= Url::getHiddenInputs('', '', 1);
-        } elseif ($import_type == 'database') {
-            $html .= Url::getHiddenInputs($db, '', 1);
-        } else {
-            $html .= Url::getHiddenInputs($db, $table, 1);
-        }
-        $html .= '    <input type="hidden" name="import_type" value="'
-            . $import_type . '" />' . "\n";
-
-        return $html;
+        return Template::get('display/import/hidden_inputs')->render([
+            'import_type' => $importType,
+            'db' => $db,
+            'table' => $table,
+        ]);
     }
 
     /**
