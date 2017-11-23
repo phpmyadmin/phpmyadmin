@@ -54,6 +54,8 @@ class Session
         if (session_status() === PHP_SESSION_ACTIVE && ! defined('TESTSUITE')) {
             session_regenerate_id(true);
         }
+        // continue with empty session
+        $_SESSION = [];
         self::generateToken();
     }
 
