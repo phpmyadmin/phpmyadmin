@@ -38,7 +38,6 @@
 <div class="group-cnt">
 <form method="POST" action="prefs_second.php">
 {{ Url_getHiddenInputs() }}
-<option name="2fa_configure">
 {% for backend in backends %}
 <label>
 <input type="radio" name="2fa_configure" {% if backend["id"] == "" %}checked="checked"{% endif %} value="{{ backend["id"] }}"/>
