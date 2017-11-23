@@ -47,55 +47,19 @@ class Import
     /**
      * Prints Html For Import Javascript
      *
-     * @param int $upload_id The selected upload id
+     * @param int $uploadId The selected upload id
      *
      * @return string
      */
-    public static function getHtmlForImportJs($upload_id)
+    public static function getHtmlForImportJs($uploadId)
     {
         global $SESSION_KEY;
-        $html  = '';
-        $html .= '<script type="text/javascript">';
-        $html .= '    //<![CDATA[';
-        //with "\n", so that the following lines won't be commented out by //<![CDATA[
-        $html .= "\n";
-        $html .= '    $( function() {';
-        // add event when user click on "Go" button
-        $html .= '      $("#buttonGo").bind("click", function() {';
-        // hide form
-        $html .= '        $("#upload_form_form").css("display", "none");';
 
-        if ($_SESSION[$SESSION_KEY]["handler"] != 'PhpMyAdmin\Plugins\Import\Upload\UploadNoplugin') {
-
-            $html .= Template::get('display/import/with_plugin')->render([
-                'upload_id' => $uploadId,
-                'pma_theme_image' => $GLOBALS['pmaThemeImage'],
-            ]);
-
-        } else { // no plugin available
-            $image_tag = '<img src="' . $GLOBALS['pmaThemeImage']
-                . 'ajax_clock_small.gif" width="16" height="16" alt="ajax clock" /> '
-                . Sanitize::jsFormat(
-                    __(
-                        'Please be patient, the file is being uploaded. '
-                        . 'Details about the upload are not available.'
-                    ),
-                    false
-                ) . Util::showDocu('faq', 'faq2-9');
-            $html .= "   $('#upload_form_status_info').html('" . $image_tag . "');";
-            $html .= '   $("#upload_form_status").css("display", "none");';
-        } // else
-
-        // onclick
-        $html .= '      });';
-        // domready
-        $html .= '    });';
-        $html .= '    //]]>';
-        //with "\n", so that the following lines won't be commented out by //]]>
-        $html .= "\n";
-        $html .= '</script>';
-
-        return $html;
+        return Template::get('display/import/javascript')->render([
+            'upload_id' => $uploadId,
+            'handler' => $_SESSION[$SESSION_KEY]["handler"],
+            'pma_theme_image' => $GLOBALS['pmaThemeImage'],
+        ]);
     }
 
     /**

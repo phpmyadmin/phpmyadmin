@@ -1,0 +1,31 @@
+<script type="text/javascript">
+    //<![CDATA[
+    $( function() {
+        {# Add event when user click on "Go" button #}
+        $("#buttonGo").bind("click", function() {
+            {# Hide form #}
+            $("#upload_form_form").css("display", "none");
+
+            {% if handler != 'PhpMyAdmin\Plugins\Import\Upload\UploadNoplugin' %}
+                {% include 'display/import/with_plugin.twig' with {
+                    'upload_id': upload_id,
+                    'pma_theme_image': pma_theme_image
+                } only %}
+            {% else %}
+                {# No plugin available #}
+                {% set image_tag -%}
+                    <img src="{{ pma_theme_image -}}
+                        ajax_clock_small.gif" width="16" height="16" alt="ajax clock" />
+                    {{- Sanitize_jsFormat(
+                        'Please be patient, the file is being uploaded. Details about the upload are not available.'|trans,
+                        false
+                    ) -}}
+                    {{- Util_showDocu('faq', 'faq2-9') -}}
+                {%- endset %}
+                $('#upload_form_status_info').html('{{ image_tag }}');
+                $("#upload_form_status").css("display", "none");
+            {% endif %}
+        });
+    });
+    //]]>
+</script>
