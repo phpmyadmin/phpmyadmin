@@ -21,9 +21,7 @@ Or when using a hardware security key with FIDO U2F:
 
 .. code-block:: sh
 
-    composer require pragmarx/google2fa bacon/bacon-qr-code samyoul/u2f-php-server
-
-
+    composer require samyoul/u2f-php-server
 
 Authentication Application (2FA)
 --------------------------------
