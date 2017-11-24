@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.7.6-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2017-11-02 14:03+0100\n"
-"PO-Revision-Date: 2017-11-21 14:43+0000\n"
-"Last-Translator: Airon Luis Pereira <airon.pereira@gmail.com>\n"
+"PO-Revision-Date: 2017-11-25 02:49+0000\n"
+"Last-Translator: Mauricio Bastos <msbmail@gmail.com>\n"
 "Language-Team: Portuguese (Brazil) "
 "<https://hosted.weblate.org/projects/phpmyadmin/4-7/pt_BR/>\n"
 "Language: pt_BR\n"
@@ -8172,8 +8172,8 @@ msgid ""
 "Note: Enabling the database statistics here might cause heavy traffic "
 "between the web server and the MySQL server."
 msgstr ""
-"Nota: Ativar as estatísticas pode causar um grande volume de tráfego de "
-"dados entre o servidor web e o servidor MySQL."
+"Nota: Ativar as estatísticas aqui pode causar um grande volume de tráfego "
+"entre o servidor web e o servidor MySQL."
 
 #: libraries/controllers/server/ServerDatabasesController.php:582
 #: libraries/controllers/server/ServerDatabasesController.php:588
@@ -14498,8 +14498,9 @@ msgid "Is a foreign key."
 msgstr "É uma chave estrangeira."
 
 #: templates/columns_definitions/column_name.phtml:43
+#, fuzzy
 msgid "Pick from Central Columns"
-msgstr "Escolher através das colunas centrais"
+msgstr "Escolher a partir das colunas centrais"
 
 #: templates/columns_definitions/column_virtuality.phtml:46
 #: templates/table/structure/display_partitions.phtml:28
@@ -14512,9 +14513,9 @@ msgstr "primeiro"
 
 #: templates/columns_definitions/move_column.phtml:12
 #: templates/table/structure/add_column.phtml:21
-#, php-format
+#, fuzzy, php-format
 msgid "after %s"
-msgstr "depois de %s"
+msgstr "após %s"
 
 #: templates/columns_definitions/partitions.phtml:9
 msgid "Partition by:"
@@ -14622,6 +14623,7 @@ msgstr "Opções de transformação de visualização do navegador"
 
 #: templates/columns_definitions/table_fields_definitions.phtml:95
 #: templates/columns_definitions/table_fields_definitions.phtml:114
+#, fuzzy
 msgid ""
 "Please enter the values for transformation options using this format: 'a', "
 "100, b,'c'…<br />If you ever need to put a backslash (\"\\\") or a single "
@@ -14629,9 +14631,9 @@ msgid ""
 "'\\\\xyz' or 'a\\'b')."
 msgstr ""
 "Digite os valores para as opções de transformação usando este formato: 'a', "
-"100, b,'c'…<br />Se por acaso precisar inserir uma contra-barra (\"\\\") ou "
-"aspas (\"'\") no meio desses valores, faça-o usando outra contra-barra (por "
-"exemplo '\\\\xyz' ou 'a\\'b')."
+"100, b,'c'…<br />Se por acaso precisar inserir uma contrabarra (\"\\\") ou "
+"aspas simples (\"'\") entre esses valores, faça-o precedendo-as com uma "
+"contrabarra (por exemplo '\\\\xyz' ou 'a\\'b')."
 
 #: templates/columns_definitions/table_fields_definitions.phtml:107
 #: transformation_overview.php:43
@@ -14645,8 +14647,9 @@ msgstr "Opções de transformação de dado"
 #: templates/console/bookmark_content.phtml:14
 #: templates/console/display.phtml:48 templates/console/display.phtml:105
 #: templates/console/display.phtml:210
+#, fuzzy
 msgid "Collapse"
-msgstr "Expandir/Recolher"
+msgstr "Recolher"
 
 #: templates/console/bookmark_content.phtml:15
 #: templates/console/display.phtml:49 templates/console/display.phtml:106
@@ -14656,8 +14659,9 @@ msgstr "Expandir"
 
 #: templates/console/bookmark_content.phtml:16
 #: templates/console/display.phtml:50 templates/console/display.phtml:212
+#, fuzzy
 msgid "Requery"
-msgstr "Fazer novo consulta"
+msgstr "Repetir consulta"
 
 #: templates/console/display.phtml:9
 msgid "Console"
@@ -14814,8 +14818,9 @@ msgid "Operator"
 msgstr "Operador"
 
 #: templates/database/designer/database_tables.phtml:29
+#, fuzzy
 msgid "Show/hide columns"
-msgstr "Mostrar/ocultar campo(s)"
+msgstr "Mostrar/ocultar colunas"
 
 #: templates/database/designer/database_tables.phtml:40
 msgid "See table structure"
@@ -14827,11 +14832,11 @@ msgstr "Apagar relacionamento"
 
 #: templates/database/designer/edit_delete_pages.phtml:7
 msgid "Page to open"
-msgstr "Páginas para abrir"
+msgstr "Página para abrir"
 
 #: templates/database/designer/edit_delete_pages.phtml:7
 msgid "Page to delete"
-msgstr "Páginas para remover"
+msgstr "Página para remover"
 
 #: templates/database/designer/having_query_panel.phtml:90
 #: templates/database/designer/options_panel.phtml:63
@@ -14873,8 +14878,9 @@ msgid "Save to selected page"
 msgstr "Salvar para a página selecionada"
 
 #: templates/database/designer/page_save_as.phtml:5
+#, fuzzy
 msgid "Create a page and save to it"
-msgstr "Criar uma página e exportar para ela"
+msgstr "Criar uma página e gravar nela"
 
 #: templates/database/designer/page_save_as.phtml:26
 msgid "New page name"
@@ -15026,7 +15032,7 @@ msgstr "Substituir o prefixo de tabelas"
 
 #: templates/database/structure/check_all_tables.phtml:35
 msgid "Add columns to central list"
-msgstr "Adicionar colunas a lista central"
+msgstr "Adicionar colunas à lista central"
 
 #: templates/database/structure/check_all_tables.phtml:36
 msgid "Remove columns from central list"
@@ -15127,8 +15133,9 @@ msgid "Select table:"
 msgstr "Selecionar tabela:"
 
 #: templates/export/alias_add.phtml:32
+#, fuzzy
 msgid "New table name"
-msgstr "Nome da nova tabela"
+msgstr "Novo nome da tabela"
 
 #: templates/export/alias_add.phtml:41
 msgid "Select column:"
@@ -15181,7 +15188,7 @@ msgstr "Novo usuário"
 #: templates/privileges/column_privileges.phtml:22
 msgctxt "None privileges"
 msgid "None"
-msgstr "Nenhum privilégio"
+msgstr "Nenhum"
 
 #: templates/privileges/delete_user_fieldset.phtml:3
 msgid "Remove selected user accounts"
@@ -15482,8 +15489,9 @@ msgid "Number of rows per page"
 msgstr "Número de registros por página"
 
 #: templates/table/search/options.phtml:56
+#, fuzzy
 msgid "Display order:"
-msgstr "Ordenado por:"
+msgstr "Ordem de exibição:"
 
 #: templates/table/search/options_zoom.phtml:6
 msgid "Use this column to label each point"
@@ -15571,9 +15579,9 @@ msgid "Add to central columns"
 msgstr "Adicionar coluna(s) central(is)"
 
 #: templates/table/structure/add_column.phtml:7
-#, php-format
+#, fuzzy, php-format
 msgid "Add %s column(s)"
-msgstr "Adicionar campo(s) %s"
+msgstr "Adicionar %s campo(s)"
 
 #: templates/table/structure/add_column.phtml:12
 msgid "at beginning of table"
