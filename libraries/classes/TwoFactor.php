@@ -126,6 +126,8 @@ class TwoFactor
         $result = 'PhpMyAdmin\\Plugins\\TwoFactorPlugin';
         if (in_array($name, $this->_available)) {
             $result = 'PhpMyAdmin\\Plugins\\TwoFactor\\' . ucfirst($name);
+        } elseif (! empty($name)) {
+            $result = 'PhpMyAdmin\\Plugins\\TwoFactor\\Invalid';
         }
         return $result;
     }
