@@ -4,10 +4,10 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.8.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2017-11-22 15:57-0500\n"
-"PO-Revision-Date: 2017-11-21 14:43+0000\n"
-"Last-Translator: Airon Luis Pereira <airon.pereira@gmail.com>\n"
-"Language-Team: Portuguese (Brazil) <https://hosted.weblate.org/projects/"
-"phpmyadmin/master/pt_BR/>\n"
+"PO-Revision-Date: 2017-11-24 08:18+0000\n"
+"Last-Translator: Mauricio Bastos <msbmail@gmail.com>\n"
+"Language-Team: Portuguese (Brazil) "
+"<https://hosted.weblate.org/projects/phpmyadmin/master/pt_BR/>\n"
 "Language: pt_BR\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -10386,13 +10386,13 @@ msgstr ""
 #, fuzzy, php-format
 #| msgid "Hardware authentication failed!"
 msgid "Two-factor authentication failed: %s"
-msgstr "Falha na autenticação de hardware!"
+msgstr "A autenticação por dois fatores falhou: %s"
 
 #: libraries/classes/Plugins/TwoFactorPlugin.php:69
 #, fuzzy
 #| msgid "Hardware authentication failed!"
 msgid "Two-factor authentication failed."
-msgstr "Falha na autenticação de hardware!"
+msgstr "Autenticação por dois fatores falhou."
 
 #: libraries/classes/Plugins/TwoFactorPlugin.php:122
 msgid "No Two-Factor"
@@ -14426,13 +14426,13 @@ msgstr ""
 #, fuzzy
 #| msgid "Internal relationship has been removed."
 msgid "Two-factor authentication has been removed."
-msgstr "Relacionamento interno foi removido."
+msgstr "Autenticação por dois fatores removida."
 
 #: prefs_second.php:39
 #, fuzzy
 #| msgid "Invalid authentication method set in configuration:"
 msgid "Two-factor authentication has been configured."
-msgstr "Método de autenticação inválido informado nas configurações:"
+msgstr "Autenticação por dois fatores configurada."
 
 #: server_export.php:25
 msgid "View dump (schema) of databases"
@@ -14773,7 +14773,7 @@ msgstr "A coluna %s foi eliminada."
 #, fuzzy
 #| msgid "Authentication settings."
 msgid "Two-factor authentication status"
-msgstr "Configurações de autenticação."
+msgstr "Situação da autenticação por dois fatores"
 
 #: templates/prefs_second.twig:9
 msgid ""
@@ -14797,8 +14797,8 @@ msgid ""
 "Two-factor authentication is not available, enable phpMyAdmin configuration "
 "storage to use it."
 msgstr ""
-"%sCreate%s as tabelas de armazenamento de configuração do phpMyAdmin "
-"perdidas."
+"A autenticação por dois fatores não está disponível. Habilite o "
+"armazenamento da configuração do phpMyAdmin para usá-la."
 
 #: templates/prefs_second.twig:27
 msgid "You have enabled two factor authentication."
@@ -14808,14 +14808,14 @@ msgstr ""
 #, fuzzy
 #| msgid "Config authentication"
 msgid "Disable two-factor authentication"
-msgstr "Configurar autenticação"
+msgstr "Desativar autenticação por dois fatores"
 
 #: templates/prefs_second.twig:37 templates/prefs_second.twig:49
 #: templates/prefs_second_configure.twig:2
 #, fuzzy
 #| msgid "Config authentication"
 msgid "Configure two-factor authentication"
-msgstr "Configurar autenticação"
+msgstr "Configurar autenticação por dois fatores"
 
 #: templates/privileges/add_user_fieldset.twig:2
 msgctxt "Create new user"
@@ -15021,9 +15021,9 @@ msgid ""
 "example '\\\\xyz' or 'a\\'b')."
 msgstr ""
 "Se um tipo de campo é \"enum\" ou \"set\", por favor entre com valores "
-"usando este formato: 'a','b','c'…<br />Se você mesmo precisar colocar uma "
-"barra contrária (\"\\\") ou aspas simples (\"'\") entre esses valores, "
-"coloque uma barra contrária antes (por exemplo '\\\\xyz' ou 'a\\'b')."
+"usando este formato: 'a','b','c'…<br />Se você precisar colocar uma barra "
+"contrária (\"\\\") ou aspas simples (\"'\") entre esses valores, coloque uma "
+"barra contrária antes (por exemplo '\\\\xyz' ou 'a\\'b')."
 
 #: templates/columns_definitions/table_fields_definitions.twig:21
 msgid ""
@@ -15065,9 +15065,9 @@ msgid ""
 "'\\\\xyz' or 'a\\'b')."
 msgstr ""
 "Digite os valores para as opções de transformação usando este formato: 'a', "
-"100, b,'c'…<br />Se por acaso precisar inserir uma contra-barra (\"\\\") ou "
-"aspas (\"'\") no meio desses valores, faça-o usando outra contra-barra (por "
-"exemplo '\\\\xyz' ou 'a\\'b')."
+"100, b,'c'…<br />Se por acaso precisar inserir uma contrabarra (\"\\\") ou "
+"aspas simples (\"'\") entre esses valores, faça-o precedendo-as com uma "
+"contrabarra (por exemplo '\\\\xyz' ou 'a\\'b')."
 
 #: templates/columns_definitions/table_fields_definitions.twig:93
 msgid "Input transformation options"
@@ -15210,19 +15210,14 @@ msgstr ""
 "continuar na posição %d."
 
 #: templates/display/import/partial_import_option.twig:15
-#, fuzzy
-#| msgid ""
-#| "Allow the interruption of an import in case the script detects it is "
-#| "close to the PHP timeout limit. <i>(This might be a good way to import "
-#| "large files, however it can break transactions.)</i>"
 msgid ""
 "Allow the interruption of an import in case the script detects it is close "
 "to the PHP timeout limit. <em>(This might be a good way to import large "
 "files, however it can break transactions.)</em>"
 msgstr ""
-"Permitir a interrupção da importação caso o script detecte que está perto do "
-"tempo limite do PHP. <i>(Isso pode ser um bom jeito de importar arquivos "
-"grandes, entretanto isso pode interromper as transações.)</i>"
+"Permite a interrupção da importação caso o script detecte que está perto do "
+"tempo limite do PHP. <em>(Isso pode ser uma boa forma de importar arquivos "
+"grandes, mas pode interromper as transações.)</em>"
 
 #: templates/display/import/partial_import_option.twig:22
 msgid "Skip this number of queries (for SQL) starting from the first one:"
@@ -15247,8 +15242,9 @@ msgid "Save to selected page"
 msgstr "Salvar para a página selecionada"
 
 #: templates/database/designer/page_save_as.twig:17
+#, fuzzy
 msgid "Create a page and save to it"
-msgstr "Criar uma página e exportar para ela"
+msgstr "Criar uma página e gravar nela"
 
 #: templates/database/designer/page_save_as.twig:30
 msgid "New page name"
@@ -15260,11 +15256,11 @@ msgstr "Opções ativas"
 
 #: templates/database/designer/edit_delete_pages.twig:6
 msgid "Page to open"
-msgstr "Páginas para abrir"
+msgstr "Página para abrir"
 
 #: templates/database/designer/edit_delete_pages.twig:6
 msgid "Page to delete"
-msgstr "Páginas para remover"
+msgstr "Página para remover"
 
 #: templates/columns_definitions/column_name.twig:4
 #, php-format
@@ -15276,13 +15272,15 @@ msgid "Is a foreign key."
 msgstr "É uma chave estrangeira."
 
 #: templates/columns_definitions/column_name.twig:40
+#, fuzzy
 msgid "Pick from Central Columns"
-msgstr "Escolher através das colunas centrais"
+msgstr "Escolher a partir das colunas centrais"
 
 #: templates/console/bookmark_content.twig:7 templates/console/display.twig:31
 #: templates/console/display.twig:84 templates/console/display.twig:175
+#, fuzzy
 msgid "Collapse"
-msgstr "Expandir/Recolher"
+msgstr "Recolher"
 
 #: templates/console/bookmark_content.twig:7 templates/console/display.twig:31
 #: templates/console/display.twig:84 templates/console/display.twig:175
@@ -15291,8 +15289,9 @@ msgstr "Expandir"
 
 #: templates/console/bookmark_content.twig:7 templates/console/display.twig:31
 #: templates/console/display.twig:175
+#, fuzzy
 msgid "Requery"
-msgstr "Fazer novo consulta"
+msgstr "Repetir consulta"
 
 #: templates/database/structure/body_for_table_summary.twig:6
 #, php-format
@@ -15306,8 +15305,9 @@ msgid "Sum"
 msgstr "Soma"
 
 #: templates/database/designer/database_tables.twig:31
+#, fuzzy
 msgid "Show/hide columns"
-msgstr "Mostrar/ocultar campo(s)"
+msgstr "Mostrar/ocultar colunas"
 
 #: templates/database/designer/database_tables.twig:39
 msgid "See table structure"
@@ -15318,8 +15318,8 @@ msgid ""
 "Note: Enabling the database statistics here might cause heavy traffic "
 "between the web server and the MySQL server."
 msgstr ""
-"Nota: Ativar as estatísticas pode causar um grande volume de tráfego de "
-"dados entre o servidor web e o servidor MySQL."
+"Nota: Ativar as estatísticas aqui pode causar um grande volume de tráfego "
+"entre o servidor web e o servidor MySQL."
 
 #: templates/server/databases/databases_footer.twig:68
 #: templates/server/databases/databases_footer.twig:71
@@ -15334,7 +15334,7 @@ msgstr "Adicionar privilégios à seguinte rotina:"
 #: templates/privileges/column_privileges.twig:22
 msgctxt "None privileges"
 msgid "None"
-msgstr "Nenhum privilégio"
+msgstr "Nenhum"
 
 #: templates/table/structure/row_stats_table.twig:2
 msgid "Row statistics"
@@ -15365,10 +15365,9 @@ msgid "Next autoindex"
 msgstr "Próximo auto-índice"
 
 #: templates/database/structure/show_create_row.twig:7
-#, fuzzy, php-format
-#| msgid "Create User"
+#, php-format
 msgid "Create %s"
-msgstr "Criar usuário"
+msgstr "Criar %s"
 
 #: templates/server/binlog/log_selector.twig:5
 msgid "Select binary log to view"
@@ -15387,8 +15386,9 @@ msgid "Number of rows per page"
 msgstr "Número de registros por página"
 
 #: templates/table/search/options.twig:45
+#, fuzzy
 msgid "Display order:"
-msgstr "Ordenado por:"
+msgstr "Ordem de exibição:"
 
 #: templates/export/alias_add.twig:4
 msgid "Define new aliases"
@@ -15407,8 +15407,9 @@ msgid "Select table:"
 msgstr "Selecionar tabela:"
 
 #: templates/export/alias_add.twig:29
+#, fuzzy
 msgid "New table name"
-msgstr "Nome da nova tabela"
+msgstr "Novo nome da tabela"
 
 #: templates/export/alias_add.twig:37
 msgid "Select column:"
@@ -15467,9 +15468,9 @@ msgid "Session value"
 msgstr "Valor da sessão"
 
 #: templates/table/structure/add_column.twig:9
-#, php-format
+#, fuzzy, php-format
 msgid "Add %s column(s)"
-msgstr "Adicionar campo(s) %s"
+msgstr "Adicionar %s campo(s)"
 
 #: templates/table/structure/add_column.twig:14
 msgid "at beginning of table"
@@ -15477,9 +15478,9 @@ msgstr "No início da tabela"
 
 #: templates/table/structure/add_column.twig:19
 #: templates/columns_definitions/move_column.twig:12
-#, php-format
+#, fuzzy, php-format
 msgid "after %s"
-msgstr "depois de %s"
+msgstr "após %s"
 
 #: templates/login/twofactor/application_configure.twig:3
 msgid ""
@@ -15489,10 +15490,8 @@ msgstr ""
 
 #: templates/login/twofactor/application_configure.twig:9
 #: templates/login/twofactor/application.twig:2
-#, fuzzy
-#| msgid "Authentication"
 msgid "Authentication code:"
-msgstr "Autenticação"
+msgstr "Código de Autenticação:"
 
 #: templates/database/structure/check_all_tables.twig:6
 msgid "Check tables having overhead"
@@ -15520,7 +15519,7 @@ msgstr "Substituir o prefixo de tabelas"
 
 #: templates/database/structure/check_all_tables.twig:33
 msgid "Add columns to central list"
-msgstr "Adicionar colunas a lista central"
+msgstr "Adicionar colunas à lista central"
 
 #: templates/database/structure/check_all_tables.twig:34
 msgid "Remove columns from central list"
