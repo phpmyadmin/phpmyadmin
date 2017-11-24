@@ -114,38 +114,14 @@ class Import
     public static function getHtmlForImportCharset()
     {
         global $cfg;
-        $html = '       <div class="formelementrow" id="charaset_of_file">';
-        // charset of file
-        if (Encoding::isSupported()) {
-            $html .= '<label for="charset_of_file">' . __('Character set of the file:')
-                . '</label>';
-            $html .= '<select id="charset_of_file" name="charset_of_file" size="1">';
-            foreach (Encoding::listEncodings() as $temp_charset) {
-                $html .= '<option value="' . htmlentities($temp_charset) .  '"';
-                if ((empty($cfg['Import']['charset']) && $temp_charset == 'utf-8')
-                    || $temp_charset == $cfg['Import']['charset']
-                ) {
-                    $html .= ' selected="selected"';
-                }
-                $html .= '>' . htmlentities($temp_charset) . '</option>';
-            }
-            $html .= ' </select><br />';
-        } else {
-            $html .= '<label for="charset_of_file">' . __('Character set of the file:')
-                . '</label>' . "\n";
-            $html .= Charsets::getCharsetDropdownBox(
-                $GLOBALS['dbi'],
-                $GLOBALS['cfg']['Server']['DisableIS'],
-                'charset_of_file',
-                'charset_of_file',
-                'utf8',
-                false
-            );
-        } // end if (recoding)
 
-        $html .= '        </div>';
-
-        return $html;
+        return Template::get('display/import/charset')->render([
+            'is_encoding_supported' => Encoding::isSupported(),
+            'encodings' => Encoding::listEncodings(),
+            'import_charset' => isset($cfg['Import']['charset']) ? $cfg['Import']['charset'] : null,
+            'dbi' => $GLOBALS['dbi'],
+            'disable_is' => $GLOBALS['cfg']['Server']['DisableIS'],
+        ]);
     }
 
     /**
