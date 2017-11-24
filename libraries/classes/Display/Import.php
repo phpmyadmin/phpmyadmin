@@ -88,10 +88,9 @@ class Import
     public static function getHtmlForImportCompressions()
     {
         global $cfg;
-        $html = '';
+
         // zip, gzip and bzip2 encode features
         $compressions = array();
-
         if ($cfg['GZipDump'] && @function_exists('gzopen')) {
             $compressions[] = 'gzip';
         }
@@ -101,23 +100,10 @@ class Import
         if ($cfg['ZipDump'] && @function_exists('zip_open')) {
             $compressions[] = 'zip';
         }
-        // We don't have show anything about compression, when no supported
-        if ($compressions != array()) {
-            $html .= '<div class="formelementrow" id="compression_info">';
-            $compress_str = sprintf(
-                __('File may be compressed (%s) or uncompressed.'),
-                implode(", ", $compressions)
-            );
-            $html .= $compress_str;
-            $html .= '<br />';
-            $html .= __(
-                'A compressed file\'s name must end in <b>.[format].[compression]</b>. '
-                . 'Example: <b>.sql.zip</b>'
-            );
-            $html .= '</div>';
-        }
 
-        return $html;
+        return Template::get('display/import/compressions')->render([
+            'compressions' => $compressions,
+        ]);
     }
 
     /**
