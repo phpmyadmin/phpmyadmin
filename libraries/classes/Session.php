@@ -55,7 +55,7 @@ class Session
             session_regenerate_id(true);
         }
         // continue with empty session
-        $_SESSION = [];
+        session_unset();
         self::generateToken();
     }
 
