@@ -111,16 +111,6 @@ class Import
     }
 
     /**
-     * Prints Html For Display Import options : submit
-     *
-     * @return string
-     */
-    public static function getHtmlForImportOptionsSubmit()
-    {
-        return Template::get('display/import/submit_option')->render();
-    }
-
-    /**
      * Prints Html For Display Import
      *
      * @param int            $upload_id         The selected upload id
@@ -194,7 +184,7 @@ class Import
             'can_convert_kanji' => Encoding::canConvertKanji(),
         ]);
 
-        $html .= self::getHtmlForImportOptionsSubmit();
+        $html .= Template::get('display/import/submit_option')->render();
 
         $html .= '</form>';
         $html .= '</div>';
