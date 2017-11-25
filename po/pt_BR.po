@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.8.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2017-11-22 15:57-0500\n"
-"PO-Revision-Date: 2017-11-25 13:22+0000\n"
-"Last-Translator: anonymous <>\n"
+"PO-Revision-Date: 2017-11-26 13:49+0000\n"
+"Last-Translator: Renato dos Santos <shazaum@gmail.com>\n"
 "Language-Team: Portuguese (Brazil) "
 "<https://hosted.weblate.org/projects/phpmyadmin/master/pt_BR/>\n"
 "Language: pt_BR\n"
@@ -14421,11 +14421,9 @@ msgstr ""
 
 #: prefs_second.php:29
 msgid "Two-factor authentication has been removed."
-msgstr "A autenticação em duas etapas foi removida."
+msgstr "Autenticação por dois fatores removida."
 
 #: prefs_second.php:39
-#, fuzzy
-#| msgid "Invalid authentication method set in configuration:"
 msgid "Two-factor authentication has been configured."
 msgstr "Autenticação por dois fatores configurada."
 
