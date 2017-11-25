@@ -52,62 +52,20 @@ class Import
             $compressions[] = 'zip';
         }
 
-        $html  = '    <div class="importoptions">';
-        $html .= '         <h3>'  . __('File to import:') . '</h3>';
-        $html .= Template::get('display/import/compressions')->render([
+        return Template::get('display/import/file_option')->render([
+            'max_upload_size' => $max_upload_size,
+            'import_list' => $import_list,
+            'local_import_file' => $local_import_file,
+            'is_upload' => $GLOBALS['is_upload'],
+            'upload_dir' => isset($cfg['UploadDir']) ? $cfg['UploadDir'] : null,
+            'timeout_passed' => isset($GLOBALS['timeout_passed']) ? $GLOBALS['timeout_passed'] : null,
             'compressions' => $compressions,
-        ]);
-        $html .= '        <div class="formelementrow" id="upload_form">';
-
-        if ($GLOBALS['is_upload'] && !empty($cfg['UploadDir'])) {
-            $html .= '            <ul>';
-            $html .= '            <li>';
-            $html .= '                <input type="radio" name="file_location" '
-                . 'id="radio_import_file" required="required" />';
-            $html .= Util::getBrowseUploadFileBlock($max_upload_size);
-            $html .= '<br />' . __('You may also drag and drop a file on any page.');
-            $html .= '            </li>';
-            $html .= '            <li>';
-            $html .= '               <input type="radio" name="file_location" '
-                . 'id="radio_local_import_file"';
-            if (! empty($GLOBALS['timeout_passed'])
-                && ! empty($local_import_file)
-            ) {
-                $html .= ' checked="checked"';
-            }
-            $html .= ' />';
-            $html .= Util::getSelectUploadFileBlock(
-                $import_list,
-                $cfg['UploadDir']
-            );
-            $html .= '            </li>';
-            $html .= '            </ul>';
-
-        } elseif ($GLOBALS['is_upload']) {
-            $html .= Util::getBrowseUploadFileBlock($max_upload_size);
-            $html .= '<br />' . __('You may also drag and drop a file on any page.');
-        } elseif (!$GLOBALS['is_upload']) {
-            $html .= Message::notice(
-                __('File uploads are not allowed on this server.')
-            )->getDisplay();
-        } elseif (!empty($cfg['UploadDir'])) {
-            $html .= Util::getSelectUploadFileBlock(
-                $import_list,
-                $cfg['UploadDir']
-            );
-        } // end if (web-server upload directory)
-
-        $html .= '        </div>';
-        $html .= Template::get('display/import/charset')->render([
             'is_encoding_supported' => Encoding::isSupported(),
             'encodings' => Encoding::listEncodings(),
             'import_charset' => isset($cfg['Import']['charset']) ? $cfg['Import']['charset'] : null,
             'dbi' => $GLOBALS['dbi'],
-            'disable_is' => $GLOBALS['cfg']['Server']['DisableIS'],
+            'disable_is' => $cfg['Server']['DisableIS'],
         ]);
-        $html .= '   </div>';
-
-        return $html;
     }
 
     /**

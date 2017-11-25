@@ -1,0 +1,44 @@
+<div class="importoptions">
+    <h3>{% trans 'File to import:' %}</h3>
+    {% include 'display/import/compressions.twig' with {
+        'compressions': compressions
+    } only %}
+    <div class="formelementrow" id="upload_form">
+        {% if is_upload and upload_dir is not empty %}
+            <ul>
+                <li>
+                    <input type="radio" name="file_location" id="radio_import_file" required="required" />
+                    {{ Util_getBrowseUploadFileBlock(max_upload_size) }}
+                    {% trans 'You may also drag and drop a file on any page.' %}
+                </li>
+                <li>
+                    <input type="radio" name="file_location" id="radio_local_import_file"
+                        {%- if timeout_passed is not empty and local_import_file is not empty %}
+                            checked="checked"
+                        {%- endif %} />
+                    {{ Util_getSelectUploadFileBlock(
+                        import_list,
+                        upload_dir
+                    ) }}
+                </li>
+            </ul>
+        {% elseif is_upload %}
+            {{ Util_getBrowseUploadFileBlock(max_upload_size) }}
+            <p>{% trans 'You may also drag and drop a file on any page.' %}</p>
+        {% elseif not is_upload %}
+            {{ Message_notice('File uploads are not allowed on this server.'|trans) }}
+        {% elseif upload_dir is not empty %}
+            {{ Util_getSelectUploadFileBlock(
+                import_list,
+                upload_dir
+            ) }}
+        {% endif %}
+    </div>
+    {% include 'display/import/charset.twig' with {
+        'is_encoding_supported': is_encoding_supported,
+        'encodings': encodings,
+        'import_charset': import_charset,
+        'dbi': dbi,
+        'disable_is': disable_is
+    } only %}
+</div>

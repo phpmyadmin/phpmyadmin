@@ -30,6 +30,11 @@ class UtilExtension extends Twig_Extension
                 'PhpMyAdmin\Util::backquote'
             ),
             new Twig_SimpleFunction(
+                'Util_getBrowseUploadFileBlock',
+                'PhpMyAdmin\Util::getBrowseUploadFileBlock',
+                array('is_safe' => array('html'))
+            ),
+            new Twig_SimpleFunction(
                 'Util_convertBitDefaultValue',
                 'PhpMyAdmin\Util::convertBitDefaultValue'
             ),
@@ -120,6 +125,11 @@ class UtilExtension extends Twig_Extension
             new Twig_SimpleFunction(
                 'Util_getRadioFields',
                 'PhpMyAdmin\Util::getRadioFields',
+                array('is_safe' => array('html'))
+            ),
+            new Twig_SimpleFunction(
+                'Util_getSelectUploadFileBlock',
+                'PhpMyAdmin\Util::getSelectUploadFileBlock',
                 array('is_safe' => array('html'))
             ),
             new Twig_SimpleFunction(
