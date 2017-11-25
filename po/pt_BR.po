@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.8.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2017-11-22 15:57-0500\n"
-"PO-Revision-Date: 2017-11-25 13:20+0000\n"
-"Last-Translator: Mauricio Bastos <msbmail@gmail.com>\n"
+"PO-Revision-Date: 2017-11-25 13:21+0000\n"
+"Last-Translator: Renato dos Santos <shazaum@gmail.com>\n"
 "Language-Team: Portuguese (Brazil) "
 "<https://hosted.weblate.org/projects/phpmyadmin/master/pt_BR/>\n"
 "Language: pt_BR\n"
@@ -10388,8 +10388,6 @@ msgid "Two-factor authentication failed: %s"
 msgstr "A autenticação por dois fatores falhou: %s"
 
 #: libraries/classes/Plugins/TwoFactorPlugin.php:69
-#, fuzzy
-#| msgid "Hardware authentication failed!"
 msgid "Two-factor authentication failed."
 msgstr "Autenticação por dois fatores falhou."
 
