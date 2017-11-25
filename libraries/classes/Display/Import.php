@@ -111,22 +111,6 @@ class Import
     }
 
     /**
-     * Prints Html For Display Import options : Partial Import
-     *
-     * @param String $timeout_passed timeout passed
-     * @param String $offset         timeout offset
-     *
-     * @return string
-     */
-    public static function getHtmlForImportOptionsPartialImport($timeout_passed, $offset)
-    {
-        return Template::get('display/import/partial_import_option')->render([
-            'timeout_passed' => isset($timeout_passed) ? $timeout_passed : null,
-            'offset' => $offset,
-        ]);
-    }
-
-    /**
      * Prints Html For Display Import options : Other
      *
      * @return string
@@ -223,7 +207,10 @@ class Import
             $max_upload_size, $import_list, $local_import_file
         );
 
-        $html .= self::getHtmlForImportOptionsPartialImport($timeout_passed, $offset);
+        $html .= Template::get('display/import/partial_import_option')->render([
+            'timeout_passed' => isset($timeout_passed) ? $timeout_passed : null,
+            'offset' => $offset,
+        ]);
 
         $html .= self::getHtmlForImportOptionsOther();
 
