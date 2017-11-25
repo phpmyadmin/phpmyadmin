@@ -28,7 +28,7 @@ require 'libraries/server_common.inc.php';
 
 $response = Response::getInstance();
 $response->addHTML(
-    Import::getImportDisplay(
+    Import::get(
         'server', $db, $table, $max_upload_size
     )
 );
