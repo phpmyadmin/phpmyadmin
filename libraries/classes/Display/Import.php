@@ -27,24 +27,6 @@ use PhpMyAdmin\Util;
 class Import
 {
     /**
-     * Prints Html For Import Javascript
-     *
-     * @param int $uploadId The selected upload id
-     *
-     * @return string
-     */
-    public static function getHtmlForImportJs($uploadId)
-    {
-        global $SESSION_KEY;
-
-        return Template::get('display/import/javascript')->render([
-            'upload_id' => $uploadId,
-            'handler' => $_SESSION[$SESSION_KEY]["handler"],
-            'pma_theme_image' => $GLOBALS['pmaThemeImage'],
-        ]);
-    }
-
-    /**
      * Prints Html For Display Export options
      *
      * @param String $importType Import type: server, database, table
@@ -248,7 +230,11 @@ class Import
         $html .= '    <img src="' . $GLOBALS['pmaThemeImage'] . 'ajax_clock_small.gif" '
             . 'width="16" height="16" alt="ajax clock" class="hide" />';
 
-        $html .= self::getHtmlForImportJs($upload_id);
+        $html .= Template::get('display/import/javascript')->render([
+            'upload_id' => $upload_id,
+            'handler' => $_SESSION[$SESSION_KEY]["handler"],
+            'pma_theme_image' => $GLOBALS['pmaThemeImage'],
+        ]);
 
         $html .= '    <form id="import_file_form" action="import.php" method="post" '
             . 'enctype="multipart/form-data"';
