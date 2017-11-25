@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.8.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2017-11-22 15:57-0500\n"
-"PO-Revision-Date: 2017-11-25 13:21+0000\n"
-"Last-Translator: Renato dos Santos <shazaum@gmail.com>\n"
+"PO-Revision-Date: 2017-11-25 13:22+0000\n"
+"Last-Translator: anonymous <>\n"
 "Language-Team: Portuguese (Brazil) "
 "<https://hosted.weblate.org/projects/phpmyadmin/master/pt_BR/>\n"
 "Language: pt_BR\n"
@@ -14420,10 +14420,8 @@ msgstr ""
 "padrões."
 
 #: prefs_second.php:29
-#, fuzzy
-#| msgid "Internal relationship has been removed."
 msgid "Two-factor authentication has been removed."
-msgstr "Autenticação por dois fatores removida."
+msgstr "A autenticação em duas etapas foi removida."
 
 #: prefs_second.php:39
 #, fuzzy
