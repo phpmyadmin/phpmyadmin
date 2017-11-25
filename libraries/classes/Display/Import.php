@@ -27,24 +27,6 @@ use PhpMyAdmin\Util;
 class Import
 {
     /**
-     * Prints Html For Display Export options
-     *
-     * @param String $importType Import type: server, database, table
-     * @param String $db         Selected DB
-     * @param String $table      Selected Table
-     *
-     * @return string
-     */
-    public static function getHtmlForImportOptions($importType, $db, $table)
-    {
-        return Template::get('display/import/options')->render([
-            'import_type' => $importType,
-            'db' => $db,
-            'table' => $table,
-        ]);
-    }
-
-    /**
      * Prints Html For Display Import charset
      *
      * @return string
@@ -243,7 +225,11 @@ class Import
             'table' => $table,
         ]);
 
-        $html .= self::getHtmlForImportOptions($import_type, $db, $table);
+        $html .= Template::get('display/import/options')->render([
+            'import_type' => $import_type,
+            'db' => $db,
+            'table' => $table,
+        ]);
 
         $html .= self::getHtmlForImportOptionsFile(
             $max_upload_size, $import_list, $local_import_file
