@@ -27,24 +27,6 @@ use PhpMyAdmin\Util;
 class Import
 {
     /**
-     * Prints Html For Display Import charset
-     *
-     * @return string
-     */
-    public static function getHtmlForImportCharset()
-    {
-        global $cfg;
-
-        return Template::get('display/import/charset')->render([
-            'is_encoding_supported' => Encoding::isSupported(),
-            'encodings' => Encoding::listEncodings(),
-            'import_charset' => isset($cfg['Import']['charset']) ? $cfg['Import']['charset'] : null,
-            'dbi' => $GLOBALS['dbi'],
-            'disable_is' => $GLOBALS['cfg']['Server']['DisableIS'],
-        ]);
-    }
-
-    /**
      * Prints Html For Display Import options : file property
      *
      * @param int            $max_upload_size   Max upload size
@@ -116,7 +98,13 @@ class Import
         } // end if (web-server upload directory)
 
         $html .= '        </div>';
-        $html .= self::getHtmlForImportCharset();
+        $html .= Template::get('display/import/charset')->render([
+            'is_encoding_supported' => Encoding::isSupported(),
+            'encodings' => Encoding::listEncodings(),
+            'import_charset' => isset($cfg['Import']['charset']) ? $cfg['Import']['charset'] : null,
+            'dbi' => $GLOBALS['dbi'],
+            'disable_is' => $GLOBALS['cfg']['Server']['DisableIS'],
+        ]);
         $html .= '   </div>';
 
         return $html;
