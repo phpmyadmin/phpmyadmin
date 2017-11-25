@@ -45,32 +45,6 @@ class Import
     }
 
     /**
-     * Prints Html For Display Import options : Compressions
-     *
-     * @return string
-     */
-    public static function getHtmlForImportCompressions()
-    {
-        global $cfg;
-
-        // zip, gzip and bzip2 encode features
-        $compressions = array();
-        if ($cfg['GZipDump'] && @function_exists('gzopen')) {
-            $compressions[] = 'gzip';
-        }
-        if ($cfg['BZipDump'] && @function_exists('bzopen')) {
-            $compressions[] = 'bzip2';
-        }
-        if ($cfg['ZipDump'] && @function_exists('zip_open')) {
-            $compressions[] = 'zip';
-        }
-
-        return Template::get('display/import/compressions')->render([
-            'compressions' => $compressions,
-        ]);
-    }
-
-    /**
      * Prints Html For Display Import charset
      *
      * @return string
@@ -101,9 +75,24 @@ class Import
         $max_upload_size, $import_list, $local_import_file
     ) {
         global $cfg;
+
+        // zip, gzip and bzip2 encode features
+        $compressions = array();
+        if ($cfg['GZipDump'] && @function_exists('gzopen')) {
+            $compressions[] = 'gzip';
+        }
+        if ($cfg['BZipDump'] && @function_exists('bzopen')) {
+            $compressions[] = 'bzip2';
+        }
+        if ($cfg['ZipDump'] && @function_exists('zip_open')) {
+            $compressions[] = 'zip';
+        }
+
         $html  = '    <div class="importoptions">';
         $html .= '         <h3>'  . __('File to import:') . '</h3>';
-        $html .= self::getHtmlForImportCompressions();
+        $html .= Template::get('display/import/compressions')->render([
+            'compressions' => $compressions,
+        ]);
         $html .= '        <div class="formelementrow" id="upload_form">';
 
         if ($GLOBALS['is_upload'] && !empty($cfg['UploadDir'])) {
