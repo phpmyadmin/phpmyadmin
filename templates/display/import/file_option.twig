@@ -13,7 +13,7 @@
                 </li>
                 <li>
                     <input type="radio" name="file_location" id="radio_local_import_file"
-                        {%- if timeout_passed is not empty and local_import_file is not empty %}
+                        {%- if timeout_passed_global is not empty and local_import_file is not empty %}
                             checked="checked"
                         {%- endif %} />
                     {{ Util_getSelectUploadFileBlock(

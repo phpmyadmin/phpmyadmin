@@ -6,7 +6,7 @@
             {# Hide form #}
             $("#upload_form_form").css("display", "none");
 
-            {% if handler != 'PhpMyAdmin\Plugins\Import\Upload\UploadNoplugin' %}
+            {% if handler != 'PhpMyAdmin\\Plugins\\Import\\Upload\\UploadNoplugin' %}
                 {% include 'display/import/with_plugin.twig' with {
                     'upload_id': upload_id,
                     'pma_theme_image': pma_theme_image

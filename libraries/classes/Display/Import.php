@@ -60,77 +60,31 @@ class Import
             $compressions[] = 'zip';
         }
 
-        $html  = '';
-        $html .= '<iframe id="import_upload_iframe" name="import_upload_iframe" '
-            . 'width="1" height="1" class="hide"></iframe>';
-        $html .= '<div id="import_form_status" class="hide"></div>';
-        $html .= '<div id="importmain">';
-        $html .= '    <img src="' . $GLOBALS['pmaThemeImage'] . 'ajax_clock_small.gif" '
-            . 'width="16" height="16" alt="ajax clock" class="hide" />';
-
-        $html .= Template::get('display/import/javascript')->render([
+        return Template::get('display/import/import')->render([
             'upload_id' => $upload_id,
             'handler' => $_SESSION[$SESSION_KEY]["handler"],
+            'id_key' => $_SESSION[$SESSION_KEY]['handler']::getIdKey(),
             'pma_theme_image' => $GLOBALS['pmaThemeImage'],
-        ]);
-
-        $html .= '    <form id="import_file_form" action="import.php" method="post" '
-            . 'enctype="multipart/form-data"';
-        $html .= '        name="import"';
-        if ($_SESSION[$SESSION_KEY]["handler"] != 'PhpMyAdmin\Plugins\Import\Upload\UploadNoplugin') {
-            $html .= ' target="import_upload_iframe"';
-        }
-        $html .= ' class="ajax"';
-        $html .= '>';
-        $html .= '    <input type="hidden" name="';
-        $html .= $_SESSION[$SESSION_KEY]['handler']::getIdKey();
-        $html .= '" value="' . $upload_id . '" />';
-
-        $html .= Template::get('display/import/hidden_inputs')->render([
             'import_type' => $import_type,
             'db' => $db,
             'table' => $table,
-        ]);
-
-        $html .= Template::get('display/import/options')->render([
-            'import_type' => $import_type,
-            'db' => $db,
-            'table' => $table,
-        ]);
-
-        $html .= Template::get('display/import/file_option')->render([
             'max_upload_size' => $max_upload_size,
             'import_list' => $import_list,
             'local_import_file' => $local_import_file,
             'is_upload' => $GLOBALS['is_upload'],
             'upload_dir' => isset($cfg['UploadDir']) ? $cfg['UploadDir'] : null,
-            'timeout_passed' => isset($GLOBALS['timeout_passed']) ? $GLOBALS['timeout_passed'] : null,
+            'timeout_passed_global' => isset($GLOBALS['timeout_passed']) ? $GLOBALS['timeout_passed'] : null,
             'compressions' => $compressions,
             'is_encoding_supported' => Encoding::isSupported(),
             'encodings' => Encoding::listEncodings(),
             'import_charset' => isset($cfg['Import']['charset']) ? $cfg['Import']['charset'] : null,
             'dbi' => $GLOBALS['dbi'],
             'disable_is' => $cfg['Server']['DisableIS'],
-        ]);
-
-        $html .= Template::get('display/import/partial_import_option')->render([
             'timeout_passed' => isset($timeout_passed) ? $timeout_passed : null,
             'offset' => $offset,
-        ]);
-
-        $html .= Template::get('display/import/other_option')->render();
-
-        $html .= Template::get('display/import/format_option')->render([
             'import_list' => $import_list,
             'can_convert_kanji' => Encoding::canConvertKanji(),
         ]);
-
-        $html .= Template::get('display/import/submit_option')->render();
-
-        $html .= '</form>';
-        $html .= '</div>';
-
-        return $html;
     }
 
     /**

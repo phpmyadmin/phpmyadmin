@@ -1,0 +1,64 @@
+<iframe id="import_upload_iframe" name="import_upload_iframe" width="1" height="1" class="hide"></iframe>
+<div id="import_form_status" class="hide"></div>
+<div id="importmain">
+    <img src="{{ pma_theme_image }}ajax_clock_small.gif" width="16" height="16" alt="ajax clock" class="hide" />
+
+    {% include 'display/import/javascript.twig' with {
+        'upload_id': upload_id,
+        'handler': handler,
+        'pma_theme_image': pma_theme_image
+    } only %}
+
+    <form id="import_file_form"
+        action="import.php"
+        method="post"
+        enctype="multipart/form-data"
+        name="import"
+        class="ajax"
+        {%- if handler != 'PhpMyAdmin\\Plugins\\Import\\Upload\\UploadNoplugin' %}
+            target="import_upload_iframe"
+        {%- endif %}>
+        <input type="hidden" name="{{ id_key }}" value="{{ upload_id }}" />
+
+        {% include 'display/import/hidden_inputs.twig' with {
+            'import_type': import_type,
+            'db': db,
+            'table': table
+        } only %}
+
+        {% include 'display/import/options.twig' with {
+            'import_type': import_type,
+            'db': db,
+            'table': table
+        } only %}
+
+        {% include 'display/import/file_option.twig' with {
+            'max_upload_size': max_upload_size,
+            'import_list': import_list,
+            'local_import_file': local_import_file,
+            'is_upload': is_upload,
+            'upload_dir': upload_dir,
+            'timeout_passed_global': timeout_passed_global,
+            'compressions': compressions,
+            'is_encoding_supported': is_encoding_supported,
+            'encodings': encodings,
+            'import_charset': import_charset,
+            'dbi': dbi,
+            'disable_is': disable_is
+        } only %}
+
+        {% include 'display/import/partial_import_option.twig' with {
+            'timeout_passed': timeout_passed,
+            'offset': offset
+        } only %}
+
+        {% include 'display/import/other_option.twig' only %}
+
+        {% include 'display/import/format_option.twig' with {
+            'import_list': import_list,
+            'can_convert_kanji': can_convert_kanji
+        } only %}
+
+        {% include 'display/import/submit_option.twig' only %}
+    </form>
+</div>
