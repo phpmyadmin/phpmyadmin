@@ -27,48 +27,6 @@ use PhpMyAdmin\Util;
 class Import
 {
     /**
-     * Prints Html For Display Import options : file property
-     *
-     * @param int            $max_upload_size   Max upload size
-     * @param ImportPlugin[] $import_list       import list
-     * @param String         $local_import_file from upload directory
-     *
-     * @return string
-     */
-    public static function getHtmlForImportOptionsFile(
-        $max_upload_size, $import_list, $local_import_file
-    ) {
-        global $cfg;
-
-        // zip, gzip and bzip2 encode features
-        $compressions = array();
-        if ($cfg['GZipDump'] && @function_exists('gzopen')) {
-            $compressions[] = 'gzip';
-        }
-        if ($cfg['BZipDump'] && @function_exists('bzopen')) {
-            $compressions[] = 'bzip2';
-        }
-        if ($cfg['ZipDump'] && @function_exists('zip_open')) {
-            $compressions[] = 'zip';
-        }
-
-        return Template::get('display/import/file_option')->render([
-            'max_upload_size' => $max_upload_size,
-            'import_list' => $import_list,
-            'local_import_file' => $local_import_file,
-            'is_upload' => $GLOBALS['is_upload'],
-            'upload_dir' => isset($cfg['UploadDir']) ? $cfg['UploadDir'] : null,
-            'timeout_passed' => isset($GLOBALS['timeout_passed']) ? $GLOBALS['timeout_passed'] : null,
-            'compressions' => $compressions,
-            'is_encoding_supported' => Encoding::isSupported(),
-            'encodings' => Encoding::listEncodings(),
-            'import_charset' => isset($cfg['Import']['charset']) ? $cfg['Import']['charset'] : null,
-            'dbi' => $GLOBALS['dbi'],
-            'disable_is' => $cfg['Server']['DisableIS'],
-        ]);
-    }
-
-    /**
      * Prints Html For Display Import
      *
      * @param int            $upload_id         The selected upload id
@@ -88,6 +46,20 @@ class Import
         $max_upload_size, $import_list, $timeout_passed, $offset, $local_import_file
     ) {
         global $SESSION_KEY;
+        global $cfg;
+
+        // zip, gzip and bzip2 encode features
+        $compressions = array();
+        if ($cfg['GZipDump'] && @function_exists('gzopen')) {
+            $compressions[] = 'gzip';
+        }
+        if ($cfg['BZipDump'] && @function_exists('bzopen')) {
+            $compressions[] = 'bzip2';
+        }
+        if ($cfg['ZipDump'] && @function_exists('zip_open')) {
+            $compressions[] = 'zip';
+        }
+
         $html  = '';
         $html .= '<iframe id="import_upload_iframe" name="import_upload_iframe" '
             . 'width="1" height="1" class="hide"></iframe>';
@@ -126,9 +98,20 @@ class Import
             'table' => $table,
         ]);
 
-        $html .= self::getHtmlForImportOptionsFile(
-            $max_upload_size, $import_list, $local_import_file
-        );
+        $html .= Template::get('display/import/file_option')->render([
+            'max_upload_size' => $max_upload_size,
+            'import_list' => $import_list,
+            'local_import_file' => $local_import_file,
+            'is_upload' => $GLOBALS['is_upload'],
+            'upload_dir' => isset($cfg['UploadDir']) ? $cfg['UploadDir'] : null,
+            'timeout_passed' => isset($GLOBALS['timeout_passed']) ? $GLOBALS['timeout_passed'] : null,
+            'compressions' => $compressions,
+            'is_encoding_supported' => Encoding::isSupported(),
+            'encodings' => Encoding::listEncodings(),
+            'import_charset' => isset($cfg['Import']['charset']) ? $cfg['Import']['charset'] : null,
+            'dbi' => $GLOBALS['dbi'],
+            'disable_is' => $cfg['Server']['DisableIS'],
+        ]);
 
         $html .= Template::get('display/import/partial_import_option')->render([
             'timeout_passed' => isset($timeout_passed) ? $timeout_passed : null,
