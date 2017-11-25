@@ -27,24 +27,6 @@ use PhpMyAdmin\Util;
 class Import
 {
     /**
-     * Prints Html For Display Import Hidden Input
-     *
-     * @param String $importType Import type: server, database, table
-     * @param String $db         Selected DB
-     * @param String $table      Selected Table
-     *
-     * @return string
-     */
-    public static function getHtmlForHiddenInputs($importType, $db, $table)
-    {
-        return Template::get('display/import/hidden_inputs')->render([
-            'import_type' => $importType,
-            'db' => $db,
-            'table' => $table,
-        ]);
-    }
-
-    /**
      * Prints Html For Import Javascript
      *
      * @param int $uploadId The selected upload id
@@ -280,7 +262,11 @@ class Import
         $html .= $_SESSION[$SESSION_KEY]['handler']::getIdKey();
         $html .= '" value="' . $upload_id . '" />';
 
-        $html .= self::getHtmlForHiddenInputs($import_type, $db, $table);
+        $html .= Template::get('display/import/hidden_inputs')->render([
+            'import_type' => $import_type,
+            'db' => $db,
+            'table' => $table,
+        ]);
 
         $html .= self::getHtmlForImportOptions($import_type, $db, $table);
 
