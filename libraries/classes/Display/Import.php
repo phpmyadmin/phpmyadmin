@@ -111,21 +111,6 @@ class Import
     }
 
     /**
-     * Prints Html For Display Import options : Format
-     *
-     * @param ImportPlugin[] $importList import list
-     *
-     * @return string
-     */
-    public static function getHtmlForImportOptionsFormat($importList)
-    {
-        return Template::get('display/import/format_option')->render([
-            'import_list' => $importList,
-            'can_convert_kanji' => Encoding::canConvertKanji(),
-        ]);
-    }
-
-    /**
      * Prints Html For Display Import options : submit
      *
      * @return string
@@ -204,7 +189,10 @@ class Import
 
         $html .= Template::get('display/import/other_option')->render();
 
-        $html .= self::getHtmlForImportOptionsFormat($import_list);
+        $html .= Template::get('display/import/format_option')->render([
+            'import_list' => $import_list,
+            'can_convert_kanji' => Encoding::canConvertKanji(),
+        ]);
 
         $html .= self::getHtmlForImportOptionsSubmit();
 
