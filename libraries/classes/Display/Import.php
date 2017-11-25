@@ -111,16 +111,6 @@ class Import
     }
 
     /**
-     * Prints Html For Display Import options : Other
-     *
-     * @return string
-     */
-    public static function getHtmlForImportOptionsOther()
-    {
-        return Template::get('display/import/other_option')->render();
-    }
-
-    /**
      * Prints Html For Display Import options : Format
      *
      * @param ImportPlugin[] $importList import list
@@ -212,7 +202,7 @@ class Import
             'offset' => $offset,
         ]);
 
-        $html .= self::getHtmlForImportOptionsOther();
+        $html .= Template::get('display/import/other_option')->render();
 
         $html .= self::getHtmlForImportOptionsFormat($import_list);
 
