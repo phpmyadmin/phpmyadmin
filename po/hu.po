@@ -4,16 +4,16 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.8.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2017-11-22 15:57-0500\n"
-"PO-Revision-Date: 2017-08-24 15:05+0000\n"
-"Last-Translator: Józsa Csongor <jozsa.csongor@gmail.com>\n"
-"Language-Team: Hungarian <https://hosted.weblate.org/projects/phpmyadmin/"
-"master/hu/>\n"
+"PO-Revision-Date: 2017-11-26 14:47+0000\n"
+"Last-Translator: Varanka Zoltán <zvaranka60@gmail.com>\n"
+"Language-Team: Hungarian "
+"<https://hosted.weblate.org/projects/phpmyadmin/master/hu/>\n"
 "Language: hu\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 2.17-dev\n"
+"X-Generator: Weblate 2.18-dev\n"
 
 #: ajax.php:17 ajax.php:34 export.php:203 libraries/classes/Export.php:1100
 msgid "Bad type!"
@@ -627,6 +627,8 @@ msgid ""
 "You were logged out from one server, to logout completely from phpMyAdmin, "
 "you need to logout from all servers."
 msgstr ""
+"Megtörtént a kijelentkezés egy szerverről, a phpMyAdmin teljes elhagyásához "
+"az összes szerverről ki kell jelentkezni."
 
 #: index.php:161 libraries/classes/Footer.php:75
 msgid "phpMyAdmin Demo Server"
@@ -1762,6 +1764,8 @@ msgid ""
 "It seems that the connection to server has been lost. Please check your "
 "network connectivity and server status."
 msgstr ""
+"A kapcsolat megszűnt a szerverrel. Ellenőrizni kell a hálózati kapcsolatot "
+"és a szerver állapotot."
 
 #: js/messages.php:369
 #: libraries/classes/Controllers/Server/ServerDatabasesController.php:188
@@ -2238,6 +2242,8 @@ msgid ""
 "MySQL accepts additional values not selectable by the slider; key in those "
 "values directly if desired"
 msgstr ""
+"A MySQL elfogad a csúszkával nem kiválasztható értékeket is, gépeljük be "
+"közvetlenül a kívánt értékeket szükség esetén."
 
 #: js/messages.php:540
 msgid ""
@@ -2665,7 +2671,7 @@ msgstr "Tábla másolása előtaggal"
 
 #: js/messages.php:739
 msgid "Extremely weak"
-msgstr ""
+msgstr "Extrém gyenge"
 
 #: js/messages.php:740
 msgid "Very weak"
@@ -3053,6 +3059,7 @@ msgstr "'%s' szabály karakterformázása sikertelen."
 #, php-format
 msgid "Error in reading file: The file '%s' does not exist or is not readable!"
 msgstr ""
+"Hiba történt a fájl olvasásakor: '%s' fájl nem létezik vagy nem olvasható!"
 
 #: libraries/classes/Advisor.php:521
 #, php-format
@@ -3404,7 +3411,7 @@ msgstr "Bolgár"
 #: libraries/classes/Charsets.php:440
 msgctxt "Collation"
 msgid "Chinese"
-msgstr ""
+msgstr "Kínai"
 
 #: libraries/classes/Charsets.php:445
 #, fuzzy
@@ -3458,7 +3465,7 @@ msgstr "Adatszótár"
 #: libraries/classes/Charsets.php:471 libraries/classes/Charsets.php:582
 msgctxt "Collation"
 msgid "German (phone book order)"
-msgstr ""
+msgstr "Német (telefonkönyv sorrend)"
 
 #: libraries/classes/Charsets.php:480
 #, fuzzy
@@ -3477,7 +3484,7 @@ msgstr "Izlandi"
 #: libraries/classes/Charsets.php:491
 msgctxt "Collation"
 msgid "Classical Latin"
-msgstr ""
+msgstr "Klasszikus latin"
 
 #: libraries/classes/Charsets.php:495
 #, fuzzy
@@ -3552,7 +3559,7 @@ msgstr "Spanyol"
 #: libraries/classes/Charsets.php:543 libraries/classes/Charsets.php:593
 msgctxt "Collation"
 msgid "Spanish (traditional)"
-msgstr ""
+msgstr "Spanyol (hagyományos)"
 
 #: libraries/classes/Charsets.php:562
 #, fuzzy
@@ -14214,12 +14221,12 @@ msgstr "Vas"
 #: libraries/classes/Util.php:1534
 msgctxt "AM/PM indication in time"
 msgid "PM"
-msgstr ""
+msgstr "DU"
 
 #: libraries/classes/Util.php:1536
 msgctxt "AM/PM indication in time"
 msgid "AM"
-msgstr ""
+msgstr "DE"
 
 #: libraries/classes/Util.php:1830
 #, php-format
