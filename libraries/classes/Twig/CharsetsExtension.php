@@ -30,6 +30,11 @@ class CharsetsExtension extends Twig_Extension
                 'PhpMyAdmin\Charsets::getCollationDescr'
             ),
             new Twig_SimpleFunction(
+                'Charsets_getCharsetDropdownBox',
+                'PhpMyAdmin\Charsets::getCharsetDropdownBox',
+                array('is_safe' => array('html'))
+            ),
+            new Twig_SimpleFunction(
                 'Charsets_getCollationDropdownBox',
                 'PhpMyAdmin\Charsets::getCollationDropdownBox',
                 array('is_safe' => array('html'))
