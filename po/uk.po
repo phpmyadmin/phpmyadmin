@@ -4,16 +4,16 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.8.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2017-11-22 15:57-0500\n"
-"PO-Revision-Date: 2017-11-04 10:06+0000\n"
+"PO-Revision-Date: 2017-11-26 11:04+0000\n"
 "Last-Translator: Володимир Бриняк <bardvv@gmail.com>\n"
-"Language-Team: Ukrainian <https://hosted.weblate.org/projects/phpmyadmin/"
-"master/uk/>\n"
+"Language-Team: Ukrainian "
+"<https://hosted.weblate.org/projects/phpmyadmin/master/uk/>\n"
 "Language: uk\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=3; plural=n%10==1 && n%100!=11 ? 0 : n%10>=2 && n"
-"%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
+"Plural-Forms: nplurals=3; plural=n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%10<="
+"4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
 "X-Generator: Weblate 2.18-dev\n"
 
 #: ajax.php:17 ajax.php:34 export.php:203 libraries/classes/Export.php:1100
@@ -14960,22 +14960,16 @@ msgstr "Параметри перетворення відображення б�
 
 #: templates/columns_definitions/table_fields_definitions.twig:83
 #: templates/columns_definitions/table_fields_definitions.twig:94
-#, fuzzy
-#| msgid ""
-#| "Please enter the values for transformation options using this format: "
-#| "'a', 100, b,'c'…<br />If you ever need to put a backslash (\"\") or a "
-#| "single quote (\"'\") amongst those values, precede it with a backslash "
-#| "(for example '\\\\xyz' or 'a\\'b')."
 msgid ""
 "Please enter the values for transformation options using this format: 'a', "
 "100, b,'c'…<br />If you ever need to put a backslash (\"\\\") or a single "
 "quote (\"'\") amongst those values, precede it with a backslash (for example "
 "'\\\\xyz' or 'a\\'b')."
 msgstr ""
-"Введіть значення опцій перетворення у такому форматі: 'a', 100, b,'c'…<br /"
-">Якщо необхідно ввести зворотній слеш (\"\") чи поодинокі лапки (\"'\") у "
-"цих значеннях, поставте перед ними додатковий зворотній слеш (наприклад '\\"
-"\\xyz' чи 'a\\'b')."
+"Введіть значення опцій перетворення у такому форматі: 'a', 100, b,'c'…<br />"
+"Якщо необхідно ввести зворотній слеш (\"\\\") чи поодинокі лапки (\"'\") у "
+"цих значеннях, поставте перед ними додатковий зворотній слеш (наприклад '\\\\"
+"xyz' чи 'a\\'b')."
 
 #: templates/columns_definitions/table_fields_definitions.twig:93
 msgid "Input transformation options"
@@ -15118,20 +15112,15 @@ msgstr ""
 "позиції %d."
 
 #: templates/display/import/partial_import_option.twig:15
-#, fuzzy
-#| msgid ""
-#| "Allow the interruption of an import in case the script detects it is "
-#| "close to the PHP timeout limit. <i>(This might be a good way to import "
-#| "large files, however it can break transactions.)</i>"
 msgid ""
 "Allow the interruption of an import in case the script detects it is close "
 "to the PHP timeout limit. <em>(This might be a good way to import large "
 "files, however it can break transactions.)</em>"
 msgstr ""
 "Дозволити переривання імпорту у випадку, коли скрипт виявить наближення до "
-"вичерпання часу очікування PHP. <i>(Це може бути хороший способом "
-"імпортування великих файлів, однак це можу привести до розриву пересилань).</"
-"i>"
+"вичерпання часу очікування PHP. <em>(Це може бути хороший способом "
+"імпортування великих файлів, однак це можу привести до розриву "
+"пересилань.)</em>"
 
 #: templates/display/import/partial_import_option.twig:22
 msgid "Skip this number of queries (for SQL) starting from the first one:"
@@ -15570,67 +15559,47 @@ msgstr "Вікно запиту"
 
 #: templates/database/multi_table_query/form.twig:18
 #: templates/database/multi_table_query/form.twig:106
-#, fuzzy
-#| msgid "Select table:"
 msgid "select table"
-msgstr "Вибрати таблицю:"
+msgstr "вибрати таблицю"
 
 #: templates/database/multi_table_query/form.twig:25
 #: templates/database/multi_table_query/form.twig:114
-#, fuzzy
-#| msgid "Select column:"
 msgid "select column"
-msgstr "Вибрати стовпець:"
+msgstr "вибрати стовпець"
 
 #: templates/database/multi_table_query/form.twig:31
-#, fuzzy
-#| msgid "Tables"
 msgid "Table alias"
-msgstr "Таблиці"
+msgstr "Псевдонім таблиці"
 
 #: templates/database/multi_table_query/form.twig:32
-#, fuzzy
-#| msgid "Column names"
 msgid "Column alias"
-msgstr "Ім'я стовпців"
+msgstr "Псевдонім стовпця"
 
 #: templates/database/multi_table_query/form.twig:35
-#, fuzzy
-#| msgid "Use this column to label each point"
 msgid "Use this column in criteria"
-msgstr "Використовуйте цей стовпчик для позначення кожній точці"
+msgstr "Використовуйте цей стовпець за критеріями"
 
 #: templates/database/multi_table_query/form.twig:38
-#, fuzzy
-#| msgid "Criteria:"
 msgid "criteria"
-msgstr "Критерій:"
+msgstr "критерій"
 
 #: templates/database/multi_table_query/form.twig:52
-#, fuzzy
-#| msgid "Add %s"
 msgid "Add as"
-msgstr "Додати %s"
+msgstr "Додати як"
 
 #: templates/database/multi_table_query/form.twig:97
-#, fuzzy
-#| msgid "Move column"
 msgid "Another column"
-msgstr "Перемістити стовпець"
+msgstr "Інший стовпець"
 
 #: templates/database/multi_table_query/form.twig:125
 msgid "Enter criteria as free text"
-msgstr ""
+msgstr "Введіть критерії як вільний текст"
 
 #: templates/database/multi_table_query/form.twig:133
-#, fuzzy
-#| msgid "Remove redundant columns"
 msgid "Remove this column"
-msgstr "Видалити зайві стовпці"
+msgstr "Видалити цей стовпець"
 
 #: templates/database/multi_table_query/form.twig:160
-#, fuzzy
-#| msgid "Update Query"
 msgid "Update query"
 msgstr "Оновити запит"
 
@@ -16081,16 +16050,12 @@ msgid "Server variables and settings"
 msgstr "Змінні сервера та налаштування"
 
 #: templates/server/sub_page_header.twig:2
-#, fuzzy
-#| msgid "Storage Engines"
 msgid "Storage engines"
-msgstr "Механізмами зберігання"
+msgstr "Механізми зберігання"
 
 #: templates/server/sub_page_header.twig:2
-#, fuzzy
-#| msgid "Character Sets and Collations"
 msgid "Character sets and collations"
-msgstr "Набори символів та схеми"
+msgstr "Набори символів і співставлення"
 
 #: templates/server/sub_page_header.twig:2
 msgid "Databases statistics"
