@@ -38,7 +38,7 @@ list(
 
 $response = Response::getInstance();
 $response->addHTML(
-    Import::getImportDisplay(
+    Import::get(
         'database', $db, $table, $max_upload_size
     )
 );
