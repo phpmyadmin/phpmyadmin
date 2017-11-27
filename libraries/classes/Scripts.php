@@ -49,7 +49,7 @@ class Scripts
         $scripts = array();
         $separator = Url::getArgSeparator();
         foreach ($files as $value) {
-            if (mb_strpos($value['filename'], ".php") !== false) {
+            if (strpos($value['filename'], ".php") !== false) {
                 $file_name = $value['filename'] . Url::getCommon($value['params'] + array('v' => PMA_VERSION));
                 if ($value['before_statics'] === true) {
                     $first[]
@@ -60,9 +60,9 @@ class Scripts
                         . "type='text/javascript' src='js/" . $file_name
                         . "'></script>";
                 }
-                continue;
+            } else {
+                $scripts[] = "scripts%5B%5D=" . $value['filename'];
             }
-            $scripts[] = "scripts%5B%5D=" . $value['filename'];
         }
         $separator = Url::getArgSeparator();
         // Using chunks of 10 files to avoid too long URLs
