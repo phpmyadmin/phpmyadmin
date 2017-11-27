@@ -34,7 +34,7 @@ $content = PhpMyAdmin\Util::getHtmlTab(
 /* Second authentication factor */
 $content .= PhpMyAdmin\Util::getHtmlTab(
     array(
-        'link' => 'prefs_second.php',
+        'link' => 'prefs_twofactor.php',
         'text' => __('Two-factor authentication')
     )
 ) . "\n";

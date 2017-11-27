@@ -26,7 +26,7 @@
 <div class="group-cnt">
 <p>{% trans "You have enabled two factor authentication." %}</p>
 <p>{{ backend_description }}</p>
-<form method="POST" action="prefs_second.php">
+<form method="POST" action="prefs_twofactor.php">
 {{ Url_getHiddenInputs() }}
 <input type="submit" name="2fa_remove" value="{% trans "Disable two-factor authentication" %}" />
 </form>
@@ -36,7 +36,7 @@
 <div class="group">
 <h2>{% trans "Configure two-factor authentication" %}</h2>
 <div class="group-cnt">
-<form method="POST" action="prefs_second.php">
+<form method="POST" action="prefs_twofactor.php">
 {{ Url_getHiddenInputs() }}
 {% for backend in backends %}
 <label>
