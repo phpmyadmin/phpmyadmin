@@ -418,16 +418,6 @@ if (! defined('PMA_MINIMUM_COMMON')) {
 
         // TODO: Set SQL modes too.
 
-        /**
-         * some resetting has to be done when switching servers
-         */
-        if (isset($_SESSION['tmpval']['previous_server'])
-            && $_SESSION['tmpval']['previous_server'] != $GLOBALS['server']
-        ) {
-            unset($_SESSION['tmpval']['navi_limit_offset']);
-        }
-        $_SESSION['tmpval']['previous_server'] = $GLOBALS['server'];
-
     } else { // end server connecting
         $response = Response::getInstance();
         $response->getHeader()->disableMenuAndConsole();
