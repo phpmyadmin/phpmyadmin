@@ -6,6 +6,7 @@ phpMyAdmin - ChangeLog
 - issue #13803 Add SJIS-win to default list of allowed charsets
 - issue #13436 Improve detection that MySQL server needs SSL connection
 - issue #13038 Support JSON datatype on MariaDB 10.2.7 and newer
+- issue #13824 Fixed constructing ALTER query with AFTER
 
 4.7.5 (2017-10-23)
 - issue #13615 Avoid problems with browsing unknown query types
