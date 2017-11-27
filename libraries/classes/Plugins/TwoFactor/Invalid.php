@@ -20,6 +20,8 @@ class Invalid extends TwoFactorPlugin
      */
     public static $id = 'invalid';
 
+    public static $showSubmit = false;
+
     /**
      * Checks authentication, returns true on success
      *

@@ -335,7 +335,10 @@ abstract class AuthenticationPlugin
         Message::rawNotice(
             __('You have enabled two factor authentication, please confirm your login.')
         )->display();
-        echo Template::get('login/twofactor')->render(['form' => $twofactor->render()]);
+        echo Template::get('login/twofactor')->render([
+            'form' => $twofactor->render(),
+            'show_submit' => $twofactor->showSubmit,
+        ]);
         echo Template::get('login/footer')->render();
         echo Config::renderFooter();
         if (! defined('TESTSUITE')) {

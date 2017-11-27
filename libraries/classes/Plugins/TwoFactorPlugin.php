@@ -26,6 +26,11 @@ class TwoFactorPlugin
     public static $id = '';
 
     /**
+     * Whether to show submit button in form
+     */
+    public static $showSubmit = true;
+
+    /**
      * @var TwoFactor
      */
     protected $_twofactor;
