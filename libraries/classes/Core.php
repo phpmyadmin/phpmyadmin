@@ -25,6 +25,61 @@ use PhpMyAdmin\Util;
 class Core
 {
     /**
+     * the whitelist for goto parameter
+     * @static array $goto_whitelist
+     */
+    public static $goto_whitelist = array(
+        'db_datadict.php',
+        'db_sql.php',
+        'db_events.php',
+        'db_export.php',
+        'db_importdocsql.php',
+        'db_multi_table_query.php',
+        'db_structure.php',
+        'db_import.php',
+        'db_operations.php',
+        'db_search.php',
+        'db_routines.php',
+        'export.php',
+        'import.php',
+        'index.php',
+        'pdf_pages.php',
+        'pdf_schema.php',
+        'server_binlog.php',
+        'server_collations.php',
+        'server_databases.php',
+        'server_engines.php',
+        'server_export.php',
+        'server_import.php',
+        'server_privileges.php',
+        'server_sql.php',
+        'server_status.php',
+        'server_status_advisor.php',
+        'server_status_monitor.php',
+        'server_status_queries.php',
+        'server_status_variables.php',
+        'server_variables.php',
+        'sql.php',
+        'tbl_addfield.php',
+        'tbl_change.php',
+        'tbl_create.php',
+        'tbl_import.php',
+        'tbl_indexes.php',
+        'tbl_sql.php',
+        'tbl_export.php',
+        'tbl_operations.php',
+        'tbl_structure.php',
+        'tbl_relation.php',
+        'tbl_replace.php',
+        'tbl_row_action.php',
+        'tbl_select.php',
+        'tbl_zoom_select.php',
+        'transformation_overview.php',
+        'transformation_wrapper.php',
+        'user_password.php',
+    );
+
+    /**
      * checks given $var and returns it if valid, or $default of not valid
      * given $var is also checked for type being 'similar' as $default
      * or against any other type if $type is provided
@@ -389,8 +444,11 @@ class Core
      *
      * @return boolean whether $page is valid or not (in $whitelist or not)
      */
-    public static function checkPageValidity(&$page, array $whitelist)
+    public static function checkPageValidity(&$page, array $whitelist = [])
     {
+        if (empty($whitelist)) {
+            $whitelist = self::$goto_whitelist;
+        }
         if (! isset($page) || !is_string($page)) {
             return false;
         }

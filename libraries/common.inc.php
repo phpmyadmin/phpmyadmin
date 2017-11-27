@@ -165,67 +165,12 @@ Session::setUp($GLOBALS['PMA_Config'], $GLOBALS['error_handler']);
 $GLOBALS['url_params'] = array();
 
 /**
- * the whitelist for $GLOBALS['goto']
- * @global array $goto_whitelist
- */
-$goto_whitelist = array(
-    'db_datadict.php',
-    'db_sql.php',
-    'db_events.php',
-    'db_export.php',
-    'db_importdocsql.php',
-    'db_multi_table_query.php',
-    'db_structure.php',
-    'db_import.php',
-    'db_operations.php',
-    'db_search.php',
-    'db_routines.php',
-    'export.php',
-    'import.php',
-    'index.php',
-    'pdf_pages.php',
-    'pdf_schema.php',
-    'server_binlog.php',
-    'server_collations.php',
-    'server_databases.php',
-    'server_engines.php',
-    'server_export.php',
-    'server_import.php',
-    'server_privileges.php',
-    'server_sql.php',
-    'server_status.php',
-    'server_status_advisor.php',
-    'server_status_monitor.php',
-    'server_status_queries.php',
-    'server_status_variables.php',
-    'server_variables.php',
-    'sql.php',
-    'tbl_addfield.php',
-    'tbl_change.php',
-    'tbl_create.php',
-    'tbl_import.php',
-    'tbl_indexes.php',
-    'tbl_sql.php',
-    'tbl_export.php',
-    'tbl_operations.php',
-    'tbl_structure.php',
-    'tbl_relation.php',
-    'tbl_replace.php',
-    'tbl_row_action.php',
-    'tbl_select.php',
-    'tbl_zoom_select.php',
-    'transformation_overview.php',
-    'transformation_wrapper.php',
-    'user_password.php',
-);
-
-/**
  * holds page that should be displayed
  * @global string $GLOBALS['goto']
  */
 $GLOBALS['goto'] = '';
 // Security fix: disallow accessing serious server files via "?goto="
-if (Core::checkPageValidity($_REQUEST['goto'], $goto_whitelist)) {
+if (Core::checkPageValidity($_REQUEST['goto'])) {
     $GLOBALS['goto'] = $_REQUEST['goto'];
     $GLOBALS['url_params']['goto'] = $_REQUEST['goto'];
 } else {
@@ -236,7 +181,7 @@ if (Core::checkPageValidity($_REQUEST['goto'], $goto_whitelist)) {
  * returning page
  * @global string $GLOBALS['back']
  */
-if (Core::checkPageValidity($_REQUEST['back'], $goto_whitelist)) {
+if (Core::checkPageValidity($_REQUEST['back'])) {
     $GLOBALS['back'] = $_REQUEST['back'];
 } else {
     unset($_REQUEST['back'], $_GET['back'], $_POST['back'], $_COOKIE['back']);

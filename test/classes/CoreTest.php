@@ -268,6 +268,7 @@ class CoreTest extends PmaTestCase
     {
         return array(
             array(null, [], false),
+            array('export.php', [], true),
             array('export.php', $this->goto_whitelist, true),
             array('shell.php', $this->goto_whitelist, false),
             array('index.php?sql.php&test=true', $this->goto_whitelist, true),
