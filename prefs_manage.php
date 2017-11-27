@@ -49,8 +49,8 @@ if (isset($_POST['submit_export'])
     $filename = 'phpMyAdmin-config-' . urlencode(PMA_getenv('HTTP_HOST')) . '.php';
     PMA_downloadHeader($filename, 'application/php');
     $settings = PMA_loadUserprefs();
-    echo '/* ' . _('phpMyAdmin configuration snippet') . " */\n\n";
-    echo '/* ' . _('Paste it to your config.inc.php') . " */\n\n";
+    echo '/* ' . __('phpMyAdmin configuration snippet') . " */\n\n";
+    echo '/* ' . __('Paste it to your config.inc.php') . " */\n\n";
     foreach ($settings['config_data'] as $key => $val) {
         echo '$cfg[\'' . str_replace('/', '\'][\'', $key) . '\'] = ';
         echo var_export($val, true) . ";\n";
