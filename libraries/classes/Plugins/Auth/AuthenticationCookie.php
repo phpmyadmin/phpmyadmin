@@ -15,6 +15,7 @@ use PhpMyAdmin\Message;
 use PhpMyAdmin\Plugins\AuthenticationPlugin;
 use PhpMyAdmin\Response;
 use PhpMyAdmin\Server\Select;
+use PhpMyAdmin\Session;
 use PhpMyAdmin\Template;
 use PhpMyAdmin\Util;
 use PhpMyAdmin\Url;
@@ -332,6 +333,8 @@ class AuthenticationCookie extends AuthenticationPlugin
                 }
                 $GLOBALS['pma_auth_server'] = Core::sanitizeMySQLHost($_REQUEST['pma_servername']);
             }
+            /* Secure current session on login to avoid session fixation */
+            Session::secure();
             return true;
         }
 
