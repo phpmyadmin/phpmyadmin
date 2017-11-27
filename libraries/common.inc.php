@@ -117,34 +117,6 @@ Core::configure();
 
 Core::cleanupPathInfo();
 
-/**
- * just to be sure there was no import (registering) before here
- * we empty the global space (but avoid unsetting $variables_list
- * and $key in the foreach (), we still need them!)
- */
-$variables_whitelist = array (
-    'GLOBALS',
-    '_SERVER',
-    '_GET',
-    '_POST',
-    '_REQUEST',
-    '_FILES',
-    '_ENV',
-    '_COOKIE',
-    '_SESSION',
-    'error_handler',
-    'PMA_PHP_SELF',
-    'variables_whitelist',
-    'key',
-);
-
-foreach (get_defined_vars() as $key => $value) {
-    if (! in_array($key, $variables_whitelist)) {
-        unset($$key);
-    }
-}
-unset($key, $value, $variables_whitelist);
-
 /******************************************************************************/
 /* parsing configuration file                  LABEL_parsing_config_file      */
 
