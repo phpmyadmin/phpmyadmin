@@ -34,13 +34,11 @@
 use PhpMyAdmin\Config;
 use PhpMyAdmin\Core;
 use PhpMyAdmin\DatabaseInterface;
-use PhpMyAdmin\Database\DatabaseList;
 use PhpMyAdmin\ErrorHandler;
 use PhpMyAdmin\LanguageManager;
 use PhpMyAdmin\Logging;
 use PhpMyAdmin\Message;
 use PhpMyAdmin\Plugins\AuthenticationPlugin;
-use PhpMyAdmin\Relation;
 use PhpMyAdmin\Response;
 use PhpMyAdmin\Session;
 use PhpMyAdmin\ThemeManager;
@@ -421,11 +419,6 @@ if (! defined('PMA_MINIMUM_COMMON')) {
         // TODO: Set SQL modes too.
 
         /**
-         * the DatabaseList class as a stub for the ListDatabase class
-         */
-        $dblist = new DatabaseList();
-
-        /**
          * some resetting has to be done when switching servers
          */
         if (isset($_SESSION['tmpval']['previous_server'])
@@ -490,23 +483,3 @@ if (! defined('PMA_MINIMUM_COMMON')) {
 
 /* Tell tracker that it can actually work */
 Tracker::enable();
-
-// If Zero configuration mode enabled, check PMA tables in current db.
-if (! defined('PMA_MINIMUM_COMMON')
-    && ! empty($GLOBALS['server'])
-    && isset($GLOBALS['cfg']['ZeroConf'])
-    && $GLOBALS['cfg']['ZeroConf'] == true
-) {
-    if (strlen($GLOBALS['db'])) {
-        $cfgRelation = Relation::getRelationsParam();
-        if (empty($cfgRelation['db'])) {
-            Relation::fixPmaTables($GLOBALS['db'], false);
-        }
-    }
-    $cfgRelation = Relation::getRelationsParam();
-    if (empty($cfgRelation['db'])) {
-        if ($GLOBALS['dblist']->databases->exists('phpmyadmin')) {
-            Relation::fixPmaTables('phpmyadmin', false);
-        }
-    }
-}

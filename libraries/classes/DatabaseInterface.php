@@ -8,6 +8,7 @@
 namespace PhpMyAdmin;
 
 use PhpMyAdmin\Core;
+use PhpMyAdmin\Database\DatabaseList;
 use PhpMyAdmin\Dbi\DbiExtension;
 use PhpMyAdmin\Dbi\DbiDummy;
 use PhpMyAdmin\Dbi\DbiMysql;
@@ -16,6 +17,7 @@ use PhpMyAdmin\Di\Container;
 use PhpMyAdmin\Error;
 use PhpMyAdmin\Index;
 use PhpMyAdmin\LanguageManager;
+use PhpMyAdmin\Relation;
 use PhpMyAdmin\SystemDatabase;
 use PhpMyAdmin\Table;
 use PhpMyAdmin\Types;
@@ -1515,6 +1517,39 @@ class DatabaseInterface
         \PhpMyAdmin\SqlParser\Context::loadClosest(
             ($this->_is_mariadb ? 'MariaDb' : 'MySql') . $this->_version_int
         );
+
+        /**
+         * the DatabaseList class as a stub for the ListDatabase class
+         */
+        $GLOBALS['dblist'] = new DatabaseList();
+    }
+
+    /**
+     * Function called just after a connection to the MySQL database server has
+     * been established. It sets the connection collation, and determines the
+     * version of MySQL which is running.
+     *
+     * @param integer $link link type
+     *
+     * @return void
+     */
+    public function postConnectControl()
+    {
+        // If Zero configuration mode enabled, check PMA tables in current db.
+        if ($GLOBALS['cfg']['ZeroConf'] == true) {
+            if (strlen($GLOBALS['db'])) {
+                $cfgRelation = Relation::getRelationsParam();
+                if (empty($cfgRelation['db'])) {
+                    Relation::fixPmaTables($GLOBALS['db'], false);
+                }
+            }
+            $cfgRelation = Relation::getRelationsParam();
+            if (empty($cfgRelation['db'])) {
+                if ($GLOBALS['dblist']->databases->exists('phpmyadmin')) {
+                    Relation::fixPmaTables('phpmyadmin', false);
+                }
+            }
+        }
     }
 
     /**
@@ -2442,6 +2477,8 @@ class DatabaseInterface
             /* Run post connect for user connections */
             if ($target == DatabaseInterface::CONNECT_USER) {
                 $this->postConnect(DatabaseInterface::CONNECT_USER);
+            } elseif ($target == DatabaseInterface::CONNECT_CONTROL) {
+                $this->postConnectControl();
             }
             return $result;
         }
