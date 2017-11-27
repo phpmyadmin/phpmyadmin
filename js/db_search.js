@@ -30,7 +30,7 @@ AJAX.registerTeardown('db_search.js', function () {
 
 AJAX.registerOnload('db_search.js', function () {
     /** Hide the table link in the initial search result */
-    var icon = PMA_getImage('s_tbl.png', '', { 'id': 'table-image' }).toString();
+    var icon = PMA_getImage('s_tbl', '', { 'id': 'table-image' }).toString();
     $('#table-info').prepend(icon).hide();
 
     /** Hide the browse and deleted results in the new search criteria */

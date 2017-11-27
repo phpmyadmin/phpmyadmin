@@ -30,8 +30,8 @@
             $('#pma_navigation_resizer').css({ 'width': '0px' });
         }
         // Sets the image for the left and right scroll indicator
-        $('.scrollindicator--left').html($(PMA_getImage('b_left.png').toString()));
-        $('.scrollindicator--right').html($(PMA_getImage('b_right.png').toString()));
+        $('.scrollindicator--left').html($(PMA_getImage('b_left').toString()));
+        $('.scrollindicator--right').html($(PMA_getImage('b_right').toString()));
 
         // Set the width of the navigation bar without scroll indicator
         $('.navigationbar').css({ 'width': widthCalculator.call($container) - 60 });
@@ -52,7 +52,7 @@
             .on('click', false); // same as event.preventDefault()
         var img = $container.find('li img');
         if (img.length) {
-            $(PMA_getImage('b_more.png').toString()).prependTo(link);
+            $(PMA_getImage('b_more').toString()).prependTo(link);
         }
         var $submenu = $('<li />', { 'class': 'submenu' })
             .append(link)

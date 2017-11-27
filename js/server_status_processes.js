@@ -122,10 +122,10 @@ var processList = {
      * @return void
      */
     setRefreshLabel: function () {
-        var img = 'play.png';
+        var img = 'play';
         var label = PMA_messages.strStartRefresh;
         if (processList.autoRefresh) {
-            img = 'pause.png';
+            img = 'pause';
             label = PMA_messages.strStopRefresh;
             processList.refresh();
         }

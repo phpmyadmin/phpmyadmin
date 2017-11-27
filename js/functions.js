@@ -1763,7 +1763,7 @@ function getForeignKeyCheckboxLoader () {
     var html = '';
     html    += '<div>';
     html    += '<div class="load-default-fk-check-value">';
-    html    += PMA_getImage('ajax_clock_small.gif');
+    html    += PMA_getImage('ajax_clock_small');
     html    += '</div>';
     html    += '</div>';
     return html;
@@ -3378,7 +3378,7 @@ AJAX.registerOnload('functions.js', function () {
             values.push('', '', '', '');
         }
         // Add the parsed values to the editor
-        var drop_icon = PMA_getImage('b_drop.png');
+        var drop_icon = PMA_getImage('b_drop');
         for (i = 0; i < values.length; i++) {
             fields += '<tr><td>' +
                    '<input type=\'text\' value=\'' + values[i] + '\'/>' +
@@ -3392,7 +3392,7 @@ AJAX.registerOnload('functions.js', function () {
         var dialog = '<div id=\'enum_editor\'>' +
                    '<fieldset>' +
                     '<legend>' + title + '</legend>' +
-                    '<p>' + PMA_getImage('s_notice.png') +
+                    '<p>' + PMA_getImage('s_notice') +
                     PMA_messages.enum_hint + '</p>' +
                     '<table class=\'values\'>' + fields + '</table>' +
                     '</fieldset><fieldset class=\'tblFooters\'>' +
@@ -3615,7 +3615,7 @@ AJAX.registerOnload('functions.js', function () {
                     '<tr class=\'hide\'><td>' +
                     '<input type=\'text\' />' +
                     '</td><td class=\'drop\'>' +
-                    PMA_getImage('b_drop.png') +
+                    PMA_getImage('b_drop') +
                     '</td></tr>'
                 )
                 .find('tr:last')
@@ -4970,8 +4970,7 @@ function PMA_getImage(image, alternate, attributes) {
         retval.attr('title', escapeHtml(alternate));
     }
     // set css classes
-    var klass = image.replace('.gif', '').replace('.png', '');
-    retval.attr('class', 'icon ic_' + klass);
+    retval.attr('class', 'icon ic_' + image);
     // set all other attrubutes
     for (var i in attributes) {
         if (i == 'src') {
