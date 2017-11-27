@@ -235,14 +235,19 @@ abstract class AuthenticationPlugin
      */
      public function authenticate()
      {
-        if (! $this->readCredentials()) {
-            /* Force generating of new session on login */
-            Session::secure();
+        $success = $this->readCredentials();
+
+        /* Force generating of new session */
+        Session::secure();
+
+        /* Show login form (this exits) */
+        if (! $success) {
             $this->showLoginForm();
-        } else {
-            $this->storeCredentials();
         }
 
+        /* Store credentials (eg. in cookies) */
+        $this->storeCredentials();
+        /* Check allow/deny rules */
         $this->checkRules();
     }
 
