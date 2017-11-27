@@ -4922,14 +4922,6 @@ AJAX.registerOnload('functions.js', function () {
  *                                       tag to the given value
  */
 function PMA_getImage(image, alternate, attributes) {
-    var in_array = function (needle, haystack) {
-        for (var i in haystack) {
-            if (haystack[i] == needle) {
-                return true;
-            }
-        }
-        return false;
-    };
     // custom image object, it will eventually be returned by this functions
     var retval = {
         data: {
