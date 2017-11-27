@@ -62,10 +62,7 @@ class Scripts
                 }
                 continue;
             }
-            $include = true;
-            if ($include) {
-                $scripts[] = "scripts%5B%5D=" . $value['filename'];
-            }
+            $scripts[] = "scripts%5B%5D=" . $value['filename'];
         }
         $separator = Url::getArgSeparator();
         // Using chunks of 10 files to avoid too long URLs
