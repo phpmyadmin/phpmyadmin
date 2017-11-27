@@ -43,6 +43,7 @@ function PMA_buildColumnCreationStatement(
     $field_cnt, $is_create_tbl = true
 ) {
     $definitions = array();
+    $prev_field = -1;
     for ($i = 0; $i < $field_cnt; ++$i) {
         // '0' is also empty for php :-(
         if (strlen($_REQUEST['field_name'][$i]) === 0) {
@@ -77,7 +78,8 @@ function PMA_buildColumnCreationStatement(
                     : ''
                 );
 
-        $definition .= PMA_setColumnCreationStatementSuffix($i, $is_create_tbl);
+        $definition .= PMA_setColumnCreationStatementSuffix($i, $prev_field, $is_create_tbl);
+        $prev_field = $i;
         $definitions[] = $definition;
     } // end for
 
@@ -88,12 +90,13 @@ function PMA_buildColumnCreationStatement(
  * Set column creation suffix according to requested position of the new column
  *
  * @param int     $current_field_num current column number
+ * @param int     $prev_field        previous field for ALTER statement
  * @param boolean $is_create_tbl     true if requirement is to get the statement
  *                                   for table creation
  *
  * @return string $sql_suffix suffix
  */
-function PMA_setColumnCreationStatementSuffix($current_field_num,
+function PMA_setColumnCreationStatementSuffix($current_field_num, $prev_field,
     $is_create_tbl = true
 ) {
     // no suffix is needed if request is a table creation
@@ -107,7 +110,7 @@ function PMA_setColumnCreationStatementSuffix($current_field_num,
     }
 
     // Only the first field can be added somewhere other than at the end
-    if ((int) $current_field_num === 0) {
+    if ($prev_field == -1) {
         if ((string) $_REQUEST['field_where'] === 'first') {
             $sql_suffix .= ' FIRST';
         } else {
@@ -117,7 +120,7 @@ function PMA_setColumnCreationStatementSuffix($current_field_num,
     } else {
         $sql_suffix .= ' AFTER '
                 . PMA\libraries\Util::backquote(
-                    $_REQUEST['field_name'][$current_field_num - 1]
+                    $_REQUEST['field_name'][$prev_field]
                 );
     }
 
