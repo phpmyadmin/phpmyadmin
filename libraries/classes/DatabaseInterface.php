@@ -1406,16 +1406,14 @@ class DatabaseInterface
      * been established. It sets the connection collation, and determines the
      * version of MySQL which is running.
      *
-     * @param integer $link link type
-     *
      * @return void
      */
-    public function postConnect($link)
+    public function postConnect()
     {
         $version = $this->fetchSingleRow(
             'SELECT @@version, @@version_comment',
             'ASSOC',
-            $link
+            DatabaseInterface::CONNECT_USER
         );
 
         if ($version) {
@@ -1441,7 +1439,7 @@ class DatabaseInterface
         if (! empty($collation_connection)) {
             $this->query(
                 "SET CHARACTER SET '$default_charset';",
-                $link,
+                DatabaseInterface::CONNECT_USER,
                 self::QUERY_STORE
             );
             /* Automatically adjust collation if not supported by server */
@@ -1452,9 +1450,9 @@ class DatabaseInterface
             }
             $result = $this->tryQuery(
                 "SET collation_connection = '"
-                . $this->escapeString($collation_connection, $link)
+                . $this->escapeString($collation_connection, DatabaseInterface::CONNECT_USER)
                 . "';",
-                $link,
+                DatabaseInterface::CONNECT_USER,
                 self::QUERY_STORE
             );
             if ($result === false) {
@@ -1464,16 +1462,16 @@ class DatabaseInterface
                 );
                 $this->query(
                     "SET collation_connection = '"
-                    . $this->escapeString($collation_connection, $link)
+                    . $this->escapeString($collation_connection, DatabaseInterface::CONNECT_USER)
                     . "';",
-                    $link,
+                    DatabaseInterface::CONNECT_USER,
                     self::QUERY_STORE
                 );
             }
         } else {
             $this->query(
                 "SET NAMES '$default_charset' COLLATE '$default_collation';",
-                $link,
+                DatabaseInterface::CONNECT_USER,
                 self::QUERY_STORE
             );
         }
@@ -1483,7 +1481,7 @@ class DatabaseInterface
         if (! empty($locale)) {
             $this->query(
                 "SET lc_messages = '" . $locale . "';",
-                $link,
+                DatabaseInterface::CONNECT_USER,
                 self::QUERY_STORE
             );
         }
@@ -2476,7 +2474,7 @@ class DatabaseInterface
             $this->_links[$target] = $result;
             /* Run post connect for user connections */
             if ($target == DatabaseInterface::CONNECT_USER) {
-                $this->postConnect(DatabaseInterface::CONNECT_USER);
+                $this->postConnect();
             } elseif ($target == DatabaseInterface::CONNECT_CONTROL) {
                 $this->postConnectControl();
             }
