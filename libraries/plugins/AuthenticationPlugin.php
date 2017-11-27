@@ -92,7 +92,7 @@ abstract class AuthenticationPlugin
         if ($server === 0) {
             /* delete user's choices that were stored in session */
             if (! defined('TESTSUITE')) {
-                $_SESSION = array();
+                session_unset();
                 session_destroy();
             }
 
