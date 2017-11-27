@@ -45,9 +45,7 @@ function PMA_buildColumnCreationStatement(
     $definitions = array();
     for ($i = 0; $i < $field_cnt; ++$i) {
         // '0' is also empty for php :-(
-        if (empty($_REQUEST['field_name'][$i])
-            && $_REQUEST['field_name'][$i] != '0'
-        ) {
+        if (strlen($_REQUEST['field_name'][$i]) === 0) {
             continue;
         }
 
