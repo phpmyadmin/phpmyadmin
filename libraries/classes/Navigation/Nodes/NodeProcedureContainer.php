@@ -23,10 +23,7 @@ class NodeProcedureContainer extends NodeDatabaseChildContainer
     public function __construct()
     {
         parent::__construct(__('Procedures'), Node::CONTAINER);
-        $this->icon = Util::getImage(
-            'b_routines.png',
-            __('Procedures')
-        );
+        $this->icon = Util::getImage('b_routines', __('Procedures'));
         $this->links = array(
             'text' => 'db_routines.php?server=' . $GLOBALS['server']
                 . '&amp;db=%1$s&amp;type=PROCEDURE',
@@ -41,7 +38,7 @@ class NodeProcedureContainer extends NodeDatabaseChildContainer
             $new_label
         );
         $new->isNew = true;
-        $new->icon = Util::getImage('b_routine_add.png', $new_label);
+        $new->icon = Util::getImage('b_routine_add', $new_label);
         $new->links = array(
             'text' => 'db_routines.php?server=' . $GLOBALS['server']
                 . '&amp;db=%2$s&add_item=1',

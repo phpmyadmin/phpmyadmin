@@ -2203,7 +2203,7 @@ class PrivilegesTest extends TestCase
             $html
         );
         $this->assertContains(
-            Util::getIcon('b_usradd.png'),
+            Util::getIcon('b_usradd'),
             $html
         );
         $this->assertContains(

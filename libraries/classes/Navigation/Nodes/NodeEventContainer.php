@@ -23,7 +23,7 @@ class NodeEventContainer extends NodeDatabaseChildContainer
     public function __construct()
     {
         parent::__construct(__('Events'), Node::CONTAINER);
-        $this->icon = Util::getImage('b_events.png', '');
+        $this->icon = Util::getImage('b_events', '');
         $this->links = array(
             'text' => 'db_events.php?server=' . $GLOBALS['server']
                 . '&amp;db=%1$s',
@@ -37,7 +37,7 @@ class NodeEventContainer extends NodeDatabaseChildContainer
             _pgettext('Create new event', 'New')
         );
         $new->isNew = true;
-        $new->icon = Util::getImage('b_event_add.png', '');
+        $new->icon = Util::getImage('b_event_add', '');
         $new->links = array(
             'text' => 'db_events.php?server=' . $GLOBALS['server']
                 . '&amp;db=%2$s&add_item=1',

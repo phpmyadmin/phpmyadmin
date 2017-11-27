@@ -115,7 +115,7 @@ class UserGroups
                         )
                     )
                     . '">'
-                    . Util::getIcon('b_usrlist.png', __('View users'))
+                    . Util::getIcon('b_usrlist', __('View users'))
                     . '</a>';
                 $html_output .= '&nbsp;&nbsp;';
                 $html_output .= '<a class="" href="server_user_groups.php'
@@ -125,7 +125,7 @@ class UserGroups
                         )
                     )
                     . '">'
-                    . Util::getIcon('b_edit.png', __('Edit')) . '</a>';
+                    . Util::getIcon('b_edit', __('Edit')) . '</a>';
                 $html_output .= '&nbsp;&nbsp;';
                 $html_output .= '<a class="deleteUserGroup ajax"'
                     . ' href="server_user_groups.php'
@@ -135,7 +135,7 @@ class UserGroups
                         )
                     )
                     . '">'
-                    . Util::getIcon('b_drop.png', __('Delete')) . '</a>';
+                    . Util::getIcon('b_drop', __('Delete')) . '</a>';
                 $html_output .= '</td>';
 
                 $html_output .= '</tr>';
@@ -150,7 +150,7 @@ class UserGroups
         $html_output .= '<fieldset id="fieldset_add_user_group">';
         $html_output .= '<a href="server_user_groups.php'
             . Url::getCommon(array('addUserGroup' => 1)) . '">'
-            . Util::getIcon('b_usradd.png')
+            . Util::getIcon('b_usradd')
             . __('Add user group') . '</a>';
         $html_output .= '</fieldset>';
 

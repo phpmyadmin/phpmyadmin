@@ -306,12 +306,9 @@ class Tracking
         $html .= '<tbody>';
 
         $GLOBALS['dbi']->dataSeek($sql_result, 0);
-        $delete = Util::getIcon('b_drop.png', __('Delete version'));
-        $report = Util::getIcon('b_report.png', __('Tracking report'));
-        $structure = Util::getIcon(
-            'b_props.png',
-            __('Structure snapshot')
-        );
+        $delete = Util::getIcon('b_drop', __('Delete version'));
+        $report = Util::getIcon('b_report', __('Tracking report'));
+        $structure = Util::getIcon('b_props', __('Structure snapshot'));
 
         while ($version = $GLOBALS['dbi']->fetchArray($sql_result)) {
             if ($version['version'] == $last_version) {
@@ -373,7 +370,7 @@ class Tracking
             );
         $html .= Util::getButtonOrImage(
             'submit_mult', 'mult_submit',
-            __('Delete version'), 'b_drop.png', 'delete_version'
+            __('Delete version'), 'b_drop', 'delete_version'
         );
 
         $html .= '</form>';
@@ -494,7 +491,7 @@ class Tracking
         $drop_image_or_text = '';
         if (Util::showIcons('ActionLinksMode')) {
             $drop_image_or_text .= Util::getImage(
-                'b_drop.png', __('Delete tracking data row from report')
+                'b_drop', __('Delete tracking data row from report')
             );
         }
         if (Util::showText('ActionLinksMode')) {
@@ -934,13 +931,9 @@ class Tracking
         $html .= '<td>' . $index . '</td>';
         $html .= '<td><b>' . htmlspecialchars($field['Field']);
         if ($field['Key'] == 'PRI') {
-            $html .= ' ' . Util::getImage(
-                'b_primary.png', __('Primary')
-            );
+            $html .= ' ' . Util::getImage('b_primary', __('Primary'));
         } elseif (! empty($field['Key'])) {
-            $html .= ' ' . Util::getImage(
-                'bd_primary.png', __('Index')
-            );
+            $html .= ' ' . Util::getImage('bd_primary', __('Index'));
         }
         $html .= '</b></td>';
         $html .= "\n";
@@ -1492,7 +1485,7 @@ class Tracking
             );
         echo Util::getButtonOrImage(
             'submit_mult', 'mult_submit',
-            __('Track table'), 'eye.png', 'track'
+            __('Track table'), 'eye', 'track'
         );
         ?>
         </form>
@@ -1515,7 +1508,7 @@ class Tracking
         if (Tracker::getVersion($db, $tablename) == -1) {
             $my_link = '<a href="tbl_tracking.php' . $url_query
                 . '&amp;table=' . htmlspecialchars($tablename) . '">';
-            $my_link .= Util::getIcon('eye.png', __('Track table'));
+            $my_link .= Util::getIcon('eye', __('Track table'));
             $my_link .= '</a>';
             ?>
             <tr>
@@ -1621,13 +1614,10 @@ class Tracking
 
         // Print out information about versions
 
-        $delete = Util::getIcon('b_drop.png', __('Delete tracking'));
-        $versions = Util::getIcon('b_versions.png', __('Versions'));
-        $report = Util::getIcon('b_report.png', __('Tracking report'));
-        $structure = Util::getIcon(
-            'b_props.png',
-            __('Structure snapshot')
-        );
+        $delete = Util::getIcon('b_drop', __('Delete tracking'));
+        $versions = Util::getIcon('b_versions', __('Versions'));
+        $report = Util::getIcon('b_report', __('Tracking report'));
+        $structure = Util::getIcon('b_props', __('Structure snapshot'));
 
         while ($one_result = $GLOBALS['dbi']->fetchArray($all_tables_result)) {
             list($table_name, $version_number) = $one_result;
@@ -1701,7 +1691,7 @@ class Tracking
             );
         echo Util::getButtonOrImage(
             'submit_mult', 'mult_submit',
-            __('Delete tracking'), 'b_drop.png', 'delete_tracking'
+            __('Delete tracking'), 'b_drop', 'delete_tracking'
         );
         ?>
         </form>

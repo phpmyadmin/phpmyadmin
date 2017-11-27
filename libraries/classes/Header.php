@@ -454,14 +454,14 @@ class Header
                     $retval .= '<span id="lock_page_icon"></span>';
                     $retval .= '<span id="page_settings_icon">'
                         . Util::getImage(
-                            's_cog.png',
+                            's_cog',
                             __('Page-related settings')
                         )
                         . '</span>';
                     $retval .= sprintf(
                         '<a id="goto_pagetop" href="#">%s</a>',
                         Util::getImage(
-                            's_top.png',
+                            's_top',
                             __('Click on the bar to scroll to top of page')
                         )
                     );

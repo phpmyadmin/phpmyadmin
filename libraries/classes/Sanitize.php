@@ -188,7 +188,7 @@ class Sanitize
             // used in common.inc.php:
             '[conferr]' => '<iframe src="show_config_errors.php"><a href="show_config_errors.php">show_config_errors.php</a></iframe>',
             // used in libraries/Util.php
-            '[dochelpicon]' => Util::getImage('b_help.png', __('Documentation')),
+            '[dochelpicon]' => Util::getImage('b_help', __('Documentation')),
         );
 
         $message = strtr($message, $replace_pairs);

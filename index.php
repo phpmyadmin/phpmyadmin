@@ -184,7 +184,7 @@ if ($server > 0 || count($cfg['Servers']) > 1
         || ($server == 0 && count($cfg['Servers']) == 1)))
     ) {
         echo '<li id="li_select_server" class="no_bullets" >';
-        echo Util::getImage('s_host.png') , " "
+        echo Util::getImage('s_host') , " "
             , Select::render(true, true);
         echo '</li>';
     }
@@ -200,7 +200,7 @@ if ($server > 0 || count($cfg['Servers']) > 1
             if ($cfg['ShowChgPassword']) {
                 $conditional_class = 'ajax';
                 Core::printListItem(
-                    Util::getImage('s_passwd.png') . "&nbsp;" . __(
+                    Util::getImage('s_passwd') . "&nbsp;" . __(
                         'Change password'
                     ),
                     'li_change_password',
@@ -217,7 +217,7 @@ if ($server > 0 || count($cfg['Servers']) > 1
         echo '        <form method="post" action="index.php">' , "\n"
            . Url::getHiddenInputs(null, null, 4, 'collation_connection')
            . '            <label for="select_collation_connection">' . "\n"
-           . '                ' . Util::getImage('s_asci.png')
+           . '                ' . Util::getImage('s_asci')
             . "&nbsp;" . __('Server connection collation') . "\n"
            // put the doc link in the form so that it appears on the same line
            . Util::showMySQLDocu('Charset-connection')
@@ -249,7 +249,7 @@ $language_manager = LanguageManager::getInstance();
 if (empty($cfg['Lang']) && $language_manager->hasChoice()) {
     echo '<li id="li_select_lang" class="no_bullets">';
 
-    echo Util::getImage('s_lang.png') , " "
+    echo Util::getImage('s_lang') , " "
         , $language_manager->getSelectorDisplay();
     echo '</li>';
 }
@@ -258,7 +258,7 @@ if (empty($cfg['Lang']) && $language_manager->hasChoice()) {
 
 if ($GLOBALS['cfg']['ThemeManager']) {
     echo '<li id="li_select_theme" class="no_bullets">';
-    echo Util::getImage('s_theme.png') , " "
+    echo Util::getImage('s_theme') , " "
             ,  ThemeManager::getInstance()->getHtmlSelectBox();
     echo '</li>';
 }
@@ -273,7 +273,7 @@ echo '</ul>';
 if ($server > 0) {
     echo '<ul>';
     Core::printListItem(
-        Util::getImage('b_tblops.png') . "&nbsp;" . __(
+        Util::getImage('b_tblops') . "&nbsp;" . __(
             'More settings'
         ),
         'li_user_preferences',

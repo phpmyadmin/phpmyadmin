@@ -201,7 +201,7 @@ class Footer
             . ' title="' . __('Open new phpMyAdmin window') . '" target="_blank" rel="noopener noreferrer">';
         if (Util::showIcons('TabsMode')) {
             $retval .= Util::getImage(
-                'window-new.png',
+                'window-new',
                 __('Open new phpMyAdmin window')
             );
         } else {

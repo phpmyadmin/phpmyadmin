@@ -138,7 +138,7 @@ $html_output .= InsertEdit::getHtmlForInsertEditFormHeader($has_blob_field, $is_
 
 $html_output .= Url::getHiddenInputs($_form_params);
 
-$titles['Browse'] = Util::getIcon('b_browse.png', __('Browse foreign values'));
+$titles['Browse'] = Util::getIcon('b_browse', __('Browse foreign values'));
 
 // user can toggle the display of Function column and column types
 // (currently does not work for multi-edits)

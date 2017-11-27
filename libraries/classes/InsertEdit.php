@@ -1430,7 +1430,7 @@ class InsertEdit
      */
     public static function getHtmlForGisDataTypes()
     {
-        $edit_str = Util::getIcon('b_edit.png', __('Edit/Insert'));
+        $edit_str = Util::getIcon('b_edit', __('Edit/Insert'));
         return '<span class="open_gis_editor">'
             . Util::linkOrButton(
                 '#', $edit_str, array(), '_blank'

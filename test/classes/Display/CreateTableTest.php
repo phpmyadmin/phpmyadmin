@@ -62,7 +62,7 @@ class CreateTableTest extends TestCase
 
         //getImage
         $this->assertContains(
-            Util::getImage('b_table_add.png'),
+            Util::getImage('b_table_add'),
             $html
         );
 

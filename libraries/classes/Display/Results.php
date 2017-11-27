@@ -2105,21 +2105,21 @@ class Results
         if (strtoupper(trim($sort_direction[$index])) == self::DESCENDING_SORT_DIR) {
             $sort_order .= ' ASC';
             $order_img   = ' ' . Util::getImage(
-                's_desc.png', __('Descending'),
+                's_desc', __('Descending'),
                 array('class' => "soimg", 'title' => '')
             );
             $order_img  .= ' ' . Util::getImage(
-                's_asc.png', __('Ascending'),
+                's_asc', __('Ascending'),
                 array('class' => "soimg hide", 'title' => '')
             );
         } else {
             $sort_order .= ' DESC';
             $order_img   = ' ' . Util::getImage(
-                's_asc.png', __('Ascending'),
+                's_asc', __('Ascending'),
                 array('class' => "soimg", 'title' => '')
             );
             $order_img  .=  ' ' . Util::getImage(
-                's_desc.png', __('Descending'),
+                's_desc', __('Descending'),
                 array('class' => "soimg hide", 'title' => '')
             );
         }
@@ -3323,10 +3323,10 @@ class Results
             );
 
         $edit_str = $this->_getActionLinkContent(
-            'b_edit.png', __('Edit')
+            'b_edit', __('Edit')
         );
         $copy_str = $this->_getActionLinkContent(
-            'b_insrow.png', __('Copy')
+            'b_insrow', __('Copy')
         );
 
         // Class definitions required for grid editing jQuery scripts
@@ -3392,7 +3392,7 @@ class Results
                 . ' WHERE ' . Sanitize::jsFormat($where_clause, false)
                 . ($clause_is_unique ? '' : ' LIMIT 1');
 
-            $del_str = $this->_getActionLinkContent('b_drop.png', __('Delete'));
+            $del_str = $this->_getActionLinkContent('b_drop', __('Delete'));
 
         } elseif ($del_lnk == self::KILL_PROCESS) { // kill process case
 
@@ -3416,7 +3416,7 @@ class Results
             $del_url  = 'sql.php' . Url::getCommon($_url_params);
             $js_conf  = $kill;
             $del_str = Util::getIcon(
-                'b_drop.png', __('Kill')
+                'b_drop', __('Kill')
             );
         } else {
             $del_url = $del_str = $js_conf = null;
@@ -4682,23 +4682,23 @@ class Results
 
         $links_html .= Util::getButtonOrImage(
             'submit_mult', 'mult_submit',
-            __('Edit'), 'b_edit.png', 'edit'
+            __('Edit'), 'b_edit', 'edit'
         );
 
         $links_html .= Util::getButtonOrImage(
             'submit_mult', 'mult_submit',
-            __('Copy'), 'b_insrow.png', 'copy'
+            __('Copy'), 'b_insrow', 'copy'
         );
 
         $links_html .= Util::getButtonOrImage(
             'submit_mult', 'mult_submit',
-            $delete_text, 'b_drop.png', 'delete'
+            $delete_text, 'b_drop', 'delete'
         );
 
         if ($analyzed_sql_results['querytype'] == 'SELECT') {
             $links_html .= Util::getButtonOrImage(
                 'submit_mult', 'mult_submit',
-                __('Export'), 'b_tblexport.png', 'export'
+                __('Export'), 'b_tblexport', 'export'
             );
         }
 
@@ -4804,7 +4804,7 @@ class Results
                 . Util::linkOrButton(
                     'view_create.php' . $url_query,
                     Util::getIcon(
-                        'b_view_add.png', __('Create view'), true
+                        'b_view_add', __('Create view'), true
                     ),
                     array('class' => 'create_view' . $ajax_class)
                 )
@@ -4850,7 +4850,7 @@ class Results
         $html = Util::linkOrButton(
             '#',
             Util::getIcon(
-                'b_insrow.png', __('Copy to clipboard'), true
+                'b_insrow', __('Copy to clipboard'), true
             ),
             array('id' => 'copyToClipBoard')
         );
@@ -4870,7 +4870,7 @@ class Results
         $html = Util::linkOrButton(
             '#',
             Util::getIcon(
-                'b_print.png', __('Print'), true
+                'b_print', __('Print'), true
             ),
             array('id' => 'printView'),
             'print_view'
@@ -4976,7 +4976,7 @@ class Results
             $results_operations_html .= Util::linkOrButton(
                 'tbl_export.php' . Url::getCommon($_url_params),
                 Util::getIcon(
-                    'b_tblexport.png', __('Export'), true
+                    'b_tblexport', __('Export'), true
                 )
             )
             . "\n";
@@ -4985,7 +4985,7 @@ class Results
             $results_operations_html .= Util::linkOrButton(
                 'tbl_chart.php' . Url::getCommon($_url_params),
                 Util::getIcon(
-                    'b_chart.png', __('Display chart'), true
+                    'b_chart', __('Display chart'), true
                 )
             )
             . "\n";

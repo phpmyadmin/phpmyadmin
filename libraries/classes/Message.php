@@ -805,11 +805,11 @@ class Message
     public function getMessageWithIcon($message)
     {
         if ('error' == $this->getLevel()) {
-            $image = 's_error.png';
+            $image = 's_error';
         } elseif ('success' == $this->getLevel()) {
-            $image = 's_success.png';
+            $image = 's_success';
         } else {
-            $image = 's_notice.png';
+            $image = 's_notice';
         }
         $message = Message::notice(Util::getImage($image)) . " " . $message;
         return $message;

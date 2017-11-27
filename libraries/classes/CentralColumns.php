@@ -889,7 +889,7 @@ class CentralColumns
             . '<td class="navigation_separator largescreenonly"></td>'
             . '<td style="padding:1.5% 0em">'
             . Util::getIcon(
-                'centralColumns_add.png',
+                'centralColumns_add',
                 __('Add column')
             )
             . '<form id="add_column" action="db_central_columns.php" method="post">'
@@ -945,9 +945,9 @@ class CentralColumns
             . 'id="checkbox_row_' . $row_num . '"/>'
             . '</td>'
             . '<td id="edit_' . $row_num . '" class="edit center">'
-            . '<a href="#">' . Util::getIcon('b_edit.png', __('Edit')) . '</a></td>'
+            . '<a href="#">' . Util::getIcon('b_edit', __('Edit')) . '</a></td>'
             . '<td class="del_row" data-rownum = "' . $row_num . '">'
-            . '<a hrf="#">' . Util::getIcon('b_drop.png', __('Delete')) . '</a>'
+            . '<a hrf="#">' . Util::getIcon('b_drop', __('Delete')) . '</a>'
             . '<input type="submit" data-rownum = "' . $row_num . '"'
             . ' class="edit_cancel_form" value="Cancel"></td>'
             . '<td id="save_' . $row_num . '" class="hide">'
@@ -1312,11 +1312,11 @@ class CentralColumns
             );
         $html_output .= Util::getButtonOrImage(
             'edit_central_columns', 'mult_submit change_central_columns',
-            __('Edit'), 'b_edit.png', 'edit central columns'
+            __('Edit'), 'b_edit', 'edit central columns'
         );
         $html_output .= Util::getButtonOrImage(
             'delete_central_columns', 'mult_submit',
-            __('Delete'), 'b_drop.png',
+            __('Delete'), 'b_drop',
             'remove_from_central_columns'
         );
         return $html_output;

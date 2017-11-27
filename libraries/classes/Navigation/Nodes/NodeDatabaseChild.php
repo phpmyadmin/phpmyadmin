@@ -51,7 +51,7 @@ abstract class NodeDatabaseChild extends Node
                 . '<a href="navigation.php'
                 . Url::getCommon($params) . '"'
                 . ' class="hideNavItem ajax">'
-                . Util::getImage('hide.png', __('Hide'))
+                . Util::getImage('hide', __('Hide'))
                 . '</a></span>';
         }
 

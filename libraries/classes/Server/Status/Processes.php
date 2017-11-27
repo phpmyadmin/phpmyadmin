@@ -43,7 +43,7 @@ class Processes
         );
         $retval .= '</label>';
         $retval .= '<a id="toggleRefresh" href="#">';
-        $retval .= Util::getImage('play.png') . __('Start auto refresh');
+        $retval .= Util::getImage('play') . __('Start auto refresh');
         $retval .= '</a>';
         $retval .= '</div>';
         return $retval;
@@ -178,15 +178,9 @@ class Processes
             if (0 === --$sortableColCount) {
                 $retval .= '<a href="' . $full_text_link . '">';
                 if ($show_full_sql) {
-                    $retval .= Util::getImage(
-                        's_partialtext.png',
-                        __('Truncate Shown Queries')
-                    );
+                    $retval .= Util::getImage('s_partialtext', __('Truncate Shown Queries'));
                 } else {
-                    $retval .= Util::getImage(
-                        's_fulltext.png',
-                        __('Show Full Queries')
-                    );
+                    $retval .= Util::getImage('s_fulltext', __('Show Full Queries'));
                 }
                 $retval .= '</a>';
             }

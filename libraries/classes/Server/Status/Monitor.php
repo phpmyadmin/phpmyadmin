@@ -149,7 +149,7 @@ class Monitor
         );
         $retval .= '</p>';
         $retval .= '<p>';
-        $retval .= Util::getImage('s_attention.png');
+        $retval .= Util::getImage('s_attention');
         $retval .= '<strong>';
         $retval .= __('Please note:');
         $retval .= '</strong><br />';
@@ -258,15 +258,15 @@ class Monitor
     {
         $retval  = '<div class="tabLinks">';
         $retval .= '<a href="#pauseCharts">';
-        $retval .= Util::getImage('play.png') . __('Start Monitor');
+        $retval .= Util::getImage('play') . __('Start Monitor');
         $retval .= '</a>';
         $retval .= '<a href="#settingsPopup" class="popupLink">';
-        $retval .= Util::getImage('s_cog.png') .  __('Settings');
+        $retval .= Util::getImage('s_cog') .  __('Settings');
         $retval .= '</a>';
         $retval .= '<a href="#monitorInstructionsDialog">';
-        $retval .= Util::getImage('b_help.png') . __('Instructions/Setup');
+        $retval .= Util::getImage('b_help') . __('Instructions/Setup');
         $retval .= '<a href="#endChartEditMode" class="hide">';
-        $retval .= Util::getImage('s_okay.png');
+        $retval .= Util::getImage('s_okay');
         $retval .= __('Done dragging (rearranging) charts');
         $retval .= '</a>';
         $retval .= '</div>';
@@ -283,10 +283,10 @@ class Monitor
     {
         $retval  = '<div class="popupContent settingsPopup">';
         $retval .= '<a href="#addNewChart">';
-        $retval .= Util::getImage('b_chart.png') . __('Add chart');
+        $retval .= Util::getImage('b_chart') . __('Add chart');
         $retval .= '</a>';
         $retval .= '<a href="#rearrangeCharts">';
-        $retval .= Util::getImage('b_tblops.png')
+        $retval .= Util::getImage('b_tblops')
             . __('Enable charts dragging');
         $retval .= '</a>';
         $retval .= '<div class="clearfloat paddingtop"></div>';

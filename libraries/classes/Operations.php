@@ -42,7 +42,7 @@ class Operations
             . '<fieldset>'
             . '<legend>';
         if (Util::showIcons('ActionLinksMode')) {
-            $html_output .= Util::getImage('b_comment.png') . '&nbsp;';
+            $html_output .= Util::getImage('b_comment') . '&nbsp;';
         }
         $html_output .=  __('Database comment');
         $html_output .= '</legend>';
@@ -85,7 +85,7 @@ class Operations
             . '<legend>';
 
         if (Util::showIcons('ActionLinksMode')) {
-            $html_output .= Util::getImage('b_edit.png') . '&nbsp;';
+            $html_output .= Util::getImage('b_edit') . '&nbsp;';
         }
         $html_output .= __('Rename database to')
             . '</legend>';
@@ -151,7 +151,7 @@ class Operations
             . '<fieldset class="caution">';
         $html_output .= '<legend>';
         if (Util::showIcons('ActionLinksMode')) {
-            $html_output .= Util::getImage('b_deltbl.png') . '&nbsp';
+            $html_output .= Util::getImage('b_deltbl') . '&nbsp';
         }
         $html_output .= __('Remove database')
             . '</legend>';
@@ -207,7 +207,7 @@ class Operations
             . '<legend>';
 
         if (Util::showIcons('ActionLinksMode')) {
-            $html_output .= Util::getImage('b_edit.png') . '&nbsp';
+            $html_output .= Util::getImage('b_edit') . '&nbsp';
         }
         $html_output .= __('Copy database to')
             . '</legend>'
@@ -293,7 +293,7 @@ class Operations
         $html_output .= '<fieldset>' . "\n"
            . '    <legend>';
         if (Util::showIcons('ActionLinksMode')) {
-            $html_output .= Util::getImage('s_asci.png') . '&nbsp';
+            $html_output .= Util::getImage('s_asci') . '&nbsp';
         }
         $html_output .= '<label for="select_db_collation">' . __('Collation')
             . '</label>' . "\n"

@@ -2143,7 +2143,7 @@ class Privileges
     public static function getHtmlForAddUser($dbname)
     {
         $html_output = '<h2>' . "\n"
-           . Util::getIcon('b_usradd.png') . __('Add user account') . "\n"
+           . Util::getIcon('b_usradd') . __('Add user account') . "\n"
            . '</h2>' . "\n"
            . '<form name="usersForm" id="addUsersForm"'
            . ' onsubmit="return checkAddUser(this);"'
@@ -2353,7 +2353,7 @@ class Privileges
             $html_output .= '<div class="width100">';
             $html_output .= '<fieldset>';
             $html_output .= '<legend>' . "\n"
-                . Util::getIcon('b_usrcheck.png')
+                . Util::getIcon('b_usrcheck')
                 . '    '
                 . sprintf(
                     __('Users having access to "%s"'),
@@ -2386,7 +2386,7 @@ class Privileges
                 );
             $html_output .= Util::getButtonOrImage(
                 'submit_mult', 'mult_submit',
-                __('Export'), 'b_tblexport.png', 'export'
+                __('Export'), 'b_tblexport', 'export'
             );
 
             $html_output .= '</fieldset>';
@@ -2428,7 +2428,7 @@ class Privileges
             $html_output .= Url::getHiddenInputs($db, $table);
             $html_output .= '<fieldset>';
             $html_output .= '<legend>'
-                . Util::getIcon('b_usrcheck.png')
+                . Util::getIcon('b_usrcheck')
                 . sprintf(
                     __('Users having access to "%s"'),
                     '<a href="' . Util::getScriptNameForOption(
@@ -2472,7 +2472,7 @@ class Privileges
                 );
             $html_output .= Util::getButtonOrImage(
                 'submit_mult', 'mult_submit',
-                __('Export'), 'b_tblexport.png', 'export'
+                __('Export'), 'b_tblexport', 'export'
             );
 
             $html_output .= '</fieldset>';
@@ -2819,13 +2819,13 @@ class Privileges
 
         switch($linktype) {
         case 'edit':
-            $html .= Util::getIcon('b_usredit.png', __('Edit privileges'));
+            $html .= Util::getIcon('b_usredit', __('Edit privileges'));
             break;
         case 'revoke':
-            $html .= Util::getIcon('b_usrdrop.png', __('Revoke'));
+            $html .= Util::getIcon('b_usrdrop', __('Revoke'));
             break;
         case 'export':
-            $html .= Util::getIcon('b_tblexport.png', __('Export'));
+            $html .= Util::getIcon('b_tblexport', __('Export'));
             break;
         }
         $html .= '</a>';
@@ -2846,7 +2846,7 @@ class Privileges
             . ' href="server_privileges.php'
             . Url::getCommon(array('username' => $username))
             . '">'
-            . Util::getIcon('b_usrlist.png', __('Edit user group'))
+            . Util::getIcon('b_usrlist', __('Edit user group'))
             . '</a>';
     }
 
@@ -3553,7 +3553,7 @@ class Privileges
                 ) . "\n";
         $html_output .= Util::getButtonOrImage(
             'submit_mult', 'mult_submit',
-            __('Export'), 'b_tblexport.png', 'export'
+            __('Export'), 'b_tblexport', 'export'
         );
         $html_output .= '<input type="hidden" name="initial" '
             . 'value="' . (isset($_GET['initial']) ? htmlspecialchars($_GET['initial']) : '') . '" />';
@@ -4501,7 +4501,7 @@ class Privileges
         $username, $hostname, $entity_name, $entity_type='table'
     ) {
         $html_output = '<h2>' . "\n"
-           . Util::getIcon('b_usredit.png')
+           . Util::getIcon('b_usredit')
            . __('Edit privileges:') . ' '
            . __('User account');
 
@@ -4596,7 +4596,7 @@ class Privileges
     public static function getHtmlForUserOverview($pmaThemeImage, $text_dir)
     {
         $html_output = '<h2>' . "\n"
-           . Util::getIcon('b_usrlist.png')
+           . Util::getIcon('b_usrlist')
            . __('User accounts overview') . "\n"
            . '</h2>' . "\n";
 

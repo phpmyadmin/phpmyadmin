@@ -214,7 +214,7 @@ class RecentFavoriteTable
                         . '" data-favtargetn="'
                         . md5($table['db'] . "." . $table['table'])
                         . '" >'
-                        . Util::getIcon('b_favorite.png')
+                        . Util::getIcon('b_favorite')
                         . '</a>';
 
                     $fav_params = array(

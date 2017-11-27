@@ -795,9 +795,9 @@ class Node
         } elseif ($match && !$this->is_group) {
             $this->visible = true;
 
-            return Util::getImage('b_minus.png');
+            return Util::getImage('b_minus');
         } else {
-            return Util::getImage('b_plus.png', __('Expand/Collapse'));
+            return Util::getImage('b_plus', __('Expand/Collapse'));
         }
     }
 

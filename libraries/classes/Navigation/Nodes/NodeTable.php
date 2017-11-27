@@ -285,31 +285,19 @@ class NodeTable extends NodeDatabaseChild
 
         switch ($page) {
         case 'tbl_structure.php':
-            $this->icon[] = Util::getImage(
-                'b_props.png',
-                __('Structure')
-            );
+            $this->icon[] = Util::getImage('b_props', __('Structure'));
             break;
         case 'tbl_select.php':
-            $this->icon[] = Util::getImage(
-                'b_search.png',
-                __('Search')
-            );
+            $this->icon[] = Util::getImage('b_search', __('Search'));
             break;
         case 'tbl_change.php':
-            $this->icon[] = Util::getImage(
-                'b_insrow.png',
-                __('Insert')
-            );
+            $this->icon[] = Util::getImage('b_insrow', __('Insert'));
             break;
         case 'tbl_sql.php':
-            $this->icon[] = Util::getImage('b_sql.png', __('SQL'));
+            $this->icon[] = Util::getImage('b_sql', __('SQL'));
             break;
         case 'sql.php':
-            $this->icon[] = Util::getImage(
-                'b_browse.png',
-                __('Browse')
-            );
+            $this->icon[] = Util::getImage('b_browse', __('Browse'));
             break;
         }
     }

@@ -59,12 +59,12 @@
 
             {% if primary and primary.hasColumn(field_name) %}
                 {% set displayed_field_name = displayed_field_name ~ Util_getImage(
-                    'b_primary.png', 'Primary'|trans
+                    'b_primary', 'Primary'|trans
                 ) %}
             {% endif %}
             {% if field_name in columns_with_index %}
                 {% set displayed_field_name = displayed_field_name ~ Util_getImage(
-                    'b_key.png', 'Index'|trans
+                    'b_key', 'Index'|trans
                 ) %}
             {% endif %}
         <tr>
@@ -134,7 +134,7 @@
     {% if tbl_is_view and not db_is_system_schema %}
         {{ Util_linkOrButton(
             edit_view_url,
-            Util_getIcon('b_edit.png', 'Edit view'|trans, true)
+            Util_getIcon('b_edit', 'Edit view'|trans, true)
         ) }}
     {% endif %}
     {% include 'table/structure/optional_action_links.twig' with {
@@ -176,15 +176,15 @@
         {% endif %}
 
         {% set action_icons = {
-            'ANALYZE': Util_getIcon('b_search.png', 'Analyze'|trans),
-            'CHECK': Util_getIcon('eye.png', 'Check'|trans),
-            'OPTIMIZE': Util_getIcon('normalize.png', 'Optimize'|trans),
-            'REBUILD': Util_getIcon('s_tbl.png', 'Rebuild'|trans),
-            'REPAIR': Util_getIcon('b_tblops.png', 'Repair'|trans),
-            'TRUNCATE': Util_getIcon('b_empty.png', 'Truncate'|trans),
+            'ANALYZE': Util_getIcon('b_search', 'Analyze'|trans),
+            'CHECK': Util_getIcon('eye', 'Check'|trans),
+            'OPTIMIZE': Util_getIcon('normalize', 'Optimize'|trans),
+            'REBUILD': Util_getIcon('s_tbl', 'Rebuild'|trans),
+            'REPAIR': Util_getIcon('b_tblops', 'Repair'|trans),
+            'TRUNCATE': Util_getIcon('b_empty', 'Truncate'|trans),
         } %}
         {% if range_or_list %}
-            {% set action_icons = action_icons|merge({'DROP': Util_getIcon('b_drop.png', 'Drop'|trans)}) %}
+            {% set action_icons = action_icons|merge({'DROP': Util_getIcon('b_drop', 'Drop'|trans)}) %}
         {% endif %}
 
         {{ Util_getDivForSliderEffect('partitions', 'Partitions'|trans) }}
