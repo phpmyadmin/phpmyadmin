@@ -4928,7 +4928,7 @@ function PMA_getImage(image, alternate, attributes) {
             // this is private
             alt: '',
             title: '',
-            src: '',
+            src: 'themes/dot.gif',
         },
         attr: function (name, value) {
             if (value == undefined) {
@@ -4969,11 +4969,9 @@ function PMA_getImage(image, alternate, attributes) {
     } else {
         retval.attr('title', escapeHtml(alternate));
     }
-    // it's an image file
-    retval.attr(
-        'src',
-        pmaThemeImage + image
-    );
+    // set css classes
+    var klass = image.replace('.gif', '').replace('.png', '');
+    retval.attr('class', 'icon ic_' + klass);
     // set all other attrubutes
     for (var i in attributes) {
         if (i == 'src') {

@@ -122,6 +122,13 @@ class Util
             $url = './themes/pmahomme/' . $image;
         }
 
+        $class = str_replace(array('.gif','.png'), '', $image);
+        if (isset($attributes['class'])) {
+            $attributes['class'] = "icon ic_$class " . $attributes['class'];
+        } else {
+            $attributes['class'] = "icon ic_$class";
+        }
+
         // set all other attributes
         $attr_str = '';
         foreach ($attributes as $key => $value) {
@@ -145,8 +152,8 @@ class Util
         }
 
         // generate the IMG tag
-        $template = '<img src="%s" title="%s" alt="%s"%s />';
-        $retval = sprintf($template, $url, $title, $alt, $attr_str);
+        $template = '<img src="themes/dot.gif" title="%s" alt="%s"%s />';
+        $retval = sprintf($template, $title, $alt, $attr_str);
 
         return $retval;
     }

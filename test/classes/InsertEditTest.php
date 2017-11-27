@@ -1413,8 +1413,8 @@ class InsertEditTest extends TestCase
         $GLOBALS['cfg']['ActionLinksMode'] = 'icons';
         $GLOBALS['cfg']['LinkLengthLimit'] = 2;
         $this->assertContains(
-            '<a href="#" target="_blank"><span class="nowrap"><img src="./themes/pmahomme/b_edit.png"'
-            . ' title="Edit/Insert" alt="Edit/Insert" />'
+            '<a href="#" target="_blank"><span class="nowrap"><img src="themes/dot.'
+            . 'gif" title="Edit/Insert" alt="Edit/Insert" class="icon ic_b_edit" />'
             . '</span></a>',
             InsertEdit::getHtmlForGisDataTypes()
         );

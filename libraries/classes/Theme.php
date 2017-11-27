@@ -78,7 +78,8 @@ class Theme
         'rte',
         'codemirror',
         'jqplot',
-        'resizable-menu'
+        'resizable-menu',
+        'icons',
     );
 
     /**
