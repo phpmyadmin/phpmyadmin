@@ -44,19 +44,19 @@ class Scripts
      */
     private function _includeFiles(array $files)
     {
-        $first_dynamic_scripts = "";
-        $dynamic_scripts = "";
+        $first = [];
+        $result = [];
         $scripts = array();
         $separator = Url::getArgSeparator();
         foreach ($files as $value) {
             if (mb_strpos($value['filename'], ".php") !== false) {
                 $file_name = $value['filename'] . Url::getCommon($value['params'] + array('v' => PMA_VERSION));
                 if ($value['before_statics'] === true) {
-                    $first_dynamic_scripts
-                        .= "<script data-cfasync='false' type='text/javascript' "
+                    $first[]
+                        = "<script data-cfasync='false' type='text/javascript' "
                         . "src='js/" . $file_name . "'></script>";
                 } else {
-                    $dynamic_scripts .= "<script data-cfasync='false' "
+                    $result[] = "<script data-cfasync='false' "
                         . "type='text/javascript' src='js/" . $file_name
                         . "'></script>";
                 }
@@ -68,7 +68,6 @@ class Scripts
             }
         }
         $separator = Url::getArgSeparator();
-        $static_scripts = '';
         // Using chunks of 10 files to avoid too long URLs
         // as some servers are set to 512 bytes URL limit
         $script_chunks = array_chunk($scripts, 10);
@@ -77,13 +76,13 @@ class Scripts
                 . implode($separator, $script_chunk)
                 . $separator . Header::getVersionParameter();
 
-            $static_scripts .= sprintf(
+            $result[] = sprintf(
                 '<script data-cfasync="false" type="text/javascript" src="%s">' .
                 '</script>',
                 htmlspecialchars($url)
             );
         }
-        return $first_dynamic_scripts . $static_scripts . $dynamic_scripts;
+        return implode("\n", $first) . implode("\n", $result);
     }
 
     /**
