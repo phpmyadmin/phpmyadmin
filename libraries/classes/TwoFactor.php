@@ -115,6 +115,35 @@ class TwoFactor
     }
 
     /**
+     * Returns list of missing dependencies
+     *
+     * @return array
+     */
+    public function getMissingDeps()
+    {
+        $result = [];
+        if (!class_exists('PragmaRX\Google2FA\Google2FA')) {
+            $result[] = [
+                'class' => \PhpMyAdmin\Plugins\TwoFactor\Application::getName(),
+                'dep' => 'pragmarx/google2fa',
+            ];
+        }
+        if (!class_exists('BaconQrCode\Renderer\Image\Png')) {
+            $result[] = [
+                'class' => \PhpMyAdmin\Plugins\TwoFactor\Application::getName(),
+                'dep' => 'bacon/bacon-qr-code',
+            ];
+        }
+        if (!class_exists('Samyoul\U2F\U2FServer\U2FServer')) {
+            $result[] = [
+                'class' => \PhpMyAdmin\Plugins\TwoFactor\Key::getName(),
+                'dep' => 'samyoul/u2f-php-server',
+            ];
+        }
+        return $result;
+    }
+
+    /**
      * Returns class name for given name
      *
      * @param string $name Backend name

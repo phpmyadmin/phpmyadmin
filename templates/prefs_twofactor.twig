@@ -7,6 +7,12 @@
 {% if enabled %}
 {% if num_backends == 0 %}
 <p>{% trans "Two-factor authentication is not available, please install optional dependencies to enable authentication backends." %}</p>
+<p>{% trans "Following composer packages are missing:" %}</p>
+<ul>
+{% for item in missing %}
+    <li><code>{{ item.dep }}</code> ({{ item.class }})</li>
+{% endfor %}
+</ul>
 {% else %}
 {% if backend_id %}
 <p>{% trans "Two-factor authentication is available and configured for this account." %}</p>

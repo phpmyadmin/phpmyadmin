@@ -48,4 +48,5 @@ echo Template::get('prefs_twofactor')->render([
     'backend_name' => $backend::getName(),
     'backend_description' => $backend::getDescription(),
     'backends' => $two_factor->getAllBackends(),
+    'missing' => $two_factor->getMissingDeps(),
 ]);
