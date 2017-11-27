@@ -10,7 +10,7 @@
  $theme->getImgPath('pmd/left_panel_butt.png');
 
 // unplanned execution path
-if (! defined('PMA_MINIMUM_COMMON') && ! defined('TESTSUITE')) {
+if (! defined('PHPMYADMIN') && ! defined('TESTSUITE')) {
     exit();
 }
 ?>
