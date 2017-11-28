@@ -184,12 +184,7 @@ class Operations
             'dataonly'  => __('Data only')
         );
 
-        if (isset($_COOKIE)
-            && isset($_COOKIE['pma_switch_to_new'])
-            && $_COOKIE['pma_switch_to_new'] == 'true'
-        ) {
-            $pma_switch_to_new = 'true';
-        }
+        $pma_switch_to_new = isset($_SESSION['pma_switch_to_new']) && $_SESSION['pma_switch_to_new'];
 
         $html_output = '<div>';
         $html_output .= '<form id="copy_db_form" '
@@ -257,10 +252,7 @@ class Operations
 
         $html_output .= '<input type="checkbox" name="switch_to_new" value="true"'
             . 'id="checkbox_switch"'
-            . ((isset($pma_switch_to_new) && $pma_switch_to_new == 'true')
-                ? ' checked="checked"'
-                : '')
-            . '/>';
+            . ($pma_switch_to_new ? ' checked="checked"' : '') . '/>';
         $html_output .= '<label for="checkbox_switch">'
             . __('Switch to copied database') . '</label>'
             . '</fieldset>';
@@ -1318,17 +1310,11 @@ class Operations
             . __('Adjust privileges') . Util::showDocu('faq', 'faq6-39')
             . '</label><br />';
 
-        if (isset($_COOKIE['pma_switch_to_new'])
-            && $_COOKIE['pma_switch_to_new'] == 'true'
-        ) {
-            $pma_switch_to_new = 'true';
-        }
+        $pma_switch_to_new = isset($_SESSION['pma_switch_to_new']) && $_SESSION['pma_switch_to_new'];
 
         $html_output .= '<input type="checkbox" name="switch_to_new" value="true"'
             . 'id="checkbox_switch"'
-            . ((isset($pma_switch_to_new) && $pma_switch_to_new == 'true')
-                ? ' checked="checked"'
-                : '' . '/>');
+            . ($pma_switch_to_new ? ' checked="checked"' : '') . '/>';
         $html_output .= '<label for="checkbox_switch">'
             . __('Switch to copied table') . '</label>'
             . '</fieldset>';

@@ -179,10 +179,10 @@ if (strlen($GLOBALS['db']) > 0
                 if (isset($_REQUEST['switch_to_new'])
                     && $_REQUEST['switch_to_new'] == 'true'
                 ) {
-                    $GLOBALS['PMA_Config']->setCookie('pma_switch_to_new', 'true');
+                    $_SESSION['pma_switch_to_new'] = true;
                     $GLOBALS['db'] = $_REQUEST['newname'];
                 } else {
-                    $GLOBALS['PMA_Config']->setCookie('pma_switch_to_new', '');
+                    $_SESSION['pma_switch_to_new'] = false;
                 }
             }
         }
