@@ -321,7 +321,7 @@ for kit in $KITS ; do
         mv htmldoc doc/html
         rm doc/html/.buildinfo doc/html/objects.inv
         # Javascript sources
-        rm -rf js/vendor/jquery/src/ js/vendor/openlayers/src/
+        rm -rf js/vendor/openlayers/src/
     fi
 
     # Remove developer scripts
