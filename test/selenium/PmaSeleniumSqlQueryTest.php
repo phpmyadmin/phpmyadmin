@@ -176,6 +176,7 @@ class PMA_SeleniumSqlQueryTest extends PMA_SeleniumBase
         // type in next sql query
         $this->typeInTextArea('SELECT 1', 1);
 
+        $this->scrollIntoView('sql_query_edit_save');
         $this->byId('sql_query_edit_save')->click();
         $this->waitAjax();
 
