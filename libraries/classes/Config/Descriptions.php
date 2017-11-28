@@ -599,6 +599,8 @@ class Descriptions
                 return __('Warnings');
             case 'Form_Warnings_desc':
                 return __('Disable some of the warnings shown by phpMyAdmin.');
+            case 'Form_Console_name':
+                return __('Console');
             case 'GZipDump_desc':
                 return __(
                     'Enable gzip compression for import '
@@ -1456,6 +1458,20 @@ class Descriptions
                 );
             case 'ZeroConf_name':
                 return __('Enable Zero Configuration mode');
+            case 'Console_StartHistory_name':
+                return __('Show query history at start');
+            case 'Console_AlwaysExpand_name':
+                return __('Always expand query messages');
+            case 'Console_CurrentQuery_name':
+                return __('Show current browsing query');
+            case 'Console_EnterExecutes_name':
+                return __('Execute queries on Enter and insert new line with Shift + Enter');
+            case 'Console_DarkTheme_name':
+                return __('Switch to dark theme');
+            case 'Console_Height_name':
+                return __('Console height');
+            case 'Console_Mode_name':
+                return __('Console mode');
         }
         return null;
     }

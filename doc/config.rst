@@ -3302,6 +3302,62 @@ Default options for Transformations
     :type: array
     :default: array('', '', '')
 
+Console settings
+----------------
+
+.. note::
+
+    These settings are mostly meant to be changed by user.
+
+.. config:option:: $cfg['Console']['StartHistory']
+
+    :type: boolean
+    :default: false
+
+    Show query history at start
+    
+.. config:option:: $cfg['Console']['AlwaysExpand']
+
+    :type: boolean
+    :default: false
+
+    Always expand query messages
+    
+.. config:option:: $cfg['Console']['CurrentQuery']
+
+    :type: boolean
+    :default: true
+
+    Show current browsing query
+    
+.. config:option:: $cfg['Console']['EnterExecutes']
+
+    :type: boolean
+    :default: false
+
+    Execute queries on Enter and insert new line with Shift + Enter
+    
+.. config:option:: $cfg['Console']['DarkTheme']
+
+    :type: boolean
+    :default: false
+
+    Switch to dark theme
+    
+.. config:option:: $cfg['Console']['Mode']
+
+    :type: string
+    :default: 'info'
+
+    Console mode
+    
+.. config:option:: $cfg['Console']['Height']
+
+    :type: integer
+    :default: 92
+
+    Console height
+
 Developer
 ---------
 

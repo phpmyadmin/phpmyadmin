@@ -53,6 +53,15 @@ class FeaturesForm extends BaseForm
                 'LoginCookieValidityDisableWarning',
                 'ReservedWordDisableWarning'
             ),
+            'Console' => array(
+                'Console/Mode',
+                'Console/StartHistory',
+                'Console/AlwaysExpand',
+                'Console/CurrentQuery',
+                'Console/EnterExecutes',
+                'Console/DarkTheme',
+                'Console/Height',
+            ),
         );
         // skip Developer form if no setting is available
         if ($GLOBALS['cfg']['UserprefsDeveloperTab']) {

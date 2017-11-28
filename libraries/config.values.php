@@ -210,6 +210,11 @@ $cfg_db['Export']['odt_structure_or_data'] = $cfg_db['Export']['_sod_select'];
 $cfg_db['Export']['texytext_structure_or_data'] = $cfg_db['Export']['_sod_select'];
 $cfg_db['Export']['texytext_null'] = 'short_string';
 
+$cfg_db['Console']['Mode'] = array(
+    'info', 'show', 'collapse'
+);
+$cfg_db['Console']['Height'] = 'integer';
+
 /**
  * Default values overrides
  * Use only full paths

@@ -3115,6 +3115,21 @@ $cfg['MysqlMinVersion'] = array(
  */
 $cfg['DisableShortcutKeys'] = false;
 
+/**
+ * Console configuration
+ *
+ * This is mostly meant for user preferences.
+ */
+$cfg['Console'] = [
+    'StartHistory' => false,
+    'AlwaysExpand' => false,
+    'CurrentQuery' => true,
+    'EnterExecutes' => false,
+    'DarkTheme' => false,
+    'Mode' => 'info',
+    'Height' => 92,
+];
+
 
 /*******************************************************************************
  * Default options for transformations
