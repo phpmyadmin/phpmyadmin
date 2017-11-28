@@ -15,6 +15,7 @@ $_GET['ajax_request'] = 'true';
 require_once 'libraries/common.inc.php';
 
 $response = Response::getInstance();
+$response->setAJAX(true);
 
 if (empty($_POST['type'])) {
     Core::fatalError(__('Bad type!'));
