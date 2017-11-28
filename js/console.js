@@ -60,7 +60,7 @@ var PMA_console = {
             return;
         }
 
-        var config = configGet('Console', false);
+        PMA_console.config = configGet('Console', false);
 
         PMA_console.isEnabled = true;
 
@@ -87,29 +87,22 @@ var PMA_console = {
         // Event binds shouldn't run again
         if (PMA_console.isInitialized === false) {
             // Load config first
-            var tempConfig = Cookies.getJSON('pma_console_config');
-            if (tempConfig) {
-                if (tempConfig.alwaysExpand === true) {
-                    $('#pma_console_options input[name=always_expand]').prop('checked', true);
-                }
-                if (tempConfig.startHistory === true) {
-                    $('#pma_console_options').find('input[name=start_history]').prop('checked', true);
-                }
-                if (tempConfig.currentQuery === true) {
-                    $('#pma_console_options').find('input[name=current_query]').prop('checked', true);
-                }
-                if (ConsoleEnterExecutes === true) {
-                    $('#pma_console_options').find('input[name=enter_executes]').prop('checked', true);
-                }
-                if (tempConfig.darkTheme === true) {
-                    $('#pma_console_options').find('input[name=dark_theme]').prop('checked', true);
-                    $('#pma_console').find('>.content').addClass('console_dark_theme');
-                }
-            } else {
+            if (PMA_console.config.AlwaysExpand === true) {
+                $('#pma_console_options input[name=always_expand]').prop('checked', true);
+            }
+            if (PMA_console.config.StartHistory === true) {
+                $('#pma_console_options').find('input[name=start_history]').prop('checked', true);
+            }
+            if (PMA_console.config.CurrentQuery === true) {
                 $('#pma_console_options').find('input[name=current_query]').prop('checked', true);
             }
-
-            PMA_console.updateConfig();
+            if (PMA_console.config.EnterExecutes === true) {
+                $('#pma_console_options').find('input[name=enter_executes]').prop('checked', true);
+            }
+            if (PMA_console.config.DarkTheme === true) {
+                $('#pma_console_options').find('input[name=dark_theme]').prop('checked', true);
+                $('#pma_console').find('>.content').addClass('console_dark_theme');
+            }
 
             PMA_consoleResizer.initialize();
             PMA_consoleInput.initialize();
@@ -173,7 +166,7 @@ var PMA_console = {
             });
 
             $('#pma_console_options').find('input[name=enter_executes]').change(function () {
-                PMA_consoleMessages.showInstructions(PMA_console.config.enterExecutes);
+                PMA_consoleMessages.showInstructions(PMA_console.config.EnterExecutes);
             });
 
             $(document).ajaxComplete(function (event, xhr, ajaxOptions) {
@@ -196,7 +189,7 @@ var PMA_console = {
         }
 
         // Change console mode from cookie
-        switch (config.Mode) {
+        switch (PMA_console.config.Mode) {
         case 'collapse':
             PMA_console.collapse();
             break;
@@ -255,7 +248,7 @@ var PMA_console = {
         } else if (data && data._reloadQuerywindow) {
             if (data._reloadQuerywindow.sql_query.length > 0) {
                 PMA_consoleMessages.appendQuery(data._reloadQuerywindow, 'successed')
-                    .$message.addClass(PMA_console.config.currentQuery ? '' : 'hide');
+                    .$message.addClass(PMA_console.config.CurrentQuery ? '' : 'hide');
             }
         }
     },
@@ -392,16 +385,18 @@ var PMA_console = {
      * @return void
      */
     updateConfig: function () {
-        PMA_console.config = {
-            alwaysExpand: $('#pma_console_options input[name=always_expand]').prop('checked'),
-            startHistory: $('#pma_console_options').find('input[name=start_history]').prop('checked'),
-            currentQuery: $('#pma_console_options').find('input[name=current_query]').prop('checked'),
-            enterExecutes: $('#pma_console_options').find('input[name=enter_executes]').prop('checked'),
-            darkTheme: $('#pma_console_options').find('input[name=dark_theme]').prop('checked')
-        };
-        Cookies.set('pma_console_config', PMA_console.config);
+        PMA_console.config.AlwaysExpand = $('#pma_console_options input[name=always_expand]').prop('checked');
+        PMA_console.config.StartHistory = $('#pma_console_options').find('input[name=start_history]').prop('checked');
+        PMA_console.config.CurrentQuery = $('#pma_console_options').find('input[name=current_query]').prop('checked');
+        PMA_console.config.EnterExecutes = $('#pma_console_options').find('input[name=enter_executes]').prop('checked');
+        PMA_console.config.DarkTheme = $('#pma_console_options').find('input[name=dark_theme]').prop('checked');
+        configSet('Console/AlwaysExpand', PMA_console.config.AlwaysExpand);
+        configSet('Console/StartHistory', PMA_console.config.StartHistory);
+        configSet('Console/CurrentQuery', PMA_console.config.CurrentQuery);
+        configSet('Console/EnterExecutes', PMA_console.config.EnterExecutes);
+        configSet('Console/DarkTheme', PMA_console.config.DarkTheme);
         /* Setting the dark theme of the console*/
-        if (PMA_console.config.darkTheme) {
+        if (PMA_console.config.DarkTheme) {
             $('#pma_console').find('>.content').addClass('console_dark_theme');
         } else {
             $('#pma_console').find('>.content').removeClass('console_dark_theme');
@@ -632,7 +627,7 @@ var PMA_consoleInput = {
      * @return void
      */
     _keydown: function (event) {
-        if (PMA_console.config.enterExecutes) {
+        if (PMA_console.config.EnterExecutes) {
             // Enter, but not in combination with Shift (which writes a new line).
             if (!event.shiftKey && event.keyCode === 13) {
                 PMA_consoleInput.execute();
@@ -803,7 +798,7 @@ var PMA_consoleMessages = {
         var now = new Date();
         var $newMessage =
             $('<div class="message ' +
-                (PMA_console.config.alwaysExpand ? 'expanded' : 'collapsed') +
+                (PMA_console.config.AlwaysExpand ? 'expanded' : 'collapsed') +
                 '" msgid="' + msgId + '"><div class="action_content"></div></div>');
         switch (msgType) {
         case 'query':
@@ -1009,10 +1004,10 @@ var PMA_consoleMessages = {
      */
     initialize: function () {
         PMA_consoleMessages._msgEventBinds($('#pma_console').find('.message:not(.binded)'));
-        if (PMA_console.config.startHistory) {
+        if (PMA_console.config.StartHistory) {
             PMA_consoleMessages.showHistory();
         }
-        PMA_consoleMessages.showInstructions(PMA_console.config.enterExecutes);
+        PMA_consoleMessages.showInstructions(PMA_console.config.EnterExecutes);
     }
 };
 
