@@ -1045,6 +1045,13 @@ $cfg['NavigationTreeShowProcedures'] = true;
  */
 $cfg['NavigationTreeShowEvents'] = true;
 
+/**
+ * Width of navigation panel
+ *
+ * @global boolean $cfg['NavigationWidth']
+ */
+$cfg['NavigationWidth'] = 240;
+
 /*******************************************************************************
  * In the main panel, at startup...
  */
@@ -2859,6 +2866,11 @@ $cfg['ThemeDefault'] = 'pmahomme';
  */
 $cfg['ThemePerServer'] = false;
 
+
+/**
+ * Font size to use by default
+ */
+$cfg['FontSize'] = '82%';
 
 /*******************************************************************************
  *

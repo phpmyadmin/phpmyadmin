@@ -312,7 +312,7 @@ class ThemeTest extends PmaTestCase
             '82%'
         );
 
-        $GLOBALS['PMA_Config']->set('fontsize', '12px');
+        $GLOBALS['PMA_Config']->set('FontSize', '12px');
         $this->assertEquals(
             $this->object->getFontSize(),
             '12px'

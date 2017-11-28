@@ -2094,6 +2094,13 @@ Navigation panel setup
 
     Whether to show events under database in the navigation panel.
 
+.. config:option:: $cfg['NavigationWdith']
+
+    :type: integer
+    :default: 240
+
+    Navigation panel width.
+
 
 Main panel
 ----------
@@ -3218,6 +3225,13 @@ Theme manager settings
     :default: false
 
     Whether to allow different theme for each server.
+
+.. config:option:: $cfg['FontSize']
+
+    :type: string
+    :default: '82%'
+
+    Font size to use, is applied in CSS.
 
 Default queries
 ---------------

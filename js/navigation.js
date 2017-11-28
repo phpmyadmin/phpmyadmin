@@ -1117,9 +1117,6 @@ var ResizeHandler = function () {
         var resizer_width = $resizer.width();
         var $collapser = $('#pma_navigation_collapser');
         var windowWidth = $(window).width();
-        if (pos > 240 && windowWidth > 768) {
-            pos = 241;
-        }
         $('#pma_navigation').width(pos);
         $('body').css('margin-' + this.left, pos + 'px');
         $('#floating_menubar, #pma_console')
@@ -1221,7 +1218,7 @@ var ResizeHandler = function () {
      */
     this.mouseup = function (event) {
         $('body').css('cursor', '');
-        Cookies.set('pma_navi_width', event.data.resize_handler.getPos(event));
+        configSet('NavigationWidth', event.data.resize_handler.getPos(event));
         $('#topmenu').menuResizer('resize');
         $(document)
             .off('mousemove')
@@ -1284,10 +1281,8 @@ var ResizeHandler = function () {
     // Hide the pma_navigation initially when loaded on mobile
     if ($(window).width() < 768) {
         this.setWidth(0);
-    } else if (Cookies.get('pma_navi_width')) {
-        // If we have a cookie, set the width of the panel to its value
-        var pos = Math.abs(parseInt(Cookies.get('pma_navi_width'), 10) || 0);
-        this.setWidth(pos);
+    } else {
+        this.setWidth(configGet('NavigationWidth', false));
         $('#topmenu').menuResizer('resize');
     }
     // Register the events for the resizer and the collapser

@@ -145,7 +145,7 @@ if (isset($_POST['submit_export'])
             exit;
         }
 
-        // check for ThemeDefault and fontsize
+        // check for ThemeDefault
         $params = array();
         $tmanager = ThemeManager::getInstance();
         if (isset($config['ThemeDefault'])
@@ -154,11 +154,6 @@ if (isset($_POST['submit_export'])
         ) {
             $tmanager->setActiveTheme($config['ThemeDefault']);
             $tmanager->setThemeCookie();
-        }
-        if (isset($config['fontsize'])
-            && $config['fontsize'] != $GLOBALS['PMA_Config']->get('fontsize')
-        ) {
-            $params['set_fontsize'] = $config['fontsize'];
         }
         if (isset($config['lang'])
             && $config['lang'] != $GLOBALS['lang']
@@ -201,9 +196,6 @@ if (isset($_POST['submit_export'])
     $result = UserPreferences::save(array());
     if ($result === true) {
         $params = array();
-        if ($GLOBALS['PMA_Config']->get('fontsize') != '82%') {
-            $GLOBALS['PMA_Config']->removeCookie('pma_fontsize');
-        }
         $GLOBALS['PMA_Config']->removeCookie('pma_collaction_connection');
         $GLOBALS['PMA_Config']->removeCookie('pma_lang');
         UserPreferences::redirect('prefs_manage.php', $params);

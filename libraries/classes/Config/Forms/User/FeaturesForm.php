@@ -24,6 +24,7 @@ class FeaturesForm extends BaseForm
                 'SendErrorReports',
                 'ConsoleEnterExecutes',
                 'DisableShortcutKeys',
+                'FontSize',
             ),
             'Databases' => array(
                 'Servers/1/only_db', // saves to Server/only_db
