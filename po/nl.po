@@ -4,10 +4,10 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.8.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2017-11-28 16:22+0100\n"
-"PO-Revision-Date: 2017-11-21 19:45+0000\n"
-"Last-Translator: dingo thirteen <dingo13@gmail.com>\n"
-"Language-Team: Dutch <https://hosted.weblate.org/projects/phpmyadmin/master/"
-"nl/>\n"
+"PO-Revision-Date: 2017-11-28 18:32+0000\n"
+"Last-Translator: Han Velthuis <han.velthuis@home.nl>\n"
+"Language-Team: Dutch "
+"<https://hosted.weblate.org/projects/phpmyadmin/master/nl/>\n"
 "Language: nl\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -4816,16 +4816,12 @@ msgid "Show databases navigation as tree"
 msgstr "Geef databases navigatiescherm weer als boomstructuur"
 
 #: libraries/classes/Config/Descriptions.php:772
-#, fuzzy
-#| msgid "Navigation panel"
 msgid "Navigation panel width"
-msgstr "Navigatiepaneel"
+msgstr "Navigatiepaneelbreedte"
 
 #: libraries/classes/Config/Descriptions.php:774
-#, fuzzy
-#| msgid "Show logo in navigation panel."
 msgid "Set to 0 to collapse navigation panel."
-msgstr "Toon logo in navigatiepaneel."
+msgstr "Zet op 0 om het navigatiepaneel in te klappen."
 
 #: libraries/classes/Config/Descriptions.php:776
 msgid "Link with main panel by highlighting the current database or table."
@@ -6186,14 +6182,10 @@ msgid "Show current browsing query"
 msgstr "Toon huidige blader query"
 
 #: libraries/classes/Config/Descriptions.php:1472
-#, fuzzy
-#| msgid ""
-#| "Execute queries on Enter and insert new line with Shift + Enter. To make "
-#| "this permanent, view settings."
 msgid "Execute queries on Enter and insert new line with Shift + Enter"
 msgstr ""
-"Voer queries uit met de Enter toets en voeg een nieuwe regel toe met Shift + "
-"Enter. Om dit permanent te maken, bekijk het instellingenmenu."
+"Voer queries uit met de Enter-toets en voeg een nieuwe regel toe met Shift + "
+"Enter"
 
 #: libraries/classes/Config/Descriptions.php:1474
 #: templates/console/display.twig:168
@@ -6201,16 +6193,12 @@ msgid "Switch to dark theme"
 msgstr "Wissel naar donker thema"
 
 #: libraries/classes/Config/Descriptions.php:1476
-#, fuzzy
-#| msgid "Console"
 msgid "Console height"
-msgstr "Console"
+msgstr "Console-hoogte"
 
 #: libraries/classes/Config/Descriptions.php:1478
-#, fuzzy
-#| msgid "Console"
 msgid "Console mode"
-msgstr "Console"
+msgstr "Console-mode"
 
 #: libraries/classes/Config/Descriptions.php:1480
 #: templates/console/display.twig:64
@@ -6222,10 +6210,8 @@ msgid "Order"
 msgstr "Volgorde"
 
 #: libraries/classes/Config/Descriptions.php:1484
-#, fuzzy
-#| msgid "Order by:"
 msgid "Order by"
-msgstr "Volgorde:"
+msgstr "Volgorde op"
 
 #: libraries/classes/Config/FormDisplay.php:99
 #: libraries/classes/Config/Validator.php:524
@@ -15246,16 +15232,13 @@ msgid "File may be compressed (%s) or uncompressed."
 msgstr "Het bestand kan gecomprimeerd (%s) of ongecomprimeerd zijn."
 
 #: templates/display/import/compressions.twig:7
-#, fuzzy
-#| msgid ""
-#| "A compressed file's name must end in <b>.[format].[compression]</b>. "
-#| "Example: <b>.sql.zip</b>"
 msgid ""
 "A compressed file's name must end in <strong>.[format].[compression]</"
 "strong>. Example: <strong>.sql.zip</strong>"
 msgstr ""
-"De naam van een gecomprimeerd bestand moet eindigen op <b>.[formaat]."
-"[compressie]</b>. Voorbeeld: <b>.sql.zip</b>"
+"De naam van een gecomprimeerd bestand moet eindigen op "
+"<strong>.[format].[compression]</strong>. Voorbeeld: "
+"<strong>.sql.zip</strong>"
 
 #: templates/table/chart/tbl_chart.twig:15
 msgctxt "Chart type"
@@ -15377,16 +15360,12 @@ msgid "Edit ENUM/SET values"
 msgstr "Bewerk ENUM/SET waarden"
 
 #: templates/login/twofactor/invalid.twig:2
-#, fuzzy
-#| msgid ""
-#| "Two-factor authentication is not available, please install optional "
-#| "dependencies to enable authentication backends."
 msgid ""
 "The configured two factor authentication is not available, please install "
 "missing dependencies."
 msgstr ""
 "Tweeweg authentificatie is niet beschikbaar, installeer a.u.b. de optionele "
-"afhankelijkheden om authentificatie backends beschikbaar te maken."
+"afhankelijkheden."
 
 #: templates/display/import/file_option.twig:2
 msgid "File to import:"
@@ -15577,7 +15556,7 @@ msgstr "U hebt tweeweg authentificatie geactiveerd."
 #: templates/prefs_twofactor.twig:43 templates/prefs_twofactor.twig:54
 #: templates/prefs_twofactor_configure.twig:2
 msgid "Configure two-factor authentication"
-msgstr "Configureer tweeweg authenticatie"
+msgstr "Configureer tweeweg authentificatie"
 
 #: templates/privileges/column_privileges.twig:21
 #: templates/privileges/column_privileges.twig:22
@@ -15603,19 +15582,14 @@ msgstr ""
 "hervat worden vanaf positie %d."
 
 #: templates/display/import/partial_import_option.twig:15
-#, fuzzy
-#| msgid ""
-#| "Allow the interruption of an import in case the script detects it is "
-#| "close to the PHP timeout limit. <i>(This might be a good way to import "
-#| "large files, however it can break transactions.)</i>"
 msgid ""
 "Allow the interruption of an import in case the script detects it is close "
 "to the PHP timeout limit. <em>(This might be a good way to import large "
 "files, however it can break transactions.)</em>"
 msgstr ""
-"Sta het onderbreken van de import toe wanneer het script herkent dat de PHP "
-"tijdslimiet nadert. <i>(Dit kan nuttig zijn bij het importeren van grote "
-"bestanden, maar kan transacties verstoren.)</i>"
+"Sta het onderbreken van het importeren toe wanneer het script herkent dat de "
+"PHP-tijdslimiet nadert. <em>(Dit kan nodig zijn bij het importeren van grote "
+"bestanden, maar het kan transacties verstoren.)</em>"
 
 #: templates/display/import/partial_import_option.twig:22
 msgid "Skip this number of queries (for SQL) starting from the first one:"
@@ -16255,22 +16229,16 @@ msgstr "Browserweergavetransformatieopties"
 
 #: templates/columns_definitions/table_fields_definitions.twig:83
 #: templates/columns_definitions/table_fields_definitions.twig:94
-#, fuzzy
-#| msgid ""
-#| "Please enter the values for transformation options using this format: "
-#| "'a', 100, b,'c'…<br />If you ever need to put a backslash (\"\") or a "
-#| "single quote (\"'\") amongst those values, precede it with a backslash "
-#| "(for example '\\\\xyz' or 'a\\'b')."
 msgid ""
 "Please enter the values for transformation options using this format: 'a', "
 "100, b,'c'…<br />If you ever need to put a backslash (\"\\\") or a single "
 "quote (\"'\") amongst those values, precede it with a backslash (for example "
 "'\\\\xyz' or 'a\\'b')."
 msgstr ""
-"Voeg de waardes voor transformatieoptie in het volgende formaat in: 'a', "
-"100, b,'c'…<br />Wanneer u een backslash (\"\\\") of een enkele quote "
-"(\"'\") moet invoegen in deze waardes, plaats er dan een backslash voor "
-"(bijvoorbeeld '\\\\xyz' of 'a\\'b')."
+"Vul de waardes voor de transformatieoptie in het volgende formaat in: 'a', "
+"100, b,'c'…<br />Wanneer u een backslash (\"\\\") of een enkele quote (\"'\")"
+" moet invoegen plaats er dan een backslash voor (bijvoorbeeld '\\\\xyz' of '"
+"a\\'b')."
 
 #: templates/columns_definitions/table_fields_definitions.twig:93
 msgid "Input transformation options"
