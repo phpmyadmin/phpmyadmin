@@ -40,6 +40,7 @@ phpMyAdmin - ChangeLog
 - issue #13711 Lower default value for $cfg['MaxExactCount']
 - issue #13722 DisableIS is not fully honored
 - issue #6197  Added support for authentication using U2F and 2FA
+- issue #13480 Avoid removing cookies on upgrade
 
 4.7.6 (not yet released)
 - issue #13517 Fixed check all interaction with filtering

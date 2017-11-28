@@ -126,28 +126,6 @@ Core::cleanupPathInfo();
 $GLOBALS['PMA_Config'] = new Config(CONFIG_FILE);
 
 /**
- * clean cookies on upgrade
- * when changing something related to PMA cookies, increment the cookie version
- */
-$pma_cookie_version = 5;
-if (isset($_COOKIE)) {
-    if (! isset($_COOKIE['pmaCookieVer'])
-        || $_COOKIE['pmaCookieVer'] != $pma_cookie_version
-    ) {
-        // delete all cookies
-        foreach ($_COOKIE as $cookie_name => $tmp) {
-            // We ignore cookies not with pma prefix
-            if (strncmp('pma', $cookie_name, 3) != 0) {
-                continue;
-            }
-            $GLOBALS['PMA_Config']->removeCookie($cookie_name);
-        }
-        $_COOKIE = array();
-        $GLOBALS['PMA_Config']->setCookie('pmaCookieVer', $pma_cookie_version);
-    }
-}
-
-/**
  * include session handling after the globals, to prevent overwriting
  */
 Session::setUp($GLOBALS['PMA_Config'], $GLOBALS['error_handler']);
