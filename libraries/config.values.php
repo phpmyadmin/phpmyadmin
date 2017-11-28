@@ -214,6 +214,8 @@ $cfg_db['Console']['Mode'] = array(
     'info', 'show', 'collapse'
 );
 $cfg_db['Console']['Height'] = 'integer';
+$cfg_db['Console']['OrderBy'] = ['exec', 'time', 'count'];
+$cfg_db['Console']['Order'] = ['asc', 'desc'];
 
 /**
  * Default values overrides

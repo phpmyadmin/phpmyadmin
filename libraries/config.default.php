@@ -3128,6 +3128,9 @@ $cfg['Console'] = [
     'DarkTheme' => false,
     'Mode' => 'info',
     'Height' => 92,
+    'GroupQueries' => false,
+    'OrderBy' => 'exec',
+    'Order' => 'asc',
 ];
 
 

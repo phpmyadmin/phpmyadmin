@@ -195,7 +195,7 @@ var PMA_console = {
             break;
             /* jshint -W086 */// no break needed in default section
         default:
-            configSet('Console/Mode', 'info');
+            PMA_console.setConfig('Mode', 'info');
         case 'info':
             /* jshint +W086 */
             PMA_console.info();
@@ -258,8 +258,8 @@ var PMA_console = {
      * @return void
      */
     collapse: function () {
-        configSet('Console/Mode', 'collapse');
-        var pmaConsoleHeight = Math.max(92, configGet('Console').Height);
+        PMA_console.setConfig('Mode', 'collapse');
+        var pmaConsoleHeight = Math.max(92, PMA_console.config.Height);
 
         PMA_console.$consoleToolbar.addClass('collapsed');
         PMA_console.$consoleAllContents.height(pmaConsoleHeight);
@@ -278,9 +278,9 @@ var PMA_console = {
      * @return void
      */
     show: function (inputFocus) {
-        configSet('Console/Mode', 'show');
+        PMA_console.setConfig('Mode', 'show');
 
-        var pmaConsoleHeight = Math.max(92, configGet('Console').Height);
+        var pmaConsoleHeight = Math.max(92, PMA_console.config.Height);
 
         PMA_console.$consoleContent.css({ display:'block' });
         if (PMA_console.$consoleToolbar.hasClass('collapsed')) {
@@ -314,7 +314,7 @@ var PMA_console = {
      * @return void
      */
     toggle: function () {
-        switch (configGet('Console', false).Mode) {
+        switch (PMA_console.config.Mode) {
         case 'collapse':
         case 'info':
             PMA_console.show(true);
@@ -385,22 +385,21 @@ var PMA_console = {
      * @return void
      */
     updateConfig: function () {
-        PMA_console.config.AlwaysExpand = $('#pma_console_options input[name=always_expand]').prop('checked');
-        PMA_console.config.StartHistory = $('#pma_console_options').find('input[name=start_history]').prop('checked');
-        PMA_console.config.CurrentQuery = $('#pma_console_options').find('input[name=current_query]').prop('checked');
-        PMA_console.config.EnterExecutes = $('#pma_console_options').find('input[name=enter_executes]').prop('checked');
-        PMA_console.config.DarkTheme = $('#pma_console_options').find('input[name=dark_theme]').prop('checked');
-        configSet('Console/AlwaysExpand', PMA_console.config.AlwaysExpand);
-        configSet('Console/StartHistory', PMA_console.config.StartHistory);
-        configSet('Console/CurrentQuery', PMA_console.config.CurrentQuery);
-        configSet('Console/EnterExecutes', PMA_console.config.EnterExecutes);
-        configSet('Console/DarkTheme', PMA_console.config.DarkTheme);
+        PMA_console.setConfig('AlwaysExpand', $('#pma_console_options input[name=always_expand]').prop('checked'));
+        PMA_console.setConfig('StartHistory', $('#pma_console_options').find('input[name=start_history]').prop('checked'));
+        PMA_console.setConfig('CurrentQuery', $('#pma_console_options').find('input[name=current_query]').prop('checked'));
+        PMA_console.setConfig('EnterExecutes', $('#pma_console_options').find('input[name=enter_executes]').prop('checked'));
+        PMA_console.setConfig('DarkTheme', $('#pma_console_options').find('input[name=dark_theme]').prop('checked'));
         /* Setting the dark theme of the console*/
         if (PMA_console.config.DarkTheme) {
             $('#pma_console').find('>.content').addClass('console_dark_theme');
         } else {
             $('#pma_console').find('>.content').removeClass('console_dark_theme');
         }
+    },
+    setConfig: function (key, value) {
+        PMA_console.config[key] = value;
+        configSet('Console/' + key, value);
     },
     isSelect: function (queryString) {
         var reg_exp = /^SELECT\s+/i;
@@ -423,7 +422,7 @@ var PMA_consoleResizer = {
      * @return void
      */
     _mousedown: function (event) {
-        if (configGet('Console').Mode !== 'show') {
+        if (PMA_console.config.Mode !== 'show') {
             return;
         }
         PMA_consoleResizer._posY = event.pageY;
@@ -466,8 +465,7 @@ var PMA_consoleResizer = {
      * @return void
      */
     _mouseup: function () {
-        configSet('Console/Height', PMA_consoleResizer._resultHeight);
-        configGet('Console', false);
+        PMA_console.setConfig('Height', PMA_consoleResizer._resultHeight);
         PMA_console.show();
         $(document).off('mousemove');
         $(document).off('mouseup');

@@ -61,6 +61,9 @@ class FeaturesForm extends BaseForm
                 'Console/EnterExecutes',
                 'Console/DarkTheme',
                 'Console/Height',
+                'Console/GroupQueries',
+                'Console/OrderBy',
+                'Console/Order',
             ),
         );
         // skip Developer form if no setting is available
