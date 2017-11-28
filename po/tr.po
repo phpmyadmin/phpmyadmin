@@ -4,10 +4,10 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.8.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2017-11-28 16:22+0100\n"
-"PO-Revision-Date: 2017-11-23 07:19+0000\n"
+"PO-Revision-Date: 2017-11-28 18:32+0000\n"
 "Last-Translator: Burak Yavuz <hitowerdigit@hotmail.com>\n"
-"Language-Team: Turkish <https://hosted.weblate.org/projects/phpmyadmin/"
-"master/tr/>\n"
+"Language-Team: Turkish "
+"<https://hosted.weblate.org/projects/phpmyadmin/master/tr/>\n"
 "Language: tr\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -4782,16 +4782,12 @@ msgid "Show databases navigation as tree"
 msgstr "Veritabanlarını gezinti ağacı olarak göster"
 
 #: libraries/classes/Config/Descriptions.php:772
-#, fuzzy
-#| msgid "Navigation panel"
 msgid "Navigation panel width"
-msgstr "Gezinti paneli"
+msgstr "Gezinti paneli genişliği"
 
 #: libraries/classes/Config/Descriptions.php:774
-#, fuzzy
-#| msgid "Show logo in navigation panel."
 msgid "Set to 0 to collapse navigation panel."
-msgstr "Gezinti panelinde logoyu gösterir."
+msgstr "Gezinti panelini daraltmak için 0'a ayarlayın."
 
 #: libraries/classes/Config/Descriptions.php:776
 msgid "Link with main panel by highlighting the current database or table."
@@ -6148,14 +6144,10 @@ msgid "Show current browsing query"
 msgstr "Şu an gözatılan sorguyu göster"
 
 #: libraries/classes/Config/Descriptions.php:1472
-#, fuzzy
-#| msgid ""
-#| "Execute queries on Enter and insert new line with Shift + Enter. To make "
-#| "this permanent, view settings."
 msgid "Execute queries on Enter and insert new line with Shift + Enter"
 msgstr ""
 "Enter tuşuna basıldığında sorguları çalıştır ve Shift + Enter tuşları ile "
-"yeni satır ekle. Bunu kalıcı yapmak için ayarlara bakın."
+"yeni satır ekle"
 
 #: libraries/classes/Config/Descriptions.php:1474
 #: templates/console/display.twig:168
@@ -6163,16 +6155,12 @@ msgid "Switch to dark theme"
 msgstr "Koyu temaya değiştir"
 
 #: libraries/classes/Config/Descriptions.php:1476
-#, fuzzy
-#| msgid "Console"
 msgid "Console height"
-msgstr "Konsol"
+msgstr "Konsol yüksekliği"
 
 #: libraries/classes/Config/Descriptions.php:1478
-#, fuzzy
-#| msgid "Console"
 msgid "Console mode"
-msgstr "Konsol"
+msgstr "Konsol kipi"
 
 #: libraries/classes/Config/Descriptions.php:1480
 #: templates/console/display.twig:64
@@ -6184,10 +6172,8 @@ msgid "Order"
 msgstr "Sıra"
 
 #: libraries/classes/Config/Descriptions.php:1484
-#, fuzzy
-#| msgid "Order by:"
 msgid "Order by"
-msgstr "Sıralama:"
+msgstr "Sıralama"
 
 #: libraries/classes/Config/FormDisplay.php:99
 #: libraries/classes/Config/Validator.php:524
@@ -15119,16 +15105,12 @@ msgid "File may be compressed (%s) or uncompressed."
 msgstr "Dosya sıkıştırılmış (%s) ya da sıkıştırılmamış olabilir."
 
 #: templates/display/import/compressions.twig:7
-#, fuzzy
-#| msgid ""
-#| "A compressed file's name must end in <b>.[format].[compression]</b>. "
-#| "Example: <b>.sql.zip</b>"
 msgid ""
 "A compressed file's name must end in <strong>.[format].[compression]</"
 "strong>. Example: <strong>.sql.zip</strong>"
 msgstr ""
-"Sıkıştırılmış dosyanın adı <b>.[biçim].[sıkıştırma]</b> şeklinde bitmelidir. "
-"Örneğin: <b>.sql.zip</b>"
+"Sıkıştırılmış dosyanın adı <strong>.[biçim].[sıkıştırma]</strong> şeklinde "
+"bitmelidir. Örneğin: <strong>.sql.zip</strong>"
 
 #: templates/table/chart/tbl_chart.twig:15
 msgctxt "Chart type"
@@ -15248,16 +15230,12 @@ msgid "Edit ENUM/SET values"
 msgstr "ENUM/SET değerlerini düzenle"
 
 #: templates/login/twofactor/invalid.twig:2
-#, fuzzy
-#| msgid ""
-#| "Two-factor authentication is not available, please install optional "
-#| "dependencies to enable authentication backends."
 msgid ""
 "The configured two factor authentication is not available, please install "
 "missing dependencies."
 msgstr ""
-"İki etkenli kimlik doğrulaması kullanılamaz, lütfen kimlik doğrulaması arka "
-"uçlarını etkinleştirmek için isteğe bağlı bağımlılıklar yükleyin."
+"Yapılandırılmış iki etkenli kimlik doğrulaması kullanılamaz, lütfen eksik "
+"bağımlılıkları yükleyin."
 
 #: templates/display/import/file_option.twig:2
 msgid "File to import:"
