@@ -6,10 +6,10 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.8.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2017-11-22 15:57-0500\n"
-"PO-Revision-Date: 2017-11-14 08:29+0000\n"
-"Last-Translator: Maurício Meneghini Fauth <mauriciofauth@gmail.com>\n"
-"Language-Team: English (United Kingdom) <https://hosted.weblate.org/projects/"
-"phpmyadmin/master/en_GB/>\n"
+"PO-Revision-Date: 2017-11-28 01:28+0000\n"
+"Last-Translator: Thomas Staus <thomasstaus@live-and-learn.eu>\n"
+"Language-Team: English (United Kingdom) "
+"<https://hosted.weblate.org/projects/phpmyadmin/master/en_GB/>\n"
 "Language: en_GB\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -19,7 +19,7 @@ msgstr ""
 
 #: ajax.php:17 ajax.php:34 export.php:203 libraries/classes/Export.php:1100
 msgid "Bad type!"
-msgstr "Bad type!"
+msgstr "Typ falsch!"
 
 #: changelog.php:39 license.php:34
 #, php-format
@@ -36,23 +36,23 @@ msgstr "The central list of columns for the current database is empty."
 
 #: db_central_columns.php:183
 msgid "Click to sort."
-msgstr "Click to sort."
+msgstr "Klicken um zu sortieren."
 
 #: db_central_columns.php:212
 #, php-format
 msgid "Showing rows %1$s - %2$s."
-msgstr "Showing rows %1$s - %2$s."
+msgstr "Anzeige der Reihen %1$s - %2$s."
 
 #: db_datadict.php:59 libraries/classes/Operations.php:47
 msgid "Database comment"
-msgstr "Database comment"
+msgstr "Datenbank Kommentar"
 
 #: db_datadict.php:106
 #: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php:596
 #: templates/columns_definitions/column_definitions_form.twig:72
 #: templates/table/structure/display_table_stats.twig:6
 msgid "Table comments:"
-msgstr "Table comments:"
+msgstr "Tabelle Kommentare:"
 
 #: db_datadict.php:115 libraries/classes/Index.php:723
 #: libraries/classes/InsertEdit.php:1653
@@ -80,7 +80,7 @@ msgstr "Table comments:"
 #: templates/table/index_form.twig:115
 #: templates/table/search/zoom_result_form.twig:34
 msgid "Column"
-msgstr "Column"
+msgstr "Spalte"
 
 #: db_datadict.php:116 libraries/classes/CentralColumns.php:774
 #: libraries/classes/CentralColumns.php:1531 libraries/classes/Index.php:720
@@ -106,7 +106,7 @@ msgstr "Column"
 #: templates/database/structure/table_header.twig:32
 #: templates/columns_definitions/table_fields_definitions.twig:12
 msgid "Type"
-msgstr "Type"
+msgstr "Typ"
 
 #: db_datadict.php:117 libraries/classes/CentralColumns.php:785
 #: libraries/classes/CentralColumns.php:1532 libraries/classes/Index.php:726
@@ -145,7 +145,7 @@ msgstr "Null"
 #: templates/columns_definitions/table_fields_definitions.twig:20
 #: templates/database/structure/body_for_table_summary.twig:54
 msgid "Default"
-msgstr "Default"
+msgstr "Standardwert"
 
 #: db_datadict.php:120 libraries/classes/Plugins/Export/ExportHtmlword.php:402
 #: libraries/classes/Plugins/Export/ExportLatex.php:531
@@ -2655,12 +2655,12 @@ msgstr "Strong"
 
 #: js/messages.php:746
 msgid "Timed out waiting for security key activation."
-msgstr ""
+msgstr "Abgelaufen beim abwarten auf die Aktivierung des Sicherheitsschlüssels."
 
 #: js/messages.php:747
 #, php-format
 msgid "Failed security key activation (%s)."
-msgstr ""
+msgstr "Aktivierung_des_Sicherheitsschlüssels_misslungen."
 
 #: js/messages.php:776
 msgctxt "Previous month"
@@ -9254,6 +9254,8 @@ msgstr "Cannot log in to the MySQL server"
 #: libraries/classes/Plugins/AuthenticationPlugin.php:331
 msgid "You have enabled two factor authentication, please confirm your login."
 msgstr ""
+"Sie haben die Authentifizierung in zwei Schritten freigegeben, bitte Ihre "
+"Anmeldung bestätigen."
 
 #: libraries/classes/Plugins/Export/ExportCsv.php:63
 #: libraries/classes/Plugins/Import/AbstractImportCsv.php:58
@@ -10204,41 +10206,40 @@ msgid "Formats text as XML with syntax highlighting."
 msgstr "Formats text as XML with syntax highlighting."
 
 #: libraries/classes/Plugins/TwoFactor/Application.php:129
-#, fuzzy
-#| msgid "Authentication Plugin"
 msgid "Authentication Application (2FA)"
-msgstr "Authentication Plugin"
+msgstr "Authentifizierungsanwendung (2FA)"
 
 #: libraries/classes/Plugins/TwoFactor/Application.php:139
 msgid ""
 "Provides authentication using HOTP and TOTP applications such as FreeOTP, "
 "Google Authenticator or Authy."
 msgstr ""
+"Liefert Authentifizierung unter Nutzung von HOTP und TOTP Anwendungen wie "
+"FreeOTP, Google Authenticator oder Authy."
 
 #: libraries/classes/Plugins/TwoFactor/Key.php:184
 msgid "Hardware Security Key (FIDO U2F)"
-msgstr ""
+msgstr "Hardware Sicherheitsschlüssel (FIDO U2F)"
 
 #: libraries/classes/Plugins/TwoFactor/Key.php:194
 msgid ""
 "Provides authentication using hardware security tokens supporting FIDO U2F."
 msgstr ""
+"Liefert Authentifizierung unter Benutzung von Hardware-Sicherheits-Tokens "
+"die den FIDO U2F unterstützen."
 
 #: libraries/classes/Plugins/TwoFactor/Simple.php:52
-#, fuzzy
-#| msgid "Signon authentication"
 msgid "Simple two-factor authentication"
-msgstr "Signon authentication"
+msgstr "Einfache Authentifizierung in zwei Schritten"
 
 #: libraries/classes/Plugins/TwoFactor/Simple.php:62
 msgid "For testing purposes only!"
-msgstr ""
+msgstr "Nur zu Test Zwecken!"
 
 #: libraries/classes/Plugins/TwoFactorPlugin.php:65
-#, fuzzy, php-format
-#| msgid "Hardware authentication failed!"
+#, php-format
 msgid "Two-factor authentication failed: %s"
-msgstr "Hardware authentication failed!"
+msgstr "Authentifizierung in zwei Schritten misslungen: %s"
 
 #: libraries/classes/Plugins/TwoFactorPlugin.php:69
 #, fuzzy
@@ -10248,11 +10249,11 @@ msgstr "Hardware authentication failed!"
 
 #: libraries/classes/Plugins/TwoFactorPlugin.php:122
 msgid "No Two-Factor"
-msgstr ""
+msgstr "Keine Authentifizierung in zwei Schritten"
 
 #: libraries/classes/Plugins/TwoFactorPlugin.php:132
 msgid "Login using password only."
-msgstr ""
+msgstr "Anmeldung nur mit einem Passwort."
 
 #: libraries/classes/PmdCommon.php:550
 msgid "Error: relationship already exists."
@@ -14574,6 +14575,8 @@ msgstr ""
 #: templates/prefs_second.twig:12
 msgid "Two-factor authentication is available and configured for this account."
 msgstr ""
+"Authentifizierung in zwei Schritten ist für diesen account verfügbar und "
+"konfiguriert."
 
 #: templates/prefs_second.twig:14
 msgid ""
