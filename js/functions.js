@@ -4992,3 +4992,90 @@ function PMA_getImage(image, alternate, attributes) {
 
     return retval;
 }
+
+/**
+ * Sets a configuration value.
+ *
+ * A configuration value may be set in both browser's local storage and
+ * remotely in server's configuration table.
+ *
+ * If the `only_local` argument is `true`, the value is store is stored only in
+ * browser's local storage and may be lost if the user resets his browser's
+ * settings.
+ *
+ * NOTE: Depending on server's configuration, the configuration table may be or
+ * not persistent.
+ *
+ * @param  {string}     key         Configuration key.
+ * @param  {object}     value       Configuration value.
+ * @param  {boolean}    only_local  Configuration type.
+ */
+function configSet(key, value, only_local=false)
+{
+    let serialized = JSON.stringify(value);
+    localStorage.setItem(key, serialized);
+    $.ajax({
+        url: "ajax.php",
+        type: "POST",
+        dataType: "json",
+        data: {
+            key: key,
+            type: "config-set",
+            value: serialized,
+        },
+        success: function (data) {
+            // Updating value in local storage.
+            if (! data.success) {
+                PMA_ajaxShowMessage(data.message);
+            }
+            // Eventually, call callback.
+        }
+    });
+}
+
+/**
+ * Gets a configuration value. A configuration value will be searched in
+ * browser's local storage first and if not found, a call to the server will be
+ * made.
+ *
+ * If value should not be cached and the up-to-date configuration value from
+ * right from the server is required, the third parameter should be `false`.
+ *
+ * @param  {string}     key         Configuration key.
+ * @param  {boolean}    only_local  Configuration type.
+ *
+ * @return {object}                 Configuration value.
+ */
+function configGet(key, cached=true)
+{
+    let value = localStorage.getItem(key);
+    if (cached && value !== undefined && value !== null) {
+        return JSON.parse(value);
+    }
+
+    // Result not found in local storage or ignored.
+    // Hitting the server.
+    $.ajax({
+        // TODO: This is ugly, but usually when a configuration is needed,
+        // processing cannot continue until that value is found.
+        // Another solution is to provide a callback as a parameter.
+        async: false,
+        url: "ajax.php",
+        type: "POST",
+        dataType: "json",
+        data: {
+            type: "config-get",
+            key: key
+        },
+        success: function (data) {
+            // Updating value in local storage.
+            if (data.success) {
+                localStorage.setItem(key, JSON.stringify(data.value));
+            } else {
+                PMA_ajaxShowMessage(data.message);
+            }
+            // Eventually, call callback.
+        }
+    });
+    return JSON.parse(localStorage.getItem(key));
+}
