@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.7.6-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2017-11-02 14:03+0100\n"
-"PO-Revision-Date: 2017-11-26 14:47+0000\n"
-"Last-Translator: Varanka Zoltán <zvaranka60@gmail.com>\n"
+"PO-Revision-Date: 2017-11-29 00:03+0000\n"
+"Last-Translator: Dr. Nagy Elemér Károly <eknagy@omikk.bme.hu>\n"
 "Language-Team: Hungarian "
 "<https://hosted.weblate.org/projects/phpmyadmin/4-7/hu/>\n"
 "Language: hu\n"
@@ -2200,6 +2200,8 @@ msgid ""
 "MySQL accepts additional values not selectable by the datepicker; key in "
 "those values directly if desired"
 msgstr ""
+"A MySQL elfogad olyan értékeket is, amelyek nem állíthatók be a "
+"dátumválasztóval - ezeket begépelheted"
 
 #: js/messages.php:548
 msgid ""
@@ -3147,18 +3149,14 @@ msgid "Swedish"
 msgstr "Svéd"
 
 #: libraries/Charsets.php:350 libraries/Charsets.php:484
-#, fuzzy
-#| msgid "Thai"
 msgctxt "Collation"
 msgid "Thai"
 msgstr "Thai"
 
 #: libraries/Charsets.php:353
-#, fuzzy
-#| msgid "unknown"
 msgctxt "Collation"
 msgid "Unknown"
-msgstr "ismeretlen"
+msgstr "Ismeretlen"
 
 #: libraries/Charsets.php:369
 #, fuzzy
@@ -3215,11 +3213,9 @@ msgid "Estonian"
 msgstr "Észt"
 
 #: libraries/Charsets.php:402 libraries/Charsets.php:519
-#, fuzzy
-#| msgid "Data dictionary"
 msgctxt "Collation"
 msgid "German (dictionary order)"
-msgstr "Adatszótár"
+msgstr "Német (szótár sorrend)"
 
 #: libraries/Charsets.php:405 libraries/Charsets.php:516
 msgctxt "Collation"
@@ -3309,11 +3305,9 @@ msgid "Slovenian"
 msgstr "Szlovén"
 
 #: libraries/Charsets.php:470 libraries/Charsets.php:530
-#, fuzzy
-#| msgid "Spanish"
 msgctxt "Collation"
 msgid "Spanish (modern)"
-msgstr "Spanyol"
+msgstr "Spanyol (modern)"
 
 #: libraries/Charsets.php:477 libraries/Charsets.php:527
 msgctxt "Collation"
@@ -3321,11 +3315,9 @@ msgid "Spanish (traditional)"
 msgstr "Spanyol (hagyományos)"
 
 #: libraries/Charsets.php:496
-#, fuzzy
-#| msgid "Vietnamese"
 msgctxt "Collation"
 msgid "Vietnamese"
-msgstr "Vietnami"
+msgstr "Vietnámi"
 
 #: libraries/Charsets.php:563
 #, fuzzy
@@ -3342,32 +3334,24 @@ msgid "case-sensitive"
 msgstr "a kis- és nagybetű különbözik"
 
 #: libraries/Charsets.php:569
-#, fuzzy
-#| msgid "case-insensitive"
 msgctxt "Collation variant"
 msgid "accent-insensitive"
-msgstr "a kis- és nagybetű nem különbözik"
+msgstr "ékezetek figyelmen kívül hagyva"
 
 #: libraries/Charsets.php:572
-#, fuzzy
-#| msgid "case-sensitive"
 msgctxt "Collation variant"
 msgid "accent-sensitive"
-msgstr "a kis- és nagybetű különbözik"
+msgstr "ékezetek figyelembe véve"
 
 #: libraries/Charsets.php:576
-#, fuzzy
-#| msgid "multilingual"
 msgctxt "Collation variant"
 msgid "multi-level"
-msgstr "többnyelvű"
+msgstr "több-szintű"
 
 #: libraries/Charsets.php:579
-#, fuzzy
-#| msgid "Binary"
 msgctxt "Collation variant"
 msgid "binary"
-msgstr "Bináris"
+msgstr "bináris"
 
 #: libraries/Config.php:1119
 #, php-format
@@ -5162,17 +5146,12 @@ msgstr ""
 "a beállítás nem kompatibilis a phpMyAdminnal, és az adatsérüléssel járhat!"
 
 #: libraries/common.inc.php:484
-#, fuzzy
-#| msgid ""
-#| "You have enabled mbstring.func_overload in your PHP configuration. This "
-#| "option is incompatible with phpMyAdmin and might cause some data to be "
-#| "corrupted!"
 msgid ""
 "You have disabled ini_get and/or ini_set in php.ini. This option is "
 "incompatible with phpMyAdmin!"
 msgstr ""
-"Ön engedélyezte az mbstring.func_overload funkciót a PHP konfigurációban. Ez "
-"a beállítás nem kompatibilis a phpMyAdminnal, és az adatsérüléssel járhat!"
+"Ön letiltotta az ini_get és/vagy az ini_set opciót a php.ini-be. Ez a "
+"beállítás nem kompatibilis a phpMyAdmin-nal!"
 
 #: libraries/common.inc.php:517
 #, php-format
@@ -8291,10 +8270,9 @@ msgid "The columns have been moved successfully."
 msgstr "Az oszlop mozgatása sikeresen megtörtént."
 
 #: libraries/controllers/table/TableStructureController.php:501
-#, fuzzy, php-format
-#| msgid "Failed to get real row count."
+#, php-format
 msgid "Failed to get description of column %s!"
-msgstr "A valódi sorok számának lekérése sikertelen."
+msgstr "At %s oszlop leírását nem tudtam lekérni!"
 
 #: libraries/controllers/table/TableStructureController.php:739
 #: libraries/controllers/table/TableStructureController.php:1026
@@ -8372,7 +8350,7 @@ msgstr "Nem sikerült betölteni a séma bővítményeket, ellenőrizze a telep�
 
 #: libraries/dbi/DBIMysqli.php:158
 msgid "SSL connection enforced by server, automatically enabling it."
-msgstr ""
+msgstr "A szerver kényszerít az SSL kapcsolódásra, automatikusan engedélyezem."
 
 #: libraries/display_change_password.lib.php:57
 #: libraries/replication_gui.lib.php:854
