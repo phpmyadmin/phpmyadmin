@@ -60,14 +60,13 @@ var PMA_console = {
             return;
         }
 
+        var config = configGet('Console', false);
+
         PMA_console.isEnabled = true;
 
         // Cookie var checks and init
         if (! Cookies.get('pma_console_height')) {
             Cookies.set('pma_console_height', 92);
-        }
-        if (! Cookies.get('pma_console_mode')) {
-            Cookies.set('pma_console_mode', 'info');
         }
 
         // Vars init
@@ -202,13 +201,13 @@ var PMA_console = {
         }
 
         // Change console mode from cookie
-        switch (Cookies.get('pma_console_mode')) {
+        switch (config.Mode) {
         case 'collapse':
             PMA_console.collapse();
             break;
             /* jshint -W086 */// no break needed in default section
         default:
-            Cookies.set('pma_console_mode', 'info');
+            configSet('Console/Mode', 'info');
         case 'info':
             /* jshint +W086 */
             PMA_console.info();
@@ -271,7 +270,7 @@ var PMA_console = {
      * @return void
      */
     collapse: function () {
-        Cookies.set('pma_console_mode', 'collapse');
+        configSet('Console/Mode', 'collapse');
         var pmaConsoleHeight = Cookies.get('pma_console_height');
 
         if (pmaConsoleHeight < 32) {
@@ -294,7 +293,7 @@ var PMA_console = {
      * @return void
      */
     show: function (inputFocus) {
-        Cookies.set('pma_console_mode', 'show');
+        configSet('Console/Mode', 'show');
 
         var pmaConsoleHeight = Cookies.get('pma_console_height');
 
@@ -335,7 +334,7 @@ var PMA_console = {
      * @return void
      */
     toggle: function () {
-        switch (Cookies.get('pma_console_mode')) {
+        switch (configGet('Console', false).Mode) {
         case 'collapse':
         case 'info':
             PMA_console.show(true);
@@ -442,7 +441,7 @@ var PMA_consoleResizer = {
      * @return void
      */
     _mousedown: function (event) {
-        if (Cookies.get('pma_console_mode') !== 'show') {
+        if (configGet('Console').Mode !== 'show') {
             return;
         }
         PMA_consoleResizer._posY = event.pageY;
