@@ -91,6 +91,9 @@ class TwoFactor
                 return $this->_available;
             case 'writable':
                 return $this->_writable;
+            case 'showSubmit':
+                $backend = $this->_backend;
+                return $backend::$showSubmit;
         }
     }
 
