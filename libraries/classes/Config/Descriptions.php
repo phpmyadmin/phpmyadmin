@@ -1472,6 +1472,12 @@ class Descriptions
                 return __('Console height');
             case 'Console_Mode_name':
                 return __('Console mode');
+            case 'Console_GroupQueries_name':
+                return __('Group queries');
+            case 'Console_Order_name':
+                return __('Order');
+            case 'Console_OrderBy_name':
+                return __('Order by');
         }
         return null;
     }
