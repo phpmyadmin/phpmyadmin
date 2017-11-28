@@ -168,7 +168,6 @@ class UserPreferences
         $whitelist = array_flip(UserFormList::getFields());
         // whitelist some additional fields which are custom handled
         $whitelist['ThemeDefault'] = true;
-        $whitelist['fontsize'] = true;
         $whitelist['lang'] = true;
         $whitelist['collation_connection'] = true;
         $whitelist['Server/hide_db'] = true;

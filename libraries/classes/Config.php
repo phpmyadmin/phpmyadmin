@@ -756,12 +756,6 @@ class Config
             $this->setSource($source);
         }
 
-        /**
-         * We check and set the font size at this point, to make the font size
-         * selector work also for users without a config.inc.php
-         */
-        $this->checkFontsize();
-
         if (! $this->checkConfigSource()) {
             // even if no config file, set collation_connection
             $this->checkCollationConnection();
@@ -934,11 +928,6 @@ class Config
             $_SESSION['cache'][$cache_key]['userprefs_mtime']
         );
 
-        // backup some settings
-        $org_fontsize = '';
-        if (isset($this->settings['fontsize'])) {
-            $org_fontsize = $this->settings['fontsize'];
-        }
         // load config array
         $this->settings = array_replace_recursive($this->settings, $config_data);
         $GLOBALS['cfg'] = array_replace_recursive($GLOBALS['cfg'], $config_data);
@@ -975,15 +964,6 @@ class Config
                 $tmanager->setActiveTheme($this->settings['ThemeDefault']);
                 $tmanager->setThemeCookie();
             }
-        }
-
-        // save font size
-        if ((! isset($config_data['fontsize'])
-            && $org_fontsize != '82%')
-            || isset($config_data['fontsize'])
-            && $org_fontsize != $config_data['fontsize']
-        ) {
-            $this->setUserValue(null, 'fontsize', $org_fontsize, '82%');
         }
 
         // save language
@@ -1234,18 +1214,14 @@ class Config
     /**
      * returns a unique value to force a CSS reload if either the config
      * or the theme changes
-     * must also check the pma_fontsize cookie in case there is no
-     * config file
      *
      * @return int Summary of unix timestamps and fontsize,
      * to be unique on theme parameters change
      */
     public function getThemeUniqueValue()
     {
-        if (null !== $this->get('fontsize')) {
-            $fontsize = intval($this->get('fontsize'));
-        } elseif (isset($_COOKIE['pma_fontsize'])) {
-            $fontsize = intval($_COOKIE['pma_fontsize']);
+        if (null !== $this->get('FontSize')) {
+            $fontsize = intval($this->get('FontSize'));
         } else {
             $fontsize = 0;
         }
@@ -1283,34 +1259,6 @@ class Config
             $collation = $this->get('DefaultConnectionCollation');
         }
         $this->set('collation_connection', $collation);
-    }
-
-    /**
-     * checks for font size configuration, and sets font size as requested by user
-     *
-     * @return void
-     */
-    public function checkFontsize()
-    {
-        $new_fontsize = '';
-
-        if (isset($_GET['set_fontsize'])) {
-            $new_fontsize = $_GET['set_fontsize'];
-        } elseif (isset($_POST['set_fontsize'])) {
-            $new_fontsize = $_POST['set_fontsize'];
-        } elseif (isset($_COOKIE['pma_fontsize'])) {
-            $new_fontsize = $_COOKIE['pma_fontsize'];
-        }
-
-        if (preg_match('/^[0-9.]+(px|em|pt|\%)$/', $new_fontsize)) {
-            $this->set('fontsize', $new_fontsize);
-        } elseif (! $this->get('fontsize')) {
-            // 80% would correspond to the default browser font size
-            // of 16, but use 82% to help read the monoface font
-            $this->set('fontsize', '82%');
-        }
-
-        $this->setCookie('pma_fontsize', $this->get('fontsize'), '82%');
     }
 
     /**
@@ -1548,14 +1496,10 @@ class Config
      */
     protected static function getFontsizeSelection()
     {
-        $current_size = $GLOBALS['PMA_Config']->get('fontsize');
+        $current_size = $GLOBALS['PMA_Config']->get('FontSize');
         // for the case when there is no config file (this is supported)
         if (empty($current_size)) {
-            if (isset($_COOKIE['pma_fontsize'])) {
-                $current_size = htmlspecialchars($_COOKIE['pma_fontsize']);
-            } else {
-                $current_size = '82%';
-            }
+            $current_size = '82%';
         }
         $options = Config::getFontsizeOptions($current_size);
 
@@ -1583,7 +1527,7 @@ class Config
     public static function getFontsizeForm()
     {
         return '<form name="form_fontsize_selection" id="form_fontsize_selection"'
-            . ' method="get" action="index.php" class="disableAjax">' . "\n"
+            . ' method="post" action="index.php" class="disableAjax">' . "\n"
             . Url::getHiddenInputs() . "\n"
             . Config::getFontsizeSelection() . "\n"
             . '</form>';

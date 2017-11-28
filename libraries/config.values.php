@@ -263,6 +263,7 @@ $cfg_db['_validators'] = array(
     'Servers/1/hide_db' => 'validateRegex',
     'TextareaCols' => 'validatePositiveNumber',
     'TextareaRows' => 'validatePositiveNumber',
+    'FontSize' => array(array('validateByRegex', '/^[0-9.]+(px|em|pt|\%)$/')),
     'TrustedProxies' => 'validateTrustedProxies');
 
 /**

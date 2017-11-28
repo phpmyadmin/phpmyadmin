@@ -66,6 +66,17 @@ if (isset($_REQUEST['ajax_request']) && ! empty($_REQUEST['access_time'])) {
     exit;
 }
 
+if (isset($_POST['set_fontsize']) && preg_match('/^[0-9.]+(px|em|pt|\%)$/', $_POST['set_fontsize'])) {
+    $GLOBALS['PMA_Config']->setUserValue(
+        null,
+        'FontSize',
+        $_POST['set_fontsize'],
+        '82%'
+    );
+    header('Location: index.php' . Url::getCommonRaw());
+    exit();
+}
+
 // See FAQ 1.34
 if (! empty($_REQUEST['db'])) {
     $page = null;

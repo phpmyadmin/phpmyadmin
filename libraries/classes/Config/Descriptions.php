@@ -1478,6 +1478,8 @@ class Descriptions
                 return __('Order');
             case 'Console_OrderBy_name':
                 return __('Order by');
+            case 'FontSize_name':
+                return __('Font size');
         }
         return null;
     }

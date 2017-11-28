@@ -98,9 +98,8 @@ class ConfigTest extends PmaTestCase
         );
 
         //test getFontsizeOptions for "em" unit
-        $fontsize = $GLOBALS['PMA_Config']->get('fontsize');
-        $GLOBALS['PMA_Config']->set('fontsize', '');
-        $_COOKIE['pma_fontsize'] = "10em";
+        $fontsize = $GLOBALS['PMA_Config']->get('FontSize');
+        $GLOBALS['PMA_Config']->set('FontSize', '10em');
         $this->assertContains(
             '<option value="7em"',
             Config::getFontsizeForm()
@@ -111,7 +110,7 @@ class ConfigTest extends PmaTestCase
         );
 
         //test getFontsizeOptions for "pt" unit
-        $_COOKIE['pma_fontsize'] = "10pt";
+        $GLOBALS['PMA_Config']->set('FontSize', '10pt');
         $this->assertContains(
             '<option value="2pt"',
             Config::getFontsizeForm()
@@ -122,7 +121,7 @@ class ConfigTest extends PmaTestCase
         );
 
         //test getFontsizeOptions for "px" unit
-        $_COOKIE['pma_fontsize'] = "10px";
+        $GLOBALS['PMA_Config']->set('FontSize', '10px');
         $this->assertContains(
             '<option value="5px"',
             Config::getFontsizeForm()
@@ -133,7 +132,7 @@ class ConfigTest extends PmaTestCase
         );
 
         //test getFontsizeOptions for unknown unit
-        $_COOKIE['pma_fontsize'] = "10abc";
+        $GLOBALS['PMA_Config']->set('FontSize', '10abc');
         $this->assertContains(
             '<option value="7abc"',
             Config::getFontsizeForm()
@@ -142,9 +141,8 @@ class ConfigTest extends PmaTestCase
             '<option value="8abc"',
             Config::getFontsizeForm()
         );
-        unset($_COOKIE['pma_fontsize']);
         //rollback the fontsize setting
-        $GLOBALS['PMA_Config']->set('fontsize', $fontsize);
+        $GLOBALS['PMA_Config']->set('FontSize', $fontsize);
     }
 
     /**
@@ -840,15 +838,15 @@ class ConfigTest extends PmaTestCase
             $GLOBALS['PMA_Theme']->filesize_info
         );
 
-        $this->object->set('fontsize', 10);
+        $this->object->set('FontSize', 10);
         $this->assertEquals(10 + $partial_sum, $this->object->getThemeUniqueValue());
-        $this->object->set('fontsize', null);
 
-        $_COOKIE['pma_fontsize'] = 20;
+        $this->object->set('FontSize', 20);
         $this->assertEquals(20 + $partial_sum, $this->object->getThemeUniqueValue());
-        unset($_COOKIE['pma_fontsize']);
+        $this->object->set('FontSize', null);
 
         $this->assertEquals($partial_sum, $this->object->getThemeUniqueValue());
+        $this->object->set('FontSize', '82%');
 
     }
 
