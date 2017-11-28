@@ -64,11 +64,6 @@ var PMA_console = {
 
         PMA_console.isEnabled = true;
 
-        // Cookie var checks and init
-        if (! Cookies.get('pma_console_height')) {
-            Cookies.set('pma_console_height', 92);
-        }
-
         // Vars init
         PMA_console.$consoleToolbar = $('#pma_console').find('>.toolbar');
         PMA_console.$consoleContent = $('#pma_console').find('>.content');
@@ -271,11 +266,8 @@ var PMA_console = {
      */
     collapse: function () {
         configSet('Console/Mode', 'collapse');
-        var pmaConsoleHeight = Cookies.get('pma_console_height');
+        var pmaConsoleHeight = Math.max(92, configGet('Console').Height);
 
-        if (pmaConsoleHeight < 32) {
-            Cookies.set('pma_console_height', 92);
-        }
         PMA_console.$consoleToolbar.addClass('collapsed');
         PMA_console.$consoleAllContents.height(pmaConsoleHeight);
         PMA_console.$consoleContent.stop();
@@ -295,13 +287,8 @@ var PMA_console = {
     show: function (inputFocus) {
         configSet('Console/Mode', 'show');
 
-        var pmaConsoleHeight = Cookies.get('pma_console_height');
+        var pmaConsoleHeight = Math.max(92, configGet('Console').Height);
 
-        if (pmaConsoleHeight < 32) {
-            Cookies.set('pma_console_height', 32);
-            PMA_console.collapse();
-            return;
-        }
         PMA_console.$consoleContent.css({ display:'block' });
         if (PMA_console.$consoleToolbar.hasClass('collapsed')) {
             PMA_console.$consoleToolbar.removeClass('collapsed');
@@ -484,7 +471,8 @@ var PMA_consoleResizer = {
      * @return void
      */
     _mouseup: function () {
-        Cookies.set('pma_console_height', PMA_consoleResizer._resultHeight);
+        configSet('Console/Height', PMA_consoleResizer._resultHeight);
+        configGet('Console', false);
         PMA_console.show();
         $(document).off('mousemove');
         $(document).off('mouseup');
