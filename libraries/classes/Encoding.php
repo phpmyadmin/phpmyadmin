@@ -77,7 +77,7 @@ class Encoding
      * @var array
      */
     private static $_engineorder = array(
-        'mb', 'iconv', 'recode',
+        'iconv', 'mb', 'recode',
     );
 
     /**
