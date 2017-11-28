@@ -1253,6 +1253,7 @@ var ResizeHandler = function () {
         if (width === 0 && panel_width === 0) {
             panel_width = 240;
         }
+        configSet('NavigationWidth', panel_width);
         event.data.resize_handler.setWidth(panel_width);
         event.data.resize_handler.panel_width = width;
     };

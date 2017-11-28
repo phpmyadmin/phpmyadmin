@@ -1048,7 +1048,7 @@ $cfg['NavigationTreeShowEvents'] = true;
 /**
  * Width of navigation panel
  *
- * @global boolean $cfg['NavigationWidth']
+ * @global integer $cfg['NavigationWidth']
  */
 $cfg['NavigationWidth'] = 240;
 

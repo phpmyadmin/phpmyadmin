@@ -770,6 +770,8 @@ class Descriptions
                 return __('Show databases navigation as tree');
             case 'NavigationWidth_name':
                 return __('Navigation panel width');
+            case 'NavigationWidth_desc':
+                return __('Set to 0 to collapse navigation panel.');
             case 'NavigationLinkWithMainPanel_desc':
                 return __('Link with main panel by highlighting the current database or table.');
             case 'NavigationLinkWithMainPanel_name':

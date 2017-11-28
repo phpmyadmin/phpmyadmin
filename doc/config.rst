@@ -2094,12 +2094,12 @@ Navigation panel setup
 
     Whether to show events under database in the navigation panel.
 
-.. config:option:: $cfg['NavigationWdith']
+.. config:option:: $cfg['NavigationWidth']
 
     :type: integer
     :default: 240
 
-    Navigation panel width.
+    Navigation panel width, set to 0 to collapse it by default.
 
 
 Main panel
