@@ -6,8 +6,8 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.7.6-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2017-11-02 14:03+0100\n"
-"PO-Revision-Date: 2017-11-14 08:25+0000\n"
-"Last-Translator: Maurício Meneghini Fauth <mauriciofauth@gmail.com>\n"
+"PO-Revision-Date: 2017-11-28 08:13+0000\n"
+"Last-Translator: Thomas Staus <thomasstaus@live-and-learn.eu>\n"
 "Language-Team: English (United Kingdom) "
 "<https://hosted.weblate.org/projects/phpmyadmin/4-7/en_GB/>\n"
 "Language: en_GB\n"
@@ -19,7 +19,7 @@ msgstr ""
 
 #: ajax.php:16 ajax.php:33 export.php:192 schema_export.php:64
 msgid "Bad type!"
-msgstr "Bad type!"
+msgstr "Typ falsch!"
 
 #: changelog.php:39 license.php:34
 #, php-format
@@ -36,22 +36,22 @@ msgstr "The central list of columns for the current database is empty."
 
 #: db_central_columns.php:133
 msgid "Click to sort."
-msgstr "Click to sort."
+msgstr "Klicken um zu sortieren."
 
 #: db_central_columns.php:150
 #, php-format
 msgid "Showing rows %1$s - %2$s."
-msgstr "Showing rows %1$s - %2$s."
+msgstr "Anzeige der Reihen %1$s - %2$s."
 
 #: db_datadict.php:59 libraries/operations.lib.php:36
 msgid "Database comment"
-msgstr "Database comment"
+msgstr "Datenbank Kommentar"
 
 #: db_datadict.php:106 libraries/plugins/schema/pdf/PdfRelationSchema.php:596
 #: templates/columns_definitions/column_definitions_form.phtml:89
 #: templates/table/structure/display_table_stats.phtml:5
 msgid "Table comments:"
-msgstr "Table comments:"
+msgstr "Tabelle Kommentare:"
 
 #: db_datadict.php:115 libraries/Index.php:686
 #: libraries/insert_edit.lib.php:1636
@@ -79,7 +79,7 @@ msgstr "Table comments:"
 #: templates/table/search/table_header.phtml:6
 #: templates/table/search/zoom_result_form.phtml:33
 msgid "Column"
-msgstr "Column"
+msgstr "Spalte"
 
 #: db_datadict.php:116 libraries/Index.php:683
 #: libraries/central_columns.lib.php:696 libraries/central_columns.lib.php:1385
@@ -105,7 +105,7 @@ msgstr "Column"
 #: templates/table/search/table_header.phtml:7
 #: templates/table/structure/table_structure_header.phtml:8
 msgid "Type"
-msgstr "Type"
+msgstr "Typ"
 
 #: db_datadict.php:117 libraries/Index.php:689
 #: libraries/central_columns.lib.php:707 libraries/central_columns.lib.php:1386
@@ -144,7 +144,7 @@ msgstr "Null"
 #: templates/database/structure/body_for_table_summary.phtml:55
 #: templates/table/structure/table_structure_header.phtml:12
 msgid "Default"
-msgstr "Default"
+msgstr "Standardwert"
 
 #: db_datadict.php:120 libraries/plugins/export/ExportHtmlword.php:399
 #: libraries/plugins/export/ExportLatex.php:528
