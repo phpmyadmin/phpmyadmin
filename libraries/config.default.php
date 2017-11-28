@@ -1045,6 +1045,13 @@ $cfg['NavigationTreeShowProcedures'] = true;
  */
 $cfg['NavigationTreeShowEvents'] = true;
 
+/**
+ * Width of navigation panel
+ *
+ * @global boolean $cfg['NavigationWidth']
+ */
+$cfg['NavigationWidth'] = 240;
+
 /*******************************************************************************
  * In the main panel, at startup...
  */

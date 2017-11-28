@@ -768,6 +768,8 @@ class Descriptions
                 return __('In the navigation panel, replaces the database tree with a selector');
             case 'ShowDatabasesNavigationAsTree_name':
                 return __('Show databases navigation as tree');
+            case 'NavigationWidth_name':
+                return __('Navigation panel width');
             case 'NavigationLinkWithMainPanel_desc':
                 return __('Link with main panel by highlighting the current database or table.');
             case 'NavigationLinkWithMainPanel_name':

@@ -24,7 +24,8 @@ class NaviForm extends BaseForm
                 'FirstLevelNavigationItems',
                 'NavigationTreeDisplayItemFilterMinimum',
                 'NumRecentTables',
-                'NumFavoriteTables'
+                'NumFavoriteTables',
+                'NavigationWidth',
             ),
             'Navi_tree' => array(
                 'MaxNavigationItems',

@@ -51,6 +51,7 @@ $cfg_db['NavigationTreeDefaultTabTable2'] = array(
 );
 $cfg_db['NavigationTreeDbSeparator'] = 'short_string';
 $cfg_db['NavigationTreeTableSeparator'] = 'short_string';
+$cfg_db['NavigationWidth'] = 'integer';
 $cfg_db['TableNavigationLinksMode'] = array(
     'icons' => __('Icons'),
     'text'  => __('Text'),
@@ -255,6 +256,7 @@ $cfg_db['_validators'] = array(
     'MaxTableList' => 'validatePositiveNumber',
     'MemoryLimit' => array(array('validateByRegex', '/^(-1|(\d+(?:[kmg])?))$/i')),
     'NavigationTreeTableLevel' => 'validatePositiveNumber',
+    'NavigationWidth' => 'validatePositiveNumber',
     'QueryHistoryMax' => 'validatePositiveNumber',
     'RepeatCells' => 'validateNonNegativeNumber',
     'Server' => 'validateServer',
