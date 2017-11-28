@@ -1117,9 +1117,6 @@ var ResizeHandler = function () {
         var resizer_width = $resizer.width();
         var $collapser = $('#pma_navigation_collapser');
         var windowWidth = $(window).width();
-        if (pos > 240 && windowWidth > 768) {
-            pos = 241;
-        }
         $('#pma_navigation').width(pos);
         $('body').css('margin-' + this.left, pos + 'px');
         $('#floating_menubar, #pma_console')
