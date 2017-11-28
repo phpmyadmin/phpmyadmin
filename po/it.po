@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.8.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2017-11-22 15:57-0500\n"
-"PO-Revision-Date: 2017-11-24 08:34+0000\n"
+"PO-Revision-Date: 2017-11-28 08:13+0000\n"
 "Last-Translator: Matteo Regazzi <mregazzi@tiscali.it>\n"
 "Language-Team: Italian "
 "<https://hosted.weblate.org/projects/phpmyadmin/master/it/>\n"
@@ -15144,12 +15144,6 @@ msgstr "Opzioni di trasformazione della visualizzazione del browser"
 
 #: templates/columns_definitions/table_fields_definitions.twig:83
 #: templates/columns_definitions/table_fields_definitions.twig:94
-#, fuzzy
-#| msgid ""
-#| "Please enter the values for transformation options using this format: "
-#| "'a', 100, b,'c'…<br />If you ever need to put a backslash (\"\") or a "
-#| "single quote (\"'\") amongst those values, precede it with a backslash "
-#| "(for example '\\\\xyz' or 'a\\'b')."
 msgid ""
 "Please enter the values for transformation options using this format: 'a', "
 "100, b,'c'…<br />If you ever need to put a backslash (\"\\\") or a single "
@@ -15158,8 +15152,8 @@ msgid ""
 msgstr ""
 "Prego, immettere i valori per le opzioni di trasformazione utilizzando "
 "questo formato: 'a', 100, b,'c'…<br /> Se c'è la necessità di immettere un "
-"backslash (\"\") o un apostrofo (\"'\") tra questi valori, devono essere "
-"preceduti da un backslash (ad esempio '\\\\xyz' or 'a\\'b')."
+"backslash (\"\\\") o un apostrofo (\"'\") tra questi valori, devono essere "
+"preceduti da un backslash (ad esempio '\\\\xyz' o 'a\\'b')."
 
 #: templates/columns_definitions/table_fields_definitions.twig:93
 msgid "Input transformation options"
