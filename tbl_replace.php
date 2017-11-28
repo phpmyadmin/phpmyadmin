@@ -454,6 +454,9 @@ if (! empty($return_to_sql_query)) {
     $GLOBALS['sql_query'] = $return_to_sql_query;
 }
 
+$scripts->addFile('vendor/jquery/jquery-ui-timepicker-addon.js');
+$scripts->addFile('vendor/jquery/jquery.validate.js');
+$scripts->addFile('vendor/jquery/additional-methods.js');
 $scripts->addFile('tbl_change.js');
 
 $active_page = $goto_include;

@@ -1871,6 +1871,9 @@ class InsertEdit
             $response = Response::getInstance();
             $header = $response->getHeader();
             $scripts = $header->getScripts();
+            $scripts->addFile('vendor/jquery/jquery-ui-timepicker-addon.js');
+            $scripts->addFile('vendor/jquery/jquery.validate.js');
+            $scripts->addFile('vendor/jquery/additional-methods.js');
             $scripts->addFile('tbl_change.js');
             if (!defined('TESTSUITE')) {
                 include 'tbl_change.php';

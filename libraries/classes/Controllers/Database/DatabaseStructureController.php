@@ -119,6 +119,7 @@ class DatabaseStructureController extends DatabaseController
             array(
                 'db_structure.js',
                 'tbl_change.js',
+                'vendor/jquery/jquery.validate.js',
                 'vendor/jquery/jquery-ui-timepicker-addon.js'
             )
         );
