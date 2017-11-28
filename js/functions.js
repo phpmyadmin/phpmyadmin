@@ -294,6 +294,15 @@ function PMA_getSQLEditor($textarea, options, resize, lintOptions) {
         // enable autocomplete
         codemirrorEditor.on("inputRead", codemirrorAutocompleteOnInputRead);
 
+        // page locking
+        codemirrorEditor.on('change', function (e) {
+            e.data = {
+                value: 3,
+                content: codemirrorEditor.isClean(),
+            };
+            AJAX.lockPageHandler(e);
+        });
+
         return codemirrorEditor;
     }
     return null;
