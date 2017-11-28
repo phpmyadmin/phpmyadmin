@@ -7,6 +7,10 @@
  * @package PhpMyAdmin
  */
 
+if (! isset($_GET['scripts'])) {
+    die('Missing parameter');
+}
+
 if (!defined('TESTSUITE')) {
     chdir('..');
 
