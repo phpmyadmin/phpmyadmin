@@ -61,23 +61,9 @@ class Scripts
                         . "'></script>";
                 }
             } else {
-                $scripts[] = "scripts%5B%5D=" . $value['filename'];
+                $result[] = '<script data-cfasync="false" type="text/javascript" src="js/'
+                    .  $value['filename'] . '?' . Header::getVersionParameter() . '"></script>';
             }
-        }
-        $separator = Url::getArgSeparator();
-        // Using chunks of 10 files to avoid too long URLs
-        // as some servers are set to 512 bytes URL limit
-        $script_chunks = array_chunk($scripts, 10);
-        foreach ($script_chunks as $script_chunk) {
-            $url = 'js/get_scripts.js.php?'
-                . implode($separator, $script_chunk)
-                . $separator . Header::getVersionParameter();
-
-            $result[] = sprintf(
-                '<script data-cfasync="false" type="text/javascript" src="%s">' .
-                '</script>',
-                htmlspecialchars($url)
-            );
         }
         return implode("\n", $first) . implode("\n", $result);
     }
