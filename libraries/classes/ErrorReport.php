@@ -189,89 +189,6 @@ class ErrorReport
     }
 
     /**
-     * Returns number of lines in given javascript file.
-     *
-     * @param string $filename javascript filename
-     *
-     * @return Number of lines
-     *
-     * @todo Should gracefully handle non existing files
-     */
-    public static function countLines($filename)
-    {
-        /**
-         * The generated file that contains the line numbers for the js files
-         * If you change any of the js files you can run the scripts/line-counts.sh
-         */
-        if (is_readable('js/line_counts.php')) {
-            include_once 'js/line_counts.php';
-        }
-
-        global $LINE_COUNT;
-        if (defined('LINE_COUNTS')) {
-            return $LINE_COUNT[$filename];
-        }
-
-        // ensure that the file is inside the phpMyAdmin folder
-        $depath = 1;
-        foreach (explode('/', $filename) as $part) {
-            if ($part == '..') {
-                $depath--;
-            } elseif ($part != '.' || $part === '') {
-                $depath++;
-            }
-            if ($depath < 0) {
-                return 0;
-            }
-        }
-
-        $linecount = 0;
-        $handle = fopen('./js/' . $filename, 'r');
-        while (!feof($handle)) {
-            $line = fgets($handle);
-            if ($line === false) {
-                break;
-            }
-            $linecount++;
-        }
-        fclose($handle);
-        return $linecount;
-    }
-
-    /**
-     * returns the translated line number and the file name from the cumulative line
-     * number and an array of files
-     *
-     * uses the $LINE_COUNT global array of file names and line numbers
-     *
-     * @param array   $filenames         list of files in order of concatenation
-     * @param Integer $cumulative_number the cumulative line number in the
-     *                                   concatenated files
-     *
-     * @return array the filename and line number
-     * Returns two variables in an array:
-     * - A String $filename the filename where the requested cumulative number
-     *   exists
-     * - Integer $linenumber the translated line number in the returned file
-     */
-    public static function getLineNumber(array $filenames, $cumulative_number)
-    {
-        $cumulative_sum = 0;
-        foreach ($filenames as $filename) {
-            $filecount = self::countLines($filename);
-            if ($cumulative_number <= $cumulative_sum + $filecount + 2) {
-                $linenumber = $cumulative_number - $cumulative_sum;
-                break;
-            }
-            $cumulative_sum += $filecount + 2;
-        }
-        if (! isset($filename)) {
-            $filename = '';
-        }
-        return array($filename, $linenumber);
-    }
-
-    /**
      * translates the cumulative line numbers in the stack trace as well as sanitize
      * urls and trim long lines in the context
      *
@@ -287,19 +204,10 @@ class ErrorReport
                     $line = mb_substr($line, 0, 75) . "//...";
                 }
             }
-            if (preg_match("<js/get_scripts.js.php\?(.*)>", $level["url"], $matches)) {
-                parse_str($matches[1], $vars);
-                List($file_name, $line_number) = self::getLineNumber(
-                    $vars["scripts"], $level["line"]
-                );
-                $level["filename"] = $file_name;
-                $level["line"] = $line_number;
-            } else {
-                unset($level["context"]);
-                List($uri, $script_name) = self::sanitizeUrl($level["url"]);
-                $level["uri"] = $uri;
-                $level["scriptname"] = $script_name;
-            }
+            unset($level["context"]);
+            List($uri, $script_name) = self::sanitizeUrl($level["url"]);
+            $level["uri"] = $uri;
+            $level["scriptname"] = $script_name;
             unset($level["url"]);
         }
         unset($level);
