@@ -142,26 +142,35 @@ var AJAX = {
      * @return void
      */
     lockPageHandler: function (event) {
-        // Don't lock on enter.
-        if (0 === event.charCode) {
-            return;
-        }
-
-        var lockId = $(this).data('lock-id');
-        if (typeof lockId === 'undefined') {
-            return;
-        }
-        /*
-         * @todo Fix Code mirror does not give correct full value (query)
-         * in textarea, it returns only the change in content.
-         */
         var newHash = null;
-        if (event.data.value === 1) {
-            newHash = AJAX.hash($(this).val());
+        var oldHash = null;
+        var lockId;
+        // CodeMirror lock
+        if (event.data.value === 3) {
+            newHash = event.data.content;
+            oldHash = true;
+            lockId = 'cm';
         } else {
-            newHash = AJAX.hash($(this).is(':checked'));
+            // Don't lock on enter.
+            if (0 === event.charCode) {
+                return;
+            }
+
+            lockId = $(this).data('lock-id');
+            if (typeof lockId === 'undefined') {
+                return;
+            }
+            /*
+             * @todo Fix Code mirror does not give correct full value (query)
+             * in textarea, it returns only the change in content.
+             */
+            if (event.data.value === 1) {
+                newHash = AJAX.hash($(this).val());
+            } else {
+                newHash = AJAX.hash($(this).is(':checked'));
+            }
+            oldHash = $(this).data('val-hash');
         }
-        var oldHash = $(this).data('val-hash');
         // Set lock if old value !== new value
         // otherwise release lock
         if (oldHash !== newHash) {
