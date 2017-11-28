@@ -34,11 +34,31 @@
             ) }}
         {% endif %}
     </div>
-    {% include 'display/import/charset.twig' with {
-        'is_encoding_supported': is_encoding_supported,
-        'encodings': encodings,
-        'import_charset': import_charset,
-        'dbi': dbi,
-        'disable_is': disable_is
-    } only %}
+
+    <div class="formelementrow" id="charaset_of_file">
+        {# Charset of file #}
+        <label for="charset_of_file">{% trans 'Character set of the file:' %}</label>
+        {% if is_encoding_supported %}
+            <select id="charset_of_file" name="charset_of_file" size="1">
+                {% for charset in encodings %}
+                    <option value="{{ charset }}"
+                        {% if (import_charset is empty and charset == 'utf-8')
+                            or charset == import_charset %}
+                            selected="selected"
+                        {% endif %}>
+                        {{ charset }}
+                    </option>
+                {% endfor %}
+            </select>
+        {% else %}
+            {{ Charsets_getCharsetDropdownBox(
+                dbi,
+                disable_is,
+                'charset_of_file',
+                'charset_of_file',
+                'utf8',
+                false
+            ) }}
+        {% endif %}
+    </div>
 </div>
