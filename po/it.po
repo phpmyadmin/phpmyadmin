@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.8.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2017-11-22 15:57-0500\n"
-"PO-Revision-Date: 2017-11-28 08:13+0000\n"
+"PO-Revision-Date: 2017-11-28 08:41+0000\n"
 "Last-Translator: Matteo Regazzi <mregazzi@tiscali.it>\n"
 "Language-Team: Italian "
 "<https://hosted.weblate.org/projects/phpmyadmin/master/it/>\n"
@@ -15802,10 +15802,8 @@ msgid "Enter criteria as free text"
 msgstr "Inserire i criteri come testo libero"
 
 #: templates/database/multi_table_query/form.twig:133
-#, fuzzy
-#| msgid "Remove redundant columns"
 msgid "Remove this column"
-msgstr "Rimuovi i campi ridondanti"
+msgstr "Rimuovi questo campo"
 
 #: templates/database/multi_table_query/form.twig:160
 #, fuzzy
