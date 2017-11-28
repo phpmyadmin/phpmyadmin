@@ -6,7 +6,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.8.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2017-11-22 15:57-0500\n"
-"PO-Revision-Date: 2017-11-28 02:25+0000\n"
+"PO-Revision-Date: 2017-11-28 01:28+0000\n"
 "Last-Translator: Thomas Staus <thomasstaus@live-and-learn.eu>\n"
 "Language-Team: English (United Kingdom) "
 "<https://hosted.weblate.org/projects/phpmyadmin/master/en_GB/>\n"
@@ -14582,8 +14582,6 @@ msgstr ""
 msgid ""
 "Two-factor authentication is available, but not configured for this account."
 msgstr ""
-"Authentifizierung in zwei Schritten ist für diesen account verfügbar, aber "
-"nicht konfiguriert."
 
 #: templates/prefs_second.twig:18
 #, fuzzy
@@ -14595,7 +14593,7 @@ msgstr "%sCreate%s missing phpMyAdmin configuration storage tables."
 
 #: templates/prefs_second.twig:27
 msgid "You have enabled two factor authentication."
-msgstr "Sie haben die Authentifizierung für diesen account aktiviert."
+msgstr ""
 
 #: templates/prefs_second.twig:31 templates/prefs_second_confirm.twig:9
 #, fuzzy
@@ -14617,7 +14615,7 @@ msgstr "New"
 
 #: templates/login/twofactor.twig:4
 msgid "Verify"
-msgstr "Bestätigen"
+msgstr ""
 
 #: templates/database/designer/having_query_panel.twig:30
 #: templates/database/designer/having_query_panel.twig:61
@@ -15279,8 +15277,6 @@ msgid ""
 "Please scan following QR code into the two-factor authentication app on your "
 "device and enter authentication code it generates."
 msgstr ""
-"Bitte den folgenden QR Code in die Zwei-Schritte-Authentifizierung App auf "
-"Ihrem Gerät einscannen und den erzeugten Authentifizierungscode eingeben."
 
 #: templates/login/twofactor/application_configure.twig:9
 #: templates/login/twofactor/application.twig:2
