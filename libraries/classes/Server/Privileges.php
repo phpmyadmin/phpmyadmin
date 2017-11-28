@@ -1914,6 +1914,16 @@ class Privileges
 
                 $local_query = $query_prefix
                     . $GLOBALS['dbi']->escapeString($_POST['pma_pw']) . "'";
+            } else if ($serverType == 'MariaDB' && $serverVersion >= 10000) {
+                // MariaDB uses "SET PASSWORD" syntax to change user password.
+                // On Galera cluster only DDL queries are replicated, since
+                // users are stored in MyISAM storage engine.
+                $query_prefix = "SET PASSWORD FOR  '"
+                    . $GLOBALS['dbi']->escapeString($username)
+                    . "'@'" . $GLOBALS['dbi']->escapeString($hostname) . "'"
+                    . " = PASSWORD ('";
+                $sql_query = $local_query = $query_prefix
+                    . $GLOBALS['dbi']->escapeString($_POST['pma_pw']) . "')";
             } else if ($serverType == 'MariaDB'
                 && $serverVersion >= 50200
                 && $GLOBALS['dbi']->isSuperuser()
