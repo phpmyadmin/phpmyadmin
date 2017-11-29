@@ -63,6 +63,8 @@
             'can_convert_kanji': can_convert_kanji
         } only %}
 
-        {% include 'display/import/submit_option.twig' only %}
+        <div class="importoptions" id="submit">
+            <input type="submit" value="{% trans 'Go' %}" id="buttonGo" />
+        </div>
     </form>
 </div>
