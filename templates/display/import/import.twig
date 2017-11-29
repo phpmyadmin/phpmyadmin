@@ -22,13 +22,16 @@
         {%- if handler != 'PhpMyAdmin\\Plugins\\Import\\Upload\\UploadNoplugin' %}
             target="import_upload_iframe"
         {%- endif %}>
-        <input type="hidden" name="{{ id_key }}" value="{{ upload_id }}" />
 
-        {% include 'display/import/hidden_inputs.twig' with {
-            'import_type': import_type,
-            'db': db,
-            'table': table
-        } only %}
+        <input type="hidden" name="{{ id_key }}" value="{{ upload_id }}" />
+        {% if import_type == 'server' %}
+            {{ Url_getHiddenInputs('', '', 1) }}
+        {% elseif import_type == 'database' %}
+            {{ Url_getHiddenInputs(db, '', 1) }}
+        {% else %}
+            {{ Url_getHiddenInputs(db, table, 1) }}
+        {% endif %}
+        <input type="hidden" name="import_type" value="{{ import_type }}" />
 
         <div class="exportoptions" id="header">
             <h2>
