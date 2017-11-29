@@ -371,11 +371,10 @@ class AuthenticationCookieTest extends PmaTestCase
         $GLOBALS['cfg']['Servers'] = array(1, 2, 3);
         $GLOBALS['cfg']['Server']['LogoutURL'] = 'https://example.com/logout';
         $GLOBALS['cfg']['Server']['auth_type'] = 'cookie';
-        $GLOBALS['collation_connection'] = 'utf-8';
 
         $_COOKIE['pmaAuth-2'] = '';
 
-        $this->mockResponse('Location: /phpmyadmin/index.php?server=2&lang=en&collation_connection=utf-8');
+        $this->mockResponse('Location: /phpmyadmin/index.php?server=2&lang=en');
 
         $this->object->logOut();
     }
@@ -727,10 +726,9 @@ class AuthenticationCookieTest extends PmaTestCase
         $GLOBALS['server'] = 2;
         $GLOBALS['cfg']['LoginCookieStore'] = true;
         $GLOBALS['from_cookie'] = false;
-        $GLOBALS['collation_connection'] = 'utf-8';
 
         $this->mockResponse(
-            $this->stringContains('&server=2&lang=en&collation_connection=utf-8')
+            $this->stringContains('&server=2&lang=en')
         );
 
         $this->object->storeCredentials();

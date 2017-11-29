@@ -35,7 +35,6 @@ class SearchTest extends PmaTestCase
         $this->object = new Search('pma_test');
         $GLOBALS['server'] = 0;
         $GLOBALS['db'] = 'pma';
-        $GLOBALS['collation_connection'] = 'utf-8';
 
         //mock DBI
         $dbi = $this->getMockBuilder('PhpMyAdmin\DatabaseInterface')
@@ -216,14 +215,13 @@ class SearchTest extends PmaTestCase
                 . '</td><td><a name="browse_search"  class="ajax browse_results" '
                 . 'href="sql.php?db=pma&amp;table'
                 . '=table1&amp;goto=db_sql.php&amp;pos=0&amp;is_js_confirmed=0&amp;'
-                . 'server=0&amp;lang=en&amp;'
-                . 'collation_connection=utf-8" '
+                . 'server=0&amp;lang=en" '
                 . 'data-browse-sql="column1" data-table-name="table1" '
                 . '>Browse</a></td><td>'
                 . '<a name="delete_search" class="ajax delete_results" href'
                 . '="sql.php?db=pma&amp;table=table1&amp;goto=db_sql.php&amp;pos=0'
                 . '&amp;is_js_confirmed=0&amp;server=0&amp;'
-                . 'lang=en&amp;collation_connection=utf-8" '
+                . 'lang=en" '
                 . 'data-delete-sql="column2" '
                 . 'data-table-name="table1" '
                 . '>Delete</a></td></tr>'

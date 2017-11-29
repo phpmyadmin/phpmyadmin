@@ -757,8 +757,6 @@ class Config
         }
 
         if (! $this->checkConfigSource()) {
-            // even if no config file, set collation_connection
-            $this->checkCollationConnection();
             return false;
         }
 
@@ -834,51 +832,21 @@ class Config
 
         $this->checkServers();
 
-        // Handling of the collation must be done after merging of $cfg
-        // (from config.inc.php) so that $cfg['DefaultConnectionCollation']
-        // can have an effect.
-        $this->checkCollationConnection();
-
         return true;
     }
 
     /**
-     * Saves the connection collation
-     *
-     * @param array $config_data configuration data from user preferences
+     * Sets the connection collation
      *
      * @return void
      */
-    private function _saveConnectionCollation(array $config_data)
+    private function _setConnectionCollation()
     {
-        // just to shorten the lines
-        $collation = 'collation_connection';
-        if (isset($GLOBALS[$collation])
-            && (isset($_COOKIE['pma_collation_connection'])
-            || isset($_POST[$collation]))
+        $collation_connection = $this->get('DefaultConnectionCollation');
+        if (! empty($collation_connection)
+            && $collation_connection != $GLOBALS['collation_connection']
         ) {
-            if ((! isset($config_data[$collation])
-                && $GLOBALS[$collation] != 'utf8_general_ci')
-                || isset($config_data[$collation])
-                && $GLOBALS[$collation] != $config_data[$collation]
-            ) {
-                $this->setUserValue(
-                    null,
-                    $collation,
-                    $GLOBALS[$collation],
-                    'utf8_general_ci'
-                );
-            }
-        } else {
-            // read collation from settings
-            if (isset($config_data[$collation])) {
-                $GLOBALS[$collation]
-                    = $config_data[$collation];
-                $this->setCookie(
-                    'pma_collation_connection',
-                    $GLOBALS[$collation]
-                );
-            }
+            $GLOBALS['dbi']->setCollation($collation_connection);
         }
     }
 
@@ -988,8 +956,8 @@ class Config
             }
         }
 
-        // save connection collation
-        $this->_saveConnectionCollation($config_data);
+        // set connection collation
+        $this->_setConnectionCollation();
     }
 
     /**
@@ -1235,33 +1203,6 @@ class Config
     }
 
     /**
-     * Sets collation_connection based on user preference. First is checked
-     * value from request, then cookies with fallback to default.
-     *
-     * After setting it here, cookie is set in common.inc.php to persist
-     * the selection.
-     *
-     * @todo check validity of collation string
-     *
-     * @return void
-     */
-    public function checkCollationConnection()
-    {
-        if (! empty($_REQUEST['collation_connection'])) {
-            $collation = htmlspecialchars(
-                strip_tags($_REQUEST['collation_connection'])
-            );
-        } elseif (! empty($_COOKIE['pma_collation_connection'])) {
-            $collation = htmlspecialchars(
-                strip_tags($_COOKIE['pma_collation_connection'])
-            );
-        } else {
-            $collation = $this->get('DefaultConnectionCollation');
-        }
-        $this->set('collation_connection', $collation);
-    }
-
-    /**
      * checks if upload is enabled
      *
      * @return void
@@ -1403,7 +1344,6 @@ class Config
         $GLOBALS['cfg']             = $this->settings;
         $GLOBALS['default_server']  = $this->default_server;
         unset($this->default_server);
-        $GLOBALS['collation_connection'] = $this->get('collation_connection');
         $GLOBALS['is_upload']       = $this->get('enable_upload');
         $GLOBALS['max_upload_size'] = $this->get('max_upload_size');
         $GLOBALS['is_https']        = $this->get('is_https');

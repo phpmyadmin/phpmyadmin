@@ -160,11 +160,6 @@ if (isset($_POST['submit_export'])
         ) {
             $params['lang'] = $config['lang'];
         }
-        if (isset($config['collation_connection'])
-            && $config['collation_connection'] != $GLOBALS['collation_connection']
-        ) {
-            $params['collation_connection'] = $config['collation_connection'];
-        }
 
         // save settings
         $result = UserPreferences::save($cf->getConfigArray());

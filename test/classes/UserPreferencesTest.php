@@ -30,7 +30,6 @@ class UserPreferencesTest extends PmaTestCase
         include 'libraries/config.default.php';
         $GLOBALS['server'] = 0;
         $GLOBALS['PMA_PHP_SELF'] = '/phpmyadmin/';
-        $GLOBALS['collation_connection'] = 'utf8_general_ci';
     }
 
     /**
@@ -355,7 +354,7 @@ class UserPreferencesTest extends PmaTestCase
     {
         $GLOBALS['lang'] = '';
 
-        $this->mockResponse('Location: /phpmyadmin/file.html?a=b&saved=1&server=0&collation_connection=utf8_general_ci#h+ash');
+        $this->mockResponse('Location: /phpmyadmin/file.html?a=b&saved=1&server=0#h+ash');
 
         $GLOBALS['PMA_Config']->set('PmaAbsoluteUri', '');
         $GLOBALS['PMA_Config']->set('PMA_IS_IIS', false);

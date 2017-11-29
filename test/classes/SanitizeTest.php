@@ -50,7 +50,6 @@ class SanitizeTest extends TestCase
 
         unset($GLOBALS['server']);
         unset($GLOBALS['lang']);
-        unset($GLOBALS['collation_connection']);
         $this->assertEquals(
             '<a href="./url.php?url=https%3A%2F%2Fwww.phpmyadmin.net%2F" target="target">link</a>',
             Sanitize::sanitize('[a@https://www.phpmyadmin.net/@target]link[/a]')
