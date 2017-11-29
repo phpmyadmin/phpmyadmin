@@ -51,10 +51,42 @@
             'disable_is': disable_is
         } only %}
 
-        {% include 'display/import/partial_import_option.twig' with {
-            'timeout_passed': timeout_passed,
-            'offset': offset
-        } only %}
+        <div class="importoptions">
+            <h3>{% trans 'Partial import:' %}</h3>
+
+            {% if timeout_passed is defined and timeout_passed %}
+                <div class="formelementrow">
+                    <input type="hidden" name="skip" value="{{ offset }}" />
+                    {{ 'Previous import timed out, after resubmitting will continue from position %d.'|trans|format(offset) }}
+                </div>
+            {% endif %}
+
+            <div class="formelementrow">
+                <input type="checkbox" name="allow_interrupt" value="yes" id="checkbox_allow_interrupt"
+                    {{ Plugins_checkboxCheck('Import', 'allow_interrupt') }} />
+                <label for="checkbox_allow_interrupt">
+                    {% trans 'Allow the interruption of an import in case the script detects it is close to the PHP timeout limit. <em>(This might be a good way to import large files, however it can break transactions.)</em>' %}
+                </label>
+            </div>
+
+            {% if not (timeout_passed is defined and timeout_passed) %}
+                <div class="formelementrow">
+                    <label for="text_skip_queries">
+                        {% trans 'Skip this number of queries (for SQL) starting from the first one:' %}
+                    </label>
+                    <input type="number" name="skip_queries" value="
+                        {{- Plugins_getDefault('Import', 'skip_queries') -}}
+                        " id="text_skip_queries" min="0" />
+                </div>
+            {% else %}
+                {# If timeout has passed,
+                   do not show the Skip dialog to avoid the risk of someone
+                   entering a value here that would interfere with "skip" #}
+                <input type="hidden" name="skip_queries" value="
+                    {{- Plugins_getDefault('Import', 'skip_queries') -}}
+                    " id="text_skip_queries" />
+            {% endif %}
+        </div>
 
         <div class="importoptions">
             <h3>{% trans 'Other options:' %}</h3>
