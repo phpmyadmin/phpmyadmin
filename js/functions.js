@@ -1910,9 +1910,9 @@ AJAX.registerOnload('functions.js', function () {
     var $inputUsername = $('#input_username');
     if ($inputUsername) {
         if ($inputUsername.val() === '') {
-            $inputUsername.focus();
+            $inputUsername.trigger('focus');
         } else {
-            $('#input_password').focus();
+            $('#input_password').trigger('focus');
         }
     }
 });
@@ -3892,7 +3892,7 @@ $(function () {
     // Initialise the menu resize plugin
     $('#topmenu').menuResizer(PMA_mainMenuResizerCallback);
     // register resize event
-    $(window).resize(function () {
+    $(window).on('resize', function () {
         $('#topmenu').menuResizer('resize');
     });
 });
@@ -4745,9 +4745,9 @@ AJAX.registerOnload('functions.js', function () {
     if ($loginform.length) {
         $loginform.find('.js-show').show();
         if ($('#input_username').val()) {
-            $('#input_password').focus();
+            $('#input_password').trigger('focus');
         } else {
-            $('#input_username').focus();
+            $('#input_username').trigger('focus');
         }
     }
     var $https_warning = $('#js-https-mismatch');

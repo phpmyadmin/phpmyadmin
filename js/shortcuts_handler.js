@@ -22,7 +22,7 @@ $(document).ready(function () {
     var keyH = 72;
     var keyC = 67;
     var keyBackSpace = 8;
-    $(document).keyup(function (e) {
+    $(document).on('keyup', function (e) {
         if (e.target.nodeName === 'INPUT' || e.target.nodeName === 'TEXTAREA' || e.target.nodeName === 'SELECT') {
             return;
         }
@@ -37,7 +37,7 @@ $(document).ready(function () {
             }, 2000);
         }
     });
-    $(document).keydown(function (e) {
+    $(document).on('keydown', function (e) {
         if (e.ctrlKey && e.altKey && e.keyCode === keyC) {
             PMA_console.toggle();
         }

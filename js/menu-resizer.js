@@ -37,14 +37,12 @@
         $('.navigationbar').css({ 'width': widthCalculator.call($container) - 60 });
 
         // Scroll the navigation bar on click
-        $('.scrollindicator--right')
-            .click(function () {
-                $('.navigationbar').scrollLeft($('.navigationbar').scrollLeft() + 70);
-            });
-        $('.scrollindicator--left')
-            .click(function () {
-                $('.navigationbar').scrollLeft($('.navigationbar').scrollLeft() - 70);
-            });
+        $('.scrollindicator--right').on('click', function () {
+            $('.navigationbar').scrollLeft($('.navigationbar').scrollLeft() + 70);
+        });
+        $('.scrollindicator--left').on('click', function () {
+            $('.navigationbar').scrollLeft($('.navigationbar').scrollLeft() - 70);
+        });
 
         // create submenu container
         var link = $('<a />', { href: '#', 'class': 'tab nowrap' })
@@ -57,7 +55,7 @@
         var $submenu = $('<li />', { 'class': 'submenu' })
             .append(link)
             .append($('<ul />'))
-            .mouseenter(function () {
+            .on('mouseenter', function () {
                 if ($(this).find('ul .tabactive').length === 0) {
                     $(this)
                         .addClass('submenuhover')
@@ -65,7 +63,7 @@
                         .addClass('tabactive');
                 }
             })
-            .mouseleave(function () {
+            .on('mouseleave', function () {
                 if ($(this).find('ul .tabactive').length === 0) {
                     $(this)
                         .removeClass('submenuhover')

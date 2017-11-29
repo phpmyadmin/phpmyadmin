@@ -648,7 +648,7 @@ AJAX.registerOnload('config.js', function () {
 //
 
 AJAX.registerOnload('config.js', function () {
-    $('.optbox input[type=button][name=submit_reset]').click(function () {
+    $('.optbox input[type=button][name=submit_reset]').on('click', function () {
         var fields = $(this).closest('fieldset').find('input, select, textarea');
         for (var i = 0, imax = fields.length; i < imax; i++) {
             setFieldValue(fields[i], getFieldType(fields[i]));
