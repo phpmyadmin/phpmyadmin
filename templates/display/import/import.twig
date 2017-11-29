@@ -56,7 +56,12 @@
             'offset': offset
         } only %}
 
-        {% include 'display/import/other_option.twig' only %}
+        <div class="importoptions">
+            <h3>{% trans 'Other options:' %}</h3>
+            <div class="formelementrow">
+                {{ Util_getFKCheckbox() }}
+            </div>
+        </div>
 
         <div class="importoptions">
             <h3>{% trans 'Format:' %}</h3>
