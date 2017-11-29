@@ -1842,7 +1842,7 @@ class InsertEditTest extends TestCase
             ->setMethods(array('addFile'))
             ->getMock();
 
-        $scriptsMock->expects($this->once())
+        $scriptsMock->expects($this->exactly(4))
             ->method('addFile');
 
         $headerMock = $this->getMockBuilder('PhpMyAdmin\Header')

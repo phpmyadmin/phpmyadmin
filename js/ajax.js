@@ -534,9 +534,10 @@ var AJAX = {
         _scriptsToBeLoaded: [],
         /**
          * @var array _scriptsToBeFired The list of files for which
-         *                              to fire the onload event
+         *                              to fire the onload and unload events
          */
         _scriptsToBeFired: [],
+        _scriptsCompleted: false,
         /**
          * Records that a file has been downloaded
          *
@@ -572,7 +573,7 @@ var AJAX = {
                 self._scripts = [];
                 self._scriptsVersion = PMA_commonParams.get('PMA_VERSION');
             }
-            self._scriptsToBeLoaded = [];
+            self._scriptsCompleted = false;
             self._scriptsToBeFired = [];
             for (var i in files) {
                 self._scriptsToBeLoaded.push(files[i].name);
@@ -580,64 +581,60 @@ var AJAX = {
                     self._scriptsToBeFired.push(files[i].name);
                 }
             }
-            // Generate a request string
-            var request = [];
-            var needRequest = false;
-            for (var index in self._scriptsToBeLoaded) {
-                var script = self._scriptsToBeLoaded[index];
+            for (var i in files) {
+                var script = files[i].name;
                 // Only for scripts that we don't already have
                 if ($.inArray(script, self._scripts) === -1) {
-                    needRequest = true;
                     this.add(script);
-                    request.push('scripts%5B%5D=' + script);
-                    if (request.length >= 10) {
-                        // Download scripts in chunks
-                        this.appendScript(request);
-                        request = [];
-                        needRequest = false;
-                    }
+                    this.appendScript(script, callback);
+                } else {
+                    self.done(script, callback);
                 }
             }
-            request.push('call_done=1');
-            request.push('v=' + encodeURIComponent(PMA_commonParams.get('PMA_VERSION')));
-            // Download the composite js file, if necessary
-            if (needRequest) {
-                this.appendScript(request);
-            } else {
-                self.done(callback);
-            }
+            // Trigger callback if there is nothing to load
+            self.done(null, callback);
         },
         /**
          * Called whenever all files are loaded
          *
          * @return void
          */
-        done: function (callback) {
-            if ($.isFunction(callback)) {
-                callback();
-            }
+        done: function (script, callback) {
             if (typeof ErrorReport !== 'undefined') {
                 ErrorReport.wrap_global_functions();
             }
-            for (var i in this._scriptsToBeFired) {
-                AJAX.fireOnload(this._scriptsToBeFired[i]);
+            if ($.inArray(script, this._scriptsToBeFired)) {
+                AJAX.fireOnload(script);
             }
-            AJAX.active = false;
+            if ($.inArray(script, this._scriptsToBeLoaded)) {
+                this._scriptsToBeLoaded.splice($.inArray(script, this._scriptsToBeLoaded), 1);
+            }
+            if (script === null) {
+                this._scriptsCompleted = true;
+            }
+            /* We need to wait for last signal (with null) or last script load */
+            AJAX.active = (this._scriptsToBeLoaded.length > 0) || ! this._scriptsCompleted;
+            /* Run callback on last script */
+            if (! AJAX.active && $.isFunction(callback)) {
+                callback();
+            }
         },
         /**
          * Appends a script element to the head to load the scripts
          *
          * @return void
          */
-        appendScript: function (request) {
+        appendScript: function (name, callback) {
             var head = document.head || document.getElementsByTagName('head')[0];
             var script = document.createElement('script');
+            var self = this;
 
-            request.push('call_done=1');
-            request.push('v=' + encodeURIComponent(PMA_commonParams.get('PMA_VERSION')));
             script.type = 'text/javascript';
-            script.src = 'js/get_scripts.js.php?' + request.join('&');
+            script.src = 'js/' + name + '?' + 'v=' + encodeURIComponent(PMA_commonParams.get('PMA_VERSION'));
             script.async = false;
+            script.onload = function () {
+                self.done(name, callback);
+            };
             head.appendChild(script);
         },
         /**

@@ -201,6 +201,7 @@ class TableSearchController extends TableController
                         'sql.js',
                         'tbl_select.js',
                         'tbl_change.js',
+                        'vendor/jquery/jquery.validate.js',
                         'vendor/jquery/jquery-ui-timepicker-addon.js',
                         'vendor/jquery/jquery.uitablefilter.js',
                         'gis_data_editor.js',
@@ -239,6 +240,7 @@ class TableSearchController extends TableController
                         'vendor/jqplot/plugins/jqplot.highlighter.js',
                         'vendor/jqplot/plugins/jqplot.cursor.js',
                         'vendor/jquery/jquery-ui-timepicker-addon.js',
+                        'vendor/jquery/jquery.validate.js',
                         'tbl_zoom_plot_jqplot.js',
                         'tbl_change.js',
                     )

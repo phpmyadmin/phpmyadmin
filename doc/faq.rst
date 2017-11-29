@@ -686,7 +686,7 @@ A list of files and corresponding functionality which degrade gracefully when re
 * :file:`./locale/` folder, or unused subfolders (interface translations)
 * Any unused themes in :file:`./themes/`
 * :file:`./js/vendor/jquery/src/` (included for licensing reasons)
-* :file:`./js/line_counts.php`
+* :file:`./js/line_counts.php` (removed in phpMyAdmin 4.8)
 * :file:`./doc/` (documentation)
 * :file:`./setup/` (setup script)
 * :file:`./examples/`
