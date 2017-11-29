@@ -1113,6 +1113,9 @@ var ResizeHandler = function () {
      * @return void
      */
     this.setWidth = function (pos) {
+        if (typeof pos !== 'number') {
+            pos = 240;
+        }
         var $resizer = $('#pma_navigation_resizer');
         var resizer_width = $resizer.width();
         var $collapser = $('#pma_navigation_collapser');
