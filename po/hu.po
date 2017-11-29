@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.7.6-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2017-11-02 14:03+0100\n"
-"PO-Revision-Date: 2017-11-29 00:03+0000\n"
+"PO-Revision-Date: 2017-11-30 23:46+0000\n"
 "Last-Translator: Dr. Nagy Elemér Károly <eknagy@omikk.bme.hu>\n"
 "Language-Team: Hungarian "
 "<https://hosted.weblate.org/projects/phpmyadmin/4-7/hu/>\n"
@@ -3128,22 +3128,16 @@ msgid "Czech-Slovak"
 msgstr "Csehszlovák"
 
 #: libraries/Charsets.php:341 libraries/Charsets.php:492
-#, fuzzy
-#| msgid "Ukrainian"
 msgctxt "Collation"
 msgid "Ukrainian"
 msgstr "Ukrán"
 
 #: libraries/Charsets.php:344 libraries/Charsets.php:488
-#, fuzzy
-#| msgid "Turkish"
 msgctxt "Collation"
 msgid "Turkish"
 msgstr "Török"
 
 #: libraries/Charsets.php:347 libraries/Charsets.php:480
-#, fuzzy
-#| msgid "Swedish"
 msgctxt "Collation"
 msgid "Swedish"
 msgstr "Svéd"
@@ -3159,8 +3153,6 @@ msgid "Unknown"
 msgstr "Ismeretlen"
 
 #: libraries/Charsets.php:369
-#, fuzzy
-#| msgid "Bulgarian"
 msgctxt "Collation"
 msgid "Bulgarian"
 msgstr "Bolgár"
@@ -3171,43 +3163,31 @@ msgid "Chinese"
 msgstr "Kínai"
 
 #: libraries/Charsets.php:379
-#, fuzzy
-#| msgid "Croatian"
 msgctxt "Collation"
 msgid "Croatian"
 msgstr "Horvát"
 
 #: libraries/Charsets.php:383
-#, fuzzy
-#| msgid "Czech"
 msgctxt "Collation"
 msgid "Czech"
 msgstr "Cseh"
 
 #: libraries/Charsets.php:387
-#, fuzzy
-#| msgid "Danish"
 msgctxt "Collation"
 msgid "Danish"
 msgstr "Dán"
 
 #: libraries/Charsets.php:391
-#, fuzzy
-#| msgid "English"
 msgctxt "Collation"
 msgid "English"
 msgstr "Angol"
 
 #: libraries/Charsets.php:395
-#, fuzzy
-#| msgid "Esperanto"
 msgctxt "Collation"
 msgid "Esperanto"
 msgstr "Eszperantó"
 
 #: libraries/Charsets.php:399
-#, fuzzy
-#| msgid "Estonian"
 msgctxt "Collation"
 msgid "Estonian"
 msgstr "Észt"
@@ -3223,15 +3203,11 @@ msgid "German (phone book order)"
 msgstr "Német (telefonkönyv sorrend)"
 
 #: libraries/Charsets.php:414
-#, fuzzy
-#| msgid "Hungarian"
 msgctxt "Collation"
 msgid "Hungarian"
 msgstr "Magyar"
 
 #: libraries/Charsets.php:418
-#, fuzzy
-#| msgid "Icelandic"
 msgctxt "Collation"
 msgid "Icelandic"
 msgstr "Izlandi"
@@ -3242,64 +3218,46 @@ msgid "Classical Latin"
 msgstr "Klasszikus latin"
 
 #: libraries/Charsets.php:429
-#, fuzzy
-#| msgid "Latvian"
 msgctxt "Collation"
 msgid "Latvian"
 msgstr "Lett"
 
 #: libraries/Charsets.php:433
-#, fuzzy
-#| msgid "Lithuanian"
 msgctxt "Collation"
 msgid "Lithuanian"
 msgstr "Litván"
 
 #: libraries/Charsets.php:441
-#, fuzzy
-#| msgid "Burmese"
 msgctxt "Collation"
 msgid "Burmese"
 msgstr "Burmai"
 
 #: libraries/Charsets.php:444
-#, fuzzy
-#| msgid "Persian"
 msgctxt "Collation"
 msgid "Persian"
 msgstr "Perzsa"
 
 #: libraries/Charsets.php:448
-#, fuzzy
-#| msgid "Polish"
 msgctxt "Collation"
 msgid "Polish"
 msgstr "Lengyel"
 
 #: libraries/Charsets.php:455
-#, fuzzy
-#| msgid "Romanian"
 msgctxt "Collation"
 msgid "Romanian"
 msgstr "Román"
 
 #: libraries/Charsets.php:459
-#, fuzzy
-#| msgid "Sinhalese"
 msgctxt "Collation"
 msgid "Sinhalese"
 msgstr "Szingaléz"
 
 #: libraries/Charsets.php:463
-#, fuzzy
-#| msgid "Slovak"
 msgctxt "Collation"
 msgid "Slovak"
 msgstr "Szlovák"
 
 #: libraries/Charsets.php:467
-#, fuzzy
-#| msgid "Slovenian"
 msgctxt "Collation"
 msgid "Slovenian"
 msgstr "Szlovén"
@@ -3320,15 +3278,11 @@ msgid "Vietnamese"
 msgstr "Vietnámi"
 
 #: libraries/Charsets.php:563
-#, fuzzy
-#| msgid "case-insensitive"
 msgctxt "Collation variant"
 msgid "case-insensitive"
 msgstr "a kis- és nagybetű nem különbözik"
 
 #: libraries/Charsets.php:566
-#, fuzzy
-#| msgid "case-sensitive"
 msgctxt "Collation variant"
 msgid "case-sensitive"
 msgstr "a kis- és nagybetű különbözik"
