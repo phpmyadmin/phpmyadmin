@@ -2222,6 +2222,13 @@ Database structure
     Defines whether the table structure actions are hidden under a "More"
     drop-down.
 
+.. config:option:: $cfg['ShowColumnComments']
+
+    :type: boolean
+    :default: true
+
+    Defines whether to show column comments as a column in the table structure view.
+
 Browse mode
 -----------
 
