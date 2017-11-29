@@ -219,17 +219,11 @@ class Header
         $pftext = isset($_SESSION['tmpval']['pftext'])
             ? $_SESSION['tmpval']['pftext'] : '';
 
-        // not sure when this happens, but it happens
-        if (! isset($GLOBALS['collation_connection'])) {
-            $GLOBALS['collation_connection'] = 'utf8_general_ci';
-        }
-
         $params = array(
             'common_query' => Url::getCommonRaw(),
             'opendb_url' => Util::getScriptNameForOption(
                 $GLOBALS['cfg']['DefaultTabDatabase'], 'database'
             ),
-            'collation_connection' => $GLOBALS['collation_connection'],
             'lang' => $GLOBALS['lang'],
             'server' => $GLOBALS['server'],
             'table' => $table,

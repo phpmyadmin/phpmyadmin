@@ -569,10 +569,8 @@ if ($file_to_unlink != '') {
 
 // Reset charset back, if we did some changes
 if ($reset_charset) {
-    $GLOBALS['dbi']->query('SET CHARACTER SET utf8');
-    $GLOBALS['dbi']->query(
-        'SET SESSION collation_connection =\'' . $collation_connection . '\''
-    );
+    $GLOBALS['dbi']->query('SET CHARACTER SET ' . $GLOBALS['charset_connection']);
+    $GLOBALS['dbi']->setCollationConnection($collation_connection);
 }
 
 // Show correct message

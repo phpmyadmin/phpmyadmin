@@ -425,7 +425,6 @@ class MessageTest extends PmaTestCase
     public function testDecodeBB($actual, $expected)
     {
         unset($GLOBALS['server']);
-        unset($GLOBALS['collation_connection']);
         $this->assertEquals($expected, Message::decodeBB($actual));
     }
 

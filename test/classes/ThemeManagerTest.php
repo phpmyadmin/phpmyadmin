@@ -30,7 +30,6 @@ class ThemeManagerTest extends PmaTestCase
         $GLOBALS['cfg']['ServerDefault'] = 0;
         $GLOBALS['server'] = 99;
         $GLOBALS['PMA_Config'] = new Config();
-        $GLOBALS['collation_connection'] = 'utf8_general_ci';
 
         $dbi = $this->getMockBuilder('PhpMyAdmin\DatabaseInterface')
             ->disableOriginalConstructor()

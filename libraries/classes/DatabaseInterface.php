@@ -1435,46 +1435,13 @@ class DatabaseInterface
             $default_charset = 'utf8';
             $default_collation = 'utf8_general_ci';
         }
-        $collation_connection = $GLOBALS['PMA_Config']->get('collation_connection');
-        if (! empty($collation_connection)) {
-            $this->query(
-                "SET CHARACTER SET '$default_charset';",
-                DatabaseInterface::CONNECT_USER,
-                self::QUERY_STORE
-            );
-            /* Automatically adjust collation if not supported by server */
-            if ($default_charset == 'utf8'
-                && strncmp('utf8mb4_', $collation_connection, 8) == 0
-            ) {
-                $collation_connection = 'utf8_' . substr($collation_connection, 8);
-            }
-            $result = $this->tryQuery(
-                "SET collation_connection = '"
-                . $this->escapeString($collation_connection, DatabaseInterface::CONNECT_USER)
-                . "';",
-                DatabaseInterface::CONNECT_USER,
-                self::QUERY_STORE
-            );
-            if ($result === false) {
-                trigger_error(
-                    __('Failed to set configured collation connection!'),
-                    E_USER_WARNING
-                );
-                $this->query(
-                    "SET collation_connection = '"
-                    . $this->escapeString($collation_connection, DatabaseInterface::CONNECT_USER)
-                    . "';",
-                    DatabaseInterface::CONNECT_USER,
-                    self::QUERY_STORE
-                );
-            }
-        } else {
-            $this->query(
-                "SET NAMES '$default_charset' COLLATE '$default_collation';",
-                DatabaseInterface::CONNECT_USER,
-                self::QUERY_STORE
-            );
-        }
+        $GLOBALS['collation_connection'] = $default_collation;
+        $GLOBALS['charset_connection'] = $default_charset;
+        $this->query(
+            "SET NAMES '$default_charset' COLLATE '$default_collation';",
+            DatabaseInterface::CONNECT_USER,
+            self::QUERY_STORE
+        );
 
         /* Locale for messages */
         $locale = LanguageManager::getInstance()->getCurrentLanguage()->getMySQLLocale();
@@ -1520,6 +1487,35 @@ class DatabaseInterface
          * the DatabaseList class as a stub for the ListDatabase class
          */
         $GLOBALS['dblist'] = new DatabaseList();
+    }
+
+    /**
+     * Sets collation connection for user link
+     *
+     * @param string $collation collation to set
+     */
+    public function setCollation($collation)
+    {
+        $charset = $GLOBALS['charset_connection'];
+        /* Automatically adjust collation if not supported by server */
+        if ($charset == 'utf8' && strncmp('utf8mb4_', $collation, 8) == 0) {
+            $collation = 'utf8_' . substr($collation, 8);
+        }
+        $result = $this->tryQuery(
+            "SET collation_connection = '"
+            . $this->escapeString($collation, DatabaseInterface::CONNECT_USER)
+            . "';",
+            DatabaseInterface::CONNECT_USER,
+            self::QUERY_STORE
+        );
+        if ($result === false) {
+            trigger_error(
+                __('Failed to set configured collation connection!'),
+                E_USER_WARNING
+            );
+        } else {
+            $GLOBALS['collation_connection'] = $collation;
+        }
     }
 
     /**

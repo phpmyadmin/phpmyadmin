@@ -85,6 +85,17 @@ if (isset($_POST['set_theme'])) {
     header('Location: index.php' . Url::getCommonRaw());
     exit();
 }
+// Change collation connection
+if (isset($_POST['collation_connection'])) {
+    $GLOBALS['PMA_Config']->setUserValue(
+        null,
+        'DefaultConnectionCollation',
+        $_POST['collation_connection'],
+        'utf8mb4_unicode_ci'
+    );
+    header('Location: index.php' . Url::getCommonRaw());
+    exit();
+}
 
 
 // See FAQ 1.34
@@ -235,7 +246,7 @@ if ($server > 0 || count($cfg['Servers']) > 1
             }
         } // end if
         echo '    <li id="li_select_mysql_collation" class="no_bullets" >';
-        echo '        <form method="post" action="index.php">' , "\n"
+        echo '        <form class="disableAjax" method="post" action="index.php">' , "\n"
            . Url::getHiddenInputs(null, null, 4, 'collation_connection')
            . '            <label for="select_collation_connection">' . "\n"
            . '                ' . Util::getImage('s_asci')

@@ -280,7 +280,6 @@ class InsertEditTest extends TestCase
      */
     public function testShowTypeOrFunction()
     {
-        unset($GLOBALS['collation_connection']);
         $GLOBALS['cfg']['ShowFieldTypesInDataEditView'] = true;
         $GLOBALS['cfg']['ServerDefault'] = 1;
         $url_params = array('ShowFunctionFields' => 2);

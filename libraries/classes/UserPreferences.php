@@ -169,7 +169,6 @@ class UserPreferences
         // whitelist some additional fields which are custom handled
         $whitelist['ThemeDefault'] = true;
         $whitelist['lang'] = true;
-        $whitelist['collation_connection'] = true;
         $whitelist['Server/hide_db'] = true;
         $whitelist['Server/only_db'] = true;
         $whitelist['2fa'] = true;

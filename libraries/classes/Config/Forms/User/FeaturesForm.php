@@ -31,6 +31,7 @@ class FeaturesForm extends BaseForm
                 'Servers/1/hide_db', // saves to Server/hide_db
                 'MaxDbList',
                 'MaxTableList',
+                'DefaultConnectionCollation',
             ),
             'Text_fields' => array(
                 'CharEditing',

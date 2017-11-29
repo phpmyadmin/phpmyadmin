@@ -176,7 +176,7 @@ if (Core::checkPageValidity($_REQUEST['back'])) {
  * mis-match does not make sense
  *
  * @todo variables should be handled by their respective owners (objects)
- * f.e. lang, server, collation_connection in PhpMyAdmin\Config
+ * f.e. lang, server in PhpMyAdmin\Config
  */
 
 $token_mismatch = true;
@@ -291,12 +291,6 @@ if (! defined('PMA_MINIMUM_COMMON')) {
      * @todo should be done in PhpMyAdmin\Config
      */
     $GLOBALS['PMA_Config']->setCookie('pma_lang', $GLOBALS['lang']);
-    if (isset($GLOBALS['collation_connection'])) {
-        $GLOBALS['PMA_Config']->setCookie(
-            'pma_collation_connection',
-            $GLOBALS['collation_connection']
-        );
-    }
 
     ThemeManager::getInstance()->setThemeCookie();
 

@@ -97,7 +97,6 @@ class AuthenticationConfigTest extends PmaTestCase
         $GLOBALS['error_handler'] = new ErrorHandler;
         $GLOBALS['cfg']['Servers'] = array(1);
         $GLOBALS['allowDeny_forbidden'] = false;
-        $GLOBALS['collation_connection'] = 'utf-8';
 
         $dbi = $this->getMockBuilder('PhpMyAdmin\DatabaseInterface')
             ->disableOriginalConstructor()
@@ -129,8 +128,7 @@ class AuthenticationConfigTest extends PmaTestCase
         );
 
         $this->assertContains(
-            '<a href="index.php?server=0&amp;lang=en'
-            . '&amp;collation_connection=utf-8" '
+            '<a href="index.php?server=0&amp;lang=en" '
             . 'class="button disableAjax">Retry to connect</a>',
             $html
         );

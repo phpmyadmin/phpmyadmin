@@ -546,22 +546,6 @@ class ConfigTest extends PmaTestCase
     }
 
     /**
-     * test for CheckCollationConnection
-     *
-     * @return void
-     */
-    public function testCheckCollationConnection()
-    {
-        $_REQUEST['collation_connection'] = 'utf-8';
-        $this->object->checkCollationConnection();
-
-        $this->assertEquals(
-            $_REQUEST['collation_connection'],
-            $this->object->get('collation_connection')
-        );
-    }
-
-    /**
      * test for IsHttp
      *
      * @return void
