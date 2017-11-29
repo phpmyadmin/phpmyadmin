@@ -576,6 +576,10 @@ var AJAX = {
             }
             self._scriptsCompleted = false;
             self._scriptsToBeFired = [];
+            // We need to first complete list of files to load
+            // as next loop will directly fire requests to load them
+            // and that triggers removal of them from
+            // self._scriptsToBeLoaded
             for (i in files) {
                 self._scriptsToBeLoaded.push(files[i].name);
                 if (files[i].fire) {
@@ -592,7 +596,7 @@ var AJAX = {
                     self.done(script, callback);
                 }
             }
-            // Trigger callback if there is nothing to load
+            // Trigger callback if there is nothing else to load
             self.done(null, callback);
         },
         /**
