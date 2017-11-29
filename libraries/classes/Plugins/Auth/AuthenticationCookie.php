@@ -720,7 +720,7 @@ class AuthenticationCookie extends AuthenticationPlugin
                 $iv
             );
         } else {
-            $cipher = new Crypt\AES(Crypt\Base::MODE_CBC);
+            $cipher = new Crypt\AES('cbc');
             $cipher->setIV($iv);
             $cipher->setKey($aes_secret);
             $result = base64_encode($cipher->encrypt($data));
@@ -772,7 +772,7 @@ class AuthenticationCookie extends AuthenticationPlugin
                 base64_decode($data['iv'])
             );
         } else {
-            $cipher = new Crypt\AES(Crypt\Base::MODE_CBC);
+            $cipher = new Crypt\AES('cbc');
             $cipher->setIV(base64_decode($data['iv']));
             $cipher->setKey($aes_secret);
             $result = $cipher->decrypt(base64_decode($data['payload']));
@@ -791,8 +791,8 @@ class AuthenticationCookie extends AuthenticationPlugin
         if ($this->_use_openssl) {
             return openssl_cipher_iv_length('AES-128-CBC');
         }
-        $cipher = new Crypt\AES(Crypt\Base::MODE_CBC);
-        return $cipher->block_size;
+        $cipher = new Crypt\AES('cbc');
+        return $cipher->getBlockLengthInBytes();
     }
 
     /**
