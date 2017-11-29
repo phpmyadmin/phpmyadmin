@@ -669,7 +669,7 @@ abstract class PMA_SeleniumBase extends PHPUnit_Extensions_Selenium2TestCase
             array(
                 'script' => 'var position = document.getElementById("'
                             . $element_id . '").getBoundingClientRect();'
-                            . 'window.scrollBy(position.left, position.top-(' . $offset . '));',
+                            . 'window.scrollBy(0, position.top-(' . $offset . '));',
                 'args'   => array()
             )
         );
