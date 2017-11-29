@@ -77,7 +77,7 @@ class ScriptsTest extends PmaTestCase
     {
         $this->assertEquals(
             '<script data-cfasync="false" type="text/javascript" '
-            . 'src="js/common.js?v=' . PMA_VERSION . '"></script>',
+            . 'src="js/common.js?v=' . PMA_VERSION . '"></script>' . "\n",
             $this->_callPrivateFunction(
                 '_includeFiles',
                 array(
@@ -104,7 +104,7 @@ class ScriptsTest extends PmaTestCase
 
         $this->assertRegExp(
             '@<script data-cfasync="false" type="text/javascript" '
-            . 'src="js/common.js\?v=' . PMA_VERSION . '"></script>'
+            . 'src="js/common.js\?v=' . PMA_VERSION . '"></script>' . "\n"
             . '<script data-cfasync="false" type="text/'
             . 'javascript">// <!\\[CDATA\\[' . "\n"
             . 'AJAX.scriptHandler.add\\("common.js",1\\);' . "\n"
@@ -178,7 +178,6 @@ $(function() {});
             $hash => array(
                 'has_onload' => 1,
                 'filename' => 'common.js',
-                'before_statics' => false,
                 'params' => array(),
             )
         );
@@ -207,13 +206,11 @@ $(function() {});
             'd7716810d825f4b55d18727c3ccb24e6' => array(
                 'has_onload' => 1,
                 'filename' => 'common.js',
-                'before_statics' => false,
                 'params' => array(),
             ),
             '347a57484fcd6ea6d8a125e6e1d31f78' => array(
                 'has_onload' => 1,
                 'filename' => 'sql.js',
-                'before_statics' => false,
                 'params' => array(),
             ),
         );

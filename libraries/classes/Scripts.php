@@ -44,28 +44,19 @@ class Scripts
      */
     private function _includeFiles(array $files)
     {
-        $first = [];
-        $result = [];
-        $scripts = array();
-        $separator = Url::getArgSeparator();
+        $result = '';
         foreach ($files as $value) {
             if (strpos($value['filename'], ".php") !== false) {
                 $file_name = $value['filename'] . Url::getCommon($value['params'] + array('v' => PMA_VERSION));
-                if ($value['before_statics'] === true) {
-                    $first[]
-                        = "<script data-cfasync='false' type='text/javascript' "
-                        . "src='js/" . $file_name . "'></script>";
-                } else {
-                    $result[] = "<script data-cfasync='false' "
-                        . "type='text/javascript' src='js/" . $file_name
-                        . "'></script>";
-                }
+                $result .= "<script data-cfasync='false' "
+                    . "type='text/javascript' src='js/" . $file_name
+                    . "'></script>\n";
             } else {
-                $result[] = '<script data-cfasync="false" type="text/javascript" src="js/'
-                    .  $value['filename'] . '?' . Header::getVersionParameter() . '"></script>';
+                $result .= '<script data-cfasync="false" type="text/javascript" src="js/'
+                    .  $value['filename'] . '?' . Header::getVersionParameter() . '"></script>' . "\n";
             }
         }
-        return implode("\n", $first) . implode("\n", $result);
+        return $result;
     }
 
     /**
@@ -83,15 +74,12 @@ class Scripts
      * Adds a new file to the list of scripts
      *
      * @param string $filename       The name of the file to include
-     * @param bool   $before_statics Whether this dynamic script should be
-     *                               included before the static ones
      * @param array  $params         Additional parameters to pass to the file
      *
      * @return void
      */
     public function addFile(
         $filename,
-        $before_statics = false,
         array $params = array()
     ) {
         $hash = md5($filename);
@@ -104,7 +92,6 @@ class Scripts
             'has_onload' => $has_onload,
             'filename' => $filename,
             'params' => $params,
-            'before_statics' => $before_statics
         );
     }
 
