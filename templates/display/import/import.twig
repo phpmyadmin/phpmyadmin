@@ -30,11 +30,18 @@
             'table': table
         } only %}
 
-        {% include 'display/import/options.twig' with {
-            'import_type': import_type,
-            'db': db,
-            'table': table
-        } only %}
+        <div class="exportoptions" id="header">
+            <h2>
+                {{ Util_getImage('b_import', 'Import'|trans) }}
+                {% if import_type == 'server' %}
+                    {% trans 'Importing into the current server' %}
+                {% elseif import_type == 'database' %}
+                    {{ 'Importing into the database "%s"'|trans|format(db) }}
+                {% else %}
+                    {{ 'Importing into the table "%s"'|trans|format(table) }}
+                {% endif %}
+            </h2>
+        </div>
 
         <div class="importoptions">
             <h3>{% trans 'File to import:' %}</h3>
