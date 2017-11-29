@@ -48,7 +48,7 @@
         "phpmyadmin/sql-parser": "^4.2.3",
         "phpmyadmin/motranslator": "^3.0",
         "phpmyadmin/shapefile": "^2.0",
-        "phpseclib/phpseclib": "^2.0.8",
+        "phpseclib/phpseclib": "^2.0,<2.0.8",
         "google/recaptcha": "^1.1",
         "psr/container": "^1.0",
         "twig/twig": "^1.32",

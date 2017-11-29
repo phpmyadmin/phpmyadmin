@@ -52,7 +52,6 @@ phpMyAdmin - ChangeLog
 - issue #13821 Lock page when changes are done in the SQL editor
 - issue #13842 Prefer iconv for encoding conversions
 - issue #13737 Fixed changing password on MariaDB cluster
-- issue #13846 Compatibility with phpseclib 2.0.8
 
 4.7.5 (2017-10-23)
 - issue #13615 Avoid problems with browsing unknown query types
