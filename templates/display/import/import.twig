@@ -3,11 +3,15 @@
 <div id="importmain">
     <img src="{{ pma_theme_image }}ajax_clock_small.gif" width="16" height="16" alt="ajax clock" class="hide" />
 
-    {% include 'display/import/javascript.twig' with {
-        'upload_id': upload_id,
-        'handler': handler,
-        'pma_theme_image': pma_theme_image
-    } only %}
+    <script type="text/javascript">
+        //<![CDATA[
+        {% include 'display/import/javascript.twig' with {
+            'upload_id': upload_id,
+            'handler': handler,
+            'pma_theme_image': pma_theme_image
+        } only %}
+        //]]>
+    </script>
 
     <form id="import_file_form"
         action="import.php"
