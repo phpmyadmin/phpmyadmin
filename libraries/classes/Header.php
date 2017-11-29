@@ -200,7 +200,7 @@ class Header
         $this->_scripts->addFile('indexes.js');
         $this->_scripts->addFile('common.js');
         $this->_scripts->addFile('page_settings.js');
-        if(!$GLOBALS['cfg']['DisableShortcutKeys']) {
+        if (! $GLOBALS['PMA_Config']->get('DisableShortcutKeys')) {
             $this->_scripts->addFile('shortcuts_handler.js');
         }
         $this->_scripts->addCode($this->getJsParamsCode());
