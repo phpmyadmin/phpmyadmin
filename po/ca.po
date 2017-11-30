@@ -4,16 +4,16 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.8.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2017-11-28 16:22+0100\n"
-"PO-Revision-Date: 2017-07-17 09:05+0000\n"
-"Last-Translator: Xavier Navarro <xvnavarro@gmail.com>\n"
-"Language-Team: Catalan <https://hosted.weblate.org/projects/phpmyadmin/"
-"master/ca/>\n"
+"PO-Revision-Date: 2017-11-30 18:36+0000\n"
+"Last-Translator: BennyBeat <bennybeat@gmail.com>\n"
+"Language-Team: Catalan "
+"<https://hosted.weblate.org/projects/phpmyadmin/master/ca/>\n"
 "Language: ca\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 2.16-dev\n"
+"X-Generator: Weblate 2.18-dev\n"
 
 #: ajax.php:21 ajax.php:50 export.php:203 libraries/classes/Export.php:1100
 msgid "Bad type!"
@@ -1775,6 +1775,8 @@ msgid ""
 "It seems that the connection to server has been lost. Please check your "
 "network connectivity and server status."
 msgstr ""
+"Sembla que s'ha perdut la connexió al servidor. Comproveu la connectivitat "
+"de xarxa i l'estat del servidor."
 
 #: js/messages.php:369
 #: libraries/classes/Controllers/Server/ServerDatabasesController.php:188
@@ -7197,7 +7199,7 @@ msgstr ""
 
 #: libraries/classes/Dbi/DbiMysqli.php:169
 msgid "SSL connection enforced by server, automatically enabling it."
-msgstr ""
+msgstr "Connexió SSL forçada pel servidor, habilitant-la automàticament."
 
 #: libraries/classes/Display/ChangePassword.php:68
 #: libraries/classes/ReplicationGui.php:867
