@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.8.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2017-11-28 16:22+0100\n"
-"PO-Revision-Date: 2017-11-30 19:53+0000\n"
+"PO-Revision-Date: 2017-12-01 00:44+0000\n"
 "Last-Translator: dingo thirteen <dingo13@gmail.com>\n"
 "Language-Team: Dutch "
 "<https://hosted.weblate.org/projects/phpmyadmin/master/nl/>\n"
@@ -10457,7 +10457,7 @@ msgstr "Recente tabellen"
 
 #: libraries/classes/RecentFavoriteTable.php:253
 msgid "Recent"
-msgstr "Recent"
+msgstr "Recentelijk"
 
 #: libraries/classes/RecentFavoriteTable.php:257
 msgid "Favorites"
