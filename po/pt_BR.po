@@ -4,10 +4,10 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.8.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2017-11-28 16:22+0100\n"
-"PO-Revision-Date: 2017-11-26 13:49+0000\n"
-"Last-Translator: Renato dos Santos <shazaum@gmail.com>\n"
-"Language-Team: Portuguese (Brazil) <https://hosted.weblate.org/projects/"
-"phpmyadmin/master/pt_BR/>\n"
+"PO-Revision-Date: 2017-11-30 18:36+0000\n"
+"Last-Translator: RD WebDesign <weblate@rdwebdesign.com.br>\n"
+"Language-Team: Portuguese (Brazil) "
+"<https://hosted.weblate.org/projects/phpmyadmin/master/pt_BR/>\n"
 "Language: pt_BR\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -2704,12 +2704,12 @@ msgstr "Forte"
 
 #: js/messages.php:746
 msgid "Timed out waiting for security key activation."
-msgstr ""
+msgstr "O tempo de espera para ativação com chave de segurança foi excedido."
 
 #: js/messages.php:747
 #, php-format
 msgid "Failed security key activation (%s)."
-msgstr ""
+msgstr "Falha na ativação da chave de segurança (%s)."
 
 #: js/messages.php:776
 msgctxt "Previous month"
@@ -4822,16 +4822,12 @@ msgid "Show databases navigation as tree"
 msgstr "Mostrar a navegação de bases de dados em formato de árvore"
 
 #: libraries/classes/Config/Descriptions.php:772
-#, fuzzy
-#| msgid "Navigation panel"
 msgid "Navigation panel width"
-msgstr "Painel de navegação"
+msgstr "Largura do painel de navegação"
 
 #: libraries/classes/Config/Descriptions.php:774
-#, fuzzy
-#| msgid "Show logo in navigation panel."
 msgid "Set to 0 to collapse navigation panel."
-msgstr "Mostrar o logo no painel de navegação."
+msgstr "Definir como 0 para colapsar o painel de navegação."
 
 #: libraries/classes/Config/Descriptions.php:776
 msgid "Link with main panel by highlighting the current database or table."
@@ -6185,14 +6181,8 @@ msgid "Show current browsing query"
 msgstr "Mostrar consulta de navegação atual"
 
 #: libraries/classes/Config/Descriptions.php:1472
-#, fuzzy
-#| msgid ""
-#| "Execute queries on Enter and insert new line with Shift + Enter. To make "
-#| "this permanent, view settings."
 msgid "Execute queries on Enter and insert new line with Shift + Enter"
-msgstr ""
-"Execute consultas com Enter e insira nova linha com Shift + Enter. Para "
-"definir como permanente, vá em configurações."
+msgstr "Execute consultas com Enter e insira nova linha com Shift + Enter"
 
 #: libraries/classes/Config/Descriptions.php:1474
 #: templates/console/display.twig:168
@@ -6200,16 +6190,12 @@ msgid "Switch to dark theme"
 msgstr "Mudar para o tema escuro"
 
 #: libraries/classes/Config/Descriptions.php:1476
-#, fuzzy
-#| msgid "Console"
 msgid "Console height"
-msgstr "Console"
+msgstr "Altura do console"
 
 #: libraries/classes/Config/Descriptions.php:1478
-#, fuzzy
-#| msgid "Console"
 msgid "Console mode"
-msgstr "Console"
+msgstr "Modo console"
 
 #: libraries/classes/Config/Descriptions.php:1480
 #: templates/console/display.twig:64
@@ -6221,10 +6207,8 @@ msgid "Order"
 msgstr "Ordem"
 
 #: libraries/classes/Config/Descriptions.php:1484
-#, fuzzy
-#| msgid "Order by:"
 msgid "Order by"
-msgstr "Ordenar por:"
+msgstr "Ordenar por"
 
 #: libraries/classes/Config/FormDisplay.php:99
 #: libraries/classes/Config/Validator.php:524
@@ -9379,6 +9363,7 @@ msgstr "Não foi possível fazer login no servidor MySQL"
 #: libraries/classes/Plugins/AuthenticationPlugin.php:336
 msgid "You have enabled two factor authentication, please confirm your login."
 msgstr ""
+"Você habilitou a autenticação de dois fatores, por favor confirme seu login."
 
 #: libraries/classes/Plugins/Export/ExportCsv.php:63
 #: libraries/classes/Plugins/Import/AbstractImportCsv.php:58
@@ -10345,6 +10330,8 @@ msgid ""
 "Provides authentication using HOTP and TOTP applications such as FreeOTP, "
 "Google Authenticator or Authy."
 msgstr ""
+"Fornece autenticação usando aplicações HOTP e TOTP como FreeOTP, Google "
+"Authenticator ou Authy."
 
 #: libraries/classes/Plugins/TwoFactor/Key.php:186
 msgid "Hardware Security Key (FIDO U2F)"
@@ -10354,6 +10341,8 @@ msgstr "Chave de Segurança de Hardware (FIDO U2F)"
 msgid ""
 "Provides authentication using hardware security tokens supporting FIDO U2F."
 msgstr ""
+"Fornece autenticação usando tokens de segurança de hardware suportando FIDO "
+"U2F."
 
 #: libraries/classes/Plugins/TwoFactor/Simple.php:52
 msgid "Simple two-factor authentication"
@@ -10361,7 +10350,7 @@ msgstr "Autenticação de dois fatores simples"
 
 #: libraries/classes/Plugins/TwoFactor/Simple.php:62
 msgid "For testing purposes only!"
-msgstr ""
+msgstr "Apenas para fins de teste!"
 
 #: libraries/classes/Plugins/TwoFactorPlugin.php:70
 #, php-format
@@ -10374,11 +10363,11 @@ msgstr "Autenticação por dois fatores falhou."
 
 #: libraries/classes/Plugins/TwoFactorPlugin.php:127
 msgid "No Two-Factor"
-msgstr ""
+msgstr "Sem dois fatores"
 
 #: libraries/classes/Plugins/TwoFactorPlugin.php:137
 msgid "Login using password only."
-msgstr ""
+msgstr "Login usando apenas a senha."
 
 #: libraries/classes/PmdCommon.php:550
 msgid "Error: relationship already exists."
@@ -14976,7 +14965,7 @@ msgstr "primeiro"
 
 #: templates/columns_definitions/move_column.twig:12
 #: templates/table/structure/add_column.twig:19
-#, fuzzy, php-format
+#, php-format
 msgid "after %s"
 msgstr "após %s"
 
@@ -15058,6 +15047,8 @@ msgid ""
 "Open the two-factor authentication app on your device to view your "
 "authentication code and verify your identity."
 msgstr ""
+"Abre o app de autenticação de dois fatores no seu aparelho para ver seu "
+"código de autenticação e verificar sua identidade."
 
 #: templates/database/designer/rename_to_panel.twig:22
 #: templates/database/designer/options_panel.twig:85
@@ -15108,24 +15099,23 @@ msgid "Do a \"query by example\" (wildcard: \"%\")"
 msgstr "Faça uma \"consulta por exemplo\" (coringa: \"%\")"
 
 #: templates/login/twofactor.twig:5
+#, fuzzy
 msgid "Verify"
-msgstr ""
+msgstr "Verificar"
 
 #: templates/prefs_twofactor_confirm.twig:2
-#, fuzzy
-#| msgid "Config authentication"
 msgid "Confirm disabling two-factor authentication"
-msgstr "Configurar autenticação"
+msgstr "Confirme o desligamento da autenticação em dois fatores"
 
 #: templates/prefs_twofactor_confirm.twig:5
 msgid ""
 "By disabling two factor authentication you will be again able to login using "
 "password only."
 msgstr ""
+"Ao desabilitar a autenticação em dois fatores será possível novamente logar "
+"usando apenas a senha."
 
 #: templates/prefs_twofactor_confirm.twig:9 templates/prefs_twofactor.twig:37
-#, fuzzy
-#| msgid "Config authentication"
 msgid "Disable two-factor authentication"
 msgstr "Desativar autenticação por dois fatores"
 
@@ -15199,16 +15189,12 @@ msgid "File may be compressed (%s) or uncompressed."
 msgstr "Arquivo pode ser compactado (%s) ou descompactado."
 
 #: templates/display/import/compressions.twig:7
-#, fuzzy
-#| msgid ""
-#| "A compressed file's name must end in <b>.[format].[compression]</b>. "
-#| "Example: <b>.sql.zip</b>"
 msgid ""
 "A compressed file's name must end in <strong>.[format].[compression]</"
 "strong>. Example: <strong>.sql.zip</strong>"
 msgstr ""
-"O nome de um arquivo compactado deve terminar em <b>.[formato]."
-"[compactação]</b>. Exemplo: <b>.sql.zip</b>"
+"O nome de um arquivo compactado deve terminar em "
+"<strong>.[formato].[compactação]</strong>. Exemplo: <strong>.sql.zip</strong>"
 
 #: templates/table/chart/tbl_chart.twig:15
 msgctxt "Chart type"
@@ -15328,14 +15314,12 @@ msgid "Edit ENUM/SET values"
 msgstr "Editar valores ENUM/SET"
 
 #: templates/login/twofactor/invalid.twig:2
-#, fuzzy
-#| msgid "%sCreate%s missing phpMyAdmin configuration storage tables."
 msgid ""
 "The configured two factor authentication is not available, please install "
 "missing dependencies."
 msgstr ""
-"A autenticação por dois fatores não está disponível. Habilite o "
-"armazenamento da configuração do phpMyAdmin para usá-la."
+"A opção de autenticação em dois fatores configurada não está disponível, por "
+"favor instale as dependências ausentes."
 
 #: templates/display/import/file_option.twig:2
 msgid "File to import:"
@@ -15482,43 +15466,44 @@ msgid "Partitions"
 msgstr "Partições"
 
 #: templates/prefs_twofactor.twig:3
-#, fuzzy
-#| msgid "Authentication settings."
 msgid "Two-factor authentication status"
-msgstr "Situação da autenticação por dois fatores"
+msgstr "Status da autenticação em dois fatores"
 
 #: templates/prefs_twofactor.twig:9
 msgid ""
 "Two-factor authentication is not available, please install optional "
 "dependencies to enable authentication backends."
 msgstr ""
+"Autenticação em dois fatores não está disponível, por favor instale as "
+"dependências opcionais para habilitar os backends de autenticação."
 
 #: templates/prefs_twofactor.twig:10
 msgid "Following composer packages are missing:"
-msgstr ""
+msgstr "Os seguintes pacotes do composer estão ausentes:"
 
 #: templates/prefs_twofactor.twig:18
 msgid "Two-factor authentication is available and configured for this account."
 msgstr ""
+"A autenticação em dois fatores está disponível e configurada para esta conta."
 
 #: templates/prefs_twofactor.twig:20
 msgid ""
 "Two-factor authentication is available, but not configured for this account."
 msgstr ""
+"A autenticação em dois fatores está disponível, mas não está configurada "
+"para esta conta."
 
 #: templates/prefs_twofactor.twig:24
-#, fuzzy
-#| msgid "%sCreate%s missing phpMyAdmin configuration storage tables."
 msgid ""
 "Two-factor authentication is not available, enable phpMyAdmin configuration "
 "storage to use it."
 msgstr ""
-"A autenticação por dois fatores não está disponível. Habilite o "
+"A autenticação por dois fatores não está disponível, habilite o "
 "armazenamento da configuração do phpMyAdmin para usá-la."
 
 #: templates/prefs_twofactor.twig:33
 msgid "You have enabled two factor authentication."
-msgstr ""
+msgstr "Você habilitou a autenticação em dois fatores."
 
 #: templates/prefs_twofactor.twig:43 templates/prefs_twofactor.twig:54
 #: templates/prefs_twofactor_configure.twig:2
@@ -15613,6 +15598,8 @@ msgid ""
 "You are not using https to access phpMyAdmin, therefore FIDO U2F device will "
 "most likely refuse to authenticate you."
 msgstr ""
+"Você não está usando o acesso https para o phpMyAdmin, portanto aparelhos "
+"FIDO U2F provavelmente irão recusar sua autenticação."
 
 #: templates/error/report_form.twig:6
 msgid ""
@@ -15662,7 +15649,6 @@ msgid "Number of rows per page"
 msgstr "Número de registros por página"
 
 #: templates/table/search/options.twig:45
-#, fuzzy
 msgid "Display order:"
 msgstr "Ordem de exibição:"
 
@@ -15810,6 +15796,8 @@ msgid ""
 "Please connect your FIDO U2F device into your computer's USB port. Then "
 "confirm login on the device."
 msgstr ""
+"Por favor, conecte seu aparelho FIDO U2F à porta USB do seu computador. "
+"Então confirme o login no aparelho."
 
 #: templates/table/search/search_and_replace.twig:3
 msgid "Replace with:"
@@ -15853,9 +15841,8 @@ msgid "Is a foreign key."
 msgstr "É uma chave estrangeira."
 
 #: templates/columns_definitions/column_name.twig:40
-#, fuzzy
 msgid "Pick from Central Columns"
-msgstr "Escolher a partir das colunas centrais"
+msgstr "Escolher a partir das Colunas Centrais"
 
 #: templates/database/structure/check_all_tables.twig:6
 msgid "Check tables having overhead"
@@ -15970,7 +15957,7 @@ msgid "Node group"
 msgstr "Grupo de nós"
 
 #: templates/table/structure/add_column.twig:9
-#, fuzzy, php-format
+#, php-format
 msgid "Add %s column(s)"
 msgstr "Adicionar %s campo(s)"
 
@@ -16062,10 +16049,8 @@ msgid "Enable statistics"
 msgstr "Habilitar estatísticas"
 
 #: templates/prefs_twofactor_configure.twig:8
-#, fuzzy
-#| msgid "Config authentication"
 msgid "Enable two-factor authentication"
-msgstr "Configurar autenticação"
+msgstr "Habilitar a autenticação em dois fatores"
 
 #: templates/privileges/add_privileges_routine.twig:3
 msgid "Add privileges on the following routine:"
@@ -16088,7 +16073,6 @@ msgid "disabled"
 msgstr "desabilitado"
 
 #: templates/database/designer/database_tables.twig:31
-#, fuzzy
 msgid "Show/hide columns"
 msgstr "Mostrar/ocultar colunas"
 
@@ -16105,7 +16089,6 @@ msgid "Save to selected page"
 msgstr "Salvar para a página selecionada"
 
 #: templates/database/designer/page_save_as.twig:17
-#, fuzzy
 msgid "Create a page and save to it"
 msgstr "Criar uma página e gravar nela"
 
@@ -16160,24 +16143,20 @@ msgid ""
 "Please connect your FIDO U2F device into your computer's USB port. Then "
 "confirm registration on the device."
 msgstr ""
+"Por favor, conecte seu aparelho FIDO U2F à porta USB do seu computador. Em "
+"seguida confirme o registro no aparelho."
 
 #: templates/columns_definitions/table_fields_definitions.twig:17
-#, fuzzy
-#| msgid ""
-#| "If column type is \"enum\" or \"set\", please enter the values using this "
-#| "format: 'a','b','c'…<br />If you ever need to put a backslash (\"\\\") or "
-#| "a single quote (\"'\") amongst those values, precede it with a backslash "
-#| "(for example '\\\\xyz' or 'a\\'b')."
 msgid ""
 "If column type is \"enum\" or \"set\", please enter the values using this "
 "format: 'a','b','c'…<br />If you ever need to put a backslash (\"\") or a "
 "single quote (\"'\") amongst those values, precede it with a backslash (for "
 "example '\\\\xyz' or 'a\\'b')."
 msgstr ""
-"Se um tipo de campo é \"enum\" ou \"set\", por favor entre com valores "
-"usando este formato: 'a','b','c'…<br />Se você precisar colocar uma barra "
-"contrária (\"\\\") ou aspas simples (\"'\") entre esses valores, coloque uma "
-"barra contrária antes (por exemplo '\\\\xyz' ou 'a\\'b')."
+"Se o tipo de campo é \"enum\" ou \"set\", por favor entre com valores usando "
+"este formato: 'a','b','c'…<br />Se você precisar colocar uma barra contrária "
+"(\"\\\") ou aspas simples (\"'\") entre esses valores, coloque uma barra "
+"contrária antes (por exemplo '\\\\xyz' ou 'a\\'b')."
 
 #: templates/columns_definitions/table_fields_definitions.twig:21
 msgid ""
@@ -16206,22 +16185,16 @@ msgstr "Opções de transformação de visualização do navegador"
 
 #: templates/columns_definitions/table_fields_definitions.twig:83
 #: templates/columns_definitions/table_fields_definitions.twig:94
-#, fuzzy
-#| msgid ""
-#| "Please enter the values for transformation options using this format: "
-#| "'a', 100, b,'c'…<br />If you ever need to put a backslash (\"\\\") or a "
-#| "single quote (\"'\") amongst those values, precede it with a backslash "
-#| "(for example '\\\\xyz' or 'a\\'b')."
 msgid ""
 "Please enter the values for transformation options using this format: 'a', "
 "100, b,'c'…<br />If you ever need to put a backslash (\"\\\") or a single "
 "quote (\"'\") amongst those values, precede it with a backslash (for example "
 "'\\\\xyz' or 'a\\'b')."
 msgstr ""
-"Digite os valores para as opções de transformação usando este formato: 'a', "
-"100, b,'c'…<br />Se por acaso precisar inserir uma contrabarra (\"\\\") ou "
-"aspas simples (\"'\") entre esses valores, faça-o precedendo-as com uma "
-"contrabarra (por exemplo '\\\\xyz' ou 'a\\'b')."
+"Por favor, digite os valores para as opções de transformação usando este "
+"formato: 'a', 100, b,'c'…<br />Se por acaso precisar inserir uma barra "
+"invertida (\"\\\") ou aspas simples (\"'\") entre esses valores, faça-o "
+"precedendo-as com uma barra invertida (por exemplo '\\\\xyz' ou 'a\\'b')."
 
 #: templates/columns_definitions/table_fields_definitions.twig:93
 msgid "Input transformation options"
@@ -16283,22 +16256,16 @@ msgid "select column"
 msgstr "selecionar coluna"
 
 #: templates/database/multi_table_query/form.twig:31
-#, fuzzy
-#| msgid "Tables"
 msgid "Table alias"
-msgstr "Tabelas"
+msgstr "Apelido da tabela"
 
 #: templates/database/multi_table_query/form.twig:32
-#, fuzzy
-#| msgid "Column names"
 msgid "Column alias"
-msgstr "Nome das colunas"
+msgstr "Apelido da coluna"
 
 #: templates/database/multi_table_query/form.twig:35
-#, fuzzy
-#| msgid "Use this column to label each point"
 msgid "Use this column in criteria"
-msgstr "Use esta coluna para rotular cada ponto"
+msgstr "Use esta coluna nos critérios"
 
 #: templates/database/multi_table_query/form.twig:38
 msgid "criteria"
@@ -16314,7 +16281,7 @@ msgstr "Outra coluna"
 
 #: templates/database/multi_table_query/form.twig:125
 msgid "Enter criteria as free text"
-msgstr ""
+msgstr "Digite os critérios como texto livre"
 
 #: templates/database/multi_table_query/form.twig:133
 msgid "Remove this column"
