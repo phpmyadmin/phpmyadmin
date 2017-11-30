@@ -4,10 +4,10 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin-docs 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2017-11-28 16:22+0100\n"
-"PO-Revision-Date: 2017-11-27 21:24+0000\n"
-"Last-Translator: ʛħɸʂɫɓɸƴ Twɸȩɩʛħɫʂevɘŋ <marseillaisanonymous@gmail.com>\n"
-"Language-Team: French <https://hosted.weblate.org/projects/phpmyadmin/master/"
-"fr/>\n"
+"PO-Revision-Date: 2017-11-30 18:36+0000\n"
+"Last-Translator: Olivier Macchioni <olivier.macchioni@gmail.com>\n"
+"Language-Team: French "
+"<https://hosted.weblate.org/projects/phpmyadmin/master/fr/>\n"
 "Language: fr\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -6210,14 +6210,10 @@ msgid "Show current browsing query"
 msgstr "Afficher la requête de navigation courante"
 
 #: libraries/classes/Config/Descriptions.php:1472
-#, fuzzy
-#| msgid ""
-#| "Execute queries on Enter and insert new line with Shift + Enter. To make "
-#| "this permanent, view settings."
 msgid "Execute queries on Enter and insert new line with Shift + Enter"
 msgstr ""
-"Exécuter les requêtes avec Entrée et insérer une nouvelle ligne avec Maj"
-"+Entrée. Ce choix peut être rendu permanent via les paramètres."
+"Exécuter les requêtes avec Entrée et insérer une nouvelle ligne avec "
+"Maj+Entrée"
 
 #: libraries/classes/Config/Descriptions.php:1474
 #: templates/console/display.twig:168
@@ -6225,16 +6221,12 @@ msgid "Switch to dark theme"
 msgstr "Passer au thème sombre"
 
 #: libraries/classes/Config/Descriptions.php:1476
-#, fuzzy
-#| msgid "Console"
 msgid "Console height"
-msgstr "Console de requêtes SQL"
+msgstr "Hauteur de la console de requêtes SQL"
 
 #: libraries/classes/Config/Descriptions.php:1478
-#, fuzzy
-#| msgid "Console"
 msgid "Console mode"
-msgstr "Console de requêtes SQL"
+msgstr "Mode console de requêtes SQL"
 
 #: libraries/classes/Config/Descriptions.php:1480
 #: templates/console/display.twig:64
