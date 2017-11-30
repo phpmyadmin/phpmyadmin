@@ -7,43 +7,43 @@
  */
 namespace PhpMyAdmin\Twig;
 
-use Twig_Extension;
-use Twig_SimpleFunction;
+use Twig\Extension\AbstractExtension;
+use Twig\TwigFunction;
 
 /**
  * Class RelationExtension
  *
  * @package PhpMyAdmin\Twig
  */
-class RelationExtension extends Twig_Extension
+class RelationExtension extends AbstractExtension
 {
     /**
      * Returns a list of functions to add to the existing list.
      *
-     * @return Twig_SimpleFunction[]
+     * @return TwigFunction[]
      */
     public function getFunctions()
     {
         return array(
-            new Twig_SimpleFunction(
+            new TwigFunction(
                 'Relation_foreignDropdown',
                 'PhpMyAdmin\Relation::foreignDropdown',
                 array('is_safe' => array('html'))
             ),
-            new Twig_SimpleFunction(
+            new TwigFunction(
                 'Relation_getDisplayField',
                 'PhpMyAdmin\Relation::getDisplayField',
                 array('is_safe' => array('html'))
             ),
-            new Twig_SimpleFunction(
+            new TwigFunction(
                 'Relation_getForeignData',
                 'PhpMyAdmin\Relation::getForeignData'
             ),
-            new Twig_SimpleFunction(
+            new TwigFunction(
                 'Relation_getTables',
                 'PhpMyAdmin\Relation::getTables'
             ),
-            new Twig_SimpleFunction(
+            new TwigFunction(
                 'Relation_searchColumnInForeigners',
                 'PhpMyAdmin\Relation::searchColumnInForeigners'
             ),

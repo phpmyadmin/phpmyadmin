@@ -89,7 +89,7 @@ class TemplateTest extends PmaTestCase
      */
     public function testRenderTemplateNotFound()
     {
-        $this->setExpectedException('Twig_Error_Loader');
+        $this->setExpectedException('Twig\Error\LoaderError');
         Template::get('template not found')->render();
     }
 

@@ -23,10 +23,10 @@ use PhpMyAdmin\Twig\UtilExtension;
 
 $tplDir = dirname(__FILE__) . '/../templates';
 $tmpDir = dirname(__FILE__) . '/../twig-templates';
-$loader = new Twig_Loader_Filesystem($tplDir);
+$loader = new Twig\Loader\FilesystemLoader($tplDir);
 
 // force auto-reload to always have the latest version of the template
-$twig = new Twig_Environment($loader, array(
+$twig = new Twig\Environment($loader, array(
     'cache' => $tmpDir,
     'auto_reload' => true
 ));
