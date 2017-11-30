@@ -7,29 +7,34 @@
  */
 namespace PhpMyAdmin\Twig;
 
-use Twig_Extension;
-use Twig_SimpleFunction;
+use Twig\Extension\AbstractExtension;
+use Twig\TwigFunction;
 
 /**
  * Class CharsetsExtension
  *
  * @package PhpMyAdmin\Twig
  */
-class CharsetsExtension extends Twig_Extension
+class CharsetsExtension extends AbstractExtension
 {
     /**
      * Returns a list of functions to add to the existing list.
      *
-     * @return Twig_SimpleFunction[]
+     * @return TwigFunction[]
      */
     public function getFunctions()
     {
         return array(
-            new Twig_SimpleFunction(
+            new TwigFunction(
                 'Charsets_getCollationDescr',
                 'PhpMyAdmin\Charsets::getCollationDescr'
             ),
-            new Twig_SimpleFunction(
+            new TwigFunction(
+                'Charsets_getCharsetDropdownBox',
+                'PhpMyAdmin\Charsets::getCharsetDropdownBox',
+                array('is_safe' => array('html'))
+            ),
+            new TwigFunction(
                 'Charsets_getCollationDropdownBox',
                 'PhpMyAdmin\Charsets::getCollationDropdownBox',
                 array('is_safe' => array('html'))

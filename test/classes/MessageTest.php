@@ -425,7 +425,6 @@ class MessageTest extends PmaTestCase
     public function testDecodeBB($actual, $expected)
     {
         unset($GLOBALS['server']);
-        unset($GLOBALS['collation_connection']);
         $this->assertEquals($expected, Message::decodeBB($actual));
     }
 
@@ -542,7 +541,7 @@ class MessageTest extends PmaTestCase
         $this->object->setMessage('Test Message');
 
         $this->expectOutputString(
-            '<div class="notice"><img src="./themes/pmahomme/s_notice.png" title="" alt="" /> '
+            '<div class="notice"><img src="themes/dot.gif" title="" alt="" class="icon ic_s_notice" /> '
             . 'Test Message</div>'
         );
         $this->object->display();
@@ -559,7 +558,7 @@ class MessageTest extends PmaTestCase
     {
         $this->object->setMessage('Test Message');
         $this->assertEquals(
-            '<div class="notice"><img src="./themes/pmahomme/s_notice.png" title="" alt="" /> '
+            '<div class="notice"><img src="themes/dot.gif" title="" alt="" class="icon ic_s_notice" /> '
             . 'Test Message</div>',
             $this->object->getDisplay()
         );
@@ -587,18 +586,18 @@ class MessageTest extends PmaTestCase
         return array(
             array(
                 1,
-                '<div class="notice"><img src="./themes/pmahomme/s_notice.png" title="" alt="" '
-                . '/>  1 row affected.</div>'
+                '<div class="notice"><img src="themes/dot.gif" title="" alt="" '
+                . 'class="icon ic_s_notice" />  1 row affected.</div>'
             ),
             array(
                 2,
-                '<div class="notice"><img src="./themes/pmahomme/s_notice.png" title="" alt="" '
-                . '/>  2 rows affected.</div>'
+                '<div class="notice"><img src="themes/dot.gif" title="" alt="" '
+                . 'class="icon ic_s_notice" />  2 rows affected.</div>'
             ),
             array(
                 10000,
-                '<div class="notice"><img src="./themes/pmahomme/s_notice.png" title="" alt="" '
-                . '/>  10000 rows affected.</div>'
+                '<div class="notice"><img src="themes/dot.gif" title="" alt="" '
+                . 'class="icon ic_s_notice" />  10000 rows affected.</div>'
             )
         );
     }
@@ -632,18 +631,18 @@ class MessageTest extends PmaTestCase
         return array(
             array(
                 1,
-                '<div class="notice"><img src="./themes/pmahomme/s_notice.png" title="" alt="" />'
-                . '  1 row inserted.</div>'
+                '<div class="notice"><img src="themes/dot.gif" title="" alt="" '
+                . 'class="icon ic_s_notice" />  1 row inserted.</div>'
             ),
             array(
                 2,
-                '<div class="notice"><img src="./themes/pmahomme/s_notice.png" title="" alt="" />'
-                . '  2 rows inserted.</div>'
+                '<div class="notice"><img src="themes/dot.gif" title="" alt="" '
+                . 'class="icon ic_s_notice" />  2 rows inserted.</div>'
             ),
             array(
                 100000,
-                '<div class="notice"><img src="./themes/pmahomme/s_notice.png" title="" alt="" />'
-                . '  100000 rows inserted.</div>'
+                '<div class="notice"><img src="themes/dot.gif" title="" alt="" '
+                . 'class="icon ic_s_notice" />  100000 rows inserted.</div>'
             )
         );
     }
@@ -677,18 +676,18 @@ class MessageTest extends PmaTestCase
         return array(
             array(
                 1,
-                '<div class="notice"><img src="./themes/pmahomme/s_notice.png" title="" alt="" />'
-                . '  1 row deleted.</div>'
+                '<div class="notice"><img src="themes/dot.gif" title="" alt="" '
+                . 'class="icon ic_s_notice" />  1 row deleted.</div>'
             ),
             array(
                 2,
-                '<div class="notice"><img src="./themes/pmahomme/s_notice.png" title="" alt="" />'
-                . '  2 rows deleted.</div>'
+                '<div class="notice"><img src="themes/dot.gif" title="" alt="" '
+                . 'class="icon ic_s_notice" />  2 rows deleted.</div>'
             ),
             array(
                 500000,
-                '<div class="notice"><img src="./themes/pmahomme/s_notice.png" title="" alt="" />'
-                . '  500000 rows deleted.</div>'
+                '<div class="notice"><img src="themes/dot.gif" title="" alt="" '
+                . 'class="icon ic_s_notice" />  500000 rows deleted.</div>'
             )
         );
     }

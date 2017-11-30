@@ -442,6 +442,45 @@ class DatabaseInterfaceTest extends PmaTestCase
             array('10.1.22-MariaDB-', 100122, 10, false),
         );
     }
+
+    /**
+     * Tests for DBI::setCollationl() method.
+     *
+     * @return void
+     * @test
+     */
+    public function testSetCollation()
+    {
+        $extension = $this->getMockBuilder('PhpMyAdmin\Dbi\DbiDummy')
+            ->disableOriginalConstructor()
+            ->getMock();
+        $extension->expects($this->any())->method('escapeString')
+            ->will($this->returnArgument(1));
+
+        $extension->expects($this->exactly(4))
+            ->method('realQuery')
+            ->withConsecutive(
+                array("SET collation_connection = 'utf8_czech_ci';"),
+                array("SET collation_connection = 'utf8mb4_bin_ci';"),
+                array("SET collation_connection = 'utf8_czech_ci';"),
+                array("SET collation_connection = 'utf8_bin_ci';")
+            )
+            ->willReturnOnConsecutiveCalls(
+                true,
+                true,
+                true,
+                true
+            );
+
+        $dbi = new DatabaseInterface($extension);
+
+        $GLOBALS['charset_connection'] = 'utf8mb4';
+        $dbi->setCollation('utf8_czech_ci');
+        $dbi->setCollation('utf8mb4_bin_ci');
+        $GLOBALS['charset_connection'] = 'utf8';
+        $dbi->setCollation('utf8_czech_ci');
+        $dbi->setCollation('utf8mb4_bin_ci');
+    }
 }
 
 /**

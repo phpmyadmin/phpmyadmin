@@ -60,15 +60,9 @@ var PMA_console = {
             return;
         }
 
-        PMA_console.isEnabled = true;
+        PMA_console.config = configGet('Console', false);
 
-        // Cookie var checks and init
-        if (! Cookies.get('pma_console_height')) {
-            Cookies.set('pma_console_height', 92);
-        }
-        if (! Cookies.get('pma_console_mode')) {
-            Cookies.set('pma_console_mode', 'info');
-        }
+        PMA_console.isEnabled = true;
 
         // Vars init
         PMA_console.$consoleToolbar = $('#pma_console').find('>.toolbar');
@@ -93,29 +87,22 @@ var PMA_console = {
         // Event binds shouldn't run again
         if (PMA_console.isInitialized === false) {
             // Load config first
-            var tempConfig = Cookies.getJSON('pma_console_config');
-            if (tempConfig) {
-                if (tempConfig.alwaysExpand === true) {
-                    $('#pma_console_options input[name=always_expand]').prop('checked', true);
-                }
-                if (tempConfig.startHistory === true) {
-                    $('#pma_console_options').find('input[name=start_history]').prop('checked', true);
-                }
-                if (tempConfig.currentQuery === true) {
-                    $('#pma_console_options').find('input[name=current_query]').prop('checked', true);
-                }
-                if (ConsoleEnterExecutes === true) {
-                    $('#pma_console_options').find('input[name=enter_executes]').prop('checked', true);
-                }
-                if (tempConfig.darkTheme === true) {
-                    $('#pma_console_options').find('input[name=dark_theme]').prop('checked', true);
-                    $('#pma_console').find('>.content').addClass('console_dark_theme');
-                }
-            } else {
+            if (PMA_console.config.AlwaysExpand === true) {
+                $('#pma_console_options input[name=always_expand]').prop('checked', true);
+            }
+            if (PMA_console.config.StartHistory === true) {
+                $('#pma_console_options').find('input[name=start_history]').prop('checked', true);
+            }
+            if (PMA_console.config.CurrentQuery === true) {
                 $('#pma_console_options').find('input[name=current_query]').prop('checked', true);
             }
-
-            PMA_console.updateConfig();
+            if (PMA_console.config.EnterExecutes === true) {
+                $('#pma_console_options').find('input[name=enter_executes]').prop('checked', true);
+            }
+            if (PMA_console.config.DarkTheme === true) {
+                $('#pma_console_options').find('input[name=dark_theme]').prop('checked', true);
+                $('#pma_console').find('>.content').addClass('console_dark_theme');
+            }
 
             PMA_consoleResizer.initialize();
             PMA_consoleInput.initialize();
@@ -179,7 +166,7 @@ var PMA_console = {
             });
 
             $('#pma_console_options').find('input[name=enter_executes]').change(function () {
-                PMA_consoleMessages.showInstructions(PMA_console.config.enterExecutes);
+                PMA_consoleMessages.showInstructions(PMA_console.config.EnterExecutes);
             });
 
             $(document).ajaxComplete(function (event, xhr, ajaxOptions) {
@@ -202,13 +189,13 @@ var PMA_console = {
         }
 
         // Change console mode from cookie
-        switch (Cookies.get('pma_console_mode')) {
+        switch (PMA_console.config.Mode) {
         case 'collapse':
             PMA_console.collapse();
             break;
             /* jshint -W086 */// no break needed in default section
         default:
-            Cookies.set('pma_console_mode', 'info');
+            PMA_console.setConfig('Mode', 'info');
         case 'info':
             /* jshint +W086 */
             PMA_console.info();
@@ -261,7 +248,7 @@ var PMA_console = {
         } else if (data && data._reloadQuerywindow) {
             if (data._reloadQuerywindow.sql_query.length > 0) {
                 PMA_consoleMessages.appendQuery(data._reloadQuerywindow, 'successed')
-                    .$message.addClass(PMA_console.config.currentQuery ? '' : 'hide');
+                    .$message.addClass(PMA_console.config.CurrentQuery ? '' : 'hide');
             }
         }
     },
@@ -271,12 +258,9 @@ var PMA_console = {
      * @return void
      */
     collapse: function () {
-        Cookies.set('pma_console_mode', 'collapse');
-        var pmaConsoleHeight = Cookies.get('pma_console_height');
+        PMA_console.setConfig('Mode', 'collapse');
+        var pmaConsoleHeight = Math.max(92, PMA_console.config.Height);
 
-        if (pmaConsoleHeight < 32) {
-            Cookies.set('pma_console_height', 92);
-        }
         PMA_console.$consoleToolbar.addClass('collapsed');
         PMA_console.$consoleAllContents.height(pmaConsoleHeight);
         PMA_console.$consoleContent.stop();
@@ -294,15 +278,10 @@ var PMA_console = {
      * @return void
      */
     show: function (inputFocus) {
-        Cookies.set('pma_console_mode', 'show');
+        PMA_console.setConfig('Mode', 'show');
 
-        var pmaConsoleHeight = Cookies.get('pma_console_height');
+        var pmaConsoleHeight = Math.max(92, PMA_console.config.Height);
 
-        if (pmaConsoleHeight < 32) {
-            Cookies.set('pma_console_height', 32);
-            PMA_console.collapse();
-            return;
-        }
         PMA_console.$consoleContent.css({ display:'block' });
         if (PMA_console.$consoleToolbar.hasClass('collapsed')) {
             PMA_console.$consoleToolbar.removeClass('collapsed');
@@ -335,7 +314,7 @@ var PMA_console = {
      * @return void
      */
     toggle: function () {
-        switch (Cookies.get('pma_console_mode')) {
+        switch (PMA_console.config.Mode) {
         case 'collapse':
         case 'info':
             PMA_console.show(true);
@@ -406,20 +385,21 @@ var PMA_console = {
      * @return void
      */
     updateConfig: function () {
-        PMA_console.config = {
-            alwaysExpand: $('#pma_console_options input[name=always_expand]').prop('checked'),
-            startHistory: $('#pma_console_options').find('input[name=start_history]').prop('checked'),
-            currentQuery: $('#pma_console_options').find('input[name=current_query]').prop('checked'),
-            enterExecutes: $('#pma_console_options').find('input[name=enter_executes]').prop('checked'),
-            darkTheme: $('#pma_console_options').find('input[name=dark_theme]').prop('checked')
-        };
-        Cookies.set('pma_console_config', PMA_console.config);
+        PMA_console.setConfig('AlwaysExpand', $('#pma_console_options input[name=always_expand]').prop('checked'));
+        PMA_console.setConfig('StartHistory', $('#pma_console_options').find('input[name=start_history]').prop('checked'));
+        PMA_console.setConfig('CurrentQuery', $('#pma_console_options').find('input[name=current_query]').prop('checked'));
+        PMA_console.setConfig('EnterExecutes', $('#pma_console_options').find('input[name=enter_executes]').prop('checked'));
+        PMA_console.setConfig('DarkTheme', $('#pma_console_options').find('input[name=dark_theme]').prop('checked'));
         /* Setting the dark theme of the console*/
-        if (PMA_console.config.darkTheme) {
+        if (PMA_console.config.DarkTheme) {
             $('#pma_console').find('>.content').addClass('console_dark_theme');
         } else {
             $('#pma_console').find('>.content').removeClass('console_dark_theme');
         }
+    },
+    setConfig: function (key, value) {
+        PMA_console.config[key] = value;
+        configSet('Console/' + key, value);
     },
     isSelect: function (queryString) {
         var reg_exp = /^SELECT\s+/i;
@@ -442,7 +422,7 @@ var PMA_consoleResizer = {
      * @return void
      */
     _mousedown: function (event) {
-        if (Cookies.get('pma_console_mode') !== 'show') {
+        if (PMA_console.config.Mode !== 'show') {
             return;
         }
         PMA_consoleResizer._posY = event.pageY;
@@ -485,7 +465,7 @@ var PMA_consoleResizer = {
      * @return void
      */
     _mouseup: function () {
-        Cookies.set('pma_console_height', PMA_consoleResizer._resultHeight);
+        PMA_console.setConfig('Height', PMA_consoleResizer._resultHeight);
         PMA_console.show();
         $(document).off('mousemove');
         $(document).off('mouseup');
@@ -645,7 +625,7 @@ var PMA_consoleInput = {
      * @return void
      */
     _keydown: function (event) {
-        if (PMA_console.config.enterExecutes) {
+        if (PMA_console.config.EnterExecutes) {
             // Enter, but not in combination with Shift (which writes a new line).
             if (!event.shiftKey && event.keyCode === 13) {
                 PMA_consoleInput.execute();
@@ -816,7 +796,7 @@ var PMA_consoleMessages = {
         var now = new Date();
         var $newMessage =
             $('<div class="message ' +
-                (PMA_console.config.alwaysExpand ? 'expanded' : 'collapsed') +
+                (PMA_console.config.AlwaysExpand ? 'expanded' : 'collapsed') +
                 '" msgid="' + msgId + '"><div class="action_content"></div></div>');
         switch (msgType) {
         case 'query':
@@ -1022,10 +1002,10 @@ var PMA_consoleMessages = {
      */
     initialize: function () {
         PMA_consoleMessages._msgEventBinds($('#pma_console').find('.message:not(.binded)'));
-        if (PMA_console.config.startHistory) {
+        if (PMA_console.config.StartHistory) {
             PMA_consoleMessages.showHistory();
         }
-        PMA_consoleMessages.showInstructions(PMA_console.config.enterExecutes);
+        PMA_consoleMessages.showInstructions(PMA_console.config.EnterExecutes);
     }
 };
 
@@ -1130,19 +1110,16 @@ PMA_consoleDebug = {
             }
         });
 
-        // Initialize config
-        this._initConfig();
-
-        if (this.configParam('groupQueries')) {
+        if (PMA_console.config.GroupQueries) {
             $('#debug_console').addClass('grouped');
         } else {
             $('#debug_console').addClass('ungrouped');
-            if (PMA_consoleDebug.configParam('orderBy') === 'count') {
+            if (PMA_console.config.OrderBy === 'count') {
                 $('#debug_console').find('.button.order_by.sort_exec').addClass('active');
             }
         }
-        var orderBy = this.configParam('orderBy');
-        var order = this.configParam('order');
+        var orderBy = PMA_console.config.OrderBy;
+        var order = PMA_console.config.Order;
         $('#debug_console').find('.button.order_by.sort_' + orderBy).addClass('active');
         $('#debug_console').find('.button.order.order_' + order).addClass('active');
 
@@ -1150,18 +1127,18 @@ PMA_consoleDebug = {
         $('#debug_console').find('.button.group_queries').click(function () {
             $('#debug_console').addClass('grouped');
             $('#debug_console').removeClass('ungrouped');
-            PMA_consoleDebug.configParam('groupQueries', true);
+            PMA_console.setConfig('GroupQueries', true);
             PMA_consoleDebug.refresh();
-            if (PMA_consoleDebug.configParam('orderBy') === 'count') {
+            if (PMA_console.config.OrderBy === 'count') {
                 $('#debug_console').find('.button.order_by.sort_exec').removeClass('active');
             }
         });
         $('#debug_console').find('.button.ungroup_queries').click(function () {
             $('#debug_console').addClass('ungrouped');
             $('#debug_console').removeClass('grouped');
-            PMA_consoleDebug.configParam('groupQueries', false);
+            PMA_console.setConfig('GroupQueries', false);
             PMA_consoleDebug.refresh();
-            if (PMA_consoleDebug.configParam('orderBy') === 'count') {
+            if (PMA_console.config.OrderBy === 'count') {
                 $('#debug_console').find('.button.order_by.sort_exec').addClass('active');
             }
         });
@@ -1170,11 +1147,11 @@ PMA_consoleDebug = {
             $('#debug_console').find('.button.order_by').removeClass('active');
             $this.addClass('active');
             if ($this.hasClass('sort_time')) {
-                PMA_consoleDebug.configParam('orderBy', 'time');
+                PMA_console.setConfig('OrderBy', 'time');
             } else if ($this.hasClass('sort_exec')) {
-                PMA_consoleDebug.configParam('orderBy', 'exec');
+                PMA_console.setConfig('OrderBy', 'exec');
             } else if ($this.hasClass('sort_count')) {
-                PMA_consoleDebug.configParam('orderBy', 'count');
+                PMA_console.setConfig('OrderBy', 'count');
             }
             PMA_consoleDebug.refresh();
         });
@@ -1183,9 +1160,9 @@ PMA_consoleDebug = {
             $('#debug_console').find('.button.order').removeClass('active');
             $this.addClass('active');
             if ($this.hasClass('order_asc')) {
-                PMA_consoleDebug.configParam('order', 'asc');
+                PMA_console.setConfig('Order', 'asc');
             } else if ($this.hasClass('order_desc')) {
-                PMA_consoleDebug.configParam('order', 'desc');
+                PMA_console.setConfig('Order', 'desc');
             }
             PMA_consoleDebug.refresh();
         });
@@ -1197,24 +1174,6 @@ PMA_consoleDebug = {
             return;
         }
         PMA_consoleDebug.showLog(debugSQLInfo);
-    },
-    _initConfig: function () {
-        var config = Cookies.getJSON('pma_console_dbg_config');
-        if (config) {
-            for (var name in config) {
-                if (config.hasOwnProperty(name)) {
-                    this._config[name] = config[name];
-                }
-            }
-        }
-    },
-    configParam: function (name, value) {
-        if (typeof value === 'undefined') {
-            return this._config[name];
-        }
-        this._config[name] = value;
-        Cookies.set('pma_console_dbg_config', this._config);
-        return value;
     },
     _formatFunctionCall: function (dbgStep) {
         var functionName = '';
@@ -1466,7 +1425,7 @@ PMA_consoleDebug = {
 
         // For sorting queries
         function sortByTime (a, b) {
-            var order = ((PMA_consoleDebug.configParam('order') === 'asc') ? 1 : -1);
+            var order = ((PMA_console.config.Order === 'asc') ? 1 : -1);
             if (Array.isArray(a) && Array.isArray(b)) {
                 // It is grouped
                 var timeA = 0;
@@ -1485,14 +1444,14 @@ PMA_consoleDebug = {
         }
 
         function sortByCount (a, b) {
-            var order = ((PMA_consoleDebug.configParam('order') === 'asc') ? 1 : -1);
+            var order = ((PMA_console.config.Oorder === 'asc') ? 1 : -1);
             return (a.length - b.length) * order;
         }
 
-        var orderBy = this.configParam('orderBy');
-        var order = PMA_consoleDebug.configParam('order');
+        var orderBy = PMA_console.config.OrderBy;
+        var order = PMA_console.config.Order;
 
-        if (this.configParam('groupQueries')) {
+        if (PMA_console.config.GroupQueries) {
             // Sort queries
             if (orderBy === 'time') {
                 uniqueQueries.sort(sortByTime);

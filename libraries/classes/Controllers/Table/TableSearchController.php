@@ -201,6 +201,7 @@ class TableSearchController extends TableController
                         'sql.js',
                         'tbl_select.js',
                         'tbl_change.js',
+                        'vendor/jquery/jquery.validate.js',
                         'vendor/jquery/jquery-ui-timepicker-addon.js',
                         'vendor/jquery/jquery.uitablefilter.js',
                         'gis_data_editor.js',
@@ -239,6 +240,7 @@ class TableSearchController extends TableController
                         'vendor/jqplot/plugins/jqplot.highlighter.js',
                         'vendor/jqplot/plugins/jqplot.cursor.js',
                         'vendor/jquery/jquery-ui-timepicker-addon.js',
+                        'vendor/jquery/jquery.validate.js',
                         'tbl_zoom_plot_jqplot.js',
                         'tbl_change.js',
                     )
@@ -357,7 +359,7 @@ class TableSearchController extends TableController
         //Displays form for point data and scatter plot
         $titles = array(
             'Browse' => Util::getIcon(
-                'b_browse.png',
+                'b_browse',
                 __('Browse foreign values')
             )
         );
@@ -776,18 +778,18 @@ class TableSearchController extends TableController
     private function _getSubTabs()
     {
         $subtabs = array();
-        $subtabs['search']['icon'] = 'b_search.png';
+        $subtabs['search']['icon'] = 'b_search';
         $subtabs['search']['text'] = __('Table search');
         $subtabs['search']['link'] = 'tbl_select.php';
         $subtabs['search']['id'] = 'tbl_search_id';
         $subtabs['search']['args']['pos'] = 0;
 
-        $subtabs['zoom']['icon'] = 'b_select.png';
+        $subtabs['zoom']['icon'] = 'b_select';
         $subtabs['zoom']['link'] = 'tbl_zoom_select.php';
         $subtabs['zoom']['text'] = __('Zoom search');
         $subtabs['zoom']['id'] = 'zoom_search_id';
 
-        $subtabs['replace']['icon'] = 'b_find_replace.png';
+        $subtabs['replace']['icon'] = 'b_find_replace';
         $subtabs['replace']['link'] = 'tbl_find_replace.php';
         $subtabs['replace']['text'] = __('Find and replace');
         $subtabs['replace']['id'] = 'find_replace_id';
@@ -853,7 +855,7 @@ class TableSearchController extends TableController
             ? $_POST['criteriaValues'] : '');
         $titles = array(
             'Browse' => Util::getIcon(
-                'b_browse.png', __('Browse foreign values')
+                'b_browse', __('Browse foreign values')
             )
         );
         //Gets column's type and collation

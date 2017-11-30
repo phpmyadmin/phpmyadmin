@@ -18,12 +18,12 @@ if (!defined('PHPMYADMIN')) {
 
 $form_param = isset($_GET['form']) ? $_GET['form'] : null;
 $tabs_icons = array(
-    'Features'    => 'b_tblops.png',
-    'Sql'         => 'b_sql.png',
-    'Navi'        => 'b_select.png',
-    'Main'        => 'b_props.png',
-    'Import'      => 'b_import.png',
-    'Export'      => 'b_export.png');
+    'Features'    => 'b_tblops',
+    'Sql'         => 'b_sql',
+    'Navi'        => 'b_select',
+    'Main'        => 'b_props',
+    'Import'      => 'b_import',
+    'Export'      => 'b_export');
 
 $content = PhpMyAdmin\Util::getHtmlTab(
     array(
@@ -34,7 +34,7 @@ $content = PhpMyAdmin\Util::getHtmlTab(
 /* Second authentication factor */
 $content .= PhpMyAdmin\Util::getHtmlTab(
     array(
-        'link' => 'prefs_second.php',
+        'link' => 'prefs_twofactor.php',
         'text' => __('Two-factor authentication')
     )
 ) . "\n";

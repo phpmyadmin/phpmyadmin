@@ -291,6 +291,15 @@ function PMA_getSQLEditor ($textarea, options, resize, lintOptions) {
         // enable autocomplete
         codemirrorEditor.on('inputRead', codemirrorAutocompleteOnInputRead);
 
+        // page locking
+        codemirrorEditor.on('change', function (e) {
+            e.data = {
+                value: 3,
+                content: codemirrorEditor.isClean(),
+            };
+            AJAX.lockPageHandler(e);
+        });
+
         return codemirrorEditor;
     }
     return null;
@@ -1763,7 +1772,7 @@ function getForeignKeyCheckboxLoader () {
     var html = '';
     html    += '<div>';
     html    += '<div class="load-default-fk-check-value">';
-    html    += PMA_getImage('ajax_clock_small.gif');
+    html    += PMA_getImage('ajax_clock_small');
     html    += '</div>';
     html    += '</div>';
     return html;
@@ -1901,9 +1910,9 @@ AJAX.registerOnload('functions.js', function () {
     var $inputUsername = $('#input_username');
     if ($inputUsername) {
         if ($inputUsername.val() === '') {
-            $inputUsername.focus();
+            $inputUsername.trigger('focus');
         } else {
-            $('#input_password').focus();
+            $('#input_password').trigger('focus');
         }
     }
 });
@@ -3378,7 +3387,7 @@ AJAX.registerOnload('functions.js', function () {
             values.push('', '', '', '');
         }
         // Add the parsed values to the editor
-        var drop_icon = PMA_getImage('b_drop.png');
+        var drop_icon = PMA_getImage('b_drop');
         for (i = 0; i < values.length; i++) {
             fields += '<tr><td>' +
                    '<input type=\'text\' value=\'' + values[i] + '\'/>' +
@@ -3392,7 +3401,7 @@ AJAX.registerOnload('functions.js', function () {
         var dialog = '<div id=\'enum_editor\'>' +
                    '<fieldset>' +
                     '<legend>' + title + '</legend>' +
-                    '<p>' + PMA_getImage('s_notice.png') +
+                    '<p>' + PMA_getImage('s_notice') +
                     PMA_messages.enum_hint + '</p>' +
                     '<table class=\'values\'>' + fields + '</table>' +
                     '</fieldset><fieldset class=\'tblFooters\'>' +
@@ -3615,7 +3624,7 @@ AJAX.registerOnload('functions.js', function () {
                     '<tr class=\'hide\'><td>' +
                     '<input type=\'text\' />' +
                     '</td><td class=\'drop\'>' +
-                    PMA_getImage('b_drop.png') +
+                    PMA_getImage('b_drop') +
                     '</td></tr>'
                 )
                 .find('tr:last')
@@ -3883,7 +3892,7 @@ $(function () {
     // Initialise the menu resize plugin
     $('#topmenu').menuResizer(PMA_mainMenuResizerCallback);
     // register resize event
-    $(window).resize(function () {
+    $(window).on('resize', function () {
         $('#topmenu').menuResizer('resize');
     });
 });
@@ -4736,9 +4745,9 @@ AJAX.registerOnload('functions.js', function () {
     if ($loginform.length) {
         $loginform.find('.js-show').show();
         if ($('#input_username').val()) {
-            $('#input_password').focus();
+            $('#input_password').trigger('focus');
         } else {
-            $('#input_username').focus();
+            $('#input_username').trigger('focus');
         }
     }
     var $https_warning = $('#js-https-mismatch');
@@ -4922,21 +4931,13 @@ AJAX.registerOnload('functions.js', function () {
  *                                       tag to the given value
  */
 function PMA_getImage(image, alternate, attributes) {
-    var in_array = function (needle, haystack) {
-        for (var i in haystack) {
-            if (haystack[i] == needle) {
-                return true;
-            }
-        }
-        return false;
-    };
     // custom image object, it will eventually be returned by this functions
     var retval = {
         data: {
             // this is private
             alt: '',
             title: '',
-            src: '',
+            src: 'themes/dot.gif',
         },
         attr: function (name, value) {
             if (value == undefined) {
@@ -4977,11 +4978,8 @@ function PMA_getImage(image, alternate, attributes) {
     } else {
         retval.attr('title', escapeHtml(alternate));
     }
-    // it's an image file
-    retval.attr(
-        'src',
-        pmaThemeImage + image
-    );
+    // set css classes
+    retval.attr('class', 'icon ic_' + image);
     // set all other attrubutes
     for (var i in attributes) {
         if (i == 'src') {
@@ -4993,4 +4991,91 @@ function PMA_getImage(image, alternate, attributes) {
     }
 
     return retval;
+}
+
+/**
+ * Sets a configuration value.
+ *
+ * A configuration value may be set in both browser's local storage and
+ * remotely in server's configuration table.
+ *
+ * If the `only_local` argument is `true`, the value is store is stored only in
+ * browser's local storage and may be lost if the user resets his browser's
+ * settings.
+ *
+ * NOTE: Depending on server's configuration, the configuration table may be or
+ * not persistent.
+ *
+ * @param  {string}     key         Configuration key.
+ * @param  {object}     value       Configuration value.
+ * @param  {boolean}    only_local  Configuration type.
+ */
+function configSet(key, value, only_local=false)
+{
+    let serialized = JSON.stringify(value);
+    localStorage.setItem(key, serialized);
+    $.ajax({
+        url: "ajax.php",
+        type: "POST",
+        dataType: "json",
+        data: {
+            key: key,
+            type: "config-set",
+            value: serialized,
+        },
+        success: function (data) {
+            // Updating value in local storage.
+            if (! data.success) {
+                PMA_ajaxShowMessage(data.message);
+            }
+            // Eventually, call callback.
+        }
+    });
+}
+
+/**
+ * Gets a configuration value. A configuration value will be searched in
+ * browser's local storage first and if not found, a call to the server will be
+ * made.
+ *
+ * If value should not be cached and the up-to-date configuration value from
+ * right from the server is required, the third parameter should be `false`.
+ *
+ * @param  {string}     key         Configuration key.
+ * @param  {boolean}    only_local  Configuration type.
+ *
+ * @return {object}                 Configuration value.
+ */
+function configGet(key, cached=true)
+{
+    let value = localStorage.getItem(key);
+    if (cached && value !== undefined && value !== null) {
+        return JSON.parse(value);
+    }
+
+    // Result not found in local storage or ignored.
+    // Hitting the server.
+    $.ajax({
+        // TODO: This is ugly, but usually when a configuration is needed,
+        // processing cannot continue until that value is found.
+        // Another solution is to provide a callback as a parameter.
+        async: false,
+        url: "ajax.php",
+        type: "POST",
+        dataType: "json",
+        data: {
+            type: "config-get",
+            key: key
+        },
+        success: function (data) {
+            // Updating value in local storage.
+            if (data.success) {
+                localStorage.setItem(key, JSON.stringify(data.value));
+            } else {
+                PMA_ajaxShowMessage(data.message);
+            }
+            // Eventually, call callback.
+        }
+    });
+    return JSON.parse(localStorage.getItem(key));
 }

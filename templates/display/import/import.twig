@@ -1,0 +1,194 @@
+<iframe id="import_upload_iframe" name="import_upload_iframe" width="1" height="1" class="hide"></iframe>
+<div id="import_form_status" class="hide"></div>
+<div id="importmain">
+    <img src="{{ pma_theme_image }}ajax_clock_small.gif" width="16" height="16" alt="ajax clock" class="hide" />
+
+    <script type="text/javascript">
+        //<![CDATA[
+        {% include 'display/import/javascript.twig' with {
+            'upload_id': upload_id,
+            'handler': handler,
+            'pma_theme_image': pma_theme_image
+        } only %}
+        //]]>
+    </script>
+
+    <form id="import_file_form"
+        action="import.php"
+        method="post"
+        enctype="multipart/form-data"
+        name="import"
+        class="ajax"
+        {%- if handler != 'PhpMyAdmin\\Plugins\\Import\\Upload\\UploadNoplugin' %}
+            target="import_upload_iframe"
+        {%- endif %}>
+
+        <input type="hidden" name="{{ id_key }}" value="{{ upload_id }}" />
+        {% if import_type == 'server' %}
+            {{ Url_getHiddenInputs('', '', 1) }}
+        {% elseif import_type == 'database' %}
+            {{ Url_getHiddenInputs(db, '', 1) }}
+        {% else %}
+            {{ Url_getHiddenInputs(db, table, 1) }}
+        {% endif %}
+        <input type="hidden" name="import_type" value="{{ import_type }}" />
+
+        <div class="exportoptions" id="header">
+            <h2>
+                {{ Util_getImage('b_import', 'Import'|trans) }}
+                {% if import_type == 'server' %}
+                    {% trans 'Importing into the current server' %}
+                {% elseif import_type == 'database' %}
+                    {{ 'Importing into the database "%s"'|trans|format(db) }}
+                {% else %}
+                    {{ 'Importing into the table "%s"'|trans|format(table) }}
+                {% endif %}
+            </h2>
+        </div>
+
+        <div class="importoptions">
+            <h3>{% trans 'File to import:' %}</h3>
+
+            {# We don't have show anything about compression, when no supported #}
+            {% if compressions is not empty %}
+                <div class="formelementrow" id="compression_info">
+                    <p>
+                        {{ 'File may be compressed (%s) or uncompressed.'|trans|format(compressions|join(', ')) }}
+                        <br>
+                        {% trans 'A compressed file\'s name must end in <strong>.[format].[compression]</strong>. Example: <strong>.sql.zip</strong>' %}
+                    </p>
+                </div>
+            {% endif %}
+
+            <div class="formelementrow" id="upload_form">
+                {% if is_upload and upload_dir is not empty %}
+                    <ul>
+                        <li>
+                            <input type="radio" name="file_location" id="radio_import_file" required="required" />
+                            {{ Util_getBrowseUploadFileBlock(max_upload_size) }}
+                            {% trans 'You may also drag and drop a file on any page.' %}
+                        </li>
+                        <li>
+                            <input type="radio" name="file_location" id="radio_local_import_file"
+                                {%- if timeout_passed_global is not empty and local_import_file is not empty %}
+                                    checked="checked"
+                                {%- endif %} />
+                            {{ Util_getSelectUploadFileBlock(
+                                import_list,
+                                upload_dir
+                            ) }}
+                        </li>
+                    </ul>
+                {% elseif is_upload %}
+                    {{ Util_getBrowseUploadFileBlock(max_upload_size) }}
+                    <p>{% trans 'You may also drag and drop a file on any page.' %}</p>
+                {% elseif not is_upload %}
+                    {{ Message_notice('File uploads are not allowed on this server.'|trans) }}
+                {% elseif upload_dir is not empty %}
+                    {{ Util_getSelectUploadFileBlock(
+                        import_list,
+                        upload_dir
+                    ) }}
+                {% endif %}
+            </div>
+
+            <div class="formelementrow" id="charaset_of_file">
+                {# Charset of file #}
+                <label for="charset_of_file">{% trans 'Character set of the file:' %}</label>
+                {% if is_encoding_supported %}
+                    <select id="charset_of_file" name="charset_of_file" size="1">
+                        {% for charset in encodings %}
+                            <option value="{{ charset }}"
+                                {% if (import_charset is empty and charset == 'utf-8')
+                                    or charset == import_charset %}
+                                    selected="selected"
+                                {% endif %}>
+                                {{ charset }}
+                            </option>
+                        {% endfor %}
+                    </select>
+                {% else %}
+                    {{ Charsets_getCharsetDropdownBox(
+                        dbi,
+                        disable_is,
+                        'charset_of_file',
+                        'charset_of_file',
+                        'utf8',
+                        false
+                    ) }}
+                {% endif %}
+            </div>
+        </div>
+
+        <div class="importoptions">
+            <h3>{% trans 'Partial import:' %}</h3>
+
+            {% if timeout_passed is defined and timeout_passed %}
+                <div class="formelementrow">
+                    <input type="hidden" name="skip" value="{{ offset }}" />
+                    {{ 'Previous import timed out, after resubmitting will continue from position %d.'|trans|format(offset) }}
+                </div>
+            {% endif %}
+
+            <div class="formelementrow">
+                <input type="checkbox" name="allow_interrupt" value="yes" id="checkbox_allow_interrupt"
+                    {{ Plugins_checkboxCheck('Import', 'allow_interrupt') }} />
+                <label for="checkbox_allow_interrupt">
+                    {% trans 'Allow the interruption of an import in case the script detects it is close to the PHP timeout limit. <em>(This might be a good way to import large files, however it can break transactions.)</em>' %}
+                </label>
+            </div>
+
+            {% if not (timeout_passed is defined and timeout_passed) %}
+                <div class="formelementrow">
+                    <label for="text_skip_queries">
+                        {% trans 'Skip this number of queries (for SQL) starting from the first one:' %}
+                    </label>
+                    <input type="number" name="skip_queries" value="
+                        {{- Plugins_getDefault('Import', 'skip_queries') -}}
+                        " id="text_skip_queries" min="0" />
+                </div>
+            {% else %}
+                {# If timeout has passed,
+                   do not show the Skip dialog to avoid the risk of someone
+                   entering a value here that would interfere with "skip" #}
+                <input type="hidden" name="skip_queries" value="
+                    {{- Plugins_getDefault('Import', 'skip_queries') -}}
+                    " id="text_skip_queries" />
+            {% endif %}
+        </div>
+
+        <div class="importoptions">
+            <h3>{% trans 'Other options:' %}</h3>
+            <div class="formelementrow">
+                {{ Util_getFKCheckbox() }}
+            </div>
+        </div>
+
+        <div class="importoptions">
+            <h3>{% trans 'Format:' %}</h3>
+            {{ Plugins_getChoice('Import', 'format', import_list) }}
+            <div id="import_notification"></div>
+        </div>
+
+        <div class="importoptions" id="format_specific_opts">
+            <h3>{% trans 'Format-specific options:' %}</h3>
+            <p class="no_js_msg" id="scroll_to_options_msg">
+                {% trans 'Scroll down to fill in the options for the selected format and ignore the options for other formats.' %}
+            </p>
+            {{ Plugins_getOptions('Import', import_list) }}
+        </div>
+        <div class="clearfloat"></div>
+
+        {# Japanese encoding setting #}
+        {% if can_convert_kanji %}
+            <div class="importoptions" id="kanji_encoding">
+                <h3>{% trans 'Encoding Conversion:' %}</h3>
+                {% include 'encoding/kanji_encoding_form.twig' %}
+            </div>
+        {% endif %}
+
+        <div class="importoptions" id="submit">
+            <input type="submit" value="{% trans 'Go' %}" id="buttonGo" />
+        </div>
+    </form>
+</div>

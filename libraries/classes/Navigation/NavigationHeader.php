@@ -57,7 +57,7 @@ class NavigationHeader
         $buffer .= $this->_links();
         $buffer .= $this->_serverChoice();
         $buffer .= Util::getImage(
-            'ajax_clock_small.gif',
+            'ajax_clock_small',
             __('Loading…'),
             array(
                 'style' => 'visibility: hidden; display:none',
@@ -164,7 +164,7 @@ class NavigationHeader
             $showText,
             __('Home'),
             $showIcon,
-            'b_home.png'
+            'b_home'
         );
         // if we have chosen server
         if ($GLOBALS['server'] != 0) {
@@ -180,7 +180,7 @@ class NavigationHeader
                 $showText,
                 $text,
                 $showIcon,
-                's_loggoff.png',
+                's_loggoff',
                 '',
                 true,
                 '',
@@ -192,7 +192,7 @@ class NavigationHeader
             $showText,
             __('phpMyAdmin documentation'),
             $showIcon,
-            'b_docs.png',
+            'b_docs',
             '',
             false,
             'documentation'
@@ -202,7 +202,7 @@ class NavigationHeader
             $showText,
             __('Documentation'),
             $showIcon,
-            'b_sqlhelp.png',
+            'b_sqlhelp',
             '',
             false,
             'mysql_doc'
@@ -212,7 +212,7 @@ class NavigationHeader
             $showText,
             __('Navigation panel settings'),
             $showIcon,
-            's_cog.png',
+            's_cog',
             'pma_navigation_settings_icon',
             false,
             '',
@@ -223,7 +223,7 @@ class NavigationHeader
             $showText,
             __('Reload navigation panel'),
             $showIcon,
-            's_reload.png',
+            's_reload',
             'pma_navigation_reload'
         );
         $retval .= '</div>';

@@ -7,33 +7,33 @@
  */
 namespace PhpMyAdmin\Twig;
 
-use Twig_Extension;
-use Twig_SimpleFunction;
+use Twig\Extension\AbstractExtension;
+use Twig\TwigFunction;
 
 /**
  * Class PhpFunctionsExtension
  *
  * @package PhpMyAdmin\Twig
  */
-class PhpFunctionsExtension extends Twig_Extension
+class PhpFunctionsExtension extends AbstractExtension
 {
     /**
      * Returns a list of functions to add to the existing list.
      *
-     * @return Twig_SimpleFunction[]
+     * @return TwigFunction[]
      */
     public function getFunctions()
     {
         return array(
-            new Twig_SimpleFunction('array_search', 'array_search'),
-            new Twig_SimpleFunction('bin2hex', 'bin2hex'),
-            new Twig_SimpleFunction('htmlentities', 'htmlentities'),
-            new Twig_SimpleFunction('md5', 'md5'),
-            new Twig_SimpleFunction('preg_quote', 'preg_quote'),
-            new Twig_SimpleFunction('preg_replace', 'preg_replace'),
-            new Twig_SimpleFunction('strpos', 'strpos'),
-            new Twig_SimpleFunction('strstr', 'strstr'),
-            new Twig_SimpleFunction('strtotime', 'strtotime'),
+            new TwigFunction('array_search', 'array_search'),
+            new TwigFunction('bin2hex', 'bin2hex'),
+            new TwigFunction('htmlentities', 'htmlentities'),
+            new TwigFunction('md5', 'md5'),
+            new TwigFunction('preg_quote', 'preg_quote'),
+            new TwigFunction('preg_replace', 'preg_replace'),
+            new TwigFunction('strpos', 'strpos'),
+            new TwigFunction('strstr', 'strstr'),
+            new TwigFunction('strtotime', 'strtotime'),
         );
     }
 }

@@ -34,13 +34,11 @@
 use PhpMyAdmin\Config;
 use PhpMyAdmin\Core;
 use PhpMyAdmin\DatabaseInterface;
-use PhpMyAdmin\Database\DatabaseList;
 use PhpMyAdmin\ErrorHandler;
 use PhpMyAdmin\LanguageManager;
 use PhpMyAdmin\Logging;
 use PhpMyAdmin\Message;
 use PhpMyAdmin\Plugins\AuthenticationPlugin;
-use PhpMyAdmin\Relation;
 use PhpMyAdmin\Response;
 use PhpMyAdmin\Session;
 use PhpMyAdmin\ThemeManager;
@@ -117,34 +115,6 @@ Core::configure();
 
 Core::cleanupPathInfo();
 
-/**
- * just to be sure there was no import (registering) before here
- * we empty the global space (but avoid unsetting $variables_list
- * and $key in the foreach (), we still need them!)
- */
-$variables_whitelist = array (
-    'GLOBALS',
-    '_SERVER',
-    '_GET',
-    '_POST',
-    '_REQUEST',
-    '_FILES',
-    '_ENV',
-    '_COOKIE',
-    '_SESSION',
-    'error_handler',
-    'PMA_PHP_SELF',
-    'variables_whitelist',
-    'key',
-);
-
-foreach (get_defined_vars() as $key => $value) {
-    if (! in_array($key, $variables_whitelist)) {
-        unset($$key);
-    }
-}
-unset($key, $value, $variables_whitelist);
-
 /******************************************************************************/
 /* parsing configuration file                  LABEL_parsing_config_file      */
 
@@ -154,28 +124,6 @@ unset($key, $value, $variables_whitelist);
  * in the previous iteration
  */
 $GLOBALS['PMA_Config'] = new Config(CONFIG_FILE);
-
-/**
- * clean cookies on upgrade
- * when changing something related to PMA cookies, increment the cookie version
- */
-$pma_cookie_version = 5;
-if (isset($_COOKIE)) {
-    if (! isset($_COOKIE['pmaCookieVer'])
-        || $_COOKIE['pmaCookieVer'] != $pma_cookie_version
-    ) {
-        // delete all cookies
-        foreach ($_COOKIE as $cookie_name => $tmp) {
-            // We ignore cookies not with pma prefix
-            if (strncmp('pma', $cookie_name, 3) != 0) {
-                continue;
-            }
-            $GLOBALS['PMA_Config']->removeCookie($cookie_name);
-        }
-        $_COOKIE = array();
-        $GLOBALS['PMA_Config']->setCookie('pmaCookieVer', $pma_cookie_version);
-    }
-}
 
 /**
  * include session handling after the globals, to prevent overwriting
@@ -193,67 +141,12 @@ Session::setUp($GLOBALS['PMA_Config'], $GLOBALS['error_handler']);
 $GLOBALS['url_params'] = array();
 
 /**
- * the whitelist for $GLOBALS['goto']
- * @global array $goto_whitelist
- */
-$goto_whitelist = array(
-    'db_datadict.php',
-    'db_sql.php',
-    'db_events.php',
-    'db_export.php',
-    'db_importdocsql.php',
-    'db_multi_table_query.php',
-    'db_structure.php',
-    'db_import.php',
-    'db_operations.php',
-    'db_search.php',
-    'db_routines.php',
-    'export.php',
-    'import.php',
-    'index.php',
-    'pdf_pages.php',
-    'pdf_schema.php',
-    'server_binlog.php',
-    'server_collations.php',
-    'server_databases.php',
-    'server_engines.php',
-    'server_export.php',
-    'server_import.php',
-    'server_privileges.php',
-    'server_sql.php',
-    'server_status.php',
-    'server_status_advisor.php',
-    'server_status_monitor.php',
-    'server_status_queries.php',
-    'server_status_variables.php',
-    'server_variables.php',
-    'sql.php',
-    'tbl_addfield.php',
-    'tbl_change.php',
-    'tbl_create.php',
-    'tbl_import.php',
-    'tbl_indexes.php',
-    'tbl_sql.php',
-    'tbl_export.php',
-    'tbl_operations.php',
-    'tbl_structure.php',
-    'tbl_relation.php',
-    'tbl_replace.php',
-    'tbl_row_action.php',
-    'tbl_select.php',
-    'tbl_zoom_select.php',
-    'transformation_overview.php',
-    'transformation_wrapper.php',
-    'user_password.php',
-);
-
-/**
  * holds page that should be displayed
  * @global string $GLOBALS['goto']
  */
 $GLOBALS['goto'] = '';
 // Security fix: disallow accessing serious server files via "?goto="
-if (Core::checkPageValidity($_REQUEST['goto'], $goto_whitelist)) {
+if (Core::checkPageValidity($_REQUEST['goto'])) {
     $GLOBALS['goto'] = $_REQUEST['goto'];
     $GLOBALS['url_params']['goto'] = $_REQUEST['goto'];
 } else {
@@ -264,7 +157,7 @@ if (Core::checkPageValidity($_REQUEST['goto'], $goto_whitelist)) {
  * returning page
  * @global string $GLOBALS['back']
  */
-if (Core::checkPageValidity($_REQUEST['back'], $goto_whitelist)) {
+if (Core::checkPageValidity($_REQUEST['back'])) {
     $GLOBALS['back'] = $_REQUEST['back'];
 } else {
     unset($_REQUEST['back'], $_GET['back'], $_POST['back'], $_COOKIE['back']);
@@ -283,7 +176,7 @@ if (Core::checkPageValidity($_REQUEST['back'], $goto_whitelist)) {
  * mis-match does not make sense
  *
  * @todo variables should be handled by their respective owners (objects)
- * f.e. lang, server, collation_connection in PhpMyAdmin\Config
+ * f.e. lang, server in PhpMyAdmin\Config
  */
 
 $token_mismatch = true;
@@ -398,12 +291,6 @@ if (! defined('PMA_MINIMUM_COMMON')) {
      * @todo should be done in PhpMyAdmin\Config
      */
     $GLOBALS['PMA_Config']->setCookie('pma_lang', $GLOBALS['lang']);
-    if (isset($GLOBALS['collation_connection'])) {
-        $GLOBALS['PMA_Config']->setCookie(
-            'pma_collation_connection',
-            $GLOBALS['collation_connection']
-        );
-    }
 
     ThemeManager::getInstance()->setThemeCookie();
 
@@ -503,21 +390,6 @@ if (! defined('PMA_MINIMUM_COMMON')) {
 
         // TODO: Set SQL modes too.
 
-        /**
-         * the DatabaseList class as a stub for the ListDatabase class
-         */
-        $dblist = new DatabaseList();
-
-        /**
-         * some resetting has to be done when switching servers
-         */
-        if (isset($_SESSION['tmpval']['previous_server'])
-            && $_SESSION['tmpval']['previous_server'] != $GLOBALS['server']
-        ) {
-            unset($_SESSION['tmpval']['navi_limit_offset']);
-        }
-        $_SESSION['tmpval']['previous_server'] = $GLOBALS['server'];
-
     } else { // end server connecting
         $response = Response::getInstance();
         $response->getHeader()->disableMenuAndConsole();
@@ -536,9 +408,6 @@ if (! defined('PMA_MINIMUM_COMMON')) {
         // the checkbox was unchecked
         unset($_SESSION['profiling']);
     }
-
-    // load user preferences
-    $GLOBALS['PMA_Config']->loadUserPreferences();
 
     /**
      * Inclusion of profiling scripts is needed on various
@@ -566,30 +435,10 @@ if (! defined('PMA_MINIMUM_COMMON')) {
         );
         exit;
     }
-} else { // end if !defined('PMA_MINIMUM_COMMON')
-    // load user preferences
-    $GLOBALS['PMA_Config']->loadUserPreferences();
 }
+
+// load user preferences
+$GLOBALS['PMA_Config']->loadUserPreferences();
 
 /* Tell tracker that it can actually work */
 Tracker::enable();
-
-// If Zero configuration mode enabled, check PMA tables in current db.
-if (! defined('PMA_MINIMUM_COMMON')
-    && ! empty($GLOBALS['server'])
-    && isset($GLOBALS['cfg']['ZeroConf'])
-    && $GLOBALS['cfg']['ZeroConf'] == true
-) {
-    if (strlen($GLOBALS['db'])) {
-        $cfgRelation = Relation::getRelationsParam();
-        if (empty($cfgRelation['db'])) {
-            Relation::fixPmaTables($GLOBALS['db'], false);
-        }
-    }
-    $cfgRelation = Relation::getRelationsParam();
-    if (empty($cfgRelation['db'])) {
-        if ($GLOBALS['dblist']->databases->exists('phpmyadmin')) {
-            Relation::fixPmaTables('phpmyadmin', false);
-        }
-    }
-}

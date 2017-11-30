@@ -43,7 +43,6 @@ class ResultsTest extends PmaTestCase
         $GLOBALS['PMA_Config'] = new Config();
         $GLOBALS['PMA_Config']->enableBc();
         $GLOBALS['text_dir'] = 'ltr';
-        $GLOBALS['collation_connection'] = 'utf-8';
 
         $dbi = $this->getMockBuilder('PhpMyAdmin\DatabaseInterface')
             ->disableOriginalConstructor()
@@ -965,7 +964,6 @@ class ResultsTest extends PmaTestCase
                 'routine_name',
                 'db_routines.php?item_name=circumference&db=data'
                 . '&item_type=FUNCTION&server=0&lang=en'
-                . '&collation_connection=utf-8'
             ),
             array(
                 'information_schema',
@@ -979,7 +977,6 @@ class ResultsTest extends PmaTestCase
                 'routine_name',
                 'db_routines.php?item_name=area&db=data'
                 . '&item_type=PROCEDURE&server=0&lang=en'
-                . '&collation_connection=utf-8'
             ),
             array(
                 'information_schema',
@@ -993,7 +990,6 @@ class ResultsTest extends PmaTestCase
                 'index.php?sql_query=SELECT+%60CHARACTER_SET_NAME%60+FROM+%60info'
                 . 'rmation_schema%60.%60CHARACTER_SETS%60&db=information_schema'
                 . '&test_name=value&server=0&lang=en'
-                . '&collation_connection=utf-8'
             )
         );
     }
@@ -1160,7 +1156,6 @@ class ResultsTest extends PmaTestCase
                 . '<input type="hidden" name="db" value="mysql" />'
                 . '<input type="hidden" name="table" value="user" />'
                 . '<input type="hidden" name="lang" value="en" />'
-                . '<input type="hidden" name="collation_connection" value="utf-8" />'
                 . '<input type="hidden" name="token" value="token" />'
                 . '<input type="hidden" name="sql_query" value="SELECT * FROM `user`" />'
                 . '<input type="hidden" name="pos" value="0" />'
@@ -1340,7 +1335,7 @@ class ResultsTest extends PmaTestCase
                 $url_params,
                 null,
                 '<a href="tbl_get_field.php?db=foo&amp;table=bar&amp;server=0'
-                . '&amp;lang=en&amp;collation_connection=utf-8'
+                . '&amp;lang=en'
                 . '" class="disableAjax">1001</a>'
             ),
             array(
@@ -1355,7 +1350,7 @@ class ResultsTest extends PmaTestCase
                 $url_params,
                 null,
                 '<a href="tbl_get_field.php?db=foo&amp;table=bar&amp;server=0'
-                . '&amp;lang=en&amp;collation_connection=utf-8'
+                . '&amp;lang=en'
                 . '" class="disableAjax">0x123456</a>'
             ),
             array(
@@ -1370,7 +1365,7 @@ class ResultsTest extends PmaTestCase
                 $url_params,
                 null,
                 '<a href="tbl_get_field.php?db=foo&amp;table=bar&amp;server=0'
-                . '&amp;lang=en&amp;collation_connection=utf-8'
+                . '&amp;lang=en'
                 . '" class="disableAjax">[BLOB - 4 B]</a>'
             ),
             array(
@@ -1494,7 +1489,6 @@ class ResultsTest extends PmaTestCase
                 '<td class="left   hex">' . PHP_EOL
                 . '    <a href="tbl_get_field.php?'
                 . 'db=foo&amp;table=tbl&amp;server=0&amp;lang=en'
-                . '&amp;collation_connection=utf-8'
                 . '" '
                 . 'class="disableAjax">[BLOB - 4 B]</a>' . PHP_EOL
                 . '</td>' . PHP_EOL

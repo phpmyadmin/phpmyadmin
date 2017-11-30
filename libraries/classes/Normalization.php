@@ -220,7 +220,7 @@ class Normalization
             );
             $subText = '<a href="#" id="createPrimaryKey">'
                 . Util::getIcon(
-                    'b_index_add.png', __(
+                    'b_index_add', __(
                         'Add a primary key on existing column(s)'
                     )
                 )

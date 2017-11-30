@@ -165,11 +165,11 @@ class RteList
                 );
             $retval .= Util::getButtonOrImage(
                 'submit_mult', 'mult_submit',
-                __('Export'), 'b_export.png', 'export'
+                __('Export'), 'b_export', 'export'
             );
             $retval .= Util::getButtonOrImage(
                 'submit_mult', 'mult_submit',
-                __('Drop'), 'b_drop.png', 'drop'
+                __('Drop'), 'b_drop', 'drop'
             );
             $retval .= '</div>';
         }

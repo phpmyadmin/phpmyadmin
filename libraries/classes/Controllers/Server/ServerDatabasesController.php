@@ -420,7 +420,7 @@ class ServerDatabasesController extends Controller
                 );
                 if (strlen($key) > 0) {
                     $out = Util::getIcon(
-                        's_cancel.png',
+                        's_cancel',
                         __('Not replicated')
                     );
                 } else {
@@ -433,7 +433,7 @@ class ServerDatabasesController extends Controller
                     ) {
                         // if ($key != null) did not work for index "0"
                         $out = Util::getIcon(
-                            's_success.png',
+                            's_success',
                             __('Replicated')
                         );
                     }

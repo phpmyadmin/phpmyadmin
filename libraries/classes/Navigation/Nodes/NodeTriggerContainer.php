@@ -23,7 +23,7 @@ class NodeTriggerContainer extends Node
     public function __construct()
     {
         parent::__construct(__('Triggers'), Node::CONTAINER);
-        $this->icon = Util::getImage('b_triggers.png');
+        $this->icon = Util::getImage('b_triggers');
         $this->links = array(
             'text' => 'db_triggers.php?server=' . $GLOBALS['server']
                 . '&amp;db=%2$s&amp;table=%1$s',
@@ -37,7 +37,7 @@ class NodeTriggerContainer extends Node
             _pgettext('Create new trigger', 'New')
         );
         $new->isNew = true;
-        $new->icon = Util::getImage('b_trigger_add.png', '');
+        $new->icon = Util::getImage('b_trigger_add', '');
         $new->links = array(
             'text' => 'db_triggers.php?server=' . $GLOBALS['server']
                 . '&amp;db=%3$s&amp;add_item=1',

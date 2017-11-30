@@ -78,7 +78,8 @@ class Theme
         'rte',
         'codemirror',
         'jqplot',
-        'resizable-menu'
+        'resizable-menu',
+        'icons',
     );
 
     /**
@@ -432,7 +433,7 @@ class Theme
      */
     function getFontSize()
     {
-        $fs = $GLOBALS['PMA_Config']->get('fontsize');
+        $fs = $GLOBALS['PMA_Config']->get('FontSize');
         if (!is_null($fs)) {
             return $fs;
         }

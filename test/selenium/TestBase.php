@@ -376,7 +376,7 @@ abstract class PMA_SeleniumBase extends PHPUnit_Extensions_Selenium2TestCase
     public function logOutIfLoggedIn()
     {
         if ($this->isLoggedIn()) {
-            $this->byCssSelector("a.logout")->click();
+            $this->byCssSelector("img.icon.ic_s_loggoff")->click();
         }
     }
 
@@ -669,7 +669,7 @@ abstract class PMA_SeleniumBase extends PHPUnit_Extensions_Selenium2TestCase
             array(
                 'script' => 'var position = document.getElementById("'
                             . $element_id . '").getBoundingClientRect();'
-                            . 'window.scrollBy(position.left, position.top-(' . $offset . '));',
+                            . 'window.scrollBy(0, position.top-(' . $offset . '));',
                 'args'   => array()
             )
         );

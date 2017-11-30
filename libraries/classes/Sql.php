@@ -583,7 +583,7 @@ EOT;
             $html .= '<fieldset>';
             $html .= '<legend>';
             $html .= Util::getIcon(
-                'b_bookmark.png', __('Bookmark this SQL query'), true
+                'b_bookmark', __('Bookmark this SQL query'), true
             );
             $html .= '</legend>';
             $html .= '<div class="formelement">';

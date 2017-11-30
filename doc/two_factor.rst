@@ -6,9 +6,22 @@ Two-factor authentication
 .. versionadded:: 4.8.0
 
 Since phpMyAdmin 4.8.0 you can configure two-factor authentication to be
-used when logging into it. To use this, you first need to configure
+used when logging in. To use this, you first need to configure the
 :ref:`linked-tables`. Once this is done, every user can opt-in for second
 authentication factor in the :guilabel:`Settings`.
+
+When running phpMyAdmin from the Git source repository, the dependencies must be installed
+manually; the typical way of doing so is with the command:
+
+.. code-block:: sh
+
+    composer require pragmarx/google2fa bacon/bacon-qr-code
+
+Or when using a hardware security key with FIDO U2F:
+
+.. code-block:: sh
+
+    composer require samyoul/u2f-php-server
 
 Authentication Application (2FA)
 --------------------------------

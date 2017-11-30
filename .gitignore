@@ -32,8 +32,6 @@ web.config
 /twig-templates/
 # Backups
 *~
-# Javascript line counts
-/js/line_counts.php
 # API documentation
 /apidoc/
 /doc/linkcheck/

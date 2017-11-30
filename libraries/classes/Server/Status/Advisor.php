@@ -26,7 +26,7 @@ class Advisor
     public static function getHtml()
     {
         $output  = '<a href="#openAdvisorInstructions">';
-        $output .= Util::getIcon('b_help.png', __('Instructions'));
+        $output .= Util::getIcon('b_help', __('Instructions'));
         $output .= '</a>';
         $output .= '<div id="statustabs_advisor"></div>';
         $output .= '<div id="advisorInstructionsDialog" class="hide">';

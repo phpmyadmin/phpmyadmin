@@ -97,7 +97,6 @@ class AuthenticationConfigTest extends PmaTestCase
         $GLOBALS['error_handler'] = new ErrorHandler;
         $GLOBALS['cfg']['Servers'] = array(1);
         $GLOBALS['allowDeny_forbidden'] = false;
-        $GLOBALS['collation_connection'] = 'utf-8';
 
         $dbi = $this->getMockBuilder('PhpMyAdmin\DatabaseInterface')
             ->disableOriginalConstructor()
@@ -117,7 +116,9 @@ class AuthenticationConfigTest extends PmaTestCase
         $this->assertContains(
             '<strong>MySQL said: </strong><a href="./url.php?url=https%3A%2F%2F' .
             'dev.mysql.com%2Fdoc%2Frefman%2F5.5%2Fen%2Ferror-messages-server.html"' .
-            ' target="mysql_doc">',
+            ' target="mysql_doc">' .
+            '<img src="themes/dot.gif" title="Documentation" alt="Documentation" ' .
+            'class="icon ic_b_help" /></a>',
             $html
         );
 
@@ -127,8 +128,7 @@ class AuthenticationConfigTest extends PmaTestCase
         );
 
         $this->assertContains(
-            '<a href="index.php?server=0&amp;lang=en'
-            . '&amp;collation_connection=utf-8" '
+            '<a href="index.php?server=0&amp;lang=en" '
             . 'class="button disableAjax">Retry to connect</a>',
             $html
         );

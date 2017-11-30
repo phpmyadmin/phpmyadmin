@@ -743,7 +743,7 @@ class Index
                    . '    <a class="';
                 $r .= 'ajax';
                 $r .= '" href="tbl_indexes.php' . Url::getCommon($this_params)
-                   . '">' . Util::getIcon('b_edit.png', __('Edit')) . '</a>'
+                   . '">' . Util::getIcon('b_edit', __('Edit')) . '</a>'
                    . '</td>' . "\n";
                 $this_params = $GLOBALS['url_params'];
                 if ($index->getName() == 'PRIMARY') {
@@ -770,7 +770,7 @@ class Index
                 $r .= ' ajax';
                 $r .= '" href="sql.php' . Url::getCommon($this_params)
                    . '" >'
-                   . Util::getIcon('b_drop.png', __('Drop'))  . '</a>'
+                   . Util::getIcon('b_drop', __('Drop'))  . '</a>'
                    . '</td>' . "\n";
             }
 

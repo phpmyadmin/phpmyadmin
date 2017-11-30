@@ -2094,6 +2094,13 @@ Navigation panel setup
 
     Whether to show events under database in the navigation panel.
 
+.. config:option:: $cfg['NavigationWidth']
+
+    :type: integer
+    :default: 240
+
+    Navigation panel width, set to 0 to collapse it by default.
+
 
 Main panel
 ----------
@@ -2214,6 +2221,13 @@ Database structure
 
     Defines whether the table structure actions are hidden under a "More"
     drop-down.
+
+.. config:option:: $cfg['ShowColumnComments']
+
+    :type: boolean
+    :default: true
+
+    Defines whether to show column comments as a column in the table structure view.
 
 Browse mode
 -----------
@@ -3219,6 +3233,13 @@ Theme manager settings
 
     Whether to allow different theme for each server.
 
+.. config:option:: $cfg['FontSize']
+
+    :type: string
+    :default: '82%'
+
+    Font size to use, is applied in CSS.
+
 Default queries
 ---------------
 
@@ -3301,6 +3322,62 @@ Default options for Transformations
 
     :type: array
     :default: array('', '', '')
+
+Console settings
+----------------
+
+.. note::
+
+    These settings are mostly meant to be changed by user.
+
+.. config:option:: $cfg['Console']['StartHistory']
+
+    :type: boolean
+    :default: false
+
+    Show query history at start
+    
+.. config:option:: $cfg['Console']['AlwaysExpand']
+
+    :type: boolean
+    :default: false
+
+    Always expand query messages
+    
+.. config:option:: $cfg['Console']['CurrentQuery']
+
+    :type: boolean
+    :default: true
+
+    Show current browsing query
+    
+.. config:option:: $cfg['Console']['EnterExecutes']
+
+    :type: boolean
+    :default: false
+
+    Execute queries on Enter and insert new line with Shift + Enter
+    
+.. config:option:: $cfg['Console']['DarkTheme']
+
+    :type: boolean
+    :default: false
+
+    Switch to dark theme
+    
+.. config:option:: $cfg['Console']['Mode']
+
+    :type: string
+    :default: 'info'
+
+    Console mode
+    
+.. config:option:: $cfg['Console']['Height']
+
+    :type: integer
+    :default: 92
+
+    Console height
 
 Developer
 ---------

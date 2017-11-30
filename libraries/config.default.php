@@ -1045,6 +1045,13 @@ $cfg['NavigationTreeShowProcedures'] = true;
  */
 $cfg['NavigationTreeShowEvents'] = true;
 
+/**
+ * Width of navigation panel
+ *
+ * @global integer $cfg['NavigationWidth']
+ */
+$cfg['NavigationWidth'] = 240;
+
 /*******************************************************************************
  * In the main panel, at startup...
  */
@@ -2860,6 +2867,11 @@ $cfg['ThemeDefault'] = 'pmahomme';
 $cfg['ThemePerServer'] = false;
 
 
+/**
+ * Font size to use by default
+ */
+$cfg['FontSize'] = '82%';
+
 /*******************************************************************************
  *
  */
@@ -3114,6 +3126,24 @@ $cfg['MysqlMinVersion'] = array(
  * @global array $cfg['DisableShortcutKeys']
  */
 $cfg['DisableShortcutKeys'] = false;
+
+/**
+ * Console configuration
+ *
+ * This is mostly meant for user preferences.
+ */
+$cfg['Console'] = [
+    'StartHistory' => false,
+    'AlwaysExpand' => false,
+    'CurrentQuery' => true,
+    'EnterExecutes' => false,
+    'DarkTheme' => false,
+    'Mode' => 'info',
+    'Height' => 92,
+    'GroupQueries' => false,
+    'OrderBy' => 'exec',
+    'Order' => 'asc',
+];
 
 
 /*******************************************************************************

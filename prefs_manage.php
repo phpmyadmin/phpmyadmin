@@ -47,8 +47,8 @@ if (isset($_POST['submit_export'])
     $filename = 'phpMyAdmin-config-' . urlencode(Core::getenv('HTTP_HOST')) . '.php';
     Core::downloadHeader($filename, 'application/php');
     $settings = UserPreferences::load();
-    echo '/* ' . _('phpMyAdmin configuration snippet') . " */\n\n";
-    echo '/* ' . _('Paste it to your config.inc.php') . " */\n\n";
+    echo '/* ' . __('phpMyAdmin configuration snippet') . " */\n\n";
+    echo '/* ' . __('Paste it to your config.inc.php') . " */\n\n";
     foreach ($settings['config_data'] as $key => $val) {
         echo '$cfg[\'' . str_replace('/', '\'][\'', $key) . '\'] = ';
         echo var_export($val, true) . ";\n";
@@ -145,7 +145,7 @@ if (isset($_POST['submit_export'])
             exit;
         }
 
-        // check for ThemeDefault and fontsize
+        // check for ThemeDefault
         $params = array();
         $tmanager = ThemeManager::getInstance();
         if (isset($config['ThemeDefault'])
@@ -155,20 +155,10 @@ if (isset($_POST['submit_export'])
             $tmanager->setActiveTheme($config['ThemeDefault']);
             $tmanager->setThemeCookie();
         }
-        if (isset($config['fontsize'])
-            && $config['fontsize'] != $GLOBALS['PMA_Config']->get('fontsize')
-        ) {
-            $params['set_fontsize'] = $config['fontsize'];
-        }
         if (isset($config['lang'])
             && $config['lang'] != $GLOBALS['lang']
         ) {
             $params['lang'] = $config['lang'];
-        }
-        if (isset($config['collation_connection'])
-            && $config['collation_connection'] != $GLOBALS['collation_connection']
-        ) {
-            $params['collation_connection'] = $config['collation_connection'];
         }
 
         // save settings
@@ -201,9 +191,6 @@ if (isset($_POST['submit_export'])
     $result = UserPreferences::save(array());
     if ($result === true) {
         $params = array();
-        if ($GLOBALS['PMA_Config']->get('fontsize') != '82%') {
-            $GLOBALS['PMA_Config']->removeCookie('pma_fontsize');
-        }
         $GLOBALS['PMA_Config']->removeCookie('pma_collaction_connection');
         $GLOBALS['PMA_Config']->removeCookie('pma_lang');
         UserPreferences::redirect('prefs_manage.php', $params);

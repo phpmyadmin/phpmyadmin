@@ -26,7 +26,7 @@ class UrlTest extends TestCase
      */
     public function setUp()
     {
-        unset($_COOKIE['pma_lang'], $_COOKIE['pma_collation_connection']);
+        unset($_COOKIE['pma_lang']);
     }
 
     /**
@@ -37,14 +37,10 @@ class UrlTest extends TestCase
     public function testDbOnly()
     {
         $GLOBALS['server'] = 'x';
-        $GLOBALS['collation_connection'] = 'x';
         $GLOBALS['cfg']['ServerDefault'] = 'y';
 
         $separator = Url::getArgSeparator();
-        $expected = 'server=x' . htmlentities($separator)
-            . 'lang=en' . htmlentities($separator)
-            . 'collation_connection=x'
-            ;
+        $expected = 'server=x' . htmlentities($separator) . 'lang=en' ;
 
         $expected = '?db=db'
             . htmlentities($separator) . $expected;
@@ -60,14 +56,10 @@ class UrlTest extends TestCase
     public function testNewStyle()
     {
         $GLOBALS['server'] = 'x';
-        $GLOBALS['collation_connection'] = 'x';
         $GLOBALS['cfg']['ServerDefault'] = 'y';
 
         $separator = Url::getArgSeparator();
-        $expected = 'server=x' . htmlentities($separator)
-            . 'lang=en' . htmlentities($separator)
-            . 'collation_connection=x'
-            ;
+        $expected = 'server=x' . htmlentities($separator) . 'lang=en' ;
 
         $expected = '?db=db'
             . htmlentities($separator) . 'table=table'
@@ -84,14 +76,10 @@ class UrlTest extends TestCase
     public function testWithAlternateDivider()
     {
         $GLOBALS['server'] = 'x';
-        $GLOBALS['collation_connection'] = 'x';
         $GLOBALS['cfg']['ServerDefault'] = 'y';
 
         $separator = Url::getArgSeparator();
-        $expected = 'server=x' . $separator
-            . 'lang=en' . $separator
-            . 'collation_connection=x'
-            ;
+        $expected = 'server=x' . $separator . 'lang=en' ;
 
         $expected = '#ABC#db=db' . $separator . 'table=table' . $separator
             . $expected;
@@ -111,14 +99,10 @@ class UrlTest extends TestCase
     public function testDefault()
     {
         $GLOBALS['server'] = 'x';
-        $GLOBALS['collation_connection'] = 'x';
         $GLOBALS['cfg']['ServerDefault'] = 'y';
 
         $separator = Url::getArgSeparator();
-        $expected = '?server=x' . htmlentities($separator)
-            . 'lang=en' . htmlentities($separator)
-            . 'collation_connection=x'
-            ;
+        $expected = '?server=x' . htmlentities($separator) . 'lang=en' ;
         $this->assertEquals($expected, Url::getCommon());
     }
 }

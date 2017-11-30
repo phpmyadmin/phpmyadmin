@@ -7,30 +7,40 @@
  */
 namespace PhpMyAdmin\Twig;
 
-use Twig_Extension;
-use Twig_SimpleFunction;
+use Twig\Extension\AbstractExtension;
+use Twig\TwigFunction;
 
 /**
  * Class PluginsExtension
  *
  * @package PhpMyAdmin\Twig
  */
-class PluginsExtension extends Twig_Extension
+class PluginsExtension extends AbstractExtension
 {
     /**
      * Returns a list of functions to add to the existing list.
      *
-     * @return Twig_SimpleFunction[]
+     * @return TwigFunction[]
      */
     public function getFunctions()
     {
         return array(
-            new Twig_SimpleFunction(
+            new TwigFunction(
+                'Plugins_checkboxCheck',
+                'PhpMyAdmin\Plugins::checkboxCheck',
+                array('is_safe' => array('html'))
+            ),
+            new TwigFunction(
                 'Plugins_getChoice',
                 'PhpMyAdmin\Plugins::getChoice',
                 array('is_safe' => array('html'))
             ),
-            new Twig_SimpleFunction(
+            new TwigFunction(
+                'Plugins_getDefault',
+                'PhpMyAdmin\Plugins::getDefault',
+                array('is_safe' => array('html'))
+            ),
+            new TwigFunction(
                 'Plugins_getOptions',
                 'PhpMyAdmin\Plugins::getOptions',
                 array('is_safe' => array('html'))

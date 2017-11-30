@@ -24,12 +24,14 @@ class FeaturesForm extends BaseForm
                 'SendErrorReports',
                 'ConsoleEnterExecutes',
                 'DisableShortcutKeys',
+                'FontSize',
             ),
             'Databases' => array(
                 'Servers/1/only_db', // saves to Server/only_db
                 'Servers/1/hide_db', // saves to Server/hide_db
                 'MaxDbList',
                 'MaxTableList',
+                'DefaultConnectionCollation',
             ),
             'Text_fields' => array(
                 'CharEditing',
@@ -52,6 +54,18 @@ class FeaturesForm extends BaseForm
                 'SuhosinDisableWarning',
                 'LoginCookieValidityDisableWarning',
                 'ReservedWordDisableWarning'
+            ),
+            'Console' => array(
+                'Console/Mode',
+                'Console/StartHistory',
+                'Console/AlwaysExpand',
+                'Console/CurrentQuery',
+                'Console/EnterExecutes',
+                'Console/DarkTheme',
+                'Console/Height',
+                'Console/GroupQueries',
+                'Console/OrderBy',
+                'Console/Order',
             ),
         );
         // skip Developer form if no setting is available

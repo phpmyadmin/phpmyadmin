@@ -126,7 +126,7 @@ class Console
         if ((! $this->_isAjax) && $this->_isEnabled) {
             $cfgBookmark = Bookmark::getParams($GLOBALS['cfg']['Server']['user']);
 
-            $image = Util::getImage('console.png', __('SQL Query Console'));
+            $image = Util::getImage('console', __('SQL Query Console'));
             $_sql_history = Relation::getHistory($GLOBALS['cfg']['Server']['user']);
             $bookmarkContent = static::getBookmarkContent();
 

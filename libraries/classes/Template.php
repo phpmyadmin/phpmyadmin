@@ -23,8 +23,8 @@ use PhpMyAdmin\Twig\TableExtension;
 use PhpMyAdmin\Twig\TransformationsExtension;
 use PhpMyAdmin\Twig\UrlExtension;
 use PhpMyAdmin\Twig\UtilExtension;
-use Twig_Environment;
-use Twig_Loader_Filesystem;
+use Twig\Environment;
+use Twig\Loader\FilesystemLoader;
 
 /**
  * Class Template
@@ -57,13 +57,13 @@ class Template
         $this->name = $name;
 
         if (is_null($this::$twig)) {
-            $loader = new Twig_Loader_Filesystem(static::BASE_PATH);
+            $loader = new FilesystemLoader(static::BASE_PATH);
             $cache_dir = $GLOBALS['PMA_Config']->getTempDir('twig');
             /* Twig expects false when cache is not configured */
             if (is_null($cache_dir)) {
                 $cache_dir = false;
             }
-            $twig = new Twig_Environment($loader, array(
+            $twig = new Environment($loader, array(
                 'auto_reload' => true,
                 'cache' => $cache_dir,
                 'debug' => false,

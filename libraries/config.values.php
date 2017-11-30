@@ -51,6 +51,7 @@ $cfg_db['NavigationTreeDefaultTabTable2'] = array(
 );
 $cfg_db['NavigationTreeDbSeparator'] = 'short_string';
 $cfg_db['NavigationTreeTableSeparator'] = 'short_string';
+$cfg_db['NavigationWidth'] = 'integer';
 $cfg_db['TableNavigationLinksMode'] = array(
     'icons' => __('Icons'),
     'text'  => __('Text'),
@@ -210,6 +211,13 @@ $cfg_db['Export']['odt_structure_or_data'] = $cfg_db['Export']['_sod_select'];
 $cfg_db['Export']['texytext_structure_or_data'] = $cfg_db['Export']['_sod_select'];
 $cfg_db['Export']['texytext_null'] = 'short_string';
 
+$cfg_db['Console']['Mode'] = array(
+    'info', 'show', 'collapse'
+);
+$cfg_db['Console']['Height'] = 'integer';
+$cfg_db['Console']['OrderBy'] = ['exec', 'time', 'count'];
+$cfg_db['Console']['Order'] = ['asc', 'desc'];
+
 /**
  * Default values overrides
  * Use only full paths
@@ -248,6 +256,7 @@ $cfg_db['_validators'] = array(
     'MaxTableList' => 'validatePositiveNumber',
     'MemoryLimit' => array(array('validateByRegex', '/^(-1|(\d+(?:[kmg])?))$/i')),
     'NavigationTreeTableLevel' => 'validatePositiveNumber',
+    'NavigationWidth' => 'validateNonNegativeNumber',
     'QueryHistoryMax' => 'validatePositiveNumber',
     'RepeatCells' => 'validateNonNegativeNumber',
     'Server' => 'validateServer',
@@ -256,6 +265,7 @@ $cfg_db['_validators'] = array(
     'Servers/1/hide_db' => 'validateRegex',
     'TextareaCols' => 'validatePositiveNumber',
     'TextareaRows' => 'validatePositiveNumber',
+    'FontSize' => array(array('validateByRegex', '/^[0-9.]+(px|em|pt|\%)$/')),
     'TrustedProxies' => 'validateTrustedProxies');
 
 /**

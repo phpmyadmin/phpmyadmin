@@ -68,7 +68,6 @@ class FilesTest extends TestCase
         return array(
             array('js/whitelist.php', 'var PMA_gotoWhitelist'),
             array('js/messages.php', 'var PMA_messages = new Array();'),
-            array('js/get_scripts.js.php', 'var AJAX'),
         );
     }
 }

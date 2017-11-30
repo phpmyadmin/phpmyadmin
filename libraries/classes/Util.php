@@ -101,8 +101,9 @@ class Util
     }
 
     /**
-     * Returns an HTML IMG tag for a particular image from a theme,
-     * which may be an actual file or an icon from a sprite
+     * Returns an HTML IMG tag for a particular image from a theme
+     *
+     * The image name should match CSS class defined in icons.css.php
      *
      * @param string $image      The name of the file to get
      * @param string $alternate  Used to set 'alt' and 'title' attributes
@@ -120,6 +121,12 @@ class Util
             $url = $GLOBALS['pmaThemeImage'] . $image;
         } else {
             $url = './themes/pmahomme/' . $image;
+        }
+
+        if (isset($attributes['class'])) {
+            $attributes['class'] = "icon ic_$image " . $attributes['class'];
+        } else {
+            $attributes['class'] = "icon ic_$image";
         }
 
         // set all other attributes
@@ -145,8 +152,8 @@ class Util
         }
 
         // generate the IMG tag
-        $template = '<img src="%s" title="%s" alt="%s"%s />';
-        $retval = sprintf($template, $url, $title, $alt, $attr_str);
+        $template = '<img src="themes/dot.gif" title="%s" alt="%s"%s />';
+        $retval = sprintf($template, $title, $alt, $attr_str);
 
         return $retval;
     }
@@ -303,7 +310,7 @@ class Util
             return "[a@$link@$target][dochelpicon][/a]";
         }else{
             return '<a href="' . $link . '" target="' . $target . '">'
-                . self::getImage('b_help.png', __('Documentation'))
+                . self::getImage('b_help', __('Documentation'))
                 . '</a>';
         }
     } // end of the 'showDocLink()' function
@@ -371,7 +378,7 @@ class Util
             return $open_link;
         } elseif ($big_icon) {
             return $open_link
-                . self::getImage('b_sqlhelp.png', __('Documentation')) . '</a>';
+                . self::getImage('b_sqlhelp', __('Documentation')) . '</a>';
         } else {
             return self::showDocLink($url, 'mysql_doc');
         }
@@ -456,7 +463,7 @@ class Util
             $classClause = '';
         }
         return '<span' . $classClause . '>'
-            . self::getImage('b_help.png')
+            . self::getImage('b_help')
             . '<span class="hide">' . $message . '</span>'
             . '</span>';
     }
@@ -585,7 +592,7 @@ class Util
                 }
 
                 $error_msg .= $doedit_goto
-                   . self::getIcon('b_edit.png', __('Edit'))
+                   . self::getIcon('b_edit', __('Edit'))
                    . '</a>';
             }
 
@@ -3307,26 +3314,26 @@ class Util
     {
         $titles = array();
 
-        $titles['Browse']     = self::getIcon('b_browse.png', __('Browse'));
-        $titles['NoBrowse']   = self::getIcon('bd_browse.png', __('Browse'));
-        $titles['Search']     = self::getIcon('b_select.png', __('Search'));
-        $titles['NoSearch']   = self::getIcon('bd_select.png', __('Search'));
-        $titles['Insert']     = self::getIcon('b_insrow.png', __('Insert'));
-        $titles['NoInsert']   = self::getIcon('bd_insrow.png', __('Insert'));
-        $titles['Structure']  = self::getIcon('b_props.png', __('Structure'));
-        $titles['Drop']       = self::getIcon('b_drop.png', __('Drop'));
-        $titles['NoDrop']     = self::getIcon('bd_drop.png', __('Drop'));
-        $titles['Empty']      = self::getIcon('b_empty.png', __('Empty'));
-        $titles['NoEmpty']    = self::getIcon('bd_empty.png', __('Empty'));
-        $titles['Edit']       = self::getIcon('b_edit.png', __('Edit'));
-        $titles['NoEdit']     = self::getIcon('bd_edit.png', __('Edit'));
-        $titles['Export']     = self::getIcon('b_export.png', __('Export'));
-        $titles['NoExport']   = self::getIcon('bd_export.png', __('Export'));
-        $titles['Execute']    = self::getIcon('b_nextpage.png', __('Execute'));
-        $titles['NoExecute']  = self::getIcon('bd_nextpage.png', __('Execute'));
+        $titles['Browse']     = self::getIcon('b_browse', __('Browse'));
+        $titles['NoBrowse']   = self::getIcon('bd_browse', __('Browse'));
+        $titles['Search']     = self::getIcon('b_select', __('Search'));
+        $titles['NoSearch']   = self::getIcon('bd_select', __('Search'));
+        $titles['Insert']     = self::getIcon('b_insrow', __('Insert'));
+        $titles['NoInsert']   = self::getIcon('bd_insrow', __('Insert'));
+        $titles['Structure']  = self::getIcon('b_props', __('Structure'));
+        $titles['Drop']       = self::getIcon('b_drop', __('Drop'));
+        $titles['NoDrop']     = self::getIcon('bd_drop', __('Drop'));
+        $titles['Empty']      = self::getIcon('b_empty', __('Empty'));
+        $titles['NoEmpty']    = self::getIcon('bd_empty', __('Empty'));
+        $titles['Edit']       = self::getIcon('b_edit', __('Edit'));
+        $titles['NoEdit']     = self::getIcon('bd_edit', __('Edit'));
+        $titles['Export']     = self::getIcon('b_export', __('Export'));
+        $titles['NoExport']   = self::getIcon('bd_export', __('Export'));
+        $titles['Execute']    = self::getIcon('b_nextpage', __('Execute'));
+        $titles['NoExecute']  = self::getIcon('bd_nextpage', __('Execute'));
         // For Favorite/NoFavorite, we need icon only.
-        $titles['Favorite']  = self::getIcon('b_favorite.png', '');
-        $titles['NoFavorite']= self::getIcon('b_no_favorite.png', '');
+        $titles['Favorite']  = self::getIcon('b_favorite', '');
+        $titles['NoFavorite']= self::getIcon('b_no_favorite', '');
 
         return $titles;
     }
@@ -4864,12 +4871,12 @@ class Util
                 $futureSortOrder = 'DESC';
                 // current sort order is ASC
                 $orderImg = ' ' . self::getImage(
-                    's_asc.png',
+                    's_asc',
                     __('Ascending'),
                     array('class' => 'sort_arrow', 'title' => '')
                 );
                 $orderImg .= ' ' . self::getImage(
-                    's_desc.png',
+                    's_desc',
                      __('Descending'),
                     array('class' => 'sort_arrow hide', 'title' => '')
                 );
@@ -4881,12 +4888,12 @@ class Util
                 $futureSortOrder = 'ASC';
                 // current sort order is DESC
                 $orderImg = ' ' . self::getImage(
-                    's_asc.png',
+                    's_asc',
                     __('Ascending'),
                     array('class' => 'sort_arrow hide', 'title' => '')
                 );
                 $orderImg .= ' ' . self::getImage(
-                    's_desc.png',
+                    's_desc',
                     __('Descending'),
                     array('class' => 'sort_arrow', 'title' => '')
                 );

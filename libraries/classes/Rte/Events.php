@@ -203,7 +203,9 @@ class Events
                             mb_strtoupper($_REQUEST['item_name'])
                         )
                     );
-                    $response->addJSON('new_row', RteList::getEventRow($event));
+                    if (! empty($event)) {
+                        $response->addJSON('new_row', RteList::getEventRow($event));
+                    }
                     $response->addJSON('insert', ! empty($event));
                     $response->addJSON('message', $output);
                 } else {

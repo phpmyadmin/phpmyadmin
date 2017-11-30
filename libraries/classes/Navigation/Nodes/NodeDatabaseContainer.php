@@ -36,7 +36,7 @@ class NodeDatabaseContainer extends Node
                 _pgettext('Create new database', 'New')
             );
             $new->isNew = true;
-            $new->icon = Util::getImage('b_newdb.png', '');
+            $new->icon = Util::getImage('b_newdb', '');
             $new->links = array(
                 'text' => 'server_databases.php?server=' . $GLOBALS['server'],
                 'icon' => 'server_databases.php?server=' . $GLOBALS['server'],

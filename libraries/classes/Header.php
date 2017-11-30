@@ -184,7 +184,7 @@ class Header
         // Here would not be a good place to add CodeMirror because
         // the user preferences have not been merged at this point
 
-        $this->_scripts->addFile('messages.php', false, array('l' => $GLOBALS['lang']));
+        $this->_scripts->addFile('messages.php', array('l' => $GLOBALS['lang']));
         // Append the theme id to this url to invalidate
         // the cache on a theme change. Though this might be
         // unavailable for fatal errors.
@@ -200,7 +200,7 @@ class Header
         $this->_scripts->addFile('indexes.js');
         $this->_scripts->addFile('common.js');
         $this->_scripts->addFile('page_settings.js');
-        if(!$GLOBALS['cfg']['DisableShortcutKeys']) {
+        if (! $GLOBALS['PMA_Config']->get('DisableShortcutKeys')) {
             $this->_scripts->addFile('shortcuts_handler.js');
         }
         $this->_scripts->addCode($this->getJsParamsCode());
@@ -219,17 +219,11 @@ class Header
         $pftext = isset($_SESSION['tmpval']['pftext'])
             ? $_SESSION['tmpval']['pftext'] : '';
 
-        // not sure when this happens, but it happens
-        if (! isset($GLOBALS['collation_connection'])) {
-            $GLOBALS['collation_connection'] = 'utf8_general_ci';
-        }
-
         $params = array(
             'common_query' => Url::getCommonRaw(),
             'opendb_url' => Util::getScriptNameForOption(
                 $GLOBALS['cfg']['DefaultTabDatabase'], 'database'
             ),
-            'collation_connection' => $GLOBALS['collation_connection'],
             'lang' => $GLOBALS['lang'],
             'server' => $GLOBALS['server'],
             'table' => $table,
@@ -454,14 +448,14 @@ class Header
                     $retval .= '<span id="lock_page_icon"></span>';
                     $retval .= '<span id="page_settings_icon">'
                         . Util::getImage(
-                            's_cog.png',
+                            's_cog',
                             __('Page-related settings')
                         )
                         . '</span>';
                     $retval .= sprintf(
                         '<a id="goto_pagetop" href="#">%s</a>',
                         Util::getImage(
-                            's_top.png',
+                            's_top',
                             __('Click on the bar to scroll to top of page')
                         )
                     );

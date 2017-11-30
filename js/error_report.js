@@ -121,7 +121,7 @@ var ErrorReport = {
             '<div style="position:fixed;bottom:0;left:0;right:0;margin:0;' +
             'z-index:1000" class="error" id="error_notification"></div>'
         ).append(
-            PMA_getImage('s_error.png') + PMA_messages.strErrorOccurred
+            PMA_getImage('s_error') + PMA_messages.strErrorOccurred
         );
 
         var $buttons = $('<div class="floatright"></div>');
@@ -131,11 +131,11 @@ var ErrorReport = {
         button_html += '</button>';
 
         button_html += '<a id="change_error_settings">';
-        button_html += PMA_getImage('s_cog.png', PMA_messages.strChangeReportSettings);
+        button_html += PMA_getImage('s_cog', PMA_messages.strChangeReportSettings);
         button_html += '</a>';
 
         button_html += '<a href="#" id="ignore_error">';
-        button_html += PMA_getImage('b_close.png', PMA_messages.strIgnore);
+        button_html += PMA_getImage('b_close', PMA_messages.strIgnore);
         button_html += '</a>';
 
         $buttons.html(button_html);

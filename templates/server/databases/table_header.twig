@@ -7,7 +7,7 @@
             <a href="server_databases.php{{ Url_getCommon(url_params) }}">
                 {% trans 'Database' %}
                 {{ sort_by == 'SCHEMA_NAME' ? Util_getImage(
-                    's_' ~ sort_order ~ '.png',
+                    's_' ~ sort_order,
                     sort_order_text
                 ) }}
             </a>
@@ -22,7 +22,7 @@
                 <a href="server_databases.php{{ Url_getCommon(url_params) }}">
                     {{ stat['disp_name'] }}
                     {{ sort_by == stat_name ? Util_getImage(
-                        's_' ~ sort_order ~ '.png',
+                        's_' ~ sort_order,
                         sort_order_text
                     ) }}
                 </a>

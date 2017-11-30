@@ -769,7 +769,7 @@ class NavigationTree
                 $groups[$key]->separator = $node->separator;
                 $groups[$key]->separator_depth = $node->separator_depth - 1;
                 $groups[$key]->icon = Util::getImage(
-                    'b_group.png'
+                    'b_group'
                 );
                 $groups[$key]->pos2 = $node->pos2;
                 $groups[$key]->pos3 = $node->pos3;
@@ -1424,13 +1424,13 @@ class NavigationTree
             $showText,
             __('Collapse all'),
             $showIcon,
-            's_collapseall.png',
+            's_collapseall',
             'pma_navigation_collapse'
         );
-        $syncImage = 's_unlink.png';
+        $syncImage = 's_unlink';
         $title = __('Link with main panel');
         if ($GLOBALS['cfg']['NavigationLinkWithMainPanel']) {
-            $syncImage = 's_link.png';
+            $syncImage = 's_link';
             $title = __('Unlink from main panel');
         }
         $retval .= Util::getNavigationLink(

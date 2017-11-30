@@ -44,7 +44,6 @@ class ThemeTest extends PmaTestCase
         $GLOBALS['text_dir'] = 'ltr';
         include 'themes/pmahomme/layout.inc.php';
         $GLOBALS['server'] = '99';
-        $GLOBALS['collation_connection'] = 'utf-8';
     }
 
     /**
@@ -148,6 +147,7 @@ class ThemeTest extends PmaTestCase
         ob_end_clean();
         $this->assertTrue($ret);
         $this->assertContains('FILE: navigation.css.php', $out);
+        $this->assertContains('.ic_b_bookmark', $out);
     }
 
     /**
@@ -293,7 +293,6 @@ class ThemeTest extends PmaTestCase
             $this->object->getPrintPreview(),
             '<div class="theme_preview"><h2> (0.0.0.0) </h2><p><a class="take_'
             . 'theme" name="" href="index.php?set_theme=&amp;server=99&amp;lang=en'
-            . '&amp;collation_connection=utf-8'
             . '">No preview available.[ <strong>take it</strong> ]'
             . '</a></p></div>'
         );
@@ -311,7 +310,7 @@ class ThemeTest extends PmaTestCase
             '82%'
         );
 
-        $GLOBALS['PMA_Config']->set('fontsize', '12px');
+        $GLOBALS['PMA_Config']->set('FontSize', '12px');
         $this->assertEquals(
             $this->object->getFontSize(),
             '12px'

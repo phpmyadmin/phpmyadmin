@@ -182,7 +182,7 @@ class Export
     {
         $html  = '<div class="exportoptions" id="header">';
         $html .= '<h2>';
-        $html .= Util::getImage('b_export.png', __('Export'));
+        $html .= Util::getImage('b_export', __('Export'));
         if ($export_type == 'server') {
             $html .= __('Exporting databases from the current server');
         } elseif ($export_type == 'database') {

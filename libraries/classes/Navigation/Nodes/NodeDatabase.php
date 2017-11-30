@@ -37,7 +37,7 @@ class NodeDatabase extends Node
     {
         parent::__construct($name, $type, $is_group);
         $this->icon = Util::getImage(
-            's_db.png',
+            's_db',
             __('Database operations')
         );
 
@@ -681,7 +681,7 @@ class NodeDatabase extends Node
                     . Url::getCommon($params) . '"'
                     . ' class="showUnhide ajax">'
                     . Util::getImage(
-                        'show.png',
+                        'show',
                         __('Show hidden items')
                     )
                     . '</a></span>';

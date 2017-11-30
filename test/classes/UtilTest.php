@@ -359,25 +359,25 @@ class UtilTest extends PmaTestCase
         $GLOBALS['cfg'] = array('ActionLinksMode' => 'both');
 
         $titles = array();
-        $titles['Browse']     = Util::getIcon('b_browse.png', __('Browse'));
-        $titles['NoBrowse']   = Util::getIcon('bd_browse.png', __('Browse'));
-        $titles['Search']     = Util::getIcon('b_select.png', __('Search'));
-        $titles['NoSearch']   = Util::getIcon('bd_select.png', __('Search'));
-        $titles['Insert']     = Util::getIcon('b_insrow.png', __('Insert'));
-        $titles['NoInsert']   = Util::getIcon('bd_insrow.png', __('Insert'));
-        $titles['Structure']  = Util::getIcon('b_props.png', __('Structure'));
-        $titles['Drop']       = Util::getIcon('b_drop.png', __('Drop'));
-        $titles['NoDrop']     = Util::getIcon('bd_drop.png', __('Drop'));
-        $titles['Empty']      = Util::getIcon('b_empty.png', __('Empty'));
-        $titles['NoEmpty']    = Util::getIcon('bd_empty.png', __('Empty'));
-        $titles['Edit']       = Util::getIcon('b_edit.png', __('Edit'));
-        $titles['NoEdit']     = Util::getIcon('bd_edit.png', __('Edit'));
-        $titles['Export']     = Util::getIcon('b_export.png', __('Export'));
-        $titles['NoExport']   = Util::getIcon('bd_export.png', __('Export'));
-        $titles['Execute']    = Util::getIcon('b_nextpage.png', __('Execute'));
-        $titles['NoExecute']  = Util::getIcon('bd_nextpage.png', __('Execute'));
-        $titles['Favorite']   = Util::getIcon('b_favorite.png', '');
-        $titles['NoFavorite'] = Util::getIcon('b_no_favorite.png', '');
+        $titles['Browse']     = Util::getIcon('b_browse', __('Browse'));
+        $titles['NoBrowse']   = Util::getIcon('bd_browse', __('Browse'));
+        $titles['Search']     = Util::getIcon('b_select', __('Search'));
+        $titles['NoSearch']   = Util::getIcon('bd_select', __('Search'));
+        $titles['Insert']     = Util::getIcon('b_insrow', __('Insert'));
+        $titles['NoInsert']   = Util::getIcon('bd_insrow', __('Insert'));
+        $titles['Structure']  = Util::getIcon('b_props', __('Structure'));
+        $titles['Drop']       = Util::getIcon('b_drop', __('Drop'));
+        $titles['NoDrop']     = Util::getIcon('bd_drop', __('Drop'));
+        $titles['Empty']      = Util::getIcon('b_empty', __('Empty'));
+        $titles['NoEmpty']    = Util::getIcon('bd_empty', __('Empty'));
+        $titles['Edit']       = Util::getIcon('b_edit', __('Edit'));
+        $titles['NoEdit']     = Util::getIcon('bd_edit', __('Edit'));
+        $titles['Export']     = Util::getIcon('b_export', __('Export'));
+        $titles['NoExport']   = Util::getIcon('bd_export', __('Export'));
+        $titles['Execute']    = Util::getIcon('b_nextpage', __('Execute'));
+        $titles['NoExecute']  = Util::getIcon('bd_nextpage', __('Execute'));
+        $titles['Favorite']   = Util::getIcon('b_favorite', '');
+        $titles['NoFavorite'] = Util::getIcon('b_no_favorite', '');
 
         $this->assertEquals($titles, Util::buildActionTitles());
     }
@@ -1392,7 +1392,7 @@ class UtilTest extends PmaTestCase
 
         $this->assertEquals(
             '<span class="nowrap"></span>',
-            Util::getIcon('b_comment.png')
+            Util::getIcon('b_comment')
         );
     }
 
@@ -1408,8 +1408,8 @@ class UtilTest extends PmaTestCase
         $GLOBALS['cfg']['ActionLinksMode'] = 'icons';
 
         $this->assertEquals(
-            '<span class="nowrap"><img src="./themes/pmahomme/b_comment.png" title="" alt="" /></span>',
-            Util::getIcon('b_comment.png')
+            '<span class="nowrap"><img src="themes/dot.gif" title="" alt="" class="icon ic_b_comment" /></span>',
+            Util::getIcon('b_comment')
         );
     }
 
@@ -1426,10 +1426,10 @@ class UtilTest extends PmaTestCase
         $alternate_text = 'alt_str';
 
         $this->assertEquals(
-            '<span class="nowrap"><img src="./themes/pmahomme/b_comment.png" title="'
+            '<span class="nowrap"><img src="themes/dot.gif" title="'
             . $alternate_text . '" alt="' . $alternate_text
-            . '" /></span>',
-            Util::getIcon('b_comment.png', $alternate_text)
+            . '" class="icon ic_b_comment" /></span>',
+            Util::getIcon('b_comment', $alternate_text)
         );
     }
 
@@ -1448,10 +1448,10 @@ class UtilTest extends PmaTestCase
         // Here we are checking for an icon embedded inside a span (i.e not a menu
         // bar icon
         $this->assertEquals(
-            '<span class="nowrap"><img src="./themes/pmahomme/b_comment.png" title="'
+            '<span class="nowrap"><img src="themes/dot.gif" title="'
             . $alternate_text . '" alt="' . $alternate_text
-            . '" />&nbsp;' . $alternate_text . '</span>',
-            Util::getIcon('b_comment.png', $alternate_text, true, false)
+            . '" class="icon ic_b_comment" />&nbsp;' . $alternate_text . '</span>',
+            Util::getIcon('b_comment', $alternate_text, true, false)
         );
     }
 
@@ -2065,7 +2065,7 @@ class UtilTest extends PmaTestCase
         $GLOBALS['cfg']['ServerDefault'] = 1;
 
         $this->assertEquals(
-            '<a href="./url.php?url=https%3A%2F%2Fdocs.phpmyadmin.net%2Fen%2Flatest%2Fpage.html%23anchor" target="documentation"><img src="./themes/pmahomme/b_help.png" title="Documentation" alt="Documentation" /></a>',
+            '<a href="./url.php?url=https%3A%2F%2Fdocs.phpmyadmin.net%2Fen%2Flatest%2Fpage.html%23anchor" target="documentation"><img src="themes/dot.gif" title="Documentation" alt="Documentation" class="icon ic_b_help" /></a>',
             Util::showDocu('page', 'anchor')
         );
     }
@@ -2086,8 +2086,8 @@ class UtilTest extends PmaTestCase
         $lang = _pgettext('PHP documentation language', 'en');
         $expected = '<a href="./url.php?url=https%3A%2F%2Fsecure.php.net%2Fmanual%2F' . $lang
             . '%2F' . $target . '" target="documentation">'
-            . '<img src="./themes/pmahomme/b_help.png" title="Documentation" alt="Documentation" />'
-            . '</a>';
+            . '<img src="themes/dot.gif" title="' . __('Documentation') . '" alt="'
+            . __('Documentation') . '" class="icon ic_b_help" /></a>';
 
         $this->assertEquals(
             $expected, Util::showPHPDocu($target)

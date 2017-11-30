@@ -70,7 +70,6 @@ class PrivilegesTest extends TestCase
         $GLOBALS['server'] = 1;
         $GLOBALS['hostname'] = "hostname";
         $GLOBALS['username'] = "username";
-        $GLOBALS['collation_connection'] = "collation_connection";
         $GLOBALS['text_dir'] = "text_dir";
         $GLOBALS['is_reload_priv'] = true;
 
@@ -2203,7 +2202,7 @@ class PrivilegesTest extends TestCase
             $html
         );
         $this->assertContains(
-            Util::getIcon('b_usradd.png'),
+            Util::getIcon('b_usradd'),
             $html
         );
         $this->assertContains(
@@ -2406,14 +2405,12 @@ class PrivilegesTest extends TestCase
         $this->assertContains('<td>Z</td>', $actual);
         $this->assertContains(
             '<a class="ajax" href="server_privileges.php?initial=-&amp;'
-            . 'server=1&amp;lang=en&amp;collation_connection='
-            . 'collation_connection">-</a>',
+            . 'server=1&amp;lang=en">-</a>',
             $actual
         );
         $this->assertContains(
             '<a class="ajax" href="server_privileges.php?initial=%22&amp;'
-            . 'server=1&amp;lang=en&amp;collation_connection='
-            . 'collation_connection">"</a>',
+            . 'server=1&amp;lang=en">"</a>',
             $actual
         );
         $this->assertContains('Show all', $actual);

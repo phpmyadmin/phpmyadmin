@@ -128,7 +128,7 @@ abstract class AuthenticationPlugin
         if ($server === 0) {
             /* delete user's choices that were stored in session */
             if (! defined('TESTSUITE')) {
-                $_SESSION = array();
+                session_unset();
                 session_destroy();
             }
 
@@ -235,14 +235,19 @@ abstract class AuthenticationPlugin
      */
      public function authenticate()
      {
-        if (! $this->readCredentials()) {
-            /* Force generating of new session on login */
+        $success = $this->readCredentials();
+
+
+        /* Show login form (this exits) */
+        if (! $success) {
+            /* Force generating of new session */
             Session::secure();
             $this->showLoginForm();
-        } else {
-            $this->storeCredentials();
         }
 
+        /* Store credentials (eg. in cookies) */
+        $this->storeCredentials();
+        /* Check allow/deny rules */
         $this->checkRules();
     }
 
@@ -330,7 +335,10 @@ abstract class AuthenticationPlugin
         Message::rawNotice(
             __('You have enabled two factor authentication, please confirm your login.')
         )->display();
-        echo Template::get('login/twofactor')->render(['form' => $twofactor->render()]);
+        echo Template::get('login/twofactor')->render([
+            'form' => $twofactor->render(),
+            'show_submit' => $twofactor->showSubmit,
+        ]);
         echo Template::get('login/footer')->render();
         echo Config::renderFooter();
         if (! defined('TESTSUITE')) {

@@ -186,11 +186,11 @@ class ServerVariablesControllerTest extends PmaTestCase
         );
         //validate 2: images
         $this->assertContains(
-            Util::getIcon('b_save.png', __('Save')),
+            Util::getIcon('b_save', __('Save')),
             $html
         );
         $this->assertContains(
-            Util::getIcon('b_close.png', __('Cancel')),
+            Util::getIcon('b_close', __('Cancel')),
             $html
         );
     }

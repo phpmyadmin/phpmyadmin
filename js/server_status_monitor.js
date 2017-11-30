@@ -659,9 +659,9 @@ AJAX.registerOnload('server_status_monitor.js', function () {
         event.preventDefault();
         runtime.redrawCharts = ! runtime.redrawCharts;
         if (! runtime.redrawCharts) {
-            $(this).html(PMA_getImage('play.png') + PMA_messages.strResumeMonitor);
+            $(this).html(PMA_getImage('play') + PMA_messages.strResumeMonitor);
         } else {
-            $(this).html(PMA_getImage('pause.png') + PMA_messages.strPauseMonitor);
+            $(this).html(PMA_getImage('pause') + PMA_messages.strPauseMonitor);
             if (! runtime.charts) {
                 initGrid();
                 $('a[href="#settingsPopup"]').show();
@@ -694,7 +694,7 @@ AJAX.registerOnload('server_status_monitor.js', function () {
                     } else {
                         return serverResponseError();
                     }
-                    var icon = PMA_getImage('s_success.png');
+                    var icon = PMA_getImage('s_success');
                     var msg = '';
                     var str = '';
 
@@ -711,7 +711,7 @@ AJAX.registerOnload('server_status_monitor.js', function () {
                     }
 
                     if (msg.length === 0) {
-                        icon = PMA_getImage('s_error.png');
+                        icon = PMA_getImage('s_error');
                         msg = PMA_messages.strBothLogOff;
                     }
 
@@ -719,20 +719,20 @@ AJAX.registerOnload('server_status_monitor.js', function () {
                     str += icon + msg + '<br />';
 
                     if (logVars.log_output !== 'TABLE') {
-                        str += PMA_getImage('s_error.png') + ' ' + PMA_messages.strLogOutNotTable + '<br />';
+                        str += PMA_getImage('s_error') + ' ' + PMA_messages.strLogOutNotTable + '<br />';
                     } else {
-                        str += PMA_getImage('s_success.png') + ' ' + PMA_messages.strLogOutIsTable + '<br />';
+                        str += PMA_getImage('s_success') + ' ' + PMA_messages.strLogOutIsTable + '<br />';
                     }
 
                     if (logVars.slow_query_log === 'ON') {
                         if (logVars.long_query_time > 2) {
-                            str += PMA_getImage('s_attention.png') + ' ';
+                            str += PMA_getImage('s_attention') + ' ';
                             str += PMA_sprintf(PMA_messages.strSmallerLongQueryTimeAdvice, logVars.long_query_time);
                             str += '<br />';
                         }
 
                         if (logVars.long_query_time < 2) {
-                            str += PMA_getImage('s_success.png') + ' ';
+                            str += PMA_getImage('s_success') + ' ';
                             str += PMA_sprintf(PMA_messages.strLongQueryTimeSet, logVars.long_query_time);
                             str += '<br />';
                         }
@@ -1912,7 +1912,7 @@ AJAX.registerOnload('server_status_monitor.js', function () {
 
         // Append a tooltip to the count column, if there exist one
         if ($('#logTable').find('tr:first th:last').text().indexOf('#') > -1) {
-            $('#logTable').find('tr:first th:last').append('&nbsp;' + PMA_getImage('b_help.png', '', { 'class': 'qroupedQueryInfoIcon' }));
+            $('#logTable').find('tr:first th:last').append('&nbsp;' + PMA_getImage('b_help', '', { 'class': 'qroupedQueryInfoIcon' }));
 
             var tooltipContent = PMA_messages.strCountColumnExplanation;
             if (groupInserts) {
@@ -2151,7 +2151,7 @@ function serverResponseError () {
     };
     $('#emptyDialog').dialog({ title: PMA_messages.strRefreshFailed });
     $('#emptyDialog').html(
-        PMA_getImage('s_attention.png') +
+        PMA_getImage('s_attention') +
         PMA_messages.strInvalidResponseExplanation
     );
     $('#emptyDialog').dialog({ buttons: btns });

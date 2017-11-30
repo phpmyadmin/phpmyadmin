@@ -8,6 +8,7 @@
 namespace PhpMyAdmin;
 
 use PhpMyAdmin\Core;
+use PhpMyAdmin\Database\DatabaseList;
 use PhpMyAdmin\Dbi\DbiExtension;
 use PhpMyAdmin\Dbi\DbiDummy;
 use PhpMyAdmin\Dbi\DbiMysql;
@@ -16,6 +17,7 @@ use PhpMyAdmin\Di\Container;
 use PhpMyAdmin\Error;
 use PhpMyAdmin\Index;
 use PhpMyAdmin\LanguageManager;
+use PhpMyAdmin\Relation;
 use PhpMyAdmin\SystemDatabase;
 use PhpMyAdmin\Table;
 use PhpMyAdmin\Types;
@@ -1404,16 +1406,14 @@ class DatabaseInterface
      * been established. It sets the connection collation, and determines the
      * version of MySQL which is running.
      *
-     * @param integer $link link type
-     *
      * @return void
      */
-    public function postConnect($link)
+    public function postConnect()
     {
         $version = $this->fetchSingleRow(
             'SELECT @@version, @@version_comment',
             'ASSOC',
-            $link
+            DatabaseInterface::CONNECT_USER
         );
 
         if ($version) {
@@ -1435,53 +1435,20 @@ class DatabaseInterface
             $default_charset = 'utf8';
             $default_collation = 'utf8_general_ci';
         }
-        $collation_connection = $GLOBALS['PMA_Config']->get('collation_connection');
-        if (! empty($collation_connection)) {
-            $this->query(
-                "SET CHARACTER SET '$default_charset';",
-                $link,
-                self::QUERY_STORE
-            );
-            /* Automatically adjust collation if not supported by server */
-            if ($default_charset == 'utf8'
-                && strncmp('utf8mb4_', $collation_connection, 8) == 0
-            ) {
-                $collation_connection = 'utf8_' . substr($collation_connection, 8);
-            }
-            $result = $this->tryQuery(
-                "SET collation_connection = '"
-                . $this->escapeString($collation_connection, $link)
-                . "';",
-                $link,
-                self::QUERY_STORE
-            );
-            if ($result === false) {
-                trigger_error(
-                    __('Failed to set configured collation connection!'),
-                    E_USER_WARNING
-                );
-                $this->query(
-                    "SET collation_connection = '"
-                    . $this->escapeString($collation_connection, $link)
-                    . "';",
-                    $link,
-                    self::QUERY_STORE
-                );
-            }
-        } else {
-            $this->query(
-                "SET NAMES '$default_charset' COLLATE '$default_collation';",
-                $link,
-                self::QUERY_STORE
-            );
-        }
+        $GLOBALS['collation_connection'] = $default_collation;
+        $GLOBALS['charset_connection'] = $default_charset;
+        $this->query(
+            "SET NAMES '$default_charset' COLLATE '$default_collation';",
+            DatabaseInterface::CONNECT_USER,
+            self::QUERY_STORE
+        );
 
         /* Locale for messages */
         $locale = LanguageManager::getInstance()->getCurrentLanguage()->getMySQLLocale();
         if (! empty($locale)) {
             $this->query(
                 "SET lc_messages = '" . $locale . "';",
-                $link,
+                DatabaseInterface::CONNECT_USER,
                 self::QUERY_STORE
             );
         }
@@ -1515,6 +1482,68 @@ class DatabaseInterface
         \PhpMyAdmin\SqlParser\Context::loadClosest(
             ($this->_is_mariadb ? 'MariaDb' : 'MySql') . $this->_version_int
         );
+
+        /**
+         * the DatabaseList class as a stub for the ListDatabase class
+         */
+        $GLOBALS['dblist'] = new DatabaseList();
+    }
+
+    /**
+     * Sets collation connection for user link
+     *
+     * @param string $collation collation to set
+     */
+    public function setCollation($collation)
+    {
+        $charset = $GLOBALS['charset_connection'];
+        /* Automatically adjust collation if not supported by server */
+        if ($charset == 'utf8' && strncmp('utf8mb4_', $collation, 8) == 0) {
+            $collation = 'utf8_' . substr($collation, 8);
+        }
+        $result = $this->tryQuery(
+            "SET collation_connection = '"
+            . $this->escapeString($collation, DatabaseInterface::CONNECT_USER)
+            . "';",
+            DatabaseInterface::CONNECT_USER,
+            self::QUERY_STORE
+        );
+        if ($result === false) {
+            trigger_error(
+                __('Failed to set configured collation connection!'),
+                E_USER_WARNING
+            );
+        } else {
+            $GLOBALS['collation_connection'] = $collation;
+        }
+    }
+
+    /**
+     * Function called just after a connection to the MySQL database server has
+     * been established. It sets the connection collation, and determines the
+     * version of MySQL which is running.
+     *
+     * @param integer $link link type
+     *
+     * @return void
+     */
+    public function postConnectControl()
+    {
+        // If Zero configuration mode enabled, check PMA tables in current db.
+        if ($GLOBALS['cfg']['ZeroConf'] == true) {
+            if (strlen($GLOBALS['db'])) {
+                $cfgRelation = Relation::getRelationsParam();
+                if (empty($cfgRelation['db'])) {
+                    Relation::fixPmaTables($GLOBALS['db'], false);
+                }
+            }
+            $cfgRelation = Relation::getRelationsParam();
+            if (empty($cfgRelation['db'])) {
+                if ($GLOBALS['dblist']->databases->exists('phpmyadmin')) {
+                    Relation::fixPmaTables('phpmyadmin', false);
+                }
+            }
+        }
     }
 
     /**
@@ -2441,7 +2470,9 @@ class DatabaseInterface
             $this->_links[$target] = $result;
             /* Run post connect for user connections */
             if ($target == DatabaseInterface::CONNECT_USER) {
-                $this->postConnect(DatabaseInterface::CONNECT_USER);
+                $this->postConnect();
+            } elseif ($target == DatabaseInterface::CONNECT_CONTROL) {
+                $this->postConnectControl();
             }
             return $result;
         }

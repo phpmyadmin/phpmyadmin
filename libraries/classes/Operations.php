@@ -42,7 +42,7 @@ class Operations
             . '<fieldset>'
             . '<legend>';
         if (Util::showIcons('ActionLinksMode')) {
-            $html_output .= Util::getImage('b_comment.png') . '&nbsp;';
+            $html_output .= Util::getImage('b_comment') . '&nbsp;';
         }
         $html_output .=  __('Database comment');
         $html_output .= '</legend>';
@@ -85,7 +85,7 @@ class Operations
             . '<legend>';
 
         if (Util::showIcons('ActionLinksMode')) {
-            $html_output .= Util::getImage('b_edit.png') . '&nbsp;';
+            $html_output .= Util::getImage('b_edit') . '&nbsp;';
         }
         $html_output .= __('Rename database to')
             . '</legend>';
@@ -151,7 +151,7 @@ class Operations
             . '<fieldset class="caution">';
         $html_output .= '<legend>';
         if (Util::showIcons('ActionLinksMode')) {
-            $html_output .= Util::getImage('b_deltbl.png') . '&nbsp';
+            $html_output .= Util::getImage('b_deltbl') . '&nbsp';
         }
         $html_output .= __('Remove database')
             . '</legend>';
@@ -184,12 +184,7 @@ class Operations
             'dataonly'  => __('Data only')
         );
 
-        if (isset($_COOKIE)
-            && isset($_COOKIE['pma_switch_to_new'])
-            && $_COOKIE['pma_switch_to_new'] == 'true'
-        ) {
-            $pma_switch_to_new = 'true';
-        }
+        $pma_switch_to_new = isset($_SESSION['pma_switch_to_new']) && $_SESSION['pma_switch_to_new'];
 
         $html_output = '<div>';
         $html_output .= '<form id="copy_db_form" '
@@ -207,7 +202,7 @@ class Operations
             . '<legend>';
 
         if (Util::showIcons('ActionLinksMode')) {
-            $html_output .= Util::getImage('b_edit.png') . '&nbsp';
+            $html_output .= Util::getImage('b_edit') . '&nbsp';
         }
         $html_output .= __('Copy database to')
             . '</legend>'
@@ -257,10 +252,7 @@ class Operations
 
         $html_output .= '<input type="checkbox" name="switch_to_new" value="true"'
             . 'id="checkbox_switch"'
-            . ((isset($pma_switch_to_new) && $pma_switch_to_new == 'true')
-                ? ' checked="checked"'
-                : '')
-            . '/>';
+            . ($pma_switch_to_new ? ' checked="checked"' : '') . '/>';
         $html_output .= '<label for="checkbox_switch">'
             . __('Switch to copied database') . '</label>'
             . '</fieldset>';
@@ -293,7 +285,7 @@ class Operations
         $html_output .= '<fieldset>' . "\n"
            . '    <legend>';
         if (Util::showIcons('ActionLinksMode')) {
-            $html_output .= Util::getImage('s_asci.png') . '&nbsp';
+            $html_output .= Util::getImage('s_asci') . '&nbsp';
         }
         $html_output .= '<label for="select_db_collation">' . __('Collation')
             . '</label>' . "\n"
@@ -1318,17 +1310,11 @@ class Operations
             . __('Adjust privileges') . Util::showDocu('faq', 'faq6-39')
             . '</label><br />';
 
-        if (isset($_COOKIE['pma_switch_to_new'])
-            && $_COOKIE['pma_switch_to_new'] == 'true'
-        ) {
-            $pma_switch_to_new = 'true';
-        }
+        $pma_switch_to_new = isset($_SESSION['pma_switch_to_new']) && $_SESSION['pma_switch_to_new'];
 
         $html_output .= '<input type="checkbox" name="switch_to_new" value="true"'
             . 'id="checkbox_switch"'
-            . ((isset($pma_switch_to_new) && $pma_switch_to_new == 'true')
-                ? ' checked="checked"'
-                : '' . '/>');
+            . ($pma_switch_to_new ? ' checked="checked"' : '') . '/>';
         $html_output .= '<label for="checkbox_switch">'
             . __('Switch to copied table') . '</label>'
             . '</fieldset>';
