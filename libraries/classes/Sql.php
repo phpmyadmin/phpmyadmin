@@ -620,7 +620,7 @@ EOT;
      *
      * @return boolean
      */
-    public static function isRememberSortingOrder($analyzed_sql_results)
+    public static function isRememberSortingOrder(array $analyzed_sql_results)
     {
         return $GLOBALS['cfg']['RememberSorting']
             && ! ($analyzed_sql_results['is_count']
