@@ -7,25 +7,25 @@
  */
 namespace PhpMyAdmin\Twig;
 
-use Twig_Extension;
-use Twig_SimpleFunction;
+use Twig\Extension\AbstractExtension;
+use Twig\TwigFunction;
 
 /**
  * Class PartitionExtension
  *
  * @package PhpMyAdmin\Twig
  */
-class PartitionExtension extends Twig_Extension
+class PartitionExtension extends AbstractExtension
 {
     /**
      * Returns a list of functions to add to the existing list.
      *
-     * @return Twig_SimpleFunction[]
+     * @return TwigFunction[]
      */
     public function getFunctions()
     {
         return array(
-            new Twig_SimpleFunction(
+            new TwigFunction(
                 'Partition_getPartitions',
                 'PhpMyAdmin\Partition::getPartitions',
                 array('is_safe' => array('html'))

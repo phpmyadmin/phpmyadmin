@@ -7,35 +7,35 @@
  */
 namespace PhpMyAdmin\Twig;
 
-use Twig_Extension;
-use Twig_SimpleFunction;
+use Twig\Extension\AbstractExtension;
+use Twig\TwigFunction;
 
 /**
  * Class SanitizeExtension
  *
  * @package PhpMyAdmin\Twig
  */
-class SanitizeExtension extends Twig_Extension
+class SanitizeExtension extends AbstractExtension
 {
     /**
      * Returns a list of functions to add to the existing list.
      *
-     * @return Twig_SimpleFunction[]
+     * @return TwigFunction[]
      */
     public function getFunctions()
     {
         return array(
-            new Twig_SimpleFunction(
+            new TwigFunction(
                 'Sanitize_escapeJsString',
                 'PhpMyAdmin\Sanitize::escapeJsString',
                 array('is_safe' => array('html'))
             ),
-            new Twig_SimpleFunction(
+            new TwigFunction(
                 'Sanitize_jsFormat',
                 'PhpMyAdmin\Sanitize::jsFormat',
                 array('is_safe' => array('html'))
             ),
-            new Twig_SimpleFunction(
+            new TwigFunction(
                 'Sanitize_sanitize',
                 'PhpMyAdmin\Sanitize::sanitize',
                 array('is_safe' => array('html'))

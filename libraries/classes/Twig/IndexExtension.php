@@ -7,25 +7,25 @@
  */
 namespace PhpMyAdmin\Twig;
 
-use Twig_Extension;
-use Twig_SimpleFunction;
+use Twig\Extension\AbstractExtension;
+use Twig\TwigFunction;
 
 /**
  * Class IndexExtension
  *
  * @package PhpMyAdmin\Twig
  */
-class IndexExtension extends Twig_Extension
+class IndexExtension extends AbstractExtension
 {
     /**
      * Returns a list of functions to add to the existing list.
      *
-     * @return Twig_SimpleFunction[]
+     * @return TwigFunction[]
      */
     public function getFunctions()
     {
         return array(
-            new Twig_SimpleFunction(
+            new TwigFunction(
                 'Index_getHtmlForDisplayIndexes',
                 'PhpMyAdmin\Index::getHtmlForDisplayIndexes',
                 array('is_safe' => array('html'))
