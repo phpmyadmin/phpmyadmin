@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.8.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2017-11-28 16:22+0100\n"
-"PO-Revision-Date: 2017-11-28 18:32+0000\n"
-"Last-Translator: Han Velthuis <han.velthuis@home.nl>\n"
+"PO-Revision-Date: 2017-11-30 19:53+0000\n"
+"Last-Translator: dingo thirteen <dingo13@gmail.com>\n"
 "Language-Team: Dutch "
 "<https://hosted.weblate.org/projects/phpmyadmin/master/nl/>\n"
 "Language: nl\n"
@@ -15527,7 +15527,7 @@ msgstr ""
 
 #: templates/prefs_twofactor.twig:10
 msgid "Following composer packages are missing:"
-msgstr ""
+msgstr "De volgende composer onderdelen ontbreken:"
 
 #: templates/prefs_twofactor.twig:18
 msgid "Two-factor authentication is available and configured for this account."
@@ -15644,6 +15644,8 @@ msgid ""
 "You are not using https to access phpMyAdmin, therefore FIDO U2F device will "
 "most likely refuse to authenticate you."
 msgstr ""
+"U gebruikt geen https om phpMyAdmin te gebruiken, daarom zal het FIDO U2F "
+"apparaat waarschijnlijk weigeren om u te authentificeren."
 
 #: templates/error/report_form.twig:6
 msgid ""
