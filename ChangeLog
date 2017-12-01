@@ -43,9 +43,11 @@ phpMyAdmin - ChangeLog
 - issue #13480 Avoid removing cookies on upgrade
 - issue #13397 Remember state of navigation panel
 - issue #11688 Reduced cookie usage
-- issue #13466 Bettter utilization of user preferences
+- issue #13466 Better utilization of user preferences
 
-4.7.6 (not yet released)
+4.7.7 (not yet released)
+
+4.7.6 (2017-11-29)
 - issue #13517 Fixed check all interaction with filtering
 - issue #13803 Add SJIS-win to default list of allowed charsets
 - issue #13436 Improve detection that MySQL server needs SSL connection
