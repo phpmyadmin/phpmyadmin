@@ -565,6 +565,7 @@ var AJAX = {
          */
         load: function (files, callback) {
             var self = this;
+            var i;
             // Clear loaded scripts if they are from another version of phpMyAdmin.
             // Depends on common params being set before loading scripts in responseHandler
             if (self._scriptsVersion === null) {
@@ -575,13 +576,17 @@ var AJAX = {
             }
             self._scriptsCompleted = false;
             self._scriptsToBeFired = [];
-            for (var i in files) {
+            // We need to first complete list of files to load
+            // as next loop will directly fire requests to load them
+            // and that triggers removal of them from
+            // self._scriptsToBeLoaded
+            for (i in files) {
                 self._scriptsToBeLoaded.push(files[i].name);
                 if (files[i].fire) {
                     self._scriptsToBeFired.push(files[i].name);
                 }
             }
-            for (var i in files) {
+            for (i in files) {
                 var script = files[i].name;
                 // Only for scripts that we don't already have
                 if ($.inArray(script, self._scripts) === -1) {
@@ -591,7 +596,7 @@ var AJAX = {
                     self.done(script, callback);
                 }
             }
-            // Trigger callback if there is nothing to load
+            // Trigger callback if there is nothing else to load
             self.done(null, callback);
         },
         /**
