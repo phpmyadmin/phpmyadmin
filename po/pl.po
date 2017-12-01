@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.7.6-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2017-11-02 14:03+0100\n"
-"PO-Revision-Date: 2017-11-27 07:59+0000\n"
+"PO-Revision-Date: 2017-12-02 20:48+0000\n"
 "Last-Translator: Kozioł Marcin <koziol.martin@gmail.com>\n"
 "Language-Team: Polish "
 "<https://hosted.weblate.org/projects/phpmyadmin/4-7/pl/>\n"
@@ -1830,7 +1830,8 @@ msgstr "Eksport"
 #: js/messages.php:403
 msgid "No routine is exportable. Required privileges may be lacking."
 msgstr ""
-"Nie można wyeksportować żadnej procedury. Może brakować wymaganych uprawnień."
+"Nie można eksportować żadnej procedury. Wymagane uprawnienia mogą być "
+"niewystarczające."
 
 #: js/messages.php:406 libraries/rte/rte_routines.lib.php:747
 msgid "ENUM/SET editor"
@@ -1941,15 +1942,15 @@ msgstr "Zobacz więcej"
 
 #: js/messages.php:436
 msgid "Are you sure?"
-msgstr "Czy jesteś pewien?"
+msgstr "Jesteś pewny?"
 
 #: js/messages.php:438
 msgid ""
 "This action may change some of the columns definition.<br/>Are you sure you "
 "want to continue?"
 msgstr ""
-"To działanie może zmienić część definicji kolumn.<br/>Czy jesteś pewien, że "
-"chcesz kontynuować?"
+"Ta akcja może zmienić niektóre definicje kolumn. <br/>Czy na pewno chcesz "
+"kontynuować?"
 
 #: js/messages.php:441
 msgid "Continue"
@@ -2034,7 +2035,7 @@ msgstr "Zostaną wykonane następujące działania:"
 #: js/messages.php:470
 #, php-format
 msgid "DROP columns %s from the table %s"
-msgstr "USUŃ kolumny %s z tabeli %s"
+msgstr "DROP kolumny %s z tabeli %s"
 
 #: js/messages.php:471
 msgid "Create the following table"
@@ -2042,7 +2043,7 @@ msgstr "Utwórz tabelę"
 
 #: js/messages.php:474
 msgid "Third step of normalization (3NF)"
-msgstr "Trzeci krok normalizacji (3NF)"
+msgstr "Trzeci krok normalizacji (3KN)"
 
 #: js/messages.php:475
 msgid "Confirm transitive dependencies"
@@ -2076,11 +2077,11 @@ msgstr "Pokaż kryteria wyszukiwania"
 
 #: js/messages.php:485
 msgid "Range search"
-msgstr "Wyszukiwanie zakresu"
+msgstr "Zakres wyszukiwania"
 
 #: js/messages.php:486
 msgid "Column maximum:"
-msgstr "Maksymalna kolumna:"
+msgstr "Maksimum kolumny:"
 
 #: js/messages.php:487
 msgid "Column minimum:"
@@ -3053,7 +3054,7 @@ msgstr "Unicode"
 #: libraries/Charsets.php:280 libraries/Charsets.php:451
 msgctxt "Collation"
 msgid "West European"
-msgstr "Zachodnia Europa"
+msgstr "Zachodnioeuropejski"
 
 #: libraries/Charsets.php:287
 msgctxt "Collation"
@@ -5013,8 +5014,7 @@ msgstr "Użyj tej wartości"
 msgid ""
 "The configuration storage is not ready for the central list of columns "
 "feature."
-msgstr ""
-"Konfiguracja magazynu nie jest gotowa na centralną listę funkcji kolumn."
+msgstr "Pamięć konfiguracji nie jest gotowa na centralną listę funkcji kolumn."
 
 #: libraries/central_columns.lib.php:282
 #, php-format
@@ -10187,7 +10187,7 @@ msgstr "Kolumny dołączyć:"
 #: libraries/plugins/export/ExportCsv.php:72
 #: libraries/plugins/import/AbstractImportCsv.php:71
 msgid "Columns escaped with:"
-msgstr "Kolumny uciekają z:"
+msgstr "Kolumny uciekły z:"
 
 #: libraries/plugins/export/ExportCsv.php:77
 #: libraries/plugins/import/AbstractImportCsv.php:78
@@ -10563,7 +10563,7 @@ msgstr "Metadane dla Bazy danych %s"
 #: libraries/plugins/export/ExportSql.php:1415
 #: libraries/plugins/schema/pdf/PdfRelationSchema.php:603
 msgid "Creation:"
-msgstr "Utworzono:"
+msgstr "Utworzenie:"
 
 #: libraries/plugins/export/ExportSql.php:1428
 #: libraries/plugins/schema/pdf/PdfRelationSchema.php:610
@@ -15150,7 +15150,7 @@ msgstr "Rozmiar"
 #: templates/database/structure/table_header.phtml:105
 #: templates/table/structure/row_stats_table.phtml:79
 msgid "Creation"
-msgstr "Utworzono"
+msgstr "Utworzenie"
 
 #: templates/database/structure/table_header.phtml:116
 #: templates/table/structure/row_stats_table.phtml:86
