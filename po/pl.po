@@ -4,10 +4,10 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.8.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2017-11-28 16:22+0100\n"
-"PO-Revision-Date: 2017-11-26 18:18+0000\n"
+"PO-Revision-Date: 2017-12-02 16:34+0000\n"
 "Last-Translator: Kozioł Marcin <koziol.martin@gmail.com>\n"
-"Language-Team: Polish <https://hosted.weblate.org/projects/phpmyadmin/master/"
-"pl/>\n"
+"Language-Team: Polish "
+"<https://hosted.weblate.org/projects/phpmyadmin/master/pl/>\n"
 "Language: pl\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -303,13 +303,10 @@ msgid "The database name is empty!"
 msgstr "Nazwa bazy danych jest pusta!"
 
 #: db_operations.php:67
-#, fuzzy
-#| msgid ""
-#| "Cannot rename database to the same name. Change the name and try again"
 msgid "Cannot copy database to the same name. Change the name and try again."
 msgstr ""
-"Nie można zmienić nazwy bazy danych na taką samą. Zmień nazwę i spróbuj "
-"ponownie"
+"Nie można skopiować bazy danych o tej samej nazwie. Zmień nazwę i spróbuj "
+"ponownie."
 
 #: db_operations.php:154
 #, php-format
@@ -1766,13 +1763,12 @@ msgid "Error text: %s"
 msgstr "Błąd tekstu: %s"
 
 #: js/messages.php:366
-#, fuzzy
 msgid ""
 "It seems that the connection to server has been lost. Please check your "
 "network connectivity and server status."
 msgstr ""
-"Wygląda na to, że połączenie z serwerem zostało zerwane. Sprawdź swoje "
-"połączenie sieciowe i status serwera."
+"Wygląda na to, że połączenie z serwerem zostało utracone. Sprawdź połączenie "
+"sieciowe i status serwera."
 
 #: js/messages.php:369
 #: libraries/classes/Controllers/Server/ServerDatabasesController.php:188
@@ -1876,7 +1872,8 @@ msgstr "Eksport"
 #: js/messages.php:401
 msgid "No routine is exportable. Required privileges may be lacking."
 msgstr ""
-"Nie można wyeksportować żadnej procedury. Może brakować wymaganych uprawnień."
+"Nie można eksportować żadnej procedury. Wymagane uprawnienia mogą być "
+"niewystarczające."
 
 #: js/messages.php:404 libraries/classes/Rte/Routines.php:760
 msgid "ENUM/SET editor"
@@ -1991,15 +1988,15 @@ msgstr "Zobacz więcej"
 
 #: js/messages.php:434
 msgid "Are you sure?"
-msgstr "Czy jesteś pewien?"
+msgstr "Jesteś pewny?"
 
 #: js/messages.php:436
 msgid ""
 "This action may change some of the columns definition.<br/>Are you sure you "
 "want to continue?"
 msgstr ""
-"To działanie może zmienić część definicji kolumn.<br/>Czy jesteś pewien, że "
-"chcesz kontynuować?"
+"Ta akcja może zmienić niektóre definicje kolumn. <br/>Czy na pewno chcesz "
+"kontynuować?"
 
 #: js/messages.php:439
 msgid "Continue"
@@ -2086,7 +2083,7 @@ msgstr "Zostaną wykonane następujące działania:"
 #: js/messages.php:468
 #, php-format
 msgid "DROP columns %s from the table %s"
-msgstr "USUŃ kolumny %s z tabeli %s"
+msgstr "DROP kolumny %s z tabeli %s"
 
 #: js/messages.php:469
 msgid "Create the following table"
@@ -2094,7 +2091,7 @@ msgstr "Utwórz tabelę"
 
 #: js/messages.php:472
 msgid "Third step of normalization (3NF)"
-msgstr "Trzeci krok normalizacji (3NF)"
+msgstr "Trzeci krok normalizacji (3KN)"
 
 #: js/messages.php:473
 msgid "Confirm transitive dependencies"
@@ -2128,11 +2125,11 @@ msgstr "Pokaż kryteria wyszukiwania"
 
 #: js/messages.php:483
 msgid "Range search"
-msgstr "Wyszukiwanie zakresu"
+msgstr "Zakres wyszukiwania"
 
 #: js/messages.php:484
 msgid "Column maximum:"
-msgstr "Maksymalna kolumna:"
+msgstr "Maksimum kolumny:"
 
 #: js/messages.php:485
 msgid "Column minimum:"
@@ -2693,11 +2690,12 @@ msgstr "Silne"
 #: js/messages.php:746
 msgid "Timed out waiting for security key activation."
 msgstr ""
+"Przekroczono limit czasu oczekiwania na aktywację klucza bezpieczeństwa."
 
 #: js/messages.php:747
 #, php-format
 msgid "Failed security key activation (%s)."
-msgstr ""
+msgstr "Błąd aktywacji klucza bezpieczeństwa (%s)."
 
 #: js/messages.php:776
 msgctxt "Previous month"
@@ -3139,7 +3137,7 @@ msgstr "Numer strony:"
 msgid ""
 "The configuration storage is not ready for the central list of columns "
 "feature."
-msgstr ""
+msgstr "Pamięć konfiguracji nie jest gotowa na centralną listę funkcji kolumn."
 
 #: libraries/classes/CentralColumns.php:325
 #, php-format
@@ -3178,7 +3176,7 @@ msgstr "Filtrowanie wierszy"
 #: libraries/classes/CentralColumns.php:741
 #: libraries/classes/Display/Results.php:963
 msgid "Search this table"
-msgstr "Szukaj w tej tabeli"
+msgstr "Przeszukaj tę tabelę"
 
 #: libraries/classes/CentralColumns.php:764 libraries/classes/Index.php:717
 #: libraries/classes/Rte/RteList.php:89 libraries/classes/Rte/RteList.php:104
@@ -3289,8 +3287,6 @@ msgid "Unicode"
 msgstr "Unicode"
 
 #: libraries/classes/Charsets.php:346 libraries/classes/Charsets.php:517
-#, fuzzy
-#| msgid "West European"
 msgctxt "Collation"
 msgid "West European"
 msgstr "Zachodnioeuropejski"
@@ -3461,11 +3457,9 @@ msgid "Estonian"
 msgstr "Estoński"
 
 #: libraries/classes/Charsets.php:468 libraries/classes/Charsets.php:585
-#, fuzzy
-#| msgid "Data Dictionary"
 msgctxt "Collation"
 msgid "German (dictionary order)"
-msgstr "Słownik danych"
+msgstr "Niemiecki (kolejność słownikowa)"
 
 #: libraries/classes/Charsets.php:471 libraries/classes/Charsets.php:582
 msgctxt "Collation"
@@ -3502,10 +3496,9 @@ msgid "Lithuanian"
 msgstr "Litewski"
 
 #: libraries/classes/Charsets.php:507
-#, fuzzy
 msgctxt "Collation"
 msgid "Burmese"
-msgstr "Birmańczyk"
+msgstr "Birmański"
 
 #: libraries/classes/Charsets.php:510
 msgctxt "Collation"
@@ -3640,14 +3633,11 @@ msgid "Server %d"
 msgstr "Serwer %d"
 
 #: libraries/classes/Config/Descriptions.php:62
-#, fuzzy
-#| msgid ""
-#| "If enabled user can enter any MySQL server in login form for cookie auth"
 msgid ""
 "If enabled, user can enter any MySQL server in login form for cookie auth."
 msgstr ""
-"Włączenie powoduje, że przy uwierzytelnianiu przez ciasteczka, użytkownik w "
-"formularzu logowania może wprowadzić dowolny serwer MySQL"
+"Jeśli jest włączona, użytkownik może wprowadzić dowolny serwer MySQL w "
+"formularzu logowania, aby uzyskać autoryzację plików cookie."
 
 #: libraries/classes/Config/Descriptions.php:64
 msgid "Allow login to any MySQL server"
@@ -3659,6 +3649,9 @@ msgid ""
 "MySQL server is enabled by matching the IP or hostname of the MySQL server "
 "to the given regular expression."
 msgstr ""
+"Ogranicza serwery MySQL, które użytkownik może wprowadzić, gdy logowanie do "
+"dowolnego serwera MySQL jest włączone przez dopasowanie adresu IP lub nazwy "
+"hosta serwera MySQL do danego wyrażenia regularnego."
 
 #: libraries/classes/Config/Descriptions.php:72
 msgid "Restrict login to MySQL server"
@@ -3847,6 +3840,7 @@ msgstr "Potwierdzanie zapytań DROP"
 msgid ""
 "Log SQL queries and their execution time, to be displayed in the console"
 msgstr ""
+"Log SQL zapytania i ich czas wykonania, które będą wyświetlane w konsoli"
 
 #: libraries/classes/Config/Descriptions.php:169
 #: templates/console/display.twig:11 templates/console/display.twig:64
@@ -3897,7 +3891,7 @@ msgstr "Pokaż komentarze do kolumn"
 
 #: libraries/classes/Config/Descriptions.php:191
 msgid "Whether column comments should be shown in table structure view"
-msgstr ""
+msgstr "Czy komentarze kolumn powinny być wyświetlane w widoku struktury tabeli"
 
 #: libraries/classes/Config/Descriptions.php:193
 msgid "Hide table structure actions"
@@ -3922,6 +3916,9 @@ msgid ""
 "Values for options list for default transformations. These will be "
 "overwritten if transformation is filled in at table structure page."
 msgstr ""
+"Wartości dla listy opcji dla domyślnych transformacji. Zostaną one "
+"nadpisane, jeśli transformacja zostanie wypełniona na stronie struktury "
+"tabeli."
 
 #: libraries/classes/Config/Descriptions.php:199
 #, fuzzy
@@ -4902,7 +4899,7 @@ msgstr "Limit pamięci"
 
 #: libraries/classes/Config/Descriptions.php:768
 msgid "In the navigation panel, replaces the database tree with a selector"
-msgstr ""
+msgstr "W panelu nawigacyjnym zastępuje drzewo bazy danych za pomocą selektora"
 
 #: libraries/classes/Config/Descriptions.php:770
 msgid "Show databases navigation as tree"
@@ -9647,7 +9644,7 @@ msgstr "Kolumny dołączyć:"
 #: libraries/classes/Plugins/Export/ExportCsv.php:73
 #: libraries/classes/Plugins/Import/AbstractImportCsv.php:71
 msgid "Columns escaped with:"
-msgstr "Kolumna uciekła z:"
+msgstr "Kolumny uciekły z:"
 
 #: libraries/classes/Plugins/Export/ExportCsv.php:78
 #: libraries/classes/Plugins/Import/AbstractImportCsv.php:78
@@ -10066,7 +10063,7 @@ msgstr "Metadane dla Bazy danych %s"
 #: libraries/classes/Plugins/Export/ExportSql.php:1418
 #: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php:603
 msgid "Creation:"
-msgstr "Data utworzenia:"
+msgstr "Utworzenie:"
 
 #: libraries/classes/Plugins/Export/ExportSql.php:1431
 #: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php:610
@@ -15136,7 +15133,7 @@ msgstr "Rozmiar"
 #: templates/database/structure/table_header.twig:53
 #: templates/table/structure/row_stats_table.twig:76
 msgid "Creation"
-msgstr "Data utworzenia"
+msgstr "Utworzenie"
 
 #: templates/database/structure/table_header.twig:58
 #: templates/table/structure/row_stats_table.twig:83
