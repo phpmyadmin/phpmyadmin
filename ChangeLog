@@ -1,6 +1,8 @@
 phpMyAdmin - ChangeLog
 ======================
 
+4.7.7 (not yet released)
+
 4.7.6 (2017-11-29)
 - issue #13517 Fixed check all interaction with filtering
 - issue #13803 Add SJIS-win to default list of allowed charsets
