@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.8.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2017-11-28 16:22+0100\n"
-"PO-Revision-Date: 2017-11-28 18:32+0000\n"
+"PO-Revision-Date: 2017-12-02 21:25+0000\n"
 "Last-Translator: Matteo Regazzi <mregazzi@tiscali.it>\n"
 "Language-Team: Italian "
 "<https://hosted.weblate.org/projects/phpmyadmin/master/it/>\n"
@@ -4853,10 +4853,8 @@ msgid "Navigation panel width"
 msgstr "Pannello di navigazione"
 
 #: libraries/classes/Config/Descriptions.php:774
-#, fuzzy
-#| msgid "Show logo in navigation panel."
 msgid "Set to 0 to collapse navigation panel."
-msgstr "Mostra logo nel pannello di navigazione."
+msgstr "0 per chiudere il pannello di navigazione."
 
 #: libraries/classes/Config/Descriptions.php:776
 msgid "Link with main panel by highlighting the current database or table."
