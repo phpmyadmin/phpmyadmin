@@ -81,7 +81,7 @@ class ErrorHandler
                     );
                     $_SESSION['errors'][$error->getHash()] = $error;
                     break;
-                } else if (($error instanceof Error)
+                } elseif (($error instanceof Error)
                     && ! $error->isDisplayed()
                 ) {
                     $_SESSION['errors'][$key] = $error;

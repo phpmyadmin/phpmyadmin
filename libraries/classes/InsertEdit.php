@@ -1193,11 +1193,11 @@ class InsertEdit
         // verify True_Type which does not contain the parentheses and length
         if ($readOnly) {
             //NOOP. Disable date/timepicker
-        } else if ($column['True_Type'] === 'date') {
+        } elseif ($column['True_Type'] === 'date') {
             $the_class .= ' datefield';
-        } else if ($column['True_Type'] === 'time') {
+        } elseif ($column['True_Type'] === 'time') {
             $the_class .= ' timefield';
-        } else if ($column['True_Type'] === 'datetime'
+        } elseif ($column['True_Type'] === 'datetime'
             || $column['True_Type'] === 'timestamp'
         ) {
             $the_class .= ' datetimefield';
@@ -2393,7 +2393,7 @@ class InsertEdit
 
         if (false !== $possibly_uploaded_val) {
             $current_value = $possibly_uploaded_val;
-        } else if (! empty($multi_edit_funcs[$key])) {
+        } elseif (! empty($multi_edit_funcs[$key])) {
             $current_value = "'" . $GLOBALS['dbi']->escapeString($current_value)
                 . "'";
         } else {

@@ -54,12 +54,12 @@ if (isset($_POST['submit_export'])
         echo var_export($val, true) . ";\n";
     }
     exit;
-} else if (isset($_POST['submit_get_json'])) {
+} elseif (isset($_POST['submit_get_json'])) {
     $settings = UserPreferences::load();
     $response->addJSON('prefs', json_encode($settings['config_data']));
     $response->addJSON('mtime', $settings['mtime']);
     exit;
-} else if (isset($_POST['submit_import'])) {
+} elseif (isset($_POST['submit_import'])) {
     // load from JSON file
     $json = '';
     if (isset($_POST['import_type'])
@@ -187,7 +187,7 @@ if (isset($_POST['submit_export'])
             $error = $result;
         }
     }
-} else if (isset($_POST['submit_clear'])) {
+} elseif (isset($_POST['submit_clear'])) {
     $result = UserPreferences::save(array());
     if ($result === true) {
         $params = array();

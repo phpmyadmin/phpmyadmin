@@ -3264,7 +3264,7 @@ class Results
                 . $display_params['emptypre'] . '">'
                 . "\n" . '        &nbsp;</th>' . "\n";
 
-        } else if ($GLOBALS['cfg']['RowActionLinks'] == self::POSITION_NONE) {
+        } elseif ($GLOBALS['cfg']['RowActionLinks'] == self::POSITION_NONE) {
             $header_html .= '    <th></th>' . "\n";
         }
 
@@ -3454,7 +3454,7 @@ class Results
                 )
                 . '</span>';
 
-        } else if (isset($GLOBALS['cfg']['RowActionType'])
+        } elseif (isset($GLOBALS['cfg']['RowActionType'])
             && $GLOBALS['cfg']['RowActionType'] == self::ACTION_LINK_CONTENT_TEXT
         ) {
 

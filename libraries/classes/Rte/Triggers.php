@@ -217,7 +217,7 @@ class Triggers
                 $title = Words::get('add');
                 $item = self::getDataFromRequest();
                 $mode = 'add';
-            } else if (! empty($_REQUEST['edit_item'])) {
+            } elseif (! empty($_REQUEST['edit_item'])) {
                 $title = __("Edit trigger");
                 if (! empty($_REQUEST['item_name'])
                     && empty($_REQUEST['editor_process_edit'])
@@ -351,7 +351,7 @@ class Triggers
             $selected = "";
             if ($mode == 'add' && $value == $table) {
                 $selected = " selected='selected'";
-            } else if ($mode == 'edit' && $value == $item['item_table']) {
+            } elseif ($mode == 'edit' && $value == $item['item_table']) {
                 $selected = " selected='selected'";
             }
             $retval .= "<option$selected>";

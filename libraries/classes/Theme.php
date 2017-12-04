@@ -380,7 +380,7 @@ class Theme
             if (is_readable($path)) {
                 echo "\n/* FILE: " , $file , ".css.php */\n";
                 include $path;
-            } else if (is_readable($fallback)) {
+            } elseif (is_readable($fallback)) {
                 echo "\n/* FILE: " , $file , ".css.php */\n";
                 include $fallback;
             } else {

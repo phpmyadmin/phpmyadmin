@@ -105,19 +105,19 @@ if (isset($_POST['repeatingColumns'])) {
 if (isset($_REQUEST['step1'])) {
     $html = Normalization::getHtmlFor1NFStep1($db, $table, $normalForm);
     $response->addHTML($html);
-} else if (isset($_REQUEST['step2'])) {
+} elseif (isset($_REQUEST['step2'])) {
     $res = Normalization::getHtmlContentsFor1NFStep2($db, $table);
     $response->addJSON($res);
-} else if (isset($_REQUEST['step3'])) {
+} elseif (isset($_REQUEST['step3'])) {
     $res = Normalization::getHtmlContentsFor1NFStep3($db, $table);
     $response->addJSON($res);
-} else if (isset($_REQUEST['step4'])) {
+} elseif (isset($_REQUEST['step4'])) {
     $res = Normalization::getHtmlContentsFor1NFStep4($db, $table);
     $response->addJSON($res);
-} else if (isset($_REQUEST['step']) && $_REQUEST['step'] == '2.1') {
+} elseif (isset($_REQUEST['step']) && $_REQUEST['step'] == '2.1') {
     $res = Normalization::getHtmlFor2NFstep1($db, $table);
     $response->addJSON($res);
-} else if (isset($_REQUEST['step']) && $_REQUEST['step'] == '3.1') {
+} elseif (isset($_REQUEST['step']) && $_REQUEST['step'] == '3.1') {
     $tables = $_REQUEST['tables'];
     $res = Normalization::getHtmlFor3NFstep1($db, $tables);
     $response->addJSON($res);

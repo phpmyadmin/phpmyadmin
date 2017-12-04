@@ -2583,7 +2583,7 @@ class Util
 
         if ($options[1]['selected'] == true) {
             $state = 'on';
-        } else if ($options[0]['selected'] == true) {
+        } elseif ($options[0]['selected'] == true) {
             $state = 'off';
         } else {
             $state = 'on';
@@ -2905,7 +2905,7 @@ class Util
     {
         if ($GLOBALS['cfg']['DefaultForeignKeyChecks'] === 'enable') {
             return true;
-        } else if ($GLOBALS['cfg']['DefaultForeignKeyChecks'] === 'disable') {
+        } elseif ($GLOBALS['cfg']['DefaultForeignKeyChecks'] === 'disable') {
             return false;
         }
         return ($GLOBALS['dbi']->getVariable('FOREIGN_KEY_CHECKS') == 'ON');
@@ -3367,7 +3367,7 @@ class Util
                                 $GLOBALS['dbi']->types->getTypeDescription($subvalue),
                                 $subvalue
                             );
-                        } else if ($subvalue === '-') {
+                        } elseif ($subvalue === '-') {
                             $retval .= '<option disabled="disabled">';
                             $retval .= $subvalue;
                             $retval .= '</option>';
@@ -3892,19 +3892,19 @@ class Util
 
             if (! $in_string && $curr == "'") {
                 $in_string = true;
-            } else if (($in_string && $curr == "\\") && $next == "\\") {
+            } elseif (($in_string && $curr == "\\") && $next == "\\") {
                 $buffer .= "&#92;";
                 $i++;
-            } else if (($in_string && $next == "'")
+            } elseif (($in_string && $next == "'")
                 && ($curr == "'" || $curr == "\\")
             ) {
                 $buffer .= "&#39;";
                 $i++;
-            } else if ($in_string && $curr == "'") {
+            } elseif ($in_string && $curr == "'") {
                 $in_string = false;
                 $values[] = $buffer;
                 $buffer = '';
-            } else if ($in_string) {
+            } elseif ($in_string) {
                  $buffer .= $curr;
             }
 
@@ -4008,7 +4008,7 @@ class Util
 
         if ($level == null) {
             return $tabList;
-        } else if (array_key_exists($level, $tabList)) {
+        } elseif (array_key_exists($level, $tabList)) {
             return $tabList[$level];
         } else {
             return null;
@@ -4755,7 +4755,7 @@ class Util
     {
         if (function_exists('curl_init')) {
             return self::httpRequestCurl($url, $method, $return_only_status, $content, $header);
-        } else if (ini_get('allow_url_fopen')) {
+        } elseif (ini_get('allow_url_fopen')) {
             return self::httpRequestFopen($url, $method, $return_only_status, $content, $header);
         }
         return null;

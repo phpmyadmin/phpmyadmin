@@ -656,7 +656,7 @@ class CentralColumns
 
             if ($col_default[$i] == 'NONE') {
                 $col_default[$i] = "";
-            } else if ($col_default[$i] == 'USER_DEFINED') {
+            } elseif ($col_default[$i] == 'USER_DEFINED') {
                 $col_default[$i] = $_POST['field_default_value'][$i];
             }
 

@@ -437,7 +437,7 @@ if (isset($_REQUEST['adduser'])) {
         $response->addHTML(
             Privileges::getHtmlForUserOverview($pmaThemeImage, $text_dir)
         );
-    } else if (!empty($routinename)) {
+    } elseif (!empty($routinename)) {
         $response->addHTML(
             Privileges::getHtmlForRoutineSpecificPrivileges(
                 $username, $hostname, $dbname, $routinename,

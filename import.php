@@ -751,7 +751,7 @@ if ($go_sql) {
     $response->addHTML($html_output);
     exit();
 
-} else if ($result) {
+} elseif ($result) {
     // Save a Bookmark with more than one queries (if Bookmark label given).
     if (! empty($_POST['bkm_label']) && ! empty($import_text)) {
         $cfgBookmark = Bookmark::getParams($GLOBALS['cfg']['Server']['user']);
@@ -768,7 +768,7 @@ if ($go_sql) {
         'sql_query',
         PhpMyAdmin\Util::getMessage($msg, $sql_query, 'success')
     );
-} else if ($result == false) {
+} elseif ($result == false) {
     $response->setRequestStatus(false);
     $response->addJSON('message', PhpMyAdmin\Message::error($msg));
 } else {

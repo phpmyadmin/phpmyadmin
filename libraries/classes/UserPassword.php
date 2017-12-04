@@ -117,7 +117,7 @@ class UserPassword
             $sql_query = 'ALTER USER \'' . $username . '\'@\'' . $hostname
                 . '\' IDENTIFIED WITH ' . $orig_auth_plugin . ' BY '
                 . (($password == '') ? '\'\'' : '\'***\'');
-        } else if (($serverType == 'MySQL'
+        } elseif (($serverType == 'MySQL'
             && $serverVersion >= 50507)
             || ($serverType == 'MariaDB'
             && $serverVersion >= 50200)
@@ -187,7 +187,7 @@ class UserPassword
                 . (($password == '')
                 ? '\'\''
                 : '\'' . $GLOBALS['dbi']->escapeString($password) . '\'');
-        } else if ($serverType == 'MariaDB'
+        } elseif ($serverType == 'MariaDB'
             && $serverVersion >= 50200
             && $serverVersion < 100100
             && $orig_auth_plugin !== ''
@@ -196,7 +196,7 @@ class UserPassword
                 // Set the hashing method used by PASSWORD()
                 // to be 'mysql_native_password' type
                 $GLOBALS['dbi']->tryQuery('SET old_passwords = 0;');
-            } else if ($orig_auth_plugin == 'sha256_password') {
+            } elseif ($orig_auth_plugin == 'sha256_password') {
                 // Set the hashing method used by PASSWORD()
                 // to be 'sha256_password' type
                 $GLOBALS['dbi']->tryQuery('SET `old_passwords` = 2;');

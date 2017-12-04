@@ -1016,7 +1016,7 @@ class Config
             if ($cookie_exists) {
                 $this->removeCookie($cookie_name);
             }
-        } else if ($cookie_exists) {
+        } elseif ($cookie_exists) {
             return $_COOKIE[$cookie_name];
         }
         // return value from $cfg array

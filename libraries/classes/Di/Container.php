@@ -60,7 +60,7 @@ class Container implements ContainerInterface
 
         if (isset($this->content[$name])) {
             return $this->content[$name]->get($params);
-        } else if (isset($GLOBALS[$name])) {
+        } elseif (isset($GLOBALS[$name])) {
             return $GLOBALS[$name];
         } else {
             throw new ContainerException("Error while retrieving the entry.");

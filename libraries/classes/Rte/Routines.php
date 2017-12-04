@@ -129,9 +129,9 @@ class Routines
             $operation = '';
             if (! empty($_REQUEST['routine_addparameter'])) {
                 $operation = 'add';
-            } else if (! empty($_REQUEST['routine_removeparameter'])) {
+            } elseif (! empty($_REQUEST['routine_removeparameter'])) {
                 $operation = 'remove';
-            } else if (! empty($_REQUEST['routine_changetype'])) {
+            } elseif (! empty($_REQUEST['routine_changetype'])) {
                 $operation = 'change';
             }
             // Get the data for the form (if any)
@@ -139,7 +139,7 @@ class Routines
                 $title = Words::get('add');
                 $routine = self::getDataFromRequest();
                 $mode = 'add';
-            } else if (! empty($_REQUEST['edit_item'])) {
+            } elseif (! empty($_REQUEST['edit_item'])) {
                 $title = __("Edit routine");
                 if (! $operation && ! empty($_REQUEST['item_name'])
                     && empty($_REQUEST['editor_process_edit'])
@@ -560,7 +560,7 @@ class Routines
         if (isset($_REQUEST['item_securitytype'])) {
             if ($_REQUEST['item_securitytype'] === 'DEFINER') {
                 $retval['item_securitytype_definer'] = " selected='selected'";
-            } else if ($_REQUEST['item_securitytype'] === 'INVOKER') {
+            } elseif ($_REQUEST['item_securitytype'] === 'INVOKER') {
                 $retval['item_securitytype_invoker'] = " selected='selected'";
             }
         }
@@ -675,7 +675,7 @@ class Routines
         $retval['item_securitytype_invoker'] = '';
         if ($routine['SECURITY_TYPE'] == 'DEFINER') {
             $retval['item_securitytype_definer'] = " selected='selected'";
-        } else if ($routine['SECURITY_TYPE'] == 'INVOKER') {
+        } elseif ($routine['SECURITY_TYPE'] == 'INVOKER') {
             $retval['item_securitytype_invoker'] = " selected='selected'";
         }
         $retval['item_sqldataaccess'] = $routine['SQL_DATA_ACCESS'];
@@ -714,7 +714,7 @@ class Routines
                 'item_param_opts_num'  => array(0 => ''),
                 'item_param_opts_text' => array(0 => '')
             );
-        } else if (! empty($routine)) {
+        } elseif (! empty($routine)) {
             // regular row for routine editor
             $drop_class = ' hide';
             $i = $index;
@@ -849,7 +849,7 @@ class Routines
                 $routine['item_type']        = 'PROCEDURE';
                 $routine['item_type_toggle'] = 'FUNCTION';
             }
-        } else if ($operation == 'add'
+        } elseif ($operation == 'add'
             || ($routine['item_num_params'] == 0 && $mode == 'add' && ! $errors)
         ) {
             $routine['item_param_dir'][]       = '';
@@ -859,7 +859,7 @@ class Routines
             $routine['item_param_opts_num'][]  = '';
             $routine['item_param_opts_text'][] = '';
             $routine['item_num_params']++;
-        } else if ($operation == 'remove') {
+        } elseif ($operation == 'remove') {
             unset($routine['item_param_dir'][$routine['item_num_params'] - 1]);
             unset($routine['item_param_name'][$routine['item_num_params'] - 1]);
             unset($routine['item_param_type'][$routine['item_num_params'] - 1]);
@@ -1167,10 +1167,10 @@ class Routines
                         $params .= $_REQUEST['item_param_dir'][$i] . " "
                             . Util::backquote($item_param_name[$i])
                             . " " . $item_param_type[$i];
-                    } else if ($_REQUEST['item_type'] == 'FUNCTION') {
+                    } elseif ($_REQUEST['item_type'] == 'FUNCTION') {
                         $params .= Util::backquote($item_param_name[$i])
                             . " " . $item_param_type[$i];
-                    } else if (! $warned_about_dir) {
+                    } elseif (! $warned_about_dir) {
                         $warned_about_dir = true;
                         $errors[] = sprintf(
                             __('Invalid direction "%s" given for parameter.'),
@@ -1186,7 +1186,7 @@ class Routines
                         )
                     ) {
                         $params .= "(" . $item_param_length[$i] . ")";
-                    } else if ($item_param_length[$i] == ''
+                    } elseif ($item_param_length[$i] == ''
                         && preg_match(
                             '@^(ENUM|SET|VARCHAR|VARBINARY)$@i',
                             $item_param_type[$i]
@@ -1250,7 +1250,7 @@ class Routines
                 )
             ) {
                 $query .= "(" . $_REQUEST['item_returnlength'] . ")";
-            } else if (empty($_REQUEST['item_returnlength'])
+            } elseif (empty($_REQUEST['item_returnlength'])
                 && preg_match(
                     '@^(ENUM|SET|VARCHAR|VARBINARY)$@i', $item_returntype
                 )
@@ -1514,7 +1514,7 @@ class Routines
                 // Now deliberately fall through to displaying the routines list
             }
             return;
-        } else if (! empty($_GET['execute_dialog']) && ! empty($_GET['item_name'])) {
+        } elseif (! empty($_GET['execute_dialog']) && ! empty($_GET['item_name'])) {
             /**
              * Display the execute form for a routine.
              */
@@ -1535,7 +1535,7 @@ class Routines
                     echo $form;
                 }
                 exit;
-            } else if (($response->isAjax())) {
+            } elseif (($response->isAjax())) {
                 $message  = __('Error in processing request:') . ' ';
                 $message .= sprintf(
                     Words::get('not_found'),
@@ -1670,7 +1670,7 @@ class Routines
                 || $routine['item_param_type'][$i] == 'TIMESTAMP'
             ) {
                 $class = 'datetimefield';
-            } else if ($routine['item_param_type'][$i] == 'DATE') {
+            } elseif ($routine['item_param_type'][$i] == 'DATE') {
                 $class = 'datefield';
             }
             $retval .= "<td class='nowrap'>\n";
@@ -1688,7 +1688,7 @@ class Routines
                         . $input_type . "' />"
                         . $value . "<br />\n";
                 }
-            } else if (in_array(
+            } elseif (in_array(
                 mb_strtolower($routine['item_param_type'][$i]),
                 $no_support_types
             )) {

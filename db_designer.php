@@ -17,15 +17,15 @@ if (isset($_REQUEST['dialog'])) {
 
     if ($_REQUEST['dialog'] == 'edit') {
         $html = Designer::getHtmlForEditOrDeletePages($GLOBALS['db'], 'editPage');
-    } else if ($_REQUEST['dialog'] == 'delete') {
+    } elseif ($_REQUEST['dialog'] == 'delete') {
         $html = Designer::getHtmlForEditOrDeletePages($GLOBALS['db'], 'deletePage');
-    } else if ($_REQUEST['dialog'] == 'save_as') {
+    } elseif ($_REQUEST['dialog'] == 'save_as') {
         $html = Designer::getHtmlForPageSaveAs($GLOBALS['db']);
-    } else if ($_REQUEST['dialog'] == 'export') {
+    } elseif ($_REQUEST['dialog'] == 'export') {
         $html = Designer::getHtmlForSchemaExport(
             $GLOBALS['db'], $_REQUEST['selected_page']
         );
-    } else if ($_REQUEST['dialog'] == 'add_table') {
+    } elseif ($_REQUEST['dialog'] == 'add_table') {
         $script_display_field = PmdCommon::getTablesInfo();
         $required = $GLOBALS['db'] . '.' . $GLOBALS['table'];
         $tab_column = PmdCommon::getColumnsInfo();

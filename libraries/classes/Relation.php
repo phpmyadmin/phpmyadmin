@@ -654,7 +654,7 @@ class Relation
                         $allWorks = false;
                         break;
                     }
-                } else if (is_array($table)) {
+                } elseif (is_array($table)) {
                     $oneNull = false;
                     foreach ($table as $t) {
                         if (isset($GLOBALS['cfg']['Server'][$t])

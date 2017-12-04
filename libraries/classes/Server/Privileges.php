@@ -1164,7 +1164,7 @@ class Privileges
         if ($db == '*') {
             $legend     = __('Global privileges');
             $menu_label = __('Global');
-        } else if ($table == '*') {
+        } elseif ($table == '*') {
             $legend     = __('Database-specific privileges');
             $menu_label = __('Database');
         } else {
@@ -1914,7 +1914,7 @@ class Privileges
 
                 $local_query = $query_prefix
                     . $GLOBALS['dbi']->escapeString($_POST['pma_pw']) . "'";
-            } else if ($serverType == 'MariaDB' && $serverVersion >= 10000) {
+            } elseif ($serverType == 'MariaDB' && $serverVersion >= 10000) {
                 // MariaDB uses "SET PASSWORD" syntax to change user password.
                 // On Galera cluster only DDL queries are replicated, since
                 // users are stored in MyISAM storage engine.
@@ -1924,7 +1924,7 @@ class Privileges
                     . " = PASSWORD ('";
                 $sql_query = $local_query = $query_prefix
                     . $GLOBALS['dbi']->escapeString($_POST['pma_pw']) . "')";
-            } else if ($serverType == 'MariaDB'
+            } elseif ($serverType == 'MariaDB'
                 && $serverVersion >= 50200
                 && $GLOBALS['dbi']->isSuperuser()
             ) {
@@ -1934,7 +1934,7 @@ class Privileges
                     // to be 'mysql_native_password' type
                     $GLOBALS['dbi']->tryQuery('SET old_passwords = 0;');
 
-                } else if ($authentication_plugin == 'sha256_password') {
+                } elseif ($authentication_plugin == 'sha256_password') {
                     // Set the hashing method used by PASSWORD()
                     // to be 'sha256_password' type
                     $GLOBALS['dbi']->tryQuery('SET `old_passwords` = 2;');
@@ -1982,7 +1982,7 @@ class Privileges
                     // Set the hashing method used by PASSWORD()
                     // to be 'mysql_native_password' type
                     $GLOBALS['dbi']->tryQuery('SET old_passwords = 0;');
-                } else if ($authentication_plugin == 'sha256_password') {
+                } elseif ($authentication_plugin == 'sha256_password') {
                     // Set the hashing method used by PASSWORD()
                     // to be 'sha256_password' type
                     $GLOBALS['dbi']->tryQuery('SET `old_passwords` = 2;');
@@ -4277,7 +4277,7 @@ class Privileges
         // to be of type depending upon $authentication_plugin
         if ($auth_plugin == 'sha256_password') {
             $GLOBALS['dbi']->tryQuery('SET `old_passwords` = 2');
-        } else if ($auth_plugin == 'mysql_old_password') {
+        } elseif ($auth_plugin == 'mysql_old_password') {
             $GLOBALS['dbi']->tryQuery('SET `old_passwords` = 1');
         } else {
             $GLOBALS['dbi']->tryQuery('SET `old_passwords` = 0');
@@ -5239,7 +5239,7 @@ class Privileges
                     $create_user_stmt,
                     '***'
                 );
-            } else if ($_POST['pred_password'] == 'none') {
+            } elseif ($_POST['pred_password'] == 'none') {
                 $create_user_real = sprintf(
                     $create_user_stmt,
                     null
@@ -5276,7 +5276,7 @@ class Privileges
                     $slashedHostname,
                     $slashedPassword
                 );
-            } else if ($_POST['pred_password'] == 'none') {
+            } elseif ($_POST['pred_password'] == 'none') {
                 $password_set_real = sprintf(
                     $password_set_stmt,
                     $slashedUsername,

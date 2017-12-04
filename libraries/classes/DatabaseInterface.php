@@ -431,7 +431,7 @@ class DatabaseInterface
         if ($table_type) {
             if ($table_type == 'view') {
                 $sql_where_table .= " AND t.`TABLE_TYPE` != 'BASE TABLE'";
-            } else if ($table_type == 'table') {
+            } elseif ($table_type == 'table') {
                 $sql_where_table .= " AND t.`TABLE_TYPE` = 'BASE TABLE'";
             }
         }
@@ -622,7 +622,7 @@ class DatabaseInterface
                         }
                         if ($table_type == 'view') {
                             $sql .= " `Comment` = 'VIEW'";
-                        } else if ($table_type == 'table') {
+                        } elseif ($table_type == 'table') {
                             $sql .= " `Comment` != 'VIEW'";
                         }
                     }
@@ -2486,7 +2486,7 @@ class DatabaseInterface
                 E_USER_WARNING
             );
             return false;
-        } else if ($mode == DatabaseInterface::CONNECT_AUXILIARY) {
+        } elseif ($mode == DatabaseInterface::CONNECT_AUXILIARY) {
             // Do not go back to main login if connection failed
             // (currently used only in unit testing)
             return false;

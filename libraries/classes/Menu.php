@@ -106,7 +106,7 @@ class Menu
             $url_params['db'] = $this->_db;
             $url_params['table'] = $this->_table;
             $level = 'table';
-        } else if (strlen($this->_db) > 0) {
+        } elseif (strlen($this->_db) > 0) {
             $tabs = $this->_getDbTabs();
             $url_params['db'] = $this->_db;
             $level = 'db';

@@ -1406,7 +1406,7 @@ class Table
             // only allow the above regex in unquoted identifiers
             // see : https://dev.mysql.com/doc/refman/5.7/en/identifiers.html
             return true;
-        } else if ($is_backquoted) {
+        } elseif ($is_backquoted) {
             // If backquoted, all characters should be allowed (except w/ trailing spaces)
             return true;
         }

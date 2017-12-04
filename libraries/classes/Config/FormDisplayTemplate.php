@@ -355,7 +355,7 @@ class FormDisplayTemplate
             };
             $htmlOutput .= '/>';
             $htmlOutput .= '</td>';
-        } else if ($is_setup_script) {
+        } elseif ($is_setup_script) {
             $htmlOutput .= '<td>&nbsp;</td>';
         }
         $htmlOutput .= '</tr>';

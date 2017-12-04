@@ -294,7 +294,7 @@ class Response
 
         if (! isset($this->_JSON['message'])) {
             $this->_JSON['message'] = $this->_getDisplay();
-        } else if ($this->_JSON['message'] instanceof Message) {
+        } elseif ($this->_JSON['message'] instanceof Message) {
             $this->_JSON['message'] = $this->_JSON['message']->getDisplay();
         }
 

@@ -488,7 +488,7 @@ class Header
         if (! empty($GLOBALS['message'])) {
             $message = $GLOBALS['message'];
             unset($GLOBALS['message']);
-        } else if (! empty($_REQUEST['message'])) {
+        } elseif (! empty($_REQUEST['message'])) {
             $message = $_REQUEST['message'];
         }
         if (! empty($message)) {
@@ -719,7 +719,7 @@ class Header
             if ($GLOBALS['server'] > 0) {
                 if (strlen($GLOBALS['table'])) {
                     $temp_title = $GLOBALS['cfg']['TitleTable'];
-                } else if (strlen($GLOBALS['db'])) {
+                } elseif (strlen($GLOBALS['db'])) {
                     $temp_title = $GLOBALS['cfg']['TitleDatabase'];
                 } elseif (strlen($GLOBALS['cfg']['Server']['host'])) {
                     $temp_title = $GLOBALS['cfg']['TitleServer'];

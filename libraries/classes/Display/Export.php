@@ -351,7 +351,7 @@ class Export
         $html = '<div class="exportoptions" id="databases_and_tables">';
         if ($export_type == 'server') {
             $html .= '<h3>' . __('Databases:') . '</h3>';
-        } else if ($export_type == 'database') {
+        } elseif ($export_type == 'database') {
             $html .= '<h3>' . __('Tables:') . '</h3>';
         }
         if (! empty($multi_values)) {

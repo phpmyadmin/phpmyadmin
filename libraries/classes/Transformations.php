@@ -449,7 +449,7 @@ class Transformations
                 . '`table_name` = \'' . $table . '\' AND '
                 . '`column_name` = \'' . $column . '\' ';
 
-        } else if ($table != '') {
+        } elseif ($table != '') {
 
             $delete_sql .= '`db_name` = \'' . $db . '\' AND '
                 . '`table_name` = \'' . $table . '\' ';

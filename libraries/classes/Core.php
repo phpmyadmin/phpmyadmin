@@ -953,7 +953,7 @@ class Core
             if ($part !== '..') {
                 // cool, we found a new part
                 array_push($path, $part);
-            } else if (count($path) > 0) {
+            } elseif (count($path) > 0) {
                 // going back up? sure
                 array_pop($path);
             }

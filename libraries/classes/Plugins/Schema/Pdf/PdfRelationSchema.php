@@ -111,7 +111,7 @@ class PdfRelationSchema extends ExportRelationSchema
         $alltables = $this->getTablesFromRequest();
         if ($this->getTableOrder() == 'name_asc') {
             sort($alltables);
-        } else if ($this->getTableOrder() == 'name_desc') {
+        } elseif ($this->getTableOrder() == 'name_desc') {
             rsort($alltables);
         }
 

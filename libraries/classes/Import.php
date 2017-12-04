@@ -883,15 +883,15 @@ class Import
                 if ($curr_type != self::NONE) {
                     if ($curr_type == self::VARCHAR) {
                         $types[$i] = self::VARCHAR;
-                    } else if ($curr_type == self::DECIMAL) {
+                    } elseif ($curr_type == self::DECIMAL) {
                         if ($types[$i] != self::VARCHAR) {
                             $types[$i] = self::DECIMAL;
                         }
-                    } else if ($curr_type == self::BIGINT) {
+                    } elseif ($curr_type == self::BIGINT) {
                         if ($types[$i] != self::VARCHAR && $types[$i] != self::DECIMAL) {
                             $types[$i] = self::BIGINT;
                         }
-                    } else if ($curr_type == self::INT) {
+                    } elseif ($curr_type == self::INT) {
                         if ($types[$i] != self::VARCHAR
                             && $types[$i] != self::DECIMAL
                             && $types[$i] != self::BIGINT

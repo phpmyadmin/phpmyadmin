@@ -496,12 +496,12 @@ class Export
                     ",",
                     $_REQUEST['table_structure']
                 );
-            } else if (empty($_REQUEST['structure_or_data_forced'])) {
+            } elseif (empty($_REQUEST['structure_or_data_forced'])) {
                 $_REQUEST['table_structure'] = '';
             }
             if (isset($_REQUEST['table_data'])) {
                 $_REQUEST['table_data'] = implode(",", $_REQUEST['table_data']);
-            } else if (empty($_REQUEST['structure_or_data_forced'])) {
+            } elseif (empty($_REQUEST['structure_or_data_forced'])) {
                 $_REQUEST['table_data'] = '';
             }
         }
@@ -659,7 +659,7 @@ class Export
                     ) {
                         break;
                     }
-                } else if (isset($GLOBALS['sql_create_table'])) {
+                } elseif (isset($GLOBALS['sql_create_table'])) {
 
                     $table_size = $GLOBALS['maxsize'];
                     // Checking if the maximum table size constrain has been set
@@ -852,7 +852,7 @@ class Export
                     }
                 }
 
-            } else if (isset($GLOBALS['sql_create_table'])) {
+            } elseif (isset($GLOBALS['sql_create_table'])) {
 
                 if (! $export_plugin->exportStructure(
                     $db, $table, $crlf, $err_url, 'create_table',

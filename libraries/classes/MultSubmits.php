@@ -311,7 +311,7 @@ class MultSubmits
                     Transformations::clear($selected[$i]);
                 } elseif ($query_type == 'drop_tbl') {
                     Transformations::clear($db, $selected[$i]);
-                } else if ($query_type == 'drop_fld') {
+                } elseif ($query_type == 'drop_fld') {
                     Transformations::clear($db, $table, $selected[$i]);
                 }
             } // end if

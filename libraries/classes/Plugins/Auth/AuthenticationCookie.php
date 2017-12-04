@@ -30,7 +30,7 @@ require_once './libraries/hash.lib.php';
  */
 if (! empty($_REQUEST['target'])) {
     $GLOBALS['target'] = $_REQUEST['target'];
-} else if (Core::getenv('SCRIPT_NAME')) {
+} elseif (Core::getenv('SCRIPT_NAME')) {
     $GLOBALS['target'] = basename(Core::getenv('SCRIPT_NAME'));
 }
 
@@ -272,7 +272,7 @@ class AuthenticationCookie extends AuthenticationPlugin
                             $GLOBALS['cfg']['CaptchaLoginPrivateKey'],
                             new ReCaptcha\RequestMethod\CurlPost()
                         );
-                    } else if (ini_get('allow_url_fopen')) {
+                    } elseif (ini_get('allow_url_fopen')) {
                         $reCaptcha = new ReCaptcha\ReCaptcha(
                             $GLOBALS['cfg']['CaptchaLoginPrivateKey'],
                             new ReCaptcha\RequestMethod\Post()

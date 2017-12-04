@@ -234,7 +234,7 @@ class Events
                 $title = Words::get('add');
                 $item = self::getDataFromRequest();
                 $mode = 'add';
-            } else if (! empty($_REQUEST['edit_item'])) {
+            } elseif (! empty($_REQUEST['edit_item'])) {
                 $title = __("Edit event");
                 if (! empty($_REQUEST['item_name'])
                     && empty($_REQUEST['editor_process_edit'])
