@@ -1573,143 +1573,65 @@ class Tracking
     }
 
     /**
-     * Display tracked tables
+     * Get tracked tables
      *
-     * @param string $db                current database
-     * @param object $all_tables_result result set of tracked tables
-     * @param string $url_query         url query string
-     * @param string $pmaThemeImage     path to theme's image folder
-     * @param string $text_dir          text direction
-     * @param array  $cfgRelation       configuration storage info
+     * @param string $db              current database
+     * @param object $allTablesResult result set of tracked tables
+     * @param string $urlQuery        url query string
+     * @param string $pmaThemeImage   path to theme's image folder
+     * @param string $textDir         text direction
+     * @param array  $cfgRelation     configuration storage info
      *
-     * @return void
+     * @return string HTML
      */
-    public static function displayTrackedTables(
-        $db, $all_tables_result, $url_query, $pmaThemeImage, $text_dir, array $cfgRelation
+    public static function getHtmlForTrackedTables(
+        $db,
+        $allTablesResult,
+        $urlQuery,
+        $pmaThemeImage,
+        $textDir,
+        array $cfgRelation
     ) {
-        ?>
-        <div id="tracked_tables">
-        <h3><?php echo __('Tracked tables');?></h3>
-
-        <form method="post" action="db_tracking.php" name="trackedForm"
-            id="trackedForm" class="ajax">
-        <?php
-        echo Url::getHiddenInputs($db)
-        ?>
-        <table id="versions" class="data">
-        <thead>
-        <tr>
-            <th></th>
-            <th><?php echo __('Table');?></th>
-            <th><?php echo __('Last version');?></th>
-            <th><?php echo __('Created');?></th>
-            <th><?php echo __('Updated');?></th>
-            <th><?php echo __('Status');?></th>
-            <th><?php echo __('Action');?></th>
-            <th><?php echo __('Show');?></th>
-        </tr>
-        </thead>
-        <tbody>
-        <?php
-
-        // Print out information about versions
-
-        $delete = Util::getIcon('b_drop', __('Delete tracking'));
-        $versions = Util::getIcon('b_versions', __('Versions'));
-        $report = Util::getIcon('b_report', __('Tracking report'));
-        $structure = Util::getIcon('b_props', __('Structure snapshot'));
-
-        while ($one_result = $GLOBALS['dbi']->fetchArray($all_tables_result)) {
-            list($table_name, $version_number) = $one_result;
-            $table_query = ' SELECT * FROM ' .
+        $versions = [];
+        while ($oneResult = $GLOBALS['dbi']->fetchArray($allTablesResult)) {
+            list($tableName, $versionNumber) = $oneResult;
+            $tableQuery = ' SELECT * FROM ' .
                  Util::backquote($cfgRelation['db']) . '.' .
                  Util::backquote($cfgRelation['tracking']) .
                  ' WHERE `db_name` = \''
                  . $GLOBALS['dbi']->escapeString($_REQUEST['db'])
                  . '\' AND `table_name`  = \''
-                 . $GLOBALS['dbi']->escapeString($table_name)
-                 . '\' AND `version` = \'' . $version_number . '\'';
+                 . $GLOBALS['dbi']->escapeString($tableName)
+                 . '\' AND `version` = \'' . $versionNumber . '\'';
 
-            $table_result = Relation::queryAsControlUser($table_query);
-            $version_data = $GLOBALS['dbi']->fetchArray($table_result);
-
-            $tbl_link = 'tbl_tracking.php' . $url_query . '&amp;table='
-                . htmlspecialchars($version_data['table_name']);
-            $delete_link = 'db_tracking.php' . $url_query . '&amp;table='
-                . htmlspecialchars($version_data['table_name'])
-                . '&amp;delete_tracking=true&amp';
-            $checkbox_id = "selected_tbl_"
-                . htmlspecialchars($version_data['table_name']);
-            ?>
-            <tr>
-                <td class="center">
-                    <input type="checkbox" name="selected_tbl[]"
-                    class="checkall" id="<?php echo $checkbox_id;?>"
-                    value="<?php echo htmlspecialchars($version_data['table_name']);?>"/>
-                </td>
-                <th>
-                    <label for="<?php echo $checkbox_id;?>">
-                        <?php echo htmlspecialchars($version_data['table_name']);?>
-                    </label>
-                </th>
-                <td class="right"><?php echo $version_data['version'];?></td>
-                <td><?php echo $version_data['date_created'];?></td>
-                <td><?php echo $version_data['date_updated'];?></td>
-                <td>
-                <?php
-                self::displayStatusButton($version_data, $tbl_link);
-                ?>
-                </td>
-                <td>
-                <a class="delete_tracking_anchor ajax"
-                   href="<?php echo $delete_link;?>" >
-                <?php echo $delete; ?></a>
-            <?php
-            echo '</td>'
-                , '<td>'
-                , '<a href="' , $tbl_link , '">' , $versions , '</a>'
-                , '&nbsp;&nbsp;'
-                , '<a href="' , $tbl_link , '&amp;report=true&amp;version='
-                , $version_data['version'] , '">' , $report , '</a>'
-                , '&nbsp;&nbsp;'
-                , '<a href="' . $tbl_link , '&amp;snapshot=true&amp;version='
-                , $version_data['version'] , '">' , $structure , '</a>'
-                , '</td>'
-                , '</tr>';
-        }
-        ?>
-        </tbody>
-        </table>
-        <?php
-        echo Template::get('select_all')
-            ->render(
-                array(
-                    'pma_theme_image' => $pmaThemeImage,
-                    'text_dir'        => $text_dir,
-                    'form_name'       => 'trackedForm',
-                )
+            $tableResult = Relation::queryAsControlUser($tableQuery);
+            $versionData = $GLOBALS['dbi']->fetchArray($tableResult);
+            $versionData['status_button'] = self::getStatusButton(
+                $versionData,
+                $urlQuery
             );
-        echo Util::getButtonOrImage(
-            'submit_mult', 'mult_submit',
-            __('Delete tracking'), 'b_drop', 'delete_tracking'
-        );
-        ?>
-        </form>
-        </div>
-        <?php
+            $versions[] = $versionData;
+        }
+        return Template::get('database/tracking/tracked_tables')->render([
+            'db' => $db,
+            'versions' => $versions,
+            'url_query' => $urlQuery,
+            'text_dir' => $textDir,
+            'pma_theme_image' => $pmaThemeImage,
+        ]);
     }
 
     /**
-     * Display tracking status button
+     * Get tracking status button
      *
-     * @param array  $version_data data about tracking versions
-     * @param string $tbl_link     link for tbl_tracking.php
+     * @param array  $versionData data about tracking versions
+     * @param string $urlQuery    url query string
      *
-     * @return void
+     * @return string HTML
      */
-    public static function displayStatusButton(array $version_data, $tbl_link)
+    private static function getStatusButton(array $versionData, $urlQuery)
     {
-        $state = self::getVersionStatus($version_data);
+        $state = self::getVersionStatus($versionData);
         $options = array(
             0 => array(
                 'label' => __('not active'),
@@ -1722,8 +1644,12 @@ class Tracking
                 'selected' => ($state == 'active')
             )
         );
-        echo Util::toggleButton(
-            $tbl_link . '&amp;version=' . $version_data['version'],
+        $link = 'tbl_tracking.php' . $urlQuery . '&amp;table='
+            . htmlspecialchars($versionData['table_name'])
+            . '&amp;version=' . $versionData['version'];
+
+        return Util::toggleButton(
+            $link,
             'toggle_activation',
             $options,
             null

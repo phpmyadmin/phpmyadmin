@@ -128,7 +128,7 @@ $all_tables_result = Relation::queryAsControlUser($all_tables_query);
 if (is_object($all_tables_result)
     && $GLOBALS['dbi']->numRows($all_tables_result) > 0
 ) {
-    Tracking::displayTrackedTables(
+    echo Tracking::getHtmlForTrackedTables(
         $GLOBALS['db'], $all_tables_result, $url_query, $pmaThemeImage,
         $text_dir, $cfgRelation
     );
