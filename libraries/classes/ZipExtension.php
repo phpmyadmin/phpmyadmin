@@ -39,7 +39,7 @@ class ZipExtension
         $zip = new ZipArchive;
         $res = $zip->open($file);
 
-        if ($res === TRUE) {
+        if ($res === true) {
             if ($zip->numFiles === 0) {
                 $error_message = __('No files found inside ZIP archive!');
                 $zip->close();
@@ -95,7 +95,7 @@ class ZipExtension
         $zip = new ZipArchive;
         $res = $zip->open($file);
 
-        if ($res === TRUE) {
+        if ($res === true) {
             for ($i = 0; $i < $zip->numFiles; $i++) {
                 if (preg_match($regex, $zip->getNameIndex($i))) {
                     $filename = $zip->getNameIndex($i);
@@ -120,7 +120,7 @@ class ZipExtension
         $zip = new ZipArchive;
         $res = $zip->open($file);
 
-        if ($res === TRUE) {
+        if ($res === true) {
             $num = $zip->numFiles;
         }
         return $num;

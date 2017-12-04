@@ -77,7 +77,7 @@ if (isset($_REQUEST['createview']) || isset($_REQUEST['alterview'])) {
     }
 
     if (! empty($_REQUEST['view']['definer'])) {
-        if (strpos($_REQUEST['view']['definer'], '@') === FALSE) {
+        if (strpos($_REQUEST['view']['definer'], '@') === false) {
             $sql_query .= $sep . 'DEFINER='
                 . PhpMyAdmin\Util::backquote($_REQUEST['view']['definer']);
         } else {

@@ -70,7 +70,7 @@ class ServeConfigChecksTest extends PmaTestCase
             ->getMock();
 
         // Configure the stub.
-        $configChecker->method('functionExists')->willReturn(False);
+        $configChecker->method('functionExists')->willReturn(false);
 
         $configChecker->performConfigChecks();
 

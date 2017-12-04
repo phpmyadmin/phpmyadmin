@@ -483,7 +483,7 @@ class Error extends Message
         $dest = @realpath($path);
 
         /* Probably affected by open_basedir */
-        if ($dest === FALSE) {
+        if ($dest === false) {
             return basename($path);
         }
 

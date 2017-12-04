@@ -658,7 +658,7 @@ class LanguageManager
      */
     public static function getInstance()
     {
-        if (self::$instance === NULL) {
+        if (self::$instance === null) {
             self::$instance = new LanguageManager;
         }
         return self::$instance;

@@ -491,7 +491,7 @@ class Advisor
         $rules = array();
         $lines = array();
 
-        if ($file === FALSE) {
+        if ($file === false) {
             $errors[] = sprintf(
                 __('Error in reading file: The file \'%s\' does not exist or is not readable!'),
                 $filename
