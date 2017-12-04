@@ -1093,7 +1093,6 @@ class RoutinesTest extends TestCase
 
         $cfg['ShowFunctionFields'] = false;
 
-
         $errors = array();
         Routines::setGlobals();
 

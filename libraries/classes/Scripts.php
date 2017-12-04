@@ -73,8 +73,8 @@ class Scripts
     /**
      * Adds a new file to the list of scripts
      *
-     * @param string $filename       The name of the file to include
-     * @param array  $params         Additional parameters to pass to the file
+     * @param string $filename The name of the file to include
+     * @param array  $params   Additional parameters to pass to the file
      *
      * @return void
      */

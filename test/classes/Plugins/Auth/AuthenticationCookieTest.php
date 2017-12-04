@@ -189,7 +189,6 @@ class AuthenticationCookieTest extends PmaTestCase
         $this->object->user = 'pmauser';
         $GLOBALS['pma_auth_server'] = 'localhost';
 
-
         $GLOBALS['conn_error'] = true;
         $GLOBALS['cfg']['Lang'] = 'en';
         $GLOBALS['cfg']['AllowArbitraryServer'] = true;
@@ -642,7 +641,6 @@ class AuthenticationCookieTest extends PmaTestCase
         $this->object->expects($this->once())
             ->method('cookieDecrypt')
             ->will($this->returnValue('testBF'));
-
 
         $this->object->expects($this->once())
             ->method('showFailure');

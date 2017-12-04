@@ -1619,9 +1619,9 @@ class DatabaseInterface
      * // $user = array('id' => 123, 'name' => 'John Doe')
      * </code>
      *
-     * @param string $query The query to execute
-     * @param string $type  NUM|ASSOC|BOTH returned array should either
-     *                      numeric associative or both
+     * @param string  $query The query to execute
+     * @param string  $type  NUM|ASSOC|BOTH returned array should either numeric
+     *                       associative or both
      * @param integer $link  link type
      *
      * @return array|boolean first row from result
@@ -1827,8 +1827,8 @@ class DatabaseInterface
     /**
      * returns an array of PROCEDURE or FUNCTION names for a db
      *
-     * @param string $db    db name
-     * @param string $which PROCEDURE | FUNCTION
+     * @param string  $db    db name
+     * @param string  $which PROCEDURE | FUNCTION
      * @param integer $link  link type
      *
      * @return array the procedure names or function names
@@ -2498,7 +2498,7 @@ class DatabaseInterface
     /**
      * selects given database
      *
-     * @param string $dbname database name to select
+     * @param string  $dbname database name to select
      * @param integer $link   link type
      *
      * @return boolean
@@ -2709,7 +2709,7 @@ class DatabaseInterface
      * returns the number of rows affected by last query
      *
      * @param integer $link           link type
-     * @param bool   $get_from_cache whether to retrieve from cache
+     * @param bool    $get_from_cache whether to retrieve from cache
      *
      * @return int|boolean
      */

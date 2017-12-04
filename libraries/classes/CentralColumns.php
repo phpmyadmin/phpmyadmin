@@ -1511,7 +1511,7 @@ class CentralColumns
      * @param string            $user         current user
      * @param string            $maxRows      number of rows displayed when browsing a result set
      * @param string            $charEditing  which editor should be used for CHAR/VARCHAR fields
-     * @param boolean           $disableIs   Disable use of INFORMATION_SCHEMA
+     * @param boolean           $disableIs    Disable use of INFORMATION_SCHEMA
      * @param array             $selected_fld Array containing the selected fields
      * @param string            $selected_db  String containing the name of database
      *

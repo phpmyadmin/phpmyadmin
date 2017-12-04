@@ -1705,11 +1705,11 @@ class Util
      * - URL components are over Suhosin limits
      * - There is SQL query in the parameters
      *
-     * @param string  $url          the URL
-     * @param string  $message      the link message
-     * @param mixed   $tag_params   string: js confirmation
-     *                              array: additional tag params (f.e. style="")
-     * @param string  $target       target
+     * @param string $url        the URL
+     * @param string $message    the link message
+     * @param mixed  $tag_params string: js confirmation; array: additional tag
+     *                           params (f.e. style="")
+     * @param string $target     target
      *
      * @return string  the results to be echoed or saved in an array
      */

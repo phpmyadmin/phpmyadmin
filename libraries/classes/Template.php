@@ -50,7 +50,7 @@ class Template
     /**
      * Template constructor
      *
-     * @param string $name            Template name
+     * @param string $name Template name
      */
     protected function __construct($name)
     {

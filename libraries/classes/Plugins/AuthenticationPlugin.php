@@ -237,7 +237,6 @@ abstract class AuthenticationPlugin
      {
         $success = $this->readCredentials();
 
-
         /* Show login form (this exits) */
         if (! $success) {
             /* Force generating of new session */
