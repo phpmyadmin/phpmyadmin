@@ -2594,11 +2594,9 @@ class Util
                 'pma_theme_image' => $GLOBALS['pmaThemeImage'],
                 'text_dir'        => $GLOBALS['text_dir'],
                 'link_on'         => $link_on,
-                'toggle_on'       => str_replace(' ', '&nbsp;', htmlspecialchars(
-                                        $options[1]['label'])),
-                'toggle_off'      => str_replace(' ', '&nbsp;', htmlspecialchars(
-                                        $options[0]['label'])),
                 'link_off'        => $link_off,
+                'toggle_on'       => $options[1]['label'],
+                'toggle_off'      => $options[0]['label'],
                 'callback'        => $callback,
                 'state'           => $state
             ]);
