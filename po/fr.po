@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin-docs 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2017-11-28 16:22+0100\n"
-"PO-Revision-Date: 2017-11-30 18:36+0000\n"
-"Last-Translator: Olivier Macchioni <olivier.macchioni@gmail.com>\n"
+"PO-Revision-Date: 2017-12-06 16:53+0000\n"
+"Last-Translator: tmtisfree <tmtisfree@free.fr>\n"
 "Language-Team: French "
 "<https://hosted.weblate.org/projects/phpmyadmin/master/fr/>\n"
 "Language: fr\n"
@@ -4841,16 +4841,12 @@ msgid "Show databases navigation as tree"
 msgstr "Afficher la navigation des bases de données en tant qu'arborescence"
 
 #: libraries/classes/Config/Descriptions.php:772
-#, fuzzy
-#| msgid "Navigation panel"
 msgid "Navigation panel width"
-msgstr "Panneau de navigation"
+msgstr "Largeur du panneau de navigation"
 
 #: libraries/classes/Config/Descriptions.php:774
-#, fuzzy
-#| msgid "Show logo in navigation panel."
 msgid "Set to 0 to collapse navigation panel."
-msgstr "Afficher le logo dans le panneau de navigation."
+msgstr "Définir à 0 pour replier le panneau de navigation."
 
 #: libraries/classes/Config/Descriptions.php:776
 msgid "Link with main panel by highlighting the current database or table."
@@ -6238,8 +6234,6 @@ msgid "Order"
 msgstr "Ordre"
 
 #: libraries/classes/Config/Descriptions.php:1484
-#, fuzzy
-#| msgid "Order by:"
 msgid "Order by"
 msgstr "Trier par :"
 
@@ -15295,16 +15289,12 @@ msgid "File may be compressed (%s) or uncompressed."
 msgstr "Le fichier peut être compressé (%s) ou non."
 
 #: templates/display/import/compressions.twig:7
-#, fuzzy
-#| msgid ""
-#| "A compressed file's name must end in <b>.[format].[compression]</b>. "
-#| "Example: <b>.sql.zip</b>"
 msgid ""
 "A compressed file's name must end in <strong>.[format].[compression]</"
 "strong>. Example: <strong>.sql.zip</strong>"
 msgstr ""
-"Le nom du fichier compressé doit se terminer par <b>.[format].[compression]</"
-"b>. Exemple: <b>.sql.zip</b>"
+"Le nom du fichier compressé doit se terminer par "
+"<strong>.[format].[compression]</strong>. Exemple : <strong>.sql.zip</strong>"
 
 #: templates/table/chart/tbl_chart.twig:15
 msgctxt "Chart type"
@@ -15424,16 +15414,12 @@ msgid "Edit ENUM/SET values"
 msgstr "Éditer les valeurs ENUM/SET"
 
 #: templates/login/twofactor/invalid.twig:2
-#, fuzzy
-#| msgid ""
-#| "Two-factor authentication is not available, please install optional "
-#| "dependencies to enable authentication backends."
 msgid ""
 "The configured two factor authentication is not available, please install "
 "missing dependencies."
 msgstr ""
-"L'authentification à deux facteurs n'est pas disponible, merci d'installer "
-"les dépendances optionnelles pour activer les méthodes d'authentification."
+"L'authentification à deux facteurs configurée n'est pas disponible, merci "
+"d'installer les dépendances manquantes."
 
 #: templates/display/import/file_option.twig:2
 msgid "File to import:"
@@ -15595,7 +15581,7 @@ msgstr ""
 
 #: templates/prefs_twofactor.twig:10
 msgid "Following composer packages are missing:"
-msgstr ""
+msgstr "Les paquets composer suivants sont manquants :"
 
 #: templates/prefs_twofactor.twig:18
 msgid "Two-factor authentication is available and configured for this account."
@@ -15651,20 +15637,15 @@ msgstr ""
 "reprendra à la position %d."
 
 #: templates/display/import/partial_import_option.twig:15
-#, fuzzy
-#| msgid ""
-#| "Allow the interruption of an import in case the script detects it is "
-#| "close to the PHP timeout limit. <i>(This might be a good way to import "
-#| "large files, however it can break transactions.)</i>"
 msgid ""
 "Allow the interruption of an import in case the script detects it is close "
 "to the PHP timeout limit. <em>(This might be a good way to import large "
 "files, however it can break transactions.)</em>"
 msgstr ""
 "Permettre l'interruption de l'importation si la limite de temps configurée "
-"dans PHP est sur le point d'être atteinte. <i>(Ceci pourrait aider à "
+"dans PHP est sur le point d'être atteinte. <em>(Ceci pourrait aider à "
 "importer des fichiers volumineux, au détriment du respect des "
-"transactions.)</i>"
+"transactions.)</em>"
 
 #: templates/display/import/partial_import_option.twig:22
 msgid "Skip this number of queries (for SQL) starting from the first one:"
@@ -15719,6 +15700,8 @@ msgid ""
 "You are not using https to access phpMyAdmin, therefore FIDO U2F device will "
 "most likely refuse to authenticate you."
 msgstr ""
+"Comme https n'est pas utilisé pour accéder à phpMyAdmin, l'appareil FIDO U2F "
+"va probablement refuser votre authentification."
 
 #: templates/error/report_form.twig:6
 msgid ""
