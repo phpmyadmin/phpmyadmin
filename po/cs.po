@@ -6,16 +6,16 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.7.6-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2017-11-02 14:03+0100\n"
-"PO-Revision-Date: 2017-10-19 08:45+0000\n"
-"Last-Translator: David Kindl <mtwango@gmail.com>\n"
-"Language-Team: Czech <https://hosted.weblate.org/projects/phpmyadmin/4-7/cs/"
-">\n"
+"PO-Revision-Date: 2017-12-07 21:55+0000\n"
+"Last-Translator: Jiří Wolker <jiwopene@gmail.com>\n"
+"Language-Team: Czech <https://hosted.weblate.org/projects/phpmyadmin/4-7/cs/>"
+"\n"
 "Language: cs\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=(n==1) ? 0 : (n>=2 && n<=4) ? 1 : 2;\n"
-"X-Generator: Weblate 2.17\n"
+"X-Generator: Weblate 2.18-dev\n"
 
 #: ajax.php:16 ajax.php:33 export.php:192 schema_export.php:64
 msgid "Bad type!"
@@ -1526,11 +1526,9 @@ msgid "Table"
 msgstr "Tabulka"
 
 #: js/messages.php:300 libraries/display_export.lib.php:926
-#, fuzzy
-#| msgid "Column"
 msgctxt "Alias"
 msgid "Column"
-msgstr "Pole"
+msgstr "Sloupec"
 
 #. l10n: A collection of available filters
 #: js/messages.php:303
