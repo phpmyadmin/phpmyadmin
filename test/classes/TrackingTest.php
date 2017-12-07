@@ -365,7 +365,7 @@ class TrackingTest extends TestCase
             $html
         );
         $this->assertContains(
-            '<i>NULL</i>',
+            '<em>NULL</em>',
             $html
         );
         $this->assertContains(

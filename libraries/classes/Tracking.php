@@ -895,47 +895,14 @@ class Tracking
      * @param int   $index index
      * @param array $field field
      *
-     * @return string
+     * @return string HTML
      */
     public static function getHtmlForField($index, array $field)
     {
-        $html = '<tr class="noclick">';
-        $html .= '<td>' . $index . '</td>';
-        $html .= '<td><b>' . htmlspecialchars($field['Field']);
-        if ($field['Key'] == 'PRI') {
-            $html .= ' ' . Util::getImage('b_primary', __('Primary'));
-        } elseif (! empty($field['Key'])) {
-            $html .= ' ' . Util::getImage('bd_primary', __('Index'));
-        }
-        $html .= '</b></td>';
-        $html .= "\n";
-        $html .= '<td>' . htmlspecialchars($field['Type']) . '</td>';
-        $html .= '<td>' . htmlspecialchars($field['Collation']) . '</td>';
-        $html .= '<td>' . (($field['Null'] == 'YES') ? __('Yes') : __('No')) . '</td>';
-        $html .= '<td>';
-        if (isset($field['Default'])) {
-            $extracted_columnspec = Util::extractColumnSpec(
-                $field['Type']
-            );
-            if ($extracted_columnspec['type'] == 'bit') {
-                // here, $field['Default'] contains something like b'010'
-                $html .= Util::convertBitDefaultValue($field['Default']);
-            } else {
-                $html .= htmlspecialchars($field['Default']);
-            }
-        } else {
-            if ($field['Null'] == 'YES') {
-                $html .= '<i>NULL</i>';
-            } else {
-                $html .= '<i>' . _pgettext('None for default', 'None') . '</i>';
-            }
-        }
-        $html .= '</td>';
-        $html .= '<td>' . htmlspecialchars($field['Extra']) . '</td>';
-        $html .= '<td>' . htmlspecialchars($field['Comment']) . '</td>';
-        $html .= '</tr>';
-
-        return $html;
+        return Template::get('table/tracking/structure_snapshot_field')->render([
+            'index' => $index,
+            'field' => $field,
+        ]);
     }
 
     /**

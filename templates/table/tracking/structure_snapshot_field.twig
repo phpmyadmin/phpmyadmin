@@ -1,0 +1,35 @@
+<tr class="noclick">
+    <td>{{ index }}</td>
+    <td>
+        <strong>
+            {{ field['Field'] }}
+            {% if field['Key'] == 'PRI' %}
+                {{ Util_getImage('b_primary', 'Primary'|trans) }}
+            {% elseif field['Key'] is not empty %}
+                {{ Util_getImage('bd_primary', 'Index'|trans) }}
+            {% endif %}
+        </strong>
+    </td>
+    <td>{{ field['Type'] }}</td>
+    <td>{{ field['Collation'] }}</td>
+    <td>{{ field['Null'] == 'YES' ? 'Yes'|trans : 'No'|trans }}</td>
+    <td>
+        {% if field['Default'] is defined %}
+            {% set extracted_columnspec = Util_extractColumnSpec(field['Type']) %}
+            {% if extracted_columnspec['type'] == 'bit' %}
+                {# here, $field['Default'] contains something like b'010' #}
+                {{ Util_convertBitDefaultValue(field['Default']) }}
+            {% else %}
+                {{ field['Default'] }}
+            {% endif %}
+        {% else %}
+            {% if field['Null'] == 'YES' %}
+                <em>NULL</em>
+            {% else %}
+                <em>{% trans %}None{% context %}None for default{% endtrans %}</em>
+            {% endif %}
+        {% endif %}
+    </td>
+    <td>{{ field['Extra'] }}</td>
+    <td>{{ field['Comment'] }}</td>
+</tr>
