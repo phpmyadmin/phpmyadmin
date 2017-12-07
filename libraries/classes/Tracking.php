@@ -1436,7 +1436,7 @@ class Tracking
     }
 
     /**
-     * Display untracked tables
+     * Get HTML for untracked tables
      *
      * @param string $db              current database
      * @param array  $untrackedTables untracked tables
@@ -1444,16 +1444,16 @@ class Tracking
      * @param string $pmaThemeImage   path to theme's image folder
      * @param string $textDir         text direction
      *
-     * @return void
+     * @return string HTML
      */
-    public static function displayUntrackedTables(
+    public static function getHtmlForUntrackedTables(
         $db,
         array $untrackedTables,
         $urlQuery,
         $pmaThemeImage,
         $textDir
     ) {
-        echo Template::get('database/tracking/untracked_tables')->render([
+        return Template::get('database/tracking/untracked_tables')->render([
             'db' => $db,
             'untracked_tables' => $untrackedTables,
             'url_query' => $urlQuery,
