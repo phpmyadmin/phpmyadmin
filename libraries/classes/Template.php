@@ -20,6 +20,7 @@ use PhpMyAdmin\Twig\SanitizeExtension;
 use PhpMyAdmin\Twig\ServerPrivilegesExtension;
 use PhpMyAdmin\Twig\StorageEngineExtension;
 use PhpMyAdmin\Twig\TableExtension;
+use PhpMyAdmin\Twig\TrackerExtension;
 use PhpMyAdmin\Twig\TransformationsExtension;
 use PhpMyAdmin\Twig\UrlExtension;
 use PhpMyAdmin\Twig\UtilExtension;
@@ -80,6 +81,7 @@ class Template
             $twig->addExtension(new SanitizeExtension());
             $twig->addExtension(new ServerPrivilegesExtension());
             $twig->addExtension(new StorageEngineExtension());
+            $twig->addExtension(new TrackerExtension());
             $twig->addExtension(new TableExtension());
             $twig->addExtension(new TransformationsExtension());
             $twig->addExtension(new UrlExtension());

@@ -1438,94 +1438,28 @@ class Tracking
     /**
      * Display untracked tables
      *
-     * @param string $db               current database
-     * @param array  $untracked_tables untracked tables
-     * @param string $url_query        url query string
-     * @param string $pmaThemeImage    path to theme's image folder
-     * @param string $text_dir         text direction
+     * @param string $db              current database
+     * @param array  $untrackedTables untracked tables
+     * @param string $urlQuery        url query string
+     * @param string $pmaThemeImage   path to theme's image folder
+     * @param string $textDir         text direction
      *
      * @return void
      */
     public static function displayUntrackedTables(
-        $db, array $untracked_tables, $url_query, $pmaThemeImage, $text_dir
+        $db,
+        array $untrackedTables,
+        $urlQuery,
+        $pmaThemeImage,
+        $textDir
     ) {
-        ?>
-        <h3><?php echo __('Untracked tables');?></h3>
-        <form method="post" action="db_tracking.php" name="untrackedForm"
-            id="untrackedForm" class="ajax">
-        <?php
-        echo Url::getHiddenInputs($db)
-        ?>
-        <table id="noversions" class="data">
-        <thead>
-        <tr>
-            <th></th>
-            <th style="width: 300px"><?php echo __('Table');?></th>
-            <th><?php echo __('Action');?></th>
-        </tr>
-        </thead>
-        <tbody>
-        <?php
-
-        // Print out list of untracked tables
-        foreach ($untracked_tables as $key => $tablename) {
-            self::displayOneUntrackedTable($db, $tablename, $url_query);
-        }
-        ?>
-        </tbody>
-        </table>
-        <?php
-        echo Template::get('select_all')
-            ->render(
-                array(
-                    'pma_theme_image' => $pmaThemeImage,
-                    'text_dir'        => $text_dir,
-                    'form_name'       => 'untrackedForm',
-                )
-            );
-        echo Util::getButtonOrImage(
-            'submit_mult', 'mult_submit',
-            __('Track table'), 'eye', 'track'
-        );
-        ?>
-        </form>
-        <?php
-    }
-
-    /**
-     * Display one untracked table
-     *
-     * @param string $db        current database
-     * @param string $tablename the table name for which to display a line
-     * @param string $url_query url query string
-     *
-     * @return void
-     */
-    public static function displayOneUntrackedTable($db, $tablename, $url_query)
-    {
-        $checkbox_id = "selected_tbl_"
-            . htmlspecialchars($tablename);
-        if (Tracker::getVersion($db, $tablename) == -1) {
-            $my_link = '<a href="tbl_tracking.php' . $url_query
-                . '&amp;table=' . htmlspecialchars($tablename) . '">';
-            $my_link .= Util::getIcon('eye', __('Track table'));
-            $my_link .= '</a>';
-            ?>
-            <tr>
-                <td class="center">
-                    <input type="checkbox" name="selected_tbl[]"
-                        class="checkall" id="<?php echo $checkbox_id;?>"
-                        value="<?php echo htmlspecialchars($tablename);?>"/>
-                </td>
-                <th>
-                    <label for="<?php echo $checkbox_id;?>">
-                        <?php echo htmlspecialchars($tablename);?>
-                    </label>
-                </th>
-                <td><?php echo $my_link;?></td>
-            </tr>
-            <?php
-        }
+        echo Template::get('database/tracking/untracked_tables')->render([
+            'db' => $db,
+            'untracked_tables' => $untrackedTables,
+            'url_query' => $urlQuery,
+            'pma_theme_image' => $pmaThemeImage,
+            'text_dir' => $textDir,
+        ]);
     }
 
     /**
