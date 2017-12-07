@@ -6,8 +6,8 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.7.6-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2017-11-02 14:03+0100\n"
-"PO-Revision-Date: 2017-12-07 21:55+0000\n"
-"Last-Translator: Jiří Wolker <jiwopene@gmail.com>\n"
+"PO-Revision-Date: 2017-12-08 22:45+0000\n"
+"Last-Translator: David Kindl <mtwango@gmail.com>\n"
 "Language-Team: Czech <https://hosted.weblate.org/projects/phpmyadmin/4-7/cs/>"
 "\n"
 "Language: cs\n"
@@ -10545,6 +10545,8 @@ msgstr "MIME"
 msgid ""
 "Update data when duplicate keys found on import (add ON DUPLICATE KEY UPDATE)"
 msgstr ""
+"Aktualizovat data při nalezení duplicitních klíčů při importu (přidat ON "
+"DUPLICATE KEY UPDATE)"
 
 #: libraries/plugins/import/ImportCsv.php:61
 #: libraries/plugins/import/ImportOds.php:63
@@ -10855,7 +10857,7 @@ msgstr ""
 
 #: libraries/plugins/transformations/abs/ImageUploadTransformationsPlugin.php:87
 msgid "Image preview here"
-msgstr ""
+msgstr "Náhled obrázku zde"
 
 #: libraries/plugins/transformations/abs/InlineTransformationsPlugin.php:35
 msgid ""
