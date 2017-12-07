@@ -44,7 +44,7 @@ class InsertEdit
             'table'     => $table,
             'goto'      => $GLOBALS['goto'],
             'err_url'   => $err_url,
-            'sql_query' => $_REQUEST['sql_query'],
+            'sql_query' => $_POST['sql_query'],
         );
         if (isset($where_clauses)) {
             foreach ($where_clause_array as $key_id => $where_clause) {
@@ -204,8 +204,8 @@ class InsertEdit
                 $url_params['where_clause'] = trim($where_clause);
             }
         }
-        if (! empty($_REQUEST['sql_query'])) {
-            $url_params['sql_query'] = $_REQUEST['sql_query'];
+        if (! empty($_POST['sql_query'])) {
+            $url_params['sql_query'] = $_POST['sql_query'];
         }
         return $url_params;
     }
@@ -1458,7 +1458,7 @@ class InsertEdit
             . '<input type="hidden" name="err_url"'
             . ' value="' . htmlspecialchars($err_url) . '" />'
             . '<input type="hidden" name="sql_query"'
-            . ' value="' . htmlspecialchars($_REQUEST['sql_query']) . '" />';
+            . ' value="' . htmlspecialchars($_POST['sql_query']) . '" />';
 
         if (isset($_REQUEST['where_clause'])) {
             foreach ($where_clause_array as $key_id => $where_clause) {
@@ -2626,7 +2626,7 @@ class InsertEdit
          */
         $url_params = array(
             'db' => $db,
-            'sql_query' => $_REQUEST['sql_query']
+            'sql_query' => $_POST['sql_query']
         );
 
         if (preg_match('@^tbl_@', $GLOBALS['goto'])) {

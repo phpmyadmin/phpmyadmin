@@ -742,7 +742,7 @@ if ($go_sql) {
         $cfgBookmark = Bookmark::getParams($GLOBALS['cfg']['Server']['user']);
         Sql::storeTheQueryAsBookmark(
             $db, $cfgBookmark['user'],
-            $_REQUEST['sql_query'], $_POST['bkm_label'],
+            $_POST['sql_query'], $_POST['bkm_label'],
             isset($_POST['bkm_replace']) ? $_POST['bkm_replace'] : null
         );
     }
@@ -757,7 +757,7 @@ if ($go_sql) {
         $cfgBookmark = Bookmark::getParams($GLOBALS['cfg']['Server']['user']);
         Sql::storeTheQueryAsBookmark(
             $db, $cfgBookmark['user'],
-            $_REQUEST['sql_query'], $_POST['bkm_label'],
+            $_POST['sql_query'], $_POST['bkm_label'],
             isset($_POST['bkm_replace']) ? $_POST['bkm_replace'] : null
         );
     }

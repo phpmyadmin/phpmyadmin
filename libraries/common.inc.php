@@ -234,8 +234,8 @@ if (Core::isValid($_REQUEST['selected_recent_table'])) {
  * @global string $GLOBALS['sql_query']
  */
 $GLOBALS['sql_query'] = '';
-if (Core::isValid($_REQUEST['sql_query'])) {
-    $GLOBALS['sql_query'] = $_REQUEST['sql_query'];
+if (Core::isValid($_POST['sql_query'])) {
+    $GLOBALS['sql_query'] = $_POST['sql_query'];
 }
 
 //$_REQUEST['set_theme'] // checked later in this file LABEL_theme_setup

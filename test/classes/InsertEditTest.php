@@ -69,7 +69,7 @@ class InsertEditTest extends TestCase
     {
         $where_clause = array('foo' => 'bar ', '1' => ' test');
         $_REQUEST['clause_is_unique'] = false;
-        $_REQUEST['sql_query'] = 'SELECT a';
+        $_POST['sql_query'] = 'SELECT a';
         $GLOBALS['goto'] = 'index.php';
 
         $result = InsertEdit::getFormParametersForInsertForm(
@@ -259,7 +259,7 @@ class InsertEditTest extends TestCase
     public function testUrlParamsInEditMode()
     {
         $where_clause_array = array('foo=1', 'bar=2');
-        $_REQUEST['sql_query'] = 'SELECT 1';
+        $_POST['sql_query'] = 'SELECT 1';
 
         $result = InsertEdit::urlParamsInEditMode(array(1), $where_clause_array, '');
 
@@ -1431,7 +1431,7 @@ class InsertEditTest extends TestCase
         $GLOBALS['cfg']['ServerDefault'] = 1;
         $GLOBALS['goto'] = "index.php";
         $_REQUEST['where_clause'] = true;
-        $_REQUEST['sql_query'] = "SELECT 1";
+        $_POST['sql_query'] = "SELECT 1";
 
         $result = InsertEdit::getContinueInsertionForm(
             "tbl", "db", $where_clause_array, "localhost"
@@ -2817,7 +2817,7 @@ class InsertEditTest extends TestCase
      */
     public function testGetUrlParameters()
     {
-        $_REQUEST['sql_query'] = 'SELECT';
+        $_POST['sql_query'] = 'SELECT';
         $GLOBALS['goto'] = 'tbl_change.php';
 
         $this->assertEquals(
