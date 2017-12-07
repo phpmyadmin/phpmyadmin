@@ -880,29 +880,16 @@ class Tracking
         $html .= '<tbody>';
         $index = 1;
         foreach ($columns as $field) {
-            $html .= self::getHtmlForField($index++, $field);
+            $html .= Template::get('table/tracking/structure_snapshot_field')->render([
+                'index' => $index++,
+                'field' => $field,
+            ]);;
         }
 
         $html .= '</tbody>';
         $html .= '</table>';
 
         return $html;
-    }
-
-    /**
-     * Function to get html for field
-     *
-     * @param int   $index index
-     * @param array $field field
-     *
-     * @return string HTML
-     */
-    public static function getHtmlForField($index, array $field)
-    {
-        return Template::get('table/tracking/structure_snapshot_field')->render([
-            'index' => $index,
-            'field' => $field,
-        ]);
     }
 
     /**
