@@ -202,52 +202,24 @@ class Tracking
     /**
      * Function to get html for activate/deactivate tracking
      *
-     * @param string $action       activate|deactivate
-     * @param string $url_query    url query
-     * @param int    $last_version last version
+     * @param string $action      activate|deactivate
+     * @param string $urlQuery    url query
+     * @param int    $lastVersion last version
      *
-     * @return string
+     * @return string HTML
      */
     public static function getHtmlForActivateDeactivateTracking(
-        $action, $url_query, $last_version
+        $action,
+        $urlQuery,
+        $lastVersion
     ) {
-        $html = '<div>';
-        $html .= '<form method="post" action="tbl_tracking.php' . $url_query . '">';
-        $html .= Url::getHiddenInputs($GLOBALS['db'], $GLOBALS['table']);
-        $html .= '<fieldset>';
-        $html .= '<legend>';
-
-        switch($action) {
-        case 'activate':
-            $legend = __('Activate tracking for %s');
-            $value = "activate_now";
-            $button = __('Activate now');
-            break;
-        case 'deactivate':
-            $legend = __('Deactivate tracking for %s');
-            $value = "deactivate_now";
-            $button = __('Deactivate now');
-            break;
-        default:
-            $legend = '';
-            $value = '';
-            $button = '';
-        }
-
-        $html .= sprintf(
-            $legend,
-            htmlspecialchars($GLOBALS['db'] . '.' . $GLOBALS['table'])
-        );
-        $html .= '</legend>';
-        $html .= '<input type="hidden" name="version" value="' . $last_version . '" />';
-        $html .= '<input type="hidden" name="toggle_activation" value="' . $value
-            . '" />';
-        $html .= '<input type="submit" value="' . $button . '" />';
-        $html .= '</fieldset>';
-        $html .= '</form>';
-        $html .= '</div>';
-
-        return $html;
+        return Template::get('table/tracking/activate_deactivate')->render([
+            'action' => $action,
+            'url_query' => $urlQuery,
+            'last_version' => $lastVersion,
+            'db' => $GLOBALS['db'],
+            'table' => $GLOBALS['table'],
+        ]);
     }
 
     /**
