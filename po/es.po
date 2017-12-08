@@ -4,16 +4,16 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.8.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2017-11-28 16:22+0100\n"
-"PO-Revision-Date: 2017-09-11 10:51+0000\n"
-"Last-Translator: Javier Muñoz Ferrara <javier.munoz@gmail.com>\n"
-"Language-Team: Spanish <https://hosted.weblate.org/projects/phpmyadmin/"
-"master/es/>\n"
+"PO-Revision-Date: 2017-12-09 13:19+0000\n"
+"Last-Translator: Aleix Sanchis <aleixsanchis@hotmail.com>\n"
+"Language-Team: Spanish "
+"<https://hosted.weblate.org/projects/phpmyadmin/master/es/>\n"
 "Language: es\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 2.17-dev\n"
+"X-Generator: Weblate 2.18-dev\n"
 
 #: ajax.php:21 ajax.php:50 export.php:203 libraries/classes/Export.php:1100
 msgid "Bad type!"
@@ -2702,11 +2702,12 @@ msgstr "Fuerte"
 #: js/messages.php:746
 msgid "Timed out waiting for security key activation."
 msgstr ""
+"Se acabó el tiempo de espera para la activación de la clave de seguridad."
 
 #: js/messages.php:747
-#, php-format
+#, fuzzy, php-format
 msgid "Failed security key activation (%s)."
-msgstr ""
+msgstr "Ha fallado la activación de la clave de seguridad (%s)."
 
 #: js/messages.php:776
 msgctxt "Previous month"
@@ -4830,10 +4831,8 @@ msgid "Show databases navigation as tree"
 msgstr "Mostrar las bases de datos navegación como árbol"
 
 #: libraries/classes/Config/Descriptions.php:772
-#, fuzzy
-#| msgid "Navigation panel"
 msgid "Navigation panel width"
-msgstr "Panel de navegación"
+msgstr "Anchura del panel de navegación"
 
 #: libraries/classes/Config/Descriptions.php:774
 #, fuzzy
