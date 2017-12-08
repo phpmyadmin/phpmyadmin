@@ -901,42 +901,9 @@ class Tracking
      */
     public static function getHtmlForIndexes(array $indexes)
     {
-        $html = '<h3>' . __('Indexes') . '</h3>';
-        $html .= '<table id="tablestructure_indexes" class="data">';
-        $html .= '<thead>';
-        $html .= '<tr>';
-        $html .= '<th>' . __('Keyname') . '</th>';
-        $html .= '<th>' . __('Type') . '</th>';
-        $html .= '<th>' . __('Unique') . '</th>';
-        $html .= '<th>' . __('Packed') . '</th>';
-        $html .= '<th>' . __('Column') . '</th>';
-        $html .= '<th>' . __('Cardinality') . '</th>';
-        $html .= '<th>' . __('Collation') . '</th>';
-        $html .= '<th>' . __('Null') . '</th>';
-        $html .= '<th>' . __('Comment') . '</th>';
-        $html .= '</tr>';
-        $html .= '<tbody>';
-
-        foreach ($indexes as $index) {
-            $html .= self::getHtmlForIndex($index);
-        }
-        $html .= '</tbody>';
-        $html .= '</table>';
-        return $html;
-    }
-
-    /**
-     * Function to get html for an index in schema snapshot
-     *
-     * @param array $index index
-     *
-     * @return string
-     */
-    public static function getHtmlForIndex(array $index)
-    {
-        return Template::get('table/tracking/structure_snapshot_index')->render([
-            'index' => $index,
-        ]);
+        return Template::get('table/tracking/structure_snapshot_indexes')->render([
+            'indexes' => $indexes,
+        ]);;
     }
 
     /**
