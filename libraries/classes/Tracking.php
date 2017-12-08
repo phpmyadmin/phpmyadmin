@@ -934,30 +934,9 @@ class Tracking
      */
     public static function getHtmlForIndex(array $index)
     {
-        if ($index['Non_unique'] == 0) {
-            $str_unique = __('Yes');
-        } else {
-            $str_unique = __('No');
-        }
-        if ($index['Packed'] != '') {
-            $str_packed = __('Yes');
-        } else {
-            $str_packed = __('No');
-        }
-
-        $html  = '<tr class="noclick">';
-        $html .= '<td><b>' . htmlspecialchars($index['Key_name']) . '</b></td>';
-        $html .= '<td>' . htmlspecialchars($index['Index_type']) . '</td>';
-        $html .= '<td>' . $str_unique . '</td>';
-        $html .= '<td>' . $str_packed . '</td>';
-        $html .= '<td>' . htmlspecialchars($index['Column_name']) . '</td>';
-        $html .= '<td>' . htmlspecialchars($index['Cardinality']) . '</td>';
-        $html .= '<td>' . htmlspecialchars($index['Collation']) . '</td>';
-        $html .= '<td>' . htmlspecialchars($index['Null']) . '</td>';
-        $html .= '<td>' . htmlspecialchars($index['Comment']) . '</td>';
-        $html .= '</tr>';
-
-        return $html;
+        return Template::get('table/tracking/structure_snapshot_index')->render([
+            'index' => $index,
+        ]);
     }
 
     /**
