@@ -863,33 +863,9 @@ class Tracking
      */
     public static function getHtmlForColumns(array $columns)
     {
-        $html = '<h3>' . __('Structure') . '</h3>';
-        $html .= '<table id="tablestructure" class="data">';
-        $html .= '<thead>';
-        $html .= '<tr>';
-        $html .= '<th>' . __('#') . '</th>';
-        $html .= '<th>' . __('Column') . '</th>';
-        $html .= '<th>' . __('Type') . '</th>';
-        $html .= '<th>' . __('Collation') . '</th>';
-        $html .= '<th>' . __('Null') . '</th>';
-        $html .= '<th>' . __('Default') . '</th>';
-        $html .= '<th>' . __('Extra') . '</th>';
-        $html .= '<th>' . __('Comment') . '</th>';
-        $html .= '</tr>';
-        $html .= '</thead>';
-        $html .= '<tbody>';
-        $index = 1;
-        foreach ($columns as $field) {
-            $html .= Template::get('table/tracking/structure_snapshot_field')->render([
-                'index' => $index++,
-                'field' => $field,
-            ]);;
-        }
-
-        $html .= '</tbody>';
-        $html .= '</table>';
-
-        return $html;
+        return Template::get('table/tracking/structure_snapshot_columns')->render([
+            'columns' => $columns,
+        ]);
     }
 
     /**
