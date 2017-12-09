@@ -62,141 +62,29 @@ class Tracking
     /**
      * Function to get html for data definition and data manipulation statements
      *
-     * @param string $url_query    url query
-     * @param int    $last_version last version
-     * @param string $db           database
-     * @param array  $selected     selected tables
-     * @param string $type         type of the table; table, view or both
+     * @param string $urlQuery    url query
+     * @param int    $lastVersion last version
+     * @param string $db          database
+     * @param array  $selected    selected tables
+     * @param string $type        type of the table; table, view or both
      *
-     * @return string
+     * @return string HTML
      */
-    public static function getHtmlForDataDefinitionAndManipulationStatements($url_query,
-        $last_version, $db, array $selected, $type = 'both'
+    public static function getHtmlForDataDefinitionAndManipulationStatements(
+        $urlQuery,
+        $lastVersion,
+        $db,
+        array $selected,
+        $type = 'both'
     ) {
-        $html  = '<div id="div_create_version">';
-        $html .= '<form method="post" action="' . $url_query . '">';
-        $html .= Url::getHiddenInputs($db);
-        foreach ($selected as $selected_table) {
-            $html .= '<input type="hidden" name="selected[]"'
-                . ' value="' . htmlspecialchars($selected_table) . '" />';
-        }
-
-        $html .= '<fieldset>';
-        $html .= '<legend>';
-        if (count($selected) == 1) {
-            $html .= sprintf(
-                __('Create version %1$s of %2$s'),
-                ($last_version + 1),
-                htmlspecialchars($db . '.' . $selected[0])
-            );
-        } else {
-            $html .= sprintf(__('Create version %1$s'), ($last_version + 1));
-        }
-        $html .= '</legend>';
-        $html .= '<input type="hidden" name="version" value="' . ($last_version + 1)
-            . '" />';
-        $html .= '<p>' . __('Track these data definition statements:')
-            . '</p>';
-
-        if ($type == 'both' || $type == 'table') {
-            $html .= '<input type="checkbox" name="alter_table" value="true"'
-                . (mb_stripos(
-                    $GLOBALS['cfg']['Server']['tracking_default_statements'],
-                    'ALTER TABLE'
-                ) !== false ? ' checked="checked"' : '')
-                . ' /> ALTER TABLE<br/>';
-            $html .= '<input type="checkbox" name="rename_table" value="true"'
-                . (mb_stripos(
-                    $GLOBALS['cfg']['Server']['tracking_default_statements'],
-                    'RENAME TABLE'
-                ) !== false ? ' checked="checked"' : '')
-                . ' /> RENAME TABLE<br/>';
-            $html .= '<input type="checkbox" name="create_table" value="true"'
-                . (mb_stripos(
-                    $GLOBALS['cfg']['Server']['tracking_default_statements'],
-                    'CREATE TABLE'
-                ) !== false ? ' checked="checked"' : '')
-                . ' /> CREATE TABLE<br/>';
-            $html .= '<input type="checkbox" name="drop_table" value="true"'
-                . (mb_stripos(
-                    $GLOBALS['cfg']['Server']['tracking_default_statements'],
-                    'DROP TABLE'
-                ) !== false ? ' checked="checked"' : '')
-                . ' /> DROP TABLE<br/>';
-        }
-        if ($type == 'both') {
-            $html .= '<br/>';
-        }
-        if ($type == 'both' || $type == 'view') {
-            $html .= '<input type="checkbox" name="alter_view" value="true"'
-                . (mb_stripos(
-                    $GLOBALS['cfg']['Server']['tracking_default_statements'],
-                    'ALTER VIEW'
-                ) !== false ? ' checked="checked"' : '')
-                . ' /> ALTER VIEW<br/>';
-            $html .= '<input type="checkbox" name="create_view" value="true"'
-                . (mb_stripos(
-                    $GLOBALS['cfg']['Server']['tracking_default_statements'],
-                    'CREATE VIEW'
-                ) !== false ? ' checked="checked"' : '')
-                . ' /> CREATE VIEW<br/>';
-            $html .= '<input type="checkbox" name="drop_view" value="true"'
-                . (mb_stripos(
-                    $GLOBALS['cfg']['Server']['tracking_default_statements'],
-                    'DROP VIEW'
-                ) !== false ? ' checked="checked"' : '')
-                . ' /> DROP VIEW<br/>';
-        }
-        $html .= '<br/>';
-
-        $html .= '<input type="checkbox" name="create_index" value="true"'
-            . (mb_stripos(
-                $GLOBALS['cfg']['Server']['tracking_default_statements'],
-                'CREATE INDEX'
-            ) !== false ? ' checked="checked"' : '')
-            . ' /> CREATE INDEX<br/>';
-        $html .= '<input type="checkbox" name="drop_index" value="true"'
-            . (mb_stripos(
-                $GLOBALS['cfg']['Server']['tracking_default_statements'],
-                'DROP INDEX'
-            ) !== false ? ' checked="checked"' : '')
-            . ' /> DROP INDEX<br/>';
-        $html .= '<p>' . __('Track these data manipulation statements:') . '</p>';
-        $html .= '<input type="checkbox" name="insert" value="true"'
-            . (mb_stripos(
-                $GLOBALS['cfg']['Server']['tracking_default_statements'],
-                'INSERT'
-            ) !== false ? ' checked="checked"' : '')
-            . ' /> INSERT<br/>';
-        $html .= '<input type="checkbox" name="update" value="true"'
-            . (mb_stripos(
-                $GLOBALS['cfg']['Server']['tracking_default_statements'],
-                'UPDATE'
-            ) !== false ? ' checked="checked"' : '')
-            . ' /> UPDATE<br/>';
-        $html .= '<input type="checkbox" name="delete" value="true"'
-            . (mb_stripos(
-                $GLOBALS['cfg']['Server']['tracking_default_statements'],
-                'DELETE'
-            ) !== false ? ' checked="checked"' : '')
-            . ' /> DELETE<br/>';
-        $html .= '<input type="checkbox" name="truncate" value="true"'
-            . (mb_stripos(
-                $GLOBALS['cfg']['Server']['tracking_default_statements'],
-                'TRUNCATE'
-            ) !== false ? ' checked="checked"' : '')
-            . ' /> TRUNCATE<br/>';
-        $html .= '</fieldset>';
-
-        $html .= '<fieldset class="tblFooters">';
-        $html .= '<input type="hidden" name="submit_create_version" value="1" />';
-        $html .= '<input type="submit" value="' . __('Create version') . '" />';
-        $html .= '</fieldset>';
-
-        $html .= '</form>';
-        $html .= '</div>';
-
-        return $html;
+        return Template::get('table/tracking/create_version')->render([
+            'url_query' => $urlQuery,
+            'last_version' => $lastVersion,
+            'db' => $db,
+            'selected' => $selected,
+            'type' => $type,
+            'default_statements' => $GLOBALS['cfg']['Server']['tracking_default_statements'],
+        ]);
     }
 
     /**
