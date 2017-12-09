@@ -566,54 +566,48 @@ class Tracking
     /**
      * Function to get html for one data manipulation statement
      *
-     * @param array  $entry              entry
-     * @param array  $filter_users       filter users
-     * @param int    $filter_ts_from     filter time stamp from
-     * @param int    $filter_ts_to       filter time stamp to
-     * @param int    $line_number        line number
-     * @param array  $url_params         url parameters
-     * @param int    $offset             line number offset
-     * @param string $drop_image_or_text drop image or text
-     * @param string $delete_param       parameter for delete
+     * @param array  $entry           entry
+     * @param array  $filterUsers     filter users
+     * @param int    $filterTsFrom    filter time stamp from
+     * @param int    $filterTsTo      filter time stamp to
+     * @param int    $lineNumber      line number
+     * @param array  $urlParams       url parameters
+     * @param int    $offset          line number offset
+     * @param string $dropImageOrText drop image or text
+     * @param string $deleteParam     parameter for delete
      *
-     * @return string
+     * @return string HTML
      */
-    public static function getHtmlForOneStatement(array $entry, array $filter_users,
-        $filter_ts_from, $filter_ts_to, $line_number, array $url_params, $offset,
-        $drop_image_or_text, $delete_param
+    private static function getHtmlForOneStatement(
+        array $entry,
+        array $filterUsers,
+        $filterTsFrom,
+        $filterTsTo,
+        $lineNumber,
+        array $urlParams,
+        $offset,
+        $dropImageOrText,
+        $deleteParam
     ) {
-        $statement  = Util::formatSql($entry['statement'], true);
+        $statement = Util::formatSql($entry['statement'], true);
         $timestamp = strtotime($entry['date']);
-        $filtered_user = in_array($entry['username'], $filter_users);
-        $html = null;
+        $params = Url::getCommon($urlParams + [
+            'report' => 'true',
+            'version' => $_REQUEST['version'],
+            $deleteParam => ($lineNumber - $offset),
+        ]);
 
-        if ($timestamp >= $filter_ts_from
-            && $timestamp <= $filter_ts_to
-            && (in_array('*', $filter_users) || $filtered_user)
-        ) {
-            $html = '<tr class="noclick">';
-            $html .= '<td class="right"><small>' . $line_number . '</small></td>';
-            $html .= '<td><small>'
-                . htmlspecialchars($entry['date']) . '</small></td>';
-            $html .= '<td><small>'
-                . htmlspecialchars($entry['username']) . '</small></td>';
-            $html .= '<td>' . $statement . '</td>';
-            $html .= '<td class="nowrap"><a  class="delete_entry_anchor ajax"'
-                . ' href="tbl_tracking.php'
-                . Url::getCommon(
-                    $url_params + array(
-                        'report' => 'true',
-                        'version' => $_REQUEST['version'],
-                        $delete_param => ($line_number - $offset),
-                    )
-                )
-                . '">'
-                . $drop_image_or_text
-                . '</a></td>';
-            $html .= '</tr>';
-        }
-
-        return $html;
+        return Template::get('table/tracking/report_statement')->render([
+            'entry' => $entry,
+            'filter_users' => $filterUsers,
+            'filter_ts_from' => $filterTsFrom,
+            'filter_ts_to' => $filterTsTo,
+            'line_number' => $lineNumber,
+            'url_params' => $params,
+            'drop_image_or_text' => $dropImageOrText,
+            'statement' => $statement,
+            'timestamp' => $timestamp,
+        ]);
     }
     /**
      * Function to get html for data definition statements in schema snapshot
