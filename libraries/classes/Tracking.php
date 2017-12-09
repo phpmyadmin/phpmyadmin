@@ -283,37 +283,31 @@ class Tracking
     /**
      * Function to get html for selectable table rows
      *
-     * @param array  $selectable_tables_sql_result sql results for selectable rows
-     * @param string $url_query                    url query
+     * @param array  $selectableTablesSqlResult sql results for selectable rows
+     * @param string $urlQuery                  url query
      *
      * @return string
      */
-    public static function getHtmlForSelectableTables($selectable_tables_sql_result, $url_query)
-    {
-        $html = '<form method="post" action="tbl_tracking.php' . $url_query . '">';
-        $html .= Url::getHiddenInputs($GLOBALS['db'], $GLOBALS['table']);
-        $html .= '<select name="table" class="autosubmit">';
-        while ($entries = $GLOBALS['dbi']->fetchArray($selectable_tables_sql_result)) {
-            if (Tracker::isTracked($entries['db_name'], $entries['table_name'])) {
-                $status = ' (' . __('active') . ')';
-            } else {
-                $status = ' (' . __('not active') . ')';
-            }
-            if ($entries['table_name'] == $_REQUEST['table']) {
-                $s = ' selected="selected"';
-            } else {
-                $s = '';
-            }
-            $html .= '<option value="' . htmlspecialchars($entries['table_name'])
-                . '"' . $s . '>' . htmlspecialchars($entries['db_name']) . ' . '
-                . htmlspecialchars($entries['table_name']) . $status . '</option>'
-                . "\n";
+    public static function getHtmlForSelectableTables(
+        $selectableTablesSqlResult,
+        $urlQuery
+    ) {
+        $entries = [];
+        while ($entry = $GLOBALS['dbi']->fetchArray($selectableTablesSqlResult)) {
+            $entry['is_tracked'] = Tracker::isTracked(
+                $entry['db_name'],
+                $entry['table_name']
+            );
+            $entries[] = $entry;
         }
-        $html .= '</select>';
-        $html .= '<input type="hidden" name="show_versions_submit" value="1" />';
-        $html .= '</form>';
 
-        return $html;
+        return Template::get('table/tracking/selectable_tables')->render([
+            'url_query' => $urlQuery,
+            'db' => $GLOBALS['db'],
+            'table' => $GLOBALS['table'],
+            'entries' => $entries,
+            'selected_table' => isset($_REQUEST['table']) ? $_REQUEST['table'] : null,
+        ]);
     }
 
     /**
