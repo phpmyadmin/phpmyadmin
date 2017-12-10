@@ -186,7 +186,7 @@ class TrackingTest extends TestCase
         );
 
         $item = '<input type="checkbox" name="delete" value="true"'
-        . ' checked="checked" /> DELETE<br/>';
+        . ' checked="checked">' . "\n" . '            DELETE<br/>';
         $this->assertContains(
             $item,
             $html

@@ -564,52 +564,6 @@ class Tracking
     }
 
     /**
-     * Function to get html for one data manipulation statement
-     *
-     * @param array  $entry           entry
-     * @param array  $filterUsers     filter users
-     * @param int    $filterTsFrom    filter time stamp from
-     * @param int    $filterTsTo      filter time stamp to
-     * @param int    $lineNumber      line number
-     * @param array  $urlParams       url parameters
-     * @param int    $offset          line number offset
-     * @param string $dropImageOrText drop image or text
-     * @param string $deleteParam     parameter for delete
-     *
-     * @return string HTML
-     */
-    private static function getHtmlForOneStatement(
-        array $entry,
-        array $filterUsers,
-        $filterTsFrom,
-        $filterTsTo,
-        $lineNumber,
-        array $urlParams,
-        $offset,
-        $dropImageOrText,
-        $deleteParam
-    ) {
-        $statement = Util::formatSql($entry['statement'], true);
-        $timestamp = strtotime($entry['date']);
-        $params = Url::getCommon($urlParams + [
-            'report' => 'true',
-            'version' => $_REQUEST['version'],
-            $deleteParam => ($lineNumber - $offset),
-        ]);
-
-        return Template::get('table/tracking/report_statement')->render([
-            'entry' => $entry,
-            'filter_users' => $filterUsers,
-            'filter_ts_from' => $filterTsFrom,
-            'filter_ts_to' => $filterTsTo,
-            'line_number' => $lineNumber,
-            'url_params' => $params,
-            'drop_image_or_text' => $dropImageOrText,
-            'statement' => $statement,
-            'timestamp' => $timestamp,
-        ]);
-    }
-    /**
      * Function to get html for data definition statements in schema snapshot
      *
      * @param array  $data               data
@@ -636,48 +590,61 @@ class Tracking
     /**
      * Function to get html for data statements in schema snapshot
      *
-     * @param array  $data               data
-     * @param array  $filter_users       filter users
-     * @param int    $filter_ts_from     filter time stamp from
-     * @param int    $filter_ts_to       filter time stamp to
-     * @param array  $url_params         url parameters
-     * @param string $drop_image_or_text drop image or text
-     * @param string $which_log          dmlog|ddlog
-     * @param string $header_message     message for this section
-     * @param int    $line_number        line number
-     * @param string $table_id           id for the table element
+     * @param array  $data            data
+     * @param array  $filterUsers     filter users
+     * @param int    $filterTsFrom    filter time stamp from
+     * @param int    $filterTsTo      filter time stamp to
+     * @param array  $urlParams       url parameters
+     * @param string $dropImageOrText drop image or text
+     * @param string $whichLog        dmlog|ddlog
+     * @param string $headerMessage   message for this section
+     * @param int    $lineNumber      line number
+     * @param string $tableId         id for the table element
      *
-     * @return array
+     * @return array [$html, $lineNumber]
      */
-    public static function getHtmlForDataStatements(array $data, array $filter_users,
-        $filter_ts_from, $filter_ts_to, array $url_params, $drop_image_or_text,
-        $which_log, $header_message, $line_number, $table_id
+    private static function getHtmlForDataStatements(
+        array $data,
+        array $filterUsers,
+        $filterTsFrom,
+        $filterTsTo,
+        array $urlParams,
+        $dropImageOrText,
+        $whichLog,
+        $headerMessage,
+        $lineNumber,
+        $tableId
     ) {
-        $offset = $line_number;
-        $html  = '<table id="' . $table_id . '" class="data" width="100%">';
-        $html .= '<thead>';
-        $html .= '<tr>';
-        $html .= '<th width="18">#</th>';
-        $html .= '<th width="100">' . __('Date') . '</th>';
-        $html .= '<th width="60">' . __('Username') . '</th>';
-        $html .= '<th>' . $header_message . '</th>';
-        $html .= '<th>' . __('Action') . '</th>';
-        $html .= '</tr>';
-        $html .= '</thead>';
-        $html .= '<tbody>';
-
-        foreach ($data[$which_log] as $entry) {
-            $html .= self::getHtmlForOneStatement(
-                $entry, $filter_users, $filter_ts_from, $filter_ts_to,
-                $line_number, $url_params, $offset, $drop_image_or_text,
-                'delete_' . $which_log
-            );
-            $line_number++;
+        $offset = $lineNumber;
+        $entries = [];
+        foreach ($data[$whichLog] as $entry) {
+            $timestamp = strtotime($entry['date']);
+            if ($timestamp >= $filterTsFrom
+                && $timestamp <= $filterTsTo
+                && (in_array('*', $filterUsers)
+                || in_array($entry['username'], $filterUsers))
+            ) {
+                $entry['formated_statement'] = Util::formatSql($entry['statement'], true);
+                $deleteParam = 'delete_' . $whichLog;
+                $entry['url_params'] = Url::getCommon($urlParams + [
+                    'report' => 'true',
+                    'version' => $_REQUEST['version'],
+                    $deleteParam => ($lineNumber - $offset),
+                ]);
+                $entry['line_number'] = $lineNumber;
+                $entries[] = $entry;
+            }
+            $lineNumber++;
         }
-        $html .= '</tbody>';
-        $html .= '</table>';
 
-        return array($html, $line_number);
+        $html = Template::get('table/tracking/report_table')->render([
+            'table_id' => $tableId,
+            'header_message' => $headerMessage,
+            'entries' => $entries,
+            'drop_image_or_text' => $dropImageOrText,
+        ]);
+
+        return [$html, $lineNumber];
     }
 
     /**
