@@ -1,0 +1,27 @@
+<div>
+    <form method="post" action="tbl_tracking.php{{ url_query|raw }}">
+        {{ Url_getHiddenInputs(db, table) }}
+        <fieldset>
+            <legend>
+                {% if action == 'activate' %}
+                    {% set legend = 'Activate tracking for %s'|trans %}
+                    {% set value = 'activate_now' %}
+                    {% set button = 'Activate now'|trans %}
+                {% elseif action == 'deactivate' %}
+                    {% set legend = 'Deactivate tracking for %s'|trans %}
+                    {% set value = 'deactivate_now' %}
+                    {% set button = 'Deactivate now'|trans %}
+                {% else %}
+                    {% set legend = '' %}
+                    {% set value = '' %}
+                    {% set button = '' %}
+                {% endif %}
+
+                {{ legend|format(db ~ '.' ~ table) }}
+            </legend>
+            <input type="hidden" name="version" value="{{ last_version }}" />
+            <input type="hidden" name="toggle_activation" value="{{ value }}" />
+            <input type="submit" value="{{ button }}" />
+        </fieldset>
+    </form>
+</div>

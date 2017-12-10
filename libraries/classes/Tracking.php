@@ -62,192 +62,52 @@ class Tracking
     /**
      * Function to get html for data definition and data manipulation statements
      *
-     * @param string $url_query    url query
-     * @param int    $last_version last version
-     * @param string $db           database
-     * @param array  $selected     selected tables
-     * @param string $type         type of the table; table, view or both
+     * @param string $urlQuery    url query
+     * @param int    $lastVersion last version
+     * @param string $db          database
+     * @param array  $selected    selected tables
+     * @param string $type        type of the table; table, view or both
      *
-     * @return string
+     * @return string HTML
      */
-    public static function getHtmlForDataDefinitionAndManipulationStatements($url_query,
-        $last_version, $db, array $selected, $type = 'both'
+    public static function getHtmlForDataDefinitionAndManipulationStatements(
+        $urlQuery,
+        $lastVersion,
+        $db,
+        array $selected,
+        $type = 'both'
     ) {
-        $html  = '<div id="div_create_version">';
-        $html .= '<form method="post" action="' . $url_query . '">';
-        $html .= Url::getHiddenInputs($db);
-        foreach ($selected as $selected_table) {
-            $html .= '<input type="hidden" name="selected[]"'
-                . ' value="' . htmlspecialchars($selected_table) . '" />';
-        }
-
-        $html .= '<fieldset>';
-        $html .= '<legend>';
-        if (count($selected) == 1) {
-            $html .= sprintf(
-                __('Create version %1$s of %2$s'),
-                ($last_version + 1),
-                htmlspecialchars($db . '.' . $selected[0])
-            );
-        } else {
-            $html .= sprintf(__('Create version %1$s'), ($last_version + 1));
-        }
-        $html .= '</legend>';
-        $html .= '<input type="hidden" name="version" value="' . ($last_version + 1)
-            . '" />';
-        $html .= '<p>' . __('Track these data definition statements:')
-            . '</p>';
-
-        if ($type == 'both' || $type == 'table') {
-            $html .= '<input type="checkbox" name="alter_table" value="true"'
-                . (mb_stripos(
-                    $GLOBALS['cfg']['Server']['tracking_default_statements'],
-                    'ALTER TABLE'
-                ) !== false ? ' checked="checked"' : '')
-                . ' /> ALTER TABLE<br/>';
-            $html .= '<input type="checkbox" name="rename_table" value="true"'
-                . (mb_stripos(
-                    $GLOBALS['cfg']['Server']['tracking_default_statements'],
-                    'RENAME TABLE'
-                ) !== false ? ' checked="checked"' : '')
-                . ' /> RENAME TABLE<br/>';
-            $html .= '<input type="checkbox" name="create_table" value="true"'
-                . (mb_stripos(
-                    $GLOBALS['cfg']['Server']['tracking_default_statements'],
-                    'CREATE TABLE'
-                ) !== false ? ' checked="checked"' : '')
-                . ' /> CREATE TABLE<br/>';
-            $html .= '<input type="checkbox" name="drop_table" value="true"'
-                . (mb_stripos(
-                    $GLOBALS['cfg']['Server']['tracking_default_statements'],
-                    'DROP TABLE'
-                ) !== false ? ' checked="checked"' : '')
-                . ' /> DROP TABLE<br/>';
-        }
-        if ($type == 'both') {
-            $html .= '<br/>';
-        }
-        if ($type == 'both' || $type == 'view') {
-            $html .= '<input type="checkbox" name="alter_view" value="true"'
-                . (mb_stripos(
-                    $GLOBALS['cfg']['Server']['tracking_default_statements'],
-                    'ALTER VIEW'
-                ) !== false ? ' checked="checked"' : '')
-                . ' /> ALTER VIEW<br/>';
-            $html .= '<input type="checkbox" name="create_view" value="true"'
-                . (mb_stripos(
-                    $GLOBALS['cfg']['Server']['tracking_default_statements'],
-                    'CREATE VIEW'
-                ) !== false ? ' checked="checked"' : '')
-                . ' /> CREATE VIEW<br/>';
-            $html .= '<input type="checkbox" name="drop_view" value="true"'
-                . (mb_stripos(
-                    $GLOBALS['cfg']['Server']['tracking_default_statements'],
-                    'DROP VIEW'
-                ) !== false ? ' checked="checked"' : '')
-                . ' /> DROP VIEW<br/>';
-        }
-        $html .= '<br/>';
-
-        $html .= '<input type="checkbox" name="create_index" value="true"'
-            . (mb_stripos(
-                $GLOBALS['cfg']['Server']['tracking_default_statements'],
-                'CREATE INDEX'
-            ) !== false ? ' checked="checked"' : '')
-            . ' /> CREATE INDEX<br/>';
-        $html .= '<input type="checkbox" name="drop_index" value="true"'
-            . (mb_stripos(
-                $GLOBALS['cfg']['Server']['tracking_default_statements'],
-                'DROP INDEX'
-            ) !== false ? ' checked="checked"' : '')
-            . ' /> DROP INDEX<br/>';
-        $html .= '<p>' . __('Track these data manipulation statements:') . '</p>';
-        $html .= '<input type="checkbox" name="insert" value="true"'
-            . (mb_stripos(
-                $GLOBALS['cfg']['Server']['tracking_default_statements'],
-                'INSERT'
-            ) !== false ? ' checked="checked"' : '')
-            . ' /> INSERT<br/>';
-        $html .= '<input type="checkbox" name="update" value="true"'
-            . (mb_stripos(
-                $GLOBALS['cfg']['Server']['tracking_default_statements'],
-                'UPDATE'
-            ) !== false ? ' checked="checked"' : '')
-            . ' /> UPDATE<br/>';
-        $html .= '<input type="checkbox" name="delete" value="true"'
-            . (mb_stripos(
-                $GLOBALS['cfg']['Server']['tracking_default_statements'],
-                'DELETE'
-            ) !== false ? ' checked="checked"' : '')
-            . ' /> DELETE<br/>';
-        $html .= '<input type="checkbox" name="truncate" value="true"'
-            . (mb_stripos(
-                $GLOBALS['cfg']['Server']['tracking_default_statements'],
-                'TRUNCATE'
-            ) !== false ? ' checked="checked"' : '')
-            . ' /> TRUNCATE<br/>';
-        $html .= '</fieldset>';
-
-        $html .= '<fieldset class="tblFooters">';
-        $html .= '<input type="hidden" name="submit_create_version" value="1" />';
-        $html .= '<input type="submit" value="' . __('Create version') . '" />';
-        $html .= '</fieldset>';
-
-        $html .= '</form>';
-        $html .= '</div>';
-
-        return $html;
+        return Template::get('table/tracking/create_version')->render([
+            'url_query' => $urlQuery,
+            'last_version' => $lastVersion,
+            'db' => $db,
+            'selected' => $selected,
+            'type' => $type,
+            'default_statements' => $GLOBALS['cfg']['Server']['tracking_default_statements'],
+        ]);
     }
 
     /**
      * Function to get html for activate/deactivate tracking
      *
-     * @param string $action       activate|deactivate
-     * @param string $url_query    url query
-     * @param int    $last_version last version
+     * @param string $action      activate|deactivate
+     * @param string $urlQuery    url query
+     * @param int    $lastVersion last version
      *
-     * @return string
+     * @return string HTML
      */
     public static function getHtmlForActivateDeactivateTracking(
-        $action, $url_query, $last_version
+        $action,
+        $urlQuery,
+        $lastVersion
     ) {
-        $html = '<div>';
-        $html .= '<form method="post" action="tbl_tracking.php' . $url_query . '">';
-        $html .= Url::getHiddenInputs($GLOBALS['db'], $GLOBALS['table']);
-        $html .= '<fieldset>';
-        $html .= '<legend>';
-
-        switch($action) {
-        case 'activate':
-            $legend = __('Activate tracking for %s');
-            $value = "activate_now";
-            $button = __('Activate now');
-            break;
-        case 'deactivate':
-            $legend = __('Deactivate tracking for %s');
-            $value = "deactivate_now";
-            $button = __('Deactivate now');
-            break;
-        default:
-            $legend = '';
-            $value = '';
-            $button = '';
-        }
-
-        $html .= sprintf(
-            $legend,
-            htmlspecialchars($GLOBALS['db'] . '.' . $GLOBALS['table'])
-        );
-        $html .= '</legend>';
-        $html .= '<input type="hidden" name="version" value="' . $last_version . '" />';
-        $html .= '<input type="hidden" name="toggle_activation" value="' . $value
-            . '" />';
-        $html .= '<input type="submit" value="' . $button . '" />';
-        $html .= '</fieldset>';
-        $html .= '</form>';
-        $html .= '</div>';
-
-        return $html;
+        return Template::get('table/tracking/activate_deactivate')->render([
+            'action' => $action,
+            'url_query' => $urlQuery,
+            'last_version' => $lastVersion,
+            'db' => $GLOBALS['db'],
+            'table' => $GLOBALS['table'],
+        ]);
     }
 
     /**
@@ -423,37 +283,31 @@ class Tracking
     /**
      * Function to get html for selectable table rows
      *
-     * @param array  $selectable_tables_sql_result sql results for selectable rows
-     * @param string $url_query                    url query
+     * @param array  $selectableTablesSqlResult sql results for selectable rows
+     * @param string $urlQuery                  url query
      *
      * @return string
      */
-    public static function getHtmlForSelectableTables($selectable_tables_sql_result, $url_query)
-    {
-        $html = '<form method="post" action="tbl_tracking.php' . $url_query . '">';
-        $html .= Url::getHiddenInputs($GLOBALS['db'], $GLOBALS['table']);
-        $html .= '<select name="table" class="autosubmit">';
-        while ($entries = $GLOBALS['dbi']->fetchArray($selectable_tables_sql_result)) {
-            if (Tracker::isTracked($entries['db_name'], $entries['table_name'])) {
-                $status = ' (' . __('active') . ')';
-            } else {
-                $status = ' (' . __('not active') . ')';
-            }
-            if ($entries['table_name'] == $_REQUEST['table']) {
-                $s = ' selected="selected"';
-            } else {
-                $s = '';
-            }
-            $html .= '<option value="' . htmlspecialchars($entries['table_name'])
-                . '"' . $s . '>' . htmlspecialchars($entries['db_name']) . ' . '
-                . htmlspecialchars($entries['table_name']) . $status . '</option>'
-                . "\n";
+    public static function getHtmlForSelectableTables(
+        $selectableTablesSqlResult,
+        $urlQuery
+    ) {
+        $entries = [];
+        while ($entry = $GLOBALS['dbi']->fetchArray($selectableTablesSqlResult)) {
+            $entry['is_tracked'] = Tracker::isTracked(
+                $entry['db_name'],
+                $entry['table_name']
+            );
+            $entries[] = $entry;
         }
-        $html .= '</select>';
-        $html .= '<input type="hidden" name="show_versions_submit" value="1" />';
-        $html .= '</form>';
 
-        return $html;
+        return Template::get('table/tracking/selectable_tables')->render([
+            'url_query' => $urlQuery,
+            'db' => $GLOBALS['db'],
+            'table' => $GLOBALS['table'],
+            'entries' => $entries,
+            'selected_table' => isset($_REQUEST['table']) ? $_REQUEST['table'] : null,
+        ]);
     }
 
     /**
@@ -710,58 +564,6 @@ class Tracking
     }
 
     /**
-     * Function to get html for one data manipulation statement
-     *
-     * @param array  $entry              entry
-     * @param array  $filter_users       filter users
-     * @param int    $filter_ts_from     filter time stamp from
-     * @param int    $filter_ts_to       filter time stamp to
-     * @param int    $line_number        line number
-     * @param array  $url_params         url parameters
-     * @param int    $offset             line number offset
-     * @param string $drop_image_or_text drop image or text
-     * @param string $delete_param       parameter for delete
-     *
-     * @return string
-     */
-    public static function getHtmlForOneStatement(array $entry, array $filter_users,
-        $filter_ts_from, $filter_ts_to, $line_number, array $url_params, $offset,
-        $drop_image_or_text, $delete_param
-    ) {
-        $statement  = Util::formatSql($entry['statement'], true);
-        $timestamp = strtotime($entry['date']);
-        $filtered_user = in_array($entry['username'], $filter_users);
-        $html = null;
-
-        if ($timestamp >= $filter_ts_from
-            && $timestamp <= $filter_ts_to
-            && (in_array('*', $filter_users) || $filtered_user)
-        ) {
-            $html = '<tr class="noclick">';
-            $html .= '<td class="right"><small>' . $line_number . '</small></td>';
-            $html .= '<td><small>'
-                . htmlspecialchars($entry['date']) . '</small></td>';
-            $html .= '<td><small>'
-                . htmlspecialchars($entry['username']) . '</small></td>';
-            $html .= '<td>' . $statement . '</td>';
-            $html .= '<td class="nowrap"><a  class="delete_entry_anchor ajax"'
-                . ' href="tbl_tracking.php'
-                . Url::getCommon(
-                    $url_params + array(
-                        'report' => 'true',
-                        'version' => $_REQUEST['version'],
-                        $delete_param => ($line_number - $offset),
-                    )
-                )
-                . '">'
-                . $drop_image_or_text
-                . '</a></td>';
-            $html .= '</tr>';
-        }
-
-        return $html;
-    }
-    /**
      * Function to get html for data definition statements in schema snapshot
      *
      * @param array  $data               data
@@ -788,48 +590,61 @@ class Tracking
     /**
      * Function to get html for data statements in schema snapshot
      *
-     * @param array  $data               data
-     * @param array  $filter_users       filter users
-     * @param int    $filter_ts_from     filter time stamp from
-     * @param int    $filter_ts_to       filter time stamp to
-     * @param array  $url_params         url parameters
-     * @param string $drop_image_or_text drop image or text
-     * @param string $which_log          dmlog|ddlog
-     * @param string $header_message     message for this section
-     * @param int    $line_number        line number
-     * @param string $table_id           id for the table element
+     * @param array  $data            data
+     * @param array  $filterUsers     filter users
+     * @param int    $filterTsFrom    filter time stamp from
+     * @param int    $filterTsTo      filter time stamp to
+     * @param array  $urlParams       url parameters
+     * @param string $dropImageOrText drop image or text
+     * @param string $whichLog        dmlog|ddlog
+     * @param string $headerMessage   message for this section
+     * @param int    $lineNumber      line number
+     * @param string $tableId         id for the table element
      *
-     * @return array
+     * @return array [$html, $lineNumber]
      */
-    public static function getHtmlForDataStatements(array $data, array $filter_users,
-        $filter_ts_from, $filter_ts_to, array $url_params, $drop_image_or_text,
-        $which_log, $header_message, $line_number, $table_id
+    private static function getHtmlForDataStatements(
+        array $data,
+        array $filterUsers,
+        $filterTsFrom,
+        $filterTsTo,
+        array $urlParams,
+        $dropImageOrText,
+        $whichLog,
+        $headerMessage,
+        $lineNumber,
+        $tableId
     ) {
-        $offset = $line_number;
-        $html  = '<table id="' . $table_id . '" class="data" width="100%">';
-        $html .= '<thead>';
-        $html .= '<tr>';
-        $html .= '<th width="18">#</th>';
-        $html .= '<th width="100">' . __('Date') . '</th>';
-        $html .= '<th width="60">' . __('Username') . '</th>';
-        $html .= '<th>' . $header_message . '</th>';
-        $html .= '<th>' . __('Action') . '</th>';
-        $html .= '</tr>';
-        $html .= '</thead>';
-        $html .= '<tbody>';
-
-        foreach ($data[$which_log] as $entry) {
-            $html .= self::getHtmlForOneStatement(
-                $entry, $filter_users, $filter_ts_from, $filter_ts_to,
-                $line_number, $url_params, $offset, $drop_image_or_text,
-                'delete_' . $which_log
-            );
-            $line_number++;
+        $offset = $lineNumber;
+        $entries = [];
+        foreach ($data[$whichLog] as $entry) {
+            $timestamp = strtotime($entry['date']);
+            if ($timestamp >= $filterTsFrom
+                && $timestamp <= $filterTsTo
+                && (in_array('*', $filterUsers)
+                || in_array($entry['username'], $filterUsers))
+            ) {
+                $entry['formated_statement'] = Util::formatSql($entry['statement'], true);
+                $deleteParam = 'delete_' . $whichLog;
+                $entry['url_params'] = Url::getCommon($urlParams + [
+                    'report' => 'true',
+                    'version' => $_REQUEST['version'],
+                    $deleteParam => ($lineNumber - $offset),
+                ]);
+                $entry['line_number'] = $lineNumber;
+                $entries[] = $entry;
+            }
+            $lineNumber++;
         }
-        $html .= '</tbody>';
-        $html .= '</table>';
 
-        return array($html, $line_number);
+        $html = Template::get('table/tracking/report_table')->render([
+            'table_id' => $tableId,
+            'header_message' => $headerMessage,
+            'entries' => $entries,
+            'drop_image_or_text' => $dropImageOrText,
+        ]);
+
+        return [$html, $lineNumber];
     }
 
     /**
@@ -891,79 +706,9 @@ class Tracking
      */
     public static function getHtmlForColumns(array $columns)
     {
-        $html = '<h3>' . __('Structure') . '</h3>';
-        $html .= '<table id="tablestructure" class="data">';
-        $html .= '<thead>';
-        $html .= '<tr>';
-        $html .= '<th>' . __('#') . '</th>';
-        $html .= '<th>' . __('Column') . '</th>';
-        $html .= '<th>' . __('Type') . '</th>';
-        $html .= '<th>' . __('Collation') . '</th>';
-        $html .= '<th>' . __('Null') . '</th>';
-        $html .= '<th>' . __('Default') . '</th>';
-        $html .= '<th>' . __('Extra') . '</th>';
-        $html .= '<th>' . __('Comment') . '</th>';
-        $html .= '</tr>';
-        $html .= '</thead>';
-        $html .= '<tbody>';
-        $index = 1;
-        foreach ($columns as $field) {
-            $html .= self::getHtmlForField($index++, $field);
-        }
-
-        $html .= '</tbody>';
-        $html .= '</table>';
-
-        return $html;
-    }
-
-    /**
-     * Function to get html for field
-     *
-     * @param int   $index index
-     * @param array $field field
-     *
-     * @return string
-     */
-    public static function getHtmlForField($index, array $field)
-    {
-        $html = '<tr class="noclick">';
-        $html .= '<td>' . $index . '</td>';
-        $html .= '<td><b>' . htmlspecialchars($field['Field']);
-        if ($field['Key'] == 'PRI') {
-            $html .= ' ' . Util::getImage('b_primary', __('Primary'));
-        } elseif (! empty($field['Key'])) {
-            $html .= ' ' . Util::getImage('bd_primary', __('Index'));
-        }
-        $html .= '</b></td>';
-        $html .= "\n";
-        $html .= '<td>' . htmlspecialchars($field['Type']) . '</td>';
-        $html .= '<td>' . htmlspecialchars($field['Collation']) . '</td>';
-        $html .= '<td>' . (($field['Null'] == 'YES') ? __('Yes') : __('No')) . '</td>';
-        $html .= '<td>';
-        if (isset($field['Default'])) {
-            $extracted_columnspec = Util::extractColumnSpec(
-                $field['Type']
-            );
-            if ($extracted_columnspec['type'] == 'bit') {
-                // here, $field['Default'] contains something like b'010'
-                $html .= Util::convertBitDefaultValue($field['Default']);
-            } else {
-                $html .= htmlspecialchars($field['Default']);
-            }
-        } else {
-            if ($field['Null'] == 'YES') {
-                $html .= '<i>NULL</i>';
-            } else {
-                $html .= '<i>' . _pgettext('None for default', 'None') . '</i>';
-            }
-        }
-        $html .= '</td>';
-        $html .= '<td>' . htmlspecialchars($field['Extra']) . '</td>';
-        $html .= '<td>' . htmlspecialchars($field['Comment']) . '</td>';
-        $html .= '</tr>';
-
-        return $html;
+        return Template::get('table/tracking/structure_snapshot_columns')->render([
+            'columns' => $columns,
+        ]);
     }
 
     /**
@@ -975,63 +720,9 @@ class Tracking
      */
     public static function getHtmlForIndexes(array $indexes)
     {
-        $html = '<h3>' . __('Indexes') . '</h3>';
-        $html .= '<table id="tablestructure_indexes" class="data">';
-        $html .= '<thead>';
-        $html .= '<tr>';
-        $html .= '<th>' . __('Keyname') . '</th>';
-        $html .= '<th>' . __('Type') . '</th>';
-        $html .= '<th>' . __('Unique') . '</th>';
-        $html .= '<th>' . __('Packed') . '</th>';
-        $html .= '<th>' . __('Column') . '</th>';
-        $html .= '<th>' . __('Cardinality') . '</th>';
-        $html .= '<th>' . __('Collation') . '</th>';
-        $html .= '<th>' . __('Null') . '</th>';
-        $html .= '<th>' . __('Comment') . '</th>';
-        $html .= '</tr>';
-        $html .= '<tbody>';
-
-        foreach ($indexes as $index) {
-            $html .= self::getHtmlForIndex($index);
-        }
-        $html .= '</tbody>';
-        $html .= '</table>';
-        return $html;
-    }
-
-    /**
-     * Function to get html for an index in schema snapshot
-     *
-     * @param array $index index
-     *
-     * @return string
-     */
-    public static function getHtmlForIndex(array $index)
-    {
-        if ($index['Non_unique'] == 0) {
-            $str_unique = __('Yes');
-        } else {
-            $str_unique = __('No');
-        }
-        if ($index['Packed'] != '') {
-            $str_packed = __('Yes');
-        } else {
-            $str_packed = __('No');
-        }
-
-        $html  = '<tr class="noclick">';
-        $html .= '<td><b>' . htmlspecialchars($index['Key_name']) . '</b></td>';
-        $html .= '<td>' . htmlspecialchars($index['Index_type']) . '</td>';
-        $html .= '<td>' . $str_unique . '</td>';
-        $html .= '<td>' . $str_packed . '</td>';
-        $html .= '<td>' . htmlspecialchars($index['Column_name']) . '</td>';
-        $html .= '<td>' . htmlspecialchars($index['Cardinality']) . '</td>';
-        $html .= '<td>' . htmlspecialchars($index['Collation']) . '</td>';
-        $html .= '<td>' . htmlspecialchars($index['Null']) . '</td>';
-        $html .= '<td>' . htmlspecialchars($index['Comment']) . '</td>';
-        $html .= '</tr>';
-
-        return $html;
+        return Template::get('table/tracking/structure_snapshot_indexes')->render([
+            'indexes' => $indexes,
+        ]);;
     }
 
     /**
@@ -1436,96 +1127,30 @@ class Tracking
     }
 
     /**
-     * Display untracked tables
+     * Get HTML for untracked tables
      *
-     * @param string $db               current database
-     * @param array  $untracked_tables untracked tables
-     * @param string $url_query        url query string
-     * @param string $pmaThemeImage    path to theme's image folder
-     * @param string $text_dir         text direction
+     * @param string $db              current database
+     * @param array  $untrackedTables untracked tables
+     * @param string $urlQuery        url query string
+     * @param string $pmaThemeImage   path to theme's image folder
+     * @param string $textDir         text direction
      *
-     * @return void
+     * @return string HTML
      */
-    public static function displayUntrackedTables(
-        $db, array $untracked_tables, $url_query, $pmaThemeImage, $text_dir
+    public static function getHtmlForUntrackedTables(
+        $db,
+        array $untrackedTables,
+        $urlQuery,
+        $pmaThemeImage,
+        $textDir
     ) {
-        ?>
-        <h3><?php echo __('Untracked tables');?></h3>
-        <form method="post" action="db_tracking.php" name="untrackedForm"
-            id="untrackedForm" class="ajax">
-        <?php
-        echo Url::getHiddenInputs($db)
-        ?>
-        <table id="noversions" class="data">
-        <thead>
-        <tr>
-            <th></th>
-            <th style="width: 300px"><?php echo __('Table');?></th>
-            <th><?php echo __('Action');?></th>
-        </tr>
-        </thead>
-        <tbody>
-        <?php
-
-        // Print out list of untracked tables
-        foreach ($untracked_tables as $key => $tablename) {
-            self::displayOneUntrackedTable($db, $tablename, $url_query);
-        }
-        ?>
-        </tbody>
-        </table>
-        <?php
-        echo Template::get('select_all')
-            ->render(
-                array(
-                    'pma_theme_image' => $pmaThemeImage,
-                    'text_dir'        => $text_dir,
-                    'form_name'       => 'untrackedForm',
-                )
-            );
-        echo Util::getButtonOrImage(
-            'submit_mult', 'mult_submit',
-            __('Track table'), 'eye', 'track'
-        );
-        ?>
-        </form>
-        <?php
-    }
-
-    /**
-     * Display one untracked table
-     *
-     * @param string $db        current database
-     * @param string $tablename the table name for which to display a line
-     * @param string $url_query url query string
-     *
-     * @return void
-     */
-    public static function displayOneUntrackedTable($db, $tablename, $url_query)
-    {
-        $checkbox_id = "selected_tbl_"
-            . htmlspecialchars($tablename);
-        if (Tracker::getVersion($db, $tablename) == -1) {
-            $my_link = '<a href="tbl_tracking.php' . $url_query
-                . '&amp;table=' . htmlspecialchars($tablename) . '">';
-            $my_link .= Util::getIcon('eye', __('Track table'));
-            $my_link .= '</a>';
-            ?>
-            <tr>
-                <td class="center">
-                    <input type="checkbox" name="selected_tbl[]"
-                        class="checkall" id="<?php echo $checkbox_id;?>"
-                        value="<?php echo htmlspecialchars($tablename);?>"/>
-                </td>
-                <th>
-                    <label for="<?php echo $checkbox_id;?>">
-                        <?php echo htmlspecialchars($tablename);?>
-                    </label>
-                </th>
-                <td><?php echo $my_link;?></td>
-            </tr>
-            <?php
-        }
+        return Template::get('database/tracking/untracked_tables')->render([
+            'db' => $db,
+            'untracked_tables' => $untrackedTables,
+            'url_query' => $urlQuery,
+            'pma_theme_image' => $pmaThemeImage,
+            'text_dir' => $textDir,
+        ]);
     }
 
     /**

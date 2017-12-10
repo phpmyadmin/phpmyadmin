@@ -138,7 +138,7 @@ $untracked_tables = Tracking::getUntrackedTables($GLOBALS['db']);
 
 // If untracked tables exist
 if (count($untracked_tables) > 0) {
-    Tracking::displayUntrackedTables(
+    echo Tracking::getHtmlForUntrackedTables(
         $GLOBALS['db'], $untracked_tables, $url_query, $pmaThemeImage, $text_dir
     );
 }
