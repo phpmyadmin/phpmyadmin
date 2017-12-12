@@ -50,7 +50,7 @@ class LanguageTest extends PmaTestCase
 
         $langs = $this->manager->availableLocales();
 
-        $this->assertEquals(2, count($langs));
+        $this->assertCount(2, $langs);
         $this->assertContains('cs', $langs);
         $GLOBALS['cfg']['FilterLanguages'] = '';
     }
@@ -106,11 +106,11 @@ class LanguageTest extends PmaTestCase
     public function testMySQLLocale()
     {
         $czech = $this->manager->getLanguage('cs');
-        $this->assertNotEquals($czech, false);
+        $this->assertNotFalse($czech);
         $this->assertEquals('cs_CZ', $czech->getMySQLLocale());
 
         $azerbaijani = $this->manager->getLanguage('az');
-        $this->assertNotEquals($azerbaijani, false);
+        $this->assertNotFalse($azerbaijani);
         $this->assertEquals('', $azerbaijani->getMySQLLocale());
     }
 

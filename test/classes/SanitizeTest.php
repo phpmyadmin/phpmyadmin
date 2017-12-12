@@ -280,9 +280,9 @@ class SanitizeTest extends TestCase
         $_REQUEST['second'] = 1;
         $allow_list = array('allow', 'second');
         Sanitize::removeRequestVars($allow_list);
-        $this->assertFalse(isset($_REQUEST['foo']));
-        $this->assertFalse(isset($_REQUEST['second']));
-        $this->assertTrue(isset($_REQUEST['allow']));
+        $this->assertArrayNotHasKey('foo', $_REQUEST);
+        $this->assertArrayNotHasKey('second', $_REQUEST);
+        $this->assertArrayHasKey('allow', $_REQUEST);
     }
 
 }

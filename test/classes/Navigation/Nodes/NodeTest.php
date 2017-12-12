@@ -194,7 +194,7 @@ class NodeTest extends PmaTestCase
     public function testRealParent()
     {
         $parent = NodeFactory::getInstance();
-        $this->assertEquals($parent->realParent(), false);
+        $this->assertFalse($parent->realParent());
 
         $child = NodeFactory::getInstance();
         $parent->addChild($child);

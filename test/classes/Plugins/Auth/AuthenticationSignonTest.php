@@ -196,8 +196,9 @@ class AuthenticationSignonTest extends PmaTestCase
             session_id()
         );
 
-        $this->assertFalse(
-            isset($_SESSION['LAST_SIGNON_URL'])
+        $this->assertArrayNotHasKey(
+            'LAST_SIGNON_URL',
+            $_SESSION
         );
     }
 

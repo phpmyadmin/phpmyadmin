@@ -256,7 +256,7 @@ class CoreTest extends PmaTestCase
      */
     function testGotoNowhere($page, $whiteList, $expected)
     {
-        $this->assertTrue($expected === Core::checkPageValidity($page, $whiteList));
+        $this->assertSame($expected, Core::checkPageValidity($page, $whiteList));
     }
 
     /**
@@ -605,7 +605,7 @@ class CoreTest extends PmaTestCase
     {
         // $in is not set!
         $out = Core::ifSetOr($in);
-        $this->assertEquals($out, null);
+        $this->assertNull($out);
     }
 
     /**

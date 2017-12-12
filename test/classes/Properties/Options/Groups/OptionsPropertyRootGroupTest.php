@@ -59,9 +59,9 @@ class OptionsPropertyRootGroupTest extends TestCase
      */
     public function testCountable()
     {
-        $this->assertEquals(
+        $this->assertCount(
             0,
-            count($this->object)
+            $this->object
         );
     }
 
