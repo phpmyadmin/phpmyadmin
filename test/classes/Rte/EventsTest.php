@@ -410,7 +410,7 @@ class EventsTest extends TestCase
         $GLOBALS['dbi'] = $dbi;
 
         $this->assertEquals($query, Events::getQueryFromRequest());
-        $this->assertEquals($num_err, count($errors));
+        $this->assertCount($num_err, $errors);
     }
 
     /**

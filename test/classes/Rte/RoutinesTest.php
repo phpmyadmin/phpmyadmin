@@ -1117,7 +1117,7 @@ class RoutinesTest extends TestCase
         unset($_REQUEST);
         $_REQUEST = $request;
         $this->assertEquals($query, Routines::getQueryFromRequest());
-        $this->assertEquals($num_err, count($errors));
+        $this->assertCount($num_err, $errors);
 
         // reset
         $GLOBALS['dbi'] = $old_dbi;

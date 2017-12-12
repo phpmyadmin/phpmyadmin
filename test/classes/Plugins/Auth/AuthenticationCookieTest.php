@@ -419,8 +419,9 @@ class AuthenticationCookieTest extends PmaTestCase
 
         $this->object->logOut();
 
-        $this->assertFalse(
-            isset($_COOKIE['pmaAuth-0'])
+        $this->assertArrayNotHasKey(
+            'pmaAuth-0',
+            $_COOKIE
         );
     }
 
@@ -445,8 +446,9 @@ class AuthenticationCookieTest extends PmaTestCase
 
         $this->object->logOut();
 
-        $this->assertFalse(
-            isset($_COOKIE['pmaAuth-1'])
+        $this->assertArrayNotHasKey(
+            'pmaAuth-1',
+            $_COOKIE
         );
     }
 
@@ -484,8 +486,9 @@ class AuthenticationCookieTest extends PmaTestCase
             $GLOBALS['pma_auth_server']
         );
 
-        $this->assertFalse(
-            isset($_COOKIE['pmaAuth-1'])
+        $this->assertArrayNotHasKey(
+            'pmaAuth-1',
+            $_COOKIE
         );
     }
 
@@ -680,12 +683,14 @@ class AuthenticationCookieTest extends PmaTestCase
 
         $this->object->rememberCredentials();
 
-        $this->assertTrue(
-            isset($_COOKIE['pmaUser-2'])
+        $this->assertArrayHasKey(
+            'pmaUser-2',
+            $_COOKIE
         );
 
-        $this->assertTrue(
-            isset($_COOKIE['pmaAuth-2'])
+        $this->assertArrayHasKey(
+            'pmaAuth-2',
+            $_COOKIE
         );
 
         $arr['password'] = 'testPW';
