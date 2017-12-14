@@ -310,6 +310,4 @@ linkcheck_anchors = False
 linkcheck_ignore = [
     # Site is often down
     r'https://software.opensuse.org/package/.*',
-    # They have messed up SSL setup
-    r'https://php-myadmin.ru/.*',
 ]
