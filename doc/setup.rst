@@ -269,6 +269,28 @@ configuration file:
     $cfg['Export']['csv_columns'] = true;
     ?>
 
+You can also use it to define server configuration instead of using the
+environment variables listed in :ref:`docker-vars`:
+
+.. code-block:: php
+
+    <?php
+    /* Override Servers array */
+    $cfg['Servers'] = [
+        1 => [
+            'auth_type' => 'cookie',
+            'host' => 'mydb1',
+            'port' => 3306,
+            'verbose' => 'Verbose name 1',
+        ],
+        2 => [
+            'auth_type' => 'cookie',
+            'host' => 'mydb2',
+            'port' => 3306,
+            'verbose' => 'Verbose name 2',
+        ],
+    ];
+
 .. seealso:: 
    
     See :ref:`config` for detailed description of configuration options.
