@@ -368,7 +368,7 @@ class PMA_User_Preferences_Test extends PMATestCase
     {
         $GLOBALS['lang'] = '';
 
-        $this->mockResponse('Location: /phpmyadmin/file.html?a=b&saved=1&server=0#h+ash');
+        $this->mockResponse('Location: /phpmyadmin/file.html?a=b&saved=1&server=0&token=token#h+ash');
 
         $GLOBALS['PMA_Config']->set('PmaAbsoluteUri', '');
         $GLOBALS['PMA_Config']->set('PMA_IS_IIS', false);

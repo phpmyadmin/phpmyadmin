@@ -1264,6 +1264,7 @@ class NavigationTree
         );
         $children = $this->_tree->children;
         $url_params = array(
+            'token'  => $_SESSION[' PMA_token '],
             'server' => $GLOBALS['server'],
         );
         $retval .= '<div id="pma_navigation_db_select">';
