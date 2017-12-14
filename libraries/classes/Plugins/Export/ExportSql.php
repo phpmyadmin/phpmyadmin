@@ -581,9 +581,9 @@ class ExportSql extends ExportPlugin
 
         if (!empty($text)) {
             return Export::outputHandler($text);
-        } else {
-            return false;
         }
+
+        return false;
     }
 
     /**
@@ -601,17 +601,17 @@ class ExportSql extends ExportPlugin
             // see https://dev.mysql.com/doc/refman/5.0/en/ansi-diff-comments.html
             if (empty($text)) {
                 return '--' . $GLOBALS['crlf'];
-            } else {
-                $lines = preg_split("/\\r\\n|\\r|\\n/", $text);
-                $result = array();
-                foreach ($lines as $line) {
-                    $result[] = '-- ' . $line . $GLOBALS['crlf'];
-                }
-                return implode('', $result);
             }
-        } else {
-            return '';
+
+            $lines = preg_split("/\\r\\n|\\r|\\n/", $text);
+            $result = array();
+            foreach ($lines as $line) {
+                $result[] = '-- ' . $line . $GLOBALS['crlf'];
+            }
+            return implode('', $result);
         }
+
+        return '';
     }
 
     /**
@@ -625,9 +625,9 @@ class ExportSql extends ExportPlugin
             && $GLOBALS['sql_include_comments']
         ) {
             return $GLOBALS['crlf'];
-        } else {
-            return '';
         }
+
+        return '';
     }
 
     /**
@@ -979,9 +979,9 @@ class ExportSql extends ExportPlugin
 
         if (!empty($text)) {
             return Export::outputHandler($text);
-        } else {
-            return false;
         }
+
+        return false;
     }
 
     /**

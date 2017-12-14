@@ -183,9 +183,9 @@ class AuthenticationHttp extends AuthenticationPlugin
         // Returns whether we get authentication settings or not
         if (empty($this->user)) {
             return false;
-        } else {
-            return true;
         }
+
+        return true;
     }
 
     /**

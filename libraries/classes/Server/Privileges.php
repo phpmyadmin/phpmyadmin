@@ -118,9 +118,9 @@ class Privileges
         if ($html) {
             return '<dfn title="' . $privilege[2] . '">'
                 . $privilege[1] . '</dfn>';
-        } else {
-            return $privilege[1];
         }
+
+        return $privilege[1];
     }
 
     /**

@@ -140,9 +140,9 @@ class Index
                 Index::$_registry[$schema][$table][$index->getName()] = $index;
             }
             return $index;
-        } else {
-            return Index::$_registry[$schema][$table][$index_name];
         }
+
+        return Index::$_registry[$schema][$table][$index_name];
     }
 
     /**
@@ -159,9 +159,9 @@ class Index
 
         if (isset(Index::$_registry[$schema][$table])) {
             return Index::$_registry[$schema][$table];
-        } else {
-            return array();
         }
+
+        return array();
     }
 
     /**
@@ -220,9 +220,9 @@ class Index
 
         if (isset(Index::$_registry[$schema][$table]['PRIMARY'])) {
             return Index::$_registry[$schema][$table]['PRIMARY'];
-        } else {
-            return false;
         }
+
+        return false;
     }
 
     /**

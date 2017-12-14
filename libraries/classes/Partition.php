@@ -86,13 +86,13 @@ class Partition extends SubPartition
     {
         if (empty($this->subPartitions)) {
             return $this->rows;
-        } else {
-            $rows = 0;
-            foreach ($this->subPartitions as $subPartition) {
-                $rows += $subPartition->rows;
-            }
-            return $rows;
         }
+
+        $rows = 0;
+        foreach ($this->subPartitions as $subPartition) {
+            $rows += $subPartition->rows;
+        }
+        return $rows;
     }
 
     /**
@@ -104,13 +104,13 @@ class Partition extends SubPartition
     {
         if (empty($this->subPartitions)) {
             return $this->dataLength;
-        } else {
-            $dataLength = 0;
-            foreach ($this->subPartitions as $subPartition) {
-                $dataLength += $subPartition->dataLength;
-            }
-            return $dataLength;
         }
+
+        $dataLength = 0;
+        foreach ($this->subPartitions as $subPartition) {
+            $dataLength += $subPartition->dataLength;
+        }
+        return $dataLength;
     }
 
     /**
@@ -122,13 +122,13 @@ class Partition extends SubPartition
     {
         if (empty($this->subPartitions)) {
             return $this->indexLength;
-        } else {
-            $indexLength = 0;
-            foreach ($this->subPartitions as $subPartition) {
-                $indexLength += $subPartition->indexLength;
-            }
-            return $indexLength;
         }
+
+        $indexLength = 0;
+        foreach ($this->subPartitions as $subPartition) {
+            $indexLength += $subPartition->indexLength;
+        }
+        return $indexLength;
     }
 
     /**
@@ -177,9 +177,9 @@ class Partition extends SubPartition
                 return array_values($partitionMap);
             }
             return array();
-        } else {
-            return array();
         }
+
+        return array();
     }
 
     /**
@@ -199,9 +199,9 @@ class Partition extends SubPartition
                 . " WHERE `TABLE_SCHEMA` = '" . $GLOBALS['dbi']->escapeString($db)
                 . "' AND `TABLE_NAME` = '" . $GLOBALS['dbi']->escapeString($table) . "'"
             );
-        } else {
-            return array();
         }
+
+        return array();
     }
 
     /**

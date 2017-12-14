@@ -1121,90 +1121,90 @@ class DatabaseInterface
                 $sql .= "\n" . ' WHERE ' . implode(' AND ', $sql_wheres);
             }
             return $this->fetchResult($sql, $array_keys, null, $link);
-        } else {
-            $columns = array();
-            if (null === $database) {
-                foreach ($GLOBALS['dblist']->databases as $database) {
-                    $columns[$database] = $this->getColumnsFull(
-                        $database, null, null, $link
-                    );
-                }
-                return $columns;
-            } elseif (null === $table) {
-                $tables = $this->getTables($database);
-                foreach ($tables as $table) {
-                    $columns[$table] = $this->getColumnsFull(
-                        $database, $table, null, $link
-                    );
-                }
-                return $columns;
+        }
+
+        $columns = array();
+        if (null === $database) {
+            foreach ($GLOBALS['dblist']->databases as $database) {
+                $columns[$database] = $this->getColumnsFull(
+                    $database, null, null, $link
+                );
             }
-            $sql = 'SHOW FULL COLUMNS FROM '
-                . Util::backquote($database) . '.' . Util::backquote($table);
-            if (null !== $column) {
-                $sql .= " LIKE '" . $this->escapeString($column, $link) . "'";
+            return $columns;
+        } elseif (null === $table) {
+            $tables = $this->getTables($database);
+            foreach ($tables as $table) {
+                $columns[$table] = $this->getColumnsFull(
+                    $database, $table, null, $link
+                );
             }
-
-            $columns = $this->fetchResult($sql, 'Field', null, $link);
-            $ordinal_position = 1;
-            foreach ($columns as $column_name => $each_column) {
-
-                // Compatibility with INFORMATION_SCHEMA output
-                $columns[$column_name]['COLUMN_NAME']
-                    =& $columns[$column_name]['Field'];
-                $columns[$column_name]['COLUMN_TYPE']
-                    =& $columns[$column_name]['Type'];
-                $columns[$column_name]['COLLATION_NAME']
-                    =& $columns[$column_name]['Collation'];
-                $columns[$column_name]['IS_NULLABLE']
-                    =& $columns[$column_name]['Null'];
-                $columns[$column_name]['COLUMN_KEY']
-                    =& $columns[$column_name]['Key'];
-                $columns[$column_name]['COLUMN_DEFAULT']
-                    =& $columns[$column_name]['Default'];
-                $columns[$column_name]['EXTRA']
-                    =& $columns[$column_name]['Extra'];
-                $columns[$column_name]['PRIVILEGES']
-                    =& $columns[$column_name]['Privileges'];
-                $columns[$column_name]['COLUMN_COMMENT']
-                    =& $columns[$column_name]['Comment'];
-
-                $columns[$column_name]['TABLE_CATALOG'] = null;
-                $columns[$column_name]['TABLE_SCHEMA'] = $database;
-                $columns[$column_name]['TABLE_NAME'] = $table;
-                $columns[$column_name]['ORDINAL_POSITION'] = $ordinal_position;
-                $columns[$column_name]['DATA_TYPE']
-                    = substr(
-                        $columns[$column_name]['COLUMN_TYPE'],
-                        0,
-                        strpos($columns[$column_name]['COLUMN_TYPE'], '(')
-                    );
-                /**
-                 * @todo guess CHARACTER_MAXIMUM_LENGTH from COLUMN_TYPE
-                */
-                $columns[$column_name]['CHARACTER_MAXIMUM_LENGTH'] = null;
-                /**
-                 * @todo guess CHARACTER_OCTET_LENGTH from CHARACTER_MAXIMUM_LENGTH
-                 */
-                $columns[$column_name]['CHARACTER_OCTET_LENGTH'] = null;
-                $columns[$column_name]['NUMERIC_PRECISION'] = null;
-                $columns[$column_name]['NUMERIC_SCALE'] = null;
-                $columns[$column_name]['CHARACTER_SET_NAME']
-                    = substr(
-                        $columns[$column_name]['COLLATION_NAME'],
-                        0,
-                        strpos($columns[$column_name]['COLLATION_NAME'], '_')
-                    );
-
-                $ordinal_position++;
-            }
-
-            if (null !== $column) {
-                return reset($columns);
-            }
-
             return $columns;
         }
+        $sql = 'SHOW FULL COLUMNS FROM '
+            . Util::backquote($database) . '.' . Util::backquote($table);
+        if (null !== $column) {
+            $sql .= " LIKE '" . $this->escapeString($column, $link) . "'";
+        }
+
+        $columns = $this->fetchResult($sql, 'Field', null, $link);
+        $ordinal_position = 1;
+        foreach ($columns as $column_name => $each_column) {
+
+            // Compatibility with INFORMATION_SCHEMA output
+            $columns[$column_name]['COLUMN_NAME']
+                =& $columns[$column_name]['Field'];
+            $columns[$column_name]['COLUMN_TYPE']
+                =& $columns[$column_name]['Type'];
+            $columns[$column_name]['COLLATION_NAME']
+                =& $columns[$column_name]['Collation'];
+            $columns[$column_name]['IS_NULLABLE']
+                =& $columns[$column_name]['Null'];
+            $columns[$column_name]['COLUMN_KEY']
+                =& $columns[$column_name]['Key'];
+            $columns[$column_name]['COLUMN_DEFAULT']
+                =& $columns[$column_name]['Default'];
+            $columns[$column_name]['EXTRA']
+                =& $columns[$column_name]['Extra'];
+            $columns[$column_name]['PRIVILEGES']
+                =& $columns[$column_name]['Privileges'];
+            $columns[$column_name]['COLUMN_COMMENT']
+                =& $columns[$column_name]['Comment'];
+
+            $columns[$column_name]['TABLE_CATALOG'] = null;
+            $columns[$column_name]['TABLE_SCHEMA'] = $database;
+            $columns[$column_name]['TABLE_NAME'] = $table;
+            $columns[$column_name]['ORDINAL_POSITION'] = $ordinal_position;
+            $columns[$column_name]['DATA_TYPE']
+                = substr(
+                    $columns[$column_name]['COLUMN_TYPE'],
+                    0,
+                    strpos($columns[$column_name]['COLUMN_TYPE'], '(')
+                );
+            /**
+             * @todo guess CHARACTER_MAXIMUM_LENGTH from COLUMN_TYPE
+            */
+            $columns[$column_name]['CHARACTER_MAXIMUM_LENGTH'] = null;
+            /**
+             * @todo guess CHARACTER_OCTET_LENGTH from CHARACTER_MAXIMUM_LENGTH
+             */
+            $columns[$column_name]['CHARACTER_OCTET_LENGTH'] = null;
+            $columns[$column_name]['NUMERIC_PRECISION'] = null;
+            $columns[$column_name]['NUMERIC_SCALE'] = null;
+            $columns[$column_name]['CHARACTER_SET_NAME']
+                = substr(
+                    $columns[$column_name]['COLLATION_NAME'],
+                    0,
+                    strpos($columns[$column_name]['COLLATION_NAME'], '_')
+                );
+
+            $ordinal_position++;
+        }
+
+        if (null !== $column) {
+            return reset($columns);
+        }
+
+        return $columns;
     }
 
     /**
@@ -1674,9 +1674,9 @@ class DatabaseInterface
     {
         if (is_null($value)) {
             return $row;
-        } else {
-            return $row[$value];
         }
+
+        return $row[$value];
     }
 
     /**
@@ -2721,9 +2721,9 @@ class DatabaseInterface
 
         if ($get_from_cache) {
             return $GLOBALS['cached_affected_rows'];
-        } else {
-            return $this->_extension->affectedRows($this->_links[$link]);
         }
+
+        return $this->_extension->affectedRows($this->_links[$link]);
     }
 
     /**
@@ -2853,9 +2853,9 @@ class DatabaseInterface
     {
         if ($this->isAmazonRds()) {
             return 'CALL mysql.rds_kill(' . $process . ');';
-        } else {
-            return 'KILL ' . $process . ';';
         }
+
+        return 'KILL ' . $process . ';';
     }
 
     /**
@@ -2902,14 +2902,14 @@ class DatabaseInterface
                 . ' WHERE SCHEMA_NAME = \'' . $this->escapeString($db)
                 . '\' LIMIT 1';
             return $this->fetchValue($sql);
-        } else {
-            $this->selectDb($db);
-            $return = $this->fetchValue('SELECT @@collation_database');
-            if ($db !== $GLOBALS['db']) {
-                $this->selectDb($GLOBALS['db']);
-            }
-            return $return;
         }
+
+        $this->selectDb($db);
+        $return = $this->fetchValue('SELECT @@collation_database');
+        if ($db !== $GLOBALS['db']) {
+            $this->selectDb($GLOBALS['db']);
+        }
+        return $return;
     }
 
     /**

@@ -408,9 +408,9 @@ class ExportXml extends ExportPlugin
                 . htmlspecialchars($db_alias) . '">' . $crlf;
 
             return Export::outputHandler($head);
-        } else {
-            return true;
         }
+
+        return true;
     }
 
     /**
@@ -428,9 +428,9 @@ class ExportXml extends ExportPlugin
             && $GLOBALS['xml_export_contents']
         ) {
             return Export::outputHandler('    </database>' . $crlf);
-        } else {
-            return true;
         }
+
+        return true;
     }
 
     /**

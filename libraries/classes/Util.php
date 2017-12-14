@@ -308,11 +308,11 @@ class Util
     {
         if($bbcode){
             return "[a@$link@$target][dochelpicon][/a]";
-        }else{
-            return '<a href="' . $link . '" target="' . $target . '">'
-                . self::getImage('b_help', __('Documentation'))
-                . '</a>';
         }
+
+        return '<a href="' . $link . '" target="' . $target . '">'
+            . self::getImage('b_help', __('Documentation'))
+            . '</a>';
     } // end of the 'showDocLink()' function
 
     /**
@@ -379,9 +379,9 @@ class Util
         } elseif ($big_icon) {
             return $open_link
                 . self::getImage('b_sqlhelp', __('Documentation')) . '</a>';
-        } else {
-            return self::showDocLink($url, 'mysql_doc');
         }
+
+        return self::showDocLink($url, 'mysql_doc');
     } // end of the 'showMySQLDocu()' function
 
     /**
@@ -406,12 +406,12 @@ class Util
         if (! defined('TESTSUITE') && @file_exists('doc/html/index.html')) {
             if ($GLOBALS['PMA_Config']->get('is_setup')) {
                 return '../doc/html/' . $url;
-            } else {
-                return './doc/html/' . $url;
             }
-        } else {
-            return Core::linkURL('https://docs.phpmyadmin.net/en/latest/' . $url);
+
+            return './doc/html/' . $url;
         }
+
+        return Core::linkURL('https://docs.phpmyadmin.net/en/latest/' . $url);
     }
 
     /**
@@ -846,9 +846,9 @@ class Util
         // '0' is also empty for php :-(
         if (strlen($a_name) > 0 && $a_name !== '*') {
             return '`' . str_replace('`', '``', $a_name) . '`';
-        } else {
-            return $a_name;
         }
+
+        return $a_name;
     } // end of the 'backquote()' function
 
     /**
@@ -903,9 +903,9 @@ class Util
         // '0' is also empty for php :-(
         if (strlen($a_name) > 0 && $a_name !== '*') {
             return $quote . $a_name . $quote;
-        } else {
-            return $a_name;
         }
+
+        return $a_name;
     } // end of the 'backquoteCompat()' function
 
     /**
@@ -1804,9 +1804,9 @@ class Util
 
         if (! empty($url_parts['query'])) {
             return explode($separator, $url_parts['query']);
-        } else {
-            return array();
         }
+
+        return array();
     }
 
     /**
@@ -2623,9 +2623,9 @@ class Util
     {
         if (isset($GLOBALS['cfg']['Server']['user'])) {
             return 'server_' . $GLOBALS['server'] . '_' . $GLOBALS['cfg']['Server']['user'];
-        } else {
-            return 'server_' . $GLOBALS['server'];
         }
+
+        return 'server_' . $GLOBALS['server'];
     }
 
     /**
@@ -2652,14 +2652,14 @@ class Util
     {
         if (self::cacheExists($var)) {
             return $_SESSION['cache'][self::cacheKey()][$var];
-        } else {
-            if ($callback) {
-                $val = $callback();
-                self::cacheSet($var, $val);
-                return $val;
-            }
-            return null;
         }
+
+        if ($callback) {
+            $val = $callback();
+            self::cacheSet($var, $val);
+            return $val;
+        }
+        return null;
     }
 
     /**
@@ -2889,9 +2889,9 @@ class Util
                 $ndbver = substr($ndbver, 4);
             }
             return version_compare($ndbver, 7.3, '>=');
-        } else {
-            return false;
         }
+
+        return false;
     }
 
     /**
@@ -3470,9 +3470,9 @@ class Util
             return 'GeomFromText(' . $gis_string . ')';
         } elseif (preg_match("/^" . $geom_types . "\(.*\)$/i", $gis_string)) {
             return "GeomFromText('" . $gis_string . "')";
-        } else {
-            return $gis_string;
         }
+
+        return $gis_string;
     }
 
     /**
@@ -4008,9 +4008,9 @@ class Util
             return $tabList;
         } elseif (array_key_exists($level, $tabList)) {
             return $tabList[$level];
-        } else {
-            return null;
         }
+
+        return null;
     }
 
     /**

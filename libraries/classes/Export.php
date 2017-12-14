@@ -74,9 +74,9 @@ class Export
             || $chromeAndGreaterThan43)
         ) {
             return true;
-        } else {
-            return false;
         }
+
+        return false;
     }
 
     /**
@@ -1062,9 +1062,9 @@ class Export
     {
         if (in_array($key, $array)) {
             return ' checked="checked"';
-        } else {
-            return '';
         }
+
+        return '';
     }
 
     /**

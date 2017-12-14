@@ -70,9 +70,9 @@ class Import
         } elseif ((time() - $timestamp) > ($maximum_time - 5)) {
             $timeout_passed = true;
             return true;
-        } else {
-            return false;
         }
+
+        return false;
     }
 
     /**
@@ -305,10 +305,10 @@ class Import
         if (!empty($sql) || !empty($full)) {
             $import_run_buffer = array('sql' => $sql, 'full' => $full);
             return $import_run_buffer;
-        } else {
-            unset($GLOBALS['import_run_buffer']);
-            return $import_run_buffer;
         }
+
+        unset($GLOBALS['import_run_buffer']);
+        return $import_run_buffer;
     }
 
     /**
@@ -605,9 +605,9 @@ class Import
             if ($last_cumulative_type == self::VARCHAR) {
                 if ($curr_size >= $last_cumulative_size) {
                     return $curr_size;
-                } else {
-                    return $last_cumulative_size;
                 }
+
+                return $last_cumulative_size;
             } elseif ($last_cumulative_type == self::DECIMAL) {
                 /**
                  * The last cumulative type was DECIMAL
@@ -616,33 +616,33 @@ class Import
 
                 if ($curr_size >= $oldM) {
                     return $curr_size;
-                } else {
-                    return $oldM;
                 }
+
+                return $oldM;
             } elseif ($last_cumulative_type == self::BIGINT || $last_cumulative_type == self::INT) {
                 /**
                  * The last cumulative type was BIGINT or INT
                  */
                 if ($curr_size >= $last_cumulative_size) {
                     return $curr_size;
-                } else {
-                    return $last_cumulative_size;
                 }
+
+                return $last_cumulative_size;
             } elseif (! isset($last_cumulative_type) || $last_cumulative_type == self::NONE) {
                 /**
                  * This is the first row to be analyzed
                  */
                 return $curr_size;
-            } else {
-                /**
-                 * An error has DEFINITELY occurred
-                 */
-                /**
-                 * TODO: Handle this MUCH more elegantly
-                 */
-
-                return -1;
             }
+
+            /**
+             * An error has DEFINITELY occurred
+             */
+            /**
+             * TODO: Handle this MUCH more elegantly
+             */
+
+            return -1;
         } elseif ($curr_type == self::DECIMAL) {
             /**
              * What to do if the current cell is of type DECIMAL
@@ -656,9 +656,9 @@ class Import
 
                 if ($size[self::M] >= $last_cumulative_size) {
                     return $size[self::M];
-                } else {
-                    return $last_cumulative_size;
                 }
+
+                return $last_cumulative_size;
             } elseif ($last_cumulative_type == self::DECIMAL) {
                 /**
                  * The last cumulative type was DECIMAL
@@ -673,9 +673,9 @@ class Import
                     /* Take the largest of both types */
                     return (string) ((($size[self::M] > $oldM) ? $size[self::M] : $oldM)
                         . "," . (($size[self::D] > $oldD) ? $size[self::D] : $oldD));
-                } else {
-                    return $last_cumulative_size;
                 }
+
+                return $last_cumulative_size;
             } elseif ($last_cumulative_type == self::BIGINT || $last_cumulative_type == self::INT) {
                 /**
                  * The last cumulative type was BIGINT or INT
@@ -685,9 +685,9 @@ class Import
 
                 if ($size[self::M] >= $last_cumulative_size) {
                     return $size[self::FULL];
-                } else {
-                    return ($last_cumulative_size . "," . $size[self::D]);
                 }
+
+                return ($last_cumulative_size . "," . $size[self::D]);
             } elseif (! isset($last_cumulative_type) || $last_cumulative_type == self::NONE) {
                 /**
                  * This is the first row to be analyzed
@@ -696,16 +696,16 @@ class Import
                 $size = self::getDecimalSize($cell);
 
                 return $size[self::FULL];
-            } else {
-                /**
-                 * An error has DEFINITELY occurred
-                 */
-                /**
-                 * TODO: Handle this MUCH more elegantly
-                 */
-
-                return -1;
             }
+
+            /**
+             * An error has DEFINITELY occurred
+             */
+            /**
+             * TODO: Handle this MUCH more elegantly
+             */
+
+            return -1;
         } elseif ($curr_type == self::BIGINT || $curr_type == self::INT) {
             /**
              * What to do if the current cell is of type BIGINT or INT
@@ -716,9 +716,9 @@ class Import
             if ($last_cumulative_type == self::VARCHAR) {
                 if ($curr_size >= $last_cumulative_size) {
                     return $curr_size;
-                } else {
-                    return $last_cumulative_size;
                 }
+
+                return $last_cumulative_size;
             } elseif ($last_cumulative_type == self::DECIMAL) {
                 /**
                  * The last cumulative type was DECIMAL
@@ -732,35 +732,26 @@ class Import
                 if ($oldInt >= $newInt) {
                     /* Use old decimal size */
                     return $last_cumulative_size;
-                } else {
-                    /* Use $newInt + $oldD as new M */
-                    return (($newInt + $oldD) . "," . $oldD);
                 }
+
+                /* Use $newInt + $oldD as new M */
+                return (($newInt + $oldD) . "," . $oldD);
             } elseif ($last_cumulative_type == self::BIGINT || $last_cumulative_type == self::INT) {
                 /**
                  * The last cumulative type was BIGINT or INT
                  */
                 if ($curr_size >= $last_cumulative_size) {
                     return $curr_size;
-                } else {
-                    return $last_cumulative_size;
                 }
+
+                return $last_cumulative_size;
             } elseif (! isset($last_cumulative_type) || $last_cumulative_type == self::NONE) {
                 /**
                  * This is the first row to be analyzed
                  */
                 return $curr_size;
-            } else {
-                /**
-                 * An error has DEFINITELY occurred
-                 */
-                /**
-                 * TODO: Handle this MUCH more elegantly
-                 */
-
-                return -1;
             }
-        } else {
+
             /**
              * An error has DEFINITELY occurred
              */
@@ -770,6 +761,15 @@ class Import
 
             return -1;
         }
+
+        /**
+         * An error has DEFINITELY occurred
+         */
+        /**
+         * TODO: Handle this MUCH more elegantly
+         */
+
+        return -1;
     }
 
     /**
@@ -1689,8 +1689,8 @@ class Import
 
         if ($GLOBALS['dbi']->numRows($result) == 1) {
             return true;
-        } else {
-            return false;
         }
+
+        return false;
     }
 }
