@@ -2,4 +2,4 @@
 
 # Install deps for building documentation
 
-pip install --user 'Sphinx'
+pip install 'Sphinx'
