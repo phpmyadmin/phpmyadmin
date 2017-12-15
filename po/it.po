@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.8.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2017-11-28 16:22+0100\n"
-"PO-Revision-Date: 2017-12-02 21:25+0000\n"
-"Last-Translator: Matteo Regazzi <mregazzi@tiscali.it>\n"
+"PO-Revision-Date: 2017-12-16 12:04+0000\n"
+"Last-Translator: Claudio Maradonna <claudio@unitoo.pw>\n"
 "Language-Team: Italian "
 "<https://hosted.weblate.org/projects/phpmyadmin/master/it/>\n"
 "Language: it\n"
@@ -13,7 +13,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 2.18-dev\n"
+"X-Generator: Weblate 2.18\n"
 
 #: ajax.php:21 ajax.php:50 export.php:203 libraries/classes/Export.php:1100
 msgid "Bad type!"
@@ -4847,10 +4847,8 @@ msgid "Show databases navigation as tree"
 msgstr "Mostra la navigazione tra i database in forma di albero"
 
 #: libraries/classes/Config/Descriptions.php:772
-#, fuzzy
-#| msgid "Navigation panel"
 msgid "Navigation panel width"
-msgstr "Pannello di navigazione"
+msgstr "Larghezza del pannello di navigazione"
 
 #: libraries/classes/Config/Descriptions.php:774
 msgid "Set to 0 to collapse navigation panel."
@@ -6228,14 +6226,8 @@ msgid "Show current browsing query"
 msgstr "Mostra la query in corso di navigazione"
 
 #: libraries/classes/Config/Descriptions.php:1472
-#, fuzzy
-#| msgid ""
-#| "Execute queries on Enter and insert new line with Shift + Enter. To make "
-#| "this permanent, view settings."
 msgid "Execute queries on Enter and insert new line with Shift + Enter"
-msgstr ""
-"Esegui le query con INVIO e inserisci la nuova riga con MAIUSC + INVIO. Per "
-"rendere questo permanente, vedi le impostazioni."
+msgstr "Esegui le query con INVIO e inserisci la nuova riga con MAIUSC + INVIO"
 
 #: libraries/classes/Config/Descriptions.php:1474
 #: templates/console/display.twig:168
@@ -6243,16 +6235,12 @@ msgid "Switch to dark theme"
 msgstr "Passare al tema scuro"
 
 #: libraries/classes/Config/Descriptions.php:1476
-#, fuzzy
-#| msgid "Console"
 msgid "Console height"
-msgstr "Console"
+msgstr "Altezza della console"
 
 #: libraries/classes/Config/Descriptions.php:1478
-#, fuzzy
-#| msgid "Console"
 msgid "Console mode"
-msgstr "Console"
+msgstr "Modalità console"
 
 #: libraries/classes/Config/Descriptions.php:1480
 #: templates/console/display.twig:64
@@ -6264,10 +6252,8 @@ msgid "Order"
 msgstr "Ordine"
 
 #: libraries/classes/Config/Descriptions.php:1484
-#, fuzzy
-#| msgid "Order by:"
 msgid "Order by"
-msgstr "Ordine per:"
+msgstr "Ordina per"
 
 #: libraries/classes/Config/FormDisplay.php:99
 #: libraries/classes/Config/Validator.php:524
@@ -15302,16 +15288,13 @@ msgid "File may be compressed (%s) or uncompressed."
 msgstr "Il file può essere compresso (%s) o non compresso."
 
 #: templates/display/import/compressions.twig:7
-#, fuzzy
-#| msgid ""
-#| "A compressed file's name must end in <b>.[format].[compression]</b>. "
-#| "Example: <b>.sql.zip</b>"
 msgid ""
 "A compressed file's name must end in <strong>.[format].[compression]</"
 "strong>. Example: <strong>.sql.zip</strong>"
 msgstr ""
-"Il nome di un file compresso deve terminare in <b>.[formato].[compressione]</"
-"b>. Ad esempio: <b>.sql.zip</b>"
+"Il nome di un file compresso deve terminare in "
+"<strong>.[formato].[compressione]</strong>. Ad esempio: "
+"<strong>.sql.zip</strong>"
 
 #: templates/table/chart/tbl_chart.twig:15
 msgctxt "Chart type"
@@ -15431,16 +15414,12 @@ msgid "Edit ENUM/SET values"
 msgstr "Modifica i valori ENUM/SET"
 
 #: templates/login/twofactor/invalid.twig:2
-#, fuzzy
-#| msgid ""
-#| "Two-factor authentication is not available, please install optional "
-#| "dependencies to enable authentication backends."
 msgid ""
 "The configured two factor authentication is not available, please install "
 "missing dependencies."
 msgstr ""
-"L'autenticazione a due fattori non è disponibile, devi installare i "
-"componenti di backend per abilitarla."
+"L'autenticazione a due fattori non è disponibile, installare le dipendenze "
+"mancanti."
 
 #: templates/display/import/file_option.twig:2
 msgid "File to import:"
@@ -15567,16 +15546,14 @@ msgid "Server variables and settings"
 msgstr "Variabili e impostazioni del server"
 
 #: templates/server/sub_page_header.twig:2
-#, fuzzy
-#| msgid "Storage Engines"
 msgid "Storage engines"
-msgstr "Motori di Memorizzazione"
+msgstr "Motori di memorizzazione"
 
 #: templates/server/sub_page_header.twig:2
 #, fuzzy
 #| msgid "Character Sets and Collations"
 msgid "Character sets and collations"
-msgstr "Set di Caratteri e Collation"
+msgstr "Set di caratteri e confronti"
 
 #: templates/server/sub_page_header.twig:2
 msgid "Databases statistics"
@@ -15604,9 +15581,8 @@ msgstr ""
 "componenti di backend per abilitarla."
 
 #: templates/prefs_twofactor.twig:10
-#, fuzzy
 msgid "Following composer packages are missing:"
-msgstr "I seguenti composer packages sono mancanti:"
+msgstr "I seguenti pacchetti di Composer sono mancanti:"
 
 #: templates/prefs_twofactor.twig:18
 msgid "Two-factor authentication is available and configured for this account."
@@ -15662,20 +15638,15 @@ msgstr ""
 "riprenderà dalla posizione: %d."
 
 #: templates/display/import/partial_import_option.twig:15
-#, fuzzy
-#| msgid ""
-#| "Allow the interruption of an import in case the script detects it is "
-#| "close to the PHP timeout limit. <i>(This might be a good way to import "
-#| "large files, however it can break transactions.)</i>"
 msgid ""
 "Allow the interruption of an import in case the script detects it is close "
 "to the PHP timeout limit. <em>(This might be a good way to import large "
 "files, however it can break transactions.)</em>"
 msgstr ""
 "Consenti l'interruzione del processo di importazione nel caso lo script "
-"rilevi di essere troppo vicino al timeout di PHP. <i>(Questo potrebbe essere "
-"un buon modo di importare grandi file, tuttavia può interrompere le "
-"transazioni.)</i>"
+"rilevi di essere troppo vicino al timeout di PHP. <em>(Questo potrebbe "
+"essere un buon modo di importare grandi file, tuttavia può interrompere le "
+"transazioni.)</em>"
 
 #: templates/display/import/partial_import_option.twig:22
 msgid "Skip this number of queries (for SQL) starting from the first one:"
@@ -16380,29 +16351,25 @@ msgstr "Finestra di query"
 
 #: templates/database/multi_table_query/form.twig:18
 #: templates/database/multi_table_query/form.twig:106
-#, fuzzy
-#| msgid "Select table:"
 msgid "select table"
-msgstr "Seleziona tabella:"
+msgstr "seleziona tabella"
 
 #: templates/database/multi_table_query/form.twig:25
 #: templates/database/multi_table_query/form.twig:114
-#, fuzzy
-#| msgid "Select column:"
 msgid "select column"
-msgstr "Seleziona il campo:"
+msgstr "seleziona il campo"
 
 #: templates/database/multi_table_query/form.twig:31
 #, fuzzy
 #| msgid "Tables"
 msgid "Table alias"
-msgstr "Tabelle"
+msgstr "Alias di tabella"
 
 #: templates/database/multi_table_query/form.twig:32
 #, fuzzy
 #| msgid "Column names"
 msgid "Column alias"
-msgstr "Nomi colonne"
+msgstr "Alias di colonna"
 
 #: templates/database/multi_table_query/form.twig:35
 #, fuzzy
@@ -16411,22 +16378,18 @@ msgid "Use this column in criteria"
 msgstr "Usate questo campo per etichettare ogni punto"
 
 #: templates/database/multi_table_query/form.twig:38
-#, fuzzy
-#| msgid "Criteria:"
 msgid "criteria"
-msgstr "Criterio:"
+msgstr "criterio"
 
 #: templates/database/multi_table_query/form.twig:52
-#, fuzzy
-#| msgid "Add %s"
 msgid "Add as"
-msgstr "Aggiungi %s"
+msgstr "Aggiungi come"
 
 #: templates/database/multi_table_query/form.twig:97
 #, fuzzy
 #| msgid "Alter column(s)"
 msgid "Another column"
-msgstr "Modifica campo/i"
+msgstr "Altra colonna"
 
 #: templates/database/multi_table_query/form.twig:125
 msgid "Enter criteria as free text"
@@ -16437,10 +16400,8 @@ msgid "Remove this column"
 msgstr "Rimuovi questo campo"
 
 #: templates/database/multi_table_query/form.twig:160
-#, fuzzy
-#| msgid "Update Query"
 msgid "Update query"
-msgstr "Aggiorna Query"
+msgstr "Aggiorna query"
 
 #: templates/table/search/rows_zoom.twig:12
 msgid "Additional search criteria"
