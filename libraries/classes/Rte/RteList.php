@@ -314,13 +314,11 @@ class RteList
         }
         $retval .= "            </td>\n";
         $retval .= "            <td>\n";
-        $retval .= '                <a class="ajax drop_anchor"'
-                                             . ' href="sql.php'
-                                             . $url_query
-                                             . '&amp;sql_query=' . urlencode($sql_drop)
-                                             . '&amp;goto=db_routines.php'
-                                             . urlencode("?db={$db}")
-                                             . '" >' . $titles['Drop'] . "</a>\n";
+        $retval .= Util::linkOrButton(
+            'sql.php' . $url_query . '&amp;sql_query=' . urlencode($sql_drop) . '&amp;goto=db_routines.php' . urlencode("?db={$db}"),
+            $titles['Drop'],
+            ['class' => 'ajax drop_anchor']
+        );
         $retval .= "            </td>\n";
         $retval .= "            <td>\n";
         $retval .= "                 {$routine['type']}\n";
@@ -390,14 +388,11 @@ class RteList
         $retval .= "            </td>\n";
         $retval .= "            <td>\n";
         if (Util::currentUserHasPrivilege('TRIGGER', $db)) {
-            $retval .= '                <a class="ajax drop_anchor"'
-                                             . ' href="sql.php'
-                                             . $url_query
-                                             . '&amp;sql_query='
-                                             . urlencode($trigger['drop'])
-                                             . '&amp;goto=db_triggers.php'
-                                             . urlencode("?db={$db}")
-                                             . '" >' . $titles['Drop'] . "</a>\n";
+            $retval .= Util::linkOrButton(
+                'sql.php' . $url_query . '&amp;sql_query=' . urlencode($trigger['drop']) . '&amp;goto=db_triggers.php' . urlencode("?db={$db}"),
+                $titles['Drop'],
+                ['class' => 'ajax drop_anchor']
+            );
         } else {
             $retval .= "                {$titles['NoDrop']}\n";
         }
@@ -471,13 +466,11 @@ class RteList
         $retval .= "            </td>\n";
         $retval .= "            <td>\n";
         if (Util::currentUserHasPrivilege('EVENT', $db)) {
-            $retval .= '                <a class="ajax drop_anchor"'
-                                             . ' href="sql.php'
-                                             . $url_query
-                                             . '&amp;sql_query=' . urlencode($sql_drop)
-                                             . '&amp;goto=db_events.php'
-                                             . urlencode("?db={$db}")
-                                             . '" >' . $titles['Drop'] . "</a>\n";
+            $retval .= Util::linkOrButton(
+                'sql.php' . $url_query . '&amp;sql_query=' . urlencode($sql_drop) . '&amp;goto=db_events.php' . urlencode("?db={$db}"),
+                $titles['Drop'],
+                ['class' => 'ajax drop_anchor']
+            );
         } else {
             $retval .= "                {$titles['NoDrop']}\n";
         }

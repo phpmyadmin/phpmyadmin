@@ -401,10 +401,7 @@ RTE.COMMON = {
              *          the AJAX message shown to the user
              */
             var $msg = PMA_ajaxShowMessage(PMA_messages.strProcessingRequest);
-            var params = {
-                'is_js_confirmed': 1,
-                'ajax_request': true
-            };
+            var params = getJSConfirmCommonParam(this, $this.attr('data-post'));
             $.post(url, params, function (data) {
                 if (data.success === true) {
                     /**
@@ -479,10 +476,7 @@ RTE.COMMON = {
                  * @var $curr_row Object containing reference to the current row
                  */
                 var $curr_row = $anchor.parents('tr');
-                var params = {
-                    'is_js_confirmed': 1,
-                    'ajax_request': true
-                };
+                var params = getJSConfirmCommonParam(this, $anchor.attr('data-post'));
                 $.post($anchor.attr('href'), params, function (data) {
                     returnCount++;
                     if (data.success === true) {
