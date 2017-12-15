@@ -360,7 +360,7 @@ AJAX.registerOnload('db_structure.js', function () {
         $this_anchor.PMA_confirm(question, $this_anchor.attr('href'), function (url) {
             var $msg = PMA_ajaxShowMessage(PMA_messages.strProcessingRequest);
 
-            var params = getJSConfirmCommonParam(this);
+            var params = getJSConfirmCommonParam(this, $this_anchor.attr('data-post'));
 
             $.post(url, params, function (data) {
                 if (typeof data !== 'undefined' && data.success === true) {
