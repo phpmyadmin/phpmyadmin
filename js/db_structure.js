@@ -328,7 +328,7 @@ AJAX.registerOnload('db_structure.js', function () {
 
             PMA_ajaxShowMessage(PMA_messages.strProcessingRequest);
 
-            var params = getJSConfirmCommonParam(this);
+            var params = getJSConfirmCommonParam(this, $this_anchor.attr('data-post'));
             params.token = PMA_commonParams.get('token');
 
             $.post(url, params, function (data) {
