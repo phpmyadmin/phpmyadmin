@@ -163,61 +163,9 @@ class SearchTest extends PmaTestCase
      */
     public function testGetSearchResults()
     {
-        $this->assertEquals(
-            '<br /><table class="data"><caption class="tblHeaders">Search results '
-            . 'for "<i></i>" :</caption></table>',
+        $this->assertContains(
+            'Search results for "<em></em>" :',
             $this->object->getSearchResults()
-        );
-    }
-
-    /**
-     * Test for getResultsRow
-     *
-     * @param string $table         Tables on which search is to be performed
-     * @param array  $newSearchSqls Contains SQL queries
-     * @param string $expected      Expected HTML output
-     *
-     * @return void
-     *
-     * @dataProvider providerForTestGetResultsRow
-     */
-    public function testGetResultsRow($table, $newSearchSqls, $needle)
-    {
-        $haystack = $this->_callProtectedFunction(
-            'getResultsRow',
-            array($table, $newSearchSqls, 2)
-        );
-        $this->assertContains($needle, $haystack);
-    }
-
-    /**
-     * Data provider for testGetResultRow
-     *
-     * @return array provider for testGetResultsRow
-     */
-    public function providerForTestGetResultsRow()
-    {
-        return array(
-            array(
-                'table1',
-                array('select_columns' => 'column1', 'delete' => 'column2'),
-                '2 matches in <strong>table1</strong>'
-            ),
-            array(
-                'table1',
-                array('select_columns' => 'column1', 'delete' => 'column2'),
-                'data-table-name="table1"'
-            ),
-            array(
-                'table1',
-                array('select_columns' => 'column1', 'delete' => 'column2'),
-                'data-browse-sql="column1"'
-            ),
-            array(
-                'table1',
-                array('select_columns' => 'column1', 'delete' => 'column2'),
-                'data-delete-sql="column2"'
-            )
         );
     }
 

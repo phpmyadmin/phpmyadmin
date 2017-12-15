@@ -7,9 +7,7 @@
  */
 namespace PhpMyAdmin\Database;
 
-use PhpMyAdmin\Sanitize;
 use PhpMyAdmin\Template;
-use PhpMyAdmin\Url;
 use PhpMyAdmin\Util;
 
 /**
@@ -268,65 +266,32 @@ class Search
      */
     public function getSearchResults()
     {
-        $html_output = '';
-        // Displays search string
-        $html_output .= '<br />'
-            . '<table class="data">'
-            . '<caption class="tblHeaders">'
-            . sprintf(
-                __('Search results for "<i>%s</i>" %s:'),
-                htmlspecialchars($this->criteriaSearchString),
-                $this->searchTypeDescription
-            )
-            . '</caption>';
-
-        $num_search_result_total = 0;
+        $resultTotal = 0;
+        $rows = [];
         // For each table selected as search criteria
-        foreach ($this->criteriaTables as $each_table) {
+        foreach ($this->criteriaTables as $eachTable) {
             // Gets the SQL statements
-            $newsearchsqls = $this->getSearchSqls($each_table);
+            $newSearchSqls = $this->getSearchSqls($eachTable);
             // Executes the "COUNT" statement
-            $res_cnt = intval($GLOBALS['dbi']->fetchValue($newsearchsqls['select_count']));
-            $num_search_result_total += $res_cnt;
+            $resultCount = intval($GLOBALS['dbi']->fetchValue(
+                $newSearchSqls['select_count']
+            ));
+            $resultTotal += $resultCount;
             // Gets the result row's HTML for a table
-            $html_output .= $this->getResultsRow(
-                $each_table, $newsearchsqls, $res_cnt
-            );
-        } // end for
-        $html_output .= '</table>';
-        // Displays total number of matches
-        if (count($this->criteriaTables) > 1) {
-            $html_output .= '<p>';
-            $html_output .= sprintf(
-                _ngettext(
-                    '<b>Total:</b> <i>%s</i> match',
-                    '<b>Total:</b> <i>%s</i> matches',
-                    $num_search_result_total
-                ),
-                $num_search_result_total
-            );
-            $html_output .= '</p>';
+            $rows[] = [
+                'table' => $eachTable,
+                'new_search_sqls' => $newSearchSqls,
+                'result_count' => $resultCount,
+            ];
         }
-        return $html_output;
-    }
 
-    /**
-     * Provides search results row with browse/delete links.
-     * (for a table)
-     *
-     * @param string  $table         One of the tables on which search was performed
-     * @param array   $newSearchSqls Contains SQL queries
-     * @param integer $resultCount   Number of results found
-     *
-     * @return string HTML row
-     */
-    private function getResultsRow($table, array $newSearchSqls, $resultCount)
-    {
-        return Template::get('database/search/results_row')->render([
-            'result_count' => $resultCount,
-            'new_search_sqls' => $newSearchSqls,
-            'db' => $GLOBALS['db'],
-            'table' => $table,
+        return Template::get('database/search/results')->render([
+            'db' => $this->db,
+            'rows' => $rows,
+            'result_total' => $resultTotal,
+            'criteria_tables' => $this->criteriaTables,
+            'criteria_search_string' => $this->criteriaSearchString,
+            'search_type_description' => $this->searchTypeDescription,
         ]);
     }
 
