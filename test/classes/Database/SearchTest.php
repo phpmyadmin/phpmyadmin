@@ -76,7 +76,7 @@ class SearchTest extends PmaTestCase
      *
      * @return the output from the protected method.
      */
-    private function _callProtectedFunction($name, $params)
+    private function callProtectedFunction($name, $params)
     {
         $class = new ReflectionClass(Search::class);
         $method = $class->getMethod($name);
@@ -97,8 +97,8 @@ class SearchTest extends PmaTestCase
         $this->object = new Search('pma_test');
         $this->assertEquals(
             $expected,
-            $this->_callProtectedFunction(
-                '_getWhereClause',
+            $this->callProtectedFunction(
+                'getWhereClause',
                 array('table1')
             )
         );
@@ -149,8 +149,8 @@ class SearchTest extends PmaTestCase
                     'WHERE FALSE',
                 'delete' => 'DELETE FROM `pma`.`table1` WHERE FALSE'
             ),
-            $this->_callProtectedFunction(
-                '_getSearchSqls',
+            $this->callProtectedFunction(
+                'getSearchSqls',
                 array('table1')
             )
         );
@@ -241,7 +241,7 @@ class SearchTest extends PmaTestCase
      */
     public function testGetResultDivs()
     {
-        $actual = $this->_callProtectedFunction(
+        $actual = $this->callProtectedFunction(
             'getResultDivs',
             array()
         );
@@ -266,5 +266,4 @@ class SearchTest extends PmaTestCase
             $actual
         );
     }
-
 }
