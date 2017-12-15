@@ -105,7 +105,7 @@
 
     {# Distinct value action #}
     <li class="browse nowrap">
-        <a href="sql.php{{ url_query|raw }}&amp;sql_query=
+        <a href="sql.php" data-post="{{ url_query|raw }}&amp;sql_query=
             {{- ('SELECT COUNT(*) AS ' ~ Util_backquote('Rows'|trans)
                 ~ ', ' ~ Util_backquote(row['Field'])
                 ~ ' FROM ' ~ Util_backquote(table)
