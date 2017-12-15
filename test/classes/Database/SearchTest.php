@@ -241,19 +241,29 @@ class SearchTest extends PmaTestCase
      */
     public function testGetResultDivs()
     {
-        $this->assertEquals(
-            '<!-- These two table-image and table-link elements display the '
-            . 'table name in browse search results  --><div id="table-info">'
-            . '<a class="item" id="table-link" ></a></div><div id="browse-results">'
-            . '<!-- this browse-results div is used to load the browse and delete '
-            . 'results in the db search --></div><br class="clearfloat" />'
-            . '<div id="sqlqueryform"><!-- this sqlqueryform div is used to load the'
-            . ' delete form in the db search --></div><!--  toggle query box link-->'
-            . '<a id="togglequerybox"></a>',
-            $this->_callProtectedFunction(
-                'getResultDivs',
-                array()
-            )
+        $actual = $this->_callProtectedFunction(
+            'getResultDivs',
+            array()
+        );
+        $this->assertContains(
+            '<div id="table-info"',
+            $actual
+        );
+        $this->assertContains(
+            '<a id="table-link"',
+            $actual
+        );
+        $this->assertContains(
+            '<div id="browse-results"',
+            $actual
+        );
+        $this->assertContains(
+            '<div id="sqlqueryform"',
+            $actual
+        );
+        $this->assertContains(
+            '<a id="togglequerybox"',
+            $actual
         );
     }
 

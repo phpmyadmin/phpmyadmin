@@ -433,23 +433,6 @@ class Search
      */
     public function getResultDivs()
     {
-        $html_output = '<!-- These two table-image and table-link elements display'
-            . ' the table name in browse search results  -->';
-        $html_output .= '<div id="table-info">';
-        $html_output .= '<a class="item" id="table-link" ></a>';
-        $html_output .= '</div>';
-        // div for browsing results
-        $html_output .= '<div id="browse-results">';
-        $html_output .= '<!-- this browse-results div is used to load the browse'
-            . ' and delete results in the db search -->';
-        $html_output .= '</div>';
-        $html_output .= '<br class="clearfloat" />';
-        $html_output .= '<div id="sqlqueryform">';
-        $html_output .= '<!-- this sqlqueryform div is used to load the delete'
-            . ' form in the db search -->';
-        $html_output .= '</div>';
-        $html_output .= '<!--  toggle query box link-->';
-        $html_output .= '<a id="togglequerybox"></a>';
-        return $html_output;
+        return Template::get('database/search/result_divs')->render();
     }
 }
