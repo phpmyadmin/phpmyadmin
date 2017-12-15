@@ -93,7 +93,7 @@
                 && (mb_strpos($type, 'text') !== false
                 || mb_strpos($type, 'char') !== false)
             ): ?>
-        <a rel="samepage" class="ajax add_key add_fulltext_anchor" href="tbl_structure.php<?= $url_query; ?>&amp;add_key=1&amp;sql_query=<?= urlencode(
+        <a rel="samepage" class="ajax add_key add_fulltext_anchor" href="tbl_structure.php" data-post="<?= $url_query; ?>&amp;add_key=1&amp;sql_query=<?= urlencode(
             'ALTER TABLE ' . Util::backquote($GLOBALS['table'])
             . ' ADD FULLTEXT(' . Util::backquote($row['Field'])
             . ');'); ?>&amp;message_to_show=<?= urlencode(sprintf(
