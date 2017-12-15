@@ -337,28 +337,6 @@ class Search
      */
     public function getSelectionForm()
     {
-        $html_output = '<a id="db_search"></a>';
-        $html_output .= '<form id="db_search_form"'
-            . ' class="ajax lock-page"'
-            . ' method="post" action="db_search.php" name="db_search">';
-        $html_output .= Url::getHiddenInputs($GLOBALS['db']);
-        $html_output .= '<fieldset>';
-        // set legend caption
-        $html_output .= '<legend>' . __('Search in database') . '</legend>';
-        $html_output .= '<table class="formlayout all100">';
-        // inputbox for search phrase
-        $html_output .= '<tr>';
-        $html_output .= '<td class="right">' . __('Words or values to search for (wildcard: "%"):')
-            . '</td>';
-        $html_output .= '<td><input type="text"'
-            . ' name="criteriaSearchString" class="all85"'
-            . ' value="' . htmlspecialchars($this->criteriaSearchString) . '" />';
-        $html_output .= '</td>';
-        $html_output .= '</tr>';
-        // choices for types of search
-        $html_output .= '<tr>';
-        $html_output .= '<td class="right vtop">' . __('Find:') . '</td>';
-        $html_output .= '<td>';
         $choices = array(
             '1' => $this->searchTypes[1] . ' '
                 . Util::showHint(
@@ -370,67 +348,18 @@ class Search
                 ),
             '3' => $this->searchTypes[3],
             '4' => $this->searchTypes[4],
-            '5' => $this->searchTypes[5] . ' '
-                . Util::showMySQLDocu('Regexp')
+            '5' => $this->searchTypes[5] . ' ' . Util::showMySQLDocu('Regexp')
         );
-        // 4th parameter set to true to add line breaks
-        // 5th parameter set to false to avoid htmlspecialchars() escaping
-        // in the label since we have some HTML in some labels
-        $html_output .= Util::getRadioFields(
-            'criteriaSearchType', $choices, $this->criteriaSearchType, true, false
-        );
-        $html_output .= '</td></tr>';
-        // displays table names as select options
-        $html_output .= '<tr>';
-        $html_output .= '<td class="right vtop">' . __('Inside tables:') . '</td>';
-        $html_output .= '<td rowspan="2">';
-        $html_output .= '<select name="criteriaTables[]" class="all85"'
-            . ' multiple="multiple">';
-        foreach ($this->tablesNamesOnly as $each_table) {
-            if (in_array($each_table, $this->criteriaTables)) {
-                $is_selected = ' selected="selected"';
-            } else {
-                $is_selected = '';
-            }
-            $html_output .= '<option value="' . htmlspecialchars($each_table) . '"'
-                . $is_selected . '>'
-                . str_replace(' ', '&nbsp;', htmlspecialchars($each_table))
-                . '</option>';
-        } // end for
-        $html_output .= '</select>';
-        $html_output .= '</td></tr>';
-        // Displays 'select all' and 'unselect all' links
-        $alter_select = '<a href="#" '
-            . 'onclick="setSelectOptions(\'db_search\','
-            . ' \'criteriaTables[]\', true); return false;">'
-            . __('Select all') . '</a> &nbsp;/&nbsp;';
-        $alter_select .= '<a href="#" '
-            . 'onclick="setSelectOptions(\'db_search\','
-            . ' \'criteriaTables[]\', false); return false;">'
-            . __('Unselect all') . '</a>';
-        $html_output .= '<tr><td class="right vbottom">'
-            . $alter_select . '</td></tr>';
-        // Inputbox for column name entry
-        $html_output .= '<tr>';
-        $html_output .= '<td class="right">' . __('Inside column:') . '</td>';
-        $html_output .= '<td><input type="text" name="criteriaColumnName" class="all85"'
-            . 'value="'
-            . (! empty($this->criteriaColumnName)
-                ? htmlspecialchars($this->criteriaColumnName)
-                : '')
-            . '" /></td>';
-        $html_output .= '</tr>';
-        $html_output .= '</table>';
-        $html_output .= '</fieldset>';
-        $html_output .= '<fieldset class="tblFooters">';
-        $html_output .= '<input type="submit" name="submit_search" value="'
-            . __('Go') . '" id="buttonGo" />';
-        $html_output .= '</fieldset>';
-        $html_output .= '</form>';
-        $html_output .= '<div id="togglesearchformdiv">'
-            . '<a id="togglesearchformlink"></a></div>';
-
-        return $html_output;
+        return Template::get('database/search/selection_form')->render([
+            'db' => $this->db,
+            'choices' => $choices,
+            'criteria_search_string' => $this->criteriaSearchString,
+            'criteria_search_type' => $this->criteriaSearchType,
+            'criteria_tables' => $this->criteriaTables,
+            'tables_names_only' => $this->tablesNamesOnly,
+            'criteria_column_name' => isset($this->criteriaColumnName)
+                ? $this->criteriaColumnName : null,
+        ]);
     }
 
     /**
