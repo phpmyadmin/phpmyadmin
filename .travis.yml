@@ -29,7 +29,7 @@ env:
     - TESTSUITE_URL=http://127.0.0.1:8000
 
 install:
-  - source ~/virtualenv/python3.6/bin/activate
+  - if [[ "$TRAVIS_OS_NAME" != "osx" ]]; then source ~/virtualenv/python3.6/bin/activate ; fi
   - ./test/ci-install-$CI_MODE
   - if [[ "$TRAVIS_OS_NAME" != "osx" ]]; then case "$TRAVIS_PHP_VERSION" in hhvm*) ;; *) phpenv config-add test/php-noprofile.ini ;; esac ; fi
 
