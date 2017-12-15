@@ -8,6 +8,7 @@
 use PMA\libraries\Response;
 use PMA\libraries\URL;
 use PMA\libraries\Template;
+use PMA\libraries\Util;
 use PhpMyAdmin\SqlParser\Statements\CreateStatement;
 
 if (! defined('PHPMYADMIN')) {
@@ -305,13 +306,11 @@ function PMA_RTN_getRowForList($routine, $rowclass = '')
     }
     $retval .= "            </td>\n";
     $retval .= "            <td>\n";
-    $retval .= '                <a ' . $ajax_class['drop']
-                                         . ' href="sql.php'
-                                         . $url_query
-                                         . '&amp;sql_query=' . urlencode($sql_drop)
-                                         . '&amp;goto=db_routines.php'
-                                         . urlencode("?db={$db}")
-                                         . '" >' . $titles['Drop'] . "</a>\n";
+    $retval .= Util::linkOrButton(
+        'sql.php' . $url_query . '&amp;sql_query=' . urlencode($sql_drop) . '&amp;goto=db_routines.php' . urlencode("?db={$db}"),
+        $titles['Drop'],
+        ['class' => 'ajax drop_anchor']
+    );
     $retval .= "            </td>\n";
     $retval .= "            <td>\n";
     $retval .= "                 {$routine['type']}\n";
@@ -381,14 +380,11 @@ function PMA_TRI_getRowForList($trigger, $rowclass = '')
     $retval .= "            </td>\n";
     $retval .= "            <td>\n";
     if (PMA\libraries\Util::currentUserHasPrivilege('TRIGGER', $db)) {
-        $retval .= '                <a ' . $ajax_class['drop']
-                                         . ' href="sql.php'
-                                         . $url_query
-                                         . '&amp;sql_query='
-                                         . urlencode($trigger['drop'])
-                                         . '&amp;goto=db_triggers.php'
-                                         . urlencode("?db={$db}")
-                                         . '" >' . $titles['Drop'] . "</a>\n";
+        $retval .= Util::linkOrButton(
+            'sql.php' . $url_query . '&amp;sql_query=' . urlencode($trigger['drop']) . '&amp;goto=db_triggers.php' . urlencode("?db={$db}"),
+            $titles['Drop'],
+            ['class' => 'ajax drop_anchor']
+        );
     } else {
         $retval .= "                {$titles['NoDrop']}\n";
     }
@@ -462,13 +458,11 @@ function PMA_EVN_getRowForList($event, $rowclass = '')
     $retval .= "            </td>\n";
     $retval .= "            <td>\n";
     if (PMA\libraries\Util::currentUserHasPrivilege('EVENT', $db)) {
-        $retval .= '                <a ' . $ajax_class['drop']
-                                         . ' href="sql.php'
-                                         . $url_query
-                                         . '&amp;sql_query=' . urlencode($sql_drop)
-                                         . '&amp;goto=db_events.php'
-                                         . urlencode("?db={$db}")
-                                         . '" >' . $titles['Drop'] . "</a>\n";
+        $retval .= Util::linkOrButton(
+            'sql.php' . $url_query . '&amp;sql_query=' . urlencode($sql_drop) . '&amp;goto=db_events.php' . urlencode("?db={$db}"),
+            $titles['Drop'],
+            ['class' => 'ajax drop_anchor']
+        );
     } else {
         $retval .= "                {$titles['NoDrop']}\n";
     }
