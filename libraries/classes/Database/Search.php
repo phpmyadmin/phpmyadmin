@@ -8,6 +8,7 @@
 namespace PhpMyAdmin\Database;
 
 use PhpMyAdmin\Sanitize;
+use PhpMyAdmin\Template;
 use PhpMyAdmin\Url;
 use PhpMyAdmin\Util;
 
@@ -281,7 +282,7 @@ class Search
             $res_cnt = intval($GLOBALS['dbi']->fetchValue($newsearchsqls['select_count']));
             $num_search_result_total += $res_cnt;
             // Gets the result row's HTML for a table
-            $html_output .= $this->_getResultsRow(
+            $html_output .= $this->getResultsRow(
                 $each_table, $newsearchsqls, $res_cnt
             );
         } // end for
@@ -306,58 +307,20 @@ class Search
      * Provides search results row with browse/delete links.
      * (for a table)
      *
-     * @param string  $each_table    One of the tables on which search was performed
-     * @param array   $newsearchsqls Contains SQL queries
-     * @param integer $res_cnt       Number of results found
+     * @param string  $table         One of the tables on which search was performed
+     * @param array   $newSearchSqls Contains SQL queries
+     * @param integer $resultCount   Number of results found
      *
      * @return string HTML row
      */
-    private function _getResultsRow($each_table, array $newsearchsqls, $res_cnt)
+    private function getResultsRow($table, array $newSearchSqls, $resultCount)
     {
-        $this_url_params = array(
-            'db'    => $GLOBALS['db'],
-            'table' => $each_table,
-            'goto'  => 'db_sql.php',
-            'pos'   => 0,
-            'is_js_confirmed' => 0,
-        );
-        // Start forming search results row
-        $html_output = '<tr class="noclick">';
-        // Displays results count for a table
-        $html_output .= '<td>';
-        $html_output .= sprintf(
-            _ngettext(
-                '%1$s match in <strong>%2$s</strong>',
-                '%1$s matches in <strong>%2$s</strong>', $res_cnt
-            ),
-            $res_cnt, htmlspecialchars($each_table)
-        );
-        $html_output .= '</td>';
-        // Displays browse/delete link if result count > 0
-        if ($res_cnt > 0) {
-            $this_url_params['db'] = htmlspecialchars($GLOBALS['db']);
-            $this_url_params['table'] = htmlspecialchars($each_table);
-            $browse_result_path = 'sql.php' . Url::getCommon($this_url_params);
-            $html_output .= '<td><a name="browse_search" '
-                . ' class="ajax browse_results" href="'
-                . $browse_result_path . '" '
-                . 'data-browse-sql="'
-                . htmlspecialchars($newsearchsqls['select_columns']). '" '
-                . 'data-table-name="' . htmlspecialchars($each_table) . '" >'
-                . __('Browse') . '</a></td>';
-
-            $delete_result_path = $browse_result_path;
-            $html_output .= '<td><a name="delete_search" class="ajax delete_results"'
-                . ' href="' . $delete_result_path . '"'
-                . ' data-delete-sql="' . htmlspecialchars($newsearchsqls['delete']) . '"'
-                . ' data-table-name="' . htmlspecialchars($each_table) . '" >'
-                . __('Delete') . '</a></td>';
-        } else {
-            $html_output .= '<td>&nbsp;</td>'
-                . '<td>&nbsp;</td>';
-        }// end if else
-        $html_output .= '</tr>';
-        return $html_output;
+        return Template::get('database/search/results_row')->render([
+            'result_count' => $resultCount,
+            'new_search_sqls' => $newSearchSqls,
+            'db' => $GLOBALS['db'],
+            'table' => $table,
+        ]);
     }
 
     /**

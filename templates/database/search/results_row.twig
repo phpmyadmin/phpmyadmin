@@ -1,0 +1,42 @@
+<tr class="noclick">
+    <td>
+        {% set result_message %}
+            {% trans %}
+                %1$s match in <strong>%2$s</strong>
+            {% plural result_count %}
+                %1$s matches in <strong>%2$s</strong>
+            {% endtrans %}
+        {% endset %}
+        {{ result_message|format(result_count, table)|raw }}
+    </td>
+    {% if result_count > 0 %}
+        {% set url_params = {
+            'db': db,
+            'table': table,
+            'goto': 'db_sql.php',
+            'pos': 0,
+            'is_js_confirmed': 0
+        } %}
+        <td>
+            <a name="browse_search"
+                class="ajax browse_results"
+                href="sql.php{{ Url_getCommon(url_params) }}"
+                data-browse-sql="{{ new_search_sqls.select_columns }}"
+                data-table-name="{{ table }}">
+                {% trans 'Browse' %}
+            </a>
+        </td>
+        <td>
+            <a name="delete_search"
+                class="ajax delete_results"
+                href="sql.php{{ Url_getCommon(url_params) }}"
+                data-delete-sql="{{ new_search_sqls.delete }}"
+                data-table-name="{{ table }}">
+                {% trans 'Delete' %}
+            </a>
+        </td>
+    {% else %}
+        <td></td>
+        <td></td>
+    {% endif %}
+</tr>
