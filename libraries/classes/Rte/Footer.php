@@ -28,7 +28,7 @@ class Footer
      */
     private static function getLinks($docu, $priv, $name)
     {
-        global $db, $table, $url_query, $ajax_class;
+        global $db, $table, $url_query;
 
         $icon = mb_strtolower($name) . '_add.png';
         $retval  = "";
@@ -37,7 +37,7 @@ class Footer
         $retval .= "<legend>" . _pgettext('Create new procedure', 'New') . "</legend>\n";
         $retval .= "        <div class='wrap'>\n";
         if (Util::currentUserHasPrivilege($priv, $db, $table)) {
-            $retval .= "            <a {$ajax_class['add']} ";
+            $retval .= '            <a class="ajax add_anchor" ';
             $retval .= "href='db_" . mb_strtolower($name) . "s.php";
             $retval .= "$url_query&amp;add_item=1' ";
             $retval .= "onclick='$.datepicker.initialized = false;'>";

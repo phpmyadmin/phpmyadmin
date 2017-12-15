@@ -191,7 +191,7 @@ class RteList
      */
     public static function getRoutineRow(array $routine, $rowclass = '')
     {
-        global $ajax_class, $url_query, $db, $titles;
+        global $url_query, $db, $titles;
 
         $sql_drop = sprintf(
             'DROP %s IF EXISTS %s',
@@ -233,7 +233,7 @@ class RteList
             && $curr_user == $routine_definer)
             || $GLOBALS['dbi']->isSuperuser()
         ) {
-            $retval .= '                <a ' . $ajax_class['edit']
+            $retval .= '                <a class="ajax edit_anchor"'
                                              . ' href="db_routines.php'
                                              . $url_query
                                              . '&amp;edit_item=1'
@@ -282,7 +282,7 @@ class RteList
                     $execute_action = 'execute_dialog';
                     break;
                 }
-                $retval .= '                <a ' . $ajax_class['exec']
+                $retval .= '                <a class="ajax exec_anchor"'
                                                  . ' href="db_routines.php'
                                                  . $url_query
                                                  . '&amp;' . $execute_action . '=1'
@@ -301,7 +301,7 @@ class RteList
             && $curr_user == $routine_definer)
             || $GLOBALS['dbi']->isSuperuser()
         ) {
-            $retval .= '                <a ' . $ajax_class['export']
+            $retval .= '                <a class="ajax export_anchor"'
                                              . ' href="db_routines.php'
                                              . $url_query
                                              . '&amp;export_item=1'
@@ -314,7 +314,7 @@ class RteList
         }
         $retval .= "            </td>\n";
         $retval .= "            <td>\n";
-        $retval .= '                <a ' . $ajax_class['drop']
+        $retval .= '                <a class="ajax drop_anchor"'
                                              . ' href="sql.php'
                                              . $url_query
                                              . '&amp;sql_query=' . urlencode($sql_drop)
@@ -344,7 +344,7 @@ class RteList
      */
     public static function getTriggerRow(array $trigger, $rowclass = '')
     {
-        global $ajax_class, $url_query, $db, $table, $titles;
+        global $url_query, $db, $table, $titles;
 
         $retval  = "        <tr class='$rowclass'>\n";
         $retval .= "            <td>\n";
@@ -368,7 +368,7 @@ class RteList
         }
         $retval .= "            <td>\n";
         if (Util::currentUserHasPrivilege('TRIGGER', $db, $table)) {
-            $retval .= '                <a ' . $ajax_class['edit']
+            $retval .= '                <a class="ajax edit_anchor"'
                                              . ' href="db_triggers.php'
                                              . $url_query
                                              . '&amp;edit_item=1'
@@ -380,7 +380,7 @@ class RteList
         }
         $retval .= "            </td>\n";
         $retval .= "            <td>\n";
-        $retval .= '                    <a ' . $ajax_class['export']
+        $retval .= '                    <a class="ajax export_anchor"'
                                              . ' href="db_triggers.php'
                                              . $url_query
                                              . '&amp;export_item=1'
@@ -390,7 +390,7 @@ class RteList
         $retval .= "            </td>\n";
         $retval .= "            <td>\n";
         if (Util::currentUserHasPrivilege('TRIGGER', $db)) {
-            $retval .= '                <a ' . $ajax_class['drop']
+            $retval .= '                <a class="ajax drop_anchor"'
                                              . ' href="sql.php'
                                              . $url_query
                                              . '&amp;sql_query='
@@ -423,7 +423,7 @@ class RteList
      */
     public static function getEventRow(array $event, $rowclass = '')
     {
-        global $ajax_class, $url_query, $db, $titles;
+        global $url_query, $db, $titles;
 
         $sql_drop = sprintf(
             'DROP EVENT IF EXISTS %s',
@@ -449,7 +449,7 @@ class RteList
         $retval .= "            </td>\n";
         $retval .= "            <td>\n";
         if (Util::currentUserHasPrivilege('EVENT', $db)) {
-            $retval .= '                <a ' . $ajax_class['edit']
+            $retval .= '                <a class="ajax edit_anchor"'
                                              . ' href="db_events.php'
                                              . $url_query
                                              . '&amp;edit_item=1'
@@ -461,7 +461,7 @@ class RteList
         }
         $retval .= "            </td>\n";
         $retval .= "            <td>\n";
-        $retval .= '                <a ' . $ajax_class['export']
+        $retval .= '                <a class="ajax export_anchor"'
                                          . ' href="db_events.php'
                                          . $url_query
                                          . '&amp;export_item=1'
@@ -471,7 +471,7 @@ class RteList
         $retval .= "            </td>\n";
         $retval .= "            <td>\n";
         if (Util::currentUserHasPrivilege('EVENT', $db)) {
-            $retval .= '                <a ' . $ajax_class['drop']
+            $retval .= '                <a class="ajax drop_anchor"'
                                              . ' href="sql.php'
                                              . $url_query
                                              . '&amp;sql_query=' . urlencode($sql_drop)
