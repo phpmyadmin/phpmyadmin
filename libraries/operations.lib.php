@@ -1471,11 +1471,11 @@ function PMA_getListofMaintainActionLink($pma_table, $url_params)
 function PMA_getMaintainActionlink($action_message, $params, $url_params, $link)
 {
     return '<li>'
-        . '<a class="maintain_action ajax" '
-        . 'href="sql.php'
-        . URL::getCommon(array_merge($url_params, $params)) . '">'
-        . $action_message
-        . '</a>'
+        . Util::linkOrButton(
+            'sql.php' . URL::getCommon(array_merge($url_params, $params)),
+            $action_message,
+            ['class' => 'maintain_action ajax']
+        )
         . Util::showMySQLDocu($link)
         . '</li>';
 }
