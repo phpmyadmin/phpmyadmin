@@ -1486,11 +1486,11 @@ class Operations
     public static function getMaintainActionlink($action_message, array $params, array $url_params, $link)
     {
         return '<li>'
-            . '<a class="maintain_action ajax" '
-            . 'href="sql.php'
-            . Url::getCommon(array_merge($url_params, $params)) . '">'
-            . $action_message
-            . '</a>'
+            . Util::linkOrButton(
+                'sql.php' . Url::getCommon(array_merge($url_params, $params)),
+                $action_message,
+                ['class' => 'maintain_action ajax']
+            )
             . Util::showMySQLDocu($link)
             . '</li>';
     }
