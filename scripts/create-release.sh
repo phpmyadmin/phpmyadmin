@@ -407,8 +407,15 @@ if [ $do_tag -eq 1 ] ; then
     echo "* Tagging release as $tagname"
     git tag -s -a -m "Released $version" $tagname $branch
     echo "   Dont forget to push tags using: git push --tags"
+    echo "* Cleanup of $branch"
+    # Remove composer.lock, but we need to create fresh worktree for that
+    git worktree add --force $workdir $branch
+    cd $workdir
     git rm --force composer.lock
     git commit -s -m "Removing composer.lock"
+    cd ../..
+    rm -rf $workdir
+    git worktree prune
 fi
 
 # Mark as stable release
