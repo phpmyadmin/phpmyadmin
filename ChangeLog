@@ -2,6 +2,8 @@ phpMyAdmin - ChangeLog
 ======================
 
 4.7.7 (not yet released)
+- issue #13865 Fixed displaying of formatted numeric values for some locales
+
 
 4.7.6 (2017-11-29)
 - issue #13517 Fixed check all interaction with filtering
