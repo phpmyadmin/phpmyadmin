@@ -4798,15 +4798,13 @@ class Results
         $results_operations_html = '';
         if (empty($analyzed_sql_results['procedure'])) {
 
-            $ajax_class = ' ajax';
-
             $results_operations_html .= '<span>'
                 . Util::linkOrButton(
                     'view_create.php' . $url_query,
                     Util::getIcon(
                         'b_view_add', __('Create view'), true
                     ),
-                    array('class' => 'create_view' . $ajax_class)
+                    array('class' => 'create_view ajax')
                 )
                 . '</span>' . "\n";
         }
