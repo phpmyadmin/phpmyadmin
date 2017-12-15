@@ -1080,4 +1080,29 @@ $(function () {
         // the input fields lose the correct order and need to be reordered.
         RTE.ROUTINE.reindexParameters();
     }); // end $(document).on()
+
+    /**
+     * Attach SyntaxHighlighter for the
+     * textarea on single Routine/Trigger/Event edit page
+     */
+    $(document).ready(function () {
+        var $singlePageForm = $('.rte_form');
+        if ($singlePageForm.length > 0) {
+            var type = $($singlePageForm).attr('action');
+            if (type.indexOf('routine') !== -1) {
+                type = 'routine';
+            } else if (type.indexOf('trigger') !== -1) {
+                type = 'trigger';
+            } else if (type.indexOf('event') !== -1) {
+                type = 'event';
+            } else {
+                type = '';
+            }
+            var $elm = $('textarea[name=item_definition]').last();
+            var linterOptions = {};
+            var object = new RTE.object(type);
+            linterOptions[object.editorType + '_editor'] = true;
+            object.syntaxHiglighter = PMA_getSQLEditor($elm, {}, null, linterOptions);
+        }
+    }); // end $(document).ready()
 }); // end of $()
