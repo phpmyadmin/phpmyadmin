@@ -211,14 +211,11 @@ AJAX.registerOnload('tbl_structure.js', function () {
          * @var question    String containing the question to be asked for confirmation
          */
         var question = PMA_sprintf(PMA_messages.strDoYouReally, 'ALTER TABLE `' + escapeHtml(curr_table_name) + '` DROP `' + escapeHtml(curr_column_name) + '`;');
-        $(this).PMA_confirm(question, $(this).attr('href'), function (url) {
+        var $this_anchor = $(this);
+        $this_anchor.PMA_confirm(question, $this_anchor.attr('href'), function (url) {
             var $msg = PMA_ajaxShowMessage(PMA_messages.strDroppingColumn, false);
-            var params = {
-                'is_js_confirmed' : 1,
-                'ajax_request' : true,
-                'ajax_page_request' : true,
-                'token': PMA_commonParams.get('token')
-            };
+            var params = getJSConfirmCommonParam(this, $this_anchor.attr('data-post'));
+            params += '&ajax_page_request=1';
             $.post(url, params, function (data) {
                 if (typeof data !== 'undefined' && data.success === true) {
                     PMA_ajaxRemoveMessage($msg);
