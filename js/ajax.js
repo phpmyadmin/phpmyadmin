@@ -327,12 +327,7 @@ var AJAX = {
             if (typeof onsubmit !== 'function' || onsubmit.apply(this, [event])) {
                 AJAX.active = true;
                 AJAX.$msgbox = PMA_ajaxShowMessage();
-                var method = $(this).attr('method');
-                if (typeof method !== 'undefined' && method.toLowerCase() === 'post') {
-                    $.post(url, params, AJAX.responseHandler);
-                } else {
-                    $.get(url, params, AJAX.responseHandler);
-                }
+                $.post(url, params, AJAX.responseHandler);
             }
         }
     },
