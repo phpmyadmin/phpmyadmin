@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.7.6-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2017-11-02 14:03+0100\n"
-"PO-Revision-Date: 2017-11-26 11:44+0000\n"
-"Last-Translator: Aref Ben Lazrek <aref480@gmail.com>\n"
+"PO-Revision-Date: 2017-12-16 12:04+0000\n"
+"Last-Translator: Waleed Abdeen <waleed.totti@gmail.com>\n"
 "Language-Team: Arabic "
 "<https://hosted.weblate.org/projects/phpmyadmin/4-7/ar/>\n"
 "Language: ar\n"
@@ -14,7 +14,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=6; plural=n==0 ? 0 : n==1 ? 1 : n==2 ? 2 : n%100>=3 "
 "&& n%100<=10 ? 3 : n%100>=11 ? 4 : 5;\n"
-"X-Generator: Weblate 2.18-dev\n"
+"X-Generator: Weblate 2.18\n"
 
 #: ajax.php:16 ajax.php:33 export.php:192 schema_export.php:64
 msgid "Bad type!"
@@ -557,12 +557,12 @@ msgstr "تم إنشاء العلامة المرجعية %s."
 #, php-format
 msgid "Import has been successfully finished, %d query executed."
 msgid_plural "Import has been successfully finished, %d queries executed."
-msgstr[0] "الإستيراد إنتهى بنجاح , %d إستعلام تم تنفيذه."
-msgstr[1] "الإستيراد إنتهى بنجاح , %d إستعلام تم تنفيذه."
-msgstr[2] "الإستيراد إنتهى بنجاح , %d إستعلام تم تنفيذه."
-msgstr[3] "الإستيراد إنتهى بنجاح , %d إستعلام تم تنفيذه."
-msgstr[4] "الإستيراد إنتهى بنجاح , %d إستعلام تم تنفيذه."
-msgstr[5] "الإستيراد إنتهى بنجاح , %d إستعلام تم تنفيذه."
+msgstr[0] "انتهى الإستيراد بنجاح، %d استعلام تم تنفيذه."
+msgstr[1] "انتهى الإستيراد بنجاح، %d استعلام تم تنفيذه."
+msgstr[2] "انتهى الإستيراد بنجاح، %d استعلام تم تنفيذه."
+msgstr[3] "انتهى الإستيراد بنجاح، %d استعلام تم تنفيذه."
+msgstr[4] "انتهى الإستيراد بنجاح، %d استعلام تم تنفيذه."
+msgstr[5] "انتهى الإستيراد بنجاح، %d استعلام تم تنفيذه."
 
 #: import.php:612
 #, php-format
@@ -629,7 +629,7 @@ msgstr "تغيير كلمة السر"
 
 #: index.php:221
 msgid "Server connection collation"
-msgstr "إعدادات الأتصال بالخادم"
+msgstr "إعدادات الاتصال بالخادم"
 
 #: index.php:242
 msgid "Appearance settings"
@@ -1963,6 +1963,8 @@ msgid ""
 "Note: a, b -> d,f implies values of columns a and b combined together can "
 "determine values of column d and column f."
 msgstr ""
+"ملاحظة: a,b -> d,f تدل على أن قيم الأعمدة a و b مجتمعة يمكن أن تحدد قيم "
+"العمود d و العمود f."
 
 #: js/messages.php:458
 msgid "No partial dependencies selected!"
@@ -2277,11 +2279,15 @@ msgid "Click to sort results by this column."
 msgstr "انقر لترتيب النتائج حسب هذا العمود."
 
 #: js/messages.php:590
+#, fuzzy
 msgid ""
 "Shift+Click to add this column to ORDER BY clause or to toggle ASC/DESC.<br /"
 ">- Ctrl+Click or Alt+Click (Mac: Shift+Option+Click) to remove column from "
 "ORDER BY clause"
 msgstr ""
+"Shift+انقر للإضافة هذا العمود الى بند ORDER BY أو للتبديل بين ASC/DESC. <br "
+"/> - Ctrl+Click أو Alt+انقر (Mac: Shift+Option+Click) لإزالة عمود من بند "
+"ORDER BY"
 
 #: js/messages.php:594
 msgid "Click to mark/unmark."
@@ -2471,6 +2477,8 @@ msgid ""
 "Warning: a form on this page has more than %d fields. On submission, some of "
 "the fields might be ignored, due to PHP's max_input_vars configuration."
 msgstr ""
+"تحذير: يحتوي النموذج الموجود في هذه الصفحة على أكثر من %d من الحقول. عند "
+"الإرسال، قد يتم تجاهل بعض الحقول، وذلك بسبب تكوين ترتيب PHP max_input_vars ."
 
 #: js/messages.php:695 js/messages.php:708
 msgid "Some errors have been detected on the server!"
@@ -2952,10 +2960,9 @@ msgid "Unexpected characters on line %s."
 msgstr "أحرف غير متوقعة على السطر %s."
 
 #: libraries/Advisor.php:570
-#, fuzzy, php-format
-#| msgid "Unexpected characters on line %s."
+#, php-format
 msgid "Unexpected character on line %1$s. Expected tab, but found \"%2$s\"."
-msgstr "أحرف غير متوقعة على السطر %s"
+msgstr "حرف غير متوقع على السطر %1$s. متوقع tab ، ولكن \"%2$s\" وجد."
 
 #: libraries/Charsets.php:160
 #: templates/database/structure/table_header.phtml:84
@@ -2977,9 +2984,6 @@ msgid "Collation"
 msgstr ""
 
 #: libraries/Charsets.php:244
-#, fuzzy
-#| msgctxt "Collation"
-#| msgid "Unknown"
 msgid "Unknown"
 msgstr "غير معروف"
 
@@ -3103,7 +3107,7 @@ msgstr "البلغارية"
 #: libraries/Charsets.php:374
 msgctxt "Collation"
 msgid "Chinese"
-msgstr ""
+msgstr "الصينية"
 
 #: libraries/Charsets.php:379
 msgctxt "Collation"
@@ -3143,7 +3147,7 @@ msgstr "الألمانية (ترتيب القاموس)"
 #: libraries/Charsets.php:405 libraries/Charsets.php:516
 msgctxt "Collation"
 msgid "German (phone book order)"
-msgstr ""
+msgstr "الألمانية (ترتيب دفتر الهاتف)"
 
 #: libraries/Charsets.php:414
 msgctxt "Collation"
@@ -3173,7 +3177,7 @@ msgstr "الليتوانية"
 #: libraries/Charsets.php:441
 msgctxt "Collation"
 msgid "Burmese"
-msgstr ""
+msgstr "البورمية"
 
 #: libraries/Charsets.php:444
 msgctxt "Collation"
@@ -3421,11 +3425,11 @@ msgstr "تعديل :"
 
 #: libraries/DbQbe.php:969
 msgid "Ins:"
-msgstr ""
+msgstr "إدخال:"
 
 #: libraries/DbQbe.php:984
 msgid "Del:"
-msgstr ""
+msgstr "حذف:"
 
 #: libraries/DbQbe.php:1847
 #, php-format
@@ -3670,10 +3674,8 @@ msgid "Kill"
 msgstr "حذف"
 
 #: libraries/DisplayResults.php:4290
-#, fuzzy
-#| msgid "May be approximate. See [doc@faq3-11]FAQ 3.11[/doc]"
 msgid "May be approximate. See [doc@faq3-11]FAQ 3.11[/doc]."
-msgstr "ممكن أن يكون تقريبي. أنظر إلى [doc@faq3-11]الأسئلة المتكررة 3.11[/doc]"
+msgstr "ممكن أن يكون تقريبي. أنظر إلى [doc@faq3-11]الأسئلة المتكررة 3.11[/doc]."
 
 #: libraries/DisplayResults.php:4363 libraries/Message.php:171
 #: libraries/controllers/table/TableRelationController.php:242
@@ -3711,7 +3713,7 @@ msgstr "المجموع %d"
 #: libraries/DisplayResults.php:4755 libraries/sql.lib.php:1383
 #, php-format
 msgid "Query took %01.4f seconds."
-msgstr "استغرق الاستعلام %01.4f ثانية"
+msgstr "استغرق الاستعلام %01.4f ثانية."
 
 #: libraries/DisplayResults.php:4857 libraries/DisplayResults.php:4864
 #: libraries/mult_submits.inc.php:53
@@ -3843,11 +3845,11 @@ msgstr "انت تحاول رفع ملف بصيغة ضغط غير معروفة (%
 #: libraries/Footer.php:73
 #, php-format
 msgid "Currently running Git revision %1$s from the %2$s branch."
-msgstr ""
+msgstr "قيد التشغيل Git مراجعة %1$s من الفرع ال %2$s."
 
 #: libraries/Footer.php:80
 msgid "Git information missing!"
-msgstr ""
+msgstr "معلومات Git مفقودة!"
 
 #: libraries/Footer.php:195 libraries/Footer.php:199 libraries/Footer.php:202
 msgid "Open new phpMyAdmin window"
@@ -3976,7 +3978,7 @@ msgstr "تم تعطيل ميزة Linting لهذا الاستعلام لأنه ي
 #: libraries/Linter.php:165
 #, php-format
 msgid "%1$s (near <code>%2$s</code>)"
-msgstr ""
+msgstr "%1$s (بالقرب من <code>%2$s</code>)"
 
 #: libraries/Menu.php:208 libraries/ServerStatusData.php:425
 #: libraries/config/messages.inc.php:917
@@ -4210,7 +4212,7 @@ msgstr "تعذر حفظ الجدول المفضل!"
 #: libraries/RecentFavoriteTable.php:209
 #: templates/database/structure/favorite_anchor.phtml:12
 msgid "Remove from Favorites"
-msgstr "Remove from Favorites"
+msgstr "إزالة من المفضلة"
 
 #: libraries/RecentFavoriteTable.php:231
 msgid "There are no recent tables."
@@ -4344,7 +4346,7 @@ msgstr "جميع متغيرات الحالة"
 
 #: libraries/ServerStatusData.php:441
 msgid "Monitor"
-msgstr ""
+msgstr "مراقبة"
 
 #: libraries/ServerStatusData.php:445
 msgid "Advisor"
@@ -4356,7 +4358,7 @@ msgid "%d second"
 msgid_plural "%d seconds"
 msgstr[0] "%d ثانية"
 msgstr[1] "%d ثانية"
-msgstr[2] "%d ثانية"
+msgstr[2] "%d ثانيتين"
 msgstr[3] "%d ثواني"
 msgstr[4] "%d ثانية"
 msgstr[5] "%d ثانية"
@@ -4421,10 +4423,9 @@ msgid "Invalid table name:"
 msgstr "اسم الجدول غير صالح :"
 
 #: libraries/Table.php:1369
-#, fuzzy, php-format
-#| msgid "Error renaming table %1$s to %2$s"
+#, php-format
 msgid "Failed to rename table %1$s to %2$s!"
-msgstr "خطأ في إعادة تسمية الجدول %1$s إلى %2$s"
+msgstr "فشل في إعادة تسمية الجدول %1$s إلى %2$s!"
 
 #: libraries/Table.php:1388
 #, php-format
@@ -5230,7 +5231,7 @@ msgstr "قيمة غير صحيحة!"
 #: libraries/config/FormDisplay.php:103 libraries/config/Validator.php:579
 #, php-format
 msgid "Value must be equal or lower than %s!"
-msgstr "القيمة يجب أن تساوي أو أقل من %s"
+msgstr "القيمة يجب أن تساوي أو أقل من %s!"
 
 #: libraries/config/FormDisplay.php:619
 #, php-format
@@ -5616,7 +5617,7 @@ msgstr "ملف التكوين"
 msgid ""
 "Whether a warning (\"Are your really sure…\") should be displayed when "
 "you're about to lose data."
-msgstr "التحذير (\" هل أنت متأكد \" ) يظهر عندما تكون على وشك فقدان بيانات"
+msgstr "التحذير (\" هل أنت متأكد \" ) يظهر عندما تكون على وشك فقدان بيانات."
 
 #: libraries/config/messages.inc.php:95
 msgid "Confirm DROP queries"
@@ -6114,7 +6115,7 @@ msgstr "خيارات عرض الجداول."
 
 #: libraries/config/messages.inc.php:275 setup/frames/menu.inc.php:25
 msgid "Main panel"
-msgstr "الإطار الرئيسي."
+msgstr "الإطار الرئيسي"
 
 #: libraries/config/messages.inc.php:276
 msgid "Microsoft Office"
@@ -6148,7 +6149,7 @@ msgid ""
 "limit MySQL."
 msgstr ""
 "فضلاً , تذكر أن phpMyAdmin هي واجهه إستخدام فقط وميزاتها لا يمكن أن تتجاوز "
-"حدود MySQL"
+"حدود MySQL."
 
 #: libraries/config/messages.inc.php:294
 msgid "Basic settings"
@@ -6573,7 +6574,7 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:474
 msgid "Show logo in navigation panel."
-msgstr "عرض تنقل قواعد البيانات على شكل شجرة"
+msgstr "عرض تنقل قواعد البيانات على شكل شجرة."
 
 #: libraries/config/messages.inc.php:475
 msgid "Display logo"
@@ -8012,7 +8013,7 @@ msgstr[5] ""
 
 #: libraries/controllers/table/TableStructureController.php:250
 msgid "No column selected."
-msgstr "لايوجد صفوف مختارة"
+msgstr "لايوجد صفوف مختارة."
 
 #: libraries/controllers/table/TableStructureController.php:465
 msgid "The columns have been moved successfully."
@@ -9142,7 +9143,7 @@ msgstr ""
 #: libraries/navigation/nodes/NodeColumnContainer.php:27
 #: libraries/sql_query_form.lib.php:268
 msgid "Columns"
-msgstr "اعمدة :"
+msgstr "أعمدة"
 
 #: libraries/navigation/nodes/NodeColumnContainer.php:36
 msgctxt "Create new column"
@@ -9151,7 +9152,7 @@ msgstr ""
 
 #: libraries/navigation/nodes/NodeDatabase.php:40
 msgid "Database operations"
-msgstr "عمليات قاعدة البيانات :"
+msgstr "عمليات قاعدة البيانات"
 
 #: libraries/navigation/nodes/NodeDatabase.php:684
 #, fuzzy
@@ -17019,11 +17020,11 @@ msgstr ""
 
 #: libraries/advisory_rules.txt:441
 msgid "MyISAM concurrent inserts"
-msgstr ""
+msgstr "MyISAM ادخالات متزامنة"
 
 #: libraries/advisory_rules.txt:444
 msgid "Enable {concurrent_insert} by setting it to 1"
-msgstr ""
+msgstr "مكّن {concurrent_insert} من خلال تعيينه الى 1"
 
 #: libraries/advisory_rules.txt:445
 msgid ""
@@ -17034,7 +17035,7 @@ msgstr ""
 
 #: libraries/advisory_rules.txt:446
 msgid "concurrent_insert is set to 0"
-msgstr ""
+msgstr "تم تعيين concurrent_insert الى 0"
 
 #, fuzzy
 #~| msgid "unknown"
