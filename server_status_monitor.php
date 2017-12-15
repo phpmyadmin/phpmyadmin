@@ -71,7 +71,6 @@ $header   = $response->getHeader();
 $scripts  = $header->getScripts();
 $scripts->addFile('vendor/jquery/jquery.tablesorter.js');
 $scripts->addFile('vendor/jquery/jquery.sortableTable.js');
-$scripts->addFile('vendor/jquery/jquery-ui-timepicker-addon.js');
 // for charting
 $scripts->addFile('vendor/jqplot/jquery.jqplot.js');
 $scripts->addFile('vendor/jqplot/plugins/jqplot.pieRenderer.js');

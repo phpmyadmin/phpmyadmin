@@ -23,7 +23,6 @@ $scripts  = $header->getScripts();
 $scripts->addFile('db_search.js');
 $scripts->addFile('sql.js');
 $scripts->addFile('makegrid.js');
-$scripts->addFile('vendor/jquery/jquery-ui-timepicker-addon.js');
 
 require 'libraries/db_common.inc.php';
 
