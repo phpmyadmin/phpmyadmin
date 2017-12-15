@@ -9,6 +9,7 @@ namespace PhpMyAdmin\Tests;
 
 use PhpMyAdmin\Config;
 use PhpMyAdmin\Core;
+use PhpMyAdmin\MoTranslator\Loader;
 use PhpMyAdmin\SqlParser\Context;
 use PhpMyAdmin\SqlParser\Token;
 use PhpMyAdmin\Tests\PmaTestCase;
@@ -1017,17 +1018,41 @@ class UtilTest extends PmaTestCase
 
         // Test with various precisions
         $old_precision = ini_get('precision');
-        ini_set('precision', 20);
-        $this->assertFormatNumber($a, $b, $c, $d);
-        ini_set('precision', 14);
-        $this->assertFormatNumber($a, $b, $c, $d);
-        ini_set('precision', 10);
-        $this->assertFormatNumber($a, $b, $c, $d);
-        ini_set('precision', 5);
-        $this->assertFormatNumber($a, $b, $c, $d);
-        ini_set('precision', -1);
-        $this->assertFormatNumber($a, $b, $c, $d);
-        ini_set('precision', $old_precision);
+        try {
+            ini_set('precision', 20);
+            $this->assertFormatNumber($a, $b, $c, $d);
+            ini_set('precision', 14);
+            $this->assertFormatNumber($a, $b, $c, $d);
+            ini_set('precision', 10);
+            $this->assertFormatNumber($a, $b, $c, $d);
+            ini_set('precision', 5);
+            $this->assertFormatNumber($a, $b, $c, $d);
+            ini_set('precision', -1);
+            $this->assertFormatNumber($a, $b, $c, $d);
+        } finally {
+            ini_set('precision', $old_precision);
+        }
+
+        // Test with different translations
+        $translator = Loader::getInstance()->getTranslator();
+
+        try {
+            // German
+            $translator->setTranslation(',', '.');
+            $translator->setTranslation('.', ',');
+            $expected = str_replace([',', 'X'], ['.', ','], str_replace('.', 'X', $d));
+            $this->assertFormatNumber($a, $b, $c, $expected);
+
+            // Czech
+            $translator->setTranslation(',', ' ');
+            $translator->setTranslation('.', ',');
+            $expected = str_replace([',', 'X'], [' ', ','], str_replace('.', 'X', $d));
+            $this->assertFormatNumber($a, $b, $c, $expected);
+        } finally {
+            // Restore
+            $translator->setTranslation(',', ',');
+            $translator->setTranslation('.', '.');
+        }
     }
 
     /**
@@ -1047,6 +1072,7 @@ class UtilTest extends PmaTestCase
             array(-0.003, 6, 0, '-3,000 &micro;'),
             array(100.98, 0, 2, '100.98'),
             array(21010101, 0, 2, '21,010,101.00'),
+            array(1100000000, 5, 0, '1,100 M'),
             array(20000, 2, 2, '20 k'),
             array(20011, 2, 2, '20.01 k'),
             array(123456789, 6, 0, '123,457 k'),
