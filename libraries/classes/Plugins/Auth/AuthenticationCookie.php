@@ -596,9 +596,9 @@ class AuthenticationCookie extends AuthenticationPlugin
     {
         if (empty($GLOBALS['cfg']['blowfish_secret'])) {
             return $this->_getSessionEncryptionSecret();
-        } else {
-            return $GLOBALS['cfg']['blowfish_secret'];
         }
+
+        return $GLOBALS['cfg']['blowfish_secret'];
     }
 
     /**
@@ -813,11 +813,11 @@ class AuthenticationCookie extends AuthenticationPlugin
             return openssl_random_pseudo_bytes(
                 $this->getIVSize()
             );
-        } else {
-            return Crypt\Random::string(
-                $this->getIVSize()
-            );
         }
+
+        return Crypt\Random::string(
+            $this->getIVSize()
+        );
     }
 
     /**

@@ -1521,16 +1521,17 @@ class NavigationTree
     {
         if ($a->isNew) {
             return -1;
-        } else {
-            if ($b->isNew) {
-                return 1;
-            }
         }
+
+        if ($b->isNew) {
+            return 1;
+        }
+
         if ($GLOBALS['cfg']['NaturalOrder']) {
             return strnatcasecmp($a->name, $b->name);
-        } else {
-            return strcasecmp($a->name, $b->name);
         }
+
+        return strcasecmp($a->name, $b->name);
     }
 
     /**

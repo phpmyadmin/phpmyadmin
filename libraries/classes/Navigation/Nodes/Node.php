@@ -796,9 +796,9 @@ class Node
             $this->visible = true;
 
             return Util::getImage('b_minus');
-        } else {
-            return Util::getImage('b_plus', __('Expand/Collapse'));
         }
+
+        return Util::getImage('b_plus', __('Expand/Collapse'));
     }
 
     /**

@@ -321,9 +321,9 @@ class InsertEdit
             return '<span style="border-bottom: 1px dashed black;" title="'
                 . htmlspecialchars($comments_map[$column['Field']]) . '">'
                 . $column['Field_html'] . '</span>';
-        } else {
-                return $column['Field_html'];
         }
+
+        return $column['Field_html'];
     }
 
      /**
@@ -1964,9 +1964,9 @@ class InsertEdit
     {
         if (isset($_REQUEST['err_url'])) {
             return $_REQUEST['err_url'];
-        } else {
-            return 'tbl_change.php' . Url::getCommon($url_params);
         }
+
+        return 'tbl_change.php' . Url::getCommon($url_params);
     }
 
     /**
@@ -2275,12 +2275,12 @@ class InsertEdit
             ) {
                 return $multi_edit_funcs[$key] . '(' . $current_value . ",'"
                     . $GLOBALS['dbi']->escapeString($multi_edit_salt[$key]) . "')";
-            } else {
-                return $multi_edit_funcs[$key] . '(' . $current_value . ')';
             }
-        } else {
-            return $multi_edit_funcs[$key] . '()';
+
+            return $multi_edit_funcs[$key] . '(' . $current_value . ')';
         }
+
+        return $multi_edit_funcs[$key] . '()';
     }
 
     /**

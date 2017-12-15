@@ -1705,9 +1705,9 @@ class Table
         $row = $this->_dbi->fetchArray(Relation::queryAsControlUser($sql_query));
         if (isset($row[0])) {
             return json_decode($row[0], true);
-        } else {
-            return array();
         }
+
+        return array();
     }
 
     /**

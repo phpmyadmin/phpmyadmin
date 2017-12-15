@@ -408,15 +408,15 @@ class ImportOds extends ImportPlugin
             $value = (double)$cell_attrs['value'];
 
             return $value;
-        } else {
-            /* We need to concatenate all paragraphs */
-            $values = array();
-            foreach ($text as $paragraph) {
-                $values[] = (string)$paragraph;
-            }
-            $value = implode("\n", $values);
-
-            return $value;
         }
+
+        /* We need to concatenate all paragraphs */
+        $values = array();
+        foreach ($text as $paragraph) {
+            $values[] = (string)$paragraph;
+        }
+        $value = implode("\n", $values);
+
+        return $value;
     }
 }

@@ -162,8 +162,8 @@ class NodeTrans extends TransNode
     {
         if ($hasMsgContext) {
             return $plural ? '_ngettext' : '_pgettext';
-        } else {
-            return $plural ? '_ngettext' : '_gettext';
         }
+
+        return $plural ? '_ngettext' : '_gettext';
     }
 }

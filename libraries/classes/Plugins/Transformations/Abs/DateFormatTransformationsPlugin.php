@@ -142,9 +142,9 @@ abstract class DateFormatTransformationsPlugin extends TransformationsPlugin
             }
             return '<dfn onclick="alert(\'' . Sanitize::jsFormat($source, false) . '\');" title="'
                 . htmlspecialchars($source) . '">' . htmlspecialchars($text) . '</dfn>';
-        } else {
-            return htmlspecialchars($buffer);
         }
+
+        return htmlspecialchars($buffer);
     }
 
     /* ~~~~~~~~~~~~~~~~~~~~ Getters and Setters ~~~~~~~~~~~~~~~~~~~~ */

@@ -164,9 +164,9 @@ class DbiMysql implements DbiExtension
             return mysql_query($query, $link);
         } elseif ($options == ($options | DatabaseInterface::QUERY_UNBUFFERED)) {
             return mysql_unbuffered_query($query, $link);
-        } else {
-            return mysql_query($query, $link);
         }
+
+        return mysql_query($query, $link);
     }
 
     /**

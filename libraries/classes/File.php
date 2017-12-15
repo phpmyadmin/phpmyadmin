@@ -374,9 +374,9 @@ class File
             return $this->setLocalSelectedFile(
                 $_REQUEST['fields_uploadlocal']['multi_edit'][$rownumber][$key]
             );
-        } else {
-            return false;
         }
+
+        return false;
     }
 
     /**
@@ -638,10 +638,10 @@ class File
         case 'application/zip':
             if ($GLOBALS['cfg']['ZipDump'] && @function_exists('zip_open')) {
                 return $this->openZip();
-            } else {
-                $this->errorUnsupported();
-                return false;
             }
+
+            $this->errorUnsupported();
+            return false;
         case 'none':
             $this->_handle = @fopen($this->getName(), 'r');
             break;

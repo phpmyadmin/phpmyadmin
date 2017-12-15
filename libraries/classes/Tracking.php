@@ -1121,9 +1121,9 @@ class Tracking
     {
         if ($version['tracking_active'] == 1) {
             return __('active');
-        } else {
-            return __('not active');
         }
+
+        return __('not active');
     }
 
     /**

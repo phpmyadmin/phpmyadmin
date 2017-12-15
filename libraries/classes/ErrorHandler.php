@@ -471,9 +471,9 @@ class ErrorHandler
     {
         if ($GLOBALS['cfg']['SendErrorReports'] != 'never') {
             return $this->countErrors();
-        } else {
-            return $this->countUserErrors();
         }
+
+        return $this->countUserErrors();
     }
 
     /**

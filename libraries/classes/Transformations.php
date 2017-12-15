@@ -410,9 +410,9 @@ class Transformations
 
         if (isset($upd_query)) {
             return Relation::queryAsControlUser($upd_query);
-        } else {
-            return false;
         }
+
+        return false;
     } // end of 'setMIME()' function
 
 
