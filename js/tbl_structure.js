@@ -304,13 +304,14 @@ AJAX.registerOnload('tbl_structure.js', function () {
         var question = PMA_sprintf(PMA_messages.strDoYouReally, 'ALTER TABLE `' +
                 escapeHtml(curr_table_name) + '` ' + add_clause + '(`' + escapeHtml(curr_column_name) + '`);');
 
-        $(this).PMA_confirm(question, $(this).attr('href'), function (url) {
+        var $this_anchor = $(this);
+
+        $this_anchor.PMA_confirm(question, $this_anchor.attr('href'), function (url) {
             PMA_ajaxShowMessage();
             AJAX.source = $this;
-            var params = {
-                'ajax_request' : true,
-                'ajax_page_request' : true
-            };
+
+            var params = getJSConfirmCommonParam(this, $this_anchor.attr('data-post'));
+            params += '&ajax_page_request=1';
             $.post(url, params, AJAX.responseHandler);
         }); // end $.PMA_confirm()
     }); // end Add key
