@@ -4,17 +4,17 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.8.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2017-11-28 16:22+0100\n"
-"PO-Revision-Date: 2017-11-26 11:44+0000\n"
-"Last-Translator: Aref Ben Lazrek <aref480@gmail.com>\n"
-"Language-Team: Arabic <https://hosted.weblate.org/projects/phpmyadmin/master/"
-"ar/>\n"
+"PO-Revision-Date: 2017-12-16 12:04+0000\n"
+"Last-Translator: Waleed Abdeen <waleed.totti@gmail.com>\n"
+"Language-Team: Arabic "
+"<https://hosted.weblate.org/projects/phpmyadmin/master/ar/>\n"
 "Language: ar\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=6; plural=n==0 ? 0 : n==1 ? 1 : n==2 ? 2 : n%100>=3 "
 "&& n%100<=10 ? 3 : n%100>=11 ? 4 : 5;\n"
-"X-Generator: Weblate 2.18-dev\n"
+"X-Generator: Weblate 2.18\n"
 
 #: ajax.php:21 ajax.php:50 export.php:203 libraries/classes/Export.php:1100
 msgid "Bad type!"
@@ -2012,6 +2012,8 @@ msgid ""
 "Note: a, b -> d,f implies values of columns a and b combined together can "
 "determine values of column d and column f."
 msgstr ""
+"ملاحظة: a,b -> d,f تدل على أن قيم الأعمدة a و b مجتمعة يمكن أن تحدد قيم "
+"العمود d و العمود f."
 
 #: js/messages.php:456
 msgid "No partial dependencies selected!"
@@ -2333,11 +2335,15 @@ msgid "Click to sort results by this column."
 msgstr "انقر لترتيب النتائج حسب هذا العمود."
 
 #: js/messages.php:589
+#, fuzzy
 msgid ""
 "Shift+Click to add this column to ORDER BY clause or to toggle ASC/DESC.<br /"
 ">- Ctrl+Click or Alt+Click (Mac: Shift+Option+Click) to remove column from "
 "ORDER BY clause"
 msgstr ""
+"Shift+انقر للإضافة هذا العمود الى بند ORDER BY أو للتبديل بين ASC/DESC. <br "
+"/> - Ctrl+Click أو Alt+انقر (Mac: Shift+Option+Click) لإزالة عمود من بند "
+"ORDER BY"
 
 #: js/messages.php:593
 msgid "Click to mark/unmark."
@@ -2528,6 +2534,8 @@ msgid ""
 "Warning: a form on this page has more than %d fields. On submission, some of "
 "the fields might be ignored, due to PHP's max_input_vars configuration."
 msgstr ""
+"تحذير: يحتوي النموذج الموجود في هذه الصفحة على أكثر من %d من الحقول. عند "
+"الإرسال، قد يتم تجاهل بعض الحقول، وذلك بسبب تكوين ترتيب PHP max_input_vars ."
 
 #: js/messages.php:694 js/messages.php:707
 msgid "Some errors have been detected on the server!"
@@ -2973,7 +2981,7 @@ msgstr "خطأ"
 #: libraries/classes/Advisor.php:249
 #, php-format
 msgid "Error when evaluating: %s"
-msgstr "حدث %s خطأ أثناء التقييم :"
+msgstr "حدث خطأ أثناء تقييم: %s"
 
 #: libraries/classes/Advisor.php:280
 #, php-format
@@ -3019,10 +3027,9 @@ msgid "Unexpected characters on line %s."
 msgstr "أحرف غير متوقعة على السطر %s."
 
 #: libraries/classes/Advisor.php:563
-#, fuzzy, php-format
-#| msgid "Unexpected characters on line %s."
+#, php-format
 msgid "Unexpected character on line %1$s. Expected tab, but found \"%2$s\"."
-msgstr "أحرف غير متوقعة على السطر %s"
+msgstr "حرف غير متوقع على السطر %1$s. متوقع tab ، ولكن \"%2$s\" وجد."
 
 #: libraries/classes/Advisor.php:598
 msgid "per second"
@@ -3213,9 +3220,6 @@ msgid "Charset"
 msgstr "مجموعة المحارف"
 
 #: libraries/classes/Charsets.php:310
-#, fuzzy
-#| msgctxt "Collation"
-#| msgid "Unknown"
 msgid "Unknown"
 msgstr "غير معروف"
 
@@ -3339,7 +3343,7 @@ msgstr "البلغارية"
 #: libraries/classes/Charsets.php:440
 msgctxt "Collation"
 msgid "Chinese"
-msgstr ""
+msgstr "الصينية"
 
 #: libraries/classes/Charsets.php:445
 msgctxt "Collation"
@@ -3379,7 +3383,7 @@ msgstr "الألمانية (ترتيب القاموس)"
 #: libraries/classes/Charsets.php:471 libraries/classes/Charsets.php:582
 msgctxt "Collation"
 msgid "German (phone book order)"
-msgstr ""
+msgstr "الألمانية (ترتيب دفتر الهاتف)"
 
 #: libraries/classes/Charsets.php:480
 msgctxt "Collation"
@@ -3409,7 +3413,7 @@ msgstr "الليتوانية"
 #: libraries/classes/Charsets.php:507
 msgctxt "Collation"
 msgid "Burmese"
-msgstr ""
+msgstr "البورمية"
 
 #: libraries/classes/Charsets.php:510
 msgctxt "Collation"
@@ -3702,7 +3706,7 @@ msgstr "ضغط"
 msgid ""
 "Whether a warning (\"Are your really sure…\") should be displayed when "
 "you're about to lose data."
-msgstr "التحذير (\" هل أنت متأكد \" ) يظهر عندما تكون على وشك فقدان بيانات"
+msgstr "التحذير (\" هل أنت متأكد \" ) يظهر عندما تكون على وشك فقدان بيانات."
 
 #: libraries/classes/Config/Descriptions.php:165
 msgid "Confirm DROP queries"
@@ -4304,7 +4308,7 @@ msgstr "خيارات عرض الجداول."
 #: libraries/classes/Config/Descriptions.php:494
 #: libraries/classes/Config/Forms/User/MainForm.php:84
 msgid "Main panel"
-msgstr "الإطار الرئيسي."
+msgstr "الإطار الرئيسي"
 
 #: libraries/classes/Config/Descriptions.php:496
 msgid "Microsoft Office"
@@ -4338,7 +4342,7 @@ msgid ""
 "limit MySQL."
 msgstr ""
 "فضلاً , تذكر أن phpMyAdmin هي واجهه إستخدام فقط وميزاتها لا يمكن أن تتجاوز "
-"حدود MySQL"
+"حدود MySQL."
 
 #: libraries/classes/Config/Descriptions.php:523
 msgid "Basic settings"
@@ -4777,7 +4781,7 @@ msgstr ""
 
 #: libraries/classes/Config/Descriptions.php:780
 msgid "Show logo in navigation panel."
-msgstr "عرض تنقل قواعد البيانات على شكل شجرة"
+msgstr "عرض تنقل قواعد البيانات على شكل شجرة."
 
 #: libraries/classes/Config/Descriptions.php:782
 msgid "Display logo"
@@ -6109,7 +6113,7 @@ msgstr "قيمة غير صحيحة!"
 #: libraries/classes/Config/Validator.php:583
 #, php-format
 msgid "Value must be equal or lower than %s!"
-msgstr "القيمة يجب أن تساوي أو أقل من %s"
+msgstr "القيمة يجب أن تساوي أو أقل من %s!"
 
 #: libraries/classes/Config/FormDisplay.php:616
 #, php-format
@@ -6631,7 +6635,7 @@ msgstr[5] ""
 
 #: libraries/classes/Controllers/Table/TableStructureController.php:260
 msgid "No column selected."
-msgstr "لايوجد صفوف مختارة"
+msgstr "لايوجد صفوف مختارة."
 
 #: libraries/classes/Controllers/Table/TableStructureController.php:474
 msgid "The columns have been moved successfully."
@@ -6809,11 +6813,11 @@ msgstr "تعديل :"
 
 #: libraries/classes/Database/Qbe.php:932
 msgid "Ins:"
-msgstr ""
+msgstr "إدخال:"
 
 #: libraries/classes/Database/Qbe.php:947
 msgid "Del:"
-msgstr ""
+msgstr "حذف:"
 
 #: libraries/classes/Database/Qbe.php:1814
 #, php-format
@@ -7339,10 +7343,8 @@ msgid "Kill"
 msgstr "حذف"
 
 #: libraries/classes/Display/Results.php:4110
-#, fuzzy
-#| msgid "May be approximate. See [doc@faq3-11]FAQ 3.11[/doc]"
 msgid "May be approximate. See [doc@faq3-11]FAQ 3.11[/doc]."
-msgstr "ممكن أن يكون تقريبي. أنظر إلى [doc@faq3-11]الأسئلة المتكررة 3.11[/doc]"
+msgstr "ممكن أن يكون تقريبي. أنظر إلى [doc@faq3-11]الأسئلة المتكررة 3.11[/doc]."
 
 #: libraries/classes/Display/Results.php:4543
 #, fuzzy, php-format
@@ -7362,7 +7364,7 @@ msgstr "المجموع %d"
 #: libraries/classes/Display/Results.php:4575 libraries/classes/Sql.php:1410
 #, php-format
 msgid "Query took %01.4f seconds."
-msgstr "استغرق الاستعلام %01.4f ثانية"
+msgstr "استغرق الاستعلام %01.4f ثانية."
 
 #: libraries/classes/Display/Results.php:4674
 #: libraries/classes/Display/Results.php:4681 libraries/mult_submits.inc.php:53
@@ -7802,11 +7804,11 @@ msgstr "انت تحاول رفع ملف بصيغة ضغط غير معروفة (%
 #: libraries/classes/Footer.php:79
 #, php-format
 msgid "Currently running Git revision %1$s from the %2$s branch."
-msgstr ""
+msgstr "قيد التشغيل Git مراجعة %1$s من الفرع ال %2$s."
 
 #: libraries/classes/Footer.php:86
 msgid "Git information missing!"
-msgstr ""
+msgstr "معلومات Git مفقودة!"
 
 #: libraries/classes/Footer.php:201 libraries/classes/Footer.php:205
 #: libraries/classes/Footer.php:208
@@ -8095,7 +8097,7 @@ msgstr "تم تعطيل ميزة Linting لهذا الاستعلام لأنه ي
 #: libraries/classes/Linter.php:164
 #, php-format
 msgid "%1$s (near <code>%2$s</code>)"
-msgstr ""
+msgstr "%1$s (بالقرب من <code>%2$s</code>)"
 
 #: libraries/classes/Menu.php:271
 #: libraries/classes/Navigation/Nodes/NodeView.php:30 tbl_operations.php:64
@@ -8442,7 +8444,7 @@ msgstr ""
 #: libraries/classes/Navigation/Nodes/NodeColumnContainer.php:26
 #: libraries/classes/SqlQueryForm.php:269
 msgid "Columns"
-msgstr "اعمدة :"
+msgstr "أعمدة"
 
 #: libraries/classes/Navigation/Nodes/NodeColumnContainer.php:35
 msgctxt "Create new column"
@@ -8451,7 +8453,7 @@ msgstr ""
 
 #: libraries/classes/Navigation/Nodes/NodeDatabase.php:41
 msgid "Database operations"
-msgstr "عمليات قاعدة البيانات :"
+msgstr "عمليات قاعدة البيانات"
 
 #: libraries/classes/Navigation/Nodes/NodeDatabase.php:685
 #, fuzzy
@@ -10310,7 +10312,7 @@ msgstr "تعذر حفظ الجدول المفضل!"
 #: libraries/classes/RecentFavoriteTable.php:213
 #: templates/database/structure/favorite_anchor.twig:4
 msgid "Remove from Favorites"
-msgstr "Remove from Favorites"
+msgstr "إزالة من المفضلة"
 
 #: libraries/classes/RecentFavoriteTable.php:235
 msgid "There are no recent tables."
@@ -12181,7 +12183,7 @@ msgstr "جميع متغيرات الحالة"
 
 #: libraries/classes/Server/Status/Data.php:441
 msgid "Monitor"
-msgstr ""
+msgstr "مراقبة"
 
 #: libraries/classes/Server/Status/Data.php:445
 msgid "Advisor"
@@ -12193,7 +12195,7 @@ msgid "%d second"
 msgid_plural "%d seconds"
 msgstr[0] "%d ثانية"
 msgstr[1] "%d ثانية"
-msgstr[2] "%d ثانية"
+msgstr[2] "%d ثانيتين"
 msgstr[3] "%d ثواني"
 msgstr[4] "%d ثانية"
 msgstr[5] "%d ثانية"
@@ -13343,10 +13345,9 @@ msgid "Invalid table name:"
 msgstr "اسم الجدول غير صالح :"
 
 #: libraries/classes/Table.php:1487
-#, fuzzy, php-format
-#| msgid "Error renaming table %1$s to %2$s"
+#, php-format
 msgid "Failed to rename table %1$s to %2$s!"
-msgstr "خطأ في إعادة تسمية الجدول %1$s إلى %2$s"
+msgstr "فشل في إعادة تسمية الجدول %1$s إلى %2$s!"
 
 #: libraries/classes/Table.php:1506
 #, php-format
@@ -17663,11 +17664,11 @@ msgstr ""
 
 #: libraries/advisory_rules.txt:441
 msgid "MyISAM concurrent inserts"
-msgstr ""
+msgstr "MyISAM ادخالات متزامنة"
 
 #: libraries/advisory_rules.txt:444
 msgid "Enable {concurrent_insert} by setting it to 1"
-msgstr ""
+msgstr "مكّن {concurrent_insert} من خلال تعيينه الى 1"
 
 #: libraries/advisory_rules.txt:445
 msgid ""
@@ -17678,7 +17679,7 @@ msgstr ""
 
 #: libraries/advisory_rules.txt:446
 msgid "concurrent_insert is set to 0"
-msgstr ""
+msgstr "تم تعيين concurrent_insert الى 0"
 
 #, fuzzy
 #~| msgid "Test"
