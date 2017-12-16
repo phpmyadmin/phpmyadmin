@@ -138,7 +138,7 @@ class AuthenticationConfigTest extends PMATestCase
 
         $this->assertContains(
             '<a href="index.php?server=0&amp;lang=en'
-            . '&amp;collation_connection=utf-8" '
+            . '&amp;collation_connection=utf-8&amp;token=token" '
             . 'class="button disableAjax">Retry to connect</a>',
             $html
         );

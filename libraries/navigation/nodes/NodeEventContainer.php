@@ -26,9 +26,9 @@ class NodeEventContainer extends NodeDatabaseChildContainer
         $this->icon = PMA\libraries\Util::getImage('b_events.png', '');
         $this->links = array(
             'text' => 'db_events.php?server=' . $GLOBALS['server']
-                . '&amp;db=%1$s',
+                . '&amp;db=%1$s&amp;token=' . $_SESSION[' PMA_token '],
             'icon' => 'db_events.php?server=' . $GLOBALS['server']
-                . '&amp;db=%1$s',
+                . '&amp;db=%1$s&amp;token=' . $_SESSION[' PMA_token '],
         );
         $this->real_name = 'events';
 
@@ -40,9 +40,11 @@ class NodeEventContainer extends NodeDatabaseChildContainer
         $new->icon = PMA\libraries\Util::getImage('b_event_add.png', '');
         $new->links = array(
             'text' => 'db_events.php?server=' . $GLOBALS['server']
-                . '&amp;db=%2$s&add_item=1',
+                . '&amp;db=%2$s&amp;token=' . $_SESSION[' PMA_token ']
+                . '&add_item=1',
             'icon' => 'db_events.php?server=' . $GLOBALS['server']
-                . '&amp;db=%2$s&add_item=1',
+                . '&amp;db=%2$s&amp;token=' . $_SESSION[' PMA_token ']
+                . '&add_item=1',
         );
         $new->classes = 'new_event italics';
         $this->addChild($new);

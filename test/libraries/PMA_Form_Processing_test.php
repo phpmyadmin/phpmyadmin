@@ -39,7 +39,7 @@ class PMA_Form_Processing_Test extends PMATestCase
     {
         $this->mockResponse(
                 array('HTTP/1.1 303 See Other'),
-                array('Location: index.php?lang=en')
+                array('Location: index.php?lang=en&token=token')
             );
 
         // case 1

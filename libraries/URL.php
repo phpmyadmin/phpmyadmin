@@ -223,6 +223,10 @@ class URL
             $params['collation_connection'] = $GLOBALS['collation_connection'];
         }
 
+        if (isset($_SESSION[' PMA_token '])) {
+            $params['token'] = $_SESSION[' PMA_token '];
+        }
+
         $query = http_build_query($params, null, $separator);
 
         if ($divider != '?' || strlen($query) > 0) {
