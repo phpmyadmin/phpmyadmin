@@ -729,6 +729,8 @@ class Index
         $r .= '</thead>';
         $r .= '<tbody>';
 
+        $iter = 0;
+
         foreach ($indexes as $index) {
             $row_span = ' rowspan="' . $index->getColumnCount() . '" ';
 
@@ -796,7 +798,12 @@ class Index
 
             foreach ($index->getColumns() as $column) {
                 if ($column->getSeqInIndex() > 1) {
-                    $r .= '<tr class="noclick" >';
+                    if($iter%2 == 0){
+                        $r .= '<tr class="noclick" id="odd_row" >';
+                    }
+                    else{
+                        $r .= '<tr class="noclick" id="even_row" >';                        
+                    }
                 }
                 $r .= '<td>' . htmlspecialchars($column->getName());
                 if ($column->getSubPart()) {
@@ -821,6 +828,7 @@ class Index
                 $r .= '</tr>';
             } // end foreach $index['Sequences']
 
+            $iter += 1;            
         } // end while
         $r .= '</tbody>';
         $r .= '</table>';
