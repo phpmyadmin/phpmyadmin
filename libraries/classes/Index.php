@@ -802,7 +802,7 @@ class Index
                         $r .= '<tr class="noclick" id="odd_row" >';
                     }
                     else{
-                        $r .= '<tr class="noclick" id="even_row" >';                        
+                        $r .= '<tr class="noclick" id="even_row" >';
                     }
                 }
                 $r .= '<td>' . htmlspecialchars($column->getName());
@@ -828,7 +828,7 @@ class Index
                 $r .= '</tr>';
             } // end foreach $index['Sequences']
 
-            $iter += 1;            
+            $iter += 1;
         } // end while
         $r .= '</tbody>';
         $r .= '</table>';
