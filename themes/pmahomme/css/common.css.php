@@ -553,11 +553,11 @@ button.mult_submit {
 }
 
 #odd_row {
-    background: #fff;    
+    background: #fff;
 }
 
 #even_row {
-    background: #DFDFDF;    
+    background: #DFDFDF;
 }
 
 /* odd items 1,3,5,7,... */
