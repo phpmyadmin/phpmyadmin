@@ -553,7 +553,11 @@ button.mult_submit {
 }
 
 #odd_row {
+<<<<<<< HEAD
     background: #fff; 
+=======
+    background: #fff;
+>>>>>>> 2fd190219b7867c132c887d1c6fe5d8845f9ecd0
 }
 
 #even_row {
