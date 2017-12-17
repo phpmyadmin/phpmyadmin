@@ -269,6 +269,14 @@ button.mult_submit {
     background-color:   transparent;
 }
 
+#odd_row {
+    background: <?php echo $GLOBALS['cfg']['BgOne']; ?>;
+}
+
+#even_row {
+    background: <?php echo $GLOBALS['cfg']['BgTwo']; ?>;
+}
+
 /* odd items 1,3,5,7,... */
 table tr:nth-child(odd) {
         background: <?php echo $GLOBALS['cfg']['BgOne']; ?>;
