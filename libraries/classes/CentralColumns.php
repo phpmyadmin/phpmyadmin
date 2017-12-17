@@ -122,9 +122,9 @@ class CentralColumns
         );
         if (isset($res[0])) {
             return $res[0];
-        } else {
-            return 0;
         }
+
+        return 0;
     }
     /**
      * return the existing columns in central list among the given list of columns
@@ -551,9 +551,9 @@ class CentralColumns
         $has_list = self::findExistingColNames($dbi, $user, $db, $cols, $allFields);
         if (! empty($has_list)) {
             return (array)$has_list;
-        } else {
-            return array();
         }
+
+        return array();
     }
 
     /**

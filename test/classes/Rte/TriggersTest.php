@@ -336,7 +336,7 @@ class TriggersTest extends TestCase
         $GLOBALS['server'] = 1;
 
         $this->assertEquals($query, Triggers::getQueryFromRequest());
-        $this->assertEquals($num_err, count($errors));
+        $this->assertCount($num_err, $errors);
     }
 
     /**

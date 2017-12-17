@@ -174,17 +174,17 @@ abstract class AuthenticationPlugin
                 __('No activity within %s seconds; please log in again.'),
                 intval($GLOBALS['cfg']['LoginCookieValidity'])
             );
-        } else {
-            $dbi_error = $GLOBALS['dbi']->getError();
-            if (!empty($dbi_error)) {
-                return htmlspecialchars($dbi_error);
-            } elseif (isset($GLOBALS['errno'])) {
-                return '#' . $GLOBALS['errno'] . ' '
-                . __('Cannot log in to the MySQL server');
-            } else {
-                return __('Cannot log in to the MySQL server');
-            }
         }
+
+        $dbi_error = $GLOBALS['dbi']->getError();
+        if (!empty($dbi_error)) {
+            return htmlspecialchars($dbi_error);
+        } elseif (isset($GLOBALS['errno'])) {
+            return '#' . $GLOBALS['errno'] . ' '
+            . __('Cannot log in to the MySQL server');
+        }
+
+        return __('Cannot log in to the MySQL server');
     }
 
     /**

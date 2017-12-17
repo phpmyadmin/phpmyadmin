@@ -174,9 +174,9 @@ class ErrorTest extends PmaTestCase
         $this->object->setBacktrace($bt);
 
         // case: full backtrace
-        $this->assertEquals(4, count($this->object->getBacktrace()));
+        $this->assertCount(4, $this->object->getBacktrace());
 
         // case: first 2 frames
-        $this->assertEquals(2, count($this->object->getBacktrace(2)));
+        $this->assertCount(2, $this->object->getBacktrace(2));
     }
 }

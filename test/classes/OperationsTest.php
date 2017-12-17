@@ -157,7 +157,7 @@ class OperationsTest extends TestCase
      */
     public function testGetMaintainActionlink()
     {
-
+        $GLOBALS['cfg']['LinkLengthLimit'] = 1000;
         $this->assertRegExp(
             '/.*href="sql.php.*post.*/',
             Operations::getMaintainActionlink(

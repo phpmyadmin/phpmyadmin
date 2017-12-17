@@ -90,8 +90,8 @@
             or tbl_storage_engine == 'MARIA'
             or (tbl_storage_engine == 'INNODB' and mysql_int_version >= 50604)
         ) and ('text' in type or 'char' in type) %}
-        <a rel="samepage" class="ajax add_key add_fulltext_anchor" href="tbl_structure.php
-            {{- url_query|raw }}&amp;add_key=1&amp;sql_query=
+        <a rel="samepage" class="ajax add_key add_fulltext_anchor" href="tbl_structure.php"
+            data-post="{{- url_query|raw }}&amp;add_key=1&amp;sql_query=
             {{- ('ALTER TABLE ' ~ Util_backquote(table)
                 ~ ' ADD FULLTEXT(' ~ Util_backquote(row['Field'])
                 ~ ');')|url_encode }}&amp;message_to_show=
@@ -105,7 +105,7 @@
 
     {# Distinct value action #}
     <li class="browse nowrap">
-        <a href="sql.php{{ url_query|raw }}&amp;sql_query=
+        <a href="sql.php" data-post="{{ url_query|raw }}&amp;sql_query=
             {{- ('SELECT COUNT(*) AS ' ~ Util_backquote('Rows'|trans)
                 ~ ', ' ~ Util_backquote(row['Field'])
                 ~ ' FROM ' ~ Util_backquote(table)

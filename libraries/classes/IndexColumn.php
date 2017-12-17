@@ -139,12 +139,12 @@ class IndexColumn
         if ($as_text) {
             if (!$this->_null || $this->_null == 'NO') {
                 return __('No');
-            } else {
-                return __('Yes');
             }
-        } else {
-            return $this->_null;
+
+            return __('Yes');
         }
+
+        return $this->_null;
     }
 
     /**

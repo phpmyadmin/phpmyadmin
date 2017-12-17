@@ -199,9 +199,9 @@ class ThemeManager
         // Allow different theme per server
         if (isset($GLOBALS['server']) && $this->per_server) {
             return $this->cookie_name . '-' . $GLOBALS['server'];
-        } else {
-            return $this->cookie_name;
         }
+
+        return $this->cookie_name;
     }
 
     /**

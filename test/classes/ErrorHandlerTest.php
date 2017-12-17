@@ -164,7 +164,7 @@ class ErrorHandlerTest extends PmaTestCase
             'checkSavedErrors',
             array()
         );
-        $this->assertTrue(!isset($_SESSION['errors']));
+        $this->assertArrayNotHasKey('errors', $_SESSION);
     }
 
     /**
@@ -209,9 +209,9 @@ class ErrorHandlerTest extends PmaTestCase
             1,
             $this->object->countErrors()
         );
-        $this->assertEquals(
+        $this->assertCount(
             1,
-            count($this->object->sliceErrors(0))
+            $this->object->sliceErrors(0)
         );
         $this->assertEquals(
             0,

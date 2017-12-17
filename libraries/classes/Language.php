@@ -73,9 +73,9 @@ class Language
     {
         if (! empty($this->native)) {
             return $this->native . ' - ' . $this->name;
-        } else {
-            return $this->name;
         }
+
+        return $this->name;
     }
 
     /**

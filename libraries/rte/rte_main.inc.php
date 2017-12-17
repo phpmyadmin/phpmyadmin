@@ -58,18 +58,6 @@ if (! $response->isAjax()) {
 }
 
 /**
- * Generate the conditional classes that will
- * be used to attach jQuery events to links
- */
-$ajax_class = array(
-    'add'    => 'class="ajax add_anchor"',
-    'edit'   => 'class="ajax edit_anchor"',
-    'exec'   => 'class="ajax exec_anchor"',
-    'drop'   => 'class="ajax drop_anchor"',
-    'export' => 'class="ajax export_anchor"'
-);
-
-/**
  * Create labels for the list
  */
 $titles = PhpMyAdmin\Util::buildActionTitles();

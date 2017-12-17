@@ -87,8 +87,8 @@ class Core
      * <code>
      * // $_REQUEST['db'] not set
      * echo Core::ifSetOr($_REQUEST['db'], ''); // ''
-     * // $_REQUEST['sql_query'] not set
-     * echo Core::ifSetOr($_REQUEST['sql_query']); // null
+     * // $_POST['sql_query'] not set
+     * echo Core::ifSetOr($_POST['sql_query']); // null
      * // $cfg['EnableFoo'] not set
      * echo Core::ifSetOr($cfg['EnableFoo'], false, 'boolean'); // false
      * echo Core::ifSetOr($cfg['EnableFoo']); // null

@@ -729,7 +729,7 @@ abstract class PMA_SeleniumBase extends PHPUnit_Extensions_Selenium2TestCase
      *
      * @return void
      */
-    public function onNotSuccessfulTest(Exception $e)
+    public function onNotSuccessfulTest($e)
     {
         // If this is being run on Browerstack,
         // mark the test on Browerstack as failure

@@ -176,8 +176,9 @@ class ExportOdsTest extends PmaTestCase
      */
     public function testExportHeader()
     {
-        $this->assertTrue(
-            isset($GLOBALS['ods_buffer'])
+        $this->assertArrayHasKey(
+            'ods_buffer',
+            $GLOBALS
         );
 
         $this->assertTrue(

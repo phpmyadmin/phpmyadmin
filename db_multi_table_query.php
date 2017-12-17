@@ -10,9 +10,9 @@ use PhpMyAdmin\Response;
 
 require_once 'libraries/common.inc.php';
 
-if (isset($_REQUEST['sql_query'])) {
+if (isset($_POST['sql_query'])) {
     MultiTableQuery::displayResults(
-        $_REQUEST['sql_query'],
+        $_POST['sql_query'],
         $_REQUEST['db'],
         $pmaThemeImage
     );

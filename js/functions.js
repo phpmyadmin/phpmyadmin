@@ -155,14 +155,12 @@ function PMA_addDatepicker ($this_element, type, options) {
             }
         }
     };
-    if (type === 'datetime' || type === 'timestamp') {
-        $this_element.datetimepicker($.extend(defaultOptions, options));
-    } else if (type === 'date') {
-        $this_element.datetimepicker($.extend(defaultOptions, options));
-    } else if (type === 'time') {
+    if (type == "time") {
         $this_element.timepicker($.extend(defaultOptions, options));
         // Add a tip regarding entering MySQL allowed-values for TIME data-type
         PMA_tooltip($this_element, 'input', PMA_messages.strMysqlAllowedValuesTipTime);
+    } else {
+        $this_element.datetimepicker($.extend(defaultOptions, options));
     }
 }
 
@@ -1794,12 +1792,19 @@ function loadForeignKeyCheckbox () {
     });
 }
 
-function getJSConfirmCommonParam (elem) {
-    return {
-        'is_js_confirmed' : 1,
-        'ajax_request' : true,
-        'fk_checks': $(elem).find('#fk_checks').is(':checked') ? 1 : 0
-    };
+function getJSConfirmCommonParam (elem, params) {
+    var $elem = $(elem);
+    if (params) {
+        // Strip possible leading ?
+        if (params.startsWith('?')) {
+            params = params.substr(1);
+        }
+        params += '&';
+    } else {
+        params = '';
+    }
+    params += 'is_js_confirmed=1&ajax_request=true&fk_checks' + ($elem.find('#fk_checks').is(':checked') ? 1 : 0);
+    return params;
 }
 
 /**

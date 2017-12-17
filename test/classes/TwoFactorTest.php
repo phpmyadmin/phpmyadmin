@@ -247,9 +247,9 @@ class TwoFactorTest extends PmaTestCase
         $GLOBALS['cfg']['DBG']['simple2fa'] = true;
         $object = new TwoFactor('user');
         $backends = $object->getAllBackends();
-        $this->assertEquals(
+        $this->assertCount(
             count($object->available) + 1,
-            count($backends)
+            $backends
         );
         $GLOBALS['cfg']['DBG']['simple2fa'] = false;
     }

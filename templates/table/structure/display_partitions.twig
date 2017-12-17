@@ -76,7 +76,7 @@
                         <td>{{ partition.getComment() }}</td>
                         {% for action, icon in action_icons %}
                             <td>
-                                <a href="tbl_structure.php{{ url_query -}}
+                                <a href="tbl_structure.php" data-post="{{ url_query -}}
                                     &amp;partition_maintenance=1&amp;sql_query=
                                     {{- ("ALTER TABLE " ~ Util_backquote(table) ~ " " ~ action
                                         ~ " PARTITION " ~ partition.getName())|url_encode }}"

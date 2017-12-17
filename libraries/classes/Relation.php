@@ -63,9 +63,9 @@ class Relation
 
         if ($result) {
             return $result;
-        } else {
-            return false;
         }
+
+        return false;
     } // end of the "self::queryAsControlUser()" function
 
     /**
@@ -709,34 +709,34 @@ class Relation
             if ($rows === 2) {
                 return true;
                 // try silent upgrade without disturbing the user
-            } else {
-                // read upgrade query file
-                $query = @file_get_contents(SQL_DIR . 'upgrade_column_info_4_3_0+.sql');
-                // replace database name from query to with set in config.inc.php
-                $query = str_replace(
-                    '`phpmyadmin`',
-                    Util::backquote($GLOBALS['cfg']['Server']['pmadb']),
-                    $query
-                );
-                // replace pma__column_info table name from query
-                // to with set in config.inc.php
-                $query = str_replace(
-                    '`pma__column_info`',
-                    Util::backquote(
-                        $GLOBALS['cfg']['Server']['column_info']
-                    ),
-                    $query
-                );
-                $GLOBALS['dbi']->tryMultiQuery($query, DatabaseInterface::CONNECT_CONTROL);
-                // skips result sets of query as we are not interested in it
-                while ($GLOBALS['dbi']->moreResults(DatabaseInterface::CONNECT_CONTROL)
-                    && $GLOBALS['dbi']->nextResult(DatabaseInterface::CONNECT_CONTROL)
-                ) {
-                }
-                $error = $GLOBALS['dbi']->getError(DatabaseInterface::CONNECT_CONTROL);
-                // return true if no error exists otherwise false
-                return empty($error);
             }
+
+            // read upgrade query file
+            $query = @file_get_contents(SQL_DIR . 'upgrade_column_info_4_3_0+.sql');
+            // replace database name from query to with set in config.inc.php
+            $query = str_replace(
+                '`phpmyadmin`',
+                Util::backquote($GLOBALS['cfg']['Server']['pmadb']),
+                $query
+            );
+            // replace pma__column_info table name from query
+            // to with set in config.inc.php
+            $query = str_replace(
+                '`pma__column_info`',
+                Util::backquote(
+                    $GLOBALS['cfg']['Server']['column_info']
+                ),
+                $query
+            );
+            $GLOBALS['dbi']->tryMultiQuery($query, DatabaseInterface::CONNECT_CONTROL);
+            // skips result sets of query as we are not interested in it
+            while ($GLOBALS['dbi']->moreResults(DatabaseInterface::CONNECT_CONTROL)
+                && $GLOBALS['dbi']->nextResult(DatabaseInterface::CONNECT_CONTROL)
+            ) {
+            }
+            $error = $GLOBALS['dbi']->getError(DatabaseInterface::CONNECT_CONTROL);
+            // return true if no error exists otherwise false
+            return empty($error);
         }
         // some failure, either in upgrading or something else
         // make some noise, time to wake up user.
@@ -1826,27 +1826,27 @@ class Relation
     {
         if (isset($foreigners[$column])) {
             return $foreigners[$column];
-        } else {
-            $foreigner = array();
-            foreach ($foreigners['foreign_keys_data'] as $one_key) {
-                $column_index = array_search($column, $one_key['index_list']);
-                if ($column_index !== false) {
-                    $foreigner['foreign_field']
-                        = $one_key['ref_index_list'][$column_index];
-                    $foreigner['foreign_db'] = isset($one_key['ref_db_name'])
-                        ? $one_key['ref_db_name']
-                        : $GLOBALS['db'];
-                    $foreigner['foreign_table'] = $one_key['ref_table_name'];
-                    $foreigner['constraint'] = $one_key['constraint'];
-                    $foreigner['on_update'] = isset($one_key['on_update'])
-                        ? $one_key['on_update']
-                        : 'RESTRICT';
-                    $foreigner['on_delete'] = isset($one_key['on_delete'])
-                        ? $one_key['on_delete']
-                        : 'RESTRICT';
+        }
 
-                    return $foreigner;
-                }
+        $foreigner = array();
+        foreach ($foreigners['foreign_keys_data'] as $one_key) {
+            $column_index = array_search($column, $one_key['index_list']);
+            if ($column_index !== false) {
+                $foreigner['foreign_field']
+                    = $one_key['ref_index_list'][$column_index];
+                $foreigner['foreign_db'] = isset($one_key['ref_db_name'])
+                    ? $one_key['ref_db_name']
+                    : $GLOBALS['db'];
+                $foreigner['foreign_table'] = $one_key['ref_table_name'];
+                $foreigner['constraint'] = $one_key['constraint'];
+                $foreigner['on_update'] = isset($one_key['on_update'])
+                    ? $one_key['on_update']
+                    : 'RESTRICT';
+                $foreigner['on_delete'] = isset($one_key['on_delete'])
+                    ? $one_key['on_delete']
+                    : 'RESTRICT';
+
+                return $foreigner;
             }
         }
 
@@ -2090,9 +2090,9 @@ class Relation
             || empty($GLOBALS['cfg']['Server']['export_templates'])
         ) {
             return false;
-        } else {
-            return true;
         }
+
+        return true;
     }
 
     /**

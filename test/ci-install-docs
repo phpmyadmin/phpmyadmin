@@ -1,5 +1,5 @@
 #!/bin/sh
 
-# We use 1.5 to be able to deal with gzip only sites in linkcheck (such as tcpdf.org)
+# Install deps for building documentation
 
-pip install --user 'Sphinx' 'requests[security]'
+pip install 'Sphinx'

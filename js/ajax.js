@@ -283,9 +283,14 @@ var AJAX = {
 
         var url = isLink ? href : $(this).attr('action');
         var params = 'ajax_request=true&ajax_page_request=true';
+        var dataPost = AJAX.source.attr('data-post');
         if (! isLink) {
             params += '&' + $(this).serialize();
-        } else if (AJAX.source.attr('data-post')) {
+        } else if (dataPost) {
+            // Strip possible leading ?
+            if (dataPost.startsWith('?')) {
+                dataPost = dataPost.substr(1);
+            }
             params += '&' + AJAX.source.attr('data-post');
             isLink = false;
         }
@@ -327,12 +332,7 @@ var AJAX = {
             if (typeof onsubmit !== 'function' || onsubmit.apply(this, [event])) {
                 AJAX.active = true;
                 AJAX.$msgbox = PMA_ajaxShowMessage();
-                var method = $(this).attr('method');
-                if (typeof method !== 'undefined' && method.toLowerCase() === 'post') {
-                    $.post(url, params, AJAX.responseHandler);
-                } else {
-                    $.get(url, params, AJAX.responseHandler);
-                }
+                $.post(url, params, AJAX.responseHandler);
             }
         }
     },

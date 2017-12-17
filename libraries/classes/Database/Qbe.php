@@ -1943,10 +1943,10 @@ class Qbe
             $candidate_columns = $where_clause_columns;
             $needsort = 0;
             return array($candidate_columns, $needsort);
-        } else {
-            $candidate_columns = $search_tables;
-            $needsort = 0;
-            return array($candidate_columns, $needsort);
         }
+
+        $candidate_columns = $search_tables;
+        $needsort = 0;
+        return array($candidate_columns, $needsort);
     }
 }

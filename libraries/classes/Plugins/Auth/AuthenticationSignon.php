@@ -192,11 +192,11 @@ class AuthenticationSignon extends AuthenticationPlugin
             unset($_SESSION['LAST_SIGNON_URL']);
 
             return false;
-        } else {
-            $_SESSION['LAST_SIGNON_URL'] = $GLOBALS['cfg']['Server']['SignonURL'];
-
-            return true;
         }
+
+        $_SESSION['LAST_SIGNON_URL'] = $GLOBALS['cfg']['Server']['SignonURL'];
+
+        return true;
     }
 
     /**

@@ -1,6 +1,6 @@
 <a href="#" id="printView">{{ Util_getIcon('b_print', 'Print'|trans, true) }}</a>
 {% if not tbl_is_view and not db_is_system_schema %}
-    <a href="sql.php{{ url_query|raw }}&amp;session_max_rows=all&amp;sql_query=
+    <a href="sql.php" data-post="{{ url_query|raw }}&amp;session_max_rows=all&amp;sql_query=
         {{- ('SELECT * FROM ' ~ Util_backquote(table) ~ ' PROCEDURE ANALYSE()')|url_encode -}}
         " style="margin-right: 0;">
         {{ Util_getIcon(

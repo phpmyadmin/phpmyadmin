@@ -295,8 +295,9 @@ class AuthenticationHttpTest extends PmaTestCase
             $GLOBALS['cfg']['Server']['password']
         );
 
-        $this->assertFalse(
-            isset($_SERVER['PHP_AUTH_PW'])
+        $this->assertArrayNotHasKey(
+            'PHP_AUTH_PW',
+            $_SERVER
         );
 
         $this->assertEquals(

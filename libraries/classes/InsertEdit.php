@@ -44,7 +44,7 @@ class InsertEdit
             'table'     => $table,
             'goto'      => $GLOBALS['goto'],
             'err_url'   => $err_url,
-            'sql_query' => $_REQUEST['sql_query'],
+            'sql_query' => $_POST['sql_query'],
         );
         if (isset($where_clauses)) {
             foreach ($where_clause_array as $key_id => $where_clause) {
@@ -204,8 +204,8 @@ class InsertEdit
                 $url_params['where_clause'] = trim($where_clause);
             }
         }
-        if (! empty($_REQUEST['sql_query'])) {
-            $url_params['sql_query'] = $_REQUEST['sql_query'];
+        if (! empty($_POST['sql_query'])) {
+            $url_params['sql_query'] = $_POST['sql_query'];
         }
         return $url_params;
     }
@@ -321,9 +321,9 @@ class InsertEdit
             return '<span style="border-bottom: 1px dashed black;" title="'
                 . htmlspecialchars($comments_map[$column['Field']]) . '">'
                 . $column['Field_html'] . '</span>';
-        } else {
-                return $column['Field_html'];
         }
+
+        return $column['Field_html'];
     }
 
      /**
@@ -1458,7 +1458,7 @@ class InsertEdit
             . '<input type="hidden" name="err_url"'
             . ' value="' . htmlspecialchars($err_url) . '" />'
             . '<input type="hidden" name="sql_query"'
-            . ' value="' . htmlspecialchars($_REQUEST['sql_query']) . '" />';
+            . ' value="' . htmlspecialchars($_POST['sql_query']) . '" />';
 
         if (isset($_REQUEST['where_clause'])) {
             foreach ($where_clause_array as $key_id => $where_clause) {
@@ -1871,8 +1871,6 @@ class InsertEdit
             $response = Response::getInstance();
             $header = $response->getHeader();
             $scripts = $header->getScripts();
-            $scripts->addFile('vendor/jquery/jquery-ui-timepicker-addon.js');
-            $scripts->addFile('vendor/jquery/jquery.validate.js');
             $scripts->addFile('vendor/jquery/additional-methods.js');
             $scripts->addFile('tbl_change.js');
             if (!defined('TESTSUITE')) {
@@ -1966,9 +1964,9 @@ class InsertEdit
     {
         if (isset($_REQUEST['err_url'])) {
             return $_REQUEST['err_url'];
-        } else {
-            return 'tbl_change.php' . Url::getCommon($url_params);
         }
+
+        return 'tbl_change.php' . Url::getCommon($url_params);
     }
 
     /**
@@ -2277,12 +2275,12 @@ class InsertEdit
             ) {
                 return $multi_edit_funcs[$key] . '(' . $current_value . ",'"
                     . $GLOBALS['dbi']->escapeString($multi_edit_salt[$key]) . "')";
-            } else {
-                return $multi_edit_funcs[$key] . '(' . $current_value . ')';
             }
-        } else {
-            return $multi_edit_funcs[$key] . '()';
+
+            return $multi_edit_funcs[$key] . '(' . $current_value . ')';
         }
+
+        return $multi_edit_funcs[$key] . '()';
     }
 
     /**
@@ -2626,7 +2624,7 @@ class InsertEdit
          */
         $url_params = array(
             'db' => $db,
-            'sql_query' => $_REQUEST['sql_query']
+            'sql_query' => $_POST['sql_query']
         );
 
         if (preg_match('@^tbl_@', $GLOBALS['goto'])) {

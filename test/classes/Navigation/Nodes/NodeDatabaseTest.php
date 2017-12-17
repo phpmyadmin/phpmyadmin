@@ -108,10 +108,7 @@ class NodeDatabaseTest extends PmaTestCase
             'testFunction',
             $functions
         );
-        $this->assertEquals(
-            1,
-            count($functions)
-        );
+        $this->assertCount(1, $functions);
 
         $this->assertEmpty($parent->getData('procedures', 0));
         $this->assertEmpty($parent->getData('events', 0));
