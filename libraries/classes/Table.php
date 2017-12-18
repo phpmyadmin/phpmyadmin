@@ -504,27 +504,26 @@ class Table
             }
         }
 
-        $matches = preg_match(
-            '@^(TINYTEXT|TEXT|MEDIUMTEXT|LONGTEXT|VARCHAR|CHAR|ENUM|SET)$@i',
-            $type
-        );
-        if (! empty($collation) && $collation != 'NULL' && $matches) {
-            $query .= Util::getCharsetQueryPart($collation, true);
-        }
-
         if ($virtuality) {
             $query .= ' AS (' . $expression . ') ' . $virtuality;
-        }
+        } else {
 
-        if ($null !== false) {
-            if ($null == 'NULL') {
-                $query .= ' NULL';
-            } else {
-                $query .= ' NOT NULL';
+            $matches = preg_match(
+                '@^(TINYTEXT|TEXT|MEDIUMTEXT|LONGTEXT|VARCHAR|CHAR|ENUM|SET)$@i',
+                $type
+            );
+            if (! empty($collation) && $collation != 'NULL' && $matches) {
+                $query .= Util::getCharsetQueryPart($collation, true);
             }
-        }
 
-        if (!$virtuality) {
+            if ($null !== false) {
+                if ($null == 'NULL') {
+                    $query .= ' NULL';
+                } else {
+                    $query .= ' NOT NULL';
+                }
+            }
+
             switch ($default_type) {
             case 'USER_DEFINED' :
                 if ($is_timestamp && $default_value === '0') {
@@ -575,16 +574,11 @@ class Table
             default :
                 break;
             }
-        }
 
-        if (!empty($extra)) {
-            if ($virtuality) {
-                $extra = preg_replace('~^\s*AUTO_INCREMENT\s*~is', '', $extra);
+            if (!empty($extra)) {
+                $query .= ' ' . $extra;
             }
-
-            $query .= ' ' . $extra;
         }
-
         if (!empty($comment)) {
             $query .= " COMMENT '" . $GLOBALS['dbi']->escapeString($comment) . "'";
         }
