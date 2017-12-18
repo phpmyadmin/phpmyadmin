@@ -6,6 +6,7 @@
  * @package    PhpMyAdmin-test
  * @subpackage Selenium
  */
+namespace PhpMyAdmin\Tests\Selenium;
 
 /**
  * Base class for Selenium tests.
@@ -14,7 +15,7 @@
  * @subpackage Selenium
  * @group      selenium
  */
-abstract class PMA_SeleniumBase extends PHPUnit_Extensions_Selenium2TestCase
+abstract class TestBase extends \PHPUnit_Extensions_Selenium2TestCase
 {
     /**
      * mysqli object
@@ -184,7 +185,7 @@ abstract class PMA_SeleniumBase extends PHPUnit_Extensions_Selenium2TestCase
 
         parent::setUp();
         $this->setBrowserUrl($GLOBALS['TESTSUITE_URL']);
-        $this->_mysqli = new mysqli(
+        $this->_mysqli = new \mysqli(
             $GLOBALS['TESTSUITE_SERVER'],
             $GLOBALS['TESTSUITE_USER'],
             $GLOBALS['TESTSUITE_PASSWORD']
@@ -394,7 +395,7 @@ abstract class PMA_SeleniumBase extends PHPUnit_Extensions_Selenium2TestCase
             return call_user_func_array(
                 array($this, $func), array($arg)
             );
-        } catch(Exception $e) {
+        } catch(\Exception $e) {
             // Element not present, fall back to waiting
         }
         $this->timeouts()->implicitWait(10000);
@@ -437,10 +438,10 @@ abstract class PMA_SeleniumBase extends PHPUnit_Extensions_Selenium2TestCase
             $element = call_user_func_array(
                 array($this, $func), array($arg)
             );
-        } catch (PHPUnit_Extensions_Selenium2TestCase_WebDriverException $e) {
+        } catch (\PHPUnit_Extensions_Selenium2TestCase_WebDriverException $e) {
             // Element not present
             return false;
-        } catch (InvalidArgumentException $e) {
+        } catch (\InvalidArgumentException $e) {
             // Element not present
             return false;
         }
@@ -577,7 +578,7 @@ abstract class PMA_SeleniumBase extends PHPUnit_Extensions_Selenium2TestCase
         $ele = null;
         try {
             $ele = $this->waitForElement('byCssSelector', 'li.submenu > a');
-        } catch (PHPUnit_Extensions_Selenium2TestCase_WebDriverException $e) {
+        } catch (\PHPUnit_Extensions_Selenium2TestCase_WebDriverException $e) {
             return;
         }
 

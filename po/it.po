@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.8.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2017-11-28 16:22+0100\n"
-"PO-Revision-Date: 2017-12-16 12:04+0000\n"
+"PO-Revision-Date: 2017-12-17 15:12+0000\n"
 "Last-Translator: Claudio Maradonna <claudio@unitoo.pw>\n"
 "Language-Team: Italian "
 "<https://hosted.weblate.org/projects/phpmyadmin/master/it/>\n"
@@ -15550,10 +15550,8 @@ msgid "Storage engines"
 msgstr "Motori di memorizzazione"
 
 #: templates/server/sub_page_header.twig:2
-#, fuzzy
-#| msgid "Character Sets and Collations"
 msgid "Character sets and collations"
-msgstr "Set di caratteri e confronti"
+msgstr "Set di caratteri e collations"
 
 #: templates/server/sub_page_header.twig:2
 msgid "Databases statistics"
@@ -16360,14 +16358,10 @@ msgid "select column"
 msgstr "seleziona il campo"
 
 #: templates/database/multi_table_query/form.twig:31
-#, fuzzy
-#| msgid "Tables"
 msgid "Table alias"
 msgstr "Alias di tabella"
 
 #: templates/database/multi_table_query/form.twig:32
-#, fuzzy
-#| msgid "Column names"
 msgid "Column alias"
 msgstr "Alias di colonna"
 

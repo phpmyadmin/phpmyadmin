@@ -7,16 +7,16 @@
  * @subpackage Selenium
  */
 
-require_once 'TestBase.php';
+namespace PhpMyAdmin\Tests\Selenium;
 
 /**
- * PmaSeleniumPrivilegesTest class
+ * PrivilegesTest class
  *
  * @package    PhpMyAdmin-test
  * @subpackage Selenium
  * @group      selenium
  */
-class PMA_SeleniumChangePasswordTest extends PMA_SeleniumBase
+class ChangePasswordTest extends TestBase
 {
     /**
      * Tests the changing of the password
@@ -38,19 +38,19 @@ class PMA_SeleniumChangePasswordTest extends PMA_SeleniumBase
         try {
             $ele = $this->waitForElement("byName", "pma_pw");
             $this->assertEquals("", $ele->value());
-        } catch (PHPUnit_Framework_AssertionFailedError $e) {
+        } catch (\PHPUnit_Framework_AssertionFailedError $e) {
             array_push($this->verificationErrors, $e->toString());
         }
         try {
             $ele = $this->waitForElement("byName", "pma_pw2");
             $this->assertEquals("", $ele->value());
-        } catch (PHPUnit_Framework_AssertionFailedError $e) {
+        } catch (\PHPUnit_Framework_AssertionFailedError $e) {
             array_push($this->verificationErrors, $e->toString());
         }
         try {
             $ele = $this->waitForElement("byName", "generated_pw");
             $this->assertEquals("", $ele->value());
-        } catch (PHPUnit_Framework_AssertionFailedError $e) {
+        } catch (\PHPUnit_Framework_AssertionFailedError $e) {
             array_push($this->verificationErrors, $e->toString());
         }
         $this->byId("button_generate_password")->click();

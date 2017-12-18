@@ -7,16 +7,16 @@
  * @subpackage Selenium
  */
 
-require_once 'TestBase.php';
+namespace PhpMyAdmin\Tests\Selenium;
 
 /**
- * PmaSeleniumDbEventsTest class
+ * DbEventsTest class
  *
  * @package    PhpMyAdmin-test
  * @subpackage Selenium
  * @group      selenium
  */
-class PMA_SeleniumDbEventsTest extends PMA_SeleniumBase
+class DbEventsTest extends TestBase
 {
     /**
      * Setup the browser environment to run the selenium test case

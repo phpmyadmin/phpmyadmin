@@ -7,16 +7,16 @@
  * @subpackage Selenium
  */
 
-require_once 'TestBase.php';
+namespace PhpMyAdmin\Tests\Selenium;
 
 /**
- * PmaSeleniumDbStructureTest class
+ * DbStructureTest class
  *
  * @package    PhpMyAdmin-test
  * @subpackage Selenium
  * @group      selenium
  */
-class PMA_SeleniumDbStructureTest extends PMA_SeleniumBase
+class DbStructureTest extends TestBase
 {
     /**
      * Setup the browser environment to run the selenium test case

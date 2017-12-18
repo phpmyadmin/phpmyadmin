@@ -7,16 +7,16 @@
  * @subpackage Selenium
  */
 
-require_once 'TestBase.php';
+namespace PhpMyAdmin\Tests\Selenium;
 
 /**
- * PmaSeleniumCreateDropDatabaseTest class
+ * CreateDropDatabaseTest class
  *
  * @package    PhpMyAdmin-test
  * @subpackage Selenium
  * @group      selenium
  */
-class PMA_SeleniumCreateDropDatabaseTest extends PMA_SeleniumBase
+class CreateDropDatabaseTest extends TestBase
 {
     /**
      * Setup the browser environment to run the selenium test case

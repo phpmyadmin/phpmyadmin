@@ -1,0 +1,63 @@
+<a id="db_search"></a>
+<form id="db_search_form" method="post" action="db_search.php" name="db_search" class="ajax lock-page">
+    {{ Url_getHiddenInputs(db) }}
+    <fieldset>
+        <legend>{% trans 'Search in database' %}</legend>
+        <p>
+            <label for="criteriaSearchString" class="displayblock">
+                {% trans 'Words or values to search for (wildcard: "%"):' %}
+            </label>
+            <input id="criteriaSearchString" name="criteriaSearchString" class="all85" type="text" value="
+                {{- criteria_search_string }}">
+        </p>
+
+        <fieldset>
+            <legend>{% trans 'Find:' %}</legend>
+            {# 4th parameter set to true to add line breaks #}
+            {# 5th parameter set to false to avoid htmlspecialchars() escaping
+            in the label since we have some HTML in some labels #}
+            {{ Util_getRadioFields(
+                'criteriaSearchType',
+                choices,
+                criteria_search_type,
+                true,
+                false
+            ) }}
+        </fieldset>
+
+        <fieldset>
+            <legend>{% trans 'Inside tables:' %}</legend>
+            <p>
+                <a href="#" onclick="setSelectOptions('db_search', 'criteriaTables[]', true); return false;">
+                    {% trans 'Select all' %}
+                </a> /
+                <a href="#" onclick="setSelectOptions('db_search', 'criteriaTables[]', false); return false;">
+                    {% trans 'Unselect all' %}
+                </a>
+            </p>
+            <select name="criteriaTables[]" multiple>
+                {% for each_table in tables_names_only %}
+                    <option value="{{ each_table }}"
+                        {{- each_table in criteria_tables ? ' selected' }}>
+                        {{ each_table }}
+                    </option>
+                {% endfor %}
+            </select>
+        </fieldset>
+
+        <p>
+            {# Inputbox for column name entry #}
+            <label for="criteriaColumnName" class="displayblock">
+                {% trans 'Inside column:' %}
+            </label>
+            <input id="criteriaColumnName" type="text" name="criteriaColumnName" class="all85" value="
+                {{- criteria_column_name is not empty ? criteria_column_name }}">
+        </p>
+    </fieldset>
+    <fieldset class="tblFooters">
+        <input type="submit" name="submit_search" value="{% trans 'Go' %}" id="buttonGo">
+    </fieldset>
+</form>
+<div id="togglesearchformdiv">
+    <a id="togglesearchformlink"></a>
+</div>

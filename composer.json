@@ -28,7 +28,8 @@
     },
     "autoload-dev": {
         "psr-4": {
-            "PhpMyAdmin\\Tests\\": "test/classes"
+            "PhpMyAdmin\\Tests\\": "test/classes",
+            "PhpMyAdmin\\Tests\\Selenium\\": "test/selenium/"
         }
     },
     "repositories": [

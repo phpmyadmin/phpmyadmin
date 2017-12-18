@@ -76,7 +76,7 @@ class SearchTest extends PmaTestCase
      *
      * @return the output from the protected method.
      */
-    private function _callProtectedFunction($name, $params)
+    private function callProtectedFunction($name, $params)
     {
         $class = new ReflectionClass(Search::class);
         $method = $class->getMethod($name);
@@ -97,8 +97,8 @@ class SearchTest extends PmaTestCase
         $this->object = new Search('pma_test');
         $this->assertEquals(
             $expected,
-            $this->_callProtectedFunction(
-                '_getWhereClause',
+            $this->callProtectedFunction(
+                'getWhereClause',
                 array('table1')
             )
         );
@@ -149,8 +149,8 @@ class SearchTest extends PmaTestCase
                     'WHERE FALSE',
                 'delete' => 'DELETE FROM `pma`.`table1` WHERE FALSE'
             ),
-            $this->_callProtectedFunction(
-                '_getSearchSqls',
+            $this->callProtectedFunction(
+                'getSearchSqls',
                 array('table1')
             )
         );
@@ -163,69 +163,9 @@ class SearchTest extends PmaTestCase
      */
     public function testGetSearchResults()
     {
-        $this->assertEquals(
-            '<br /><table class="data"><caption class="tblHeaders">Search results '
-            . 'for "<i></i>" :</caption></table>',
+        $this->assertContains(
+            'Search results for "<em></em>" :',
             $this->object->getSearchResults()
-        );
-    }
-
-    /**
-     * Test for _getResultsRow
-     *
-     * @param string $each_table    Tables on which search is to be performed
-     * @param array  $newsearchsqls Contains SQL queries
-     * @param string $output        Expected HTML output
-     *
-     * @return void
-     *
-     * @dataProvider providerForTestGetResultsRow
-     */
-    public function testGetResultsRow(
-        $each_table, $newsearchsqls, $output
-    ) {
-
-        $this->assertEquals(
-            $output,
-            $this->_callProtectedFunction(
-                '_getResultsRow',
-                array($each_table, $newsearchsqls, 2)
-            )
-        );
-    }
-
-    /**
-     * Data provider for testGetResultRow
-     *
-     * @return array provider for testGetResultsRow
-     */
-    public function providerForTestGetResultsRow()
-    {
-        return array(
-            array(
-                'table1',
-                array(
-                    'SELECT *  FROM `pma`.`table1` WHERE FALSE',
-                    'SELECT COUNT(*) AS `count` FROM `pma`.`table1` WHERE FALSE',
-                    'select_count' => 2,
-                    'select_columns' => 'column1',
-                    'delete' => 'column2'
-                ),
-                '<tr class="noclick"><td>2 matches in <strong>table1</strong>'
-                . '</td><td><a name="browse_search"  class="ajax browse_results" '
-                . 'href="sql.php?db=pma&amp;table'
-                . '=table1&amp;goto=db_sql.php&amp;pos=0&amp;is_js_confirmed=0&amp;'
-                . 'server=0&amp;lang=en" '
-                . 'data-browse-sql="column1" data-table-name="table1" '
-                . '>Browse</a></td><td>'
-                . '<a name="delete_search" class="ajax delete_results" href'
-                . '="sql.php?db=pma&amp;table=table1&amp;goto=db_sql.php&amp;pos=0'
-                . '&amp;is_js_confirmed=0&amp;server=0&amp;'
-                . 'lang=en" '
-                . 'data-delete-sql="column2" '
-                . 'data-table-name="table1" '
-                . '>Delete</a></td></tr>'
-            )
         );
     }
 
@@ -249,20 +189,29 @@ class SearchTest extends PmaTestCase
      */
     public function testGetResultDivs()
     {
-        $this->assertEquals(
-            '<!-- These two table-image and table-link elements display the '
-            . 'table name in browse search results  --><div id="table-info">'
-            . '<a class="item" id="table-link" ></a></div><div id="browse-results">'
-            . '<!-- this browse-results div is used to load the browse and delete '
-            . 'results in the db search --></div><br class="clearfloat" />'
-            . '<div id="sqlqueryform"><!-- this sqlqueryform div is used to load the'
-            . ' delete form in the db search --></div><!--  toggle query box link-->'
-            . '<a id="togglequerybox"></a>',
-            $this->_callProtectedFunction(
-                'getResultDivs',
-                array()
-            )
+        $actual = $this->callProtectedFunction(
+            'getResultDivs',
+            array()
+        );
+        $this->assertContains(
+            '<div id="table-info"',
+            $actual
+        );
+        $this->assertContains(
+            '<a id="table-link"',
+            $actual
+        );
+        $this->assertContains(
+            '<div id="browse-results"',
+            $actual
+        );
+        $this->assertContains(
+            '<div id="sqlqueryform"',
+            $actual
+        );
+        $this->assertContains(
+            '<a id="togglequerybox"',
+            $actual
         );
     }
-
 }

@@ -7,16 +7,16 @@
  * @subpackage Selenium
  */
 
-require_once 'TestBase.php';
+namespace PhpMyAdmin\Tests\Selenium;
 
 /**
- * PmaSeleniumTableBrowseTest class
+ * TableBrowseTest class
  *
  * @package    PhpMyAdmin-test
  * @subpackage Selenium
  * @group      selenium
  */
-class PMA_SeleniumTableBrowseTest extends PMA_SeleniumBase
+class TableBrowseTest extends TestBase
 {
     /**
      * Setup the browser environment to run the selenium test case
@@ -231,7 +231,7 @@ class PMA_SeleniumTableBrowseTest extends PMA_SeleniumBase
         $this->byCssSelector("textarea.edit_box")->clear();
         $this->byCssSelector("textarea.edit_box")->value("abcde");
 
-        $this->keys(PHPUnit_Extensions_Selenium2TestCase_Keys::RETURN_);
+        $this->keys(\PHPUnit_Extensions_Selenium2TestCase_Keys::RETURN_);
 
         $this->waitAjax();
         $success = $this->waitForElement(
