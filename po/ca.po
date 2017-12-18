@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.8.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2017-11-28 16:22+0100\n"
-"PO-Revision-Date: 2017-12-18 10:37+0000\n"
+"PO-Revision-Date: 2017-12-18 12:11+0000\n"
 "Last-Translator: Robert Antoni Buj Gelonch <robert.buj@gmail.com>\n"
 "Language-Team: Catalan "
 "<https://hosted.weblate.org/projects/phpmyadmin/master/ca/>\n"
@@ -299,7 +299,7 @@ msgstr "Selecciona-ho tot"
 
 #: db_operations.php:56 tbl_create.php:27
 msgid "The database name is empty!"
-msgstr "El nom de la base de dades és buit!"
+msgstr "El nom de la base de dades està en blanc!"
 
 #: db_operations.php:67
 msgid "Cannot copy database to the same name. Change the name and try again."
@@ -322,8 +322,8 @@ msgstr "S'ha copiat la base de dades %1$s a %2$s."
 msgid ""
 "The phpMyAdmin configuration storage has been deactivated. %sFind out why%s."
 msgstr ""
-"S'ha desactivat l'emmagatzemament de la configuració de phpMyAdmin. "
-"%sConsulta el motiu%s."
+"S'ha desactivat l'emmagatzematge de la configuració de phpMyAdmin. %"
+"sConsulteu el motiu%s."
 
 #: db_qbe.php:130
 msgid "You have to choose at least one column to display!"
@@ -717,7 +717,7 @@ msgstr "Extensió PHP:"
 
 #: index.php:395
 msgid "PHP version:"
-msgstr "versió de PHP:"
+msgstr "Versió de PHP:"
 
 #: index.php:406
 msgid "Show PHP information"
@@ -739,11 +739,11 @@ msgstr "Documentació"
 
 #: index.php:443
 msgid "Official Homepage"
-msgstr "Pàgina oficial del phpMyAdmin"
+msgstr "Pàgina oficial"
 
 #: index.php:450
 msgid "Contribute"
-msgstr "Contribueix"
+msgstr "Contribuir"
 
 #: index.php:457
 msgid "Get support"
@@ -816,11 +816,11 @@ msgid ""
 "once phpMyAdmin has been configured. Otherwise the security of your server "
 "may be compromised by unauthorized people downloading your configuration."
 msgstr ""
-"El directori [code]config[/code], que s'utilitza al procés de configuració, "
-"encara existeix dins del teu directori de phpMyAdmin. És molt recomanable "
-"esborrar-lo un cop has acabat de configurar phpMyAdmin. D'altra manera la "
-"seguretat del teu servidor pot estar compromesa per la descàrrega de la "
-"configuració per part de persones no autoritzades."
+"El directori [code]config[/code], que s'utilitza amb l'script de preparació, "
+"encara existeix dins del vostre directori de phpMyAdmin. És molt recomanable "
+"esborrar-lo un cop s'hagi configurat phpMyAdmin. Altrament la seguretat del "
+"vostre servidor pot estar compromesa per la baixada de la configuració per "
+"part de persones no autoritzades."
 
 #: index.php:592
 #, php-format
@@ -828,9 +828,9 @@ msgid ""
 "The phpMyAdmin configuration storage is not completely configured, some "
 "extended features have been deactivated. %sFind out why%s. "
 msgstr ""
-"La configuració d'emmagatzemament de la configuració de phpMyAdmin no està "
-"completa, s'han desactivat algunes característiques avançades. %sConsulta el "
-"motiu%s. "
+"La configuració de l'emmagatzematge de la configuració de phpMyAdmin no està "
+"completament configurada, s'han desactivat algunes característiques "
+"avançades. %sConsulteu el motiu%s. "
 
 #: index.php:599
 msgid ""
@@ -864,7 +864,7 @@ msgstr "Confirmar"
 #: js/messages.php:44
 #, php-format
 msgid "Do you really want to execute \"%s\"?"
-msgstr "Realment vols fer \"%s\"?"
+msgstr "Realment voleu executar \"%s\"?"
 
 #: js/messages.php:46 libraries/classes/MultSubmits.php:457
 msgid "You are about to DESTROY a complete database!"
@@ -923,12 +923,12 @@ msgstr "Aquesta operació pot ser bastant llarga. Procedim igualment?"
 #: js/messages.php:67
 #, php-format
 msgid "Do you really want to delete user group \"%s\"?"
-msgstr "Realment vols esborrar el grup d'usuaris \"%s\"?"
+msgstr "Realment voleu esborrar el grup d'usuaris \"%s\"?"
 
 #: js/messages.php:69
 #, php-format
 msgid "Do you really want to delete the search \"%s\"?"
-msgstr "Realment vols esborrar la cerca \"%s\"?"
+msgstr "Realment voleu esborrar la cerca \"%s\"?"
 
 #: js/messages.php:71
 msgid "You have unsaved changes; are you sure you want to leave this page?"
@@ -936,11 +936,11 @@ msgstr "Tens canvis no desats; estàs segur de sortir d'aquesta pàgina?"
 
 #: js/messages.php:73
 msgid "Do you really want to revoke the selected user(s) ?"
-msgstr "Realment vols revocar el(s) usuari(s) seleccionat(s)?"
+msgstr "Realment voleu revocar els usuaris seleccionats?"
 
 #: js/messages.php:75
 msgid "Do you really want to delete this central column?"
-msgstr "Realment vols esborrar aquesta columna central?"
+msgstr "Realment voleu esborrar aquesta columna central?"
 
 #: js/messages.php:77
 msgid "Do you really want to delete the selected items?"
@@ -960,11 +960,11 @@ msgstr "Realment voleu TRUNCAR les particions seleccionades?"
 
 #: js/messages.php:85
 msgid "Do you really want to remove partitioning?"
-msgstr "Realment vols eliminar el particionat?"
+msgstr "Realment voleu eliminar el particionat?"
 
 #: js/messages.php:86
 msgid "Do you really want to RESET SLAVE?"
-msgstr "Realment vols reiniciar l'esclau (SLAVE)?"
+msgstr "Realment voleu fer un RESET SLAVE?"
 
 #: js/messages.php:88
 msgid ""
@@ -1022,11 +1022,11 @@ msgstr "Desa i tanca"
 #: prefs_manage.php:360 prefs_manage.php:371
 #: templates/config/form_display/fieldset_bottom.twig:9
 msgid "Reset"
-msgstr "Reinicia"
+msgstr "Restableix"
 
 #: js/messages.php:113
 msgid "Reset all"
-msgstr "Reinicia tot"
+msgstr "Restableix-ho tot"
 
 #: js/messages.php:116
 msgid "Missing value in the form!"
@@ -1310,7 +1310,7 @@ msgstr "Consultes"
 
 #: js/messages.php:210 libraries/classes/Server/Status.php:151
 msgid "Traffic"
-msgstr "Tràfic"
+msgstr "Trànsit"
 
 #: js/messages.php:211 libraries/classes/Menu.php:612
 #: libraries/classes/Server/Status/Monitor.php:264
@@ -1402,8 +1402,8 @@ msgid ""
 "Following settings will be applied globally and reset to default on server "
 "restart:"
 msgstr ""
-"Les següents configuracions s'aplicaràn globalment i tornaràn als seus "
-"valors predeterminats en reiniciar el servidor:"
+"Els paràmetres següents s'aplicaràn globalment i tornaràn als seus valors "
+"predeterminats en reiniciar el servidor:"
 
 #. l10n: %s is FILE or TABLE
 #: js/messages.php:239
@@ -2167,11 +2167,11 @@ msgstr "Situant el cursor sobre un punt es mostrarà la seva etiqueta."
 
 #: js/messages.php:499
 msgid "To zoom in, select a section of the plot with the mouse."
-msgstr "Per acostar, selecciona una secció del gràfic amb el ratolí."
+msgstr "Per augmentar el zoom, seleccioneu una secció del gràfic amb el ratolí."
 
 #: js/messages.php:501
 msgid "Click reset zoom button to come back to original state."
-msgstr "Feu clic al botó de restaurar ampliació per tornar a l'estat original."
+msgstr "Feu clic al botó de restablir el zoom per tornar a l'estat original."
 
 #: js/messages.php:503
 msgid "Click a data point to view and possibly edit the data row."
@@ -2232,7 +2232,7 @@ msgstr "Cercle exterior"
 
 #: js/messages.php:529
 msgid "Do you want to copy encryption key?"
-msgstr "Vols copiar la clau de xifratge?"
+msgstr "Voleu copiar la clau de xifratge?"
 
 #: js/messages.php:530
 msgid "Encryption key"
@@ -2284,7 +2284,7 @@ msgid ""
 "You haven't saved the changes in the layout. They will be lost if you don't "
 "save them. Do you want to continue?"
 msgstr ""
-"No has desat els canvis en el disseny. Es perdran si no els deses. Vols "
+"No heu desat els canvis en el disseny. Es perdran si no els deseu. Voleu "
 "continuar?"
 
 #: js/messages.php:560 templates/database/designer/side_menu.twig:34
@@ -2329,7 +2329,7 @@ msgstr "Entra un nom de pàgina vàlid"
 
 #: js/messages.php:570
 msgid "Do you want to save the changes to the current page?"
-msgstr "Vols desar els canvis a la pàgina actual?"
+msgstr "Voleu desar els canvis a la pàgina actual?"
 
 #: js/messages.php:571
 msgid "Successfully deleted the page"
@@ -2366,8 +2366,8 @@ msgid ""
 "You have edited some data and they have not been saved. Are you sure you "
 "want to leave this page before saving the data?"
 msgstr ""
-"Has editat algunes dades i no s'han desat. Estàs segur que vols sortir "
-"d'aquesta pàgina per desar les dades?"
+"Heu editat algunes dades i no s'han desat. Esteu segur que voleu abandonar "
+"aquesta pàgina abans de desar les dades?"
 
 #: js/messages.php:586
 msgid "Drag to reorder."
@@ -2429,7 +2429,7 @@ msgid ""
 "Do you really want to see all of the rows? For a big table this could crash "
 "the browser."
 msgstr ""
-"De veritat vols veure totes les files? Una taula gran pot fer fallar el "
+"Realment voleu veure totes les files? Una taula gran pot fer fallar el "
 "navegador."
 
 #: js/messages.php:609
@@ -2563,7 +2563,7 @@ msgid ""
 "A fatal JavaScript error has occurred. Would you like to send an error "
 "report?"
 msgstr ""
-"S'ha produït un error fatal de JavaScript. Vols enviar un informe d'errors?"
+"S'ha produït un error fatal de JavaScript. Voleu enviar un informe d'errors?"
 
 #: js/messages.php:680
 msgid "Change report settings"
@@ -2614,7 +2614,7 @@ msgstr "Executar aquesta consulta de nou?"
 
 #: js/messages.php:722
 msgid "Do you really want to delete this bookmark?"
-msgstr "Realment vols esborrar aquesta marca?"
+msgstr "Realment voleu esborrar aquesta marcador?"
 
 #: js/messages.php:724
 msgid "Some error occurred while getting SQL debug info."
@@ -3946,7 +3946,7 @@ msgstr "Usar l'instrucció %s"
 
 #: libraries/classes/Config/Descriptions.php:254 prefs_manage.php:312
 msgid "Save as file"
-msgstr "Desa com a arxiu"
+msgstr "Desa com un fitxer"
 
 #: libraries/classes/Config/Descriptions.php:256
 #: libraries/classes/Config/Descriptions.php:629
@@ -4126,7 +4126,7 @@ msgstr "Usa -backquotes- amb noms de taules i columnes"
 #: libraries/classes/Config/Descriptions.php:678
 #: libraries/classes/Display/Export.php:412
 msgid "SQL compatibility mode"
-msgstr "Modus de compatibilitat SQL"
+msgstr "Mode de compatibilitat SQL"
 
 #: libraries/classes/Config/Descriptions.php:360
 msgid "Creation/Update/Check dates"
@@ -4511,7 +4511,7 @@ msgstr "Pestanyes"
 
 #: libraries/classes/Config/Descriptions.php:579
 msgid "Choose how you want tabs to work."
-msgstr "Tria cóm vols que treballin les pestanyes."
+msgstr "Trieu cóm voleu que treballin les pestanyes."
 
 #: libraries/classes/Config/Descriptions.php:581
 msgid "Display relational schema"
@@ -4654,7 +4654,7 @@ msgstr "Importació parcial: saltar consultes"
 
 #: libraries/classes/Config/Descriptions.php:680
 msgid "Do not use AUTO_INCREMENT for zero values"
-msgstr "No feu servir AUTO_INCREMENT per a valors zero"
+msgstr "No utilitzis AUTO_INCREMENT per als valors zero"
 
 #: libraries/classes/Config/Descriptions.php:682
 msgid "Read as multibytes"
@@ -4980,8 +4980,7 @@ msgstr "Mostrar funcions en arbre"
 
 #: libraries/classes/Config/Descriptions.php:847
 msgid "Whether to show functions under database in the navigation tree"
-msgstr ""
-"Si vols mostrar les funcions sota la base de dades a l'arbre de navegació"
+msgstr "Si es mostren les funcions sota la base de dades a l'arbre de navegació"
 
 #: libraries/classes/Config/Descriptions.php:849
 msgid "Show procedures in tree"
@@ -5015,7 +5014,7 @@ msgstr "Taules usades recentment"
 #: libraries/classes/Config/Descriptions.php:863
 #: libraries/classes/RecentFavoriteTable.php:255
 msgid "Favorite tables"
-msgstr "Taules favorites"
+msgstr "Taules preferides"
 
 #: libraries/classes/Config/Descriptions.php:865
 msgid "These are Edit, Copy and Delete links."
@@ -5135,10 +5134,10 @@ msgid ""
 "storage). If disabled, this utilizes JS-routines to display query history "
 "(lost by window close)."
 msgstr ""
-"Activa si vols tenir un historial de consultes basat en BD (requireix "
-"l'infraestructura de taules enllaçades de phpMyAdmin). Si es desactiva, es "
-"fan servir rutines JS per mostrar l'historial de consultes (es perd al "
-"tancar la finestra)."
+"Habiliteu-ho si voleu tenir un historial de consultes basat en BD (requereix "
+"l'emmagatzematge de la configuració de phpMyAdmin). Si s'inhabilita, "
+"s'utilitzen rutines JS per mostrar l'historial de consultes (es perd amb el "
+"tancament de la finestra)."
 
 #: libraries/classes/Config/Descriptions.php:933
 msgid "Permanent query history"
@@ -5877,7 +5876,7 @@ msgstr ""
 #: libraries/classes/Config/Descriptions.php:1319
 #: libraries/classes/SqlQueryForm.php:356
 msgid "Retain query box"
-msgstr "Mantenir el quadre de consultes"
+msgstr "Mantén el quadre de consultes"
 
 #: libraries/classes/Config/Descriptions.php:1321
 msgid "Allow to display database and table statistics (eg. space usage)."
@@ -6175,8 +6174,9 @@ msgid ""
 "Enable Zero Configuration mode which lets you setup phpMyAdmin configuration "
 "storage tables automatically."
 msgstr ""
-"Activar el mode de «Configuració Zero» que et permet definir les taules "
-"d'emmagatzemament de configuració de phpMyAdmin automàticament."
+"Habilita el mode de «Zero Configuration» que us permet preparar "
+"automàticament les taules de l'emmagatzematge de la configuració de "
+"phpMyAdmin."
 
 #: libraries/classes/Config/Descriptions.php:1464
 msgid "Enable Zero Configuration mode"
@@ -6596,8 +6596,8 @@ msgstr "Adreça IP incorrecta: %s"
 #, php-format
 msgid "Showing %1$d bookmark (both private and shared)"
 msgid_plural "Showing %1$d bookmarks (both private and shared)"
-msgstr[0] "Mostrant %1$d favorit (privat i compartit)"
-msgstr[1] "Mostrant %1$d favorits (privats i compartits)"
+msgstr[0] "Es mostra %1$d marcador (privat i compartit)"
+msgstr[1] "Es mostren %1$d marcadors (privats i compartits)"
 
 #: libraries/classes/Console.php:94
 msgid "No bookmarks"
@@ -6791,7 +6791,7 @@ msgstr "Columna de visualització actualitzada correctament."
 #: libraries/classes/SqlQueryForm.php:93 tbl_row_action.php:142
 #: view_operations.php:67
 msgid "Your SQL query has been executed successfully."
-msgstr "La vostra comanda SQL ha estat executada amb èxit."
+msgstr "La vostra consulta SQL ha estat executada amb èxit."
 
 #: libraries/classes/Controllers/Table/TableRelationController.php:294
 msgid "Internal relationships were successfully updated."
@@ -7426,7 +7426,7 @@ msgstr "Reanomenar les bases de dades/taules/columnes exportades"
 
 #: libraries/classes/Display/Export.php:823
 msgid "Save output to a file"
-msgstr "Desa la sortida com a arxiu"
+msgstr "Desa la sortida a un fitxer"
 
 #: libraries/classes/Display/Export.php:856
 msgid "Skip tables larger than"
@@ -7561,7 +7561,7 @@ msgstr "%d total"
 #: libraries/classes/Display/Results.php:4575 libraries/classes/Sql.php:1410
 #, php-format
 msgid "Query took %01.4f seconds."
-msgstr "La consulta tarda %01.4f segons."
+msgstr "La consulta ha trigat %01.4f segons."
 
 #: libraries/classes/Display/Results.php:4674
 #: libraries/classes/Display/Results.php:4681 libraries/mult_submits.inc.php:53
@@ -8082,7 +8082,7 @@ msgstr "A partir d'aquest punt és necessari tenir el javascript activat!"
 #: libraries/classes/Rte/Routines.php:1483 libraries/classes/Sql.php:1404
 #: tbl_get_field.php:50
 msgid "MySQL returned an empty result set (i.e. zero rows)."
-msgstr "MySQL ha retornat un conjunt buit (p.e. cap fila)."
+msgstr "MySQL ha retornat un conjunt buit (p. ex. cap fila)."
 
 #: libraries/classes/Import.php:290 libraries/classes/Sql.php:1418
 msgid "[ROLLBACK occurred.]"
@@ -8173,8 +8173,8 @@ msgid ""
 "Only INSERT, UPDATE, DELETE and REPLACE SQL queries containing transactional "
 "engine tables can be rolled back."
 msgstr ""
-"Només es poden desfer (-rollback-) consultes SQL INSERT, UPDATE, DELETE i "
-"REPLACE que continguin taules de motors transaccionals."
+"Només es poden desfer les consultes SQL INSERT, UPDATE, DELETE i REPLACE que "
+"continguin taules de motors transaccionals."
 
 #: libraries/classes/Index.php:658
 #, php-format
@@ -8559,7 +8559,7 @@ msgstr "Afegir prefix"
 
 #: libraries/classes/MultSubmits.php:459
 msgid "Do you really want to execute the following query?"
-msgstr "Realment vols executar la següent consulta?"
+msgstr "Realment voleu executar la següent consulta?"
 
 #: libraries/classes/Navigation/Navigation.php:56
 msgid "An error has occurred while loading the navigation display"
@@ -9038,7 +9038,7 @@ msgstr "Millorar l'estructura de taula (Normalització):"
 
 #: libraries/classes/Normalization.php:831
 msgid "Select up to what step you want to normalize"
-msgstr "Selecciona fins a quin pas vols normalitzar"
+msgstr "Seleccioneu fins a quin pas voleu normalitzar"
 
 #: libraries/classes/Normalization.php:835
 msgid "Second step of normalization (1NF+2NF)"
@@ -9328,8 +9328,8 @@ msgid ""
 "You probably did not create a configuration file. You might want to use the "
 "%1$ssetup script%2$s to create one."
 msgstr ""
-"La raó més probable d'aixó és que no heu creat l'arxiu de configuració. "
-"Podreu voler utilitzar %1$ssetup script%2$s per crear-ne un."
+"Probablement no heu creat el fitxer de configuració. Potser voleu utilitzar "
+"%1$ssetup script%2$s per crear-ne un."
 
 #: libraries/classes/Plugins/Auth/AuthenticationConfig.php:125
 msgid ""
@@ -10044,11 +10044,11 @@ msgstr "L'arxiu importat no té dades!"
 
 #: libraries/classes/Plugins/Import/ImportSql.php:68
 msgid "SQL compatibility mode:"
-msgstr "Modus de compatibilitat SQL:"
+msgstr "Mode de compatibilitat SQL:"
 
 #: libraries/classes/Plugins/Import/ImportSql.php:80
 msgid "Do not use <code>AUTO_INCREMENT</code> for zero values"
-msgstr "No feu servir <code>AUTO_INCREMENT</code> per a valors zero"
+msgstr "No utilitzis <code>AUTO_INCREMENT</code> per als valors zero"
 
 #: libraries/classes/Plugins/Import/ImportXml.php:45
 msgid "XML"
@@ -10349,8 +10349,9 @@ msgid ""
 "prefix like \"https://www.example.com/\". The second option is a title for "
 "the link."
 msgstr ""
-"Mostra un enllaç; el camp conté el nom de l'arxiu. La primera opció és un "
-"prefixe com \"https://domini.com/\". La segona opció és el títol del enllaç."
+"Mostra un enllaç; el camp conté el nom de fitxer. La primera opció és un "
+"prefixe URL com ara \"https://domini.com/\". La segona opció és el títol per "
+"a l'enllaç."
 
 #: libraries/classes/Plugins/Transformations/Input/Text_Plain_Iptobinary.php:30
 msgid "Converts an Internet network address in (IPv4/IPv6) format to binary"
@@ -10486,12 +10487,12 @@ msgstr "No es pot desar la taula recent!"
 
 #: libraries/classes/RecentFavoriteTable.php:143
 msgid "Could not save favorite table!"
-msgstr "No es pot desar la taula favorita!"
+msgstr "No s'ha pogut desar la taula preferida!"
 
 #: libraries/classes/RecentFavoriteTable.php:213
 #: templates/database/structure/favorite_anchor.twig:4
 msgid "Remove from Favorites"
-msgstr "Eliminar de favorits"
+msgstr "Suprimeix dels preferits"
 
 #: libraries/classes/RecentFavoriteTable.php:235
 msgid "There are no recent tables."
@@ -10499,7 +10500,7 @@ msgstr "No hi ha taules recents."
 
 #: libraries/classes/RecentFavoriteTable.php:236
 msgid "There are no favorite tables."
-msgstr "No hi ha taules favorites."
+msgstr "No hi ha taules preferides."
 
 #: libraries/classes/RecentFavoriteTable.php:251
 msgid "Recent tables"
@@ -10511,7 +10512,7 @@ msgstr "Recent"
 
 #: libraries/classes/RecentFavoriteTable.php:257
 msgid "Favorites"
-msgstr "Favorites"
+msgstr "Preferides"
 
 #: libraries/classes/Relation.php:105
 msgid "not OK"
@@ -10568,7 +10569,7 @@ msgstr "Taules persistents usades recentment"
 
 #: libraries/classes/Relation.php:257
 msgid "Persistent favorite tables"
-msgstr "Taules persistents favorites"
+msgstr "Taules persistents preferides"
 
 #: libraries/classes/Relation.php:268
 msgid "Persistent tables' UI preferences"
@@ -10649,8 +10650,8 @@ msgid ""
 "%sCreate%s a database named 'phpmyadmin' and setup the phpMyAdmin "
 "configuration storage there."
 msgstr ""
-"%sCrea%s una base de dades de nom 'phpmyadmin' i estableix la configuració "
-"d'enmagatzemament de phpMyAdmin aqui."
+"%sCrea%s una base de dades anomenada 'phpmyadmin' i hi prepara "
+"l'emmagatzematge de la configuració de phpMyAdmin."
 
 #: libraries/classes/Relation.php:2018
 #, php-format
@@ -10728,8 +10729,8 @@ msgid ""
 "Now, add the following lines at the end of [mysqld] section in your my.cnf "
 "and please restart the MySQL server afterwards."
 msgstr ""
-"Ara, afegeix les següents línies al final de la secció [mysqld] del teu "
-"arxiu -my.cnf- i després reinicia el servidor MySQL."
+"Ara, afegiu les següents línies al final de la secció [mysqld] del vostre "
+"my.cnf i després reinicieu el servidor MySQL."
 
 #: libraries/classes/ReplicationGui.php:126
 msgid ""
@@ -10781,7 +10782,7 @@ msgstr "Parada total"
 
 #: libraries/classes/ReplicationGui.php:266
 msgid "Reset slave"
-msgstr "Reinicia l'esclau"
+msgstr "Restableix l'esclau"
 
 #: libraries/classes/ReplicationGui.php:269
 msgid "Start SQL Thread only"
@@ -10811,7 +10812,7 @@ msgid ""
 "like to <a href=\"%s\">configure</a> it?"
 msgstr ""
 "Aquest servidor no està configurat com a esclau en un procés de replicació. "
-"Vols <a href=\"%s\">configurar-lo</a> ?"
+"Voleu <a href=\"%s\">configurar-lo</a> ?"
 
 #: libraries/classes/ReplicationGui.php:321
 msgid "Error management:"
@@ -10839,7 +10840,7 @@ msgid ""
 "like to <a href=\"%s\">configure</a> it?"
 msgstr ""
 "Aquest servidor no està configurat com a mestre en un procés de replicació. "
-"Vols <a href=\"%s\">configurar-lo</a> ?"
+"Voleu <a href=\"%s\">configurar-lo</a> ?"
 
 #: libraries/classes/ReplicationGui.php:414
 msgid "Slave configuration"
@@ -10987,11 +10988,11 @@ msgstr "Error en detenir la replicació."
 
 #: libraries/classes/ReplicationGui.php:935
 msgid "Replication resetting successfully."
-msgstr "Replicació reiniciada correctament."
+msgstr "Replicació restablerta correctament."
 
 #: libraries/classes/ReplicationGui.php:936
 msgid "Error resetting replication."
-msgstr "Error en reiniciar la replicació."
+msgstr "Error en restablir la replicació."
 
 #: libraries/classes/ReplicationGui.php:939
 msgid "Success."
@@ -12065,7 +12066,7 @@ msgstr "Servidor actual:"
 #: libraries/classes/Server/Status.php:68
 #, php-format
 msgid "Network traffic since startup: %s"
-msgstr "tràfic de xarxa des de l'inici: %s"
+msgstr "Trànsit de xarxa des de l'inici: %s"
 
 #: libraries/classes/Server/Status.php:81
 #, php-format
@@ -12149,10 +12150,9 @@ msgid ""
 "changing (by reading the documentation) and how to undo the change. Wrong "
 "tuning can have a very negative effect on performance."
 msgstr ""
-"Abans de canviar qualsevol configuració, assegura't de saber què estàs "
-"canviant (mitjançant la lectura de la documentació) i cóm desfer el canvi. "
-"Establir ajustaments incorrectes pot tenir un efecte molt negatiu en el "
-"rendiment."
+"Abans de canviar qualsevol configuració, assegureu-vos que sabeu què esteu "
+"canviant (amb la lectura de la documentació) i cóm desfer el canvi. Establir "
+"ajustaments incorrectes pot tenir un efecte molt negatiu en el rendiment."
 
 #: libraries/classes/Server/Status/Advisor.php:56
 msgid ""
@@ -12161,8 +12161,8 @@ msgid ""
 "no clearly measurable improvement."
 msgstr ""
 "La millor manera d'ajustar el sistema seria canviar només una configuració "
-"al mateix temps, observar o mesurar la teva base de dades, i desfer el canvi "
-"si no hi ha una millora clarament mesurable."
+"al mateix temps, observar o mesurar la vostra base de dades, i desfer el "
+"canvi si no hi ha una millora significativa."
 
 #: libraries/classes/Server/Status/Data.php:115
 #: libraries/classes/Server/Status/Processes.php:109
@@ -12279,7 +12279,7 @@ msgstr ""
 
 #: libraries/classes/Server/Status/Monitor.php:92
 msgid "Choose from which log you want the statistics to be generated from."
-msgstr "Tria de quin registre vols que es generin les estadístiques."
+msgstr "Trieu de quin registre voleu que es generin les estadístiques."
 
 #: libraries/classes/Server/Status/Monitor.php:96
 msgid "Results are grouped by query text."
@@ -12411,7 +12411,7 @@ msgstr "Començar monitorització"
 
 #: libraries/classes/Server/Status/Monitor.php:267
 msgid "Instructions/Setup"
-msgstr "Instruccions/configuració"
+msgstr "Instruccions/preparació"
 
 #: libraries/classes/Server/Status/Monitor.php:270
 msgid "Done dragging (rearranging) charts"
@@ -12451,8 +12451,8 @@ msgid ""
 "Note: Enabling the auto refresh here might cause heavy traffic between the "
 "web server and the MySQL server."
 msgstr ""
-"Nota: Activant el refresc automàtic aqui pot provocar elevat tràfic entre el "
-"servidor web i el de MySQL."
+"Nota: L'habilitació aquí del refresc automàtic, pot provocar un trànsit "
+"elevat entre el servidor web i el servidor MySQL."
 
 #: libraries/classes/Server/Status/Processes.php:77
 msgid "ID"
@@ -12504,7 +12504,7 @@ msgstr "#"
 
 #: libraries/classes/Server/Status/Variables.php:52 templates/filter.twig:4
 msgid "Containing the word:"
-msgstr "Incloent la paraula:"
+msgstr "Que continguin la paraula:"
 
 #: libraries/classes/Server/Status/Variables.php:60
 msgid "Show only alert values"
@@ -13102,9 +13102,9 @@ msgid ""
 "The number of joins without keys that check for key usage after each row. "
 "(If this is not 0, you should carefully check the indexes of your tables.)"
 msgstr ""
-"El nombre de joins sense claus que comproven per l'ús de claus després de "
-"cada fila. (Si aquiest valor no és 0, s'haurien de comprovar acuradament els "
-"indexs de les taules.)"
+"El nombre d'unions sense claus que es comproven per a l'ús de claus després "
+"de cada fila. (Si aquest valor no és 0, haureu de comprovar acuradament els "
+"índexs de les vostres taules.)"
 
 #: libraries/classes/Server/Status/Variables.php:703
 msgid ""
@@ -13372,12 +13372,12 @@ msgstr "Executar consulta/es SQL al servidor \"%s\""
 #: libraries/classes/SqlQueryForm.php:157
 #, php-format
 msgid "Run SQL query/queries on database %s"
-msgstr "Executa consulta/s SQL a la Base de Dades %s"
+msgstr "Executa la consulta o les consultes SQL a la base de dades %s"
 
 #: libraries/classes/SqlQueryForm.php:178
 #, php-format
 msgid "Run SQL query/queries on table %s"
-msgstr "Executa consulta/s SQL a la taula %s"
+msgstr "Executa la consulta o les consultes SQL a la taula %s"
 
 #: libraries/classes/SqlQueryForm.php:248 setup/frames/index.inc.php:254
 #: templates/console/display.twig:7
@@ -13410,7 +13410,7 @@ msgstr "Mostra aquesta consulta de nou"
 
 #: libraries/classes/SqlQueryForm.php:363
 msgid "Rollback when finished"
-msgstr "Desfer (-rollback-) al acabar"
+msgstr "Desfés quan hagi finalitzat"
 
 #: libraries/classes/SqlQueryForm.php:410
 msgid "shared"
@@ -14406,7 +14406,7 @@ msgstr "Importa de l'emmagatzematge del navegador"
 #: prefs_manage.php:250
 msgid "Settings will be imported from your browser's local storage."
 msgstr ""
-"Els paràmetres s'importaran des del emmagatzemament local del teu navegador."
+"Els paràmetres s'importaran de l'emmagatzematge local del vostre navegador."
 
 #: prefs_manage.php:256
 msgid "You have no saved settings!"
@@ -14426,20 +14426,21 @@ msgid ""
 "You can set more settings by modifying config.inc.php, eg. by using %sSetup "
 "script%s."
 msgstr ""
-"Pots establir més paràmetres modificant l'arxiu config.inc.php, ex. by usant "
-"%sSetup script%s."
+"Podeu establir més paràmetres amb la modificació del fitxer config.inc.php, "
+"p. ex. mitjançant %sSetup script%s."
 
 #: prefs_manage.php:317
 msgid "Save as PHP file"
-msgstr "Desa com a arxiu PHP"
+msgstr "Desa com un fitxer PHP"
 
 #: prefs_manage.php:322
 msgid "Save to browser's storage"
-msgstr "Desar a l'emmagatzemament del navegador"
+msgstr "Desa a l'emmagatzematge del navegador"
 
 #: prefs_manage.php:329
 msgid "Settings will be saved in your browser's local storage."
-msgstr "Els paràmetres es desaran al emmagatzemament local del teu navegador."
+msgstr ""
+"Els paràmetres es desaran a l'emmagatzematge local del vostre navegador."
 
 #: prefs_manage.php:337
 msgid "Existing settings will be overwritten!"
@@ -14481,8 +14482,8 @@ msgid ""
 "Username and hostname didn't change. If you only want to change the "
 "password, 'Change password' tab should be used."
 msgstr ""
-"No es poden canviar ni el nom d'usuari ni el del servidor. Si només vols "
-"canviar la contrasenya, has de fer servir la pestanya 'Canviar contrasenya'."
+"No es poden canviar ni el nom d'usuari ni el del servidor. Si només voleu "
+"canviar la contrasenya, heu de fer servir la pestanya 'Canviar contrasenya'."
 
 #: server_status.php:35
 msgid "Not enough privilege to view server status."
@@ -14810,7 +14811,7 @@ msgstr "Mostra/Amaga la llista de taules"
 #: templates/database/designer/side_menu.twig:29
 #: templates/database/designer/side_menu.twig:30
 msgid "View in fullscreen"
-msgstr "Veure a pantalla completa"
+msgstr "Mostra a pantalla completa"
 
 #: templates/database/designer/side_menu.twig:28
 msgid "Exit fullscreen"
@@ -15101,7 +15102,7 @@ msgstr "Cóm utilitzar"
 
 #: templates/table/search/zoom_result_form.twig:23
 msgid "Reset zoom"
-msgstr "Reinicia l'ampliació"
+msgstr "Restableix el zoom"
 
 #: templates/login/twofactor/application.twig:2
 #: templates/login/twofactor/application_configure.twig:9
@@ -15375,7 +15376,7 @@ msgstr ""
 
 #: templates/table/structure/display_table_stats.twig:14
 msgid "Space usage"
-msgstr "Utilització d'espai"
+msgstr "Utilització de l'espai"
 
 #: templates/table/structure/display_table_stats.twig:37
 msgid "Effective"
@@ -15634,7 +15635,7 @@ msgstr ""
 #: templates/display/import/partial_import_option.twig:22
 msgid "Skip this number of queries (for SQL) starting from the first one:"
 msgstr ""
-"Saltar aquesta quantitat de consultes (en SQL) contant des de la primera:"
+"Omet aquest nombre de consultes (per a SQL) començant a partir de la primera:"
 
 #: templates/table/structure/row_stats_table.twig:2
 msgid "Row statistics"
@@ -15673,8 +15674,8 @@ msgid ""
 "Your browser has phpMyAdmin configuration for this domain. Would you like to "
 "import it for current session?"
 msgstr ""
-"El teu navegador té la configuració de phpMyAdmin per a aquest domini. Vols "
-"importar-ho per a la sessió actual?"
+"El vostre navegador té la configuració de phpMyAdmin per a aquest domini. "
+"Voleu importar-ho per a la sessió actual?"
 
 #: templates/prefs_autoload.twig:13
 msgid "Delete settings"
@@ -16117,15 +16118,15 @@ msgstr "Suma"
 #: templates/server/databases/create.twig:8
 #: templates/server/databases/create.twig:36
 msgid "Create database"
-msgstr "Crear base de dades"
+msgstr "Creació de base de dades"
 
 #: templates/server/databases/databases_footer.twig:65
 msgid ""
 "Note: Enabling the database statistics here might cause heavy traffic "
 "between the web server and the MySQL server."
 msgstr ""
-"Nota: Activant les estadístiques de Base de Dades aqui pot provocar elevat "
-"tràfic entre el servidor Web i el de MySQL."
+"Nota: L'habilitació aquí de les estadístiques de les bases de dades, pot "
+"provocar un trànsit elevat entre el servidor Web i el servidor MySQL."
 
 #: templates/server/databases/databases_footer.twig:68
 #: templates/server/databases/databases_footer.twig:71
@@ -16297,7 +16298,7 @@ msgstr "Opcions de transformació d'entrada"
 
 #: templates/table/structure/display_partitions.twig:8
 msgid "No partitioning defined!"
-msgstr "No s'ha definit particionat!"
+msgstr "No s'ha definit cap partició!"
 
 #: templates/table/structure/display_partitions.twig:11
 msgid "Partitioned by:"
@@ -17315,8 +17316,8 @@ msgid ""
 "Consider increasing {open_files_limit}, and check the error log when "
 "restarting after changing {open_files_limit}."
 msgstr ""
-"Pensa en augmentar {open_files_limit}, i comprovar el registre d'errors en "
-"reiniciar després de canviar aquesta variable."
+"Considereu augmentar {open_files_limit}, i comprovar el registre d'errors "
+"quan reinicieu després de canviar {open_files_limit}."
 
 #: libraries/advisory_rules.txt:321
 #, php-format
