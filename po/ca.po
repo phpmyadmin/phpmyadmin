@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.8.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2017-11-28 16:22+0100\n"
-"PO-Revision-Date: 2017-12-18 14:34+0000\n"
+"PO-Revision-Date: 2017-12-19 03:04+0000\n"
 "Last-Translator: Robert Antoni Buj Gelonch <robert.buj@gmail.com>\n"
 "Language-Team: Catalan "
 "<https://hosted.weblate.org/projects/phpmyadmin/master/ca/>\n"
@@ -9984,7 +9984,7 @@ msgstr "Comptador de columnes incorrecte en l'entrada CSV a la línia %d."
 
 #: libraries/classes/Plugins/Import/ImportLdi.php:113
 msgid "This plugin does not support compressed imports!"
-msgstr "Aquesta connector no admet importacions comprimides!"
+msgstr "Aquest connector no admet importacions comprimides!"
 
 #: libraries/classes/Plugins/Import/ImportMediawiki.php:53
 msgid "MediaWiki Table"
