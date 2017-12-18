@@ -189,6 +189,16 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     }
 
     if ($token_mismatch) {
+        /* Warn in case the mismatch is result of failed setting of session cookie */
+        if (isset($_POST['set_session']) && $_POST['set_session'] != session_id()) {
+            trigger_error(
+                __(
+                    'Failed to set session cookie. Maybe you are using '
+                    . 'HTTP instead of HTTPS to access phpMyAdmin.'
+                ),
+                E_USER_ERROR
+            );
+        }
         /**
          * We don't allow any POST operation parameters if the token is mismatched
          * or is not provided
