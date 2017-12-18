@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.8.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2017-11-28 16:22+0100\n"
-"PO-Revision-Date: 2017-12-18 13:53+0000\n"
+"PO-Revision-Date: 2017-12-18 14:34+0000\n"
 "Last-Translator: Robert Antoni Buj Gelonch <robert.buj@gmail.com>\n"
 "Language-Team: Catalan "
 "<https://hosted.weblate.org/projects/phpmyadmin/master/ca/>\n"
@@ -575,7 +575,7 @@ msgstr ""
 #: import.php:545 libraries/classes/Display/Import.php:56
 msgid "Could not load import plugins, please check your installation!"
 msgstr ""
-"No s'han pogut carregar les extensions d'importació, comproveu la vostra "
+"No s'han pogut carregar els connectors d'importació, comproveu la vostra "
 "l'instal·lació!"
 
 #: import.php:587 libraries/classes/Sql.php:807 libraries/classes/Sql.php:1594
@@ -1165,7 +1165,7 @@ msgstr "Connexions / Processos"
 
 #: js/messages.php:165
 msgid "Local monitor configuration incompatible!"
-msgstr "Configuració local de la monitorització incompatible!"
+msgstr "Configuració local del monitoratge incompatible!"
 
 #: js/messages.php:167
 msgid ""
@@ -1321,7 +1321,7 @@ msgstr "Configuració"
 
 #: js/messages.php:212
 msgid "Add chart to grid"
-msgstr "Afegeix gràfic a a la graella"
+msgstr "Afegeix el gràfic a la graella"
 
 #: js/messages.php:215
 msgid "Please add at least one variable to the series!"
@@ -1344,11 +1344,11 @@ msgstr "Res"
 
 #: js/messages.php:217
 msgid "Resume monitor"
-msgstr "Reempren la monitorització"
+msgstr "Reprèn el monitoratge"
 
 #: js/messages.php:218
 msgid "Pause monitor"
-msgstr "Pausa la monitorització"
+msgstr "Fes una pausa al monitoratge"
 
 #: js/messages.php:219 libraries/classes/Server/Status/Processes.php:46
 msgid "Start auto refresh"
@@ -1488,7 +1488,7 @@ msgstr "Analitzant i carregant registres. Pot tardar."
 
 #: js/messages.php:267
 msgid "Cancel request"
-msgstr "Cancel.lar petició"
+msgstr "Cancel·la la petició"
 
 #: js/messages.php:269
 msgid ""
@@ -1620,7 +1620,7 @@ msgstr "Carregant els registres"
 
 #: js/messages.php:310
 msgid "Monitor refresh failed"
-msgstr "Ha fallat l'actualització de la monitorització"
+msgstr "Ha fallat el refresc del monitoratge"
 
 #: js/messages.php:312
 msgid ""
@@ -2034,7 +2034,7 @@ msgstr "Fi de pas"
 
 #: js/messages.php:448
 msgid "Second step of normalization (2NF)"
-msgstr "Segon pas de normalització (2NF)"
+msgstr "Segon pas de la normalització (2NF)"
 
 #. l10n: Display text for calendar close link
 #: js/messages.php:449 js/messages.php:772
@@ -2439,7 +2439,7 @@ msgstr "Longitud inicial"
 
 #: js/messages.php:612
 msgid "cancel"
-msgstr "Cancel.lar"
+msgstr "cancel·la"
 
 #: js/messages.php:613 libraries/classes/Server/Status.php:288
 msgid "Aborted"
@@ -6937,7 +6937,7 @@ msgstr "possible aprofitament"
 #: libraries/classes/Database/Designer.php:108
 msgid "Could not load schema plugins, please check your installation!"
 msgstr ""
-"No s'han pogut carregar les extensions d'esquema, comproveu la vostra "
+"No s'han pogut carregar els connectors d'esquema, comproveu la vostra "
 "l'instal·lació!"
 
 #: libraries/classes/Database/Qbe.php:447
@@ -7433,7 +7433,7 @@ msgstr "Alies definits"
 #: libraries/classes/Display/Export.php:1021
 msgid "Could not load export plugins, please check your installation!"
 msgstr ""
-"No s'han pogut carregar les extensions d'exportació, comproveu la vostra "
+"No s'han pogut carregar els connectors d'exportació, comproveu la vostra "
 "l'instal·lació!"
 
 #: libraries/classes/Display/GitRevision.php:65
@@ -8485,7 +8485,7 @@ msgstr "Motors"
 #: libraries/classes/Menu.php:644 libraries/classes/Util.php:3975
 #: templates/server/sub_page_header.twig:2
 msgid "Plugins"
-msgstr "Extensions"
+msgstr "Connectors"
 
 #: libraries/classes/Message.php:247
 #, php-format
@@ -8988,7 +8988,7 @@ msgstr ""
 
 #: libraries/classes/Normalization.php:602
 msgid "The third step of normalization is complete."
-msgstr "S'ha completat el tercer pas de normalització."
+msgstr "S'ha completat el tercer pas de la normalització."
 
 #: libraries/classes/Normalization.php:699
 #, php-format
@@ -9029,7 +9029,7 @@ msgstr "La taula ja es troba en tercera forma normal!"
 
 #: libraries/classes/Normalization.php:830
 msgid "Improve table structure (Normalization):"
-msgstr "Millorar l'estructura de taula (Normalització):"
+msgstr "Millora l'estructura de taula (normalització):"
 
 #: libraries/classes/Normalization.php:831
 msgid "Select up to what step you want to normalize"
@@ -9037,18 +9037,18 @@ msgstr "Seleccioneu fins a quin pas voleu normalitzar"
 
 #: libraries/classes/Normalization.php:835
 msgid "Second step of normalization (1NF+2NF)"
-msgstr "Segon pas de normalització (1NF+2NF)"
+msgstr "Segon pas de la normalització (1NF+2NF)"
 
 #: libraries/classes/Normalization.php:836
 msgid "Third step of normalization (1NF+2NF+3NF)"
-msgstr "Tercer pas de normalització (1NF+2NF+3NF)"
+msgstr "Tercer pas de la normalització (1NF+2NF+3NF)"
 
 #: libraries/classes/Normalization.php:843
 msgid ""
 "Hint: Please follow the procedure carefully in order to obtain correct "
 "normalization"
 msgstr ""
-"Consell: Segueix el procediment amb molta cura per obtenir una normalització "
+"Consell: Seguiu el procediment amb molta cura per obtenir una normalització "
 "correcta"
 
 #: libraries/classes/Normalization.php:904
@@ -9984,7 +9984,7 @@ msgstr "Comptador de columnes incorrecte en l'entrada CSV a la línia %d."
 
 #: libraries/classes/Plugins/Import/ImportLdi.php:113
 msgid "This plugin does not support compressed imports!"
-msgstr "Aquesta extensió no admet importacions comprimides!"
+msgstr "Aquesta connector no admet importacions comprimides!"
 
 #: libraries/classes/Plugins/Import/ImportMediawiki.php:53
 msgid "MediaWiki Table"
@@ -11400,7 +11400,7 @@ msgstr "No hi han rutines per mostrar."
 
 #: libraries/classes/Rte/Words.php:54
 msgid "Add trigger"
-msgstr "Afegir disparador"
+msgstr "Afegeix un disparador"
 
 #: libraries/classes/Rte/Words.php:56
 #, php-format
@@ -11566,9 +11566,10 @@ msgid ""
 "required for most administrative operations like setting global variables or "
 "killing threads of other users."
 msgstr ""
-"Permet connectar, encara que s'hagi arribat al màxim numero de connexions "
-"permès; es necessari per moltes operacions d'administració com ara establir "
-"variables globals o bé cancel.lar fils d'execució d'altres usuaris."
+"Permet connectar, encara que s'hagi arribat al nombre màxim de connexions "
+"permès; es requereix per a la majoria de les operacions d'administració com "
+"ara establir variables globals o bé cancel·lar fils d'execució d'altres "
+"usuaris."
 
 #: libraries/classes/Server/Privileges.php:383
 #: libraries/classes/Server/Privileges.php:1257 server_privileges.php:69
@@ -11807,7 +11808,7 @@ msgstr "No canviïs la contrasenya"
 
 #: libraries/classes/Server/Privileges.php:1717
 msgid "Authentication Plugin"
-msgstr "Extensió d'autenticació"
+msgstr "Connector d'autenticació"
 
 #: libraries/classes/Server/Privileges.php:1724
 msgid "Password Hashing Method"
@@ -12235,7 +12236,7 @@ msgstr "Totes les variables d'estat"
 
 #: libraries/classes/Server/Status/Data.php:441
 msgid "Monitor"
-msgstr "Monitorització"
+msgstr "Monitoratge"
 
 #: libraries/classes/Server/Status/Data.php:445
 msgid "Advisor"
@@ -12287,7 +12288,7 @@ msgstr "Analitzador de consultes"
 
 #: libraries/classes/Server/Status/Monitor.php:117
 msgid "Monitor Instructions"
-msgstr "Instruccions de Monitorització"
+msgstr "Instruccions de monitoratge"
 
 #: libraries/classes/Server/Status/Monitor.php:119
 msgid ""
@@ -12351,7 +12352,7 @@ msgstr ""
 #: libraries/classes/Server/Status/Monitor.php:178
 #: libraries/classes/Server/Status/Monitor.php:286
 msgid "Add chart"
-msgstr "Afegir gràfic"
+msgstr "Afegeix un gràfic"
 
 #: libraries/classes/Server/Status/Monitor.php:181
 msgid "Chart Title"
@@ -12367,7 +12368,7 @@ msgstr "Variable(s) d'estat"
 
 #: libraries/classes/Server/Status/Monitor.php:192
 msgid "Select series:"
-msgstr "Seleccionar series:"
+msgstr "Seleccioneu les series:"
 
 #: libraries/classes/Server/Status/Monitor.php:194
 msgid "Commonly monitored"
@@ -12375,7 +12376,7 @@ msgstr "Comunment monitoritzat"
 
 #: libraries/classes/Server/Status/Monitor.php:210
 msgid "or type variable name:"
-msgstr "o escriu el nom de variable:"
+msgstr "o teclegeu el nom de la variable:"
 
 #: libraries/classes/Server/Status/Monitor.php:217
 msgid "Display as differential value"
@@ -12383,15 +12384,15 @@ msgstr "Mostra com a valor diferencial"
 
 #: libraries/classes/Server/Status/Monitor.php:221
 msgid "Apply a divisor"
-msgstr "Aplicar un divisor"
+msgstr "Aplica un divisor"
 
 #: libraries/classes/Server/Status/Monitor.php:229
 msgid "Append unit to data values"
-msgstr "Afegir unitat als valors"
+msgstr "Afegeix la unitat als valors de les dades"
 
 #: libraries/classes/Server/Status/Monitor.php:235
 msgid "Add this series"
-msgstr "Afegir aquesta serie"
+msgstr "Afegeix aquestes sèries"
 
 #: libraries/classes/Server/Status/Monitor.php:237
 msgid "Clear series"
@@ -12403,7 +12404,7 @@ msgstr "Series al gràfic:"
 
 #: libraries/classes/Server/Status/Monitor.php:261
 msgid "Start Monitor"
-msgstr "Començar monitorització"
+msgstr "Comença el monitoratge"
 
 #: libraries/classes/Server/Status/Monitor.php:267
 msgid "Instructions/Setup"
@@ -12508,7 +12509,7 @@ msgstr "Mostra només valors d'alerta"
 
 #: libraries/classes/Server/Status/Variables.php:65
 msgid "Filter by category…"
-msgstr "Filtrar per categoria…"
+msgstr "Filtra per la categoria…"
 
 #: libraries/classes/Server/Status/Variables.php:86
 msgid "Show unformatted values"
@@ -12839,23 +12840,23 @@ msgstr "El nombre de peticions d'escriptura al registre."
 
 #: libraries/classes/Server/Status/Variables.php:535
 msgid "The number of physical writes to the log file."
-msgstr "El nombre d'escriptures físiques a l'arxiu de registre."
+msgstr "El nombre d'escriptures físiques al fitxer del registre."
 
 #: libraries/classes/Server/Status/Variables.php:538
 msgid "The number of fsync() writes done to the log file."
-msgstr "El nombre d'escriptures fsync() fetes a l'arxiu de registre."
+msgstr "El nombre d'escriptures fsync() fetes al fitxer del registre."
 
 #: libraries/classes/Server/Status/Variables.php:541
 msgid "The number of pending log file fsyncs."
-msgstr "El nombre d'operacions fsync pendents a l'arxiu de registre."
+msgstr "El nombre d'operacions fsync pendents al fitxer del registre."
 
 #: libraries/classes/Server/Status/Variables.php:544
 msgid "Pending log file writes."
-msgstr "Escriptures pendents a l'arxiu de registre."
+msgstr "Escriptures pendents al fitxer del registre."
 
 #: libraries/classes/Server/Status/Variables.php:547
 msgid "The number of bytes written to the log file."
-msgstr "El nombre de bytes escrits a l'arxiu de registre."
+msgstr "El nombre de bytes escrits al fitxer del registre."
 
 #: libraries/classes/Server/Status/Variables.php:550
 msgid "The number of pages created."
@@ -14500,7 +14501,9 @@ msgstr "Fil %s cancel.lat correctament."
 #, php-format
 msgid ""
 "phpMyAdmin was unable to kill thread %s. It probably has already been closed."
-msgstr "phpMyAdmin no pot cancel.lar el fil %s. Probablement, ja és tancat."
+msgstr ""
+"phpMyAdmin no ha pogut cancel·lar el fil %s. Probablement, ja ha estat "
+"tancat."
 
 #: server_status_queries.php:43
 msgid "Not enough privilege to view query statistics."
@@ -16062,7 +16065,7 @@ msgstr "Proposa una estructura de taula"
 #: templates/table/structure/optional_action_links.twig:19
 #: templates/table/structure/move_columns_dialog.twig:1
 msgid "Move columns"
-msgstr "Moure columnes"
+msgstr "Mou les columnes"
 
 #: templates/table/structure/optional_action_links.twig:22
 msgid "Normalize"
@@ -16145,7 +16148,7 @@ msgstr "Afegeix permisos a la següent taula:"
 
 #: templates/server/plugins/section.twig:9
 msgid "Plugin"
-msgstr "Extensió"
+msgstr "Connector"
 
 #: templates/server/plugins/section.twig:12
 msgid "Author"
@@ -16165,7 +16168,7 @@ msgstr "Veure l'estructura de taula"
 
 #: templates/table/structure/move_columns_dialog.twig:2
 msgid "Move the columns by dragging them up and down."
-msgstr "Mou les columnes arrossegant amunt i avall."
+msgstr "Moveu les columnes arrossegant-les amunt i avall."
 
 #: templates/database/designer/page_save_as.twig:17
 msgid "Save to selected page"
@@ -16258,7 +16261,7 @@ msgstr "Virtualitat"
 
 #: templates/columns_definitions/table_fields_definitions.twig:65
 msgid "Move column"
-msgstr "Moure columna"
+msgstr "Mou la columna"
 
 #: templates/columns_definitions/table_fields_definitions.twig:76
 #: templates/columns_definitions/table_fields_definitions.twig:87
