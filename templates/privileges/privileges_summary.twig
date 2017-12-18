@@ -31,9 +31,9 @@
                     </tr>
                 {% else %}
                     {% for privilege in privileges %}
-                        {% include 'privileges/privileges_summary_row.twig' with [
+                        {% include 'privileges/privileges_summary_row.twig' with
                             privilege|merge({'type': type})
-                        ] only %}
+                        only %}
                     {% endfor %}
                 {% endif %}
             </tbody>
