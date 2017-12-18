@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.8.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2017-11-28 16:22+0100\n"
-"PO-Revision-Date: 2017-12-18 12:43+0000\n"
+"PO-Revision-Date: 2017-12-18 13:53+0000\n"
 "Last-Translator: Robert Antoni Buj Gelonch <robert.buj@gmail.com>\n"
 "Language-Team: Catalan "
 "<https://hosted.weblate.org/projects/phpmyadmin/master/ca/>\n"
@@ -1118,7 +1118,7 @@ msgstr "Les contrasenyes no coincideixen!"
 
 #: js/messages.php:145
 msgid "Removing Selected Users"
-msgstr "Treu els usuaris triats"
+msgstr "Supressió dels usuaris seleccionats"
 
 #: js/messages.php:146 js/messages.php:213 libraries/classes/Tracking.php:479
 #: libraries/classes/Tracking.php:845
@@ -1705,7 +1705,7 @@ msgstr "Justificació"
 
 #: js/messages.php:342
 msgid "Used variable / formula"
-msgstr "Variable usada / formula"
+msgstr "Variable o formula utilitzada"
 
 #: js/messages.php:343
 msgid "Test"
@@ -1713,7 +1713,7 @@ msgstr "Prova"
 
 #: js/messages.php:346
 msgid "Formatting SQL…"
-msgstr "Donant format a l'SQL…"
+msgstr "S'està donant format a l'SQL…"
 
 #: js/messages.php:347
 msgid "No parameters found!"
@@ -1728,7 +1728,7 @@ msgstr "No s'han trobat paràmetres!"
 #: templates/database/designer/having_query_panel.twig:118
 #: templates/database/designer/options_panel.twig:255
 msgid "Cancel"
-msgstr "Cancel.lar"
+msgstr "Cancel·la"
 
 #: js/messages.php:354 libraries/classes/Header.php:458
 msgid "Page-related settings"
@@ -1736,12 +1736,12 @@ msgstr "Configuració de la pàgina relacionada"
 
 #: js/messages.php:355 templates/config/form_display/fieldset_bottom.twig:8
 msgid "Apply"
-msgstr "Aplicar"
+msgstr "Aplica"
 
 #: js/messages.php:358 libraries/classes/Navigation/NavigationHeader.php:61
 #: libraries/classes/Server/Status/Monitor.php:130
 msgid "Loading…"
-msgstr "Carregar…"
+msgstr "S'està carregant…"
 
 #: js/messages.php:359
 msgid "Request aborted!!"
@@ -2505,11 +2505,11 @@ msgstr "Més"
 
 #: js/messages.php:653
 msgid "Show panel"
-msgstr "Mostra el panell"
+msgstr "Mostra el tauler"
 
 #: js/messages.php:654
 msgid "Hide panel"
-msgstr "Amagar el panell"
+msgstr "Oculta el tauler"
 
 #: js/messages.php:655
 msgid "Show hidden navigation tree items."
@@ -2518,11 +2518,11 @@ msgstr "Mostra l'arbre d'ítems amagat."
 #: js/messages.php:656 libraries/classes/Config/Descriptions.php:778
 #: libraries/classes/Navigation/NavigationTree.php:1431
 msgid "Link with main panel"
-msgstr "Enllaç amb el panell principal"
+msgstr "Enllaç amb el tauler principal"
 
 #: js/messages.php:657 libraries/classes/Navigation/NavigationTree.php:1434
 msgid "Unlink from main panel"
-msgstr "Desenllaça amb el panell principal"
+msgstr "Desenllaça del tauler principal"
 
 #: js/messages.php:661
 msgid "The requested page was not found in the history, it may have expired."
@@ -4326,11 +4326,11 @@ msgstr "Opcions de visualització de les bases de dades."
 #: libraries/classes/Config/Descriptions.php:478
 #: libraries/classes/Config/Forms/User/NaviForm.php:59
 msgid "Navigation panel"
-msgstr "Panell de navegació"
+msgstr "Tauler de navegació"
 
 #: libraries/classes/Config/Descriptions.php:480
 msgid "Customize appearance of the navigation panel."
-msgstr "Personalitzar l'aspecte del panell de navegació."
+msgstr "Personalitza l'aspecte del tauler de navegació."
 
 #: libraries/classes/Config/Descriptions.php:482
 msgid "Navigation tree"
@@ -4356,7 +4356,7 @@ msgstr "Opcions de visualització de les taules."
 #: libraries/classes/Config/Descriptions.php:494
 #: libraries/classes/Config/Forms/User/MainForm.php:84
 msgid "Main panel"
-msgstr "Panell principal"
+msgstr "Tauler principal"
 
 #: libraries/classes/Config/Descriptions.php:496
 msgid "Microsoft Office"
@@ -4571,12 +4571,12 @@ msgid ""
 "If enabled, phpMyAdmin continues computing multiple-statement queries even "
 "if one of the queries failed."
 msgstr ""
-"Si està activat, phpMyAdmin continuarà processant consultes de múltiples "
-"instruccions fins la darrera encara que alguna anterior falli."
+"Si està activat, phpMyAdmin continuarà processant consultes de diverses "
+"sentències fins la darrera encara que alguna anterior falli."
 
 #: libraries/classes/Config/Descriptions.php:619
 msgid "Ignore multiple statement errors"
-msgstr "Ignora errors d'instruccions multiples"
+msgstr "Ignora els errors de sentències múltiples"
 
 #: libraries/classes/Config/Descriptions.php:622
 msgid ""
@@ -4826,17 +4826,15 @@ msgstr "Límit de memoria"
 #: libraries/classes/Config/Descriptions.php:768
 msgid "In the navigation panel, replaces the database tree with a selector"
 msgstr ""
-"Al panell de navegació, substitueix l'arbre de bases de dades amb un selector"
+"Al tauler de navegació, substitueix l'arbre de bases de dades amb un selector"
 
 #: libraries/classes/Config/Descriptions.php:770
 msgid "Show databases navigation as tree"
 msgstr "Mostra a navegació de les bases de dades com un arbre"
 
 #: libraries/classes/Config/Descriptions.php:772
-#, fuzzy
-#| msgid "Navigation panel"
 msgid "Navigation panel width"
-msgstr "Panell de navegació"
+msgstr "Tauler de navegació"
 
 #: libraries/classes/Config/Descriptions.php:774
 #, fuzzy
@@ -4847,11 +4845,11 @@ msgstr "Mostra el logo al panell de navegació."
 #: libraries/classes/Config/Descriptions.php:776
 msgid "Link with main panel by highlighting the current database or table."
 msgstr ""
-"Enllaç amb el panell principal destacant l'actual base de dades o taula."
+"Enllaç amb el tauler principal destacant l'actual base de dades o taula."
 
 #: libraries/classes/Config/Descriptions.php:780
 msgid "Show logo in navigation panel."
-msgstr "Mostra el logo al panell de navegació."
+msgstr "Mostra el logo al tauler de navegació."
 
 #: libraries/classes/Config/Descriptions.php:782
 msgid "Display logo"
@@ -4859,7 +4857,7 @@ msgstr "Mostra el logo"
 
 #: libraries/classes/Config/Descriptions.php:784
 msgid "URL where logo in the navigation panel will point to."
-msgstr "URL on apuntarà el logo al panell de navegació."
+msgstr "URL on apuntarà el logo al tauler de navegació."
 
 #: libraries/classes/Config/Descriptions.php:786
 msgid "Logo link URL"
@@ -4879,7 +4877,7 @@ msgstr "Destí d'enllaç al logo"
 
 #: libraries/classes/Config/Descriptions.php:795
 msgid "Display server choice at the top of the navigation panel."
-msgstr "Mostra el servidor triat a dalt del panell de navegació."
+msgstr "Mostra el servidor triat a dalt del tauler de navegació."
 
 #: libraries/classes/Config/Descriptions.php:797
 msgid "Display servers selection"
@@ -4952,8 +4950,7 @@ msgstr "Activa resaltat"
 #: libraries/classes/Config/Descriptions.php:833
 msgid ""
 "Whether to offer the possibility of tree expansion in the navigation panel."
-msgstr ""
-"Quan s'ofereix la possibilitat d'expandir l'arbre al panell de navegació."
+msgstr "Si s'ofereix la possibilitat d'expandir l'arbre al tauler de navegació."
 
 #: libraries/classes/Config/Descriptions.php:835
 msgid "Enable navigation tree expansion"
@@ -5602,8 +5599,8 @@ msgid ""
 "Whether a DROP DATABASE IF EXISTS statement will be added as first line to "
 "the log when creating a database."
 msgstr ""
-"Si una instrucció DROP DATABASE IF EXISTS s'afegirà com a primera línia en "
-"el registre a l'hora de crear una base de dades."
+"Si una sentència DROP DATABASE IF EXISTS s'afegirà com a primera línia en el "
+"registre quan es crea una base de dades."
 
 #: libraries/classes/Config/Descriptions.php:1180
 msgid "Add DROP DATABASE"
@@ -5614,8 +5611,8 @@ msgid ""
 "Whether a DROP TABLE IF EXISTS statement will be added as first line to the "
 "log when creating a table."
 msgstr ""
-"Si una instrucció DROP TABLE IF EXISTS s'afegirà com a primera línia en el "
-"registre a l'hora de crear una taula."
+"Si una sentència DROP TABLE IF EXISTS s'afegirà com a primera línia en el "
+"registre quan es crea una taula."
 
 #: libraries/classes/Config/Descriptions.php:1187
 #: libraries/classes/MultSubmits.php:364
@@ -5627,8 +5624,8 @@ msgid ""
 "Whether a DROP VIEW IF EXISTS statement will be added as first line to the "
 "log when creating a view."
 msgstr ""
-"Si una instrucció DROP VIEW IF EXISTS s'afegirà com a primera línia en el "
-"registre a l'hora de crear una vista."
+"Si una sentència DROP VIEW IF EXISTS s'afegirà com a primera línia en el "
+"registre quan es crea una vista."
 
 #: libraries/classes/Config/Descriptions.php:1194
 msgid "Add DROP VIEW"
@@ -5637,12 +5634,12 @@ msgstr "Afegir DROP VIEW"
 #: libraries/classes/Config/Descriptions.php:1196
 msgid "Defines the list of statements the auto-creation uses for new versions."
 msgstr ""
-"Defineix la llista d'instruccions que l'auto-creació fa servir per a noves "
-"versions."
+"Defineix la llista de sentències que l'auto-creació fa servir per a les "
+"versions noves."
 
 #: libraries/classes/Config/Descriptions.php:1198
 msgid "Statements to track"
-msgstr "Instruccions a seguir"
+msgstr "Sentències a seguir"
 
 #: libraries/classes/Config/Descriptions.php:1201
 msgid ""
@@ -6429,13 +6426,7 @@ msgstr ""
 "amb gran nombre d'usuaris connectats, inclós tu mateix."
 
 #: libraries/classes/Config/ServerConfigChecks.php:203
-#, fuzzy, php-format
-#| msgid ""
-#| "You set the [kbd]config[/kbd] authentication type and included username "
-#| "and password for auto-login, which is not a desirable option for live "
-#| "hosts. Anyone who knows or guesses your phpMyAdmin URL can directly "
-#| "access your phpMyAdmin panel. Set %sauthentication type%s to [kbd]cookie[/"
-#| "kbd] or [kbd]http[/kbd]."
+#, php-format
 msgid ""
 "You set the [kbd]config[/kbd] authentication type and included username and "
 "password for auto-login, which is not a desirable option for live hosts. "
@@ -6443,11 +6434,11 @@ msgid ""
 "phpMyAdmin panel. Set %1$sauthentication type%2$s to [kbd]cookie[/kbd] or "
 "[kbd]http[/kbd]."
 msgstr ""
-"Has triat el tipus d'autenticació [kbd]config[/kbd] i has inclós el nom "
-"d'usuari i la contrasenya per connexions automàtiques, que es una opció no "
-"recomanable per a servidors actius. Qualsevol que conegui la teva URL de "
-"phpMyAdmin pot accedir al teu panel directament. Estableix el "
-"%sauthentication type%s a [kbd]cookie[/kbd] o [kbd]http[/kbd]."
+"Heu establert el tipus d'autenticació [kbd]config[/kbd] i heu inclòs el nom "
+"d'usuari i la contrasenya per a la connexió automàtica, que es una opció no "
+"recomanable per a servidors de la vida real. Qualsevol que conegui el vostre "
+"URL de phpMyAdmin pot accedir directament al vostre tauler. Establiu el %"
+"sauthentication type%2s a [kbd]cookie[/kbd] o [kbd]http[/kbd]."
 
 #: libraries/classes/Config/ServerConfigChecks.php:230
 msgid "You allow for connecting to the server without a password."
@@ -7237,7 +7228,7 @@ msgstr ""
 
 #: libraries/classes/Display/Export.php:187
 msgid "Exporting databases from the current server"
-msgstr "Exportant bases de dades des del servidor actual"
+msgstr "Exportació de bases de dades del servidor actual"
 
 #: libraries/classes/Display/Export.php:190
 #, php-format
@@ -8613,19 +8604,19 @@ msgstr "Documentació de phpMyAdmin"
 
 #: libraries/classes/Navigation/NavigationHeader.php:213
 msgid "Navigation panel settings"
-msgstr "Configuració del panell de navegació"
+msgstr "Paràmetres del tauler de navegació"
 
 #: libraries/classes/Navigation/NavigationHeader.php:224
 msgid "Reload navigation panel"
-msgstr "Recarrega el panell de navegació"
+msgstr "Recarrega el tauler de navegació"
 
 #: libraries/classes/Navigation/NavigationTree.php:755
 msgid ""
 "There are large item groups in navigation panel which may affect the "
 "performance. Consider disabling item grouping in the navigation panel."
 msgstr ""
-"Hi ha grans grups d'elements al panell de navegació que poden afectar el "
-"rendiment. Considera desactivar l'agrupació d'elements al panell de "
+"Hi ha grups grans d'elements al tauler de navegació que poden afectar el "
+"rendiment. Considereu inhabilitar l'agrupació d'elements al tauler de "
 "navegació."
 
 #: libraries/classes/Navigation/NavigationTree.php:949
@@ -9700,7 +9691,7 @@ msgstr ""
 
 #: libraries/classes/Plugins/Export/ExportSql.php:235
 msgid "Add statements:"
-msgstr "Afegir instruccions:"
+msgstr "Afegeix les sentències:"
 
 #: libraries/classes/Plugins/Export/ExportSql.php:243
 #: libraries/classes/Plugins/Export/ExportSql.php:252
@@ -9711,7 +9702,7 @@ msgstr "Afegir instruccions:"
 #: libraries/classes/Plugins/Export/ExportSql.php:322
 #, php-format
 msgid "Add %s statement"
-msgstr "Afegir instrucció %s"
+msgstr "Afegeix la sentència %s"
 
 #: libraries/classes/Plugins/Export/ExportSql.php:289
 msgid "(less efficient as indexes will be generated during table creation)"
@@ -9742,16 +9733,16 @@ msgstr "Truncar taula abans d'inserir"
 
 #: libraries/classes/Plugins/Export/ExportSql.php:357
 msgid "Instead of <code>INSERT</code> statements, use:"
-msgstr "Enlloc d'instruccions <code>INSERT</code> , usa:"
+msgstr "En comptes de les sentències <code>INSERT</code> , utilitza:"
 
 #: libraries/classes/Plugins/Export/ExportSql.php:363
 msgid "<code>INSERT DELAYED</code> statements"
-msgstr "instruccions <code>INSERT DELAYED</code>"
+msgstr "sentències <code>INSERT DELAYED</code>"
 
 #: libraries/classes/Plugins/Export/ExportSql.php:375
 #: libraries/classes/Plugins/Export/ExportSql.php:409
 msgid "<code>INSERT IGNORE</code> statements"
-msgstr "instruccions <code>INSERT IGNORE</code>"
+msgstr "sentències <code>INSERT IGNORE</code>"
 
 #: libraries/classes/Plugins/Export/ExportSql.php:389
 msgid "Function to use when dumping data:"
@@ -9767,7 +9758,7 @@ msgid ""
 "&nbsp; &nbsp; Example: <code>INSERT INTO tbl_name (col_A,col_B,col_C) VALUES "
 "(1,2,3)</code>"
 msgstr ""
-"inclou els noms de columnes cada instrucció <code>INSERT</code> <br /> "
+"inclou els noms de les columnes en cada sentència <code>INSERT</code> <br /> "
 "&nbsp; &nbsp; &nbsp; Exemple: <code>INSERT INTO tbl_name (col_A,col_B,col_C) "
 "VALUES (1,2,3)</code>"
 
@@ -9777,7 +9768,7 @@ msgid ""
 "&nbsp; &nbsp; Example: <code>INSERT INTO tbl_name VALUES (1,2,3), (4,5,6), "
 "(7,8,9)</code>"
 msgstr ""
-"insereix múltiples files a cada instrucció <code>INSERT</code> <br /> &nbsp; "
+"insereix diverses files en cada sentència <code>INSERT</code> <br /> &nbsp; "
 "&nbsp; &nbsp; Exemple: <code>INSERT INTO tbl_name VALUES (1,2,3), (4,5,6), "
 "(7,8,9)</code>"
 
@@ -11835,7 +11826,7 @@ msgstr "Has tret els permisos per %s."
 #: libraries/classes/Server/Privileges.php:2156
 #: templates/privileges/add_user_fieldset.twig:7
 msgid "Add user account"
-msgstr "Afegir compte d'usuari"
+msgstr "Afegeix un compte d'usuari"
 
 #: libraries/classes/Server/Privileges.php:2165
 msgid "Database for user account"
@@ -12274,12 +12265,13 @@ msgstr "Rang de temps seleccionat:"
 
 #: libraries/classes/Server/Status/Monitor.php:82
 msgid "Only retrieve SELECT,INSERT,UPDATE and DELETE Statements"
-msgstr "Només recuperar instruccions SELECT, INSERT, UPDATE i DELETE"
+msgstr "Només recupera les sentències SELECT, INSERT, UPDATE i DELETE"
 
 #: libraries/classes/Server/Status/Monitor.php:88
 msgid "Remove variable data in INSERT statements for better grouping"
 msgstr ""
-"Elimina dades variables en les instruccions INSERT per a una millor agrupació"
+"Elimina les dades variables en les sentències INSERT per a una millor "
+"agrupació"
 
 #: libraries/classes/Server/Status/Monitor.php:92
 msgid "Choose from which log you want the statistics to be generated from."
@@ -12333,10 +12325,10 @@ msgid ""
 "confirmed, this will load a table of grouped queries, there you may click on "
 "any occurring SELECT statements to further analyze them."
 msgstr ""
-"Per mostrar les consultes dels registres, selecciona l'interval de temps "
-"rellevant en qualsevol gràfic mantenint premut el botó esquerre del ratolí i "
-"arrosegant  sobre el gràfic. Un cop confirmat, això carregarà una taula de "
-"consultes agrupades, on podràs clicar en qualsevol de les instruccions "
+"Per mostrar les consultes dels registres, seleccioneu l'interval de temps "
+"rellevant en qualsevol gràfic en mantenir premut el botó esquerre del ratolí "
+"i arrossegar-lo sobre el gràfic. Un cop confirmat, això carregarà una taula "
+"de consultes agrupades, on podreu fer clic en qualsevol de les sentències "
 "SELECT per analitzar-la amb més detall."
 
 #: libraries/classes/Server/Status/Monitor.php:154
@@ -12544,9 +12536,10 @@ msgid ""
 "exceeded the value of binlog_cache_size and used a temporary file to store "
 "statements from the transaction."
 msgstr ""
-"El nombre de transaccions que han fet servir el registre binari temporal "
-"però que excedeixen el valor de  binlog_cache_size i usen un arxiu temporal "
-"per desar elements de la transacció."
+"El nombre de transaccions que han utilitzat la memòria cau del registre "
+"binari temporal però que excedeixen el valor de  binlog_cache_size i han "
+"utilitzat un fitxer temporal per emmagatzemar les sentències de la "
+"transacció."
 
 #: libraries/classes/Server/Status/Variables.php:351
 msgid "The number of transactions that used the temporary binary log cache."
@@ -12565,10 +12558,10 @@ msgid ""
 "to increase the tmp_table_size  value to cause temporary tables to be memory-"
 "based instead of disk-based."
 msgstr ""
-"El nombre de taules temporals en disc creades automàticament per el servidor "
-"mentre executa instruccions. Si Created_tmp_disk_tables és gran, potser vols "
-"incrementar el valor de tmp_table_size per fer que les taules temporals "
-"treballin en memòria en lloc de treballar en disc."
+"El nombre de taules temporals en disc que s'han creat automàticament amb el "
+"servidor mentre executava les sentències. Si Created_tmp_disk_tables és "
+"gran, potser voleu incrementar el valor de tmp_table_size per fer que les "
+"taules temporals treballin en memòria en lloc de treballar en disc."
 
 #: libraries/classes/Server/Status/Variables.php:365
 msgid "How many temporary files mysqld has created."
@@ -12579,8 +12572,8 @@ msgid ""
 "The number of in-memory temporary tables created automatically by the server "
 "while executing statements."
 msgstr ""
-"El nombre de taules temporals creades en memòria per el servidor mentre "
-"executa instruccions."
+"El nombre de taules temporals en memòria que s'han creat pel servidor mentre "
+"executava les sentències."
 
 #: libraries/classes/Server/Status/Variables.php:372
 msgid ""
@@ -12604,11 +12597,11 @@ msgstr "El nombre de files escrites amb INSERT DELAYED."
 
 #: libraries/classes/Server/Status/Variables.php:384
 msgid "The number of executed FLUSH statements."
-msgstr "El nombre d'instruccions FLUSH executades."
+msgstr "El nombre de sentències FLUSH executades."
 
 #: libraries/classes/Server/Status/Variables.php:387
 msgid "The number of internal COMMIT statements."
-msgstr "El nombre d'instruccions COMMIT internes."
+msgstr "El nombre de sentències COMMIT internes."
 
 #: libraries/classes/Server/Status/Variables.php:390
 msgid "The number of times a row was deleted from a table."
@@ -12688,7 +12681,7 @@ msgstr ""
 
 #: libraries/classes/Server/Status/Variables.php:433
 msgid "The number of internal ROLLBACK statements."
-msgstr "El nombre d'instruccions ROLLBACK."
+msgstr "El nombre de sentències ROLLBACK internes."
 
 #: libraries/classes/Server/Status/Variables.php:436
 msgid "The number of requests to update a row in a table."
@@ -13039,9 +13032,9 @@ msgid ""
 "fragmentation issues, which may be solved by issuing a FLUSH QUERY CACHE "
 "statement."
 msgstr ""
-"El nombre de blocs de memòria lliures en memòria cau de consultes. Els "
-"números alts poden indicar problemes de fragmentació, que poden ser resolts "
-"mitjançant una ordre FLUSH QUERY CACHE."
+"El nombre de blocs de memòria lliures en la memòria cau de consultes. Els "
+"nombres elevats poden indicar problemes de fragmentació, que poden ser "
+"resolts mitjançant una sentència FLUSH QUERY CACHE."
 
 #: libraries/classes/Server/Status/Variables.php:662
 msgid "The amount of free memory for query cache."
@@ -13576,11 +13569,11 @@ msgstr "Crea versió %1$s"
 
 #: libraries/classes/Tracking.php:98
 msgid "Track these data definition statements:"
-msgstr "Segueix aquestes declaracions de definició de dades:"
+msgstr "Segueix aquestes sentències de definició de dades:"
 
 #: libraries/classes/Tracking.php:164
 msgid "Track these data manipulation statements:"
-msgstr "Segueix aquestes declaracions de manipulació de dades:"
+msgstr "Segueix aquestes sentències de manipulació de dades:"
 
 #: libraries/classes/Tracking.php:193
 msgid "Create version"
@@ -13642,7 +13635,7 @@ msgstr "no actiu"
 
 #: libraries/classes/Tracking.php:482
 msgid "Tracking statements"
-msgstr "Seguiment de declaracions"
+msgstr "Seguiment de sentències"
 
 #: libraries/classes/Tracking.php:494
 msgid "Delete tracking data row from report"
@@ -13680,11 +13673,11 @@ msgstr "Exporta com %s"
 
 #: libraries/classes/Tracking.php:705
 msgid "Data manipulation statement"
-msgstr "Declaració de manipulació de dades"
+msgstr "Sentències de manipulació de dades"
 
 #: libraries/classes/Tracking.php:781
 msgid "Data definition statement"
-msgstr "Declaració de definició de dades"
+msgstr "Sentències de definició de dades"
 
 #: libraries/classes/Tracking.php:813
 msgid "Date"
@@ -13727,7 +13720,7 @@ msgstr "Comenta aquestes dues línies si no les necessites."
 
 #: libraries/classes/Tracking.php:1131
 msgid "SQL statements exported. Please copy the dump or execute it."
-msgstr "Declaracions SQL exportades. Copia el bolcat o executa'l."
+msgstr "S'han exportat les sentències SQL. Copieu el bolcat o executeu-ho."
 
 #: libraries/classes/Tracking.php:1179
 #, php-format
@@ -14382,7 +14375,7 @@ msgstr "Fragment de configuració de phpMyAdmin"
 
 #: prefs_manage.php:51
 msgid "Paste it to your config.inc.php"
-msgstr "Enganxa aixó al teu arxiu config.inc.php"
+msgstr "Enganxeu-ho al vostre config.inc.php"
 
 #: prefs_manage.php:91
 msgid "Could not import configuration"
@@ -14742,7 +14735,7 @@ msgstr "No s'han triat versions."
 
 #: tbl_tracking.php:139
 msgid "SQL statements executed."
-msgstr "Declaracions SQL executades."
+msgstr "S'han executat les sentències SQL."
 
 #: themes.php:22 themes.php:27
 msgid "Theme"
@@ -15221,7 +15214,7 @@ msgstr "Operador"
 
 #: templates/display/import/options.twig:5
 msgid "Importing into the current server"
-msgstr "Important al servidor actual"
+msgstr "Importació al servidor actual"
 
 #: templates/display/import/options.twig:7
 #, php-format
@@ -15535,10 +15528,8 @@ msgid "Storage engines"
 msgstr "Motors d'emmagatzematge"
 
 #: templates/server/sub_page_header.twig:2
-#, fuzzy
-#| msgid "Character Sets and Collations"
 msgid "Character sets and collations"
-msgstr "Jocs de Caràcters i ordenacions"
+msgstr "Jocs de caràcters i ordenacions"
 
 #: templates/server/sub_page_header.twig:2
 msgid "Databases statistics"
