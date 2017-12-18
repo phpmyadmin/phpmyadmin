@@ -395,7 +395,7 @@ abstract class TestBase extends \PHPUnit_Extensions_Selenium2TestCase
             return call_user_func_array(
                 array($this, $func), array($arg)
             );
-        } catch(Exception $e) {
+        } catch(\Exception $e) {
             // Element not present, fall back to waiting
         }
         $this->timeouts()->implicitWait(10000);
@@ -438,10 +438,10 @@ abstract class TestBase extends \PHPUnit_Extensions_Selenium2TestCase
             $element = call_user_func_array(
                 array($this, $func), array($arg)
             );
-        } catch (PHPUnit_Extensions_Selenium2TestCase_WebDriverException $e) {
+        } catch (\PHPUnit_Extensions_Selenium2TestCase_WebDriverException $e) {
             // Element not present
             return false;
-        } catch (InvalidArgumentException $e) {
+        } catch (\InvalidArgumentException $e) {
             // Element not present
             return false;
         }
@@ -578,7 +578,7 @@ abstract class TestBase extends \PHPUnit_Extensions_Selenium2TestCase
         $ele = null;
         try {
             $ele = $this->waitForElement('byCssSelector', 'li.submenu > a');
-        } catch (PHPUnit_Extensions_Selenium2TestCase_WebDriverException $e) {
+        } catch (\PHPUnit_Extensions_Selenium2TestCase_WebDriverException $e) {
             return;
         }
 
