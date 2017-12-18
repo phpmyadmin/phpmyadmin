@@ -231,7 +231,7 @@ class TableBrowseTest extends TestBase
         $this->byCssSelector("textarea.edit_box")->clear();
         $this->byCssSelector("textarea.edit_box")->value("abcde");
 
-        $this->keys(PHPUnit_Extensions_Selenium2TestCase_Keys::RETURN_);
+        $this->keys(\PHPUnit_Extensions_Selenium2TestCase_Keys::RETURN_);
 
         $this->waitAjax();
         $success = $this->waitForElement(
