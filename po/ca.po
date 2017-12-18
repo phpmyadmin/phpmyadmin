@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.8.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2017-11-28 16:22+0100\n"
-"PO-Revision-Date: 2017-12-18 12:11+0000\n"
+"PO-Revision-Date: 2017-12-18 12:43+0000\n"
 "Last-Translator: Robert Antoni Buj Gelonch <robert.buj@gmail.com>\n"
 "Language-Team: Catalan "
 "<https://hosted.weblate.org/projects/phpmyadmin/master/ca/>\n"
@@ -25,8 +25,8 @@ msgid ""
 "The %s file is not available on this system, please visit %s for more "
 "information."
 msgstr ""
-"L'arxiu %s no es troba en aquest sistema, si us plau, visita %s per a més "
-"informació."
+"El fitxer %s no està disponible en aquest sistema, per a més informació "
+"visiteu %s."
 
 #: db_central_columns.php:153
 msgid "The central list of columns for the current database is empty."
@@ -551,16 +551,16 @@ msgid ""
 "You probably tried to upload a file that is too large. Please refer to "
 "%sdocumentation%s for a workaround for this limit."
 msgstr ""
-"Probablement has triat d'enviar un arxiu que és massa gran. Consulta la "
+"Probablement heu intentat enviar un fitxer força gran. Consulteu la "
 "%sdocumentació%s per trobar formes de modificar aquest límit."
 
 #: import.php:380 import.php:584
 msgid "Showing bookmark"
-msgstr "Mostrant consultes desades"
+msgstr "Mostrant marcadors"
 
 #: import.php:401 import.php:580
 msgid "The bookmark has been deleted."
-msgstr "S'ha esborrat la consulta desada."
+msgstr "S'ha esborrat el marcador."
 
 #: import.php:495
 msgid ""
@@ -575,12 +575,13 @@ msgstr ""
 #: import.php:545 libraries/classes/Display/Import.php:56
 msgid "Could not load import plugins, please check your installation!"
 msgstr ""
-"No es poden carregar les extensions d'importació, comprova l'instal.lació!"
+"No s'han pogut carregar les extensions d'importació, comproveu la vostra "
+"l'instal·lació!"
 
 #: import.php:587 libraries/classes/Sql.php:807 libraries/classes/Sql.php:1594
 #, php-format
 msgid "Bookmark %s has been created."
-msgstr "%s creat com a Consulta desada."
+msgstr "S'ha creat el marcador %s."
 
 #: import.php:597
 #, php-format
@@ -610,7 +611,7 @@ msgstr ""
 
 #: import.php:706 sql.php:158
 msgid "\"DROP DATABASE\" statements are disabled."
-msgstr "Instrucció \"DROP DATABASE\" desactivada."
+msgstr "Les sentències \"DROP DATABASE\" estan inhabilitades."
 
 #: import_status.php:107
 msgid "Could not load the progress of the import."
@@ -1856,7 +1857,7 @@ msgstr "Esborrar les coincidències per a la taula %s?"
 #: js/messages.php:398
 msgid "The definition of a stored function must contain a RETURN statement!"
 msgstr ""
-"La definició d'una funció enmagatzemada ha d'incloure una instrucció RETURN!"
+"La definició d'una funció emmagatzemada ha d'incloure una sentència RETURN!"
 
 #: js/messages.php:399 libraries/classes/Config/Forms/User/ExportForm.php:140
 #: libraries/classes/Display/Export.php:185
@@ -2151,11 +2152,11 @@ msgstr "Valor màxim:"
 
 #: js/messages.php:490
 msgid "Hide find and replace criteria"
-msgstr "Amaga el criteri de cerca i reemplaça"
+msgstr "Oculta el criteri de cerca i substitueix"
 
 #: js/messages.php:491
 msgid "Show find and replace criteria"
-msgstr "Mostrar el criteri de cerca i reemplaça"
+msgstr "Mostra el criteri de cerca i substitueix"
 
 #: js/messages.php:495
 msgid "Each point represents a data row."
@@ -2614,7 +2615,7 @@ msgstr "Executar aquesta consulta de nou?"
 
 #: js/messages.php:722
 msgid "Do you really want to delete this bookmark?"
-msgstr "Realment voleu esborrar aquesta marcador?"
+msgstr "Realment voleu esborrar aquest marcador?"
 
 #: js/messages.php:724
 msgid "Some error occurred while getting SQL debug info."
@@ -2668,7 +2669,7 @@ msgstr "Afegir prefix de taula"
 
 #: js/messages.php:735
 msgid "Replace table with prefix"
-msgstr "Reemplaçar taula amb prefix"
+msgstr "Substitueix la taula amb el prefix"
 
 #: js/messages.php:736 templates/database/structure/check_all_tables.twig:28
 msgid "Copy table with prefix"
@@ -3942,7 +3943,7 @@ msgstr "Màxim temps d'execució"
 #: libraries/classes/Display/Export.php:811
 #, php-format
 msgid "Use %s statement"
-msgstr "Usar l'instrucció %s"
+msgstr "Utilitza la sentència %s"
 
 #: libraries/classes/Config/Descriptions.php:254 prefs_manage.php:312
 msgid "Save as file"
@@ -5274,7 +5275,7 @@ msgstr ""
 
 #: libraries/classes/Config/Descriptions.php:1001
 msgid "Bookmark table"
-msgstr "Taula de consultes desades"
+msgstr "Taula de marcadors"
 
 #: libraries/classes/Config/Descriptions.php:1004
 msgid ""
@@ -5470,9 +5471,10 @@ msgid ""
 "tables]pmadb[/doc] for complete information. Leave blank for no support. "
 "Suggested: [kbd]phpmyadmin[/kbd]."
 msgstr ""
-"Base de dades usada per a relacions, consultes desades i característiques "
-"dels PDF. Consulta [doc@linked-tables]pmadb[/doc] per tenir informació més "
-"completa. Deixa en blanc per no utilitzar. Suggerit: [kbd]phpmyadmin[/kbd]."
+"La base de dades que s'utilitza per a les relacions, els marcadors i les "
+"característiques dels PDF. Consulteu [doc@linked-tables]pmadb[/doc] per "
+"tenir informació més completa. Deixeu-ho en blanc per no utilitzar. Suggerit:"
+" [kbd]phpmyadmin[/kbd]."
 
 #: libraries/classes/Config/Descriptions.php:1112
 #: templates/server/databases/create.twig:21
@@ -6601,7 +6603,7 @@ msgstr[1] "Es mostren %1$d marcadors (privats i compartits)"
 
 #: libraries/classes/Console.php:94
 msgid "No bookmarks"
-msgstr "Sense relacions desades"
+msgstr "Sense marcadors"
 
 #: libraries/classes/Console.php:129
 msgid "SQL Query Console"
@@ -6944,7 +6946,8 @@ msgstr "possible aprofitament"
 #: libraries/classes/Database/Designer.php:108
 msgid "Could not load schema plugins, please check your installation!"
 msgstr ""
-"No es poden carregar les extensions d'esquema, comprova l'instal.lació!"
+"No s'han pogut carregar les extensions d'esquema, comproveu la vostra "
+"l'instal·lació!"
 
 #: libraries/classes/Database/Qbe.php:447
 #: templates/table/search/search_and_replace.twig:6
@@ -7021,23 +7024,23 @@ msgstr "Executa consulta"
 
 #: libraries/classes/Database/Qbe.php:1847
 msgid "Saved bookmarked search:"
-msgstr "Cerca de consultes desades:"
+msgstr "Cerca desada de marcadors:"
 
 #: libraries/classes/Database/Qbe.php:1849
 msgid "New bookmark"
-msgstr "Nova consulta desada"
+msgstr "Marcador nou"
 
 #: libraries/classes/Database/Qbe.php:1875
 msgid "Create bookmark"
-msgstr "Crear consulta desada"
+msgstr "Crea un marcador"
 
 #: libraries/classes/Database/Qbe.php:1878
 msgid "Update bookmark"
-msgstr "Actualitzar consulta desada"
+msgstr "Actualitza el marcador"
 
 #: libraries/classes/Database/Qbe.php:1880
 msgid "Delete bookmark"
-msgstr "Esborrar consultab desada"
+msgstr "Suprimeix el marcador"
 
 #: libraries/classes/Database/Search.php:87
 msgid "at least one of the words"
@@ -7439,7 +7442,8 @@ msgstr "Alies definits"
 #: libraries/classes/Display/Export.php:1021
 msgid "Could not load export plugins, please check your installation!"
 msgstr ""
-"No es poden carregar les extensions d'exportació, comprova l'instal.lació!"
+"No s'han pogut carregar les extensions d'exportació, comproveu la vostra "
+"l'instal·lació!"
 
 #: libraries/classes/Display/GitRevision.php:65
 #, php-format
@@ -8490,7 +8494,7 @@ msgstr "Motors"
 #: libraries/classes/Menu.php:644 libraries/classes/Util.php:3975
 #: templates/server/sub_page_header.twig:2
 msgid "Plugins"
-msgstr "Complements"
+msgstr "Extensions"
 
 #: libraries/classes/Message.php:247
 #, php-format
@@ -9989,7 +9993,7 @@ msgstr "Comptador de columnes incorrecte en l'entrada CSV a la línia %d."
 
 #: libraries/classes/Plugins/Import/ImportLdi.php:113
 msgid "This plugin does not support compressed imports!"
-msgstr "Aquesta extensió no suporta importacions comprimides!"
+msgstr "Aquesta extensió no admet importacions comprimides!"
 
 #: libraries/classes/Plugins/Import/ImportMediawiki.php:53
 msgid "MediaWiki Table"
@@ -10557,7 +10561,7 @@ msgstr "Mira a la documentació cóm actualitzar la teva taula column_info."
 
 #: libraries/classes/Relation.php:224 libraries/classes/SqlQueryForm.php:401
 msgid "Bookmarked SQL query"
-msgstr "Consulta SQL desada"
+msgstr "Consulta SQL amb marcador"
 
 #: libraries/classes/Relation.php:235
 msgid "SQL history"
@@ -11457,11 +11461,11 @@ msgstr "No hi ha esdeveniments per mostrar."
 
 #: libraries/classes/SavedSearches.php:261
 msgid "Please provide a name for this bookmarked search."
-msgstr "Proporcioneu un nom per aquesta cerca preferida."
+msgstr "Proporcioneu un nom per aquesta cerca amb marcador."
 
 #: libraries/classes/SavedSearches.php:276
 msgid "Missing information to save the bookmarked search."
-msgstr "Falta informació per desar la cerca."
+msgstr "Falta informació per desar la cerca amb marcador."
 
 #: libraries/classes/SavedSearches.php:298
 #: libraries/classes/SavedSearches.php:335
@@ -11812,7 +11816,7 @@ msgstr "No canviïs la contrasenya"
 
 #: libraries/classes/Server/Privileges.php:1717
 msgid "Authentication Plugin"
-msgstr "Complement d'autenticació"
+msgstr "Extensió d'autenticació"
 
 #: libraries/classes/Server/Privileges.php:1724
 msgid "Password Hashing Method"
@@ -13316,7 +13320,7 @@ msgstr "ø de Temps"
 
 #: libraries/classes/Sql.php:586 libraries/classes/Sql.php:604
 msgid "Bookmark this SQL query"
-msgstr "Desa aquesta consulta SQL"
+msgstr "Marcador per aquesta consulta SQL"
 
 #: libraries/classes/Sql.php:590
 msgid "Label:"
@@ -13324,7 +13328,7 @@ msgstr "Etiqueta:"
 
 #: libraries/classes/Sql.php:597 libraries/classes/SqlQueryForm.php:316
 msgid "Let every user access this bookmark"
-msgstr "Deixa accedir a cada usuari a aquesta consulta desada"
+msgstr "Permet que tots els usuaris accedeixin a aquest marcador"
 
 #: libraries/classes/Sql.php:811
 msgid "Bookmark not created!"
@@ -13333,7 +13337,8 @@ msgstr "No s'ha creat el marcador!"
 #: libraries/classes/Sql.php:921
 #, php-format
 msgid "Using bookmark \"%s\" as default browse query."
-msgstr "Usar el preferit \"%s\" com a pàgina de cerca per defecte."
+msgstr ""
+"S'utilitza del marcador \"%s\" com a consulta predeterminada de navegació."
 
 #: libraries/classes/Sql.php:1398
 msgid "Showing as PHP code"
@@ -13394,11 +13399,11 @@ msgstr "Enllaçar paràmetres"
 
 #: libraries/classes/SqlQueryForm.php:308
 msgid "Bookmark this SQL query:"
-msgstr "Desa aquesta consulta SQL:"
+msgstr "Marcador per aquesta consulta SQL:"
 
 #: libraries/classes/SqlQueryForm.php:322
 msgid "Replace existing bookmark of same name"
-msgstr "Reemplaça una consulta desada ja existent amb el mateix nom"
+msgstr "Substitueix un marcador existent amb el mateix nom"
 
 #: libraries/classes/SqlQueryForm.php:336
 msgid "Delimiter"
@@ -14905,7 +14910,7 @@ msgstr "Historial"
 
 #: templates/console/display.twig:11 templates/console/display.twig:99
 msgid "Bookmarks"
-msgstr "Consultes desades"
+msgstr "Marcadors"
 
 #: templates/console/display.twig:20
 msgid "Press Ctrl+Enter to execute query"
@@ -14936,7 +14941,7 @@ msgstr "Explica"
 
 #: templates/console/display.twig:40 templates/console/display.twig:184
 msgid "Bookmark"
-msgstr "Consultes desades"
+msgstr "Marcador"
 
 #: templates/console/display.twig:40 templates/console/display.twig:184
 msgid "Query failed"
@@ -15000,7 +15005,7 @@ msgstr "Afegir"
 
 #: templates/console/display.twig:112
 msgid "Add bookmark"
-msgstr "Afegir consulta desada"
+msgstr "Afegeix un marcador"
 
 #: templates/console/display.twig:121
 msgid "Label"
@@ -15012,7 +15017,7 @@ msgstr "Base de dades destinació"
 
 #: templates/console/display.twig:127
 msgid "Share this bookmark"
-msgstr "Comparteix aquesta consulta desada"
+msgstr "Comparteix aquest marcador"
 
 #: templates/console/display.twig:140
 msgid "Set default"
@@ -15778,11 +15783,11 @@ msgstr "String original"
 
 #: templates/table/search/replace_preview.twig:19
 msgid "Replaced string"
-msgstr "String reemplaçat"
+msgstr "Cadena substituïda"
 
 #: templates/table/search/replace_preview.twig:37
 msgid "Replace"
-msgstr "Reemplaça"
+msgstr "Substitueix"
 
 #: templates/database/create_table.twig:15
 msgid "Number of columns"
@@ -15883,7 +15888,7 @@ msgstr ""
 
 #: templates/table/search/search_and_replace.twig:3
 msgid "Replace with:"
-msgstr "Reemplaça NULL amb:"
+msgstr "Substitueix amb:"
 
 #: templates/table/search/search_and_replace.twig:19
 msgid "Use regular expression"
@@ -16149,7 +16154,7 @@ msgstr "Afegeix permisos a la següent taula:"
 
 #: templates/server/plugins/section.twig:9
 msgid "Plugin"
-msgstr "Complement"
+msgstr "Extensió"
 
 #: templates/server/plugins/section.twig:12
 msgid "Author"
