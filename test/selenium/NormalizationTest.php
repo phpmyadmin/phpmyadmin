@@ -16,7 +16,7 @@ namespace PhpMyAdmin\Tests\Selenium;
  * @subpackage Selenium
  * @group      selenium
  */
-class PmaSeleniumNormalizationTest extends PmaSeleniumTestBase
+class NormalizationTest extends TestBase
 {
     /**
      * Setup the browser environment to run the selenium test case

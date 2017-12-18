@@ -15,7 +15,7 @@ namespace PhpMyAdmin\Tests\Selenium;
  * @subpackage Selenium
  * @group      selenium
  */
-abstract class PmaSeleniumTestBase extends \PHPUnit_Extensions_Selenium2TestCase
+abstract class TestBase extends \PHPUnit_Extensions_Selenium2TestCase
 {
     /**
      * mysqli object

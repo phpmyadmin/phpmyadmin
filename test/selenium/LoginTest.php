@@ -10,13 +10,13 @@
 namespace PhpMyAdmin\Tests\Selenium;
 
 /**
- * PmaSeleniumLoginTest class
+ * LoginTest class
  *
  * @package    PhpMyAdmin-test
  * @subpackage Selenium
  * @group      selenium
  */
-class PmaSeleniumLoginTest extends PmaSeleniumTestBase
+class LoginTest extends TestBase
 {
     public function setUpPage()
     {

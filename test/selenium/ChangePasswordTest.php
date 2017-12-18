@@ -10,13 +10,13 @@
 namespace PhpMyAdmin\Tests\Selenium;
 
 /**
- * PmaSeleniumPrivilegesTest class
+ * PrivilegesTest class
  *
  * @package    PhpMyAdmin-test
  * @subpackage Selenium
  * @group      selenium
  */
-class PmaSeleniumChangePasswordTest extends PmaSeleniumTestBase
+class ChangePasswordTest extends TestBase
 {
     /**
      * Tests the changing of the password

@@ -10,13 +10,13 @@
 namespace PhpMyAdmin\Tests\Selenium;
 
 /**
- * PmaSeleniumTableCreateTest class
+ * TableCreateTest class
  *
  * @package    PhpMyAdmin-test
  * @subpackage Selenium
  * @group      selenium
  */
-class PmaSeleniumTableCreateTest extends PmaSeleniumTestBase
+class TableCreateTest extends TestBase
 {
 
     public function setUpPage()

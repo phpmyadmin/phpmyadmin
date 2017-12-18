@@ -10,13 +10,13 @@
 namespace PhpMyAdmin\Tests\Selenium;
 
 /**
- * PmaSeleniumImportTest class
+ * ImportTest class
  *
  * @package    PhpMyAdmin-test
  * @subpackage Selenium
  * @group      selenium
  */
-class PmaSeleniumImportTest extends PmaSeleniumTestBase
+class ImportTest extends TestBase
 {
     /**
      * setUp function that can use the selenium session (called before each test)

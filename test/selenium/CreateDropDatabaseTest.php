@@ -10,13 +10,13 @@
 namespace PhpMyAdmin\Tests\Selenium;
 
 /**
- * PmaSeleniumCreateDropDatabaseTest class
+ * CreateDropDatabaseTest class
  *
  * @package    PhpMyAdmin-test
  * @subpackage Selenium
  * @group      selenium
  */
-class PmaSeleniumCreateDropDatabaseTest extends PmaSeleniumTestBase
+class CreateDropDatabaseTest extends TestBase
 {
     /**
      * Setup the browser environment to run the selenium test case

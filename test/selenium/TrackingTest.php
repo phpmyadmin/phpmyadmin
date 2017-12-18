@@ -10,13 +10,13 @@
 namespace PhpMyAdmin\Tests\Selenium;
 
 /**
- * PmaSeleniumTrackingTest class
+ * TrackingTest class
  *
  * @package    PhpMyAdmin-test
  * @subpackage Selenium
  * @group      selenium
  */
-class PmaSeleniumTrackingTest extends PmaSeleniumTestBase
+class TrackingTest extends TestBase
 {
     /**
      * Setup the browser environment to run the selenium test case

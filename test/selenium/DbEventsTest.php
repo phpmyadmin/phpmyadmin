@@ -10,13 +10,13 @@
 namespace PhpMyAdmin\Tests\Selenium;
 
 /**
- * PmaSeleniumDbEventsTest class
+ * DbEventsTest class
  *
  * @package    PhpMyAdmin-test
  * @subpackage Selenium
  * @group      selenium
  */
-class PmaSeleniumDbEventsTest extends PmaSeleniumTestBase
+class DbEventsTest extends TestBase
 {
     /**
      * Setup the browser environment to run the selenium test case

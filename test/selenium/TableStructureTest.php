@@ -10,13 +10,13 @@
 namespace PhpMyAdmin\Tests\Selenium;
 
 /**
- * PmaSeleniumTableStructureTest class
+ * TableStructureTest class
  *
  * @package    PhpMyAdmin-test
  * @subpackage Selenium
  * @group      selenium
  */
-class PmaSeleniumTableStructureTest extends PmaSeleniumTestBase
+class TableStructureTest extends TestBase
 {
     /**
      * Setup the browser environment to run the selenium test case

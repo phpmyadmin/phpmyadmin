@@ -10,13 +10,13 @@
 namespace PhpMyAdmin\Tests\Selenium;
 
 /**
- * PmaSeleniumSqlQueryTest class
+ * SqlQueryTest class
  *
  * @package    PhpMyAdmin-test
  * @subpackage Selenium
  * @group      selenium
  */
-class PmaSeleniumSqlQueryTest extends PmaSeleniumTestBase
+class SqlQueryTest extends TestBase
 {
 
     /**

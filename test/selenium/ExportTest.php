@@ -10,13 +10,13 @@
 namespace PhpMyAdmin\Tests\Selenium;
 
 /**
- * PmaSeleniumExportTest class
+ * ExportTest class
  *
  * @package    PhpMyAdmin-test
  * @subpackage Selenium
  * @group      selenium
  */
-class PmaSeleniumExportTest extends PmaSeleniumTestBase
+class ExportTest extends TestBase
 {
     /**
      * Setup the browser environment to run the selenium test case

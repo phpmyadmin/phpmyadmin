@@ -10,13 +10,13 @@
 namespace PhpMyAdmin\Tests\Selenium;
 
 /**
- * PmaSeleniumXSSTest class
+ * XSSTest class
  *
  * @package    PhpMyAdmin-test
  * @subpackage Selenium
  * @group      selenium
  */
-class PmaSeleniumXSSTest extends PmaSeleniumTestBase
+class XSSTest extends TestBase
 {
     public function setUpPage()
     {

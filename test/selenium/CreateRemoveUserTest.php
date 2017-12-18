@@ -10,13 +10,13 @@
 namespace PhpMyAdmin\Tests\Selenium;
 
 /**
- * PmaSeleniumCreateRemoveUserTest class
+ * CreateRemoveUserTest class
  *
  * @package    PhpMyAdmin-test
  * @subpackage Selenium
  * @group      selenium
  */
-class PmaSeleniumCreateRemoveUserTest extends PmaSeleniumTestBase
+class CreateRemoveUserTest extends TestBase
 {
     /**
      * Username for the user

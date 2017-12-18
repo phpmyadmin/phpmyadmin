@@ -10,13 +10,13 @@
 namespace PhpMyAdmin\Tests\Selenium;
 
 /**
- * PmaSeleniumDbOperationsTest class
+ * DbOperationsTest class
  *
  * @package    PhpMyAdmin-test
  * @subpackage Selenium
  * @group      selenium
  */
-class PmaSeleniumDbOperationsTest extends PmaSeleniumTestBase
+class DbOperationsTest extends TestBase
 {
     /**
      * setUp function that can use the selenium session (called before each test)
