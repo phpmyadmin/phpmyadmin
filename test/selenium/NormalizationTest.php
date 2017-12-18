@@ -7,7 +7,7 @@
  * @subpackage Selenium
  */
 
-require_once 'TestBase.php';
+namespace PhpMyAdmin\Tests\Selenium;
 
 /**
  * PMA_SeleniumNormalizationTest class
@@ -16,7 +16,7 @@ require_once 'TestBase.php';
  * @subpackage Selenium
  * @group      selenium
  */
-class PMA_SeleniumNormalizationTest extends PMA_SeleniumBase
+class NormalizationTest extends TestBase
 {
     /**
      * Setup the browser environment to run the selenium test case

@@ -7,16 +7,16 @@
  * @subpackage Selenium
  */
 
-require_once 'TestBase.php';
+namespace PhpMyAdmin\Tests\Selenium;
 
 /**
- * PmaSeleniumTableInsertTest class
+ * TableInsertTest class
  *
  * @package    PhpMyAdmin-test
  * @subpackage Selenium
  * @group      selenium
  */
-class PMA_SeleniumTableInsertTest extends PMA_SeleniumBase
+class TableInsertTest extends TestBase
 {
     /**
      * Setup the browser environment to run the selenium t
