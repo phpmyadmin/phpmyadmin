@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.8.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2017-11-28 16:22+0100\n"
-"PO-Revision-Date: 2017-11-30 18:36+0000\n"
-"Last-Translator: BennyBeat <bennybeat@gmail.com>\n"
+"PO-Revision-Date: 2017-12-18 10:37+0000\n"
+"Last-Translator: Robert Antoni Buj Gelonch <robert.buj@gmail.com>\n"
 "Language-Team: Catalan "
 "<https://hosted.weblate.org/projects/phpmyadmin/master/ca/>\n"
 "Language: ca\n"
@@ -13,7 +13,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 2.18-dev\n"
+"X-Generator: Weblate 2.18\n"
 
 #: ajax.php:21 ajax.php:50 export.php:203 libraries/classes/Export.php:1100
 msgid "Bad type!"
@@ -568,9 +568,9 @@ msgid ""
 "file size exceeded the maximum size permitted by your PHP configuration. See "
 "[doc@faq1-16]FAQ 1.16[/doc]."
 msgstr ""
-"No s'han rebut dades per importar. O bé no s'ha especificat un nom d'arxiu, "
-"o el tamany de l'arxiu es més gran que el permès per la configuració del "
-"vostre PHP. Veieu [doc@faq1-16]PFC(FAQ) 1.16[/doc]."
+"No s'han rebut dades per importar. O bé no s'ha especificat un nom de "
+"fitxer, o la mida del fitxer es més gran que la permesa per la configuració "
+"del vostre PHP. Veieu [doc@faq1-16]PFC(FAQ) 1.16[/doc]."
 
 #: import.php:545 libraries/classes/Display/Import.php:56
 msgid "Could not load import plugins, please check your installation!"
@@ -663,7 +663,7 @@ msgstr "Ordenació de la connexió del servidor"
 
 #: index.php:265
 msgid "Appearance settings"
-msgstr "Paràmetres d'aparença"
+msgstr "Paràmetres de l'aparença"
 
 #: index.php:298 prefs_manage.php:279
 msgid "More settings"
@@ -682,10 +682,8 @@ msgid "Server type:"
 msgstr "Tipus de servidor:"
 
 #: index.php:331
-#, fuzzy
-#| msgid "Master connection:"
 msgid "Server connection:"
-msgstr "Connexió mestre:"
+msgstr "Connexió del servidor:"
 
 #: index.php:335 libraries/classes/Plugins/Export/ExportLatex.php:223
 #: libraries/classes/Plugins/Export/ExportSql.php:704
@@ -1785,10 +1783,8 @@ msgid "No databases selected."
 msgstr "No s'han triat bases de dades."
 
 #: js/messages.php:370
-#, fuzzy
-#| msgid "No column selected."
 msgid "No accounts selected."
-msgstr "No s'han triat columnes."
+msgstr "No s'ha seleccionat cap compte."
 
 #: js/messages.php:371
 msgid "Dropping column"
@@ -2293,10 +2289,8 @@ msgstr ""
 
 #: js/messages.php:560 templates/database/designer/side_menu.twig:34
 #: templates/database/designer/side_menu.twig:37
-#, fuzzy
-#| msgid "No tables found in database."
 msgid "Add tables from other databases"
-msgstr "Base de dades sense taules."
+msgstr "Afegeix taules d'altres bases de dades"
 
 #: js/messages.php:561
 msgid "Page name"
@@ -3286,9 +3280,6 @@ msgid "Charset"
 msgstr "Joc de caràcters"
 
 #: libraries/classes/Charsets.php:310
-#, fuzzy
-#| msgctxt "Collation"
-#| msgid "Unknown"
 msgid "Unknown"
 msgstr "Desconegut"
 
@@ -3588,7 +3579,7 @@ msgstr ""
 #: libraries/classes/Config.php:1506
 #: libraries/classes/Config/Descriptions.php:1486
 msgid "Font size"
-msgstr "Tamany de lletra"
+msgstr "Mida de la lletra"
 
 #: libraries/classes/Config.php:1827
 #, php-format
@@ -3685,9 +3676,9 @@ msgid ""
 "columns; [kbd]input[/kbd] - allows limiting of input length, [kbd]textarea[/"
 "kbd] - allows newlines in columns."
 msgstr ""
-"Defineix quin tipus de control d'edició es farà servir per a columnes CHAR i "
-"VARCHAR; [kbd]input[/kbd] - permet limitar el tamany de l'entrada, "
-"[kbd]textarea[/kbd] - permet varies línies dintre dels camps."
+"Defineix quin tipus de control d'edició es farà servir per a les columnes "
+"CHAR i VARCHAR; [kbd]input[/kbd] - permet limitar la mida de l'entrada, "
+"[kbd]textarea[/kbd] - permet diverses línies dins dels camps."
 
 #: libraries/classes/Config/Descriptions.php:112
 msgid "CHAR columns editing"
@@ -4196,7 +4187,7 @@ msgstr "Sintaxi a usar a l'inserció de dades"
 #: libraries/classes/Config/Descriptions.php:397
 #: libraries/classes/Plugins/Export/ExportSql.php:440
 msgid "Maximal length of created query"
-msgstr "Tamany màxim de la consulta creada"
+msgstr "Mida màxima de la consulta creada"
 
 #: libraries/classes/Config/Descriptions.php:407
 msgid "Export type"
@@ -4530,7 +4521,7 @@ msgstr "Mostra l'esquema relacional"
 #: libraries/classes/Plugins/Schema/SchemaDia.php:72
 #: libraries/classes/Plugins/Schema/SchemaPdf.php:80
 msgid "Paper size"
-msgstr "Tamany de paper"
+msgstr "Mida del paper"
 
 #: libraries/classes/Config/Descriptions.php:591
 msgid "Text fields"
@@ -4747,7 +4738,7 @@ msgstr "Validesa de l'autenticació per galetes"
 
 #: libraries/classes/Config/Descriptions.php:722
 msgid "Double size of textarea for LONGTEXT columns."
-msgstr "Doble tamany de textarea per a columnes LONGTEXT."
+msgstr "Mida doble de l'àrea de text per a les columnes LONGTEXT."
 
 #: libraries/classes/Config/Descriptions.php:724
 msgid "Bigger textarea for LONGTEXT"
@@ -4759,7 +4750,7 @@ msgstr "Màxim nombre de caràcters usats quan es mostra una consulta SQL."
 
 #: libraries/classes/Config/Descriptions.php:728
 msgid "Maximum displayed SQL length"
-msgstr "Tamany màxim de SQL mostrat"
+msgstr "Mida màxima del SQL mostrat"
 
 #: libraries/classes/Config/Descriptions.php:730
 #: libraries/classes/Config/Descriptions.php:755
@@ -5159,7 +5150,7 @@ msgstr "Quàntes consultes s'han de desar a l'historial."
 
 #: libraries/classes/Config/Descriptions.php:939
 msgid "Query history length"
-msgstr "Tamany de l'historial de consultes"
+msgstr "Mida de l'historial de consultes"
 
 #: libraries/classes/Config/Descriptions.php:941
 msgid "Select which functions will be used for character set conversion."
@@ -5957,8 +5948,8 @@ msgid ""
 "Textarea size (columns) in edit mode, this value will be emphasized for SQL "
 "query textareas (*2)."
 msgstr ""
-"Tamany de textarea (columnes) en mode d'edició, aquest valor s'augmentarà "
-"per a textareas de consultes SQL (*2)."
+"Mida de l'àrea de text (columnes) en mode d'edició, aquest valor "
+"s'augmentarà per a les àrees de text de les consultes SQL (*2)."
 
 #: libraries/classes/Config/Descriptions.php:1357
 msgid "Textarea columns"
@@ -5969,8 +5960,8 @@ msgid ""
 "Textarea size (rows) in edit mode, this value will be emphasized for SQL "
 "query textareas (*2)."
 msgstr ""
-"Tamany de textarea (files) en mode d'edició, aquest valor s'augmentarà per a "
-"textareas de consultes SQL (*2)."
+"Mida de l'àrea de text (files) en mode d'edició, aquest valor s'augmentarà "
+"per a les àrees de text de les consultes SQL (*2)."
 
 #: libraries/classes/Config/Descriptions.php:1364
 msgid "Textarea rows"
@@ -7638,20 +7629,20 @@ msgid ""
 "The increment size for extending the size of an autoextending tablespace "
 "when it becomes full."
 msgstr ""
-"La quantitat a incrementar per ampliar el tamany d'una taula autoextensible "
+"La quantitat a incrementar per ampliar la mida d'una taula autoextensible "
 "quan estigui a punt d'omplir-se."
 
 #: libraries/classes/Engines/Innodb.php:47
 msgid "Buffer pool size"
-msgstr "Tamany de la memòria cau"
+msgstr "Mida de la memòria cau"
 
 #: libraries/classes/Engines/Innodb.php:49
 msgid ""
 "The size of the memory buffer InnoDB uses to cache data and indexes of its "
 "tables."
 msgstr ""
-"El tamany de memòria cau que InnoDB fa servir per desar les dades i indexs "
-"de les seves taules."
+"La quantitat de memòria cau que InnoDB fa servir per desar les dades i els "
+"índexs de les seves taules."
 
 #: libraries/classes/Engines/Innodb.php:139
 msgid "Buffer Pool"
@@ -7724,15 +7715,15 @@ msgstr "Esperes d'escriptura en %"
 
 #: libraries/classes/Engines/Myisam.php:28
 msgid "Data pointer size"
-msgstr "Tamany del punter de dades"
+msgstr "Mida del punter de dades"
 
 #: libraries/classes/Engines/Myisam.php:30
 msgid ""
 "The default pointer size in bytes, to be used by CREATE TABLE for MyISAM "
 "tables when no MAX_ROWS option is specified."
 msgstr ""
-"El tamany per defecte del punter en bytes, usat en CREATE TABLE per a taules "
-"MyISAM quan no s'especifica l'opció MAX_ROWS."
+"La mida per defecte del punter en bytes, usat en CREATE TABLE per a les "
+"taules MyISAM quan no s'especifica l'opció MAX_ROWS."
 
 #: libraries/classes/Engines/Myisam.php:36
 msgid "Automatic recovery mode"
@@ -7748,7 +7739,7 @@ msgstr ""
 
 #: libraries/classes/Engines/Myisam.php:43
 msgid "Maximum size for temporary sort files"
-msgstr "Tamany màxim per arxius temporals de classificació"
+msgstr "Mida màxima per als fitxers temporals de classificació"
 
 #: libraries/classes/Engines/Myisam.php:45
 msgid ""
@@ -7756,13 +7747,13 @@ msgid ""
 "creating a MyISAM index (during REPAIR TABLE, ALTER TABLE, or LOAD DATA "
 "INFILE)."
 msgstr ""
-"El tamany màxim per arxius temporals de MySQL es permet usar-lo mentre es "
-"torna acrear un índex MyISAM (mentre es fa un REPAIR TABLE, ALTER TABLE, o "
-"LOAD DATA INFILE)."
+"La mida màxima per als fitxers temporals de MySQL que es permet utilitzar "
+"mentre es torna a crear un índex MyISAM (mentre es fa un REPAIR TABLE, ALTER "
+"TABLE, o LOAD DATA INFILE)."
 
 #: libraries/classes/Engines/Myisam.php:52
 msgid "Maximum size for temporary files on index creation"
-msgstr "Màxim tamany per arxius temporals en creació d'índex"
+msgstr "Mida màxima per als fitxers temporals amb la creació de l'índex"
 
 #: libraries/classes/Engines/Myisam.php:54
 msgid ""
@@ -7789,7 +7780,7 @@ msgstr ""
 
 #: libraries/classes/Engines/Myisam.php:70
 msgid "Sort buffer size"
-msgstr "Tamany de l'àrea de classificació"
+msgstr "Mida de l'àrea de classificació"
 
 #: libraries/classes/Engines/Myisam.php:72
 msgid ""
@@ -7801,20 +7792,20 @@ msgstr ""
 
 #: libraries/classes/Engines/Pbxt.php:30
 msgid "Index cache size"
-msgstr "Tamany del cau d'índex"
+msgstr "Mida de la memória cau de l'índex"
 
 #: libraries/classes/Engines/Pbxt.php:32
 msgid ""
 "This is the amount of memory allocated to the index cache. Default value is "
 "32MB. The memory allocated here is used only for caching index pages."
 msgstr ""
-"Aquest és el tamany de memòria assignada al cau d'índexs. El valor per "
-"defecte és 32MB. La memòria assignada aquí només s'utilitza per cau de "
-"pàgines d'índex."
+"Aquesta és el quantitat de memòria assignada a la memòria cau de l'índex. El "
+"valor per defecte és 32 MB. La memòria assignada aquí només s'utilitza per a "
+"la memòria cau de les pàgines d'índex."
 
 #: libraries/classes/Engines/Pbxt.php:39
 msgid "Record cache size"
-msgstr "Tamany del cau de registre"
+msgstr "Mida de la memòria cau del registre"
 
 #: libraries/classes/Engines/Pbxt.php:41
 msgid ""
@@ -7829,7 +7820,7 @@ msgstr ""
 
 #: libraries/classes/Engines/Pbxt.php:49
 msgid "Log cache size"
-msgstr "Tamany del registre del cau -log-"
+msgstr "Mida de la memòria cau del registre"
 
 #: libraries/classes/Engines/Pbxt.php:51
 msgid ""
@@ -7848,12 +7839,12 @@ msgid ""
 "The size of a transaction log before rollover, and a new log is created. The "
 "default value is 16MB."
 msgstr ""
-"El tamany del registre de transaccions abans d'un ajornament, i un nou "
-"registre es crea. El valor per defecte és 16MB."
+"La mida del registre de transaccions abans d'un ajornament, i que es crei un "
+"registre nou. El valor per defecte és 16MB."
 
 #: libraries/classes/Engines/Pbxt.php:66
 msgid "Transaction buffer size"
-msgstr "Tamany de la memòria cau de transaccions"
+msgstr "Mida de la memòria cau de les transaccions"
 
 #: libraries/classes/Engines/Pbxt.php:68
 msgid ""
@@ -7906,7 +7897,7 @@ msgstr ""
 
 #: libraries/classes/Engines/Pbxt.php:104
 msgid "Log buffer size"
-msgstr "Tamany de la memòria cau del registre"
+msgstr "Mida de la memòria cau del registre"
 
 #: libraries/classes/Engines/Pbxt.php:106
 msgid ""
@@ -7920,15 +7911,15 @@ msgstr ""
 
 #: libraries/classes/Engines/Pbxt.php:114
 msgid "Data file grow size"
-msgstr "Tamany de creixement de l'arxiu de dades"
+msgstr "Mida del creixement del fitxer de dades"
 
 #: libraries/classes/Engines/Pbxt.php:115
 msgid "The grow size of the handle data (.xtd) files."
-msgstr "El tamany de creixement dels arxius del gestor de dades (.xtd) ."
+msgstr "La mida del creixement dels fitxers de dades de gestió (.xtd)."
 
 #: libraries/classes/Engines/Pbxt.php:119
 msgid "Row file grow size"
-msgstr "Tamany de creixement de l'arxiu de files"
+msgstr "Mida del creixement del fitxer de files"
 
 #: libraries/classes/Engines/Pbxt.php:120
 msgid "The grow size of the row pointer (.xtr) files."
@@ -12745,7 +12736,7 @@ msgstr ""
 
 #: libraries/classes/Server/Status/Variables.php:467
 msgid "Total size of buffer pool, in pages."
-msgstr "Tamany total de la memòria cau, en pàgines."
+msgstr "Mida total de la memòria cau, en pàgines."
 
 #: libraries/classes/Server/Status/Variables.php:470
 msgid ""
@@ -13923,7 +13914,7 @@ msgid ""
 "the maximum row size"
 msgstr ""
 "Una cadena de longitud variable (%s), la longitud efectiva màxima està "
-"subjecta al tamany màxim d'una fila"
+"subjecta a la mida màxima d'una fila"
 
 #: libraries/classes/Types.php:303
 msgid ""
@@ -14398,19 +14389,19 @@ msgstr "La configuració conté dades incorrectes per a alguns camps."
 
 #: prefs_manage.php:138
 msgid "Do you want to import remaining settings?"
-msgstr "Vols importar la resta de paràmetres?"
+msgstr "Voleu importar la resta de paràmetres?"
 
 #: prefs_manage.php:224 prefs_manage.php:253
 msgid "Saved on: @DATE@"
-msgstr "Desat en: @DATE@"
+msgstr "Desat el: @DATE@"
 
 #: prefs_manage.php:239
 msgid "Import from file"
-msgstr "Importar des de arxiu"
+msgstr "Importa del fitxer"
 
 #: prefs_manage.php:247
 msgid "Import from browser's storage"
-msgstr "Importar des de l'emmagatzemament del navegador"
+msgstr "Importa de l'emmagatzematge del navegador"
 
 #: prefs_manage.php:250
 msgid "Settings will be imported from your browser's local storage."
@@ -14419,11 +14410,11 @@ msgstr ""
 
 #: prefs_manage.php:256
 msgid "You have no saved settings!"
-msgstr "No has desat els paràmetres!"
+msgstr "No heu desat els paràmetres!"
 
 #: prefs_manage.php:261 prefs_manage.php:346
 msgid "This feature is not supported by your web browser"
-msgstr "Aquesta característica no està suportada pel teu navegador"
+msgstr "Aquesta característica no és compatible amb el vostre navegador"
 
 #: prefs_manage.php:267
 msgid "Merge with current configuration"
@@ -15663,7 +15654,7 @@ msgstr "particionat"
 
 #: templates/table/structure/row_stats_table.twig:50
 msgid "Row length"
-msgstr "Tamany de fila"
+msgstr "Mida de la fila"
 
 #: templates/table/structure/row_stats_table.twig:62
 msgid "Row size"
@@ -16880,7 +16871,7 @@ msgstr ""
 
 #: libraries/advisory_rules.txt:188
 msgid "Query cache max size"
-msgstr "Tamany màxim del cau de consultes"
+msgstr "Mida màxima de la memòria cau de consultes"
 
 #: libraries/advisory_rules.txt:191
 msgid ""
@@ -16905,7 +16896,7 @@ msgstr "La mida actual de la memòria cau de consultes: %s"
 
 #: libraries/advisory_rules.txt:195
 msgid "Query cache min result size"
-msgstr "Tamany minim de resultats del cau de consultes"
+msgstr "Mida mínima de la memòria cau dels resultats de les consultes"
 
 #: libraries/advisory_rules.txt:198
 msgid ""
@@ -17204,7 +17195,7 @@ msgstr ""
 
 #: libraries/advisory_rules.txt:278
 msgid "MyISAM key buffer size"
-msgstr "Tamany de l'àrea de claus MyISAM"
+msgstr "Mida de l'àrea de claus MyISAM"
 
 #: libraries/advisory_rules.txt:281
 msgid "Key buffer is not initialized. No MyISAM indexes will be cached."
@@ -17586,15 +17577,15 @@ msgstr "{have_innodb} està establert a 'value'"
 
 #: libraries/advisory_rules.txt:418
 msgid "InnoDB log size"
-msgstr "Tamany del registre d'InnoDB"
+msgstr "Mida del registre d'InnoDB"
 
 #: libraries/advisory_rules.txt:421
 msgid ""
 "The InnoDB log file size is not an appropriate size, in relation to the "
 "InnoDB buffer pool."
 msgstr ""
-"El tamany del registre d'InnoDB no és acurat, en relació a la reserva de "
-"búfers InnoDB."
+"La mida del registre d'InnoDB no és una mida apropiada, en relació a la "
+"reserva de búfers InnoDB."
 
 #: libraries/advisory_rules.txt:422
 #, php-format
@@ -17669,7 +17660,7 @@ msgstr "La mida absoluta del registre InnoDB és de %s MiB"
 
 #: libraries/advisory_rules.txt:432
 msgid "InnoDB buffer pool size"
-msgstr "Tamany del búfer d'InnoDB"
+msgstr "Mida del búfer d'InnoDB"
 
 #: libraries/advisory_rules.txt:435
 msgid "Your InnoDB buffer pool is fairly small."
