@@ -7,7 +7,7 @@
  * @subpackage Selenium
  */
 
-require_once 'TestBase.php';
+namespace PhpMyAdmin\Tests\Selenium;
 
 /**
  * PmaSeleniumImportTest class
@@ -16,7 +16,7 @@ require_once 'TestBase.php';
  * @subpackage Selenium
  * @group      selenium
  */
-class PMA_SeleniumImportTest extends PMA_SeleniumBase
+class PmaSeleniumImportTest extends PmaSeleniumTestBase
 {
     /**
      * setUp function that can use the selenium session (called before each test)

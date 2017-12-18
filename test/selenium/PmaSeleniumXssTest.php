@@ -7,7 +7,7 @@
  * @subpackage Selenium
  */
 
-require_once 'TestBase.php';
+namespace PhpMyAdmin\Tests\Selenium;
 
 /**
  * PmaSeleniumXSSTest class
@@ -16,7 +16,7 @@ require_once 'TestBase.php';
  * @subpackage Selenium
  * @group      selenium
  */
-class PMA_SeleniumXSSTest extends PMA_SeleniumBase
+class PmaSeleniumXSSTest extends PmaSeleniumTestBase
 {
     public function setUpPage()
     {

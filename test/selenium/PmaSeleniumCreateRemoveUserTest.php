@@ -7,7 +7,7 @@
  * @subpackage Selenium
  */
 
-require_once 'TestBase.php';
+namespace PhpMyAdmin\Tests\Selenium;
 
 /**
  * PmaSeleniumCreateRemoveUserTest class
@@ -16,7 +16,7 @@ require_once 'TestBase.php';
  * @subpackage Selenium
  * @group      selenium
  */
-class PMA_SeleniumCreateRemoveUserTest extends PMA_SeleniumBase
+class PmaSeleniumCreateRemoveUserTest extends PmaSeleniumTestBase
 {
     /**
      * Username for the user

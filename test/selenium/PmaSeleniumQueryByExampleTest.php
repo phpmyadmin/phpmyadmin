@@ -7,7 +7,7 @@
  * @subpackage Selenium
  */
 
-require_once 'TestBase.php';
+namespace PhpMyAdmin\Tests\Selenium;
 
 /**
  * PmaSeleniumQueryByExampleTest class
@@ -16,7 +16,7 @@ require_once 'TestBase.php';
  * @subpackage Selenium
  * @group      selenium
  */
-class PmaSeleniumQueryByExampleTest extends PMA_SeleniumBase
+class PmaSeleniumQueryByExampleTest extends PmaSeleniumTestBase
 {
 
     /**

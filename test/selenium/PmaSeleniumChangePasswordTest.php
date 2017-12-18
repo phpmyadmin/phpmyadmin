@@ -7,7 +7,7 @@
  * @subpackage Selenium
  */
 
-require_once 'TestBase.php';
+namespace PhpMyAdmin\Tests\Selenium;
 
 /**
  * PmaSeleniumPrivilegesTest class
@@ -16,7 +16,7 @@ require_once 'TestBase.php';
  * @subpackage Selenium
  * @group      selenium
  */
-class PMA_SeleniumChangePasswordTest extends PMA_SeleniumBase
+class PmaSeleniumChangePasswordTest extends PmaSeleniumTestBase
 {
     /**
      * Tests the changing of the password

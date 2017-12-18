@@ -7,7 +7,7 @@
  * @subpackage Selenium
  */
 
-require_once 'TestBase.php';
+namespace PhpMyAdmin\Tests\Selenium;
 
 /**
  * PmaSeleniumTableBrowseTest class
@@ -16,7 +16,7 @@ require_once 'TestBase.php';
  * @subpackage Selenium
  * @group      selenium
  */
-class PMA_SeleniumTableBrowseTest extends PMA_SeleniumBase
+class PmaSeleniumTableBrowseTest extends PmaSeleniumTestBase
 {
     /**
      * Setup the browser environment to run the selenium test case
