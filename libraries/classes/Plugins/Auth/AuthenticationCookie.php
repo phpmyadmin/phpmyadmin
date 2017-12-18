@@ -136,6 +136,7 @@ class AuthenticationCookie extends AuthenticationPlugin
             ' class="disableAjax login hide js-show">
         <fieldset>
         <legend>';
+        echo '<input type="hidden" name="set_session" value="', htmlspecialchars(session_id()), '" />';
         echo __('Log in');
         echo Util::showDocu('index');
         echo '</legend>';
