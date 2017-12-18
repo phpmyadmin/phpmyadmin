@@ -185,7 +185,7 @@ abstract class TestBase extends \PHPUnit_Extensions_Selenium2TestCase
 
         parent::setUp();
         $this->setBrowserUrl($GLOBALS['TESTSUITE_URL']);
-        $this->_mysqli = new mysqli(
+        $this->_mysqli = new \mysqli(
             $GLOBALS['TESTSUITE_SERVER'],
             $GLOBALS['TESTSUITE_USER'],
             $GLOBALS['TESTSUITE_PASSWORD']
