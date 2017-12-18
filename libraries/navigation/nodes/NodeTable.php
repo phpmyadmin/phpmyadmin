@@ -53,20 +53,22 @@ class NodeTable extends NodeDatabaseChild
             'text'  => $script_name
                 . '?server=' . $GLOBALS['server']
                 . '&amp;db=%2$s&amp;table=%1$s'
-                . '&amp;pos=0',
+                . '&amp;pos=0&amp;token=' . $_SESSION[' PMA_token '],
             'icon'  => array(
                 Util::getScriptNameForOption(
                     $GLOBALS['cfg']['NavigationTreeDefaultTabTable'],
                     'table'
                 )
                 . '?server=' . $GLOBALS['server']
-                . '&amp;db=%2$s&amp;table=%1$s',
+                . '&amp;db=%2$s&amp;table=%1$s&amp;token='
+                . $_SESSION[' PMA_token '],
                 Util::getScriptNameForOption(
                     $GLOBALS['cfg']['NavigationTreeDefaultTabTable2'],
                     'table'
                 )
                 . '?server=' . $GLOBALS['server']
-                . '&amp;db=%2$s&amp;table=%1$s',
+                . '&amp;db=%2$s&amp;table=%1$s&amp;token='
+                . $_SESSION[' PMA_token '],
             ),
             'title' => $this->title,
         );

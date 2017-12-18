@@ -30,9 +30,11 @@ class NodeEvent extends NodeDatabaseChild
         $this->icon = PMA\libraries\Util::getImage('b_events.png');
         $this->links = array(
             'text' => 'db_events.php?server=' . $GLOBALS['server']
-                . '&amp;db=%2$s&amp;item_name=%1$s&amp;edit_item=1',
+                . '&amp;db=%2$s&amp;item_name=%1$s&amp;edit_item=1'
+                . '&amp;token=' . $_SESSION[' PMA_token '],
             'icon' => 'db_events.php?server=' . $GLOBALS['server']
-                . '&amp;db=%2$s&amp;item_name=%1$s&amp;export_item=1',
+                . '&amp;db=%2$s&amp;item_name=%1$s&amp;export_item=1'
+                . '&amp;token=' . $_SESSION[' PMA_token '],
         );
         $this->classes = 'event';
     }
