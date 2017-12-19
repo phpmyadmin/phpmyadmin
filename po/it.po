@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.8.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2017-11-28 16:22+0100\n"
-"PO-Revision-Date: 2017-12-17 15:12+0000\n"
+"PO-Revision-Date: 2017-12-20 21:22+0000\n"
 "Last-Translator: Claudio Maradonna <claudio@unitoo.pw>\n"
 "Language-Team: Italian "
 "<https://hosted.weblate.org/projects/phpmyadmin/master/it/>\n"
@@ -16369,7 +16369,7 @@ msgstr "Alias di colonna"
 #, fuzzy
 #| msgid "Use this column to label each point"
 msgid "Use this column in criteria"
-msgstr "Usate questo campo per etichettare ogni punto"
+msgstr "Usate questo campo nei criteri"
 
 #: templates/database/multi_table_query/form.twig:38
 msgid "criteria"
@@ -16380,8 +16380,6 @@ msgid "Add as"
 msgstr "Aggiungi come"
 
 #: templates/database/multi_table_query/form.twig:97
-#, fuzzy
-#| msgid "Alter column(s)"
 msgid "Another column"
 msgstr "Altra colonna"
 
