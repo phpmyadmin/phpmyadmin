@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.8.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2017-11-28 16:22+0100\n"
-"PO-Revision-Date: 2017-11-30 18:36+0000\n"
-"Last-Translator: RD WebDesign <weblate@rdwebdesign.com.br>\n"
+"PO-Revision-Date: 2017-12-19 00:48+0000\n"
+"Last-Translator: Bruno Fontes <brunofontes.github@mailnull.com>\n"
 "Language-Team: Portuguese (Brazil) "
 "<https://hosted.weblate.org/projects/phpmyadmin/master/pt_BR/>\n"
 "Language: pt_BR\n"
@@ -13,7 +13,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n > 1;\n"
-"X-Generator: Weblate 2.18-dev\n"
+"X-Generator: Weblate 2.18\n"
 
 #: ajax.php:21 ajax.php:50 export.php:203 libraries/classes/Export.php:1100
 msgid "Bad type!"
@@ -14848,7 +14848,6 @@ msgstr "Pressione Enter para executar consulta"
 
 #: templates/console/display.twig:31 templates/console/display.twig:84
 #: templates/console/display.twig:175 templates/console/bookmark_content.twig:7
-#, fuzzy
 msgid "Collapse"
 msgstr "Recolher"
 
@@ -14859,7 +14858,6 @@ msgstr "Expandir"
 
 #: templates/console/display.twig:31 templates/console/display.twig:175
 #: templates/console/bookmark_content.twig:7
-#, fuzzy
 msgid "Requery"
 msgstr "Repetir consulta"
 
@@ -15099,7 +15097,6 @@ msgid "Do a \"query by example\" (wildcard: \"%\")"
 msgstr "Faça uma \"consulta por exemplo\" (coringa: \"%\")"
 
 #: templates/login/twofactor.twig:5
-#, fuzzy
 msgid "Verify"
 msgstr "Verificar"
 
@@ -15507,8 +15504,6 @@ msgstr "Você habilitou a autenticação em dois fatores."
 
 #: templates/prefs_twofactor.twig:43 templates/prefs_twofactor.twig:54
 #: templates/prefs_twofactor_configure.twig:2
-#, fuzzy
-#| msgid "Config authentication"
 msgid "Configure two-factor authentication"
 msgstr "Configurar autenticação por dois fatores"
 
@@ -16113,7 +16108,6 @@ msgid "Select table:"
 msgstr "Selecionar tabela:"
 
 #: templates/export/alias_add.twig:29
-#, fuzzy
 msgid "New table name"
 msgstr "Novo nome da tabela"
 
