@@ -26,8 +26,9 @@ class DatabaseInterfaceTest extends PmaTestCase
      *
      * @return void
      */
-    function setup()
+    protected function setUp()
     {
+        $GLOBALS['server'] = 0;
         $extension = new DbiDummy();
         $this->_dbi = new DatabaseInterface($extension);
     }

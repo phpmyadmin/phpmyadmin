@@ -204,6 +204,7 @@ class EncodingTest extends TestCase
 
     public function testListEncodings()
     {
+        $GLOBALS['cfg']['AvailableCharsets'] = ['utf-8'];
         $result = Encoding::listEncodings();
         $this->assertContains('utf-8', $result);
     }

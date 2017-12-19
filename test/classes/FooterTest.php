@@ -47,6 +47,7 @@ class FooterTest extends PmaTestCase
         $GLOBALS['text_dir'] = 'ltr';
         $GLOBALS['PMA_Config'] = new Config();
         $GLOBALS['PMA_Config']->enableBc();
+        $GLOBALS['cfg']['Server']['DisableIS'] = false;
         $GLOBALS['cfg']['Server']['verbose'] = 'verbose host';
         $GLOBALS['server'] = '1';
         $_GET['reload_left_frame'] = '1';
@@ -56,7 +57,6 @@ class FooterTest extends PmaTestCase
         unset($GLOBALS['sql_query']);
         $GLOBALS['error_handler'] = new ErrorHandler();
         unset($_POST);
-
     }
 
     /**

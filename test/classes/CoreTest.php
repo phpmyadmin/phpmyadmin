@@ -40,6 +40,19 @@ class CoreTest extends PmaTestCase
     );
 
     /**
+     * Setup for test cases
+     *
+     * @return void
+     */
+    public function setUp()
+    {
+        $GLOBALS['server'] = 0;
+        $GLOBALS['db'] = '';
+        $GLOBALS['table'] = '';
+        $GLOBALS['PMA_PHP_SELF'] = 'http://example.net/';
+    }
+
+    /**
      * Test for Core::arrayRead
      *
      * @return void

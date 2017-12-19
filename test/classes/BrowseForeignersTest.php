@@ -22,9 +22,12 @@ class BrowseForeignersTest extends TestCase
      *
      * @return void
      */
-    public function setup()
+    public function setUp()
     {
+        $GLOBALS['cfg']['LimitChars'] = 50;
         $GLOBALS['cfg']['MaxRows'] = 25;
+        $GLOBALS['cfg']['RepeatCells'] = 100;
+        $GLOBALS['cfg']['ShowAll'] = false;
         $GLOBALS['pmaThemeImage'] = '';
     }
 

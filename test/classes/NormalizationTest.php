@@ -120,6 +120,9 @@ class NormalizationTest extends TestCase
      */
     public function testPMAGetHtmlForCreateNewColumn()
     {
+        $GLOBALS['cfg']['BrowseMIME'] = true;
+        $GLOBALS['cfg']['MaxRows'] = 25;
+        $GLOBALS['col_priv'] = false;
         $db = "PMA_db";
         $table= "PMA_table";
         $num_fields = 1;
