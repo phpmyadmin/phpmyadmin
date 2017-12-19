@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.8.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2017-11-28 16:22+0100\n"
-"PO-Revision-Date: 2017-12-16 12:04+0000\n"
+"PO-Revision-Date: 2017-12-20 21:22+0000\n"
 "Last-Translator: Waleed Abdeen <waleed.totti@gmail.com>\n"
 "Language-Team: Arabic "
 "<https://hosted.weblate.org/projects/phpmyadmin/master/ar/>\n"
@@ -6269,7 +6269,7 @@ msgstr ""
 
 #: libraries/classes/Config/ServerConfigChecks.php:230
 msgid "You allow for connecting to the server without a password."
-msgstr ""
+msgstr "الاتصال بالخادم بدون كلمة سر مسموح."
 
 #: libraries/classes/Config/ServerConfigChecks.php:303
 #, php-format
@@ -6298,7 +6298,7 @@ msgstr "المفتاح قصير جدا، يجب أن يحتوي على 32 حرف
 
 #: libraries/classes/Config/ServerConfigChecks.php:382
 msgid "Key should contain letters, numbers [em]and[/em] special characters."
-msgstr ""
+msgstr "المفتاح يجب أن يحتوي على أحرف، أرقام [em] و [/em] رموز."
 
 #: libraries/classes/Config/ServerConfigChecks.php:418
 #, php-format
