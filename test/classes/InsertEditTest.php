@@ -2297,6 +2297,7 @@ class InsertEditTest extends TestCase
         $edited_values = array(
             array('c' => 'cname')
         );
+        $GLOBALS['cfg']['DefaultTransformations']['PreApPend'] = ['', ''];
         $GLOBALS['cfg']['ServerDefault'] = 1;
         $_REQUEST['where_clause'] = 1;
         $transformation = array(
