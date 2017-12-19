@@ -495,10 +495,14 @@ class UtilTest extends PmaTestCase
     function testCheckParameterMissing()
     {
         $GLOBALS['PMA_Config'] = new Config();
-        $GLOBALS['cfg'] = array('ServerDefault' => 1);
         $GLOBALS['text_dir'] = 'ltr';
         $GLOBALS['PMA_PHP_SELF'] = Core::getenv('PHP_SELF');
         $GLOBALS['pmaThemePath'] = $GLOBALS['PMA_Theme']->getPath();
+        $GLOBALS['db'] = 'db';
+        $GLOBALS['table'] = 'table';
+        $GLOBALS['server'] = 1;
+        $GLOBALS['cfg']['ServerDefault'] = 1;
+        $GLOBALS['cfg']['AllowThirdPartyFraming'] = false;
 
         $this->expectOutputRegex("/Missing parameter: field/");
 
