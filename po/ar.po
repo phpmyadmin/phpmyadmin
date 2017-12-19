@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.7.6-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2017-11-02 14:03+0100\n"
-"PO-Revision-Date: 2017-12-16 12:04+0000\n"
+"PO-Revision-Date: 2017-12-23 14:36+0000\n"
 "Last-Translator: Waleed Abdeen <waleed.totti@gmail.com>\n"
 "Language-Team: Arabic "
 "<https://hosted.weblate.org/projects/phpmyadmin/4-7/ar/>\n"
@@ -14,7 +14,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=6; plural=n==0 ? 0 : n==1 ? 1 : n==2 ? 2 : n%100>=3 "
 "&& n%100<=10 ? 3 : n%100>=11 ? 4 : 5;\n"
-"X-Generator: Weblate 2.18\n"
+"X-Generator: Weblate 2.19-dev\n"
 
 #: ajax.php:16 ajax.php:33 export.php:192 schema_export.php:64
 msgid "Bad type!"
@@ -5293,7 +5293,7 @@ msgstr ""
 
 #: libraries/config/ServerConfigChecks.php:198
 msgid "You allow for connecting to the server without a password."
-msgstr ""
+msgstr "الاتصال بالخادم بدون كلمة سر مسموح."
 
 #: libraries/config/ServerConfigChecks.php:349
 msgid "Key is too short, it should have at least 32 characters."
@@ -5301,7 +5301,7 @@ msgstr "المفتاح قصير جدا، يجب أن يحتوي على 32 حرف
 
 #: libraries/config/ServerConfigChecks.php:359
 msgid "Key should contain letters, numbers [em]and[/em] special characters."
-msgstr ""
+msgstr "المفتاح يجب أن يحتوي على أحرف، أرقام [em] و [/em] رموز."
 
 #: libraries/config/ServerConfigChecks.php:384
 #, php-format
