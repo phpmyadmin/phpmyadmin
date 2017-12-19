@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.7.6-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2017-11-02 14:03+0100\n"
-"PO-Revision-Date: 2017-12-01 03:24+0000\n"
-"Last-Translator: RD WebDesign <weblate@rdwebdesign.com.br>\n"
+"PO-Revision-Date: 2017-12-19 00:41+0000\n"
+"Last-Translator: Bruno Fontes <brunofontes.github@mailnull.com>\n"
 "Language-Team: Portuguese (Brazil) "
 "<https://hosted.weblate.org/projects/phpmyadmin/4-7/pt_BR/>\n"
 "Language: pt_BR\n"
@@ -13,7 +13,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n > 1;\n"
-"X-Generator: Weblate 2.18-dev\n"
+"X-Generator: Weblate 2.18\n"
 
 #: ajax.php:16 ajax.php:33 export.php:192 schema_export.php:64
 msgid "Bad type!"
@@ -14645,7 +14645,6 @@ msgstr "Opções de transformação de dado"
 #: templates/console/bookmark_content.phtml:14
 #: templates/console/display.phtml:48 templates/console/display.phtml:105
 #: templates/console/display.phtml:210
-#, fuzzy
 msgid "Collapse"
 msgstr "Recolher"
 
@@ -14657,7 +14656,6 @@ msgstr "Expandir"
 
 #: templates/console/bookmark_content.phtml:16
 #: templates/console/display.phtml:50 templates/console/display.phtml:212
-#, fuzzy
 msgid "Requery"
 msgstr "Repetir consulta"
 
@@ -15129,7 +15127,6 @@ msgid "Select table:"
 msgstr "Selecionar tabela:"
 
 #: templates/export/alias_add.phtml:32
-#, fuzzy
 msgid "New table name"
 msgstr "Novo nome da tabela"
 
