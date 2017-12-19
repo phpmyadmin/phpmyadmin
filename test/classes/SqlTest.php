@@ -19,6 +19,30 @@ use stdClass;
 class SqlTest extends TestCase
 {
     /**
+     * Setup for test cases
+     *
+     * @return void
+     */
+    protected function setUp()
+    {
+        $GLOBALS['server'] = 1;
+        $GLOBALS['db'] = 'db';
+        $GLOBALS['table'] = 'table';
+        $GLOBALS['cfg']['AllowThirdPartyFraming'] = false;
+        $GLOBALS['cfg']['SendErrorReports'] = 'ask';
+        $GLOBALS['cfg']['ServerDefault'] = 1;
+        $GLOBALS['cfg']['DefaultTabDatabase'] = 'structure';
+        $GLOBALS['cfg']['DefaultTabTable'] = 'browse';
+        $GLOBALS['cfg']['ShowDatabasesNavigationAsTree'] = true;
+        $GLOBALS['cfg']['NavigationTreeDefaultTabTable'] = 'structure';
+        $GLOBALS['cfg']['NavigationTreeDefaultTabTable2'] = '';
+        $GLOBALS['cfg']['LimitChars'] = 50;
+        $GLOBALS['cfg']['Confirm'] = true;
+        $GLOBALS['cfg']['LoginCookieValidity'] = 1440;
+        $GLOBALS['PMA_PHP_SELF'] = 'index.php';
+    }
+
+    /**
      * Test Sql::getSqlWithLimitClause
      *
      * @return void
@@ -28,7 +52,6 @@ class SqlTest extends TestCase
         // Test environment.
         $GLOBALS['_SESSION']['tmpval']['pos'] = 1;
         $GLOBALS['_SESSION']['tmpval']['max_rows'] = 2;
-        $GLOBALS['db'] = 'db';
 
         $analyzed_sql_results = Sql::parseAndAnalyze(
             'SELECT * FROM test LIMIT 0, 10'
@@ -48,7 +71,6 @@ class SqlTest extends TestCase
     {
         // Test environment.
         $GLOBALS['cfg']['RememberSorting'] = true;
-        $GLOBALS['db'] = 'db';
 
         $this->assertTrue(
             Sql::isRememberSortingOrder(
@@ -90,7 +112,6 @@ class SqlTest extends TestCase
     {
         // Test environment.
         $GLOBALS['_SESSION']['tmpval']['max_rows'] = 10;
-        $GLOBALS['db'] = 'db';
 
         $this->assertTrue(
             Sql::isAppendLimitClause(
@@ -114,7 +135,6 @@ class SqlTest extends TestCase
     {
         // Test environment.
         $GLOBALS['_SESSION']['tmpval']['max_rows'] = 10;
-        $GLOBALS['db'] = 'db';
 
         $this->assertTrue(
             Sql::isJustBrowsing(
