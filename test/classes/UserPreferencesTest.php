@@ -353,6 +353,8 @@ class UserPreferencesTest extends PmaTestCase
     public function testUserprefsRedirect()
     {
         $GLOBALS['lang'] = '';
+        $GLOBALS['db'] = 'db';
+        $GLOBALS['table'] = 'table';
 
         $this->mockResponse('Location: /phpmyadmin/file.html?a=b&saved=1&server=0#h+ash');
 
