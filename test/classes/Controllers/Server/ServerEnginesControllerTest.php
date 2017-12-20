@@ -11,6 +11,7 @@ use PhpMyAdmin\Controllers\Server\ServerEnginesController;
 use PhpMyAdmin\Di\Container;
 use PhpMyAdmin\StorageEngine;
 use PhpMyAdmin\Tests\PmaTestCase;
+use PhpMyAdmin\Tests\Stubs\Response as ResponseStub;
 use PhpMyAdmin\Theme;
 use PhpMyAdmin\Url;
 use PhpMyAdmin\Util;
@@ -24,6 +25,11 @@ use ReflectionClass;
 class ServerEnginesControllerTest extends PmaTestCase
 {
     /**
+     * @var \PhpMyAdmin\Di\Container
+     */
+    private $container;
+
+    /**
      * Prepares environment for the test.
      *
      * @return void
@@ -36,9 +42,13 @@ class ServerEnginesControllerTest extends PmaTestCase
 
         //$GLOBALS
         $GLOBALS['server'] = 0;
-        $GLOBALS['table'] = "table";
+        $GLOBALS['db'] = 'db';
+        $GLOBALS['table'] = 'table';
+        $GLOBALS['PMA_PHP_SELF'] = 'index.php';
 
-        //$_SESSION
+        $this->container = Container::getDefaultContainer();
+        $this->container->set('PhpMyAdmin\Response', new ResponseStub());
+        $this->container->alias('response', 'PhpMyAdmin\Response');
     }
 
     /**
@@ -52,11 +62,9 @@ class ServerEnginesControllerTest extends PmaTestCase
         $method = $class->getMethod('_getHtmlForAllServerEngines');
         $method->setAccessible(true);
 
-        $container = Container::getDefaultContainer();
-
         $ctrl = new ServerEnginesController(
-            $container->get('response'),
-            $container->get('dbi')
+            $this->container->get('response'),
+            $this->container->get('dbi')
         );
         $html = $method->invoke($ctrl);
 
@@ -118,12 +126,10 @@ class ServerEnginesControllerTest extends PmaTestCase
         $method = $class->getMethod('_getHtmlForServerEngine');
         $method->setAccessible(true);
 
-        $container = Container::getDefaultContainer();
-
         $engine_plugin = StorageEngine::getEngine("Pbxt");
         $ctrl = new ServerEnginesController(
-            $container->get('response'),
-            $container->get('dbi')
+            $this->container->get('response'),
+            $this->container->get('dbi')
         );
         $html = $method->invoke($ctrl, $engine_plugin);
 
