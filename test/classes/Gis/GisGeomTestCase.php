@@ -1,7 +1,7 @@
 <?php
 /* vim: set expandtab sw=4 ts=4 sts=4: */
 /**
- * Abstract parent class for all PMA_GIS_<Geom_type> test classes
+ * Abstract parent class for all Gis<Geom_type> test classes
  *
  * @package PhpMyAdmin-test
  */
@@ -10,13 +10,12 @@ namespace PhpMyAdmin\Tests\Gis;
 use PHPUnit\Framework\TestCase;
 
 /**
- * Abstract parent class for all GIS<Geom_type> test classes
+ * Abstract parent class for all Gis<Geom_type> test classes
  *
  * @package PhpMyAdmin-test
  */
-abstract class GisGeomTest extends TestCase
+abstract class GisGeomTestCase extends TestCase
 {
-
     /**
      * test generateParams method
      *
