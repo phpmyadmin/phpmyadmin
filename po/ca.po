@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.8.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2017-11-28 16:22+0100\n"
-"PO-Revision-Date: 2017-12-20 21:14+0000\n"
+"PO-Revision-Date: 2017-12-21 01:03+0000\n"
 "Last-Translator: Robert Antoni Buj Gelonch <robert.buj@gmail.com>\n"
 "Language-Team: Catalan "
 "<https://hosted.weblate.org/projects/phpmyadmin/master/ca/>\n"
@@ -385,7 +385,7 @@ msgstr ""
 msgid "If you experience any problems please submit a bug report manually."
 msgstr ""
 "Si us trobeu amb qualsevol problema, si us plau, envieu manualment un "
-"informe d'errors."
+"informe d'error."
 
 #: error_report.php:86
 msgid "You may want to refresh the page."
@@ -1042,7 +1042,7 @@ msgstr "Introduïu un número vàlid!"
 
 #: js/messages.php:119
 msgid "Please enter a valid length!"
-msgstr "Entra una longitud vàlida!"
+msgstr "Introduïu una longitud vàlida!"
 
 #: js/messages.php:120
 msgid "Add index"
@@ -1071,7 +1071,7 @@ msgstr "Compon amb:"
 
 #: js/messages.php:126
 msgid "Please select column(s) for the index."
-msgstr "Tria columna(es) per a l'índex."
+msgstr "Seleccioneu la(es) columna(es) per a l'índex."
 
 #: js/messages.php:129 libraries/classes/InsertEdit.php:1633
 #: templates/table/index_form.twig:216
@@ -1324,7 +1324,7 @@ msgstr "Afegeix el gràfic a la graella"
 
 #: js/messages.php:215
 msgid "Please add at least one variable to the series!"
-msgstr "Afegeix al menys una variable a les series!"
+msgstr "Afegiu com a mínim una variable a les series!"
 
 #: js/messages.php:216 libraries/classes/Display/Export.php:706
 #: libraries/classes/Display/Results.php:1467
@@ -1434,8 +1434,8 @@ msgid ""
 "You can't change these variables. Please log in as root or contact your "
 "database administrator."
 msgstr ""
-"No pots canviar aquestes variables. Inicia la sessió com a root o contacta "
-"amb el teu administrador de bases de dades."
+"No podeu canviar aquestes variables. Inicieu la sessió com a root o "
+"contacteu amb el vostre administrador de bases de dades."
 
 #: js/messages.php:250
 msgid "Change settings"
@@ -2275,7 +2275,7 @@ msgstr "Seleccioneu la clau forana"
 
 #: js/messages.php:554
 msgid "Please select the primary key or a unique key!"
-msgstr "Tria la clau principal o una clau única!"
+msgstr "Seleccioneu la clau principal o una clau única!"
 
 #: js/messages.php:555 templates/database/designer/side_menu.twig:92
 #: templates/database/designer/side_menu.twig:95
@@ -2324,11 +2324,11 @@ msgstr "Sense títol"
 
 #: js/messages.php:567
 msgid "Please select a page to continue"
-msgstr "Tria una pàgina per continuar"
+msgstr "Seleccioneu una pàgina per continuar"
 
 #: js/messages.php:568
 msgid "Please enter a valid page name"
-msgstr "Entra un nom de pàgina vàlid"
+msgstr "Introduïu un nom de pàgina vàlid"
 
 #: js/messages.php:570
 msgid "Do you want to save the changes to the current page?"
@@ -2424,8 +2424,8 @@ msgstr ""
 #: js/messages.php:604
 msgid "Please enter a valid hexadecimal string. Valid characters are 0-9, A-F."
 msgstr ""
-"Introdueix una cadena hexadecimal correcta. Els caracters vàlids són 0-9 i A-"
-"F."
+"Introduïu una cadena hexadecimal correcta. Els caràcters vàlids són 0-9 i "
+"A-F."
 
 #: js/messages.php:606
 msgid ""
@@ -2599,7 +2599,7 @@ msgstr "Detectats alguns errors al servidor!"
 
 #: js/messages.php:696
 msgid "Please look at the bottom of this window."
-msgstr "Mira al peu d'aquesta finestra."
+msgstr "Mireu la part inferior d'aquesta finestra."
 
 #: js/messages.php:702 libraries/classes/ErrorHandler.php:375
 msgid "Ignore All"
@@ -2680,15 +2680,15 @@ msgstr "Copia la taula amb un prefix"
 
 #: js/messages.php:739
 msgid "Extremely weak"
-msgstr "Extremadament debil"
+msgstr "Extremadament dèbil"
 
 #: js/messages.php:740
 msgid "Very weak"
-msgstr "Molt debil"
+msgstr "Molt dèbil"
 
 #: js/messages.php:741
 msgid "Weak"
-msgstr "Debil"
+msgstr "Dèbil"
 
 #: js/messages.php:742
 msgid "Good"
@@ -2965,11 +2965,11 @@ msgstr "Aquest camp és obligatori"
 
 #: js/messages.php:918
 msgid "Please fix this field"
-msgstr "Corregeix aquest camp"
+msgstr "Corregiu aquest camp"
 
 #: js/messages.php:919
 msgid "Please enter a valid email address"
-msgstr "Entra una adreça de correu electrònic vàlida"
+msgstr "Introduïu una adreça de correu electrònic vàlida"
 
 #: js/messages.php:920
 msgid "Please enter a valid URL"
@@ -2977,11 +2977,11 @@ msgstr "Introduïu un URL vàlid"
 
 #: js/messages.php:921
 msgid "Please enter a valid date"
-msgstr "Entra una data vàlida"
+msgstr "Introduïu una data vàlida"
 
 #: js/messages.php:924
 msgid "Please enter a valid date ( ISO )"
-msgstr "Entra una data vàlida (ISO)"
+msgstr "Introduïu una data vàlida (ISO)"
 
 #: js/messages.php:926
 msgid "Please enter a valid number"
@@ -2993,19 +2993,19 @@ msgstr "Introduïu un número vàlid de targeta de crèdit"
 
 #: js/messages.php:931
 msgid "Please enter only digits"
-msgstr "Entra només digits"
+msgstr "Introduïu només dígits"
 
 #: js/messages.php:934
 msgid "Please enter the same value again"
-msgstr "Entra el mateix valor un altre cop"
+msgstr "Introduïu el mateix valor un altre cop"
 
 #: js/messages.php:938
 msgid "Please enter no more than {0} characters"
-msgstr "Entra no més de {0} caracters"
+msgstr "Introduïu no més de {0} caràcters"
 
 #: js/messages.php:943
 msgid "Please enter at least {0} characters"
-msgstr "Entra al menys {0} caracters"
+msgstr "Introduïu com a mínim {0} caràcters"
 
 #: js/messages.php:948
 msgid "Please enter a value between {0} and {1} characters long"
@@ -3013,23 +3013,23 @@ msgstr "Introduïu un valor d'entre {0} i {1} caràcters de longitud"
 
 #: js/messages.php:953
 msgid "Please enter a value between {0} and {1}"
-msgstr "Entra un valor entre {0} i {1}"
+msgstr "Introduïu un valor entre {0} i {1}"
 
 #: js/messages.php:958
 msgid "Please enter a value less than or equal to {0}"
-msgstr "Entra un valor menor o igual a {0}"
+msgstr "Introduïu un valor menor o igual a {0}"
 
 #: js/messages.php:963
 msgid "Please enter a value greater than or equal to {0}"
-msgstr "Entra un valor més gran o igual a {0}"
+msgstr "Introduïu un valor més gran o igual a {0}"
 
 #: js/messages.php:969
 msgid "Please enter a valid date or time"
-msgstr "Entra una hora o data vàlida"
+msgstr "Introduïu una hora o data vàlida"
 
 #: js/messages.php:974
 msgid "Please enter a valid HEX input"
-msgstr "Entra valor HEX correcte"
+msgstr "Introduïu un valor HEX correcte"
 
 #: js/messages.php:979 libraries/classes/Core.php:300
 #: libraries/classes/Import.php:112 libraries/classes/InsertEdit.php:1248
@@ -3041,7 +3041,7 @@ msgstr "Error"
 #: libraries/classes/Advisor.php:249
 #, php-format
 msgid "Error when evaluating: %s"
-msgstr "Error al evaluar: %s"
+msgstr "Error en avaluar: %s"
 
 #: libraries/classes/Advisor.php:280
 #, php-format
@@ -3154,7 +3154,7 @@ msgstr ""
 #: libraries/classes/CentralColumns.php:325
 #, php-format
 msgid "Could not add %1$s as they already exist in central list!"
-msgstr "No s'ha pogut afegir %1$s perqué ja existeix a la llista central!"
+msgstr "No s'ha pogut afegir %1$s perquè ja existeix a la llista central!"
 
 #: libraries/classes/CentralColumns.php:340
 msgid "Could not add columns!"
@@ -3165,7 +3165,7 @@ msgstr "No es poden afegir columnes!"
 msgid ""
 "Couldn't remove Column(s) %1$s as they don't exist in central columns list!"
 msgstr ""
-"No s'ha(n) pogut treure la/les columna(es) %1$s perqué no existeix(en) a la "
+"No s'ha(n) pogut treure la/les columna(es) %1$s perquè no existeix(en) a la "
 "llista central de columnes!"
 
 #: libraries/classes/CentralColumns.php:433
@@ -3451,7 +3451,7 @@ msgstr "Alemany"
 #: libraries/classes/Charsets.php:480
 msgctxt "Collation"
 msgid "Hungarian"
-msgstr "Húngar"
+msgstr "Hongarès"
 
 #: libraries/classes/Charsets.php:484
 msgctxt "Collation"
@@ -3486,7 +3486,7 @@ msgstr "Persa"
 #: libraries/classes/Charsets.php:514
 msgctxt "Collation"
 msgid "Polish"
-msgstr "Polac"
+msgstr "Polonès"
 
 #: libraries/classes/Charsets.php:521
 msgctxt "Collation"
@@ -3578,8 +3578,8 @@ msgid ""
 "This usually means there is a syntax error in it, please check any errors "
 "shown below."
 msgstr ""
-"Això generalment significa que té un error de sintaxi, revisa els errors que "
-"es mostren a continuació."
+"Això generalment significa que hi ha un error de sintaxi, comproveu els "
+"errors que es mostren a continuació."
 
 #: libraries/classes/Config.php:1506
 #: libraries/classes/Config/Descriptions.php:1486
@@ -3653,7 +3653,7 @@ msgstr "contrasenya Blowfish"
 
 #: libraries/classes/Config/Descriptions.php:91
 msgid "Highlight selected rows."
-msgstr "Resalta les files seleccionades."
+msgstr "Ressalta les files seleccionades."
 
 #: libraries/classes/Config/Descriptions.php:93
 msgid "Row marker"
@@ -3661,11 +3661,11 @@ msgstr "Marcador de fila"
 
 #: libraries/classes/Config/Descriptions.php:95
 msgid "Highlight row pointed by the mouse cursor."
-msgstr "Resalta la fila apuntada pel cursor del ratolí."
+msgstr "Ressalta la fila apuntada pel cursor del ratolí."
 
 #: libraries/classes/Config/Descriptions.php:97
 msgid "Highlight pointer"
-msgstr "Resalta el punter"
+msgstr "Ressalta el punter"
 
 #: libraries/classes/Config/Descriptions.php:100
 msgid "Enable bzip2 compression for import operations."
@@ -4056,7 +4056,7 @@ msgstr "Títol de taula"
 #: libraries/classes/Config/Descriptions.php:306
 #: libraries/classes/Config/Descriptions.php:318
 msgid "Continued table caption"
-msgstr "Ecapçalament de continuació de taula"
+msgstr "Encapçalament de continuació de taula"
 
 #: libraries/classes/Config/Descriptions.php:308
 #: libraries/classes/Config/Descriptions.php:320
@@ -4380,8 +4380,8 @@ msgid ""
 "Please note that phpMyAdmin is just a user interface and its features do not "
 "limit MySQL."
 msgstr ""
-"Noteu que phpMyAdmin només és una interfície d'usuari i les seves "
-"característiques no limiten a MySQL."
+"Tingueu en compte que phpMyAdmin només és una interfície d'usuari i les "
+"seves característiques no limiten a MySQL."
 
 #: libraries/classes/Config/Descriptions.php:523
 msgid "Basic settings"
@@ -4552,7 +4552,7 @@ msgstr "GZip"
 
 #: libraries/classes/Config/Descriptions.php:612
 msgid "Extra parameters for iconv"
-msgstr "Paràmetres adiccionals per iconv"
+msgstr "Paràmetres extres per iconv"
 
 #: libraries/classes/Config/Descriptions.php:615
 msgid ""
@@ -4604,8 +4604,8 @@ msgid ""
 "Default format; be aware that this list depends on location (database, "
 "table) and only SQL is always available."
 msgstr ""
-"Format predeterminat; sigues conscient que la llista depén de la situació "
-"(base de dades, taula) i només SQL està sempre disponible."
+"Format predeterminat; tingueu en compte que la llista depèn de la ubicació ("
+"base de dades, taula) i només l'SQL està sempre disponible."
 
 #: libraries/classes/Config/Descriptions.php:650
 msgid "Format of imported file"
@@ -4933,7 +4933,7 @@ msgstr "Màxima profunditat de l'arbre de taules"
 
 #: libraries/classes/Config/Descriptions.php:829
 msgid "Highlight server under the mouse cursor."
-msgstr "Resalta el servidor sota el cursor del ratolí."
+msgstr "Ressalta el servidor sota el cursor del ratolí."
 
 #: libraries/classes/Config/Descriptions.php:831
 msgid "Enable highlighting"
@@ -5108,7 +5108,7 @@ msgstr "Avís de paraula reservada de MySQL"
 
 #: libraries/classes/Config/Descriptions.php:917
 msgid "How to display the menu tabs"
-msgstr "Com es visualitzen les pestanyes del menù"
+msgstr "Com es visualitzen les pestanyes del menú"
 
 #: libraries/classes/Config/Descriptions.php:921
 msgid "How to display various action links"
@@ -5148,7 +5148,8 @@ msgstr "Mida de l'historial de consultes"
 #: libraries/classes/Config/Descriptions.php:941
 msgid "Select which functions will be used for character set conversion."
 msgstr ""
-"Selecciona quines funcions s'usaràn per a conversions de jocs de caràcters."
+"Seleccioneu quines funcions s'utilitzaran per a les conversions de jocs de "
+"caràcters."
 
 #: libraries/classes/Config/Descriptions.php:943
 msgid "Recoding engine"
@@ -6137,7 +6138,7 @@ msgstr "Entra la teva clau pública pel teu domini del servei reCaptcha."
 
 #: libraries/classes/Config/Descriptions.php:1439
 msgid "Public key for reCaptcha"
-msgstr "Clau pùblica per a reCaptcha"
+msgstr "Clau pública per a reCaptcha"
 
 #: libraries/classes/Config/Descriptions.php:1441
 msgid "Enter your private key for your domain reCaptcha service."
@@ -6885,7 +6886,7 @@ msgstr "Valors diferents"
 #: libraries/classes/Core.php:350
 #, php-format
 msgid "The %s extension is missing. Please check your PHP configuration."
-msgstr "No es troba l'extensió %s. Comprova la configuració de PHP."
+msgstr "No es troba l'extensió %s. Comproveu la configuració de PHP."
 
 #: libraries/classes/Core.php:846 libraries/mult_submits.inc.php:329
 #: tbl_operations.php:242 tbl_replace.php:313 templates/preview_sql.twig:3
@@ -7163,8 +7164,8 @@ msgid ""
 "You are using the mysql extension which is deprecated in phpMyAdmin. Please "
 "consider installing the mysqli extension."
 msgstr ""
-"Estàs fent servir l'extensió -mysql- ja obsoleta per a phpMyAdmin. Considera "
-"instal.lar l'extensió -mysqli-."
+"Esteu utilitzant l'extensió mysql, la qual és obsoleta a phpMyAdmin. "
+"Considereu instal·lar l'extensió mysqli."
 
 #: libraries/classes/Dbi/DbiMysqli.php:169
 msgid "SSL connection enforced by server, automatically enabling it."
@@ -8913,8 +8914,8 @@ msgid ""
 "Please answer the following question(s) carefully to obtain a correct "
 "normalization."
 msgstr ""
-"Responeu a les preguntes següents acuradament per a obtenir una "
-"normalització correcta."
+"Responeu a les preguntes següents acuradament per obtenir una normalització "
+"correcta."
 
 #: libraries/classes/Normalization.php:380
 msgid "+ Show me the possible partial dependencies based on data in the table"
@@ -8927,8 +8928,8 @@ msgid ""
 "given set whose values combined together are sufficient to determine the "
 "value of the column."
 msgstr ""
-"Per a cada una de les columnes a sota, selecciona el <b>conjunt mínim</b> de "
-"columnes entre les que els seus valors combinats són suficients per a "
+"Per cadascuna de les columnes de sota, seleccioneu el <b>conjunt mínim</b> "
+"de columnes entre les que els seus valors combinats són suficients per a "
 "determinar el valor de la columna."
 
 #: libraries/classes/Normalization.php:394
@@ -8999,10 +9000,10 @@ msgid ""
 "value of the column.<br />Note: A column may have no transitive dependency, "
 "in that case you don't have to select any."
 msgstr ""
-"Per a cada una de les columnes a sota, selecciona el <b>conjunt mínim</b> de "
-"columnes entre les que els seus valors combinats junts són suficients per a "
-"determinar el valor de la columna. <br />Nota: Una columna pot no tenir "
-"dependències transitives, en aquest cas no tens que seleccionar cap."
+"Per cadascuna de les columnes de sota, seleccioneu el <b>conjunt mínim</b> "
+"de columnes entre les que els seus valors combinats junts són suficients per "
+"a determinar el valor de la columna. <br />Nota: Una columna pot no tenir "
+"dependències transitives, en aquest cas no teniu que seleccionar-ne cap."
 
 #: libraries/classes/Normalization.php:800
 msgid ""
@@ -9329,7 +9330,7 @@ msgstr "Reintentar connexió"
 
 #: libraries/classes/Plugins/Auth/AuthenticationCookie.php:120
 msgid "Your session has expired. Please log in again."
-msgstr "La seva sessió ha caducat. Si us plau, accedeixi de nou."
+msgstr "La vostra sessió ha vençut. Si us plau, identifiqueu-vos de nou."
 
 #: libraries/classes/Plugins/Auth/AuthenticationCookie.php:139
 msgid "Log in"
@@ -9385,7 +9386,9 @@ msgstr ""
 #: libraries/classes/Plugins/AuthenticationPlugin.php:174
 #, php-format
 msgid "No activity within %s seconds; please log in again."
-msgstr "Sense activitat des de fa %s segons o més, entra de nou."
+msgstr ""
+"Sense activitat des de fa %s segons o més; si us plau, identifiqueu-vos de "
+"nou."
 
 #: libraries/classes/Plugins/AuthenticationPlugin.php:183
 #: libraries/classes/Plugins/AuthenticationPlugin.php:185
@@ -9528,7 +9531,7 @@ msgstr ""
 
 #: libraries/classes/Plugins/Export/ExportJson.php:95
 msgid "Output unicode characters unescaped"
-msgstr "Sortida de caracters unicode sense escapar"
+msgstr "Sortida de caràcters unicode sense escapar"
 
 #: libraries/classes/Plugins/Export/ExportLatex.php:51
 msgid "Content of table @TABLE@"
@@ -10002,8 +10005,8 @@ msgid ""
 "The XML file specified was either malformed or incomplete. Please correct "
 "the issue and try again."
 msgstr ""
-"El fitxer XML especificat era incorrecte o incomplet. Si us plau, arreglar-"
-"lo i torna a intentar-ho."
+"El fitxer XML especificat és incorrecte o està incomplet. Si us plau, "
+"corregiu el problema i torneu-ho a intentar."
 
 #: libraries/classes/Plugins/Import/ImportOds.php:163
 msgid "Could not parse OpenDocument Spreadsheet!"
@@ -10725,8 +10728,8 @@ msgid ""
 "should see a message informing you, that this server <b>is</b> configured as "
 "master."
 msgstr ""
-"Un cop reiniciat el servidor MySQL, clica al botó -Anar-. Després, hauries "
-"de veure un missatge que t'informi que aquest servidor <b>està</b> "
+"Un cop reiniciat el servidor MySQL, feu clic al botó Vés. Després, hauríeu "
+"de veure un missatge que us informa que aquest servidor <b>està</b> "
 "configurat com a mestre."
 
 #: libraries/classes/ReplicationGui.php:153
@@ -10955,8 +10958,8 @@ msgid ""
 "Connection to server is disabled, please enable $cfg['AllowArbitraryServer'] "
 "in phpMyAdmin configuration."
 msgstr ""
-"Connexió al servidor desactivada, activa $cfg['AllowArbitraryServer'] en la "
-"configuració de phpMyAdmin."
+"La connexió al servidor està inhabilitada, habiliteu "
+"$cfg['AllowArbitraryServer'] a la configuració de phpMyAdmin."
 
 #: libraries/classes/ReplicationGui.php:927
 msgid "Replication started successfully."
@@ -11157,9 +11160,9 @@ msgid ""
 "fail![/strong] Please use the improved 'mysqli' extension to avoid any "
 "problems."
 msgstr ""
-"Estàs usant l'extensió obsoleta de PHP 'mysql', la qual no és capaç de "
-"manejar múltiples consultes. [strong]L'execució d'alguns procediments "
-"emmagatzemats pot fallar![/strong] Utilitza l'extensió millorada 'mysqli' "
+"Esteu utilitzant l'extensió obsoleta de PHP 'mysql', la qual no és capaç de "
+"gestionar consultes múltiples. [strong]L'execució d'alguns procediments "
+"emmagatzemats pot fallar![/strong] Utilitzeu l'extensió millorada 'mysqli' "
 "per evitar qualsevol problema."
 
 #: libraries/classes/Rte/Routines.php:143
@@ -13899,8 +13902,9 @@ msgid ""
 "A year in four-digit (4, default) or two-digit (2) format, the allowable "
 "values are 70 (1970) to 69 (2069) or 1901 to 2155 and 0000"
 msgstr ""
-"Un any en fotmat de quatre dígits (4 per defecte) o dos dígits (2), els "
-"valors permesos són de 70 (1970) a 69 (2069) o de 1901 a 2155 i 0000"
+"Un any en format de quatre dígits (4 per defecte) o dos dígits (2), els "
+"valors permesos són de 70 (1970) fins a 69 (2069) o de 1901 fins a 2155 i "
+"0000"
 
 #: libraries/classes/Types.php:291
 msgid ""
