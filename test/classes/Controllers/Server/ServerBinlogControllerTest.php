@@ -10,6 +10,7 @@ namespace PhpMyAdmin\Tests\Controllers\Server;
 use PhpMyAdmin\Controllers\Server\ServerBinlogController;
 use PhpMyAdmin\Di\Container;
 use PhpMyAdmin\Tests\PmaTestCase;
+use PhpMyAdmin\Tests\Stubs\Response as ResponseStub;
 use PhpMyAdmin\Theme;
 use PhpMyAdmin\Util;
 use ReflectionClass;
@@ -43,8 +44,10 @@ class ServerBinlogControllerTest extends PmaTestCase
         $GLOBALS['cfg']['TableNavigationLinksMode'] = 'icons';
         $GLOBALS['cfg']['LimitChars'] = 100;
 
+        $GLOBALS['db'] = 'db';
         $GLOBALS['table'] = "table";
         $GLOBALS['pmaThemeImage'] = 'image';
+        $GLOBALS['PMA_PHP_SELF'] = 'index.php';
 
         //$_SESSION
 
@@ -62,6 +65,9 @@ class ServerBinlogControllerTest extends PmaTestCase
             ->will($this->returnValue($binary_log_file_names));
         $container = Container::getDefaultContainer();
         $container->set('dbi', $dbi);
+        $this->_response = new ResponseStub();
+        $container->set('PhpMyAdmin\Response', $this->_response);
+        $container->alias('response', 'PhpMyAdmin\Response');
     }
 
     /**
