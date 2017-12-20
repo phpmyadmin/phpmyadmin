@@ -38,6 +38,7 @@ class TableIndexesControllerTest extends PmaTestCase
         $GLOBALS['server'] = 1;
         $GLOBALS['db'] = 'db';
         $GLOBALS['table'] = 'table';
+        $GLOBALS['PMA_PHP_SELF'] = 'index.php';
         $GLOBALS['cfg']['Server']['pmadb'] = '';
         $GLOBALS['url_params'] = array(
             'db' => 'db',
