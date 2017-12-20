@@ -10,6 +10,7 @@ namespace PhpMyAdmin\Tests\Controllers\Server;
 use PhpMyAdmin\Controllers\Server\ServerPluginsController;
 use PhpMyAdmin\Di\Container;
 use PhpMyAdmin\Tests\PmaTestCase;
+use PhpMyAdmin\Tests\Stubs\Response as ResponseStub;
 use PhpMyAdmin\Theme;
 use ReflectionClass;
 
@@ -32,9 +33,10 @@ class ServerPluginsControllerTest extends PmaTestCase
         $_REQUEST['pos'] = 3;
 
         //$GLOBALS
-        $GLOBALS['table'] = "table";
-
-        //$_SESSION
+        $GLOBALS['server'] = 0;
+        $GLOBALS['db'] = 'db';
+        $GLOBALS['table'] = 'table';
+        $GLOBALS['PMA_PHP_SELF'] = 'index.php';
     }
 
     /**
@@ -75,6 +77,8 @@ class ServerPluginsControllerTest extends PmaTestCase
             ->will($this->returnValue(true));
 
         $container = Container::getDefaultContainer();
+        $container->set('PhpMyAdmin\Response', new ResponseStub());
+        $container->alias('response', 'PhpMyAdmin\Response');
         $container->set('dbi', $dbi);
 
         $class = new ReflectionClass('\PhpMyAdmin\Controllers\Server\ServerPluginsController');
