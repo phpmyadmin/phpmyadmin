@@ -31,6 +31,8 @@ class TableRelationControllerTest extends PmaTestCase
     protected function setUp()
     {
         $GLOBALS['server'] = 0;
+        $GLOBALS['db'] = 'db';
+        $GLOBALS['table'] = 'table';
         //$_SESSION
 
         $_REQUEST['foreignDb'] = 'db';

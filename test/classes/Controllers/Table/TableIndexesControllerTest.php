@@ -36,12 +36,13 @@ class TableIndexesControllerTest extends PmaTestCase
          * SET these to avoid undefined index error
          */
         $GLOBALS['server'] = 1;
+        $GLOBALS['db'] = 'db';
+        $GLOBALS['table'] = 'table';
         $GLOBALS['cfg']['Server']['pmadb'] = '';
         $GLOBALS['url_params'] = array(
             'db' => 'db',
             'server' => 1
         );
-        $GLOBALS['db'] = 'db';
 
         $dbi = $this->getMockBuilder('PhpMyAdmin\DatabaseInterface')
             ->disableOriginalConstructor()

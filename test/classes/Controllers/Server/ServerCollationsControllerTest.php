@@ -11,24 +11,9 @@ use PhpMyAdmin\Controllers\Server\ServerCollationsController;
 use PhpMyAdmin\Core;
 use PhpMyAdmin\Di\Container;
 use PhpMyAdmin\Tests\PmaTestCase;
+use PhpMyAdmin\Tests\Stubs\Response as ResponseStub;
 use PhpMyAdmin\Theme;
 use ReflectionClass;
-
-/*
- * Include to test.
- */
-//$GLOBALS
-$GLOBALS['server'] = 1;
-$GLOBALS['cfg']['ServerDefault'] = 1;
-$GLOBALS['url_query'] = "url_query";
-$GLOBALS['PMA_PHP_SELF'] = Core::getenv('PHP_SELF');
-$GLOBALS['lang'] = "en";
-$GLOBALS['text_dir'] = "text_dir";
-$GLOBALS['cfg']['Server'] = array(
-    'DisableIS' => false
-);
-
-require_once 'libraries/server_common.inc.php';
 
 /**
  * Tests for ServerCollationsController class
@@ -45,11 +30,14 @@ class ServerCollationsControllerTest extends PmaTestCase
     public function setUp()
     {
         //$_REQUEST
-        $_REQUEST['log'] = "index1";
+        $_REQUEST['log'] = 'index1';
         $_REQUEST['pos'] = 3;
 
         //$GLOBALS
-        $GLOBALS['table'] = "table";
+        $GLOBALS['server'] = 1;
+        $GLOBALS['db'] = 'db';
+        $GLOBALS['table'] = 'table';
+        $GLOBALS['PMA_PHP_SELF'] = 'index.php';
     }
 
     /**
@@ -86,6 +74,8 @@ class ServerCollationsControllerTest extends PmaTestCase
         );
 
         $container = Container::getDefaultContainer();
+        $container->set('PhpMyAdmin\Response', new ResponseStub());
+        $container->alias('response', 'PhpMyAdmin\Response');
 
         $class = new ReflectionClass('\PhpMyAdmin\Controllers\Server\ServerCollationsController');
         $method = $class->getMethod('_getHtmlForCharsets');

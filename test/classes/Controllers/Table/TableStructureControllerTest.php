@@ -42,6 +42,7 @@ class TableStructureControllerTest extends PmaTestCase
 
         //$GLOBALS
         $GLOBALS['server'] = 1;
+        $GLOBALS['db'] = 'db';
         $GLOBALS['cfg']['Server']['DisableIS'] = false;
 
         $GLOBALS['table'] = "table";
