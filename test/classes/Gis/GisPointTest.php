@@ -8,7 +8,7 @@
 namespace PhpMyAdmin\Tests\Gis;
 
 use PhpMyAdmin\Gis\GisPoint;
-use PhpMyAdmin\Tests\Gis\GisGeomTest;
+use PhpMyAdmin\Tests\Gis\GisGeomTestCase;
 use TCPDF;
 
 /**
@@ -16,7 +16,7 @@ use TCPDF;
  *
  * @package PhpMyAdmin-test
  */
-class GisPointTest extends GisGeomTest
+class GisPointTest extends GisGeomTestCase
 {
     /**
      * @var    GisPoint

@@ -28,6 +28,8 @@ class PageSettingsTest extends PmaTestCase
         $GLOBALS['PMA_Config'] = new Config();
         $GLOBALS['server'] = 1;
         $GLOBALS['db'] = 'db';
+        $GLOBALS['table'] = '';
+        $GLOBALS['PMA_PHP_SELF'] = 'index.php';
     }
 
     /**

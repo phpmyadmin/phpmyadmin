@@ -8,7 +8,7 @@
 namespace PhpMyAdmin\Tests\Gis;
 
 use PhpMyAdmin\Gis\GisPolygon;
-use PhpMyAdmin\Tests\Gis\GisGeomTest;
+use PhpMyAdmin\Tests\Gis\GisGeomTestCase;
 use TCPDF;
 
 /**
@@ -16,7 +16,7 @@ use TCPDF;
  *
  * @package PhpMyAdmin-test
  */
-class GisPolygonTest extends GisGeomTest
+class GisPolygonTest extends GisGeomTestCase
 {
     /**
      * @var    GisPolygon

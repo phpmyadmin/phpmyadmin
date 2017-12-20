@@ -40,6 +40,7 @@ class ExportLatexTest extends PmaTestCase
         $GLOBALS['plugin_param']['single_table'] = false;
         $GLOBALS['cfgRelation']['relation'] = true;
         $GLOBALS['db'] = 'db';
+        $GLOBALS['table'] = 'table';
         $this->object = new ExportLatex();
     }
 

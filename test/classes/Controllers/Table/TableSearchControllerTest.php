@@ -42,6 +42,8 @@ class TableSearchControllerTest extends PmaTestCase
         $_POST['zoom_submit'] = 'zoom';
 
         $GLOBALS['server'] = 1;
+        $GLOBALS['db'] = 'db';
+        $GLOBALS['table'] = 'table';
         $GLOBALS['PMA_PHP_SELF'] = 'index.php';
         $GLOBALS['cfgRelation'] = Relation::getRelationsParam();
         $GLOBALS['cfg']['Server']['DisableIS'] = false;

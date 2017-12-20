@@ -31,6 +31,9 @@ class TableRelationControllerTest extends PmaTestCase
     protected function setUp()
     {
         $GLOBALS['server'] = 0;
+        $GLOBALS['db'] = 'db';
+        $GLOBALS['table'] = 'table';
+        $GLOBALS['PMA_PHP_SELF'] = 'index.php';
         //$_SESSION
 
         $_REQUEST['foreignDb'] = 'db';
@@ -39,9 +42,28 @@ class TableRelationControllerTest extends PmaTestCase
         $GLOBALS['dblist'] = new DataBasePMAMockForTblRelation();
         $GLOBALS['dblist']->databases = new DataBaseMockForTblRelation();
 
+        $indexes = array(
+            array(
+                'Schema' => 'Schema1',
+                'Key_name' => 'Key_name1',
+                'Column_name' => 'Column_name1',
+            ),
+            array(
+                'Schema' => 'Schema2',
+                'Key_name' => 'Key_name2',
+                'Column_name' => 'Column_name2',
+            ),
+            array(
+                'Schema' => 'Schema3',
+                'Key_name' => 'Key_name3',
+                'Column_name' => 'Column_name3',
+            ),
+        );
         $dbi = $this->getMockBuilder('PhpMyAdmin\DatabaseInterface')
             ->disableOriginalConstructor()
             ->getMock();
+        $dbi->expects($this->any())->method('getTableIndexes')
+            ->will($this->returnValue($indexes));
 
         $GLOBALS['dbi'] = $dbi;
 

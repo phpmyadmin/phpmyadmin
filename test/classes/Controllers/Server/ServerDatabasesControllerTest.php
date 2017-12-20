@@ -19,7 +19,6 @@ use ReflectionClass;
  *
  * @package PhpMyAdmin-test
  */
-
 class ServerDatabasesControllerTest extends PmaTestCase
 {
     /**
@@ -37,11 +36,14 @@ class ServerDatabasesControllerTest extends PmaTestCase
         $GLOBALS['PMA_Config'] = new Config();
         $GLOBALS['PMA_Config']->enableBc();
 
+        $GLOBALS['db'] = 'db';
         $GLOBALS['table'] = "table";
         $GLOBALS['replication_info']['master']['status'] = false;
         $GLOBALS['replication_info']['slave']['status'] = false;
         $GLOBALS['pmaThemeImage'] = 'image';
         $GLOBALS['text_dir'] = "text_dir";
+        $GLOBALS['PMA_PHP_SELF'] = 'index.php';
+        $GLOBALS['cfg']['Server']['DisableIS'] = false;
 
         //$_SESSION
         $GLOBALS['server'] = 1;
