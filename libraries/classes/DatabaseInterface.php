@@ -1446,7 +1446,7 @@ class DatabaseInterface
         /* Locale for messages */
         $locale = LanguageManager::getInstance()->getCurrentLanguage()->getMySQLLocale();
         if (! empty($locale)) {
-            $this->query(
+            $this->tryQuery(
                 "SET lc_messages = '" . $locale . "';",
                 DatabaseInterface::CONNECT_USER,
                 self::QUERY_STORE
