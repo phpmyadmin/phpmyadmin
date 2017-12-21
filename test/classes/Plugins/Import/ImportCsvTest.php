@@ -12,12 +12,6 @@ use PhpMyAdmin\Tests\PmaTestCase;
 use PhpMyAdmin\Theme;
 
 /**
- * we must set $GLOBALS['server'] here
- * since 'check_user_privileges.inc.php' will use it globally
- */
-$GLOBALS['server'] = 0;
-
-/**
  * Tests for PhpMyAdmin\Plugins\Import\ImportCsv class
  *
  * @package PhpMyAdmin-test
@@ -39,6 +33,7 @@ class ImportCsvTest extends PmaTestCase
      */
     protected function setUp()
     {
+        $GLOBALS['server'] = 0;
         $GLOBALS['plugin_param'] = "csv";
         $this->object = new ImportCsv();
 

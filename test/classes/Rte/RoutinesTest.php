@@ -25,18 +25,29 @@ class RoutinesTest extends TestCase
      *
      * @return void
      */
-    public function setUp()
+    protected function setUp()
     {
-        global $cfg;
-
-        $cfg['ShowFunctionFields'] = false;
-        $cfg['ServerDefault'] = 1;
-        $cfg['DefaultFunctions']['FUNC_NUMBER'] = '';
-        $cfg['DefaultFunctions']['FUNC_DATE'] = '';
-        $cfg['DefaultFunctions']['FUNC_SPATIAL'] = 'GeomFromText';
-        $GLOBALS['server'] = 0;
-        $GLOBALS['pmaThemePath'] = $GLOBALS['PMA_Theme']->getPath();
+        $GLOBALS['cfg']['ShowFunctionFields'] = false;
+        $GLOBALS['cfg']['ServerDefault'] = 1;
+        $GLOBALS['cfg']['DefaultFunctions']['FUNC_NUMBER'] = '';
+        $GLOBALS['cfg']['DefaultFunctions']['FUNC_DATE'] = '';
+        $GLOBALS['cfg']['DefaultFunctions']['FUNC_SPATIAL'] = 'GeomFromText';
+        $GLOBALS['cfg']['AllowThirdPartyFraming'] = false;
+        $GLOBALS['cfg']['SendErrorReports'] = 'ask';
+        $GLOBALS['cfg']['DefaultTabDatabase'] = 'structure';
+        $GLOBALS['cfg']['ShowDatabasesNavigationAsTree'] = true;
+        $GLOBALS['cfg']['DefaultTabTable'] = 'browse';
+        $GLOBALS['cfg']['NavigationTreeDefaultTabTable'] = 'structure';
+        $GLOBALS['cfg']['NavigationTreeDefaultTabTable2'] = '';
+        $GLOBALS['cfg']['LimitChars'] = 50;
+        $GLOBALS['cfg']['Confirm'] = true;
+        $GLOBALS['cfg']['LoginCookieValidity'] = 1440;
         $GLOBALS['cfg']['Server']['DisableIS'] = false;
+        $GLOBALS['server'] = 0;
+        $GLOBALS['db'] = 'db';
+        $GLOBALS['table'] = 'table';
+        $GLOBALS['PMA_PHP_SELF'] = 'index.php';
+        $GLOBALS['pmaThemePath'] = $GLOBALS['PMA_Theme']->getPath();
     }
 
     /**
