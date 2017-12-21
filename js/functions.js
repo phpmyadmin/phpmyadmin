@@ -2741,16 +2741,28 @@ jQuery.fn.PMA_confirm = function (question, url, callbackFn, openCallback) {
         }
     ];
 
-    $('<div/>', { 'id': 'confirm_dialog', 'title': PMA_messages.strConfirm })
-        .prepend(question)
-        .dialog({
-            buttons: button_options,
-            close: function () {
-                $(this).remove();
-            },
-            open: openCallback,
-            modal: true
-        });
+    if (question.search('DROP TABLE') != -1) {
+        var heading = question.split('execute "')[1].split('"')[0];
+    }
+
+    else if (question.search('DROP DATABASE') != -1) {
+        var heading = question.split('execute "')[1].split('"')[0];
+    }
+
+    else {
+        var heading = PMA_messages.strConfirm;
+    }
+
+    $('<div/>', {'id': 'confirm_dialog', 'title': heading})
+    .prepend(question)
+    .dialog({
+        buttons: button_options,
+        close: function () {
+            $(this).remove();
+        },
+        open: openCallback,
+        modal: true
+    });
 };
 
 /**
