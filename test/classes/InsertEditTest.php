@@ -1472,11 +1472,6 @@ class InsertEditTest extends TestCase
             '<input type="hidden" name="where_clause[0]" value="a&lt;b" />',
             $result
         );
-
-        $this->assertContains(
-            '<option value="1" selected="selected">',
-            $result
-        );
     }
 
     /**
