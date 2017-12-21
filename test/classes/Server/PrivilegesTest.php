@@ -68,6 +68,7 @@ class PrivilegesTest extends TestCase
         $GLOBALS['PMA_PHP_SELF'] = Core::getenv('PHP_SELF');
         $GLOBALS['pmaThemeImage'] = 'image';
         $GLOBALS['server'] = 1;
+        $GLOBALS['db'] = 'db';
         $GLOBALS['hostname'] = "hostname";
         $GLOBALS['username'] = "username";
         $GLOBALS['text_dir'] = "text_dir";
