@@ -552,22 +552,16 @@ button.mult_submit {
     background-color: transparent;
 }
 
-#odd_row {
-    background: #fff;
-}
-
-#even_row {
-    background: #DFDFDF;
-}
-
 /* odd items 1,3,5,7,... */
 table tbody:first-of-type tr:nth-child(odd),
+table tbody:first-of-type tr.odd,
 table tbody:first-of-type tr:nth-child(odd) th {
     background: #fff;
 }
 
 /* even items 2,4,6,8,... */
 table tbody:first-of-type tr:nth-child(even),
+table tbody:first-of-type tr.even,
 table tbody:first-of-type tr:nth-child(even) th {
     background: #DFDFDF;
 }

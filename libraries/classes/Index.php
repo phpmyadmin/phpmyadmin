@@ -799,10 +799,10 @@ class Index
             foreach ($index->getColumns() as $column) {
                 if ($column->getSeqInIndex() > 1) {
                     if($iter%2 == 0){
-                        $r .= '<tr class="noclick" id="odd_row" >';
+                        $r .= '<tr class="noclick odd">';
                     }
                     else{
-                        $r .= '<tr class="noclick" id="even_row" >';
+                        $r .= '<tr class="noclick even">';
                     }
                 }
                 $r .= '<td>' . htmlspecialchars($column->getName());
