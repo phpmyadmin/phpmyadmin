@@ -10,13 +10,6 @@ use PhpMyAdmin\File;
 use PhpMyAdmin\Plugins\Import\ImportLdi;
 use PhpMyAdmin\Tests\PmaTestCase;
 
-/*
- * we must set $GLOBALS['server'] here
- * since 'check_user_privileges.inc.php' will use it globally
- */
-$GLOBALS['server'] = 0;
-$GLOBALS['plugin_param'] = "table";
-
 /**
  * Tests for PhpMyAdmin\Plugins\Import\ImportLdi class
  *
@@ -30,6 +23,12 @@ class ImportLdiTest extends PmaTestCase
     protected $object;
 
     /**
+     * @var \PhpMyAdmin\DatabaseInterface
+     * @access protected
+     */
+    protected $dbi;
+
+    /**
      * Sets up the fixture, for example, opens a network connection.
      * This method is called before a test is executed.
      *
@@ -39,6 +38,8 @@ class ImportLdiTest extends PmaTestCase
     protected function setUp()
     {
         //setting
+        $GLOBALS['server'] = 0;
+        $GLOBALS['plugin_param'] = 'table';
         $GLOBALS['finished'] = false;
         $GLOBALS['read_limit'] = 100000000;
         $GLOBALS['offset'] = 0;
@@ -63,24 +64,10 @@ class ImportLdiTest extends PmaTestCase
         $GLOBALS['table'] = "phpmyadmintest";
 
         //Mock DBI
-        $dbi = $this->getMockBuilder('PhpMyAdmin\DatabaseInterface')
+        $this->dbi = $this->getMockBuilder('PhpMyAdmin\DatabaseInterface')
             ->disableOriginalConstructor()
             ->getMock();
-
-        $dbi->expects($this->any())->method('tryQuery')
-            ->will($this->returnValue(true));
-
-        $dbi->expects($this->any())->method('numRows')
-            ->will($this->returnValue(10));
-
-        $fetchRowResult = array("ON");
-        $dbi->expects($this->any())->method('fetchRow')
-            ->will($this->returnValue($fetchRowResult));
-
-        $dbi->expects($this->any())->method('escapeString')
-            ->will($this->returnArgument(0));
-
-        $GLOBALS['dbi'] = $dbi;
+        $GLOBALS['dbi'] = $this->dbi;
 
         $this->object = new ImportLdi();
     }
@@ -126,6 +113,17 @@ class ImportLdiTest extends PmaTestCase
      */
     public function testGetPropertiesAutoLdi()
     {
+        $this->dbi->expects($this->any())->method('tryQuery')
+            ->will($this->returnValue(true));
+        $this->dbi->expects($this->any())->method('numRows')
+            ->will($this->returnValue(10));
+
+        $fetchRowResult = array("ON");
+        $this->dbi->expects($this->any())->method('fetchRow')
+            ->will($this->returnValue($fetchRowResult));
+
+        $GLOBALS['dbi'] = $this->dbi;
+
         $GLOBALS['cfg']['Import']['ldi_local_option'] = 'auto';
         $this->object = new ImportLdi();
         $properties = $this->object->getProperties();
@@ -155,6 +153,10 @@ class ImportLdiTest extends PmaTestCase
         //$sql_query_disabled will show the import SQL detail
         global $sql_query, $sql_query_disabled;
         $sql_query_disabled = false;
+
+        $this->dbi->expects($this->any())->method('escapeString')
+            ->will($this->returnArgument(0));
+        $GLOBALS['dbi'] = $this->dbi;
 
         //Test function called
         $this->object->doImport();
@@ -214,6 +216,10 @@ class ImportLdiTest extends PmaTestCase
         //$sql_query_disabled will show the import SQL detail
         global $sql_query, $sql_query_disabled;
         $sql_query_disabled = false;
+
+        $this->dbi->expects($this->any())->method('escapeString')
+            ->will($this->returnArgument(0));
+        $GLOBALS['dbi'] = $this->dbi;
 
         $ldi_local_option = true;
         $ldi_replace = true;
