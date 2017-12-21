@@ -23,13 +23,24 @@ class EventsTest extends TestCase
      *
      * @return void
      */
-    public function setUp()
+    protected function setUp()
     {
-        $GLOBALS['tear_down']['server'] = false;
-        if (! isset($GLOBALS['cfg']['ServerDefault'])) {
-            $GLOBALS['cfg']['ServerDefault'] = '';
-            $GLOBALS['tear_down']['server'] = true;
-        }
+        $GLOBALS['server'] = 0;
+        $GLOBALS['db'] = 'db';
+        $GLOBALS['table'] = 'table';
+        $GLOBALS['PMA_PHP_SELF'] = 'index.php';
+        $GLOBALS['cfg']['AllowThirdPartyFraming'] = false;
+        $GLOBALS['cfg']['SendErrorReports'] = 'ask';
+        $GLOBALS['cfg']['DefaultTabDatabase'] = 'structure';
+        $GLOBALS['cfg']['ShowDatabasesNavigationAsTree'] = true;
+        $GLOBALS['cfg']['DefaultTabTable'] = 'browse';
+        $GLOBALS['cfg']['NavigationTreeDefaultTabTable'] = 'structure';
+        $GLOBALS['cfg']['NavigationTreeDefaultTabTable2'] = '';
+        $GLOBALS['cfg']['LimitChars'] = 50;
+        $GLOBALS['cfg']['Confirm'] = true;
+        $GLOBALS['cfg']['LoginCookieValidity'] = 1440;
+        $GLOBALS['cfg']['ServerDefault'] = '';
+        $GLOBALS['tear_down']['server'] = true;
     }
 
     /**
