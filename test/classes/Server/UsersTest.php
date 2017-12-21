@@ -27,6 +27,7 @@ class UsersTest extends TestCase
     public function testGetHtmlForSubMenusOnUsersPage()
     {
         $GLOBALS['server'] = 1;
+        $GLOBALS['cfg']['ServerDefault'] = 1;
         $GLOBALS['cfg']['Server']['DisableIS'] = false;
         $html = Users::getHtmlForSubMenusOnUsersPage('server_privileges.php');
 
