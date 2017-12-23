@@ -372,7 +372,7 @@ class AuthenticationCookieTest extends PMATestCase
 
         $_COOKIE['pmaAuth-2'] = '';
 
-        $this->mockResponse('Location: /phpmyadmin/index.php?server=2&lang=en&collation_connection=utf-8');
+        $this->mockResponse('Location: /phpmyadmin/index.php?server=2&lang=en&collation_connection=utf-8&token=token');
 
         $this->object->logOut();
     }

@@ -1,10 +1,11 @@
 phpMyAdmin - ChangeLog
 ======================
 
-4.7.7 (not yet released)
+4.7.7 (2017-12-23)
 - issue #13865 Fixed displaying of formatted numeric values for some locales
 - issue #13856 Ensure datetimepicker is always loaded for datetime fields
 - issue #13848 Fixed PHP error when browsing certain results
+- issue        [security] Fix XSRF/CSRF vulnerability, see PMASA-2017-09
 
 4.7.6 (2017-11-29)
 - issue #13517 Fixed check all interaction with filtering
