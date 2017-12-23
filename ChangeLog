@@ -1,7 +1,7 @@
 phpMyAdmin - ChangeLog
 ======================
 
-4.7.7 (not yet released)
+4.7.7 (2017-12-23)
 - issue #13865 Fixed displaying of formatted numeric values for some locales
 - issue #13856 Ensure datetimepicker is always loaded for datetime fields
 - issue #13848 Fixed PHP error when browsing certain results
