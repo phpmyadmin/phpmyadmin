@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.7.6-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2017-11-02 14:03+0100\n"
-"PO-Revision-Date: 2017-12-23 14:41+0000\n"
+"PO-Revision-Date: 2017-12-23 19:55+0000\n"
 "Last-Translator: Matteo Gheza <matteo.gheza07@gmail.com>\n"
 "Language-Team: Italian "
 "<https://hosted.weblate.org/projects/phpmyadmin/4-7/it/>\n"
@@ -4046,12 +4046,11 @@ msgid "Language"
 msgstr "Lingua"
 
 #: libraries/Linter.php:99
-#, fuzzy
 msgid ""
 "Linting is disabled for this query because it exceeds the maximum length."
 msgstr ""
-"Il Linting (controllo sintattico) è disabilitato per questa query perché il "
-"testo eccede la lunghezza massima."
+"Linting è disabilitato per questa query perché il testo eccede la lunghezza "
+"massima."
 
 #: libraries/Linter.php:165
 #, php-format
