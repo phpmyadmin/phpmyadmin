@@ -630,6 +630,12 @@ form.login label {
     padding:1.5% 0em !important;
 }
 
+.central_columns_add_column{
+    display:inline-block;
+    margin-left:1%;
+    max-width:50%
+}
+
 /******************************************************************************/
 /* specific elements */
 

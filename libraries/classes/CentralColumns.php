@@ -883,7 +883,7 @@ class CentralColumns
         $pos,
         $db
     ) {
-        $columnAdd = '<table style="display:inline-block;margin-left:1%;max-width:50%" '
+        $columnAdd = '<table class="central_columns_add_column" '
             . 'class="navigation nospacing nopadding">'
             . '<tr>'
             . '<td class="navigation_separator largescreenonly"></td>'
