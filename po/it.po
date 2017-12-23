@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.7.6-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2017-11-02 14:03+0100\n"
-"PO-Revision-Date: 2017-11-28 08:13+0000\n"
-"Last-Translator: Matteo Regazzi <mregazzi@tiscali.it>\n"
+"PO-Revision-Date: 2017-12-23 14:41+0000\n"
+"Last-Translator: Matteo Gheza <matteo.gheza07@gmail.com>\n"
 "Language-Team: Italian "
 "<https://hosted.weblate.org/projects/phpmyadmin/4-7/it/>\n"
 "Language: it\n"
@@ -13,7 +13,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 2.18-dev\n"
+"X-Generator: Weblate 2.19-dev\n"
 
 #: ajax.php:16 ajax.php:33 export.php:192 schema_export.php:64
 msgid "Bad type!"
@@ -3332,7 +3332,7 @@ msgstr "accent-sensitive"
 #: libraries/Charsets.php:576
 msgctxt "Collation variant"
 msgid "multi-level"
-msgstr "multi-livello"
+msgstr "multilivello"
 
 #: libraries/Charsets.php:579
 msgctxt "Collation variant"
@@ -4046,6 +4046,7 @@ msgid "Language"
 msgstr "Lingua"
 
 #: libraries/Linter.php:99
+#, fuzzy
 msgid ""
 "Linting is disabled for this query because it exceeds the maximum length."
 msgstr ""
@@ -4080,7 +4081,7 @@ msgstr "Server"
 #: templates/table/relation/foreign_key_row.phtml:159
 #: templates/table/relation/internal_relational_row.phtml:50
 msgid "Database"
-msgstr "Base di dati"
+msgstr "Database"
 
 #: libraries/Menu.php:256 libraries/navigation/nodes/NodeView.php:30
 #: libraries/tbl_info.inc.php:60
