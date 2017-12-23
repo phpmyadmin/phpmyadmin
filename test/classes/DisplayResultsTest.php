@@ -889,7 +889,7 @@ class DisplayResultsTest extends PMATestCase
                 'routine_name',
                 'db_routines.php?item_name=circumference&db=data'
                 . '&item_type=FUNCTION&server=0&lang=en'
-                . '&collation_connection=utf-8'
+                . '&collation_connection=utf-8&token=token'
             ),
             array(
                 'information_schema',
@@ -903,7 +903,7 @@ class DisplayResultsTest extends PMATestCase
                 'routine_name',
                 'db_routines.php?item_name=area&db=data'
                 . '&item_type=PROCEDURE&server=0&lang=en'
-                . '&collation_connection=utf-8'
+                . '&collation_connection=utf-8&token=token'
             ),
             array(
                 'information_schema',
@@ -917,7 +917,7 @@ class DisplayResultsTest extends PMATestCase
                 'index.php?sql_query=SELECT+%60CHARACTER_SET_NAME%60+FROM+%60info'
                 . 'rmation_schema%60.%60CHARACTER_SETS%60&db=information_schema'
                 . '&test_name=value&server=0&lang=en'
-                . '&collation_connection=utf-8'
+                . '&collation_connection=utf-8&token=token'
             )
         );
     }
@@ -1246,7 +1246,7 @@ class DisplayResultsTest extends PMATestCase
                 $url_params,
                 null,
                 '<a href="tbl_get_field.php?db=foo&amp;table=bar&amp;server=0'
-                . '&amp;lang=en&amp;collation_connection=utf-8'
+                . '&amp;lang=en&amp;collation_connection=utf-8&amp;token=token'
                 . '" class="disableAjax">1001</a>'
             ),
             array(
@@ -1261,7 +1261,7 @@ class DisplayResultsTest extends PMATestCase
                 $url_params,
                 null,
                 '<a href="tbl_get_field.php?db=foo&amp;table=bar&amp;server=0'
-                . '&amp;lang=en&amp;collation_connection=utf-8'
+                . '&amp;lang=en&amp;collation_connection=utf-8&amp;token=token'
                 . '" class="disableAjax">0x123456</a>'
             ),
             array(
@@ -1276,7 +1276,7 @@ class DisplayResultsTest extends PMATestCase
                 $url_params,
                 null,
                 '<a href="tbl_get_field.php?db=foo&amp;table=bar&amp;server=0'
-                . '&amp;lang=en&amp;collation_connection=utf-8'
+                . '&amp;lang=en&amp;collation_connection=utf-8&amp;token=token'
                 . '" class="disableAjax">[BLOB - 4 B]</a>'
             ),
             array(
@@ -1399,7 +1399,7 @@ class DisplayResultsTest extends PMATestCase
                 'binary',
                 '<td class="left   hex"><a href="tbl_get_field.php?'
                 . 'db=foo&amp;table=tbl&amp;server=0&amp;lang=en'
-                . '&amp;collation_connection=utf-8'
+                . '&amp;collation_connection=utf-8&amp;token=token'
                 . '" '
                 . 'class="disableAjax">[BLOB - 4 B]</a></td>'
             ),

@@ -45,6 +45,7 @@ class URLTest extends PHPUnit_Framework_TestCase
         $expected = 'server=x' . htmlentities($separator)
             . 'lang=en' . htmlentities($separator)
             . 'collation_connection=x'
+            . htmlentities($separator) . 'token=token'
             ;
 
         $expected = '?db=db'
@@ -68,6 +69,7 @@ class URLTest extends PHPUnit_Framework_TestCase
         $expected = 'server=x' . htmlentities($separator)
             . 'lang=en' . htmlentities($separator)
             . 'collation_connection=x'
+            . htmlentities($separator) . 'token=token'
             ;
 
         $expected = '?db=db'
@@ -92,6 +94,7 @@ class URLTest extends PHPUnit_Framework_TestCase
         $expected = 'server=x' . $separator
             . 'lang=en' . $separator
             . 'collation_connection=x'
+            . $separator . 'token=token'
             ;
 
         $expected = '#ABC#db=db' . $separator . 'table=table' . $separator
@@ -119,6 +122,7 @@ class URLTest extends PHPUnit_Framework_TestCase
         $expected = '?server=x' . htmlentities($separator)
             . 'lang=en' . htmlentities($separator)
             . 'collation_connection=x'
+            . htmlentities($separator) . 'token=token'
             ;
         $this->assertEquals($expected, URL::getCommon());
     }
