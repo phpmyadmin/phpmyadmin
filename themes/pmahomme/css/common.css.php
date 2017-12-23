@@ -903,6 +903,20 @@ form.login select {
     font-size: 70%;
 }
 
+.cfg_dbg_demo{
+    margin: 0.5em 1em 0.5em 1em;
+}
+
+.central_columns_navigation{
+    padding:1.5% 0em !important;
+}
+
+.central_columns_add_column{
+    display:inline-block;
+    margin-left:1%;
+    max-width:50%
+}
+
 /******************************************************************************/
 /* specific elements */
 

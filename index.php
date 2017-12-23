@@ -191,7 +191,7 @@ if ($server > 0 || count($cfg['Servers']) > 1
     if ($cfg['DBG']['demo']) {
         echo '<div class="group">';
         echo '<h2>' , __('phpMyAdmin Demo Server') , '</h2>';
-        echo '<p style="margin: 0.5em 1em 0.5em 1em">';
+        echo '<p class="cfg_dbg_demo">';
         printf(
             __(
                 'You are using the demo server. You can do anything here, but '
