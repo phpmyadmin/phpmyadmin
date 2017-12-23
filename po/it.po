@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.8.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2017-11-28 16:22+0100\n"
-"PO-Revision-Date: 2017-12-23 14:35+0000\n"
+"PO-Revision-Date: 2017-12-26 21:10+0000\n"
 "Last-Translator: Matteo Gheza <matteo.gheza07@gmail.com>\n"
 "Language-Team: Italian "
 "<https://hosted.weblate.org/projects/phpmyadmin/master/it/>\n"
@@ -8347,12 +8347,11 @@ msgid "Language"
 msgstr "Lingua"
 
 #: libraries/classes/Linter.php:98
-#, fuzzy
 msgid ""
 "Linting is disabled for this query because it exceeds the maximum length."
 msgstr ""
-"Il Linting (controllo sintattico) è disabilitato per questa query perché il "
-"testo eccede la lunghezza massima."
+"Linting è disabilitato per questa query perché il testo eccede la lunghezza "
+"massima."
 
 #: libraries/classes/Linter.php:164
 #, php-format
@@ -16367,10 +16366,8 @@ msgid "Column alias"
 msgstr "Alias di colonna"
 
 #: templates/database/multi_table_query/form.twig:35
-#, fuzzy
-#| msgid "Use this column to label each point"
 msgid "Use this column in criteria"
-msgstr "Usate questo campo nei criteri"
+msgstr "Usate questa colonna nei criteri"
 
 #: templates/database/multi_table_query/form.twig:38
 msgid "criteria"
