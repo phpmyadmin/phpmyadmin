@@ -4852,7 +4852,7 @@ msgstr "Larghezza pannello di navigazione"
 
 #: libraries/classes/Config/Descriptions.php:774
 msgid "Set to 0 to collapse navigation panel."
-msgstr "0 per chiudere il pannello di navigazione."
+msgstr "Imposta a 0 per richiudere il pannello di navigazione."
 
 #: libraries/classes/Config/Descriptions.php:776
 msgid "Link with main panel by highlighting the current database or table."
