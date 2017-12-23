@@ -907,6 +907,10 @@ form.login select {
     margin: 0.5em 1em 0.5em 1em;
 }
 
+.central_columns_navigation{
+    padding:1.5% 0em !important;
+}
+
 /******************************************************************************/
 /* specific elements */
 

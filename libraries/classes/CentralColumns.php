@@ -887,7 +887,7 @@ class CentralColumns
             . 'class="navigation nospacing nopadding">'
             . '<tr>'
             . '<td class="navigation_separator largescreenonly"></td>'
-            . '<td style="padding:1.5% 0em">'
+            . '<td class="central_columns_navigation">'
             . Util::getIcon(
                 'centralColumns_add',
                 __('Add column')
