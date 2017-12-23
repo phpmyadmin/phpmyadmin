@@ -903,6 +903,10 @@ form.login select {
     font-size: 70%;
 }
 
+.cfg_dbg_demo{
+    margin: 0.5em 1em 0.5em 1em;
+}
+
 /******************************************************************************/
 /* specific elements */
 
