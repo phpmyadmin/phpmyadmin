@@ -156,7 +156,7 @@ class NavigationTest extends PMATestCase
         $this->assertContains(
             '<a href="navigation.php?'
             . 'unhideNavItem=1&amp;itemType=table&amp;'
-            . 'itemName=tableName&amp;dbName=db&amp;lang=en"'
+            . 'itemName=tableName&amp;dbName=db&amp;lang=en&amp;token=token"'
             . ' class="unhideNavItem ajax">',
             $html
         );

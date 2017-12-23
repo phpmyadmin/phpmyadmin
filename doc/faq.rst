@@ -433,7 +433,8 @@ Since release 4.5, phpMyAdmin supports only PHP 5.5 and newer. Since release
 4.1 phpMyAdmin supports only PHP 5.3 and newer. For PHP 5.2 you can use 4.0.x
 releases.
 
-PHP 7 is supported since phpMyAdmin 4.6, PHP 7.1 is supported since 4.6.5.
+PHP 7 is supported since phpMyAdmin 4.6, PHP 7.1 is supported since 4.6.5,
+PHP 7.2 is supported since 4.7.4.
 
 phpMyAdmin also works fine with HHVM.
 

@@ -4,17 +4,17 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.7.6-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2017-11-02 14:03+0100\n"
-"PO-Revision-Date: 2017-10-09 08:47+0000\n"
-"Last-Translator: Suad Pacariz <suad@pacariz.in.rs>\n"
-"Language-Team: Serbian (latin) <https://hosted.weblate.org/projects/"
-"phpmyadmin/4-7/sr_Latn/>\n"
+"PO-Revision-Date: 2017-12-02 16:49+0000\n"
+"Last-Translator: Aleksej Jovanović <jovanovicaleksej.su@gmail.com>\n"
+"Language-Team: Serbian (latin) "
+"<https://hosted.weblate.org/projects/phpmyadmin/4-7/sr_Latn/>\n"
 "Language: sr@latin\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=3; plural=n%10==1 && n%100!=11 ? 0 : n%10>=2 && n"
-"%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
-"X-Generator: Weblate 2.17-dev\n"
+"Plural-Forms: nplurals=3; plural=n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%10<="
+"4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
+"X-Generator: Weblate 2.18-dev\n"
 
 #: ajax.php:16 ajax.php:33 export.php:192 schema_export.php:64
 msgid "Bad type!"
@@ -334,22 +334,19 @@ msgid "Access denied!"
 msgstr "Pristup odbijen!"
 
 #: db_tracking.php:53 db_tracking.php:78
-#, fuzzy
-#| msgid "Replication status"
 msgid "Tracking data deleted successfully."
-msgstr "Status replikacije"
+msgstr "Podaci o praćenju su uspešno izbrisani."
 
 #: db_tracking.php:62
 #, php-format
 msgid ""
 "Version %1$s was created for selected tables, tracking is active for them."
 msgstr ""
+"Verzija %1$s je kreirana za izabrane tabele, praćenje je aktivirano za njih."
 
 #: db_tracking.php:93
-#, fuzzy
-#| msgid "No databases selected."
 msgid "No tables selected."
-msgstr "Nije izabrana ni jedna baza."
+msgstr "Nije izabrana ni jedna tabela."
 
 #: db_tracking.php:150
 msgid "Database Log"
@@ -360,24 +357,28 @@ msgid ""
 "An error has been detected and an error report has been automatically "
 "submitted based on your settings."
 msgstr ""
+"Otkrivena je greška i izveštaj o grešci je automatski podnet na osnovu vaših "
+"podešavanja."
 
 #: error_report.php:72
 msgid "Thank you for submitting this report."
-msgstr ""
+msgstr "Hvala vam što ste poslali ovaj izveštaj."
 
 #: error_report.php:76
 msgid ""
 "An error has been detected and an error report has been generated but failed "
 "to be sent."
 msgstr ""
+"Otkrivena je greška i generisan je izveštaj o grešci, ali nije se uspeo da "
+"se pošalje."
 
 #: error_report.php:81
 msgid "If you experience any problems please submit a bug report manually."
-msgstr ""
+msgstr "Ako imate bilo kakvih problema, ručno podnesite izveštaj o greškama."
 
 #: error_report.php:85
 msgid "You may want to refresh the page."
-msgstr ""
+msgstr "Možda ćete želeti da osvežite stranicu."
 
 #: export.php:275
 msgid "Bad parameters!"
@@ -395,22 +396,17 @@ msgstr "Iskoristi OpenStreetMaps kao osnovni sloj"
 
 #. l10n: Spatial Reference System Identifier
 #: gis_data_editor.php:169
-#, fuzzy
-#| msgid "SRID"
 msgid "SRID:"
-msgstr "SRID"
+msgstr "SRID:"
 
 #: gis_data_editor.php:195
-#, fuzzy, php-format
-#| msgid "Geometry"
+#, php-format
 msgid "Geometry %d:"
-msgstr "Geometrija"
+msgstr "Geometrija %d:"
 
 #: gis_data_editor.php:217
-#, fuzzy
-#| msgid "Point"
 msgid "Point:"
-msgstr "Tačka"
+msgstr "Tačka:"
 
 #: gis_data_editor.php:218 gis_data_editor.php:245 gis_data_editor.php:301
 #: gis_data_editor.php:374 js/messages.php:519
@@ -434,22 +430,18 @@ msgid "Add a point"
 msgstr "Dodaj tačku"
 
 #: gis_data_editor.php:273
-#, fuzzy, php-format
-#| msgid "Linestring"
+#, php-format
 msgid "Linestring %d:"
-msgstr "Linija teksta"
+msgstr "Linija teksta %d:"
 
 #: gis_data_editor.php:276 gis_data_editor.php:353
-#, fuzzy
-#| msgid "Outer Ring"
 msgid "Outer ring:"
-msgstr "Spoljni prsten"
+msgstr "Spoljni prsten:"
 
 #: gis_data_editor.php:278 gis_data_editor.php:355
-#, fuzzy, php-format
-#| msgid "Inner Ring"
+#, php-format
 msgid "Inner ring %d:"
-msgstr "Unutrašnji prsten"
+msgstr "Unutrašnji prsten %d:"
 
 #: gis_data_editor.php:315
 msgid "Add a linestring"
@@ -460,10 +452,9 @@ msgid "Add an inner ring"
 msgstr "Dodaj unutrašnji prsten"
 
 #: gis_data_editor.php:337
-#, fuzzy, php-format
-#| msgid "Polygon"
+#, php-format
 msgid "Polygon %d:"
-msgstr "Poligon"
+msgstr "Poligon %d:"
 
 #: gis_data_editor.php:401
 msgid "Add a polygon"
@@ -518,16 +509,12 @@ msgid "Output"
 msgstr "Izlaz"
 
 #: gis_data_editor.php:419
-#, fuzzy
-#| msgid ""
-#| "Choose \"GeomFromText\" from the \"Function\" column and paste the string "
-#| "below into the \"Value\" field"
 msgid ""
 "Choose \"GeomFromText\" from the \"Function\" column and paste the string "
 "below into the \"Value\" field."
 msgstr ""
-"Izaberi \"GeomFromText\" iz \"Funkcija\" kolone i nalepi ispod teksta u "
-"\"Vrednost\" polju"
+"Izaberi \"GeomFromText\" iz \"Funkcija\" kolone i nalepi ispod teksta u \""
+"Vrednost\" polju."
 
 #: import.php:65
 #, fuzzy
@@ -537,19 +524,14 @@ msgstr "Pristup odbijen!"
 
 #: import.php:69 js/messages.php:615
 msgid "Failed"
-msgstr ""
+msgstr "Greška"
 
 #: import.php:73
-#, fuzzy
-#| msgid "complete inserts"
 msgid "Incomplete params"
-msgstr "Kompletan INSERT"
+msgstr "Nepotpun parametar"
 
 #: import.php:197
-#, fuzzy, php-format
-#| msgid ""
-#| "You probably tried to upload too large file. Please refer to "
-#| "%sdocumentation%s for ways to workaround this limit."
+#, php-format
 msgid ""
 "You probably tried to upload a file that is too large. Please refer to "
 "%sdocumentation%s for a workaround for this limit."
@@ -580,10 +562,9 @@ msgid "Could not load import plugins, please check your installation!"
 msgstr "Ne mogu da učitam dodatke za uvoz, molim proverite svoju instalaciju!"
 
 #: import.php:571 libraries/sql.lib.php:788 libraries/sql.lib.php:1567
-#, fuzzy, php-format
-#| msgid "Bookmark %s created"
+#, php-format
 msgid "Bookmark %s has been created."
-msgstr "Napravljen marker %s"
+msgstr "Napravljen marker %s."
 
 #: import.php:581
 #, fuzzy, php-format
@@ -621,7 +602,7 @@ msgstr "\"DROP DATABASE\" komanda je onemogućena."
 
 #: import_status.php:105
 msgid "Could not load the progress of the import."
-msgstr ""
+msgstr "Nije moguće učitati napredak uvoza."
 
 #: import_status.php:114 js/messages.php:459 js/messages.php:623
 #: libraries/Util.php:689 libraries/export.lib.php:518
@@ -634,12 +615,12 @@ msgid ""
 "You were logged out from one server, to logout completely from phpMyAdmin, "
 "you need to logout from all servers."
 msgstr ""
+"Bili ste odjavljeni sa jednog servera, da biste se potpuno odjavili iz "
+"phpMyAdmin-a, morate odjaviti sa svih servera."
 
 #: index.php:160 libraries/Footer.php:69
-#, fuzzy
-#| msgid "phpMyAdmin homepage"
 msgid "phpMyAdmin Demo Server"
-msgstr "phpMyAdmin početna stranica"
+msgstr "phpMyAdmin Demo Server"
 
 #: index.php:164
 #, php-format
@@ -648,10 +629,11 @@ msgid ""
 "change root, debian-sys-maint and pma users. More information is available "
 "at %s."
 msgstr ""
+"Koristite demo server. Ovde možete uraditi bilo šta, ali molim vas nemojte "
+"menjati root, debian-sys-maint i pma korisnike. Više informacija je dostupno "
+"na %s."
 
 #: index.php:174
-#, fuzzy
-#| msgid "General Settings"
 msgid "General settings"
 msgstr "Opšta podešavanja"
 
@@ -666,10 +648,8 @@ msgid "Server connection collation"
 msgstr "Način poređenja kod veze na server"
 
 #: index.php:242
-#, fuzzy
-#| msgid "Change settings"
 msgid "Appearance settings"
-msgstr "Izmeni podešavanja"
+msgstr "Postavke izgleda"
 
 #: index.php:275 prefs_manage.php:294
 msgid "More settings"
@@ -684,68 +664,50 @@ msgid "Server:"
 msgstr "Server:"
 
 #: index.php:304
-#, fuzzy
-#| msgid "Server port"
 msgid "Server type:"
-msgstr "Port na serveru"
+msgstr "Tip servera:"
 
 #: index.php:308 libraries/plugins/export/ExportLatex.php:220
 #: libraries/plugins/export/ExportSql.php:701
 #: libraries/plugins/export/ExportXml.php:242
-#, fuzzy
-#| msgid "Server version"
 msgid "Server version:"
-msgstr "Verzija servera"
+msgstr "Verzija servera:"
 
 #: index.php:314
-#, fuzzy
-#| msgid "Protocol version"
 msgid "Protocol version:"
-msgstr "Verzija protokola"
+msgstr "Verzija protokola:"
 
 #: index.php:318
-#, fuzzy
-#| msgid "User"
 msgid "User:"
-msgstr "Korisnik"
+msgstr "Korisnik:"
 
 #: index.php:323
-#, fuzzy
-#| msgid "Server charset"
 msgid "Server charset:"
-msgstr "Server skup znakova"
+msgstr "Server skup znakova:"
 
 #: index.php:336
 msgid "Web server"
-msgstr ""
+msgstr "Veb server"
 
 #: index.php:347
-#, fuzzy
-#| msgid "Database client version"
 msgid "Database client version:"
-msgstr "Verzija klijenta baze"
+msgstr "Verzija klijenta baze:"
 
 #: index.php:351
-#, fuzzy
-#| msgid "PHP extension"
 msgid "PHP extension:"
-msgstr "PHP proširenje"
+msgstr "PHP ekstenzija:"
 
 #: index.php:365
-#, fuzzy
-#| msgid "PHP Version"
 msgid "PHP version:"
-msgstr "verzija PHP-a"
+msgstr "Verzija PHP-a:"
 
 #: index.php:376
 msgid "Show PHP information"
 msgstr "Prikaži informacije o PHP-u"
 
 #: index.php:395
-#, fuzzy
-#| msgid "Version information"
 msgid "Version information:"
-msgstr "Informacije o verziji"
+msgstr "Informacije o verziji:"
 
 #: index.php:404 libraries/Sanitize.php:189 libraries/Util.php:336
 #: libraries/Util.php:403 libraries/config/FormDisplay.tpl.php:165
@@ -765,7 +727,7 @@ msgstr "Doprinesi"
 
 #: index.php:427
 msgid "Get support"
-msgstr ""
+msgstr "Dobijte podršku"
 
 #: index.php:434
 msgid "List of changes"
@@ -773,7 +735,7 @@ msgstr "Lista izmena"
 
 #: index.php:441 templates/server/plugins/section.phtml:12
 msgid "License"
-msgstr ""
+msgstr "Licensa"
 
 #: index.php:461
 msgid ""
@@ -790,6 +752,9 @@ msgid ""
 "The curl extension was not found and allow_url_fopen is disabled. Due to "
 "this some features such as error reporting or version check are disabled."
 msgstr ""
+"Dodatak curl nije pronađen i allow_url_fopen je onemogućen. Zbog toga, neke "
+"mogućnosti kao što su izvještaji o greškama ili provera verzije su "
+"onemogućeni."
 
 #: index.php:491
 msgid ""

@@ -1422,6 +1422,10 @@ class Util
             7 => 'Z',
             8 => 'Y'
         );
+        /* l10n: Decimal separator */
+        $decimal_sep = __('.');
+        /* l10n: Thousands separator */
+        $thousands_sep = __(',');
 
         // check for negative value to retain sign
         if ($value < 0) {
@@ -1459,24 +1463,20 @@ class Util
         $formattedValue = number_format(
             $value,
             $digits_right,
-            /* l10n: Decimal separator */
-            __('.'),
-            /* l10n: Thousands separator */
-            __(',')
+            $decimal_sep,
+            $thousands_sep
         );
         // If we don't want any zeros, remove them now
-        if ($noTrailingZero && strpos($formattedValue, '.') !== false) {
-            $formattedValue = preg_replace('/\.?0+$/', '', $formattedValue);
+        if ($noTrailingZero && strpos($formattedValue, $decimal_sep) !== false) {
+            $formattedValue = preg_replace('/' . preg_quote($decimal_sep) . '?0+$/', '', $formattedValue);
         }
 
         if ($originalValue != 0 && floatval($value) == 0) {
             return ' <' . number_format(
                 (1 / pow(10, $digits_right)),
                 $digits_right,
-                /* l10n: Decimal separator */
-                __('.'),
-                /* l10n: Thousands separator */
-                __(',')
+                $decimal_sep,
+                $thousands_sep
             )
             . ' ' . $unit;
         }
@@ -1822,6 +1822,7 @@ class Util
         if (($url_length <= $GLOBALS['cfg']['LinkLengthLimit'])
             && $in_suhosin_limits
             && ! $force_button
+            && strpos($url, 'sql_query=') === false
         ) {
             $tag_params_strings = array();
             foreach ($tag_params as $par_name => $par_value) {

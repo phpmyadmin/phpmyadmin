@@ -27,9 +27,11 @@ class NodeColumnContainer extends Node
         $this->icon = Util::getImage('pause.png', __('Columns'));
         $this->links = array(
             'text' => 'tbl_structure.php?server=' . $GLOBALS['server']
-                . '&amp;db=%2$s&amp;table=%1$s',
+                . '&amp;db=%2$s&amp;table=%1$s'
+                . '&amp;token=' . $_SESSION[' PMA_token '],
             'icon' => 'tbl_structure.php?server=' . $GLOBALS['server']
-                . '&amp;db=%2$s&amp;table=%1$s',
+                . '&amp;db=%2$s&amp;table=%1$s'
+                . '&amp;token=' . $_SESSION[' PMA_token '],
         );
         $this->real_name = 'columns';
 
@@ -43,10 +45,12 @@ class NodeColumnContainer extends Node
         $new->links = array(
             'text' => 'tbl_addfield.php?server=' . $GLOBALS['server']
                 . '&amp;db=%3$s&amp;table=%2$s'
-                . '&amp;field_where=last&after_field=',
+                . '&amp;field_where=last&after_field='
+                . '&amp;token=' . $_SESSION[' PMA_token '],
             'icon' => 'tbl_addfield.php?server=' . $GLOBALS['server']
                 . '&amp;db=%3$s&amp;table=%2$s'
-                . '&amp;field_where=last&after_field=',
+                . '&amp;field_where=last&after_field='
+                . '&amp;token=' . $_SESSION[' PMA_token '],
         );
         $new->classes = 'new_column italics';
         $this->addChild($new);

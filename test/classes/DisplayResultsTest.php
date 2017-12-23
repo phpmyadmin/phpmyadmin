@@ -372,6 +372,7 @@ class DisplayResultsTest extends PMATestCase
                 array('`new`.`id`' => '= 1'),
                 '[%_PMA_CHECKBOX_DIR_%]',
                 'klass',
+
                 '<td class="klass" class="center print_ignore"><input type'
                 . '="checkbox" id="id_rows_to_delete0[%_PMA_CHECKBOX_DIR_%]" name='
                 . '"rows_to_delete[0]" class="multi_checkbox checkall" value="%60'
@@ -433,16 +434,9 @@ class DisplayResultsTest extends PMATestCase
                 . '"Edit" class="icon ic_b_edit" /> Edit</span>',
                 '`customer`.`id` = 1',
                 '%60customer%60.%60id%60+%3D+1',
-                '<td class="klass edit_row_anchor center print_ignore"  >'
-                . '<span class="nowrap">'
-                . '<a href="tbl_change.php?db=Data&amp;table=customer&amp;where_'
-                . 'clause=%60customer%60.%60id%60+%3D+1&amp;clause_is_unique=1&amp;'
-                . 'sql_query=SELECT+%2A+FROM+%60customer%60&amp;goto=sql.php&amp;'
-                . 'default_action=update"'
-                . ' ><span class="nowrap"><img src="themes/dot.gif" title="Edit" '
-                . 'alt="Edit" class="icon ic_b_edit" /> Edit</span></a>'
-                . '<input type="hidden" class="where_clause" value ="%60customer'
-                . '%60.%60id%60+%3D+1" /></span></td>'
+                '<td class="klass edit_row_anchor center print_ignore"  ><span class="nowrap"><input type="hidden" name="subform[1][db]" value="Data" /><input type="hidden" name="subform[1][table]" value="customer" /><input type="hidden" name="subform[1][where_clause]" value="`customer`.`id` = 1" /><input type="hidden" name="subform[1][clause_is_unique]" value="1" /><input type="hidden" name="subform[1][sql_query]" value="SELECT * FROM `customer`" /><input type="hidden" name="subform[1][goto]" value="sql.php" /><input type="hidden" name="subform[1][default_action]" value="update" /><input type="hidden" name="subform[1][redirect]" value="tbl_change.php" /><input type="hidden" name="subform[1][token]" value="token" />
+<a href="#usesubform[1]=1" class="formLinkSubmit"><span class="nowrap"><img src="themes/dot.gif" title="Edit" alt="Edit" class="icon ic_b_edit" /> Edit</span> </a>
+<input type="hidden" class="where_clause" value ="%60customer%60.%60id%60+%3D+1" /></span></td>'
             )
         );
     }
@@ -496,16 +490,9 @@ class DisplayResultsTest extends PMATestCase
                 '`customer`.`id` = 1',
                 '%60customer%60.%60id%60+%3D+1',
                 'klass',
-                '<td class="klass center print_ignore"  ><span class='
-                . '"nowrap">'
-                . '<a href="tbl_change.php?db=Data&amp;table=customer&amp;where_'
-                . 'clause=%60customer%60.%60id%60+%3D+1&amp;clause_is_unique=1&amp;'
-                . 'sql_query=SELECT+%2A+FROM+%60customer%60&amp;goto=sql.php&amp;'
-                . 'default_action=insert"'
-                . ' ><span class="nowrap"><img src="themes/dot.gif" title="Copy" '
-                . 'alt="Copy" class="icon ic_b_insrow" /> Copy</span></a>'
-                . '<input type="hidden" class="where_clause" value="%60customer%60'
-                . '.%60id%60+%3D+1" /></span></td>'
+                '<td class="klass center print_ignore"  ><span class="nowrap"><input type="hidden" name="subform[1][db]" value="Data" /><input type="hidden" name="subform[1][table]" value="customer" /><input type="hidden" name="subform[1][where_clause]" value="`customer`.`id` = 1" /><input type="hidden" name="subform[1][clause_is_unique]" value="1" /><input type="hidden" name="subform[1][sql_query]" value="SELECT * FROM `customer`" /><input type="hidden" name="subform[1][goto]" value="sql.php" /><input type="hidden" name="subform[1][default_action]" value="insert" /><input type="hidden" name="subform[1][redirect]" value="tbl_change.php" /><input type="hidden" name="subform[1][token]" value="token" />
+<a href="#usesubform[1]=1" class="formLinkSubmit"><span class="nowrap"><img src="themes/dot.gif" title="Copy" alt="Copy" class="icon ic_b_insrow" /> Copy</span> </a>
+<input type="hidden" class="where_clause" value="%60customer%60.%60id%60+%3D+1" /></span></td>'
             )
         );
     }
@@ -560,18 +547,9 @@ class DisplayResultsTest extends PMATestCase
                 . 'alt="Delete" class="icon ic_b_drop" /> Delete</span>',
                 'DELETE FROM `Data`.`customer` WHERE `customer`.`id` = 1',
                 'klass',
-                '<td class="klass center print_ignore"  >'
-                . '<a href="sql.php?db=Data&amp;table=customer&amp;sql_query=DELETE'
-                . '+FROM+%60Data%60.%60customer%60+WHERE+%60customer%60.%60id%60+%3D'
-                . '+1&amp;message_to_show=The+row+has+been+deleted&amp;goto=sql.php'
-                . '%3Fdb%3DData%26table%3Dcustomer%26sql_query%3DSELECT%2B%252A%2B'
-                . 'FROM%2B%2560customer%2560%26message_to_show%3DThe%2Brow%2Bhas%2B'
-                . 'been%2Bdeleted%26goto%3Dtbl_structure.php" '
-                . 'class="delete_row requireConfirm"><span class="nowrap"><img src="themes/dot.'
-                . 'gif" title="Delete" alt="Delete" class="icon ic_b_drop" /> '
-                . 'Delete</span></a>'
-                . '<div class="hide">DELETE FROM `Data`.`customer` WHERE '
-                . '`customer`.`id` = 1</div></td>'
+                '<td class="klass center print_ignore"  ><input type="hidden" name="subform[1][db]" value="Data" /><input type="hidden" name="subform[1][table]" value="customer" /><input type="hidden" name="subform[1][sql_query]" value="DELETE FROM `Data`.`customer` WHERE `customer`.`id` = 1" /><input type="hidden" name="subform[1][message_to_show]" value="The row has been deleted" /><input type="hidden" name="subform[1][goto]" value="sql.php?db=Data&amp;table=customer&amp;sql_query=SELECT+%2A+FROM+%60customer%60&amp;message_to_show=The+row+has+been+deleted&amp;goto=tbl_structure.php" /><input type="hidden" name="subform[1][redirect]" value="sql.php" /><input type="hidden" name="subform[1][token]" value="token" />
+<a href="#usesubform[1]=1" class="delete_row requireConfirm formLinkSubmit"><span class="nowrap"><img src="themes/dot.gif" title="Delete" alt="Delete" class="icon ic_b_drop" /> Delete</span> </a>
+<div class="hide">DELETE FROM `Data`.`customer` WHERE `customer`.`id` = 1</div></td>'
             )
         );
     }
@@ -651,40 +629,14 @@ class DisplayResultsTest extends PMATestCase
                 '<span class="nowrap"><img src="themes/dot.gif" title="Delete" '
                 . 'alt="Delete" class="icon ic_b_drop" /> Delete</span>',
                 'DELETE FROM `data`.`new` WHERE `new`.`id` = 1',
-                '<td  class="center print_ignore"><input type="checkbox" id="id_rows_to_delete0_'
-                . 'left" name="rows_to_delete[0]" class="multi_checkbox checkall" '
-                . 'value="%60new%60.%60id%60+%3D+1"  /><input type="hidden" class='
-                . '"condition_array" value="{&quot;`new`.`id`&quot;:&quot;= 1&quot;'
-                . '}" />    </td><td class="edit_row_anchor center print_ignore"  ><span class='
-                . '"nowrap">'
-                . '<a href="tbl_change.php?db=data&amp;table=new&amp;where_'
-                . 'clause=%60new%60.%60id%60+%3D+1&amp;clause_is_unique=1&amp;'
-                . 'sql_query=SELECT+%2A+FROM+%60new%60&amp;goto=sql.php&amp;default'
-                . '_action=update" >'
-                . '<span class="nowrap"><img src="themes/dot.gif" title="Edit" '
-                . 'alt="Edit" class="icon ic_b_edit" /> Edit</span></a>'
-                . '<input type="hidden" class="where_clause" value ="%60new%60.%60'
-                . 'id%60+%3D+1" /></span></td><td class="center print_ignore"  ><span class'
-                . '="nowrap">'
-                . '<a href="tbl_change.php?db=data&amp;table=new&amp;where_clause'
-                . '=%60new%60.%60id%60+%3D+1&amp;clause_is_unique=1&amp;sql_query='
-                . 'SELECT+%2A+FROM+%60new%60&amp;goto=sql.php&amp;default_action='
-                . 'insert" ><span class'
-                . '="nowrap"><img src="themes/dot.gif" title="Copy" alt="Copy" '
-                . 'class="icon ic_b_insrow" /> Copy</span></a>'
-                . '<input type="hidden" class="where_clause" value="%60new%60.%60id'
-                . '%60+%3D+1" /></span></td><td class="center print_ignore"  >'
-                . '<a href="sql.php?db=data&amp;table=new&amp;sql_query=DELETE+'
-                . 'FROM+%60data%60.%60new%60+WHERE+%60new%60.%60id%60+%3D+1&amp;'
-                . 'message_to_show=The+row+has+been+deleted&amp;goto=sql.php%3F'
-                . 'db%3Ddata%26table%3Dnew%26sql_query%3DSELECT%2B%252A%2BFROM%2B'
-                . '%2560new%2560%26message_to_show%3DThe%2Brow%2Bhas%2Bbeen%2B'
-                . 'deleted%26goto%3Dtbl_structure.php" '
-                . 'class="delete_row requireConfirm"><span class="nowrap"><img src="themes/dot.'
-                . 'gif" title="Delete" alt="Delete" class="icon ic_b_drop" /> '
-                . 'Delete</span></a>'
-                . '<div class="hide">DELETE FROM `data`.`new` WHERE `new`.`id` = 1'
-                . '</div></td>'
+                '<td  class="center print_ignore"><input type="checkbox" id="id_rows_to_delete0_left" name="rows_to_delete[0]" class="multi_checkbox checkall" value="%60new%60.%60id%60+%3D+1"  /><input type="hidden" class="condition_array" value="{&quot;`new`.`id`&quot;:&quot;= 1&quot;}" />    </td><td class="edit_row_anchor center print_ignore"  ><span class="nowrap"><input type="hidden" name="subform[1][db]" value="data" /><input type="hidden" name="subform[1][table]" value="new" /><input type="hidden" name="subform[1][where_clause]" value="`new`.`id` = 1" /><input type="hidden" name="subform[1][clause_is_unique]" value="1" /><input type="hidden" name="subform[1][sql_query]" value="SELECT * FROM `new`" /><input type="hidden" name="subform[1][goto]" value="sql.php" /><input type="hidden" name="subform[1][default_action]" value="update" /><input type="hidden" name="subform[1][redirect]" value="tbl_change.php" /><input type="hidden" name="subform[1][token]" value="token" />
+<a href="#usesubform[1]=1" class="formLinkSubmit"><span class="nowrap"><img src="themes/dot.gif" title="Edit" alt="Edit" class="icon ic_b_edit" /> Edit</span> </a>
+<input type="hidden" class="where_clause" value ="%60new%60.%60id%60+%3D+1" /></span></td><td class="center print_ignore"  ><span class="nowrap"><input type="hidden" name="subform[2][db]" value="data" /><input type="hidden" name="subform[2][table]" value="new" /><input type="hidden" name="subform[2][where_clause]" value="`new`.`id` = 1" /><input type="hidden" name="subform[2][clause_is_unique]" value="1" /><input type="hidden" name="subform[2][sql_query]" value="SELECT * FROM `new`" /><input type="hidden" name="subform[2][goto]" value="sql.php" /><input type="hidden" name="subform[2][default_action]" value="insert" /><input type="hidden" name="subform[2][redirect]" value="tbl_change.php" /><input type="hidden" name="subform[2][token]" value="token" />
+<a href="#usesubform[2]=1" class="formLinkSubmit"><span class="nowrap"><img src="themes/dot.gif" title="Copy" alt="Copy" class="icon ic_b_insrow" /> Copy</span> </a>
+<input type="hidden" class="where_clause" value="%60new%60.%60id%60+%3D+1" /></span></td><td class="center print_ignore"  ><input type="hidden" name="subform[3][db]" value="data" /><input type="hidden" name="subform[3][table]" value="new" /><input type="hidden" name="subform[3][sql_query]" value="DELETE FROM `data`.`new` WHERE `new`.`id` = 1" /><input type="hidden" name="subform[3][message_to_show]" value="The row has been deleted" /><input type="hidden" name="subform[3][goto]" value="sql.php?db=data&amp;table=new&amp;sql_query=SELECT+%2A+FROM+%60new%60&amp;message_to_show=The+row+has+been+deleted&amp;goto=tbl_structure.php" /><input type="hidden" name="subform[3][redirect]" value="sql.php" /><input type="hidden" name="subform[3][token]" value="token" />
+<a href="#usesubform[3]=1" class="delete_row requireConfirm formLinkSubmit"><span class="nowrap"><img src="themes/dot.gif" title="Delete" alt="Delete" class="icon ic_b_drop" /> Delete</span> </a>
+<div class="hide">DELETE FROM `data`.`new` WHERE `new`.`id` = 1</div></td>'
+
             ),
             array(
                 PMA\libraries\DisplayResults::POSITION_RIGHT,
@@ -723,38 +675,13 @@ class DisplayResultsTest extends PMATestCase
                 '<span class="nowrap"><img src="themes/dot.gif" title="Delete" '
                 . 'alt="Delete" class="icon ic_b_drop" /> Delete</span>',
                 'DELETE FROM `data`.`new` WHERE `new`.`id` = 1',
-                '<td class="center print_ignore"  >'
-                . '<a href="sql.php?db=data&amp;table=new&amp;sql_query=DELETE+'
-                . 'FROM+%60data%60.%60new%60+WHERE+%60new%60.%60id%60+%3D+1&amp;'
-                . 'message_to_show=The+row+has+been+deleted&amp;goto=sql.php%3Fdb'
-                . '%3Ddata%26table%3Dnew%26sql_query%3DSELECT%2B%252A%2BFROM%2B%25'
-                . '60new%2560%26message_to_show%3DThe%2Brow%2Bhas%2Bbeen%2Bdeleted'
-                . '%26goto%3Dtbl_structure.php" class="delete'
-                . '_row requireConfirm"><span class="nowrap"><img src="themes/dot.gif" title='
-                . '"Delete" alt="Delete" class="icon ic_b_drop" /> Delete</span></a>'
-                . '<div class="hide">DELETE FROM `data`.`new` WHERE `new`.'
-                . '`id` = 1</div></td><td class="center print_ignore"  ><span class="nowrap">'
-                . '<a href="tbl_change.php?db=data&amp;table=new&amp;where_'
-                . 'clause=%60new%60.%60id%60+%3D+1&amp;clause_is_unique=1&amp;sql_'
-                . 'query=SELECT+%2A+FROM+%60new%60&amp;goto=sql.php&amp;default_'
-                . 'action=insert" ><span '
-                . 'class="nowrap"><img src="themes/dot.gif" title="Copy" alt="Copy" '
-                . 'class="icon ic_b_insrow" /> Copy</span></a>'
-                . '<input type="hidden" class="where_clause" value="%60new%60.%60id'
-                . '%60+%3D+1" /></span></td><td class="edit_row_anchor center print_ignore"  >'
-                . '<span class="nowrap">'
-                . '<a href="tbl_change.php?db=data&amp;table=new&amp;where_clause'
-                . '=%60new%60.%60id%60+%3D+1&amp;clause_is_unique=1&amp;sql_query='
-                . 'SELECT+%2A+FROM+%60new%60&amp;goto=sql.php&amp;default_action='
-                . 'update" ><span class='
-                . '"nowrap"><img src="themes/dot.gif" title="Edit" alt="Edit" class'
-                . '="icon ic_b_edit" /> Edit</span></a>'
-                . '<input type="hidden" class="where_clause" value ="%60new%60.%60'
-                . 'id%60+%3D+1" /></span></td><td  class="center print_ignore"><input type='
-                . '"checkbox" id="id_rows_to_delete0_right" name="rows_to_delete'
-                . '[0]" class="multi_checkbox checkall" value="%60new%60.%60id%60'
-                . '+%3D+1"  /><input type="hidden" class="condition_array" value="'
-                . '{&quot;`new`.`id`&quot;:&quot;= 1&quot;}" />    </td>'
+                '<td class="center print_ignore"  ><input type="hidden" name="subform[1][db]" value="data" /><input type="hidden" name="subform[1][table]" value="new" /><input type="hidden" name="subform[1][sql_query]" value="DELETE FROM `data`.`new` WHERE `new`.`id` = 1" /><input type="hidden" name="subform[1][message_to_show]" value="The row has been deleted" /><input type="hidden" name="subform[1][goto]" value="sql.php?db=data&amp;table=new&amp;sql_query=SELECT+%2A+FROM+%60new%60&amp;message_to_show=The+row+has+been+deleted&amp;goto=tbl_structure.php" /><input type="hidden" name="subform[1][redirect]" value="sql.php" /><input type="hidden" name="subform[1][token]" value="token" />
+<a href="#usesubform[1]=1" class="delete_row requireConfirm formLinkSubmit"><span class="nowrap"><img src="themes/dot.gif" title="Delete" alt="Delete" class="icon ic_b_drop" /> Delete</span> </a>
+<div class="hide">DELETE FROM `data`.`new` WHERE `new`.`id` = 1</div></td><td class="center print_ignore"  ><span class="nowrap"><input type="hidden" name="subform[2][db]" value="data" /><input type="hidden" name="subform[2][table]" value="new" /><input type="hidden" name="subform[2][where_clause]" value="`new`.`id` = 1" /><input type="hidden" name="subform[2][clause_is_unique]" value="1" /><input type="hidden" name="subform[2][sql_query]" value="SELECT * FROM `new`" /><input type="hidden" name="subform[2][goto]" value="sql.php" /><input type="hidden" name="subform[2][default_action]" value="insert" /><input type="hidden" name="subform[2][redirect]" value="tbl_change.php" /><input type="hidden" name="subform[2][token]" value="token" />
+<a href="#usesubform[2]=1" class="formLinkSubmit"><span class="nowrap"><img src="themes/dot.gif" title="Copy" alt="Copy" class="icon ic_b_insrow" /> Copy</span> </a>
+<input type="hidden" class="where_clause" value="%60new%60.%60id%60+%3D+1" /></span></td><td class="edit_row_anchor center print_ignore"  ><span class="nowrap"><input type="hidden" name="subform[3][db]" value="data" /><input type="hidden" name="subform[3][table]" value="new" /><input type="hidden" name="subform[3][where_clause]" value="`new`.`id` = 1" /><input type="hidden" name="subform[3][clause_is_unique]" value="1" /><input type="hidden" name="subform[3][sql_query]" value="SELECT * FROM `new`" /><input type="hidden" name="subform[3][goto]" value="sql.php" /><input type="hidden" name="subform[3][default_action]" value="update" /><input type="hidden" name="subform[3][redirect]" value="tbl_change.php" /><input type="hidden" name="subform[3][token]" value="token" />
+<a href="#usesubform[3]=1" class="formLinkSubmit"><span class="nowrap"><img src="themes/dot.gif" title="Edit" alt="Edit" class="icon ic_b_edit" /> Edit</span> </a>
+<input type="hidden" class="where_clause" value ="%60new%60.%60id%60+%3D+1" /></span></td><td  class="center print_ignore"><input type="checkbox" id="id_rows_to_delete0_right" name="rows_to_delete[0]" class="multi_checkbox checkall" value="%60new%60.%60id%60+%3D+1"  /><input type="hidden" class="condition_array" value="{&quot;`new`.`id`&quot;:&quot;= 1&quot;}" />    </td>'
             ),
             array(
                 PMA\libraries\DisplayResults::POSITION_NONE,
@@ -962,7 +889,7 @@ class DisplayResultsTest extends PMATestCase
                 'routine_name',
                 'db_routines.php?item_name=circumference&db=data'
                 . '&item_type=FUNCTION&server=0&lang=en'
-                . '&collation_connection=utf-8'
+                . '&collation_connection=utf-8&token=token'
             ),
             array(
                 'information_schema',
@@ -976,7 +903,7 @@ class DisplayResultsTest extends PMATestCase
                 'routine_name',
                 'db_routines.php?item_name=area&db=data'
                 . '&item_type=PROCEDURE&server=0&lang=en'
-                . '&collation_connection=utf-8'
+                . '&collation_connection=utf-8&token=token'
             ),
             array(
                 'information_schema',
@@ -990,7 +917,7 @@ class DisplayResultsTest extends PMATestCase
                 'index.php?sql_query=SELECT+%60CHARACTER_SET_NAME%60+FROM+%60info'
                 . 'rmation_schema%60.%60CHARACTER_SETS%60&db=information_schema'
                 . '&test_name=value&server=0&lang=en'
-                . '&collation_connection=utf-8'
+                . '&collation_connection=utf-8&token=token'
             )
         );
     }
@@ -1319,7 +1246,7 @@ class DisplayResultsTest extends PMATestCase
                 $url_params,
                 null,
                 '<a href="tbl_get_field.php?db=foo&amp;table=bar&amp;server=0'
-                . '&amp;lang=en&amp;collation_connection=utf-8'
+                . '&amp;lang=en&amp;collation_connection=utf-8&amp;token=token'
                 . '" class="disableAjax">1001</a>'
             ),
             array(
@@ -1334,7 +1261,7 @@ class DisplayResultsTest extends PMATestCase
                 $url_params,
                 null,
                 '<a href="tbl_get_field.php?db=foo&amp;table=bar&amp;server=0'
-                . '&amp;lang=en&amp;collation_connection=utf-8'
+                . '&amp;lang=en&amp;collation_connection=utf-8&amp;token=token'
                 . '" class="disableAjax">0x123456</a>'
             ),
             array(
@@ -1349,7 +1276,7 @@ class DisplayResultsTest extends PMATestCase
                 $url_params,
                 null,
                 '<a href="tbl_get_field.php?db=foo&amp;table=bar&amp;server=0'
-                . '&amp;lang=en&amp;collation_connection=utf-8'
+                . '&amp;lang=en&amp;collation_connection=utf-8&amp;token=token'
                 . '" class="disableAjax">[BLOB - 4 B]</a>'
             ),
             array(
@@ -1472,7 +1399,7 @@ class DisplayResultsTest extends PMATestCase
                 'binary',
                 '<td class="left   hex"><a href="tbl_get_field.php?'
                 . 'db=foo&amp;table=tbl&amp;server=0&amp;lang=en'
-                . '&amp;collation_connection=utf-8'
+                . '&amp;collation_connection=utf-8&amp;token=token'
                 . '" '
                 . 'class="disableAjax">[BLOB - 4 B]</a></td>'
             ),

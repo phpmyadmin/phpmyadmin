@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.7.6-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2017-11-02 14:03+0100\n"
-"PO-Revision-Date: 2017-11-25 02:49+0000\n"
-"Last-Translator: Mauricio Bastos <msbmail@gmail.com>\n"
+"PO-Revision-Date: 2017-12-19 00:41+0000\n"
+"Last-Translator: Bruno Fontes <brunofontes.github@mailnull.com>\n"
 "Language-Team: Portuguese (Brazil) "
 "<https://hosted.weblate.org/projects/phpmyadmin/4-7/pt_BR/>\n"
 "Language: pt_BR\n"
@@ -13,7 +13,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n > 1;\n"
-"X-Generator: Weblate 2.18-dev\n"
+"X-Generator: Weblate 2.18\n"
 
 #: ajax.php:16 ajax.php:33 export.php:192 schema_export.php:64
 msgid "Bad type!"
@@ -14500,7 +14500,7 @@ msgstr "É uma chave estrangeira."
 #: templates/columns_definitions/column_name.phtml:43
 #, fuzzy
 msgid "Pick from Central Columns"
-msgstr "Escolher a partir das colunas centrais"
+msgstr "Escolher a partir das Colunas Centrais"
 
 #: templates/columns_definitions/column_virtuality.phtml:46
 #: templates/table/structure/display_partitions.phtml:28
@@ -14630,10 +14630,10 @@ msgid ""
 "quote (\"'\") amongst those values, precede it with a backslash (for example "
 "'\\\\xyz' or 'a\\'b')."
 msgstr ""
-"Digite os valores para as opções de transformação usando este formato: 'a', "
-"100, b,'c'…<br />Se por acaso precisar inserir uma contrabarra (\"\\\") ou "
-"aspas simples (\"'\") entre esses valores, faça-o precedendo-as com uma "
-"contrabarra (por exemplo '\\\\xyz' ou 'a\\'b')."
+"Por favor, digite os valores para as opções de transformação usando este "
+"formato: 'a', 100, b,'c'…<br />Se por acaso precisar inserir uma barra "
+"invertida (\"\\\") ou aspas simples (\"'\") entre esses valores, faça-o "
+"precedendo-as com uma barra invertida (por exemplo '\\\\xyz' ou 'a\\'b')."
 
 #: templates/columns_definitions/table_fields_definitions.phtml:107
 #: transformation_overview.php:43
