@@ -917,6 +917,10 @@ form.login select {
     max-width:50%
 }
 
+.message_errors_found{
+    margin-top: 20px;
+}
+
 /******************************************************************************/
 /* specific elements */
 
