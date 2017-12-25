@@ -921,6 +921,18 @@ form.login select {
     margin-top: 20px;
 }
 
+.font_weight_bold{
+    font-weight: bold;
+}
+
+.color_gray{
+    color: gray;
+}
+
+.pma_sliding_message{
+    display: inline-block;
+}
+
 /******************************************************************************/
 /* specific elements */
 
