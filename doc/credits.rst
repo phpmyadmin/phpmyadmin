@@ -1105,4 +1105,3 @@ Jannis Hermanns, G. Wieggers.
 
 And thanks to everyone else who sent me email with suggestions, bug-
 reports and or just some feedback.
-
