@@ -183,53 +183,53 @@ You can configure several phpMyAdmin features using environment variables:
 .. envvar:: PMA_ARBITRARY
 
     Allows you to enter a database server hostname on login form.
-    
+
     .. seealso:: :config:option:`$cfg['AllowArbitraryServer']`
 
 .. envvar:: PMA_HOST
-    
+
     Host name or IP address of the database server to use.
 
     .. seealso:: :config:option:`$cfg['Servers'][$i]['host']`
 
 .. envvar:: PMA_HOSTS
-    
+
     Comma-separated host names or IP addresses of the database servers to use.
 
     .. note:: Used only if :envvar:`PMA_HOST` is empty.
 
 .. envvar:: PMA_VERBOSE
-    
+
     Verbose name of the database server.
 
     .. seealso:: :config:option:`$cfg['Servers'][$i]['verbose']`
 
 .. envvar:: PMA_VERBOSES
-    
+
     Comma-separated verbose name of the database servers.
 
     .. note:: Used only if :envvar:`PMA_VERBOSE` is empty.
 
 .. envvar:: PMA_USER
-    
+
     User name to use for :ref:`auth_config`.
 
 .. envvar:: PMA_PASSWORD
-    
+
     Password to use for :ref:`auth_config`.
 
 .. envvar:: PMA_PORT
-    
+
     Port of the database server to use.
 
 .. envvar:: PMA_PORTS
-    
+
     Comma-separated ports of the database server to use.
 
     .. note:: Used only if :envvar:`PMA_PORT` is empty.
 
 .. envvar:: PMA_ABSOLUTE_URI
-   
+
     The fully-qualified path (``https://pma.example.net/``) where the reverse
     proxy makes phpMyAdmin available.
 
@@ -242,7 +242,7 @@ By default, :ref:`cookie` is used, but if :envvar:`PMA_USER` and
 
     The credentials you need to log in are stored in the MySQL server, in case
     of Docker image there are various ways to set it (for example
-    :samp:`MYSQL_ROOT_PASSWORD` when starting the MySQL container). Please check 
+    :samp:`MYSQL_ROOT_PASSWORD` when starting the MySQL container). Please check
     documentation for `MariaDB container <https://hub.docker.com/r/_/mariadb/>`_
     or `MySQL container <https://hub.docker.com/r/_/mysql/>`_.
 
@@ -254,7 +254,7 @@ Customizing configuration
 Additionally configuration can be tweaked by :file:`/etc/phpmyadmin/config.user.inc.php`. If
 this file exists, it will be loaded after configuration is generated from above
 environment variables, so you can override any configuration variable. This
-configuration can be added as a volume when invoking docker using 
+configuration can be added as a volume when invoking docker using
 `-v /some/local/directory/config.user.inc.php:/etc/phpmyadmin/config.user.inc.php` parameters.
 
 Note that the supplied configuration file is applied after :ref:`docker-vars`,
@@ -291,8 +291,8 @@ environment variables listed in :ref:`docker-vars`:
         ],
     ];
 
-.. seealso:: 
-   
+.. seealso::
+
     See :ref:`config` for detailed description of configuration options.
 
 Docker Volumes
@@ -306,7 +306,7 @@ You can use following volumes to customize image behavior:
 
 :file:`/sessions/`
 
-    Directory where PHP sessions are stored. You might want to share this 
+    Directory where PHP sessions are stored. You might want to share this
     for example when using :ref:`auth_signon`.
 
 :file:`/www/themes/`
@@ -393,7 +393,7 @@ Running behind haproxy in a subdirectory
 
 When you want to expose phpMyAdmin running in a Docker container in a
 subdirectory, you need to rewrite the request path in the server proxying the
-requests. 
+requests.
 
 For example using haproxy it can be done as:
 
@@ -409,15 +409,15 @@ For example using haproxy it can be done as:
 
         # /phpmyadmin
         acl phpmyadmin  path_dir /phpmyadmin
-        use_backend phpmyadmin if phpmyadmin LOCALNET  
+        use_backend phpmyadmin if phpmyadmin LOCALNET
 
     backend phpmyadmin
         mode http
 
-        reqirep  ^(GET|POST|HEAD)\ /phpmyadmin/(.*)     \1\ /\2 
+        reqirep  ^(GET|POST|HEAD)\ /phpmyadmin/(.*)     \1\ /\2
 
         # phpMyAdmin container IP
-        server localhost     172.30.21.21:80                
+        server localhost     172.30.21.21:80
 
 When using traefik, something like following should work:
 
@@ -550,13 +550,13 @@ For a full explanation of possible configuration values, see the
 Using Setup script
 ------------------
 
-Instead of manually editing :file:`config.inc.php`, you can use phpMyAdmin's 
-setup feature. The file can be generated using the setup and you can download it 
+Instead of manually editing :file:`config.inc.php`, you can use phpMyAdmin's
+setup feature. The file can be generated using the setup and you can download it
 for upload to the server.
 
 Next, open your browser and visit the location where you installed phpMyAdmin,
-with the ``/setup`` suffix. The changes are not saved to the server, you need to 
-use the :guilabel:`Download` button to save them to your computer and then upload 
+with the ``/setup`` suffix. The changes are not saved to the server, you need to
+use the :guilabel:`Download` button to save them to your computer and then upload
 to the server.
 
 Now the file is ready to be used. You can choose to review or edit the
@@ -592,7 +592,7 @@ To allow editing configuration invoke:
 To block editing configuration invoke:
 
 .. code-block:: sh
-    
+
     /usr/sbin/pma-secure
 
 Setup script on openSUSE
@@ -1030,7 +1030,7 @@ are always ways to make your installation more secure:
 * Serve phpMyAdmin on HTTPS only. Preferably, you should use HSTS as well, so that
   you're protected from protocol downgrade attacks.
 * Ensure your PHP setup follows recommendations for production sites, for example
-  `display_errors <https://secure.php.net/manual/en/errorfunc.configuration.php#ini.display-errors>`_ 
+  `display_errors <https://secure.php.net/manual/en/errorfunc.configuration.php#ini.display-errors>`_
   should be disabled.
 * Remove the ``test`` directory from phpMyAdmin, unless you are developing and need test suite.
 * Remove the ``setup`` directory from phpMyAdmin, you will probably not
@@ -1057,7 +1057,7 @@ are always ways to make your installation more secure:
   users need to authenticate prior to providing MySQL credentials
   to phpMyAdmin. You can achieve this by configuring your web server to request
   HTTP authentication. For example in Apache this can be done with:
-    
+
   .. code-block:: apache
 
      AuthType Basic

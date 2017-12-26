@@ -194,8 +194,8 @@ big or your hosting provider is unwilling to change the settings:
 1.17 Which Database versions does phpMyAdmin support?
 -----------------------------------------------------
 
-For `MySQL <https://www.mysql.com/>`_, versions 5.5 and newer are supported. 
-For older MySQL versions, our `Downloads <https://www.phpmyadmin.net/downloads/>`_ page offers older phpMyAdmin versions 
+For `MySQL <https://www.mysql.com/>`_, versions 5.5 and newer are supported.
+For older MySQL versions, our `Downloads <https://www.phpmyadmin.net/downloads/>`_ page offers older phpMyAdmin versions
 (which may have become unsupported).
 
 For `MariaDB <https://mariadb.org/>`_, versions 5.5 and newer are supported.
@@ -313,7 +313,7 @@ directory and add the following line to the group [mysqld]:
     set-variable = lower_case_table_names=0
 
 .. note::
-    
+
     Forcing this variable to 0 with --lower-case-table-names=0 on a
     case-insensitive filesystem and access MyISAM tablenames using different
     lettercases, index corruption may result.
@@ -927,7 +927,7 @@ TableSeparator or disabling that feature.
 
 Your table neither have a :term:`primary key` nor an :term:`unique key`, so we must
 use a long expression to identify this row. This causes problems to
-parse\_url function. The workaround is to create a :term:`primary key` 
+parse\_url function. The workaround is to create a :term:`primary key`
 or :term:`unique key`.
 
 .. _faq3_8:
@@ -1387,7 +1387,7 @@ If you see errors like:
     A potentially unsafe operation has been detected in your request to this site.
 
 This is usually caused by web application firewall doing requests filtering. It
-tries to prevent SQL injection, however phpMyAdmin is tool designed to execute 
+tries to prevent SQL injection, however phpMyAdmin is tool designed to execute
 SQL queries, thus it makes it unusable.
 
 Please whitelist phpMyAdmin scripts from the web application firewall settings
@@ -1581,7 +1581,7 @@ schema layout. Which tables will go on which pages?
   Browsers on other operating systems, and other browsers on Windows, do
   not have this problem.
 
-.. seealso:: 
+.. seealso::
 
     :ref:`relations`
 
@@ -2065,7 +2065,7 @@ PetType depends on PetBreed.
 
 .. _faq6_38:
 
-6.38 How can I reassign auto-incremented values? 
+6.38 How can I reassign auto-incremented values?
 ------------------------------------------------
 
 Some users prefer their AUTO_INCREMENT values to be consecutive; this is not
@@ -2273,4 +2273,3 @@ Synchronization
 
 9.2 (withdrawn).
 ----------------
-

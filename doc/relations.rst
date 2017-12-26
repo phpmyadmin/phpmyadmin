@@ -9,7 +9,7 @@ features when needed. There are two ways of editing these relations, with the
 *relation view* and the drag-and-drop *designer* -- both of which are explained
 on this page.
 
-.. note:: 
+.. note::
 
     You need to have configured the :ref:`linked-tables` for using phpMyAdmin
     only relations.
