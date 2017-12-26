@@ -769,6 +769,7 @@ RTE.ROUTINE = {
         case 'DOUBLE':
         case 'REAL':
             $text.parent().hide();
+            $text.val("");//Empty value to avoid #13889 issue
             $num.parent().show();
             $no_opts.hide();
             break;
@@ -786,6 +787,7 @@ RTE.ROUTINE = {
             break;
         default:
             $text.parent().hide();
+            $text.val("");//Empty value to avoid #13889 issue
             $num.parent().hide();
             $no_opts.show();
             break;
