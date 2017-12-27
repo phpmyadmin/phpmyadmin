@@ -1,0 +1,16 @@
+<div class="theme_preview">
+    <h2>
+        {{ name }} ({{ version }})
+    </h2>
+    <p>
+        <a class="take_theme" name="{{ id }}" href="index.php{{ Url_getCommon(url_params) }}">
+            {% if screen is not empty %}
+                <img src="{{ screen }}" alt="{{ name }}" title="{{ name }}">
+                <br>
+            {% else %}
+                {% trans 'No preview available.' %}
+            {% endif %}
+            [ <strong>{% trans 'Take it' %}</strong> ]
+        </a>
+    </p>
+</div>

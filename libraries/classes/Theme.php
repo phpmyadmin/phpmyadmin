@@ -398,32 +398,20 @@ class Theme
      */
     public function getPrintPreview()
     {
-        $url_params = array('set_theme' => $this->getId());
-        $url = 'index.php' . Url::getCommon($url_params);
-
-        $retval  = '<div class="theme_preview">';
-        $retval .= '<h2>';
-        $retval .= htmlspecialchars($this->getName());
-        $retval .= ' (' . htmlspecialchars($this->getVersion()) . ') ';
-        $retval .= '</h2>';
-        $retval .= '<p>';
-        $retval .= '<a class="take_theme" ';
-        $retval .= 'name="' . htmlspecialchars($this->getId()) . '" ';
-        $retval .=  'href="' . $url . '">';
-        if (@file_exists($this->getPath() . '/screen.png')) {
-            // if screen exists then output
-            $retval .= '<img src="' . $this->getPath() . '/screen.png" border="1"';
-            $retval .= ' alt="' . htmlspecialchars($this->getName()) . '"';
-            $retval .= ' title="' . htmlspecialchars($this->getName()) . '" />';
-            $retval .= '<br />';
-        } else {
-            $retval .= __('No preview available.');
+        $url_params = ['set_theme' => $this->getId()];
+        $screen = null;
+        $path = $this->getPath() . '/screen.png';
+        if (@file_exists($path)) {
+            $screen = $path;
         }
-        $retval .= '[ <strong>' . __('take it') . '</strong> ]';
-        $retval .= '</a>';
-        $retval .= '</p>';
-        $retval .= '</div>';
-        return $retval;
+
+        return Template::get('theme_preview')->render([
+            'url_params' => $url_params,
+            'name' => $this->getName(),
+            'version' => $this->getVersion(),
+            'id' => $this->getId(),
+            'screen' => $screen,
+        ]);
     }
 
     /**
