@@ -2916,14 +2916,9 @@ class Util
     */
     public static function getFKCheckbox()
     {
-        $checked = self::isForeignKeyCheck();
-        $html = '<input type="hidden" name="fk_checks" value="0" />';
-        $html .= '<input type="checkbox" name="fk_checks"'
-            . ' id="fk_checks" value="1"'
-            . ($checked ? ' checked="checked"' : '') . '/>';
-        $html .= '<label for="fk_checks">' . __('Enable foreign key checks')
-            . '</label>';
-        return $html;
+        return Template::get('fk_checkbox')->render([
+            'checked' => self::isForeignKeyCheck(),
+        ]);
     }
 
     /**
