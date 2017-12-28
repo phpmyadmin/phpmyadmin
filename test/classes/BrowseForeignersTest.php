@@ -199,60 +199,6 @@ class BrowseForeignersTest extends TestCase
     }
 
     /**
-     * Test for BrowseForeigners::getHtmlForColumnElement
-     *
-     * @return void
-     */
-    function testGetHtmlForColumnElement()
-    {
-        $nowrap = false;
-        $isSelected = false;
-        $keyname = '';
-        $description = 'foo';
-        $title = '';
-        $result = BrowseForeigners::getHtmlForColumnElement(
-            $nowrap, $isSelected, $keyname,
-            $description, $title
-        );
-
-        $this->assertContains(
-            '<td>',
-            $result
-        );
-
-        $this->assertContains(
-            '<a class="foreign_value" data-key="" href="#" '
-            . 'title="Use this value">',
-            $result
-        );
-
-        $nowrap = true;
-        $isSelected = true;
-        $keyname = 'bar';
-        $title = 'foo';
-        $result = BrowseForeigners::getHtmlForColumnElement(
-            $nowrap, $isSelected, $keyname,
-            $description, $title
-        );
-
-        $this->assertContains(
-            '<td class="nowrap">',
-            $result
-        );
-
-        $this->assertContains(
-            '<strong>',
-            $result
-        );
-
-        $this->assertContains(
-            '<a class="foreign_value" data-key="bar" href="#" '
-            . 'title="Use this value: foo">',
-            $result
-        );
-    }
-
-    /**
      * Test for BrowseForeigners::getDescriptionAndTitle
      *
      * @return void
@@ -397,6 +343,5 @@ class BrowseForeignersTest extends TestCase
             '<th>',
             $result
         );
-
     }
 }

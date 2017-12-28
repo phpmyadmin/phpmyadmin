@@ -86,31 +86,40 @@ class BrowseForeigners
 
         $output .= '<tr class="noclick">';
 
-        $output .= self::getHtmlForColumnElement(
-            true, $leftKeynameIsSelected,
-            $leftKeyname, $leftDescription,
-            $leftDescriptionTitle
-        );
-
-        $output .= self::getHtmlForColumnElement(
-            false, $leftKeynameIsSelected, $leftKeyname,
-            $leftDescription, $leftDescriptionTitle
-        );
+        $output .= Template::get('table/browse_foreigners/column_element')->render([
+            'keyname' => $leftKeyname,
+            'description' => $leftDescription,
+            'title' => $leftDescriptionTitle,
+            'is_selected' => $leftKeynameIsSelected,
+            'nowrap' => true,
+        ]);
+        $output .= Template::get('table/browse_foreigners/column_element')->render([
+            'keyname' => $leftKeyname,
+            'description' => $leftDescription,
+            'title' => $leftDescriptionTitle,
+            'is_selected' => $leftKeynameIsSelected,
+            'nowrap' => false,
+        ]);
 
         $output .= '<td width="20%">'
             . '<img src="' . $pmaThemeImage . 'spacer.png" alt=""'
             . ' width="1" height="1" /></td>';
 
-        $output .= self::getHtmlForColumnElement(
-            false, $rightKeynameIsSelected, $rightKeyname,
-            $rightDescription, $rightDescriptionTitle
-        );
+        $output .= Template::get('table/browse_foreigners/column_element')->render([
+            'keyname' => $rightKeyname,
+            'description' => $rightDescription,
+            'title' => $rightDescriptionTitle,
+            'is_selected' => $rightKeynameIsSelected,
+            'nowrap' => false,
+        ]);
+        $output .= Template::get('table/browse_foreigners/column_element')->render([
+            'keyname' => $rightKeyname,
+            'description' => $rightDescription,
+            'title' => $rightDescriptionTitle,
+            'is_selected' => $rightKeynameIsSelected,
+            'nowrap' => true,
+        ]);
 
-        $output .= self::getHtmlForColumnElement(
-            true, $rightKeynameIsSelected,
-            $rightKeyname, $rightDescription,
-            $rightDescriptionTitle
-        );
         $output .= '</tr>';
 
         return array($output, $horizontal_count, $indexByDescription);
@@ -265,33 +274,6 @@ class BrowseForeigners
             );
         }
         return array($description, $descriptionTitle);
-    }
-
-    /**
-     * Function to get html for each column element
-     *
-     * @param bool   $nowrap      if true add class="nowrap"
-     * @param bool   $isSelected  whether current equals form's value
-     * @param string $keyname     current key
-     * @param string $description current value
-     * @param string $title       current title
-     *
-     * @return string
-     */
-    public static function getHtmlForColumnElement(
-        $nowrap,
-        $isSelected,
-        $keyname,
-        $description,
-        $title
-    ) {
-        return Template::get('table/browse_foreigners/column_element')->render([
-            'keyname' => $keyname,
-            'description' => $description,
-            'title' => $title,
-            'is_selected' => $isSelected,
-            'nowrap' => $nowrap,
-        ]);
     }
 
     /**
