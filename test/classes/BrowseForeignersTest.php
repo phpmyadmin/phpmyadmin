@@ -205,13 +205,13 @@ class BrowseForeignersTest extends TestCase
      */
     function testGetHtmlForColumnElement()
     {
-        $cssClass = '';
+        $nowrap = false;
         $isSelected = false;
         $keyname = '';
         $description = 'foo';
         $title = '';
         $result = BrowseForeigners::getHtmlForColumnElement(
-            $cssClass, $isSelected, $keyname,
+            $nowrap, $isSelected, $keyname,
             $description, $title
         );
 
@@ -226,17 +226,17 @@ class BrowseForeignersTest extends TestCase
             $result
         );
 
-        $cssClass = 'class="baz"';
+        $nowrap = true;
         $isSelected = true;
         $keyname = 'bar';
         $title = 'foo';
         $result = BrowseForeigners::getHtmlForColumnElement(
-            $cssClass, $isSelected, $keyname,
+            $nowrap, $isSelected, $keyname,
             $description, $title
         );
 
         $this->assertContains(
-            '<td class="baz">',
+            '<td class="nowrap">',
             $result
         );
 

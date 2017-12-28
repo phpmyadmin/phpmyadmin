@@ -7,6 +7,7 @@
  */
 namespace PhpMyAdmin;
 
+use PhpMyAdmin\Template;
 use PhpMyAdmin\Url;
 use PhpMyAdmin\Util;
 
@@ -86,13 +87,13 @@ class BrowseForeigners
         $output .= '<tr class="noclick">';
 
         $output .= self::getHtmlForColumnElement(
-            'class="nowrap"', $leftKeynameIsSelected,
+            true, $leftKeynameIsSelected,
             $leftKeyname, $leftDescription,
             $leftDescriptionTitle
         );
 
         $output .= self::getHtmlForColumnElement(
-            '', $leftKeynameIsSelected, $leftKeyname,
+            false, $leftKeynameIsSelected, $leftKeyname,
             $leftDescription, $leftDescriptionTitle
         );
 
@@ -101,12 +102,12 @@ class BrowseForeigners
             . ' width="1" height="1" /></td>';
 
         $output .= self::getHtmlForColumnElement(
-            '', $rightKeynameIsSelected, $rightKeyname,
+            false, $rightKeynameIsSelected, $rightKeyname,
             $rightDescription, $rightDescriptionTitle
         );
 
         $output .= self::getHtmlForColumnElement(
-            'class="nowrap"', $rightKeynameIsSelected,
+            true, $rightKeynameIsSelected,
             $rightKeyname, $rightDescription,
             $rightDescriptionTitle
         );
@@ -269,7 +270,7 @@ class BrowseForeigners
     /**
      * Function to get html for each column element
      *
-     * @param string $cssClass    class="nowrap" or ''
+     * @param bool   $nowrap      if true add class="nowrap"
      * @param bool   $isSelected  whether current equals form's value
      * @param string $keyname     current key
      * @param string $description current value
@@ -277,31 +278,20 @@ class BrowseForeigners
      *
      * @return string
      */
-    public static function getHtmlForColumnElement($cssClass, $isSelected, $keyname,
-        $description, $title
+    public static function getHtmlForColumnElement(
+        $nowrap,
+        $isSelected,
+        $keyname,
+        $description,
+        $title
     ) {
-        $keyname = htmlspecialchars($keyname);
-        $output = '<td';
-        if (! empty($cssClass)) {
-            $output .= ' ' . $cssClass;
-        }
-        $output .= '>'
-            . ($isSelected ? '<strong>' : '')
-            . '<a class="foreign_value" data-key="' . $keyname . '" '
-            . 'href="#" title="' . __('Use this value')
-            . ($title != ''
-                ? ': ' . $title
-                : '')
-            . '">';
-        if ($cssClass !== '') {
-            $output .= $keyname;
-        } else {
-            $output .= $description;
-        }
-
-        $output .=  '</a>' . ($isSelected ? '</strong>' : '') . '</td>';
-
-        return $output;
+        return Template::get('table/browse_foreigners/column_element')->render([
+            'keyname' => $keyname,
+            'description' => $description,
+            'title' => $title,
+            'is_selected' => $isSelected,
+            'nowrap' => $nowrap,
+        ]);
     }
 
     /**
