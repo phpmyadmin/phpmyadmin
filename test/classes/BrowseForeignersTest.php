@@ -125,10 +125,10 @@ class BrowseForeignersTest extends TestCase
 
         $foreignData['the_total'] = 30;
 
-        $this->assertEquals(
+        $this->assertContains(
             '<input type="submit" id="foreign_showAll" '
             . 'name="foreign_showAll" '
-            . 'value="' . 'Show all' . '" />',
+            . 'value="' . 'Show all' . '">',
             BrowseForeigners::getHtmlForShowAll(
                 $GLOBALS['cfg']['ShowAll'],
                 $GLOBALS['cfg']['MaxRows'],

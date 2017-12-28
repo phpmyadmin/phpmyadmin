@@ -285,16 +285,11 @@ class BrowseForeigners
      */
     public static function getHtmlForShowAll($showAll, $maxRows, $foreignData)
     {
-        $return = '';
-        if (is_array($foreignData['disp_row'])) {
-            if ($showAll && ($foreignData['the_total'] > $maxRows)) {
-                $return = '<input type="submit" id="foreign_showAll" '
-                    . 'name="foreign_showAll" '
-                    . 'value="' . __('Show all') . '" />';
-            }
-        }
-
-        return $return;
+        return Template::get('table/browse_foreigners/show_all')->render([
+            'foreign_data' => $foreignData,
+            'show_all' => $showAll,
+            'max_rows' => $maxRows,
+        ]);
     }
 
     /**
