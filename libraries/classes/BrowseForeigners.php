@@ -151,7 +151,11 @@ class BrowseForeigners
         $current_value
     ) {
         $gotopage = self::getHtmlForGotoPage($maxRows, $foreignData);
-        $foreignShowAll = self::getHtmlForShowAll($showAll, $maxRows, $foreignData);
+        $foreignShowAll = Template::get('table/browse_foreigners/show_all')->render([
+            'foreign_data' => $foreignData,
+            'show_all' => $showAll,
+            'max_rows' => $maxRows,
+        ]);
 
         $output = '<form class="ajax" '
             . 'id="browse_foreign_form" name="browse_foreign_from" '
@@ -274,22 +278,6 @@ class BrowseForeigners
             );
         }
         return array($description, $descriptionTitle);
-    }
-
-    /**
-     * Function to get html for show all case
-     *
-     * @param array|null $foreignData foreign data
-     *
-     * @return string
-     */
-    public static function getHtmlForShowAll($showAll, $maxRows, $foreignData)
-    {
-        return Template::get('table/browse_foreigners/show_all')->render([
-            'foreign_data' => $foreignData,
-            'show_all' => $showAll,
-            'max_rows' => $maxRows,
-        ]);
     }
 
     /**

@@ -83,61 +83,6 @@ class BrowseForeignersTest extends TestCase
     }
 
     /**
-     * Test for BrowseForeigners::getHtmlForShowAll
-     *
-     * @return void
-     */
-    function testGetHtmlForShowAll()
-    {
-        $this->assertEquals(
-            '',
-            BrowseForeigners::getHtmlForShowAll(
-                $GLOBALS['cfg']['ShowAll'],
-                $GLOBALS['cfg']['MaxRows'],
-                null
-            )
-        );
-
-        $foreignData = array();
-        $foreignData['disp_row'] = array();
-        $GLOBALS['cfg']['ShowAll'] = false;
-
-        $this->assertEquals(
-            '',
-            BrowseForeigners::getHtmlForShowAll(
-                $GLOBALS['cfg']['ShowAll'],
-                $GLOBALS['cfg']['MaxRows'],
-                $foreignData
-            )
-        );
-
-        $GLOBALS['cfg']['ShowAll'] = true;
-        $foreignData['the_total'] = 0;
-
-        $this->assertEquals(
-            '',
-            BrowseForeigners::getHtmlForShowAll(
-                $GLOBALS['cfg']['ShowAll'],
-                $GLOBALS['cfg']['MaxRows'],
-                $foreignData
-            )
-        );
-
-        $foreignData['the_total'] = 30;
-
-        $this->assertContains(
-            '<input type="submit" id="foreign_showAll" '
-            . 'name="foreign_showAll" '
-            . 'value="' . 'Show all' . '">',
-            BrowseForeigners::getHtmlForShowAll(
-                $GLOBALS['cfg']['ShowAll'],
-                $GLOBALS['cfg']['MaxRows'],
-                $foreignData
-            )
-        );
-    }
-
-    /**
      * Test for BrowseForeigners::getHtmlForGotoPage
      *
      * @return void
