@@ -11,7 +11,7 @@ There is also a Demo available on the website that help the users to understand 
 Supported features
 ------------------
 
-Using PHP MyAdmin currently we can perform the following:
+Using PHP MyAdmin currently we can perform the following functions:
 
 * create,browse and drop,rename and edit databases, tables,columns and indexes
 * Run all SQL and MariaDB queries and obtain multiple results.
@@ -62,7 +62,7 @@ A word about users
 ------------------
 
 A lot of people  have difficulty in understanding the concept of user
-management with regards to phpMyAdmin. 
+management with regards to phpMyAdmin.
 When a user logs in to phpMyAdmin, his or her username and password are passed directly to MySQL.
 phpMyAdmin does not perform any account management on its own (other than allowing one to edit the MySQL user account information); all users must be valid MySQL users.
 
