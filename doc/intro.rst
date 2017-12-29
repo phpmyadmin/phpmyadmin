@@ -13,7 +13,7 @@ Supported features
 
 Using PHP MyAdmin currently we can perform the following functions:
 
-* create,browse and drop,rename and edit databases, tables,columns and indexes
+* create,browse and drop,rename and edit databases, tables,columns and indexes 
 * Run all SQL and MariaDB queries and obtain multiple results.
 * maintaining server, databases and tables, with proposals on server configuration
 * execute, edit and bookmark any :term:`SQL`-statement, even batch-queries
