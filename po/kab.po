@@ -3,20 +3,20 @@ msgstr ""
 "Project-Id-Version: Kabyle (phpMyAdmin)\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2017-11-02 14:03+0100\n"
-"PO-Revision-Date: 2017-05-04 08:38+0000\n"
-"Last-Translator: Muḥend Belqasem <belkacem77@gmail.com>\n"
-"Language-Team: Kabyle <https://hosted.weblate.org/projects/phpmyadmin/4-7/"
-"kab/>\n"
+"PO-Revision-Date: 2018-01-08 12:50+0000\n"
+"Last-Translator: Slimane Amiri <slimane.amiri@gmail.com>\n"
+"Language-Team: Kabyle "
+"<https://hosted.weblate.org/projects/phpmyadmin/4-7/kab/>\n"
 "Language: kab\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 2.14-dev\n"
+"X-Generator: Weblate 2.19-dev\n"
 
 #: ajax.php:16 ajax.php:33 export.php:192 schema_export.php:64
 msgid "Bad type!"
-msgstr ""
+msgstr "Tawsit mačči d tameγnut !"
 
 #: changelog.php:39 license.php:34
 #, php-format
@@ -269,7 +269,7 @@ msgstr "Tifelwiyin"
 #: templates/columns_definitions/table_fields_definitions.phtml:3
 #: templates/database/designer/table_list.phtml:28
 msgid "Structure"
-msgstr ""
+msgstr "Taγessa"
 
 #: db_export.php:67 libraries/config/setup.forms.php:329
 #: libraries/config/setup.forms.php:365 libraries/config/setup.forms.php:388
@@ -282,7 +282,7 @@ msgstr ""
 #: libraries/server_privileges.lib.php:1130
 #: templates/table/structure/display_table_stats.phtml:16
 msgid "Data"
-msgstr ""
+msgstr "Isefka"
 
 #: db_export.php:70 libraries/DbSearch.php:434
 #: libraries/display_export.lib.php:46 libraries/replication_gui.lib.php:379
@@ -327,21 +327,21 @@ msgstr "Anekcum igdel!"
 
 #: db_tracking.php:53 db_tracking.php:78
 msgid "Tracking data deleted successfully."
-msgstr ""
+msgstr "Aḍfer n isefka ittwakkes akken iwata."
 
 #: db_tracking.php:62
 #, php-format
 msgid ""
 "Version %1$s was created for selected tables, tracking is active for them."
-msgstr ""
+msgstr "Lqem %1$s ittwarna i tfelwiyen ittwafernen, aḍfer ittwarmed-asent."
 
 #: db_tracking.php:93
 msgid "No tables selected."
-msgstr ""
+msgstr "Ulac tafelwit ittwafernen."
 
 #: db_tracking.php:150
 msgid "Database Log"
-msgstr ""
+msgstr "Aγmis n taffa n isefka"
 
 #: error_report.php:68
 msgid ""
