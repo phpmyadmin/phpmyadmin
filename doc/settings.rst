@@ -1,11 +1,11 @@
 Configuring phpMyAdmin
 ----------------------
 
-To Configure phpMyAdmin the step by step details are provided in 
-:ref:`config`. 
+To Configure phpMyAdmin the step by step details are provided in
+:ref:`config`.
 
 In order to configure connections to databases and other system settings the global
-settings needs to be configured in :file:`config.inc.php` details of which can be 
+settings needs to be configured in :file:`config.inc.php` details of which can be
 found in :ref:`config`
 
 Adding to this there are user settings which can be persistently stored in
@@ -17,3 +17,4 @@ You can also save the user configuration for further use, either download them
 as a file or to the browser's local storage. You can find both these options in
 the :guilabel:`Settings` tab. The settings stored in browser local storage will
 be automatically provided for loading upon your login to phpMyAdmin.
+
