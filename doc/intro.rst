@@ -3,25 +3,21 @@
 Introduction
 ============
 
-phpMyAdmin can manage a whole MySQL server (needs a super-user) as
-well as a single database. To accomplish the latter you'll need a
-properly set up MySQL user who can read/write only the desired
-database. It's up to you to look up the appropriate part in the MySQL
-manual.
-
+phpMyAdmin is a free software tool written in PHP that is intended to handle the administration of MySQL over the web.
+It helps in using most of the operations on MySQL and MariaDB using a simple Intuitive User Interface.
+Using phpMyadmin we can perform operations such as creating a database,run queries,add user accounts and so on making it simple and easy to use even for beginners.
+There is also a Demo available on the website that help the users to understand the working of the user Interface.
 
 Supported features
 ------------------
 
-Currently phpMyAdmin can:
+Using PHP MyAdmin currently we can perform the following:
 
-* browse and drop databases, tables, views, columns and indexes
-* display multiple results sets through stored procedures or queries
-* create, copy, drop, rename and alter databases, tables, columns and
-  indexes
-* maintenance server, databases and tables, with proposals on server
-  configuration
+* create,browse and drop,rename and edit databases, tables,columns and indexes
+* Run all SQL and MariaDB queries and obtain multiple results.
+* maintaining server, databases and tables, with proposals on server configuration
 * execute, edit and bookmark any :term:`SQL`-statement, even batch-queries
+* Use the Console to run and execute Query commands
 * load text files into tables
 * create [#f1]_ and read dumps of tables
 * export [#f1]_ data to various formats: :term:`CSV`, :term:`XML`, :term:`PDF`,
@@ -29,13 +25,12 @@ Currently phpMyAdmin can:
   Word 2000, and LATEX formats
 * import data and :term:`MySQL` structures from :term:`OpenDocument` spreadsheets, as
   well as :term:`XML`, :term:`CSV`, and :term:`SQL` files
-* administer multiple servers
-* manage MySQL users and privileges
+* administer and manage multiple servers
+* add or edit MySQL user accounts and assign privileges
 * check referential integrity in MyISAM tables
 * using Query-by-example (QBE), create complex queries automatically
   connecting required tables
-* create :term:`PDF` graphics of your
-  database layout
+* create :term:`PDF` graphics of your database layout
 * search globally in a database or a subset of it
 * transform stored data into any format using a set of predefined
   functions, like displaying BLOB-data as image or download-link
@@ -44,7 +39,7 @@ Currently phpMyAdmin can:
 * support mysqli, the improved MySQL extension see :ref:`faq1_17`
 * create, edit, call, export and drop stored procedures and functions
 * create, edit, export and drop events and triggers
-* communicate in `80 different languages
+* communicate in `over 72 different languages
   <https://www.phpmyadmin.net/translations/>`_
 
 
@@ -66,12 +61,10 @@ Currently phpMyAdmin supports following shortcuts:
 A word about users
 ------------------
 
-Many people have difficulty understanding the concept of user
-management with regards to phpMyAdmin. When a user logs in to
-phpMyAdmin, that username and password are passed directly to MySQL.
-phpMyAdmin does no account management on its own (other than allowing
-one to manipulate the MySQL user account information); all users must
-be valid MySQL users.
+A lot of people  have difficulty in understanding the concept of user
+management with regards to phpMyAdmin. 
+When a user logs in to phpMyAdmin, his or her username and password are passed directly to MySQL.
+phpMyAdmin does not perform any account management on its own (other than allowing one to edit the MySQL user account information); all users must be valid MySQL users.
 
 .. rubric:: Footnotes
 
