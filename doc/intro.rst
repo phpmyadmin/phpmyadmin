@@ -4,17 +4,17 @@ Introduction
 ============
 
 phpMyAdmin is a free software tool written in PHP that is intended to handle the administration of MySQL over the web.
-It helps in using most of the operations on MySQL and MariaDB using a simple Intuitive User Interface.
-Using phpMyadmin we can perform operations such as creating a database,run queries,add user accounts and so on making it simple and easy to use even for beginners.
-There is also a Demo available on the website that help the users to understand the working of the user Interface.
+It helps in using most of the operations on MySQL and MariaDB using a User Interface.
+Using phpMyAdmin we can perform operations such as creating a database, run queries, add user accounts and so on making it simple and easy to use even for beginners.
+
 
 Supported features
 ------------------
 
-Using PHP MyAdmin currently we can perform the following functions:
+Currently phpMyAdmin can:
 
-* create,browse and drop,rename and edit databases, tables,columns and indexes 
-* Run all SQL and MariaDB queries and obtain multiple results.
+* create, browse and drop, rename and edit databases, tables, columns and indexes
+* Run all SQL queries and obtain multiple results.
 * maintaining server, databases and tables, with proposals on server configuration
 * execute, edit and bookmark any :term:`SQL`-statement, even batch-queries
 * Use the Console to run and execute Query commands
