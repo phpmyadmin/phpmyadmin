@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.8.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2017-11-28 16:22+0100\n"
-"PO-Revision-Date: 2017-12-24 03:35+0000\n"
+"PO-Revision-Date: 2017-12-30 17:29+0000\n"
 "Last-Translator: Robert Antoni Buj Gelonch <robert.buj@gmail.com>\n"
 "Language-Team: Catalan "
 "<https://hosted.weblate.org/projects/phpmyadmin/master/ca/>\n"
@@ -2418,8 +2418,8 @@ msgid ""
 "edit, checkbox, Edit, Copy and Delete links may not work after saving."
 msgstr ""
 "Aquesta taula no conté una columna única. Característiques relacionades amb "
-"l'edició de quadrícula, checkbox, Editar, Copiar i Esborrar enllaços poden "
-"no funcionar després de desar."
+"l'edició de quadrícula, la casella de selecció, i els enllaços Edita, Copia "
+"i Esborra, poden no funcionar després de desar."
 
 #: js/messages.php:604
 msgid "Please enter a valid hexadecimal string. Valid characters are 0-9, A-F."
@@ -2584,7 +2584,7 @@ msgid ""
 "level!"
 msgstr ""
 "La vostra exportació és incompleta a causa del límit de temps d'execució "
-"massa baix a nivell de PHP!"
+"massa baix pel que fa a PHP!"
 
 #: js/messages.php:688
 #, php-format
@@ -4688,7 +4688,7 @@ msgid ""
 msgstr ""
 "Si el valor és TRUE, la desconnexió esborra les galetes de tots els "
 "servidors; si el valor és FALSE, la desconnexió només es produeix per al "
-"servidor actual. Si s'estableix aixó a FALSE és més fàcil que oblideu "
+"servidor actual. Si s'estableix això a FALSE és més fàcil que oblideu "
 "desconnectar-vos dels altres servidors quan esteu connectat a més d'un."
 
 #: libraries/classes/Config/Descriptions.php:700
@@ -5757,7 +5757,7 @@ msgid ""
 msgstr ""
 "Tingueu en compte que habilitar-ho no té efecte amb el mode d'autenticació "
 "[kbd]config[/kbd], ja que la contrasenya està fortament codificada al fitxer "
-"de configuració; aixó no limita la possibilitat d'executar la mateixa ordre "
+"de configuració; això no limita la possibilitat d'executar la mateixa ordre "
 "directament."
 
 #: libraries/classes/Config/Descriptions.php:1265
@@ -12025,7 +12025,7 @@ msgid ""
 "Note: You are attempting to edit privileges of the user with which you are "
 "currently logged in."
 msgstr ""
-"Nota: esteu intentant editar els privilegis de l'usuari amb el que teniu "
+"Nota: esteu intentant editar els privilegis de l'usuari amb què teniu "
 "actualment iniciada la sessió."
 
 #: libraries/classes/Server/Privileges.php:4610
@@ -14049,8 +14049,7 @@ msgstr "Un únic valor triat d'un conjunt de fins a 64 membres"
 
 #: libraries/classes/Types.php:365
 msgid "A type that can store a geometry of any type"
-msgstr ""
-"Un tipus en el que es pot emmagatzemar una geometria de qualsevol tipus"
+msgstr "Un tipus que pot emmagatzemar una geometria de qualsevol tipus"
 
 #: libraries/classes/Types.php:367
 msgid "A point in 2-dimensional space"
@@ -14893,7 +14892,7 @@ msgstr "Enllaços directes"
 #: templates/database/designer/side_menu.twig:123
 #: templates/database/designer/side_menu.twig:125
 msgid "Snap to grid"
-msgstr "Alinia a la graella"
+msgstr "Alinea a la graella"
 
 #: templates/database/designer/side_menu.twig:129
 #: templates/database/designer/side_menu.twig:135
@@ -15055,7 +15054,7 @@ msgid ""
 "this permanent, view settings."
 msgstr ""
 "Executa les consultes en prémer Retorn i afegeix una nova línia en prémer "
-"Majúscules + Retorn. Per fer que aixó sigui permanent, mireu els paràmetres."
+"Majúscules + Retorn. Per fer que això sigui permanent, mireu els paràmetres."
 
 #: templates/columns_definitions/move_column.twig:7
 msgid "first"
@@ -15459,9 +15458,9 @@ msgid ""
 "lead to non working phpMyAdmin or a security risk. Please fix your server "
 "configuration to indicate HTTPS properly."
 msgstr ""
-"Els protocols HTTPS del servidor i del client no coincideixen. Aixó pot fer "
-"que phpMyAdmin no funcioni o que hi hagi un risc de seguretat. Si us plau "
-"corrigeix la configuració del servidor per establir el protocol HTTPS "
+"Els protocols HTTPS del servidor i del client no coincideixen. Això pot fer "
+"que phpMyAdmin no funcioni o que hi hagi un risc de seguretat. Si us plau, "
+"corregiu la configuració del servidor per establir el protocol HTTPS "
 "correctament."
 
 #: templates/table/secondary_tabs.twig:9
@@ -15833,7 +15832,7 @@ msgid ""
 "an index on it. Alternatively, you can define an index below, before "
 "creating the foreign key."
 msgstr ""
-"La creació d'una clau forana sobre una columna no indexada crearía "
+"La creació d'una clau forana sobre una columna no indexada podria crear "
 "automàticament un índex en ella. D'altra banda, podeu definir un índex a "
 "sota, abans de crear la clau forana."
 
