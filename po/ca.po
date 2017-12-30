@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.7.6-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2017-11-02 14:03+0100\n"
-"PO-Revision-Date: 2017-12-23 14:41+0000\n"
+"PO-Revision-Date: 2018-01-08 12:50+0000\n"
 "Last-Translator: Robert Antoni Buj Gelonch <robert.buj@gmail.com>\n"
 "Language-Team: Catalan "
 "<https://hosted.weblate.org/projects/phpmyadmin/4-7/ca/>\n"
@@ -2124,7 +2124,7 @@ msgstr "Si se situa el cursor sobre un punt, mostrarà la seva etiqueta."
 
 #: js/messages.php:501
 msgid "To zoom in, select a section of the plot with the mouse."
-msgstr "Per augmentar el zoom, seleccioneu una secció del gràfic amb el ratolí."
+msgstr "Per augmentar el zoom, seleccioneu una secció del traç amb el ratolí."
 
 #: js/messages.php:503
 msgid "Click reset zoom button to come back to original state."
@@ -2138,8 +2138,7 @@ msgstr ""
 #: js/messages.php:507
 msgid "The plot can be resized by dragging it along the bottom right corner."
 msgstr ""
-"El gràfic es pot redimensionar amb l'arrossegament la cantonada inferior "
-"dreta."
+"El traç es pot redimensionar amb l'arrossegament la cantonada inferior dreta."
 
 #: js/messages.php:510
 msgid "Select two columns"
@@ -2367,8 +2366,8 @@ msgid ""
 "edit, checkbox, Edit, Copy and Delete links may not work after saving."
 msgstr ""
 "Aquesta taula no conté una columna única. Característiques relacionades amb "
-"l'edició de quadrícula, checkbox, Editar, Copiar i Esborrar enllaços poden "
-"no funcionar després de desar."
+"l'edició de quadrícula, la casella de selecció, i els enllaços Edita, Copia "
+"i Esborra, poden no funcionar després de desar."
 
 #: js/messages.php:605
 msgid "Please enter a valid hexadecimal string. Valid characters are 0-9, A-F."
@@ -2532,7 +2531,7 @@ msgid ""
 "level!"
 msgstr ""
 "La vostra exportació és incompleta a causa del límit de temps d'execució "
-"massa baix a nivell de PHP!"
+"massa baix pel que fa a PHP!"
 
 #: js/messages.php:689
 #, php-format
@@ -4792,8 +4791,7 @@ msgstr "Un únic valor triat d'un conjunt de fins a 64 membres"
 
 #: libraries/TypesMySQL.php:193
 msgid "A type that can store a geometry of any type"
-msgstr ""
-"Un tipus en el que es pot emmagatzemar una geometria de qualsevol tipus"
+msgstr "Un tipus que pot emmagatzemar una geometria de qualsevol tipus"
 
 #: libraries/TypesMySQL.php:195
 msgid "A point in 2-dimensional space"
@@ -6601,7 +6599,7 @@ msgid ""
 msgstr ""
 "Si el valor és TRUE, la desconnexió esborra les galetes de tots els "
 "servidors; si el valor és FALSE, la desconnexió només es produeix per al "
-"servidor actual. Si s'estableix aixó a FALSE és més fàcil que oblideu "
+"servidor actual. Si s'estableix això a FALSE és més fàcil que oblideu "
 "desconnectar-vos dels altres servidors quan esteu connectat a més d'un."
 
 #: libraries/config/messages.inc.php:413
@@ -7431,8 +7429,7 @@ msgstr "Taula de relacions"
 msgid ""
 "See [doc@authentication-modes]authentication types[/doc] for an example."
 msgstr ""
-"Consulta [doc@authentication-modes]tipus d'autenticació[/doc] per veure "
-"exemples."
+"Vegeu el [doc@authentication-modes]tipus d'autenticació[/doc] per un exemple."
 
 #: libraries/config/messages.inc.php:734
 msgid "Signon session name"
@@ -7653,7 +7650,7 @@ msgid ""
 msgstr ""
 "Tingueu en compte que habilitar-ho no té efecte amb el mode d'autenticació "
 "[kbd]config[/kbd], ja que la contrasenya està fortament codificada al fitxer "
-"de configuració; aixó no limita la possibilitat d'executar la mateixa ordre "
+"de configuració; això no limita la possibilitat d'executar la mateixa ordre "
 "directament."
 
 #: libraries/config/messages.inc.php:824
@@ -8222,7 +8219,7 @@ msgstr "No s'ha establert una consulta SQL per a obtenir dades."
 
 #: libraries/controllers/table/TableChartController.php:153
 msgid "No numeric columns present in the table to plot."
-msgstr "No existeixen columnes numèriques a la taula per fer el gràfic."
+msgstr "No existeixen columnes numèriques a la taula per traçar."
 
 #: libraries/controllers/table/TableChartController.php:211
 msgid "No data to display"
@@ -8739,7 +8736,8 @@ msgstr "Directori local de dades"
 #: libraries/engines/Innodb.php:31
 msgid "The common part of the directory path for all InnoDB data files."
 msgstr ""
-"La part comuna de la ruta al directori per tots els arxius de dades InnoDB."
+"La part comuna del camí al directori per a tots els fitxers de dades "
+"d'InnoDB."
 
 #: libraries/engines/Innodb.php:36
 msgid "Data files"
@@ -9115,7 +9113,7 @@ msgstr "Les següents estructures han estat creades o bé alterades. Aquí pots:
 
 #: libraries/import.lib.php:1207
 msgid "View a structure's contents by clicking on its name."
-msgstr "Veure el contingut d'una estructura prement sobre el seu nom."
+msgstr "Mostra el contingut d'una estructura en fer clic sobre el seu nom."
 
 #: libraries/import.lib.php:1210
 msgid ""
@@ -9697,8 +9695,8 @@ msgid ""
 "value of the column."
 msgstr ""
 "Per cadascuna de les columnes de sota, seleccioneu el <b>conjunt mínim</b> "
-"de columnes entre les que els seus valors combinats són suficients per a "
-"determinar el valor de la columna."
+"entre un conjunt determinat, els valors combinats junts del qual són "
+"suficients per a determinar el valor de la columna."
 
 #: libraries/normalization.lib.php:370 libraries/normalization.lib.php:762
 #, php-format
@@ -9767,9 +9765,10 @@ msgid ""
 "in that case you don't have to select any."
 msgstr ""
 "Per cadascuna de les columnes de sota, seleccioneu el <b>conjunt mínim</b> "
-"de columnes entre les que els seus valors combinats junts són suficients per "
-"a determinar el valor de la columna. <br />Nota: Una columna pot no tenir "
-"dependències transitives, en aquest cas no n'heu de seleccionar cap."
+"entre un conjunt determinat, els valors combinats junts del qual són "
+"suficients per a determinar el valor de la columna. <br />Nota: una columna "
+"pot no tenir dependències transitives, en aquest cas no n'heu de seleccionar "
+"cap."
 
 #: libraries/normalization.lib.php:775
 msgid ""
@@ -10049,7 +10048,7 @@ msgstr "Aquest format no té opcions"
 msgid ""
 "Login without a password is forbidden by configuration (see AllowNoPassword)"
 msgstr ""
-"La configuració prohibeix la connexió sense contrasenya (veure "
+"La configuració prohibeix la connexió sense contrasenya (vegeu "
 "AllowNoPassword)"
 
 #: libraries/plugins/AuthenticationPlugin.php:136
@@ -10101,7 +10100,7 @@ msgid ""
 msgstr ""
 "phpMyAdmin ha intentat connectar amb el servidor MySQL, però el servidor ha "
 "rebutjat la connexió. Comproveu l'amfitrió, el nom d'usuari i la contrasenya "
-"a al vostre fitxer config.inc.php i assegureu-vos que correspon amb la "
+"al vostre fitxer config.inc.php i assegureu-vos que correspon amb la "
 "informació facilitada per l'administrador del servidor MySQL."
 
 #: libraries/plugins/auth/AuthenticationConfig.php:158
@@ -10355,7 +10354,7 @@ msgstr "Bolcament de dades"
 
 #: libraries/plugins/export/ExportPdf.php:288
 msgid "View structure"
-msgstr "Veure estructura"
+msgstr "Mostra l'estructura"
 
 #: libraries/plugins/export/ExportPdf.php:291
 msgid "Stand in"
@@ -10601,7 +10600,7 @@ msgstr "Estructura per a vista %s exportada com a taula"
 
 #: libraries/plugins/export/ExportSql.php:2120
 msgid "(See below for the actual view)"
-msgstr "(mireu a sota per a la visualització actual)"
+msgstr "(mireu a sota per a la visualització real)"
 
 #: libraries/plugins/export/ExportSql.php:2204
 #, php-format
@@ -11354,7 +11353,7 @@ msgstr "Servidor configurat com a esclau en un procés de replicació. Vols:"
 
 #: libraries/replication_gui.lib.php:239
 msgid "See slave status table"
-msgstr "Veure la taula d'estat de l'esclau"
+msgstr "Mostra la taula d'estat de l'esclau"
 
 #: libraries/replication_gui.lib.php:244
 msgid "Control slave:"
@@ -11964,7 +11963,7 @@ msgid ""
 "necessary privileges to view/export this routine."
 msgstr ""
 "No s'ha trobat cap rutina anomenada %1$s a la base de dades %2$s. Potser "
-"falten els privilegis necessaris per veure/exportar aquesta rutina."
+"falten els privilegis necessaris per mostrar/exportar aquesta rutina."
 
 #: libraries/rte/rte_words.lib.php:42
 #, php-format
@@ -12574,7 +12573,7 @@ msgid ""
 "Note: You are attempting to edit privileges of the user with which you are "
 "currently logged in."
 msgstr ""
-"Nota: esteu intentant editar els privilegis de l'usuari amb el que teniu "
+"Nota: esteu intentant editar els privilegis de l'usuari amb què teniu "
 "actualment iniciada la sessió."
 
 #: libraries/server_privileges.lib.php:4563 libraries/server_users.lib.php:21
@@ -12770,7 +12769,7 @@ msgstr ""
 "servidor i localitzar a temps les consultes intensives. En aquest darrer cas "
 "s'haurà d'establir «log_output» a 'TABLE' i tenir habilitat «slow_query_log» "
 "o «general_log». Noteu però, que «general_log» produeix una gran quantitat "
-"de dades i augmenta la càrrega del servidor fins un 15%."
+"de dades i augmenta la càrrega del servidor fins a un 15%."
 
 #: libraries/server_status_monitor.lib.php:127
 msgid "Using the monitor:"
@@ -13723,7 +13722,7 @@ msgstr "Pestanyes del nivell taula"
 
 #: libraries/server_user_groups.lib.php:107
 msgid "View users"
-msgstr "Veure usuaris"
+msgstr "Mostra els usuaris"
 
 #: libraries/server_user_groups.lib.php:143
 #: libraries/server_user_groups.lib.php:207
@@ -13745,15 +13744,15 @@ msgstr "Nom de grup:"
 
 #: libraries/server_user_groups.lib.php:271
 msgid "Server-level tabs"
-msgstr "Pestanyes a nivell de servidor"
+msgstr "Pestanyes pel que fa als servidors"
 
 #: libraries/server_user_groups.lib.php:274
 msgid "Database-level tabs"
-msgstr "Pestanyes a nivell de base de dades"
+msgstr "Pestanyes pel que fa a les bases de dades"
 
 #: libraries/server_user_groups.lib.php:277
 msgid "Table-level tabs"
-msgstr "Pestanyes a nivell de taula"
+msgstr "Pestanyes pel que fa a les taules"
 
 #: libraries/sql.lib.php:233
 msgid "Detailed profile"
@@ -14466,7 +14465,7 @@ msgstr "La taula %s ja existeix!"
 
 #: tbl_export.php:44
 msgid "View dump (schema) of table"
-msgstr "Veure un bolcat (esquema) de la taula"
+msgstr "Mostra el bolcat (esquema) de la taula"
 
 #: tbl_get_field.php:33
 msgid "Invalid table name"
@@ -14835,7 +14834,7 @@ msgid ""
 "this permanent, view settings."
 msgstr ""
 "Executa les consultes en prémer Retorn i afegeix una nova línia en prémer "
-"Majúscules + Retorn. Per fer que aixó sigui permanent, mireu els paràmetres."
+"Majúscules + Retorn. Per fer que això sigui permanent, mireu els paràmetres."
 
 #: templates/console/display.phtml:198
 msgid "Switch to dark theme"
@@ -14872,7 +14871,7 @@ msgstr "Mostra o oculta les columnes"
 
 #: templates/database/designer/database_tables.phtml:40
 msgid "See table structure"
-msgstr "Veure l'estructura de taula"
+msgstr "Mostra l'estructura de taula"
 
 #: templates/database/designer/delete_relation_panel.phtml:21
 msgid "Delete relationship"
@@ -14993,7 +14992,7 @@ msgstr "Enllaços directes"
 #: templates/database/designer/side_menu.phtml:122
 #: templates/database/designer/side_menu.phtml:124
 msgid "Snap to grid"
-msgstr "Alinia a la graella"
+msgstr "Alinea a la graella"
 
 #: templates/database/designer/side_menu.phtml:128
 #: templates/database/designer/side_menu.phtml:134
@@ -15264,7 +15263,7 @@ msgstr "Nota: amb l'establiment d'aquestes opcions a 0 (zero) es treu el límit.
 
 #: templates/server/binlog/log_selector.phtml:5
 msgid "Select binary log to view"
-msgstr "Tria el registre binari per veure"
+msgstr "Seleccioneu el registre binari a mostrar"
 
 #: templates/server/databases/create.phtml:7
 #: templates/server/databases/create.phtml:27
@@ -15470,7 +15469,7 @@ msgid ""
 "an index on it. Alternatively, you can define an index below, before "
 "creating the foreign key."
 msgstr ""
-"La creació d'una clau forana sobre una columna no indexada crearía "
+"La creació d'una clau forana sobre una columna no indexada podria crear "
 "automàticament un índex en ella. D'altra banda, podeu definir un índex a "
 "sota, abans de crear la clau forana."
 
@@ -15544,7 +15543,7 @@ msgstr "Utilitza aquesta columna per etiquetar cada punt"
 
 #: templates/table/search/options_zoom.phtml:35
 msgid "Maximum rows to plot"
-msgstr "Màxim nombre de files a dibuixar"
+msgstr "Nombre màxim de files a traçar"
 
 #: templates/table/search/replace_preview.phtml:13
 msgid "Find and replace - preview"
@@ -15586,7 +15585,7 @@ msgstr "Fer una \"petició segons exemple\" (comodí: \"%\")"
 
 #: templates/table/search/zoom_result_form.phtml:7
 msgid "Browse/Edit the points"
-msgstr "Veure / editar els punts"
+msgstr "Navega / edita els punts"
 
 #: templates/table/search/zoom_result_form.phtml:15
 msgid "How to use"
@@ -16012,8 +16011,8 @@ msgid ""
 msgstr ""
 "Si no ho heu compilat a partir de les fonts, potser esteu utilitzant un "
 "paquet modificat per una distribució. El manual de MySQL només és exacte per "
-"als binaris de MySQL oficials, no per els paquets de distribucions (com ara "
-"RedHat, Debian/Ubuntu, etc.)."
+"als binaris de MySQL oficials, però no en qualsevol altra distribució de "
+"paquets (com ara RedHat, Debian/Ubuntu, etc.)."
 
 #: libraries/advisory_rules.txt:126
 msgid "'source' found in version_comment"
@@ -16155,8 +16154,8 @@ msgid ""
 "This might be caused by {query_cache_limit} being too low. Flushing the "
 "query cache might help as well."
 msgstr ""
-"Això pot ser causat per un {query_cache_limit} massa baix. Purgueu la "
-"memòria cau de consultes també pot ajudar."
+"Això pot ser causat per un {query_cache_limit} massa baix. Purgar la memòria "
+"cau de consultes també pot ajudar."
 
 #: libraries/advisory_rules.txt:172
 #, php-format
@@ -16408,7 +16407,7 @@ msgstr ""
 "taules, però requereixen una gran quantitat de cicles de CPU a les taules "
 "grans, si aquestes taules tenen o han tingut un gran volum de UPDATE i "
 "DELETE, l'execució de \"OPTIMIZE TABLE\" pot reduir la quantitat i/o la "
-"velocitat d'exploració completa dels índex. A part d'això, les exploracions "
+"velocitat d'exploració completa dels índexs. A part d'això, les exploracions "
 "d'índexs complets només es poden reduir amb la reescriptura de les consultes."
 
 #: libraries/advisory_rules.txt:238
@@ -17082,7 +17081,7 @@ msgid ""
 msgstr ""
 "Esteu utilitzant el %s%% de la vostra memòria per a la reserva de memòria "
 "intermèdia d'InnoDB. Aquesta regla s'activa si esteu assignant menys del 60%%"
-", però això pot ser perfectament adequat per al vostre sistema si no teniu "
+", però això pot ser perfectament suficient per al vostre sistema si no teniu "
 "moltes taules InnoDB o altres serveis en execució en la mateixa màquina."
 
 #: libraries/advisory_rules.txt:441
