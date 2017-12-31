@@ -342,7 +342,6 @@ httpd.conf, like this:
 
 .. code-block:: apache
 
-
     # mod_gzip_item_include file \.php$
     # mod_gzip_item_include mime "application/x-httpd-php.*"
 
@@ -394,7 +393,6 @@ directives are used:
 
 .. code-block:: apache
 
-
     SetOutputFilter PHP
     SetInputFilter PHP
 
@@ -411,7 +409,6 @@ with ``AddType``, so just comment out the first set of lines and
 restart Apache:
 
 .. code-block:: apache
-
 
     #SetOutputFilter PHP
     #SetInputFilter PHP
@@ -483,7 +480,6 @@ forget to change directory name inside of it):
 
 .. code-block:: apache
 
-
     RewriteEngine On
     RewriteBase /path_to_phpMyAdmin
     RewriteRule ^([a-zA-Z0-9_]+)/([a-zA-Z0-9_]+)/([a-z_]+\.php)$ index.php?db=$1&table=$2&target=$3 [R]
@@ -500,7 +496,6 @@ Yes. However you need to pass authentication variable to :term:`CGI` using
 following rewrite rule:
 
 .. code-block:: apache
-
 
     RewriteEngine On
     RewriteRule .* - [E=REMOTE_USER:%{HTTP:Authorization},L]
@@ -609,7 +604,6 @@ the set-cookie headers. Example from the Apache 2.2 documentation:
 
 .. code-block:: apache
 
-
     ProxyPass /mirror/foo/ http://backend.example.com/
     ProxyPassReverse /mirror/foo/ http://backend.example.com/
     ProxyPassReverseCookieDomain backend.example.com public.example.com
@@ -620,7 +614,6 @@ tilde (~) must be url encoded as %7E in the ProxyPassReverse\* lines.
 This is not specific to phpmyadmin, it's just the behavior of Apache.
 
 .. code-block:: apache
-
 
     ProxyPass /mirror/foo/ http://backend.example.com/~user/phpmyadmin
     ProxyPassReverse /mirror/foo/ http://backend.example.com/%7Euser/phpmyadmin
@@ -646,7 +639,6 @@ field. This is quite easy to circumvent, but could prevent at least
 some robots accessing your installation.
 
 .. code-block:: apache
-
 
     RewriteEngine on
 
@@ -801,7 +793,6 @@ doesn't work in this configuration with port forwarding. If you enter
 
 See :ref:`themes`.
 
-
 .. _faqmissingparameters:
 
 2.8 I get "Missing parameters" errors, what can I do?
@@ -888,7 +879,6 @@ The problem is that older versions of ``mysqldump`` created invalid
 comments like this:
 
 .. code-block:: mysql
-
 
     -- MySQL dump 8.22
     --
@@ -1151,7 +1141,6 @@ If you want a pre-made sample, you can try this fragment. It stops the
 network :term:`IP` blocks.
 
 .. code-block:: php
-
 
     //block root from logging in except from the private networks
     $cfg['Servers'][$i]['AllowDeny']['order'] = 'deny,allow';
@@ -1482,7 +1471,6 @@ create the example tables:
 
 .. code-block:: mysql
 
-
     CREATE TABLE REL_countries (
     country_code char(1) NOT NULL default '',
     description varchar(10) NOT NULL default '',
@@ -1718,7 +1706,6 @@ have table exported in file :file:`table.tex`):
 
 .. code-block:: latex
 
-
     \documentclass{article} % or any class you want
     \usepackage{longtable}  % for displaying table
     \begin{document}        % start of document
@@ -1752,7 +1739,6 @@ this is to be able to type the first letter of either the key or the
 display column. For 100 values or more, a distinct window will appear,
 to browse foreign key values and choose one. To change the default
 limit of 100, see :config:option:`$cfg['ForeignKeyMaxLimit']`.
-
 
 .. _faq6_22:
 
@@ -2217,7 +2203,6 @@ Please refer to <https://www.phpmyadmin.net/security/>.
 If you use Apache web server, phpMyAdmin exports information about
 authentication to the Apache environment and it can be used in Apache
 logs. Currently there are two variables available:
-
 
 ``userID``
     User name of currently active user (he does not have to be logged in).
