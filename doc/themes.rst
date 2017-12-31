@@ -41,7 +41,6 @@ Theme metadata
     It has been replaced by :file:`theme.json` to allow easier parsing (without
     need to handle PHP code) and to support additional features.
 
-
 In theme directory there is file :file:`theme.json` which contains theme
 metadata. Currently it consists of:
 

@@ -28,7 +28,6 @@ Using upload directory
 
     You can specify an upload directory on your web server where phpMyAdmin is installed, after uploading your file into this directory you can select this file in the import dialog of phpMyAdmin, see :config:option:`$cfg['UploadDir']`.
 
-
 phpMyAdmin can import from several various commonly used formats.
 
 CSV
@@ -110,7 +109,6 @@ Structures (databases, tables, views, triggers, etc.) and/or data will be
 created depending on the contents of the file.
 
 The supported xml schemas are not yet documented in this wiki.
-
 
 Export
 ++++++
@@ -233,7 +231,6 @@ Sample output:
         }
     ]
 
-
 LaTeX
 -----
 
@@ -251,7 +248,6 @@ rendered, for example in following document:
 
 .. code-block:: latex
 
-
     \documentclass{article}
     \title{phpMyAdmin SQL output}
     \author{}
@@ -267,7 +263,6 @@ rendered, for example in following document:
     % insert phpMyAdmin LaTeX Dump here
 
     \end{document}
-
 
 MediaWiki
 ---------

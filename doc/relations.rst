@@ -61,7 +61,6 @@ To fix this, open the relation view of the `category` table and in the drop down
 
 .. image:: images/pma-relations-links.png
 
-
 Designer
 --------
 

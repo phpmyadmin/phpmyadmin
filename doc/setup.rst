@@ -91,7 +91,6 @@ But be aware that the configuration file is maintained in
 ``/etc/phpMyAdmin/`` and may differ in some ways from the
 official phpMyAdmin documentation.
 
-
 Installing on Windows
 +++++++++++++++++++++
 
@@ -123,7 +122,6 @@ by invoking:
 .. code-block:: sh
 
     composer update --no-dev
-
 
 .. _composer:
 
@@ -493,7 +491,6 @@ Quick Install
    :file:`config.inc.php` is still a quick way to get started and needed for
    some advanced features.
 
-
 Manually creating the file
 --------------------------
 
@@ -509,7 +506,6 @@ simple configuration may look like this:
 
 .. code-block:: xml+php
 
-
     <?php
     // use here a value of your choice at least 32 chars long
     $cfg['blowfish_secret'] = '1{dd0`<Q),5XP_:R9UK%%8\"EEcyH#{o';
@@ -524,7 +520,6 @@ simple configuration may look like this:
 Or, if you prefer to not be prompted every time you log in:
 
 .. code-block:: xml+php
-
 
     <?php
 
@@ -602,7 +597,6 @@ Some openSUSE releases do not include setup script in the package. In case you
 want to generate configuration on these you can either download original
 package from <https://www.phpmyadmin.net/> or use setup script on our demo
 server: <https://demo.phpmyadmin.net/STABLE/setup/>.
-
 
 .. _verify:
 
@@ -763,7 +757,6 @@ The following three scenarios are covered by the Zero Configuration mode:
   phpMyAdmin continues to use the tables from the first database; the user is
   not prompted to create more tables in the new database.
 
-
 Manual configuration
 --------------------
 
@@ -882,7 +875,6 @@ the database *user_base*:
 
    GRANT ALL PRIVILEGES ON user_base.* TO 'real_user'@localhost IDENTIFIED BY 'real_password';
 
-
 What the user may now do is controlled entirely by the MySQL user management
 system. With HTTP or cookie authentication mode, you don't need to fill the
 user/password fields inside the :config:option:`$cfg['Servers']`.
@@ -990,7 +982,6 @@ in :file:`examples/signon-script.php`:
     :config:option:`$cfg['Servers'][$i]['SignonURL']`,
     :ref:`example-signon`
 
-
 .. index:: pair: Config; Authentication mode
 
 .. _auth_config:
@@ -1015,7 +1006,6 @@ Config authentication mode
   incoming HTTP requests at one’s router or firewall will suffice (both
   of which are beyond the scope of this manual but easily searchable
   with Google).
-
 
 .. _securing:
 
@@ -1133,7 +1123,6 @@ Trouble logging back in after logging out using 'http' authentication
 
 When using the 'http' ``auth_type``, it can be impossible to log back in (when the logout comes
 manually or after a period of inactivity). `Issue 11898 <https://github.com/phpmyadmin/phpmyadmin/issues/11898>`_.
-
 
 .. _Composer tool: https://getcomposer.org/
 .. _Packagist: https://packagist.org/
