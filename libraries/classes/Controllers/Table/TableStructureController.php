@@ -1170,12 +1170,6 @@ class TableStructureController extends TableController
         array $cfgRelation, array $columns_with_unique_index, $url_params,
         $primary_index, array $fields, array $columns_with_index
     ) {
-        /* TABLE INFORMATION */
-        $HideStructureActions = '';
-        if ($GLOBALS['cfg']['HideStructureActions'] === true) {
-            $HideStructureActions .= ' HideStructureActions';
-        }
-
         // prepare comments
         $comments_map = array();
         $mime_map = array();
@@ -1272,9 +1266,14 @@ class TableStructureController extends TableController
         }
         // END - Calc Table Space
 
+        $hideStructureActions = false;
+        if ($GLOBALS['cfg']['HideStructureActions'] === true) {
+            $hideStructureActions = true;
+        }
+
         return Template::get('table/structure/display_structure')->render(
             array(
-                'hide_structure_actions' => $HideStructureActions,
+                'hide_structure_actions' => $hideStructureActions,
                 'db' => $this->db,
                 'table' => $this->table,
                 'db_is_system_schema' => $this->_db_is_system_schema,

@@ -1,4 +1,9 @@
 <td class="print_ignore"><ul class="table-structure-actions resizable-menu">
+    {% if hide_structure_actions %}
+        <li class="submenu shown">
+            <a href="#" class="tab nowrap">{{ Util_getIcon('b_more', 'More'|trans) }}</a>
+            <ul>
+    {% endif %}
     {# Add primary #}
     {% include 'table/structure/action_row_in_structure_table.twig' with {
         'type': type,
@@ -126,6 +131,10 @@
                 {{ Util_getIcon('centralColumns_add', 'Add to central columns'|trans) }}
             </a>
         {% endif %}
+        </li>
+    {% endif %}
+    {% if hide_structure_actions %}
+            </ul>
         </li>
     {% endif %}
 </ul></td>
