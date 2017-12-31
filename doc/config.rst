@@ -246,7 +246,6 @@ Server connection settings
         incrementation) serveral times. There is no need to define full server
         array, just define values you need to change.
 
-
 .. config:option:: $cfg['Servers'][$i]['host']
 
     :type: string
@@ -437,7 +436,6 @@ Server connection settings
         :config:option:`$cfg['Servers'][$i]['ssl_ca']`,
         :config:option:`$cfg['Servers'][$i]['ssl_ca_path']`,
         :config:option:`$cfg['Servers'][$i]['ssl_verify']`
-
 
 .. config:option:: $cfg['Servers'][$i]['ssl_verify']
 
@@ -1345,7 +1343,6 @@ Server connection settings
 
     .. code-block:: none
 
-
         'all' -> 0.0.0.0/0
         'localhost' -> 127.0.0.1/8
         'localnetA' -> SERVER_ADDRESS/8
@@ -2100,7 +2097,6 @@ Navigation panel setup
     :default: 240
 
     Navigation panel width, set to 0 to collapse it by default.
-
 
 Main panel
 ----------
@@ -2924,7 +2920,6 @@ Text fields
     Whether to enable autocomplete for table and column names in any
     SQL query box.
 
-
 SQL query box settings
 ----------------------
 
@@ -3256,7 +3251,6 @@ Default queries
     Default queries that will be displayed in query boxes when user didn't
     specify any. You can use standard :ref:`faq6_27`.
 
-
 MySQL settings
 --------------
 
@@ -3451,7 +3445,6 @@ configuration options, only the most frequently used ones.
 
     Don't use the controluser 'pma' if it does not yet exist and don't use 'pmapass'
     as password.
-
 
 .. _example-signon:
 
