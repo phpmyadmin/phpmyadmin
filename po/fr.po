@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin-docs 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2017-11-02 14:03+0100\n"
-"PO-Revision-Date: 2017-11-28 08:13+0000\n"
-"Last-Translator: ʛħɸʂɫɓɸƴ Twɸȩɩʛħɫʂevɘŋ <marseillaisanonymous@gmail.com>\n"
+"PO-Revision-Date: 2018-01-08 12:50+0000\n"
+"Last-Translator: tmtisfree <tmtisfree@free.fr>\n"
 "Language-Team: French "
 "<https://hosted.weblate.org/projects/phpmyadmin/4-7/fr/>\n"
 "Language: fr\n"
@@ -13,7 +13,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n > 1;\n"
-"X-Generator: Weblate 2.18-dev\n"
+"X-Generator: Weblate 2.19-dev\n"
 
 #: ajax.php:16 ajax.php:33 export.php:192 schema_export.php:64
 msgid "Bad type!"
@@ -50,7 +50,7 @@ msgstr "Commentaire de base de données"
 #: templates/columns_definitions/column_definitions_form.phtml:89
 #: templates/table/structure/display_table_stats.phtml:5
 msgid "Table comments:"
-msgstr "Commentaire de table :"
+msgstr "Commentaires de table :"
 
 #: db_datadict.php:115 libraries/Index.php:686
 #: libraries/insert_edit.lib.php:1636
@@ -1526,7 +1526,7 @@ msgstr "Temps"
 
 #: js/messages.php:293
 msgid "Total time:"
-msgstr "Temps total : "
+msgstr "Durée totale :"
 
 #: js/messages.php:294
 msgid "Profiling results"
@@ -2398,7 +2398,7 @@ msgstr "annuler"
 
 #: js/messages.php:614 libraries/server_status.lib.php:277
 msgid "Aborted"
-msgstr "Abandonné(s)"
+msgstr "Abandonnée(s)"
 
 #: js/messages.php:616
 msgid "Success"
@@ -3583,7 +3583,7 @@ msgstr "Effectuer une recherche dans la base de données"
 
 #: libraries/DbSearch.php:380
 msgid "Words or values to search for (wildcard: \"%\"):"
-msgstr "Mots ou valeurs à rechercher (passe-partout : « % ») :"
+msgstr "Mots ou valeurs à rechercher (joker : « % ») :"
 
 #: libraries/DbSearch.php:389 templates/table/search/search_and_replace.phtml:1
 msgid "Find:"
@@ -3778,7 +3778,7 @@ msgstr "total de %d"
 #: libraries/DisplayResults.php:4755 libraries/sql.lib.php:1383
 #, php-format
 msgid "Query took %01.4f seconds."
-msgstr "traité en %01.4f seconde(s)."
+msgstr "traitement en %01.4f seconde(s)."
 
 #: libraries/DisplayResults.php:4857 libraries/DisplayResults.php:4864
 #: libraries/mult_submits.inc.php:53
@@ -3910,7 +3910,7 @@ msgid ""
 "for it is not implemented or disabled by your configuration."
 msgstr ""
 "Il a été procédé à une tentative de charger un fichier dont le mode de "
-"compression (%s) n'est pas supporté par la configuration PHP ou est "
+"compression (%s) n'est pas pris en charge par la configuration PHP ou est "
 "désactivé dans celle-ci."
 
 #: libraries/Footer.php:73
@@ -4058,7 +4058,7 @@ msgstr "%1$s (près de <code>%2$s</code>)"
 #: libraries/Menu.php:208 libraries/ServerStatusData.php:425
 #: libraries/config/messages.inc.php:917
 msgid "Server"
-msgstr "Serveur"
+msgstr "Serveur&nbsp;"
 
 #: libraries/Menu.php:227 libraries/config/messages.inc.php:909
 #: libraries/mult_submits.lib.php:338
@@ -4078,7 +4078,7 @@ msgstr "Serveur"
 #: templates/table/relation/foreign_key_row.phtml:159
 #: templates/table/relation/internal_relational_row.phtml:50
 msgid "Database"
-msgstr "Base de données"
+msgstr "Base de données&nbsp;"
 
 #: libraries/Menu.php:256 libraries/navigation/nodes/NodeView.php:30
 #: libraries/tbl_info.inc.php:60
@@ -4102,7 +4102,7 @@ msgstr "Vue"
 #: templates/table/relation/foreign_key_row.phtml:170
 #: templates/table/relation/internal_relational_row.phtml:58
 msgid "Table"
-msgstr "Table"
+msgstr "Table&nbsp;"
 
 #: libraries/Menu.php:338 libraries/Menu.php:441 libraries/Menu.php:554
 #: libraries/Util.php:3184 libraries/Util.php:3194 libraries/Util.php:3200
@@ -4279,7 +4279,7 @@ msgstr "Supprimer des tables préférées"
 
 #: libraries/RecentFavoriteTable.php:231
 msgid "There are no recent tables."
-msgstr "Il n'y a pas de tables récentes."
+msgstr "Pas de tables récentes."
 
 #: libraries/RecentFavoriteTable.php:232
 msgid "There are no favorite tables."
@@ -4962,7 +4962,7 @@ msgstr "AM"
 #: libraries/Util.php:1962
 #, php-format
 msgid "%s days, %s hours, %s minutes and %s seconds"
-msgstr "%s jours, %s heures, %s minutes et %s secondes"
+msgstr "%s jour(s), %s heure(s), %s minute(s) et %s seconde(s)"
 
 #: libraries/Util.php:2009
 msgid "Missing parameter:"
@@ -5469,7 +5469,7 @@ msgid ""
 "%sBzip2 compression and decompression%s requires functions (%s) which are "
 "unavailable on this system."
 msgstr ""
-"La %scompression et décompression Bzip2%s requièrent des fonctions (%s) non "
+"La %scompression et décompression BZip2%s requièrent des fonctions (%s) non "
 "disponibles sur ce serveur."
 
 #: libraries/config/ServerConfigChecks.php:420
@@ -5555,7 +5555,7 @@ msgid ""
 "%sZip compression%s requires functions (%s) which are unavailable on this "
 "system."
 msgstr ""
-"La %scompression ZIP%s requiert des fonctions (%s) non disponibles sur ce "
+"La %scompression Zip%s requiert des fonctions (%s) non disponibles sur ce "
 "serveur."
 
 #: libraries/config/ServerConfigChecks.php:516
@@ -5564,7 +5564,7 @@ msgid ""
 "%sZip decompression%s requires functions (%s) which are unavailable on this "
 "system."
 msgstr ""
-"La %sdécompression ZIP%s requiert des fonctions (%s) non disponibles sur ce "
+"La %sdécompression Zip%s requiert des fonctions (%s) non disponibles sur ce "
 "serveur."
 
 #: libraries/config/Validator.php:204 libraries/config/Validator.php:211
@@ -5694,11 +5694,11 @@ msgstr "Activer le pointeur de surbrillance"
 
 #: libraries/config/messages.inc.php:47
 msgid "Enable bzip2 compression for import operations."
-msgstr "Activer la compression BZIP2 pour les opérations d'importation."
+msgstr "Activer la compression BZip2 pour les opérations d'importation."
 
 #: libraries/config/messages.inc.php:50
 msgid "Bzip2"
-msgstr "BZIP2"
+msgstr "BZip2"
 
 #: libraries/config/messages.inc.php:52
 msgid ""
@@ -5706,9 +5706,9 @@ msgid ""
 "columns; [kbd]input[/kbd] - allows limiting of input length, [kbd]textarea[/"
 "kbd] - allows newlines in columns."
 msgstr ""
-"Définit la méthode d'édition pour les colonnes CHAR et VARCHAR ; [kbd]input[/"
-"kbd] - permet de limiter la taille, [kbd]textarea[/kbd] - permet les sauts "
-"de lignes dans les colonnes."
+"Définir la méthode d'édition pour les colonnes CHAR et VARCHAR ; "
+"[kbd]input[/kbd] - permet de limiter la taille, [kbd]textarea[/kbd] - permet "
+"les sauts de lignes dans les colonnes."
 
 #: libraries/config/messages.inc.php:56
 msgid "CHAR columns editing"
@@ -5719,7 +5719,7 @@ msgid ""
 "Use user-friendly editor for editing SQL queries (CodeMirror) with syntax "
 "highlighting and line numbers."
 msgstr ""
-"Utilise un éditeur convivial avec coloration syntaxique et numérotation des "
+"Utiliser un éditeur convivial avec coloration syntaxique et numérotation des "
 "lignes pour rédiger les requêtes SQL (CodeMirror)."
 
 #: libraries/config/messages.inc.php:62
@@ -5743,7 +5743,7 @@ msgid ""
 "Defines the minimum size for input fields generated for CHAR and VARCHAR "
 "columns."
 msgstr ""
-"Définit la taille minimale des champs de saisie générés pour les colonnes "
+"Définir la taille minimale des champs de saisie générés pour les colonnes "
 "CHAR et VARCHAR."
 
 #: libraries/config/messages.inc.php:72
@@ -5755,7 +5755,7 @@ msgid ""
 "Defines the maximum size for input fields generated for CHAR and VARCHAR "
 "columns."
 msgstr ""
-"Définit la taille maximale des champs de saisie générés pour les colonnes "
+"Définir la taille maximale des champs de saisie générés pour les colonnes "
 "CHAR et VARCHAR."
 
 #: libraries/config/messages.inc.php:77
@@ -5787,8 +5787,8 @@ msgid ""
 "Compress gzip exports on the fly without the need for much memory; if you "
 "encounter problems with created gzip files disable this feature."
 msgstr ""
-"Comprimer les exportations GZIP à la volée avec économie de mémoire ; si les "
-"fichiers GZIP produits ne sont pas conformes, désactiver cette fonction."
+"Comprimer les exportations GZip à la volée avec économie de mémoire ; si les "
+"fichiers GZip produits ne sont pas conformes, désactiver cette fonction."
 
 #: libraries/config/messages.inc.php:89
 msgid "Compress on the fly"
@@ -6488,12 +6488,12 @@ msgstr "Désactiver certains avertissements affichés par phpMyAdmin."
 #: libraries/config/messages.inc.php:349
 msgid "Enable gzip compression for import and export operations."
 msgstr ""
-"Activer la compression GZIP pour les opérations d'importation et "
+"Activer la compression GZip pour les opérations d'importation et "
 "d'exportation."
 
 #: libraries/config/messages.inc.php:352
 msgid "GZip"
-msgstr "GZIP"
+msgstr "GZip"
 
 #: libraries/config/messages.inc.php:353
 msgid "Extra parameters for iconv"
@@ -6648,9 +6648,9 @@ msgid ""
 "and will be deleted as soon as you close the browser window. This is "
 "recommended for non-trusted environments."
 msgstr ""
-"Définit pendant combien de temps (en secondes) le cookie de connexion sera "
+"Définir pendant combien de temps (en secondes) le cookie de connexion sera "
 "conservé dans le navigateur. La valeur par défaut de 0 signifie qu'il ne "
-"sera conservé que pour la session ; ceci est recommandé si l'environnement "
+"sera conservé que pour la session. Ceci est recommandé si l'environnement "
 "n'est pas digne de confiance."
 
 #: libraries/config/messages.inc.php:425
@@ -6755,8 +6755,8 @@ msgstr "Limite de mémoire"
 #: libraries/config/messages.inc.php:465
 msgid "In the navigation panel, replaces the database tree with a selector"
 msgstr ""
-"Dans le volet de navigation, remplace l'arborescence de la base de données "
-"par un sélecteur"
+"Dans le volet de navigation, remplacer l'arborescence de la base de données "
+"par un sélecteur."
 
 #: libraries/config/messages.inc.php:468
 msgid "Show databases navigation as tree"
@@ -6817,8 +6817,8 @@ msgid ""
 "Defines the minimum number of items (tables, views, routines and events) to "
 "display a filter box."
 msgstr ""
-"Définit le nombre minimum d'éléments (tables, vues, procédures et "
-"événements) nécessaires pour afficher la boîte de filtrage."
+"Définir le nombre minimum d'éléments (tables, vues, procédures et événements)"
+" nécessaires pour afficher la boîte de filtrage."
 
 #: libraries/config/messages.inc.php:496
 msgid "Minimum number of items to display the filter box"
@@ -6977,7 +6977,7 @@ msgstr "Sert à augmenter la vitesse des transferts HTTP."
 
 #: libraries/config/messages.inc.php:555
 msgid "GZip output buffering"
-msgstr "Tampon de sortie GZIP"
+msgstr "Tampon de sortie GZip"
 
 #: libraries/config/messages.inc.php:557
 msgid ""
@@ -7047,8 +7047,9 @@ msgid ""
 "(lost by window close)."
 msgstr ""
 "Activer pour un historique permanent (nécessite le stockage de "
-"configurations phpMyAdmin). Si désactivé, utilise JavaScript pour afficher "
-"un historique temporaire (sera perdu à la fermeture de la fenêtre)."
+"configurations phpMyAdmin). Si désactivé, JavaScript est utilisé pour "
+"afficher un historique temporaire (qui sera perdu à la fermeture de la "
+"fenêtre)."
 
 #: libraries/config/messages.inc.php:587
 msgid "Permanent query history"
@@ -7156,7 +7157,7 @@ msgid ""
 "Sets the effective timezone; possibly different than the one from your "
 "database server"
 msgstr ""
-"Définit le fuseau horaire effectif ; possiblement différent de celui du "
+"Définir le fuseau horaire effectif ; possiblement différent de celui du "
 "serveur de base de données"
 
 #: libraries/config/messages.inc.php:623
@@ -7348,9 +7349,9 @@ msgid ""
 "use their literal instances, i.e. use [kbd]'my\\_db'[/kbd] and not "
 "[kbd]'my_db'[/kbd]."
 msgstr ""
-"Il est possible d'utiliser ces caractères passe-partout MySQL (% et _), avec "
-"un caractère d'échappement si employés de manière littérale, par exemple "
-"[kbd]'ma\\_base'[/kbd] et non [kbd]'ma_base'[/kbd]."
+"Utiliser les caractères joker MySQL (% et _), avec un caractère "
+"d'échappement si employés de manière littérale, par exemple [kbd]'ma\\"
+"_base'[/kbd] et non [kbd]'ma_base'[/kbd]."
 
 #: libraries/config/messages.inc.php:698
 msgid "Show only listed databases"
@@ -7544,7 +7545,7 @@ msgstr "Ajouter DROP VIEW"
 #: libraries/config/messages.inc.php:773
 msgid "Defines the list of statements the auto-creation uses for new versions."
 msgstr ""
-"Définit la liste des instructions que le mécanisme d'auto-création utilise "
+"Définir la liste des instructions que le mécanisme d'auto-création utilise "
 "pour les nouvelles versions."
 
 #: libraries/config/messages.inc.php:774
@@ -7568,7 +7569,7 @@ msgid ""
 "Whether the tracking mechanism creates versions for tables and views "
 "automatically."
 msgstr ""
-"Définit si le mécanisme de suivi crée automatiquement des versions pour les "
+"Définir si le mécanisme de suivi crée automatiquement des versions pour les "
 "tables et les vues."
 
 #: libraries/config/messages.inc.php:785
@@ -7727,8 +7728,8 @@ msgid ""
 "Defines whether or not type fields should be initially displayed in edit/"
 "insert mode."
 msgstr ""
-"Définit si les champs des types de données MySQL doivent être affichés en "
-"mode modification/insertion."
+"Définir si les champs de type devraient être affichés initialement en mode "
+"modification/insertion."
 
 #: libraries/config/messages.inc.php:850
 msgid "Show field types"
@@ -7772,7 +7773,7 @@ msgstr "Afficher les informations détaillées sur le serveur MySQL"
 msgid ""
 "Defines whether SQL queries generated by phpMyAdmin should be displayed."
 msgstr ""
-"Définit si les requêtes SQL générées par phpMyAdmin devraient être affichées."
+"Définir si les requêtes SQL générées par phpMyAdmin devraient être affichées."
 
 #: libraries/config/messages.inc.php:866
 msgid "Show SQL queries"
@@ -7782,7 +7783,7 @@ msgstr "Afficher les requêtes SQL"
 msgid ""
 "Defines whether the query box should stay on-screen after its submission."
 msgstr ""
-"Définit si la boîte de requêtes devrait rester afficher après exécution."
+"Définir si la boîte de requêtes devrait rester afficher après sa soumission."
 
 #: libraries/config/messages.inc.php:870 libraries/sql_query_form.lib.php:355
 msgid "Retain query box"
@@ -7802,7 +7803,7 @@ msgstr "Afficher les statistiques"
 msgid ""
 "Mark used tables and make it possible to show databases with locked tables."
 msgstr ""
-"Marque les tables utilisées et rend possible l'affichage des bases de "
+"Marquer les tables utilisées et rendre possible l'affichage des bases de "
 "données comportant des tables verrouillées."
 
 #: libraries/config/messages.inc.php:878
@@ -7931,7 +7932,7 @@ msgstr "Vérifier la présence d'une nouvelle version"
 
 #: libraries/config/messages.inc.php:940
 msgid "Enables check for latest version on main phpMyAdmin page."
-msgstr "Active la vérification de version sur la page principale."
+msgstr "Activer la vérification de version sur la page principale."
 
 #: libraries/config/messages.inc.php:942 setup/lib/index.lib.php:116
 #: setup/lib/index.lib.php:139 setup/lib/index.lib.php:152
@@ -7983,12 +7984,12 @@ msgstr "Mot de passe du serveur mandataire"
 #: libraries/config/messages.inc.php:961
 msgid "Enable ZIP compression for import and export operations."
 msgstr ""
-"Activer la compression ZIP pour les opérations d'importation et "
+"Activer la compression Zip pour les opérations d'importation et "
 "d'exportation."
 
 #: libraries/config/messages.inc.php:964
 msgid "ZIP"
-msgstr "ZIP"
+msgstr "Zip"
 
 #: libraries/config/messages.inc.php:966
 msgid "Enter your public key for your domain reCaptcha service."
@@ -8180,7 +8181,7 @@ msgstr "Lignes"
 #: templates/server/databases/table_footer.phtml:7
 #: templates/table/structure/display_table_stats.phtml:44
 msgid "Total"
-msgstr "Total"
+msgstr "Total&nbsp;"
 
 #: libraries/controllers/server/ServerDatabasesController.php:369
 #: templates/database/structure/table_header.phtml:74
@@ -9112,7 +9113,7 @@ msgstr "Le fichier de déchargement a été enregistré sous %s."
 #: libraries/rte/rte_routines.lib.php:1466 libraries/sql.lib.php:1377
 #: tbl_get_field.php:45
 msgid "MySQL returned an empty result set (i.e. zero rows)."
-msgstr "MySQL a retourné un résultat vide (c'est-à-dire aucune ligne)."
+msgstr "MySQL a retourné un résultat vide (c'est à dire aucune ligne)."
 
 #: libraries/import.lib.php:258 libraries/sql.lib.php:1391
 msgid "[ROLLBACK occurred.]"
@@ -10872,7 +10873,7 @@ msgid ""
 "Converts Boolean values to text (default 'T' and 'F'). First option is for "
 "TRUE, second for FALSE. Nonzero=true."
 msgstr ""
-"Convertit des valeurs booléennes en texte (par défaut « T » et « F »). La "
+"Convertir les valeurs booléennes en texte (par défaut « T » et « F »). La "
 "première option remplace une valeur vraie et la seconde remplace une valeur "
 "fausse. Une valeur différente de zéro signifie vrai."
 
@@ -10887,7 +10888,7 @@ msgid ""
 "documentation for PHP's strftime() function and for \"utc\" it is done using "
 "gmdate() function."
 msgstr ""
-"Affiche une colonne TIME, TIMESTAMP, DATETIME ou une colonne numérique "
+"Afficher une colonne TIME, TIMESTAMP, DATETIME ou une colonne numérique "
 "contenant une valeur TIMESTAMP UNIX en tant que date formatée. La première "
 "option est le décalage (en heures) à ajouter (par défaut, 0). La seconde "
 "option sert à indiquer le format de date ou d'heure. La troisième option "
@@ -12459,7 +12460,7 @@ msgstr ""
 
 #: libraries/server_privileges.lib.php:2163
 msgid "Grant all privileges on wildcard name (username\\_%)."
-msgstr "Donner les privilèges passe-partout (utilisateur\\_%)."
+msgstr "Accorder tous les privilèges à un nom passe-partout (utilisateur\\_%)."
 
 #: libraries/server_privileges.lib.php:2176
 #, php-format
@@ -12507,7 +12508,7 @@ msgstr "spécifique à cette base de données"
 
 #: libraries/server_privileges.lib.php:2652
 msgid "wildcard"
-msgstr "passe-partout"
+msgstr "joker"
 
 #: libraries/server_privileges.lib.php:2658
 msgid "table-specific"
@@ -12731,7 +12732,7 @@ msgstr "Max. de connexions simultanées"
 
 #: libraries/server_status.lib.php:250
 msgid "Failed attempts"
-msgstr "Tentatives échouées"
+msgstr "Tentative(s) échouée(s)"
 
 #: libraries/server_status_advisor.lib.php:19
 msgid "Instructions"
@@ -14180,11 +14181,11 @@ msgstr "Impossible de sauvegarder la configuration"
 #: libraries/zip_extension.lib.php:27 libraries/zip_extension.lib.php:80
 #: libraries/zip_extension.lib.php:83
 msgid "Error in ZIP archive:"
-msgstr "Erreur rencontrée dans l'archive ZIP : "
+msgstr "Erreur rencontrée dans l'archive Zip :"
 
 #: libraries/zip_extension.lib.php:34
 msgid "No files found inside ZIP archive!"
-msgstr "Aucun fichier présent dans l'archive ZIP !"
+msgstr "Aucun fichier présent dans l'archive Zip !"
 
 #: navigation.php:22
 msgid "Fatal error: The navigation can only be accessed via AJAX"
@@ -14687,9 +14688,10 @@ msgid ""
 "example '\\\\xyz' or 'a\\'b')."
 msgstr ""
 "Les différentes valeurs des colonnes de type « enum » ou « set » sont à "
-"spécifier sous la forme 'a','b','c'…<br />Pour utiliser une barre oblique (« "
-"\\ ») ou une apostrophe (« ' ») dans l'une de ces valeurs, la faire précéder "
-"d'une barre oblique (par exemple « \\\\xyz » ou « a\\'b »)."
+"spécifier sous la forme 'a','b','c'…<br />Pour utiliser une barre oblique "
+"inverse (« \\ ») ou une apostrophe (« ' ») dans l'une de ces valeurs, la "
+"faire précéder d'une barre oblique inverse (par exemple « \\\\xyz » ou « a\\"
+"'b »)."
 
 #: templates/columns_definitions/table_fields_definitions.phtml:27
 msgid ""
@@ -14731,7 +14733,7 @@ msgid ""
 msgstr ""
 "Merci de saisir les valeurs des options de transformation en suivant ce "
 "format : 'a', 100, b,'c'…<br />S'il faut saisir une barre oblique inverse (« "
-"\\ ») ou une apostrophe (\"'\") parmi ces valeurs, la faire précéder d'une "
+"\\ ») ou une apostrophe (« ' ») parmi ces valeurs, la faire précéder d'une "
 "barre oblique inverse (par exemple ' \\\\xyz' ou 'a\\'b')."
 
 #: templates/columns_definitions/table_fields_definitions.phtml:107
@@ -15590,11 +15592,11 @@ msgstr "Ordre d'affichage : "
 
 #: templates/table/search/options_zoom.phtml:6
 msgid "Use this column to label each point"
-msgstr "Utiliser cette colonne pour décrire chaque point"
+msgstr "Utiliser cette colonne pour décrire chaque point :"
 
 #: templates/table/search/options_zoom.phtml:35
 msgid "Maximum rows to plot"
-msgstr "Nombre maximum de lignes de données à utiliser pour le graphique"
+msgstr "Nombre maximum de lignes de données à utiliser pour le graphique :"
 
 #: templates/table/search/replace_preview.phtml:13
 msgid "Find and replace - preview"
@@ -16526,10 +16528,10 @@ msgid ""
 "wish to increase the in-memory table limit you will have to increase the "
 "other value as well."
 msgstr ""
-"Si l'une des valeurs ont été intentionnellement modifiées : le serveur "
-"utilise la plus petite valeur des deux pour déterminer la taille maximale "
-"des tables en mémoire. Pour augmenter cette taille, il faut donc augmenter "
-"l'autre valeur."
+"Si l'une des valeurs a été intentionnellement modifiée : le serveur utilise "
+"la plus petite valeur des deux pour déterminer la taille maximale des tables "
+"en mémoire. Pour augmenter cette taille, il faut donc augmenter l'autre "
+"valeur."
 
 #: libraries/advisory_rules.txt:260
 #, php-format
@@ -17102,8 +17104,8 @@ msgstr ""
 "mémoire disponible. Si ce n'est pas le cas, vérifier soigneusement la "
 "consommation mémoire des autres services et des tables non InnoDB et régler "
 "ce paramètre en conséquence. Si sa valeur est trop grande, le système "
-"utilisera à utiliser le swap, ce qui réduit la performance. Voir aussi <a "
-"href=\"https://www.percona.com/blog/2007/11/03/choosing-"
+"commencera à utiliser le swap, ce qui réduira les performances. Voir aussi <"
+"a href=\"https://www.percona.com/blog/2007/11/03/choosing-"
 "innodb_buffer_pool_size/\">cet article</a>"
 
 #: libraries/advisory_rules.txt:437
