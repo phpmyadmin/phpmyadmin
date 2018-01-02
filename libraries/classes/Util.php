@@ -1546,7 +1546,7 @@ class Util
 
         $ret = strftime($date, $timestamp);
         // Some OSes such as Win8.1 Traditional Chinese version did not produce UTF-8
-        // output here. See https://sourceforge.net/p/phpmyadmin/bugs/4207/
+        // output here. See https://github.com/phpmyadmin/phpmyadmin/issues/10598
         if (mb_detect_encoding($ret, 'UTF-8', true) != 'UTF-8') {
             $ret = date('Y-m-d H:i:s', $timestamp);
         }

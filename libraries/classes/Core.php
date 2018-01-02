@@ -800,8 +800,6 @@ class Core
             /* php.net domains */
             'php.net',
             'secure.php.net',
-            /* sourceforge.net domain */
-            'sourceforge.net',
             /* Github domains*/
             'github.com','www.github.com',
             /* Percona domains */

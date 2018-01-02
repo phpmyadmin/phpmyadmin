@@ -554,7 +554,7 @@ $cfg['Servers'][$i]['AllowDeny']['rules'] = array();
 /**
  * Disable use of INFORMATION_SCHEMA.
  *
- * @see https://sourceforge.net/p/phpmyadmin/bugs/2606/
+ * @see https://github.com/phpmyadmin/phpmyadmin/issues/8970
  * @see https://bugs.mysql.com/19588
  * @global boolean $cfg['Servers'][$i]['DisableIS']
  */
