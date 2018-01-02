@@ -456,7 +456,7 @@ class DbiMysqli implements DbiExtension
         // MySQL returns MYSQLI_TYPE_STRING for CHAR
         // and MYSQLI_TYPE_CHAR === MYSQLI_TYPE_TINY
         // so this would override TINYINT and mark all TINYINT as string
-        // https://sourceforge.net/p/phpmyadmin/bugs/2205/
+        // see https://github.com/phpmyadmin/phpmyadmin/issues/8569
         //$typeAr[MYSQLI_TYPE_CHAR]        = 'string';
         $typeAr[MYSQLI_TYPE_GEOMETRY]    = 'geometry';
         $typeAr[MYSQLI_TYPE_BIT]         = 'bit';
