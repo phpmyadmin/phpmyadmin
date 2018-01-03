@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.7.6-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2017-11-02 14:03+0100\n"
-"PO-Revision-Date: 2017-11-10 17:48+0000\n"
-"Last-Translator: Vinicius Gonçalves <viniciusgoncalves21@gmail.com>\n"
+"PO-Revision-Date: 2018-01-08 12:50+0000\n"
+"Last-Translator: Leonardo Mendes Miraglia <Leo.mi.me@gmail.com>\n"
 "Language-Team: Portuguese "
 "<https://hosted.weblate.org/projects/phpmyadmin/4-7/pt/>\n"
 "Language: pt\n"
@@ -13,7 +13,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 2.18-dev\n"
+"X-Generator: Weblate 2.19-dev\n"
 
 #: ajax.php:16 ajax.php:33 export.php:192 schema_export.php:64
 msgid "Bad type!"
@@ -867,7 +867,7 @@ msgstr "Apagar dados de tracking para estas versões?"
 
 #: js/messages.php:60
 msgid "Delete entry from tracking report?"
-msgstr "Apagar entrada do relatório de rastreamento"
+msgstr "Apagar entrada do relatório de rastreamento?"
 
 #: js/messages.php:61
 msgid "Deleting tracking data"
