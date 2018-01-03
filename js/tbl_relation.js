@@ -22,7 +22,7 @@ function setDropdownValues ($dropdown, values, selectedValue) {
     // add an empty string to the beginning for empty selection
     values.unshift('');
     $.each(values, function () {
-        optionsAsString += '<option value=\'' + escapeHtml(this) + '\'' + (selectedValue === this ? ' selected=\'selected\'' : '') + '>' + escapeHtml(this) + '</option>';
+        optionsAsString += '<option value=\'' + escapeHtml(this) + '\'' + (selectedValue === escapeHtml(this) ? ' selected=\'selected\'' : '') + '>' + escapeHtml(this) + '</option>';
     });
     $dropdown.append($(optionsAsString));
 }
