@@ -7,16 +7,16 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.7.6-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2017-11-02 14:03+0100\n"
-"PO-Revision-Date: 2015-10-15 11:05+0200\n"
-"Last-Translator: Michal Čihař <michal@cihar.com>\n"
-"Language-Team: Urdu <https://hosted.weblate.org/projects/phpmyadmin/master/"
-"ur/>\n"
+"PO-Revision-Date: 2018-01-08 12:51+0000\n"
+"Last-Translator: Saqib Razzaq <saqi.cb@gmail.com>\n"
+"Language-Team: Urdu <https://hosted.weblate.org/projects/phpmyadmin/4-7/ur/>"
+"\n"
 "Language: ur\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Weblate 2.5-dev\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Weblate 2.19-dev\n"
 
 #: ajax.php:16 ajax.php:33 export.php:192 schema_export.php:64
 msgid "Bad type!"
@@ -37,13 +37,11 @@ msgstr ""
 
 #: db_central_columns.php:108
 msgid "The central list of columns for the current database is empty."
-msgstr ""
+msgstr "موجودہ ڈیٹا بیس کے لئے کالموں کی مرکزی فہرست خالی ہے."
 
 #: db_central_columns.php:133
-#, fuzzy
-#| msgid "Click to select"
 msgid "Click to sort."
-msgstr "انتخاب کے لیے کلک کریں"
+msgstr "ترتیب کے لیے کلک کریں."
 
 #: db_central_columns.php:150
 #, fuzzy, php-format
