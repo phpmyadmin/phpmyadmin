@@ -1,5 +1,5 @@
 <form method="post" action="tbl_structure.php" name="fieldsForm" id="fieldsForm"
-    class="ajax{{ hide_structure_actions }}">
+    class="ajax{{ hide_structure_actions ? ' HideStructureActions' }}">
     {{ Url_getHiddenInputs(db, table) }}
     <input type="hidden" name="table_type" value=
         {%- if db_is_system_schema -%}
@@ -107,6 +107,7 @@
                     'is_in_central_columns': row['Field'] in central_list ? true : false,
                     'central_columns_work': central_columns_work,
                     'table': table,
+                    'hide_structure_actions': hide_structure_actions,
                     'mysql_int_version': mysql_int_version
                 } only %}
             {% endif %}
