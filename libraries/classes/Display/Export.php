@@ -46,28 +46,12 @@ class Export
     /**
      * Prints Html For Export Selection Options
      *
-     * @param String $tmp_select Tmp selected method of export
+     * @param string $tmpSelect Tmp selected method of export
      *
      * @return string
      */
-    public static function getHtmlForExportSelectOptions($tmp_select = '')
+    public static function getHtmlForExportSelectOptions($tmpSelect = '')
     {
-        $multi_values  = '<div>';
-        $multi_values .= '<a href="#"';
-        $multi_values .= ' onclick="setSelectOptions'
-            . '(\'dump\', \'db_select[]\', true); return false;">';
-        $multi_values .= __('Select all');
-        $multi_values .= '</a>';
-        $multi_values .= ' / ';
-        $multi_values .= '<a href="#"';
-        $multi_values .= ' onclick="setSelectOptions'
-            . '(\'dump\', \'db_select[]\', false); return false;">';
-        $multi_values .= __('Unselect all') . '</a><br />';
-
-        $multi_values .= '<select name="db_select[]" '
-            . 'id="db_select" size="10" multiple="multiple">';
-        $multi_values .= "\n";
-
         // Check if the selected databases are defined in $_GET
         // (from clicking Back button on export.php)
         if (isset($_GET['db_select'])) {
@@ -75,72 +59,56 @@ class Export
             $_GET['db_select'] = explode(",", $_GET['db_select']);
         }
 
-        foreach ($GLOBALS['dblist']->databases as $current_db) {
-            if ($GLOBALS['dbi']->isSystemSchema($current_db, true)) {
+        $databases = [];
+        foreach ($GLOBALS['dblist']->databases as $currentDb) {
+            if ($GLOBALS['dbi']->isSystemSchema($currentDb, true)) {
                 continue;
             }
+            $isSelected = false;
             if (isset($_GET['db_select'])) {
-                if (in_array($current_db, $_GET['db_select'])) {
-                    $is_selected = ' selected="selected"';
-                } else {
-                    $is_selected = '';
+                if (in_array($currentDb, $_GET['db_select'])) {
+                    $isSelected = true;
                 }
-            } elseif (!empty($tmp_select)) {
+            } elseif (!empty($tmpSelect)) {
                 if (mb_strpos(
-                    ' ' . $tmp_select,
-                    '|' . $current_db . '|'
+                    ' ' . $tmpSelect,
+                    '|' . $currentDb . '|'
                 )) {
-                    $is_selected = ' selected="selected"';
-                } else {
-                    $is_selected = '';
+                    $isSelected = true;
                 }
             } else {
-                $is_selected = ' selected="selected"';
+                $isSelected = true;
             }
-            $current_db   = htmlspecialchars($current_db);
-            $multi_values .= '                <option value="' . $current_db . '"'
-                . $is_selected . '>' . $current_db . '</option>' . "\n";
-        } // end while
-        $multi_values .= "\n";
-        $multi_values .= '</select></div>';
+            $databases[] = [
+                'name' => $currentDb,
+                'is_selected' => $isSelected,
+            ];
+        }
 
-        return $multi_values;
+        return Template::get('display/export/select_options')->render([
+            'databases' => $databases,
+        ]);
     }
 
     /**
      * Prints Html For Export Hidden Input
      *
-     * @param String $export_type  Selected Export Type
-     * @param String $db           Selected DB
-     * @param String $table        Selected Table
-     * @param String $single_table Single Table
-     * @param String $sql_query    Sql Query
+     * @param string $exportType  Selected Export Type
+     * @param string $db          Selected DB
+     * @param string $table       Selected Table
+     * @param string $singleTable Single Table
+     * @param string $sqlQuery    SQL Query
      *
      * @return string
      */
     public static function getHtmlForHiddenInput(
-        $export_type, $db, $table, $single_table, $sql_query
+        $exportType,
+        $db,
+        $table,
+        $singleTable,
+        $sqlQuery
     ) {
         global $cfg;
-        $html = "";
-        if ($export_type == 'server') {
-            $html .= Url::getHiddenInputs('', '', 1);
-        } elseif ($export_type == 'database') {
-            $html .= Url::getHiddenInputs($db, '', 1);
-        } else {
-            $html .= Url::getHiddenInputs($db, $table, 1);
-        }
-
-        // just to keep this value for possible next display of this form after saving
-        // on server
-        if (!empty($single_table)) {
-            $html .= '<input type="hidden" name="single_table" value="TRUE" />'
-                . "\n";
-        }
-
-        $html .= '<input type="hidden" name="export_type" value="'
-            . $export_type . '" />';
-        $html .= "\n";
 
         // If the export method was not set, the default is quick
         if (isset($_GET['export_method'])) {
@@ -148,104 +116,52 @@ class Export
         } elseif (! isset($cfg['Export']['method'])) {
             $cfg['Export']['method'] = 'quick';
         }
-        // The export method (quick, custom or custom-no-form)
-        $html .= '<input type="hidden" name="export_method" value="'
-            . htmlspecialchars($cfg['Export']['method']) . '" />';
 
-        if (! empty($sql_query)) {
-            $html .= '<input type="hidden" name="sql_query" value="'
-                . htmlspecialchars($sql_query) . '" />' . "\n";
-        } elseif (isset($_GET['sql_query'])) {
-            $html .= '<input type="hidden" name="sql_query" value="'
-                . htmlspecialchars($_GET['sql_query']) . '" />' . "\n";
+        if (empty($sqlQuery) && isset($_GET['sql_query'])) {
+            $sqlQuery = $_GET['sql_query'];
         }
 
-        $html .= '<input type="hidden" name="template_id"' . ' value="'
-            . (isset($_GET['template_id'])
-                ?  htmlspecialchars($_GET['template_id'])
-                : '')
-            . '" />';
-
-        return $html;
+        return Template::get('display/export/hidden_inputs')->render([
+            'db' => $db,
+            'table' => $table,
+            'export_type' => $exportType,
+            'export_method' => $cfg['Export']['method'],
+            'single_table' => $singleTable,
+            'sql_query' => $sqlQuery,
+            'template_id' => isset($_GET['template_id']) ? $_GET['template_id'] : '',
+        ]);
     }
 
     /**
      * Prints Html For Export Options Header
      *
-     * @param String $export_type Selected Export Type
-     * @param String $db          Selected DB
-     * @param String $table       Selected Table
+     * @param string $exportType Selected Export Type
+     * @param string $db         Selected DB
+     * @param string $table      Selected Table
      *
-     * @return string
+     * @return string HTML
      */
-    public static function getHtmlForExportOptionHeader($export_type, $db, $table)
+    public static function getHtmlForExportOptionHeader($exportType, $db, $table)
     {
-        $html  = '<div class="exportoptions" id="header">';
-        $html .= '<h2>';
-        $html .= Util::getImage('b_export', __('Export'));
-        if ($export_type == 'server') {
-            $html .= __('Exporting databases from the current server');
-        } elseif ($export_type == 'database') {
-            $html .= sprintf(
-                __('Exporting tables from "%s" database'),
-                htmlspecialchars($db)
-            );
-        } else {
-            $html .= sprintf(
-                __('Exporting rows from "%s" table'),
-                htmlspecialchars($table)
-            );
-        }
-        $html .= '</h2>';
-        $html .= '</div>';
-
-        return $html;
+        return Template::get('display/export/option_header')->render([
+            'export_type' => $exportType,
+            'db' => $db,
+            'table' => $table,
+        ]);
     }
 
     /**
      * Returns HTML for export template operations
      *
-     * @param string $export_type export type - server, database, or table
+     * @param string $exportType export type - server, database, or table
      *
      * @return string HTML for export template operations
      */
-    public static function getHtmlForExportTemplateLoading($export_type)
+    public static function getHtmlForExportTemplateLoading($exportType)
     {
-        $html  = '<div class="exportoptions" id="export_templates">';
-        $html .= '<h3>' . __('Export templates:') . '</h3>';
-
-        $html .= '<div class="floatleft">';
-        $html .= '<form method="post" action="tbl_export.php" id="newTemplateForm"'
-            . ' class="ajax">';
-        $html .= '<h4>' . __('New template:') . '</h4>';
-        $html .= '<input type="text" name="templateName" id="templateName" '
-            . 'maxlength="64"' . 'required="required" '
-            . 'placeholder="' . __('Template name') . '" />';
-        $html .= '<input type="submit" name="createTemplate" id="createTemplate" '
-            . 'value="' . __('Create') . '" />';
-        $html .= '</form>';
-        $html .= '</div>';
-
-        $html .= '<div class="floatleft" style="margin-left: 50px;">';
-        $html .= '<form method="post" action="tbl_export.php"'
-            . ' id="existingTemplatesForm" class="ajax">';
-        $html .= '<h4>' . __('Existing templates:') . '</h4>';
-        $html .= '<label for="template">' . __('Template:') . '</label>';
-        $html .= '<select required="required" name="template" id="template">';
-        $html .= self::getOptionsForExportTemplates($export_type);
-        $html .= '</select>';
-        $html .= '<input type="submit" name="updateTemplate" '
-            . 'id="updateTemplate" value="' . __('Update') . '" />';
-        $html .= '<input type="submit" name="deleteTemplate" '
-            . 'id="deleteTemplate" value="' . __('Delete') . '" />';
-        $html .= '</form>';
-        $html .= '</div>';
-
-        $html .= '<div class="clearfloat"></div>';
-
-        $html .= '</div>';
-
-        return $html;
+        return Template::get('display/export/template_loading')->render([
+            'options' => self::getOptionsForExportTemplates($exportType),
+        ]);
     }
 
     /**

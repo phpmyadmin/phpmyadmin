@@ -1,0 +1,19 @@
+<div>
+    <p>
+        <a href="#" onclick="setSelectOptions('dump', 'db_select[]', true); return false;">
+            {% trans 'Select all' %}
+        </a>
+        /
+        <a href="#" onclick="setSelectOptions('dump', 'db_select[]', false); return false;">
+            {% trans 'Unselect all' %}
+        </a>
+    </p>
+
+    <select name="db_select[]" id="db_select" size="10" multiple>
+        {% for database in databases %}
+            <option value="{{ database.name }}"{{ database.is_selected ? ' selected' }}>
+                {{ database.name }}
+            </option>
+        {% endfor %}
+    </select>
+</div>
