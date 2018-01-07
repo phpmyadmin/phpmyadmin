@@ -46,28 +46,12 @@ class Export
     /**
      * Prints Html For Export Selection Options
      *
-     * @param String $tmp_select Tmp selected method of export
+     * @param string $tmpSelect Tmp selected method of export
      *
      * @return string
      */
-    public static function getHtmlForExportSelectOptions($tmp_select = '')
+    public static function getHtmlForExportSelectOptions($tmpSelect = '')
     {
-        $multi_values  = '<div>';
-        $multi_values .= '<a href="#"';
-        $multi_values .= ' onclick="setSelectOptions'
-            . '(\'dump\', \'db_select[]\', true); return false;">';
-        $multi_values .= __('Select all');
-        $multi_values .= '</a>';
-        $multi_values .= ' / ';
-        $multi_values .= '<a href="#"';
-        $multi_values .= ' onclick="setSelectOptions'
-            . '(\'dump\', \'db_select[]\', false); return false;">';
-        $multi_values .= __('Unselect all') . '</a><br />';
-
-        $multi_values .= '<select name="db_select[]" '
-            . 'id="db_select" size="10" multiple="multiple">';
-        $multi_values .= "\n";
-
         // Check if the selected databases are defined in $_GET
         // (from clicking Back button on export.php)
         if (isset($_GET['db_select'])) {
@@ -75,36 +59,35 @@ class Export
             $_GET['db_select'] = explode(",", $_GET['db_select']);
         }
 
-        foreach ($GLOBALS['dblist']->databases as $current_db) {
-            if ($GLOBALS['dbi']->isSystemSchema($current_db, true)) {
+        $databases = [];
+        foreach ($GLOBALS['dblist']->databases as $currentDb) {
+            if ($GLOBALS['dbi']->isSystemSchema($currentDb, true)) {
                 continue;
             }
+            $isSelected = false;
             if (isset($_GET['db_select'])) {
-                if (in_array($current_db, $_GET['db_select'])) {
-                    $is_selected = ' selected="selected"';
-                } else {
-                    $is_selected = '';
+                if (in_array($currentDb, $_GET['db_select'])) {
+                    $isSelected = true;
                 }
-            } elseif (!empty($tmp_select)) {
+            } elseif (!empty($tmpSelect)) {
                 if (mb_strpos(
-                    ' ' . $tmp_select,
-                    '|' . $current_db . '|'
+                    ' ' . $tmpSelect,
+                    '|' . $currentDb . '|'
                 )) {
-                    $is_selected = ' selected="selected"';
-                } else {
-                    $is_selected = '';
+                    $isSelected = true;
                 }
             } else {
-                $is_selected = ' selected="selected"';
+                $isSelected = true;
             }
-            $current_db   = htmlspecialchars($current_db);
-            $multi_values .= '                <option value="' . $current_db . '"'
-                . $is_selected . '>' . $current_db . '</option>' . "\n";
-        } // end while
-        $multi_values .= "\n";
-        $multi_values .= '</select></div>';
+            $databases[] = [
+                'name' => $currentDb,
+                'is_selected' => $isSelected,
+            ];
+        }
 
-        return $multi_values;
+        return Template::get('display/export/select_options')->render([
+            'databases' => $databases,
+        ]);
     }
 
     /**
