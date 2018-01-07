@@ -135,34 +135,19 @@ class Export
     /**
      * Prints Html For Export Options Header
      *
-     * @param String $export_type Selected Export Type
-     * @param String $db          Selected DB
-     * @param String $table       Selected Table
+     * @param string $exportType Selected Export Type
+     * @param string $db         Selected DB
+     * @param string $table      Selected Table
      *
-     * @return string
+     * @return string HTML
      */
-    public static function getHtmlForExportOptionHeader($export_type, $db, $table)
+    public static function getHtmlForExportOptionHeader($exportType, $db, $table)
     {
-        $html  = '<div class="exportoptions" id="header">';
-        $html .= '<h2>';
-        $html .= Util::getImage('b_export', __('Export'));
-        if ($export_type == 'server') {
-            $html .= __('Exporting databases from the current server');
-        } elseif ($export_type == 'database') {
-            $html .= sprintf(
-                __('Exporting tables from "%s" database'),
-                htmlspecialchars($db)
-            );
-        } else {
-            $html .= sprintf(
-                __('Exporting rows from "%s" table'),
-                htmlspecialchars($table)
-            );
-        }
-        $html .= '</h2>';
-        $html .= '</div>';
-
-        return $html;
+        return Template::get('display/export/option_header')->render([
+            'export_type' => $exportType,
+            'db' => $db,
+            'table' => $table,
+        ]);
     }
 
     /**
