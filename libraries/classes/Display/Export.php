@@ -153,47 +153,15 @@ class Export
     /**
      * Returns HTML for export template operations
      *
-     * @param string $export_type export type - server, database, or table
+     * @param string $exportType export type - server, database, or table
      *
      * @return string HTML for export template operations
      */
-    public static function getHtmlForExportTemplateLoading($export_type)
+    public static function getHtmlForExportTemplateLoading($exportType)
     {
-        $html  = '<div class="exportoptions" id="export_templates">';
-        $html .= '<h3>' . __('Export templates:') . '</h3>';
-
-        $html .= '<div class="floatleft">';
-        $html .= '<form method="post" action="tbl_export.php" id="newTemplateForm"'
-            . ' class="ajax">';
-        $html .= '<h4>' . __('New template:') . '</h4>';
-        $html .= '<input type="text" name="templateName" id="templateName" '
-            . 'maxlength="64"' . 'required="required" '
-            . 'placeholder="' . __('Template name') . '" />';
-        $html .= '<input type="submit" name="createTemplate" id="createTemplate" '
-            . 'value="' . __('Create') . '" />';
-        $html .= '</form>';
-        $html .= '</div>';
-
-        $html .= '<div class="floatleft" style="margin-left: 50px;">';
-        $html .= '<form method="post" action="tbl_export.php"'
-            . ' id="existingTemplatesForm" class="ajax">';
-        $html .= '<h4>' . __('Existing templates:') . '</h4>';
-        $html .= '<label for="template">' . __('Template:') . '</label>';
-        $html .= '<select required="required" name="template" id="template">';
-        $html .= self::getOptionsForExportTemplates($export_type);
-        $html .= '</select>';
-        $html .= '<input type="submit" name="updateTemplate" '
-            . 'id="updateTemplate" value="' . __('Update') . '" />';
-        $html .= '<input type="submit" name="deleteTemplate" '
-            . 'id="deleteTemplate" value="' . __('Delete') . '" />';
-        $html .= '</form>';
-        $html .= '</div>';
-
-        $html .= '<div class="clearfloat"></div>';
-
-        $html .= '</div>';
-
-        return $html;
+        return Template::get('display/export/template_loading')->render([
+            'options' => self::getOptionsForExportTemplates($exportType),
+        ]);
     }
 
     /**
