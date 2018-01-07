@@ -1,0 +1,23 @@
+{% if export_type == 'server' %}
+    {{ Url_getHiddenInputs('', '', 1) }}
+{% elseif export_type == 'database' %}
+    {{ Url_getHiddenInputs(db, '', 1) }}
+{% else %}
+    {{ Url_getHiddenInputs(db, table, 1) }}
+{% endif %}
+
+{# Just to keep this value for possible next display of this form after saving on server #}
+{% if single_table is not empty %}
+    <input type="hidden" name="single_table" value="TRUE">
+{% endif %}
+
+<input type="hidden" name="export_type" value="{{ export_type }}">
+
+{# The export method (quick, custom or custom-no-form) #}
+<input type="hidden" name="export_method" value="{{ export_method }}">
+
+{% if sql_query is not empty %}
+    <input type="hidden" name="sql_query" value="{{ sql_query }}">
+{% endif %}
+
+<input type="hidden" name="template_id" value="{{ template_id }}">

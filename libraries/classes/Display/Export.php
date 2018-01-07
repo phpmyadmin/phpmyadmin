@@ -93,37 +93,22 @@ class Export
     /**
      * Prints Html For Export Hidden Input
      *
-     * @param String $export_type  Selected Export Type
-     * @param String $db           Selected DB
-     * @param String $table        Selected Table
-     * @param String $single_table Single Table
-     * @param String $sql_query    Sql Query
+     * @param string $exportType  Selected Export Type
+     * @param string $db          Selected DB
+     * @param string $table       Selected Table
+     * @param string $singleTable Single Table
+     * @param string $sqlQuery    SQL Query
      *
      * @return string
      */
     public static function getHtmlForHiddenInput(
-        $export_type, $db, $table, $single_table, $sql_query
+        $exportType,
+        $db,
+        $table,
+        $singleTable,
+        $sqlQuery
     ) {
         global $cfg;
-        $html = "";
-        if ($export_type == 'server') {
-            $html .= Url::getHiddenInputs('', '', 1);
-        } elseif ($export_type == 'database') {
-            $html .= Url::getHiddenInputs($db, '', 1);
-        } else {
-            $html .= Url::getHiddenInputs($db, $table, 1);
-        }
-
-        // just to keep this value for possible next display of this form after saving
-        // on server
-        if (!empty($single_table)) {
-            $html .= '<input type="hidden" name="single_table" value="TRUE" />'
-                . "\n";
-        }
-
-        $html .= '<input type="hidden" name="export_type" value="'
-            . $export_type . '" />';
-        $html .= "\n";
 
         // If the export method was not set, the default is quick
         if (isset($_GET['export_method'])) {
@@ -131,25 +116,20 @@ class Export
         } elseif (! isset($cfg['Export']['method'])) {
             $cfg['Export']['method'] = 'quick';
         }
-        // The export method (quick, custom or custom-no-form)
-        $html .= '<input type="hidden" name="export_method" value="'
-            . htmlspecialchars($cfg['Export']['method']) . '" />';
 
-        if (! empty($sql_query)) {
-            $html .= '<input type="hidden" name="sql_query" value="'
-                . htmlspecialchars($sql_query) . '" />' . "\n";
-        } elseif (isset($_GET['sql_query'])) {
-            $html .= '<input type="hidden" name="sql_query" value="'
-                . htmlspecialchars($_GET['sql_query']) . '" />' . "\n";
+        if (empty($sqlQuery) && isset($_GET['sql_query'])) {
+            $sqlQuery = $_GET['sql_query'];
         }
 
-        $html .= '<input type="hidden" name="template_id"' . ' value="'
-            . (isset($_GET['template_id'])
-                ?  htmlspecialchars($_GET['template_id'])
-                : '')
-            . '" />';
-
-        return $html;
+        return Template::get('display/export/hidden_inputs')->render([
+            'db' => $db,
+            'table' => $table,
+            'export_type' => $exportType,
+            'export_method' => $cfg['Export']['method'],
+            'single_table' => $singleTable,
+            'sql_query' => $sqlQuery,
+            'template_id' => isset($_GET['template_id']) ? $_GET['template_id'] : '',
+        ]);
     }
 
     /**
