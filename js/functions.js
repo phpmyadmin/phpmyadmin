@@ -4980,7 +4980,7 @@ AJAX.registerOnload('functions.js', function(){
 jQuery.fn.getPostData = function() {
     var dataPost = this.attr('data-post');
     // Strip possible leading ?
-    if (dataPost.startsWith('?')) {
+    if (dataPost !== undefined && dataPost.startsWith('?')) {
         dataPost = dataPost.substr(1);
     }
     return dataPost;
