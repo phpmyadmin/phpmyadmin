@@ -370,7 +370,7 @@ git worktree prune
 
 # Signing of files with default GPG key
 echo "* Signing files"
-for file in *.gz *.zip *.xz ; do
+for file in phpMyAdmin-$version-*.gz phpMyAdmin-$version-*.zip phpMyAdmin-$version-*.xz ; do
     if [ $do_sign -eq 1 ] ; then
         gpg --detach-sign --armor $file
     fi
