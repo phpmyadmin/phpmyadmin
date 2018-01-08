@@ -1420,7 +1420,7 @@ class DatabaseInterface
                 );
                 $this->query(
                     "SET collation_connection = '"
-                    . $this->escapeString($collation_connection, $link)
+                    . $this->escapeString($default_collation, $link)
                     . "';",
                     $link,
                     self::QUERY_STORE
