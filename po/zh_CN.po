@@ -1,11 +1,10 @@
-#
 msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 4.7.6-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2017-11-02 14:03+0100\n"
-"PO-Revision-Date: 2018-01-08 12:31+0000\n"
-"Last-Translator: zhangmiao <myzhm@163.com>\n"
+"PO-Revision-Date: 2018-01-08 12:34+0000\n"
+"Last-Translator: 杨一郎 <i@tetsai.com>\n"
 "Language-Team: Chinese (Simplified) "
 "<https://hosted.weblate.org/projects/phpmyadmin/4-7/zh_Hans/>\n"
 "Language: zh_CN\n"
@@ -1477,15 +1476,11 @@ msgid "Database"
 msgstr "数据库"
 
 #: js/messages.php:299 libraries/display_export.lib.php:915
-#, fuzzy
-#| msgid "Table"
 msgctxt "Alias"
 msgid "Table"
 msgstr "表"
 
 #: js/messages.php:300 libraries/display_export.lib.php:926
-#, fuzzy
-#| msgid "Column"
 msgctxt "Alias"
 msgid "Column"
 msgstr "字段"
@@ -1670,7 +1665,7 @@ msgstr "错误信息：%s"
 msgid ""
 "It seems that the connection to server has been lost. Please check your "
 "network connectivity and server status."
-msgstr ""
+msgstr "与服务器的连接断开，请检查网络与服务器的运行状态"
 
 #: js/messages.php:372
 #: libraries/controllers/server/ServerDatabasesController.php:194
@@ -1768,7 +1763,7 @@ msgstr "导出"
 #: js/messages.php:403
 #, fuzzy
 msgid "No routine is exportable. Required privileges may be lacking."
-msgstr "权限不足，无法输出routine"
+msgstr "无法输出，请尝试使用高权限账户"
 
 #: js/messages.php:406 libraries/rte/rte_routines.lib.php:747
 msgid "ENUM/SET editor"
@@ -2939,15 +2934,11 @@ msgid "Unknown"
 msgstr "未知"
 
 #: libraries/Charsets.php:258
-#, fuzzy
-#| msgid "Binary"
 msgctxt "Collation"
 msgid "Binary"
 msgstr "二进制"
 
 #: libraries/Charsets.php:270 libraries/Charsets.php:500
-#, fuzzy
-#| msgid "Unicode"
 msgctxt "Collation"
 msgid "Unicode"
 msgstr "Unicode"
@@ -2974,8 +2965,6 @@ msgid "Russian"
 msgstr "俄语"
 
 #: libraries/Charsets.php:297
-#, fuzzy
-#| msgid "Simplified Chinese"
 msgctxt "Collation"
 msgid "Simplified Chinese"
 msgstr "简体中文"
@@ -3260,15 +3249,11 @@ msgid "Vietnamese"
 msgstr "越南语"
 
 #: libraries/Charsets.php:563
-#, fuzzy
-#| msgid "case-insensitive"
 msgctxt "Collation variant"
 msgid "case-insensitive"
 msgstr "不区分大小写"
 
 #: libraries/Charsets.php:566
-#, fuzzy
-#| msgid "case-sensitive"
 msgctxt "Collation variant"
 msgid "case-sensitive"
 msgstr "区分大小写"
@@ -5567,16 +5552,10 @@ msgid "CHAR columns editing"
 msgstr "编辑 CHAR 类型字段"
 
 #: libraries/config/messages.inc.php:58
-#, fuzzy
-#| msgid ""
-#| "Use user-friendly editor for editing SQL queries ([a@https://codemirror."
-#| "net/]CodeMirror[/a]) with syntax highlighting and line numbers."
 msgid ""
 "Use user-friendly editor for editing SQL queries (CodeMirror) with syntax "
 "highlighting and line numbers."
-msgstr ""
-"使用带有语法高亮及行号显示的人性化编辑器来编辑 SQL 语句（[a@https://"
-"codemirror.net/]CodeMirror[/a]）。"
+msgstr "启用编辑器行号与代码高亮"
 
 #: libraries/config/messages.inc.php:62
 msgid "Enable CodeMirror"
@@ -6313,8 +6292,7 @@ msgstr "禁止部分 phpMyAdmin 发出的警告。"
 #| "Enable [a@https://en.wikipedia.org/wiki/Gzip]gzip[/a] compression for "
 #| "import and export operations."
 msgid "Enable gzip compression for import and export operations."
-msgstr ""
-"允许在导入和导出时使用 [a@https://zh.wikipedia.org/wiki/Gzip]gzip[/a] 压缩。"
+msgstr "启用导出文件gzip压缩"
 
 #: libraries/config/messages.inc.php:352
 msgid "GZip"
@@ -7405,7 +7383,7 @@ msgstr "服务器名称"
 #, fuzzy
 #| msgid "Whether a user should be displayed a \"show all (rows)\" button"
 msgid "Whether a user should be displayed a \"show all (rows)\" button."
-msgstr "设置是否给用户显示一个 \"显示所有 (记录)\" 的按钮."
+msgstr "是否使用户可以选择\"是否显示所有行\""
 
 #: libraries/config/messages.inc.php:818
 msgid "Allow to display all the rows"
@@ -7463,14 +7441,10 @@ msgid "Show last check timestamp"
 msgstr "显示最近检查时间"
 
 #: libraries/config/messages.inc.php:843
-#, fuzzy
-#| msgid "Show or hide a column displaying the comments for all tables."
 msgid "Show or hide a column displaying the charset for all tables."
 msgstr "显示或隐藏所有表的备注列。"
 
 #: libraries/config/messages.inc.php:845
-#, fuzzy
-#| msgid "Show table comments"
 msgid "Show table charset"
 msgstr "显示表备注"
 
@@ -7715,15 +7689,13 @@ msgstr "代理密码"
 #| "Enable [a@https://en.wikipedia.org/wiki/Gzip]gzip[/a] compression for "
 #| "import and export operations."
 msgid "Enable ZIP compression for import and export operations."
-msgstr ""
-"允许在导入和导出时使用 [a@https://zh.wikipedia.org/wiki/Gzip]gzip[/a] 压缩。"
+msgstr "启用文件zip压缩"
 
 #: libraries/config/messages.inc.php:964
 msgid "ZIP"
 msgstr "ZIP"
 
 #: libraries/config/messages.inc.php:966
-#, fuzzy
 msgid "Enter your public key for your domain reCaptcha service."
 msgstr "输入主reCaptcha服务的公钥。"
 
@@ -7732,7 +7704,6 @@ msgid "Public key for reCaptcha"
 msgstr "reCaptcha的公共密匙"
 
 #: libraries/config/messages.inc.php:970
-#, fuzzy
 msgid "Enter your private key for your domain reCaptcha service."
 msgstr "输入您的域的reCaptcha服务私钥。"
 
@@ -7788,8 +7759,6 @@ msgstr "CSV 使用 LOAD DATA"
 #: libraries/config/setup.forms.php:279 libraries/config/setup.forms.php:377
 #: libraries/config/user_preferences.forms.php:183
 #: libraries/config/user_preferences.forms.php:280
-#, fuzzy
-#| msgid "Open Document Spreadsheet"
 msgid "OpenDocument Spreadsheet"
 msgstr "OpenOffice 表格"
 
@@ -8011,10 +7980,9 @@ msgid "The columns have been moved successfully."
 msgstr "已成功移动字段。"
 
 #: libraries/controllers/table/TableStructureController.php:501
-#, fuzzy, php-format
-#| msgid "Failed to get real row count."
+#, php-format
 msgid "Failed to get description of column %s!"
-msgstr "获取实际行数失败。"
+msgstr "读取表 %s 的时候出现错误！"
 
 #: libraries/controllers/table/TableStructureController.php:739
 #: libraries/controllers/table/TableStructureController.php:1026
@@ -8077,11 +8045,10 @@ msgid "See %sour documentation%s for more information."
 msgstr "详情请查看%s我们的文档%s。"
 
 #: libraries/database_interface.inc.php:53
-#, fuzzy
 msgid ""
 "You are using the mysql extension which is deprecated in phpMyAdmin. Please "
 "consider installing the mysqli extension."
-msgstr "phpMyAdmin不推荐使用mysql扩展。请考虑使用mysqli扩展代替。"
+msgstr "您正在使用mysql扩展，不推荐使用mysql扩展。请考虑使用mysqli扩展代替。"
 
 #: libraries/db_designer.lib.php:119
 msgid "Could not load schema plugins, please check your installation!"
@@ -8907,7 +8874,7 @@ msgstr "以新行插入"
 
 #: libraries/insert_edit.lib.php:1533
 msgid "Insert as new row and ignore errors"
-msgstr "以新行插入 (忽略错误)"
+msgstr "(忽略错误)以新行插入 "
 
 #: libraries/insert_edit.lib.php:1536
 msgid "Show insert query"
@@ -9097,10 +9064,9 @@ msgid "Invalid class name \"%1$s\", using default of \"Node\""
 msgstr "无效的类名 \"%1$s\"， 使用默认值 \"Node\""
 
 #: libraries/navigation/NodeFactory.php:61
-#, fuzzy, php-format
-#| msgid "Could not add columns!"
+#, php-format
 msgid "Could not load class \"%1$s\""
-msgstr "无法加载类 \"%1$s\""
+msgstr "无法加载类名为 \"%1$s\" 的类"
 
 #: libraries/navigation/nodes/Node.php:798
 msgid "Expand/Collapse"
@@ -9353,7 +9319,7 @@ msgstr "请仔细回答下列问题以得到正确的正常化."
 #: libraries/normalization.lib.php:356
 #, fuzzy
 msgid "+ Show me the possible partial dependencies based on data in the table"
-msgstr "+ 根据表中数据向我展示可能的部分依赖"
+msgstr "显示基于表中数据可能的局部依赖"
 
 #: libraries/normalization.lib.php:360
 msgid ""
@@ -9411,10 +9377,8 @@ msgid "Selected repeating group has been moved to the table '%s'"
 msgstr "选中的数据表已根据源数据表同步。"
 
 #: libraries/normalization.lib.php:721
-#, fuzzy
-#| msgid "Sep"
 msgid "Step 3."
-msgstr "九月"
+msgstr "第三步."
 
 #: libraries/normalization.lib.php:721
 msgid "Find transitive dependencies"
@@ -9473,10 +9437,8 @@ msgid "No partial dependencies found!"
 msgstr ""
 
 #: libraries/operations.lib.php:79
-#, fuzzy
-#| msgid "Rename database to"
 msgid "Rename database to"
-msgstr "将数据库改名为"
+msgstr "重命名数据库为"
 
 #: libraries/operations.lib.php:95 libraries/operations.lib.php:239
 #: libraries/operations.lib.php:854 libraries/operations.lib.php:941
@@ -9501,8 +9463,6 @@ msgid "Drop the database (DROP)"
 msgstr "删除数据库 (DROP)"
 
 #: libraries/operations.lib.php:201
-#, fuzzy
-#| msgid "Copy database to"
 msgid "Copy database to"
 msgstr "复制数据库到"
 
@@ -9641,8 +9601,9 @@ msgstr "修复"
 
 #: libraries/operations.lib.php:1565
 #: templates/table/structure/display_structure.phtml:178
+#, fuzzy
 msgid "Truncate"
-msgstr ""
+msgstr "您将要完全清空一个表！"
 
 #: libraries/operations.lib.php:1579
 #, fuzzy
@@ -9790,10 +9751,8 @@ msgid "Please enter correct captcha!"
 msgstr ""
 
 #: libraries/plugins/auth/AuthenticationCookie.php:357
-#, fuzzy
-#| msgid "Cannot log in to the MySQL server"
 msgid "You are not allowed to log in to this MySQL server!"
-msgstr "无法登录 MySQL 服务器"
+msgstr "您不允许登录到此服务器 ！"
 
 #: libraries/plugins/auth/AuthenticationHttp.php:88
 msgid "Wrong username/password. Access denied."
@@ -9922,7 +9881,7 @@ msgstr "对象创建选项"
 #, fuzzy
 #| msgid "Table caption"
 msgid "Table caption:"
-msgstr "表的标题"
+msgstr "表说明"
 
 #: libraries/plugins/export/ExportLatex.php:124
 #: libraries/plugins/export/ExportLatex.php:176
@@ -9936,7 +9895,7 @@ msgstr "表的副标题"
 #, fuzzy
 #| msgid "Label key"
 msgid "Label key:"
-msgstr "关键标签"
+msgstr "标签"
 
 #: libraries/plugins/export/ExportLatex.php:137
 #: libraries/plugins/export/ExportOdt.php:98
@@ -10024,7 +9983,7 @@ msgstr "报告标题："
 #, fuzzy
 #| msgid "Dumping data for table"
 msgid "Dumping data"
-msgstr "转存表中的数据"
+msgstr "转储数据时所使用的函数："
 
 #: libraries/plugins/export/ExportPdf.php:288
 #, fuzzy
@@ -10055,8 +10014,6 @@ msgid ""
 msgstr "包含数据库创建、最后更新和最后检查的时间"
 
 #: libraries/plugins/export/ExportSql.php:172
-#, fuzzy
-#| msgid "Export method"
 msgid "Export metadata"
 msgstr "导出方式"
 
@@ -10081,8 +10038,9 @@ msgid "Add %s statement"
 msgstr "添加 %s 语句"
 
 #: libraries/plugins/export/ExportSql.php:286
+#, fuzzy
 msgid "(less efficient as indexes will be generated during table creation)"
-msgstr ""
+msgstr "添加IF NOT EXISTS语句（效率更低因为创建表时索引会自动生成）"
 
 #: libraries/plugins/export/ExportSql.php:294
 #, fuzzy, php-format
@@ -10193,19 +10151,19 @@ msgstr ""
 #, fuzzy
 #| msgid "Metadata Headers"
 msgid "Metadata"
-msgstr "元数据头"
+msgstr "数据库 %s 的元数据头"
 
 #: libraries/plugins/export/ExportSql.php:1076
 #, fuzzy, php-format
 #| msgid "Metadata Headers"
 msgid "Metadata for table %s"
-msgstr "元数据头"
+msgstr "%s 的元数据头"
 
 #: libraries/plugins/export/ExportSql.php:1083
 #, fuzzy, php-format
 #| msgid "Metadata Headers"
 msgid "Metadata for database %s"
-msgstr "元数据头"
+msgstr "数据库 %s 的元数据头"
 
 #: libraries/plugins/export/ExportSql.php:1415
 #: libraries/plugins/schema/pdf/PdfRelationSchema.php:603
@@ -10223,10 +10181,9 @@ msgid "Last check:"
 msgstr "最后检查："
 
 #: libraries/plugins/export/ExportSql.php:1488
-#, fuzzy, php-format
-#| msgid "Table structure for table"
+#, php-format
 msgid "Error reading structure for table %s:"
-msgstr "表的结构"
+msgstr "读取表 %s 的结构时出错"
 
 #: libraries/plugins/export/ExportSql.php:1542
 msgid "It appears your database uses views;"
@@ -10285,10 +10242,9 @@ msgid "(See below for the actual view)"
 msgstr ""
 
 #: libraries/plugins/export/ExportSql.php:2204
-#, fuzzy, php-format
-#| msgid "Error reading data:"
+#, php-format
 msgid "Error reading data for table %s:"
-msgstr "读取数据时发生错误:"
+msgstr "读取表 %s 的数据时发生错误"
 
 #: libraries/plugins/export/ExportXml.php:97
 msgid "Object creation options (all are recommended)"
@@ -10299,10 +10255,8 @@ msgid "Export contents"
 msgstr "导出内容"
 
 #: libraries/plugins/export/PMA_ExportPdf.php:119
-#, fuzzy
-#| msgid "Table"
 msgid "Table:"
-msgstr "表"
+msgstr "表:"
 
 #: libraries/plugins/export/PMA_ExportPdf.php:120
 msgid "Purpose:"
@@ -10312,7 +10266,7 @@ msgstr ""
 #, fuzzy
 #| msgid "MIME type"
 msgid "MIME"
-msgstr "MIME 类型"
+msgstr "显示 MIME 类型"
 
 #: libraries/plugins/import/AbstractImportCsv.php:51
 msgid ""
@@ -10398,10 +10352,8 @@ msgid ""
 msgstr "该 XML 文件有错误或者不完整。请修复错误后重试。"
 
 #: libraries/plugins/import/ImportOds.php:162
-#, fuzzy
-#| msgid "Open Document Spreadsheet"
 msgid "Could not parse OpenDocument Spreadsheet!"
-msgstr "OpenOffice 表格"
+msgstr "无法解析电子表格"
 
 #: libraries/plugins/import/ImportShp.php:45
 msgid "ESRI Shape File"
@@ -10419,10 +10371,8 @@ msgid "MySQL Spatial Extension does not support ESRI type \"%s\"."
 msgstr "MySQL Spatial 扩展不支持 ESRI 类型 \"%s\"。"
 
 #: libraries/plugins/import/ImportShp.php:230
-#, fuzzy
-#| msgid "The imported file does not contain any data"
 msgid "The imported file does not contain any data!"
-msgstr "导入的文件没有任何数据"
+msgstr "文件为空，无数据！"
 
 #: libraries/plugins/import/ImportSql.php:67
 msgid "SQL compatibility mode:"
@@ -11176,7 +11126,7 @@ msgstr "密码"
 #, fuzzy
 #| msgid "Port"
 msgid "Port:"
-msgstr "端口"
+msgstr "请输入有效的端口号！"
 
 #: libraries/replication_gui.lib.php:531
 msgid "Master status"
@@ -11298,8 +11248,9 @@ msgid "Error resetting replication."
 msgstr "主复制"
 
 #: libraries/replication_gui.lib.php:926
+#, fuzzy
 msgid "Success."
-msgstr ""
+msgstr "成功！"
 
 #: libraries/replication_gui.lib.php:927
 #, fuzzy
@@ -11419,10 +11370,8 @@ msgid "The definer must be in the \"username@hostname\" format!"
 msgstr "用户必须是 \"用户名@主机名\" 格式"
 
 #: libraries/rte/rte_events.lib.php:548
-#, fuzzy
-#| msgid "You must provide an event name"
 msgid "You must provide an event name!"
-msgstr "请输入事件名称"
+msgstr "请输入事件名称!"
 
 #: libraries/rte/rte_events.lib.php:563
 msgid "You must provide a valid interval value for the event."
@@ -11444,10 +11393,8 @@ msgstr "请输入事件定义。"
 #: libraries/rte/rte_routines.lib.php:158
 #: libraries/rte/rte_routines.lib.php:1312
 #: libraries/rte/rte_routines.lib.php:1522
-#, fuzzy
-#| msgid "Error in processing request"
 msgid "Error in processing request:"
-msgstr "处理请求时的错误"
+msgstr "处理请求时遇到错误:"
 
 #: libraries/rte/rte_footer.lib.php:94
 msgid "OFF"
@@ -11559,10 +11506,8 @@ msgid "SQL data access"
 msgstr "SQL 数据访问"
 
 #: libraries/rte/rte_routines.lib.php:1125
-#, fuzzy
-#| msgid "You must provide a routine name"
 msgid "You must provide a routine name!"
-msgstr "请输入程序名称"
+msgstr "需要程序名称!"
 
 #: libraries/rte/rte_routines.lib.php:1159
 #, php-format
@@ -11639,28 +11584,20 @@ msgid "Time"
 msgstr "时机"
 
 #: libraries/rte/rte_triggers.lib.php:433
-#, fuzzy
-#| msgid "You must provide a trigger name"
 msgid "You must provide a trigger name!"
-msgstr "请输入触发器名称"
+msgstr "需要触发器名称!"
 
 #: libraries/rte/rte_triggers.lib.php:440
-#, fuzzy
-#| msgid "You must provide a valid timing for the trigger"
 msgid "You must provide a valid timing for the trigger!"
-msgstr "请选择一个有效的触发时机"
+msgstr "请选择一个有效的触发时机!"
 
 #: libraries/rte/rte_triggers.lib.php:447
-#, fuzzy
-#| msgid "You must provide a valid event for the trigger"
 msgid "You must provide a valid event for the trigger!"
-msgstr "请选择一个有效的触发事件"
+msgstr "请选择一个有效的触发事件!"
 
 #: libraries/rte/rte_triggers.lib.php:455
-#, fuzzy
-#| msgid "You must provide a valid table name"
 msgid "You must provide a valid table name!"
-msgstr "请选择一个有效的表"
+msgstr "请选择一个有效的表!"
 
 #: libraries/rte/rte_triggers.lib.php:461
 msgid "You must provide a trigger definition."
@@ -11680,8 +11617,6 @@ msgid "routine"
 msgstr "程序"
 
 #: libraries/rte/rte_words.lib.php:32
-#, fuzzy
-#| msgid "You do not have the necessary privileges to create a routine"
 msgid "You do not have the necessary privileges to create a routine."
 msgstr "你不具有创建程序的必要权限"
 
@@ -11771,7 +11706,7 @@ msgstr "没有事件。"
 #, fuzzy
 #| msgid "Current server"
 msgid "Current server:"
-msgstr "当前服务器"
+msgstr "正在从当前服务器中导出数据库"
 
 #: libraries/server_common.lib.php:24
 msgid "Server variables and settings"
@@ -11951,16 +11886,12 @@ msgid "Allows executing stored routines."
 msgstr "允许运行存储过程。"
 
 #: libraries/server_privileges.lib.php:713
-#, fuzzy
-#| msgid "Persistent connections"
 msgid "Does not require SSL-encrypted connections."
-msgstr "持久连接"
+msgstr "关闭SSL加密"
 
 #: libraries/server_privileges.lib.php:729
-#, fuzzy
-#| msgid "Persistent connections"
 msgid "Requires SSL-encrypted connections."
-msgstr "持久连接"
+msgstr "启用SSL加密"
 
 #: libraries/server_privileges.lib.php:743
 msgid "Requires a valid X509 certificate."
@@ -12114,7 +12045,7 @@ msgstr ""
 #, fuzzy
 #| msgid "User name"
 msgid "Host name:"
-msgstr "用户名"
+msgstr "主机名："
 
 #: libraries/server_privileges.lib.php:1552
 #: libraries/server_privileges.lib.php:1637
@@ -13363,7 +13294,7 @@ msgstr ""
 #, fuzzy
 #| msgid "Users"
 msgid "User groups"
-msgstr "用户"
+msgstr "用户组表"
 
 #: libraries/server_user_groups.lib.php:77
 #, fuzzy
@@ -13441,7 +13372,7 @@ msgstr "数据文件增长大小"
 #, fuzzy
 #| msgid "Other"
 msgid "Order"
-msgstr "其它"
+msgstr "命令："
 
 #: libraries/sql.lib.php:238 libraries/sql.lib.php:254
 #, fuzzy
@@ -13458,7 +13389,7 @@ msgstr ""
 #, fuzzy
 #| msgid "Total time:"
 msgid "Total Time"
-msgstr "总时间:"
+msgstr "总时间："
 
 #: libraries/sql.lib.php:259
 #, fuzzy
@@ -13602,7 +13533,7 @@ msgstr "为 %2$s 创建版本 %1$s"
 #, fuzzy, php-format
 #| msgid "Create version"
 msgid "Create version %1$s"
-msgstr "创建版本"
+msgstr "为 %2$s 创建版本 %1$s"
 
 #: libraries/tracking.lib.php:84
 msgid "Track these data definition statements:"
@@ -14222,13 +14153,13 @@ msgstr "添加"
 #, fuzzy
 #| msgid "Add column(s)"
 msgid "column(s)"
-msgstr "增加字段"
+msgstr "添加 %s 个字段至索引"
 
 #: templates/columns_definitions/column_definitions_form.phtml:93
 #, fuzzy
 #| msgid "Collation"
 msgid "Collation:"
-msgstr "整理"
+msgstr "排序规则"
 
 #: templates/columns_definitions/column_definitions_form.phtml:97
 msgid "Storage Engine:"
@@ -14238,7 +14169,7 @@ msgstr "存储引擎:"
 #, fuzzy
 #| msgid "Connections"
 msgid "Connection:"
-msgstr "连接"
+msgstr "服务器连接排序规则"
 
 #: templates/columns_definitions/column_definitions_form.phtml:146
 #, fuzzy
@@ -14260,7 +14191,7 @@ msgstr "选择外键"
 #, fuzzy
 #| msgid "Select Foreign Key"
 msgid "Is a foreign key."
-msgstr "选择外键"
+msgstr "外键限制"
 
 #: templates/columns_definitions/column_name.phtml:43
 #, fuzzy
@@ -14278,7 +14209,7 @@ msgstr "压缩"
 #: templates/columns_definitions/move_column.phtml:7
 #, fuzzy
 msgid "first"
-msgstr "第一"
+msgstr "首行保存字段名"
 
 #: templates/columns_definitions/move_column.phtml:12
 #: templates/table/structure/add_column.phtml:21
@@ -14290,7 +14221,7 @@ msgstr "于 %s 之后"
 #, fuzzy
 #| msgid "partitioned"
 msgid "Partition by:"
-msgstr "已分区"
+msgstr "分区 %s"
 
 #: templates/columns_definitions/partitions.phtml:25
 #: templates/columns_definitions/partitions.phtml:54
@@ -14303,7 +14234,7 @@ msgstr "字段 %s 的值"
 #, fuzzy
 #| msgid "Partition %s"
 msgid "Partitions:"
-msgstr "分区 %s"
+msgstr "分区"
 
 #: templates/columns_definitions/partitions.phtml:38
 #, fuzzy
@@ -14328,7 +14259,7 @@ msgstr "分区 %s"
 #, fuzzy
 #| msgid "Value"
 msgid "Values"
-msgstr "值"
+msgstr "纵轴值"
 
 #: templates/columns_definitions/partitions.phtml:76
 #, fuzzy
@@ -14847,7 +14778,7 @@ msgstr "仅选择多余"
 #, fuzzy
 #| msgid "Copy"
 msgid "Copy table"
-msgstr "复制"
+msgstr "目标数据表不能为源数据表！"
 
 #: templates/database/structure/check_all_tables.phtml:11
 #, fuzzy
@@ -14859,7 +14790,7 @@ msgstr "显示颜色"
 #, fuzzy
 #| msgid "Add prefix"
 msgid "Prefix"
-msgstr "添加前缀"
+msgstr "添加表前缀"
 
 #: templates/database/structure/check_all_tables.phtml:27
 msgid "Add prefix to table"
@@ -14973,7 +14904,7 @@ msgstr ""
 #, fuzzy
 #| msgid "Select database"
 msgid "Select database:"
-msgstr "选择数据库"
+msgstr "先选择数据库"
 
 #: templates/export/alias_add.phtml:17
 msgid "New database name"
@@ -15000,8 +14931,9 @@ msgid "New column name"
 msgstr "新字段名"
 
 #: templates/export/alias_item.phtml:8
+#, fuzzy
 msgid "Remove"
-msgstr ""
+msgstr "从收藏夹中移除"
 
 #: templates/prefs_autoload.phtml:8
 msgid ""
