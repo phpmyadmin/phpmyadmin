@@ -136,6 +136,20 @@ class AuthenticationCookie extends AuthenticationPlugin
         );
         echo "</h1>";
 
+        if ($GLOBALS['cfg']['DBG']['demo']) {
+            echo '<fieldset>';
+            echo '<legend>' , __('phpMyAdmin Demo Server') , '</legend>';
+            printf(
+                __(
+                    'You are using the demo server. You can do anything here, but '
+                    . 'please do not change root, debian-sys-maint and pma users. '
+                    . 'More information is available at %s.'
+                ),
+                '<a href="url.php?url=https://demo.phpmyadmin.net/" target="_blank" rel="noopener noreferrer">demo.phpmyadmin.net</a>'
+            );
+            echo '</fieldset>';
+        }
+
         // Show error message
         if (! empty($conn_error)) {
             Message::rawError($conn_error)->display();
