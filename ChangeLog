@@ -47,6 +47,7 @@ phpMyAdmin - ChangeLog
 
 4.7.8 (not yet released)
 - issue #13914 Fixed resetting default setting values.
+- issue #13758 Fixed fallback value for collation connection.
 
 4.7.7 (2017-12-23)
 - issue #13865 Fixed displaying of formatted numeric values for some locales
