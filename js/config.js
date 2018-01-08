@@ -110,7 +110,7 @@ function markField(field)
  *
  * @param {Element} field
  * @param {String}  field_type  see {@link #getFieldType}
- * @param {String|Boolean}  [value]
+ * @param {String|Boolean}  value
  */
 function setFieldValue(field, field_type, value)
 {
@@ -118,22 +118,16 @@ function setFieldValue(field, field_type, value)
     switch (field_type) {
     case 'text':
     case 'number':
-        $field.val(value !== undefined ? value : $field.attr('defaultValue'));
+        $field.val(value);
         break;
     case 'checkbox':
-        $field.prop('checked', (value !== undefined ? value : $field.attr('defaultChecked')));
+        $field.prop('checked', value);
         break;
     case 'select':
         var options = $field.prop('options');
         var i, imax = options.length;
-        if (value === undefined) {
-            for (i = 0; i < imax; i++) {
-                options[i].selected = options[i].defaultSelected;
-            }
-        } else {
-            for (i = 0; i < imax; i++) {
-                options[i].selected = (value.indexOf(options[i].value) != -1);
-            }
+        for (i = 0; i < imax; i++) {
+            options[i].selected = (value.indexOf(options[i].value) != -1);
         }
         break;
     }
@@ -652,7 +646,7 @@ AJAX.registerOnload('config.js', function () {
     $('.optbox input[type=button][name=submit_reset]').click(function () {
         var fields = $(this).closest('fieldset').find('input, select, textarea');
         for (var i = 0, imax = fields.length; i < imax; i++) {
-            setFieldValue(fields[i], getFieldType(fields[i]));
+            setFieldValue(fields[i], getFieldType(fields[i]), defaultValues[fields[i].id]);
         }
     });
 });
