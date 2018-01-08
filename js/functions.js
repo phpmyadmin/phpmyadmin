@@ -4973,3 +4973,15 @@ AJAX.registerOnload('functions.js', function(){
         }
     });
 });
+
+/**
+ * Return POST data as stored by Util::linkOrButton
+ */
+jQuery.fn.getPostData = function() {
+    var dataPost = this.attr('data-post');
+    // Strip possible leading ?
+    if (dataPost.startsWith('?')) {
+        dataPost = dataPost.substr(1);
+    }
+    return dataPost;
+};

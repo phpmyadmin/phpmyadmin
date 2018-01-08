@@ -214,7 +214,7 @@ AJAX.registerOnload('tbl_structure.js', function () {
         var $this_anchor = $(this);
         $this_anchor.PMA_confirm(question, $this_anchor.attr('href'), function (url) {
             var $msg = PMA_ajaxShowMessage(PMA_messages.strDroppingColumn, false);
-            var params = getJSConfirmCommonParam(this, $this_anchor.attr('data-post'));
+            var params = getJSConfirmCommonParam(this, $this_anchor.getPostData());
             params += '&ajax_page_request=1';
             $.post(url, params, function (data) {
                 if (typeof data !== 'undefined' && data.success === true) {
@@ -300,7 +300,7 @@ AJAX.registerOnload('tbl_structure.js', function () {
             PMA_ajaxShowMessage();
             AJAX.source = $this;
 
-            var params = getJSConfirmCommonParam(this, $this_anchor.attr('data-post'));
+            var params = getJSConfirmCommonParam(this, $this_anchor.getPostData());
             params += '&ajax_page_request=1';
             $.post(url, params, AJAX.responseHandler);
         }); // end $.PMA_confirm()

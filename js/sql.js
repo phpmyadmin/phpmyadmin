@@ -169,8 +169,9 @@ AJAX.registerOnload('sql.js', function () {
         $link.PMA_confirm(question, $link.attr('href'), function (url) {
             $msgbox = PMA_ajaxShowMessage();
             var params = 'ajax_request=1&is_js_confirmed=1';
-            if ($link.attr('data-post')) {
-                params += '&' + $link.attr('data-post');
+            var postData = $link.getPostData();
+            if (postData) {
+                params += '&' + postData;
             }
             $.post(url, params, function (data) {
                 if (data.success) {
