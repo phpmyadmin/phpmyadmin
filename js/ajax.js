@@ -283,15 +283,11 @@ var AJAX = {
 
         var url = isLink ? href : $(this).attr('action');
         var params = 'ajax_request=true&ajax_page_request=true';
-        var dataPost = AJAX.source.attr('data-post');
+        var dataPost = AJAX.source.getPostData();
         if (! isLink) {
             params += '&' + $(this).serialize();
         } else if (dataPost) {
-            // Strip possible leading ?
-            if (dataPost.startsWith('?')) {
-                dataPost = dataPost.substr(1);
-            }
-            params += '&' + AJAX.source.attr('data-post');
+            params += '&' + dataPost;
             isLink = false;
         }
         if (! (history && history.pushState)) {

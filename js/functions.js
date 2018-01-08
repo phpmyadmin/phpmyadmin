@@ -5086,3 +5086,16 @@ function configGet(key, cached=true)
     });
     return JSON.parse(localStorage.getItem(key));
 }
+
+/**
+ * Return POST data as stored by Util::linkOrButton
+ */
+jQuery.fn.getPostData = function() {
+    var dataPost = this.attr('data-post');
+    // Strip possible leading ?
+    if (dataPost.startsWith('?')) {
+        dataPost = dataPost.substr(1);
+    }
+    return dataPost;
+};
+
