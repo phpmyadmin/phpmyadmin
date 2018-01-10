@@ -203,12 +203,12 @@ class ExportTest extends TestCase
 
         //validate 4: Export::getHtmlForExportOptionsQuickExport
         $this->assertContains(
-            '<input type="checkbox" name="onserver" value="saveit" ',
+            '<input type="checkbox" name="onserver" value="saveit"',
             $html
         );
         $dir = htmlspecialchars(Util::userDir($cfg['SaveDir']));
         $this->assertContains(
-            'Save on server in the directory <b>' . $dir . '</b>',
+            'Save on server in the directory <strong>' . $dir . '</strong>',
             $html
         );
 

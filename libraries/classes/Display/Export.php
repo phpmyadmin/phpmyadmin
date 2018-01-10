@@ -325,29 +325,19 @@ class Export
     public static function getHtmlForExportOptionsOutputSaveDir()
     {
         global $cfg;
-        $html  = '<li>';
-        $html .= '<input type="checkbox" name="onserver" value="saveit" ';
-        $html .= 'id="checkbox_dump_onserver" ';
-        $html .= self::exportCheckboxCheck('onserver');
-        $html .= '/>';
-        $html .= '<label for="checkbox_dump_onserver">';
-        $html .= sprintf(
-            __('Save on server in the directory <b>%s</b>'),
-            htmlspecialchars(Util::userDir($cfg['SaveDir']))
+        $saveDir = Util::userDir($cfg['SaveDir']);
+        $exportIsChecked = (bool) self::exportCheckboxCheck(
+            'onserver'
         );
-        $html .= '</label>';
-        $html .= '</li>';
-        $html .= '<li>';
-        $html .= '<input type="checkbox" name="onserver_overwrite" value="saveitover"';
-        $html .= ' id="checkbox_dump_onserver_overwrite" ';
-        $html .= self::exportCheckboxCheck('onserver_overwrite');
-        $html .= '/>';
-        $html .= '<label for="checkbox_dump_onserver_overwrite">';
-        $html .= __('Overwrite existing file(s)');
-        $html .= '</label>';
-        $html .= '</li>';
+        $exportOverwriteIsChecked = (bool) self::exportCheckboxCheck(
+            'onserver_overwrite'
+        );
 
-        return $html;
+        return Template::get('display/export/options_output_save_dir')->render([
+            'save_dir' => $saveDir,
+            'export_is_checked' => $exportIsChecked,
+            'export_overwrite_is_checked' => $exportOverwriteIsChecked,
+        ]);
     }
 
 
