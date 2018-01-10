@@ -274,61 +274,24 @@ class Export
     /**
      * Prints Html For Export Options Rows
      *
-     * @param String $db             Selected DB
-     * @param String $table          Selected Table
-     * @param String $unlim_num_rows Num of Rows
+     * @param string $db           Selected DB
+     * @param string $table        Selected Table
+     * @param string $unlimNumRows Num of Rows
      *
      * @return string
      */
-    public static function getHtmlForExportOptionsRows($db, $table, $unlim_num_rows)
+    public static function getHtmlForExportOptionsRows($db, $table, $unlimNumRows)
     {
-        $html  = '<div class="exportoptions" id="rows">';
-        $html .= '<h3>' . __('Rows:') . '</h3>';
-        $html .= '<ul>';
-        $html .= '<li>';
-        $html .= '<input type="radio" name="allrows" value="0" id="radio_allrows_0"';
-        if (isset($_GET['allrows']) && $_GET['allrows'] == 0) {
-            $html .= ' checked="checked"';
-        }
-        $html .= '/>';
-        $html .= '<label for ="radio_allrows_0">' . __('Dump some row(s)') . '</label>';
-        $html .= '<ul>';
-        $html .= '<li>';
-        $html .= '<label for="limit_to">' . __('Number of rows:') . '</label>';
-        $html .= '<input type="text" id="limit_to" name="limit_to" size="5" value="';
-        if (isset($_GET['limit_to'])) {
-            $html .= htmlspecialchars($_GET['limit_to']);
-        } elseif (!empty($unlim_num_rows)) {
-            $html .= $unlim_num_rows;
-        } else {
-            $_table = new Table($table, $db);
-            $html .= $_table->countRecords();
-        }
-        $html .= '" onfocus="this.select()" />';
-        $html .= '</li>';
-        $html .= '<li>';
-        $html .= '<label for="limit_from">' . __('Row to begin at:') . '</label>';
-        $html .= '<input type="text" id="limit_from" name="limit_from" value="';
-        if (isset($_GET['limit_from'])) {
-            $html .= htmlspecialchars($_GET['limit_from']);
-        } else {
-            $html .= '0';
-        }
-        $html .= '" size="5" onfocus="this.select()" />';
-        $html .= '</li>';
-        $html .= '</ul>';
-        $html .= '</li>';
-        $html .= '<li>';
-        $html .= '<input type="radio" name="allrows" value="1" id="radio_allrows_1"';
-        if (! isset($_GET['allrows']) || $_GET['allrows'] == 1) {
-            $html .= ' checked="checked"';
-        }
-        $html .= '/>';
-        $html .= ' <label for="radio_allrows_1">' . __('Dump all rows') . '</label>';
-        $html .= '</li>';
-        $html .= '</ul>';
-        $html .= '</div>';
-        return $html;
+        $tableObject = new Table($table, $db);
+        $numberOfRows = $tableObject->countRecords();
+
+        return Template::get('display/export/options_rows')->render([
+            'allrows' => isset($_GET['allrows']) ? $_GET['allrows'] : null,
+            'limit_to' => isset($_GET['limit_to']) ? $_GET['limit_to'] : null,
+            'limit_from' => isset($_GET['limit_from']) ? $_GET['limit_from'] : null,
+            'unlim_num_rows' => $unlimNumRows,
+            'number_of_rows' => $numberOfRows,
+        ]);
     }
 
     /**
