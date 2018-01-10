@@ -1,0 +1,10 @@
+<div class="exportoptions" id="databases_and_tables">
+    {% if export_type == 'server' %}
+        <h3>{% trans 'Databases:' %}</h3>
+    {% elseif export_type == 'database' %}
+        <h3>{% trans 'Tables:' %}</h3>
+    {% endif %}
+    {% if multi_values is not empty %}
+        {{ multi_values|raw }}
+    {% endif %}
+</div>

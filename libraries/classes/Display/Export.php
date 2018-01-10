@@ -224,25 +224,17 @@ class Export
     /**
      * Prints Html For Export Options Selection
      *
-     * @param String $export_type  Selected Export Type
-     * @param String $multi_values Export Options
+     * @param string $exportType  Selected Export Type
+     * @param string $multiValues Export Options
      *
      * @return string
      */
-    public static function getHtmlForExportOptionsSelection($export_type, $multi_values)
+    public static function getHtmlForExportOptionsSelection($exportType, $multiValues)
     {
-        $html = '<div class="exportoptions" id="databases_and_tables">';
-        if ($export_type == 'server') {
-            $html .= '<h3>' . __('Databases:') . '</h3>';
-        } elseif ($export_type == 'database') {
-            $html .= '<h3>' . __('Tables:') . '</h3>';
-        }
-        if (! empty($multi_values)) {
-            $html .= $multi_values;
-        }
-        $html .= '</div>';
-
-        return $html;
+        return Template::get('display/export/selection')->render([
+            'export_type' => $exportType,
+            'multi_values' => $multiValues,
+        ]);
     }
 
     /**
