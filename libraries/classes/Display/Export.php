@@ -255,49 +255,20 @@ class Export
     /**
      * Prints Html For Export Options Format-specific options
      *
-     * @param ExportPlugin[] $export_list Export List
+     * @param ExportPlugin[] $exportList Export List
      *
      * @return string
      */
-    public static function getHtmlForExportOptionsFormat($export_list)
+    public static function getHtmlForExportOptionsFormat($exportList)
     {
-        $html = '<div class="exportoptions" id="format_specific_opts">';
-        $html .= '<h3>' . __('Format-specific options:') . '</h3>';
-        $html .= '<p class="no_js_msg" id="scroll_to_options_msg">';
-        $html .= __(
-            'Scroll down to fill in the options for the selected format '
-            . 'and ignore the options for other formats.'
-        );
-        $html .= '</p>';
-        $html .= Plugins::getOptions('Export', $export_list);
-        $html .= '</div>';
-
-        if (Encoding::canConvertKanji()) {
-            // Japanese encoding setting
-            $html .= '<div class="exportoptions" id="kanji_encoding">';
-            $html .= '<h3>' . __('Encoding Conversion:') . '</h3>';
-            $html .= Encoding::kanjiEncodingForm();
-            $html .= '</div>';
-        }
-
-        $html .= '<div class="exportoptions" id="submit">';
-
-        $html .= Util::getExternalBug(
-            __('SQL compatibility mode'), 'mysql', '50027', '14515'
-        );
         global $cfg;
-        if ($cfg['ExecTimeLimit'] > 0) {
-            $html .= '<input type="submit" value="' . __('Go')
-                . '" id="buttonGo" onclick="check_time_out('
-                . $cfg['ExecTimeLimit'] . ')"/>';
-        } else {
-            // if the time limit set is zero, then time out won't occur
-            // So no need to check for time out.
-            $html .= '<input type="submit" value="' . __('Go') . '" id="buttonGo" />';
-        }
-        $html .= '</div>';
+        $options = Plugins::getOptions('Export', $exportList);
 
-        return $html;
+        return Template::get('display/export/options_format')->render([
+            'options' => $options,
+            'can_convert_kanji' => Encoding::canConvertKanji(),
+            'exec_time_limit' => $cfg['ExecTimeLimit'],
+        ]);
     }
 
     /**
