@@ -211,46 +211,14 @@ class Export
     {
         global $cfg;
         if (isset($_GET['quick_or_custom'])) {
-            $export_method = $_GET['quick_or_custom'];
+            $exportMethod = $_GET['quick_or_custom'];
         } else {
-            $export_method = $cfg['Export']['method'];
+            $exportMethod = $cfg['Export']['method'];
         }
 
-        if ($export_method == 'custom-no-form') {
-            return '';
-        }
-
-        $html  = '<div class="exportoptions" id="quick_or_custom">';
-        $html .= '<h3>' . __('Export method:') . '</h3>';
-        $html .= '<ul>';
-        $html .= '<li>';
-        $html .= '<input type="radio" name="quick_or_custom" value="quick" '
-            . ' id="radio_quick_export"';
-        if ($export_method == 'quick') {
-            $html .= ' checked="checked"';
-        }
-        $html .= ' />';
-        $html .= '<label for ="radio_quick_export">';
-        $html .= __('Quick - display only the minimal options');
-        $html .= '</label>';
-        $html .= '</li>';
-
-        $html .= '<li>';
-        $html .= '<input type="radio" name="quick_or_custom" value="custom" '
-            . ' id="radio_custom_export"';
-        if ($export_method == 'custom') {
-            $html .= ' checked="checked"';
-        }
-        $html .= ' />';
-        $html .= '<label for="radio_custom_export">';
-        $html .= __('Custom - display all possible options');
-        $html .= '</label>';
-        $html .= '</li>';
-
-        $html .= '</ul>';
-        $html .= '</div>';
-
-        return $html;
+        return Template::get('display/export/method')->render([
+            'export_method' => $exportMethod,
+        ]);
     }
 
     /**
