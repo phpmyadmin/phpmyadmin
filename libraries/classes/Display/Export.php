@@ -302,34 +302,19 @@ class Export
     public static function getHtmlForExportOptionsQuickExport()
     {
         global $cfg;
-        $html  = '<div class="exportoptions" id="output_quick_export">';
-        $html .= '<h3>' . __('Output:') . '</h3>';
-        $html .= '<ul>';
-        $html .= '<li>';
-        $html .= '<input type="checkbox" name="quick_export_onserver" value="saveit" ';
-        $html .= 'id="checkbox_quick_dump_onserver" ';
-        $html .= self::exportCheckboxCheck('quick_export_onserver');
-        $html .= '/>';
-        $html .= '<label for="checkbox_quick_dump_onserver">';
-        $html .= sprintf(
-            __('Save on server in the directory <b>%s</b>'),
-            htmlspecialchars(Util::userDir($cfg['SaveDir']))
+        $saveDir = Util::userDir($cfg['SaveDir']);
+        $exportIsChecked = (bool) self::exportCheckboxCheck(
+            'quick_export_onserver'
         );
-        $html .= '</label>';
-        $html .= '</li>';
-        $html .= '<li>';
-        $html .= '<input type="checkbox" name="quick_export_onserver_overwrite" ';
-        $html .= 'value="saveitover" id="checkbox_quick_dump_onserver_overwrite" ';
-        $html .= self::exportCheckboxCheck('quick_export_onserver_overwrite');
-        $html .= '/>';
-        $html .= '<label for="checkbox_quick_dump_onserver_overwrite">';
-        $html .= __('Overwrite existing file(s)');
-        $html .= '</label>';
-        $html .= '</li>';
-        $html .= '</ul>';
-        $html .= '</div>';
+        $exportOverwriteIsChecked = (bool) self::exportCheckboxCheck(
+            'quick_export_onserver_overwrite'
+        );
 
-        return $html;
+        return Template::get('display/export/options_quick_export')->render([
+            'save_dir' => $saveDir,
+            'export_is_checked' => $exportIsChecked,
+            'export_overwrite_is_checked' => $exportOverwriteIsChecked,
+        ]);
     }
 
     /**
