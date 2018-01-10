@@ -240,17 +240,16 @@ class Export
     /**
      * Prints Html For Export Options Format dropdown
      *
-     * @param ExportPlugin[] $export_list Export List
+     * @param ExportPlugin[] $exportList Export List
      *
      * @return string
      */
-    public static function getHtmlForExportOptionsFormatDropdown($export_list)
+    public static function getHtmlForExportOptionsFormatDropdown($exportList)
     {
-        $html  = '<div class="exportoptions" id="format">';
-        $html .= '<h3>' . __('Format:') . '</h3>';
-        $html .= Plugins::getChoice('Export', 'what', $export_list, 'format');
-        $html .= '</div>';
-        return $html;
+        $dropdown = Plugins::getChoice('Export', 'what', $exportList, 'format');
+        return Template::get('display/export/format_dropdown')->render([
+            'dropdown' => $dropdown,
+        ]);
     }
 
     /**
