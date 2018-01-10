@@ -34,7 +34,7 @@ class Export
      *
      * @return string
      */
-    public static function exportCheckboxCheck($str)
+    private static function exportCheckboxCheck($str)
     {
         if (isset($GLOBALS['cfg']['Export'][$str]) && $GLOBALS['cfg']['Export'][$str]) {
             return ' checked="checked"';
@@ -165,16 +165,14 @@ class Export
     }
 
     /**
-     * Returns HTML for the options in teplate dropdown
+     * Returns HTML for the options in template dropdown
      *
-     * @param string $export_type export type - server, database, or table
+     * @param string $exportType export type - server, database, or table
      *
      * @return string HTML for the options in teplate dropdown
      */
-    public static function getOptionsForExportTemplates($export_type)
+    private static function getOptionsForExportTemplates($exportType)
     {
-        $ret = '<option value="">-- ' . __('Select a template') . ' --</option>';
-
         // Get the relation settings
         $cfgRelation = Relation::getRelationsParam();
 
@@ -183,24 +181,25 @@ class Export
            . Util::backquote($cfgRelation['export_templates'])
            . " WHERE `username` = "
            . "'" . $GLOBALS['dbi']->escapeString($GLOBALS['cfg']['Server']['user'])
-            . "' AND `export_type` = '" . $GLOBALS['dbi']->escapeString($export_type) . "'"
+            . "' AND `export_type` = '" . $GLOBALS['dbi']->escapeString($exportType) . "'"
            . " ORDER BY `template_name`;";
 
         $result = Relation::queryAsControlUser($query);
-        if (!$result) {
-            return $ret;
-        }
 
-        while ($row = $GLOBALS['dbi']->fetchAssoc($result, DatabaseInterface::CONNECT_CONTROL)) {
-            $ret .= '<option value="' . htmlspecialchars($row['id']) . '"';
-            if (!empty($_GET['template_id']) && $_GET['template_id'] == $row['id']) {
-                $ret .= ' selected="selected"';
+        $templates = [];
+        if ($result !== false) {
+            while ($row = $GLOBALS['dbi']->fetchAssoc($result, DatabaseInterface::CONNECT_CONTROL)) {
+                $templates[] = [
+                    'name' => $row['template_name'],
+                    'id' => $row['id'],
+                ];
             }
-            $ret .= '>';
-            $ret .=  htmlspecialchars($row['template_name']) . '</option>';
         }
 
-        return $ret;
+        return Template::get('display/export/template_options')->render([
+            'templates' => $templates,
+            'selected_template' => !empty($_GET['template_id']) ? $_GET['template_id'] : null,
+        ]);
     }
 
     /**
