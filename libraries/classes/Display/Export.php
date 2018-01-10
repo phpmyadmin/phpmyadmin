@@ -344,20 +344,17 @@ class Export
     /**
      * Prints Html For Export Options
      *
-     * @param String $export_type Selected Export Type
+     * @param string $exportType Selected Export Type
      *
      * @return string
      */
-    public static function getHtmlForExportOptionsOutputFormat($export_type)
+    public static function getHtmlForExportOptionsOutputFormat($exportType)
     {
-        $html  = '<li>';
-        $html .= '<label for="filename_template" class="desc">';
-        $html .= __('File name template:');
         $trans = new Message;
         $trans->addText(__('@SERVER@ will become the server name'));
-        if ($export_type == 'database' || $export_type == 'table') {
+        if ($exportType == 'database' || $exportType == 'table') {
             $trans->addText(__(', @DATABASE@ will become the database name'));
-            if ($export_type == 'table') {
+            if ($exportType == 'table') {
                 $trans->addText(__(', @TABLE@ will become the table name'));
             }
         }
@@ -376,53 +373,38 @@ class Export
         );
         $msg->addParamHtml('</a>');
         $msg->addParam($trans);
-        $doc_url = Util::getDocuLink('faq', 'faq6-27');
+        $docUrl = Util::getDocuLink('faq', 'faq6-27');
         $msg->addParamHtml(
-            '<a href="' . $doc_url . '" target="documentation">'
+            '<a href="' . $docUrl . '" target="documentation">'
         );
         $msg->addParamHtml('</a>');
 
-        $html .= Util::showHint($msg);
-        $html .= '</label>';
-        $html .= '<input type="text" name="filename_template" id="filename_template" ';
-        $html .= ' value="';
         if (isset($_GET['filename_template'])) {
-            $html .= htmlspecialchars($_GET['filename_template']);
+            $filenameTemplate = $_GET['filename_template'];
         } else {
-            if ($export_type == 'database') {
-                $html .= htmlspecialchars(
-                    $GLOBALS['PMA_Config']->getUserValue(
-                        'pma_db_filename_template',
-                        $GLOBALS['cfg']['Export']['file_template_database']
-                    )
+            if ($exportType == 'database') {
+                $filenameTemplate = $GLOBALS['PMA_Config']->getUserValue(
+                    'pma_db_filename_template',
+                    $GLOBALS['cfg']['Export']['file_template_database']
                 );
-            } elseif ($export_type == 'table') {
-                $html .= htmlspecialchars(
-                    $GLOBALS['PMA_Config']->getUserValue(
-                        'pma_table_filename_template',
-                        $GLOBALS['cfg']['Export']['file_template_table']
-                    )
+            } elseif ($exportType == 'table') {
+                $filenameTemplate = $GLOBALS['PMA_Config']->getUserValue(
+                    'pma_table_filename_template',
+                    $GLOBALS['cfg']['Export']['file_template_table']
                 );
             } else {
-                $html .= htmlspecialchars(
-                    $GLOBALS['PMA_Config']->getUserValue(
-                        'pma_server_filename_template',
-                        $GLOBALS['cfg']['Export']['file_template_server']
-                    )
+                $filenameTemplate = $GLOBALS['PMA_Config']->getUserValue(
+                    'pma_server_filename_template',
+                    $GLOBALS['cfg']['Export']['file_template_server']
                 );
             }
         }
-        $html .= '"';
-        $html .= '/>';
-        $html .= '<input type="checkbox" name="remember_template" ';
-        $html .= 'id="checkbox_remember_template" ';
-        $html .= self::exportCheckboxCheck('remember_file_template');
-        $html .= '/>';
-        $html .= '<label for="checkbox_remember_template">';
-        $html .= __('use this for future exports');
-        $html .= '</label>';
-        $html .= '</li>';
-        return $html;
+
+        return Template::get('display/export/options_output_format')->render([
+            'message' => $msg->getMessage(),
+            'filename_template' => $filenameTemplate,
+            'is_checked' => (bool) self::exportCheckboxCheck('remember_file_template'),
+        ]);
     }
 
     /**
