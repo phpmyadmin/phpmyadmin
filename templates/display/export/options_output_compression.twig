@@ -1,0 +1,24 @@
+{% if is_zip or is_gzip %}
+    <li>
+        <label for="compression" class="desc">
+            {% trans 'Compression:' %}
+        </label>
+        <select id="compression" name="compression">
+            <option value="none">{% trans 'None' %}</option>
+            {% if is_zip %}
+                <option value="zip"
+                    {{- selected_compression == 'zip' ? ' selected' }}>
+                    {% trans 'zipped' %}
+                </option>
+            {% endif %}
+            {% if is_gzip %}
+                <option value="gzip"
+                    {{- selected_compression == 'gzip' ? ' selected' }}>
+                    {% trans 'gzipped' %}
+                </option>
+            {% endif %}
+        </select>
+    </li>
+{% else %}
+    <input type="hidden" name="compression" value="{{ selected_compression }}">
+{% endif %}

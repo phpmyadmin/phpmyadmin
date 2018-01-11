@@ -431,52 +431,29 @@ class Export
     {
         global $cfg;
         if (isset($_GET['compression'])) {
-            $selected_compression = $_GET['compression'];
+            $selectedCompression = $_GET['compression'];
         } elseif (isset($cfg['Export']['compression'])) {
-            $selected_compression = $cfg['Export']['compression'];
+            $selectedCompression = $cfg['Export']['compression'];
         } else {
-            $selected_compression = "none";
+            $selectedCompression = 'none';
         }
 
         // Since separate files export works with ZIP only
         if (isset($cfg['Export']['as_separate_files'])
             && $cfg['Export']['as_separate_files']
         ) {
-            $selected_compression = "zip";
+            $selectedCompression = 'zip';
         }
 
-        $html = "";
         // zip and gzip encode features
-        $is_zip  = ($cfg['ZipDump']  && @function_exists('gzcompress'));
-        $is_gzip = ($cfg['GZipDump'] && @function_exists('gzencode'));
-        if ($is_zip || $is_gzip) {
-            $html .= '<li>';
-            $html .= '<label for="compression" class="desc">'
-                . __('Compression:') . '</label>';
-            $html .= '<select id="compression" name="compression">';
-            $html .= '<option value="none">' . __('None') . '</option>';
-            if ($is_zip) {
-                $html .= '<option value="zip" ';
-                if ($selected_compression == "zip") {
-                    $html .= 'selected="selected"';
-                }
-                $html .= '>' . __('zipped') . '</option>';
-            }
-            if ($is_gzip) {
-                $html .= '<option value="gzip" ';
-                if ($selected_compression == "gzip") {
-                    $html .= 'selected="selected"';
-                }
-                $html .= '>' . __('gzipped') . '</option>';
-            }
-            $html .= '</select>';
-            $html .= '</li>';
-        } else {
-            $html .= '<input type="hidden" name="compression" value="'
-                . htmlspecialchars($selected_compression) . '" />';
-        }
+        $isZip = ($cfg['ZipDump'] && @function_exists('gzcompress'));
+        $isGzip = ($cfg['GZipDump'] && @function_exists('gzencode'));
 
-        return $html;
+        return Template::get('display/export/options_output_compression')->render([
+            'is_zip' => $isZip,
+            'is_gzip' => $isGzip,
+            'selected_compression' => $selectedCompression,
+        ]);
     }
 
     /**
