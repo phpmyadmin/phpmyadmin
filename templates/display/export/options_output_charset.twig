@@ -1,0 +1,16 @@
+<li>
+    <label for="select_charset" class="desc">
+        {% trans 'Character set of the file:' %}
+    </label>
+    <select id="select_charset" name="charset" size="1">
+        {% for charset in encodings %}
+            <option value="{{ charset }}"
+                {%- if (export_charset is empty and charset == 'utf-8')
+                    or charset == export_charset %}
+                    selected
+                {%- endif %}>
+                {{- charset -}}
+            </option>
+        {% endfor %}
+    </select>
+</li>

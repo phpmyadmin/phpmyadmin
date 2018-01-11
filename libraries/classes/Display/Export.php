@@ -415,25 +415,11 @@ class Export
     public static function getHtmlForExportOptionsOutputCharset()
     {
         global $cfg;
-        $html = '        <li><label for="select_charset" class="desc">'
-            . __('Character set of the file:') . '</label>' . "\n";
-        $html .= '<select id="select_charset" name="charset" size="1">';
-        foreach (Encoding::listEncodings() as $temp_charset) {
-            $html .= '<option value="' . $temp_charset . '"';
-            if (isset($_GET['charset'])
-                && ($_GET['charset'] != $temp_charset)
-            ) {
-                $html .= '';
-            } elseif ((empty($cfg['Export']['charset']) && $temp_charset == 'utf-8')
-                || $temp_charset == $cfg['Export']['charset']
-            ) {
-                $html .= ' selected="selected"';
-            }
-            $html .= '>' . $temp_charset . '</option>';
-        } // end foreach
-        $html .= '</select></li>';
 
-        return $html;
+        return Template::get('display/export/options_output_charset')->render([
+            'encodings' => Encoding::listEncodings(),
+            'export_charset' => $cfg['Export']['charset'],
+        ]);
     }
 
     /**
