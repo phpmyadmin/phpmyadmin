@@ -1430,50 +1430,6 @@ class Config
     }
 
     /**
-     * returns html selectbox for font sizes
-     *
-     * @return string html selectbox
-     */
-    protected static function getFontsizeSelection()
-    {
-        $current_size = $GLOBALS['PMA_Config']->get('FontSize');
-        // for the case when there is no config file (this is supported)
-        if (empty($current_size)) {
-            $current_size = '82%';
-        }
-        $options = Config::getFontsizeOptions($current_size);
-
-        $return = '<label for="select_fontsize">' . __('Font size')
-            . ':</label>' . "\n"
-            . '<select name="set_fontsize" id="select_fontsize"'
-            . ' class="autosubmit">' . "\n";
-        foreach ($options as $option) {
-            $return .= '<option value="' . $option . '"';
-            if ($option == $current_size) {
-                $return .= ' selected="selected"';
-            }
-            $return .= '>' . $option . '</option>' . "\n";
-        }
-        $return .= '</select>';
-
-        return $return;
-    }
-
-    /**
-     * return complete font size selection form
-     *
-     * @return string html selectbox
-     */
-    public static function getFontsizeForm()
-    {
-        return '<form name="form_fontsize_selection" id="form_fontsize_selection"'
-            . ' method="post" action="index.php" class="disableAjax">' . "\n"
-            . Url::getHiddenInputs() . "\n"
-            . Config::getFontsizeSelection() . "\n"
-            . '</form>';
-    }
-
-    /**
      * removes cookie
      *
      * @param string $cookie name of cookie to remove
