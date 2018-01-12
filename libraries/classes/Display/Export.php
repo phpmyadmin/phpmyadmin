@@ -489,89 +489,55 @@ class Export
     /**
      * Prints Html For Export Options
      *
-     * @param String $export_type Selected Export Type
+     * @param string $exportType Selected Export Type
      *
      * @return string
      */
-    public static function getHtmlForExportOptionsOutput($export_type)
+    public static function getHtmlForExportOptionsOutput($exportType)
     {
         global $cfg;
-        $html  = '<div class="exportoptions" id="output">';
-        $html .= '<h3>' . __('Output:') . '</h3>';
-        $html .= '<ul id="ul_output">';
-        $html .= '<li><input type="checkbox" id="btn_alias_config" ';
-        if (isset($_SESSION['tmpval']['aliases'])
-            && !Core::emptyRecursive($_SESSION['tmpval']['aliases'])
-        ) {
-            $html .= 'checked="checked"';
-        }
+
+        $hasAliases = isset($_SESSION['tmpval']['aliases'])
+            && !Core::emptyRecursive($_SESSION['tmpval']['aliases']);
         unset($_SESSION['tmpval']['aliases']);
-        $html .= '/>';
-        $html .= '<label for="btn_alias_config">';
-        $html .= __('Rename exported databases/tables/columns');
-        $html .= '</label></li>';
 
-        if ($export_type != 'server') {
-            $html .= '<li>';
-            $html .= '<input type="checkbox" name="lock_tables"';
-            $html .= ' value="something" id="checkbox_lock_tables"';
-            if (! isset($_GET['repopulate'])) {
-                $html .= self::exportCheckboxCheck('lock_tables') . '/>';
-            } elseif (isset($_GET['lock_tables'])) {
-                $html .= ' checked="checked"';
-            }
-            $html .= '<label for="checkbox_lock_tables">';
-            $html .= sprintf(__('Use %s statement'), '<code>LOCK TABLES</code>');
-            $html .= '</label></li>';
-        }
+        $isCheckedLockTables = (bool) self::exportCheckboxCheck('lock_tables');
+        $isCheckedAsfile = (bool) self::exportCheckboxCheck('asfile');
 
-        $html .= '<li>';
-        $html .= '<input type="radio" name="output_format" value="sendit" ';
-        $html .= 'id="radio_dump_asfile" ';
-        if (!isset($_GET['repopulate'])) {
-            $html .= self::exportCheckboxCheck('asfile');
-        }
-        $html .= '/>';
-        $html .= '<label for="radio_dump_asfile">'
-            . __('Save output to a file') . '</label>';
-        $html .= '<ul id="ul_save_asfile">';
+        $optionsOutputSaveDir = '';
         if (isset($cfg['SaveDir']) && !empty($cfg['SaveDir'])) {
-            $html .= self::getHtmlForExportOptionsOutputSaveDir();
+            $optionsOutputSaveDir = self::getHtmlForExportOptionsOutputSaveDir();
         }
-
-        $html .= self::getHtmlForExportOptionsOutputFormat($export_type);
-
-        // charset of file
+        $optionsOutputFormat = self::getHtmlForExportOptionsOutputFormat($exportType);
+        $optionsOutputCharset = '';
         if (Encoding::isSupported()) {
-            $html .= self::getHtmlForExportOptionsOutputCharset();
-        } // end if
-
-        $html .= self::getHtmlForExportOptionsOutputCompression();
-
-        if ($export_type == 'server'
-            || $export_type == 'database'
-        ) {
-            $html .= self::getHtmlForExportOptionsOutputSeparateFiles($export_type);
+            $optionsOutputCharset = self::getHtmlForExportOptionsOutputCharset();
         }
+        $optionsOutputCompression = self::getHtmlForExportOptionsOutputCompression();
+        $optionsOutputSeparateFiles = '';
+        if ($exportType == 'server' || $exportType == 'database') {
+            $optionsOutputSeparateFiles = self::getHtmlForExportOptionsOutputSeparateFiles(
+                $exportType
+            );
+        }
+        $optionsOutputRadio = self::getHtmlForExportOptionsOutputRadio();
 
-        $html .= '</ul>';
-        $html .= '</li>';
-
-        $html .= self::getHtmlForExportOptionsOutputRadio();
-
-        $html .= '</ul>';
-
-        /*
-         * @todo use sprintf() for better translatability, while keeping the
-         *       <label></label> principle (for screen readers)
-         */
-        $html .= '<label for="maxsize">'
-            . __('Skip tables larger than') . '</label>';
-        $html .= '<input type="text" id="maxsize" name="maxsize" size="4">' . __('MiB');
-
-        $html .= '</div>';
-
-        return $html;
+        return Template::get('display/export/options_output')->render([
+            'has_aliases' => $hasAliases,
+            'export_type' => $exportType,
+            'is_checked_lock_tables' => $isCheckedLockTables,
+            'is_checked_asfile' => $isCheckedAsfile,
+            'repopulate' => isset($_GET['repopulate']),
+            'lock_tables' => isset($_GET['lock_tables']),
+            'save_dir' => isset($cfg['SaveDir']) ? $cfg['SaveDir'] : null,
+            'is_encoding_supported' => Encoding::isSupported(),
+            'options_output_save_dir' => $optionsOutputSaveDir,
+            'options_output_format' => $optionsOutputFormat,
+            'options_output_charset' => $optionsOutputCharset,
+            'options_output_compression' => $optionsOutputCompression,
+            'options_output_separate_files' => $optionsOutputSeparateFiles,
+            'options_output_radio' => $optionsOutputRadio,
+        ]);
     }
 
     /**
