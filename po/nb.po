@@ -4,32 +4,28 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.7.6-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2017-11-02 14:03+0100\n"
-"PO-Revision-Date: 2017-10-09 12:17+0000\n"
-"Last-Translator: Allan Nordhøy <epost@anotheragency.no>\n"
-"Language-Team: Norwegian Bokmål <https://hosted.weblate.org/projects/"
-"phpmyadmin/4-7/nb/>\n"
+"PO-Revision-Date: 2018-01-16 11:08+0000\n"
+"Last-Translator: Ronny André Løkken <rlo012@post.uit.no>\n"
+"Language-Team: Norwegian Bokmål "
+"<https://hosted.weblate.org/projects/phpmyadmin/4-7/nb/>\n"
 "Language: nb\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 2.17-dev\n"
+"X-Generator: Weblate 2.19-dev\n"
 
 #: ajax.php:16 ajax.php:33 export.php:192 schema_export.php:64
 msgid "Bad type!"
 msgstr "Feil type!"
 
 #: changelog.php:39 license.php:34
-#, fuzzy, php-format
-#| msgid ""
-#| "The %s file is not available on this system, please visit www.phpmyadmin."
-#| "net for more information."
+#, php-format
 msgid ""
 "The %s file is not available on this system, please visit %s for more "
 "information."
 msgstr ""
-"Filen %s er ikke tilgjengelig på dette systemet, se www.phpmyadmin.net for "
-"mer informasjon."
+"Filen %s er ikke tilgjengelig på dette systemet, se %s for mer informasjon."
 
 #: db_central_columns.php:108
 msgid "The central list of columns for the current database is empty."
@@ -606,6 +602,8 @@ msgid ""
 "You were logged out from one server, to logout completely from phpMyAdmin, "
 "you need to logout from all servers."
 msgstr ""
+"Du ble logget ut fra én server. For å logge helt ut av phpMyAdmin må du "
+"logge ut av alle servere."
 
 #: index.php:160 libraries/Footer.php:69
 msgid "phpMyAdmin Demo Server"
@@ -827,6 +825,8 @@ msgstr "Du er i ferd med å SLETTE en komplett database!"
 #: js/messages.php:48
 msgid "Cannot rename database to the same name. Change the name and try again"
 msgstr ""
+"Navnet på databasen kan ikke endres til gjeldende navn. Endre navnet og prøv "
+"på nytt"
 
 #: js/messages.php:50
 msgid "You are about to DESTROY a complete table!"
@@ -990,14 +990,10 @@ msgid "Please enter a valid length!"
 msgstr "Vennligst oppgi en gyldig lengde!"
 
 #: js/messages.php:120
-#, fuzzy
-#| msgid "Apply index(s)"
 msgid "Add index"
-msgstr "Utfør indeks(er)"
+msgstr "Legg til indeks(er)"
 
 #: js/messages.php:121
-#, fuzzy
-#| msgid "Edit Index"
 msgid "Edit index"
 msgstr "Rediger indeks"
 
@@ -1047,8 +1043,6 @@ msgstr "SQL-spørring:"
 
 #. l10n: Default label for the y-Axis of Charts
 #: js/messages.php:141
-#, fuzzy
-#| msgid "Y Values"
 msgid "Y values"
 msgstr "Y-verdier"
 
@@ -1147,8 +1141,6 @@ msgid "Query cache used"
 msgstr "Spørrings cache brukt"
 
 #: js/messages.php:180
-#, fuzzy
-#| msgid "System CPU Usage"
 msgid "System CPU usage"
 msgstr "System CPU-bruk"
 
@@ -1185,26 +1177,18 @@ msgid "Used memory"
 msgstr "Brukt minne"
 
 #: js/messages.php:191
-#, fuzzy
-#| msgid "Total Swap"
 msgid "Total swap"
 msgstr "Totalt swap"
 
 #: js/messages.php:192
-#, fuzzy
-#| msgid "Cached Swap"
 msgid "Cached swap"
-msgstr "Cached swap"
+msgstr "Cachet swap"
 
 #: js/messages.php:193
-#, fuzzy
-#| msgid "Used Swap"
 msgid "Used swap"
 msgstr "Brukt swap"
 
 #: js/messages.php:194
-#, fuzzy
-#| msgid "Free Swap"
 msgid "Free swap"
 msgstr "Ledig swap"
 
@@ -1409,10 +1393,8 @@ msgid "Current settings"
 msgstr "Nåværende innstillinger"
 
 #: js/messages.php:256
-#, fuzzy
-#| msgid "Report title"
 msgid "Chart title"
-msgstr "Rapporttittel"
+msgstr "Diagramtittel"
 
 #. l10n: As in differential values
 #: js/messages.php:258
@@ -1533,22 +1515,16 @@ msgid "Chart"
 msgstr "Grafisk fremstilling"
 
 #: js/messages.php:298 libraries/display_export.lib.php:903
-#, fuzzy
-#| msgid "Database"
 msgctxt "Alias"
 msgid "Database"
 msgstr "Database"
 
 #: js/messages.php:299 libraries/display_export.lib.php:915
-#, fuzzy
-#| msgid "Table"
 msgctxt "Alias"
 msgid "Table"
 msgstr "Tabell"
 
 #: js/messages.php:300 libraries/display_export.lib.php:926
-#, fuzzy
-#| msgid "Column"
 msgctxt "Alias"
 msgid "Column"
 msgstr "Kolonne"
@@ -1641,10 +1617,8 @@ msgid "No files available on server for import!"
 msgstr "Ingen filer tilgjengelig på server for importering!"
 
 #: js/messages.php:335
-#, fuzzy
-#| msgid "Analyse Query"
 msgid "Analyse query"
-msgstr "Analyser Spørring"
+msgstr "Analyser spørring"
 
 #: js/messages.php:339
 msgid "Advisor system"
@@ -1683,10 +1657,8 @@ msgid "Formatting SQL…"
 msgstr "Formaterer SQL…"
 
 #: js/messages.php:350
-#, fuzzy
-#| msgid "Bad parameters!"
 msgid "No parameters found!"
-msgstr "Feil parametere!"
+msgstr "Ingen parametre funnet!"
 
 #: js/messages.php:354
 #: templates/database/designer/aggregate_query_panel.phtml:63
@@ -1706,7 +1678,7 @@ msgstr "Side-relaterte innstillinger"
 
 #: js/messages.php:358 libraries/config/FormDisplay.tpl.php:424
 msgid "Apply"
-msgstr ""
+msgstr "Angi"
 
 #: js/messages.php:361 libraries/navigation/NavigationHeader.php:60
 #: libraries/server_status_monitor.lib.php:122
@@ -1714,26 +1686,18 @@ msgid "Loading…"
 msgstr "Laster…"
 
 #: js/messages.php:362
-#, fuzzy
-#| msgid "Request Aborted!!"
 msgid "Request aborted!!"
 msgstr "Forespørsel avbrutt!!"
 
 #: js/messages.php:363
-#, fuzzy
-#| msgid "Processing Request"
 msgid "Processing request"
-msgstr "Prosessforespørsel"
+msgstr "Prosesseringsforespørsel"
 
 #: js/messages.php:364
-#, fuzzy
-#| msgid "Request Failed!!"
 msgid "Request failed!!"
-msgstr "Forespørsel avbrutt!!"
+msgstr "Forespørsel feilet!!"
 
 #: js/messages.php:365
-#, fuzzy
-#| msgid "Error in Processing Request"
 msgid "Error in processing request"
 msgstr "Feil i prosesseringsforespørsel"
 
@@ -1752,6 +1716,8 @@ msgid ""
 "It seems that the connection to server has been lost. Please check your "
 "network connectivity and server status."
 msgstr ""
+"Forbindelsen til serveren er brutt. Vennligst kontroller "
+"nettverksforbindelsen og serverstatus."
 
 #: js/messages.php:372
 #: libraries/controllers/server/ServerDatabasesController.php:194
@@ -1760,16 +1726,12 @@ msgid "No databases selected."
 msgstr "Ingen databaser er valgt."
 
 #: js/messages.php:373
-#, fuzzy
-#| msgid "Dropping Column"
 msgid "Dropping column"
 msgstr "Dropper kolonne"
 
 #: js/messages.php:374
-#, fuzzy
-#| msgid "Add primary key"
 msgid "Adding primary key"
-msgstr "Legg til primærnøkkel"
+msgstr "Legger til primærnøkkel"
 
 #: js/messages.php:375
 #: templates/database/designer/aggregate_query_panel.phtml:59
@@ -1786,20 +1748,14 @@ msgid "Click to dismiss this notification"
 msgstr "Klikk for å overse dette varselet"
 
 #: js/messages.php:379
-#, fuzzy
-#| msgid "Renaming Databases"
 msgid "Renaming databases"
-msgstr "Endrer databasenes navn"
+msgstr "Endrer databasers navn"
 
 #: js/messages.php:380
-#, fuzzy
-#| msgid "Copying Database"
 msgid "Copying database"
 msgstr "Kopierer database"
 
 #: js/messages.php:381
-#, fuzzy
-#| msgid "Changing Charset"
 msgid "Changing charset"
 msgstr "Endrer tegnsett"
 
@@ -2198,16 +2154,12 @@ msgid "Geometry"
 msgstr "Geometri"
 
 #: js/messages.php:526
-#, fuzzy
-#| msgid "Inner Ring"
 msgid "Inner ring"
 msgstr "Indre ring"
 
 #: js/messages.php:527
-#, fuzzy
-#| msgid "Outer ring:"
 msgid "Outer ring"
-msgstr "Ytre ring:"
+msgstr "Ytre ring"
 
 #: js/messages.php:531
 msgid "Do you want to copy encryption key?"
@@ -2222,12 +2174,16 @@ msgid ""
 "MySQL accepts additional values not selectable by the slider; key in those "
 "values directly if desired"
 msgstr ""
+"MySQL aksepterer ytterligere verdier som ikke aksepteres av slider; skriv "
+"inn disse direkte hvis ønskelig"
 
 #: js/messages.php:542
 msgid ""
 "MySQL accepts additional values not selectable by the datepicker; key in "
 "those values directly if desired"
 msgstr ""
+"MySQL aksepterer ytterligere verdier som ikke aksepteres av datovelgeren; "
+"skriv inn disse direkte hvis ønskelig"
 
 #: js/messages.php:548
 msgid ""
@@ -2465,14 +2421,10 @@ msgid "More"
 msgstr "Mer"
 
 #: js/messages.php:654
-#, fuzzy
-#| msgid "Show Panel"
 msgid "Show panel"
 msgstr "Vis panel"
 
 #: js/messages.php:655
-#, fuzzy
-#| msgid "Hide Panel"
 msgid "Hide panel"
 msgstr "Skjul panel"
 
@@ -2516,14 +2468,10 @@ msgid "Create view"
 msgstr "Opprett view"
 
 #: js/messages.php:676
-#, fuzzy
-#| msgid "Server port"
 msgid "Send error report"
-msgstr "Tjenerport"
+msgstr "Send feilrapport"
 
 #: js/messages.php:677
-#, fuzzy
-#| msgid "Submit Error Report"
 msgid "Submit error report"
 msgstr "Send feilrapport"
 
@@ -2535,16 +2483,12 @@ msgstr ""
 "Det oppstod en alvorlig feil i JavaScript. Ønsker du å sende en feilrapport?"
 
 #: js/messages.php:681
-#, fuzzy
-#| msgid "Change Report Settings"
 msgid "Change report settings"
-msgstr "Endre Rapportinnstillinger"
+msgstr "Endre rapportinnstillinger"
 
 #: js/messages.php:682
-#, fuzzy
-#| msgid "Show Report Details"
 msgid "Show report details"
-msgstr "Vis Rapportdetaljer"
+msgstr "Vis rapportdetaljer"
 
 #: js/messages.php:685
 msgid ""
@@ -2589,12 +2533,12 @@ msgstr "Vil du virkelig slette dette bokmerket?"
 
 #: js/messages.php:725
 msgid "Some error occurred while getting SQL debug info."
-msgstr ""
+msgstr "En feil oppstod i innhenting av SQL debug info."
 
 #: js/messages.php:727
 #, php-format
 msgid "%s queries executed %s times in %s seconds."
-msgstr ""
+msgstr "%s spørringer utført %s ganger på %s sekunder."
 
 #: js/messages.php:728
 #, php-format
@@ -2602,20 +2546,16 @@ msgid "%s argument(s) passed"
 msgstr ""
 
 #: js/messages.php:729
-#, fuzzy
-#| msgid "Table comments"
 msgid "Show arguments"
-msgstr "Tabellkommentarer"
+msgstr "Vis argumenter"
 
 #: js/messages.php:730
-#, fuzzy
-#| msgid "Hide search results"
 msgid "Hide arguments"
-msgstr "Skjul søkeresultater"
+msgstr "Skjul argumenter"
 
 #: js/messages.php:731
 msgid "Time taken:"
-msgstr ""
+msgstr "Tidsbruk:"
 
 #: js/messages.php:732
 msgid ""
