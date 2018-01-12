@@ -9,7 +9,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.7.6-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2017-11-02 14:03+0100\n"
-"PO-Revision-Date: 2017-12-23 14:41+0000\n"
+"PO-Revision-Date: 2018-01-16 11:09+0000\n"
 "Last-Translator: Dao Nguyen <quynh.d.nguyen@student.fh-kiel.de>\n"
 "Language-Team: Vietnamese "
 "<https://hosted.weblate.org/projects/phpmyadmin/4-7/vi/>\n"
@@ -930,6 +930,7 @@ msgid "Do you really want to RESET SLAVE?"
 msgstr "Bạn có thực sự muốn RESET SLAVE?"
 
 #: js/messages.php:88
+#, fuzzy
 msgid ""
 "This operation will attempt to convert your data to the new collation. In "
 "rare cases, especially where a character doesn't exist in the new collation, "
@@ -937,6 +938,11 @@ msgid ""
 "collation; in this case we suggest you revert to the original collation and "
 "refer to the tips at "
 msgstr ""
+"Thao tác này sẽ cố gắng chuyển đổi dữ liệu của bạn sang sự đối chiếu mới. "
+"Trong một số ít trường hợp, đặc biệt là khi một ký tự không tồn tại trong sự "
+"đối chiếu mới, quá trình này có thể làm cho dữ liệu xuất hiện không đúng "
+"theo đối chiếu mới; trong trường hợp này, chúng tôi khuyên bạn nên hoàn "
+"nguyên về đối chiếu ban đầu và tham khảo các mẹo tại "
 
 #: js/messages.php:94
 msgid "Garbled Data"
@@ -1125,6 +1131,10 @@ msgid ""
 "likely that your current configuration will not work anymore. Please reset "
 "your configuration to default in the <i>Settings</i> menu."
 msgstr ""
+"Cấu hình sắp xếp biểu đồ trong trình lưu trữ cục bộ của trình duyệt không "
+"tương thích nữa với phiên bản mới hơn của hộp thoại màn hình. Rất có thể cấu "
+"hình hiện tại của bạn sẽ không hoạt động nữa. Vui lòng đặt lại cấu hình của "
+"bạn về mặc định trong trình đơn <i>Cài đặt </i>."
 
 #: js/messages.php:176
 msgid "Query cache efficiency"
@@ -2586,10 +2596,8 @@ msgid "Copy tables to"
 msgstr "Chép các bảng sang"
 
 #: js/messages.php:735
-#, fuzzy
-#| msgid "Add table prefix:"
 msgid "Add table prefix"
-msgstr "Thêm tiền tố cho bảng:"
+msgstr "Thêm tiền tố cho bảng"
 
 #: js/messages.php:736
 msgid "Replace table with prefix"
@@ -3027,22 +3035,16 @@ msgid "Unknown"
 msgstr "Không xác định"
 
 #: libraries/Charsets.php:258
-#, fuzzy
-#| msgid "Binary"
 msgctxt "Collation"
 msgid "Binary"
 msgstr "Nhị phân"
 
 #: libraries/Charsets.php:270 libraries/Charsets.php:500
-#, fuzzy
-#| msgid "Unicode"
 msgctxt "Collation"
 msgid "Unicode"
 msgstr "Unicode"
 
 #: libraries/Charsets.php:280 libraries/Charsets.php:451
-#, fuzzy
-#| msgid "West European"
 msgctxt "Collation"
 msgid "West European"
 msgstr "Tây Âu"
@@ -3053,8 +3055,6 @@ msgid "Central European"
 msgstr "Trung Âu"
 
 #: libraries/Charsets.php:292
-#, fuzzy
-#| msgid "Russian"
 msgctxt "Collation"
 msgid "Russian"
 msgstr "Tiếng Nga"
@@ -3065,15 +3065,11 @@ msgid "Simplified Chinese"
 msgstr "Tiếng Trung giản thể"
 
 #: libraries/Charsets.php:304 libraries/Charsets.php:422
-#, fuzzy
-#| msgid "Japanese"
 msgctxt "Collation"
 msgid "Japanese"
 msgstr "Tiếng Nhật"
 
 #: libraries/Charsets.php:309
-#, fuzzy
-#| msgid "Baltic"
 msgctxt "Collation"
 msgid "Baltic"
 msgstr "Tiếng Ban-tích"
@@ -3098,22 +3094,16 @@ msgid "Cyrillic"
 msgstr "Chữ Ki-rin"
 
 #: libraries/Charsets.php:323
-#, fuzzy
-#| msgid "Arabic"
 msgctxt "Collation"
 msgid "Arabic"
 msgstr "Tiếng Ả Rập"
 
 #: libraries/Charsets.php:326 libraries/Charsets.php:437
-#, fuzzy
-#| msgid "Korean"
 msgctxt "Collation"
 msgid "Korean"
 msgstr "Tiếng Hàn Quốc"
 
 #: libraries/Charsets.php:329
-#, fuzzy
-#| msgid "Hebrew"
 msgctxt "Collation"
 msgid "Hebrew"
 msgstr "Tiếng Do Thái"
@@ -3126,8 +3116,6 @@ msgid "Georgian"
 msgstr "Tiếng Gi-oa-gi-a"
 
 #: libraries/Charsets.php:335
-#, fuzzy
-#| msgid "Greek"
 msgctxt "Collation"
 msgid "Greek"
 msgstr "Tiếng Hy Lạp"
@@ -3140,29 +3128,21 @@ msgid "Czech-Slovak"
 msgstr "Cộng hòa Xlô-vác"
 
 #: libraries/Charsets.php:341 libraries/Charsets.php:492
-#, fuzzy
-#| msgid "Ukrainian"
 msgctxt "Collation"
 msgid "Ukrainian"
 msgstr "Tiếng Ukraina"
 
 #: libraries/Charsets.php:344 libraries/Charsets.php:488
-#, fuzzy
-#| msgid "Turkish"
 msgctxt "Collation"
 msgid "Turkish"
 msgstr "Tiếng Thổ Nhĩ Kỳ"
 
 #: libraries/Charsets.php:347 libraries/Charsets.php:480
-#, fuzzy
-#| msgid "Swedish"
 msgctxt "Collation"
 msgid "Swedish"
 msgstr "Tiếng Thụy điển"
 
 #: libraries/Charsets.php:350 libraries/Charsets.php:484
-#, fuzzy
-#| msgid "Thai"
 msgctxt "Collation"
 msgid "Thai"
 msgstr "Tiếng Thái"
@@ -3173,8 +3153,6 @@ msgid "Unknown"
 msgstr "Không xác định"
 
 #: libraries/Charsets.php:369
-#, fuzzy
-#| msgid "Bulgarian"
 msgctxt "Collation"
 msgid "Bulgarian"
 msgstr "Tiếng Bun-ga-ri"
@@ -3192,29 +3170,21 @@ msgid "Croatian"
 msgstr "Tiếng Croát-chi-a"
 
 #: libraries/Charsets.php:383
-#, fuzzy
-#| msgid "Czech"
 msgctxt "Collation"
 msgid "Czech"
 msgstr "Tiếng Séc"
 
 #: libraries/Charsets.php:387
-#, fuzzy
-#| msgid "Danish"
 msgctxt "Collation"
 msgid "Danish"
 msgstr "Tiếng Đan Mạch"
 
 #: libraries/Charsets.php:391
-#, fuzzy
-#| msgid "English"
 msgctxt "Collation"
 msgid "English"
 msgstr "Tiếng Anh"
 
 #: libraries/Charsets.php:395
-#, fuzzy
-#| msgid "Esperanto"
 msgctxt "Collation"
 msgid "Esperanto"
 msgstr "Quốc tế ngữ"
@@ -3227,21 +3197,16 @@ msgid "Estonian"
 msgstr "Tiếng E-x-tô-ni"
 
 #: libraries/Charsets.php:402 libraries/Charsets.php:519
-#, fuzzy
-#| msgid "Data dictionary"
 msgctxt "Collation"
 msgid "German (dictionary order)"
 msgstr "Tiếng Đức (thứ tự từ điển)"
 
 #: libraries/Charsets.php:405 libraries/Charsets.php:516
-#, fuzzy
 msgctxt "Collation"
 msgid "German (phone book order)"
-msgstr "Tiếng Đức (thứ tự theo danh bạ điện thoại)"
+msgstr "Tiếng Đức (thứ tự theo danh bạ)"
 
 #: libraries/Charsets.php:414
-#, fuzzy
-#| msgid "Hungarian"
 msgctxt "Collation"
 msgid "Hungarian"
 msgstr "Tiếng Hung Ga Ri"
@@ -3254,7 +3219,6 @@ msgid "Icelandic"
 msgstr "Tiếng Ai-xơ-len"
 
 #: libraries/Charsets.php:425
-#, fuzzy
 msgctxt "Collation"
 msgid "Classical Latin"
 msgstr "Tiếng Latin cổ điển"
@@ -3287,8 +3251,6 @@ msgid "Persian"
 msgstr "Tiếng Ba Tư"
 
 #: libraries/Charsets.php:448
-#, fuzzy
-#| msgid "Polish"
 msgctxt "Collation"
 msgid "Polish"
 msgstr "Tiếng Ba Lan"
@@ -3332,22 +3294,16 @@ msgid "Spanish (traditional)"
 msgstr "Tiếng Tây Ban Nha (truyền thống)"
 
 #: libraries/Charsets.php:496
-#, fuzzy
-#| msgid "Vietnamese"
 msgctxt "Collation"
 msgid "Vietnamese"
 msgstr "Tiếng Việt"
 
 #: libraries/Charsets.php:563
-#, fuzzy
-#| msgid "case-insensitive"
 msgctxt "Collation variant"
 msgid "case-insensitive"
 msgstr "không phân biệt HOA/thường"
 
 #: libraries/Charsets.php:566
-#, fuzzy
-#| msgid "case-sensitive"
 msgctxt "Collation variant"
 msgid "case-sensitive"
 msgstr "phân biệt chữ HOA/thường"
@@ -3367,15 +3323,11 @@ msgid "accent-sensitive"
 msgstr "phân biệt chữ HOA/thường"
 
 #: libraries/Charsets.php:576
-#, fuzzy
-#| msgid "multilingual"
 msgctxt "Collation variant"
 msgid "multi-level"
 msgstr "đa cấp độ"
 
 #: libraries/Charsets.php:579
-#, fuzzy
-#| msgid "Binary"
 msgctxt "Collation variant"
 msgid "binary"
 msgstr "Nhị phân"
@@ -5068,6 +5020,7 @@ msgid ""
 "The configuration storage is not ready for the central list of columns "
 "feature."
 msgstr ""
+"Cấu hình bộ lưu trữ chưa sẵn sàng cho danh sách trung tâm của tính năng cột."
 
 #: libraries/central_columns.lib.php:282
 #, php-format
@@ -5083,6 +5036,8 @@ msgstr "Không thể thêm các cột!"
 msgid ""
 "Couldn't remove Column(s) %1$s as they don't exist in central columns list!"
 msgstr ""
+"Không thể loại bỏ Cột %1$s vì chúng không tồn tại trong danh sách cột trung "
+"tâm!"
 
 #: libraries/central_columns.lib.php:384
 msgid "Could not remove columns!"
@@ -5450,6 +5405,12 @@ msgid ""
 "protection with trusted proxies list may not be reliable if your IP belongs "
 "to an ISP where thousands of users, including you, are connected to."
 msgstr ""
+"%sTùy chọn%s này nên được vô hiệu vì nó cho phép kẻ tấn công mạnh mẽ đăng "
+"nhập vào bất kỳ máy chủ MySQL. Nếu bạn cảm thấy điều này là cần thiết, hãy "
+"sử dụng %shạn chế đăng nhập vào máy chủ MySQL%s hoặc %sdanh sách proxy đáng "
+"tin cậy%s. Tuy nhiên, bảo vệ dựa trên IP với danh sách proxy đáng tin cậy có "
+"thể không đáng tin nếu IP của bạn thuộc về một ISP ở đó hàng ngàn người "
+"dùng, kể cả bạn, đều được kết nối."
 
 #: libraries/config/ServerConfigChecks.php:404
 msgid ""
@@ -5470,6 +5431,9 @@ msgid ""
 "This value should be double checked to ensure that this directory is neither "
 "world accessible nor readable or writable by other users on your server."
 msgstr ""
+"Giá trị này phải được kiểm tra kép để đảm bảo rằng thư mục này không phải "
+"được truy cập rộng rãi hoặc có quyền đọc hoặc quyền sửa bởi người dùng khác "
+"trên máy chủ của bạn."
 
 #: libraries/config/ServerConfigChecks.php:425
 #, php-format
@@ -5577,9 +5541,12 @@ msgid "Incorrect IP address: %s"
 msgstr "Địa chỉ IP của không đúng: %s"
 
 #: libraries/config/messages.inc.php:18
+#, fuzzy
 msgid ""
 "If enabled, user can enter any MySQL server in login form for cookie auth."
 msgstr ""
+"Nếu được kích hoạt, người dùng có thể nhập bất kỳ máy chủ MySQL trong mẫu "
+"đăng nhập cho cookie chính xác."
 
 #: libraries/config/messages.inc.php:20
 msgid "Allow login to any MySQL server"
@@ -5591,6 +5558,9 @@ msgid ""
 "MySQL server is enabled by matching the IP or hostname of the MySQL server "
 "to the given regular expression."
 msgstr ""
+"Hạn chế các máy chủ MySQL người dùng có thể nhập khi một đăng nhập vào một "
+"máy chủ MySQL tùy ý được kích hoạt bằng cách kết hợp IP hoặc tên máy chủ của "
+"máy chủ MySQL với biểu thức thông thường nhất định."
 
 #: libraries/config/messages.inc.php:26
 msgid "Restrict login to MySQL server"
@@ -5602,6 +5572,9 @@ msgid ""
 "inside a frame, and is a potential [strong]security hole[/strong] allowing "
 "cross-frame scripting (XSS) attacks."
 msgstr ""
+"Bật tính năng này cho phép một trang nằm trên một tên miền khác để gọi "
+"phpMyAdmin bên trong một khung và là [strong] lỗ hổng bảo mật [/strong] tiềm "
+"năng cho phép thực hiện các cuộc tấn công chéo (XSS)."
 
 #: libraries/config/messages.inc.php:32
 msgid "Allow third party framing"
@@ -5639,14 +5612,8 @@ msgid "Highlight pointer"
 msgstr "Tô sáng con trỏ"
 
 #: libraries/config/messages.inc.php:47
-#, fuzzy
-#| msgid ""
-#| "Enable [a@https://en.wikipedia.org/wiki/Bzip2]bzip2[/a] compression for "
-#| "import operations."
 msgid "Enable bzip2 compression for import operations."
-msgstr ""
-"Bật nén [a@https://en.wikipedia.org/wiki/Gzip]gzip[/a] dành cho các thao tác "
-"nhập và xuất dữ liệu"
+msgstr "Bật nén bzip2 dành cho các thao tác nhập dữ liệu."
 
 #: libraries/config/messages.inc.php:50
 msgid "Bzip2"
@@ -5667,16 +5634,12 @@ msgid "CHAR columns editing"
 msgstr "Sửa các cột CHAR"
 
 #: libraries/config/messages.inc.php:58
-#, fuzzy
-#| msgid ""
-#| "Use user-friendly editor for editing SQL queries ([a@https://codemirror."
-#| "net/]CodeMirror[/a]) with syntax highlighting and line numbers."
 msgid ""
 "Use user-friendly editor for editing SQL queries (CodeMirror) with syntax "
 "highlighting and line numbers."
 msgstr ""
-"Dùng bộ biên soạn thân thiện người dùng để sửa truy vấn SQL ([a@https://"
-"codemirror.net/]CodeMirror[/a]) có tô sáng cú pháp và số của dòng."
+"Dùng bộ biên soạn thân thiện người dùng để sửa truy vấn SQL (CodeMirror) có "
+"tô sáng cú pháp và số của dòng."
 
 #: libraries/config/messages.inc.php:62
 msgid "Enable CodeMirror"
@@ -5982,8 +5945,6 @@ msgstr "Kiểu MIME"
 
 #: libraries/config/messages.inc.php:167 libraries/config/messages.inc.php:180
 #: libraries/config/messages.inc.php:221
-#, fuzzy
-#| msgid "Relations"
 msgid "Relationships"
 msgstr "Quan hệ"
 
@@ -6429,14 +6390,8 @@ msgid "Disable some of the warnings shown by phpMyAdmin."
 msgstr "Tắt một số cảnh báo hiển thị bởi phpMyAdmin."
 
 #: libraries/config/messages.inc.php:349
-#, fuzzy
-#| msgid ""
-#| "Enable [a@https://en.wikipedia.org/wiki/Gzip]gzip[/a] compression for "
-#| "import and export operations."
 msgid "Enable gzip compression for import and export operations."
-msgstr ""
-"Bật nén [a@https://en.wikipedia.org/wiki/Gzip]gzip[/a] dành cho các thao tác "
-"nhập và xuất dữ liệu."
+msgstr "Bật nén gzip dành cho các thao tác nhập và xuất dữ liệu."
 
 #: libraries/config/messages.inc.php:352
 msgid "GZip"
@@ -6560,11 +6515,15 @@ msgid "Limit column characters"
 msgstr "Giới hạn số ký tự mỗi cột"
 
 #: libraries/config/messages.inc.php:409
+#, fuzzy
 msgid ""
 "If TRUE, logout deletes cookies for all servers; when set to FALSE, logout "
 "only occurs for the current server. Setting this to FALSE makes it easy to "
 "forget to log out from other servers when connected to multiple servers."
 msgstr ""
+"Nếu ĐÚNG, đăng xuất xóa cookie cho tất cả các máy chủ; khi đặt thành SAI, "
+"đăng xuất chỉ xảy ra cho máy chủ hiện tại. Cài đặt này thành SAI khiến bạn "
+"dễ quên đăng xuất khỏi các máy chủ khác khi kết nối với nhiều máy chủ."
 
 #: libraries/config/messages.inc.php:413
 msgid "Delete all cookies on logout"
@@ -6575,6 +6534,8 @@ msgid ""
 "Define whether the previous login should be recalled or not in [kbd]cookie[/"
 "kbd] authentication mode."
 msgstr ""
+"Xác định đăng nhập trước đó có nên được thu hồi hay không trong chế độ xác "
+"thực [kbd]cookie[/kbd]."
 
 #: libraries/config/messages.inc.php:418
 msgid "Recall user name"
@@ -6587,6 +6548,10 @@ msgid ""
 "and will be deleted as soon as you close the browser window. This is "
 "recommended for non-trusted environments."
 msgstr ""
+"Xác định khoảng thời gian (tính bằng giây) cookie đăng nhập phải được lưu "
+"trữ trong trình duyệt. Mặc định là 0 có nghĩa là nó sẽ được giữ lại cho "
+"phiên hiện tại, và sẽ bị xóa ngay khi bạn đóng cửa sổ trình duyệt. Đây là "
+"khuyến cáo cho môi trường không đáng tin cậy."
 
 #: libraries/config/messages.inc.php:425
 msgid "Login cookie store"
@@ -6882,10 +6847,8 @@ msgid "Show row links anyway"
 msgstr "Dù sao vẫn hiển thị liên kết hàng"
 
 #: libraries/config/messages.inc.php:546 libraries/config/messages.inc.php:547
-#, fuzzy
-#| msgid "Disable foreign key checks"
 msgid "Disable shortcut keys"
-msgstr "Tắt kiểm tra khóa ngoại"
+msgstr "Tắt phiếm tắt"
 
 #: libraries/config/messages.inc.php:549
 msgid "Use natural order for sorting table and database names."
@@ -6906,7 +6869,7 @@ msgstr "Xóa thanh công cụ kết nối nhanh"
 
 #: libraries/config/messages.inc.php:554
 msgid "Use GZip output buffering for increased speed in HTTP transfers."
-msgstr ""
+msgstr "Sử dụng bộ đệm đầu ra GZip để tăng tốc độ truyền HTTP."
 
 #: libraries/config/messages.inc.php:555
 msgid "GZip output buffering"
@@ -6975,11 +6938,15 @@ msgid "Protect binary columns"
 msgstr "Các cột nhị phân bảo vệ"
 
 #: libraries/config/messages.inc.php:583
+#, fuzzy
 msgid ""
 "Enable if you want DB-based query history (requires phpMyAdmin configuration "
 "storage). If disabled, this utilizes JS-routines to display query history "
 "(lost by window close)."
 msgstr ""
+"Bật nếu bạn muốn lịch sử truy vấn dựa trên DB (yêu cầu lưu trữ cấu hình "
+"phpMyAdmin). Nếu bị tắt, điều này sử dụng các thói quen JS để hiển thị lịch "
+"sử truy vấn (bị mất bởi đóng cửa sổ)."
 
 #: libraries/config/messages.inc.php:587
 msgid "Permanent query history"
@@ -7083,6 +7050,7 @@ msgid ""
 "Sets the effective timezone; possibly different than the one from your "
 "database server"
 msgstr ""
+"Thiết lập múi giờ hiệu quả; có thể khác với máy chủ cơ sở dữ liệu của bạn"
 
 #: libraries/config/messages.inc.php:623
 msgid "HTTP Basic Auth Realm name to display when doing HTTP Auth."
@@ -7101,16 +7069,12 @@ msgid "Authentication type"
 msgstr "Kiểu xác thực"
 
 #: libraries/config/messages.inc.php:628
-#, fuzzy
-#| msgid ""
-#| "Leave blank for no [a@https://wiki.phpmyadmin.net/pma/bookmark]bookmark[/"
-#| "a] support, suggested: [kbd]pma__bookmark[/kbd]"
 msgid ""
 "Leave blank for no [doc@bookmarks@]bookmark[/doc] support, suggested: "
 "[kbd]pma__bookmark[/kbd]"
 msgstr ""
-"Để trống khi không hỗ trợ [a@https://wiki.phpmyadmin.net/pma/bookmark]đánh "
-"dấu[/a], gợi ý: [kbd]pma__bookmark[/kbd]"
+"Để trống khi không hỗ trợ [doc@bookmarks@]đánh dấu[/doc], gợi ý: "
+"[kbd]pma__bookmark[/kbd]"
 
 #: libraries/config/messages.inc.php:631
 msgid "Bookmark table"
@@ -7139,17 +7103,12 @@ msgid "Control user password"
 msgstr "Mật khẩu người dùng điều khiển"
 
 #: libraries/config/messages.inc.php:641
-#, fuzzy
-#| msgid ""
-#| "A special MySQL user configured with limited permissions, more "
-#| "information available on [a@https://wiki.phpmyadmin.net/pma/"
-#| "controluser]wiki[/a]."
 msgid ""
 "A special MySQL user configured with limited permissions, more information "
 "available on [doc@linked-tables]documentation[/doc]."
 msgstr ""
 "Một người dùng MySQL đặc biệt được cấu hình với quyền giới hạn, thông tin "
-"thêm nữa sẵn có trên [a@https://wiki.phpmyadmin.net/pma/controluser]wiki[/a]."
+"thêm nữa sẵn có trên [doc@linked-tables]tài liệu[/doc]."
 
 #: libraries/config/messages.inc.php:644
 msgid "Control user"
@@ -7173,6 +7132,9 @@ msgid ""
 "storage; leave blank to use the default port, or the already defined port, "
 "if the controlhost equals host."
 msgstr ""
+"Một cổng thay thế để kết nối với máy chủ chứa bộ nhớ cấu hình; để trống để "
+"sử dụng cổng mặc định, hoặc cổng đã được xác định, nếu controlhost bằng máy "
+"chủ."
 
 #: libraries/config/messages.inc.php:655
 msgid "Control port"
@@ -7227,6 +7189,8 @@ msgid ""
 "Limits number of table preferences which are stored in database, the oldest "
 "records are automatically removed."
 msgstr ""
+"Giới hạn số lượng các sở thích của bảng được lưu trữ trong cơ sở dữ liệu, "
+"bản ghi cũ nhất được tự động xóa."
 
 #: libraries/config/messages.inc.php:677
 msgid "Maximal number of table preferences to store"
@@ -7247,10 +7211,12 @@ msgid "Export templates table"
 msgstr "Xuất bảng mẫu"
 
 #: libraries/config/messages.inc.php:685
+#, fuzzy
 msgid ""
 "Leave blank for no export template support, suggested: "
 "[kbd]pma__export_templates[/kbd]."
 msgstr ""
+"Để trống để không hỗ trợ mẫu xuất, gợi ý: [kbd]pma__export_templates[/kbd]."
 
 #: libraries/config/messages.inc.php:688
 msgid "Central columns table"
@@ -7261,6 +7227,8 @@ msgid ""
 "Leave blank for no central columns support, suggested: "
 "[kbd]pma__central_columns[/kbd]."
 msgstr ""
+"Để trống nếu không có hỗ trợ cột trung tâm, gợi ý: "
+"[kbd]pma__central_columns[/kbd]."
 
 #: libraries/config/messages.inc.php:694
 msgid ""
@@ -7288,6 +7256,7 @@ msgstr "Mật khẩu cho xác thực cấu hình"
 msgid ""
 "Leave blank for no PDF schema support, suggested: [kbd]pma__pdf_pages[/kbd]."
 msgstr ""
+"Để trống nếu không có hỗ trợ giản đồ PDF, gợi ý: [kbd]pma__pdf_pages[/kbd]."
 
 #: libraries/config/messages.inc.php:704
 msgid "PDF schema: pages table"
@@ -7299,6 +7268,9 @@ msgid ""
 "tables]pmadb[/doc] for complete information. Leave blank for no support. "
 "Suggested: [kbd]phpmyadmin[/kbd]."
 msgstr ""
+"Cơ sở dữ liệu được sử dụng cho các mối quan hệ, dấu trang và các tính năng "
+"PDF. Xem [doc@linked-tables]pmadb[/doc] để biết thông tin đầy đủ. Để trống "
+"khi không có hỗ trợ. Gợi ýt: [kbd]phpmyadmin[/kbd]."
 
 #: libraries/config/messages.inc.php:710
 #: templates/server/databases/create.phtml:20
@@ -7319,6 +7291,8 @@ msgid ""
 "Leave blank for no \"persistent\" recently used tables across sessions, "
 "suggested: [kbd]pma__recent[/kbd]."
 msgstr ""
+"Để trống khi không có bảng gần đây \"liên tục\" được sử dụng xuyên các "
+"phiên, gợi ý: [kbd]pma__recent[/kbd]."
 
 #: libraries/config/messages.inc.php:718
 msgid "Recently used table"
@@ -7329,37 +7303,29 @@ msgid ""
 "Leave blank for no \"persistent\" favorite tables across sessions, "
 "suggested: [kbd]pma__favorite[/kbd]."
 msgstr ""
+"Để trống khi không có bảng yêu thích \"liên tục\" trên các phiên, gợi ý: "
+"[kbd]pma__favorite[/kbd]."
 
 #: libraries/config/messages.inc.php:723
 msgid "Favorites table"
 msgstr "Bảng ưa dùng"
 
 #: libraries/config/messages.inc.php:725
-#, fuzzy
-#| msgid ""
-#| "Leave blank for no [a@https://wiki.phpmyadmin.net/pma/relation]relation-"
-#| "links[/a] support, suggested: [kbd]pma__relation[/kbd]."
 msgid ""
 "Leave blank for no [doc@relations@]relation-links[/doc] support, suggested: "
 "[kbd]pma__relation[/kbd]."
 msgstr ""
-"Để trống để không hỗ trợ [a@https://wiki.phpmyadmin.net/pma/"
-"relation]relation-links[/a], gợi ý: [kbd]pma__relation[/kbd]."
+"Để trống để không hỗ trợ [doc@relations@]relation-links[/doc], gợi ý: "
+"[kbd]pma__relation[/kbd]."
 
 #: libraries/config/messages.inc.php:729
 msgid "Relation table"
 msgstr "Bảng quan hệ"
 
 #: libraries/config/messages.inc.php:731
-#, fuzzy
-#| msgid ""
-#| "See [a@https://wiki.phpmyadmin.net/pma/auth_types#signon]authentication "
-#| "types[/a] for an example."
 msgid ""
 "See [doc@authentication-modes]authentication types[/doc] for an example."
-msgstr ""
-"Ví dụ như xem [a@https://wiki.phpmyadmin.net/pma/auth_types#signon]các kiểu "
-"xác thực[/a]."
+msgstr "Xem [doc@authentication-modes]các kiểu xác thực[/doc] cho ví dụ."
 
 #: libraries/config/messages.inc.php:734
 msgid "Signon session name"
@@ -7390,16 +7356,20 @@ msgid ""
 "Leave blank for no PDF schema support, suggested: [kbd]pma__table_coords[/"
 "kbd]."
 msgstr ""
+"Để trống nếu không có hỗ trợ giản đồ PDF, gợi ý: "
+"[kbd]pma__table_coords[/kbd]."
 
 #: libraries/config/messages.inc.php:745
 msgid "Designer and PDF schema: table coordinates"
-msgstr ""
+msgstr "Bộ tạo mẫu và giản đồ PDF: bảng tọa độ"
 
 #: libraries/config/messages.inc.php:748
 msgid ""
 "Table to describe the display columns, leave blank for no support; "
 "suggested: [kbd]pma__table_info[/kbd]."
 msgstr ""
+"Bảng để mô tả các cột hiển thị, để trống khi không có hỗ trợ; gợi ý: "
+"[kbd]pma__table_info[/kbd]."
 
 #: libraries/config/messages.inc.php:751
 msgid "Display columns table"
@@ -7410,26 +7380,34 @@ msgid ""
 "Leave blank for no \"persistent\" tables' UI preferences across sessions, "
 "suggested: [kbd]pma__table_uiprefs[/kbd]."
 msgstr ""
+"Để trống khi không có bảng tùy chọn giao diện \"liên tục\" trên các phiên, "
+"gợi ý: [kbd]pma__table_uiprefs[/kbd]."
 
 #: libraries/config/messages.inc.php:756
 msgid "UI preferences table"
 msgstr "Bảng tùy thích UI"
 
 #: libraries/config/messages.inc.php:758
+#, fuzzy
 msgid ""
 "Whether a DROP DATABASE IF EXISTS statement will be added as first line to "
 "the log when creating a database."
 msgstr ""
+"Có thể câu XÓA CƠ SỞ DỮ LIỆU NẾU TỒN TẠI sẽ được thêm vào dòng đầu tiên của "
+"nhật ký khi tạo một cơ sở dữ liệu."
 
 #: libraries/config/messages.inc.php:761
 msgid "Add DROP DATABASE"
 msgstr "Thêm DROP DATABASE"
 
 #: libraries/config/messages.inc.php:763
+#, fuzzy
 msgid ""
 "Whether a DROP TABLE IF EXISTS statement will be added as first line to the "
 "log when creating a table."
 msgstr ""
+"Có thể câu XÓA BẢNG NẾU TỒN TẠI sẽ được thêm vào dòng đầu tiên của nhật ký "
+"khi tạo bảng."
 
 #: libraries/config/messages.inc.php:766 libraries/mult_submits.lib.php:351
 msgid "Add DROP TABLE"
@@ -7448,6 +7426,8 @@ msgstr "Thêm DROP VIEW"
 #: libraries/config/messages.inc.php:773
 msgid "Defines the list of statements the auto-creation uses for new versions."
 msgstr ""
+"Xác định danh sách các câu lệnh mà trình tạo tự động sử dụng cho các phiên "
+"bản mới."
 
 #: libraries/config/messages.inc.php:774
 msgid "Statements to track"
@@ -7489,6 +7469,9 @@ msgid ""
 "configurable menus feature; leaving either one of them blank will disable "
 "this feature, suggested: [kbd]pma__users[/kbd]."
 msgstr ""
+"Cả bảng này và bảng nhóm người dùng được yêu cầu để kích hoạt tính năng cấu "
+"hình của các menu; nếu một trong hai bảng bị để trống thì tính năng này sẽ "
+"bị tắt, gợi ý: [kbd]pma__users[/kbd]."
 
 #: libraries/config/messages.inc.php:796
 msgid "Users table"
@@ -7500,6 +7483,9 @@ msgid ""
 "menus feature; leaving either one of them blank will disable this feature, "
 "suggested: [kbd]pma__usergroups[/kbd]."
 msgstr ""
+"Cả bảng này và bảng người dùng được yêu cầu để kích hoạt tính năng cấu hình "
+"của các menu; nếu một trong hai bảng bị để trống thì tính năng này sẽ bị "
+"tắt, gợi ý: [kbd]pma__usergroups[/kbd]."
 
 #: libraries/config/messages.inc.php:802
 msgid "User groups table"
@@ -7510,6 +7496,8 @@ msgid ""
 "Leave blank to disable the feature to hide and show navigation items, "
 "suggested: [kbd]pma__navigationhiding[/kbd]."
 msgstr ""
+"Để trống để tắt tính năng tắt và hiện mục điều hướng, gợi ý: "
+"[kbd]pma__navigationhiding[/kbd]."
 
 #: libraries/config/messages.inc.php:807
 msgid "Hidden navigation items table"
@@ -7545,6 +7533,9 @@ msgid ""
 "authentication mode because the password is hard coded in the configuration "
 "file; this does not limit the ability to execute the same command directly."
 msgstr ""
+"Xin lưu ý rằng việc bật tính năng này không ảnh hưởng đến chế độ xác thực "
+"của [kbd]cấu hình[/kbd] vì mật khẩu được mã hóa cứng trong tệp cấu hình; "
+"điều này không giới hạn khả năng thực hiện cùng một lệnh trực tiếp."
 
 #: libraries/config/messages.inc.php:824
 msgid "Show password change form"
@@ -7725,6 +7716,8 @@ msgid ""
 "Textarea size (columns) in edit mode, this value will be emphasized for SQL "
 "query textareas (*2)."
 msgstr ""
+"Kích thước văn bản (cột) trong chế độ chỉnh sửa, giá trị này sẽ được nhấn "
+"mạnh cho các vùng văn bản truy vấn SQL (* 2)."
 
 #: libraries/config/messages.inc.php:900
 msgid "Textarea columns"
@@ -7735,6 +7728,8 @@ msgid ""
 "Textarea size (rows) in edit mode, this value will be emphasized for SQL "
 "query textareas (*2)."
 msgstr ""
+"Kích thước văn bản (dòng) trong chế độ chỉnh sửa, giá trị này sẽ được nhấn "
+"mạnh cho các vùng văn bản truy vấn SQL (*2)."
 
 #: libraries/config/messages.inc.php:905
 msgid "Textarea rows"
@@ -7774,7 +7769,7 @@ msgstr "Danh sách các máy ủy nhiệm đáng tin cho IP cho phép/từ chố
 
 #: libraries/config/messages.inc.php:928
 msgid "Directory on server where you can upload files for import."
-msgstr ""
+msgstr "Thư mục trên máy chủ nơi bạn có thể tải tệp lên để nhập."
 
 #: libraries/config/messages.inc.php:930
 msgid "Upload directory"
@@ -7822,6 +7817,10 @@ msgid ""
 "if the server where phpMyAdmin is installed does not have direct access to "
 "the internet. The format is: \"hostname:portnumber\"."
 msgstr ""
+"Url của proxy được sử dụng khi lấy thông tin về phiên bản mới nhất của "
+"phpMyAdmin hoặc khi gửi báo cáo lỗi. Bạn cần điều này nếu máy chủ nơi "
+"phpMyAdmin được cài đặt không có quyền truy cập trực tiếp vào internet. Định "
+"dạng là: \"hostname: portnumber\"."
 
 #: libraries/config/messages.inc.php:949
 msgid "Proxy url"
@@ -7833,6 +7832,9 @@ msgid ""
 "authentication is performed. If a username is supplied, Basic Authentication "
 "will be performed. No other types of authentication are currently supported."
 msgstr ""
+"Tên người dùng để xác thực với proxy. Theo mặc định, không xác thực được "
+"thực hiện. Nếu tên người dùng được cung cấp, việc chứng thực cơ bản sẽ được "
+"thực hiện. Không có loại chứng thực khác hiện đang được hỗ trợ."
 
 #: libraries/config/messages.inc.php:956
 msgid "Proxy username"
@@ -7847,14 +7849,8 @@ msgid "Proxy password"
 msgstr "Mật khẩu máy chủ ủy nhiệm"
 
 #: libraries/config/messages.inc.php:961
-#, fuzzy
-#| msgid ""
-#| "Enable [a@https://en.wikipedia.org/wiki/Gzip]gzip[/a] compression for "
-#| "import and export operations."
 msgid "Enable ZIP compression for import and export operations."
-msgstr ""
-"Bật nén [a@https://en.wikipedia.org/wiki/Gzip]gzip[/a] dành cho các thao tác "
-"nhập và xuất dữ liệu."
+msgstr "Bật nén zip dành cho các thao tác nhập và xuất dữ liệu."
 
 #: libraries/config/messages.inc.php:964
 msgid "ZIP"
