@@ -463,16 +463,10 @@ class Export
      */
     public static function getHtmlForExportOptionsOutputRadio()
     {
-        $html  = '<li>';
-        $html .= '<input type="radio" id="radio_view_as_text" '
-            . ' name="output_format" value="astext" ';
-        if (isset($_GET['repopulate']) || $GLOBALS['cfg']['Export']['asfile'] == false) {
-            $html .= 'checked="checked"';
-        }
-        $html .= '/>';
-        $html .= '<label for="radio_view_as_text">'
-            . __('View output as text') . '</label></li>';
-        return $html;
+        return Template::get('display/export/options_output_radio')->render([
+            'has_repopulate' => isset($_GET['repopulate']),
+            'export_asfile' => $GLOBALS['cfg']['Export']['asfile'],
+        ]);
     }
 
     /**
