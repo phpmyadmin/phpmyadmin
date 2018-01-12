@@ -472,27 +472,18 @@ class Export
     /**
      * Prints Html For Export Options Checkbox - Separate files
      *
-     * @param String $export_type Selected Export Type
+     * @param string $exportType Selected Export Type
      *
      * @return string
      */
-    public static function getHtmlForExportOptionsOutputSeparateFiles($export_type)
+    public static function getHtmlForExportOptionsOutputSeparateFiles($exportType)
     {
-        $html  = '<li>';
-        $html .= '<input type="checkbox" id="checkbox_as_separate_files" '
-            . self::exportCheckboxCheck('as_separate_files')
-            . ' name="as_separate_files" value="' . $export_type . '" />';
-        $html .= '<label for="checkbox_as_separate_files">';
+        $isChecked = (bool) self::exportCheckboxCheck('as_separate_files');
 
-        if ($export_type == 'server') {
-            $html .= __('Export databases as separate files');
-        } elseif ($export_type == 'database') {
-            $html .= __('Export tables as separate files');
-        }
-
-        $html .= '</label></li>';
-
-        return $html;
+        return Template::get('display/export/options_output_separate_files')->render([
+            'is_checked' => $isChecked,
+            'export_type' => $exportType,
+        ]);
     }
 
     /**
