@@ -1428,7 +1428,7 @@ class Config
         ksort($options);
         return $options;
     }
-    
+
     /**
      * returns html selectbox for font sizes
      *
