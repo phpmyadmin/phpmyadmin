@@ -32,15 +32,12 @@ class Export
      *
      * @param string $str option name
      *
-     * @return string
+     * @return boolean
      */
-    private static function exportCheckboxCheck($str)
+    private static function checkboxCheck($str)
     {
-        if (isset($GLOBALS['cfg']['Export'][$str]) && $GLOBALS['cfg']['Export'][$str]) {
-            return ' checked="checked"';
-        }
-
-        return null;
+        return isset($GLOBALS['cfg']['Export'][$str])
+            && $GLOBALS['cfg']['Export'][$str];
     }
 
     /**
@@ -303,10 +300,10 @@ class Export
     {
         global $cfg;
         $saveDir = Util::userDir($cfg['SaveDir']);
-        $exportIsChecked = (bool) self::exportCheckboxCheck(
+        $exportIsChecked = self::checkboxCheck(
             'quick_export_onserver'
         );
-        $exportOverwriteIsChecked = (bool) self::exportCheckboxCheck(
+        $exportOverwriteIsChecked = self::checkboxCheck(
             'quick_export_onserver_overwrite'
         );
 
@@ -326,10 +323,10 @@ class Export
     {
         global $cfg;
         $saveDir = Util::userDir($cfg['SaveDir']);
-        $exportIsChecked = (bool) self::exportCheckboxCheck(
+        $exportIsChecked = self::checkboxCheck(
             'onserver'
         );
-        $exportOverwriteIsChecked = (bool) self::exportCheckboxCheck(
+        $exportOverwriteIsChecked = self::checkboxCheck(
             'onserver_overwrite'
         );
 
@@ -403,7 +400,7 @@ class Export
         return Template::get('display/export/options_output_format')->render([
             'message' => $msg->getMessage(),
             'filename_template' => $filenameTemplate,
-            'is_checked' => (bool) self::exportCheckboxCheck('remember_file_template'),
+            'is_checked' => self::checkboxCheck('remember_file_template'),
         ]);
     }
 
@@ -478,7 +475,7 @@ class Export
      */
     public static function getHtmlForExportOptionsOutputSeparateFiles($exportType)
     {
-        $isChecked = (bool) self::exportCheckboxCheck('as_separate_files');
+        $isChecked = self::checkboxCheck('as_separate_files');
 
         return Template::get('display/export/options_output_separate_files')->render([
             'is_checked' => $isChecked,
@@ -501,8 +498,8 @@ class Export
             && !Core::emptyRecursive($_SESSION['tmpval']['aliases']);
         unset($_SESSION['tmpval']['aliases']);
 
-        $isCheckedLockTables = (bool) self::exportCheckboxCheck('lock_tables');
-        $isCheckedAsfile = (bool) self::exportCheckboxCheck('asfile');
+        $isCheckedLockTables = self::checkboxCheck('lock_tables');
+        $isCheckedAsfile = self::checkboxCheck('asfile');
 
         $optionsOutputSaveDir = '';
         if (isset($cfg['SaveDir']) && !empty($cfg['SaveDir'])) {
