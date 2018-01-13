@@ -1428,6 +1428,36 @@ class Config
         ksort($options);
         return $options;
     }
+    
+    /**
+     * returns html selectbox for font sizes
+     *
+     * @return string html selectbox
+     */
+    protected static function getFontsizeSelection()
+    {
+        $current_size = $GLOBALS['PMA_Config']->get('FontSize');
+        // for the case when there is no config file (this is supported)
+        if (empty($current_size)) {
+            $current_size = '82%';
+        }
+        $options = Config::getFontsizeOptions($current_size);
+
+        $return = '<label for="select_fontsize">' . __('Font size')
+            . ':</label>' . "\n"
+            . '<select name="set_fontsize" id="select_fontsize"'
+            . ' class="autosubmit">' . "\n";
+        foreach ($options as $option) {
+            $return .= '<option value="' . $option . '"';
+            if ($option == $current_size) {
+                $return .= ' selected="selected"';
+            }
+            $return .= '>' . $option . '</option>' . "\n";
+        }
+        $return .= '</select>';
+
+        return $return;
+    }
 
     /**
      * removes cookie

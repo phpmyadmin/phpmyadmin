@@ -66,6 +66,17 @@ if (isset($_REQUEST['ajax_request']) && ! empty($_REQUEST['access_time'])) {
     exit;
 }
 
+// user selected font size
+if (isset($_POST['set_fontsize']) && preg_match('/^[0-9.]+(px|em|pt|\%)$/', $_POST['set_fontsize'])) {
+    $GLOBALS['PMA_Config']->setUserValue(
+        null,
+        'FontSize',
+        $_POST['set_fontsize'],
+        '82%'
+    );
+    header('Location: index.php' . Url::getCommonRaw());
+    exit();
+}
 // if user selected a theme
 if (isset($_POST['set_theme'])) {
     $tmanager = ThemeManager::getInstance();
