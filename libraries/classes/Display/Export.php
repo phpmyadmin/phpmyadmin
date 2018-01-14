@@ -34,7 +34,7 @@ class Export
      *
      * @return boolean
      */
-    private static function checkboxCheck($str)
+    private function checkboxCheck($str)
     {
         return isset($GLOBALS['cfg']['Export'][$str])
             && $GLOBALS['cfg']['Export'][$str];
@@ -47,7 +47,7 @@ class Export
      *
      * @return string
      */
-    public static function getHtmlForExportSelectOptions($tmpSelect = '')
+    public function getHtmlForSelectOptions($tmpSelect = '')
     {
         // Check if the selected databases are defined in $_GET
         // (from clicking Back button on export.php)
@@ -98,7 +98,7 @@ class Export
      *
      * @return string
      */
-    public static function getHtmlForHiddenInput(
+    public function getHtmlForHiddenInputs(
         $exportType,
         $db,
         $table,
@@ -130,45 +130,13 @@ class Export
     }
 
     /**
-     * Prints Html For Export Options Header
-     *
-     * @param string $exportType Selected Export Type
-     * @param string $db         Selected DB
-     * @param string $table      Selected Table
-     *
-     * @return string HTML
-     */
-    public static function getHtmlForExportOptionHeader($exportType, $db, $table)
-    {
-        return Template::get('display/export/option_header')->render([
-            'export_type' => $exportType,
-            'db' => $db,
-            'table' => $table,
-        ]);
-    }
-
-    /**
-     * Returns HTML for export template operations
-     *
-     * @param string $exportType export type - server, database, or table
-     *
-     * @return string HTML for export template operations
-     */
-    public static function getHtmlForExportTemplateLoading($exportType)
-    {
-        return Template::get('display/export/template_loading')->render([
-            'options' => self::getOptionsForExportTemplates($exportType),
-        ]);
-    }
-
-    /**
      * Returns HTML for the options in template dropdown
      *
      * @param string $exportType export type - server, database, or table
      *
      * @return string HTML for the options in teplate dropdown
      */
-    private static function getOptionsForExportTemplates($exportType)
+    private function getOptionsForTemplates($exportType)
     {
         // Get the relation settings
         $cfgRelation = Relation::getRelationsParam();
@@ -204,7 +172,7 @@ class Export
      *
      * @return string
      */
-    public static function getHtmlForExportOptionsMethod()
+    private function getHtmlForOptionsMethod()
     {
         global $cfg;
         if (isset($_GET['quick_or_custom'])) {
@@ -226,7 +194,7 @@ class Export
      *
      * @return string
      */
-    public static function getHtmlForExportOptionsSelection($exportType, $multiValues)
+    private function getHtmlForOptionsSelection($exportType, $multiValues)
     {
         return Template::get('display/export/selection')->render([
             'export_type' => $exportType,
@@ -241,7 +209,7 @@ class Export
      *
      * @return string
      */
-    public static function getHtmlForExportOptionsFormatDropdown($exportList)
+    private function getHtmlForOptionsFormatDropdown($exportList)
     {
         $dropdown = Plugins::getChoice('Export', 'what', $exportList, 'format');
         return Template::get('display/export/format_dropdown')->render([
@@ -256,7 +224,7 @@ class Export
      *
      * @return string
      */
-    public static function getHtmlForExportOptionsFormat($exportList)
+    private function getHtmlForOptionsFormat($exportList)
     {
         global $cfg;
         $options = Plugins::getOptions('Export', $exportList);
@@ -277,7 +245,7 @@ class Export
      *
      * @return string
      */
-    public static function getHtmlForExportOptionsRows($db, $table, $unlimNumRows)
+    private function getHtmlForOptionsRows($db, $table, $unlimNumRows)
     {
         $tableObject = new Table($table, $db);
         $numberOfRows = $tableObject->countRecords();
@@ -296,14 +264,14 @@ class Export
      *
      * @return string
      */
-    public static function getHtmlForExportOptionsQuickExport()
+    private function getHtmlForOptionsQuickExport()
     {
         global $cfg;
         $saveDir = Util::userDir($cfg['SaveDir']);
-        $exportIsChecked = self::checkboxCheck(
+        $exportIsChecked = $this->checkboxCheck(
             'quick_export_onserver'
         );
-        $exportOverwriteIsChecked = self::checkboxCheck(
+        $exportOverwriteIsChecked = $this->checkboxCheck(
             'quick_export_onserver_overwrite'
         );
 
@@ -319,14 +287,14 @@ class Export
      *
      * @return string
      */
-    public static function getHtmlForExportOptionsOutputSaveDir()
+    private function getHtmlForOptionsOutputSaveDir()
     {
         global $cfg;
         $saveDir = Util::userDir($cfg['SaveDir']);
-        $exportIsChecked = self::checkboxCheck(
+        $exportIsChecked = $this->checkboxCheck(
             'onserver'
         );
-        $exportOverwriteIsChecked = self::checkboxCheck(
+        $exportOverwriteIsChecked = $this->checkboxCheck(
             'onserver_overwrite'
         );
 
@@ -345,7 +313,7 @@ class Export
      *
      * @return string
      */
-    public static function getHtmlForExportOptionsOutputFormat($exportType)
+    private function getHtmlForOptionsOutputFormat($exportType)
     {
         $trans = new Message;
         $trans->addText(__('@SERVER@ will become the server name'));
@@ -400,7 +368,7 @@ class Export
         return Template::get('display/export/options_output_format')->render([
             'message' => $msg->getMessage(),
             'filename_template' => $filenameTemplate,
-            'is_checked' => self::checkboxCheck('remember_file_template'),
+            'is_checked' => $this->checkboxCheck('remember_file_template'),
         ]);
     }
 
@@ -409,7 +377,7 @@ class Export
      *
      * @return string
      */
-    public static function getHtmlForExportOptionsOutputCharset()
+    private function getHtmlForOptionsOutputCharset()
     {
         global $cfg;
 
@@ -424,7 +392,7 @@ class Export
      *
      * @return string
      */
-    public static function getHtmlForExportOptionsOutputCompression()
+    private function getHtmlForOptionsOutputCompression()
     {
         global $cfg;
         if (isset($_GET['compression'])) {
@@ -458,7 +426,7 @@ class Export
      *
      * @return string
      */
-    public static function getHtmlForExportOptionsOutputRadio()
+    private function getHtmlForOptionsOutputRadio()
     {
         return Template::get('display/export/options_output_radio')->render([
             'has_repopulate' => isset($_GET['repopulate']),
@@ -473,9 +441,9 @@ class Export
      *
      * @return string
      */
-    public static function getHtmlForExportOptionsOutputSeparateFiles($exportType)
+    private function getHtmlForOptionsOutputSeparateFiles($exportType)
     {
-        $isChecked = self::checkboxCheck('as_separate_files');
+        $isChecked = $this->checkboxCheck('as_separate_files');
 
         return Template::get('display/export/options_output_separate_files')->render([
             'is_checked' => $isChecked,
@@ -490,7 +458,7 @@ class Export
      *
      * @return string
      */
-    public static function getHtmlForExportOptionsOutput($exportType)
+    private function getHtmlForOptionsOutput($exportType)
     {
         global $cfg;
 
@@ -498,26 +466,26 @@ class Export
             && !Core::emptyRecursive($_SESSION['tmpval']['aliases']);
         unset($_SESSION['tmpval']['aliases']);
 
-        $isCheckedLockTables = self::checkboxCheck('lock_tables');
-        $isCheckedAsfile = self::checkboxCheck('asfile');
+        $isCheckedLockTables = $this->checkboxCheck('lock_tables');
+        $isCheckedAsfile = $this->checkboxCheck('asfile');
 
         $optionsOutputSaveDir = '';
         if (isset($cfg['SaveDir']) && !empty($cfg['SaveDir'])) {
-            $optionsOutputSaveDir = self::getHtmlForExportOptionsOutputSaveDir();
+            $optionsOutputSaveDir = $this->getHtmlForOptionsOutputSaveDir();
         }
-        $optionsOutputFormat = self::getHtmlForExportOptionsOutputFormat($exportType);
+        $optionsOutputFormat = $this->getHtmlForOptionsOutputFormat($exportType);
         $optionsOutputCharset = '';
         if (Encoding::isSupported()) {
-            $optionsOutputCharset = self::getHtmlForExportOptionsOutputCharset();
+            $optionsOutputCharset = $this->getHtmlForOptionsOutputCharset();
         }
-        $optionsOutputCompression = self::getHtmlForExportOptionsOutputCompression();
+        $optionsOutputCompression = $this->getHtmlForOptionsOutputCompression();
         $optionsOutputSeparateFiles = '';
         if ($exportType == 'server' || $exportType == 'database') {
-            $optionsOutputSeparateFiles = self::getHtmlForExportOptionsOutputSeparateFiles(
+            $optionsOutputSeparateFiles = $this->getHtmlForOptionsOutputSeparateFiles(
                 $exportType
             );
         }
-        $optionsOutputRadio = self::getHtmlForExportOptionsOutputRadio();
+        $optionsOutputRadio = $this->getHtmlForOptionsOutputRadio();
 
         return Template::get('display/export/options_output')->render([
             'has_aliases' => $hasAliases,
@@ -540,37 +508,42 @@ class Export
     /**
      * Prints Html For Export Options
      *
-     * @param String         $export_type    Selected Export Type
-     * @param String         $db             Selected DB
-     * @param String         $table          Selected Table
-     * @param String         $multi_values   Export selection
-     * @param String         $num_tables     number of tables
-     * @param ExportPlugin[] $export_list    Export List
-     * @param String         $unlim_num_rows Number of Rows
+     * @param string         $exportType   Selected Export Type
+     * @param string         $db           Selected DB
+     * @param string         $table        Selected Table
+     * @param string         $multiValues  Export selection
+     * @param string         $numTables    number of tables
+     * @param ExportPlugin[] $exportList   Export List
+     * @param string         $unlimNumRows Number of Rows
      *
      * @return string
      */
-    public static function getHtmlForExportOptions(
-        $export_type, $db, $table, $multi_values,
-        $num_tables, $export_list, $unlim_num_rows
+    public function getHtmlForOptions(
+        $exportType,
+        $db,
+        $table,
+        $multiValues,
+        $numTables,
+        $exportList,
+        $unlimNumRows
     ) {
         global $cfg;
-        $html  = self::getHtmlForExportOptionsMethod();
-        $html .= self::getHtmlForExportOptionsFormatDropdown($export_list);
-        $html .= self::getHtmlForExportOptionsSelection($export_type, $multi_values);
+        $html = $this->getHtmlForOptionsMethod();
+        $html .= $this->getHtmlForOptionsFormatDropdown($exportList);
+        $html .= $this->getHtmlForOptionsSelection($exportType, $multiValues);
 
-        $_table = new Table($table, $db);
-        if (strlen($table) > 0 && empty($num_tables) && ! $_table->isMerge()) {
-            $html .= self::getHtmlForExportOptionsRows($db, $table, $unlim_num_rows);
+        $tableObject = new Table($table, $db);
+        if (strlen($table) > 0 && empty($numTables) && ! $tableObject->isMerge()) {
+            $html .= $this->getHtmlForOptionsRows($db, $table, $unlimNumRows);
         }
 
         if (isset($cfg['SaveDir']) && !empty($cfg['SaveDir'])) {
-            $html .= self::getHtmlForExportOptionsQuickExport();
+            $html .= $this->getHtmlForOptionsQuickExport();
         }
 
-        $html .= self::getHtmlForAliasModalDialog();
-        $html .= self::getHtmlForExportOptionsOutput($export_type);
-        $html .= self::getHtmlForExportOptionsFormat($export_list);
+        $html .= $this->getHtmlForAliasModalDialog();
+        $html .= $this->getHtmlForOptionsOutput($exportType);
+        $html .= $this->getHtmlForOptionsFormat($exportList);
         return $html;
     }
 
@@ -579,7 +552,7 @@ class Export
      *
      * @return string
      */
-    public static function getHtmlForCurrentAlias()
+    private function getHtmlForCurrentAlias()
     {
         $result = '<table id="alias_data"><thead><tr><th colspan="4">'
             . __('Defined aliases')
@@ -587,36 +560,36 @@ class Export
 
         $template = Template::get('export/alias_item');
         if (isset($_SESSION['tmpval']['aliases'])) {
-            foreach ($_SESSION['tmpval']['aliases'] as $db => $db_data) {
-                if (isset($db_data['alias'])) {
+            foreach ($_SESSION['tmpval']['aliases'] as $db => $dbData) {
+                if (isset($dbData['alias'])) {
                     $result .= $template->render(array(
                         'type' => _pgettext('Alias', 'Database'),
                         'name' => $db,
                         'field' => 'aliases[' . $db . '][alias]',
-                        'value' => $db_data['alias'],
+                        'value' => $dbData['alias'],
                     ));
                 }
-                if (! isset($db_data['tables'])) {
+                if (! isset($dbData['tables'])) {
                     continue;
                 }
-                foreach ($db_data['tables'] as $table => $table_data) {
-                    if (isset($table_data['alias'])) {
+                foreach ($dbData['tables'] as $table => $tableData) {
+                    if (isset($tableData['alias'])) {
                         $result .= $template->render(array(
                             'type' => _pgettext('Alias', 'Table'),
                             'name' => $db . '.' . $table,
                             'field' => 'aliases[' . $db . '][tables][' . $table . '][alias]',
-                            'value' => $table_data['alias'],
+                            'value' => $tableData['alias'],
                         ));
                     }
-                    if (! isset($table_data['columns'])) {
+                    if (! isset($tableData['columns'])) {
                         continue;
                     }
-                    foreach ($table_data['columns'] as $column => $column_name) {
+                    foreach ($tableData['columns'] as $column => $columnName) {
                         $result .= $template->render(array(
                             'type' => _pgettext('Alias', 'Column'),
                             'name' => $db . '.' . $table . '.'. $column,
                             'field' => 'aliases[' . $db . '][tables][' . $table . '][colums][' . $column . ']',
-                            'value' => $column_name,
+                            'value' => $columnName,
                         ));
                     }
                 }
@@ -636,21 +609,12 @@ class Export
      *
      * @return string
      */
-    public static function getHtmlForAliasModalDialog()
+    public function getHtmlForAliasModalDialog()
     {
-        // In case of server export, the following list of
-        // databases are not shown in the list.
-        $dbs_not_allowed = array(
-            'information_schema',
-            'performance_schema',
-            'mysql'
-        );
-        // Fetch Columns info
-        // Server export does not have db set.
         $title = __('Rename exported databases/tables/columns');
 
         $html = '<div id="alias_modal" class="hide" title="' . $title . '">';
-        $html .= self::getHtmlForCurrentAlias();
+        $html .= $this->getHtmlForCurrentAlias();
         $html .= Template::get('export/alias_add')->render();
 
         $html .= '</div>';
@@ -660,19 +624,24 @@ class Export
     /**
      * Gets HTML to display export dialogs
      *
-     * @param String $export_type    export type: server|database|table
-     * @param String $db             selected DB
-     * @param String $table          selected table
-     * @param String $sql_query      SQL query
-     * @param Int    $num_tables     number of tables
-     * @param Int    $unlim_num_rows unlimited number of rows
-     * @param String $multi_values   selector options
+     * @param string $exportType   export type: server|database|table
+     * @param string $db           selected DB
+     * @param string $table        selected table
+     * @param string $sqlQuery     SQL query
+     * @param int    $numTables    number of tables
+     * @param int    $unlimNumRows unlimited number of rows
+     * @param string $multiValues  selector options
      *
      * @return string $html
      */
-    public static function getExportDisplay(
-        $export_type, $db, $table, $sql_query, $num_tables,
-        $unlim_num_rows, $multi_values
+    public function getDisplay(
+        $exportType,
+        $db,
+        $table,
+        $sqlQuery,
+        $numTables,
+        $unlimNumRows,
+        $multiValues
     ) {
         $cfgRelation = Relation::getRelationsParam();
 
@@ -681,53 +650,59 @@ class Export
         }
 
         /* Scan for plugins */
-        /* @var $export_list ExportPlugin[] */
-        $export_list = Plugins::getPlugins(
+        /* @var $exportList ExportPlugin[] */
+        $exportList = Plugins::getPlugins(
             "export",
             'libraries/classes/Plugins/Export/',
             array(
-                'export_type' => $export_type,
+                'export_type' => $exportType,
                 'single_table' => isset($GLOBALS['single_table'])
             )
         );
 
         /* Fail if we didn't find any plugin */
-        if (empty($export_list)) {
+        if (empty($exportList)) {
             Message::error(
                 __('Could not load export plugins, please check your installation!')
             )->display();
             exit;
         }
 
-        $html = self::getHtmlForExportOptionHeader($export_type, $db, $table);
+        $html = Template::get('display/export/option_header')->render([
+            'export_type' => $exportType,
+            'db' => $db,
+            'table' => $table,
+        ]);
 
         if ($cfgRelation['exporttemplateswork']) {
-            $html .= self::getHtmlForExportTemplateLoading($export_type);
+            $html .= Template::get('display/export/template_loading')->render([
+                'options' => $this->getOptionsForTemplates($exportType),
+            ]);
         }
 
         $html .= '<form method="post" action="export.php" '
             . ' name="dump" class="disableAjax">';
 
         //output Hidden Inputs
-        $single_table_str = isset($GLOBALS['single_table']) ? $GLOBALS['single_table']
+        $singleTableStr = isset($GLOBALS['single_table']) ? $GLOBALS['single_table']
             : '';
-        $html .= self::getHtmlForHiddenInput(
-            $export_type,
+        $html .= $this->getHtmlForHiddenInputs(
+            $exportType,
             $db,
             $table,
-            $single_table_str,
-            $sql_query
+            $singleTableStr,
+            $sqlQuery
         );
 
         //output Export Options
-        $html .= self::getHtmlForExportOptions(
-            $export_type,
+        $html .= $this->getHtmlForOptions(
+            $exportType,
             $db,
             $table,
-            $multi_values,
-            $num_tables,
-            $export_list,
-            $unlim_num_rows
+            $multiValues,
+            $numTables,
+            $exportList,
+            $unlimNumRows
         );
 
         $html .= '</form>';
@@ -741,7 +716,7 @@ class Export
      *
      * @return void
      */
-    public static function handleExportTemplateActions(array $cfgRelation)
+    public function handleTemplateActions(array $cfgRelation)
     {
         if (isset($_REQUEST['templateId'])) {
             $id = $GLOBALS['dbi']->escapeString($_REQUEST['templateId']);
@@ -797,7 +772,7 @@ class Export
         if ('create' == $_REQUEST['templateAction']) {
             $response->addJSON(
                 'data',
-                self::getOptionsForExportTemplates($_REQUEST['exportType'])
+                $this->getOptionsForTemplates($_REQUEST['exportType'])
             );
         } elseif ('load' == $_REQUEST['templateAction']) {
             $data = null;

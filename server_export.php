@@ -24,8 +24,10 @@ $scripts->addFile('export.js');
 
 $export_page_title = __('View dump (schema) of databases') . "\n";
 
+$displayExport = new Export();
+
 $select_item = isset($tmp_select)? $tmp_select : '';
-$multi_values  = Export::getHtmlForExportSelectOptions($select_item);
+$multi_values = $displayExport->getHtmlForSelectOptions($select_item);
 
 if (! isset($sql_query)) {
     $sql_query = '';
@@ -38,7 +40,7 @@ if (! isset($unlim_num_rows)) {
 }
 $response = Response::getInstance();
 $response->addHTML(
-    Export::getExportDisplay(
+    $displayExport->getDisplay(
         'server', $db, $table, $sql_query, $num_tables,
         $unlim_num_rows, $multi_values
     )
