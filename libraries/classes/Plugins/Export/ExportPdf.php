@@ -151,11 +151,7 @@ class ExportPdf extends ExportPlugin
         $pdf = $this->_getPdf();
 
         // instead of $pdf->Output():
-        if (!Export::outputHandler($pdf->getPDFData())) {
-            return false;
-        }
-
-        return true;
+        return Export::outputHandler($pdf->getPDFData());
     }
 
     /**

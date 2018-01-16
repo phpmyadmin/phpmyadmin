@@ -664,13 +664,8 @@ class Node
      */
     private function _isHideDb($db)
     {
-        if (!empty($GLOBALS['cfg']['Server']['hide_db'])
-            && preg_match('/' . $GLOBALS['cfg']['Server']['hide_db'] . '/', $db)
-        ) {
-            return true;
-        }
-
-        return false;
+        return !empty($GLOBALS['cfg']['Server']['hide_db'])
+            && preg_match('/' . $GLOBALS['cfg']['Server']['hide_db'] . '/', $db);
     }
 
     /**

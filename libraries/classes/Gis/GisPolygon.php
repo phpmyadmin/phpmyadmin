@@ -436,11 +436,7 @@ class GisPolygon extends GisGeometry
     {
         // If area is negative then it's in clockwise orientation,
         // i.e. it's an outer ring
-        if (GisPolygon::area($ring) < 0) {
-            return true;
-        }
-
-        return false;
+        return GisPolygon::area($ring) < 0;
     }
 
     /**
@@ -497,11 +493,7 @@ class GisPolygon extends GisGeometry
             $p1 = $p2;
         }
 
-        if ($counter % 2 == 0) {
-            return false;
-        }
-
-        return true;
+        return $counter % 2 != 0;
     }
 
     /**
