@@ -78,11 +78,8 @@ class Tracker
         }
 
         $pma_table = self::_getTrackingTable();
-        if (isset($pma_table)) {
-            return true;
-        }
 
-        return false;
+        return isset($pma_table);
     }
 
     /**

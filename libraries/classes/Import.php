@@ -1687,10 +1687,6 @@ class Import
 
         $result = $GLOBALS['dbi']->tryQuery($check_query);
 
-        if ($GLOBALS['dbi']->numRows($result) == 1) {
-            return true;
-        }
-
-        return false;
+        return $GLOBALS['dbi']->numRows($result) == 1;
     }
 }

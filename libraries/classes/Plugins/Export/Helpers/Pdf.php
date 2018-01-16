@@ -75,12 +75,9 @@ class Pdf extends PdfLib
 
             return true;
         }
-        if ($current_page != $this->page) {
-            // account for columns mode
-            return true;
-        }
 
-        return false;
+        // account for columns mode
+        return $current_page != $this->page;
     }
 
     /**
