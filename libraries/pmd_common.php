@@ -363,7 +363,7 @@ function PMA_getDefaultPage($db)
         PMA\libraries\DatabaseInterface::QUERY_STORE
     );
 
-    if (count($default_page_no)) {
+    if (isset($default_page_no) && count($default_page_no)) {
         return intval($default_page_no[0]);
     }
     return -1;
