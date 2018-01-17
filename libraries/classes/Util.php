@@ -1546,7 +1546,7 @@ class Util
 
         $ret = strftime($date, $timestamp);
         // Some OSes such as Win8.1 Traditional Chinese version did not produce UTF-8
-        // output here. See https://sourceforge.net/p/phpmyadmin/bugs/4207/
+        // output here. See https://github.com/phpmyadmin/phpmyadmin/issues/10598
         if (mb_detect_encoding($ret, 'UTF-8', true) != 'UTF-8') {
             $ret = date('Y-m-d H:i:s', $timestamp);
         }
@@ -2916,14 +2916,9 @@ class Util
     */
     public static function getFKCheckbox()
     {
-        $checked = self::isForeignKeyCheck();
-        $html = '<input type="hidden" name="fk_checks" value="0" />';
-        $html .= '<input type="checkbox" name="fk_checks"'
-            . ' id="fk_checks" value="1"'
-            . ($checked ? ' checked="checked"' : '') . '/>';
-        $html .= '<label for="fk_checks">' . __('Enable foreign key checks')
-            . '</label>';
-        return $html;
+        return Template::get('fk_checkbox')->render([
+            'checked' => self::isForeignKeyCheck(),
+        ]);
     }
 
     /**

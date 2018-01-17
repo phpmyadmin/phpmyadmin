@@ -24,7 +24,6 @@ Contents:
     credits
     glossary
 
-
 Indices and tables
 ==================
 

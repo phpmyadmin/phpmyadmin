@@ -3,7 +3,7 @@
 Bookmarks
 =========
 
-.. note:: 
+.. note::
 
     You need to have configured the :ref:`linked-tables` for using bookmarks
     feature.

@@ -310,11 +310,7 @@ abstract class TestBase extends \PHPUnit_Extensions_Selenium2TestCase
      */
     public function isSuccessLogin()
     {
-        if ($this->isElementPresent("byXPath", "//*[@id=\"serverinfo\"]")) {
-            return true;
-        } else {
-            return false;
-        }
+        return $this->isElementPresent("byXPath", "//*[@id=\"serverinfo\"]");
     }
 
     /**
@@ -324,11 +320,7 @@ abstract class TestBase extends \PHPUnit_Extensions_Selenium2TestCase
     */
     public function isUnsuccessLogin()
     {
-        if ($this->isElementPresent("byCssSelector", "div.error")) {
-            return true;
-        } else {
-            return false;
-        }
+        return $this->isElementPresent("byCssSelector", "div.error");
     }
 
     /**
@@ -587,16 +579,10 @@ abstract class TestBase extends \PHPUnit_Extensions_Selenium2TestCase
         $this->waitForElement('byCssSelector', 'li.submenuhover > a');
 
         $this->waitUntil(function () {
-            if (
-                $this->isElementPresent(
-                    'byCssSelector',
-                    'li.submenuhover.submenu.shown'
-                )
-            ) {
-                return true;
-            }
-
-            return false;
+            return $this->isElementPresent(
+                'byCssSelector',
+                'li.submenuhover.submenu.shown'
+            );
         }, 5000);
     }
 

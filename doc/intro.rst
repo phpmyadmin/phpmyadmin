@@ -9,7 +9,6 @@ properly set up MySQL user who can read/write only the desired
 database. It's up to you to look up the appropriate part in the MySQL
 manual.
 
-
 Supported features
 ------------------
 
@@ -47,7 +46,6 @@ Currently phpMyAdmin can:
 * communicate in `80 different languages
   <https://www.phpmyadmin.net/translations/>`_
 
-
 Shortcut keys
 -------------
 
@@ -61,7 +59,6 @@ Currently phpMyAdmin supports following shortcuts:
 * t + s - Go to table structure (Provided you are in table related page)
 * t + f - Search table (Provided you are in table related page)
 * backspace - Takes you to older page.
-
 
 A word about users
 ------------------

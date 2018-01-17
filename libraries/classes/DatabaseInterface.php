@@ -144,10 +144,7 @@ class DatabaseInterface
      */
     public static function checkDbExtension($extension = 'mysql')
     {
-        if (function_exists($extension . '_connect')) {
-            return true;
-        }
-        return false;
+        return function_exists($extension . '_connect');
     }
 
     /**
@@ -769,8 +766,7 @@ class DatabaseInterface
             // MySQL returns
             // with SHOW DATABASES or information_schema.SCHEMATA: `Test`
             // but information_schema.TABLES gives `test`
-            // bug #2036
-            // https://sourceforge.net/p/phpmyadmin/bugs/2036/
+            // see https://github.com/phpmyadmin/phpmyadmin/issues/8402
             return $tables[mb_strtolower($database)];
         }
 

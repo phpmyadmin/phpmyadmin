@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.8.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2017-11-28 16:22+0100\n"
-"PO-Revision-Date: 2017-12-01 00:44+0000\n"
-"Last-Translator: dingo thirteen <dingo13@gmail.com>\n"
+"PO-Revision-Date: 2018-01-06 00:00+0000\n"
+"Last-Translator: Egon DB <egon.de.baene@gmail.com>\n"
 "Language-Team: Dutch "
 "<https://hosted.weblate.org/projects/phpmyadmin/master/nl/>\n"
 "Language: nl\n"
@@ -13,7 +13,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 2.18-dev\n"
+"X-Generator: Weblate 2.19-dev\n"
 
 #: ajax.php:21 ajax.php:50 export.php:203 libraries/classes/Export.php:1100
 msgid "Bad type!"
@@ -6563,7 +6563,7 @@ msgstr "Geen bladwijzers"
 
 #: libraries/classes/Console.php:129
 msgid "SQL Query Console"
-msgstr "SQL-queryconsole"
+msgstr "SQL Query Console"
 
 #: libraries/classes/Controllers/Database/DatabaseStructureController.php:271
 msgid "Favorite List is full!"

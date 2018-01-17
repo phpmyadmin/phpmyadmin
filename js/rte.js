@@ -169,7 +169,7 @@ RTE.COMMON = {
                 /**
                  * Display the dialog to the user
                  */
-                data.message = '<textarea cols="40" rows="15" style="width: 100%;">' + data.message + '</textarea>';
+                data.message = '<textarea cols="40" rows="15" class="all100">' + data.message + '</textarea>';
                 var $ajaxDialog = $('<div>' + data.message + '</div>').dialog({
                     width: 500,
                     buttons: button_options,
@@ -401,7 +401,7 @@ RTE.COMMON = {
              *          the AJAX message shown to the user
              */
             var $msg = PMA_ajaxShowMessage(PMA_messages.strProcessingRequest);
-            var params = getJSConfirmCommonParam(this, $this.attr('data-post'));
+            var params = getJSConfirmCommonParam(this, $this.getPostData());
             $.post(url, params, function (data) {
                 if (data.success === true) {
                     /**
@@ -476,7 +476,7 @@ RTE.COMMON = {
                  * @var $curr_row Object containing reference to the current row
                  */
                 var $curr_row = $anchor.parents('tr');
-                var params = getJSConfirmCommonParam(this, $anchor.attr('data-post'));
+                var params = getJSConfirmCommonParam(this, $anchor.getPostData());
                 $.post($anchor.attr('href'), params, function (data) {
                     returnCount++;
                     if (data.success === true) {

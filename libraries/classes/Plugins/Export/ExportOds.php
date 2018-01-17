@@ -148,17 +148,13 @@ class ExportOds extends ExportPlugin
         $GLOBALS['ods_buffer'] .= '</office:spreadsheet>'
             . '</office:body>'
             . '</office:document-content>';
-        if (!Export::outputHandler(
+
+        return Export::outputHandler(
             OpenDocument::create(
                 'application/vnd.oasis.opendocument.spreadsheet',
                 $GLOBALS['ods_buffer']
             )
-        )
-        ) {
-            return false;
-        }
-
-        return true;
+        );
     }
 
     /**

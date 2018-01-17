@@ -150,8 +150,9 @@ if (! isset($multi_values)) {
     $multi_values = '';
 }
 $response = Response::getInstance();
+$displayExport = new DisplayExport();
 $response->addHTML(
-    DisplayExport::getExportDisplay(
+    $displayExport->getDisplay(
         'database', $db, $table, $sql_query, $num_tables,
         $unlim_num_rows, $multi_values
     )

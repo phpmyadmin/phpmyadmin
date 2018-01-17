@@ -4,16 +4,16 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.8.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2017-11-28 16:22+0100\n"
-"PO-Revision-Date: 2017-07-30 21:32+0000\n"
-"Last-Translator: Lalu-Ahirwar <lalu.ahi@gmail.com>\n"
-"Language-Team: Hindi <https://hosted.weblate.org/projects/phpmyadmin/master/"
-"hi/>\n"
+"PO-Revision-Date: 2017-12-26 21:10+0000\n"
+"Last-Translator: Yash Kothari <yashkothari1000@gmail.com>\n"
+"Language-Team: Hindi "
+"<https://hosted.weblate.org/projects/phpmyadmin/master/hi/>\n"
 "Language: hi\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 2.16-dev\n"
+"X-Generator: Weblate 2.19-dev\n"
 
 #: ajax.php:21 ajax.php:50 export.php:203 libraries/classes/Export.php:1100
 msgid "Bad type!"
@@ -666,10 +666,8 @@ msgid "Server type:"
 msgstr "सर्वर प्रकार:"
 
 #: index.php:331
-#, fuzzy
-#| msgid "Insecure connection"
 msgid "Server connection:"
-msgstr "असुरक्षित कनेक्शन"
+msgstr "सर्वर कनेक्शन:"
 
 #: index.php:335 libraries/classes/Plugins/Export/ExportLatex.php:223
 #: libraries/classes/Plugins/Export/ExportSql.php:704
@@ -686,8 +684,6 @@ msgid "User:"
 msgstr "उपयोगकर्ता :"
 
 #: index.php:350
-#, fuzzy
-#| msgid "Server socket"
 msgid "Server charset:"
 msgstr "सर्वर गर्तिका"
 
@@ -862,10 +858,8 @@ msgid "You are about to TRUNCATE a complete table!"
 msgstr "आप एक पूरे डेटाबेस को नष्ट करने जा रहे हो!"
 
 #: js/messages.php:53
-#, fuzzy
-#| msgid "Delete tracking data for this table"
 msgid "Delete tracking data for this table?"
-msgstr "इस टेबल के लिए ट्रैकिंग डेटा हटाएँ"
+msgstr "इस तालिका के लिए ट्रैकिंग डेटा हटाएँ?"
 
 #: js/messages.php:55
 msgid "Delete tracking data for these tables?"

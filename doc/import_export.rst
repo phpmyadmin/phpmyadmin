@@ -28,7 +28,6 @@ Using upload directory
 
     You can specify an upload directory on your web server where phpMyAdmin is installed, after uploading your file into this directory you can select this file in the import dialog of phpMyAdmin, see :config:option:`$cfg['UploadDir']`.
 
-
 phpMyAdmin can import from several various commonly used formats.
 
 CSV
@@ -37,7 +36,7 @@ CSV
 Comma separated values format which is often used by spreadsheets or various other programs for export/import.
 
 .. note::
-   
+
     When importing data into a table from a CSV file where the table has an
     'auto_increment' field, make the 'auto_increment' value for each record in
     the CSV field to be '0' (zero). This allows the 'auto_increment' field to
@@ -92,7 +91,7 @@ checkbox for "The first line of the file contains the table column names;" this 
 data will go to the proper columns.
 
 .. note::
-   
+
     Formulas and calculations will NOT be evaluated, rather, their value from
     the most recent save will be loaded. Please ensure that all values in the
     spreadsheet are as needed before importing it.
@@ -110,7 +109,6 @@ Structures (databases, tables, views, triggers, etc.) and/or data will be
 created depending on the contents of the file.
 
 The supported xml schemas are not yet documented in this wiki.
-
 
 Export
 ++++++
@@ -231,8 +229,7 @@ Sample output:
             "name": "makes",
             "type": "table"
         }
-    ]            
-
+    ]
 
 LaTeX
 -----
@@ -251,7 +248,6 @@ rendered, for example in following document:
 
 .. code-block:: latex
 
-
     \documentclass{article}
     \title{phpMyAdmin SQL output}
     \author{}
@@ -267,7 +263,6 @@ rendered, for example in following document:
     % insert phpMyAdmin LaTeX Dump here
 
     \end{document}
-
 
 MediaWiki
 ---------
@@ -312,10 +307,10 @@ The option 'Maximal length of created query' seems to be undocumented. But
 experiments has shown that it splits large extended INSERTS so each one is no
 bigger than the given number of bytes (or characters?). Thus when importing the
 file, for large tables you avoid the error "Got a packet bigger than
-'max_allowed_packet' bytes". 
+'max_allowed_packet' bytes".
 
-.. seealso:: 
-   
+.. seealso::
+
     https://dev.mysql.com/doc/refman/5.7/en/packet-too-large.html
 
 Data Options
@@ -331,7 +326,7 @@ This will significantly decrease filesize for large SQL dumps, increases the
 INSERT speed when imported, and is generally recommended.
 
 .. seealso::
-   
+
     http://www.scriptalicious.com/blog/2009/04/complete-inserts-or-extended-inserts-in-phpmyadmin/
 
 Texy!
@@ -354,4 +349,3 @@ YAML
 
 YAML is a data serialization format which is both human readable and
 computationally powerful ( <http://www.yaml.org> ).
-

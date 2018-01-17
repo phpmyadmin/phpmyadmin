@@ -28,5 +28,5 @@ js/jquery
     jQuery js framework and various jQuery based libraries.
 
 vendor/
-    The download kit includes various Composer packages as 
+    The download kit includes various Composer packages as
     dependencies.

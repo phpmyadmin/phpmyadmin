@@ -45,10 +45,16 @@ phpMyAdmin - ChangeLog
 - issue #11688 Reduced cookie usage
 - issue #13466 Better utilization of user preferences
 
-4.7.7 (not yet released)
+4.7.8 (not yet released)
+- issue #13914 Fixed resetting default setting values.
+- issue #13758 Fixed fallback value for collation connection.
+- issue #13938 Fixed error handling in PHP 7.2
+
+4.7.7 (2017-12-23)
 - issue #13865 Fixed displaying of formatted numeric values for some locales
 - issue #13856 Ensure datetimepicker is always loaded for datetime fields
 - issue #13848 Fixed PHP error when browsing certain results
+- issue        [security] Fix XSRF/CSRF vulnerability, see PMASA-2017-09
 
 4.7.6 (2017-11-29)
 - issue #13517 Fixed check all interaction with filtering

@@ -194,8 +194,8 @@ big or your hosting provider is unwilling to change the settings:
 1.17 Which Database versions does phpMyAdmin support?
 -----------------------------------------------------
 
-For `MySQL <https://www.mysql.com/>`_, versions 5.5 and newer are supported. 
-For older MySQL versions, our `Downloads <https://www.phpmyadmin.net/downloads/>`_ page offers older phpMyAdmin versions 
+For `MySQL <https://www.mysql.com/>`_, versions 5.5 and newer are supported.
+For older MySQL versions, our `Downloads <https://www.phpmyadmin.net/downloads/>`_ page offers older phpMyAdmin versions
 (which may have become unsupported).
 
 For `MariaDB <https://mariadb.org/>`_, versions 5.5 and newer are supported.
@@ -313,7 +313,7 @@ directory and add the following line to the group [mysqld]:
     set-variable = lower_case_table_names=0
 
 .. note::
-    
+
     Forcing this variable to 0 with --lower-case-table-names=0 on a
     case-insensitive filesystem and access MyISAM tablenames using different
     lettercases, index corruption may result.
@@ -341,7 +341,6 @@ A tip from Jose Fandos: put a comment on the following two lines in
 httpd.conf, like this:
 
 .. code-block:: apache
-
 
     # mod_gzip_item_include file \.php$
     # mod_gzip_item_include mime "application/x-httpd-php.*"
@@ -394,7 +393,6 @@ directives are used:
 
 .. code-block:: apache
 
-
     SetOutputFilter PHP
     SetInputFilter PHP
 
@@ -411,7 +409,6 @@ with ``AddType``, so just comment out the first set of lines and
 restart Apache:
 
 .. code-block:: apache
-
 
     #SetOutputFilter PHP
     #SetInputFilter PHP
@@ -483,7 +480,6 @@ forget to change directory name inside of it):
 
 .. code-block:: apache
 
-
     RewriteEngine On
     RewriteBase /path_to_phpMyAdmin
     RewriteRule ^([a-zA-Z0-9_]+)/([a-zA-Z0-9_]+)/([a-z_]+\.php)$ index.php?db=$1&table=$2&target=$3 [R]
@@ -500,7 +496,6 @@ Yes. However you need to pass authentication variable to :term:`CGI` using
 following rewrite rule:
 
 .. code-block:: apache
-
 
     RewriteEngine On
     RewriteRule .* - [E=REMOTE_USER:%{HTTP:Authorization},L]
@@ -609,7 +604,6 @@ the set-cookie headers. Example from the Apache 2.2 documentation:
 
 .. code-block:: apache
 
-
     ProxyPass /mirror/foo/ http://backend.example.com/
     ProxyPassReverse /mirror/foo/ http://backend.example.com/
     ProxyPassReverseCookieDomain backend.example.com public.example.com
@@ -620,7 +614,6 @@ tilde (~) must be url encoded as %7E in the ProxyPassReverse\* lines.
 This is not specific to phpmyadmin, it's just the behavior of Apache.
 
 .. code-block:: apache
-
 
     ProxyPass /mirror/foo/ http://backend.example.com/~user/phpmyadmin
     ProxyPassReverse /mirror/foo/ http://backend.example.com/%7Euser/phpmyadmin
@@ -646,7 +639,6 @@ field. This is quite easy to circumvent, but could prevent at least
 some robots accessing your installation.
 
 .. code-block:: apache
-
 
     RewriteEngine on
 
@@ -801,7 +793,6 @@ doesn't work in this configuration with port forwarding. If you enter
 
 See :ref:`themes`.
 
-
 .. _faqmissingparameters:
 
 2.8 I get "Missing parameters" errors, what can I do?
@@ -889,7 +880,6 @@ comments like this:
 
 .. code-block:: mysql
 
-
     -- MySQL dump 8.22
     --
     -- Host: localhost Database: database
@@ -927,7 +917,7 @@ TableSeparator or disabling that feature.
 
 Your table neither have a :term:`primary key` nor an :term:`unique key`, so we must
 use a long expression to identify this row. This causes problems to
-parse\_url function. The workaround is to create a :term:`primary key` 
+parse\_url function. The workaround is to create a :term:`primary key`
 or :term:`unique key`.
 
 .. _faq3_8:
@@ -1151,7 +1141,6 @@ If you want a pre-made sample, you can try this fragment. It stops the
 network :term:`IP` blocks.
 
 .. code-block:: php
-
 
     //block root from logging in except from the private networks
     $cfg['Servers'][$i]['AllowDeny']['order'] = 'deny,allow';
@@ -1387,7 +1376,7 @@ If you see errors like:
     A potentially unsafe operation has been detected in your request to this site.
 
 This is usually caused by web application firewall doing requests filtering. It
-tries to prevent SQL injection, however phpMyAdmin is tool designed to execute 
+tries to prevent SQL injection, however phpMyAdmin is tool designed to execute
 SQL queries, thus it makes it unusable.
 
 Please whitelist phpMyAdmin scripts from the web application firewall settings
@@ -1481,7 +1470,6 @@ table, create it as explained in the configuration section. Then
 create the example tables:
 
 .. code-block:: mysql
-
 
     CREATE TABLE REL_countries (
     country_code char(1) NOT NULL default '',
@@ -1581,7 +1569,7 @@ schema layout. Which tables will go on which pages?
   Browsers on other operating systems, and other browsers on Windows, do
   not have this problem.
 
-.. seealso:: 
+.. seealso::
 
     :ref:`relations`
 
@@ -1718,7 +1706,6 @@ have table exported in file :file:`table.tex`):
 
 .. code-block:: latex
 
-
     \documentclass{article} % or any class you want
     \usepackage{longtable}  % for displaying table
     \begin{document}        % start of document
@@ -1752,7 +1739,6 @@ this is to be able to type the first letter of either the key or the
 display column. For 100 values or more, a distinct window will appear,
 to browse foreign key values and choose one. To change the default
 limit of 100, see :config:option:`$cfg['ForeignKeyMaxLimit']`.
-
 
 .. _faq6_22:
 
@@ -2065,7 +2051,7 @@ PetType depends on PetBreed.
 
 .. _faq6_38:
 
-6.38 How can I reassign auto-incremented values? 
+6.38 How can I reassign auto-incremented values?
 ------------------------------------------------
 
 Some users prefer their AUTO_INCREMENT values to be consecutive; this is not
@@ -2218,7 +2204,6 @@ If you use Apache web server, phpMyAdmin exports information about
 authentication to the Apache environment and it can be used in Apache
 logs. Currently there are two variables available:
 
-
 ``userID``
     User name of currently active user (he does not have to be logged in).
 ``userStatus``
@@ -2273,4 +2258,3 @@ Synchronization
 
 9.2 (withdrawn).
 ----------------
-

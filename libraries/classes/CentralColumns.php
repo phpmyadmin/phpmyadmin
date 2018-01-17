@@ -794,21 +794,17 @@ class CentralColumns
      * Function generate and return the table header for
      * multiple edit central columns page
      *
-     * @param array $header_cells headers list
+     * @param array $headers headers list
      *
      * @return string html for table header in central columns multi edit page
      */
-    public static function getEditTableHeader(array $header_cells)
+    public static function getEditTableHeader(array $headers)
     {
-        $html = '<table id="table_columns" class="noclick"'
-            . ' style="min-width: 100%;">';
-        $html .= '<caption class="tblHeaders">' . __('Structure');
-        $html .= '<tr>';
-        foreach ($header_cells as $header_val) {
-            $html .= '<th>' . $header_val . '</th>';
-        }
-        $html .= '</tr>';
-        return $html;
+        return Template::get(
+            'database/central_columns/edit_table_header'
+        )->render([
+            'headers' => $headers,
+        ]);
     }
 
     /**
@@ -883,11 +879,11 @@ class CentralColumns
         $pos,
         $db
     ) {
-        $columnAdd = '<table style="display:inline-block;margin-left:1%;max-width:50%" '
+        $columnAdd = '<table class="central_columns_add_column" '
             . 'class="navigation nospacing nopadding">'
             . '<tr>'
             . '<td class="navigation_separator largescreenonly"></td>'
-            . '<td style="padding:1.5% 0em">'
+            . '<td class="central_columns_navigation">'
             . Util::getIcon(
                 'centralColumns_add',
                 __('Add column')

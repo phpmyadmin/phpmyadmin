@@ -7,6 +7,7 @@
  */
 namespace PhpMyAdmin;
 
+use PhpMyAdmin\Template;
 use PhpMyAdmin\Url;
 use PhpMyAdmin\Util;
 
@@ -85,31 +86,40 @@ class BrowseForeigners
 
         $output .= '<tr class="noclick">';
 
-        $output .= self::getHtmlForColumnElement(
-            'class="nowrap"', $leftKeynameIsSelected,
-            $leftKeyname, $leftDescription,
-            $leftDescriptionTitle
-        );
-
-        $output .= self::getHtmlForColumnElement(
-            '', $leftKeynameIsSelected, $leftKeyname,
-            $leftDescription, $leftDescriptionTitle
-        );
+        $output .= Template::get('table/browse_foreigners/column_element')->render([
+            'keyname' => $leftKeyname,
+            'description' => $leftDescription,
+            'title' => $leftDescriptionTitle,
+            'is_selected' => $leftKeynameIsSelected,
+            'nowrap' => true,
+        ]);
+        $output .= Template::get('table/browse_foreigners/column_element')->render([
+            'keyname' => $leftKeyname,
+            'description' => $leftDescription,
+            'title' => $leftDescriptionTitle,
+            'is_selected' => $leftKeynameIsSelected,
+            'nowrap' => false,
+        ]);
 
         $output .= '<td width="20%">'
             . '<img src="' . $pmaThemeImage . 'spacer.png" alt=""'
             . ' width="1" height="1" /></td>';
 
-        $output .= self::getHtmlForColumnElement(
-            '', $rightKeynameIsSelected, $rightKeyname,
-            $rightDescription, $rightDescriptionTitle
-        );
+        $output .= Template::get('table/browse_foreigners/column_element')->render([
+            'keyname' => $rightKeyname,
+            'description' => $rightDescription,
+            'title' => $rightDescriptionTitle,
+            'is_selected' => $rightKeynameIsSelected,
+            'nowrap' => false,
+        ]);
+        $output .= Template::get('table/browse_foreigners/column_element')->render([
+            'keyname' => $rightKeyname,
+            'description' => $rightDescription,
+            'title' => $rightDescriptionTitle,
+            'is_selected' => $rightKeynameIsSelected,
+            'nowrap' => true,
+        ]);
 
-        $output .= self::getHtmlForColumnElement(
-            'class="nowrap"', $rightKeynameIsSelected,
-            $rightKeyname, $rightDescription,
-            $rightDescriptionTitle
-        );
         $output .= '</tr>';
 
         return array($output, $horizontal_count, $indexByDescription);
@@ -141,7 +151,11 @@ class BrowseForeigners
         $current_value
     ) {
         $gotopage = self::getHtmlForGotoPage($maxRows, $foreignData);
-        $foreignShowAll = self::getHtmlForShowAll($showAll, $maxRows, $foreignData);
+        $foreignShowAll = Template::get('table/browse_foreigners/show_all')->render([
+            'foreign_data' => $foreignData,
+            'show_all' => $showAll,
+            'max_rows' => $maxRows,
+        ]);
 
         $output = '<form class="ajax" '
             . 'id="browse_foreign_form" name="browse_foreign_from" '
@@ -264,65 +278,6 @@ class BrowseForeigners
             );
         }
         return array($description, $descriptionTitle);
-    }
-
-    /**
-     * Function to get html for each column element
-     *
-     * @param string $cssClass    class="nowrap" or ''
-     * @param bool   $isSelected  whether current equals form's value
-     * @param string $keyname     current key
-     * @param string $description current value
-     * @param string $title       current title
-     *
-     * @return string
-     */
-    public static function getHtmlForColumnElement($cssClass, $isSelected, $keyname,
-        $description, $title
-    ) {
-        $keyname = htmlspecialchars($keyname);
-        $output = '<td';
-        if (! empty($cssClass)) {
-            $output .= ' ' . $cssClass;
-        }
-        $output .= '>'
-            . ($isSelected ? '<strong>' : '')
-            . '<a class="foreign_value" data-key="' . $keyname . '" '
-            . 'href="#" title="' . __('Use this value')
-            . ($title != ''
-                ? ': ' . $title
-                : '')
-            . '">';
-        if ($cssClass !== '') {
-            $output .= $keyname;
-        } else {
-            $output .= $description;
-        }
-
-        $output .=  '</a>' . ($isSelected ? '</strong>' : '') . '</td>';
-
-        return $output;
-    }
-
-    /**
-     * Function to get html for show all case
-     *
-     * @param array|null $foreignData foreign data
-     *
-     * @return string
-     */
-    public static function getHtmlForShowAll($showAll, $maxRows, $foreignData)
-    {
-        $return = '';
-        if (is_array($foreignData['disp_row'])) {
-            if ($showAll && ($foreignData['the_total'] > $maxRows)) {
-                $return = '<input type="submit" id="foreign_showAll" '
-                    . 'name="foreign_showAll" '
-                    . 'value="' . __('Show all') . '" />';
-            }
-        }
-
-        return $return;
     }
 
     /**

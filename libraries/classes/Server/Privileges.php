@@ -3923,7 +3923,7 @@ class Privileges
         if (! $GLOBALS['dbi']->tryQuery($sql_query0)) {
             // This might fail when the executing user does not have
             // ALL PRIVILEGES himself.
-            // See https://sourceforge.net/p/phpmyadmin/bugs/3270/
+            // See https://github.com/phpmyadmin/phpmyadmin/issues/9673
             $sql_query0 = '';
         }
         if (! empty($sql_query1) && ! $GLOBALS['dbi']->tryQuery($sql_query1)) {

@@ -19,38 +19,6 @@
  */
 
 /**
- * This function returns the horizontal space available for the menu in pixels.
- * To calculate this value we start we the width of the main panel, then we
- * substract the margin of the page content, then we substract any cellspacing
- * that the table may have (original theme only) and finally we substract the
- * width of all columns of the table except for the last one (which is where
- * the menu will go). What we should end up with is the distance between the
- * start of the last column on the table and the edge of the page, again this
- * is the space available for the menu.
- *
- * In the case where the table cell where the menu will be displayed is already
- * off-screen (the table is wider than the page), a negative value will be returned,
- * but this will be treated as a zero by the menuResizer plugin.
- *
- * @return int
- */
-function PMA_tbl_structure_menu_resizer_callback () {
-    var pagewidth = $('body').width();
-    var $page = $('#page_content');
-    pagewidth -= $page.outerWidth(true) - $page.outerWidth();
-    var columnsWidth = 0;
-    var $columns = $('#tablestructure').find('tr:eq(1)').find('td,th');
-    $columns.not(':last').each(function () {
-        columnsWidth += $(this).outerWidth(true);
-    });
-    var totalCellSpacing = $('#tablestructure').width();
-    $columns.each(function () {
-        totalCellSpacing -= $(this).outerWidth(true);
-    });
-    return pagewidth - columnsWidth - totalCellSpacing - 15; // 15px extra margin
-}
-
-/**
  * Reload fields table
  */
 function reloadFieldForm () {
@@ -60,13 +28,6 @@ function reloadFieldForm () {
         $('#addColumns').replaceWith($temp_div.find('#addColumns'));
         $('#move_columns_dialog').find('ul').replaceWith($temp_div.find('#move_columns_dialog ul'));
         $('#moveColumns').removeClass('move-active');
-        /* reinitialise the more options in table */
-        var windowWidth = $(window).width();
-        if (windowWidth > 768) {
-            if ($('#fieldsForm').hasClass('HideStructureActions')) {
-                $('#fieldsForm').find('ul.table-structure-actions').menuResizer(PMA_tbl_structure_menu_resizer_callback);
-            }
-        }
     });
     $('#page_content').show();
 }
@@ -222,7 +183,7 @@ AJAX.registerOnload('tbl_structure.js', function () {
         var $this_anchor = $(this);
         $this_anchor.PMA_confirm(question, $this_anchor.attr('href'), function (url) {
             var $msg = PMA_ajaxShowMessage(PMA_messages.strDroppingColumn, false);
-            var params = getJSConfirmCommonParam(this, $this_anchor.attr('data-post'));
+            var params = getJSConfirmCommonParam(this, $this_anchor.getPostData());
             params += '&ajax_page_request=1';
             $.post(url, params, function (data) {
                 if (typeof data !== 'undefined' && data.success === true) {
@@ -308,7 +269,7 @@ AJAX.registerOnload('tbl_structure.js', function () {
             PMA_ajaxShowMessage();
             AJAX.source = $this;
 
-            var params = getJSConfirmCommonParam(this, $this_anchor.attr('data-post'));
+            var params = getJSConfirmCommonParam(this, $this_anchor.getPostData());
             params += '&ajax_page_request=1';
             $.post(url, params, AJAX.responseHandler);
         }); // end $.PMA_confirm()
@@ -358,9 +319,6 @@ AJAX.registerOnload('tbl_structure.js', function () {
                             buttons: button_options_error
                         }); // end dialog options
                 } else {
-                    if ($('#fieldsForm').hasClass('HideStructureActions')) {
-                        $('#fieldsForm').find('ul.table-structure-actions').menuResizer('destroy');
-                    }
                     // sort the fields table
                     var $fields_table = $('table#tablestructure tbody');
                     // remove all existing rows and remember them
@@ -386,12 +344,6 @@ AJAX.registerOnload('tbl_structure.js', function () {
                     }
                     PMA_ajaxShowMessage(data.message);
                     $this.dialog('close');
-                    var windowWidth = $(window).width();
-                    if (windowWidth > 768) {
-                        if ($('#fieldsForm').hasClass('HideStructureActions')) {
-                            $('#fieldsForm').find('ul.table-structure-actions').menuResizer(PMA_tbl_structure_menu_resizer_callback);
-                        }
-                    }
                 }
             });
         };
@@ -519,9 +471,7 @@ AJAX.registerOnload('tbl_structure.js', function () {
 AJAX.registerOnload('tbl_structure.js', function () {
     var windowwidth = $(window).width();
     if (windowwidth > 768) {
-        if ($('#fieldsForm').hasClass('HideStructureActions')) {
-            $('#fieldsForm').find('ul.table-structure-actions').menuResizer(PMA_tbl_structure_menu_resizer_callback);
-        } else {
+        if (! $('#fieldsForm').hasClass('HideStructureActions')) {
             $('.table-structure-actions').width(function () {
                 var width = 5;
                 $(this).find('li').each(function () {
@@ -549,16 +499,4 @@ AJAX.registerOnload('tbl_structure.js', function () {
             });
         }
     });
-});
-AJAX.registerTeardown('tbl_structure.js', function () {
-    if ($('#fieldsForm').hasClass('HideStructureActions')) {
-        $('#fieldsForm').find('ul.table-structure-actions').menuResizer('destroy');
-    }
-});
-$(function () {
-    $(window).resize($.throttle(function () {
-        if ($('#fieldsForm').length && $('#fieldsForm').hasClass('HideStructureActions')) {
-            $('#fieldsForm').find('ul.table-structure-actions').menuResizer('resize');
-        }
-    }));
 });

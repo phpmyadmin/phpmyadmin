@@ -4,16 +4,16 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin-docs 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2017-11-28 16:22+0100\n"
-"PO-Revision-Date: 2017-11-09 13:32+0000\n"
-"Last-Translator: anonymous <>\n"
-"Language-Team: German <https://hosted.weblate.org/projects/phpmyadmin/master/"
-"de/>\n"
+"PO-Revision-Date: 2017-12-28 01:45+0000\n"
+"Last-Translator: Tom Wellmann <tomwellmann@web.de>\n"
+"Language-Team: German "
+"<https://hosted.weblate.org/projects/phpmyadmin/master/de/>\n"
 "Language: de\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 2.18-dev\n"
+"X-Generator: Weblate 2.19-dev\n"
 
 #: ajax.php:21 ajax.php:50 export.php:203 libraries/classes/Export.php:1100
 msgid "Bad type!"
@@ -3872,10 +3872,8 @@ msgid "Hide table structure actions"
 msgstr "Tabellenstrukturaktionen verbergen"
 
 #: libraries/classes/Config/Descriptions.php:195
-#, fuzzy
-#| msgid "Default sorting order"
 msgid "Default transformations for Hex"
-msgstr "Voreingestellte Sortierung"
+msgstr "Standardmäßige Anpassung für Hex"
 
 #: libraries/classes/Config/Descriptions.php:197
 #: libraries/classes/Config/Descriptions.php:201
@@ -3898,16 +3896,12 @@ msgid "Default transformations for Substring"
 msgstr "Eingabeumwandlungsoptionen"
 
 #: libraries/classes/Config/Descriptions.php:203
-#, fuzzy
-#| msgid "Default sorting order"
 msgid "Default transformations for Bool2Text"
-msgstr "Voreingestellte Sortierung"
+msgstr "Standardmäßige Anpassung für Bool2Text"
 
 #: libraries/classes/Config/Descriptions.php:207
-#, fuzzy
-#| msgid "Default sorting order"
 msgid "Default transformations for External"
-msgstr "Voreingestellte Sortierung"
+msgstr "Standardmäßige Anpassung für \"External\""
 
 #: libraries/classes/Config/Descriptions.php:211
 #, fuzzy

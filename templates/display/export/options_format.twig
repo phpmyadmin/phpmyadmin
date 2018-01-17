@@ -1,0 +1,24 @@
+<div class="exportoptions" id="format_specific_opts">
+    <h3>{% trans 'Format-specific options:' %}</h3>
+    <p class="no_js_msg" id="scroll_to_options_msg">
+        {% trans 'Scroll down to fill in the options for the selected format and ignore the options for other formats.' %}
+    </p>
+    {{ options|raw }}
+</div>
+
+{% if can_convert_kanji %}
+    {# Japanese encoding setting #}
+    <div class="exportoptions" id="kanji_encoding">
+        <h3>{% trans 'Encoding Conversion:' %}</h3>
+        {% include 'encoding/kanji_encoding_form.twig' %}
+    </div>
+{% endif %}
+
+<div class="exportoptions" id="submit">
+    <input type="submit" value="{% trans 'Go' %}" id="buttonGo"
+        {#- If the time limit set is zero, then time out won't occur so no need
+            to check for time out. -#}
+        {%- if exec_time_limit > 0 %}
+            onclick="check_time_out({{ exec_time_limit }})"
+        {%- endif %}>
+</div>

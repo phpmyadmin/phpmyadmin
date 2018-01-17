@@ -25,9 +25,11 @@ $scripts->addFile('export.js');
 // Get the relation settings
 $cfgRelation = Relation::getRelationsParam();
 
+$displayExport = new Export();
+
 // handling export template actions
 if (isset($_REQUEST['templateAction']) && $cfgRelation['exporttemplateswork']) {
-    Export::handleExportTemplateActions($cfgRelation);
+    $displayExport->handleTemplateActions($cfgRelation);
     exit;
 }
 
@@ -134,7 +136,7 @@ if (! isset($multi_values)) {
 }
 $response = Response::getInstance();
 $response->addHTML(
-    Export::getExportDisplay(
+    $displayExport->getDisplay(
         'table', $db, $table, $sql_query, $num_tables,
         $unlim_num_rows, $multi_values
     )

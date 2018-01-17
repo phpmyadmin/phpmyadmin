@@ -1038,8 +1038,8 @@ class Descriptions
                 return __('Hide databases matching regular expression (PCRE).');
             case 'Servers_DisableIS_desc':
                 return __(
-                    'More information on [a@https://sourceforge.net/p/phpmyadmin/bugs/2606/]PMA '
-                    .  'bug tracker[/a] and [a@https://bugs.mysql.com/19588]MySQL Bugs[/a]'
+                    'More information on [a@https://github.com/phpmyadmin/phpmyadmin/issues/8970]phpMyAdmin '
+                    .  'issue tracker[/a] and [a@https://bugs.mysql.com/19588]MySQL Bugs[/a]'
                 );
             case 'Servers_DisableIS_name':
                 return __('Disable use of INFORMATION_SCHEMA');

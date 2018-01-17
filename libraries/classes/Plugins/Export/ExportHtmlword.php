@@ -268,11 +268,8 @@ class ExportHtmlword extends ExportPlugin
             }
         } // end while
         $GLOBALS['dbi']->freeResult($result);
-        if (!Export::outputHandler('</table>')) {
-            return false;
-        }
 
-        return true;
+        return Export::outputHandler('</table>');
     }
 
     /**

@@ -287,14 +287,19 @@ class ThemeTest extends PmaTestCase
      *
      * @return void
      */
-    public function testPrintPreview()
+    public function testGetPrintPreview()
     {
-        $this->assertEquals(
-            $this->object->getPrintPreview(),
-            '<div class="theme_preview"><h2> (0.0.0.0) </h2><p><a class="take_'
-            . 'theme" name="" href="index.php?set_theme=&amp;server=99&amp;lang=en'
-            . '">No preview available.[ <strong>take it</strong> ]'
-            . '</a></p></div>'
+        $this->assertContains(
+            '<h2>' . "\n" . '         (0.0.0.0)',
+            $this->object->getPrintPreview()
+        );
+        $this->assertContains(
+            'name="" href="index.php?set_theme=&amp;server=99&amp;lang=en">',
+            $this->object->getPrintPreview()
+        );
+        $this->assertContains(
+            'No preview available.',
+            $this->object->getPrintPreview()
         );
     }
 

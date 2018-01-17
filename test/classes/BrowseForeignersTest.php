@@ -83,61 +83,6 @@ class BrowseForeignersTest extends TestCase
     }
 
     /**
-     * Test for BrowseForeigners::getHtmlForShowAll
-     *
-     * @return void
-     */
-    function testGetHtmlForShowAll()
-    {
-        $this->assertEquals(
-            '',
-            BrowseForeigners::getHtmlForShowAll(
-                $GLOBALS['cfg']['ShowAll'],
-                $GLOBALS['cfg']['MaxRows'],
-                null
-            )
-        );
-
-        $foreignData = array();
-        $foreignData['disp_row'] = array();
-        $GLOBALS['cfg']['ShowAll'] = false;
-
-        $this->assertEquals(
-            '',
-            BrowseForeigners::getHtmlForShowAll(
-                $GLOBALS['cfg']['ShowAll'],
-                $GLOBALS['cfg']['MaxRows'],
-                $foreignData
-            )
-        );
-
-        $GLOBALS['cfg']['ShowAll'] = true;
-        $foreignData['the_total'] = 0;
-
-        $this->assertEquals(
-            '',
-            BrowseForeigners::getHtmlForShowAll(
-                $GLOBALS['cfg']['ShowAll'],
-                $GLOBALS['cfg']['MaxRows'],
-                $foreignData
-            )
-        );
-
-        $foreignData['the_total'] = 30;
-
-        $this->assertEquals(
-            '<input type="submit" id="foreign_showAll" '
-            . 'name="foreign_showAll" '
-            . 'value="' . 'Show all' . '" />',
-            BrowseForeigners::getHtmlForShowAll(
-                $GLOBALS['cfg']['ShowAll'],
-                $GLOBALS['cfg']['MaxRows'],
-                $foreignData
-            )
-        );
-    }
-
-    /**
      * Test for BrowseForeigners::getHtmlForGotoPage
      *
      * @return void
@@ -194,60 +139,6 @@ class BrowseForeignersTest extends TestCase
 
         $this->assertContains(
             '<option  value="25"',
-            $result
-        );
-    }
-
-    /**
-     * Test for BrowseForeigners::getHtmlForColumnElement
-     *
-     * @return void
-     */
-    function testGetHtmlForColumnElement()
-    {
-        $cssClass = '';
-        $isSelected = false;
-        $keyname = '';
-        $description = 'foo';
-        $title = '';
-        $result = BrowseForeigners::getHtmlForColumnElement(
-            $cssClass, $isSelected, $keyname,
-            $description, $title
-        );
-
-        $this->assertContains(
-            '<td>',
-            $result
-        );
-
-        $this->assertContains(
-            '<a class="foreign_value" data-key="" href="#" '
-            . 'title="Use this value">',
-            $result
-        );
-
-        $cssClass = 'class="baz"';
-        $isSelected = true;
-        $keyname = 'bar';
-        $title = 'foo';
-        $result = BrowseForeigners::getHtmlForColumnElement(
-            $cssClass, $isSelected, $keyname,
-            $description, $title
-        );
-
-        $this->assertContains(
-            '<td class="baz">',
-            $result
-        );
-
-        $this->assertContains(
-            '<strong>',
-            $result
-        );
-
-        $this->assertContains(
-            '<a class="foreign_value" data-key="bar" href="#" '
-            . 'title="Use this value: foo">',
             $result
         );
     }
@@ -397,6 +288,5 @@ class BrowseForeignersTest extends TestCase
             '<th>',
             $result
         );
-
     }
 }

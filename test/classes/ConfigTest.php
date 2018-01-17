@@ -853,7 +853,7 @@ class ConfigTest extends PmaTestCase
 
         //if the above assertion is false then applying further assertions
         if (!($perms === false) && ($perms & 2)) {
-            $this->assertFalse($this->permTestObj->get('PMA_IS_WINDOWS') == 0);
+            $this->assertNotSame(0, $this->permTestObj->get('PMA_IS_WINDOWS'));
         }
     }
 

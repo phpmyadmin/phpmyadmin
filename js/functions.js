@@ -3517,9 +3517,9 @@ AJAX.registerOnload('functions.js', function () {
         var list_size = central_column_list[db + '_' + table].length;
         var min = (list_size <= maxRows) ? list_size : maxRows;
         for (i = 0; i < min; i++) {
-            fields += '<tr><td><div><span style="font-weight:bold">' +
+            fields += '<tr><td><div><span class="font_weight_bold">' +
                 escapeHtml(central_column_list[db + '_' + table][i].col_name) +
-                '</span><br><span style="color:gray">' + central_column_list[db + '_' + table][i].col_type;
+                '</span><br><span class="color_gray">' + central_column_list[db + '_' + table][i].col_type;
 
             if (central_column_list[db + '_' + table][i].col_attribute !== '') {
                 fields += '(' + escapeHtml(central_column_list[db + '_' + table][i].col_attribute) + ') ';
@@ -3530,7 +3530,7 @@ AJAX.registerOnload('functions.js', function () {
             fields += escapeHtml(central_column_list[db + '_' + table][i].col_extra) + '</span>' +
                 '</div></td>';
             if (pick) {
-                fields += '<td><input class="pick" style="width:100%" type="submit" value="' +
+                fields += '<td><input class="pick all100" type="submit" value="' +
                     PMA_messages.pickColumn + '" onclick="autoPopulate(\'' + colid + '\',' + i + ')"/></td>';
             }
             fields += '</tr>';
@@ -3579,9 +3579,9 @@ AJAX.registerOnload('functions.js', function () {
                     fields = '';
                     min = (list_size <= maxRows + result_pointer) ? list_size : maxRows + result_pointer;
                     for (i = result_pointer; i < min; i++) {
-                        fields += '<tr><td><div><span style="font-weight:bold">' +
+                        fields += '<tr><td><div><span class="font_weight_bold">' +
                             central_column_list[db + '_' + table][i].col_name +
-                            '</span><br><span style="color:gray">' +
+                            '</span><br><span class="color_gray">' +
                             central_column_list[db + '_' + table][i].col_type;
 
                         if (central_column_list[db + '_' + table][i].col_attribute !== '') {
@@ -3593,7 +3593,7 @@ AJAX.registerOnload('functions.js', function () {
                         fields += central_column_list[db + '_' + table][i].col_extra + '</span>' +
                             '</div></td>';
                         if (pick) {
-                            fields += '<td><input class="pick" style="width:100%" type="submit" value="' +
+                            fields += '<td><input class="pick all100" type="submit" value="' +
                                 PMA_messages.pickColumn + '" onclick="autoPopulate(\'' + colid + '\',' + i + ')"/></td>';
                         }
                         fields += '</tr>';
@@ -4249,7 +4249,7 @@ function PMA_slidingMessage (msg, $obj) {
         if ($('#PMA_slidingMessage').length === 0) {
             $('#page_content').prepend(
                 '<span id="PMA_slidingMessage" ' +
-                'style="display: inline-block;"></span>'
+                'class="pma_sliding_message"></span>'
             );
         }
         $obj = $('#PMA_slidingMessage');
@@ -5026,6 +5026,7 @@ function configSet(key, value, only_local=false)
         data: {
             key: key,
             type: "config-set",
+            server: PMA_commonParams.get('server'),
             value: serialized,
         },
         success: function (data) {
@@ -5070,6 +5071,7 @@ function configGet(key, cached=true)
         dataType: "json",
         data: {
             type: "config-get",
+            server: PMA_commonParams.get('server'),
             key: key
         },
         success: function (data) {
@@ -5084,3 +5086,15 @@ function configGet(key, cached=true)
     });
     return JSON.parse(localStorage.getItem(key));
 }
+
+/**
+ * Return POST data as stored by Util::linkOrButton
+ */
+jQuery.fn.getPostData = function() {
+    var dataPost = this.attr('data-post');
+    // Strip possible leading ?
+    if (dataPost !== undefined && dataPost.startsWith('?')) {
+        dataPost = dataPost.substr(1);
+    }
+    return dataPost;
+};

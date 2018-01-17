@@ -318,11 +318,7 @@ class ThemeManager
      */
     public function checkTheme($theme)
     {
-        if (! array_key_exists($theme, $this->themes)) {
-            return false;
-        }
-
-        return true;
+        return array_key_exists($theme, $this->themes);
     }
 
     /**

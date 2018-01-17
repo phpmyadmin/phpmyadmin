@@ -25,6 +25,8 @@ use PHPUnit\Framework\TestCase;
  */
 class ExportTest extends TestCase
 {
+    private $export;
+
     /**
      * Test for setUp
      *
@@ -68,14 +70,16 @@ class ExportTest extends TestCase
             ->will($this->returnValue('user value for test'));
 
         $GLOBALS['PMA_Config'] = $pmaconfig;
+
+        $this->export = new Export();
     }
 
     /**
-     * Test for Export::getHtmlForHiddenInput
+     * Test for Export::getHtmlForHiddenInputs
      *
      * @return void
      */
-    public function testPMAGetHtmlForHiddenInput()
+    public function testGetHtmlForHiddenInputs()
     {
         $export_type = "server";
         $db = "PMA";
@@ -84,7 +88,7 @@ class ExportTest extends TestCase
         $sql_query_str = "sql_query_str";
 
         //Call the test function
-        $html = Export::getHtmlForHiddenInput(
+        $html = $this->export->getHtmlForHiddenInputs(
             $export_type,
             $db,
             $table,
@@ -110,11 +114,11 @@ class ExportTest extends TestCase
     }
 
     /**
-     * Test for Export::getHtmlForExportOptions
+     * Test for Export::getHtmlForOptions
      *
      * @return void
      */
-    public function testPMAGetHtmlForExportOptions()
+    public function testGetHtmlForOptions()
     {
         global $cfg;
         $cfg['Export']['method'] = "XML";
@@ -159,7 +163,7 @@ class ExportTest extends TestCase
         );
 
         //Call the test function
-        $html = Export::getHtmlForExportOptions(
+        $html = $this->export->getHtmlForOptions(
             $export_type,
             $db,
             $table,
@@ -169,7 +173,7 @@ class ExportTest extends TestCase
             $unlim_num_rows_str
         );
 
-        //validate 2: Export::getHtmlForExportOptionsMethod
+        //validate 2: Export::getHtmlForOptionsMethod
         $this->assertContains(
             $cfg['Export']['method'],
             $html
@@ -187,7 +191,7 @@ class ExportTest extends TestCase
             $html
         );
 
-        //validate 3: Export::getHtmlForExportOptionsSelection
+        //validate 3: Export::getHtmlForOptionsSelection
         $this->assertContains(
             '<div class="exportoptions" id="databases_and_tables">',
             $html
@@ -201,14 +205,14 @@ class ExportTest extends TestCase
             $html
         );
 
-        //validate 4: Export::getHtmlForExportOptionsQuickExport
+        //validate 4: Export::getHtmlForOptionsQuickExport
         $this->assertContains(
-            '<input type="checkbox" name="onserver" value="saveit" ',
+            '<input type="checkbox" name="onserver" value="saveit"',
             $html
         );
         $dir = htmlspecialchars(Util::userDir($cfg['SaveDir']));
         $this->assertContains(
-            'Save on server in the directory <b>' . $dir . '</b>',
+            'Save on server in the directory <strong>' . $dir . '</strong>',
             $html
         );
 
@@ -235,7 +239,7 @@ class ExportTest extends TestCase
             $html
         );
 
-        //validate 6: Export::getHtmlForExportOptionsOutput
+        //validate 6: Export::getHtmlForOptionsOutput
         $this->assertContains(
             '<div class="exportoptions" id="output">',
             $html
@@ -245,7 +249,7 @@ class ExportTest extends TestCase
             $html
         );
 
-        //validate 7: Export::getHtmlForExportOptionsFormat
+        //validate 7: Export::getHtmlForOptionsFormat
         $this->assertContains(
             '<div class="exportoptions" id="format">',
             $html
@@ -261,7 +265,7 @@ class ExportTest extends TestCase
      *
      * @return void
      */
-    public function testPMAGetHtmlForAliasModalDialog()
+    public function testGetHtmlForAliasModalDialog()
     {
         $columns_info = array(
             'test\'_db' => array(
@@ -285,7 +289,7 @@ class ExportTest extends TestCase
 
         $GLOBALS['dbi'] = $dbi;
 
-        $html = Export::getHtmlForAliasModalDialog();
+        $html = $this->export->getHtmlForAliasModalDialog();
 
         $this->assertContains(
             '<div id="alias_modal" class="hide" title="'
