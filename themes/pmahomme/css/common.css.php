@@ -1622,6 +1622,7 @@ div#tablefieldscontainer {
 div#tablefieldscontainer select {
     width: 100%;
     background: #fff;
+    height: <?php echo ceil($GLOBALS['cfg']['TextareaRows'] * 1.2)-3.35; ?>em;
     /* height: 12em; */
 }
 
