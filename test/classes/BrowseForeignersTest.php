@@ -9,6 +9,7 @@ namespace PhpMyAdmin\Tests;
 
 use PhpMyAdmin\BrowseForeigners;
 use PHPUnit\Framework\TestCase;
+use ReflectionClass;
 
 /**
  * Tests for PhpMyAdmin\BrowseForeigners
@@ -17,18 +18,36 @@ use PHPUnit\Framework\TestCase;
  */
 class BrowseForeignersTest extends TestCase
 {
+    private $browseForeigners;
+
     /**
      * Setup for test cases
      *
      * @return void
      */
-    public function setUp()
+    protected function setUp()
     {
-        $GLOBALS['cfg']['LimitChars'] = 50;
-        $GLOBALS['cfg']['MaxRows'] = 25;
-        $GLOBALS['cfg']['RepeatCells'] = 100;
-        $GLOBALS['cfg']['ShowAll'] = false;
-        $GLOBALS['pmaThemeImage'] = '';
+        $this->browseForeigners = new BrowseForeigners(50, 25, 100, false, '');
+    }
+
+    /**
+     * Call protected functions by setting visibility to public.
+     *
+     * @param string           $name   method name
+     * @param array            $params parameters for the invocation
+     * @param BrowseForeigners $object BrowseForeigners instance object
+     *
+     * @return mixed the output from the protected method.
+     */
+    private function callProtectedMethod($name, $params, BrowseForeigners $object = null)
+    {
+        $class = new ReflectionClass(BrowseForeigners::class);
+        $method = $class->getMethod($name);
+        $method->setAccessible(true);
+        return $method->invokeArgs(
+            $object !== null ? $object : $this->browseForeigners,
+            $params
+        );
     }
 
     /**
@@ -39,46 +58,37 @@ class BrowseForeignersTest extends TestCase
     function testGetForeignLimit()
     {
         $this->assertNull(
-            BrowseForeigners::getForeignLimit(
-                $GLOBALS['cfg']['MaxRows'],
-                'Show all'
-            )
+            $this->browseForeigners->getForeignLimit('Show all')
         );
 
         $this->assertEquals(
             'LIMIT 0, 25 ',
-            BrowseForeigners::getForeignLimit(
-                $GLOBALS['cfg']['MaxRows'],
-                null
-            )
+            $this->browseForeigners->getForeignLimit(null)
         );
 
         $_REQUEST['pos'] = 10;
 
         $this->assertEquals(
             'LIMIT 10, 25 ',
-            BrowseForeigners::getForeignLimit(
-                $GLOBALS['cfg']['MaxRows'],
-                null
-            )
+            $this->browseForeigners->getForeignLimit(null)
         );
 
-        $GLOBALS['cfg']['MaxRows'] = 50;
-
-        $this->assertEquals(
-            'LIMIT 10, 50 ',
-            BrowseForeigners::getForeignLimit(
-                $GLOBALS['cfg']['MaxRows'],
-                null
-            )
+        $browseForeigners = new BrowseForeigners(
+            50,
+            50,
+            100,
+            false,
+            ''
         );
 
         $this->assertEquals(
             'LIMIT 10, 50 ',
-            BrowseForeigners::getForeignLimit(
-                $GLOBALS['cfg']['MaxRows'],
-                'xyz'
-            )
+            $browseForeigners->getForeignLimit(null)
+        );
+
+        $this->assertEquals(
+            'LIMIT 10, 50 ',
+            $browseForeigners->getForeignLimit('xyz')
         );
     }
 
@@ -91,9 +101,9 @@ class BrowseForeignersTest extends TestCase
     {
         $this->assertEquals(
             '',
-            BrowseForeigners::getHtmlForGotoPage(
-                $GLOBALS['cfg']['MaxRows'],
-                null
+            $this->callProtectedMethod(
+                'getHtmlForGotoPage',
+                [null]
             )
         );
 
@@ -104,16 +114,16 @@ class BrowseForeignersTest extends TestCase
 
         $this->assertEquals(
             '',
-            BrowseForeigners::getHtmlForGotoPage(
-                $GLOBALS['cfg']['MaxRows'],
-                $foreignData
+            $this->callProtectedMethod(
+                'getHtmlForGotoPage',
+                [$foreignData]
             )
         );
 
         $foreignData['the_total'] = 30;
-        $result = BrowseForeigners::getHtmlForGotoPage(
-            $GLOBALS['cfg']['MaxRows'],
-            $foreignData
+        $result = $this->callProtectedMethod(
+            'getHtmlForGotoPage',
+            [$foreignData]
         );
 
         $this->assertStringStartsWith(
@@ -150,24 +160,24 @@ class BrowseForeignersTest extends TestCase
      */
     function testGetDescriptionAndTitle()
     {
-        $GLOBALS['cfg']['LimitChars'] = 30;
         $desc = 'foobar<baz';
 
         $this->assertEquals(
             array('foobar&lt;baz', ''),
-            BrowseForeigners::getDescriptionAndTitle(
-                $GLOBALS['cfg']['LimitChars'],
-                $desc
+            $this->callProtectedMethod(
+                'getDescriptionAndTitle',
+                [$desc]
             )
         );
 
-        $GLOBALS['cfg']['LimitChars'] = 5;
+        $browseForeigners = new BrowseForeigners(5, 25, 100, false, '');
 
         $this->assertEquals(
             array('fooba...', 'foobar&lt;baz'),
-            BrowseForeigners::getDescriptionAndTitle(
-                $GLOBALS['cfg']['LimitChars'],
-                $desc
+            $this->callProtectedMethod(
+                'getDescriptionAndTitle',
+                [$desc],
+                $browseForeigners
             )
         );
     }
@@ -188,12 +198,7 @@ class BrowseForeignersTest extends TestCase
         $current_value = '';
         $_REQUEST['rownumber'] = 1;
         $_REQUEST['foreign_filter'] = '5';
-        $result = BrowseForeigners::getHtmlForRelationalFieldSelection(
-            $GLOBALS['cfg']['RepeatCells'],
-            $GLOBALS['pmaThemeImage'],
-            $GLOBALS['cfg']['MaxRows'],
-            $GLOBALS['cfg']['ShowAll'],
-            $GLOBALS['cfg']['LimitChars'],
+        $result = $this->browseForeigners->getHtmlForRelationalFieldSelection(
             $db,
             $table,
             $field,
@@ -264,13 +269,7 @@ class BrowseForeignersTest extends TestCase
 
         $foreignData['disp_row'] = array();
         $foreignData['the_total'] = 5;
-        $GLOBALS['cfg']['ShowAll'] = false;
-        $result = BrowseForeigners::getHtmlForRelationalFieldSelection(
-            $GLOBALS['cfg']['RepeatCells'],
-            $GLOBALS['pmaThemeImage'],
-            $GLOBALS['cfg']['MaxRows'],
-            $GLOBALS['cfg']['ShowAll'],
-            $GLOBALS['cfg']['LimitChars'],
+        $result = $this->browseForeigners->getHtmlForRelationalFieldSelection(
             $db,
             $table,
             $field,
