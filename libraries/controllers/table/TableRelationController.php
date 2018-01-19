@@ -40,11 +40,6 @@ class TableRelationController extends TableController
     protected $existrel;
 
     /**
-     * @var string $disp
-     */
-    protected $disp;
-
-    /**
      * @var string $tbl_storage_engine
      */
     protected $tbl_storage_engine;
@@ -67,11 +62,10 @@ class TableRelationController extends TableController
      * @param string $tbl_storage_engine Table storage engine
      * @param array  $existrel           Relations
      * @param array  $existrel_foreign   External relations
-     * @param string $disp               Display
      * @param string $upd_query          Update query
      */
     public function __construct($options_array, $cfgRelation, $tbl_storage_engine,
-        $existrel, $existrel_foreign, $disp, $upd_query
+        $existrel, $existrel_foreign, $upd_query
     ) {
         parent::__construct();
 
@@ -80,7 +74,6 @@ class TableRelationController extends TableController
         $this->tbl_storage_engine = $tbl_storage_engine;
         $this->existrel = $existrel;
         $this->existrel_foreign = $existrel_foreign;
-        $this->disp = $disp;
         $this->upd_query = $upd_query;
     }
 
@@ -144,10 +137,6 @@ class TableRelationController extends TableController
             );
         }
 
-        if ($this->cfgRelation['displaywork']) {
-            $this->disp = PMA_getDisplayField($this->db, $this->table);
-        }
-
         // display secondary level tabs if necessary
         $engine = $this->dbi->getTable($this->db, $this->table)
             ->getStatusInfo('ENGINE');
@@ -204,7 +193,7 @@ class TableRelationController extends TableController
     public function updateForDisplayField()
     {
         if ($this->upd_query->updateDisplayField(
-            $this->disp, $_POST['display_field'], $this->cfgRelation
+            $_POST['display_field'], $this->cfgRelation
         )
         ) {
             $this->response->addHTML(
@@ -279,7 +268,7 @@ class TableRelationController extends TableController
         ) {
             $this->response->addHTML(
                 Util::getMessage(
-                    __('Internal relations were successfully updated.'),
+                    __('Internal relationships were successfully updated.'),
                     '', 'success'
                 )
             );
@@ -306,6 +295,9 @@ class TableRelationController extends TableController
         $columns = array();
         foreach ($columnList as $column) {
             $columns[] = htmlspecialchars($column);
+        }
+        if ($GLOBALS['cfg']['NaturalOrder']) {
+            usort($columns, 'strnatcasecmp');
         }
         $this->response->addJSON('columns', $columns);
 
@@ -356,6 +348,9 @@ class TableRelationController extends TableController
             while ($row = $this->dbi->fetchArray($tables_rs)) {
                 $tables[] = htmlspecialchars($row[0]);
             }
+        }
+        if ($GLOBALS['cfg']['NaturalOrder']) {
+            usort($tables, 'strnatcasecmp');
         }
         $this->response->addJSON('tables', $tables);
     }

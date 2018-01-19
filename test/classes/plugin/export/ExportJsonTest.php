@@ -9,7 +9,6 @@ use PMA\libraries\plugins\export\ExportJson;
 
 require_once 'libraries/export.lib.php';
 require_once 'libraries/config.default.php';
-require_once 'export.php';
 require_once 'test/PMATestCase.php';
 
 /**
@@ -139,10 +138,10 @@ class ExportJsonTest extends PMATestCase
         $GLOBALS['crlf'] = "\n";
 
         $this->expectOutputString(
-            '/**' . "\n"
-            . ' Export to JSON plugin for PHPMyAdmin' . "\n"
-            . ' @version ' . PMA_VERSION . "\n"
-            . ' */' . "\n" . "\n"
+            "[\n"
+            . '{"type":"header","version":"' . PMA_VERSION
+            . '","comment":"Export to JSON plugin for PHPMyAdmin"},'
+            . "\n"
         );
 
         $this->assertTrue(
@@ -157,6 +156,10 @@ class ExportJsonTest extends PMATestCase
      */
     public function testExportFooter()
     {
+        $this->expectOutputString(
+            ']'
+        );
+
         $this->assertTrue(
             $this->object->exportFooter()
         );
@@ -172,7 +175,7 @@ class ExportJsonTest extends PMATestCase
         $GLOBALS['crlf'] = "\n";
 
         $this->expectOutputString(
-            "// Database 'testDB'\n"
+            '{"type":"database","name":"testDB"},' . "\n"
         );
 
         $this->assertTrue(
@@ -243,8 +246,12 @@ class ExportJsonTest extends PMATestCase
         $GLOBALS['dbi'] = $dbi;
 
         $this->expectOutputString(
-            "\n// db.tbl\n\n" .
-            "[{\"f1\":\"foo\"}, {\"f1\":\"bar\"}]\n"
+            '{"type":"table","name":"tbl","database":"db","data":'
+            . "\n[\n"
+            . '{"f1":"foo"},'
+            . "\n"
+            . '{"f1":"bar"}'
+            . "\n]\n}\n"
         );
 
         $this->assertTrue(

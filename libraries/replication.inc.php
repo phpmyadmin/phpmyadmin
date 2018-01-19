@@ -6,6 +6,8 @@
  * @package PhpMyAdmin
  */
 
+ use PMA\libraries\DatabaseInterface;
+
 if (! defined('PHPMYADMIN')) {
     exit;
 }
@@ -293,13 +295,15 @@ function PMA_Replication_connectToMaster(
     $user, $password, $host = null, $port = null, $socket = null
 ) {
     $server = array();
+    $server['user'] = $user;
+    $server['password'] = $password;
     $server["host"] = PMA_sanitizeMySQLHost($host);
     $server["port"] = $port;
     $server["socket"] = $socket;
 
     // 5th parameter set to true means that it's an auxiliary connection
     // and we must not go back to login page if it fails
-    return $GLOBALS['dbi']->connect($user, $password, false, $server, true);
+    return $GLOBALS['dbi']->connect(databaseinterface::CONNECT_AUXILIARY, $server);
 }
 /**
  * Fetches position and file of current binary log on master

@@ -6,6 +6,7 @@
  *
  * @package PhpMyAdmin
  */
+use PMA\libraries\Response;
 use PMA\libraries\Table;
 use PMA\Util;
 
@@ -37,10 +38,6 @@ if (!isset($mime_map)) {
 if (!isset($columnMeta)) {
     $columnMeta = array();
 }
-
-
-// Get available character sets and storage engines
-require_once './libraries/mysql_charsets.inc.php';
 
 $length_values_input_size = 8;
 
@@ -406,7 +403,7 @@ $html = PMA\libraries\Template::get('columns_definitions/column_definitions_form
 
 unset($form_params);
 
-$response = PMA\libraries\Response::getInstance();
+$response = Response::getInstance();
 $response->getHeader()->getScripts()->addFiles(
     array(
         'jquery/jquery.uitablefilter.js',

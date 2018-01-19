@@ -113,11 +113,11 @@ class ImportCsv extends AbstractImportCsv
         $csv_new_line = strtr($csv_new_line, $replacements);
 
         $param_error = false;
-        if (mb_strlen($csv_terminated) < 1) {
+        if (strlen($csv_terminated) === 0) {
             $message = PMA\libraries\Message::error(
                 __('Invalid parameter for CSV import: %s')
             );
-            $message->addParam(__('Columns terminated with'), false);
+            $message->addParam(__('Columns terminated with'));
             $error = true;
             $param_error = true;
             // The default dialog of MS Excel when generating a CSV produces a
@@ -132,7 +132,7 @@ class ImportCsv extends AbstractImportCsv
             $message = PMA\libraries\Message::error(
                 __('Invalid parameter for CSV import: %s')
             );
-            $message->addParam(__('Columns enclosed with'), false);
+            $message->addParam(__('Columns enclosed with'));
             $error = true;
             $param_error = true;
             // I could not find a test case where having no escaping characters
@@ -143,7 +143,7 @@ class ImportCsv extends AbstractImportCsv
             $message = PMA\libraries\Message::error(
                 __('Invalid parameter for CSV import: %s')
             );
-            $message->addParam(__('Columns escaped with'), false);
+            $message->addParam(__('Columns escaped with'));
             $error = true;
             $param_error = true;
         } elseif (mb_strlen($csv_new_line) != 1
@@ -152,7 +152,7 @@ class ImportCsv extends AbstractImportCsv
             $message = PMA\libraries\Message::error(
                 __('Invalid parameter for CSV import: %s')
             );
-            $message->addParam(__('Lines terminated with'), false);
+            $message->addParam(__('Lines terminated with'));
             $error = true;
             $param_error = true;
         }

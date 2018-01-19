@@ -54,8 +54,7 @@ $ci_offset = -1;
 <td class="center">
     <!-- column collation -->
     <?php $tmp_collation = empty($columnMeta['Collation']) ? null : $columnMeta['Collation']; ?>
-    <?= PMA_generateCharsetDropdownBox(
-        PMA_CSDROPDOWN_COLLATION,
+    <?= PMA\libraries\Charsets::getCollationDropdownBox(
         'field_collation[' . $columnNumber . ']',
         'field_' . $columnNumber . '_' . ($ci - $ci_offset),
         $tmp_collation,

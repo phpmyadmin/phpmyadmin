@@ -10,8 +10,6 @@ namespace PMA\libraries;
 use TCPDF;
 use TCPDF_FONTS;
 
-require_once TCPDF_INC;
-
 /**
  * PDF export base class providing basic configuration.
  *

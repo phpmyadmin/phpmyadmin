@@ -5,6 +5,7 @@
  *
  * @package PhpMyAdmin
  */
+use PMA\libraries\Response;
 
 /**
  *
@@ -21,7 +22,7 @@ $cfgRelation = PMA_getRelationsParam();
 /**
  * Ensures db and table are valid, else moves to the "parent" script
  */
-require_once './libraries/db_table_exists.lib.php';
+require_once './libraries/db_table_exists.inc.php';
 
 
 /**
@@ -95,7 +96,7 @@ if ($cfgRelation['commwork'] && $cfgRelation['mimework']) {
 }
 
 // Only output the http headers
-$response = PMA\libraries\Response::getInstance();
+$response = Response::getInstance();
 $response->getHeader()->sendHttpHeaders();
 
 // [MIME]

@@ -7,6 +7,7 @@
  */
 
 use PMA\libraries\Message;
+use PMA\libraries\Response;
 use PMA\libraries\ServerStatusData;
 
 require_once 'libraries/common.inc.php';
@@ -16,7 +17,7 @@ require_once 'libraries/replication_gui.lib.php';
 
 $serverStatusData = new ServerStatusData();
 
-$response = PMA\libraries\Response::getInstance();
+$response = Response::getInstance();
 $scripts = $response->getHeader()->getScripts();
 $scripts->addFile('server_status_advisor.js');
 

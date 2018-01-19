@@ -1,0 +1,9 @@
+<form class="ajax" id="changeUserGroupForm" action="server_privileges.php" method="post">
+    <?= PMA\libraries\URL::getHiddenInputs($params); ?>
+    <fieldset id="fieldset_user_group_selection">
+        <legend><?= __('User group') ?></legend>
+        <?= __('User group') ?> :
+        <?= PMA\libraries\Util::getDropdown('userGroup', $allUserGroups, $userGroup, 'userGroup_select'); ?>
+        <input type="hidden" name="changeUserGroup" value="1">
+    </fieldset>
+</form>

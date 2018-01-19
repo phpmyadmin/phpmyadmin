@@ -72,6 +72,7 @@ class DbQbeTest extends PMATestCase
      */
     protected function tearDown()
     {
+        parent::tearDown();
         unset($this->object);
     }
 
@@ -118,7 +119,7 @@ class DbQbeTest extends PMATestCase
     public function testGetSortRow()
     {
         $this->assertEquals(
-            '<tr class="even noclick"><th>Sort:</th><td class="center">'
+            '<tr class="noclick"><th>Sort:</th><td class="center">'
             . '<select style="width: 12ex" name="criteriaSort[0]" size="1">'
             . '<option value="">&nbsp;</option><option value="ASC">Ascending'
             . '</option><option value="DESC">Descending</option></select></td>'
@@ -144,7 +145,7 @@ class DbQbeTest extends PMATestCase
     public function testGetShowRow()
     {
         $this->assertEquals(
-            '<tr class="odd noclick"><th>Show:</th><td class="center"><input type'
+            '<tr class="noclick"><th>Show:</th><td class="center"><input type'
             . '="checkbox" name="criteriaShow[0]" /></td><td class="center">'
             . '<input type="checkbox" name="criteriaShow[1]" /></td><td '
             . 'class="center"><input type="checkbox" name="criteriaShow[2]" />'
@@ -164,7 +165,7 @@ class DbQbeTest extends PMATestCase
     public function testGetCriteriaInputboxRow()
     {
         $this->assertEquals(
-            '<tr class="even noclick"><th>Criteria:</th><td class="center">'
+            '<tr class="noclick"><th>Criteria:</th><td class="center">'
             . '<input type="hidden" name="prev_criteria[0]" value="" />'
             . '<input type="text" name="criteria[0]" value="" class="textfield" '
             . 'style="width: 12ex" size="20" /></td><td class="center">'
@@ -258,7 +259,7 @@ class DbQbeTest extends PMATestCase
     public function testGetModifyColumnsRow()
     {
         $this->assertEquals(
-            '<tr class="even noclick"><th>Modify:</th><td class="center"><strong>'
+            '<tr class="noclick"><th>Modify:</th><td class="center"><strong>'
             . 'Or:</strong><input type="radio" name="criteriaAndOrColumn[0]" value'
             . '="or" />&nbsp;&nbsp;<strong>And:</strong><input type="radio" name='
             . '"criteriaAndOrColumn[0]" value="and" checked="checked" /><br />Ins'
@@ -335,7 +336,7 @@ class DbQbeTest extends PMATestCase
     {
         $GLOBALS['cell_align_right'] = 'cellAlign';
         $this->assertEquals(
-            '<tr class="odd noclick"><td class="cellAlign nowrap"><!-- Row controls'
+            '<tr class="noclick"><td class="cellAlign nowrap"><!-- Row controls'
             . ' --><table class="nospacing nopadding"><tr><td class="cellAlign '
             . 'nowrap"><small>Ins:</small><input type="checkbox" name="'
             . 'criteriaRowInsert[0]" /></td><td class="cellAlign"><strong>And:'

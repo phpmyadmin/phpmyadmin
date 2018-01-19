@@ -31,7 +31,7 @@
 
         <td class="value">
             <?php if (isset($stat['description_function'])): ?>
-                <dfn title="<?= $stat['description_function']($stat['footer']); ?>">
+                <dfn title="<?= $stat['description_function']($current[$stat_name]); ?>">
                     <?= $value; ?>
                 </dfn>
             <?php else: ?>
@@ -56,7 +56,7 @@
     <?php endif; ?>
 
     <td class="tool">
-        <a onclick="PMA_commonActions.setDb('<?= PMA_jsFormat($current['SCHEMA_NAME']) ?>');"
+        <a onclick="PMA_commonActions.setDb('<?= PMA\libraries\Sanitize::jsFormat($current['SCHEMA_NAME']) ?>');"
            href="server_privileges.php<?= $url_query; ?>&amp;db=<?= urlencode($current['SCHEMA_NAME']); ?>&amp;checkprivsdb=<?= urlencode($current['SCHEMA_NAME']); ?>"
            title="<?= htmlspecialchars(sprintf(__('Check privileges for database "%s".'), $current['SCHEMA_NAME'])); ?>">
            <?= \PMA\libraries\Util::getIcon('s_rights.png', __('Check privileges')); ?>

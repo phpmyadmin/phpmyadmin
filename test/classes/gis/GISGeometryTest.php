@@ -71,11 +71,11 @@ class GISGeometryTest extends PHPUnit_Framework_TestCase
     public function testSetMinMax($point_set, $min_max, $output)
     {
         $this->assertEquals(
+            $output,
             $this->_callProtectedFunction(
                 'setMinMax',
                 array($point_set, $min_max)
-            ),
-            $output
+            )
         );
     }
 
@@ -127,11 +127,11 @@ class GISGeometryTest extends PHPUnit_Framework_TestCase
     public function testGenerateParams($value, $output)
     {
         $this->assertEquals(
+            $output,
             $this->_callProtectedFunction(
                 'generateParams',
                 array($value)
-            ),
-            $output
+            )
         );
     }
 
@@ -181,11 +181,11 @@ class GISGeometryTest extends PHPUnit_Framework_TestCase
     public function testExtractPoints($point_set, $scale_data, $linear, $output)
     {
         $this->assertEquals(
+            $output,
             $this->_callProtectedFunction(
                 'extractPoints',
                 array($point_set, $scale_data, $linear)
-            ),
-            $output
+            )
         );
     }
 
@@ -239,7 +239,7 @@ class GISGeometryTest extends PHPUnit_Framework_TestCase
                 array(
                     0 => array(12, 35),
                     1 => array(48, 75),
-                    2 => array('', ''),
+                    2 => array(0, 0),
                 ),
             ),
         );
@@ -258,11 +258,11 @@ class GISGeometryTest extends PHPUnit_Framework_TestCase
     public function testGetBoundsForOl($srid, $scale_data, $output)
     {
         $this->assertEquals(
+            $output,
             $this->_callProtectedFunction(
                 'getBoundsForOl',
                 array($srid, $scale_data)
-            ),
-            $output
+            )
         );
     }
 
@@ -307,11 +307,11 @@ class GISGeometryTest extends PHPUnit_Framework_TestCase
     public function testGetPolygonArrayForOpenLayers($polygons, $srid, $output)
     {
         $this->assertEquals(
+            $output,
             $this->_callProtectedFunction(
                 'getPolygonArrayForOpenLayers',
                 array($polygons, $srid)
-            ),
-            $output
+            )
         );
     }
 
@@ -331,7 +331,7 @@ class GISGeometryTest extends PHPUnit_Framework_TestCase
                     . 'new Array('
                     . 'new OpenLayers.Geometry.LinearRing('
                     . 'new Array('
-                    . '(new OpenLayers.Geometry.Point(,)).transform('
+                    . '(new OpenLayers.Geometry.Point(0,0)).transform('
                     . 'new OpenLayers.Projection("EPSG:4326"), '
                     . 'map.getProjectionObject()))))))'
             )

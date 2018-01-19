@@ -1,0 +1,8 @@
+<fieldset id="fieldset_add_user">
+    <legend><?= _pgettext('Create new user', 'New') ?></legend>
+    <a id="add_user_anchor" href="server_privileges.php<?= PMA\libraries\URL::getCommon($url_params) ?>"
+        <?php if (!empty($rel_params)) : ?>
+            rel="<?= PMA\libraries\URL::getCommon($rel_params)?>"
+        <?php endif; ?> >
+        <?= PMA\libraries\Util::getIcon('b_usradd.png') ?><?= __('Add user account') ?></a>
+</fieldset>

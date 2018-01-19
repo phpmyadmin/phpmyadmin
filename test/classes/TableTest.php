@@ -13,9 +13,7 @@ use PMA\libraries\Table;
 use PMA\libraries\Theme;
 use PMA\libraries\Util;
 
-require_once 'libraries/mysql_charsets.lib.php';
 require_once 'libraries/database_interface.inc.php';
-require_once 'libraries/url_generating.lib.php';
 require_once 'libraries/relation.lib.php';
 require_once 'test/PMATestCase.php';
 
@@ -46,9 +44,6 @@ class TableTest extends PMATestCase
         $GLOBALS['sql_drop_table'] = true;
         $GLOBALS['cfg']['Server']['table_uiprefs'] = "pma__table_uiprefs";
 
-        $_SESSION['PMA_Theme'] = new Theme();
-        $GLOBALS['pmaThemeImage'] = 'themes/dot.gif';
-        $GLOBALS['is_ajax_request'] = false;
         $GLOBALS['cfgRelation'] = PMA_getRelationsParam();
         $GLOBALS['dblist'] = new DataBasePMAMock();
         $GLOBALS['dblist']->databases = new DataBaseMock();
@@ -751,7 +746,6 @@ class TableTest extends PMATestCase
     {
         $table = 'PMA_BookMark';
         $db = 'PMA';
-        Util::cacheSet('lower_case_table_names', false);
 
         $table = new Table($table, $db);
 
@@ -1027,7 +1021,7 @@ class TableTest extends PMATestCase
         $dbi->expects($this->any())
             ->method('fetchResult')
             ->willReturnOnConsecutiveCalls(
-                array('`one_pk`'),
+                array(array('`one_pk`')),
 
                 array(), // No Uniques found
                 array('`one_ind`', '`sec_ind`'),

@@ -1,0 +1,28 @@
+<table id="initials_table" cellspacing="5">
+    <tr>
+        <?php foreach ($array_initials as $tmp_initial => $initial_was_found) : ?>
+            <?php if ($tmp_initial === null) : ?>
+                <?php continue; ?>
+            <?php endif; ?>
+
+            <?php if (!$initial_was_found) : ?>
+                <td><?= $tmp_initial ?></td>
+                <?php continue; ?>
+            <?php endif; ?>
+
+            <td>
+                <?php
+                    $additional_class
+                        = (isset($_REQUEST['initial']) && $_REQUEST['initial'] === $tmp_initial) ? ' active' : '';
+                ?>
+                <?php $url_params = PMA\libraries\URL::getCommon(array('initial' => $tmp_initial)); ?>
+                <a class="ajax<?= $additional_class ?>" href="server_privileges.php<?= $url_params ?>"><?= $tmp_initial ?></a>
+            </td>
+        <?php endforeach; ?>
+        <td>
+            <a href="server_privileges.php<?= PMA\libraries\URL::getCommon(array('showall' => 1)) ?>" class="nowrap">
+                <?= __('Show all') ?>
+            </a>
+        </td>
+    </tr>
+</table>

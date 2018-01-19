@@ -41,19 +41,21 @@
 
 /* CURSOR */
 
-.CodeMirror div.CodeMirror-cursor {
+.CodeMirror-cursor {
   border-left: 1px solid black;
+  border-right: none;
+  width: 0;
 }
 /* Shown when moving in bi-directional text */
 .CodeMirror div.CodeMirror-secondarycursor {
   border-left: 1px solid silver;
 }
-.CodeMirror.cm-fat-cursor div.CodeMirror-cursor {
+.cm-fat-cursor .CodeMirror-cursor {
   width: auto;
-  border: 0;
+  border: 0 !important;
   background: #7e7;
 }
-.CodeMirror.cm-fat-cursor div.CodeMirror-cursors {
+.cm-fat-cursor div.CodeMirror-cursors {
   z-index: 1;
 }
 
@@ -63,30 +65,37 @@
   -webkit-animation: blink 1.06s steps(1) infinite;
   -moz-animation: blink 1.06s steps(1) infinite;
   animation: blink 1.06s steps(1) infinite;
+  background-color: #7e7;
 }
 @-moz-keyframes blink {
-  0% { background: #7e7; }
-  50% { background: none; }
-  100% { background: #7e7; }
+  0% {}
+  50% { background-color: transparent; }
+  100% {}
 }
 @-webkit-keyframes blink {
-  0% { background: #7e7; }
-  50% { background: none; }
-  100% { background: #7e7; }
+  0% {}
+  50% { background-color: transparent; }
+  100% {}
 }
 @keyframes blink {
-  0% { background: #7e7; }
-  50% { background: none; }
-  100% { background: #7e7; }
+  0% {}
+  50% { background-color: transparent; }
+  100% {}
 }
 
 /* Can style cursor different in overwrite (non-insert) mode */
-div.CodeMirror-overwrite div.CodeMirror-cursor {}
+.CodeMirror-overwrite .CodeMirror-cursor {}
 
 .cm-tab { display: inline-block; text-decoration: inherit; }
 
+.CodeMirror-rulers {
+  position: absolute;
+  left: 0; right: 0; top: -50px; bottom: -20px;
+  overflow: hidden;
+}
 .CodeMirror-ruler {
   border-left: 1px solid #ccc;
+  top: 0; bottom: 0;
   position: absolute;
 }
 
@@ -162,7 +171,7 @@ div.CodeMirror span.CodeMirror-nonmatchingbracket {color: #f22;}
 }
 
 /* The fake, visible scrollbars. Used to force redraw during scrolling
-   before actuall scrolling happens, thus preventing shaking and
+   before actual scrolling happens, thus preventing shaking and
    flickering artifacts. */
 .CodeMirror-vscrollbar, .CodeMirror-hscrollbar, .CodeMirror-scrollbar-filler, .CodeMirror-gutter-filler {
   position: absolute;
@@ -188,21 +197,26 @@ div.CodeMirror span.CodeMirror-nonmatchingbracket {color: #f22;}
 
 .CodeMirror-gutters {
   position: absolute; left: 0; top: 0;
+  min-height: 100%;
   z-index: 3;
 }
 .CodeMirror-gutter {
   white-space: normal;
   height: 100%;
   display: inline-block;
+  vertical-align: top;
   margin-bottom: -30px;
-  /* Hack to make IE7 behave */
-  *zoom:1;
-  *display:inline;
 }
 .CodeMirror-gutter-wrapper {
   position: absolute;
   z-index: 4;
-  height: 100%;
+  background: none !important;
+  border: none !important;
+}
+.CodeMirror-gutter-background {
+  position: absolute;
+  top: 0; bottom: 0;
+  z-index: 4;
 }
 .CodeMirror-gutter-elt {
   position: absolute;
@@ -235,6 +249,8 @@ div.CodeMirror span.CodeMirror-nonmatchingbracket {color: #f22;}
   position: relative;
   overflow: visible;
   -webkit-tap-highlight-color: transparent;
+  -webkit-font-variant-ligatures: contextual;
+  font-variant-ligatures: contextual;
 }
 .CodeMirror-wrap pre {
   word-wrap: break-word;
@@ -277,19 +293,22 @@ div.CodeMirror span.CodeMirror-nonmatchingbracket {color: #f22;}
   overflow: hidden;
   visibility: hidden;
 }
-.CodeMirror-measure pre { position: static; }
 
-.CodeMirror div.CodeMirror-cursor {
+.CodeMirror-cursor {
   position: absolute;
-  border-right: none;
-  width: 0;
+  pointer-events: none;
 }
+.CodeMirror-measure pre { position: static; }
 
 div.CodeMirror-cursors {
   visibility: hidden;
   position: relative;
   z-index: 3;
 }
+div.CodeMirror-dragcursors {
+  visibility: visible;
+}
+
 .CodeMirror-focused div.CodeMirror-cursors {
   visibility: visible;
 }
@@ -297,16 +316,13 @@ div.CodeMirror-cursors {
 .CodeMirror-selected { background: #d9d9d9; }
 .CodeMirror-focused .CodeMirror-selected { background: #d7d4f0; }
 .CodeMirror-crosshair { cursor: crosshair; }
-.CodeMirror ::selection { background: #d7d4f0; }
-.CodeMirror ::-moz-selection { background: #d7d4f0; }
+.CodeMirror-line::selection, .CodeMirror-line > span::selection, .CodeMirror-line > span > span::selection { background: #d7d4f0; }
+.CodeMirror-line::-moz-selection, .CodeMirror-line > span::-moz-selection, .CodeMirror-line > span > span::-moz-selection { background: #d7d4f0; }
 
 .cm-searching {
   background: #ffa;
   background: rgba(255, 255, 0, .4);
 }
-
-/* IE7 hack to prevent it from returning funny offsetTops on the spans */
-.CodeMirror span { *vertical-align: text-bottom; }
 
 /* Used to force a border model for a node */
 .cm-force-border { padding-right: .1px; }

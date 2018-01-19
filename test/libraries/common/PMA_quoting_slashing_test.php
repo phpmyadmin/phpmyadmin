@@ -169,8 +169,8 @@ class PMA_QuotingSlashing_Test extends PHPUnit_Framework_TestCase
      */
     public function testBackquoteForbidenWords()
     {
-        foreach (SqlParser\Context::$KEYWORDS as $keyword => $type) {
-            if ($type & SqlParser\Token::FLAG_KEYWORD_RESERVED) {
+        foreach (PhpMyAdmin\SqlParser\Context::$KEYWORDS as $keyword => $type) {
+            if ($type & PhpMyAdmin\SqlParser\Token::FLAG_KEYWORD_RESERVED) {
                 $this->assertEquals(
                     "`" . $keyword . "`",
                     PMA\libraries\Util::backquote($keyword, false)

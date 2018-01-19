@@ -7,6 +7,8 @@
  */
 use PMA\libraries\Template;
 use PMA\libraries\Util;
+use PMA\libraries\URL;
+use PMA\libraries\Sanitize;
 
 /**
  * Displays top part of the form
@@ -37,8 +39,8 @@ function PMA_displayFormTop($action = null, $method = 'post', $hidden_fields = n
         $htmlOutput .= '<input type="hidden" name="check_page_refresh" '
             . ' id="check_page_refresh" value="" />' . "\n";
     }
-    $htmlOutput .= PMA_URL_getHiddenInputs('', '', 0, 'server') . "\n";
-    $htmlOutput .= PMA_getHiddenFields((array)$hidden_fields);
+    $htmlOutput .= URL::getHiddenInputs('', '', 0, 'server') . "\n";
+    $htmlOutput .= URL::getHiddenFields((array)$hidden_fields);
     return $htmlOutput;
 }
 
@@ -68,7 +70,7 @@ function PMA_displayTabsTop($tabs)
             'items' => $items,
         )
     );
-    $htmlOutput .= '<br clear="right" />';
+    $htmlOutput .= '<br />';
     $htmlOutput .= '<div class="tabs_contents">';
     return $htmlOutput;
 }
@@ -176,7 +178,7 @@ function PMA_displayInput($path, $name, $type, $value, $description = '',
                 $icons[$k] = sprintf(
                     '<img alt="%s" src="%s"%s />',
                     $v[1],
-                    ".{$GLOBALS['cfg']['ThemePath']}/original/img/{$v[0]}",
+                    "../themes/original/img/{$v[0]}",
                     $title
                 );
             }
@@ -481,7 +483,7 @@ function PMA_addJsValidate($field_id, $validators, &$js_array)
         $v_name = "PMA_" . $v_name;
         $v_args = array();
         foreach ($validator as $arg) {
-            $v_args[] = PMA_escapeJsString($arg);
+            $v_args[] = Sanitize::escapeJsString($arg);
         }
         $v_args = $v_args ? ", ['" . implode("', '", $v_args) . "']" : '';
         $js_array[] = "validateField('$field_id', '$v_name', true$v_args)";

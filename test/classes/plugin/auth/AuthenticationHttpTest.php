@@ -9,7 +9,6 @@
 use PMA\libraries\plugins\auth\AuthenticationHttp;
 
 require_once 'libraries/config.default.php';
-require_once 'libraries/sanitizing.lib.php';
 require_once 'test/PMATestCase.php';
 
 /**
@@ -33,6 +32,7 @@ class AuthenticationHttpTest extends PMATestCase
     {
         $GLOBALS['PMA_Config'] = new PMA\libraries\Config;
         $GLOBALS['PMA_Config']->enableBc();
+        $GLOBALS['cfg']['Servers'] = array();
         $GLOBALS['server'] = 0;
         $GLOBALS['lang'] = "en";
         $GLOBALS['text_dir'] = "ltr";
@@ -48,13 +48,12 @@ class AuthenticationHttpTest extends PMATestCase
      */
     public function tearDown()
     {
+        parent::tearDown();
         unset($this->object);
     }
 
     public function doMockResponse($set_minimal, $body_id, $set_title)
     {
-        $restoreInstance = PMA\libraries\Response::getInstance();
-
         // mock footer
         $mockFooter = $this->getMockBuilder('PMA\libraries\Footer')
             ->disableOriginalConstructor()
@@ -87,10 +86,8 @@ class AuthenticationHttpTest extends PMATestCase
             ->with();
 
         // set mocked headers and footers
-        $mockResponse = $this->getMockBuilder('PMA\libraries\Response')
-            ->disableOriginalConstructor()
-            ->setMethods(array('getHeader', 'getFooter', 'addHTML', 'header', 'headersSent'))
-            ->getMock();
+        $headers = array_slice(func_get_args(), 3);
+        $mockResponse = $this->mockResponse($headers);
 
         $mockResponse->expects($this->exactly($set_title))
             ->method('getFooter')
@@ -102,36 +99,16 @@ class AuthenticationHttpTest extends PMATestCase
             ->with()
             ->will($this->returnValue($mockHeader));
 
-        $mockResponse->expects($this->any())
-            ->method('headersSent')
-            ->with()
-            ->will($this->returnValue(false));
-
-        $mockResponse->expects($this->exactly($set_title * 6))
+        $mockResponse->expects($this->exactly($set_title * 7))
             ->method('addHTML')
             ->with();
 
-        $attrInstance = new ReflectionProperty('PMA\libraries\Response', '_instance');
-        $attrInstance->setAccessible(true);
-        $attrInstance->setValue($mockResponse);
-
-        $headers = array_slice(func_get_args(), 3);
-
-        $header_method = $mockResponse->expects($this->exactly(count($headers)))
-            ->method('header');
-
-        call_user_func_array(array($header_method, 'withConsecutive'), $headers);
-
-        try {
-            if (!empty($_REQUEST['old_usr'])) {
-                $this->object->logOut();
-            } else {
-                $this->assertFalse(
-                    $this->object->auth()
-                );
-            }
-        } finally {
-            $attrInstance->setValue($restoreInstance);
+        if (!empty($_REQUEST['old_usr'])) {
+            $this->object->logOut();
+        } else {
+            $this->assertFalse(
+                $this->object->auth()
+            );
         }
     }
 

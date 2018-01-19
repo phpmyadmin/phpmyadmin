@@ -63,7 +63,7 @@ abstract class ImportPlugin
      */
     protected function getDbnameAndOptions($currentDb, $defaultDb)
     {
-        if (mb_strlen($currentDb)) {
+        if (strlen($currentDb) > 0) {
             $db_name = $currentDb;
             $options = array('create_db' => false);
         } else {

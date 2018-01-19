@@ -84,10 +84,9 @@ $valueTypeOptions = array('', 'LESS THAN', 'LESS THAN MAXVALUE', 'IN');
             <th><?= __('Table space'); ?></th>
             <th><?= __('Node group'); ?></th>
         </tr>
-        <?php $odd = true; ?>
         <?php foreach ($partitionDetails['partitions'] as $partition): ?>
             <?php $rowspan = ! empty($partition['subpartition_count']) ? ($partition['subpartition_count'] + 1) : 2; ?>
-            <tr class="<?= ($odd ? 'odd' : 'even'); ?>">
+            <tr>
                 <td rowspan="<?= $rowspan; ?>">
                     <input type="text" name="<?= $partition['prefix']; ?>[name]"
                        value="<?= htmlspecialchars($partition['name']); ?>" />
@@ -122,7 +121,7 @@ $valueTypeOptions = array('', 'LESS THAN', 'LESS THAN MAXVALUE', 'IN');
             ?>
 
             <?php foreach ($subpartitions as $subpartition): ?>
-                <tr class="<?= ($odd ? 'odd' : 'even'); ?>">
+                <tr>
                     <?php if ($partitionDetails['can_have_subpartitions'] && $partitionDetails['subpartition_count'] > 1): ?>
                         <td>
                             <input type="text" name="<?= $subpartition['prefix']; ?>[name]"
@@ -168,7 +167,6 @@ $valueTypeOptions = array('', 'LESS THAN', 'LESS THAN MAXVALUE', 'IN');
                     </td>
                 </tr>
             <?php endforeach; ?>
-            <?php $odd = !$odd; ?>
         <?php endforeach; ?>
     </table>
 <?php endif; ?>

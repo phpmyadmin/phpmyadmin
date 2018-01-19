@@ -56,6 +56,23 @@ class FileTest extends PMATestCase
     }
 
     /**
+     * Test for PMA\libraries\File::read
+     *
+     * @param string $file file string
+     *
+     * @return void
+     * @dataProvider compressedFiles
+     */
+    public function testReadCompressed($file)
+    {
+        $file = new PMA\libraries\File($file);
+        $file->setDecompressContent(true);
+        $file->open();
+        $this->assertEquals("TEST FILE\n", $file->read(100));
+        $file->close();
+    }
+
+    /**
      * Data provider for tests
      *
      * @return array Test data
@@ -66,6 +83,6 @@ class FileTest extends PMATestCase
             array('./test/test_data/test.gz', 'application/gzip'),
             array('./test/test_data/test.bz2', 'application/bzip2'),
             array('./test/test_data/test.zip', 'application/zip'),
-            );
+        );
     }
 }

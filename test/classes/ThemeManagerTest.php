@@ -11,7 +11,6 @@
  */
 use PMA\libraries\ThemeManager;
 
-require_once 'libraries/url_generating.lib.php';
 require_once 'test/PMATestCase.php';
 
 /**
@@ -28,7 +27,6 @@ class ThemeManagerTest extends PMATestCase
      */
     public function setup()
     {
-        $GLOBALS['cfg']['ThemePath'] = './themes';
         $GLOBALS['cfg']['ThemePerServer'] = false;
         $GLOBALS['cfg']['ThemeDefault'] = 'pmahomme';
         $GLOBALS['cfg']['ServerDefault'] = 0;
@@ -133,20 +131,12 @@ class ThemeManagerTest extends PMATestCase
     public function testGetPrintPreviews()
     {
         $tm = new ThemeManager();
-        $this->assertEquals(
-            '<div class="theme_preview"><h2>Original (2.9) </h2><p><a class='
-            . '"take_theme" name="original" href="index.php?set_theme=original'
-            . '&amp;server=99&amp;lang=en&amp;collation_connection=utf8_general_ci'
-            . '&amp;token=token"><img src="./themes/original/screen.png" border="1" '
-            . 'alt="Original" title="Original" /><br />[ <strong>take it</strong> ]'
-            . '</a></p></div><div class="theme_preview"><h2>pmahomme (1.1) </h2><p>'
-            . '<a class="take_theme" name="pmahomme" href="index.php?set_theme='
-            . 'pmahomme&amp;server=99&amp;lang=en&amp;collation_connection=utf8_'
-            . 'general_ci&amp;token=token"><img src="./themes/pmahomme/screen.png" '
-            . 'border="1" alt="pmahomme" title="pmahomme" /><br />[ <strong>take it'
-            . '</strong> ]</a></p></div>',
-            $tm->getPrintPreviews()
-        );
+        $preview = $tm->getPrintPreviews();
+        $this->assertContains('<div class="theme_preview"', $preview);
+        $this->assertContains('Original (2.9)', $preview);
+        $this->assertContains('set_theme=original', $preview);
+        $this->assertContains('pmahomme (1.1)', $preview);
+        $this->assertContains('set_theme=pmahomme', $preview);
     }
 
     /**

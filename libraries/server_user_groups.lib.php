@@ -5,6 +5,7 @@
  *
  * @package PhpMyAdmin
  */
+use PMA\libraries\URL;
 
 /**
  * Return HTML to list the users belonging to a given user group
@@ -68,7 +69,7 @@ function PMA_getHtmlForUserGroupsTable()
     if ($result && $GLOBALS['dbi']->numRows($result)) {
         $html_output .= '<form name="userGroupsForm" id="userGroupsForm"'
             . ' action="server_privileges.php" method="post">';
-        $html_output .= PMA_URL_getHiddenInputs();
+        $html_output .= URL::getHiddenInputs();
         $html_output .= '<table id="userGroupsTable">';
         $html_output .= '<thead><tr>';
         $html_output .= '<th style="white-space: nowrap">'
@@ -80,7 +81,6 @@ function PMA_getHtmlForUserGroupsTable()
         $html_output .= '</tr></thead>';
         $html_output .= '<tbody>';
 
-        $odd = true;
         $userGroups = array();
         while ($row = $GLOBALS['dbi']->fetchAssoc($result)) {
             $groupName = $row['usergroup'];
@@ -90,7 +90,7 @@ function PMA_getHtmlForUserGroupsTable()
             $userGroups[$groupName][$row['tab']] = $row['allowed'];
         }
         foreach ($userGroups as $groupName => $tabs) {
-            $html_output .= '<tr class="' . ($odd ? 'odd' : 'even') . '">';
+            $html_output .= '<tr>';
             $html_output .= '<td>' . htmlspecialchars($groupName) . '</td>';
             $html_output .= '<td>' . _getAllowedTabNames($tabs, 'server') . '</td>';
             $html_output .= '<td>' . _getAllowedTabNames($tabs, 'db') . '</td>';
@@ -98,7 +98,7 @@ function PMA_getHtmlForUserGroupsTable()
 
             $html_output .= '<td>';
             $html_output .= '<a class="" href="server_user_groups.php'
-                . PMA_URL_getCommon(
+                . URL::getCommon(
                     array(
                         'viewUsers' => 1, 'userGroup' => $groupName
                     )
@@ -108,7 +108,7 @@ function PMA_getHtmlForUserGroupsTable()
                 . '</a>';
             $html_output .= '&nbsp;&nbsp;';
             $html_output .= '<a class="" href="server_user_groups.php'
-                . PMA_URL_getCommon(
+                . URL::getCommon(
                     array(
                         'editUserGroup' => 1, 'userGroup' => $groupName
                     )
@@ -118,7 +118,7 @@ function PMA_getHtmlForUserGroupsTable()
             $html_output .= '&nbsp;&nbsp;';
             $html_output .= '<a class="deleteUserGroup ajax"'
                 . ' href="server_user_groups.php'
-                . PMA_URL_getCommon(
+                . URL::getCommon(
                     array(
                         'deleteUserGroup' => 1, 'userGroup' => $groupName
                     )
@@ -128,8 +128,6 @@ function PMA_getHtmlForUserGroupsTable()
             $html_output .= '</td>';
 
             $html_output .= '</tr>';
-
-            $odd = ! $odd;
         }
 
         $html_output .= '</tbody>';
@@ -140,7 +138,7 @@ function PMA_getHtmlForUserGroupsTable()
 
     $html_output .= '<fieldset id="fieldset_add_user_group">';
     $html_output .= '<a href="server_user_groups.php'
-        . PMA_URL_getCommon(array('addUserGroup' => 1)) . '">'
+        . URL::getCommon(array('addUserGroup' => 1)) . '">'
         . PMA\libraries\Util::getIcon('b_usradd.png')
         . __('Add user group') . '</a>';
     $html_output .= '</fieldset>';
@@ -222,7 +220,7 @@ function PMA_getHtmlToEditUserGroup($userGroup = null)
     } else {
         $urlParams['addUserGroupSubmit'] = '1';
     }
-    $html_output .= PMA_URL_getHiddenInputs($urlParams);
+    $html_output .= URL::getHiddenInputs($urlParams);
 
     $html_output .= '<fieldset id="fieldset_user_group_rights">';
     $html_output .= '<legend>' . __('User group menu assignments')
@@ -234,8 +232,7 @@ function PMA_getHtmlToEditUserGroup($userGroup = null)
 
     if ($userGroup == null) {
         $html_output .= '<label for="userGroup">' . __('Group name:') . '</label>';
-        $html_output .= '<input type="text" name="userGroup" '
-            . 'autocomplete="off" required="required" />';
+        $html_output .= '<input type="text" name="userGroup" maxlength="64" autocomplete="off" required="required" />';
         $html_output .= '<div class="clearfloat"></div>';
     }
 

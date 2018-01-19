@@ -1,0 +1,23 @@
+<div class="item">
+    <?php if ($require_option['radio']) : ?>
+        <input type="radio" name="ssl_type"
+            id="<?= $require_option['name'] . '_' . $require_option['value'] ?>"
+            title="<?= $require_option['description'] ?>"
+            value="<?= $require_option['value'] ?>" <?= $require_option['checked']?>
+        />
+        <label for="<?= $require_option['name'] . '_' . $require_option['value'] ?>">
+            <code><?= $require_option['label'] ?></code>
+        </label>
+    <?php else : ?>
+        <label for="text_<?= $require_option['name'] ?>">
+            <code><?= $require_option['label'] ?></code>
+        </label>
+        <input type="text" name="<?= $require_option['name'] ?>"
+            id="text_<?= $require_option['name'] ?>" value="<?= $require_option['value'] ?>"
+            size="80" title="<?= $require_option['description'] ?>"
+            <?php if ($require_option['disabled']) : ?>
+                disabled
+            <?php endif; ?>
+        />
+    <?php endif; ?>
+</div>

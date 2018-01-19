@@ -242,11 +242,10 @@ class StorageEngine
      */
     public function getHtmlVariables()
     {
-        $odd_row    = false;
         $ret        = '';
 
         foreach ($this->getVariablesStatus() as $details) {
-            $ret .= '<tr class="' . ($odd_row ? 'odd' : 'even') . '">' . "\n"
+            $ret .= '<tr>' . "\n"
                   . '    <td>' . "\n";
             if (! empty($details['desc'])) {
                 $ret .= '        '
@@ -271,7 +270,6 @@ class StorageEngine
             }
             $ret .= '</td>' . "\n"
                   . '</tr>' . "\n";
-            $odd_row = ! $odd_row;
         }
 
         if (! $ret) {

@@ -41,7 +41,7 @@ function PMA_Transformation_getOptions($option_string)
 {
     $result = array();
 
-    if (! mb_strlen($option_string)
+    if (strlen($option_string) === 0
         || ! $transform_options = preg_split('/,/', $option_string)
     ) {
         return $result;
@@ -49,9 +49,9 @@ function PMA_Transformation_getOptions($option_string)
 
     while (($option = array_shift($transform_options)) !== null) {
         $trimmed = trim($option);
-        if (mb_strlen($trimmed) > 1
+        if (strlen($trimmed) > 1
             && $trimmed[0] == "'"
-            && $trimmed[mb_strlen($trimmed) - 1] == "'"
+            && $trimmed[strlen($trimmed) - 1] == "'"
         ) {
             // '...'
             $option = mb_substr($trimmed, 1, -1);
@@ -62,7 +62,7 @@ function PMA_Transformation_getOptions($option_string)
                 // ...,
                 $trimmed .= ',' . $option;
                 $rtrimmed = rtrim($trimmed);
-                if ($rtrimmed[mb_strlen($rtrimmed) - 1] == "'") {
+                if ($rtrimmed[strlen($rtrimmed) - 1] == "'") {
                     // ,...'
                     break;
                 }
@@ -202,6 +202,32 @@ function PMA_getTransformationName($file)
 }
 
 /**
+ * Fixups old MIME or transformation name to new one
+ *
+ * - applies some hardcoded fixups
+ * - adds spaces after _ and numbers
+ * - capitalizes words
+ * - removes back spaces
+ *
+ * @param string $value Value to fixup
+ *
+ * @return string
+ */
+function PMA_fixupMIME($value)
+{
+    $value = str_replace(
+        array("jpeg", "png"), array("JPEG", "PNG"), $value
+    );
+    return str_replace(
+        ' ',
+        '',
+        ucwords(
+            preg_replace('/([0-9_]+)/', '$1 ', $value)
+        )
+    );
+}
+
+/**
  * Gets the mimetypes for all columns of a table
  *
  * @param string  $db       the name of the db to check for
@@ -253,19 +279,7 @@ function PMA_getMIME($db, $table, $strict = false, $fullName = false)
         $values = str_replace("png", "PNG", $values);
 
         // convert mimetype to new format (f.e. Text_Plain, etc)
-        $delimiter_space = '- ';
-        $delimiter = "_";
-        $values['mimetype'] = str_replace(
-            $delimiter_space,
-            $delimiter,
-            ucwords(
-                str_replace(
-                    $delimiter,
-                    $delimiter_space,
-                    $values['mimetype']
-                )
-            )
-        );
+        $values['mimetype'] = PMA_fixupMIME($values['mimetype']);
 
         // For transformation of form
         // output/image_jpeg__inline.inc.php
@@ -277,17 +291,7 @@ function PMA_getMIME($db, $table, $strict = false, $fullName = false)
             $values['transformation'] = $dir[1];
         }
 
-        $values['transformation'] = str_replace(
-            $delimiter_space,
-            $delimiter,
-            ucwords(
-                str_replace(
-                    $delimiter,
-                    $delimiter_space,
-                    $values['transformation']
-                )
-            )
-        );
+        $values['transformation'] = PMA_fixupMIME($values['transformation']);
         $values['transformation'] = $subdir . $values['transformation'];
         $result[$column] = $values;
     }
@@ -326,6 +330,15 @@ function PMA_setMIME($db, $table, $key, $mimetype, $transformation,
     $mimetype = mb_strtolower($mimetype);
     $transformation = mb_strtolower($transformation);
 
+    // Do we have any parameter to set?
+    $has_value = (
+        strlen($mimetype) > 0 ||
+        strlen($transformation) > 0 ||
+        strlen($transformationOpts) > 0 ||
+        strlen($inputTransform) > 0 ||
+        strlen($inputTransformOpts) > 0
+    );
+
     $test_qry = '
          SELECT `mimetype`,
                 `comment`
@@ -343,12 +356,7 @@ function PMA_setMIME($db, $table, $key, $mimetype, $transformation,
         $row = @$GLOBALS['dbi']->fetchAssoc($test_rs);
         $GLOBALS['dbi']->freeResult($test_rs);
 
-        $transformationLength = mb_strlen($transformation);
-        if (! $forcedelete
-            && (mb_strlen($mimetype) || $transformationLength
-            || mb_strlen($transformationOpts)
-            || mb_strlen($row['comment']))
-        ) {
+        if (! $forcedelete && ($has_value || strlen($row['comment']) > 0)) {
             $upd_query = 'UPDATE '
                 . PMA\libraries\Util::backquote($cfgRelation['db']) . '.'
                 . PMA\libraries\Util::backquote($cfgRelation['column_info'])
@@ -374,10 +382,7 @@ function PMA_setMIME($db, $table, $key, $mimetype, $transformation,
                 . '\'
               AND `column_name` = \'' . $GLOBALS['dbi']->escapeString($key)
                 . '\'';
-    } elseif (mb_strlen($mimetype)
-        || mb_strlen($transformation)
-        || mb_strlen($transformationOpts)
-    ) {
+    } elseif ($has_value) {
 
         $upd_query = 'INSERT INTO '
             . PMA\libraries\Util::backquote($cfgRelation['db'])

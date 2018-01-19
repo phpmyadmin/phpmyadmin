@@ -5,6 +5,7 @@
  *
  * @package PhpMyAdmin
  */
+use PMA\libraries\URL;
 
 if (! defined('PHPMYADMIN')) {
     exit;
@@ -177,42 +178,14 @@ function PMA_sanitizeUrl($url)
  */
 function PMA_sendErrorReport($report)
 {
-    $data_string = json_encode($report);
-    if (function_exists('curl_init')) {
-        $curl_handle = curl_init(SUBMISSION_URL);
-        if ($curl_handle === false) {
-            return null;
-        }
-        $curl_handle = PMA\libraries\Util::configureCurl($curl_handle);
-        curl_setopt($curl_handle, CURLOPT_CUSTOMREQUEST, "POST");
-        curl_setopt(
-            $curl_handle, CURLOPT_HTTPHEADER,
-            array('Expect:', 'Content-Type: application/json')
-        );
-        curl_setopt($curl_handle, CURLOPT_POSTFIELDS, $data_string);
-        curl_setopt($curl_handle, CURLOPT_RETURNTRANSFER, 1);
-        $response = curl_exec($curl_handle);
-        curl_close($curl_handle);
-
-        return $response;
-    } else if (ini_get('allow_url_fopen')) {
-        $context = array("http" =>
-            array(
-                'method'  => 'POST',
-                'content' => $data_string,
-                'header' => "Content-Type: application/json\r\n",
-            )
-        );
-        $context = PMA\libraries\Util::handleContext($context);
-        $response = @file_get_contents(
-            SUBMISSION_URL,
-            false,
-            stream_context_create($context)
-        );
-        return $response;
-    }
-
-    return null;
+    $response = PMA\libraries\Util::httpRequest(
+        SUBMISSION_URL,
+        "POST",
+        false,
+        json_encode($report),
+        "Content-Type: application/json"
+    );
+    return $response;
 }
 
 /**
@@ -335,13 +308,13 @@ function PMA_getErrorReportForm()
 {
     $datas = array(
         'report_data' => PMA_getPrettyReportData(),
-        'hidden_inputs' => PMA_URL_getHiddenInputs(),
+        'hidden_inputs' => URL::getHiddenInputs(),
         'hidden_fields' => null,
     );
 
     $reportData = PMA_getReportData();
     if (!empty($reportData)) {
-        $datas['hidden_fields'] = PMA_getHiddenFields($reportData);
+        $datas['hidden_fields'] = URL::getHiddenFields($reportData);
     }
 
     return PMA\libraries\Template::get('error/report_form')

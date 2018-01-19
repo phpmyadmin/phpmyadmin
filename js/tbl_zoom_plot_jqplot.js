@@ -96,19 +96,6 @@ function getType(field) {
         return 'text';
     }
 }
-/**
- ** Converts a categorical array into numeric array
- ** @param array categorical values array
- **/
-function getCord(arr) {
-    var newCord = [];
-    var original = $.extend(true, [], arr);
-    arr = jQuery.unique(arr).sort();
-    $.each(original, function (index, value) {
-        newCord.push(jQuery.inArray(value, arr));
-    });
-    return [newCord, arr, original];
-}
 
 /**
  ** Scrolls the view to the display section
@@ -152,7 +139,7 @@ AJAX.registerOnload('tbl_zoom_plot_jqplot.js', function () {
     // Get query result
     var searchedData;
     try {
-        searchedData = jQuery.parseJSON($('#querydata').html());
+        searchedData = JSON.parse($('#querydata').html());
     } catch (err) {
         searchedData = null;
     }

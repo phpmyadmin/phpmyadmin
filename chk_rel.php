@@ -5,6 +5,7 @@
  *
  * @package PhpMyAdmin
  */
+use PMA\libraries\Response;
 
 require_once 'libraries/common.inc.php';
 
@@ -26,7 +27,7 @@ if (isset($_REQUEST['fix_pmadb'])) {
     PMA_fixPMATables($cfgRelation['db']);
 }
 
-$response = PMA\libraries\Response::getInstance();
+$response = Response::getInstance();
 $response->addHTML(
     PMA_getRelationsParamDiagnostic($cfgRelation)
 );

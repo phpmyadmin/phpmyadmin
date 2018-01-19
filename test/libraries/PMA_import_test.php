@@ -6,6 +6,7 @@
  *
  * @package PhpMyAdmin-test
  */
+use PMA\libraries\URL;
 
 /*
  * Include to test.
@@ -24,7 +25,6 @@ $GLOBALS['server'] = 0;
 
 require_once 'libraries/database_interface.inc.php';
 require_once 'libraries/import.lib.php';
-require_once 'libraries/url_generating.lib.php';
 
 /**
  * Tests for import functions
@@ -385,7 +385,7 @@ class PMA_Import_Test extends PHPUnit_Framework_TestCase
      */
     function simulatedQueryTest($sql_query, $simulated_query)
     {
-        $parser = new SqlParser\Parser($sql_query);
+        $parser = new PhpMyAdmin\SqlParser\Parser($sql_query);
         $analyzed_sql_results = array(
             'query' => $sql_query,
             'parser' => $parser,
@@ -399,7 +399,7 @@ class PMA_Import_Test extends PHPUnit_Framework_TestCase
             'db'        => 'PMA',
             'sql_query' => $simulated_query
         );
-        $matched_rows_url  = 'sql.php' . PMA_URL_getCommon($_url_params);
+        $matched_rows_url  = 'sql.php' . URL::getCommon($_url_params);
 
         $this->assertEquals(
             array(

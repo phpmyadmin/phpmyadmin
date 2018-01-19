@@ -2,10 +2,10 @@
  * jqPlot
  * Pure JavaScript plotting plugin using jQuery
  *
- * Version: 1.0.8
- * Revision: 1250
+ * Version: 1.0.9
+ * Revision: d96a669
  *
- * Copyright (c) 2009-2013 Chris Leonello
+ * Copyright (c) 2009-2016 Chris Leonello
  * jqPlot is currently available for use in all personal or commercial projects 
  * under both the MIT (http://www.opensource.org/licenses/mit-license.php) and GPL 
  * version 2.0 (http://www.gnu.org/licenses/gpl-2.0.html) licenses. This means that you can 
@@ -273,7 +273,9 @@
         for (var i=0; i<p._elems.length; i++) {
             // Memory Leaks patch
             // p._elems[i].remove();
-            p._elems[i].emptyForce();
+            if(p._elems[i]) {
+                p._elems[i].emptyForce();
+            }
         }
         p._elems.splice(0, p._elems.length);
 
@@ -294,7 +296,7 @@
             for (var i=0, l=p._labels.length; i < l; i++) {
                 var label = p._labels[i];
                 
-                if (label == null || (p.hideZeros && parseInt(label, 10) == 0)) {
+                if (label == null || (p.hideZeros && parseFloat(label) == 0)) {
                     continue;
                 }
                 

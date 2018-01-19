@@ -51,7 +51,7 @@ abstract class [TransformationName]TransformationsPlugin
 
         // further operations on $buffer using the $options[] array.
 
-        // You can evaluate the propagated $meta Object. It's contained fields are described in https://www.php.net/mysql_fetch_field.
+        // You can evaluate the propagated $meta Object. It's contained fields are described in https://secure.php.net/mysql_fetch_field.
         // This stored information can be used to get the field information about the transformed field.
         // $meta->mimetype contains the original MimeType of the field (i.e. 'text/plain', 'image/jpeg' etc.)
 

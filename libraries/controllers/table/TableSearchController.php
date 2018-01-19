@@ -13,9 +13,7 @@ use PMA\libraries\Template;
 use PMA\libraries\controllers\TableController;
 use PMA\libraries\DatabaseInterface;
 
-require_once 'libraries/mysql_charsets.inc.php';
 require_once 'libraries/sql.lib.php';
-require_once 'libraries/bookmark.lib.php';
 
 /**
  * Class TableSearchController
@@ -181,48 +179,12 @@ class TableSearchController extends TableController
                 ->getScripts()
                 ->addFile('tbl_find_replace.js');
 
-            // Show secondary level of tabs
-            $this->response->addHTML(
-                Template::get('secondary_tabs')
-                    ->render(
-                        array(
-                            'url_params' => array(
-                                'db'    => $this->db,
-                                'table' => $this->table,
-                            ),
-                            'sub_tabs'   => $this->_getSubTabs(),
-                        )
-                    )
-            );
-
             if (isset($_POST['replace'])) {
                 $this->replaceAction();
             }
 
-            if (!isset($goto)) {
-                $goto = Util::getScriptNameForOption(
-                    $GLOBALS['cfg']['DefaultTabTable'], 'table'
-                );
-            }
-
             // Displays the find and replace form
-            $this->response->addHTML(
-                Template::get('table/search/selection_form')
-                    ->render(
-                        array(
-                            'searchType'       => $this->_searchType,
-                            'db'               => $this->db,
-                            'table'            => $this->table,
-                            'goto'             => $goto,
-                            'self'             => $this,
-                            'geomColumnFlag'   => $this->_geomColumnFlag,
-                            'columnNames'      => $this->_columnNames,
-                            'columnTypes'      => $this->_columnTypes,
-                            'columnCollations' => $this->_columnCollations,
-                            'dataLabel'        => null,
-                        )
-                    )
-            );
+            $this->displaySelectionFormAction();
             break;
 
         case 'normal':
@@ -303,16 +265,8 @@ class TableSearchController extends TableController
                 return;
             }
 
-            $this->url_query .= '&amp;goto=tbl_select.php&amp;back=tbl_select.php';
-
             // Gets tables information
             include_once './libraries/tbl_info.inc.php';
-
-            if (!isset($goto)) {
-                $goto = Util::getScriptNameForOption(
-                    $GLOBALS['cfg']['DefaultTabTable'], 'table'
-                );
-            }
 
             //Set default datalabel if not selected
             if (!isset($_POST['zoom_submit']) || $_POST['dataLabel'] == '') {
@@ -322,35 +276,7 @@ class TableSearchController extends TableController
             }
 
             // Displays the zoom search form
-            $this->response->addHTML(
-                Template::get('secondary_tabs')
-                    ->render(
-                        array(
-                            'url_params' => array(
-                                'db'    => $this->db,
-                                'table' => $this->table,
-                            ),
-                            'sub_tabs'   => $this->_getSubTabs(),
-                        )
-                    )
-            );
-            $this->response->addHTML(
-                Template::get('table/search/selection_form')
-                    ->render(
-                        array(
-                            'searchType'       => $this->_searchType,
-                            'db'               => $this->db,
-                            'table'            => $this->table,
-                            'goto'             => $goto,
-                            'self'             => $this,
-                            'geomColumnFlag'   => $this->_geomColumnFlag,
-                            'columnNames'      => $this->_columnNames,
-                            'columnTypes'      => $this->_columnTypes,
-                            'columnCollations' => $this->_columnCollations,
-                            'dataLabel'        => $dataLabel,
-                        )
-                    )
-            );
+            $this->displaySelectionFormAction($dataLabel);
 
             /*
              * Handle the input criteria and generate the query result
@@ -361,6 +287,11 @@ class TableSearchController extends TableController
                 && $_POST['criteriaColumnNames'][1] != 'pma_null'
                 && $_POST['criteriaColumnNames'][0] != $_POST['criteriaColumnNames'][1]
             ) {
+                if (! isset($goto)) {
+                    $goto = Util::getScriptNameForOption(
+                        $GLOBALS['cfg']['DefaultTabTable'], 'table'
+                    );
+                }
                 $this->zoomSubmitAction($dataLabel, $goto);
             }
             break;
@@ -547,7 +478,7 @@ class TableSearchController extends TableController
      *
      * @return void
      */
-    public function displaySelectionFormAction()
+    public function displaySelectionFormAction($datalabel = null)
     {
         $this->url_query .= '&amp;goto=tbl_select.php&amp;back=tbl_select.php';
 
@@ -583,7 +514,7 @@ class TableSearchController extends TableController
                         'columnNames'      => $this->_columnNames,
                         'columnTypes'      => $this->_columnTypes,
                         'columnCollations' => $this->_columnCollations,
-                        'dataLabel'        => null,
+                        'dataLabel'        => $datalabel,
                     )
                 )
         );
@@ -904,7 +835,7 @@ class TableSearchController extends TableController
      */
     public function getColumnProperties($search_index, $column_index)
     {
-        $selected_operator = (isset($_POST['criteriaColumnOperators'])
+        $selected_operator = (isset($_POST['criteriaColumnOperators'][$search_index])
             ? $_POST['criteriaColumnOperators'][$search_index] : '');
         $entered_value = (isset($_POST['criteriaValues'])
             ? $_POST['criteriaValues'] : '');
@@ -1096,7 +1027,7 @@ class TableSearchController extends TableController
             $gis_data = Util::createGISData($criteriaValues);
             $where = $geom_function_applied . " " . $func_type . " " . $gis_data;
 
-        } elseif (mb_strlen($criteriaValues) > 0) {
+        } elseif (strlen($criteriaValues) > 0) {
             $where = $geom_function_applied . " "
                 . $func_type . " '" . $criteriaValues . "'";
         }

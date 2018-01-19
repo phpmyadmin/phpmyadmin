@@ -150,7 +150,7 @@ function PMA_getHtmlForServerStateTraffic($ServerStatusData)
     $retval .= '</tr>';
     $retval .= '</thead>';
     $retval .= '<tbody>';
-    $retval .= '<tr class="odd">';
+    $retval .= '<tr>';
     $retval .= '<th class="name">' . __('Received') . '</th>';
     $retval .= '<td class="value">';
     $retval .= implode(
@@ -169,7 +169,7 @@ function PMA_getHtmlForServerStateTraffic($ServerStatusData)
     );
     $retval .= '</td>';
     $retval .= '</tr>';
-    $retval .= '<tr class="even">';
+    $retval .= '<tr>';
     $retval .= '<th class="name">' . __('Sent') . '</th>';
     $retval .= '<td class="value">';
     $retval .= implode(
@@ -188,7 +188,7 @@ function PMA_getHtmlForServerStateTraffic($ServerStatusData)
     );
     $retval .= '</td>';
     $retval .= '</tr>';
-    $retval .= '<tr class="odd">';
+    $retval .= '<tr>';
     $retval .= '<th class="name">' . __('Total') . '</th>';
     $retval .= '<td class="value">';
     $bytes_received = $ServerStatusData->status['Bytes_received'];
@@ -236,7 +236,7 @@ function PMA_getHtmlForServerStateConnections($ServerStatusData)
     $retval .= '</tr>';
     $retval .= '</thead>';
     $retval .= '<tbody>';
-    $retval .= '<tr class="odd">';
+    $retval .= '<tr>';
     $retval .= '<th class="name">' . __('Max. concurrent connections') . '</th>';
     $retval .= '<td class="value">';
     $retval .= PMA\libraries\Util::formatNumber(
@@ -246,7 +246,7 @@ function PMA_getHtmlForServerStateConnections($ServerStatusData)
     $retval .= '<td class="value">--- </td>';
     $retval .= '<td class="value">--- </td>';
     $retval .= '</tr>';
-    $retval .= '<tr class="even">';
+    $retval .= '<tr>';
     $retval .= '<th class="name">' . __('Failed attempts') . '</th>';
     $retval .= '<td class="value">';
     $retval .= PMA\libraries\Util::formatNumber(
@@ -273,7 +273,7 @@ function PMA_getHtmlForServerStateConnections($ServerStatusData)
     }
     $retval .= '</td>';
     $retval .= '</tr>';
-    $retval .= '<tr class="odd">';
+    $retval .= '<tr>';
     $retval .= '<th class="name">' . __('Aborted') . '</th>';
     $retval .= '<td class="value">';
     $retval .= PMA\libraries\Util::formatNumber(
@@ -300,7 +300,7 @@ function PMA_getHtmlForServerStateConnections($ServerStatusData)
     }
     $retval .= '</td>';
     $retval .= '</tr>';
-    $retval .= '<tr class="even">';
+    $retval .= '<tr>';
     $retval .= '<th class="name">' . __('Total') . '</th>';
     $retval .= '<td class="value">';
     $retval .= PMA\libraries\Util::formatNumber(

@@ -13,17 +13,11 @@
                     <?php endif; ?>
                 </th>
             </tr>
-            <?php $odd_row = true; ?>
             <?php foreach ($mysqlCollations[$current_charset] as $current_collation): ?>
-                <tr class="
-                    <?= ($odd_row ? 'odd' : 'even'); ?>
-                    <?= ($mysqlDftCollations[$current_charset] == $current_collation ? ' marked' : ''); ?>
-                    <?= ($mysqlCollAvailable[$current_collation] ? '' : ' disabled'); ?>
-                    ">
+                <tr class="<?= ($mysqlDftCollations[$current_charset] == $current_collation ? ' marked' : ''); ?>">
                     <td><?= htmlspecialchars($current_collation); ?></td>
-                    <td><?= PMA_getCollationDescr($current_collation); ?></td>
+                    <td><?= PMA\libraries\Charsets::getCollationDescr($current_collation); ?></td>
                 </tr>
-                <?php $odd_row = ! $odd_row; ?>
             <?php endforeach; ?>
         <?php endforeach; ?>
     </table>

@@ -7,6 +7,8 @@
  */
 namespace PMA\libraries;
 
+use PMA\libraries\URL;
+
 /**
  * handles theme
  *
@@ -86,7 +88,7 @@ class Theme
      */
     function loadInfo()
     {
-        if (! file_exists($this->getPath() . '/info.inc.php')) {
+        if (! @file_exists($this->getPath() . '/info.inc.php')) {
             return false;
         }
 
@@ -154,9 +156,7 @@ class Theme
         }
 
         // try fallback theme
-        $fallback = $GLOBALS['cfg']['ThemePath'] . '/'
-            . ThemeManager::FALLBACK_THEME
-            . '/img/';
+        $fallback = './themes/' . ThemeManager::FALLBACK_THEME . '/img/';
         if (is_dir($fallback)) {
             $this->setImgPath($fallback);
             return true;
@@ -327,8 +327,7 @@ class Theme
             return $this->img_path . $file;
         }
 
-        return $GLOBALS['cfg']['ThemePath'] . '/'
-            . ThemeManager::FALLBACK_THEME . '/img/' . $file;
+        return './themes/' . ThemeManager::FALLBACK_THEME . '/img/' . $file;
     }
 
     /**
@@ -365,9 +364,72 @@ class Theme
             }
         }
 
-        include './themes/sprites.css.php';
+        $sprites = $this->getSpriteData();
+        /* Check if there is a valid data file for sprites */
+        if (count($sprites) > 0) {
+
+            $bg = $this->getImgPath() . 'sprites.png?v=' . urlencode(PMA_VERSION);
+            ?>
+            /* Icon sprites */
+            .icon {
+            margin: 0;
+            margin-<?php echo $left; ?>: .3em;
+            padding: 0 !important;
+            width: 16px;
+            height: 16px;
+            background-image: url('<?php echo $bg; ?>') !important;
+            background-repeat: no-repeat !important;
+            background-position: top left !important;
+            }
+            <?php
+
+            $template = ".ic_%s { background-position: 0 -%upx !important;%s%s }\n";
+            foreach ($sprites as $name => $data) {
+                // generate the CSS code for each icon
+                $width = '';
+                $height = '';
+                // if either the height or width of an icon is 16px,
+                // then it's pointless to set this as a parameter,
+                //since it will be inherited from the "icon" class
+                if ($data['width'] != 16) {
+                    $width = " width: " . $data['width'] . "px;";
+                }
+                if ($data['height'] != 16) {
+                    $height = " height: " . $data['height'] . "px;";
+                }
+                printf(
+                    $template,
+                    $name,
+                    ($data['position'] * 16),
+                    $width,
+                    $height
+                );
+            }
+        }
 
         return $success;
+    }
+
+    /**
+     * Loads sprites data
+     *
+     * @return array with sprites
+     */
+    public function getSpriteData()
+    {
+        $sprites = array();
+        $filename = $this->getPath() . '/sprites.lib.php';
+        if (is_readable($filename)) {
+
+            // This defines sprites array
+            include $filename;
+
+            // Backwards compatibility for themes from 4.6 and older
+            if (function_exists('PMA_sprites')) {
+                $sprites = PMA_sprites();
+            }
+        }
+        return $sprites;
     }
 
     /**
@@ -379,7 +441,7 @@ class Theme
     public function getPrintPreview()
     {
         $url_params = array('set_theme' => $this->getId());
-        $url = 'index.php' . PMA_URL_getCommon($url_params);
+        $url = 'index.php' . URL::getCommon($url_params);
 
         $retval  = '<div class="theme_preview">';
         $retval .= '<h2>';
@@ -407,20 +469,6 @@ class Theme
     }
 
     /**
-     * Remove filter for IE.
-     *
-     * @return string CSS code.
-     */
-    function getCssIEClearFilter()
-    {
-        return PMA_USR_BROWSER_AGENT == 'IE'
-            && PMA_USR_BROWSER_VER >= 6
-            && PMA_USR_BROWSER_VER <= 8
-            ? 'filter: none'
-            : '';
-    }
-
-    /**
      * Gets currently configured font size.
      *
      * @return String with font size.
@@ -430,9 +478,6 @@ class Theme
         $fs = $GLOBALS['PMA_Config']->get('fontsize');
         if (!is_null($fs)) {
             return $fs;
-        }
-        if (isset($_COOKIE['pma_fontsize'])) {
-            return htmlspecialchars($_COOKIE['pma_fontsize']);
         }
         return '82%';
     }
@@ -468,15 +513,6 @@ class Theme
         // Opera 11.10
         $result[] = 'background: -o-linear-gradient(top, #'
             . $start_color . ', #' . $end_color . ');';
-        // IE 6-8
-        if (PMA_USR_BROWSER_AGENT == 'IE'
-            && PMA_USR_BROWSER_VER >= 6
-            && PMA_USR_BROWSER_VER <= 8
-        ) {
-            $result[] = 'filter: '
-                . 'progid:DXImageTransform.Microsoft.gradient(startColorstr="#'
-                . $start_color . '", endColorstr="#' . $end_color . '");';
-        }
         return implode("\n", $result);
     }
 }

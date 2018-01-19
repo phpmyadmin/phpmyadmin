@@ -8,7 +8,6 @@
 namespace PMA\libraries\navigation;
 
 use PMA\libraries\navigation\nodes\Node;
-use PMA\Psr4Autoloader;
 
 /**
  * Node factory - instantiates Node objects or objects derived from the Node class
@@ -54,9 +53,8 @@ class NodeFactory
     private static function _checkClass($class)
     {
         $class = sprintf(self::$_namespace, $class);
-        if (!class_exists($class)
-            && !Psr4Autoloader::getInstance()->loadClass($class)
-        ) {
+
+        if (! class_exists($class)) {
             $class = sprintf(self::$_namespace, 'Node');
             trigger_error(
                 sprintf(

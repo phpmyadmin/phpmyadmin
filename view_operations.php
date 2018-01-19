@@ -7,6 +7,7 @@
  */
 use PMA\libraries\Table;
 use PMA\libraries\Response;
+use PMA\libraries\URL;
 
 /**
  *
@@ -45,46 +46,50 @@ $reread_info = false;
 /**
  * Updates if required
  */
+$_message = new PMA\libraries\Message;
+$_type = 'success';
 if (isset($_REQUEST['submitoptions'])) {
-    $_message = '';
-    $warning_messages = array();
 
     if (isset($_REQUEST['new_name'])) {
         if ($pma_table->rename($_REQUEST['new_name'])) {
-            $_message .= $pma_table->getLastMessage();
+            $_message->addText($pma_table->getLastMessage());
             $result = true;
             $GLOBALS['table'] = $pma_table->getName();
             $reread_info = true;
             $reload = true;
         } else {
-            $_message .= $pma_table->getLastError();
+            $_message->addText($pma_table->getLastError());
             $result = false;
         }
     }
+
+    $warning_messages = PMA_getWarningMessagesArray();
 }
 
 if (isset($result)) {
     // set to success by default, because result set could be empty
     // (for example, a table rename)
-    $_type = 'success';
-    if (empty($_message)) {
-        $_message = $result
-            ? __('Your SQL query has been executed successfully.')
-            : __('Error');
+    if (empty($_message->getString())) {
+        if ($result) {
+            $_message->addText(
+                __('Your SQL query has been executed successfully.')
+            );
+        } else {
+            $_message->addText(__('Error'));
+        }
         // $result should exist, regardless of $_message
         $_type = $result ? 'success' : 'error';
     }
     if (! empty($warning_messages)) {
-        $_message = new PMA\libraries\Message;
-        $_message->addMessages($warning_messages);
+        $_message->addMessagesString($warning_messages);
         $_message->isError(true);
         unset($warning_messages);
     }
     echo PMA\libraries\Util::getMessage(
         $_message, $sql_query, $_type
     );
-    unset($_message, $_type);
 }
+unset($_message, $_type);
 
 $url_params['goto'] = 'view_operations.php';
 $url_params['back'] = 'view_operations.php';
@@ -96,7 +101,7 @@ $url_params['back'] = 'view_operations.php';
 <!-- Table operations -->
 <div class="operations_half_width">
 <form method="post" action="view_operations.php">
-<?php echo PMA_URL_getHiddenInputs($GLOBALS['db'], $GLOBALS['table']); ?>
+<?php echo URL::getHiddenInputs($GLOBALS['db'], $GLOBALS['table']); ?>
 <input type="hidden" name="reload" value="1" />
 <fieldset>
     <legend><?php echo __('Operations'); ?></legend>

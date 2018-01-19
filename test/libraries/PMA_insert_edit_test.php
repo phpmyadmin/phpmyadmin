@@ -17,11 +17,8 @@ use PMA\libraries\TypesMySQL;
 
 require_once 'libraries/insert_edit.lib.php';
 require_once 'libraries/database_interface.inc.php';
-require_once 'libraries/url_generating.lib.php';
-require_once 'libraries/js_escape.lib.php';
 require_once 'libraries/relation.lib.php';
 require_once 'libraries/transformations.lib.php';
-require_once 'libraries/sanitizing.lib.php';
 
 /**
  * Tests for libraries/insert_edit.lib.php
@@ -39,8 +36,6 @@ class PMA_InsertEditTest extends PHPUnit_Framework_TestCase
     public function setup()
     {
         $GLOBALS['server'] = 1;
-        $_SESSION['PMA_Theme'] = Theme::load('./themes/pmahomme');
-        $GLOBALS['pmaThemeImage'] = 'theme/';
         $GLOBALS['PMA_PHP_SELF'] = 'index.php';
         $GLOBALS['cfg']['ServerDefault'] = 1;
         $GLOBALS['text_dir'] = 'ltr';
@@ -149,6 +144,13 @@ class PMA_InsertEditTest extends PHPUnit_Framework_TestCase
             ->willReturnOnConsecutiveCalls(
                 array('assoc1'),
                 array('assoc2')
+            );
+
+        $dbi->expects($this->exactly(2))
+            ->method('getFieldsMeta')
+            ->willReturnOnConsecutiveCalls(
+                array(),
+                array()
             );
 
         $GLOBALS['dbi'] = $dbi;
@@ -2885,7 +2887,7 @@ class PMA_InsertEditTest extends PHPUnit_Framework_TestCase
         // Test w/ input transformation
         $actual = PMA_getHtmlForInsertEditFormColumn(
             $table_columns, 0, array(), false, array(), '', '',
-            '', false, array(), false, $o_rows, $tabindex, 0, false, 0,
+            '', false, array(), $o_rows, $tabindex, 0, false, 0,
             array(), 0, 0, 'table', 'db', 0, array(), 0, '', '',
             $repopulate, $column_mime, ''
         );
@@ -2903,7 +2905,7 @@ class PMA_InsertEditTest extends PHPUnit_Framework_TestCase
             $actual
         );
         $this->assertContains(
-            '<tr class="noclick even">',
+            '<tr class="noclick">',
             $actual
         );
         $this->assertContains(
@@ -2941,7 +2943,7 @@ class PMA_InsertEditTest extends PHPUnit_Framework_TestCase
         );
         $actual = PMA_getHtmlForInsertEditFormColumn(
             $table_columns, 0, array(), false, array(), '', '',
-            '', true, array(), false, $o_rows, $tabindex, 0, false, 0,
+            '', true, array(), $o_rows, $tabindex, 0, false, 0,
             array(), 0, 0, 'table', 'db', 0, array(), 0, '', '',
             $repopulate, array(), ''
         );

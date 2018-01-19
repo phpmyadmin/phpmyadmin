@@ -6,6 +6,7 @@
  * @package PhpMyAdmin
  */
 
+use PMA\libraries\Response;
 use PMA\libraries\ServerStatusData;
 
 require_once 'libraries/common.inc.php';
@@ -19,7 +20,7 @@ require_once 'libraries/replication.inc.php';
 require_once 'libraries/replication_gui.lib.php';
 
 $ServerStatusData = new ServerStatusData();
-$response = PMA\libraries\Response::getInstance();
+$response = Response::getInstance();
 
 /**
  * Kills a selected process

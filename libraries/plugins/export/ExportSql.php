@@ -15,16 +15,17 @@ use PMA\libraries\properties\options\items\NumberPropertyItem;
 use PMA\libraries\properties\options\groups\OptionsPropertyMainGroup;
 use PMA\libraries\properties\options\groups\OptionsPropertyRootGroup;
 use PMA\libraries\properties\options\groups\OptionsPropertySubgroup;
+use PMA\libraries\Charsets;
 use PMA\libraries\DatabaseInterface;
 use PMA\libraries\plugins\ExportPlugin;
 use PMA\libraries\Util;
 use PMA\libraries\properties\options\items\RadioPropertyItem;
 use PMA\libraries\properties\options\items\SelectPropertyItem;
-use SqlParser\Components\CreateDefinition;
-use SqlParser\Context;
-use SqlParser\Parser;
-use SqlParser\Statements\SelectStatement;
-use SqlParser\Token;
+use PhpMyAdmin\SqlParser\Components\CreateDefinition;
+use PhpMyAdmin\SqlParser\Context;
+use PhpMyAdmin\SqlParser\Parser;
+use PhpMyAdmin\SqlParser\Statements\SelectStatement;
+use PhpMyAdmin\SqlParser\Token;
 use PMA\libraries\properties\options\items\TextPropertyItem;
 
 /**
@@ -633,7 +634,7 @@ class ExportSql extends ExportPlugin
      */
     public function exportFooter()
     {
-        global $crlf, $mysql_charset_map;
+        global $crlf;
 
         $foot = '';
 
@@ -674,7 +675,6 @@ class ExportSql extends ExportPlugin
     public function exportHeader()
     {
         global $crlf, $cfg;
-        global $mysql_charset_map;
 
         if (isset($GLOBALS['sql_compatibility'])) {
             $tmp_compat = $GLOBALS['sql_compatibility'];
@@ -748,13 +748,13 @@ class ExportSql extends ExportPlugin
             // so that a utility like the mysql client can interpret
             // the file correctly
             if (isset($GLOBALS['charset'])
-                && isset($mysql_charset_map[$GLOBALS['charset']])
+                && isset(Charsets::$mysql_charset_map[$GLOBALS['charset']])
             ) {
                 // we got a charset from the export dialog
-                $set_names = $mysql_charset_map[$GLOBALS['charset']];
+                $set_names = Charsets::$mysql_charset_map[$GLOBALS['charset']];
             } else {
                 // by default we use the connection charset
-                $set_names = $mysql_charset_map['utf-8'];
+                $set_names = Charsets::$mysql_charset_map['utf-8'];
             }
             if ($set_names == 'utf8' && PMA_MYSQL_INT_VERSION > 50503) {
                 $set_names = 'utf8mb4';
@@ -818,7 +818,7 @@ class ExportSql extends ExportPlugin
                 $compat,
                 isset($GLOBALS['sql_backquotes'])
             );
-        $collation = PMA_getDbCollation($db);
+        $collation = $GLOBALS['dbi']->getDbCollation($db);
         if (mb_strpos($collation, '_')) {
             $create_query .= ' DEFAULT CHARACTER SET '
                 . mb_substr(
@@ -1387,7 +1387,7 @@ class ExportSql extends ExportPlugin
 
         // need to use PMA\libraries\DatabaseInterface::QUERY_STORE
         // with $GLOBALS['dbi']->numRows() in mysqli
-        $result = $GLOBALS['dbi']->query(
+        $result = $GLOBALS['dbi']->tryQuery(
             'SHOW TABLE STATUS FROM ' . Util::backquote($db)
             . ' WHERE Name = \'' . $GLOBALS['dbi']->escapeString($table) . '\'',
             null,
@@ -1485,7 +1485,12 @@ class ExportSql extends ExportPlugin
         // an error can happen, for example the table is crashed
         $tmp_error = $GLOBALS['dbi']->getError();
         if ($tmp_error) {
-            return $this->_exportComment(__('in use') . '(' . $tmp_error . ')');
+            $message = sprintf(__('Error reading structure for table %s:'), "$db.$table");
+            $message .= ' ' . $tmp_error;
+            if (! defined('TESTSUITE')) {
+                trigger_error($message, E_USER_ERROR);
+            }
+            return $this->_exportComment($message);
         }
 
         // Old mode is stored so it can be restored once exporting is done.
@@ -1565,12 +1570,12 @@ class ExportSql extends ExportPlugin
                 if (empty($sql_backquotes)) {
                     // Option "Enclose table and column names with backquotes"
                     // was checked.
-                    Context::$MODE |= Context::NO_ENCLOSING_QUOTES;
+                    Context::$MODE |= Context::SQL_MODE_NO_ENCLOSING_QUOTES;
                 }
 
                 // Using appropriate quotes.
                 if (($compat === 'MSSQL') || ($sql_backquotes === '"')) {
-                    Context::$MODE |= Context::ANSI_QUOTES;
+                    Context::$MODE |= Context::SQL_MODE_ANSI_QUOTES;
                 }
             }
 
@@ -1766,7 +1771,7 @@ class ExportSql extends ExportPlugin
                         $sql_auto_increments_query .= ', AUTO_INCREMENT='
                             . $statement->entityOptions->has('AUTO_INCREMENT');
                     }
-                    $sql_auto_increments_query .= ';';
+                    $sql_auto_increments_query .= ';' . $crlf;
 
                     $sql_auto_increments = $this->generateComment(
                         $crlf,
@@ -1870,7 +1875,7 @@ class ExportSql extends ExportPlugin
             $schema_create .= $this->_possibleCRLF()
                 . $this->_exportComment()
                 . $this->_exportComment(
-                    __('RELATIONS FOR TABLE') . ' '
+                    __('RELATIONSHIPS FOR TABLE') . ' '
                     . Util::backquote($table_alias, $sql_backquotes)
                     . ':'
                 );
@@ -2196,10 +2201,13 @@ class ExportSql extends ExportPlugin
         // a possible error: the table has crashed
         $tmp_error = $GLOBALS['dbi']->getError();
         if ($tmp_error) {
+            $message = sprintf(__('Error reading data for table %s:'), "$db.$table");
+            $message .= ' ' . $tmp_error;
+            if (! defined('TESTSUITE')) {
+                trigger_error($message, E_USER_ERROR);
+            }
             return PMA_exportOutputHandler(
-                $this->_exportComment(
-                    __('Error reading data:') . ' (' . $tmp_error . ')'
-                )
+                $this->_exportComment($message)
             );
         }
 
@@ -2656,7 +2664,7 @@ class ExportSql extends ExportPlugin
         /**
          * The statement that represents the query.
          *
-         * @var \SqlParser\Statements\CreateStatement $statement
+         * @var \PhpMyAdmin\SqlParser\Statements\CreateStatement $statement
          */
         $statement = $parser->statements[0];
 

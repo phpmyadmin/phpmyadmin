@@ -1,6 +1,6 @@
 <?php for ($i = 0, $l = count($GLOBALS['PMD']["TABLE_NAME"]); $i < $l; $i++) :
     $t_n = $GLOBALS['PMD']["TABLE_NAME"][$i];
-    $t_n_url = $GLOBALS['PMD_URL']["TABLE_NAME"][$i]; ?>
+    $t_n_url = htmlspecialchars($GLOBALS['PMD_URL']["TABLE_NAME"][$i]); ?>
     <input name="t_x[<?= $t_n_url; ?>]" type="hidden" id="t_x_<?= $t_n_url; ?>_" />
     <input name="t_y[<?= $t_n_url; ?>]" type="hidden" id="t_y_<?= $t_n_url; ?>_" />
     <input name="t_v[<?= $t_n_url; ?>]" type="hidden" id="t_v_<?= $t_n_url; ?>_" />
@@ -27,13 +27,13 @@
                 <?php endif; ?>
                 <td class="small_tab"
                     title="<?= __('Show/hide columns'); ?>"
-                    id="id_hide_tbody_<?= $t_n_url; ?>"
+                    id="id_hide_tbody_<?= htmlspecialchars($t_n_url) ?>"
                     table_name="<?= htmlspecialchars($t_n_url); ?>"
                     onmouseover="this.className='small_tab2';"
                     onmouseout="this.className='small_tab';" ><?= (! isset($tab_pos[$t_n]) || ! empty($tab_pos[$t_n]["V"])) ? 'v' : '&gt;'; ?>
                 </td>
                 <td class="small_tab_pref small_tab_pref_1"
-                    table_name_small="<?= $GLOBALS['PMD_URL']["TABLE_NAME_SMALL"][$i]; ?>"
+                    table_name_small="<?= htmlspecialchars($GLOBALS['PMD_URL']["TABLE_NAME_SMALL"][$i]); ?>"
                     onmouseover="this.className='small_tab_pref2 small_tab_pref_1';"
                     onmouseout="this.className='small_tab_pref small_tab_pref_1';" >
                     <img src="<?= $_SESSION['PMA_Theme']->getImgPath('pmd/exec_small.png'); ?>"
@@ -77,11 +77,11 @@
                     $click_field_param[] = isset($tables_all_keys[$tmpColumn]) ? 1 : 0;
                 }
                 ?>
-                <tr id="id_tr_<?= $GLOBALS['PMD_URL']["TABLE_NAME_SMALL"][$i]; ?>.<?= urlencode($tab_column[$t_n]["COLUMN_NAME"][$j]); ?>"
+                <tr id="id_tr_<?= htmlspecialchars($GLOBALS['PMD_URL']["TABLE_NAME_SMALL"][$i]); ?>.<?= htmlspecialchars($tab_column[$t_n]["COLUMN_NAME"][$j]); ?>"
                     <?= ($display_field == $tab_column[$t_n]["COLUMN_NAME"][$j]) ? 'class="tab_field_3"' : 'class="tab_field"'; ?>
                     onmouseover="old_class = this.className; this.className = 'tab_field_2';"
                     onmouseout="this.className = old_class;"
-                    click_field_param="<?= implode($click_field_param, ','); ?>">
+                    click_field_param="<?= htmlspecialchars(implode($click_field_param, ',')); ?>">
                     <?php if (isset($_REQUEST['query'])) : ?>
                         <td class="select_all">
                             <input class="select_all_store_col"

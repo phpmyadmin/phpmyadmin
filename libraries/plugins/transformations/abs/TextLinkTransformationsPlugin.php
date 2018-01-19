@@ -9,6 +9,7 @@
 namespace PMA\libraries\plugins\transformations\abs;
 
 use PMA\libraries\plugins\TransformationsPlugin;
+use PMA\libraries\Sanitize;
 
 if (!defined('PHPMYADMIN')) {
     exit;
@@ -48,7 +49,7 @@ abstract class TextLinkTransformationsPlugin extends TransformationsPlugin
     {
         $url = (isset($options[0]) ? $options[0] : '') . ((isset($options[2]) && $options[2]) ? '' : $buffer);
         /* Do not allow javascript links */
-        if (! PMA_checkLink($url, true, true)) {
+        if (! Sanitize::checkLink($url, true, true)) {
             return htmlspecialchars($url);
         }
         return '<a href="'

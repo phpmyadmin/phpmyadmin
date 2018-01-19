@@ -7,6 +7,7 @@
  *
  * @package PhpMyAdmin
  */
+use PMA\libraries\Response;
 
 /**
  * Gets some core libraries
@@ -20,7 +21,7 @@ $container->factory('PMA\libraries\controllers\table\TableSearchController');
 $container->alias(
     'TableSearchController', 'PMA\libraries\controllers\table\TableSearchController'
 );
-$container->set('PMA\libraries\Response', PMA\libraries\Response::getInstance());
+$container->set('PMA\libraries\Response', Response::getInstance());
 $container->alias('response', 'PMA\libraries\Response');
 
 $dependency_definitions = array(

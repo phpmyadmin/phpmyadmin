@@ -13,7 +13,7 @@ use PMA\libraries\Util;
 /**
  * Skip the plugin if TCPDF is not available.
  */
-if (! file_exists(TCPDF_INC)) {
+if (! class_exists('TCPDF')) {
     $GLOBALS['skip_import'] = true;
     return;
 }
@@ -338,7 +338,7 @@ class Pdf extends PDF_lib
         }
         $wmax = ($w-2 * $this->cMargin) * 1000 / $this->FontSize;
         $s = str_replace("\r", '', $txt);
-        $nb = mb_strlen($s);
+        $nb = strlen($s);
         if ($nb > 0 && $s[$nb-1] == "\n") {
             $nb--;
         }

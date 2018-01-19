@@ -17,7 +17,7 @@
 </td>
 <td>
 <?php if (! empty($field_charset)): ?>
-    <dfn title="<?= PMA_getCollationDescr($field_charset); ?>"><?= $field_charset; ?></dfn>
+    <dfn title="<?= PMA\libraries\Charsets::getCollationDescr($field_charset); ?>"><?= $field_charset; ?></dfn>
 <?php endif; ?>
 </td>
 <td class="column_attribute nowrap"><?= $attribute; ?></td>

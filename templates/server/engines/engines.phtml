@@ -6,20 +6,17 @@
         </tr>
     </thead>
     <tbody>
-        <?php $odd_row = true; ?>
         <?php foreach ($engines as $engine => $details): ?>
             <tr class="
-                <?= $odd_row ? 'odd' : 'even'; ?>
                 <?= $details['Support'] == 'NO' || $details['Support'] == 'DISABLED' ? ' disabled' : ''; ?>
                 <?= $details['Support'] == 'DEFAULT' ? ' marked' : ''; ?>">
                 <td>
-                    <a rel="newpage" href="server_engines.php<?= PMA_URL_getCommon(array('engine' => $engine)); ?>">
+                    <a rel="newpage" href="server_engines.php<?= \PMA\libraries\URL::getCommon(array('engine' => $engine)); ?>">
                         <?= htmlspecialchars($details['Engine']); ?>
                     </a>
                 </td>
                 <td><?= htmlspecialchars($details['Comment']); ?></td>
             </tr>
-            <?php $odd_row = !$odd_row; ?>
         <?php endforeach; ?>
     </tbody>
 </table>

@@ -10,8 +10,7 @@ namespace PMA\libraries\plugins\transformations\abs;
 
 use PMA;
 use PMA\libraries\plugins\TransformationsPlugin;
-
-require_once 'libraries/js_escape.lib.php';
+use PMA\libraries\Sanitize;
 
 /**
  * Provides common methods for all of the date format transformations plugins.
@@ -118,7 +117,7 @@ abstract class DateFormatTransformationsPlugin extends TransformationsPlugin
                     );
                 }
                 // If all fails, assume one of the dozens of valid strtime() syntaxes
-                // (http://www.gnu.org/manual/tar-1.12/html_chapter/tar_7.html)
+                // (https://www.gnu.org/manual/tar-1.12/html_chapter/tar_7.html)
             } else {
                 if (preg_match('/^[0-9]\d{1,9}$/', $buffer)) {
                     $timestamp = (int)$buffer;
@@ -147,7 +146,7 @@ abstract class DateFormatTransformationsPlugin extends TransformationsPlugin
             } else {
                 $text = 'INVALID DATE TYPE';
             }
-            return '<dfn onclick="alert(\'' . PMA_jsFormat($source, false) . '\');" title="'
+            return '<dfn onclick="alert(\'' . Sanitize::jsFormat($source, false) . '\');" title="'
                 . htmlspecialchars($source) . '">' . htmlspecialchars($text) . '</dfn>';
         } else {
             return htmlspecialchars($buffer);

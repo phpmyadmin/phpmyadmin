@@ -23,14 +23,7 @@ if ($foreign_db) {
     if (isset($existrel[$myfield])) {
         $foreign_table = $existrel[$myfield]['foreign_table'];
     }
-    $tables_rs = $GLOBALS['dbi']->query(
-        'SHOW TABLES FROM ' . PMA\libraries\Util::backquote($foreign_db),
-        null,
-        PMA\libraries\DatabaseInterface::QUERY_STORE
-    );
-    while ($row = $GLOBALS['dbi']->fetchRow($tables_rs)) {
-        $tables[] = $row[0];
-    }
+    $tables = $GLOBALS['dbi']->getTables($foreign_db);
 }
 
 // column dropdown
@@ -43,7 +36,7 @@ if ($foreign_db && $foreign_table) {
     $columns = $table_obj->getUniqueColumns(false, false);
 }
 ?>
-<tr class="<?= ($odd_row ? 'odd' : 'even'); ?>">
+<tr>
     <td class="vmiddle">
         <strong><?= $myfield_html; ?></strong>
         <input type="hidden" name="fields_name[<?= $myfield_md5; ?>]"

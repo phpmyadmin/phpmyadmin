@@ -20,5 +20,11 @@
         <?= htmlspecialchars(str_replace('_', ' ', $name)); ?>
     <?php endif; ?>
     </td>
-    <td class="var-value value <?= ($isSuperuser ? ' editable' : '') ?>">&nbsp;<?= htmlspecialchars($value); ?></td>
+    <td class="var-value value <?= ($isSuperuser ? ' editable' : '') ?>">
+    <?php if ($isHtmlFormatted == false): ?>
+        &nbsp;<?= htmlspecialchars($value); ?>
+    <?php else: ?>
+        &nbsp;<?= $value; ?>
+    <?php endif; ?>
+    </td>
 </tr>

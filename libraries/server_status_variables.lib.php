@@ -8,6 +8,7 @@
  * @package PhpMyAdmin
  */
 use PMA\libraries\ServerStatusData;
+use PMA\libraries\URL;
 
 /**
  * Returns the html for the list filter
@@ -35,12 +36,12 @@ function PMA_getHtmlForFilter($ServerStatusData)
     $retval .= '<fieldset id="tableFilter">';
     $retval .= '<legend>' . __('Filters') . '</legend>';
     $retval .= '<form action="server_status_variables.php'
-        . PMA_URL_getCommon() . '">';
+        . URL::getCommon() . '">';
     $retval .= '<input type="submit" value="' . __('Refresh') . '" />';
     $retval .= '<div class="formelement">';
     $retval .= '<label for="filterText">' . __('Containing the word:') . '</label>';
     $retval .= '<input name="filterText" type="text" id="filterText" '
-        . 'style="vertical-align: baseline;" value="' . $filterText . '" />';
+        . 'value="' . $filterText . '" />';
     $retval .= '</div>';
     $retval .= '<div class="formelement">';
     $retval .= '<input' . $filterAlert . ' type="checkbox" '
@@ -220,11 +221,8 @@ function PMA_getHtmlForRenderVariables($ServerStatusData, $alerts, $strShowStatu
     $retval .= '</thead>';
     $retval .= '<tbody>';
 
-    $odd_row = false;
     foreach ($ServerStatusData->status as $name => $value) {
-        $odd_row = !$odd_row;
-        $retval .= '<tr class="' . ($odd_row ? 'odd' : 'even')
-            . (isset($ServerStatusData->allocationMap[$name])
+        $retval .= '<tr class="' . (isset($ServerStatusData->allocationMap[$name])
                 ?' s_' . $ServerStatusData->allocationMap[$name]
                 : '')
             . '">';

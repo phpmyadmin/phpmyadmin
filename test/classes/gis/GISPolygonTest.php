@@ -9,7 +9,6 @@
 use PMA\libraries\gis\GISPolygon;
 
 require_once 'GISGeomTest.php';
-require_once 'libraries/tcpdf/tcpdf.php';
 
 /**
  * Tests for PMA\libraries\gis\GISPolygon class
@@ -384,6 +383,9 @@ class GISPolygonTest extends GISGeomTest
      */
     public function providerForPrepareRowAsPng()
     {
+        if (! function_exists('imagecreatetruecolor')) {
+            $this->markTestSkipped('GD extension missing!');
+        }
         return array(
             array(
                 'POLYGON((123 0,23 30,17 63,123 0))',

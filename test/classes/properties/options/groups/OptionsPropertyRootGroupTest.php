@@ -50,4 +50,17 @@ class OptionsPropertyRootGroupTest extends PHPUnit_Framework_TestCase
         );
     }
 
+    /**
+     * Test for contable interface
+     *
+     * @return void
+     */
+    public function testCountable()
+    {
+        $this->assertEquals(
+            0,
+            count($this->object)
+        );
+    }
+
 }

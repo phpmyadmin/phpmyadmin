@@ -11,6 +11,7 @@ namespace PMA\libraries\controllers\table;
 
 use PMA\libraries\controllers\TableController;
 use PMA\libraries\Message;
+use PMA\libraries\Response;
 use PMA\libraries\Template;
 use PMA\libraries\Util;
 
@@ -61,7 +62,8 @@ class TableChartController extends TableController
      */
     public function indexAction()
     {
-        if (isset($_REQUEST['ajax_request'])
+        $response = Response::getInstance();
+        if ($response->isAjax()
             && isset($_REQUEST['pos'])
             && isset($_REQUEST['session_max_rows'])
         ) {
@@ -105,14 +107,14 @@ class TableChartController extends TableController
         /**
          * Runs common work
          */
-        if (mb_strlen($this->table)) {
+        if (strlen($this->table) > 0) {
             $url_params['goto'] = Util::getScriptNameForOption(
                 $this->cfg['DefaultTabTable'], 'table'
             );
             $url_params['back'] = 'tbl_sql.php';
             include 'libraries/tbl_common.inc.php';
             include 'libraries/tbl_info.inc.php';
-        } elseif (mb_strlen($this->db)) {
+        } elseif (strlen($this->db) > 0) {
             $url_params['goto'] = Util::getScriptNameForOption(
                 $this->cfg['DefaultTabDatabase'], 'database'
             );
@@ -188,9 +190,7 @@ class TableChartController extends TableController
         $db = &$this->db;
         $table = &$this->table;
 
-        $tableLength = mb_strlen($this->table);
-        $dbLength = mb_strlen($this->db);
-        if ($tableLength && $dbLength) {
+        if (strlen($this->table) > 0 && strlen($this->db) > 0) {
             include './libraries/tbl_common.inc.php';
         }
 

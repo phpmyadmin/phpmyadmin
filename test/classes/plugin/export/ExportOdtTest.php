@@ -13,7 +13,6 @@ require_once 'libraries/export.lib.php';
 require_once 'libraries/config.default.php';
 require_once 'libraries/relation.lib.php';
 require_once 'libraries/transformations.lib.php';
-require_once 'export.php';
 require_once 'test/PMATestCase.php';
 
 /**
@@ -314,14 +313,16 @@ class ExportOdtTest extends PMATestCase
      */
     public function testExportHeader()
     {
-        $GLOBALS['OpenDocumentNS'] = "ODNS";
-
         $this->assertTrue(
             $this->object->exportHeader()
         );
 
         $this->assertContains(
-            "<office:document-content ODNSoffice:version",
+            "<office:document-content",
+            $GLOBALS['odt_buffer']
+        );
+        $this->assertContains(
+            "office:version",
             $GLOBALS['odt_buffer']
         );
     }

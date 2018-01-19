@@ -1,6 +1,0 @@
-# This folder does NOT need to be accessible over HTTP
-# In most cases the tests included here will be run from a command line interface.
-
-# (the following directive denies access by default)
-# For more information see: https://httpd.apache.org/docs/current/mod/mod_authz_host.html#allow
-Order allow,deny

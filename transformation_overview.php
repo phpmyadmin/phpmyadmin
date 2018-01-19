@@ -5,6 +5,7 @@
  *
  * @package PhpMyAdmin
  */
+use PMA\libraries\Response;
 
 /**
  * Gets some core libraries and displays a top message if required
@@ -12,7 +13,7 @@
 require_once './libraries/common.inc.php';
 require_once './libraries/transformations.lib.php';
 
-$response = PMA\libraries\Response::getInstance();
+$response = Response::getInstance();
 $header   = $response->getHeader();
 $header->disableMenuAndConsole();
 
@@ -24,9 +25,9 @@ $types = PMA_getAvailableMIMEtypes();
 foreach ($types['mimetype'] as $key => $mimetype) {
 
     if (isset($types['empty_mimetype'][$mimetype])) {
-        echo '<i>' , $mimetype , '</i><br />';
+        echo '<i>' , htmlspecialchars($mimetype) , '</i><br />';
     } else {
-        echo $mimetype , '<br />';
+        echo htmlspecialchars($mimetype) , '<br />';
     }
 
 }
@@ -55,16 +56,14 @@ $th = array(
     </thead>
     <tbody>
     <?php
-    $odd_row = true;
     foreach ($types[$ttype] as $key => $transform) {
         $desc = PMA_getTransformationDescription($types[$ttype . '_file'][$key]);
         ?>
-        <tr class="<?php echo $odd_row ? 'odd' : 'even'; ?>">
-            <td><?php echo $transform; ?></td>
-            <td><?php echo $desc; ?></td>
+        <tr>
+            <td><?php echo htmlspecialchars($transform); ?></td>
+            <td><?php echo htmlspecialchars($desc); ?></td>
         </tr>
         <?php
-        $odd_row = !$odd_row;
     }
     ?>
     </tbody>

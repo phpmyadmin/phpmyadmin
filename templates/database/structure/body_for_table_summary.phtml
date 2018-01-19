@@ -28,7 +28,7 @@ if (isset($approx_rows)) {
     );
 }
 $cell_text = ($approx_rows)
-        ? '<a href="db_structure.php' . PMA_URL_getCommon($row_sum_url)
+        ? '<a href="db_structure.php' . PMA\libraries\URL::getCommon($row_sum_url)
         . '" class="ajax row_count_sum">' . '~' . $row_count_sum . '</a>'
         : $row_count_sum;
 ?>
@@ -52,12 +52,13 @@ $cell_text = ($approx_rows)
     </th>
     <th>
         <?php if (! empty($db_collation)): ?>
-            <dfn title="<?= PMA_getCollationDescr($db_collation) , ' (' , __('Default') , ')'; ?>">
+            <dfn title="<?= PMA\libraries\Charsets::getCollationDescr($db_collation) , ' (' , __('Default') , ')'; ?>">
                 <?= $db_collation; ?>
             </dfn>
         <?php endif; ?>
     </th>
 <?php endif; ?>
+
 <?php if ($is_show_stats): ?>
     <?php
         list($sum_formatted, $unit) = PMA\libraries\Util::formatByteDown(
@@ -68,6 +69,12 @@ $cell_text = ($approx_rows)
     ?>
     <th class="value tbl_size"><?= $sum_formatted , ' ' , $unit; ?></th>
     <th class="value tbl_overhead"><?= $overhead_formatted , ' ' , $overhead_unit; ?></th>
+<?php endif; ?>
+
+<?php if ($GLOBALS['cfg']['ShowDbStructureCharset']): ?>
+    <th>
+        <?= $db_charset; ?>
+    </th>
 <?php endif; ?>
 <?php if ($GLOBALS['cfg']['ShowDbStructureComment']): ?>
     <th></th>

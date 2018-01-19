@@ -60,6 +60,7 @@ class VersionInformationTest extends PMATestCase
      * @return void
      *
      * @group large
+     * @group network
      */
     public function testGetLatestVersion()
     {

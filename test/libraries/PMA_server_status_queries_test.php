@@ -14,14 +14,9 @@ use PMA\libraries\ServerStatusData;
 use PMA\libraries\Theme;
 
 
-require_once 'libraries/url_generating.lib.php';
-
 require_once 'libraries/server_status_queries.lib.php';
 
 require_once 'libraries/database_interface.inc.php';
-
-require_once 'libraries/sanitizing.lib.php';
-require_once 'libraries/js_escape.lib.php';
 
 /**
  * class PMA_ServerStatusVariables_Test
@@ -62,11 +57,8 @@ class PMA_ServerStatusQueries_Test extends PHPUnit_Framework_TestCase
         $GLOBALS['replication_info']['slave']['status'] = false;
 
         $GLOBALS['table'] = "table";
-        $GLOBALS['pmaThemeImage'] = 'image';
 
         //$_SESSION
-        $_SESSION['PMA_Theme'] = Theme::load('./themes/pmahomme');
-        $_SESSION['PMA_Theme'] = new Theme();
 
         //Mock DBI
         $dbi = $this->getMockBuilder('PMA\libraries\DatabaseInterface')
@@ -114,8 +106,7 @@ class PMA_ServerStatusQueries_Test extends PHPUnit_Framework_TestCase
 
         $GLOBALS['dbi'] = $dbi;
         $this->ServerStatusData = new ServerStatusData();
-        $upTime = "10h";
-        $this->ServerStatusData->status['Uptime'] = $upTime;
+        $this->ServerStatusData->status['Uptime'] = 36000;
         $this->ServerStatusData->used_queries = array(
             "Com_change_db" => "15",
             "Com_select" => "12",
@@ -228,12 +219,9 @@ class PMA_ServerStatusQueries_Test extends PHPUnit_Framework_TestCase
 
         //validate 3:serverstatusquerieschart
         $this->assertContains(
-            '<div id="serverstatusquerieschart"></div>',
+            '<div id="serverstatusquerieschart" data-chart="',
             $html
         );
-        $this->assertContains(
-            '<div id="serverstatusquerieschart_data"',
-            $html
-        );
+
     }
 }

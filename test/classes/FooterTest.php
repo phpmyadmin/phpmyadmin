@@ -11,8 +11,6 @@
 
 use PMA\libraries\Theme;
 
-require_once 'libraries/js_escape.lib.php';
-require_once 'libraries/url_generating.lib.php';
 require_once 'libraries/relation.lib.php';
 require_once 'test/PMATestCase.php';
 
@@ -48,7 +46,6 @@ class FooterTest extends PMATestCase
         $GLOBALS['db'] = '';
         $GLOBALS['table'] = '';
         $GLOBALS['text_dir'] = 'ltr';
-        $GLOBALS['pmaThemeImage'] = 'image';
         $GLOBALS['PMA_Config'] = new PMA\libraries\Config();
         $GLOBALS['PMA_Config']->enableBc();
         $GLOBALS['collation_connection'] = 'utf8_general_ci';
@@ -62,8 +59,6 @@ class FooterTest extends PMATestCase
         $GLOBALS['error_handler'] = new PMA\libraries\ErrorHandler();
         unset($_POST);
 
-        $_SESSION['PMA_Theme'] = Theme::load('./themes/pmahomme');
-        $_SESSION['PMA_Theme'] = new Theme();
     }
 
     /**
@@ -183,15 +178,14 @@ class FooterTest extends PMATestCase
 
         $GLOBALS['cfg']['TabsMode'] = 'icons';
         $GLOBALS['cfg']['ServerDefault'] = 1;
-        $_SESSION['PMA_Theme'] = new Theme();
-        $GLOBALS['pmaThemeImage'] = 'image';
 
         $this->assertEquals(
             '<div id="selflink" class="print_ignore"><a href="index.php?db=&amp;'
             . 'table=&amp;server=1&amp;target=&amp;lang=en&amp;collation_connection='
             . 'utf8_general_ci&amp;token=token" title="Open new phpMyAdmin window" '
-            . 'target="_blank" rel="noopener noreferrer"><img src="imagewindow-new.png" title="Open new '
-            . 'phpMyAdmin window" alt="Open new phpMyAdmin window" /></a></div>',
+            . 'target="_blank" rel="noopener noreferrer"><img src="themes/dot.gif" title="Open new '
+            . 'phpMyAdmin window" alt="Open new phpMyAdmin window" '
+            . 'class="icon ic_window-new" /></a></div>',
             $this->_callPrivateFunction(
                 '_getSelfLink',
                 array(

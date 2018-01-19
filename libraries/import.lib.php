@@ -5,9 +5,12 @@
  *
  * @package PhpMyAdmin-Import
  */
+use PMA\libraries\Encoding;
 use PMA\libraries\Message;
+use PMA\libraries\Response;
 use PMA\libraries\Table;
 use PMA\libraries\Util;
+use PMA\libraries\URL;
 
 if (! defined('PHPMYADMIN')) {
     exit;
@@ -38,23 +41,6 @@ function PMA_checkTimeout()
     } else {
         return false;
     }
-}
-
-/**
- * Detects what compression the file uses
- *
- * @param string $filepath filename to check
- *
- * @return string MIME type of compression, none for none
- * @access public
- */
-function PMA_detectCompression($filepath)
-{
-    $file = @fopen($filepath, 'rb');
-    if (! $file) {
-        return false;
-    }
-    return PMA\libraries\Util::getCompressionMimeType($file);
 }
 
 /**
@@ -368,32 +354,12 @@ function PMA_importGetNextChunk($size = 32768)
         }
     }
 
-    switch ($compression) {
-    case 'application/bzip2':
-        $result = bzread($import_handle, $size);
-        $GLOBALS['finished'] = feof($import_handle);
-        break;
-    case 'application/gzip':
-        $result = gzread($import_handle, $size);
-        $GLOBALS['finished'] = feof($import_handle);
-        break;
-    case 'application/zip':
-        $result = mb_substr($GLOBALS['import_text'], 0, $size);
-        $GLOBALS['import_text'] = mb_substr(
-            $GLOBALS['import_text'],
-            $size
-        );
-        $GLOBALS['finished'] = empty($GLOBALS['import_text']);
-        break;
-    case 'none':
-        $result = fread($import_handle, $size);
-        $GLOBALS['finished'] = feof($import_handle);
-        break;
-    }
+    $result = $import_handle->read($size);
+    $GLOBALS['finished'] = $import_handle->eof();
     $GLOBALS['offset'] += $size;
 
     if ($charset_conversion) {
-        return PMA_convertString($charset_of_file, 'utf-8', $result);
+        return Encoding::convertString($charset_of_file, 'utf-8', $result);
     }
 
     /**
@@ -511,7 +477,7 @@ function PMA_getColumnNumberFromName($name)
         // base26 to base10 conversion : multiply each number
         // with corresponding value of the position, in this case
         // $i=0 : 1; $i=1 : 26; $i=2 : 676; ...
-        $column_number += $number * PMA\libraries\Util::pow(26, $i);
+        $column_number += $number * pow(26, $i);
     }
     return $column_number;
 }
@@ -1203,7 +1169,7 @@ function PMA_buildSQL($db_name, &$tables, &$analyses = null,
 
     $inTables = false;
 
-    $additional_sql_len = count($additional_sql);
+    $additional_sql_len = is_null($additional_sql) ? 0 : count($additional_sql);
     for ($i = 0; $i < $additional_sql_len; ++$i) {
         preg_match($view_pattern, $additional_sql[$i], $regs);
 
@@ -1230,8 +1196,8 @@ function PMA_buildSQL($db_name, &$tables, &$analyses = null,
     }
 
     $params = array('db' => (string)$db_name);
-    $db_url = 'db_structure.php' . PMA_URL_getCommon($params);
-    $db_ops_url = 'db_operations.php' . PMA_URL_getCommon($params);
+    $db_url = 'db_structure.php' . URL::getCommon($params);
+    $db_ops_url = 'db_operations.php' . URL::getCommon($params);
 
     $message = '<br /><br />';
     $message .= '<strong>' . __(
@@ -1271,9 +1237,9 @@ function PMA_buildSQL($db_name, &$tables, &$analyses = null,
              'db' => (string) $db_name,
              'table' => (string) $tables[$i][TBL_NAME]
         );
-        $tbl_url = 'sql.php' . PMA_URL_getCommon($params);
-        $tbl_struct_url = 'tbl_structure.php' . PMA_URL_getCommon($params);
-        $tbl_ops_url = 'tbl_operations.php' . PMA_URL_getCommon($params);
+        $tbl_url = 'sql.php' . URL::getCommon($params);
+        $tbl_struct_url = 'tbl_structure.php' . URL::getCommon($params);
+        $tbl_ops_url = 'tbl_operations.php' . URL::getCommon($params);
 
         unset($params);
 
@@ -1345,7 +1311,7 @@ function PMA_stopImport( Message $error_message )
 
     // Close open handles
     if ($import_handle !== false && $import_handle !== null) {
-        fclose($import_handle);
+        $import_handle->close();
     }
 
     // Delete temporary file
@@ -1355,7 +1321,7 @@ function PMA_stopImport( Message $error_message )
     $msg = $error_message->getDisplay();
     $_SESSION['Import_message']['message'] = $msg;
 
-    $response = PMA\libraries\Response::getInstance();
+    $response = Response::getInstance();
     $response->setRequestStatus(false);
     $response->addJSON('message', PMA\libraries\Message::error($msg));
 
@@ -1369,7 +1335,7 @@ function PMA_stopImport( Message $error_message )
  */
 function PMA_handleSimulateDMLRequest()
 {
-    $response = PMA\libraries\Response::getInstance();
+    $response = Response::getInstance();
     $error = false;
     $error_msg = __('Only single-table UPDATE and DELETE queries can be simulated.');
     $sql_delimiter = $_REQUEST['sql_delimiter'];
@@ -1381,7 +1347,7 @@ function PMA_handleSimulateDMLRequest()
         }
 
         // Parsing the query.
-        $parser = new SqlParser\Parser($sql_query);
+        $parser = new PhpMyAdmin\SqlParser\Parser($sql_query);
 
         if (empty($parser->statements[0])) {
             continue;
@@ -1395,15 +1361,15 @@ function PMA_handleSimulateDMLRequest()
             'statement' => $statement,
         );
 
-        if ((!(($statement instanceof SqlParser\Statements\UpdateStatement)
-            || ($statement instanceof SqlParser\Statements\DeleteStatement)))
+        if ((!(($statement instanceof PhpMyAdmin\SqlParser\Statements\UpdateStatement)
+            || ($statement instanceof PhpMyAdmin\SqlParser\Statements\DeleteStatement)))
             || (!empty($statement->join))
         ) {
             $error = $error_msg;
             break;
         }
 
-        $tables = SqlParser\Utils\Query::getTables($statement);
+        $tables = PhpMyAdmin\SqlParser\Utils\Query::getTables($statement);
         if (count($tables) > 1) {
             $error = $error_msg;
             break;
@@ -1439,9 +1405,9 @@ function PMA_getMatchedRows($analyzed_sql_results = array())
     $statement = $analyzed_sql_results['statement'];
 
     $matched_row_query = '';
-    if ($statement instanceof SqlParser\Statements\DeleteStatement) {
+    if ($statement instanceof PhpMyAdmin\SqlParser\Statements\DeleteStatement) {
         $matched_row_query = PMA_getSimulatedDeleteQuery($analyzed_sql_results);
-    } elseif ($statement instanceof SqlParser\Statements\UpdateStatement) {
+    } elseif ($statement instanceof PhpMyAdmin\SqlParser\Statements\UpdateStatement) {
         $matched_row_query = PMA_getSimulatedUpdateQuery($analyzed_sql_results);
     }
 
@@ -1453,7 +1419,7 @@ function PMA_getMatchedRows($analyzed_sql_results = array())
         'db'        => $GLOBALS['db'],
         'sql_query' => $matched_row_query
     );
-    $matched_rows_url  = 'sql.php' . PMA_URL_getCommon($_url_params);
+    $matched_rows_url  = 'sql.php' . URL::getCommon($_url_params);
 
     return array(
         'sql_query' => PMA\libraries\Util::formatSql($analyzed_sql_results['query']),
@@ -1471,11 +1437,11 @@ function PMA_getMatchedRows($analyzed_sql_results = array())
  */
 function PMA_getSimulatedUpdateQuery($analyzed_sql_results)
 {
-    $table_references = SqlParser\Utils\Query::getTables(
+    $table_references = PhpMyAdmin\SqlParser\Utils\Query::getTables(
         $analyzed_sql_results['statement']
     );
 
-    $where = SqlParser\Utils\Query::getClause(
+    $where = PhpMyAdmin\SqlParser\Utils\Query::getClause(
         $analyzed_sql_results['statement'],
         $analyzed_sql_results['parser']->list,
         'WHERE'
@@ -1498,7 +1464,7 @@ function PMA_getSimulatedUpdateQuery($analyzed_sql_results)
     $order_and_limit = '';
 
     if (!empty($analyzed_sql_results['statement']->order)) {
-        $order_and_limit .= ' ORDER BY ' . SqlParser\Utils\Query::getClause(
+        $order_and_limit .= ' ORDER BY ' . PhpMyAdmin\SqlParser\Utils\Query::getClause(
             $analyzed_sql_results['statement'],
             $analyzed_sql_results['parser']->list,
             'ORDER BY'
@@ -1506,7 +1472,7 @@ function PMA_getSimulatedUpdateQuery($analyzed_sql_results)
     }
 
     if (!empty($analyzed_sql_results['statement']->limit)) {
-        $order_and_limit .= ' LIMIT ' . SqlParser\Utils\Query::getClause(
+        $order_and_limit .= ' LIMIT ' . PhpMyAdmin\SqlParser\Utils\Query::getClause(
             $analyzed_sql_results['statement'],
             $analyzed_sql_results['parser']->list,
             'LIMIT'
@@ -1527,11 +1493,11 @@ function PMA_getSimulatedUpdateQuery($analyzed_sql_results)
  */
 function PMA_getSimulatedDeleteQuery($analyzed_sql_results)
 {
-    $table_references = SqlParser\Utils\Query::getTables(
+    $table_references = PhpMyAdmin\SqlParser\Utils\Query::getTables(
         $analyzed_sql_results['statement']
     );
 
-    $where = SqlParser\Utils\Query::getClause(
+    $where = PhpMyAdmin\SqlParser\Utils\Query::getClause(
         $analyzed_sql_results['statement'],
         $analyzed_sql_results['parser']->list,
         'WHERE'
@@ -1544,7 +1510,7 @@ function PMA_getSimulatedDeleteQuery($analyzed_sql_results)
     $order_and_limit = '';
 
     if (!empty($analyzed_sql_results['statement']->order)) {
-        $order_and_limit .= ' ORDER BY ' . SqlParser\Utils\Query::getClause(
+        $order_and_limit .= ' ORDER BY ' . PhpMyAdmin\SqlParser\Utils\Query::getClause(
             $analyzed_sql_results['statement'],
             $analyzed_sql_results['parser']->list,
             'ORDER BY'
@@ -1552,7 +1518,7 @@ function PMA_getSimulatedDeleteQuery($analyzed_sql_results)
     }
 
     if (!empty($analyzed_sql_results['statement']->limit)) {
-        $order_and_limit .= ' LIMIT ' . SqlParser\Utils\Query::getClause(
+        $order_and_limit .= ' LIMIT ' . PhpMyAdmin\SqlParser\Utils\Query::getClause(
             $analyzed_sql_results['statement'],
             $analyzed_sql_results['parser']->list,
             'LIMIT'
@@ -1616,7 +1582,7 @@ function PMA_handleRollbackRequest($sql_query)
 
     if ($error) {
         unset($_REQUEST['rollback_query']);
-        $response = PMA\libraries\Response::getInstance();
+        $response = Response::getInstance();
         $message = Message::rawError($error);
         $response->addJSON('message', $message);
         exit;
@@ -1635,7 +1601,7 @@ function PMA_handleRollbackRequest($sql_query)
  */
 function PMA_checkIfRollbackPossible($sql_query)
 {
-    $parser = new SqlParser\Parser($sql_query);
+    $parser = new PhpMyAdmin\SqlParser\Parser($sql_query);
 
     if (empty($parser->statements[0])) {
         return false;
@@ -1644,16 +1610,16 @@ function PMA_checkIfRollbackPossible($sql_query)
     $statement = $parser->statements[0];
 
     // Check if query is supported.
-    if (!(($statement instanceof SqlParser\Statements\InsertStatement)
-        || ($statement instanceof SqlParser\Statements\UpdateStatement)
-        || ($statement instanceof SqlParser\Statements\DeleteStatement)
-        || ($statement instanceof SqlParser\Statements\ReplaceStatement))
+    if (!(($statement instanceof PhpMyAdmin\SqlParser\Statements\InsertStatement)
+        || ($statement instanceof PhpMyAdmin\SqlParser\Statements\UpdateStatement)
+        || ($statement instanceof PhpMyAdmin\SqlParser\Statements\DeleteStatement)
+        || ($statement instanceof PhpMyAdmin\SqlParser\Statements\ReplaceStatement))
     ) {
         return false;
     }
 
     // Get table_references from the query.
-    $tables = SqlParser\Utils\Query::getTables($statement);
+    $tables = PhpMyAdmin\SqlParser\Utils\Query::getTables($statement);
 
     // Check if each table is 'InnoDB'.
     foreach ($tables as $table) {

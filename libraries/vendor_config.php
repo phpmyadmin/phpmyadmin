@@ -26,17 +26,6 @@ define('CHANGELOG_FILE', './ChangeLog');
 define('LICENSE_FILE', './LICENSE');
 
 /**
- * Path to config file generated using setup script.
- */
-define('SETUP_CONFIG_FILE', './config/config.inc.php');
-
-/**
- * Whether setup requires writable directory where config
- * file will be generated.
- */
-define('SETUP_DIR_WRITABLE', true);
-
-/**
  * Directory where SQL scripts to create/upgrade configuration storage reside.
  */
 define('SQL_DIR', './sql/');
@@ -67,27 +56,6 @@ define('CUSTOM_FOOTER_FILE', CONFIG_DIR . 'config.footer.inc.php');
  * Default value for check for version upgrades.
  */
 define('VERSION_CHECK_DEFAULT', true);
-
-/**
- * Path to gettext.inc file. Useful when you want php-gettext somewhere else,
- * eg. /usr/share/php/gettext/gettext.inc.
- */
-define('GETTEXT_INC', './libraries/php-gettext/gettext.inc');
-/**
- * Path to tcpdf.php file. Useful when you want to use system tcpdf,
- * eg. /usr/share/php/tcpdf/tcpdf.php.
- */
-define('TCPDF_INC', './libraries/tcpdf/tcpdf.php');
-
-/**
- * Path to the phpseclib. Useful when you want to use system phpseclib.
- */
-define('PHPSECLIB_INC_DIR', './libraries/phpseclib/');
-
-/**
- * Path to the udan11/sql-parser. Useful when you want to use system version.
- */
-define('SQL_PARSER_AUTOLOAD', './libraries/sql-parser/autoload.php');
 
 /**
  * Path to files with compiled locales (*.mo)

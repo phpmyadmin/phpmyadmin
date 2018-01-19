@@ -1,6 +1,6 @@
 <?php use PMA\libraries\Template; ?>
 <form class="submenu-item" action="server_privileges.php" id="<?= $formId; ?>" method="post">
-    <?= PMA_URL_getHiddenInputs(); ?>
+    <?= PMA\libraries\URL::getHiddenInputs(); ?>
     <input type="hidden" name="username" value="<?= htmlspecialchars($userName); ?>" />
     <input type="hidden" name="hostname" value="<?= htmlspecialchars($hostName); ?>" />
 
@@ -27,23 +27,20 @@
             <tbody>
                 <?php if (count($privileges) == 0) : ?>
                     <?php $colspan = ($type == 'database' ? 7 : ($type == 'table' ? 6 : 5)); ?>
-                    <tr class="odd">
+                    <tr>
                         <td colspan="<?= $colspan; ?>"><center><i><?= __('None') ?></i></center></td>
                     </tr>
                 <?php else : ?>
-                    <?php $odd = true; ?>
                     <?php foreach ($privileges as $privilege) : ?>
                         <?= Template::get('privileges/privileges_summary_row')
                                 ->render(
                                     array_merge(
                                         $privilege,
                                         array(
-                                            'odd'  => $odd,
                                             'type' => $type,
                                         )
                                     )
                                 ); ?>
-                        <?php $odd = !$odd; ?>
                     <?php endforeach; ?>
                 <?php endif; ?>
             </tbody>

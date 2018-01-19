@@ -2,10 +2,11 @@
 use PMA\libraries\Partition;
 use PMA\libraries\Template;
 use PMA\libraries\Util;
+use PMA\libraries\URL;
 
-$rownum = 0; $odd_row = true; ?>
+$rownum = 0; ?>
 <form method="post" action="tbl_structure.php" name="fieldsForm" id="fieldsForm" class="ajax<?= $HideStructureActions; ?>">
-    <?= PMA_URL_getHiddenInputs($db, $table); ?>
+    <?= URL::getHiddenInputs($db, $table); ?>
     <input type="hidden" name="table_type" value=
     <?php if ($db_is_system_schema): ?>
         "information_schema" />
@@ -63,12 +64,11 @@ $rownum = 0; $odd_row = true; ?>
                 }
                 if (in_array($field_name, $columns_with_index)) {
                     $displayed_field_name .= Util::getImage(
-                        'bd_primary.png', __('Index')
+                        'b_key.png', __('Index')
                     );
                 }
             ?>
-        <tr class="<?= ($odd_row ? 'odd': 'even'); ?>">
-            <?php $odd_row = !$odd_row; ?>
+        <tr>
             <?= PMA\libraries\Template::get('table/structure/table_structure_row')->render(
                 array(
                     'row' => $row,

@@ -284,12 +284,12 @@ class ImportMediawiki extends ImportPlugin
     /**
      * Imports data from a single table
      *
-     * @param array $table    containing all table info:
-     *                        <code>
-     *                        $table[0] - string containing table name
-     *                        $table[1] - array[]   of table headers
-     *                        $table[2] - array[][] of table content rows
-     *                        </code>
+     * @param array $table     containing all table info:
+     *                         <code>
+     *                         $table[0] - string containing table name
+     *                         $table[1] - array[]   of table headers
+     *                         $table[2] - array[][] of table content rows
+     *                         </code>
      *
      * @param array &$sql_data 2-element array with sql data
      *

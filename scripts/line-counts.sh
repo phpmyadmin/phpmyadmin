@@ -1,4 +1,11 @@
 #!/bin/bash
+
+# Do not run as CGI
+if [ -n "$GATEWAY_INTERFACE" ] ; then
+    echo 'Can not invoke as CGI!'
+    exit 1
+fi
+
 cat > js/line_counts.php <<EOF
 <?php
 /* vim: set expandtab sw=4 ts=4 sts=4: */

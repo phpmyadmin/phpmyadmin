@@ -1,6 +1,12 @@
 #!/bin/sh
 # vim: expandtab sw=4 ts=4 sts=4:
 
+# Do not run as CGI
+if [ -n "$GATEWAY_INTERFACE" ] ; then
+    echo 'Can not invoke as CGI!'
+    exit 1
+fi
+
 # Check for proper number of command line args.
 if [ $# -ne 1 ]; then
   echo "Usage: `basename $0` {path_to_pma_root_folder}"
@@ -102,13 +108,9 @@ if [ -d $1/themes ]; then
     echo ' */'  >> $LIBRARY
     echo '' >> $LIBRARY
     echo '/**' >> $LIBRARY
-    echo ' * Returns map of sprites inside sprite.png'  >> $LIBRARY
-    echo ' *'  >> $LIBRARY
-    echo ' * @return array Data of sprites'  >> $LIBRARY
+    echo ' * Map of sprites inside sprite.png'  >> $LIBRARY
     echo ' */'  >> $LIBRARY
-    echo "function PMA_sprites()" >> $LIBRARY
-    echo "{" >> $LIBRARY
-    echo "    return array(" >> $LIBRARY
+    echo "\$sprites = array(" >> $LIBRARY
     CURRENT=1
     for f in $FILES; do
       # Add a CSS rule for each icon in the sprite
@@ -127,16 +129,14 @@ if [ -d $1/themes ]; then
           fi
         done
       fi
-      echo "        $NAME => array("               >> $LIBRARY
-      echo "            'position' => '$CURRENT'," >> $LIBRARY
-      echo "            'width'    => '$WIDTH',"   >> $LIBRARY
-      echo "            'height'   => '$HEIGHT'"   >> $LIBRARY
-      echo "        ),"                            >> $LIBRARY
+      echo "    $NAME => array("               >> $LIBRARY
+      echo "        'position' => '$CURRENT'," >> $LIBRARY
+      echo "        'width'    => '$WIDTH',"   >> $LIBRARY
+      echo "        'height'   => '$HEIGHT'"   >> $LIBRARY
+      echo "    ),"                            >> $LIBRARY
       CURRENT=$(($CURRENT+1))
     done
-    echo "    );" >> $LIBRARY
-    echo "}" >> $LIBRARY
-    echo "" >> $LIBRARY
+    echo ");" >> $LIBRARY
 
     # Back to the parent folder
     cd ../..

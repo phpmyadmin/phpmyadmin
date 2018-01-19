@@ -8,6 +8,7 @@
 use PMA\libraries\config\ConfigFile;
 use PMA\libraries\config\FormDisplay;
 use PMA\libraries\Response;
+use PMA\libraries\URL;
 
 /**
  * Gets some core libraries and displays a top message if required
@@ -45,7 +46,7 @@ if (isset($_POST['revert'])) {
     $url_params = array('form' => $form_param);
     PMA_sendHeaderLocation(
         './prefs_forms.php'
-        . PMA_URL_getCommon($url_params, 'text')
+        . URL::getCommonRaw($url_params)
     );
     exit;
 }

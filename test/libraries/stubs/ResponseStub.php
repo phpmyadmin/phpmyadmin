@@ -60,6 +60,14 @@ class Response
     protected $_isSuccess;
 
     /**
+     * Whether we are servicing an ajax request.
+     *
+     * @access private
+     * @var bool
+     */
+    private $_isAjax;
+
+    /**
      * Creates a new class instance
      */
     public function __construct()
@@ -67,6 +75,7 @@ class Response
         $this->_isSuccess = true;
         $this->htmlString = '';
         $this->json = array();
+        $this->_isAjax = false;
 
         $GLOBALS['lang'] = 'en';
         $this->header = new Header();
@@ -183,5 +192,29 @@ class Response
         $this->_isSuccess = true;
         $this->json = array();
         $this->htmlString = '';
+    }
+
+    /**
+     * Set the ajax flag to indicate whether
+     * we are servicing an ajax request
+     *
+     * @param bool $isAjax Whether we are servicing an ajax request
+     *
+     * @return void
+     */
+    public function setAjax($isAjax)
+    {
+        $this->_isAjax = (boolean) $isAjax;
+    }
+
+    /**
+     * Returns true or false depending on whether
+     * we are servicing an ajax request
+     *
+     * @return bool
+     */
+    public function isAjax()
+    {
+        return $this->_isAjax;
     }
 }

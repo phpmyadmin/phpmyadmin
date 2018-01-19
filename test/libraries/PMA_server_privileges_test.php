@@ -10,15 +10,10 @@
  * Include to test.
  */
 use PMA\libraries\Theme;
+use PMA\libraries\URL;
 
-
-require_once 'libraries/url_generating.lib.php';
 
 require_once 'libraries/database_interface.inc.php';
-
-require_once 'libraries/sanitizing.lib.php';
-require_once 'libraries/js_escape.lib.php';
-
 
 require_once 'libraries/relation.lib.php';
 require_once 'libraries/relation_cleanup.lib.php';
@@ -89,8 +84,6 @@ class PMA_ServerPrivileges_Test extends PHPUnit_Framework_TestCase
         //$_POST
         $_POST['pred_password'] = 'none';
         //$_SESSION
-        $_SESSION['PMA_Theme'] = Theme::load('./themes/pmahomme');
-        $_SESSION['PMA_Theme'] = new Theme();
         $_SESSION['relation'][$GLOBALS['server']] = array(
             'PMA_VERSION' => PMA_VERSION,
             'db' => 'pmadb',
@@ -379,7 +372,138 @@ class PMA_ServerPrivileges_Test extends PHPUnit_Framework_TestCase
             _pgettext('None privileges', 'None'),
             $html
         );
+    }
 
+    /**
+     * Test for PMA_getHtmlForRequires
+     *
+     * @return void
+     */
+    public function testPMAGetHtmlForRequires()
+    {
+        /* Assertion 1 */
+        $row = array(
+            'ssl_type'   => '',
+            'ssh_cipher' => ''
+        );
+
+        $html = PMA_getHtmlForRequires(
+            $row
+        );
+        // <legend>SSL</legend>
+        $this->assertContains(
+            '<legend>SSL</legend>',
+            $html
+        );
+        $this->assertContains(
+            'value="NONE" checked="checked"',
+            $html
+        );
+        $this->assertContains(
+            'value="ANY"',
+            $html
+        );
+        $this->assertContains(
+            'value="X509"',
+            $html
+        );
+        $this->assertContains(
+            'value="SPECIFIED"',
+            $html
+        );
+
+        /* Assertion 2 */
+        $row = array(
+            'ssl_type'   => 'ANY',
+            'ssh_cipher' => ''
+        );
+
+        $html = PMA_getHtmlForRequires(
+            $row
+        );
+        // <legend>SSL</legend>
+        $this->assertContains(
+            '<legend>SSL</legend>',
+            $html
+        );
+        $this->assertContains(
+            'value="NONE"',
+            $html
+        );
+        $this->assertContains(
+            'value="ANY" checked="checked"',
+            $html
+        );
+        $this->assertContains(
+            'value="X509"',
+            $html
+        );
+        $this->assertContains(
+            'value="SPECIFIED"',
+            $html
+        );
+
+        /* Assertion 3 */
+        $row = array(
+            'ssl_type'   => 'X509',
+            'ssh_cipher' => ''
+        );
+
+        $html = PMA_getHtmlForRequires(
+            $row
+        );
+        // <legend>SSL</legend>
+        $this->assertContains(
+            '<legend>SSL</legend>',
+            $html
+        );
+        $this->assertContains(
+            'value="NONE"',
+            $html
+        );
+        $this->assertContains(
+            'value="ANY"',
+            $html
+        );
+        $this->assertContains(
+            'value="X509" checked="checked"',
+            $html
+        );
+        $this->assertContains(
+            'value="SPECIFIED"',
+            $html
+        );
+
+        /* Assertion 4 */
+        $row = array(
+            'ssl_type'   => 'SPECIFIED',
+            'ssh_cipher' => ''
+        );
+
+        $html = PMA_getHtmlForRequires(
+            $row
+        );
+        // <legend>SSL</legend>
+        $this->assertContains(
+            '<legend>SSL</legend>',
+            $html
+        );
+        $this->assertContains(
+            'value="NONE"',
+            $html
+        );
+        $this->assertContains(
+            'value="ANY"',
+            $html
+        );
+        $this->assertContains(
+            'value="X509"',
+            $html
+        );
+        $this->assertContains(
+            'value="SPECIFIED" checked="checked"',
+            $html
+        );
     }
 
     /**
@@ -392,17 +516,17 @@ class PMA_ServerPrivileges_Test extends PHPUnit_Framework_TestCase
         $username = "pma_username";
         $is_menuswork = true;
         $_REQUEST['edit_user_group_dialog'] = "edit_user_group_dialog";
-        $GLOBALS['is_ajax_request'] = false;
 
+        /* Assertion 1 */
         //PMA_getHtmlForUserGroupDialog
         $html = PMA_getHtmlForUserGroupDialog($username, $is_menuswork);
         $this->assertContains(
             '<form class="ajax" id="changeUserGroupForm"',
             $html
         );
-        //PMA_URL_getHiddenInputs
+        //URL::getHiddenInputs
         $params = array('username' => $username);
-        $html_output = PMA_URL_getHiddenInputs($params);
+        $html_output = URL::getHiddenInputs($params);
         $this->assertContains(
             $html_output,
             $html
@@ -412,6 +536,60 @@ class PMA_ServerPrivileges_Test extends PHPUnit_Framework_TestCase
             __('User group'),
             $html
         );
+
+        /* Assertion 2 */
+        $oldDbi = $GLOBALS['dbi'];
+        //Mock DBI
+        $dbi = $this->getMockBuilder('PMA\libraries\DatabaseInterface')
+            ->disableOriginalConstructor()
+            ->getMock();
+
+        $dbi->expects($this->any())
+            ->method('fetchValue')
+            ->will($this->returnValue('userG'));
+        $dbi->expects($this->any())
+            ->method('tryQuery')
+            ->will($this->returnValue(true));
+        $dbi->expects($this->any())
+            ->method('fetchRow')
+            ->willReturnOnConsecutiveCalls(array('userG'), null);
+        $dbi->expects($this->any())->method('escapeString')
+            ->will($this->returnArgument(0));
+
+        $GLOBALS['dbi'] = $dbi;
+
+        $actualHtml = PMA_getHtmlForUserGroupDialog($username, $is_menuswork);
+        $this->assertContains(
+            '<form class="ajax" id="changeUserGroupForm"',
+            $actualHtml
+        );
+        //URL::getHiddenInputs
+        $params = array('username' => $username);
+        $html_output = URL::getHiddenInputs($params);
+        $this->assertContains(
+            $html_output,
+            $actualHtml
+        );
+        //__('User group')
+        $this->assertContains(
+            __('User group'),
+            $actualHtml
+        );
+
+        // Empty default user group
+        $this->assertContains(
+            '<option value=""></option>',
+            $actualHtml
+        );
+
+        // Current user's group selected
+        $this->assertContains(
+            '<option value="userG" selected="selected">userG</option>',
+            $actualHtml
+        );
+
+        /* reset original dbi */
+        $GLOBALS['dbi'] = $oldDbi;
     }
 
     /**
@@ -429,9 +607,9 @@ class PMA_ServerPrivileges_Test extends PHPUnit_Framework_TestCase
             '<form class="ajax" id="changeUserGroupForm"',
             $html
         );
-        //PMA_URL_getHiddenInputs
+        //URL::getHiddenInputs
         $params = array('username' => $username);
-        $html_output = PMA_URL_getHiddenInputs($params);
+        $html_output = URL::getHiddenInputs($params);
         $this->assertContains(
             $html_output,
             $html
@@ -488,7 +666,7 @@ class PMA_ServerPrivileges_Test extends PHPUnit_Framework_TestCase
             $html
         );
         $this->assertContains(
-            __('Limits the number of simultaneous connections the user may have.'),
+            __('Limits the number of new connections the user may open per hour.'),
             $html
         );
         $this->assertContains(
@@ -1257,9 +1435,9 @@ class PMA_ServerPrivileges_Test extends PHPUnit_Framework_TestCase
 
         $html = PMA_getHtmlForAddUser($dbname);
 
-        //validate 1: PMA_URL_getHiddenInputs
+        //validate 1: URL::getHiddenInputs
         $this->assertContains(
-            PMA_URL_getHiddenInputs('', ''),
+            URL::getHiddenInputs('', ''),
             $html
         );
 
@@ -1275,11 +1453,16 @@ class PMA_ServerPrivileges_Test extends PHPUnit_Framework_TestCase
             $html
         );
 
-        $item = PMA\libraries\Util::getCheckbox(
-            'createdb-2',
-            __('Grant all privileges on wildcard name (username\\_%).'),
-            false, false, 'createdb-2'
-        );
+        $item = PMA\libraries\Template::get('checkbox')
+            ->render(
+                array(
+                    'html_field_name'   => 'createdb-2',
+                    'label'             => __('Grant all privileges on wildcard name (username\\_%).'),
+                    'checked'           => false,
+                    'onclick'           => false,
+                    'html_field_id'     => 'createdb-2',
+                )
+            );
         $this->assertContains(
             $item,
             $html
@@ -1327,9 +1510,9 @@ class PMA_ServerPrivileges_Test extends PHPUnit_Framework_TestCase
 
         $html = PMA_getHtmlForSpecificDbPrivileges($db);
 
-        //validate 1: PMA_URL_getCommon
+        //validate 1: URL::getCommon
         $this->assertContains(
-            PMA_URL_getCommon(array('db' => $db)),
+            URL::getCommon(array('db' => $db)),
             $html
         );
 
@@ -1371,7 +1554,7 @@ class PMA_ServerPrivileges_Test extends PHPUnit_Framework_TestCase
             $html
         );
         $this->assertContains(
-            PMA_URL_getCommon(array('checkprivsdb' => $db)),
+            URL::getCommon(array('checkprivsdb' => $db)),
             $html
         );
 
@@ -1412,8 +1595,8 @@ class PMA_ServerPrivileges_Test extends PHPUnit_Framework_TestCase
             $html
         );
 
-        //validate 2: PMA_URL_getCommon
-        $item = PMA_URL_getCommon(
+        //validate 2: URL::getCommon
+        $item = URL::getCommon(
             array(
                 'db' => $db,
                 'table' => $table,
@@ -1456,7 +1639,7 @@ class PMA_ServerPrivileges_Test extends PHPUnit_Framework_TestCase
             $html
         );
         $this->assertContains(
-            PMA_URL_getCommon(
+            URL::getCommon(
                 array('checkprivsdb' => $db, 'checkprivstable' => $table)
             ),
             $html
@@ -1552,7 +1735,7 @@ class PMA_ServerPrivileges_Test extends PHPUnit_Framework_TestCase
             'edit', $username, $hostname, $dbname, $tablename, ''
         );
 
-        $url_html = PMA_URL_getCommon(
+        $url_html = URL::getCommon(
             array(
                 'username' => $username,
                 'hostname' => $hostname,
@@ -1574,7 +1757,7 @@ class PMA_ServerPrivileges_Test extends PHPUnit_Framework_TestCase
             'revoke', $username, $hostname, $dbname, $tablename, ''
         );
 
-        $url_html = PMA_URL_getCommon(
+        $url_html = URL::getCommon(
             array(
                 'username' => $username,
                 'hostname' => $hostname,
@@ -1595,7 +1778,7 @@ class PMA_ServerPrivileges_Test extends PHPUnit_Framework_TestCase
 
         $html = PMA_getUserLink('export', $username, $hostname);
 
-        $url_html = PMA_URL_getCommon(
+        $url_html = URL::getCommon(
             array(
                 'username' => $username,
                 'hostname' => $hostname,
@@ -1718,9 +1901,9 @@ class PMA_ServerPrivileges_Test extends PHPUnit_Framework_TestCase
         //PMA_getChangeLoginInformationHtmlForm
         $html = PMA_getChangeLoginInformationHtmlForm($username, $hostname);
 
-        //PMA_URL_getHiddenInputs
+        //URL::getHiddenInputs
         $this->assertContains(
-            PMA_URL_getHiddenInputs('', ''),
+            URL::getHiddenInputs('', ''),
             $html
         );
 
@@ -1814,7 +1997,7 @@ class PMA_ServerPrivileges_Test extends PHPUnit_Framework_TestCase
             ),
             $html
         );
-        $item = PMA_URL_getCommon(
+        $item = URL::getCommon(
             array(
                 'db' => $url_dbname,
                 'reload' => 1
@@ -1840,7 +2023,7 @@ class PMA_ServerPrivileges_Test extends PHPUnit_Framework_TestCase
             ),
             $html
         );
-        $item = PMA_URL_getCommon(
+        $item = URL::getCommon(
             array(
                 'db' => $url_dbname,
                 'table' => $tablename,
@@ -1881,9 +2064,9 @@ class PMA_ServerPrivileges_Test extends PHPUnit_Framework_TestCase
             $result, $db_rights, $pmaThemeImage, $text_dir
         );
 
-        //PMA_URL_getHiddenInputs
+        //URL::getHiddenInputs
         $this->assertContains(
-            PMA_URL_getHiddenInputs('', ''),
+            URL::getHiddenInputs('', ''),
             $html
         );
 
@@ -1963,9 +2146,9 @@ class PMA_ServerPrivileges_Test extends PHPUnit_Framework_TestCase
             $result, $db_rights, $pmaThemeImage, $text_dir
         );
 
-        //PMA_URL_getCommon
+        //URL::getCommon
         $this->assertContains(
-            PMA_URL_getCommon(array('adduser' => 1)),
+            URL::getCommon(array('adduser' => 1)),
             $html
         );
 
@@ -2036,7 +2219,7 @@ class PMA_ServerPrivileges_Test extends PHPUnit_Framework_TestCase
         $html = PMA_getAddUserHtmlFieldset();
 
         $this->assertContains(
-            PMA_URL_getCommon(array('adduser' => 1)),
+            URL::getCommon(array('adduser' => 1)),
             $html
         );
         $this->assertContains(
@@ -2079,8 +2262,8 @@ class PMA_ServerPrivileges_Test extends PHPUnit_Framework_TestCase
             $html
         );
 
-        //PMA_URL_getCommon
-        $item = PMA_URL_getCommon(
+        //URL::getCommon
+        $item = URL::getCommon(
             array(
                 'username' => $username,
                 'hostname' => $hostname,
@@ -2115,8 +2298,8 @@ class PMA_ServerPrivileges_Test extends PHPUnit_Framework_TestCase
             $html
         );
 
-        //PMA_URL_getCommon
-        $item = PMA_URL_getCommon(
+        //URL::getCommon
+        $item = URL::getCommon(
             array(
                 'username' => $username,
                 'hostname' => $hostname,
@@ -2242,13 +2425,13 @@ class PMA_ServerPrivileges_Test extends PHPUnit_Framework_TestCase
         $this->assertContains('<td>A</td>', $actual);
         $this->assertContains('<td>Z</td>', $actual);
         $this->assertContains(
-            '<td><a class="ajax" href="server_privileges.php?initial=-&amp;'
+            '<a class="ajax" href="server_privileges.php?initial=-&amp;'
             . 'server=1&amp;lang=en&amp;collation_connection='
-            . 'collation_connection&amp;token=token">-</a></td>',
+            . 'collation_connection&amp;token=token">-</a>',
             $actual
         );
         $this->assertContains(
-            '<td><a class="ajax" href="server_privileges.php?initial=%22&amp;'
+            '<a class="ajax" href="server_privileges.php?initial=%22&amp;'
             . 'server=1&amp;lang=en&amp;collation_connection='
             . 'collation_connection&amp;token=token">"</a>',
             $actual
@@ -2300,6 +2483,105 @@ class PMA_ServerPrivileges_Test extends PHPUnit_Framework_TestCase
         );
         $actual = PMA_getDbRightsForUserOverview();
         $this->assertEquals($expected, $actual);
+    }
+
+    /**
+     * Test for PMA_getHtmlForAuthPluginsDropdown()
+     *
+     * @return void
+     */
+    function testPMAGetHtmlForAuthPluginsDropdown()
+    {
+        $oldDbi = $GLOBALS['dbi'];
+
+        //Mock DBI
+        $dbi = $this->getMockBuilder('PMA\libraries\DatabaseInterface')
+            ->disableOriginalConstructor()
+            ->getMock();
+        $dbi->expects($this->any())
+            ->method('query')
+            ->will($this->onConsecutiveCalls(true, true));
+
+        $plugins = array(
+            array(
+                'PLUGIN_NAME'=>'mysql_native_password',
+                'PLUGIN_DESCRIPTION' => 'Native MySQL authentication'
+            ),
+            array(
+                'PLUGIN_NAME' => 'sha256_password',
+                'PLUGIN_DESCRIPTION' => 'SHA256 password authentication'
+            )
+        );
+        $dbi->expects($this->any())
+            ->method('fetchAssoc')
+            ->will(
+                $this->onConsecutiveCalls(
+                    $plugins[0], $plugins[1], null, /* For Assertion 1 */
+                    $plugins[0], $plugins[1], null  /* For Assertion 2 */
+                )
+            );
+        $GLOBALS['dbi'] = $dbi;
+
+        /* Assertion 1 */
+        $actualHtml = PMA_getHtmlForAuthPluginsDropdown(
+            'mysql_native_password',
+            'new',
+            'new'
+        );
+        $this->assertEquals(
+            '<select name="authentication_plugin" id="select_authentication_plugin">'
+            . '<option value="mysql_native_password" selected="selected">'
+            . 'Native MySQL authentication</option><option value="sha256_password">'
+            . 'SHA256 password authentication</option></select>',
+            $actualHtml
+        );
+
+        /* Assertion 2 */
+        $actualHtml = PMA_getHtmlForAuthPluginsDropdown(
+            'mysql_native_password',
+            'change_pw',
+            'new'
+        );
+        $this->assertEquals(
+            '<select name="authentication_plugin" '
+            . 'id="select_authentication_plugin_cp"><option '
+            . 'value="mysql_native_password" selected="selected">'
+            . 'Native MySQL authentication</option><option value="sha256_password">'
+            . 'SHA256 password authentication</option></select>',
+            $actualHtml
+        );
+
+        /* Assertion 3 */
+        $actualHtml = PMA_getHtmlForAuthPluginsDropdown(
+            'mysql_native_password',
+            'new',
+            'old'
+        );
+        $this->assertEquals(
+            '<select name="authentication_plugin" '
+            . 'id="select_authentication_plugin"><option '
+            . 'value="mysql_native_password" selected="selected">'
+            . 'Native MySQL authentication</option></select>',
+            $actualHtml
+        );
+
+
+        /* Assertion 4 */
+        $actualHtml = PMA_getHtmlForAuthPluginsDropdown(
+            'mysql_native_password',
+            'change_pw',
+            'old'
+        );
+        $this->assertEquals(
+            '<select name="authentication_plugin" '
+            . 'id="select_authentication_plugin_cp"><option '
+            . 'value="mysql_native_password" selected="selected">'
+            . 'Native MySQL authentication</option></select>',
+            $actualHtml
+        );
+
+        // Restore old DBI
+        $GLOBALS['dbi'] = $oldDbi;
     }
 
     /**

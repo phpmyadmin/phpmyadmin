@@ -5,6 +5,8 @@
  *
  * @package PhpMyAdmin
  */
+use PMA\libraries\URL;
+use PMA\libraries\Response;
 
 /**
  * Get some core libraries
@@ -16,7 +18,7 @@ require_once 'libraries/create_addfield.lib.php';
 PMA\libraries\Util::checkParameters(array('db'));
 
 /* Check if database name is empty */
-if (mb_strlen($db) == 0) {
+if (strlen($db) === 0) {
     PMA\libraries\Util::mysqlDie(
         __('The database name is empty!'), '', false, 'index.php'
     );
@@ -40,7 +42,7 @@ if ($GLOBALS['dbi']->getColumns($db, $table)) {
         sprintf(__('Table %s already exists!'), htmlspecialchars($table)),
         '',
         false,
-        'db_structure.php' . PMA_URL_getCommon(array('db' => $db))
+        'db_structure.php' . URL::getCommon(array('db' => $db))
     );
 }
 
@@ -73,7 +75,7 @@ if (isset($_REQUEST['do_save_data'])) {
         ) {
             foreach ($_REQUEST['field_mimetype'] as $fieldindex => $mimetype) {
                 if (isset($_REQUEST['field_name'][$fieldindex])
-                    && mb_strlen($_REQUEST['field_name'][$fieldindex])
+                    && strlen($_REQUEST['field_name'][$fieldindex]) > 0
                 ) {
                     PMA_setMIME(
                         $db, $table,
@@ -87,7 +89,7 @@ if (isset($_REQUEST['do_save_data'])) {
             }
         }
     } else {
-        $response = PMA\libraries\Response::getInstance();
+        $response = Response::getInstance();
         $response->setRequestStatus(false);
         $response->addJSON('message', $GLOBALS['dbi']->getError());
     }

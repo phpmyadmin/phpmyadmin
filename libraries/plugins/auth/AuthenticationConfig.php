@@ -10,6 +10,8 @@ namespace PMA\libraries\plugins\auth;
 
 use PMA\libraries\plugins\AuthenticationPlugin;
 use PMA;
+use PMA\libraries\Response;
+use PMA\libraries\URL;
 
 /**
  * Handles the config authentication method
@@ -25,7 +27,7 @@ class AuthenticationConfig extends AuthenticationPlugin
      */
     public function auth()
     {
-        $response = PMA\libraries\Response::getInstance();
+        $response = Response::getInstance();
         if ($response->isAjax()) {
             $response->setRequestStatus(false);
             // reload_flag removes the token parameter from the URL and reloads
@@ -79,7 +81,7 @@ class AuthenticationConfig extends AuthenticationPlugin
         }
 
         /* HTML header */
-        $response = PMA\libraries\Response::getInstance();
+        $response = Response::getInstance();
         $response->getFooter()
             ->setMinimal();
         $header = $response->getHeader();
@@ -152,7 +154,7 @@ class AuthenticationConfig extends AuthenticationPlugin
                 $GLOBALS['cfg']['DefaultTabServer'],
                 'server'
             )
-            , PMA_URL_getCommon(array()) , '" class="button disableAjax">'
+            , URL::getCommon() , '" class="button disableAjax">'
             , __('Retry to connect')
             , '</a>' , "\n";
         echo '</td>

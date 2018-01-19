@@ -7,6 +7,7 @@
  */
 use PMA\libraries\config\ConfigFile;
 use PMA\libraries\Message;
+use PMA\libraries\URL;
 
 if (! defined('PHPMYADMIN')) {
     exit;
@@ -131,11 +132,11 @@ function PMA_saveUserprefs(array $config_array)
     }
     if (!$GLOBALS['dbi']->tryQuery($query, $GLOBALS['controllink'])) {
         $message = Message::error(__('Could not save configuration'));
-        $message->addMessage('<br /><br />');
         $message->addMessage(
             Message::rawError(
                 $GLOBALS['dbi']->getError($GLOBALS['controllink'])
-            )
+            ),
+            '<br /><br />'
         );
         return $message;
     }
@@ -256,7 +257,7 @@ function PMA_userprefsRedirect($file_name,
         $hash = '#' . urlencode($hash);
     }
     PMA_sendHeaderLocation('./' . $file_name
-        . PMA_URL_getCommon($url_params, '&') . $hash
+        . URL::getCommonRaw($url_params) . $hash
     );
 }
 
@@ -283,7 +284,7 @@ function PMA_userprefsAutoloadGetHeader()
     return PMA\libraries\Template::get('prefs_autoload')
         ->render(
             array(
-                'hiddenInputs' => PMA_URL_getHiddenInputs(),
+                'hiddenInputs' => URL::getHiddenInputs(),
                 'return_url' => $return_url,
             )
         );

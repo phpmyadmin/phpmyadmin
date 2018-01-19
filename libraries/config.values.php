@@ -23,7 +23,6 @@ $cfg_db = array();
 $cfg_db['Servers'] = array(
     1 => array(
         'port'         => 'integer',
-        'connect_type' => array('tcp', 'socket'),
         'auth_type'    => array('config', 'http', 'signon', 'cookie'),
         'AllowDeny'    => array(
             'order' => array('', 'deny,allow', 'allow,deny', 'explicit')
@@ -174,7 +173,7 @@ $cfg_db['Export']['method'] = array(
 );
 $cfg_db['Export']['format'] = array(
     'codegen', 'csv', 'excel', 'htmlexcel','htmlword', 'latex', 'ods',
-    'odt', 'pdf', 'sql', 'texytext', 'xls', 'xml', 'yaml'
+    'odt', 'pdf', 'sql', 'texytext', 'xml', 'yaml'
 );
 $cfg_db['Export']['compression'] = array('none', 'zip', 'gzip');
 $cfg_db['Export']['charset'] = array_merge(
@@ -203,8 +202,6 @@ $cfg_db['Export']['sql_insert_syntax'] = array(
     'both'     => __('both of the above'),
     'none'     => __('neither of the above')
 );
-$cfg_db['Export']['xls_null'] = 'short_string';
-$cfg_db['Export']['xlsx_null'] = 'short_string';
 $cfg_db['Export']['htmlword_structure_or_data'] = $cfg_db['Export']['_sod_select'];
 $cfg_db['Export']['htmlword_null'] = 'short_string';
 $cfg_db['Export']['ods_null'] = 'short_string';

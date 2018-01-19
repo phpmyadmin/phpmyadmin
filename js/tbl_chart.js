@@ -366,7 +366,7 @@ AJAX.registerOnload('tbl_chart.js', function () {
             if (typeof data !== 'undefined' &&
                     data.success === true &&
                     typeof data.chartData !== 'undefined') {
-                chart_data = jQuery.parseJSON(data.chartData);
+                chart_data = JSON.parse(data.chartData);
                 drawChart();
                 PMA_ajaxRemoveMessage($msgbox);
             } else {

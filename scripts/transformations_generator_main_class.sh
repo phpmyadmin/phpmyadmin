@@ -7,6 +7,12 @@
 # $2: MIMESubtype
 # $3: Transformation Name
 
+# Do not run as CGI
+if [ -n "$GATEWAY_INTERFACE" ] ; then
+    echo 'Can not invoke as CGI!'
+    exit 1
+fi
+
 if [ $# != 3 ]
 then
   echo -e "Usage: ./generator_main_class.sh MIMEType MIMESubtype TransformationName\n"

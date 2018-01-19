@@ -5,12 +5,13 @@
  *
  * @package PhpMyAdmin-Designer
  */
+use PMA\libraries\Response;
 
 require_once 'libraries/common.inc.php';
 require_once 'libraries/pmd_common.php';
 require_once 'libraries/db_designer.lib.php';
 
-$response = PMA\libraries\Response::getInstance();
+$response = Response::getInstance();
 
 if (isset($_REQUEST['dialog'])) {
 
@@ -113,7 +114,7 @@ if (isset($_GET['db'])) {
     $params['db'] = $_GET['db'];
 }
 
-$response = PMA\libraries\Response::getInstance();
+$response = Response::getInstance();
 $response->getFooter()->setMinimal();
 $header   = $response->getHeader();
 $header->setBodyId('pmd_body');

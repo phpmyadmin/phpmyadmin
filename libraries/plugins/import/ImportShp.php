@@ -16,10 +16,6 @@ use PMA\libraries\gis\GISMultilinestring;
 use PMA\libraries\gis\GISMultipoint;
 use PMA\libraries\gis\GISPoint;
 use PMA\libraries\gis\GISPolygon;
-use PMA\libraries\plugins\import\ShapeFile;
-
-/* Get the ShapeFile class */
-require_once 'libraries/bfShapeFiles/ShapeFile.lib.php';
 
 /**
  * Handles the import for ESRI Shape files
@@ -63,19 +59,27 @@ class ImportShp extends ImportPlugin
      */
     public function doImport(&$sql_data = array())
     {
-        global $db, $error, $finished, $compression,
+        global $db, $error, $finished,
                $import_file, $local_import_file, $message;
 
         $GLOBALS['finished'] = false;
 
-        $shp = new ShapeFile(1);
+        $compression = $GLOBALS['import_handle']->getCompression();
+
+        $shp = new ShapeFileImport(1);
         // If the zip archive has more than one file,
         // get the correct content to the buffer from .shp file.
         if ($compression == 'application/zip'
             && PMA_getNoOfFilesInZip($import_file) > 1
         ) {
-            $zip_content = PMA_getZipContents($import_file, '/^.*\.shp$/i');
-            $GLOBALS['import_text'] = $zip_content['data'];
+            if ($GLOBALS['import_handle']->openZip('/^.*\.shp$/i') === false) {
+                $message = PMA\libraries\Message::error(
+                    __('There was an error importing the ESRI shape file: "%s".')
+                );
+                $message->addParam($GLOBALS['import_handle']->getError());
+
+                return;
+            }
         }
 
         $temp_dbf_file = false;
@@ -101,7 +105,7 @@ class ImportShp extends ImportPlugin
                     if ($extracted !== false) {
                         $dbf_file_path = realpath($GLOBALS['cfg']['TempDir'])
                             . (PMA_IS_WINDOWS ? '\\' : '/')
-                            . PMA_sanitizeFilename($dbf_file_name, true);
+                            . Sanitize::sanitizeFilename($dbf_file_name, true);
                         $handle = fopen($dbf_file_path, 'wb');
                         if ($handle !== false) {
                             fwrite($handle, $extracted);
@@ -136,7 +140,7 @@ class ImportShp extends ImportPlugin
         // Delete the .dbf file extracted to 'TempDir'
         if ($temp_dbf_file
             && isset($dbf_file_path)
-            && file_exists($dbf_file_path)
+            && @file_exists($dbf_file_path)
         ) {
             unlink($dbf_file_path);
         }
@@ -152,23 +156,6 @@ class ImportShp extends ImportPlugin
 
             return;
         }
-
-        $esri_types = array(
-            0 => 'Null Shape',
-            1 => 'Point',
-            3 => 'PolyLine',
-            5 => 'Polygon',
-            8 => 'MultiPoint',
-            11 => 'PointZ',
-            13 => 'PolyLineZ',
-            15 => 'PolygonZ',
-            18 => 'MultiPointZ',
-            21 => 'PointM',
-            23 => 'PolyLineM',
-            25 => 'PolygonM',
-            28 => 'MultiPointM',
-            31 => 'MultiPatch',
-        );
 
         switch ($shp->shapeType) {
             // ESRI Null Shape
@@ -192,20 +179,10 @@ class ImportShp extends ImportPlugin
             break;
         default:
             $error = true;
-            if (!isset($esri_types[$shp->shapeType])) {
-                $message = PMA\libraries\Message::error(
-                    __(
-                        'You tried to import an invalid file or the imported file'
-                        . ' contains invalid data!'
-                    )
-                );
-            } else {
-                $message = PMA\libraries\Message::error(
-                    __('MySQL Spatial Extension does not support ESRI type "%s".')
-                );
-                $message->addParam($esri_types[$shp->shapeType]);
-            }
-
+            $message = PMA\libraries\Message::error(
+                __('MySQL Spatial Extension does not support ESRI type "%s".')
+            );
+            $message->addParam($shp->getShapeName());
             return;
         }
 
@@ -264,7 +241,7 @@ class ImportShp extends ImportPlugin
         }
 
         // Set table name based on the number of tables
-        if (mb_strlen($db)) {
+        if (strlen($db) > 0) {
             $result = $GLOBALS['dbi']->fetchResult('SHOW TABLES');
             $table_name = 'TABLE ' . (count($result) + 1);
         } else {
@@ -282,7 +259,7 @@ class ImportShp extends ImportPlugin
         $analyses[$table_no][FORMATTEDSQL][$spatial_col] = true;
 
         // Set database name to the currently selected one, if applicable
-        if (mb_strlen($db)) {
+        if (strlen($db) > 0) {
             $db_name = $db;
             $options = array('create_db' => false);
         } else {

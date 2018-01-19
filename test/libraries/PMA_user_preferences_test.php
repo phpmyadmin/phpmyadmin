@@ -13,8 +13,6 @@ use PMA\libraries\config\ConfigFile;
 
 require_once 'libraries/user_preferences.lib.php';
 require_once 'libraries/relation.lib.php';
-require_once 'libraries/url_generating.lib.php';
-require_once 'libraries/sanitizing.lib.php';
 
 
 /**
@@ -22,7 +20,7 @@ require_once 'libraries/sanitizing.lib.php';
  *
  * @package PhpMyAdmin-test
  */
-class PMA_User_Preferences_Test extends PHPUnit_Framework_TestCase
+class PMA_User_Preferences_Test extends PMATestCase
 {
 
     /**
@@ -32,6 +30,8 @@ class PMA_User_Preferences_Test extends PHPUnit_Framework_TestCase
      */
     function setUp()
     {
+        global $cfg;
+        include 'libraries/config.default.php';
         $GLOBALS['server'] = 0;
         $GLOBALS['PMA_PHP_SELF'] = '/phpmyadmin/';
     }
@@ -265,7 +265,7 @@ class PMA_User_Preferences_Test extends PHPUnit_Framework_TestCase
         $result = PMA_saveUserprefs(array(1));
 
         $this->assertEquals(
-            'Could not save configuration <br /><br /> err1',
+            'Could not save configuration<br /><br />err1',
             $result->getMessage()
         );
     }
@@ -366,41 +366,18 @@ class PMA_User_Preferences_Test extends PHPUnit_Framework_TestCase
      */
     public function testUserprefsRedirect()
     {
-        if (!defined('PMA_TEST_HEADERS')) {
-            $this->markTestSkipped(
-                'Cannot redefine constant/function - missing runkit extension'
-            );
-        }
-        $GLOBALS['PMA_Config']->set('PmaAbsoluteUri', '');
-
-        $GLOBALS['cfg']['ServerDefault'] = 1;
         $GLOBALS['lang'] = '';
 
-        $redefine = null;
-        if (!defined('PMA_IS_IIS')) {
-            define('PMA_IS_IIS', false);
-        } else {
-            $redefine = PMA_IS_IIS;
-            runkit_constant_redefine('PMA_IS_IIS', false);
-        }
+        $this->mockResponse('Location: /phpmyadmin/file.html?a=b&saved=1&server=0&token=token#h+ash');
+
+        $GLOBALS['PMA_Config']->set('PmaAbsoluteUri', '');
+        $GLOBALS['PMA_Config']->set('PMA_IS_IIS', false);
 
         PMA_userprefsRedirect(
             'file.html',
             array('a' => 'b'),
             'h ash'
         );
-
-        $this->assertContains(
-            'Location: /phpmyadmin/file.html?a=b&saved=1&server=0&' .
-            'token=token#h+ash',
-            $GLOBALS['header'][0]
-        );
-
-        if ($redefine !== null) {
-            runkit_constant_redefine('PMA_IS_IIS', $redefine);
-        } else {
-            runkit_constant_remove('PMA_IS_IIS');
-        }
     }
 
     /**

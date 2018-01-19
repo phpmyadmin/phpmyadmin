@@ -45,7 +45,7 @@ class Text_Plain_Iptobinary extends IOTransformationsPlugin
     {
         $val = @inet_pton($buffer);
         if ($val !== false) {
-            return $val;
+            return '0x' . bin2hex($val);
         }
 
         return $buffer;

@@ -9,7 +9,6 @@
 use PMA\libraries\gis\GISMultilinestring;
 
 require_once 'GISGeomTest.php';
-require_once 'libraries/tcpdf/tcpdf.php';
 
 /**
  * Tests for PMA\libraries\gis\GISMultilinestring class
@@ -253,6 +252,9 @@ class GISMultilinestringTest extends GISGeomTest
      */
     public function providerForPrepareRowAsPng()
     {
+        if (! function_exists('imagecreatetruecolor')) {
+            $this->markTestSkipped('GD extension missing!');
+        }
         return array(
             array(
                 'MULTILINESTRING((36 14,47 23,62 75),(36 10,17 23,178 53))',

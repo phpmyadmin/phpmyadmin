@@ -1,9 +1,8 @@
-<?php $odd_row = false; ?>
 <table id="tablerowstats" class="data">
 <caption class="tblHeaders"><?= __('Row statistics'); ?></caption>
 <tbody>
     <?php if (isset($showtable['Row_format'])): ?>
-        <tr class="<?= (($odd_row = !$odd_row) ? 'odd' : 'even'); ?>">
+        <tr>
         <th class="name"><?= __('Format'); ?></th>
         <?php if ($showtable['Row_format'] == 'Fixed'): ?>
             <td class="value"><?= __('static'); ?></td>
@@ -16,7 +15,7 @@
     <?php endif; ?>
 
     <?php if (! empty($showtable['Create_options'])): ?>
-        <tr class="<?= (($odd_row = !$odd_row) ? 'odd' : 'even'); ?>">
+        <tr>
         <th class="name"><?= __('Options'); ?></th>
         <?php if ($showtable['Create_options'] == 'partitioned'): ?>
             <td class="value"><?= __('partitioned'); ?></td>
@@ -27,10 +26,10 @@
     <?php endif; ?>
 
     <?php if (!empty($tbl_collation)): ?>
-        <tr class="<?= (($odd_row = !$odd_row) ? 'odd' : 'even'); ?>">
+        <tr>
         <th class="name"><?= __('Collation'); ?></th>
         <td class="value">
-            <dfn title="<?= PMA_getCollationDescr($tbl_collation); ?>">
+            <dfn title="<?= PMA\libraries\Charsets::getCollationDescr($tbl_collation); ?>">
                 <?= $tbl_collation; ?>
             </dfn>
         </td>
@@ -38,7 +37,7 @@
     <?php endif; ?>
 
     <?php if (!$is_innodb && isset($showtable['Rows'])): ?>
-        <tr class="<?= (($odd_row = !$odd_row) ? 'odd' : 'even'); ?>">
+        <tr>
         <th class="name"><?= __('Rows'); ?></th>
         <td class="value"><?= PMA\libraries\Util::formatNumber($showtable['Rows'], 0); ?></td>
         </tr>
@@ -50,7 +49,7 @@
         ): ?>
         <?php list($avg_row_length_value, $avg_row_length_unit)
             = PMA\libraries\Util::formatByteDown($showtable['Avg_row_length'], 6, 1); ?>
-        <tr class="<?= (($odd_row = !$odd_row) ? 'odd' : 'even'); ?>">
+        <tr>
         <th class="name"><?= __('Row length'); ?></th>
         <td class="value"><?= $avg_row_length_value , ' ' , $avg_row_length_unit; ?></td>
         </tr>
@@ -62,35 +61,35 @@
             && isset($showtable['Rows'])
             && $showtable['Rows'] > 0
             && $mergetable == false): ?>
-        <tr class="<?= (($odd_row = !$odd_row) ? 'odd' : 'even'); ?>">
+        <tr>
         <th class="name"><?= __('Row size'); ?></th>
         <td class="value"><?= $avg_size , ' ' , $avg_unit; ?></td>
         </tr>
     <?php endif; ?>
 
     <?php if (isset($showtable['Auto_increment'])): ?>
-        <tr class="<?= (($odd_row = !$odd_row) ? 'odd' : 'even'); ?>">
+        <tr>
         <th class="name"><?= __('Next autoindex'); ?></th>
         <td class="value"><?= PMA\libraries\Util::formatNumber($showtable['Auto_increment'], 0); ?></td>
         </tr>
     <?php endif; ?>
 
     <?php if (isset($showtable['Create_time'])): ?>
-        <tr class="<?= (($odd_row = !$odd_row) ? 'odd' : 'even'); ?>">
+        <tr>
         <th class="name"><?= __('Creation'); ?></th>
         <td class="value"><?= PMA\libraries\Util::localisedDate(strtotime($showtable['Create_time'])); ?></td>
         </tr>
     <?php endif; ?>
 
     <?php if (isset($showtable['Update_time'])): ?>
-        <tr class="<?= (($odd_row = !$odd_row) ? 'odd' : 'even'); ?>">
+        <tr>
         <th class="name"><?= __('Last update'); ?></th>
         <td class="value"><?= PMA\libraries\Util::localisedDate(strtotime($showtable['Update_time'])); ?></td>
         </tr>
     <?php endif; ?>
 
     <?php if (isset($showtable['Check_time'])): ?>
-        <tr class="<?= (($odd_row = !$odd_row) ? 'odd' : 'even'); ?>">
+        <tr>
         <th class="name"><?= __('Last check'); ?></th>
         <td class="value"><?= PMA\libraries\Util::localisedDate(strtotime($showtable['Check_time'])); ?></td>
         </tr>

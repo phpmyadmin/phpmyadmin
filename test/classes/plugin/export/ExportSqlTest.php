@@ -10,11 +10,8 @@ use PMA\libraries\Table;
 
 require_once 'libraries/export.lib.php';
 require_once 'libraries/config.default.php';
-require_once 'libraries/mysql_charsets.lib.php';
 require_once 'libraries/relation.lib.php';
 require_once 'libraries/transformations.lib.php';
-require_once 'libraries/charset_conversion.lib.php';
-require_once 'export.php';
 require_once 'test/PMATestCase.php';
 
 /**
@@ -455,7 +452,6 @@ class ExportSqlTest extends PMATestCase
         $GLOBALS['sql_disable_fk'] = true;
         $GLOBALS['sql_use_transaction'] = true;
         $GLOBALS['charset'] = 'utf-8';
-        $GLOBALS['mysql_charset_map']['utf-8'] = true;
         $GLOBALS['sql_utc_time'] = true;
         $GLOBALS['old_tz'] = 'GMT';
         $GLOBALS['asfile'] = 'yes';
@@ -505,7 +501,6 @@ class ExportSqlTest extends PMATestCase
         $GLOBALS['sql_use_transaction'] = true;
         $GLOBALS['sql_include_comments'] = true;
         $GLOBALS['charset'] = 'utf-8';
-        $GLOBALS['mysql_charset_map']['utf-8'] = true;
 
         $dbi = $this->getMockBuilder('PMA\libraries\DatabaseInterface')
             ->disableOriginalConstructor()
@@ -584,9 +579,9 @@ class ExportSqlTest extends PMATestCase
             ->will($this->returnArgument(0));
 
         $dbi->expects($this->once())
-            ->method('isSystemSchema')
+            ->method('getDbCollation')
             ->with('db')
-            ->will($this->returnValue(true));
+            ->will($this->returnValue('utf8_general_ci'));
 
         $GLOBALS['dbi'] = $dbi;
 
@@ -624,8 +619,8 @@ class ExportSqlTest extends PMATestCase
             ->will($this->returnArgument(0));
 
         $dbi->expects($this->once())
-            ->method('fetchValue')
-            ->with('SELECT @@collation_database')
+            ->method('getDbCollation')
+            ->with('db')
             ->will($this->returnValue('testcollation'));
 
         $GLOBALS['dbi'] = $dbi;
@@ -974,10 +969,16 @@ class ExportSqlTest extends PMATestCase
             ->with('res')
             ->will($this->returnValue($tmpres));
 
-        $dbi->expects($this->once())
+        $dbi->expects($this->exactly(2))
             ->method('tryQuery')
-            ->with('SHOW CREATE TABLE `db`.`table`')
-            ->will($this->returnValue('res'));
+            ->withConsecutive(
+                array("SHOW TABLE STATUS FROM `db` WHERE Name = 'table'"),
+                array('SHOW CREATE TABLE `db`.`table`')
+            )
+            ->willReturnOnConsecutiveCalls(
+                'res',
+                'res'
+            );
 
         $row = array(
             '',
@@ -1142,10 +1143,16 @@ class ExportSqlTest extends PMATestCase
             ->with('res')
             ->will($this->returnValue($tmpres));
 
-        $dbi->expects($this->once())
+        $dbi->expects($this->exactly(2))
             ->method('tryQuery')
-            ->with('SHOW CREATE TABLE `db`.`table`')
-            ->will($this->returnValue('res'));
+            ->withConsecutive(
+                array("SHOW TABLE STATUS FROM `db` WHERE Name = 'table'"),
+                array('SHOW CREATE TABLE `db`.`table`')
+            )
+            ->willReturnOnConsecutiveCalls(
+                'res',
+                'res'
+            );
 
         $dbi->expects($this->once())
             ->method('getError')
@@ -1166,7 +1173,7 @@ class ExportSqlTest extends PMATestCase
         );
 
         $this->assertContains(
-            '-- in use(error occurred)',
+            '-- Error reading structure for table db.table: error occurred',
             $result
         );
     }
@@ -1231,7 +1238,7 @@ class ExportSqlTest extends PMATestCase
         );
 
         $this->assertContains(
-            "-- RELATIONS FOR TABLE :\n" .
+            "-- RELATIONSHIPS FOR TABLE :\n" .
             "--   foo\n" .
             "--       ftable -> ffield",
             $result
@@ -1768,7 +1775,7 @@ class ExportSqlTest extends PMATestCase
         $result = ob_get_clean();
 
         $this->assertContains(
-            "-- Error reading data: (err)\n",
+            '-- Error reading data for table db.table: err',
             $result
         );
     }

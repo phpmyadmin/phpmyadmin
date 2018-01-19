@@ -35,6 +35,12 @@ class LanguageTest extends PMATestCase
         $this->manager = new LanguageManager();
     }
 
+    public function tearDown()
+    {
+        // Ensure we have English locale after tests
+        $this->manager->getLanguage('en')->activate();
+    }
+
     /**
      * Test language filtering
      *
@@ -42,11 +48,11 @@ class LanguageTest extends PMATestCase
      */
     public function testAvailable()
     {
-        $GLOBALS['cfg']['FilterLanguages'] = 'cs';
+        $GLOBALS['cfg']['FilterLanguages'] = 'cs|en$';
 
         $langs = $this->manager->availableLocales();
 
-        $this->assertEquals(1, count($langs));
+        $this->assertEquals(2, count($langs));
         $this->assertContains('cs', $langs);
         $GLOBALS['cfg']['FilterLanguages'] = '';
     }
@@ -102,10 +108,12 @@ class LanguageTest extends PMATestCase
     public function testMySQLLocale()
     {
         $czech = $this->manager->getLanguage('cs');
+        $this->assertNotEquals($czech, false);
         $this->assertEquals('cs_CZ', $czech->getMySQLLocale());
 
-        $korani = $this->manager->getLanguage('ckb');
-        $this->assertEquals('', $korani->getMySQLLocale());
+        $azerbaijani = $this->manager->getLanguage('az');
+        $this->assertNotEquals($azerbaijani, false);
+        $this->assertEquals('', $azerbaijani->getMySQLLocale());
     }
 
     /**
@@ -130,6 +138,8 @@ class LanguageTest extends PMATestCase
         $this->assertNotEquals(false, $lang);
         $this->assertEquals('Czech', $lang->getEnglishName());
         $this->assertEquals('Čeština', $lang->getNativeName());
+        $lang = $this->manager->getLanguage('nonexisting');
+        $this->assertEquals(false, $lang);
     }
 
     /**

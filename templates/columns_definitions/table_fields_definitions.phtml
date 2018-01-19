@@ -82,7 +82,7 @@
                 <?= __('MIME type'); ?>
             </th>
             <th>
-                <a href="transformation_overview.php<?= PMA_URL_getCommon(); ?>#transformation"
+                <a href="transformation_overview.php<?= PMA\libraries\URL::getCommon(); ?>#transformation"
                    title="<?= __('List of available transformations and their options'); ?>"
                    target="_blank">
                     <?= __('Browser display transformation'); ?>
@@ -101,7 +101,7 @@
                 ); ?>
             </th>
             <th>
-                <a href="transformation_overview.php<?= PMA_URL_getCommon(); ?>#input_transformation"
+                <a href="transformation_overview.php<?= PMA\libraries\URL::getCommon(); ?>#input_transformation"
                    title="<?= __('List of available transformations and their options'); ?>"
                    target="_blank">
                     <?= __('Input transformation'); ?>
@@ -121,10 +121,8 @@
             </th>
         <?php endif; ?>
     </tr>
-    <?php $odd_row = true;?>
     <?php foreach($content_cells as $content_row): ?>
-        <tr class="<?= ($odd_row ? 'odd' : 'even'); ?>">
-            <?php $odd_row = !$odd_row; ?>
+        <tr>
             <?= PMA\libraries\Template::get('columns_definitions/column_attributes')
                 ->render($content_row); ?>
         </tr>

@@ -6,7 +6,7 @@ $choices = array(
 );
 ?>
 <form action="db_designer.php" method="post" name="save_as_pages" id="save_as_pages" class="ajax">
-    <?= PMA_URL_getHiddenInputs($db); ?>
+    <?= PMA\libraries\URL::getHiddenInputs($db); ?>
     <fieldset id="page_save_as_options">
         <table>
             <tbody>

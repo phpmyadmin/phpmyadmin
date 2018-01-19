@@ -58,75 +58,17 @@ if (! defined('MYSQLI_TYPE_JSON')) {
 class DBIMysqli implements DBIExtension
 {
     /**
-     * Helper function for connecting to the database server
-     *
-     * @param mysqli $link          connection link
-     * @param string $host          mysql hostname
-     * @param string $user          mysql user name
-     * @param string $password      mysql user password
-     * @param int    $server_port   server port
-     * @param string $server_socket server socket
-     * @param int    $client_flags  client flags of connection
-     * @param bool   $persistent    whether to use persistent connection
-     *
-     * @return bool
-     */
-    private function _realConnect(
-        $link, $host, $user, $password, $server_port,
-        $server_socket, $client_flags = null, $persistent = false
-    ) {
-        global $cfg;
-
-        // mysqli persistent connections
-        if ($cfg['PersistentConnections'] || $persistent) {
-            $host = 'p:' . $host;
-        }
-
-        if ($client_flags === null) {
-            return mysqli_real_connect(
-                $link,
-                $host,
-                $user,
-                $password,
-                '',
-                $server_port,
-                $server_socket
-            );
-        } else {
-            return mysqli_real_connect(
-                $link,
-                $host,
-                $user,
-                $password,
-                '',
-                $server_port,
-                $server_socket,
-                $client_flags
-            );
-        }
-    }
-
-    /**
      * connects to the database server
      *
-     * @param string $user                 mysql user name
-     * @param string $password             mysql user password
-     * @param bool   $is_controluser       whether this is a control user connection
-     * @param array  $server               host/port/socket/persistent
-     * @param bool   $auxiliary_connection (when true, don't go back to login if
-     *                                     connection fails)
+     * @param string $user     mysql user name
+     * @param string $password mysql user password
+     * @param array  $server   host/port/socket/persistent
      *
      * @return mixed false on error or a mysqli object on success
      */
     public function connect(
-        $user, $password, $is_controluser = false, $server = null,
-        $auxiliary_connection = false
+        $user, $password, $server
     ) {
-        global $cfg;
-
-        $server_port = $GLOBALS['dbi']->getServerPort($server);
-        $server_socket = $GLOBALS['dbi']->getServerSocket($server);
-
         if ($server) {
             $server['host'] = (empty($server['host']))
                 ? 'localhost'
@@ -146,21 +88,26 @@ class DBIMysqli implements DBIExtension
         $client_flags = 0;
 
         /* Optionally compress connection */
-        if ($cfg['Server']['compress'] && defined('MYSQLI_CLIENT_COMPRESS')) {
+        if ($server['compress'] && defined('MYSQLI_CLIENT_COMPRESS')) {
             $client_flags |= MYSQLI_CLIENT_COMPRESS;
         }
 
         /* Optionally enable SSL */
-        if ($cfg['Server']['ssl']) {
+        if ($server['ssl']) {
             $client_flags |= MYSQLI_CLIENT_SSL;
-            if (!empty($cfg['Server']['ssl_key'])) {
+            if (! empty($server['ssl_key']) ||
+                ! empty($server['ssl_cert']) ||
+                ! empty($server['ssl_ca']) ||
+                ! empty($server['ssl_ca_path']) ||
+                ! empty($server['ssl_ciphers'])
+            ) {
                 mysqli_ssl_set(
                     $link,
-                    $cfg['Server']['ssl_key'],
-                    $cfg['Server']['ssl_cert'],
-                    $cfg['Server']['ssl_ca'],
-                    $cfg['Server']['ssl_ca_path'],
-                    $cfg['Server']['ssl_ciphers']
+                    $server['ssl_key'],
+                    $server['ssl_cert'],
+                    $server['ssl_ca'],
+                    $server['ssl_ca_path'],
+                    $server['ssl_ciphers']
                 );
             }
             /*
@@ -168,54 +115,54 @@ class DBIMysqli implements DBIExtension
              * @link https://bugs.php.net/bug.php?id=68344
              * @link https://github.com/phpmyadmin/phpmyadmin/pull/11838
              */
-            if (! $cfg['Server']['ssl_verify']) {
+            if (! $server['ssl_verify']) {
                 mysqli_options(
                     $link,
                     MYSQLI_OPT_SSL_VERIFY_SERVER_CERT,
-                    $cfg['Server']['ssl_verify']
+                    $server['ssl_verify']
                 );
                 $client_flags |= MYSQLI_CLIENT_SSL_DONT_VERIFY_SERVER_CERT;
             }
         }
 
-        if (! $server) {
-            $return_value = $this->_realConnect(
-                $link,
-                $cfg['Server']['host'],
-                $user,
-                $password,
-                $server_port,
-                $server_socket,
-                $client_flags
-            );
-            // Retry with empty password if we're allowed to
-            if ($return_value == false
-                && isset($cfg['Server']['nopassword'])
-                && $cfg['Server']['nopassword']
-                && ! $is_controluser
-            ) {
-                $return_value = $this->_realConnect(
-                    $link,
-                    $cfg['Server']['host'],
-                    $user,
-                    '',
-                    $server_port,
-                    $server_socket,
-                    $client_flags
-                );
-            }
+        if ($GLOBALS['cfg']['PersistentConnections']) {
+            $host = 'p:' . $server['host'];
         } else {
-            $return_value = $this->_realConnect(
-                $link,
-                $server['host'],
-                $user,
-                $password,
-                $server_port,
-                $server_socket
-            );
+            $host = $server['host'];
         }
 
+        $return_value = mysqli_real_connect(
+            $link,
+            $host,
+            $user,
+            $password,
+            '',
+            $server['port'],
+            $server['socket'],
+            $client_flags
+        );
+
         if ($return_value === false || is_null($return_value)) {
+            /*
+             * Switch to SSL if server asked us to do so, unfortunately
+             * there are more ways MySQL server can tell this:
+             *
+             * - MySQL 8.0 and newer should return error 3159
+             * - #2001 - SSL Connection is required. Please specify SSL options and retry.
+             * - #9002 - SSL connection is required. Please specify SSL options and retry.
+             */
+            $error_number = mysqli_connect_errno();
+            $error_message = mysqli_connect_error();
+            if (! $server['ssl'] && ($error_number == 3159 ||
+                (($error_number == 2001 || $error_number == 9002) && stripos($error_message, 'SSL Connection is required') !== false))
+            ) {
+                    trigger_error(
+                        __('SSL connection enforced by server, automatically enabling it.'),
+                        E_USER_WARNING
+                    );
+                    $server['ssl'] = true;
+                    return self::connect($user, $password, $server);
+            }
             return false;
         }
 

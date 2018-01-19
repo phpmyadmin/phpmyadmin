@@ -9,8 +9,6 @@
  * Include to test.
  */
 
-require_once 'libraries/url_generating.lib.php';
-require_once 'libraries/js_escape.lib.php';
 require_once 'libraries/database_interface.inc.php';
 require_once 'test/PMATestCase.php';
 
@@ -128,7 +126,6 @@ class DbSearchTest extends PMATestCase
      *
      * @param string $each_table    Tables on which search is to be performed
      * @param array  $newsearchsqls Contains SQL queries
-     * @param bool   $odd_row       For displaying contrasting table rows
      * @param string $output        Expected HTML output
      *
      * @return void
@@ -136,14 +133,14 @@ class DbSearchTest extends PMATestCase
      * @dataProvider providerForTestGetResultsRow
      */
     public function testGetResultsRow(
-        $each_table, $newsearchsqls, $odd_row, $output
+        $each_table, $newsearchsqls, $output
     ) {
 
         $this->assertEquals(
             $output,
             $this->_callProtectedFunction(
                 '_getResultsRow',
-                array($each_table, $newsearchsqls, $odd_row, 2)
+                array($each_table, $newsearchsqls, 2)
             )
         );
     }
@@ -165,8 +162,7 @@ class DbSearchTest extends PMATestCase
                     'select_columns' => 'column1',
                     'delete' => 'column2'
                 ),
-                true,
-                '<tr class="noclick odd"><td>2 matches in <strong>table1</strong>'
+                '<tr class="noclick"><td>2 matches in <strong>table1</strong>'
                 . '</td><td><a name="browse_search"  class="ajax browse_results" '
                 . 'href="sql.php?db=pma&amp;table'
                 . '=table1&amp;goto=db_sql.php&amp;pos=0&amp;is_js_confirmed=0&amp;'
@@ -192,8 +188,6 @@ class DbSearchTest extends PMATestCase
      */
     public function testGetSelectionForm()
     {
-        $_SESSION['PMA_Theme'] = new Theme();
-        $GLOBALS['pmaThemeImage'] = 'themes/dot.gif';
         $this->assertEquals(
             '<a id="db_search"></a><form id="db_search_form" class="ajax lock-page" '
             . 'method="post" action="db_search.php" name="db_search">'
@@ -208,13 +202,13 @@ class DbSearchTest extends PMATestCase
             . 'type="radio" name="criteriaSearchType" id="criteriaSearchType_1" '
             . 'value="1" checked="checked" />' . "\n"
             . '<label for="criteriaSearchType_1">at least one of the words<span '
-            . 'class="pma_hint"><img src="themes/dot.gifb_help.png" title="" alt="" '
+            . 'class="pma_hint"><img src="themes/dot.gif" title="" alt="" class="icon ic_b_help" '
             . '/><span class="hide">Words are separated by a space character (" ").'
             . '</span></span></label><br />' . "\n"
             . '<input type="radio" name="criteriaSearchType" id="criteriaSearchType'
             . '_2" value="2" />' . "\n"
             . '<label for="criteriaSearchType_2">all words<span class="pma_hint">'
-            . '<img src="themes/dot.gifb_help.png" title="" alt="" /><span class'
+            . '<img src="themes/dot.gif" title="" alt="" class="icon ic_b_help" /><span class'
             . '="hide">Words are separated by a space character (" ").</span></span>'
             . '</label><br />' . "\n"
             . '<input type="radio" name="criteriaSearchType" id="criteriaSearchType'
@@ -225,8 +219,8 @@ class DbSearchTest extends PMATestCase
             . '<label for="criteriaSearchType_4">as regular expression <a href='
             . '"./url.php?url=https%3A%2F%2Fdev.mysql.com%2Fdoc%2Frefman%2F5.7%2Fen'
             . '%2Fregexp.html" target='
-            . '"mysql_doc"><img src="themes/dot.gifb_help.png" title="Documentation"'
-            . ' alt="Documentation" /></a></label><br />' . "\n"
+            . '"mysql_doc"><img src="themes/dot.gif" title="Documentation"'
+            . ' alt="Documentation" class="icon ic_b_help" /></a></label><br />' . "\n"
             . '</td></tr><tr><td class="right vtop">Inside tables:</td>'
             . '<td rowspan="2"><select name="criteriaTables[]" size="6" '
             . 'multiple="multiple"><option value="table1">table1</option>'

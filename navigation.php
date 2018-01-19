@@ -7,13 +7,14 @@
  */
 
 // Include common functionalities
+use PMA\libraries\Response;
 use PMA\libraries\config\PageSettings;
 use PMA\libraries\navigation\Navigation;
 
 require_once './libraries/common.inc.php';
 
 // Also initialises the collapsible tree class
-$response = PMA\libraries\Response::getInstance();
+$response = Response::getInstance();
 $navigation = new Navigation();
 if (! $response->isAjax()) {
     $response->addHTML(

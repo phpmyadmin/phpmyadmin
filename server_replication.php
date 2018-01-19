@@ -5,6 +5,7 @@
  *
  * @package PhpMyAdmin
  */
+use PMA\libraries\Response;
 
 /**
  * include files
@@ -18,11 +19,12 @@ require_once 'libraries/replication_gui.lib.php';
 /**
  * Does the common work
  */
-$response = PMA\libraries\Response::getInstance();
+$response = Response::getInstance();
 $header   = $response->getHeader();
 $scripts  = $header->getScripts();
 $scripts->addFile('server_privileges.js');
 $scripts->addFile('replication.js');
+$scripts->addFile('zxcvbn.js');
 
 /**
  * Checks if the user is allowed to do what he tries to...

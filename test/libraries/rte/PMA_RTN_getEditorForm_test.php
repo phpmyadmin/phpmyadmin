@@ -8,15 +8,12 @@
 
 use PMA\libraries\Theme;
 use PMA\libraries\TypesMySQL;
+use PMA\libraries\Response;
 
 $GLOBALS['server'] = 0;
 
-require_once 'libraries/url_generating.lib.php';
-
 
 require_once 'libraries/database_interface.inc.php';
-
-require_once 'libraries/mysql_charsets.inc.php';
 /*
  * Include to test.
  */
@@ -43,9 +40,7 @@ class PMA_RTN_GetEditorForm_Test extends PHPUnit_Framework_TestCase
         $cfg['ServerDefault'] = 1;
 
         $GLOBALS['PMA_Types'] = new TypesMySQL();
-        $_SESSION['PMA_Theme'] = new Theme();
         $GLOBALS['pmaThemePath'] = $_SESSION['PMA_Theme']->getPath();
-        $GLOBALS['pmaThemeImage'] = 'theme/';
 
     }
 
@@ -56,7 +51,6 @@ class PMA_RTN_GetEditorForm_Test extends PHPUnit_Framework_TestCase
      */
     public function testgetParameterRowEmpty()
     {
-        $GLOBALS['is_ajax_request'] = false;
         PMA_RTN_setGlobals();
         $this->assertEquals('', PMA_RTN_getParameterRow(array(), 0));
     }
@@ -75,7 +69,6 @@ class PMA_RTN_GetEditorForm_Test extends PHPUnit_Framework_TestCase
      */
     public function testgetParameterRow($data, $index, $matcher)
     {
-        $GLOBALS['is_ajax_request'] = false;
         PMA_RTN_setGlobals();
         $this->assertContains(
             $matcher,
@@ -158,12 +151,13 @@ class PMA_RTN_GetEditorForm_Test extends PHPUnit_Framework_TestCase
      */
     public function testgetParameterRowAjax($data, $matcher)
     {
-        $GLOBALS['is_ajax_request'] = false;
+        Response::getInstance()->setAjax(true);
         PMA_RTN_setGlobals();
         $this->assertContains(
             $matcher,
             PMA_RTN_getParameterRow($data)
         );
+        Response::getInstance()->setAjax(false);
     }
 
     /**
@@ -236,7 +230,6 @@ class PMA_RTN_GetEditorForm_Test extends PHPUnit_Framework_TestCase
      */
     public function testgetEditorForm1($data, $matcher)
     {
-        $GLOBALS['is_ajax_request'] = false;
         PMA_RTN_setGlobals();
         $this->assertContains(
             $matcher,
@@ -358,7 +351,6 @@ class PMA_RTN_GetEditorForm_Test extends PHPUnit_Framework_TestCase
      */
     public function testgetEditorForm2($data, $matcher)
     {
-        $GLOBALS['is_ajax_request'] = false;
         PMA_RTN_setGlobals();
         $this->assertContains(
             $matcher,
@@ -480,12 +472,13 @@ class PMA_RTN_GetEditorForm_Test extends PHPUnit_Framework_TestCase
      */
     public function testgetEditorForm3($data, $matcher)
     {
-        $GLOBALS['is_ajax_request'] = true;
+        Response::getInstance()->setAjax(true);
         PMA_RTN_setGlobals();
         $this->assertContains(
             $matcher,
             PMA_RTN_getEditorForm('edit', 'remove', $data)
         );
+        Response::getInstance()->setAjax(false);
     }
 
     /**
@@ -602,7 +595,6 @@ class PMA_RTN_GetEditorForm_Test extends PHPUnit_Framework_TestCase
      */
     public function testgetEditorForm4($data, $matcher)
     {
-        $GLOBALS['is_ajax_request'] = false;
         PMA_RTN_setGlobals();
         $this->assertContains(
             $matcher,

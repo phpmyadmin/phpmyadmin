@@ -7,12 +7,6 @@
  * @group common.lib-tests
  */
 
-/*
- * Include to test.
- */
-
-require_once 'libraries/url_generating.lib.php';
-
 /**
  * Test for PMA_getDbLink_test from Util.php
  *

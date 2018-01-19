@@ -2,6 +2,8 @@
 use PMA\libraries\DatabaseInterface;
 use PMA\libraries\Table;
 use PMA\libraries\Util;
+use PMA\libraries\URL;
+use PMA\libraries\Sanitize;
 
 $js_msg = '';
 $this_params = null;
@@ -17,7 +19,7 @@ if (isset($one_key['constraint'])) {
         __('Foreign key constraint %s has been dropped'),
         $one_key['constraint']
     );
-    $js_msg = PMA_jsFormat(
+    $js_msg = Sanitize::jsFormat(
         'ALTER TABLE ' . $GLOBALS['table']
         . ' DROP FOREIGN KEY '
         . $one_key['constraint'] . ';'
@@ -41,6 +43,9 @@ foreach ($columns as $column) {
         $column_array[$column['Field']] = $column['Field'];
     }
 }
+if ($GLOBALS['cfg']['NaturalOrder']) {
+    uksort($column_array, 'strnatcasecmp');
+}
 
 $foreign_table = false;
 // foreign database dropdown
@@ -49,7 +54,7 @@ $foreign_db = (isset($one_key['ref_db_name'])) ? $one_key['ref_db_name'] : $db;
 $tables = array();
 if ($foreign_db) {
     $foreign_table = isset($one_key['ref_table_name'])
-        ? $one_key['ref_table_name'] : '';
+        ? $one_key['ref_table_name'] : false;
 
     $tables_rs = $GLOBALS['dbi']->query(
         'SHOW TABLE STATUS FROM ' . Util::backquote($foreign_db),
@@ -63,9 +68,12 @@ if ($foreign_db) {
             $tables[] = $row[0];
         }
     }
+    if ($GLOBALS['cfg']['NaturalOrder']) {
+        usort($tables, 'strnatcasecmp');
+    }
 }
 ?>
-<tr class="<?= ($odd_row ? 'odd' : 'even'); ?>">
+<tr>
     <!-- Drop key anchor -->
     <td>
         <?php if (isset($one_key['constraint'])): ?>
@@ -73,7 +81,7 @@ if ($foreign_db) {
                    class="drop_foreign_key_msg"
                    value="<?= $js_msg; ?>" />
             <a class="drop_foreign_key_anchor ajax"
-               href="sql.php<?= PMA_URL_getCommon($this_params); ?>" >
+               href="sql.php<?= URL::getCommon($this_params); ?>" >
                 <?= PMA\libraries\Util::getIcon('b_drop.png', __('Drop')); ?>
             </a>
         <?php endif; ?>

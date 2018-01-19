@@ -45,7 +45,7 @@ class DbList
      * @param string $param parameter name
      *
      * @return mixed
-     * @see https://php.net/language.oop5.overloading
+     * @see https://secure.php.net/language.oop5.overloading
      */
     public function __get($param)
     {
@@ -68,7 +68,7 @@ class DbList
      * @param mixed  $value value to set
      *
      * @return void
-     * @see https://php.net/language.oop5.overloading
+     * @see https://secure.php.net/language.oop5.overloading
      */
     public function __set($param, $value)
     {

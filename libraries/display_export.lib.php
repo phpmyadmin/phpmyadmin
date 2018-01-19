@@ -6,9 +6,13 @@
  *
  * @package PhpMyAdmin
  */
+use PMA\libraries\Encoding;
 use PMA\libraries\Message;
 use PMA\libraries\plugins\ExportPlugin;
+use PMA\libraries\Response;
 use PMA\libraries\Table;
+use PMA\libraries\Template;
+use PMA\libraries\URL;
 
 /**
  * Outputs appropriate checked statement for checkbox.
@@ -107,11 +111,11 @@ function PMA_getHtmlForHiddenInput(
     global $cfg;
     $html = "";
     if ($export_type == 'server') {
-        $html .= PMA_URL_getHiddenInputs('', '', 1);
+        $html .= URL::getHiddenInputs('', '', 1);
     } elseif ($export_type == 'database') {
-        $html .= PMA_URL_getHiddenInputs($db, '', 1);
+        $html .= URL::getHiddenInputs($db, '', 1);
     } else {
-        $html .= PMA_URL_getHiddenInputs($db, $table, 1);
+        $html .= URL::getHiddenInputs($db, $table, 1);
     }
 
     // just to keep this value for possible next display of this form after saving
@@ -381,12 +385,11 @@ function PMA_getHtmlForExportOptionsFormat($export_list)
     $html .= PMA_pluginGetOptions('Export', $export_list);
     $html .= '</div>';
 
-    if (function_exists('PMA_Kanji_encodingForm')) {
-        // Encoding setting form appended by Y.Kawada
+    if (Encoding::canConvertKanji()) {
         // Japanese encoding setting
         $html .= '<div class="exportoptions" id="kanji_encoding">';
         $html .= '<h3>' . __('Encoding Conversion:') . '</h3>';
-        $html .= PMA_Kanji_encodingForm();
+        $html .= Encoding::kanjiEncodingForm();
         $html .= '</div>';
     }
 
@@ -554,11 +557,11 @@ function PMA_getHtmlForExportOptionsOutputFormat($export_type)
     $html .= '<label for="filename_template" class="desc">';
     $html .= __('File name template:');
     $trans = new Message;
-    $trans->addMessage(__('@SERVER@ will become the server name'));
+    $trans->addText(__('@SERVER@ will become the server name'));
     if ($export_type == 'database' || $export_type == 'table') {
-        $trans->addMessage(__(', @DATABASE@ will become the database name'));
+        $trans->addText(__(', @DATABASE@ will become the database name'));
         if ($export_type == 'table') {
-            $trans->addMessage(__(', @TABLE@ will become the table name'));
+            $trans->addText(__(', @TABLE@ will become the table name'));
         }
     }
 
@@ -570,19 +573,17 @@ function PMA_getHtmlForExportOptionsOutputFormat($export_type)
             . 'Other text will be kept as is. See the %4$sFAQ%5$s for details.'
         )
     );
-    $msg->addParam(
+    $msg->addParamHtml(
         '<a href="' . PMA_linkURL(PMA_getPHPDocLink('function.strftime.php'))
-        . '" target="documentation" title="' . __('Documentation') . '">',
-        false
+        . '" target="documentation" title="' . __('Documentation') . '">'
     );
-    $msg->addParam('</a>', false);
+    $msg->addParamHtml('</a>');
     $msg->addParam($trans);
     $doc_url = PMA\libraries\Util::getDocuLink('faq', 'faq6-27');
-    $msg->addParam(
-        '<a href="' . $doc_url . '" target="documentation">',
-        false
+    $msg->addParamHtml(
+        '<a href="' . $doc_url . '" target="documentation">'
     );
-    $msg->addParam('</a>', false);
+    $msg->addParamHtml('</a>');
 
     $html .= PMA\libraries\Util::showHint($msg);
     $html .= '</label>';
@@ -638,7 +639,7 @@ function PMA_getHtmlForExportOptionsOutputCharset()
     $html = '        <li><label for="select_charset" class="desc">'
         . __('Character set of the file:') . '</label>' . "\n";
     $html .= '<select id="select_charset" name="charset" size="1">';
-    foreach ($cfg['AvailableCharsets'] as $temp_charset) {
+    foreach (Encoding::listEncodings() as $temp_charset) {
         $html .= '<option value="' . $temp_charset . '"';
         if (isset($_GET['charset'])
             && ($_GET['charset'] != $temp_charset)
@@ -814,7 +815,7 @@ function PMA_getHtmlForExportOptionsOutput($export_type)
     $html .= PMA_getHtmlForExportOptionsOutputFormat($export_type);
 
     // charset of file
-    if ($GLOBALS['PMA_recoding_engine'] != PMA_CHARSET_NONE) {
+    if (Encoding::isSupported()) {
         $html .= PMA_getHtmlForExportOptionsOutputCharset();
     } // end if
 
@@ -868,9 +869,8 @@ function PMA_getHtmlForExportOptions(
     $html .= PMA_getHtmlForExportOptionsFormatDropdown($export_list);
     $html .= PMA_getHtmlForExportOptionsSelection($export_type, $multi_values);
 
-    $tableLength = mb_strlen($table);
     $_table = new Table($table, $db);
-    if ($tableLength && empty($num_tables) && ! $_table->isMerge()) {
+    if (strlen($table) > 0 && empty($num_tables) && ! $_table->isMerge()) {
         $html .= PMA_getHtmlForExportOptionsRows($db, $table, $unlim_num_rows);
     }
 
@@ -878,25 +878,76 @@ function PMA_getHtmlForExportOptions(
         $html .= PMA_getHtmlForExportOptionsQuickExport();
     }
 
-    $html .= PMA_getHtmlForAliasModalDialog($db, $table);
+    $html .= PMA_getHtmlForAliasModalDialog();
     $html .= PMA_getHtmlForExportOptionsOutput($export_type);
     $html .= PMA_getHtmlForExportOptionsFormat($export_list);
     return $html;
 }
 
 /**
- * Prints Html For Alias Modal Dialog
- *
- * @param String $db    Selected DB
- * @param String $table Selected Table
+ * Generate Html For currently defined aliases
  *
  * @return string
  */
-function PMA_getHtmlForAliasModalDialog($db = '', $table = '')
+function PMA_getHtmlForCurrentAlias()
 {
+    $result = '<table id="alias_data"><thead><tr><th colspan="4">'
+        . __('Defined aliases')
+        . '</th></tr></thead><tbody>';
+
+    $template = Template::get('export/alias_item');
     if (isset($_SESSION['tmpval']['aliases'])) {
-        $aliases = $_SESSION['tmpval']['aliases'];
+        foreach ($_SESSION['tmpval']['aliases'] as $db => $db_data) {
+            if (isset($db_data['alias'])) {
+                $result .= $template->render(array(
+                    'type' => _pgettext('Alias', 'Database'),
+                    'name' => $db,
+                    'field' => 'aliases[' . $db . '][alias]',
+                    'value' => $db_data['alias'],
+                ));
+            }
+            if (! isset($db_data['tables'])) {
+                continue;
+            }
+            foreach ($db_data['tables'] as $table => $table_data) {
+                if (isset($table_data['alias'])) {
+                    $result .= $template->render(array(
+                        'type' => _pgettext('Alias', 'Table'),
+                        'name' => $db . '.' . $table,
+                        'field' => 'aliases[' . $db . '][tables][' . $table . '][alias]',
+                        'value' => $table_data['alias'],
+                    ));
+                }
+                if (! isset($table_data['columns'])) {
+                    continue;
+                }
+                foreach ($table_data['columns'] as $column => $column_name) {
+                    $result .= $template->render(array(
+                        'type' => _pgettext('Alias', 'Column'),
+                        'name' => $db . '.' . $table . '.'. $column,
+                        'field' => 'aliases[' . $db . '][tables][' . $table . '][colums][' . $column . ']',
+                        'value' => $column_name,
+                    ));
+                }
+            }
+        }
     }
+
+    // Empty row for javascript manipulations
+    $result .= '</tbody><tfoot class="hide">' . $template->render(array(
+        'type' => '', 'name' => '', 'field' => 'aliases_new', 'value' => ''
+    )) . '</tfoot>';
+
+    return $result . '</table>';
+}
+
+/**
+ * Generate Html For Alias Modal Dialog
+ *
+ * @return string
+ */
+function PMA_getHtmlForAliasModalDialog()
+{
     // In case of server export, the following list of
     // databases are not shown in the list.
     $dbs_not_allowed = array(
@@ -907,116 +958,10 @@ function PMA_getHtmlForAliasModalDialog($db = '', $table = '')
     // Fetch Columns info
     // Server export does not have db set.
     $title = __('Rename exported databases/tables/columns');
-    if (empty($db)) {
-        $databases = $GLOBALS['dbi']->getColumnsFull(
-            null, null, null, $GLOBALS['userlink']
-        );
-        foreach ($dbs_not_allowed as $db) {
-            unset($databases[$db]);
-        }
-        // Database export does not have table set.
-    } elseif (empty($table)) {
-        $tables = $GLOBALS['dbi']->getColumnsFull(
-            $db, null, null, $GLOBALS['userlink']
-        );
-        $databases = array($db => $tables);
-        // Table export
-    } else {
-        $columns = $GLOBALS['dbi']->getColumnsFull(
-            $db, $table, null, $GLOBALS['userlink']
-        );
-        $databases = array(
-            $db => array(
-                $table => $columns
-            )
-        );
-    }
 
     $html = '<div id="alias_modal" class="hide" title="' . $title . '">';
-    $db_html = '<label class="col-2">' . __('Select database') . ': '
-        . '</label><select id="db_alias_select">';
-    $table_html = '<label class="col-2">' . __('Select table') . ': </label>';
-    $first_db = true;
-    $table_input_html = $db_input_html = '';
-    foreach ($databases as  $db => $tables) {
-        $val = '';
-        if (!empty($aliases[$db]['alias'])) {
-            $val = htmlspecialchars($aliases[$db]['alias']);
-        }
-        $db = htmlspecialchars($db);
-        $name_attr = 'aliases[' . $db . '][alias]';
-        $id_attr = substr(md5($name_attr), 0, 12);
-        $class = 'hide';
-        if ($first_db) {
-            $first_db = false;
-            $class = '';
-            $db_input_html = '<label class="col-2" for="' . $id_attr . '">'
-                . __('New database name') . ': </label>';
-        }
-        $db_input_html .= '<input type="text" name="' . $name_attr . '" '
-            . 'placeholder="' . $db . ' alias" class="' . $class . '" '
-            . 'id="' . $id_attr . '" value="' . $val . '" disabled="disabled"/>';
-        $db_html .= '<option value="' . $id_attr . '">' . $db . '</option>';
-        $table_html .= '<span id="' . $id_attr . '_tables" class="' . $class . '">';
-        $table_html .= '<select id="' . $id_attr . '_tables_select" '
-            . 'class="table_alias_select">';
-        $first_tbl = true;
-        $col_html = '';
-        foreach ($tables as $table => $columns) {
-            $val = '';
-            if (!empty($aliases[$db]['tables'][$table]['alias'])) {
-                $val = htmlspecialchars($aliases[$db]['tables'][$table]['alias']);
-            }
-            $table = htmlspecialchars($table);
-            $name_attr =  'aliases[' . $db . '][tables][' . $table . '][alias]';
-            $id_attr = substr(md5($name_attr), 0, 12);
-            $class = 'hide';
-            if ($first_tbl) {
-                $first_tbl = false;
-                $class = '';
-                $table_input_html = '<label class="col-2" for="' . $id_attr . '">'
-                    . __('New table name') . ': </label>';
-            }
-            $table_input_html .= '<input type="text" value="' . $val . '" '
-                . 'name="' . $name_attr . '" id="' . $id_attr . '" '
-                . 'placeholder="' . $table . ' alias" class="' . $class . '" '
-                . 'disabled="disabled"/>';
-            $table_html .= '<option value="' . $id_attr . '">'
-                . $table . '</option>';
-            $col_html .= '<table id="' . $id_attr . '_cols" class="'
-                . $class . '" width="100%">';
-            $col_html .= '<thead><tr><th>' . __('Old column name') . '</th>'
-                . '<th>' . __('New column name') . '</th></tr></thead><tbody>';
-            $class = 'odd';
-            foreach ($columns as $column => $col_def) {
-                $val = '';
-                if (!empty($aliases[$db]['tables'][$table]['columns'][$column])) {
-                    $val = htmlspecialchars(
-                        $aliases[$db]['tables'][$table]['columns'][$column]
-                    );
-                }
-                $column = htmlspecialchars($column);
-                $name_attr = 'aliases[' . $db . '][tables][' . $table
-                    . '][columns][' . $column . ']';
-                $id_attr = substr(md5($name_attr), 0, 12);
-                $col_html .= '<tr class="' . $class . '">';
-                $col_html .= '<th><label for="' . $id_attr . '">' . $column
-                    . '</label></th>';
-                $col_html .= '<td><dummy_inp type="text" name="' . $name_attr . '" '
-                    . 'id="' . $id_attr . '" placeholder="'
-                    . $column . ' alias" value="' . $val . '"></dummy_inp></td>';
-                $col_html .= '</tr>';
-                $class = $class === 'odd' ? 'even' : 'odd';
-            }
-            $col_html .= '</tbody></table>';
-        }
-        $table_html .= '</select>';
-        $table_html .= $table_input_html . '<hr/>' . $col_html . '</span>';
-    }
-    $db_html .= '</select>';
-    $html .= $db_html;
-    $html .= $db_input_html . '<hr/>';
-    $html .= $table_html;
+    $html .= PMA_getHtmlForCurrentAlias();
+    $html .= Template::get('export/alias_add')->render();
 
     $html .= '</div>';
     return $html;
@@ -1154,7 +1099,7 @@ function PMA_handleExportTemplateActions($cfgRelation)
 
     $result = PMA_queryAsControlUser($query, false);
 
-    $response = PMA\libraries\Response::getInstance();
+    $response = Response::getInstance();
     if (! $result) {
         $error = $GLOBALS['dbi']->getError($GLOBALS['controllink']);
         $response->setRequestStatus(false);

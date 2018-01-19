@@ -1,9 +1,15 @@
 #!/bin/sh
 
+# Do not run as CGI
+if [ -n "$GATEWAY_INTERFACE" ] ; then
+    echo 'Can not invoke as CGI!'
+    exit 1
+fi
+
 set -e
 set -x
 
-if [ -z  "$SELENIUM" ] ; then
+if [ "$CI_MODE" != "selenium" ] ; then
     exit 0
 fi
 

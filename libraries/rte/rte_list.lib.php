@@ -5,7 +5,10 @@
  *
  * @package PhpMyAdmin
  */
-use SqlParser\Statements\CreateStatement;
+use PMA\libraries\Response;
+use PMA\libraries\URL;
+use PMA\libraries\Template;
+use PhpMyAdmin\SqlParser\Statements\CreateStatement;
 
 if (! defined('PHPMYADMIN')) {
     exit;
@@ -56,7 +59,7 @@ function PMA_RTE_getList($type, $items)
         break;
     }
     $retval .= '">';
-    $retval .= PMA_URL_getHiddenInputs($GLOBALS['db'], $GLOBALS['table']);
+    $retval .= URL::getHiddenInputs($GLOBALS['db'], $GLOBALS['table']);
     $retval .= "<fieldset>\n";
     $retval .= "    <legend>\n";
     $retval .= "        " . PMA_RTE_getWord('title') . "\n";
@@ -116,10 +119,12 @@ function PMA_RTE_getList($type, $items)
     $retval .= "        </tr>\n";
     $retval .= "        <!-- TABLE DATA -->\n";
     $count = 0;
+    $response = Response::getInstance();
     foreach ($items as $item) {
-        $rowclass = ($count % 2 == 0) ? 'odd' : 'even';
-        if ($GLOBALS['is_ajax_request'] && empty($_REQUEST['ajax_page_request'])) {
-            $rowclass .= ' ajaxInsert hide';
+        if ($response->isAjax() && empty($_REQUEST['ajax_page_request'])) {
+            $rowclass = 'ajaxInsert hide';
+        } else {
+            $rowclass = '';
         }
         // Get each row from the correct function
         switch ($type) {
@@ -141,15 +146,20 @@ function PMA_RTE_getList($type, $items)
 
     if (count($items)) {
         $retval .= '<div class="withSelected">';
-        $retval .= PMA\libraries\Util::getWithSelected(
-            $GLOBALS['pmaThemeImage'], $GLOBALS['text_dir'], 'rteListForm'
-        );
+        $retval .= Template::get('select_all')
+            ->render(
+                array(
+                    'pmaThemeImage' => $GLOBALS['pmaThemeImage'],
+                    'text_dir'      => $GLOBALS['text_dir'],
+                    'formName'      => 'rteListForm',
+                )
+            );
         $retval .= PMA\libraries\Util::getButtonOrImage(
-            'submit_mult', 'mult_submit', 'submit_mult_export',
+            'submit_mult', 'mult_submit',
             __('Export'), 'b_export.png', 'export'
         );
         $retval .= PMA\libraries\Util::getButtonOrImage(
-            'submit_mult', 'mult_submit', 'submit_mult_drop',
+            'submit_mult', 'mult_submit',
             __('Drop'), 'b_drop.png', 'drop'
         );
         $retval .= '</div>';
@@ -166,7 +176,7 @@ function PMA_RTE_getList($type, $items)
  * Creates the contents for a row in the list of routines
  *
  * @param array  $routine  An array of routine data
- * @param string $rowclass Empty or one of ['even'|'odd']
+ * @param string $rowclass Additional class
  *
  * @return string HTML code of a row for the list of routines
  */
@@ -204,7 +214,7 @@ function PMA_RTN_getRowForList($routine, $rowclass = '')
         . "AND SPECIFIC_NAME='" . $GLOBALS['dbi']->escapeString($routine['name']) . "'"
         . "AND ROUTINE_TYPE='" . $GLOBALS['dbi']->escapeString($routine['type']) . "'";
     $query = "SELECT `DEFINER` FROM INFORMATION_SCHEMA.ROUTINES WHERE $where;";
-    $routine_definer = $GLOBALS['dbi']->fetchValue($query, 0, 0, $GLOBALS['controllink']);
+    $routine_definer = $GLOBALS['dbi']->fetchValue($query);
 
     $curr_user = $GLOBALS['dbi']->getCurrentUser();
 
@@ -240,17 +250,17 @@ function PMA_RTN_getRowForList($routine, $rowclass = '')
     // otherwise we can execute it directly.
 
     $definition = $GLOBALS['dbi']->getDefinition(
-        $db, $routine['type'], $routine['name'], $GLOBALS['controllink']
+        $db, $routine['type'], $routine['name']
     );
     if ($definition !== false) {
-        $parser = new SqlParser\Parser($definition);
+        $parser = new PhpMyAdmin\SqlParser\Parser($definition);
 
         /**
          * @var CreateStatement $stmt
          */
         $stmt = $parser->statements[0];
 
-        $params = SqlParser\Utils\Routine::getParameters($stmt);
+        $params = PhpMyAdmin\SqlParser\Utils\Routine::getParameters($stmt);
 
         if (PMA\libraries\Util::currentUserHasPrivilege('EXECUTE', $db)) {
             $execute_action = 'execute_routine';
@@ -319,7 +329,7 @@ function PMA_RTN_getRowForList($routine, $rowclass = '')
  * Creates the contents for a row in the list of triggers
  *
  * @param array  $trigger  An array of routine data
- * @param string $rowclass Empty or one of ['even'|'odd']
+ * @param string $rowclass Additional class
  *
  * @return string HTML code of a cell for the list of triggers
  */
@@ -344,7 +354,7 @@ function PMA_TRI_getRowForList($trigger, $rowclass = '')
         $retval .= "            <td>\n";
         $retval .= "<a href='db_triggers.php{$url_query}"
             . "&amp;table=" . urlencode($trigger['table']) . "'>"
-            . urlencode($trigger['table']) . "</a>";
+            . htmlspecialchars($trigger['table']) . "</a>";
         $retval .= "            </td>\n";
     }
     $retval .= "            <td>\n";
@@ -398,7 +408,7 @@ function PMA_TRI_getRowForList($trigger, $rowclass = '')
  * Creates the contents for a row in the list of events
  *
  * @param array  $event    An array of routine data
- * @param string $rowclass Empty or one of ['even'|'odd']
+ * @param string $rowclass Additional class
  *
  * @return string HTML code of a cell for the list of events
  */

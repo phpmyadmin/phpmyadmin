@@ -5,7 +5,7 @@
  * Currently supports all Windows and Linux platforms
  *
  * This code is based on the OS Classes from the phpsysinfo project
- * (http://phpsysinfo.github.io/phpsysinfo/)
+ * (https://phpsysinfo.github.io/phpsysinfo/)
  *
  * @package PhpMyAdmin-sysinfo
  */

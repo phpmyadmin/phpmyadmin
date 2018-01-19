@@ -3,13 +3,12 @@
 /**
  * Displays form for editing and inserting new table rows
  *
- * register_globals_save (mark this file save for disabling register globals)
- *
  * @package PhpMyAdmin
  */
 use PMA\libraries\config\PageSettings;
 use PMA\libraries\Response;
 use PMA\libraries\Util;
+use PMA\libraries\URL;
 
 /**
  * Gets the variables sent or posted to this script and displays the header
@@ -23,7 +22,7 @@ PageSettings::showGroup('Edit');
 /**
  * Ensures db and table are valid, else moves to the "parent" script
  */
-require_once 'libraries/db_table_exists.lib.php';
+require_once 'libraries/db_table_exists.inc.php';
 
 /**
  * functions implementation for this script
@@ -54,7 +53,7 @@ require_once 'libraries/file_listing.lib.php';
  * (at this point, $GLOBALS['goto'] will be set but could be empty)
  */
 if (empty($GLOBALS['goto'])) {
-    if (mb_strlen($table)) {
+    if (strlen($table) > 0) {
         // avoid a problem (see bug #2202709)
         $GLOBALS['goto'] = 'tbl_sql.php';
     } else {
@@ -64,7 +63,7 @@ if (empty($GLOBALS['goto'])) {
 
 
 $_url_params = PMA_getUrlParameters($db, $table);
-$err_url = $GLOBALS['goto'] . PMA_URL_getCommon($_url_params);
+$err_url = $GLOBALS['goto'] . URL::getCommon($_url_params);
 unset($_url_params);
 
 $comments_map = PMA_getCommentsMap($db, $table);
@@ -81,7 +80,6 @@ $header   = $response->getHeader();
 $scripts  = $header->getScripts();
 $scripts->addFile('sql.js');
 $scripts->addFile('tbl_change.js');
-$scripts->addFile('big_ints.js');
 $scripts->addFile('jquery/jquery-ui-timepicker-addon.js');
 $scripts->addFile('jquery/jquery.validate.js');
 $scripts->addFile('jquery/additional-methods.js');
@@ -111,12 +109,7 @@ $_form_params = PMA_getFormParametersForInsertForm(
  */
 // autocomplete feature of IE kills the "onchange" event handler and it
 //        must be replaced by the "onpropertychange" one in this case
-$chg_evt_handler = (PMA_USR_BROWSER_AGENT == 'IE'
-    && PMA_USR_BROWSER_VER >= 5
-    && PMA_USR_BROWSER_VER < 7
-)
-     ? 'onpropertychange'
-     : 'onchange';
+$chg_evt_handler =  'onchange';
 // Had to put the URI because when hosted on an https server,
 // some browsers send wrongly this form to the http server.
 
@@ -153,7 +146,7 @@ foreach ($table_columns as $column) {
 //If table has blob fields we have to disable ajax.
 $html_output .= PMA_getHtmlForInsertEditFormHeader($has_blob_field, $is_upload);
 
-$html_output .= PMA_URL_getHiddenInputs($_form_params);
+$html_output .= URL::getHiddenInputs($_form_params);
 
 $titles['Browse'] = Util::getIcon('b_browse.png', __('Browse foreign values'));
 

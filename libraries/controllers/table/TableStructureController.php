@@ -15,13 +15,13 @@ use PMA\libraries\Message;
 use PMA\libraries\Template;
 use PMA\libraries\Util;
 use PMA\Util as Util_lib;
-use SqlParser;
-use SqlParser\Statements\CreateStatement;
-use SqlParser\Utils\Table as SqlTable;
+use PhpMyAdmin\SqlParser;
+use PhpMyAdmin\SqlParser\Statements\CreateStatement;
+use PhpMyAdmin\SqlParser\Utils\Table as SqlTable;
 use PMA\libraries\Table;
 use PMA\libraries\controllers\TableController;
+use PMA\libraries\URL;
 
-require_once 'libraries/mysql_charsets.inc.php';
 require_once 'libraries/transformations.lib.php';
 require_once 'libraries/util.lib.php';
 require_once 'libraries/config/messages.inc.php';
@@ -119,7 +119,6 @@ class TableStructureController extends TableController
         include_once 'libraries/check_user_privileges.lib.php';
         include_once 'libraries/index.lib.php';
         include_once 'libraries/sql.lib.php';
-        include_once 'libraries/bookmark.lib.php';
 
         $this->response->getHeader()->getScripts()->addFiles(
             array(
@@ -147,11 +146,11 @@ class TableStructureController extends TableController
                 $columns_names = $_REQUEST['field_name'];
                 $reserved_keywords_names = array();
                 foreach ($columns_names as $column) {
-                    if (SqlParser\Context::isKeyword(trim($column), true)) {
+                    if (\PhpMyAdmin\SqlParser\Context::isKeyword(trim($column), true)) {
                         $reserved_keywords_names[] = trim($column);
                     }
                 }
-                if (SqlParser\Context::isKeyword(trim($this->table), true)) {
+                if (\PhpMyAdmin\SqlParser\Context::isKeyword(trim($this->table), true)) {
                     $reserved_keywords_names[] = trim($this->table);
                 }
                 if (count($reserved_keywords_names) == 0) {
@@ -494,9 +493,19 @@ class TableStructureController extends TableController
          */
         $fields_meta = array();
         for ($i = 0; $i < $selected_cnt; $i++) {
-            $fields_meta[] = $this->dbi->getColumns(
+            $value = $this->dbi->getColumns(
                 $this->db, $this->table, $selected[$i], true
             );
+            if (count($value) == 0) {
+                $message = Message::error(
+                    __('Failed to get description of column %s!')
+                );
+                $message->addParam($selected[$i]);
+                $this->response->addHTML($message);
+
+            } else {
+                $fields_meta[] = $value;
+            }
         }
         $num_fields = count($fields_meta);
         // set these globals because tbl_columns_definition_form.inc.php
@@ -550,9 +559,9 @@ class TableStructureController extends TableController
             return null;
         }
 
-        $parser = new SqlParser\Parser($createTable);
+        $parser = new \PhpMyAdmin\SqlParser\Parser($createTable);
         /**
-         * @var $stmt SqlParser\Statements\CreateStatement
+         * @var $stmt PhpMyAdmin\SqlParser\Statements\CreateStatement
          */
         $stmt = $parser->statements[0];
 
@@ -832,7 +841,7 @@ class TableStructureController extends TableController
      */
     protected function updateColumns()
     {
-        $err_url = 'tbl_structure.php' . PMA_URL_getCommon(
+        $err_url = 'tbl_structure.php' . URL::getCommon(
             array(
                 'db' => $this->db, 'table' => $this->table
             )
@@ -1040,9 +1049,7 @@ class TableStructureController extends TableController
         ) {
             foreach ($_REQUEST['field_mimetype'] as $fieldindex => $mimetype) {
                 if (isset($_REQUEST['field_name'][$fieldindex])
-                    && mb_strlen(
-                        $_REQUEST['field_name'][$fieldindex]
-                    )
+                    && strlen($_REQUEST['field_name'][$fieldindex]) > 0
                 ) {
                     PMA_setMIME(
                         $this->db, $this->table,
@@ -1234,7 +1241,7 @@ class TableStructureController extends TableController
             );
 
             $edit_view_url = 'view_create.php'
-                . PMA_URL_getCommon($url_params) . '&amp;'
+                . URL::getCommon($url_params) . '&amp;'
                 . implode(
                     '&amp;',
                     array_map(

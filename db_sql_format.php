@@ -5,6 +5,7 @@
  *
  * @package PhpMyAdmin
  */
+use PMA\libraries\Response;
 
 /**
  * Loading common files. Used to check for authorization, localization and to
@@ -14,7 +15,7 @@ require_once 'libraries/common.inc.php';
 
 $query = !empty($_POST['sql']) ? $_POST['sql'] : '';
 
-$query = SqlParser\Utils\Formatter::format($query);
+$query = PhpMyAdmin\SqlParser\Utils\Formatter::format($query);
 
-$response = PMA\libraries\Response::getInstance();
+$response = Response::getInstance();
 $response->addJSON("sql", $query);

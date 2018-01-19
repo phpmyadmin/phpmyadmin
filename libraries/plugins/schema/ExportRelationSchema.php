@@ -9,6 +9,7 @@
 namespace PMA\libraries\plugins\schema;
 
 use PMA;
+use PMA\libraries\URL;
 
 /**
  * This class is inherited by all schema classes
@@ -293,7 +294,7 @@ class ExportRelationSchema
         echo '    ' , $error_message , "\n";
         echo '</p>' , "\n";
         echo '<a href="db_designer.php'
-            , PMA_URL_getCommon(array('db' => $GLOBALS['db']))
+            , URL::getCommon(array('db' => $GLOBALS['db']))
             , '&page=' . htmlspecialchars($pageNumber) , '">' , __('Back') , '</a>';
         echo "\n";
         exit;

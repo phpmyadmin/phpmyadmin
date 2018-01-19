@@ -6,15 +6,16 @@
  * @package PhpMyAdmin
  */
 use PMA\libraries\SavedSearches;
+use PMA\libraries\URL;
+use PMA\libraries\Response;
 
 /**
  * requirements
  */
 require_once 'libraries/common.inc.php';
-require_once 'libraries/bookmark.lib.php';
 require_once 'libraries/sql.lib.php';
 
-$response = PMA\libraries\Response::getInstance();
+$response = Response::getInstance();
 
 // Gets the relation settings
 $cfgRelation = PMA_getRelationsParam();
@@ -131,7 +132,7 @@ unset($message_to_display);
 // create new qbe search instance
 $db_qbe = new PMA\libraries\DbQbe($GLOBALS['db'], $savedSearchList, $savedSearch);
 
-$url = 'db_designer.php' . PMA_URL_getCommon(
+$url = 'db_designer.php' . URL::getCommon(
     array_merge(
         $url_params,
         array('query' => 1)

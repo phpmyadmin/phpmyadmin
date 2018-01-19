@@ -17,7 +17,7 @@ use PMA\libraries\DatabaseInterface;
 use PMA\libraries\plugins\ExportPlugin;
 use PMA\libraries\Util;
 
-if (!mb_strlen($GLOBALS['db'])) { /* Can't do server export */
+if (strlen($GLOBALS['db']) === 0) { /* Can't do server export */
     $GLOBALS['skip_import'] = true;
     return;
 }

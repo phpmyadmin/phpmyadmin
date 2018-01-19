@@ -7,8 +7,10 @@
  */
 namespace PMA\libraries;
 
-use SqlParser\Utils\Query;
+use PhpMyAdmin\SqlParser\Utils\Query;
 use PMA\libraries\plugins\transformations\Text_Plain_Link;
+use PMA\libraries\URL;
+use PMA\libraries\Sanitize;
 
 require_once './libraries/transformations.lib.php';
 
@@ -634,7 +636,7 @@ class DisplayResults
             $the_total = $unlim_num_rows;
         } elseif ((($displayParts['nav_bar'] == '1')
             || ($displayParts['sort_lnk'] == '1'))
-            && (mb_strlen($db) && !empty($table))
+            && (strlen($db) > 0 && strlen($table) > 0)
         ) {
             $the_total = $GLOBALS['dbi']->getTable($db, $table)->countRecords();
         }
@@ -737,7 +739,7 @@ class DisplayResults
 
         return '<td>'
             . '<form action="sql.php" method="post" ' . $onsubmit . '>'
-            . PMA_URL_getHiddenInputs(
+            . URL::getHiddenInputs(
                 $this->__get('db'), $this->__get('table')
             )
             . '<input type="hidden" name="sql_query" value="'
@@ -791,9 +793,8 @@ class DisplayResults
 
             //<form> to keep the form alignment of button < and <<
             // and also to know what to execute when the selector changes
-            $table_navigation_html .= '<form action="sql.php'
-                . PMA_URL_getCommon($_url_params)
-                . '" method="post">';
+            $table_navigation_html .= '<form action="sql.php" method="post">';
+            $table_navigation_html .= URL::getHiddenInputs($_url_params);
 
             $table_navigation_html .= Util::pageselector(
                 'pos',
@@ -865,13 +866,10 @@ class DisplayResults
         }
 
         // Move to the next page or to the last one
-        $endpos = $_SESSION['tmpval']['pos']
-            + $_SESSION['tmpval']['max_rows'];
-
         if ($this->__get('unlim_num_rows') === false // view with unknown number of rows
-            || ($endpos < $this->__get('unlim_num_rows')
-            && $this->__get('num_rows') >= $_SESSION['tmpval']['max_rows']
-            && $_SESSION['tmpval']['max_rows'] != self::ALL_ROWS)
+            || ($_SESSION['tmpval']['max_rows'] != self::ALL_ROWS
+            && $_SESSION['tmpval']['pos'] + $_SESSION['tmpval']['max_rows'] < $this->__get('unlim_num_rows')
+            && $this->__get('num_rows') >= $_SESSION['tmpval']['max_rows'])
         ) {
 
             $table_navigation_html
@@ -943,7 +941,7 @@ class DisplayResults
                 . ')'
             . '">';
 
-        $table_navigation_html .= PMA_URL_getHiddenInputs(
+        $table_navigation_html .= URL::getHiddenInputs(
             $this->__get('db'), $this->__get('table')
         );
 
@@ -1015,7 +1013,7 @@ class DisplayResults
         return "\n"
             . '<td>'
             . '<form action="sql.php" method="post">'
-            . PMA_URL_getHiddenInputs(
+            . URL::getHiddenInputs(
                 $this->__get('db'), $this->__get('table')
             )
             . '<input type="hidden" name="sql_query" value="'
@@ -1158,9 +1156,9 @@ class DisplayResults
      * @param array   $displayParts                which elements to display
      * @param array   $analyzed_sql_results        analyzed sql results
      * @param array   $sort_expression             sort expression
-     * @param string  $sort_expression_nodirection sort expression
+     * @param array   $sort_expression_nodirection sort expression
      *                                             without direction
-     * @param string  $sort_direction              sort direction
+     * @param array   $sort_direction              sort direction
      * @param boolean $is_limited_display          with limited operations
      *                                             or not
      * @param string  $unsorted_sql_query          query without the sort part
@@ -1266,9 +1264,9 @@ class DisplayResults
      * @param array   $analyzed_sql_results        analyzed sql results
      * @param string  $unsorted_sql_query          the unsorted sql query
      * @param array   $sort_expression             sort expression
-     * @param string  $sort_expression_nodirection sort expression
+     * @param array   $sort_expression_nodirection sort expression
      *                                             without direction
-     * @param string  $sort_direction              sort direction
+     * @param array   $sort_direction              sort direction
      * @param boolean $is_limited_display          with limited operations
      *                                             or not
      *
@@ -1281,7 +1279,7 @@ class DisplayResults
     private function _getTableHeaders(
         &$displayParts, $analyzed_sql_results, $unsorted_sql_query,
         $sort_expression = array(), $sort_expression_nodirection = '',
-        $sort_direction = '', $is_limited_display = false
+        $sort_direction = array(), $is_limited_display = false
     ) {
 
         $table_headers_html = '';
@@ -1294,15 +1292,13 @@ class DisplayResults
         $table_headers_html .= '<input class="save_cells_at_once" type="hidden"'
             . ' value="' . $GLOBALS['cfg']['SaveCellsAtOnce'] . '" />'
             . '<div class="common_hidden_inputs">'
-            . PMA_URL_getHiddenInputs(
+            . URL::getHiddenInputs(
                 $this->__get('db'), $this->__get('table')
             )
             . '</div>';
 
         // Output data needed for column reordering and show/hide column
-        if ($this->_isSelect($analyzed_sql_results)) {
-            $table_headers_html .= $this->_getDataForResettingColumnOrder();
-        }
+        $table_headers_html .= $this->_getDataForResettingColumnOrder($analyzed_sql_results);
 
         $display_params['emptypre']   = 0;
         $display_params['emptyafter'] = 0;
@@ -1428,11 +1424,11 @@ class DisplayResults
 
         $drop_down_html .= '<form action="sql.php" method="post" ' .
             'class="print_ignore">' . "\n"
-            . PMA_URL_getHiddenInputs(
+            . URL::getHiddenInputs(
                 $this->__get('db'), $this->__get('table')
             )
             // to avoid calling PMA_handleSortOrder() later
-            . PMA_getHiddenFields(array('sort_by_key' => '1'))
+            . URL::getHiddenFields(array('sort_by_key' => '1'))
             . __('Sort by key')
             . ': <select name="sql_query" class="autosubmit">' . "\n";
 
@@ -1643,27 +1639,31 @@ class DisplayResults
     /**
      * Prepare data for column restoring and show/hide
      *
+     * @param array $analyzed_sql_results analyzed sql results
+     *
      * @return  string  $data_html      html content
      *
      * @access  private
      *
      * @see     _getTableHeaders()
      */
-    private function _getDataForResettingColumnOrder()
+    private function _getDataForResettingColumnOrder($analyzed_sql_results)
     {
-
-        $data_html = '';
+        if (! $this->_isSelect($analyzed_sql_results)) {
+            return '';
+        }
 
         // generate the column order, if it is set
-        $pmatable = new Table($this->__get('table'), $this->__get('db'));
-        $col_order = $pmatable->getUiProp(Table::PROP_COLUMN_ORDER);
+        list($col_order, $col_visib) = $this->_getColumnParams(
+            $analyzed_sql_results
+        );
+
+        $data_html = '';
 
         if ($col_order) {
             $data_html .= '<input class="col_order" type="hidden" value="'
                 . implode(',', $col_order) . '" />';
         }
-
-        $col_visib = $pmatable->getUiProp(Table::PROP_COLUMN_VISIB);
 
         if ($col_visib) {
             $data_html .= '<input class="col_visib" type="hidden" value="'
@@ -1713,7 +1713,7 @@ class DisplayResults
             'display_options_form' => 1
         );
 
-        $options_html .= PMA_URL_getHiddenInputs($url_params)
+        $options_html .= URL::getHiddenInputs($url_params)
             . '<br />'
             . Util::getDivForSliderEffect(
                 '', __('Options')
@@ -1740,7 +1740,7 @@ class DisplayResults
             $options_html .= '<div class="formelement">';
             $choices = array(
                 'K'   => __('Relational key'),
-                'D'   => __('Display column for relations')
+                'D'   => __('Display column for relationships')
             );
 
             $options_html .= Util::getRadioFields(
@@ -1752,16 +1752,26 @@ class DisplayResults
         }
 
         $options_html .= '<div class="formelement">'
-            . Util::getCheckbox(
-                'display_binary', __('Show binary contents'),
-                ! empty($_SESSION['tmpval']['display_binary']), false,
-                'display_binary_' . $this->__get('unique_id')
+            . Template::get('checkbox')
+            ->render(
+                array(
+                    'html_field_name'   => 'display_binary',
+                    'label'             => __('Show binary contents'),
+                    'checked'           => ! empty($_SESSION['tmpval']['display_binary']),
+                    'onclick'           => false,
+                    'html_field_id'     => 'display_binary_' . $this->__get('unique_id'),
+                )
             )
             . '<br />'
-            . Util::getCheckbox(
-                'display_blob', __('Show BLOB contents'),
-                ! empty($_SESSION['tmpval']['display_blob']), false,
-                'display_blob_' . $this->__get('unique_id')
+            . Template::get('checkbox')
+            ->render(
+                array(
+                    'html_field_name'   => 'display_blob',
+                    'label'             => __('Show BLOB contents'),
+                    'checked'           => ! empty($_SESSION['tmpval']['display_blob']),
+                    'onclick'           => false,
+                    'html_field_id'     => 'display_blob_' . $this->__get('unique_id'),
+                )
             )
             . '</div>';
 
@@ -1770,10 +1780,15 @@ class DisplayResults
         // per SQL query, and at the same time have a default that displays
         // the transformations.
         $options_html .= '<div class="formelement">'
-            . Util::getCheckbox(
-                'hide_transformation', __('Hide browser transformation'),
-                ! empty($_SESSION['tmpval']['hide_transformation']), false,
-                'hide_transformation_' . $this->__get('unique_id')
+            . Template::get('checkbox')
+            ->render(
+                array(
+                    'html_field_name'   => 'hide_transformation',
+                    'label'             => __('Hide browser transformation'),
+                    'checked'           => ! empty($_SESSION['tmpval']['hide_transformation']),
+                    'onclick'           => false,
+                    'html_field_id'     => 'hide_transformation_' . $this->__get('unique_id'),
+                )
             )
             . '</div>';
 
@@ -1838,7 +1853,7 @@ class DisplayResults
 
         $tmp_image = '<img class="fulltext" src="' . $tmp_image_file . '" alt="'
                      . $tmp_txt . '" title="' . $tmp_txt . '" />';
-        $tmp_url = 'sql.php' . PMA_URL_getCommon($url_params_full_text);
+        $tmp_url = 'sql.php' . URL::getCommon($url_params_full_text);
 
         return Util::linkOrButton(
             $tmp_url, $tmp_image, array(), false
@@ -1872,7 +1887,7 @@ class DisplayResults
             $form_html .= ' class="ajax" ';
 
             $form_html .= '>'
-                . PMA_URL_getHiddenInputs(
+                . URL::getHiddenInputs(
                     $this->__get('db'), $this->__get('table'), 1
                 )
                 . '<input type="hidden" name="goto" value="sql.php" />';
@@ -1929,12 +1944,12 @@ class DisplayResults
      *
      * @param array   $fields_meta                 set of field properties
      * @param array   $sort_expression             sort expression
-     * @param string  $sort_expression_nodirection sort expression without direction
+     * @param array   $sort_expression_nodirection sort expression without direction
      * @param integer $column_index                the index of the column
      * @param string  $unsorted_sql_query          the unsorted sql query
      * @param integer $session_max_rows            maximum rows resulted by sql
      * @param string  $comments                    comment for row
-     * @param string  $sort_direction              sort direction
+     * @param array   $sort_direction              sort direction
      * @param boolean $col_visib                   column is visible(false)
      *        array                                column isn't visible(string array)
      * @param string  $col_visib_j                 element of $col_visib array
@@ -1960,7 +1975,7 @@ class DisplayResults
         // FROM `PMA_relation` AS `1` , `PMA_relation` AS `2`
 
         $sort_tbl = (isset($fields_meta->table)
-            && mb_strlen($fields_meta->table)
+            && strlen($fields_meta->table) > 0
             && $fields_meta->orgname == $fields_meta->name)
             ? Util::backquote(
                 $fields_meta->table
@@ -2004,8 +2019,8 @@ class DisplayResults
             'session_max_rows'   => $session_max_rows,
             'is_browse_distinct' => $this->__get('is_browse_distinct'),
         );
-        $single_order_url  = 'sql.php' . PMA_URL_getCommon($_single_url_params);
-        $multi_order_url = 'sql.php' . PMA_URL_getCommon($_multi_url_params);
+        $single_order_url  = 'sql.php' . URL::getCommon($_single_url_params);
+        $multi_order_url = 'sql.php' . URL::getCommon($_multi_url_params);
 
         // Displays the sorting URL
         // enable sort order swapping for image
@@ -2027,12 +2042,12 @@ class DisplayResults
      * Prepare parameters and html for sorted table header fields
      *
      * @param array   $sort_expression             sort expression
-     * @param string  $sort_expression_nodirection sort expression without direction
+     * @param array   $sort_expression_nodirection sort expression without direction
      * @param string  $sort_tbl                    The name of the table to which
      *                                             the current column belongs to
      * @param string  $name_to_use_in_sort         The current column under
      *                                             consideration
-     * @param string  $sort_direction              sort direction
+     * @param array   $sort_direction              sort direction
      * @param array   $fields_meta                 set of field properties
      * @param integer $column_index                The index number to current column
      *
@@ -2100,7 +2115,7 @@ class DisplayResults
             if (mb_strpos($name_to_use_in_sort, '(') !== false) {
                 $sort_order .=  $query_head  . $name_to_use_in_sort . ' ' ;
             } else {
-                if (mb_strlen($sort_tbl_new) > 0) {
+                if (strlen($sort_tbl_new) > 0) {
                     $sort_tbl_new .= ".";
                 }
                 $sort_order .=  $query_head  . $sort_tbl_new
@@ -2115,7 +2130,7 @@ class DisplayResults
             // Incase this is the current column save $single_sort_order
             if ($current_name == $name_to_use_in_sort) {
                 if (mb_strpos($current_name, '(') !== false) {
-                    $single_sort_order = "\n" . 'ORDER BY ' . $current_name . ' ';
+                    $single_sort_order = "\n" . 'ORDER BY ' . Util::backquote($current_name) . ' ';
                 } else {
                     $single_sort_order = "\n" . 'ORDER BY ' . $sort_tbl
                         . Util::backquote(
@@ -2151,7 +2166,7 @@ class DisplayResults
         $sort_order = mb_substr(
             $sort_order,
             0,
-            mb_strlen($sort_order)-2
+            mb_strlen($sort_order) - 2
         );
         if (empty($order_img)) {
             $order_img = '';
@@ -2730,8 +2745,6 @@ class DisplayResults
         // table being displayed has one or more keys; but to display
         // delete/edit options correctly for tables without keys.
 
-        $odd_row = true;
-
         $whereClauseMap = $this->__get('whereClauseMap');
         while ($row = $GLOBALS['dbi']->fetchRow($dt_result)) {
 
@@ -2751,11 +2764,10 @@ class DisplayResults
             if ($GLOBALS['cfg']['BrowseMarkerEnable'] != true) {
                 $tr_class[] = 'nomarker';
             }
-            $tr_class[] = ($odd_row ? 'odd' : 'even');
-            $odd_row = ! $odd_row;
 
             // pointer code part
-            $table_body_html .= '<tr class="' . implode(' ', $tr_class) . '">';
+            $classes = (empty($tr_class) ? ' ' : 'class="' . implode(' ', $tr_class) . '"');
+            $table_body_html .= '<tr ' . $classes . ' >';
 
             // 1. Prepares the row
 
@@ -3047,7 +3059,7 @@ class DisplayResults
                     $file = $mime_map[$orgFullColName]['transformation'];
                     $include_file = 'libraries/plugins/transformations/' . $file;
 
-                    if (file_exists($include_file)) {
+                    if (@file_exists($include_file)) {
 
                         include_once $include_file;
                         $class_name = PMA_getTransformationClassName($include_file);
@@ -3160,8 +3172,7 @@ class DisplayResults
                 $_url_params['sql_query'] = $url_sql_query;
             }
 
-            $transform_options['wrapper_link']
-                = PMA_URL_getCommon($_url_params);
+            $transform_options['wrapper_link'] = URL::getCommon($_url_params);
 
             $display_params = $this->__get('display_params');
 
@@ -3278,7 +3289,7 @@ class DisplayResults
         $divider = strpos($link_relations['default_page'], '?') ? '&' : '?';
         if (empty($link_relations['link_dependancy_params'])) {
             return $link_relations['default_page']
-                . PMA_URL_getCommon($linking_url_params, 'raw', $divider);
+                . URL::getCommonRaw($linking_url_params, $divider);
         }
 
         foreach ($link_relations['link_dependancy_params'] as $new_param) {
@@ -3302,7 +3313,7 @@ class DisplayResults
         }
 
         return $link_relations['default_page']
-            . PMA_URL_getCommon($linking_url_params, 'raw', $divider);
+            . URL::getCommonRaw($linking_url_params, $divider);
     }
 
 
@@ -3322,7 +3333,7 @@ class DisplayResults
 
         for ($n = 0; $n < $this->__get('fields_cnt'); ++$n) {
             $m = $col_order ? $col_order[$n] : $n;
-            $row_info[mb_strtolower($fields_meta[$m]->name)]
+            $row_info[mb_strtolower($fields_meta[$m]->orgname)]
                 = $row[$m];
         }
 
@@ -3386,6 +3397,16 @@ class DisplayResults
         if ($this->_isSelect($analyzed_sql_results)) {
             $pmatable = new Table($this->__get('table'), $this->__get('db'));
             $col_order = $pmatable->getUiProp(Table::PROP_COLUMN_ORDER);
+            /* Validate the value */
+            if ($col_order !== false) {
+                $fields_cnt = $this->__get('fields_cnt');
+                foreach ($col_order as $value) {
+                    if ($value >= $fields_cnt) {
+                        $pmatable->removeUiProp(Table::PROP_COLUMN_ORDER);
+                        $fields_cnt = false;
+                    }
+                }
+            }
             $col_visib = $pmatable->getUiProp(Table::PROP_COLUMN_VISIB);
         } else {
             $col_order = false;
@@ -3467,12 +3488,12 @@ class DisplayResults
             );
 
         $edit_url = 'tbl_change.php'
-            . PMA_URL_getCommon(
+            . URL::getCommon(
                 $_url_params + array('default_action' => 'update')
             );
 
         $copy_url = 'tbl_change.php'
-            . PMA_URL_getCommon(
+            . URL::getCommon(
                 $_url_params + array('default_action' => 'insert')
             );
 
@@ -3526,7 +3547,7 @@ class DisplayResults
                 'goto'      => (empty($goto) ? 'tbl_sql.php' : $goto),
             );
 
-            $lnk_goto = 'sql.php' . PMA_URL_getCommon($_url_params, 'text');
+            $lnk_goto = 'sql.php' . URL::getCommonRaw($_url_params);
 
             $del_query = 'DELETE FROM '
                 . Util::backquote($this->__get('table'))
@@ -3540,10 +3561,10 @@ class DisplayResults
                     'message_to_show' => __('The row has been deleted.'),
                     'goto'      => $lnk_goto,
                 );
-            $del_url  = 'sql.php' . PMA_URL_getCommon($_url_params);
+            $del_url  = 'sql.php' . URL::getCommon($_url_params);
 
-            $js_conf  = 'DELETE FROM ' . PMA_jsFormat($this->__get('table'))
-                . ' WHERE ' . PMA_jsFormat($where_clause, false)
+            $js_conf  = 'DELETE FROM ' . Sanitize::jsFormat($this->__get('table'))
+                . ' WHERE ' . Sanitize::jsFormat($where_clause, false)
                 . ($clause_is_unique ? '' : ' LIMIT 1');
 
             $del_str = $this->_getActionLinkContent('b_drop.png', __('Delete'));
@@ -3557,10 +3578,7 @@ class DisplayResults
                     'goto'      => 'index.php',
                 );
 
-            $lnk_goto = 'sql.php'
-                . PMA_URL_getCommon(
-                    $_url_params, 'text'
-                );
+            $lnk_goto = 'sql.php' . URL::getCommonRaw($_url_params);
 
             $kill = $GLOBALS['dbi']->getKillQuery($row[0]);
 
@@ -3570,7 +3588,7 @@ class DisplayResults
                     'goto'      => $lnk_goto,
                 );
 
-            $del_url  = 'sql.php' . PMA_URL_getCommon($_url_params);
+            $del_url  = 'sql.php' . URL::getCommon($_url_params);
             $js_conf  = $kill;
             $del_str = Util::getIcon(
                 'b_drop.png', __('Kill')
@@ -3747,7 +3765,7 @@ class DisplayResults
      * @param object|string $transformation_plugin the name of transformation plugin
      * @param string        $default_function      the default transformation
      *                                             function
-     * @param string        $transform_options     the transformation parameters
+     * @param array         $transform_options     the transformation parameters
      *
      * @return  string  $cell the prepared cell, html content
      *
@@ -4237,9 +4255,13 @@ class DisplayResults
 
         /**
          * The statement this table is built for.
-         * @var \SqlParser\Statements\SelectStatement
+         * @var \PhpMyAdmin\SqlParser\Statements\SelectStatement
          */
-        $statement = $analyzed_sql_results['statement'];
+        if (isset($analyzed_sql_results['statement'])) {
+            $statement = $analyzed_sql_results['statement'];
+        } else {
+            $statement = null;
+        }
 
         $table_html = '';
         // Following variable are needed for use in isset/empty or
@@ -4264,7 +4286,7 @@ class DisplayResults
             // "j u s t   b r o w s i n g"
             $pre_count = '~';
             $after_count = Util::showHint(
-                PMA_sanitize(
+                Sanitize::sanitize(
                     __('May be approximate. See [doc@faq3-11]FAQ 3.11[/doc].')
                 )
             );
@@ -4295,7 +4317,7 @@ class DisplayResults
         $sort_expression_nodirection = array();
         $sort_direction = array();
 
-        if (!empty($statement->order)) {
+        if (!is_null($statement) && !empty($statement->order)) {
             foreach ($statement->order as $o) {
                 $sort_expression[] = $o->expr->expr . ' ' . $o->type;
                 $sort_expression_nodirection[] = $o->expr->expr;
@@ -4344,7 +4366,7 @@ class DisplayResults
         }
 
         // 2.3 Prepare the navigation bars
-        if (!mb_strlen($this->__get('table'))) {
+        if (strlen($this->__get('table')) === 0) {
 
             if ($analyzed_sql_results['querytype'] == 'SELECT') {
                 // table does not always contain a real table name,
@@ -4358,7 +4380,7 @@ class DisplayResults
         }
 
         // can the result be sorted?
-        if ($displayParts['sort_lnk'] == '1') {
+        if ($displayParts['sort_lnk'] == '1' && ! is_null($analyzed_sql_results['statement'])) {
 
             // At this point, $sort_expression is an array but we only verify
             // the first element in case we could find that the table is
@@ -4373,7 +4395,7 @@ class DisplayResults
             $sort_by_key_html = $unsorted_sql_query = '';
         }
 
-        if (($displayParts['nav_bar'] == '1') && (empty($statement->limit))) {
+        if (($displayParts['nav_bar'] == '1') && !is_null($statement) && (empty($statement->limit))) {
             $table_html .= $this->_getPlacedTableNavigations(
                 $pos_next, $pos_prev, self::PLACE_TOP_DIRECTION_DROPDOWN,
                 $is_innodb, $sort_by_key_html
@@ -4387,7 +4409,7 @@ class DisplayResults
         $map = array();
 
         $target = array();
-        if (!empty($statement->from)) {
+        if (!is_null($statement) && !empty($statement->from)) {
             foreach ($statement->from as $field) {
                 if (!empty($field->table)) {
                     $target[] = $field->table;
@@ -4395,7 +4417,7 @@ class DisplayResults
             }
         }
 
-        if (mb_strlen($this->__get('table'))) {
+        if (strlen($this->__get('table')) > 0) {
             // This method set the values for $map array
             $this->_setParamForLinkForeignKeyRelatedTables($map);
 
@@ -4456,7 +4478,7 @@ class DisplayResults
         }
 
         // 5. ----- Get the navigation bar at the bottom if required -----
-        if (($displayParts['nav_bar'] == '1') && empty($statement->limit)) {
+        if (($displayParts['nav_bar'] == '1') && !is_null($statement) && empty($statement->limit)) {
             $table_html .= $this->_getPlacedTableNavigations(
                 $pos_next, $pos_prev, self::PLACE_BOTTOM_DIRECTION_DROPDOWN,
                 $is_innodb, $sort_by_key_html
@@ -4514,8 +4536,8 @@ class DisplayResults
      * Prepare sorted column message
      *
      * @param integer &$dt_result                  the link id associated to the
-     *                                              query which results have to
-     *                                              be displayed
+     *                                             query which results have to
+     *                                             be displayed
      * @param string  $sort_expression_nodirection sort expression without direction
      *
      * @return  string                              html content
@@ -4702,12 +4724,12 @@ class DisplayResults
         $message->addParam($first_shown_rec);
 
         if ($message_view_warning !== false) {
-            $message->addParam('... ' . $message_view_warning, false);
+            $message->addParamHtml('... ' . $message_view_warning);
         } else {
             $message->addParam($last_shown_rec);
         }
 
-        $message->addMessage('(');
+        $message->addText('(');
 
         if ($message_view_warning === false) {
 
@@ -4723,11 +4745,11 @@ class DisplayResults
             }
 
             if (!empty($after_count)) {
-                $message_total->addMessage($after_count);
+                $message_total->addHtml($after_count);
             }
             $message->addMessage($message_total, '');
 
-            $message->addMessage(', ', '');
+            $message->addText(', ', '');
         }
 
         $message_qt = Message::notice(__('Query took %01.4f seconds.') . ')');
@@ -4735,7 +4757,7 @@ class DisplayResults
 
         $message->addMessage($message_qt, '');
         if (! is_null($sorted_column_message)) {
-            $message->addMessage($sorted_column_message, '');
+            $message->addHtml($sorted_column_message, '');
         }
 
         return $message;
@@ -4842,23 +4864,23 @@ class DisplayResults
             . '<i style="margin-left: 2em">' . __('With selected:') . '</i>' . "\n";
 
         $links_html .= Util::getButtonOrImage(
-            'submit_mult', 'mult_submit', 'submit_mult_change',
+            'submit_mult', 'mult_submit',
             __('Edit'), 'b_edit.png', 'edit'
         );
 
         $links_html .= Util::getButtonOrImage(
-            'submit_mult', 'mult_submit', 'submit_mult_copy',
+            'submit_mult', 'mult_submit',
             __('Copy'), 'b_insrow.png', 'copy'
         );
 
         $links_html .= Util::getButtonOrImage(
-            'submit_mult', 'mult_submit', 'submit_mult_delete',
+            'submit_mult', 'mult_submit',
             $delete_text, 'b_drop.png', 'delete'
         );
 
         if ($analyzed_sql_results['querytype'] == 'SELECT') {
             $links_html .= Util::getButtonOrImage(
-                'submit_mult', 'mult_submit', 'submit_mult_export',
+                'submit_mult', 'mult_submit',
                 __('Export'), 'b_tblexport.png', 'export'
             );
         }
@@ -5075,7 +5097,7 @@ class DisplayResults
                     'printview' => '1',
                     'sql_query' => $this->__get('sql_query'),
                 );
-        $url_query = PMA_URL_getCommon($_url_params);
+        $url_query = URL::getCommon($_url_params);
 
         if (!$header_shown) {
             $results_operations_html .= $header;
@@ -5140,7 +5162,7 @@ class DisplayResults
             }
 
             $results_operations_html .= Util::linkOrButton(
-                'tbl_export.php' . PMA_URL_getCommon($_url_params),
+                'tbl_export.php' . URL::getCommon($_url_params),
                 Util::getIcon(
                     'b_tblexport.png', __('Export'), true
                 ),
@@ -5153,7 +5175,7 @@ class DisplayResults
 
             // prepare chart
             $results_operations_html .= Util::linkOrButton(
-                'tbl_chart.php' . PMA_URL_getCommon($_url_params),
+                'tbl_chart.php' . URL::getCommon($_url_params),
                 Util::getIcon(
                     'b_chart.png', __('Display chart'), true
                 ),
@@ -5178,7 +5200,7 @@ class DisplayResults
                 $results_operations_html
                     .= Util::linkOrButton(
                         'tbl_gis_visualization.php'
-                        . PMA_URL_getCommon($_url_params),
+                        . URL::getCommon($_url_params),
                         Util::getIcon(
                             'b_globe.gif', __('Visualize GIS data'), true
                         ),
@@ -5323,7 +5345,7 @@ class DisplayResults
             && (!empty($tmpdb) && !empty($meta->orgtable))
         ) {
             $result = '<a href="tbl_get_field.php'
-                . PMA_URL_getCommon($url_params)
+                . URL::getCommon($url_params)
                 . '" class="disableAjax">'
                 . $result . '</a>';
         }
@@ -5443,7 +5465,7 @@ class DisplayResults
 
             // Field to display from the foreign table?
             if (isset($map[$meta->name][2])
-                && mb_strlen($map[$meta->name][2])
+                && strlen($map[$meta->name][2]) > 0
             ) {
                 $dispval = $this->_getFromForeign(
                     $map, $meta, $where_comparison
@@ -5491,7 +5513,7 @@ class DisplayResults
                 );
 
                 $result .= '<a class="ajax" href="sql.php'
-                    . PMA_URL_getCommon($_url_params)
+                    . URL::getCommon($_url_params)
                     . '"' . $title . '>';
 
                 if ($transformation_plugin != $default_function) {

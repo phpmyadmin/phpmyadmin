@@ -2,6 +2,12 @@
 # vim: expandtab sw=4 ts=4 sts=4:
 export LC_ALL=C
 
+# Do not run as CGI
+if [ -n "$GATEWAY_INTERFACE" ] ; then
+    echo 'Can not invoke as CGI!'
+    exit 1
+fi
+
 # Exit on failure
 set -e
 
@@ -18,7 +24,8 @@ xgettext \
     --from-code=utf-8 \
     --keyword=__ --keyword=_pgettext:1c,2 --keyword=_ngettext:1,2 \
     --copyright-holder="phpMyAdmin devel team" \
-    `find -regex '.*\.\(php\|phtml\)$' -not -path './test/*' -not -path './po/*' -not -path './vendor/*' -not -path './release/*' | sort`
+    `find \( -name '*.php' -o -name '*.phtml' \) -not -path './test/*' -not -path './po/*' \( -not -path './release/*' -not -path './vendor/*' \) | sort`
+
 
 # Generate PHP code for advisor rules
 php ./scripts/advisor2po >> po/phpmyadmin.pot

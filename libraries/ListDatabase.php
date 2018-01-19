@@ -105,7 +105,7 @@ class ListDatabase extends ListAbstract
         }
 
         if ($GLOBALS['cfg']['NaturalOrder']) {
-            natsort($database_list);
+            usort($database_list, 'strnatcasecmp');
         } else {
             // need to sort anyway, otherwise information_schema
             // goes at the top
@@ -138,7 +138,7 @@ class ListDatabase extends ListAbstract
     protected function checkOnlyDatabase()
     {
         if (is_string($GLOBALS['cfg']['Server']['only_db'])
-            && mb_strlen($GLOBALS['cfg']['Server']['only_db'])
+            && strlen($GLOBALS['cfg']['Server']['only_db']) > 0
         ) {
             $GLOBALS['cfg']['Server']['only_db'] = array(
                 $GLOBALS['cfg']['Server']['only_db']
@@ -176,7 +176,7 @@ class ListDatabase extends ListAbstract
      */
     public function getDefault()
     {
-        if (mb_strlen($GLOBALS['db'])) {
+        if (strlen($GLOBALS['db']) > 0) {
             return $GLOBALS['db'];
         }
 

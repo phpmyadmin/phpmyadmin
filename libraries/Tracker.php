@@ -24,6 +24,11 @@ class Tracker
     static protected $enabled = false;
 
     /**
+     * Cache to avoid quering tracking status multiple times.
+     */
+    static protected $_tracking_cache = array();
+
+    /**
      * Actually enables tracking. This needs to be done after all
      * underlaying code is initialized.
      *
@@ -111,6 +116,10 @@ class Tracker
         if (! self::$enabled) {
             return false;
         }
+
+        if (isset(self::$_tracking_cache[$dbname][$tablename])) {
+            return self::$_tracking_cache[$dbname][$tablename];
+        }
         /* We need to avoid attempt to track any queries
          * from PMA_getRelationsParam
          */
@@ -125,15 +134,13 @@ class Tracker
         $sql_query = " SELECT tracking_active FROM " . self::_getTrackingTable() .
         " WHERE db_name = '" . $GLOBALS['dbi']->escapeString($dbname) . "' " .
         " AND table_name = '" . $GLOBALS['dbi']->escapeString($tablename) . "' " .
-        " ORDER BY version DESC";
+        " ORDER BY version DESC LIMIT 1";
 
-        $row = $GLOBALS['dbi']->fetchArray(PMA_queryAsControlUser($sql_query));
+        $result = $GLOBALS['dbi']->fetchValue($sql_query, 0, 0, $GLOBALS['controllink']) == 1;
 
-        if (isset($row['tracking_active']) && $row['tracking_active'] == 1) {
-            return true;
-        } else {
-            return false;
-        }
+        self::$_tracking_cache[$dbname][$tablename] = $result;
+
+        return $result;
     }
 
     /**
@@ -621,212 +628,130 @@ class Tracker
         // $parsed_sql = PMA_SQP_parse($query);
         // $sql_info = PMA_SQP_analyze($parsed_sql);
 
-        $query = str_replace("\n", " ", $query);
-        $query = str_replace("\r", " ", $query);
+        $parser = new \PhpMyAdmin\SqlParser\Parser($query);
 
-        $query = trim($query);
-        $query = trim($query, ' -');
-
-        $tokens = explode(" ", $query);
-        foreach ($tokens as $key => $value) {
-            $tokens[$key] = mb_strtoupper($value);
-        }
+        $tokens = $parser->list->tokens;
 
         // Parse USE statement, need it for SQL dump imports
-        if (mb_substr($query, 0, 4) == 'USE ') {
-            $prefix = explode('USE ', $query);
-            $GLOBALS['db'] = self::getTableName($prefix[1]);
+        if ($tokens[0]->value == 'USE') {
+            $GLOBALS['db'] = $tokens[2]->value;
         }
 
-        /*
-         * DDL statements
-         */
+        $result = array();
 
-        $result         = array();
-        $result['type'] = 'DDL';
+        if (!empty($parser->statements)) {
+            $statement = $parser->statements[0];
+            $options   = isset($statement->options) ? $statement->options->options : null;
 
-        // Parse CREATE VIEW statement
-        if (in_array('CREATE', $tokens) == true
-            && in_array('VIEW', $tokens) == true
-            && in_array('AS', $tokens) == true
-        ) {
-            $result['identifier'] = 'CREATE VIEW';
+            /*
+             * DDL statements
+             */
+            $result['type'] = 'DDL';
 
-            $index = array_search('VIEW', $tokens);
+            // Parse CREATE statement
+            if ($statement instanceof \PhpMyAdmin\SqlParser\Statements\CreateStatement) {
+                if (empty($options) || !isset($options[6])) {
+                    return $result;
+                }
 
-            $result['tablename'] = mb_strtolower(
-                self::getTableName($tokens[$index + 1])
-            );
-        }
+                if ($options[6] == 'VIEW' || $options[6] == 'TABLE') {
+                    $result['identifier'] = 'CREATE ' . $options[6];
+                    $result['tablename']  = $statement->name->table ;
+                } elseif ($options[6] == 'DATABASE') {
+                    $result['identifier'] = 'CREATE DATABASE' ;
+                    $result['tablename']  = '' ;
 
-        // Parse ALTER VIEW statement
-        if (in_array('ALTER', $tokens) == true
-            && in_array('VIEW', $tokens) == true
-            && in_array('AS', $tokens) == true
-            && ! isset($result['identifier'])
-        ) {
-            $result['identifier'] = 'ALTER VIEW';
+                    // In case of CREATE DATABASE, table field of the CreateStatement is actually name of the database
+                    $GLOBALS['db']        = $statement->name->table;
+                } elseif ($options[6] == 'INDEX'
+                          || $options[6] == 'UNIQUE INDEX'
+                          || $options[6] == 'FULLTEXT INDEX'
+                          || $options[6] == 'SPATIAL INDEX'
+                ){
+                    $result['identifier'] = 'CREATE INDEX';
 
-            $index = array_search('VIEW', $tokens);
+                    // In case of CREATE INDEX, we have to get the table name from body of the statement
+                    $result['tablename']  = $statement->body[3]->value == '.' ? $statement->body[4]->value
+                                                                              : $statement->body[2]->value ;
+                }
+            }
 
-            $result['tablename'] = mb_strtolower(
-                self::getTableName($tokens[$index + 1])
-            );
-        }
+            // Parse ALTER statement
+            elseif ($statement instanceof \PhpMyAdmin\SqlParser\Statements\AlterStatement) {
+                if (empty($options) || !isset($options[3])) {
+                    return $result;
+                }
 
-        // Parse DROP VIEW statement
-        if (! isset($result['identifier'])
-            && substr($query, 0, 10) == 'DROP VIEW '
-        ) {
-            $result['identifier'] = 'DROP VIEW';
+                if ($options[3] == 'VIEW' || $options[3] == 'TABLE') {
+                    $result['identifier']   = 'ALTER ' . $options[3] ;
+                    $result['tablename']    = $statement->table->table ;
+                } elseif ($options[3] == 'DATABASE') {
+                    $result['identifier']   = 'ALTER DATABASE' ;
+                    $result['tablename']    = '' ;
 
-            $prefix  = explode('DROP VIEW ', $query);
-            $str = str_replace('IF EXISTS', '', $prefix[1]);
-            $result['tablename'] = self::getTableName($str);
-        }
+                    $GLOBALS['db']          = $statement->table->table ;
+                }
+            }
 
-        // Parse CREATE DATABASE statement
-        if (! isset($result['identifier'])
-            && substr($query, 0, 15) == 'CREATE DATABASE'
-        ) {
-            $result['identifier'] = 'CREATE DATABASE';
-            $str = str_replace('CREATE DATABASE', '', $query);
-            $str = str_replace('IF NOT EXISTS', '', $str);
+            // Parse DROP statement
+            elseif ($statement instanceof \PhpMyAdmin\SqlParser\Statements\DropStatement) {
+                if (empty($options) || !isset($options[1])) {
+                    return $result;
+                }
 
-            $prefix = explode('DEFAULT ', $str);
+                if ($options[1] == 'VIEW' || $options[1] == 'TABLE') {
+                    $result['identifier'] = 'DROP ' . $options[1] ;
+                    $result['tablename']  = $statement->fields[0]->table;
+                } elseif ($options[1] == 'DATABASE') {
+                    $result['identifier'] = 'DROP DATABASE' ;
+                    $result['tablename']  = '';
 
-            $result['tablename'] = '';
-            $GLOBALS['db'] = self::getTableName($prefix[0]);
-        }
+                    $GLOBALS['db']        = $statement->fields[0]->table;
+                } elseif ($options[1] == 'INDEX') {
+                    $result['identifier']   = 'DROP INDEX' ;
+                    $result['tablename']    = $statement->table->table;
+                }
+            }
 
-        // Parse ALTER DATABASE statement
-        if (! isset($result['identifier'])
-            && substr($query, 0, 14) == 'ALTER DATABASE'
-        ) {
-            $result['identifier'] = 'ALTER DATABASE';
-            $result['tablename'] = '';
-        }
+            // Prase RENAME statement
+            elseif ($statement instanceof \PhpMyAdmin\SqlParser\Statements\RenameStatement) {
+                $result['identifier']               = 'RENAME TABLE';
+                $result['tablename']                = $statement->renames[0]->old->table;
+                $result['tablename_after_rename']   = $statement->renames[0]->new->table;
+            }
 
-        // Parse DROP DATABASE statement
-        if (! isset($result['identifier'])
-            && substr($query, 0, 13) == 'DROP DATABASE'
-        ) {
-            $result['identifier'] = 'DROP DATABASE';
-            $str = str_replace('DROP DATABASE', '', $query);
-            $str = str_replace('IF EXISTS', '', $str);
-            $GLOBALS['db'] = self::getTableName($str);
-            $result['tablename'] = '';
-        }
+            if (isset($result['identifier'])) {
+                return $result ;
+            }
 
-        // Parse CREATE TABLE statement
-        if (! isset($result['identifier'])
-            && substr($query, 0, 12) == 'CREATE TABLE'
-        ) {
-            $result['identifier'] = 'CREATE TABLE';
-            $query   = str_replace('IF NOT EXISTS', '', $query);
-            $prefix  = explode('CREATE TABLE ', $query);
-            $suffix  = explode('(', $prefix[1]);
-            $result['tablename'] = self::getTableName($suffix[0]);
-        }
+            /*
+             * DML statements
+             */
+            $result['type'] = 'DML';
 
-        // Parse ALTER TABLE statement
-        if (! isset($result['identifier'])
-            && substr($query, 0, 12) == 'ALTER TABLE '
-        ) {
-            $result['identifier'] = 'ALTER TABLE';
+            // Parse UPDATE statement
+            if ($statement instanceof \PhpMyAdmin\SqlParser\Statements\UpdateStatement) {
+                $result['identifier']   = 'UPDATE';
+                $result['tablename']    = $statement->tables[0]->table;
+            }
 
-            $prefix  = explode('ALTER TABLE ', $query);
-            $suffix  = explode(' ', $prefix[1]);
-            $result['tablename']  = self::getTableName($suffix[0]);
-        }
+            // Parse INSERT INTO statement
+            if ($statement instanceof \PhpMyAdmin\SqlParser\Statements\InsertStatement) {
+                $result['identifier']   = 'INSERT';
+                $result['tablename']    = $statement->into->dest->table;
+            }
 
-        // Parse DROP TABLE statement
-        if (! isset($result['identifier'])
-            && substr($query, 0, 11) == 'DROP TABLE '
-        ) {
-            $result['identifier'] = 'DROP TABLE';
+            // Parse DELETE statement
+            if ($statement instanceof \PhpMyAdmin\SqlParser\Statements\DeleteStatement) {
+                $result['identifier']   = 'DELETE';
+                $result['tablename']    = $statement->from[0]->table;
+            }
 
-            $prefix  = explode('DROP TABLE ', $query);
-            $str = str_replace('IF EXISTS', '', $prefix[1]);
-            $result['tablename'] = self::getTableName($str);
-        }
-
-        // Parse CREATE INDEX statement
-        if (! isset($result['identifier'])
-            && (substr($query, 0, 12) == 'CREATE INDEX'
-            || substr($query, 0, 19) == 'CREATE UNIQUE INDEX'
-            || substr($query, 0, 20) == 'CREATE SPATIAL INDEX')
-        ) {
-             $result['identifier'] = 'CREATE INDEX';
-             $prefix = explode('ON ', $query);
-             $suffix = explode('(', $prefix[1]);
-             $result['tablename'] = self::getTableName($suffix[0]);
-        }
-
-        // Parse DROP INDEX statement
-        if (! isset($result['identifier'])
-            && substr($query, 0, 10) == 'DROP INDEX'
-        ) {
-             $result['identifier'] = 'DROP INDEX';
-             $prefix = explode('ON ', $query);
-             $result['tablename'] = self::getTableName($prefix[1]);
-        }
-
-        // Parse RENAME TABLE statement
-        if (! isset($result['identifier'])
-            && substr($query, 0, 13) == 'RENAME TABLE '
-        ) {
-            $result['identifier'] = 'RENAME TABLE';
-            $prefix = explode('RENAME TABLE ', $query);
-            $names  = explode(' TO ', $prefix[1]);
-            $result['tablename']      = self::getTableName($names[0]);
-            $result["tablename_after_rename"]  = self::getTableName($names[1]);
-        }
-
-        /*
-         * DML statements
-         */
-
-        if (! isset($result['identifier'])) {
-            $result["type"]       = 'DML';
-        }
-        // Parse UPDATE statement
-        if (! isset($result['identifier'])
-            && substr($query, 0, 6) == 'UPDATE'
-        ) {
-            $result['identifier'] = 'UPDATE';
-            $prefix  = explode('UPDATE ', $query);
-            $suffix  = explode(' ', $prefix[1]);
-            $result['tablename'] = self::getTableName($suffix[0]);
-        }
-
-        // Parse INSERT INTO statement
-        if (! isset($result['identifier'])
-            && substr($query, 0, 11) == 'INSERT INTO'
-        ) {
-            $result['identifier'] = 'INSERT';
-            $prefix  = explode('INSERT INTO', $query);
-            $suffix  = explode('(', $prefix[1]);
-            $result['tablename'] = self::getTableName($suffix[0]);
-        }
-
-        // Parse DELETE statement
-        if (! isset($result['identifier'])
-            && substr($query, 0, 6) == 'DELETE'
-        ) {
-            $result['identifier'] = 'DELETE';
-            $prefix  = explode('FROM ', $query);
-            $suffix  = explode(' ', $prefix[1]);
-            $result['tablename'] = self::getTableName($suffix[0]);
-        }
-
-        // Parse TRUNCATE statement
-        if (! isset($result['identifier'])
-            && substr($query, 0, 8) == 'TRUNCATE'
-        ) {
-            $result['identifier'] = 'TRUNCATE';
-            $prefix  = explode('TRUNCATE', $query);
-            $result['tablename'] = self::getTableName($prefix[1]);
+            // Parse TRUNCATE statement
+            if ($statement instanceof \PhpMyAdmin\SqlParser\Statements\TruncateStatement) {
+                $result['identifier']   = 'TRUNCATE' ;
+                $result['tablename']    = $statement->table->table;
+            }
         }
 
         return $result;
@@ -865,13 +790,16 @@ class Tracker
 
         // If we found a valid statement
         if (isset($result['identifier'])) {
+            if (! self::isTracked($dbname, $result['tablename'])) {
+                return;
+            }
+
             $version = self::getVersion(
                 $dbname, $result['tablename'], $result['identifier']
             );
 
             // If version not exists and auto-creation is enabled
             if ($GLOBALS['cfg']['Server']['tracking_version_auto_create'] == true
-                && self::isTracked($dbname, $result['tablename']) == false
                 && $version == -1
             ) {
                 // Create the version
@@ -892,7 +820,7 @@ class Tracker
             }
 
             // If version exists
-            if (self::isTracked($dbname, $result['tablename']) && $version != -1) {
+            if ($version != -1) {
                 if ($result['type'] == 'DDL') {
                     $save_to = 'schema_sql';
                 } elseif ($result['type'] == 'DML') {

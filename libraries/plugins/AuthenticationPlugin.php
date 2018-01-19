@@ -7,6 +7,9 @@
  */
 namespace PMA\libraries\plugins;
 
+use PMA\libraries\Sanitize;
+use PMA\libraries\URL;
+
 /**
  * Provides a common interface that will have to be implemented by all of the
  * authentication plugins.
@@ -72,14 +75,36 @@ abstract class AuthenticationPlugin
         $PHP_AUTH_USER = '';
         $PHP_AUTH_PW = '';
 
-        /* delete user's choices that were stored in session */
-        $_SESSION = array();
-        if (!defined('TESTSUITE')) {
-            session_destroy();
+        /*
+         * Get a logged-in server count in case of LoginCookieDeleteAll is disabled.
+         */
+        $server = 0;
+        if ($GLOBALS['cfg']['LoginCookieDeleteAll'] === false
+            && $GLOBALS['cfg']['Server']['auth_type'] == 'cookie'
+        ) {
+            foreach ($GLOBALS['cfg']['Servers'] as $key => $val) {
+                if (isset($_COOKIE['pmaAuth-' . $key])) {
+                    $server = $key;
+                }
+            }
         }
 
-        /* Redirect to login form (or configured URL) */
-        PMA_sendHeaderLocation($redirect_url);
+        if ($server === 0) {
+            /* delete user's choices that were stored in session */
+            if (! defined('TESTSUITE')) {
+                session_unset();
+                session_destroy();
+            }
+
+            /* Redirect to login form (or configured URL) */
+            PMA_sendHeaderLocation($redirect_url);
+        } else {
+            /* Redirect to other autenticated server */
+            $_SESSION['partial_logout'] = true;
+            PMA_sendHeaderLocation(
+                './index.php' . URL::getCommonRaw(array('server' => $server))
+            );
+        }
     }
 
     /**
@@ -143,17 +168,23 @@ abstract class AuthenticationPlugin
      *
      * @return void
      */
-     public function setSessionAccessTime()
-     {
+    public function setSessionAccessTime()
+    {
+        if (isset($_REQUEST['guid'])) {
+            $guid = (string)$_REQUEST['guid'];
+        } else {
+            $guid = 'default';
+        }
         if (isset($_REQUEST['access_time'])) {
             // Ensure access_time is in range <0, LoginCookieValidity + 1>
             // to avoid excessive extension of validity.
             //
             // Negative values can cause session expiry extension
             // Too big values can cause overflow and lead to same
-            $_SESSION['last_access_time'] = time() - min(max(0, intval($_REQUEST['access_time'])), $GLOBALS['cfg']['LoginCookieValidity'] + 1);
+            $time = time() - min(max(0, intval($_REQUEST['access_time'])), $GLOBALS['cfg']['LoginCookieValidity'] + 1);
         } else {
-            $_SESSION['last_access_time'] = time();
+            $time = time();
         }
+        $_SESSION['browser_access_time'][$guid] = $time;
      }
 }

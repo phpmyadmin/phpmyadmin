@@ -1,6 +1,6 @@
 <form method="post" action="schema_export.php" class="disableAjax" id="id_export_pages">
     <fieldset>
-        <?= PMA_URL_getHiddenInputs($db); ?>
+        <?= PMA\libraries\URL::getHiddenInputs($db); ?>
         <label><?= __('Select Export Relational Type'); ?></label><br/>
         <?= PMA_pluginGetChoice(
             'Schema', 'export_type', $export_list, 'format'

@@ -68,7 +68,7 @@ if (!@function_exists('mb_ord')) {
     {
         return mb_convert_encoding(
             pack("N", $ascii),
-            mb_internal_encoding(),
+            'utf-8',
             'UCS-4BE'
         );
     }

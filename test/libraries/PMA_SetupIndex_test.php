@@ -12,10 +12,8 @@
 use PMA\libraries\config\ConfigFile;
 use PMA\libraries\config\ServerConfigChecks;
 
-require_once 'libraries/sanitizing.lib.php';
 require_once 'libraries/config/config_functions.lib.php';
 require_once 'setup/lib/index.lib.php';
-require_once 'libraries/sanitizing.lib.php';
 
 /**
  * tests for methods under setup/lib/index.lib.php
@@ -149,7 +147,7 @@ class PMA_SetupIndex_Test extends PHPUnit_Framework_TestCase
         $result = ob_get_clean();
 
         $this->assertContains(
-            '<div class="type" id="0"><h4>foo</h4>123</div>',
+            '<div class="type hiddenmessage" id="0"><h4>foo</h4>123</div>',
             $result
         );
 
@@ -157,91 +155,9 @@ class PMA_SetupIndex_Test extends PHPUnit_Framework_TestCase
             '<div class="type" id="1"><h4>bar</h4>321</div>',
             $result
         );
-
-        $this->assertContains(
-            '<script type="text/javascript">',
-            $result
-        );
-
-        $this->assertContains(
-            "hiddenMessages.push('0');",
-            $result
-        );
-
-        $this->assertContains(
-            "</script>",
-            $result
-        );
     }
 
     /**
-     * Test for PMA_checkConfigRw
-     *
-     * @return void
-     */
-    public function testPMACheckConfigRw()
-    {
-        if (! PMA_HAS_RUNKIT) {
-            $this->markTestSkipped('Cannot redefine constant');
-        }
-
-        $redefine = null;
-        $GLOBALS['cfg']['AvailableCharsets'] = array();
-        $GLOBALS['server'] = 0;
-        $GLOBALS['ConfigFile'] = new ConfigFile();
-        if (!defined('SETUP_CONFIG_FILE')) {
-            define('SETUP_CONFIG_FILE', 'test/test_data/configfile');
-        } else {
-            $redefine = 'SETUP_CONFIG_FILE';
-            runkit_constant_redefine(
-                'SETUP_CONFIG_FILE',
-                'test/test_data/configfile'
-            );
-        }
-        $is_readable = false;
-        $is_writable = false;
-        $file_exists = false;
-
-        PMA_checkConfigRw($is_readable, $is_writable, $file_exists);
-
-        $this->assertTrue(
-            $is_readable
-        );
-
-        $this->assertTrue(
-            $is_writable
-        );
-
-        $this->assertFalse(
-            $file_exists
-        );
-
-        runkit_constant_redefine(
-            'SETUP_CONFIG_FILE',
-            'test/test_data/test.file'
-        );
-
-        PMA_checkConfigRw($is_readable, $is_writable, $file_exists);
-
-        $this->assertTrue(
-            $is_readable
-        );
-
-        $this->assertTrue(
-            $is_writable
-        );
-
-        $this->assertTrue(
-            $file_exists
-        );
-
-        if ($redefine !== null) {
-            runkit_constant_redefine('SETUP_CONFIG_FILE', $redefine);
-        } else {
-            runkit_constant_remove('SETUP_CONFIG_FILE');
-        }
-    }
-
     /**
      * Test for ServerConfigChecks::performConfigChecks
      *

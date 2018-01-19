@@ -8,11 +8,11 @@
 namespace PMA\libraries;
 
 use PMA\libraries\plugins\export\ExportSql;
-use SqlParser\Components\Expression;
-use SqlParser\Components\OptionsArray;
-use SqlParser\Context;
-use SqlParser\Parser;
-use SqlParser\Statements\DropStatement;
+use PhpMyAdmin\SqlParser\Components\Expression;
+use PhpMyAdmin\SqlParser\Components\OptionsArray;
+use PhpMyAdmin\SqlParser\Context;
+use PhpMyAdmin\SqlParser\Parser;
+use PhpMyAdmin\SqlParser\Statements\DropStatement;
 
 /**
  * Handles everything related to tables
@@ -76,7 +76,7 @@ class Table
      * @param string            $db_name    database name
      * @param DatabaseInterface $dbi        database interface for the table
      */
-    function __construct($table_name, $db_name, DatabaseInterface $dbi = null)
+    public function __construct($table_name, $db_name, DatabaseInterface $dbi = null)
     {
         if (empty($dbi)) {
             $dbi = $GLOBALS['dbi'];
@@ -92,7 +92,7 @@ class Table
      * @see Table::getName()
      * @return string  table name
      */
-    function __toString()
+    public function __toString()
     {
         return $this->getName();
     }
@@ -102,7 +102,7 @@ class Table
      *
      * @return string the last error
      */
-    function getLastError()
+    public function getLastError()
     {
         return end($this->errors);
     }
@@ -112,7 +112,7 @@ class Table
      *
      * @return string the last message
      */
-    function getLastMessage()
+    public function getLastMessage()
     {
         return end($this->messages);
     }
@@ -124,7 +124,7 @@ class Table
      *
      * @return string  table name
      */
-    function getName($backquoted = false)
+    public function getName($backquoted = false)
     {
         if ($backquoted) {
             return Util::backquote($this->_name);
@@ -139,7 +139,7 @@ class Table
      *
      * @return string  database name for this table
      */
-    function getDbName($backquoted = false)
+    public function getDbName($backquoted = false)
     {
         if ($backquoted) {
             return Util::backquote($this->_db_name);
@@ -154,10 +154,38 @@ class Table
      *
      * @return string
      */
-    function getFullName($backquoted = false)
+    public function getFullName($backquoted = false)
     {
         return $this->getDbName($backquoted) . '.'
         . $this->getName($backquoted);
+    }
+
+
+    /**
+     * Checks the storage engine used to create table
+     *
+     * @param array or string $engine Checks the table engine against an
+     * array of engine strings or a single string, should be uppercase
+     *
+     * @return bool True, if $engine matches the storage engine for the table,
+     * False otherwise.
+     */
+    public function isEngine($engine)
+    {
+        $tbl_storage_engine = strtoupper(
+            $this->getStatusInfo('ENGINE', null, true)
+        );
+
+        if (is_array($engine)){
+            foreach($engine as $e){
+                if($e == $tbl_storage_engine){
+                    return true;
+                }
+            }
+            return false;
+        }else{
+            return $tbl_storage_engine == $engine;
+        }
     }
 
     /**
@@ -218,78 +246,16 @@ class Table
     }
 
     /**
-     * Returns the analysis of 'SHOW CREATE TABLE' query for the table.
-     * In case of a view, the values are taken from the information_schema.
-     *
-     * @return array analysis of 'SHOW CREATE TABLE' query for the table
-     */
-    public function analyzeStructure()
-    {
-        if (empty($this->_db_name) || empty($this->_name)) {
-            return false;
-        }
-
-        $analyzed_sql = array();
-        if ($this->isView()) {
-            // For a view, 'SHOW CREATE TABLE' returns the definition,
-            // but the structure of the view. So, we try to mock
-            // the result of analyzing 'SHOW CREATE TABLE' query.
-            $analyzed_sql[0] = array();
-            $analyzed_sql[0]['create_table_fields'] = array();
-
-            $results = $this->_dbi->fetchResult(
-                "SELECT COLUMN_NAME, DATA_TYPE
-                FROM information_schema.COLUMNS
-                WHERE TABLE_SCHEMA = '" . $GLOBALS['dbi']->escapeString($this->_db_name)
-                . " AND TABLE_NAME = '" . $GLOBALS['dbi']->escapeString($this->_name) . "'"
-            );
-
-            foreach ($results as $result) {
-                $analyzed_sql[0]['create_table_fields'][$result['COLUMN_NAME']]
-                    = array(
-                        'type' => mb_strtoupper($result['DATA_TYPE'])
-                    );
-            }
-        } else {
-            $show_create_table = $this->_dbi->fetchValue(
-                'SHOW CREATE TABLE '
-                . Util::backquote($this->_db_name)
-                . '.' . Util::backquote($this->_name),
-                0,
-                1
-            );
-            $analyzed_sql = PMA_SQP_analyze(PMA_SQP_parse($show_create_table));
-        }
-        return $analyzed_sql;
-    }
-
-    /**
      * Checks if this is a merge table
      *
      * If the ENGINE of the table is MERGE or MRG_MYISAM (alias),
      * this is a merge table.
      *
-     *
      * @return boolean  true if it is a merge table
      */
     public function isMerge()
     {
-        $engine = null;
-        // if called static, with parameters
-        if (! empty($this->_db_name) && ! empty($this->_name)) {
-            $engine = $this->getStatusInfo('ENGINE', null, true);
-        }
-
-        // did we get engine?
-        if (empty($engine)) {
-            return false;
-        }
-
-        // any of known merge engines?
-        return in_array(
-            mb_strtoupper($engine),
-            array('MERGE', 'MRG_MYISAM')
-        );
+        return $this->isEngine(array('MERGE', 'MRG_MYISAM'));
     }
 
     /**
@@ -405,27 +371,28 @@ class Table
             // so we can't just convert it to integer
             $query .= '(' . $length . ')';
         }
+        if ($attribute != '') {
+            $query .= ' ' . $attribute;
+
+            if ($is_timestamp
+                && preg_match('/TIMESTAMP/i', $attribute)
+                && strlen($length) !== 0
+                && $length !== 0
+            ) {
+                $query .= '(' . $length . ')';
+            }
+        }
 
         if ($virtuality) {
             $query .= ' AS (' . $expression . ') ' . $virtuality;
         } else {
-            if ($attribute != '') {
-                $query .= ' ' . $attribute;
-
-                if ($is_timestamp
-                    && preg_match('/TIMESTAMP/i', $attribute)
-                    && $length !== 0
-                ) {
-                    $query .= '(' . $length . ')';
-                }
-            }
 
             $matches = preg_match(
                 '@^(TINYTEXT|TEXT|MEDIUMTEXT|LONGTEXT|VARCHAR|CHAR|ENUM|SET)$@i',
                 $type
             );
             if (! empty($collation) && $collation != 'NULL' && $matches) {
-                $query .= PMA_generateCharsetQueryPart($collation, true);
+                $query .= Util::getCharsetQueryPart($collation, true);
             }
 
             if ($null !== false) {
@@ -473,7 +440,12 @@ class Table
                 // else fall-through intended, no break here
             case 'CURRENT_TIMESTAMP' :
                 $query .= ' DEFAULT ' . $default_type;
-                if ($length !== 0 && $is_timestamp) {
+
+                if (strlen($length) !== 0
+                    && $length !== 0
+                    && $is_timestamp
+                    && $default_type !== 'NULL' // Not to be added in case of NULL
+                ) {
                     $query .= '(' . $length . ')';
                 }
                 break;
@@ -683,7 +655,7 @@ class Table
      *
      * @global relation variable
      *
-     * @return int|true
+     * @return int|boolean
      */
     static public function duplicateInfo($work, $pma_table, $get_fields,
         $where_fields, $new_fields
@@ -813,7 +785,7 @@ class Table
 
         // If the target database is not specified, the operation is taking
         // place in the same database.
-        if (! isset($target_db) || ! mb_strlen($target_db)) {
+        if (! isset($target_db) || strlen($target_db) === 0) {
             $target_db = $source_db;
         }
 
@@ -933,7 +905,7 @@ class Table
 
                 /**
                  * The CREATE statement of this structure.
-                 * @var \SqlParser\Statements\CreateStatement $statement
+                 * @var \PhpMyAdmin\SqlParser\Statements\CreateStatement $statement
                  */
                 $statement = $parser->statements[0];
 
@@ -960,7 +932,7 @@ class Table
 
                 /**
                  * The ALTER statement that generates the constraints.
-                 * @var \SqlParser\Statements\AlterStatement $statement
+                 * @var \PhpMyAdmin\SqlParser\Statements\AlterStatement $statement
                  */
                 $statement = $parser->statements[0];
 
@@ -999,7 +971,7 @@ class Table
                 $GLOBALS['sql_indexes'] = '';
                 /**
                  * The ALTER statement that generates the indexes.
-                 * @var \SqlParser\Statements\AlterStatement $statement
+                 * @var \PhpMyAdmin\SqlParser\Statements\AlterStatement $statement
                  */
                 foreach ($parser->statements as $statement) {
 
@@ -1041,7 +1013,7 @@ class Table
 
                     /**
                      * The ALTER statement that alters the AUTO_INCREMENT value.
-                     * @var \SqlParser\Statements\AlterStatement $statement
+                     * @var \PhpMyAdmin\SqlParser\Statements\AlterStatement $statement
                      */
                     $statement = $parser->statements[0];
 
@@ -1152,12 +1124,11 @@ class Table
                     . ') ' . ' VALUES(' . '\'' . $GLOBALS['dbi']->escapeString($target_db)
                     . '\',\'' . $GLOBALS['dbi']->escapeString($target_table) . '\',\''
                     . $GLOBALS['dbi']->escapeString($comments_copy_row['column_name'])
+                    . '\',\'' . $GLOBALS['dbi']->escapeString($target_table) . '\',\''
+                    . $GLOBALS['dbi']->escapeString($comments_copy_row['comment'])
                     . '\''
                     . ($GLOBALS['cfgRelation']['mimework']
                         ? ',\'' . $GLOBALS['dbi']->escapeString(
-                            $comments_copy_row['comment']
-                        )
-                        . '\',' . '\'' . $GLOBALS['dbi']->escapeString(
                             $comments_copy_row['mimetype']
                         )
                         . '\',' . '\'' . $GLOBALS['dbi']->escapeString(
@@ -1303,7 +1274,7 @@ class Table
             return false;
         }
 
-        if (! mb_strlen($table_name)) {
+        if (strlen($table_name) === 0) {
             // zero length
             return false;
         }
@@ -1315,7 +1286,7 @@ class Table
 
         if (! $is_backquoted && preg_match('/^[a-zA-Z0-9_$]+$/', $table_name)) {
             // only allow the above regex in unquoted identifiers
-            // see : http://dev.mysql.com/doc/refman/5.7/en/identifiers.html
+            // see : https://dev.mysql.com/doc/refman/5.7/en/identifiers.html
             return true;
         } else if ($is_backquoted) {
             // If backquoted, all characters should be allowed (except w/ trailing spaces)
@@ -1334,17 +1305,9 @@ class Table
      *
      * @return bool success
      */
-    function rename($new_name, $new_db = null)
+    public function rename($new_name, $new_db = null)
     {
-        $lowerCaseTableNames = Util::cacheGet(
-            'lower_case_table_names',
-            function () {
-                return $GLOBALS['dbi']->fetchValue(
-                    "SELECT @@lower_case_table_names"
-                );
-            }
-        );
-        if ($lowerCaseTableNames) {
+        if ($GLOBALS['dbi']->getLowerCaseNames() === '1') {
             $new_name = strtolower($new_name);
         }
 
@@ -1484,6 +1447,30 @@ class Table
     }
 
     /**
+     * Formats lists of columns
+     *
+     * returns an array with all columns that make use of an index
+     *
+     * e.g. index(col1, col2) would return col1, col2
+     *
+     * @param array $indexed    column data
+     * @param bool  $backquoted whether to quote name with backticks ``
+     * @param bool  $fullName   whether to include full name of the table as a prefix
+     *
+     * @return array
+     */
+    private function _formatColumns($indexed, $backquoted, $fullName)
+    {
+        $return = array();
+        foreach ($indexed as $column) {
+            $return[] = ($fullName ? $this->getFullName($backquoted) . '.' : '')
+                . ($backquoted ? Util::backquote($column) : $column);
+        }
+
+        return $return;
+    }
+
+    /**
      * Get all indexed columns
      *
      * returns an array with all columns that make use of an index
@@ -1504,13 +1491,7 @@ class Table
         );
         $indexed = $this->_dbi->fetchResult($sql, 'Column_name', 'Column_name');
 
-        $return = array();
-        foreach ($indexed as $column) {
-            $return[] = ($fullName ? $this->getFullName($backquoted) . '.' : '')
-                . ($backquoted ? Util::backquote($column) : $column);
-        }
-
-        return $return;
+        return $this->_formatColumns($indexed, $backquoted, $fullName);
     }
 
     /**
@@ -1528,13 +1509,7 @@ class Table
         $sql = 'SHOW COLUMNS FROM ' . $this->getFullName(true);
         $indexed = $this->_dbi->fetchResult($sql, 'Field', 'Field');
 
-        $return = array();
-        foreach ($indexed as $column) {
-            $return[] = ($fullName ? $this->getFullName($backquoted) . '.' : '')
-                . ($backquoted ? Util::backquote($column) : $column);
-        }
-
-        return $return;
+        return $this->_formatColumns($indexed, $backquoted, $fullName);
     }
 
     /**
@@ -1583,7 +1558,7 @@ class Table
                     $value = Util::backquote($value);
                 }
 
-                if (strpos($column['Extra'], 'GENERATED') === false) {
+                if (strpos($column['Extra'], 'GENERATED') === false && strpos($column['Extra'], 'VIRTUAL') === false) {
                     array_push($ret, $value);
                 }
             }
@@ -1643,11 +1618,11 @@ class Table
             $message = Message::error(
                 __('Could not save table UI preferences!')
             );
-            $message->addMessage('<br /><br />');
             $message->addMessage(
                 Message::rawError(
                     $this->_dbi->getError($GLOBALS['controllink'])
-                )
+                ),
+                '<br /><br />'
             );
             return $message;
         }
@@ -1677,11 +1652,11 @@ class Table
                         Util::showDocu('config', 'cfg_Servers_MaxTableUiprefs')
                     )
                 );
-                $message->addMessage('<br /><br />');
                 $message->addMessage(
                     Message::rawError(
                         $this->_dbi->getError($GLOBALS['controllink'])
-                    )
+                    ),
+                    '<br /><br />'
                 );
                 return $message;
             }
@@ -1760,7 +1735,7 @@ class Table
                 }
             }
             // remove the property, since it no longer exists in database
-            $this->removeUiProp(self::PROP_SORTED_COLUMN);
+            $this->removeUiProp($property);
             return false;
         }
 
@@ -1774,11 +1749,11 @@ class Table
             // check if the table has not been modified
             if ($this->getStatusInfo('Create_time') == $this->uiprefs['CREATE_TIME']
             ) {
-                return $this->uiprefs[$property];
+                return array_map('intval', $this->uiprefs[$property]);
             }
 
             // remove the property, since the table has been modified
-            $this->removeUiProp(self::PROP_COLUMN_ORDER);
+            $this->removeUiProp($property);
             return false;
         }
 
@@ -2007,10 +1982,13 @@ class Table
         }
 
         // specifying index type is allowed only for primary, unique and index only
+        // TokuDB is using Fractal Tree, Using Type is not useless
+        // Ref: https://mariadb.com/kb/en/mariadb/storage-engine-index-types/
         $type = $index->getType();
         if ($index->getChoice() != 'SPATIAL'
             && $index->getChoice() != 'FULLTEXT'
             && in_array($type, Index::getIndexTypes())
+            && ! $this->isEngine(array('TOKUDB'))
         ) {
             $sql_query .= ' USING ' . $type;
         }
@@ -2036,37 +2014,24 @@ class Table
     /**
      * Function to handle update for display field
      *
-     * @param string $disp          current display field
      * @param string $display_field display field
      * @param array  $cfgRelation   configuration relation
      *
      * @return boolean True on update succeed or False on failure
      */
-    public function updateDisplayField($disp, $display_field, $cfgRelation)
+    public function updateDisplayField($display_field, $cfgRelation)
     {
         $upd_query = false;
-        if ($disp) {
-            if ($display_field == '') {
-                $upd_query = 'DELETE FROM '
-                    . Util::backquote($GLOBALS['cfgRelation']['db'])
-                    . '.' . Util::backquote($cfgRelation['table_info'])
-                    . ' WHERE db_name  = \''
-                    . $GLOBALS['dbi']->escapeString($this->_db_name) . '\''
-                    . ' AND table_name = \''
-                    . $GLOBALS['dbi']->escapeString($this->_name) . '\'';
-            } elseif ($disp != $display_field) {
-                $upd_query = 'UPDATE '
-                    . Util::backquote($GLOBALS['cfgRelation']['db'])
-                    . '.' . Util::backquote($cfgRelation['table_info'])
-                    . ' SET display_field = \''
-                    . $GLOBALS['dbi']->escapeString($display_field) . '\''
-                    . ' WHERE db_name  = \''
-                    . $GLOBALS['dbi']->escapeString($this->_db_name) . '\''
-                    . ' AND table_name = \''
-                    . $GLOBALS['dbi']->escapeString($this->_name) . '\'';
-            }
-        } elseif ($display_field != '') {
-            $upd_query = 'INSERT INTO '
+        if ($display_field == '') {
+            $upd_query = 'DELETE FROM '
+                . Util::backquote($GLOBALS['cfgRelation']['db'])
+                . '.' . Util::backquote($cfgRelation['table_info'])
+                . ' WHERE db_name  = \''
+                . $GLOBALS['dbi']->escapeString($this->_db_name) . '\''
+                . ' AND table_name = \''
+                . $GLOBALS['dbi']->escapeString($this->_name) . '\'';
+        } else {
+            $upd_query = 'REPLACE INTO '
                 . Util::backquote($GLOBALS['cfgRelation']['db'])
                 . '.' . Util::backquote($cfgRelation['table_info'])
                 . '(db_name, table_name, display_field) VALUES('
@@ -2456,10 +2421,10 @@ class Table
 
         $parser = new Parser($createTable);
         /**
-         * @var \SqlParser\Statements\CreateStatement $stmt
+         * @var \PhpMyAdmin\SqlParser\Statements\CreateStatement $stmt
         */
         $stmt = $parser->statements[0];
-        $fields = Table::getFields($stmt);
+        $fields = \PhpMyAdmin\SqlParser\Utils\Table::getFields($stmt);
         if ($column != null) {
             $expression = isset($fields[$column]['expr']) ?
                 substr($fields[$column]['expr'], 1, -1) : '';
@@ -2494,7 +2459,7 @@ class Table
      *
      * @return number
      */
-    function getRealRowCountTable()
+    public function getRealRowCountTable()
     {
         // SQL query to get row count for a table.
         $result = $this->_dbi->fetchSingleRow(
@@ -2515,7 +2480,7 @@ class Table
      *
      * @return array an array of columns
      */
-    function getColumnsWithIndex($types)
+    public function getColumnsWithIndex($types)
     {
         $columns_with_index = array();
         foreach (

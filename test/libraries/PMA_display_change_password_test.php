@@ -10,14 +10,12 @@
  * Include to test.
  */
 use PMA\libraries\Theme;
+use PMA\libraries\URL;
 
 
-require_once 'libraries/url_generating.lib.php';
 require_once 'libraries/display_change_password.lib.php';
 
 require_once 'libraries/database_interface.inc.php';
-require_once 'libraries/sanitizing.lib.php';
-require_once 'libraries/js_escape.lib.php';
 
 require_once 'libraries/config.default.php';
 
@@ -52,11 +50,8 @@ class PMA_DisplayChangePassword_Test extends PHPUnit_Framework_TestCase
         $GLOBALS['cfg']['Server']['DisableIS'] = false;
         $GLOBALS['PMA_PHP_SELF'] = "server_privileges.php";
         $GLOBALS['server'] = 0;
-        $GLOBALS['pmaThemeImage'] = 'image';
 
         //$_SESSION
-        $_SESSION['PMA_Theme'] = Theme::load('./themes/pmahomme');
-        $_SESSION['PMA_Theme'] = new Theme();
         $_SESSION['relation'][$GLOBALS['server']] = "relation";
     }
 
@@ -79,9 +74,9 @@ class PMA_DisplayChangePassword_Test extends PHPUnit_Framework_TestCase
             $html
         );
 
-        //PMA_URL_getHiddenInputs
+        //URL::getHiddenInputs
         $this->assertContains(
-            PMA_URL_getHiddenInputs(),
+            URL::getHiddenInputs(),
             $html
         );
 

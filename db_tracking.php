@@ -5,6 +5,7 @@
  *
  * @package PhpMyAdmin
  */
+use PMA\libraries\Response;
 use PMA\libraries\Tracker;
 
 /**
@@ -16,7 +17,7 @@ require_once './libraries/tracking.lib.php';
 require_once 'libraries/display_create_table.lib.php';
 
 //Get some js files needed for Ajax requests
-$response = PMA\libraries\Response::getInstance();
+$response = Response::getInstance();
 $header   = $response->getHeader();
 $scripts  = $header->getScripts();
 $scripts->addFile('jquery/jquery.tablesorter.js');

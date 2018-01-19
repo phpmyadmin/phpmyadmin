@@ -5,6 +5,8 @@
  *
  * @package PhpMyAdmin
  */
+use PMA\libraries\Response;
+
 if (! defined('PHPMYADMIN')) {
     exit;
 }
@@ -25,7 +27,7 @@ function PMA_parseAnalyze($sql_query, $db)
     $GLOBALS['unparsed_sql'] = $sql_query;
 
     // Get details about the SQL query.
-    $analyzed_sql_results = SqlParser\Utils\Query::getAll($sql_query);
+    $analyzed_sql_results = PhpMyAdmin\SqlParser\Utils\Query::getAll($sql_query);
 
     extract($analyzed_sql_results);
     $table = '';
@@ -55,7 +57,8 @@ function PMA_parseAnalyze($sql_query, $db)
         }
         // There is no point checking if a reload is required if we already decided
         // to reload. Also, no reload is required for AJAX requests.
-        if ((empty($reload)) && (empty($GLOBALS['is_ajax_request']))) {
+        $response = Response::getInstance();
+        if (empty($reload) && ! $response->isAjax()) {
             // NOTE: Database names are case-insensitive.
             $reload  = strcasecmp($db, $prev_db) != 0;
         }

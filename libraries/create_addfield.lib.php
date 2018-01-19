@@ -6,6 +6,7 @@
  * @package PhpMyAdmin
  */
 use PMA\libraries\Table;
+use PMA\libraries\Util;
 
 /**
  * Transforms the radio button field_key into 4 arrays
@@ -42,11 +43,10 @@ function PMA_buildColumnCreationStatement(
     $field_cnt, $is_create_tbl = true
 ) {
     $definitions = array();
+    $prev_field = -1;
     for ($i = 0; $i < $field_cnt; ++$i) {
         // '0' is also empty for php :-(
-        if (empty($_REQUEST['field_name'][$i])
-            && $_REQUEST['field_name'][$i] != '0'
-        ) {
+        if (strlen($_REQUEST['field_name'][$i]) === 0) {
             continue;
         }
 
@@ -78,7 +78,8 @@ function PMA_buildColumnCreationStatement(
                     : ''
                 );
 
-        $definition .= PMA_setColumnCreationStatementSuffix($i, $is_create_tbl);
+        $definition .= PMA_setColumnCreationStatementSuffix($i, $prev_field, $is_create_tbl);
+        $prev_field = $i;
         $definitions[] = $definition;
     } // end for
 
@@ -89,12 +90,13 @@ function PMA_buildColumnCreationStatement(
  * Set column creation suffix according to requested position of the new column
  *
  * @param int     $current_field_num current column number
+ * @param int     $prev_field        previous field for ALTER statement
  * @param boolean $is_create_tbl     true if requirement is to get the statement
  *                                   for table creation
  *
  * @return string $sql_suffix suffix
  */
-function PMA_setColumnCreationStatementSuffix($current_field_num,
+function PMA_setColumnCreationStatementSuffix($current_field_num, $prev_field,
     $is_create_tbl = true
 ) {
     // no suffix is needed if request is a table creation
@@ -108,7 +110,7 @@ function PMA_setColumnCreationStatementSuffix($current_field_num,
     }
 
     // Only the first field can be added somewhere other than at the end
-    if ((int) $current_field_num === 0) {
+    if ($prev_field == -1) {
         if ((string) $_REQUEST['field_where'] === 'first') {
             $sql_suffix .= ' FIRST';
         } else {
@@ -118,7 +120,7 @@ function PMA_setColumnCreationStatementSuffix($current_field_num,
     } else {
         $sql_suffix .= ' AFTER '
                 . PMA\libraries\Util::backquote(
-                    $_REQUEST['field_name'][$current_field_num - 1]
+                    $_REQUEST['field_name'][$prev_field]
                 );
     }
 
@@ -417,7 +419,7 @@ function PMA_getTableCreationQuery($db, $table)
         $sql_query .= ' ENGINE = ' . $_REQUEST['tbl_storage_engine'];
     }
     if (!empty($_REQUEST['tbl_collation'])) {
-        $sql_query .= PMA_generateCharsetQueryPart($_REQUEST['tbl_collation']);
+        $sql_query .= Util::getCharsetQueryPart($_REQUEST['tbl_collation']);
     }
     if (! empty($_REQUEST['connection'])
         && ! empty($_REQUEST['tbl_storage_engine'])
@@ -444,21 +446,19 @@ function PMA_getTableCreationQuery($db, $table)
 function PMA_getNumberOfFieldsFromRequest()
 {
     if (isset($_REQUEST['submit_num_fields'])) { // adding new fields
-        $num_fields = min(
-            4096,
-            intval($_REQUEST['orig_num_fields']) + intval($_REQUEST['added_fields'])
-        );
+        $num_fields = intval($_REQUEST['orig_num_fields']) + intval($_REQUEST['added_fields']);
     } elseif (isset($_REQUEST['orig_num_fields'])) { // retaining existing fields
-        $num_fields = min(4096, intval($_REQUEST['orig_num_fields']));
+        $num_fields = intval($_REQUEST['orig_num_fields']);
     } elseif (isset($_REQUEST['num_fields'])
         && intval($_REQUEST['num_fields']) > 0
     ) { // new table with specified number of fields
-        $num_fields = min(4096, intval($_REQUEST['num_fields']));
+        $num_fields = intval($_REQUEST['num_fields']);
     } else { // new table with unspecified number of fields
         $num_fields = 4;
     }
 
-    return $num_fields;
+    // Limit to 4096 fields (MySQL maximal value)
+    return min($num_fields, 4096);
 }
 
 /**

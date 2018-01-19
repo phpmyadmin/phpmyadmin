@@ -5,6 +5,7 @@
  *
  * @package PhpMyAdmin
  */
+use PMA\libraries\Response;
 require_once 'libraries/common.inc.php';
 require_once 'libraries/error_report.lib.php';
 require_once 'libraries/user_preferences.lib.php';
@@ -15,7 +16,7 @@ if (!isset($_REQUEST['exception_type'])
     die('Oops, something went wrong!!');
 }
 
-$response = PMA\libraries\Response::getInstance();
+$response = Response::getInstance();
 
 if (isset($_REQUEST['send_error_report'])
     && ($_REQUEST['send_error_report'] == true
@@ -35,7 +36,6 @@ if (isset($_REQUEST['send_error_report'])
         ) {
             $_SESSION['error_subm_count'] = 0;
             $_SESSION['prev_errors'] = '';
-             $response = PMA\libraries\Response::getInstance();
             $response->addJSON('_stopErrorReportLoop', '1');
         } else {
             $_SESSION['prev_error_subm_time'] = time();

@@ -8,6 +8,8 @@
 namespace PMA\libraries;
 
 use DirectoryIterator;
+use PMA\libraries\URL;
+use PMA\libraries\ThemeManager;
 
 /**
  * Indication for error handler (see end of this file).
@@ -101,7 +103,7 @@ class Config
      */
     public function checkSystem()
     {
-        $this->set('PMA_VERSION', '4.6.5.2');
+        $this->set('PMA_VERSION', '4.7.8-dev');
         /**
          * @deprecated
          */
@@ -133,16 +135,9 @@ class Config
             $this->set('OBGzip', false);
         }
 
-        // disable output-buffering (if set to 'auto') for IE6, else enable it.
+        // enable output-buffering (if set to 'auto')
         if (strtolower($this->get('OBGzip')) == 'auto') {
-            if ($this->get('PMA_USR_BROWSER_AGENT') == 'IE'
-                && $this->get('PMA_USR_BROWSER_VER') >= 6
-                && $this->get('PMA_USR_BROWSER_VER') < 7
-            ) {
-                $this->set('OBGzip', false);
-            } else {
-                $this->set('OBGzip', true);
-            }
+            $this->set('OBGzip', true);
         }
     }
 
@@ -458,7 +453,7 @@ class Config
         } elseif (function_exists('gzuncompress')) {
             $git_file_name = $git_folder . '/objects/'
                 . substr($hash, 0, 2) . '/' . substr($hash, 2);
-            if (file_exists($git_file_name) ) {
+            if (@file_exists($git_file_name) ) {
                 if (! $commit = @file_get_contents($git_file_name)) {
                     return;
                 }
@@ -469,7 +464,7 @@ class Config
                 $pack_names = array();
                 // work with packed data
                 $packs_file = $git_folder . '/objects/info/packs';
-                if (file_exists($packs_file)
+                if (@file_exists($packs_file)
                     && $packs = @file_get_contents($packs_file)
                 ) {
                     // File exists. Read it, parse the file to get the names of the
@@ -611,9 +606,8 @@ class Config
         ) {
             $is_remote_commit = $_SESSION['PMA_VERSION_REMOTECOMMIT_' . $hash];
         } else {
-            $link = 'https://api.github.com/repos/phpmyadmin/phpmyadmin/git/commits/'
-                . $hash;
-            $is_found = $this->checkHTTP($link, ! $commit);
+            $link = 'https://www.phpmyadmin.net/api/commit/' . $hash . '/';
+            $is_found = Util::httpRequest($link, "GET");
             switch($is_found) {
             case false:
                 $is_remote_commit = false;
@@ -640,9 +634,8 @@ class Config
             if (isset($_SESSION['PMA_VERSION_REMOTEBRANCH_' . $hash])) {
                 $is_remote_branch = $_SESSION['PMA_VERSION_REMOTEBRANCH_' . $hash];
             } else {
-                $link = 'https://api.github.com/repos/phpmyadmin/phpmyadmin'
-                    . '/git/trees/' . $branch;
-                $is_found = $this->checkHTTP($link);
+                $link = 'https://www.phpmyadmin.net/api/tree/' . $branch . '/';
+                $is_found = Util::httpRequest($link, "GET", true);
                 switch($is_found) {
                 case true:
                     $is_remote_branch = true;
@@ -683,7 +676,7 @@ class Config
             } while ($dataline != '');
             $message = trim(implode(' ', $commit));
 
-        } elseif (isset($commit_json)) {
+        } elseif (isset($commit_json) && isset($commit_json->author) && isset($commit_json->committer)) {
             $author = array(
                 'name' => $commit_json->author->name,
                 'email' => $commit_json->author->email,
@@ -708,53 +701,6 @@ class Config
     }
 
     /**
-     * Checks if given URL is 200 or 404, optionally returns data
-     *
-     * @param string  $link     the URL to check
-     * @param boolean $get_body whether to retrieve body of document
-     *
-     * @return string|boolean test result or data
-     */
-    public function checkHTTP($link, $get_body = false)
-    {
-        if (! function_exists('curl_init')) {
-            return null;
-        }
-        $handle = curl_init($link);
-        if ($handle === false) {
-            return null;
-        }
-        Util::configureCurl($handle);
-        curl_setopt($handle, CURLOPT_FOLLOWLOCATION, 0);
-        curl_setopt($handle, CURLOPT_RETURNTRANSFER, 1);
-        curl_setopt($handle, CURLOPT_SSL_VERIFYHOST, '2');
-        curl_setopt($handle, CURLOPT_SSL_VERIFYPEER, '1');
-        curl_setopt($handle, CURLOPT_CONNECTTIMEOUT, 5);
-        curl_setopt($handle, CURLOPT_TIMEOUT, 5);
-        curl_setopt($handle, CURLOPT_IPRESOLVE, CURL_IPRESOLVE_V4);
-        if (! defined('TESTSUITE')) {
-            session_write_close();
-        }
-        $data = @curl_exec($handle);
-        if (! defined('TESTSUITE')) {
-            session_start();
-        }
-        if ($data === false) {
-            return null;
-        }
-        $http_status = curl_getinfo($handle, CURLINFO_HTTP_CODE);
-
-        if ($http_status == 200) {
-            return $get_body ? $data : true;
-        }
-
-        if ($http_status == 404) {
-            return false;
-        }
-        return null;
-    }
-
-    /**
      * loads default values from default source
      *
      * @return boolean     success
@@ -766,7 +712,18 @@ class Config
             $this->error_config_default_file = true;
             return false;
         }
-        include $this->default_source;
+        $old_error_reporting = error_reporting(0);
+        ob_start();
+        $GLOBALS['pma_config_loading'] = true;
+        $eval_result = include $this->default_source;
+        $GLOBALS['pma_config_loading'] = false;
+        ob_end_clean();
+        error_reporting($old_error_reporting);
+
+        if ($eval_result === false) {
+            $this->error_config_default_file = true;
+            return false;
+        }
 
         $this->default_source_mtime = filemtime($this->default_source);
 
@@ -829,6 +786,27 @@ class Config
             $this->error_config_file = false;
             $this->source_mtime = filemtime($this->getSource());
         }
+
+        /**
+         * Ignore keys with / as we do not use these
+         *
+         * These can be confusing for user configuration layer as it
+         * flatten array using / and thus don't see difference between
+         * $cfg['Export/method'] and $cfg['Export']['method'], while rest
+         * of thre code uses the setting only in latter form.
+         *
+         * This could be removed once we consistently handle both values
+         * in the functional code as well.
+         *
+         * It could use array_filter(...ARRAY_FILTER_USE_KEY), but it's not
+         * supported on PHP 5.5 and HHVM.
+         */
+        $matched_keys = array_filter(
+            array_keys($cfg),
+            function ($key) {return strpos($key, '/') === false;}
+        );
+
+        $cfg = array_intersect_key($cfg, array_flip($matched_keys));
 
         /**
          * Backward compatibility code
@@ -972,7 +950,7 @@ class Config
 
         // save theme
         /** @var ThemeManager $tmanager */
-        $tmanager = $_SESSION['PMA_Theme_Manager'];
+        $tmanager = ThemeManager::getInstance();
         if ($tmanager->getThemeCookie() || isset($_REQUEST['set_theme'])) {
             if ((! isset($config_data['ThemeDefault'])
                 && $tmanager->theme->getId() != 'original')
@@ -1159,7 +1137,7 @@ class Config
     public function checkPermissions()
     {
         // Check for permissions (on platforms that support it):
-        if ($this->get('CheckConfigurationPermissions')) {
+        if ($this->get('CheckConfigurationPermissions') && @file_exists($this->getSource())) {
             $perms = @fileperms($this->getSource());
             if (!($perms === false) && ($perms & 2)) {
                 // This check is normally done after loading configuration
@@ -1174,6 +1152,36 @@ class Config
                     );
                 }
             }
+        }
+    }
+
+    /**
+     * Checks for errors
+     * (must be called after config.inc.php has been merged)
+     *
+     * @return void
+     */
+    public function checkErrors()
+    {
+        if ($this->error_config_default_file) {
+            PMA_fatalError(
+                sprintf(
+                    __('Could not load default configuration from: %1$s'),
+                    $this->default_source
+                )
+            );
+        }
+
+        if ($this->error_config_file) {
+            $error = '[strong]' . __('Failed to read configuration file!') . '[/strong]'
+                . '[br][br]'
+                . __(
+                    'This usually means there is a syntax error in it, '
+                    . 'please check any errors shown below.'
+                )
+                . '[br][br]'
+                . '[conferr]';
+            trigger_error($error, E_USER_ERROR);
         }
     }
 
@@ -1324,7 +1332,7 @@ class Config
 
     /**
      * Maximum upload size as limited by PHP
-     * Used with permission from Moodle (http://moodle.org) by Martin Dougiamas
+     * Used with permission from Moodle (https://moodle.org/) by Martin Dougiamas
      *
      * this section generates $max_upload_size in bytes
      *
@@ -1454,7 +1462,6 @@ class Config
             'PMA_THEME_VERSION',
             'PMA_THEME_GENERATION',
             'PMA_IS_WINDOWS',
-            'PMA_IS_IIS',
             'PMA_IS_GD2',
             'PMA_USR_OS',
             'PMA_USR_BROWSER_VER',
@@ -1488,6 +1495,7 @@ class Config
             $factors[] = 1;
             $factors[] = 5;
             $factors[] = 10;
+            $options['100'] = '100%';
         } elseif ($unit === 'em') {
             $factors[] = 0.05;
             $factors[] = 0.2;
@@ -1572,7 +1580,7 @@ class Config
     {
         return '<form name="form_fontsize_selection" id="form_fontsize_selection"'
             . ' method="get" action="index.php" class="disableAjax">' . "\n"
-            . PMA_URL_getHiddenInputs() . "\n"
+            . URL::getHiddenInputs() . "\n"
             . Config::getFontsizeSelection() . "\n"
             . '</form>';
     }
@@ -1617,7 +1625,7 @@ class Config
     public function setCookie($cookie, $value, $default = null,
         $validity = null, $httponly = true
     ) {
-        if (mb_strlen($value) && null !== $default && $value === $default
+        if (strlen($value) > 0 && null !== $default && $value === $default
         ) {
             // default value is used
             if (isset($_COOKIE[$cookie])) {
@@ -1627,7 +1635,7 @@ class Config
             return false;
         }
 
-        if (!mb_strlen($value) && isset($_COOKIE[$cookie])) {
+        if (strlen($value) === 0 && isset($_COOKIE[$cookie])) {
             // remove cookie, value is empty
             return $this->removeCookie($cookie);
         }
@@ -1636,8 +1644,10 @@ class Config
             // set cookie with new value
             /* Calculate cookie validity */
             if ($validity === null) {
+                /* Valid for one month */
                 $validity = time() + 2592000;
             } elseif ($validity == 0) {
+                /* Valid for session */
                 $validity = 0;
             } else {
                 $validity = time() + $validity;
@@ -1691,6 +1701,48 @@ class Config
                 $error['message']
             )
         );
+    }
+
+    /**
+     * Wrapper for footer/header rendering
+     *
+     * @param string $filename File to check and render
+     * @param string $id       Div ID
+     *
+     * @return string
+     */
+    private static function _renderCustom($filename, $id)
+    {
+        $retval = '';
+        if (@file_exists($filename)) {
+            $retval .= '<div id="' . $id . '">';
+            ob_start();
+            include $filename;
+            $retval .= ob_get_contents();
+            ob_end_clean();
+            $retval .= '</div>';
+        }
+        return $retval;
+    }
+
+    /**
+     * Renders user configured footer
+     *
+     * @return string
+     */
+    public static function renderFooter()
+    {
+        return self::_renderCustom(CUSTOM_FOOTER_FILE, 'pma_footer');
+    }
+
+    /**
+     * Renders user configured footer
+     *
+     * @return string
+     */
+    public static function renderHeader()
+    {
+        return self::_renderCustom(CUSTOM_HEADER_FILE, 'pma_header');
     }
 }
 

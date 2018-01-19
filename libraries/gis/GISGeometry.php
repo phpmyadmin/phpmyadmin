@@ -222,7 +222,7 @@ abstract class GISGeometry
             // Extract coordinates of the point
             $cordinates = explode(" ", $point);
 
-            if (!empty($cordinates[0]) && trim($cordinates[0]) != ''
+            if (isset($cordinates[0]) && trim($cordinates[0]) != ''
                 && isset($cordinates[1])
                 && trim($cordinates[1]) != ''
             ) {
@@ -235,8 +235,8 @@ abstract class GISGeometry
                     $y = floatval(trim($cordinates[1]));
                 }
             } else {
-                $x = '';
-                $y = '';
+                $x = 0;
+                $y = 0;
             }
 
             if (!$linear) {

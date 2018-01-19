@@ -9,7 +9,6 @@
 use PMA\libraries\gis\GISLinestring;
 
 require_once 'GISGeomTest.php';
-require_once 'libraries/tcpdf/tcpdf.php';
 
 /**
  * Tests for PMA\libraries\gis\GISLinestring class
@@ -192,6 +191,9 @@ class GISLinestringTest extends GISGeomTest
      */
     public function providerForPrepareRowAsPng()
     {
+        if (! function_exists('imagecreatetruecolor')) {
+            $this->markTestSkipped('GD extension missing!');
+        }
         return array(
             array(
                 'LINESTRING(12 35,48 75,69 23,25 45,14 53,35 78)',

@@ -8,6 +8,10 @@
  * @package PhpMyAdmin
  */
 use PMA\libraries\Message;
+use PMA\libraries\Response;
+use PMA\libraries\URL;
+use PMA\libraries\Sanitize;
+
 
 if (! defined('PHPMYADMIN')) {
     exit;
@@ -96,7 +100,7 @@ function PMA_ifSetOr(&$var, $default = null, $type = 'similar')
  * @return boolean whether valid or not
  *
  * @todo add some more var types like hex, bin, ...?
- * @see     https://php.net/gettype
+ * @see     https://secure.php.net/gettype
  */
 function PMA_isValid(&$var, $type = 'length', $compare = null)
 {
@@ -163,7 +167,7 @@ function PMA_isValid(&$var, $type = 'length', $compare = null)
     if ($type === 'length' || $type === 'scalar') {
         $is_scalar = is_scalar($var);
         if ($is_scalar && $type === 'length') {
-            return (bool) mb_strlen($var);
+            return strlen($var) > 0;
         }
         return $is_scalar;
     }
@@ -206,13 +210,10 @@ function PMA_securePath($path)
  *
  * @param string       $error_message  the error message or named error message
  * @param string|array $message_args   arguments applied to $error_message
- * @param boolean      $delete_session whether to delete session cookie
  *
  * @return void
  */
-function PMA_fatalError(
-    $error_message, $message_args = null, $delete_session = true
-) {
+function PMA_fatalError($error_message, $message_args = null) {
     /* Use format string if applicable */
     if (is_string($message_args)) {
         $error_message = sprintf($error_message, $message_args);
@@ -220,23 +221,21 @@ function PMA_fatalError(
         $error_message = vsprintf($error_message, $message_args);
     }
 
-    if (! empty($GLOBALS['is_ajax_request']) && $GLOBALS['is_ajax_request']) {
-        $response = PMA\libraries\Response::getInstance();
-        $response->setRequestStatus(false);
-        $response->addJSON('message', PMA\libraries\Message::error($error_message));
+    /*
+     * Avoid using Response class as config does not have to be loaded yet
+     * (this can happen on early fatal error)
+     */
+    if (! empty($_REQUEST['ajax_request'])) {
+        // Generate JSON manually
+        PMA_headerJSON();
+        echo json_encode(
+            array(
+                'success' => false,
+                'error' => Message::error($error_message)->getDisplay(),
+            )
+        );
     } else {
         $error_message = strtr($error_message, array('<br />' => '[br]'));
-
-        /* Load gettext for fatal errors */
-        if (!function_exists('__')) {
-            // It is possible that PMA_fatalError() is called before including
-            // vendor_config.php which defines GETTEXT_INC. See bug #4557
-            if (defined(GETTEXT_INC)) {
-                include_once GETTEXT_INC;
-            } else {
-                include_once './libraries/php-gettext/gettext.inc';
-            }
-        }
 
         // these variables are used in the included file libraries/error.inc.php
         //first check if php-mbstring is available
@@ -248,14 +247,6 @@ function PMA_fatalError(
         }
         $lang = isset($GLOBALS['lang']) ? $GLOBALS['lang'] : 'en';
         $dir = isset($GLOBALS['text_dir']) ? $GLOBALS['text_dir'] : 'ltr';
-
-        // on fatal errors it cannot hurt to always delete the current session
-        if ($delete_session
-            && isset($GLOBALS['session_name'])
-            && isset($_COOKIE[$GLOBALS['session_name']])
-        ) {
-            $GLOBALS['PMA_Config']->removeCookie($GLOBALS['session_name']);
-        }
 
         // Displays the error message
         include './libraries/error.inc.php';
@@ -286,7 +277,7 @@ function PMA_getPHPDocLink($target)
         $lang = $GLOBALS['lang'];
     }
 
-    return PMA_linkURL('https://php.net/manual/' . $lang . '/' . $target);
+    return PMA_linkURL('https://secure.php.net/manual/' . $lang . '/' . $target);
 }
 
 /**
@@ -370,36 +361,22 @@ function PMA_getRealSize($size = 0)
         return 0;
     }
 
-    $scan = array(
-        'gb' => 1073741824, //1024 * 1024 * 1024,
-        'g'  => 1073741824, //1024 * 1024 * 1024,
-        'mb' =>    1048576,
-        'm'  =>    1048576,
-        'kb' =>       1024,
-        'k'  =>       1024,
-        'b'  =>          1,
+    $binaryprefixes = array(
+        'T' => 1099511627776,
+        't' => 1099511627776,
+        'G' =>    1073741824,
+        'g' =>    1073741824,
+        'M' =>       1048576,
+        'm' =>       1048576,
+        'K' =>          1024,
+        'k' =>          1024,
     );
 
-    foreach ($scan as $unit => $factor) {
-        $sizeLength = strlen($size);
-        $unitLength = strlen($unit);
-        if ($sizeLength > $unitLength
-            && strtolower(
-                substr(
-                    $size,
-                    $sizeLength - $unitLength
-                )
-            ) == $unit
-        ) {
-            return substr(
-                $size,
-                0,
-                $sizeLength - $unitLength
-            ) * $factor;
-        }
+    if (preg_match('/^([0-9]+)([KMGT])/i', $size, $matches)) {
+        return $matches[1] * $binaryprefixes[$matches[2]];
     }
 
-    return $size;
+    return (int) $size;
 } // end function PMA_getRealSize()
 
 /**
@@ -488,9 +465,8 @@ function PMA_getenv($var_name)
  */
 function PMA_sendHeaderLocation($uri, $use_refresh = false)
 {
-    if (PMA_IS_IIS && mb_strlen($uri) > 600) {
-        include_once './libraries/js_escape.lib.php';
-        PMA\libraries\Response::getInstance()->disable();
+    if ($GLOBALS['PMA_Config']->get('PMA_IS_IIS') && mb_strlen($uri) > 600) {
+        Response::getInstance()->disable();
 
         echo PMA\libraries\Template::get('header_location')
             ->render(array('uri' => $uri));
@@ -506,7 +482,7 @@ function PMA_sendHeaderLocation($uri, $use_refresh = false)
         $uri = $GLOBALS['PMA_Config']->getRootPath() . substr($uri, 2);
     }
 
-    $response = PMA\libraries\Response::getInstance();
+    $response = Response::getInstance();
 
     session_write_close();
     if ($response->headersSent()) {
@@ -518,7 +494,7 @@ function PMA_sendHeaderLocation($uri, $use_refresh = false)
     // bug #1523784: IE6 does not like 'Refresh: 0', it
     // results in a blank page
     // but we need it when coming from the cookie login panel)
-    if (PMA_IS_IIS && $use_refresh) {
+    if ($GLOBALS['PMA_Config']->get('PMA_IS_IIS') && $use_refresh) {
         $response->header('Refresh: 0; ' . $uri);
     } else {
         $response->header('Location: ' . $uri);
@@ -532,7 +508,7 @@ function PMA_sendHeaderLocation($uri, $use_refresh = false)
  */
 function PMA_headerJSON()
 {
-    if (defined('TESTSUITE') && ! defined('PMA_TEST_HEADERS')) {
+    if (defined('TESTSUITE')) {
         return;
     }
     // No caching
@@ -552,7 +528,7 @@ function PMA_headerJSON()
  */
 function PMA_noCacheHeader()
 {
-    if (defined('TESTSUITE') && ! defined('PMA_TEST_HEADERS')) {
+    if (defined('TESTSUITE')) {
         return;
     }
     // rfc2616 - Section 14.21
@@ -562,18 +538,6 @@ function PMA_noCacheHeader()
         'Cache-Control: no-store, no-cache, must-revalidate,'
         . '  pre-check=0, post-check=0, max-age=0'
     );
-    if (PMA_USR_BROWSER_AGENT == 'IE') {
-        /* On SSL IE sometimes fails with:
-         *
-         * Internet Explorer was not able to open this Internet site. The
-         * requested site is either unavailable or cannot be found. Please
-         * try again later.
-         *
-         * Adding Pragma: public fixes this.
-         */
-        header('Pragma: public');
-        return;
-    }
 
     header('Pragma: no-cache'); // HTTP/1.0
     // test case: exporting a database into a .gz file with Safari
@@ -600,7 +564,7 @@ function PMA_downloadHeader($filename, $mimetype, $length = 0, $no_cache = true)
         PMA_noCacheHeader();
     }
     /* Replace all possibly dangerous chars in filename */
-    $filename = str_replace(array(';', '"', "\n", "\r"), '-', $filename);
+    $filename = Sanitize::sanitizeFilename($filename);
     if (!empty($filename)) {
         header('Content-Description: File Transfer');
         header('Content-Disposition: attachment; filename="' . $filename . '"');
@@ -721,13 +685,10 @@ function PMA_linkURL($url)
         return $url;
     }
 
-    if (!function_exists('PMA_URL_getCommon')) {
-        include_once './libraries/url_generating.lib.php';
-    }
     $params = array();
     $params['url'] = $url;
 
-    $url = PMA_URL_getCommon($params);
+    $url = URL::getCommon($params);
     //strip off token and such sensitive information. Just keep url.
     $arr = parse_url($url);
     parse_str($arr["query"], $vars);
@@ -770,16 +731,18 @@ function PMA_isAllowedDomain($url)
         /* Include current domain */
         $_SERVER['SERVER_NAME'],
         /* phpMyAdmin domains */
-        'wiki.phpmyadmin.net', 'www.phpmyadmin.net', 'phpmyadmin.net',
+        'wiki.phpmyadmin.net',
+        'www.phpmyadmin.net',
+        'phpmyadmin.net',
         'demo.phpmyadmin.net',
         'docs.phpmyadmin.net',
-        'demo.phpmyadmin.net',
         /* mysql.com domains */
         'dev.mysql.com','bugs.mysql.com',
         /* mariadb domains */
         'mariadb.org', 'mariadb.com',
         /* php.net domains */
         'php.net',
+        'secure.php.net',
         /* sourceforge.net domain */
         'sourceforge.net',
         /* Github domains*/
@@ -794,39 +757,6 @@ function PMA_isAllowedDomain($url)
     }
 
     return false;
-}
-
-
-/**
- * Adds JS code snippets to be displayed by the PMA\libraries\Response class.
- * Adds a newline to each snippet.
- *
- * @param string $str Js code to be added (e.g. "token=1234;")
- *
- * @return void
- */
-function PMA_addJSCode($str)
-{
-    $response = PMA\libraries\Response::getInstance();
-    $header   = $response->getHeader();
-    $scripts  = $header->getScripts();
-    $scripts->addCode($str);
-}
-
-/**
- * Adds JS code snippet for variable assignment
- * to be displayed by the PMA\libraries\Response class.
- *
- * @param string $key    Name of value to set
- * @param mixed  $value  Value to set, can be either string or array of strings
- * @param bool   $escape Whether to escape value or keep it as it is
- *                       (for inclusion of js code)
- *
- * @return void
- */
-function PMA_addJSVar($key, $value, $escape = true)
-{
-    PMA_addJSCode(PMA_getJsValue($key, $value, $escape));
 }
 
 /**
@@ -865,7 +795,7 @@ function PMA_previewSQL($query_data)
         $retval .= PMA\libraries\Util::formatSql($query_data);
     }
     $retval .= '</div>';
-    $response = PMA\libraries\Response::getInstance();
+    $response = Response::getInstance();
     $response->addJSON('sql_data', $retval);
     exit;
 }
@@ -945,6 +875,10 @@ function PMA_cleanupPathInfo()
     }
     $_PATH_INFO = PMA_getenv('PATH_INFO');
     if (! empty($_PATH_INFO) && ! empty($PMA_PHP_SELF)) {
+        $question_pos = mb_strpos($PMA_PHP_SELF, '?');
+        if ($question_pos != false) {
+            $PMA_PHP_SELF = mb_substr($PMA_PHP_SELF, 0, $question_pos);
+        }
         $path_info_pos = mb_strrpos($PMA_PHP_SELF, $_PATH_INFO);
         if ($path_info_pos !== false) {
             $path_info_part = mb_substr($PMA_PHP_SELF, $path_info_pos, mb_strlen($_PATH_INFO));
@@ -953,7 +887,24 @@ function PMA_cleanupPathInfo()
             }
         }
     }
-    $PMA_PHP_SELF = htmlspecialchars($PMA_PHP_SELF);
+
+    $path = [];
+    foreach(explode('/', $PMA_PHP_SELF) as $part) {
+        // ignore parts that have no value
+        if (empty($part) || $part === '.') continue;
+
+        if ($part !== '..') {
+            // cool, we found a new part
+            array_push($path, $part);
+        } else if (count($path) > 0) {
+            // going back up? sure
+            array_pop($path);
+        }
+        // Here we intentionall ignore case where we go too up
+        // as there is nothing sane to do
+    }
+
+    $PMA_PHP_SELF = htmlspecialchars('/' . join('/', $path));
 }
 
 /**
@@ -984,8 +935,61 @@ function PMA_checkExtensions()
     }
 }
 
+/**
+ * Gets the "true" IP address of the current user
+ *
+ * @return string   the ip of the user
+ *
+ * @access  private
+ */
+function PMA_getIp()
+{
+    /* Get the address of user */
+    if (empty($_SERVER['REMOTE_ADDR'])) {
+        /* We do not know remote IP */
+        return false;
+    }
+
+    $direct_ip = $_SERVER['REMOTE_ADDR'];
+
+    /* Do we trust this IP as a proxy? If yes we will use it's header. */
+    if (!isset($GLOBALS['cfg']['TrustedProxies'][$direct_ip])) {
+        /* Return true IP */
+        return $direct_ip;
+    }
+
+    /**
+     * Parse header in form:
+     * X-Forwarded-For: client, proxy1, proxy2
+     */
+    // Get header content
+    $value = PMA_getenv($GLOBALS['cfg']['TrustedProxies'][$direct_ip]);
+    // Grab first element what is client adddress
+    $value = explode(',', $value)[0];
+    // checks that the header contains only one IP address,
+    $is_ip = filter_var($value, FILTER_VALIDATE_IP);
+
+    if ($is_ip !== false) {
+        // True IP behind a proxy
+        return $value;
+    }
+
+    // We could not parse header
+    return false;
+} // end of the 'PMA_getIp()' function
+
+
 /* Compatibility with PHP < 5.6 */
 if(! function_exists('hash_equals')) {
+
+    /**
+     * Timing attack safe string comparison
+     *
+     * @param string $a first string
+     * @param string $b second string
+     *
+     * @return boolean whether they are equal
+     */
     function hash_equals($a, $b) {
         $ret = strlen($a) ^ strlen($b);
         $ret |= array_sum(unpack("C*", $a ^ $b));

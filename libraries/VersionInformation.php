@@ -33,11 +33,6 @@ class VersionInformation
             return null;
         }
 
-        // wait 3s at most for server response, it's enough to get information
-        // from a working server
-        $connection_timeout = 3;
-
-        $response = '{}';
         // Get response text from phpmyadmin.net or from the session
         // Update cache every 6 hours
         if (isset($_SESSION['cache']['version_check'])
@@ -47,52 +42,10 @@ class VersionInformation
             $response = $_SESSION['cache']['version_check']['response'];
         } else {
             $save = true;
-            if (! defined('TESTSUITE')) {
-                session_write_close();
-            }
             $file = 'https://www.phpmyadmin.net/home_page/version.json';
-            if (function_exists('curl_init')) {
-                $curl_handle = curl_init($file);
-                if ($curl_handle === false) {
-                    return null;
-                }
-                $curl_handle = Util::configureCurl($curl_handle);
-                curl_setopt(
-                    $curl_handle,
-                    CURLOPT_HEADER,
-                    false
-                );
-                curl_setopt(
-                    $curl_handle,
-                    CURLOPT_RETURNTRANSFER,
-                    true
-                );
-                curl_setopt(
-                    $curl_handle,
-                    CURLOPT_TIMEOUT,
-                    $connection_timeout
-                );
-                $response = @curl_exec($curl_handle);
-            } else if (ini_get('allow_url_fopen')) {
-                $context = array(
-                    'http' => array(
-                        'request_fulluri' => true,
-                        'timeout' => $connection_timeout,
-                    )
-                );
-                $context = Util::handleContext($context);
-                $response = @file_get_contents(
-                    $file,
-                    false,
-                    stream_context_create($context)
-                );
-            }
-            // Check possible failure of getting data
-            if ($response === false) {
-                $response = '{}';
-            }
+            $response = Util::httpRequest($file, "GET");
         }
-
+        $response = $response ? $response : '{}';
         /* Parse response */
         $data = json_decode($response);
 
@@ -106,9 +59,6 @@ class VersionInformation
         }
 
         if ($save) {
-            if (! isset($_SESSION) && ! defined('TESTSUITE')) {
-                session_start();
-            }
             $_SESSION['cache']['version_check'] = array(
                 'response' => $response,
                 'timestamp' => time()
@@ -267,12 +217,16 @@ class VersionInformation
     }
 
     /**
-     * Returns the MySQL version
+     * Returns the MySQL version if connected to a database
      *
      * @return string MySQL version
      */
     protected function getMySQLVersion()
     {
-        return PMA_MYSQL_STR_VERSION;
+        if (defined('PMA_MYSQL_STR_VERSION')) {
+            return PMA_MYSQL_STR_VERSION;
+        } else {
+            return null;
+        }
     }
 }

@@ -10,6 +10,7 @@
 use PMA\libraries\Message;
 use PMA\libraries\ServerStatusData;
 use PMA\libraries\Util;
+use PMA\libraries\URL;
 
 /**
  * Prints html for auto refreshing processes list
@@ -51,11 +52,11 @@ function PMA_getHtmlForServerProcesslist()
     $show_full_sql = ! empty($_REQUEST['full']);
     if ($show_full_sql) {
         $url_params['full'] = 1;
-        $full_text_link = 'server_status_processes.php' . PMA_URL_getCommon(
-            array(), 'html', '?'
+        $full_text_link = 'server_status_processes.php' . URL::getCommon(
+            array(), '?'
         );
     } else {
-        $full_text_link = 'server_status_processes.php' . PMA_URL_getCommon(
+        $full_text_link = 'server_status_processes.php' . URL::getCommon(
             array('full' => 1)
         );
     }
@@ -112,7 +113,7 @@ function PMA_getHtmlForServerProcesslist()
         $sql_query = 'SELECT * FROM `INFORMATION_SCHEMA`.`PROCESSLIST` ';
     }
     if (! empty($_REQUEST['showExecuting'])) {
-        $sql_query .= ' WHERE state = "executing" ';
+        $sql_query .= ' WHERE state != "" ';
     }
     if (!empty($_REQUEST['order_by_field']) && !empty($_REQUEST['sort_order'])) {
         $sql_query .= ' ORDER BY '
@@ -142,7 +143,7 @@ function PMA_getHtmlForServerProcesslist()
         }
 
         $retval .= '<th>';
-        $columnUrl = PMA_URL_getCommon($column);
+        $columnUrl = URL::getCommon($column);
         $retval .= '<a href="server_status_processes.php' . $columnUrl . '" ';
         if ($is_sorted) {
             $retval .= 'onmouseout="$(\'.soimg\').toggle()" '
@@ -191,14 +192,11 @@ function PMA_getHtmlForServerProcesslist()
     $retval .= '</thead>';
     $retval .= '<tbody>';
 
-    $odd_row = true;
     while ($process = $GLOBALS['dbi']->fetchAssoc($result)) {
         $retval .= PMA_getHtmlForServerProcessItem(
             $process,
-            $odd_row,
             $show_full_sql
         );
-        $odd_row = ! $odd_row;
     }
     $retval .= '</tbody>';
     $retval .= '</table>';
@@ -230,8 +228,8 @@ function PMA_getHtmlForProcessListFilter()
     $retval  = '';
     $retval .= '<fieldset id="tableFilter">';
     $retval .= '<legend>' . __('Filters') . '</legend>';
-    $retval .= '<form action="server_status_processes.php'
-        . PMA_URL_getCommon($url_params) . '">';
+    $retval .= '<form action="server_status_processes.php">';
+    $retval .= URL::getHiddenInputs($url_params);
     $retval .= '<input type="submit" value="' . __('Refresh') . '" />';
     $retval .= '<div class="formelement">';
     $retval .= '<input' . $showExecuting . ' type="checkbox" name="showExecuting"'
@@ -250,12 +248,11 @@ function PMA_getHtmlForProcessListFilter()
  * Prints Every Item of Server Process
  *
  * @param array $process       data of Every Item of Server Process
- * @param bool  $odd_row       display odd row or not
  * @param bool  $show_full_sql show full sql or not
  *
  * @return string
  */
-function PMA_getHtmlForServerProcessItem($process, $odd_row, $show_full_sql)
+function PMA_getHtmlForServerProcessItem($process, $show_full_sql)
 {
     // Array keys need to modify due to the way it has used
     // to display column values
@@ -275,16 +272,16 @@ function PMA_getHtmlForServerProcessItem($process, $odd_row, $show_full_sql)
         'kill' => $process['Id'],
         'ajax_request' => true
     );
-    $kill_process = 'server_status_processes.php' . PMA_URL_getCommon($url_params);
+    $kill_process = 'server_status_processes.php' . URL::getCommon($url_params);
 
-    $retval  = '<tr class="' . ($odd_row ? 'odd' : 'even') . '">';
+    $retval  = '<tr>';
     $retval .= '<td><a class="ajax kill_process" href="' . $kill_process . '">'
         . __('Kill') . '</a></td>';
     $retval .= '<td class="value">' . $process['Id'] . '</td>';
     $retval .= '<td>' . htmlspecialchars($process['User']) . '</td>';
     $retval .= '<td>' . htmlspecialchars($process['Host']) . '</td>';
     $retval .= '<td>' . ((! isset($process['db'])
-            || !mb_strlen($process['db']))
+            || strlen($process['db']) === 0)
             ? '<i>' . __('None') . '</i>'
             : htmlspecialchars($process['db'])) . '</td>';
     $retval .= '<td>' . htmlspecialchars($process['Command']) . '</td>';

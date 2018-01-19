@@ -9,8 +9,8 @@
 use PMA\libraries\navigation\NodeFactory;
 use PMA\libraries\navigation\nodes\NodeDatabaseChild;
 use PMA\libraries\Theme;
+use PMA\libraries\URL;
 
-require_once 'libraries/url_generating.lib.php';
 require_once 'libraries/relation.lib.php';
 require_once 'test/PMATestCase.php';
 
@@ -34,12 +34,11 @@ class NodeDatabaseChildTest extends PMATestCase
      */
     protected function setUp()
     {
-        $_SESSION['PMA_Theme'] = new Theme();
         $GLOBALS['pmaThemePath'] = $_SESSION['PMA_Theme']->getPath();
-        $GLOBALS['pmaThemeImage'] = 'theme/';
         $GLOBALS['cfg']['DefaultTabDatabase'] = 'structure';
         $GLOBALS['server'] = 1;
         $GLOBALS['cfg']['ServerDefault'] = 1;
+        $GLOBALS['pmaThemeImage'] = '';
         $_SESSION['relation'][1]['PMA_VERSION'] = PMA_VERSION;
         $_SESSION['relation'][1]['navwork'] = true;
         $this->object = $this->getMockForAbstractClass(
@@ -82,9 +81,9 @@ class NodeDatabaseChildTest extends PMATestCase
             $html
         );
         $this->assertContains(
-            '<a href="navigation.php' . PMA_URL_getCommon()
-            . '&hideNavItem=true&itemType=itemType&itemName=child'
-            . '&dbName=parent" class="hideNavItem ajax">',
+            '<a href="navigation.php?'
+            . 'hideNavItem=1&amp;itemType=itemType&amp;itemName=child'
+            . '&amp;dbName=parent&amp;lang=en&amp;token=token" class="hideNavItem ajax">',
             $html
         );
     }

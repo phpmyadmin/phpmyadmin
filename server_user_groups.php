@@ -5,6 +5,7 @@
  *
  * @package PhpMyAdmin
  */
+use PMA\libraries\Response;
 
 require_once 'libraries/common.inc.php';
 require_once 'libraries/server_users.lib.php';
@@ -15,7 +16,7 @@ if (! $GLOBALS['cfgRelation']['menuswork']) {
     exit;
 }
 
-$response = PMA\libraries\Response::getInstance();
+$response = Response::getInstance();
 $header   = $response->getHeader();
 $scripts  = $header->getScripts();
 $scripts->addFile('server_user_groups.js');

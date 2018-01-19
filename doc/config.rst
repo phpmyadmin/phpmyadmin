@@ -5,10 +5,15 @@
 Configuration
 =============
 
-Almost all configurable data is placed in :file:`config.inc.php`. If this file
-does not exist, please refer to the :ref:`setup` section to create one. This
-file only needs to contain the parameters you want to change from their
-corresponding default value in :file:`libraries/config.default.php`.
+All configurable data is placed in :file:`config.inc.php` in phpMyAdmin's
+toplevel directory.  If this file does not exist, please refer to the
+:ref:`setup` section to create one. This file only needs to contain the
+parameters you want to change from their corresponding default value in
+:file:`libraries/config.default.php` (this file is not inteded for changes).
+
+.. seealso::
+
+    :ref:`config-examples` for examples of configurations
 
 If a directive is missing from your file, you can just add another line with
 the file. This file is for over-writing the defaults; if you wish to use the
@@ -48,13 +53,12 @@ Basic settings
     Sets here the complete :term:`URL` (with full path) to your phpMyAdmin
     installation's directory. E.g.
     ``https://www.example.net/path_to_your_phpMyAdmin_directory/``.  Note also
-    that the :term:`URL` on most of web servers are case–sensitive. Don’t
-    forget the trailing slash at the end.
+    that the :term:`URL` on most of web servers are case sensitive (even on
+    Windows). Don’t forget the trailing slash at the end.
 
     Starting with version 2.3.0, it is advisable to try leaving this blank. In
     most cases phpMyAdmin automatically detects the proper setting. Users of
-    port forwarding will need to set :config:option:`$cfg['PmaAbsoluteUri']`
-    (`more info <https://sourceforge.net/p/phpmyadmin/support-requests/795/>`_).
+    port forwarding or complex reverse proxy setup might need to set this.
 
     A good test is to browse a table, edit a row and save it. There should be
     an error message if phpMyAdmin is having trouble auto–detecting the correct
@@ -103,6 +107,10 @@ Basic settings
 
     :type: boolean
     :default: false
+
+    .. deprecated:: 4.7.0
+
+        This setting was removed as the warning has been removed as well.
 
     A warning is displayed on the main page if there is a difference
     between the MySQL library and server version.
@@ -208,13 +216,22 @@ Server connection settings
 
     * hostname, e.g., ``'localhost'`` or ``'mydb.example.org'``
     * IP address, e.g., ``'127.0.0.1'`` or ``'192.168.10.1'``
+    * IPv6 address, e.g. ``2001:cdba:0000:0000:0000:0000:3257:9652``
     * dot - ``'.'``, i.e., use named pipes on windows systems
     * empty - ``''``, disables this server
 
     .. note::
 
-        phpMyAdmin supports connecting to MySQL servers reachable via IPv6 only.
-		To connect to an IPv6 MySQL server, enter its IPv6 address in this field.
+        The hostname ``localhost`` is handled specially by MySQL and it uses
+        the socket based connection protocol. To use TCP/IP networking, use an
+        IP address or hostname such as ``127.0.0.1`` or ``db.example.com``. You
+        can configure the path to the socket with
+        :config:option:`$cfg['Servers'][$i]['socket']`.
+
+    .. seealso::
+
+        :config:option:`$cfg['Servers'][$i]['port']`,
+        <https://dev.mysql.com/doc/refman/5.7/en/connecting.html>
 
 .. config:option:: $cfg['Servers'][$i]['port']
 
@@ -231,6 +248,11 @@ Server connection settings
        different from the default port, use ``127.0.0.1`` or the real hostname
        in :config:option:`$cfg['Servers'][$i]['host']`.
 
+    .. seealso::
+
+        :config:option:`$cfg['Servers'][$i]['host']`,
+        <https://dev.mysql.com/doc/refman/5.7/en/connecting.html>
+
 .. config:option:: $cfg['Servers'][$i]['socket']
 
     :type: string
@@ -241,19 +263,38 @@ Server connection settings
     :command:`mysql` command–line client, issue the ``status`` command. Among the
     resulting information displayed will be the socket used.
 
+    .. note::
+
+        This takes effect only if :config:option:`$cfg['Servers'][$i]['host']` is set
+        to ``localhost``.
+
+    .. seealso::
+
+        :config:option:`$cfg['Servers'][$i]['host']`,
+        <https://dev.mysql.com/doc/refman/5.7/en/connecting.html>
+
 .. config:option:: $cfg['Servers'][$i]['ssl']
 
     :type: boolean
     :default: false
 
-    Whether to enable SSL for the connection between phpMyAdmin and the MySQL server.
+    Whether to enable SSL for the connection between phpMyAdmin and the MySQL
+    server to secure the connection.
 
     When using the ``'mysql'`` extension,
     none of the remaining ``'ssl...'`` configuration options apply.
 
     We strongly recommend the ``'mysqli'`` extension when using this option.
 
-    .. seealso:: :ref:`example-google-ssl`
+    .. seealso::
+
+        :ref:`example-google-ssl`
+        :config:option:`$cfg['Servers'][$i]['ssl_key']`,
+        :config:option:`$cfg['Servers'][$i]['ssl_cert']`,
+        :config:option:`$cfg['Servers'][$i]['ssl_ca']`,
+        :config:option:`$cfg['Servers'][$i]['ssl_ca_path']`,
+        :config:option:`$cfg['Servers'][$i]['ssl_ciphers']`,
+        :config:option:`$cfg['Servers'][$i]['ssl_verify']`
 
 .. config:option:: $cfg['Servers'][$i]['ssl_key']
 
@@ -268,7 +309,15 @@ Server connection settings
 
         $cfg['Servers'][$i]['ssl_key'] = '/etc/mysql/server-key.pem';
 
-    .. seealso:: :ref:`example-google-ssl`
+    .. seealso::
+
+        :ref:`example-google-ssl`
+        :config:option:`$cfg['Servers'][$i]['ssl']`,
+        :config:option:`$cfg['Servers'][$i]['ssl_cert']`,
+        :config:option:`$cfg['Servers'][$i]['ssl_ca']`,
+        :config:option:`$cfg['Servers'][$i]['ssl_ca_path']`,
+        :config:option:`$cfg['Servers'][$i]['ssl_ciphers']`,
+        :config:option:`$cfg['Servers'][$i]['ssl_verify']`
 
 .. config:option:: $cfg['Servers'][$i]['ssl_cert']
 
@@ -277,7 +326,15 @@ Server connection settings
 
     Path to the cert file when using SSL for connecting to the MySQL server.
 
-    .. seealso:: :ref:`example-google-ssl`
+    .. seealso::
+
+        :ref:`example-google-ssl`
+        :config:option:`$cfg['Servers'][$i]['ssl']`,
+        :config:option:`$cfg['Servers'][$i]['ssl_key']`,
+        :config:option:`$cfg['Servers'][$i]['ssl_ca']`,
+        :config:option:`$cfg['Servers'][$i]['ssl_ca_path']`,
+        :config:option:`$cfg['Servers'][$i]['ssl_ciphers']`,
+        :config:option:`$cfg['Servers'][$i]['ssl_verify']`
 
 .. config:option:: $cfg['Servers'][$i]['ssl_ca']
 
@@ -286,7 +343,15 @@ Server connection settings
 
     Path to the CA file when using SSL for connecting to the MySQL server.
 
-    .. seealso:: :ref:`example-google-ssl`
+    .. seealso::
+
+        :ref:`example-google-ssl`
+        :config:option:`$cfg['Servers'][$i]['ssl']`,
+        :config:option:`$cfg['Servers'][$i]['ssl_key']`,
+        :config:option:`$cfg['Servers'][$i]['ssl_cert']`,
+        :config:option:`$cfg['Servers'][$i]['ssl_ca_path']`,
+        :config:option:`$cfg['Servers'][$i]['ssl_ciphers']`,
+        :config:option:`$cfg['Servers'][$i]['ssl_verify']`
 
 .. config:option:: $cfg['Servers'][$i]['ssl_ca_path']
 
@@ -295,12 +360,32 @@ Server connection settings
 
     Directory containing trusted SSL CA certificates in PEM format.
 
+    .. seealso::
+
+        :ref:`example-google-ssl`
+        :config:option:`$cfg['Servers'][$i]['ssl']`,
+        :config:option:`$cfg['Servers'][$i]['ssl_key']`,
+        :config:option:`$cfg['Servers'][$i]['ssl_cert']`,
+        :config:option:`$cfg['Servers'][$i]['ssl_ca']`,
+        :config:option:`$cfg['Servers'][$i]['ssl_ciphers']`,
+        :config:option:`$cfg['Servers'][$i]['ssl_verify']`
+
 .. config:option:: $cfg['Servers'][$i]['ssl_ciphers']
 
     :type: string
     :default: NULL
 
     List of allowable ciphers for SSL connections to the MySQL server.
+
+    .. seealso::
+
+        :config:option:`$cfg['Servers'][$i]['ssl']`,
+        :config:option:`$cfg['Servers'][$i]['ssl_key']`,
+        :config:option:`$cfg['Servers'][$i]['ssl_cert']`,
+        :config:option:`$cfg['Servers'][$i]['ssl_ca']`,
+        :config:option:`$cfg['Servers'][$i]['ssl_ca_path']`,
+        :config:option:`$cfg['Servers'][$i]['ssl_verify']`
+
 
 .. config:option:: $cfg['Servers'][$i]['ssl_verify']
 
@@ -316,20 +401,41 @@ Server connection settings
     there is a chance your SSL connection will fail due to validation.
     Setting this to ``false`` will disable the validation check.
 
-    Since PHP 5.6.0 it also verifies whether server name matches CN of it's
+    Since PHP 5.6.0 it also verifies whether server name matches CN of its
     certificate. There is currently no way to disable just this check without
     disabling complete SSL verification.
+    
+    .. warning::
+
+        Disabling the certificate verification defeats purpose of using SSL.
+        This will make the connection vulnerable to man in the middle attacks.
 
     .. note::
 
         This flag only works with PHP 5.6.16 or later.
 
-    .. seealso:: :ref:`example-google-ssl`
+    .. seealso::
+
+        :ref:`example-google-ssl`
+        :config:option:`$cfg['Servers'][$i]['ssl']`,
+        :config:option:`$cfg['Servers'][$i]['ssl_key']`,
+        :config:option:`$cfg['Servers'][$i]['ssl_cert']`,
+        :config:option:`$cfg['Servers'][$i]['ssl_ca']`,
+        :config:option:`$cfg['Servers'][$i]['ssl_ca_path']`,
+        :config:option:`$cfg['Servers'][$i]['ssl_ciphers']`,
+        :config:option:`$cfg['Servers'][$i]['ssl_verify']`
 
 .. config:option:: $cfg['Servers'][$i]['connect_type']
 
     :type: string
     :default: ``'tcp'``
+
+    .. deprecated:: 4.7.0
+
+       This setting is no longer used as of 4.7.0, since MySQL decides the
+       connection type based on host, so it could lead to unexpected results.
+       Please set :config:option:`$cfg['Servers'][$i]['host']` accordingly
+       instead.
 
     What type connection to use with the MySQL server. Your options are
     ``'socket'`` and ``'tcp'``. It defaults to tcp as that is nearly guaranteed
@@ -354,6 +460,10 @@ Server connection settings
     Permits to use an alternate host to hold the configuration storage
     data.
 
+    .. seealso::
+
+        :config:option:`$cfg['Servers'][$i]['control_*']`
+
 .. _controlport:
 .. config:option:: $cfg['Servers'][$i]['controlport']
 
@@ -362,6 +472,10 @@ Server connection settings
 
     Permits to use an alternate port to connect to the host that
     holds the configuration storage.
+
+    .. seealso::
+
+        :config:option:`$cfg['Servers'][$i]['control_*']`
 
 .. _controluser:
 .. config:option:: $cfg['Servers'][$i]['controluser']
@@ -374,13 +488,59 @@ Server connection settings
     :type: string
     :default: ``''``
 
-    This special account is used for 2 distinct purposes: to make possible all
-    relational features (see :config:option:`$cfg['Servers'][$i]['pmadb']`).
+    This special account is used to access :ref:`linked-tables`. 
+    You don't need it in single user case, but if phpMyAdmin is shared it
+    is recommended to give access to :ref:`linked-tables` only to this user
+    and configure phpMyAdmin to use it. All users will then be able to use 
+    the features without need to have direct access to :ref:`linked-tables`.
 
     .. versionchanged:: 2.2.5
         those were called ``stduser`` and ``stdpass``
 
-    .. seealso:: :ref:`setup`, :ref:`authentication_modes`, :ref:`linked-tables`
+    .. seealso:: 
+        
+        :ref:`setup`, 
+        :ref:`authentication_modes`, 
+        :ref:`linked-tables`,
+        :config:option:`$cfg['Servers'][$i]['pmadb']`,
+        :config:option:`$cfg['Servers'][$i]['controlhost']`,
+        :config:option:`$cfg['Servers'][$i]['controlport']`,
+        :config:option:`$cfg['Servers'][$i]['control_*']`
+
+.. config:option:: $cfg['Servers'][$i]['control_*']
+
+    :type: mixed
+
+    .. versionadded:: 4.7.0
+
+    You can change any MySQL connection setting for control link (used to
+    access :ref:`linked-tables`) using configuration prefixed with ``control_``.
+
+    This can be used to change any aspect of the control connection, which by
+    default uses same parameters as the user one.
+
+    For example you can configure SSL for the control connection:
+
+    .. code-block:: php
+
+        // Enable SSL
+        $cfg['Servers'][$i]['control_ssl'] = true;
+        // Client secret key
+        $cfg['Servers'][$i]['control_ssl_key'] = '../client-key.pem';
+        // Client certificate
+        $cfg['Servers'][$i]['control_ssl_cert'] = '../client-cert.pem';
+        // Server certification authority
+        $cfg['Servers'][$i]['control_ssl_ca'] = '../server-ca.pem';
+
+    .. seealso::
+
+        :config:option:`$cfg['Servers'][$i]['ssl']`,
+        :config:option:`$cfg['Servers'][$i]['ssl_key']`,
+        :config:option:`$cfg['Servers'][$i]['ssl_cert']`,
+        :config:option:`$cfg['Servers'][$i]['ssl_ca']`,
+        :config:option:`$cfg['Servers'][$i]['ssl_ca_path']`,
+        :config:option:`$cfg['Servers'][$i]['ssl_ciphers']`,
+        :config:option:`$cfg['Servers'][$i]['ssl_verify']`
 
 .. config:option:: $cfg['Servers'][$i]['auth_type']
 
@@ -390,13 +550,13 @@ Server connection settings
     Whether config or cookie or :term:`HTTP` or signon authentication should be
     used for this server.
 
-    * 'config' authentication (``$auth_type = 'config'``) is the plain old
+    * 'config' authentication (``$auth_type = 'config'``) is the plain old
       way: username and password are stored in :file:`config.inc.php`.
-    * 'cookie' authentication mode (``$auth_type = 'cookie'``) allows you to
+    * 'cookie' authentication mode (``$auth_type = 'cookie'``) allows you to
       log in as any valid MySQL user with the help of cookies.
     * 'http' authentication allows you to log in as any
       valid MySQL user via HTTP-Auth.
-    * 'signon' authentication mode (``$auth_type = 'signon'``) allows you to
+    * 'signon' authentication mode (``$auth_type = 'signon'``) allows you to
       log in from prepared PHP session data or using supplied PHP script.
 
     .. seealso:: :ref:`authentication_modes`
@@ -435,6 +595,10 @@ Server connection settings
 
     :type: boolean
     :default: false
+
+    .. deprecated:: 4.7.0
+
+        This setting was removed as it can produce unexpected results.
 
     Allow attempt to log in without password when a login with password
     fails. This can be used together with http authentication, when
@@ -494,7 +658,7 @@ Server connection settings
 
     More information on regular expressions can be found in the `PCRE
     pattern syntax
-    <https://php.net/manual/en/reference.pcre.pattern.syntax.php>`_ portion
+    <https://secure.php.net/manual/en/reference.pcre.pattern.syntax.php>`_ portion
     of the PHP reference manual.
 
 .. config:option:: $cfg['Servers'][$i]['verbose']
@@ -507,6 +671,15 @@ Server connection settings
     pull-down menu on the main page. This can be useful if you want to
     show only certain databases on your system, for example. For HTTP
     auth, all non-US-ASCII characters will be stripped.
+
+.. config:option:: $cfg['Servers'][$i]['extension']
+
+    :type: string
+    :default: ``'mysqli'``
+
+    The PHP MySQL extension to use (``mysql`` or ``mysqli``).
+
+    It is recommended to use ``mysqli`` in all installations.
 
 .. config:option:: $cfg['Servers'][$i]['pmadb']
 
@@ -611,6 +784,12 @@ Server connection settings
     :type: string or false
     :default: ``''``
 
+    The designer feature can save your page layout; by pressing the "Save page" or "Save page as"
+    button in the expanding designer menu, you can customize the layout and have it loaded the next
+    time you use the designer. That layout is stored in this table. Furthermore, this table is also
+    required for using the PDF relation export feature, see
+    :config:option:`$cfg['Servers'][$i]['pdf\_pages']` for additional details.
+
 .. config:option:: $cfg['Servers'][$i]['pdf_pages']
 
     :type: string or false
@@ -673,7 +852,7 @@ Server connection settings
       ``pma__column_info``)
     * to update your PRE-2.5.0 Column\_comments table use this:  and
       remember that the Variable in :file:`config.inc.php` has been renamed from
-      :config:option:`$cfg['Servers'][$i]['column\_comments']` to
+      :samp:`$cfg['Servers'][$i]['column\_comments']` to
       :config:option:`$cfg['Servers'][$i]['column\_info']`
 
       .. code-block:: mysql
@@ -692,7 +871,7 @@ Server connection settings
         For auto-upgrade functionality to work, your
         ``$cfg['Servers'][$i]['controluser']`` must have ALTER privilege on
         ``phpmyadmin`` database. See the `MySQL documentation for GRANT
-        <https://dev.mysql.com/doc/mysql/en/grant.html>`_ on how to
+        <https://dev.mysql.com/doc/refman/5.7/en/grant.html>`_ on how to
         ``GRANT`` privileges to a user.
 
 .. _history:
@@ -1153,13 +1332,19 @@ Server connection settings
 
     Disable using ``INFORMATION_SCHEMA`` to retrieve information (use
     ``SHOW`` commands instead), because of speed issues when many
-    databases are present. Currently used in some parts of the code, more
-    to come.
+    databases are present. 
+
+    .. note::
+
+        Enabling this option might give you big performance boost on older
+        MySQL servers.
 
 .. config:option:: $cfg['Servers'][$i]['SignonScript']
 
     :type: string
     :default: ``''``
+
+    .. versionadded:: 3.5.0
 
     Name of PHP script to be sourced and executed to obtain login
     credentials. This is alternative approach to session based single
@@ -1181,6 +1366,23 @@ Server connection settings
     Name of session which will be used for signon authentication method.
     You should use something different than ``phpMyAdmin``, because this
     is session which phpMyAdmin uses internally. Takes effect only if
+    :config:option:`$cfg['Servers'][$i]['SignonScript']` is not configured.
+
+    .. seealso:: :ref:`auth_signon`
+
+.. config:option:: $cfg['Servers'][$i]['SignonCookieParams']
+
+    :type: array
+    :default: ``array()``
+
+    .. versionadded:: 4.7.0
+
+    An associative array of session cookie parameters of other authentication system.
+    It is not needed if the other system doesn't use session_set_cookie_params().
+    Keys should include 'lifetime', 'path', 'domain', 'secure' or 'httponly'.
+    Valid values are mentioned in `session_get_cookie_params <https://php.net/manual/en/
+    function.session-get-cookie-params.php>`_, they should be set to same values as the
+    other application uses. Takes effect only if
     :config:option:`$cfg['Servers'][$i]['SignonScript']` is not configured.
 
     .. seealso:: :ref:`auth_signon`
@@ -1207,6 +1409,13 @@ Server connection settings
 
 Generic settings
 ----------------
+
+.. config:option:: $cfg['DisableShortcutKeys']
+
+    :type: boolean
+    :default: false
+
+    You can disable phpMyAdmin shortcut keys by setting :config:option:`$cfg['DisableShortcutKeys']` to false.
 
 .. config:option:: $cfg['ServerDefault']
 
@@ -1301,14 +1510,14 @@ Generic settings
     :type: boolean
     :default: false
 
-    Whether `persistent connections <https://php.net/manual/en/features
+    Whether `persistent connections <https://secure.php.net/manual/en/features
     .persistent-connections.php>`_ should be used or not. Works with
     following extensions:
 
-    * mysql (`mysql\_pconnect <https://php.net/manual/en/function.mysql-
+    * mysql (`mysql\_pconnect <https://secure.php.net/manual/en/function.mysql-
       pconnect.php>`_),
     * mysqli (requires PHP 5.3.0 or newer, `more information
-      <https://php.net/manual/en/mysqli.persistconns.php>`_).
+      <https://secure.php.net/manual/en/mysqli.persistconns.php>`_).
 
 .. config:option:: $cfg['ForceSSL']
 
@@ -1345,7 +1554,7 @@ Generic settings
     :default: ``''``
 
     Path for storing session data (`session\_save\_path PHP parameter
-    <https://php.net/session_save_path>`_).
+    <https://secure.php.net/session_save_path>`_).
 
 .. config:option:: $cfg['MemoryLimit']
 
@@ -1497,7 +1706,7 @@ Cookie authentication options
 
     Define how long a login cookie is valid. Please note that php
     configuration option `session.gc\_maxlifetime
-    <https://php.net/manual/en/session.configuration.php#ini.session.gc-
+    <https://secure.php.net/manual/en/session.configuration.php#ini.session.gc-
     maxlifetime>`_ might limit session validity and if the session is lost,
     the login cookie is also invalidated. So it is a good idea to set
     ``session.gc_maxlifetime`` at least to the same value of
@@ -1577,7 +1786,7 @@ Cookie authentication options
     :default: ``''``
 
     The public key for the reCaptcha service that can be obtained from
-    https://www.google.com/recaptcha.
+    https://www.google.com/recaptcha/intro/.
 
     reCaptcha will be then used in :ref:`cookie`.
 
@@ -1587,7 +1796,7 @@ Cookie authentication options
     :default: ``''``
 
     The private key for the reCaptcha service that can be obtain from
-    https://www.google.com/recaptcha.
+    https://www.google.com/recaptcha/intro/.
 
     reCaptcha will be then used in :ref:`cookie`.
 
@@ -1788,7 +1997,7 @@ Navigation panel setup
 .. config:option:: $cfg['NavigationTreeEnableExpansion']
 
     :type: boolean
-    :default: false
+    :default: true
 
     Whether to offer the possibility of tree expansion in the navigation panel.
 
@@ -1850,25 +2059,51 @@ Main panel
     You can additionally hide more information by using
     :config:option:`$cfg['Servers'][$i]['verbose']`.
 
+.. config:option:: $cfg['ShowPhpInfo']
+
+    :type: boolean
+    :default: false
+
+    Defines whether to display the :guilabel:`PHP information` or not at
+    the starting main (right) frame.
+
+    Please note that to block the usage of ``phpinfo()`` in scripts, you have to
+    put this in your :file:`php.ini`:
+
+    .. code-block:: ini
+
+        disable_functions = phpinfo()
+
+    .. warning::
+
+        Enabling phpinfo page will leak quite a lot of information about server
+        setup. Is it not recommended to enable this on shared installations.
+
+        This might also make easier some remote attacks on your installations,
+        so enable this only when needed.
+
 .. config:option:: $cfg['ShowChgPassword']
 
     :type: boolean
     :default: true
+
+    Defines whether to display the :guilabel:`Change password` link or not at
+    the starting main (right) frame. This setting does not check MySQL commands
+    entered directly.
+
+    Please note that enabling the :guilabel:`Change password` link has no effect
+    with config authentication mode: because of the hard coded password value
+    in the configuration file, end users can't be allowed to change their
+    passwords.
 
 .. config:option:: $cfg['ShowCreateDb']
 
     :type: boolean
     :default: true
 
-    Defines whether to display the 
-    :guilabel:`Change password` links and form for creating database or not at
-    the starting main (right) frame. This setting does not check MySQL commands
+    Defines whether to display the form for creating database or not at the
+    starting main (right) frame. This setting does not check MySQL commands
     entered directly.
-
-    Also note that enabling the :guilabel:`Change password` link has no effect
-    with config authentication mode: because of the hard coded password value
-    in the configuration file, end users can't be allowed to change their
-    passwords.
 
 .. config:option:: $cfg['ShowGitRevision']
 
@@ -1921,6 +2156,13 @@ Database structure
 
     Defines whether the table structure actions are hidden under a "More"
     drop-down.
+
+.. config:option:: $cfg['ShowColumnComments']
+
+    :type: boolean
+    :default: true
+
+    Defines whether to show column comments as a column in the table structure view.
 
 Browse mode
 -----------
@@ -1978,6 +2220,9 @@ Browse mode
     descending (``DESC``) order or in a "smart" (``SMART``) order - I.E.
     descending order for columns of type TIME, DATE, DATETIME and
     TIMESTAMP, ascending order else- by default.
+
+    .. versionchanged:: 3.4.0
+        Since phpMyAdmin 3.4.0 the default value is ``'SMART'``.
 
 .. config:option:: $cfg['GridEditing']
 
@@ -2104,6 +2349,13 @@ Export and import settings
     items are similar to texts seen on export page, so you can easily
     identify what they mean.
 
+.. config:option:: $cfg['Export']['format']
+   
+    :type: string
+    :default: ``'sql'``
+
+    Default export format.
+
 .. config:option:: $cfg['Export']['method']
 
     :type: string
@@ -2117,7 +2369,40 @@ Export and import settings
     * ``custom-no-form`` same as ``custom`` but does not display the option
       of using quick export
 
+.. config:option:: $cfg['Export']['charset']
 
+    :type: string
+    :default: ``''``
+
+    Defines charset for generated export. By default no charset conversion is
+    done assuming UTF-8.
+
+.. config:option:: $cfg['Export']['file_template_table']
+
+    :type: string
+    :default: ``'@TABLE@'``
+
+    Default filename template for table exports.
+
+    .. seealso:: :ref:`faq6_27`
+
+.. config:option:: $cfg['Export']['file_template_database']
+
+    :type: string
+    :default: ``'@DATABASE@'``
+
+    Default filename template for database exports.
+
+    .. seealso:: :ref:`faq6_27`
+
+.. config:option:: $cfg['Export']['file_template_server']
+
+    :type: string
+    :default: ``'@SERVER@'``
+
+    Default filename template for server exports.
+
+    .. seealso:: :ref:`faq6_27`
 
 .. config:option:: $cfg['Import']
 
@@ -2128,6 +2413,13 @@ Export and import settings
     items are similar to texts seen on import page, so you can easily
     identify what they mean.
 
+.. config:option:: $cfg['Import']['charset']
+
+    :type: string
+    :default: ``''``
+
+    Defines charset for import. By default no charset conversion is done
+    assuming UTF-8.
 
 Tabs display settings
 ---------------------
@@ -2224,11 +2516,11 @@ Languages
 .. config:option:: $cfg['DefaultConnectionCollation']
 
     :type: string
-    :default: ``'utf8_general_ci'``
+    :default: ``'utf8mb4_general_ci'``
 
     Defines the default connection collation to use, if not user-defined.
     See the `MySQL documentation for charsets
-    <https://dev.mysql.com/doc/mysql/en/charset-charsets.html>`_
+    <https://dev.mysql.com/doc/refman/5.7/en/charset-charsets.html>`_
     for list of possible values.
 
 .. config:option:: $cfg['Lang']
@@ -2260,7 +2552,7 @@ Languages
       recode)
     * iconv - use iconv or libiconv functions
     * recode - use recode\_string function
-    * mb - use mbstring extension
+    * mb - use :term:`mbstring` extension
     * none - disable encoding conversion
 
     Enabled charset conversion activates a pull-down menu in the Export
@@ -2444,7 +2736,7 @@ Design customization
     :default: false
 
     Defines whether to show row links (Edit, Copy, Delete) and checkboxes
-    for multiple row operations even when the selection does not have a unique key.
+    for multiple row operations even when the selection does not have a :term:`unique key`.
     Using row actions in the absence of a unique key may result in different/more
     rows being affected since there is no guaranteed way to select the exact row(s).
 
@@ -2460,7 +2752,7 @@ Design customization
     :type: string
     :default: ``'NONE'``
 
-    This defines the default sort order for the tables, having a primary key,
+    This defines the default sort order for the tables, having a :term:`primary key`,
     when there is no sort order defines externally.
     Acceptable values : ['NONE', 'ASC', 'DESC']
 
@@ -2768,6 +3060,8 @@ Various display setting
     ``SELECT COUNT`` will be used, otherwise the approximate count will be
     used.
 
+    .. seealso:: :ref:`faq3_11`
+
 .. config:option:: $cfg['MaxExactCountViews']
 
     :type: integer
@@ -2841,14 +3135,6 @@ Page titles
 Theme manager settings
 ----------------------
 
-.. config:option:: $cfg['ThemePath']
-
-    :type: string
-    :default: ``'./themes'``
-
-    If theme manager is active, use this as the path of the subdirectory
-    containing all the themes.
-
 .. config:option:: $cfg['ThemeManager']
 
     :type: boolean
@@ -2861,7 +3147,7 @@ Theme manager settings
     :type: string
     :default: ``'pmahomme'``
 
-    The default theme (a subdirectory under :config:option:`$cfg['ThemePath']`).
+    The default theme (a subdirectory under :file:`./themes/`).
 
 .. config:option:: $cfg['ThemePerServer']
 
@@ -2921,19 +3207,126 @@ Developer
     Enable logging queries and execution times to be
     displayed in the console's Debug SQL tab.
 
+.. config:option:: $cfg['DBG']['sqllog']
+
+    :type: boolean
+    :default: false
+
+    Enable logging of queries and execution times to the syslog.
+    Requires :config:option:`$cfg['DBG']['sql']` to be enabled.
+
 .. config:option:: $cfg['DBG']['demo']
 
     :type: boolean
     :default: false
 
     Enable to let server present itself as demo server.
-    This is used for <https://demo.phpmyadmin.net/>.
+    This is used for `phpMyAdmin demo server <https://www.phpmyadmin.net/try/>`_.
 
+    It currently changes following behavior:
+
+    * There is welcome message on the main page.
+    * There is footer information about demo server and used git revision.
+    * The setup script is enabled even with existing configuration.
+    * The setup does not try to connect to the MySQL server.
+
+.. _config-examples:
 
 Examples
 --------
 
-See following configuration snippets for usual setups of phpMyAdmin.
+See following configuration snippets for typical setups of phpMyAdmin.
+
+Basic example
++++++++++++++
+
+Example configuration file, which can be copied to :file:`config.inc.php` to
+get some core configuration layout; it is distributed with phpMyAdmin as
+:file:`config.sample.inc.php`. Please note that it does not contain all
+configuration options, only the most frequently used ones.
+
+.. literalinclude:: ../config.sample.inc.php
+   :language: php
+
+.. warning::
+
+    Don't use the controluser 'pma' if it does not yet exist and don't use 'pmapass'
+    as password.
+
+
+.. _example-signon:
+
+Example for signon authentication
++++++++++++++++++++++++++++++++++
+
+This example uses :file:`examples/signon.php` to demonstrate usage of :ref:`auth_signon`:
+
+.. code-block:: php
+
+    <?php
+    $i = 0;
+    $i++;
+    $cfg['Servers'][$i]['extension']     = 'mysqli';
+    $cfg['Servers'][$i]['auth_type']     = 'signon';
+    $cfg['Servers'][$i]['SignonSession'] = 'SignonSession';
+    $cfg['Servers'][$i]['SignonURL']     = 'examples/signon.php';
+    ?>`
+
+Example for IP address limited autologin
+++++++++++++++++++++++++++++++++++++++++
+
+If you want to automatically login when accessing phpMyAdmin locally while asking
+for a password when accessing remotely, you can achieve it using following snippet:
+
+.. code-block:: php
+
+    if ($_SERVER["REMOTE_ADDR"] == "127.0.0.1") {
+        $cfg['Servers'][$i]['auth_type'] = 'config';
+        $cfg['Servers'][$i]['user'] = 'root';
+        $cfg['Servers'][$i]['password'] = 'yourpassword';
+    } else {
+        $cfg['Servers'][$i]['auth_type'] = 'cookie';
+    }
+
+.. note::
+
+    Filtering based on IP addresses isn't reliable over the internet, use it
+    only for local address.
+
+Example for using multiple MySQL servers
+++++++++++++++++++++++++++++++++++++++++
+
+You can configure any number of servers using :config:option:`$cfg['Servers']`,
+following example shows two of them:
+
+.. code-block:: php
+
+    <?php
+    $cfg['blowfish_secret']='multiServerExample70518';
+    //any string of your choice
+    $i = 0;
+
+    $i++; // server 1 :
+    $cfg['Servers'][$i]['auth_type'] = 'cookie';
+    $cfg['Servers'][$i]['verbose']   = 'no1';
+    $cfg['Servers'][$i]['host']      = 'localhost';
+    $cfg['Servers'][$i]['extension'] = 'mysqli';
+    // more options for #1 ...
+
+    $i++; // server 2 :
+    $cfg['Servers'][$i]['auth_type'] = 'cookie';
+    $cfg['Servers'][$i]['verbose']   = 'no2';
+    $cfg['Servers'][$i]['host']      = 'remote.host.addr';//or ip:'10.9.8.1'
+    // this server must allow remote clients, e.g., host 10.9.8.%
+    // not only in mysql.host but also in the startup configuration
+    $cfg['Servers'][$i]['extension'] = 'mysqli';
+    // more options for #2 ...
+
+    // end of server sections
+    $cfg['ServerDefault'] = 0; // to choose the server on startup
+
+    // further general options ...
+    ?>
 
 .. _example-google-ssl:
 
@@ -2943,7 +3336,9 @@ Google Cloud SQL with SSL
 To connect to Google Could SQL, you currently need to disable certificate
 verification. This is caused by the certficate being issued for CN matching
 your instance name, but you connect to an IP address and PHP tries to match
-these two. With verfication you end up with error message like::
+these two. With verfication you end up with error message like:
+
+.. code-block:: text
 
     Peer certificate CN=`api-project-851612429544:pmatest' did not match expected CN=`8.8.8.8'
 
@@ -2958,7 +3353,7 @@ server certificates and tell phpMyAdmin to use them:
 .. code-block:: php
 
     // IP address of your instance
-    $cfg['Servers'][2]['host'] = '8.8.8.8';
+    $cfg['Servers'][$i]['host'] = '8.8.8.8';
     // Use SSL for connection
     $cfg['Servers'][$i]['ssl'] = true;
     // Client secret key
@@ -2976,4 +3371,5 @@ server certificates and tell phpMyAdmin to use them:
     :config:option:`$cfg['Servers'][$i]['ssl_key']`,
     :config:option:`$cfg['Servers'][$i]['ssl_cert']`,
     :config:option:`$cfg['Servers'][$i]['ssl_ca']`,
-    :config:option:`$cfg['Servers'][$i]['ssl_verify']`
+    :config:option:`$cfg['Servers'][$i]['ssl_verify']`,
+    <https://bugs.php.net/bug.php?id=72048>

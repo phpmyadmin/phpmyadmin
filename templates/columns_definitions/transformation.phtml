@@ -17,7 +17,7 @@
                     $available_mime[$type . '_file'][$mimekey]
                 ) . ' (' . strtolower($parts[0]) . ":" . $parts[1] . ')';
             ?>
-            <option value="<?= $available_mime[$type . '_file'][$mimekey]; ?>"
+            <option value="<?= htmlspecialchars($available_mime[$type . '_file'][$mimekey]); ?>"
                     <?= $checked; ?>
                     title="<?= htmlspecialchars($tooltip); ?>">
                 <?= htmlspecialchars($name); ?>

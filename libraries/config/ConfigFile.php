@@ -416,14 +416,12 @@ class ConfigFile
         $dsn = 'mysqli://';
         if ($this->getValue("$path/auth_type") == 'config') {
             $dsn .= $this->getValue("$path/user");
-            if (! $this->getValue("$path/nopassword")
-                || ! empty($this->getValue("$path/password"))
-            ) {
+            if (! empty($this->getValue("$path/password"))) {
                 $dsn .= ':***';
             }
             $dsn .= '@';
         }
-        if ($this->getValue("$path/connect_type") == 'tcp') {
+        if ($this->getValue("$path/host") != 'localhost') {
             $dsn .= $this->getValue("$path/host");
             $port = $this->getValue("$path/port");
             if ($port) {
@@ -483,16 +481,6 @@ class ConfigFile
     }
 
     /**
-     * Returns config file path, relative to phpMyAdmin's root path
-     *
-     * @return string
-     */
-    public function getFilePath()
-    {
-        return SETUP_CONFIG_FILE;
-    }
-
-    /**
      * Returns configuration array (full, multidimensional format)
      *
      * @return array
@@ -538,5 +526,27 @@ class ConfigFile
             unset($c[$map_from]);
         }
         return $c;
+    }
+
+    /**
+     * Returns temporary directory
+     *
+     * @return string
+     */
+    public static function getDefaultTempDirectory()
+    {
+        $dirs = array(
+            $GLOBALS['cfg']['TempDir'],
+            ini_get('upload_tmp_dir'),
+            sys_get_temp_dir(),
+        );
+
+        foreach ($dirs as $dir) {
+            if (! empty($dir) && @is_writable($dir)) {
+                return realpath($dir);
+            }
+        }
+
+        return null;
     }
 }

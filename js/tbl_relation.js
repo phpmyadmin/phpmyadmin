@@ -101,7 +101,8 @@ function getDropdownValues($dropdown) {
                     ) {
                         primary = data.primary[0];
                     }
-                    setDropdownValues($columnDd, data.columns, primary);
+                    setDropdownValues($columnDd.first(), data.columns, primary);
+                    setDropdownValues($columnDd.slice(1), data.columns);
                 }
             } else {
                 PMA_ajaxShowMessage(data.error, false);
@@ -173,8 +174,7 @@ AJAX.registerOnload('tbl_relation.js', function () {
         event.stopPropagation();
 
         var $prev_row = $(this).closest('tr').prev('tr');
-        var odd_even = ($prev_row.attr('class') == 'odd') ? 'even' : 'odd';
-        var $new_row = $prev_row.clone(true, true).attr('class', odd_even);
+        var $new_row = $prev_row.clone(true, true);
 
         // Update serial number.
         var curr_index = $new_row
@@ -219,7 +219,12 @@ AJAX.registerOnload('tbl_relation.js', function () {
 
         $anchor.PMA_confirm(question, $anchor.attr('href'), function (url) {
             var $msg = PMA_ajaxShowMessage(PMA_messages.strDroppingForeignKey, false);
-            $.post(url, {'is_js_confirmed': 1, 'ajax_request': true}, function (data) {
+            var params = {
+                'is_js_confirmed': 1,
+                'ajax_request': true,
+                'token': PMA_commonParams.get('token')
+            };
+            $.post(url, params, function (data) {
                 if (data.success === true) {
                     PMA_ajaxRemoveMessage($msg);
                     PMA_commonActions.refreshMain(false, function () {

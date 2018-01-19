@@ -14,13 +14,9 @@ use PMA\libraries\Theme;
 
 $GLOBALS['server'] = 1;
 require_once 'libraries/operations.lib.php';
-require_once 'libraries/url_generating.lib.php';
 require_once 'libraries/relation.lib.php';
 
-
 require_once 'libraries/database_interface.inc.php';
-
-require_once 'libraries/mysql_charsets.inc.php';
 
 /**
  * tests for operations
@@ -38,7 +34,6 @@ class PMA_Operations_Test extends PHPUnit_Framework_TestCase
     {
         $GLOBALS['table'] = 'table';
         $GLOBALS['db'] = 'db';
-        $_SESSION['PMA_Theme'] = Theme::load('./themes/pmahomme');
         $GLOBALS['cfg'] = array(
             'ServerDefault' => 1,
             'ActionLinksMode' => 'icons',
@@ -121,9 +116,12 @@ class PMA_Operations_Test extends PHPUnit_Framework_TestCase
     {
 
         $_REQUEST['db_collation'] = 'db1';
+        $result = PMA_getHtmlForChangeDatabaseCharset("pma", "bookmark");
         $this->assertRegExp(
-            '/.*db_operations.php(.|[\n])*select_db_collation([\n]|.)*Collation.*/m',
-            PMA_getHtmlForChangeDatabaseCharset("pma", "bookmark")
+            '/.*select_db_collation.*Collation.*/m', $result
+        );
+        $this->assertRegExp(
+            '/.*db_operations.php.*/', $result
         );
     }
 

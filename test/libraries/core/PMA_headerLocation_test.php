@@ -10,15 +10,8 @@
  * Include to test.
  */
 use PMA\libraries\Theme;
-
-
-require_once 'libraries/js_escape.lib.php';
-require_once 'libraries/sanitizing.lib.php';
-
-require_once 'libraries/url_generating.lib.php';
-
-
-
+use PMA\libraries\URL;
+use PMA\libraries\Sanitize;
 
 /**
  * Test function sending headers.
@@ -40,10 +33,9 @@ require_once 'libraries/url_generating.lib.php';
  * @package PhpMyAdmin-test
  */
 
-class PMA_HeaderLocation_Test extends PHPUnit_Framework_TestCase
+class PMA_HeaderLocation_Test extends PMATestCase
 {
 
-    protected $oldIISvalue;
     protected $runkitExt;
     protected $apdExt;
 
@@ -56,44 +48,10 @@ class PMA_HeaderLocation_Test extends PHPUnit_Framework_TestCase
     {
         //session_start();
 
-        // cleaning constants
-        if (PMA_HAS_RUNKIT) {
-
-            $this->oldIISvalue = 'non-defined';
-
-            $defined_constants = get_defined_constants(true);
-            $user_defined_constants = $defined_constants['user'];
-            if (array_key_exists('PMA_IS_IIS', $user_defined_constants)) {
-                $this->oldIISvalue = PMA_IS_IIS;
-                runkit_constant_redefine('PMA_IS_IIS', null);
-            } else {
-                runkit_constant_add('PMA_IS_IIS', null);
-            }
-        }
-        $_SESSION['PMA_Theme'] = Theme::load('./themes/pmahomme');
         $GLOBALS['server'] = 0;
         $GLOBALS['PMA_Config'] = new PMA\libraries\Config();
         $GLOBALS['PMA_Config']->enableBc();
-    }
-
-    /**
-     * Tear down
-     *
-     * @return void
-     */
-    public function tearDown()
-    {
-        //session_destroy();
-
-        // cleaning constants
-        if (PMA_HAS_RUNKIT) {
-
-            if ($this->oldIISvalue != 'non-defined') {
-                runkit_constant_redefine('PMA_IS_IIS', $this->oldIISvalue);
-            } elseif (defined('PMA_IS_IIS')) {
-                runkit_constant_remove('PMA_IS_IIS');
-            }
-        }
+        $GLOBALS['PMA_Config']->set('PMA_IS_IIS', null);
     }
 
     /**
@@ -103,29 +61,17 @@ class PMA_HeaderLocation_Test extends PHPUnit_Framework_TestCase
      */
     public function testSendHeaderLocationWithoutSidWithIis()
     {
-        if (defined('PMA_TEST_HEADERS')) {
+        $GLOBALS['PMA_Config']->set('PMA_IS_IIS', true);
 
-            runkit_constant_redefine('PMA_IS_IIS', true);
+        $testUri = 'https://example.com/test.php';
 
-            $testUri = 'https://example.com/test.php';
+        $this->mockResponse('Location: ' . $testUri);
+        PMA_sendHeaderLocation($testUri); // sets $GLOBALS['header']
 
-            $header = array('Location: ' . $testUri);
-            PMA_sendHeaderLocation($testUri); // sets $GLOBALS['header']
-            $this->assertEquals($header, $GLOBALS['header']);
+        $this->tearDown();
 
-            //reset $GLOBALS['header'] for the next assertion
-            unset($GLOBALS['header']);
-
-            $header = array('Refresh: 0; ' . $testUri);
-            PMA_sendHeaderLocation($testUri, true); // sets $GLOBALS['header']
-            $this->assertEquals($header, $GLOBALS['header']);
-
-        } else {
-            $this->markTestSkipped(
-                'Cannot redefine constant/function - missing runkit extension'
-            );
-        }
-
+        $this->mockResponse('Refresh: 0; ' . $testUri);
+        PMA_sendHeaderLocation($testUri, true); // sets $GLOBALS['header']
     }
 
     /**
@@ -135,20 +81,10 @@ class PMA_HeaderLocation_Test extends PHPUnit_Framework_TestCase
      */
     public function testSendHeaderLocationWithoutSidWithoutIis()
     {
-        if (defined('PMA_TEST_HEADERS')) {
+        $testUri = 'https://example.com/test.php';
 
-            $testUri = 'https://example.com/test.php';
-            $header = array('Location: ' . $testUri);
-
-            PMA_sendHeaderLocation($testUri);            // sets $GLOBALS['header']
-            $this->assertEquals($header, $GLOBALS['header']);
-
-        } else {
-            $this->markTestSkipped(
-                'Cannot redefine constant/function - missing runkit extension'
-            );
-        }
-
+        $this->mockResponse('Location: ' . $testUri);
+        PMA_sendHeaderLocation($testUri);            // sets $GLOBALS['header']
     }
 
     /**
@@ -158,15 +94,7 @@ class PMA_HeaderLocation_Test extends PHPUnit_Framework_TestCase
      */
     public function testSendHeaderLocationIisLongUri()
     {
-        if (defined('PMA_IS_IIS') && PMA_HAS_RUNKIT) {
-            runkit_constant_redefine('PMA_IS_IIS', true);
-        } elseif (!defined('PMA_IS_IIS')) {
-            define('PMA_IS_IIS', true);
-        } elseif (! PMA_IS_IIS) {
-            $this->markTestSkipped(
-                'Cannot redefine constant/function - missing runkit extension'
-            );
-        }
+        $GLOBALS['PMA_Config']->set('PMA_IS_IIS', true);
 
         // over 600 chars
         $testUri = 'https://example.com/test.php?testlonguri=over600chars&test=test'
@@ -181,13 +109,13 @@ class PMA_HeaderLocation_Test extends PHPUnit_Framework_TestCase
             . '&test=test&test=test&test=test&test=test&test=test&test=test'
             . '&test=test&test=test';
         $testUri_html = htmlspecialchars($testUri);
-        $testUri_js = PMA_escapeJsString($testUri);
+        $testUri_js = Sanitize::escapeJsString($testUri);
 
         $header = "<html>\n<head>\n    <title>- - -</title>
-    <meta http-equiv=\"expires\" content=\"0\">"
-            . "\n    <meta http-equiv=\"Pragma\" content=\"no-cache\">"
-            . "\n    <meta http-equiv=\"Cache-Control\" content=\"no-cache\">"
-            . "\n    <meta http-equiv=\"Refresh\" content=\"0;url=" . $testUri_html . "\">"
+    <meta http-equiv=\"expires\" content=\"0\" />"
+            . "\n    <meta http-equiv=\"Pragma\" content=\"no-cache\" />"
+            . "\n    <meta http-equiv=\"Cache-Control\" content=\"no-cache\" />"
+            . "\n    <meta http-equiv=\"Refresh\" content=\"0;url=" . $testUri_html . "\" />"
             . "\n    <script type=\"text/javascript\">\n        //<![CDATA[
         setTimeout(\"window.location = decodeURI('" . $testUri_js . "')\", 2000);
         //]]>\n    </script>\n</head>
@@ -198,27 +126,8 @@ class PMA_HeaderLocation_Test extends PHPUnit_Framework_TestCase
 
         $this->expectOutputString($header);
 
-        $restoreInstance = PMA\libraries\Response::getInstance();
-
-        $mockResponse = $this->getMockBuilder('PMA\libraries\Response')
-            ->disableOriginalConstructor()
-            ->setMethods(array('disable', 'header', 'headersSent'))
-            ->getMock();
-
-        $mockResponse->expects($this->once())
-            ->method('disable');
-
-        $mockResponse->expects($this->any())
-            ->method('headersSent')
-            ->with()
-            ->will($this->returnValue(false));
-
-        $attrInstance = new ReflectionProperty('PMA\libraries\Response', '_instance');
-        $attrInstance->setAccessible(true);
-        $attrInstance->setValue($mockResponse);
+        $this->mockResponse();
 
         PMA_sendHeaderLocation($testUri);
-
-        $attrInstance->setValue($restoreInstance);
     }
 }

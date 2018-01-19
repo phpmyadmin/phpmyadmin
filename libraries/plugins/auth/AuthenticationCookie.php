@@ -9,11 +9,14 @@
 namespace PMA\libraries\plugins\auth;
 
 use phpseclib\Crypt;
+use PMA\libraries\LanguageManager;
 use PMA\libraries\Message;
 use PMA\libraries\plugins\AuthenticationPlugin;
 use PMA\libraries\Response;
 use PMA\libraries\Util;
-use ReCaptcha\ReCaptcha;
+use PMA\libraries\Config;
+use ReCaptcha;
+use PMA\libraries\URL;
 
 require_once './libraries/session.lib.php';
 
@@ -38,6 +41,31 @@ class AuthenticationCookie extends AuthenticationPlugin
      * IV for encryption
      */
     private $_cookie_iv = null;
+
+    /**
+     * Whether to use OpenSSL directly
+     */
+    private $_use_openssl;
+
+    /**
+     * Constructor
+     */
+    public function __construct()
+    {
+        $this->_use_openssl = ! class_exists('phpseclib\Crypt\Random');
+    }
+
+    /**
+     * Forces (not)using of openSSL
+     *
+     * @param boolean $use The flag
+     *
+     * @return void
+     */
+    public function setUseOpenSSL($use)
+    {
+        $this->_use_openssl = $use;
+    }
 
     /**
      * Displays authentication form
@@ -86,9 +114,6 @@ class AuthenticationCookie extends AuthenticationPlugin
         $header->disableMenuAndConsole();
         $header->disableWarnings();
 
-        if (@file_exists(CUSTOM_HEADER_FILE)) {
-            include CUSTOM_HEADER_FILE;
-        }
         echo '
     <div class="container">
     <a href="';
@@ -111,6 +136,20 @@ class AuthenticationCookie extends AuthenticationPlugin
         );
         echo "</h1>";
 
+        if ($GLOBALS['cfg']['DBG']['demo']) {
+            echo '<fieldset>';
+            echo '<legend>' , __('phpMyAdmin Demo Server') , '</legend>';
+            printf(
+                __(
+                    'You are using the demo server. You can do anything here, but '
+                    . 'please do not change root, debian-sys-maint and pma users. '
+                    . 'More information is available at %s.'
+                ),
+                '<a href="url.php?url=https://demo.phpmyadmin.net/" target="_blank" rel="noopener noreferrer">demo.phpmyadmin.net</a>'
+            );
+            echo '</fieldset>';
+        }
+
         // Show error message
         if (! empty($conn_error)) {
             Message::rawError($conn_error)->display();
@@ -128,14 +167,15 @@ class AuthenticationCookie extends AuthenticationPlugin
         )->display();
         echo "</noscript>\n";
 
-        echo "<div class='hide js-show'>";
         // Displays the languages form
-        if (empty($GLOBALS['cfg']['Lang'])) {
-            include_once './libraries/display_select_lang.lib.php';
+        $language_manager = LanguageManager::getInstance();
+        if (empty($GLOBALS['cfg']['Lang']) && $language_manager->hasChoice()) {
+            echo "<div class='hide js-show'>";
             // use fieldset, don't show doc link
-            echo PMA_getLanguageSelectorHtml(true, false);
+            echo $language_manager->getSelectorDisplay(true, false);
+            echo '</div>';
         }
-        echo '</div>
+        echo '
     <br />
     <!-- Login form -->
     <form method="post" action="index.php" name="login_form"' , $autocomplete ,
@@ -220,7 +260,7 @@ class AuthenticationCookie extends AuthenticationPlugin
         }
         // do not generate a "server" hidden field as we want the "server"
         // drop-down to have priority
-        echo PMA_URL_getHiddenInputs($_form_params, '', 0, 'server');
+        echo URL::getHiddenInputs($_form_params, '', 0, 'server');
         echo '</fieldset>
     </form>';
 
@@ -230,9 +270,7 @@ class AuthenticationCookie extends AuthenticationPlugin
             echo '</div>';
         }
         echo '</div>';
-        if (@file_exists(CUSTOM_FOOTER_FILE)) {
-            include CUSTOM_FOOTER_FILE;
-        }
+        echo Config::renderFooter();
         if (! defined('TESTSUITE')) {
             exit;
         } else {
@@ -270,23 +308,34 @@ class AuthenticationCookie extends AuthenticationPlugin
         $GLOBALS['PHP_AUTH_USER'] = $GLOBALS['PHP_AUTH_PW'] = '';
         $GLOBALS['from_cookie'] = false;
 
-        if (! empty($_REQUEST['pma_username'])) {
+        if (isset($_REQUEST['pma_username']) && strlen($_REQUEST['pma_username']) > 0) {
 
             // Verify Captcha if it is required.
             if (! empty($GLOBALS['cfg']['CaptchaLoginPrivateKey'])
                 && ! empty($GLOBALS['cfg']['CaptchaLoginPublicKey'])
             ) {
                 if (! empty($_POST["g-recaptcha-response"])) {
-
-                    include_once 'libraries/plugins/auth/recaptcha/autoload.php';
-                    $reCaptcha = new ReCaptcha(
-                        $GLOBALS['cfg']['CaptchaLoginPrivateKey']
-                    );
+                    if (function_exists('curl_init')) {
+                        $reCaptcha = new ReCaptcha\ReCaptcha(
+                            $GLOBALS['cfg']['CaptchaLoginPrivateKey'],
+                            new ReCaptcha\RequestMethod\CurlPost()
+                        );
+                    } else if (ini_get('allow_url_fopen')) {
+                        $reCaptcha = new ReCaptcha\ReCaptcha(
+                            $GLOBALS['cfg']['CaptchaLoginPrivateKey'],
+                            new ReCaptcha\RequestMethod\Post()
+                        );
+                    } else {
+                        $reCaptcha = new ReCaptcha\ReCaptcha(
+                            $GLOBALS['cfg']['CaptchaLoginPrivateKey'],
+                            new ReCaptcha\RequestMethod\SocketPost()
+                        );
+                    }
 
                     // verify captcha status.
                     $resp = $reCaptcha->verify(
                         $_POST["g-recaptcha-response"],
-                        $_SERVER["REMOTE_ADDR"]
+                        PMA_getIp()
                     );
 
                     // Check if the captcha entered is valid, if not stop the login.
@@ -302,9 +351,7 @@ class AuthenticationCookie extends AuthenticationPlugin
 
             // The user just logged in
             $GLOBALS['PHP_AUTH_USER'] = PMA_sanitizeMySQLUser($_REQUEST['pma_username']);
-            $GLOBALS['PHP_AUTH_PW']   = empty($_REQUEST['pma_password'])
-                ? ''
-                : $_REQUEST['pma_password'];
+            $GLOBALS['PHP_AUTH_PW'] = isset($_REQUEST['pma_password']) ? $_REQUEST['pma_password'] : '';
             if ($GLOBALS['cfg']['AllowArbitraryServer']
                 && isset($_REQUEST['pma_servername'])
             ) {
@@ -346,13 +393,19 @@ class AuthenticationCookie extends AuthenticationPlugin
         );
 
         // user was never logged in since session start
-        if (empty($_SESSION['last_access_time'])) {
+        if (empty($_SESSION['browser_access_time'])) {
             return false;
         }
 
         // User inactive too long
         $last_access_time = time() - $GLOBALS['cfg']['LoginCookieValidity'];
-        if ($_SESSION['last_access_time'] < $last_access_time) {
+        foreach ($_SESSION['browser_access_time'] as $key => $value) {
+            if ($value < $last_access_time) {
+                unset($_SESSION['browser_access_time'][$key]);
+            }
+        }
+        // All sessions expired
+        if (empty($_SESSION['browser_access_time'])) {
             Util::cacheUnset('is_create_db_priv');
             Util::cacheUnset('is_reload_priv');
             Util::cacheUnset('db_to_create');
@@ -384,6 +437,7 @@ class AuthenticationCookie extends AuthenticationPlugin
             ),
             true
         );
+
         if (! is_array($auth_data) || ! isset($auth_data['password'])) {
             return false;
         }
@@ -414,7 +468,6 @@ class AuthenticationCookie extends AuthenticationPlugin
                     && $current['port'] == $cfg['Server']['port']
                     && $current['socket'] == $cfg['Server']['socket']
                     && $current['ssl'] == $cfg['Server']['ssl']
-                    && $current['connect_type'] == $cfg['Server']['connect_type']
                     && hash_equals($current['user'], $GLOBALS['PHP_AUTH_USER'])
                 ) {
                     $GLOBALS['server'] = $idx;
@@ -481,10 +534,10 @@ class AuthenticationCookie extends AuthenticationPlugin
 
             // any parameters to pass?
             $url_params = array();
-            if (mb_strlen($GLOBALS['db'])) {
+            if (strlen($GLOBALS['db']) > 0) {
                 $url_params['db'] = $GLOBALS['db'];
             }
-            if (mb_strlen($GLOBALS['table'])) {
+            if (strlen($GLOBALS['table']) > 0) {
                 $url_params['table'] = $GLOBALS['table'];
             }
             // any target to pass?
@@ -503,7 +556,7 @@ class AuthenticationCookie extends AuthenticationPlugin
                 ->disable();
 
             PMA_sendHeaderLocation(
-                $redirect_url . PMA_URL_getCommon($url_params, 'text'),
+                $redirect_url . URL::getCommonRaw($url_params),
                 true
             );
             if (! defined('TESTSUITE')) {
@@ -612,27 +665,13 @@ class AuthenticationCookie extends AuthenticationPlugin
     private function _getSessionEncryptionSecret()
     {
         if (empty($_SESSION['encryption_key'])) {
-            if (self::useOpenSSL()) {
+            if ($this->_use_openssl) {
                 $_SESSION['encryption_key'] = openssl_random_pseudo_bytes(32);
             } else {
                 $_SESSION['encryption_key'] = Crypt\Random::string(32);
             }
         }
         return $_SESSION['encryption_key'];
-    }
-
-    /**
-     * Checks whether we should use openssl for encryption.
-     *
-     * @return boolean
-     */
-    public static function useOpenSSL()
-    {
-        return (
-            function_exists('openssl_encrypt')
-            && function_exists('openssl_decrypt')
-            && function_exists('openssl_random_pseudo_bytes')
-        );
     }
 
     /**
@@ -694,6 +733,27 @@ class AuthenticationCookie extends AuthenticationPlugin
     }
 
     /**
+     * Cleans any SSL errors
+     *
+     * This can happen from corrupted cookies, by invalid encryption
+     * parameters used in older phpMyAdmin versions or by wrong openSSL
+     * configuration.
+     *
+     * In neither case the error is useful to user, but we need to clear
+     * the error buffer as otherwise the errors would pop up later, for
+     * example during MySQL SSL setup.
+     *
+     * @return void
+     */
+    public function cleanSSLErrors()
+    {
+        if (function_exists('openssl_error_string')) {
+            while (($ssl_err = openssl_error_string()) !== false) {
+            }
+        }
+    }
+
+    /**
      * Encryption using openssl's AES or phpseclib's AES
      * (phpseclib uses mcrypt when it is available)
      *
@@ -707,11 +767,11 @@ class AuthenticationCookie extends AuthenticationPlugin
         $mac_secret = $this->getMACSecret($secret);
         $aes_secret = $this->getAESSecret($secret);
         $iv = $this->createIV();
-        if (self::useOpenSSL()) {
+        if ($this->_use_openssl) {
             $result = openssl_encrypt(
                 $data,
                 'AES-128-CBC',
-                $secret,
+                $aes_secret,
                 0,
                 $iv
             );
@@ -721,6 +781,7 @@ class AuthenticationCookie extends AuthenticationPlugin
             $cipher->setKey($aes_secret);
             $result = base64_encode($cipher->encrypt($data));
         }
+        $this->cleanSSLErrors();
         $iv = base64_encode($iv);
         return json_encode(
             array(
@@ -758,11 +819,11 @@ class AuthenticationCookie extends AuthenticationPlugin
             return false;
         }
 
-        if (self::useOpenSSL()) {
-            return openssl_decrypt(
+        if ($this->_use_openssl) {
+            $result = openssl_decrypt(
                 $data['payload'],
                 'AES-128-CBC',
-                $secret,
+                $aes_secret,
                 0,
                 base64_decode($data['iv'])
             );
@@ -770,8 +831,10 @@ class AuthenticationCookie extends AuthenticationPlugin
             $cipher = new Crypt\AES(Crypt\Base::MODE_CBC);
             $cipher->setIV(base64_decode($data['iv']));
             $cipher->setKey($aes_secret);
-            return $cipher->decrypt(base64_decode($data['payload']));
+            $result = $cipher->decrypt(base64_decode($data['payload']));
         }
+        $this->cleanSSLErrors();
+        return $result;
     }
 
     /**
@@ -781,7 +844,7 @@ class AuthenticationCookie extends AuthenticationPlugin
      */
     public function getIVSize()
     {
-        if (self::useOpenSSL()) {
+        if ($this->_use_openssl) {
             return openssl_cipher_iv_length('AES-128-CBC');
         }
         $cipher = new Crypt\AES(Crypt\Base::MODE_CBC);
@@ -802,7 +865,7 @@ class AuthenticationCookie extends AuthenticationPlugin
         if (! is_null($this->_cookie_iv)) {
             return $this->_cookie_iv;
         }
-        if (self::useOpenSSL()) {
+        if ($this->_use_openssl) {
             return openssl_random_pseudo_bytes(
                 $this->getIVSize()
             );

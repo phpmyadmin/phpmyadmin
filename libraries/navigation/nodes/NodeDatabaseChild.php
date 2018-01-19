@@ -8,6 +8,7 @@
 namespace PMA\libraries\navigation\nodes;
 
 use PMA;
+use PMA\libraries\URL;
 
 /**
  * Represents a node that is a child of a database node
@@ -37,15 +38,19 @@ abstract class NodeDatabaseChild extends Node
         if ($cfgRelation['navwork']) {
             $db = $this->realParent()->real_name;
             $item = $this->real_name;
+
+            $params = array(
+                'hideNavItem' => true,
+                'itemType' => $this->getItemType(),
+                'itemName' => $item,
+                'dbName' => $db
+            );
+
             $ret = '<span class="navItemControls">'
                 . '<a href="navigation.php'
-                . PMA_URL_getCommon()
-                . '&hideNavItem=true'
-                . '&itemType=' . urlencode($this->getItemType())
-                . '&itemName=' . urlencode($item)
-                . '&dbName=' . urlencode($db) . '"'
+                . URL::getCommon($params) . '"'
                 . ' class="hideNavItem ajax">'
-                . PMA\libraries\Util::getImage('lightbulb_off.png', __('Hide'))
+                . PMA\libraries\Util::getImage('hide.png', __('Hide'))
                 . '</a></span>';
         }
 

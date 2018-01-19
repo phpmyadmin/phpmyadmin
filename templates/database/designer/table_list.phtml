@@ -11,7 +11,7 @@
         <a href="#" class="M_butt" target="_self" >
             <img alt="v"
                  id="key_HS"
-                 title="<?= __('Hide/Show Tables with no relation'); ?>"
+                 title="<?= __('Hide/Show Tables with no relationship'); ?>"
                  src="<?= $_SESSION['PMA_Theme']->getImgPath('pmd/downarrow2.png'); ?>"
                  data-down="<?= $_SESSION['PMA_Theme']->getImgPath('pmd/downarrow2.png'); ?>"
                  data-right="<?= $_SESSION['PMA_Theme']->getImgPath('pmd/rightarrow2.png'); ?>" />
@@ -31,23 +31,23 @@
                         onmouseout="this.className='L_butt2_1'"
                         class="L_butt2_1">
                         <img alt=""
-                             table_name="<?= $GLOBALS['PMD_URL']['TABLE_NAME_SMALL'][$i]; ?>"
+                             table_name="<?= htmlspecialchars($GLOBALS['PMD_URL']['TABLE_NAME_SMALL'][$i]); ?>"
                              class="scroll_tab_struct"
                              src="<?= $_SESSION['PMA_Theme']->getImgPath('pmd/exec.png'); ?>"/>
                     </td>
                     <td width="1px">
                         <input class="scroll_tab_checkbox"
                                title="<?= __('Hide'); ?>"
-                               id="check_vis_<?= $GLOBALS['PMD_URL']["TABLE_NAME"][$i]; ?>"
+                               id="check_vis_<?= htmlspecialchars($GLOBALS['PMD_URL']["TABLE_NAME"][$i]); ?>"
                                style="margin:0;"
                                type="checkbox"
-                               value="<?= $GLOBALS['PMD_URL']["TABLE_NAME"][$i]; ?>"
+                               value="<?= htmlspecialchars($GLOBALS['PMD_URL']["TABLE_NAME"][$i]); ?>"
                                <?php if ($checked) : ?>checked="checked"<?php endif; ?> />
                     </td>
                     <td class="pmd_Tabs"
                         onmouseover="this.className='pmd_Tabs2'"
                         onmouseout="this.className='pmd_Tabs'"
-                        pmd_url_table_name="<?= $GLOBALS['PMD_URL']['TABLE_NAME'][$i]; ?>">
+                        pmd_url_table_name="<?= htmlspecialchars($GLOBALS['PMD_URL']['TABLE_NAME'][$i]); ?>">
                         <?= $GLOBALS['PMD_OUT']["TABLE_NAME"][$i]; ?>
                     </td>
                 </tr>

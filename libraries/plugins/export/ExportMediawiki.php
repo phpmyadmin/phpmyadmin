@@ -357,7 +357,7 @@ class ExportMediawiki extends ExportPlugin
      */
     private function _exportComment($text = '')
     {
-        // see http://www.mediawiki.org/wiki/Help:Formatting
+        // see https://www.mediawiki.org/wiki/Help:Formatting
         $comment = $this->_exportCRLF();
         $comment .= '<!--' . $this->_exportCRLF();
         $comment .= htmlspecialchars($text) . $this->_exportCRLF();

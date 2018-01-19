@@ -10,6 +10,7 @@
 namespace PMA\libraries\controllers\server;
 
 use PMA\libraries\controllers\Controller;
+use PMA\libraries\Charsets;
 use PMA\libraries\Template;
 
 /**
@@ -30,19 +31,14 @@ class ServerCollationsController extends Controller
          * Does the common work
          */
         include_once 'libraries/server_common.inc.php';
-        /**
-         * Includes the required charset library
-         */
-        include_once 'libraries/mysql_charsets.inc.php';
 
         $this->response->addHTML(PMA_getHtmlForSubPageHeader('collations'));
         $this->response->addHTML(
             $this->_getHtmlForCharsets(
-                $GLOBALS['mysql_charsets'],
-                $GLOBALS['mysql_collations'],
-                $GLOBALS['mysql_charsets_descriptions'],
-                $GLOBALS['mysql_default_collations'],
-                $GLOBALS['mysql_collations_available']
+                Charsets::getMySQLCharsets(),
+                Charsets::getMySQLCollations(),
+                Charsets::getMySQLCharsetsDescriptions(),
+                Charsets::getMySQLCollationsDefault()
             )
         );
     }
@@ -54,12 +50,11 @@ class ServerCollationsController extends Controller
      * @param array $mysqlCollations    Mysql Collations list
      * @param array $mysqlCharsetsDesc  Charsets descriptions
      * @param array $mysqlDftCollations Default Collations list
-     * @param array $mysqlCollAvailable Available Collations list
      *
      * @return string
      */
     function _getHtmlForCharsets($mysqlCharsets, $mysqlCollations,
-        $mysqlCharsetsDesc, $mysqlDftCollations, $mysqlCollAvailable
+        $mysqlCharsetsDesc, $mysqlDftCollations
     ) {
         return Template::get('server/collations/charsets')->render(
             array(
@@ -67,7 +62,6 @@ class ServerCollationsController extends Controller
                 'mysqlCollations' => $mysqlCollations,
                 'mysqlCharsetsDesc' => $mysqlCharsetsDesc,
                 'mysqlDftCollations' => $mysqlDftCollations,
-                'mysqlCollAvailable' => $mysqlCollAvailable,
             )
         );
     }

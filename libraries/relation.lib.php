@@ -8,7 +8,7 @@
 use PMA\libraries\Message;
 use PMA\libraries\Table;
 use PMA\libraries\RecentFavoriteTable;
-use SqlParser\Statements\CreateStatement;
+use PMA\libraries\URL;
 
 /**
  * Executes a query as controluser if possible, otherwise as normal user
@@ -191,7 +191,7 @@ function PMA_getRelationsParamDiagnostic($cfgRelation)
             $retval .= '<tr><td colspan=2 class="left error">';
             $retval .=  __(
                 'Please see the documentation on how to'
-                . ' update your column_info table. '
+                . ' update your column_info table.'
             );
             $retval .= PMA\libraries\Util::showDocu(
                 'config',
@@ -759,7 +759,7 @@ function PMA_getForeigners($db, $table, $column = '', $source = 'both')
             WHERE `master_db`    = \'' . $GLOBALS['dbi']->escapeString($db) . '\'
                 AND `master_table` = \'' . $GLOBALS['dbi']->escapeString($table)
             . '\' ';
-        if (mb_strlen($column)) {
+        if (strlen($column) > 0) {
             $rel_query .= ' AND `master_field` = '
                 . '\'' . $GLOBALS['dbi']->escapeString($column) . '\'';
         }
@@ -768,17 +768,16 @@ function PMA_getForeigners($db, $table, $column = '', $source = 'both')
         );
     }
 
-    if (($source == 'both' || $source == 'foreign') && mb_strlen($table)
-    ) {
+    if (($source == 'both' || $source == 'foreign') && strlen($table) > 0) {
         $tableObj = new Table($table, $db);
         $show_create_table = $tableObj->showCreate();
         if ($show_create_table) {
-            $parser = new SqlParser\Parser($show_create_table);
+            $parser = new \PhpMyAdmin\SqlParser\Parser($show_create_table);
             /**
-             * @var CreateStatement $stmt
+             * @var \PhpMyAdmin\SqlParser\Statements\CreateStatement $stmt
              */
             $stmt = $parser->statements[0];
-            $foreign['foreign_keys_data'] = SqlParser\Utils\Table::getForeignKeys(
+            $foreign['foreign_keys_data'] = \PhpMyAdmin\SqlParser\Utils\Table::getForeignKeys(
                 $stmt
             );
         }
@@ -801,9 +800,9 @@ function PMA_getForeigners($db, $table, $column = '', $source = 'both')
         }
         if (isset($GLOBALS[$relations_key][$table])) {
             foreach ($GLOBALS[$relations_key][$table] as $field => $relations) {
-                if ((! mb_strlen($column) || $column == $field)
+                if ((strlen($column) === 0 || $column == $field)
                     && (! isset($foreign[$field])
-                    || ! mb_strlen($foreign[$field]))
+                    || strlen($foreign[$field]) === 0)
                 ) {
                     $foreign[$field] = $relations;
                 }
@@ -857,6 +856,18 @@ function PMA_getDisplayField($db, $table)
             return 'DESCRIPTION';
         case 'TABLES':
             return 'TABLE_COMMENT';
+        }
+    }
+
+    /**
+     * Pick first char field
+     */
+    $columns = $GLOBALS['dbi']->getColumnsFull($db, $table);
+    if ($columns) {
+        foreach ($columns as $column) {
+            if ($GLOBALS['PMA_Types']->getTypeClass($column['DATA_TYPE']) == 'CHAR') {
+                return $column['COLUMN_NAME'];
+            }
         }
     }
 
@@ -989,7 +1000,7 @@ function PMA_setDbComment($db, $comment = '')
         return false;
     }
 
-    if (mb_strlen($comment)) {
+    if (strlen($comment) > 0) {
         $upd_query = 'INSERT INTO '
             . PMA\libraries\Util::backquote($cfgRelation['db']) . '.'
             . PMA\libraries\Util::backquote($cfgRelation['column_info'])
@@ -1979,7 +1990,7 @@ function PMA_getHtmlFixPMATables($allTables, $createDb = false)
 {
     $retval = '';
 
-    $url_query = PMA_URL_getCommon(array('db' => $GLOBALS['db']));
+    $url_query = URL::getCommon(array('db' => $GLOBALS['db']));
     if ($allTables) {
         if ($createDb) {
             $url_query .= '&amp;goto=db_operations.php&amp;create_pmadb=1';
@@ -2004,11 +2015,8 @@ function PMA_getHtmlFixPMATables($allTables, $createDb = false)
             __('%sCreate%s missing phpMyAdmin configuration storage tables.')
         );
     }
-    $message->addParam(
-        '<a href="./chk_rel.php' . $url_query . '">',
-        false
-    );
-    $message->addParam('</a>', false);
+    $message->addParamHtml('<a href="./chk_rel.php' . $url_query . '">');
+    $message->addParamHtml('</a>');
 
     $retval .= $message->getDisplay();
 

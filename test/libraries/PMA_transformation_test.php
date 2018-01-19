@@ -32,7 +32,6 @@ class PMA_Transformation_Test extends PHPUnit_Framework_TestCase
     {
         $GLOBALS['table'] = 'table';
         $GLOBALS['db'] = 'db';
-        $_SESSION['PMA_Theme'] = Theme::load('./themes/pmahomme');
         $GLOBALS['cfg'] = array(
             'ServerDefault' => 1,
             'ActionLinksMode' => 'icons',
@@ -254,6 +253,43 @@ class PMA_Transformation_Test extends PHPUnit_Framework_TestCase
         $this->assertEquals(
             true,
             $actual
+        );
+    }
+
+    /**
+     * @dataProvider fixupData
+     */
+    public function testFixup($value, $expected)
+    {
+        $this->assertEquals(
+            $expected,
+            PMA_fixupMIME($value)
+        );
+    }
+
+    public function fixupData()
+    {
+        return array(
+            array(
+                'text_plain_bool2text.php',
+                'Text_Plain_Bool2Text.php'
+            ),
+            array(
+                'application_octetstream_download.php',
+                'Application_Octetstream_Download.php'
+            ),
+            array(
+                'text_plain_json.php',
+                'Text_Plain_Json.php'
+            ),
+            array(
+                'image_jpeg_link.php',
+                'Image_JPEG_Link.php'
+            ),
+            array(
+                'text_plain_dateformat.php',
+                'Text_Plain_Dateformat.php'
+            ),
         );
     }
 }

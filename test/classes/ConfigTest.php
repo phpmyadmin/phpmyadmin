@@ -13,7 +13,6 @@
 use PMA\libraries\Theme;
 
 require_once 'libraries/relation.lib.php';
-require_once 'libraries/url_generating.lib.php';
 require_once 'test/PMATestCase.php';
 
 /**
@@ -64,6 +63,7 @@ class ConfigTest extends PMATestCase
      */
     protected function tearDown()
     {
+        parent::tearDown();
         unset($this->object);
         unset($this->permTestObj);
     }
@@ -163,7 +163,7 @@ class ConfigTest extends PMATestCase
         $this->object->set('PMA_USR_BROWSER_AGENT', 'IE');
         $this->object->set('PMA_USR_BROWSER_VER', 6);
         $this->object->checkOutputCompression();
-        $this->assertFalse($this->object->get("OBGzip"));
+        $this->assertTrue($this->object->get("OBGzip"));
 
         $this->object->set('OBGzip', 'auto');
         $this->object->set('PMA_USR_BROWSER_AGENT', 'MOZILLA');
@@ -329,7 +329,7 @@ class ConfigTest extends PMATestCase
         $this->object->checkGd2();
         $this->assertEquals(0, $this->object->get('PMA_IS_GD2'));
 
-        $this->object->set('GD2Available', $prevIsGb2Val);
+        $this->object->set('GD2Available', 'auto');
 
         if (!@function_exists('imagecreatetruecolor')) {
             $this->object->checkGd2();
@@ -627,7 +627,6 @@ class ConfigTest extends PMATestCase
             'PMA_THEME_VERSION',
             'PMA_THEME_GENERATION',
             'PMA_IS_WINDOWS',
-            'PMA_IS_IIS',
             'PMA_IS_GD2',
             'PMA_USR_OS',
             'PMA_USR_BROWSER_VER',
@@ -835,7 +834,6 @@ class ConfigTest extends PMATestCase
     public function testGetThemeUniqueValue()
     {
 
-        $_SESSION['PMA_Theme'] = Theme::load('./themes/pmahomme');
 
         $partial_sum = (
             PHPUnit_Framework_Assert::readAttribute($this->object, 'source_mtime') +
@@ -936,35 +934,6 @@ class ConfigTest extends PMATestCase
     {
         $this->assertTrue(
             $this->object->isGitRevision()
-        );
-    }
-
-    /**
-     * Test for Check HTTP
-     *
-     * @group medium
-     *
-     * @return void
-     */
-    public function testCheckHTTP()
-    {
-        if (! function_exists('curl_init')) {
-            $this->markTestSkipped('Missing curl extension!');
-        }
-        $this->assertTrue(
-            $this->object->checkHTTP("https://www.phpmyadmin.net/test/data")
-        );
-        $this->assertContains(
-            "TEST DATA",
-            $this->object->checkHTTP("https://www.phpmyadmin.net/test/data", true)
-        );
-        $this->assertFalse(
-            $this->object->checkHTTP("https://www.phpmyadmin.net/test/nothing")
-        );
-        // Use rate limit API as it's not subject to rate limiting
-        $this->assertContains(
-            '"resources"',
-            $this->object->checkHTTP("https://api.github.com/rate_limit", true)
         );
     }
 }

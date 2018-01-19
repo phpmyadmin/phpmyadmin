@@ -129,7 +129,8 @@ AJAX.registerOnload('db_search.js', function () {
         var params = {
             'ajax_request': true,
             'is_js_confirmed': true,
-            'sql_query' : browse_sql
+            'sql_query' : browse_sql,
+            'token' : PMA_commonParams.get('token')
         };
         $.post(url, params, function (data) {
             if (typeof data !== 'undefined' && data.success) {
@@ -171,7 +172,8 @@ AJAX.registerOnload('db_search.js', function () {
             var params = {
                 'ajax_request': true,
                 'is_js_confirmed': true,
-                'sql_query': $(this).data('delete-sql')
+                'sql_query': $(this).data('delete-sql'),
+                'token' : PMA_commonParams.get('token')
             };
             var url = $(this).attr('href');
 

@@ -535,8 +535,8 @@ class TypesMySQL extends Types
             'GEOMETRYCOLLECTION',
         );
 
-        if (PMA_MYSQL_INT_VERSION >= 50708
-            && \PMA\libraries\Util::getServerType() != 'MariaDB'
+        if ((PMA_MYSQL_INT_VERSION >= 50708 && \PMA\libraries\Util::getServerType() != 'MariaDB') ||
+            (PMA_MYSQL_INT_VERSION >= 100207 && \PMA\libraries\Util::getServerType() == 'MariaDB')
         ) {
           $ret['JSON'] = array(
               'JSON',

@@ -17,7 +17,7 @@ require_once 'setup/lib/form_processing.lib.php';
  *
  * @package PhpMyAdmin-test
  */
-class PMA_Form_Processing_Test extends PHPUnit_Framework_TestCase
+class PMA_Form_Processing_Test extends PMATestCase
 {
     /**
      * Prepares environment for the test.
@@ -37,11 +37,10 @@ class PMA_Form_Processing_Test extends PHPUnit_Framework_TestCase
      */
     public function testProcessFormSet()
     {
-        if (!defined('PMA_TEST_HEADERS')) {
-            $this->markTestSkipped(
-                'Cannot redefine constant/function - missing runkit extension'
+        $this->mockResponse(
+                array('HTTP/1.1 303 See Other'),
+                array('Location: index.php?lang=en&token=token')
             );
-        }
 
         // case 1
         $formDisplay = $this->getMockBuilder('PMA\libraries\config\FormDisplay')
@@ -86,17 +85,17 @@ class PMA_Form_Processing_Test extends PHPUnit_Framework_TestCase
         );
 
         $this->assertContains(
-            '<a href="?lang=en&amp;token=token&amp;page=&amp;mode=revert">',
+            'mode=revert',
             $result
         );
 
         $this->assertContains(
-            '<a class="btn" href="index.php?lang=en&amp;token=token">',
+            '<a class="btn" href="index.php?',
             $result
         );
 
         $this->assertContains(
-            '<a class="btn" href="?lang=en&amp;token=token&amp;page=&amp;mode=edit">',
+            'mode=edit',
             $result
         );
 
@@ -118,12 +117,6 @@ class PMA_Form_Processing_Test extends PHPUnit_Framework_TestCase
 
         PMA_Process_formset($formDisplay);
 
-        $this->assertEquals(
-            array('HTTP/1.1 303 See Other', 'Location: index.php?lang=en&amp;token=token'),
-            $GLOBALS['header']
-        );
-
     }
-
 
 }

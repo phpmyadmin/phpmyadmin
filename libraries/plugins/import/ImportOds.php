@@ -19,15 +19,6 @@ use PMA\libraries\plugins\ImportPlugin;
 use SimpleXMLElement;
 
 /**
- * We need way to disable external XML entities processing.
- */
-if (!function_exists('libxml_disable_entity_loader')) {
-    $GLOBALS['skip_import'] = true;
-
-    return;
-}
-
-/**
  * Handles the import for the ODS format
  *
  * @package    PhpMyAdmin-Import

@@ -30,7 +30,6 @@ class PMA_ShowDocu_Test extends PHPUnit_Framework_TestCase
      */
     function setup()
     {
-        $_SESSION['PMA_Theme'] = Theme::load('./themes/pmahomme');
         $GLOBALS['server'] = '99';
         $GLOBALS['cfg']['ServerDefault'] = 1;
     }

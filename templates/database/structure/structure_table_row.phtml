@@ -1,4 +1,4 @@
-<tr class="<?= ($odd_row ? 'odd' : 'even') , ($table_is_view ? ' is_view' : '') ?>"
+<tr <?= ($table_is_view ? ' class="is_view"' : '') ?>
     id="row_tbl_<?= $curr; ?>">
     <td class="center print_ignore">
         <input type="checkbox"
@@ -71,7 +71,7 @@
         <td class="value tbl_rows"
             data-table="<?= htmlspecialchars($current_table['TABLE_NAME']); ?>">
             <?php if ($approx_rows): ?>
-                <a href="db_structure.php<?= PMA_URL_getCommon(
+                <a href="db_structure.php<?= PMA\libraries\URL::getCommon(
                     array(
                         'ajax_request'   => true,
                         'db'             => $GLOBALS['db'],
@@ -97,7 +97,7 @@
                     <?= __('View'); ?>
                 <?php endif; ?>
             </td>
-            <?php if (mb_strlen($collation)): ?>
+            <?php if (strlen($collation) > 0): ?>
                 <td class="nowrap">
                     <?= $collation; ?>
                 </td>
@@ -114,6 +114,14 @@
             <td class="value tbl_overhead">
                 <?= $overhead; ?>
             </td>
+        <?php endif; ?>
+
+        <?php if (!($GLOBALS['cfg']['ShowDbStructureCharset'] > 1)): ?>
+            <?php if (strlen($charset)): ?>
+                <td class="nowrap">
+                    <?= $charset; ?>
+                </td>
+            <?php endif; ?>
         <?php endif; ?>
 
         <?php if ($GLOBALS['cfg']['ShowDbStructureComment']): ?>
@@ -162,6 +170,9 @@
         <?php if ($is_show_stats): ?>
             <td class="value tbl_size">-</td>
             <td class="value tbl_overhead">-</td>
+        <?php endif; ?>
+        <?php if ($GLOBALS['cfg']['ShowDbStructureCharset']): ?>
+            <td></td>
         <?php endif; ?>
         <?php if ($GLOBALS['cfg']['ShowDbStructureComment']): ?>
             <td></td>

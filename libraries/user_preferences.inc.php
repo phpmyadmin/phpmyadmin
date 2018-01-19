@@ -6,6 +6,7 @@
  * @package PhpMyAdmin
  */
 use PMA\libraries\Message;
+use PMA\libraries\Sanitize;
 
 if (!defined('PHPMYADMIN')) {
     exit;
@@ -77,7 +78,7 @@ if (! $cfgRelation['userconfigwork']) {
         'Your preferences will be saved for current session only. Storing them '
         . 'permanently requires %sphpMyAdmin configuration storage%s.'
     );
-    $msg = PMA_sanitize(
+    $msg = Sanitize::sanitize(
         sprintf($msg, '[doc@linked-tables]', '[/doc]')
     );
     Message::notice($msg)->display();

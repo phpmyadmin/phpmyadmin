@@ -18,10 +18,6 @@ require_once 'libraries/database_interface.inc.php';
 
 require_once 'libraries/relation.lib.php';
 
-require_once 'libraries/url_generating.lib.php';
-
-
-require_once 'libraries/mysql_charsets.inc.php';
 require_once 'libraries/normalization.lib.php';
 
 
@@ -42,7 +38,6 @@ class PMA_Normalization_Test extends PHPUnit_Framework_TestCase
         $GLOBALS['cfg']['LimitChars'] = 50;
         $GLOBALS['PMA_Types'] = new TypesMySQL();
         $GLOBALS['cfg']['ServerDefault'] = "PMA_server";
-        $GLOBALS['pmaThemeImage'] = 'image';
         $GLOBALS['cfg']['ShowHint'] = true;
         $GLOBALS['cfg']['CharEditing'] = '';
         $GLOBALS['cfg']['ActionLinksMode'] = 'icons';
@@ -51,8 +46,6 @@ class PMA_Normalization_Test extends PHPUnit_Framework_TestCase
         $GLOBALS['server'] = 1;
 
         //$_SESSION
-        $_SESSION['PMA_Theme'] = Theme::load('./themes/pmahomme');
-        $_SESSION['PMA_Theme'] = new Theme();
 
         //mock DBI
         $dbi = $this->getMockBuilder('PMA\libraries\DatabaseInterface')
@@ -358,6 +351,7 @@ class PMA_Normalization_Test extends PHPUnit_Framework_TestCase
         $this->assertEquals(
             array(
                 'html' => '',
+                'success' => true,
                 'newTables' => array()
                 ), $result
         );

@@ -75,7 +75,7 @@ class GISPoint extends GISGeometry
      * @param array    $scale_data  Array containing data related to scaling
      * @param resource $image       Image object
      *
-     * @return object the modified image object
+     * @return resource the modified image object
      * @access public
      */
     public function prepareRowAsPng(

@@ -76,15 +76,15 @@ class SysInfoLinux extends \PMA\libraries\SysInfo
 
         $mem = array_merge($defaults, $mem);
 
+        foreach ($mem as $idx => $value) {
+            $mem[$idx] = intval($value);
+        }
+
         $mem['MemUsed'] = $mem['MemTotal']
             - $mem['MemFree'] - $mem['Cached'] - $mem['Buffers'];
 
         $mem['SwapUsed'] = $mem['SwapTotal']
             - $mem['SwapFree'] - $mem['SwapCached'];
-
-        foreach ($mem as $idx => $value) {
-            $mem[$idx] = intval($value);
-        }
 
         return $mem;
     }
