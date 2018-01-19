@@ -4,16 +4,16 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.8.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2017-11-28 16:22+0100\n"
-"PO-Revision-Date: 2017-09-20 14:06+0000\n"
-"Last-Translator: worldwideskier <worldwideskier@yahoo.co.jp>\n"
-"Language-Team: Japanese <https://hosted.weblate.org/projects/phpmyadmin/"
-"master/ja/>\n"
+"PO-Revision-Date: 2018-01-21 02:31+0000\n"
+"Last-Translator: yanagimoto <yanagimoto@klink.co.jp>\n"
+"Language-Team: Japanese "
+"<https://hosted.weblate.org/projects/phpmyadmin/master/ja/>\n"
 "Language: ja\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Weblate 2.17-dev\n"
+"X-Generator: Weblate 2.19-dev\n"
 
 #: ajax.php:21 ajax.php:50 export.php:203 libraries/classes/Export.php:1100
 msgid "Bad type!"
@@ -1750,13 +1750,10 @@ msgid "Error text: %s"
 msgstr "エラーテキスト：%s"
 
 #: js/messages.php:366
-#, fuzzy
 msgid ""
 "It seems that the connection to server has been lost. Please check your "
 "network connectivity and server status."
-msgstr ""
-"サーバへの接続が失われたようです。ネットワークの接続とサーバの状態を確認して"
-"下さい。"
+msgstr "サーバーとの接続が失われているようです。ネットワーク接続とサーバーの状態を確認してください。"
 
 #: js/messages.php:369
 #: libraries/classes/Controllers/Server/ServerDatabasesController.php:188
@@ -2682,23 +2679,23 @@ msgstr "接頭辞を付け替えてテーブルをコピーする"
 
 #: js/messages.php:739
 msgid "Extremely weak"
-msgstr ""
+msgstr "きわめて脆弱"
 
 #: js/messages.php:740
 msgid "Very weak"
-msgstr ""
+msgstr "とても脆弱"
 
 #: js/messages.php:741
 msgid "Weak"
-msgstr ""
+msgstr "脆弱"
 
 #: js/messages.php:742
 msgid "Good"
-msgstr ""
+msgstr "良好"
 
 #: js/messages.php:743
 msgid "Strong"
-msgstr ""
+msgstr "強固"
 
 #: js/messages.php:746
 msgid "Timed out waiting for security key activation."
@@ -3069,7 +3066,7 @@ msgstr "事象名「%s」において、表示書式の形成に失敗しまし�
 #: libraries/classes/Advisor.php:496
 #, php-format
 msgid "Error in reading file: The file '%s' does not exist or is not readable!"
-msgstr ""
+msgstr "読み込みエラー: ファイル '%s' は存在しないか、読み取り不可です!"
 
 #: libraries/classes/Advisor.php:521
 #, php-format
@@ -3173,11 +3170,11 @@ msgstr "最近使用したテーブルが保存できません"
 
 #: libraries/classes/CentralColumns.php:604
 msgid "YES"
-msgstr ""
+msgstr "はい"
 
 #: libraries/classes/CentralColumns.php:604
 msgid "NO"
-msgstr ""
+msgstr "いいえ"
 
 #: libraries/classes/CentralColumns.php:739
 #: libraries/classes/Display/Results.php:961
@@ -3462,7 +3459,7 @@ msgstr "ブルガリア語"
 #: libraries/classes/Charsets.php:440
 msgctxt "Collation"
 msgid "Chinese"
-msgstr ""
+msgstr "中国語"
 
 #: libraries/classes/Charsets.php:445
 #, fuzzy
@@ -15088,12 +15085,12 @@ msgstr "日"
 #: libraries/classes/Util.php:1541
 msgctxt "AM/PM indication in time"
 msgid "PM"
-msgstr ""
+msgstr "午後"
 
 #: libraries/classes/Util.php:1543
 msgctxt "AM/PM indication in time"
 msgid "AM"
-msgstr ""
+msgstr "午前"
 
 #: libraries/classes/Util.php:1837
 #, php-format
@@ -15227,7 +15224,7 @@ msgstr "ダブルクリック"
 
 #: libraries/config.values.php:98
 msgid "key"
-msgstr ""
+msgstr "キー"
 
 #: libraries/config.values.php:99
 #, fuzzy
