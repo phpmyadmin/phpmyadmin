@@ -15,6 +15,7 @@ use PhpMyAdmin\ThemeManager;
 use PhpMyAdmin\Url;
 use PhpMyAdmin\UserPreferences;
 use PhpMyAdmin\Util;
+use PhpMyAdmin\Utils\HttpRequest;
 
 /**
  * Indication for error handler (see end of this file).
@@ -609,7 +610,7 @@ class Config
             $is_remote_commit = $_SESSION['PMA_VERSION_REMOTECOMMIT_' . $hash];
         } else {
             $link = 'https://www.phpmyadmin.net/api/commit/' . $hash . '/';
-            $is_found = Util::httpRequest($link, "GET");
+            $is_found = HttpRequest::httpRequest($link, "GET");
             switch($is_found) {
             case false:
                 $is_remote_commit = false;
@@ -637,7 +638,7 @@ class Config
                 $is_remote_branch = $_SESSION['PMA_VERSION_REMOTEBRANCH_' . $hash];
             } else {
                 $link = 'https://www.phpmyadmin.net/api/tree/' . $branch . '/';
-                $is_found = Util::httpRequest($link, "GET", true);
+                $is_found = HttpRequest::httpRequest($link, "GET", true);
                 switch($is_found) {
                 case true:
                     $is_remote_branch = true;

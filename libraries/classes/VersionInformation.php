@@ -8,6 +8,7 @@
 namespace PhpMyAdmin;
 
 use PhpMyAdmin\Util;
+use PhpMyAdmin\Utils\HttpRequest;
 
 /**
  * Responsible for retrieving version information and notifiying about latest version
@@ -38,7 +39,7 @@ class VersionInformation
         } else {
             $save = true;
             $file = 'https://www.phpmyadmin.net/home_page/version.json';
-            $response = Util::httpRequest($file, "GET");
+            $response = HttpRequest::httpRequest($file, "GET");
         }
         $response = $response ? $response : '{}';
         /* Parse response */

@@ -11,6 +11,7 @@ use PhpMyAdmin\Relation;
 use PhpMyAdmin\Template;
 use PhpMyAdmin\Url;
 use PhpMyAdmin\Util;
+use PhpMyAdmin\Utils\HttpRequest;
 
 /**
  * PhpMyAdmin\ErrorReport class
@@ -178,7 +179,7 @@ class ErrorReport
      */
     public static function send(array $report)
     {
-        $response = Util::httpRequest(
+        $response = HttpRequest::httpRequest(
             self::SUBMISSION_URL,
             "POST",
             false,
