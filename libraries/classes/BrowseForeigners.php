@@ -18,6 +18,35 @@ use PhpMyAdmin\Util;
  */
 class BrowseForeigners
 {
+    private $limitChars;
+    private $maxRows;
+    private $repeatCells;
+    private $showAll;
+    private $themeImage;
+
+    /**
+     * Constructor
+     *
+     * @param int     $limitChars  Maximum number of characters to show
+     * @param int     $maxRows     Number of rows to display
+     * @param int     $repeatCells Repeat the headers every X cells, or 0 to deactivate
+     * @param boolean $showAll     Shows the 'Show all' button or not
+     * @param string  $themeImage  Theme image path
+     */
+    public function __construct(
+        $limitChars,
+        $maxRows,
+        $repeatCells,
+        $showAll,
+        $themeImage
+    ) {
+        $this->limitChars = (int) $limitChars;
+        $this->maxRows = (int) $maxRows;
+        $this->repeatCells = (int) $repeatCells;
+        $this->showAll = (bool) $showAll;
+        $this->themeImage = $themeImage;
+    }
+
     /**
      * Function to get html for one relational key
      *
@@ -31,10 +60,7 @@ class BrowseForeigners
      *
      * @return string $html the generated html
      */
-    public static function getHtmlForOneKey(
-        $repeatCells,
-        $pmaThemeImage,
-        $limitChars,
+    private function getHtmlForOneKey(
         $horizontal_count,
         $header,
         array $keys,
@@ -50,7 +76,7 @@ class BrowseForeigners
         $rightKeynameIsSelected = false;
         $leftKeynameIsSelected = false;
 
-        if ($repeatCells > 0 && $horizontal_count > $repeatCells) {
+        if ($this->repeatCells > 0 && $horizontal_count > $this->repeatCells) {
             $output .= $header;
             $horizontal_count = 0;
         }
@@ -61,10 +87,7 @@ class BrowseForeigners
         list(
             $leftDescription,
             $leftDescriptionTitle
-        ) = self::getDescriptionAndTitle(
-            $limitChars,
-            $descriptions[$indexByKeyname]
-        );
+        ) = $this->getDescriptionAndTitle($descriptions[$indexByKeyname]);
 
         // key names and descriptions for the right section,
         // sorted by descriptions
@@ -72,10 +95,7 @@ class BrowseForeigners
         list(
             $rightDescription,
             $rightDescriptionTitle
-        ) = self::getDescriptionAndTitle(
-            $limitChars,
-            $descriptions[$indexByDescription]
-        );
+        ) = $this->getDescriptionAndTitle($descriptions[$indexByDescription]);
 
         $indexByDescription++;
 
@@ -102,7 +122,7 @@ class BrowseForeigners
         ]);
 
         $output .= '<td width="20%">'
-            . '<img src="' . $pmaThemeImage . 'spacer.png" alt=""'
+            . '<img src="' . $this->themeImage . 'spacer.png" alt=""'
             . ' width="1" height="1" /></td>';
 
         $output .= Template::get('table/browse_foreigners/column_element')->render([
@@ -137,12 +157,7 @@ class BrowseForeigners
      *
      * @return string
      */
-    public static function getHtmlForRelationalFieldSelection(
-        $repeatCells,
-        $pmaThemeImage,
-        $maxRows,
-        $showAll,
-        $limitChars,
+    public function getHtmlForRelationalFieldSelection(
         $db,
         $table,
         $field,
@@ -150,11 +165,11 @@ class BrowseForeigners
         $fieldkey,
         $current_value
     ) {
-        $gotopage = self::getHtmlForGotoPage($maxRows, $foreignData);
+        $gotopage = $this->getHtmlForGotoPage($foreignData);
         $foreignShowAll = Template::get('table/browse_foreigners/show_all')->render([
             'foreign_data' => $foreignData,
-            'show_all' => $showAll,
-            'max_rows' => $maxRows,
+            'show_all' => $this->showAll,
+            'max_rows' => $this->maxRows,
         ]);
 
         $output = '<form class="ajax" '
@@ -231,10 +246,7 @@ class BrowseForeigners
                 $html,
                 $horizontal_count,
                 $indexByDescription
-            ) = self::getHtmlForOneKey(
-                $repeatCells,
-                $pmaThemeImage,
-                $limitChars,
+            ) = $this->getHtmlForOneKey(
                 $horizontal_count,
                 $header,
                 $keys,
@@ -259,9 +271,9 @@ class BrowseForeigners
      *
      * @return array the new description and title
      */
-    public static function getDescriptionAndTitle($limitChars, $description)
+    private function getDescriptionAndTitle($description)
     {
-        if (mb_strlen($description) <= $limitChars) {
+        if (mb_strlen($description) <= $this->limitChars) {
             $description = htmlspecialchars(
                 $description
             );
@@ -272,7 +284,7 @@ class BrowseForeigners
             );
             $description = htmlspecialchars(
                 mb_substr(
-                    $description, 0, $limitChars
+                    $description, 0, $this->limitChars
                 )
                 . '...'
             );
@@ -287,7 +299,7 @@ class BrowseForeigners
      *
      * @return string
      */
-    public static function getHtmlForGotoPage($maxRows, $foreignData)
+    private function getHtmlForGotoPage($foreignData)
     {
         $gotopage = '';
         isset($_REQUEST['pos']) ? $pos = $_REQUEST['pos'] : $pos = 0;
@@ -295,13 +307,13 @@ class BrowseForeigners
             return $gotopage;
         }
 
-        $pageNow = @floor($pos / $maxRows) + 1;
-        $nbTotalPage = @ceil($foreignData['the_total'] / $maxRows);
+        $pageNow = @floor($pos / $this->maxRows) + 1;
+        $nbTotalPage = @ceil($foreignData['the_total'] / $this->maxRows);
 
-        if ($foreignData['the_total'] > $maxRows) {
+        if ($foreignData['the_total'] > $this->maxRows) {
             $gotopage = Util::pageselector(
                 'pos',
-                $maxRows,
+                $this->maxRows,
                 $pageNow,
                 $nbTotalPage,
                 200,
@@ -323,12 +335,12 @@ class BrowseForeigners
      *
      * @return string
      */
-    public static function getForeignLimit($maxRows, $foreignShowAll)
+    public function getForeignLimit($foreignShowAll)
     {
         if (isset($foreignShowAll) && $foreignShowAll == __('Show all')) {
             return null;
         }
         isset($_REQUEST['pos']) ? $pos = $_REQUEST['pos'] : $pos = 0;
-        return 'LIMIT ' . $pos . ', ' . intval($maxRows) . ' ';
+        return 'LIMIT ' . $pos . ', ' . $this->maxRows . ' ';
     }
 }
