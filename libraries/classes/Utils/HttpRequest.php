@@ -14,6 +14,22 @@ namespace PhpMyAdmin\Utils;
  */
 class HttpRequest
 {
+    private $proxyUrl;
+    private $proxyUser;
+    private $proxyPass;
+
+    /**
+     * Constructor
+     */
+    public function __construct()
+    {
+        global $cfg;
+
+        $this->proxyUrl = $cfg['ProxyUrl'];
+        $this->proxyUser = $cfg['ProxyUser'];
+        $this->proxyPass = $cfg['ProxyPass'];
+    }
+
     /**
      * Returns information with regards to handling the http request
      *
@@ -22,16 +38,16 @@ class HttpRequest
      *
      * @return array of updated context information
      */
-    public static function handleContext(array $context)
+    private function handleContext(array $context)
     {
-        if (strlen($GLOBALS['cfg']['ProxyUrl']) > 0) {
+        if (strlen($this->proxyUrl) > 0) {
             $context['http'] = array(
-                'proxy' => $GLOBALS['cfg']['ProxyUrl'],
+                'proxy' => $this->proxyUrl,
                 'request_fulluri' => true
             );
-            if (strlen($GLOBALS['cfg']['ProxyUser']) > 0) {
+            if (strlen($this->proxyUser) > 0) {
                 $auth = base64_encode(
-                    $GLOBALS['cfg']['ProxyUser'] . ':' . $GLOBALS['cfg']['ProxyPass']
+                    $this->proxyUser . ':' . $this->proxyPass
                 );
                 $context['http']['header'] .= 'Proxy-Authorization: Basic '
                     . $auth . "\r\n";
@@ -43,21 +59,24 @@ class HttpRequest
     /**
      * Creates HTTP request using curl
      *
-     * @param mixed    $response           HTTP response
-     * @param interger $http_status        HTTP response status code
-     * @param bool     $return_only_status If set to true, the method would only return response status
+     * @param mixed $response         HTTP response
+     * @param int   $httpStatus       HTTP response status code
+     * @param bool  $returnOnlyStatus If set to true, the method would only return response status
      *
      * @return mixed
      */
-    public static function httpRequestReturn($response, $http_status, $return_only_status)
-    {
-        if ($http_status == 404) {
+    private function response(
+        $response,
+        $httpStatus,
+        $returnOnlyStatus
+    ) {
+        if ($httpStatus == 404) {
             return false;
         }
-        if ($http_status != 200) {
+        if ($httpStatus != 200) {
             return null;
         }
-        if ($return_only_status) {
+        if ($returnOnlyStatus) {
             return true;
         }
         return $response;
@@ -66,47 +85,53 @@ class HttpRequest
     /**
      * Creates HTTP request using curl
      *
-     * @param string $url                Url to send the request
-     * @param string $method             HTTP request method (GET, POST, PUT, DELETE, etc)
-     * @param bool   $return_only_status If set to true, the method would only return response status
-     * @param mixed  $content            Content to be sent with HTTP request
-     * @param string $header             Header to be set for the HTTP request
-     * @param int    $ssl                SSL mode to use
+     * @param string $url              Url to send the request
+     * @param string $method           HTTP request method (GET, POST, PUT, DELETE, etc)
+     * @param bool   $returnOnlyStatus If set to true, the method would only return response status
+     * @param mixed  $content          Content to be sent with HTTP request
+     * @param string $header           Header to be set for the HTTP request
+     * @param int    $ssl              SSL mode to use
      *
      * @return mixed
      */
-    public static function httpRequestCurl($url, $method, $return_only_status = false, $content = null, $header = "", $ssl = 0)
-    {
-        $curl_handle = curl_init($url);
-        if ($curl_handle === false) {
+    private function curl(
+        $url,
+        $method,
+        $returnOnlyStatus = false,
+        $content = null,
+        $header = '',
+        $ssl = 0
+    ) {
+        $curlHandle = curl_init($url);
+        if ($curlHandle === false) {
             return null;
         }
-        $curl_status = true;
-        if (strlen($GLOBALS['cfg']['ProxyUrl']) > 0) {
-            $curl_status &= curl_setopt($curl_handle, CURLOPT_PROXY, $GLOBALS['cfg']['ProxyUrl']);
-            if (strlen($GLOBALS['cfg']['ProxyUser']) > 0) {
-                $curl_status &= curl_setopt(
-                    $curl_handle,
+        $curlStatus = true;
+        if (strlen($this->proxyUrl) > 0) {
+            $curlStatus &= curl_setopt($curlHandle, CURLOPT_PROXY, $this->proxyUrl);
+            if (strlen($this->proxyUser) > 0) {
+                $curlStatus &= curl_setopt(
+                    $curlHandle,
                     CURLOPT_PROXYUSERPWD,
-                    $GLOBALS['cfg']['ProxyUser'] . ':' . $GLOBALS['cfg']['ProxyPass']
+                    $this->proxyUser . ':' . $this->proxyPass
                 );
             }
         }
-        $curl_status &= curl_setopt($curl_handle, CURLOPT_USERAGENT, 'phpMyAdmin');
+        $curlStatus &= curl_setopt($curlHandle, CURLOPT_USERAGENT, 'phpMyAdmin');
 
         if ($method != "GET") {
-            $curl_status &= curl_setopt($curl_handle, CURLOPT_CUSTOMREQUEST, $method);
+            $curlStatus &= curl_setopt($curlHandle, CURLOPT_CUSTOMREQUEST, $method);
         }
         if ($header) {
-            $curl_status &= curl_setopt($curl_handle, CURLOPT_HTTPHEADER, array($header));
+            $curlStatus &= curl_setopt($curlHandle, CURLOPT_HTTPHEADER, array($header));
         }
 
         if ($method == "POST") {
-            $curl_status &= curl_setopt($curl_handle, CURLOPT_POSTFIELDS, $content);
+            $curlStatus &= curl_setopt($curlHandle, CURLOPT_POSTFIELDS, $content);
         }
 
-        $curl_status &= curl_setopt($curl_handle, CURLOPT_SSL_VERIFYHOST, '2');
-        $curl_status &= curl_setopt($curl_handle, CURLOPT_SSL_VERIFYPEER, '1');
+        $curlStatus &= curl_setopt($curlHandle, CURLOPT_SSL_VERIFYHOST, '2');
+        $curlStatus &= curl_setopt($curlHandle, CURLOPT_SSL_VERIFYPEER, '1');
 
         /**
          * Configure ISRG Root X1 to be able to verify Let's Encrypt SSL
@@ -114,24 +139,24 @@ class HttpRequest
          *
          * See https://letsencrypt.org/certificates/
          */
-        $certs_dir = dirname(__file__) . '/../../certs/';
+        $certsDir = dirname(__file__) . '/../../certs/';
         /* See code below for logic */
         if ($ssl == CURLOPT_CAPATH) {
-            $curl_status &= curl_setopt($curl_handle, CURLOPT_CAPATH, $certs_dir);
+            $curlStatus &= curl_setopt($curlHandle, CURLOPT_CAPATH, $certsDir);
         } elseif ($ssl == CURLOPT_CAINFO) {
-            $curl_status &= curl_setopt($curl_handle, CURLOPT_CAINFO, $certs_dir . 'cacert.pem');
+            $curlStatus &= curl_setopt($curlHandle, CURLOPT_CAINFO, $certsDir . 'cacert.pem');
         }
 
-        $curl_status &= curl_setopt($curl_handle, CURLOPT_RETURNTRANSFER,true);
-        $curl_status &= curl_setopt($curl_handle, CURLOPT_FOLLOWLOCATION, 0);
-        $curl_status &= curl_setopt($curl_handle, CURLOPT_IPRESOLVE, CURL_IPRESOLVE_V4);
-        $curl_status &= curl_setopt($curl_handle, CURLOPT_TIMEOUT, 10);
-        $curl_status &= curl_setopt($curl_handle, CURLOPT_CONNECTTIMEOUT, 10);
+        $curlStatus &= curl_setopt($curlHandle, CURLOPT_RETURNTRANSFER, true);
+        $curlStatus &= curl_setopt($curlHandle, CURLOPT_FOLLOWLOCATION, 0);
+        $curlStatus &= curl_setopt($curlHandle, CURLOPT_IPRESOLVE, CURL_IPRESOLVE_V4);
+        $curlStatus &= curl_setopt($curlHandle, CURLOPT_TIMEOUT, 10);
+        $curlStatus &= curl_setopt($curlHandle, CURLOPT_CONNECTTIMEOUT, 10);
 
-        if (! $curl_status) {
+        if (! $curlStatus) {
             return null;
         }
-        $response = @curl_exec($curl_handle);
+        $response = @curl_exec($curlHandle);
         if ($response === false) {
             /*
              * In case of SSL verification failure let's try configuring curl
@@ -145,32 +170,37 @@ class HttpRequest
              * 3. Try setting CURLOPT_CAPATH.
              * 4. Fail.
              */
-            if (curl_getinfo($curl_handle, CURLINFO_SSL_VERIFYRESULT) != 0) {
+            if (curl_getinfo($curlHandle, CURLINFO_SSL_VERIFYRESULT) != 0) {
                 if ($ssl == 0) {
-                    self::httpRequestCurl($url, $method, $return_only_status, $content, $header, CURLOPT_CAINFO);
+                    $this->curl($url, $method, $returnOnlyStatus, $content, $header, CURLOPT_CAINFO);
                 } elseif ($ssl == CURLOPT_CAINFO) {
-                    self::httpRequestCurl($url, $method, $return_only_status, $content, $header, CURLOPT_CAPATH);
+                    $this->curl($url, $method, $returnOnlyStatus, $content, $header, CURLOPT_CAPATH);
                 }
             }
             return null;
         }
-        $http_status = curl_getinfo($curl_handle, CURLINFO_HTTP_CODE);
-        return self::httpRequestReturn($response, $http_status, $return_only_status);
+        $httpStatus = curl_getinfo($curlHandle, CURLINFO_HTTP_CODE);
+        return $this->response($response, $httpStatus, $returnOnlyStatus);
     }
 
     /**
      * Creates HTTP request using file_get_contents
      *
-     * @param string $url                Url to send the request
-     * @param string $method             HTTP request method (GET, POST, PUT, DELETE, etc)
-     * @param bool   $return_only_status If set to true, the method would only return response status
-     * @param mixed  $content            Content to be sent with HTTP request
-     * @param string $header             Header to be set for the HTTP request
+     * @param string $url              Url to send the request
+     * @param string $method           HTTP request method (GET, POST, PUT, DELETE, etc)
+     * @param bool   $returnOnlyStatus If set to true, the method would only return response status
+     * @param mixed  $content          Content to be sent with HTTP request
+     * @param string $header           Header to be set for the HTTP request
      *
      * @return mixed
      */
-    public static function httpRequestFopen($url, $method, $return_only_status = false, $content = null, $header = "")
-    {
+    private function fopen(
+        $url,
+        $method,
+        $returnOnlyStatus = false,
+        $content = null,
+        $header = ''
+    ) {
         $context = array(
             'http' => array(
                 'method'  => $method,
@@ -186,38 +216,42 @@ class HttpRequest
         if ($method == "POST") {
             $context['http']['content'] = $content;
         }
-
-        $context = self::handleContext($context);
+        $context = $this->handleContext($context);
         $response = @file_get_contents(
             $url,
             false,
             stream_context_create($context)
         );
-        if (! isset($http_response_header)) {
-            return null;
+        if (isset($http_response_header)) {
+            preg_match("#HTTP/[0-9\.]+\s+([0-9]+)#", $http_response_header[0], $out);
+            $httpStatus = intval($out[1]);
+            return $this->response($response, $httpStatus, $returnOnlyStatus);
         }
-        preg_match("#HTTP/[0-9\.]+\s+([0-9]+)#", $http_response_header[0], $out );
-        $http_status = intval($out[1]);
-        return self::httpRequestReturn($response, $http_status, $return_only_status);
+        return null;
     }
 
     /**
      * Creates HTTP request
      *
-     * @param string $url                Url to send the request
-     * @param string $method             HTTP request method (GET, POST, PUT, DELETE, etc)
-     * @param bool   $return_only_status If set to true, the method would only return response status
-     * @param mixed  $content            Content to be sent with HTTP request
-     * @param string $header             Header to be set for the HTTP request
+     * @param string $url              Url to send the request
+     * @param string $method           HTTP request method (GET, POST, PUT, DELETE, etc)
+     * @param bool   $returnOnlyStatus If set to true, the method would only return response status
+     * @param mixed  $content          Content to be sent with HTTP request
+     * @param string $header           Header to be set for the HTTP request
      *
      * @return mixed
      */
-    public static function httpRequest($url, $method, $return_only_status = false, $content = null, $header = "")
-    {
+    public function create(
+        $url,
+        $method,
+        $returnOnlyStatus = false,
+        $content = null,
+        $header = ''
+    ) {
         if (function_exists('curl_init')) {
-            return self::httpRequestCurl($url, $method, $return_only_status, $content, $header);
+            return $this->curl($url, $method, $returnOnlyStatus, $content, $header);
         } elseif (ini_get('allow_url_fopen')) {
-            return self::httpRequestFopen($url, $method, $return_only_status, $content, $header);
+            return $this->fopen($url, $method, $returnOnlyStatus, $content, $header);
         }
         return null;
     }

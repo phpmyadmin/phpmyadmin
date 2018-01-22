@@ -4,9 +4,37 @@ namespace PhpMyAdmin\Tests\Utils;
 
 use PhpMyAdmin\Utils\HttpRequest;
 use PhpMyAdmin\Tests\PmaTestCase;
+use ReflectionClass;
 
 class HttpRequestTest extends PmaTestCase
 {
+    private $httpRequest;
+
+    protected function setUp()
+    {
+        $this->httpRequest = new HttpRequest();
+    }
+
+    /**
+     * Call protected functions by setting visibility to public.
+     *
+     * @param string      $name   method name
+     * @param array       $params parameters for the invocation
+     * @param HttpRequest $object HttpRequest instance object
+     *
+     * @return mixed the output from the protected method.
+     */
+    private function callProtectedMethod($name, $params, HttpRequest $object = null)
+    {
+        $class = new ReflectionClass(HttpRequest::class);
+        $method = $class->getMethod($name);
+        $method->setAccessible(true);
+        return $method->invokeArgs(
+            $object !== null ? $object : $this->httpRequest,
+            $params
+        );
+    }
+
     /**
      * Skip test if CURL extension is not installed
      *
@@ -45,10 +73,10 @@ class HttpRequestTest extends PmaTestCase
      *
      * @group network
      */
-    public function testHttpRequestCurl($url, $method, $return_only_status, $expected)
+    public function testCurl($url, $method, $return_only_status, $expected)
     {
         $this->checkCurl();
-        $result = HttpRequest::httpRequestCurl($url, $method, $return_only_status);
+        $result = $this->callProtectedMethod('curl', [$url, $method, $return_only_status]);
         $this->validateHttp($result, $expected);
     }
 
@@ -63,10 +91,17 @@ class HttpRequestTest extends PmaTestCase
      *
      * @group network
      */
-    public function testHttpRequestCurlCAPath($url, $method, $return_only_status, $expected)
+    public function testCurlCAPath($url, $method, $return_only_status, $expected)
     {
         $this->checkCurl(true);
-        $result = HttpRequest::httpRequestCurl($url, $method, $return_only_status, null, '', CURLOPT_CAPATH);
+        $result = $this->callProtectedMethod('curl', [
+            $url,
+            $method,
+            $return_only_status,
+            null,
+            '',
+            CURLOPT_CAPATH
+        ]);
         $this->validateHttp($result, $expected);
     }
 
@@ -81,10 +116,17 @@ class HttpRequestTest extends PmaTestCase
      *
      * @group network
      */
-    public function testHttpRequestCurlCAInfo($url, $method, $return_only_status, $expected)
+    public function testCurlCAInfo($url, $method, $return_only_status, $expected)
     {
         $this->checkCurl(true);
-        $result = HttpRequest::httpRequestCurl($url, $method, $return_only_status, null, '', CURLOPT_CAINFO);
+        $result = $this->callProtectedMethod('curl', [
+            $url,
+            $method,
+            $return_only_status,
+            null,
+            '',
+            CURLOPT_CAINFO
+        ]);
         $this->validateHttp($result, $expected);
     }
 
@@ -99,12 +141,12 @@ class HttpRequestTest extends PmaTestCase
      *
      * @group network
      */
-    public function testHttpRequestFopen($url, $method, $return_only_status, $expected)
+    public function testFopen($url, $method, $return_only_status, $expected)
     {
         if (! ini_get('allow_url_fopen')) {
             $this->markTestSkipped('allow_url_fopen not supported');
         }
-        $result = HttpRequest::httpRequestFopen($url, $method, $return_only_status);
+        $result = $this->callProtectedMethod('fopen', [$url, $method, $return_only_status]);
         $this->validateHttp($result, $expected);
     }
 
@@ -120,12 +162,12 @@ class HttpRequestTest extends PmaTestCase
      *
      * @group network
      */
-    public function testHttpRequest($url, $method, $return_only_status, $expected)
+    public function testCreate($url, $method, $return_only_status, $expected)
     {
         if (! function_exists('curl_init') && ! ini_get('allow_url_fopen')) {
             $this->markTestSkipped('neither curl nor allow_url_fopen are supported');
         }
-        $result = HttpRequest::httpRequest($url, $method, $return_only_status);
+        $result = $this->httpRequest->create($url, $method, $return_only_status);
         $this->validateHttp($result, $expected);
     }
 

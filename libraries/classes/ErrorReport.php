@@ -179,7 +179,8 @@ class ErrorReport
      */
     public static function send(array $report)
     {
-        $response = HttpRequest::httpRequest(
+        $httpRequest = new HttpRequest();
+        $response = $httpRequest->create(
             self::SUBMISSION_URL,
             "POST",
             false,
