@@ -8,16 +8,16 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.8.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2018-01-22 14:58+0100\n"
-"PO-Revision-Date: 2017-11-29 09:32+0000\n"
+"PO-Revision-Date: 2018-01-24 12:17+0000\n"
 "Last-Translator: Giovanni Sora <g.sora@tiscali.it>\n"
-"Language-Team: Interlingua <https://hosted.weblate.org/projects/phpmyadmin/"
-"master/ia/>\n"
+"Language-Team: Interlingua "
+"<https://hosted.weblate.org/projects/phpmyadmin/master/ia/>\n"
 "Language: ia\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 2.18-dev\n"
+"X-Generator: Weblate 2.19-dev\n"
 
 #: ajax.php:21 ajax.php:50 export.php:203 libraries/classes/Export.php:1100
 msgid "Bad type!"
@@ -5355,18 +5355,14 @@ msgid "Hide databases matching regular expression (PCRE)."
 msgstr "Cela base de datos coincidente con le expression regular (PCRE)."
 
 #: libraries/classes/Config/Descriptions.php:1041
-#, fuzzy
-#| msgid ""
-#| "More information on [a@https://sourceforge.net/p/phpmyadmin/"
-#| "bugs/2606/]PMA bug tracker[/a] and [a@https://bugs.mysql.com/19588]MySQL "
-#| "Bugs[/a]"
 msgid ""
 "More information on [a@https://github.com/phpmyadmin/phpmyadmin/"
 "issues/8970]phpMyAdmin issue tracker[/a] and [a@https://bugs.mysql."
 "com/19588]MySQL Bugs[/a]"
 msgstr ""
-"Altere information in [a@https://sourceforge.net/p/phpmyadmin/bugs/2606/]PMA "
-"bug tracker[/a] and [a@https://bugs.mysql.com/19588]MySQL Bugs[/a]"
+"Altere informationes in "
+"[a@https://github.com/phpmyadmin/phpmyadmin/issues/8970]phpMyAdmin issue "
+"tracker[/a] and [a@https://bugs.mysql.com/19588]MySQL Bugs[/a]"
 
 #: libraries/classes/Config/Descriptions.php:1045
 msgid "Disable use of INFORMATION_SCHEMA"
@@ -14250,10 +14246,9 @@ msgid "Save output to a file"
 msgstr "Salveguarda exito in un file"
 
 #: templates/display/export/options_output.twig:51
-#, fuzzy, php-format
-#| msgid "Skip tables larger than"
+#, php-format
 msgid "Skip tables larger than %s MiB"
-msgstr "Salta tabellas plus grande que"
+msgstr "Salta tabellas plus grande que %s MiB"
 
 #: templates/display/export/options_output_charset.twig:3
 #: templates/display/import/import.twig:97
@@ -15042,13 +15037,10 @@ msgstr[0] "%1$s correspondentia in <strong>%2$s</strong>"
 msgstr[1] "%1$s correspondentias in <strong>%2$s</strong>"
 
 #: templates/database/search/results.twig:56
-#, fuzzy
-#| msgid "<b>Total:</b> <i>%s</i> match"
-#| msgid_plural "<b>Total:</b> <i>%s</i> matches"
 msgid "<strong>Total:</strong> <em>%count%</em> match"
 msgid_plural "<strong>Total:</strong> <em>%count%</em> matches"
-msgstr[0] "<b>Total:</b> <i>%s</i> correspondentia"
-msgstr[1] "<b>Total:</b> <i>%s</i> correspondentias"
+msgstr[0] "<strong>Total:</strong> <em>%count%</em> correspondentia"
+msgstr[1] "<strong>Total:</strong> <em>%count%</em> correspondentias"
 
 #: templates/login/twofactor/key_configure.twig:3
 msgid ""
@@ -15080,10 +15072,9 @@ msgstr "Nomine de nove pagina"
 
 #: templates/display/export/options_output_save_dir.twig:5
 #: templates/display/export/options_quick_export.twig:8
-#, fuzzy, php-format
-#| msgid "Save on server in the directory <b>%s</b>"
+#, php-format
 msgid "Save on server in the directory <strong>%s</strong>"
-msgstr "Salveguarda sur servitor in le directorio <b>%s</b>"
+msgstr "Salveguarda sur servitor in le directorio <strong>%s</strong>"
 
 #: templates/table/search/options_zoom.twig:6
 msgid "Use this column to label each point"
@@ -15325,10 +15316,8 @@ msgid "No preview available."
 msgstr "Necun vista preliminar disponibile."
 
 #: templates/theme_preview.twig:13
-#, fuzzy
-#| msgid "take it"
 msgid "Take it"
-msgstr "prende lo"
+msgstr "Prende lo"
 
 #: templates/prefs_autoload.twig:7
 msgid ""
