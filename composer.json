@@ -11,7 +11,7 @@
         "docs": "https://docs.phpmyadmin.net/",
         "source": "https://github.com/phpmyadmin/phpmyadmin"
     },
-    "license": "GPL-2.0",
+    "license": "GPL-2.0-only",
     "authors": [
         {
             "name": "The phpMyAdmin Team",
