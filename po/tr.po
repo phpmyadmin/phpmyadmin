@@ -4,16 +4,16 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.8.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2018-01-22 14:58+0100\n"
-"PO-Revision-Date: 2017-11-29 08:54+0000\n"
+"PO-Revision-Date: 2018-01-24 12:32+0000\n"
 "Last-Translator: Burak Yavuz <hitowerdigit@hotmail.com>\n"
-"Language-Team: Turkish <https://hosted.weblate.org/projects/phpmyadmin/"
-"master/tr/>\n"
+"Language-Team: Turkish "
+"<https://hosted.weblate.org/projects/phpmyadmin/master/tr/>\n"
 "Language: tr\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=2; plural=n > 1;\n"
-"X-Generator: Weblate 2.18-dev\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Weblate 2.19-dev\n"
 
 #: ajax.php:21 ajax.php:50 export.php:203 libraries/classes/Export.php:1100
 msgid "Bad type!"
@@ -5302,18 +5302,14 @@ msgid "Hide databases matching regular expression (PCRE)."
 msgstr "Düzenli ifadeye (PCRE) uyan veritabanlarını gizler."
 
 #: libraries/classes/Config/Descriptions.php:1041
-#, fuzzy
-#| msgid ""
-#| "More information on [a@https://sourceforge.net/p/phpmyadmin/"
-#| "bugs/2606/]PMA bug tracker[/a] and [a@https://bugs.mysql.com/19588]MySQL "
-#| "Bugs[/a]"
 msgid ""
 "More information on [a@https://github.com/phpmyadmin/phpmyadmin/"
 "issues/8970]phpMyAdmin issue tracker[/a] and [a@https://bugs.mysql."
 "com/19588]MySQL Bugs[/a]"
 msgstr ""
-"[a@https://sourceforge.net/p/phpmyadmin/bugs/2606/]PMA hata izleyici[/a] ve "
-"[a@https://bugs.mysql.com/19588]MySQL Hataları[/a] üzerine daha fazla bilgi"
+"[a@https://github.com/phpmyadmin/phpmyadmin/issues/8970]phpMyAdmin sorun "
+"izleyici[/a] ve [a@https://bugs.mysql.com/19588]MySQL Hataları[/a] üzerine "
+"daha fazla bilgi"
 
 #: libraries/classes/Config/Descriptions.php:1045
 msgid "Disable use of INFORMATION_SCHEMA"
@@ -14365,8 +14361,6 @@ msgstr "Açıklama"
 
 #: templates/table/tracking/structure_snapshot_columns.twig:5
 #: templates/table/tracking/report_table.twig:4
-#, fuzzy
-#| msgid "#"
 msgctxt "Number"
 msgid "#"
 msgstr "#"
@@ -14474,10 +14468,9 @@ msgid "Save output to a file"
 msgstr "Çıktıyı dosyaya kaydet"
 
 #: templates/display/export/options_output.twig:51
-#, fuzzy, php-format
-#| msgid "Skip tables larger than"
+#, php-format
 msgid "Skip tables larger than %s MiB"
-msgstr "Şundan büyük tabloları atla"
+msgstr "%s MiB'tan büyük tabloları atla"
 
 #: templates/display/export/options_output_charset.twig:3
 #: templates/display/import/import.twig:97
@@ -15275,13 +15268,10 @@ msgstr[0] "<strong>%2$s</strong> tablosu içerisinde %1$s eşleşme"
 msgstr[1] "<strong>%2$s</strong> tablosu içerisinde %1$s eşleşme"
 
 #: templates/database/search/results.twig:56
-#, fuzzy
-#| msgid "<b>Total:</b> <i>%s</i> match"
-#| msgid_plural "<b>Total:</b> <i>%s</i> matches"
 msgid "<strong>Total:</strong> <em>%count%</em> match"
 msgid_plural "<strong>Total:</strong> <em>%count%</em> matches"
-msgstr[0] "<b>Toplam:</b> <i>%s</i> benzeşme"
-msgstr[1] "<b>Toplam:</b> <i>%s</i> benzeşme"
+msgstr[0] "<strong>Toplam:</strong> <em>%count%</em> eşleşme"
+msgstr[1] "<strong>Toplam:</strong> <em>%count%</em> eşleşme"
 
 #: templates/login/twofactor/key_configure.twig:3
 msgid ""
@@ -15315,10 +15305,9 @@ msgstr "Yeni sayfa adı"
 
 #: templates/display/export/options_output_save_dir.twig:5
 #: templates/display/export/options_quick_export.twig:8
-#, fuzzy, php-format
-#| msgid "Save on server in the directory <b>%s</b>"
+#, php-format
 msgid "Save on server in the directory <strong>%s</strong>"
-msgstr "Sunucuda <b>%s</b> dizinine kaydet"
+msgstr "Sunucuda <strong>%s</strong> dizinine kaydet"
 
 #: templates/table/search/options_zoom.twig:6
 msgid "Use this column to label each point"
@@ -15562,8 +15551,6 @@ msgid "No preview available."
 msgstr "Önizleme mevcut değil."
 
 #: templates/theme_preview.twig:13
-#, fuzzy
-#| msgid "take it"
 msgid "Take it"
 msgstr "Al"
 
