@@ -4,16 +4,16 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.8.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2018-01-22 14:58+0100\n"
-"PO-Revision-Date: 2017-12-19 00:48+0000\n"
-"Last-Translator: Bruno Fontes <brunofontes.github@mailnull.com>\n"
-"Language-Team: Portuguese (Brazil) <https://hosted.weblate.org/projects/"
-"phpmyadmin/master/pt_BR/>\n"
+"PO-Revision-Date: 2018-01-23 15:40+0000\n"
+"Last-Translator: Maurício Meneghini Fauth <mauriciofauth@gmail.com>\n"
+"Language-Team: Portuguese (Brazil) "
+"<https://hosted.weblate.org/projects/phpmyadmin/master/pt_BR/>\n"
 "Language: pt_BR\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n > 1;\n"
-"X-Generator: Weblate 2.18\n"
+"X-Generator: Weblate 2.19-dev\n"
 
 #: ajax.php:21 ajax.php:50 export.php:203 libraries/classes/Export.php:1100
 msgid "Bad type!"
@@ -5340,18 +5340,14 @@ msgid "Hide databases matching regular expression (PCRE)."
 msgstr "Oculta bancos de dados com expressão regular combinada (PCRE)."
 
 #: libraries/classes/Config/Descriptions.php:1041
-#, fuzzy
-#| msgid ""
-#| "More information on [a@https://sourceforge.net/p/phpmyadmin/"
-#| "bugs/2606/]PMA bug tracker[/a] and [a@https://bugs.mysql.com/19588]MySQL "
-#| "Bugs[/a]"
 msgid ""
 "More information on [a@https://github.com/phpmyadmin/phpmyadmin/"
 "issues/8970]phpMyAdmin issue tracker[/a] and [a@https://bugs.mysql."
 "com/19588]MySQL Bugs[/a]"
 msgstr ""
-"Mais informações em [a@https://sourceforge.net/p/phpmyadmin/bugs/2606/]PMA "
-"rastreador de bugs [/a] e [a@https://bugs.mysql.com/19588]Bugs MySQL[/a]"
+"Mais informações no [a@https://github.com/phpmyadmin/phpmyadmin/issues/8970]"
+"issue tracker do phpMyAdmin[/a] e no [a@https://bugs.mysql.com/19588]MySQL "
+"Bugs[/a]"
 
 #: libraries/classes/Config/Descriptions.php:1045
 msgid "Disable use of INFORMATION_SCHEMA"
@@ -13882,6 +13878,8 @@ msgid ""
 "Failed to set session cookie. Maybe you are using HTTP instead of HTTPS to "
 "access phpMyAdmin."
 msgstr ""
+"Falha ao configurar o cookie da sessão. Talvez você esteja usando HTTP em "
+"vez de HTTPS para acessar o phpMyAdmin."
 
 #: libraries/common.inc.php:338
 msgid "Invalid authentication method set in configuration:"
@@ -14444,8 +14442,6 @@ msgstr "Descrição"
 
 #: templates/table/tracking/structure_snapshot_columns.twig:5
 #: templates/table/tracking/report_table.twig:4
-#, fuzzy
-#| msgid "#"
 msgctxt "Number"
 msgid "#"
 msgstr "#"
@@ -14553,10 +14549,9 @@ msgid "Save output to a file"
 msgstr "Salvar saída em um arquivo"
 
 #: templates/display/export/options_output.twig:51
-#, fuzzy, php-format
-#| msgid "Skip tables larger than"
+#, php-format
 msgid "Skip tables larger than %s MiB"
-msgstr "Pular tabelas maiores que"
+msgstr "Pular tabelas maiores que %s MiB"
 
 #: templates/display/export/options_output_charset.twig:3
 #: templates/display/import/import.twig:97
@@ -15359,13 +15354,10 @@ msgstr[0] "%1$s resultado em <strong>%2$s</strong>"
 msgstr[1] "%1$s resultados em <strong>%2$s</strong>"
 
 #: templates/database/search/results.twig:56
-#, fuzzy
-#| msgid "<b>Total:</b> <i>%s</i> match"
-#| msgid_plural "<b>Total:</b> <i>%s</i> matches"
 msgid "<strong>Total:</strong> <em>%count%</em> match"
 msgid_plural "<strong>Total:</strong> <em>%count%</em> matches"
-msgstr[0] "<b>Total:</b> <i>%s</i> resultado"
-msgstr[1] "<b>Total:</b> <i>%s</i> resultados"
+msgstr[0] "<strong>Total:</strong> <em>%count%</em> resultado"
+msgstr[1] "<strong>Total:</strong> <em>%count%</em> resultados"
 
 #: templates/login/twofactor/key_configure.twig:3
 msgid ""
@@ -15399,10 +15391,9 @@ msgstr "Novo nome da página"
 
 #: templates/display/export/options_output_save_dir.twig:5
 #: templates/display/export/options_quick_export.twig:8
-#, fuzzy, php-format
-#| msgid "Save on server in the directory <b>%s</b>"
+#, php-format
 msgid "Save on server in the directory <strong>%s</strong>"
-msgstr "Salvar em servidor no diretório <b>%s</b>"
+msgstr "Salvar em servidor no diretório <strong>%s</strong>"
 
 #: templates/table/search/options_zoom.twig:6
 msgid "Use this column to label each point"
@@ -15646,10 +15637,8 @@ msgid "No preview available."
 msgstr "Nenhuma pré-visualização disponível."
 
 #: templates/theme_preview.twig:13
-#, fuzzy
-#| msgid "take it"
 msgid "Take it"
-msgstr "tome"
+msgstr "Pegue"
 
 #: templates/prefs_autoload.twig:7
 msgid ""
