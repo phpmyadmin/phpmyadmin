@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.8.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2018-01-22 14:58+0100\n"
-"PO-Revision-Date: 2018-01-23 15:40+0000\n"
+"PO-Revision-Date: 2018-01-24 15:49+0000\n"
 "Last-Translator: Maurício Meneghini Fauth <mauriciofauth@gmail.com>\n"
 "Language-Team: Portuguese (Brazil) "
 "<https://hosted.weblate.org/projects/phpmyadmin/master/pt_BR/>\n"
@@ -311,8 +311,8 @@ msgstr "O nome do banco de dados está em branco!"
 #: db_operations.php:67
 msgid "Cannot copy database to the same name. Change the name and try again."
 msgstr ""
-"Não é possível renomear o banco de dados para o mesmo nome. Escolha outro "
-"nome e tente novamente."
+"Não é possível copiar o banco de dados para o mesmo nome. Escolha outro nome "
+"e tente novamente."
 
 #: db_operations.php:154
 #, php-format
