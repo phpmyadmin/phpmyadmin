@@ -4,10 +4,10 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.8.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2018-01-22 14:58+0100\n"
-"PO-Revision-Date: 2018-01-06 00:00+0000\n"
-"Last-Translator: Egon DB <egon.de.baene@gmail.com>\n"
-"Language-Team: Dutch <https://hosted.weblate.org/projects/phpmyadmin/master/"
-"nl/>\n"
+"PO-Revision-Date: 2018-01-24 00:10+0000\n"
+"Last-Translator: dingo thirteen <dingo13@gmail.com>\n"
+"Language-Team: Dutch "
+"<https://hosted.weblate.org/projects/phpmyadmin/master/nl/>\n"
 "Language: nl\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -5335,19 +5335,14 @@ msgstr ""
 "voldoen."
 
 #: libraries/classes/Config/Descriptions.php:1041
-#, fuzzy
-#| msgid ""
-#| "More information on [a@https://sourceforge.net/p/phpmyadmin/"
-#| "bugs/2606/]PMA bug tracker[/a] and [a@https://bugs.mysql.com/19588]MySQL "
-#| "Bugs[/a]"
 msgid ""
 "More information on [a@https://github.com/phpmyadmin/phpmyadmin/"
 "issues/8970]phpMyAdmin issue tracker[/a] and [a@https://bugs.mysql."
 "com/19588]MySQL Bugs[/a]"
 msgstr ""
-"Zie voor meer informatie: [a@https://sourceforge.net/p/phpmyadmin/"
-"bugs/2606/]PMA-bugtracker[/a] en [a@https://bugs.mysql.com/19588]MySQL Bugs[/"
-"a]"
+"Zie voor meer informatie: "
+"[a@https://github.com/phpmyadmin/phpmyadmin/issues/8970]phpMyAdmin issue "
+"tracker[/a] en [a@https://bugs.mysql.com/19588]MySQL Bugs[/a]"
 
 #: libraries/classes/Config/Descriptions.php:1045
 msgid "Disable use of INFORMATION_SCHEMA"
@@ -13925,6 +13920,8 @@ msgid ""
 "Failed to set session cookie. Maybe you are using HTTP instead of HTTPS to "
 "access phpMyAdmin."
 msgstr ""
+"Plaatsen van sessie cookie mislukt. Misschien gebruikt u HTTP in plaats van "
+"HTTPS om phpMyAdmin te benaderen."
 
 #: libraries/common.inc.php:338
 msgid "Invalid authentication method set in configuration:"
@@ -14488,8 +14485,6 @@ msgstr "Omschrijving"
 
 #: templates/table/tracking/structure_snapshot_columns.twig:5
 #: templates/table/tracking/report_table.twig:4
-#, fuzzy
-#| msgid "#"
 msgctxt "Number"
 msgid "#"
 msgstr "#"
@@ -14597,10 +14592,9 @@ msgid "Save output to a file"
 msgstr "Opslaan als bestand"
 
 #: templates/display/export/options_output.twig:51
-#, fuzzy, php-format
-#| msgid "Skip tables larger than"
+#, php-format
 msgid "Skip tables larger than %s MiB"
-msgstr "Sla tabellen over groter dan"
+msgstr "Sla tabellen over groter dan %s MiB"
 
 #: templates/display/export/options_output_charset.twig:3
 #: templates/display/import/import.twig:97
@@ -15406,13 +15400,10 @@ msgstr[0] "%1$s overeenkomst in <strong>%2$s</strong>"
 msgstr[1] "%1$s overeenkomsten in <strong>%2$s</strong>"
 
 #: templates/database/search/results.twig:56
-#, fuzzy
-#| msgid "<b>Total:</b> <i>%s</i> match"
-#| msgid_plural "<b>Total:</b> <i>%s</i> matches"
 msgid "<strong>Total:</strong> <em>%count%</em> match"
 msgid_plural "<strong>Total:</strong> <em>%count%</em> matches"
-msgstr[0] "<b>Totaal:</b> <i>%s</i> overeenkomst"
-msgstr[1] "<b>Totaal:</b> <i>%s</i> overeenkomsten"
+msgstr[0] "<strong> Totaal:</strong> <em> %count% </em> overeenkomst"
+msgstr[1] "<strong> Totaal:</strong> <em> %count% </em> overeenkomsten"
 
 #: templates/login/twofactor/key_configure.twig:3
 msgid ""
@@ -15446,10 +15437,9 @@ msgstr "Nieuwe paginanaam"
 
 #: templates/display/export/options_output_save_dir.twig:5
 #: templates/display/export/options_quick_export.twig:8
-#, fuzzy, php-format
-#| msgid "Save on server in the directory <b>%s</b>"
+#, php-format
 msgid "Save on server in the directory <strong>%s</strong>"
-msgstr "Bewaar op de server in de map <b>%s</b>"
+msgstr "Bewaar op de server in de map <strong>%s</strong>"
 
 #: templates/table/search/options_zoom.twig:6
 msgid "Use this column to label each point"
@@ -15694,10 +15684,8 @@ msgid "No preview available."
 msgstr "Geen preview beschikbaar."
 
 #: templates/theme_preview.twig:13
-#, fuzzy
-#| msgid "take it"
 msgid "Take it"
-msgstr "gebruiken"
+msgstr "Neem het"
 
 #: templates/prefs_autoload.twig:7
 msgid ""
