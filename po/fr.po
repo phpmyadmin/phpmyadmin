@@ -4,10 +4,10 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin-docs 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2018-01-22 14:57+0100\n"
-"PO-Revision-Date: 2018-01-08 12:50+0000\n"
-"Last-Translator: tmtisfree <tmtisfree@free.fr>\n"
-"Language-Team: French <https://hosted.weblate.org/projects/phpmyadmin/4-7/fr/"
-">\n"
+"PO-Revision-Date: 2018-01-25 01:46+0000\n"
+"Last-Translator: ButterflyOfFire <ButterflyOfFire@protonmail.com>\n"
+"Language-Team: French "
+"<https://hosted.weblate.org/projects/phpmyadmin/4-7/fr/>\n"
 "Language: fr\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -4066,7 +4066,7 @@ msgstr "%1$s (près de <code>%2$s</code>)"
 #: libraries/Menu.php:208 libraries/ServerStatusData.php:425
 #: libraries/config/messages.inc.php:917
 msgid "Server"
-msgstr "Serveur&nbsp;"
+msgstr "Serveur"
 
 #: libraries/Menu.php:227 libraries/config/messages.inc.php:909
 #: libraries/mult_submits.lib.php:338
@@ -4086,7 +4086,7 @@ msgstr "Serveur&nbsp;"
 #: templates/table/relation/foreign_key_row.phtml:159
 #: templates/table/relation/internal_relational_row.phtml:50
 msgid "Database"
-msgstr "Base de données&nbsp;"
+msgstr "Base de données"
 
 #: libraries/Menu.php:256 libraries/navigation/nodes/NodeView.php:30
 #: libraries/tbl_info.inc.php:60
@@ -4110,7 +4110,7 @@ msgstr "Vue"
 #: templates/table/relation/foreign_key_row.phtml:170
 #: templates/table/relation/internal_relational_row.phtml:58
 msgid "Table"
-msgstr "Table&nbsp;"
+msgstr "Table"
 
 #: libraries/Menu.php:338 libraries/Menu.php:441 libraries/Menu.php:554
 #: libraries/Util.php:3185 libraries/Util.php:3195 libraries/Util.php:3201
@@ -6764,7 +6764,7 @@ msgstr "Limite de mémoire"
 msgid "In the navigation panel, replaces the database tree with a selector"
 msgstr ""
 "Dans le volet de navigation, remplacer l'arborescence de la base de données "
-"par un sélecteur."
+"par un sélecteur"
 
 #: libraries/config/messages.inc.php:468
 msgid "Show databases navigation as tree"
@@ -8189,7 +8189,7 @@ msgstr "Lignes"
 #: templates/server/databases/table_footer.phtml:7
 #: templates/table/structure/display_table_stats.phtml:44
 msgid "Total"
-msgstr "Total&nbsp;"
+msgstr "Total"
 
 #: libraries/controllers/server/ServerDatabasesController.php:369
 #: templates/database/structure/table_header.phtml:74
