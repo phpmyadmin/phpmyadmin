@@ -4,10 +4,10 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin-docs 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2018-01-22 14:58+0100\n"
-"PO-Revision-Date: 2018-01-02 12:25+0000\n"
-"Last-Translator: tmtisfree <tmtisfree@free.fr>\n"
-"Language-Team: French <https://hosted.weblate.org/projects/phpmyadmin/master/"
-"fr/>\n"
+"PO-Revision-Date: 2018-01-25 01:46+0000\n"
+"Last-Translator: ButterflyOfFire <ButterflyOfFire@protonmail.com>\n"
+"Language-Team: French "
+"<https://hosted.weblate.org/projects/phpmyadmin/master/fr/>\n"
 "Language: fr\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -310,10 +310,11 @@ msgid "The database name is empty!"
 msgstr "Le nom de la base de données est vide !"
 
 #: db_operations.php:67
+#, fuzzy
 msgid "Cannot copy database to the same name. Change the name and try again."
 msgstr ""
-"Impossible de copier la base de données avec le même nom. Modifier le nom et "
-"réessayer."
+"Impossible de donner le même nom à la base de données. Modifier le nom et "
+"réessayer"
 
 #: db_operations.php:154
 #, php-format
@@ -4841,7 +4842,7 @@ msgstr "Limite de mémoire"
 msgid "In the navigation panel, replaces the database tree with a selector"
 msgstr ""
 "Dans le volet de navigation, remplacer l'arborescence de la base de données "
-"par un sélecteur."
+"par un sélecteur"
 
 #: libraries/classes/Config/Descriptions.php:770
 msgid "Show databases navigation as tree"
@@ -6010,7 +6011,7 @@ msgstr ""
 #: templates/server/databases/table_header.twig:8
 #: templates/table/relation/internal_relational_row.twig:10
 msgid "Database"
-msgstr "Base de données&nbsp;"
+msgstr "Base de données"
 
 #: libraries/classes/Config/Descriptions.php:1370
 msgid "Title of browser window when nothing is selected."
@@ -6027,7 +6028,7 @@ msgstr "Titre de la fenêtre du navigateur quand un serveur est sélectionné."
 #: libraries/classes/Config/Descriptions.php:1376
 #: libraries/classes/Menu.php:214 libraries/classes/Server/Status/Data.php:425
 msgid "Server"
-msgstr "Serveur&nbsp;"
+msgstr "Serveur"
 
 #: libraries/classes/Config/Descriptions.php:1378
 msgid "Title of browser window when a table is selected."
@@ -6050,7 +6051,7 @@ msgstr "Titre de la fenêtre du navigateur quand une table est sélectionnée."
 #: templates/database/tracking/tracked_tables.twig:11
 #: templates/table/relation/internal_relational_row.twig:17
 msgid "Table"
-msgstr "Table&nbsp;"
+msgstr "Table"
 
 #: libraries/classes/Config/Descriptions.php:1383
 msgid ""
@@ -6732,7 +6733,7 @@ msgstr "Index"
 #: templates/table/structure/display_table_stats.twig:45
 #: templates/server/databases/databases_footer.twig:7
 msgid "Total"
-msgstr "Total&nbsp;"
+msgstr "Total"
 
 #: libraries/classes/Controllers/Server/ServerDatabasesController.php:357
 #: templates/table/structure/display_table_stats.twig:32
