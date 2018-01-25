@@ -4,16 +4,16 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.7.8-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2018-01-22 14:57+0100\n"
-"PO-Revision-Date: 2017-09-15 07:47+0000\n"
-"Last-Translator: Māris <weblate@netparks.lv>\n"
-"Language-Team: Latvian <https://hosted.weblate.org/projects/phpmyadmin/4-7/"
-"lv/>\n"
+"PO-Revision-Date: 2018-01-26 23:39+0000\n"
+"Last-Translator: Edgars Sūnākslis <edgars.sunakslis@gmail.com>\n"
+"Language-Team: Latvian "
+"<https://hosted.weblate.org/projects/phpmyadmin/4-7/lv/>\n"
 "Language: lv\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=n%10==1 && n%100!=11 ? 0 : n != 0 ? 1 : 2;\n"
-"X-Generator: Weblate 2.17-dev\n"
+"X-Generator: Weblate 2.19-dev\n"
 
 #: ajax.php:16 ajax.php:33 export.php:192 schema_export.php:64
 msgid "Bad type!"
@@ -297,6 +297,8 @@ msgstr "Nav norādīts datu bāzes nosaukums!"
 #: db_operations.php:61
 msgid "Cannot copy database to the same name. Change the name and try again."
 msgstr ""
+"Nevar izveidot datubāzes kopiju ar tādu pašu nosaukumu. Nomainiet nosaukumu "
+"un mēģiniet vēlreiz."
 
 #: db_operations.php:150
 #, php-format
@@ -746,6 +748,9 @@ msgid ""
 "The curl extension was not found and allow_url_fopen is disabled. Due to "
 "this some features such as error reporting or version check are disabled."
 msgstr ""
+"curl paplašinājums netika atrasts un allow_url_fopen ir atspējots. Šo "
+"iemeslu dēļ dažas iespējas, kā, piemēram, kļūdu ziņošana un versiju "
+"salīdzināšana ir atspējotas."
 
 #: index.php:491
 msgid ""
