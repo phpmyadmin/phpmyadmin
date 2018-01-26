@@ -6,16 +6,16 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.7.8-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2018-01-22 14:57+0100\n"
-"PO-Revision-Date: 2017-11-24 18:45+0000\n"
+"PO-Revision-Date: 2018-01-26 16:28+0000\n"
 "Last-Translator: Kristjan Räts <kristjanrats@gmail.com>\n"
-"Language-Team: Estonian <https://hosted.weblate.org/projects/phpmyadmin/4-7/"
-"et/>\n"
+"Language-Team: Estonian "
+"<https://hosted.weblate.org/projects/phpmyadmin/4-7/et/>\n"
 "Language: et\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 2.18-dev\n"
+"X-Generator: Weblate 2.19-dev\n"
 
 #: ajax.php:16 ajax.php:33 export.php:192 schema_export.php:64
 msgid "Bad type!"
@@ -301,12 +301,10 @@ msgid "The database name is empty!"
 msgstr "Andmebaasi nimi on tühi!"
 
 #: db_operations.php:61
-#, fuzzy
-#| msgid ""
-#| "Cannot rename database to the same name. Change the name and try again"
 msgid "Cannot copy database to the same name. Change the name and try again."
 msgstr ""
-"Andmebaasi uus nimi ei saa olla ta vana nimi. Muuda uut nime ja proovi uuesti"
+"Andmebaasi koopia nimi ei saa olla ta vana nimi. Muuda koopia nime ja proovi "
+"uuesti."
 
 #: db_operations.php:150
 #, php-format
