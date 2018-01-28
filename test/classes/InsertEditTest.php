@@ -1454,22 +1454,22 @@ class InsertEditTest extends TestCase
         );
 
         $this->assertContains(
-            '<input type="hidden" name="goto" value="index.php" />',
+            '<input type="hidden" name="goto" value="index.php">',
             $result
         );
 
         $this->assertContains(
-            '<input type="hidden" name="err_url" value="localhost" />',
+            '<input type="hidden" name="err_url" value="localhost">',
             $result
         );
 
         $this->assertContains(
-            '<input type="hidden" name="sql_query" value="SELECT 1" />',
+            '<input type="hidden" name="sql_query" value="SELECT 1">',
             $result
         );
 
         $this->assertContains(
-            '<input type="hidden" name="where_clause[0]" value="a&lt;b" />',
+            '<input type="hidden" name="where_clause[0]" value="a&lt;b">',
             $result
         );
     }
