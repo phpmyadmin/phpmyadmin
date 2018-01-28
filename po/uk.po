@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.8.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2018-01-22 14:58+0100\n"
-"PO-Revision-Date: 2018-01-24 12:33+0000\n"
-"Last-Translator: Марс Ямбар <mjambarmeta@gmail.com>\n"
+"PO-Revision-Date: 2018-01-28 16:12+0000\n"
+"Last-Translator: Володимир Бриняк <bardvv@gmail.com>\n"
 "Language-Team: Ukrainian "
 "<https://hosted.weblate.org/projects/phpmyadmin/master/uk/>\n"
 "Language: uk\n"
@@ -5292,19 +5292,14 @@ msgid "Hide databases matching regular expression (PCRE)."
 msgstr "Cховати бази даних, що відповідають регулярному виразу (PCRE)."
 
 #: libraries/classes/Config/Descriptions.php:1041
-#, fuzzy
-#| msgid ""
-#| "More information on [a@https://sourceforge.net/p/phpmyadmin/"
-#| "bugs/2606/]PMA bug tracker[/a] and [a@https://bugs.mysql.com/19588]MySQL "
-#| "Bugs[/a]"
 msgid ""
 "More information on [a@https://github.com/phpmyadmin/phpmyadmin/"
 "issues/8970]phpMyAdmin issue tracker[/a] and [a@https://bugs.mysql."
 "com/19588]MySQL Bugs[/a]"
 msgstr ""
-"Детальніше дивіться на [a@https://sourceforge.net/p/phpmyadmin/"
-"bugs/2606/]PMA bug tracker[/a] та [a@https://bugs.mysql.com/19588]MySQL "
-"Bugs[/a]"
+"Більше інформації на [a@https://github.com/phpmyadmin/phpmyadmin/issues/8970]"
+"трекер помилок phpMyAdmin [/a] і [a@https://bugs.mysql.com/19588]MySQL "
+"помилок[/a]"
 
 #: libraries/classes/Config/Descriptions.php:1045
 msgid "Disable use of INFORMATION_SCHEMA"
@@ -13804,6 +13799,8 @@ msgid ""
 "Failed to set session cookie. Maybe you are using HTTP instead of HTTPS to "
 "access phpMyAdmin."
 msgstr ""
+"Не вдалося встановити сеанс cookie. Можливо, ви використовуєте HTTP замість "
+"HTTPS для доступу phpMyAdmin."
 
 #: libraries/common.inc.php:338
 msgid "Invalid authentication method set in configuration:"
@@ -14362,8 +14359,6 @@ msgstr "Опис"
 
 #: templates/table/tracking/structure_snapshot_columns.twig:5
 #: templates/table/tracking/report_table.twig:4
-#, fuzzy
-#| msgid "#"
 msgctxt "Number"
 msgid "#"
 msgstr "#"
@@ -14471,10 +14466,9 @@ msgid "Save output to a file"
 msgstr "Зберегти вивід у файл"
 
 #: templates/display/export/options_output.twig:51
-#, fuzzy, php-format
-#| msgid "Skip tables larger than"
+#, php-format
 msgid "Skip tables larger than %s MiB"
-msgstr "Ігнорувати таблиці більші за"
+msgstr "Ігнорувати таблиці більші ніж %s MiB"
 
 #: templates/display/export/options_output_charset.twig:3
 #: templates/display/import/import.twig:97
@@ -15279,14 +15273,11 @@ msgstr[1] "%1$s співпадіння у <strong>%2$s</strong>"
 msgstr[2] "%1$s співпадінь у <strong>%2$s</strong>"
 
 #: templates/database/search/results.twig:56
-#, fuzzy
-#| msgid "<b>Total:</b> <i>%s</i> match"
-#| msgid_plural "<b>Total:</b> <i>%s</i> matches"
 msgid "<strong>Total:</strong> <em>%count%</em> match"
 msgid_plural "<strong>Total:</strong> <em>%count%</em> matches"
-msgstr[0] "<b>Всього:</b> <i>%s</i> співпадіння"
-msgstr[1] "<b>Всього:</b> <i>%s</i> співпадань"
-msgstr[2] "<b>Всього:</b> <i>%s</i> співпадань"
+msgstr[0] "<strong>Всього:</strong><em>%count%</em> співпадіння"
+msgstr[1] "<strong>Всього:</strong><em>%count%</em> співпадіння"
+msgstr[2] "<strong>Всього:<strong><em>%count%</em> співпадінь"
 
 #: templates/login/twofactor/key_configure.twig:3
 msgid ""
@@ -15320,10 +15311,9 @@ msgstr "Назва нової сторінки"
 
 #: templates/display/export/options_output_save_dir.twig:5
 #: templates/display/export/options_quick_export.twig:8
-#, fuzzy, php-format
-#| msgid "Save on server in the directory <b>%s</b>"
+#, php-format
 msgid "Save on server in the directory <strong>%s</strong>"
-msgstr "Зберегти на сервері в каталозі <b>%s</b>"
+msgstr "Зберегти на сервері в каталозі <strong>%s</strong>"
 
 #: templates/table/search/options_zoom.twig:6
 msgid "Use this column to label each point"
@@ -15567,10 +15557,8 @@ msgid "No preview available."
 msgstr "Попередній перегляд недоступний."
 
 #: templates/theme_preview.twig:13
-#, fuzzy
-#| msgid "take it"
 msgid "Take it"
-msgstr "прийняти"
+msgstr "Прийняти"
 
 #: templates/prefs_autoload.twig:7
 msgid ""
