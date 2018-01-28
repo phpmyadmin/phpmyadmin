@@ -14,6 +14,7 @@ use PhpMyAdmin\Plugins\TransformationsPlugin;
 use PhpMyAdmin\Relation;
 use PhpMyAdmin\Response;
 use PhpMyAdmin\Sanitize;
+use PhpMyAdmin\Template;
 use PhpMyAdmin\Transformations;
 use PhpMyAdmin\Url;
 use PhpMyAdmin\Util;
@@ -1448,32 +1449,22 @@ class InsertEdit
      *
      * @return string                   an html snippet
      */
-    public static function getContinueInsertionForm($table, $db, array $where_clause_array, $err_url)
-    {
-        $html_output = '<form id="continueForm" method="post"'
-            . ' action="tbl_replace.php" name="continueForm">'
-            . Url::getHiddenInputs($db, $table)
-            . '<input type="hidden" name="goto"'
-            . ' value="' . htmlspecialchars($GLOBALS['goto']) . '" />'
-            . '<input type="hidden" name="err_url"'
-            . ' value="' . htmlspecialchars($err_url) . '" />'
-            . '<input type="hidden" name="sql_query"'
-            . ' value="' . htmlspecialchars($_POST['sql_query']) . '" />';
-
-        if (isset($_REQUEST['where_clause'])) {
-            foreach ($where_clause_array as $key_id => $where_clause) {
-
-                $html_output .= '<input type="hidden"'
-                    . ' name="where_clause[' . $key_id . ']"'
-                    . ' value="' . htmlspecialchars(trim($where_clause)) . '" />' . "\n";
-            }
-        }
-        $tmp = '<input type="number" name="insert_rows" id="insert_rows">' . "\n";
-        $tmp .= '</input>' . "\n";
-        $html_output .= "\n" . sprintf(__('Continue insertion with %s rows'), $tmp);
-        unset($tmp);
-        $html_output .= '</form>' . "\n";
-        return $html_output;
+    public static function getContinueInsertionForm(
+        $table,
+        $db,
+        array $where_clause_array,
+        $err_url
+    ) {
+        return Template::get('table/insert/continue_insertion_form')->render([
+            'db' => $db,
+            'table' => $table,
+            'where_clause_array' => $where_clause_array,
+            'err_url' => $err_url,
+            'goto' => $GLOBALS['goto'],
+            'sql_query' => isset($_POST['sql_query']) ? $_POST['sql_query'] : null,
+            'has_where_clause' => isset($_REQUEST['where_clause']),
+            'insert_rows_default' => $GLOBALS['cfg']['InsertRows'],
+        ]);
     }
 
     /**
