@@ -727,11 +727,10 @@ class Index
         $r .= '<th>' . __('Comment') . '</th>';
         $r .= '</tr>';
         $r .= '</thead>';
-        $r .= '<tbody>';
 
         foreach ($indexes as $index) {
             $row_span = ' rowspan="' . $index->getColumnCount() . '" ';
-
+            $r .= '<tbody class="row_span">';
             $r .= '<tr class="noclick" >';
 
             if (! $print_mode) {
@@ -819,10 +818,11 @@ class Index
                         . htmlspecialchars($index->getComments()) . '</td>';
                 }
                 $r .= '</tr>';
+
             } // end foreach $index['Sequences']
+            $r .= '</tbody>';
 
         } // end while
-        $r .= '</tbody>';
         $r .= '</table>';
         $r .= '</div>';
         if (! $print_mode) {
