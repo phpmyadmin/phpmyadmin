@@ -86,7 +86,6 @@ class ConfigFile
         // load default config values
         $cfg = &$this->_defaultCfg;
         include './libraries/config.default.php';
-        $cfg['fontsize'] = '82%';
 
         // load additional config information
         $cfg_db = &$this->_cfgDb;
