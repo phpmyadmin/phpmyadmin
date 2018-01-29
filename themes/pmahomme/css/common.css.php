@@ -555,14 +555,16 @@ button.mult_submit {
 /* odd items 1,3,5,7,... */
 table tbody:first-of-type tr:nth-child(odd),
 table tbody:first-of-type tr:nth-child(odd) th,
-#table_index tbody:nth-child(odd) tr {
+#table_index tbody:nth-of-type(odd) tr,
+#table_index tbody:nth-of-type(odd) th {
     background: #fff;
 }
 
 /* even items 2,4,6,8,... */
 table tbody:first-of-type tr:nth-child(even),
 table tbody:first-of-type tr:nth-child(even) th,
-#table_index tbody:nth-child(even) tr {
+#table_index tbody:nth-of-type(even) tr,
+#table_index tbody:nth-of-type(even) th {
     background: #DFDFDF;
 }
 

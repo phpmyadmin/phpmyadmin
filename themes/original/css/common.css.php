@@ -271,13 +271,15 @@ button.mult_submit {
 
 /* odd items 1,3,5,7,... */
 table tr:nth-child(odd),
-#table_index tbody:nth-child(odd) tr {
+#table_index tbody:nth-of-type(odd) tr,
+#table_index tbody:nth-of-type(odd) th {
     background: <?php echo $GLOBALS['cfg']['BgOne']; ?>;
 }
 
 /* even items 2,4,6,8,... */
 table tr:nth-child(even),
-#table_index tbody:nth-child(even) tr {
+#table_index tbody:nth-of-type(even) tr,
+#table_index tbody:nth-of-type(even) th {
     background: <?php echo $GLOBALS['cfg']['BgTwo']; ?>;
 }
 
