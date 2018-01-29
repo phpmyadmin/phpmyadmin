@@ -63,11 +63,6 @@ class ConfigFileTest extends PmaTestCase
     {
         // Check default dynamic values
         $this->assertEquals(
-            "82%",
-            $this->object->getDefault('fontsize')
-        );
-
-        $this->assertEquals(
             array(),
             $this->object->getConfig()
         );
