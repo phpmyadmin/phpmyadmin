@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.8.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2018-01-22 14:58+0100\n"
-"PO-Revision-Date: 2018-01-24 15:49+0000\n"
-"Last-Translator: Maurício Meneghini Fauth <mauriciofauth@gmail.com>\n"
+"PO-Revision-Date: 2018-01-31 20:39+0000\n"
+"Last-Translator: RD WebDesign <weblate@rdwebdesign.com.br>\n"
 "Language-Team: Portuguese (Brazil) "
 "<https://hosted.weblate.org/projects/phpmyadmin/master/pt_BR/>\n"
 "Language: pt_BR\n"
@@ -8078,8 +8078,8 @@ msgstr "Linguagem"
 msgid ""
 "Linting is disabled for this query because it exceeds the maximum length."
 msgstr ""
-"A análise está desativada para esta consulta porque excede o comprimento "
-"máximo."
+"A análise do código está desativada para esta consulta porque excede o "
+"comprimento máximo."
 
 #: libraries/classes/Linter.php:164
 #, php-format
@@ -13781,7 +13781,7 @@ msgstr "Pesquisar"
 #: libraries/classes/Util.php:1164
 msgctxt "Inline edit query"
 msgid "Edit inline"
-msgstr "Editar índice"
+msgstr "Editar em linha"
 
 #. l10n: Short week day name
 #: libraries/classes/Util.php:1504
@@ -15344,7 +15344,7 @@ msgstr "Mover Menu"
 #: templates/database/designer/side_menu.twig:181
 #: templates/database/designer/side_menu.twig:186
 msgid "Pin text"
-msgstr "Texto fixo"
+msgstr "Fixar texto"
 
 #: templates/database/search/results.twig:12
 #, php-format
