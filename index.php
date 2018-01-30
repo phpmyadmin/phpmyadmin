@@ -110,7 +110,8 @@ if (! empty($_REQUEST['db'])) {
             $GLOBALS['cfg']['DefaultTabDatabase'], 'database'
         );
     }
-    include $page;
+
+    ;
     exit;
 }
 
