@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.7.8-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2018-01-22 14:57+0100\n"
-"PO-Revision-Date: 2018-01-22 14:50+0000\n"
-"Last-Translator: Matteo Gheza <matteo.gheza07@gmail.com>\n"
+"PO-Revision-Date: 2018-02-01 14:37+0000\n"
+"Last-Translator: Michal Čihař <michal@cihar.com>\n"
 "Language-Team: Italian "
 "<https://hosted.weblate.org/projects/phpmyadmin/4-7/it/>\n"
 "Language: it\n"
@@ -8411,7 +8411,7 @@ msgstr "Re-inserisci:"
 #: libraries/display_change_password.lib.php:106
 #: libraries/display_change_password.lib.php:139
 msgid "Password Hashing:"
-msgstr "Password Hashing:"
+msgstr "Hash di password:"
 
 #: libraries/display_change_password.lib.php:119
 #: libraries/server_privileges.lib.php:1729
@@ -9549,7 +9549,7 @@ msgstr "Primo step di normalizzazione (1NF)"
 #: libraries/normalization.lib.php:134 libraries/normalization.lib.php:185
 #: libraries/normalization.lib.php:233 libraries/normalization.lib.php:271
 msgid "Step 1."
-msgstr "Step 1."
+msgstr "Passaggio 1."
 
 #: libraries/normalization.lib.php:136
 msgid ""
@@ -9680,7 +9680,7 @@ msgstr "Nessun gruppo ripetuto"
 
 #: libraries/normalization.lib.php:316
 msgid "Step 2."
-msgstr "Step 2."
+msgstr "Passaggio 2."
 
 #: libraries/normalization.lib.php:316
 msgid "Find partial dependencies"
@@ -11725,7 +11725,7 @@ msgstr "Conserva dopo il completamento"
 #: libraries/rte/rte_events.lib.php:497 libraries/rte/rte_routines.lib.php:1028
 #: libraries/rte/rte_triggers.lib.php:387 view_create.php:234
 msgid "Definer"
-msgstr "Definer"
+msgstr "Definizione"
 
 #: libraries/rte/rte_events.lib.php:541 libraries/rte/rte_routines.lib.php:1109
 #: libraries/rte/rte_triggers.lib.php:426
@@ -14776,7 +14776,7 @@ msgstr "Console"
 
 #: templates/console/display.phtml:11
 msgid "History"
-msgstr "History"
+msgstr "Storia"
 
 #: templates/console/display.phtml:14 templates/console/display.phtml:124
 msgid "Bookmarks"
