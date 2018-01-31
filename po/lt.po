@@ -4,17 +4,18 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.8.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2018-01-22 14:58+0100\n"
-"PO-Revision-Date: 2017-08-22 09:47+0000\n"
-"Last-Translator: Michal Čihař <michal@cihar.com>\n"
-"Language-Team: Lithuanian <https://hosted.weblate.org/projects/phpmyadmin/"
-"master/lt/>\n"
+"PO-Revision-Date: 2018-02-01 13:38+0000\n"
+"Last-Translator: Edgaras Janušauskas <edgaras.janusauskas@gmail.com>\n"
+"Language-Team: Lithuanian "
+"<https://hosted.weblate.org/projects/phpmyadmin/master/lt/>\n"
 "Language: lt\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=4; plural=n==1 ? 0 : n%10>=2 && (n%100<10 || n"
-"%100>=20) ? 1 : n%10==0 || (n%100>10 && n%100<20) ? 2 : 3;\n"
-"X-Generator: Weblate 2.17-dev\n"
+"Plural-Forms: nplurals=3; plural=(n % 10 == 1 && (n % 100 < 11 || n % 100 > "
+"19)) ? 0 : ((n % 10 >= 2 && n % 10 <= 9 && (n % 100 < 11 || n % 100 > 19)) ? "
+"1 : 2);\n"
+"X-Generator: Weblate 2.19-dev\n"
 
 #: ajax.php:21 ajax.php:50 export.php:203 libraries/classes/Export.php:1100
 msgid "Bad type!"
@@ -648,8 +649,6 @@ msgid ""
 msgstr ""
 
 #: index.php:207
-#, fuzzy
-#| msgid "General Settings"
 msgid "General settings"
 msgstr "Pagrindiniai nustatymai"
 
@@ -665,8 +664,6 @@ msgid "Server connection collation"
 msgstr "Serverio ryšio palyginimas"
 
 #: index.php:276
-#, fuzzy
-#| msgid "Appearance Settings"
 msgid "Appearance settings"
 msgstr "Išvaizdos nustatymai"
 
