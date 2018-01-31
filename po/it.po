@@ -4,10 +4,10 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.8.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2018-01-22 14:58+0100\n"
-"PO-Revision-Date: 2017-12-26 21:10+0000\n"
-"Last-Translator: Matteo Gheza <matteo.gheza07@gmail.com>\n"
-"Language-Team: Italian <https://hosted.weblate.org/projects/phpmyadmin/"
-"master/it/>\n"
+"PO-Revision-Date: 2018-02-01 14:37+0000\n"
+"Last-Translator: Michal Čihař <michal@cihar.com>\n"
+"Language-Team: Italian "
+"<https://hosted.weblate.org/projects/phpmyadmin/master/it/>\n"
 "Language: it\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -7180,7 +7180,7 @@ msgstr "Re-inserisci:"
 #: libraries/classes/Display/ChangePassword.php:117
 #: libraries/classes/Display/ChangePassword.php:150
 msgid "Password Hashing:"
-msgstr "Password Hashing:"
+msgstr "Hash di password:"
 
 #: libraries/classes/Display/ChangePassword.php:130
 #: libraries/classes/Server/Privileges.php:1737
@@ -8570,7 +8570,7 @@ msgstr "Primo step di normalizzazione (1NF)"
 #: libraries/classes/Normalization.php:257
 #: libraries/classes/Normalization.php:295
 msgid "Step 1."
-msgstr "Step 1."
+msgstr "Passaggio 1."
 
 #: libraries/classes/Normalization.php:160
 msgid ""
@@ -8707,7 +8707,7 @@ msgstr "Nessun gruppo ripetuto"
 
 #: libraries/classes/Normalization.php:340
 msgid "Step 2."
-msgstr "Step 2."
+msgstr "Passaggio 2."
 
 #: libraries/classes/Normalization.php:340
 msgid "Find partial dependencies"
@@ -10939,7 +10939,7 @@ msgstr "Conserva dopo il completamento"
 #: libraries/classes/Rte/Events.php:511 libraries/classes/Rte/Routines.php:1045
 #: libraries/classes/Rte/Triggers.php:399 templates/view_create.twig:45
 msgid "Definer"
-msgstr "Definer"
+msgstr "Definizione"
 
 #: libraries/classes/Rte/Events.php:555 libraries/classes/Rte/Routines.php:1126
 #: libraries/classes/Rte/Triggers.php:438
@@ -15978,7 +15978,7 @@ msgstr "in uso"
 
 #: templates/console/display.twig:7
 msgid "History"
-msgstr "History"
+msgstr "Storia"
 
 #: templates/console/display.twig:11 templates/console/display.twig:99
 msgid "Bookmarks"
