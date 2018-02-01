@@ -24,6 +24,8 @@ $GLOBALS['server'] = 1;
  */
 class CentralColumnsTest extends TestCase
 {
+    private $centralColumns;
+
     private $_columnData = array(
         array(
             'col_name' => "id", "col_type" => 'integer',
@@ -126,10 +128,11 @@ class CentralColumnsTest extends TestCase
         $dbi->expects($this->any())->method('escapeString')
             ->will($this->returnArgument(0));
 
+        $this->centralColumns = new CentralColumns();
     }
 
     /**
-     * Test for CentralColumns::getParams
+     * Test for getParams
      *
      * @return void
      */
@@ -141,12 +144,12 @@ class CentralColumnsTest extends TestCase
                 'db' => 'phpmyadmin',
                 'table' => 'pma_central_columns'
             ),
-            CentralColumns::getParams($GLOBALS['cfg']['Server']['user'])
+            $this->centralColumns->getParams($GLOBALS['cfg']['Server']['user'])
         );
     }
 
     /**
-     * Test for CentralColumns::getColumnsList
+     * Test for getColumnsList
      *
      * @return void
      */
@@ -161,7 +164,7 @@ class CentralColumnsTest extends TestCase
 
         $this->assertEquals(
             $this->_modifiedColumnData,
-            CentralColumns::getColumnsList(
+            $this->centralColumns->getColumnsList(
                 $GLOBALS['dbi'],
                 $GLOBALS['cfg']['Server']['user'],
                 'phpmyadmin'
@@ -169,7 +172,7 @@ class CentralColumnsTest extends TestCase
         );
         $this->assertEquals(
             array_slice($this->_modifiedColumnData, 1, 2),
-            CentralColumns::getColumnsList(
+            $this->centralColumns->getColumnsList(
                 $GLOBALS['dbi'],
                 $GLOBALS['cfg']['Server']['user'],
                 'phpmyadmin',
@@ -180,7 +183,7 @@ class CentralColumnsTest extends TestCase
     }
 
     /**
-     * Test for CentralColumns::getCount
+     * Test for getCount
      *
      * @return void
      */
@@ -199,7 +202,7 @@ class CentralColumnsTest extends TestCase
 
         $this->assertEquals(
             3,
-            CentralColumns::getCount(
+            $this->centralColumns->getCount(
                 $GLOBALS['dbi'],
                 $GLOBALS['cfg']['Server']['user'],
                 'phpmyadmin'
@@ -208,7 +211,7 @@ class CentralColumnsTest extends TestCase
     }
 
     /**
-     * Test for CentralColumns::syncUniqueColumns
+     * Test for syncUniqueColumns
      *
      * @return void
      */
@@ -218,7 +221,7 @@ class CentralColumnsTest extends TestCase
         $_REQUEST['table'] = 'PMA_table';
 
         $this->assertTrue(
-            CentralColumns::syncUniqueColumns(
+            $this->centralColumns->syncUniqueColumns(
                 $GLOBALS['dbi'],
                 $GLOBALS['cfg']['Server']['user'],
                 array('PMA_table')
@@ -227,7 +230,7 @@ class CentralColumnsTest extends TestCase
     }
 
     /**
-     * Test for CentralColumns::deleteColumnsFromList
+     * Test for deleteColumnsFromList
      *
      * @return void
      */
@@ -260,7 +263,7 @@ class CentralColumnsTest extends TestCase
             );
 
         $this->assertTrue(
-            CentralColumns::deleteColumnsFromList(
+            $this->centralColumns->deleteColumnsFromList(
                 $GLOBALS['dbi'],
                 $GLOBALS['cfg']['Server']['user'],
                 array("col1"),
@@ -270,7 +273,7 @@ class CentralColumnsTest extends TestCase
 
         // when column does not exist in the central column list
         $this->assertInstanceOf(
-            'PhpMyAdmin\Message', CentralColumns::deleteColumnsFromList(
+            'PhpMyAdmin\Message', $this->centralColumns->deleteColumnsFromList(
                 $GLOBALS['dbi'],
                 $GLOBALS['cfg']['Server']['user'],
                 array('column1'),
@@ -279,7 +282,7 @@ class CentralColumnsTest extends TestCase
         );
 
         $this->assertInstanceOf(
-            'PhpMyAdmin\Message', CentralColumns::deleteColumnsFromList(
+            'PhpMyAdmin\Message', $this->centralColumns->deleteColumnsFromList(
                 $GLOBALS['dbi'],
                 $GLOBALS['cfg']['Server']['user'],
                 array('PMA_table')
@@ -288,7 +291,7 @@ class CentralColumnsTest extends TestCase
     }
 
     /**
-     * Test for CentralColumns::makeConsistentWithList
+     * Test for makeConsistentWithList
      *
      * @return void
      */
@@ -305,7 +308,7 @@ class CentralColumnsTest extends TestCase
                 $this->returnValue('PMA_table=CREATE table `PMA_table` (id integer)')
             );
         $this->assertTrue(
-            CentralColumns::makeConsistentWithList(
+            $this->centralColumns->makeConsistentWithList(
                 $GLOBALS['dbi'],
                 $GLOBALS['cfg']['Server']['user'],
                 "phpmyadmin",
@@ -315,7 +318,7 @@ class CentralColumnsTest extends TestCase
     }
 
     /**
-     * Test for CentralColumns::getFromTable
+     * Test for getFromTable
      *
      * @return void
      */
@@ -336,7 +339,7 @@ class CentralColumnsTest extends TestCase
             );
         $this->assertEquals(
             array("id", "col1"),
-            CentralColumns::getFromTable(
+            $this->centralColumns->getFromTable(
                 $GLOBALS['dbi'],
                 $GLOBALS['cfg']['Server']['user'],
                 $db,
@@ -346,7 +349,7 @@ class CentralColumnsTest extends TestCase
     }
 
     /**
-     * Test for CentralColumns::getFromTable with $allFields = true
+     * Test for getFromTable with $allFields = true
      *
      * @return void
      */
@@ -367,7 +370,7 @@ class CentralColumnsTest extends TestCase
             );
         $this->assertEquals(
             array_slice($this->_modifiedColumnData, 0, 2),
-            CentralColumns::getFromTable(
+            $this->centralColumns->getFromTable(
                 $GLOBALS['dbi'],
                 $GLOBALS['cfg']['Server']['user'],
                 $db,
@@ -378,20 +381,20 @@ class CentralColumnsTest extends TestCase
     }
 
     /**
-     * Test for CentralColumns::updateOneColumn
+     * Test for updateOneColumn
      *
      * @return void
      */
     public function testPMAUpdateOneColumn()
     {
         $this->assertTrue(
-            CentralColumns::updateOneColumn(
+            $this->centralColumns->updateOneColumn(
                 $GLOBALS['dbi'], $GLOBALS['cfg']['Server']['user'],
                 "phpmyadmin", "", "", "", "", "", "", "", "", ""
             )
         );
         $this->assertTrue(
-            CentralColumns::updateOneColumn(
+            $this->centralColumns->updateOneColumn(
                 $GLOBALS['dbi'], $GLOBALS['cfg']['Server']['user'],
                 "phpmyadmin", "col1", "", "", "", "", "", "", "", ""
             )
@@ -399,7 +402,7 @@ class CentralColumnsTest extends TestCase
     }
 
     /**
-     * Test for CentralColumns::updateMultipleColumn
+     * Test for updateMultipleColumn
      *
      * @return void
      */
@@ -415,7 +418,7 @@ class CentralColumnsTest extends TestCase
         $_POST['field_type'] = array("","");
         $_POST['field_collation'] = array("","");
         $this->assertTrue(
-            CentralColumns::updateMultipleColumn(
+            $this->centralColumns->updateMultipleColumn(
                 $GLOBALS['dbi'],
                 $GLOBALS['cfg']['Server']['user']
             )
@@ -424,7 +427,7 @@ class CentralColumnsTest extends TestCase
     }
 
     /**
-     * Test for CentralColumns::getHtmlForEditingPage
+     * Test for getHtmlForEditingPage
      *
      * @return void
      */
@@ -440,7 +443,7 @@ class CentralColumnsTest extends TestCase
             ->will(
                 $this->returnValue($this->_columnData)
             );
-        $result = CentralColumns::getHtmlForEditingPage(
+        $result = $this->centralColumns->getHtmlForEditingPage(
             $GLOBALS['dbi'],
             $GLOBALS['cfg']['Server']['user'],
             $GLOBALS['cfg']['MaxRows'],
@@ -458,9 +461,9 @@ class CentralColumnsTest extends TestCase
         __('Collation'), __('Attributes'), __('Null'), __('A_I')
         );
         $this->assertContains(
-            CentralColumns::getEditTableHeader($header_cells), $result
+            $this->centralColumns->getEditTableHeader($header_cells), $result
         );
-        $list_detail_cols = CentralColumns::findExistingColNames(
+        $list_detail_cols = $this->centralColumns->findExistingColNames(
             $GLOBALS['dbi'],
             $GLOBALS['cfg']['Server']['user'],
             'phpmyadmin',
@@ -468,7 +471,7 @@ class CentralColumnsTest extends TestCase
             true
         );
         $this->assertContains(
-            CentralColumns::getHtmlForCentralColumnsEditTableRow(
+            $this->centralColumns->getHtmlForCentralColumnsEditTableRow(
                 $GLOBALS['dbi'],
                 $GLOBALS['cfg']['MaxRows'],
                 $GLOBALS['cfg']['CharEditing'],
@@ -478,19 +481,19 @@ class CentralColumnsTest extends TestCase
             ), $result
         );
         $this->assertContains(
-            CentralColumns::getEditTableFooter(), $result
+            $this->centralColumns->getEditTableFooter(), $result
         );
 
     }
 
     /**
-     * Test for CentralColumns::getHtmlForTableNavigation
+     * Test for getHtmlForTableNavigation
      *
      * @return void
      */
     public function testPMAGetHTMLforTableNavigation()
     {
-        $result = CentralColumns::getHtmlForTableNavigation(
+        $result = $this->centralColumns->getHtmlForTableNavigation(
             $GLOBALS['cfg']['MaxRows'],
             0,
             0,
@@ -504,7 +507,7 @@ class CentralColumnsTest extends TestCase
             __('Search this table'),
             $result
         );
-        $result_1 = CentralColumns::getHtmlForTableNavigation(
+        $result_1 = $this->centralColumns->getHtmlForTableNavigation(
             $GLOBALS['cfg']['MaxRows'],
             25,
             10,
@@ -538,7 +541,7 @@ class CentralColumnsTest extends TestCase
     }
 
     /**
-     * Test for CentralColumns::getTableHeader
+     * Test for getTableHeader
      *
      * @return void
      */
@@ -546,14 +549,14 @@ class CentralColumnsTest extends TestCase
     {
         $this->assertContains(
             '<thead',
-            CentralColumns::getTableHeader(
+            $this->centralColumns->getTableHeader(
                 'column_heading', __('Click to sort'), 2
             )
         );
     }
 
     /**
-     * Test for CentralColumns::getListRaw
+     * Test for getListRaw
      *
      * @return void
      */
@@ -571,7 +574,7 @@ class CentralColumnsTest extends TestCase
             );
         $this->assertEquals(
             json_encode($this->_modifiedColumnData),
-            CentralColumns::getListRaw(
+            $this->centralColumns->getListRaw(
                 $GLOBALS['dbi'],
                 $GLOBALS['cfg']['Server']['user'],
                 'phpmyadmin',
@@ -581,7 +584,7 @@ class CentralColumnsTest extends TestCase
     }
 
     /**
-     * Test for CentralColumns::getListRaw with a table name
+     * Test for getListRaw with a table name
      *
      * @return void
      */
@@ -600,7 +603,7 @@ class CentralColumnsTest extends TestCase
             );
         $this->assertEquals(
             json_encode($this->_modifiedColumnData),
-            CentralColumns::getListRaw(
+            $this->centralColumns->getListRaw(
                 $GLOBALS['dbi'],
                 $GLOBALS['cfg']['Server']['user'],
                 'phpmyadmin',
@@ -611,13 +614,13 @@ class CentralColumnsTest extends TestCase
     }
 
     /**
-     * Test for CentralColumns::getHtmlForAddNewColumn
+     * Test for getHtmlForAddNewColumn
      *
      * @return void
      */
     public function testPMAGetHTMLforAddNewColumn()
     {
-        $result = CentralColumns::getHtmlForAddNewColumn(
+        $result = $this->centralColumns->getHtmlForAddNewColumn(
             $GLOBALS['dbi'],
             $GLOBALS['cfg']['MaxRows'],
             $GLOBALS['cfg']['CharEditing'],
@@ -644,7 +647,7 @@ class CentralColumnsTest extends TestCase
     }
 
     /**
-     * Test for CentralColumns::configErrorMessage
+     * Test for configErrorMessage
      *
      * @return void
      */
@@ -652,12 +655,12 @@ class CentralColumnsTest extends TestCase
     {
         $this->assertInstanceOf(
             'PhpMyAdmin\Message',
-            CentralColumns::configErrorMessage()
+            $this->centralColumns->configErrorMessage()
         );
     }
 
     /**
-     * Test for CentralColumns::findExistingColNames
+     * Test for findExistingColNames
      *
      * @return void
      */
@@ -675,7 +678,7 @@ class CentralColumnsTest extends TestCase
             );
         $this->assertEquals(
             array_slice($this->_modifiedColumnData, 1, 1),
-            CentralColumns::findExistingColNames(
+            $this->centralColumns->findExistingColNames(
                 $GLOBALS['dbi'],
                 $GLOBALS['cfg']['Server']['user'],
                 'phpmyadmin',
@@ -686,14 +689,14 @@ class CentralColumnsTest extends TestCase
     }
 
     /**
-     * Test for CentralColumns::getHtmlForTableDropdown
+     * Test for getHtmlForTableDropdown
      *
      * @return void
      */
     public function testPMAGetHTMLforTableDropdown()
     {
         $db = 'PMA_db';
-        $result = CentralColumns::getHtmlForTableDropdown($GLOBALS['dbi'], $db);
+        $result = $this->centralColumns->getHtmlForTableDropdown($GLOBALS['dbi'], $db);
         $this->assertContains(
             '<select name="table-select" id="table-select"',
             $result
@@ -705,7 +708,7 @@ class CentralColumnsTest extends TestCase
     }
 
     /**
-     * Test for CentralColumns::getHtmlForColumnDropdown
+     * Test for getHtmlForColumnDropdown
      *
      * @return void
      */
@@ -713,7 +716,7 @@ class CentralColumnsTest extends TestCase
     {
         $db = 'PMA_db';
         $selected_tbl = 'PMA_table';
-        $result = CentralColumns::getHtmlForColumnDropdown(
+        $result = $this->centralColumns->getHtmlForColumnDropdown(
             $GLOBALS['dbi'],
             $GLOBALS['cfg']['Server']['user'],
             $db,
@@ -727,13 +730,13 @@ class CentralColumnsTest extends TestCase
     }
 
     /**
-     * Test for CentralColumns::getHtmlForAddCentralColumn
+     * Test for getHtmlForAddCentralColumn
      *
      * @return void
      */
     public function testPMAGetHTMLforAddCentralColumn()
     {
-        $result = CentralColumns::getHtmlForAddCentralColumn($GLOBALS['dbi'], 20, 0, 'phpmyadmin');
+        $result = $this->centralColumns->getHtmlForAddCentralColumn($GLOBALS['dbi'], 20, 0, 'phpmyadmin');
         $this->assertContains(
             '<table',
             $result
@@ -752,7 +755,7 @@ class CentralColumnsTest extends TestCase
     }
 
     /**
-     * Test for CentralColumns::getTableFooter
+     * Test for getTableFooter
      *
      * @return void
      */
@@ -760,7 +763,7 @@ class CentralColumnsTest extends TestCase
     {
         $pmaThemeImage = "pmaThemeImage";
         $text_dir = "text_dir";
-        $result = CentralColumns::getTableFooter($pmaThemeImage, $text_dir);
+        $result = $this->centralColumns->getTableFooter($pmaThemeImage, $text_dir);
         $this->assertContains(
             '<input type="checkbox" id="tableslistcontainer_checkall" class="checkall_box"',
             $result

@@ -1180,7 +1180,8 @@ class TableStructureController extends TableController
                 $mime_map = Transformations::getMIME($this->db, $this->table, true);
             }
         }
-        $central_list = CentralColumns::getFromTable(
+        $centralColumns = new CentralColumns();
+        $central_list = $centralColumns->getFromTable(
             $GLOBALS['dbi'],
             $GLOBALS['cfg']['Server']['user'],
             $this->db,
@@ -1441,6 +1442,7 @@ class TableStructureController extends TableController
      */
     protected function getDataForSubmitMult($submit_mult, $selected, $action)
     {
+        $centralColumns = new CentralColumns();
         $what = null;
         $query_type = null;
         $is_unset_submit_mult = false;
@@ -1484,7 +1486,7 @@ class TableStructureController extends TableController
             $mult_btn   = __('Yes');
             break;
         case 'add_to_central_columns':
-            $centralColsError = CentralColumns::syncUniqueColumns(
+            $centralColsError = $centralColumns->syncUniqueColumns(
                 $GLOBALS['dbi'],
                 $GLOBALS['cfg']['Server']['user'],
                 $selected,
@@ -1492,7 +1494,7 @@ class TableStructureController extends TableController
             );
             break;
         case 'remove_from_central_columns':
-            $centralColsError = CentralColumns::deleteColumnsFromList(
+            $centralColsError = $centralColumns->deleteColumnsFromList(
                 $GLOBALS['dbi'],
                 $GLOBALS['cfg']['Server']['user'],
                 $selected,
