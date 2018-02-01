@@ -3316,6 +3316,9 @@ body .ui-dialog .ui-button-text-only .ui-button-text {
 .scrollindicator {
     display: none;
 }
+.responsivetable {
+    overflow-x: auto !important;
+}
 
 @media only screen and (max-width: 768px) {
     /* For mobile phones: */
@@ -3348,7 +3351,7 @@ body .ui-dialog .ui-button-text-only .ui-button-text {
     }
 
     .responsivetable {
-        overflow-x: auto;
+        overflow-x: auto !important;
     }
 
     body#loginform div.container {
