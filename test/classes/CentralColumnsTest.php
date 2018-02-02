@@ -160,7 +160,7 @@ class CentralColumnsTest extends TestCase
      *
      * @return void
      */
-    public function testPMACentralColumnsGetParams()
+    public function testGetParams()
     {
         $this->assertSame(
             array(
@@ -177,7 +177,7 @@ class CentralColumnsTest extends TestCase
      *
      * @return void
      */
-    public function testPMAGetColumnsList()
+    public function testGetColumnsList()
     {
         $GLOBALS['dbi']->expects($this->exactly(2))
             ->method('fetchResult')
@@ -211,7 +211,7 @@ class CentralColumnsTest extends TestCase
      *
      * @return void
      */
-    function testPMAGetCentralColumnsCount()
+    function testGetCount()
     {
         $GLOBALS['dbi']->expects($this->once())
             ->method('fetchResult')
@@ -239,7 +239,7 @@ class CentralColumnsTest extends TestCase
      *
      * @return void
      */
-    public function testPMASyncUniqueColumns()
+    public function testSyncUniqueColumns()
     {
         $_REQUEST['db'] = 'PMA_db';
         $_REQUEST['table'] = 'PMA_table';
@@ -258,7 +258,7 @@ class CentralColumnsTest extends TestCase
      *
      * @return void
      */
-    public function testPMADeleteColumnsFromList()
+    public function testDeleteColumnsFromList()
     {
         $_REQUEST['db'] = 'PMA_db';
         $_REQUEST['table'] = 'PMA_table';
@@ -319,7 +319,7 @@ class CentralColumnsTest extends TestCase
      *
      * @return void
      */
-    public function testPMAMakeConsistentWithList()
+    public function testMakeConsistentWithList()
     {
         $GLOBALS['dbi']->expects($this->any())
             ->method('fetchResult')
@@ -346,7 +346,7 @@ class CentralColumnsTest extends TestCase
      *
      * @return void
      */
-    public function testPMAGetCentralColumnsFromTable()
+    public function testGetFromTable()
     {
         $db = 'PMA_db';
         $table = 'PMA_table';
@@ -377,7 +377,7 @@ class CentralColumnsTest extends TestCase
      *
      * @return void
      */
-    public function testPMAGetCentralColumnsFromTableWithAllFields()
+    public function testGetFromTableWithAllFields()
     {
         $db = 'PMA_db';
         $table = 'PMA_table';
@@ -409,7 +409,7 @@ class CentralColumnsTest extends TestCase
      *
      * @return void
      */
-    public function testPMAUpdateOneColumn()
+    public function testUpdateOneColumn()
     {
         $this->assertTrue(
             $this->centralColumns->updateOneColumn(
@@ -430,7 +430,7 @@ class CentralColumnsTest extends TestCase
      *
      * @return void
      */
-    public function testPMAUpdateMultipleColumn()
+    public function testUpdateMultipleColumn()
     {
         $_POST['db'] = 'phpmyadmin';
         $_POST['orig_col_name'] = array("col1","col2");
@@ -455,7 +455,7 @@ class CentralColumnsTest extends TestCase
      *
      * @return void
      */
-    public function testPMAGetHTMLforEditingPage()
+    public function testGetHtmlForEditingPage()
     {
         $GLOBALS['dbi']->expects($this->any())
             ->method('fetchResult')
@@ -527,7 +527,7 @@ class CentralColumnsTest extends TestCase
      *
      * @return void
      */
-    public function testPMAGetHTMLforTableNavigation()
+    public function testGetHtmlForTableNavigation()
     {
         $result = $this->centralColumns->getHtmlForTableNavigation(
             $GLOBALS['cfg']['MaxRows'],
@@ -581,7 +581,7 @@ class CentralColumnsTest extends TestCase
      *
      * @return void
      */
-    public function testPMAGetCentralColumnsTableHeader()
+    public function testGetTableHeader()
     {
         $this->assertContains(
             '<thead',
@@ -596,7 +596,7 @@ class CentralColumnsTest extends TestCase
      *
      * @return void
      */
-    public function testPMAGetCentralColumnsListRaw()
+    public function testGetListRaw()
     {
         $GLOBALS['dbi']->expects($this->once())
             ->method('fetchResult')
@@ -624,7 +624,7 @@ class CentralColumnsTest extends TestCase
      *
      * @return void
      */
-    public function testPMAGetCentralColumnsListRawWithTable()
+    public function testGetListRawWithTable()
     {
         $GLOBALS['dbi']->expects($this->once())
             ->method('fetchResult')
@@ -654,7 +654,7 @@ class CentralColumnsTest extends TestCase
      *
      * @return void
      */
-    public function testPMAGetHTMLforAddNewColumn()
+    public function testGetHtmlForAddNewColumn()
     {
         $result = $this->centralColumns->getHtmlForAddNewColumn(
             $GLOBALS['dbi'],
@@ -687,7 +687,7 @@ class CentralColumnsTest extends TestCase
      *
      * @return void
      */
-    public function testPMAConfigErrorMessage()
+    public function testConfigErrorMessage()
     {
         $this->assertInstanceOf(
             'PhpMyAdmin\Message',
@@ -700,7 +700,7 @@ class CentralColumnsTest extends TestCase
      *
      * @return void
      */
-    public function testPMAFindExistingColNames()
+    public function testFindExistingColNames()
     {
         $GLOBALS['dbi']->expects($this->once())
             ->method('fetchResult')
@@ -732,7 +732,7 @@ class CentralColumnsTest extends TestCase
      *
      * @return void
      */
-    public function testPMAGetHTMLforTableDropdown()
+    public function testGetHtmlForTableDropdown()
     {
         $db = 'PMA_db';
         $result = $this->callProtectedMethod(
@@ -757,7 +757,7 @@ class CentralColumnsTest extends TestCase
      *
      * @return void
      */
-    public function testPMAGetHTMLforColumnDropdown()
+    public function testGetHtmlForColumnDropdown()
     {
         $db = 'PMA_db';
         $selected_tbl = 'PMA_table';
@@ -779,7 +779,7 @@ class CentralColumnsTest extends TestCase
      *
      * @return void
      */
-    public function testPMAGetHTMLforAddColumn()
+    public function testGetHtmlForAddColumn()
     {
         $result = $this->centralColumns->getHtmlForAddColumn($GLOBALS['dbi'], 20, 0, 'phpmyadmin');
         $this->assertContains(
@@ -804,7 +804,7 @@ class CentralColumnsTest extends TestCase
      *
      * @return void
      */
-    public function testPMAGetCentralColumnsTableFooter()
+    public function testGetTableFooter()
     {
         $pmaThemeImage = "pmaThemeImage";
         $text_dir = "text_dir";
