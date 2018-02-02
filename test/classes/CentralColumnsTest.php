@@ -14,6 +14,7 @@ use PhpMyAdmin\Types;
 use PhpMyAdmin\Url;
 use PhpMyAdmin\Util;
 use PHPUnit\Framework\TestCase;
+use ReflectionClass;
 
 $GLOBALS['server'] = 1;
 
@@ -129,6 +130,29 @@ class CentralColumnsTest extends TestCase
             ->will($this->returnArgument(0));
 
         $this->centralColumns = new CentralColumns();
+    }
+
+    /**
+     * Call protected functions by setting visibility to public.
+     *
+     * @param string         $name   method name
+     * @param array          $params parameters for the invocation
+     * @param CentralColumns $object CentralColumns instance object
+     *
+     * @return mixed the output from the protected method.
+     */
+    private function callProtectedMethod(
+        $name,
+        array $params = [],
+        CentralColumns $object = null
+    ) {
+        $class = new ReflectionClass(CentralColumns::class);
+        $method = $class->getMethod($name);
+        $method->setAccessible(true);
+        return $method->invokeArgs(
+            $object !== null ? $object : $this->centralColumns,
+            $params
+        );
     }
 
     /**
@@ -461,27 +485,39 @@ class CentralColumnsTest extends TestCase
         __('Collation'), __('Attributes'), __('Null'), __('A_I')
         );
         $this->assertContains(
-            $this->centralColumns->getEditTableHeader($header_cells), $result
+            $this->callProtectedMethod(
+                'getEditTableHeader',
+                [$header_cells]
+            ),
+            $result
         );
-        $list_detail_cols = $this->centralColumns->findExistingColNames(
-            $GLOBALS['dbi'],
-            $GLOBALS['cfg']['Server']['user'],
-            'phpmyadmin',
-            "'col1','col2'",
-            true
-        );
-        $this->assertContains(
-            $this->centralColumns->getHtmlForCentralColumnsEditTableRow(
+        $list_detail_cols = $this->callProtectedMethod(
+            'findExistingColNames',
+            [
                 $GLOBALS['dbi'],
-                $GLOBALS['cfg']['MaxRows'],
-                $GLOBALS['cfg']['CharEditing'],
-                $GLOBALS['cfg']['Server']['DisableIS'],
-                $list_detail_cols[0],
-                0
-            ), $result
+                $GLOBALS['cfg']['Server']['user'],
+                'phpmyadmin',
+                "'col1','col2'",
+                true,
+            ]
         );
         $this->assertContains(
-            $this->centralColumns->getEditTableFooter(), $result
+            $this->callProtectedMethod(
+                'getHtmlForEditTableRow',
+                [
+                    $GLOBALS['dbi'],
+                    $GLOBALS['cfg']['MaxRows'],
+                    $GLOBALS['cfg']['CharEditing'],
+                    $GLOBALS['cfg']['Server']['DisableIS'],
+                    $list_detail_cols[0],
+                    0,
+                ]
+            ),
+            $result
+        );
+        $this->assertContains(
+            $this->callProtectedMethod('getEditTableFooter'),
+            $result
         );
 
     }
@@ -655,7 +691,7 @@ class CentralColumnsTest extends TestCase
     {
         $this->assertInstanceOf(
             'PhpMyAdmin\Message',
-            $this->centralColumns->configErrorMessage()
+            $this->callProtectedMethod('configErrorMessage')
         );
     }
 
@@ -678,12 +714,15 @@ class CentralColumnsTest extends TestCase
             );
         $this->assertEquals(
             array_slice($this->_modifiedColumnData, 1, 1),
-            $this->centralColumns->findExistingColNames(
-                $GLOBALS['dbi'],
-                $GLOBALS['cfg']['Server']['user'],
-                'phpmyadmin',
-                "'col1'",
-                true
+            $this->callProtectedMethod(
+                'findExistingColNames',
+                [
+                    $GLOBALS['dbi'],
+                    $GLOBALS['cfg']['Server']['user'],
+                    'phpmyadmin',
+                    "'col1'",
+                    true,
+                ]
             )
         );
     }
@@ -696,7 +735,13 @@ class CentralColumnsTest extends TestCase
     public function testPMAGetHTMLforTableDropdown()
     {
         $db = 'PMA_db';
-        $result = $this->centralColumns->getHtmlForTableDropdown($GLOBALS['dbi'], $db);
+        $result = $this->callProtectedMethod(
+            'getHtmlForTableDropdown',
+            [
+                $GLOBALS['dbi'],
+                $db,
+            ]
+        );
         $this->assertContains(
             '<select name="table-select" id="table-select"',
             $result
@@ -730,13 +775,13 @@ class CentralColumnsTest extends TestCase
     }
 
     /**
-     * Test for getHtmlForAddCentralColumn
+     * Test for getHtmlForAddColumn
      *
      * @return void
      */
-    public function testPMAGetHTMLforAddCentralColumn()
+    public function testPMAGetHTMLforAddColumn()
     {
-        $result = $this->centralColumns->getHtmlForAddCentralColumn($GLOBALS['dbi'], 20, 0, 'phpmyadmin');
+        $result = $this->centralColumns->getHtmlForAddColumn($GLOBALS['dbi'], 20, 0, 'phpmyadmin');
         $this->assertContains(
             '<table',
             $result

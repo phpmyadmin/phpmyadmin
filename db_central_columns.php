@@ -156,7 +156,7 @@ if ($total_rows <= 0) {
             'The central list of columns for the current database is empty.'
         ) . '</fieldset>'
     );
-    $columnAdd = $centralColumns->getHtmlForAddCentralColumn($GLOBALS['dbi'], $total_rows, $pos, $db);
+    $columnAdd = $centralColumns->getHtmlForAddColumn($GLOBALS['dbi'], $total_rows, $pos, $db);
     $response->addHTML($columnAdd);
     exit;
 }
@@ -167,7 +167,7 @@ $table_navigation_html = $centralColumns->getHtmlForTableNavigation(
     $db
 );
 $response->addHTML($table_navigation_html);
-$columnAdd = $centralColumns->getHtmlForAddCentralColumn($GLOBALS['dbi'], $total_rows, $pos, $db);
+$columnAdd = $centralColumns->getHtmlForAddColumn($GLOBALS['dbi'], $total_rows, $pos, $db);
 $response->addHTML($columnAdd);
 $deleteRowForm = '<form method="post" id="del_form" action="db_central_columns.php">'
         . Url::getHiddenInputs(
@@ -195,7 +195,7 @@ $result = $centralColumns->getColumnsList(
 );
 $row_num = 0;
 foreach ($result as $row) {
-    $tableHtmlRow = $centralColumns->getHtmlForCentralColumnsTableRow(
+    $tableHtmlRow = $centralColumns->getHtmlForTableRow(
         $GLOBALS['dbi'],
         $GLOBALS['cfg']['MaxRows'],
         $GLOBALS['cfg']['CharEditing'],

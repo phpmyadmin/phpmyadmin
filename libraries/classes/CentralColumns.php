@@ -138,7 +138,7 @@ class CentralColumns
      *
      * @return array list of columns in central columns among given set of columns
      */
-    public function findExistingColNames(
+    private function findExistingColNames(
         DatabaseInterface $dbi,
         $user,
         $db,
@@ -177,7 +177,7 @@ class CentralColumns
      *
      * @return Message
      */
-    public function configErrorMessage()
+    private function configErrorMessage()
     {
         return Message::error(
             __(
@@ -200,7 +200,7 @@ class CentralColumns
      * @return string query string to insert the given column
      * with definition into central list
      */
-    public function getInsertQuery(
+    private function getInsertQuery(
         DatabaseInterface $dbi,
         $column,
         array $def,
@@ -798,7 +798,7 @@ class CentralColumns
      *
      * @return string html for table header in central columns multi edit page
      */
-    public function getEditTableHeader(array $headers)
+    private function getEditTableHeader(array $headers)
     {
         return Template::get(
             'database/central_columns/edit_table_header'
@@ -815,7 +815,7 @@ class CentralColumns
      *
      * @return string html dropdown for selecting table
      */
-    public function getHtmlForTableDropdown(DatabaseInterface $dbi, $db)
+    private function getHtmlForTableDropdown(DatabaseInterface $dbi, $db)
     {
         $dbi->selectDb($db);
         $tables = $dbi->getTables($db);
@@ -873,7 +873,7 @@ class CentralColumns
      *
      * @return string html to add a column in the central list
      */
-    public function getHtmlForAddCentralColumn(
+    public function getHtmlForAddColumn(
         DatabaseInterface $dbi,
         $total_rows,
         $pos,
@@ -921,7 +921,7 @@ class CentralColumns
      *
      * @return string html of a particular row in the central columns table.
      */
-    public function getHtmlForCentralColumnsTableRow(
+    public function getHtmlForTableRow(
         DatabaseInterface $dbi,
         $maxRows,
         $charEditing,
@@ -1104,7 +1104,7 @@ class CentralColumns
      *
      * @return string html of a particular row in the central columns table.
      */
-    public function getHtmlForCentralColumnsEditTableRow(
+    private function getHtmlForEditTableRow(
         DatabaseInterface $dbi,
         $maxRows,
         $charEditing,
@@ -1324,7 +1324,7 @@ class CentralColumns
      *
      * @return string html for table footer in central columns multi edit page
      */
-    public function getEditTableFooter()
+    private function getEditTableFooter()
     {
         $html_output = '<fieldset class="tblFooters">'
             . '<input type="submit" '
@@ -1341,7 +1341,7 @@ class CentralColumns
      *
      * @return void
      */
-    public function handleColumnExtra(array &$columns_list)
+    private function handleColumnExtra(array &$columns_list)
     {
         foreach ($columns_list as &$row) {
             $vals = explode(',', $row['col_extra']);
@@ -1537,7 +1537,7 @@ class CentralColumns
         $list_detail_cols = $this->findExistingColNames($dbi, $user, $selected_db, $columns_list, true);
         $row_num = 0;
         foreach ($list_detail_cols as $row) {
-            $tableHtmlRow = $this->getHtmlForCentralColumnsEditTableRow(
+            $tableHtmlRow = $this->getHtmlForEditTableRow(
                 $dbi,
                 $maxRows,
                 $charEditing,
