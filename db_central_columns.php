@@ -18,7 +18,7 @@ use PhpMyAdmin\Url;
  */
 require_once 'libraries/common.inc.php';
 
-$centralColumns = new CentralColumns();
+$centralColumns = new CentralColumns($GLOBALS['dbi']);
 
 if (isset($_POST['edit_save']) || isset($_POST['add_new_column'])) {
     $col_name = $_POST['col_name'];
@@ -37,14 +37,14 @@ if (isset($_POST['edit_save']) || isset($_POST['add_new_column'])) {
     $collation = $_POST['collation'];
     if (isset($orig_col_name) && $orig_col_name) {
         echo $centralColumns->updateOneColumn(
-            $GLOBALS['dbi'], $GLOBALS['cfg']['Server']['user'],
+            $GLOBALS['cfg']['Server']['user'],
             $db, $orig_col_name, $col_name, $col_type, $col_attribute,
             $col_length, $col_isNull, $collation, $col_extra, $col_default
         );
         exit;
     } else {
         $tmp_msg = $centralColumns->updateOneColumn(
-            $GLOBALS['dbi'], $GLOBALS['cfg']['Server']['user'],
+            $GLOBALS['cfg']['Server']['user'],
             $db, "", $col_name, $col_type, $col_attribute,
             $col_length, $col_isNull, $collation, $col_extra, $col_default
         );
@@ -53,7 +53,6 @@ if (isset($_POST['edit_save']) || isset($_POST['add_new_column'])) {
 if (isset($_POST['populateColumns'])) {
     $selected_tbl = $_POST['selectedTable'];
     echo $centralColumns->getHtmlForColumnDropdown(
-        $GLOBALS['dbi'],
         $GLOBALS['cfg']['Server']['user'],
         $db,
         $selected_tbl
@@ -62,7 +61,6 @@ if (isset($_POST['populateColumns'])) {
 }
 if (isset($_POST['getColumnList'])) {
     echo $centralColumns->getListRaw(
-        $GLOBALS['dbi'],
         $GLOBALS['cfg']['Server']['user'],
         $db,
         $_POST['cur_table']
@@ -74,7 +72,6 @@ if (isset($_POST['add_column'])) {
     $selected_tbl = $_POST['table-select'];
     $selected_col[] = $_POST['column-select'];
     $tmp_msg = $centralColumns->syncUniqueColumns(
-        $GLOBALS['dbi'],
         $GLOBALS['cfg']['Server']['user'],
         $selected_col,
         false,
@@ -96,7 +93,6 @@ if (isset($_REQUEST['edit_central_columns_page'])) {
     $selected_fld = $_REQUEST['selected_fld'];
     $selected_db = $_REQUEST['db'];
     $edit_central_column_page = $centralColumns->getHtmlForEditingPage(
-        $GLOBALS['dbi'],
         $GLOBALS['cfg']['Server']['user'],
         $GLOBALS['cfg']['MaxRows'],
         $GLOBALS['cfg']['CharEditing'],
@@ -109,7 +105,6 @@ if (isset($_REQUEST['edit_central_columns_page'])) {
 }
 if (isset($_POST['multi_edit_central_column_save'])) {
     $message = $centralColumns->updateMultipleColumn(
-        $GLOBALS['dbi'],
         $GLOBALS['cfg']['Server']['user']
     );
     if (!is_bool($message)) {
@@ -121,7 +116,6 @@ if (isset($_POST['delete_save'])) {
     $col_name = array();
     parse_str($_POST['col_name'], $col_name);
     $tmp_msg = $centralColumns->deleteColumnsFromList(
-        $GLOBALS['dbi'],
         $GLOBALS['cfg']['Server']['user'],
         $col_name['selected_fld'],
         false
@@ -131,7 +125,6 @@ if (isset($_REQUEST['total_rows']) && $_REQUEST['total_rows']) {
     $total_rows = $_REQUEST['total_rows'];
 } else {
     $total_rows = $centralColumns->getCount(
-        $GLOBALS['dbi'],
         $GLOBALS['cfg']['Server']['user'],
         $db
     );
@@ -142,7 +135,6 @@ if (Core::isValid($_REQUEST['pos'], 'integer')) {
     $pos = 0;
 }
 $addNewColumn = $centralColumns->getHtmlForAddNewColumn(
-    $GLOBALS['dbi'],
     $GLOBALS['cfg']['MaxRows'],
     $GLOBALS['cfg']['CharEditing'],
     $GLOBALS['cfg']['Server']['DisableIS'],
@@ -156,7 +148,7 @@ if ($total_rows <= 0) {
             'The central list of columns for the current database is empty.'
         ) . '</fieldset>'
     );
-    $columnAdd = $centralColumns->getHtmlForAddColumn($GLOBALS['dbi'], $total_rows, $pos, $db);
+    $columnAdd = $centralColumns->getHtmlForAddColumn($total_rows, $pos, $db);
     $response->addHTML($columnAdd);
     exit;
 }
@@ -167,7 +159,7 @@ $table_navigation_html = $centralColumns->getHtmlForTableNavigation(
     $db
 );
 $response->addHTML($table_navigation_html);
-$columnAdd = $centralColumns->getHtmlForAddColumn($GLOBALS['dbi'], $total_rows, $pos, $db);
+$columnAdd = $centralColumns->getHtmlForAddColumn($total_rows, $pos, $db);
 $response->addHTML($columnAdd);
 $deleteRowForm = '<form method="post" id="del_form" action="db_central_columns.php">'
         . Url::getHiddenInputs(
@@ -187,7 +179,6 @@ $tableheader = $centralColumns->getTableHeader(
 );
 $response->addHTML($tableheader);
 $result = $centralColumns->getColumnsList(
-    $GLOBALS['dbi'],
     $GLOBALS['cfg']['Server']['user'],
     $db,
     $pos,
@@ -196,7 +187,6 @@ $result = $centralColumns->getColumnsList(
 $row_num = 0;
 foreach ($result as $row) {
     $tableHtmlRow = $centralColumns->getHtmlForTableRow(
-        $GLOBALS['dbi'],
         $GLOBALS['cfg']['MaxRows'],
         $GLOBALS['cfg']['CharEditing'],
         $GLOBALS['cfg']['Server']['DisableIS'],
