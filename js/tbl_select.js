@@ -278,7 +278,7 @@ AJAX.registerOnload('tbl_select.js', function () {
     /**
      * Ajax event handler for Range-Search.
      */
-    $('body').on('click', 'select[name*="criteriaColumnOperators"]', function () {
+    $('body').on('change', 'select[name*="criteriaColumnOperators"]', function () {
         $source_select = $(this);
         // Get the column name.
         var column_name = $(this)
