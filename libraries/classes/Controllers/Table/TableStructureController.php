@@ -1182,7 +1182,6 @@ class TableStructureController extends TableController
         }
         $centralColumns = new CentralColumns($GLOBALS['dbi']);
         $central_list = $centralColumns->getFromTable(
-            $GLOBALS['cfg']['Server']['user'],
             $this->db,
             $this->table
         );
@@ -1486,14 +1485,12 @@ class TableStructureController extends TableController
             break;
         case 'add_to_central_columns':
             $centralColsError = $centralColumns->syncUniqueColumns(
-                $GLOBALS['cfg']['Server']['user'],
                 $selected,
                 false
             );
             break;
         case 'remove_from_central_columns':
             $centralColsError = $centralColumns->deleteColumnsFromList(
-                $GLOBALS['cfg']['Server']['user'],
                 $selected,
                 false
             );

@@ -168,7 +168,7 @@ class CentralColumnsTest extends TestCase
                 'db' => 'phpmyadmin',
                 'table' => 'pma_central_columns'
             ),
-            $this->centralColumns->getParams($GLOBALS['cfg']['Server']['user'])
+            $this->centralColumns->getParams()
         );
     }
 
@@ -188,19 +188,11 @@ class CentralColumnsTest extends TestCase
 
         $this->assertEquals(
             $this->modifiedColumnData,
-            $this->centralColumns->getColumnsList(
-                $GLOBALS['cfg']['Server']['user'],
-                'phpmyadmin'
-            )
+            $this->centralColumns->getColumnsList('phpmyadmin')
         );
         $this->assertEquals(
             array_slice($this->modifiedColumnData, 1, 2),
-            $this->centralColumns->getColumnsList(
-                $GLOBALS['cfg']['Server']['user'],
-                'phpmyadmin',
-                1,
-                2
-            )
+            $this->centralColumns->getColumnsList('phpmyadmin', 1, 2)
         );
     }
 
@@ -224,10 +216,7 @@ class CentralColumnsTest extends TestCase
 
         $this->assertEquals(
             3,
-            $this->centralColumns->getCount(
-                $GLOBALS['cfg']['Server']['user'],
-                'phpmyadmin'
-            )
+            $this->centralColumns->getCount('phpmyadmin')
         );
     }
 
@@ -243,7 +232,6 @@ class CentralColumnsTest extends TestCase
 
         $this->assertTrue(
             $this->centralColumns->syncUniqueColumns(
-                $GLOBALS['cfg']['Server']['user'],
                 array('PMA_table')
             )
         );
@@ -284,7 +272,6 @@ class CentralColumnsTest extends TestCase
 
         $this->assertTrue(
             $this->centralColumns->deleteColumnsFromList(
-                $GLOBALS['cfg']['Server']['user'],
                 array("col1"),
                 false
             )
@@ -293,7 +280,6 @@ class CentralColumnsTest extends TestCase
         // when column does not exist in the central column list
         $this->assertInstanceOf(
             'PhpMyAdmin\Message', $this->centralColumns->deleteColumnsFromList(
-                $GLOBALS['cfg']['Server']['user'],
                 array('column1'),
                 false
             )
@@ -301,7 +287,6 @@ class CentralColumnsTest extends TestCase
 
         $this->assertInstanceOf(
             'PhpMyAdmin\Message', $this->centralColumns->deleteColumnsFromList(
-                $GLOBALS['cfg']['Server']['user'],
                 array('PMA_table')
             )
         );
@@ -326,7 +311,6 @@ class CentralColumnsTest extends TestCase
             );
         $this->assertTrue(
             $this->centralColumns->makeConsistentWithList(
-                $GLOBALS['cfg']['Server']['user'],
                 "phpmyadmin",
                 array('PMA_table')
             )
@@ -356,7 +340,6 @@ class CentralColumnsTest extends TestCase
         $this->assertEquals(
             array("id", "col1"),
             $this->centralColumns->getFromTable(
-                $GLOBALS['cfg']['Server']['user'],
                 $db,
                 $table
             )
@@ -386,7 +369,6 @@ class CentralColumnsTest extends TestCase
         $this->assertEquals(
             array_slice($this->modifiedColumnData, 0, 2),
             $this->centralColumns->getFromTable(
-                $GLOBALS['cfg']['Server']['user'],
                 $db,
                 $table,
                 true
@@ -403,13 +385,11 @@ class CentralColumnsTest extends TestCase
     {
         $this->assertTrue(
             $this->centralColumns->updateOneColumn(
-                $GLOBALS['cfg']['Server']['user'],
                 "phpmyadmin", "", "", "", "", "", "", "", "", ""
             )
         );
         $this->assertTrue(
             $this->centralColumns->updateOneColumn(
-                $GLOBALS['cfg']['Server']['user'],
                 "phpmyadmin", "col1", "", "", "", "", "", "", "", ""
             )
         );
@@ -432,9 +412,7 @@ class CentralColumnsTest extends TestCase
         $_POST['field_type'] = array("","");
         $_POST['field_collation'] = array("","");
         $this->assertTrue(
-            $this->centralColumns->updateMultipleColumn(
-                $GLOBALS['cfg']['Server']['user']
-            )
+            $this->centralColumns->updateMultipleColumn()
         );
 
     }
@@ -457,7 +435,6 @@ class CentralColumnsTest extends TestCase
                 $this->returnValue($this->columnData)
             );
         $result = $this->centralColumns->getHtmlForEditingPage(
-            $GLOBALS['cfg']['Server']['user'],
             $GLOBALS['cfg']['MaxRows'],
             $GLOBALS['cfg']['CharEditing'],
             $GLOBALS['cfg']['Server']['DisableIS'],
@@ -482,7 +459,6 @@ class CentralColumnsTest extends TestCase
         $list_detail_cols = $this->callProtectedMethod(
             'findExistingColNames',
             [
-                $GLOBALS['cfg']['Server']['user'],
                 'phpmyadmin',
                 "'col1','col2'",
                 true,
@@ -597,7 +573,6 @@ class CentralColumnsTest extends TestCase
         $this->assertEquals(
             json_encode($this->modifiedColumnData),
             $this->centralColumns->getListRaw(
-                $GLOBALS['cfg']['Server']['user'],
                 'phpmyadmin',
                 ''
             )
@@ -625,7 +600,6 @@ class CentralColumnsTest extends TestCase
         $this->assertEquals(
             json_encode($this->modifiedColumnData),
             $this->centralColumns->getListRaw(
-                $GLOBALS['cfg']['Server']['user'],
                 'phpmyadmin',
                 'table1'
             )
@@ -700,7 +674,6 @@ class CentralColumnsTest extends TestCase
             $this->callProtectedMethod(
                 'findExistingColNames',
                 [
-                    $GLOBALS['cfg']['Server']['user'],
                     'phpmyadmin',
                     "'col1'",
                     true,
@@ -741,7 +714,6 @@ class CentralColumnsTest extends TestCase
         $db = 'PMA_db';
         $selected_tbl = 'PMA_table';
         $result = $this->centralColumns->getHtmlForColumnDropdown(
-            $GLOBALS['cfg']['Server']['user'],
             $db,
             $selected_tbl
         );

@@ -30,6 +30,13 @@ class CentralColumns
     private $dbi;
 
     /**
+     * Current user
+     *
+     * @var string
+     */
+    private $user;
+
+    /**
      * Constructor
      *
      * @param DatabaseInterface $dbi DatabaseInterface instance
@@ -37,17 +44,17 @@ class CentralColumns
     public function __construct(DatabaseInterface $dbi)
     {
         $this->dbi = $dbi;
+
+        $this->user = $GLOBALS['cfg']['Server']['user'];
     }
 
     /**
      * Defines the central_columns parameters for the current user
      *
-     * @param string $user Current user
-     *
      * @return array the central_columns parameters for the current user
      * @access public
      */
-    public function getParams($user)
+    public function getParams()
     {
         static $cfgCentralColumns = null;
 
@@ -59,7 +66,7 @@ class CentralColumns
 
         if ($cfgRelation['centralcolumnswork']) {
             $cfgCentralColumns = array(
-                'user'  => $user,
+                'user'  => $this->user,
                 'db'    => $cfgRelation['db'],
                 'table' => $cfgRelation['central_columns'],
             );
@@ -74,7 +81,6 @@ class CentralColumns
      * get $num columns of given database from central columns list
      * starting at offset $from
      *
-     * @param string $user current user
      * @param string $db   selected database
      * @param int    $from starting offset of first result
      * @param int    $num  maximum number of results to return
@@ -82,13 +88,9 @@ class CentralColumns
      * @return array list of $num columns present in central columns list
      * starting at offset $from for the given database
      */
-    public function getColumnsList(
-        $user,
-        $db,
-        $from = 0,
-        $num = 25
-    ) {
-        $cfgCentralColumns = $this->getParams($user);
+    public function getColumnsList($db, $from = 0, $num = 25)
+    {
+        $cfgCentralColumns = $this->getParams();
         if (empty($cfgCentralColumns)) {
             return array();
         }
@@ -114,14 +116,13 @@ class CentralColumns
     /**
      * Get the number of columns present in central list for given db
      *
-     * @param string $user current user
-     * @param string $db   current database
+     * @param string $db current database
      *
      * @return int number of columns in central list of columns for $db
      */
-    public function getCount($user, $db)
+    public function getCount($db)
     {
-        $cfgCentralColumns = $this->getParams($user);
+        $cfgCentralColumns = $this->getParams();
         if (empty($cfgCentralColumns)) {
             return 0;
         }
@@ -143,7 +144,6 @@ class CentralColumns
     /**
      * return the existing columns in central list among the given list of columns
      *
-     * @param string  $user      current user
      * @param string  $db        the selected database
      * @param string  $cols      comma separated list of given columns
      * @param boolean $allFields set if need all the fields of existing columns,
@@ -152,12 +152,11 @@ class CentralColumns
      * @return array list of columns in central columns among given set of columns
      */
     private function findExistingColNames(
-        $user,
         $db,
         $cols,
         $allFields = false
     ) {
-        $cfgCentralColumns = $this->getParams($user);
+        $cfgCentralColumns = $this->getParams();
         if (empty($cfgCentralColumns)) {
             return array();
         }
@@ -251,7 +250,6 @@ class CentralColumns
      * are added to central list otherwise the $field_select is considered as
      * list of columns and these columns are added to central list if not already added
      *
-     * @param string $user         current user
      * @param array  $field_select if $isTable is true selected tables list
      *                             otherwise selected columns list
      * @param bool   $isTable      if passed array is of tables or columns
@@ -261,12 +259,11 @@ class CentralColumns
      * @return true|PhpMyAdmin\Message
      */
     public function syncUniqueColumns(
-        $user,
         array $field_select,
         $isTable = true,
         $table = null
     ) {
-        $cfgCentralColumns = $this->getParams($user);
+        $cfgCentralColumns = $this->getParams();
         if (empty($cfgCentralColumns)) {
             return $this->configErrorMessage();
         }
@@ -289,7 +286,7 @@ class CentralColumns
                 }
             }
 
-            $has_list = $this->findExistingColNames($user, $db, trim($cols, ','));
+            $has_list = $this->findExistingColNames($db, trim($cols, ','));
             foreach ($field_select as $table) {
                 foreach ($fields[$table] as $field => $def) {
                     if (!in_array($field, $has_list)) {
@@ -309,7 +306,7 @@ class CentralColumns
             foreach ($field_select as $column) {
                 $cols .= "'" . $this->dbi->escapeString($column) . "',";
             }
-            $has_list = $this->findExistingColNames($user, $db, trim($cols, ','));
+            $has_list = $this->findExistingColNames($db, trim($cols, ','));
             foreach ($field_select as $column) {
                 if (!in_array($column, $has_list)) {
                     $has_list[] = $column;
@@ -363,19 +360,17 @@ class CentralColumns
      * central columns list otherwise $field_select is columns list and it removes
      * given columns if present in central list
      *
-     * @param string $user         current user
-     * @param array  $field_select if $isTable selected list of tables otherwise
-     *                             selected list of columns to remove from central list
-     * @param bool   $isTable      if passed array is of tables or columns
+     * @param array $field_select if $isTable selected list of tables otherwise
+     *                            selected list of columns to remove from central list
+     * @param bool  $isTable      if passed array is of tables or columns
      *
      * @return true|PhpMyAdmin\Message
      */
     public function deleteColumnsFromList(
-        $user,
         array $field_select,
         $isTable = true
     ) {
-        $cfgCentralColumns = $this->getParams($user);
+        $cfgCentralColumns = $this->getParams();
         if (empty($cfgCentralColumns)) {
             return $this->configErrorMessage();
         }
@@ -397,7 +392,7 @@ class CentralColumns
                 }
             }
             $cols = trim($cols, ',');
-            $has_list = $this->findExistingColNames($user, $db, $cols);
+            $has_list = $this->findExistingColNames($db, $cols);
             foreach ($field_select as $table) {
                 foreach ($fields[$table] as $column) {
                     if (!in_array($column, $has_list)) {
@@ -412,7 +407,7 @@ class CentralColumns
                 $cols .= '\'' . $this->dbi->escapeString($col_select) . '\',';
             }
             $cols = trim($cols, ',');
-            $has_list = $this->findExistingColNames($user, $db, $cols);
+            $has_list = $this->findExistingColNames($db, $cols);
             foreach ($field_select as $column) {
                 if (!in_array($column, $has_list)) {
                     $colNotExist[] = "'" . $column . "'";
@@ -451,21 +446,19 @@ class CentralColumns
      * Make the columns of given tables consistent with central list of columns.
      * Updates only those columns which are not being referenced.
      *
-     * @param string $user            current user
      * @param string $db              current database
      * @param array  $selected_tables list of selected tables.
      *
      * @return true|PhpMyAdmin\Message
      */
     public function makeConsistentWithList(
-        $user,
         $db,
         array $selected_tables
     ) {
         $message = true;
         foreach ($selected_tables as $table) {
             $query = 'ALTER TABLE ' . Util::backquote($table);
-            $has_list = $this->getFromTable($user, $db, $table, true);
+            $has_list = $this->getFromTable($db, $table, true);
             $this->dbi->selectDb($db);
             foreach ($has_list as $column) {
                 $column_status = Relation::checkChildForeignReferences(
@@ -523,7 +516,6 @@ class CentralColumns
      * return the columns present in central list of columns for a given
      * table of a given database
      *
-     * @param string  $user      current user
      * @param string  $db        given database
      * @param string  $table     given table
      * @param boolean $allFields set if need all the fields of existing columns,
@@ -532,12 +524,11 @@ class CentralColumns
      * @return array columns present in central list from given table of given db.
      */
     public function getFromTable(
-        $user,
         $db,
         $table,
         $allFields = false
     ) {
-        $cfgCentralColumns = $this->getParams($user);
+        $cfgCentralColumns = $this->getParams();
         if (empty($cfgCentralColumns)) {
             return array();
         }
@@ -550,7 +541,7 @@ class CentralColumns
             $cols .= '\'' . $this->dbi->escapeString($col_select) . '\',';
         }
         $cols = trim($cols, ',');
-        $has_list = $this->findExistingColNames($user, $db, $cols, $allFields);
+        $has_list = $this->findExistingColNames($db, $cols, $allFields);
         if (! empty($has_list)) {
             return (array)$has_list;
         }
@@ -561,7 +552,6 @@ class CentralColumns
     /**
      * update a column in central columns list if a edit is requested
      *
-     * @param string $user          current user
      * @param string $db            current database
      * @param string $orig_col_name original column name before edit
      * @param string $col_name      new column name
@@ -576,7 +566,6 @@ class CentralColumns
      * @return true|PhpMyAdmin\Message
      */
     public function updateOneColumn(
-        $user,
         $db,
         $orig_col_name,
         $col_name,
@@ -588,7 +577,7 @@ class CentralColumns
         $col_extra,
         $col_default
     ) {
-        $cfgCentralColumns = $this->getParams($user);
+        $cfgCentralColumns = $this->getParams();
         if (empty($cfgCentralColumns)) {
             return $this->configErrorMessage();
         }
@@ -631,11 +620,9 @@ class CentralColumns
     /**
      * Update Multiple column in central columns list if a chnage is requested
      *
-     * @param string $user current user
-     *
      * @return true|PhpMyAdmin\Message
      */
-    public function updateMultipleColumn($user)
+    public function updateMultipleColumn()
     {
         $db = $_POST['db'];
         $col_name = $_POST['field_name'];
@@ -660,7 +647,7 @@ class CentralColumns
             }
 
             $message = $this->updateOneColumn(
-                $user, $db, $orig_col_name[$i], $col_name[$i], $col_type[$i],
+                $db, $orig_col_name[$i], $col_name[$i], $col_type[$i],
                 $col_attribute[$i], $col_length[$i], $col_isNull[$i], $collation[$i],
                 $col_extra[$i], $col_default[$i]
             );
@@ -832,18 +819,14 @@ class CentralColumns
      * build dropdown select html to select column in selected table,
      * include only columns which are not already in central list
      *
-     * @param string $user         current user
      * @param string $db           current database to which selected table belongs
      * @param string $selected_tbl selected table
      *
      * @return string html to select column
      */
-    public function getHtmlForColumnDropdown(
-        $user,
-        $db,
-        $selected_tbl
-    ) {
-        $existing_cols = $this->getFromTable($user, $db, $selected_tbl);
+    public function getHtmlForColumnDropdown($db, $selected_tbl)
+    {
+        $existing_cols = $this->getFromTable($db, $selected_tbl);
         $this->dbi->selectDb($db);
         $columns = (array) $this->dbi->getColumnNames(
             $db, $selected_tbl
@@ -1231,19 +1214,15 @@ class CentralColumns
      * get the list of columns in given database excluding
      * the columns present in current table
      *
-     * @param string $user  current user
      * @param string $db    selected database
      * @param string $table current table name
      *
      * @return string encoded list of columns present in central list for the given
      *                database
      */
-    public function getListRaw(
-        $user,
-        $db,
-        $table
-    ) {
-        $cfgCentralColumns = $this->getParams($user);
+    public function getListRaw($db, $table)
+    {
+        $cfgCentralColumns = $this->getParams();
         if (empty($cfgCentralColumns)) {
             return json_encode(array());
         }
@@ -1489,7 +1468,6 @@ class CentralColumns
     /**
      * Get HTML for editing page central columns
      *
-     * @param string  $user         current user
      * @param string  $maxRows      number of rows displayed when browsing a result set
      * @param string  $charEditing  which editor should be used for CHAR/VARCHAR fields
      * @param boolean $disableIs    Disable use of INFORMATION_SCHEMA
@@ -1499,7 +1477,6 @@ class CentralColumns
      * @return string HTML for complete editing page for central columns
      */
     public function getHtmlForEditingPage(
-        $user,
         $maxRows,
         $charEditing,
         $disableIs,
@@ -1518,7 +1495,7 @@ class CentralColumns
         }
         $columns_list = implode("','", $selected_fld_safe);
         $columns_list = "'" . $columns_list . "'";
-        $list_detail_cols = $this->findExistingColNames($user, $selected_db, $columns_list, true);
+        $list_detail_cols = $this->findExistingColNames($selected_db, $columns_list, true);
         $row_num = 0;
         foreach ($list_detail_cols as $row) {
             $tableHtmlRow = $this->getHtmlForEditTableRow(

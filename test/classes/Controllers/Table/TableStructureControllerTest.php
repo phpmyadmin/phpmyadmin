@@ -45,6 +45,7 @@ class TableStructureControllerTest extends PmaTestCase
         $GLOBALS['db'] = 'db';
         $GLOBALS['table'] = 'table';
         $GLOBALS['cfg']['Server']['DisableIS'] = false;
+        $GLOBALS['cfg']['Server']['user'] = 'pma_user';
         $GLOBALS['PMA_PHP_SELF'] = 'index.php';
 
         $table = $this->getMockBuilder('PhpMyAdmin\Table')

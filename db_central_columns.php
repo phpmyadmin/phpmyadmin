@@ -37,14 +37,12 @@ if (isset($_POST['edit_save']) || isset($_POST['add_new_column'])) {
     $collation = $_POST['collation'];
     if (isset($orig_col_name) && $orig_col_name) {
         echo $centralColumns->updateOneColumn(
-            $GLOBALS['cfg']['Server']['user'],
             $db, $orig_col_name, $col_name, $col_type, $col_attribute,
             $col_length, $col_isNull, $collation, $col_extra, $col_default
         );
         exit;
     } else {
         $tmp_msg = $centralColumns->updateOneColumn(
-            $GLOBALS['cfg']['Server']['user'],
             $db, "", $col_name, $col_type, $col_attribute,
             $col_length, $col_isNull, $collation, $col_extra, $col_default
         );
@@ -53,7 +51,6 @@ if (isset($_POST['edit_save']) || isset($_POST['add_new_column'])) {
 if (isset($_POST['populateColumns'])) {
     $selected_tbl = $_POST['selectedTable'];
     echo $centralColumns->getHtmlForColumnDropdown(
-        $GLOBALS['cfg']['Server']['user'],
         $db,
         $selected_tbl
     );
@@ -61,7 +58,6 @@ if (isset($_POST['populateColumns'])) {
 }
 if (isset($_POST['getColumnList'])) {
     echo $centralColumns->getListRaw(
-        $GLOBALS['cfg']['Server']['user'],
         $db,
         $_POST['cur_table']
     );
@@ -72,7 +68,6 @@ if (isset($_POST['add_column'])) {
     $selected_tbl = $_POST['table-select'];
     $selected_col[] = $_POST['column-select'];
     $tmp_msg = $centralColumns->syncUniqueColumns(
-        $GLOBALS['cfg']['Server']['user'],
         $selected_col,
         false,
         $selected_tbl
@@ -84,7 +79,7 @@ $scripts = $header->getScripts();
 $scripts->addFile('vendor/jquery/jquery.uitablefilter.js');
 $scripts->addFile('vendor/jquery/jquery.tablesorter.js');
 $scripts->addFile('db_central_columns.js');
-$cfgCentralColumns = $centralColumns->getParams($GLOBALS['cfg']['Server']['user']);
+$cfgCentralColumns = $centralColumns->getParams();
 $pmadb = $cfgCentralColumns['db'];
 $pmatable = $cfgCentralColumns['table'];
 $max_rows = intval($GLOBALS['cfg']['MaxRows']);
@@ -93,7 +88,6 @@ if (isset($_REQUEST['edit_central_columns_page'])) {
     $selected_fld = $_REQUEST['selected_fld'];
     $selected_db = $_REQUEST['db'];
     $edit_central_column_page = $centralColumns->getHtmlForEditingPage(
-        $GLOBALS['cfg']['Server']['user'],
         $GLOBALS['cfg']['MaxRows'],
         $GLOBALS['cfg']['CharEditing'],
         $GLOBALS['cfg']['Server']['DisableIS'],
@@ -104,9 +98,7 @@ if (isset($_REQUEST['edit_central_columns_page'])) {
     exit;
 }
 if (isset($_POST['multi_edit_central_column_save'])) {
-    $message = $centralColumns->updateMultipleColumn(
-        $GLOBALS['cfg']['Server']['user']
-    );
+    $message = $centralColumns->updateMultipleColumn();
     if (!is_bool($message)) {
         $response->setRequestStatus(false);
         $response->addJSON('message', $message);
@@ -116,7 +108,6 @@ if (isset($_POST['delete_save'])) {
     $col_name = array();
     parse_str($_POST['col_name'], $col_name);
     $tmp_msg = $centralColumns->deleteColumnsFromList(
-        $GLOBALS['cfg']['Server']['user'],
         $col_name['selected_fld'],
         false
     );
@@ -124,10 +115,7 @@ if (isset($_POST['delete_save'])) {
 if (isset($_REQUEST['total_rows']) && $_REQUEST['total_rows']) {
     $total_rows = $_REQUEST['total_rows'];
 } else {
-    $total_rows = $centralColumns->getCount(
-        $GLOBALS['cfg']['Server']['user'],
-        $db
-    );
+    $total_rows = $centralColumns->getCount($db);
 }
 if (Core::isValid($_REQUEST['pos'], 'integer')) {
     $pos = intval($_REQUEST['pos']);
@@ -178,12 +166,7 @@ $tableheader = $centralColumns->getTableHeader(
     'column_heading', __('Click to sort.'), 2
 );
 $response->addHTML($tableheader);
-$result = $centralColumns->getColumnsList(
-    $GLOBALS['cfg']['Server']['user'],
-    $db,
-    $pos,
-    $max_rows
-);
+$result = $centralColumns->getColumnsList($db, $pos, $max_rows);
 $row_num = 0;
 foreach ($result as $row) {
     $tableHtmlRow = $centralColumns->getHtmlForTableRow(
