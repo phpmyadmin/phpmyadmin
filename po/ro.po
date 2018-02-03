@@ -4,33 +4,30 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.8.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2018-01-22 14:58+0100\n"
-"PO-Revision-Date: 2017-09-14 03:07+0000\n"
-"Last-Translator: Simplu <simplu27@yahoo.com>\n"
-"Language-Team: Romanian <https://hosted.weblate.org/projects/phpmyadmin/"
-"master/ro/>\n"
+"PO-Revision-Date: 2018-02-04 10:40+0000\n"
+"Last-Translator: Cristian Gherman <c_gherman@yahoo.com>\n"
+"Language-Team: Romanian "
+"<https://hosted.weblate.org/projects/phpmyadmin/master/ro/>\n"
 "Language: ro\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=n==1 ? 0 : (n==0 || (n%100 > 0 && n%100 < "
 "20)) ? 1 : 2;\n"
-"X-Generator: Weblate 2.17-dev\n"
+"X-Generator: Weblate 2.19-dev\n"
 
 #: ajax.php:21 ajax.php:50 export.php:203 libraries/classes/Export.php:1100
 msgid "Bad type!"
 msgstr "Tipul este greșit!"
 
 #: changelog.php:39 license.php:34
-#, fuzzy, php-format
-#| msgid ""
-#| "The %s file is not available on this system, please visit www.phpmyadmin."
-#| "net for more information."
+#, php-format
 msgid ""
 "The %s file is not available on this system, please visit %s for more "
 "information."
 msgstr ""
-"Fișierul %s nu este disponibil pe acest sistem, vă rugam să vizitați www."
-"phpmyadmin.net pentru mai multe informații."
+"Fișierul %s nu este disponibil pe acest sistem, vă rugam să vizitați %s "
+"pentru mai multe informații."
 
 #: db_central_columns.php:153
 msgid "The central list of columns for the current database is empty."
@@ -313,13 +310,10 @@ msgid "The database name is empty!"
 msgstr "Numele bazei de date nu este completat!"
 
 #: db_operations.php:67
-#, fuzzy
-#| msgid ""
-#| "Cannot rename database to the same name. Change the name and try again"
 msgid "Cannot copy database to the same name. Change the name and try again."
 msgstr ""
-"Baza de date nu poate fi redenumită cu același nume. Schimbați numele și "
-"încercați din nou"
+"Baza de date nu poate fi copiată cu același nume. Schimbați numele și "
+"încercați din nou."
 
 #: db_operations.php:154
 #, php-format
@@ -600,11 +594,10 @@ msgid "Bookmark %s has been created."
 msgstr "Semnul de carte %s a fost creat."
 
 #: import.php:595
-#, fuzzy, php-format
-#| msgid "Import has been successfully finished, %d queries executed."
+#, php-format
 msgid "Import has been successfully finished, %d query executed."
 msgid_plural "Import has been successfully finished, %d queries executed."
-msgstr[0] "Importul s-a terminat cu succes, %d interogări executate."
+msgstr[0] "Importul s-a terminat cu succes, %d interogare executată."
 msgstr[1] "Importul s-a terminat cu succes, %d interogări executate."
 msgstr[2] "Importul s-a terminat cu succes, %d interogări executate."
 
@@ -647,6 +640,8 @@ msgid ""
 "You were logged out from one server, to logout completely from phpMyAdmin, "
 "you need to logout from all servers."
 msgstr ""
+"Ai fost deconectat de la un server, pentru a te loga complet din phpMyAdmin, "
+"trebuie să te deconectezi de pe toate serverele."
 
 #: index.php:193 libraries/classes/Footer.php:75
 #: libraries/classes/Plugins/Auth/AuthenticationCookie.php:115
@@ -982,10 +977,8 @@ msgid "Do you really want to remove partitioning?"
 msgstr "Sigur doriți să ştergeţi partiționarea?"
 
 #: js/messages.php:86
-#, fuzzy
-#| msgid "Do you really want to execute \"%s\"?"
 msgid "Do you really want to RESET SLAVE?"
-msgstr "Sigur doriți să executați „%s”?"
+msgstr "Sigur doriți să executati RESET SLAVE?"
 
 #: js/messages.php:88
 msgid ""
@@ -1002,7 +995,7 @@ msgstr ""
 
 #: js/messages.php:96
 msgid "Are you sure you wish to change the collation and convert the data?"
-msgstr ""
+msgstr "Sigur doriți să modificați colaționarea și să convertiți datele?"
 
 #: js/messages.php:98
 msgid ""
@@ -1019,12 +1012,12 @@ msgid ""
 "Are you sure you wish to change all the column collations and convert the "
 "data?"
 msgstr ""
+"Sigur doriți să modificați toate coliziunile coloanelor și să convertiți "
+"datele?"
 
 #: js/messages.php:111
-#, fuzzy
-#| msgid "Save & Close"
 msgid "Save & close"
-msgstr "Salvează & Închide"
+msgstr "Salvează şi închide"
 
 #: js/messages.php:112 libraries/classes/InsertEdit.php:1635
 #: prefs_manage.php:355 prefs_manage.php:366
@@ -1140,7 +1133,7 @@ msgstr "Închide"
 #, fuzzy
 #| msgid "The number of pages created."
 msgid "Template was created."
-msgstr "Numărul de pagini create."
+msgstr "Șablonul a fost creat."
 
 #: js/messages.php:150
 msgid "Template was loaded."
@@ -1150,13 +1143,13 @@ msgstr "Şablonul a fost încărcat."
 #, fuzzy
 #| msgid "The profile has been updated."
 msgid "Template was updated."
-msgstr "Profilul a fost actualizat."
+msgstr "Șablonul a fost actualizat."
 
 #: js/messages.php:152
 #, fuzzy
 #| msgid "The row has been deleted."
 msgid "Template was deleted."
-msgstr "Înregistrarea a fost ștearsă."
+msgstr "Șablonul a fost șters."
 
 #. l10n: Other, small valued, queries
 #: js/messages.php:155 libraries/classes/Server/Status/Data.php:132
@@ -1619,7 +1612,7 @@ msgstr "Coloană"
 #, fuzzy
 #| msgid "Tables display options"
 msgid "Log table filter options"
-msgstr "Opțiuni de afișare a tabelelor"
+msgstr "Opțiuni filtru tabelă de jurnal"
 
 #. l10n: Filter as in "Start Filtering"
 #: js/messages.php:302
@@ -1743,13 +1736,13 @@ msgstr "Test"
 
 #: js/messages.php:346
 msgid "Formatting SQL…"
-msgstr ""
+msgstr "Formatare SQL…"
 
 #: js/messages.php:347
 #, fuzzy
 #| msgid "Bad parameters!"
 msgid "No parameters found!"
-msgstr "Parametrii greșiți!"
+msgstr "Nu s-au găsit parametri"
 
 #: js/messages.php:351 templates/database/designer/where_query_panel.twig:85
 #: templates/server/variables/link_template.twig:5
@@ -1766,7 +1759,7 @@ msgstr "Renunță"
 #, fuzzy
 #| msgid "Change settings"
 msgid "Page-related settings"
-msgstr "Modificare configurări"
+msgstr "Setările legate de pagină"
 
 #: js/messages.php:355 templates/config/form_display/fieldset_bottom.twig:8
 msgid "Apply"
@@ -1793,7 +1786,7 @@ msgstr "Se procesează cererea"
 #, fuzzy
 #| msgid "Request Aborted!!"
 msgid "Request failed!!"
-msgstr "Cerere terminată!"
+msgstr "Solicitare nereușită"
 
 #: js/messages.php:362
 #, fuzzy
@@ -1874,10 +1867,8 @@ msgid "Changing charset"
 msgstr "Se schimbă setul de caractere"
 
 #: js/messages.php:383 templates/fk_checkbox.twig:4
-#, fuzzy
-#| msgid "Disable foreign key checks"
 msgid "Enable foreign key checks"
-msgstr "Dezactivare verificări de cheie străine"
+msgstr "Activare de verificări cheie străine"
 
 #: js/messages.php:386
 msgid "Failed to get real row count."
@@ -2019,10 +2010,9 @@ msgid "No auto-saved query"
 msgstr "Nicio interogare salvată"
 
 #: js/messages.php:423
-#, fuzzy, php-format
-#| msgid "Variable"
+#, php-format
 msgid "Variable %d:"
-msgstr "Variabil"
+msgstr "Variabila %d:"
 
 #: js/messages.php:426 libraries/classes/Normalization.php:910
 msgid "Pick"
@@ -2144,10 +2134,9 @@ msgid "The following actions will be performed:"
 msgstr "Vor fi efectuate următoarele acţiuni:"
 
 #: js/messages.php:468
-#, fuzzy, php-format
-#| msgid "DROP columns %1s from the table %2s"
+#, php-format
 msgid "DROP columns %s from the table %s"
-msgstr "Șterge coloanele %1s din tabelul %2s"
+msgstr "Șterge coloanele %s din tabelul %s"
 
 #: js/messages.php:469
 msgid "Create the following table"
@@ -2253,7 +2242,7 @@ msgstr "Alege două coloane diferite"
 #, fuzzy
 #| msgid "Data pointer size"
 msgid "Data point content"
-msgstr "Mărime pointer date"
+msgstr "Conţinut de punct de date"
 
 #: js/messages.php:515 js/messages.php:682 js/messages.php:699
 #: libraries/classes/ErrorHandler.php:371 libraries/classes/InsertEdit.php:2664
@@ -2288,10 +2277,8 @@ msgid "Inner ring"
 msgstr "Inel interior"
 
 #: js/messages.php:525
-#, fuzzy
-#| msgid "Outer ring:"
 msgid "Outer ring"
-msgstr "Inelul exterior:"
+msgstr "Inelul exterior"
 
 #: js/messages.php:529
 msgid "Do you want to copy encryption key?"
