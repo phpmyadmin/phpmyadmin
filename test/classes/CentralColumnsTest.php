@@ -435,7 +435,6 @@ class CentralColumnsTest extends TestCase
                 $this->returnValue($this->columnData)
             );
         $result = $this->centralColumns->getHtmlForEditingPage(
-            $GLOBALS['cfg']['CharEditing'],
             $GLOBALS['cfg']['Server']['DisableIS'],
             array("col1", "col2"),
             'phpmyadmin'
@@ -467,7 +466,6 @@ class CentralColumnsTest extends TestCase
             $this->callProtectedMethod(
                 'getHtmlForEditTableRow',
                 [
-                    $GLOBALS['cfg']['CharEditing'],
                     $GLOBALS['cfg']['Server']['DisableIS'],
                     $list_detail_cols[0],
                     0,
@@ -611,7 +609,6 @@ class CentralColumnsTest extends TestCase
     public function testGetHtmlForAddNewColumn()
     {
         $result = $this->centralColumns->getHtmlForAddNewColumn(
-            $GLOBALS['cfg']['CharEditing'],
             $GLOBALS['cfg']['Server']['DisableIS'],
             'phpmyadmin',
             0

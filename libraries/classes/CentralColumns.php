@@ -44,6 +44,13 @@ class CentralColumns
     private $maxRows;
 
     /**
+     * Which editor should be used for CHAR/VARCHAR fields
+     *
+     * @var string
+     */
+    private $charEditing;
+
+    /**
      * Constructor
      *
      * @param DatabaseInterface $dbi DatabaseInterface instance
@@ -54,6 +61,7 @@ class CentralColumns
 
         $this->user = $GLOBALS['cfg']['Server']['user'];
         $this->maxRows = (int) $GLOBALS['cfg']['MaxRows'];
+        $this->charEditing = $GLOBALS['cfg']['CharEditing'];
     }
 
     /**
@@ -750,7 +758,7 @@ class CentralColumns
      *
      * @return string html for table header in central columns view/edit page
      */
-    public function getTableHeader($class='', $title='', $actionCount=0)
+    public function getTableHeader($class = '', $title = '', $actionCount = 0)
     {
         $action = '';
         if ($actionCount > 0) {
@@ -896,16 +904,14 @@ class CentralColumns
     /**
      * build html for a row in central columns table
      *
-     * @param string  $charEditing which editor should be used for CHAR/VARCHAR fields
-     * @param boolean $disableIs   Disable use of INFORMATION_SCHEMA
-     * @param array   $row         array contains complete information of a particular row of central list table
-     * @param int     $row_num     position the row in the table
-     * @param string  $db          current database
+     * @param boolean $disableIs Disable use of INFORMATION_SCHEMA
+     * @param array   $row       array contains complete information of a particular row of central list table
+     * @param int     $row_num   position the row in the table
+     * @param string  $db        current database
      *
      * @return string html of a particular row in the central columns table.
      */
     public function getHtmlForTableRow(
-        $charEditing,
         $disableIs,
         array $row,
         $row_num,
@@ -1003,7 +1009,7 @@ class CentralColumns
                     'ci_offset' => 0,
                     'type_upper' => mb_strtoupper($row['col_type']),
                     'column_meta' => $meta,
-                    'char_editing' => $charEditing,
+                    'char_editing' => $this->charEditing,
                     )
                 )
             . '</td>';
@@ -1075,16 +1081,14 @@ class CentralColumns
     /**
      * build html for editing a row in central columns table
      *
-     * @param string  $charEditing which editor should be used for CHAR/VARCHAR fields
-     * @param boolean $disableIs   Disable use of INFORMATION_SCHEMA
-     * @param array   $row         array contains complete information of a
-     *                             particular row of central list table
-     * @param int     $row_num     position the row in the table
+     * @param boolean $disableIs Disable use of INFORMATION_SCHEMA
+     * @param array   $row       array contains complete information of a
+     *                           particular row of central list table
+     * @param int     $row_num   position the row in the table
      *
      * @return string html of a particular row in the central columns table.
      */
     private function getHtmlForEditTableRow(
-        $charEditing,
         $disableIs,
         array $row,
         $row_num
@@ -1154,7 +1158,7 @@ class CentralColumns
                     'ci_offset' => 0,
                     'type_upper' => mb_strtoupper($row['col_default']),
                     'column_meta' => $meta,
-                    'char_editing' => $charEditing,
+                    'char_editing' => $this->charEditing,
                     )
                 )
             . '</td>';
@@ -1340,16 +1344,14 @@ class CentralColumns
     /**
      * build html for adding a new user defined column to central list
      *
-     * @param string  $charEditing which editor should be used for CHAR/VARCHAR fields
-     * @param boolean $disableIs   Disable use of INFORMATION_SCHEMA
-     * @param string  $db          current database
-     * @param integer $total_rows  number of rows in central columns
+     * @param boolean $disableIs  Disable use of INFORMATION_SCHEMA
+     * @param string  $db         current database
+     * @param integer $total_rows number of rows in central columns
      *
      * @return string html of the form to let user add a new user defined column to the
      *                list
      */
     public function getHtmlForAddNewColumn(
-        $charEditing,
         $disableIs,
         $db,
         $total_rows
@@ -1412,7 +1414,7 @@ class CentralColumns
                     'ci_offset' => 0,
                     'type_upper' => '',
                     'column_meta' => array(),
-                    'char_editing' => $charEditing,
+                    'char_editing' => $this->charEditing,
                     )
                 )
             . '</td>'
@@ -1470,7 +1472,6 @@ class CentralColumns
     /**
      * Get HTML for editing page central columns
      *
-     * @param string  $charEditing  which editor should be used for CHAR/VARCHAR fields
      * @param boolean $disableIs    Disable use of INFORMATION_SCHEMA
      * @param array   $selected_fld Array containing the selected fields
      * @param string  $selected_db  String containing the name of database
@@ -1478,7 +1479,6 @@ class CentralColumns
      * @return string HTML for complete editing page for central columns
      */
     public function getHtmlForEditingPage(
-        $charEditing,
         $disableIs,
         array $selected_fld,
         $selected_db
@@ -1499,7 +1499,6 @@ class CentralColumns
         $row_num = 0;
         foreach ($list_detail_cols as $row) {
             $tableHtmlRow = $this->getHtmlForEditTableRow(
-                $charEditing,
                 $disableIs,
                 $row,
                 $row_num
