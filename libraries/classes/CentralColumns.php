@@ -51,6 +51,13 @@ class CentralColumns
     private $charEditing;
 
     /**
+     * Disable use of INFORMATION_SCHEMA
+     *
+     * @var boolean
+     */
+    private $disableIs;
+
+    /**
      * Constructor
      *
      * @param DatabaseInterface $dbi DatabaseInterface instance
@@ -62,6 +69,7 @@ class CentralColumns
         $this->user = $GLOBALS['cfg']['Server']['user'];
         $this->maxRows = (int) $GLOBALS['cfg']['MaxRows'];
         $this->charEditing = $GLOBALS['cfg']['CharEditing'];
+        $this->disableIs = (bool) $GLOBALS['cfg']['Server']['DisableIS'];
     }
 
     /**
@@ -904,19 +912,14 @@ class CentralColumns
     /**
      * build html for a row in central columns table
      *
-     * @param boolean $disableIs Disable use of INFORMATION_SCHEMA
-     * @param array   $row       array contains complete information of a particular row of central list table
-     * @param int     $row_num   position the row in the table
-     * @param string  $db        current database
+     * @param array  $row     array contains complete information of a particular row of central list table
+     * @param int    $row_num position the row in the table
+     * @param string $db      current database
      *
      * @return string html of a particular row in the central columns table.
      */
-    public function getHtmlForTableRow(
-        $disableIs,
-        array $row,
-        $row_num,
-        $db
-    ) {
+    public function getHtmlForTableRow(array $row, $row_num, $db)
+    {
         $tableHtml = '<tr data-rownum="' . $row_num . '" id="f_' . $row_num . '">'
             . Url::getHiddenInputs(
                 $db
@@ -1019,7 +1022,7 @@ class CentralColumns
             . '<span>' . htmlspecialchars($row['col_collation']) . '</span>'
             . Charsets::getCollationDropdownBox(
                 $this->dbi,
-                $disableIs,
+                $this->disableIs,
                 'field_collation[' . $row_num . ']',
                 'field_' . $row_num . '_4', $row['col_collation'], false
             )
@@ -1081,18 +1084,14 @@ class CentralColumns
     /**
      * build html for editing a row in central columns table
      *
-     * @param boolean $disableIs Disable use of INFORMATION_SCHEMA
-     * @param array   $row       array contains complete information of a
-     *                           particular row of central list table
-     * @param int     $row_num   position the row in the table
+     * @param array $row     array contains complete information of a
+     *                       particular row of central list table
+     * @param int   $row_num position the row in the table
      *
      * @return string html of a particular row in the central columns table.
      */
-    private function getHtmlForEditTableRow(
-        $disableIs,
-        array $row,
-        $row_num
-    ) {
+    private function getHtmlForEditTableRow(array $row, $row_num)
+    {
         $tableHtml = '<tr>'
             . '<input name="orig_col_name[' . $row_num . ']" type="hidden" '
             . 'value="' . htmlspecialchars($row['col_name']) . '">'
@@ -1166,7 +1165,7 @@ class CentralColumns
             '<td name="collation" class="nowrap">'
             . Charsets::getCollationDropdownBox(
                 $this->dbi,
-                $disableIs,
+                $this->disableIs,
                 'field_collation[' . $row_num . ']',
                 'field_' . $row_num . '_4', $row['col_collation'], false
             )
@@ -1344,18 +1343,14 @@ class CentralColumns
     /**
      * build html for adding a new user defined column to central list
      *
-     * @param boolean $disableIs  Disable use of INFORMATION_SCHEMA
      * @param string  $db         current database
      * @param integer $total_rows number of rows in central columns
      *
      * @return string html of the form to let user add a new user defined column to the
      *                list
      */
-    public function getHtmlForAddNewColumn(
-        $disableIs,
-        $db,
-        $total_rows
-    ) {
+    public function getHtmlForAddNewColumn($db, $total_rows)
+    {
         $addNewColumn = '<div id="add_col_div" class="topmargin"><a href="#">'
             . '<span>+</span> ' . __('Add new column') . '</a>'
             . '<form id="add_new" class="new_central_col '
@@ -1421,7 +1416,7 @@ class CentralColumns
             . '<td name="collation" class="nowrap">'
             . Charsets::getCollationDropdownBox(
                 $this->dbi,
-                $disableIs,
+                $this->disableIs,
                 'field_collation[0]',
                 'field_0_4', null, false
             )
@@ -1472,17 +1467,13 @@ class CentralColumns
     /**
      * Get HTML for editing page central columns
      *
-     * @param boolean $disableIs    Disable use of INFORMATION_SCHEMA
-     * @param array   $selected_fld Array containing the selected fields
-     * @param string  $selected_db  String containing the name of database
+     * @param array  $selected_fld Array containing the selected fields
+     * @param string $selected_db  String containing the name of database
      *
      * @return string HTML for complete editing page for central columns
      */
-    public function getHtmlForEditingPage(
-        $disableIs,
-        array $selected_fld,
-        $selected_db
-    ) {
+    public function getHtmlForEditingPage(array $selected_fld, $selected_db)
+    {
         $html = '<form id="multi_edit_central_columns">';
         $header_cells = array(
             __('Name'), __('Type'), __('Length/Values'), __('Default'),
@@ -1499,7 +1490,6 @@ class CentralColumns
         $row_num = 0;
         foreach ($list_detail_cols as $row) {
             $tableHtmlRow = $this->getHtmlForEditTableRow(
-                $disableIs,
                 $row,
                 $row_num
             );

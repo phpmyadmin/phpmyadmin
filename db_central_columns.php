@@ -88,7 +88,6 @@ if (isset($_REQUEST['edit_central_columns_page'])) {
     $selected_fld = $_REQUEST['selected_fld'];
     $selected_db = $_REQUEST['db'];
     $edit_central_column_page = $centralColumns->getHtmlForEditingPage(
-        $GLOBALS['cfg']['Server']['DisableIS'],
         $selected_fld,
         $selected_db
     );
@@ -120,11 +119,7 @@ if (Core::isValid($_REQUEST['pos'], 'integer')) {
 } else {
     $pos = 0;
 }
-$addNewColumn = $centralColumns->getHtmlForAddNewColumn(
-    $GLOBALS['cfg']['Server']['DisableIS'],
-    $db,
-    $total_rows
-);
+$addNewColumn = $centralColumns->getHtmlForAddNewColumn($db, $total_rows);
 $response->addHTML($addNewColumn);
 if ($total_rows <= 0) {
     $response->addHTML(
@@ -165,7 +160,6 @@ $result = $centralColumns->getColumnsList($db, $pos, $max_rows);
 $row_num = 0;
 foreach ($result as $row) {
     $tableHtmlRow = $centralColumns->getHtmlForTableRow(
-        $GLOBALS['cfg']['Server']['DisableIS'],
         $row,
         $row_num,
         $db
