@@ -66,6 +66,7 @@ if (! empty($submit_mult)
         // coming from database structure view - do something with
         // selected tables
         $selected = $_POST['selected_tbl'];
+        $centralColumns = new CentralColumns($GLOBALS['dbi']);
         switch ($submit_mult) {
         case 'add_prefix_tbl':
         case 'replace_prefix_tbl':
@@ -119,23 +120,17 @@ if (! empty($submit_mult)
             $response->addJSON('message', $show_create);
             exit;
         case 'sync_unique_columns_central_list':
-            $centralColsError = CentralColumns::syncUniqueColumns(
-                $GLOBALS['dbi'],
-                $GLOBALS['cfg']['Server']['user'],
+            $centralColsError = $centralColumns->syncUniqueColumns(
                 $selected
             );
             break;
         case 'delete_unique_columns_central_list':
-            $centralColsError = CentralColumns::deleteColumnsFromList(
-                $GLOBALS['dbi'],
-                $GLOBALS['cfg']['Server']['user'],
+            $centralColsError = $centralColumns->deleteColumnsFromList(
                 $selected
             );
             break;
         case 'make_consistent_with_central_list':
-            $centralColsError = CentralColumns::makeConsistentWithList(
-                $GLOBALS['dbi'],
-                $GLOBALS['cfg']['Server']['user'],
+            $centralColsError = $centralColumns->makeConsistentWithList(
                 $GLOBALS['db'],
                 $selected
             );
