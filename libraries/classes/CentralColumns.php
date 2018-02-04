@@ -37,6 +37,13 @@ class CentralColumns
     private $user;
 
     /**
+     * Number of rows displayed when browsing a result set
+     *
+     * @var int
+     */
+    private $maxRows;
+
+    /**
      * Constructor
      *
      * @param DatabaseInterface $dbi DatabaseInterface instance
@@ -46,6 +53,7 @@ class CentralColumns
         $this->dbi = $dbi;
 
         $this->user = $GLOBALS['cfg']['Server']['user'];
+        $this->maxRows = (int) $GLOBALS['cfg']['MaxRows'];
     }
 
     /**
@@ -141,6 +149,7 @@ class CentralColumns
 
         return 0;
     }
+
     /**
      * return the existing columns in central list among the given list of columns
      *
@@ -661,28 +670,27 @@ class CentralColumns
     /**
      * get the html for table navigation in Central columns page
      *
-     * @param string $max_rows   number of rows displayed when browsing a result set
      * @param int    $total_rows total number of rows in complete result set
      * @param int    $pos        offset of first result with complete result set
      * @param string $db         current database
      *
      * @return string html for table navigation in Central columns page
      */
-    public function getHtmlForTableNavigation($max_rows, $total_rows, $pos, $db)
+    public function getHtmlForTableNavigation($total_rows, $pos, $db)
     {
-        $pageNow = ($pos / $max_rows) + 1;
-        $nbTotalPage = ceil($total_rows / $max_rows);
+        $pageNow = ($pos / $this->maxRows) + 1;
+        $nbTotalPage = ceil($total_rows / $this->maxRows);
         $table_navigation_html = '<table style="display:inline-block;max-width:49%" '
             . 'class="navigation nospacing nopadding">'
             . '<tr>'
             . '<td class="navigation_separator"></td>';
-        if ($pos - $max_rows >= 0) {
+        if ($pos - $this->maxRows >= 0) {
             $table_navigation_html .= '<td>'
                 . '<form action="db_central_columns.php" method="post">'
                 . Url::getHiddenInputs(
                     $db
                 )
-                . '<input type="hidden" name="pos" value="' . ($pos - $max_rows) . '" />'
+                . '<input type="hidden" name="pos" value="' . ($pos - $this->maxRows) . '" />'
                 . '<input type="hidden" name="total_rows" value="' . $total_rows . '"/>'
                 . '<input type="submit" name="navig"'
                 . ' class="ajax" '
@@ -699,18 +707,18 @@ class CentralColumns
                 )
                 . '<input type="hidden" name="total_rows" value="' . $total_rows . '"/>';
             $table_navigation_html .= Util::pageselector(
-                'pos', $max_rows, $pageNow, $nbTotalPage
+                'pos', $this->maxRows, $pageNow, $nbTotalPage
             );
             $table_navigation_html .= '</form>'
                 . '</td>';
         }
-        if ($pos + $max_rows < $total_rows) {
+        if ($pos + $this->maxRows < $total_rows) {
             $table_navigation_html .= '<td>'
                 . '<form action="db_central_columns.php" method="post">'
                 . Url::getHiddenInputs(
                     $db
                 )
-                . '<input type="hidden" name="pos" value="' . ($pos + $max_rows) . '" />'
+                . '<input type="hidden" name="pos" value="' . ($pos + $this->maxRows) . '" />'
                 . '<input type="hidden" name="total_rows" value="' . $total_rows . '"/>'
                 . '<input type="submit" name="navig"'
                 . ' class="ajax" '
@@ -888,7 +896,6 @@ class CentralColumns
     /**
      * build html for a row in central columns table
      *
-     * @param string  $maxRows     number of rows displayed when browsing a result set
      * @param string  $charEditing which editor should be used for CHAR/VARCHAR fields
      * @param boolean $disableIs   Disable use of INFORMATION_SCHEMA
      * @param array   $row         array contains complete information of a particular row of central list table
@@ -898,7 +905,6 @@ class CentralColumns
      * @return string html of a particular row in the central columns table.
      */
     public function getHtmlForTableRow(
-        $maxRows,
         $charEditing,
         $disableIs,
         array $row,
@@ -940,7 +946,7 @@ class CentralColumns
                 'cfg_relation' => array(
                     'centralcolumnswork' => false
                 ),
-                'max_rows' => intval($maxRows),
+                'max_rows' => $this->maxRows,
             ))
             . '</td>';
         $tableHtml .=
@@ -1069,7 +1075,6 @@ class CentralColumns
     /**
      * build html for editing a row in central columns table
      *
-     * @param string  $maxRows     number of rows displayed when browsing a result set
      * @param string  $charEditing which editor should be used for CHAR/VARCHAR fields
      * @param boolean $disableIs   Disable use of INFORMATION_SCHEMA
      * @param array   $row         array contains complete information of a
@@ -1079,7 +1084,6 @@ class CentralColumns
      * @return string html of a particular row in the central columns table.
      */
     private function getHtmlForEditTableRow(
-        $maxRows,
         $charEditing,
         $disableIs,
         array $row,
@@ -1099,7 +1103,7 @@ class CentralColumns
                 'cfg_relation' => array(
                     'centralcolumnswork' => false
                 ),
-                'max_rows' => intval($maxRows),
+                'max_rows' => $this->maxRows,
             ))
             . '</td>';
         $tableHtml .=
@@ -1336,7 +1340,6 @@ class CentralColumns
     /**
      * build html for adding a new user defined column to central list
      *
-     * @param string  $maxRows     number of rows displayed when browsing a result set
      * @param string  $charEditing which editor should be used for CHAR/VARCHAR fields
      * @param boolean $disableIs   Disable use of INFORMATION_SCHEMA
      * @param string  $db          current database
@@ -1346,7 +1349,6 @@ class CentralColumns
      *                list
      */
     public function getHtmlForAddNewColumn(
-        $maxRows,
         $charEditing,
         $disableIs,
         $db,
@@ -1375,7 +1377,7 @@ class CentralColumns
                 'cfg_relation' => array(
                     'centralcolumnswork' => false
                 ),
-                'max_rows' => intval($maxRows),
+                'max_rows' => $this->maxRows,
             ))
             . '</td>'
             . '<td name = "col_type" class="nowrap">'
@@ -1468,7 +1470,6 @@ class CentralColumns
     /**
      * Get HTML for editing page central columns
      *
-     * @param string  $maxRows      number of rows displayed when browsing a result set
      * @param string  $charEditing  which editor should be used for CHAR/VARCHAR fields
      * @param boolean $disableIs    Disable use of INFORMATION_SCHEMA
      * @param array   $selected_fld Array containing the selected fields
@@ -1477,7 +1478,6 @@ class CentralColumns
      * @return string HTML for complete editing page for central columns
      */
     public function getHtmlForEditingPage(
-        $maxRows,
         $charEditing,
         $disableIs,
         array $selected_fld,
@@ -1499,7 +1499,6 @@ class CentralColumns
         $row_num = 0;
         foreach ($list_detail_cols as $row) {
             $tableHtmlRow = $this->getHtmlForEditTableRow(
-                $maxRows,
                 $charEditing,
                 $disableIs,
                 $row,

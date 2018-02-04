@@ -435,7 +435,6 @@ class CentralColumnsTest extends TestCase
                 $this->returnValue($this->columnData)
             );
         $result = $this->centralColumns->getHtmlForEditingPage(
-            $GLOBALS['cfg']['MaxRows'],
             $GLOBALS['cfg']['CharEditing'],
             $GLOBALS['cfg']['Server']['DisableIS'],
             array("col1", "col2"),
@@ -468,7 +467,6 @@ class CentralColumnsTest extends TestCase
             $this->callProtectedMethod(
                 'getHtmlForEditTableRow',
                 [
-                    $GLOBALS['cfg']['MaxRows'],
                     $GLOBALS['cfg']['CharEditing'],
                     $GLOBALS['cfg']['Server']['DisableIS'],
                     $list_detail_cols[0],
@@ -492,7 +490,6 @@ class CentralColumnsTest extends TestCase
     public function testGetHtmlForTableNavigation()
     {
         $result = $this->centralColumns->getHtmlForTableNavigation(
-            $GLOBALS['cfg']['MaxRows'],
             0,
             0,
             'phpmyadmin'
@@ -506,7 +503,6 @@ class CentralColumnsTest extends TestCase
             $result
         );
         $result_1 = $this->centralColumns->getHtmlForTableNavigation(
-            $GLOBALS['cfg']['MaxRows'],
             25,
             10,
             'phpmyadmin'
@@ -615,7 +611,6 @@ class CentralColumnsTest extends TestCase
     public function testGetHtmlForAddNewColumn()
     {
         $result = $this->centralColumns->getHtmlForAddNewColumn(
-            $GLOBALS['cfg']['MaxRows'],
             $GLOBALS['cfg']['CharEditing'],
             $GLOBALS['cfg']['Server']['DisableIS'],
             'phpmyadmin',
