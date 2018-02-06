@@ -27,6 +27,23 @@ use PhpMyAdmin\Util;
 class InsertEdit
 {
     /**
+     * DatabaseInterface instance
+     *
+     * @var DatabaseInterface
+     */
+    private $dbi;
+
+    /**
+     * Constructor
+     *
+     * @param DatabaseInterface $dbi DatabaseInterface instance
+     */
+    public function __construct(DatabaseInterface $dbi)
+    {
+        $this->dbi = $dbi;
+    }
+
+    /**
      * Retrieve form parameters for insert/edit form
      *
      * @param string     $db                 name of the database
@@ -100,12 +117,12 @@ class InsertEdit
                 . Util::backquote($db) . '.'
                 . Util::backquote($table)
                 . ' WHERE ' . $where_clause . ';';
-            $result[$key_id] = $GLOBALS['dbi']->query(
+            $result[$key_id] = $this->dbi->query(
                 $local_query,
                 DatabaseInterface::CONNECT_USER,
                 DatabaseInterface::QUERY_STORE
             );
-            $rows[$key_id]   = $GLOBALS['dbi']->fetchAssoc($result[$key_id]);
+            $rows[$key_id] = $this->dbi->fetchAssoc($result[$key_id]);
 
             $where_clauses[$key_id] = str_replace('\\', '\\\\', $where_clause);
             $has_unique_condition = $this->showEmptyResultMessageOrSetUniqueCondition(
@@ -148,7 +165,7 @@ class InsertEdit
              * exit if we want the message to be displayed
              */
         } else {// end if (no row returned)
-            $meta = $GLOBALS['dbi']->getFieldsMeta($result[$key_id]);
+            $meta = $this->dbi->getFieldsMeta($result[$key_id]);
 
             list($unique_condition, $tmp_clause_is_unique)
                 = Util::getUniqueCondition(
@@ -179,7 +196,7 @@ class InsertEdit
      */
     private function loadFirstRow($table, $db)
     {
-        $result = $GLOBALS['dbi']->query(
+        $result = $this->dbi->query(
             'SELECT * FROM ' . Util::backquote($db)
             . '.' . Util::backquote($table) . ' LIMIT 1;',
             DatabaseInterface::CONNECT_USER,
@@ -582,7 +599,7 @@ class InsertEdit
         $readOnly
     ) {
         // HTML5 data-* attribute data-type
-        $data_type = $GLOBALS['dbi']->types->getTypeClass($column['True_Type']);
+        $data_type = $this->dbi->types->getTypeClass($column['True_Type']);
         $html_output = '';
 
         if ($foreignData['foreign_link'] == true) {
@@ -1204,12 +1221,12 @@ class InsertEdit
             $the_class .= ' datetimefield';
         }
         $input_min_max = false;
-        if (in_array($column['True_Type'], $GLOBALS['dbi']->types->getIntegerTypes())) {
+        if (in_array($column['True_Type'], $this->dbi->types->getIntegerTypes())) {
             $extracted_columnspec = Util::extractColumnSpec(
                 $column['Type']
             );
             $is_unsigned = $extracted_columnspec['unsigned'];
-            $min_max_values = $GLOBALS['dbi']->types->getIntegerRange(
+            $min_max_values = $this->dbi->types->getIntegerRange(
                 $column['True_Type'], ! $is_unsigned
             );
             $input_min_max = 'min="' . $min_max_values[0] . '" '
@@ -1333,7 +1350,7 @@ class InsertEdit
         array $extracted_columnspec, $readOnly
     ) {
         // HTML5 data-* attribute data-type
-        $data_type = $GLOBALS['dbi']->types->getTypeClass($column['True_Type']);
+        $data_type = $this->dbi->types->getTypeClass($column['True_Type']);
         $fieldsize = $this->getColumnSize($column, $extracted_columnspec);
         $html_output = $backup_field . "\n";
         if ($column['is_char']
@@ -1874,9 +1891,9 @@ class InsertEdit
             . '.' . Util::backquote($GLOBALS['table']) . ' WHERE '
             . str_replace('` =', '` >', $one_where_clause) . ' LIMIT 1;';
 
-        $res            = $GLOBALS['dbi']->query($local_query);
-        $row            = $GLOBALS['dbi']->fetchRow($res);
-        $meta           = $GLOBALS['dbi']->getFieldsMeta($res);
+        $res = $this->dbi->query($local_query);
+        $row = $this->dbi->fetchRow($res);
+        $meta = $this->dbi->getFieldsMeta($res);
         // must find a unique condition based on unique key,
         // not a combination of all fields
         list($unique_condition, $clause_is_unique)
@@ -2008,20 +2025,20 @@ class InsertEdit
                 continue;
             }
             if ($GLOBALS['cfg']['IgnoreMultiSubmitErrors']) {
-                $result = $GLOBALS['dbi']->tryQuery($single_query);
+                $result = $this->dbi->tryQuery($single_query);
             } else {
-                $result = $GLOBALS['dbi']->query($single_query);
+                $result = $this->dbi->query($single_query);
             }
             if (! $result) {
-                $error_messages[] = $GLOBALS['dbi']->getError();
+                $error_messages[] = $this->dbi->getError();
             } else {
                 // The next line contains a real assignment, it's not a typo
-                if ($tmp = @$GLOBALS['dbi']->affectedRows()) {
+                if ($tmp = @$this->dbi->affectedRows()) {
                     $total_affected_rows += $tmp;
                 }
                 unset($tmp);
 
-                $insert_id = $GLOBALS['dbi']->insertId();
+                $insert_id = $this->dbi->insertId();
                 if ($insert_id != 0) {
                     // insert_id is id of FIRST record inserted in one insert, so if we
                     // inserted multiple rows, we had to increment this
@@ -2033,7 +2050,7 @@ class InsertEdit
                     $last_message->addParam($insert_id);
                     $last_messages[] = $last_message;
                 }
-                $GLOBALS['dbi']->freeResult($result);
+                $this->dbi->freeResult($result);
             }
             $warning_messages = $this->getWarningMessages();
         }
@@ -2055,7 +2072,7 @@ class InsertEdit
     private function getWarningMessages()
     {
         $warning_essages = array();
-        foreach ($GLOBALS['dbi']->getWarnings() as $warning) {
+        foreach ($this->dbi->getWarnings() as $warning) {
             $warning_essages[] = Message::sanitize(
                 $warning['Level'] . ': #' . $warning['Code'] . ' ' . $warning['Message']
             );
@@ -2088,18 +2105,18 @@ class InsertEdit
                 . '.' . Util::backquote($foreigner['foreign_table'])
                 . ' WHERE ' . Util::backquote($foreigner['foreign_field'])
                 . $where_comparison;
-            $dispresult  = $GLOBALS['dbi']->tryQuery(
+            $dispresult = $this->dbi->tryQuery(
                 $dispsql,
                 DatabaseInterface::CONNECT_USER,
                 DatabaseInterface::QUERY_STORE
             );
-            if ($dispresult && $GLOBALS['dbi']->numRows($dispresult) > 0) {
-                list($dispval) = $GLOBALS['dbi']->fetchRow($dispresult, 0);
+            if ($dispresult && $this->dbi->numRows($dispresult) > 0) {
+                list($dispval) = $this->dbi->fetchRow($dispresult, 0);
             } else {
                 $dispval = '';
             }
             if ($dispresult) {
-                $GLOBALS['dbi']->freeResult($dispresult);
+                $this->dbi->freeResult($dispresult);
             }
             return $dispval;
         }
@@ -2231,7 +2248,7 @@ class InsertEdit
             return $current_value;
         } elseif ('UUID' === $multi_edit_funcs[$key]) {
             /* This way user will know what UUID new row has */
-            $uuid = $GLOBALS['dbi']->fetchValue('SELECT UUID()');
+            $uuid = $this->dbi->fetchValue('SELECT UUID()');
             return "'" . $uuid . "'";
         } elseif ((in_array($multi_edit_funcs[$key], $gis_from_text_functions)
             && substr($current_value, 0, 3) == "'''")
@@ -2255,7 +2272,7 @@ class InsertEdit
                 || $multi_edit_funcs[$key] == "ENCRYPT"))
             ) {
                 return $multi_edit_funcs[$key] . '(' . $current_value . ",'"
-                    . $GLOBALS['dbi']->escapeString($multi_edit_salt[$key]) . "')";
+                    . $this->dbi->escapeString($multi_edit_salt[$key]) . "')";
             }
 
             return $multi_edit_funcs[$key] . '(' . $current_value . ')';
@@ -2314,7 +2331,7 @@ class InsertEdit
                 . ' = ' . $current_value_as_an_array;
         } elseif (empty($multi_edit_funcs[$key])
             && isset($multi_edit_columns_prev[$key])
-            && (("'" . $GLOBALS['dbi']->escapeString($multi_edit_columns_prev[$key]) . "'" === $current_value)
+            && (("'" . $this->dbi->escapeString($multi_edit_columns_prev[$key]) . "'" === $current_value)
             || ('0x' . $multi_edit_columns_prev[$key] === $current_value))
         ) {
             // No change for this column and no MySQL function is used -> next column
@@ -2364,7 +2381,7 @@ class InsertEdit
             && $using_key && isset($multi_edit_columns_type)
             && is_array($multi_edit_columns_type) && !empty($where_clause)
         ) {
-            $protected_row = $GLOBALS['dbi']->fetchSingleRow(
+            $protected_row = $this->dbi->fetchSingleRow(
                 'SELECT * FROM ' . Util::backquote($table)
                 . ' WHERE ' . $where_clause . ';'
             );
@@ -2373,7 +2390,7 @@ class InsertEdit
         if (false !== $possibly_uploaded_val) {
             $current_value = $possibly_uploaded_val;
         } elseif (! empty($multi_edit_funcs[$key])) {
-            $current_value = "'" . $GLOBALS['dbi']->escapeString($current_value)
+            $current_value = "'" . $this->dbi->escapeString($current_value)
                 . "'";
         } else {
             // c o l u m n    v a l u e    i n    t h e    f o r m
@@ -2399,7 +2416,7 @@ class InsertEdit
                         ',', $_REQUEST['fields']['multi_edit'][$rownumber][$key]
                     );
                     $current_value = "'"
-                        . $GLOBALS['dbi']->escapeString($current_value) . "'";
+                        . $this->dbi->escapeString($current_value) . "'";
                 } else {
                      $current_value = "''";
                 }
@@ -2424,12 +2441,12 @@ class InsertEdit
                 }
             } elseif ($type == 'bit') {
                 $current_value = preg_replace('/[^01]/', '0', $current_value);
-                $current_value = "b'" . $GLOBALS['dbi']->escapeString($current_value)
+                $current_value = "b'" . $this->dbi->escapeString($current_value)
                     . "'";
             } elseif (! ($type == 'datetime' || $type == 'timestamp')
                 || $current_value != 'CURRENT_TIMESTAMP'
             ) {
-                $current_value = "'" . $GLOBALS['dbi']->escapeString($current_value)
+                $current_value = "'" . $this->dbi->escapeString($current_value)
                     . "'";
             }
 
@@ -2475,10 +2492,10 @@ class InsertEdit
             . Util::backquote($table)
             . ' WHERE ' . $_REQUEST['where_clause'][0];
 
-        $result = $GLOBALS['dbi']->tryQuery($sql_for_real_value);
-        $fields_meta = $GLOBALS['dbi']->getFieldsMeta($result);
+        $result = $this->dbi->tryQuery($sql_for_real_value);
+        $fields_meta = $this->dbi->getFieldsMeta($result);
         $meta = $fields_meta[0];
-        if ($row = $GLOBALS['dbi']->fetchRow($result)) {
+        if ($row = $this->dbi->fetchRow($result)) {
             $new_value = $row[0];
             if ((substr($meta->type, 0, 9) == 'timestamp')
                 || ($meta->type == 'datetime')
@@ -2491,7 +2508,7 @@ class InsertEdit
             $extra_data['isNeedToRecheck'] = true;
             $extra_data['truncatableFieldValue'] = $new_value;
         }
-        $GLOBALS['dbi']->freeResult($result);
+        $this->dbi->freeResult($result);
     }
 
     /**
@@ -2504,8 +2521,8 @@ class InsertEdit
      */
     public function getTableColumns($db, $table)
     {
-        $GLOBALS['dbi']->selectDb($db);
-        return array_values($GLOBALS['dbi']->getColumns($db, $table, null, true));
+        $this->dbi->selectDb($db);
+        return array_values($this->dbi->getColumns($db, $table, null, true));
     }
 
     /**
@@ -2767,7 +2784,7 @@ class InsertEdit
             = Util::extractColumnSpec($column['Type']);
 
         if (-1 === $column['len']) {
-            $column['len'] = $GLOBALS['dbi']->fieldLen(
+            $column['len'] = $this->dbi->fieldLen(
                 $current_result, $column_number
             );
             // length is unknown for geometry fields,

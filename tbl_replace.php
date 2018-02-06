@@ -47,7 +47,7 @@ $scripts->addFile('sql.js');
 $scripts->addFile('indexes.js');
 $scripts->addFile('gis_data_editor.js');
 
-$insertEdit = new InsertEdit();
+$insertEdit = new InsertEdit($GLOBALS['dbi']);
 
 // check whether insert row mode, if so include tbl_change.php
 $insertEdit->isInsertRow();

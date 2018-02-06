@@ -62,7 +62,7 @@ class InsertEditTest extends TestCase
         $GLOBALS['cfg']['LoginCookieValidity'] = 1440;
         $GLOBALS['PMA_Config'] = new Config();
 
-        $this->insertEdit = new InsertEdit();
+        $this->insertEdit = new InsertEdit($GLOBALS['dbi']);
     }
 
     /**
@@ -177,6 +177,7 @@ class InsertEditTest extends TestCase
             );
 
         $GLOBALS['dbi'] = $dbi;
+        $this->insertEdit = new InsertEdit($GLOBALS['dbi']);
         $result = $this->callProtectedMethod('analyzeWhereClauses', [
             $clauses,
             'table',
@@ -221,6 +222,7 @@ class InsertEditTest extends TestCase
             ->will($this->returnValue($meta_arr));
 
         $GLOBALS['dbi'] = $dbi;
+        $this->insertEdit = new InsertEdit($GLOBALS['dbi']);
 
         $result = $this->callProtectedMethod('showEmptyResultMessageOrSetUniqueCondition', [
             array('1' => array('1' => 1)), 1, array(),
@@ -274,6 +276,7 @@ class InsertEditTest extends TestCase
             ->will($this->returnValue('result1'));
 
         $GLOBALS['dbi'] = $dbi;
+        $this->insertEdit = new InsertEdit($GLOBALS['dbi']);
 
         $result = $this->callProtectedMethod('loadFirstRow', ['table', 'db']);
 
@@ -1750,6 +1753,7 @@ class InsertEditTest extends TestCase
             ->getMock();
 
         $GLOBALS['dbi'] = $dbi;
+        $this->insertEdit = new InsertEdit($GLOBALS['dbi']);
 
         $current_row['f'] = "123";
         $extracted_columnspec['spec_in_brackets'] = 20;
@@ -1990,6 +1994,7 @@ class InsertEditTest extends TestCase
         $GLOBALS['dbi'] = $dbi;
         $GLOBALS['db'] = 'db';
         $GLOBALS['table'] = 'table';
+        $this->insertEdit = new InsertEdit($GLOBALS['dbi']);
         $this->insertEdit->setSessionForEditNext('`a` = 2');
 
         $this->assertEquals(
@@ -2124,6 +2129,7 @@ class InsertEditTest extends TestCase
             ->will($this->returnValue(array()));
 
         $GLOBALS['dbi'] = $dbi;
+        $this->insertEdit = new InsertEdit($GLOBALS['dbi']);
 
         $result = $this->insertEdit->executeSqlQuery(array(), $query);
 
@@ -2210,6 +2216,7 @@ class InsertEditTest extends TestCase
             ->will($this->returnValue(array()));
 
         $GLOBALS['dbi'] = $dbi;
+        $this->insertEdit = new InsertEdit($GLOBALS['dbi']);
 
         $result = $this->insertEdit->executeSqlQuery(array(), $query);
 
@@ -2274,6 +2281,7 @@ class InsertEditTest extends TestCase
             ->will($this->returnValue($warnings));
 
         $GLOBALS['dbi'] = $dbi;
+        $this->insertEdit = new InsertEdit($GLOBALS['dbi']);
 
         $result = $this->callProtectedMethod('getWarningMessages');
 
@@ -2323,6 +2331,7 @@ class InsertEditTest extends TestCase
             ->will($this->returnValue(array('2')));
 
         $GLOBALS['dbi'] = $dbi;
+        $this->insertEdit = new InsertEdit($GLOBALS['dbi']);
 
         $result = $this->insertEdit->getDisplayValueForForeignTableColumn("=1", $map, 'f');
 
@@ -2480,6 +2489,7 @@ class InsertEditTest extends TestCase
             ->will($this->returnValue('uuid1234'));
 
         $GLOBALS['dbi'] = $dbi;
+        $this->insertEdit = new InsertEdit($GLOBALS['dbi']);
 
         $result = $this->insertEdit->getCurrentValueAsAnArrayForMultipleEdit(
             $multi_edit_funcs, array(), array(), 'currVal', array(),
@@ -2540,6 +2550,7 @@ class InsertEditTest extends TestCase
             );
 
         $GLOBALS['dbi'] = $dbi;
+        $this->insertEdit = new InsertEdit($GLOBALS['dbi']);
 
         $result = $this->insertEdit->getCurrentValueForDifferentTypes(
             '123', '0', array(), '', array(), 0, array(), array(),
@@ -2717,6 +2728,7 @@ class InsertEditTest extends TestCase
             ->method('freeResult');
 
         $GLOBALS['dbi'] = $dbi;
+        $this->insertEdit = new InsertEdit($GLOBALS['dbi']);
 
         $this->insertEdit->verifyWhetherValueCanBeTruncatedAndAppendExtraData(
             'db', 'table', 'a', $extra_data
@@ -2762,6 +2774,7 @@ class InsertEditTest extends TestCase
             ->will($this->returnValue(array('a' => 'b', 'c' => 'd')));
 
         $GLOBALS['dbi'] = $dbi;
+        $this->insertEdit = new InsertEdit($GLOBALS['dbi']);
 
         $result = $this->insertEdit->getTableColumns('db', 'table');
 
@@ -2801,6 +2814,8 @@ class InsertEditTest extends TestCase
         $response = new ReflectionProperty('PhpMyAdmin\Response', '_instance');
         $response->setAccessible(true);
         $response->setValue($responseMock);
+
+        $this->insertEdit = new InsertEdit($GLOBALS['dbi']);
 
         $result = $this->insertEdit->determineInsertOrEdit('1', 'db', 'table');
 
@@ -2873,6 +2888,7 @@ class InsertEditTest extends TestCase
             );
 
         $GLOBALS['dbi'] = $dbi;
+        $this->insertEdit = new InsertEdit($GLOBALS['dbi']);
 
         $this->assertEquals(
             array(),

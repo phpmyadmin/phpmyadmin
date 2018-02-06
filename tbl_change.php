@@ -24,7 +24,7 @@ PageSettings::showGroup('Edit');
  */
 require_once 'libraries/db_table_exists.inc.php';
 
-$insertEdit = new InsertEdit();
+$insertEdit = new InsertEdit($GLOBALS['dbi']);
 
 /**
  * Determine whether Insert or Edit and set global variables
