@@ -126,24 +126,23 @@ foreach ($tables as $table) {
     echo '</tr>';
     foreach ($columns as $row) {
 
-        if ($row['Null'] == '') {
-            $row['Null'] = 'NO';
-        }
-        $extracted_columnspec
-            = PhpMyAdmin\Util::extractColumnSpec($row['Type']);
+        $row['Null'] = $row['Null'] == '' ? 'NO' : $row['Null'];
+
+        $extracted_columnspec = PhpMyAdmin\Util::extractColumnSpec($row['Type']);
 
         // reformat mysql query output
         // set or enum types: slashes single quotes inside options
 
         $type = htmlspecialchars($extracted_columnspec['print_type']);
+       
         $attribute     = $extracted_columnspec['attribute'];
+        
         if (! isset($row['Default'])) {
-            if ($row['Null'] != 'NO') {
-                $row['Default'] = '<i>NULL</i>';
-            }
+            $row['Default'] = ($row['Null'] != 'NO') ? '<i>NULL</i>' : '';
         } else {
             $row['Default'] = htmlspecialchars($row['Default']);
         }
+
         $column_name = $row['Field'];
 
         echo '<tr>';
@@ -198,12 +197,16 @@ foreach ($tables as $table) {
         }
         echo '</tr>';
     } // end foreach
+
     $count++;
+
     echo '</table>';
+
     // display indexes information
     if (count(PhpMyAdmin\Index::getFromTable($table, $db)) > 0) {
         echo PhpMyAdmin\Index::getHtmlForIndexes($table, $db, true);
     }
+    
     echo '</div>';
 } //ends main while
 

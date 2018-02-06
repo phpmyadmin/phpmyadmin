@@ -39,6 +39,7 @@ $header->setBodyId('body_browse_foreigners');
  * Displays the frame
  */
 $foreigners = Relation::getForeigners($db, $table);
+
 $browseForeigners = new BrowseForeigners(
     $GLOBALS['cfg']['LimitChars'],
     $GLOBALS['cfg']['MaxRows'],
@@ -46,16 +47,15 @@ $browseForeigners = new BrowseForeigners(
     $GLOBALS['cfg']['ShowAll'],
     $GLOBALS['pmaThemeImage']
 );
+
 $foreign_limit = $browseForeigners->getForeignLimit(
     isset($_REQUEST['foreign_showAll']) ? $_REQUEST['foreign_showAll'] : null
 );
 
 $foreignData = Relation::getForeignData(
     $foreigners, $_REQUEST['field'], true,
-    isset($_REQUEST['foreign_filter'])
-    ? $_REQUEST['foreign_filter']
-    : '',
-    isset($foreign_limit) ? $foreign_limit : null,
+    $_REQUEST['foreign_filter'] ?: '',
+    $foreign_limit ?: null,
     true // for getting value in $foreignData['the_total']
 );
 
@@ -65,8 +65,8 @@ $html = $browseForeigners->getHtmlForRelationalFieldSelection(
     $table,
     $_REQUEST['field'],
     $foreignData,
-    isset($fieldkey) ? $fieldkey : null,
-    isset($data) ? $data : null
+    $fieldkey ?: null,
+    $data :? null
 );
 
 $response->addHtml($html);
