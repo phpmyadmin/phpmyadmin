@@ -65,7 +65,7 @@ class InsertEdit
      *
      * @return array whereClauseArray array of where clauses
      */
-    public function getWhereClauseArray($where_clause)
+    private function getWhereClauseArray($where_clause)
     {
         if (!isset($where_clause)) {
             return array();
@@ -87,7 +87,7 @@ class InsertEdit
      *
      * @return array $where_clauses, $result, $rows
      */
-    public function analyzeWhereClauses(
+    private function analyzeWhereClauses(
         array $where_clause_array, $table, $db
     ) {
         $rows               = array();
@@ -129,7 +129,7 @@ class InsertEdit
      *
      * @return boolean $has_unique_condition
      */
-    public function showEmptyResultMessageOrSetUniqueCondition(array $rows, $key_id,
+    private function showEmptyResultMessageOrSetUniqueCondition(array $rows, $key_id,
         array $where_clause_array, $local_query, array $result
     ) {
         $has_unique_condition = false;
@@ -177,7 +177,7 @@ class InsertEdit
      *
      * @return array                containing $result and $rows arrays
      */
-    public function loadFirstRow($table, $db)
+    private function loadFirstRow($table, $db)
     {
         $result = $GLOBALS['dbi']->query(
             'SELECT * FROM ' . Util::backquote($db)
@@ -260,7 +260,7 @@ class InsertEdit
      *
      * @return string an HTML snippet
      */
-    public function showTypeOrFunctionLabel($which)
+    private function showTypeOrFunctionLabel($which)
     {
         switch($which) {
         case 'function':
@@ -281,7 +281,7 @@ class InsertEdit
       *
       * @return array                   description of column in given table
       */
-    public function analyzeTableColumnsArray(array $column, array $comments_map, $timestamp_seen)
+    private function analyzeTableColumnsArray(array $column, array $comments_map, $timestamp_seen)
     {
         $column['Field_html']    = htmlspecialchars($column['Field']);
         $column['Field_md5']     = md5($column['Field']);
@@ -316,7 +316,7 @@ class InsertEdit
       *
       * @return string              column title
       */
-    public function getColumnTitle(array $column, array $comments_map)
+    private function getColumnTitle(array $column, array $comments_map)
     {
         if (isset($comments_map[$column['Field']])) {
             return '<span style="border-bottom: 1px dashed black;" title="'
@@ -355,7 +355,7 @@ class InsertEdit
      *
      * @return array $column['pma_type'], $column['wrap'], $column['first_timestamp']
      */
-    public function getEnumSetAndTimestampColumns(array $column, $timestamp_seen)
+    private function getEnumSetAndTimestampColumns(array $column, $timestamp_seen)
     {
         $column['first_timestamp'] = false;
         switch ($column['True_Type']) {
@@ -404,7 +404,7 @@ class InsertEdit
      *
      * @return string                           an html snippet
      */
-    public function getFunctionColumn(array $column, $is_upload, $column_name_appendix,
+    private function getFunctionColumn(array $column, $is_upload, $column_name_appendix,
         $onChangeClause, array $no_support_types, $tabindex_for_function,
         $tabindex, $idindex, $insert_mode, $readOnly, array $foreignData
     ) {
@@ -458,7 +458,7 @@ class InsertEdit
      *
      * @return string                       an html snippet
      */
-    public function getNullColumn(array $column, $column_name_appendix, $real_null_value,
+    private function getNullColumn(array $column, $column_name_appendix, $real_null_value,
         $tabindex, $tabindex_for_null, $idindex, $vkey, array $foreigners, array $foreignData,
         $readOnly
     ) {
@@ -507,7 +507,7 @@ class InsertEdit
      *
      * @return integer              $nullify_code
      */
-    public function getNullifyCodeForNullColumn(array $column, array $foreigners, array $foreignData)
+    private function getNullifyCodeForNullColumn(array $column, array $foreigners, array $foreignData)
     {
         $foreigner = Relation::searchColumnInForeigners($foreigners, $column['Field']);
         if (mb_strstr($column['True_Type'], 'enum')) {
@@ -573,7 +573,7 @@ class InsertEdit
      *
      * @return string an html snippet
      */
-    public function getValueColumn(array $column, $backup_field, $column_name_appendix,
+    private function getValueColumn(array $column, $backup_field, $column_name_appendix,
         $onChangeClause, $tabindex, $tabindex_for_value, $idindex, $data,
         $special_chars, array $foreignData, array $paramTableDbArray, $rownumber,
         array $titles, $text_dir, $special_chars_encoded, $vkey,
@@ -681,7 +681,7 @@ class InsertEdit
      *
      * @return string                       an html snippet
      */
-    public function getForeignLink(array $column, $backup_field, $column_name_appendix,
+    private function getForeignLink(array $column, $backup_field, $column_name_appendix,
         $onChangeClause, $tabindex, $tabindex_for_value, $idindex, $data,
         array $paramTableDbArray, $rownumber, array $titles, $readOnly
     ) {
@@ -729,7 +729,7 @@ class InsertEdit
      *
      * @return string                       an html snippet
      */
-    public function dispRowForeignData($backup_field, $column_name_appendix,
+    private function dispRowForeignData($backup_field, $column_name_appendix,
         $onChangeClause, $tabindex, $tabindex_for_value, $idindex, $data,
         array $foreignData, $readOnly
     ) {
@@ -779,7 +779,7 @@ class InsertEdit
      *
      * @return string                       an html snippet
      */
-    public function getTextarea(array $column, $backup_field, $column_name_appendix,
+    private function getTextarea(array $column, $backup_field, $column_name_appendix,
         $onChangeClause, $tabindex, $tabindex_for_value, $idindex,
         $text_dir, $special_chars_encoded, $data_type, $readOnly
     ) {
@@ -841,7 +841,7 @@ class InsertEdit
      *
      * @return string an html snippet
      */
-    public function getPmaTypeEnum(array $column, $backup_field, $column_name_appendix,
+    private function getPmaTypeEnum(array $column, $backup_field, $column_name_appendix,
         array $extracted_columnspec, $onChangeClause, $tabindex, $tabindex_for_value,
         $idindex, $data, $readOnly
     ) {
@@ -881,7 +881,7 @@ class InsertEdit
      *
      * @return array column values as an associative array
      */
-    public function getColumnEnumValues(array $column, array $extracted_columnspec)
+    private function getColumnEnumValues(array $column, array $extracted_columnspec)
     {
         $column['values'] = array();
         foreach ($extracted_columnspec['enum_set_values'] as $val) {
@@ -908,7 +908,7 @@ class InsertEdit
      *
      * @return string                       an html snippet
      */
-    public function getDropDownDependingOnLength(
+    private function getDropDownDependingOnLength(
         array $column, $column_name_appendix, $onChangeClause,
         $tabindex, $tabindex_for_value, $idindex, $data, array $column_enum_values,
         $readOnly
@@ -960,7 +960,7 @@ class InsertEdit
      *
      * @return string                       an html snippet
      */
-    public function getRadioButtonDependingOnLength(
+    private function getRadioButtonDependingOnLength(
         $column_name_appendix, $onChangeClause,
         $tabindex, array $column, $tabindex_for_value, $idindex, $data,
         array $column_enum_values, $readOnly
@@ -1011,7 +1011,7 @@ class InsertEdit
      *
      * @return string                       an html snippet
      */
-    public function getPmaTypeSet(
+    private function getPmaTypeSet(
         array $column, array $extracted_columnspec, $backup_field,
         $column_name_appendix, $onChangeClause, $tabindex,
         $tabindex_for_value, $idindex, $data, $readOnly
@@ -1061,7 +1061,7 @@ class InsertEdit
      *
      * @return array $column['values'], $column['select_size']
      */
-    public function getColumnSetValueAndSelectSize(array $column, array $extracted_columnspec)
+    private function getColumnSetValueAndSelectSize(array $column, array $extracted_columnspec)
     {
         if (! isset($column['values'])) {
             $column['values'] = array();
@@ -1098,7 +1098,7 @@ class InsertEdit
      *
      * @return string                           an html snippet
      */
-    public function getBinaryAndBlobColumn(
+    private function getBinaryAndBlobColumn(
         array $column, $data, $special_chars, $biggest_max_file_size,
         $backup_field, $column_name_appendix, $onChangeClause, $tabindex,
         $tabindex_for_value, $idindex, $text_dir, $special_chars_encoded,
@@ -1182,7 +1182,7 @@ class InsertEdit
      *
      * @return string                       an html snippet
      */
-    public function getHtmlInput(
+    private function getHtmlInput(
         array $column, $column_name_appendix, $special_chars, $fieldsize, $onChangeClause,
         $tabindex, $tabindex_for_value, $idindex, $data_type, $readOnly
     ) {
@@ -1239,7 +1239,7 @@ class InsertEdit
      *
      * @return string|void an html snippet
      */
-    public function getSelectOptionForUpload($vkey, array $column)
+    private function getSelectOptionForUpload($vkey, array $column)
     {
         $files = FileListing::getFileSelectOptions(
             Util::userDir($GLOBALS['cfg']['UploadDir'])
@@ -1270,7 +1270,7 @@ class InsertEdit
      *
      * @return array an html snippet and $biggest_max_file_size
      */
-    public function getMaxUploadSize(array $column, $biggest_max_file_size)
+    private function getMaxUploadSize(array $column, $biggest_max_file_size)
     {
         // find maximum upload size, based on field type
         /**
@@ -1326,7 +1326,7 @@ class InsertEdit
      *
      * @return string an html snippet
      */
-    public function getValueColumnForOtherDatatypes(array $column, $default_char_editing,
+    private function getValueColumnForOtherDatatypes(array $column, $default_char_editing,
         $backup_field,
         $column_name_appendix, $onChangeClause, $tabindex, $special_chars,
         $tabindex_for_value, $idindex, $text_dir, $special_chars_encoded, $data,
@@ -1399,7 +1399,7 @@ class InsertEdit
      *
      * @return integer      field size
      */
-    public function getColumnSize(array $column, array $extracted_columnspec)
+    private function getColumnSize(array $column, array $extracted_columnspec)
     {
         if ($column['is_char']) {
             $fieldsize = $extracted_columnspec['spec_in_brackets'];
@@ -1429,7 +1429,7 @@ class InsertEdit
      *
      * @return string an html snippet
      */
-    public function getHtmlForGisDataTypes()
+    private function getHtmlForGisDataTypes()
     {
         $edit_str = Util::getIcon('b_edit', __('Edit/Insert'));
         return '<span class="open_gis_editor">'
@@ -1516,7 +1516,7 @@ class InsertEdit
      *
      * @return string                       an html snippet
      */
-    public function getSubmitTypeDropDown($where_clause, $tabindex, $tabindex_for_value)
+    private function getSubmitTypeDropDown($where_clause, $tabindex, $tabindex_for_value)
     {
         $html_output = '<select name="submit_type" class="control_at_footer" tabindex="'
             . ($tabindex + $tabindex_for_value + 1) . '">';
@@ -1545,7 +1545,7 @@ class InsertEdit
      *
      * @return string                   an html snippet
      */
-    public function getAfterInsertDropDown($where_clause, $after_insert, $found_unique_key)
+    private function getAfterInsertDropDown($where_clause, $after_insert, $found_unique_key)
     {
         $html_output = '<select name="after_insert" class="control_at_footer">'
             . '<option value="back" '
@@ -1598,7 +1598,7 @@ class InsertEdit
      *
      * @return string an html snippet
      */
-    public function getSubmitAndResetButtonForActionsPanel($tabindex, $tabindex_for_value)
+    private function getSubmitAndResetButtonForActionsPanel($tabindex, $tabindex_for_value)
     {
         return '<td>'
         . Util::showHint(
@@ -1625,7 +1625,7 @@ class InsertEdit
      *
      * @return string           an html snippet
      */
-    public function getHeadAndFootOfInsertRowTable(array $url_params)
+    private function getHeadAndFootOfInsertRowTable(array $url_params)
     {
         $html_output = '<div class="responsivetable">'
             . '<table class="insertRowTable topmargin">'
@@ -1670,7 +1670,7 @@ class InsertEdit
      * @return array $real_null_value, $data, $special_chars, $backup_field,
      *               $special_chars_encoded
      */
-    public function getSpecialCharsAndBackupFieldForExistingRow(
+    private function getSpecialCharsAndBackupFieldForExistingRow(
         array $current_row, array $column, array $extracted_columnspec,
         $real_null_value, array $gis_data_types, $column_name_appendix, $as_is
     ) {
@@ -1766,7 +1766,7 @@ class InsertEdit
      * @return array $real_null_value, $data, $special_chars,
      *               $backup_field, $special_chars_encoded
      */
-    public function getSpecialCharsAndBackupFieldForInsertingMode(
+    private function getSpecialCharsAndBackupFieldForInsertingMode(
         array $column, $real_null_value
     ) {
         if (! isset($column['Default'])) {
@@ -2052,7 +2052,7 @@ class InsertEdit
      *
      * @return array  $warning_essages
      */
-    public function getWarningMessages()
+    private function getWarningMessages()
     {
         $warning_essages = array();
         foreach ($GLOBALS['dbi']->getWarnings() as $warning) {
@@ -2654,7 +2654,7 @@ class InsertEdit
      *
      * @return String
      */
-    public function getHtmlForFunctionOption(array $column, $column_name_appendix)
+    private function getHtmlForFunctionOption(array $column, $column_name_appendix)
     {
         return '<tr class="noclick">'
             . '<td '
@@ -2673,7 +2673,7 @@ class InsertEdit
      *
      * @return string
      */
-    public function getHtmlForInsertEditColumnType(array $column)
+    private function getHtmlForInsertEditColumnType(array $column)
     {
         return '<td class="center' . $column['wrap'] . '">'
             . '<span class="column_type" dir="ltr">' . $column['pma_type'] . '</span>'
@@ -2738,7 +2738,7 @@ class InsertEdit
      *
      * @return string
      */
-    public function getHtmlForInsertEditFormColumn(array $table_columns, $column_number,
+    private function getHtmlForInsertEditFormColumn(array $table_columns, $column_number,
         array $comments_map, $timestamp_seen, $current_result, $chg_evt_handler,
         $jsvkey, $vkey, $insert_mode, array $current_row, &$o_rows,
         &$tabindex, $columns_cnt, $is_upload, $tabindex_for_function,
@@ -3014,7 +3014,7 @@ class InsertEdit
      *
      * @return boolean whether user has necessary privileges
      */
-    public function userHasColumnPrivileges(array $table_column, $insert_mode)
+    private function userHasColumnPrivileges(array $table_column, $insert_mode)
     {
         $privileges = $table_column['Privileges'];
         return ($insert_mode && strstr($privileges, 'insert') !== false)
