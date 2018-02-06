@@ -54,8 +54,12 @@ class InsertEdit
      *
      * @return array $form_params array of insert/edit form parameters
      */
-    public function getFormParametersForInsertForm($db, $table, $where_clauses,
-        array $where_clause_array, $err_url
+    public function getFormParametersForInsertForm(
+        $db,
+        $table,
+        $where_clauses,
+        array $where_clause_array,
+        $err_url
     ) {
         $_form_params = array(
             'db'        => $db,
@@ -105,14 +109,15 @@ class InsertEdit
      * @return array $where_clauses, $result, $rows
      */
     private function analyzeWhereClauses(
-        array $where_clause_array, $table, $db
+        array $where_clause_array,
+        $table,
+        $db
     ) {
         $rows               = array();
         $result             = array();
         $where_clauses      = array();
         $found_unique_key   = false;
         foreach ($where_clause_array as $key_id => $where_clause) {
-
             $local_query     = 'SELECT * FROM '
                 . Util::backquote($db) . '.'
                 . Util::backquote($table)
@@ -126,7 +131,11 @@ class InsertEdit
 
             $where_clauses[$key_id] = str_replace('\\', '\\\\', $where_clause);
             $has_unique_condition = $this->showEmptyResultMessageOrSetUniqueCondition(
-                $rows, $key_id, $where_clause_array, $local_query, $result
+                $rows,
+                $key_id,
+                $where_clause_array,
+                $local_query,
+                $result
             );
             if ($has_unique_condition) {
                 $found_unique_key = true;
@@ -146,8 +155,12 @@ class InsertEdit
      *
      * @return boolean $has_unique_condition
      */
-    private function showEmptyResultMessageOrSetUniqueCondition(array $rows, $key_id,
-        array $where_clause_array, $local_query, array $result
+    private function showEmptyResultMessageOrSetUniqueCondition(
+        array $rows,
+        $key_id,
+        array $where_clause_array,
+        $local_query,
+        array $result
     ) {
         $has_unique_condition = false;
 
@@ -215,8 +228,11 @@ class InsertEdit
      *
      * @return array Add some url parameters to $url_params array and return it
      */
-    public function urlParamsInEditMode(array $url_params, array $where_clause_array, $where_clause)
-    {
+    public function urlParamsInEditMode(
+        array $url_params,
+        array $where_clause_array,
+        $where_clause
+    ) {
         if (isset($where_clause)) {
             foreach ($where_clause_array as $where_clause) {
                 $url_params['where_clause'] = trim($where_clause);
@@ -241,17 +257,17 @@ class InsertEdit
     {
         $params = array();
 
-        switch($which) {
-        case 'function':
-            $params['ShowFunctionFields'] = ($is_show ? 0 : 1);
-            $params['ShowFieldTypesInDataEditView']
+        switch ($which) {
+            case 'function':
+                $params['ShowFunctionFields'] = ($is_show ? 0 : 1);
+                $params['ShowFieldTypesInDataEditView']
                 = $GLOBALS['cfg']['ShowFieldTypesInDataEditView'];
-            break;
-        case 'type':
-            $params['ShowFieldTypesInDataEditView'] = ($is_show ? 0 : 1);
-            $params['ShowFunctionFields']
+                break;
+            case 'type':
+                $params['ShowFieldTypesInDataEditView'] = ($is_show ? 0 : 1);
+                $params['ShowFunctionFields']
                 = $GLOBALS['cfg']['ShowFunctionFields'];
-            break;
+                break;
         }
 
         $params['goto'] = 'sql.php';
@@ -279,11 +295,11 @@ class InsertEdit
      */
     private function showTypeOrFunctionLabel($which)
     {
-        switch($which) {
-        case 'function':
-            return __('Function');
-        case 'type':
-            return __('Type');
+        switch ($which) {
+            case 'function':
+                return __('Function');
+            case 'type':
+                return __('Type');
         }
 
         return null;
@@ -298,8 +314,11 @@ class InsertEdit
       *
       * @return array                   description of column in given table
       */
-    private function analyzeTableColumnsArray(array $column, array $comments_map, $timestamp_seen)
-    {
+    private function analyzeTableColumnsArray(
+        array $column,
+        array $comments_map,
+        $timestamp_seen
+    ) {
         $column['Field_html']    = htmlspecialchars($column['Field']);
         $column['Field_md5']     = md5($column['Field']);
         // True_Type contains only the type (stops at first bracket)
@@ -376,26 +395,26 @@ class InsertEdit
     {
         $column['first_timestamp'] = false;
         switch ($column['True_Type']) {
-        case 'set':
-            $column['pma_type'] = 'set';
-            $column['wrap']  = '';
-            break;
-        case 'enum':
-            $column['pma_type'] = 'enum';
-            $column['wrap']  = '';
-            break;
-        case 'timestamp':
-            if (! $timestamp_seen) {   // can only occur once per table
-                $column['first_timestamp'] = true;
-            }
-            $column['pma_type'] = $column['Type'];
-            $column['wrap']  = ' nowrap';
-            break;
+            case 'set':
+                $column['pma_type'] = 'set';
+                $column['wrap']  = '';
+                break;
+            case 'enum':
+                $column['pma_type'] = 'enum';
+                $column['wrap']  = '';
+                break;
+            case 'timestamp':
+                if (! $timestamp_seen) {   // can only occur once per table
+                    $column['first_timestamp'] = true;
+                }
+                $column['pma_type'] = $column['Type'];
+                $column['wrap']  = ' nowrap';
+                break;
 
-        default:
-            $column['pma_type'] = $column['Type'];
-            $column['wrap']  = ' nowrap';
-            break;
+            default:
+                $column['pma_type'] = $column['Type'];
+                $column['wrap']  = ' nowrap';
+                break;
         }
         return array($column['pma_type'], $column['wrap'], $column['first_timestamp']);
     }
@@ -421,9 +440,18 @@ class InsertEdit
      *
      * @return string                           an html snippet
      */
-    private function getFunctionColumn(array $column, $is_upload, $column_name_appendix,
-        $onChangeClause, array $no_support_types, $tabindex_for_function,
-        $tabindex, $idindex, $insert_mode, $readOnly, array $foreignData
+    private function getFunctionColumn(
+        array $column,
+        $is_upload,
+        $column_name_appendix,
+        $onChangeClause,
+        array $no_support_types,
+        $tabindex_for_function,
+        $tabindex,
+        $idindex,
+        $insert_mode,
+        $readOnly,
+        array $foreignData
     ) {
         $html_output = '';
         if (($GLOBALS['cfg']['ProtectBinary'] === 'blob'
@@ -475,8 +503,16 @@ class InsertEdit
      *
      * @return string                       an html snippet
      */
-    private function getNullColumn(array $column, $column_name_appendix, $real_null_value,
-        $tabindex, $tabindex_for_null, $idindex, $vkey, array $foreigners, array $foreignData,
+    private function getNullColumn(
+        array $column,
+        $column_name_appendix,
+        $real_null_value,
+        $tabindex,
+        $tabindex_for_null,
+        $idindex,
+        $vkey,
+        array $foreigners,
+        array $foreignData,
         $readOnly
     ) {
         if ($column['Null'] != 'YES' || $readOnly) {
@@ -501,7 +537,9 @@ class InsertEdit
 
         // nullify_code is needed by the js nullify() function
         $nullify_code = $this->getNullifyCodeForNullColumn(
-            $column, $foreigners, $foreignData
+            $column,
+            $foreigners,
+            $foreignData
         );
         // to be able to generate calls to nullify() in jQuery
         $html_output .= '<input type="hidden" class="nullify_code" name="nullify_code'
@@ -524,8 +562,11 @@ class InsertEdit
      *
      * @return integer              $nullify_code
      */
-    private function getNullifyCodeForNullColumn(array $column, array $foreigners, array $foreignData)
-    {
+    private function getNullifyCodeForNullColumn(
+        array $column,
+        array $foreigners,
+        array $foreignData
+    ) {
         $foreigner = Relation::searchColumnInForeigners($foreigners, $column['Field']);
         if (mb_strstr($column['True_Type'], 'enum')) {
             if (mb_strlen($column['Type']) > 20) {
@@ -590,12 +631,29 @@ class InsertEdit
      *
      * @return string an html snippet
      */
-    private function getValueColumn(array $column, $backup_field, $column_name_appendix,
-        $onChangeClause, $tabindex, $tabindex_for_value, $idindex, $data,
-        $special_chars, array $foreignData, array $paramTableDbArray, $rownumber,
-        array $titles, $text_dir, $special_chars_encoded, $vkey,
-        $is_upload, $biggest_max_file_size,
-        $default_char_editing, array $no_support_types, array $gis_data_types, array $extracted_columnspec,
+    private function getValueColumn(
+        array $column,
+        $backup_field,
+        $column_name_appendix,
+        $onChangeClause,
+        $tabindex,
+        $tabindex_for_value,
+        $idindex,
+        $data,
+        $special_chars,
+        array $foreignData,
+        array $paramTableDbArray,
+        $rownumber,
+        array $titles,
+        $text_dir,
+        $special_chars_encoded,
+        $vkey,
+        $is_upload,
+        $biggest_max_file_size,
+        $default_char_editing,
+        array $no_support_types,
+        array $gis_data_types,
+        array $extracted_columnspec,
         $readOnly
     ) {
         // HTML5 data-* attribute data-type
@@ -604,33 +662,60 @@ class InsertEdit
 
         if ($foreignData['foreign_link'] == true) {
             $html_output .= $this->getForeignLink(
-                $column, $backup_field, $column_name_appendix,
-                $onChangeClause, $tabindex, $tabindex_for_value, $idindex, $data,
-                $paramTableDbArray, $rownumber, $titles, $readOnly
+                $column,
+                $backup_field,
+                $column_name_appendix,
+                $onChangeClause,
+                $tabindex,
+                $tabindex_for_value,
+                $idindex,
+                $data,
+                $paramTableDbArray,
+                $rownumber,
+                $titles,
+                $readOnly
             );
-
         } elseif (is_array($foreignData['disp_row'])) {
             $html_output .= $this->dispRowForeignData(
-                $backup_field, $column_name_appendix,
-                $onChangeClause, $tabindex, $tabindex_for_value,
-                $idindex, $data, $foreignData, $readOnly
+                $backup_field,
+                $column_name_appendix,
+                $onChangeClause,
+                $tabindex,
+                $tabindex_for_value,
+                $idindex,
+                $data,
+                $foreignData,
+                $readOnly
             );
-
         } elseif ($GLOBALS['cfg']['LongtextDoubleTextarea']
             && mb_strstr($column['pma_type'], 'longtext')
         ) {
             $html_output .= $this->getTextarea(
-                $column, $backup_field, $column_name_appendix, $onChangeClause,
-                $tabindex, $tabindex_for_value, $idindex, $text_dir,
-                $special_chars_encoded, $data_type, $readOnly
+                $column,
+                $backup_field,
+                $column_name_appendix,
+                $onChangeClause,
+                $tabindex,
+                $tabindex_for_value,
+                $idindex,
+                $text_dir,
+                $special_chars_encoded,
+                $data_type,
+                $readOnly
             );
-
         } elseif (mb_strstr($column['pma_type'], 'text')) {
-
             $html_output .= $this->getTextarea(
-                $column, $backup_field, $column_name_appendix, $onChangeClause,
-                $tabindex, $tabindex_for_value, $idindex, $text_dir,
-                $special_chars_encoded, $data_type, $readOnly
+                $column,
+                $backup_field,
+                $column_name_appendix,
+                $onChangeClause,
+                $tabindex,
+                $tabindex_for_value,
+                $idindex,
+                $text_dir,
+                $special_chars_encoded,
+                $data_type,
+                $readOnly
             );
             $html_output .= "\n";
             if (mb_strlen($special_chars) > 32000) {
@@ -639,35 +724,66 @@ class InsertEdit
                     'Because of its length,<br /> this column might not be editable.'
                 );
             }
-
         } elseif ($column['pma_type'] == 'enum') {
             $html_output .= $this->getPmaTypeEnum(
-                $column, $backup_field, $column_name_appendix, $extracted_columnspec,
-                $onChangeClause, $tabindex, $tabindex_for_value, $idindex, $data,
+                $column,
+                $backup_field,
+                $column_name_appendix,
+                $extracted_columnspec,
+                $onChangeClause,
+                $tabindex,
+                $tabindex_for_value,
+                $idindex,
+                $data,
                 $readOnly
             );
-
         } elseif ($column['pma_type'] == 'set') {
             $html_output .= $this->getPmaTypeSet(
-                $column, $extracted_columnspec, $backup_field,
-                $column_name_appendix, $onChangeClause, $tabindex,
-                $tabindex_for_value, $idindex, $data, $readOnly
+                $column,
+                $extracted_columnspec,
+                $backup_field,
+                $column_name_appendix,
+                $onChangeClause,
+                $tabindex,
+                $tabindex_for_value,
+                $idindex,
+                $data,
+                $readOnly
             );
-
         } elseif ($column['is_binary'] || $column['is_blob']) {
             $html_output .= $this->getBinaryAndBlobColumn(
-                $column, $data, $special_chars, $biggest_max_file_size,
-                $backup_field, $column_name_appendix, $onChangeClause, $tabindex,
-                $tabindex_for_value, $idindex, $text_dir, $special_chars_encoded,
-                $vkey, $is_upload, $readOnly
+                $column,
+                $data,
+                $special_chars,
+                $biggest_max_file_size,
+                $backup_field,
+                $column_name_appendix,
+                $onChangeClause,
+                $tabindex,
+                $tabindex_for_value,
+                $idindex,
+                $text_dir,
+                $special_chars_encoded,
+                $vkey,
+                $is_upload,
+                $readOnly
             );
-
         } elseif (! in_array($column['pma_type'], $no_support_types)) {
             $html_output .= $this->getValueColumnForOtherDatatypes(
-                $column, $default_char_editing, $backup_field,
-                $column_name_appendix, $onChangeClause, $tabindex, $special_chars,
-                $tabindex_for_value, $idindex, $text_dir, $special_chars_encoded,
-                $data, $extracted_columnspec, $readOnly
+                $column,
+                $default_char_editing,
+                $backup_field,
+                $column_name_appendix,
+                $onChangeClause,
+                $tabindex,
+                $special_chars,
+                $tabindex_for_value,
+                $idindex,
+                $text_dir,
+                $special_chars_encoded,
+                $data,
+                $extracted_columnspec,
+                $readOnly
             );
         }
 
@@ -698,9 +814,19 @@ class InsertEdit
      *
      * @return string                       an html snippet
      */
-    private function getForeignLink(array $column, $backup_field, $column_name_appendix,
-        $onChangeClause, $tabindex, $tabindex_for_value, $idindex, $data,
-        array $paramTableDbArray, $rownumber, array $titles, $readOnly
+    private function getForeignLink(
+        array $column,
+        $backup_field,
+        $column_name_appendix,
+        $onChangeClause,
+        $tabindex,
+        $tabindex_for_value,
+        $idindex,
+        $data,
+        array $paramTableDbArray,
+        $rownumber,
+        array $titles,
+        $readOnly
     ) {
         list($table, $db) = $paramTableDbArray;
         $html_output = '';
@@ -746,9 +872,16 @@ class InsertEdit
      *
      * @return string                       an html snippet
      */
-    private function dispRowForeignData($backup_field, $column_name_appendix,
-        $onChangeClause, $tabindex, $tabindex_for_value, $idindex, $data,
-        array $foreignData, $readOnly
+    private function dispRowForeignData(
+        $backup_field,
+        $column_name_appendix,
+        $onChangeClause,
+        $tabindex,
+        $tabindex_for_value,
+        $idindex,
+        $data,
+        array $foreignData,
+        $readOnly
     ) {
         $html_output = '';
         $html_output .= $backup_field . "\n";
@@ -763,8 +896,10 @@ class InsertEdit
             . ' tabindex="' . ($tabindex + $tabindex_for_value) . '"'
             . ' id="field_' . $idindex . '_3">';
         $html_output .= Relation::foreignDropdown(
-            $foreignData['disp_row'], $foreignData['foreign_field'],
-            $foreignData['foreign_display'], $data,
+            $foreignData['disp_row'],
+            $foreignData['foreign_field'],
+            $foreignData['foreign_display'],
+            $data,
             $GLOBALS['cfg']['ForeignKeyMaxLimit']
         );
         $html_output .= '</select>';
@@ -796,9 +931,18 @@ class InsertEdit
      *
      * @return string                       an html snippet
      */
-    private function getTextarea(array $column, $backup_field, $column_name_appendix,
-        $onChangeClause, $tabindex, $tabindex_for_value, $idindex,
-        $text_dir, $special_chars_encoded, $data_type, $readOnly
+    private function getTextarea(
+        array $column,
+        $backup_field,
+        $column_name_appendix,
+        $onChangeClause,
+        $tabindex,
+        $tabindex_for_value,
+        $idindex,
+        $text_dir,
+        $special_chars_encoded,
+        $data_type,
+        $readOnly
     ) {
         $the_class = '';
         $textAreaRows = $GLOBALS['cfg']['TextareaRows'];
@@ -858,14 +1002,23 @@ class InsertEdit
      *
      * @return string an html snippet
      */
-    private function getPmaTypeEnum(array $column, $backup_field, $column_name_appendix,
-        array $extracted_columnspec, $onChangeClause, $tabindex, $tabindex_for_value,
-        $idindex, $data, $readOnly
+    private function getPmaTypeEnum(
+        array $column,
+        $backup_field,
+        $column_name_appendix,
+        array $extracted_columnspec,
+        $onChangeClause,
+        $tabindex,
+        $tabindex_for_value,
+        $idindex,
+        $data,
+        $readOnly
     ) {
         $html_output = '';
         if (! isset($column['values'])) {
             $column['values'] = $this->getColumnEnumValues(
-                $column, $extracted_columnspec
+                $column,
+                $extracted_columnspec
             );
         }
         $column_enum_values = $column['values'];
@@ -874,15 +1027,27 @@ class InsertEdit
         $html_output .= "\n" . '            ' . $backup_field . "\n";
         if (mb_strlen($column['Type']) > 20) {
             $html_output .= $this->getDropDownDependingOnLength(
-                $column, $column_name_appendix, $onChangeClause,
-                $tabindex, $tabindex_for_value,
-                $idindex, $data, $column_enum_values, $readOnly
+                $column,
+                $column_name_appendix,
+                $onChangeClause,
+                $tabindex,
+                $tabindex_for_value,
+                $idindex,
+                $data,
+                $column_enum_values,
+                $readOnly
             );
         } else {
             $html_output .= $this->getRadioButtonDependingOnLength(
-                $column_name_appendix, $onChangeClause,
-                $tabindex, $column, $tabindex_for_value,
-                $idindex, $data, $column_enum_values, $readOnly
+                $column_name_appendix,
+                $onChangeClause,
+                $tabindex,
+                $column,
+                $tabindex_for_value,
+                $idindex,
+                $data,
+                $column_enum_values,
+                $readOnly
             );
         }
         return $html_output;
@@ -926,8 +1091,14 @@ class InsertEdit
      * @return string                       an html snippet
      */
     private function getDropDownDependingOnLength(
-        array $column, $column_name_appendix, $onChangeClause,
-        $tabindex, $tabindex_for_value, $idindex, $data, array $column_enum_values,
+        array $column,
+        $column_name_appendix,
+        $onChangeClause,
+        $tabindex,
+        $tabindex_for_value,
+        $idindex,
+        $data,
+        array $column_enum_values,
         $readOnly
     ) {
         $html_output = '<select name="fields' . $column_name_appendix . '"'
@@ -978,9 +1149,15 @@ class InsertEdit
      * @return string                       an html snippet
      */
     private function getRadioButtonDependingOnLength(
-        $column_name_appendix, $onChangeClause,
-        $tabindex, array $column, $tabindex_for_value, $idindex, $data,
-        array $column_enum_values, $readOnly
+        $column_name_appendix,
+        $onChangeClause,
+        $tabindex,
+        array $column,
+        $tabindex_for_value,
+        $idindex,
+        $data,
+        array $column_enum_values,
+        $readOnly
     ) {
         $j = 0;
         $html_output = '';
@@ -998,8 +1175,7 @@ class InsertEdit
                 && $enum_value['plain'] == $column['Default'])
             ) {
                 $html_output .= ' checked="checked"';
-            }
-            elseif ($readOnly) {
+            } elseif ($readOnly) {
                 $html_output .= ' disabled';
             }
             $html_output .= ' tabindex="' . ($tabindex + $tabindex_for_value) . '" />';
@@ -1029,12 +1205,20 @@ class InsertEdit
      * @return string                       an html snippet
      */
     private function getPmaTypeSet(
-        array $column, array $extracted_columnspec, $backup_field,
-        $column_name_appendix, $onChangeClause, $tabindex,
-        $tabindex_for_value, $idindex, $data, $readOnly
+        array $column,
+        array $extracted_columnspec,
+        $backup_field,
+        $column_name_appendix,
+        $onChangeClause,
+        $tabindex,
+        $tabindex_for_value,
+        $idindex,
+        $data,
+        $readOnly
     ) {
         list($column_set_values, $select_size) = $this->getColumnSetValueAndSelectSize(
-            $column, $extracted_columnspec
+            $column,
+            $extracted_columnspec
         );
         $vset = array_flip(explode(',', $data));
         $html_output = $backup_field . "\n";
@@ -1078,8 +1262,10 @@ class InsertEdit
      *
      * @return array $column['values'], $column['select_size']
      */
-    private function getColumnSetValueAndSelectSize(array $column, array $extracted_columnspec)
-    {
+    private function getColumnSetValueAndSelectSize(
+        array $column,
+        array $extracted_columnspec
+    ) {
         if (! isset($column['values'])) {
             $column['values'] = array();
             foreach ($extracted_columnspec['enum_set_values'] as $val) {
@@ -1116,10 +1302,21 @@ class InsertEdit
      * @return string                           an html snippet
      */
     private function getBinaryAndBlobColumn(
-        array $column, $data, $special_chars, $biggest_max_file_size,
-        $backup_field, $column_name_appendix, $onChangeClause, $tabindex,
-        $tabindex_for_value, $idindex, $text_dir, $special_chars_encoded,
-        $vkey, $is_upload, $readOnly
+        array $column,
+        $data,
+        $special_chars,
+        $biggest_max_file_size,
+        $backup_field,
+        $column_name_appendix,
+        $onChangeClause,
+        $tabindex,
+        $tabindex_for_value,
+        $idindex,
+        $text_dir,
+        $special_chars_encoded,
+        $vkey,
+        $is_upload,
+        $readOnly
     ) {
         $html_output = '';
         // Add field type : Protected or Hexadecimal
@@ -1134,7 +1331,9 @@ class InsertEdit
             $html_output .= __('Binary - do not edit');
             if (isset($data)) {
                 $data_size = Util::formatByteDown(
-                    mb_strlen(stripslashes($data)), 3, 1
+                    mb_strlen(stripslashes($data)),
+                    3,
+                    1
                 );
                 $html_output .= ' (' . $data_size[0] . ' ' . $data_size[1] . ')';
                 unset($data_size);
@@ -1146,16 +1345,31 @@ class InsertEdit
             || ($column['len'] > $GLOBALS['cfg']['LimitChars'])
         ) {
             $html_output .= "\n" . $this->getTextarea(
-                $column, $backup_field, $column_name_appendix, $onChangeClause,
-                $tabindex, $tabindex_for_value, $idindex, $text_dir,
-                $special_chars_encoded, 'HEX', $readOnly
+                $column,
+                $backup_field,
+                $column_name_appendix,
+                $onChangeClause,
+                $tabindex,
+                $tabindex_for_value,
+                $idindex,
+                $text_dir,
+                $special_chars_encoded,
+                'HEX',
+                $readOnly
             );
         } else {
             // field size should be at least 4 and max $GLOBALS['cfg']['LimitChars']
             $fieldsize = min(max($column['len'], 4), $GLOBALS['cfg']['LimitChars']);
             $html_output .= "\n" . $backup_field . "\n" . $this->getHtmlInput(
-                $column, $column_name_appendix, $special_chars, $fieldsize,
-                $onChangeClause, $tabindex, $tabindex_for_value, $idindex, 'HEX',
+                $column,
+                $column_name_appendix,
+                $special_chars,
+                $fieldsize,
+                $onChangeClause,
+                $tabindex,
+                $tabindex_for_value,
+                $idindex,
+                'HEX',
                 $readOnly
             );
         }
@@ -1171,7 +1385,8 @@ class InsertEdit
                 . ' class="textfield noDragDrop" id="field_' . $idindex . '_3" size="10"'
                 . ' ' . $onChangeClause . '/>&nbsp;';
             list($html_out,) = $this->getMaxUploadSize(
-                $column, $biggest_max_file_size
+                $column,
+                $biggest_max_file_size
             );
             $html_output .= $html_out;
         }
@@ -1200,8 +1415,16 @@ class InsertEdit
      * @return string                       an html snippet
      */
     private function getHtmlInput(
-        array $column, $column_name_appendix, $special_chars, $fieldsize, $onChangeClause,
-        $tabindex, $tabindex_for_value, $idindex, $data_type, $readOnly
+        array $column,
+        $column_name_appendix,
+        $special_chars,
+        $fieldsize,
+        $onChangeClause,
+        $tabindex,
+        $tabindex_for_value,
+        $idindex,
+        $data_type,
+        $readOnly
     ) {
         $input_type = 'text';
         // do not use the 'date' or 'time' types here; they have no effect on some
@@ -1227,7 +1450,8 @@ class InsertEdit
             );
             $is_unsigned = $extracted_columnspec['unsigned'];
             $min_max_values = $this->dbi->types->getIntegerRange(
-                $column['True_Type'], ! $is_unsigned
+                $column['True_Type'],
+                ! $is_unsigned
             );
             $input_min_max = 'min="' . $min_max_values[0] . '" '
                 . 'max="' . $min_max_values[1] . '"';
@@ -1343,11 +1567,21 @@ class InsertEdit
      *
      * @return string an html snippet
      */
-    private function getValueColumnForOtherDatatypes(array $column, $default_char_editing,
+    private function getValueColumnForOtherDatatypes(
+        array $column,
+        $default_char_editing,
         $backup_field,
-        $column_name_appendix, $onChangeClause, $tabindex, $special_chars,
-        $tabindex_for_value, $idindex, $text_dir, $special_chars_encoded, $data,
-        array $extracted_columnspec, $readOnly
+        $column_name_appendix,
+        $onChangeClause,
+        $tabindex,
+        $special_chars,
+        $tabindex_for_value,
+        $idindex,
+        $text_dir,
+        $special_chars_encoded,
+        $data,
+        array $extracted_columnspec,
+        $readOnly
     ) {
         // HTML5 data-* attribute data-type
         $data_type = $this->dbi->types->getTypeClass($column['True_Type']);
@@ -1360,15 +1594,30 @@ class InsertEdit
             $html_output .= "\n";
             $GLOBALS['cfg']['CharEditing'] = $default_char_editing;
             $html_output .= $this->getTextarea(
-                $column, $backup_field, $column_name_appendix, $onChangeClause,
-                $tabindex, $tabindex_for_value, $idindex, $text_dir,
-                $special_chars_encoded, $data_type, $readOnly
+                $column,
+                $backup_field,
+                $column_name_appendix,
+                $onChangeClause,
+                $tabindex,
+                $tabindex_for_value,
+                $idindex,
+                $text_dir,
+                $special_chars_encoded,
+                $data_type,
+                $readOnly
             );
         } else {
             $html_output .= $this->getHtmlInput(
-                $column, $column_name_appendix, $special_chars, $fieldsize,
-                $onChangeClause, $tabindex, $tabindex_for_value, $idindex,
-                $data_type, $readOnly
+                $column,
+                $column_name_appendix,
+                $special_chars,
+                $fieldsize,
+                $onChangeClause,
+                $tabindex,
+                $tabindex_for_value,
+                $idindex,
+                $data_type,
+                $readOnly
             );
 
             $virtual = array(
@@ -1451,7 +1700,10 @@ class InsertEdit
         $edit_str = Util::getIcon('b_edit', __('Edit/Insert'));
         return '<span class="open_gis_editor">'
             . Util::linkOrButton(
-                '#', $edit_str, array(), '_blank'
+                '#',
+                $edit_str,
+                array(),
+                '_blank'
             )
             . '</span>';
     }
@@ -1495,8 +1747,12 @@ class InsertEdit
      *
      * @return string an html snippet
      */
-    public function getActionsPanel($where_clause, $after_insert, $tabindex,
-        $tabindex_for_value, $found_unique_key
+    public function getActionsPanel(
+        $where_clause,
+        $after_insert,
+        $tabindex,
+        $tabindex_for_value,
+        $found_unique_key
     ) {
         $html_output = '<fieldset id="actions_panel">'
             . '<table cellpadding="5" cellspacing="0" class="tdblock width100">'
@@ -1512,7 +1768,9 @@ class InsertEdit
             . '</td>'
             . '<td class="nowrap vmiddle">'
             . $this->getAfterInsertDropDown(
-                $where_clause, $after_insert, $found_unique_key
+                $where_clause,
+                $after_insert,
+                $found_unique_key
             )
             . '</td>'
             . '</tr>';
@@ -1533,8 +1791,11 @@ class InsertEdit
      *
      * @return string                       an html snippet
      */
-    private function getSubmitTypeDropDown($where_clause, $tabindex, $tabindex_for_value)
-    {
+    private function getSubmitTypeDropDown(
+        $where_clause,
+        $tabindex,
+        $tabindex_for_value
+    ) {
         $html_output = '<select name="submit_type" class="control_at_footer" tabindex="'
             . ($tabindex + $tabindex_for_value + 1) . '">';
         if (isset($where_clause)) {
@@ -1599,12 +1860,10 @@ class InsertEdit
                 $html_output .= '<option value="edit_next" '
                     . ($after_insert == 'edit_next' ? 'selected="selected"' : '') . '>'
                     . __('Edit next row') . '</option>';
-
             }
         }
         $html_output .= '</select>';
         return $html_output;
-
     }
 
     /**
@@ -1688,8 +1947,13 @@ class InsertEdit
      *               $special_chars_encoded
      */
     private function getSpecialCharsAndBackupFieldForExistingRow(
-        array $current_row, array $column, array $extracted_columnspec,
-        $real_null_value, array $gis_data_types, $column_name_appendix, $as_is
+        array $current_row,
+        array $column,
+        array $extracted_columnspec,
+        $real_null_value,
+        array $gis_data_types,
+        $column_name_appendix,
+        $as_is
     ) {
         $special_chars_encoded = '';
         $data = null;
@@ -1722,7 +1986,8 @@ class InsertEdit
             $current_row[$column['Field']] = $as_is
                 ? $current_row[$column['Field']]
                 : Util::asWKT(
-                    $current_row[$column['Field']], true
+                    $current_row[$column['Field']],
+                    true
                 );
             $special_chars = htmlspecialchars($current_row[$column['Field']]);
         } else {
@@ -1784,7 +2049,8 @@ class InsertEdit
      *               $backup_field, $special_chars_encoded
      */
     private function getSpecialCharsAndBackupFieldForInsertingMode(
-        array $column, $real_null_value
+        array $column,
+        $real_null_value
     ) {
         if (! isset($column['Default'])) {
             $column['Default']    = '';
@@ -2090,8 +2356,10 @@ class InsertEdit
      *
      * @return string $dispval display value from the foreign table
      */
-    public function getDisplayValueForForeignTableColumn($where_comparison,
-        array $map, $relation_field
+    public function getDisplayValueForForeignTableColumn(
+        $where_comparison,
+        array $map,
+        $relation_field
     ) {
         $foreigner = Relation::searchColumnInForeigners($map, $relation_field);
         $display_field = Relation::getDisplayField(
@@ -2135,8 +2403,12 @@ class InsertEdit
      *
      * @return string $output HTML <a> tag
      */
-    public function getLinkForRelationalDisplayField(array $map, $relation_field,
-        $where_comparison, $dispval, $relation_field_value
+    public function getLinkForRelationalDisplayField(
+        array $map,
+        $relation_field,
+        $where_comparison,
+        $dispval,
+        $relation_field_value
     ) {
         $foreigner = Relation::searchColumnInForeigners($map, $relation_field);
         if ('K' == $_SESSION['tmpval']['relational_display']) {
@@ -2188,8 +2460,15 @@ class InsertEdit
      *
      * @return array $extra_data
      */
-    public function transformEditedValues($db, $table,
-        array $transformation, array &$edited_values, $file, $column_name, array $extra_data, $type
+    public function transformEditedValues(
+        $db,
+        $table,
+        array $transformation,
+        array &$edited_values,
+        $file,
+        $column_name,
+        array $extra_data,
+        $type
     ) {
         $include_file = 'libraries/classes/Plugins/Transformations/' . $file;
         if (is_file($include_file)) {
@@ -2239,10 +2518,15 @@ class InsertEdit
      *
      * @return array $cur_value
      */
-    public function getCurrentValueAsAnArrayForMultipleEdit($multi_edit_funcs,
+    public function getCurrentValueAsAnArrayForMultipleEdit(
+        $multi_edit_funcs,
         $multi_edit_salt,
-        $gis_from_text_functions, $current_value, $gis_from_wkb_functions,
-        $func_optional_param, $func_no_param, $key
+        $gis_from_text_functions,
+        $current_value,
+        $gis_from_wkb_functions,
+        $func_optional_param,
+        $func_no_param,
+        $key
     ) {
         if (empty($multi_edit_funcs[$key])) {
             return $current_value;
@@ -2301,10 +2585,19 @@ class InsertEdit
      *
      * @return array ($query_values, $query_fields)
      */
-    public function getQueryValuesForInsertAndUpdateInMultipleEdit($multi_edit_columns_name,
-        $multi_edit_columns_null, $current_value, $multi_edit_columns_prev,
-        $multi_edit_funcs, $is_insert, $query_values, $query_fields,
-        $current_value_as_an_array, $value_sets, $key, $multi_edit_columns_null_prev
+    public function getQueryValuesForInsertAndUpdateInMultipleEdit(
+        $multi_edit_columns_name,
+        $multi_edit_columns_null,
+        $current_value,
+        $multi_edit_columns_prev,
+        $multi_edit_funcs,
+        $is_insert,
+        $query_values,
+        $query_fields,
+        $current_value_as_an_array,
+        $value_sets,
+        $key,
+        $multi_edit_columns_null_prev
     ) {
         //  i n s e r t
         if ($is_insert) {
@@ -2318,7 +2611,6 @@ class InsertEdit
                     );
                 }
             }
-
         } elseif (! empty($multi_edit_columns_null_prev[$key])
             && ! isset($multi_edit_columns_null[$key])
         ) {
@@ -2370,10 +2662,20 @@ class InsertEdit
      *
      * @return string $current_value  current column value in the form
      */
-    public function getCurrentValueForDifferentTypes($possibly_uploaded_val, $key,
-        $multi_edit_columns_type, $current_value, $multi_edit_auto_increment,
-        $rownumber, $multi_edit_columns_name, $multi_edit_columns_null,
-        $multi_edit_columns_null_prev, $is_insert, $using_key, $where_clause, $table,
+    public function getCurrentValueForDifferentTypes(
+        $possibly_uploaded_val,
+        $key,
+        $multi_edit_columns_type,
+        $current_value,
+        $multi_edit_auto_increment,
+        $rownumber,
+        $multi_edit_columns_name,
+        $multi_edit_columns_null,
+        $multi_edit_columns_null_prev,
+        $is_insert,
+        $using_key,
+        $where_clause,
+        $table,
         $multi_edit_funcs
     ) {
         // Fetch the current values of a row to use in case we have a protected field
@@ -2413,7 +2715,8 @@ class InsertEdit
             } elseif ($type == 'set') {
                 if (! empty($_REQUEST['fields']['multi_edit'][$rownumber][$key])) {
                     $current_value = implode(
-                        ',', $_REQUEST['fields']['multi_edit'][$rownumber][$key]
+                        ',',
+                        $_REQUEST['fields']['multi_edit'][$rownumber][$key]
                     );
                     $current_value = "'"
                         . $this->dbi->escapeString($current_value) . "'";
@@ -2482,7 +2785,10 @@ class InsertEdit
      * @return void
      */
     public function verifyWhetherValueCanBeTruncatedAndAppendExtraData(
-        $db, $table, $column_name, array &$extra_data
+        $db,
+        $table,
+        $column_name,
+        array &$extra_data
     ) {
         $extra_data['isNeedToRecheck'] = false;
 
@@ -2561,7 +2867,9 @@ class InsertEdit
             $where_clause_array = $this->getWhereClauseArray($where_clause);
             list($where_clauses, $result, $rows, $found_unique_key)
                 = $this->analyzeWhereClauses(
-                    $where_clause_array, $table, $db
+                    $where_clause_array,
+                    $table,
+                    $db
                 );
         } else {
             // we are inserting
@@ -2680,7 +2988,6 @@ class InsertEdit
             . '<input type="hidden" name="fields_name' . $column_name_appendix
             . '" value="' . $column['Field_html'] . '"/>'
             . '</td>';
-
     }
 
     /**
@@ -2755,13 +3062,35 @@ class InsertEdit
      *
      * @return string
      */
-    private function getHtmlForInsertEditFormColumn(array $table_columns, $column_number,
-        array $comments_map, $timestamp_seen, $current_result, $chg_evt_handler,
-        $jsvkey, $vkey, $insert_mode, array $current_row, &$o_rows,
-        &$tabindex, $columns_cnt, $is_upload, $tabindex_for_function,
-        array $foreigners, $tabindex_for_null, $tabindex_for_value, $table, $db,
-        $row_id, array $titles, $biggest_max_file_size, $default_char_editing,
-        $text_dir, array $repopulate, array $column_mime, $where_clause
+    private function getHtmlForInsertEditFormColumn(
+        array $table_columns,
+        $column_number,
+        array $comments_map,
+        $timestamp_seen,
+        $current_result,
+        $chg_evt_handler,
+        $jsvkey,
+        $vkey,
+        $insert_mode,
+        array $current_row,
+        &$o_rows,
+        &$tabindex,
+        $columns_cnt,
+        $is_upload,
+        $tabindex_for_function,
+        array $foreigners,
+        $tabindex_for_null,
+        $tabindex_for_value,
+        $table,
+        $db,
+        $row_id,
+        array $titles,
+        $biggest_max_file_size,
+        $default_char_editing,
+        $text_dir,
+        array $repopulate,
+        array $column_mime,
+        $where_clause
     ) {
         $column = $table_columns[$column_number];
         $readOnly = false;
@@ -2771,7 +3100,9 @@ class InsertEdit
 
         if (! isset($column['processed'])) {
             $column = $this->analyzeTableColumnsArray(
-                $column, $comments_map, $timestamp_seen
+                $column,
+                $comments_map,
+                $timestamp_seen
             );
         }
         $as_is = false;
@@ -2785,7 +3116,8 @@ class InsertEdit
 
         if (-1 === $column['len']) {
             $column['len'] = $this->dbi->fieldLen(
-                $current_result, $column_number
+                $current_result,
+                $column_number
             );
             // length is unknown for geometry fields,
             // make enough space to edit very simple WKTs
@@ -2812,7 +3144,8 @@ class InsertEdit
         }
 
         $html_output = $this->getHtmlForFunctionOption(
-            $column, $column_name_appendix
+            $column,
+            $column_name_appendix
         );
 
         if ($GLOBALS['cfg']['ShowFieldTypesInDataEditView']) {
@@ -2832,8 +3165,13 @@ class InsertEdit
                 $data, $backup_field
             )
                 = $this->getSpecialCharsAndBackupFieldForExistingRow(
-                    $current_row, $column, $extracted_columnspec,
-                    $real_null_value, $gis_data_types, $column_name_appendix, $as_is
+                    $current_row,
+                    $column,
+                    $extracted_columnspec,
+                    $real_null_value,
+                    $gis_data_types,
+                    $column_name_appendix,
+                    $as_is
                 );
         } else {
             // (we are inserting)
@@ -2846,7 +3184,8 @@ class InsertEdit
                 $special_chars_encoded
             )
                 = $this->getSpecialCharsAndBackupFieldForInsertingMode(
-                    $tmp, $real_null_value
+                    $tmp,
+                    $real_null_value
                 );
             unset($tmp);
         }
@@ -2860,22 +3199,41 @@ class InsertEdit
         // The function column
         // -------------------
         $foreignData = Relation::getForeignData(
-            $foreigners, $column['Field'], false, '', ''
+            $foreigners,
+            $column['Field'],
+            false,
+            '',
+            ''
         );
         if ($GLOBALS['cfg']['ShowFunctionFields']) {
             $html_output .= $this->getFunctionColumn(
-                $column, $is_upload, $column_name_appendix,
-                $onChangeClause, $no_support_types, $tabindex_for_function,
-                $tabindex, $idindex, $insert_mode, $readOnly, $foreignData
+                $column,
+                $is_upload,
+                $column_name_appendix,
+                $onChangeClause,
+                $no_support_types,
+                $tabindex_for_function,
+                $tabindex,
+                $idindex,
+                $insert_mode,
+                $readOnly,
+                $foreignData
             );
         }
 
         // The null column
         // ---------------
         $html_output .= $this->getNullColumn(
-            $column, $column_name_appendix, $real_null_value,
-            $tabindex, $tabindex_for_null, $idindex, $vkey, $foreigners,
-            $foreignData, $readOnly
+            $column,
+            $column_name_appendix,
+            $real_null_value,
+            $tabindex,
+            $tabindex_for_null,
+            $idindex,
+            $vkey,
+            $foreigners,
+            $foreignData,
+            $readOnly
         );
 
         // The value column (depends on type)
@@ -2923,14 +3281,21 @@ class InsertEdit
                 }
                 if (method_exists($transformation_plugin, 'getInputHtml')) {
                     $transformed_html = $transformation_plugin->getInputHtml(
-                        $column, $row_id, $column_name_appendix,
-                        $transformation_options, $current_value, $text_dir,
-                        $tabindex, $tabindex_for_value, $idindex
+                        $column,
+                        $row_id,
+                        $column_name_appendix,
+                        $transformation_options,
+                        $current_value,
+                        $text_dir,
+                        $tabindex,
+                        $tabindex_for_value,
+                        $idindex
                     );
                 }
                 if (method_exists($transformation_plugin, 'getScripts')) {
                     $GLOBALS['plugin_scripts'] = array_merge(
-                        $GLOBALS['plugin_scripts'], $transformation_plugin->getScripts()
+                        $GLOBALS['plugin_scripts'],
+                        $transformation_plugin->getScripts()
                     );
                 }
             }
@@ -2939,12 +3304,29 @@ class InsertEdit
             $html_output .= $transformed_html;
         } else {
             $html_output .= $this->getValueColumn(
-                $column, $backup_field, $column_name_appendix, $onChangeClause,
-                $tabindex, $tabindex_for_value, $idindex, $data, $special_chars,
-                $foreignData, array($table, $db), $row_id, $titles,
-                $text_dir, $special_chars_encoded, $vkey, $is_upload,
-                $biggest_max_file_size, $default_char_editing,
-                $no_support_types, $gis_data_types, $extracted_columnspec, $readOnly
+                $column,
+                $backup_field,
+                $column_name_appendix,
+                $onChangeClause,
+                $tabindex,
+                $tabindex_for_value,
+                $idindex,
+                $data,
+                $special_chars,
+                $foreignData,
+                array($table, $db),
+                $row_id,
+                $titles,
+                $text_dir,
+                $special_chars_encoded,
+                $vkey,
+                $is_upload,
+                $biggest_max_file_size,
+                $default_char_editing,
+                $no_support_types,
+                $gis_data_types,
+                $extracted_columnspec,
+                $readOnly
             );
         }
         return $html_output;
@@ -2982,12 +3364,33 @@ class InsertEdit
      *
      * @return string
      */
-    public function getHtmlForInsertEditRow(array $url_params, array $table_columns,
-        array $comments_map, $timestamp_seen, $current_result, $chg_evt_handler,
-        $jsvkey, $vkey, $insert_mode, array $current_row, &$o_rows, &$tabindex, $columns_cnt,
-        $is_upload, $tabindex_for_function, array $foreigners, $tabindex_for_null,
-        $tabindex_for_value, $table, $db, $row_id, array $titles,
-        $biggest_max_file_size, $text_dir, array $repopulate, array $where_clause_array
+    public function getHtmlForInsertEditRow(
+        array $url_params,
+        array $table_columns,
+        array $comments_map,
+        $timestamp_seen,
+        $current_result,
+        $chg_evt_handler,
+        $jsvkey,
+        $vkey,
+        $insert_mode,
+        array $current_row,
+        &$o_rows,
+        &$tabindex,
+        $columns_cnt,
+        $is_upload,
+        $tabindex_for_function,
+        array $foreigners,
+        $tabindex_for_null,
+        $tabindex_for_value,
+        $table,
+        $db,
+        $row_id,
+        array $titles,
+        $biggest_max_file_size,
+        $text_dir,
+        array $repopulate,
+        array $where_clause_array
     ) {
         $html_output = $this->getHeadAndFootOfInsertRowTable($url_params)
             . '<tbody>';
@@ -3006,13 +3409,34 @@ class InsertEdit
                 $column_mime = $mime_map[$table_column['Field']];
             }
             $html_output .= $this->getHtmlForInsertEditFormColumn(
-                $table_columns, $column_number, $comments_map, $timestamp_seen,
-                $current_result, $chg_evt_handler, $jsvkey, $vkey, $insert_mode,
-                $current_row, $o_rows, $tabindex, $columns_cnt, $is_upload,
-                $tabindex_for_function, $foreigners, $tabindex_for_null,
-                $tabindex_for_value, $table, $db, $row_id, $titles,
-                $biggest_max_file_size, $default_char_editing, $text_dir, $repopulate,
-                $column_mime, $where_clause
+                $table_columns,
+                $column_number,
+                $comments_map,
+                $timestamp_seen,
+                $current_result,
+                $chg_evt_handler,
+                $jsvkey,
+                $vkey,
+                $insert_mode,
+                $current_row,
+                $o_rows,
+                $tabindex,
+                $columns_cnt,
+                $is_upload,
+                $tabindex_for_function,
+                $foreigners,
+                $tabindex_for_null,
+                $tabindex_for_value,
+                $table,
+                $db,
+                $row_id,
+                $titles,
+                $biggest_max_file_size,
+                $default_char_editing,
+                $text_dir,
+                $repopulate,
+                $column_mime,
+                $where_clause
             );
         } // end for
         $o_rows++;
