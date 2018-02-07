@@ -279,7 +279,7 @@ class Search
             $resultTotal += $resultCount;
             // Gets the result row's HTML for a table
             $rows[] = [
-                'table' => $eachTable,
+                'table' => htmlspecialchars($eachTable),
                 'new_search_sqls' => $newSearchSqls,
                 'result_count' => $resultCount,
             ];
@@ -290,7 +290,7 @@ class Search
             'rows' => $rows,
             'result_total' => $resultTotal,
             'criteria_tables' => $this->criteriaTables,
-            'criteria_search_string' => $this->criteriaSearchString,
+            'criteria_search_string' => htmlspecialchars($this->criteriaSearchString),
             'search_type_description' => $this->searchTypeDescription,
         ]);
     }
