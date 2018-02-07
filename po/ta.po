@@ -7,30 +7,29 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.8.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2018-01-22 14:58+0100\n"
-"PO-Revision-Date: 2017-09-21 21:37+0000\n"
-"Last-Translator: Maurício Meneghini Fauth <mauriciofauth@gmail.com>\n"
-"Language-Team: Tamil <https://hosted.weblate.org/projects/phpmyadmin/master/"
-"ta/>\n"
+"PO-Revision-Date: 2018-02-07 15:49+0000\n"
+"Last-Translator: Gladson Samuel Stephen <samuels.gladson@hotmail.com>\n"
+"Language-Team: Tamil "
+"<https://hosted.weblate.org/projects/phpmyadmin/master/ta/>\n"
 "Language: ta\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 2.17-dev\n"
+"X-Generator: Weblate 2.19-dev\n"
 
 #: ajax.php:21 ajax.php:50 export.php:203 libraries/classes/Export.php:1100
 msgid "Bad type!"
 msgstr "தகா வகை!"
 
 #: changelog.php:39 license.php:34
-#, fuzzy, php-format
-#| msgid ""
-#| "The %s file is not available on this system, please visit www.phpmyadmin."
-#| "net for more information."
+#, php-format
 msgid ""
 "The %s file is not available on this system, please visit %s for more "
 "information."
-msgstr "இந்த %s கோப்பு அமைப்பில் இல்லை, மேலும் தகவலுக்கு www.phpmyadmin.net செல்லுங்கள்."
+msgstr ""
+"இந்த %s கோப்பு அமைப்பில் இல்லை, மேலும் தகவலுக்கு www.phpmyadmin.net%s "
+"செல்லுங்கள்."
 
 #: db_central_columns.php:153
 msgid "The central list of columns for the current database is empty."
@@ -305,8 +304,6 @@ msgstr "தரவு"
 #: db_export.php:73 libraries/classes/ReplicationGui.php:391
 #: templates/database/search/selection_form.twig:32
 #: templates/display/export/select_options.twig:4
-#, fuzzy
-#| msgid "Select All"
 msgid "Select all"
 msgstr "அனைத்தையும் தெரிவுசெய்க"
 
@@ -317,6 +314,8 @@ msgstr "தரவுத்தளத்தின் பெயர் வெறு�
 #: db_operations.php:67
 msgid "Cannot copy database to the same name. Change the name and try again."
 msgstr ""
+"ஒரே பெயரில் தரவுத்தளத்தை நகலெடுக்க முடியாது. பெயரை மாற்றி மீண்டும் "
+"முயற்சிக்கவும்."
 
 #: db_operations.php:154
 #, php-format
@@ -673,10 +672,8 @@ msgid "Server connection collation"
 msgstr "சேவையக இணைப்பு குறிமுறை அடுக்குவரிசை"
 
 #: index.php:276
-#, fuzzy
-#| msgid "Appearance Settings"
 msgid "Appearance settings"
-msgstr "உருத்தோற்ற அமைப்புகள்"
+msgstr "தோற்ற அமைப்புகள்"
 
 #: index.php:309 prefs_manage.php:274
 msgid "More settings"
@@ -731,8 +728,6 @@ msgid "PHP extension:"
 msgstr "PHP நீட்சி:"
 
 #: index.php:406
-#, fuzzy
-#| msgid "PHP Version:"
 msgid "PHP version:"
 msgstr "PHP பதிப்பு:"
 
@@ -772,7 +767,7 @@ msgstr "மாற்றங்கள் பட்டியல்"
 
 #: index.php:482 templates/server/plugins/section.twig:13
 msgid "License"
-msgstr ""
+msgstr "உரிமம்"
 
 #: index.php:502
 msgid ""
@@ -793,23 +788,18 @@ msgstr ""
 "பதிப்பு சோதனை போன்ற அம்சங்கள் முடக்கப்பட்டுள்ளது."
 
 #: index.php:532
-#, fuzzy
-#| msgid ""
-#| "Your PHP parameter [a@https://secure.php.net/manual/en/session."
-#| "configuration.php#ini.session.gc-maxlifetime@_blank]session."
-#| "gc_maxlifetime[/a] is lower than cookie validity configured in "
-#| "phpMyAdmin, because of this, your login will expire sooner than "
-#| "configured in phpMyAdmin."
 msgid ""
 "Your PHP parameter [a@https://secure.php.net/manual/en/session.configuration."
 "php#ini.session.gc-maxlifetime@_blank]session.gc_maxlifetime[/a] is lower "
 "than cookie validity configured in phpMyAdmin, because of this, your login "
 "might expire sooner than configured in phpMyAdmin."
 msgstr ""
-"உங்கள் PHP [a@https://secure.php.net/manual/en/session.configuration.php#ini."
-"session.gc-maxlifetime@_blank]session.gc_maxlifetime[/a] அளவுரு, கட்டமைக்கப்பட்ட "
-"பயனர் நிலை பதிவுத்துணுக்கு செல்லுபடியாகும் காலத்தை விட குறைவாக உள்ளது, இதனால் உங்கள் "
-"அமர்வு phpMyAdmin கட்டமைக்கப்பட்டதை விட விரைவில் காலாவதியாகிவிடும்."
+"உங்கள் PHP "
+"[a@https://secure.php.net/manual/en/session.configuration.php#ini.session.gc-"
+"maxlifetime@_blank]session.gc_maxlifetime[/a] அளவுரு,phpMyAdminல் "
+"கட்டமைக்கப்பட்ட பயனர் நிலை பதிவுத்துணுக்கு(cookie) செல்லுபடியாகும் காலத்தை வி"
+"ட குறைவாக உள்ளது, இதனால் உங்கள் புகுபதிகை(login) phpMyAdmin கட்டமைக்கப்பட்டதை"
+" விட விரைவில் காலாவதியாகிவிடும்."
 
 #: index.php:551
 msgid ""
@@ -827,6 +817,8 @@ msgstr "இப்போது அமைப்பாக்க கோப்பு�
 #: index.php:573
 msgid "The secret passphrase in configuration (blowfish_secret) is too short."
 msgstr ""
+"(blowfish_secret) கட்டமைப்பில் உள்ள ரகசிய கடவுசொற்றொடர் மிக குறுகியதாக "
+"உள்ளது."
 
 #: index.php:587
 msgid ""
@@ -888,6 +880,8 @@ msgstr "நீங்கள் ஒரு முழுமையான தரவு
 #: js/messages.php:48
 msgid "Cannot rename database to the same name. Change the name and try again"
 msgstr ""
+"அதே பெயரில் தரவுத்தளத்தை மறுபெயரிட முடியாது.பெயரை மாற்றி மீண்டும் "
+"முயற்சிக்கவும்."
 
 #: js/messages.php:50
 msgid "You are about to DESTROY a complete table!"
@@ -914,10 +908,8 @@ msgid "Delete tracking data for these versions?"
 msgstr "இந்த பதிப்பு அட்டவணைக்கான கண்காணிப்பு தரவை நீக்கவா?"
 
 #: js/messages.php:60
-#, fuzzy
-#| msgid "Delete tracking"
 msgid "Delete entry from tracking report?"
-msgstr "கண்காணிப்பு தரவுகள் அழிக்கப்படுகின்றன"
+msgstr "கண்காணிப்பு அறிக்கையில் உள்ள தரவுகளை நீக்கு?"
 
 #: js/messages.php:61
 msgid "Deleting tracking data"
@@ -956,34 +948,30 @@ msgid "Do you really want to revoke the selected user(s) ?"
 msgstr "உங்களுக்கு உண்மையிலேயே தேர்ந்தெடுத்த பயனர்(களை) திரும்பப்பெற வேண்டுமா?"
 
 #: js/messages.php:75
-#, fuzzy
-#| msgid "Do you really want to delete this bookmark?"
 msgid "Do you really want to delete this central column?"
-msgstr "உங்களுக்கு உண்மையிலேயே புத்தகக்குறியை நீக்க வேண்டுமா?"
+msgstr "இந்த மைய பத்தியை உண்மையிலையே நீக்க விரும்புகிறீர்களா?"
 
 #: js/messages.php:77
-#, fuzzy
-#| msgid "Do you really want to delete the search \"%s\"?"
 msgid "Do you really want to delete the selected items?"
-msgstr "உங்களுக்கு உண்மையிலேயே \"%s\" தேடலை நீக்க வேண்டுமா?"
+msgstr "தேர்ந்தெடுக்கப்பட்ட உருப்படிகளை நிச்சயமாக நீக்க விரும்புகிறீர்களா?"
 
 #: js/messages.php:79
 msgid ""
 "Do you really want to DROP the selected partition(s)? This will also DELETE "
 "the data related to the selected partition(s)!"
 msgstr ""
+"தேர்ந்தெடுக்கப்பட்ட பகிர்வு(கள்)ஐக்  (DROP)நீக்கம் செய்ய விரும்புகிறீர்களா? "
+"இது தேர்ந்தெடுக்கப்பட்ட பகிர்வு(கள்) தொடர்பான தரவை (DELETE) நீக்கும்!"
 
 #: js/messages.php:83
-#, fuzzy
-#| msgid "Do you really want to delete the search \"%s\"?"
 msgid "Do you really want to TRUNCATE the selected partition(s)?"
-msgstr "உங்களுக்கு உண்மையிலேயே \"%s\" தேடலை நீக்க வேண்டுமா?"
+msgstr ""
+"தேர்ந்தெடுத்த பகிர்வு (கள்)ஐக்  உண்மையிலேயே TRUNCATE (சுருக்கம்) செய்ய "
+"விரும்புகிறீர்களா?"
 
 #: js/messages.php:85
-#, fuzzy
-#| msgid "Do you really want to delete the search \"%s\"?"
 msgid "Do you really want to remove partitioning?"
-msgstr "உங்களுக்கு உண்மையிலேயே \"%s\" தேடலை நீக்க வேண்டுமா?"
+msgstr "பகிர்வுகளை நீங்கள்  உண்மையாகவே அகற்ற விரும்புகிறீர்களா?"
 
 #: js/messages.php:86
 #, fuzzy
