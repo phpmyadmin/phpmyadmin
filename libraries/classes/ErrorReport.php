@@ -32,9 +32,9 @@ class ErrorReport
      *
      * @return String the report
      */
-    public static function getPrettyReportData()
+    public function getPrettyReportData()
     {
-        $report = self::getReportData();
+        $report = $this->getReportData();
 
         return json_encode($report, JSON_PRETTY_PRINT | JSON_UNESCAPED_SLASHES);
     }
@@ -47,7 +47,7 @@ class ErrorReport
      *
      * @return array error report if success, Empty Array otherwise
      */
-    public static function getReportData($exception_type = 'js')
+    public function getReportData($exception_type = 'js')
     {
         $relParams = Relation::getRelationsParam();
         // common params for both, php & js exceptions
@@ -70,8 +70,8 @@ class ErrorReport
                 return array();
             }
             $exception = $_REQUEST['exception'];
-            $exception["stack"] = self::translateStacktrace($exception["stack"]);
-            List($uri, $script_name) = self::sanitizeUrl($exception["url"]);
+            $exception["stack"] = $this->translateStacktrace($exception["stack"]);
+            List($uri, $script_name) = $this->sanitizeUrl($exception["url"]);
             $exception["uri"] = $uri;
             unset($exception["url"]);
 
@@ -135,7 +135,7 @@ class ErrorReport
      *
      * @return array the uri and script name
      */
-    public static function sanitizeUrl($url)
+    public function sanitizeUrl($url)
     {
         $components = parse_url($url);
         if (isset($components["fragment"])
@@ -177,7 +177,7 @@ class ErrorReport
      *
      * @return String the reply of the server
      */
-    public static function send(array $report)
+    public function send(array $report)
     {
         $httpRequest = new HttpRequest();
         $response = $httpRequest->create(
@@ -198,7 +198,7 @@ class ErrorReport
      *
      * @return array $stack the modified stack trace
      */
-    public static function translateStacktrace(array $stack)
+    public function translateStacktrace(array $stack)
     {
         foreach ($stack as &$level) {
             foreach ($level["context"] as &$line) {
@@ -207,7 +207,7 @@ class ErrorReport
                 }
             }
             unset($level["context"]);
-            List($uri, $script_name) = self::sanitizeUrl($level["url"]);
+            List($uri, $script_name) = $this->sanitizeUrl($level["url"]);
             $level["uri"] = $uri;
             $level["scriptname"] = $script_name;
             unset($level["url"]);
@@ -222,15 +222,15 @@ class ErrorReport
      *
      * @return String the form
      */
-    public static function getForm()
+    public function getForm()
     {
         $datas = array(
-            'report_data' => self::getPrettyReportData(),
+            'report_data' => $this->getPrettyReportData(),
             'hidden_inputs' => Url::getHiddenInputs(),
             'hidden_fields' => null,
         );
 
-        $reportData = self::getReportData();
+        $reportData = $this->getReportData();
         if (!empty($reportData)) {
             $datas['hidden_fields'] = Url::getHiddenFields($reportData);
         }
