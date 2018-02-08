@@ -998,6 +998,16 @@ function PMA_makegrid (t, enableResize, enableReorder, enableVisib, enableGridEd
                             if (typeof data !== 'undefined' && data.success === true) {
                                 $td.data('original_data', data.value);
                                 $(g.cEdit).find('.edit_box').val(data.value);
+                                $editArea.append('<textarea rows="15"></textarea>');
+                                $editArea.find('textarea').val(data.value);
+                                $editArea.on('keyup', 'textarea', function () {
+                                    $(g.cEdit).find('.edit_box').val($(this).val());
+                                });
+                                $(g.cEdit).on('keyup', '.edit_box', function () {
+                                    $editArea.find('textarea').val($(this).val());
+                                });
+                                $editArea.append('<div class="cell_edit_hint">' + g.cellEditHint + '</div>');
+                                $editArea.show();
                             } else {
                                 PMA_ajaxShowMessage(data.error, false);
                             }
