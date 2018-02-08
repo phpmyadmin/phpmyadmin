@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.8.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2018-01-22 14:58+0100\n"
-"PO-Revision-Date: 2018-02-07 15:49+0000\n"
+"PO-Revision-Date: 2018-02-09 09:40+0000\n"
 "Last-Translator: Gladson Samuel Stephen <samuels.gladson@hotmail.com>\n"
 "Language-Team: Tamil "
 "<https://hosted.weblate.org/projects/phpmyadmin/master/ta/>\n"
@@ -655,8 +655,6 @@ msgstr ""
 "தகவல்கள் %s இல் உள்ளன."
 
 #: index.php:207
-#, fuzzy
-#| msgid "General Settings"
 msgid "General settings"
 msgstr "பொதுவான அமைவுகள்"
 
@@ -987,14 +985,22 @@ msgid ""
 "collation; in this case we suggest you revert to the original collation and "
 "refer to the tips at "
 msgstr ""
+"இந்தத் தரவு, உங்கள் தரவை புதிய இணைப்பிற்கு மாற்றியமைக்க முயற்சிக்கும். அரிதா"
+"ன சந்தர்ப்பங்களில், குறிப்பாக புதிய குறிமுறை அடுக்குவரிசையில் (collation)  "
+"ஒரு குறிமுறை இல்லை என்றால், இந்த செயல்முறையால்  தரவு புதிய குறிமுறை "
+"அடுக்குவரிசையில்(collation) தவறாக தோன்றக்கூடும்; இந்த வழக்கில், நீங்கள் அசல் "
+"குறிமுறை அடுக்குவரிசைக்கு மாற்றியமைக்க நாங்கள் பரிந்துரைக்கிறோம், மேலும் "
+"உதவிக்குறிப்புகளைப் பார்க்கவும் "
 
 #: js/messages.php:94
 msgid "Garbled Data"
-msgstr ""
+msgstr "தெளிவற்ற தரவு"
 
 #: js/messages.php:96
 msgid "Are you sure you wish to change the collation and convert the data?"
 msgstr ""
+"நீங்கள் குறிமுறை அடுக்குவரிசையை (collation) மற்றும் தரவை மாற்ற "
+"விரும்புகிறீர்களா?"
 
 #: js/messages.php:98
 msgid ""
@@ -1005,18 +1011,24 @@ msgid ""
 "column(s) editing feature (the \"Change\" Link) on the table structure page. "
 "</b>"
 msgstr ""
+"இந்த செயல்பாட்டினால், MySQL ஆனது குறிமுறை அடுக்குவரிசையைகளுக்கு இடையில் உள்ள "
+"தரவு மதிப்பினைக் கண்டறிவதற்கு முயற்சிக்கிறது. குறிமுறை பொருந்தாததாக இருந்தால்"
+", தரவு இழப்பு இருக்கலாம் மற்றும் இந்த இழந்த தரவு வெறுமனே நிரல்வரிசை "
+"கூட்டமைப்பு (கள்) ஐ மாற்றுவதன் மூலம் மீட்க <b>முடியாது<b>.<b>ஏற்கனவே "
+"இருக்கும் தரவை மாற்ற, அட்டவணை கட்டமைப்பு பக்கத்தில் உள்ள நிரல்வரிசை(கள்)யை "
+"திருத்தும் அம்சத்தை (\"மாற்று\" இணைப்பு) பயன்படுத்த பரிந்துரைக்கப்படுகிறது."
 
 #: js/messages.php:107
 msgid ""
 "Are you sure you wish to change all the column collations and convert the "
 "data?"
 msgstr ""
+"நீங்கள் அனைத்து நிரல்வரிசை கட்டமைப்புகளை மாற்ற விரும்புகிறீர்களோ மற்றும் தரவை"
+" மாற்ற வேண்டுமா?"
 
 #: js/messages.php:111
-#, fuzzy
-#| msgid "Save & Close"
 msgid "Save & close"
-msgstr "சேமிக்க & மூடுக"
+msgstr "சேமித்துவிட்டபின்  மூடு"
 
 #: js/messages.php:112 libraries/classes/InsertEdit.php:1635
 #: prefs_manage.php:355 prefs_manage.php:366
@@ -1025,8 +1037,6 @@ msgid "Reset"
 msgstr "மீட்டமைக்கவும்"
 
 #: js/messages.php:113
-#, fuzzy
-#| msgid "Reset All"
 msgid "Reset all"
 msgstr "அனைத்தையும் மீட்டமை"
 
@@ -1051,10 +1061,8 @@ msgid "Add index"
 msgstr "சுட்டுதொகுப்புக்குறி சேர்க்க"
 
 #: js/messages.php:121
-#, fuzzy
-#| msgid "Edit Index"
 msgid "Edit index"
-msgstr "சுட்டுதொகுப்புக்குறி திருத்துக"
+msgstr "தொகுக்குறியீட்டை திருத்து"
 
 #: js/messages.php:122 templates/table/index_form.twig:211
 #, php-format
@@ -1098,10 +1106,8 @@ msgstr "SQL வினவல்:"
 
 #. l10n: Default label for the y-Axis of Charts
 #: js/messages.php:138
-#, fuzzy
-#| msgid "Y Values"
 msgid "Y values"
-msgstr "கு மதிப்புக்கள்"
+msgstr "செங்குத்து (Y) மதிப்புகள்"
 
 #: js/messages.php:141
 msgid "The host name is empty!"
@@ -1132,21 +1138,19 @@ msgstr "மூடுக"
 
 #: js/messages.php:149
 msgid "Template was created."
-msgstr ""
+msgstr "முன்னமைக்கப்பட்ட வடிவமைப்பு உருவாக்கபட்டது."
 
 #: js/messages.php:150
 msgid "Template was loaded."
-msgstr ""
+msgstr "முன்னமைக்கப்பட்ட வடிவமைப்பு ஏற்றப்பட்டது."
 
 #: js/messages.php:151
 msgid "Template was updated."
-msgstr ""
+msgstr "முன்னமைக்கப்பட்ட வடிவமைப்பு புதுப்பிக்கப்பட்டது."
 
 #: js/messages.php:152
-#, fuzzy
-#| msgid "The row has been deleted."
 msgid "Template was deleted."
-msgstr "இந்நிரைவரிசை அழிக்கப்பட்டது."
+msgstr "முன்னமைக்கப்பட்ட வடிவமைப்பு நீக்கப்பட்டது."
 
 #. l10n: Other, small valued, queries
 #: js/messages.php:155 libraries/classes/Server/Status/Data.php:132
