@@ -32,7 +32,7 @@ class ErrorReport
      *
      * @return String the report
      */
-    public function getPrettyReportData()
+    private function getPrettyReportData()
     {
         $report = $this->getReportData();
 
@@ -135,7 +135,7 @@ class ErrorReport
      *
      * @return array the uri and script name
      */
-    public function sanitizeUrl($url)
+    private function sanitizeUrl($url)
     {
         $components = parse_url($url);
         if (isset($components["fragment"])
@@ -198,7 +198,7 @@ class ErrorReport
      *
      * @return array $stack the modified stack trace
      */
-    public function translateStacktrace(array $stack)
+    private function translateStacktrace(array $stack)
     {
         foreach ($stack as &$level) {
             foreach ($level["context"] as &$line) {
