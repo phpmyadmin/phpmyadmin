@@ -51,7 +51,7 @@ if (isset($_REQUEST['send_error_report'])
             );
         }
     }
-    $reportData = $errorReport->getReportData($_REQUEST['exception_type']);
+    $reportData = $errorReport->getData($_REQUEST['exception_type']);
     // report if and only if there were 'actual' errors.
     if (count($reportData) > 0) {
         $server_response = $errorReport->send($reportData);
