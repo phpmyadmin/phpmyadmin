@@ -87,16 +87,6 @@ class ConfigTest extends PmaTestCase
      */
     public function testGetFontsizeForm()
     {
-        $this->assertContains(
-            '<form name="form_fontsize_selection" id="form_fontsize_selection"',
-            Config::getFontsizeForm()
-        );
-
-        $this->assertContains(
-            '<label for="select_fontsize">',
-            Config::getFontsizeForm()
-        );
-
         //test getFontsizeOptions for "em" unit
         $fontsize = $GLOBALS['PMA_Config']->get('FontSize');
         $GLOBALS['PMA_Config']->set('FontSize', '10em');
