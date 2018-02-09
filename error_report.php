@@ -9,6 +9,7 @@ use PhpMyAdmin\ErrorReport;
 use PhpMyAdmin\Message;
 use PhpMyAdmin\Response;
 use PhpMyAdmin\UserPreferences;
+use PhpMyAdmin\Utils\HttpRequest;
 
 require_once 'libraries/common.inc.php';
 
@@ -20,7 +21,7 @@ if (!isset($_REQUEST['exception_type'])
 
 $response = Response::getInstance();
 
-$errorReport = new ErrorReport();
+$errorReport = new ErrorReport(new HttpRequest());
 
 if (isset($_REQUEST['send_error_report'])
     && ($_REQUEST['send_error_report'] == true

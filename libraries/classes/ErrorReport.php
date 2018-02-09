@@ -1,7 +1,7 @@
 <?php
 /* vim: set expandtab sw=4 ts=4 sts=4: */
 /**
- * Error reporting functions used to generate and submit error reports
+ * Holds the PhpMyAdmin\ErrorReport class
  *
  * @package PhpMyAdmin
  */
@@ -10,11 +10,10 @@ namespace PhpMyAdmin;
 use PhpMyAdmin\Relation;
 use PhpMyAdmin\Template;
 use PhpMyAdmin\Url;
-use PhpMyAdmin\Util;
 use PhpMyAdmin\Utils\HttpRequest;
 
 /**
- * PhpMyAdmin\ErrorReport class
+ * Error reporting functions used to generate and submit error reports
  *
  * @package PhpMyAdmin
  */
@@ -22,8 +21,26 @@ class ErrorReport
 {
     /**
      * the url where to submit reports to
+     *
+     * @var string
      */
-    const SUBMISSION_URL = "https://reports.phpmyadmin.net/incidents/create";
+    private $submissionUrl;
+
+    /**
+     * @var HttpRequest
+     */
+    private $httpRequest;
+
+    /**
+     * Constructor
+     *
+     * @param HttpRequest $httpRequest HttpRequest instance
+     */
+    public function __construct(HttpRequest $httpRequest)
+    {
+        $this->httpRequest = $httpRequest;
+        $this->submissionUrl = 'https://reports.phpmyadmin.net/incidents/create';
+    }
 
     /**
      * returns the pretty printed error report data collected from the
@@ -179,9 +196,8 @@ class ErrorReport
      */
     public function send(array $report)
     {
-        $httpRequest = new HttpRequest();
-        $response = $httpRequest->create(
-            self::SUBMISSION_URL,
+        $response = $this->httpRequest->create(
+            $this->submissionUrl,
             "POST",
             false,
             json_encode($report),
