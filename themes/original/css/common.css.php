@@ -59,6 +59,10 @@ body#loginform {
     width: 85%;
 }
 
+.auth_config_tbl{
+    margin: 0 auto;
+}
+
 <?php if (! empty($GLOBALS['cfg']['FontFamilyFixed'])) { ?>
     textarea, tt, pre, code {
     font-family:        <?php echo $GLOBALS['cfg']['FontFamilyFixed']; ?>;
