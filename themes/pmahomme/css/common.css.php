@@ -929,6 +929,10 @@ form.login select {
     margin-top: 20px;
 }
 
+.repl_gui_skip_err_cnt{
+    width: 30px;
+}
+
 .font_weight_bold{
     font-weight: bold;
 }
