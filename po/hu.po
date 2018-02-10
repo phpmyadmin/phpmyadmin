@@ -4,16 +4,16 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.8.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2018-01-22 14:58+0100\n"
-"PO-Revision-Date: 2017-11-30 08:08+0000\n"
-"Last-Translator: Dr. Nagy Elemér Károly <eknagy@omikk.bme.hu>\n"
-"Language-Team: Hungarian <https://hosted.weblate.org/projects/phpmyadmin/"
-"master/hu/>\n"
+"PO-Revision-Date: 2018-02-10 23:35+0000\n"
+"Last-Translator: Marczis István <marczisi@yahoo.com>\n"
+"Language-Team: Hungarian "
+"<https://hosted.weblate.org/projects/phpmyadmin/master/hu/>\n"
 "Language: hu\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 2.18-dev\n"
+"X-Generator: Weblate 2.19-dev\n"
 
 #: ajax.php:21 ajax.php:50 export.php:203 libraries/classes/Export.php:1100
 msgid "Bad type!"
@@ -309,13 +309,10 @@ msgid "The database name is empty!"
 msgstr "Üres az adatbázis neve!"
 
 #: db_operations.php:67
-#, fuzzy
-#| msgid ""
-#| "Cannot rename database to the same name. Change the name and try again"
 msgid "Cannot copy database to the same name. Change the name and try again."
 msgstr ""
 "Nem lehet átnevezni az adatbázist a séma nevére. Változtassa meg a nevet, és "
-"próbálja újra"
+"próbálja újra."
 
 #: db_operations.php:154
 #, php-format
@@ -689,10 +686,8 @@ msgid "Server type:"
 msgstr "Kiszolgáló típusa:"
 
 #: index.php:342
-#, fuzzy
-#| msgid "Master connection:"
 msgid "Server connection:"
-msgstr "Mesterkapcsolat:"
+msgstr "Szerver kapcsolat:"
 
 #: index.php:346 libraries/classes/Plugins/Export/ExportLatex.php:223
 #: libraries/classes/Plugins/Export/ExportSql.php:704
@@ -859,6 +854,8 @@ msgid ""
 "The $cfg['TempDir'] (%s) is not accessible. phpMyAdmin is not able to cache "
 "templates and will be slow because of this."
 msgstr ""
+"A $cfg ['TempDir'] (%s 1) nem elérhető. A phpMyAdmin nem képes  a sablonok "
+"elrejtésére  és lassú lesz."
 
 #: js/messages.php:43
 msgid "Confirm"
@@ -1785,10 +1782,8 @@ msgid "No databases selected."
 msgstr "Nincs kiválasztott adatbázis."
 
 #: js/messages.php:370
-#, fuzzy
-#| msgid "No column selected."
 msgid "No accounts selected."
-msgstr "Nem jelölt ki sort."
+msgstr "Nem hozzáférés kijelölve."
 
 #: js/messages.php:371
 msgid "Dropping column"
@@ -2299,10 +2294,8 @@ msgstr ""
 
 #: js/messages.php:560 templates/database/designer/side_menu.twig:34
 #: templates/database/designer/side_menu.twig:37
-#, fuzzy
-#| msgid "No tables found in database."
 msgid "Add tables from other databases"
-msgstr "Nem található tábla az adatbázisban."
+msgstr "Tábla hozzáadása más adatbázisból"
 
 #: js/messages.php:561
 msgid "Page name"
