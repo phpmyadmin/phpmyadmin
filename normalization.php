@@ -121,5 +121,5 @@ if (isset($_REQUEST['step1'])) {
     $res = $normalization->getHtmlFor3NFstep1($db, $tables);
     $response->addJSON($res);
 } else {
-    $response->addHTML($normalization->getHtmlForNormalizetable());
+    $response->addHTML($normalization->getHtmlForNormalizeTable());
 }
