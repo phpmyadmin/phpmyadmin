@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.8.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2018-01-22 14:58+0100\n"
-"PO-Revision-Date: 2018-02-06 09:35+0000\n"
-"Last-Translator: David G <gousaiyang223@gmail.com>\n"
+"PO-Revision-Date: 2018-02-10 23:35+0000\n"
+"Last-Translator: H Zeng <zhx@cnzhx.net>\n"
 "Language-Team: Chinese (Simplified) "
 "<https://hosted.weblate.org/projects/phpmyadmin/master/zh_Hans/>\n"
 "Language: zh_CN\n"
@@ -308,7 +308,7 @@ msgstr "数据库名不能为空！"
 
 #: db_operations.php:67
 msgid "Cannot copy database to the same name. Change the name and try again."
-msgstr "要复制的数据库已存在, 请更换名字再试."
+msgstr "不能复制数据库到相同名称。请更换名称后重试。"
 
 #: db_operations.php:154
 #, php-format
@@ -8488,7 +8488,7 @@ msgstr ""
 #: libraries/classes/Normalization.php:367
 #: libraries/classes/Normalization.php:409
 msgid "Table is already in second normal form."
-msgstr ""
+msgstr "资料表已经是第二正则化的。"
 
 #: libraries/classes/Normalization.php:372
 #, fuzzy, php-format
