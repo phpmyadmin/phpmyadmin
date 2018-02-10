@@ -1,7 +1,7 @@
 <?php
 /* vim: set expandtab sw=4 ts=4 sts=4: */
 /**
- * set of functions used for normalization
+ * Holds the PhpMyAdmin\Normalization class
  *
  * @package PhpMyAdmin
  */
@@ -16,7 +16,7 @@ use PhpMyAdmin\Url;
 use PhpMyAdmin\Util;
 
 /**
- * PhpMyAdmin\Normalization class
+ * Set of functions used for normalization
  *
  * @package PhpMyAdmin
  */
@@ -34,7 +34,7 @@ class Normalization
      *
      * @return string HTML for list of columns in form of given list types
      */
-    public static function getHtmlForColumnsList(
+    public function getHtmlForColumnsList(
         $db, $table, $colTypeCategory='all', $listType='dropdown'
     ) {
         $columnTypeList = array();
@@ -83,7 +83,7 @@ class Normalization
      *
      * @return string HTML
      */
-    public static function getHtmlForCreateNewColumn(
+    public function getHtmlForCreateNewColumn(
         $num_fields, $db, $table, array $columnMeta = array()
     ) {
         $cfgRelation = Relation::getRelationsParam();
@@ -147,7 +147,7 @@ class Normalization
      *
      * @return string HTML for step 1.1
      */
-    public static function getHtmlFor1NFStep1($db, $table, $normalizedTo)
+    public function getHtmlFor1NFStep1($db, $table, $normalizedTo)
     {
         $step = 1;
         $stepTxt = __('Make all columns atomic');
@@ -176,7 +176,7 @@ class Normalization
             . '<option selected="selected" disabled="disabled">'
             . __('Select one…') . "</option>"
             . "<option value='no_such_col'>" . __('No such column') . "</option>"
-            . self::getHtmlForColumnsList(
+            . $this->getHtmlForColumnsList(
                 $db,
                 $table,
                 _pgettext('string types', 'String')
@@ -200,7 +200,7 @@ class Normalization
      *
      * @return string HTML contents for step 1.2
      */
-    public static function getHtmlContentsFor1NFStep2($db, $table)
+    public function getHtmlContentsFor1NFStep2($db, $table)
     {
         $step = 2;
         $stepTxt = __('Have a primary key');
@@ -250,7 +250,7 @@ class Normalization
      *
      * @return string HTML contents for step 1.4
      */
-    public static function getHtmlContentsFor1NFStep4($db, $table)
+    public function getHtmlContentsFor1NFStep4($db, $table)
     {
         $step = 4;
         $stepTxt = __('Remove redundant columns');
@@ -265,7 +265,7 @@ class Normalization
             "Check the columns which are redundant and click on remove. "
             . "If no redundant column, click on 'No redundant column'"
         );
-        $extra = self::getHtmlForColumnsList($db, $table, 'all', "checkbox") . "</br>"
+        $extra = $this->getHtmlForColumnsList($db, $table, 'all', "checkbox") . "</br>"
             . '<input type="submit" id="removeRedundant" value="'
             . __('Remove selected') . '"/>'
             . '<input type="submit" value="' . __('No redundant column')
@@ -288,7 +288,7 @@ class Normalization
      *
      * @return string HTML contents for step 1.3
      */
-    public static function getHtmlContentsFor1NFStep3($db, $table)
+    public function getHtmlContentsFor1NFStep3($db, $table)
     {
         $step = 3;
         $stepTxt = __('Move repeating groups');
@@ -305,7 +305,7 @@ class Normalization
             "Check the columns which form a repeating group. "
             . "If no such group, click on 'No repeating group'"
         );
-        $extra = self::getHtmlForColumnsList($db, $table, 'all', "checkbox") . "</br>"
+        $extra = $this->getHtmlForColumnsList($db, $table, 'all', "checkbox") . "</br>"
             . '<input type="submit" id="moveRepeatingGroup" value="'
             . __('Done') . '"/>'
             . '<input type="submit" value="' . __('No repeating group')
@@ -335,7 +335,7 @@ class Normalization
      *
      * @return string HTML contents for 2NF step 2.1
      */
-    public static function getHtmlFor2NFstep1($db, $table)
+    public function getHtmlFor2NFstep1($db, $table)
     {
         $legendText = __('Step 2.') . "1 " . __('Find partial dependencies');
         $primary = Index::getPrimary($table, $db);
@@ -426,7 +426,7 @@ class Normalization
      *
      * @return string HTML
      */
-    public static function getHtmlForNewTables2NF(array $partialDependencies, $table)
+    public function getHtmlForNewTables2NF(array $partialDependencies, $table)
     {
         $html = '<p><b>' . sprintf(
             __(
@@ -459,7 +459,7 @@ class Normalization
      *
      * @return array
      */
-    public static function createNewTablesFor2NF(array $partialDependencies, $tablesName, $table, $db)
+    public function createNewTablesFor2NF(array $partialDependencies, $tablesName, $table, $db)
     {
         $dropCols = false;
         $nonPKCols = array();
@@ -535,7 +535,7 @@ class Normalization
      *
      * @return array containing html and the list of new tables
      */
-    public static function getHtmlForNewTables3NF($dependencies, array $tables, $db)
+    public function getHtmlForNewTables3NF($dependencies, array $tables, $db)
     {
         $html = "";
         $i = 1;
@@ -593,7 +593,7 @@ class Normalization
      *
      * @return array
      */
-    public static function createNewTablesFor3NF(array $newTables, $db)
+    public function createNewTablesFor3NF(array $newTables, $db)
     {
         $queries = array();
         $dropCols = false;
@@ -683,7 +683,7 @@ class Normalization
      *
      * @return array
      */
-    public static function moveRepeatingGroup(
+    public function moveRepeatingGroup(
         $repeatingColumns, $primary_columns, $newTable, $newColumn, $table, $db
     ) {
         $repeatingColumnsArr = (array)Util::backquote(
@@ -741,7 +741,7 @@ class Normalization
      *
      * @return string
      */
-    public static function getHtmlFor3NFstep1($db, array $tables)
+    public function getHtmlFor3NFstep1($db, array $tables)
     {
         $legendText = __('Step 3.') . "1 " . __('Find transitive dependencies');
         $extra = "";
@@ -817,7 +817,7 @@ class Normalization
      *
      * @return string HTML
      */
-    public static function getHtmlForNormalizetable()
+    public function getHtmlForNormalizetable()
     {
         $html_output = '<form method="post" action="normalization.php" '
             . 'name="normalize" '
@@ -859,7 +859,7 @@ class Normalization
      *
      * @return string HTML containing the list of all the possible partial dependencies
      */
-    public static function findPartialDependencies($table, $db)
+    public function findPartialDependencies($table, $db)
     {
         $dependencyList = array();
         $GLOBALS['dbi']->selectDb($db);
@@ -878,8 +878,8 @@ class Normalization
         foreach ($primarycols as $col) {
             $pk[] = Util::backquote($col->getName());
         }
-        $partialKeys = self::getAllCombinationPartialKeys($pk);
-        $distinctValCount = self::findDistinctValuesCount(
+        $partialKeys = $this->getAllCombinationPartialKeys($pk);
+        $distinctValCount = $this->findDistinctValuesCount(
             array_unique(
                 array_merge($columns, $partialKeys)
             ), $table
@@ -888,7 +888,7 @@ class Normalization
             if (!in_array($column, $pk)) {
                 foreach ($partialKeys as $partialKey) {
                     if ($partialKey
-                        && self::checkPartialDependency(
+                        && $this->checkPartialDependency(
                             $partialKey, $column, $table,
                             $distinctValCount[$partialKey],
                             $distinctValCount[$column], $totalRows
@@ -936,7 +936,7 @@ class Normalization
      *
      * @return boolean TRUE if $column is dependent on $partialKey, False otherwise
      */
-    public static function checkPartialDependency(
+    private function checkPartialDependency(
         $partialKey, $column, $table, $pkCnt, $colCnt, $totalRows
     ) {
         $query = 'SELECT '
@@ -963,7 +963,7 @@ class Normalization
      *
      * @return array associative array containing the count
      */
-    public static function findDistinctValuesCount(array $columns, $table)
+    private function findDistinctValuesCount(array $columns, $table)
     {
         $result = array();
         $query = 'SELECT ';
@@ -992,7 +992,7 @@ class Normalization
      *
      * @return array containing all the possible partial keys(subset of primary key)
      */
-    public static function getAllCombinationPartialKeys(array $primaryKey)
+    private function getAllCombinationPartialKeys(array $primaryKey)
     {
         $results = array('');
         foreach ($primaryKey as $element) {
