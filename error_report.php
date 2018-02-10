@@ -6,8 +6,10 @@
  * @package PhpMyAdmin
  */
 use PhpMyAdmin\ErrorReport;
+use PhpMyAdmin\Message;
 use PhpMyAdmin\Response;
 use PhpMyAdmin\UserPreferences;
+use PhpMyAdmin\Utils\HttpRequest;
 
 require_once 'libraries/common.inc.php';
 
@@ -18,6 +20,8 @@ if (!isset($_REQUEST['exception_type'])
 }
 
 $response = Response::getInstance();
+
+$errorReport = new ErrorReport(new HttpRequest());
 
 if (isset($_REQUEST['send_error_report'])
     && ($_REQUEST['send_error_report'] == true
@@ -47,10 +51,10 @@ if (isset($_REQUEST['send_error_report'])
             );
         }
     }
-    $reportData = ErrorReport::getReportData($_REQUEST['exception_type']);
+    $reportData = $errorReport->getData($_REQUEST['exception_type']);
     // report if and only if there were 'actual' errors.
     if (count($reportData) > 0) {
-        $server_response = ErrorReport::send($reportData);
+        $server_response = $errorReport->send($reportData);
         if ($server_response === false) {
             $success = false;
         } else {
@@ -87,9 +91,9 @@ if (isset($_REQUEST['send_error_report'])
 
         /* Create message object */
         if ($success) {
-            $msg = PhpMyAdmin\Message::notice($msg);
+            $msg = Message::notice($msg);
         } else {
-            $msg = PhpMyAdmin\Message::error($msg);
+            $msg = Message::error($msg);
         }
 
         /* Add message to response */
@@ -122,7 +126,7 @@ if (isset($_REQUEST['send_error_report'])
     $response->addJSON('report_setting', $GLOBALS['cfg']['SendErrorReports']);
 } else {
     if ($_REQUEST['exception_type'] == 'js') {
-        $response->addHTML(ErrorReport::getForm());
+        $response->addHTML($errorReport->getForm());
     } else {
         // clear previous errors & save new ones.
         $GLOBALS['error_handler']->savePreviousErrors();
