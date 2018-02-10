@@ -750,17 +750,6 @@ AJAX.registerOnload('functions.js', function () {
     $('form.lock-page').on('reset', function (event) {
         AJAX.resetLock();
     });
-    /**
-     * Displays warning if number of rows are reduced
-     * and chances of data loss.
-     */
-    var row = document.getElementById('insert_rows');
-    if (row !== null) {
-        var row_count = Number(row.value);
-        row.addEventListener("change", function(){
-            row_count = AJAX.rowCheck(row,row_count);
-        });
-    }
 });
 
 /**
