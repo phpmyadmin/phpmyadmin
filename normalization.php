@@ -11,16 +11,15 @@ use PhpMyAdmin\Normalization;
 use PhpMyAdmin\Response;
 use PhpMyAdmin\Url;
 
-/**
- *
- */
 require_once 'libraries/common.inc.php';
+
+$normalization = new Normalization($GLOBALS['dbi']);
 
 if (isset($_REQUEST['getColumns'])) {
     $html = '<option selected disabled>' . __('Select one…') . '</option>'
         . '<option value="no_such_col">' . __('No such column') . '</option>';
     //get column whose datatype falls under string category
-    $html .= Normalization::getHtmlForColumnsList(
+    $html .= $normalization->getHtmlForColumnsList(
         $db,
         $table,
         _pgettext('string types', 'String')
@@ -30,7 +29,7 @@ if (isset($_REQUEST['getColumns'])) {
 }
 if (isset($_REQUEST['splitColumn'])) {
     $num_fields = min(4096, intval($_REQUEST['numFields']));
-    $html = Normalization::getHtmlForCreateNewColumn($num_fields, $db, $table);
+    $html = $normalization->getHtmlForCreateNewColumn($num_fields, $db, $table);
     $html .= Url::getHiddenInputs($db, $table);
     echo $html;
     exit;
@@ -38,7 +37,7 @@ if (isset($_REQUEST['splitColumn'])) {
 if (isset($_REQUEST['addNewPrimary'])) {
     $num_fields = 1;
     $columnMeta = array('Field'=>$table . "_id", 'Extra'=>'auto_increment');
-    $html = Normalization::getHtmlForCreateNewColumn(
+    $html = $normalization->getHtmlForCreateNewColumn(
         $num_fields, $db, $table, $columnMeta
     );
     $html .= Url::getHiddenInputs($db, $table);
@@ -46,14 +45,14 @@ if (isset($_REQUEST['addNewPrimary'])) {
     exit;
 }
 if (isset($_REQUEST['findPdl'])) {
-    $html = Normalization::findPartialDependencies($table, $db);
+    $html = $normalization->findPartialDependencies($table, $db);
     echo $html;
     exit;
 }
 
 if (isset($_REQUEST['getNewTables2NF'])) {
     $partialDependencies = json_decode($_REQUEST['pd']);
-    $html = Normalization::getHtmlForNewTables2NF($partialDependencies, $table);
+    $html = $normalization->getHtmlForNewTables2NF($partialDependencies, $table);
     echo $html;
     exit;
 }
@@ -63,7 +62,7 @@ $response = Response::getInstance();
 if (isset($_REQUEST['getNewTables3NF'])) {
     $dependencies = json_decode($_REQUEST['pd']);
     $tables = json_decode($_REQUEST['tables']);
-    $newTables = Normalization::getHtmlForNewTables3NF($dependencies, $tables, $db);
+    $newTables = $normalization->getHtmlForNewTables3NF($dependencies, $tables, $db);
     $response->disable();
     Core::headerJSON();
     echo json_encode($newTables);
@@ -81,13 +80,13 @@ if (Core::isValid($_REQUEST['normalizeTo'], array('1nf', '2nf', '3nf'))) {
 if (isset($_REQUEST['createNewTables2NF'])) {
     $partialDependencies = json_decode($_REQUEST['pd']);
     $tablesName = json_decode($_REQUEST['newTablesName']);
-    $res = Normalization::createNewTablesFor2NF($partialDependencies, $tablesName, $table, $db);
+    $res = $normalization->createNewTablesFor2NF($partialDependencies, $tablesName, $table, $db);
     $response->addJSON($res);
     exit;
 }
 if (isset($_REQUEST['createNewTables3NF'])) {
     $newtables = json_decode($_REQUEST['newTables']);
-    $res = Normalization::createNewTablesFor3NF($newtables, $db);
+    $res = $normalization->createNewTablesFor3NF($newtables, $db);
     $response->addJSON($res);
     exit;
 }
@@ -96,31 +95,31 @@ if (isset($_POST['repeatingColumns'])) {
     $newTable = $_POST['newTable'];
     $newColumn = $_POST['newColumn'];
     $primary_columns = $_POST['primary_columns'];
-    $res = Normalization::moveRepeatingGroup(
+    $res = $normalization->moveRepeatingGroup(
         $repeatingColumns, $primary_columns, $newTable, $newColumn, $table, $db
     );
     $response->addJSON($res);
     exit;
 }
 if (isset($_REQUEST['step1'])) {
-    $html = Normalization::getHtmlFor1NFStep1($db, $table, $normalForm);
+    $html = $normalization->getHtmlFor1NFStep1($db, $table, $normalForm);
     $response->addHTML($html);
 } elseif (isset($_REQUEST['step2'])) {
-    $res = Normalization::getHtmlContentsFor1NFStep2($db, $table);
+    $res = $normalization->getHtmlContentsFor1NFStep2($db, $table);
     $response->addJSON($res);
 } elseif (isset($_REQUEST['step3'])) {
-    $res = Normalization::getHtmlContentsFor1NFStep3($db, $table);
+    $res = $normalization->getHtmlContentsFor1NFStep3($db, $table);
     $response->addJSON($res);
 } elseif (isset($_REQUEST['step4'])) {
-    $res = Normalization::getHtmlContentsFor1NFStep4($db, $table);
+    $res = $normalization->getHtmlContentsFor1NFStep4($db, $table);
     $response->addJSON($res);
 } elseif (isset($_REQUEST['step']) && $_REQUEST['step'] == '2.1') {
-    $res = Normalization::getHtmlFor2NFstep1($db, $table);
+    $res = $normalization->getHtmlFor2NFstep1($db, $table);
     $response->addJSON($res);
 } elseif (isset($_REQUEST['step']) && $_REQUEST['step'] == '3.1') {
     $tables = $_REQUEST['tables'];
-    $res = Normalization::getHtmlFor3NFstep1($db, $tables);
+    $res = $normalization->getHtmlFor3NFstep1($db, $tables);
     $response->addJSON($res);
 } else {
-    $response->addHTML(Normalization::getHtmlForNormalizetable());
+    $response->addHTML($normalization->getHtmlForNormalizeTable());
 }
