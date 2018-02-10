@@ -3,8 +3,8 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.7.8-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2018-01-22 14:57+0100\n"
-"PO-Revision-Date: 2018-02-06 09:35+0000\n"
-"Last-Translator: David G <gousaiyang223@gmail.com>\n"
+"PO-Revision-Date: 2018-02-11 23:34+0000\n"
+"Last-Translator: H Zeng <zhx@cnzhx.net>\n"
 "Language-Team: Chinese (Simplified) "
 "<https://hosted.weblate.org/projects/phpmyadmin/4-7/zh_Hans/>\n"
 "Language: zh_CN\n"
@@ -294,11 +294,8 @@ msgid "The database name is empty!"
 msgstr "数据库名不能为空！"
 
 #: db_operations.php:61
-#, fuzzy
-#| msgid ""
-#| "Cannot rename database to the same name. Change the name and try again"
 msgid "Cannot copy database to the same name. Change the name and try again."
-msgstr "数据库名称已存在. 请更换名字再试"
+msgstr "不能复制数据库到相同名称。请更换名称后重试。"
 
 #: db_operations.php:150
 #, php-format
@@ -9306,7 +9303,7 @@ msgstr ""
 
 #: libraries/normalization.lib.php:343 libraries/normalization.lib.php:385
 msgid "Table is already in second normal form."
-msgstr ""
+msgstr "资料表已经是第二正则化的。"
 
 #: libraries/normalization.lib.php:348
 #, fuzzy, php-format
