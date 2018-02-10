@@ -13,7 +13,7 @@ use PhpMyAdmin\Url;
 
 require_once 'libraries/common.inc.php';
 
-$normalization = new Normalization();
+$normalization = new Normalization($GLOBALS['dbi']);
 
 if (isset($_REQUEST['getColumns'])) {
     $html = '<option selected disabled>' . __('Select one…') . '</option>'

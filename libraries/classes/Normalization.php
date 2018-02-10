@@ -23,6 +23,23 @@ use PhpMyAdmin\Util;
 class Normalization
 {
     /**
+     * DatabaseInterface instance
+     *
+     * @var DatabaseInterface
+     */
+    private $dbi;
+
+    /**
+     * Constructor
+     *
+     * @param DatabaseInterface $dbi DatabaseInterface instance
+     */
+    public function __construct(DatabaseInterface $dbi)
+    {
+        $this->dbi = $dbi;
+    }
+
+    /**
      * build the html for columns of $colTypeCategory category
      * in form of given $listType in a table
      *
@@ -39,11 +56,11 @@ class Normalization
     ) {
         $columnTypeList = array();
         if ($colTypeCategory != 'all') {
-            $types = $GLOBALS['dbi']->types->getColumns();
+            $types = $this->dbi->types->getColumns();
             $columnTypeList = $types[$colTypeCategory];
         }
-        $GLOBALS['dbi']->selectDb($db);
-        $columns = $GLOBALS['dbi']->getColumns(
+        $this->dbi->selectDb($db);
+        $columns = $this->dbi->getColumns(
             $db, $table, null,
             true
         );
@@ -129,10 +146,10 @@ class Normalization
                 'server_type' => Util::getServerType(),
                 'max_rows' => intval($GLOBALS['cfg']['MaxRows']),
                 'char_editing' => $GLOBALS['cfg']['CharEditing'],
-                'attribute_types' => $GLOBALS['dbi']->types->getAttributes(),
+                'attribute_types' => $this->dbi->types->getAttributes(),
                 'privs_available' => $GLOBALS['col_priv'] && $GLOBALS['is_reload_priv'],
-                'max_length' => $GLOBALS['dbi']->getVersion() >= 50503 ? 1024 : 255,
-                'dbi' => $GLOBALS['dbi'],
+                'max_length' => $this->dbi->getVersion() >= 50503 ? 1024 : 255,
+                'dbi' => $this->dbi,
                 'disable_is' => $GLOBALS['cfg']['Server']['DisableIS'],
                 )
             );
@@ -352,8 +369,8 @@ class Normalization
         }
         $key = implode(', ', $pk);
         if (count($primarycols) > 1) {
-            $GLOBALS['dbi']->selectDb($db);
-            $columns = (array) $GLOBALS['dbi']->getColumnNames(
+            $this->dbi->selectDb($db);
+            $columns = (array) $this->dbi->getColumnNames(
                 $db, $table
             );
             if (count($pk) == count($columns)) {
@@ -476,7 +493,7 @@ class Normalization
             );
         }
         $message = '';
-        $GLOBALS['dbi']->selectDb($db);
+        $this->dbi->selectDb($db);
         foreach ($partialDependencies as $key=>$dependents) {
             if ($tablesName->$key != $table) {
                 $backquotedKey = implode(', ', Util::backquote(explode(', ', $key)));
@@ -505,11 +522,11 @@ class Normalization
             $queries[] = 'DROP TABLE ' . Util::backquote($table);
         }
         foreach ($queries as $query) {
-            if (!$GLOBALS['dbi']->tryQuery($query)) {
+            if (!$this->dbi->tryQuery($query)) {
                 $message = Message::error(__('Error in processing!'));
                 $message->addMessage(
                     Message::rawError(
-                        $GLOBALS['dbi']->getError()
+                        $this->dbi->getError()
                     ),
                     '<br /><br />'
                 );
@@ -608,7 +625,7 @@ class Normalization
             );
         }
         $message = '';
-        $GLOBALS['dbi']->selectDb($db);
+        $this->dbi->selectDb($db);
         foreach ($newTables as $originalTable=>$tablesList) {
             foreach ($tablesList as $table=>$cols) {
                 if ($table != $originalTable) {
@@ -629,7 +646,7 @@ class Normalization
                 }
             }
             if ($dropCols) {
-                $columns = (array) $GLOBALS['dbi']->getColumnNames(
+                $columns = (array) $this->dbi->getColumnNames(
                     $db, $originalTable
                 );
                 $colPresent = array_merge(
@@ -650,11 +667,11 @@ class Normalization
             $dropCols = false;
         }
         foreach ($queries as $query) {
-            if (!$GLOBALS['dbi']->tryQuery($query)) {
+            if (!$this->dbi->tryQuery($query)) {
                 $message = Message::error(__('Error in processing!'));
                 $message->addMessage(
                     Message::rawError(
-                        $GLOBALS['dbi']->getError()
+                        $this->dbi->getError()
                     ),
                     '<br /><br />'
                 );
@@ -714,13 +731,13 @@ class Normalization
         }
         $query2 = trim($query2, ',');
         $queries = array($query1, $query2);
-        $GLOBALS['dbi']->selectDb($db);
+        $this->dbi->selectDb($db);
         foreach ($queries as $query) {
-            if (!$GLOBALS['dbi']->tryQuery($query)) {
+            if (!$this->dbi->tryQuery($query)) {
                 $message = Message::error(__('Error in processing!'));
                 $message->addMessage(
                     Message::rawError(
-                        $GLOBALS['dbi']->getError()
+                        $this->dbi->getError()
                     ),
                     '<br /><br />'
                 );
@@ -766,8 +783,8 @@ class Normalization
             foreach ($primarycols as $col) {
                 $pk[] = $col->getName();
             }
-            $GLOBALS['dbi']->selectDb($db);
-            $columns = (array) $GLOBALS['dbi']->getColumnNames(
+            $this->dbi->selectDb($db);
+            $columns = (array) $this->dbi->getColumnNames(
                 $db, $table
             );
             if (count($columns) - count($pk) <= 1) {
@@ -862,12 +879,12 @@ class Normalization
     public function findPartialDependencies($table, $db)
     {
         $dependencyList = array();
-        $GLOBALS['dbi']->selectDb($db);
-        $columns = (array) $GLOBALS['dbi']->getColumnNames(
+        $this->dbi->selectDb($db);
+        $columns = (array) $this->dbi->getColumnNames(
             $db, $table
         );
         $columns = (array)Util::backquote($columns);
-        $totalRowsRes = $GLOBALS['dbi']->fetchResult(
+        $totalRowsRes = $this->dbi->fetchResult(
             'SELECT COUNT(*) FROM (SELECT * FROM '
             . Util::backquote($table) . ' LIMIT 500) as dt;'
         );
@@ -943,7 +960,7 @@ class Normalization
             . 'COUNT(DISTINCT ' . $partialKey . ',' . $column . ') as pkColCnt '
             . 'FROM (SELECT * FROM ' . Util::backquote($table)
             . ' LIMIT 500) as dt'  . ';';
-        $res = $GLOBALS['dbi']->fetchResult($query, null, null);
+        $res = $this->dbi->fetchResult($query, null, null);
         $pkColCnt = $res[0];
         if ($pkCnt && $pkCnt == $colCnt && $colCnt == $pkColCnt) {
             return true;
@@ -976,7 +993,7 @@ class Normalization
         $query = trim($query, ', ');
         $query .= ' FROM (SELECT * FROM ' . Util::backquote($table)
             . ' LIMIT 500) as dt' . ';';
-        $res = $GLOBALS['dbi']->fetchResult($query, null, null);
+        $res = $this->dbi->fetchResult($query, null, null);
         foreach ($columns as $column) {
             if ($column) {
                 $result[$column] = $res[0][$column . '_cnt'];

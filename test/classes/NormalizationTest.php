@@ -93,7 +93,7 @@ class NormalizationTest extends TestCase
             ->method('fetchResult')
             ->will($this->returnValue(array(0)));
 
-        $this->normalization = new Normalization();
+        $this->normalization = new Normalization($dbi);
     }
 
     /**
