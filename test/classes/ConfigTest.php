@@ -90,16 +90,16 @@ class ConfigTest extends PmaTestCase
         //test getFontsizeOptions for "em" unit
         $fontsize = $GLOBALS['PMA_Config']->get('FontSize');
         $GLOBALS['PMA_Config']->set('FontSize', '10em');
-        
+
         //test getFontsizeOptions for "pt" unit
         $GLOBALS['PMA_Config']->set('FontSize', '10pt');
-        
+
         //test getFontsizeOptions for "px" unit
         $GLOBALS['PMA_Config']->set('FontSize', '10px');
-        
+
         //test getFontsizeOptions for unknown unit
         $GLOBALS['PMA_Config']->set('FontSize', '10abc');
-        
+
         //rollback the fontsize setting
         $GLOBALS['PMA_Config']->set('FontSize', $fontsize);
     }
