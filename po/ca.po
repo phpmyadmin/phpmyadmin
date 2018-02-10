@@ -4,10 +4,10 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.8.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2018-01-22 14:58+0100\n"
-"PO-Revision-Date: 2017-12-30 17:29+0000\n"
+"PO-Revision-Date: 2018-02-10 23:35+0000\n"
 "Last-Translator: Robert Antoni Buj Gelonch <robert.buj@gmail.com>\n"
-"Language-Team: Catalan <https://hosted.weblate.org/projects/phpmyadmin/"
-"master/ca/>\n"
+"Language-Team: Catalan "
+"<https://hosted.weblate.org/projects/phpmyadmin/master/ca/>\n"
 "Language: ca\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -847,8 +847,8 @@ msgstr ""
 msgid ""
 "Or alternately go to 'Operations' tab of any database to set it up there."
 msgstr ""
-"O alternativament anar a la pestanya \"Operacions\" de qualsevol base de "
-"dades per configurar-lo allà."
+"O bé aneu a la pestanya \"Operacions\" de qualsevol base de dades per "
+"configurar-ho allà."
 
 #: index.php:635
 #, php-format
@@ -3614,8 +3614,8 @@ msgstr "Servidor %d"
 msgid ""
 "If enabled, user can enter any MySQL server in login form for cookie auth."
 msgstr ""
-"Si està activat, l'usuari pot posar qualsevol servidor MySQL al formulari de "
-"connexió mitjançant l'autenticació per galetes."
+"Si està habilitat, l'usuari pot introduir qualsevol servidor MySQL al "
+"formulari de connexió mitjançant l'autenticació per galetes."
 
 #: libraries/classes/Config/Descriptions.php:64
 msgid "Allow login to any MySQL server"
@@ -3647,7 +3647,7 @@ msgstr ""
 
 #: libraries/classes/Config/Descriptions.php:80
 msgid "Allow third party framing"
-msgstr "Permetre marcs de terceres parts"
+msgstr "Permetre marcs de tercers"
 
 #: libraries/classes/Config/Descriptions.php:82
 msgid "Show \"Drop database\" link to normal users"
@@ -3658,8 +3658,8 @@ msgid ""
 "Secret passphrase used for encrypting cookies in [kbd]cookie[/kbd] "
 "authentication."
 msgstr ""
-"Frase de pas secreta usada per xifrar galetes en autenticació [kbd]cookie[/"
-"kbd]."
+"Frase de pas secreta que s'utilitza per xifrar les galetes amb "
+"l'autenticació [kbd]cookie[/kbd]."
 
 #: libraries/classes/Config/Descriptions.php:89
 msgid "Blowfish secret"
@@ -3800,7 +3800,7 @@ msgstr "Confirmació de les consultes DROP"
 msgid ""
 "Log SQL queries and their execution time, to be displayed in the console"
 msgstr ""
-"Registre de consultes SQL i el seu temps d'execució, que es visualitzarà a "
+"Registra les consultes SQL i el seu temps d'execució, que es visualitzarà a "
 "la consola"
 
 #: libraries/classes/Config/Descriptions.php:169
@@ -3999,7 +3999,7 @@ msgstr "Columnes delimitades amb"
 #: libraries/classes/Config/Descriptions.php:654
 #: libraries/classes/Plugins/Import/ImportCsv.php:148
 msgid "Columns escaped with"
-msgstr "Fi de columna amb"
+msgstr "Final de columna amb"
 
 #: libraries/classes/Config/Descriptions.php:268
 #: libraries/classes/Config/Descriptions.php:280
@@ -4035,15 +4035,15 @@ msgstr "Edició d'Excel"
 
 #: libraries/classes/Config/Descriptions.php:284
 msgid "Database name template"
-msgstr "Plantilla de nom de base de dades"
+msgstr "Plantilla del nom de la base de dades"
 
 #: libraries/classes/Config/Descriptions.php:286
 msgid "Server name template"
-msgstr "Plantilla de nom de servidor"
+msgstr "Plantilla del nom del servidor"
 
 #: libraries/classes/Config/Descriptions.php:288
 msgid "Table name template"
-msgstr "Plantilla de nom de taula"
+msgstr "Plantilla del nom de la taula"
 
 #: libraries/classes/Config/Descriptions.php:296
 #: libraries/classes/Config/Descriptions.php:322
@@ -4069,7 +4069,7 @@ msgstr "Incloeu l'encapçalament de taula"
 #: libraries/classes/Config/Descriptions.php:304
 #: libraries/classes/Config/Descriptions.php:316
 msgid "Table caption"
-msgstr "Títol de taula"
+msgstr "Títol de la taula"
 
 #: libraries/classes/Config/Descriptions.php:306
 #: libraries/classes/Config/Descriptions.php:318
@@ -4079,7 +4079,7 @@ msgstr "Encapçalament de continuació de taula"
 #: libraries/classes/Config/Descriptions.php:308
 #: libraries/classes/Config/Descriptions.php:320
 msgid "Label key"
-msgstr "Etiqueta de clau"
+msgstr "Clau de l'etiqueta"
 
 #: libraries/classes/Config/Descriptions.php:310
 #: libraries/classes/Config/Descriptions.php:334
@@ -4304,7 +4304,7 @@ msgstr "Personalitzeu les opcions predeterminades habituals de la importació."
 
 #: libraries/classes/Config/Descriptions.php:466
 msgid "Import / export"
-msgstr "Importar / exportar"
+msgstr "Importació / exportació"
 
 #: libraries/classes/Config/Descriptions.php:468
 msgid "Set import and export directories and compression options."
@@ -4711,7 +4711,7 @@ msgid ""
 "kbd] authentication mode."
 msgstr ""
 "Defineix si l'anterior autenticació s'ha de recuperar o no al mode "
-"d'autenticació per  [kbd]galetes [/kbd]."
+"d'autenticació per [kbd]galetes [/kbd]."
 
 #: libraries/classes/Config/Descriptions.php:707
 msgid "Recall user name"
@@ -4826,12 +4826,12 @@ msgid ""
 "The number of bytes a script is allowed to allocate, eg. [kbd]32M[/kbd] "
 "([kbd]-1[/kbd] for no limit and [kbd]0[/kbd] for no change)."
 msgstr ""
-"El nombre d'octets que una ordre està autoritzada a reservar, ex. [kbd]32M[/"
-"kbd] ([kbd]-1[/kbd] per no posar límit i [kbd]0[/kbd] per a no canviar)."
+"El nombre de bytes que un script pot reservar, p. ex. [kbd]32M[/kbd] "
+"([kbd]-1[/kbd] per no posar límit i [kbd]0[/kbd] per no canviar)."
 
 #: libraries/classes/Config/Descriptions.php:766
 msgid "Memory limit"
-msgstr "Límit de memoria"
+msgstr "Límit de memòria"
 
 #: libraries/classes/Config/Descriptions.php:768
 msgid "In the navigation panel, replaces the database tree with a selector"
@@ -5221,11 +5221,11 @@ msgstr "Edició de la graella: desa totes les cel·les editades alhora"
 
 #: libraries/classes/Config/Descriptions.php:965
 msgid "Directory where exports can be saved on server."
-msgstr "Directori del servidor on pots desar les exportacions."
+msgstr "Directori on podeu desar les exportacions al servidor."
 
 #: libraries/classes/Config/Descriptions.php:967
 msgid "Save directory"
-msgstr "Directori de desades"
+msgstr "Directori de desament"
 
 #: libraries/classes/Config/Descriptions.php:969
 msgid "Leave blank if not used."
@@ -6080,7 +6080,7 @@ msgstr "Directori al servidor on podeu pujar els fitxers per importar."
 
 #: libraries/classes/Config/Descriptions.php:1393
 msgid "Upload directory"
-msgstr "Directori de pujades"
+msgstr "Directori de pujada"
 
 #: libraries/classes/Config/Descriptions.php:1395
 msgid "Allow for searching inside the entire database."
@@ -6095,8 +6095,8 @@ msgid ""
 "When disabled, users cannot set any of the options below, regardless of the "
 "checkbox on the right."
 msgstr ""
-"Quan està desactivada, els usuaris no poden configurar qualsevol de les "
-"següents opcions, independentment de la casella de selecció a la dreta."
+"Quan està inhabilitat, els usuaris no poden configurar cap de les següents "
+"opcions, independentment de la casella de selecció de la dreta."
 
 #: libraries/classes/Config/Descriptions.php:1404
 msgid "Enable the Developer tab in settings"
@@ -6127,7 +6127,7 @@ msgstr ""
 
 #: libraries/classes/Config/Descriptions.php:1417
 msgid "Proxy url"
-msgstr "URL del proxy"
+msgstr "URL del servidor intermediari"
 
 #: libraries/classes/Config/Descriptions.php:1420
 msgid ""
@@ -6142,15 +6142,15 @@ msgstr ""
 
 #: libraries/classes/Config/Descriptions.php:1426
 msgid "Proxy username"
-msgstr "Nom d'usuari del proxy"
+msgstr "Nom d'usuari del servidor intermediari"
 
 #: libraries/classes/Config/Descriptions.php:1428
 msgid "The password for authenticating with the proxy."
-msgstr "La contrasenya per autenticar amb el proxy."
+msgstr "La contrasenya per a l'autenticació amb el servidor intermediari."
 
 #: libraries/classes/Config/Descriptions.php:1430
 msgid "Proxy password"
-msgstr "Contrasenya del proxy"
+msgstr "Contrasenya del servidor intermediari"
 
 #: libraries/classes/Config/Descriptions.php:1433
 msgid "Enable ZIP compression for import and export operations."
@@ -6463,7 +6463,7 @@ msgstr ""
 
 #: libraries/classes/Config/ServerConfigChecks.php:230
 msgid "You allow for connecting to the server without a password."
-msgstr "Estàs permetent connexions al servidor sense contrasenya."
+msgstr "Esteu permetent connexions al servidor sense contrasenya."
 
 #: libraries/classes/Config/ServerConfigChecks.php:303
 #, php-format
@@ -6489,9 +6489,9 @@ msgid ""
 "authentication, so a key was automatically generated for you. It is used to "
 "encrypt cookies; you don't need to remember it."
 msgstr ""
-"No deus tenir establert el blowfish secret i tens activada l'autenticació "
-"[kbd]per galetes[/kbd], així que es generarà automàticament una clau per tú. "
-"S'utilitza per xifrar galetes; no necessites recordar-la."
+"No teniu establert el secret de blowfish i teniu habilitada l'autenticació "
+"[kbd]per galetes[/kbd], així que es generarà automàticament una clau. "
+"S'utilitza per xifrar les galetes; no cal que la recordeu."
 
 #: libraries/classes/Config/ServerConfigChecks.php:372
 msgid "Key is too short, it should have at least 32 characters."
@@ -9402,7 +9402,7 @@ msgstr "Subtítol de taula (continuació):"
 #: libraries/classes/Plugins/Export/ExportLatex.php:133
 #: libraries/classes/Plugins/Export/ExportLatex.php:185
 msgid "Label key:"
-msgstr "Etiqueta de clau:"
+msgstr "Clau de l'etiqueta:"
 
 #: libraries/classes/Plugins/Export/ExportLatex.php:140
 #: libraries/classes/Plugins/Export/ExportOdt.php:100
@@ -14291,7 +14291,7 @@ msgstr "Fitxer de configuració"
 
 #: setup/frames/config.inc.php:34 setup/frames/index.inc.php:252
 msgid "Download"
-msgstr "Descarrega"
+msgstr "Baixa"
 
 #: setup/frames/index.inc.php:49
 msgid ""
@@ -14376,7 +14376,7 @@ msgstr "Servidor predeterminat"
 
 #: setup/frames/index.inc.php:245
 msgid "End of line"
-msgstr "Fi de linia"
+msgstr "Final de la línia"
 
 #: setup/frames/index.inc.php:251
 msgid "Display"
@@ -14384,7 +14384,7 @@ msgstr "Mostra"
 
 #: setup/frames/index.inc.php:264
 msgid "phpMyAdmin homepage"
-msgstr "pàgina principal de phpMyAdmin"
+msgstr "Pàgina principal de phpMyAdmin"
 
 #: setup/frames/index.inc.php:266
 msgid "Donate"
@@ -14404,7 +14404,7 @@ msgstr "Afegeix un servidor nou"
 
 #: setup/index.php:18
 msgid "Configuration already exists, setup is disabled!"
-msgstr "La configuració ja existeix i la preparació està inhabilitada!"
+msgstr "Ja existeix la configuració i s'ha inhabilitat la preparació!"
 
 #: setup/index.php:28
 msgid "Wrong GET file attribute value"
@@ -14682,7 +14682,7 @@ msgstr "Exportar taules com a arxius separats"
 
 #: templates/display/export/options_output_format.twig:3
 msgid "File name template:"
-msgstr "Plantilla de nom de fitxer:"
+msgstr "Plantilla del nom de fitxer:"
 
 #: templates/display/export/options_output_format.twig:11
 msgid "use this for future exports"
@@ -14947,7 +14947,7 @@ msgstr "Nova plantilla:"
 
 #: templates/display/export/template_loading.twig:8
 msgid "Template name"
-msgstr "Nom de plantilla"
+msgstr "Nom de la plantilla"
 
 #: templates/display/export/template_loading.twig:10
 #: templates/server/databases/create.twig:30
@@ -16737,8 +16737,9 @@ msgid ""
 "Percona documentation is at <a href=\"https://www.percona.com/software/"
 "documentation/\">https://www.percona.com/software/documentation/</a>"
 msgstr ""
-"La documentació de Percona está a <a href=\"https://www.percona.com/software/"
-"documentation/\"> https://www.percona.com/software/documentation/</a>"
+"La documentació de Percona està a <a href=\""
+"https://www.percona.com/software/documentation/\""
+">https://www.percona.com/software/documentation/</a>"
 
 #: libraries/advisory_rules.txt:133
 msgid "'percona' found in version_comment"
@@ -16775,7 +16776,7 @@ msgstr "Memòria cau de consultes inhabilitada"
 
 #: libraries/advisory_rules.txt:149
 msgid "The query cache is not enabled."
-msgstr "El cau de consultes no està activat."
+msgstr "La memòria cau de consultes no està habilitada."
 
 #: libraries/advisory_rules.txt:150
 msgid ""
