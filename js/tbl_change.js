@@ -461,7 +461,9 @@ AJAX.registerOnload('tbl_change.js', function () {
      * Continue Insertion form
      */
     var row = document.getElementById('insert_rows');
-    var row_count = Number(row.value);
+    if (row !== null) {
+        var row_count = Number(row.value);
+    }
     $(document).on('change', '#insert_rows', function (event) {
 
         /**
