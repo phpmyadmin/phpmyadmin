@@ -512,23 +512,21 @@ var AJAX = {
      * Displays alert if data loss possible on decrease
      * of rows.
      */
-    rowCheck: function (row,row_count) {
-        var new_count = Number(row.value);
-        if (new_count < row_count && !jQuery.isEmptyObject(AJAX.lockedTargets)
+    rowCheck: function (row, rowCount) {
+        var newCount = Number(row.value);
+        if (newCount < rowCount && !jQuery.isEmptyObject(AJAX.lockedTargets)
             && confirm(PMA_messages.strConfirmRowChange) === false
         ) {
-            row.value = row_count;
-            return row_count;
+            row.value = rowCount;
+            return rowCount;
         }
 
-        if (new_count < row_count && !jQuery.isEmptyObject(AJAX.lockedTargets)
+        if (newCount < rowCount && !jQuery.isEmptyObject(AJAX.lockedTargets)
             && confirm(PMA_messages.strConfirmRowChange) === true
         ) {
-            return new_count;
-        }
-
-        else {
-            return new_count;
+            return newCount;
+        } else {
+            return newCount;
         }
     },
     /**

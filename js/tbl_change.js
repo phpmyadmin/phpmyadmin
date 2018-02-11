@@ -462,7 +462,7 @@ AJAX.registerOnload('tbl_change.js', function () {
      */
     var row = document.getElementById('insert_rows');
     if (row !== null) {
-        var row_count = Number(row.value);
+        var rowCount = Number(row.value);
     }
     $(document).on('change', '#insert_rows', function (event) {
 
@@ -470,7 +470,7 @@ AJAX.registerOnload('tbl_change.js', function () {
          * Displays warning if number of rows are reduced
          * and chances of data loss.
          */
-        row_count = AJAX.rowCheck(row,row_count);
+        rowCount = AJAX.rowCheck(row,rowCount);
         event.preventDefault();
         /**
          * @var columnCount   Number of number of columns table has.
