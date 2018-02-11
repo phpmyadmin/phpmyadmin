@@ -1496,7 +1496,7 @@ msgstr "Na-aralan ang pag-log, ngunit walang data na natagpuan sa panahong ito."
 
 #: js/messages.php:289
 msgid "Analyzing…"
-msgstr ""
+msgstr "Iniintindi..."
 
 #: js/messages.php:290
 msgid "Explain output"
