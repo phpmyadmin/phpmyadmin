@@ -470,7 +470,7 @@ AJAX.registerOnload('tbl_change.js', function () {
          * Displays warning if number of rows are reduced
          * and chances of data loss.
          */
-        rowCount = AJAX.rowCheck(row,rowCount);
+        rowCount = AJAX.rowCheck(row, rowCount);
         event.preventDefault();
         /**
          * @var columnCount   Number of number of columns table has.
