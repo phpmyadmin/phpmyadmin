@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.8.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2018-01-22 14:58+0100\n"
-"PO-Revision-Date: 2018-02-10 23:35+0000\n"
+"PO-Revision-Date: 2018-02-12 00:19+0000\n"
 "Last-Translator: Robert Antoni Buj Gelonch <robert.buj@gmail.com>\n"
 "Language-Team: Catalan "
 "<https://hosted.weblate.org/projects/phpmyadmin/master/ca/>\n"
@@ -406,7 +406,7 @@ msgstr "Paràmetres incorrectes!"
 #: gis_data_editor.php:121
 #, php-format
 msgid "Value for the column \"%s\""
-msgstr "Valor per la columna \"%s\""
+msgstr "Valor per a la columna \"%s\""
 
 #: gis_data_editor.php:149
 #: templates/table/gis_visualization/gis_visualization.twig:38
@@ -1792,7 +1792,7 @@ msgstr ""
 #: libraries/classes/Controllers/Server/ServerDatabasesController.php:188
 #: libraries/db_common.inc.php:72 libraries/db_table_exists.inc.php:34
 msgid "No databases selected."
-msgstr "No s'han triat bases de dades."
+msgstr "No s'ha seleccionat cap base de dades."
 
 #: js/messages.php:370
 msgid "No accounts selected."
@@ -2138,7 +2138,7 @@ msgstr "Desa"
 
 #: js/messages.php:481
 msgid "Hide search criteria"
-msgstr "Oculta el criteri de cerca"
+msgstr "Oculta el criteri de la cerca"
 
 #: js/messages.php:482
 msgid "Show search criteria"
@@ -2166,11 +2166,11 @@ msgstr "Valor màxim:"
 
 #: js/messages.php:490
 msgid "Hide find and replace criteria"
-msgstr "Oculta el criteri de cerca i substitueix"
+msgstr "Oculta el criteri de la cerca i substitució"
 
 #: js/messages.php:491
 msgid "Show find and replace criteria"
-msgstr "Mostra el criteri de cerca i substitueix"
+msgstr "Mostra el criteri de la cerca i substitució"
 
 #: js/messages.php:495
 msgid "Each point represents a data row."
@@ -2428,9 +2428,9 @@ msgid ""
 "This table does not contain a unique column. Features related to the grid "
 "edit, checkbox, Edit, Copy and Delete links may not work after saving."
 msgstr ""
-"Aquesta taula no conté una columna única. Característiques relacionades amb "
-"l'edició de quadrícula, la casella de selecció, i els enllaços Edita, Copia "
-"i Esborra, poden no funcionar després de desar."
+"Aquesta taula no conté una columna única. Les característiques relacionades "
+"amb l'edició de quadrícula, la casella de selecció, i els enllaços Edita, "
+"Copia i Esborra, poden no funcionar després de desar."
 
 #: js/messages.php:604
 msgid "Please enter a valid hexadecimal string. Valid characters are 0-9, A-F."
@@ -2472,7 +2472,7 @@ msgstr "Arrossegueu aquí els fitxers"
 
 #: js/messages.php:618
 msgid "Select database first"
-msgstr "Tria primer la base de dades"
+msgstr "Seleccioneu primer la base de dades"
 
 #: js/messages.php:621 libraries/classes/Display/Results.php:4871
 #: libraries/classes/Util.php:3854
@@ -2550,8 +2550,8 @@ msgid ""
 "A newer version of phpMyAdmin is available and you should consider "
 "upgrading. The newest version is %s, released on %s."
 msgstr ""
-"Està disponible una nova versió de phpMyAdmin i hauries de considerar "
-"actualitzar-la. La nova versió és la %s, alliberada el %s."
+"Hi ha disponible una versió nova de phpMyAdmin i hauríeu de considerar "
+"actualitzar-la. La versió nova és la %s, alliberada el %s."
 
 #. l10n: Latest available phpMyAdmin version
 #: js/messages.php:669
@@ -3270,7 +3270,7 @@ msgstr "A_I"
 
 #: libraries/classes/CentralColumns.php:824
 msgid "Select a table"
-msgstr "Tria una taula"
+msgstr "Seleccioneu una taula"
 
 #: libraries/classes/CentralColumns.php:889
 #: templates/table/structure/add_column.twig:4
@@ -3279,7 +3279,7 @@ msgstr "Afegeix columna(es)"
 
 #: libraries/classes/CentralColumns.php:901
 msgid "Select a column."
-msgstr "Tria una columna."
+msgstr "Seleccioneu una columna."
 
 #: libraries/classes/CentralColumns.php:1391
 msgid "Add new column"
@@ -3633,7 +3633,7 @@ msgstr ""
 
 #: libraries/classes/Config/Descriptions.php:72
 msgid "Restrict login to MySQL server"
-msgstr "Restringir la connexió amb el servidor MySQL"
+msgstr "Restringeix la connexió amb el servidor MySQL"
 
 #: libraries/classes/Config/Descriptions.php:75
 msgid ""
@@ -3647,7 +3647,7 @@ msgstr ""
 
 #: libraries/classes/Config/Descriptions.php:80
 msgid "Allow third party framing"
-msgstr "Permetre marcs de tercers"
+msgstr "Permet marcs de tercers"
 
 #: libraries/classes/Config/Descriptions.php:82
 msgid "Show \"Drop database\" link to normal users"
@@ -3663,7 +3663,7 @@ msgstr ""
 
 #: libraries/classes/Config/Descriptions.php:89
 msgid "Blowfish secret"
-msgstr "Secret Blowfish"
+msgstr "Secret de blowfish"
 
 #: libraries/classes/Config/Descriptions.php:91
 msgid "Highlight selected rows."
@@ -3769,7 +3769,7 @@ msgstr "Files de l'àrea de text CHAR"
 
 #: libraries/classes/Config/Descriptions.php:151
 msgid "Check config file permissions"
-msgstr "Comproveu els permisos del fitxer de configuració"
+msgstr "Comprova els permisos del fitxer de configuració"
 
 #: libraries/classes/Config/Descriptions.php:154
 msgid ""
@@ -4064,7 +4064,7 @@ msgstr "Bolca la taula"
 #: libraries/classes/Config/Descriptions.php:298
 #: libraries/classes/Plugins/Export/ExportLatex.php:89
 msgid "Include table caption"
-msgstr "Incloeu l'encapçalament de taula"
+msgstr "Inclou l'encapçalament de la taula"
 
 #: libraries/classes/Config/Descriptions.php:304
 #: libraries/classes/Config/Descriptions.php:316
@@ -4074,7 +4074,7 @@ msgstr "Títol de la taula"
 #: libraries/classes/Config/Descriptions.php:306
 #: libraries/classes/Config/Descriptions.php:318
 msgid "Continued table caption"
-msgstr "Encapçalament de continuació de taula"
+msgstr "Encapçalament de continuació de la taula"
 
 #: libraries/classes/Config/Descriptions.php:308
 #: libraries/classes/Config/Descriptions.php:320
@@ -4410,7 +4410,7 @@ msgstr "Autenticació"
 
 #: libraries/classes/Config/Descriptions.php:527
 msgid "Authentication settings."
-msgstr "Paràmetres d'autenticació."
+msgstr "Paràmetres de l'autenticació."
 
 #: libraries/classes/Config/Descriptions.php:529
 msgid "Server configuration"
@@ -5221,7 +5221,7 @@ msgstr "Edició de la graella: desa totes les cel·les editades alhora"
 
 #: libraries/classes/Config/Descriptions.php:965
 msgid "Directory where exports can be saved on server."
-msgstr "Directori on podeu desar les exportacions al servidor."
+msgstr "Directori on es poden desar les exportacions al servidor."
 
 #: libraries/classes/Config/Descriptions.php:967
 msgid "Save directory"
@@ -5229,7 +5229,7 @@ msgstr "Directori de desament"
 
 #: libraries/classes/Config/Descriptions.php:969
 msgid "Leave blank if not used."
-msgstr "Deixa en blanc si no l'utilitzes."
+msgstr "Deixeu-ho en blanc si no s'utilitza."
 
 #: libraries/classes/Config/Descriptions.php:971
 msgid "Host authorization order"
@@ -5237,7 +5237,7 @@ msgstr "Ordre d'autenticació del servidor"
 
 #: libraries/classes/Config/Descriptions.php:973
 msgid "Leave blank for defaults."
-msgstr "Deixa en blanc per als predeterminats."
+msgstr "Deixeu-ho en blanc per als valors predeterminats."
 
 #: libraries/classes/Config/Descriptions.php:975
 msgid "Host authorization rules"
@@ -5245,7 +5245,7 @@ msgstr "Regles d'autenticació del servidor"
 
 #: libraries/classes/Config/Descriptions.php:977
 msgid "Allow logins without a password"
-msgstr "Permetre connexions sense contrasenya"
+msgstr "Permet connexions sense contrasenya"
 
 #: libraries/classes/Config/Descriptions.php:979
 msgid "Allow root login"
@@ -5260,18 +5260,18 @@ msgid ""
 "Sets the effective timezone; possibly different than the one from your "
 "database server"
 msgstr ""
-"Estableix el fus horari efectiu; possiblement diferent del del teu servidor "
-"de base de dades"
+"Estableix la zona horària efectiva; és possible que sigui diferent de la "
+"zona horària del vostre servidor de base de dades"
 
 #: libraries/classes/Config/Descriptions.php:988
 msgid "HTTP Basic Auth Realm name to display when doing HTTP Auth."
 msgstr ""
-"Nom del Domini HTTP -HTTP Basic Auth Realm- per a mostrar a l'autenticació "
-"HTTP."
+"Nom de l'HTTP Basic Auth Realm que s'ha de mostrar quan es realitza "
+"l'autenticació HTTP."
 
 #: libraries/classes/Config/Descriptions.php:990
 msgid "HTTP Realm"
-msgstr "Domini HTTP"
+msgstr "HTTP Realm"
 
 #: libraries/classes/Config/Descriptions.php:992
 msgid "Authentication method to use."
@@ -5286,8 +5286,8 @@ msgid ""
 "Leave blank for no [doc@bookmarks@]bookmark[/doc] support, suggested: "
 "[kbd]pma__bookmark[/kbd]"
 msgstr ""
-"Deixa en blanc per desactivar les [doc@bookmarks@]consultes desades[/doc], "
-"suggerit: [kbd]pma__bookmark[/kbd]"
+"Deixeu-ho en blanc per sense suport per a les [doc@bookmarks@]consultes "
+"desades[/doc], suggerit: [kbd]pma__bookmark[/kbd]"
 
 #: libraries/classes/Config/Descriptions.php:1001
 msgid "Bookmark table"
@@ -5334,8 +5334,8 @@ msgid ""
 "An alternate host to hold the configuration storage; leave blank to use the "
 "already defined host."
 msgstr ""
-"Un hoste alternatiu per mantenir l'emmagatzematge de la configuració, deixa "
-"en blanc per utilitzar la màquina ja definida."
+"Un amfitrió alternatiu per mantenir l'emmagatzematge de la configuració, "
+"deixeu-ho en blanc per utilitzar l'amfitrió ja definit."
 
 #: libraries/classes/Config/Descriptions.php:1028
 msgid "Control host"
@@ -5347,9 +5347,9 @@ msgid ""
 "storage; leave blank to use the default port, or the already defined port, "
 "if the controlhost equals host."
 msgstr ""
-"Un port alternatiu per connectar amb l'hoste que té l'emmagatzematge de la "
-"configuració, deixa en blanc per utilitzar el port per defecte, o el port ja "
-"definit, si l'hoste de control és el mateix."
+"Un port alternatiu per connectar amb l'amfitrió que té l'emmagatzematge de "
+"la configuració, deixeu-ho en blanc per utilitzar el port predeterminat, o "
+"el port ja definit, si l'amfitrió de control és el mateix."
 
 #: libraries/classes/Config/Descriptions.php:1036
 msgid "Control port"
@@ -5361,22 +5361,17 @@ msgstr ""
 "Oculta les bases de dades que coincideixin amb una expressió regular (PCRE)."
 
 #: libraries/classes/Config/Descriptions.php:1041
-#, fuzzy
-#| msgid ""
-#| "More information on [a@https://sourceforge.net/p/phpmyadmin/"
-#| "bugs/2606/]PMA bug tracker[/a] and [a@https://bugs.mysql.com/19588]MySQL "
-#| "Bugs[/a]"
 msgid ""
 "More information on [a@https://github.com/phpmyadmin/phpmyadmin/"
 "issues/8970]phpMyAdmin issue tracker[/a] and [a@https://bugs.mysql."
 "com/19588]MySQL Bugs[/a]"
 msgstr ""
-"Més informació a [a@https://sourceforge.net/p/phpmyadmin/bugs/2606/]PMA bug "
-"tracker[/a] i [a@https://bugs.mysql.com/19588]MySQL Bugs[/a]"
+"Més informació a [a@https://github.com/phpmyadmin/phpmyadmin/issues/8970]"
+"phpMyAdmin issue tracker[/a] i [a@https://bugs.mysql.com/19588]MySQL Bugs[/a]"
 
 #: libraries/classes/Config/Descriptions.php:1045
 msgid "Disable use of INFORMATION_SCHEMA"
-msgstr "Desactiva l'ús d'INFORMATION_SCHEMA"
+msgstr "Inhabilita l'ús d'INFORMATION_SCHEMA"
 
 #: libraries/classes/Config/Descriptions.php:1047
 msgid "Hide databases"
@@ -5387,7 +5382,7 @@ msgid ""
 "Leave blank for no SQL query history support, suggested: [kbd]pma__history[/"
 "kbd]."
 msgstr ""
-"Deixa en blanc per desactivar el suport d'historial de consultes SQL, "
+"Deixeu-ho en blanc per sense suport per a l'historial de consultes SQL, "
 "suggerit: [kbd]pma__history[/kbd]."
 
 #: libraries/classes/Config/Descriptions.php:1054
@@ -5427,8 +5422,8 @@ msgid ""
 "Leave blank for no QBE saved searches support, suggested: "
 "[kbd]pma__savedsearches[/kbd]."
 msgstr ""
-"Deixa en blanc per desactivar el suport de consultes QBE desades, suggerit: "
-"[kbd]pma__savedsearches[/kbd]."
+"Deixeu-ho en blanc per sense suport per a les consultes QBE desades, "
+"suggerit: [kbd]pma__savedsearches[/kbd]."
 
 #: libraries/classes/Config/Descriptions.php:1076
 msgid "Export templates table"
@@ -5439,8 +5434,8 @@ msgid ""
 "Leave blank for no export template support, suggested: "
 "[kbd]pma__export_templates[/kbd]."
 msgstr ""
-"Deixa en blanc per no exportar el suport de plantilles, suggerit: "
-"[kbd]pma__export_templates[/kbd]."
+"Deixeu-ho en blanc per sense suport per a les plantilles d'exportació, "
+"suggerit: [kbd]pma__export_templates[/kbd]."
 
 #: libraries/classes/Config/Descriptions.php:1083
 msgid "Central columns table"
@@ -5451,7 +5446,7 @@ msgid ""
 "Leave blank for no central columns support, suggested: "
 "[kbd]pma__central_columns[/kbd]."
 msgstr ""
-"Deixa en blanc per desactivar el suport de columnes centrals, suggerit: "
+"Deixeu-ho en blanc per sense suport per a les columnes centrals, suggerit: "
 "[kbd]pma__central_colums[/kbd]."
 
 #: libraries/classes/Config/Descriptions.php:1091
@@ -5471,17 +5466,17 @@ msgstr "Mostra només les bases de dades de la llista"
 #: libraries/classes/Config/Descriptions.php:1098
 #: libraries/classes/Config/Descriptions.php:1244
 msgid "Leave empty if not using config auth."
-msgstr "Deixa en blanc si no utilitzes l'autenticació config."
+msgstr "Deixeu-ho en blanc si no utilitzeu l'autenticació config."
 
 #: libraries/classes/Config/Descriptions.php:1100
 msgid "Password for config auth"
-msgstr "Contrasenya autenticació config"
+msgstr "Contrasenya per a l'autenticació config"
 
 #: libraries/classes/Config/Descriptions.php:1102
 msgid ""
 "Leave blank for no PDF schema support, suggested: [kbd]pma__pdf_pages[/kbd]."
 msgstr ""
-"Deixa en blanc per desactivar el suport d'esquemes PDF, suggerit: "
+"Deixeu-ho en blanc per sense suport per als esquemes PDF, suggerit: "
 "[kbd]pma__pdf_pages[/kbd]."
 
 #: libraries/classes/Config/Descriptions.php:1104
@@ -5531,7 +5526,7 @@ msgid ""
 "Leave blank for no \"persistent\" favorite tables across sessions, "
 "suggested: [kbd]pma__favorite[/kbd]."
 msgstr ""
-"Deixa en blanc per treure la \"persistència\" de taules preferides entre "
+"Deixeu-ho en blanc per treure la \"persistència\" de taules preferides entre "
 "sessions, suggerit: [kbd]pma__favorite[/kbd]."
 
 #: libraries/classes/Config/Descriptions.php:1130
@@ -5543,8 +5538,8 @@ msgid ""
 "Leave blank for no [doc@relations@]relation-links[/doc] support, suggested: "
 "[kbd]pma__relation[/kbd]."
 msgstr ""
-"Deixa en blanc per desactivar els [doc@relations@]enllaços de relacions[/"
-"doc], suggerit: [kbd]pma__relation[/kbd]."
+"Deixeu-ho en blanc per sense suport per als [doc@relations@]enllaços de "
+"relacions[/doc], suggerit: [kbd]pma__relation[/kbd]."
 
 #: libraries/classes/Config/Descriptions.php:1138
 msgid "Relation table"
@@ -5558,11 +5553,11 @@ msgstr ""
 
 #: libraries/classes/Config/Descriptions.php:1145
 msgid "Signon session name"
-msgstr "Nom de sessió signon"
+msgstr "Nom de sessió de signon"
 
 #: libraries/classes/Config/Descriptions.php:1147
 msgid "Signon URL"
-msgstr "URL signon"
+msgstr "URL de signon"
 
 #: libraries/classes/Config/Descriptions.php:1149
 msgid "Socket on which MySQL server is listening, leave empty for default."
@@ -5587,7 +5582,7 @@ msgid ""
 "Leave blank for no PDF schema support, suggested: [kbd]pma__table_coords[/"
 "kbd]."
 msgstr ""
-"Deixa en blanc per desactivar el suport d'esquemes PDF, suggerit: "
+"Deixeu-ho en blanc per sense suport per als esquemes PDF, suggerit: "
 "[kbd]pma__table_coords[/kbd]."
 
 #: libraries/classes/Config/Descriptions.php:1159
@@ -5599,8 +5594,8 @@ msgid ""
 "Table to describe the display columns, leave blank for no support; "
 "suggested: [kbd]pma__table_info[/kbd]."
 msgstr ""
-"Taula per descriure les columnes a mostrar, deixa en blanc per desactivar; "
-"suggerit: [kbd]pma__table_info[/kbd]."
+"Taula per descriure les columnes a mostrar, deixeu-ho en blanc per sense "
+"suport; suggerit: [kbd]pma__table_info[/kbd]."
 
 #: libraries/classes/Config/Descriptions.php:1166
 msgid "Display columns table"
@@ -5611,9 +5606,9 @@ msgid ""
 "Leave blank for no \"persistent\" tables' UI preferences across sessions, "
 "suggested: [kbd]pma__table_uiprefs[/kbd]."
 msgstr ""
-"Deixa en blanc per desactivar la \"persistència\" de preferències "
-"d'interfase de taules entre sessions, suggerit: [kbd]pma__table_uiprefs[/"
-"kbd]."
+"Deixeu-ho en blanc per desactivar la \"persistència\" de preferències "
+"d'interfase de taules entre sessions, suggerit: "
+"[kbd]pma__table_uiprefs[/kbd]."
 
 #: libraries/classes/Config/Descriptions.php:1173
 msgid "UI preferences table"
@@ -5671,7 +5666,7 @@ msgid ""
 "Leave blank for no SQL query tracking support, suggested: "
 "[kbd]pma__tracking[/kbd]."
 msgstr ""
-"Deixa en blanc per desactivar el suport de seguiment de consultes SQL, "
+"Deixeu-ho en blanc per sense suport per al seguiment de consultes SQL, "
 "suggerit: [kbd]pma__tracking[/kbd]."
 
 #: libraries/classes/Config/Descriptions.php:1205
@@ -5695,8 +5690,8 @@ msgid ""
 "Leave blank for no user preferences storage in database, suggested: "
 "[kbd]pma__userconfig[/kbd]."
 msgstr ""
-"Deixa en blanc per no desar les preferències de l'usuari en base de dades, "
-"suggerit: [kbd]pma__userconfig[/kbd]."
+"Deixeu-ho en blanc per sense emmagatzematge de les preferències de l'usuari "
+"a la base de dades, suggerit: [kbd]pma__userconfig[/kbd]."
 
 #: libraries/classes/Config/Descriptions.php:1219
 msgid "User preferences storage table"
@@ -5745,7 +5740,7 @@ msgstr "Taula d'ítems de navegació amagada"
 
 #: libraries/classes/Config/Descriptions.php:1246
 msgid "User for config auth"
-msgstr "Usuari per autenticació config"
+msgstr "Usuari per a l'autenticació config"
 
 #: libraries/classes/Config/Descriptions.php:1249
 msgid ""
@@ -5967,7 +5962,7 @@ msgstr ""
 
 #: libraries/classes/Config/Descriptions.php:1350
 msgid "Login cookie validity warning"
-msgstr "Avís de validesa de la cookie d'autenticació"
+msgstr "Avís de validesa de la galeta d'autenticació"
 
 #: libraries/classes/Config/Descriptions.php:1353
 msgid ""
@@ -6024,7 +6019,7 @@ msgstr "Títol de la finestra del navegador quan no hi ha res seleccionat."
 
 #: libraries/classes/Config/Descriptions.php:1372
 msgid "Default title"
-msgstr "Títol per defecte"
+msgstr "Títol predeterminat"
 
 #: libraries/classes/Config/Descriptions.php:1374
 msgid "Title of browser window when a server is selected."
@@ -6072,7 +6067,7 @@ msgstr ""
 
 #: libraries/classes/Config/Descriptions.php:1389
 msgid "List of trusted proxies for IP allow/deny"
-msgstr "Llista de proxies confiables per autoritzar/prohibir IP"
+msgstr "Llista de servidors intermediaris de confiança per permetre/denegar IP"
 
 #: libraries/classes/Config/Descriptions.php:1391
 msgid "Directory on server where you can upload files for import."
@@ -6100,7 +6095,7 @@ msgstr ""
 
 #: libraries/classes/Config/Descriptions.php:1404
 msgid "Enable the Developer tab in settings"
-msgstr "Habilita la pestanya de Desenvolupador als paràmetres"
+msgstr "Habilita la pestanya «Desenvolupador» als paràmetres"
 
 #: libraries/classes/Config/Descriptions.php:1406
 msgid "Enables check for latest version on main phpMyAdmin page."
@@ -6249,7 +6244,7 @@ msgstr "Mode de la consola"
 #: libraries/classes/Config/Descriptions.php:1480
 #: templates/console/display.twig:64
 msgid "Group queries"
-msgstr "Agrupa consultes"
+msgstr "Agrupa les consultes"
 
 #: libraries/classes/Config/Descriptions.php:1482 libraries/classes/Sql.php:254
 msgid "Order"
@@ -6343,7 +6338,7 @@ msgstr "Permet als usuaris configurar aquest valor"
 
 #: libraries/classes/Config/Forms/Setup/ServersForm.php:26
 msgid "Config authentication"
-msgstr "Autenticació per configuració"
+msgstr "Autenticació config"
 
 #: libraries/classes/Config/Forms/Setup/ServersForm.php:30
 msgid "HTTP authentication"
@@ -6429,25 +6424,20 @@ msgstr ""
 "permet."
 
 #: libraries/classes/Config/ServerConfigChecks.php:176
-#, fuzzy
-#| msgid ""
-#| "If you feel this is necessary, use additional protection settings - "
-#| "%shost authentication%s settings and %strusted proxies list%s. However, "
-#| "IP-based protection may not be reliable if your IP belongs to an ISP "
-#| "where thousands of users, including you, are connected to."
 msgid ""
 "If you feel this is necessary, use additional protection settings - %1$shost "
 "authentication%2$s settings and %3$strusted proxies list%4%s. However, IP-"
 "based protection may not be reliable if your IP belongs to an ISP where "
 "thousands of users, including you, are connected to."
 msgstr ""
-"Si ho consideres necessari, utilitza paràmetres de protecció extres - %shost "
-"authentication%s i %strusted proxies list%s. Tanmateix, una protecció basada "
-"en adreces IP pot no ser suficient si la teva IP pertany a un proveïdor ISP "
-"amb gran nombre d'usuaris connectats, inclós tu mateix."
+"Si creieu que és necessari, utilitzeu els paràmetres de protecció "
+"addicionals - %1$shost authentication%2$s i %3$strusted proxies list%4%s. "
+"Tanmateix, una protecció basada en adreces IP pot no ser suficient si la "
+"vostra IP pertany a un proveïdor ISP amb un gran nombre d'usuaris "
+"connectats, incloent-vos-hi."
 
 #: libraries/classes/Config/ServerConfigChecks.php:203
-#, fuzzy, php-format
+#, php-format
 msgid ""
 "You set the [kbd]config[/kbd] authentication type and included username and "
 "password for auto-login, which is not a desirable option for live hosts. "
@@ -6458,8 +6448,9 @@ msgstr ""
 "Heu establert el tipus d'autenticació [kbd]config[/kbd] i heu inclòs el nom "
 "d'usuari i la contrasenya per a la connexió automàtica, que es una opció no "
 "recomanable per a servidors de la vida real. Qualsevol que conegui el vostre "
-"URL de phpMyAdmin pot accedir directament al vostre tauler. Establiu el "
-"%sauthentication type%2s a [kbd]cookie[/kbd] o [kbd]http[/kbd]."
+"URL de phpMyAdmin pot accedir directament al vostre tauler de phpMyAdmin. "
+"Establiu el %1$stipus d'autenticació%2$s a [kbd]cookie[/kbd] o "
+"[kbd]http[/kbd]."
 
 #: libraries/classes/Config/ServerConfigChecks.php:230
 msgid "You allow for connecting to the server without a password."
@@ -6471,8 +6462,8 @@ msgid ""
 "%sZip decompression%s requires functions (%s) which are unavailable on this "
 "system."
 msgstr ""
-"%sZip decompression%s necessita les funcions (%s) que no estan disponibles "
-"en aquest sistema."
+"La %sdescompressió zip%s requereix les funcions (%s) que no estan "
+"disponibles en aquest sistema."
 
 #: libraries/classes/Config/ServerConfigChecks.php:324
 #, php-format
@@ -6480,7 +6471,7 @@ msgid ""
 "%sZip compression%s requires functions (%s) which are unavailable on this "
 "system."
 msgstr ""
-"La %scompressió Zip%s necessita les funcions (%s) que no estan disponibles "
+"La %scompressió zip%s requereix les funcions (%s) que no estan disponibles "
 "en aquest sistema."
 
 #: libraries/classes/Config/ServerConfigChecks.php:360
@@ -6490,8 +6481,8 @@ msgid ""
 "encrypt cookies; you don't need to remember it."
 msgstr ""
 "No teniu establert el secret de blowfish i teniu habilitada l'autenticació "
-"[kbd]per galetes[/kbd], així que es generarà automàticament una clau. "
-"S'utilitza per xifrar les galetes; no cal que la recordeu."
+"[kbd]cookie[/kbd], així que es generarà automàticament una clau. S'utilitza "
+"per xifrar les galetes; no cal que la recordeu."
 
 #: libraries/classes/Config/ServerConfigChecks.php:372
 msgid "Key is too short, it should have at least 32 characters."
@@ -6502,18 +6493,15 @@ msgid "Key should contain letters, numbers [em]and[/em] special characters."
 msgstr "La clau pot contenir lletres, números [em]i[/em] caràcters especials."
 
 #: libraries/classes/Config/ServerConfigChecks.php:418
-#, fuzzy, php-format
-#| msgid ""
-#| "%sLogin cookie validity%s greater than %ssession.gc_maxlifetime%s may "
-#| "cause random session invalidation (currently session.gc_maxlifetime is "
-#| "%d)."
+#, php-format
 msgid ""
 "%1$sLogin cookie validity%2$s greater than %3$ssession.gc_maxlifetime%4$s "
 "may cause random session invalidation (currently session.gc_maxlifetime is "
 "%5$d)."
 msgstr ""
-"El valor %slogin cookie validity%s més gran que %ssession.gc_maxlifetime%s "
-"(actualment %d) pot provocar aleatòriament invalidació de sessions."
+"El valor %1$slogin cookie validity%2$s més gran que "
+"%3$ssession.gc_maxlifetime%4$s (actualment %5$d) pot provocar la invalidació "
+"aleatòria de sessions."
 
 #: libraries/classes/Config/ServerConfigChecks.php:442
 #, php-format
@@ -6531,8 +6519,8 @@ msgid ""
 "If using [kbd]cookie[/kbd] authentication and %sLogin cookie store%s is not "
 "0, %sLogin cookie validity%s must be set to a value less or equal to it."
 msgstr ""
-"Si s'utilitza l'autenticació [kbd]per galetes[/kbd] i el valor del "
-"%smagatzem de galets d'identificació%s no és  0, la %svalidesa de la galeta "
+"Si s'utilitza l'autenticació [kbd]cookie[/kbd] i el valor del %smagatzem de "
+"galets d'identificació%s no és  0, la %svalidesa de la galeta "
 "d'identificació%s ha d'establir-se a un valor menor o igual a aquest."
 
 #: libraries/classes/Config/ServerConfigChecks.php:506
@@ -6541,20 +6529,17 @@ msgid ""
 "%1$sBzip2 compression and decompression%2$s requires functions (%3$s) which "
 "are unavailable on this system."
 msgstr ""
-"La %1$scompressió i descompressió Bzip2%2$s necessiten les funcions (%3$s) "
+"La %1$scompressió i descompressió bzip2%2$s requereix les funcions (%3$s) "
 "que no estan disponibles en aquest sistema."
 
 #: libraries/classes/Config/ServerConfigChecks.php:538
-#, fuzzy, php-format
-#| msgid ""
-#| "%sGZip compression and decompression%s requires functions (%s) which are "
-#| "unavailable on this system."
+#, php-format
 msgid ""
 "%1$sGZip compression and decompression%2$s requires functions (%3$s) which "
 "are unavailable on this system."
 msgstr ""
-"%sGZip compression and decompression%s necessita les funcions (%s) que no "
-"estan disponibles en aquest sistema."
+"La %1$scompressió i descompressió gzip%2$s requereix les funcions (%3$s) que "
+"no estan disponibles en aquest sistema."
 
 #: libraries/classes/Config/Validator.php:210
 #: libraries/classes/Config/Validator.php:217
@@ -6576,13 +6561,13 @@ msgid ""
 "Empty signon session name while using [kbd]signon[/kbd] authentication "
 "method!"
 msgstr ""
-"Nom de sessió signon buit mentre s'utilitzava el mètode d'autenticació "
-"[kbd]signon[/kbd]!"
+"Nom de sessió de signon en blanc mentre s'utilitzava el mètode "
+"d'autenticació [kbd]signon[/kbd]!"
 
 #: libraries/classes/Config/Validator.php:273
 msgid "Empty signon URL while using [kbd]signon[/kbd] authentication method!"
 msgstr ""
-"URL signon en blanc mentre s'utilitzava el mètode d'autenticació "
+"URL de signon en blanc mentre s'utilitzava el mètode d'autenticació "
 "[kbd]signon[/kbd]!"
 
 #: libraries/classes/Config/Validator.php:326
@@ -6676,7 +6661,7 @@ msgstr "Tipus d'esdeveniment"
 #: libraries/classes/Controllers/Server/ServerBinlogController.php:159
 #: libraries/classes/ReplicationGui.php:629
 msgid "Server ID"
-msgstr "ID de Servidor"
+msgstr "ID de servidor"
 
 #: libraries/classes/Controllers/Server/ServerBinlogController.php:160
 msgid "Original position"
@@ -7080,21 +7065,16 @@ msgid "Words are separated by a space character (\" \")."
 msgstr "Paraules separades per un espai (\" \")."
 
 #: libraries/classes/DatabaseInterface.php:1462
-#, fuzzy, php-format
-#| msgid ""
-#| "Unable to use timezone %1$s for server %2$d. Please check your "
-#| "configuration setting for [em]$cfg['Servers'][%3$d]['SessionTimeZone'][/"
-#| "em]. phpMyAdmin is currently using the default time zone of the database "
-#| "server."
+#, php-format
 msgid ""
 "Unable to use timezone \"%1$s\" for server %2$d. Please check your "
 "configuration setting for [em]$cfg['Servers'][%3$d]['SessionTimeZone'][/em]. "
 "phpMyAdmin is currently using the default time zone of the database server."
 msgstr ""
-"No és possible usar el fus horari %1$s per al servidor %2$d. Comprova la "
-"teva configuració per a [em]$cfg['Servers'][%3$d]['SessionTimeZone'][/em]. "
-"phpMyAdmin fa servir actualment el fus horari per defecte del servidor de "
-"base de dades."
+"No es pot utilitza la zona horària \"%1$s\" per al servidor %2$d. Comproveu "
+"els paràmetres de la vostra configuració per a "
+"[em]$cfg['Servers'][%3$d]['SessionTimeZone'][/em]. phpMyAdmin utilitza "
+"actualment la zona horària predeterminada del servidor de base de dades."
 
 #: libraries/classes/DatabaseInterface.php:1509
 msgid "Failed to set configured collation connection!"
@@ -9129,7 +9109,7 @@ msgstr "No es pot connectar: paràmetres incorrectes."
 #: templates/login/header.twig:5
 #, php-format
 msgid "Welcome to %s"
-msgstr "Benvingut a %s"
+msgstr "Benvingut o benvinguda a %s"
 
 #: libraries/classes/Plugins/Auth/AuthenticationConfig.php:105
 #, php-format
@@ -9179,10 +9159,8 @@ msgid "Server Choice:"
 msgstr "Elecció de Servidor:"
 
 #: libraries/classes/Plugins/Auth/AuthenticationCookie.php:313
-#, fuzzy
-#| msgid "Could not connect to the database server!"
 msgid "Failed to connect to the reCAPTCHA service!"
-msgstr "No s'ha pogut connectar amb el servidor de dades!"
+msgstr "No s'ha pogut connectar amb el servei reCAPTCHA!"
 
 #: libraries/classes/Plugins/Auth/AuthenticationCookie.php:315
 msgid "Entered captcha is wrong, try again!"
@@ -9419,7 +9397,7 @@ msgstr "Visualitza els comentaris"
 #: libraries/classes/Plugins/Export/ExportOdt.php:112
 #: libraries/classes/Plugins/Export/ExportSql.php:131
 msgid "Display MIME types"
-msgstr "Mostra tipus MIME"
+msgstr "Visualitza els tipus MIME"
 
 #: libraries/classes/Plugins/Export/ExportLatex.php:168
 msgid "Put columns names in the first row:"
@@ -9490,7 +9468,7 @@ msgid ""
 "Display comments <i>(includes info such as export timestamp, PHP version, "
 "and server version)</i>"
 msgstr ""
-"Visualitza els comentaris <i>(que inclou la informació com ara la marca de "
+"Visualitza els comentaris <i>(incloent-hi la informació com ara la marca de "
 "temps d'exportació, la versió de PHP, i la versió del servidor)</i>"
 
 #: libraries/classes/Plugins/Export/ExportSql.php:110
@@ -9561,16 +9539,16 @@ msgstr "Trunca la taula abans de la inserció"
 
 #: libraries/classes/Plugins/Export/ExportSql.php:357
 msgid "Instead of <code>INSERT</code> statements, use:"
-msgstr "En comptes de les sentències <code>INSERT</code> , utilitza:"
+msgstr "En comptes de les sentències <code>INSERT</code>, utilitza:"
 
 #: libraries/classes/Plugins/Export/ExportSql.php:363
 msgid "<code>INSERT DELAYED</code> statements"
-msgstr "sentències <code>INSERT DELAYED</code>"
+msgstr "Sentències <code>INSERT DELAYED</code>"
 
 #: libraries/classes/Plugins/Export/ExportSql.php:375
 #: libraries/classes/Plugins/Export/ExportSql.php:409
 msgid "<code>INSERT IGNORE</code> statements"
-msgstr "sentències <code>INSERT IGNORE</code>"
+msgstr "Sentències <code>INSERT IGNORE</code>"
 
 #: libraries/classes/Plugins/Export/ExportSql.php:389
 msgid "Function to use when dumping data:"
@@ -9634,7 +9612,7 @@ msgstr ""
 
 #: libraries/classes/Plugins/Export/ExportSql.php:519
 msgid "It appears your database uses routines;"
-msgstr "Sembla que la teva base de dades fa servir rutines;"
+msgstr "Sembla que la vostra base de dades utilitza rutines;"
 
 #: libraries/classes/Plugins/Export/ExportSql.php:522
 #: libraries/classes/Plugins/Export/ExportSql.php:1548
@@ -9679,7 +9657,7 @@ msgstr "Error en llegir l'estructura per a la taula %s:"
 
 #: libraries/classes/Plugins/Export/ExportSql.php:1545
 msgid "It appears your database uses views;"
-msgstr "Sembla que la teva base de dades fa servir vistes;"
+msgstr "Sembla que la vostra base de dades utilitza vistes;"
 
 #: libraries/classes/Plugins/Export/ExportSql.php:1722
 msgid "Constraints for dumped tables"
@@ -9715,7 +9693,7 @@ msgstr "RELACIONS PER A LA TAULA"
 
 #: libraries/classes/Plugins/Export/ExportSql.php:2062
 msgid "It appears your table uses triggers;"
-msgstr "Sembla que la teva base de dades fa servir disparadors (-triggers-);"
+msgstr "Sembla que la vostra base de dades utilitza disparadors;"
 
 #: libraries/classes/Plugins/Export/ExportSql.php:2099
 #, php-format
@@ -10025,18 +10003,6 @@ msgstr ""
 "utilitzeu la segona opció, heu d'establir la primera opció a la cadena buida."
 
 #: libraries/classes/Plugins/Transformations/Abs/ExternalTransformationsPlugin.php:28
-#, fuzzy
-#| msgid ""
-#| "LINUX ONLY: Launches an external application and feeds it the column data "
-#| "via standard input. Returns the standard output of the application. The "
-#| "default is Tidy, to pretty-print HTML code. For security reasons, you "
-#| "have to manually edit the file libraries/plugins/transformations/output/"
-#| "Text_Plain_External.php and list the tools you want to make available. "
-#| "The first option is then the number of the program you want to use and "
-#| "the second option is the parameters for the program. The third option, if "
-#| "set to 1, will convert the output using htmlspecialchars() (Default 1). "
-#| "The fourth option, if set to 1, will prevent wrapping and ensure that the "
-#| "output appears all on one line (Default 1)."
 msgid ""
 "LINUX ONLY: Launches an external application and feeds it the column data "
 "via standard input. Returns the standard output of the application. The "
@@ -10049,17 +10015,17 @@ msgid ""
 "option, if set to 1, will prevent wrapping and ensure that the output "
 "appears all on one line (Default 1)."
 msgstr ""
-"NOMÉS LINUX: Llença una aplicació externa i facilita el camp de dades via "
-"standard input. Retorna per la sortida estàndard de l'aplicació. El defecte "
-"és Tidy, per interpretar codi HTML. Per raons de seguretat, has d' editar "
-"manualment l'arxiu libraries/plugins/transformations/output/"
-"Text_Plain_External.php i afegir les eines que vulguis fer servir. La "
-"primera opció és, llavors, el numero del programa que vols fer servir i la "
-"segona opció són els paràmetres per el programa. El tercer paràmetre, si es "
-"posa a 1, convertirà la sortida fent servir htmlspecialchars() (El defecte "
-"és 1). El quart paràmetre, si val 1, posarà un NOWRAP al contingut de les "
-"cel.les de forma que la sortida sencera es mostrarà sense reformatejar (Per "
-"defecte 1)."
+"NOMÉS LINUX: Llença una aplicació externa i alimenta les dades de la columna "
+"a través de l'entrada estàndard. Retorna la sortida estàndard de "
+"l'aplicació. El predeterminat és Tidy, per imprimir de forma elegant el codi "
+"HTML. Per motius de seguretat, heu d'editar manualment el fitxer "
+"libraries/classes/Plugins/Transformations/Output/Text_Plain_External.php i "
+"llistar les eines que vulgueu que estiguin disponibles. La primera opció és, "
+"llavors, el número del programa que voleu utilitzar i la segona opció són "
+"els paràmetres per al programa. La tercera opció, si s'estableix a 1, "
+"convertirà la sortida mitjançant htmlspecialchars() (per defecte és 1). La "
+"quarta opció, si s'estableix a 1, evitarà la divisió estructurada en línies "
+"i farà que la sortida aparegui tota en una sola línia (per defecte 1)."
 
 #: libraries/classes/Plugins/Transformations/Abs/FormattedTransformationsPlugin.php:28
 msgid ""
@@ -10214,10 +10180,8 @@ msgid "Formats text as XML with syntax highlighting."
 msgstr "Dóna format al text com a XML amb ressaltat de sintaxi."
 
 #: libraries/classes/Plugins/TwoFactor/Application.php:129
-#, fuzzy
-#| msgid "Authentication Plugin"
 msgid "Authentication Application (2FA)"
-msgstr "Complement d'autenticació"
+msgstr "Aplicació d'autenticació (2FA)"
 
 #: libraries/classes/Plugins/TwoFactor/Application.php:139
 msgid ""
@@ -10239,34 +10203,29 @@ msgstr ""
 "maquinari que admeten FIDO U2F."
 
 #: libraries/classes/Plugins/TwoFactor/Simple.php:52
-#, fuzzy
-#| msgid "Signon authentication"
 msgid "Simple two-factor authentication"
-msgstr "autenticació Signon"
+msgstr "Autenticació senzilla en dos passos"
 
 #: libraries/classes/Plugins/TwoFactor/Simple.php:62
 msgid "For testing purposes only!"
 msgstr "Només per a propòsits de proves!"
 
 #: libraries/classes/Plugins/TwoFactorPlugin.php:70
-#, fuzzy, php-format
-#| msgid "Hardware authentication failed!"
+#, php-format
 msgid "Two-factor authentication failed: %s"
-msgstr "Error a l'autenticació de maquinari!"
+msgstr "Ha fallat l'autenticació en dos passos: %s"
 
 #: libraries/classes/Plugins/TwoFactorPlugin.php:74
-#, fuzzy
-#| msgid "Hardware authentication failed!"
 msgid "Two-factor authentication failed."
-msgstr "Error a l'autenticació de maquinari!"
+msgstr "Ha fallat l'autenticació en dos passos."
 
 #: libraries/classes/Plugins/TwoFactorPlugin.php:127
 msgid "No Two-Factor"
-msgstr "Sense dos factors"
+msgstr "Sense dos passos"
 
 #: libraries/classes/Plugins/TwoFactorPlugin.php:137
 msgid "Login using password only."
-msgstr "Identificació només amb la contrasenya."
+msgstr "Identificació només amb contrasenya."
 
 #: libraries/classes/PmdCommon.php:550
 msgid "Error: relationship already exists."
@@ -10290,7 +10249,7 @@ msgstr "Error: les funcionalitats relacionals estan inhabilitades!"
 
 #: libraries/classes/PmdCommon.php:634
 msgid "Internal relationship has been added."
-msgstr "Afegida relació interna."
+msgstr "S'ha afegit la relació interna."
 
 #: libraries/classes/PmdCommon.php:640
 msgid "Error: Internal relationship could not be added!"
@@ -10310,7 +10269,7 @@ msgstr "Error: no s'ha pogut eliminar la relació interna!"
 
 #: libraries/classes/PmdCommon.php:715
 msgid "Internal relationship has been removed."
-msgstr "Relació interna eliminada."
+msgstr "S'ha eliminat la relació interna."
 
 #: libraries/classes/RecentFavoriteTable.php:139
 msgid "Could not save recent table!"
@@ -10364,7 +10323,7 @@ msgstr "Configuració de pmadb…"
 
 #: libraries/classes/Relation.php:120 libraries/classes/Relation.php:156
 msgid "General relation features"
-msgstr "Característiques generals de relacions"
+msgstr "Característiques de les relacions generals"
 
 #: libraries/classes/Relation.php:167
 msgid "Display Features"
@@ -10782,7 +10741,7 @@ msgstr "Utilitza el camp de text:"
 #: libraries/classes/ReplicationGui.php:835
 #: libraries/classes/Server/Privileges.php:1627
 msgid "Use Host Table"
-msgstr "Utilitza la Taula de Hosts"
+msgstr "Utilitza la taula d'amfitrions"
 
 #: libraries/classes/ReplicationGui.php:851
 #: libraries/classes/Server/Privileges.php:1653
@@ -11682,7 +11641,7 @@ msgstr "Crea una base de dades amb el mateix nom i atorga tots els privilegis."
 
 #: libraries/classes/Server/Privileges.php:2182
 msgid "Grant all privileges on wildcard name (username\\_%)."
-msgstr "Atorga tots els privilegis en un nom comodí (nomusuari\\_%)."
+msgstr "Atorga tots els privilegis al nom comodí (nomusuari\\_%)."
 
 #: libraries/classes/Server/Privileges.php:2195
 #, php-format
@@ -11874,10 +11833,10 @@ msgid ""
 "server uses, if they have been changed manually. In this case, you should "
 "%sreload the privileges%s before you continue."
 msgstr ""
-"Nota: phpMyAdmin obtén els privilegis dels usuaris directament de les taules "
+"Nota: phpMyAdmin obté els privilegis dels usuaris directament de les taules "
 "de privilegis de MySQL. El contingut d'aquestes taules pot ser diferent dels "
 "privilegis que utilitza el servidor si s'han fet canvis manualment. En "
-"aquest cas, és necessari %srecarregar els privilegis%s abans de continuar."
+"aquest cas, heu de %stornar a carregar els privilegis%s abans de continuar."
 
 #: libraries/classes/Server/Privileges.php:4744
 msgid ""
@@ -11887,10 +11846,10 @@ msgid ""
 "privileges have to be reloaded but currently, you don't have the RELOAD "
 "privilege."
 msgstr ""
-"Nota: phpMyAdmin obtén els privilegis dels usuaris directament de les taules "
+"Nota: phpMyAdmin obté els privilegis dels usuaris directament de les taules "
 "de privilegis de MySQL. El contingut d'aquestes taules pot ser diferent dels "
 "privilegis que utilitza el servidor si s'han fet canvis manualment. En "
-"aquest cas, és necessari recarregar els privilegis però, actualment, no "
+"aquest cas, s'han de tornar a carregar els privilegis però, actualment, no "
 "teniu el privilegi RELOAD."
 
 #: libraries/classes/Server/Privileges.php:5015
@@ -11919,19 +11878,19 @@ msgid ""
 "b> process."
 msgstr ""
 "Aquest servidor MySQL treballa com a <b>mestre</b> i <b>esclau</b> en un "
-"procés de <b>replicació</b> ."
+"procés de <b>replicació</b>."
 
 #: libraries/classes/Server/Status.php:107
 msgid "This MySQL server works as <b>master</b> in <b>replication</b> process."
 msgstr ""
 "Aquest servidor MySQL treballa com a <b>mestre</b> en un procés de "
-"<b>replicació</b> ."
+"<b>replicació</b>."
 
 #: libraries/classes/Server/Status.php:112
 msgid "This MySQL server works as <b>slave</b> in <b>replication</b> process."
 msgstr ""
 "Aquest servidor MySQL treballa com a <b>esclau</b> en un procés de "
-"<b>replicació</b> ."
+"<b>replicació</b>."
 
 #: libraries/classes/Server/Status.php:124
 msgid "Replication status"
@@ -11979,9 +11938,9 @@ msgid ""
 "calculations and by rule of thumb which may not necessarily apply to your "
 "system."
 msgstr ""
-"Tingues en compte però que aquest sistema ofereix recomanacions basades en "
-"càlculs senzills i regles generals que no necessàriament s'apliquen al seu "
-"sistema."
+"Tanmateix tingueu en compte que aquest sistema proporciona recomanacions "
+"basades en càlculs senzills i regles generals que no necessàriament "
+"s'apliquen al vostre sistema."
 
 #: libraries/classes/Server/Status/Advisor.php:48
 msgid ""
@@ -12528,7 +12487,7 @@ msgstr "El nombre de sentències ROLLBACK internes."
 
 #: libraries/classes/Server/Status/Variables.php:436
 msgid "The number of requests to update a row in a table."
-msgstr "El nombre de peticions per a actualitzar una fila en una taula."
+msgstr "El nombre de peticions per actualitzar una fila en una taula."
 
 #: libraries/classes/Server/Status/Variables.php:439
 msgid "The number of requests to insert a row in a table."
@@ -12536,7 +12495,7 @@ msgstr "El nombre de peticions per inserir una fila en una taula."
 
 #: libraries/classes/Server/Status/Variables.php:442
 msgid "The number of pages containing data (dirty or clean)."
-msgstr "El nombre de pàgines contenint dades (brutes o netes)."
+msgstr "El nombre de pàgines que contenen dades (brutes o netes)."
 
 #: libraries/classes/Server/Status/Variables.php:445
 msgid "The number of pages currently dirty."
@@ -12805,8 +12764,8 @@ msgid ""
 msgstr ""
 "El nombre de lectures físiques d'un bloc de clau del disc. Si Key_reads és "
 "gran, llavors el valor de key_buffer_size probablement és massa petit. La "
-"relació de fracàs de la memòria cau es pot calcular com Key_reads/"
-"Key_read_requests."
+"relació de fracassos de la memòria cau es pot calcular com "
+"Key_reads/Key_read_requests."
 
 #: libraries/classes/Server/Status/Variables.php:617
 msgid ""
@@ -13014,7 +12973,7 @@ msgstr "El nombre d'ordenacions que s'han fet amb intervals."
 
 #: libraries/classes/Server/Status/Variables.php:737
 msgid "The number of sorted rows."
-msgstr "El nombre de files classificades."
+msgstr "El nombre de files ordenades."
 
 #: libraries/classes/Server/Status/Variables.php:740
 msgid "The number of sorts that were done by scanning the table."
@@ -13634,7 +13593,7 @@ msgstr ""
 
 #: libraries/classes/Types.php:262
 msgid "An alias for BIGINT UNSIGNED NOT NULL AUTO_INCREMENT UNIQUE"
-msgstr "Un sinònim de BIGINT UNSIGNED NOT NULL AUTO_INCREMENT UNIQUE"
+msgstr "Un àlies per BIGINT UNSIGNED NOT NULL AUTO_INCREMENT UNIQUE"
 
 #: libraries/classes/Types.php:265
 #, php-format
@@ -13983,6 +13942,8 @@ msgid ""
 "Failed to set session cookie. Maybe you are using HTTP instead of HTTPS to "
 "access phpMyAdmin."
 msgstr ""
+"Ha fallat l'establiment de la galeta de sessió. Potser esteu utilitzant HTTP "
+"en lloc de HTTPS per accedir a phpMyAdmin."
 
 #: libraries/common.inc.php:338
 msgid "Invalid authentication method set in configuration:"
@@ -14043,7 +14004,7 @@ msgstr "visualitza la columna"
 
 #: libraries/config.values.php:103
 msgid "Welcome"
-msgstr "Benvingut"
+msgstr "Benvinguda"
 
 #: libraries/config.values.php:123
 msgid "Open"
@@ -14114,10 +14075,8 @@ msgid "Manage your settings"
 msgstr "Gestió dels vostres paràmetres"
 
 #: libraries/user_preferences.inc.php:38
-#, fuzzy
-#| msgid "Config authentication"
 msgid "Two-factor authentication"
-msgstr "Autenticació per configuració"
+msgstr "Autenticació en dos passos"
 
 #: libraries/user_preferences.inc.php:63 prefs_manage.php:296
 msgid "Configuration has been saved."
@@ -14222,19 +14181,15 @@ msgstr "Els paràmetres existents se sobreescriuran!"
 
 #: prefs_manage.php:360
 msgid "You can reset all your settings and restore them to default values."
-msgstr "Podeu restablir tots els vostres paràmetres als valors per defecte."
+msgstr "Podeu restablir tots els vostres paràmetres als valors predeterminats."
 
 #: prefs_twofactor.php:29
-#, fuzzy
-#| msgid "Internal relationship has been removed."
 msgid "Two-factor authentication has been removed."
-msgstr "Relació interna eliminada."
+msgstr "S'ha suprimit l'autenticació en dos passos."
 
 #: prefs_twofactor.php:39
-#, fuzzy
-#| msgid "Invalid authentication method set in configuration:"
 msgid "Two-factor authentication has been configured."
-msgstr "Mètode d'identificació incorrecte establert a la configuració:"
+msgstr "S'ha configurat l'autenticació en dos passos."
 
 #: server_export.php:25
 msgid "View dump (schema) of databases"
@@ -14348,7 +14303,7 @@ msgstr "Visió general"
 
 #: setup/frames/index.inc.php:119
 msgid "Show hidden messages (#MSG_COUNT)"
-msgstr "Mostra missatges ocults (#MSG_COUNT)"
+msgstr "Mostra els missatges ocults (#MSG_COUNT)"
 
 #: setup/frames/index.inc.php:170
 msgid "There are no configured servers"
@@ -14549,8 +14504,6 @@ msgstr "Descripció"
 
 #: templates/table/tracking/structure_snapshot_columns.twig:5
 #: templates/table/tracking/report_table.twig:4
-#, fuzzy
-#| msgid "#"
 msgctxt "Number"
 msgid "#"
 msgstr "#"
@@ -14626,7 +14579,7 @@ msgstr "Fer consistent amb la llista central"
 
 #: templates/display/export/template_options.twig:1
 msgid "Select a template"
-msgstr "Tria una plantilla"
+msgstr "Seleccioneu una plantilla"
 
 #: templates/database/designer/page_selector.twig:2
 msgid "Select page"
@@ -14634,7 +14587,7 @@ msgstr "Seleccioneu la pàgina"
 
 #: templates/table/search/options.twig:6
 msgid "Select columns (at least one):"
-msgstr "Tria les columnes (una com a mínim):"
+msgstr "Seleccioneu les columnes (una com a mínim):"
 
 #: templates/table/search/options.twig:26
 msgid "Add search conditions (body of the \"where\" clause):"
@@ -14658,10 +14611,9 @@ msgid "Save output to a file"
 msgstr "Desa la sortida a un fitxer"
 
 #: templates/display/export/options_output.twig:51
-#, fuzzy, php-format
-#| msgid "Skip tables larger than"
+#, php-format
 msgid "Skip tables larger than %s MiB"
-msgstr "Omet les taules més grans que"
+msgstr "Omet les taules més grans de %s MiB"
 
 #: templates/display/export/options_output_charset.twig:3
 #: templates/display/import/import.twig:97
@@ -14885,10 +14837,9 @@ msgid "Operator"
 msgstr "Operador"
 
 #: templates/database/structure/show_create_row.twig:7
-#, fuzzy, php-format
-#| msgid "Create User"
+#, php-format
 msgid "Create %s"
-msgstr "Crea un usuari"
+msgstr "Crea %s"
 
 #: templates/privileges/add_privileges_routine.twig:3
 msgid "Add privileges on the following routine:"
@@ -14939,11 +14890,11 @@ msgstr "Última comprovació"
 
 #: templates/display/export/template_loading.twig:2
 msgid "Export templates:"
-msgstr "Exportar plantilles:"
+msgstr "Plantilles d'exportació:"
 
 #: templates/display/export/template_loading.twig:6
 msgid "New template:"
-msgstr "Nova plantilla:"
+msgstr "Plantilla nova:"
 
 #: templates/display/export/template_loading.twig:8
 msgid "Template name"
@@ -14964,7 +14915,7 @@ msgstr "Plantilla:"
 
 #: templates/display/export/template_loading.twig:21
 msgid "Update"
-msgstr "Actualitzar"
+msgstr "Actualitza"
 
 #: templates/login/header.twig:12
 msgid ""
@@ -15087,14 +15038,12 @@ msgid "Inside column:"
 msgstr "Dins la columna:"
 
 #: templates/login/twofactor/invalid.twig:2
-#, fuzzy
-#| msgid "%sCreate%s missing phpMyAdmin configuration storage tables."
 msgid ""
 "The configured two factor authentication is not available, please install "
 "missing dependencies."
 msgstr ""
-"%sCrea%s les taules d'enmagatzemament de configuració de phpMyAdmin que "
-"falten."
+"L'autenticació en dos passos configurada no està disponible, instal·leu les "
+"dependències que falten."
 
 #: templates/export/alias_item.twig:8
 msgid "Remove"
@@ -15106,47 +15055,33 @@ msgstr "Finestra de consultes"
 
 #: templates/database/multi_table_query/form.twig:18
 #: templates/database/multi_table_query/form.twig:106
-#, fuzzy
-#| msgid "Select table:"
 msgid "select table"
-msgstr "Tria la taula:"
+msgstr "seleccioneu la taula"
 
 #: templates/database/multi_table_query/form.twig:25
 #: templates/database/multi_table_query/form.twig:114
-#, fuzzy
-#| msgid "Select column:"
 msgid "select column"
-msgstr "Tria columna:"
+msgstr "seleccioneu la columna"
 
 #: templates/database/multi_table_query/form.twig:31
-#, fuzzy
-#| msgid "Tables"
 msgid "Table alias"
-msgstr "Taules"
+msgstr "Àlies de la taula"
 
 #: templates/database/multi_table_query/form.twig:32
-#, fuzzy
-#| msgid "Column names"
 msgid "Column alias"
-msgstr "Nom de les columnes"
+msgstr "Àlies de la columna"
 
 #: templates/database/multi_table_query/form.twig:35
-#, fuzzy
-#| msgid "Use this column to label each point"
 msgid "Use this column in criteria"
-msgstr "Utilitza aquesta columna per etiquetar cada punt"
+msgstr "Utilitza aquesta columna al criteri"
 
 #: templates/database/multi_table_query/form.twig:38
-#, fuzzy
-#| msgid "Criteria:"
 msgid "criteria"
-msgstr "Criteris:"
+msgstr "criteri"
 
 #: templates/database/multi_table_query/form.twig:52
-#, fuzzy
-#| msgid "Add %s"
 msgid "Add as"
-msgstr "Afegeix %s"
+msgstr "Afegeix com"
 
 #: templates/database/multi_table_query/form.twig:97
 msgid "Another column"
@@ -15261,17 +15196,15 @@ msgstr "subconsulta"
 
 #: templates/login/twofactor/application.twig:2
 #: templates/login/twofactor/application_configure.twig:9
-#, fuzzy
-#| msgid "Authentication"
 msgid "Authentication code:"
-msgstr "Autenticació"
+msgstr "Codi d'autenticació:"
 
 #: templates/login/twofactor/application.twig:4
 msgid ""
 "Open the two-factor authentication app on your device to view your "
 "authentication code and verify your identity."
 msgstr ""
-"Obriu l'aplicació d'autenticació de dos factors al vostre dispositiu per "
+"Obriu l'aplicació d'autenticació en dos passos al vostre dispositiu per "
 "veure el codi d'autenticació i verificar la vostra identitat."
 
 #: templates/database/structure/table_header.twig:27
@@ -15482,13 +15415,10 @@ msgstr[0] "%1$s resultat a <strong>%2$s</strong>"
 msgstr[1] "%1$s resultats a <strong>%2$s</strong>"
 
 #: templates/database/search/results.twig:56
-#, fuzzy
-#| msgid "<b>Total:</b> <i>%s</i> match"
-#| msgid_plural "<b>Total:</b> <i>%s</i> matches"
 msgid "<strong>Total:</strong> <em>%count%</em> match"
 msgid_plural "<strong>Total:</strong> <em>%count%</em> matches"
-msgstr[0] "<b>Total:</b> <i>%s</i> resultat"
-msgstr[1] "<b>Total:</b> <i>%s</i> resultats"
+msgstr[0] "<strong>Total:</strong> <em>%s</em> coincidència"
+msgstr[1] "<strong>Total:</strong> <em>%s</em> coincidències"
 
 #: templates/login/twofactor/key_configure.twig:3
 msgid ""
@@ -15522,10 +15452,9 @@ msgstr "Nou nom de pàgina"
 
 #: templates/display/export/options_output_save_dir.twig:5
 #: templates/display/export/options_quick_export.twig:8
-#, fuzzy, php-format
-#| msgid "Save on server in the directory <b>%s</b>"
+#, php-format
 msgid "Save on server in the directory <strong>%s</strong>"
-msgstr "Desa al servidor dins del directori <b>%s</b>"
+msgstr "Desa al servidor dins del directori <strong>%s</strong>"
 
 #: templates/table/search/options_zoom.twig:6
 msgid "Use this column to label each point"
@@ -15549,11 +15478,11 @@ msgstr "Files:"
 
 #: templates/display/export/options_rows.twig:7
 msgid "Dump some row(s)"
-msgstr "Bolca alguna(es) fila(es)"
+msgstr "Bolca algunes files"
 
 #: templates/display/export/options_rows.twig:23
 msgid "Row to begin at:"
-msgstr "Fila que comença a:"
+msgstr "A partir de la fila:"
 
 #: templates/display/export/options_rows.twig:32
 msgid "Dump all rows"
@@ -15698,7 +15627,7 @@ msgid ""
 "Please scan following QR code into the two-factor authentication app on your "
 "device and enter authentication code it generates."
 msgstr ""
-"Escanegeu el codi QR següent a l'aplicació d'autenticació de dos factors del "
+"Escanegeu el codi QR següent a l'aplicació d'autenticació en dos passos del "
 "vostre dispositiu i introduïu el codi d'autenticació que genera."
 
 #: templates/table/structure/add_column.twig:9
@@ -15732,7 +15661,7 @@ msgstr "Proposa una estructura de taula"
 
 #: templates/table/structure/optional_action_links.twig:22
 msgid "Normalize"
-msgstr "Normalitzar"
+msgstr "Normalitza"
 
 #: templates/table/structure/optional_action_links.twig:28
 msgid "Track view"
@@ -15770,10 +15699,8 @@ msgid "No preview available."
 msgstr "No hi ha vista prèvia disponible."
 
 #: templates/theme_preview.twig:13
-#, fuzzy
-#| msgid "take it"
 msgid "Take it"
-msgstr "agafa"
+msgstr "Agafa-ho"
 
 #: templates/prefs_autoload.twig:7
 msgid ""
@@ -15809,16 +15736,12 @@ msgstr "Agrega"
 
 #: templates/prefs_twofactor_configure.twig:2 templates/prefs_twofactor.twig:43
 #: templates/prefs_twofactor.twig:54
-#, fuzzy
-#| msgid "Config authentication"
 msgid "Configure two-factor authentication"
-msgstr "Autenticació per configuració"
+msgstr "Configura l'autenticació en dos passos"
 
 #: templates/prefs_twofactor_configure.twig:8
-#, fuzzy
-#| msgid "Config authentication"
 msgid "Enable two-factor authentication"
-msgstr "Autenticació per configuració"
+msgstr "Habilita l'autenticació en dos passos"
 
 #: templates/console/bookmark_content.twig:7 templates/console/display.twig:31
 #: templates/console/display.twig:84 templates/console/display.twig:175
@@ -15982,10 +15905,8 @@ msgid "Edit view"
 msgstr "Edita la vista"
 
 #: templates/prefs_twofactor_confirm.twig:2
-#, fuzzy
-#| msgid "Config authentication"
 msgid "Confirm disabling two-factor authentication"
-msgstr "Autenticació per configuració"
+msgstr "Confirmeu la inhabilitació de l'autenticació en dos passos"
 
 #: templates/prefs_twofactor_confirm.twig:5
 msgid ""
@@ -15996,10 +15917,8 @@ msgstr ""
 "vos només amb la contrasenya."
 
 #: templates/prefs_twofactor_confirm.twig:9 templates/prefs_twofactor.twig:37
-#, fuzzy
-#| msgid "Config authentication"
 msgid "Disable two-factor authentication"
-msgstr "Autenticació per configuració"
+msgstr "Inhabilita l'autenticació en dos passos"
 
 #: templates/database/structure/structure_table_row.twig:222
 msgid "in use"
@@ -16067,7 +15986,7 @@ msgstr "Ordena per:"
 
 #: templates/console/display.twig:64
 msgid "Ungroup queries"
-msgstr "Desagrupa consultes"
+msgstr "Desagrupa les consultes"
 
 #: templates/console/display.twig:84
 msgid "Show trace"
@@ -16121,10 +16040,8 @@ msgid "Index choice:"
 msgstr "Tria de l'índex:"
 
 #: templates/table/index_form.twig:42
-#, fuzzy
-#| msgid "Active options"
 msgid "Advanced Options"
-msgstr "Opcions actives"
+msgstr "Opcions avançades"
 
 #: templates/table/index_form.twig:48
 msgid "Key block size:"
@@ -16193,22 +16110,16 @@ msgstr ""
 "continuació, confirmeu la identificació al dispositiu."
 
 #: templates/columns_definitions/table_fields_definitions.twig:17
-#, fuzzy
-#| msgid ""
-#| "If column type is \"enum\" or \"set\", please enter the values using this "
-#| "format: 'a','b','c'…<br />If you ever need to put a backslash (\"\\\") or "
-#| "a single quote (\"'\") amongst those values, precede it with a backslash "
-#| "(for example '\\\\xyz' or 'a\\'b')."
 msgid ""
 "If column type is \"enum\" or \"set\", please enter the values using this "
 "format: 'a','b','c'…<br />If you ever need to put a backslash (\"\") or a "
 "single quote (\"'\") amongst those values, precede it with a backslash (for "
 "example '\\\\xyz' or 'a\\'b')."
 msgstr ""
-"Si el tipus de camp és \"enum\" o \"set\", entra els valors fent servir el "
-"format: 'a','b','c'…<br />Si mai necessites escriure la barra invertida (\"\\"
-"\") o la cometa simple (\"'\") abans d'aquests valors, escriu davant barres "
-"invertides (per exemple '\\\\xyz' o 'a\\'b')."
+"Si el tipus de camp és \"enum\" o \"set\", introduïu els valors mitjançant "
+"aquest format: 'a','b','c'…<br />Si alguna vegada us cal posar una barra "
+"invertida (\"\\\") o la cometa simple (\"'\") abans d'aquests valors, "
+"escriviu una barra invertida (per exemple '\\\\xyz' o 'a\\'b')."
 
 #: templates/columns_definitions/table_fields_definitions.twig:21
 msgid ""
@@ -16237,22 +16148,16 @@ msgstr "Opcions de transformació de visualització al navegador"
 
 #: templates/columns_definitions/table_fields_definitions.twig:83
 #: templates/columns_definitions/table_fields_definitions.twig:94
-#, fuzzy
-#| msgid ""
-#| "Please enter the values for transformation options using this format: "
-#| "'a', 100, b,'c'…<br />If you ever need to put a backslash (\"\\\") or a "
-#| "single quote (\"'\") amongst those values, precede it with a backslash "
-#| "(for example '\\\\xyz' or 'a\\'b')."
 msgid ""
 "Please enter the values for transformation options using this format: 'a', "
 "100, b,'c'…<br />If you ever need to put a backslash (\"\\\") or a single "
 "quote (\"'\") amongst those values, precede it with a backslash (for example "
 "'\\\\xyz' or 'a\\'b')."
 msgstr ""
-"Entra els valors per a transformar utilitzant aquest format: 'a', 100, b,'c'…"
-"<br />Si mai necessites escriure una barra invertida (\"\\\") o un apòstrof "
-"(\"'\") entre aquests valors, posa una barra invertida devant (per exemple "
-"'\\\\xyz' o 'a\\'b')."
+"Entra els valors per a transformar utilitzant aquest format: 'a', 100, "
+"b,'c'…<br />Si alguna vegada us cal posar una barra invertida (\"\\\") o la "
+"cometa simple (\"'\") abans d'aquests valors, escriviu una barra invertida ("
+"per exemple '\\\\xyz' o 'a\\'b')."
 
 #: templates/columns_definitions/table_fields_definitions.twig:93
 msgid "Input transformation options"
@@ -16295,35 +16200,33 @@ msgid "Column-specific privileges"
 msgstr "Privilegis específics de columna"
 
 #: templates/prefs_twofactor.twig:3
-#, fuzzy
-#| msgid "Authentication settings."
 msgid "Two-factor authentication status"
-msgstr "Paràmetres d'autenticació."
+msgstr "Estat de l'autenticació en dos passos"
 
 #: templates/prefs_twofactor.twig:9
 msgid ""
 "Two-factor authentication is not available, please install optional "
 "dependencies to enable authentication backends."
 msgstr ""
-"No està disponible l'autenticació de dos factors, instal·leu les "
-"dependències opcionals per habilitar els dorsals d'autenticació."
+"No està disponible l'autenticació en dos passos, instal·leu les dependències "
+"opcionals per habilitar els dorsals d'autenticació."
 
 #: templates/prefs_twofactor.twig:10
 msgid "Following composer packages are missing:"
-msgstr ""
+msgstr "Falten els paquets següents de composer:"
 
 #: templates/prefs_twofactor.twig:18
 msgid "Two-factor authentication is available and configured for this account."
 msgstr ""
-"L'autenticació de dos factors està disponible i configurada per a aquest "
+"L'autenticació en dos passos està disponible i configurada per a aquest "
 "compte."
 
 #: templates/prefs_twofactor.twig:20
 msgid ""
 "Two-factor authentication is available, but not configured for this account."
 msgstr ""
-"L'autenticació de dos factors està disponible, però no està configurada per "
-"a aquest compte."
+"L'autenticació en dos passos està disponible, però no està configurada per a "
+"aquest compte."
 
 #: templates/prefs_twofactor.twig:24
 msgid ""
@@ -16415,7 +16318,7 @@ msgstr "Defineix àlies nous"
 
 #: templates/export/alias_add.twig:9
 msgid "Select database:"
-msgstr "Tria la base de dades:"
+msgstr "Seleccioneu la base de dades:"
 
 #: templates/export/alias_add.twig:15
 msgid "New database name"
@@ -16423,7 +16326,7 @@ msgstr "Nom de la nova base de dades"
 
 #: templates/export/alias_add.twig:23
 msgid "Select table:"
-msgstr "Tria la taula:"
+msgstr "Seleccioneu la taula:"
 
 #: templates/export/alias_add.twig:29
 msgid "New table name"
@@ -16431,7 +16334,7 @@ msgstr "Nom de la nova taula"
 
 #: templates/export/alias_add.twig:37
 msgid "Select column:"
-msgstr "Tria columna:"
+msgstr "Seleccioneu la columna:"
 
 #: templates/export/alias_add.twig:43
 msgid "New column name"
@@ -16575,7 +16478,8 @@ msgstr ""
 #, php-format
 msgid "The slow query rate should be below 5%%, your value is %s%%."
 msgstr ""
-"La taxa de consultes lentes ha de ser inferior al 5%%, el teu valor és %s%%."
+"La relació de consultes lentes ha de ser inferior al 5%%, el vostre valor és "
+"%s%%."
 
 #: libraries/advisory_rules.txt:70
 msgid "Slow query rate"
@@ -16669,7 +16573,7 @@ msgid ""
 "You should upgrade, as MySQL 5.1 has improved performance, and MySQL 5.5 "
 "even more so."
 msgstr ""
-"Hauries d'actualitzar, ja que MySQL 5.1 té millor rendiment, i encara és "
+"Hauríeu d'actualitzar, ja que MySQL 5.1 té un rendiment millor, i encara és "
 "millor en MySQL 5.5."
 
 #: libraries/advisory_rules.txt:105 libraries/advisory_rules.txt:112
@@ -16692,8 +16596,8 @@ msgid ""
 "You should upgrade, as recent versions of MySQL 5.1 have improved "
 "performance and MySQL 5.5 even more so."
 msgstr ""
-"Hauries d'actualitzar, ja que les darreres versions de MySQL 5.1 tenen "
-"millor rendiment, i MySQL 5.05 encara més."
+"Hauríeu d'actualitzar, ja que les versions més recents de MySQL 5.1 tenen "
+"millor rendiment, i encara és millor en MySQL 5.5."
 
 #: libraries/advisory_rules.txt:117
 msgid "Version less than 5.5.8 (the first GA release of 5.5)."
@@ -16701,7 +16605,7 @@ msgstr "Versió inferior a 5.5.8 (la primera versió disponible pública de 5.5)
 
 #: libraries/advisory_rules.txt:118
 msgid "You should upgrade, to a stable version of MySQL 5.5."
-msgstr "Heu d'actualitzar a una versió estable de MySQL 5.5."
+msgstr "Hauríeu d'actualitzar a una versió estable de MySQL 5.5."
 
 #: libraries/advisory_rules.txt:121 libraries/advisory_rules.txt:128
 msgid "Distribution"
@@ -16752,7 +16656,7 @@ msgstr "Arquitectura MySQL"
 
 #: libraries/advisory_rules.txt:138
 msgid "MySQL is not compiled as a 64-bit package."
-msgstr "MySQL no s'ha compilat com a paquet de 64 bits."
+msgstr "No s'ha compilat MySQL com un paquet de 64 bits."
 
 #: libraries/advisory_rules.txt:139
 msgid ""
@@ -16760,15 +16664,15 @@ msgid ""
 "so MySQL might not be able to access all of your memory. You might want to "
 "consider installing the 64-bit version of MySQL."
 msgstr ""
-"La teva capacitat de memòria és superior a 3 GiB (suposant que el servidor "
-"està en localhost), de manera que MySQL no podria ser capaç d'accedir a la "
-"totalitat de la seva memòria. És possible que vulgueu considerar la "
-"instal·lació de la versió de 64 bits de MySQL."
+"La capacitat de la vostra memòria és superior als 3 GiB (suposant que el "
+"servidor està a localhost), de manera que MySQL no podria ser capaç "
+"d'accedir a la totalitat de la vostra memòria. És possible que vulgueu "
+"considerar la instal·lació de la versió de 64 bits de MySQL."
 
 #: libraries/advisory_rules.txt:140
 #, php-format
 msgid "Available memory on this host: %s"
-msgstr "Memòria disponible en aquest servidor: %s"
+msgstr "Memòria disponible en aquest amfitrió: %s"
 
 #: libraries/advisory_rules.txt:146
 msgid "Query cache disabled"
@@ -16786,9 +16690,9 @@ msgid ""
 "memcached, ignore this recommendation."
 msgstr ""
 "Se sap que la memòria cau de consultes millora en gran mesura el rendiment "
-"si s'ha configurat correctament. Activa'l mitjançant l'establiment de "
-"{query_cache_size} a un valor MIB de 2 dígits i ajusta {query_cache_type} a "
-"'ON'. <b>Nota:</b> Si utilitzes memcached, ignora aquesta recomanació."
+"si s'ha configurat correctament. Habiliteu-ho mitjançant l'establiment de "
+"{query_cache_size} a un valor MIB de 2 dígits i establiu {query_cache_type} "
+"a 'ON'. <b>Nota:</b> Si utilitzeu memcached, ignoreu aquesta recomanació."
 
 #: libraries/advisory_rules.txt:151
 msgid "query_cache_size is set to 0 or query_cache_type is set to 'OFF'"
@@ -16834,8 +16738,8 @@ msgstr "Eficiència del cau de consultes (%%)"
 #: libraries/advisory_rules.txt:163
 msgid "Query cache not running efficiently, it has a low hit rate."
 msgstr ""
-"La memòria cau de consulta no s'executa de manera eficient, té una taxa "
-"d'èxit baixa."
+"La memòria cau de consulta no s'executa de manera eficient, té una relació "
+"d'encerts baixa."
 
 #: libraries/advisory_rules.txt:164
 msgid "Consider increasing {query_cache_limit}."
@@ -17047,7 +16951,7 @@ msgstr ""
 
 #: libraries/advisory_rules.txt:218
 msgid "Sort rows"
-msgstr "Files classificades"
+msgstr "Ordenació de les files"
 
 #: libraries/advisory_rules.txt:221
 msgid "There are lots of rows being sorted."
@@ -17072,7 +16976,7 @@ msgstr "Mitjana de files ordenades: %s"
 
 #: libraries/advisory_rules.txt:226
 msgid "Rate of joins without indexes"
-msgstr "Rati d'unions (\"JOIN\") sense índex"
+msgstr "Relació d'unions sense índex"
 
 #: libraries/advisory_rules.txt:229
 msgid "There are too many joins without indexes."
@@ -17095,7 +16999,7 @@ msgstr ""
 
 #: libraries/advisory_rules.txt:233
 msgid "Rate of reading first index entry"
-msgstr "Taxa de lectura del primer índex"
+msgstr "Relació de lectura del primer índex"
 
 #: libraries/advisory_rules.txt:236
 msgid "The rate of reading the first index entry is high."
@@ -17149,8 +17053,8 @@ msgid ""
 "Rate of reading fixed position average: %s, this value should be less than 1 "
 "per hour"
 msgstr ""
-"Taxa de lectura d'una posició fixa: %s, aquest valor ha de ser inferior a 1 "
-"per hora"
+"Relació de lectura d'una posició fixa: %s, aquest valor ha de ser inferior a "
+"1 per hora"
 
 #: libraries/advisory_rules.txt:247
 msgid "Rate of reading next table row"
@@ -17243,7 +17147,7 @@ msgstr ""
 
 #: libraries/advisory_rules.txt:269
 msgid "Temp disk rate"
-msgstr "Rati de taules temporals en disc"
+msgstr "Relació de disc temporal"
 
 #: libraries/advisory_rules.txt:273
 msgid ""
@@ -17359,7 +17263,7 @@ msgstr ""
 
 #: libraries/advisory_rules.txt:309
 msgid "Rate of table open"
-msgstr "Rati de taules obertes"
+msgstr "Relació de taules obertes"
 
 #: libraries/advisory_rules.txt:312
 msgid "The rate of opening tables is high."
@@ -17447,14 +17351,14 @@ msgstr ""
 
 #: libraries/advisory_rules.txt:337
 msgid "Table lock wait rate"
-msgstr "Taxa d'espera de bloqueig de taules"
+msgstr "Relació d'espera de bloqueig de taules"
 
 #: libraries/advisory_rules.txt:342
 #, php-format
 msgid "Table lock wait rate: %s, this value should be less than 1 per hour"
 msgstr ""
-"Taxa d'espera de bloqueig de taula: %s, aquest valor ha de ser inferior a 1 "
-"per hora"
+"Relació d'espera de bloqueig de taula: %s, aquest valor ha de ser inferior a "
+"1 per hora"
 
 #: libraries/advisory_rules.txt:344
 msgid "Thread cache"
@@ -17573,7 +17477,7 @@ msgstr ""
 
 #: libraries/advisory_rules.txt:381
 msgid "Percentage of aborted connections"
-msgstr "Percentatge de connexions fallides"
+msgstr "Percentatge de connexions avortades"
 
 #: libraries/advisory_rules.txt:384 libraries/advisory_rules.txt:391
 msgid "Too many connections are aborted."
@@ -17598,15 +17502,15 @@ msgstr ""
 
 #: libraries/advisory_rules.txt:388
 msgid "Rate of aborted connections"
-msgstr "Rati de connexions fallides"
+msgstr "Relació de connexions avortades"
 
 #: libraries/advisory_rules.txt:393
 #, php-format
 msgid ""
 "Aborted connections rate is at %s, this value should be less than 1 per hour"
 msgstr ""
-"La taxa de connexions avortades és de %s, aquest valor ha de ser inferior a "
-"1 per hora"
+"La relació de connexions avortades és de %s, aquest valor ha de ser inferior "
+"a 1 per hora"
 
 #: libraries/advisory_rules.txt:395
 msgid "Percentage of aborted clients"
@@ -17635,13 +17539,13 @@ msgstr ""
 
 #: libraries/advisory_rules.txt:402
 msgid "Rate of aborted clients"
-msgstr "Rati de clients avortats"
+msgstr "Relació de clients avortats"
 
 #: libraries/advisory_rules.txt:407
 #, php-format
 msgid "Aborted client rate is at %s, this value should be less than 1 per hour"
 msgstr ""
-"La taxa de clients avortats és de %s, aquest valor ha de ser inferior a 1 "
+"La relació de clients avortats és de %s, aquest valor ha de ser inferior a 1 "
 "per hora"
 
 #: libraries/advisory_rules.txt:411
