@@ -4,16 +4,16 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.7.8-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2018-01-22 14:57+0100\n"
-"PO-Revision-Date: 2017-10-04 19:50+0000\n"
-"Last-Translator: urty5656 <urty5656@gmail.com>\n"
-"Language-Team: Korean <https://hosted.weblate.org/projects/phpmyadmin/4-7/ko/"
-">\n"
+"PO-Revision-Date: 2018-02-12 15:28+0000\n"
+"Last-Translator: Michal Čihař <michal@cihar.com>\n"
+"Language-Team: Korean "
+"<https://hosted.weblate.org/projects/phpmyadmin/4-7/ko/>\n"
 "Language: ko\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Weblate 2.17-dev\n"
+"X-Generator: Weblate 2.19-dev\n"
 
 #: ajax.php:16 ajax.php:33 export.php:192 schema_export.php:64
 msgid "Bad type!"
@@ -297,13 +297,8 @@ msgid "The database name is empty!"
 msgstr "데이터베이스명이 없습니다!"
 
 #: db_operations.php:61
-#, fuzzy
-#| msgid ""
-#| "Cannot rename database to the same name. Change the name and try again"
 msgid "Cannot copy database to the same name. Change the name and try again."
-msgstr ""
-"같은 이름으로 데이터베이스의 이름을 변경할 수 없습니다. 이름을 바꾸어 다시 시"
-"도해 주세요"
+msgstr "데이터베이스를 동일한 이름으로 복사할 수 없습니다. 이름을 변경하고 다시 시도하십시오."
 
 #: db_operations.php:150
 #, php-format
