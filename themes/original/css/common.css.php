@@ -3323,6 +3323,10 @@ body .ui-dialog .ui-button-text-only .ui-button-text {
     display: none;
 }
 
+.responsivetable {
+    overflow-x: auto !important;
+}
+
 @media only screen and (max-width: 768px) {
     /* For mobile phones: */
     #main_pane_left {
