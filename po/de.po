@@ -4,10 +4,10 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin-docs 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2018-01-22 14:57+0100\n"
-"PO-Revision-Date: 2018-01-22 13:14+0000\n"
-"Last-Translator: Microgamer Developer <microgamer.developer@gmail.com>\n"
-"Language-Team: German <https://hosted.weblate.org/projects/phpmyadmin/4-7/de/"
-">\n"
+"PO-Revision-Date: 2018-02-12 15:28+0000\n"
+"Last-Translator: Michal Čihař <michal@cihar.com>\n"
+"Language-Team: German "
+"<https://hosted.weblate.org/projects/phpmyadmin/4-7/de/>\n"
 "Language: de\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -297,13 +297,10 @@ msgid "The database name is empty!"
 msgstr "Der Datenbankname ist leer!"
 
 #: db_operations.php:61
-#, fuzzy
-#| msgid ""
-#| "Cannot rename database to the same name. Change the name and try again"
 msgid "Cannot copy database to the same name. Change the name and try again."
 msgstr ""
-"Kann die Datenbank nicht auf den selben Namen umbenennen. Ändern Sie den "
-"Namen und versuchen Sie es erneut"
+"Kann die Datenbank nicht auf den selben Namen kopieren. Ändern Sie den Namen "
+"und versuchen Sie es erneut."
 
 #: db_operations.php:150
 #, php-format
