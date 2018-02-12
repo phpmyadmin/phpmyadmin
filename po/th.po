@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 4.8.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
-"POT-Creation-Date: 2018-01-22 14:58+0100\n"
+"POT-Creation-Date: 2018-02-12 16:30+0100\n"
 "PO-Revision-Date: 2017-11-01 09:24+0000\n"
 "Last-Translator: Jira Aphisitworachorch <totoasanan21914@hotmail.com>\n"
 "Language-Team: Thai <https://hosted.weblate.org/projects/phpmyadmin/master/"
@@ -27,16 +27,16 @@ msgid ""
 msgstr ""
 "แฟ้ม %s ไม่สามารถใช้งานได้ในระบบนี้ สำหรับข้อมูลเพิ่มเติมโปรดเข้าไปที่ www.phpmyadmin.net"
 
-#: db_central_columns.php:153
+#: db_central_columns.php:127
 msgid "The central list of columns for the current database is empty."
 msgstr "ไม่พบรายการกลางของฐานข้อมูลปัจจุบัน"
 
-#: db_central_columns.php:183
+#: db_central_columns.php:156
 #, fuzzy
 msgid "Click to sort."
 msgstr "คลิกเพื่อเรียงลำดับ"
 
-#: db_central_columns.php:212
+#: db_central_columns.php:175
 #, php-format
 msgid "Showing rows %1$s - %2$s."
 msgstr "กำลังแสดงแถวที่ %1$s - %2$s"
@@ -47,13 +47,13 @@ msgstr "หมายเหตุของฐานข้อมูล"
 
 #: db_datadict.php:106
 #: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php:596
-#: templates/table/structure/display_table_stats.twig:6
 #: templates/columns_definitions/column_definitions_form.twig:72
+#: templates/table/structure/display_table_stats.twig:6
 msgid "Table comments:"
 msgstr "หมายเหตุของตาราง:"
 
 #: db_datadict.php:115 libraries/classes/Index.php:723
-#: libraries/classes/InsertEdit.php:1653
+#: libraries/classes/InsertEdit.php:1910
 #: libraries/classes/Navigation/Nodes/NodeColumn.php:30
 #: libraries/classes/Plugins/Export/ExportHtmlword.php:290
 #: libraries/classes/Plugins/Export/ExportHtmlword.php:386
@@ -65,25 +65,25 @@ msgstr "หมายเหตุของตาราง:"
 #: libraries/classes/Plugins/Export/Helpers/Pdf.php:472
 #: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php:629
 #: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php:652
-#: templates/table/tracking/structure_snapshot_columns.twig:6
+#: templates/columns_definitions/column_name.twig:16
 #: templates/table/relation/foreign_key_row.twig:123
 #: templates/table/relation/foreign_key_row.twig:133
-#: templates/columns_definitions/column_name.twig:16
+#: templates/table/search/table_header.twig:6
+#: templates/table/relation/internal_relational_row.twig:24
 #: templates/table/tracking/structure_snapshot_indexes.twig:9
+#: templates/table/search/zoom_result_form.twig:34
+#: templates/table/tracking/structure_snapshot_columns.twig:6
 #: templates/table/relation/common_form.twig:14
 #: templates/table/relation/common_form.twig:19
 #: templates/table/relation/common_form.twig:34
 #: templates/table/relation/common_form.twig:109
-#: templates/table/search/table_header.twig:6
 #: templates/table/index_form.twig:115
-#: templates/table/search/zoom_result_form.twig:34
-#: templates/table/relation/internal_relational_row.twig:24
 msgid "Column"
 msgstr "คอลัมน์"
 
-#: db_datadict.php:116 libraries/classes/CentralColumns.php:774
-#: libraries/classes/CentralColumns.php:1527 libraries/classes/Index.php:720
-#: libraries/classes/InsertEdit.php:268
+#: db_datadict.php:116 libraries/classes/CentralColumns.php:784
+#: libraries/classes/CentralColumns.php:1479 libraries/classes/Index.php:720
+#: libraries/classes/InsertEdit.php:302
 #: libraries/classes/Plugins/Export/ExportHtmlword.php:293
 #: libraries/classes/Plugins/Export/ExportHtmlword.php:389
 #: libraries/classes/Plugins/Export/ExportLatex.php:527
@@ -99,18 +99,18 @@ msgstr "คอลัมน์"
 #: libraries/classes/Rte/Routines.php:1621 libraries/classes/Rte/RteList.php:90
 #: libraries/classes/Rte/RteList.php:118
 #: libraries/classes/Server/Privileges.php:2564
-#: templates/table/tracking/structure_snapshot_columns.twig:7
-#: templates/table/tracking/structure_snapshot_indexes.twig:6
-#: templates/table/search/table_header.twig:7
-#: templates/database/structure/table_header.twig:32
 #: templates/table/structure/table_structure_header.twig:6
+#: templates/database/structure/table_header.twig:32
+#: templates/table/search/table_header.twig:7
+#: templates/table/tracking/structure_snapshot_indexes.twig:6
+#: templates/table/tracking/structure_snapshot_columns.twig:7
 #: templates/columns_definitions/table_fields_definitions.twig:12
 msgid "Type"
 msgstr "ชนิด"
 
-#: db_datadict.php:117 libraries/classes/CentralColumns.php:785
-#: libraries/classes/CentralColumns.php:1528 libraries/classes/Index.php:726
-#: libraries/classes/InsertEdit.php:1662
+#: db_datadict.php:117 libraries/classes/CentralColumns.php:795
+#: libraries/classes/CentralColumns.php:1480 libraries/classes/Index.php:726
+#: libraries/classes/InsertEdit.php:1919
 #: libraries/classes/Plugins/Export/ExportHtmlword.php:296
 #: libraries/classes/Plugins/Export/ExportHtmlword.php:392
 #: libraries/classes/Plugins/Export/ExportLatex.php:528
@@ -121,16 +121,16 @@ msgstr "ชนิด"
 #: libraries/classes/Plugins/Export/Helpers/Pdf.php:476
 #: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php:632
 #: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php:655
-#: templates/table/tracking/structure_snapshot_columns.twig:9
-#: templates/table/tracking/structure_snapshot_indexes.twig:12
 #: templates/table/structure/table_structure_header.twig:9
-#: templates/columns_definitions/table_fields_definitions.twig:30
+#: templates/table/tracking/structure_snapshot_indexes.twig:12
 #: templates/table/search/zoom_result_form.twig:35
+#: templates/table/tracking/structure_snapshot_columns.twig:9
+#: templates/columns_definitions/table_fields_definitions.twig:30
 msgid "Null"
 msgstr "ค่าว่าง"
 
-#: db_datadict.php:118 libraries/classes/CentralColumns.php:778
-#: libraries/classes/CentralColumns.php:1527
+#: db_datadict.php:118 libraries/classes/CentralColumns.php:788
+#: libraries/classes/CentralColumns.php:1479
 #: libraries/classes/Plugins/Export/ExportHtmlword.php:299
 #: libraries/classes/Plugins/Export/ExportHtmlword.php:395
 #: libraries/classes/Plugins/Export/ExportLatex.php:529
@@ -142,9 +142,9 @@ msgstr "ค่าว่าง"
 #: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php:633
 #: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php:656
 #: libraries/classes/ReplicationGui.php:165
-#: templates/table/tracking/structure_snapshot_columns.twig:10
 #: templates/database/structure/body_for_table_summary.twig:54
 #: templates/table/structure/table_structure_header.twig:10
+#: templates/table/tracking/structure_snapshot_columns.twig:10
 #: templates/columns_definitions/table_fields_definitions.twig:20
 #, fuzzy
 msgid "Default"
@@ -176,17 +176,17 @@ msgid "Comments"
 msgstr "หมายเหตุ"
 
 #: db_datadict.php:154
-#: libraries/classes/Controllers/Table/TableStructureController.php:1195
-#: libraries/classes/Controllers/Table/TableStructureController.php:1200
-#: templates/table/tracking/structure_snapshot_columns.twig:25
+#: libraries/classes/Controllers/Table/TableStructureController.php:1194
+#: libraries/classes/Controllers/Table/TableStructureController.php:1199
 #: templates/table/structure/display_structure.twig:61
-#: templates/columns_definitions/column_indexes.twig:4
 #: templates/table/structure/check_all_table_column.twig:33
+#: templates/columns_definitions/column_indexes.twig:4
+#: templates/table/tracking/structure_snapshot_columns.twig:25
 msgid "Primary"
 msgstr "คีย์หลัก"
 
 #: db_datadict.php:164 js/messages.php:380
-#: libraries/classes/CentralColumns.php:1061
+#: libraries/classes/CentralColumns.php:1051
 #: libraries/classes/Config/FormDisplayTemplate.php:281
 #: libraries/classes/Index.php:568 libraries/classes/Index.php:596
 #: libraries/classes/IndexColumn.php:141 libraries/classes/MultSubmits.php:473
@@ -200,20 +200,20 @@ msgstr "คีย์หลัก"
 #: libraries/classes/Server/Privileges.php:2990
 #: libraries/classes/Server/Privileges.php:3653
 #: libraries/classes/Server/Privileges.php:3682 prefs_manage.php:143
-#: templates/table/tracking/structure_snapshot_columns.twig:33
-#: templates/table/tracking/structure_snapshot_indexes.twig:23
-#: templates/table/tracking/structure_snapshot_indexes.twig:24
-#: templates/prefs_autoload.twig:12
-#: templates/table/structure/table_structure_row.twig:25
 #: templates/privileges/privileges_summary_row.twig:4
 #: templates/privileges/privileges_summary_row.twig:7
 #: templates/privileges/privileges_summary_row.twig:9
+#: templates/prefs_autoload.twig:12
+#: templates/table/tracking/structure_snapshot_indexes.twig:23
+#: templates/table/tracking/structure_snapshot_indexes.twig:24
+#: templates/table/tracking/structure_snapshot_columns.twig:33
+#: templates/table/structure/table_structure_row.twig:25
 #, fuzzy
 msgid "No"
 msgstr "ไม่ใช่"
 
 #: db_datadict.php:164 js/messages.php:528
-#: libraries/classes/CentralColumns.php:1061
+#: libraries/classes/CentralColumns.php:1051
 #: libraries/classes/Config/FormDisplayTemplate.php:281
 #: libraries/classes/Controllers/Server/ServerDatabasesController.php:194
 #: libraries/classes/Controllers/Table/TableStructureController.php:774
@@ -235,16 +235,15 @@ msgstr "ไม่ใช่"
 #: libraries/classes/Server/Privileges.php:2988
 #: libraries/classes/Server/Privileges.php:3650
 #: libraries/classes/Server/Privileges.php:3682
-#: libraries/mult_submits.inc.php:85 libraries/mult_submits.inc.php:220
-#: prefs_manage.php:141
-#: templates/table/tracking/structure_snapshot_columns.twig:33
-#: templates/table/tracking/structure_snapshot_indexes.twig:23
-#: templates/table/tracking/structure_snapshot_indexes.twig:24
-#: templates/prefs_autoload.twig:11
-#: templates/table/structure/table_structure_row.twig:25
-#: templates/privileges/privileges_summary_row.twig:4
+#: libraries/mult_submits.inc.php:86 libraries/mult_submits.inc.php:215
+#: prefs_manage.php:141 templates/privileges/privileges_summary_row.twig:4
 #: templates/privileges/privileges_summary_row.twig:7
 #: templates/privileges/privileges_summary_row.twig:9
+#: templates/prefs_autoload.twig:11
+#: templates/table/tracking/structure_snapshot_indexes.twig:23
+#: templates/table/tracking/structure_snapshot_indexes.twig:24
+#: templates/table/tracking/structure_snapshot_columns.twig:33
+#: templates/table/structure/table_structure_row.twig:25
 msgid "Yes"
 msgstr "ใช่"
 
@@ -284,9 +283,9 @@ msgstr "ตาราง"
 #: libraries/config.values.php:46 libraries/config.values.php:110
 #: libraries/config.values.php:116
 #: templates/table/tracking/structure_snapshot_columns.twig:1
-#: templates/database/central_columns/edit_table_header.twig:2
-#: templates/database/designer/table_list.twig:24
 #: templates/columns_definitions/table_fields_definitions.twig:4
+#: templates/database/designer/table_list.twig:24
+#: templates/database/central_columns/edit_table_header.twig:2
 msgid "Structure"
 msgstr "โครงสร้าง"
 
@@ -368,27 +367,27 @@ msgstr "ไม่มีตารางที่ถูกเลือก"
 msgid "Database Log"
 msgstr "Log ของฐานข้อมูล"
 
-#: error_report.php:69
+#: error_report.php:73
 msgid ""
 "An error has been detected and an error report has been automatically "
 "submitted based on your settings."
 msgstr "ตรวจพบข้อผิดพลาด และรายงานตามที่ได้ตั้งค่าไว้เรียบร้อยแล้ว"
 
-#: error_report.php:73
+#: error_report.php:77
 msgid "Thank you for submitting this report."
 msgstr "ขอบคุณสำหรับการรายงานครั้งนี้"
 
-#: error_report.php:77
+#: error_report.php:81
 msgid ""
 "An error has been detected and an error report has been generated but failed "
 "to be sent."
 msgstr "ตรวจพบข้อผิดพลาด และรายงานได้ถูกสร้างขึ้นแล้ว แต่ไม่สามารถส่งได้ในขณะนี้"
 
-#: error_report.php:82
+#: error_report.php:86
 msgid "If you experience any problems please submit a bug report manually."
 msgstr "หากคุณพบปัญหาในการใช้งานบางอย่าง กรุณารายงานข้อผิดพลาด้วยตัวคุณเอง"
 
-#: error_report.php:86
+#: error_report.php:90
 msgid "You may want to refresh the page."
 msgstr "คุณอาจจะต้องการรีเฟรซหน้านี้"
 
@@ -489,10 +488,10 @@ msgstr "เพิ่มเรขาคณิต"
 #: gis_data_editor.php:415 js/messages.php:350
 #: libraries/classes/BrowseForeigners.php:199
 #: libraries/classes/Display/ChangePassword.php:159
-#: libraries/classes/Index.php:664 libraries/classes/InsertEdit.php:1631
-#: libraries/classes/InsertEdit.php:1669
-#: libraries/classes/Normalization.php:187
-#: libraries/classes/Normalization.php:846 libraries/classes/Operations.php:54
+#: libraries/classes/Index.php:664 libraries/classes/InsertEdit.php:1888
+#: libraries/classes/InsertEdit.php:1926
+#: libraries/classes/Normalization.php:210
+#: libraries/classes/Normalization.php:892 libraries/classes/Operations.php:54
 #: libraries/classes/Operations.php:119 libraries/classes/Operations.php:260
 #: libraries/classes/Operations.php:316 libraries/classes/Operations.php:803
 #: libraries/classes/Operations.php:873 libraries/classes/Operations.php:918
@@ -514,22 +513,22 @@ msgstr "เพิ่มเรขาคณิต"
 #: libraries/classes/SqlQueryForm.php:374
 #: libraries/classes/SqlQueryForm.php:440 libraries/classes/Tracking.php:408
 #: libraries/classes/Tracking.php:531 prefs_manage.php:265 prefs_manage.php:349
-#: server_privileges.php:321
+#: server_privileges.php:321 templates/header_location.twig:18
+#: templates/display/import/import.twig:191
 #: templates/privileges/edit_routine_privileges.twig:23
-#: templates/table/search/selection_form.twig:99
-#: templates/header_location.twig:18
 #: templates/database/search/selection_form.twig:58
-#: templates/display/results/options_block.twig:96
-#: templates/privileges/delete_user_fieldset.twig:16
-#: templates/database/create_table.twig:21
-#: templates/columns_definitions/column_definitions_form.twig:43
-#: templates/table/structure/add_column.twig:23
-#: templates/start_and_number_of_rows_panel.twig:14
-#: templates/display/import/import.twig:191 templates/table/index_form.twig:217
-#: templates/display/export/options_format.twig:18
+#: templates/view_create.twig:114
 #: templates/privileges/privileges_summary.twig:60
-#: templates/server/binlog/log_selector.twig:27 templates/view_create.twig:114
-#: view_operations.php:113
+#: templates/columns_definitions/column_definitions_form.twig:43
+#: templates/start_and_number_of_rows_panel.twig:14
+#: templates/display/export/options_format.twig:18
+#: templates/table/structure/add_column.twig:23
+#: templates/database/create_table.twig:21
+#: templates/privileges/delete_user_fieldset.twig:16
+#: templates/table/search/selection_form.twig:99
+#: templates/display/results/options_block.twig:96
+#: templates/server/binlog/log_selector.twig:27
+#: templates/table/index_form.twig:217 view_operations.php:113
 msgid "Go"
 msgstr "ไป"
 
@@ -1042,7 +1041,7 @@ msgstr ""
 msgid "Save & close"
 msgstr "บันทึกเป็นไฟล์"
 
-#: js/messages.php:112 libraries/classes/InsertEdit.php:1635
+#: js/messages.php:112 libraries/classes/InsertEdit.php:1892
 #: prefs_manage.php:355 prefs_manage.php:366
 #: templates/config/form_display/fieldset_bottom.twig:9
 msgid "Reset"
@@ -1117,9 +1116,9 @@ msgstr "คร่อมฟิลด์ด้วย"
 msgid "Please select column(s) for the index."
 msgstr "เพิ่มคอลัมน์ %s ไปยังดัชนี"
 
-#: js/messages.php:129 libraries/classes/InsertEdit.php:1633
-#: templates/table/relation/common_form.twig:188
+#: js/messages.php:129 libraries/classes/InsertEdit.php:1890
 #: templates/columns_definitions/column_definitions_form.twig:146
+#: templates/table/relation/common_form.twig:188
 #: templates/table/index_form.twig:216
 msgid "Preview SQL"
 msgstr ""
@@ -1398,13 +1397,12 @@ msgstr "กรุณาเพิ่มค่าตัวแปรอย่าง
 #: libraries/classes/Plugins/Schema/SchemaPdf.php:103
 #: libraries/classes/Server/Status/Monitor.php:243
 #: libraries/classes/Server/Status/Processes.php:285
-#: libraries/config.values.php:69
-#: templates/columns_definitions/transformation.twig:4
-#: templates/table/search/rows_zoom.twig:20
+#: libraries/config.values.php:69 templates/table/search/rows_zoom.twig:20
+#: templates/privileges/privileges_summary.twig:30
 #: templates/table/search/options_zoom.twig:12
+#: templates/columns_definitions/transformation.twig:4
 #: templates/database/designer/options_panel.twig:178
 #: templates/display/export/options_output_compression.twig:7
-#: templates/privileges/privileges_summary.twig:30
 msgid "None"
 msgstr "ไม่มี"
 
@@ -1785,14 +1783,15 @@ msgstr ""
 msgid "No parameters found!"
 msgstr "พารามิเตอร์ไม่ถูกต้อง!"
 
-#: js/messages.php:351 templates/database/designer/where_query_panel.twig:85
-#: templates/server/variables/link_template.twig:5
-#: templates/database/designer/having_query_panel.twig:118
-#: templates/database/designer/new_relation_panel.twig:90
-#: templates/database/designer/delete_relation_panel.twig:30
-#: templates/database/designer/options_panel.twig:255
-#: templates/database/designer/rename_to_panel.twig:45
+#: js/messages.php:351
 #: templates/database/designer/aggregate_query_panel.twig:64
+#: templates/database/designer/rename_to_panel.twig:45
+#: templates/database/designer/delete_relation_panel.twig:30
+#: templates/database/designer/new_relation_panel.twig:90
+#: templates/database/designer/where_query_panel.twig:85
+#: templates/database/designer/having_query_panel.twig:118
+#: templates/database/designer/options_panel.twig:255
+#: templates/server/variables/link_template.twig:5
 msgid "Cancel"
 msgstr "ยกเลิก"
 
@@ -1874,13 +1873,14 @@ msgstr "ทิ้งสดมส์"
 msgid "Adding primary key"
 msgstr "เพิ่มคีย์หลัก"
 
-#: js/messages.php:373 templates/database/designer/where_query_panel.twig:83
-#: templates/database/designer/having_query_panel.twig:114
-#: templates/database/designer/new_relation_panel.twig:88
-#: templates/database/designer/options_panel.twig:253
-#: templates/database/designer/rename_to_panel.twig:41
-#: templates/console/display.twig:129
+#: js/messages.php:373
 #: templates/database/designer/aggregate_query_panel.twig:60
+#: templates/database/designer/rename_to_panel.twig:41
+#: templates/database/designer/new_relation_panel.twig:88
+#: templates/console/display.twig:129
+#: templates/database/designer/where_query_panel.twig:83
+#: templates/database/designer/having_query_panel.twig:114
+#: templates/database/designer/options_panel.twig:253
 msgid "OK"
 msgstr "ตกลง"
 
@@ -2006,31 +2006,31 @@ msgstr "ซ่อนช่องใส่คำค้น SQL"
 msgid "Show query box"
 msgstr "แสดงช่องคำค้น SQL"
 
-#: js/messages.php:418 libraries/classes/CentralColumns.php:944
-#: libraries/classes/CentralColumns.php:1311
+#: js/messages.php:418 libraries/classes/CentralColumns.php:934
+#: libraries/classes/CentralColumns.php:1285
 #: libraries/classes/Config/Descriptions.php:1329
 #: libraries/classes/Display/Results.php:3326
-#: libraries/classes/Display/Results.php:4685 libraries/classes/Index.php:746
+#: libraries/classes/Display/Results.php:4685 libraries/classes/Index.php:745
 #: libraries/classes/Server/UserGroups.php:128 libraries/classes/Util.php:595
 #: libraries/classes/Util.php:1077 libraries/classes/Util.php:3321
 #: libraries/classes/Util.php:3322 setup/frames/index.inc.php:157
+#: templates/console/display.twig:31 templates/console/display.twig:175
+#: templates/console/bookmark_content.twig:7
 #: templates/server/variables/variable_row.twig:4
 #: templates/server/variables/variable_row.twig:7
-#: templates/console/bookmark_content.twig:7 templates/console/display.twig:31
-#: templates/console/display.twig:175
 msgid "Edit"
 msgstr "แก้ไข"
 
-#: js/messages.php:419 libraries/classes/CentralColumns.php:946
-#: libraries/classes/CentralColumns.php:1315
+#: js/messages.php:419 libraries/classes/CentralColumns.php:936
+#: libraries/classes/CentralColumns.php:1289
 #: libraries/classes/Display/Results.php:3395
 #: libraries/classes/Display/Results.php:4669
 #: libraries/classes/Server/UserGroups.php:138
 #: libraries/classes/SqlQueryForm.php:427 libraries/classes/Tracking.php:352
 #: setup/frames/index.inc.php:160
-#: templates/display/export/template_loading.twig:22
-#: templates/database/search/results.twig:43
 #: templates/database/designer/delete_relation_panel.twig:28
+#: templates/database/search/results.twig:43
+#: templates/display/export/template_loading.twig:22
 #: templates/console/bookmark_content.twig:7
 msgid "Delete"
 msgstr "ลบ"
@@ -2044,7 +2044,7 @@ msgstr "﻿%d ไม่ใช่หมายเลขแถวที่ถูก
 #: js/messages.php:421
 #: libraries/classes/Controllers/Table/TableSearchController.php:359
 #: libraries/classes/Controllers/Table/TableSearchController.php:854
-#: libraries/classes/Sql.php:214 tbl_change.php:139
+#: libraries/classes/Sql.php:214 tbl_change.php:141
 msgid "Browse foreign values"
 msgstr ""
 
@@ -2058,7 +2058,7 @@ msgstr ""
 msgid "Variable %d:"
 msgstr "ตัวแปร"
 
-#: js/messages.php:426 libraries/classes/Normalization.php:910
+#: js/messages.php:426 libraries/classes/Normalization.php:961
 msgid "Pick"
 msgstr ""
 
@@ -2113,7 +2113,7 @@ msgstr "เพิ่มคีย์หลัก"
 msgid "Primary key added."
 msgstr "ได้เพิ่มไพรมารีคีย์แล้วใน %s"
 
-#: js/messages.php:444 libraries/classes/Normalization.php:213
+#: js/messages.php:444 libraries/classes/Normalization.php:236
 #, fuzzy
 #| msgid "Tracking report"
 msgid "Taking you to next step…"
@@ -2124,10 +2124,10 @@ msgstr "รายงานผลการติดตาม"
 msgid "The first step of normalization is complete for table '%s'."
 msgstr ""
 
-#: js/messages.php:447 libraries/classes/Normalization.php:474
-#: libraries/classes/Normalization.php:521
-#: libraries/classes/Normalization.php:606
-#: libraries/classes/Normalization.php:666
+#: js/messages.php:447 libraries/classes/Normalization.php:504
+#: libraries/classes/Normalization.php:551
+#: libraries/classes/Normalization.php:637
+#: libraries/classes/Normalization.php:701
 #, fuzzy
 #| msgid "End of line"
 msgid "End of step"
@@ -2139,7 +2139,7 @@ msgstr ""
 
 #. l10n: Display text for calendar close link
 #: js/messages.php:449 js/messages.php:772
-#: libraries/classes/Normalization.php:310
+#: libraries/classes/Normalization.php:334
 msgid "Done"
 msgstr "จบ"
 
@@ -2214,13 +2214,13 @@ msgstr ""
 msgid "No dependencies selected!"
 msgstr "ไม่มีฐานข้อมูลที่ถูกเลือก"
 
-#: js/messages.php:478 libraries/classes/CentralColumns.php:1331
-#: libraries/classes/InsertEdit.php:1543
-#: templates/table/relation/common_form.twig:189
-#: templates/server/variables/link_template.twig:2
+#: js/messages.php:478 libraries/classes/CentralColumns.php:1305
+#: libraries/classes/InsertEdit.php:1802
 #: templates/table/structure/partition_definition_form.twig:12
 #: templates/columns_definitions/column_definitions_form.twig:149
 #: templates/table/gis_visualization/gis_visualization.twig:48
+#: templates/table/relation/common_form.twig:189
+#: templates/server/variables/link_template.twig:2
 msgid "Save"
 msgstr "บันทึก"
 
@@ -2314,7 +2314,7 @@ msgid "Data point content"
 msgstr "สารบัญ"
 
 #: js/messages.php:515 js/messages.php:682 js/messages.php:699
-#: libraries/classes/ErrorHandler.php:371 libraries/classes/InsertEdit.php:2664
+#: libraries/classes/ErrorHandler.php:371 libraries/classes/InsertEdit.php:2970
 #: templates/table/index_form.twig:141 templates/table/index_form.twig:177
 msgid "Ignore"
 msgstr "ข้าม"
@@ -2543,9 +2543,9 @@ msgid "Click the drop-down arrow<br />to toggle column's visibility."
 msgstr "กดเพื่อเลือก <br />เพื่อดูสดมภ์"
 
 #: js/messages.php:598 libraries/classes/BrowseForeigners.php:340
-#: templates/table/browse_foreigners/show_all.twig:4
-#: templates/privileges/initials_row.twig:20
 #: templates/display/results/show_all_checkbox.twig:11
+#: templates/privileges/initials_row.twig:20
+#: templates/table/browse_foreigners/show_all.twig:4
 msgid "Show all"
 msgstr "แสดงทั้งหมด"
 
@@ -3226,7 +3226,7 @@ msgid "Please enter a valid HEX input"
 msgstr "﻿%d ไม่ใช่หมายเลขแถวที่ถูกต้อง"
 
 #: js/messages.php:979 libraries/classes/Core.php:296
-#: libraries/classes/Import.php:112 libraries/classes/InsertEdit.php:1248
+#: libraries/classes/Import.php:112 libraries/classes/InsertEdit.php:1490
 #: libraries/classes/Message.php:191 libraries/classes/Util.php:542
 #: view_operations.php:70
 msgid "Error"
@@ -3319,92 +3319,92 @@ msgstr "ชื่อคีย์"
 #: libraries/classes/BrowseForeigners.php:217
 #: libraries/classes/BrowseForeigners.php:219
 #: libraries/classes/Server/Status/Variables.php:229
-#: templates/server/collations/charsets.twig:6
 #: templates/server/plugins/section.twig:10
+#: templates/server/collations/charsets.twig:6
 #: templates/server/engines/engines.twig:5
 msgid "Description"
 msgstr "คำอธิบาย"
 
 #: libraries/classes/BrowseForeigners.php:324
-#: libraries/classes/Language.php:193 libraries/classes/Pdf.php:74
+#: libraries/classes/Language.php:197 libraries/classes/Pdf.php:74
 #: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php:495
 #: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php:520
 #: libraries/classes/Util.php:2292
 msgid "Page number:"
 msgstr "หมายเลขหน้า:"
 
-#: libraries/classes/CentralColumns.php:184
+#: libraries/classes/CentralColumns.php:220
 msgid ""
 "The configuration storage is not ready for the central list of columns "
 "feature."
 msgstr ""
 
-#: libraries/classes/CentralColumns.php:325
+#: libraries/classes/CentralColumns.php:355
 #, php-format
 msgid "Could not add %1$s as they already exist in central list!"
 msgstr ""
 
-#: libraries/classes/CentralColumns.php:340
+#: libraries/classes/CentralColumns.php:370
 #, fuzzy
 #| msgid "Add columns"
 msgid "Could not add columns!"
 msgstr "เพิ่มฟิลด์ใหม่"
 
-#: libraries/classes/CentralColumns.php:421
+#: libraries/classes/CentralColumns.php:447
 #, php-format
 msgid ""
 "Couldn't remove Column(s) %1$s as they don't exist in central columns list!"
 msgstr ""
 
-#: libraries/classes/CentralColumns.php:433
+#: libraries/classes/CentralColumns.php:459
 #, fuzzy
 #| msgid "Could not save recent table"
 msgid "Could not remove columns!"
 msgstr "ไม่สามารถบันทึกตารางล่าสุด"
 
-#: libraries/classes/CentralColumns.php:604
+#: libraries/classes/CentralColumns.php:618
 msgid "YES"
 msgstr ""
 
-#: libraries/classes/CentralColumns.php:604
+#: libraries/classes/CentralColumns.php:618
 msgid "NO"
 msgstr ""
 
-#: libraries/classes/CentralColumns.php:739
+#: libraries/classes/CentralColumns.php:749
 #: libraries/classes/Display/Results.php:961
 #, fuzzy
 #| msgid "Filters"
 msgid "Filter rows"
 msgstr "ตัวกรอง"
 
-#: libraries/classes/CentralColumns.php:741
+#: libraries/classes/CentralColumns.php:751
 #: libraries/classes/Display/Results.php:963
 #, fuzzy
 #| msgid "Search in database"
 msgid "Search this table"
 msgstr "ค้นหาในฐานข้อมูล"
 
-#: libraries/classes/CentralColumns.php:764 libraries/classes/Index.php:717
+#: libraries/classes/CentralColumns.php:774 libraries/classes/Index.php:717
 #: libraries/classes/Rte/RteList.php:89 libraries/classes/Rte/RteList.php:104
 #: libraries/classes/Rte/RteList.php:117
 #: libraries/classes/Server/Privileges.php:2567
 #: libraries/classes/Server/Privileges.php:3546
 #: libraries/classes/Server/UserGroups.php:91
 #: libraries/classes/Tracking.php:162
-#: templates/server/variables/variable_table_head.twig:3
-#: templates/table/structure/display_partitions.twig:33
-#: templates/database/structure/table_header.twig:22
-#: templates/database/tracking/untracked_tables.twig:10
-#: templates/table/structure/table_structure_header.twig:18
 #: templates/database/tracking/tracked_tables.twig:16
-#: templates/server/databases/table_header.twig:37
-#: templates/table/tracking/report_table.twig:8
+#: templates/table/structure/table_structure_header.twig:18
+#: templates/server/variables/variable_table_head.twig:3
+#: templates/database/structure/table_header.twig:22
 #: templates/privileges/privileges_summary.twig:22
+#: templates/table/tracking/report_table.twig:8
+#: templates/table/structure/display_partitions.twig:33
+#: templates/database/tracking/untracked_tables.twig:10
+#: templates/server/databases/table_header.twig:37
 msgid "Action"
 msgstr "กระทำการ"
 
-#: libraries/classes/CentralColumns.php:772
-#: libraries/classes/CentralColumns.php:1527
+#: libraries/classes/CentralColumns.php:782
+#: libraries/classes/CentralColumns.php:1479
 #: libraries/classes/Plugins/Export/ExportHtmlword.php:485
 #: libraries/classes/Plugins/Export/ExportOdt.php:604
 #: libraries/classes/Plugins/Export/ExportTexytext.php:449
@@ -3412,70 +3412,71 @@ msgstr "กระทำการ"
 #: libraries/classes/Rte/Routines.php:943
 #: libraries/classes/Rte/Routines.php:1620 libraries/classes/Rte/RteList.php:88
 #: libraries/classes/Rte/RteList.php:100 libraries/classes/Rte/RteList.php:115
-#: setup/frames/index.inc.php:141 templates/database/create_table.twig:11
+#: setup/frames/index.inc.php:141
 #: templates/table/structure/table_structure_header.twig:5
 #: templates/columns_definitions/table_fields_definitions.twig:9
+#: templates/database/create_table.twig:11
 msgid "Name"
 msgstr "ชื่อ"
 
-#: libraries/classes/CentralColumns.php:776
-#: libraries/classes/CentralColumns.php:1527
+#: libraries/classes/CentralColumns.php:786
+#: libraries/classes/CentralColumns.php:1479
 #: libraries/classes/Rte/Routines.php:945
 #: templates/columns_definitions/table_fields_definitions.twig:16
 msgid "Length/Values"
 msgstr "ความยาว/เซต*"
 
-#: libraries/classes/CentralColumns.php:780
-#: libraries/classes/CentralColumns.php:1528 libraries/classes/Charsets.php:273
+#: libraries/classes/CentralColumns.php:790
+#: libraries/classes/CentralColumns.php:1480 libraries/classes/Charsets.php:273
 #: libraries/classes/Controllers/Server/ServerDatabasesController.php:326
 #: libraries/classes/Index.php:725 libraries/classes/Operations.php:290
 #: libraries/classes/Operations.php:1060
-#: templates/table/tracking/structure_snapshot_columns.twig:8
-#: templates/table/tracking/structure_snapshot_indexes.twig:11
-#: templates/table/search/table_header.twig:8
 #: templates/table/structure/row_stats_table.twig:30
-#: templates/server/collations/charsets.twig:5
-#: templates/database/structure/table_header.twig:33
 #: templates/table/structure/table_structure_header.twig:7
+#: templates/database/structure/table_header.twig:33
+#: templates/server/collations/charsets.twig:5
+#: templates/table/search/table_header.twig:8
+#: templates/table/tracking/structure_snapshot_indexes.twig:11
+#: templates/table/tracking/structure_snapshot_columns.twig:8
 #: templates/columns_definitions/table_fields_definitions.twig:24
 msgid "Collation"
 msgstr "การตรวจทาน"
 
-#: libraries/classes/CentralColumns.php:783
+#: libraries/classes/CentralColumns.php:793
 #, fuzzy
 #| msgid "Attributes"
 msgid "Attribute"
 msgstr "แอตทริบิวต์"
 
-#: libraries/classes/CentralColumns.php:787
-#: libraries/classes/CentralColumns.php:1528
+#: libraries/classes/CentralColumns.php:797
+#: libraries/classes/CentralColumns.php:1480
 msgid "A_I"
 msgstr ""
 
-#: libraries/classes/CentralColumns.php:824
+#: libraries/classes/CentralColumns.php:833
 #, fuzzy
 #| msgid "Select Tables"
 msgid "Select a table"
 msgstr "เลือกตาราง"
 
-#: libraries/classes/CentralColumns.php:889
+#: libraries/classes/CentralColumns.php:890
 #: templates/table/structure/add_column.twig:4
 #, fuzzy
 msgid "Add column"
 msgstr "เพิ่มฟิลด์ใหม่"
 
-#: libraries/classes/CentralColumns.php:901
+#: libraries/classes/CentralColumns.php:902
 #, fuzzy
 #| msgid "Select two columns"
 msgid "Select a column."
 msgstr "เพิ่มสองสดมภ์"
 
-#: libraries/classes/CentralColumns.php:1391
+#: libraries/classes/CentralColumns.php:1355
 #, fuzzy
 msgid "Add new column"
 msgstr "เพิ่มฟิลด์ใหม่"
 
-#: libraries/classes/CentralColumns.php:1528
+#: libraries/classes/CentralColumns.php:1480
 #: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php:631
 #: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php:654
 #: templates/table/structure/table_structure_header.twig:8
@@ -3851,43 +3852,43 @@ msgctxt "Collation variant"
 msgid "binary"
 msgstr "ข้อมูลไบนารี"
 
-#: libraries/classes/Config.php:1070
+#: libraries/classes/Config.php:1073
 #, php-format
 msgid "Existing configuration file (%s) is not readable."
 msgstr "ไฟล์ตั้งค่า %s ไม่สามารถอ่านได้"
 
-#: libraries/classes/Config.php:1100
+#: libraries/classes/Config.php:1103
 msgid "Wrong permissions on configuration file, should not be world writable!"
 msgstr "สิทธิสำหรับไฟล์ตั้งค่าไม่ถูกต้อง ที่ถูกต้องจะต้องแก้ไขได้เฉพาะ root"
 
-#: libraries/classes/Config.php:1120
+#: libraries/classes/Config.php:1123
 #, php-format
 msgid "Could not load default configuration from: %1$s"
 msgstr ""
 
-#: libraries/classes/Config.php:1127
+#: libraries/classes/Config.php:1130
 #, fuzzy
 #| msgid "Failed to read configuration file"
 msgid "Failed to read configuration file!"
 msgstr "ไม่สามารถอ่านแฟ้มการตั้งค่าได้"
 
-#: libraries/classes/Config.php:1130
+#: libraries/classes/Config.php:1133
 msgid ""
 "This usually means there is a syntax error in it, please check any errors "
 "shown below."
 msgstr ""
 
-#: libraries/classes/Config.php:1446
+#: libraries/classes/Config.php:1449
 #: libraries/classes/Config/Descriptions.php:1486
 msgid "Font size"
 msgstr "ขนาดตัวอักษร"
 
-#: libraries/classes/Config.php:1767
+#: libraries/classes/Config.php:1770
 #, php-format
 msgid "Invalid server index: %s"
 msgstr "ลำดับเซิฟเวอร์ไม่ถูกต้อง: %s"
 
-#: libraries/classes/Config.php:1780
+#: libraries/classes/Config.php:1783
 #, fuzzy, php-format
 #| msgid "Server"
 msgid "Server %d"
@@ -4416,8 +4417,8 @@ msgstr "บันทึกบนเซิร์ฟเวอร์"
 
 #: libraries/classes/Config/Descriptions.php:344
 #: libraries/classes/Config/Descriptions.php:350
-#: templates/display/export/options_output_save_dir.twig:13
 #: templates/display/export/options_quick_export.twig:16
+#: templates/display/export/options_output_save_dir.twig:13
 msgid "Overwrite existing file(s)"
 msgstr "เขียนทับแฟ้มที่มีอยู่แล้ว"
 
@@ -6282,12 +6283,12 @@ msgstr ""
 #: libraries/classes/Server/Privileges.php:3335
 #: libraries/classes/Server/Privileges.php:4536
 #: libraries/classes/Server/Status/Processes.php:89
+#: templates/console/display.twig:40 templates/console/display.twig:184
 #: templates/table/relation/foreign_key_row.twig:101
-#: templates/table/relation/common_form.twig:32
-#: templates/console/bookmark_content.twig:7 templates/console/display.twig:40
-#: templates/console/display.twig:184
-#: templates/server/databases/table_header.twig:8
 #: templates/table/relation/internal_relational_row.twig:10
+#: templates/console/bookmark_content.twig:7
+#: templates/table/relation/common_form.twig:32
+#: templates/server/databases/table_header.twig:8
 msgid "Database"
 msgstr "ฐานข้อมูล"
 
@@ -6324,12 +6325,12 @@ msgstr ""
 #: libraries/classes/Server/Privileges.php:3339
 #: libraries/classes/Server/Privileges.php:3341
 #: libraries/classes/Server/Privileges.php:4550
-#: templates/table/relation/foreign_key_row.twig:111
-#: templates/table/relation/common_form.twig:33
-#: templates/database/structure/table_header.twig:8
-#: templates/database/tracking/untracked_tables.twig:9
 #: templates/database/tracking/tracked_tables.twig:11
+#: templates/database/structure/table_header.twig:8
+#: templates/table/relation/foreign_key_row.twig:111
 #: templates/table/relation/internal_relational_row.twig:17
+#: templates/database/tracking/untracked_tables.twig:9
+#: templates/table/relation/common_form.twig:33
 msgid "Table"
 msgstr "ตาราง"
 
@@ -6975,9 +6976,9 @@ msgstr[0] "%s ฐานข้อมูลได้ถูกทิ้งไปเ
 
 #: libraries/classes/Controllers/Server/ServerDatabasesController.php:337
 #: libraries/classes/Import.php:122
-#: templates/table/structure/display_partitions.twig:28
 #: templates/table/structure/row_stats_table.twig:41
 #: templates/database/structure/table_header.twig:26
+#: templates/table/structure/display_partitions.twig:28
 #: templates/table/structure/actions_in_table_structure.twig:114
 msgid "Rows"
 msgstr "แถว"
@@ -6994,14 +6995,14 @@ msgstr "ดัชนี"
 #: libraries/classes/Engines/Innodb.php:169
 #: libraries/classes/Server/Status.php:203
 #: libraries/classes/Server/Status.php:315
-#: templates/table/structure/display_table_stats.twig:45
 #: templates/server/databases/databases_footer.twig:7
+#: templates/table/structure/display_table_stats.twig:45
 msgid "Total"
 msgstr "รวม"
 
 #: libraries/classes/Controllers/Server/ServerDatabasesController.php:357
-#: templates/table/structure/display_table_stats.twig:32
 #: templates/database/structure/table_header.twig:40
+#: templates/table/structure/display_table_stats.twig:32
 msgid "Overhead"
 msgstr "เกินความจำเป็น"
 
@@ -7127,60 +7128,60 @@ msgid ""
 "Table %1$s has been altered successfully. Privileges have been adjusted."
 msgstr "ลบผู้ใช้ที่เลือกไว้เรียบร้อยแล้ว."
 
-#: libraries/classes/Controllers/Table/TableStructureController.php:1192
+#: libraries/classes/Controllers/Table/TableStructureController.php:1191
 #: templates/table/structure/check_all_table_column.twig:17
 msgid "Change"
 msgstr "เปลี่ยน"
 
+#: libraries/classes/Controllers/Table/TableStructureController.php:1192
 #: libraries/classes/Controllers/Table/TableStructureController.php:1193
-#: libraries/classes/Controllers/Table/TableStructureController.php:1194
-#: libraries/classes/Index.php:773 libraries/classes/Operations.php:1585
+#: libraries/classes/Index.php:772 libraries/classes/Operations.php:1585
 #: libraries/classes/Rte/RteList.php:172 libraries/classes/Util.php:3317
 #: libraries/classes/Util.php:3318
-#: templates/table/relation/foreign_key_row.twig:31
 #: templates/database/structure/check_all_tables.twig:16
-#: templates/server/databases/databases_footer.twig:55
 #: templates/table/structure/display_structure.twig:188
+#: templates/table/relation/foreign_key_row.twig:31
 #: templates/table/structure/check_all_table_column.twig:24
+#: templates/server/databases/databases_footer.twig:55
 msgid "Drop"
 msgstr "โยนทิ้ง"
 
-#: libraries/classes/Controllers/Table/TableStructureController.php:1196
-#: libraries/classes/Controllers/Table/TableStructureController.php:1201
+#: libraries/classes/Controllers/Table/TableStructureController.php:1195
+#: libraries/classes/Controllers/Table/TableStructureController.php:1200
 #: libraries/classes/Navigation/Nodes/NodeIndex.php:30
-#: templates/table/tracking/structure_snapshot_columns.twig:27
-#: templates/table/structure/display_table_stats.twig:24
 #: templates/table/structure/display_structure.twig:66
-#: templates/columns_definitions/column_indexes.twig:12
-#: templates/columns_definitions/table_fields_definitions.twig:46
 #: templates/table/structure/check_all_table_column.twig:47
+#: templates/columns_definitions/column_indexes.twig:12
+#: templates/table/tracking/structure_snapshot_columns.twig:27
+#: templates/columns_definitions/table_fields_definitions.twig:46
+#: templates/table/structure/display_table_stats.twig:24
 msgid "Index"
 msgstr "ดัชนี"
 
-#: libraries/classes/Controllers/Table/TableStructureController.php:1197
-#: libraries/classes/Controllers/Table/TableStructureController.php:1202
+#: libraries/classes/Controllers/Table/TableStructureController.php:1196
+#: libraries/classes/Controllers/Table/TableStructureController.php:1201
 #: libraries/classes/Index.php:721
-#: templates/table/tracking/structure_snapshot_indexes.twig:7
-#: templates/columns_definitions/column_indexes.twig:8
 #: templates/table/structure/check_all_table_column.twig:40
+#: templates/columns_definitions/column_indexes.twig:8
+#: templates/table/tracking/structure_snapshot_indexes.twig:7
 msgid "Unique"
 msgstr "เอกลักษณ์"
 
-#: libraries/classes/Controllers/Table/TableStructureController.php:1198
-#: libraries/classes/Controllers/Table/TableStructureController.php:1203
+#: libraries/classes/Controllers/Table/TableStructureController.php:1197
+#: libraries/classes/Controllers/Table/TableStructureController.php:1202
 #: templates/columns_definitions/column_indexes.twig:20
 msgid "Spatial"
 msgstr "เชิงพื้นที่"
 
-#: libraries/classes/Controllers/Table/TableStructureController.php:1199
-#: libraries/classes/Controllers/Table/TableStructureController.php:1204
-#: templates/columns_definitions/column_indexes.twig:16
+#: libraries/classes/Controllers/Table/TableStructureController.php:1198
+#: libraries/classes/Controllers/Table/TableStructureController.php:1203
 #: templates/table/structure/check_all_table_column.twig:54
 #: templates/table/structure/check_all_table_column.twig:66
+#: templates/columns_definitions/column_indexes.twig:16
 msgid "Fulltext"
 msgstr "ข้อความเต็ม (fulltext)"
 
-#: libraries/classes/Controllers/Table/TableStructureController.php:1205
+#: libraries/classes/Controllers/Table/TableStructureController.php:1204
 #, fuzzy
 #| msgid "Session value"
 msgid "Distinct values"
@@ -7191,8 +7192,8 @@ msgstr "ค่าเซสชั่น"
 msgid "The %s extension is missing. Please check your PHP configuration."
 msgstr "ส่วนขยาย %s ขาดหายไป กรุณาตรวจสอบการกำหนดค่าของ PHP"
 
-#: libraries/classes/Core.php:837 libraries/mult_submits.inc.php:329
-#: tbl_operations.php:242 tbl_replace.php:313 templates/preview_sql.twig:3
+#: libraries/classes/Core.php:837 libraries/mult_submits.inc.php:324
+#: tbl_operations.php:242 tbl_replace.php:318 templates/preview_sql.twig:3
 msgid "No change"
 msgstr "ไม่มีการเปลี่ยนแปลง"
 
@@ -7588,11 +7589,12 @@ msgstr "ทั้งข้อความ"
 #: libraries/classes/Display/Results.php:2122
 #: libraries/classes/Operations.php:799
 #: libraries/classes/Server/Status/Processes.php:169
-#: libraries/classes/Util.php:4873 libraries/classes/Util.php:4890
-#: libraries/config.values.php:71 templates/table/search/options.twig:54
+#: libraries/classes/Util.php:4665 libraries/classes/Util.php:4682
+#: libraries/config.values.php:71
 #: templates/database/multi_table_query/form.twig:48
 #: templates/database/qbe/sort_select_cell.twig:7
 #: templates/server/databases/databases_header.twig:22
+#: templates/table/search/options.twig:54
 msgid "Descending"
 msgstr "มากไปน้อย"
 
@@ -7600,11 +7602,12 @@ msgstr "มากไปน้อย"
 #: libraries/classes/Display/Results.php:2118
 #: libraries/classes/Operations.php:796
 #: libraries/classes/Server/Status/Processes.php:172
-#: libraries/classes/Util.php:4868 libraries/classes/Util.php:4885
-#: libraries/config.values.php:70 templates/table/search/options.twig:54
+#: libraries/classes/Util.php:4660 libraries/classes/Util.php:4677
+#: libraries/config.values.php:70
 #: templates/database/multi_table_query/form.twig:47
 #: templates/database/qbe/sort_select_cell.twig:5
 #: templates/server/databases/databases_header.twig:22
+#: templates/table/search/options.twig:54
 msgid "Ascending"
 msgstr "น้อยไปมาก"
 
@@ -7665,8 +7668,8 @@ msgstr "ทำกับที่เลือก:"
 #: libraries/classes/Server/UserGroups.php:241
 #: templates/database/structure/check_all_tables.twig:3
 #: templates/database/structure/check_all_tables.twig:4
-#: templates/select_all.twig:4 templates/select_all.twig:5
-#: templates/privileges/global_priv_table.twig:5
+#: templates/privileges/global_priv_table.twig:5 templates/select_all.twig:4
+#: templates/select_all.twig:5
 #, fuzzy
 #| msgid "Check All"
 msgid "Check all"
@@ -8130,7 +8133,7 @@ msgstr "คลิกที่แถบเพื่อเลื่อนไปย
 msgid "Javascript must be enabled past this point!"
 msgstr "ต้องอนุญาตใช้ใช้ 'คุ๊กกี้' (cookie) เสียก่อน จึงจะผ่านจุดนี้ไปได้"
 
-#: libraries/classes/Import.php:130 libraries/classes/InsertEdit.php:141
+#: libraries/classes/Import.php:130 libraries/classes/InsertEdit.php:172
 #: libraries/classes/Rte/Routines.php:1483 libraries/classes/Sql.php:1406
 #: tbl_get_field.php:50
 msgid "MySQL returned an empty result set (i.e. zero rows)."
@@ -8181,10 +8184,11 @@ msgstr ""
 #: libraries/classes/Plugins/Import/ImportShp.php:51
 #: libraries/classes/Plugins/Import/ImportSql.php:47
 #: libraries/classes/Plugins/Import/ImportXml.php:49
-#: libraries/classes/Rte/Routines.php:946 templates/table/search/options.twig:1
+#: libraries/classes/Rte/Routines.php:946
 #: templates/table/structure/row_stats_table.twig:19
-#: templates/display/results/options_block.twig:10
 #: templates/console/display.twig:7 templates/console/display.twig:140
+#: templates/table/search/options.twig:1
+#: templates/display/results/options_block.twig:10
 msgid "Options"
 msgstr "ตัวเลือก"
 
@@ -8246,19 +8250,19 @@ msgstr "เอกเทศ"
 
 #: libraries/classes/Index.php:727 libraries/classes/Rte/Events.php:516
 #: libraries/classes/Rte/Routines.php:1071
-#: templates/table/tracking/structure_snapshot_columns.twig:12
-#: templates/table/tracking/structure_snapshot_indexes.twig:13
-#: templates/table/structure/display_partitions.twig:31
 #: templates/database/structure/table_header.twig:48
 #: templates/columns_definitions/partitions.twig:85
+#: templates/table/structure/display_partitions.twig:31
+#: templates/table/tracking/structure_snapshot_indexes.twig:13
+#: templates/table/tracking/structure_snapshot_columns.twig:12
 msgid "Comment"
 msgstr "หมายเหตุ"
 
-#: libraries/classes/Index.php:754
+#: libraries/classes/Index.php:753
 msgid "The primary key has been dropped."
 msgstr "โยนคีย์หลักทิ้งไปเรียบร้อยแล้ว"
 
-#: libraries/classes/Index.php:761
+#: libraries/classes/Index.php:760
 #, php-format
 msgid "Index %s has been dropped."
 msgstr "โยนดัชนี %s ทิ้งไปเรียบร้อยแล้ว"
@@ -8270,117 +8274,113 @@ msgid ""
 "removed."
 msgstr "ดัชนี %1$s และ %2$s น่าจะเป็นอันเดียวกัน ควรจะลบออกไปอันหนึ่ง"
 
-#: libraries/classes/InsertEdit.php:250
+#: libraries/classes/InsertEdit.php:284
 #: libraries/classes/Navigation/Nodes/NodeDatabaseChild.php:54
 #: templates/database/designer/table_list.twig:34
 msgid "Hide"
 msgstr ""
 
-#: libraries/classes/InsertEdit.php:266
+#: libraries/classes/InsertEdit.php:300
 #: libraries/classes/Navigation/Nodes/NodeFunction.php:30
 #: libraries/classes/Rte/Routines.php:1623
 #: templates/table/search/table_header.twig:4
 msgid "Function"
 msgstr "ฟังก์ชั่น"
 
-#: libraries/classes/InsertEdit.php:418
+#: libraries/classes/InsertEdit.php:464
 msgid "Binary"
 msgstr "ข้อมูลไบนารี"
 
-#: libraries/classes/InsertEdit.php:621
+#: libraries/classes/InsertEdit.php:724
 #, fuzzy
 #| msgid "Because of its length,<br /> this field might not be editable "
 msgid "Because of its length,<br /> this column might not be editable."
 msgstr "เนื่องจากความยาวของมัน <br />ฟิลด์นี้ ไม่อาจแก้ไขได้"
 
-#: libraries/classes/InsertEdit.php:1116
+#: libraries/classes/InsertEdit.php:1331
 msgid "Binary - do not edit"
 msgstr "ข้อมูลไบนารี - ห้ามแก้ไข"
 
-#: libraries/classes/InsertEdit.php:1249 libraries/classes/Util.php:3283
+#: libraries/classes/InsertEdit.php:1491 libraries/classes/Util.php:3283
 msgid "The directory you set for upload work cannot be reached."
 msgstr "ไม่สามารถใช้งาน ไดเรกทอรีที่ตั้งไว้สำหรับอัพโหลดได้"
 
-#: libraries/classes/InsertEdit.php:1252 templates/table/search/options.twig:25
+#: libraries/classes/InsertEdit.php:1494
 #: templates/privileges/column_privileges.twig:17
+#: templates/table/search/options.twig:25
 msgid "Or"
 msgstr "หรือ"
 
-#: libraries/classes/InsertEdit.php:1253
+#: libraries/classes/InsertEdit.php:1495
 #, fuzzy
 #| msgid "web server upload directory"
 msgid "web server upload directory:"
 msgstr "ไดเรกทอรีสำหรับอัพโหลด ที่เว็บเซิร์ฟเวอร์"
 
-#: libraries/classes/InsertEdit.php:1433
+#: libraries/classes/InsertEdit.php:1700
 #: templates/table/search/input_box.twig:39
 #, fuzzy
 #| msgid "Insert"
 msgid "Edit/Insert"
 msgstr "แทรก"
 
-#: libraries/classes/InsertEdit.php:1483
-#, php-format
-msgid "Continue insertion with %s rows"
-msgstr ""
-
-#: libraries/classes/InsertEdit.php:1513
+#: libraries/classes/InsertEdit.php:1767
 msgid "and then"
 msgstr ""
 
-#: libraries/classes/InsertEdit.php:1546
+#: libraries/classes/InsertEdit.php:1805
 msgid "Insert as new row"
 msgstr "แทรกเป็นแถวใหม่"
 
-#: libraries/classes/InsertEdit.php:1549
+#: libraries/classes/InsertEdit.php:1808
 msgid "Insert as new row and ignore errors"
 msgstr ""
 
-#: libraries/classes/InsertEdit.php:1552
+#: libraries/classes/InsertEdit.php:1811
 msgid "Show insert query"
 msgstr ""
 
-#: libraries/classes/InsertEdit.php:1572
+#: libraries/classes/InsertEdit.php:1831
 msgid "Go back to previous page"
 msgstr "ส่งกลับ"
 
-#: libraries/classes/InsertEdit.php:1575
+#: libraries/classes/InsertEdit.php:1834
 msgid "Insert another new row"
 msgstr "แทรกระเบียนใหม่"
 
-#: libraries/classes/InsertEdit.php:1580
+#: libraries/classes/InsertEdit.php:1839
 #, fuzzy
 msgid "Go back to this page"
 msgstr "ส่งกลับ"
 
-#: libraries/classes/InsertEdit.php:1603
+#: libraries/classes/InsertEdit.php:1862
 msgid "Edit next row"
 msgstr ""
 
-#: libraries/classes/InsertEdit.php:1625
+#: libraries/classes/InsertEdit.php:1882
 msgid ""
 "Use TAB key to move from value to value, or CTRL+arrows to move anywhere."
 msgstr ""
 
-#: libraries/classes/InsertEdit.php:1663
+#: libraries/classes/InsertEdit.php:1920
 #: libraries/classes/ReplicationGui.php:556
 #: libraries/classes/Rte/Routines.php:1625
 #: libraries/classes/Server/Status/Variables.php:228
 #: templates/server/variables/variable_table_head.twig:5
-#: templates/table/search/table_header.twig:10
 #: templates/database/designer/where_query_panel.twig:69
+#: templates/table/search/table_header.twig:10
 #: templates/database/designer/having_query_panel.twig:100
+#: templates/table/search/zoom_result_form.twig:36
 #: templates/database/designer/options_panel.twig:73
 #: templates/database/designer/options_panel.twig:239
-#: templates/table/search/zoom_result_form.twig:36
 msgid "Value"
 msgstr "ค่า"
 
-#: libraries/classes/InsertEdit.php:2026 libraries/classes/Sql.php:1403
+#: libraries/classes/InsertEdit.php:2290 libraries/classes/Sql.php:1403
 msgid "Showing SQL query"
 msgstr ""
 
-#: libraries/classes/InsertEdit.php:2051 libraries/classes/Sql.php:1381
+#: libraries/classes/InsertEdit.php:2315 libraries/classes/Sql.php:1381
 #, php-format
 msgid "Inserted row id: %1$d"
 msgstr ""
@@ -8423,8 +8423,8 @@ msgstr ""
 #: libraries/classes/Util.php:3310 libraries/classes/Util.php:3311
 #: libraries/classes/Util.php:3988 libraries/config.values.php:42
 #: libraries/config.values.php:50 libraries/config.values.php:120
-#: templates/database/search/results.twig:34
 #: templates/table/structure/check_all_table_column.twig:8
+#: templates/database/search/results.twig:34
 msgid "Browse"
 msgstr "เปิดดู"
 
@@ -8454,8 +8454,8 @@ msgstr "แทรก"
 #: libraries/classes/Server/Privileges.php:2565
 #: libraries/classes/Server/Privileges.php:4424 libraries/classes/Util.php:3979
 #: libraries/classes/Util.php:3995 libraries/config.values.php:107
-#: templates/privileges/privileges_summary.twig:15
 #: templates/server/sub_page_header.twig:2
+#: templates/privileges/privileges_summary.twig:15
 msgid "Privileges"
 msgstr "สิทธิ"
 
@@ -8532,10 +8532,9 @@ msgid "Binary log"
 msgstr "ข้อมูลไบนารี "
 
 #: libraries/classes/Menu.php:627 libraries/classes/Server/Status/Data.php:126
-#: libraries/classes/Util.php:3965
-#: templates/database/structure/table_header.twig:10
+#: libraries/classes/Util.php:3965 templates/server/sub_page_header.twig:2
 #: templates/database/structure/body_for_table_summary.twig:11
-#: templates/server/sub_page_header.twig:2
+#: templates/database/structure/table_header.twig:10
 msgid "Replication"
 msgstr "การจำลองแบบ"
 
@@ -8675,9 +8674,9 @@ msgid "Views:"
 msgstr "ตารางจำลอง (View)"
 
 #: libraries/classes/Navigation/Navigation.php:223
-#: libraries/classes/Tracking.php:163 tbl_change.php:144
-#: templates/database/multi_table_query/form.twig:29
+#: libraries/classes/Tracking.php:163 tbl_change.php:146
 #: templates/database/tracking/tracked_tables.twig:17
+#: templates/database/multi_table_query/form.twig:29
 msgid "Show"
 msgstr "แสดง"
 
@@ -8846,129 +8845,129 @@ msgctxt "Create new view"
 msgid "New"
 msgstr ""
 
-#: libraries/classes/Normalization.php:153
+#: libraries/classes/Normalization.php:176
 msgid "Make all columns atomic"
 msgstr ""
 
-#: libraries/classes/Normalization.php:155
-#: libraries/classes/Normalization.php:834
+#: libraries/classes/Normalization.php:178
+#: libraries/classes/Normalization.php:877
 msgid "First step of normalization (1NF)"
 msgstr ""
 
-#: libraries/classes/Normalization.php:158
-#: libraries/classes/Normalization.php:209
-#: libraries/classes/Normalization.php:257
-#: libraries/classes/Normalization.php:295
+#: libraries/classes/Normalization.php:181
+#: libraries/classes/Normalization.php:232
+#: libraries/classes/Normalization.php:281
+#: libraries/classes/Normalization.php:319
 msgid "Step 1."
 msgstr ""
 
-#: libraries/classes/Normalization.php:160
+#: libraries/classes/Normalization.php:183
 msgid ""
 "Do you have any column which can be split into more than one column? For "
 "example: address can be split into street, city, country and zip."
 msgstr ""
 
-#: libraries/classes/Normalization.php:167
+#: libraries/classes/Normalization.php:190
 msgid "Show me the central list of columns that are not already in this table"
 msgstr ""
 
-#: libraries/classes/Normalization.php:170
+#: libraries/classes/Normalization.php:193
 msgid ""
 "Select a column which can be split into more than one (on select of 'no such "
 "column', it'll move to next step)."
 msgstr ""
 
-#: libraries/classes/Normalization.php:177 normalization.php:20
+#: libraries/classes/Normalization.php:200 normalization.php:19
 #, fuzzy
 #| msgid "Select two columns"
 msgid "Select one…"
 msgstr "เพิ่มสองสดมภ์"
 
-#: libraries/classes/Normalization.php:178 normalization.php:21
+#: libraries/classes/Normalization.php:201 normalization.php:20
 #, fuzzy
 #| msgid "Add/Delete Field Columns"
 msgid "No such column"
 msgstr "เพิ่ม/ลบ คอลัมน์ (ฟิลด์)"
 
-#: libraries/classes/Normalization.php:182 libraries/classes/Types.php:722
-#: normalization.php:26
+#: libraries/classes/Normalization.php:205 libraries/classes/Types.php:722
+#: normalization.php:25
 #, fuzzy
 #| msgid "Linestring"
 msgctxt "string types"
 msgid "String"
 msgstr "แถวข้อความ"
 
-#: libraries/classes/Normalization.php:185
+#: libraries/classes/Normalization.php:208
 msgid "split into "
 msgstr ""
 
-#: libraries/classes/Normalization.php:206
+#: libraries/classes/Normalization.php:229
 #, fuzzy
 #| msgid "Add primary key"
 msgid "Have a primary key"
 msgstr "เพิ่มคีย์หลัก"
 
-#: libraries/classes/Normalization.php:212
+#: libraries/classes/Normalization.php:235
 #, fuzzy
 msgid "Primary key already exists."
 msgstr "มีผู้ใช้ %s อยู่แล้ว!"
 
-#: libraries/classes/Normalization.php:217
+#: libraries/classes/Normalization.php:240
 msgid ""
 "There is no primary key; please add one.<br/>Hint: A primary key is a column "
 "(or combination of columns) that uniquely identify all rows."
 msgstr ""
 
-#: libraries/classes/Normalization.php:224
+#: libraries/classes/Normalization.php:248
 msgid "Add a primary key on existing column(s)"
 msgstr ""
 
-#: libraries/classes/Normalization.php:229
+#: libraries/classes/Normalization.php:253
 msgid ""
 "If it's not possible to make existing column combinations as primary key"
 msgstr ""
 
-#: libraries/classes/Normalization.php:233
+#: libraries/classes/Normalization.php:257
 #, fuzzy
 #| msgid "Add primary key"
 msgid "+ Add a new primary key column"
 msgstr "เพิ่มคีย์หลัก"
 
-#: libraries/classes/Normalization.php:256
+#: libraries/classes/Normalization.php:280
 #, fuzzy
 #| msgid "Remove chart"
 msgid "Remove redundant columns"
 msgstr "เอาการแสดงผลออก"
 
-#: libraries/classes/Normalization.php:259
+#: libraries/classes/Normalization.php:283
 msgid ""
 "Do you have a group of columns which on combining gives an existing column? "
 "For example, if you have first_name, last_name and full_name then combining "
 "first_name and last_name gives full_name which is redundant."
 msgstr ""
 
-#: libraries/classes/Normalization.php:265
+#: libraries/classes/Normalization.php:289
 msgid ""
 "Check the columns which are redundant and click on remove. If no redundant "
 "column, click on 'No redundant column'"
 msgstr ""
 
-#: libraries/classes/Normalization.php:270
+#: libraries/classes/Normalization.php:294
 #, fuzzy
 #| msgid "Remove selected users"
 msgid "Remove selected"
 msgstr "ถอนผู้ใช้ที่เลือก"
 
-#: libraries/classes/Normalization.php:271
+#: libraries/classes/Normalization.php:295
 #, fuzzy
 msgid "No redundant column"
 msgstr "เพิ่มฟิลด์ใหม่"
 
-#: libraries/classes/Normalization.php:294
+#: libraries/classes/Normalization.php:318
 msgid "Move repeating groups"
 msgstr ""
 
-#: libraries/classes/Normalization.php:297
+#: libraries/classes/Normalization.php:321
 msgid ""
 "Do you have a group of two or more columns that are closely related and are "
 "all repeating the same attribute? For example, a table that holds data on "
@@ -8977,121 +8976,121 @@ msgid ""
 "should be created."
 msgstr ""
 
-#: libraries/classes/Normalization.php:305
+#: libraries/classes/Normalization.php:329
 msgid ""
 "Check the columns which form a repeating group. If no such group, click on "
 "'No repeating group'"
 msgstr ""
 
-#: libraries/classes/Normalization.php:311
+#: libraries/classes/Normalization.php:335
 msgid "No repeating group"
 msgstr ""
 
-#: libraries/classes/Normalization.php:340
+#: libraries/classes/Normalization.php:364
 msgid "Step 2."
 msgstr ""
 
-#: libraries/classes/Normalization.php:340
+#: libraries/classes/Normalization.php:364
 msgid "Find partial dependencies"
 msgstr ""
 
-#: libraries/classes/Normalization.php:362
+#: libraries/classes/Normalization.php:387
 #, php-format
 msgid ""
 "No partial dependencies possible as no non-primary column exists since "
 "primary key ( %1$s ) is composed of all the columns in the table."
 msgstr ""
 
-#: libraries/classes/Normalization.php:367
-#: libraries/classes/Normalization.php:409
+#: libraries/classes/Normalization.php:393
+#: libraries/classes/Normalization.php:438
 msgid "Table is already in second normal form."
 msgstr ""
 
-#: libraries/classes/Normalization.php:372
+#: libraries/classes/Normalization.php:398
 #, php-format
 msgid ""
 "The primary key ( %1$s ) consists of more than one column so we need to find "
 "the partial dependencies."
 msgstr ""
 
-#: libraries/classes/Normalization.php:376
-#: libraries/classes/Normalization.php:749
+#: libraries/classes/Normalization.php:403
+#: libraries/classes/Normalization.php:790
 msgid ""
 "Please answer the following question(s) carefully to obtain a correct "
 "normalization."
 msgstr ""
 
-#: libraries/classes/Normalization.php:380
+#: libraries/classes/Normalization.php:407
 msgid "+ Show me the possible partial dependencies based on data in the table"
 msgstr ""
 
-#: libraries/classes/Normalization.php:384
+#: libraries/classes/Normalization.php:411
 msgid ""
 "For each column below, please select the <b>minimal set</b> of columns among "
 "given set whose values combined together are sufficient to determine the "
 "value of the column."
 msgstr ""
 
-#: libraries/classes/Normalization.php:394
-#: libraries/classes/Normalization.php:787
+#: libraries/classes/Normalization.php:421
+#: libraries/classes/Normalization.php:829
 #, php-format
 msgid "'%1$s' depends on:"
 msgstr ""
 
-#: libraries/classes/Normalization.php:405
+#: libraries/classes/Normalization.php:433
 #, php-format
 msgid ""
 "No partial dependencies possible as the primary key ( %1$s ) has just one "
 "column."
 msgstr ""
 
-#: libraries/classes/Normalization.php:433
+#: libraries/classes/Normalization.php:462
 #, php-format
 msgid ""
 "In order to put the original table '%1$s' into Second normal form we need to "
 "create the following tables:"
 msgstr ""
 
-#: libraries/classes/Normalization.php:469
+#: libraries/classes/Normalization.php:499
 #, php-format
 msgid "The second step of normalization is complete for table '%1$s'."
 msgstr ""
 
-#: libraries/classes/Normalization.php:509
-#: libraries/classes/Normalization.php:654
-#: libraries/classes/Normalization.php:720
+#: libraries/classes/Normalization.php:539
+#: libraries/classes/Normalization.php:689
+#: libraries/classes/Normalization.php:761
 #, fuzzy
 #| msgid "Processes"
 msgid "Error in processing!"
 msgstr "โพรเซส"
 
-#: libraries/classes/Normalization.php:555
+#: libraries/classes/Normalization.php:585
 #, php-format
 msgid ""
 "In order to put the original table '%1$s' into Third normal form we need to "
 "create the following tables:"
 msgstr ""
 
-#: libraries/classes/Normalization.php:602
+#: libraries/classes/Normalization.php:633
 msgid "The third step of normalization is complete."
 msgstr ""
 
-#: libraries/classes/Normalization.php:699
+#: libraries/classes/Normalization.php:740
 #, php-format
 msgid "Selected repeating group has been moved to the table '%s'"
 msgstr ""
 
-#: libraries/classes/Normalization.php:746
+#: libraries/classes/Normalization.php:787
 #, fuzzy
 #| msgid "Sep"
 msgid "Step 3."
 msgstr "ก.ย."
 
-#: libraries/classes/Normalization.php:746
+#: libraries/classes/Normalization.php:787
 msgid "Find transitive dependencies"
 msgstr ""
 
-#: libraries/classes/Normalization.php:753
+#: libraries/classes/Normalization.php:794
 msgid ""
 "For each column below, please select the <b>minimal set</b> of columns among "
 "given set whose values combined together are sufficient to determine the "
@@ -9099,47 +9098,47 @@ msgid ""
 "in that case you don't have to select any."
 msgstr ""
 
-#: libraries/classes/Normalization.php:800
+#: libraries/classes/Normalization.php:843
 msgid ""
 "No Transitive dependencies possible as the table doesn't have any non "
 "primary key columns"
 msgstr ""
 
-#: libraries/classes/Normalization.php:804
+#: libraries/classes/Normalization.php:847
 msgid "Table is already in Third normal form!"
 msgstr ""
 
-#: libraries/classes/Normalization.php:830
+#: libraries/classes/Normalization.php:873
 #, fuzzy
 #| msgid "Propose table structure"
 msgid "Improve table structure (Normalization):"
 msgstr "เสนอโครงสร้างตาราง"
 
-#: libraries/classes/Normalization.php:831
+#: libraries/classes/Normalization.php:874
 msgid "Select up to what step you want to normalize"
 msgstr ""
 
-#: libraries/classes/Normalization.php:835
+#: libraries/classes/Normalization.php:878
 msgid "Second step of normalization (1NF+2NF)"
 msgstr ""
 
-#: libraries/classes/Normalization.php:836
+#: libraries/classes/Normalization.php:879
 msgid "Third step of normalization (1NF+2NF+3NF)"
 msgstr ""
 
-#: libraries/classes/Normalization.php:843
+#: libraries/classes/Normalization.php:889
 msgid ""
 "Hint: Please follow the procedure carefully in order to obtain correct "
 "normalization"
 msgstr ""
 
-#: libraries/classes/Normalization.php:904
+#: libraries/classes/Normalization.php:955
 msgid ""
 "This list is based on a subset of the table's data and is not necessarily "
 "accurate. "
 msgstr ""
 
-#: libraries/classes/Normalization.php:920
+#: libraries/classes/Normalization.php:971
 msgid "No partial dependencies found!"
 msgstr ""
 
@@ -9508,8 +9507,8 @@ msgid "You have enabled two factor authentication, please confirm your login."
 msgstr ""
 
 #: libraries/classes/Plugins/Export/ExportCodegen.php:101
-#: templates/display/export/format_dropdown.twig:2
 #: templates/display/import/import.twig:168
+#: templates/display/export/format_dropdown.twig:2
 msgid "Format:"
 msgstr "รูปแบบ:"
 
@@ -10244,8 +10243,8 @@ msgstr "สารบัญ"
 
 #: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php:634
 #: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php:657
-#: templates/table/tracking/structure_snapshot_columns.twig:11
 #: templates/table/structure/table_structure_header.twig:14
+#: templates/table/tracking/structure_snapshot_columns.twig:11
 msgid "Extra"
 msgstr "เพิ่มเติม"
 
@@ -14236,7 +14235,7 @@ msgstr ""
 msgid "Users"
 msgstr "ผู้ใช้"
 
-#: libraries/classes/Util.php:4860
+#: libraries/classes/Util.php:4652
 #: templates/database/multi_table_query/form.twig:46
 msgid "Sort"
 msgstr "เรียง"
@@ -14396,7 +14395,7 @@ msgstr "ทั้งสองอย่าง"
 msgid "neither of the above"
 msgstr "ไม่ใช้ดังกล่าวข้างต้น"
 
-#: libraries/mult_submits.inc.php:326
+#: libraries/mult_submits.inc.php:321
 msgid "Success!"
 msgstr ""
 
@@ -14769,7 +14768,7 @@ msgstr "ดูโครงสร้างของตาราง"
 msgid "Invalid table name"
 msgstr "ชื่อตารางไม่ถูกต้อง"
 
-#: tbl_replace.php:238
+#: tbl_replace.php:243
 #, php-format
 msgid "Row: %1$s, Column: %2$s, Error: %3$s"
 msgstr ""
@@ -14845,40 +14844,6 @@ msgctxt "for MIME transformation"
 msgid "Description"
 msgstr "รายละเอียด"
 
-#: templates/table/tracking/structure_snapshot_columns.twig:5
-#: templates/table/tracking/report_table.twig:4
-msgctxt "Number"
-msgid "#"
-msgstr ""
-
-#: templates/table/tracking/structure_snapshot_columns.twig:47
-#: templates/table/structure/table_structure_row.twig:34
-msgctxt "None for default"
-msgid "None"
-msgstr "ไม่มี"
-
-#: templates/table/relation/foreign_key_row.twig:15
-#, fuzzy, php-format
-#| msgid "Foreign key check:"
-msgid "Foreign key constraint %s has been dropped"
-msgstr "ตรวจสอบคีย์ต่างประเทศ:"
-
-#: templates/table/relation/foreign_key_row.twig:39
-#, fuzzy
-#| msgid "Column names"
-msgid "Constraint name"
-msgstr "ชื่อคอลัมน์"
-
-#: templates/table/relation/foreign_key_row.twig:91
-#: templates/database/multi_table_query/form.twig:143
-#, fuzzy
-msgid "+ Add column"
-msgstr "เพิ่มฟิลด์ใหม่"
-
-#: templates/database/designer/schema_export.twig:4
-msgid "Select Export Relational Type"
-msgstr ""
-
 #: templates/table/structure/move_columns_dialog.twig:1
 #: templates/table/structure/optional_action_links.twig:19
 #, fuzzy
@@ -14889,6 +14854,12 @@ msgstr "เพิ่มฟิลด์ใหม่"
 #: templates/table/structure/move_columns_dialog.twig:2
 msgid "Move the columns by dragging them up and down."
 msgstr ""
+
+#: templates/display/export/options_output_radio.twig:5
+#, fuzzy
+#| msgid "Save as file"
+msgid "View output as text"
+msgstr "ส่งมาเป็นไฟล์"
 
 #: templates/database/structure/check_all_tables.twig:6
 msgid "Check tables having overhead"
@@ -14936,118 +14907,133 @@ msgstr ""
 msgid "Make consistent with central list"
 msgstr "คอลัมน์พื้นที่ข้อความ CHAR"
 
-#: templates/display/export/template_options.twig:1
+#: templates/prefs_twofactor_confirm.twig:2
 #, fuzzy
-#| msgid "Select Tables"
-msgid "Select a template"
-msgstr "เลือกตาราง"
+#| msgid "Config authentication"
+msgid "Confirm disabling two-factor authentication"
+msgstr "กำหนดค่าการรับรองความถูกต้อง"
 
-#: templates/database/designer/page_selector.twig:2
-#, fuzzy
-#| msgid "Select All"
-msgid "Select page"
-msgstr "เลือกทั้งหมด"
-
-#: templates/table/search/options.twig:6
-#, fuzzy
-#| msgid "Select fields (at least one):"
-msgid "Select columns (at least one):"
-msgstr "เลือกฟิลด์ (อย่างน้อยหนึ่งฟิลด์):"
-
-#: templates/table/search/options.twig:26
-msgid "Add search conditions (body of the \"where\" clause):"
-msgstr "เพิ่มเงื่อนไขในการค้นหา:"
-
-#: templates/table/search/options.twig:34
-msgid "Number of rows per page"
-msgstr "ระเบียนต่อหน้า"
-
-#: templates/table/search/options.twig:45
-msgid "Display order:"
-msgstr "ลำดับการแสดง:"
-
-#: templates/display/export/options_output.twig:2
-#: templates/display/export/options_quick_export.twig:2
-msgid "Output:"
+#: templates/prefs_twofactor_confirm.twig:5
+msgid ""
+"By disabling two factor authentication you will be again able to login using "
+"password only."
 msgstr ""
 
-#: templates/display/export/options_output.twig:26
+#: templates/prefs_twofactor_confirm.twig:9 templates/prefs_twofactor.twig:37
 #, fuzzy
-#| msgid "Save as file"
-msgid "Save output to a file"
-msgstr "ส่งมาเป็นไฟล์"
+#| msgid "Config authentication"
+msgid "Disable two-factor authentication"
+msgstr "กำหนดค่าการรับรองความถูกต้อง"
 
-#: templates/display/export/options_output.twig:51
+#: templates/database/tracking/tracked_tables.twig:2
+msgid "Tracked tables"
+msgstr "ตารางที่ถูกติดตาม"
+
+#: templates/database/tracking/tracked_tables.twig:12
+msgid "Last version"
+msgstr "เวอร์ชั่นล่าสุด"
+
+#: templates/database/tracking/tracked_tables.twig:49
+#: templates/database/tracking/tracked_tables.twig:77
+#, fuzzy
+#| msgid "Deleting tracking data"
+msgid "Delete tracking"
+msgstr "กำลังลบข้อมูลติดตามตาราง"
+
+#: templates/database/tracking/tracked_tables.twig:55
+msgid "Versions"
+msgstr "รุ่น"
+
+#: templates/display/import/import.twig:40
+msgid "Importing into the current server"
+msgstr "การนำเข้าฐานข้อมูลสู่เซิร์ฟเวอร์ปัจจุบัน"
+
+#: templates/display/import/import.twig:42
+#, fuzzy, php-format
+msgid "Importing into the database \"%s\""
+msgstr "ไม่มีฐานข้อมูล"
+
+#: templates/display/import/import.twig:44
+#, fuzzy, php-format
+msgid "Importing into the table \"%s\""
+msgstr "ไม่มีฐานข้อมูล"
+
+#: templates/display/import/import.twig:50
+#, fuzzy
+#| msgid "File to Import:"
+msgid "File to import:"
+msgstr "ไฟล์ที่ต้องการนำเข้า:"
+
+#: templates/display/import/import.twig:56
 #, php-format
-msgid "Skip tables larger than %s MiB"
+msgid "File may be compressed (%s) or uncompressed."
 msgstr ""
 
-#: templates/display/export/options_output_charset.twig:3
+#: templates/display/import/import.twig:58
+msgid ""
+"A compressed file's name must end in <strong>.[format].[compression]</"
+"strong>. Example: <strong>.sql.zip</strong>"
+msgstr ""
+
+#: templates/display/import/import.twig:69
+#: templates/display/import/import.twig:84
+msgid "You may also drag and drop a file on any page."
+msgstr ""
+
+#: templates/display/import/import.twig:86
+msgid "File uploads are not allowed on this server."
+msgstr ""
+
 #: templates/display/import/import.twig:97
+#: templates/display/export/options_output_charset.twig:3
 msgid "Character set of the file:"
 msgstr "ชุดอักขระของไฟล์:"
 
-#: templates/server/databases/index.twig:24
-msgid "No databases"
-msgstr "ไม่มีฐานข้อมูล"
-
-#: templates/display/export/options_output_separate_files.twig:7
+#: templates/display/import/import.twig:124
 #, fuzzy
-#| msgid "Create table on database %s"
-msgid "Export databases as separate files"
-msgstr "สร้างตารางในฐานข้อมูลนี้ %s"
+#| msgid "Partial Import:"
+msgid "Partial import:"
+msgstr "นำเข้าบางส่วน:"
 
-#: templates/display/export/options_output_separate_files.twig:9
-#, fuzzy
-#| msgid "horizontal (rotated headers)"
-msgid "Export tables as separate files"
-msgstr "แนวนอน (หมุนหัวเรื่อง)"
-
-#: templates/display/export/options_output_format.twig:3
-#, fuzzy
-#| msgid "File name template"
-msgid "File name template:"
-msgstr "รูปแบบของชื่อไฟล์"
-
-#: templates/display/export/options_output_format.twig:11
-msgid "use this for future exports"
+#: templates/display/import/import.twig:129
+#, php-format
+msgid ""
+"Previous import timed out, after resubmitting will continue from position %d."
 msgstr ""
 
-#: templates/table/structure/display_table_stats.twig:14
-msgid "Space usage"
-msgstr "เนื้อที่ที่ใช้"
+#: templates/display/import/import.twig:137
+msgid ""
+"Allow the interruption of an import in case the script detects it is close "
+"to the PHP timeout limit. <em>(This might be a good way to import large "
+"files, however it can break transactions.)</em>"
+msgstr ""
 
-#: templates/table/structure/display_table_stats.twig:37
-msgid "Effective"
-msgstr "มีผล"
+#: templates/display/import/import.twig:144
+msgid "Skip this number of queries (for SQL) starting from the first one:"
+msgstr ""
 
-#: templates/table/search/selection_form.twig:12
+#: templates/display/import/import.twig:161
 #, fuzzy
-#| msgid "Do a \"query by example\" (wildcard: \"%\")"
-msgid "Do a \"query by example\" (wildcard: \"%\") for two different columns"
-msgstr "ทำ \"คำค้นจากตัวอย่าง\" (wildcard: \"%\")"
+#| msgid "Options"
+msgid "Other options:"
+msgstr "ตัวเลือก"
 
-#: templates/table/search/selection_form.twig:42
-msgid "Do a \"query by example\" (wildcard: \"%\")"
-msgstr "ทำ \"คำค้นจากตัวอย่าง\" (wildcard: \"%\")"
+#: templates/display/import/import.twig:174
+#: templates/display/export/options_format.twig:2
+msgid "Format-specific options:"
+msgstr "ตัวเลือกรูปแบบเฉพาะ:"
 
-#: templates/columns_definitions/column_name.twig:4
-#, fuzzy, php-format
-#| msgid "Select referenced key"
-msgid "Referenced by %s."
-msgstr "เลือกคีย์อ้างอิง"
+#: templates/display/import/import.twig:176
+#: templates/display/export/options_format.twig:4
+msgid ""
+"Scroll down to fill in the options for the selected format and ignore the "
+"options for other formats."
+msgstr ""
 
-#: templates/columns_definitions/column_name.twig:12
-#, fuzzy
-#| msgid "Select Foreign Key"
-msgid "Is a foreign key."
-msgstr "เลือกคีย์นอก"
-
-#: templates/columns_definitions/column_name.twig:40
-#, fuzzy
-#| msgid "Remove chart"
-msgid "Pick from Central Columns"
-msgstr "เอาการแสดงผลออก"
+#: templates/display/import/import.twig:185
+#: templates/display/export/options_format.twig:12
+msgid "Encoding Conversion:"
+msgstr ""
 
 #: templates/display/import/javascript.twig:12
 msgid ""
@@ -15088,473 +15074,92 @@ msgid ""
 "not available."
 msgstr ""
 
-#: templates/display/results/additional_fields.twig:6
-#: templates/display/export/options_rows.twig:10
-#: templates/start_and_number_of_rows_panel.twig:10
-#, fuzzy
-#| msgid "Number of rows per page"
-msgid "Number of rows:"
-msgstr "ระเบียนต่อหน้า"
-
-#: templates/login/twofactor.twig:5
-msgid "Verify"
+#: templates/server/plugins/section.twig:9
+msgid "Plugin"
 msgstr ""
 
-#: templates/table/relation/common_form.twig:6
-#, fuzzy
-#| msgid "Foreign key check:"
-msgid "Foreign key constraints"
-msgstr "ตรวจสอบคีย์ต่างประเทศ:"
-
-#: templates/table/relation/common_form.twig:10
-msgid "Actions"
-msgstr "กระทำการ"
-
-#: templates/table/relation/common_form.twig:11
-#, fuzzy
-#| msgid "Column names"
-msgid "Constraint properties"
-msgstr "ชื่อคอลัมน์"
-
-#: templates/table/relation/common_form.twig:15
-msgid ""
-"Creating a foreign key over a non-indexed column would automatically create "
-"an index on it. Alternatively, you can define an index below, before "
-"creating the foreign key."
+#: templates/server/plugins/section.twig:12
+msgid "Author"
 msgstr ""
 
-#: templates/table/relation/common_form.twig:20
-msgid ""
-"Only columns with index will be displayed. You can define an index below."
+#: templates/server/plugins/section.twig:23
+msgid "disabled"
+msgstr "ปิดใช้งาน"
+
+#: templates/export/alias_add.twig:4
+msgid "Define new aliases"
 msgstr ""
 
-#: templates/table/relation/common_form.twig:24
-msgid "Foreign key constraint"
-msgstr ""
-
-#: templates/table/relation/common_form.twig:89
-#, fuzzy
-#| msgid "Add constraints"
-msgid "+ Add constraint"
-msgstr "เพิ่ม constraints"
-
-#: templates/table/relation/common_form.twig:99
-#: templates/table/relation/common_form.twig:104
-#, fuzzy
-#| msgid "Internal relations"
-msgid "Internal relationships"
-msgstr "รีเลชันภายใน"
-
-#: templates/table/relation/common_form.twig:110
-#, fuzzy
-#| msgid "Internal relations"
-msgid "Internal relation"
-msgstr "รีเลชันภายใน"
-
-#: templates/table/relation/common_form.twig:112
-msgid ""
-"An internal relation is not necessary when a corresponding FOREIGN KEY "
-"relation exists."
-msgstr ""
-
-#: templates/table/relation/common_form.twig:172
-#, fuzzy
-#| msgid "Choose column to display"
-msgid "Choose column to display:"
-msgstr "เลือกฟิลด์ที่ต้องการแสดง"
-
-#: templates/table/structure/display_partitions.twig:4
-#: templates/table/structure/display_structure.twig:191
-#, fuzzy
-#| msgid "Position"
-msgid "Partitions"
-msgstr "ตำแหน่ง"
-
-#: templates/table/structure/display_partitions.twig:8
-#, fuzzy
-#| msgid "No index defined!"
-msgid "No partitioning defined!"
-msgstr "ยังไม่ได้กำหนดดัชนีใดๆ!"
-
-#: templates/table/structure/display_partitions.twig:11
-msgid "Partitioned by:"
-msgstr ""
-
-#: templates/table/structure/display_partitions.twig:16
-msgid "Sub partitioned by:"
-msgstr ""
-
-#: templates/table/structure/display_partitions.twig:24
-#: templates/columns_definitions/partitions.twig:76
-#, fuzzy
-#| msgid "Position"
-msgid "Partition"
-msgstr "ตำแหน่ง"
-
-#: templates/table/structure/display_partitions.twig:26
-#: templates/columns_definitions/column_virtuality.twig:29
-#, fuzzy
-#| msgid "Compression"
-msgid "Expression"
-msgstr "บีบอัดข้อมูล"
-
-#: templates/table/structure/display_partitions.twig:29
-#, fuzzy
-#| msgid "Row length"
-msgid "Data length"
-msgstr "ความยาวแถว"
-
-#: templates/table/structure/display_partitions.twig:30
-#, fuzzy
-#| msgid "Row length"
-msgid "Index length"
-msgstr "ความยาวแถว"
-
-#: templates/table/structure/display_partitions.twig:135
-#, fuzzy
-#| msgid "Position"
-msgid "Partition table"
-msgstr "ตำแหน่ง"
-
-#: templates/table/structure/display_partitions.twig:141
-#: templates/table/structure/partition_definition_form.twig:6
-#, fuzzy
-#| msgid "Add new field"
-msgid "Edit partitioning"
-msgstr "เพิ่มฟิลด์ใหม่"
-
-#: templates/table/search/table_header.twig:9
-#: templates/database/designer/where_query_panel.twig:30
-#: templates/database/designer/having_query_panel.twig:30
-#: templates/database/designer/having_query_panel.twig:61
-#: templates/database/designer/options_panel.twig:106
-#: templates/database/designer/options_panel.twig:170
-#: templates/database/designer/aggregate_query_panel.twig:30
-#, fuzzy
-msgid "Operator"
-msgstr "กระบวนการ"
-
-#: templates/database/structure/show_create_row.twig:7
-#, fuzzy, php-format
-#| msgid "Create User"
-msgid "Create %s"
-msgstr "รุ่นของเซิร์ฟเวอร์"
-
-#: templates/privileges/add_privileges_routine.twig:3
-#, fuzzy
-#| msgid "Add privileges on the following table"
-msgid "Add privileges on the following routine:"
-msgstr "เพิ่มสิทธิของตารางต่อไปนี้"
-
-#: templates/table/structure/row_stats_table.twig:2
-#, fuzzy
-#| msgid "Row Statistics"
-msgid "Row statistics"
-msgstr "สถิติของแถว"
-
-#: templates/table/structure/row_stats_table.twig:8
-msgid "static"
-msgstr ""
-
-#: templates/table/structure/row_stats_table.twig:10
-msgid "dynamic"
-msgstr "ไม่คงที่"
-
-#: templates/table/structure/row_stats_table.twig:21
-msgid "partitioned"
-msgstr ""
-
-#: templates/table/structure/row_stats_table.twig:50
-msgid "Row length"
-msgstr "ความยาวแถว"
-
-#: templates/table/structure/row_stats_table.twig:62
-msgid "Row size"
-msgstr "ขนาดแถว"
-
-#: templates/table/structure/row_stats_table.twig:69
-msgid "Next autoindex"
-msgstr ""
-
-#: templates/table/structure/row_stats_table.twig:76
-#: templates/database/structure/table_header.twig:53
-msgid "Creation"
-msgstr "สร้างเมื่อ"
-
-#: templates/table/structure/row_stats_table.twig:83
-#: templates/database/structure/table_header.twig:58
-msgid "Last update"
-msgstr "ปรับปรุงครั้งสุดท้ายเมื่อ"
-
-#: templates/table/structure/row_stats_table.twig:90
-#: templates/database/structure/table_header.twig:63
-msgid "Last check"
-msgstr "ตรวจสอบครั้งสุดท้ายเมื่อ"
-
-#: templates/display/export/template_loading.twig:2
-#, fuzzy
-msgid "Export templates:"
-msgstr "ไม่มีตาราง"
-
-#: templates/display/export/template_loading.twig:6
-#, fuzzy
-#| msgid "File name template"
-msgid "New template:"
-msgstr "รูปแบบของชื่อไฟล์"
-
-#: templates/display/export/template_loading.twig:8
-#, fuzzy
-#| msgid "Table name"
-msgid "Template name"
-msgstr "ชื่อตาราง"
-
-#: templates/display/export/template_loading.twig:10
-#: templates/server/databases/create.twig:30
-msgid "Create"
-msgstr "สร้าง"
-
-#: templates/display/export/template_loading.twig:16
-#, fuzzy
-#| msgid "File name template"
-msgid "Existing templates:"
-msgstr "รูปแบบของชื่อไฟล์"
-
-#: templates/display/export/template_loading.twig:17
-#, fuzzy
-#| msgid "%s table"
-#| msgid_plural "%s tables"
-msgid "Template:"
-msgstr "%s ตาราง"
-
-#: templates/display/export/template_loading.twig:21
-#, fuzzy
-#| msgctxt "Create UPDATE query"
-#| msgid "Update"
-msgid "Update"
-msgstr "ปรับปรุงคำค้น"
-
-#: templates/login/header.twig:12
-msgid ""
-"There is mismatch between HTTPS indicated on the server and client. This can "
-"lead to non working phpMyAdmin or a security risk. Please fix your server "
-"configuration to indicate HTTPS properly."
-msgstr ""
-
-#: templates/table/chart/tbl_chart.twig:15
-#, fuzzy
-#| msgid "Mar"
-msgctxt "Chart type"
-msgid "Bar"
-msgstr "มี.ค."
-
-#: templates/table/chart/tbl_chart.twig:19
-#, fuzzy
-#| msgid "Column"
-msgctxt "Chart type"
-msgid "Column"
-msgstr "สดมภ์"
-
-#: templates/table/chart/tbl_chart.twig:23
-msgctxt "Chart type"
-msgid "Line"
-msgstr ""
-
-#: templates/table/chart/tbl_chart.twig:27
-msgctxt "Chart type"
-msgid "Spline"
-msgstr ""
-
-#: templates/table/chart/tbl_chart.twig:31
-msgctxt "Chart type"
-msgid "Area"
-msgstr ""
-
-#: templates/table/chart/tbl_chart.twig:35
-#, fuzzy
-#| msgid "PiB"
-msgctxt "Chart type"
-msgid "Pie"
-msgstr "เพตตะไบต์"
-
-#: templates/table/chart/tbl_chart.twig:39
-#, fuzzy
-#| msgid "Time"
-msgctxt "Chart type"
-msgid "Timeline"
-msgstr "เวลา"
-
-#: templates/table/chart/tbl_chart.twig:43
-msgctxt "Chart type"
-msgid "Scatter"
-msgstr ""
-
-#: templates/table/chart/tbl_chart.twig:48
-msgid "Stacked"
-msgstr ""
-
-#: templates/table/chart/tbl_chart.twig:51
-#, fuzzy
-#| msgid "Import files"
-msgid "Chart title:"
-msgstr "นำเข้าไฟล์"
-
-#: templates/table/chart/tbl_chart.twig:56
-msgid "X-Axis:"
-msgstr ""
-
-#: templates/table/chart/tbl_chart.twig:71
-#, fuzzy
-msgid "Series:"
-msgstr "คำค้น SQL"
-
-#: templates/table/chart/tbl_chart.twig:102
-msgid "X-Axis label:"
-msgstr ""
-
-#: templates/table/chart/tbl_chart.twig:104
-#, fuzzy
-#| msgid "Value"
-msgid "X Values"
-msgstr "ค่า"
-
-#: templates/table/chart/tbl_chart.twig:107
-msgid "Y-Axis label:"
-msgstr ""
-
-#: templates/table/chart/tbl_chart.twig:109
-#, fuzzy
-#| msgid "Value"
-msgid "Y Values"
-msgstr "ค่า"
-
-#: templates/table/chart/tbl_chart.twig:115
-msgid "Series names are in a column"
-msgstr ""
-
-#: templates/table/chart/tbl_chart.twig:118
-#, fuzzy
-#| msgid "Inside column:"
-msgid "Series column:"
-msgstr "ในคอลัมน์:"
-
-#: templates/table/chart/tbl_chart.twig:132
-#, fuzzy
-#| msgid "Values for column %s"
-msgid "Value Column:"
-msgstr "ค่าสำหรับคอลัมน์ \"%s\""
-
-#: templates/table/chart/tbl_chart.twig:153
-#, fuzzy
-#| msgid "Save as file"
-msgid "Save chart as image"
-msgstr "บันทึกเป็นไฟล์"
-
-#: templates/database/search/selection_form.twig:5
-msgid "Search in database"
-msgstr "ค้นหาในฐานข้อมูล"
-
-#: templates/database/search/selection_form.twig:8
-msgid "Words or values to search for (wildcard: \"%\"):"
-msgstr "คำ หรือ ค่าที่ต้องการค้นหา (wildcard: \"%\"):"
-
-#: templates/database/search/selection_form.twig:15
-#: templates/table/search/search_and_replace.twig:1
-msgid "Find:"
-msgstr "ค้น:"
-
-#: templates/database/search/selection_form.twig:29
-msgid "Inside tables:"
-msgstr "ภายในตาราง:"
-
-#: templates/database/search/selection_form.twig:51
-msgid "Inside column:"
-msgstr "ในคอลัมน์:"
-
-#: templates/login/twofactor/invalid.twig:2
-msgid ""
-"The configured two factor authentication is not available, please install "
-"missing dependencies."
-msgstr ""
-
-#: templates/export/alias_item.twig:8
-msgid "Remove"
-msgstr ""
-
-#: templates/database/multi_table_query/form.twig:1
-msgid "Query window"
-msgstr "หน้าต่างแบบสอบถาม"
-
-#: templates/database/multi_table_query/form.twig:18
-#: templates/database/multi_table_query/form.twig:106
+#: templates/export/alias_add.twig:9
 #, fuzzy
 #| msgid "Select Tables"
-msgid "select table"
+msgid "Select database:"
 msgstr "เลือกตาราง"
 
-#: templates/database/multi_table_query/form.twig:25
-#: templates/database/multi_table_query/form.twig:114
+#: templates/export/alias_add.twig:15
+#, fuzzy
+#| msgid "Database"
+msgid "New database name"
+msgstr "ฐานข้อมูล"
+
+#: templates/export/alias_add.twig:18 templates/export/alias_add.twig:32
+#: templates/export/alias_add.twig:46 templates/console/display.twig:99
+#: templates/columns_definitions/column_definitions_form.twig:32
+#, fuzzy
+#| msgid "And"
+msgid "Add"
+msgstr "และ"
+
+#: templates/export/alias_add.twig:23
+#, fuzzy
+#| msgid "Select Tables"
+msgid "Select table:"
+msgstr "เลือกตาราง"
+
+#: templates/export/alias_add.twig:29
+#, fuzzy
+#| msgid "New table"
+msgid "New table name"
+msgstr "ไม่มีตาราง"
+
+#: templates/export/alias_add.twig:37
 #, fuzzy
 #| msgid "Select two columns"
-msgid "select column"
+msgid "Select column:"
 msgstr "เพิ่มสองสดมภ์"
 
-#: templates/database/multi_table_query/form.twig:31
+#: templates/export/alias_add.twig:43
 #, fuzzy
-#| msgid "Tables"
-msgid "Table alias"
-msgstr "ตาราง"
+#| msgid "Copy column name"
+msgid "New column name"
+msgstr "คัดลอกชื่อคอลัมน์"
 
-#: templates/database/multi_table_query/form.twig:32
-#, fuzzy
-#| msgid "Column names"
-msgid "Column alias"
-msgstr "ชื่อคอลัมน์"
-
-#: templates/database/multi_table_query/form.twig:35
-msgid "Use this column in criteria"
+#: templates/privileges/add_user_fieldset.twig:2
+msgctxt "Create new user"
+msgid "New"
 msgstr ""
 
-#: templates/database/multi_table_query/form.twig:38
-#, fuzzy
-#| msgid "Criteria"
-msgid "criteria"
-msgstr "เงื่อนไข"
-
-#: templates/database/multi_table_query/form.twig:52
-#, fuzzy
-#| msgid "Add %s"
-msgid "Add as"
-msgstr "เพิ่ม %s"
-
-#: templates/database/multi_table_query/form.twig:97
-#, fuzzy
-#| msgid "Add/Delete Field Columns"
-msgid "Another column"
-msgstr "เพิ่ม/ลบ คอลัมน์ (ฟิลด์)"
-
-#: templates/database/multi_table_query/form.twig:125
-msgid "Enter criteria as free text"
+#: templates/display/export/options_quick_export.twig:2
+#: templates/display/export/options_output.twig:2
+msgid "Output:"
 msgstr ""
 
-#: templates/database/multi_table_query/form.twig:133
-#, fuzzy
-#| msgid "Remove chart"
-msgid "Remove this column"
-msgstr "เอาการแสดงผลออก"
+#: templates/display/export/options_quick_export.twig:8
+#: templates/display/export/options_output_save_dir.twig:5
+#, fuzzy, php-format
+msgid "Save on server in the directory <strong>%s</strong>"
+msgstr "ไดเรกทอรีสำหรับอัพโหลด ที่เว็บเซิร์ฟเวอร์"
 
-#: templates/database/multi_table_query/form.twig:160
-#, fuzzy
-#| msgid "Update Query"
-msgid "Update query"
-msgstr "ปรับปรุงคำค้น"
+#: templates/table/insert/continue_insertion_form.twig:18
+#, php-format
+msgid "Continue insertion with %s rows"
+msgstr ""
 
-#: templates/database/qbe/footer_options.twig:3
-msgid "Add/Delete criteria rows"
-msgstr "เพิ่ม/ลบ แถว"
-
-#: templates/database/qbe/footer_options.twig:5
-msgid "Add/Delete columns"
-msgstr "เพิ่ม/ลบ สดมภ์"
+#: templates/login/twofactor/key_configure.twig:3
+msgid ""
+"Please connect your FIDO U2F device into your computer's USB port. Then "
+"confirm registration on the device."
+msgstr ""
 
 #: templates/server/databases/table_row.twig:13
 #, fuzzy, php-format
@@ -15573,235 +15178,27 @@ msgstr "ตรวจสอบสิทธิสำหรับฐานข้อ
 msgid "Check privileges"
 msgstr "ตรวจสอบสิทธิ"
 
-#: templates/display/export/option_header.twig:5
-msgid "Exporting databases from the current server"
-msgstr "การส่งออกฐานข้อมูลจากเซิร์ฟเวอร์ปัจจุบัน"
+#: templates/toggle_button.twig:3
+msgid "Click to toggle"
+msgstr "คลิกเพื่อสลับ"
 
-#: templates/display/export/option_header.twig:7
-#, fuzzy, php-format
-#| msgid "Create table on database %s"
-msgid "Exporting tables from \"%s\" database"
-msgstr "สร้างตารางในฐานข้อมูลนี้ %s"
-
-#: templates/display/export/option_header.twig:9
-#, fuzzy, php-format
-#| msgid "Create table on database %s"
-msgid "Exporting rows from \"%s\" table"
-msgstr "สร้างตารางในฐานข้อมูลนี้ %s"
-
-#: templates/server/databases/databases_footer.twig:65
-msgid ""
-"Note: Enabling the database statistics here might cause heavy traffic "
-"between the web server and the MySQL server."
-msgstr ""
-"โปรดทราบ: การเปิดใช้การเก็บสถิติของฐานข้อมูล อาจจะทำให้มีปริมาณการถ่ายโอนข้อมูลจำนวนมาก "
-"ระหว่างเว็บเซิร์ฟเวอร์ และเซิร์ฟเวอร์ MySQL."
-
-#: templates/server/databases/databases_footer.twig:68
-#: templates/server/databases/databases_footer.twig:71
+#: templates/database/designer/aggregate_query_panel.twig:22
+#: templates/database/designer/options_panel.twig:100
 #, fuzzy
-#| msgid "Enable Statistics"
-msgid "Enable statistics"
-msgstr "ให้มีการเก็บสถิติ"
+#| msgid "Create"
+msgid "Aggregate"
+msgstr "สร้าง"
 
-#: templates/display/results/options_block.twig:30
+#: templates/database/designer/aggregate_query_panel.twig:30
+#: templates/database/designer/where_query_panel.twig:30
+#: templates/table/search/table_header.twig:9
+#: templates/database/designer/having_query_panel.twig:30
+#: templates/database/designer/having_query_panel.twig:61
+#: templates/database/designer/options_panel.twig:106
+#: templates/database/designer/options_panel.twig:170
 #, fuzzy
-msgid "Relational key"
-msgstr "รีเลชันแนล สกีมา"
-
-#: templates/display/results/options_block.twig:30
-#, fuzzy
-#| msgid "Displaying Column Comments"
-msgid "Display column for relationships"
-msgstr "แสดงหมายเหตุของคอลัมน์"
-
-#: templates/display/results/options_block.twig:46
-msgid "Show binary contents"
-msgstr "แสดงเนื้อหาไบนารี"
-
-#: templates/display/results/options_block.twig:53
-msgid "Show BLOB contents"
-msgstr "แสดงเนื้อหา BLOB"
-
-#: templates/display/results/options_block.twig:67
-#, fuzzy
-msgid "Hide browser transformation"
-msgstr "การแปลงที่เรียกใช้ได้"
-
-#: templates/display/results/options_block.twig:77
-msgid "Well Known Text"
-msgstr "ข้อความที่รู้จักกันดี"
-
-#: templates/display/results/options_block.twig:77
-msgid "Well Known Binary"
-msgstr "ไบนารีที่รู้จักกันดี"
-
-#: templates/table/search/rows_zoom.twig:12
-#, fuzzy
-msgid "Additional search criteria"
-msgstr "คำค้น SQL"
-
-#: templates/database/designer/where_query_panel.twig:59
-#: templates/database/designer/having_query_panel.twig:90
-#: templates/database/designer/options_panel.twig:63
-#: templates/database/designer/options_panel.twig:229
-#, fuzzy
-#| msgid "Export"
-msgid "Except"
-msgstr "ส่งออก"
-
-#: templates/database/designer/where_query_panel.twig:71
-#: templates/database/designer/having_query_panel.twig:102
-#: templates/database/designer/options_panel.twig:75
-#: templates/database/designer/options_panel.twig:241
-#, fuzzy
-#| msgid "in query"
-msgid "subquery"
-msgstr "ในคำค้น"
-
-#: templates/login/twofactor/application.twig:2
-#: templates/login/twofactor/application_configure.twig:9
-#, fuzzy
-#| msgid "Authentication"
-msgid "Authentication code:"
-msgstr "รับรองความถูกต้อง"
-
-#: templates/login/twofactor/application.twig:4
-msgid ""
-"Open the two-factor authentication app on your device to view your "
-"authentication code and verify your identity."
-msgstr ""
-
-#: templates/database/structure/table_header.twig:27
-#, fuzzy
-#| msgid "Error moving the uploaded file, see [doc@faq1-11]FAQ 1.11[/doc]"
-msgid ""
-"May be approximate. Click on the number to get the exact count. See "
-"[doc@faq3-11]FAQ 3.11[/doc]."
-msgstr "มีข้อผิดพลาดระหว่างการอัพโหลด กรุณาดู [doc@faq1-11]FAQ 1.11[/doc]"
-
-#: templates/database/structure/table_header.twig:38
-#: templates/table/index_form.twig:118
-msgid "Size"
-msgstr "ขนาด"
-
-#: templates/server/variables/variable_row.twig:6
-msgid "This is a read-only variable and can not be edited"
-msgstr ""
-
-#: templates/privileges/add_privileges_database.twig:1
-#, fuzzy
-#| msgid "Add privileges on the following database"
-msgid "Add privileges on the following database(s):"
-msgstr "เพิ่มสิทธิของฐานข้อมูลต่อไปนี้"
-
-#: templates/privileges/add_privileges_database.twig:14
-msgid "Wildcards % and _ should be escaped with a \\ to use them literally."
-msgstr ""
-
-#: templates/database/structure/body_for_table_summary.twig:6
-#, php-format
-msgid "%s table"
-msgid_plural "%s tables"
-msgstr[0] "%s ตาราง"
-
-#: templates/database/structure/body_for_table_summary.twig:17
-msgid "Sum"
-msgstr "ผลรวม"
-
-#: templates/encoding/kanji_encoding_form.twig:6
-msgctxt "None encoding conversion"
-msgid "None"
-msgstr "ไม่มี"
-
-#: templates/encoding/kanji_encoding_form.twig:17
-msgid "Convert to Kana"
-msgstr ""
-
-#: templates/columns_definitions/partitions.twig:17
-#, fuzzy
-#| msgid "Position"
-msgid "Partition by:"
-msgstr "ตำแหน่ง"
-
-#: templates/columns_definitions/partitions.twig:32
-#: templates/columns_definitions/partitions.twig:60
-#, fuzzy
-#| msgid "Values for column %s"
-msgid "Expression or column list"
-msgstr "ค่าสำหรับคอลัมน์ \"%s\""
-
-#: templates/columns_definitions/partitions.twig:37
-#, fuzzy
-#| msgid "Position"
-msgid "Partitions:"
-msgstr "ตำแหน่ง"
-
-#: templates/columns_definitions/partitions.twig:45
-#, fuzzy
-#| msgid "Position"
-msgid "Subpartition by:"
-msgstr "ตำแหน่ง"
-
-#: templates/columns_definitions/partitions.twig:65
-#, fuzzy
-#| msgid "Position"
-msgid "Subpartitions:"
-msgstr "ตำแหน่ง"
-
-#: templates/columns_definitions/partitions.twig:78
-#, fuzzy
-#| msgid "Value"
-msgid "Values"
-msgstr "ค่า"
-
-#: templates/columns_definitions/partitions.twig:82
-#, fuzzy
-#| msgid "Position"
-msgid "Subpartition"
-msgstr "ตำแหน่ง"
-
-#: templates/columns_definitions/partitions.twig:84
-#, fuzzy
-#| msgid "Engines"
-msgid "Engine"
-msgstr "เครื่องมือ"
-
-#: templates/columns_definitions/partitions.twig:86
-#, fuzzy
-#| msgid "Data Dictionary"
-msgid "Data directory"
-msgstr "พจนานุกรมข้อมูล"
-
-#: templates/columns_definitions/partitions.twig:87
-#, fuzzy
-#| msgid "Index type:"
-msgid "Index directory"
-msgstr "ชนิดของดัชนี :"
-
-#: templates/columns_definitions/partitions.twig:88
-#, fuzzy
-#| msgid "Affected rows:"
-msgid "Max rows"
-msgstr "ระเบียนที่มีผล:"
-
-#: templates/columns_definitions/partitions.twig:89
-#, fuzzy
-#| msgid "rows"
-msgid "Min rows"
-msgstr "เปิดดู"
-
-#: templates/columns_definitions/partitions.twig:90
-#, fuzzy
-#| msgid "Search"
-msgid "Table space"
-msgstr "ค้นหา"
-
-#: templates/columns_definitions/partitions.twig:91
-#, fuzzy
-#| msgid "Users"
-msgid "Node group"
-msgstr "ผู้ใช้"
+msgid "Operator"
+msgstr "กระบวนการ"
 
 #: templates/database/designer/side_menu.twig:13
 #: templates/database/designer/side_menu.twig:19
@@ -15917,81 +15314,67 @@ msgstr ""
 msgid "Pin text"
 msgstr "ข้อความบางส่วน"
 
-#: templates/database/search/results.twig:12
-#, fuzzy, php-format
-#| msgid "%s match inside table <i>%s</i>"
-#| msgid_plural "%s matches inside table <i>%s</i>"
-msgid "%1$s match in <strong>%2$s</strong>"
-msgid_plural "%1$s matches in <strong>%2$s</strong>"
-msgstr[0] "พบ %s ผลลัพธ์ที่ตรงในตาราง <i>%s</i>"
+#: templates/server/sub_page_header.twig:2
+msgid "Server variables and settings"
+msgstr "ตัวแปรของเซิร์ฟเวอร์และการตั้งค่า"
 
-#: templates/database/search/results.twig:56
+#: templates/server/sub_page_header.twig:2
 #, fuzzy
-#| msgid "<b>Total:</b> <i>%s</i> match"
-#| msgid_plural "<b>Total:</b> <i>%s</i> matches"
-msgid "<strong>Total:</strong> <em>%count%</em> match"
-msgid_plural "<strong>Total:</strong> <em>%count%</em> matches"
-msgstr[0] "<b>รวม:</b> <i>%s</i> ผลลัพธ์ที่ตรง"
+#| msgid "Storage Engines"
+msgid "Storage engines"
+msgstr "เครื่องมือที่เก็บข้อมูล"
 
-#: templates/login/twofactor/key_configure.twig:3
-msgid ""
-"Please connect your FIDO U2F device into your computer's USB port. Then "
-"confirm registration on the device."
-msgstr ""
-
-#: templates/columns_definitions/move_column.twig:7
-msgid "first"
-msgstr "ครั้งแรก"
-
-#: templates/columns_definitions/move_column.twig:12
-#: templates/table/structure/add_column.twig:19
-#, fuzzy, php-format
-#| msgid "After %s"
-msgid "after %s"
-msgstr "หลัง %s"
-
-#: templates/database/designer/page_save_as.twig:17
+#: templates/server/sub_page_header.twig:2
 #, fuzzy
-#| msgid "No rows selected"
-msgid "Save to selected page"
-msgstr "ยังไม่ได้เลือกแถว"
+#| msgid "Character Sets and Collations"
+msgid "Character sets and collations"
+msgstr "ชุดอักขระและการตรวจทาน"
 
-#: templates/database/designer/page_save_as.twig:17
+#: templates/server/sub_page_header.twig:2
+msgid "Databases statistics"
+msgstr "สถิติฐานข้อมูล"
+
+#: templates/database/designer/page_selector.twig:2
 #, fuzzy
-#| msgid "Create a new index"
-msgid "Create a page and save to it"
-msgstr "สร้างดัชนีใหม่"
+#| msgid "Select All"
+msgid "Select page"
+msgstr "เลือกทั้งหมด"
 
-#: templates/database/designer/page_save_as.twig:30
+#: templates/table/search/rows_zoom.twig:12
 #, fuzzy
-#| msgid "User name"
-msgid "New page name"
-msgstr "ชื่อผู้ใช้"
+msgid "Additional search criteria"
+msgstr "คำค้น SQL"
 
-#: templates/display/export/options_output_save_dir.twig:5
-#: templates/display/export/options_quick_export.twig:8
-#, fuzzy, php-format
-msgid "Save on server in the directory <strong>%s</strong>"
-msgstr "ไดเรกทอรีสำหรับอัพโหลด ที่เว็บเซิร์ฟเวอร์"
+#: templates/database/search/selection_form.twig:5
+msgid "Search in database"
+msgstr "ค้นหาในฐานข้อมูล"
 
-#: templates/table/search/options_zoom.twig:6
-msgid "Use this column to label each point"
-msgstr ""
+#: templates/database/search/selection_form.twig:8
+msgid "Words or values to search for (wildcard: \"%\"):"
+msgstr "คำ หรือ ค่าที่ต้องการค้นหา (wildcard: \"%\"):"
 
-#: templates/table/search/options_zoom.twig:32
-msgid "Maximum rows to plot"
-msgstr ""
+#: templates/database/search/selection_form.twig:15
+#: templates/table/search/search_and_replace.twig:1
+msgid "Find:"
+msgstr "ค้น:"
 
-#: templates/database/designer/query_details.twig:6
-#, fuzzy
-#| msgid "Table options"
-msgid "Active options"
-msgstr "ตัวเลือกตาราง"
+#: templates/database/search/selection_form.twig:29
+msgid "Inside tables:"
+msgstr "ภายในตาราง:"
 
-#: templates/database/structure/favorite_anchor.twig:4
-#, fuzzy
-msgid "Add to Favorites"
-msgstr "เพิ่มผู้ใช้ใหม่"
+#: templates/database/search/selection_form.twig:51
+msgid "Inside column:"
+msgstr "ในคอลัมน์:"
+
+#: templates/database/structure/body_for_table_summary.twig:6
+#, php-format
+msgid "%s table"
+msgid_plural "%s tables"
+msgstr[0] "%s ตาราง"
+
+#: templates/database/structure/body_for_table_summary.twig:17
+msgid "Sum"
+msgstr "ผลรวม"
 
 #: templates/display/export/options_rows.twig:2
 #, fuzzy
@@ -16003,6 +15386,14 @@ msgstr "แถว"
 msgid "Dump some row(s)"
 msgstr ""
 
+#: templates/display/export/options_rows.twig:10
+#: templates/start_and_number_of_rows_panel.twig:10
+#: templates/display/results/additional_fields.twig:6
+#, fuzzy
+#| msgid "Number of rows per page"
+msgid "Number of rows:"
+msgstr "ระเบียนต่อหน้า"
+
 #: templates/display/export/options_rows.twig:23
 msgid "Row to begin at:"
 msgstr ""
@@ -16011,35 +15402,87 @@ msgstr ""
 msgid "Dump all rows"
 msgstr ""
 
-#: templates/privileges/delete_user_fieldset.twig:3
+#: templates/view_create.twig:13
+#: templates/table/structure/display_structure.twig:137
 #, fuzzy
-#| msgid "Remove selected users"
-msgid "Remove selected user accounts"
-msgstr "ถอนผู้ใช้ที่เลือก"
+#| msgid "Print view"
+msgid "Edit view"
+msgstr "แสดง"
 
-#: templates/privileges/delete_user_fieldset.twig:6
-msgid "Revoke all active privileges from the users and delete them afterwards."
-msgstr "เพิกถอน active privileges ทั้งหมดจากผู้ใช้ และลบผู้ใช้ทิ้งหลังจากนั้น."
+#: templates/view_create.twig:65
+msgid "VIEW name"
+msgstr ""
 
-#: templates/privileges/delete_user_fieldset.twig:7
-#: templates/privileges/delete_user_fieldset.twig:10
-#: templates/privileges/delete_user_fieldset.twig:11
-msgid "Drop the databases that have the same names as the users."
-msgstr "โยนฐานข้อมูลที่มีชื่อเดียวกับผู้ใช้ทิ้ง."
+#: templates/view_create.twig:79
+msgid "Column names"
+msgstr "ชื่อคอลัมน์"
 
-#: templates/table/browse_foreigners/column_element.twig:4
-msgid "Use this value"
-msgstr "ใช้ค่านี้"
+#: templates/server/databases/index.twig:24
+msgid "No databases"
+msgstr "ไม่มีฐานข้อมูล"
 
-#: templates/database/tracking/untracked_tables.twig:1
-msgid "Untracked tables"
-msgstr "เลิกติดตามตาราง"
+#: templates/table/structure/row_stats_table.twig:2
+#, fuzzy
+#| msgid "Row Statistics"
+msgid "Row statistics"
+msgstr "สถิติของแถว"
 
-#: templates/database/tracking/untracked_tables.twig:28
-#: templates/database/tracking/untracked_tables.twig:40
-#: templates/table/structure/optional_action_links.twig:15
-msgid "Track table"
-msgstr "ติดตามตาราง"
+#: templates/table/structure/row_stats_table.twig:8
+msgid "static"
+msgstr ""
+
+#: templates/table/structure/row_stats_table.twig:10
+msgid "dynamic"
+msgstr "ไม่คงที่"
+
+#: templates/table/structure/row_stats_table.twig:21
+msgid "partitioned"
+msgstr ""
+
+#: templates/table/structure/row_stats_table.twig:50
+msgid "Row length"
+msgstr "ความยาวแถว"
+
+#: templates/table/structure/row_stats_table.twig:62
+msgid "Row size"
+msgstr "ขนาดแถว"
+
+#: templates/table/structure/row_stats_table.twig:69
+msgid "Next autoindex"
+msgstr ""
+
+#: templates/table/structure/row_stats_table.twig:76
+#: templates/database/structure/table_header.twig:53
+msgid "Creation"
+msgstr "สร้างเมื่อ"
+
+#: templates/table/structure/row_stats_table.twig:83
+#: templates/database/structure/table_header.twig:58
+msgid "Last update"
+msgstr "ปรับปรุงครั้งสุดท้ายเมื่อ"
+
+#: templates/table/structure/row_stats_table.twig:90
+#: templates/database/structure/table_header.twig:63
+msgid "Last check"
+msgstr "ตรวจสอบครั้งสุดท้ายเมื่อ"
+
+#: templates/privileges/resource_limits.twig:2
+msgid "Resource limits"
+msgstr "ขีดจำกัดของทรัพยากร"
+
+#: templates/privileges/resource_limits.twig:5
+msgid "Note: Setting these options to 0 (zero) removes the limit."
+msgstr "โปรดทราบ: ถ้าเปลี่ยนค่าเหล่านี้เป็น 0 (ศูนย์) จะหมายถึง ไม่มีขีดจำกัด."
+
+#: templates/display/export/options_output_format.twig:3
+#, fuzzy
+#| msgid "File name template"
+msgid "File name template:"
+msgstr "รูปแบบของชื่อไฟล์"
+
+#: templates/display/export/options_output_format.twig:11
+msgid "use this for future exports"
+msgstr ""
 
 #: templates/database/designer/database_tables.twig:31
 #, fuzzy
@@ -16053,22 +15496,167 @@ msgstr "เพิ่มฟิลด์ใหม่"
 msgid "See table structure"
 msgstr "โครงสร้างของตาราง"
 
-#: templates/privileges/add_user_fieldset.twig:2
-msgctxt "Create new user"
-msgid "New"
+#: templates/table/tracking/activate_deactivate.twig:7
+#, php-format
+msgid "Activate tracking for %s"
 msgstr ""
 
-#: templates/database/create_table.twig:15
-#, fuzzy
-#| msgid "Number of rows per page"
-msgid "Number of columns"
-msgstr "ระเบียนต่อหน้า"
+#: templates/table/tracking/activate_deactivate.twig:9
+msgid "Activate now"
+msgstr ""
 
-#: templates/display/export/selection.twig:3
+#: templates/table/tracking/activate_deactivate.twig:11
+#, fuzzy, php-format
+#| msgid "Delete tracking data for this table"
+msgid "Deactivate tracking for %s"
+msgstr "ลบการติดตามตารางนี้"
+
+#: templates/table/tracking/activate_deactivate.twig:13
+msgid "Deactivate now"
+msgstr ""
+
+#: templates/table/structure/partition_definition_form.twig:6
+#: templates/table/structure/display_partitions.twig:141
 #, fuzzy
-#| msgid "Databases"
-msgid "Databases:"
-msgstr "ฐานข้อมูล"
+#| msgid "Add new field"
+msgid "Edit partitioning"
+msgstr "เพิ่มฟิลด์ใหม่"
+
+#: templates/table/structure/display_structure.twig:191
+#: templates/table/structure/display_partitions.twig:4
+#, fuzzy
+#| msgid "Position"
+msgid "Partitions"
+msgstr "ตำแหน่ง"
+
+#: templates/encoding/kanji_encoding_form.twig:6
+msgctxt "None encoding conversion"
+msgid "None"
+msgstr "ไม่มี"
+
+#: templates/encoding/kanji_encoding_form.twig:17
+msgid "Convert to Kana"
+msgstr ""
+
+#: templates/display/export/template_options.twig:1
+#, fuzzy
+#| msgid "Select Tables"
+msgid "Select a template"
+msgstr "เลือกตาราง"
+
+#: templates/database/designer/rename_to_panel.twig:22
+#: templates/database/designer/options_panel.twig:85
+#, fuzzy
+msgid "Rename to"
+msgstr "เปลี่ยนชื่อตารางเป็น"
+
+#: templates/database/designer/rename_to_panel.twig:30
+#: templates/database/designer/options_panel.twig:91
+#, fuzzy
+#| msgid "User name"
+msgid "New name"
+msgstr "ชื่อผู้ใช้"
+
+#: templates/database/structure/table_header.twig:27
+#, fuzzy
+#| msgid "Error moving the uploaded file, see [doc@faq1-11]FAQ 1.11[/doc]"
+msgid ""
+"May be approximate. Click on the number to get the exact count. See "
+"[doc@faq3-11]FAQ 3.11[/doc]."
+msgstr "มีข้อผิดพลาดระหว่างการอัพโหลด กรุณาดู [doc@faq1-11]FAQ 1.11[/doc]"
+
+#: templates/database/structure/table_header.twig:38
+#: templates/table/index_form.twig:118
+msgid "Size"
+msgstr "ขนาด"
+
+#: templates/privileges/privileges_summary.twig:20
+msgid "Column-specific privileges"
+msgstr "สิทธิเฉพาะคอลัมน์"
+
+#: templates/privileges/add_privileges_database.twig:1
+#, fuzzy
+#| msgid "Add privileges on the following database"
+msgid "Add privileges on the following database(s):"
+msgstr "เพิ่มสิทธิของฐานข้อมูลต่อไปนี้"
+
+#: templates/privileges/add_privileges_database.twig:14
+msgid "Wildcards % and _ should be escaped with a \\ to use them literally."
+msgstr ""
+
+#: templates/database/structure/favorite_anchor.twig:4
+#, fuzzy
+msgid "Add to Favorites"
+msgstr "เพิ่มผู้ใช้ใหม่"
+
+#: templates/columns_definitions/column_default.twig:3
+msgctxt "for default"
+msgid "None"
+msgstr "ไม่มี"
+
+#: templates/columns_definitions/column_default.twig:5
+msgid "As defined:"
+msgstr ""
+
+#: templates/display/export/option_header.twig:5
+msgid "Exporting databases from the current server"
+msgstr "การส่งออกฐานข้อมูลจากเซิร์ฟเวอร์ปัจจุบัน"
+
+#: templates/display/export/option_header.twig:7
+#, fuzzy, php-format
+#| msgid "Create table on database %s"
+msgid "Exporting tables from \"%s\" database"
+msgstr "สร้างตารางในฐานข้อมูลนี้ %s"
+
+#: templates/display/export/option_header.twig:9
+#, fuzzy, php-format
+#| msgid "Create table on database %s"
+msgid "Exporting rows from \"%s\" table"
+msgstr "สร้างตารางในฐานข้อมูลนี้ %s"
+
+#: templates/theme_preview.twig:11
+msgid "No preview available."
+msgstr "ไม่สามารถแสดงตัวอย่างได้"
+
+#: templates/theme_preview.twig:13
+#, fuzzy
+#| msgid "take it"
+msgid "Take it"
+msgstr "ใช้ชุดรูปแบบนี้"
+
+#: templates/columns_definitions/column_virtuality.twig:29
+#: templates/table/structure/display_partitions.twig:26
+#, fuzzy
+#| msgid "Compression"
+msgid "Expression"
+msgstr "บีบอัดข้อมูล"
+
+#: templates/prefs_autoload.twig:7
+msgid ""
+"Your browser has phpMyAdmin configuration for this domain. Would you like to "
+"import it for current session?"
+msgstr ""
+
+#: templates/prefs_autoload.twig:13
+#, fuzzy
+#| msgid "Deleting tracking data"
+msgid "Delete settings"
+msgstr "กำลังลบข้อมูลติดตามตาราง"
+
+#: templates/database/designer/delete_relation_panel.twig:21
+#, fuzzy
+#| msgid "Deleting tracking data"
+msgid "Delete relationship"
+msgstr "กำลังลบข้อมูลติดตามตาราง"
+
+#: templates/database/structure/show_create.twig:2
+#, fuzzy
+msgid "Showing create queries"
+msgstr "แสดงคำค้นแบบเต็ม"
+
+#: templates/login/twofactor.twig:5
+msgid "Verify"
+msgstr ""
 
 #: templates/table/search/replace_preview.twig:13
 msgid "Find and replace - preview"
@@ -16099,126 +15687,51 @@ msgstr "รีเลชัน"
 msgid "Replace"
 msgstr "ทำซ้ำเรียบร้อยแล้ว"
 
-#: templates/database/designer/edit_delete_pages.twig:6
+#: templates/login/twofactor/application.twig:2
+#: templates/login/twofactor/application_configure.twig:9
 #, fuzzy
-#| msgid "Page number:"
-msgid "Page to open"
-msgstr "หมายเลขหน้า:"
+#| msgid "Authentication"
+msgid "Authentication code:"
+msgstr "รับรองความถูกต้อง"
 
-#: templates/database/designer/edit_delete_pages.twig:6
-#, fuzzy
-msgid "Page to delete"
-msgstr "มุมมองรีเลชัน"
-
-#: templates/columns_definitions/column_definitions_form.twig:23
-msgid "Table name"
-msgstr "ชื่อตาราง"
-
-#: templates/columns_definitions/column_definitions_form.twig:32
-#: templates/console/display.twig:99 templates/export/alias_add.twig:18
-#: templates/export/alias_add.twig:32 templates/export/alias_add.twig:46
-#, fuzzy
-#| msgid "And"
-msgid "Add"
-msgstr "และ"
-
-#: templates/columns_definitions/column_definitions_form.twig:40
-#, fuzzy
-#| msgid "Columns"
-msgid "column(s)"
-msgstr "คอลัมน์"
-
-#: templates/columns_definitions/column_definitions_form.twig:74
-#, fuzzy
-#| msgid "Collation"
-msgid "Collation:"
-msgstr "การเรียงลำดับ"
-
-#: templates/columns_definitions/column_definitions_form.twig:77
-msgid "Storage Engine:"
-msgstr ""
-
-#: templates/columns_definitions/column_definitions_form.twig:82
-#, fuzzy
-#| msgid "Connections"
-msgid "Connection:"
-msgstr "การเชื่อมต่อ"
-
-#: templates/columns_definitions/column_definitions_form.twig:128
-msgid "PARTITION definition:"
-msgstr ""
-
-#: templates/database/designer/delete_relation_panel.twig:21
-#, fuzzy
-#| msgid "Deleting tracking data"
-msgid "Delete relationship"
-msgstr "กำลังลบข้อมูลติดตามตาราง"
-
-#: templates/privileges/add_privileges_table.twig:3
-#, fuzzy
-#| msgid "Add privileges on the following table"
-msgid "Add privileges on the following table:"
-msgstr "เพิ่มสิทธิของตารางต่อไปนี้"
-
-#: templates/database/tracking/tracked_tables.twig:2
-msgid "Tracked tables"
-msgstr "ตารางที่ถูกติดตาม"
-
-#: templates/database/tracking/tracked_tables.twig:12
-msgid "Last version"
-msgstr "เวอร์ชั่นล่าสุด"
-
-#: templates/database/tracking/tracked_tables.twig:49
-#: templates/database/tracking/tracked_tables.twig:77
-#, fuzzy
-#| msgid "Deleting tracking data"
-msgid "Delete tracking"
-msgstr "กำลังลบข้อมูลติดตามตาราง"
-
-#: templates/database/tracking/tracked_tables.twig:55
-msgid "Versions"
-msgstr "รุ่น"
-
-#: templates/login/twofactor/application_configure.twig:3
+#: templates/login/twofactor/application.twig:4
 msgid ""
-"Please scan following QR code into the two-factor authentication app on your "
-"device and enter authentication code it generates."
+"Open the two-factor authentication app on your device to view your "
+"authentication code and verify your identity."
 msgstr ""
 
-#: templates/table/structure/add_column.twig:9
+#: templates/table/tracking/create_version.twig:11
+#, php-format
+msgid "Create version %1$s of %2$s"
+msgstr "สร้างเวอร์ชั่น %1$s ของ %2$s"
+
+#: templates/table/tracking/create_version.twig:16
 #, fuzzy, php-format
-msgid "Add %s column(s)"
-msgstr "เพิ่มฟิลด์ใหม่"
+#| msgid "Create version"
+msgid "Create version %1$s"
+msgstr "สร้างเวอร์ชั่น"
 
-#: templates/table/structure/add_column.twig:14
-#, fuzzy
-#| msgid "At Beginning of Table"
-msgid "at beginning of table"
-msgstr "ที่จุดเริ่มต้นของตาราง"
-
-#: templates/table/gis_visualization/gis_visualization.twig:3
-msgid "Display GIS Visualization"
+#: templates/table/tracking/create_version.twig:20
+msgid "Track these data definition statements:"
 msgstr ""
 
-#: templates/table/gis_visualization/gis_visualization.twig:8
-#, fuzzy
-#| msgid "Add/Delete Field Columns"
-msgid "Label column"
-msgstr "เพิ่ม/ลบ คอลัมน์ (ฟิลด์)"
+#: templates/table/tracking/create_version.twig:59
+msgid "Track these data manipulation statements:"
+msgstr ""
 
-#: templates/table/gis_visualization/gis_visualization.twig:11
-msgid "-- None --"
-msgstr "-- ไม่มี --"
-
-#: templates/table/gis_visualization/gis_visualization.twig:19
-#, fuzzy
-#| msgid "Total"
-msgid "Spatial column"
-msgstr "รวม"
+#: templates/table/tracking/create_version.twig:76
+msgid "Create version"
+msgstr "สร้างเวอร์ชั่น"
 
 #: templates/table/structure/optional_action_links.twig:6
 msgid "Propose table structure"
 msgstr "เสนอโครงสร้างตาราง"
+
+#: templates/table/structure/optional_action_links.twig:15
+#: templates/database/tracking/untracked_tables.twig:28
+#: templates/database/tracking/untracked_tables.twig:40
+msgid "Track table"
+msgstr "ติดตามตาราง"
 
 #: templates/table/structure/optional_action_links.twig:22
 msgid "Normalize"
@@ -16230,289 +15743,132 @@ msgstr ""
 msgid "Track view"
 msgstr "ติดตามตาราง"
 
-#: templates/table/structure/actions_in_table_structure.twig:15
-#, php-format
-msgid "A primary key has been added on %s."
-msgstr "ได้เพิ่มไพรมารีคีย์แล้วใน %s"
+#: templates/columns_definitions/column_name.twig:4
+#, fuzzy, php-format
+#| msgid "Select referenced key"
+msgid "Referenced by %s."
+msgstr "เลือกคีย์อ้างอิง"
 
-#: templates/table/structure/actions_in_table_structure.twig:33
-#: templates/table/structure/actions_in_table_structure.twig:51
-#: templates/table/structure/actions_in_table_structure.twig:80
-#: templates/table/structure/actions_in_table_structure.twig:103
-#, php-format
-msgid "An index has been added on %s."
-msgstr "ได้เพิ่มดัชนีแล้วใน %s"
+#: templates/columns_definitions/column_name.twig:12
+#, fuzzy
+#| msgid "Select Foreign Key"
+msgid "Is a foreign key."
+msgstr "เลือกคีย์นอก"
 
-#: templates/table/structure/actions_in_table_structure.twig:127
-#: templates/table/structure/check_all_table_column.twig:83
+#: templates/columns_definitions/column_name.twig:40
 #, fuzzy
 #| msgid "Remove chart"
-msgid "Remove from central columns"
+msgid "Pick from Central Columns"
 msgstr "เอาการแสดงผลออก"
-
-#: templates/table/structure/actions_in_table_structure.twig:131
-#: templates/table/structure/check_all_table_column.twig:76
-#, fuzzy
-#| msgid "CHAR textarea columns"
-msgid "Add to central columns"
-msgstr "คอลัมน์พื้นที่ข้อความ CHAR"
-
-#: templates/start_and_number_of_rows_panel.twig:3
-#, fuzzy
-#| msgid "Start"
-msgid "Start row:"
-msgstr "ส."
-
-#: templates/theme_preview.twig:11
-msgid "No preview available."
-msgstr "ไม่สามารถแสดงตัวอย่างได้"
-
-#: templates/theme_preview.twig:13
-#, fuzzy
-#| msgid "take it"
-msgid "Take it"
-msgstr "ใช้ชุดรูปแบบนี้"
-
-#: templates/prefs_autoload.twig:7
-msgid ""
-"Your browser has phpMyAdmin configuration for this domain. Would you like to "
-"import it for current session?"
-msgstr ""
-
-#: templates/prefs_autoload.twig:13
-#, fuzzy
-#| msgid "Deleting tracking data"
-msgid "Delete settings"
-msgstr "กำลังลบข้อมูลติดตามตาราง"
-
-#: templates/database/designer/options_panel.twig:34
-#: templates/database/designer/options_panel.twig:200
-#, fuzzy
-msgid "Relationship operator"
-msgstr "มุมมองรีเลชัน"
-
-#: templates/database/designer/options_panel.twig:85
-#: templates/database/designer/rename_to_panel.twig:22
-#, fuzzy
-msgid "Rename to"
-msgstr "เปลี่ยนชื่อตารางเป็น"
-
-#: templates/database/designer/options_panel.twig:91
-#: templates/database/designer/rename_to_panel.twig:30
-#, fuzzy
-#| msgid "User name"
-msgid "New name"
-msgstr "ชื่อผู้ใช้"
-
-#: templates/database/designer/options_panel.twig:100
-#: templates/database/designer/aggregate_query_panel.twig:22
-#, fuzzy
-#| msgid "Create"
-msgid "Aggregate"
-msgstr "สร้าง"
-
-#: templates/prefs_twofactor_configure.twig:2 templates/prefs_twofactor.twig:43
-#: templates/prefs_twofactor.twig:54
-#, fuzzy
-#| msgid "Config authentication"
-msgid "Configure two-factor authentication"
-msgstr "กำหนดค่าการรับรองความถูกต้อง"
-
-#: templates/prefs_twofactor_configure.twig:8
-#, fuzzy
-#| msgid "Config authentication"
-msgid "Enable two-factor authentication"
-msgstr "กำหนดค่าการรับรองความถูกต้อง"
-
-#: templates/console/bookmark_content.twig:7 templates/console/display.twig:31
-#: templates/console/display.twig:84 templates/console/display.twig:175
-msgid "Collapse"
-msgstr ""
-
-#: templates/console/bookmark_content.twig:7 templates/console/display.twig:31
-#: templates/console/display.twig:84 templates/console/display.twig:175
-msgid "Expand"
-msgstr ""
-
-#: templates/console/bookmark_content.twig:7 templates/console/display.twig:31
-#: templates/console/display.twig:175
-#, fuzzy
-#| msgid "in query"
-msgid "Requery"
-msgstr "ในคำค้น"
-
-#: templates/server/plugins/section.twig:9
-msgid "Plugin"
-msgstr ""
-
-#: templates/server/plugins/section.twig:12
-msgid "Author"
-msgstr ""
-
-#: templates/server/plugins/section.twig:23
-msgid "disabled"
-msgstr "ปิดใช้งาน"
-
-#: templates/columns_definitions/column_default.twig:3
-msgctxt "for default"
-msgid "None"
-msgstr "ไม่มี"
-
-#: templates/columns_definitions/column_default.twig:5
-msgid "As defined:"
-msgstr ""
-
-#: templates/privileges/resource_limits.twig:2
-msgid "Resource limits"
-msgstr "ขีดจำกัดของทรัพยากร"
-
-#: templates/privileges/resource_limits.twig:5
-msgid "Note: Setting these options to 0 (zero) removes the limit."
-msgstr "โปรดทราบ: ถ้าเปลี่ยนค่าเหล่านี้เป็น 0 (ศูนย์) จะหมายถึง ไม่มีขีดจำกัด."
 
 #: templates/columns_definitions/column_length.twig:9
 msgid "Edit ENUM/SET values"
 msgstr ""
 
-#: templates/display/import/import.twig:40
-msgid "Importing into the current server"
-msgstr "การนำเข้าฐานข้อมูลสู่เซิร์ฟเวอร์ปัจจุบัน"
+#: templates/database/multi_table_query/form.twig:1
+msgid "Query window"
+msgstr "หน้าต่างแบบสอบถาม"
 
-#: templates/display/import/import.twig:42
-#, fuzzy, php-format
-msgid "Importing into the database \"%s\""
-msgstr "ไม่มีฐานข้อมูล"
-
-#: templates/display/import/import.twig:44
-#, fuzzy, php-format
-msgid "Importing into the table \"%s\""
-msgstr "ไม่มีฐานข้อมูล"
-
-#: templates/display/import/import.twig:50
+#: templates/database/multi_table_query/form.twig:18
+#: templates/database/multi_table_query/form.twig:106
 #, fuzzy
-#| msgid "File to Import:"
-msgid "File to import:"
-msgstr "ไฟล์ที่ต้องการนำเข้า:"
+#| msgid "Select Tables"
+msgid "select table"
+msgstr "เลือกตาราง"
 
-#: templates/display/import/import.twig:56
-#, php-format
-msgid "File may be compressed (%s) or uncompressed."
+#: templates/database/multi_table_query/form.twig:25
+#: templates/database/multi_table_query/form.twig:114
+#, fuzzy
+#| msgid "Select two columns"
+msgid "select column"
+msgstr "เพิ่มสองสดมภ์"
+
+#: templates/database/multi_table_query/form.twig:31
+#, fuzzy
+#| msgid "Tables"
+msgid "Table alias"
+msgstr "ตาราง"
+
+#: templates/database/multi_table_query/form.twig:32
+#, fuzzy
+#| msgid "Column names"
+msgid "Column alias"
+msgstr "ชื่อคอลัมน์"
+
+#: templates/database/multi_table_query/form.twig:35
+msgid "Use this column in criteria"
 msgstr ""
 
-#: templates/display/import/import.twig:58
-msgid ""
-"A compressed file's name must end in <strong>.[format].[compression]</"
-"strong>. Example: <strong>.sql.zip</strong>"
+#: templates/database/multi_table_query/form.twig:38
+#, fuzzy
+#| msgid "Criteria"
+msgid "criteria"
+msgstr "เงื่อนไข"
+
+#: templates/database/multi_table_query/form.twig:52
+#, fuzzy
+#| msgid "Add %s"
+msgid "Add as"
+msgstr "เพิ่ม %s"
+
+#: templates/database/multi_table_query/form.twig:97
+#, fuzzy
+#| msgid "Add/Delete Field Columns"
+msgid "Another column"
+msgstr "เพิ่ม/ลบ คอลัมน์ (ฟิลด์)"
+
+#: templates/database/multi_table_query/form.twig:125
+msgid "Enter criteria as free text"
 msgstr ""
 
-#: templates/display/import/import.twig:69
-#: templates/display/import/import.twig:84
-msgid "You may also drag and drop a file on any page."
+#: templates/database/multi_table_query/form.twig:133
+#, fuzzy
+#| msgid "Remove chart"
+msgid "Remove this column"
+msgstr "เอาการแสดงผลออก"
+
+#: templates/database/multi_table_query/form.twig:143
+#: templates/table/relation/foreign_key_row.twig:91
+#, fuzzy
+msgid "+ Add column"
+msgstr "เพิ่มฟิลด์ใหม่"
+
+#: templates/database/multi_table_query/form.twig:160
+#, fuzzy
+#| msgid "Update Query"
+msgid "Update query"
+msgstr "ปรับปรุงคำค้น"
+
+#: templates/table/tracking/report_table.twig:4
+#: templates/table/tracking/structure_snapshot_columns.twig:5
+msgctxt "Number"
+msgid "#"
 msgstr ""
 
-#: templates/display/import/import.twig:86
-msgid "File uploads are not allowed on this server."
+#: templates/table/tracking/report_table.twig:5
+msgid "Date"
+msgstr "วันที่"
+
+#: templates/table/tracking/report_table.twig:6
+#, fuzzy
+msgid "Username"
+msgstr "ชื่อผู้ใช้:"
+
+#: templates/export/alias_item.twig:8
+msgid "Remove"
 msgstr ""
 
-#: templates/display/import/import.twig:124
-#, fuzzy
-#| msgid "Partial Import:"
-msgid "Partial import:"
-msgstr "นำเข้าบางส่วน:"
+#: templates/table/browse_foreigners/column_element.twig:4
+msgid "Use this value"
+msgstr "ใช้ค่านี้"
 
-#: templates/display/import/import.twig:129
-#, php-format
-msgid ""
-"Previous import timed out, after resubmitting will continue from position %d."
+#: templates/table/search/options_zoom.twig:6
+msgid "Use this column to label each point"
 msgstr ""
 
-#: templates/display/import/import.twig:137
-msgid ""
-"Allow the interruption of an import in case the script detects it is close "
-"to the PHP timeout limit. <em>(This might be a good way to import large "
-"files, however it can break transactions.)</em>"
+#: templates/table/search/options_zoom.twig:32
+msgid "Maximum rows to plot"
 msgstr ""
-
-#: templates/display/import/import.twig:144
-msgid "Skip this number of queries (for SQL) starting from the first one:"
-msgstr ""
-
-#: templates/display/import/import.twig:161
-#, fuzzy
-#| msgid "Options"
-msgid "Other options:"
-msgstr "ตัวเลือก"
-
-#: templates/display/import/import.twig:174
-#: templates/display/export/options_format.twig:2
-msgid "Format-specific options:"
-msgstr "ตัวเลือกรูปแบบเฉพาะ:"
-
-#: templates/display/import/import.twig:176
-#: templates/display/export/options_format.twig:4
-msgid ""
-"Scroll down to fill in the options for the selected format and ignore the "
-"options for other formats."
-msgstr ""
-
-#: templates/display/import/import.twig:185
-#: templates/display/export/options_format.twig:12
-msgid "Encoding Conversion:"
-msgstr ""
-
-#: templates/server/databases/create.twig:8
-#: templates/server/databases/create.twig:36
-#, fuzzy
-#| msgid "Create new database"
-msgid "Create database"
-msgstr "สร้างฐานข้อมูลใหม่"
-
-#: templates/display/export/options_output_compression.twig:4
-#, fuzzy
-#| msgid "Compression"
-msgid "Compression:"
-msgstr "บีบอัดข้อมูล"
-
-#: templates/display/export/options_output_compression.twig:11
-#, fuzzy
-#| msgid "\"zipped\""
-msgid "zipped"
-msgstr "\"ถูกบีบอัดอยู่ (zip)\""
-
-#: templates/display/export/options_output_compression.twig:17
-#, fuzzy
-#| msgid "\"gzipped\""
-msgid "gzipped"
-msgstr "\"gzipped\""
-
-#: templates/table/structure/display_structure.twig:137
-#: templates/view_create.twig:13
-#, fuzzy
-#| msgid "Print view"
-msgid "Edit view"
-msgstr "แสดง"
-
-#: templates/prefs_twofactor_confirm.twig:2
-#, fuzzy
-#| msgid "Config authentication"
-msgid "Confirm disabling two-factor authentication"
-msgstr "กำหนดค่าการรับรองความถูกต้อง"
-
-#: templates/prefs_twofactor_confirm.twig:5
-msgid ""
-"By disabling two factor authentication you will be again able to login using "
-"password only."
-msgstr ""
-
-#: templates/prefs_twofactor_confirm.twig:9 templates/prefs_twofactor.twig:37
-#, fuzzy
-#| msgid "Config authentication"
-msgid "Disable two-factor authentication"
-msgstr "กำหนดค่าการรับรองความถูกต้อง"
-
-#: templates/database/structure/structure_table_row.twig:222
-msgid "in use"
-msgstr "ใช้อยู่"
 
 #: templates/console/display.twig:7
 #, fuzzy
@@ -16535,6 +15891,23 @@ msgstr "คำค้น SQL"
 #, fuzzy
 msgid "Press Enter to execute query"
 msgstr "คำค้น SQL"
+
+#: templates/console/display.twig:31 templates/console/display.twig:84
+#: templates/console/display.twig:175 templates/console/bookmark_content.twig:7
+msgid "Collapse"
+msgstr ""
+
+#: templates/console/display.twig:31 templates/console/display.twig:84
+#: templates/console/display.twig:175 templates/console/bookmark_content.twig:7
+msgid "Expand"
+msgstr ""
+
+#: templates/console/display.twig:31 templates/console/display.twig:175
+#: templates/console/bookmark_content.twig:7
+#, fuzzy
+#| msgid "in query"
+msgid "Requery"
+msgstr "ในคำค้น"
 
 #: templates/console/display.twig:31 templates/console/display.twig:175
 #, fuzzy
@@ -16650,103 +16023,634 @@ msgid ""
 "this permanent, view settings."
 msgstr ""
 
-#: templates/table/index_form.twig:15
-msgid "Index name:"
-msgstr "ชื่อดัชนี :"
-
-#: templates/table/index_form.twig:16
-msgid ""
-"\"PRIMARY\" <b>must</b> be the name of and <b>only of</b> a primary key!"
-msgstr "ชื่อของไพรมารีคีย์<b>จะต้องเป็น</b> \"PRIMARY\" เท่านั้น!"
-
-#: templates/table/index_form.twig:34
+#: templates/columns_definitions/partitions.twig:17
 #, fuzzy
-#| msgid "Index name:"
-msgid "Index choice:"
-msgstr "ชื่อดัชนี :"
+#| msgid "Position"
+msgid "Partition by:"
+msgstr "ตำแหน่ง"
 
-#: templates/table/index_form.twig:42
+#: templates/columns_definitions/partitions.twig:32
+#: templates/columns_definitions/partitions.twig:60
 #, fuzzy
-#| msgid "Table options"
-msgid "Advanced Options"
-msgstr "ตัวเลือกตาราง"
+#| msgid "Values for column %s"
+msgid "Expression or column list"
+msgstr "ค่าสำหรับคอลัมน์ \"%s\""
 
-#: templates/table/index_form.twig:48
-msgid "Key block size:"
-msgstr ""
+#: templates/columns_definitions/partitions.twig:37
+#, fuzzy
+#| msgid "Position"
+msgid "Partitions:"
+msgstr "ตำแหน่ง"
 
-#: templates/table/index_form.twig:65
-msgid "Index type:"
+#: templates/columns_definitions/partitions.twig:45
+#, fuzzy
+#| msgid "Position"
+msgid "Subpartition by:"
+msgstr "ตำแหน่ง"
+
+#: templates/columns_definitions/partitions.twig:65
+#, fuzzy
+#| msgid "Position"
+msgid "Subpartitions:"
+msgstr "ตำแหน่ง"
+
+#: templates/columns_definitions/partitions.twig:76
+#: templates/table/structure/display_partitions.twig:24
+#, fuzzy
+#| msgid "Position"
+msgid "Partition"
+msgstr "ตำแหน่ง"
+
+#: templates/columns_definitions/partitions.twig:78
+#, fuzzy
+#| msgid "Value"
+msgid "Values"
+msgstr "ค่า"
+
+#: templates/columns_definitions/partitions.twig:82
+#, fuzzy
+#| msgid "Position"
+msgid "Subpartition"
+msgstr "ตำแหน่ง"
+
+#: templates/columns_definitions/partitions.twig:84
+#, fuzzy
+#| msgid "Engines"
+msgid "Engine"
+msgstr "เครื่องมือ"
+
+#: templates/columns_definitions/partitions.twig:86
+#, fuzzy
+#| msgid "Data Dictionary"
+msgid "Data directory"
+msgstr "พจนานุกรมข้อมูล"
+
+#: templates/columns_definitions/partitions.twig:87
+#, fuzzy
+#| msgid "Index type:"
+msgid "Index directory"
 msgstr "ชนิดของดัชนี :"
 
-#: templates/table/index_form.twig:77
+#: templates/columns_definitions/partitions.twig:88
 #, fuzzy
-#| msgid "User"
-msgid "Parser:"
+#| msgid "Affected rows:"
+msgid "Max rows"
+msgstr "ระเบียนที่มีผล:"
+
+#: templates/columns_definitions/partitions.twig:89
+#, fuzzy
+#| msgid "rows"
+msgid "Min rows"
+msgstr "เปิดดู"
+
+#: templates/columns_definitions/partitions.twig:90
+#, fuzzy
+#| msgid "Search"
+msgid "Table space"
+msgstr "ค้นหา"
+
+#: templates/columns_definitions/partitions.twig:91
+#, fuzzy
+#| msgid "Users"
+msgid "Node group"
 msgstr "ผู้ใช้"
 
-#: templates/table/index_form.twig:93
-#, fuzzy
-#| msgid "Comment"
-msgid "Comment:"
-msgstr "หมายเหตุ"
+#: templates/table/relation/foreign_key_row.twig:15
+#, fuzzy, php-format
+#| msgid "Foreign key check:"
+msgid "Foreign key constraint %s has been dropped"
+msgstr "ตรวจสอบคีย์ต่างประเทศ:"
 
-#: templates/table/index_form.twig:136 templates/table/index_form.twig:173
+#: templates/table/relation/foreign_key_row.twig:39
 #, fuzzy
-#| msgid "Drag to reorder"
-msgid "Drag to reorder"
-msgstr "ลากเพื่อเปลี่ยนลำดับ"
+#| msgid "Column names"
+msgid "Constraint name"
+msgstr "ชื่อคอลัมน์"
 
-#: templates/database/designer/table_list.twig:4
+#: templates/table/structure/check_all_table_column.twig:76
+#: templates/table/structure/actions_in_table_structure.twig:131
 #, fuzzy
-msgid "Hide/Show all"
-msgstr "แสดงทั้งหมด"
+#| msgid "CHAR textarea columns"
+msgid "Add to central columns"
+msgstr "คอลัมน์พื้นที่ข้อความ CHAR"
 
-#: templates/database/designer/table_list.twig:14
+#: templates/table/structure/check_all_table_column.twig:83
+#: templates/table/structure/actions_in_table_structure.twig:127
 #, fuzzy
-#| msgid "Propose table structure"
-msgid "Hide/Show tables with no relationship"
-msgstr "เสนอโครงสร้างตาราง"
+#| msgid "Remove chart"
+msgid "Remove from central columns"
+msgstr "เอาการแสดงผลออก"
 
-#: templates/database/designer/table_list.twig:55
+#: templates/server/databases/databases_footer.twig:65
+msgid ""
+"Note: Enabling the database statistics here might cause heavy traffic "
+"between the web server and the MySQL server."
+msgstr ""
+"โปรดทราบ: การเปิดใช้การเก็บสถิติของฐานข้อมูล อาจจะทำให้มีปริมาณการถ่ายโอนข้อมูลจำนวนมาก "
+"ระหว่างเว็บเซิร์ฟเวอร์ และเซิร์ฟเวอร์ MySQL."
+
+#: templates/server/databases/databases_footer.twig:68
+#: templates/server/databases/databases_footer.twig:71
 #, fuzzy
-#| msgid "Number of rows per page"
-msgid "Number of tables:"
+#| msgid "Enable Statistics"
+msgid "Enable statistics"
+msgstr "ให้มีการเก็บสถิติ"
+
+#: templates/display/export/selection.twig:3
+#, fuzzy
+#| msgid "Databases"
+msgid "Databases:"
+msgstr "ฐานข้อมูล"
+
+#: templates/database/structure/tracking_icon.twig:3
+msgid "Tracking is active."
+msgstr "การติดตามเริ่มทำงานแล้ว"
+
+#: templates/database/structure/tracking_icon.twig:5
+msgid "Tracking is not active."
+msgstr "หยุดการติดตามแล้ว"
+
+#: templates/database/designer/where_query_panel.twig:59
+#: templates/database/designer/having_query_panel.twig:90
+#: templates/database/designer/options_panel.twig:63
+#: templates/database/designer/options_panel.twig:229
+#, fuzzy
+#| msgid "Export"
+msgid "Except"
+msgstr "ส่งออก"
+
+#: templates/database/designer/where_query_panel.twig:71
+#: templates/database/designer/having_query_panel.twig:102
+#: templates/database/designer/options_panel.twig:75
+#: templates/database/designer/options_panel.twig:241
+#, fuzzy
+#| msgid "in query"
+msgid "subquery"
+msgstr "ในคำค้น"
+
+#: templates/columns_definitions/move_column.twig:7
+msgid "first"
+msgstr "ครั้งแรก"
+
+#: templates/columns_definitions/move_column.twig:12
+#: templates/table/structure/add_column.twig:19
+#, fuzzy, php-format
+#| msgid "After %s"
+msgid "after %s"
+msgstr "หลัง %s"
+
+#: templates/table/chart/tbl_chart.twig:15
+#, fuzzy
+#| msgid "Mar"
+msgctxt "Chart type"
+msgid "Bar"
+msgstr "มี.ค."
+
+#: templates/table/chart/tbl_chart.twig:19
+#, fuzzy
+#| msgid "Column"
+msgctxt "Chart type"
+msgid "Column"
+msgstr "สดมภ์"
+
+#: templates/table/chart/tbl_chart.twig:23
+msgctxt "Chart type"
+msgid "Line"
+msgstr ""
+
+#: templates/table/chart/tbl_chart.twig:27
+msgctxt "Chart type"
+msgid "Spline"
+msgstr ""
+
+#: templates/table/chart/tbl_chart.twig:31
+msgctxt "Chart type"
+msgid "Area"
+msgstr ""
+
+#: templates/table/chart/tbl_chart.twig:35
+#, fuzzy
+#| msgid "PiB"
+msgctxt "Chart type"
+msgid "Pie"
+msgstr "เพตตะไบต์"
+
+#: templates/table/chart/tbl_chart.twig:39
+#, fuzzy
+#| msgid "Time"
+msgctxt "Chart type"
+msgid "Timeline"
+msgstr "เวลา"
+
+#: templates/table/chart/tbl_chart.twig:43
+msgctxt "Chart type"
+msgid "Scatter"
+msgstr ""
+
+#: templates/table/chart/tbl_chart.twig:48
+msgid "Stacked"
+msgstr ""
+
+#: templates/table/chart/tbl_chart.twig:51
+#, fuzzy
+#| msgid "Import files"
+msgid "Chart title:"
+msgstr "นำเข้าไฟล์"
+
+#: templates/table/chart/tbl_chart.twig:56
+msgid "X-Axis:"
+msgstr ""
+
+#: templates/table/chart/tbl_chart.twig:71
+#, fuzzy
+msgid "Series:"
+msgstr "คำค้น SQL"
+
+#: templates/table/chart/tbl_chart.twig:102
+msgid "X-Axis label:"
+msgstr ""
+
+#: templates/table/chart/tbl_chart.twig:104
+#, fuzzy
+#| msgid "Value"
+msgid "X Values"
+msgstr "ค่า"
+
+#: templates/table/chart/tbl_chart.twig:107
+msgid "Y-Axis label:"
+msgstr ""
+
+#: templates/table/chart/tbl_chart.twig:109
+#, fuzzy
+#| msgid "Value"
+msgid "Y Values"
+msgstr "ค่า"
+
+#: templates/table/chart/tbl_chart.twig:115
+msgid "Series names are in a column"
+msgstr ""
+
+#: templates/table/chart/tbl_chart.twig:118
+#, fuzzy
+#| msgid "Inside column:"
+msgid "Series column:"
+msgstr "ในคอลัมน์:"
+
+#: templates/table/chart/tbl_chart.twig:132
+#, fuzzy
+#| msgid "Values for column %s"
+msgid "Value Column:"
+msgstr "ค่าสำหรับคอลัมน์ \"%s\""
+
+#: templates/table/chart/tbl_chart.twig:153
+#, fuzzy
+#| msgid "Save as file"
+msgid "Save chart as image"
+msgstr "บันทึกเป็นไฟล์"
+
+#: templates/login/twofactor/application_configure.twig:3
+msgid ""
+"Please scan following QR code into the two-factor authentication app on your "
+"device and enter authentication code it generates."
+msgstr ""
+
+#: templates/login/header.twig:12
+msgid ""
+"There is mismatch between HTTPS indicated on the server and client. This can "
+"lead to non working phpMyAdmin or a security risk. Please fix your server "
+"configuration to indicate HTTPS properly."
+msgstr ""
+
+#: templates/database/designer/query_details.twig:6
+#, fuzzy
+#| msgid "Table options"
+msgid "Active options"
+msgstr "ตัวเลือกตาราง"
+
+#: templates/columns_definitions/column_definitions_form.twig:23
+msgid "Table name"
+msgstr "ชื่อตาราง"
+
+#: templates/columns_definitions/column_definitions_form.twig:40
+#, fuzzy
+#| msgid "Columns"
+msgid "column(s)"
+msgstr "คอลัมน์"
+
+#: templates/columns_definitions/column_definitions_form.twig:74
+#, fuzzy
+#| msgid "Collation"
+msgid "Collation:"
+msgstr "การเรียงลำดับ"
+
+#: templates/columns_definitions/column_definitions_form.twig:77
+msgid "Storage Engine:"
+msgstr ""
+
+#: templates/columns_definitions/column_definitions_form.twig:82
+#, fuzzy
+#| msgid "Connections"
+msgid "Connection:"
+msgstr "การเชื่อมต่อ"
+
+#: templates/columns_definitions/column_definitions_form.twig:128
+msgid "PARTITION definition:"
+msgstr ""
+
+#: templates/start_and_number_of_rows_panel.twig:3
+#, fuzzy
+#| msgid "Start"
+msgid "Start row:"
+msgstr "ส."
+
+#: templates/prefs_twofactor.twig:3
+#, fuzzy
+#| msgid "Authentication settings"
+msgid "Two-factor authentication status"
+msgstr "ตั้งค่าการรับรองความถูกต้อง"
+
+#: templates/prefs_twofactor.twig:9
+msgid ""
+"Two-factor authentication is not available, please install optional "
+"dependencies to enable authentication backends."
+msgstr ""
+
+#: templates/prefs_twofactor.twig:10
+msgid "Following composer packages are missing:"
+msgstr ""
+
+#: templates/prefs_twofactor.twig:18
+msgid "Two-factor authentication is available and configured for this account."
+msgstr ""
+
+#: templates/prefs_twofactor.twig:20
+msgid ""
+"Two-factor authentication is available, but not configured for this account."
+msgstr ""
+
+#: templates/prefs_twofactor.twig:24
+msgid ""
+"Two-factor authentication is not available, enable phpMyAdmin configuration "
+"storage to use it."
+msgstr ""
+
+#: templates/prefs_twofactor.twig:33
+msgid "You have enabled two factor authentication."
+msgstr ""
+
+#: templates/prefs_twofactor.twig:43 templates/prefs_twofactor.twig:54
+#: templates/prefs_twofactor_configure.twig:2
+#, fuzzy
+#| msgid "Config authentication"
+msgid "Configure two-factor authentication"
+msgstr "กำหนดค่าการรับรองความถูกต้อง"
+
+#: templates/database/search/results.twig:12
+#, fuzzy, php-format
+#| msgid "%s match inside table <i>%s</i>"
+#| msgid_plural "%s matches inside table <i>%s</i>"
+msgid "%1$s match in <strong>%2$s</strong>"
+msgid_plural "%1$s matches in <strong>%2$s</strong>"
+msgstr[0] "พบ %s ผลลัพธ์ที่ตรงในตาราง <i>%s</i>"
+
+#: templates/database/search/results.twig:56
+#, fuzzy
+#| msgid "<b>Total:</b> <i>%s</i> match"
+#| msgid_plural "<b>Total:</b> <i>%s</i> matches"
+msgid "<strong>Total:</strong> <em>%count%</em> match"
+msgid_plural "<strong>Total:</strong> <em>%count%</em> matches"
+msgstr[0] "<b>รวม:</b> <i>%s</i> ผลลัพธ์ที่ตรง"
+
+#: templates/display/export/template_loading.twig:2
+#, fuzzy
+msgid "Export templates:"
+msgstr "ไม่มีตาราง"
+
+#: templates/display/export/template_loading.twig:6
+#, fuzzy
+#| msgid "File name template"
+msgid "New template:"
+msgstr "รูปแบบของชื่อไฟล์"
+
+#: templates/display/export/template_loading.twig:8
+#, fuzzy
+#| msgid "Table name"
+msgid "Template name"
+msgstr "ชื่อตาราง"
+
+#: templates/display/export/template_loading.twig:10
+#: templates/server/databases/create.twig:30
+msgid "Create"
+msgstr "สร้าง"
+
+#: templates/display/export/template_loading.twig:16
+#, fuzzy
+#| msgid "File name template"
+msgid "Existing templates:"
+msgstr "รูปแบบของชื่อไฟล์"
+
+#: templates/display/export/template_loading.twig:17
+#, fuzzy
+#| msgid "%s table"
+#| msgid_plural "%s tables"
+msgid "Template:"
+msgstr "%s ตาราง"
+
+#: templates/display/export/template_loading.twig:21
+#, fuzzy
+#| msgctxt "Create UPDATE query"
+#| msgid "Update"
+msgid "Update"
+msgstr "ปรับปรุงคำค้น"
+
+#: templates/database/designer/schema_export.twig:4
+msgid "Select Export Relational Type"
+msgstr ""
+
+#: templates/server/databases/create.twig:8
+#: templates/server/databases/create.twig:36
+#, fuzzy
+#| msgid "Create new database"
+msgid "Create database"
+msgstr "สร้างฐานข้อมูลใหม่"
+
+#: templates/server/variables/session_variable_row.twig:3
+msgid "Session value"
+msgstr "ค่าเซสชั่น"
+
+#: templates/database/designer/edit_delete_pages.twig:6
+#, fuzzy
+#| msgid "Page number:"
+msgid "Page to open"
+msgstr "หมายเลขหน้า:"
+
+#: templates/database/designer/edit_delete_pages.twig:6
+#, fuzzy
+msgid "Page to delete"
+msgstr "มุมมองรีเลชัน"
+
+#: templates/display/export/options_output.twig:26
+#, fuzzy
+#| msgid "Save as file"
+msgid "Save output to a file"
+msgstr "ส่งมาเป็นไฟล์"
+
+#: templates/display/export/options_output.twig:51
+#, php-format
+msgid "Skip tables larger than %s MiB"
+msgstr ""
+
+#: templates/display/export/options_output_separate_files.twig:7
+#, fuzzy
+#| msgid "Create table on database %s"
+msgid "Export databases as separate files"
+msgstr "สร้างตารางในฐานข้อมูลนี้ %s"
+
+#: templates/display/export/options_output_separate_files.twig:9
+#, fuzzy
+#| msgid "horizontal (rotated headers)"
+msgid "Export tables as separate files"
+msgstr "แนวนอน (หมุนหัวเรื่อง)"
+
+#: templates/login/twofactor/key-https-warning.twig:3
+msgid ""
+"You are not using https to access phpMyAdmin, therefore FIDO U2F device will "
+"most likely refuse to authenticate you."
+msgstr ""
+
+#: templates/table/structure/display_partitions.twig:8
+#, fuzzy
+#| msgid "No index defined!"
+msgid "No partitioning defined!"
+msgstr "ยังไม่ได้กำหนดดัชนีใดๆ!"
+
+#: templates/table/structure/display_partitions.twig:11
+msgid "Partitioned by:"
+msgstr ""
+
+#: templates/table/structure/display_partitions.twig:16
+msgid "Sub partitioned by:"
+msgstr ""
+
+#: templates/table/structure/display_partitions.twig:29
+#, fuzzy
+#| msgid "Row length"
+msgid "Data length"
+msgstr "ความยาวแถว"
+
+#: templates/table/structure/display_partitions.twig:30
+#, fuzzy
+#| msgid "Row length"
+msgid "Index length"
+msgstr "ความยาวแถว"
+
+#: templates/table/structure/display_partitions.twig:135
+#, fuzzy
+#| msgid "Position"
+msgid "Partition table"
+msgstr "ตำแหน่ง"
+
+#: templates/privileges/column_privileges.twig:21
+#: templates/privileges/column_privileges.twig:22
+msgctxt "None privileges"
+msgid "None"
+msgstr "ไม่มี"
+
+#: templates/error/report_form.twig:6
+msgid ""
+"This report automatically includes data about the error and information "
+"about relevant configuration settings. It will be sent to the phpMyAdmin "
+"team for debugging the error."
+msgstr ""
+
+#: templates/error/report_form.twig:12
+msgid ""
+"Can you tell us the steps leading to this error? It decisively helps in "
+"debugging:"
+msgstr ""
+
+#: templates/error/report_form.twig:19
+msgid "You may examine the data in the error report:"
+msgstr ""
+
+#: templates/database/tracking/untracked_tables.twig:1
+msgid "Untracked tables"
+msgstr "เลิกติดตามตาราง"
+
+#: templates/table/structure/actions_in_table_structure.twig:15
+#, php-format
+msgid "A primary key has been added on %s."
+msgstr "ได้เพิ่มไพรมารีคีย์แล้วใน %s"
+
+#: templates/table/structure/actions_in_table_structure.twig:33
+#: templates/table/structure/actions_in_table_structure.twig:51
+#: templates/table/structure/actions_in_table_structure.twig:80
+#: templates/table/structure/actions_in_table_structure.twig:103
+#, php-format
+msgid "An index has been added on %s."
+msgstr "ได้เพิ่มดัชนีแล้วใน %s"
+
+#: templates/table/search/zoom_result_form.twig:7
+msgid "Browse/Edit the points"
+msgstr ""
+
+#: templates/table/search/zoom_result_form.twig:15
+msgid "How to use"
+msgstr "วิธีการใช้"
+
+#: templates/table/search/zoom_result_form.twig:23
+#, fuzzy
+#| msgid "Reset"
+msgid "Reset zoom"
+msgstr "เริ่มใหม่"
+
+#: templates/privileges/add_privileges_routine.twig:3
+#, fuzzy
+#| msgid "Add privileges on the following table"
+msgid "Add privileges on the following routine:"
+msgstr "เพิ่มสิทธิของตารางต่อไปนี้"
+
+#: templates/login/twofactor/invalid.twig:2
+msgid ""
+"The configured two factor authentication is not available, please install "
+"missing dependencies."
+msgstr ""
+
+#: templates/table/tracking/structure_snapshot_columns.twig:47
+#: templates/table/structure/table_structure_row.twig:34
+msgctxt "None for default"
+msgid "None"
+msgstr "ไม่มี"
+
+#: templates/table/search/search_and_replace.twig:3
+#, fuzzy
+#| msgid "Replace NULL by"
+msgid "Replace with:"
+msgstr "แทนที่ NULL เป็น"
+
+#: templates/table/search/search_and_replace.twig:19
+#, fuzzy
+#| msgid "as regular expression"
+msgid "Use regular expression"
+msgstr "รูปแบบคำพ้อง (regular expression)"
+
+#: templates/table/search/options.twig:6
+#, fuzzy
+#| msgid "Select fields (at least one):"
+msgid "Select columns (at least one):"
+msgstr "เลือกฟิลด์ (อย่างน้อยหนึ่งฟิลด์):"
+
+#: templates/table/search/options.twig:26
+msgid "Add search conditions (body of the \"where\" clause):"
+msgstr "เพิ่มเงื่อนไขในการค้นหา:"
+
+#: templates/table/search/options.twig:34
+msgid "Number of rows per page"
 msgstr "ระเบียนต่อหน้า"
 
-#: templates/table/tracking/report_table.twig:5
-msgid "Date"
-msgstr "วันที่"
-
-#: templates/table/tracking/report_table.twig:6
-#, fuzzy
-msgid "Username"
-msgstr "ชื่อผู้ใช้:"
-
-#: templates/table/tracking/activate_deactivate.twig:7
-#, php-format
-msgid "Activate tracking for %s"
-msgstr ""
-
-#: templates/table/tracking/activate_deactivate.twig:9
-msgid "Activate now"
-msgstr ""
-
-#: templates/table/tracking/activate_deactivate.twig:11
-#, fuzzy, php-format
-#| msgid "Delete tracking data for this table"
-msgid "Deactivate tracking for %s"
-msgstr "ลบการติดตามตารางนี้"
-
-#: templates/table/tracking/activate_deactivate.twig:13
-msgid "Deactivate now"
-msgstr ""
-
-#: templates/login/twofactor/key.twig:3
-msgid ""
-"Please connect your FIDO U2F device into your computer's USB port. Then "
-"confirm login on the device."
-msgstr ""
+#: templates/table/search/options.twig:45
+msgid "Display order:"
+msgstr "ลำดับการแสดง:"
 
 #: templates/columns_definitions/table_fields_definitions.twig:17
 #, fuzzy
@@ -16812,31 +16716,42 @@ msgstr ""
 msgid "Input transformation options"
 msgstr "ตัวเลือกการแปลง"
 
-#: templates/table/search/search_and_replace.twig:3
+#: templates/database/designer/table_list.twig:4
 #, fuzzy
-#| msgid "Replace NULL by"
-msgid "Replace with:"
-msgstr "แทนที่ NULL เป็น"
+msgid "Hide/Show all"
+msgstr "แสดงทั้งหมด"
 
-#: templates/table/search/search_and_replace.twig:19
+#: templates/database/designer/table_list.twig:14
 #, fuzzy
-#| msgid "as regular expression"
-msgid "Use regular expression"
-msgstr "รูปแบบคำพ้อง (regular expression)"
+#| msgid "Propose table structure"
+msgid "Hide/Show tables with no relationship"
+msgstr "เสนอโครงสร้างตาราง"
 
-#: templates/table/search/zoom_result_form.twig:7
-msgid "Browse/Edit the points"
+#: templates/database/designer/table_list.twig:55
+#, fuzzy
+#| msgid "Number of rows per page"
+msgid "Number of tables:"
+msgstr "ระเบียนต่อหน้า"
+
+#: templates/table/gis_visualization/gis_visualization.twig:3
+msgid "Display GIS Visualization"
 msgstr ""
 
-#: templates/table/search/zoom_result_form.twig:15
-msgid "How to use"
-msgstr "วิธีการใช้"
-
-#: templates/table/search/zoom_result_form.twig:23
+#: templates/table/gis_visualization/gis_visualization.twig:8
 #, fuzzy
-#| msgid "Reset"
-msgid "Reset zoom"
-msgstr "เริ่มใหม่"
+#| msgid "Add/Delete Field Columns"
+msgid "Label column"
+msgstr "เพิ่ม/ลบ คอลัมน์ (ฟิลด์)"
+
+#: templates/table/gis_visualization/gis_visualization.twig:11
+msgid "-- None --"
+msgstr "-- ไม่มี --"
+
+#: templates/table/gis_visualization/gis_visualization.twig:19
+#, fuzzy
+#| msgid "Total"
+msgid "Spatial column"
+msgstr "รวม"
 
 #: templates/display/export/method.twig:3
 #, fuzzy
@@ -16852,64 +16767,190 @@ msgstr "รวดเร็ว - แสดงเฉพาะตัวเลือ
 msgid "Custom - display all possible options"
 msgstr "กำหนดเอง - แสดงตัวเลือกที่เป็นไปได้ทั้งหมด"
 
-#: templates/privileges/privileges_summary.twig:20
-msgid "Column-specific privileges"
-msgstr "สิทธิเฉพาะคอลัมน์"
+#: templates/table/structure/add_column.twig:9
+#, fuzzy, php-format
+msgid "Add %s column(s)"
+msgstr "เพิ่มฟิลด์ใหม่"
 
-#: templates/prefs_twofactor.twig:3
+#: templates/table/structure/add_column.twig:14
 #, fuzzy
-#| msgid "Authentication settings"
-msgid "Two-factor authentication status"
-msgstr "ตั้งค่าการรับรองความถูกต้อง"
+#| msgid "At Beginning of Table"
+msgid "at beginning of table"
+msgstr "ที่จุดเริ่มต้นของตาราง"
 
-#: templates/prefs_twofactor.twig:9
+#: templates/table/structure/table_structure_row.twig:55
+#, fuzzy, php-format
+#| msgid "Table %s has been dropped."
+msgid "Column %s has been dropped."
+msgstr "โยนตาราง %s ทิ้งไปเรียบร้อยแล้ว"
+
+#: templates/database/create_table.twig:15
+#, fuzzy
+#| msgid "Number of rows per page"
+msgid "Number of columns"
+msgstr "ระเบียนต่อหน้า"
+
+#: templates/login/twofactor/key.twig:3
 msgid ""
-"Two-factor authentication is not available, please install optional "
-"dependencies to enable authentication backends."
+"Please connect your FIDO U2F device into your computer's USB port. Then "
+"confirm login on the device."
 msgstr ""
 
-#: templates/prefs_twofactor.twig:10
-msgid "Following composer packages are missing:"
-msgstr ""
+#: templates/database/qbe/footer_options.twig:3
+msgid "Add/Delete criteria rows"
+msgstr "เพิ่ม/ลบ แถว"
 
-#: templates/prefs_twofactor.twig:18
-msgid "Two-factor authentication is available and configured for this account."
-msgstr ""
+#: templates/database/qbe/footer_options.twig:5
+msgid "Add/Delete columns"
+msgstr "เพิ่ม/ลบ สดมภ์"
 
-#: templates/prefs_twofactor.twig:20
+#: templates/database/designer/page_save_as.twig:17
+#, fuzzy
+#| msgid "No rows selected"
+msgid "Save to selected page"
+msgstr "ยังไม่ได้เลือกแถว"
+
+#: templates/database/designer/page_save_as.twig:17
+#, fuzzy
+#| msgid "Create a new index"
+msgid "Create a page and save to it"
+msgstr "สร้างดัชนีใหม่"
+
+#: templates/database/designer/page_save_as.twig:30
+#, fuzzy
+#| msgid "User name"
+msgid "New page name"
+msgstr "ชื่อผู้ใช้"
+
+#: templates/table/relation/common_form.twig:6
+#, fuzzy
+#| msgid "Foreign key check:"
+msgid "Foreign key constraints"
+msgstr "ตรวจสอบคีย์ต่างประเทศ:"
+
+#: templates/table/relation/common_form.twig:10
+msgid "Actions"
+msgstr "กระทำการ"
+
+#: templates/table/relation/common_form.twig:11
+#, fuzzy
+#| msgid "Column names"
+msgid "Constraint properties"
+msgstr "ชื่อคอลัมน์"
+
+#: templates/table/relation/common_form.twig:15
 msgid ""
-"Two-factor authentication is available, but not configured for this account."
+"Creating a foreign key over a non-indexed column would automatically create "
+"an index on it. Alternatively, you can define an index below, before "
+"creating the foreign key."
 msgstr ""
 
-#: templates/prefs_twofactor.twig:24
+#: templates/table/relation/common_form.twig:20
 msgid ""
-"Two-factor authentication is not available, enable phpMyAdmin configuration "
-"storage to use it."
+"Only columns with index will be displayed. You can define an index below."
 msgstr ""
 
-#: templates/prefs_twofactor.twig:33
-msgid "You have enabled two factor authentication."
+#: templates/table/relation/common_form.twig:24
+msgid "Foreign key constraint"
 msgstr ""
 
-#: templates/server/variables/session_variable_row.twig:3
-msgid "Session value"
-msgstr "ค่าเซสชั่น"
+#: templates/table/relation/common_form.twig:89
+#, fuzzy
+#| msgid "Add constraints"
+msgid "+ Add constraint"
+msgstr "เพิ่ม constraints"
 
-#: templates/error/report_form.twig:6
+#: templates/table/relation/common_form.twig:99
+#: templates/table/relation/common_form.twig:104
+#, fuzzy
+#| msgid "Internal relations"
+msgid "Internal relationships"
+msgstr "รีเลชันภายใน"
+
+#: templates/table/relation/common_form.twig:110
+#, fuzzy
+#| msgid "Internal relations"
+msgid "Internal relation"
+msgstr "รีเลชันภายใน"
+
+#: templates/table/relation/common_form.twig:112
 msgid ""
-"This report automatically includes data about the error and information "
-"about relevant configuration settings. It will be sent to the phpMyAdmin "
-"team for debugging the error."
+"An internal relation is not necessary when a corresponding FOREIGN KEY "
+"relation exists."
 msgstr ""
 
-#: templates/error/report_form.twig:12
-msgid ""
-"Can you tell us the steps leading to this error? It decisively helps in "
-"debugging:"
-msgstr ""
+#: templates/table/relation/common_form.twig:172
+#, fuzzy
+#| msgid "Choose column to display"
+msgid "Choose column to display:"
+msgstr "เลือกฟิลด์ที่ต้องการแสดง"
 
-#: templates/error/report_form.twig:19
-msgid "You may examine the data in the error report:"
+#: templates/privileges/delete_user_fieldset.twig:3
+#, fuzzy
+#| msgid "Remove selected users"
+msgid "Remove selected user accounts"
+msgstr "ถอนผู้ใช้ที่เลือก"
+
+#: templates/privileges/delete_user_fieldset.twig:6
+msgid "Revoke all active privileges from the users and delete them afterwards."
+msgstr "เพิกถอน active privileges ทั้งหมดจากผู้ใช้ และลบผู้ใช้ทิ้งหลังจากนั้น."
+
+#: templates/privileges/delete_user_fieldset.twig:7
+#: templates/privileges/delete_user_fieldset.twig:10
+#: templates/privileges/delete_user_fieldset.twig:11
+msgid "Drop the databases that have the same names as the users."
+msgstr "โยนฐานข้อมูลที่มีชื่อเดียวกับผู้ใช้ทิ้ง."
+
+#: templates/database/designer/options_panel.twig:34
+#: templates/database/designer/options_panel.twig:200
+#, fuzzy
+msgid "Relationship operator"
+msgstr "มุมมองรีเลชัน"
+
+#: templates/table/search/selection_form.twig:12
+#, fuzzy
+#| msgid "Do a \"query by example\" (wildcard: \"%\")"
+msgid "Do a \"query by example\" (wildcard: \"%\") for two different columns"
+msgstr "ทำ \"คำค้นจากตัวอย่าง\" (wildcard: \"%\")"
+
+#: templates/table/search/selection_form.twig:42
+msgid "Do a \"query by example\" (wildcard: \"%\")"
+msgstr "ทำ \"คำค้นจากตัวอย่าง\" (wildcard: \"%\")"
+
+#: templates/display/results/options_block.twig:30
+#, fuzzy
+msgid "Relational key"
+msgstr "รีเลชันแนล สกีมา"
+
+#: templates/display/results/options_block.twig:30
+#, fuzzy
+#| msgid "Displaying Column Comments"
+msgid "Display column for relationships"
+msgstr "แสดงหมายเหตุของคอลัมน์"
+
+#: templates/display/results/options_block.twig:46
+msgid "Show binary contents"
+msgstr "แสดงเนื้อหาไบนารี"
+
+#: templates/display/results/options_block.twig:53
+msgid "Show BLOB contents"
+msgstr "แสดงเนื้อหา BLOB"
+
+#: templates/display/results/options_block.twig:67
+#, fuzzy
+msgid "Hide browser transformation"
+msgstr "การแปลงที่เรียกใช้ได้"
+
+#: templates/display/results/options_block.twig:77
+msgid "Well Known Text"
+msgstr "ข้อความที่รู้จักกันดี"
+
+#: templates/display/results/options_block.twig:77
+msgid "Well Known Binary"
+msgstr "ไบนารีที่รู้จักกันดี"
+
+#: templates/server/binlog/log_selector.twig:5
+msgid "Select binary log to view"
 msgstr ""
 
 #: templates/table/secondary_tabs.twig:9
@@ -16918,141 +16959,104 @@ msgstr ""
 msgid "Relation view"
 msgstr "มุมมองรีเลชัน"
 
-#: templates/database/structure/tracking_icon.twig:3
-msgid "Tracking is active."
-msgstr "การติดตามเริ่มทำงานแล้ว"
+#: templates/table/index_form.twig:15
+msgid "Index name:"
+msgstr "ชื่อดัชนี :"
 
-#: templates/database/structure/tracking_icon.twig:5
-msgid "Tracking is not active."
-msgstr "หยุดการติดตามแล้ว"
-
-#: templates/server/binlog/log_selector.twig:5
-msgid "Select binary log to view"
-msgstr ""
-
-#: templates/view_create.twig:65
-msgid "VIEW name"
-msgstr ""
-
-#: templates/view_create.twig:79
-msgid "Column names"
-msgstr "ชื่อคอลัมน์"
-
-#: templates/table/tracking/create_version.twig:11
-#, php-format
-msgid "Create version %1$s of %2$s"
-msgstr "สร้างเวอร์ชั่น %1$s ของ %2$s"
-
-#: templates/table/tracking/create_version.twig:16
-#, fuzzy, php-format
-#| msgid "Create version"
-msgid "Create version %1$s"
-msgstr "สร้างเวอร์ชั่น"
-
-#: templates/table/tracking/create_version.twig:20
-msgid "Track these data definition statements:"
-msgstr ""
-
-#: templates/table/tracking/create_version.twig:59
-msgid "Track these data manipulation statements:"
-msgstr ""
-
-#: templates/table/tracking/create_version.twig:76
-msgid "Create version"
-msgstr "สร้างเวอร์ชั่น"
-
-#: templates/export/alias_add.twig:4
-msgid "Define new aliases"
-msgstr ""
-
-#: templates/export/alias_add.twig:9
-#, fuzzy
-#| msgid "Select Tables"
-msgid "Select database:"
-msgstr "เลือกตาราง"
-
-#: templates/export/alias_add.twig:15
-#, fuzzy
-#| msgid "Database"
-msgid "New database name"
-msgstr "ฐานข้อมูล"
-
-#: templates/export/alias_add.twig:23
-#, fuzzy
-#| msgid "Select Tables"
-msgid "Select table:"
-msgstr "เลือกตาราง"
-
-#: templates/export/alias_add.twig:29
-#, fuzzy
-#| msgid "New table"
-msgid "New table name"
-msgstr "ไม่มีตาราง"
-
-#: templates/export/alias_add.twig:37
-#, fuzzy
-#| msgid "Select two columns"
-msgid "Select column:"
-msgstr "เพิ่มสองสดมภ์"
-
-#: templates/export/alias_add.twig:43
-#, fuzzy
-#| msgid "Copy column name"
-msgid "New column name"
-msgstr "คัดลอกชื่อคอลัมน์"
-
-#: templates/table/structure/table_structure_row.twig:55
-#, fuzzy, php-format
-#| msgid "Table %s has been dropped."
-msgid "Column %s has been dropped."
-msgstr "โยนตาราง %s ทิ้งไปเรียบร้อยแล้ว"
-
-#: templates/login/twofactor/key-https-warning.twig:3
+#: templates/table/index_form.twig:16
 msgid ""
-"You are not using https to access phpMyAdmin, therefore FIDO U2F device will "
-"most likely refuse to authenticate you."
+"\"PRIMARY\" <b>must</b> be the name of and <b>only of</b> a primary key!"
+msgstr "ชื่อของไพรมารีคีย์<b>จะต้องเป็น</b> \"PRIMARY\" เท่านั้น!"
+
+#: templates/table/index_form.twig:34
+#, fuzzy
+#| msgid "Index name:"
+msgid "Index choice:"
+msgstr "ชื่อดัชนี :"
+
+#: templates/table/index_form.twig:42
+#, fuzzy
+#| msgid "Table options"
+msgid "Advanced Options"
+msgstr "ตัวเลือกตาราง"
+
+#: templates/table/index_form.twig:48
+msgid "Key block size:"
 msgstr ""
 
-#: templates/privileges/column_privileges.twig:21
-#: templates/privileges/column_privileges.twig:22
-msgctxt "None privileges"
-msgid "None"
-msgstr "ไม่มี"
+#: templates/table/index_form.twig:65
+msgid "Index type:"
+msgstr "ชนิดของดัชนี :"
 
-#: templates/display/export/options_output_radio.twig:5
+#: templates/table/index_form.twig:77
 #, fuzzy
-#| msgid "Save as file"
-msgid "View output as text"
-msgstr "ส่งมาเป็นไฟล์"
+#| msgid "User"
+msgid "Parser:"
+msgstr "ผู้ใช้"
 
-#: templates/toggle_button.twig:3
-msgid "Click to toggle"
-msgstr "คลิกเพื่อสลับ"
-
-#: templates/server/sub_page_header.twig:2
-msgid "Server variables and settings"
-msgstr "ตัวแปรของเซิร์ฟเวอร์และการตั้งค่า"
-
-#: templates/server/sub_page_header.twig:2
+#: templates/table/index_form.twig:93
 #, fuzzy
-#| msgid "Storage Engines"
-msgid "Storage engines"
-msgstr "เครื่องมือที่เก็บข้อมูล"
+#| msgid "Comment"
+msgid "Comment:"
+msgstr "หมายเหตุ"
 
-#: templates/server/sub_page_header.twig:2
+#: templates/table/index_form.twig:136 templates/table/index_form.twig:173
 #, fuzzy
-#| msgid "Character Sets and Collations"
-msgid "Character sets and collations"
-msgstr "ชุดอักขระและการตรวจทาน"
+#| msgid "Drag to reorder"
+msgid "Drag to reorder"
+msgstr "ลากเพื่อเปลี่ยนลำดับ"
 
-#: templates/server/sub_page_header.twig:2
-msgid "Databases statistics"
-msgstr "สถิติฐานข้อมูล"
+#: templates/server/variables/variable_row.twig:6
+msgid "This is a read-only variable and can not be edited"
+msgstr ""
 
-#: templates/database/structure/show_create.twig:2
+#: templates/table/structure/display_table_stats.twig:14
+msgid "Space usage"
+msgstr "เนื้อที่ที่ใช้"
+
+#: templates/table/structure/display_table_stats.twig:37
+msgid "Effective"
+msgstr "มีผล"
+
+#: templates/prefs_twofactor_configure.twig:8
 #, fuzzy
-msgid "Showing create queries"
-msgstr "แสดงคำค้นแบบเต็ม"
+#| msgid "Config authentication"
+msgid "Enable two-factor authentication"
+msgstr "กำหนดค่าการรับรองความถูกต้อง"
+
+#: templates/database/structure/show_create_row.twig:7
+#, fuzzy, php-format
+#| msgid "Create User"
+msgid "Create %s"
+msgstr "รุ่นของเซิร์ฟเวอร์"
+
+#: templates/database/structure/structure_table_row.twig:222
+msgid "in use"
+msgstr "ใช้อยู่"
+
+#: templates/privileges/add_privileges_table.twig:3
+#, fuzzy
+#| msgid "Add privileges on the following table"
+msgid "Add privileges on the following table:"
+msgstr "เพิ่มสิทธิของตารางต่อไปนี้"
+
+#: templates/display/export/options_output_compression.twig:4
+#, fuzzy
+#| msgid "Compression"
+msgid "Compression:"
+msgstr "บีบอัดข้อมูล"
+
+#: templates/display/export/options_output_compression.twig:11
+#, fuzzy
+#| msgid "\"zipped\""
+msgid "zipped"
+msgstr "\"ถูกบีบอัดอยู่ (zip)\""
+
+#: templates/display/export/options_output_compression.twig:17
+#, fuzzy
+#| msgid "\"gzipped\""
+msgid "gzipped"
+msgstr "\"gzipped\""
 
 #: url.php:41
 #, fuzzy
