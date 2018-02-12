@@ -173,6 +173,10 @@ class Language
         _setlocale(0, $this->code);
         _bindtextdomain('phpmyadmin', LOCALE_PATH);
         _textdomain('phpmyadmin');
+        // Set PHP locale as well
+        if (function_exists('setlocale')) {
+            setlocale(0, $this->code);
+        }
 
         /* Text direction for language */
         if ($this->isRTL()) {
