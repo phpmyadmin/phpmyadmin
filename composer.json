@@ -39,7 +39,7 @@
         "ext-pcre": "*",
         "ext-json": "*",
         "phpmyadmin/sql-parser": "^4.2.3",
-        "phpmyadmin/motranslator": "^3.4",
+        "phpmyadmin/motranslator": "^4.0",
         "phpmyadmin/shapefile": "^2.0",
         "tecnickcom/tcpdf": "^6.2",
         "phpseclib/phpseclib": "^2.0",
