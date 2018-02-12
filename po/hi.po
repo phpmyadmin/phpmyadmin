@@ -4,15 +4,15 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.7.8-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2018-01-22 14:57+0100\n"
-"PO-Revision-Date: 2018-01-08 12:50+0000\n"
-"Last-Translator: Yash Kothari <yashkothari1000@gmail.com>\n"
-"Language-Team: Hindi <https://hosted.weblate.org/projects/phpmyadmin/4-7/hi/"
-">\n"
+"PO-Revision-Date: 2018-02-12 15:28+0000\n"
+"Last-Translator: Michal Čihař <michal@cihar.com>\n"
+"Language-Team: Hindi <https://hosted.weblate.org/projects/phpmyadmin/4-7/hi/>"
+"\n"
 "Language: hi\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"Plural-Forms: nplurals=2; plural=n > 1;\n"
 "X-Generator: Weblate 2.19-dev\n"
 
 #: ajax.php:16 ajax.php:33 export.php:192 schema_export.php:64
@@ -295,11 +295,10 @@ msgid "The database name is empty!"
 msgstr "डेटाबेस का नाम खाली है!"
 
 #: db_operations.php:61
-#, fuzzy
-#| msgid ""
-#| "Cannot rename database to the same name. Change the name and try again"
 msgid "Cannot copy database to the same name. Change the name and try again."
-msgstr "नये डेटाबेस का नाम पुराने डेटाबेस से अलग होना चाहिए. पुनः प्रयास करें"
+msgstr ""
+"नये डेटाबेस का नाम पुराने डेटाबेस से अलग होना चाहिए,नाम बदलकर पुनः प्रयास "
+"करें|"
 
 #: db_operations.php:150
 #, php-format
