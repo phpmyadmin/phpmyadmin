@@ -4,10 +4,10 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.7.8-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2018-01-22 14:57+0100\n"
-"PO-Revision-Date: 2017-12-23 14:36+0000\n"
-"Last-Translator: Waleed Abdeen <waleed.totti@gmail.com>\n"
-"Language-Team: Arabic <https://hosted.weblate.org/projects/phpmyadmin/4-7/ar/"
-">\n"
+"PO-Revision-Date: 2018-02-12 15:27+0000\n"
+"Last-Translator: Michal Čihař <michal@cihar.com>\n"
+"Language-Team: Arabic "
+"<https://hosted.weblate.org/projects/phpmyadmin/4-7/ar/>\n"
 "Language: ar\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -296,11 +296,8 @@ msgid "The database name is empty!"
 msgstr "اسم قاعدة البيانات خالي!"
 
 #: db_operations.php:61
-#, fuzzy
-#| msgid ""
-#| "Cannot rename database to the same name. Change the name and try again"
 msgid "Cannot copy database to the same name. Change the name and try again."
-msgstr "لا يمكن تسمية قاعدة بيانات بنفس الاسم. عَدِّل على الاسم وحاول مجددا"
+msgstr "لا يمكن تسمية قاعدتي بيانات بنفس الاسم. عَدِّل على الاسم وحاول مجددا."
 
 #: db_operations.php:150
 #, php-format
