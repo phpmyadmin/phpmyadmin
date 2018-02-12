@@ -3324,7 +3324,7 @@ body .ui-dialog .ui-button-text-only .ui-button-text {
 }
 
 .responsivetable {
-    overflow-x: auto !important;
+    overflow-x: auto;
 }
 
 @media only screen and (max-width: 768px) {
