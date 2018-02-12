@@ -18,6 +18,7 @@ php:
   - "5.5"
   - "hhvm-3.12"
   - "hhvm-3.18"
+  - "nightly"
 
 sudo: required
 
@@ -80,6 +81,10 @@ matrix:
         - curl https://getcomposer.org/installer | php
         - ln -s "`pwd`/composer.phar" /usr/local/bin/composer
         - mysql.server start
+
+  allow_failures:
+    - php: "nightly"
+      env: CI_MODE=test
 
 cache:
   pip: true
