@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 4.7.8-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
-"POT-Creation-Date: 2018-01-22 14:57+0100\n"
+"POT-Creation-Date: 2018-02-12 16:30+0100\n"
 "PO-Revision-Date: 2017-05-25 23:22+0000\n"
 "Last-Translator: Sifat Ahmed Khan <ahmed.sifat01@gmail.com>\n"
 "Language-Team: Bengali <https://hosted.weblate.org/projects/phpmyadmin/4-7/"
@@ -4279,7 +4279,7 @@ msgid ""
 "removed."
 msgstr "ইনডেক্স %1$s এবং %2$s এক সমান মনে হয় এবং যে কোন একটি মুছে ফেলুন।"
 
-#: libraries/Language.php:194 libraries/PDF.php:69 libraries/Util.php:2430
+#: libraries/Language.php:198 libraries/PDF.php:69 libraries/Util.php:2430
 #: libraries/browse_foreigners.lib.php:320
 #: libraries/plugins/schema/pdf/PdfRelationSchema.php:495
 #: libraries/plugins/schema/pdf/PdfRelationSchema.php:520

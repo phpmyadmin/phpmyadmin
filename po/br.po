@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 4.7.8-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
-"POT-Creation-Date: 2018-01-22 14:57+0100\n"
+"POT-Creation-Date: 2018-02-12 16:30+0100\n"
 "PO-Revision-Date: 2016-11-07 15:36+0000\n"
 "Last-Translator: Nils Van Zuijlen <nilsdu29@gmail.com>\n"
 "Language-Team: Breton <https://hosted.weblate.org/projects/phpmyadmin/master/"
@@ -4286,7 +4286,7 @@ msgstr ""
 "Evit doare eo kevatal an menegerioù %1$s ha %2$s hag unan anezho a c'hallfe "
 "bezañ dilamet."
 
-#: libraries/Language.php:194 libraries/PDF.php:69 libraries/Util.php:2430
+#: libraries/Language.php:198 libraries/PDF.php:69 libraries/Util.php:2430
 #: libraries/browse_foreigners.lib.php:320
 #: libraries/plugins/schema/pdf/PdfRelationSchema.php:495
 #: libraries/plugins/schema/pdf/PdfRelationSchema.php:520

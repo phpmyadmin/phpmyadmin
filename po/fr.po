@@ -3,11 +3,11 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin-docs 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
-"POT-Creation-Date: 2018-01-22 14:57+0100\n"
+"POT-Creation-Date: 2018-02-12 16:30+0100\n"
 "PO-Revision-Date: 2018-02-07 15:47+0000\n"
 "Last-Translator: Rajekevin DOUREPOULLE <rajekevin@hotmail.fr>\n"
-"Language-Team: French "
-"<https://hosted.weblate.org/projects/phpmyadmin/4-7/fr/>\n"
+"Language-Team: French <https://hosted.weblate.org/projects/phpmyadmin/4-7/fr/"
+">\n"
 "Language: fr\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -4032,7 +4032,7 @@ msgstr ""
 "Les index %1$s et %2$s semblent identiques et l'un d'eux pourrait être "
 "supprimé."
 
-#: libraries/Language.php:194 libraries/PDF.php:69 libraries/Util.php:2430
+#: libraries/Language.php:198 libraries/PDF.php:69 libraries/Util.php:2430
 #: libraries/browse_foreigners.lib.php:320
 #: libraries/plugins/schema/pdf/PdfRelationSchema.php:495
 #: libraries/plugins/schema/pdf/PdfRelationSchema.php:520

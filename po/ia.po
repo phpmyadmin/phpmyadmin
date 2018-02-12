@@ -7,11 +7,11 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 4.7.8-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
-"POT-Creation-Date: 2018-01-22 14:57+0100\n"
+"POT-Creation-Date: 2018-02-12 16:30+0100\n"
 "PO-Revision-Date: 2018-01-24 12:17+0000\n"
 "Last-Translator: Giovanni Sora <g.sora@tiscali.it>\n"
-"Language-Team: Interlingua "
-"<https://hosted.weblate.org/projects/phpmyadmin/4-7/ia/>\n"
+"Language-Team: Interlingua <https://hosted.weblate.org/projects/"
+"phpmyadmin/4-7/ia/>\n"
 "Language: ia\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -4033,7 +4033,7 @@ msgstr ""
 "Il sembla que le indices %1$s e %2$s es equal e un de lor poterea esser "
 "removite."
 
-#: libraries/Language.php:194 libraries/PDF.php:69 libraries/Util.php:2430
+#: libraries/Language.php:198 libraries/PDF.php:69 libraries/Util.php:2430
 #: libraries/browse_foreigners.lib.php:320
 #: libraries/plugins/schema/pdf/PdfRelationSchema.php:495
 #: libraries/plugins/schema/pdf/PdfRelationSchema.php:520

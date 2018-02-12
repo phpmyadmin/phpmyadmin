@@ -2,11 +2,11 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 4.7.8-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
-"POT-Creation-Date: 2018-01-22 14:57+0100\n"
+"POT-Creation-Date: 2018-02-12 16:30+0100\n"
 "PO-Revision-Date: 2018-02-11 23:34+0000\n"
 "Last-Translator: H Zeng <zhx@cnzhx.net>\n"
-"Language-Team: Chinese (Simplified) "
-"<https://hosted.weblate.org/projects/phpmyadmin/4-7/zh_Hans/>\n"
+"Language-Team: Chinese (Simplified) <https://hosted.weblate.org/projects/"
+"phpmyadmin/4-7/zh_Hans/>\n"
 "Language: zh_CN\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -3964,7 +3964,7 @@ msgid ""
 "removed."
 msgstr "索引 %1$s 和 %2$s 似乎是相同的，可以删除其中一个。"
 
-#: libraries/Language.php:194 libraries/PDF.php:69 libraries/Util.php:2430
+#: libraries/Language.php:198 libraries/PDF.php:69 libraries/Util.php:2430
 #: libraries/browse_foreigners.lib.php:320
 #: libraries/plugins/schema/pdf/PdfRelationSchema.php:495
 #: libraries/plugins/schema/pdf/PdfRelationSchema.php:520

@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 4.7.8-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
-"POT-Creation-Date: 2018-01-22 14:57+0100\n"
+"POT-Creation-Date: 2018-02-12 16:30+0100\n"
 "PO-Revision-Date: 2018-01-08 12:50+0000\n"
 "Last-Translator: Who am I ? <sattanationmail@gmail.com>\n"
 "Language-Team: Indonesian <https://hosted.weblate.org/projects/"
@@ -3998,7 +3998,7 @@ msgstr ""
 "Indeks %1$s dan %2$s sepertinya sama dan salah satu dari mereka memungkinkan "
 "untuk dibuang."
 
-#: libraries/Language.php:194 libraries/PDF.php:69 libraries/Util.php:2430
+#: libraries/Language.php:198 libraries/PDF.php:69 libraries/Util.php:2430
 #: libraries/browse_foreigners.lib.php:320
 #: libraries/plugins/schema/pdf/PdfRelationSchema.php:495
 #: libraries/plugins/schema/pdf/PdfRelationSchema.php:520
