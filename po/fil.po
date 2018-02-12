@@ -2,7 +2,6 @@
 # Copyright (C) 2003 - 2016 phpMyAdmin devel team
 # This file is distributed under the same license as the phpMyAdmin package.
 # Automatically generated, 2016.
-#
 msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 4.7.8-dev\n"
