@@ -519,12 +519,6 @@ var AJAX = {
         ) {
             row.value = rowCount;
             return rowCount;
-        }
-
-        if (newCount < rowCount && !jQuery.isEmptyObject(AJAX.lockedTargets)
-            && confirm(PMA_messages.strConfirmRowChange) === true
-        ) {
-            return newCount;
         } else {
             return newCount;
         }
