@@ -47,7 +47,7 @@
         "ext-ctype": "*",
         "ext-hash": "*",
         "phpmyadmin/sql-parser": "^4.2.3",
-        "phpmyadmin/motranslator": "^3.4",
+        "phpmyadmin/motranslator": "^4.0",
         "phpmyadmin/shapefile": "^2.0",
         "phpseclib/phpseclib": "^2.0",
         "google/recaptcha": "^1.1",
