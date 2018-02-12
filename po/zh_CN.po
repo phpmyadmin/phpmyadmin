@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.8.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2018-01-22 14:58+0100\n"
-"PO-Revision-Date: 2018-02-10 23:35+0000\n"
-"Last-Translator: H Zeng <zhx@cnzhx.net>\n"
+"PO-Revision-Date: 2018-02-12 15:28+0000\n"
+"Last-Translator: Michal Čihař <michal@cihar.com>\n"
 "Language-Team: Chinese (Simplified) "
 "<https://hosted.weblate.org/projects/phpmyadmin/master/zh_Hans/>\n"
 "Language: zh_CN\n"
@@ -3670,16 +3670,10 @@ msgid "CHAR columns editing"
 msgstr "编辑 CHAR 类型字段"
 
 #: libraries/classes/Config/Descriptions.php:115
-#, fuzzy
-#| msgid ""
-#| "Use user-friendly editor for editing SQL queries ([a@https://codemirror."
-#| "net/]CodeMirror[/a]) with syntax highlighting and line numbers."
 msgid ""
 "Use user-friendly editor for editing SQL queries (CodeMirror) with syntax "
 "highlighting and line numbers."
-msgstr ""
-"使用带有语法高亮及行号显示的人性化编辑器来编辑 SQL 语句（[a@https://"
-"codemirror.net/]CodeMirror[/a]）。"
+msgstr "启用编辑器行号与代码高亮"
 
 #: libraries/classes/Config/Descriptions.php:120
 msgid "Enable CodeMirror"
@@ -6228,8 +6222,6 @@ msgstr "微软 Word 2000"
 
 #: libraries/classes/Config/Forms/User/ExportForm.php:114
 #: libraries/classes/Config/Forms/User/ImportForm.php:46
-#, fuzzy
-#| msgid "Open Document Spreadsheet"
 msgid "OpenDocument Spreadsheet"
 msgstr "OpenOffice 表格"
 
@@ -6679,10 +6671,9 @@ msgid "The columns have been moved successfully."
 msgstr "已成功移动字段。"
 
 #: libraries/classes/Controllers/Table/TableStructureController.php:510
-#, fuzzy, php-format
-#| msgid "Failed to get real row count."
+#, php-format
 msgid "Failed to get description of column %s!"
-msgstr "获取实际行数失败。"
+msgstr "读取表 %s 的时候出现错误！"
 
 #: libraries/classes/Controllers/Table/TableStructureController.php:746
 #: libraries/classes/Controllers/Table/TableStructureController.php:1030
@@ -6978,11 +6969,10 @@ msgid "See %sour documentation%s for more information."
 msgstr "详情请查看%s我们的文档%s。"
 
 #: libraries/classes/DatabaseInterface.php:3012
-#, fuzzy
 msgid ""
 "You are using the mysql extension which is deprecated in phpMyAdmin. Please "
 "consider installing the mysqli extension."
-msgstr "phpMyAdmin不推荐使用mysql扩展。请考虑使用mysqli扩展代替。"
+msgstr "您正在使用mysql扩展，不推荐使用mysql扩展。请考虑使用mysqli扩展代替。"
 
 #: libraries/classes/Dbi/DbiMysqli.php:169
 msgid "SSL connection enforced by server, automatically enabling it."
@@ -8241,10 +8231,9 @@ msgid "Invalid class name \"%1$s\", using default of \"Node\""
 msgstr "无效的类名 \"%1$s\"， 使用默认值 \"Node\""
 
 #: libraries/classes/Navigation/NodeFactory.php:61
-#, fuzzy, php-format
-#| msgid "Could not add columns!"
+#, php-format
 msgid "Could not load class \"%1$s\""
-msgstr "无法加载类 \"%1$s\""
+msgstr "无法加载类名为 \"%1$s\" 的类"
 
 #: libraries/classes/Navigation/Nodes/Node.php:796
 msgid "Expand/Collapse"
@@ -8568,10 +8557,8 @@ msgid "Selected repeating group has been moved to the table '%s'"
 msgstr "选中的数据表已根据源数据表同步。"
 
 #: libraries/classes/Normalization.php:746
-#, fuzzy
-#| msgid "Sep"
 msgid "Step 3."
-msgstr "九月"
+msgstr "第三步."
 
 #: libraries/classes/Normalization.php:746
 msgid "Find transitive dependencies"
@@ -8630,10 +8617,8 @@ msgid "No partial dependencies found!"
 msgstr ""
 
 #: libraries/classes/Operations.php:90
-#, fuzzy
-#| msgid "Rename database to"
 msgid "Rename database to"
-msgstr "将数据库改名为"
+msgstr "重命名数据库为"
 
 #: libraries/classes/Operations.php:106 libraries/classes/Operations.php:244
 #: libraries/classes/Operations.php:863 libraries/classes/Operations.php:950
@@ -8947,10 +8932,8 @@ msgid "Missing reCAPTCHA verification, maybe it has been blocked by adblock?"
 msgstr ""
 
 #: libraries/classes/Plugins/Auth/AuthenticationCookie.php:344
-#, fuzzy
-#| msgid "Cannot log in to the MySQL server"
 msgid "You are not allowed to log in to this MySQL server!"
-msgstr "无法登录 MySQL 服务器"
+msgstr "您不允许登录到此服务器 ！"
 
 #: libraries/classes/Plugins/Auth/AuthenticationHttp.php:88
 msgid "Wrong username/password. Access denied."
@@ -9443,10 +9426,9 @@ msgid "Last check:"
 msgstr "最后检查："
 
 #: libraries/classes/Plugins/Export/ExportSql.php:1491
-#, fuzzy, php-format
-#| msgid "Table structure for table"
+#, php-format
 msgid "Error reading structure for table %s:"
-msgstr "表的结构"
+msgstr "读取表 %s 的结构时出错"
 
 #: libraries/classes/Plugins/Export/ExportSql.php:1545
 msgid "It appears your database uses views;"
@@ -9505,10 +9487,9 @@ msgid "(See below for the actual view)"
 msgstr ""
 
 #: libraries/classes/Plugins/Export/ExportSql.php:2203
-#, fuzzy, php-format
-#| msgid "Error reading data:"
+#, php-format
 msgid "Error reading data for table %s:"
-msgstr "读取数据时发生错误:"
+msgstr "读取表 %s 的数据时发生错误"
 
 #: libraries/classes/Plugins/Export/ExportXml.php:98
 msgid "Object creation options (all are recommended)"
@@ -9519,10 +9500,8 @@ msgid "Export contents"
 msgstr "导出内容"
 
 #: libraries/classes/Plugins/Export/Helpers/Pdf.php:119
-#, fuzzy
-#| msgid "Table"
 msgid "Table:"
-msgstr "表"
+msgstr "表:"
 
 #: libraries/classes/Plugins/Export/Helpers/Pdf.php:120
 msgid "Purpose:"
@@ -9618,10 +9597,8 @@ msgid ""
 msgstr "该 XML 文件有错误或者不完整。请修复错误后重试。"
 
 #: libraries/classes/Plugins/Import/ImportOds.php:163
-#, fuzzy
-#| msgid "Open Document Spreadsheet"
 msgid "Could not parse OpenDocument Spreadsheet!"
-msgstr "OpenOffice 表格"
+msgstr "无法解析电子表格"
 
 #: libraries/classes/Plugins/Import/ImportShp.php:48
 msgid "ESRI Shape File"
@@ -9639,10 +9616,8 @@ msgid "MySQL Spatial Extension does not support ESRI type \"%s\"."
 msgstr "MySQL Spatial 扩展不支持 ESRI 类型 \"%s\"。"
 
 #: libraries/classes/Plugins/Import/ImportShp.php:230
-#, fuzzy
-#| msgid "The imported file does not contain any data"
 msgid "The imported file does not contain any data!"
-msgstr "导入的文件没有任何数据"
+msgstr "文件为空，无数据！"
 
 #: libraries/classes/Plugins/Import/ImportSql.php:68
 msgid "SQL compatibility mode:"
@@ -10768,10 +10743,8 @@ msgid "The definer must be in the \"username@hostname\" format!"
 msgstr "用户必须是 \"用户名@主机名\" 格式"
 
 #: libraries/classes/Rte/Events.php:562
-#, fuzzy
-#| msgid "You must provide an event name"
 msgid "You must provide an event name!"
-msgstr "请输入事件名称"
+msgstr "请输入事件名称!"
 
 #: libraries/classes/Rte/Events.php:577
 msgid "You must provide a valid interval value for the event."
@@ -10793,10 +10766,8 @@ msgstr "请输入事件定义。"
 #: libraries/classes/Rte/Routines.php:172
 #: libraries/classes/Rte/Routines.php:1329
 #: libraries/classes/Rte/Routines.php:1539
-#, fuzzy
-#| msgid "Error in processing request"
 msgid "Error in processing request:"
-msgstr "处理请求时的错误"
+msgstr "处理请求时遇到错误:"
 
 #: libraries/classes/Rte/Footer.php:102
 msgid "OFF"
@@ -10904,10 +10875,8 @@ msgid "SQL data access"
 msgstr "SQL 数据访问"
 
 #: libraries/classes/Rte/Routines.php:1142
-#, fuzzy
-#| msgid "You must provide a routine name"
 msgid "You must provide a routine name!"
-msgstr "请输入程序名称"
+msgstr "需要程序名称!"
 
 #: libraries/classes/Rte/Routines.php:1176
 #, php-format
@@ -10988,28 +10957,20 @@ msgid "Time"
 msgstr "时机"
 
 #: libraries/classes/Rte/Triggers.php:445
-#, fuzzy
-#| msgid "You must provide a trigger name"
 msgid "You must provide a trigger name!"
-msgstr "请输入触发器名称"
+msgstr "需要触发器名称!"
 
 #: libraries/classes/Rte/Triggers.php:452
-#, fuzzy
-#| msgid "You must provide a valid timing for the trigger"
 msgid "You must provide a valid timing for the trigger!"
-msgstr "请选择一个有效的触发时机"
+msgstr "请选择一个有效的触发时机!"
 
 #: libraries/classes/Rte/Triggers.php:459
-#, fuzzy
-#| msgid "You must provide a valid event for the trigger"
 msgid "You must provide a valid event for the trigger!"
-msgstr "请选择一个有效的触发事件"
+msgstr "请选择一个有效的触发事件!"
 
 #: libraries/classes/Rte/Triggers.php:467
-#, fuzzy
-#| msgid "You must provide a valid table name"
 msgid "You must provide a valid table name!"
-msgstr "请选择一个有效的表"
+msgstr "请选择一个有效的表!"
 
 #: libraries/classes/Rte/Triggers.php:473
 msgid "You must provide a trigger definition."
@@ -11307,10 +11268,8 @@ msgid "Does not require SSL-encrypted connections."
 msgstr "不需要 SSL 加密连接。"
 
 #: libraries/classes/Server/Privileges.php:742
-#, fuzzy
-#| msgid "Persistent connections"
 msgid "Requires SSL-encrypted connections."
-msgstr "持久连接"
+msgstr "启用SSL加密"
 
 #: libraries/classes/Server/Privileges.php:756
 msgid "Requires a valid X509 certificate."
