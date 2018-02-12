@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.7.8-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2018-01-22 14:57+0100\n"
-"PO-Revision-Date: 2018-02-04 17:36+0000\n"
-"Last-Translator: scootergrisen <scootergrisen@gmail.com>\n"
+"PO-Revision-Date: 2018-02-12 15:28+0000\n"
+"Last-Translator: Michal Čihař <michal@cihar.com>\n"
 "Language-Team: Danish "
 "<https://hosted.weblate.org/projects/phpmyadmin/4-7/da/>\n"
 "Language: da\n"
@@ -295,11 +295,9 @@ msgid "The database name is empty!"
 msgstr "Databasenavnet er tomt!"
 
 #: db_operations.php:61
-#, fuzzy
-#| msgid ""
-#| "Cannot rename database to the same name. Change the name and try again"
 msgid "Cannot copy database to the same name. Change the name and try again."
-msgstr "Kan ikke omdøbe database til samme navn. Ændre navnet og prøv igen"
+msgstr ""
+"Kan ikke kopiere database til det samme navn. Ændre navnet og prøv igen."
 
 #: db_operations.php:150
 #, php-format
