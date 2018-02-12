@@ -176,7 +176,7 @@ class Language
         _textdomain('phpmyadmin');
         // Set PHP locale as well
         if (function_exists('setlocale')) {
-            setlocale(0, $locale);
+            setlocale(0, $this->code);
         }
 
         /* Text direction for language */
