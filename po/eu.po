@@ -4,16 +4,16 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.7.8-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2018-01-22 14:57+0100\n"
-"PO-Revision-Date: 2017-10-18 17:44+0000\n"
-"Last-Translator: iF <info@if-matxikote.eus>\n"
-"Language-Team: Basque <https://hosted.weblate.org/projects/phpmyadmin/4-7/eu/"
-">\n"
+"PO-Revision-Date: 2018-02-12 15:27+0000\n"
+"Last-Translator: Michal Čihař <michal@cihar.com>\n"
+"Language-Team: Basque "
+"<https://hosted.weblate.org/projects/phpmyadmin/4-7/eu/>\n"
 "Language: eu\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 2.17\n"
+"X-Generator: Weblate 2.19-dev\n"
 
 #: ajax.php:16 ajax.php:33 export.php:192 schema_export.php:64
 msgid "Bad type!"
@@ -298,6 +298,7 @@ msgstr "Datu-basearen izena hutsik dago!"
 #: db_operations.php:61
 msgid "Cannot copy database to the same name. Change the name and try again."
 msgstr ""
+"Ezin da Izen berdineko datu-basea kopiatu. Izena aldatu eta saiatu berriro."
 
 #: db_operations.php:150
 #, php-format
