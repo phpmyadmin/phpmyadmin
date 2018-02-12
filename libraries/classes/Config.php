@@ -833,8 +833,6 @@ class Config
 
         $this->settings = array_replace_recursive($this->settings, $cfg);
 
-        $this->checkServers();
-
         return true;
     }
 
