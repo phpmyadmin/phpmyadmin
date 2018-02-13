@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin-docs 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2018-02-12 16:30+0100\n"
-"PO-Revision-Date: 2018-02-13 13:16+0000\n"
+"PO-Revision-Date: 2018-02-14 03:59+0000\n"
 "Last-Translator: Olivier Humbert <trebmuh@tuxfamily.org>\n"
 "Language-Team: French "
 "<https://hosted.weblate.org/projects/phpmyadmin/master/fr/>\n"
@@ -14826,7 +14826,7 @@ msgstr "Sortie : "
 #: templates/display/export/options_output_save_dir.twig:5
 #, php-format
 msgid "Save on server in the directory <strong>%s</strong>"
-msgstr "Enregistrer sur le serveur dans le répertoire <b>%s</b>"
+msgstr "Enregistrer sur le serveur dans le répertoire <strong>%s</strong>"
 
 #: templates/table/insert/continue_insertion_form.twig:18
 #, php-format
@@ -15890,8 +15890,8 @@ msgstr[1] "%1$s correspondances dans <strong>%2$s</strong>"
 #: templates/database/search/results.twig:56
 msgid "<strong>Total:</strong> <em>%count%</em> match"
 msgid_plural "<strong>Total:</strong> <em>%count%</em> matches"
-msgstr[0] "<b>Total :</b> <i>%s</i> correspondance"
-msgstr[1] "<b>Total :</b> <i>%s</i> correspondances"
+msgstr[0] "<strong>Total :</strong><em>%count%</em> correspondance"
+msgstr[1] "<strong>Total :</strong><em>%count%</em> correspondances"
 
 #: templates/display/export/template_loading.twig:2
 msgid "Export templates:"
