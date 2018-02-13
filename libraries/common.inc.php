@@ -277,6 +277,8 @@ Core::checkRequest();
 /******************************************************************************/
 /* setup servers                                       LABEL_setup_servers    */
 
+$GLOBALS['PMA_Config']->checkServers();
+
 /**
  * current server
  * @global integer $GLOBALS['server']
