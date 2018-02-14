@@ -171,6 +171,7 @@ EOT;
             'META-INF/manifest.xml'
         );
 
-        return ZipExtension::createFile($data, $name);
+        $zipExtension = new ZipExtension();
+        return $zipExtension->createFile($data, $name);
     }
 }

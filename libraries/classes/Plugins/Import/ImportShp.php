@@ -29,11 +29,17 @@ use PhpMyAdmin\ZipExtension;
 class ImportShp extends ImportPlugin
 {
     /**
+     * @var ZipExtension
+     */
+    private $zipExtension;
+
+    /**
      * Constructor
      */
     public function __construct()
     {
         $this->setProperties();
+        $this->zipExtension = new ZipExtension();
     }
 
     /**
@@ -73,7 +79,7 @@ class ImportShp extends ImportPlugin
         // If the zip archive has more than one file,
         // get the correct content to the buffer from .shp file.
         if ($compression == 'application/zip'
-            && ZipExtension::getNumberOfFiles($import_file) > 1
+            && $this->zipExtension->getNumberOfFiles($import_file) > 1
         ) {
             if ($GLOBALS['import_handle']->openZip('/^.*\.shp$/i') === false) {
                 $message = Message::error(
@@ -92,14 +98,14 @@ class ImportShp extends ImportPlugin
             // If we can extract the zip archive to 'TempDir'
             // and use the files in it for import
             if ($compression == 'application/zip' && ! is_null($temp)) {
-                $dbf_file_name = ZipExtension::findFile(
+                $dbf_file_name = $this->zipExtension->findFile(
                     $import_file,
                     '/^.*\.dbf$/i'
                 );
                 // If the corresponding .dbf file is in the zip archive
                 if ($dbf_file_name) {
                     // Extract the .dbf file and point to it.
-                    $extracted = ZipExtension::extract(
+                    $extracted = $this->zipExtension->extract(
                         $import_file,
                         $dbf_file_name
                     );
