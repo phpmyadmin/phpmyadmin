@@ -460,17 +460,12 @@ AJAX.registerOnload('tbl_change.js', function () {
     /**
      * Continue Insertion form
      */
-    var row = document.getElementById('insert_rows');
-    if (row !== null) {
-        var rowCount = Number(row.value);
-    }
     $(document).on('change', '#insert_rows', function (event) {
 
         /**
          * Displays warning if number of rows are reduced
          * and chances of data loss.
          */
-        rowCount = AJAX.rowCheck(row, rowCount);
         event.preventDefault();
         /**
          * @var columnCount   Number of number of columns table has.
@@ -677,12 +672,22 @@ AJAX.registerOnload('tbl_change.js', function () {
                     $(this).attr('tabindex', tabindex);
                 });
         } else if (curr_rows > target_rows) {
-            while (curr_rows > target_rows) {
-                $('input[id^=insert_ignore]:last')
-                    .nextUntil('fieldset')
-                    .addBack()
-                    .remove();
-                curr_rows--;
+            /**
+             * Displays alert if data loss possible on decrease
+             * of rows.
+             */
+            if (jQuery.isEmptyObject(AJAX.lockedTargets) || (!jQuery.isEmptyObject(AJAX.lockedTargets)
+                && confirm(PMA_messages.strConfirmRowChange) === true)
+            ) {
+                while (curr_rows > target_rows) {
+                    $('input[id^=insert_ignore]:last')
+                        .nextUntil('fieldset')
+                        .addBack()
+                        .remove();
+                    curr_rows--;
+                }
+            } else {
+                    document.getElementById('insert_rows').value = curr_rows;
             }
         }
         // Add all the required datepickers back

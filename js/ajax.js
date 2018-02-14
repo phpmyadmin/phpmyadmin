@@ -509,21 +509,6 @@ var AJAX = {
         }
     },
     /**
-     * Displays alert if data loss possible on decrease
-     * of rows.
-     */
-    rowCheck: function (row, rowCount) {
-        var newCount = Number(row.value);
-        if (newCount < rowCount && !jQuery.isEmptyObject(AJAX.lockedTargets)
-            && confirm(PMA_messages.strConfirmRowChange) === false
-        ) {
-            row.value = rowCount;
-            return rowCount;
-        } else {
-            return newCount;
-        }
-    },
-    /**
      * This object is in charge of downloading scripts,
      * keeping track of what's downloaded and firing
      * the onload event for them when the page is ready.
