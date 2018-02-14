@@ -17,6 +17,19 @@ use ZipArchive;
 class ZipExtension
 {
     /**
+     * @var ZipArchive
+     */
+    private $zip;
+
+    /**
+     * Constructor
+     */
+    public function __construct()
+    {
+        $this->zip = new ZipArchive();
+    }
+
+    /**
      * Gets zip file contents
      *
      * @param string $file           path to zip file
@@ -25,7 +38,7 @@ class ZipExtension
      * @return array ($error_message, $file_data); $error_message
      *                  is empty if no error
      */
-    public static function getContents($file, $specific_entry = null)
+    public function getContents($file, $specific_entry = null)
     {
         /**
         * This function is used to "import" a SQL file which has been exported earlier
@@ -36,33 +49,32 @@ class ZipExtension
         $error_message = '';
         $file_data = '';
 
-        $zip = new ZipArchive;
-        $res = $zip->open($file);
+        $res = $this->zip->open($file);
 
         if ($res === true) {
-            if ($zip->numFiles === 0) {
+            if ($this->zip->numFiles === 0) {
                 $error_message = __('No files found inside ZIP archive!');
-                $zip->close();
+                $this->zip->close();
                 return (array('error' => $error_message, 'data' => $file_data));
             }
 
             /* Is the the zip really an ODS file? */
             $ods_mime = 'application/vnd.oasis.opendocument.spreadsheet';
-            $first_zip_entry = $zip->getFromIndex(0);
+            $first_zip_entry = $this->zip->getFromIndex(0);
             if (!strcmp($ods_mime, $first_zip_entry)) {
                 $specific_entry = '/^content\.xml$/';
             }
 
             if (!isset($specific_entry)) {
                 $file_data = $first_zip_entry;
-                $zip->close();
+                $this->zip->close();
                 return (array('error' => $error_message, 'data' => $file_data));
             }
 
             /* Return the correct contents, not just the first entry */
-            for ($i = 0; $i < $zip->numFiles; $i++) {
-                if (@preg_match($specific_entry, $zip->getNameIndex($i))) {
-                    $file_data = $zip->getFromIndex($i);
+            for ($i = 0; $i < $this->zip->numFiles; $i++) {
+                if (@preg_match($specific_entry, $this->zip->getNameIndex($i))) {
+                    $file_data = $this->zip->getFromIndex($i);
                     break;
                 }
             }
@@ -73,11 +85,11 @@ class ZipExtension
                     . ' Could not find "' . $specific_entry . '"';
             }
 
-            $zip->close();
+            $this->zip->close();
             return (array('error' => $error_message, 'data' => $file_data));
         } else {
-            $error_message = __('Error in ZIP archive:') . ' ' . $zip->getStatusString();
-            $zip->close();
+            $error_message = __('Error in ZIP archive:') . ' ' . $this->zip->getStatusString();
+            $this->zip->close();
             return (array('error' => $error_message, 'data' => $file_data));
         }
     }
@@ -90,16 +102,15 @@ class ZipExtension
      *
      * @return string the file name of the first file that matches the given regular expression
      */
-    public static function findFile($file, $regex)
+    public function findFile($file, $regex)
     {
-        $zip = new ZipArchive;
-        $res = $zip->open($file);
+        $res = $this->zip->open($file);
 
         if ($res === true) {
-            for ($i = 0; $i < $zip->numFiles; $i++) {
-                if (preg_match($regex, $zip->getNameIndex($i))) {
-                    $filename = $zip->getNameIndex($i);
-                    $zip->close();
+            for ($i = 0; $i < $this->zip->numFiles; $i++) {
+                if (preg_match($regex, $this->zip->getNameIndex($i))) {
+                    $filename = $this->zip->getNameIndex($i);
+                    $this->zip->close();
                     return $filename;
                 }
             }
@@ -114,14 +125,13 @@ class ZipExtension
      *
      * @return int the number of files in the zip archive or 0, either if there wern't any files or an error occured.
      */
-    public static function getNumberOfFiles($file)
+    public function getNumberOfFiles($file)
     {
         $num = 0;
-        $zip = new ZipArchive;
-        $res = $zip->open($file);
+        $res = $this->zip->open($file);
 
         if ($res === true) {
-            $num = $zip->numFiles;
+            $num = $this->zip->numFiles;
         }
         return $num;
     }
@@ -134,12 +144,11 @@ class ZipExtension
      *
      * @return string|bool data on sucess, false otherwise
      */
-    public static function extract($file, $entry)
+    public function extract($file, $entry)
     {
-        $zip = new ZipArchive;
-        if ($zip->open($file) === true) {
-            $result = $zip->getFromName($entry);
-            $zip->close();
+        if ($this->zip->open($file) === true) {
+            $result = $this->zip->getFromName($entry);
+            $this->zip->close();
             return $result;
         }
         return false;
@@ -156,7 +165,7 @@ class ZipExtension
      *
      * @return string|bool  the ZIP file contents, or false if there was an error.
      */
-    public static function createFile($data, $name, $time = 0)
+    public function createFile($data, $name, $time = 0)
     {
         $datasec = array();  // Array to store compressed data
         $ctrl_dir = array(); // Central directory

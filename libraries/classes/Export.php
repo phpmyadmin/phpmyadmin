@@ -417,8 +417,9 @@ class Export
     public static function compress($dump_buffer, $compression, $filename)
     {
         if ($compression == 'zip' && @function_exists('gzcompress')) {
+            $zipExtension = new ZipExtension();
             $filename = substr($filename, 0, -4); // remove extension (.zip)
-            $dump_buffer = ZipExtension::createFile($dump_buffer, $filename);
+            $dump_buffer = $zipExtension->createFile($dump_buffer, $filename);
         } elseif ($compression == 'gzip' && self::gzencodeNeeded()) {
             // without the optional parameter level because it bugs
             $dump_buffer = gzencode($dump_buffer);

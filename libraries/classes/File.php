@@ -78,6 +78,11 @@ class File
     var $_charset = null;
 
     /**
+     * @var ZipExtension
+     */
+    private $zipExtension;
+
+    /**
      * constructor
      *
      * @param boolean|string $name file name or false
@@ -89,6 +94,8 @@ class File
         if ($name && is_string($name)) {
             $this->setName($name);
         }
+
+        $this->zipExtension = new ZipExtension();
     }
 
     /**
@@ -662,7 +669,7 @@ class File
      */
     public function openZip($specific_entry = null)
     {
-        $result = ZipExtension::getContents($this->getName(), $specific_entry);
+        $result = $this->zipExtension->getContents($this->getName(), $specific_entry);
         if (! empty($result['error'])) {
             $this->_error_message = Message::rawError($result['error']);
             return false;
