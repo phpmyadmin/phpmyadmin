@@ -50,9 +50,11 @@ if ($GLOBALS['dbi']->getColumns($db, $table)) {
     );
 }
 
+$createAddField = new CreateAddField();
+
 // for libraries/tbl_columns_definition_form.inc.php
 // check number of fields to be created
-$num_fields = CreateAddField::getNumberOfFieldsFromRequest();
+$num_fields = $createAddField->getNumberOfFieldsFromRequest();
 
 $action = 'tbl_create.php';
 
@@ -60,7 +62,7 @@ $action = 'tbl_create.php';
  * The form used to define the structure of the table has been submitted
  */
 if (isset($_REQUEST['do_save_data'])) {
-    $sql_query = CreateAddField::getTableCreationQuery($db, $table);
+    $sql_query = $createAddField->getTableCreationQuery($db, $table);
 
     // If there is a request for SQL previewing.
     if (isset($_REQUEST['preview_sql'])) {

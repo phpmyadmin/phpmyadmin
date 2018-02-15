@@ -1,7 +1,7 @@
 <?php
 /* vim: set expandtab sw=4 ts=4 sts=4: */
 /**
- * set of functions for tbl_create.php and tbl_addfield.php
+ * Holds the PhpMyAdmin\CreateAddField class
  *
  * @package PhpMyAdmin
  */
@@ -13,7 +13,7 @@ use PhpMyAdmin\Table;
 use PhpMyAdmin\Util;
 
 /**
- * PhpMyAdmin\CreateAddField class
+ * Set of functions for tbl_create.php and tbl_addfield.php
  *
  * @package PhpMyAdmin
  */
@@ -24,7 +24,7 @@ class CreateAddField
      *
      * @return array An array of arrays which represents column keys for each index type
      */
-    private static function getIndexedColumns()
+    private function getIndexedColumns()
     {
         $field_cnt = count($_REQUEST['field_name']);
         $field_primary = json_decode($_REQUEST['primary_indexes'], true);
@@ -50,7 +50,7 @@ class CreateAddField
      * @return array  $definitions An array of initial sql statements
      *                             according to the request
      */
-    private static function buildColumnCreationStatement(
+    private function buildColumnCreationStatement(
         $field_cnt, $is_create_tbl = true
     ) {
         $definitions = array();
@@ -61,7 +61,7 @@ class CreateAddField
                 continue;
             }
 
-            $definition = self::getStatementPrefix($is_create_tbl) .
+            $definition = $this->getStatementPrefix($is_create_tbl) .
                     Table::generateFieldSpec(
                         trim($_REQUEST['field_name'][$i]),
                         $_REQUEST['field_type'][$i],
@@ -89,7 +89,7 @@ class CreateAddField
                         : ''
                     );
 
-            $definition .= self::setColumnCreationStatementSuffix($i, $prev_field, $is_create_tbl);
+            $definition .= $this->setColumnCreationStatementSuffix($i, $prev_field, $is_create_tbl);
             $prev_field = $i;
             $definitions[] = $definition;
         } // end for
@@ -107,7 +107,7 @@ class CreateAddField
      *
      * @return string $sql_suffix suffix
      */
-    private static function setColumnCreationStatementSuffix($current_field_num, $prev_field,
+    private function setColumnCreationStatementSuffix($current_field_num, $prev_field,
         $is_create_tbl = true
     ) {
         // no suffix is needed if request is a table creation
@@ -149,7 +149,7 @@ class CreateAddField
      *
      * @return array an array of sql statements for indexes
      */
-    private static function buildIndexStatements(array $index, $index_choice,
+    private function buildIndexStatements(array $index, $index_choice,
         $is_create_tbl = true
     ) {
         $statement = array();
@@ -157,7 +157,7 @@ class CreateAddField
             return $statement;
         }
 
-        $sql_query = self::getStatementPrefix($is_create_tbl)
+        $sql_query = $this->getStatementPrefix($is_create_tbl)
             . ' ' . $index_choice;
 
         if (! empty($index['Key_name']) && $index['Key_name'] != 'PRIMARY') {
@@ -208,14 +208,14 @@ class CreateAddField
     }
 
     /**
-     * Statement prefix for the self::buildColumnCreationStatement()
+     * Statement prefix for the buildColumnCreationStatement()
      *
      * @param boolean $is_create_tbl true if requirement is to get the statement
      *                               for table creation
      *
      * @return string $sql_prefix prefix
      */
-    private static function getStatementPrefix($is_create_tbl = true)
+    private function getStatementPrefix($is_create_tbl = true)
     {
         $sql_prefix = " ";
         if (! $is_create_tbl) {
@@ -235,11 +235,11 @@ class CreateAddField
      *
      * @return array $index_definitions
      */
-    private static function mergeIndexStatements(
+    private function mergeIndexStatements(
         array $definitions, $is_create_tbl, array $indexed_columns, $index_keyword
     ) {
         foreach ($indexed_columns as $index) {
-            $statements = self::buildIndexStatements(
+            $statements = $this->buildIndexStatements(
                 $index, " " . $index_keyword . " ", $is_create_tbl
             );
             $definitions = array_merge($definitions, $statements);
@@ -256,18 +256,18 @@ class CreateAddField
      *
      * @return string sql statement
      */
-    private static function getColumnCreationStatements($is_create_tbl = true)
+    private function getColumnCreationStatements($is_create_tbl = true)
     {
         $sql_statement = "";
         list($field_cnt, $field_primary, $field_index,
                 $field_unique, $field_fulltext, $field_spatial
-                ) = self::getIndexedColumns();
-        $definitions = self::buildColumnCreationStatement(
+                ) = $this->getIndexedColumns();
+        $definitions = $this->buildColumnCreationStatement(
             $field_cnt, $is_create_tbl
         );
 
         // Builds the PRIMARY KEY statements
-        $primary_key_statements = self::buildIndexStatements(
+        $primary_key_statements = $this->buildIndexStatements(
             isset($field_primary[0]) ? $field_primary[0] : array(),
             " PRIMARY KEY ",
             $is_create_tbl
@@ -275,22 +275,22 @@ class CreateAddField
         $definitions = array_merge($definitions, $primary_key_statements);
 
         // Builds the INDEX statements
-        $definitions = self::mergeIndexStatements(
+        $definitions = $this->mergeIndexStatements(
             $definitions, $is_create_tbl, $field_index, "INDEX"
         );
 
         // Builds the UNIQUE statements
-        $definitions = self::mergeIndexStatements(
+        $definitions = $this->mergeIndexStatements(
             $definitions, $is_create_tbl, $field_unique, "UNIQUE"
         );
 
         // Builds the FULLTEXT statements
-        $definitions = self::mergeIndexStatements(
+        $definitions = $this->mergeIndexStatements(
             $definitions, $is_create_tbl, $field_fulltext, "FULLTEXT"
         );
 
         // Builds the SPATIAL statements
-        $definitions = self::mergeIndexStatements(
+        $definitions = $this->mergeIndexStatements(
             $definitions, $is_create_tbl, $field_spatial, "SPATIAL"
         );
 
@@ -308,7 +308,7 @@ class CreateAddField
      *
      * @return string partitioning clause
      */
-    public static function getPartitionsDefinition()
+    public function getPartitionsDefinition()
     {
         $sql_query = "";
         if (! empty($_REQUEST['partition_by'])
@@ -335,7 +335,7 @@ class CreateAddField
             $i = 0;
             $partitions = array();
             foreach ($_REQUEST['partitions'] as $partition) {
-                $partitions[] = self::getPartitionDefinition($partition);
+                $partitions[] = $this->getPartitionDefinition($partition);
                 $i++;
             }
             $sql_query .= " (" . implode(", ", $partitions) . ")";
@@ -352,7 +352,7 @@ class CreateAddField
      *
      * @return string partition/subpartition definition
      */
-    private static function getPartitionDefinition(array $partition, $isSubPartition = false)
+    private function getPartitionDefinition(array $partition, $isSubPartition = false)
     {
         $sql_query = " " . ($isSubPartition ? "SUB" : "") . "PARTITION ";
         $sql_query .= $partition['name'];
@@ -394,7 +394,7 @@ class CreateAddField
             $j = 0;
             $subpartitions = array();
             foreach ($partition['subpartitions'] as $subpartition) {
-                $subpartitions[] = self::getPartitionDefinition(
+                $subpartitions[] = $this->getPartitionDefinition(
                     $subpartition,
                     true
                 );
@@ -414,10 +414,10 @@ class CreateAddField
      *
      * @return string
      */
-    public static function getTableCreationQuery($db, $table)
+    public function getTableCreationQuery($db, $table)
     {
         // get column addition statements
-        $sql_statement = self::getColumnCreationStatements(true);
+        $sql_statement = $this->getColumnCreationStatements(true);
 
         // Builds the 'create table' statement
         $sql_query = 'CREATE TABLE ' . Util::backquote($db) . '.'
@@ -443,7 +443,7 @@ class CreateAddField
             $sql_query .= ' COMMENT = \''
                 . $GLOBALS['dbi']->escapeString($_REQUEST['comment']) . '\'';
         }
-        $sql_query .= self::getPartitionsDefinition();
+        $sql_query .= $this->getPartitionsDefinition();
         $sql_query .= ';';
 
         return $sql_query;
@@ -454,7 +454,7 @@ class CreateAddField
      *
      * @return int
      */
-    public static function getNumberOfFieldsFromRequest()
+    public function getNumberOfFieldsFromRequest()
     {
         if (isset($_REQUEST['submit_num_fields'])) { // adding new fields
             $num_fields = intval($_REQUEST['orig_num_fields']) + intval($_REQUEST['added_fields']);
@@ -481,10 +481,10 @@ class CreateAddField
      *
      * @return array
      */
-    public static function tryColumnCreationQuery($db, $table, $err_url)
+    public function tryColumnCreationQuery($db, $table, $err_url)
     {
         // get column addition statements
-        $sql_statement = self::getColumnCreationStatements(false);
+        $sql_statement = $this->getColumnCreationStatements(false);
 
         // To allow replication, we first select the db to use and then run queries
         // on this db.
