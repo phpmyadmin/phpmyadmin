@@ -7,16 +7,16 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.7.8-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2018-02-12 16:30+0100\n"
-"PO-Revision-Date: 2018-02-12 15:28+0000\n"
-"Last-Translator: Michal Čihař <michal@cihar.com>\n"
-"Language-Team: Tamil <https://hosted.weblate.org/projects/phpmyadmin/4-7/ta/"
-">\n"
+"PO-Revision-Date: 2018-02-16 06:41+0000\n"
+"Last-Translator: Gladson Samuel Stephen <samuels.gladson@hotmail.com>\n"
+"Language-Team: Tamil <https://hosted.weblate.org/projects/phpmyadmin/4-7/ta/>"
+"\n"
 "Language: ta\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 2.19-dev\n"
+"X-Generator: Weblate 2.19\n"
 
 #: ajax.php:16 ajax.php:33 export.php:192 schema_export.php:64
 msgid "Bad type!"
@@ -344,12 +344,12 @@ msgstr "கண்காணிக்கும் தரவுகள் வெற�
 msgid ""
 "Version %1$s was created for selected tables, tracking is active for them."
 msgstr ""
-"தெரிவு செய்யப்பட்ட அட்டவனைகளுக்கான பதிப்பு %1$s உருவாக்கப்பட்டுள்ளது, அவைகளுக்கான "
-"கண்காணிப்பு செயல்பாடு"
+"தெரிவு செய்யப்பட்ட அட்டவனைகளுக்கான பதிப்பு %1$s உருவாக்கப்பட்டுள்ளது, "
+"அவைகளுக்கான கண்காணிப்பு செயல்பாட்டில் உள்ளது."
 
 #: db_tracking.php:93
 msgid "No tables selected."
-msgstr "எந்த தரவுத்தளமும் தேர்ந்தெடுக்கப்படவில்லை."
+msgstr "எந்த அட்டவணைகளும்  தேர்ந்தெடுக்கப்படவில்லை."
 
 #: db_tracking.php:150
 msgid "Database Log"
@@ -365,7 +365,7 @@ msgstr ""
 
 #: error_report.php:72
 msgid "Thank you for submitting this report."
-msgstr "இந்த அறிக்கை அளித்தமைக்கு நன்றி."
+msgstr "இந்த அறிக்கையை அளித்தமைக்கு நன்றி."
 
 #: error_report.php:76
 msgid ""
@@ -373,7 +373,7 @@ msgid ""
 "to be sent."
 msgstr ""
 "ஒரு பிழை கண்டறியப்பட்டது மேலும் ஒரு பிழையறிக்கை உருவாக்கப்பட்டுள்ளது ஆனால் "
-"தோல்வியடைந்தது எனவே பின்னர் அனுப்ப வேண்டும்."
+"அதை அனுப்ப இயலவில்லை."
 
 #: error_report.php:81
 msgid "If you experience any problems please submit a bug report manually."
@@ -397,12 +397,12 @@ msgstr "\"%s\" நிரல்வரிசையின் மதிப்பு"
 #: gis_data_editor.php:147
 #: templates/table/gis_visualization/gis_visualization.phtml:38
 msgid "Use OpenStreetMaps as Base Layer"
-msgstr "கீழடுக்காக OpenStreetMaps பயன்படுத்தவும்"
+msgstr "கீழடுக்காக OpenStreetMaps ஐ பயன்படுத்தவும்"
 
 #. l10n: Spatial Reference System Identifier
 #: gis_data_editor.php:169
 msgid "SRID:"
-msgstr "இகுமுகு:"
+msgstr "SRID (இடம்சார்ந்த குறியீடு அமைப்பு காட்டி) :"
 
 #: gis_data_editor.php:195
 #, php-format
@@ -518,8 +518,8 @@ msgid ""
 "Choose \"GeomFromText\" from the \"Function\" column and paste the string "
 "below into the \"Value\" field."
 msgstr ""
-"\"செயல்கூறு\" நிரல்வரிசையிலிருந்து \"உரையிலிருந்துGeom\"யினை தேர்ந்தெடுத்தபின்னர் "
-"கீழுள்ள \"மதிப்பு\" களத்தில் சரத்தை ஒட்டுக."
+"\"செயல்கூறு\" நிரல்வரிசையிலிருந்து \"GeomFromText (எழுத்திலிருந்து வடிவை)\""
+"ஐ  தேர்ந்தெடுத்தபின்னர் கீழுள்ள \"மதிப்பு\" களத்தில் சரத்தை ஒட்டுக."
 
 #: import.php:65
 msgid "Succeeded"
@@ -1687,7 +1687,7 @@ msgstr "தேர்வுமுறை"
 
 #: js/messages.php:349
 msgid "Formatting SQL…"
-msgstr ""
+msgstr "SQL சரியமைக்கபடுகிறது…"
 
 #: js/messages.php:350
 #, fuzzy
@@ -1715,7 +1715,7 @@ msgstr "அமைப்புக்களை மாற்று"
 
 #: js/messages.php:358 libraries/config/FormDisplay.tpl.php:424
 msgid "Apply"
-msgstr ""
+msgstr "இடுக"
 
 #: js/messages.php:361 libraries/navigation/NavigationHeader.php:60
 #: libraries/server_status_monitor.lib.php:122
@@ -1761,6 +1761,8 @@ msgid ""
 "It seems that the connection to server has been lost. Please check your "
 "network connectivity and server status."
 msgstr ""
+"சேவையகத்திற்கான இணைப்பு தொலைந்துவிட்டது என்று தெரிகிறது. உங்கள் பிணைய இணைப்பு"
+" மற்றும் சேவையக நிலையை சரிபார்க்கவும்."
 
 #: js/messages.php:372
 #: libraries/controllers/server/ServerDatabasesController.php:194
@@ -1870,6 +1872,8 @@ msgstr "தரவேற்றுக"
 #: js/messages.php:403
 msgid "No routine is exportable. Required privileges may be lacking."
 msgstr ""
+"செயல்முறை எதுவும் தரவேற்றம் செய்யப்படவில்லை. தேவைப்படும் உரிமைகள் குறைவாக "
+"இருக்கலாம்."
 
 #: js/messages.php:406 libraries/rte/rte_routines.lib.php:747
 msgid "ENUM/SET editor"
@@ -1945,7 +1949,7 @@ msgstr "அயல் குறியெண் மதிப்புகளை உ
 
 #: js/messages.php:424
 msgid "No auto-saved query"
-msgstr ""
+msgstr "தானாக சேமிக்கப்பட்ட வினா இல்லை"
 
 #: js/messages.php:425
 #, fuzzy, php-format
@@ -2228,6 +2232,8 @@ msgid ""
 "MySQL accepts additional values not selectable by the slider; key in those "
 "values directly if desired"
 msgstr ""
+"MySQL நகர்வானால் தேர்ந்தெடுக்கப்படாத கூடுதல் மதிப்புகளை ஏற்றுக்கொள்கிறது; "
+"நேரடியாக அந்த மதிப்புகள் முக்கியமாக விரும்பினால்"
 
 #: js/messages.php:542
 msgid ""
