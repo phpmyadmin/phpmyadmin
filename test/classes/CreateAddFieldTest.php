@@ -19,6 +19,11 @@ class CreateAddFieldTest extends TestCase
 {
     private $createAddField;
 
+    /**
+     * Set up for test cases
+     *
+     * @return void
+     */
     protected function setUp()
     {
         $this->createAddField = new CreateAddField();

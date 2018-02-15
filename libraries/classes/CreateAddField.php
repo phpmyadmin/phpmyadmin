@@ -26,42 +26,47 @@ class CreateAddField
      */
     private function getIndexedColumns()
     {
-        $field_cnt = count($_REQUEST['field_name']);
-        $field_primary = json_decode($_REQUEST['primary_indexes'], true);
-        $field_index = json_decode($_REQUEST['indexes'], true);
-        $field_unique = json_decode($_REQUEST['unique_indexes'], true);
-        $field_fulltext = json_decode($_REQUEST['fulltext_indexes'], true);
-        $field_spatial = json_decode($_REQUEST['spatial_indexes'], true);
+        $fieldCount = count($_REQUEST['field_name']);
+        $fieldPrimary = json_decode($_REQUEST['primary_indexes'], true);
+        $fieldIndex = json_decode($_REQUEST['indexes'], true);
+        $fieldUnique = json_decode($_REQUEST['unique_indexes'], true);
+        $fieldFullText = json_decode($_REQUEST['fulltext_indexes'], true);
+        $fieldSpatial = json_decode($_REQUEST['spatial_indexes'], true);
 
-        return array(
-            $field_cnt, $field_primary, $field_index, $field_unique,
-            $field_fulltext, $field_spatial
-        );
+        return [
+            $fieldCount,
+            $fieldPrimary,
+            $fieldIndex,
+            $fieldUnique,
+            $fieldFullText,
+            $fieldSpatial,
+        ];
     }
 
     /**
      * Initiate the column creation statement according to the table creation or
      * add columns to a existing table
      *
-     * @param int     $field_cnt     number of columns
-     * @param boolean $is_create_tbl true if requirement is to get the statement
+     * @param int     $fieldCount    number of columns
+     * @param boolean $isCreateTable true if requirement is to get the statement
      *                               for table creation
      *
      * @return array  $definitions An array of initial sql statements
      *                             according to the request
      */
     private function buildColumnCreationStatement(
-        $field_cnt, $is_create_tbl = true
+        $fieldCount,
+        $isCreateTable = true
     ) {
-        $definitions = array();
-        $prev_field = -1;
-        for ($i = 0; $i < $field_cnt; ++$i) {
+        $definitions = [];
+        $previousField = -1;
+        for ($i = 0; $i < $fieldCount; ++$i) {
             // '0' is also empty for php :-(
             if (strlen($_REQUEST['field_name'][$i]) === 0) {
                 continue;
             }
 
-            $definition = $this->getStatementPrefix($is_create_tbl) .
+            $definition = $this->getStatementPrefix($isCreateTable) .
                     Table::generateFieldSpec(
                         trim($_REQUEST['field_name'][$i]),
                         $_REQUEST['field_type'][$i],
@@ -89,8 +94,8 @@ class CreateAddField
                         : ''
                     );
 
-            $definition .= $this->setColumnCreationStatementSuffix($i, $prev_field, $is_create_tbl);
-            $prev_field = $i;
+            $definition .= $this->setColumnCreationStatementSuffix($i, $previousField, $isCreateTable);
+            $previousField = $i;
             $definitions[] = $definition;
         } // end for
 
@@ -100,85 +105,89 @@ class CreateAddField
     /**
      * Set column creation suffix according to requested position of the new column
      *
-     * @param int     $current_field_num current column number
-     * @param int     $prev_field        previous field for ALTER statement
-     * @param boolean $is_create_tbl     true if requirement is to get the statement
-     *                                   for table creation
+     * @param int     $currentFieldNumber current column number
+     * @param int     $previousField      previous field for ALTER statement
+     * @param boolean $isCreateTable      true if requirement is to get the statement
+     *                                    for table creation
      *
-     * @return string $sql_suffix suffix
+     * @return string $sqlSuffix suffix
      */
-    private function setColumnCreationStatementSuffix($current_field_num, $prev_field,
-        $is_create_tbl = true
+    private function setColumnCreationStatementSuffix(
+        $currentFieldNumber,
+        $previousField,
+        $isCreateTable = true
     ) {
         // no suffix is needed if request is a table creation
-        $sql_suffix = ' ';
-        if ($is_create_tbl) {
-            return $sql_suffix;
+        $sqlSuffix = ' ';
+        if ($isCreateTable) {
+            return $sqlSuffix;
         }
 
         if ((string) $_REQUEST['field_where'] === 'last') {
-            return $sql_suffix;
+            return $sqlSuffix;
         }
 
         // Only the first field can be added somewhere other than at the end
-        if ($prev_field == -1) {
+        if ($previousField == -1) {
             if ((string) $_REQUEST['field_where'] === 'first') {
-                $sql_suffix .= ' FIRST';
+                $sqlSuffix .= ' FIRST';
             } else {
-                $sql_suffix .= ' AFTER '
+                $sqlSuffix .= ' AFTER '
                         . Util::backquote($_REQUEST['after_field']);
             }
         } else {
-            $sql_suffix .= ' AFTER '
+            $sqlSuffix .= ' AFTER '
                     . Util::backquote(
-                        $_REQUEST['field_name'][$prev_field]
+                        $_REQUEST['field_name'][$previousField]
                     );
         }
 
-        return $sql_suffix;
+        return $sqlSuffix;
     }
 
     /**
      * Create relevant index statements
      *
      * @param array   $index         an array of index columns
-     * @param string  $index_choice  index choice that which represents
+     * @param string  $indexChoice   index choice that which represents
      *                               the index type of $indexed_fields
-     * @param boolean $is_create_tbl true if requirement is to get the statement
+     * @param boolean $isCreateTable true if requirement is to get the statement
      *                               for table creation
      *
      * @return array an array of sql statements for indexes
      */
-    private function buildIndexStatements(array $index, $index_choice,
-        $is_create_tbl = true
+    private function buildIndexStatements(
+        array $index,
+        $indexChoice,
+        $isCreateTable = true
     ) {
-        $statement = array();
+        $statement = [];
         if (!count($index)) {
             return $statement;
         }
 
-        $sql_query = $this->getStatementPrefix($is_create_tbl)
-            . ' ' . $index_choice;
+        $sqlQuery = $this->getStatementPrefix($isCreateTable)
+            . ' ' . $indexChoice;
 
         if (! empty($index['Key_name']) && $index['Key_name'] != 'PRIMARY') {
-            $sql_query .= ' ' . Util::backquote($index['Key_name']);
+            $sqlQuery .= ' ' . Util::backquote($index['Key_name']);
         }
 
-        $index_fields = array();
+        $indexFields = [];
         foreach ($index['columns'] as $key => $column) {
-            $index_fields[$key] = Util::backquote(
+            $indexFields[$key] = Util::backquote(
                 $_REQUEST['field_name'][$column['col_index']]
             );
             if ($column['size']) {
-                $index_fields[$key] .= '(' . $column['size'] . ')';
+                $indexFields[$key] .= '(' . $column['size'] . ')';
             }
-        } // end while
+        }
 
-        $sql_query .= ' (' . implode(', ', $index_fields) . ')';
+        $sqlQuery .= ' (' . implode(', ', $indexFields) . ')';
 
         $keyBlockSizes = $index['Key_block_size'];
         if (! empty($keyBlockSizes)) {
-            $sql_query .= " KEY_BLOCK_SIZE = "
+            $sqlQuery .= " KEY_BLOCK_SIZE = "
                  . $GLOBALS['dbi']->escapeString($keyBlockSizes);
         }
 
@@ -188,21 +197,21 @@ class CreateAddField
             && $index['Index_choice'] != 'FULLTEXT'
             && in_array($type, Index::getIndexTypes())
         ) {
-            $sql_query .= ' USING ' . $type;
+            $sqlQuery .= ' USING ' . $type;
         }
 
         $parser = $index['Parser'];
         if ($index['Index_choice'] == 'FULLTEXT' && ! empty($parser)) {
-            $sql_query .= " WITH PARSER " . $GLOBALS['dbi']->escapeString($parser);
+            $sqlQuery .= " WITH PARSER " . $GLOBALS['dbi']->escapeString($parser);
         }
 
         $comment = $index['Index_comment'];
         if (! empty($comment)) {
-            $sql_query .= " COMMENT '" . $GLOBALS['dbi']->escapeString($comment)
+            $sqlQuery .= " COMMENT '" . $GLOBALS['dbi']->escapeString($comment)
                 . "'";
         }
 
-        $statement[] = $sql_query;
+        $statement[] = $sqlQuery;
 
         return $statement;
     }
@@ -210,37 +219,42 @@ class CreateAddField
     /**
      * Statement prefix for the buildColumnCreationStatement()
      *
-     * @param boolean $is_create_tbl true if requirement is to get the statement
+     * @param boolean $isCreateTable true if requirement is to get the statement
      *                               for table creation
      *
-     * @return string $sql_prefix prefix
+     * @return string $sqlPrefix prefix
      */
-    private function getStatementPrefix($is_create_tbl = true)
+    private function getStatementPrefix($isCreateTable = true)
     {
-        $sql_prefix = " ";
-        if (! $is_create_tbl) {
-            $sql_prefix = ' ADD ';
+        $sqlPrefix = " ";
+        if (! $isCreateTable) {
+            $sqlPrefix = ' ADD ';
         }
-        return $sql_prefix;
+        return $sqlPrefix;
     }
 
     /**
      * Merge index definitions for one type of index
      *
-     * @param array   $definitions     the index definitions to merge to
-     * @param boolean $is_create_tbl   true if requirement is to get the statement
-     *                                 for table creation
-     * @param array   $indexed_columns the columns for one type of index
-     * @param string  $index_keyword   the index keyword to use in the definition
+     * @param array   $definitions    the index definitions to merge to
+     * @param boolean $isCreateTable  true if requirement is to get the statement
+     *                                for table creation
+     * @param array   $indexedColumns the columns for one type of index
+     * @param string  $indexKeyword   the index keyword to use in the definition
      *
      * @return array $index_definitions
      */
     private function mergeIndexStatements(
-        array $definitions, $is_create_tbl, array $indexed_columns, $index_keyword
+        array $definitions,
+        $isCreateTable,
+        array $indexedColumns,
+        $indexKeyword
     ) {
-        foreach ($indexed_columns as $index) {
+        foreach ($indexedColumns as $index) {
             $statements = $this->buildIndexStatements(
-                $index, " " . $index_keyword . " ", $is_create_tbl
+                $index,
+                " " . $indexKeyword . " ",
+                $isCreateTable
             );
             $definitions = array_merge($definitions, $statements);
         }
@@ -251,56 +265,73 @@ class CreateAddField
      * Returns sql statement according to the column and index specifications as
      * requested
      *
-     * @param boolean $is_create_tbl true if requirement is to get the statement
+     * @param boolean $isCreateTable true if requirement is to get the statement
      *                               for table creation
      *
      * @return string sql statement
      */
-    private function getColumnCreationStatements($is_create_tbl = true)
+    private function getColumnCreationStatements($isCreateTable = true)
     {
-        $sql_statement = "";
-        list($field_cnt, $field_primary, $field_index,
-                $field_unique, $field_fulltext, $field_spatial
-                ) = $this->getIndexedColumns();
+        $sqlStatement = "";
+        list(
+            $fieldCount,
+            $fieldPrimary,
+            $fieldIndex,
+            $fieldUnique,
+            $fieldFullText,
+            $fieldSpatial
+        ) = $this->getIndexedColumns();
         $definitions = $this->buildColumnCreationStatement(
-            $field_cnt, $is_create_tbl
+            $fieldCount,
+            $isCreateTable
         );
 
         // Builds the PRIMARY KEY statements
-        $primary_key_statements = $this->buildIndexStatements(
-            isset($field_primary[0]) ? $field_primary[0] : array(),
+        $primaryKeyStatements = $this->buildIndexStatements(
+            isset($fieldPrimary[0]) ? $fieldPrimary[0] : [],
             " PRIMARY KEY ",
-            $is_create_tbl
+            $isCreateTable
         );
-        $definitions = array_merge($definitions, $primary_key_statements);
+        $definitions = array_merge($definitions, $primaryKeyStatements);
 
         // Builds the INDEX statements
         $definitions = $this->mergeIndexStatements(
-            $definitions, $is_create_tbl, $field_index, "INDEX"
+            $definitions,
+            $isCreateTable,
+            $fieldIndex,
+            "INDEX"
         );
 
         // Builds the UNIQUE statements
         $definitions = $this->mergeIndexStatements(
-            $definitions, $is_create_tbl, $field_unique, "UNIQUE"
+            $definitions,
+            $isCreateTable,
+            $fieldUnique,
+            "UNIQUE"
         );
 
         // Builds the FULLTEXT statements
         $definitions = $this->mergeIndexStatements(
-            $definitions, $is_create_tbl, $field_fulltext, "FULLTEXT"
+            $definitions,
+            $isCreateTable,
+            $fieldFullText,
+            "FULLTEXT"
         );
 
         // Builds the SPATIAL statements
         $definitions = $this->mergeIndexStatements(
-            $definitions, $is_create_tbl, $field_spatial, "SPATIAL"
+            $definitions,
+            $isCreateTable,
+            $fieldSpatial,
+            "SPATIAL"
         );
 
         if (count($definitions)) {
-            $sql_statement = implode(', ', $definitions);
+            $sqlStatement = implode(', ', $definitions);
         }
-        $sql_statement = preg_replace('@, $@', '', $sql_statement);
+        $sqlStatement = preg_replace('@, $@', '', $sqlStatement);
 
-        return $sql_statement;
-
+        return $sqlStatement;
     }
 
     /**
@@ -310,13 +341,13 @@ class CreateAddField
      */
     public function getPartitionsDefinition()
     {
-        $sql_query = "";
+        $sqlQuery = "";
         if (! empty($_REQUEST['partition_by'])
             && ! empty($_REQUEST['partition_expr'])
             && ! empty($_REQUEST['partition_count'])
             && $_REQUEST['partition_count'] > 1
         ) {
-            $sql_query .= " PARTITION BY " . $_REQUEST['partition_by']
+            $sqlQuery .= " PARTITION BY " . $_REQUEST['partition_by']
                 . " (" . $_REQUEST['partition_expr'] . ")"
                 . " PARTITIONS " . $_REQUEST['partition_count'];
         }
@@ -326,22 +357,22 @@ class CreateAddField
             && ! empty($_REQUEST['subpartition_count'])
             && $_REQUEST['subpartition_count'] > 1
         ) {
-            $sql_query .= " SUBPARTITION BY " . $_REQUEST['subpartition_by']
+            $sqlQuery .= " SUBPARTITION BY " . $_REQUEST['subpartition_by']
                . " (" . $_REQUEST['subpartition_expr'] . ")"
                . " SUBPARTITIONS " . $_REQUEST['subpartition_count'];
         }
 
         if (! empty($_REQUEST['partitions'])) {
             $i = 0;
-            $partitions = array();
+            $partitions = [];
             foreach ($_REQUEST['partitions'] as $partition) {
                 $partitions[] = $this->getPartitionDefinition($partition);
                 $i++;
             }
-            $sql_query .= " (" . implode(", ", $partitions) . ")";
+            $sqlQuery .= " (" . implode(", ", $partitions) . ")";
         }
 
-        return $sql_query;
+        return $sqlQuery;
     }
 
     /**
@@ -354,45 +385,45 @@ class CreateAddField
      */
     private function getPartitionDefinition(array $partition, $isSubPartition = false)
     {
-        $sql_query = " " . ($isSubPartition ? "SUB" : "") . "PARTITION ";
-        $sql_query .= $partition['name'];
+        $sqlQuery = " " . ($isSubPartition ? "SUB" : "") . "PARTITION ";
+        $sqlQuery .= $partition['name'];
 
         if (! empty($partition['value_type'])) {
-            $sql_query .= " VALUES " . $partition['value_type'];
+            $sqlQuery .= " VALUES " . $partition['value_type'];
 
             if ($partition['value_type'] != 'LESS THAN MAXVALUE') {
-                $sql_query .= " (" . $partition['value'] . ")";
+                $sqlQuery .= " (" . $partition['value'] . ")";
             }
         }
 
         if (! empty($partition['engine'])) {
-            $sql_query .= " ENGINE = " . $partition['engine'];
+            $sqlQuery .= " ENGINE = " . $partition['engine'];
         }
         if (! empty($partition['comment'])) {
-            $sql_query .= " COMMENT = '" . $partition['comment'] . "'";
+            $sqlQuery .= " COMMENT = '" . $partition['comment'] . "'";
         }
         if (! empty($partition['data_directory'])) {
-            $sql_query .= " DATA DIRECTORY = '" . $partition['data_directory'] . "'";
+            $sqlQuery .= " DATA DIRECTORY = '" . $partition['data_directory'] . "'";
         }
         if (! empty($partition['index_directory'])) {
-            $sql_query .= " INDEX_DIRECTORY = '" . $partition['index_directory'] . "'";
+            $sqlQuery .= " INDEX_DIRECTORY = '" . $partition['index_directory'] . "'";
         }
         if (! empty($partition['max_rows'])) {
-            $sql_query .= " MAX_ROWS = " . $partition['max_rows'];
+            $sqlQuery .= " MAX_ROWS = " . $partition['max_rows'];
         }
         if (! empty($partition['min_rows'])) {
-            $sql_query .= " MIN_ROWS = " . $partition['min_rows'];
+            $sqlQuery .= " MIN_ROWS = " . $partition['min_rows'];
         }
         if (! empty($partition['tablespace'])) {
-            $sql_query .= " TABLESPACE = " . $partition['tablespace'];
+            $sqlQuery .= " TABLESPACE = " . $partition['tablespace'];
         }
         if (! empty($partition['node_group'])) {
-            $sql_query .= " NODEGROUP = " . $partition['node_group'];
+            $sqlQuery .= " NODEGROUP = " . $partition['node_group'];
         }
 
         if (! empty($partition['subpartitions'])) {
             $j = 0;
-            $subpartitions = array();
+            $subpartitions = [];
             foreach ($partition['subpartitions'] as $subpartition) {
                 $subpartitions[] = $this->getPartitionDefinition(
                     $subpartition,
@@ -400,10 +431,10 @@ class CreateAddField
                 );
                 $j++;
             }
-            $sql_query .= " (" . implode(", ", $subpartitions) . ")";
+            $sqlQuery .= " (" . implode(", ", $subpartitions) . ")";
         }
 
-        return $sql_query;
+        return $sqlQuery;
     }
 
     /**
@@ -417,36 +448,36 @@ class CreateAddField
     public function getTableCreationQuery($db, $table)
     {
         // get column addition statements
-        $sql_statement = $this->getColumnCreationStatements(true);
+        $sqlStatement = $this->getColumnCreationStatements(true);
 
         // Builds the 'create table' statement
-        $sql_query = 'CREATE TABLE ' . Util::backquote($db) . '.'
-            . Util::backquote(trim($table)) . ' (' . $sql_statement . ')';
+        $sqlQuery = 'CREATE TABLE ' . Util::backquote($db) . '.'
+            . Util::backquote(trim($table)) . ' (' . $sqlStatement . ')';
 
         // Adds table type, character set, comments and partition definition
         if (!empty($_REQUEST['tbl_storage_engine'])
             && ($_REQUEST['tbl_storage_engine'] != 'Default')
         ) {
-            $sql_query .= ' ENGINE = ' . $_REQUEST['tbl_storage_engine'];
+            $sqlQuery .= ' ENGINE = ' . $_REQUEST['tbl_storage_engine'];
         }
         if (!empty($_REQUEST['tbl_collation'])) {
-            $sql_query .= Util::getCharsetQueryPart($_REQUEST['tbl_collation']);
+            $sqlQuery .= Util::getCharsetQueryPart($_REQUEST['tbl_collation']);
         }
         if (! empty($_REQUEST['connection'])
             && ! empty($_REQUEST['tbl_storage_engine'])
             && $_REQUEST['tbl_storage_engine'] == 'FEDERATED'
         ) {
-            $sql_query .= " CONNECTION = '"
+            $sqlQuery .= " CONNECTION = '"
                 . $GLOBALS['dbi']->escapeString($_REQUEST['connection']) . "'";
         }
         if (!empty($_REQUEST['comment'])) {
-            $sql_query .= ' COMMENT = \''
+            $sqlQuery .= ' COMMENT = \''
                 . $GLOBALS['dbi']->escapeString($_REQUEST['comment']) . '\'';
         }
-        $sql_query .= $this->getPartitionsDefinition();
-        $sql_query .= ';';
+        $sqlQuery .= $this->getPartitionsDefinition();
+        $sqlQuery .= ';';
 
-        return $sql_query;
+        return $sqlQuery;
     }
 
     /**
@@ -456,51 +487,54 @@ class CreateAddField
      */
     public function getNumberOfFieldsFromRequest()
     {
+        // Limit to 4096 fields (MySQL maximal value)
+        $mysqlLimit = 4096;
+
         if (isset($_REQUEST['submit_num_fields'])) { // adding new fields
-            $num_fields = intval($_REQUEST['orig_num_fields']) + intval($_REQUEST['added_fields']);
+            $numberOfFields = intval($_REQUEST['orig_num_fields']) + intval($_REQUEST['added_fields']);
         } elseif (isset($_REQUEST['orig_num_fields'])) { // retaining existing fields
-            $num_fields = intval($_REQUEST['orig_num_fields']);
+            $numberOfFields = intval($_REQUEST['orig_num_fields']);
         } elseif (isset($_REQUEST['num_fields'])
             && intval($_REQUEST['num_fields']) > 0
         ) { // new table with specified number of fields
-            $num_fields = intval($_REQUEST['num_fields']);
+            $numberOfFields = intval($_REQUEST['num_fields']);
         } else { // new table with unspecified number of fields
-            $num_fields = 4;
+            $numberOfFields = 4;
         }
 
-        // Limit to 4096 fields (MySQL maximal value)
-        return min($num_fields, 4096);
+        return min($numberOfFields, $mysqlLimit);
     }
 
     /**
      * Function to execute the column creation statement
      *
-     * @param string $db      current database
-     * @param string $table   current table
-     * @param string $err_url error page url
+     * @param string $db       current database
+     * @param string $table    current table
+     * @param string $errorUrl error page url
      *
      * @return array
      */
-    public function tryColumnCreationQuery($db, $table, $err_url)
+    public function tryColumnCreationQuery($db, $table, $errorUrl)
     {
         // get column addition statements
-        $sql_statement = $this->getColumnCreationStatements(false);
+        $sqlStatement = $this->getColumnCreationStatements(false);
 
         // To allow replication, we first select the db to use and then run queries
         // on this db.
         if (!($GLOBALS['dbi']->selectDb($db))) {
             Util::mysqlDie(
                 $GLOBALS['dbi']->getError(),
-                'USE ' . Util::backquote($db), false,
-                $err_url
+                'USE ' . Util::backquote($db),
+                false,
+                $errorUrl
             );
         }
-        $sql_query    = 'ALTER TABLE ' .
-            Util::backquote($table) . ' ' . $sql_statement . ';';
+        $sqlQuery = 'ALTER TABLE ' .
+            Util::backquote($table) . ' ' . $sqlStatement . ';';
         // If there is a request for SQL previewing.
         if (isset($_REQUEST['preview_sql'])) {
-            Core::previewSQL($sql_query);
+            Core::previewSQL($sqlQuery);
         }
-        return array($GLOBALS['dbi']->tryQuery($sql_query) , $sql_query);
+        return [$GLOBALS['dbi']->tryQuery($sqlQuery), $sqlQuery];
     }
 }
