@@ -50,7 +50,7 @@ if ($GLOBALS['dbi']->getColumns($db, $table)) {
     );
 }
 
-$createAddField = new CreateAddField();
+$createAddField = new CreateAddField($GLOBALS['dbi']);
 
 // for libraries/tbl_columns_definition_form.inc.php
 // check number of fields to be created

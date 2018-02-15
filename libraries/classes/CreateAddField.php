@@ -8,6 +8,7 @@
 namespace PhpMyAdmin;
 
 use PhpMyAdmin\Core;
+use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Index;
 use PhpMyAdmin\Table;
 use PhpMyAdmin\Util;
@@ -19,6 +20,21 @@ use PhpMyAdmin\Util;
  */
 class CreateAddField
 {
+    /**
+     * @var DatabaseInterface
+     */
+    private $dbi;
+
+    /**
+     * Constructor
+     *
+     * @param DatabaseInterface $dbi DatabaseInterface interface
+     */
+    public function __construct(DatabaseInterface $dbi)
+    {
+        $this->dbi = $dbi;
+    }
+
     /**
      * Transforms the radio button field_key into 4 arrays
      *
@@ -188,7 +204,7 @@ class CreateAddField
         $keyBlockSizes = $index['Key_block_size'];
         if (! empty($keyBlockSizes)) {
             $sqlQuery .= " KEY_BLOCK_SIZE = "
-                 . $GLOBALS['dbi']->escapeString($keyBlockSizes);
+                 . $this->dbi->escapeString($keyBlockSizes);
         }
 
         // specifying index type is allowed only for primary, unique and index only
@@ -202,12 +218,12 @@ class CreateAddField
 
         $parser = $index['Parser'];
         if ($index['Index_choice'] == 'FULLTEXT' && ! empty($parser)) {
-            $sqlQuery .= " WITH PARSER " . $GLOBALS['dbi']->escapeString($parser);
+            $sqlQuery .= " WITH PARSER " . $this->dbi->escapeString($parser);
         }
 
         $comment = $index['Index_comment'];
         if (! empty($comment)) {
-            $sqlQuery .= " COMMENT '" . $GLOBALS['dbi']->escapeString($comment)
+            $sqlQuery .= " COMMENT '" . $this->dbi->escapeString($comment)
                 . "'";
         }
 
@@ -468,11 +484,11 @@ class CreateAddField
             && $_REQUEST['tbl_storage_engine'] == 'FEDERATED'
         ) {
             $sqlQuery .= " CONNECTION = '"
-                . $GLOBALS['dbi']->escapeString($_REQUEST['connection']) . "'";
+                . $this->dbi->escapeString($_REQUEST['connection']) . "'";
         }
         if (!empty($_REQUEST['comment'])) {
             $sqlQuery .= ' COMMENT = \''
-                . $GLOBALS['dbi']->escapeString($_REQUEST['comment']) . '\'';
+                . $this->dbi->escapeString($_REQUEST['comment']) . '\'';
         }
         $sqlQuery .= $this->getPartitionsDefinition();
         $sqlQuery .= ';';
@@ -521,9 +537,9 @@ class CreateAddField
 
         // To allow replication, we first select the db to use and then run queries
         // on this db.
-        if (!($GLOBALS['dbi']->selectDb($db))) {
+        if (!($this->dbi->selectDb($db))) {
             Util::mysqlDie(
-                $GLOBALS['dbi']->getError(),
+                $this->dbi->getError(),
                 'USE ' . Util::backquote($db),
                 false,
                 $errorUrl
@@ -535,6 +551,6 @@ class CreateAddField
         if (isset($_REQUEST['preview_sql'])) {
             Core::previewSQL($sqlQuery);
         }
-        return [$GLOBALS['dbi']->tryQuery($sqlQuery), $sqlQuery];
+        return [$this->dbi->tryQuery($sqlQuery), $sqlQuery];
     }
 }

@@ -64,7 +64,7 @@ if (isset($_REQUEST['do_save_data'])) {
     //tbl_structure.php below
     unset($_REQUEST['do_save_data']);
 
-    $createAddField = new CreateAddField();
+    $createAddField = new CreateAddField($GLOBALS['dbi']);
 
     list($result, $sql_query) = $createAddField->tryColumnCreationQuery($db, $table, $err_url);
 

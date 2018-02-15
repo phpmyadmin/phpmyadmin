@@ -17,6 +17,9 @@ use PHPUnit\Framework\TestCase;
  */
 class CreateAddFieldTest extends TestCase
 {
+    /**
+     * @var CreateAddField
+     */
     private $createAddField;
 
     /**
@@ -26,7 +29,7 @@ class CreateAddFieldTest extends TestCase
      */
     protected function setUp()
     {
-        $this->createAddField = new CreateAddField();
+        $this->createAddField = new CreateAddField($GLOBALS['dbi']);
     }
 
     /**

@@ -120,7 +120,7 @@ class TableStructureController extends TableController
         $this->_showtable = $showtable;
         $this->table_obj = $this->dbi->getTable($this->db, $this->table);
 
-        $this->createAddField = new CreateAddField();
+        $this->createAddField = new CreateAddField($dbi);
     }
 
     /**
