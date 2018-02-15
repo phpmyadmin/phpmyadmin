@@ -11,14 +11,27 @@ use PhpMyAdmin\CreateAddField;
 use PHPUnit\Framework\TestCase;
 
 /**
- * PhpMyAdmin\CreateAddFieldTest class
- *
  * This class is for testing PhpMyAdmin\CreateAddField methods
  *
  * @package PhpMyAdmin-test
  */
 class CreateAddFieldTest extends TestCase
 {
+    /**
+     * @var CreateAddField
+     */
+    private $createAddField;
+
+    /**
+     * Set up for test cases
+     *
+     * @return void
+     */
+    protected function setUp()
+    {
+        $this->createAddField = new CreateAddField($GLOBALS['dbi']);
+    }
+
     /**
      * Test for getPartitionsDefinition
      *
@@ -32,7 +45,7 @@ class CreateAddFieldTest extends TestCase
     public function testGetPartitionsDefinition($expected, $request)
     {
         $_REQUEST = $request;
-        $actual = CreateAddField::getPartitionsDefinition();
+        $actual = $this->createAddField->getPartitionsDefinition();
         $this->assertEquals($expected, $actual);
     }
 
@@ -68,7 +81,7 @@ class CreateAddFieldTest extends TestCase
     public function testGetTableCreationQuery($expected, $db, $table, $request)
     {
         $_REQUEST = $request;
-        $actual = CreateAddField::getTableCreationQuery($db, $table);
+        $actual = $this->createAddField->getTableCreationQuery($db, $table);
         $this->assertEquals($expected, $actual);
     }
 
@@ -104,7 +117,7 @@ class CreateAddFieldTest extends TestCase
     public function testGetNumberOfFieldsFromRequest($expected, $request)
     {
         $_REQUEST = $request;
-        $actual = CreateAddField::getNumberOfFieldsFromRequest();
+        $actual = $this->createAddField->getNumberOfFieldsFromRequest();
         $this->assertEquals($expected, $actual);
     }
 
