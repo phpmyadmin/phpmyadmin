@@ -586,7 +586,17 @@ table tr.marked:not(.nomarker) {
     color: <?php echo $GLOBALS['cfg']['BrowseMarkerColor']; ?>;
 }
 
+/* hovered items */
+table tbody:first-of-type tr:not(.nopointer):hover,
+table tbody:first-of-type tr:not(.nopointer):hover th,
+.hover:not(.nopointer) {
+    <?php echo $theme->getCssGradient('ced6df', 'b6c6d7'); ?>
+    color: <?php echo $GLOBALS['cfg']['BrowsePointerColor']; ?>;
+}
+
 /* hovered table rows */
+#table_index tbody:hover tr,
+#table_index tbody:hover th,
 table tr.hover:not(.nopointer) th {
     <?php echo $theme->getCssGradient('ced6df', 'b6c6d7'); ?>
     color: <?php echo $GLOBALS['cfg']['BrowsePointerColor']; ?>;
