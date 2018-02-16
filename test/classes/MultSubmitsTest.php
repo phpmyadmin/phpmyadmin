@@ -20,12 +20,14 @@ use PHPUnit\Framework\TestCase;
  */
 class MultSubmitsTest extends TestCase
 {
+    private $multSubmits;
+
     /**
      * Test for setUp
      *
      * @return void
      */
-    public function setUp()
+    protected function setUp()
     {
         //$GLOBALS
         $GLOBALS['cfg']['MaxRows'] = 10;
@@ -66,10 +68,12 @@ class MultSubmitsTest extends TestCase
             ->will($this->returnValue(true));
 
         $GLOBALS['dbi'] = $dbi;
+
+        $this->multSubmits = new MultSubmits();
     }
 
     /**
-     * Test for MultSubmits::getHtmlForReplacePrefixTable
+     * Test for getHtmlForReplacePrefixTable
      *
      * @return void
      */
@@ -79,7 +83,7 @@ class MultSubmitsTest extends TestCase
         $_url_params = array('url_query'=>'PMA_original_url_query');
 
         //Call the test function
-        $html = MultSubmits::getHtmlForReplacePrefixTable($action, $_url_params);
+        $html = $this->multSubmits->getHtmlForReplacePrefixTable($action, $_url_params);
 
         //form action
         $this->assertContains(
@@ -99,7 +103,7 @@ class MultSubmitsTest extends TestCase
     }
 
     /**
-     * Test for MultSubmits::getHtmlForAddPrefixTable
+     * Test for getHtmlForAddPrefixTable
      *
      * @return void
      */
@@ -109,7 +113,7 @@ class MultSubmitsTest extends TestCase
         $_url_params = array('url_query'=>'PMA_original_url_query');
 
         //Call the test function
-        $html = MultSubmits::getHtmlForAddPrefixTable($action, $_url_params);
+        $html = $this->multSubmits->getHtmlForAddPrefixTable($action, $_url_params);
 
         //form action
         $this->assertContains(
@@ -129,7 +133,7 @@ class MultSubmitsTest extends TestCase
     }
 
     /**
-     * Test for MultSubmits::getHtmlForOtherActions
+     * Test for getHtmlForOtherActions
      *
      * @return void
      */
@@ -141,7 +145,7 @@ class MultSubmitsTest extends TestCase
         $full_query = 'select column from PMA_table';
 
         //Call the test function
-        $html = MultSubmits::getHtmlForOtherActions(
+        $html = $this->multSubmits->getHtmlForOtherActions(
             $what, $action, $_url_params, $full_query
         );
 
@@ -177,7 +181,7 @@ class MultSubmitsTest extends TestCase
     }
 
     /**
-     * Test for MultSubmits::getUrlParams
+     * Test for getUrlParams
      *
      * @return void
      */
@@ -195,7 +199,7 @@ class MultSubmitsTest extends TestCase
         $original_sql_query = "original_sql_query";
         $original_url_query = "original_url_query";
 
-        $_url_params = MultSubmits::getUrlParams(
+        $_url_params = $this->multSubmits->getUrlParams(
             $what, $reload, $action, $db, $table, $selected, $views,
             $original_sql_query, $original_url_query
         );
@@ -222,7 +226,7 @@ class MultSubmitsTest extends TestCase
     }
 
     /**
-     * Test for MultSubmits::buildOrExecuteQueryForMulti
+     * Test for buildOrExecuteQueryForMulti
      *
      * @return void
      */
@@ -246,7 +250,7 @@ class MultSubmitsTest extends TestCase
         list(
             $result, $rebuild_database_list, $reload_ret,
             $run_parts, $execute_query_later,,
-        ) = MultSubmits::buildOrExecuteQueryForMulti(
+        ) = $this->multSubmits->buildOrExecuteQueryForMulti(
             $query_type, $selected, $db, $table, $views,
             $primary, $from_prefix, $to_prefix
         );
@@ -278,7 +282,7 @@ class MultSubmitsTest extends TestCase
         $query_type = 'analyze_tbl';
         list(
             ,,,, $execute_query_later,,
-        ) = MultSubmits::buildOrExecuteQueryForMulti(
+        ) = $this->multSubmits->buildOrExecuteQueryForMulti(
             $query_type, $selected, $db, $table, $views,
             $primary, $from_prefix, $to_prefix
         );
@@ -291,7 +295,7 @@ class MultSubmitsTest extends TestCase
     }
 
     /**
-     * Test for MultSubmits::getQueryFromSelected
+     * Test for getQueryFromSelected
      *
      * @return void
      */
@@ -307,7 +311,7 @@ class MultSubmitsTest extends TestCase
         );
 
         list($full_query, $reload, $full_query_views)
-            = MultSubmits::getQueryFromSelected(
+            = $this->multSubmits->getQueryFromSelected(
                 $what, $table, $selected, $views
             );
 
@@ -332,7 +336,7 @@ class MultSubmitsTest extends TestCase
         $what = "drop_db";
 
         list($full_query, $reload, $full_query_views)
-            = MultSubmits::getQueryFromSelected(
+            = $this->multSubmits->getQueryFromSelected(
                 $what, $table, $selected, $views
             );
 

@@ -1,7 +1,7 @@
 <?php
 /* vim: set expandtab sw=4 ts=4 sts=4: */
 /**
- * functions for multi submit forms
+ * Holds the PhpMyAdmin\MultSubmits class
  *
  * @usedby  mult_submits.inc.php
  *
@@ -18,7 +18,7 @@ use PhpMyAdmin\Url;
 use PhpMyAdmin\Util;
 
 /**
- * PhpMyAdmin\MultSubmits class
+ * Functions for multi submit forms
  *
  * @package PhpMyAdmin
  */
@@ -39,7 +39,7 @@ class MultSubmits
      *
      * @return array
      */
-    public static function getUrlParams(
+    public function getUrlParams(
         $what, $reload, $action, $db, $table, array $selected, $views,
         $original_sql_query, $original_url_query
     ) {
@@ -93,7 +93,7 @@ class MultSubmits
      *
      * @return array
      */
-    public static function buildOrExecuteQueryForMulti(
+    public function buildOrExecuteQueryForMulti(
         $query_type, array $selected, $db, $table, $views, $primary,
         $from_prefix, $to_prefix
     ) {
@@ -337,7 +337,7 @@ class MultSubmits
      *
      * @return string
      */
-    public static function getHtmlForCopyMultipleTables($action, array $_url_params)
+    public function getHtmlForCopyMultipleTables($action, array $_url_params)
     {
         $html = '<form id="ajax_form" action="' . $action . '" method="post">';
         $html .= Url::getHiddenInputs($_url_params);
@@ -382,7 +382,7 @@ class MultSubmits
      *
      * @return string
      */
-    public static function getHtmlForReplacePrefixTable($action, array $_url_params)
+    public function getHtmlForReplacePrefixTable($action, array $_url_params)
     {
         $html  = '<form id="ajax_form" action="' . $action . '" method="post">';
         $html .= Url::getHiddenInputs($_url_params);
@@ -416,7 +416,7 @@ class MultSubmits
      *
      * @return string
      */
-    public static function getHtmlForAddPrefixTable($action, array $_url_params)
+    public function getHtmlForAddPrefixTable($action, array $_url_params)
     {
         $html  = '<form id="ajax_form" action="' . $action . '" method="post">';
         $html .= Url::getHiddenInputs($_url_params);
@@ -447,7 +447,7 @@ class MultSubmits
      *
      * @return string
      */
-    public static function getHtmlForOtherActions($what, $action, array $_url_params, $full_query)
+    public function getHtmlForOtherActions($what, $action, array $_url_params, $full_query)
     {
         $html = '<form action="' . $action . '" method="post">';
         $html .= Url::getHiddenInputs($_url_params);
@@ -487,7 +487,7 @@ class MultSubmits
      *
      * @return array
      */
-    public static function getQueryFromSelected($what, $table, array $selected, array $views)
+    public function getQueryFromSelected($what, $table, array $selected, array $views)
     {
         $reload = false;
         $full_query_views = null;
