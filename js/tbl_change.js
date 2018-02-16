@@ -667,12 +667,21 @@ AJAX.registerOnload('tbl_change.js', function () {
                     $(this).attr('tabindex', tabindex);
                 });
         } else if (curr_rows > target_rows) {
-            while (curr_rows > target_rows) {
-                $('input[id^=insert_ignore]:last')
-                    .nextUntil('fieldset')
-                    .addBack()
-                    .remove();
-                curr_rows--;
+            /**
+             * Displays alert if data loss possible on decrease
+             * of rows.
+             */
+            var checkLock = jQuery.isEmptyObject(AJAX.lockedTargets);
+            if (checkLock || confirm(PMA_messages.strConfirmRowChange) === true) {
+                while (curr_rows > target_rows) {
+                    $('input[id^=insert_ignore]:last')
+                        .nextUntil('fieldset')
+                        .addBack()
+                        .remove();
+                    curr_rows--;
+                }
+            } else {
+                document.getElementById('insert_rows').value = curr_rows;
             }
         }
         // Add all the required datepickers back

@@ -69,6 +69,8 @@ $js_messages['strConfirmDeleteQBESearch']
     = __('Do you really want to delete the search "%s"?');
 $js_messages['strConfirmNavigation']
     = __('You have unsaved changes; are you sure you want to leave this page?');
+$js_messages['strConfirmRowChange']
+    = __('You are trying to reduce the number of rows, but have already entered data in those rows which will be lost. Do you wish to continue?');
 $js_messages['strDropUserWarning']
     = __('Do you really want to revoke the selected user(s) ?');
 $js_messages['strDeleteCentralColumnWarning']

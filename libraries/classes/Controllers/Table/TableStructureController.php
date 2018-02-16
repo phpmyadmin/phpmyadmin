@@ -69,6 +69,11 @@ class TableStructureController extends TableController
     protected $_showtable;
 
     /**
+     * @var CreateAddField
+     */
+    private $createAddField;
+
+    /**
      * TableStructureController constructor
      *
      * @param string $db                  DB name
@@ -114,6 +119,8 @@ class TableStructureController extends TableController
         $this->_tbl_collation = $tbl_collation;
         $this->_showtable = $showtable;
         $this->table_obj = $this->dbi->getTable($this->db, $this->table);
+
+        $this->createAddField = new CreateAddField($dbi);
     }
 
     /**
@@ -725,7 +732,7 @@ class TableStructureController extends TableController
     protected function updatePartitioning()
     {
         $sql_query = "ALTER TABLE " . Util::backquote($this->table) . " "
-            . CreateAddField::getPartitionsDefinition();
+            . $this->createAddField->getPartitionsDefinition();
 
         // Execute alter query
         $result = $this->dbi->tryQuery($sql_query);
