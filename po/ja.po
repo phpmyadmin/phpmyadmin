@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.8.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2018-02-12 16:30+0100\n"
-"PO-Revision-Date: 2018-02-13 13:17+0000\n"
-"Last-Translator: Masahiro Nishi <grooversmail@gmail.com>\n"
+"PO-Revision-Date: 2018-02-17 04:02+0000\n"
+"Last-Translator: Daigo Hamasaki <daigo.hamasaki.16@gmail.com>\n"
 "Language-Team: Japanese "
 "<https://hosted.weblate.org/projects/phpmyadmin/master/ja/>\n"
 "Language: ja\n"
@@ -13,7 +13,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Weblate 2.19-dev\n"
+"X-Generator: Weblate 2.19\n"
 
 #: ajax.php:21 ajax.php:50 export.php:203 libraries/classes/Export.php:1100
 msgid "Bad type!"
@@ -308,11 +308,8 @@ msgid "The database name is empty!"
 msgstr "データベース名が空です!"
 
 #: db_operations.php:67
-#, fuzzy
-#| msgid ""
-#| "Cannot rename database to the same name. Change the name and try again"
 msgid "Cannot copy database to the same name. Change the name and try again."
-msgstr "同じ名前にデータベースをリネームすることはできません。 名前を変更して再試行してください"
+msgstr "データベースを同じ名前でコピーすることはできません。 名前を変更して再試行してください。"
 
 #: db_operations.php:154
 #, php-format
@@ -985,7 +982,6 @@ msgid "Are you sure you wish to change the collation and convert the data?"
 msgstr "照合順序を変更しデータを変換してもよろしいですか?"
 
 #: js/messages.php:98
-#, fuzzy
 msgid ""
 "Through this operation, MySQL attempts to map the data values between "
 "collations. If the character sets are incompatible, there may be data loss "
@@ -994,11 +990,9 @@ msgid ""
 "column(s) editing feature (the \"Change\" Link) on the table structure page. "
 "</b>"
 msgstr ""
-"この操作によって、MySQLは照合順序間のデータ値の対応付けを試みます。文字セット"
-"に互換性がない場合データが欠落する可能性があり、欠落したデータは単にカラムの"
-"照合順序を元に戻しただけでは復元<b>されません</b>。<b>既存のデータの変換を行"
-"うには、テーブル構造ページのカラム編集機能（「変更」リンク）の使用が推奨され"
-"ます。</b>"
+"この操作によって、MySQLは照合順序間のデータ値の対応付けを試みます。文字セットに互換性がない場合データが欠落する可能性があり、欠落したデータは単にカラ"
+"ムの照合順序を元に戻しただけでは<b>復元されません</b>。<b>既存のデータの変換を行うには、テーブル構造ページのカラム編集機能（「変更」リンク）の使"
+"用が推奨されます。</b>"
 
 #: js/messages.php:107
 msgid ""
@@ -1812,10 +1806,8 @@ msgid "Enable foreign key checks"
 msgstr "外部キーのチェックを有効にする"
 
 #: js/messages.php:386
-#, fuzzy
-#| msgid "Failed to fetch headers"
 msgid "Failed to get real row count."
-msgstr "ヘッダの取得に失敗しました。"
+msgstr "実際の行数の取得に失敗しました。"
 
 #: js/messages.php:389
 msgid "Searching"
@@ -2079,10 +2071,8 @@ msgid "Step"
 msgstr "手順"
 
 #: js/messages.php:467
-#, fuzzy
-#| msgid "The following queries have been executed:"
 msgid "The following actions will be performed:"
-msgstr "次のクエリが実行されます："
+msgstr "次のアクションが行われます："
 
 #: js/messages.php:468
 #, php-format
@@ -2103,7 +2093,7 @@ msgstr ""
 
 #: js/messages.php:474
 msgid "Selected dependencies are as follows:"
-msgstr ""
+msgstr "選択された依存関係はこちらです："
 
 #: js/messages.php:475
 msgid "No dependencies selected!"
@@ -2368,10 +2358,8 @@ msgstr ""
 "ら移動してもよろしいですか?"
 
 #: js/messages.php:586
-#, fuzzy
-#| msgid "Drag to reorder"
 msgid "Drag to reorder."
-msgstr "ドラッグでカラムの入れ替え"
+msgstr "ドラッグで並び替えができます。"
 
 #: js/messages.php:587
 msgid "Click to sort results by this column."
@@ -2394,10 +2382,8 @@ msgid "Click to mark/unmark."
 msgstr "クリックでカラムを反転/解除"
 
 #: js/messages.php:594
-#, fuzzy
-#| msgid "Double-click to copy column name"
 msgid "Double-click to copy column name."
-msgstr "ダブルクリックでカラム名をコピー。"
+msgstr "ダブルクリックでカラム名をコピーします。"
 
 #: js/messages.php:596
 #, fuzzy
@@ -2514,23 +2500,17 @@ msgid "Hide panel"
 msgstr "パネルを隠す"
 
 #: js/messages.php:655
-#, fuzzy
-#| msgid "Show logo in left frame"
 msgid "Show hidden navigation tree items."
-msgstr "左のフレーム内にロゴを表示します。"
+msgstr "隠されたナビゲーションツリー項目を表示します。"
 
 #: js/messages.php:656 libraries/classes/Config/Descriptions.php:778
 #: libraries/classes/Navigation/NavigationTree.php:1431
-#, fuzzy
-#| msgid "Customize main frame"
 msgid "Link with main panel"
-msgstr "メインフレームの詳細設定"
+msgstr "メインパネルへのリンク"
 
 #: js/messages.php:657 libraries/classes/Navigation/NavigationTree.php:1434
-#, fuzzy
-#| msgid "Customize main frame"
 msgid "Unlink from main panel"
-msgstr "メインフレームの詳細設定"
+msgstr "メインパネルのリンクを解除"
 
 #: js/messages.php:661
 msgid "The requested page was not found in the history, it may have expired."
@@ -3299,14 +3279,10 @@ msgid "Charset"
 msgstr "文字セット"
 
 #: libraries/classes/Charsets.php:310
-#, fuzzy
-#| msgid "unknown"
 msgid "Unknown"
 msgstr "不明"
 
 #: libraries/classes/Charsets.php:324
-#, fuzzy
-#| msgid "Binary"
 msgctxt "Collation"
 msgid "Binary"
 msgstr "バイナリ"
@@ -3319,99 +3295,71 @@ msgid "Unicode"
 msgstr "UNICODE"
 
 #: libraries/classes/Charsets.php:346 libraries/classes/Charsets.php:517
-#, fuzzy
-#| msgid "West European"
 msgctxt "Collation"
 msgid "West European"
 msgstr "西ヨーロッパ諸語"
 
 #: libraries/classes/Charsets.php:353
-#, fuzzy
-#| msgid "Central European"
 msgctxt "Collation"
 msgid "Central European"
 msgstr "中央ヨーロッパ諸語"
 
 #: libraries/classes/Charsets.php:358
-#, fuzzy
-#| msgid "Russian"
 msgctxt "Collation"
 msgid "Russian"
 msgstr "ロシア語"
 
 #: libraries/classes/Charsets.php:363
-#, fuzzy
-#| msgid "Simplified Chinese"
 msgctxt "Collation"
 msgid "Simplified Chinese"
 msgstr "簡体字中国語"
 
 #: libraries/classes/Charsets.php:370 libraries/classes/Charsets.php:488
-#, fuzzy
-#| msgid "Japanese"
 msgctxt "Collation"
 msgid "Japanese"
 msgstr "日本語"
 
 #: libraries/classes/Charsets.php:375
-#, fuzzy
-#| msgid "Baltic"
 msgctxt "Collation"
 msgid "Baltic"
 msgstr "バルト諸語"
 
 #: libraries/classes/Charsets.php:380
-#, fuzzy
-#| msgid "Armenian"
 msgctxt "Collation"
 msgid "Armenian"
 msgstr "アルメニア語"
 
 #: libraries/classes/Charsets.php:383
-#, fuzzy
-#| msgid "Traditional Chinese"
 msgctxt "Collation"
 msgid "Traditional Chinese"
 msgstr "繁体字中国語"
 
 #: libraries/classes/Charsets.php:386
-#, fuzzy
-#| msgid "Cyrillic"
 msgctxt "Collation"
 msgid "Cyrillic"
 msgstr "キリル諸語"
 
 #: libraries/classes/Charsets.php:389
-#, fuzzy
-#| msgid "Arabic"
 msgctxt "Collation"
 msgid "Arabic"
 msgstr "アラビア語"
 
 #: libraries/classes/Charsets.php:392 libraries/classes/Charsets.php:503
-#, fuzzy
-#| msgid "Korean"
 msgctxt "Collation"
 msgid "Korean"
 msgstr "韓国語"
 
 #: libraries/classes/Charsets.php:395
-#, fuzzy
-#| msgid "Hebrew"
 msgctxt "Collation"
 msgid "Hebrew"
 msgstr "ヘブライ語"
 
 #: libraries/classes/Charsets.php:398
-#, fuzzy
-#| msgid "Georgian"
 msgctxt "Collation"
 msgid "Georgian"
 msgstr "グルジア語"
 
 #: libraries/classes/Charsets.php:401
-#, fuzzy
-#| msgid "Greek"
 msgctxt "Collation"
 msgid "Greek"
 msgstr "ギリシア語"
@@ -3424,43 +3372,31 @@ msgid "Czech-Slovak"
 msgstr "チェコのスロバキア語"
 
 #: libraries/classes/Charsets.php:407 libraries/classes/Charsets.php:558
-#, fuzzy
-#| msgid "Ukrainian"
 msgctxt "Collation"
 msgid "Ukrainian"
 msgstr "ウクライナ語"
 
 #: libraries/classes/Charsets.php:410 libraries/classes/Charsets.php:554
-#, fuzzy
-#| msgid "Turkish"
 msgctxt "Collation"
 msgid "Turkish"
 msgstr "トルコ語"
 
 #: libraries/classes/Charsets.php:413 libraries/classes/Charsets.php:546
-#, fuzzy
-#| msgid "Swedish"
 msgctxt "Collation"
 msgid "Swedish"
 msgstr "スウェーデン語"
 
 #: libraries/classes/Charsets.php:416 libraries/classes/Charsets.php:550
-#, fuzzy
-#| msgid "Thai"
 msgctxt "Collation"
 msgid "Thai"
 msgstr "タイ語"
 
 #: libraries/classes/Charsets.php:419
-#, fuzzy
-#| msgid "unknown"
 msgctxt "Collation"
 msgid "Unknown"
 msgstr "不明"
 
 #: libraries/classes/Charsets.php:435
-#, fuzzy
-#| msgid "Bulgarian"
 msgctxt "Collation"
 msgid "Bulgarian"
 msgstr "ブルガリア語"
@@ -3471,69 +3407,51 @@ msgid "Chinese"
 msgstr "中国語"
 
 #: libraries/classes/Charsets.php:445
-#, fuzzy
-#| msgid "Croatian"
 msgctxt "Collation"
 msgid "Croatian"
 msgstr "クロアチア語"
 
 #: libraries/classes/Charsets.php:449
-#, fuzzy
-#| msgid "Czech"
 msgctxt "Collation"
 msgid "Czech"
 msgstr "チェコ語"
 
 #: libraries/classes/Charsets.php:453
-#, fuzzy
-#| msgid "Danish"
 msgctxt "Collation"
 msgid "Danish"
 msgstr "デンマーク語"
 
 #: libraries/classes/Charsets.php:457
-#, fuzzy
-#| msgid "English"
 msgctxt "Collation"
 msgid "English"
 msgstr "英語"
 
 #: libraries/classes/Charsets.php:461
-#, fuzzy
-#| msgid "Esperanto"
 msgctxt "Collation"
 msgid "Esperanto"
 msgstr "エスペラント語"
 
 #: libraries/classes/Charsets.php:465
-#, fuzzy
-#| msgid "Estonian"
 msgctxt "Collation"
 msgid "Estonian"
 msgstr "エストニア語"
 
 #: libraries/classes/Charsets.php:468 libraries/classes/Charsets.php:585
-#, fuzzy
-#| msgid "Data Dictionary"
 msgctxt "Collation"
 msgid "German (dictionary order)"
-msgstr "データ辞書"
+msgstr "ドイツ語（辞書順）"
 
 #: libraries/classes/Charsets.php:471 libraries/classes/Charsets.php:582
 msgctxt "Collation"
 msgid "German (phone book order)"
-msgstr ""
+msgstr "ドイツ語（電話帳順）"
 
 #: libraries/classes/Charsets.php:480
-#, fuzzy
-#| msgid "Hungarian"
 msgctxt "Collation"
 msgid "Hungarian"
 msgstr "ハンガリー語"
 
 #: libraries/classes/Charsets.php:484
-#, fuzzy
-#| msgid "Icelandic"
 msgctxt "Collation"
 msgid "Icelandic"
 msgstr "アイスランド語"
@@ -3541,18 +3459,14 @@ msgstr "アイスランド語"
 #: libraries/classes/Charsets.php:491
 msgctxt "Collation"
 msgid "Classical Latin"
-msgstr ""
+msgstr "古典ラテン語"
 
 #: libraries/classes/Charsets.php:495
-#, fuzzy
-#| msgid "Latvian"
 msgctxt "Collation"
 msgid "Latvian"
 msgstr "ラトビア語"
 
 #: libraries/classes/Charsets.php:499
-#, fuzzy
-#| msgid "Lithuanian"
 msgctxt "Collation"
 msgid "Lithuanian"
 msgstr "リトアニア語"
@@ -3560,96 +3474,72 @@ msgstr "リトアニア語"
 #: libraries/classes/Charsets.php:507
 msgctxt "Collation"
 msgid "Burmese"
-msgstr ""
+msgstr "ビルマ語"
 
 #: libraries/classes/Charsets.php:510
-#, fuzzy
-#| msgid "Persian"
 msgctxt "Collation"
 msgid "Persian"
 msgstr "ペルシア語"
 
 #: libraries/classes/Charsets.php:514
-#, fuzzy
-#| msgid "Polish"
 msgctxt "Collation"
 msgid "Polish"
 msgstr "ポーランド語"
 
 #: libraries/classes/Charsets.php:521
-#, fuzzy
-#| msgid "Romanian"
 msgctxt "Collation"
 msgid "Romanian"
 msgstr "ルーマニア語"
 
 #: libraries/classes/Charsets.php:525
-#, fuzzy
-#| msgid "Sinhalese"
 msgctxt "Collation"
 msgid "Sinhalese"
 msgstr "シンハラ語"
 
 #: libraries/classes/Charsets.php:529
-#, fuzzy
-#| msgid "Slovak"
 msgctxt "Collation"
 msgid "Slovak"
 msgstr "スロバキア語"
 
 #: libraries/classes/Charsets.php:533
-#, fuzzy
-#| msgid "Slovenian"
 msgctxt "Collation"
 msgid "Slovenian"
 msgstr "スロベニア語"
 
 #: libraries/classes/Charsets.php:536 libraries/classes/Charsets.php:596
-#, fuzzy
-#| msgid "Spanish"
 msgctxt "Collation"
 msgid "Spanish (modern)"
-msgstr "スペイン語"
+msgstr "スペイン語（現代）"
 
 #: libraries/classes/Charsets.php:543 libraries/classes/Charsets.php:593
 msgctxt "Collation"
 msgid "Spanish (traditional)"
-msgstr ""
+msgstr "スペイン語（古典）"
 
 #: libraries/classes/Charsets.php:562
-#, fuzzy
-#| msgid "File name"
 msgctxt "Collation"
 msgid "Vietnamese"
 msgstr "ベトナム語"
 
 #: libraries/classes/Charsets.php:629
-#, fuzzy
-#| msgid "case-insensitive"
 msgctxt "Collation variant"
 msgid "case-insensitive"
 msgstr "大文字小文字を区別しない"
 
 #: libraries/classes/Charsets.php:632
-#, fuzzy
-#| msgid "case-sensitive"
 msgctxt "Collation variant"
 msgid "case-sensitive"
 msgstr "大文字小文字を区別する"
 
 #: libraries/classes/Charsets.php:635
-#, fuzzy
-#| msgid "case-insensitive"
 msgctxt "Collation variant"
 msgid "accent-insensitive"
-msgstr "大文字小文字を区別しない"
+msgstr "アクセントを区別しない"
 
 #: libraries/classes/Charsets.php:638
-#, fuzzy
-#| msgid "case-sensitive"
 msgctxt "Collation variant"
 msgid "accent-sensitive"
-msgstr "大文字小文字を区別する"
+msgstr "アクセントを区別する"
 
 #: libraries/classes/Charsets.php:642
 #, fuzzy
@@ -3659,8 +3549,6 @@ msgid "multi-level"
 msgstr "多言語"
 
 #: libraries/classes/Charsets.php:645
-#, fuzzy
-#| msgid "Binary"
 msgctxt "Collation variant"
 msgid "binary"
 msgstr "バイナリ"
@@ -7590,38 +7478,28 @@ msgstr ""
 
 #: libraries/classes/Database/Qbe.php:447
 #: templates/table/search/search_and_replace.twig:6
-#, fuzzy
-#| msgid "Column"
 msgid "Column:"
-msgstr "カラム"
+msgstr "カラム："
 
 #: libraries/classes/Database/Qbe.php:493
 msgid "Alias:"
-msgstr ""
+msgstr "エイリアス："
 
 #: libraries/classes/Database/Qbe.php:545
-#, fuzzy
-#| msgid "Sort"
 msgid "Sort:"
-msgstr "ソート"
+msgstr "ソート："
 
 #: libraries/classes/Database/Qbe.php:607
-#, fuzzy
-#| msgid "Sort"
 msgid "Sort order:"
-msgstr "ソート"
+msgstr "ソート順："
 
 #: libraries/classes/Database/Qbe.php:656
-#, fuzzy
-#| msgid "Show"
 msgid "Show:"
-msgstr "表示"
+msgstr "表示："
 
 #: libraries/classes/Database/Qbe.php:705
-#, fuzzy
-#| msgid "Criteria"
 msgid "Criteria:"
-msgstr "条件"
+msgstr "条件："
 
 #: libraries/classes/Database/Qbe.php:788
 #: libraries/classes/Database/Qbe.php:820
@@ -7634,10 +7512,8 @@ msgstr "利用するテーブル"
 
 #: libraries/classes/Database/Qbe.php:841
 #: libraries/classes/Database/Qbe.php:952
-#, fuzzy
-#| msgid "Or"
 msgid "Or:"
-msgstr "または"
+msgstr "または："
 
 #: libraries/classes/Database/Qbe.php:845
 #: libraries/classes/Database/Qbe.php:937
@@ -7653,10 +7529,8 @@ msgid "Del"
 msgstr "削除"
 
 #: libraries/classes/Database/Qbe.php:869
-#, fuzzy
-#| msgid "Modify"
 msgid "Modify:"
-msgstr "修正"
+msgstr "修正："
 
 #: libraries/classes/Database/Qbe.php:932
 msgid "Ins:"
@@ -16840,7 +16714,7 @@ msgstr "横棒グラフ"
 #: templates/table/chart/tbl_chart.twig:19
 msgctxt "Chart type"
 msgid "Column"
-msgstr "縦棒グラフ"
+msgstr "カラム"
 
 #: templates/table/chart/tbl_chart.twig:23
 msgctxt "Chart type"
@@ -18030,7 +17904,7 @@ msgstr ""
 
 #: libraries/advisory_rules.txt:164
 msgid "Consider increasing {query_cache_limit}."
-msgstr "{query_cache_limit} の増加を検討してください。"
+msgstr "{query_cache_limit} を増やすのを検討してください。"
 
 #: libraries/advisory_rules.txt:165
 #, php-format
@@ -18570,8 +18444,7 @@ msgstr ""
 #: libraries/advisory_rules.txt:314
 #, php-format
 msgid "Opened table rate: %s, this value should be less than 10 per hour"
-msgstr ""
-"テーブルを開く割合：%s。この値は、1 時間当たり 10 未満がいいと言われています"
+msgstr "テーブルを開く割合：%s  この値は、1 時間当たり 10 未満が良いと言われています"
 
 #: libraries/advisory_rules.txt:316
 msgid "Percentage of used open files limit"
