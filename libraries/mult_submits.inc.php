@@ -246,7 +246,7 @@ if (!empty($submit_mult) && !empty($what)) {
     list(
         $result, $rebuild_database_list, $reload_ret,
         $run_parts, $execute_query_later, $sql_query, $sql_query_views
-    ) = $multSubmits->buildOrExecuteQueryForMulti(
+    ) = $multSubmits->buildOrExecuteQuery(
         $query_type, $selected, $db, $table, $views,
         isset($primary) ? $primary : null,
         isset($from_prefix) ? $from_prefix : null,
