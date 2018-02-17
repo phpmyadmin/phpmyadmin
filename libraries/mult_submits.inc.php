@@ -11,6 +11,8 @@ use PhpMyAdmin\Message;
 use PhpMyAdmin\MultSubmits;
 use PhpMyAdmin\Response;
 use PhpMyAdmin\Sql;
+use PhpMyAdmin\Template;
+use PhpMyAdmin\Util;
 
 if (! defined('PHPMYADMIN')) {
     exit;
@@ -45,6 +47,8 @@ global $db, $table,  $clause_is_unique, $from_prefix, $goto,
        $mult_btn, $original_sql_query, $query_type, $reload,
        $selected, $selected_fld, $selected_recent_table, $sql_query,
        $submit_mult, $table_type, $to_prefix, $url_query, $pmaThemeImage;
+
+$multSubmits = new MultSubmits();
 
 /**
  * Prepares the work and runs some other scripts if required
@@ -92,21 +96,21 @@ if (! empty($submit_mult)
         case 'copy_tbl':
             $views = $GLOBALS['dbi']->getVirtualTables($db);
             list($full_query, $reload, $full_query_views)
-                = MultSubmits::getQueryFromSelected(
+                = $multSubmits->getQueryFromSelected(
                     $submit_mult, $table, $selected, $views
                 );
-            $_url_params = MultSubmits::getUrlParams(
+            $_url_params = $multSubmits->getUrlParams(
                 $submit_mult, $reload, $action, $db, $table, $selected, $views,
                 isset($original_sql_query)? $original_sql_query : null,
                 isset($original_url_query)? $original_url_query : null
             );
             $response->disable();
             $response->addHTML(
-                MultSubmits::getHtmlForCopyMultipleTables($action, $_url_params)
+                $multSubmits->getHtmlForCopyMultipleTables($action, $_url_params)
             );
             exit;
         case 'show_create':
-            $show_create = PhpMyAdmin\Template::get(
+            $show_create = Template::get(
                 'database/structure/show_create'
             )
                 ->render(
@@ -177,7 +181,7 @@ if (!empty($submit_mult) && !empty($what)) {
             $tooltip_truename,
             $tooltip_aliasname,
             $pos
-        ) = PhpMyAdmin\Util::getDbInfo($db, isset($sub_part) ? $sub_part : '');
+        ) = Util::getDbInfo($db, isset($sub_part) ? $sub_part : '');
 
     } else {
         include_once './libraries/server_common.inc.php';
@@ -185,12 +189,12 @@ if (!empty($submit_mult) && !empty($what)) {
 
     // Builds the query
     list($full_query, $reload, $full_query_views)
-        = MultSubmits::getQueryFromSelected(
+        = $multSubmits->getQueryFromSelected(
             $what, $table, $selected, $views
         );
 
     // Displays the confirmation form
-    $_url_params = MultSubmits::getUrlParams(
+    $_url_params = $multSubmits->getUrlParams(
         $what, $reload, $action, $db, $table, $selected, $views,
         isset($original_sql_query)? $original_sql_query : null,
         isset($original_url_query)? $original_url_query : null
@@ -200,14 +204,14 @@ if (!empty($submit_mult) && !empty($what)) {
     if ($what == 'replace_prefix_tbl' || $what == 'copy_tbl_change_prefix') {
         $response->disable();
         $response->addHTML(
-            MultSubmits::getHtmlForReplacePrefixTable($action, $_url_params)
+            $multSubmits->getHtmlForReplacePrefixTable($action, $_url_params)
         );
     } elseif ($what == 'add_prefix_tbl') {
         $response->disable();
-        $response->addHTML(MultSubmits::getHtmlForAddPrefixTable($action, $_url_params));
+        $response->addHTML($multSubmits->getHtmlForAddPrefixTable($action, $_url_params));
     } else {
         $response->addHTML(
-            MultSubmits::getHtmlForOtherActions($what, $action, $_url_params, $full_query)
+            $multSubmits->getHtmlForOtherActions($what, $action, $_url_params, $full_query)
         );
     }
     exit;
@@ -220,7 +224,7 @@ if (!empty($submit_mult) && !empty($what)) {
         // Gets table primary key
         $GLOBALS['dbi']->selectDb($db);
         $result = $GLOBALS['dbi']->query(
-            'SHOW KEYS FROM ' . PhpMyAdmin\Util::backquote($table) . ';'
+            'SHOW KEYS FROM ' . Util::backquote($table) . ';'
         );
         $primary = '';
         while ($row = $GLOBALS['dbi']->fetchAssoc($result)) {
@@ -236,13 +240,13 @@ if (!empty($submit_mult) && !empty($what)) {
         || $query_type == 'empty_tbl'
         || $query_type == 'row_delete'
     ) {
-        $default_fk_check_value = PhpMyAdmin\Util::handleDisableFKCheckInit();
+        $default_fk_check_value = Util::handleDisableFKCheckInit();
     }
 
     list(
         $result, $rebuild_database_list, $reload_ret,
         $run_parts, $execute_query_later, $sql_query, $sql_query_views
-    ) = MultSubmits::buildOrExecuteQueryForMulti(
+    ) = $multSubmits->buildOrExecuteQuery(
         $query_type, $selected, $db, $table, $views,
         isset($primary) ? $primary : null,
         isset($from_prefix) ? $from_prefix : null,
@@ -300,7 +304,7 @@ if (!empty($submit_mult) && !empty($what)) {
         || $query_type == 'empty_tbl'
         || $query_type == 'row_delete'
     ) {
-        PhpMyAdmin\Util::handleDisableFKCheckCleanup($default_fk_check_value);
+        Util::handleDisableFKCheckCleanup($default_fk_check_value);
     }
     if ($rebuild_database_list) {
         // avoid a problem with the database list navigator
