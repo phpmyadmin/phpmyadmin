@@ -136,7 +136,6 @@ AJAX.registerOnload('tbl_operations.js', function () {
             $('.result_query').remove();
         }
         // variables which stores the common attributes
-        // variables which stores the common attributes
         var params = $.param({
             ajax_request: 1,
             server: PMA_commonParams.get('server')
