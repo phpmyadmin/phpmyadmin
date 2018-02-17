@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.7.8-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2018-02-12 16:30+0100\n"
-"PO-Revision-Date: 2018-02-17 01:59+0000\n"
-"Last-Translator: anonymous <>\n"
+"PO-Revision-Date: 2018-02-17 02:01+0000\n"
+"Last-Translator: Daigo Hamasaki <daigo.hamasaki.16@gmail.com>\n"
 "Language-Team: Japanese "
 "<https://hosted.weblate.org/projects/phpmyadmin/4-7/ja/>\n"
 "Language: ja\n"
@@ -298,7 +298,7 @@ msgstr "データベース名が空です!"
 
 #: db_operations.php:61
 msgid "Cannot copy database to the same name. Change the name and try again."
-msgstr "データベースを同じ名前でコピーすることはできません。 名前を変更して再試行してください"
+msgstr "データベースを同じ名前でコピーすることはできません。 名前を変更して再試行してください。"
 
 #: db_operations.php:150
 #, php-format
