@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.8.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2018-02-12 16:30+0100\n"
-"PO-Revision-Date: 2018-02-17 04:02+0000\n"
+"PO-Revision-Date: 2018-02-19 01:36+0000\n"
 "Last-Translator: Daigo Hamasaki <daigo.hamasaki.16@gmail.com>\n"
 "Language-Team: Japanese "
 "<https://hosted.weblate.org/projects/phpmyadmin/master/ja/>\n"
@@ -680,10 +680,8 @@ msgid "Server type:"
 msgstr "サーバの種類："
 
 #: index.php:342
-#, fuzzy
-#| msgid "Insecure connection"
 msgid "Server connection:"
-msgstr "サーバの接続:"
+msgstr "サーバの接続："
 
 #: index.php:346 libraries/classes/Plugins/Export/ExportLatex.php:223
 #: libraries/classes/Plugins/Export/ExportSql.php:704
@@ -850,6 +848,7 @@ msgid ""
 "The $cfg['TempDir'] (%s) is not accessible. phpMyAdmin is not able to cache "
 "templates and will be slow because of this."
 msgstr ""
+"$cfg['TempDir'] (%s) にアクセスできません。phpMyAdmin はテンプレートをキャッシュすることができないため、低速になります。"
 
 #: js/messages.php:43
 msgid "Confirm"
@@ -1955,10 +1954,8 @@ msgid "Pick"
 msgstr "選択"
 
 #: js/messages.php:427
-#, fuzzy
-#| msgid "No column selected."
 msgid "Column selector"
-msgstr "カラムが選択されていません。"
+msgstr "カラムセレクター"
 
 #: js/messages.php:428
 msgid "Search this list"
@@ -1998,8 +1995,6 @@ msgid "Primary key added."
 msgstr "主キーを追加しました。"
 
 #: js/messages.php:444 libraries/classes/Normalization.php:236
-#, fuzzy
-#| msgid "Tracking report"
 msgid "Taking you to next step…"
 msgstr "次のステップに進みます…"
 
@@ -2012,10 +2007,8 @@ msgstr "テーブル '%s' の第一正規化が完了しました。"
 #: libraries/classes/Normalization.php:551
 #: libraries/classes/Normalization.php:637
 #: libraries/classes/Normalization.php:701
-#, fuzzy
-#| msgid "End of line"
 msgid "End of step"
-msgstr "改行コード"
+msgstr "最終ステップ"
 
 #: js/messages.php:448
 msgid "Second step of normalization (2NF)"
@@ -4372,31 +4365,24 @@ msgid "General"
 msgstr "一般"
 
 #: libraries/classes/Config/Descriptions.php:460
-#, fuzzy
-#| msgid "Set some commonly used options"
 msgid "Set some commonly used options."
-msgstr "共通に使われるオプションの設定"
+msgstr "共通に使われるオプションの設定。"
 
 #: libraries/classes/Config/Descriptions.php:462
 msgid "Import defaults"
 msgstr "インポートのデフォルト"
 
 #: libraries/classes/Config/Descriptions.php:464
-#, fuzzy
-#| msgid "Customize default common import options"
 msgid "Customize default common import options."
-msgstr "デフォルトの共通インポートオプションの詳細設定"
+msgstr "デフォルトの共通インポートオプションの詳細設定。"
 
 #: libraries/classes/Config/Descriptions.php:466
 msgid "Import / export"
 msgstr "インポート/エクスポート"
 
 #: libraries/classes/Config/Descriptions.php:468
-#, fuzzy
-#| msgid "Set import and export directories and compression options"
 msgid "Set import and export directories and compression options."
-msgstr ""
-"インポートとエクスポートのディレクトリおよび圧縮オプションを設定してください"
+msgstr "インポートとエクスポートのディレクトリおよび圧縮オプションを設定してください。"
 
 #: libraries/classes/Config/Descriptions.php:470
 msgid "LaTeX"
@@ -4411,10 +4397,8 @@ msgid "Databases"
 msgstr "データベース"
 
 #: libraries/classes/Config/Descriptions.php:476
-#, fuzzy
-#| msgid "Databases display options"
 msgid "Databases display options."
-msgstr "データベースの表示オプション"
+msgstr "データベースの表示オプション。"
 
 #: libraries/classes/Config/Descriptions.php:478
 #: libraries/classes/Config/Forms/User/NaviForm.php:59
@@ -4422,22 +4406,16 @@ msgid "Navigation panel"
 msgstr "ナビゲーションパネル"
 
 #: libraries/classes/Config/Descriptions.php:480
-#, fuzzy
-#| msgid "Customize appearance of the navigation frame"
 msgid "Customize appearance of the navigation panel."
-msgstr "ナビゲーションフレームの概観の詳細設定"
+msgstr "ナビゲーションパネルの外観をカスタマイズ。"
 
 #: libraries/classes/Config/Descriptions.php:482
-#, fuzzy
-#| msgid "Navigation panel"
 msgid "Navigation tree"
-msgstr "ナビゲーションパネル"
+msgstr "ナビゲーションツリー"
 
 #: libraries/classes/Config/Descriptions.php:484
-#, fuzzy
-#| msgid "Customize navigation frame"
 msgid "Customize the navigation tree."
-msgstr "ナビゲーションフレームの詳細設定"
+msgstr "ナビゲーションツリーをカスタマイズ。"
 
 #: libraries/classes/Config/Descriptions.php:486
 #: libraries/classes/Server/Select.php:56 setup/frames/index.inc.php:123
