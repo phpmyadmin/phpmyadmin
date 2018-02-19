@@ -95,7 +95,9 @@ class File
             $this->setName($name);
         }
 
-        $this->zipExtension = new ZipExtension();
+        if (extension_loaded('zip')) {
+            $this->zipExtension = new ZipExtension();
+        }
     }
 
     /**
