@@ -411,7 +411,7 @@ msgstr "Masamang mga parameter!"
 #: gis_data_editor.php:121
 #, php-format
 msgid "Value for the column \"%s\""
-msgstr "Halaga para sa haligi na \"%s\"
+msgstr "Halaga para sa haligi na \"%s\""
 
 #: gis_data_editor.php:149
 #: templates/table/gis_visualization/gis_visualization.twig:38
@@ -543,7 +543,7 @@ msgstr "Awtput"
 msgid ""
 "Choose \"GeomFromText\" from the \"Function\" column and paste the string "
 "below into the \"Value\" field."
-msgstr "Piliin ang "GeomFromText" mula sa column na "Function" at i-paste ang string sa ibaba sa patlang na "Halaga"."
+msgstr "Piliin ang \"GeomFromText\" mula sa column na \"Function\" at i-paste ang string sa ibaba sa patlang na \"Halaga\"."
 
 #: import.php:71
 msgid "Succeeded"
@@ -562,7 +562,7 @@ msgstr "Hindi kumpleto ang mga params"
 msgid ""
 "You probably tried to upload a file that is too large. Please refer to "
 "%sdocumentation%s for a workaround for this limit."
-msgstr "Malamang na sinubukan mong mag-upload ng isang file na masyadong malaki. Mangyaring sumangguni sa %documentation%s para sa isang workaround para sa limitasyong ito."
+msgstr "Malamang na sinubukan mong mag-upload ng isang file na masyadong malaki. Mangyaring sumangguni sa %sdocumentation%s para sa isang workaround para sa limitasyong ito."
 
 #: import.php:380 import.php:582
 msgid "Showing bookmark"
@@ -600,8 +600,7 @@ msgstr[1] "Ang pag-import ay natapos na, ang mga %d tanong na isinagawa."
 msgid ""
 "Script timeout passed, if you want to finish import, please %sresubmit the "
 "same file%s and import will resume."
-msgstr "
-Lumipas ang oras ng script, kung nais mong tapusin ang pag-import, mangyaring %sresubmit ang parehong file%s at ang pag-import ay magpapatuloy."
+msgstr "Lumipas ang oras ng script, kung nais mong tapusin ang pag-import, mangyaring %sresubmit ang parehong file%s at ang pag-import ay magpapatuloy."
 
 #: import.php:636
 msgid ""
