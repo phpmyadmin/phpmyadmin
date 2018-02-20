@@ -7,17 +7,17 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.7.8-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2018-02-12 16:30+0100\n"
-"PO-Revision-Date: 2018-02-11 14:53+0000\n"
-"Last-Translator: codygee237 <jimel_patrick@yahoo.com>\n"
-"Language-Team: Filipino <https://hosted.weblate.org/projects/phpmyadmin/4-7/"
-"fil/>\n"
+"PO-Revision-Date: 2018-02-20 05:34+0000\n"
+"Last-Translator: Michal Čihař <michal@cihar.com>\n"
+"Language-Team: Filipino "
+"<https://hosted.weblate.org/projects/phpmyadmin/4-7/fil/>\n"
 "Language: fil\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1 && n != 2 && n != 3 && (n % 10 == 4 "
 "|| n % 10 == 6 || n % 10 == 9);\n"
-"X-Generator: Weblate 2.19-dev\n"
+"X-Generator: Weblate 2.19\n"
 
 #: ajax.php:16 ajax.php:33 export.php:192 schema_export.php:64
 msgid "Bad type!"
@@ -444,7 +444,7 @@ msgstr ""
 #: gis_data_editor.php:273
 #, php-format
 msgid "Linestring %d:"
-msgstr ""
+msgstr "Linestring %d:"
 
 #: gis_data_editor.php:276 gis_data_editor.php:353
 msgid "Outer ring:"
@@ -453,7 +453,7 @@ msgstr ""
 #: gis_data_editor.php:278 gis_data_editor.php:355
 #, php-format
 msgid "Inner ring %d:"
-msgstr ""
+msgstr "Inner ring %d:"
 
 #: gis_data_editor.php:315
 msgid "Add a linestring"
@@ -1496,7 +1496,7 @@ msgstr ""
 
 #: js/messages.php:289
 msgid "Analyzing…"
-msgstr ""
+msgstr "Pag-aaralan…"
 
 #: js/messages.php:290
 msgid "Explain output"
@@ -1522,7 +1522,7 @@ msgstr ""
 
 #: js/messages.php:293
 msgid "Total time:"
-msgstr ""
+msgstr "Kabuuang Oras:"
 
 #: js/messages.php:294
 msgid "Profiling results"
@@ -1609,6 +1609,8 @@ msgstr ""
 msgid ""
 "Failed building chart grid with imported config. Resetting to default config…"
 msgstr ""
+"Nabigong gusali grid grid na may na-import na config. Ang pag-reset sa "
+"default config…"
 
 #: js/messages.php:329 libraries/Menu.php:365 libraries/Menu.php:467
 #: libraries/Menu.php:588 libraries/Util.php:4103 libraries/Util.php:4118
@@ -1669,7 +1671,7 @@ msgstr ""
 
 #: js/messages.php:349
 msgid "Formatting SQL…"
-msgstr ""
+msgstr "Pag-format ng SQL…"
 
 #: js/messages.php:350
 msgid "No parameters found!"
@@ -1698,7 +1700,7 @@ msgstr ""
 #: js/messages.php:361 libraries/navigation/NavigationHeader.php:60
 #: libraries/server_status_monitor.lib.php:122
 msgid "Loading…"
-msgstr ""
+msgstr "Naglo-load…"
 
 #: js/messages.php:362
 msgid "Request aborted!!"
@@ -1928,6 +1930,9 @@ msgid ""
 "No columns in the central list. Make sure the Central columns list for "
 "database %s has columns that are not present in the current table."
 msgstr ""
+"Walang mga haligi sa gitnang listahan. Tiyaking listahan ng Mga haligi ng "
+"Central para sa database %s ay may mga haligi na wala sa kasalukuyang "
+"talahanayan."
 
 #: js/messages.php:435
 msgid "See more"
@@ -2022,7 +2027,7 @@ msgstr ""
 #: js/messages.php:470
 #, php-format
 msgid "DROP columns %s from the table %s"
-msgstr ""
+msgstr "Ang mga haligi ng DROP %s mula sa talahanayan %s"
 
 #: js/messages.php:471
 msgid "Create the following table"
@@ -2514,7 +2519,7 @@ msgstr ""
 #: js/messages.php:727
 #, php-format
 msgid "%s queries executed %s times in %s seconds."
-msgstr ""
+msgstr "%s mga query na isinagawa %s beses sa %s segundo."
 
 #: js/messages.php:728
 #, php-format
@@ -2531,7 +2536,7 @@ msgstr ""
 
 #: js/messages.php:731
 msgid "Time taken:"
-msgstr ""
+msgstr "Oras kinuha:"
 
 #: js/messages.php:732
 msgid ""
