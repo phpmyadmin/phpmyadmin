@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.7.8-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2018-02-12 16:30+0100\n"
-"PO-Revision-Date: 2018-02-20 05:34+0000\n"
+"PO-Revision-Date: 2018-02-20 05:37+0000\n"
 "Last-Translator: Michal Čihař <michal@cihar.com>\n"
 "Language-Team: Filipino "
 "<https://hosted.weblate.org/projects/phpmyadmin/4-7/fil/>\n"
@@ -394,52 +394,52 @@ msgstr "Baka gusto mong i-refresh ang pahina."
 
 #: export.php:275
 msgid "Bad parameters!"
-msgstr ""
+msgstr "Masamang mga parameter!"
 
 #: gis_data_editor.php:119
 #, php-format
 msgid "Value for the column \"%s\""
-msgstr ""
+msgstr "Halaga para sa haligi na \"%s\""
 
 #: gis_data_editor.php:147
 #: templates/table/gis_visualization/gis_visualization.phtml:38
 msgid "Use OpenStreetMaps as Base Layer"
-msgstr ""
+msgstr "Gamitin ang OpenStreetMaps bilang Base Layer"
 
 #. l10n: Spatial Reference System Identifier
 #: gis_data_editor.php:169
 msgid "SRID:"
-msgstr ""
+msgstr "SRID:"
 
 #: gis_data_editor.php:195
 #, php-format
 msgid "Geometry %d:"
-msgstr ""
+msgstr "Geometry %d:"
 
 #: gis_data_editor.php:217
 msgid "Point:"
-msgstr ""
+msgstr "Punto:"
 
 #: gis_data_editor.php:218 gis_data_editor.php:245 gis_data_editor.php:301
 #: gis_data_editor.php:374 js/messages.php:519
 msgid "X"
-msgstr ""
+msgstr "X"
 
 #: gis_data_editor.php:221 gis_data_editor.php:249 gis_data_editor.php:305
 #: gis_data_editor.php:380 js/messages.php:520
 msgid "Y"
-msgstr ""
+msgstr "Y"
 
 #: gis_data_editor.php:243 gis_data_editor.php:299 gis_data_editor.php:372
 #: js/messages.php:522
 #, php-format
 msgid "Point %d"
-msgstr ""
+msgstr "Punto ng %d"
 
 #: gis_data_editor.php:256 gis_data_editor.php:312 gis_data_editor.php:390
 #: js/messages.php:528
 msgid "Add a point"
-msgstr ""
+msgstr "Magdagdag ng punto"
 
 #: gis_data_editor.php:273
 #, php-format
@@ -448,7 +448,7 @@ msgstr "Linestring %d:"
 
 #: gis_data_editor.php:276 gis_data_editor.php:353
 msgid "Outer ring:"
-msgstr ""
+msgstr "Panlabas na singsing:"
 
 #: gis_data_editor.php:278 gis_data_editor.php:355
 #, php-format
@@ -457,24 +457,24 @@ msgstr "Inner ring %d:"
 
 #: gis_data_editor.php:315
 msgid "Add a linestring"
-msgstr ""
+msgstr "Magdagdag ng linestring"
 
 #: gis_data_editor.php:316 gis_data_editor.php:395 js/messages.php:529
 msgid "Add an inner ring"
-msgstr ""
+msgstr "Magdagdag ng inner ring"
 
 #: gis_data_editor.php:337
 #, php-format
 msgid "Polygon %d:"
-msgstr ""
+msgstr "Polygon %d:"
 
 #: gis_data_editor.php:401
 msgid "Add a polygon"
-msgstr ""
+msgstr "Magdagdag ng polygon"
 
 #: gis_data_editor.php:407
 msgid "Add geometry"
-msgstr ""
+msgstr "Magdagdag ng geometry"
 
 #: gis_data_editor.php:413 js/messages.php:353 libraries/DbSearch.php:455
 #: libraries/DisplayResults.php:1813 libraries/browse_foreigners.lib.php:137
@@ -514,29 +514,31 @@ msgstr ""
 #: templates/table/structure/add_column.phtml:25 view_create.php:300
 #: view_operations.php:121
 msgid "Go"
-msgstr ""
+msgstr "Pumunta"
 
 #: gis_data_editor.php:416
 msgid "Output"
-msgstr ""
+msgstr "Awtput"
 
 #: gis_data_editor.php:419
 msgid ""
 "Choose \"GeomFromText\" from the \"Function\" column and paste the string "
 "below into the \"Value\" field."
 msgstr ""
+"Piliin ang \"GeomFromText\" mula sa column na \"Function\" at i-paste ang "
+"string sa ibaba sa patlang na \"Halaga\"."
 
 #: import.php:65
 msgid "Succeeded"
-msgstr ""
+msgstr "Nagtagumpay"
 
 #: import.php:69 js/messages.php:615
 msgid "Failed"
-msgstr ""
+msgstr "Nabigo"
 
 #: import.php:73
 msgid "Incomplete params"
-msgstr ""
+msgstr "Hindi kumpleto ang mga params"
 
 #: import.php:197
 #, php-format
@@ -544,14 +546,17 @@ msgid ""
 "You probably tried to upload a file that is too large. Please refer to "
 "%sdocumentation%s for a workaround for this limit."
 msgstr ""
+"Malamang na sinubukan mong mag-upload ng isang file na masyadong malaki. "
+"Mangyaring sumangguni sa %sdocumentation%s para sa isang workaround para sa "
+"limitasyong ito."
 
 #: import.php:367 import.php:568
 msgid "Showing bookmark"
-msgstr ""
+msgstr "Pagpapakita ng bookmark"
 
 #: import.php:383 import.php:564
 msgid "The bookmark has been deleted."
-msgstr ""
+msgstr "Ang bookmark ay tinanggal."
 
 #: import.php:477
 msgid ""
@@ -563,18 +568,20 @@ msgstr ""
 #: import.php:529 libraries/display_import.lib.php:665
 msgid "Could not load import plugins, please check your installation!"
 msgstr ""
+"Hindi mai-load ang mga plugin ng pag-import, mangyaring suriin ang iyong pag-"
+"install!"
 
 #: import.php:571 libraries/sql.lib.php:790 libraries/sql.lib.php:1569
 #, php-format
 msgid "Bookmark %s has been created."
-msgstr ""
+msgstr "Nalikha ang bookmark %s."
 
 #: import.php:581
 #, php-format
 msgid "Import has been successfully finished, %d query executed."
 msgid_plural "Import has been successfully finished, %d queries executed."
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "Matagumpay na natapos ang pag-import, isinagawa ang %d query."
+msgstr[1] "Ang pag-import ay natapos na, ang mga %d tanong na isinagawa."
 
 #: import.php:612
 #, php-format
@@ -582,12 +589,17 @@ msgid ""
 "Script timeout passed, if you want to finish import, please %sresubmit the "
 "same file%s and import will resume."
 msgstr ""
+"Lumipas ang oras ng script, kung nais mong tapusin ang pag-import, "
+"mangyaring %sresubmit ang parehong file%s at ang pag-import ay magpapatuloy."
 
 #: import.php:622
 msgid ""
 "However on last run no data has been parsed, this usually means phpMyAdmin "
 "won't be able to finish this import unless you increase php time limits."
 msgstr ""
+"Gayunpaman sa huling pagtakbo walang data na na-parse, kadalasang "
+"nangangahulugan ito na hindi magagawang tapusin ng phpMyAdmin ang import na "
+"ito maliban kung pinapataas mo ang mga limitasyon ng oras ng php."
 
 #: import.php:693 sql.php:163
 msgid "\"DROP DATABASE\" statements are disabled."
@@ -595,24 +607,26 @@ msgstr ""
 
 #: import_status.php:105
 msgid "Could not load the progress of the import."
-msgstr ""
+msgstr "Hindi ma-load ang progreso ng pag-import."
 
 #: import_status.php:114 js/messages.php:459 js/messages.php:623
 #: libraries/Util.php:689 libraries/export.lib.php:518
 #: libraries/plugins/schema/ExportRelationSchema.php:298 user_password.php:299
 msgid "Back"
-msgstr ""
+msgstr "Bumalik"
 
 #: index.php:116
 msgid ""
 "You were logged out from one server, to logout completely from phpMyAdmin, "
 "you need to logout from all servers."
 msgstr ""
+"Ikaw ay naka-log out mula sa isang server, upang ganap na mag-logout mula sa "
+"phpMyAdmin, kailangan mong mag-logout mula sa lahat ng mga server."
 
 #: index.php:160 libraries/Footer.php:69
 #: libraries/plugins/auth/AuthenticationCookie.php:141
 msgid "phpMyAdmin Demo Server"
-msgstr ""
+msgstr "Serber ng phpMyAdmin Demo"
 
 #: index.php:164 libraries/plugins/auth/AuthenticationCookie.php:144
 #, php-format
@@ -1500,7 +1514,7 @@ msgstr "Pag-aaralan…"
 
 #: js/messages.php:290
 msgid "Explain output"
-msgstr ""
+msgstr "Ipaliwanag ang output"
 
 #: js/messages.php:291 libraries/Menu.php:558 libraries/Util.php:4100
 #: libraries/config.values.php:104 libraries/rte/rte_events.lib.php:399
@@ -1508,7 +1522,7 @@ msgstr ""
 #: libraries/server_status_processes.lib.php:92 libraries/tracking.lib.php:287
 #: libraries/tracking.lib.php:1599
 msgid "Status"
-msgstr ""
+msgstr "Katayuan"
 
 #: js/messages.php:292 js/messages.php:900
 #: libraries/plugins/export/ExportHtmlword.php:486
@@ -1518,7 +1532,7 @@ msgstr ""
 #: libraries/rte/rte_list.lib.php:96
 #: libraries/server_status_processes.lib.php:88 libraries/sql.lib.php:241
 msgid "Time"
-msgstr ""
+msgstr "Oras"
 
 #: js/messages.php:293
 msgid "Total time:"
@@ -1526,65 +1540,67 @@ msgstr "Kabuuang Oras:"
 
 #: js/messages.php:294
 msgid "Profiling results"
-msgstr ""
+msgstr "Mga resulta ng profile"
 
 #: js/messages.php:295
 msgctxt "Display format"
 msgid "Table"
-msgstr ""
+msgstr "Talahanayan"
 
 #: js/messages.php:296
 msgid "Chart"
-msgstr ""
+msgstr "Tsart"
 
 #: js/messages.php:298 libraries/display_export.lib.php:903
 msgctxt "Alias"
 msgid "Database"
-msgstr ""
+msgstr "Database"
 
 #: js/messages.php:299 libraries/display_export.lib.php:915
 msgctxt "Alias"
 msgid "Table"
-msgstr ""
+msgstr "Talahanayan"
 
 #: js/messages.php:300 libraries/display_export.lib.php:926
 msgctxt "Alias"
 msgid "Column"
-msgstr ""
+msgstr "Kolumn"
 
 #. l10n: A collection of available filters
 #: js/messages.php:303
 msgid "Log table filter options"
-msgstr ""
+msgstr "Mag-log ng mga pagpipilian sa filter ng talahanayan"
 
 #. l10n: Filter as in "Start Filtering"
 #: js/messages.php:305
 msgid "Filter"
-msgstr ""
+msgstr "Salain"
 
 #: js/messages.php:306
 msgid "Filter queries by word/regexp:"
-msgstr ""
+msgstr "Salain ang mga query sa pamamagitan ng salita / regexp:"
 
 #: js/messages.php:308
 msgid "Group queries, ignoring variable data in WHERE clauses"
 msgstr ""
+"Mga query ng grupo, hindi binabalewala ang variable na data sa SAAN na mga "
+"clause"
 
 #: js/messages.php:309
 msgid "Sum of grouped rows:"
-msgstr ""
+msgstr "Kabuuan ng mga hilera na naka-grupo:"
 
 #: js/messages.php:310
 msgid "Total:"
-msgstr ""
+msgstr "Kabuuan:"
 
 #: js/messages.php:312
 msgid "Loading logs"
-msgstr ""
+msgstr "Naglo-load ng mga tala"
 
 #: js/messages.php:313
 msgid "Monitor refresh failed"
-msgstr ""
+msgstr "Nabigo ang pag-refresh ng monitor"
 
 #: js/messages.php:315
 msgid ""
@@ -1595,15 +1611,15 @@ msgstr ""
 
 #: js/messages.php:319
 msgid "Reload page"
-msgstr ""
+msgstr "I-reload ang pahina"
 
 #: js/messages.php:321
 msgid "Affected rows:"
-msgstr ""
+msgstr "Mga apektadong hanay:"
 
 #: js/messages.php:324
 msgid "Failed parsing config file. It doesn't seem to be valid JSON code."
-msgstr ""
+msgstr "Nabigong pag-parse ng config file. Mukhang hindi wastong JSON code."
 
 #: js/messages.php:327
 msgid ""
@@ -1619,55 +1635,55 @@ msgstr ""
 #: libraries/server_status_monitor.lib.php:316 prefs_manage.php:246
 #: setup/frames/menu.inc.php:26
 msgid "Import"
-msgstr ""
+msgstr "I-import"
 
 #: js/messages.php:330
 msgid "Import monitor configuration"
-msgstr ""
+msgstr "I-import ang pagsasaayos ng monitor"
 
 #: js/messages.php:332
 msgid "Please select the file you want to import."
-msgstr ""
+msgstr "Pakipili ang file na gusto mong i-import."
 
 #: js/messages.php:333
 msgid "No files available on server for import!"
-msgstr ""
+msgstr "Walang magagamit na mga file sa server para sa pag-import!"
 
 #: js/messages.php:335
 msgid "Analyse query"
-msgstr ""
+msgstr "Pag-aralan ang query"
 
 #: js/messages.php:339
 msgid "Advisor system"
-msgstr ""
+msgstr "Sistema ng tagapayo"
 
 #: js/messages.php:340
 msgid "Possible performance issues"
-msgstr ""
+msgstr "Posibleng mga isyu sa pagganap"
 
 #: js/messages.php:341
 msgid "Issue"
-msgstr ""
+msgstr "Isyu"
 
 #: js/messages.php:342
 msgid "Recommendation"
-msgstr ""
+msgstr "Rekomendasyon"
 
 #: js/messages.php:343
 msgid "Rule details"
-msgstr ""
+msgstr "Detalye ng panuntunan"
 
 #: js/messages.php:344
 msgid "Justification"
-msgstr ""
+msgstr "Justipikasyon"
 
 #: js/messages.php:345
 msgid "Used variable / formula"
-msgstr ""
+msgstr "Ginamit na variable / formula"
 
 #: js/messages.php:346
 msgid "Test"
-msgstr ""
+msgstr "Pagsusulit"
 
 #: js/messages.php:349
 msgid "Formatting SQL…"
@@ -1675,7 +1691,7 @@ msgstr "Pag-format ng SQL…"
 
 #: js/messages.php:350
 msgid "No parameters found!"
-msgstr ""
+msgstr "Walang nakitang mga parameter!"
 
 #: js/messages.php:354
 #: templates/database/designer/aggregate_query_panel.phtml:63
@@ -1687,15 +1703,15 @@ msgstr ""
 #: templates/database/designer/where_query_panel.phtml:83
 #: templates/server/variables/link_template.phtml:5
 msgid "Cancel"
-msgstr ""
+msgstr "Kanselahin"
 
 #: js/messages.php:357 libraries/Header.php:447
 msgid "Page-related settings"
-msgstr ""
+msgstr "Mga setting na may kaugnayan sa pahina"
 
 #: js/messages.php:358 libraries/config/FormDisplay.tpl.php:424
 msgid "Apply"
-msgstr ""
+msgstr "Mag-apply"
 
 #: js/messages.php:361 libraries/navigation/NavigationHeader.php:60
 #: libraries/server_status_monitor.lib.php:122
@@ -1704,49 +1720,51 @@ msgstr "Naglo-load…"
 
 #: js/messages.php:362
 msgid "Request aborted!!"
-msgstr ""
+msgstr "Hinihinto ang kahilingan!!"
 
 #: js/messages.php:363
 msgid "Processing request"
-msgstr ""
+msgstr "Kahilingan sa pagpoproseso"
 
 #: js/messages.php:364
 msgid "Request failed!!"
-msgstr ""
+msgstr "Nabigong kahilingan!!"
 
 #: js/messages.php:365
 msgid "Error in processing request"
-msgstr ""
+msgstr "Error sa kahilingan sa pagproseso"
 
 #: js/messages.php:366
 #, php-format
 msgid "Error code: %s"
-msgstr ""
+msgstr "Error ng code: %s"
 
 #: js/messages.php:367
 #, php-format
 msgid "Error text: %s"
-msgstr ""
+msgstr "Error ng text: %s"
 
 #: js/messages.php:369
 msgid ""
 "It seems that the connection to server has been lost. Please check your "
 "network connectivity and server status."
 msgstr ""
+"Tila na ang koneksyon sa server ay nawala. Mangyaring suriin ang "
+"pagkakakonekta ng iyong network at kalagayan ng server."
 
 #: js/messages.php:372
 #: libraries/controllers/server/ServerDatabasesController.php:194
 #: libraries/db_common.inc.php:69 libraries/db_table_exists.inc.php:32
 msgid "No databases selected."
-msgstr ""
+msgstr "Walang piniling mga database."
 
 #: js/messages.php:373
 msgid "Dropping column"
-msgstr ""
+msgstr "Ang pag-drop ng kolumn"
 
 #: js/messages.php:374
 msgid "Adding primary key"
-msgstr ""
+msgstr "Pagdaragdag ng pangunahing key"
 
 #: js/messages.php:375
 #: templates/database/designer/aggregate_query_panel.phtml:59
@@ -1756,60 +1774,62 @@ msgstr ""
 #: templates/database/designer/rename_to_panel.phtml:41
 #: templates/database/designer/where_query_panel.phtml:82
 msgid "OK"
-msgstr ""
+msgstr "OK"
 
 #: js/messages.php:376
 msgid "Click to dismiss this notification"
-msgstr ""
+msgstr "I-click upang i-dismiss ang notification na ito"
 
 #: js/messages.php:379
 msgid "Renaming databases"
-msgstr ""
+msgstr "Pagpapalit ng database"
 
 #: js/messages.php:380
 msgid "Copying database"
-msgstr ""
+msgstr "Kinokopya ang database"
 
 #: js/messages.php:381
 msgid "Changing charset"
-msgstr ""
+msgstr "Pagbabago ng charset"
 
 #: js/messages.php:385 libraries/Util.php:3083
 msgid "Enable foreign key checks"
-msgstr ""
+msgstr "Paganahin ang mga banyagang key check"
 
 #: js/messages.php:388
 msgid "Failed to get real row count."
-msgstr ""
+msgstr "Nabigong makakuha ng tunay na bilang ng hilera."
 
 #: js/messages.php:391
 msgid "Searching"
-msgstr ""
+msgstr "Naghahanap"
 
 #: js/messages.php:392
 msgid "Hide search results"
-msgstr ""
+msgstr "Itago ang mga resulta ng paghahanap"
 
 #: js/messages.php:393
 msgid "Show search results"
-msgstr ""
+msgstr "Ipakita ang mga resulta ng paghahanap"
 
 #: js/messages.php:394
 msgid "Browsing"
-msgstr ""
+msgstr "Pag-browse"
 
 #: js/messages.php:395
 msgid "Deleting"
-msgstr ""
+msgstr "Pagtanggal"
 
 #: js/messages.php:396
 #, php-format
 msgid "Delete the matches for the %s table?"
-msgstr ""
+msgstr "Tanggalin ang mga tugma para sa talahanayan ng %s?"
 
 #: js/messages.php:400
 msgid "The definition of a stored function must contain a RETURN statement!"
 msgstr ""
+"Ang kahulugan ng isang naka-imbak na function ay dapat maglaman ng pahayag "
+"ng RETURN!"
 
 #: js/messages.php:401 libraries/DisplayResults.php:4884
 #: libraries/DisplayResults.php:5167 libraries/Menu.php:357
@@ -1830,41 +1850,45 @@ msgstr ""
 #: js/messages.php:403
 msgid "No routine is exportable. Required privileges may be lacking."
 msgstr ""
+"Walang karaniwang gawain ay maaaring i-export. Maaaring kulang ang mga "
+"kinakailangang pribilehiyo."
 
 #: js/messages.php:406 libraries/rte/rte_routines.lib.php:747
 msgid "ENUM/SET editor"
-msgstr ""
+msgstr "Editor ng ENUM/SET"
 
 #: js/messages.php:407
 #, php-format
 msgid "Values for column %s"
-msgstr ""
+msgstr "Mga halaga para sa haligi %s"
 
 #: js/messages.php:408
 msgid "Values for a new column"
-msgstr ""
+msgstr "Mga halaga para sa isang bagong haligi"
 
 #: js/messages.php:409
 msgid "Enter each value in a separate field."
-msgstr ""
+msgstr "I-enter ang bawat halaga sa isang hiwalay na field."
 
 #: js/messages.php:410
 #, php-format
 msgid "Add %d value(s)"
-msgstr ""
+msgstr "Magdagdag ng (mga) halaga ng %d"
 
 #: js/messages.php:414
 msgid ""
 "Note: If the file contains multiple tables, they will be combined into one."
 msgstr ""
+"Tandaan: Kung ang file ay naglalaman ng maraming mga talahanayan, sila ay "
+"pinagsama sa isa."
 
 #: js/messages.php:418
 msgid "Hide query box"
-msgstr ""
+msgstr "Itago ang query box"
 
 #: js/messages.php:419
 msgid "Show query box"
-msgstr ""
+msgstr "Ipakita ang query box"
 
 #: js/messages.php:420 libraries/DisplayResults.php:3501
 #: libraries/DisplayResults.php:4868 libraries/Index.php:709
@@ -1877,7 +1901,7 @@ msgstr ""
 #: templates/server/variables/variable_row.phtml:4
 #: templates/server/variables/variable_row.phtml:7
 msgid "Edit"
-msgstr ""
+msgstr "I-Edit"
 
 #: js/messages.php:421 libraries/DbSearch.php:353
 #: libraries/DisplayResults.php:3570 libraries/DisplayResults.php:4852
@@ -1888,41 +1912,41 @@ msgstr ""
 #: setup/frames/index.inc.php:163 templates/console/bookmark_content.phtml:18
 #: templates/database/designer/delete_relation_panel.phtml:27
 msgid "Delete"
-msgstr ""
+msgstr "Burahin"
 
 #: js/messages.php:422 libraries/DisplayResults.php:925
 #: libraries/DisplayResults.php:933
 #, php-format
 msgid "%d is not valid row number."
-msgstr ""
+msgstr "%d ay hindi wastong numero ng hanay."
 
 #: js/messages.php:423
 #: libraries/controllers/table/TableSearchController.php:357
 #: libraries/controllers/table/TableSearchController.php:844
 #: libraries/sql.lib.php:195 tbl_change.php:151
 msgid "Browse foreign values"
-msgstr ""
+msgstr "Mag-browse ng mga dayuhang halaga"
 
 #: js/messages.php:424
 msgid "No auto-saved query"
-msgstr ""
+msgstr "Walang auto-save query"
 
 #: js/messages.php:425
 #, php-format
 msgid "Variable %d:"
-msgstr ""
+msgstr "Variable %d:"
 
 #: js/messages.php:428 libraries/normalization.lib.php:884
 msgid "Pick"
-msgstr ""
+msgstr "Pumili"
 
 #: js/messages.php:429
 msgid "Column selector"
-msgstr ""
+msgstr "Tagapili ng hanay"
 
 #: js/messages.php:430
 msgid "Search this list"
-msgstr ""
+msgstr "Hanapin ang listahang ito"
 
 #: js/messages.php:432
 #, php-format
@@ -1936,61 +1960,64 @@ msgstr ""
 
 #: js/messages.php:435
 msgid "See more"
-msgstr ""
+msgstr "Tingnan ang higit pa"
 
 #: js/messages.php:436
 msgid "Are you sure?"
-msgstr ""
+msgstr "Sigurado ka ba?"
 
 #: js/messages.php:438
 msgid ""
 "This action may change some of the columns definition.<br/>Are you sure you "
 "want to continue?"
 msgstr ""
+"Maaaring baguhin ng pagkilos na ito ang ilan sa kahulugan ng mga haligi. "
+"<br/>Sigurado ka bang gusto mong magpatuloy?"
 
 #: js/messages.php:441
 msgid "Continue"
-msgstr ""
+msgstr "Ipagpatuloy"
 
 #: js/messages.php:444
 msgid "Add primary key"
-msgstr ""
+msgstr "Magdagdag ng pangunahing key"
 
 #: js/messages.php:445
 msgid "Primary key added."
-msgstr ""
+msgstr "Idinagdag ang pangunahing key."
 
 #: js/messages.php:446 libraries/normalization.lib.php:189
 msgid "Taking you to next step…"
-msgstr ""
+msgstr "Dadalhin ka sa susunod na hakbang…"
 
 #: js/messages.php:448
 #, php-format
 msgid "The first step of normalization is complete for table '%s'."
 msgstr ""
+"Ang unang hakbang ng normalisasyon ay kumpleto para sa talahanayan '%s'."
 
 #: js/messages.php:449 libraries/normalization.lib.php:450
 #: libraries/normalization.lib.php:497 libraries/normalization.lib.php:582
 #: libraries/normalization.lib.php:642
 msgid "End of step"
-msgstr ""
+msgstr "Katapusan ng hakbang"
 
 #: js/messages.php:450
 msgid "Second step of normalization (2NF)"
-msgstr ""
+msgstr "Ikalawang hakbang ng normalisasyon (2NF)"
 
 #. l10n: Display text for calendar close link
 #: js/messages.php:451 js/messages.php:769 libraries/normalization.lib.php:286
 msgid "Done"
-msgstr ""
+msgstr "Tapos na"
 
 #: js/messages.php:452
 msgid "Confirm partial dependencies"
-msgstr ""
+msgstr "Kumpirmahin ang mga bahagyang dependency"
 
 #: js/messages.php:453
 msgid "Selected partial dependencies are as follows:"
-msgstr ""
+msgstr "Ang mga napiling bahagyang dependency ay ang mga sumusunod:"
 
 #: js/messages.php:455
 msgid ""
@@ -2000,29 +2027,33 @@ msgstr ""
 
 #: js/messages.php:458
 msgid "No partial dependencies selected!"
-msgstr ""
+msgstr "Walang piniling partial dependencies!"
 
 #: js/messages.php:461
 msgid "Show me the possible partial dependencies based on data in the table"
 msgstr ""
+"Ipakita sa akin ang posibleng mga bahagyang dependency batay sa data sa "
+"talahanayan"
 
 #: js/messages.php:462
 msgid "Hide partial dependencies list"
-msgstr ""
+msgstr "Itago ang mga listahan ng bahagyang dependency"
 
 #: js/messages.php:464
 msgid ""
 "Sit tight! It may take few seconds depending on data size and column count "
 "of the table."
 msgstr ""
+"Umupo nang masikip! Maaaring tumagal ng ilang segundo depende sa laki ng "
+"data at bilang ng haligi ng talahanayan."
 
 #: js/messages.php:467
 msgid "Step"
-msgstr ""
+msgstr "Hakbang"
 
 #: js/messages.php:469
 msgid "The following actions will be performed:"
-msgstr ""
+msgstr "Gagawin ang mga sumusunod na aksyon:"
 
 #: js/messages.php:470
 #, php-format
@@ -2031,23 +2062,23 @@ msgstr "Ang mga haligi ng DROP %s mula sa talahanayan %s"
 
 #: js/messages.php:471
 msgid "Create the following table"
-msgstr ""
+msgstr "Lumikha ng sumusunod na talahanayan"
 
 #: js/messages.php:474
 msgid "Third step of normalization (3NF)"
-msgstr ""
+msgstr "Ikatlong hakbang ng normalisasyon (3NF)"
 
 #: js/messages.php:475
 msgid "Confirm transitive dependencies"
-msgstr ""
+msgstr "Kumpirmahin ang mga palipat-lipat na dependency"
 
 #: js/messages.php:476
 msgid "Selected dependencies are as follows:"
-msgstr ""
+msgstr "Ang mga napiling dependency ay ang mga sumusunod:"
 
 #: js/messages.php:477
 msgid "No dependencies selected!"
-msgstr ""
+msgstr "Walang napiling mga dependency!"
 
 #: js/messages.php:480 libraries/central_columns.lib.php:1215
 #: libraries/insert_edit.lib.php:1527
@@ -2057,246 +2088,264 @@ msgstr ""
 #: templates/table/relation/common_form.phtml:132
 #: templates/table/structure/partition_definition_form.phtml:11
 msgid "Save"
-msgstr ""
+msgstr "I-save"
 
 #: js/messages.php:483
 msgid "Hide search criteria"
-msgstr ""
+msgstr "Itago ang pamantayan sa paghahanap"
 
 #: js/messages.php:484
 msgid "Show search criteria"
-msgstr ""
+msgstr "Ipakita ang pamantayan sa paghahanap"
 
 #: js/messages.php:485
 msgid "Range search"
-msgstr ""
+msgstr "Saklaw ng paghahanap"
 
 #: js/messages.php:486
 msgid "Column maximum:"
-msgstr ""
+msgstr "Maximum na haligi:"
 
 #: js/messages.php:487
 msgid "Column minimum:"
-msgstr ""
+msgstr "Haligi ng halagang:"
 
 #: js/messages.php:488
 msgid "Minimum value:"
-msgstr ""
+msgstr "Minimum na halaga:"
 
 #: js/messages.php:489
 msgid "Maximum value:"
-msgstr ""
+msgstr "Pinakamataas na halaga:"
 
 #: js/messages.php:492
 msgid "Hide find and replace criteria"
-msgstr ""
+msgstr "Itago ang paghahanap at palitan ang pamantayan"
 
 #: js/messages.php:493
 msgid "Show find and replace criteria"
-msgstr ""
+msgstr "Ipakita ang pamamaraang hanapin at palitan"
 
 #: js/messages.php:497
 msgid "Each point represents a data row."
-msgstr ""
+msgstr "Ang bawat punto ay kumakatawan sa isang hilera ng data."
 
 #: js/messages.php:499
 msgid "Hovering over a point will show its label."
-msgstr ""
+msgstr "Ang pagpapalabas sa isang punto ay magpapakita ng label nito."
 
 #: js/messages.php:501
 msgid "To zoom in, select a section of the plot with the mouse."
 msgstr ""
+"Upang mag-zoom in, pumili ng isang seksyon ng isang lagay ng lupa gamit ang "
+"mouse."
 
 #: js/messages.php:503
 msgid "Click reset zoom button to come back to original state."
 msgstr ""
+"I-click ang i-reset ang pindutan ng pag-zoom upang makabalik sa orihinal na "
+"estado."
 
 #: js/messages.php:505
 msgid "Click a data point to view and possibly edit the data row."
 msgstr ""
+"Mag-click ng punto ng data upang tingnan at posibleng i-edit ang hilera ng "
+"data."
 
 #: js/messages.php:507
 msgid "The plot can be resized by dragging it along the bottom right corner."
 msgstr ""
+"Maaaring palitan ang balangkas sa pamamagitan ng pag-drag nito sa ilalim ng "
+"kanang sulok sa ibaba."
 
 #: js/messages.php:510
 msgid "Select two columns"
-msgstr ""
+msgstr "Pumili ng dalawang haligi"
 
 #: js/messages.php:512
 msgid "Select two different columns"
-msgstr ""
+msgstr "Pumili ng dalawang magkakaibang hanay"
 
 #: js/messages.php:514
 msgid "Data point content"
-msgstr ""
+msgstr "Nilalaman ng punto ng data"
 
 #: js/messages.php:517 js/messages.php:683 js/messages.php:700
 #: libraries/ErrorHandler.php:370 libraries/insert_edit.lib.php:2648
 #: templates/table/index_form.phtml:154 templates/table/index_form.phtml:198
 msgid "Ignore"
-msgstr ""
+msgstr "Huwag pansinin"
 
 #: js/messages.php:518 libraries/DisplayResults.php:3504
 #: libraries/DisplayResults.php:4873
 msgid "Copy"
-msgstr ""
+msgstr "Kopyahin"
 
 #: js/messages.php:521
 msgid "Point"
-msgstr ""
+msgstr "Punto"
 
 #: js/messages.php:523
 msgid "Linestring"
-msgstr ""
+msgstr "Linestring"
 
 #: js/messages.php:524
 msgid "Polygon"
-msgstr ""
+msgstr "Polygon"
 
 #: js/messages.php:525 libraries/DisplayResults.php:1797
 msgid "Geometry"
-msgstr ""
+msgstr "Geometry"
 
 #: js/messages.php:526
 msgid "Inner ring"
-msgstr ""
+msgstr "Panloob na singsing"
 
 #: js/messages.php:527
 msgid "Outer ring"
-msgstr ""
+msgstr "Panlabas na singsing"
 
 #: js/messages.php:531
 msgid "Do you want to copy encryption key?"
-msgstr ""
+msgstr "Gusto mo bang kopyahin ang key ng encryption?"
 
 #: js/messages.php:532
 msgid "Encryption key"
-msgstr ""
+msgstr "Key ng pag-encrypt"
 
 #: js/messages.php:536
 msgid ""
 "MySQL accepts additional values not selectable by the slider; key in those "
 "values directly if desired"
 msgstr ""
+"Tinatanggap ng MySQL ang mga karagdagang halaga na hindi maaaring piliin ng "
+"slider; susi sa mga halagang iyon nang direkta kung ninanais"
 
 #: js/messages.php:542
 msgid ""
 "MySQL accepts additional values not selectable by the datepicker; key in "
 "those values directly if desired"
 msgstr ""
+"Tinatanggap ng MySQL ang mga karagdagang halaga na hindi maaaring piliin ng "
+"datepicker; susi sa mga halagang iyon nang direkta kung ninanais"
 
 #: js/messages.php:548
 msgid ""
 "Indicates that you have made changes to this page; you will be prompted for "
 "confirmation before abandoning changes"
 msgstr ""
+"Nagpapahiwatig na gumawa ka ng mga pagbabago sa pahinang ito; ikaw ay "
+"sasabihan para sa pagkumpirma bago iwanan ang mga pagbabago"
 
 #: js/messages.php:553
 msgid "Select referenced key"
-msgstr ""
+msgstr "Piliin ang na-refer na susi"
 
 #: js/messages.php:554
 msgid "Select Foreign Key"
-msgstr ""
+msgstr "Piliin ang Dayuhang Key"
 
 #: js/messages.php:556
 msgid "Please select the primary key or a unique key!"
-msgstr ""
+msgstr "Pakipili ang pangunahing key o isang natatanging key!"
 
 #: js/messages.php:557 templates/database/designer/side_menu.phtml:91
 #: templates/database/designer/side_menu.phtml:94
 msgid "Choose column to display"
-msgstr ""
+msgstr "Pumili ng haligi upang ipakita"
 
 #: js/messages.php:559
 msgid ""
 "You haven't saved the changes in the layout. They will be lost if you don't "
 "save them. Do you want to continue?"
 msgstr ""
+"Hindi mo nai-save ang mga pagbabago sa layout. Mawala ang mga ito kung hindi "
+"mo sila i-save. Gusto mo bang magpatuloy?"
 
 #: js/messages.php:562
 msgid "Page name"
-msgstr ""
+msgstr "Pangalan ng pahina"
 
 #: js/messages.php:563 templates/database/designer/side_menu.phtml:56
 #: templates/database/designer/side_menu.phtml:59
 msgid "Save page"
-msgstr ""
+msgstr "I-save ang pahina"
 
 #: js/messages.php:564 templates/database/designer/side_menu.phtml:63
 #: templates/database/designer/side_menu.phtml:66
 msgid "Save page as"
-msgstr ""
+msgstr "I-save ang pahina bilang"
 
 #: js/messages.php:565 templates/database/designer/side_menu.phtml:49
 #: templates/database/designer/side_menu.phtml:52
 msgid "Open page"
-msgstr ""
+msgstr "Buksan ang pahina"
 
 #: js/messages.php:566
 msgid "Delete page"
-msgstr ""
+msgstr "Burahin ang pahina"
 
 #: js/messages.php:567 templates/database/designer/side_menu.phtml:10
 msgid "Untitled"
-msgstr ""
+msgstr "Walang pamagat"
 
 #: js/messages.php:568
 msgid "Please select a page to continue"
-msgstr ""
+msgstr "Mangyaring pumili ng isang pahina upang magpatuloy"
 
 #: js/messages.php:569
 msgid "Please enter a valid page name"
-msgstr ""
+msgstr "Mangyaring magpasok ng wastong pangalan ng pahina"
 
 #: js/messages.php:571
 msgid "Do you want to save the changes to the current page?"
-msgstr ""
+msgstr "Gusto mo bang i-save ang mga pagbabago sa kasalukuyang pahina?"
 
 #: js/messages.php:572
 msgid "Successfully deleted the page"
-msgstr ""
+msgstr "Matagumpay na nabura ang pahina"
 
 #: js/messages.php:573
 msgid "Export relational schema"
-msgstr ""
+msgstr "I-export ang pamanggit na panuntunan"
 
 #: js/messages.php:574
 msgid "Modifications have been saved"
-msgstr ""
+msgstr "Ang mga pagbabago ay nai-save na"
 
 #: js/messages.php:577
 #, php-format
 msgid "Add an option for column \"%s\"."
-msgstr ""
+msgstr "Magdagdag ng opsyon para sa haligi na \"%s\"."
 
 #: js/messages.php:578
 #, php-format
 msgid "%d object(s) created."
-msgstr ""
+msgstr "%d (mga) objek na nagawa."
 
 #: js/messages.php:579 libraries/sql_query_form.lib.php:414
 msgid "Submit"
-msgstr ""
+msgstr "Ipasa"
 
 #: js/messages.php:582
 msgid "Press escape to cancel editing."
-msgstr ""
+msgstr "Pindutin ang pagtakas upang ikansela ang pag-edit."
 
 #: js/messages.php:584
 msgid ""
 "You have edited some data and they have not been saved. Are you sure you "
 "want to leave this page before saving the data?"
 msgstr ""
+"Nag-edit ka ng ilang data at hindi na-save ang mga ito. Sigurado ka bang "
+"gusto mong umalis sa pahinang ito bago i-save ang data?"
 
 #: js/messages.php:587
 msgid "Drag to reorder."
-msgstr ""
+msgstr "I-drag upang muling isaayos."
 
 #: js/messages.php:588
 msgid "Click to sort results by this column."
-msgstr ""
+msgstr "I-click upang pagbutihin ang mga resulta ng haligi na ito."
 
 #: js/messages.php:590
 msgid ""
@@ -2307,130 +2356,146 @@ msgstr ""
 
 #: js/messages.php:594
 msgid "Click to mark/unmark."
-msgstr ""
+msgstr "Mag-click upang markahan / alisin ang marka."
 
 #: js/messages.php:595
 msgid "Double-click to copy column name."
-msgstr ""
+msgstr "Mag-double-click upang kopyahin ang pangalan ng haligi."
 
 #: js/messages.php:597
 msgid "Click the drop-down arrow<br />to toggle column's visibility."
 msgstr ""
+"I-click ang drop-down na arrow <br /> upang maipakita ang visibility ng "
+"haligi."
 
 #: js/messages.php:599 libraries/DisplayResults.php:1032
 #: libraries/browse_foreigners.lib.php:283
 #: libraries/browse_foreigners.lib.php:336
 #: templates/privileges/initials_row.phtml:24
 msgid "Show all"
-msgstr ""
+msgstr "Ipakita lahat"
 
 #: js/messages.php:601
 msgid ""
 "This table does not contain a unique column. Features related to the grid "
 "edit, checkbox, Edit, Copy and Delete links may not work after saving."
 msgstr ""
+"Ang mesa na ito ay hindi naglalaman ng isang natatanging haligi. Ang mga "
+"tampok na may kaugnayan sa pag-edit ng grid, checkbox, I-edit, Kopyahin at "
+"Tanggalin ang mga link ay maaaring hindi gumana pagkatapos i-save."
 
 #: js/messages.php:605
 msgid "Please enter a valid hexadecimal string. Valid characters are 0-9, A-F."
 msgstr ""
+"Mangyaring magpasok ng wastong hexadecimal string. Ang mga wastong character "
+"ay 0-9, A-F."
 
 #: js/messages.php:607
 msgid ""
 "Do you really want to see all of the rows? For a big table this could crash "
 "the browser."
 msgstr ""
+"Gusto mo ba talagang makita ang lahat ng mga hanay? Para sa isang malaking "
+"table na ito ay maaaring crash ang browser."
 
 #: js/messages.php:610
 msgid "Original length"
-msgstr ""
+msgstr "Orihinal na haba"
 
 #: js/messages.php:613
 msgid "cancel"
-msgstr ""
+msgstr "Kanselahin"
 
 #: js/messages.php:614 libraries/server_status.lib.php:277
 msgid "Aborted"
-msgstr ""
+msgstr "Nawawala"
 
 #: js/messages.php:616
 msgid "Success"
-msgstr ""
+msgstr "Tagumpay"
 
 #: js/messages.php:617
 msgid "Import status"
-msgstr ""
+msgstr "Pag-import ng katayuan"
 
 #: js/messages.php:618 libraries/navigation/Navigation.php:113
 msgid "Drop files here"
-msgstr ""
+msgstr "I-drop ang mga file dito"
 
 #: js/messages.php:619
 msgid "Select database first"
-msgstr ""
+msgstr "Piliin ang database muna"
 
 #: js/messages.php:622 libraries/DisplayResults.php:5059
 #: libraries/Util.php:3995
 #: templates/database/structure/print_view_data_dictionary_link.phtml:3
 #: templates/table/structure/optional_action_links.phtml:6
 msgid "Print"
-msgstr ""
+msgstr "I-print"
 
 #: js/messages.php:629
 msgid "You can also edit most values<br />by double-clicking directly on them."
 msgstr ""
+"Maaari mo ring i-edit ang karamihan sa mga halaga<br /> sa pamamagitan ng "
+"pag-double-click nang direkta sa mga ito."
 
 #: js/messages.php:634
 msgid "You can also edit most values<br />by clicking directly on them."
 msgstr ""
+"Maaari mo ring i-edit ang karamihan ng mga halaga <br /> sa pamamagitan ng "
+"pag-click nang direkta sa mga ito."
 
 #: js/messages.php:640
 msgid "Go to link:"
-msgstr ""
+msgstr "Pumunta sa link:"
 
 #: js/messages.php:641
 msgid "Copy column name."
-msgstr ""
+msgstr "Kopyahin ang pangalan ng haligi."
 
 #: js/messages.php:643
 msgid "Right-click the column name to copy it to your clipboard."
 msgstr ""
+"Mag-right-click ang pangalan ng haligi upang kopyahin ito sa iyong clipboard."
 
 #: js/messages.php:646
 msgid "Generate password"
-msgstr ""
+msgstr "Bumuo ng password"
 
 #: js/messages.php:647 libraries/replication_gui.lib.php:877
 msgid "Generate"
-msgstr ""
+msgstr "Gumawa"
 
 #: js/messages.php:651
 msgid "More"
-msgstr ""
+msgstr "Higit pa"
 
 #: js/messages.php:654
 msgid "Show panel"
-msgstr ""
+msgstr "Ipakita ang panel"
 
 #: js/messages.php:655
 msgid "Hide panel"
-msgstr ""
+msgstr "Itago ang panel"
 
 #: js/messages.php:656
 msgid "Show hidden navigation tree items."
-msgstr ""
+msgstr "Ipakita ang mga nakatagong item sa puno ng nabigasyon."
 
 #: js/messages.php:657 libraries/config/messages.inc.php:473
 #: libraries/navigation/NavigationTree.php:1432
 msgid "Link with main panel"
-msgstr ""
+msgstr "Mag-link sa pangunahing panel"
 
 #: js/messages.php:658 libraries/navigation/NavigationTree.php:1435
 msgid "Unlink from main panel"
-msgstr ""
+msgstr "I-unlink mula sa pangunahing panel"
 
 #: js/messages.php:662
 msgid "The requested page was not found in the history, it may have expired."
 msgstr ""
+"Ang hiniling na pahina ay hindi natagpuan sa kasaysayan, maaaring natapos na "
+"ito."
 
 #: js/messages.php:666 setup/lib/index.lib.php:165
 #, php-format
@@ -2438,47 +2503,54 @@ msgid ""
 "A newer version of phpMyAdmin is available and you should consider "
 "upgrading. The newest version is %s, released on %s."
 msgstr ""
+"Ang isang mas bagong bersyon ng phpMyAdmin ay magagamit at dapat mong "
+"isaalang-alang ang pag-upgrade. Ang pinakabagong bersyon ay %s, inilabas sa "
+"%s."
 
 #. l10n: Latest available phpMyAdmin version
 #: js/messages.php:670
 msgid ", latest stable version:"
-msgstr ""
+msgstr ", pinakabagong istabiliyang bersyon:"
 
 #: js/messages.php:671
 msgid "up to date"
-msgstr ""
+msgstr "napapanahon"
 
 #: js/messages.php:673 libraries/DisplayResults.php:4990 view_create.php:206
 msgid "Create view"
-msgstr ""
+msgstr "Lumikha ng view"
 
 #: js/messages.php:676
 msgid "Send error report"
-msgstr ""
+msgstr "Magpadala ng ulat ng error"
 
 #: js/messages.php:677
 msgid "Submit error report"
-msgstr ""
+msgstr "Isumite ang ulat ng error"
 
 #: js/messages.php:679
 msgid ""
 "A fatal JavaScript error has occurred. Would you like to send an error "
 "report?"
 msgstr ""
+"May naganap na nakamamatay na error sa JavaScript. Gusto mo bang magpadala "
+"ng ulat ng error?"
 
 #: js/messages.php:681
 msgid "Change report settings"
-msgstr ""
+msgstr "Baguhin ang mga setting ng ulat"
 
 #: js/messages.php:682
 msgid "Show report details"
-msgstr ""
+msgstr "Ipakita ang mga detalye ng ulat"
 
 #: js/messages.php:685
 msgid ""
 "Your export is incomplete, due to a low execution time limit at the PHP "
 "level!"
 msgstr ""
+"Ang iyong pag-export ay hindi kumpleto, dahil sa isang mababang limitasyon "
+"ng oras ng pagpapatupad sa antas ng PHP!"
 
 #: js/messages.php:689
 #, php-format
@@ -2486,35 +2558,40 @@ msgid ""
 "Warning: a form on this page has more than %d fields. On submission, some of "
 "the fields might be ignored, due to PHP's max_input_vars configuration."
 msgstr ""
+"Babala: isang form sa pahinang ito ay may higit sa %d na mga patlang. Sa "
+"pagsusumite, ang ilan sa mga patlang ay maaaring hindi pinansin, dahil sa "
+"configuration ng max_input_vars ng PHP."
 
 #: js/messages.php:695 js/messages.php:708
 msgid "Some errors have been detected on the server!"
-msgstr ""
+msgstr "Nakita ang ilang mga error sa server!"
 
 #: js/messages.php:697
 msgid "Please look at the bottom of this window."
-msgstr ""
+msgstr "Mangyaring tingnan ang ilalim ng window na ito."
 
 #: js/messages.php:703 libraries/ErrorHandler.php:374
 msgid "Ignore All"
-msgstr ""
+msgstr "Huwag pansinin ang Lahat"
 
 #: js/messages.php:711
 msgid ""
 "As per your settings, they are being submitted currently, please be patient."
 msgstr ""
+"Tulad ng iyong mga setting, ang mga ito ay isinumite sa kasalukuyan, "
+"mangyaring maging matiyaga."
 
 #: js/messages.php:721
 msgid "Execute this query again?"
-msgstr ""
+msgstr "Ipatupad muli ang query na ito?"
 
 #: js/messages.php:723
 msgid "Do you really want to delete this bookmark?"
-msgstr ""
+msgstr "Gusto mo bang tanggalin ang bookmark na ito?"
 
 #: js/messages.php:725
 msgid "Some error occurred while getting SQL debug info."
-msgstr ""
+msgstr "May naganap na error habang nakakakuha ng impormasyon sa debug ng SQL."
 
 #: js/messages.php:727
 #, php-format
@@ -2524,15 +2601,15 @@ msgstr "%s mga query na isinagawa %s beses sa %s segundo."
 #: js/messages.php:728
 #, php-format
 msgid "%s argument(s) passed"
-msgstr ""
+msgstr "Naipasa ang argumento ng %s"
 
 #: js/messages.php:729
 msgid "Show arguments"
-msgstr ""
+msgstr "Ipakita ang mga argumento"
 
 #: js/messages.php:730
 msgid "Hide arguments"
-msgstr ""
+msgstr "Itago ang mga argumento"
 
 #: js/messages.php:731
 msgid "Time taken:"
@@ -2546,269 +2623,276 @@ msgid ""
 "cause such a problem, clearing your \"Offline Website Data\" might help. In "
 "Safari, such problem is commonly caused by \"Private Mode Browsing\"."
 msgstr ""
+"Nagkaroon ng problema sa pag-access sa imbakan ng iyong browser, maaaring "
+"hindi gumana ng maayos ang ilang mga tampok para sa iyo. Malamang na ang "
+"browser ay hindi sumusuporta sa imbakan o ang limitasyon ng quota ay naabot "
+"na. Sa Firefox, masira ang imbakan ay maaaring maging sanhi ng gayong "
+"problema, ang pag-clear ng iyong \"Offline Website Data\" ay maaaring "
+"makatulong. Sa Safari, ang naturang problema ay kadalasang sanhi ng \""
+"Private Browsing Mode\"."
 
 #: js/messages.php:734
 msgid "Copy tables to"
-msgstr ""
+msgstr "Kopyahin ang mga talahanayan"
 
 #: js/messages.php:735
 msgid "Add table prefix"
-msgstr ""
+msgstr "Magdagdag ng prefix ng talahanayan"
 
 #: js/messages.php:736
 msgid "Replace table with prefix"
-msgstr ""
+msgstr "Palitan ang table na may prefix"
 
 #: js/messages.php:737 templates/database/structure/check_all_tables.phtml:29
 msgid "Copy table with prefix"
-msgstr ""
+msgstr "Kopyahin ang talahanayan na may prefix"
 
 #: js/messages.php:740
 msgid "Extremely weak"
-msgstr ""
+msgstr "Lubhang mahina"
 
 #: js/messages.php:741
 msgid "Very weak"
-msgstr ""
+msgstr "Napaka-mahina"
 
 #: js/messages.php:742
 msgid "Weak"
-msgstr ""
+msgstr "Mahina"
 
 #: js/messages.php:743
 msgid "Good"
-msgstr ""
+msgstr "Mabuti"
 
 #: js/messages.php:744
 msgid "Strong"
-msgstr ""
+msgstr "Malakas"
 
 #: js/messages.php:773
 msgctxt "Previous month"
 msgid "Prev"
-msgstr ""
+msgstr "Nakaraan"
 
 #: js/messages.php:778
 msgctxt "Next month"
 msgid "Next"
-msgstr ""
+msgstr "Susunod"
 
 #. l10n: Display text for current month link in calendar
 #: js/messages.php:781
 msgid "Today"
-msgstr ""
+msgstr "Ngayon"
 
 #: js/messages.php:785
 msgid "January"
-msgstr ""
+msgstr "Enero"
 
 #: js/messages.php:786
 msgid "February"
-msgstr ""
+msgstr "Pebrero"
 
 #: js/messages.php:787
 msgid "March"
-msgstr ""
+msgstr "Marso"
 
 #: js/messages.php:788
 msgid "April"
-msgstr ""
+msgstr "Abril"
 
 #: js/messages.php:789
 msgid "May"
-msgstr ""
+msgstr "Mayo"
 
 #: js/messages.php:790
 msgid "June"
-msgstr ""
+msgstr "Hunyo"
 
 #: js/messages.php:791
 msgid "July"
-msgstr ""
+msgstr "Hulyo"
 
 #: js/messages.php:792
 msgid "August"
-msgstr ""
+msgstr "Agosto"
 
 #: js/messages.php:793
 msgid "September"
-msgstr ""
+msgstr "Septyembre"
 
 #: js/messages.php:794
 msgid "October"
-msgstr ""
+msgstr "Oktubre"
 
 #: js/messages.php:795
 msgid "November"
-msgstr ""
+msgstr "Nobyembre"
 
 #: js/messages.php:796
 msgid "December"
-msgstr ""
+msgstr "Disyembre"
 
 #. l10n: Short month name
 #: js/messages.php:803 libraries/Util.php:1525
 msgid "Jan"
-msgstr ""
+msgstr "Enero"
 
 #. l10n: Short month name
 #: js/messages.php:805 libraries/Util.php:1527
 msgid "Feb"
-msgstr ""
+msgstr "Pebrero"
 
 #. l10n: Short month name
 #: js/messages.php:807 libraries/Util.php:1529
 msgid "Mar"
-msgstr ""
+msgstr "Marso"
 
 #. l10n: Short month name
 #: js/messages.php:809 libraries/Util.php:1531
 msgid "Apr"
-msgstr ""
+msgstr "Abril"
 
 #. l10n: Short month name
 #: js/messages.php:811 libraries/Util.php:1533
 msgctxt "Short month name"
 msgid "May"
-msgstr ""
+msgstr "Mayo"
 
 #. l10n: Short month name
 #: js/messages.php:813 libraries/Util.php:1535
 msgid "Jun"
-msgstr ""
+msgstr "Junyo"
 
 #. l10n: Short month name
 #: js/messages.php:815 libraries/Util.php:1537
 msgid "Jul"
-msgstr ""
+msgstr "Hulyo"
 
 #. l10n: Short month name
 #: js/messages.php:817 libraries/Util.php:1539
 msgid "Aug"
-msgstr ""
+msgstr "Agosto"
 
 #. l10n: Short month name
 #: js/messages.php:819 libraries/Util.php:1541
 msgid "Sep"
-msgstr ""
+msgstr "Septyembre"
 
 #. l10n: Short month name
 #: js/messages.php:821 libraries/Util.php:1543
 msgid "Oct"
-msgstr ""
+msgstr "Oktubre"
 
 #. l10n: Short month name
 #: js/messages.php:823 libraries/Util.php:1545
 msgid "Nov"
-msgstr ""
+msgstr "Nobyembre"
 
 #. l10n: Short month name
 #: js/messages.php:825 libraries/Util.php:1547
 msgid "Dec"
-msgstr ""
+msgstr "Disyembre"
 
 #: js/messages.php:831
 msgid "Sunday"
-msgstr ""
+msgstr "Linggo"
 
 #: js/messages.php:832
 msgid "Monday"
-msgstr ""
+msgstr "Lunes"
 
 #: js/messages.php:833
 msgid "Tuesday"
-msgstr ""
+msgstr "Martes"
 
 #: js/messages.php:834
 msgid "Wednesday"
-msgstr ""
+msgstr "Miyerkules"
 
 #: js/messages.php:835
 msgid "Thursday"
-msgstr ""
+msgstr "Huwebes"
 
 #: js/messages.php:836
 msgid "Friday"
-msgstr ""
+msgstr "Biyernes"
 
 #: js/messages.php:837
 msgid "Saturday"
-msgstr ""
+msgstr "Sabado"
 
 #. l10n: Short week day name
 #: js/messages.php:844
 msgid "Sun"
-msgstr ""
+msgstr "Linggo"
 
 #. l10n: Short week day name
 #: js/messages.php:846 libraries/Util.php:1552
 msgid "Mon"
-msgstr ""
+msgstr "Lunes"
 
 #. l10n: Short week day name
 #: js/messages.php:848 libraries/Util.php:1554
 msgid "Tue"
-msgstr ""
+msgstr "Martes"
 
 #. l10n: Short week day name
 #: js/messages.php:850 libraries/Util.php:1556
 msgid "Wed"
-msgstr ""
+msgstr "Miyerkules"
 
 #. l10n: Short week day name
 #: js/messages.php:852 libraries/Util.php:1558
 msgid "Thu"
-msgstr ""
+msgstr "Huwebes"
 
 #. l10n: Short week day name
 #: js/messages.php:854 libraries/Util.php:1560
 msgid "Fri"
-msgstr ""
+msgstr "Biyernes"
 
 #. l10n: Short week day name
 #: js/messages.php:856 libraries/Util.php:1562
 msgid "Sat"
-msgstr ""
+msgstr "Sabado"
 
 #. l10n: Minimal week day name
 #: js/messages.php:863
 msgid "Su"
-msgstr ""
+msgstr "Su"
 
 #. l10n: Minimal week day name
 #: js/messages.php:865
 msgid "Mo"
-msgstr ""
+msgstr "Mo"
 
 #. l10n: Minimal week day name
 #: js/messages.php:867
 msgid "Tu"
-msgstr ""
+msgstr "Tu"
 
 #. l10n: Minimal week day name
 #: js/messages.php:869
 msgid "We"
-msgstr ""
+msgstr "We"
 
 #. l10n: Minimal week day name
 #: js/messages.php:871
 msgid "Th"
-msgstr ""
+msgstr "Th"
 
 #. l10n: Minimal week day name
 #: js/messages.php:873
 msgid "Fr"
-msgstr ""
+msgstr "Fr"
 
 #. l10n: Minimal week day name
 #: js/messages.php:875
 msgid "Sa"
-msgstr ""
+msgstr "Sa"
 
 #. l10n: Column header for week of the year in calendar
 #: js/messages.php:879
 msgid "Wk"
-msgstr ""
+msgstr "Wk"
 
 #. l10n: Month-year order for calendar, use either "calendar-month-year"
 #. * or "calendar-year-month".
@@ -2821,31 +2905,31 @@ msgstr "calendar-month-year"
 #: js/messages.php:889
 msgctxt "Year suffix"
 msgid "none"
-msgstr ""
+msgstr "Wala"
 
 #: js/messages.php:901
 msgid "Hour"
-msgstr ""
+msgstr "Oras"
 
 #: js/messages.php:902
 msgid "Minute"
-msgstr ""
+msgstr "Minuto"
 
 #: js/messages.php:903
 msgid "Second"
-msgstr ""
+msgstr "Segundo"
 
 #: js/messages.php:914
 msgid "This field is required"
-msgstr ""
+msgstr "Ang patlang na ito ay kinakailangan"
 
 #: js/messages.php:915
 msgid "Please fix this field"
-msgstr ""
+msgstr "Paki-ayos ang patlang na ito"
 
 #: js/messages.php:916
 msgid "Please enter a valid email address"
-msgstr ""
+msgstr "Mangyaring magpasok ng isang wastong email address"
 
 #: js/messages.php:917
 msgid "Please enter a valid URL"
