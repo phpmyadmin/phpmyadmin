@@ -120,7 +120,7 @@
             {% for foreign_column in one_key['ref_index_list'] %}
                 <span class="formelement clearfloat">
                     {% include 'table/relation/relational_dropdown.twig' with {
-                        'name': 'destination_foreign_column[' ~ i ~ ']',
+                        'name': 'destination_foreign_column[' ~ i ~ '][]',
                         'title': 'Column'|trans,
                         'values': unique_columns,
                         'foreign': foreign_column
@@ -130,7 +130,7 @@
         {% else %}
             <span class="formelement clearfloat">
                 {% include 'table/relation/relational_dropdown.twig' with {
-                    'name': 'destination_foreign_column[' ~ i ~ ']',
+                    'name': 'destination_foreign_column[' ~ i ~ '][]',
                     'title': 'Column'|trans,
                     'values': [],
                     'foreign': ''
