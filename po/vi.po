@@ -6,11 +6,11 @@
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: phpMyAdmin 4.7.6-dev\n"
+"Project-Id-Version: phpMyAdmin 4.7.8-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
-"POT-Creation-Date: 2017-11-02 14:03+0100\n"
-"PO-Revision-Date: 2017-03-25 13:25+0000\n"
-"Last-Translator: Vuong Phan <thevuong@live.com>\n"
+"POT-Creation-Date: 2018-02-12 16:30+0100\n"
+"PO-Revision-Date: 2018-02-12 15:28+0000\n"
+"Last-Translator: Michal Čihař <michal@cihar.com>\n"
 "Language-Team: Vietnamese <https://hosted.weblate.org/projects/"
 "phpmyadmin/4-7/vi/>\n"
 "Language: vi\n"
@@ -18,7 +18,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Weblate 2.12\n"
+"X-Generator: Weblate 2.19-dev\n"
 
 #: ajax.php:16 ajax.php:33 export.php:192 schema_export.php:64
 msgid "Bad type!"
@@ -101,7 +101,7 @@ msgstr "Cột"
 #: libraries/rte/rte_routines.lib.php:898
 #: libraries/rte/rte_routines.lib.php:929
 #: libraries/rte/rte_routines.lib.php:1605
-#: libraries/server_privileges.lib.php:2529 libraries/tracking.lib.php:890
+#: libraries/server_privileges.lib.php:2539 libraries/tracking.lib.php:890
 #: libraries/tracking.lib.php:977
 #: templates/columns_definitions/table_fields_definitions.phtml:11
 #: templates/database/structure/table_header.phtml:48
@@ -193,11 +193,11 @@ msgstr "Chính"
 #: libraries/plugins/export/ExportOdt.php:792
 #: libraries/plugins/export/ExportTexytext.php:608
 #: libraries/plugins/schema/pdf/PdfRelationSchema.php:705
-#: libraries/server_privileges.lib.php:2705
-#: libraries/server_privileges.lib.php:2926
-#: libraries/server_privileges.lib.php:2946
-#: libraries/server_privileges.lib.php:3608
-#: libraries/server_privileges.lib.php:3637 libraries/tracking.lib.php:936
+#: libraries/server_privileges.lib.php:2715
+#: libraries/server_privileges.lib.php:2936
+#: libraries/server_privileges.lib.php:2956
+#: libraries/server_privileges.lib.php:3618
+#: libraries/server_privileges.lib.php:3647 libraries/tracking.lib.php:936
 #: libraries/tracking.lib.php:1008 libraries/tracking.lib.php:1013
 #: prefs_manage.php:150 templates/prefs_autoload.phtml:13
 #: templates/privileges/privileges_summary_row.phtml:4
@@ -226,11 +226,11 @@ msgstr "Không"
 #: libraries/plugins/export/ExportOdt.php:793
 #: libraries/plugins/export/ExportTexytext.php:608
 #: libraries/plugins/schema/pdf/PdfRelationSchema.php:706
-#: libraries/server_privileges.lib.php:2705
-#: libraries/server_privileges.lib.php:2923
-#: libraries/server_privileges.lib.php:2944
-#: libraries/server_privileges.lib.php:3605
-#: libraries/server_privileges.lib.php:3637 libraries/tracking.lib.php:936
+#: libraries/server_privileges.lib.php:2715
+#: libraries/server_privileges.lib.php:2933
+#: libraries/server_privileges.lib.php:2954
+#: libraries/server_privileges.lib.php:3615
+#: libraries/server_privileges.lib.php:3647 libraries/tracking.lib.php:936
 #: libraries/tracking.lib.php:1006 libraries/tracking.lib.php:1011
 #: prefs_manage.php:148 templates/prefs_autoload.phtml:12
 #: templates/privileges/privileges_summary_row.phtml:4
@@ -261,8 +261,8 @@ msgid "Tables"
 msgstr "Các bảng"
 
 #: db_export.php:66 libraries/Menu.php:330 libraries/Menu.php:437
-#: libraries/Util.php:3183 libraries/Util.php:3193 libraries/Util.php:3199
-#: libraries/Util.php:3479 libraries/Util.php:4112 libraries/Util.php:4129
+#: libraries/Util.php:3184 libraries/Util.php:3194 libraries/Util.php:3200
+#: libraries/Util.php:3480 libraries/Util.php:4113 libraries/Util.php:4130
 #: libraries/central_columns.lib.php:727 libraries/config.values.php:38
 #: libraries/config.values.php:46 libraries/config.values.php:109
 #: libraries/config.values.php:115 libraries/config/setup.forms.php:316
@@ -270,9 +270,9 @@ msgstr "Các bảng"
 #: libraries/config/user_preferences.forms.php:219
 #: libraries/config/user_preferences.forms.php:260
 #: libraries/config/user_preferences.forms.php:286
-#: libraries/import.lib.php:1250 libraries/navigation/nodes/NodeColumn.php:38
+#: libraries/import.lib.php:1250 libraries/navigation/nodes/NodeColumn.php:40
 #: libraries/navigation/nodes/NodeDatabase.php:53
-#: libraries/navigation/nodes/NodeTable.php:290
+#: libraries/navigation/nodes/NodeTable.php:292
 #: libraries/server_privileges.lib.php:1131 libraries/tracking.lib.php:884
 #: templates/columns_definitions/table_fields_definitions.phtml:3
 #: templates/database/designer/table_list.phtml:28
@@ -301,17 +301,22 @@ msgstr "Chọn tất cả"
 msgid "The database name is empty!"
 msgstr "Tên cơ sở dữ liệu bị trống!"
 
-#: db_operations.php:138
+#: db_operations.php:61
+msgid "Cannot copy database to the same name. Change the name and try again."
+msgstr ""
+"Không thể sao chép cơ sở dữ liệu với tên như cũ. Hãy đổi tên khác và thử lại."
+
+#: db_operations.php:150
 #, php-format
 msgid "Database %1$s has been renamed to %2$s."
 msgstr "Cơ sở dữ liệu %1$s đã được đổi tên thành %2$s."
 
-#: db_operations.php:150
+#: db_operations.php:162
 #, php-format
 msgid "Database %1$s has been copied to %2$s."
 msgstr "Cơ sở dữ liệu %1$s đã được sao chép sang %2$s."
 
-#: db_operations.php:279
+#: db_operations.php:292
 #, php-format
 msgid ""
 "The phpMyAdmin configuration storage has been deactivated. %sFind out why%s."
@@ -474,10 +479,10 @@ msgstr "Thêm dạng hình"
 #: libraries/normalization.lib.php:163 libraries/normalization.lib.php:820
 #: libraries/operations.lib.php:43 libraries/operations.lib.php:108
 #: libraries/operations.lib.php:258 libraries/operations.lib.php:300
-#: libraries/operations.lib.php:794 libraries/operations.lib.php:864
-#: libraries/operations.lib.php:909 libraries/operations.lib.php:1315
-#: libraries/operations.lib.php:1628
-#: libraries/plugins/auth/AuthenticationCookie.php:236
+#: libraries/operations.lib.php:787 libraries/operations.lib.php:857
+#: libraries/operations.lib.php:902 libraries/operations.lib.php:1308
+#: libraries/operations.lib.php:1621
+#: libraries/plugins/auth/AuthenticationCookie.php:250
 #: libraries/replication_gui.lib.php:122 libraries/replication_gui.lib.php:161
 #: libraries/replication_gui.lib.php:326 libraries/replication_gui.lib.php:463
 #: libraries/replication_gui.lib.php:885 libraries/rte/rte_events.lib.php:515
@@ -485,8 +490,8 @@ msgstr "Thêm dạng hình"
 #: libraries/rte/rte_routines.lib.php:1692
 #: libraries/rte/rte_triggers.lib.php:400
 #: libraries/server_privileges.lib.php:692
-#: libraries/server_privileges.lib.php:2194
-#: libraries/server_privileges.lib.php:3076
+#: libraries/server_privileges.lib.php:2204
+#: libraries/server_privileges.lib.php:3086
 #: libraries/server_user_groups.lib.php:284
 #: libraries/sql_query_form.lib.php:373 libraries/sql_query_form.lib.php:435
 #: libraries/tracking.lib.php:544 libraries/tracking.lib.php:667
@@ -562,7 +567,7 @@ msgstr ""
 "Không thể tải phần bổ sung nhập dữ liệu, vui lòng kiểm tra bản cài đặt của "
 "bạn!"
 
-#: import.php:571 libraries/sql.lib.php:788 libraries/sql.lib.php:1567
+#: import.php:571 libraries/sql.lib.php:790 libraries/sql.lib.php:1569
 #, php-format
 msgid "Bookmark %s has been created."
 msgstr "Đánh dấu %s đã được tạo ra."
@@ -611,12 +616,15 @@ msgid ""
 "You were logged out from one server, to logout completely from phpMyAdmin, "
 "you need to logout from all servers."
 msgstr ""
+"Bạn đã thoát ra một máy chủ, để hoàn toàn đăng xuất khỏi phpMyAdmin, bạn cần "
+"rời khỏi tất cả máy chủ."
 
 #: index.php:160 libraries/Footer.php:69
+#: libraries/plugins/auth/AuthenticationCookie.php:141
 msgid "phpMyAdmin Demo Server"
 msgstr "Máy chủ phpMyAdmin mẫu"
 
-#: index.php:164
+#: index.php:164 libraries/plugins/auth/AuthenticationCookie.php:144
 #, php-format
 msgid ""
 "You are using the demo server. You can do anything here, but please do not "
@@ -653,7 +661,7 @@ msgstr "Cài đặt thêm"
 msgid "Database server"
 msgstr "Máy chủ cơ sở dữ liệu"
 
-#: index.php:300 libraries/plugins/auth/AuthenticationCookie.php:182
+#: index.php:300 libraries/plugins/auth/AuthenticationCookie.php:196
 msgid "Server:"
 msgstr "Máy chủ:"
 
@@ -928,6 +936,7 @@ msgid "Do you really want to RESET SLAVE?"
 msgstr "Bạn có thực sự muốn RESET SLAVE?"
 
 #: js/messages.php:88
+#, fuzzy
 msgid ""
 "This operation will attempt to convert your data to the new collation. In "
 "rare cases, especially where a character doesn't exist in the new collation, "
@@ -935,6 +944,11 @@ msgid ""
 "collation; in this case we suggest you revert to the original collation and "
 "refer to the tips at "
 msgstr ""
+"Thao tác này sẽ cố gắng chuyển đổi dữ liệu của bạn sang sự đối chiếu mới. "
+"Trong một số ít trường hợp, đặc biệt là khi một ký tự không tồn tại trong sự "
+"đối chiếu mới, quá trình này có thể làm cho dữ liệu xuất hiện không đúng "
+"theo đối chiếu mới; trong trường hợp này, chúng tôi khuyên bạn nên hoàn "
+"nguyên về đối chiếu ban đầu và tham khảo các mẹo tại "
 
 #: js/messages.php:94
 msgid "Garbled Data"
@@ -1097,14 +1111,12 @@ msgid "Other"
 msgstr "Khác"
 
 #. l10n: Thousands separator
-#: js/messages.php:160 libraries/Util.php:1397 libraries/Util.php:1465
-#: libraries/Util.php:1479
+#: js/messages.php:160 libraries/Util.php:1397 libraries/Util.php:1428
 msgid ","
 msgstr "."
 
 #. l10n: Decimal separator
-#: js/messages.php:162 libraries/Util.php:1395 libraries/Util.php:1463
-#: libraries/Util.php:1477
+#: js/messages.php:162 libraries/Util.php:1395 libraries/Util.php:1426
 msgid "."
 msgstr ","
 
@@ -1123,6 +1135,10 @@ msgid ""
 "likely that your current configuration will not work anymore. Please reset "
 "your configuration to default in the <i>Settings</i> menu."
 msgstr ""
+"Cấu hình sắp xếp biểu đồ trong trình lưu trữ cục bộ của trình duyệt không "
+"tương thích nữa với phiên bản mới hơn của hộp thoại màn hình. Rất có thể cấu "
+"hình hiện tại của bạn sẽ không hoạt động nữa. Vui lòng đặt lại cấu hình của "
+"bạn về mặc định trong trình đơn <i>Cài đặt </i>."
 
 #: js/messages.php:176
 msgid "Query cache efficiency"
@@ -1257,7 +1273,7 @@ msgstr "Câu hỏi"
 msgid "Traffic"
 msgstr "Lưu lượng"
 
-#: js/messages.php:214 libraries/Menu.php:592 libraries/Util.php:4103
+#: js/messages.php:214 libraries/Menu.php:592 libraries/Util.php:4104
 #: libraries/server_status_monitor.lib.php:256
 msgid "Settings"
 msgstr "Cài đặt"
@@ -1345,6 +1361,8 @@ msgid ""
 "Following settings will be applied globally and reset to default on server "
 "restart:"
 msgstr ""
+"Các cài đặt sau sẽ được áp dụng toàn hệ thống và sẽ được đặt lại thành mặc "
+"định khi khởi động lại máy chủ:"
 
 #. l10n: %s is FILE or TABLE
 #: js/messages.php:242
@@ -1478,7 +1496,7 @@ msgstr "Đang phân tích…"
 msgid "Explain output"
 msgstr "Xuất vùng chọn:"
 
-#: js/messages.php:291 libraries/Menu.php:558 libraries/Util.php:4099
+#: js/messages.php:291 libraries/Menu.php:558 libraries/Util.php:4100
 #: libraries/config.values.php:104 libraries/rte/rte_events.lib.php:399
 #: libraries/rte/rte_list.lib.php:107
 #: libraries/server_status_processes.lib.php:92 libraries/tracking.lib.php:287
@@ -1514,8 +1532,6 @@ msgid "Chart"
 msgstr "Biểu đồ"
 
 #: js/messages.php:298 libraries/display_export.lib.php:903
-#, fuzzy
-#| msgid "Database"
 msgctxt "Alias"
 msgid "Database"
 msgstr "Cơ sở dữ liệu"
@@ -1600,8 +1616,8 @@ msgstr ""
 "thành cấu hình mặc định…"
 
 #: js/messages.php:329 libraries/Menu.php:365 libraries/Menu.php:467
-#: libraries/Menu.php:588 libraries/Util.php:4102 libraries/Util.php:4117
-#: libraries/Util.php:4134 libraries/config/messages.inc.php:257
+#: libraries/Menu.php:588 libraries/Util.php:4103 libraries/Util.php:4118
+#: libraries/Util.php:4135 libraries/config/messages.inc.php:257
 #: libraries/display_import.lib.php:107
 #: libraries/server_status_monitor.lib.php:316 prefs_manage.php:246
 #: setup/frames/menu.inc.php:26
@@ -1720,6 +1736,8 @@ msgid ""
 "It seems that the connection to server has been lost. Please check your "
 "network connectivity and server status."
 msgstr ""
+"Kết nối với máy chủ đã bị mất. Vui lòng kiểm tra lại kết nối mạng và trạng "
+"thái máy chủ."
 
 #: js/messages.php:372
 #: libraries/controllers/server/ServerDatabasesController.php:194
@@ -1761,7 +1779,7 @@ msgstr "Đang chép cơ sở dữ liệu"
 msgid "Changing charset"
 msgstr "Đang đổi bảng mã"
 
-#: js/messages.php:385 libraries/Util.php:3082
+#: js/messages.php:385 libraries/Util.php:3083
 msgid "Enable foreign key checks"
 msgstr "Bật kiểm tra khóa ngoại"
 
@@ -1800,14 +1818,14 @@ msgstr "Định nghĩa hàm lưu trữ phải có chứa lệnh RETURN!"
 
 #: js/messages.php:401 libraries/DisplayResults.php:4884
 #: libraries/DisplayResults.php:5167 libraries/Menu.php:357
-#: libraries/Menu.php:458 libraries/Menu.php:584 libraries/Util.php:3486
-#: libraries/Util.php:3487 libraries/Util.php:4101 libraries/Util.php:4116
-#: libraries/Util.php:4133 libraries/config/messages.inc.php:251
+#: libraries/Menu.php:458 libraries/Menu.php:584 libraries/Util.php:3487
+#: libraries/Util.php:3488 libraries/Util.php:4102 libraries/Util.php:4117
+#: libraries/Util.php:4134 libraries/config/messages.inc.php:251
 #: libraries/display_export.lib.php:172 libraries/rte/rte_list.lib.php:159
-#: libraries/server_privileges.lib.php:2366
-#: libraries/server_privileges.lib.php:2450
-#: libraries/server_privileges.lib.php:2794
-#: libraries/server_privileges.lib.php:3521
+#: libraries/server_privileges.lib.php:2376
+#: libraries/server_privileges.lib.php:2460
+#: libraries/server_privileges.lib.php:2804
+#: libraries/server_privileges.lib.php:3531
 #: libraries/server_status_monitor.lib.php:320 prefs_manage.php:312
 #: setup/frames/menu.inc.php:27
 #: templates/database/structure/check_all_tables.phtml:12
@@ -1855,8 +1873,8 @@ msgstr "Hiện hộp truy vấn"
 
 #: js/messages.php:420 libraries/DisplayResults.php:3501
 #: libraries/DisplayResults.php:4868 libraries/Index.php:709
-#: libraries/Util.php:619 libraries/Util.php:1105 libraries/Util.php:3484
-#: libraries/Util.php:3485 libraries/central_columns.lib.php:848
+#: libraries/Util.php:619 libraries/Util.php:1105 libraries/Util.php:3485
+#: libraries/Util.php:3486 libraries/central_columns.lib.php:848
 #: libraries/central_columns.lib.php:1195 libraries/config/messages.inc.php:879
 #: libraries/server_user_groups.lib.php:117 setup/frames/index.inc.php:160
 #: templates/console/bookmark_content.phtml:17
@@ -2007,6 +2025,8 @@ msgid ""
 "Sit tight! It may take few seconds depending on data size and column count "
 "of the table."
 msgstr ""
+"Hãy ngồi yên! Có thể mất vài giây tùy thuộc vào kích thước dữ liệu và số cột "
+"của bảng."
 
 #: js/messages.php:467
 msgid "Step"
@@ -2031,11 +2051,11 @@ msgstr "Bước thứ ba của việc tiêu chuẩn hóa (3NF)"
 
 #: js/messages.php:475
 msgid "Confirm transitive dependencies"
-msgstr ""
+msgstr "Xác nhận phụ thuộc chuyển tiếp"
 
 #: js/messages.php:476
 msgid "Selected dependencies are as follows:"
-msgstr ""
+msgstr "Các phụ thuộc được chọn như sau:"
 
 #: js/messages.php:477
 msgid "No dependencies selected!"
@@ -2171,12 +2191,16 @@ msgid ""
 "MySQL accepts additional values not selectable by the slider; key in those "
 "values directly if desired"
 msgstr ""
+"MySQL chấp nhận các giá trị bổ sung không được lựa chọn bởi thanh trượt; "
+"chọn những giá trị này trực tiếp nếu muốn"
 
 #: js/messages.php:542
 msgid ""
 "MySQL accepts additional values not selectable by the datepicker; key in "
 "those values directly if desired"
 msgstr ""
+"MySQL chấp nhận các giá trị bổ sung không được lựa chọn bởi bảng chọn ngày; "
+"chọn những giá trị này trực tiếp nếu muốn"
 
 #: js/messages.php:548
 msgid ""
@@ -2376,7 +2400,7 @@ msgid "Select database first"
 msgstr "Hãy chọn cơ sở dữ liệu trước"
 
 #: js/messages.php:622 libraries/DisplayResults.php:5059
-#: libraries/Util.php:3994
+#: libraries/Util.php:3995
 #: templates/database/structure/print_view_data_dictionary_link.phtml:3
 #: templates/table/structure/optional_action_links.phtml:6
 msgid "Print"
@@ -2431,11 +2455,11 @@ msgid "Show hidden navigation tree items."
 msgstr "Hiển thị các mục ẩn cây điều hướng."
 
 #: js/messages.php:657 libraries/config/messages.inc.php:473
-#: libraries/navigation/NavigationTree.php:1431
+#: libraries/navigation/NavigationTree.php:1432
 msgid "Link with main panel"
 msgstr "Liên kết với bảng điều khiển chính"
 
-#: js/messages.php:658 libraries/navigation/NavigationTree.php:1434
+#: js/messages.php:658 libraries/navigation/NavigationTree.php:1435
 msgid "Unlink from main panel"
 msgstr "Bỏ liên kết với bảng điều khiển chính"
 
@@ -2564,22 +2588,24 @@ msgid ""
 "cause such a problem, clearing your \"Offline Website Data\" might help. In "
 "Safari, such problem is commonly caused by \"Private Mode Browsing\"."
 msgstr ""
+"Đã xảy ra sự cố khi truy cập bộ nhớ trình duyệt của bạn, một số tính năng có "
+"thể không hoạt động chính xác với bạn. Có khả năng là trình duyệt không hỗ "
+"trợ lưu trữ hoặc giới hạn hạn ngạch đã đầy. Với Firefox, dung lượng lưu trữ "
+"bị hỏng cũng có thể gây ra sự cố như vậy, việc xoá \"Dữ liệu web ngoại tuyến"
+"\" có thể giúp ích. Với Safari, vấn đề như vậy thường gây ra bởi \"Chế độ "
+"Duyệt riêng tư\"."
 
 #: js/messages.php:734
 msgid "Copy tables to"
 msgstr "Chép các bảng sang"
 
 #: js/messages.php:735
-#, fuzzy
-#| msgid "Add table prefix:"
 msgid "Add table prefix"
-msgstr "Thêm tiền tố cho bảng:"
+msgstr "Thêm tiền tố cho bảng"
 
 #: js/messages.php:736
-#, fuzzy
-#| msgid "Replace table prefix"
 msgid "Replace table with prefix"
-msgstr "Thêm tiền tố cho bảng"
+msgstr "Thay bảng với tiền tố"
 
 #: js/messages.php:737 templates/database/structure/check_all_tables.phtml:29
 msgid "Copy table with prefix"
@@ -2587,23 +2613,23 @@ msgstr "Chép bảng với tiền tố"
 
 #: js/messages.php:740
 msgid "Extremely weak"
-msgstr ""
+msgstr "Cực kỳ yếu"
 
 #: js/messages.php:741
 msgid "Very weak"
-msgstr ""
+msgstr "Rất yếu"
 
 #: js/messages.php:742
 msgid "Weak"
-msgstr ""
+msgstr "Yếu"
 
 #: js/messages.php:743
 msgid "Good"
-msgstr ""
+msgstr "Tốt"
 
 #: js/messages.php:744
 msgid "Strong"
-msgstr ""
+msgstr "Mạnh"
 
 #: js/messages.php:773
 msgctxt "Previous month"
@@ -2964,6 +2990,7 @@ msgstr "Gặp lỗi khi định dạng chuỗi cho quy tắc “%s”."
 #, php-format
 msgid "Error in reading file: The file '%s' does not exist or is not readable!"
 msgstr ""
+"Lỗi khi đọc tập tin: Tập tin '%s' không tồn tại hoặc không thể đọc được!"
 
 #: libraries/Advisor.php:528
 #, php-format
@@ -2996,7 +3023,7 @@ msgstr "Tên bộ ký tự"
 #: libraries/Charsets.php:207 libraries/Index.php:688
 #: libraries/central_columns.lib.php:702 libraries/central_columns.lib.php:1386
 #: libraries/controllers/server/ServerDatabasesController.php:338
-#: libraries/operations.lib.php:288 libraries/operations.lib.php:1051
+#: libraries/operations.lib.php:288 libraries/operations.lib.php:1044
 #: libraries/tracking.lib.php:891 libraries/tracking.lib.php:982
 #: templates/columns_definitions/table_fields_definitions.phtml:33
 #: templates/database/structure/table_header.phtml:55
@@ -3008,63 +3035,45 @@ msgid "Collation"
 msgstr "Bảng mã đối chiếu"
 
 #: libraries/Charsets.php:244
-#, fuzzy
-#| msgid "unknown"
 msgid "Unknown"
-msgstr "không hiểu"
+msgstr "Không xác định"
 
 #: libraries/Charsets.php:258
-#, fuzzy
-#| msgid "Binary"
 msgctxt "Collation"
 msgid "Binary"
 msgstr "Nhị phân"
 
 #: libraries/Charsets.php:270 libraries/Charsets.php:500
-#, fuzzy
-#| msgid "Unicode"
 msgctxt "Collation"
 msgid "Unicode"
 msgstr "Unicode"
 
 #: libraries/Charsets.php:280 libraries/Charsets.php:451
-#, fuzzy
-#| msgid "West European"
 msgctxt "Collation"
 msgid "West European"
 msgstr "Tây Âu"
 
 #: libraries/Charsets.php:287
-#, fuzzy
-#| msgid "Central European"
 msgctxt "Collation"
 msgid "Central European"
-msgstr "Ngôn ngữ Trung Âu"
+msgstr "Trung Âu"
 
 #: libraries/Charsets.php:292
-#, fuzzy
-#| msgid "Russian"
 msgctxt "Collation"
 msgid "Russian"
 msgstr "Tiếng Nga"
 
 #: libraries/Charsets.php:297
-#, fuzzy
-#| msgid "Simplified Chinese"
 msgctxt "Collation"
 msgid "Simplified Chinese"
-msgstr "Tiếng Trung (phổ thông)"
+msgstr "Tiếng Trung giản thể"
 
 #: libraries/Charsets.php:304 libraries/Charsets.php:422
-#, fuzzy
-#| msgid "Japanese"
 msgctxt "Collation"
 msgid "Japanese"
 msgstr "Tiếng Nhật"
 
 #: libraries/Charsets.php:309
-#, fuzzy
-#| msgid "Baltic"
 msgctxt "Collation"
 msgid "Baltic"
 msgstr "Tiếng Ban-tích"
@@ -3077,11 +3086,9 @@ msgid "Armenian"
 msgstr "Tiếng Ác-mê-ni"
 
 #: libraries/Charsets.php:317
-#, fuzzy
-#| msgid "Traditional Chinese"
 msgctxt "Collation"
 msgid "Traditional Chinese"
-msgstr "Tiếng Trung (truyền thống)"
+msgstr "Tiếng Trung phồn thể"
 
 #: libraries/Charsets.php:320
 #, fuzzy
@@ -3091,22 +3098,16 @@ msgid "Cyrillic"
 msgstr "Chữ Ki-rin"
 
 #: libraries/Charsets.php:323
-#, fuzzy
-#| msgid "Arabic"
 msgctxt "Collation"
 msgid "Arabic"
 msgstr "Tiếng Ả Rập"
 
 #: libraries/Charsets.php:326 libraries/Charsets.php:437
-#, fuzzy
-#| msgid "Korean"
 msgctxt "Collation"
 msgid "Korean"
 msgstr "Tiếng Hàn Quốc"
 
 #: libraries/Charsets.php:329
-#, fuzzy
-#| msgid "Hebrew"
 msgctxt "Collation"
 msgid "Hebrew"
 msgstr "Tiếng Do Thái"
@@ -3119,8 +3120,6 @@ msgid "Georgian"
 msgstr "Tiếng Gi-oa-gi-a"
 
 #: libraries/Charsets.php:335
-#, fuzzy
-#| msgid "Greek"
 msgctxt "Collation"
 msgid "Greek"
 msgstr "Tiếng Hy Lạp"
@@ -3133,43 +3132,31 @@ msgid "Czech-Slovak"
 msgstr "Cộng hòa Xlô-vác"
 
 #: libraries/Charsets.php:341 libraries/Charsets.php:492
-#, fuzzy
-#| msgid "Ukrainian"
 msgctxt "Collation"
 msgid "Ukrainian"
 msgstr "Tiếng Ukraina"
 
 #: libraries/Charsets.php:344 libraries/Charsets.php:488
-#, fuzzy
-#| msgid "Turkish"
 msgctxt "Collation"
 msgid "Turkish"
 msgstr "Tiếng Thổ Nhĩ Kỳ"
 
 #: libraries/Charsets.php:347 libraries/Charsets.php:480
-#, fuzzy
-#| msgid "Swedish"
 msgctxt "Collation"
 msgid "Swedish"
 msgstr "Tiếng Thụy điển"
 
 #: libraries/Charsets.php:350 libraries/Charsets.php:484
-#, fuzzy
-#| msgid "Thai"
 msgctxt "Collation"
 msgid "Thai"
 msgstr "Tiếng Thái"
 
 #: libraries/Charsets.php:353
-#, fuzzy
-#| msgid "unknown"
 msgctxt "Collation"
 msgid "Unknown"
-msgstr "không hiểu"
+msgstr "Không xác định"
 
 #: libraries/Charsets.php:369
-#, fuzzy
-#| msgid "Bulgarian"
 msgctxt "Collation"
 msgid "Bulgarian"
 msgstr "Tiếng Bun-ga-ri"
@@ -3177,7 +3164,7 @@ msgstr "Tiếng Bun-ga-ri"
 #: libraries/Charsets.php:374
 msgctxt "Collation"
 msgid "Chinese"
-msgstr ""
+msgstr "Tiếng Trung"
 
 #: libraries/Charsets.php:379
 #, fuzzy
@@ -3187,29 +3174,21 @@ msgid "Croatian"
 msgstr "Tiếng Croát-chi-a"
 
 #: libraries/Charsets.php:383
-#, fuzzy
-#| msgid "Czech"
 msgctxt "Collation"
 msgid "Czech"
 msgstr "Tiếng Séc"
 
 #: libraries/Charsets.php:387
-#, fuzzy
-#| msgid "Danish"
 msgctxt "Collation"
 msgid "Danish"
 msgstr "Tiếng Đan Mạch"
 
 #: libraries/Charsets.php:391
-#, fuzzy
-#| msgid "English"
 msgctxt "Collation"
 msgid "English"
 msgstr "Tiếng Anh"
 
 #: libraries/Charsets.php:395
-#, fuzzy
-#| msgid "Esperanto"
 msgctxt "Collation"
 msgid "Esperanto"
 msgstr "Quốc tế ngữ"
@@ -3222,20 +3201,16 @@ msgid "Estonian"
 msgstr "Tiếng E-x-tô-ni"
 
 #: libraries/Charsets.php:402 libraries/Charsets.php:519
-#, fuzzy
-#| msgid "Data dictionary"
 msgctxt "Collation"
 msgid "German (dictionary order)"
-msgstr "Từ điển dữ liệu"
+msgstr "Tiếng Đức (thứ tự từ điển)"
 
 #: libraries/Charsets.php:405 libraries/Charsets.php:516
 msgctxt "Collation"
 msgid "German (phone book order)"
-msgstr ""
+msgstr "Tiếng Đức (thứ tự theo danh bạ)"
 
 #: libraries/Charsets.php:414
-#, fuzzy
-#| msgid "Hungarian"
 msgctxt "Collation"
 msgid "Hungarian"
 msgstr "Tiếng Hung Ga Ri"
@@ -3250,7 +3225,7 @@ msgstr "Tiếng Ai-xơ-len"
 #: libraries/Charsets.php:425
 msgctxt "Collation"
 msgid "Classical Latin"
-msgstr ""
+msgstr "Tiếng Latin cổ điển"
 
 #: libraries/Charsets.php:429
 #, fuzzy
@@ -3267,9 +3242,10 @@ msgid "Lithuanian"
 msgstr "Tiếng Lát-vi"
 
 #: libraries/Charsets.php:441
+#, fuzzy
 msgctxt "Collation"
 msgid "Burmese"
-msgstr ""
+msgstr "Tiếng Miến Điện"
 
 #: libraries/Charsets.php:444
 #, fuzzy
@@ -3279,8 +3255,6 @@ msgid "Persian"
 msgstr "Tiếng Ba Tư"
 
 #: libraries/Charsets.php:448
-#, fuzzy
-#| msgid "Polish"
 msgctxt "Collation"
 msgid "Polish"
 msgstr "Tiếng Ba Lan"
@@ -3314,34 +3288,26 @@ msgid "Slovenian"
 msgstr "Tiếng Xlô-ven"
 
 #: libraries/Charsets.php:470 libraries/Charsets.php:530
-#, fuzzy
-#| msgid "Spanish"
 msgctxt "Collation"
 msgid "Spanish (modern)"
-msgstr "Tiếng Tây Ban Nha"
+msgstr "Tiếng Tây Ban Nha (hiện đại)"
 
 #: libraries/Charsets.php:477 libraries/Charsets.php:527
 msgctxt "Collation"
 msgid "Spanish (traditional)"
-msgstr ""
+msgstr "Tiếng Tây Ban Nha (truyền thống)"
 
 #: libraries/Charsets.php:496
-#, fuzzy
-#| msgid "Vietnamese"
 msgctxt "Collation"
 msgid "Vietnamese"
 msgstr "Tiếng Việt"
 
 #: libraries/Charsets.php:563
-#, fuzzy
-#| msgid "case-insensitive"
 msgctxt "Collation variant"
 msgid "case-insensitive"
 msgstr "không phân biệt HOA/thường"
 
 #: libraries/Charsets.php:566
-#, fuzzy
-#| msgid "case-sensitive"
 msgctxt "Collation variant"
 msgid "case-sensitive"
 msgstr "phân biệt chữ HOA/thường"
@@ -3361,15 +3327,11 @@ msgid "accent-sensitive"
 msgstr "phân biệt chữ HOA/thường"
 
 #: libraries/Charsets.php:576
-#, fuzzy
-#| msgid "multilingual"
 msgctxt "Collation variant"
 msgid "multi-level"
-msgstr "đa ngôn ngữ"
+msgstr "đa cấp độ"
 
 #: libraries/Charsets.php:579
-#, fuzzy
-#| msgid "Binary"
 msgctxt "Collation variant"
 msgid "binary"
 msgstr "Nhị phân"
@@ -3406,10 +3368,10 @@ msgid "Font size"
 msgstr "Cỡ phông chữ"
 
 #: libraries/Console.php:86
-#, php-format
+#, fuzzy, php-format
 msgid "Showing %1$d bookmark (both private and shared)"
 msgid_plural "Showing %1$d bookmarks (both private and shared)"
-msgstr[0] ""
+msgstr[0] "Hiển thị %1$d dấu trang (cả riêng tư và chia sẻ chung)"
 
 #: libraries/Console.php:93
 msgid "No bookmarks"
@@ -3423,7 +3385,7 @@ msgstr "Hộp truy vấn SQL"
 #, fuzzy
 #| msgid "Failed to read configuration file!"
 msgid "Failed to set configured collation connection!"
-msgstr "Gặp lỗi khi đọc tập tin cấu hình!"
+msgstr "Không thể thiết lập kết nối với sự đối chiếu cấu hình!"
 
 #: libraries/DatabaseInterface.php:2030
 msgid ""
@@ -3449,16 +3411,18 @@ msgstr "Chi tiết…"
 #, fuzzy
 #| msgid "Missing parameter:"
 msgid "Missing connection parameters!"
-msgstr "Thiếu tham số:"
+msgstr "Thiếu tham số kết nối!"
 
 #: libraries/DatabaseInterface.php:2378
 msgid "Connection for controluser as defined in your configuration failed."
 msgstr ""
+"Kết nối cho bộ điều khiển được định nghĩa trong cấu hình của bạn không thành "
+"công."
 
 #: libraries/DbQbe.php:406 libraries/DisplayResults.php:2279
 #: libraries/DisplayResults.php:2285 libraries/config.values.php:69
 #: libraries/controllers/server/ServerDatabasesController.php:550
-#: libraries/operations.lib.php:787
+#: libraries/operations.lib.php:780
 #: libraries/server_status_processes.lib.php:167
 #: templates/database/structure/sortable_header.phtml:21
 #: templates/database/structure/sortable_header.phtml:38
@@ -3469,7 +3433,7 @@ msgstr "Tăng dần"
 #: libraries/DbQbe.php:409 libraries/DisplayResults.php:2275
 #: libraries/DisplayResults.php:2289 libraries/config.values.php:70
 #: libraries/controllers/server/ServerDatabasesController.php:550
-#: libraries/operations.lib.php:790
+#: libraries/operations.lib.php:783
 #: libraries/server_status_processes.lib.php:164
 #: templates/database/structure/sortable_header.phtml:26
 #: templates/database/structure/sortable_header.phtml:43
@@ -3607,11 +3571,11 @@ msgid "%1$s match in <strong>%2$s</strong>"
 msgid_plural "%1$s matches in <strong>%2$s</strong>"
 msgstr[0] "%1$s khớp trong <strong>%2$s</strong>"
 
-#: libraries/DbSearch.php:346 libraries/Menu.php:324 libraries/Util.php:3187
-#: libraries/Util.php:3197 libraries/Util.php:3473 libraries/Util.php:3474
-#: libraries/Util.php:4128 libraries/config.values.php:42
+#: libraries/DbSearch.php:346 libraries/Menu.php:324 libraries/Util.php:3188
+#: libraries/Util.php:3198 libraries/Util.php:3474 libraries/Util.php:3475
+#: libraries/Util.php:4129 libraries/config.values.php:42
 #: libraries/config.values.php:50 libraries/config.values.php:119
-#: libraries/navigation/nodes/NodeTable.php:311
+#: libraries/navigation/nodes/NodeTable.php:313
 #: templates/table/structure/check_all_table_column.phtml:12
 msgid "Browse"
 msgstr "Duyệt"
@@ -3661,30 +3625,30 @@ msgstr "Số hàng"
 msgid "Search this table"
 msgstr "Tìm kiếm trong bảng này"
 
-#: libraries/DisplayResults.php:989 libraries/Util.php:2440
-#: libraries/Util.php:2443
+#: libraries/DisplayResults.php:989 libraries/Util.php:2441
+#: libraries/Util.php:2444
 msgctxt "First page"
 msgid "Begin"
 msgstr "Bắt đầu"
 
-#: libraries/DisplayResults.php:992 libraries/Util.php:2441
-#: libraries/Util.php:2444
+#: libraries/DisplayResults.php:992 libraries/Util.php:2442
+#: libraries/Util.php:2445
 #: libraries/controllers/server/ServerBinlogController.php:194
 #: libraries/controllers/server/ServerBinlogController.php:196
 msgctxt "Previous page"
 msgid "Previous"
 msgstr "Kế trước"
 
-#: libraries/DisplayResults.php:1058 libraries/Util.php:2472
-#: libraries/Util.php:2482
+#: libraries/DisplayResults.php:1058 libraries/Util.php:2473
+#: libraries/Util.php:2483
 #: libraries/controllers/server/ServerBinlogController.php:228
 #: libraries/controllers/server/ServerBinlogController.php:230
 msgctxt "Next page"
 msgid "Next"
 msgstr "Kế tiếp"
 
-#: libraries/DisplayResults.php:1088 libraries/Util.php:2473
-#: libraries/Util.php:2483
+#: libraries/DisplayResults.php:1088 libraries/Util.php:2474
+#: libraries/Util.php:2484
 msgctxt "Last page"
 msgid "End"
 msgstr "Cuối"
@@ -3760,11 +3724,12 @@ msgstr "Hiển thị nội dung của một BLOB"
 
 #: libraries/DisplayResults.php:1787
 msgid "Hide browser transformation"
-msgstr ""
+msgstr "Ẩn trình duyệt chuyển đổi"
 
 #: libraries/DisplayResults.php:1798
+#, fuzzy
 msgid "Well Known Text"
-msgstr ""
+msgstr "Văn bản nổi tiếng"
 
 #: libraries/DisplayResults.php:1799
 msgid "Well Known Binary"
@@ -3815,7 +3780,7 @@ msgstr "Tổng %1$d, %2$d trong truy vấn"
 msgid "%d total"
 msgstr "tổng %d"
 
-#: libraries/DisplayResults.php:4755 libraries/sql.lib.php:1383
+#: libraries/DisplayResults.php:4755 libraries/sql.lib.php:1385
 #, php-format
 msgid "Query took %01.4f seconds."
 msgstr "Truy vấn cần %01.4f giây."
@@ -3920,7 +3885,7 @@ msgstr "Gặp lỗi chưa biết trong tải tập tin"
 
 #: libraries/File.php:445
 msgid "File is a symbolic link"
-msgstr ""
+msgstr "Tập tin là một liên kết tượng trưng"
 
 #: libraries/File.php:450 libraries/File.php:542
 msgid "File could not be read!"
@@ -3969,7 +3934,7 @@ msgstr "Xem thử bản in"
 msgid "Click on the bar to scroll to top of page"
 msgstr "Bấm vào thanh để cuộn lên đỉnh trang"
 
-#: libraries/Header.php:758 libraries/plugins/auth/AuthenticationCookie.php:152
+#: libraries/Header.php:758 libraries/plugins/auth/AuthenticationCookie.php:166
 msgid "Javascript must be enabled past this point!"
 msgstr "Javascript phải được bật qua điểm này!"
 
@@ -3987,8 +3952,8 @@ msgstr "Chỉ mục"
 
 #: libraries/Index.php:680 libraries/central_columns.lib.php:686
 #: libraries/rte/rte_list.lib.php:80 libraries/rte/rte_list.lib.php:95
-#: libraries/rte/rte_list.lib.php:108 libraries/server_privileges.lib.php:2532
-#: libraries/server_privileges.lib.php:3501
+#: libraries/rte/rte_list.lib.php:108 libraries/server_privileges.lib.php:2542
+#: libraries/server_privileges.lib.php:3511
 #: libraries/server_user_groups.lib.php:80 libraries/tracking.lib.php:288
 #: libraries/tracking.lib.php:806 libraries/tracking.lib.php:1459
 #: libraries/tracking.lib.php:1600
@@ -4041,11 +4006,11 @@ msgstr "Khóa chính đã được xóa bỏ"
 msgid "Index %s has been dropped."
 msgstr "Chỉ mục %s đã được xóa bỏ."
 
-#: libraries/Index.php:736 libraries/Util.php:3480 libraries/Util.php:3481
+#: libraries/Index.php:736 libraries/Util.php:3481 libraries/Util.php:3482
 #: libraries/controllers/server/ServerDatabasesController.php:402
 #: libraries/controllers/table/TableStructureController.php:1192
 #: libraries/controllers/table/TableStructureController.php:1193
-#: libraries/operations.lib.php:1577 libraries/rte/rte_list.lib.php:163
+#: libraries/operations.lib.php:1570 libraries/rte/rte_list.lib.php:163
 #: templates/database/structure/check_all_tables.phtml:17
 #: templates/table/relation/foreign_key_row.phtml:85
 #: templates/table/structure/check_all_table_column.phtml:22
@@ -4062,7 +4027,7 @@ msgstr ""
 "Các chỉ mục %1$s và %2$s dường như là giống nhau và một trong số chúng có "
 "thể gần như chắc chắn nên được xóa bỏ."
 
-#: libraries/Language.php:194 libraries/PDF.php:69 libraries/Util.php:2429
+#: libraries/Language.php:198 libraries/PDF.php:69 libraries/Util.php:2430
 #: libraries/browse_foreigners.lib.php:320
 #: libraries/plugins/schema/pdf/PdfRelationSchema.php:495
 #: libraries/plugins/schema/pdf/PdfRelationSchema.php:520
@@ -4101,10 +4066,10 @@ msgstr "Máy phục vụ"
 #: libraries/plugins/export/ExportOdt.php:197
 #: libraries/plugins/export/ExportTexytext.php:133
 #: libraries/server_privileges.lib.php:1156
-#: libraries/server_privileges.lib.php:3094
-#: libraries/server_privileges.lib.php:3289
-#: libraries/server_privileges.lib.php:3291
-#: libraries/server_privileges.lib.php:4489
+#: libraries/server_privileges.lib.php:3104
+#: libraries/server_privileges.lib.php:3299
+#: libraries/server_privileges.lib.php:3301
+#: libraries/server_privileges.lib.php:4499
 #: libraries/server_status_processes.lib.php:80
 #: templates/console/bookmark_content.phtml:19
 #: templates/console/display.phtml:57 templates/console/display.phtml:219
@@ -4127,10 +4092,10 @@ msgstr "View"
 #: libraries/rte/rte_triggers.lib.php:335
 #: libraries/server_privileges.lib.php:989
 #: libraries/server_privileges.lib.php:1159
-#: libraries/server_privileges.lib.php:3112
-#: libraries/server_privileges.lib.php:3295
-#: libraries/server_privileges.lib.php:3297
-#: libraries/server_privileges.lib.php:4503 libraries/tracking.lib.php:1458
+#: libraries/server_privileges.lib.php:3122
+#: libraries/server_privileges.lib.php:3305
+#: libraries/server_privileges.lib.php:3307
+#: libraries/server_privileges.lib.php:4513 libraries/tracking.lib.php:1458
 #: libraries/tracking.lib.php:1595
 #: templates/database/structure/table_header.phtml:21
 #: templates/table/relation/common_form.phtml:34
@@ -4140,54 +4105,54 @@ msgid "Table"
 msgstr "Bảng"
 
 #: libraries/Menu.php:338 libraries/Menu.php:441 libraries/Menu.php:554
-#: libraries/Util.php:3184 libraries/Util.php:3194 libraries/Util.php:3200
-#: libraries/Util.php:4098 libraries/Util.php:4113 libraries/Util.php:4130
+#: libraries/Util.php:3185 libraries/Util.php:3195 libraries/Util.php:3201
+#: libraries/Util.php:4099 libraries/Util.php:4114 libraries/Util.php:4131
 #: libraries/config.values.php:39 libraries/config.values.php:47
 #: libraries/config.values.php:110 libraries/config.values.php:116
 #: libraries/config/messages.inc.php:320
-#: libraries/navigation/nodes/NodeTable.php:306
+#: libraries/navigation/nodes/NodeTable.php:308
 msgid "SQL"
 msgstr "SQL"
 
-#: libraries/Menu.php:341 libraries/Menu.php:444 libraries/Util.php:3185
-#: libraries/Util.php:3195 libraries/Util.php:3201 libraries/Util.php:3475
-#: libraries/Util.php:3476 libraries/Util.php:4114 libraries/Util.php:4131
+#: libraries/Menu.php:341 libraries/Menu.php:444 libraries/Util.php:3186
+#: libraries/Util.php:3196 libraries/Util.php:3202 libraries/Util.php:3476
+#: libraries/Util.php:3477 libraries/Util.php:4115 libraries/Util.php:4132
 #: libraries/config.values.php:40 libraries/config.values.php:48
 #: libraries/config.values.php:111 libraries/config.values.php:117
-#: libraries/navigation/nodes/NodeTable.php:296
+#: libraries/navigation/nodes/NodeTable.php:298
 msgid "Search"
 msgstr "Tìm kiếm"
 
-#: libraries/Menu.php:351 libraries/Util.php:3186 libraries/Util.php:3196
-#: libraries/Util.php:3477 libraries/Util.php:3478 libraries/Util.php:4132
+#: libraries/Menu.php:351 libraries/Util.php:3187 libraries/Util.php:3197
+#: libraries/Util.php:3478 libraries/Util.php:3479 libraries/Util.php:4133
 #: libraries/config.values.php:41 libraries/config.values.php:49
-#: libraries/config.values.php:118 libraries/navigation/nodes/NodeTable.php:302
+#: libraries/config.values.php:118 libraries/navigation/nodes/NodeTable.php:304
 #: libraries/sql_query_form.lib.php:289 libraries/sql_query_form.lib.php:292
 msgid "Insert"
 msgstr "Chèn"
 
-#: libraries/Menu.php:375 libraries/Menu.php:479 libraries/Util.php:4119
-#: libraries/Util.php:4135 libraries/config.values.php:106
-#: libraries/server_common.lib.php:48 libraries/server_privileges.lib.php:2530
-#: libraries/server_privileges.lib.php:4377
+#: libraries/Menu.php:375 libraries/Menu.php:479 libraries/Util.php:4120
+#: libraries/Util.php:4136 libraries/config.values.php:106
+#: libraries/server_common.lib.php:48 libraries/server_privileges.lib.php:2540
+#: libraries/server_privileges.lib.php:4387
 #: templates/privileges/privileges_summary.phtml:16
 msgid "Privileges"
 msgstr "Đặc quyền"
 
 #: libraries/Menu.php:384 libraries/Menu.php:392 libraries/Menu.php:471
-#: libraries/Util.php:3188 libraries/Util.php:3202 libraries/Util.php:4118
-#: libraries/Util.php:4136 libraries/config.values.php:112
+#: libraries/Util.php:3189 libraries/Util.php:3203 libraries/Util.php:4119
+#: libraries/Util.php:4137 libraries/config.values.php:112
 #: view_operations.php:107
 msgid "Operations"
 msgstr "Thao tác"
 
-#: libraries/Menu.php:397 libraries/Menu.php:501 libraries/Util.php:4123
-#: libraries/Util.php:4137 libraries/relation.lib.php:264
+#: libraries/Menu.php:397 libraries/Menu.php:501 libraries/Util.php:4124
+#: libraries/Util.php:4138 libraries/relation.lib.php:264
 msgid "Tracking"
 msgstr "Theo dõi"
 
-#: libraries/Menu.php:409 libraries/Menu.php:495 libraries/Util.php:4122
-#: libraries/Util.php:4138
+#: libraries/Menu.php:409 libraries/Menu.php:495 libraries/Util.php:4123
+#: libraries/Util.php:4139
 #: libraries/navigation/nodes/NodeTriggerContainer.php:25
 #: libraries/plugins/export/ExportHtmlword.php:578
 #: libraries/plugins/export/ExportOdt.php:713
@@ -4203,16 +4168,16 @@ msgstr "Bẫy"
 msgid "Database seems to be empty!"
 msgstr "Cơ sở dữ liệu có vẻ là đang trống rỗng!"
 
-#: libraries/Menu.php:451 libraries/Util.php:4115
+#: libraries/Menu.php:451 libraries/Util.php:4116
 msgid "Query"
 msgstr "Truy vấn"
 
-#: libraries/Menu.php:484 libraries/Util.php:4120
+#: libraries/Menu.php:484 libraries/Util.php:4121
 #: libraries/rte/rte_words.lib.php:44
 msgid "Routines"
 msgstr "Thủ tục"
 
-#: libraries/Menu.php:489 libraries/Util.php:4121
+#: libraries/Menu.php:489 libraries/Util.php:4122
 #: libraries/navigation/nodes/NodeEventContainer.php:25
 #: libraries/plugins/export/ExportSql.php:961
 #: libraries/plugins/export/ExportXml.php:103
@@ -4220,20 +4185,20 @@ msgstr "Thủ tục"
 msgid "Events"
 msgstr "Sự kiện"
 
-#: libraries/Menu.php:507 libraries/Util.php:4124
+#: libraries/Menu.php:507 libraries/Util.php:4125
 msgid "Designer"
 msgstr "Bộ thiết kế"
 
-#: libraries/Menu.php:516 libraries/Util.php:4125
+#: libraries/Menu.php:516 libraries/Util.php:4126
 #: templates/database/structure/check_all_tables.phtml:34
 msgid "Central columns"
 msgstr "Các cột trung tâm"
 
-#: libraries/Menu.php:550 libraries/Util.php:4097
+#: libraries/Menu.php:550 libraries/Util.php:4098
 #: libraries/config.values.php:103 libraries/config/messages.inc.php:265
 #: libraries/config/messages.inc.php:340
-#: libraries/navigation/NavigationTree.php:1274
-#: libraries/server_common.lib.php:45 libraries/server_privileges.lib.php:4489
+#: libraries/navigation/NavigationTree.php:1275
+#: libraries/server_common.lib.php:45 libraries/server_privileges.lib.php:4499
 msgid "Databases"
 msgstr "Cơ sở dữ liệu"
 
@@ -4242,34 +4207,34 @@ msgid "User accounts"
 msgstr "Các tài khoản người dùng"
 
 #: libraries/Menu.php:601 libraries/ServerStatusData.php:121
-#: libraries/Util.php:4104 libraries/server_common.lib.php:33
+#: libraries/Util.php:4105 libraries/server_common.lib.php:33
 msgid "Binary log"
 msgstr "Nhật ký nhị phân"
 
 #: libraries/Menu.php:607 libraries/ServerStatusData.php:126
-#: libraries/Util.php:4105 libraries/server_common.lib.php:39
+#: libraries/Util.php:4106 libraries/server_common.lib.php:39
 #: templates/database/structure/body_for_table_summary.phtml:10
 #: templates/database/structure/table_header.phtml:27
 msgid "Replication"
 msgstr "Bản sao"
 
 #: libraries/Menu.php:612 libraries/ServerStatusData.php:193
-#: libraries/Util.php:4106 libraries/config.values.php:105
+#: libraries/Util.php:4107 libraries/config.values.php:105
 #: libraries/sql_query_form.lib.php:427
 #: templates/server/engines/engine.phtml:15
 #: templates/server/engines/engine.phtml:18
 msgid "Variables"
 msgstr "Biến"
 
-#: libraries/Menu.php:616 libraries/Util.php:4107
+#: libraries/Menu.php:616 libraries/Util.php:4108
 msgid "Charsets"
 msgstr "Bảng mã"
 
-#: libraries/Menu.php:620 libraries/Util.php:4109
+#: libraries/Menu.php:620 libraries/Util.php:4110
 msgid "Engines"
 msgstr "Bộ máy"
 
-#: libraries/Menu.php:624 libraries/Util.php:4108
+#: libraries/Menu.php:624 libraries/Util.php:4109
 #: libraries/server_common.lib.php:30
 msgid "Plugins"
 msgstr "Phần bổ sung"
@@ -4538,6 +4503,9 @@ msgid ""
 "after you refresh this page. Please check if the table structure has been "
 "changed."
 msgstr ""
+"Không thể lưu thuộc tính giao diện \"%s\". Các thay đổi được thực hiện sẽ "
+"không liên tục sau khi bạn làm mới trang này. Vui lòng kiểm tra xem cấu trúc "
+"bảng có bị thay đổi hay không."
 
 #: libraries/Table.php:1938
 msgid "The name of the primary key must be \"PRIMARY\"!"
@@ -4589,70 +4557,104 @@ msgid "Theme:"
 msgstr "Chủ đề:"
 
 #: libraries/TypesMySQL.php:31
+#, fuzzy
 msgid ""
 "A 1-byte integer, signed range is -128 to 127, unsigned range is 0 to 255"
 msgstr ""
+"Một số nguyên 1-byte, ký khoảng từ -128 đến 127, không ký khoảng từ 0 đến 255"
 
 #: libraries/TypesMySQL.php:36
+#, fuzzy
 msgid ""
 "A 2-byte integer, signed range is -32,768 to 32,767, unsigned range is 0 to "
 "65,535"
 msgstr ""
+"Số nguyên 2-byte, có ký hiệu phạm vi từ -32,768 đến 32,767,không ký hiệu "
+"phạm vi từ 0 đến 65,535"
 
 #: libraries/TypesMySQL.php:41
+#, fuzzy
 msgid ""
 "A 3-byte integer, signed range is -8,388,608 to 8,388,607, unsigned range is "
 "0 to 16,777,215"
 msgstr ""
+"Số nguyên 3-byte, có ký hiệu phạm vi là từ -8,388,608 đến 8,388,607, không "
+"ký hiệu phạm vi từ 0 đến 16,777,215"
 
 #: libraries/TypesMySQL.php:46
+#, fuzzy
 msgid ""
 "A 4-byte integer, signed range is -2,147,483,648 to 2,147,483,647, unsigned "
 "range is 0 to 4,294,967,295"
 msgstr ""
+"Số nguyên 4-byte, có ký hiệu phạm vi là từ -2,147,483,648 đến 2,147,483,647, "
+"không ký hiệu phạm vi từ 0 đến 4,294,967,295"
 
 #: libraries/TypesMySQL.php:52
+#, fuzzy
 msgid ""
 "An 8-byte integer, signed range is -9,223,372,036,854,775,808 to "
 "9,223,372,036,854,775,807, unsigned range is 0 to 18,446,744,073,709,551,615"
 msgstr ""
+"Một số nguyên 8-byte, có ký hiệu phạm vi là từ -9,223,372,036,854,775,808 "
+"đến 9,223,372,036,854,775,807, không ký hiệu phạm vi từ 0 đến "
+"18,446,744,073,709,551,615"
 
 #: libraries/TypesMySQL.php:58
+#, fuzzy
 msgid ""
 "A fixed-point number (M, D) - the maximum number of digits (M) is 65 "
 "(default 10), the maximum number of decimals (D) is 30 (default 0)"
 msgstr ""
+"Một điểm số cố định (M, D) - số lượng chữ số tối đa (M) là 65 (mặc định là "
+"10), số lượng thập phân tối đa D là 30 (mặc định là 0)"
 
 #: libraries/TypesMySQL.php:64
+#, fuzzy
 msgid ""
 "A small floating-point number, allowable values are -3.402823466E+38 to "
 "-1.175494351E-38, 0, and 1.175494351E-38 to 3.402823466E+38"
 msgstr ""
+"Một điểm nổi nhỏ, các giá trị cho phép là -3.402823466E + 38 đến "
+"-1.175494351E-38, 0 và 1.175494351E-38 đến 3.402823466E + 38"
 
 #: libraries/TypesMySQL.php:70
+#, fuzzy
 msgid ""
 "A double-precision floating-point number, allowable values are "
 "-1.7976931348623157E+308 to -2.2250738585072014E-308, 0, and "
 "2.2250738585072014E-308 to 1.7976931348623157E+308"
 msgstr ""
+"Một điểm nổi với độ chính xác gấp đôi, các giá trị cho phép là "
+"-1.7976931348623157E + 308 đến -2.2250738585072014E-308, 0 và "
+"2.2250738585072014E-308 đến 1.7976931348623157E + 308"
 
 #: libraries/TypesMySQL.php:76
+#, fuzzy
 msgid ""
 "Synonym for DOUBLE (exception: in REAL_AS_FLOAT SQL mode it is a synonym for "
 "FLOAT)"
 msgstr ""
+"Từ đồng nghĩa cho DOUBLE (ngoại lệ: trong chế độ REAL_AS_FLOAT SQL nó là từ "
+"đồng nghĩa cho FLOAT)"
 
 #: libraries/TypesMySQL.php:81
+#, fuzzy
 msgid ""
 "A bit-field type (M), storing M of bits per value (default is 1, maximum is "
 "64)"
 msgstr ""
+"Một loại bit-field (M), lưu trữ M bit trên mỗi giá trị (mặc định là 1, tối "
+"đa là 64)"
 
 #: libraries/TypesMySQL.php:86
+#, fuzzy
 msgid ""
 "A synonym for TINYINT(1), a value of zero is considered false, nonzero "
 "values are considered true"
 msgstr ""
+"Một từ đồng nghĩa cho TINYINT (1), giá trị bằng 0 được xem là sai, các giá "
+"trị khác 0 được xem là đúng"
 
 #: libraries/TypesMySQL.php:90
 msgid "An alias for BIGINT UNSIGNED NOT NULL AUTO_INCREMENT UNIQUE"
@@ -4664,15 +4666,19 @@ msgid "A date, supported range is %1$s to %2$s"
 msgstr "Kiểu ngày, vùng được hỗ trợ là từ %1$s đến %2$s"
 
 #: libraries/TypesMySQL.php:98
-#, php-format
+#, fuzzy, php-format
 msgid "A date and time combination, supported range is %1$s to %2$s"
-msgstr ""
+msgstr "Một sự tổ hợp của ngày và giờ, phạm vi được hỗ trợ là %1$s đến %2$s"
 
 #: libraries/TypesMySQL.php:103
+#, fuzzy
 msgid ""
 "A timestamp, range is 1970-01-01 00:00:01 UTC to 2038-01-09 03:14:07 UTC, "
 "stored as the number of seconds since the epoch (1970-01-01 00:00:00 UTC)"
 msgstr ""
+"Một timestamp, phạm vi từ 1970-01-01 00:00:01 UTC đến 2038-01-09 03:14:07 "
+"UTC, được lưu trữ dưới dạng số giây kể từ kỷ nguyên (1970-01-01 00:00:00 "
+"UTC )"
 
 #: libraries/TypesMySQL.php:109
 #, php-format
@@ -4684,25 +4690,35 @@ msgid ""
 "A year in four-digit (4, default) or two-digit (2) format, the allowable "
 "values are 70 (1970) to 69 (2069) or 1901 to 2155 and 0000"
 msgstr ""
+"Một năm với định dạng 4 chữ số (4, mặc định) hoặc 2 chữ số (2), giá trị cho "
+"phép là 70 (1970) đến 69 (2069) hoặc 1901 đến 2555 và 0000"
 
 #: libraries/TypesMySQL.php:119
+#, fuzzy
 msgid ""
 "A fixed-length (0-255, default 1) string that is always right-padded with "
 "spaces to the specified length when stored"
 msgstr ""
+"Chuỗi có độ dài cố định (0-255, mặc định 1), luôn luôn được đệm bên phải với "
+"không gian với độ dài đã chỉ định khi được lưu trữ"
 
 #: libraries/TypesMySQL.php:125
-#, php-format
+#, fuzzy, php-format
 msgid ""
 "A variable-length (%s) string, the effective maximum length is subject to "
 "the maximum row size"
 msgstr ""
+"Chuỗi có độ dài thay đổi (%s), độ dài tối đa có hiệu quả phụ thuộc vào kích "
+"thước tối đa của dãy"
 
 #: libraries/TypesMySQL.php:131
+#, fuzzy
 msgid ""
 "A TEXT column with a maximum length of 255 (2^8 - 1) characters, stored with "
 "a one-byte prefix indicating the length of the value in bytes"
 msgstr ""
+"Một cột VĂN BẢN với độ dài tối đa là 255 (2^8 - 1) ký tự, được lưu trữ với "
+"tiền tố 1-byte cho biết độ dài của giá trị bằng byte"
 
 #: libraries/TypesMySQL.php:137
 msgid ""
@@ -4919,52 +4935,52 @@ msgctxt "AM/PM indication in time"
 msgid "AM"
 msgstr ""
 
-#: libraries/Util.php:1962
+#: libraries/Util.php:1963
 #, php-format
 msgid "%s days, %s hours, %s minutes and %s seconds"
 msgstr "%s ngày, %s giờ, %s phút và %s giây"
 
-#: libraries/Util.php:2009
+#: libraries/Util.php:2010
 msgid "Missing parameter:"
 msgstr "Thiếu tham số:"
 
-#: libraries/Util.php:2553
+#: libraries/Util.php:2554
 #, php-format
 msgid "Jump to database \"%s\"."
 msgstr "Nhảy tới cơ sở dữ liệu \"%s\"."
 
-#: libraries/Util.php:2578
+#: libraries/Util.php:2579
 #, php-format
 msgid "The %s functionality is affected by a known bug, see %s"
 msgstr "Hàm %s bị ảnh hưởng bởi lỗi đã biết, xem %s"
 
-#: libraries/Util.php:3392 prefs_manage.php:256
+#: libraries/Util.php:3393 prefs_manage.php:256
 msgid "Browse your computer:"
 msgstr "Duyệt máy tính của bạn:"
 
-#: libraries/Util.php:3417
+#: libraries/Util.php:3418
 #, php-format
 msgid "Select from the web server upload directory <b>%s</b>:"
 msgstr "Chọn từ thư mục tải lên của máy phục vụ web <b>%s</b>:"
 
-#: libraries/Util.php:3446 libraries/insert_edit.lib.php:1233
+#: libraries/Util.php:3447 libraries/insert_edit.lib.php:1233
 msgid "The directory you set for upload work cannot be reached."
 msgstr "Thư mục bạn đặt cho việc tải lên không thể tiếp cận được."
 
-#: libraries/Util.php:3457
+#: libraries/Util.php:3458
 msgid "There are no files to upload!"
 msgstr "Không có tập tin nào để tải lên!"
 
-#: libraries/Util.php:3482 libraries/Util.php:3483
+#: libraries/Util.php:3483 libraries/Util.php:3484
 #: templates/database/structure/check_all_tables.phtml:16
 msgid "Empty"
 msgstr "Rỗng"
 
-#: libraries/Util.php:3488 libraries/Util.php:3489
+#: libraries/Util.php:3489 libraries/Util.php:3490
 msgid "Execute"
 msgstr "Thi hành"
 
-#: libraries/Util.php:4100
+#: libraries/Util.php:4101
 msgid "Users"
 msgstr "Người dùng"
 
@@ -5008,6 +5024,7 @@ msgid ""
 "The configuration storage is not ready for the central list of columns "
 "feature."
 msgstr ""
+"Cấu hình bộ lưu trữ chưa sẵn sàng cho danh sách trung tâm của tính năng cột."
 
 #: libraries/central_columns.lib.php:282
 #, php-format
@@ -5023,6 +5040,8 @@ msgstr "Không thể thêm các cột!"
 msgid ""
 "Couldn't remove Column(s) %1$s as they don't exist in central columns list!"
 msgstr ""
+"Không thể loại bỏ Cột %1$s vì chúng không tồn tại trong danh sách cột trung "
+"tâm!"
 
 #: libraries/central_columns.lib.php:384
 msgid "Could not remove columns!"
@@ -5089,34 +5108,34 @@ msgstr "Thêm cột mới"
 msgid "Attributes"
 msgstr "Thuộc tính"
 
-#: libraries/common.inc.php:470
+#: libraries/common.inc.php:495
 msgid ""
 "You have enabled mbstring.func_overload in your PHP configuration. This "
 "option is incompatible with phpMyAdmin and might cause some data to be "
 "corrupted!"
 msgstr ""
 
-#: libraries/common.inc.php:484
+#: libraries/common.inc.php:509
 msgid ""
 "You have disabled ini_get and/or ini_set in php.ini. This option is "
 "incompatible with phpMyAdmin!"
 msgstr ""
 
-#: libraries/common.inc.php:517
+#: libraries/common.inc.php:542
 #, php-format
 msgid "Invalid server index: %s"
 msgstr "Chỉ mục máy chủ không hợp lệ: %s"
 
-#: libraries/common.inc.php:530
+#: libraries/common.inc.php:555
 #, php-format
 msgid "Server %d"
 msgstr "Máy chủ %d"
 
-#: libraries/common.inc.php:656
+#: libraries/common.inc.php:681
 msgid "Invalid authentication method set in configuration:"
 msgstr "Phương thức xác thực trong cấu hình không hợp lệ:"
 
-#: libraries/common.inc.php:760
+#: libraries/common.inc.php:785
 #, php-format
 msgid ""
 "Unable to use timezone %1$s for server %2$d. Please check your configuration "
@@ -5124,20 +5143,20 @@ msgid ""
 "currently using the default time zone of the database server."
 msgstr ""
 
-#: libraries/common.inc.php:798
+#: libraries/common.inc.php:823
 #, php-format
 msgid "You should upgrade to %s %s or later."
 msgstr "Bạn nên nâng cấp lên %s %s hay bản mới hơn."
 
-#: libraries/common.inc.php:886
+#: libraries/common.inc.php:911
 msgid "Error: Token mismatch"
 msgstr "Lỗi: Không khớp thẻ"
 
-#: libraries/common.inc.php:904
+#: libraries/common.inc.php:929
 msgid "GLOBALS overwrite attempt"
 msgstr "Cố gắng kết nối gặp lỗi"
 
-#: libraries/common.inc.php:911
+#: libraries/common.inc.php:936
 msgid "possible exploit"
 msgstr "Kết quả có thể"
 
@@ -5390,6 +5409,12 @@ msgid ""
 "protection with trusted proxies list may not be reliable if your IP belongs "
 "to an ISP where thousands of users, including you, are connected to."
 msgstr ""
+"%sTùy chọn%s này nên được vô hiệu vì nó cho phép kẻ tấn công mạnh mẽ đăng "
+"nhập vào bất kỳ máy chủ MySQL. Nếu bạn cảm thấy điều này là cần thiết, hãy "
+"sử dụng %shạn chế đăng nhập vào máy chủ MySQL%s hoặc %sdanh sách proxy đáng "
+"tin cậy%s. Tuy nhiên, bảo vệ dựa trên IP với danh sách proxy đáng tin cậy có "
+"thể không đáng tin nếu IP của bạn thuộc về một ISP ở đó hàng ngàn người "
+"dùng, kể cả bạn, đều được kết nối."
 
 #: libraries/config/ServerConfigChecks.php:404
 msgid ""
@@ -5410,6 +5435,9 @@ msgid ""
 "This value should be double checked to ensure that this directory is neither "
 "world accessible nor readable or writable by other users on your server."
 msgstr ""
+"Giá trị này phải được kiểm tra kép để đảm bảo rằng thư mục này không phải "
+"được truy cập rộng rãi hoặc có quyền đọc hoặc quyền sửa bởi người dùng khác "
+"trên máy chủ của bạn."
 
 #: libraries/config/ServerConfigChecks.php:425
 #, php-format
@@ -5517,9 +5545,12 @@ msgid "Incorrect IP address: %s"
 msgstr "Địa chỉ IP của không đúng: %s"
 
 #: libraries/config/messages.inc.php:18
+#, fuzzy
 msgid ""
 "If enabled, user can enter any MySQL server in login form for cookie auth."
 msgstr ""
+"Nếu được kích hoạt, người dùng có thể nhập bất kỳ máy chủ MySQL trong mẫu "
+"đăng nhập cho cookie chính xác."
 
 #: libraries/config/messages.inc.php:20
 msgid "Allow login to any MySQL server"
@@ -5531,6 +5562,9 @@ msgid ""
 "MySQL server is enabled by matching the IP or hostname of the MySQL server "
 "to the given regular expression."
 msgstr ""
+"Hạn chế các máy chủ MySQL người dùng có thể nhập khi một đăng nhập vào một "
+"máy chủ MySQL tùy ý được kích hoạt bằng cách kết hợp IP hoặc tên máy chủ của "
+"máy chủ MySQL với biểu thức thông thường nhất định."
 
 #: libraries/config/messages.inc.php:26
 msgid "Restrict login to MySQL server"
@@ -5542,6 +5576,9 @@ msgid ""
 "inside a frame, and is a potential [strong]security hole[/strong] allowing "
 "cross-frame scripting (XSS) attacks."
 msgstr ""
+"Bật tính năng này cho phép một trang nằm trên một tên miền khác để gọi "
+"phpMyAdmin bên trong một khung và là [strong] lỗ hổng bảo mật [/strong] tiềm "
+"năng cho phép thực hiện các cuộc tấn công chéo (XSS)."
 
 #: libraries/config/messages.inc.php:32
 msgid "Allow third party framing"
@@ -5579,14 +5616,8 @@ msgid "Highlight pointer"
 msgstr "Tô sáng con trỏ"
 
 #: libraries/config/messages.inc.php:47
-#, fuzzy
-#| msgid ""
-#| "Enable [a@https://en.wikipedia.org/wiki/Bzip2]bzip2[/a] compression for "
-#| "import operations."
 msgid "Enable bzip2 compression for import operations."
-msgstr ""
-"Bật nén [a@https://en.wikipedia.org/wiki/Gzip]gzip[/a] dành cho các thao tác "
-"nhập và xuất dữ liệu"
+msgstr "Bật nén bzip2 dành cho các thao tác nhập dữ liệu."
 
 #: libraries/config/messages.inc.php:50
 msgid "Bzip2"
@@ -5607,16 +5638,12 @@ msgid "CHAR columns editing"
 msgstr "Sửa các cột CHAR"
 
 #: libraries/config/messages.inc.php:58
-#, fuzzy
-#| msgid ""
-#| "Use user-friendly editor for editing SQL queries ([a@https://codemirror."
-#| "net/]CodeMirror[/a]) with syntax highlighting and line numbers."
 msgid ""
 "Use user-friendly editor for editing SQL queries (CodeMirror) with syntax "
 "highlighting and line numbers."
 msgstr ""
-"Dùng bộ biên soạn thân thiện người dùng để sửa truy vấn SQL ([a@https://"
-"codemirror.net/]CodeMirror[/a]) có tô sáng cú pháp và số của dòng."
+"Dùng bộ biên soạn thân thiện người dùng để sửa truy vấn SQL (CodeMirror) có "
+"tô sáng cú pháp và số của dòng."
 
 #: libraries/config/messages.inc.php:62
 msgid "Enable CodeMirror"
@@ -5922,8 +5949,6 @@ msgstr "Kiểu MIME"
 
 #: libraries/config/messages.inc.php:167 libraries/config/messages.inc.php:180
 #: libraries/config/messages.inc.php:221
-#, fuzzy
-#| msgid "Relations"
 msgid "Relationships"
 msgstr "Quan hệ"
 
@@ -5949,7 +5974,7 @@ msgid "Remember file name template"
 msgstr "Nhớ mẫu tên tập tin"
 
 #: libraries/config/messages.inc.php:189 libraries/operations.lib.php:223
-#: libraries/operations.lib.php:842 libraries/operations.lib.php:1269
+#: libraries/operations.lib.php:835 libraries/operations.lib.php:1262
 msgid "Add AUTO_INCREMENT value"
 msgstr "Thêm giá trị AUTO_INCREMENT"
 
@@ -5988,7 +6013,7 @@ msgstr "Xuất siêu dữ liệu quan hệ từ kho cấu hình phpMyAdmin"
 #: libraries/config/messages.inc.php:203 libraries/config/messages.inc.php:205
 #: libraries/config/messages.inc.php:206 libraries/config/messages.inc.php:208
 #: libraries/config/messages.inc.php:220 libraries/operations.lib.php:218
-#: libraries/operations.lib.php:1265
+#: libraries/operations.lib.php:1258
 #, php-format
 msgid "Add %s"
 msgstr "Thêm %s"
@@ -6369,14 +6394,8 @@ msgid "Disable some of the warnings shown by phpMyAdmin."
 msgstr "Tắt một số cảnh báo hiển thị bởi phpMyAdmin."
 
 #: libraries/config/messages.inc.php:349
-#, fuzzy
-#| msgid ""
-#| "Enable [a@https://en.wikipedia.org/wiki/Gzip]gzip[/a] compression for "
-#| "import and export operations."
 msgid "Enable gzip compression for import and export operations."
-msgstr ""
-"Bật nén [a@https://en.wikipedia.org/wiki/Gzip]gzip[/a] dành cho các thao tác "
-"nhập và xuất dữ liệu."
+msgstr "Bật nén gzip dành cho các thao tác nhập và xuất dữ liệu."
 
 #: libraries/config/messages.inc.php:352
 msgid "GZip"
@@ -6500,11 +6519,15 @@ msgid "Limit column characters"
 msgstr "Giới hạn số ký tự mỗi cột"
 
 #: libraries/config/messages.inc.php:409
+#, fuzzy
 msgid ""
 "If TRUE, logout deletes cookies for all servers; when set to FALSE, logout "
 "only occurs for the current server. Setting this to FALSE makes it easy to "
 "forget to log out from other servers when connected to multiple servers."
 msgstr ""
+"Nếu ĐÚNG, đăng xuất xóa cookie cho tất cả các máy chủ; khi đặt thành SAI, "
+"đăng xuất chỉ xảy ra cho máy chủ hiện tại. Cài đặt này thành SAI khiến bạn "
+"dễ quên đăng xuất khỏi các máy chủ khác khi kết nối với nhiều máy chủ."
 
 #: libraries/config/messages.inc.php:413
 msgid "Delete all cookies on logout"
@@ -6515,6 +6538,8 @@ msgid ""
 "Define whether the previous login should be recalled or not in [kbd]cookie[/"
 "kbd] authentication mode."
 msgstr ""
+"Xác định đăng nhập trước đó có nên được thu hồi hay không trong chế độ xác "
+"thực [kbd]cookie[/kbd]."
 
 #: libraries/config/messages.inc.php:418
 msgid "Recall user name"
@@ -6527,6 +6552,10 @@ msgid ""
 "and will be deleted as soon as you close the browser window. This is "
 "recommended for non-trusted environments."
 msgstr ""
+"Xác định khoảng thời gian (tính bằng giây) cookie đăng nhập phải được lưu "
+"trữ trong trình duyệt. Mặc định là 0 có nghĩa là nó sẽ được giữ lại cho "
+"phiên hiện tại, và sẽ bị xóa ngay khi bạn đóng cửa sổ trình duyệt. Đây là "
+"khuyến cáo cho môi trường không đáng tin cậy."
 
 #: libraries/config/messages.inc.php:425
 msgid "Login cookie store"
@@ -6822,10 +6851,8 @@ msgid "Show row links anyway"
 msgstr "Dù sao vẫn hiển thị liên kết hàng"
 
 #: libraries/config/messages.inc.php:546 libraries/config/messages.inc.php:547
-#, fuzzy
-#| msgid "Disable foreign key checks"
 msgid "Disable shortcut keys"
-msgstr "Tắt kiểm tra khóa ngoại"
+msgstr "Tắt phiếm tắt"
 
 #: libraries/config/messages.inc.php:549
 msgid "Use natural order for sorting table and database names."
@@ -6846,7 +6873,7 @@ msgstr "Xóa thanh công cụ kết nối nhanh"
 
 #: libraries/config/messages.inc.php:554
 msgid "Use GZip output buffering for increased speed in HTTP transfers."
-msgstr ""
+msgstr "Sử dụng bộ đệm đầu ra GZip để tăng tốc độ truyền HTTP."
 
 #: libraries/config/messages.inc.php:555
 msgid "GZip output buffering"
@@ -6915,11 +6942,15 @@ msgid "Protect binary columns"
 msgstr "Các cột nhị phân bảo vệ"
 
 #: libraries/config/messages.inc.php:583
+#, fuzzy
 msgid ""
 "Enable if you want DB-based query history (requires phpMyAdmin configuration "
 "storage). If disabled, this utilizes JS-routines to display query history "
 "(lost by window close)."
 msgstr ""
+"Bật nếu bạn muốn lịch sử truy vấn dựa trên DB (yêu cầu lưu trữ cấu hình "
+"phpMyAdmin). Nếu bị tắt, điều này sử dụng các thói quen JS để hiển thị lịch "
+"sử truy vấn (bị mất bởi đóng cửa sổ)."
 
 #: libraries/config/messages.inc.php:587
 msgid "Permanent query history"
@@ -7023,6 +7054,7 @@ msgid ""
 "Sets the effective timezone; possibly different than the one from your "
 "database server"
 msgstr ""
+"Thiết lập múi giờ hiệu quả; có thể khác với máy chủ cơ sở dữ liệu của bạn"
 
 #: libraries/config/messages.inc.php:623
 msgid "HTTP Basic Auth Realm name to display when doing HTTP Auth."
@@ -7041,16 +7073,12 @@ msgid "Authentication type"
 msgstr "Kiểu xác thực"
 
 #: libraries/config/messages.inc.php:628
-#, fuzzy
-#| msgid ""
-#| "Leave blank for no [a@https://wiki.phpmyadmin.net/pma/bookmark]bookmark[/"
-#| "a] support, suggested: [kbd]pma__bookmark[/kbd]"
 msgid ""
 "Leave blank for no [doc@bookmarks@]bookmark[/doc] support, suggested: "
 "[kbd]pma__bookmark[/kbd]"
 msgstr ""
-"Để trống khi không hỗ trợ [a@https://wiki.phpmyadmin.net/pma/bookmark]đánh "
-"dấu[/a], gợi ý: [kbd]pma__bookmark[/kbd]"
+"Để trống khi không hỗ trợ [doc@bookmarks@]đánh dấu[/doc], gợi ý: "
+"[kbd]pma__bookmark[/kbd]"
 
 #: libraries/config/messages.inc.php:631
 msgid "Bookmark table"
@@ -7079,17 +7107,12 @@ msgid "Control user password"
 msgstr "Mật khẩu người dùng điều khiển"
 
 #: libraries/config/messages.inc.php:641
-#, fuzzy
-#| msgid ""
-#| "A special MySQL user configured with limited permissions, more "
-#| "information available on [a@https://wiki.phpmyadmin.net/pma/"
-#| "controluser]wiki[/a]."
 msgid ""
 "A special MySQL user configured with limited permissions, more information "
 "available on [doc@linked-tables]documentation[/doc]."
 msgstr ""
 "Một người dùng MySQL đặc biệt được cấu hình với quyền giới hạn, thông tin "
-"thêm nữa sẵn có trên [a@https://wiki.phpmyadmin.net/pma/controluser]wiki[/a]."
+"thêm nữa sẵn có trên [doc@linked-tables]tài liệu[/doc]."
 
 #: libraries/config/messages.inc.php:644
 msgid "Control user"
@@ -7113,6 +7136,9 @@ msgid ""
 "storage; leave blank to use the default port, or the already defined port, "
 "if the controlhost equals host."
 msgstr ""
+"Một cổng thay thế để kết nối với máy chủ chứa bộ nhớ cấu hình; để trống để "
+"sử dụng cổng mặc định, hoặc cổng đã được xác định, nếu controlhost bằng máy "
+"chủ."
 
 #: libraries/config/messages.inc.php:655
 msgid "Control port"
@@ -7167,6 +7193,8 @@ msgid ""
 "Limits number of table preferences which are stored in database, the oldest "
 "records are automatically removed."
 msgstr ""
+"Giới hạn số lượng các sở thích của bảng được lưu trữ trong cơ sở dữ liệu, "
+"bản ghi cũ nhất được tự động xóa."
 
 #: libraries/config/messages.inc.php:677
 msgid "Maximal number of table preferences to store"
@@ -7187,10 +7215,12 @@ msgid "Export templates table"
 msgstr "Xuất bảng mẫu"
 
 #: libraries/config/messages.inc.php:685
+#, fuzzy
 msgid ""
 "Leave blank for no export template support, suggested: "
 "[kbd]pma__export_templates[/kbd]."
 msgstr ""
+"Để trống để không hỗ trợ mẫu xuất, gợi ý: [kbd]pma__export_templates[/kbd]."
 
 #: libraries/config/messages.inc.php:688
 msgid "Central columns table"
@@ -7201,6 +7231,8 @@ msgid ""
 "Leave blank for no central columns support, suggested: "
 "[kbd]pma__central_columns[/kbd]."
 msgstr ""
+"Để trống nếu không có hỗ trợ cột trung tâm, gợi ý: "
+"[kbd]pma__central_columns[/kbd]."
 
 #: libraries/config/messages.inc.php:694
 msgid ""
@@ -7228,6 +7260,7 @@ msgstr "Mật khẩu cho xác thực cấu hình"
 msgid ""
 "Leave blank for no PDF schema support, suggested: [kbd]pma__pdf_pages[/kbd]."
 msgstr ""
+"Để trống nếu không có hỗ trợ giản đồ PDF, gợi ý: [kbd]pma__pdf_pages[/kbd]."
 
 #: libraries/config/messages.inc.php:704
 msgid "PDF schema: pages table"
@@ -7239,6 +7272,9 @@ msgid ""
 "tables]pmadb[/doc] for complete information. Leave blank for no support. "
 "Suggested: [kbd]phpmyadmin[/kbd]."
 msgstr ""
+"Cơ sở dữ liệu được sử dụng cho các mối quan hệ, dấu trang và các tính năng "
+"PDF. Xem [doc@linked-tables]pmadb[/doc] để biết thông tin đầy đủ. Để trống "
+"khi không có hỗ trợ. Gợi ýt: [kbd]phpmyadmin[/kbd]."
 
 #: libraries/config/messages.inc.php:710
 #: templates/server/databases/create.phtml:20
@@ -7259,6 +7295,8 @@ msgid ""
 "Leave blank for no \"persistent\" recently used tables across sessions, "
 "suggested: [kbd]pma__recent[/kbd]."
 msgstr ""
+"Để trống khi không có bảng gần đây \"liên tục\" được sử dụng xuyên các "
+"phiên, gợi ý: [kbd]pma__recent[/kbd]."
 
 #: libraries/config/messages.inc.php:718
 msgid "Recently used table"
@@ -7269,37 +7307,29 @@ msgid ""
 "Leave blank for no \"persistent\" favorite tables across sessions, "
 "suggested: [kbd]pma__favorite[/kbd]."
 msgstr ""
+"Để trống khi không có bảng yêu thích \"liên tục\" trên các phiên, gợi ý: "
+"[kbd]pma__favorite[/kbd]."
 
 #: libraries/config/messages.inc.php:723
 msgid "Favorites table"
 msgstr "Bảng ưa dùng"
 
 #: libraries/config/messages.inc.php:725
-#, fuzzy
-#| msgid ""
-#| "Leave blank for no [a@https://wiki.phpmyadmin.net/pma/relation]relation-"
-#| "links[/a] support, suggested: [kbd]pma__relation[/kbd]."
 msgid ""
 "Leave blank for no [doc@relations@]relation-links[/doc] support, suggested: "
 "[kbd]pma__relation[/kbd]."
 msgstr ""
-"Để trống để không hỗ trợ [a@https://wiki.phpmyadmin.net/pma/"
-"relation]relation-links[/a], gợi ý: [kbd]pma__relation[/kbd]."
+"Để trống để không hỗ trợ [doc@relations@]relation-links[/doc], gợi ý: "
+"[kbd]pma__relation[/kbd]."
 
 #: libraries/config/messages.inc.php:729
 msgid "Relation table"
 msgstr "Bảng quan hệ"
 
 #: libraries/config/messages.inc.php:731
-#, fuzzy
-#| msgid ""
-#| "See [a@https://wiki.phpmyadmin.net/pma/auth_types#signon]authentication "
-#| "types[/a] for an example."
 msgid ""
 "See [doc@authentication-modes]authentication types[/doc] for an example."
-msgstr ""
-"Ví dụ như xem [a@https://wiki.phpmyadmin.net/pma/auth_types#signon]các kiểu "
-"xác thực[/a]."
+msgstr "Xem [doc@authentication-modes]các kiểu xác thực[/doc] cho ví dụ."
 
 #: libraries/config/messages.inc.php:734
 msgid "Signon session name"
@@ -7330,16 +7360,20 @@ msgid ""
 "Leave blank for no PDF schema support, suggested: [kbd]pma__table_coords[/"
 "kbd]."
 msgstr ""
+"Để trống nếu không có hỗ trợ giản đồ PDF, gợi ý: [kbd]pma__table_coords[/"
+"kbd]."
 
 #: libraries/config/messages.inc.php:745
 msgid "Designer and PDF schema: table coordinates"
-msgstr ""
+msgstr "Bộ tạo mẫu và giản đồ PDF: bảng tọa độ"
 
 #: libraries/config/messages.inc.php:748
 msgid ""
 "Table to describe the display columns, leave blank for no support; "
 "suggested: [kbd]pma__table_info[/kbd]."
 msgstr ""
+"Bảng để mô tả các cột hiển thị, để trống khi không có hỗ trợ; gợi ý: "
+"[kbd]pma__table_info[/kbd]."
 
 #: libraries/config/messages.inc.php:751
 msgid "Display columns table"
@@ -7350,26 +7384,34 @@ msgid ""
 "Leave blank for no \"persistent\" tables' UI preferences across sessions, "
 "suggested: [kbd]pma__table_uiprefs[/kbd]."
 msgstr ""
+"Để trống khi không có bảng tùy chọn giao diện \"liên tục\" trên các phiên, "
+"gợi ý: [kbd]pma__table_uiprefs[/kbd]."
 
 #: libraries/config/messages.inc.php:756
 msgid "UI preferences table"
 msgstr "Bảng tùy thích UI"
 
 #: libraries/config/messages.inc.php:758
+#, fuzzy
 msgid ""
 "Whether a DROP DATABASE IF EXISTS statement will be added as first line to "
 "the log when creating a database."
 msgstr ""
+"Có thể câu XÓA CƠ SỞ DỮ LIỆU NẾU TỒN TẠI sẽ được thêm vào dòng đầu tiên của "
+"nhật ký khi tạo một cơ sở dữ liệu."
 
 #: libraries/config/messages.inc.php:761
 msgid "Add DROP DATABASE"
 msgstr "Thêm DROP DATABASE"
 
 #: libraries/config/messages.inc.php:763
+#, fuzzy
 msgid ""
 "Whether a DROP TABLE IF EXISTS statement will be added as first line to the "
 "log when creating a table."
 msgstr ""
+"Có thể câu XÓA BẢNG NẾU TỒN TẠI sẽ được thêm vào dòng đầu tiên của nhật ký "
+"khi tạo bảng."
 
 #: libraries/config/messages.inc.php:766 libraries/mult_submits.lib.php:351
 msgid "Add DROP TABLE"
@@ -7388,6 +7430,8 @@ msgstr "Thêm DROP VIEW"
 #: libraries/config/messages.inc.php:773
 msgid "Defines the list of statements the auto-creation uses for new versions."
 msgstr ""
+"Xác định danh sách các câu lệnh mà trình tạo tự động sử dụng cho các phiên "
+"bản mới."
 
 #: libraries/config/messages.inc.php:774
 msgid "Statements to track"
@@ -7429,6 +7473,9 @@ msgid ""
 "configurable menus feature; leaving either one of them blank will disable "
 "this feature, suggested: [kbd]pma__users[/kbd]."
 msgstr ""
+"Cả bảng này và bảng nhóm người dùng được yêu cầu để kích hoạt tính năng cấu "
+"hình của các menu; nếu một trong hai bảng bị để trống thì tính năng này sẽ "
+"bị tắt, gợi ý: [kbd]pma__users[/kbd]."
 
 #: libraries/config/messages.inc.php:796
 msgid "Users table"
@@ -7440,6 +7487,9 @@ msgid ""
 "menus feature; leaving either one of them blank will disable this feature, "
 "suggested: [kbd]pma__usergroups[/kbd]."
 msgstr ""
+"Cả bảng này và bảng người dùng được yêu cầu để kích hoạt tính năng cấu hình "
+"của các menu; nếu một trong hai bảng bị để trống thì tính năng này sẽ bị "
+"tắt, gợi ý: [kbd]pma__usergroups[/kbd]."
 
 #: libraries/config/messages.inc.php:802
 msgid "User groups table"
@@ -7450,6 +7500,8 @@ msgid ""
 "Leave blank to disable the feature to hide and show navigation items, "
 "suggested: [kbd]pma__navigationhiding[/kbd]."
 msgstr ""
+"Để trống để tắt tính năng tắt và hiện mục điều hướng, gợi ý: "
+"[kbd]pma__navigationhiding[/kbd]."
 
 #: libraries/config/messages.inc.php:807
 msgid "Hidden navigation items table"
@@ -7485,6 +7537,9 @@ msgid ""
 "authentication mode because the password is hard coded in the configuration "
 "file; this does not limit the ability to execute the same command directly."
 msgstr ""
+"Xin lưu ý rằng việc bật tính năng này không ảnh hưởng đến chế độ xác thực "
+"của [kbd]cấu hình[/kbd] vì mật khẩu được mã hóa cứng trong tệp cấu hình; "
+"điều này không giới hạn khả năng thực hiện cùng một lệnh trực tiếp."
 
 #: libraries/config/messages.inc.php:824
 msgid "Show password change form"
@@ -7665,6 +7720,8 @@ msgid ""
 "Textarea size (columns) in edit mode, this value will be emphasized for SQL "
 "query textareas (*2)."
 msgstr ""
+"Kích thước văn bản (cột) trong chế độ chỉnh sửa, giá trị này sẽ được nhấn "
+"mạnh cho các vùng văn bản truy vấn SQL (* 2)."
 
 #: libraries/config/messages.inc.php:900
 msgid "Textarea columns"
@@ -7675,6 +7732,8 @@ msgid ""
 "Textarea size (rows) in edit mode, this value will be emphasized for SQL "
 "query textareas (*2)."
 msgstr ""
+"Kích thước văn bản (dòng) trong chế độ chỉnh sửa, giá trị này sẽ được nhấn "
+"mạnh cho các vùng văn bản truy vấn SQL (*2)."
 
 #: libraries/config/messages.inc.php:905
 msgid "Textarea rows"
@@ -7714,7 +7773,7 @@ msgstr "Danh sách các máy ủy nhiệm đáng tin cho IP cho phép/từ chố
 
 #: libraries/config/messages.inc.php:928
 msgid "Directory on server where you can upload files for import."
-msgstr ""
+msgstr "Thư mục trên máy chủ nơi bạn có thể tải tệp lên để nhập."
 
 #: libraries/config/messages.inc.php:930
 msgid "Upload directory"
@@ -7762,6 +7821,10 @@ msgid ""
 "if the server where phpMyAdmin is installed does not have direct access to "
 "the internet. The format is: \"hostname:portnumber\"."
 msgstr ""
+"Url của proxy được sử dụng khi lấy thông tin về phiên bản mới nhất của "
+"phpMyAdmin hoặc khi gửi báo cáo lỗi. Bạn cần điều này nếu máy chủ nơi "
+"phpMyAdmin được cài đặt không có quyền truy cập trực tiếp vào internet. Định "
+"dạng là: \"hostname: portnumber\"."
 
 #: libraries/config/messages.inc.php:949
 msgid "Proxy url"
@@ -7773,6 +7836,9 @@ msgid ""
 "authentication is performed. If a username is supplied, Basic Authentication "
 "will be performed. No other types of authentication are currently supported."
 msgstr ""
+"Tên người dùng để xác thực với proxy. Theo mặc định, không xác thực được "
+"thực hiện. Nếu tên người dùng được cung cấp, việc chứng thực cơ bản sẽ được "
+"thực hiện. Không có loại chứng thực khác hiện đang được hỗ trợ."
 
 #: libraries/config/messages.inc.php:956
 msgid "Proxy username"
@@ -7787,14 +7853,8 @@ msgid "Proxy password"
 msgstr "Mật khẩu máy chủ ủy nhiệm"
 
 #: libraries/config/messages.inc.php:961
-#, fuzzy
-#| msgid ""
-#| "Enable [a@https://en.wikipedia.org/wiki/Gzip]gzip[/a] compression for "
-#| "import and export operations."
 msgid "Enable ZIP compression for import and export operations."
-msgstr ""
-"Bật nén [a@https://en.wikipedia.org/wiki/Gzip]gzip[/a] dành cho các thao tác "
-"nhập và xuất dữ liệu."
+msgstr "Bật nén zip dành cho các thao tác nhập và xuất dữ liệu."
 
 #: libraries/config/messages.inc.php:964
 msgid "ZIP"
@@ -8167,7 +8227,7 @@ msgid "Could not load schema plugins, please check your installation!"
 msgstr ""
 "Không thể tải phần bổ sung lược đồ, vui lòng kiểm tra bản cài đặt của bạn!"
 
-#: libraries/dbi/DBIMysqli.php:158
+#: libraries/dbi/DBIMysqli.php:160
 msgid "SSL connection enforced by server, automatically enabling it."
 msgstr ""
 
@@ -8178,7 +8238,7 @@ msgid "No Password"
 msgstr "Không Mật khẩu"
 
 #: libraries/display_change_password.lib.php:65
-#: libraries/plugins/auth/AuthenticationCookie.php:200
+#: libraries/plugins/auth/AuthenticationCookie.php:214
 #: libraries/replication_gui.lib.php:424 libraries/replication_gui.lib.php:845
 #: libraries/server_privileges.lib.php:1654
 msgid "Password:"
@@ -8858,12 +8918,12 @@ msgid "Dump has been saved to file %s."
 msgstr "Đổ đã được lưu vào tập tin %s."
 
 #: libraries/import.lib.php:98 libraries/insert_edit.lib.php:125
-#: libraries/rte/rte_routines.lib.php:1466 libraries/sql.lib.php:1377
+#: libraries/rte/rte_routines.lib.php:1466 libraries/sql.lib.php:1379
 #: tbl_get_field.php:45
 msgid "MySQL returned an empty result set (i.e. zero rows)."
 msgstr "MySQL trả về kết quả là trống rỗng (vd. không có hàng nào)."
 
-#: libraries/import.lib.php:258 libraries/sql.lib.php:1391
+#: libraries/import.lib.php:258 libraries/sql.lib.php:1393
 msgid "[ROLLBACK occurred.]"
 msgstr "[đã nảy sinh ROLLBACK.]"
 
@@ -9025,11 +9085,11 @@ msgstr ""
 msgid "Value"
 msgstr "Giá trị"
 
-#: libraries/insert_edit.lib.php:2008 libraries/sql.lib.php:1374
+#: libraries/insert_edit.lib.php:2008 libraries/sql.lib.php:1376
 msgid "Showing SQL query"
 msgstr "Hiện truy vấn SQL"
 
-#: libraries/insert_edit.lib.php:2033 libraries/sql.lib.php:1352
+#: libraries/insert_edit.lib.php:2033 libraries/sql.lib.php:1354
 #, php-format
 msgid "Inserted row id: %1$d"
 msgstr "Chỉ số id người dùng kép: %1$d"
@@ -9039,17 +9099,17 @@ msgid "Success!"
 msgstr "Thành công!"
 
 #: libraries/mult_submits.lib.php:345 libraries/operations.lib.php:171
-#: libraries/operations.lib.php:1252 libraries/tracking.lib.php:529
+#: libraries/operations.lib.php:1245 libraries/tracking.lib.php:529
 msgid "Structure only"
 msgstr "Chỉ cấu trúc"
 
 #: libraries/mult_submits.lib.php:347 libraries/operations.lib.php:172
-#: libraries/operations.lib.php:1253 libraries/tracking.lib.php:535
+#: libraries/operations.lib.php:1246 libraries/tracking.lib.php:535
 msgid "Structure and data"
 msgstr "Cấu trúc và dữ liệu"
 
 #: libraries/mult_submits.lib.php:349 libraries/operations.lib.php:173
-#: libraries/operations.lib.php:1254 libraries/tracking.lib.php:532
+#: libraries/operations.lib.php:1247 libraries/tracking.lib.php:532
 msgid "Data only"
 msgstr "Chỉ dữ liệu"
 
@@ -9060,13 +9120,13 @@ msgid "Add AUTO INCREMENT value"
 msgstr "Thêm giá trị AUTO_INCREMENT"
 
 #: libraries/mult_submits.lib.php:355 libraries/operations.lib.php:227
-#: libraries/operations.lib.php:1277
+#: libraries/operations.lib.php:1270
 msgid "Add constraints"
 msgstr "Thêm ràng buộc"
 
 #: libraries/mult_submits.lib.php:357 libraries/operations.lib.php:102
-#: libraries/operations.lib.php:245 libraries/operations.lib.php:860
-#: libraries/operations.lib.php:947 libraries/operations.lib.php:1296
+#: libraries/operations.lib.php:245 libraries/operations.lib.php:853
+#: libraries/operations.lib.php:940 libraries/operations.lib.php:1289
 #: libraries/rte/rte_routines.lib.php:1007
 #: templates/columns_definitions/table_fields_definitions.phtml:47
 msgid "Adjust privileges"
@@ -9155,17 +9215,17 @@ msgid "%s result found"
 msgid_plural "%s results found"
 msgstr[0] "Tìm thấy %s kết quả"
 
-#: libraries/navigation/NavigationTree.php:1366
-#: libraries/navigation/NavigationTree.php:1398
+#: libraries/navigation/NavigationTree.php:1367
+#: libraries/navigation/NavigationTree.php:1399
 msgid "Type to filter these, Enter to search all"
 msgstr "Gõ bộ vào hộp bộ lọc, Enter để tìm tất cả"
 
-#: libraries/navigation/NavigationTree.php:1368
-#: libraries/navigation/NavigationTree.php:1399
+#: libraries/navigation/NavigationTree.php:1369
+#: libraries/navigation/NavigationTree.php:1400
 msgid "Clear fast filter"
 msgstr "Xóa bộ lọc nhanh"
 
-#: libraries/navigation/NavigationTree.php:1425
+#: libraries/navigation/NavigationTree.php:1426
 msgid "Collapse all"
 msgstr "Mở rộng tất cả"
 
@@ -9190,7 +9250,7 @@ msgstr "Dãn/Co"
 msgid "Columns"
 msgstr "Cột"
 
-#: libraries/navigation/nodes/NodeColumnContainer.php:36
+#: libraries/navigation/nodes/NodeColumnContainer.php:38
 msgctxt "Create new column"
 msgid "New"
 msgstr "Mới"
@@ -9220,12 +9280,12 @@ msgstr "Mới"
 msgid "Functions"
 msgstr "Các hàm"
 
-#: libraries/navigation/nodes/NodeFunctionContainer.php:38
+#: libraries/navigation/nodes/NodeFunctionContainer.php:40
 msgctxt "Create new function"
 msgid "New"
 msgstr "Mới"
 
-#: libraries/navigation/nodes/NodeIndexContainer.php:35
+#: libraries/navigation/nodes/NodeIndexContainer.php:37
 msgctxt "Create new index"
 msgid "New"
 msgstr "Mới"
@@ -9241,18 +9301,18 @@ msgstr "Thủ tục"
 msgid "Procedures"
 msgstr "Thủ tục"
 
-#: libraries/navigation/nodes/NodeProcedureContainer.php:38
+#: libraries/navigation/nodes/NodeProcedureContainer.php:40
 #: libraries/rte/rte_footer.lib.php:29
 msgctxt "Create new procedure"
 msgid "New"
 msgstr "Mới"
 
-#: libraries/navigation/nodes/NodeTableContainer.php:36
+#: libraries/navigation/nodes/NodeTableContainer.php:38
 msgctxt "Create new table"
 msgid "New"
 msgstr "Mới"
 
-#: libraries/navigation/nodes/NodeTriggerContainer.php:37
+#: libraries/navigation/nodes/NodeTriggerContainer.php:39
 msgctxt "Create new trigger"
 msgid "New"
 msgstr "Mới"
@@ -9264,7 +9324,7 @@ msgstr "Mới"
 msgid "Views"
 msgstr "Trình bày"
 
-#: libraries/navigation/nodes/NodeViewContainer.php:36
+#: libraries/navigation/nodes/NodeViewContainer.php:38
 msgctxt "Create new view"
 msgid "New"
 msgstr "Mới"
@@ -9538,8 +9598,8 @@ msgid "Rename database to"
 msgstr "Đổi tên cơ sở dữ liệu thành"
 
 #: libraries/operations.lib.php:95 libraries/operations.lib.php:239
-#: libraries/operations.lib.php:854 libraries/operations.lib.php:941
-#: libraries/operations.lib.php:1290
+#: libraries/operations.lib.php:847 libraries/operations.lib.php:934
+#: libraries/operations.lib.php:1283
 #: templates/columns_definitions/column_adjust_privileges.phtml:16
 msgid ""
 "You don't have sufficient privileges to perform this operation; Please refer "
@@ -9573,185 +9633,185 @@ msgstr "CREATE DATABASE trước khi sao chép"
 msgid "Switch to copied database"
 msgstr "Chuyển tới cơ sở dữ liệu đã sao chép"
 
-#: libraries/operations.lib.php:775
+#: libraries/operations.lib.php:768
 msgid "Alter table order by"
 msgstr "Làm bảng xếp theo"
 
-#: libraries/operations.lib.php:783
+#: libraries/operations.lib.php:776
 msgid "(singly)"
 msgstr "(đơn)"
 
-#: libraries/operations.lib.php:819
+#: libraries/operations.lib.php:812
 msgid "Move table to (database<b>.</b>table)"
 msgstr "Di chuyển bảng đến (cơ sở dữ liệu<b>.</b>bảng)"
 
-#: libraries/operations.lib.php:924
+#: libraries/operations.lib.php:917
 msgid "Rename table to"
 msgstr "Đổi tên bảng thành"
 
-#: libraries/operations.lib.php:964
+#: libraries/operations.lib.php:957
 msgid "Table comments"
 msgstr "Chú thích về bảng"
 
-#: libraries/operations.lib.php:1033
+#: libraries/operations.lib.php:1026
 msgid "Table options"
 msgstr "Tùy chọn về bảng"
 
-#: libraries/operations.lib.php:1040 templates/server/engines/engines.phtml:4
+#: libraries/operations.lib.php:1033 templates/server/engines/engines.phtml:4
 msgid "Storage Engine"
 msgstr "Bộ máy lưu trữ"
 
-#: libraries/operations.lib.php:1064
+#: libraries/operations.lib.php:1057
 msgid "Change all column collations"
 msgstr "Thay đổi mọi bảng mã đối chiếu cột"
 
-#: libraries/operations.lib.php:1235
+#: libraries/operations.lib.php:1228
 msgid "Copy table to (database<b>.</b>table)"
 msgstr "Chép bảng đến (cơ sở dữ liệu<b>.</b>bảng)"
 
-#: libraries/operations.lib.php:1311
+#: libraries/operations.lib.php:1304
 msgid "Switch to copied table"
 msgstr "Không có bảng nào để in"
 
-#: libraries/operations.lib.php:1335
+#: libraries/operations.lib.php:1328
 #: templates/database/structure/check_all_tables.phtml:19
 msgid "Table maintenance"
 msgstr "Bảo trì bảng"
 
-#: libraries/operations.lib.php:1368
+#: libraries/operations.lib.php:1361
 #: templates/database/structure/check_all_tables.phtml:20
 msgid "Analyze table"
 msgstr "Phân tích bảng"
 
-#: libraries/operations.lib.php:1383
+#: libraries/operations.lib.php:1376
 #: templates/database/structure/check_all_tables.phtml:21
 msgid "Check table"
 msgstr "Kiểm tra bảng"
 
-#: libraries/operations.lib.php:1397
+#: libraries/operations.lib.php:1390
 #: templates/database/structure/check_all_tables.phtml:22
 msgid "Checksum table"
 msgstr "Tổng kiểm tra bảng"
 
-#: libraries/operations.lib.php:1411
+#: libraries/operations.lib.php:1404
 msgid "Defragment table"
 msgstr "Chống phân mảnh bảng"
 
-#: libraries/operations.lib.php:1423
+#: libraries/operations.lib.php:1416
 #, php-format
 msgid "Table %s has been flushed."
 msgstr "Bảng %s đã được đẩy dữ liệu từ bộ nhớ lên đĩa."
 
-#: libraries/operations.lib.php:1429
+#: libraries/operations.lib.php:1422
 msgid "Flush the table (FLUSH)"
 msgstr "Đẩy dữ liệu từ bảng lên đĩa cứng (FLUSH)"
 
-#: libraries/operations.lib.php:1443
+#: libraries/operations.lib.php:1436
 #: templates/database/structure/check_all_tables.phtml:23
 #: templates/table/structure/display_table_stats.phtml:60
 msgid "Optimize table"
 msgstr "Tối ưu hóa bảng"
 
-#: libraries/operations.lib.php:1458
+#: libraries/operations.lib.php:1451
 #: templates/database/structure/check_all_tables.phtml:24
 msgid "Repair table"
 msgstr "Sửa chữa bảng"
 
-#: libraries/operations.lib.php:1504
+#: libraries/operations.lib.php:1497
 #: templates/database/structure/check_all_tables.phtml:15
 #: view_operations.php:144
 msgid "Delete data or table"
 msgstr "Xóa dữ liệu hay bảng"
 
-#: libraries/operations.lib.php:1512
+#: libraries/operations.lib.php:1505
 msgid "Empty the table (TRUNCATE)"
 msgstr "Xóa dữ liệu của bảng (TRUNCATE)"
 
-#: libraries/operations.lib.php:1520
+#: libraries/operations.lib.php:1513
 msgid "Delete the table (DROP)"
 msgstr "Xóa bảng (DROP)"
 
-#: libraries/operations.lib.php:1560
+#: libraries/operations.lib.php:1553
 #: templates/table/structure/display_structure.phtml:173
 msgid "Analyze"
 msgstr "Phân tích"
 
-#: libraries/operations.lib.php:1561
+#: libraries/operations.lib.php:1554
 #: templates/table/structure/display_structure.phtml:174
 msgid "Check"
 msgstr "Kiểm tra"
 
-#: libraries/operations.lib.php:1562
+#: libraries/operations.lib.php:1555
 #: templates/table/structure/display_structure.phtml:175
 msgid "Optimize"
 msgstr "Tối ưu hóa"
 
-#: libraries/operations.lib.php:1563
+#: libraries/operations.lib.php:1556
 #: templates/table/structure/display_structure.phtml:176
 msgid "Rebuild"
 msgstr "Xây dụng lại"
 
-#: libraries/operations.lib.php:1564
+#: libraries/operations.lib.php:1557
 #: templates/table/structure/display_structure.phtml:177
 msgid "Repair"
 msgstr "Sửa chữa"
 
-#: libraries/operations.lib.php:1565
+#: libraries/operations.lib.php:1558
 #: templates/table/structure/display_structure.phtml:178
 msgid "Truncate"
 msgstr "Cắt ngắn"
 
-#: libraries/operations.lib.php:1579
+#: libraries/operations.lib.php:1572
 msgid "Coalesce"
 msgstr "Hợp nhất"
 
-#: libraries/operations.lib.php:1588
+#: libraries/operations.lib.php:1581
 msgid "Partition maintenance"
 msgstr "Bảo trì phân vùng"
 
-#: libraries/operations.lib.php:1605
+#: libraries/operations.lib.php:1598
 #, php-format
 msgid "Partition %s"
 msgstr "Phân vùng %s"
 
-#: libraries/operations.lib.php:1623
+#: libraries/operations.lib.php:1616
 #: templates/table/structure/display_partitions.phtml:136
 msgid "Remove partitioning"
 msgstr "Xóa phân vùng"
 
-#: libraries/operations.lib.php:1649
+#: libraries/operations.lib.php:1642
 msgid "Check referential integrity:"
 msgstr "Kiểm tra tính nguyên vẹn dữ liệu của đĩa"
 
-#: libraries/operations.lib.php:2034
+#: libraries/operations.lib.php:2027
 msgid "Can't move table to same one!"
 msgstr "Không thể di chuyển bảng đến cùng một cái!"
 
-#: libraries/operations.lib.php:2036
+#: libraries/operations.lib.php:2029
 msgid "Can't copy table to same one!"
 msgstr "Không thể sao chép bảng đến cùng một cái!"
 
-#: libraries/operations.lib.php:2060
+#: libraries/operations.lib.php:2053
 #, php-format
 msgid "Table %s has been moved to %s. Privileges have been adjusted."
 msgstr "Bảng %s đã được chuyển sang %s. Đặc quyền đã được điều chỉnh lại."
 
-#: libraries/operations.lib.php:2067
+#: libraries/operations.lib.php:2060
 #, php-format
 msgid "Table %s has been copied to %s. Privileges have been adjusted."
 msgstr "Bảng %s đã được chép sang %s. Đặc quyền đã được điều chỉnh lại."
 
-#: libraries/operations.lib.php:2076
+#: libraries/operations.lib.php:2069
 #, php-format
 msgid "Table %s has been moved to %s."
 msgstr "Bảng %s được chuyển sang %s."
 
-#: libraries/operations.lib.php:2080
+#: libraries/operations.lib.php:2073
 #, php-format
 msgid "Table %s has been copied to %s."
 msgstr "Bảng %s được chép sang %s."
 
-#: libraries/operations.lib.php:2109
+#: libraries/operations.lib.php:2102
 msgid "The table name is empty!"
 msgstr "Tên bảng còn để trống!"
 
@@ -9815,37 +9875,37 @@ msgstr ""
 msgid "Retry to connect"
 msgstr "Thử kết nối lại"
 
-#: libraries/plugins/auth/AuthenticationCookie.php:146
+#: libraries/plugins/auth/AuthenticationCookie.php:160
 msgid "Your session has expired. Please log in again."
 msgstr "Phiên của bạn đã hết hạn. Vui lòng đăng nhập lại."
 
-#: libraries/plugins/auth/AuthenticationCookie.php:171
+#: libraries/plugins/auth/AuthenticationCookie.php:185
 msgid "Log in"
 msgstr "Đăng nhập"
 
-#: libraries/plugins/auth/AuthenticationCookie.php:179
-#: libraries/plugins/auth/AuthenticationCookie.php:189
+#: libraries/plugins/auth/AuthenticationCookie.php:193
+#: libraries/plugins/auth/AuthenticationCookie.php:203
 msgid "You can enter hostname/IP address and port separated by space."
 msgstr ""
 "Bạn có thể nhập vào địa chỉ tên_máy/IP và cổng ngăn cách bằng khoảng trắng."
 
-#: libraries/plugins/auth/AuthenticationCookie.php:194
+#: libraries/plugins/auth/AuthenticationCookie.php:208
 msgid "Username:"
 msgstr "Tài khoản:"
 
-#: libraries/plugins/auth/AuthenticationCookie.php:206
+#: libraries/plugins/auth/AuthenticationCookie.php:220
 msgid "Server Choice:"
 msgstr "Chọn Máy chủ:"
 
-#: libraries/plugins/auth/AuthenticationCookie.php:329
+#: libraries/plugins/auth/AuthenticationCookie.php:343
 msgid "Entered captcha is wrong, try again!"
 msgstr "Captcha đã nhập là sai, hãy thử lại!"
 
-#: libraries/plugins/auth/AuthenticationCookie.php:333
+#: libraries/plugins/auth/AuthenticationCookie.php:347
 msgid "Please enter correct captcha!"
 msgstr "Vui lòng nhập captcha đúng!"
 
-#: libraries/plugins/auth/AuthenticationCookie.php:357
+#: libraries/plugins/auth/AuthenticationCookie.php:371
 msgid "You are not allowed to log in to this MySQL server!"
 msgstr "Bạn không được phép đăng nhập vào máy MySQL này!"
 
@@ -11067,8 +11127,8 @@ msgstr "Tài khoản:"
 #: libraries/replication_gui.lib.php:799
 #: libraries/server_privileges.lib.php:1497
 #: libraries/server_privileges.lib.php:1519
-#: libraries/server_privileges.lib.php:2527
-#: libraries/server_privileges.lib.php:3488
+#: libraries/server_privileges.lib.php:2537
+#: libraries/server_privileges.lib.php:3498
 msgid "User name"
 msgstr "Tài khoản"
 
@@ -11076,7 +11136,7 @@ msgstr "Tài khoản"
 #: libraries/replication_gui.lib.php:861
 #: libraries/server_privileges.lib.php:1658
 #: libraries/server_privileges.lib.php:1675
-#: libraries/server_privileges.lib.php:3490
+#: libraries/server_privileges.lib.php:3500
 msgid "Password"
 msgstr "Mật khẩu"
 
@@ -11858,9 +11918,9 @@ msgid "Limits the number of simultaneous connections the user may have."
 msgstr "Giới hạn số lượng kết nối đồng thời mà người dùng có thể có."
 
 #: libraries/server_privileges.lib.php:895
-#: libraries/server_privileges.lib.php:3301
-#: libraries/server_privileges.lib.php:3303
-#: libraries/server_privileges.lib.php:4518
+#: libraries/server_privileges.lib.php:3311
+#: libraries/server_privileges.lib.php:3313
+#: libraries/server_privileges.lib.php:4528
 #: templates/privileges/edit_routine_privileges.phtml:11
 msgid "Routine"
 msgstr "Thủ tục"
@@ -11881,14 +11941,14 @@ msgstr "Cho thực thi thủ tục này."
 
 #: libraries/server_privileges.lib.php:989
 #: libraries/server_privileges.lib.php:1158
-#: libraries/server_privileges.lib.php:3296
+#: libraries/server_privileges.lib.php:3306
 #: templates/privileges/privileges_summary.phtml:19
 msgid "Table-specific privileges"
 msgstr "Các đặc quyền dành-riêng-cho-thủ-tục"
 
 #: libraries/server_privileges.lib.php:992
 #: libraries/server_privileges.lib.php:1168
-#: libraries/server_privileges.lib.php:3493
+#: libraries/server_privileges.lib.php:3503
 #: templates/privileges/edit_routine_privileges.phtml:16
 msgid "Note: MySQL privilege names are expressed in English."
 msgstr "Chú ý: Các tên đặc quyền MySQL là được biểu diễn bằng tiếng Anh."
@@ -11898,7 +11958,7 @@ msgid "Administration"
 msgstr "Quản trị"
 
 #: libraries/server_privileges.lib.php:1152
-#: libraries/server_privileges.lib.php:3491
+#: libraries/server_privileges.lib.php:3501
 msgid "Global privileges"
 msgstr "Không đủ quyền."
 
@@ -11907,7 +11967,7 @@ msgid "Global"
 msgstr "Toàn cục"
 
 #: libraries/server_privileges.lib.php:1155
-#: libraries/server_privileges.lib.php:3290
+#: libraries/server_privileges.lib.php:3300
 msgid "Database-specific privileges"
 msgstr "Đặt đặc quyền"
 
@@ -11941,7 +12001,7 @@ msgid "SHA256 password authentication"
 msgstr "Xác thực dùng mật khẩu SHA256"
 
 #: libraries/server_privileges.lib.php:1489
-#: libraries/server_privileges.lib.php:3058
+#: libraries/server_privileges.lib.php:3068
 msgid "Login Information"
 msgstr "Thông tin đăng nhập"
 
@@ -11964,8 +12024,8 @@ msgstr "Tên máy:"
 
 #: libraries/server_privileges.lib.php:1552
 #: libraries/server_privileges.lib.php:1637
-#: libraries/server_privileges.lib.php:2528
-#: libraries/server_privileges.lib.php:3489
+#: libraries/server_privileges.lib.php:2538
+#: libraries/server_privileges.lib.php:3499
 msgid "Host name"
 msgstr "Tên máy"
 
@@ -11981,193 +12041,193 @@ msgstr "Phần bổ sung xác thực"
 msgid "Password Hashing Method"
 msgstr "Phương thức băm mật khẩu"
 
-#: libraries/server_privileges.lib.php:1995
+#: libraries/server_privileges.lib.php:2005
 #, php-format
 msgid "The password for %s was changed successfully."
 msgstr "Mật khẩu của %s đã được thay đổi."
 
-#: libraries/server_privileges.lib.php:2039
+#: libraries/server_privileges.lib.php:2049
 #, php-format
 msgid "You have revoked the privileges for %s."
 msgstr "Bạn đã thu hồi đặc quyền dành cho %s."
 
-#: libraries/server_privileges.lib.php:2137
+#: libraries/server_privileges.lib.php:2147
 #: templates/privileges/add_user_fieldset.phtml:7
 msgid "Add user account"
 msgstr "Tạo tài khoản người dùng mới"
 
-#: libraries/server_privileges.lib.php:2146
+#: libraries/server_privileges.lib.php:2156
 msgid "Database for user account"
 msgstr "Cơ sở dữ liệu cho người dùng"
 
-#: libraries/server_privileges.lib.php:2152
+#: libraries/server_privileges.lib.php:2162
 msgid "Create database with same name and grant all privileges."
 msgstr "Tạo cơ sở dữ liệu với cùng tên và cấp mọi đặc quyền."
 
-#: libraries/server_privileges.lib.php:2163
+#: libraries/server_privileges.lib.php:2173
 msgid "Grant all privileges on wildcard name (username\\_%)."
 msgstr "Cấp mọi đặc quyền trên các tên dùng ký tự đại diện (username\\_%)."
 
-#: libraries/server_privileges.lib.php:2176
+#: libraries/server_privileges.lib.php:2186
 #, fuzzy, php-format
 #| msgid "Grant all privileges on database \"%s\"."
 msgid "Grant all privileges on database %s."
 msgstr "Cấp mọi đặc quyền trên cơ sở dữ liệu \"%s\"."
 
-#: libraries/server_privileges.lib.php:2338
-#: libraries/server_privileges.lib.php:2409
+#: libraries/server_privileges.lib.php:2348
+#: libraries/server_privileges.lib.php:2419
 #, php-format
 msgid "Users having access to \"%s\""
 msgstr "Những người dùng có quyền truy cập vào \"%s\""
 
-#: libraries/server_privileges.lib.php:2379
+#: libraries/server_privileges.lib.php:2389
 msgid "User has been added."
 msgstr "Tài khoản đã được thêm vào."
 
-#: libraries/server_privileges.lib.php:2531
-#: libraries/server_privileges.lib.php:3499
+#: libraries/server_privileges.lib.php:2541
+#: libraries/server_privileges.lib.php:3509
 #: templates/privileges/privileges_summary.phtml:17
 msgid "Grant"
 msgstr "Quyền cấp"
 
-#: libraries/server_privileges.lib.php:2546
+#: libraries/server_privileges.lib.php:2556
 msgid "Not enough privilege to view users."
 msgstr "Không đủ thẩm quyền để xem các tài khoản."
 
-#: libraries/server_privileges.lib.php:2565
-#: libraries/server_privileges.lib.php:3920
+#: libraries/server_privileges.lib.php:2575
+#: libraries/server_privileges.lib.php:3930
 msgid "No user found."
 msgstr "Không tìm thấy người dùng."
 
-#: libraries/server_privileges.lib.php:2596
-#: libraries/server_privileges.lib.php:2916
-#: libraries/server_privileges.lib.php:3580
+#: libraries/server_privileges.lib.php:2606
+#: libraries/server_privileges.lib.php:2926
+#: libraries/server_privileges.lib.php:3590
 msgid "Any"
 msgstr "Bất kỳ"
 
-#: libraries/server_privileges.lib.php:2647
+#: libraries/server_privileges.lib.php:2657
 msgid "global"
 msgstr "toàn cục"
 
-#: libraries/server_privileges.lib.php:2650
+#: libraries/server_privileges.lib.php:2660
 msgid "database-specific"
 msgstr "dành-riêng-cho-cơ-sở-dữ-liệu"
 
-#: libraries/server_privileges.lib.php:2652
+#: libraries/server_privileges.lib.php:2662
 msgid "wildcard"
 msgstr "wildcard"
 
-#: libraries/server_privileges.lib.php:2658
+#: libraries/server_privileges.lib.php:2668
 msgid "table-specific"
 msgstr "dành-riêng-cho-bảng"
 
-#: libraries/server_privileges.lib.php:2788
+#: libraries/server_privileges.lib.php:2798
 msgid "Edit privileges"
 msgstr "Sửa đặc quyền"
 
-#: libraries/server_privileges.lib.php:2791
+#: libraries/server_privileges.lib.php:2801
 msgid "Revoke"
 msgstr "Thu hồi"
 
-#: libraries/server_privileges.lib.php:2815
+#: libraries/server_privileges.lib.php:2825
 msgid "Edit user group"
 msgstr "Sửa nhóm người dùng"
 
-#: libraries/server_privileges.lib.php:3030
+#: libraries/server_privileges.lib.php:3040
 msgid "… keep the old one."
 msgstr "… giữ lại cái cũ."
 
-#: libraries/server_privileges.lib.php:3031
+#: libraries/server_privileges.lib.php:3041
 msgid "… delete the old one from the user tables."
 msgstr "… xóa những cái cũ từ bảng user."
 
-#: libraries/server_privileges.lib.php:3033
+#: libraries/server_privileges.lib.php:3043
 msgid ""
 "… revoke all active privileges from the old one and delete it afterwards."
 msgstr "… thu hồi mọi đặc quyền đang kích hoạt từ cái cũ và xóa sau đó."
 
-#: libraries/server_privileges.lib.php:3037
+#: libraries/server_privileges.lib.php:3047
 msgid ""
 "… delete the old one from the user tables and reload the privileges "
 "afterwards."
 msgstr "… xóa cái cũ từ bảng người dùng và tải lại đặc quyền sau đó."
 
-#: libraries/server_privileges.lib.php:3059
+#: libraries/server_privileges.lib.php:3069
 msgid "Change login information / Copy user account"
 msgstr "Thay đổi thông tin đăng nhập / Chép tài khoản người dùng"
 
-#: libraries/server_privileges.lib.php:3065
+#: libraries/server_privileges.lib.php:3075
 msgid "Create a new user account with the same privileges and …"
 msgstr "Tạo tài khoản người dùng mới với cùng đặc quyền và …"
 
-#: libraries/server_privileges.lib.php:3302
+#: libraries/server_privileges.lib.php:3312
 #: templates/privileges/edit_routine_privileges.phtml:12
 msgid "Routine-specific privileges"
 msgstr "Các đặc quyền dành-riêng-cho-thủ-tục"
 
-#: libraries/server_privileges.lib.php:3497
+#: libraries/server_privileges.lib.php:3507
 #: libraries/server_user_groups.lib.php:76
 #: templates/privileges/choose_user_group.phtml:4
 #: templates/privileges/choose_user_group.phtml:5
 msgid "User group"
 msgstr "Nhóm người dùng"
 
-#: libraries/server_privileges.lib.php:3619
-#: libraries/server_privileges.lib.php:4741
+#: libraries/server_privileges.lib.php:3629
+#: libraries/server_privileges.lib.php:4751
 msgid "The selected user was not found in the privilege table."
 msgstr "Người dùng đã chọn không tìm thấy trong bảng đặc quyền."
 
-#: libraries/server_privileges.lib.php:3796
+#: libraries/server_privileges.lib.php:3806
 msgid "No users selected for deleting!"
 msgstr "Chưa chọn người dùng nào để xóa!"
 
-#: libraries/server_privileges.lib.php:3799
+#: libraries/server_privileges.lib.php:3809
 msgid "Reloading the privileges"
 msgstr "Tải lại đặc quyền"
 
-#: libraries/server_privileges.lib.php:3818
+#: libraries/server_privileges.lib.php:3828
 msgid "The selected users have been deleted successfully."
 msgstr "Những người dùng đã chọn đã được xóa thành công."
 
-#: libraries/server_privileges.lib.php:3893
+#: libraries/server_privileges.lib.php:3903
 #, php-format
 msgid "You have updated the privileges for %s."
 msgstr "Bạn phải cập nhật đặc quyền cho “%s”."
 
-#: libraries/server_privileges.lib.php:3997
+#: libraries/server_privileges.lib.php:4007
 #, php-format
 msgid "Deleting %s"
 msgstr "Đang xóa %s"
 
-#: libraries/server_privileges.lib.php:4027
+#: libraries/server_privileges.lib.php:4037
 msgid "The privileges were reloaded successfully."
 msgstr "Các đặc quyền đã được tải lại thành công."
 
-#: libraries/server_privileges.lib.php:4118
+#: libraries/server_privileges.lib.php:4128
 #, php-format
 msgid "The user %s already exists!"
 msgstr "Tài khoản %s đã sẵn có từ trước rồi!"
 
-#: libraries/server_privileges.lib.php:4391
+#: libraries/server_privileges.lib.php:4401
 #, php-format
 msgid "Privileges for %s"
 msgstr "Đặc quyền dành cho %s"
 
-#: libraries/server_privileges.lib.php:4400
+#: libraries/server_privileges.lib.php:4410
 #: libraries/server_status_processes.lib.php:72
 #: libraries/server_user_groups.lib.php:37
 msgid "User"
 msgstr "Người dùng"
 
-#: libraries/server_privileges.lib.php:4468
+#: libraries/server_privileges.lib.php:4478
 msgid "Edit privileges:"
 msgstr "Sửa đặc quyền:"
 
-#: libraries/server_privileges.lib.php:4469
+#: libraries/server_privileges.lib.php:4479
 msgid "User account"
 msgstr "Tài khoản người dùng"
 
-#: libraries/server_privileges.lib.php:4543
+#: libraries/server_privileges.lib.php:4553
 msgid ""
 "Note: You are attempting to edit privileges of the user with which you are "
 "currently logged in."
@@ -12175,11 +12235,11 @@ msgstr ""
 "Chú ý: Bạn đang cố sửa đặc quyền của người dùng cái mà bạn hiện đang dùng nó "
 "để đăng nhập."
 
-#: libraries/server_privileges.lib.php:4563 libraries/server_users.lib.php:21
+#: libraries/server_privileges.lib.php:4573 libraries/server_users.lib.php:21
 msgid "User accounts overview"
 msgstr "Tổng thể tài khoản người dùng"
 
-#: libraries/server_privileges.lib.php:4631
+#: libraries/server_privileges.lib.php:4641
 msgid ""
 "A user account allowing any user from localhost to connect is present. This "
 "will prevent other users from connecting if the host part of their account "
@@ -12189,7 +12249,7 @@ msgstr ""
 "hiện tại. Cái này ngăn ngừa những người khác từ các kết nối nếu bộ phận máy "
 "của tài khoản của họ cho kết nối từ bất kỳ (%s) máy nào."
 
-#: libraries/server_privileges.lib.php:4673
+#: libraries/server_privileges.lib.php:4683
 #, php-format
 msgid ""
 "Note: phpMyAdmin gets the users' privileges directly from MySQL's privilege "
@@ -12202,7 +12262,7 @@ msgstr ""
 "những người dùng máy phục vụ, nếu chúng bị thay đổi bằng tay. Trong trường "
 "hợp này bạn nên %stải lại các đặc quyền%s trước khi tiếp tục."
 
-#: libraries/server_privileges.lib.php:4690
+#: libraries/server_privileges.lib.php:4700
 msgid ""
 "Note: phpMyAdmin gets the users' privileges directly from MySQL's privilege "
 "tables. The content of these tables may differ from the privileges the "
@@ -12216,7 +12276,7 @@ msgstr ""
 "hợp này, đặc quyền phải được tại lại nhưng mà hiện tại bạn nên không có đặc "
 "quyền TẢI LẠI."
 
-#: libraries/server_privileges.lib.php:4961
+#: libraries/server_privileges.lib.php:4971
 msgid "You have added a new user."
 msgstr "Bạn đã thêm một người dùng mới."
 
@@ -13224,20 +13284,20 @@ msgstr "Nhãn:"
 msgid "Let every user access this bookmark"
 msgstr "Cho mọi người truy cập đánh dấu này"
 
-#: libraries/sql.lib.php:792
+#: libraries/sql.lib.php:794
 msgid "Bookmark not created!"
 msgstr "Chưa tạo đánh dấu!"
 
-#: libraries/sql.lib.php:900
+#: libraries/sql.lib.php:902
 #, php-format
 msgid "Using bookmark \"%s\" as default browse query."
 msgstr "Dùng đánh dấu \"%s\" như là truy vấn duyệt mặc định."
 
-#: libraries/sql.lib.php:1371
+#: libraries/sql.lib.php:1373
 msgid "Showing as PHP code"
 msgstr "Hiện dạng mã PHP"
 
-#: libraries/sql.lib.php:1742
+#: libraries/sql.lib.php:1748
 #, php-format
 msgid ""
 "Current selection does not contain a unique column. Grid edit, checkbox, "
@@ -13246,7 +13306,7 @@ msgstr ""
 "Chọn lựa hiện nay không chứa một cột duy nhất. Tính năng sửa lưới, dấu kiểm, "
 "Sửa, Chép và Xóa không sẵn có. %s"
 
-#: libraries/sql.lib.php:1756
+#: libraries/sql.lib.php:1762
 #, php-format
 msgid ""
 "Current selection does not contain a unique column. Grid edit, Edit, Copy "
@@ -13255,7 +13315,7 @@ msgstr ""
 "Chọn lựa hiện nay không chứa một cột duy nhất. Tính năng sửa lưới, dấu kiểm, "
 "Sửa, Chép và Xóa có lẽ có kết quả trong ứng xử không đòi hỏi. %s"
 
-#: libraries/sql.lib.php:1798
+#: libraries/sql.lib.php:1804
 #, php-format
 msgid "Problems with indexes of table `%s`"
 msgstr "Trục trặc với chỉ mục của bảng “%s“"
@@ -16195,6 +16255,8 @@ msgid ""
 "The InnoDB log file size is not an appropriate size, in relation to the "
 "InnoDB buffer pool."
 msgstr ""
+"Kích thước tệp nhật lý InnoDB không phù hợp, liên quan đến vùng đệm của "
+"InnoDB."
 
 #: libraries/advisory_rules.txt:422
 #, php-format
@@ -16223,7 +16285,7 @@ msgstr "Kích cỡ nhật ký InnoDB tối đa"
 
 #: libraries/advisory_rules.txt:428
 msgid "The InnoDB log file size is inadequately large."
-msgstr ""
+msgstr "Kích thước tập tin nhật ký InnoDB không lớn."
 
 #: libraries/advisory_rules.txt:429
 #, php-format
@@ -16242,7 +16304,7 @@ msgstr ""
 #: libraries/advisory_rules.txt:430
 #, php-format
 msgid "Your absolute InnoDB log size is %s MiB"
-msgstr ""
+msgstr "Kích thước nhật ký InnoDB tuyệt đối của bạn là %s MiB"
 
 #: libraries/advisory_rules.txt:432
 msgid "InnoDB buffer pool size"
@@ -16250,7 +16312,7 @@ msgstr "Vùng đệm kích cỡ sai"
 
 #: libraries/advisory_rules.txt:435
 msgid "Your InnoDB buffer pool is fairly small."
-msgstr ""
+msgstr "Bộ đệm InnoDB của bạn khá nhỏ."
 
 #: libraries/advisory_rules.txt:436
 #, php-format

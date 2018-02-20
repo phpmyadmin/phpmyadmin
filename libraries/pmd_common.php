@@ -363,7 +363,7 @@ function PMA_getDefaultPage($db)
         PMA\libraries\DatabaseInterface::QUERY_STORE
     );
 
-    if (count($default_page_no)) {
+    if (isset($default_page_no) && count($default_page_no)) {
         return intval($default_page_no[0]);
     }
     return -1;
@@ -402,7 +402,7 @@ function PMA_getLoadingPage($db)
             $GLOBALS['controllink'],
             PMA\libraries\DatabaseInterface::QUERY_STORE
         );
-        if (count($min_page_no[0])) {
+        if (isset($min_page_no[0]) && count($min_page_no[0])) {
             $page_no = $min_page_no[0];
         }
     }

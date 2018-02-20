@@ -611,6 +611,8 @@ function PMA_isRememberSortingOrder($analyzed_sql_results)
             || $analyzed_sql_results['is_func']
             || $analyzed_sql_results['is_analyse'])
         && $analyzed_sql_results['select_from']
+        && isset($analyzed_sql_results['select_expr'])
+        && isset($analyzed_sql_results['select_tables'])
         && ((empty($analyzed_sql_results['select_expr']))
             || ((count($analyzed_sql_results['select_expr']) == 1)
                 && ($analyzed_sql_results['select_expr'][0] == '*')))
@@ -1662,7 +1664,11 @@ function PMA_getHtmlForSqlQueryResultsTable($displayResultsObject,
     } else {
         if (isset($result) && $result !== false) {
             $fields_meta = $GLOBALS['dbi']->getFieldsMeta($result);
-            $fields_cnt  = count($fields_meta);
+            if (! is_array($fields_meta)) {
+                $fields_cnt  = 0;
+            } else {
+                $fields_cnt  = count($fields_meta);
+            }
         }
         $_SESSION['is_multi_query'] = false;
         $displayResultsObject->setProperties(
