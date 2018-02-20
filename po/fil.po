@@ -8,17 +8,17 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.8.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2018-02-12 16:30+0100\n"
-"PO-Revision-Date: 2018-02-12 15:09+0000\n"
-"Last-Translator: codygee237 <jimel_patrick@yahoo.com>\n"
-"Language-Team: Filipino <https://hosted.weblate.org/projects/phpmyadmin/"
-"master/fil/>\n"
+"PO-Revision-Date: 2018-02-20 05:38+0000\n"
+"Last-Translator: Michal Čihař <michal@cihar.com>\n"
+"Language-Team: Filipino "
+"<https://hosted.weblate.org/projects/phpmyadmin/master/fil/>\n"
 "Language: fil\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1 && n != 2 && n != 3 && (n % 10 == 4 "
 "|| n % 10 == 6 || n % 10 == 9);\n"
-"X-Generator: Weblate 2.19-dev\n"
+"X-Generator: Weblate 2.19\n"
 
 #: ajax.php:21 ajax.php:50 export.php:203 libraries/classes/Export.php:1100
 msgid "Bad type!"
@@ -456,7 +456,7 @@ msgstr "Magdagdag ng punto"
 #: gis_data_editor.php:275
 #, php-format
 msgid "Linestring %d:"
-msgstr "Linestring% d:"
+msgstr "Linestring %d:"
 
 #: gis_data_editor.php:278 gis_data_editor.php:355
 msgid "Outer ring:"
@@ -465,7 +465,7 @@ msgstr "Panlabas na singsing:"
 #: gis_data_editor.php:280 gis_data_editor.php:357
 #, php-format
 msgid "Inner ring %d:"
-msgstr "Inner ring% d:"
+msgstr "Inner ring %d:"
 
 #: gis_data_editor.php:317
 msgid "Add a linestring"
@@ -1529,7 +1529,7 @@ msgstr ""
 
 #: js/messages.php:286
 msgid "Analyzing…"
-msgstr "Pag-aaralan ..."
+msgstr "Pag-aaralan…"
 
 #: js/messages.php:287
 msgid "Explain output"
@@ -1557,7 +1557,7 @@ msgstr "Oras"
 
 #: js/messages.php:290
 msgid "Total time:"
-msgstr "Kabuuang Oras"
+msgstr "Kabuuang Oras:"
 
 #: js/messages.php:291
 msgid "Profiling results"
@@ -1643,7 +1643,9 @@ msgstr "Nabigong pag-parse ng config file. Mukhang hindi wastong JSON code."
 #: js/messages.php:324
 msgid ""
 "Failed building chart grid with imported config. Resetting to default config…"
-msgstr "Nabigong gusali grid grid na may na-import na config. Ang pag-reset sa default config ..."
+msgstr ""
+"Nabigong gusali grid grid na may na-import na config. Ang pag-reset sa "
+"default config…"
 
 #: js/messages.php:326 libraries/classes/Config/Forms/User/ImportForm.php:58
 #: libraries/classes/Menu.php:385 libraries/classes/Menu.php:487
@@ -1705,7 +1707,7 @@ msgstr "Pagsusulit"
 
 #: js/messages.php:346
 msgid "Formatting SQL…"
-msgstr "Pag-format ng SQL..."
+msgstr "Pag-format ng SQL…"
 
 #: js/messages.php:347
 msgid "No parameters found!"
@@ -1734,7 +1736,7 @@ msgstr "Mag-apply"
 #: js/messages.php:358 libraries/classes/Navigation/NavigationHeader.php:61
 #: libraries/classes/Server/Status/Monitor.php:130
 msgid "Loading…"
-msgstr "Naglo-load..."
+msgstr "Naglo-load…"
 
 #: js/messages.php:359
 msgid "Request aborted!!"
@@ -1975,7 +1977,10 @@ msgstr "Hanapin ang listahang ito"
 msgid ""
 "No columns in the central list. Make sure the Central columns list for "
 "database %s has columns that are not present in the current table."
-msgstr "Walang mga haligi sa gitnang listahan. Tiyaking listahan ng Mga haligi ng Central para sa database% s ay may mga haligi na wala sa kasalukuyang talahanayan."
+msgstr ""
+"Walang mga haligi sa gitnang listahan. Tiyaking listahan ng Mga haligi ng "
+"Central para sa database %s ay may mga haligi na wala sa kasalukuyang "
+"talahanayan."
 
 #: js/messages.php:433
 msgid "See more"
@@ -2072,7 +2077,7 @@ msgstr "Gagawin ang mga sumusunod na aksyon:"
 #: js/messages.php:468
 #, php-format
 msgid "DROP columns %s from the table %s"
-msgstr "Ang mga haligi ng DROP% s mula sa talahanayan %s"
+msgstr "Ang mga haligi ng DROP %s mula sa talahanayan %s"
 
 #: js/messages.php:469
 msgid "Create the following table"
@@ -2571,7 +2576,7 @@ msgstr "May naganap na error habang nakakakuha ng impormasyon sa debug ng SQL."
 #: js/messages.php:726
 #, php-format
 msgid "%s queries executed %s times in %s seconds."
-msgstr "% s mga query na isinagawa% s beses sa% s segundo."
+msgstr "%s mga query na isinagawa %s beses sa %s segundo."
 
 #: js/messages.php:727
 #, php-format
@@ -2588,7 +2593,7 @@ msgstr "Itago ang mga argumento"
 
 #: js/messages.php:730
 msgid "Time taken:"
-msgstr "Oras kinuha"
+msgstr "Oras kinuha:"
 
 #: js/messages.php:731
 msgid ""
