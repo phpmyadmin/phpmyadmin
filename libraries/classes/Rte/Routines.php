@@ -1202,10 +1202,12 @@ class Routines
                     }
                     if (! empty($_REQUEST['item_param_opts_text'][$i])) {
                         if ($dbi->types->getTypeClass($item_param_type[$i]) == 'CHAR') {
-                            $params .= ' CHARSET '
-                                . mb_strtolower(
-                                    $_REQUEST['item_param_opts_text'][$i]
-                                );
+                            if(!in_array($item_param_type[$i],array("VARBINARY","BINARY"))){
+                                $params .= ' CHARSET '
+                                    . mb_strtolower(
+                                        $_REQUEST['item_param_opts_text'][$i]
+                                    );
+                            }
                         }
                     }
                     if (! empty($_REQUEST['item_param_opts_num'][$i])) {
