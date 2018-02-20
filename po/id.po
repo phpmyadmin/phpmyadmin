@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.7.8-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2018-02-12 16:30+0100\n"
-"PO-Revision-Date: 2018-02-13 17:37+0000\n"
+"PO-Revision-Date: 2018-02-20 05:37+0000\n"
 "Last-Translator: Michal Čihař <michal@cihar.com>\n"
 "Language-Team: Indonesian "
 "<https://hosted.weblate.org/projects/phpmyadmin/4-7/id/>\n"
@@ -13,7 +13,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Weblate 2.19-dev\n"
+"X-Generator: Weblate 2.19\n"
 "X-Poedit-Basepath: ../../..\n"
 
 #: ajax.php:16 ajax.php:33 export.php:192 schema_export.php:64
@@ -298,13 +298,10 @@ msgid "The database name is empty!"
 msgstr "Nama database kosong!"
 
 #: db_operations.php:61
-#, fuzzy
-#| msgid ""
-#| "Cannot rename database to the same name. Change the name and try again"
 msgid "Cannot copy database to the same name. Change the name and try again."
 msgstr ""
-"Tidak bisa mengubah nama database ke nama yang sama. Gunakan nama lain dan "
-"coba lagi"
+"Tidak dapat menyalin database dengan nama yang sama. Gunakan nama lain dan "
+"coba lagi."
 
 #: db_operations.php:150
 #, php-format
