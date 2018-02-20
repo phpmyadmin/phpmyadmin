@@ -90,7 +90,9 @@ if (isset($_POST['delete_save'])) {
     parse_str($_POST['col_name'], $col_name);
     $tmp_msg = PMA_deleteColumnsFromList($col_name['selected_fld'], false);
 }
-if (isset($_REQUEST['total_rows']) && $_REQUEST['total_rows']) {
+if (!empty($_REQUEST['total_rows'])
+    && PMA_isValid($_REQUEST['total_rows'], 'integer')
+) {
     $total_rows = $_REQUEST['total_rows'];
 } else {
     $total_rows = PMA_getCentralColumnsCount($db);
