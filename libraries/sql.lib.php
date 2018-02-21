@@ -609,8 +609,8 @@ function PMA_isRememberSortingOrder($analyzed_sql_results)
             || $analyzed_sql_results['is_func']
             || $analyzed_sql_results['is_analyse'])
         && $analyzed_sql_results['select_from']
-        && ((empty($analyzed_sql_results['select_expr']))
-            || (count($analyzed_sql_results['select_expr'] == 1)
+        && ((empty($analyzed_sql_results['select_expr'])
+            || (count($analyzed_sql_results['select_expr']) == 1)
                 && ($analyzed_sql_results['select_expr'][0] == '*')))
         && count($analyzed_sql_results['select_tables']) == 1;
 }
