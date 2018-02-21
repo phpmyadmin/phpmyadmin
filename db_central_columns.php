@@ -109,7 +109,9 @@ if (isset($_POST['delete_save'])) {
         false
     );
 }
-if (isset($_REQUEST['total_rows']) && $_REQUEST['total_rows']) {
+if (!empty($_REQUEST['total_rows'])
+    && PMA_isValid($_REQUEST['total_rows'], 'integer')
+) {
     $total_rows = $_REQUEST['total_rows'];
 } else {
     $total_rows = $centralColumns->getCount($db);
