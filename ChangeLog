@@ -1,6 +1,8 @@
 phpMyAdmin - ChangeLog
 ======================
 
+4.7.9 (not yet released)
+
 4.7.8 (2018-02-20)
 - issue #13914 Fixed resetting default setting values.
 - issue #13758 Fixed fallback value for collation connection.
