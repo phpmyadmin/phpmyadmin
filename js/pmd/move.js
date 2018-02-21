@@ -563,7 +563,7 @@ function Add_Other_db_tables () {
             'db' : db,
             'table' : table
         }, function (data) {
-            $new_table_dom = $(data.message.substring(98));
+            $new_table_dom = $(data.message);
             $new_table_dom.find('a').first().remove();
             $('#container-form').append($new_table_dom);
             $('.pmd_tab').on('click','.tab_field_2,.tab_field_3,.tab_field', function () {
