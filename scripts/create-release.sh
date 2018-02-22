@@ -273,6 +273,11 @@ if [ ! -d libraries/tcpdf ] ; then
     fi
 fi
 
+if [ -f package.json ] ; then
+    echo "* Running Yarn"
+    yarn install --production
+fi
+
 # Remove git metadata
 rm .git
 find . -name .gitignore -print0 | xargs -0 -r rm -f
@@ -328,6 +333,7 @@ for kit in $KITS ; do
         rm doc/html/.buildinfo doc/html/objects.inv
         # Javascript sources
         rm -rf js/vendor/openlayers/src/
+        rm -rf node_modules
     fi
 
     # Remove developer scripts
