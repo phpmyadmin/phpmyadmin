@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.7.8-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2018-02-12 16:30+0100\n"
-"PO-Revision-Date: 2018-02-22 22:13+0000\n"
+"PO-Revision-Date: 2018-02-22 22:39+0000\n"
 "Last-Translator: Robert Antoni Buj Gelonch <robert.buj@gmail.com>\n"
 "Language-Team: Catalan "
 "<https://hosted.weblate.org/projects/phpmyadmin/4-7/ca/>\n"
@@ -14577,7 +14577,7 @@ msgstr "primer"
 #: templates/table/structure/add_column.phtml:21
 #, php-format
 msgid "after %s"
-msgstr "Després de %s"
+msgstr "després de %s"
 
 #: templates/columns_definitions/partitions.phtml:9
 msgid "Partition by:"
@@ -15593,7 +15593,7 @@ msgstr ""
 
 #: templates/table/search/selection_form.phtml:35
 msgid "Do a \"query by example\" (wildcard: \"%\")"
-msgstr "Fer una \"petició segons exemple\" (comodí: \"%\")"
+msgstr "Fes una \"consulta amb l'exemple\" (comodí: \"%\")"
 
 #: templates/table/search/zoom_result_form.phtml:7
 msgid "Browse/Edit the points"
@@ -15670,12 +15670,12 @@ msgstr "Mida de l'índex"
 
 #: templates/table/structure/display_partitions.phtml:134
 msgid "Partition table"
-msgstr "Taula de partició"
+msgstr "Taula de particions"
 
 #: templates/table/structure/display_partitions.phtml:137
 #: templates/table/structure/partition_definition_form.phtml:7
 msgid "Edit partitioning"
-msgstr "Edita particionament"
+msgstr "Edició de les particions"
 
 #: templates/table/structure/display_structure.phtml:129 view_create.php:206
 msgid "Edit view"
