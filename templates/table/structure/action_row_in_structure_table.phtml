@@ -17,7 +17,7 @@
              add_spatial_anchor"
         <?php else: ?>
             "
-        <?php endif; ?> href="tbl_structure.php<?= $url_query; ?>&amp;add_key=1&amp;sql_query=<?= urlencode(
+        <?php endif; ?> href="tbl_structure.php" data-post="<?= $url_query; ?>&amp;add_key=1&amp;sql_query=<?= urlencode(
                 'ALTER TABLE ' . PMA\libraries\Util::backquote($GLOBALS['table'])
                 . ($isPrimary ? ($primary ? ' DROP PRIMARY KEY,' : '') : '')
                 . ' ' . $syntax . '('

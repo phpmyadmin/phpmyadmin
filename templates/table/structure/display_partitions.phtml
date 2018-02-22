@@ -77,7 +77,7 @@ use PMA\libraries\URL; ?>
                         <td><?= htmlspecialchars($partition->getComment()); ?></td>
                         <?php foreach ($actionIcons as $action => $icon): ?>
                             <td>
-                                <a  href="tbl_structure.php<?= $url_query; ?>&amp;partition_maintenance=1&amp;sql_query=<?= urlencode(
+                                <a  href="tbl_structure.php" data-post="<?= $url_query; ?>&amp;partition_maintenance=1&amp;sql_query=<?= urlencode(
                                         "ALTER TABLE " . Util::backquote($table) . $action . " PARTITION " . $partition->getName()
                                     ) ?>"
                                     id="partition_action_<?= $action; ?>"
