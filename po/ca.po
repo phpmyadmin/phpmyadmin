@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.8.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2018-02-12 16:30+0100\n"
-"PO-Revision-Date: 2018-02-22 22:39+0000\n"
+"PO-Revision-Date: 2018-02-23 15:09+0000\n"
 "Last-Translator: Robert Antoni Buj Gelonch <robert.buj@gmail.com>\n"
 "Language-Team: Catalan "
 "<https://hosted.weblate.org/projects/phpmyadmin/master/ca/>\n"
@@ -16039,7 +16039,7 @@ msgstr "Seleccioneu les columnes (una com a mínim):"
 
 #: templates/table/search/options.twig:26
 msgid "Add search conditions (body of the \"where\" clause):"
-msgstr "Afegeix les condicions de la cerca (cos de la clàusula \"where\"):"
+msgstr "Afegiu les condicions de la cerca (cos de la clàusula \"where\"):"
 
 #: templates/table/search/options.twig:34
 msgid "Number of rows per page"
