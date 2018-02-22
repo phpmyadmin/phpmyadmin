@@ -306,4 +306,57 @@ class UtilTest extends PMATestCase
             array("https://www.phpmyadmin.net/test/nothing","GET", true, false),
         );
     }
+
+    /**
+     * Test for Util::linkOrButton
+     *
+     * @return void
+     *
+     * @dataProvider linksOrButtons
+     */
+    public function testLinkOrButton(array $params, $limit, $match)
+    {
+        $restore = isset($GLOBALS['cfg']['LinkLengthLimit']) ? $GLOBALS['cfg']['LinkLengthLimit'] : 1000;
+        $GLOBALS['cfg']['LinkLengthLimit'] = $limit;
+        try {
+            $result = call_user_func_array(
+                array('PMA\libraries\Util', 'linkOrButton'),
+                $params
+            );
+            $this->assertEquals($match, $result);
+        } finally {
+            $GLOBALS['cfg']['LinkLengthLimit'] = $restore;
+        }
+    }
+
+    /**
+     * Data provider for Util::linkOrButton test
+     *
+     * @return array
+     */
+    public function linksOrButtons()
+    {
+        return [
+            [
+                ['index.php', 'text'],
+                1000,
+                '<a href="index.php" >text</a>'
+            ],
+            [
+                ['index.php?some=parameter', 'text'],
+                20,
+                '<a href="index.php" data-post="some=parameter">text</a>',
+            ],
+            [
+                ['index.php', 'text', [], true, false, 'target'],
+                1000,
+                '<a href="index.php" target="target">text</a>',
+            ],
+            [
+                ['url.php?url=http://phpmyadmin.net/', 'text', [], true, false, '_blank'],
+                1000,
+                '<a href="url.php?url=http://phpmyadmin.net/" target="_blank" rel="noopener noreferrer">text</a>',
+            ],
+        ];
+    }
 }

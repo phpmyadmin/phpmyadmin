@@ -5,7 +5,7 @@ use PMA\libraries\Util;
 ?>
 <a href="#" id="printView"><?= Util::getIcon('b_print.png', __('Print'), true); ?></a>
 <?php if (! $tbl_is_view && ! $db_is_system_schema): ?>
-    <a href="sql.php<?= $url_query; ?>&amp;session_max_rows=all&amp;sql_query=<?= urlencode(
+    <a href="sql.php" data-post="<?= $url_query; ?>&amp;session_max_rows=all&amp;sql_query=<?= urlencode(
                 'SELECT * FROM ' . Util::backquote($GLOBALS['table'])
                 . ' PROCEDURE ANALYSE()'
             ); ?>" style="margin-right: 0;">

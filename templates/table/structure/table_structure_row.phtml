@@ -46,7 +46,7 @@
         </a>
     </td>
     <td class="drop center print_ignore">
-        <a class="drop_column_anchor ajax" href="sql.php<?= $url_query; ?>&amp;sql_query=<?= urlencode(
+        <a class="drop_column_anchor ajax" href="sql.php" data-post="<?= $url_query; ?>&amp;sql_query=<?= urlencode(
                 'ALTER TABLE ' . PMA\libraries\Util::backquote($table)
                 . ' DROP ' . PMA\libraries\Util::backquote($row['Field']) . ';'); ?>&amp;dropped_column=<?= $field_encoded; ?>&amp;purge=1&amp;message_to_show=<?= urlencode(sprintf(__('Column %s has been dropped.'), htmlspecialchars($row['Field']))) ?>" >
             <?= $titles['Drop']; ?>
