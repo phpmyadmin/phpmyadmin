@@ -2378,7 +2378,7 @@ class Table
             }
 
             $create_query = $this->_getSQLToCreateForeignKey(
-                $table, $master_field, $foreign_db, $foreign_table, $foreign_field,
+                $table, $master_field, $foreign_db, $foreign_table, (array) $foreign_field,
                 $_REQUEST['constraint_name'][$master_field_md5],
                 $options_array[$_REQUEST['on_delete'][$master_field_md5]],
                 $options_array[$_REQUEST['on_update'][$master_field_md5]]
