@@ -1822,7 +1822,6 @@ class Util
         if (($url_length <= $GLOBALS['cfg']['LinkLengthLimit'])
             && $in_suhosin_limits
             && ! $force_button
-            && strpos($url, 'sql_query=') === false
         ) {
             $tag_params_strings = array();
             foreach ($tag_params as $par_name => $par_value) {
