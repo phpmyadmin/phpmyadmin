@@ -1,7 +1,7 @@
 <?php
 /* vim: set expandtab sw=4 ts=4 sts=4: */
 /**
- * Set of functions related to designer
+ * Holds the PhpMyAdmin\Database\Designer class
  *
  * @package PhpMyAdmin
  */
@@ -16,7 +16,7 @@ use PhpMyAdmin\Template;
 use PhpMyAdmin\Util;
 
 /**
- * PhpMyAdmin\Database\Designer class
+ * Set of functions related to database designer
  *
  * @package PhpMyAdmin
  */
@@ -30,14 +30,14 @@ class Designer
      *
      * @return string html content
      */
-    public static function getHtmlForEditOrDeletePages($db, $operation)
+    public function getHtmlForEditOrDeletePages($db, $operation)
     {
         $cfgRelation = Relation::getRelationsParam();
         return Template::get('database/designer/edit_delete_pages')->render([
             'db' => $db,
             'operation' => $operation,
             'pdfwork' => $cfgRelation['pdfwork'],
-            'pages' => self::getPageIdsAndNames($db),
+            'pages' => $this->getPageIdsAndNames($db),
         ]);
     }
 
@@ -48,13 +48,13 @@ class Designer
      *
      * @return string html content
      */
-    public static function getHtmlForPageSaveAs($db)
+    public function getHtmlForPageSaveAs($db)
     {
         $cfgRelation = Relation::getRelationsParam();
         return Template::get('database/designer/page_save_as')->render([
             'db' => $db,
             'pdfwork' => $cfgRelation['pdfwork'],
-            'pages' => self::getPageIdsAndNames($db),
+            'pages' => $this->getPageIdsAndNames($db),
         ]);
     }
 
@@ -65,7 +65,7 @@ class Designer
      *
      * @return array array of schema page id and names
      */
-    public static function getPageIdsAndNames($db)
+    private function getPageIdsAndNames($db)
     {
         $cfgRelation = Relation::getRelationsParam();
         $page_query = "SELECT `page_nr`, `page_descr` FROM "
@@ -74,10 +74,12 @@ class Designer
             . " WHERE db_name = '" . $GLOBALS['dbi']->escapeString($db) . "'"
             . " ORDER BY `page_descr`";
         $page_rs = Relation::queryAsControlUser(
-            $page_query, false, DatabaseInterface::QUERY_STORE
+            $page_query,
+            false,
+            DatabaseInterface::QUERY_STORE
         );
 
-        $result = array();
+        $result = [];
         while ($curr_page = $GLOBALS['dbi']->fetchAssoc($page_rs)) {
             $result[intval($curr_page['page_nr'])] = $curr_page['page_descr'];
         }
@@ -92,7 +94,7 @@ class Designer
      *
      * @return string
      */
-    public static function getHtmlForSchemaExport($db, $page)
+    public function getHtmlForSchemaExport($db, $page)
     {
         /* Scan for schema plugins */
         /* @var $export_list SchemaPlugin[] */
@@ -111,11 +113,11 @@ class Designer
 
         return Template::get('database/designer/schema_export')
             ->render(
-                array(
+                [
                     'db' => $db,
                     'page' => $page,
                     'export_list' => $export_list
-                )
+                ]
             );
     }
 
@@ -129,11 +131,14 @@ class Designer
      *
      * @return string html
      */
-    public static function getHtmlForJsFields(
-        array $script_tables, array $script_contr, array $script_display_field, $display_page
+    public function getHtmlForJsFields(
+        array $script_tables,
+        array $script_contr,
+        array $script_display_field,
+        $display_page
     ) {
         $cfgRelation = Relation::getRelationsParam();
-        return Template::get('database/designer/js_fields')->render(array(
+        return Template::get('database/designer/js_fields')->render([
             'server' => $GLOBALS['server'],
             'db' => $_GET['db'],
             'script_tables' => json_encode($script_tables),
@@ -141,7 +146,7 @@ class Designer
             'script_display_field' => json_encode($script_display_field),
             'display_page' => $display_page,
             'relation_pdfwork' => $cfgRelation['pdfwork'],
-        ));
+        ]);
     }
 
     /**
@@ -154,7 +159,7 @@ class Designer
      *
      * @return string html
      */
-    public static function getPageMenu($visualBuilder, $selectedPage, array $paramsArray)
+    public function getPageMenu($visualBuilder, $selectedPage, array $paramsArray)
     {
         return Template::get('database/designer/side_menu')->render([
             'visual_builder' => $visualBuilder,
@@ -169,14 +174,13 @@ class Designer
      *
      * @return array stored values
      */
-    public static function getSideMenuParamsArray()
+    private function getSideMenuParamsArray()
     {
-        $params = array();
+        $params = [];
 
         $cfgRelation = Relation::getRelationsParam();
 
         if ($GLOBALS['cfgRelation']['designersettingswork']) {
-
             $query = 'SELECT `settings_data` FROM '
                 . Util::backquote($cfgRelation['db']) . '.'
                 . Util::backquote($cfgRelation['designer_settings'])
@@ -196,10 +200,10 @@ class Designer
      *
      * @return array class names of various buttons
      */
-    public static function returnClassNamesFromMenuButtons()
+    public function returnClassNamesFromMenuButtons()
     {
-        $classes_array = array();
-        $params_array = self::getSideMenuParamsArray();
+        $classes_array = [];
+        $params_array = $this->getSideMenuParamsArray();
 
         if (isset($params_array['angular_direct'])
             && $params_array['angular_direct'] == 'angular'
@@ -257,7 +261,7 @@ class Designer
      *
      * @return string html
      */
-    public static function getHtmlCanvas()
+    public function getHtmlCanvas()
     {
         return Template::get('database/designer/canvas')->render();
     }
@@ -270,7 +274,7 @@ class Designer
      *
      * @return string html
      */
-    public static function getHtmlTableList(array $tab_pos, $display_page)
+    public function getHtmlTableList(array $tab_pos, $display_page)
     {
         return Template::get('database/designer/table_list')->render([
             'tab_pos' => $tab_pos,
@@ -294,7 +298,7 @@ class Designer
      *
      * @return string html
      */
-    public static function getDatabaseTables(
+    public function getDatabaseTables(
         array $tab_pos,
         $display_page,
         array $tab_column,
@@ -326,7 +330,7 @@ class Designer
      *
      * @return string html
      */
-    public static function getNewRelationPanel()
+    public function getNewRelationPanel()
     {
         return Template::get('database/designer/new_relation_panel')
             ->render();
@@ -337,7 +341,7 @@ class Designer
      *
      * @return string html
      */
-    public static function getDeleteRelationPanel()
+    public function getDeleteRelationPanel()
     {
         return Template::get('database/designer/delete_relation_panel')
             ->render();
@@ -348,7 +352,7 @@ class Designer
      *
      * @return string html
      */
-    public static function getOptionsPanel()
+    public function getOptionsPanel()
     {
         return Template::get('database/designer/options_panel')->render();
     }
@@ -358,7 +362,7 @@ class Designer
      *
      * @return string html
      */
-    public static function getRenameToPanel()
+    public function getRenameToPanel()
     {
         return Template::get('database/designer/rename_to_panel')
             ->render();
@@ -369,7 +373,7 @@ class Designer
      *
      * @return string html
      */
-    public static function getHavingQueryPanel()
+    public function getHavingQueryPanel()
     {
         return Template::get('database/designer/having_query_panel')
             ->render();
@@ -380,7 +384,7 @@ class Designer
      *
      * @return string html
      */
-    public static function getAggregateQueryPanel()
+    public function getAggregateQueryPanel()
     {
         return Template::get('database/designer/aggregate_query_panel')
             ->render();
@@ -391,7 +395,7 @@ class Designer
      *
      * @return string html
      */
-    public static function getWhereQueryPanel()
+    public function getWhereQueryPanel()
     {
         return Template::get('database/designer/where_query_panel')
             ->render();
@@ -404,7 +408,7 @@ class Designer
      *
      * @return string html
      */
-    public static function getQueryDetails($db)
+    public function getQueryDetails($db)
     {
         return Template::get('database/designer/query_details')->render([
             'db' => $db,

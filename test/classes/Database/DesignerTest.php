@@ -9,6 +9,7 @@ namespace PhpMyAdmin\Tests\Database;
 use PhpMyAdmin\Database\Designer;
 use PhpMyAdmin\DatabaseInterface;
 use PHPUnit\Framework\TestCase;
+use ReflectionMethod;
 
 /**
  * Tests for PhpMyAdmin\Database\Designer
@@ -17,32 +18,38 @@ use PHPUnit\Framework\TestCase;
  */
 class DesignerTest extends TestCase
 {
+    /**
+     * @var Designer
+     */
+    private $designer;
 
     /**
      * Setup for test cases
      *
      * @return void
      */
-    public function setup()
+    protected function setUp()
     {
         $GLOBALS['server'] = 1;
         $GLOBALS['cfg']['ServerDefault'] = 1;
-        $GLOBALS['cfg']['PDFPageSizes'] = array('A3', 'A4');
+        $GLOBALS['cfg']['PDFPageSizes'] = ['A3', 'A4'];
         $GLOBALS['cfg']['PDFDefaultPageSize'] = 'A4';
         $GLOBALS['cfg']['Schema']['pdf_orientation'] = 'L';
         $GLOBALS['cfg']['Schema']['pdf_paper'] = 'A4';
 
-        $_SESSION = array(
-            'relation' => array(
-                '1' => array(
+        $_SESSION = [
+            'relation' => [
+                '1' => [
                     'PMA_VERSION' => PMA_VERSION,
                     'db' => 'pmadb',
                     'pdf_pages' => 'pdf_pages',
                     'pdfwork' => true
-                )
-            ),
+                ]
+            ],
             ' PMA_token ' => 'token'
-        );
+        ];
+
+        $this->designer = new Designer();
     }
 
     /**
@@ -72,8 +79,8 @@ class DesignerTest extends TestCase
         $dbi->expects($this->exactly(3))
             ->method('fetchAssoc')
             ->willReturnOnConsecutiveCalls(
-                array('page_nr' => '1', 'page_descr' => 'page1'),
-                array('page_nr' => '2', 'page_descr' => 'page2'),
+                ['page_nr' => '1', 'page_descr' => 'page1'],
+                ['page_nr' => '2', 'page_descr' => 'page2'],
                 false
             );
 
@@ -85,7 +92,7 @@ class DesignerTest extends TestCase
     }
 
     /**
-     * Test for Designer::getPageIdsAndNames()
+     * Test for getPageIdsAndNames()
      *
      * @return void
      */
@@ -94,19 +101,21 @@ class DesignerTest extends TestCase
         $db = 'db';
         $this->_mockDatabaseInteraction($db);
 
-        $result = Designer::getPageIdsAndNames($db);
+        $method = new ReflectionMethod(Designer::class, 'getPageIdsAndNames');
+        $method->setAccessible(true);
+        $result = $method->invokeArgs($this->designer, [$db]);
 
         $this->assertEquals(
-            array(
+            [
                 '1' => 'page1',
                 '2' => 'page2'
-            ),
+            ],
             $result
         );
     }
 
     /**
-     * Test for Designer::getHtmlForEditOrDeletePages()
+     * Test for getHtmlForEditOrDeletePages()
      *
      * @return void
      */
@@ -116,7 +125,7 @@ class DesignerTest extends TestCase
         $operation = 'edit';
         $this->_mockDatabaseInteraction($db);
 
-        $result = Designer::getHtmlForEditOrDeletePages($db, $operation);
+        $result = $this->designer->getHtmlForEditOrDeletePages($db, $operation);
         $this->assertContains(
             '<input type="hidden" name="operation" value="' . $operation . '" />',
             $result
@@ -133,7 +142,7 @@ class DesignerTest extends TestCase
     }
 
     /**
-     * Test for Designer::getHtmlForPageSaveAs()
+     * Test for getHtmlForPageSaveAs()
      *
      * @return void
      */
@@ -142,7 +151,7 @@ class DesignerTest extends TestCase
         $db = 'db';
         $this->_mockDatabaseInteraction($db);
 
-        $result = Designer::getHtmlForPageSaveAs($db);
+        $result = $this->designer->getHtmlForPageSaveAs($db);
         $this->assertContains(
             '<input type="hidden" name="operation" value="savePage" />',
             $result
@@ -173,7 +182,7 @@ class DesignerTest extends TestCase
     }
 
     /**
-     * Test for Designer::getHtmlForSchemaExport()
+     * Test for getHtmlForSchemaExport()
      *
      * @return void
      */
@@ -182,7 +191,7 @@ class DesignerTest extends TestCase
         $db = 'db';
         $page = 2;
 
-        $result = Designer::getHtmlForSchemaExport($db, $page);
+        $result = $this->designer->getHtmlForSchemaExport($db, $page);
         // export type
         $this->assertContains(
             '<select id="plugins" name="export_type">',
