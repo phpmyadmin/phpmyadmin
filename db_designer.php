@@ -13,16 +13,18 @@ require_once 'libraries/common.inc.php';
 
 $response = Response::getInstance();
 
+$designer = new Designer();
+
 if (isset($_REQUEST['dialog'])) {
 
     if ($_REQUEST['dialog'] == 'edit') {
-        $html = Designer::getHtmlForEditOrDeletePages($GLOBALS['db'], 'editPage');
+        $html = $designer->getHtmlForEditOrDeletePages($GLOBALS['db'], 'editPage');
     } elseif ($_REQUEST['dialog'] == 'delete') {
-        $html = Designer::getHtmlForEditOrDeletePages($GLOBALS['db'], 'deletePage');
+        $html = $designer->getHtmlForEditOrDeletePages($GLOBALS['db'], 'deletePage');
     } elseif ($_REQUEST['dialog'] == 'save_as') {
-        $html = Designer::getHtmlForPageSaveAs($GLOBALS['db']);
+        $html = $designer->getHtmlForPageSaveAs($GLOBALS['db']);
     } elseif ($_REQUEST['dialog'] == 'export') {
-        $html = Designer::getHtmlForSchemaExport(
+        $html = $designer->getHtmlForSchemaExport(
             $GLOBALS['db'], $_REQUEST['selected_page']
         );
     } elseif ($_REQUEST['dialog'] == 'add_table') {
@@ -41,7 +43,7 @@ if (isset($_REQUEST['dialog'])) {
         $GLOBALS['PMD']['TABLE_TYPE'] = array($GLOBALS['PMD_URL']['TABLE_TYPE'][$req_key]);
         $GLOBALS['PMD_OUT']['OWNER'] = array($GLOBALS['PMD_OUT']['OWNER'][$req_key]);
 
-        $html = Designer::getDatabaseTables(
+        $html = $designer->getDatabaseTables(
             array(), -1, $tab_column,
             $tables_all_keys, $tables_pk_or_unique_keys
         );
@@ -110,7 +112,7 @@ $tab_column = PmdCommon::getColumnsInfo();
 $script_tables = PmdCommon::getScriptTabs();
 $tables_pk_or_unique_keys = PmdCommon::getPkOrUniqueKeys();
 $tables_all_keys = PmdCommon::getAllKeys();
-$classes_side_menu = Designer::returnClassNamesFromMenuButtons();
+$classes_side_menu = $designer->returnClassNamesFromMenuButtons();
 
 $display_page = -1;
 $selected_page = null;
@@ -164,12 +166,12 @@ list(
 // Embed some data into HTML, later it will be read
 // by pmd/init.js and converted to JS variables.
 $response->addHTML(
-    Designer::getHtmlForJsFields(
+    $designer->getHtmlForJsFields(
         $script_tables, $script_contr, $script_display_field, $display_page
     )
 );
 $response->addHTML(
-    Designer::getPageMenu(
+    $designer->getPageMenu(
         isset($_REQUEST['query']),
         $selected_page,
         $classes_side_menu
@@ -183,11 +185,11 @@ $response->addHTML(
     '<form action="" id="container-form" method="post" name="form1">'
 );
 
-$response->addHTML(Designer::getHtmlCanvas());
-$response->addHTML(Designer::getHtmlTableList($tab_pos, $display_page));
+$response->addHTML($designer->getHtmlCanvas());
+$response->addHTML($designer->getHtmlTableList($tab_pos, $display_page));
 
 $response->addHTML(
-    Designer::getDatabaseTables(
+    $designer->getDatabaseTables(
         $tab_pos, $display_page, $tab_column,
         $tables_all_keys, $tables_pk_or_unique_keys
     )
@@ -197,16 +199,16 @@ $response->addHTML('</div>'); // end canvas_outer
 
 $response->addHTML('<div id="pmd_hint"></div>');
 
-$response->addHTML(Designer::getNewRelationPanel());
-$response->addHTML(Designer::getDeleteRelationPanel());
+$response->addHTML($designer->getNewRelationPanel());
+$response->addHTML($designer->getDeleteRelationPanel());
 
 if (isset($_REQUEST['query'])) {
-    $response->addHTML(Designer::getOptionsPanel());
-    $response->addHTML(Designer::getRenameToPanel());
-    $response->addHTML(Designer::getHavingQueryPanel());
-    $response->addHTML(Designer::getAggregateQueryPanel());
-    $response->addHTML(Designer::getWhereQueryPanel());
-    $response->addHTML(Designer::getQueryDetails($_GET['db']));
+    $response->addHTML($designer->getOptionsPanel());
+    $response->addHTML($designer->getRenameToPanel());
+    $response->addHTML($designer->getHavingQueryPanel());
+    $response->addHTML($designer->getAggregateQueryPanel());
+    $response->addHTML($designer->getWhereQueryPanel());
+    $response->addHTML($designer->getQueryDetails($_GET['db']));
 }
 
 $response->addHTML('<div id="PMA_disable_floating_menubar"></div>');
