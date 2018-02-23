@@ -20,24 +20,31 @@ use PhpMyAdmin\UserPreferences;
 class UserPreferencesTest extends PmaTestCase
 {
     /**
+     * @var UserPreferences
+     */
+    private $userPreferences;
+
+    /**
      * Setup various pre conditions
      *
      * @return void
      */
-    function setUp()
+    protected function setUp()
     {
         global $cfg;
         include 'libraries/config.default.php';
         $GLOBALS['server'] = 0;
         $GLOBALS['PMA_PHP_SELF'] = '/phpmyadmin/';
+
+        $this->userPreferences = new UserPreferences();
     }
 
     /**
-     * Test for UserPreferences::pageInit
+     * Test for pageInit
      *
      * @return void
      */
-    public function testUserPrefPageInit()
+    public function testPageInit()
     {
         $GLOBALS['cfg'] = array(
             'Server/hide_db' => 'testval123',
@@ -46,7 +53,7 @@ class UserPreferencesTest extends PmaTestCase
         $GLOBALS['cfg']['AvailableCharsets'] = array();
         $GLOBALS['cfg']['UserprefsDeveloperTab'] = null;
 
-        UserPreferences::pageInit(new ConfigFile());
+        $this->userPreferences->pageInit(new ConfigFile());
 
         $this->assertEquals(
             array(
@@ -61,18 +68,18 @@ class UserPreferencesTest extends PmaTestCase
     }
 
     /**
-     * Test for UserPreferences::load
+     * Test for load
      *
      * @return void
      */
-    public function testLoadUserprefs()
+    public function testLoad()
     {
         $_SESSION['relation'][$GLOBALS['server']]['PMA_VERSION'] = PMA_VERSION;
 
         $_SESSION['relation'][$GLOBALS['server']]['userconfigwork'] = null;
         unset($_SESSION['userconfig']);
 
-        $result = UserPreferences::load();
+        $result = $this->userPreferences->load();
 
         $this->assertCount(
             3,
@@ -126,7 +133,7 @@ class UserPreferencesTest extends PmaTestCase
 
         $GLOBALS['dbi'] = $dbi;
 
-        $result = UserPreferences::load();
+        $result = $this->userPreferences->load();
 
         $this->assertEquals(
             array(
@@ -139,18 +146,18 @@ class UserPreferencesTest extends PmaTestCase
     }
 
     /**
-     * Test for UserPreferences::save
+     * Test for save
      *
      *  @return void
      */
-    public function testSaveUserprefs()
+    public function testSave()
     {
         $GLOBALS['server'] = 2;
         $_SESSION['relation'][2]['PMA_VERSION'] = PMA_VERSION;
         $_SESSION['relation'][2]['userconfigwork'] = null;
         unset($_SESSION['userconfig']);
 
-        $result = UserPreferences::save(array(1));
+        $result = $this->userPreferences->save(array(1));
 
         $this->assertTrue(
             $result
@@ -216,7 +223,7 @@ class UserPreferencesTest extends PmaTestCase
 
         $GLOBALS['dbi'] = $dbi;
         $this->assertTrue(
-            UserPreferences::save(array(1))
+            $this->userPreferences->save(array(1))
         );
 
         // case 3
@@ -251,7 +258,7 @@ class UserPreferencesTest extends PmaTestCase
 
         $GLOBALS['dbi'] = $dbi;
 
-        $result = UserPreferences::save(array(1));
+        $result = $this->userPreferences->save(array(1));
 
         $this->assertEquals(
             'Could not save configuration<br /><br />err1',
@@ -260,18 +267,18 @@ class UserPreferencesTest extends PmaTestCase
     }
 
     /**
-     * Test for UserPreferences::apply
+     * Test for apply
      *
      * @return void
      */
-    public function testApplyUserprefs()
+    public function testApply()
     {
         $GLOBALS['cfg']['UserprefsDisallow'] = array(
             'test' => 'val',
             'foo' => 'bar'
         );
         $GLOBALS['cfg']['UserprefsDeveloperTab'] = null;
-        $result = UserPreferences::apply(
+        $result = $this->userPreferences->apply(
             array(
                 'DBG/sql' => true,
                 'ErrorHandler/display' => true,
@@ -292,14 +299,14 @@ class UserPreferencesTest extends PmaTestCase
     }
 
     /**
-     * Test for UserPreferences::apply
+     * Test for apply
      *
      * @return void
      */
-    public function testApplyDevelUserprefs()
+    public function testApplyDevel()
     {
         $GLOBALS['cfg']['UserprefsDeveloperTab'] = true;
-        $result = UserPreferences::apply(
+        $result = $this->userPreferences->apply(
             array(
                 'DBG/sql' => true,
             )
@@ -314,7 +321,7 @@ class UserPreferencesTest extends PmaTestCase
     }
 
     /**
-     * Test for UserPreferences::persistOption
+     * Test for persistOption
      *
      * @return void
      */
@@ -333,24 +340,24 @@ class UserPreferencesTest extends PmaTestCase
         $_SESSION['relation'][2]['userconfigwork'] = null;
 
         $this->assertTrue(
-            UserPreferences::persistOption('Server/hide_db', 'val', 'val')
+            $this->userPreferences->persistOption('Server/hide_db', 'val', 'val')
         );
 
         $this->assertTrue(
-            UserPreferences::persistOption('Server/hide_db', 'val2', 'val')
+            $this->userPreferences->persistOption('Server/hide_db', 'val2', 'val')
         );
 
         $this->assertTrue(
-            UserPreferences::persistOption('Server/hide_db2', 'val', 'val')
+            $this->userPreferences->persistOption('Server/hide_db2', 'val', 'val')
         );
     }
 
     /**
-     * Test for UserPreferences::redirect
+     * Test for redirect
      *
      * @return void
      */
-    public function testUserprefsRedirect()
+    public function testRedirect()
     {
         $GLOBALS['lang'] = '';
         $GLOBALS['db'] = 'db';
@@ -361,7 +368,7 @@ class UserPreferencesTest extends PmaTestCase
         $GLOBALS['PMA_Config']->set('PmaAbsoluteUri', '');
         $GLOBALS['PMA_Config']->set('PMA_IS_IIS', false);
 
-        UserPreferences::redirect(
+        $this->userPreferences->redirect(
             'file.html',
             array('a' => 'b'),
             'h ash'
@@ -369,18 +376,18 @@ class UserPreferencesTest extends PmaTestCase
     }
 
     /**
-     * Test for UserPreferences::autoloadGetHeader
+     * Test for autoloadGetHeader
      *
      * @return void
      */
-    public function testUserprefsAutoloadGetHeader()
+    public function testAutoloadGetHeader()
     {
         $_SESSION['userprefs_autoload'] = false;
         $_REQUEST['prefs_autoload'] = 'hide';
 
         $this->assertEquals(
             '',
-            UserPreferences::autoloadGetHeader()
+            $this->userPreferences->autoloadGetHeader()
         );
 
         $this->assertTrue(
@@ -390,7 +397,7 @@ class UserPreferencesTest extends PmaTestCase
         $_REQUEST['prefs_autoload'] = 'nohide';
         $GLOBALS['cfg']['ServerDefault'] = 1;
         $GLOBALS['PMA_PHP_SELF'] = 'phpunit';
-        $result = UserPreferences::autoloadGetHeader();
+        $result = $this->userPreferences->autoloadGetHeader();
 
         $this->assertContains(
             '<form action="prefs_manage.php" method="post" class="disableAjax">',

@@ -119,7 +119,8 @@ if (isset($_REQUEST['send_error_report'])
         if (isset($_REQUEST['always_send'])
             && $_REQUEST['always_send'] === "true"
         ) {
-            UserPreferences::persistOption("SendErrorReports", "always", "ask");
+            $userPreferences = new UserPreferences();
+            $userPreferences->persistOption("SendErrorReports", "always", "ask");
         }
     }
 } elseif (! empty($_REQUEST['get_settings'])) {

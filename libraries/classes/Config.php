@@ -84,6 +84,11 @@ class Config
     var $done = false;
 
     /**
+     * @var UserPreferences
+     */
+    private $userPreferences;
+
+    /**
      * constructor
      *
      * @param string $source source to read config from
@@ -100,6 +105,8 @@ class Config
         $this->checkSystem();
 
         $this->base_settings = $this->settings;
+
+        $this->userPreferences = new UserPreferences();
     }
 
     /**
@@ -873,9 +880,9 @@ class Config
             if (! isset($_SESSION['cache'][$cache_key]['userprefs'])
                 || $_SESSION['cache'][$cache_key]['config_mtime'] < $config_mtime
             ) {
-                $prefs = UserPreferences::load();
+                $prefs = $this->userPreferences->load();
                 $_SESSION['cache'][$cache_key]['userprefs']
-                    = UserPreferences::apply($prefs['config_data']);
+                    = $this->userPreferences->apply($prefs['config_data']);
                 $_SESSION['cache'][$cache_key]['userprefs_mtime'] = $prefs['mtime'];
                 $_SESSION['cache'][$cache_key]['userprefs_type'] = $prefs['type'];
                 $_SESSION['cache'][$cache_key]['config_mtime'] = $config_mtime;
@@ -986,7 +993,7 @@ class Config
             if ($default_value === null) {
                 $default_value = Core::arrayRead($cfg_path, $this->default);
             }
-            $result = UserPreferences::persistOption($cfg_path, $new_cfg_value, $default_value);
+            $result = $this->userPreferences->persistOption($cfg_path, $new_cfg_value, $default_value);
         }
         if ($prefs_type != 'db' && $cookie_name) {
             // fall back to cookies

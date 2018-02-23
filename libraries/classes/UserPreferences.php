@@ -1,7 +1,7 @@
 <?php
 /* vim: set expandtab sw=4 ts=4 sts=4: */
 /**
- * Functions for displaying user preferences pages
+ * Holds the PhpMyAdmin\UserPreferences class
  *
  * @package PhpMyAdmin
  */
@@ -17,7 +17,7 @@ use PhpMyAdmin\Url;
 use PhpMyAdmin\Util;
 
 /**
- * PhpMyAdmin\UserPreferences class
+ * Functions for displaying user preferences pages
  *
  * @package PhpMyAdmin
  */
@@ -30,7 +30,7 @@ class UserPreferences
      *
      * @return void
      */
-    public static function pageInit(ConfigFile $cf)
+    public function pageInit(ConfigFile $cf)
     {
         $forms_all_keys = UserFormList::getFields();
         $cf->resetConfigData(); // start with a clean instance
@@ -54,7 +54,7 @@ class UserPreferences
      *
      * @return array
      */
-    public static function load()
+    public function load()
     {
         $cfgRelation = Relation::getRelationsParam();
         if (! $cfgRelation['userconfigwork']) {
@@ -92,7 +92,7 @@ class UserPreferences
      *
      * @return true|PhpMyAdmin\Message
      */
-    public static function save(array $config_array)
+    public function save(array $config_array)
     {
         $cfgRelation = Relation::getRelationsParam();
         $server = isset($GLOBALS['server'])
@@ -161,7 +161,7 @@ class UserPreferences
      *
      * @return array
      */
-    public static function apply(array $config_data)
+    public function apply(array $config_data)
     {
         $cfg = array();
         $blacklist = array_flip($GLOBALS['cfg']['UserprefsDisallow']);
@@ -192,9 +192,9 @@ class UserPreferences
      *
      * @return true|PhpMyAdmin\Message
      */
-    public static function persistOption($path, $value, $default_value)
+    public function persistOption($path, $value, $default_value)
     {
-        $prefs = self::load();
+        $prefs = $this->load();
         if ($value === $default_value) {
             if (isset($prefs['config_data'][$path])) {
                 unset($prefs['config_data'][$path]);
@@ -204,7 +204,7 @@ class UserPreferences
         } else {
             $prefs['config_data'][$path] = $value;
         }
-        return self::save($prefs['config_data']);
+        return $this->save($prefs['config_data']);
     }
 
     /**
@@ -216,7 +216,7 @@ class UserPreferences
      *
      * @return void
      */
-    public static function redirect($file_name,
+    public function redirect($file_name,
         $params = null, $hash = null
     ) {
         // redirect
@@ -238,7 +238,7 @@ class UserPreferences
      *
      * @return string
      */
-    public static function autoloadGetHeader()
+    public function autoloadGetHeader()
     {
         if (isset($_REQUEST['prefs_autoload'])
             && $_REQUEST['prefs_autoload'] == 'hide'

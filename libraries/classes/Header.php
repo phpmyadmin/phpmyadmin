@@ -114,6 +114,11 @@ class Header
     private $_headerIsSent;
 
     /**
+     * @var UserPreferences
+     */
+    private $userPreferences;
+
+    /**
      * Creates a new class instance
      */
     public function __construct()
@@ -145,6 +150,8 @@ class Header
         ) {
             $this->_userprefsOfferImport = true;
         }
+
+        $this->userPreferences = new UserPreferences();
     }
 
     /**
@@ -435,7 +442,7 @@ class Header
                 $retval .= Config::renderHeader();
                 // offer to load user preferences from localStorage
                 if ($this->_userprefsOfferImport) {
-                    $retval .= UserPreferences::autoloadGetHeader();
+                    $retval .= $this->userPreferences->autoloadGetHeader();
                 }
                 // pass configuration for hint tooltip display
                 // (to be used by PMA_tooltip() in js/functions.js)

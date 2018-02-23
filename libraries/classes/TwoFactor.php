@@ -40,12 +40,18 @@ class TwoFactor
     protected $_available;
 
     /**
+     * @var UserPreferences
+     */
+    private $userPreferences;
+
+    /**
      * Creates new TwoFactor object
      *
      * @param string $user User name
      */
     public function __construct($user)
     {
+        $this->userPreferences = new UserPreferences();
         $this->user = $user;
         $this->_available = $this->getAvailable();
         $this->config = $this->readConfig();
@@ -61,7 +67,7 @@ class TwoFactor
     public function readConfig()
     {
         $result = [];
-        $config = UserPreferences::load();
+        $config = $this->userPreferences->load();
         if (isset($config['config_data']['2fa'])) {
             $result = $config['config_data']['2fa'];
         }
@@ -220,7 +226,7 @@ class TwoFactor
      */
     public function save()
     {
-        return UserPreferences::persistOption('2fa', $this->config, null);
+        return $this->userPreferences->persistOption('2fa', $this->config, null);
     }
 
     /**

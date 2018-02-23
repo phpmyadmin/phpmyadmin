@@ -48,6 +48,11 @@ class PageSettings
     private $_HTML = '';
 
     /**
+     * @var UserPreferences
+     */
+    private $userPreferences;
+
+    /**
      * Constructor
      *
      * @param string $formGroupName The name of config form group to display
@@ -55,6 +60,8 @@ class PageSettings
      */
     public function __construct($formGroupName, $elemId = null)
     {
+        $this->userPreferences = new UserPreferences();
+
         $form_class = PageFormList::get($formGroupName);
         if (is_null($form_class)) {
             return;
@@ -70,7 +77,7 @@ class PageSettings
         $this->_groupName = $formGroupName;
 
         $cf = new ConfigFile($GLOBALS['PMA_Config']->base_settings);
-        UserPreferences::pageInit($cf);
+        $this->userPreferences->pageInit($cf);
 
         $form_display = new $form_class($cf);
 
@@ -99,7 +106,7 @@ class PageSettings
     {
         if ($form_display->process(false) && !$form_display->hasErrors()) {
             // save settings
-            $result = UserPreferences::save($cf->getConfigArray());
+            $result = $this->userPreferences->save($cf->getConfigArray());
             if ($result === true) {
                 // reload page
                 $response = Response::getInstance();

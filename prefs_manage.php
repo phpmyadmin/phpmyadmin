@@ -22,8 +22,10 @@ use PhpMyAdmin\Util;
  */
 require_once 'libraries/common.inc.php';
 
+$userPreferences = new UserPreferences();
+
 $cf = new ConfigFile($GLOBALS['PMA_Config']->base_settings);
-UserPreferences::pageInit($cf);
+$userPreferences->pageInit($cf);
 $response = Response::getInstance();
 
 $error = '';
@@ -35,7 +37,7 @@ if (isset($_POST['submit_export'])
     $response->disable();
     $filename = 'phpMyAdmin-config-' . urlencode(Core::getenv('HTTP_HOST')) . '.json';
     Core::downloadHeader($filename, 'application/json');
-    $settings = UserPreferences::load();
+    $settings = $userPreferences->load();
     echo json_encode($settings['config_data'], JSON_PRETTY_PRINT);
     exit;
 } elseif (isset($_POST['submit_export'])
@@ -46,7 +48,7 @@ if (isset($_POST['submit_export'])
     $response->disable();
     $filename = 'phpMyAdmin-config-' . urlencode(Core::getenv('HTTP_HOST')) . '.php';
     Core::downloadHeader($filename, 'application/php');
-    $settings = UserPreferences::load();
+    $settings = $userPreferences->load();
     echo '/* ' . __('phpMyAdmin configuration snippet') . " */\n\n";
     echo '/* ' . __('Paste it to your config.inc.php') . " */\n\n";
     foreach ($settings['config_data'] as $key => $val) {
@@ -55,7 +57,7 @@ if (isset($_POST['submit_export'])
     }
     exit;
 } elseif (isset($_POST['submit_get_json'])) {
-    $settings = UserPreferences::load();
+    $settings = $userPreferences->load();
     $response->addJSON('prefs', json_encode($settings['config_data']));
     $response->addJSON('mtime', $settings['mtime']);
     exit;
@@ -162,7 +164,7 @@ if (isset($_POST['submit_export'])
         }
 
         // save settings
-        $result = UserPreferences::save($cf->getConfigArray());
+        $result = $userPreferences->save($cf->getConfigArray());
         if ($result === true) {
             if ($return_url) {
                 $query =  PhpMyAdmin\Util::splitURLQuery($return_url);
@@ -181,19 +183,19 @@ if (isset($_POST['submit_export'])
             }
             // reload config
             $GLOBALS['PMA_Config']->loadUserPreferences();
-            UserPreferences::redirect($return_url, $params);
+            $userPreferences->redirect($return_url, $params);
             exit;
         } else {
             $error = $result;
         }
     }
 } elseif (isset($_POST['submit_clear'])) {
-    $result = UserPreferences::save(array());
+    $result = $userPreferences->save(array());
     if ($result === true) {
         $params = array();
         $GLOBALS['PMA_Config']->removeCookie('pma_collaction_connection');
         $GLOBALS['PMA_Config']->removeCookie('pma_lang');
-        UserPreferences::redirect('prefs_manage.php', $params);
+        $userPreferences->redirect('prefs_manage.php', $params);
         exit;
     } else {
         $error = $result;

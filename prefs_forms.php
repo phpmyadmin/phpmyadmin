@@ -17,8 +17,10 @@ use PhpMyAdmin\UserPreferences;
  */
 require_once 'libraries/common.inc.php';
 
+$userPreferences = new UserPreferences();
+
 $cf = new ConfigFile($GLOBALS['PMA_Config']->base_settings);
-UserPreferences::pageInit($cf);
+$userPreferences->pageInit($cf);
 
 // handle form processing
 
@@ -45,13 +47,13 @@ if (isset($_POST['revert'])) {
 $error = null;
 if ($form_display->process(false) && !$form_display->hasErrors()) {
     // save settings
-    $result = UserPreferences::save($cf->getConfigArray());
+    $result = $userPreferences->save($cf->getConfigArray());
     if ($result === true) {
         // reload config
         $GLOBALS['PMA_Config']->loadUserPreferences();
         $tabHash = isset($_POST['tab_hash']) ? $_POST['tab_hash'] : null;
         $hash = ltrim($tabHash, '#');
-        UserPreferences::redirect(
+        $userPreferences->redirect(
             'prefs_forms.php',
             array('form' => $form_param),
             $hash
