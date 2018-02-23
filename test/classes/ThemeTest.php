@@ -304,26 +304,6 @@ class ThemeTest extends PmaTestCase
     }
 
     /**
-     * Test for getFontSize
-     *
-     * @return void
-     */
-    public function testGetFontSize()
-    {
-        $this->assertEquals(
-            $this->object->getFontSize(),
-            '82%'
-        );
-
-        $GLOBALS['PMA_Config']->set('FontSize', '12px');
-        $this->assertEquals(
-            $this->object->getFontSize(),
-            '12px'
-        );
-
-    }
-
-    /**
      * Test for getCssGradient
      *
      * @return void

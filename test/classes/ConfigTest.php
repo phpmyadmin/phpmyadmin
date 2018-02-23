@@ -81,30 +81,6 @@ class ConfigTest extends PmaTestCase
     }
 
     /**
-     * Test for GetFontsizeForm
-     *
-     * @return void
-     */
-    public function testGetFontsizeForm()
-    {
-        //test getFontsizeOptions for "em" unit
-        $fontsize = $GLOBALS['PMA_Config']->get('FontSize');
-        $GLOBALS['PMA_Config']->set('FontSize', '10em');
-
-        //test getFontsizeOptions for "pt" unit
-        $GLOBALS['PMA_Config']->set('FontSize', '10pt');
-
-        //test getFontsizeOptions for "px" unit
-        $GLOBALS['PMA_Config']->set('FontSize', '10px');
-
-        //test getFontsizeOptions for unknown unit
-        $GLOBALS['PMA_Config']->set('FontSize', '10abc');
-
-        //rollback the fontsize setting
-        $GLOBALS['PMA_Config']->set('FontSize', $fontsize);
-    }
-
-    /**
      * Test for checkOutputCompression
      *
      * @return void
@@ -761,36 +737,6 @@ class ConfigTest extends PmaTestCase
     public function testGetUserValue()
     {
         $this->assertEquals($this->object->getUserValue('test_val', 'val'), 'val');
-    }
-
-    /**
-     * Should test getting unique value for theme
-     *
-     * @return void
-     */
-    public function testGetThemeUniqueValue()
-    {
-        $partial_sum = (
-            Assert::readAttribute($this->object, 'source_mtime') +
-            Assert::readAttribute(
-                $this->object,
-                'default_source_mtime'
-            ) +
-            $this->object->get('user_preferences_mtime') +
-            $GLOBALS['PMA_Theme']->mtime_info +
-            $GLOBALS['PMA_Theme']->filesize_info
-        );
-
-        $this->object->set('FontSize', 10);
-        $this->assertEquals(10 + $partial_sum, $this->object->getThemeUniqueValue());
-
-        $this->object->set('FontSize', 20);
-        $this->assertEquals(20 + $partial_sum, $this->object->getThemeUniqueValue());
-        $this->object->set('FontSize', null);
-
-        $this->assertEquals($partial_sum, $this->object->getThemeUniqueValue());
-        $this->object->set('FontSize', '82%');
-
     }
 
     /**

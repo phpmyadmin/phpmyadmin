@@ -1183,29 +1183,6 @@ class Config
     }
 
     /**
-     * returns a unique value to force a CSS reload if either the config
-     * or the theme changes
-     *
-     * @return int Summary of unix timestamps and fontsize,
-     * to be unique on theme parameters change
-     */
-    public function getThemeUniqueValue()
-    {
-        if (null !== $this->get('FontSize')) {
-            $fontsize = intval($this->get('FontSize'));
-        } else {
-            $fontsize = 0;
-        }
-        return (
-            $fontsize +
-            $this->source_mtime +
-            $this->default_source_mtime +
-            $this->get('user_preferences_mtime') +
-            $GLOBALS['PMA_Theme']->mtime_info +
-            $GLOBALS['PMA_Theme']->filesize_info);
-    }
-
-    /**
      * checks if upload is enabled
      *
      * @return void
@@ -1368,98 +1345,6 @@ class Config
                 define($define, $this->get($define));
             }
         }
-    }
-
-    /**
-     * returns options for font size selection
-     *
-     * @param string $current_size current selected font size with unit
-     *
-     * @return array selectable font sizes
-     */
-    protected static function getFontsizeOptions($current_size = '82%')
-    {
-        $unit = preg_replace('/[0-9.]*/', '', $current_size);
-        $value = preg_replace('/[^0-9.]*/', '', $current_size);
-
-        $factors = array();
-        $options = array();
-        $options["$value"] = $value . $unit;
-
-        if ($unit === '%') {
-            $factors[] = 1;
-            $factors[] = 5;
-            $factors[] = 10;
-            $options['100'] = '100%';
-        } elseif ($unit === 'em') {
-            $factors[] = 0.05;
-            $factors[] = 0.2;
-            $factors[] = 1;
-        } elseif ($unit === 'pt') {
-            $factors[] = 0.5;
-            $factors[] = 2;
-        } elseif ($unit === 'px') {
-            $factors[] = 1;
-            $factors[] = 5;
-            $factors[] = 10;
-        } else {
-            //unknown font size unit
-            $factors[] = 0.05;
-            $factors[] = 0.2;
-            $factors[] = 1;
-            $factors[] = 5;
-            $factors[] = 10;
-        }
-
-        foreach ($factors as $key => $factor) {
-            $option_inc = $value + $factor;
-            $option_dec = $value - $factor;
-            while (count($options) < 21) {
-                $options["$option_inc"] = $option_inc . $unit;
-                if ($option_dec > $factors[0]) {
-                    $options["$option_dec"] = $option_dec . $unit;
-                }
-                $option_inc += $factor;
-                $option_dec -= $factor;
-                if (isset($factors[$key + 1])
-                    && $option_inc >= $value + $factors[$key + 1]
-                ) {
-                    break;
-                }
-            }
-        }
-        ksort($options);
-        return $options;
-    }
-
-    /**
-     * returns html selectbox for font sizes
-     *
-     * @return string html selectbox
-     */
-    protected static function getFontsizeSelection()
-    {
-        $current_size = $GLOBALS['PMA_Config']->get('FontSize');
-        // for the case when there is no config file (this is supported)
-        if (empty($current_size)) {
-            $current_size = '82%';
-        }
-        $options = Config::getFontsizeOptions($current_size);
-
-        $return = '<label for="select_fontsize">' . __('Font size')
-            . ':</label>' . "\n"
-            . '<select name="set_fontsize" id="select_fontsize"'
-            . ' class="autosubmit">' . "\n";
-        foreach ($options as $option) {
-            $return .= '<option value="' . $option . '"';
-            if ($option == $current_size) {
-                $return .= ' selected="selected"';
-            }
-            $return .= '>' . $option . '</option>' . "\n";
-        }
-        $return .= '</select>';
-
-        return $return;
     }
 
     /**
