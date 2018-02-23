@@ -233,11 +233,7 @@ class Core
             return is_numeric($var);
         }
 
-        if (gettype($var) === $type) {
-            return true;
-        }
-
-        return false;
+        return gettype($var) === $type;
     }
 
     /**
@@ -807,11 +803,8 @@ class Core
             /* Following are doubtful ones. */
             'mysqldatabaseadministration.blogspot.com',
         );
-        if (in_array($domain, $domainWhiteList)) {
-            return true;
-        }
 
-        return false;
+        return in_array($domain, $domainWhiteList);
     }
 
     /**

@@ -38,10 +38,15 @@ $header->setBodyId('body_browse_foreigners');
 /**
  * Displays the frame
  */
-
 $foreigners = Relation::getForeigners($db, $table);
-$foreign_limit = BrowseForeigners::getForeignLimit(
+$browseForeigners = new BrowseForeigners(
+    $GLOBALS['cfg']['LimitChars'],
     $GLOBALS['cfg']['MaxRows'],
+    $GLOBALS['cfg']['RepeatCells'],
+    $GLOBALS['cfg']['ShowAll'],
+    $GLOBALS['pmaThemeImage']
+);
+$foreign_limit = $browseForeigners->getForeignLimit(
     isset($_REQUEST['foreign_showAll']) ? $_REQUEST['foreign_showAll'] : null
 );
 
@@ -55,12 +60,7 @@ $foreignData = Relation::getForeignData(
 );
 
 // HTML output
-$html = BrowseForeigners::getHtmlForRelationalFieldSelection(
-    $GLOBALS['cfg']['RepeatCells'],
-    $GLOBALS['pmaThemeImage'],
-    $GLOBALS['cfg']['MaxRows'],
-    $GLOBALS['cfg']['ShowAll'],
-    $GLOBALS['cfg']['LimitChars'],
+$html = $browseForeigners->getHtmlForRelationalFieldSelection(
     $db,
     $table,
     $_REQUEST['field'],

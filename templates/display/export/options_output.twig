@@ -1,0 +1,54 @@
+<div class="exportoptions" id="output">
+    <h3>{% trans 'Output:' %}</h3>
+    <ul id="ul_output">
+        <li>
+            <input type="checkbox" id="btn_alias_config"{{ has_aliases ? ' checked' }}>
+            <label for="btn_alias_config">
+                {% trans 'Rename exported databases/tables/columns' %}
+            </label>
+        </li>
+
+        {% if export_type != 'server' %}
+            <li>
+                <input type="checkbox" name="lock_tables"
+                    value="something" id="checkbox_lock_tables"
+                    {{- (not repopulate and is_checked_lock_tables) or lock_tables ? ' checked' }}>
+                <label for="checkbox_lock_tables">
+                    {{ 'Use %s statement'|trans|format('<code>LOCK TABLES</code>')|raw }}
+                </label>
+            </li>
+        {% endif %}
+
+        <li>
+            <input type="radio" name="output_format" value="sendit" id="radio_dump_asfile"
+                {{- not repopulate and is_checked_asfile ? ' checked' }}>
+            <label for="radio_dump_asfile">
+                {% trans 'Save output to a file' %}
+            </label>
+            <ul id="ul_save_asfile">
+                {% if save_dir is not empty %}
+                    {{ options_output_save_dir|raw }}
+                {% endif %}
+
+                {{ options_output_format|raw }}
+
+                {% if is_encoding_supported %}
+                    {{ options_output_charset|raw }}
+                {% endif %}
+
+                {{ options_output_compression|raw }}
+
+                {% if export_type == 'server' or export_type == 'database' %}
+                    {{ options_output_separate_files|raw }}
+                {% endif %}
+            </ul>
+        </li>
+
+        {{ options_output_radio|raw }}
+    </ul>
+
+    <label for="maxsize">
+    {{- 'Skip tables larger than %s MiB'|trans|format(
+        '</label><input type="text" id="maxsize" name="maxsize" size="4">'
+    )|raw }}
+</div>

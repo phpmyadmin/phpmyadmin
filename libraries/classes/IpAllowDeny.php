@@ -87,11 +87,7 @@ class IpAllowDeny
                 } // end if
             } // end for
 
-            if (($maskl & $rangel) == ($maskl & $ipl)) {
-                return true;
-            }
-
-            return false;
+            return ($maskl & $rangel) == ($maskl & $ipl);
         }
 
         // range based

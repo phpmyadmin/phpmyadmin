@@ -53,7 +53,7 @@ AJAX.registerTeardown('tbl_select.js', function () {
     $(document).off('submit', '#tbl_search_form.ajax');
     $('select.geom_func').off('change');
     $(document).off('click', 'span.open_search_gis_editor');
-    $('body').off('click', 'select[name*="criteriaColumnOperators"]');
+    $('body').off('change', 'select[name*="criteriaColumnOperators"]'); // Fix for bug #13778, changed 'click' to 'change'
 });
 
 AJAX.registerOnload('tbl_select.js', function () {
@@ -278,7 +278,7 @@ AJAX.registerOnload('tbl_select.js', function () {
     /**
      * Ajax event handler for Range-Search.
      */
-    $('body').on('click', 'select[name*="criteriaColumnOperators"]', function () {
+    $('body').on('change', 'select[name*="criteriaColumnOperators"]', function () { // Fix for bug #13778, changed 'click' to 'change'
         $source_select = $(this);
         // Get the column name.
         var column_name = $(this)

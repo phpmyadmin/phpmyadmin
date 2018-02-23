@@ -56,6 +56,10 @@ body#loginform {
     width: 85%;
 }
 
+.auth_config_tbl{
+    margin: 0 auto;
+}
+
 <?php if (! empty($GLOBALS['cfg']['FontFamilyFixed'])) : ?>
     textarea,
     tt,
@@ -554,13 +558,17 @@ button.mult_submit {
 
 /* odd items 1,3,5,7,... */
 table tbody:first-of-type tr:nth-child(odd),
-table tbody:first-of-type tr:nth-child(odd) th {
+table tbody:first-of-type tr:nth-child(odd) th,
+#table_index tbody:nth-of-type(odd) tr,
+#table_index tbody:nth-of-type(odd) th {
     background: #fff;
 }
 
 /* even items 2,4,6,8,... */
 table tbody:first-of-type tr:nth-child(even),
-table tbody:first-of-type tr:nth-child(even) th {
+table tbody:first-of-type tr:nth-child(even) th,
+#table_index tbody:nth-of-type(even) tr,
+#table_index tbody:nth-of-type(even) th {
     background: #DFDFDF;
 }
 

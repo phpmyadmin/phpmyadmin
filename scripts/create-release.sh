@@ -222,12 +222,18 @@ rm -f .travis.yml .coveralls.yml .scrutinizer.yml .jshintrc .weblate codecov.yml
 rm -f README.rst
 
 if [ ! -d libraries/tcpdf ] ; then
-    echo "* Running composer"
-    composer update --no-dev
+    PHP_REQ=`sed -n '/"php"/ s/.*">=\([0-9]\.[0-9]\).*/\1/p' composer.json`
+    if [ -z "$PHP_REQ" ] ; then
+        echo "Failed to figure out required PHP version from composer.json"
+        exit 2
+    fi
     # Okay, there is no way to tell composer to install
     # suggested package. Let's require it and then revert
     # composer.json to original state.
     cp composer.json composer.json.backup
+    echo "* Running composer"
+    composer config platform.php "$PHP_REQ"
+    composer update --no-dev
     composer require --update-no-dev tecnickcom/tcpdf pragmarx/google2fa bacon/bacon-qr-code samyoul/u2f-php-server
     mv composer.json.backup composer.json
     echo "* Cleanup of composer packages"

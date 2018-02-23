@@ -2189,11 +2189,7 @@ class ExportSql extends ExportPlugin
                 . $this->_exportComment()
                 . $this->_possibleCRLF();
 
-            if (!Export::outputHandler($head)) {
-                return false;
-            }
-
-            return true;
+            return Export::outputHandler($head);
         }
 
         $result = $GLOBALS['dbi']->tryQuery(

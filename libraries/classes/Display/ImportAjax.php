@@ -90,12 +90,8 @@ class ImportAjax
      */
     public static function progressCheck()
     {
-        if (! function_exists("uploadprogress_get_info")
-            || ! function_exists('getallheaders')
-        ) {
-            return false;
-        }
-        return true;
+        return function_exists("uploadprogress_get_info")
+            || function_exists('getallheaders');
     }
 
     /**
@@ -106,10 +102,7 @@ class ImportAjax
       */
     public static function sessionCheck()
     {
-        if (! ini_get('session.upload_progress.enabled')) {
-            return false;
-        }
-        return true;
+        return ini_get('session.upload_progress.enabled');
     }
 
     /**

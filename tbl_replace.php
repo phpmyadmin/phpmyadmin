@@ -13,12 +13,15 @@
  */
 
 use PhpMyAdmin\Core;
+use PhpMyAdmin\File;
 use PhpMyAdmin\InsertEdit;
+use PhpMyAdmin\Message;
 use PhpMyAdmin\Plugins\IOTransformationsPlugin;
 use PhpMyAdmin\Relation;
 use PhpMyAdmin\Response;
 use PhpMyAdmin\Table;
 use PhpMyAdmin\Transformations;
+use PhpMyAdmin\Util;
 
 /**
  * Gets some core libraries
@@ -26,7 +29,7 @@ use PhpMyAdmin\Transformations;
 require_once 'libraries/common.inc.php';
 
 // Check parameters
-PhpMyAdmin\Util::checkParameters(array('db', 'table', 'goto'));
+Util::checkParameters(array('db', 'table', 'goto'));
 
 $GLOBALS['dbi']->selectDb($GLOBALS['db']);
 
@@ -44,8 +47,10 @@ $scripts->addFile('sql.js');
 $scripts->addFile('indexes.js');
 $scripts->addFile('gis_data_editor.js');
 
+$insertEdit = new InsertEdit($GLOBALS['dbi']);
+
 // check whether insert row mode, if so include tbl_change.php
-InsertEdit::isInsertRow();
+$insertEdit->isInsertRow();
 
 $after_insert_actions = array('new_insert', 'same_insert', 'edit_next');
 if (isset($_REQUEST['after_insert'])
@@ -57,22 +62,22 @@ if (isset($_REQUEST['after_insert'])
             if ($_REQUEST['after_insert'] == 'same_insert') {
                 $url_params['where_clause'][] = $one_where_clause;
             } elseif ($_REQUEST['after_insert'] == 'edit_next') {
-                InsertEdit::setSessionForEditNext($one_where_clause);
+                $insertEdit->setSessionForEditNext($one_where_clause);
             }
         }
     }
 }
 //get $goto_include for different cases
-$goto_include = InsertEdit::getGotoInclude($goto_include);
+$goto_include = $insertEdit->getGotoInclude($goto_include);
 
 // Defines the url to return in case of failure of the query
-$err_url = InsertEdit::getErrorUrl($url_params);
+$err_url = $insertEdit->getErrorUrl($url_params);
 
 /**
  * Prepares the update/insert of a row
  */
 list($loop_array, $using_key, $is_insert, $is_insertignore)
-    = InsertEdit::getParamsForUpdateOrInsert();
+    = $insertEdit->getParamsForUpdateOrInsert();
 
 $query = array();
 $value_sets = array();
@@ -203,7 +208,7 @@ foreach ($loop_array as $rownumber => $where_clause) {
         // Note: $key is an md5 of the fieldname. The actual fieldname is
         // available in $multi_edit_columns_name[$key]
 
-        $file_to_insert = new PhpMyAdmin\File();
+        $file_to_insert = new File();
         $file_to_insert->checkTblChangeForm($key, $rownumber);
 
         $possibly_uploaded_val = $file_to_insert->getContent();
@@ -249,7 +254,7 @@ foreach ($loop_array as $rownumber => $where_clause) {
         // delete $file_to_insert temporary variable
         $file_to_insert->cleanUp();
 
-        $current_value = InsertEdit::getCurrentValueForDifferentTypes(
+        $current_value = $insertEdit->getCurrentValueForDifferentTypes(
             $possibly_uploaded_val, $key, $multi_edit_columns_type,
             $current_value, $multi_edit_auto_increment,
             $rownumber, $multi_edit_columns_name, $multi_edit_columns_null,
@@ -257,7 +262,7 @@ foreach ($loop_array as $rownumber => $where_clause) {
             $using_key, $where_clause, $table, $multi_edit_funcs
         );
 
-        $current_value_as_an_array = InsertEdit::getCurrentValueAsAnArrayForMultipleEdit(
+        $current_value_as_an_array = $insertEdit->getCurrentValueAsAnArrayForMultipleEdit(
             $multi_edit_funcs,
             $multi_edit_salt, $gis_from_text_functions, $current_value,
             $gis_from_wkb_functions, $func_optional_param, $func_no_param, $key
@@ -265,7 +270,7 @@ foreach ($loop_array as $rownumber => $where_clause) {
 
         if (! isset($multi_edit_virtual) || ! isset($multi_edit_virtual[$key])) {
             list($query_values, $query_fields)
-                = InsertEdit::getQueryValuesForInsertAndUpdateInMultipleEdit(
+                = $insertEdit->getQueryValuesForInsertAndUpdateInMultipleEdit(
                     $multi_edit_columns_name, $multi_edit_columns_null,
                     $current_value, $multi_edit_columns_prev, $multi_edit_funcs,
                     $is_insert, $query_values, $query_fields,
@@ -288,7 +293,7 @@ foreach ($loop_array as $rownumber => $where_clause) {
             $value_sets[] = implode(', ', $query_values);
         } else {
             // build update query
-            $query[] = 'UPDATE ' . PhpMyAdmin\Util::backquote($GLOBALS['table'])
+            $query[] = 'UPDATE ' . Util::backquote($GLOBALS['table'])
                 . ' SET ' . implode(', ', $query_values)
                 . ' WHERE ' . $where_clause
                 . ($_REQUEST['clause_is_unique'] ? '' : ' LIMIT 1');
@@ -305,12 +310,12 @@ unset(
 
 // Builds the sql query
 if ($is_insert && count($value_sets) > 0) {
-    $query = InsertEdit::buildSqlQuery($is_insertignore, $query_fields, $value_sets);
+    $query = $insertEdit->buildSqlQuery($is_insertignore, $query_fields, $value_sets);
 } elseif (empty($query) && ! isset($_REQUEST['preview_sql']) && !$row_skipped) {
     // No change -> move back to the calling script
     //
     // Note: logic passes here for inline edit
-    $message = PhpMyAdmin\Message::success(__('No change'));
+    $message = Message::success(__('No change'));
     // Avoid infinite recursion
     if ($goto_include == 'tbl_replace.php') {
         $goto_include = 'tbl_change.php';
@@ -332,15 +337,15 @@ if (isset($_REQUEST['preview_sql'])) {
  */
 list ($url_params, $total_affected_rows, $last_messages, $warning_messages,
     $error_messages, $return_to_sql_query)
-        = InsertEdit::executeSqlQuery($url_params, $query);
+        = $insertEdit->executeSqlQuery($url_params, $query);
 
 if ($is_insert && (count($value_sets) > 0 || $row_skipped)) {
-    $message = PhpMyAdmin\Message::getMessageForInsertedRows(
+    $message = Message::getMessageForInsertedRows(
         $total_affected_rows
     );
     $unsaved_values = array_values($unsaved_values);
 } else {
-    $message = PhpMyAdmin\Message::getMessageForAffectedRows(
+    $message = Message::getMessageForAffectedRows(
         $total_affected_rows
     );
 }
@@ -389,12 +394,12 @@ if ($response->isAjax() && ! isset($_POST['ajax_page_request'])) {
         foreach ($relation_fields as $cell_index => $curr_rel_field) {
             foreach ($curr_rel_field as $relation_field => $relation_field_value) {
                 $where_comparison = "='" . $relation_field_value . "'";
-                $dispval = InsertEdit::getDisplayValueForForeignTableColumn(
+                $dispval = $insertEdit->getDisplayValueForForeignTableColumn(
                     $where_comparison, $map, $relation_field
                 );
 
                 $extra_data['relations'][$cell_index]
-                    = InsertEdit::getLinkForRelationalDisplayField(
+                    = $insertEdit->getLinkForRelationalDisplayField(
                         $map, $relation_field, $where_comparison,
                         $dispval, $relation_field_value
                     );
@@ -418,7 +423,7 @@ if ($response->isAjax() && ! isset($_POST['ajax_page_request'])) {
             $column_name = $transformation['column_name'];
             foreach ($transformation_types as $type) {
                 $file = Core::securePath($transformation[$type]);
-                $extra_data = InsertEdit::transformEditedValues(
+                $extra_data = $insertEdit->transformEditedValues(
                     $db, $table, $transformation, $edited_values, $file,
                     $column_name, $extra_data, $type
                 );
@@ -430,7 +435,7 @@ if ($response->isAjax() && ! isset($_POST['ajax_page_request'])) {
     // without informing while saving
     $column_name = $_REQUEST['fields_name']['multi_edit'][0][0];
 
-    InsertEdit::verifyWhetherValueCanBeTruncatedAndAppendExtraData(
+    $insertEdit->verifyWhetherValueCanBeTruncatedAndAppendExtraData(
         $db, $table, $column_name, $extra_data
     );
 
@@ -438,8 +443,10 @@ if ($response->isAjax() && ! isset($_POST['ajax_page_request'])) {
     $_table = new Table($_REQUEST['table'], $_REQUEST['db']);
     $extra_data['row_count'] = $_table->countRecords();
 
-    $extra_data['sql_query']
-        = PhpMyAdmin\Util::getMessage($message, $GLOBALS['display_query']);
+    $extra_data['sql_query'] = Util::getMessage(
+        $message,
+        $GLOBALS['display_query']
+    );
 
     $response->setRequestStatus($message->isSuccess());
     $response->addJSON('message', $message);

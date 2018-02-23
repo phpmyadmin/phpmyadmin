@@ -144,10 +144,7 @@ class DatabaseInterface
      */
     public static function checkDbExtension($extension = 'mysql')
     {
-        if (function_exists($extension . '_connect')) {
-            return true;
-        }
-        return false;
+        return function_exists($extension . '_connect');
     }
 
     /**

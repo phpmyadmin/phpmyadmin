@@ -90,7 +90,7 @@ class AuthenticationConfig extends AuthenticationPlugin
         echo '</h1>
     </center>
     <br />
-    <table cellpadding="0" cellspacing="3" style="margin: 0 auto" width="80%">
+    <table cellpadding="0" cellspacing="3" class= "auth_config_tbl" width="80%">
         <tr>
             <td>';
         if (isset($GLOBALS['allowDeny_forbidden'])

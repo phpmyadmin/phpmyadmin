@@ -59,6 +59,10 @@ body#loginform {
     width: 85%;
 }
 
+.auth_config_tbl{
+    margin: 0 auto;
+}
+
 <?php if (! empty($GLOBALS['cfg']['FontFamilyFixed'])) { ?>
     textarea, tt, pre, code {
     font-family:        <?php echo $GLOBALS['cfg']['FontFamilyFixed']; ?>;
@@ -270,13 +274,17 @@ button.mult_submit {
 }
 
 /* odd items 1,3,5,7,... */
-table tr:nth-child(odd) {
-        background: <?php echo $GLOBALS['cfg']['BgOne']; ?>;
+table tr:nth-child(odd),
+#table_index tbody:nth-of-type(odd) tr,
+#table_index tbody:nth-of-type(odd) th {
+    background: <?php echo $GLOBALS['cfg']['BgOne']; ?>;
 }
 
 /* even items 2,4,6,8,... */
-table tr:nth-child(even) {
-        background: <?php echo $GLOBALS['cfg']['BgTwo']; ?>;
+table tr:nth-child(even),
+#table_index tbody:nth-of-type(even) tr,
+#table_index tbody:nth-of-type(even) th {
+    background: <?php echo $GLOBALS['cfg']['BgTwo']; ?>;
 }
 
 table tr th,
@@ -301,6 +309,8 @@ table tr:not(.nopointer):hover,
 }
 
 /* hovered table rows */
+#table_index tbody:hover tr,
+#table_index tbody:hover th,
 table tr.hover:not(.nopointer) th {
     background:   <?php echo $GLOBALS['cfg']['BrowsePointerBackground']; ?>;
     color:   <?php echo $GLOBALS['cfg']['BrowsePointerColor']; ?>;
