@@ -1,7 +1,7 @@
 <?php
 /* vim: set expandtab sw=4 ts=4 sts=4: */
 /**
- * Set of functions related to designer
+ * Holds the PhpMyAdmin\Database\Designer class
  *
  * @package PhpMyAdmin
  */
@@ -16,7 +16,7 @@ use PhpMyAdmin\Template;
 use PhpMyAdmin\Util;
 
 /**
- * PhpMyAdmin\Database\Designer class
+ * Set of functions related to database designer
  *
  * @package PhpMyAdmin
  */
@@ -74,10 +74,12 @@ class Designer
             . " WHERE db_name = '" . $GLOBALS['dbi']->escapeString($db) . "'"
             . " ORDER BY `page_descr`";
         $page_rs = Relation::queryAsControlUser(
-            $page_query, false, DatabaseInterface::QUERY_STORE
+            $page_query,
+            false,
+            DatabaseInterface::QUERY_STORE
         );
 
-        $result = array();
+        $result = [];
         while ($curr_page = $GLOBALS['dbi']->fetchAssoc($page_rs)) {
             $result[intval($curr_page['page_nr'])] = $curr_page['page_descr'];
         }
@@ -111,11 +113,11 @@ class Designer
 
         return Template::get('database/designer/schema_export')
             ->render(
-                array(
+                [
                     'db' => $db,
                     'page' => $page,
                     'export_list' => $export_list
-                )
+                ]
             );
     }
 
@@ -130,10 +132,13 @@ class Designer
      * @return string html
      */
     public function getHtmlForJsFields(
-        array $script_tables, array $script_contr, array $script_display_field, $display_page
+        array $script_tables,
+        array $script_contr,
+        array $script_display_field,
+        $display_page
     ) {
         $cfgRelation = Relation::getRelationsParam();
-        return Template::get('database/designer/js_fields')->render(array(
+        return Template::get('database/designer/js_fields')->render([
             'server' => $GLOBALS['server'],
             'db' => $_GET['db'],
             'script_tables' => json_encode($script_tables),
@@ -141,7 +146,7 @@ class Designer
             'script_display_field' => json_encode($script_display_field),
             'display_page' => $display_page,
             'relation_pdfwork' => $cfgRelation['pdfwork'],
-        ));
+        ]);
     }
 
     /**
@@ -171,12 +176,11 @@ class Designer
      */
     private function getSideMenuParamsArray()
     {
-        $params = array();
+        $params = [];
 
         $cfgRelation = Relation::getRelationsParam();
 
         if ($GLOBALS['cfgRelation']['designersettingswork']) {
-
             $query = 'SELECT `settings_data` FROM '
                 . Util::backquote($cfgRelation['db']) . '.'
                 . Util::backquote($cfgRelation['designer_settings'])
@@ -198,7 +202,7 @@ class Designer
      */
     public function returnClassNamesFromMenuButtons()
     {
-        $classes_array = array();
+        $classes_array = [];
         $params_array = $this->getSideMenuParamsArray();
 
         if (isset($params_array['angular_direct'])
