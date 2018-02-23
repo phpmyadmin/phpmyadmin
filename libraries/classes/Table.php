@@ -2286,7 +2286,7 @@ class Table
             $master_field = $multi_edit_columns_name[$master_field_md5];
 
             $foreign_table = $destination_foreign_table[$master_field_md5];
-            $foreign_field = $destination_foreign_column[$master_field_md5];
+            $foreign_field = (array) $destination_foreign_column[$master_field_md5];
 
             if (isset($existrel_foreign[$master_field_md5]['ref_db_name'])) {
                 $ref_db_name = $existrel_foreign[$master_field_md5]['ref_db_name'];
@@ -2378,7 +2378,7 @@ class Table
             }
 
             $create_query = $this->_getSQLToCreateForeignKey(
-                $table, $master_field, $foreign_db, $foreign_table, (array) $foreign_field,
+                $table, $master_field, $foreign_db, $foreign_table, $foreign_field,
                 $_REQUEST['constraint_name'][$master_field_md5],
                 $options_array[$_REQUEST['on_delete'][$master_field_md5]],
                 $options_array[$_REQUEST['on_update'][$master_field_md5]]
