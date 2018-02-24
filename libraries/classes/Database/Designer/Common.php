@@ -25,7 +25,7 @@ class Common
      *
      * @return array with table info
      */
-    public static function getTablesInfo()
+    public function getTablesInfo()
     {
         $retval = array();
 
@@ -81,7 +81,7 @@ class Common
      *
      * @return array   table column nfo
      */
-    public static function getColumnsInfo()
+    public function getColumnsInfo()
     {
         $GLOBALS['dbi']->selectDb($GLOBALS['db']);
         $tab_column = array();
@@ -114,7 +114,7 @@ class Common
      *
      * @return string   JavaScript code
      */
-    public static function getScriptContr()
+    public function getScriptContr()
     {
         $GLOBALS['dbi']->selectDb($GLOBALS['db']);
         $con = array();
@@ -186,9 +186,9 @@ class Common
      *
      * @return array unique or primary indices
      */
-    public static function getPkOrUniqueKeys()
+    public function getPkOrUniqueKeys()
     {
-        return self::getAllKeys(true);
+        return $this->getAllKeys(true);
     }
 
     /**
@@ -198,7 +198,7 @@ class Common
      *
      * @return array indices
      */
-    public static function getAllKeys($unique_only = false)
+    public function getAllKeys($unique_only = false)
     {
         $keys = array();
 
@@ -223,7 +223,7 @@ class Common
      *
      * @return string
      */
-    public static function getScriptTabs()
+    public function getScriptTabs()
     {
         $retval = array(
             'j_tabs' => array(),
@@ -248,7 +248,7 @@ class Common
      *
      * @return array of table positions
      */
-    public static function getTablePositions($pg)
+    public function getTablePositions($pg)
     {
         $cfgRelation = Relation::getRelationsParam();
         if (! $cfgRelation['pdfwork']) {
@@ -280,9 +280,9 @@ class Common
      *
      * @param int $pg pdf page id
      *
-     * @return String table name
+     * @return string table name
      */
-    public static function getPageName($pg)
+    public function getPageName($pg)
     {
         $cfgRelation = Relation::getRelationsParam();
         if (! $cfgRelation['pdfwork']) {
@@ -310,7 +310,7 @@ class Common
      *
      * @return boolean success/failure
      */
-    public static function deletePage($pg)
+    public function deletePage($pg)
     {
         $cfgRelation = Relation::getRelationsParam();
         if (! $cfgRelation['pdfwork']) {
@@ -344,7 +344,7 @@ class Common
      *
      * @return int id of the default pdf page for the database
      */
-    public static function getDefaultPage($db)
+    public function getDefaultPage($db)
     {
         $cfgRelation = Relation::getRelationsParam();
         if (! $cfgRelation['pdfwork']) {
@@ -379,7 +379,7 @@ class Common
      *
      * @return int id of the page to load
      */
-    public static function getLoadingPage($db)
+    public function getLoadingPage($db)
     {
         $cfgRelation = Relation::getRelationsParam();
         if (! $cfgRelation['pdfwork']) {
@@ -388,7 +388,7 @@ class Common
 
         $page_no = -1;
 
-        $default_page_no = self::getDefaultPage($db);
+        $default_page_no = $this->getDefaultPage($db);
         if ($default_page_no != -1) {
             $page_no = $default_page_no;
         } else {
@@ -419,7 +419,7 @@ class Common
      *
      * @return int|null
      */
-    public static function createNewPage($pageName, $db)
+    public function createNewPage($pageName, $db)
     {
         $cfgRelation = Relation::getRelationsParam();
         if ($cfgRelation['pdfwork']) {
@@ -440,7 +440,7 @@ class Common
      *
      * @return boolean success/failure
      */
-    public static function saveTablePositions($pg)
+    public function saveTablePositions($pg)
     {
         $cfgRelation = Relation::getRelationsParam();
         if (! $cfgRelation['pdfwork']) {
@@ -501,7 +501,7 @@ class Common
      *
      * @return boolean
      */
-    public static function saveDisplayField($db, $table, $field)
+    public function saveDisplayField($db, $table, $field)
     {
         $cfgRelation = Relation::getRelationsParam();
         if (!$cfgRelation['displaywork']) {
@@ -529,7 +529,7 @@ class Common
      *
      * @return array array of success/failure and message
      */
-    public static function addNewRelation($db, $T1, $F1, $T2, $F2, $on_delete, $on_update, $DB1, $DB2)
+    public function addNewRelation($db, $T1, $F1, $T2, $F2, $on_delete, $on_update, $DB1, $DB2)
     {
         $tables = $GLOBALS['dbi']->getTablesFull($DB1, $T1);
         $type_T1 = mb_strtoupper($tables[$T1]['ENGINE']);
@@ -652,7 +652,7 @@ class Common
      *
      * @return array array of success/failure and message
      */
-    public static function removeRelation($T1, $F1, $T2, $F2)
+    public function removeRelation($T1, $F1, $T2, $F2)
     {
         list($DB1, $T1) = explode(".", $T1);
         list($DB2, $T2) = explode(".", $T2);
@@ -723,7 +723,7 @@ class Common
      *
      * @return bool whether the operation succeeded
      */
-    public static function saveDesignerSetting($index, $value)
+    public function saveSetting($index, $value)
     {
         $cfgRelation = Relation::getRelationsParam();
         $cfgDesigner = array(

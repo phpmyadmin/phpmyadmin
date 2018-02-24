@@ -14,6 +14,7 @@ require_once 'libraries/common.inc.php';
 $response = Response::getInstance();
 
 $designer = new Designer();
+$designerCommon = new Common();
 
 if (isset($_REQUEST['dialog'])) {
 
@@ -28,11 +29,11 @@ if (isset($_REQUEST['dialog'])) {
             $GLOBALS['db'], $_REQUEST['selected_page']
         );
     } elseif ($_REQUEST['dialog'] == 'add_table') {
-        $script_display_field = Common::getTablesInfo();
+        $script_display_field = $designerCommon->getTablesInfo();
         $required = $GLOBALS['db'] . '.' . $GLOBALS['table'];
-        $tab_column = Common::getColumnsInfo();
-        $tables_all_keys = Common::getAllKeys();
-        $tables_pk_or_unique_keys = Common::getPkOrUniqueKeys();
+        $tab_column = $designerCommon->getColumnsInfo();
+        $tables_all_keys = $designerCommon->getAllKeys();
+        $tables_pk_or_unique_keys = $designerCommon->getPkOrUniqueKeys();
 
         $req_key = array_search($required, $GLOBALS['PMD']['TABLE_NAME']);
 
@@ -58,24 +59,24 @@ if (isset($_REQUEST['dialog'])) {
 if (isset($_REQUEST['operation'])) {
 
     if ($_REQUEST['operation'] == 'deletePage') {
-        $success = Common::deletePage($_REQUEST['selected_page']);
+        $success = $designerCommon->deletePage($_REQUEST['selected_page']);
         $response->setRequestStatus($success);
     } elseif ($_REQUEST['operation'] == 'savePage') {
         if ($_REQUEST['save_page'] == 'same') {
             $page = $_REQUEST['selected_page'];
         } else { // new
-            $page = Common::createNewPage($_REQUEST['selected_value'], $GLOBALS['db']);
+            $page = $designerCommon->createNewPage($_REQUEST['selected_value'], $GLOBALS['db']);
             $response->addJSON('id', $page);
         }
-        $success = Common::saveTablePositions($page);
+        $success = $designerCommon->saveTablePositions($page);
         $response->setRequestStatus($success);
     } elseif ($_REQUEST['operation'] == 'setDisplayField') {
-        Common::saveDisplayField(
+        $designerCommon->saveDisplayField(
             $_REQUEST['db'], $_REQUEST['table'], $_REQUEST['field']
         );
         $response->setRequestStatus(true);
     } elseif ($_REQUEST['operation'] == 'addNewRelation') {
-        list($success, $message) = Common::addNewRelation(
+        list($success, $message) = $designerCommon->addNewRelation(
             $_REQUEST['db'],
             $_REQUEST['T1'],
             $_REQUEST['F1'],
@@ -89,7 +90,7 @@ if (isset($_REQUEST['operation'])) {
         $response->setRequestStatus($success);
         $response->addJSON('message', $message);
     } elseif ($_REQUEST['operation'] == 'removeRelation') {
-        list($success, $message) = Common::removeRelation(
+        list($success, $message) = $designerCommon->removeRelation(
             $_REQUEST['T1'],
             $_REQUEST['F1'],
             $_REQUEST['T2'],
@@ -98,7 +99,7 @@ if (isset($_REQUEST['operation'])) {
         $response->setRequestStatus($success);
         $response->addJSON('message', $message);
     } elseif ($_REQUEST['operation'] == 'save_setting_value') {
-        $success = Common::saveDesignerSetting($_REQUEST['index'], $_REQUEST['value']);
+        $success = $designerCommon->saveSetting($_REQUEST['index'], $_REQUEST['value']);
         $response->setRequestStatus($success);
     }
 
@@ -107,30 +108,30 @@ if (isset($_REQUEST['operation'])) {
 
 require 'libraries/db_common.inc.php';
 
-$script_display_field = Common::getTablesInfo();
-$tab_column = Common::getColumnsInfo();
-$script_tables = Common::getScriptTabs();
-$tables_pk_or_unique_keys = Common::getPkOrUniqueKeys();
-$tables_all_keys = Common::getAllKeys();
+$script_display_field = $designerCommon->getTablesInfo();
+$tab_column = $designerCommon->getColumnsInfo();
+$script_tables = $designerCommon->getScriptTabs();
+$tables_pk_or_unique_keys = $designerCommon->getPkOrUniqueKeys();
+$tables_all_keys = $designerCommon->getAllKeys();
 $classes_side_menu = $designer->returnClassNamesFromMenuButtons();
 
 $display_page = -1;
 $selected_page = null;
 
 if (isset($_REQUEST['query'])) {
-    $display_page = Common::getDefaultPage($_REQUEST['db']);
+    $display_page = $designerCommon->getDefaultPage($_REQUEST['db']);
 } else {
     if (! empty($_REQUEST['page'])) {
         $display_page = $_REQUEST['page'];
     } else {
-        $display_page = Common::getLoadingPage($_REQUEST['db']);
+        $display_page = $designerCommon->getLoadingPage($_REQUEST['db']);
     }
 }
 if ($display_page != -1) {
-    $selected_page = Common::getPageName($display_page);
+    $selected_page = $designerCommon->getPageName($display_page);
 }
-$tab_pos = Common::getTablePositions($display_page);
-$script_contr = Common::getScriptContr();
+$tab_pos = $designerCommon->getTablePositions($display_page);
+$script_contr = $designerCommon->getScriptContr();
 
 $params = array('lang' => $GLOBALS['lang']);
 if (isset($_GET['db'])) {
