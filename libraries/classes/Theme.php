@@ -75,7 +75,7 @@ class Theme
         'enum_editor',
         'gis',
         'navigation',
-        'pmd',
+        'designer',
         'rte',
         'codemirror',
         'jqplot',
