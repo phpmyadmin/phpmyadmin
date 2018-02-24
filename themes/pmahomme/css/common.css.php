@@ -818,6 +818,7 @@ fieldset.confirmation legend {
     font-size: 70%;
     font-weight: normal;
     color: #000099;
+    white-space: nowrap;
 }
 
 .tblHeaders {
