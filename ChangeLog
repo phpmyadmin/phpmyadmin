@@ -44,6 +44,7 @@ phpMyAdmin - ChangeLog
 - issue #13397 Remember state of navigation panel
 - issue #11688 Reduced cookie usage
 - issue #13466 Better utilization of user preferences
+- issue #14042 Rename PMD to Designer
 
 4.7.9 (not yet released)
 
