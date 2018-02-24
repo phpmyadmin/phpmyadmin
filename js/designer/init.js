@@ -1,6 +1,6 @@
 /* vim: set expandtab sw=4 ts=4 sts=4: */
 /**
- * Initialises the data required to run PMD, then fires it up.
+ * Initialises the data required to run Designer, then fires it up.
  */
 
 var j_tabs;
@@ -10,13 +10,13 @@ var display_field;
 var server;
 var db;
 var selected_page;
-var pmd_tables_enabled;
+var designer_tables_enabled;
 
-AJAX.registerTeardown('pmd/init.js', function () {
+AJAX.registerTeardown('designer/init.js', function () {
     $('.trigger').off('click');
 });
 
-AJAX.registerOnload('pmd/init.js', function () {
+AJAX.registerOnload('designer/init.js', function () {
     $('.trigger').click(function () {
         $('.panel').toggle('fast');
         $(this).toggleClass('active');
@@ -33,11 +33,11 @@ AJAX.registerOnload('pmd/init.js', function () {
     server             = $('#script_server').html();
     db                 = $('#script_db').html();
     selected_page      = $('#script_display_page').html() === '' ? '-1' : $('#script_display_page').html();
-    pmd_tables_enabled = $('#pmd_tables_enabled').html() === '1';
+    designer_tables_enabled = $('#designer_tables_enabled').html() === '1';
 
     Main();
 
-    if (! pmd_tables_enabled) {
+    if (! designer_tables_enabled) {
         DesignerOfflineDB.open(function (success) {
             if (success) {
                 Show_tables_in_landing_page(db);

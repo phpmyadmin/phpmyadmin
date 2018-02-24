@@ -549,7 +549,7 @@ $js_messages['strLockToolTip'] = __(
     . ' you will be prompted for confirmation before abandoning changes'
 );
 
-/* Designer (js/pmd/move.js) */
+/* Designer (js/designer/move.js) */
 $js_messages['strSelectReferencedKey'] = __('Select referenced key');
 $js_messages['strSelectForeignKey'] = __('Select Foreign Key');
 $js_messages['strPleaseSelectPrimaryOrUniqueKey']
@@ -574,7 +574,7 @@ $js_messages['strSuccessfulPageDelete'] = __('Successfully deleted the page');
 $js_messages['strExportRelationalSchema'] = __('Export relational schema');
 $js_messages['strModificationSaved'] = __('Modifications have been saved');
 
-/* Visual query builder (js/pmd/move.js) */
+/* Visual query builder (js/designer/move.js) */
 $js_messages['strAddOption'] = __('Add an option for column "%s".');
 $js_messages['strObjectsCreated'] = __('%d object(s) created.');
 $js_messages['strSubmit'] = __('Submit');

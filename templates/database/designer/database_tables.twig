@@ -8,7 +8,7 @@
     <table id="{{ t_n_url }}"
         cellpadding="0"
         cellspacing="0"
-        class="pmd_tab"
+        class="designer_tab"
         style="position:absolute; left:
             {{- tab_pos[t_n] is defined ? tab_pos[t_n]['X'] : random(range(20, 700)) }}px; top:
             {{- tab_pos[t_n] is defined ? tab_pos[t_n]['Y'] : random(range(20, 550)) }}px; display:
@@ -23,8 +23,8 @@
                             value="select_all_{{ t_n_url }}"
                             id="select_all_{{ t_n_url }}"
                             title="select all"
-                            pmd_url_table_name="{{ t_n_url }}"
-                            pmd_out_owner="{{ owner_out[i]|raw }}">
+                            designer_url_table_name="{{ t_n_url }}"
+                            designer_out_owner="{{ owner_out[i]|raw }}">
                     </td>
                 {% endif %}
                 <td class="small_tab"
@@ -35,7 +35,7 @@
                 </td>
                 <td class="small_tab_pref small_tab_pref_1"
                     table_name_small="{{ table_names_small_url[i] }}">
-                    <img src="{{ theme.getImgPath('pmd/exec_small.png') }}"
+                    <img src="{{ theme.getImgPath('designer/exec_small.png') }}"
                         title="{% trans 'See table structure' %}" />
                 </td>
                 <td id="id_zag_{{ t_n_url }}"
@@ -92,9 +92,9 @@
                         {{- tab_column[t_n]['COLUMN_NAME'][j]|url_encode }}">
                         <div class="nowrap">
                             {% if tables_pk_or_unique_keys[t_n ~ '.' ~ tab_column[t_n]['COLUMN_NAME'][j]] is defined %}
-                                <img src="{{ theme.getImgPath('pmd/FieldKey_small.png') }}" alt="*" />
+                                <img src="{{ theme.getImgPath('designer/FieldKey_small.png') }}" alt="*" />
                             {% else %}
-                                {% set type = 'pmd/Field_small' %}
+                                {% set type = 'designer/Field_small' %}
                                 {% if strstr(tab_column[t_n]['TYPE'][j], 'char')
                                     or strstr(tab_column[t_n]['TYPE'][j], 'text') %}
                                     {% set type = type ~ '_char' %}
@@ -115,10 +115,10 @@
                     </td>
                     {% if query is defined %}
                         <td class="small_tab_pref small_tab_pref_click_opt"
-                            click_option_param="pmd_optionse,
+                            click_option_param="designer_optionse,
                                 {{- tab_column[t_n]['COLUMN_NAME'][j]|url_encode }},
                                 {{- table_names_small_out[i] }}">
-                            <img src="{{ theme.getImgPath('pmd/exec_small.png') }}" title="options" />
+                            <img src="{{ theme.getImgPath('designer/exec_small.png') }}" title="options" />
                         </td>
                     {% endif %}
                 </tr>

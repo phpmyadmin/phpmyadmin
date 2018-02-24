@@ -1,11 +1,11 @@
 <?php
 /* vim: set expandtab sw=4 ts=4 sts=4: */
 /**
- * Common functions for Designer
+ * Holds the PhpMyAdmin\Database\Designer\Common class
  *
  * @package PhpMyAdmin-Designer
  */
-namespace PhpMyAdmin;
+namespace PhpMyAdmin\Database\Designer;
 
 use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Index;
@@ -14,60 +14,60 @@ use PhpMyAdmin\Table;
 use PhpMyAdmin\Util;
 
 /**
- * PhpMyAdmin\PmdCommon class
+ * Common functions for Designer
  *
  * @package PhpMyAdmin-Designer
  */
-class PmdCommon
+class Common
 {
     /**
-     * Retrieves table info and stores it in $GLOBALS['PMD']
+     * Retrieves table info and stores it in $GLOBALS['designer']
      *
      * @return array with table info
      */
-    public static function getTablesInfo()
+    public function getTablesInfo()
     {
         $retval = array();
 
-        $GLOBALS['PMD']['TABLE_NAME'] = array();// that foreach no error
-        $GLOBALS['PMD']['OWNER'] = array();
-        $GLOBALS['PMD']['TABLE_NAME_SMALL'] = array();
+        $GLOBALS['designer']['TABLE_NAME'] = array();// that foreach no error
+        $GLOBALS['designer']['OWNER'] = array();
+        $GLOBALS['designer']['TABLE_NAME_SMALL'] = array();
 
         $tables = $GLOBALS['dbi']->getTablesFull($GLOBALS['db']);
         // seems to be needed later
         $GLOBALS['dbi']->selectDb($GLOBALS['db']);
         $i = 0;
         foreach ($tables as $one_table) {
-            $GLOBALS['PMD']['TABLE_NAME'][$i]
+            $GLOBALS['designer']['TABLE_NAME'][$i]
                 = $GLOBALS['db'] . "." . $one_table['TABLE_NAME'];
-            $GLOBALS['PMD']['OWNER'][$i] = $GLOBALS['db'];
-            $GLOBALS['PMD']['TABLE_NAME_SMALL'][$i] = htmlspecialchars(
+            $GLOBALS['designer']['OWNER'][$i] = $GLOBALS['db'];
+            $GLOBALS['designer']['TABLE_NAME_SMALL'][$i] = htmlspecialchars(
                 $one_table['TABLE_NAME'], ENT_QUOTES
             );
 
-            $GLOBALS['PMD_URL']['TABLE_NAME'][$i]
+            $GLOBALS['designer_url']['TABLE_NAME'][$i]
                 = $GLOBALS['db'] . "." . $one_table['TABLE_NAME'];
-            $GLOBALS['PMD_URL']['OWNER'][$i] = $GLOBALS['db'];
-            $GLOBALS['PMD_URL']['TABLE_NAME_SMALL'][$i]
+            $GLOBALS['designer_url']['OWNER'][$i] = $GLOBALS['db'];
+            $GLOBALS['designer_url']['TABLE_NAME_SMALL'][$i]
                 = $one_table['TABLE_NAME'];
 
-            $GLOBALS['PMD_OUT']['TABLE_NAME'][$i] = htmlspecialchars(
+            $GLOBALS['designer_out']['TABLE_NAME'][$i] = htmlspecialchars(
                 $GLOBALS['db'] . "." . $one_table['TABLE_NAME'], ENT_QUOTES
             );
-            $GLOBALS['PMD_OUT']['OWNER'][$i] = htmlspecialchars(
+            $GLOBALS['designer_out']['OWNER'][$i] = htmlspecialchars(
                 $GLOBALS['db'], ENT_QUOTES
             );
-            $GLOBALS['PMD_OUT']['TABLE_NAME_SMALL'][$i] = htmlspecialchars(
+            $GLOBALS['designer_out']['TABLE_NAME_SMALL'][$i] = htmlspecialchars(
                 $one_table['TABLE_NAME'], ENT_QUOTES
             );
 
-            $GLOBALS['PMD']['TABLE_TYPE'][$i] = mb_strtoupper(
+            $GLOBALS['designer']['TABLE_TYPE'][$i] = mb_strtoupper(
                 $one_table['ENGINE']
             );
 
             $DF = Relation::getDisplayField($GLOBALS['db'], $one_table['TABLE_NAME']);
             if ($DF != '') {
-                $retval[$GLOBALS['PMD_URL']["TABLE_NAME_SMALL"][$i]] = $DF;
+                $retval[$GLOBALS['designer_url']["TABLE_NAME_SMALL"][$i]] = $DF;
             }
 
             $i++;
@@ -81,22 +81,22 @@ class PmdCommon
      *
      * @return array   table column nfo
      */
-    public static function getColumnsInfo()
+    public function getColumnsInfo()
     {
         $GLOBALS['dbi']->selectDb($GLOBALS['db']);
         $tab_column = array();
-        for ($i = 0, $cnt = count($GLOBALS['PMD']["TABLE_NAME"]); $i < $cnt; $i++) {
+        for ($i = 0, $cnt = count($GLOBALS['designer']["TABLE_NAME"]); $i < $cnt; $i++) {
             $fields_rs = $GLOBALS['dbi']->query(
                 $GLOBALS['dbi']->getColumnsSql(
                     $GLOBALS['db'],
-                    $GLOBALS['PMD_URL']["TABLE_NAME_SMALL"][$i],
+                    $GLOBALS['designer_url']["TABLE_NAME_SMALL"][$i],
                     null,
                     true
                 ),
                 DatabaseInterface::CONNECT_USER,
                 DatabaseInterface::QUERY_STORE
             );
-            $tbl_name_i = $GLOBALS['PMD']['TABLE_NAME'][$i];
+            $tbl_name_i = $GLOBALS['designer']['TABLE_NAME'][$i];
             $j = 0;
             while ($row = $GLOBALS['dbi']->fetchAssoc($fields_rs)) {
                 $tab_column[$tbl_name_i]['COLUMN_ID'][$j]   = $j;
@@ -114,7 +114,7 @@ class PmdCommon
      *
      * @return string   JavaScript code
      */
-    public static function getScriptContr()
+    public function getScriptContr()
     {
         $GLOBALS['dbi']->selectDb($GLOBALS['db']);
         $con = array();
@@ -167,8 +167,8 @@ class PmdCommon
             $dtn_i = $con['DTN'][$i];
             $retval[$ti] = array();
             $retval[$ti][$c_name_i] = array();
-            if (in_array($dtn_i, $GLOBALS['PMD_URL']["TABLE_NAME"])
-                && in_array($con['STN'][$i], $GLOBALS['PMD_URL']["TABLE_NAME"])
+            if (in_array($dtn_i, $GLOBALS['designer_url']["TABLE_NAME"])
+                && in_array($con['STN'][$i], $GLOBALS['designer_url']["TABLE_NAME"])
             ) {
                 $retval[$ti][$c_name_i][$dtn_i] = array();
                 $retval[$ti][$c_name_i][$dtn_i][$con['DCN'][$i]] = array(
@@ -186,9 +186,9 @@ class PmdCommon
      *
      * @return array unique or primary indices
      */
-    public static function getPkOrUniqueKeys()
+    public function getPkOrUniqueKeys()
     {
-        return self::getAllKeys(true);
+        return $this->getAllKeys(true);
     }
 
     /**
@@ -198,12 +198,12 @@ class PmdCommon
      *
      * @return array indices
      */
-    public static function getAllKeys($unique_only = false)
+    public function getAllKeys($unique_only = false)
     {
         $keys = array();
 
-        foreach ($GLOBALS['PMD']['TABLE_NAME_SMALL'] as $I => $table) {
-            $schema = $GLOBALS['PMD']['OWNER'][$I];
+        foreach ($GLOBALS['designer']['TABLE_NAME_SMALL'] as $I => $table) {
+            $schema = $GLOBALS['designer']['OWNER'][$I];
             // for now, take into account only the first index segment
             foreach (Index::getFromTable($table, $schema) as $index) {
                 if ($unique_only && ! $index->isUnique()) {
@@ -223,20 +223,20 @@ class PmdCommon
      *
      * @return string
      */
-    public static function getScriptTabs()
+    public function getScriptTabs()
     {
         $retval = array(
             'j_tabs' => array(),
             'h_tabs' => array()
         );
 
-        for ($i = 0, $cnt = count($GLOBALS['PMD']['TABLE_NAME']); $i < $cnt; $i++) {
+        for ($i = 0, $cnt = count($GLOBALS['designer']['TABLE_NAME']); $i < $cnt; $i++) {
             $j = 0;
-            if (Util::isForeignKeySupported($GLOBALS['PMD']['TABLE_TYPE'][$i])) {
+            if (Util::isForeignKeySupported($GLOBALS['designer']['TABLE_TYPE'][$i])) {
                 $j = 1;
             }
-            $retval['j_tabs'][$GLOBALS['PMD_URL']['TABLE_NAME'][$i]] = $j;
-            $retval['h_tabs'][$GLOBALS['PMD_URL']['TABLE_NAME'][$i]] = 1;
+            $retval['j_tabs'][$GLOBALS['designer_url']['TABLE_NAME'][$i]] = $j;
+            $retval['h_tabs'][$GLOBALS['designer_url']['TABLE_NAME'][$i]] = 1;
         }
         return $retval;
     }
@@ -248,7 +248,7 @@ class PmdCommon
      *
      * @return array of table positions
      */
-    public static function getTablePositions($pg)
+    public function getTablePositions($pg)
     {
         $cfgRelation = Relation::getRelationsParam();
         if (! $cfgRelation['pdfwork']) {
@@ -280,9 +280,9 @@ class PmdCommon
      *
      * @param int $pg pdf page id
      *
-     * @return String table name
+     * @return string table name
      */
-    public static function getPageName($pg)
+    public function getPageName($pg)
     {
         $cfgRelation = Relation::getRelationsParam();
         if (! $cfgRelation['pdfwork']) {
@@ -310,7 +310,7 @@ class PmdCommon
      *
      * @return boolean success/failure
      */
-    public static function deletePage($pg)
+    public function deletePage($pg)
     {
         $cfgRelation = Relation::getRelationsParam();
         if (! $cfgRelation['pdfwork']) {
@@ -344,7 +344,7 @@ class PmdCommon
      *
      * @return int id of the default pdf page for the database
      */
-    public static function getDefaultPage($db)
+    public function getDefaultPage($db)
     {
         $cfgRelation = Relation::getRelationsParam();
         if (! $cfgRelation['pdfwork']) {
@@ -379,7 +379,7 @@ class PmdCommon
      *
      * @return int id of the page to load
      */
-    public static function getLoadingPage($db)
+    public function getLoadingPage($db)
     {
         $cfgRelation = Relation::getRelationsParam();
         if (! $cfgRelation['pdfwork']) {
@@ -388,7 +388,7 @@ class PmdCommon
 
         $page_no = -1;
 
-        $default_page_no = self::getDefaultPage($db);
+        $default_page_no = $this->getDefaultPage($db);
         if ($default_page_no != -1) {
             $page_no = $default_page_no;
         } else {
@@ -419,7 +419,7 @@ class PmdCommon
      *
      * @return int|null
      */
-    public static function createNewPage($pageName, $db)
+    public function createNewPage($pageName, $db)
     {
         $cfgRelation = Relation::getRelationsParam();
         if ($cfgRelation['pdfwork']) {
@@ -440,7 +440,7 @@ class PmdCommon
      *
      * @return boolean success/failure
      */
-    public static function saveTablePositions($pg)
+    public function saveTablePositions($pg)
     {
         $cfgRelation = Relation::getRelationsParam();
         if (! $cfgRelation['pdfwork']) {
@@ -501,7 +501,7 @@ class PmdCommon
      *
      * @return boolean
      */
-    public static function saveDisplayField($db, $table, $field)
+    public function saveDisplayField($db, $table, $field)
     {
         $cfgRelation = Relation::getRelationsParam();
         if (!$cfgRelation['displaywork']) {
@@ -529,7 +529,7 @@ class PmdCommon
      *
      * @return array array of success/failure and message
      */
-    public static function addNewRelation($db, $T1, $F1, $T2, $F2, $on_delete, $on_update, $DB1, $DB2)
+    public function addNewRelation($db, $T1, $F1, $T2, $F2, $on_delete, $on_update, $DB1, $DB2)
     {
         $tables = $GLOBALS['dbi']->getTablesFull($DB1, $T1);
         $type_T1 = mb_strtoupper($tables[$T1]['ENGINE']);
@@ -652,7 +652,7 @@ class PmdCommon
      *
      * @return array array of success/failure and message
      */
-    public static function removeRelation($T1, $F1, $T2, $F2)
+    public function removeRelation($T1, $F1, $T2, $F2)
     {
         list($DB1, $T1) = explode(".", $T1);
         list($DB2, $T2) = explode(".", $T2);
@@ -723,7 +723,7 @@ class PmdCommon
      *
      * @return bool whether the operation succeeded
      */
-    public static function saveDesignerSetting($index, $value)
+    public function saveSetting($index, $value)
     {
         $cfgRelation = Relation::getRelationsParam();
         $cfgDesigner = array(

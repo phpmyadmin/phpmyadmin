@@ -7,12 +7,12 @@ var _staying = 0; //  variable to check if the user stayed after seeing the conf
 var show_relation_lines = true;
 var always_show_text = false;
 
-AJAX.registerTeardown('pmd/move.js', function () {
+AJAX.registerTeardown('designer/move.js', function () {
     $(document).off('fullscreenchange');
     $('#selflink').show();
 });
 
-AJAX.registerOnload('pmd/move.js', function () {
+AJAX.registerOnload('designer/move.js', function () {
     $('#page_content').css({ 'margin-left': '3px' });
     $(document).on('fullscreenchange', function () {
         if (! $.fn.fullScreen()) {
@@ -174,8 +174,8 @@ function MouseMove (e) {
     }
 
     if (ON_relation || ON_display_field) {
-        document.getElementById('pmd_hint').style.left = (Glob_X + 20) + 'px';
-        document.getElementById('pmd_hint').style.top  = (Glob_Y + 20) + 'px';
+        document.getElementById('designer_hint').style.left = (Glob_X + 20) + 'px';
+        document.getElementById('designer_hint').style.top  = (Glob_Y + 20) + 'px';
     }
 }
 
@@ -270,7 +270,7 @@ function Main () {
     Small_tab_refresh();
     Re_load();
     setDefaultValuesFromSavedState();
-    id_hint = document.getElementById('pmd_hint');
+    id_hint = document.getElementById('designer_hint');
     if (isIE) {
         General_scroll();
     }
@@ -566,15 +566,15 @@ function Add_Other_db_tables () {
             $new_table_dom = $(data.message.substring(98));
             $new_table_dom.find('a').first().remove();
             $('#container-form').append($new_table_dom);
-            $('.pmd_tab').on('click','.tab_field_2,.tab_field_3,.tab_field', function () {
+            $('.designer_tab').on('click','.tab_field_2,.tab_field_3,.tab_field', function () {
                 var params = ($(this).attr('click_field_param')).split(',');
                 Click_field(params[3], params[0], params[1], params[2]);
             });
-            $('.pmd_tab').on('click', '.select_all_store_col', function () {
+            $('.designer_tab').on('click', '.select_all_store_col', function () {
                 var params = ($(this).attr('store_column_param')).split(',');
                 store_column(params[0], params[1], params[2]);
             });
-            $('.pmd_tab').on('click', '.small_tab_pref_click_opt', function () {
+            $('.designer_tab').on('click', '.small_tab_pref_click_opt', function () {
                 var params = ($(this).attr('Click_option_param')).split(',');
                 Click_option(params[0], params[1], params[2]);
             });
@@ -658,7 +658,7 @@ function Save (url) {
 }
 
 function Get_url_pos (forceString) {
-    if (pmd_tables_enabled || forceString) {
+    if (designer_tables_enabled || forceString) {
         var poststr = '';
         for (var key in j_tabs) {
             poststr += '&t_x[' + key + ']=' + parseInt(document.getElementById(key).style.left, 10);
@@ -682,7 +682,7 @@ function Get_url_pos (forceString) {
 }
 
 function Save2 (callback) {
-    if (pmd_tables_enabled) {
+    if (designer_tables_enabled) {
         var poststr = '&operation=savePage&save_page=same&ajax_request=true';
         poststr += '&server=' + server + '&db=' + db + '&selected_page=' + selected_page;
         poststr += Get_url_pos();
@@ -721,7 +721,7 @@ function submitSaveDialogAndClose (callback) {
     }
     $('#page_save_dialog').dialog('close');
 
-    if (pmd_tables_enabled) {
+    if (designer_tables_enabled) {
         var $msgbox = PMA_ajaxShowMessage(PMA_messages.strProcessingRequest);
         PMA_prepareForAjaxRequest($form);
         $.post($form.attr('action'), $form.serialize() + Get_url_pos(), function (data) {
@@ -818,7 +818,7 @@ function Edit_pages () {
             } else {
                 PMA_ajaxRemoveMessage($msgbox);
 
-                if (! pmd_tables_enabled) {
+                if (! designer_tables_enabled) {
                     Create_page_list(db, function (options) {
                         $('#selected_page').append(options);
                     });
@@ -855,7 +855,7 @@ function Delete_pages () {
         var deleting_current_page = selected === selected_page;
         PMA_prepareForAjaxRequest($form);
 
-        if (pmd_tables_enabled) {
+        if (designer_tables_enabled) {
             $.post($form.attr('action'), $form.serialize(), function (data) {
                 if (data.success === false) {
                     PMA_ajaxShowMessage(data.error, false);
@@ -897,7 +897,7 @@ function Delete_pages () {
         } else {
             PMA_ajaxRemoveMessage($msgbox);
 
-            if (! pmd_tables_enabled) {
+            if (! designer_tables_enabled) {
                 Create_page_list(db, function (options) {
                     $('#selected_page').append(options);
                 });
@@ -944,7 +944,7 @@ function Save_as () {
         }
 
         var $msgbox = PMA_ajaxShowMessage(PMA_messages.strProcessingRequest);
-        if (pmd_tables_enabled) {
+        if (designer_tables_enabled) {
             PMA_prepareForAjaxRequest($form);
             $.post($form.attr('action'), $form.serialize() + Get_url_pos(), function (data) {
                 if (data.success === false) {
@@ -995,7 +995,7 @@ function Save_as () {
         } else {
             PMA_ajaxRemoveMessage($msgbox);
 
-            if (! pmd_tables_enabled) {
+            if (! designer_tables_enabled) {
                 Create_page_list(db, function (options) {
                     $('#selected_page').append(options);
                 });
@@ -1071,7 +1071,7 @@ function Export_pages () {
             PMA_ajaxRemoveMessage($msgbox);
 
             var $form = $(data.message);
-            if (!pmd_tables_enabled) {
+            if (!designer_tables_enabled) {
                 $form.append('<input type="hidden" name="offline_export" value="true" />');
             }
             $.each(Get_url_pos(true).substring(1).split('&'), function () {
@@ -1105,7 +1105,7 @@ function Export_pages () {
 }// end export pages
 
 function Load_page (page) {
-    if (pmd_tables_enabled) {
+    if (designer_tables_enabled) {
         var param_page = '';
         if (page !== null) {
             param_page = '&page=' + page;
@@ -1173,12 +1173,12 @@ function Start_relation () {
     if (!ON_relation) {
         document.getElementById('foreign_relation').style.display = '';
         ON_relation = 1;
-        document.getElementById('pmd_hint').innerHTML = PMA_messages.strSelectReferencedKey;
-        document.getElementById('pmd_hint').style.display = 'block';
+        document.getElementById('designer_hint').innerHTML = PMA_messages.strSelectReferencedKey;
+        document.getElementById('designer_hint').style.display = 'block';
         document.getElementById('rel_button').className = 'M_butt_Selected_down';
     } else {
-        document.getElementById('pmd_hint').innerHTML = '';
-        document.getElementById('pmd_hint').style.display = 'none';
+        document.getElementById('designer_hint').innerHTML = '';
+        document.getElementById('designer_hint').style.display = 'none';
         document.getElementById('rel_button').className = 'M_butt';
         click_field = 0;
         ON_relation = 0;
@@ -1200,7 +1200,7 @@ function Click_field (db, T, f, PK) {
             }
             click_field = 1;
             link_relation = 'DB1=' + db + '&T1=' + T + '&F1=' + f;
-            document.getElementById('pmd_hint').innerHTML = PMA_messages.strSelectForeignKey;
+            document.getElementById('designer_hint').innerHTML = PMA_messages.strSelectForeignKey;
         } else {
             Start_relation(); // hidden hint...
             if (j_tabs[db + '.' + T] !== '1' || !PK) {
@@ -1229,8 +1229,8 @@ function Click_field (db, T, f, PK) {
             display_field[T] = f;
         }
         ON_display_field = 0;
-        document.getElementById('pmd_hint').innerHTML = '';
-        document.getElementById('pmd_hint').style.display = 'none';
+        document.getElementById('designer_hint').innerHTML = '';
+        document.getElementById('designer_hint').style.display = 'none';
         document.getElementById('display_field_button').className = 'M_butt';
 
         var $msgbox = PMA_ajaxShowMessage(PMA_messages.strProcessingRequest);
@@ -1661,16 +1661,16 @@ function Start_display_field () {
     }
     if (!ON_display_field) {
         ON_display_field = 1;
-        document.getElementById('pmd_hint').innerHTML = PMA_messages.strChangeDisplay;
-        document.getElementById('pmd_hint').style.display = 'block';
+        document.getElementById('designer_hint').innerHTML = PMA_messages.strChangeDisplay;
+        document.getElementById('designer_hint').style.display = 'block';
         document.getElementById('display_field_button').className = 'M_butt_Selected_down';// '#FFEE99';gray #AAAAAA
 
         if (isIE) { // correct for IE
             document.getElementById('display_field_button').className = 'M_butt_Selected_down_IE';
         }
     } else {
-        document.getElementById('pmd_hint').innerHTML = '';
-        document.getElementById('pmd_hint').style.display = 'none';
+        document.getElementById('designer_hint').innerHTML = '';
+        document.getElementById('designer_hint').style.display = 'none';
         document.getElementById('display_field_button').className = 'M_butt';
         ON_display_field = 0;
     }
@@ -1729,7 +1729,7 @@ function Click_option (id_this, column_name, table_name) {
 }
 
 function Close_option () {
-    document.getElementById('pmd_optionse').style.display = 'none';
+    document.getElementById('designer_optionse').style.display = 'none';
 }
 
 function Select_all (id_this, owner) {
@@ -1826,8 +1826,8 @@ function add_object () {
     var init = history_array.length;
     if (rel.value !== '--') {
         if (document.getElementById('Query').value === '') {
-            document.getElementById('pmd_hint').innerHTML = 'value/subQuery is empty';
-            document.getElementById('pmd_hint').style.display = 'block';
+            document.getElementById('designer_hint').innerHTML = 'value/subQuery is empty';
+            document.getElementById('designer_hint').style.display = 'block';
             return;
         }
         p = document.getElementById('Query');
@@ -1858,8 +1858,8 @@ function add_object () {
     }
     if (document.getElementById('h_rel_opt').value !== '--') {
         if (document.getElementById('having').value === '') {
-            document.getElementById('pmd_hint').innerHTML = 'value/subQuery is empty';
-            document.getElementById('pmd_hint').style.display = 'block';
+            document.getElementById('designer_hint').innerHTML = 'value/subQuery is empty';
+            document.getElementById('designer_hint').style.display = 'block';
             return;
         }
         p = document.getElementById('having');
@@ -1889,7 +1889,7 @@ function add_object () {
     $('#ab').accordion('refresh');
 }
 
-AJAX.registerTeardown('pmd/move.js', function () {
+AJAX.registerTeardown('designer/move.js', function () {
     $('#side_menu').off('mouseenter mouseleave');
     $('#key_Show_left_menu').off('click');
     $('#toggleFullscreen').off('click');
@@ -1917,17 +1917,17 @@ AJAX.registerTeardown('pmd/move.js', function () {
     $('#key_HS').off('click');
     $('.scroll_tab_struct').off('click');
     $('.scroll_tab_checkbox').off('click');
-    $('#id_scroll_tab').find('tr').off('click', '.pmd_Tabs2,.pmd_Tabs');
-    $('.pmd_tab').off('click', '.select_all_1');
-    $('.pmd_tab').off('click', '.small_tab,.small_tab2');
-    $('.pmd_tab').off('click', '.small_tab_pref_1');
+    $('#id_scroll_tab').find('tr').off('click', '.designer_Tabs2,.designer_Tabs');
+    $('.designer_tab').off('click', '.select_all_1');
+    $('.designer_tab').off('click', '.small_tab,.small_tab2');
+    $('.designer_tab').off('click', '.small_tab_pref_1');
     $('.tab_zag_noquery').off('mouseover');
     $('.tab_zag_noquery').off('mouseout');
     $('.tab_zag_query').off('mouseover');
     $('.tab_zag_query').off('mouseout');
-    $('.pmd_tab').off('click','.tab_field_2,.tab_field_3,.tab_field');
-    $('.pmd_tab').off('click', '.select_all_store_col');
-    $('.pmd_tab').off('click', '.small_tab_pref_click_opt');
+    $('.designer_tab').off('click','.tab_field_2,.tab_field_3,.tab_field');
+    $('.designer_tab').off('click', '.select_all_store_col');
+    $('.designer_tab').off('click', '.small_tab_pref_click_opt');
     $('#del_button').off('click');
     $('#cancel_button').off('click');
     $('#ok_add_object').off('click');
@@ -1936,7 +1936,7 @@ AJAX.registerTeardown('pmd/move.js', function () {
     $('#cancel_new_rel_panel').off('click');
 });
 
-AJAX.registerOnload('pmd/move.js', function () {
+AJAX.registerOnload('designer/move.js', function () {
     $('#key_Show_left_menu').click(function () {
         Show_left_menu(this);
         return false;
@@ -2043,16 +2043,16 @@ AJAX.registerOnload('pmd/move.js', function () {
     $('.scroll_tab_checkbox').click(function () {
         VisibleTab(this,$(this).val());
     });
-    $('#id_scroll_tab').find('tr').on('click', '.pmd_Tabs2,.pmd_Tabs', function () {
-        Select_tab($(this).attr('pmd_url_table_name'));
+    $('#id_scroll_tab').find('tr').on('click', '.designer_Tabs2,.designer_Tabs', function () {
+        Select_tab($(this).attr('designer_url_table_name'));
     });
-    $('.pmd_tab').on('click', '.select_all_1', function () {
-        Select_all($(this).attr('pmd_url_table_name'), $(this).attr('pmd_out_owner'));
+    $('.designer_tab').on('click', '.select_all_1', function () {
+        Select_all($(this).attr('designer_url_table_name'), $(this).attr('designer_out_owner'));
     });
-    $('.pmd_tab').on('click', '.small_tab,.small_tab2', function () {
+    $('.designer_tab').on('click', '.small_tab,.small_tab2', function () {
         Small_tab($(this).attr('table_name'), 1);
     });
-    $('.pmd_tab').on('click', '.small_tab_pref_1', function () {
+    $('.designer_tab').on('click', '.small_tab_pref_1', function () {
         Start_tab_upd($(this).attr('table_name_small'));
     });
     $('.tab_zag_noquery').mouseover(function () {
@@ -2067,15 +2067,15 @@ AJAX.registerOnload('pmd/move.js', function () {
     $('.tab_zag_query').mouseout(function () {
         Table_onover($(this).attr('table_name'),1, 1);
     });
-    $('.pmd_tab').on('click','.tab_field_2,.tab_field_3,.tab_field', function () {
+    $('.designer_tab').on('click','.tab_field_2,.tab_field_3,.tab_field', function () {
         var params = ($(this).attr('click_field_param')).split(',');
         Click_field(params[3], params[0], params[1], params[2]);
     });
-    $('.pmd_tab').on('click', '.select_all_store_col', function () {
+    $('.designer_tab').on('click', '.select_all_store_col', function () {
         var params = ($(this).attr('store_column_param')).split(',');
         store_column(params[0], params[1], params[2]);
     });
-    $('.pmd_tab').on('click', '.small_tab_pref_click_opt', function () {
+    $('.designer_tab').on('click', '.small_tab_pref_click_opt', function () {
         var params = ($(this).attr('Click_option_param')).split(',');
         Click_option(params[0], params[1], params[2]);
     });

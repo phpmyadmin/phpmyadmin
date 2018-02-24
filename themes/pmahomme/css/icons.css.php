@@ -7,7 +7,7 @@
  * @subpackage PMAHomme
  */
 
- $theme->getImgPath('pmd/left_panel_butt.png');
+ $theme->getImgPath('designer/left_panel_butt.png');
 
 // unplanned execution path
 if (! defined('PHPMYADMIN') && ! defined('TESTSUITE')) {
