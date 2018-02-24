@@ -21,7 +21,7 @@ use PhpMyAdmin\Util;
 class Common
 {
     /**
-     * Retrieves table info and stores it in $GLOBALS['PMD']
+     * Retrieves table info and stores it in $GLOBALS['designer']
      *
      * @return array with table info
      */
@@ -29,45 +29,45 @@ class Common
     {
         $retval = array();
 
-        $GLOBALS['PMD']['TABLE_NAME'] = array();// that foreach no error
-        $GLOBALS['PMD']['OWNER'] = array();
-        $GLOBALS['PMD']['TABLE_NAME_SMALL'] = array();
+        $GLOBALS['designer']['TABLE_NAME'] = array();// that foreach no error
+        $GLOBALS['designer']['OWNER'] = array();
+        $GLOBALS['designer']['TABLE_NAME_SMALL'] = array();
 
         $tables = $GLOBALS['dbi']->getTablesFull($GLOBALS['db']);
         // seems to be needed later
         $GLOBALS['dbi']->selectDb($GLOBALS['db']);
         $i = 0;
         foreach ($tables as $one_table) {
-            $GLOBALS['PMD']['TABLE_NAME'][$i]
+            $GLOBALS['designer']['TABLE_NAME'][$i]
                 = $GLOBALS['db'] . "." . $one_table['TABLE_NAME'];
-            $GLOBALS['PMD']['OWNER'][$i] = $GLOBALS['db'];
-            $GLOBALS['PMD']['TABLE_NAME_SMALL'][$i] = htmlspecialchars(
+            $GLOBALS['designer']['OWNER'][$i] = $GLOBALS['db'];
+            $GLOBALS['designer']['TABLE_NAME_SMALL'][$i] = htmlspecialchars(
                 $one_table['TABLE_NAME'], ENT_QUOTES
             );
 
-            $GLOBALS['PMD_URL']['TABLE_NAME'][$i]
+            $GLOBALS['designer_url']['TABLE_NAME'][$i]
                 = $GLOBALS['db'] . "." . $one_table['TABLE_NAME'];
-            $GLOBALS['PMD_URL']['OWNER'][$i] = $GLOBALS['db'];
-            $GLOBALS['PMD_URL']['TABLE_NAME_SMALL'][$i]
+            $GLOBALS['designer_url']['OWNER'][$i] = $GLOBALS['db'];
+            $GLOBALS['designer_url']['TABLE_NAME_SMALL'][$i]
                 = $one_table['TABLE_NAME'];
 
-            $GLOBALS['PMD_OUT']['TABLE_NAME'][$i] = htmlspecialchars(
+            $GLOBALS['designer_out']['TABLE_NAME'][$i] = htmlspecialchars(
                 $GLOBALS['db'] . "." . $one_table['TABLE_NAME'], ENT_QUOTES
             );
-            $GLOBALS['PMD_OUT']['OWNER'][$i] = htmlspecialchars(
+            $GLOBALS['designer_out']['OWNER'][$i] = htmlspecialchars(
                 $GLOBALS['db'], ENT_QUOTES
             );
-            $GLOBALS['PMD_OUT']['TABLE_NAME_SMALL'][$i] = htmlspecialchars(
+            $GLOBALS['designer_out']['TABLE_NAME_SMALL'][$i] = htmlspecialchars(
                 $one_table['TABLE_NAME'], ENT_QUOTES
             );
 
-            $GLOBALS['PMD']['TABLE_TYPE'][$i] = mb_strtoupper(
+            $GLOBALS['designer']['TABLE_TYPE'][$i] = mb_strtoupper(
                 $one_table['ENGINE']
             );
 
             $DF = Relation::getDisplayField($GLOBALS['db'], $one_table['TABLE_NAME']);
             if ($DF != '') {
-                $retval[$GLOBALS['PMD_URL']["TABLE_NAME_SMALL"][$i]] = $DF;
+                $retval[$GLOBALS['designer_url']["TABLE_NAME_SMALL"][$i]] = $DF;
             }
 
             $i++;
@@ -85,18 +85,18 @@ class Common
     {
         $GLOBALS['dbi']->selectDb($GLOBALS['db']);
         $tab_column = array();
-        for ($i = 0, $cnt = count($GLOBALS['PMD']["TABLE_NAME"]); $i < $cnt; $i++) {
+        for ($i = 0, $cnt = count($GLOBALS['designer']["TABLE_NAME"]); $i < $cnt; $i++) {
             $fields_rs = $GLOBALS['dbi']->query(
                 $GLOBALS['dbi']->getColumnsSql(
                     $GLOBALS['db'],
-                    $GLOBALS['PMD_URL']["TABLE_NAME_SMALL"][$i],
+                    $GLOBALS['designer_url']["TABLE_NAME_SMALL"][$i],
                     null,
                     true
                 ),
                 DatabaseInterface::CONNECT_USER,
                 DatabaseInterface::QUERY_STORE
             );
-            $tbl_name_i = $GLOBALS['PMD']['TABLE_NAME'][$i];
+            $tbl_name_i = $GLOBALS['designer']['TABLE_NAME'][$i];
             $j = 0;
             while ($row = $GLOBALS['dbi']->fetchAssoc($fields_rs)) {
                 $tab_column[$tbl_name_i]['COLUMN_ID'][$j]   = $j;
@@ -167,8 +167,8 @@ class Common
             $dtn_i = $con['DTN'][$i];
             $retval[$ti] = array();
             $retval[$ti][$c_name_i] = array();
-            if (in_array($dtn_i, $GLOBALS['PMD_URL']["TABLE_NAME"])
-                && in_array($con['STN'][$i], $GLOBALS['PMD_URL']["TABLE_NAME"])
+            if (in_array($dtn_i, $GLOBALS['designer_url']["TABLE_NAME"])
+                && in_array($con['STN'][$i], $GLOBALS['designer_url']["TABLE_NAME"])
             ) {
                 $retval[$ti][$c_name_i][$dtn_i] = array();
                 $retval[$ti][$c_name_i][$dtn_i][$con['DCN'][$i]] = array(
@@ -202,8 +202,8 @@ class Common
     {
         $keys = array();
 
-        foreach ($GLOBALS['PMD']['TABLE_NAME_SMALL'] as $I => $table) {
-            $schema = $GLOBALS['PMD']['OWNER'][$I];
+        foreach ($GLOBALS['designer']['TABLE_NAME_SMALL'] as $I => $table) {
+            $schema = $GLOBALS['designer']['OWNER'][$I];
             // for now, take into account only the first index segment
             foreach (Index::getFromTable($table, $schema) as $index) {
                 if ($unique_only && ! $index->isUnique()) {
@@ -230,13 +230,13 @@ class Common
             'h_tabs' => array()
         );
 
-        for ($i = 0, $cnt = count($GLOBALS['PMD']['TABLE_NAME']); $i < $cnt; $i++) {
+        for ($i = 0, $cnt = count($GLOBALS['designer']['TABLE_NAME']); $i < $cnt; $i++) {
             $j = 0;
-            if (Util::isForeignKeySupported($GLOBALS['PMD']['TABLE_TYPE'][$i])) {
+            if (Util::isForeignKeySupported($GLOBALS['designer']['TABLE_TYPE'][$i])) {
                 $j = 1;
             }
-            $retval['j_tabs'][$GLOBALS['PMD_URL']['TABLE_NAME'][$i]] = $j;
-            $retval['h_tabs'][$GLOBALS['PMD_URL']['TABLE_NAME'][$i]] = 1;
+            $retval['j_tabs'][$GLOBALS['designer_url']['TABLE_NAME'][$i]] = $j;
+            $retval['h_tabs'][$GLOBALS['designer_url']['TABLE_NAME'][$i]] = 1;
         }
         return $retval;
     }

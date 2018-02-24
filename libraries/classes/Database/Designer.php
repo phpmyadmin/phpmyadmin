@@ -280,10 +280,10 @@ class Designer
             'tab_pos' => $tab_pos,
             'display_page' => $display_page,
             'theme' => $GLOBALS['PMA_Theme'],
-            'table_names' => $GLOBALS['PMD']['TABLE_NAME'],
-            'table_names_url' => $GLOBALS['PMD_URL']['TABLE_NAME'],
-            'table_names_small_url' => $GLOBALS['PMD_URL']['TABLE_NAME_SMALL'],
-            'table_names_out' => $GLOBALS['PMD_OUT']['TABLE_NAME'],
+            'table_names' => $GLOBALS['designer']['TABLE_NAME'],
+            'table_names_url' => $GLOBALS['designer_url']['TABLE_NAME'],
+            'table_names_small_url' => $GLOBALS['designer_url']['TABLE_NAME_SMALL'],
+            'table_names_out' => $GLOBALS['designer_out']['TABLE_NAME'],
         ]);
     }
 
@@ -314,13 +314,13 @@ class Designer
             'tab_column' => $tab_column,
             'tables_all_keys' => $tables_all_keys,
             'tables_pk_or_unique_keys' => $tables_pk_or_unique_keys,
-            'table_names' => $GLOBALS['PMD']['TABLE_NAME'],
-            'table_names_url' => $GLOBALS['PMD_URL']['TABLE_NAME'],
-            'table_names_small' => $GLOBALS['PMD']['TABLE_NAME_SMALL'],
-            'table_names_small_url' => $GLOBALS['PMD_URL']['TABLE_NAME_SMALL'],
-            'table_names_small_out' => $GLOBALS['PMD_OUT']['TABLE_NAME_SMALL'],
-            'table_types' => $GLOBALS['PMD']['TABLE_TYPE'],
-            'owner_out' => $GLOBALS['PMD_OUT']['OWNER'],
+            'table_names' => $GLOBALS['designer']['TABLE_NAME'],
+            'table_names_url' => $GLOBALS['designer_url']['TABLE_NAME'],
+            'table_names_small' => $GLOBALS['designer']['TABLE_NAME_SMALL'],
+            'table_names_small_url' => $GLOBALS['designer_url']['TABLE_NAME_SMALL'],
+            'table_names_small_out' => $GLOBALS['designer_out']['TABLE_NAME_SMALL'],
+            'table_types' => $GLOBALS['designer']['TABLE_TYPE'],
+            'owner_out' => $GLOBALS['designer_out']['OWNER'],
             'theme' => $GLOBALS['PMA_Theme'],
         ]);
     }

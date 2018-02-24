@@ -13,19 +13,19 @@ require_once 'libraries/common.inc.php';
 
 $response = Response::getInstance();
 
-$designer = new Designer();
+$databaseDesigner = new Designer();
 $designerCommon = new Common();
 
 if (isset($_REQUEST['dialog'])) {
 
     if ($_REQUEST['dialog'] == 'edit') {
-        $html = $designer->getHtmlForEditOrDeletePages($GLOBALS['db'], 'editPage');
+        $html = $databaseDesigner->getHtmlForEditOrDeletePages($GLOBALS['db'], 'editPage');
     } elseif ($_REQUEST['dialog'] == 'delete') {
-        $html = $designer->getHtmlForEditOrDeletePages($GLOBALS['db'], 'deletePage');
+        $html = $databaseDesigner->getHtmlForEditOrDeletePages($GLOBALS['db'], 'deletePage');
     } elseif ($_REQUEST['dialog'] == 'save_as') {
-        $html = $designer->getHtmlForPageSaveAs($GLOBALS['db']);
+        $html = $databaseDesigner->getHtmlForPageSaveAs($GLOBALS['db']);
     } elseif ($_REQUEST['dialog'] == 'export') {
-        $html = $designer->getHtmlForSchemaExport(
+        $html = $databaseDesigner->getHtmlForSchemaExport(
             $GLOBALS['db'], $_REQUEST['selected_page']
         );
     } elseif ($_REQUEST['dialog'] == 'add_table') {
@@ -35,16 +35,16 @@ if (isset($_REQUEST['dialog'])) {
         $tables_all_keys = $designerCommon->getAllKeys();
         $tables_pk_or_unique_keys = $designerCommon->getPkOrUniqueKeys();
 
-        $req_key = array_search($required, $GLOBALS['PMD']['TABLE_NAME']);
+        $req_key = array_search($required, $GLOBALS['designer']['TABLE_NAME']);
 
-        $GLOBALS['PMD']['TABLE_NAME'] = array($GLOBALS['PMD']['TABLE_NAME'][$req_key]);
-        $GLOBALS['PMD_URL']['TABLE_NAME_SMALL'] = array($GLOBALS['PMD_URL']['TABLE_NAME_SMALL'][$req_key]);
-        $GLOBALS['PMD']['TABLE_NAME_SMALL'] = array($GLOBALS['PMD']['TABLE_NAME_SMALL'][$req_key]);
-        $GLOBALS['PMD_OUT']['TABLE_NAME_SMALL'] = array($GLOBALS['PMD_OUT']['TABLE_NAME_SMALL'][$req_key]);
-        $GLOBALS['PMD']['TABLE_TYPE'] = array($GLOBALS['PMD_URL']['TABLE_TYPE'][$req_key]);
-        $GLOBALS['PMD_OUT']['OWNER'] = array($GLOBALS['PMD_OUT']['OWNER'][$req_key]);
+        $GLOBALS['designer']['TABLE_NAME'] = array($GLOBALS['designer']['TABLE_NAME'][$req_key]);
+        $GLOBALS['designer_url']['TABLE_NAME_SMALL'] = array($GLOBALS['designer_url']['TABLE_NAME_SMALL'][$req_key]);
+        $GLOBALS['designer']['TABLE_NAME_SMALL'] = array($GLOBALS['designer']['TABLE_NAME_SMALL'][$req_key]);
+        $GLOBALS['designer_out']['TABLE_NAME_SMALL'] = array($GLOBALS['designer_out']['TABLE_NAME_SMALL'][$req_key]);
+        $GLOBALS['designer']['TABLE_TYPE'] = array($GLOBALS['designer_url']['TABLE_TYPE'][$req_key]);
+        $GLOBALS['designer_out']['OWNER'] = array($GLOBALS['designer_out']['OWNER'][$req_key]);
 
-        $html = $designer->getDatabaseTables(
+        $html = $databaseDesigner->getDatabaseTables(
             array(), -1, $tab_column,
             $tables_all_keys, $tables_pk_or_unique_keys
         );
@@ -113,7 +113,7 @@ $tab_column = $designerCommon->getColumnsInfo();
 $script_tables = $designerCommon->getScriptTabs();
 $tables_pk_or_unique_keys = $designerCommon->getPkOrUniqueKeys();
 $tables_all_keys = $designerCommon->getAllKeys();
-$classes_side_menu = $designer->returnClassNamesFromMenuButtons();
+$classes_side_menu = $databaseDesigner->returnClassNamesFromMenuButtons();
 
 $display_page = -1;
 $selected_page = null;
@@ -167,12 +167,12 @@ list(
 // Embed some data into HTML, later it will be read
 // by designer/init.js and converted to JS variables.
 $response->addHTML(
-    $designer->getHtmlForJsFields(
+    $databaseDesigner->getHtmlForJsFields(
         $script_tables, $script_contr, $script_display_field, $display_page
     )
 );
 $response->addHTML(
-    $designer->getPageMenu(
+    $databaseDesigner->getPageMenu(
         isset($_REQUEST['query']),
         $selected_page,
         $classes_side_menu
@@ -186,11 +186,11 @@ $response->addHTML(
     '<form action="" id="container-form" method="post" name="form1">'
 );
 
-$response->addHTML($designer->getHtmlCanvas());
-$response->addHTML($designer->getHtmlTableList($tab_pos, $display_page));
+$response->addHTML($databaseDesigner->getHtmlCanvas());
+$response->addHTML($databaseDesigner->getHtmlTableList($tab_pos, $display_page));
 
 $response->addHTML(
-    $designer->getDatabaseTables(
+    $databaseDesigner->getDatabaseTables(
         $tab_pos, $display_page, $tab_column,
         $tables_all_keys, $tables_pk_or_unique_keys
     )
@@ -200,16 +200,16 @@ $response->addHTML('</div>'); // end canvas_outer
 
 $response->addHTML('<div id="pmd_hint"></div>');
 
-$response->addHTML($designer->getNewRelationPanel());
-$response->addHTML($designer->getDeleteRelationPanel());
+$response->addHTML($databaseDesigner->getNewRelationPanel());
+$response->addHTML($databaseDesigner->getDeleteRelationPanel());
 
 if (isset($_REQUEST['query'])) {
-    $response->addHTML($designer->getOptionsPanel());
-    $response->addHTML($designer->getRenameToPanel());
-    $response->addHTML($designer->getHavingQueryPanel());
-    $response->addHTML($designer->getAggregateQueryPanel());
-    $response->addHTML($designer->getWhereQueryPanel());
-    $response->addHTML($designer->getQueryDetails($_GET['db']));
+    $response->addHTML($databaseDesigner->getOptionsPanel());
+    $response->addHTML($databaseDesigner->getRenameToPanel());
+    $response->addHTML($databaseDesigner->getHavingQueryPanel());
+    $response->addHTML($databaseDesigner->getAggregateQueryPanel());
+    $response->addHTML($databaseDesigner->getWhereQueryPanel());
+    $response->addHTML($databaseDesigner->getQueryDetails($_GET['db']));
 }
 
 $response->addHTML('<div id="PMA_disable_floating_menubar"></div>');
