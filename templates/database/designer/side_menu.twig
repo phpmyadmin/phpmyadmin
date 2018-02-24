@@ -12,18 +12,18 @@
     <a class="M_butt" id="key_Show_left_menu" href="#">
         <img title="{% trans 'Show/Hide tables list' %}"
              alt="v"
-             src="{{ theme.getImgPath('pmd/downarrow2_m.png') }}"
-             data-down="{{ theme.getImgPath('pmd/downarrow2_m.png') }}"
-             data-up="{{ theme.getImgPath('pmd/uparrow2_m.png') }}" />
+             src="{{ theme.getImgPath('designer/downarrow2_m.png') }}"
+             data-down="{{ theme.getImgPath('designer/downarrow2_m.png') }}"
+             data-up="{{ theme.getImgPath('designer/uparrow2_m.png') }}" />
         <span class="hide hidable">
             {% trans 'Show/Hide tables list' %}
         </span>
     </a>
     <a href="#" id="toggleFullscreen" class="M_butt">
         <img title="{% trans 'View in fullscreen' %}"
-             src="{{ theme.getImgPath('pmd/viewInFullscreen.png') }}"
-             data-enter="{{ theme.getImgPath('pmd/viewInFullscreen.png') }}"
-             data-exit="{{ theme.getImgPath('pmd/exitFullscreen.png') }}" />
+             src="{{ theme.getImgPath('designer/viewInFullscreen.png') }}"
+             data-enter="{{ theme.getImgPath('designer/viewInFullscreen.png') }}"
+             data-exit="{{ theme.getImgPath('designer/exitFullscreen.png') }}" />
         <span class="hide hidable"
               data-exit="{% trans 'Exit fullscreen' %}"
               data-enter="{% trans 'View in fullscreen' %}">
@@ -32,7 +32,7 @@
     </a>
     <a href="#" id="addOtherDbTables" class="M_butt">
         <img title="{% trans 'Add tables from other databases' %}"
-             src="{{ theme.getImgPath('pmd/other_table.png') }}"/>
+             src="{{ theme.getImgPath('designer/other_table.png') }}"/>
         <span class="hide hidable">
             {% trans 'Add tables from other databases' %}
         </span>
@@ -41,63 +41,63 @@
         <a id="newPage" href="#" class="M_butt">
             <img title="{% trans 'New page' %}"
                  alt=""
-                 src="{{ theme.getImgPath('pmd/page_add.png') }}" />
+                 src="{{ theme.getImgPath('designer/page_add.png') }}" />
             <span class="hide hidable">
                 {% trans 'New page' %}
             </span>
         </a>
         <a href="#" id="editPage" class="M_butt ajax">
             <img title="{% trans 'Open page' %}"
-                 src="{{ theme.getImgPath('pmd/page_edit.png') }}" />
+                 src="{{ theme.getImgPath('designer/page_edit.png') }}" />
             <span class="hide hidable">
                 {% trans 'Open page' %}
             </span>
         </a>
         <a href="#" id="savePos" class="M_butt">
             <img title="{% trans 'Save page' %}"
-                 src="{{ theme.getImgPath('pmd/save.png') }}" />
+                 src="{{ theme.getImgPath('designer/save.png') }}" />
             <span class="hide hidable">
                 {% trans 'Save page' %}
             </span>
         </a>
         <a href="#" id="SaveAs" class="M_butt ajax">
             <img title="{% trans 'Save page as' %}"
-                 src="{{ theme.getImgPath('pmd/save_as.png') }}" />
+                 src="{{ theme.getImgPath('designer/save_as.png') }}" />
             <span class="hide hidable">
                 {% trans 'Save page as' %}
             </span>
         </a>
         <a href="#" id="delPages" class="M_butt ajax">
             <img title="{% trans 'Delete pages' %}"
-                 src="{{ theme.getImgPath('pmd/page_delete.png') }}" />
+                 src="{{ theme.getImgPath('designer/page_delete.png') }}" />
             <span class="hide hidable">
                 {% trans 'Delete pages' %}
             </span>
         </a>
         <a href="#" id="StartTableNew" class="M_butt">
             <img title="{% trans 'Create table' %}"
-                 src="{{ theme.getImgPath('pmd/table.png') }}" />
+                 src="{{ theme.getImgPath('designer/table.png') }}" />
             <span class="hide hidable">
                 {% trans 'Create table' %}
             </span>
         </a>
         <a href="#" class="M_butt" id="rel_button">
             <img title="{% trans 'Create relationship' %}"
-                 src="{{ theme.getImgPath('pmd/relation.png') }}" />
+                 src="{{ theme.getImgPath('designer/relation.png') }}" />
             <span class="hide hidable">
                 {% trans 'Create relationship' %}
             </span>
         </a>
         <a href="#" class="M_butt" id="display_field_button">
             <img title="{% trans 'Choose column to display' %}"
-                 src="{{ theme.getImgPath('pmd/display_field.png') }}" />
+                 src="{{ theme.getImgPath('designer/display_field.png') }}" />
             <span class="hide hidable">
                 {% trans 'Choose column to display' %}
             </span>
         </a>
         <a href="#" id="reloadPage" class="M_butt">
             <img title="{% trans 'Reload' %}"
-                 src="{{ theme.getImgPath('pmd/reload.png') }}" />
+                 src="{{ theme.getImgPath('designer/reload.png') }}" />
             <span class="hide hidable">
                 {% trans 'Reload' %}
             </span>
@@ -106,7 +106,7 @@
            target="documentation"
            class="M_butt">
             <img title="{% trans 'Help' %}"
-                 src="{{ theme.getImgPath('pmd/help.png') }}" />
+                 src="{{ theme.getImgPath('designer/help.png') }}" />
             <span class="hide hidable">
                 {% trans 'Help' %}
             </span>
@@ -114,13 +114,13 @@
     {% endif %}
     <a href="#" class="{{ params_array['angular_direct'] }}" id="angular_direct_button">
         <img title="{% trans 'Angular links' %} / {% trans 'Direct links' %}"
-             src="{{ theme.getImgPath('pmd/ang_direct.png') }}" />
+             src="{{ theme.getImgPath('designer/ang_direct.png') }}" />
         <span class="hide hidable">
             {% trans 'Angular links' %} / {% trans 'Direct links' %}
         </span>
     </a>
     <a href="#" class="{{ params_array['snap_to_grid'] }}" id="grid_button">
-        <img title="{% trans 'Snap to grid' %}" src="{{ theme.getImgPath('pmd/grid.png') }}" />
+        <img title="{% trans 'Snap to grid' %}" src="{{ theme.getImgPath('designer/grid.png') }}" />
         <span class="hide hidable">
             {% trans 'Snap to grid' %}
         </span>
@@ -128,23 +128,23 @@
     <a href="#" class="{{ params_array['small_big_all'] }}" id="key_SB_all">
         <img title="{% trans 'Small/Big All' %}"
              alt="v"
-             src="{{ theme.getImgPath('pmd/downarrow1.png') }}"
-             data-down="{{ theme.getImgPath('pmd/downarrow1.png') }}"
-             data-right="{{ theme.getImgPath('pmd/rightarrow1.png') }}" />
+             src="{{ theme.getImgPath('designer/downarrow1.png') }}"
+             data-down="{{ theme.getImgPath('designer/downarrow1.png') }}"
+             data-right="{{ theme.getImgPath('designer/rightarrow1.png') }}" />
         <span class="hide hidable">
             {% trans 'Small/Big All' %}
         </span>
     </a>
     <a href="#" id="SmallTabInvert" class="M_butt">
         <img title="{% trans 'Toggle small/big' %}"
-             src="{{ theme.getImgPath('pmd/bottom.png') }}" />
+             src="{{ theme.getImgPath('designer/bottom.png') }}" />
         <span class="hide hidable">
             {% trans 'Toggle small/big' %}
         </span>
     </a>
     <a href="#" id="relLineInvert" class="{{ params_array['relation_lines'] }}" >
         <img title="{% trans 'Toggle relationship lines' %}"
-             src="{{ theme.getImgPath('pmd/toggle_lines.png') }}" />
+             src="{{ theme.getImgPath('designer/toggle_lines.png') }}" />
         <span class="hide hidable">
             {% trans 'Toggle relationship lines' %}
         </span>
@@ -152,7 +152,7 @@
     {% if not visual_builder %}
         <a href="#" id="exportPages" class="M_butt" >
             <img title="{% trans 'Export schema' %}"
-                 src="{{ theme.getImgPath('pmd/export.png') }}" />
+                 src="{{ theme.getImgPath('designer/export.png') }}" />
             <span class="hide hidable">
                 {% trans 'Export schema' %}
             </span>
@@ -163,7 +163,7 @@
            href="#"
            class="M_butt">
             <img title="{% trans 'Build Query' %}"
-                 src="{{ theme.getImgPath('pmd/query_builder.png') }}" />
+                 src="{{ theme.getImgPath('designer/query_builder.png') }}" />
             <span class="hide hidable">
                 {% trans 'Build Query' %}
             </span>
@@ -171,8 +171,8 @@
     {% endif %}
     <a href="#" class="{{ params_array['side_menu'] }}" id="key_Left_Right">
         <img title="{% trans 'Move Menu' %}" alt=">"
-             data-right="{{ theme.getImgPath('pmd/2leftarrow_m.png') }}"
-             src="{{ theme.getImgPath('pmd/2rightarrow_m.png') }}" />
+             data-right="{{ theme.getImgPath('designer/2leftarrow_m.png') }}"
+             src="{{ theme.getImgPath('designer/2rightarrow_m.png') }}" />
         <span class="hide hidable">
             {% trans 'Move Menu' %}
         </span>
@@ -180,8 +180,8 @@
     <a href="#" class="{{ params_array['pin_text'] }}" id="pin_Text">
         <img title="{% trans 'Pin text' %}"
              alt=">"
-             data-right="{{ theme.getImgPath('pmd/anchor.png') }}"
-             src="{{ theme.getImgPath('pmd/anchor.png') }}" />
+             data-right="{{ theme.getImgPath('designer/anchor.png') }}"
+             src="{{ theme.getImgPath('designer/anchor.png') }}" />
         <span class="hide hidable">
             {% trans 'Pin text' %}
         </span>

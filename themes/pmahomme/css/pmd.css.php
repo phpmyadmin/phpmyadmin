@@ -13,22 +13,22 @@ if (! defined('PHPMYADMIN') && ! defined('TESTSUITE')) {
     exit();
 }
 
-$headerImg = $theme->getImgPath('pmd/Header.png');
-$headerLinkedImg = $theme->getImgPath('pmd/Header_Linked.png');
-$minusImg = $theme->getImgPath('pmd/minus.png');
-$plusImg = $theme->getImgPath('pmd/plus.png');
-$leftPanelButtonImg = $theme->getImgPath('pmd/left_panel_butt.png');
-$topPanelImg = $theme->getImgPath('pmd/top_panel.png');
-$smallTabImg = $theme->getImgPath('pmd/small_tab.png');
-$frams1Img = $theme->getImgPath('pmd/1.png');
-$frams2Img = $theme->getImgPath('pmd/2.png');
-$frams3Img = $theme->getImgPath('pmd/3.png');
-$frams4Img = $theme->getImgPath('pmd/4.png');
-$frams5Img = $theme->getImgPath('pmd/5.png');
-$frams6Img = $theme->getImgPath('pmd/6.png');
-$frams7Img = $theme->getImgPath('pmd/7.png');
-$frams8Img = $theme->getImgPath('pmd/8.png');
-$resizeImg = $theme->getImgPath('pmd/resize.png');
+$headerImg = $theme->getImgPath('designer/Header.png');
+$headerLinkedImg = $theme->getImgPath('designer/Header_Linked.png');
+$minusImg = $theme->getImgPath('designer/minus.png');
+$plusImg = $theme->getImgPath('designer/plus.png');
+$leftPanelButtonImg = $theme->getImgPath('designer/left_panel_butt.png');
+$topPanelImg = $theme->getImgPath('designer/top_panel.png');
+$smallTabImg = $theme->getImgPath('designer/small_tab.png');
+$frams1Img = $theme->getImgPath('designer/1.png');
+$frams2Img = $theme->getImgPath('designer/2.png');
+$frams3Img = $theme->getImgPath('designer/3.png');
+$frams4Img = $theme->getImgPath('designer/4.png');
+$frams5Img = $theme->getImgPath('designer/5.png');
+$frams6Img = $theme->getImgPath('designer/6.png');
+$frams7Img = $theme->getImgPath('designer/7.png');
+$frams8Img = $theme->getImgPath('designer/8.png');
+$resizeImg = $theme->getImgPath('designer/resize.png');
 ?>
 
 /* Designer */
