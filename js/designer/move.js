@@ -7,12 +7,12 @@ var _staying = 0; //  variable to check if the user stayed after seeing the conf
 var show_relation_lines = true;
 var always_show_text = false;
 
-AJAX.registerTeardown('pmd/move.js', function () {
+AJAX.registerTeardown('designer/move.js', function () {
     $(document).off('fullscreenchange');
     $('#selflink').show();
 });
 
-AJAX.registerOnload('pmd/move.js', function () {
+AJAX.registerOnload('designer/move.js', function () {
     $('#page_content').css({ 'margin-left': '3px' });
     $(document).on('fullscreenchange', function () {
         if (! $.fn.fullScreen()) {
@@ -1889,7 +1889,7 @@ function add_object () {
     $('#ab').accordion('refresh');
 }
 
-AJAX.registerTeardown('pmd/move.js', function () {
+AJAX.registerTeardown('designer/move.js', function () {
     $('#side_menu').off('mouseenter mouseleave');
     $('#key_Show_left_menu').off('click');
     $('#toggleFullscreen').off('click');
@@ -1936,7 +1936,7 @@ AJAX.registerTeardown('pmd/move.js', function () {
     $('#cancel_new_rel_panel').off('click');
 });
 
-AJAX.registerOnload('pmd/move.js', function () {
+AJAX.registerOnload('designer/move.js', function () {
     $('#key_Show_left_menu').click(function () {
         Show_left_menu(this);
         return false;

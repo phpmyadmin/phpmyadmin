@@ -145,12 +145,12 @@ $header->setBodyId('pmd_body');
 
 $scripts  = $header->getScripts();
 $scripts->addFile('vendor/jquery/jquery.fullscreen.js');
-$scripts->addFile('pmd/designer_db.js');
-$scripts->addFile('pmd/designer_objects.js');
-$scripts->addFile('pmd/designer_page.js');
-$scripts->addFile('pmd/history.js');
-$scripts->addFile('pmd/move.js');
-$scripts->addFile('pmd/init.js');
+$scripts->addFile('designer/database.js');
+$scripts->addFile('designer/objects.js');
+$scripts->addFile('designer/page.js');
+$scripts->addFile('designer/history.js');
+$scripts->addFile('designer/move.js');
+$scripts->addFile('designer/init.js');
 
 list(
     $tables,
@@ -165,7 +165,7 @@ list(
 ) = PhpMyAdmin\Util::getDbInfo($db, isset($sub_part) ? $sub_part : '');
 
 // Embed some data into HTML, later it will be read
-// by pmd/init.js and converted to JS variables.
+// by designer/init.js and converted to JS variables.
 $response->addHTML(
     $designer->getHtmlForJsFields(
         $script_tables, $script_contr, $script_display_field, $display_page

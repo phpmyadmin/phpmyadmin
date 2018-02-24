@@ -828,7 +828,7 @@ function build_query (formtitle, fadin) {
     }
 }
 
-AJAX.registerTeardown('pmd/history.js', function () {
+AJAX.registerTeardown('designer/history.js', function () {
     vqb_editor = null;
     history_array = [];
     select_field = [];
@@ -838,7 +838,7 @@ AJAX.registerTeardown('pmd/history.js', function () {
     $('#ok_edit_where').off('click');
 });
 
-AJAX.registerOnload('pmd/history.js', function () {
+AJAX.registerOnload('designer/history.js', function () {
     $('#ok_edit_rename').click(function () {
         edit('Rename');
     });

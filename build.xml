@@ -118,7 +118,7 @@
   <apply executable="jshint" output="${basedir}/build/logs/jshint-jslint.xml"  parallel="true">
    <arg line="--config ./.jshintrc --reporter=jslint" />
    <fileset dir="${basedir}">
-    <include name="js/pmd/*.js" />
+    <include name="js/designer/*.js" />
     <include name="js/*.js" />
     <include name="setup/*.js" />
    </fileset>
@@ -129,7 +129,7 @@
   <apply executable="jshint" output="${basedir}/build/logs/jshint-checkstyle.xml"  parallel="true">
    <arg line="--config ./.jshintrc --reporter=checkstyle" />
    <fileset dir="${basedir}">
-    <include name="js/pmd/*.js" />
+    <include name="js/designer/*.js" />
     <include name="js/*.js" />
     <include name="setup/*.js" />
    </fileset>

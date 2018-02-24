@@ -12,11 +12,11 @@ var db;
 var selected_page;
 var pmd_tables_enabled;
 
-AJAX.registerTeardown('pmd/init.js', function () {
+AJAX.registerTeardown('designer/init.js', function () {
     $('.trigger').off('click');
 });
 
-AJAX.registerOnload('pmd/init.js', function () {
+AJAX.registerOnload('designer/init.js', function () {
     $('.trigger').click(function () {
         $('.panel').toggle('fast');
         $(this).toggleClass('active');
