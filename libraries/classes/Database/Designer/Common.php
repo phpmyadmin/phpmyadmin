@@ -1,11 +1,11 @@
 <?php
 /* vim: set expandtab sw=4 ts=4 sts=4: */
 /**
- * Common functions for Designer
+ * Holds the PhpMyAdmin\Database\Designer\Common class
  *
  * @package PhpMyAdmin-Designer
  */
-namespace PhpMyAdmin;
+namespace PhpMyAdmin\Database\Designer;
 
 use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Index;
@@ -14,11 +14,11 @@ use PhpMyAdmin\Table;
 use PhpMyAdmin\Util;
 
 /**
- * PhpMyAdmin\PmdCommon class
+ * Common functions for Designer
  *
  * @package PhpMyAdmin-Designer
  */
-class PmdCommon
+class Common
 {
     /**
      * Retrieves table info and stores it in $GLOBALS['PMD']

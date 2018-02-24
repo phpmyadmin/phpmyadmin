@@ -1,22 +1,22 @@
 <?php
 /**
- * Tests for PhpMyAdmin\PmdCommon
+ * Tests for PhpMyAdmin\Database\Designer\Common
  *
  * @package PhpMyAdmin-test
  */
-namespace PhpMyAdmin\Tests;
+namespace PhpMyAdmin\Tests\Database\Designer;
 
+use PhpMyAdmin\Database\Designer\Common;
 use PhpMyAdmin\DatabaseInterface;
-use PhpMyAdmin\PmdCommon;
 use PhpMyAdmin\Relation;
 use PHPUnit\Framework\TestCase;
 
 /**
- * Tests for PhpMyAdmin\PmdCommon
+ * Tests for PhpMyAdmin\Database\Designer\Common
  *
  * @package PhpMyAdmin-test
  */
-class PmdCommonTest extends TestCase
+class CommonTest extends TestCase
 {
     /**
      * Setup for test cases
@@ -40,7 +40,7 @@ class PmdCommonTest extends TestCase
     }
 
     /**
-     * Test for PmdCommon::getTablePositions()
+     * Test for getTablePositions()
      *
      * @return void
      */
@@ -72,11 +72,11 @@ class PmdCommonTest extends TestCase
             );
         $GLOBALS['dbi'] = $dbi;
 
-        PmdCommon::getTablePositions($pg);
+        Common::getTablePositions($pg);
     }
 
     /**
-     * Test for PmdCommon::getPageName()
+     * Test for getPageName()
      *
      * @return void
      */
@@ -104,13 +104,13 @@ class PmdCommonTest extends TestCase
             ->will($this->returnValue(array($pageName)));
         $GLOBALS['dbi'] = $dbi;
 
-        $result = PmdCommon::getPageName($pg);
+        $result = Common::getPageName($pg);
 
         $this->assertEquals($pageName, $result);
     }
 
     /**
-     * Test for PmdCommon::deletePage()
+     * Test for deletePage()
      *
      * @return void
      */
@@ -133,7 +133,7 @@ class PmdCommonTest extends TestCase
 
         $GLOBALS['dbi'] = $dbi;
 
-        $result = PmdCommon::deletePage($pg);
+        $result = Common::deletePage($pg);
         $this->assertEquals(true, $result);
     }
 
@@ -169,7 +169,7 @@ class PmdCommonTest extends TestCase
 
         $GLOBALS['dbi'] = $dbi;
 
-        $result = PmdCommon::getDefaultPage($db);
+        $result = Common::getDefaultPage($db);
         $this->assertEquals($default_pg, $result);
     }
 
@@ -203,7 +203,7 @@ class PmdCommonTest extends TestCase
 
         $GLOBALS['dbi'] = $dbi;
 
-        $result = PmdCommon::getDefaultPage($db);
+        $result = Common::getDefaultPage($db);
         $this->assertEquals(-1, $result);
     }
 
@@ -238,7 +238,7 @@ class PmdCommonTest extends TestCase
 
         $GLOBALS['dbi'] = $dbi;
 
-        $result = PmdCommon::getLoadingPage($db);
+        $result = Common::getLoadingPage($db);
         $this->assertEquals($default_pg, $result);
     }
 
@@ -267,7 +267,7 @@ class PmdCommonTest extends TestCase
 
         $GLOBALS['dbi'] = $dbi;
 
-        $result = PmdCommon::getLoadingPage($db);
+        $result = Common::getLoadingPage($db);
         $this->assertEquals($first_pg, $result);
     }
 }
