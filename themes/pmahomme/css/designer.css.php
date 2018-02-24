@@ -53,17 +53,17 @@ $resizeImg = $theme->getImgPath('designer/resize.png');
     color: #000;
 }
 
-canvas.pmd {
+canvas.designer {
     display: inline-block;
     overflow: hidden;
     text-align: left;
 }
 
-canvas.pmd * {
+canvas.designer * {
     behavior: url(#default#VML);
 }
 
-.pmd_tab {
+.designer_tab {
     background-color: #fff;
     color: #000;
     border-collapse: collapse;
@@ -72,7 +72,7 @@ canvas.pmd * {
     -moz-user-select: none;
 }
 
-.pmd_tab .header {
+.designer_tab .header {
     background-image: url(<?php echo $headerImg; ?>);
     background-repeat: repeat-x;
 }
@@ -112,7 +112,7 @@ canvas.pmd * {
     cursor: default;
 }
 
-#pmd_hint {
+#designer_hint {
     white-space: nowrap;
     position: absolute;
     background-color: #99FF99;
@@ -128,7 +128,7 @@ canvas.pmd * {
     height: 500px;
 }
 
-.pmd_Tabs {
+.designer_Tabs {
     cursor: default;
     color: #0055bb;
     white-space: nowrap;
@@ -142,7 +142,7 @@ canvas.pmd * {
     border: #ccc solid 1px;
 }
 
-.pmd_Tabs:hover {
+.designer_Tabs:hover {
     cursor: default;
     color: #0055bb;
     background: #FFEE99;
@@ -292,7 +292,7 @@ canvas.pmd * {
     color: #000;
 }
 
-.pmd_header {
+.designer_header {
     background-color: #EAEEF0;
     color: #000;
     text-align: center;
@@ -310,7 +310,7 @@ canvas.pmd * {
     position: fixed;
 }
 
-.pmd_header a, .pmd_header span{
+.designer_header a, .designer_header span{
     display: block;
     float: <?php echo $left; ?>;
     margin: 3px 1px 4px;
@@ -318,7 +318,7 @@ canvas.pmd * {
     border: 1px dotted #fff;
 }
 
-.pmd_header .M_bord {
+.designer_header .M_bord {
     display: block;
     float: <?php echo $left; ?>;
     margin: 4px;
@@ -326,11 +326,11 @@ canvas.pmd * {
     width: 2px;
 }
 
-.pmd_header a.first {
+.designer_header a.first {
     margin-right: 1em;
 }
 
-.pmd_header a.last {
+.designer_header a.last {
     margin-left: 1em;
 }
 
@@ -376,7 +376,7 @@ a.M_butt:hover {
     width: 153px;
 }
 
-#pmd_optionse {
+#designer_optionse {
     position: absolute;
     <?php echo $left; ?>: 636px;
     top: 85px;

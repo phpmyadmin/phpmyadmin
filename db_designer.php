@@ -141,7 +141,7 @@ if (isset($_GET['db'])) {
 $response = Response::getInstance();
 $response->getFooter()->setMinimal();
 $header   = $response->getHeader();
-$header->setBodyId('pmd_body');
+$header->setBodyId('designer_body');
 
 $scripts  = $header->getScripts();
 $scripts->addFile('vendor/jquery/jquery.fullscreen.js');
@@ -198,7 +198,7 @@ $response->addHTML(
 $response->addHTML('</form>');
 $response->addHTML('</div>'); // end canvas_outer
 
-$response->addHTML('<div id="pmd_hint"></div>');
+$response->addHTML('<div id="designer_hint"></div>');
 
 $response->addHTML($databaseDesigner->getNewRelationPanel());
 $response->addHTML($databaseDesigner->getDeleteRelationPanel());
