@@ -1182,6 +1182,23 @@ class Config
         return $this->source;
     }
 
+    /**	
+     * returns a unique value to force a CSS reload if either the config	
+     * or the theme changes	
+     *	
+     * @return int Summary of unix timestamps and fontsize,	
+     * to be unique on theme parameters change	
+     */	
+    public function getThemeUniqueValue()
+    {	
+        return (
+            $this->source_mtime +	
+            $this->default_source_mtime +	
+            $this->get('user_preferences_mtime') +	
+            $GLOBALS['PMA_Theme']->mtime_info +	
+            $GLOBALS['PMA_Theme']->filesize_info);	
+    }	
+
     /**
      * checks if upload is enabled
      *
