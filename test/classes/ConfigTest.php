@@ -739,27 +739,27 @@ class ConfigTest extends PmaTestCase
         $this->assertEquals($this->object->getUserValue('test_val', 'val'), 'val');
     }
 
-    /**	
-     * Should test getting unique value for theme	
-     *	
-     * @return void	
-     */	
-    public function testGetThemeUniqueValue()	
-    {	
-        $partial_sum = (	
-            Assert::readAttribute($this->object, 'source_mtime') +	
-            Assert::readAttribute(	
-                $this->object,	
-                'default_source_mtime'	
-            ) +	
-            $this->object->get('user_preferences_mtime') +	
-            $GLOBALS['PMA_Theme']->mtime_info +	
-            $GLOBALS['PMA_Theme']->filesize_info	
-        );	
-	
-        $this->assertEquals($partial_sum, $this->object->getThemeUniqueValue());	
-	
-    }	
+    /**
+     * Should test getting unique value for theme
+     *
+     * @return void
+     */
+    public function testGetThemeUniqueValue()
+    {
+        $partial_sum = (
+            Assert::readAttribute($this->object, 'source_mtime') +
+            Assert::readAttribute(
+                $this->object,
+                'default_source_mtime'
+            ) +
+            $this->object->get('user_preferences_mtime') +
+            $GLOBALS['PMA_Theme']->mtime_info +
+            $GLOBALS['PMA_Theme']->filesize_info
+        );
+
+        $this->assertEquals($partial_sum, $this->object->getThemeUniqueValue());
+
+    }
 
     /**
      * Should test checking of config permissions
