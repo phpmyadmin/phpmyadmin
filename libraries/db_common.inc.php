@@ -116,7 +116,8 @@ if (isset($_REQUEST['submitcollation'])
                 isset($_REQUEST['change_all_tables_columns_collations']) &&
                 $_REQUEST['change_all_tables_columns_collations'] == 'on'
             ) {
-                Operations::changeAllColumnsCollation($db, $tableName, $_REQUEST['db_collation']);
+                $operations = new Operations();
+                $operations->changeAllColumnsCollation($db, $tableName, $_REQUEST['db_collation']);
             }
 
         }

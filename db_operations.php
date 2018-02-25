@@ -40,6 +40,8 @@ $scripts->addFile('db_operations.js');
 
 $sql_query = '';
 
+$operations = new Operations();
+
 /**
  * Rename/move or copy database
  */
@@ -69,7 +71,7 @@ if (strlen($GLOBALS['db']) > 0
         } else {
             $_error = false;
             if ($move || ! empty($_REQUEST['create_database_before_copying'])) {
-                Operations::createDbBeforeCopy();
+                $operations->createDbBeforeCopy();
             }
 
             // here I don't use DELIMITER because it's not part of the
@@ -78,7 +80,7 @@ if (strlen($GLOBALS['db']) > 0
             // to avoid selecting alternatively the current and new db
             // we would need to modify the CREATE definitions to qualify
             // the db name
-            Operations::runProcedureAndFunctionDefinitions($GLOBALS['db']);
+            $operations->runProcedureAndFunctionDefinitions($GLOBALS['db']);
 
             // go back to current db, just in case
             $GLOBALS['dbi']->selectDb($GLOBALS['db']);
@@ -98,24 +100,24 @@ if (strlen($GLOBALS['db']) > 0
             );
 
             // create stand-in tables for views
-            $views = Operations::getViewsAndCreateSqlViewStandIn(
+            $views = $operations->getViewsAndCreateSqlViewStandIn(
                 $tables_full, $export_sql_plugin, $GLOBALS['db']
             );
 
             // copy tables
-            $sqlConstratints = Operations::copyTables(
+            $sqlConstratints = $operations->copyTables(
                 $tables_full, $move, $GLOBALS['db']
             );
 
             // handle the views
             if (! $_error) {
-                Operations::handleTheViews($views, $move, $GLOBALS['db']);
+                $operations->handleTheViews($views, $move, $GLOBALS['db']);
             }
             unset($views);
 
             // now that all tables exist, create all the accumulated constraints
             if (! $_error && count($sqlConstratints) > 0) {
-                Operations::createAllAccumulatedConstraints($sqlConstratints);
+                $operations->createAllAccumulatedConstraints($sqlConstratints);
             }
             unset($sqlConstratints);
 
@@ -123,20 +125,20 @@ if (strlen($GLOBALS['db']) > 0
                 // here DELIMITER is not used because it's not part of the
                 // language; each statement is sent one by one
 
-                Operations::runEventDefinitionsForDb($GLOBALS['db']);
+                $operations->runEventDefinitionsForDb($GLOBALS['db']);
             }
 
             // go back to current db, just in case
             $GLOBALS['dbi']->selectDb($GLOBALS['db']);
 
             // Duplicate the bookmarks for this db (done once for each db)
-            Operations::duplicateBookmarks($_error, $GLOBALS['db']);
+            $operations->duplicateBookmarks($_error, $GLOBALS['db']);
 
             if (! $_error && $move) {
                 if (isset($_REQUEST['adjust_privileges'])
                     && ! empty($_REQUEST['adjust_privileges'])
                 ) {
-                    Operations::adjustPrivilegesMoveDb($GLOBALS['db'], $_REQUEST['newname']);
+                    $operations->adjustPrivilegesMoveDb($GLOBALS['db'], $_REQUEST['newname']);
                 }
 
                 /**
@@ -159,7 +161,7 @@ if (strlen($GLOBALS['db']) > 0
                 if (isset($_REQUEST['adjust_privileges'])
                     && ! empty($_REQUEST['adjust_privileges'])
                 ) {
-                    Operations::adjustPrivilegesCopyDb($GLOBALS['db'], $_REQUEST['newname']);
+                    $operations->adjustPrivilegesCopyDb($GLOBALS['db'], $_REQUEST['newname']);
                 }
 
                 $message = Message::success(
@@ -252,7 +254,7 @@ if (!$is_information_schema) {
         /**
          * database comment
          */
-        $response->addHTML(Operations::getHtmlForDatabaseComment($GLOBALS['db']));
+        $response->addHTML($operations->getHtmlForDatabaseComment($GLOBALS['db']));
     }
 
     $response->addHTML('<div>');
@@ -263,7 +265,7 @@ if (!$is_information_schema) {
      * rename database
      */
     if ($GLOBALS['db'] != 'mysql') {
-        $response->addHTML(Operations::getHtmlForRenameDatabase($GLOBALS['db']));
+        $response->addHTML($operations->getHtmlForRenameDatabase($GLOBALS['db']));
     }
 
     // Drop link if allowed
@@ -274,17 +276,17 @@ if (!$is_information_schema) {
         && ! $db_is_system_schema
         && $GLOBALS['db'] != 'mysql'
     ) {
-        $response->addHTML(Operations::getHtmlForDropDatabaseLink($GLOBALS['db']));
+        $response->addHTML($operations->getHtmlForDropDatabaseLink($GLOBALS['db']));
     }
     /**
      * Copy database
      */
-    $response->addHTML(Operations::getHtmlForCopyDatabase($GLOBALS['db']));
+    $response->addHTML($operations->getHtmlForCopyDatabase($GLOBALS['db']));
 
     /**
      * Change database charset
      */
-    $response->addHTML(Operations::getHtmlForChangeDatabaseCharset($GLOBALS['db'], $table));
+    $response->addHTML($operations->getHtmlForChangeDatabaseCharset($GLOBALS['db'], $table));
 
     if (! $cfgRelation['allworks']
         && $cfg['PmaNoRelation_DisableWarning'] == false

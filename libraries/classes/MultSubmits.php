@@ -319,7 +319,13 @@ class MultSubmits
                         'one_table'
                     );
                     if (isset($_POST['adjust_privileges']) && !empty($_POST['adjust_privileges'])) {
-                        Operations::adjustPrivilegesCopyTable($db, $selected[$i], $_POST['target_db'], $selected[$i]);
+                        $operations = new Operations();
+                        $operations->adjustPrivilegesCopyTable(
+                            $db,
+                            $selected[$i],
+                            $_POST['target_db'],
+                            $selected[$i]
+                        );
                     }
                     break;
             } // end switch

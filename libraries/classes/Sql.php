@@ -2201,7 +2201,8 @@ EOT;
                 isset($extra_data) ? $extra_data : null
             );
 
-        $warning_messages = Operations::getWarningMessagesArray();
+        $operations = new Operations();
+        $warning_messages = $operations->getWarningMessagesArray();
 
         // No rows returned -> move back to the calling page
         if ((0 == $num_rows && 0 == $unlim_num_rows)

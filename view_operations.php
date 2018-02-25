@@ -34,6 +34,8 @@ require './libraries/tbl_common.inc.php';
 $url_query .= '&amp;goto=view_operations.php&amp;back=view_operations.php';
 $url_params['goto'] = $url_params['back'] = 'view_operations.php';
 
+$operations = new Operations();
+
 /**
  * Updates if required
  */
@@ -55,7 +57,7 @@ if (isset($_REQUEST['submitoptions'])) {
         }
     }
 
-    $warning_messages = Operations::getWarningMessagesArray();
+    $warning_messages = $operations->getWarningMessagesArray();
 }
 
 if (isset($result)) {
@@ -136,7 +138,7 @@ echo '<fieldset class="caution">';
 echo '<legend>' , __('Delete data or table') , '</legend>';
 
 echo '<ul>';
-echo Operations::getDeleteDataOrTablelink(
+echo $operations->getDeleteDataOrTablelink(
     $drop_view_url_params,
     'DROP VIEW',
     __('Delete the view (DROP)'),
