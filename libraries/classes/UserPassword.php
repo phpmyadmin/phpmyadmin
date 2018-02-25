@@ -1,7 +1,7 @@
 <?php
 /* vim: set expandtab sw=4 ts=4 sts=4: */
 /**
- * Functions for user_password.php
+ * Holds the PhpMyAdmin\UserPassword class
  *
  * @package PhpMyAdmin
  */
@@ -15,7 +15,7 @@ use PhpMyAdmin\Url;
 use PhpMyAdmin\Util;
 
 /**
- * PhpMyAdmin\UserPassword class
+ * Functions for user_password.php
  *
  * @package PhpMyAdmin
  */
@@ -29,7 +29,7 @@ class UserPassword
      *
      * @return void
      */
-    public static function getChangePassMessage(array $change_password_message, $sql_query = '')
+    public function getChangePassMessage(array $change_password_message, $sql_query = '')
     {
         $response = Response::getInstance();
         if ($response->isAjax()) {
@@ -56,7 +56,7 @@ class UserPassword
      *
      * @return array   error value and message
      */
-    public static function setChangePasswordMsg()
+    public function setChangePasswordMsg()
     {
         $error = false;
         $message = Message::success(__('The profile has been updated.'));
@@ -87,11 +87,11 @@ class UserPassword
      *
      * @return void
      */
-    public static function changePassword($password, $message, array $change_password_message)
+    public function changePassword($password, $message, array $change_password_message)
     {
         global $auth_plugin;
 
-        $hashing_function = self::changePassHashingFunction();
+        $hashing_function = $this->changePassHashingFunction();
 
         list($username, $hostname) = $GLOBALS['dbi']->getCurrentUserAndHost();
 
@@ -134,14 +134,14 @@ class UserPassword
             $GLOBALS['dbi']->tryQuery('SET `old_passwords` = ' . $value . ';');
         }
 
-        self::changePassUrlParamsAndSubmitQuery(
+        $this->changePassUrlParamsAndSubmitQuery(
             $username, $hostname, $password,
             $sql_query, $hashing_function, $orig_auth_plugin
         );
 
         $auth_plugin->handlePasswordChange($password);
-        self::getChangePassMessage($change_password_message, $sql_query);
-        self::changePassDisplayPage($message, $sql_query);
+        $this->getChangePassMessage($change_password_message, $sql_query);
+        $this->changePassDisplayPage($message, $sql_query);
     }
 
     /**
@@ -149,7 +149,7 @@ class UserPassword
      *
      * @return string  $hashing_function
      */
-    public static function changePassHashingFunction()
+    private function changePassHashingFunction()
     {
         if (Core::isValid(
             $_REQUEST['authentication_plugin'], 'identical', 'mysql_old_password'
@@ -173,7 +173,7 @@ class UserPassword
      *
      * @return void
      */
-    public static function changePassUrlParamsAndSubmitQuery(
+    private function changePassUrlParamsAndSubmitQuery(
         $username, $hostname, $password, $sql_query, $hashing_function, $orig_auth_plugin
     ) {
         $err_url = 'user_password.php' . Url::getCommon();
@@ -237,7 +237,7 @@ class UserPassword
      *
      * @return void
      */
-    public static function changePassDisplayPage($message, $sql_query)
+    private function changePassDisplayPage($message, $sql_query)
     {
         echo '<h1>' , __('Change password') , '</h1>' , "\n\n";
         echo Util::getMessage(
