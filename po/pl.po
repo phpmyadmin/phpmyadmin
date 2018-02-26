@@ -3,17 +3,17 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.7.8-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2018-02-12 16:30+0100\n"
-"PO-Revision-Date: 2018-02-12 15:28+0000\n"
-"Last-Translator: Michal Čihař <michal@cihar.com>\n"
-"Language-Team: Polish <https://hosted.weblate.org/projects/phpmyadmin/4-7/pl/"
-">\n"
+"PO-Revision-Date: 2018-02-27 15:38+0000\n"
+"Last-Translator: Stanisław Krukowski <pet209a1@riseup.net>\n"
+"Language-Team: Polish "
+"<https://hosted.weblate.org/projects/phpmyadmin/4-7/pl/>\n"
 "Language: pl\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=n==1 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 "
 "|| n%100>=20) ? 1 : 2;\n"
-"X-Generator: Weblate 2.19-dev\n"
+"X-Generator: Weblate 2.20-dev\n"
 
 #: ajax.php:16 ajax.php:33 export.php:192 schema_export.php:64
 msgid "Bad type!"
@@ -5401,13 +5401,7 @@ msgid "Key should contain letters, numbers [em]and[/em] special characters."
 msgstr "Klucz powinien zawierać litery, cyfry [em]i[/em] znaki specjalne."
 
 #: libraries/config/ServerConfigChecks.php:384
-#, fuzzy, php-format
-#| msgid ""
-#| "This %soption%s should be disabled as it allows attackers to bruteforce "
-#| "login to any MySQL server. If you feel this is necessary, use %strusted "
-#| "proxies list%s. However, IP-based protection may not be reliable if your "
-#| "IP belongs to an ISP where thousands of users, including you, are "
-#| "connected to."
+#, php-format
 msgid ""
 "This %soption%s should be disabled as it allows attackers to bruteforce "
 "login to any MySQL server. If you feel this is necessary, use %srestrict "
@@ -5415,11 +5409,12 @@ msgid ""
 "protection with trusted proxies list may not be reliable if your IP belongs "
 "to an ISP where thousands of users, including you, are connected to."
 msgstr ""
-"Ta %sopcion%s powinna być wyłączona, ponieważ umożliwia atakującemu na "
-"zalogowanie bruteforce do dowolnego serwera MySQL. Jeśli uważasz, że jest to "
-"konieczne, należy użyć %strusted proxies list%s. Jednak ochrona oparta na "
-"protokole IP mogą nie być wiarygodne, jeśli Twój adres IP należy do ISP, w "
-"którym tysiące użytkowników, w tym Ty, są podłączone."
+"Ta %s opcja %s powinna być wyłączona, ponieważ umożliwia atakującemu "
+"zalogowanie się do dowolnego serwera MySQL metodą bruteforce. Jeśli uważasz, "
+"że jest to konieczne, należy użyć %ogranicz login do serwera MySQL%s lub do %"
+"s listy zaufanych serwerów proxy%s. Jednak ochrona oparta na protokole IP "
+"może być niewiarygodna, jeśli twój adres IP, za pomocą którego jest "
+"podłączonych wielu użytkowników (w tym również i ty), należy do ISP."
 
 #: libraries/config/ServerConfigChecks.php:404
 msgid ""
@@ -5478,35 +5473,27 @@ msgstr ""
 "bezpieczeństwa, takich jak personifikacji."
 
 #: libraries/config/ServerConfigChecks.php:463
-#, fuzzy, php-format
-#| msgid ""
-#| "If using cookie authentication and %sLogin cookie store%s is not 0, "
-#| "%sLogin cookie validity%s must be set to a value less or equal to it."
+#, php-format
 msgid ""
 "If using [kbd]cookie[/kbd] authentication and %sLogin cookie store%s is not "
 "0, %sLogin cookie validity%s must be set to a value less or equal to it."
 msgstr ""
-"W przypadku korzystania z uwierzytelniania [kbd]cookie[/kbd] i "
-"%Przechowalnia sciasteczek logowania%s nie jest 0, %sWażności plików cookie"
-"%s musi być ustawiona na wartość mniejsza lub równą jej."
+"Jeśli używane uwierzytelnienie [kbd]cookie[/kbd] i %sLogin cookie store%s "
+"nie wynosi 0, musi być ustawiona wartość mniejsza lub jemu równa %sLogin "
+"cookie validity%s."
 
 #: libraries/config/ServerConfigChecks.php:477
-#, fuzzy, php-format
-#| msgid ""
-#| "If you feel this is necessary, use additional protection settings - "
-#| "%shost authentication%s settings and %strusted proxies list%s. However, "
-#| "IP-based protection may not be reliable if your IP belongs to an ISP "
-#| "where thousands of users, including you, are connected to."
+#, php-format
 msgid ""
 "If you feel this is necessary, use additional protection settings - %shost "
 "authentication%s settings and %strusted proxies list%s. However, IP-based "
 "protection may not be reliable if your IP belongs to an ISP where thousands "
 "of users, including you, are connected to."
 msgstr ""
-"Jeśli uważasz, że jest to konieczne, należy stosować dodatkowe ustawienia "
-"ochrony - ustawienia %suwierzytelniania hosta%s i %slisty zaufanych%s "
-"serwerów proxy. Jednak ochrona IP może nie być wiarygodna, czy IP należy do "
-"ISP, w którym tysiące użytkowników, łącznie z Tobą, są podłączeni."
+"Jeśli uważasz, że jest to konieczne, uzyj dodatkowych ustawień ochrony - "
+"ustawienia %suwierzytelniania hosta%s i %slisty zaufanych serwerów proxy%s. "
+"Jednak ochrona IP może nie być wiarygodna, jesli IP należy do ISP, do "
+"którego jest podłączonych tysiące użytkowników, łącznie z tobą."
 
 #: libraries/config/ServerConfigChecks.php:492
 #, php-format
@@ -5619,19 +5606,14 @@ msgid "Restrict login to MySQL server"
 msgstr "Ogranicz logowanie do serwera MySQL"
 
 #: libraries/config/messages.inc.php:28
-#, fuzzy
-#| msgid ""
-#| "Enabling this allows a page located on a different domain to call "
-#| "phpMyAdmin inside a frame, and is a potential [strong]security hole[/"
-#| "strong] allowing cross-frame scripting attacks"
 msgid ""
 "Enabling this allows a page located on a different domain to call phpMyAdmin "
 "inside a frame, and is a potential [strong]security hole[/strong] allowing "
 "cross-frame scripting (XSS) attacks."
 msgstr ""
-"Włączenie umożliwia stronie zlokalizowanej na innej domenie, połączyć się z "
-"wewnątrznymi ramkami phpMyAdmin, i jest potencjalną [strong] luką "
-"bezpieczeństwa [/strong] pozwalającą na ataki skryptem na ramki"
+"Włączenie tego umożliwia stronie zlokalizowanej w innej domenie wywołanie "
+"phpMyAdmin wewnątrz ramki i jest potencjalną [strong] luką bezpieczeństwa "
+"[/strong], pozwalającą na ataki typu cross-frame scripting (XSS)."
 
 #: libraries/config/messages.inc.php:32
 msgid "Allow third party framing"
@@ -6939,16 +6921,12 @@ msgid "GZip output buffering"
 msgstr "Kompresja wyjścia GZip"
 
 #: libraries/config/messages.inc.php:557
-#, fuzzy
-#| msgid ""
-#| "[kbd]SMART[/kbd] - i.e. descending order for columns of type TIME, DATE, "
-#| "DATETIME and TIMESTAMP, ascending order otherwise"
 msgid ""
 "[kbd]SMART[/kbd] - i.e. descending order for columns of type TIME, DATE, "
 "DATETIME and TIMESTAMP, ascending order otherwise."
 msgstr ""
-"[kbd]SMART[/kbd] - tj. malejącej dla kolumny, wpisz DATE, DATETIME i "
-"TIMESTAMP, a rosnącej inaczej"
+"[kbd]SMART[/kbd] - tj. porządek malejący dla kolumn TIME, DATE, DATETIME and "
+"TIMESTAMP, w innym przypadku - porzadek rosnący."
 
 #: libraries/config/messages.inc.php:560
 msgid "Default sorting order"
