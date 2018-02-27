@@ -41,6 +41,8 @@ if (isset($_REQUEST['simulate_dml'])) {
 
 $response = Response::getInstance();
 
+$sql = new Sql();
+
 // If it's a refresh console bookmarks request
 if (isset($_REQUEST['console_bookmark_refresh'])) {
     $response->addJSON(
@@ -697,7 +699,7 @@ if ($go_sql) {
         extract($analyzed_sql_results);
 
         // Check if User is allowed to issue a 'DROP DATABASE' Statement
-        if (Sql::hasNoRightsToDropDatabase(
+        if ($sql->hasNoRightsToDropDatabase(
             $analyzed_sql_results, $cfg['AllowUserDropDatabase'], $GLOBALS['dbi']->isSuperuser()
         )) {
             PhpMyAdmin\Util::mysqlDie(
@@ -713,7 +715,7 @@ if ($go_sql) {
             $table = $table_from_sql;
         }
 
-        $html_output .= Sql::executeQueryAndGetQueryResponse(
+        $html_output .= $sql->executeQueryAndGetQueryResponse(
             $analyzed_sql_results, // analyzed_sql_results
             false, // is_gotofile
             $db, // db
@@ -740,7 +742,7 @@ if ($go_sql) {
     // the SQL tab
     if (! empty($_POST['bkm_label']) && ! empty($import_text)) {
         $cfgBookmark = Bookmark::getParams($GLOBALS['cfg']['Server']['user']);
-        Sql::storeTheQueryAsBookmark(
+        $sql->storeTheQueryAsBookmark(
             $db, $cfgBookmark['user'],
             $_POST['sql_query'], $_POST['bkm_label'],
             isset($_POST['bkm_replace']) ? $_POST['bkm_replace'] : null
@@ -755,7 +757,7 @@ if ($go_sql) {
     // Save a Bookmark with more than one queries (if Bookmark label given).
     if (! empty($_POST['bkm_label']) && ! empty($import_text)) {
         $cfgBookmark = Bookmark::getParams($GLOBALS['cfg']['Server']['user']);
-        Sql::storeTheQueryAsBookmark(
+        $sql->storeTheQueryAsBookmark(
             $db, $cfgBookmark['user'],
             $_POST['sql_query'], $_POST['bkm_label'],
             isset($_POST['bkm_replace']) ? $_POST['bkm_replace'] : null

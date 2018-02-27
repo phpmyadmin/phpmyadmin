@@ -820,8 +820,9 @@ class TableStructureController extends TableController
         // @todo: possibly refactor
         extract($analyzed_sql_results);
 
+        $sql = new Sql();
         $this->response->addHTML(
-            Sql::executeQueryAndGetQueryResponse(
+            $sql->executeQueryAndGetQueryResponse(
                 isset($analyzed_sql_results) ? $analyzed_sql_results : '',
                 false, // is_gotofile
                 $this->db, // db

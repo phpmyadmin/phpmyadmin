@@ -1406,7 +1406,6 @@ class Results
             . Url::getHiddenInputs(
                 $this->__get('db'), $this->__get('table')
             )
-            // to avoid calling Sql::handleSortOrder() later
             . Url::getHiddenFields(array('sort_by_key' => '1'))
             . __('Sort by key')
             . ': <select name="sql_query" class="autosubmit">' . "\n";
@@ -4102,7 +4101,8 @@ class Results
         $is_innodb = (isset($showtable['Type'])
             && $showtable['Type'] == self::TABLE_TYPE_INNO_DB);
 
-        if ($is_innodb && Sql::isJustBrowsing($analyzed_sql_results, true)) {
+        $sql = new Sql();
+        if ($is_innodb && $sql->isJustBrowsing($analyzed_sql_results, true)) {
             // "j u s t   b r o w s i n g"
             $pre_count = '~';
             $after_count = Util::showHint(

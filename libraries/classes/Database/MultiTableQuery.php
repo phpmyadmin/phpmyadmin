@@ -110,7 +110,8 @@ class MultiTableQuery
 
         extract($analyzedSqlResults);
         $goto = 'db_multi_table_query.php';
-        Sql::executeQueryAndSendQueryResponse(
+        $sql = new Sql();
+        $sql->executeQueryAndSendQueryResponse(
             null, // analyzed_sql_results
             false, // is_gotofile
             $db, // db
