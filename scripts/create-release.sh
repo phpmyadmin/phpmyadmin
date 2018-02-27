@@ -65,7 +65,7 @@ while [ $# -gt 0 ] ; do
             echo "If --tag is specified, release tag is automatically created (use this for all releases including pre-releases)"
             echo "If --stable is specified, the STABLE branch is updated with this release"
             echo "If --test is specified, the testsuite is executed before creating the release"
-            echo "If --ci is specified, the testsuite is executed and no actual release is crated"
+            echo "If --ci is specified, the testsuite is executed and no actual release is created"
             echo ""
             echo "Examples:"
             echo "  create-release.sh 2.9.0-rc1 QA_2_9"
