@@ -21,7 +21,7 @@ phpMyAdmin - ChangeLog
 - issue #13058 Improved error reporting for reCAPTCHA
 - issue #12899 Improved rendering of server variables table
 - issue #12948 Fixed javascript editor for TIME values
-- issue #13095 Fixed alignmnet of foreign keys editing
+- issue #13095 Fixed alignment of foreign keys editing
 - issue #12944 Improved inline editor for JSON
 - issue #13145 Improved layout of operations pages
 - issue #13448 Add "format" query button in edit view form
@@ -33,7 +33,7 @@ phpMyAdmin - ChangeLog
 - issue #13408 Show MySQL warnings when executing SQL queries
 - issue #5827  Allow Designer to show tables from other databases
 - issue #13268 Replace Query-By-Example with multi-table query generator interface
-- issue #13576 Add privileges export to per database listing
+- issue #13576 Add privileges export to per-database listing
 - issue        Consolidate functions into class files
 - issue #13560 Add support for changing collation for all tables and columns in database
 - issue #13303 Add support for creating fulltext index from table structure
