@@ -455,7 +455,8 @@ class TableSearchController extends TableController
          */
         $db = $this->db;
 
-        Sql::executeQueryAndSendQueryResponse(
+        $sql = new Sql();
+        $sql->executeQueryAndSendQueryResponse(
             null, // analyzed_sql_results
             false, // is_gotofile
             $this->db, // db

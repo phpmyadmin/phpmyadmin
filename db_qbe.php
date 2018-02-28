@@ -85,7 +85,8 @@ if (isset($_REQUEST['submit_sql']) && ! empty($sql_query)) {
         $message_to_display = true;
     } else {
         $goto = 'db_sql.php';
-        Sql::executeQueryAndSendQueryResponse(
+        $sql = new Sql();
+        $sql->executeQueryAndSendQueryResponse(
             null, // analyzed_sql_results
             false, // is_gotofile
             $_REQUEST['db'], // db

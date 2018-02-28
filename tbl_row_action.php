@@ -152,7 +152,8 @@ if (!empty($submit_mult)) {
         }
 
         $active_page = 'sql.php';
-        Sql::executeQueryAndSendQueryResponse(
+        $sql = new Sql();
+        $sql->executeQueryAndSendQueryResponse(
             null, // analyzed_sql_results
             false, // is_gotofile
             $db, // db

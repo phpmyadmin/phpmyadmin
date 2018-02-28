@@ -350,7 +350,8 @@ class MultSubmits
         } // end for
 
         if ($deletes && ! empty($_REQUEST['pos'])) {
-            $_REQUEST['pos'] = Sql::calculatePosForLastPage(
+            $sql = new Sql();
+            $_REQUEST['pos'] = $sql->calculatePosForLastPage(
                 $db,
                 $table,
                 isset($_REQUEST['pos']) ? $_REQUEST['pos'] : null
