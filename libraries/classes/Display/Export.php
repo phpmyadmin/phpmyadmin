@@ -411,8 +411,8 @@ class Export
         }
 
         // zip and gzip encode features
-        $isZip = ($cfg['ZipDump'] && @function_exists('gzcompress'));
-        $isGzip = ($cfg['GZipDump'] && @function_exists('gzencode'));
+        $isZip = ($cfg['ZipDump'] && function_exists('gzcompress'));
+        $isGzip = ($cfg['GZipDump'] && function_exists('gzencode'));
 
         return Template::get('display/export/options_output_compression')->render([
             'is_zip' => $isZip,

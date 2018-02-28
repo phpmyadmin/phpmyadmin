@@ -101,7 +101,7 @@ class Encoding
 
         /* Use user configuration */
         if (isset(self::$_enginemap[$engine])) {
-            if (@function_exists(self::$_enginemap[$engine][0])) {
+            if (function_exists(self::$_enginemap[$engine][0])) {
                 self::$_engine = self::$_enginemap[$engine][1];
                 return;
             } else {
@@ -111,7 +111,7 @@ class Encoding
 
         /* Autodetection */
         foreach (self::$_engineorder as $engine) {
-            if (@function_exists(self::$_enginemap[$engine][0])) {
+            if (function_exists(self::$_enginemap[$engine][0])) {
                 self::$_engine = self::$_enginemap[$engine][1];
                 return;
             }

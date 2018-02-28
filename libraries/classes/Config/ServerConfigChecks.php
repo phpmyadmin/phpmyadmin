@@ -555,6 +555,6 @@ class ServerConfigChecks
      */
     protected function functionExists($name)
     {
-        return @function_exists($name);
+        return function_exists($name);
     }
 }

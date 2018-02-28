@@ -629,7 +629,7 @@ class File
         case false:
             return false;
         case 'application/bzip2':
-            if ($GLOBALS['cfg']['BZipDump'] && @function_exists('bzopen')) {
+            if ($GLOBALS['cfg']['BZipDump'] && function_exists('bzopen')) {
                 $this->_handle = @bzopen($this->getName(), 'r');
             } else {
                 $this->errorUnsupported();
@@ -637,7 +637,7 @@ class File
             }
             break;
         case 'application/gzip':
-            if ($GLOBALS['cfg']['GZipDump'] && @function_exists('gzopen')) {
+            if ($GLOBALS['cfg']['GZipDump'] && function_exists('gzopen')) {
                 $this->_handle = @gzopen($this->getName(), 'r');
             } else {
                 $this->errorUnsupported();
@@ -645,7 +645,7 @@ class File
             }
             break;
         case 'application/zip':
-            if ($GLOBALS['cfg']['ZipDump'] && @function_exists('zip_open')) {
+            if ($GLOBALS['cfg']['ZipDump'] && function_exists('zip_open')) {
                 return $this->openZip();
             }
 

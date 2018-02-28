@@ -113,7 +113,7 @@ class Session
     public static function setUp(Config $config, ErrorHandler $errorHandler)
     {
         // verify if PHP supports session, die if it does not
-        if (!@function_exists('session_name')) {
+        if (!function_exists('session_name')) {
             Core::warnMissingExtension('session', true);
         } elseif (! empty(ini_get('session.auto_start'))
             && session_name() != 'phpMyAdmin'
