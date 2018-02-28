@@ -1206,7 +1206,7 @@ class Core
          * We specifically use empty here as we are looking for anything else than
          * empty value or 0.
          */
-        if (extension_loaded('mbstring') && !empty(@ini_get('mbstring.func_overload'))) {
+        if (extension_loaded('mbstring') && !empty(ini_get('mbstring.func_overload'))) {
             self::fatalError(
                 __(
                     'You have enabled mbstring.func_overload in your PHP '

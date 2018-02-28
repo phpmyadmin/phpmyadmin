@@ -141,7 +141,7 @@ class Config
     {
         // If zlib output compression is set in the php configuration file, no
         // output buffering should be run
-        if (@ini_get('zlib.output_compression')) {
+        if (ini_get('zlib.output_compression')) {
             $this->set('OBGzip', false);
         }
 

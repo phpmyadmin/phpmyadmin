@@ -424,7 +424,7 @@ if (isset($GLOBALS['show_as_php'])) {
 }
 
 // We can not read all at once, otherwise we can run out of memory
-$memory_limit = trim(@ini_get('memory_limit'));
+$memory_limit = trim(ini_get('memory_limit'));
 // 2 MB as default
 if (empty($memory_limit)) {
     $memory_limit = 2 * 1024 * 1024;

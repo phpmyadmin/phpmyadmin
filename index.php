@@ -525,7 +525,7 @@ if ($cfg['LoginCookieValidityDisableWarning'] == false) {
     /**
      * Check whether session.gc_maxlifetime limits session validity.
      */
-    $gc_time = (int)@ini_get('session.gc_maxlifetime');
+    $gc_time = (int)ini_get('session.gc_maxlifetime');
     if ($gc_time < $GLOBALS['cfg']['LoginCookieValidity'] ) {
         trigger_error(
             __(
@@ -626,8 +626,8 @@ if ($server > 0) {
  * Warning about Suhosin only if its simulation mode is not enabled
  */
 if ($cfg['SuhosinDisableWarning'] == false
-    && @ini_get('suhosin.request.max_value_length')
-    && @ini_get('suhosin.simulation') == '0'
+    && ini_get('suhosin.request.max_value_length')
+    && ini_get('suhosin.simulation') == '0'
 ) {
     trigger_error(
         sprintf(
