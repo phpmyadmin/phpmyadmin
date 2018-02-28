@@ -496,7 +496,7 @@ echo '</div>';
  * mbstring is used for handling multibytes inside parser, so it is good
  * to tell user something might be broken without it, see bug #1063149.
  */
-if (! @extension_loaded('mbstring')) {
+if (! extension_loaded('mbstring')) {
     trigger_error(
         __(
             'The mbstring PHP extension was not found and you seem to be using'
