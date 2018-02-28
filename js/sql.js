@@ -865,6 +865,11 @@ AJAX.registerOnload('sql.js', function () {
      * create resizable table
      */
     $('.sqlqueryresults').trigger('makegrid').trigger('stickycolumns');
+
+    /**
+     * Restores SQL query after timeout login
+     */
+    codemirror_editor.setValue(window.localStorage.auto_saved_sql);    
 });
 
 /*
