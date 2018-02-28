@@ -12,7 +12,7 @@
  */
 
 /* Use cookies for session */
-@ini_set('session.use_cookies', 'true');
+ini_set('session.use_cookies', 'true');
 /* Change this to true if using phpMyAdmin over https */
 $secure_cookie = false;
 /* Need to have cookie visible from parent directory */

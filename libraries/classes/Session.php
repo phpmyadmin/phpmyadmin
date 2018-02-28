@@ -138,8 +138,8 @@ class Session
             '', $config->isHttps(), true
         );
 
-        // cookies are safer (use @ini_set() in case this function is disabled)
-        @ini_set('session.use_cookies', 'true');
+        // cookies are safer (use ini_set() in case this function is disabled)
+        ini_set('session.use_cookies', 'true');
 
         // optionally set session_save_path
         $path = $config->get('SessionSavePath');
@@ -152,23 +152,23 @@ class Session
         }
 
         // use cookies only
-        @ini_set('session.use_only_cookies', '1');
+        ini_set('session.use_only_cookies', '1');
         // strict session mode (do not accept random string as session ID)
-        @ini_set('session.use_strict_mode', '1');
+        ini_set('session.use_strict_mode', '1');
         // make the session cookie HttpOnly
-        @ini_set('session.cookie_httponly', '1');
+        ini_set('session.cookie_httponly', '1');
         // do not force transparent session ids
-        @ini_set('session.use_trans_sid', '0');
+        ini_set('session.use_trans_sid', '0');
 
         // delete session/cookies when browser is closed
-        @ini_set('session.cookie_lifetime', '0');
+        ini_set('session.cookie_lifetime', '0');
 
         // warn but don't work with bug
-        @ini_set('session.bug_compat_42', 'false');
-        @ini_set('session.bug_compat_warn', 'true');
+        ini_set('session.bug_compat_42', 'false');
+        ini_set('session.bug_compat_warn', 'true');
 
         // use more secure session ids
-        @ini_set('session.hash_function', '1');
+        ini_set('session.hash_function', '1');
 
         // some pages (e.g. stylesheet) may be cached on clients, but not in shared
         // proxy servers
@@ -200,7 +200,7 @@ class Session
         /**
          * Disable setting of session cookies for further session_start() calls.
          */
-        @ini_set('session.use_cookies', 'true');
+        ini_set('session.use_cookies', 'true');
 
         /**
          * Token which is used for authenticating access queries.

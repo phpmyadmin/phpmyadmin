@@ -307,7 +307,7 @@ if (!empty($_REQUEST['aliases'])) {
  */
 Util::setTimeLimit();
 if (! empty($cfg['MemoryLimit'])) {
-    @ini_set('memory_limit', $cfg['MemoryLimit']);
+    ini_set('memory_limit', $cfg['MemoryLimit']);
 }
 register_shutdown_function('PhpMyAdmin\Export::shutdown');
 // Start with empty buffer
@@ -374,7 +374,7 @@ if ($save_on_server) {
         // Download
         // (avoid rewriting data containing HTML with anchors and forms;
         // this was reported to happen under Plesk)
-        @ini_set('url_rewriter.tags', '');
+        ini_set('url_rewriter.tags', '');
         $filename = Sanitize::sanitizeFilename($filename);
 
         Core::downloadHeader($filename, $mime_type);

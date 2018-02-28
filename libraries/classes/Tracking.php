@@ -862,7 +862,7 @@ class Tracking
      */
     public static function exportAsFileDownload(array $entries)
     {
-        @ini_set('url_rewriter.tags', '');
+        ini_set('url_rewriter.tags', '');
 
         // Replace all multiple whitespaces by a single space
         $table = htmlspecialchars(preg_replace('/\s+/', ' ', $_REQUEST['table']));

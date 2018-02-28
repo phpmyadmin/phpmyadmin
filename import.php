@@ -301,7 +301,7 @@ if (strlen($db) > 0) {
 
 Util::setTimeLimit();
 if (! empty($cfg['MemoryLimit'])) {
-    @ini_set('memory_limit', $cfg['MemoryLimit']);
+    ini_set('memory_limit', $cfg['MemoryLimit']);
 }
 
 $timestamp = time();
