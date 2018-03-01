@@ -191,7 +191,7 @@ AJAX.registerOnload('db_multi_table_query.js', function () {
         $new_column_dom.find('a').first().remove();
         $new_column_dom.find('.pma_auto_slider').first().unwrap();
         $new_column_dom.find('.pma_auto_slider').first().attr('title', 'criteria');
-        $('.column_details').last().after($new_column_dom);
+        $('#add_column_button').parent().before($new_column_dom);
         PMA_init_slider();
         addNewColumnCallbacks();
     });
