@@ -275,16 +275,15 @@ OpenDocument Spreadsheet
 ------------------------
 
 Open standard for spreadsheet data, which is being widely adopted. Many recent
-spreadsheet programs, such as LibreOffice, OpenOffice or Google Docs can handle
-this format. Additionally, some versions of Microsoft Excel can be adapted to
-use the OpenDocument Formats through helpers like
-<http://odf-converter.sourceforge.net/>.
+spreadsheet programs, such as LibreOffice, OpenOffice, Microsoft Office or
+Google Docs can handle this format.
 
 OpenDocument Text
 -----------------
 
 New standard for text data which is being widely addopted. Most recent word
-processors (such as OpenOffice.org, AbiWord or KWord) can handle this.
+processors (such as LibreOffice, OpenOffice, Microsoft Word, AbiWord or KWord)
+can handle this.
 
 PDF
 ---
