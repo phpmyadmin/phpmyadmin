@@ -4,6 +4,8 @@ phpMyAdmin - ChangeLog
 4.7.9 (not yet released)
 - issue #13940 Honor arg_separator in AJAX requests
 - issue #13931 Fixed browsing tables with more results
+- issue #13927 "Not an integer" when browsing a table
+- issue #13887 "Input variables exceeded 1000" error relating to PHP's max_input_vars directive
 
 4.7.8 (2018-02-20)
 - issue #13914 Fixed resetting default setting values.
