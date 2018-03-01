@@ -566,7 +566,8 @@ AJAX.registerOnload('indexes.js', function () {
     $(document).on('click', '#save_index_frm', function (event) {
         event.preventDefault();
         var $form = $("#index_frm");
-        var submitData = $form.serialize() + '&do_save_data=1&ajax_request=true&ajax_page_request=true';
+        var argsep = PMA_commonParams.get('arg_separator');
+        var submitData = $form.serialize() + argsep + 'do_save_data=1' + argsep + 'ajax_request=true' + argsep + 'ajax_page_request=true';
         var $msgbox = PMA_ajaxShowMessage(PMA_messages.strProcessingRequest);
         AJAX.source = $form;
         $.post($form.attr('action'), submitData, AJAX.responseHandler);
@@ -677,7 +678,7 @@ AJAX.registerOnload('indexes.js', function () {
             }
             title = PMA_messages.strEditIndex;
         }
-        url += "&ajax_request=true";
+        url += PMA_commonParams.get('arg_separator') + "ajax_request=true";
         indexEditorDialog(url, title, function () {
             // refresh the page using ajax
             PMA_commonActions.refreshMain(false, function () {

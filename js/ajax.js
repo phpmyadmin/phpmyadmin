@@ -280,12 +280,13 @@ var AJAX = {
         $('html, body').animate({scrollTop: 0}, 'fast');
 
         var url = isLink ? href : $(this).attr('action');
-        var params = 'ajax_request=true&ajax_page_request=true';
+        var argsep = PMA_commonParams.get('arg_separator');
+        var params = 'ajax_request=true' + argsep + 'ajax_page_request=true';
         var dataPost = AJAX.source.getPostData();
         if (! isLink) {
-            params += '&' + $(this).serialize();
+            params += argsep + $(this).serialize();
         } else if (dataPost) {
-            params += '&' + dataPost;
+            params += argsep + dataPost;
             isLink = false;
         }
         if (! (history && history.pushState)) {
@@ -760,7 +761,7 @@ $(function () {
             var state = event.originalEvent.state;
             if (state && state.menu) {
                 AJAX.$msgbox = PMA_ajaxShowMessage();
-                var params = 'ajax_request=true&ajax_page_request=true';
+                var params = 'ajax_request=true' + PMA_commonParams.get('arg_separator') + 'ajax_page_request=true';
                 var url = state.url || location.href;
                 $.get(url, params, AJAX.responseHandler);
                 //TODO: Check if sometimes menu is not retrieved from server,

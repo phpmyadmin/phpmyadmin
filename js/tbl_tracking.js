@@ -54,7 +54,8 @@ AJAX.registerOnload('tbl_tracking.js', function () {
         e.preventDefault();
         var $button = $(this);
         var $form = $button.parent('form');
-        var submitData = $form.serialize() + '&ajax_request=true&ajax_page_request=true&submit_mult=' + $button.val();
+        var argsep = PMA_commonParams.get('arg_separator');
+        var submitData = $form.serialize() + argsep + 'ajax_request=true' + argsep + 'ajax_page_request=true' + argsep + 'submit_mult=' + $button.val();
 
         if ($button.val() == 'delete_version') {
             var question = PMA_messages.strDeleteTrackingVersionMultiple;

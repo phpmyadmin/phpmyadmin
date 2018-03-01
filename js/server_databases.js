@@ -57,10 +57,11 @@ AJAX.registerOnload('server_databases.js', function () {
         var question = PMA_messages.strDropDatabaseStrongWarning + ' ' +
             PMA_sprintf(PMA_messages.strDoYouReally, selected_dbs.join('<br />'));
 
+        var argsep = PMA_commonParams.get('arg_separator');
         $(this).PMA_confirm(
             question,
             $form.prop('action') + '?' + $(this).serialize() +
-                '&drop_selected_dbs=1&is_js_confirmed=1&ajax_request=true',
+                argsep + 'drop_selected_dbs=1' + argsep + 'is_js_confirmed=1' + argsep + 'ajax_request=true',
             function (url) {
                 PMA_ajaxShowMessage(PMA_messages.strProcessingRequest, false);
 
@@ -124,7 +125,7 @@ AJAX.registerOnload('server_databases.js', function () {
                 // make ajax request to load db structure page - taken from ajax.js
                 var dbStruct_url = data.url_query;
                 dbStruct_url = dbStruct_url.replace(/amp;/ig, '');
-                var params = 'ajax_request=true&ajax_page_request=true';
+                var params = 'ajax_request=true' + PMA_commonParams.get('arg_separator') + 'ajax_page_request=true';
                 if (! (history && history.pushState)) {
                     params += PMA_MicroHistory.menus.getRequestParam();
                 }

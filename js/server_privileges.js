@@ -177,7 +177,8 @@ AJAX.registerOnload('server_privileges.js', function () {
 
             PMA_ajaxShowMessage(PMA_messages.strRemovingSelectedUsers);
 
-            $.post(url, $form.serialize() + "&delete=" + $thisButton.val() + "&ajax_request=true", function (data) {
+            var argsep = PMA_commonParams.get('arg_separator');
+            $.post(url, $form.serialize() + argsep + 'delete=' + $thisButton.val() + argsep + 'ajax_request=true', function (data) {
                 if (typeof data !== 'undefined' && data.success === true) {
                     PMA_ajaxShowMessage(data.message);
                     // Refresh navigation, if we droppped some databases with the name
@@ -236,9 +237,10 @@ AJAX.registerOnload('server_privileges.js', function () {
                             .find('select[name="userGroup"]')
                             .val();
                         var $message = PMA_ajaxShowMessage();
+                        var argsep = PMA_commonParams.get('arg_separator');
                         $.post(
                             'server_privileges.php',
-                            $('#changeUserGroupDialog').find('form').serialize() + '&ajax_request=1',
+                            $('#changeUserGroupDialog').find('form').serialize() + argsep + 'ajax_request=1',
                             function (data) {
                                 PMA_ajaxRemoveMessage($message);
                                 if (typeof data !== 'undefined' && data.success === true) {
@@ -302,9 +304,10 @@ AJAX.registerOnload('server_privileges.js', function () {
         button_options[PMA_messages.strClose] = function () {
             $(this).dialog("close");
         };
+        var argsep = PMA_commonParams.get('arg_separator');
         $.post(
             $(this.form).prop('action'),
-            $(this.form).serialize() + '&submit_mult=export&ajax_request=true',
+            $(this.form).serialize() + argsep + 'submit_mult=export' + argsep + 'ajax_request=true',
             function (data) {
                 if (typeof data !== 'undefined' && data.success === true) {
                     var $ajaxDialog = $('<div />')

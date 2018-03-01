@@ -617,11 +617,12 @@ function Get_url_pos(forceString)
 {
     if (pmd_tables_enabled || forceString) {
         var poststr = '';
+        var argsep = PMA_commonParams.get('arg_separator');
         for (var key in j_tabs) {
-            poststr += '&t_x[' + key + ']=' + parseInt(document.getElementById(key).style.left, 10);
-            poststr += '&t_y[' + key + ']=' + parseInt(document.getElementById(key).style.top, 10);
-            poststr += '&t_v[' + key + ']=' + (document.getElementById('id_tbody_' + key).style.display == 'none' ? 0 : 1);
-            poststr += '&t_h[' + key + ']=' + (document.getElementById('check_vis_' + key).checked ? 1 : 0);
+            poststr += argsep + 't_x[' + key + ']=' + parseInt(document.getElementById(key).style.left, 10);
+            poststr += argsep + 't_y[' + key + ']=' + parseInt(document.getElementById(key).style.top, 10);
+            poststr += argsep + 't_v[' + key + ']=' + (document.getElementById('id_tbody_' + key).style.display == 'none' ? 0 : 1);
+            poststr += argsep + 't_h[' + key + ']=' + (document.getElementById('check_vis_' + key).checked ? 1 : 0);
         }
         return poststr;
     } else {
@@ -641,8 +642,9 @@ function Get_url_pos(forceString)
 function Save2(callback)
 {
     if (pmd_tables_enabled) {
-        var poststr = '&operation=savePage&save_page=same&ajax_request=true';
-        poststr += '&server=' + server + '&db=' + db + '&token=' + PMA_commonParams.get('token') + '&selected_page=' + selected_page;
+        var argsep = PMA_commonParams.get('arg_separator');
+        var poststr = argsep + 'operation=savePage' + argsep + 'save_page=same' + argsep + 'ajax_request=true';
+        poststr += argsep + 'server=' + server + argsep + 'db=' + db + argsep + 'token=' + PMA_commonParams.get('token') + argsep + 'selected_page=' + selected_page;
         poststr += Get_url_pos();
 
         var $msgbox = PMA_ajaxShowMessage(PMA_messages.strProcessingRequest);
@@ -774,7 +776,8 @@ function Edit_pages()
         };
 
         var $msgbox = PMA_ajaxShowMessage();
-        var params = 'ajax_request=true&dialog=edit&server=' + server + '&token=' + PMA_commonParams.get('token') + '&db=' + db;
+        var argsep = PMA_commonParams.get('arg_separator');
+        var params = 'ajax_request=true' + argsep + 'dialog=edit' + argsep + 'server=' + server + argsep + 'token=' + PMA_commonParams.get('token') + argsep + 'db=' + db;
         $.get("db_designer.php", params, function (data) {
             if (data.success === false) {
                 PMA_ajaxShowMessage(data.error, false);
@@ -854,7 +857,8 @@ function Delete_pages()
     };
 
     var $msgbox = PMA_ajaxShowMessage();
-    var params = 'ajax_request=true&dialog=delete&server=' + server + '&token=' + PMA_commonParams.get('token') + '&db=' + db;
+    var argsep = PMA_commonParams.get('arg_separator');
+    var params = 'ajax_request=true' + argsep + 'dialog=delete' + argsep + 'server=' + server + argsep + 'token=' + PMA_commonParams.get('token') + argsep + 'db=' + db;
     $.get("db_designer.php", params, function (data) {
         if (data.success === false) {
             PMA_ajaxShowMessage(data.error, false);
@@ -953,7 +957,8 @@ function Save_as()
     };
 
     var $msgbox = PMA_ajaxShowMessage();
-    var params = 'ajax_request=true&dialog=save_as&server=' + server + '&token=' + PMA_commonParams.get('token') + '&db=' + db;
+    var argsep = PMA_commonParams.get('arg_separator');
+    var params = 'ajax_request=true' + argsep + 'dialog=save_as' + argsep + 'server=' + server + argsep + 'token=' + PMA_commonParams.get('token') + argsep + 'db=' + db;
     $.get("db_designer.php", params, function (data) {
         if (data.success === false) {
             PMA_ajaxShowMessage(data.error, false);
@@ -1030,7 +1035,8 @@ function Export_pages()
         $(this).dialog('close');
     };
     var $msgbox = PMA_ajaxShowMessage();
-    var params = 'ajax_request=true&dialog=export&server=' + server + '&token=' + PMA_commonParams.get('token') + '&db=' + db + '&selected_page=' + selected_page;
+    var argsep = PMA_commonParams.get('arg_separator');
+    var params = 'ajax_request=true' + argsep + 'dialog=export' + argsep + 'server=' + server + argsep + 'token=' + PMA_commonParams.get('token') + argsep + 'db=' + db + argsep + 'selected_page=' + selected_page;
     $.get("db_designer.php", params, function (data) {
         if (data.success === false) {
             PMA_ajaxShowMessage(data.error, false);
@@ -1041,7 +1047,7 @@ function Export_pages()
             if (!pmd_tables_enabled) {
                 $form.append('<input type="hidden" name="offline_export" value="true" />');
             }
-            $.each(Get_url_pos(true).substring(1).split('&'), function() {
+            $.each(Get_url_pos(true).substring(1).split(argsep), function() {
                 var pair = this.split('=');
                 var input = $('<input type="hidden" />');
                 input.attr('name', pair[0]);
@@ -1074,10 +1080,11 @@ function Export_pages()
 function Load_page(page) {
     if (pmd_tables_enabled) {
         var param_page = '';
+        var argsep = PMA_commonParams.get('arg_separator');
         if (page !== null) {
-            param_page = '&page=' + page;
+            param_page = argsep + 'page=' + page;
         }
-        $('<a href="db_designer.php?server=' + server + '&db=' + db + '&token=' + PMA_commonParams.get('token') + param_page + '"></a>')
+        $('<a href="db_designer.php?server=' + server + argsep + 'db=' + db + argsep + 'token=' + PMA_commonParams.get('token') + param_page + '"></a>')
             .appendTo($('#page_content'))
             .click();
     } else {
@@ -1158,6 +1165,7 @@ function Start_relation()
 function Click_field(T, f, PK) // table field
 {
     PK = parseInt(PK);
+    var argsep = PMA_commonParams.get('arg_separator');
     if (ON_relation) {
         if (!click_field) {
             //.style.display=='none'        .style.display = 'none'
@@ -1169,7 +1177,7 @@ function Click_field(T, f, PK) // table field
                 document.getElementById('foreign_relation').style.display = 'none';
             }
             click_field = 1;
-            link_relation = "T1=" + T + "&F1=" + f;
+            link_relation = 'T1=' + T + argsep + 'F1=' + f;
             document.getElementById('pmd_hint').innerHTML = PMA_messages.strSelectForeignKey;
         } else {
             Start_relation(); // hidden hint...
@@ -1181,7 +1189,7 @@ function Click_field(T, f, PK) // table field
             var top = Glob_Y - document.getElementById('layer_new_relation').offsetHeight;
             document.getElementById('layer_new_relation').style.top  = top + 'px';
             document.getElementById('layer_new_relation').style.display = 'block';
-            link_relation += '&T2=' + T + '&F2=' + f;
+            link_relation += argsep + 'T2=' + T + argsep + 'F2=' + f;
         }
     }
 
@@ -1220,9 +1228,10 @@ function Click_field(T, f, PK) // table field
 function New_relation()
 {
     document.getElementById('layer_new_relation').style.display = 'none';
-    link_relation += '&server=' + server + '&db=' + db + '&token=' + PMA_commonParams.get('token');
-    link_relation += '&on_delete=' + document.getElementById('on_delete').value + '&on_update=' + document.getElementById('on_update').value;
-    link_relation += '&operation=addNewRelation&ajax_request=true';
+    var argsep = PMA_commonParams.get('arg_separator');
+    link_relation += argsep + 'server=' + server + argsep + 'db=' + db + argsep + 'token=' + PMA_commonParams.get('token');
+    link_relation += argsep + 'on_delete=' + document.getElementById('on_delete').value + argsep + 'on_update=' + document.getElementById('on_update').value;
+    link_relation += argsep + 'operation=addNewRelation' + argsep + 'ajax_request=true';
 
     var $msgbox = PMA_ajaxShowMessage(PMA_messages.strProcessingRequest);
     $.post('db_designer.php', link_relation, function (data) {
@@ -1444,15 +1453,17 @@ function Canvas_click(id, event)
         var top = Glob_Y - document.getElementById('layer_upd_relation').offsetHeight - 10;
         document.getElementById('layer_upd_relation').style.top = top + 'px';
         document.getElementById('layer_upd_relation').style.display = 'block';
-        link_relation = 'T1=' + Key0 + '&F1=' + Key1 + '&T2=' + Key2 + '&F2=' + Key3 + '&K=' + Key;
+        var argsep = PMA_commonParams.get('arg_separator');
+        link_relation = 'T1=' + Key0 + argsep + 'F1=' + Key1 + argsep + 'T2=' + Key2 + argsep + 'F2=' + Key3 + argsep + 'K=' + Key;
     }
 }
 
 function Upd_relation()
 {
     document.getElementById('layer_upd_relation').style.display = 'none';
-    link_relation += '&server=' + server + '&db=' + db + '&token=' + PMA_commonParams.get('token');
-    link_relation += '&operation=removeRelation&ajax_request=true';
+    var argsep = PMA_commonParams.get('arg_separator');
+    link_relation += argsep + 'server=' + server + argsep + 'db=' + db + argsep + 'token=' + PMA_commonParams.get('token');
+    link_relation += argsep + 'operation=removeRelation' + argsep + 'ajax_request=true';
 
     var $msgbox = PMA_ajaxShowMessage(PMA_messages.strProcessingRequest);
     $.post('db_designer.php', link_relation, function (data) {

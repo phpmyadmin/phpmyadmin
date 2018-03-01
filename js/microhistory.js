@@ -199,7 +199,7 @@ PMA_MicroHistory = {
             }
             var menuHashesParam = menuHashes.join('-');
             if (menuHashesParam) {
-                param = '&menuHashes=' + menuHashesParam;
+                param = PMA_commonParams.get('arg_separator') + 'menuHashes=' + menuHashesParam;
             }
             return param;
         },

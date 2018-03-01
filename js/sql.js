@@ -168,10 +168,11 @@ AJAX.registerOnload('sql.js', function () {
         var $link = $(this);
         $link.PMA_confirm(question, $link.attr('href'), function (url) {
             $msgbox = PMA_ajaxShowMessage();
-            var params = 'ajax_request=1&is_js_confirmed=1';
+            var argsep = PMA_commonParams.get('arg_separator');
+            var params = 'ajax_request=1' + argsep + 'is_js_confirmed=1';
             var postData = $link.getPostData();
             if (postData) {
-                params += '&' + postData;
+                params += argsep + postData;
             }
             $.post(url, params, function (data) {
                 if (data.success) {
@@ -188,7 +189,8 @@ AJAX.registerOnload('sql.js', function () {
     $(document).on('submit', '.bookmarkQueryForm', function (e) {
         e.preventDefault();
         PMA_ajaxShowMessage();
-        $.post($(this).attr('action'), 'ajax_request=1&' + $(this).serialize(), function (data) {
+        var argsep = PMA_commonParams.get('arg_separator');
+        $.post($(this).attr('action'), 'ajax_request=1' + argsep + $(this).serialize(), function (data) {
             if (data.success) {
                 PMA_ajaxShowMessage(data.message);
             } else {
@@ -457,7 +459,8 @@ AJAX.registerOnload('sql.js', function () {
 
         PMA_prepareForAjaxRequest($form);
 
-        $.post($form.attr('action'), $form.serialize() + '&ajax_page_request=true', function (data) {
+        var argsep = PMA_commonParams.get('arg_separator');
+        $.post($form.attr('action'), $form.serialize() + argsep + 'ajax_page_request=true', function (data) {
             if (typeof data !== 'undefined' && data.success === true) {
                 // success happens if the query returns rows or not
 
@@ -569,7 +572,8 @@ AJAX.registerOnload('sql.js', function () {
         $form = $(this);
 
         var $msgbox = PMA_ajaxShowMessage();
-        $.post($form.attr('action'), $form.serialize() + '&ajax_request=true', function (data) {
+        var argsep = PMA_commonParams.get('arg_separator');
+        $.post($form.attr('action'), $form.serialize() + argsep + 'ajax_request=true', function (data) {
             PMA_ajaxRemoveMessage($msgbox);
             var $sqlqueryresults = $form.parents(".sqlqueryresults");
             $sqlqueryresults
@@ -620,7 +624,8 @@ AJAX.registerOnload('sql.js', function () {
         }
 
         function submitShowAllForm() {
-            var submitData = $form.serialize() + '&ajax_request=true&ajax_page_request=true';
+            var argsep = PMA_commonParams.get('arg_separator');
+            var submitData = $form.serialize() + argsep + 'ajax_request=true' + argsep + 'ajax_page_request=true';
             PMA_ajaxShowMessage();
             AJAX.source = $form;
             $.post($form.attr('action'), submitData, AJAX.responseHandler);
@@ -720,7 +725,8 @@ AJAX.registerOnload('sql.js', function () {
         e.preventDefault();
         var $button = $(this);
         var $form = $button.closest('form');
-        var submitData = $form.serialize() + '&ajax_request=true&ajax_page_request=true&submit_mult=' + $button.val();
+        var argsep = PMA_commonParams.get('arg_separator');
+        var submitData = $form.serialize() + argsep + 'ajax_request=true' + argsep + 'ajax_page_request=true' + argsep + 'submit_mult=' + $button.val();
         PMA_ajaxShowMessage();
         AJAX.source = $form;
         $.post($form.attr('action'), submitData, AJAX.responseHandler);

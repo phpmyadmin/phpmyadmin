@@ -69,18 +69,19 @@ function getDropdownValues($dropdown) {
     }
     var $msgbox = PMA_ajaxShowMessage();
     var $form = $dropdown.parents('form');
-    var url = 'tbl_relation.php?getDropdownValues=true&ajax_request=true' +
-        '&token=' + $form.find('input[name="token"]').val() +
-        '&db=' + $form.find('input[name="db"]').val() +
-        '&table=' + $form.find('input[name="table"]').val() +
-        '&foreign=' + (foreign !== '') +
-        '&foreignDb=' + encodeURIComponent(foreignDb) +
+    var argsep = PMA_commonParams.get('arg_separator');
+    var url = 'tbl_relation.php?getDropdownValues=true' + argsep + 'ajax_request=true' +
+        argsep + 'token=' + $form.find('input[name="token"]').val() +
+        argsep + 'db=' + $form.find('input[name="db"]').val() +
+        argsep + 'table=' + $form.find('input[name="table"]').val() +
+        argsep + 'foreign=' + (foreign !== '') +
+        argsep + 'foreignDb=' + encodeURIComponent(foreignDb) +
         (foreignTable !== null ?
-            '&foreignTable=' + encodeURIComponent(foreignTable) : ''
+            argsep + 'foreignTable=' + encodeURIComponent(foreignTable) : ''
         );
     var $server = $form.find('input[name="server"]');
     if ($server.length > 0) {
-        url += '&server=' + $form.find('input[name="server"]').val();
+        url += argsep + 'server=' + $form.find('input[name="server"]').val();
     }
     $.ajax({
         url: url,

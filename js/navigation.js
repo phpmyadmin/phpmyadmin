@@ -189,7 +189,7 @@ function loadChildNodes(isNode, $expandElem, callback) {
             if (window.location.href.indexOf('?') === -1) {
                 window.location.href += '?session_expired=1';
             } else {
-                window.location.href += '&session_expired=1';
+                window.location.href += PMA_commonParams.get('arg_separator') + 'session_expired=1';
             }
             window.location.reload();
         } else {
@@ -496,7 +496,7 @@ $(function () {
         event.preventDefault();
         var url = $(this).attr('href').substr(
             $(this).attr('href').indexOf('?') + 1
-        ) + '&ajax_request=true';
+        ) + PMA_commonParams.get('arg_separator') + 'ajax_request=true';
         var title = PMA_messages.strAddIndex;
         indexEditorDialog(url, title);
     });
@@ -506,7 +506,7 @@ $(function () {
         event.preventDefault();
         var url = $(this).attr('href').substr(
             $(this).attr('href').indexOf('?') + 1
-        ) + '&ajax_request=true';
+        ) + PMA_commonParams.get('arg_separator') + 'ajax_request=true';
         var title = PMA_messages.strEditIndex;
         indexEditorDialog(url, title);
     });
@@ -526,7 +526,7 @@ $(function () {
                 server: PMA_commonParams.get('server'),
                 token: PMA_commonParams.get('token')
             },
-            url: $(this).attr('href') + '&ajax_request=true',
+            url: $(this).attr('href') + PMA_commonParams.get('arg_separator') + 'ajax_request=true',
             success: function (data) {
                 if (typeof data !== 'undefined' && data.success === true) {
                     PMA_reloadNavigation();
@@ -541,7 +541,7 @@ $(function () {
     $(document).on('click', 'a.showUnhide.ajax', function (event) {
         event.preventDefault();
         var $msg = PMA_ajaxShowMessage();
-        $.get($(this).attr('href') + '&ajax_request=1', function (data) {
+        $.get($(this).attr('href') + PMA_commonParams.get('arg_separator') + 'ajax_request=1', function (data) {
             if (typeof data !== 'undefined' && data.success === true) {
                 PMA_ajaxRemoveMessage($msg);
                 var buttonOptions = {};
@@ -578,7 +578,7 @@ $(function () {
                 server: PMA_commonParams.get('server'),
                 token: PMA_commonParams.get('token')
             },
-            url: $(this).attr('href') + '&ajax_request=true',
+            url: $(this).attr('href') + PMA_commonParams.get('arg_separator') + 'ajax_request=true',
             success: function (data) {
                 PMA_ajaxRemoveMessage($msg);
                 if (typeof data !== 'undefined' && data.success === true) {
@@ -1042,21 +1042,21 @@ function PMA_navigationTreePagination($this) {
     var url, params;
     if ($this[0].tagName == 'A') {
         url = $this.attr('href');
-        params = 'ajax_request=true&token=' + PMA_commonParams.get('token');
+        params = 'ajax_request=true' + PMA_commonParams.get('arg_separator') + 'token=' + PMA_commonParams.get('token');
     } else { // tagName == 'SELECT'
         url = 'navigation.php';
-        params = $this.closest("form").serialize() + '&ajax_request=true';
+        params = $this.closest("form").serialize() + PMA_commonParams.get('arg_separator') + 'ajax_request=true';
     }
     var searchClause = PMA_fastFilter.getSearchClause();
     if (searchClause) {
-        params += '&searchClause=' + encodeURIComponent(searchClause);
+        params += PMA_commonParams.get('arg_separator') + 'searchClause=' + encodeURIComponent(searchClause);
     }
     if (isDbSelector) {
-        params += '&full=true';
+        params += PMA_commonParams.get('arg_separator') + 'full=true';
     } else {
         var searchClause2 = PMA_fastFilter.getSearchClause2($this);
         if (searchClause2) {
-            params += '&searchClause2=' + encodeURIComponent(searchClause2);
+            params += PMA_commonParams.get('arg_separator') + 'searchClause2=' + encodeURIComponent(searchClause2);
         }
     }
     $.post(url, params, function (data) {
@@ -1548,7 +1548,7 @@ PMA_fastFilter.filter.prototype.request = function () {
     if (self.$this.find('> ul > li > form.fast_filter:first input[name=searchClause]').length === 0) {
         var $input = $('#pma_navigation_tree').find('li.fast_filter.db_fast_filter input.searchClause');
         if ($input.length && $input.val() != $input[0].defaultValue) {
-            params += '&searchClause=' + encodeURIComponent($input.val());
+            params += PMA_commonParams.get('arg_separator') + 'searchClause=' + encodeURIComponent($input.val());
         }
     }
     self.xhr = $.ajax({

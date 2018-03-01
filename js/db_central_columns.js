@@ -64,7 +64,8 @@ AJAX.registerOnload('db_central_columns.js', function () {
             PMA_ajaxShowMessage(PMA_messages.strRadioUnchecked);
             return false;
         }
-        var editColumnData = editColumnList+ '&edit_central_columns_page=true&ajax_request=true&ajax_page_request=true&token='+PMA_commonParams.get('token')+'&db='+PMA_commonParams.get('db');
+        var argsep = PMA_commonParams.get('arg_separator');
+        var editColumnData = editColumnList+ argsep + 'edit_central_columns_page=true' + argsep + 'ajax_request=true' + argsep + 'ajax_page_request=true' + argsep + 'token='+PMA_commonParams.get('token') + argsep + 'db='+PMA_commonParams.get('db');
         PMA_ajaxShowMessage();
         AJAX.source = $(this);
         $.get('db_central_columns.php', editColumnData, AJAX.responseHandler);
@@ -72,7 +73,8 @@ AJAX.registerOnload('db_central_columns.js', function () {
     $('#multi_edit_central_columns').submit(function(event){
         event.preventDefault();
         event.stopPropagation();
-        var multi_column_edit_data = $("#multi_edit_central_columns").serialize()+'&multi_edit_central_column_save=true&ajax_request=true&ajax_page_request=true&token='+PMA_commonParams.get('token')+'&db='+PMA_commonParams.get('db');
+        var argsep = PMA_commonParams.get('arg_separator');
+        var multi_column_edit_data = $("#multi_edit_central_columns").serialize()+argsep+'multi_edit_central_column_save=true'+argsep+'ajax_request=true' + argsep + 'ajax_page_request=true' + argsep + 'token='+PMA_commonParams.get('token')+argsep+'db='+PMA_commonParams.get('db');
         PMA_ajaxShowMessage();
         AJAX.source = $(this);
         $.post('db_central_columns.php', multi_column_edit_data, AJAX.responseHandler);
@@ -152,7 +154,7 @@ AJAX.registerOnload('db_central_columns.js', function () {
         $.ajax({
             type: "POST",
             url: "db_central_columns.php",
-            data: datastring+'&ajax_request=true',
+            data: datastring+PMA_commonParams.get('arg_separator')+'ajax_request=true',
             dataType: "json",
             success: function(data) {
                 if (data.message !== '1') {

@@ -522,8 +522,9 @@ AJAX.registerOnload('normalization.js', function() {
             $("#newCols #field_0_1").focus();
             return false;
         }
+        var argsep = PMA_commonParams.get('arg_separator');
         datastring = $('#newCols :input').serialize();
-        datastring += "&ajax_request=1&do_save_data=1&field_where=last";
+        datastring += argsep + "ajax_request=1" + argsep + "do_save_data=1" + argsep + "field_where=last";
         $.post("tbl_addfield.php", datastring, function(data) {
             if (data.success) {
                 $.post(
@@ -582,7 +583,8 @@ AJAX.registerOnload('normalization.js', function() {
     });
     $(".tblFooters").on("click", "#saveNewPrimary", function() {
         var datastring = $('#newCols :input').serialize();
-        datastring += "&field_key[0]=primary_0&ajax_request=1&do_save_data=1&field_where=last";
+        var argsep = PMA_commonParams.get('arg_separator');
+        datastring += argsep + "field_key[0]=primary_0" + argsep + "ajax_request=1" + argsep + "do_save_data=1" + argsep + "field_where=last";
         $.post("tbl_addfield.php", datastring, function(data) {
             if (data.success === true) {
                 $("#mainContent h4").html(PMA_messages.strPrimaryKeyAdded);
