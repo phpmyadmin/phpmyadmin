@@ -220,7 +220,7 @@ function PMA_handleRedirectAndReload (data) {
         if (window.location.href.indexOf('?') === -1) {
             window.location.href += '?session_expired=1';
         } else {
-            window.location.href += '&session_expired=1';
+            window.location.href += PMA_commonParams.get('arg_separator') + 'session_expired=1';
         }
         window.location.reload();
     } else if (parseInt(data.reload_flag) === 1) {
@@ -673,8 +673,13 @@ function confirmLink (theLink, theSqlQuery) {
     var is_confirmed = confirm(PMA_sprintf(PMA_messages.strDoYouReally, theSqlQuery));
     if (is_confirmed) {
         if (typeof(theLink.href) !== 'undefined') {
+<<<<<<< HEAD
             theLink.href += '&is_js_confirmed=1';
         } else if (typeof(theLink.form) !== 'undefined') {
+=======
+            theLink.href += PMA_commonParams.get('arg_separator') + 'is_js_confirmed=1';
+        } else if (typeof(theLink.form) != 'undefined') {
+>>>>>>> QA_4_7
             theLink.form.action += '?is_js_confirmed=1';
         }
     }
@@ -1794,16 +1799,17 @@ function loadForeignKeyCheckbox () {
 
 function getJSConfirmCommonParam (elem, params) {
     var $elem = $(elem);
+    var sep = PMA_commonParams.get('arg_separator');
     if (params) {
         // Strip possible leading ?
         if (params.startsWith('?')) {
             params = params.substr(1);
         }
-        params += '&';
+        params += sep;
     } else {
         params = '';
     }
-    params += 'is_js_confirmed=1&ajax_request=true&fk_checks' + ($elem.find('#fk_checks').is(':checked') ? 1 : 0);
+    params += 'is_js_confirmed=1' + sep + 'ajax_request=true' + sep 'fk_checks' + ($elem.find('#fk_checks').is(':checked') ? 1 : 0);
     return params;
 }
 
@@ -2349,10 +2355,11 @@ function PMA_ajaxRemoveMessage ($this_msgbox) {
  */
 function PMA_previewSQL ($form) {
     var form_url = $form.attr('action');
+    var sep = PMA_commonParams.get('arg_separator');
     var form_data = $form.serialize() +
-        '&do_save_data=1' +
-        '&preview_sql=1' +
-        '&ajax_request=1';
+        sep + 'do_save_data=1' +
+        sep + 'preview_sql=1' +
+        sep + 'ajax_request=1';
     var $msgbox = PMA_ajaxShowMessage();
     $.ajax({
         type: 'POST',
@@ -2404,7 +2411,7 @@ function PMA_checkReservedWordColumns ($form) {
     $.ajax({
         type: 'POST',
         url: 'tbl_structure.php',
-        data: $form.serialize() + '&reserved_word_check=1',
+        data: $form.serialize() + PMA_commonParams.get('arg_separator') + 'reserved_word_check=1',
         success: function (data) {
             if (typeof data.success !== 'undefined' && data.success === true) {
                 is_confirmed = confirm(data.message);
@@ -2838,7 +2845,7 @@ AJAX.registerOnload('functions.js', function () {
             if (PMA_checkReservedWordColumns($form)) {
                 PMA_ajaxShowMessage(PMA_messages.strProcessingRequest);
                 // User wants to submit the form
-                $.post($form.attr('action'), $form.serialize() + '&do_save_data=1', function (data) {
+                $.post($form.attr('action'), $form.serialize() + PMA_commonParams.get('arg_separator') + 'do_save_data=1', function (data) {
                     if (typeof data !== 'undefined' && data.success === true) {
                         $('#properties_message')
                             .removeClass('error')
@@ -2897,13 +2904,14 @@ AJAX.registerOnload('functions.js', function () {
                         // Refresh navigation as a new table has been added
                         PMA_reloadNavigation();
                         // Redirect to table structure page on creation of new table
-                        var params_12 = 'ajax_request=true&ajax_page_request=true';
+                        var argsep = PMA_commonParams.get('arg_separator');
+                        var params_12 = 'ajax_request=true' + argsep + 'ajax_page_request=true';
                         if (! (history && history.pushState)) {
                             params_12 += PMA_MicroHistory.menus.getRequestParam();
                         }
                         tblStruct_url = 'tbl_structure.php?server=' + data._params.server +
-                            '&db=' + data._params.db + '&token=' + data._params.token +
-                            '&goto=db_structure.php&table=' + data._params.table + '';
+                            argsep + 'db=' + data._params.db + argsep + 'token=' + data._params.token +
+                            argsep + 'goto=db_structure.php' + argsep + 'table=' + data._params.table + '';
                         $.get(tblStruct_url, params_12, AJAX.responseHandler);
                     } else {
                         PMA_ajaxShowMessage(
@@ -3137,7 +3145,7 @@ AJAX.registerOnload('functions.js', function () {
             var $msgbox = PMA_ajaxShowMessage(PMA_messages.strProcessingRequest);
             $the_form.append('<input type="hidden" name="ajax_request" value="true" />');
 
-            $.post($the_form.attr('action'), $the_form.serialize() + '&change_pw=' + this_value, function (data) {
+            $.post($the_form.attr('action'), $the_form.serialize() + PMA_commonParams.get('arg_separator') + 'change_pw=' + this_value, function (data) {
                 if (typeof data === 'undefined' || data.success !== true) {
                     PMA_ajaxShowMessage(data.error, false);
                     return;
@@ -3735,9 +3743,15 @@ function indexEditorDialog (url, title, callback_success, callback_failure) {
         var $form = $('#index_frm');
         var $msgbox = PMA_ajaxShowMessage(PMA_messages.strProcessingRequest);
         PMA_prepareForAjaxRequest($form);
+<<<<<<< HEAD
         // User wants to submit the form
         $.post($form.attr('action'), $form.serialize() + '&do_save_data=1', function (data) {
             var $sqlqueryresults = $('.sqlqueryresults');
+=======
+        //User wants to submit the form
+        $.post($form.attr('action'), $form.serialize() + PMA_commonParams.get('arg_separator') + "do_save_data=1", function (data) {
+            var $sqlqueryresults = $(".sqlqueryresults");
+>>>>>>> QA_4_7
             if ($sqlqueryresults.length !== 0) {
                 $sqlqueryresults.remove();
             }
@@ -4538,7 +4552,13 @@ AJAX.registerOnload('functions.js', function () {
 
 function PMA_createViewDialog ($this) {
     var $msg = PMA_ajaxShowMessage();
+<<<<<<< HEAD
     $.get($this.attr('href') + '&ajax_request=1&ajax_dialog=1', function (data) {
+=======
+    var syntaxHighlighter = null;
+    var sep = PMA_commonParams.get('arg_separator');
+    $.get($this.attr('href') + sep + 'ajax_request=1' + sep 'ajax_dialog=1', function (data) {
+>>>>>>> QA_4_7
         if (typeof data !== 'undefined' && data.success === true) {
             PMA_ajaxRemoveMessage($msg);
             var buttonOptions = {};

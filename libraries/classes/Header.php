@@ -256,6 +256,7 @@ class Header
             'logged_in' => (isset($GLOBALS['dbi']) ? $GLOBALS['dbi']->isUserType('logged') : false),
             'is_https' => $GLOBALS['PMA_Config']->isHttps(),
             'rootPath' => $GLOBALS['PMA_Config']->getRootPath(),
+            'arg_separator' => URL::getArgSeparator(),
             'PMA_VERSION' => PMA_VERSION
         );
         if (isset($GLOBALS['cfg']['Server'])

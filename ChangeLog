@@ -47,6 +47,8 @@ phpMyAdmin - ChangeLog
 - issue #14042 Rename PMD to Designer
 
 4.7.9 (not yet released)
+- issue #13940 Honor arg_separator in AJAX requests
+- issue #13931 Fixed browsing tables with more results
 
 4.7.8 (2018-02-20)
 - issue #13914 Fixed resetting default setting values.

@@ -24,7 +24,8 @@ AJAX.registerOnload('tbl_operations.js', function () {
         event.preventDefault();
         var $form = $(this);
         PMA_prepareForAjaxRequest($form);
-        $.post($form.attr('action'), $form.serialize() + '&submit_copy=Go', function (data) {
+        var argsep = PMA_commonParams.get('arg_separator');
+        $.post($form.attr('action'), $form.serialize() + argsep + 'submit_copy=Go', function (data) {
             if (typeof data !== 'undefined' && data.success === true) {
                 if ($form.find('input[name=\'switch_to_new\']').prop('checked')) {
                     PMA_commonParams.set(
@@ -56,7 +57,8 @@ AJAX.registerOnload('tbl_operations.js', function () {
         event.preventDefault();
         var $form = $(this);
         PMA_prepareForAjaxRequest($form);
-        $.post($form.attr('action'), $form.serialize() + '&submit_move=1', function (data) {
+        var argsep = PMA_commonParams.get('arg_separator');
+        $.post($form.attr('action'), $form.serialize() + argsep + 'submit_move=1', function (data) {
             if (typeof data !== 'undefined' && data.success === true) {
                 PMA_commonParams.set('db', data._params.db);
                 PMA_commonParams.set('table', data._params.tbl);
@@ -128,7 +130,7 @@ AJAX.registerOnload('tbl_operations.js', function () {
     $(document).on('click', '#tbl_maintenance li a.maintain_action.ajax', function (event) {
         event.preventDefault();
         var $link = $(this);
-        
+
         if ($('.sqlqueryresults').length !== 0) {
             $('.sqlqueryresults').remove();
         }
@@ -142,7 +144,7 @@ AJAX.registerOnload('tbl_operations.js', function () {
         });
         var postData = $link.getPostData();
         if (postData) {
-            params += '&' + postData;
+            params += PMA_commonParams.get('arg_separator') + postData;
         }
 
         $.post($link.attr('href'), params, function (data) {
@@ -192,7 +194,8 @@ AJAX.registerOnload('tbl_operations.js', function () {
         var $form = $(this);
 
         function submitPartitionMaintenance () {
-            var submitData = $form.serialize() + '&ajax_request=true&ajax_page_request=true';
+            var argsep = PMA_commonParams.get('arg_separator');
+            var submitData = $form.serialize() + argsep + 'ajax_request=true' + argsep + 'ajax_page_request=true';
             PMA_ajaxShowMessage(PMA_messages.strProcessingRequest);
             AJAX.source = $form;
             $.post($form.attr('action'), submitData, AJAX.responseHandler);
