@@ -1854,7 +1854,7 @@ function getJSConfirmCommonParam (elem, params) {
     } else {
         params = '';
     }
-    params += 'is_js_confirmed=1' + sep + 'ajax_request=true' + sep 'fk_checks' + ($elem.find('#fk_checks').is(':checked') ? 1 : 0);
+    params += 'is_js_confirmed=1' + sep + 'ajax_request=true' + sep + 'fk_checks' + ($elem.find('#fk_checks').is(':checked') ? 1 : 0);
     return params;
 }
 
@@ -2965,7 +2965,7 @@ AJAX.registerOnload('functions.js', function () {
                         }
                         tblStruct_url = 'tbl_structure.php?server=' + data._params.server +
                             sep + 'db='+ data._params.db + sep + 'token=' + data._params.token +
-                            sep + 'goto=db_structure.php' + sep 'table=' + data._params.table + '';
+                            sep + 'goto=db_structure.php' + sep + 'table=' + data._params.table + '';
                         $.get(tblStruct_url, params_12, AJAX.responseHandler);
                     } else {
                         PMA_ajaxShowMessage(
@@ -4630,7 +4630,7 @@ function PMA_createViewDialog($this)
     var $msg = PMA_ajaxShowMessage();
     var syntaxHighlighter = null;
     var sep = PMA_commonParams.get('arg_separator');
-    $.get($this.attr('href') + sep + 'ajax_request=1' + sep 'ajax_dialog=1', function (data) {
+    $.get($this.attr('href') + sep + 'ajax_request=1' + sep + 'ajax_dialog=1', function (data) {
         if (typeof data !== 'undefined' && data.success === true) {
             PMA_ajaxRemoveMessage($msg);
             var buttonOptions = {};
