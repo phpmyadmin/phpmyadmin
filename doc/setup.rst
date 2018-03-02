@@ -533,7 +533,7 @@ Or, if you prefer to not be prompted every time you log in:
 .. warning::
 
     Storing passwords in the configuration is insecure as anybody can then
-    manipulate with your database.
+    manipulate your database.
 
 For a full explanation of possible configuration values, see the
 :ref:`config` of this document.
