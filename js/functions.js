@@ -673,13 +673,8 @@ function confirmLink (theLink, theSqlQuery) {
     var is_confirmed = confirm(PMA_sprintf(PMA_messages.strDoYouReally, theSqlQuery));
     if (is_confirmed) {
         if (typeof(theLink.href) !== 'undefined') {
-<<<<<<< HEAD
-            theLink.href += '&is_js_confirmed=1';
-        } else if (typeof(theLink.form) !== 'undefined') {
-=======
             theLink.href += PMA_commonParams.get('arg_separator') + 'is_js_confirmed=1';
         } else if (typeof(theLink.form) != 'undefined') {
->>>>>>> QA_4_7
             theLink.form.action += '?is_js_confirmed=1';
         }
     }
@@ -1809,7 +1804,7 @@ function getJSConfirmCommonParam (elem, params) {
     } else {
         params = '';
     }
-    params += 'is_js_confirmed=1' + sep + 'ajax_request=true' + sep 'fk_checks' + ($elem.find('#fk_checks').is(':checked') ? 1 : 0);
+    params += 'is_js_confirmed=1' + sep + 'ajax_request=true' + sep + 'fk_checks' + ($elem.find('#fk_checks').is(':checked') ? 1 : 0);
     return params;
 }
 
@@ -3743,15 +3738,9 @@ function indexEditorDialog (url, title, callback_success, callback_failure) {
         var $form = $('#index_frm');
         var $msgbox = PMA_ajaxShowMessage(PMA_messages.strProcessingRequest);
         PMA_prepareForAjaxRequest($form);
-<<<<<<< HEAD
-        // User wants to submit the form
-        $.post($form.attr('action'), $form.serialize() + '&do_save_data=1', function (data) {
-            var $sqlqueryresults = $('.sqlqueryresults');
-=======
         //User wants to submit the form
         $.post($form.attr('action'), $form.serialize() + PMA_commonParams.get('arg_separator') + "do_save_data=1", function (data) {
             var $sqlqueryresults = $(".sqlqueryresults");
->>>>>>> QA_4_7
             if ($sqlqueryresults.length !== 0) {
                 $sqlqueryresults.remove();
             }
@@ -4552,13 +4541,9 @@ AJAX.registerOnload('functions.js', function () {
 
 function PMA_createViewDialog ($this) {
     var $msg = PMA_ajaxShowMessage();
-<<<<<<< HEAD
-    $.get($this.attr('href') + '&ajax_request=1&ajax_dialog=1', function (data) {
-=======
     var syntaxHighlighter = null;
     var sep = PMA_commonParams.get('arg_separator');
-    $.get($this.attr('href') + sep + 'ajax_request=1' + sep 'ajax_dialog=1', function (data) {
->>>>>>> QA_4_7
+    $.get($this.attr('href') + sep + 'ajax_request=1' + sep + 'ajax_dialog=1', function (data) {
         if (typeof data !== 'undefined' && data.success === true) {
             PMA_ajaxRemoveMessage($msg);
             var buttonOptions = {};
