@@ -200,7 +200,9 @@ class Session
         /**
          * Disable setting of session cookies for further session_start() calls.
          */
-        ini_set('session.use_cookies', 'true');
+        if(session_status() !== PHP_SESSION_ACTIVE) {
+            ini_set('session.use_cookies', 'true');
+        }
 
         /**
          * Token which is used for authenticating access queries.
