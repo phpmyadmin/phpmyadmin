@@ -417,6 +417,28 @@ Credits, in chronological order
 
   * Other UI improvements and new features
 
+* Deven Bansod (Google Summer of Code 2017)
+
+  * Improvements to the Error Reporting Server
+
+  * Improved Selenium testing
+
+* Manish Bisht (Google Summer of Code 2017)
+
+  * Mobile user interface
+
+  * Remove inline JavaScript code
+
+  * Other UI improvements
+
+* Raghuram Vadapalli (Google Summer of Code 2017)
+
+  * Multi-table query interface
+
+  * Allow Designer to work with tables from other databases
+
+  * Other UI improvements
+
 And also to the following people who have contributed minor changes,
 enhancements, bugfixes or support for a new language since version
 2.1.0:
