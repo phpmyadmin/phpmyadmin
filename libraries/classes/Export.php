@@ -67,8 +67,8 @@ class Export
         $chromeAndGreaterThan43 = PMA_USR_BROWSER_AGENT == 'CHROME'
             && PMA_USR_BROWSER_VER >= 43; // see bug #4942
 
-        if (@function_exists('gzencode')
-            && ((! @ini_get('zlib.output_compression')
+        if (function_exists('gzencode')
+            && ((! ini_get('zlib.output_compression')
             && ! self::isGzHandlerEnabled())
             || $GLOBALS['save_on_server']
             || $chromeAndGreaterThan43)
@@ -224,7 +224,7 @@ class Export
      */
     public static function getMemoryLimit()
     {
-        $memory_limit = trim(@ini_get('memory_limit'));
+        $memory_limit = trim(ini_get('memory_limit'));
         $memory_limit_num = (int)substr($memory_limit, 0, -1);
         $lowerLastChar = strtolower(substr($memory_limit, -1));
         // 2 MB as default
@@ -416,7 +416,7 @@ class Export
      */
     public static function compress($dump_buffer, $compression, $filename)
     {
-        if ($compression == 'zip' && @function_exists('gzcompress')) {
+        if ($compression == 'zip' && function_exists('gzcompress')) {
             $zipExtension = new ZipExtension();
             $filename = substr($filename, 0, -4); // remove extension (.zip)
             $dump_buffer = $zipExtension->createFile($dump_buffer, $filename);

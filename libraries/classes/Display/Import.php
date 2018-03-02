@@ -73,13 +73,13 @@ class Import
 
         // zip, gzip and bzip2 encode features
         $compressions = array();
-        if ($cfg['GZipDump'] && @function_exists('gzopen')) {
+        if ($cfg['GZipDump'] && function_exists('gzopen')) {
             $compressions[] = 'gzip';
         }
-        if ($cfg['BZipDump'] && @function_exists('bzopen')) {
+        if ($cfg['BZipDump'] && function_exists('bzopen')) {
             $compressions[] = 'bzip2';
         }
-        if ($cfg['ZipDump'] && @function_exists('zip_open')) {
+        if ($cfg['ZipDump'] && function_exists('zip_open')) {
             $compressions[] = 'zip';
         }
 

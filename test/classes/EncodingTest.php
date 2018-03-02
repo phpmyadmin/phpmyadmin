@@ -55,7 +55,7 @@ class EncodingTest extends TestCase
 
     public function testRecode()
     {
-        if (! @function_exists('recode_string')) {
+        if (! function_exists('recode_string')) {
             $this->markTestSkipped('recode extension missing');
         }
 
@@ -70,7 +70,7 @@ class EncodingTest extends TestCase
 
     public function testIconv()
     {
-        if (! @function_exists('iconv')) {
+        if (! function_exists('iconv')) {
             $this->markTestSkipped('iconv extension missing');
         }
 

@@ -326,7 +326,7 @@ class ConfigTest extends PmaTestCase
 
         $this->object->set('GD2Available', 'auto');
 
-        if (!@function_exists('imagecreatetruecolor')) {
+        if (!function_exists('imagecreatetruecolor')) {
             $this->object->checkGd2();
             $this->assertEquals(
                 0,
@@ -335,7 +335,7 @@ class ConfigTest extends PmaTestCase
             );
         }
 
-        if (@function_exists('gd_info')) {
+        if (function_exists('gd_info')) {
             $this->object->checkGd2();
             $gd_nfo = gd_info();
             if (mb_strstr($gd_nfo["GD Version"], '2.')) {

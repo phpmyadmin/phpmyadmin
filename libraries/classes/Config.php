@@ -141,7 +141,7 @@ class Config
     {
         // If zlib output compression is set in the php configuration file, no
         // output buffering should be run
-        if (@ini_get('zlib.output_compression')) {
+        if (ini_get('zlib.output_compression')) {
             $this->set('OBGzip', false);
         }
 
@@ -299,12 +299,12 @@ class Config
             return;
         }
 
-        if (!@function_exists('imagecreatetruecolor')) {
+        if (!function_exists('imagecreatetruecolor')) {
             $this->set('PMA_IS_GD2', 0);
             return;
         }
 
-        if (@function_exists('gd_info')) {
+        if (function_exists('gd_info')) {
             $gd_nfo = gd_info();
             if (mb_strstr($gd_nfo["GD Version"], '2.')) {
                 $this->set('PMA_IS_GD2', 1);

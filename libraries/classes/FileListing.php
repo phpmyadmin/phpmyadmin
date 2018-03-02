@@ -82,19 +82,19 @@ class FileListing
 
         $compressions = '';
 
-        if ($cfg['GZipDump'] && @function_exists('gzopen')) {
+        if ($cfg['GZipDump'] && function_exists('gzopen')) {
             if (!empty($compressions)) {
                 $compressions .= '|';
             }
             $compressions .= 'gz';
         }
-        if ($cfg['BZipDump'] && @function_exists('bzopen')) {
+        if ($cfg['BZipDump'] && function_exists('bzopen')) {
             if (!empty($compressions)) {
                 $compressions .= '|';
             }
             $compressions .= 'bz2';
         }
-        if ($cfg['ZipDump'] && @function_exists('gzinflate')) {
+        if ($cfg['ZipDump'] && function_exists('gzinflate')) {
             if (!empty($compressions)) {
                 $compressions .= '|';
             }

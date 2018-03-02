@@ -52,7 +52,7 @@ if ($result === false) {
 }
 
 /* Avoid corrupting data */
-@ini_set('url_rewriter.tags', '');
+ini_set('url_rewriter.tags', '');
 
 Core::downloadHeader(
     $table . '-' .  $_GET['transform_key'] . '.bin',
