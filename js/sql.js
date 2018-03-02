@@ -41,12 +41,10 @@ function PMA_urlencode (str) {
  * @return void
  */
 function PMA_autosaveSQL (query) {
-    if (query) {
-        if (isStorageSupported('localStorage')) {
-            window.localStorage.auto_saved_sql = query;
-        } else {
-            Cookies.set('auto_saved_sql', query);
-        }
+    if (isStorageSupported('localStorage')) {
+        window.localStorage.auto_saved_sql = query;
+    } else {
+        Cookies.set('auto_saved_sql', query);
     }
 }
 
@@ -869,7 +867,7 @@ AJAX.registerOnload('sql.js', function () {
     /**
      * Restores SQL query after timeout login
      */
-    codemirror_editor.setValue(window.localStorage.auto_saved_sql);
+    insertQuery('saved');
 });
 
 /*
