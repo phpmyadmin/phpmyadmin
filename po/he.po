@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.8.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2018-02-12 16:30+0100\n"
-"PO-Revision-Date: 2018-03-01 07:50+0000\n"
+"PO-Revision-Date: 2018-03-05 13:36+0000\n"
 "Last-Translator: Yaron Shahrabani <sh.yaron@gmail.com>\n"
 "Language-Team: Hebrew "
 "<https://hosted.weblate.org/projects/phpmyadmin/master/he/>\n"
@@ -917,49 +917,39 @@ msgstr "האם אכן ברצונך להפעיל את „%s”?"
 
 #: js/messages.php:71
 msgid "You have unsaved changes; are you sure you want to leave this page?"
-msgstr ""
+msgstr "יש לך שינויים שלא נשמרו, לעזוב את העמוד?"
 
 #: js/messages.php:73
-#, fuzzy
-#| msgid "Do you really want to execute \"%s\"?"
 msgid "Do you really want to revoke the selected user(s) ?"
-msgstr "האם אכן ברצונך להפעיל את „%s”?"
+msgstr "לשלול את גישתם של המשתמשים הנבחרים?"
 
 #: js/messages.php:75
-#, fuzzy
-#| msgid "Do you really want to execute \"%s\"?"
 msgid "Do you really want to delete this central column?"
-msgstr "האם אכן ברצונך להפעיל את „%s”?"
+msgstr "למחוק את העמודה המרכזית הזאת?"
 
 #: js/messages.php:77
-#, fuzzy
-#| msgid "Do you really want to execute \"%s\"?"
 msgid "Do you really want to delete the selected items?"
-msgstr "האם אכן ברצונך להפעיל את „%s”?"
+msgstr "למחוק את הפריטים הנבחרים?"
 
 #: js/messages.php:79
 msgid ""
 "Do you really want to DROP the selected partition(s)? This will also DELETE "
 "the data related to the selected partition(s)!"
 msgstr ""
+"להפיל (DROP) את המחיצות הנבחרות? פעולה זו גם תמחק (DELETE) את הנתונים "
+"שקשורים במחיצות הנבחרות!"
 
 #: js/messages.php:83
-#, fuzzy
-#| msgid "Do you really want to execute \"%s\"?"
 msgid "Do you really want to TRUNCATE the selected partition(s)?"
-msgstr "האם אכן ברצונך להפעיל את „%s”?"
+msgstr "לקצץ (TRUNCATE) את המחיצות הנבחרות?"
 
 #: js/messages.php:85
-#, fuzzy
-#| msgid "Do you really want to execute \"%s\"?"
 msgid "Do you really want to remove partitioning?"
-msgstr "האם אכן ברצונך להפעיל את „%s”?"
+msgstr "להסיר את החציצה?"
 
 #: js/messages.php:86
-#, fuzzy
-#| msgid "Do you really want to execute \"%s\"?"
 msgid "Do you really want to RESET SLAVE?"
-msgstr "האם אכן ברצונך להפעיל את „%s”?"
+msgstr "האם ברצונך לאפס את מסד המשנה (RESET SLAVE)?"
 
 #: js/messages.php:88
 msgid ""
@@ -972,7 +962,7 @@ msgstr ""
 
 #: js/messages.php:94
 msgid "Garbled Data"
-msgstr ""
+msgstr "נתונים מעורבבים"
 
 #: js/messages.php:96
 msgid "Are you sure you wish to change the collation and convert the data?"
