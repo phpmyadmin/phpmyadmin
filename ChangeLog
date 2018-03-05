@@ -1,6 +1,8 @@
 phpMyAdmin - ChangeLog
 ======================
 
+4.7.10 (not yet released)
+
 4.7.9 (2018-03-05)
 - issue #13931 Fixed browsing tables with more results
 - issue #13927 "Not an integer" when browsing a table
