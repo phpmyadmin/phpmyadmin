@@ -4,16 +4,16 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.7.8-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2018-02-12 16:30+0100\n"
-"PO-Revision-Date: 2017-10-29 04:45+0000\n"
-"Last-Translator: Pyscowicz <janne.ertman@gmail.com>\n"
-"Language-Team: Finnish <https://hosted.weblate.org/projects/phpmyadmin/4-7/"
-"fi/>\n"
+"PO-Revision-Date: 2018-02-27 09:37+0000\n"
+"Last-Translator: Aki Kettunen <aki@akikettu.net>\n"
+"Language-Team: Finnish "
+"<https://hosted.weblate.org/projects/phpmyadmin/4-7/fi/>\n"
 "Language: fi\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 2.17\n"
+"X-Generator: Weblate 2.20-dev\n"
 
 #: ajax.php:16 ajax.php:33 export.php:192 schema_export.php:64
 msgid "Bad type!"
@@ -1728,6 +1728,8 @@ msgid ""
 "It seems that the connection to server has been lost. Please check your "
 "network connectivity and server status."
 msgstr ""
+"Yhteys palvelimeen näyttäisi katkenneen. Tarkasta verkkoyhteytesi ja "
+"palvelimen tila,"
 
 #: js/messages.php:372
 #: libraries/controllers/server/ServerDatabasesController.php:194
@@ -8288,6 +8290,8 @@ msgid ""
 "You are using the mysql extension which is deprecated in phpMyAdmin. Please "
 "consider installing the mysqli extension."
 msgstr ""
+"Käytät mysql-laajennusta, jonka tuki on päättymässä phpMyAdminissa. Harkitse "
+"siirtymistä käyttämään mysqli-laajennusta."
 
 #: libraries/db_designer.lib.php:119
 #, fuzzy
@@ -8297,7 +8301,7 @@ msgstr "Tuontiin tarvittavaa lisäosaa ei voida tuoda, tarkista asetukset!"
 
 #: libraries/dbi/DBIMysqli.php:160
 msgid "SSL connection enforced by server, automatically enabling it."
-msgstr ""
+msgstr "Palvelin vaatii SSL-yhteyden, ja se on otettu automaattisesti käyttöön."
 
 #: libraries/display_change_password.lib.php:57
 #: libraries/replication_gui.lib.php:854
@@ -8314,7 +8318,7 @@ msgstr "Salasana:"
 
 #: libraries/display_change_password.lib.php:68
 msgid "Enter:"
-msgstr ""
+msgstr "Syötä:"
 
 #: libraries/display_change_password.lib.php:75
 #: libraries/replication_gui.lib.php:865

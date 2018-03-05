@@ -93,7 +93,7 @@
                 && (mb_strpos($type, 'text') !== false
                 || mb_strpos($type, 'char') !== false)
             ): ?>
-        <a rel="samepage" class="ajax add_key add_fulltext_anchor" href="tbl_structure.php<?= $url_query; ?>&amp;add_key=1&amp;sql_query=<?= urlencode(
+        <a rel="samepage" class="ajax add_key add_fulltext_anchor" href="tbl_structure.php" data-post="<?= $url_query; ?>&amp;add_key=1&amp;sql_query=<?= urlencode(
             'ALTER TABLE ' . Util::backquote($GLOBALS['table'])
             . ' ADD FULLTEXT(' . Util::backquote($row['Field'])
             . ');'); ?>&amp;message_to_show=<?= urlencode(sprintf(
@@ -107,7 +107,7 @@
     </li>
     <!-- Distinct value action -->
     <li class="browse nowrap">
-        <a href="sql.php<?= $url_query; ?>&amp;sql_query=<?= urlencode(
+        <a href="sql.php" data-post="<?= $url_query; ?>&amp;sql_query=<?= urlencode(
                 'SELECT COUNT(*) AS ' . PMA\libraries\Util::backquote(__('Rows'))
                 . ', ' . PMA\libraries\Util::backquote($row['Field'])
                 . ' FROM ' . PMA\libraries\Util::backquote($GLOBALS['table'])

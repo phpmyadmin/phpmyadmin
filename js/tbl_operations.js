@@ -128,6 +128,8 @@ AJAX.registerOnload('tbl_operations.js', function () {
     **/
     $(document).on('click', "#tbl_maintenance li a.maintain_action.ajax", function (event) {
         event.preventDefault();
+        var $link = $(this);
+
         if ($(".sqlqueryresults").length !== 0) {
             $(".sqlqueryresults").remove();
         }
@@ -135,12 +137,16 @@ AJAX.registerOnload('tbl_operations.js', function () {
             $(".result_query").remove();
         }
         //variables which stores the common attributes
-        var params = {
+        var params = $.param({
             ajax_request: 1,
-            server: PMA_commonParams.get('server'),
-            token: PMA_commonParams.get('token')
-        };
-        $.post($(this).attr('href'), params, function (data) {
+            server: PMA_commonParams.get('server')
+        });
+        var postData = $link.getPostData();
+        if (postData) {
+            params += '&' + postData;
+        }
+
+        $.post($link.attr('href'), params, function (data) {
             function scrollToTop() {
                 $('html, body').animate({ scrollTop: 0 });
             }
@@ -152,7 +158,7 @@ AJAX.registerOnload('tbl_operations.js', function () {
                 PMA_highlightSQL($('#page_content'));
                 scrollToTop();
             } else if (typeof data !== 'undefined' && data.success === true) {
-                var $temp_div = $("<div id='temp_div'></div>");
+                $temp_div = $('<div id=\'temp_div\'></div>');
                 $temp_div.html(data.message);
                 var $success = $temp_div.find(".result_query .success");
                 PMA_ajaxShowMessage($success);
@@ -165,7 +171,14 @@ AJAX.registerOnload('tbl_operations.js', function () {
             } else {
                 $temp_div = $("<div id='temp_div'></div>");
                 $temp_div.html(data.error);
-                var $error = $temp_div.find("code").addClass("error");
+
+                var $error;
+                if ($temp_div.find('.error code').length !== 0) {
+                    $error = $temp_div.find('.error code').addClass('error');
+                } else {
+                    $error = $temp_div;
+                }
+
                 PMA_ajaxShowMessage($error, false);
             }
         }); // end $.post()

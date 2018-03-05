@@ -4,16 +4,16 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.7.8-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2018-02-12 16:30+0100\n"
-"PO-Revision-Date: 2018-02-12 15:05+0000\n"
+"PO-Revision-Date: 2018-02-23 23:34+0000\n"
 "Last-Translator: Robert Antoni Buj Gelonch <robert.buj@gmail.com>\n"
-"Language-Team: Catalan <https://hosted.weblate.org/projects/phpmyadmin/4-7/"
-"ca/>\n"
+"Language-Team: Catalan "
+"<https://hosted.weblate.org/projects/phpmyadmin/4-7/ca/>\n"
 "Language: ca\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 2.19-dev\n"
+"X-Generator: Weblate 2.20-dev\n"
 
 #: ajax.php:16 ajax.php:33 export.php:192 schema_export.php:64
 msgid "Bad type!"
@@ -13851,7 +13851,7 @@ msgstr "Problemes amb els índexs de la taula `%s`"
 #: libraries/sql_query_form.lib.php:139
 #, php-format
 msgid "Run SQL query/queries on server %s"
-msgstr "Executar consulta/es SQL al servidor %s"
+msgstr "Executa la consulta o les consultes SQL al servidor %s"
 
 #: libraries/sql_query_form.lib.php:156
 #, php-format
@@ -14577,7 +14577,7 @@ msgstr "primer"
 #: templates/table/structure/add_column.phtml:21
 #, php-format
 msgid "after %s"
-msgstr "Després de %s"
+msgstr "després de %s"
 
 #: templates/columns_definitions/partitions.phtml:9
 msgid "Partition by:"
@@ -15539,7 +15539,7 @@ msgstr "Seleccioneu les columnes (una com a mínim):"
 
 #: templates/table/search/options.phtml:37
 msgid "Add search conditions (body of the \"where\" clause):"
-msgstr "Afegeix les condicions de la cerca (cos de la clàusula \"where\"):"
+msgstr "Afegiu les condicions de la cerca (cos de la clàusula \"where\"):"
 
 #: templates/table/search/options.phtml:45
 msgid "Number of rows per page"
@@ -15593,7 +15593,7 @@ msgstr ""
 
 #: templates/table/search/selection_form.phtml:35
 msgid "Do a \"query by example\" (wildcard: \"%\")"
-msgstr "Fer una \"petició segons exemple\" (comodí: \"%\")"
+msgstr "Fes una \"consulta amb l'exemple\" (comodí: \"%\")"
 
 #: templates/table/search/zoom_result_form.phtml:7
 msgid "Browse/Edit the points"
@@ -15670,12 +15670,12 @@ msgstr "Mida de l'índex"
 
 #: templates/table/structure/display_partitions.phtml:134
 msgid "Partition table"
-msgstr "Taula de partició"
+msgstr "Taula de particions"
 
 #: templates/table/structure/display_partitions.phtml:137
 #: templates/table/structure/partition_definition_form.phtml:7
 msgid "Edit partitioning"
-msgstr "Edita particionament"
+msgstr "Edició de les particions"
 
 #: templates/table/structure/display_structure.phtml:129 view_create.php:206
 msgid "Edit view"

@@ -90,13 +90,13 @@ if ($_foreigners
                 && is_array($criteriaValues[$column_index])
                 && in_array($value[$j], $criteriaValues[$column_index])
             ): ?>
-                <option value="<?= htmlspecialchars($value[$j]); ?>"
+                <option value="<?= $value[$j]; ?>"
                         selected>
-                    <?php echo htmlspecialchars($value[$j]); ?>
+                    <?php echo $value[$j]; ?>
                 </option>
             <?php else: ?>
-                <option value="<?= htmlspecialchars($value[$j]); ?>">
-                    <?php echo htmlspecialchars($value[$j]); ?>
+                <option value="<?= $value[$j]; ?>">
+                    <?php echo $value[$j]; ?>
                 </option>
             <?php endif; ?>
         <?php endfor; ?>
