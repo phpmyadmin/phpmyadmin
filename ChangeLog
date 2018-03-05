@@ -1,7 +1,7 @@
 phpMyAdmin - ChangeLog
 ======================
 
-4.7.9 (not yet released)
+4.7.9 (2018-03-05)
 - issue #13931 Fixed browsing tables with more results
 - issue #13927 "Not an integer" when browsing a table
 - issue #13887 "Input variables exceeded 1000" error relating to PHP's max_input_vars directive
