@@ -3,18 +3,17 @@
 Introduction
 ============
 
-phpMyAdmin can manage a whole MySQL server (needs a super-user) as
-well as a single database. To accomplish the latter you'll need a
-properly set up MySQL user who can read/write only the desired
-database. It's up to you to look up the appropriate part in the MySQL
-manual.
+phpMyAdmin is a free software tool written in PHP that is intended to handle the
+administration of a MySQL or MariaDB database server. You can use phpMyAdmin to
+perform most administration tasks, including creating a database, running queries,
+and adding user accounts.
 
 Supported features
 ------------------
 
 Currently phpMyAdmin can:
 
-* browse and drop databases, tables, views, columns and indexes
+* create, browse, edit, and drop databases, tables, views, columns, and indexes
 * display multiple results sets through stored procedures or queries
 * create, copy, drop, rename and alter databases, tables, columns and
   indexes
@@ -29,7 +28,7 @@ Currently phpMyAdmin can:
 * import data and :term:`MySQL` structures from :term:`OpenDocument` spreadsheets, as
   well as :term:`XML`, :term:`CSV`, and :term:`SQL` files
 * administer multiple servers
-* manage MySQL users and privileges
+* add, edit, and remove MySQL user accounts and privileges
 * check referential integrity in MyISAM tables
 * using Query-by-example (QBE), create complex queries automatically
   connecting required tables
