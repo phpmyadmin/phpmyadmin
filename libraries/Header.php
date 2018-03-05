@@ -246,8 +246,7 @@ class Header
             'LoginCookieValidity' => $GLOBALS['cfg']['LoginCookieValidity'],
             'session_gc_maxlifetime' => (int)@ini_get('session.gc_maxlifetime'),
             'logged_in' => isset($GLOBALS['userlink']) ? true : false,
-            'PMA_VERSION' => PMA_VERSION,
-            'arg_separator' => URL::getArgSeparator(),
+            'PMA_VERSION' => PMA_VERSION
         );
         if (isset($GLOBALS['cfg']['Server'])
             && isset($GLOBALS['cfg']['Server']['auth_type'])

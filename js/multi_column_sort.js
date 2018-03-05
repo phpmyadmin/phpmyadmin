@@ -30,7 +30,7 @@ function removeColumnFromMultiSort(target, parent)
 {
     var URL = captureURL(target);
     var begin = target.indexOf('ORDER+BY') + 8;
-    var end = target.indexOf(PMA_commonParams.get('arg_separator') + 'session_max_rows');
+    var end = target.indexOf('&session_max_rows');
     // get the names of the columns involved
     var between_part = target.substr(begin, end-begin);
     var columns = between_part.split('%2C+');
@@ -49,7 +49,7 @@ function removeColumnFromMultiSort(target, parent)
         URL.head = head;
         // removing the last sort order should have priority over what
         // is remembered via the RememberSorting directive
-        URL.tail += PMA_commonParams.get('arg_separator') + 'discard_remembered_sort=1';
+        URL.tail += '&discard_remembered_sort=1';
     }
     var middle_part = columns.join('%2C+');
     url = URL.head + middle_part + URL.tail;

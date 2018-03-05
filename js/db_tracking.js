@@ -44,8 +44,7 @@ AJAX.registerOnload('db_tracking.js', function () {
         e.preventDefault();
         var $button = $(this);
         var $form = $button.parent('form');
-        var argsep = PMA_commonParams.get('arg_separator');
-        var submitData = $form.serialize() + argsep + 'ajax_request=true' + argsep + 'ajax_page_request=true' + argsep + 'submit_mult=' + $button.val();
+        var submitData = $form.serialize() + '&ajax_request=true&ajax_page_request=true&submit_mult=' + $button.val();
 
         if ($button.val() == 'delete_tracking') {
             var question = PMA_messages.strDeleteTrackingDataMultiple;
@@ -68,8 +67,7 @@ AJAX.registerOnload('db_tracking.js', function () {
         e.preventDefault();
         var $button = $(this);
         var $form = $button.parent('form');
-        var argsep = PMA_commonParams.get('arg_separator');
-        var submitData = $form.serialize() + argsep + 'ajax_request=true' + argsep + 'ajax_page_request=true' + argsep + 'submit_mult=' + $button.val();
+        var submitData = $form.serialize() + '&ajax_request=true&ajax_page_request=true&submit_mult=' + $button.val();
         PMA_ajaxShowMessage();
         AJAX.source = $form;
         $.post($form.attr('action'), submitData, AJAX.responseHandler);

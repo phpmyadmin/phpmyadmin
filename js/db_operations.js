@@ -53,7 +53,7 @@ AJAX.registerOnload('db_operations.js', function () {
 
         $form.PMA_confirm(question, $form.attr('action'), function (url) {
             PMA_ajaxShowMessage(PMA_messages.strRenamingDatabases, false);
-            $.post(url, $("#rename_db_form").serialize() + PMA_commonParams.get('arg_separator') + 'is_js_confirmed=1', function (data) {
+            $.post(url, $("#rename_db_form").serialize() + '&is_js_confirmed=1', function (data) {
                 if (typeof data !== 'undefined' && data.success === true) {
                     PMA_ajaxShowMessage(data.message);
                     PMA_commonParams.set('db', data.newname);
@@ -113,7 +113,7 @@ AJAX.registerOnload('db_operations.js', function () {
         var $form = $(this);
         PMA_prepareForAjaxRequest($form);
         PMA_ajaxShowMessage(PMA_messages.strChangingCharset);
-        $.post($form.attr('action'), $form.serialize() + PMA_commonParams.get('arg_separator') + "submitcollation=1", function (data) {
+        $.post($form.attr('action'), $form.serialize() + "&submitcollation=1", function (data) {
             if (typeof data !== 'undefined' && data.success === true) {
                 PMA_ajaxShowMessage(data.message);
             } else {
