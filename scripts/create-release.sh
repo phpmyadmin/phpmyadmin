@@ -443,18 +443,18 @@ cat <<END
 Todo now:
 ---------
 
-1. If not already done, tag the repository with the new revision number
-   for a plain release or a release candidate:
-    version 2.7.0 gets RELEASE_2_7_0
-    version 2.7.1-rc1 gets RELEASE_2_7_1RC1
+ 1. Push the new tag upstream, with a command like git push origin --tags
 
  2. prepare a release/phpMyAdmin-$version-notes.html explaining in short the goal of
     this release and paste into it the ChangeLog for this release, followed
     by the notes of all previous incremental versions (i.e. 4.4.9 through 4.4.0)
+
  3. upload the files to our file server, use scripts/upload-release, eg.:
 
         ./scripts/upload-release $version release
+
  4. add a news item to our website; a good idea is to include a link to the release notes such as https://www.phpmyadmin.net/files/4.4.10/
+
  5. send a short mail (with list of major changes) to
         developers@phpmyadmin.net
         news@phpmyadmin.net
@@ -473,10 +473,10 @@ Todo now:
 
  7. on https://github.com/phpmyadmin/phpmyadmin/milestones close the milestone corresponding to the released version (if this is a stable release) and open a new one for the next minor release
 
- 8. for a stable version, update demo/php/versions.ini in the scripts repository so that the demo server shows current versions
+ 8. for a major release, update demo/php/versions.ini in the scripts repository so that the demo server shows current versions
 
  9. in case of a new major release ('y' in x.y.0), update the pmaweb/settings.py in website repository to include the new major releases
 
-10. update the Dockerfile in the docker repository to reflect the new version
+10. update the Dockerfile in the docker repository to reflect the new version and create a new annotated tag (such as with git tag -a 4.7.9-1 -m "Version 4.7.9-1")
 
 END
