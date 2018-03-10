@@ -4,35 +4,34 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.8.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2018-02-12 16:30+0100\n"
-"PO-Revision-Date: 2017-11-01 09:24+0000\n"
-"Last-Translator: Jira Aphisitworachorch <totoasanan21914@hotmail.com>\n"
-"Language-Team: Thai <https://hosted.weblate.org/projects/phpmyadmin/master/"
-"th/>\n"
+"PO-Revision-Date: 2018-03-11 12:00+0000\n"
+"Last-Translator: Akom Chotiphantawanon <knight2000@gmail.com>\n"
+"Language-Team: Thai "
+"<https://hosted.weblate.org/projects/phpmyadmin/master/th/>\n"
 "Language: th\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Weblate 2.17\n"
+"X-Generator: Weblate 2.20-dev\n"
 
 #: ajax.php:21 ajax.php:50 export.php:203 libraries/classes/Export.php:1100
 msgid "Bad type!"
 msgstr "ประเภทไม่ถูกต้อง!"
 
 #: changelog.php:39 license.php:34
-#, fuzzy, php-format
+#, php-format
 msgid ""
 "The %s file is not available on this system, please visit %s for more "
 "information."
 msgstr ""
-"แฟ้ม %s ไม่สามารถใช้งานได้ในระบบนี้ สำหรับข้อมูลเพิ่มเติมโปรดเข้าไปที่ www.phpmyadmin.net"
+"แฟ้ม %s ไม่สามารถใช้งานได้ในระบบนี้ สำหรับข้อมูลเพิ่มเติมกรุณาเยี่ยมชม %s"
 
 #: db_central_columns.php:127
 msgid "The central list of columns for the current database is empty."
 msgstr "ไม่พบรายการกลางของฐานข้อมูลปัจจุบัน"
 
 #: db_central_columns.php:156
-#, fuzzy
 msgid "Click to sort."
 msgstr "คลิกเพื่อเรียงลำดับ"
 
@@ -314,9 +313,10 @@ msgstr "ชื่อฐานข้อมูลว่างเปล่า!"
 #: db_operations.php:67
 msgid "Cannot copy database to the same name. Change the name and try again."
 msgstr ""
+"ไม่สามารถคัดลอกฐานข้อมูลเป็นชื่อเดียวกันได้ เปลี่ยนชื่อแล้วลองใหม่อีกครั้ง"
 
 #: db_operations.php:154
-#, fuzzy, php-format
+#, php-format
 msgid "Database %1$s has been renamed to %2$s."
 msgstr "ฐานข้อมูล %1$s ได้ถูกเปลี่ยนชื่อเป็น %2$s แล้ว"
 
@@ -407,16 +407,13 @@ msgstr "ใช้ OpenStreetMaps เป็นชั้นพื้นฐาน"
 
 #. l10n: Spatial Reference System Identifier
 #: gis_data_editor.php:171
-#, fuzzy
-#| msgid "SRID"
 msgid "SRID:"
-msgstr "SRID"
+msgstr "SRID:"
 
 #: gis_data_editor.php:197
-#, fuzzy, php-format
-#| msgid "Geometry"
+#, php-format
 msgid "Geometry %d:"
-msgstr "เรขาคณิต"
+msgstr "เรขาคณิต %d:"
 
 #: gis_data_editor.php:219
 #, fuzzy
